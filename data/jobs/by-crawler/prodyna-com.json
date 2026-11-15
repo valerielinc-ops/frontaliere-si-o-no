@@ -1,14 +1,14 @@
 {
   "crawlerKey": "prodyna-com",
-  "assembledAt": "2026-11-14T19:10:29.380Z",
-  "runId": "43629732600",
+  "assembledAt": "2026-11-15T00:58:33.914Z",
+  "runId": "43658593829",
   "jobs": [
     {
       "id": "prodyna-com-227cd4ac5dec",
       "slug": "senior-data-ingegnere-all-genders-prodyna-schweiz-ag-basel",
       "slugByLocale": {
         "it": "senior-data-ingegnere-all-genders-prodyna-schweiz-ag-basel",
-        "en": "senior-data-engineer-all-genders-prodyna-schweiz-ag-basel",
+        "en": "senior-data-engineer-all-genders-4052-basel-prodyna-com-ch",
         "de": "senior-data-ingenieur-all-genders-prodyna-schweiz-ag-basel",
         "fr": "senior-data-ingenieur-all-genders-prodyna-schweiz-ag-basel"
       },
@@ -34,7 +34,7 @@
       "url": "https://www.prodyna.com/jobs/senior-data-engineer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T19:10:02.887Z",
+      "crawledAt": "2026-11-15T00:58:18.124Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -55,19 +55,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-data-engineer-all-genders-4052-basel-prodyna-com-ch"
+        "senior-data-engineer-all-genders-4052-basel-prodyna-com-ch",
+        "senior-data-engineer-all-genders-prodyna-schweiz-ag-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-data-engineer-all-genders-4052-basel-prodyna-com-ch"
         ],
+        "en": [
+          "senior-data-engineer-all-genders-prodyna-schweiz-ag-basel"
+        ],
         "de": [
           "senior-data-engineer-all-genders-4052-basel-prodyna-com-ch"
         ],
         "fr": [
-          "senior-data-engineer-all-genders-4052-basel-prodyna-com-ch"
-        ],
-        "en": [
           "senior-data-engineer-all-genders-4052-basel-prodyna-com-ch"
         ]
       },
@@ -86,7 +87,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T19:10:02.887Z",
+      "validThrough": "2027-02-09T00:58:18.124Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -94,7 +95,7 @@
       "slug": "senior-java-sviluppatore-all-genders-prodyna-schweiz-ag-basel",
       "slugByLocale": {
         "it": "senior-java-sviluppatore-all-genders-prodyna-schweiz-ag-basel",
-        "en": "senior-java-developer-all-genders-prodyna-schweiz-ag-basel",
+        "en": "senior-java-developer-all-genders-4052-basel-prodyna-com-ch",
         "de": "senior-java-entwickler-all-genders-prodyna-schweiz-ag-basel",
         "fr": "senior-java-developpeur-all-genders-prodyna-schweiz-ag-basel"
       },
@@ -120,7 +121,7 @@
       "url": "https://www.prodyna.com/jobs/senior-java-developer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T19:10:02.884Z",
+      "crawledAt": "2026-11-15T00:58:18.118Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -141,19 +142,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-java-developer-all-genders-4052-basel-prodyna-com-ch"
+        "senior-java-developer-all-genders-4052-basel-prodyna-com-ch",
+        "senior-java-developer-all-genders-prodyna-schweiz-ag-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-java-developer-all-genders-4052-basel-prodyna-com-ch"
         ],
+        "en": [
+          "senior-java-developer-all-genders-prodyna-schweiz-ag-basel"
+        ],
         "de": [
           "senior-java-developer-all-genders-4052-basel-prodyna-com-ch"
         ],
         "fr": [
-          "senior-java-developer-all-genders-4052-basel-prodyna-com-ch"
-        ],
-        "en": [
           "senior-java-developer-all-genders-4052-basel-prodyna-com-ch"
         ]
       },
@@ -172,7 +174,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T19:10:02.884Z",
+      "validThrough": "2027-02-09T00:58:18.118Z",
       "validThroughSource": "last-observed-window"
     }
   ]

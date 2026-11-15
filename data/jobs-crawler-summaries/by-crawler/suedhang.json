@@ -1,11 +1,12 @@
 {
   "key": "suedhang",
   "label": "Klinik Südhang",
-  "generatedAt": "2026-11-14T09:19:33.126Z",
+  "generatedAt": "2026-11-14T21:20:14.039Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 5,
@@ -16,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 6633,
-  "avgDurationMs": 6633,
+  "durationMs": 6865,
+  "avgDurationMs": 6865,
   "durationHistory": [
-    6633
+    6865
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +38,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/mitarbeiterin-reinigung/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:19:12.304Z",
+      "crawledAt": "2026-11-14T21:19:54.265Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -63,7 +64,7 @@
       "addressRegion": "BE",
       "streetAddress": "Kirchlindach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:19:12.304Z",
+      "validThrough": "2026-12-28T21:19:54.265Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -85,7 +86,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/fachfrau_fachmann_gesundheit/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:19:11.767Z",
+      "crawledAt": "2026-11-14T21:19:53.739Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -111,7 +112,7 @@
       "addressRegion": "BE",
       "streetAddress": "Kirchlindach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:19:11.767Z",
+      "validThrough": "2026-12-14T21:19:53.739Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -134,7 +135,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/dipl-pflegefachperson-hf/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:19:11.233Z",
+      "crawledAt": "2026-11-14T21:19:53.211Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -160,7 +161,7 @@
       "addressRegion": "BE",
       "streetAddress": "Kirchlindach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:19:11.233Z",
+      "validThrough": "2026-12-23T21:19:53.211Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -182,7 +183,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/klinische-r_psycholog-in_ambulatorium_biel-bienne/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:19:10.697Z",
+      "crawledAt": "2026-11-14T21:19:52.684Z",
       "addressLocality": "Ambulatorium Biel/Bienne",
       "postalCode": "2502",
       "addressCountry": "CH",
@@ -208,7 +209,7 @@
       "addressRegion": "BE",
       "streetAddress": "Ambulatorium Biel/Bienne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:19:10.697Z",
+      "validThrough": "2026-12-14T21:19:52.684Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -230,7 +231,7 @@
       "url": "https://www.suedhang.ch/karriere/offene-stellen/leitender-arzt-leitende-aerztin/",
       "source": "Klinik Südhang Dedicated Parser (custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:19:10.159Z",
+      "crawledAt": "2026-11-14T21:19:52.156Z",
       "addressLocality": "Kirchlindach",
       "postalCode": "3038",
       "addressCountry": "CH",
@@ -256,7 +257,7 @@
       "addressRegion": "BE",
       "streetAddress": "Kirchlindach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:19:10.159Z",
+      "validThrough": "2026-12-14T21:19:52.156Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -267,5 +268,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

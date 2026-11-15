@@ -46,10 +46,15 @@ jobs:
         shell: bash
         run: echo "start_ms=$(date +%s%3N)" >> "$GITHUB_OUTPUT"
 
-      - name: Checkout source build validators
+      - name: Checkout publisher gate toolchain
         uses: actions/checkout@v7
         with:
-          ref: ${{ inputs.deploy_ref }}
+          # Pinned to the dispatch SHA shared by every job of the publisher run:
+          # in a reusable workflow `github.sha` is the CALLER's SHA. It is not
+          # `inputs.deploy_ref` (the build): the gate is part of the publisher
+          # toolchain and the build identity it judges is passed as data
+          # (`--source-sha`), never by choosing which code runs.
+          ref: ${{ github.sha }}
           sparse-checkout: |
             scripts/ci/publisher-fast-gate.mjs
             scripts/ci/shard-content-manifest.mjs
@@ -287,6 +292,11 @@ jobs:
       actions: read
       issues: write
     steps:
+      # Diagnostics only, and deliberately still on the build SHA: the reporter
+      # below picks `report-validate-dist-failure.mjs` or the legacy issue
+      # creator by file presence, so an old build keeps the reporter that
+      # matches its own `deploy_ref` (tests/post-deploy-validate-skew-guard.test.ts).
+      # It judges nothing and publishes nothing; the gate that does is pinned.
       - name: Checkout source-side issue reporter
         uses: actions/checkout@v7
         with:

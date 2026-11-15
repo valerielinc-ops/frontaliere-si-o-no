@@ -19,7 +19,7 @@ import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
 import { stableChunkFiles } from './shared/chunkFiles';
-import { declareRouteHintEmitter, routeChunksMetaTag } from './shared/modulePreloads';
+import { declareRouteHintEmitter, persistRegisteredRouteChunks, routeChunksMetaTag } from './shared/modulePreloads';
 
 export function preloadLocalePlugin(rootDir: string): Plugin {
  let endRouteHints = (): void => {};
@@ -49,7 +49,10 @@ export function preloadLocalePlugin(rootDir: string): Plugin {
  }
 
  } catch { /* non-fatal */ } finally {
- endRouteHints();
+ // Staged build: hand the registered route chunks to the SSG process. A failed
+ // write must NOT be swallowed (the allowlist would silently lose chunks), but
+ // the emitter must still be ended so the bootstrap does not wait forever.
+ try { persistRegisteredRouteChunks(); } finally { endRouteHints(); }
  }
  },
  };

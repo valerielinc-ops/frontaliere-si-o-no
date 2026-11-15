@@ -314,11 +314,12 @@ describe('the shard fan-outs use the shared driver, not a private batch barrier'
     expect(fanOutSteps.length, `found: ${fanOutSteps.join(' | ')}`).toBe(3);
 
     const publisher = YAML.parse(readFileSync(resolve(ROOT, '.github/workflows/deploy-publish.yml'), 'utf-8')) as {
-      jobs?: Record<string, { strategy?: { matrix?: { group?: string[] } }; 'timeout-minutes'?: number }>;
+      jobs?: Record<string, { strategy?: { matrix?: { group?: string } }; 'timeout-minutes'?: number }>;
     };
-    expect(publisher.jobs?.['push-it-shard-groups']?.strategy?.matrix?.group).toEqual([
-      'zurigo', 'svizzera', 'small-1', 'small-2', 'small-3', 'small-4',
-    ]);
+    // The six groups of IT_SHARD_GROUP_IDS, narrowed to the ones the durable
+    // receipts leave pending (tests/deploy-publish-it-receipts.test.ts).
+    expect(publisher.jobs?.['push-it-shard-groups']?.strategy?.matrix?.group)
+      .toBe('${{ fromJSON(needs.resolve-publish-receipts.outputs.pending_it_groups) }}');
     expect(publisher.jobs?.['push-it-shard-groups']?.['timeout-minutes']).toBe(360);
     const helper = readFileSync(resolve(ROOT, 'scripts/ci/push-it-shard-group.sh'), 'utf-8');
     expect(helper).toContain('bash scripts/lib/push-section-shard.sh "$section" it dist');

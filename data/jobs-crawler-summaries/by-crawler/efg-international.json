@@ -1,21 +1,82 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-11-14T09:15:55.094Z",
+  "generatedAt": "2026-11-14T21:19:43.713Z",
   "total": 20,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 18,
-  "durationMs": 16503,
-  "avgDurationMs": 16503,
+  "durationMs": 24685,
+  "avgDurationMs": 24685,
   "durationHistory": [
-    16503
+    24685
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "id": "efg-6515",
+      "slug": "data-ops-ingegnere-efg-international-ag-geneve",
+      "company": "EFG International AG",
+      "title": "Data Ops Engineer",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "tech",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-13T17:40:09+00:00",
+      "postedDate": "2026-11-13T17:40:09+00:00",
+      "postingDateSource": "reported",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6515",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>General Info</strong></span></p><p><span>· Department: IT & Digital – Data Engineering / Data Services</span></p><p><span>· Work time Percentage: 100%</span></p><p><span>· Location: Geneva</span></p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span>As a Data Ops Engineer (Authorised Officer) within our IT & Digital division, you will play a key role in the DeltaFlow programme, which is migrating EFG’s analytics platform from SQL Server / Talend / SSAS to a modern Databricks lakehouse with a Microsoft Fabric semantic layer.</span></p><p><span>You will be responsible for onboarding datasets from core banking systems and existing SQL Server environments into governed, production-grade data products using an established, configuration‑driven framework. This is a delivery‑focused role in a FINMA‑regulated environment, requiring strong technical skills, high attention to detail and a rigorous approach to data quality, documentation and controls.</span></p><p><span>In addition, you will contribute to the smooth day‑to‑day operation of our data integration services, including change management, SLA monitoring, quality assurance and continuous improvement of operational procedures and documentation. You will collaborate closely with IT, Data, and business support stakeholders to ensure robust governance and reliable data for reporting and analytics across the bank.</span></p><p><span><strong>Key Responsibilities</strong></span></p><p><span>· Deliver end‑to‑end onboarding of new datasets from core banking systems and existing SQL Server environments through the Databricks medallion layers (Bronze/Silver/Gold) into governed Gold data products in production.</span></p><p><span>· Apply and enhance the existing configuration‑driven framework (declarative pipelines and configuration files) by following established patterns, standards and conventions to ensure consistency and maintainability.</span></p><p><span>· Design and implement robust data transformations in Databricks using PySpark and SQL, including data cleansing, historisation (e.g. SCD1/SCD2) and dimensional modelling aligned with agreed business requirements and data models.</span></p><p><span>· Define, implement and monitor data quality controls (e.g. completeness, uniqueness, referential integrity, source‑to‑target reconciliations) to ensure reliable data for Finance, Risk, Compliance and Front Office stakeholders.</span></p><p><span>· Deploy changes across DEV, UAT and PROD environments using CI/CD practices and tooling (e.g. Git, Databricks Asset Bundles, Azure DevOps), ensuring traceability, reproducibility and adherence to internal release processes.</span></p><p><span>· Analyse and interpret existing SQL Server data warehouse models, stored procedures and datamarts to correctly map and migrate data into the Databricks lakehouse and Microsoft Fabric semantic layer.</span></p><p><span>· Support operational activities for data integration services, including change management, incident follow‑up, SLA and KPI monitoring, and timely escalation of issues impacting critical business processes.</span></p><p><span>· Maintain and continuously improve operational documentation and standard operating procedures (SOPs) to ensure they remain accurate, compliant with internal and regulatory requirements, and easy to follow for IT and business support teams.</span></p><p><span>· Collaborate with IT, Data Governance, Finance, Risk and other business stakeholders to strengthen governance around integration processes, gather feedback and propose improvements to ways of working and operational efficiency.</span></p><p><span><strong>Requirements and Qualifications</strong></span></p><p><span><strong>Education</strong></span><br><span>· Minimum: University degree (Bachelor or equivalent) in Computer Science, Information Systems, Engineering, Mathematics or a related field.</span><br><span>· Preferred: Master’s degree or equivalent further education in Data Engineering, Data Science or a related technical discipline.</span></p><p><span><strong>Professional Experience</strong></span><br><span>· Minimum 3–5 years of hands‑on experience in data engineering or data operations roles, ideally within financial services or another highly regulated industry.</span><br><span>· Proven track record delivering end‑to‑end data integration and analytics solutions on Databricks or similar cloud‑based data platforms.</span><br><span>· Experience working with data warehouse environments based on SQL Server, including migration or modernisation projects.</span></p><p><span><strong>Technical and Functional Knowledge</strong></span><br><span>· Strong, practical experience with Databricks, including PySpark, Delta Lake, Unity Catalog and the medallion (Bronze/Silver/Gold) architecture.</span><br><span>· Excellent SQL skills and solid experience with SQL Server, including the ability to read and analyse existing data warehouse models, stored procedures and datamarts.</span><br><span>· Sound data modelling expertise, particularly dimensional modelling (facts/dimensions), business keys, grain definition and historisation (SCD1/SCD2).</span><br><span>· Solid CI/CD mindset, including use of Git, automated deployments and “data integration as code” practices.</span><br><span>· High level of rigour and discipline in a regulated environment, with strong focus on reproducibility, traceability, testing principles and robust release patterns for data pipelines.</span><br><span>· Good knowledge of private banking products and associated data (e.g. positions, transactions, portfolios, client hierarchies) and their use in reporting and analytics.</span><br><span>· Preferred: Experience with Databricks Asset Bundles, Azure DevOps and streaming or change‑data‑capture (CDC) ingestion patterns.</span></p><p><span><strong>Languages</strong></span><br><span>· French: working proficiency (spoken and written).</span><br><span>· English: working proficiency (spoken and written).</span></p><p><span><strong>Our Values</strong></span></p><p><span>· Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span>· Hands-on: Being proactive to rapidly deliver high-quality results</span></p><p><span>· Passionate: Being committed and striving for excellence</span></p><p><span>· Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span>· Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 5
+          }
+        }
+      },
+      "crawledAt": "2026-11-14T21:19:14.811Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "needsRetranslation": true,
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "addressRegion": "GE",
+      "employmentType": "FULL_TIME",
+      "postalCode": "1201",
+      "streetAddress": "Geneve",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-11T21:19:14.811Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-14T09:15:44.870Z",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
     {
       "id": "efg-6541",
-      "slug": "commvault-backup-administrator-efg-geneve",
+      "slug": "amministratore-di-backup-commvault-efg-international-ag-geneve",
       "company": "EFG International AG",
       "title": "Commvault Backup Administrator",
       "location": "Geneve",
@@ -53,7 +114,6 @@
       "crawledAt": "2026-11-14T09:15:44.873Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -65,76 +125,15 @@
       "validThrough": "2027-02-12T09:15:44.873Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-14T09:15:44.873Z",
-      "_qualityScore": 86,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6515",
-      "slug": "data-ops-engineer-efg-geneve",
-      "company": "EFG International AG",
-      "title": "Data Ops Engineer",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "tech",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-13T17:40:09+00:00",
-      "postedDate": "2026-11-13T17:40:09+00:00",
-      "postingDateSource": "reported",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6515",
-      "applyUrl": "https://www.efginternational.com/us/about/careers",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>General Info</strong></span></p><p><span>· Department: IT & Digital – Data Engineering / Data Services</span></p><p><span>· Work time Percentage: 100%</span></p><p><span>· Location: Geneva</span></p><p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future. We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span>As a Data Ops Engineer (Authorised Officer) within our IT & Digital division, you will play a key role in the DeltaFlow programme, which is migrating EFG’s analytics platform from SQL Server / Talend / SSAS to a modern Databricks lakehouse with a Microsoft Fabric semantic layer.</span></p><p><span>You will be responsible for onboarding datasets from core banking systems and existing SQL Server environments into governed, production-grade data products using an established, configuration‑driven framework. This is a delivery‑focused role in a FINMA‑regulated environment, requiring strong technical skills, high attention to detail and a rigorous approach to data quality, documentation and controls.</span></p><p><span>In addition, you will contribute to the smooth day‑to‑day operation of our data integration services, including change management, SLA monitoring, quality assurance and continuous improvement of operational procedures and documentation. You will collaborate closely with IT, Data, and business support stakeholders to ensure robust governance and reliable data for reporting and analytics across the bank.</span></p><p><span><strong>Key Responsibilities</strong></span></p><p><span>· Deliver end‑to‑end onboarding of new datasets from core banking systems and existing SQL Server environments through the Databricks medallion layers (Bronze/Silver/Gold) into governed Gold data products in production.</span></p><p><span>· Apply and enhance the existing configuration‑driven framework (declarative pipelines and configuration files) by following established patterns, standards and conventions to ensure consistency and maintainability.</span></p><p><span>· Design and implement robust data transformations in Databricks using PySpark and SQL, including data cleansing, historisation (e.g. SCD1/SCD2) and dimensional modelling aligned with agreed business requirements and data models.</span></p><p><span>· Define, implement and monitor data quality controls (e.g. completeness, uniqueness, referential integrity, source‑to‑target reconciliations) to ensure reliable data for Finance, Risk, Compliance and Front Office stakeholders.</span></p><p><span>· Deploy changes across DEV, UAT and PROD environments using CI/CD practices and tooling (e.g. Git, Databricks Asset Bundles, Azure DevOps), ensuring traceability, reproducibility and adherence to internal release processes.</span></p><p><span>· Analyse and interpret existing SQL Server data warehouse models, stored procedures and datamarts to correctly map and migrate data into the Databricks lakehouse and Microsoft Fabric semantic layer.</span></p><p><span>· Support operational activities for data integration services, including change management, incident follow‑up, SLA and KPI monitoring, and timely escalation of issues impacting critical business processes.</span></p><p><span>· Maintain and continuously improve operational documentation and standard operating procedures (SOPs) to ensure they remain accurate, compliant with internal and regulatory requirements, and easy to follow for IT and business support teams.</span></p><p><span>· Collaborate with IT, Data Governance, Finance, Risk and other business stakeholders to strengthen governance around integration processes, gather feedback and propose improvements to ways of working and operational efficiency.</span></p><p><span><strong>Requirements and Qualifications</strong></span></p><p><span><strong>Education</strong></span><br><span>· Minimum: University degree (Bachelor or equivalent) in Computer Science, Information Systems, Engineering, Mathematics or a related field.</span><br><span>· Preferred: Master’s degree or equivalent further education in Data Engineering, Data Science or a related technical discipline.</span></p><p><span><strong>Professional Experience</strong></span><br><span>· Minimum 3–5 years of hands‑on experience in data engineering or data operations roles, ideally within financial services or another highly regulated industry.</span><br><span>· Proven track record delivering end‑to‑end data integration and analytics solutions on Databricks or similar cloud‑based data platforms.</span><br><span>· Experience working with data warehouse environments based on SQL Server, including migration or modernisation projects.</span></p><p><span><strong>Technical and Functional Knowledge</strong></span><br><span>· Strong, practical experience with Databricks, including PySpark, Delta Lake, Unity Catalog and the medallion (Bronze/Silver/Gold) architecture.</span><br><span>· Excellent SQL skills and solid experience with SQL Server, including the ability to read and analyse existing data warehouse models, stored procedures and datamarts.</span><br><span>· Sound data modelling expertise, particularly dimensional modelling (facts/dimensions), business keys, grain definition and historisation (SCD1/SCD2).</span><br><span>· Solid CI/CD mindset, including use of Git, automated deployments and “data integration as code” practices.</span><br><span>· High level of rigour and discipline in a regulated environment, with strong focus on reproducibility, traceability, testing principles and robust release patterns for data pipelines.</span><br><span>· Good knowledge of private banking products and associated data (e.g. positions, transactions, portfolios, client hierarchies) and their use in reporting and analytics.</span><br><span>· Preferred: Experience with Databricks Asset Bundles, Azure DevOps and streaming or change‑data‑capture (CDC) ingestion patterns.</span></p><p><span><strong>Languages</strong></span><br><span>· French: working proficiency (spoken and written).</span><br><span>· English: working proficiency (spoken and written).</span></p><p><span><strong>Our Values</strong></span></p><p><span>· Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span>· Hands-on: Being proactive to rapidly deliver high-quality results</span></p><p><span>· Passionate: Being committed and striving for excellence</span></p><p><span>· Solution-driven: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span>· Partnership-oriented: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 5
-          }
-        }
-      },
-      "crawledAt": "2026-11-14T09:15:44.870Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "needsRetranslation": true,
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "addressRegion": "GE",
-      "employmentType": "FULL_TIME",
-      "postalCode": "1201",
-      "streetAddress": "Geneve",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:15:44.870Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T09:15:44.870Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -171,7 +170,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-14T09:15:44.925Z",
+      "crawledAt": "2026-11-14T21:19:14.925Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-14T14:56:06+00:00",
@@ -187,7 +186,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:15:44.925Z",
+      "validThrough": "2026-12-14T21:19:14.925Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -313,7 +312,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-14T09:15:44.922Z",
+      "crawledAt": "2026-11-14T21:19:14.920Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-09-16T14:22:35+00:00",
@@ -329,7 +328,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6436",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T09:15:44.922Z",
+      "validThrough": "2026-12-15T21:19:14.920Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -376,7 +375,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-14T09:15:44.903Z",
+      "crawledAt": "2026-11-14T21:19:14.881Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "salaryMin": 85500,
@@ -398,7 +397,7 @@
         "checkedAt": "2026-10-31T20:48:45.577Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-18T09:15:44.903Z",
+      "validThrough": "2027-01-17T21:19:14.881Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -512,7 +511,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-14T09:15:44.901Z",
+      "crawledAt": "2026-11-14T21:19:14.876Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19T13:28:38+00:00",
@@ -529,7 +528,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6066",
       "postingDateSource": "reported",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:15:44.901Z",
+      "validThrough": "2026-12-14T21:19:14.876Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -573,7 +572,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-14T09:15:44.898Z",
+      "crawledAt": "2026-11-14T21:19:14.871Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-07-20T07:37:07+00:00",
@@ -590,7 +589,7 @@
       "sourceIdentity": "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6039",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T09:15:44.898Z",
+      "validThrough": "2026-12-14T21:19:14.871Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -707,7 +706,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-14T09:15:44.888Z",
+      "crawledAt": "2026-11-14T21:19:14.847Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -735,7 +734,7 @@
         "checkedAt": "2026-10-31T20:48:45.577Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-14T09:15:44.888Z",
+      "validThrough": "2026-12-14T21:19:14.847Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 100,
       "_qualityBreakdown": {
@@ -782,7 +781,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-14T09:15:44.884Z",
+      "crawledAt": "2026-11-14T21:19:14.842Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 63000,
@@ -793,7 +792,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:15:44.884Z",
+      "validThrough": "2027-02-03T21:19:14.842Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-05T21:13:58.262Z",
       "_qualityScore": 95,
@@ -841,7 +840,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-14T09:15:44.881Z",
+      "crawledAt": "2026-11-14T21:19:14.834Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 174500,
@@ -852,7 +851,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:15:44.881Z",
+      "validThrough": "2027-02-01T21:19:14.834Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-03T21:28:28.747Z",
       "_qualityScore": 99,
@@ -900,7 +899,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-14T09:15:44.878Z",
+      "crawledAt": "2026-11-14T21:19:14.826Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "salaryMin": 104500,
@@ -911,7 +910,7 @@
       "postalCode": "1201",
       "streetAddress": "Geneve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:15:44.878Z",
+      "validThrough": "2027-02-01T21:19:14.826Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-03T21:28:28.740Z",
       "_qualityScore": 99,
@@ -959,7 +958,7 @@
           }
         }
       },
-      "crawledAt": "2026-11-14T09:15:44.875Z",
+      "crawledAt": "2026-11-14T21:19:14.819Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "needsRetranslation": true,
@@ -982,7 +981,7 @@
       },
       "streetAddress": "Bleicherweg 8",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-26T09:15:44.875Z",
+      "validThrough": "2026-12-25T21:19:14.819Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-10T22:20:59.183Z",
       "_qualityScore": 99,
@@ -1863,5 +1862,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

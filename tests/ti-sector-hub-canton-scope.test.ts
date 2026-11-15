@@ -9,16 +9,14 @@
  * Reads the CI-assembled data/jobs.json (gitignored, rebuilt before vitest by
  * tests.yml — same dependency as canton-ti-misclassification-guard.test.ts).
  */
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import { describe, expect, it } from 'vitest';
-import fs from 'node:fs';
 import path from 'node:path';
 import { resolveJobCanton } from '@/build-plugins/shared/cantonSection';
 import { SECTOR_HUB_KEYS, countSectorJobsByLocale } from '@/build-plugins/jobSectorLanding';
 
 const DATA_JOBS_PATH = path.resolve(__dirname, '..', 'data', 'jobs.json');
-const jobs: Array<{ canton?: string; location?: string }> = JSON.parse(
-  fs.readFileSync(DATA_JOBS_PATH, 'utf-8'),
-);
+const jobs: Array<{ canton?: string; location?: string }> = readJsonFile(DATA_JOBS_PATH);
 
 describe('ti-sector-hub-canton-scope', () => {
   // Filters + counts every job in data/jobs.json (30k+) twice

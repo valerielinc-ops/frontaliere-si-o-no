@@ -1,11 +1,44 @@
 {
   "key": "neoproconseils",
   "label": "NEO Pro conseils SA",
-  "generatedAt": "2026-11-14T09:17:58.965Z",
+  "generatedAt": "2026-11-14T21:18:28.141Z",
   "total": 4,
   "discovered": 4,
   "parsed": 4,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "neoproconseils",
+    "seedUrls": [
+      "https://neoproconseils.ch/emplois/"
+    ],
+    "phase": "detail",
+    "pages": 5,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://neoproconseils.ch/emplois/"
+      },
+      {
+        "status": 200,
+        "url": "https://neoproconseils.ch/emplois/electricien-du-batiment-h-f-ref-75131/"
+      },
+      {
+        "status": 200,
+        "url": "https://neoproconseils.ch/emplois/macon-coffreur-h-f-ref-75128/"
+      },
+      {
+        "status": 200,
+        "url": "https://neoproconseils.ch/emplois/installateur-electricien-h-f-ref-75124/"
+      },
+      {
+        "status": 200,
+        "url": "https://neoproconseils.ch/emplois/macon-genie-civil-h-f-ref-75114/"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 4,
@@ -19,10 +52,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 9804,
-  "avgDurationMs": 9804,
+  "durationMs": 8887,
+  "avgDurationMs": 8887,
   "durationHistory": [
-    9804
+    8887
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +73,7 @@
       "url": "https://neoproconseils.ch/emplois/macon-genie-civil-h-f-ref-75114/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:17:36.708Z",
+      "crawledAt": "2026-11-14T21:18:11.032Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -63,7 +96,7 @@
       "salarySource": "estimated",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:17:36.708Z",
+      "validThrough": "2026-12-14T21:18:11.032Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -85,7 +118,7 @@
       "url": "https://neoproconseils.ch/emplois/installateur-electricien-h-f-ref-75124/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:17:36.705Z",
+      "crawledAt": "2026-11-14T21:18:11.030Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -108,7 +141,7 @@
       "salarySource": "estimated",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:17:36.705Z",
+      "validThrough": "2026-12-14T21:18:11.030Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -130,7 +163,7 @@
       "url": "https://neoproconseils.ch/emplois/macon-coffreur-h-f-ref-75128/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:17:36.704Z",
+      "crawledAt": "2026-11-14T21:18:11.029Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -153,7 +186,7 @@
       "salarySource": "estimated",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:17:36.704Z",
+      "validThrough": "2027-01-10T21:18:11.029Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -175,7 +208,7 @@
       "url": "https://neoproconseils.ch/emplois/electricien-du-batiment-h-f-ref-75131/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:17:36.701Z",
+      "crawledAt": "2026-11-14T21:18:11.028Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -198,7 +231,7 @@
       "salarySource": "estimated",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:17:36.701Z",
+      "validThrough": "2027-01-18T21:18:11.028Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -209,5 +242,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

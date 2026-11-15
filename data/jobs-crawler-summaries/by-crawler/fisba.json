@@ -1,11 +1,98 @@
 {
   "key": "fisba",
   "label": "FISBA AG",
-  "generatedAt": "2026-11-13T21:48:49.146Z",
+  "generatedAt": "2026-11-14T21:43:11.092Z",
   "total": 5,
   "discovered": 7,
   "parsed": 6,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "fisba",
+    "seedUrls": [
+      "https://fisba.com/en/current-vacancies"
+    ],
+    "phase": "detail",
+    "pages": 16,
+    "httpStatuses": [
+      {
+        "status": 403,
+        "url": "https://fisba.com/en/current-vacancies"
+      },
+      {
+        "status": 200,
+        "url": "https://fisba.com/en/current-vacancies",
+        "proxiedBy": "jina"
+      },
+      {
+        "status": 403,
+        "url": "https://fisba.com/en/jobs/betriebsmechaniker-mw"
+      },
+      {
+        "status": 200,
+        "url": "https://fisba.com/en/jobs/betriebsmechaniker-mw",
+        "proxiedBy": "jina"
+      },
+      {
+        "status": 403,
+        "url": "https://fisba.com/en/jobs/betriebsmechaniker-mw-0"
+      },
+      {
+        "status": 403,
+        "url": "https://fisba.com/en/jobs/einkaufer-mw-100"
+      },
+      {
+        "status": 200,
+        "url": "https://fisba.com/en/jobs/betriebsmechaniker-mw-0",
+        "proxiedBy": "jina"
+      },
+      {
+        "status": 403,
+        "url": "https://fisba.com/en/jobs/spontaneous-unsolicited-application"
+      },
+      {
+        "status": 200,
+        "url": "https://fisba.com/en/jobs/einkaufer-mw-100",
+        "proxiedBy": "jina"
+      },
+      {
+        "status": 200,
+        "url": "https://fisba.com/en/jobs/spontaneous-unsolicited-application",
+        "proxiedBy": "jina"
+      },
+      {
+        "status": 403,
+        "url": "https://fisba.com/en/jobs/lernender-feinwerkoptikerin-efz-fur-2027"
+      },
+      {
+        "status": 200,
+        "url": "https://fisba.com/en/jobs/lernender-feinwerkoptikerin-efz-fur-2027",
+        "proxiedBy": "jina"
+      },
+      {
+        "status": 403,
+        "url": "https://fisba.com/en/jobs/lernender-physiklaborantin-efz-fur-2027"
+      },
+      {
+        "status": 403,
+        "url": "https://fisba.com/en/jobs/lernender-mechanikpraktikerin-eba-werkstoff-glas-fur-2027"
+      },
+      {
+        "status": 200,
+        "url": "https://fisba.com/en/jobs/lernender-physiklaborantin-efz-fur-2027",
+        "proxiedBy": "jina"
+      },
+      {
+        "status": 200,
+        "url": "https://fisba.com/en/jobs/lernender-mechanikpraktikerin-eba-werkstoff-glas-fur-2027",
+        "proxiedBy": "jina"
+      }
+    ],
+    "proxiedBy": [
+      "jina"
+    ],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 5,
@@ -19,105 +106,15 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 12767,
-  "avgDurationMs": 12767,
+  "durationMs": 12713,
+  "avgDurationMs": 12713,
   "durationHistory": [
-    12767
+    12713
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
-    {
-      "id": "fisba-6e6c38da2f51",
-      "slug": "apprendista-ottico-di-precisione-afc-per-il-2027-fisba-ag-st-gallen",
-      "company": "FISBA AG",
-      "companyKey": "fisba",
-      "companyDomain": "fisba.com",
-      "title": "Lernende/r: Feinwerkoptiker/in EFZ für 2027",
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://fisba.com/en/jobs/lernender-feinwerkoptikerin-efz-fur-2027",
-      "source": "FISBA AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:48:36.112Z",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9000",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-21",
-      "postedDate": "2026-09-21",
-      "postingDateSource": "reported",
-      "applyUrl": "https://fisba.com/en/jobs/lernender-feinwerkoptikerin-efz-fur-2027",
-      "firstSeenAt": "2026-09-25T15:09:05.589Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "salarySource": "estimated",
-      "streetAddress": "St. Gallen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:48:36.112Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "fisba-dcae8950d89e",
-      "slug": "apprendista-laboratorio-di-fisica-afc-per-il-2027-fisba-ag-st-gallen",
-      "company": "FISBA AG",
-      "companyKey": "fisba",
-      "companyDomain": "fisba.com",
-      "title": "Lernende/r: Physiklaborant/in EFZ für 2027",
-      "location": "St. Gallen",
-      "canton": "SG",
-      "url": "https://fisba.com/en/jobs/lernender-physiklaborantin-efz-fur-2027",
-      "source": "FISBA AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:48:36.112Z",
-      "addressLocality": "St. Gallen",
-      "addressRegion": "SG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9000",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-21",
-      "postedDate": "2026-09-21",
-      "postingDateSource": "reported",
-      "applyUrl": "https://fisba.com/en/jobs/lernender-physiklaborantin-efz-fur-2027",
-      "firstSeenAt": "2026-09-25T15:09:05.590Z",
-      "salaryMin": 48000,
-      "salaryMax": 73000,
-      "salarySource": "estimated",
-      "streetAddress": "St. Gallen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:48:36.112Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
     {
       "id": "fisba-ab0ce5b2ce1c",
       "slug": "apprendista-praticante-di-meccanica-eba-materiale-vetro-per-il-2027-fisba-ag-st-gallen",
@@ -130,7 +127,7 @@
       "url": "https://fisba.com/en/jobs/lernender-mechanikpraktikerin-eba-werkstoff-glas-fur-2027",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:48:36.112Z",
+      "crawledAt": "2026-11-14T21:42:47.342Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -153,7 +150,7 @@
       "salarySource": "estimated",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T21:48:36.112Z",
+      "validThrough": "2026-12-20T21:42:47.342Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -164,18 +161,18 @@
       }
     },
     {
-      "id": "fisba-620893ee7450",
-      "slug": "meccanica-operativa-m-f-fisba-ag-st-gallen",
+      "id": "fisba-dcae8950d89e",
+      "slug": "apprendista-laboratorio-di-fisica-afc-per-il-2027-fisba-ag-st-gallen",
       "company": "FISBA AG",
       "companyKey": "fisba",
       "companyDomain": "fisba.com",
-      "title": "Betriebsmechaniker (m/w)",
+      "title": "Lernende/r: Physiklaborant/in EFZ für 2027",
       "location": "St. Gallen",
       "canton": "SG",
-      "url": "https://fisba.com/en/jobs/betriebsmechaniker-mw-0",
+      "url": "https://fisba.com/en/jobs/lernender-physiklaborantin-efz-fur-2027",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:48:36.111Z",
+      "crawledAt": "2026-11-14T21:42:47.341Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -184,26 +181,71 @@
       "category": "Altro",
       "contract": "other",
       "employmentType": "OTHER",
-      "experienceLevel": "mid",
+      "experienceLevel": "intern",
       "sector": "Altro",
       "currency": "CHF",
       "featured": false,
-      "datePosted": "2026-10-26",
-      "postedDate": "2026-10-26",
+      "datePosted": "2026-09-21",
+      "postedDate": "2026-09-21",
       "postingDateSource": "reported",
-      "applyUrl": "https://fisba.com/en/jobs/betriebsmechaniker-mw-0",
-      "firstSeenAt": "2026-10-26T09:40:20.757Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
+      "applyUrl": "https://fisba.com/en/jobs/lernender-physiklaborantin-efz-fur-2027",
+      "firstSeenAt": "2026-09-25T15:09:05.590Z",
+      "salaryMin": 48000,
+      "salaryMax": 73000,
       "salarySource": "estimated",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T21:48:36.111Z",
+      "validThrough": "2026-12-20T21:42:47.341Z",
       "validThroughSource": "last-observed-window",
-      "_qualityScore": 99,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "fisba-6e6c38da2f51",
+      "slug": "apprendista-ottico-di-precisione-afc-per-il-2027-fisba-ag-st-gallen",
+      "company": "FISBA AG",
+      "companyKey": "fisba",
+      "companyDomain": "fisba.com",
+      "title": "Lernende/r: Feinwerkoptiker/in EFZ für 2027",
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://fisba.com/en/jobs/lernender-feinwerkoptikerin-efz-fur-2027",
+      "source": "FISBA AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-14T21:42:47.340Z",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9000",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-21",
+      "postedDate": "2026-09-21",
+      "postingDateSource": "reported",
+      "applyUrl": "https://fisba.com/en/jobs/lernender-feinwerkoptikerin-efz-fur-2027",
+      "firstSeenAt": "2026-09-25T15:09:05.589Z",
+      "salaryMin": 48000,
+      "salaryMax": 73000,
+      "salarySource": "estimated",
+      "streetAddress": "St. Gallen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-20T21:42:47.340Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -220,7 +262,7 @@
       "url": "https://fisba.com/en/jobs/einkaufer-mw-100",
       "source": "FISBA AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:48:36.111Z",
+      "crawledAt": "2026-11-14T21:42:47.339Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -243,7 +285,52 @@
       "salarySource": "estimated",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T21:48:36.111Z",
+      "validThrough": "2027-01-19T21:42:47.339Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "fisba-620893ee7450",
+      "slug": "meccanica-operativa-m-f-fisba-ag-st-gallen",
+      "company": "FISBA AG",
+      "companyKey": "fisba",
+      "companyDomain": "fisba.com",
+      "title": "Betriebsmechaniker (m/w)",
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://fisba.com/en/jobs/betriebsmechaniker-mw-0",
+      "source": "FISBA AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-14T21:42:47.338Z",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9000",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-26",
+      "postedDate": "2026-10-26",
+      "postingDateSource": "reported",
+      "applyUrl": "https://fisba.com/en/jobs/betriebsmechaniker-mw-0",
+      "firstSeenAt": "2026-10-26T09:40:20.757Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "streetAddress": "St. Gallen",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-24T21:42:47.338Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -254,5 +341,5 @@
       }
     }
   ],
-  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

@@ -14,12 +14,7 @@ import {
 import { buildJobSlugShards, type SlugMapJobEntry } from '../services/jobSlugShards';
 import { ACTIVE_JOB_IDS_FILE_NAME, buildActiveJobIdIndex } from '../functions/src/assistedApplicationActiveJobIndex.js';
 import { isListingInventoryJob, normalizeListingIdentity } from '../services/jobBoardInventory';
-import {
- jobCanonOrderingHandoffPath,
- setJobCanonOrderingFields,
- sha256FileSync,
- writeJobCanonOrderingHandoff,
-} from './shared/jobCanonInputs';
+import { serializeJobCanonOrderingFields, setJobCanonOrderingFields } from './shared/jobCanonInputs';
 import {
  buildCantonShards,
  cantonShardFileName,
@@ -98,7 +93,6 @@ const DETAIL_FIELDS = new Set([
  */
 export function localeJobsSplitPlugin(rootDir: string): Plugin {
  const dataJobsPath = path.resolve(rootDir, 'data', 'jobs.json');
- const orderingHandoffPath = jobCanonOrderingHandoffPath(rootDir);
 
  function generateFiles(outDir: string): number {
  if (!fs.existsSync(dataJobsPath)) return 0;
@@ -121,9 +115,14 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
    }
    jobs.push(normalizeListingIdentity(job));
  }
- // The /job-canon plugin runs later in this Vite process. Keep only the stable
- // sort fields it needs; datePosted/firstSeenAt stay out of the public slug map.
+ // Keep only the stable sort fields job-canon needs; they stay out of the
+ // public slug map and cross the staged-build process boundary in a private file.
  setJobCanonOrderingFields(jobs);
+ const orderingHandoffPath = process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH;
+ if (orderingHandoffPath) {
+  fs.mkdirSync(path.dirname(orderingHandoffPath), { recursive: true });
+  fs.writeFileSync(orderingHandoffPath, serializeJobCanonOrderingFields(), 'utf-8');
+ }
  if (dropped > 0) {
  console.log(`[locale-jobs-split] Filtered ${dropped} fixture or ineligible listing job(s) before locale split`);
  }
@@ -293,25 +292,9 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
  return {
  name: 'locale-jobs-split',
  apply: 'build',
-  buildStart() {
-   // A previous interrupted staged build must never feed a later build. The
-   // bundle stage recreates this only after filtering the current jobs.json;
-   // single-process builds use the in-memory fields and do not read it. SSG
-   // shares the just-written bundle artifact and its consumer removes it.
-   if (process.env.BUILD_STAGE === 'ssg') return;
-   try {
-    fs.unlinkSync(orderingHandoffPath);
-   } catch (error) {
-    if ((error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
-   }
-  },
  closeBundle() {
  const distDir = path.resolve(rootDir, 'dist');
  const count = generateFiles(distDir);
-  const buildLocale = (process.env.BUILD_LOCALE ?? '').trim();
-  if (process.env.BUILD_STAGE === 'bundle' && (buildLocale === '' || buildLocale === 'it') && fs.existsSync(dataJobsPath)) {
-   writeJobCanonOrderingHandoff(orderingHandoffPath, sha256FileSync(dataJobsPath));
-  }
  if (count > 0) {
  console.log(`[locale-jobs-split] Generated 4 slim index files + 4 first-page slim files + ${CANTON_SHARD_KEYS.length * LOCALES.length} canton shards + slug map (+ sharded slug map) + ${count} detail files (${count} jobs)`);
  }

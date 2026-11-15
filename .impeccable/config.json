@@ -122,6 +122,18 @@
         ],
         "createdAt": "2026-11-13T13:50:40.923Z",
         "reason": "Agent: documented admin accent color in DESIGN.md, used intentionally by the V6-13 Navy Companion preview."
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "createdAt": "2026-11-14T12:26:15.859Z",
+        "reason": "Project design system documents Inter for body text and preloads the self-hosted font in index.html; this is an intentional brand/performance choice."
+      },
+      {
+        "rule": "overused-font",
+        "value": "space grotesk",
+        "createdAt": "2026-11-14T12:26:16.198Z",
+        "reason": "Project design system documents Space Grotesk for headings and preloads the self-hosted font in index.html; this is an intentional brand/performance choice."
       }
     ]
   },

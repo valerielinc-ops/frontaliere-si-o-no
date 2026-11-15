@@ -4,17 +4,23 @@ import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 
-export const IT_SHARD_GROUP_IDS = Object.freeze([
-  'zurigo',
-  'svizzera',
-  'small-1',
-  'small-2',
-  'small-3',
-  'small-4',
-]);
+import {
+  IT_SHARD_GROUP_IDS,
+  LARGE_SECTIONS,
+  expectedItGroupDigests,
+  itShardGroupPlanDigest,
+  validateItShardGroupPlan,
+} from './it-shard-group-contract.mjs';
 
+// The contract lives in a file-free module (see its header); everything the plan
+// builder's users imported from here keeps working.
+export {
+  IT_SHARD_GROUP_IDS,
+  expectedItGroupDigests,
+  itShardGroupPlanDigest,
+  validateItShardGroupPlan,
+};
 const BALANCED_GROUP_IDS = Object.freeze(IT_SHARD_GROUP_IDS.slice(2));
-const LARGE_SECTIONS = Object.freeze(['zurigo', 'svizzera']);
 const SHA_RE = /^[0-9a-f]{40}$/iu;
 const RUN_ID_RE = /^\d+$/u;
 
@@ -114,42 +120,7 @@ export function createItShardGroupPlan({
   };
 }
 
-export function validateItShardGroupPlan(plan, { sourceRunId, sourceSha, buildId } = {}) {
-  const errors = [];
-  if (!plan || typeof plan !== 'object' || Array.isArray(plan)) return { valid: false, errors: ['plan is not an object'] };
-  if (plan.schemaVersion !== 1) errors.push('schemaVersion is unsupported');
-  if (plan.kind !== 'it-shard-push-group-plan') errors.push('kind is invalid');
-  if (sourceRunId != null && text(plan.sourceRunId) !== text(sourceRunId)) errors.push('sourceRunId does not match');
-  if (sourceSha != null && text(plan.sourceSha).toLowerCase() !== text(sourceSha).toLowerCase()) errors.push('sourceSha does not match');
-  if (buildId != null && text(plan.buildId) !== text(buildId)) errors.push('buildId does not match');
-  if (!RUN_ID_RE.test(text(plan.sourceRunId))) errors.push('sourceRunId is missing or malformed');
-  if (!SHA_RE.test(text(plan.sourceSha))) errors.push('sourceSha is missing or malformed');
-  if (!RUN_ID_RE.test(text(plan.buildId))) errors.push('buildId is missing or malformed');
-  const required = Array.isArray(plan.requiredSections) ? plan.requiredSections : [];
-  if (required.length === 0) errors.push('requiredSections is empty or missing');
-  if (required.some((section) => typeof section !== 'string' || !text(section))) {
-    errors.push('requiredSections contains an invalid section key');
-  }
-  if (new Set(required).size !== required.length) errors.push('requiredSections contains duplicate sections');
-  if (!Array.isArray(plan.groups)) errors.push('groups is not an array');
-  else {
-    const ids = plan.groups.map((group) => text(group?.id));
-    if (ids.length !== IT_SHARD_GROUP_IDS.length || IT_SHARD_GROUP_IDS.some((id) => !ids.includes(id))) {
-      errors.push('groups do not match the required group ids');
-    }
-    const sections = plan.groups.flatMap((group) => Array.isArray(group?.sections) ? group.sections : []);
-    if ([...sections].sort().join('\n') !== [...required].sort().join('\n')) {
-      errors.push('group sections do not partition requiredSections');
-    }
-    for (const section of LARGE_SECTIONS) {
-      const group = plan.groups.find((candidate) => candidate?.id === section);
-      if (required.includes(section) && (group?.sections?.length !== 1 || group.sections[0] !== section)) {
-        errors.push(`${section} must stay alone in its group`);
-      }
-    }
-  }
-  return { valid: errors.length === 0, errors };
-}
+
 
 function parseArgs(argv) {
   const args = {};

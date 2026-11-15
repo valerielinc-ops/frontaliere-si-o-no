@@ -89,6 +89,10 @@ describe('workflow failure reporting stays coupled to the central scanner contra
 
     expect(job.needs).toEqual([
       'deploy',
+      'publish-it-cdn',
+      'push-it-shard-groups',
+      'finalize-it-publish',
+      'publish-outcome',
       'publish-nonit-shards',
       'resolve-nonit-publish',
       'validate-dist',

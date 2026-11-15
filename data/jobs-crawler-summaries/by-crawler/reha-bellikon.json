@@ -1,11 +1,12 @@
 {
   "key": "reha-bellikon",
   "label": "Rehaklinik Bellikon",
-  "generatedAt": "2026-11-14T09:41:00.266Z",
+  "generatedAt": "2026-11-14T21:39:06.835Z",
   "total": 9,
   "discovered": null,
   "parsed": 9,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 9,
@@ -16,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 9717,
-  "avgDurationMs": 9717,
+  "durationMs": 9593,
+  "avgDurationMs": 9593,
   "durationHistory": [
-    9717
+    9593
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +39,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Freiwillige-Mitarbeitende-im-Bereich-Interne-Patientenbegleitung-ehrenamtlich/ccae8bed-5e5a-4a28-84ad-c52eaf13a6e6",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:40:42.785Z",
+      "crawledAt": "2026-11-14T21:38:45.194Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -66,7 +67,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bellikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:40:42.785Z",
+      "validThrough": "2026-12-14T21:38:45.194Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -89,7 +90,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Freiwillige-Mitarbeitende-im-Bereich-Begleitung-extern-ehrenamtlich/31674ecb-d45a-4c69-b03e-8c28c7cce989",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:40:42.244Z",
+      "crawledAt": "2026-11-14T21:38:44.712Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -117,7 +118,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bellikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:40:42.244Z",
+      "validThrough": "2026-12-14T21:38:44.712Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -139,7 +140,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Lernende-r-Restaurantfachfrau-Restaurantfachmann-EFZ/97ad3665-0743-4419-be7b-3fece8eaaaa8",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:40:41.707Z",
+      "crawledAt": "2026-11-14T21:38:44.226Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -167,7 +168,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bellikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:40:41.707Z",
+      "validThrough": "2026-12-14T21:38:44.226Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -189,7 +190,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Lernende-r-Fachfrau-Fachmann-Reinigungstechnik-EFZ/38e8a7e3-5946-43ff-b0f6-a5d9684068e1",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:40:41.173Z",
+      "crawledAt": "2026-11-14T21:38:43.736Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -217,7 +218,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bellikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:40:41.173Z",
+      "validThrough": "2026-12-14T21:38:43.736Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -239,7 +240,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Lernende-r-Koechin-Koch-EFZ/54b47a80-0321-45f1-a574-a31dcf587236",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:40:40.646Z",
+      "crawledAt": "2026-11-14T21:38:43.246Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -267,7 +268,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bellikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:40:40.646Z",
+      "validThrough": "2026-12-14T21:38:43.246Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -290,7 +291,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Studierender-HF-fuer-die-2-3-jaehrige-Ausbildung-zur-diplomierten-Pflegefachfrau-mann-HF-wmd/3f7ef44d-4123-4d5b-b91a-14838e6f2e6f",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:40:40.106Z",
+      "crawledAt": "2026-11-14T21:38:42.748Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -318,7 +319,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bellikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:40:40.106Z",
+      "validThrough": "2026-12-14T21:38:42.748Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -341,7 +342,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Assistentin-Assistent-Qualitaets-und-Prozessmanagement/373db8f6-c31b-49fd-be68-814effdbe306",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:40:39.566Z",
+      "crawledAt": "2026-11-14T21:38:42.265Z",
       "addressLocality": "Bellikon AG & Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -369,7 +370,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bellikon AG & Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:40:39.566Z",
+      "validThrough": "2027-01-04T21:38:42.265Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -392,7 +393,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Orthopaedie-Technikerin-Techniker/d8fdd664-e536-4569-b5d7-5cf74dd8932e",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:40:39.039Z",
+      "crawledAt": "2026-11-14T21:38:41.784Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -420,7 +421,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bellikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:40:39.039Z",
+      "validThrough": "2027-02-03T21:38:41.784Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -443,7 +444,7 @@
       "url": "https://job.rehabellikon.ch/job/Rehaklinik-Bellikon/Mitarbeiterin-Mitarbeiter-Gastronomie/bd74b3ca-29c3-4c59-a1df-0e67957ae7aa",
       "source": "Rehaklinik Bellikon Dedicated Parser (JobPublish.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:40:38.505Z",
+      "crawledAt": "2026-11-14T21:38:41.301Z",
       "addressLocality": "Bellikon",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -470,7 +471,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bellikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:40:38.505Z",
+      "validThrough": "2026-12-20T21:38:41.301Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -481,5 +482,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

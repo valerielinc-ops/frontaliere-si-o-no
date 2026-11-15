@@ -115,15 +115,12 @@ describe('data/jobs.json readers', () => {
     'build-plugins/orphanQueryLandingPlugin.ts',
   ];
   const readers = [
-    'build-plugins/careerJobsAggregate.ts',
-    'build-plugins/cityJobsAggregate.ts',
     'build-plugins/jobMarketSnapshotPlugin.ts',
     'build-plugins/jobRecencyPagesPlugin.ts',
     'build-plugins/jobSectorPagesPlugin.ts',
     'build-plugins/jobsSeoPagesPlugin.ts',
     'build-plugins/companyHubBridgePlugin.ts',
     'build-plugins/jobOgImagesPlugin.ts',
-    'build-plugins/nursingJobsAggregate.ts',
     'build-plugins/professionJobsAggregate.ts',
     'build-plugins/relatedSearchClustersPlugin.ts',
     'build-plugins/shared/loadDataJson.ts',
@@ -206,6 +203,21 @@ describe('data/jobs.json readers', () => {
       expect(src).toContain('iterateJsonArrayFile(');
       expect(src).not.toContain('readJsonFile(');
     }
+  });
+
+  // These aggregates share one fail-closed reader (readJobsArrayStrict, which
+  // goes through readJsonFile and rethrows instead of continuing with 0 jobs).
+  it.each([
+    'build-plugins/careerJobsAggregate.ts',
+    'build-plugins/cityJobsAggregate.ts',
+    'build-plugins/nursingJobsAggregate.ts',
+    'build-plugins/professionJobsAggregate.ts',
+  ])('%s reads the corpus through the fail-closed shared reader', (rel) => {
+    const src = fs.readFileSync(path.join(root, rel), 'utf8');
+    expect(src).toContain("from './shared/readJobsDatasetStrict'");
+    expect(src).toMatch(/readJobsArrayStrict(?:<[^>]*>)?\(/);
+    expect(src).not.toMatch(wholeFileRead);
+    expect(src).not.toMatch(/failed to read jobs\.json/);
   });
 
   it('keeps the iterator streaming by default even below the V8 string limit', () => {

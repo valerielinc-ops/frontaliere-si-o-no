@@ -34,12 +34,16 @@ const ROWS = [
   { op: OP.MINUS, key: 'companyImmediate', label: 'CompanyAlert immediati', reason: 'li invia send-company-alerts: nessun doppio invio' },
   { op: OP.MINUS, key: 'allowlist', label: 'fuori dalla lista di test', reason: 'TARGET_EMAIL: invio limitato a un destinatario', hideWhenZero: true },
   { op: OP.EQUALS, key: 'base', label: 'Base attiva' },
-  { op: OP.MINUS, key: 'suppressionDeferred', label: 'lettura soppressioni fallita', reason: 'rinviati alla prossima esecuzione', hideWhenZero: true },
-  { op: OP.MINUS, key: 'suppressed', label: 'soppressi (stop globale, bounce, reclamo, lista provider)', reason: 'nessun invio finché il consenso non torna' },
-  { op: OP.MINUS, key: 'backfill', label: 'backfill senza base di iscrizione', reason: 'alert storico senza consenso verificabile' },
-  { op: OP.MINUS, key: 'cooldown', label: 'cooldown newsletter 36 h', reason: 'rinviati: la newsletter è partita da poco' },
+  { op: OP.MINUS, key: 'profileDeferred', label: 'lettura profilo di cadenza fallita', reason: 'rinviati alla prossima esecuzione', hideWhenZero: true },
   { op: OP.MINUS, key: 'decayed', label: 'decaduti per cadenza', reason: "stato terminale: l'alert resta attivo e riparte se la persona torna" },
   { op: OP.MINUS, key: 'notDue', label: 'non in programma oggi', reason: 'cadenza: oggi non è il giorno di invio' },
+  // Dal perf-plan PR 6 la cadenza viene PRIMA della lettura del documento newsletter:
+  // le tre voci che seguono contano solo gli alert in programma oggi (più i
+  // candidati alla riattivazione per ritorno sul sito), non l'intera base.
+  { op: OP.MINUS, key: 'suppressionDeferred', label: 'lettura soppressioni fallita', reason: 'rinviati alla prossima esecuzione', hideWhenZero: true },
+  { op: OP.MINUS, key: 'suppressed', label: 'soppressi in programma oggi (stop globale, bounce, reclamo, lista provider)', reason: 'nessun invio finché il consenso non torna' },
+  { op: OP.MINUS, key: 'backfill', label: 'backfill in programma oggi senza base di iscrizione', reason: 'alert storico senza consenso verificabile' },
+  { op: OP.MINUS, key: 'cooldown', label: 'cooldown newsletter 36 h (in programma oggi)', reason: 'rinviati: la newsletter è partita da poco' },
   { op: OP.EQUALS, key: 'eligible', label: 'Eleggibili oggi' },
   { op: OP.MINUS, key: 'noCandidate', label: 'nessun annuncio nella finestra del destinatario', reason: "nessun annuncio nuovo dall'ultimo invio" },
   { op: OP.MINUS, key: 'emptyProfile', label: 'profilo senza segnali', reason: 'nessuna parola chiave, luogo o settore da confrontare' },
@@ -70,7 +74,7 @@ const ROWS = [
 // Ogni contatore parte da zero: un input incompleto (il ritorno anticipato senza
 // alert passa solo quello che ha) non deve produrre NaN nella quadratura.
 const COUNT_KEYS = [
-  'archive', 'paused', 'companyImmediate', 'allowlist', 'base', 'suppressionDeferred',
+  'archive', 'paused', 'companyImmediate', 'allowlist', 'base', 'profileDeferred', 'suppressionDeferred',
   'suppressed', 'backfill', 'cooldown', 'decayed', 'notDue', 'eligible', 'noCandidate',
   'emptyProfile', 'zeroMatch', 'alreadySent', 'deadLinks', 'quotaDeferred', 'planned',
   'failed', 'sent', 'ambiguous', 'discoveryUnknown', 'retrySent', 'uniqueRecipients',
@@ -88,12 +92,12 @@ export function buildJobAlertFunnel(input = {}, { dryRun = false } = {}) {
 
   // Ogni differenza dovrebbe essere zero. Quattro passaggi:
   //   1. archivio − pausa − company − lista test = base
-  //   2. base − soppressioni differite − soppressi − backfill − cooldown − decaduti − non in programma = eleggibili
+  //   2. base − profili differiti − soppressioni differite − soppressi − backfill − cooldown − decaduti − non in programma = eleggibili
   //   3. eleggibili − quota − nessun annuncio − profilo vuoto − no match − già inviati − link morti = pianificate
   //   4. pianificate − fallite = inviate
   const imbalance = [
     c.archive - c.paused - c.companyImmediate - c.allowlist - c.base,
-    c.base - c.suppressionDeferred - c.suppressed - c.backfill - c.cooldown - c.decayed - c.notDue - c.eligible,
+    c.base - c.profileDeferred - c.suppressionDeferred - c.suppressed - c.backfill - c.cooldown - c.decayed - c.notDue - c.eligible,
     c.eligible - c.quotaDeferred - c.noCandidate - c.emptyProfile - c.zeroMatch - c.alreadySent - c.deadLinks - c.planned,
     dryRun ? 0 : c.planned - c.failed - c.sent,
   ];
@@ -169,6 +173,7 @@ export function formatJobAlertFunnelMarkdown(funnel, { date, mode, providers = [
   if (linkAudit && linkAudit.batches > 0) {
     out.push(`🔗 Link audit: ${formatJobAlertCount(linkAudit.batches)} batch auditati · ${formatJobAlertCount(linkAudit.defects)} con difetti`, '');
   }
+  out.push('> Soppressi, senza base di iscrizione e cooldown contano solo gli alert in programma oggi: la cadenza si valuta prima di leggere il documento newsletter (perf-plan PR 6).', '');
   if (!funnel.balanced) out.push(imbalanceNote(funnel), '');
   return out.join('\n');
 }

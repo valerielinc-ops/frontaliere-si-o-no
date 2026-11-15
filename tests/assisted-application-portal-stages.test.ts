@@ -216,6 +216,29 @@ describe('application stage ownership', () => {
       .toMatchObject({ kind: 'application_start', control: start });
   });
 
+  it('keeps a Roche Workday details module bound to the selected announcement', () => {
+    const detailsUrl = 'https://roche.wd3.myworkdayjobs.com/en-US/roche-ext/details/Technical-Product-Owner--Sites--SHE---Sustainability_202606-116471-2';
+    const apply = { text: 'Apply', frame: 0, disabled: false };
+    const snapshot = {
+      url: detailsUrl,
+      text: 'Technical Product Owner — Sites, SHE & Sustainability',
+      fields: [],
+      buttons: [
+        { text: 'Search', chrome: true },
+        { text: 'Apply', frame: 0, disabled: false },
+        { text: 'View All Jobs', chrome: true },
+      ],
+    };
+    const context = {
+      applyUrl: detailsUrl,
+      postingUrl: detailsUrl,
+      job: { title: 'Technical Product Owner — Sites, SHE & Sustainability', company: 'Roche' },
+    };
+
+    expect(applicationEntryControls(snapshot, context)).toEqual([apply]);
+    expect(applicationStage(snapshot, context).kind).not.toBe('posting_mismatch');
+  });
+
   it('treats the Swarovski Workday login route as account only after selected application entry proof', () => {
     const postingUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet-CHE/Seasonal-Sales-Consultant_R-12345';
     const loginUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/login';

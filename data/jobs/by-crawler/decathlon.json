@@ -1,7 +1,7 @@
 {
   "crawlerKey": "decathlon",
-  "assembledAt": "2026-11-14T09:30:08.886Z",
-  "runId": "43580005302",
+  "assembledAt": "2026-11-14T21:42:10.413Z",
+  "runId": "43642176694",
   "jobs": [
     {
       "id": "decathlon-00b691867916",
@@ -34,7 +34,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/3885171-store-leader-incubation-mwd-ost-und-zentralschweiz-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:53.477Z",
+      "crawledAt": "2026-11-14T21:42:02.593Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -93,7 +93,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:29:53.477Z",
+      "validThrough": "2026-12-14T21:42:02.593Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -127,7 +127,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4067317-sports-leader-verkaufsberater-mwd-50-70-decathlon-spreitenbach-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:52.853Z",
+      "crawledAt": "2026-11-14T21:42:01.942Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -184,7 +184,7 @@
       },
       "streetAddress": "Spreitenbach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:29:52.853Z",
+      "validThrough": "2026-12-14T21:42:01.942Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -218,7 +218,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4278405-store-leader-incubation-mwd-nord-und-westschweiz-bern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:52.196Z",
+      "crawledAt": "2026-11-14T21:42:01.256Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressRegion": "BE",
@@ -275,7 +275,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:29:52.196Z",
+      "validThrough": "2026-12-14T21:42:01.256Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -309,7 +309,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4505065-conseiller-ere-sportif-futur-team-leader-velo-routegravel-hf-cdi-80-avry-matran",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:29:51.589Z",
+      "crawledAt": "2026-11-14T21:42:00.620Z",
       "addressLocality": "Matran",
       "postalCode": "1753",
       "addressRegion": "FR",
@@ -351,7 +351,7 @@
       },
       "streetAddress": "Matran",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:29:51.589Z",
+      "validThrough": "2026-12-14T21:42:00.620Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -385,7 +385,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4522013-befristet-sport-leader-verkaufsberater-mwd-50-auf-stundenlohnbasis-3800-interlaken",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:50.963Z",
+      "crawledAt": "2026-11-14T21:41:59.966Z",
       "addressLocality": "Interlaken",
       "postalCode": "3800",
       "addressRegion": "BE",
@@ -486,7 +486,7 @@
       },
       "streetAddress": "Interlaken",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:29:50.963Z",
+      "validThrough": "2026-12-14T21:41:59.966Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -520,7 +520,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4542241-conseiller-ere-sportif-montagne-ski-hf-cdi-30-yverdon-1442-montagny-pres-yverdon",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:29:50.335Z",
+      "crawledAt": "2026-11-14T21:41:59.326Z",
       "addressLocality": "Montagny-près-Yverdon",
       "postalCode": "1442",
       "addressRegion": "VD",
@@ -562,7 +562,7 @@
       },
       "streetAddress": "Montagny-près-Yverdon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:29:50.335Z",
+      "validThrough": "2026-12-14T21:41:59.326Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -596,7 +596,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4543543-sport-leader-verkaufsberater-mwd-befristet-60-hinwil-8340-hinwil",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:49.725Z",
+      "crawledAt": "2026-11-14T21:41:58.716Z",
       "addressLocality": "Hinwil",
       "postalCode": "8340",
       "addressRegion": "ZH",
@@ -640,7 +640,7 @@
       },
       "streetAddress": "Hinwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:29:49.725Z",
+      "validThrough": "2026-12-14T21:41:58.716Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -674,7 +674,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4550115-stagiaire-cycle-atelier-location-hf-stage-6-mois-martigny-1920-martigny",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:29:49.094Z",
+      "crawledAt": "2026-11-14T21:41:58.103Z",
       "addressLocality": "Martigny",
       "postalCode": "1920",
       "addressRegion": "VS",
@@ -749,7 +749,7 @@
       },
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:29:49.094Z",
+      "validThrough": "2026-12-14T21:41:58.103Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -783,7 +783,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4557787-conseiller-ere-glisse-hf-cdd-80-conthey-novembre-a-janvier-1964-conthey",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:29:48.473Z",
+      "crawledAt": "2026-11-14T21:41:57.480Z",
       "addressLocality": "Conthey",
       "postalCode": "1964",
       "addressRegion": "VS",
@@ -833,7 +833,7 @@
       },
       "streetAddress": "Conthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:29:48.473Z",
+      "validThrough": "2026-12-14T21:41:57.480Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -867,7 +867,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4557833-conseiller-ere-location-hf-cdd-60-conthey-1964-conthey",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:29:47.789Z",
+      "crawledAt": "2026-11-14T21:41:56.730Z",
       "addressLocality": "Conthey",
       "postalCode": "1964",
       "addressRegion": "VS",
@@ -909,7 +909,7 @@
       },
       "streetAddress": "Conthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:29:47.789Z",
+      "validThrough": "2026-12-14T21:41:56.730Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -943,7 +943,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4577437-sport-leader-verkaufsberater-mwd-befristet-50-wintersport-heimberg-3627-heimberg",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:47.092Z",
+      "crawledAt": "2026-11-14T21:41:56.048Z",
       "addressLocality": "Heimberg",
       "postalCode": "3627",
       "addressRegion": "BE",
@@ -987,7 +987,7 @@
       },
       "streetAddress": "Heimberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:29:47.092Z",
+      "validThrough": "2026-12-14T21:41:56.048Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1021,7 +1021,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4577465-sport-leader-verkaufsberater-mwd-befristet-40-outdoorsport-heimberg-3627-heimberg",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:46.418Z",
+      "crawledAt": "2026-11-14T21:41:55.380Z",
       "addressLocality": "Heimberg",
       "postalCode": "3627",
       "addressRegion": "BE",
@@ -1065,7 +1065,7 @@
       },
       "streetAddress": "Heimberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:29:46.418Z",
+      "validThrough": "2026-12-14T21:41:55.380Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1099,7 +1099,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4507567-team-leader-abteilungsleiter-mwd-100-fahrrad-und-workshop-3627-heimberg",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:45.750Z",
+      "crawledAt": "2026-11-14T21:41:54.663Z",
       "addressLocality": "Heimberg",
       "postalCode": "3627",
       "addressRegion": "BE",
@@ -1143,7 +1143,7 @@
       },
       "streetAddress": "Heimberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:29:45.750Z",
+      "validThrough": "2026-12-14T21:41:54.663Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1177,7 +1177,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4599639-verkaufsberaterin-ski-20-40-befristet-bern-shoppyland-3321-urtenen-schonbuhl",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:45.130Z",
+      "crawledAt": "2026-11-14T21:41:54.031Z",
       "addressLocality": "Urtenen-Schönbühl",
       "postalCode": "3322",
       "addressRegion": "BE",
@@ -1232,7 +1232,7 @@
       },
       "streetAddress": "Urtenen-Schönbühl",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:29:45.130Z",
+      "validThrough": "2026-12-14T21:41:54.031Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1266,7 +1266,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4603695-sport-leader-verkaufsberater-mwd-40-decathlon-rickenbach-befristet-9532-rickenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:44.505Z",
+      "crawledAt": "2026-11-14T21:41:53.384Z",
       "addressLocality": "Rickenbach",
       "postalCode": "9532",
       "addressRegion": "GE",
@@ -1310,7 +1310,7 @@
       },
       "streetAddress": "Rickenbach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T09:29:44.505Z",
+      "validThrough": "2026-12-16T21:41:53.384Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1344,7 +1344,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4527715-mecanicien-ne-technicien-ne-cycle-et-sports-hf-cdi-80-100-1763-granges-paccot",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:29:43.896Z",
+      "crawledAt": "2026-11-14T21:41:52.739Z",
       "addressLocality": "Granges-Paccot",
       "postalCode": "1763",
       "addressRegion": "FR",
@@ -1392,7 +1392,7 @@
       },
       "streetAddress": "Granges-Paccot",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:29:43.896Z",
+      "validThrough": "2026-12-14T21:41:52.739Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1426,7 +1426,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4617405-candidature-spontanee-stage-sport-leader-1204-geneve",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:29:43.250Z",
+      "crawledAt": "2026-11-14T21:41:52.101Z",
       "addressLocality": "Genève",
       "postalCode": "1201",
       "addressRegion": "GE",
@@ -1468,7 +1468,7 @@
       },
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:29:43.250Z",
+      "validThrough": "2026-12-24T21:41:52.101Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1502,7 +1502,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4618167-sport-leader-verkaufsberater-mwd-60-100-decathlon-luzern-city-6004-luzern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:42.640Z",
+      "crawledAt": "2026-11-14T21:41:51.455Z",
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "addressRegion": "LU",
@@ -1546,7 +1546,7 @@
       },
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T09:29:42.640Z",
+      "validThrough": "2026-12-25T21:41:51.455Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1580,7 +1580,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4619393-sportberaterin-mwd-stundenlohnvertrag-20-oder-flexibel-5034-suhr",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:41.975Z",
+      "crawledAt": "2026-11-14T21:41:50.690Z",
       "addressLocality": "Suhr",
       "postalCode": "5034",
       "addressRegion": "AG",
@@ -1628,7 +1628,7 @@
       },
       "streetAddress": "Suhr",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:29:41.975Z",
+      "validThrough": "2026-12-27T21:41:50.690Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1662,7 +1662,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4628335-mutterschaftsvertretung-e-commerce-category-manager-mwd-100-1030-bussigny",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:41.362Z",
+      "crawledAt": "2026-11-14T21:41:50.056Z",
       "addressLocality": "Bussigny",
       "postalCode": "1030",
       "addressRegion": "VD",
@@ -1707,7 +1707,7 @@
       },
       "streetAddress": "Bussigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-31T09:29:41.362Z",
+      "validThrough": "2026-12-31T21:41:50.056Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1741,7 +1741,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4630203-retail-it-specialist-deeng-mwd-100-1425-onnens",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:29:40.755Z",
+      "crawledAt": "2026-11-14T21:41:49.434Z",
       "addressLocality": "Onnens",
       "postalCode": "1425",
       "addressRegion": "GE",
@@ -1785,7 +1785,7 @@
       },
       "streetAddress": "Onnens",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-03T09:29:40.755Z",
+      "validThrough": "2027-01-03T21:41:49.434Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1819,7 +1819,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4645429-warehouse-3pl-coordinator-logistics-wmd-100-bern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:29:40.109Z",
+      "crawledAt": "2026-11-14T21:41:48.822Z",
       "addressLocality": "Bern",
       "postalCode": "3004",
       "addressRegion": "BE",
@@ -1861,7 +1861,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:29:40.109Z",
+      "validThrough": "2027-01-12T21:41:48.822Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1895,7 +1895,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4650551-team-leader-abteilungsleiter-mwd-100-outdoor-wasser-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:39.506Z",
+      "crawledAt": "2026-11-14T21:41:48.232Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -1943,7 +1943,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:29:39.506Z",
+      "validThrough": "2027-01-14T21:41:48.232Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1977,7 +1977,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4654991-sport-leader-verkaufsberater-mwd-befristet-80-brig-3902-brig-glis",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:38.834Z",
+      "crawledAt": "2026-11-14T21:41:47.586Z",
       "addressLocality": "Brig-Glis",
       "postalCode": "3902",
       "addressRegion": "VS",
@@ -2027,7 +2027,7 @@
       },
       "streetAddress": "Brig-Glis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:29:38.834Z",
+      "validThrough": "2027-01-18T21:41:47.586Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2061,7 +2061,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4655605-conseiller-ere-sportif-cycle-hf-cdi-60-80-villeneuve-1844-villeneuve",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:29:38.252Z",
+      "crawledAt": "2026-11-14T21:41:46.851Z",
       "addressLocality": "Villeneuve",
       "postalCode": "1844",
       "addressRegion": "VD",
@@ -2109,7 +2109,7 @@
       },
       "streetAddress": "Villeneuve",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:29:38.252Z",
+      "validThrough": "2027-01-18T21:41:46.851Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2143,7 +2143,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4665031-sport-leader-verkaufsberater-efz-mwd-100-6004-luzern",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:37.596Z",
+      "crawledAt": "2026-11-14T21:41:46.177Z",
       "addressLocality": "Luzern",
       "postalCode": "6003",
       "addressRegion": "LU",
@@ -2188,7 +2188,7 @@
       },
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:29:37.596Z",
+      "validThrough": "2027-01-25T21:41:46.177Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2222,7 +2222,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4669909-sport-leader-verkaufsberater-mwd-fitness-outdoor-80-3627-heimberg",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:36.877Z",
+      "crawledAt": "2026-11-14T21:41:45.470Z",
       "addressLocality": "Heimberg",
       "postalCode": "3627",
       "addressRegion": "BE",
@@ -2267,7 +2267,7 @@
       },
       "streetAddress": "Heimberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:29:36.877Z",
+      "validThrough": "2027-01-27T21:41:45.470Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2301,7 +2301,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4670115-befristet-sport-leader-verkaufsberater-mwd-werkstatt-velo-ski-80-3627-heimberg",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:36.258Z",
+      "crawledAt": "2026-11-14T21:41:44.846Z",
       "addressLocality": "Heimberg",
       "postalCode": "3627",
       "addressRegion": "BE",
@@ -2351,7 +2351,7 @@
       },
       "streetAddress": "Heimberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:29:36.258Z",
+      "validThrough": "2027-01-27T21:41:44.846Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2385,7 +2385,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4674097-team-leader-abteilungsleiter-mwd-100-4053-basel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:35.560Z",
+      "crawledAt": "2026-11-14T21:41:44.166Z",
       "addressLocality": "Basel",
       "postalCode": "4001",
       "addressRegion": "BS",
@@ -2433,7 +2433,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:29:35.560Z",
+      "validThrough": "2027-01-31T21:41:44.166Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2467,7 +2467,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4640281-sport-leader-verkaufsberater-mwd-80-decathlon-altstetten-zurich",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:34.931Z",
+      "crawledAt": "2026-11-14T21:41:43.517Z",
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "addressRegion": "ZH",
@@ -2512,7 +2512,7 @@
       },
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T09:29:34.931Z",
+      "validThrough": "2027-01-07T21:41:43.517Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2546,7 +2546,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4675683-sport-leader-verkaufsberater-mit-efz-mwd-100-decathlon-kreuzlingen-8280-kreuzlingen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:34.248Z",
+      "crawledAt": "2026-11-14T21:41:42.816Z",
       "addressLocality": "Kreuzlingen",
       "postalCode": "8280",
       "addressRegion": "TG",
@@ -2594,7 +2594,7 @@
       },
       "streetAddress": "Kreuzlingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:29:34.248Z",
+      "validThrough": "2027-02-01T21:41:42.816Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2628,7 +2628,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4676993-conseiller-ere-sportif-ve-ski-decathlon-avry-cdd-20-60-novembre-a-mars-matran",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:29:33.608Z",
+      "crawledAt": "2026-11-14T21:41:42.206Z",
       "addressLocality": "Matran",
       "postalCode": "1753",
       "addressRegion": "FR",
@@ -2678,7 +2678,7 @@
       },
       "streetAddress": "Matran",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:29:33.608Z",
+      "validThrough": "2027-02-01T21:41:42.206Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2712,7 +2712,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4577101-conseiller-ere-sportif-avec-cfc-glisse-etehiver-hf-cdi-100-bussigny-1030-bussigny",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:29:33.005Z",
+      "crawledAt": "2026-11-14T21:41:41.550Z",
       "addressLocality": "Bussigny",
       "postalCode": "1030",
       "addressRegion": "VD",
@@ -2760,7 +2760,7 @@
       },
       "streetAddress": "Bussigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:29:33.005Z",
+      "validThrough": "2026-12-14T21:41:41.550Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2794,7 +2794,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4685279-conseiller-ere-sportif-ve-au-rayon-location-glisse-hiver-et-velo-a-50-2504-biel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:29:32.368Z",
+      "crawledAt": "2026-11-14T21:41:40.887Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "addressRegion": "BE",
@@ -2842,7 +2842,7 @@
       },
       "streetAddress": "Biel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:29:32.368Z",
+      "validThrough": "2027-02-07T21:41:40.887Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2876,7 +2876,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4687635-conseiller-ere-ski-contrat-horaire-1030-bussigny",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:29:31.756Z",
+      "crawledAt": "2026-11-14T21:41:40.176Z",
       "addressLocality": "Bussigny",
       "postalCode": "1030",
       "addressRegion": "VD",
@@ -2924,7 +2924,7 @@
       },
       "streetAddress": "Bussigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:29:31.756Z",
+      "validThrough": "2027-02-08T21:41:40.176Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2958,7 +2958,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4689679-velo-und-werkstattmechanikerin-mwd-100-6340-baar",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:31.116Z",
+      "crawledAt": "2026-11-14T21:41:39.531Z",
       "addressLocality": "Baar",
       "postalCode": "6340",
       "addressRegion": "ZG",
@@ -3008,7 +3008,7 @@
       },
       "streetAddress": "Baar",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:29:31.116Z",
+      "validThrough": "2027-02-10T21:41:39.531Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3042,7 +3042,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4690595-sport-leader-verkaufsberater-mwd-befristet-20-st-gallen-9015-st-gallen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:30.472Z",
+      "crawledAt": "2026-11-14T21:41:38.873Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "addressRegion": "SG",
@@ -3092,7 +3092,7 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:29:30.472Z",
+      "validThrough": "2027-02-10T21:41:38.873Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3126,7 +3126,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4690643-sport-leader-verkaufsberater-mwd-befristet-40-60-st-gallen-9015-st-gallen",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:29.760Z",
+      "crawledAt": "2026-11-14T21:41:38.180Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "addressRegion": "SG",
@@ -3176,7 +3176,7 @@
       },
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:29:29.760Z",
+      "validThrough": "2027-02-10T21:41:38.180Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3200,9 +3200,9 @@
       },
       "description": "Mission Decathlon Schweiz wächst rasant: Seit dem Start 2017 in Neuchâtel haben wir unser Netz auf mittlerweile rund 53 Verkaufsstellen ausgebaut. Und wir expandieren weiter – besonders in der Deutschschweiz. Deine Hauptaufgaben 1. Personaladministration\n• Erstellen von Arbeitgeberbescheinigungen (z. B. für die Arbeitslosenkasse) sowie sämtlicher administrativer Bestätigungen für unsere Mitarbeitenden.\n• Beantragen und Verlängern von Arbeitsbewilligungen.\n• Abwickeln von Anträgen für Familienzulagen sowie Mutterschafts- und Vaterschaftsentschädigungen (EO).\n• Verfassen von Zwischen- und Arbeitszeugnissen in enger Zusammenarbeit mit den jeweiligen Teamleadern. 2. Versicherungs- und Absenzenmanagement\n• Erfassen, Aufbereiten und Kontrollieren variabler Lohnbestandteile (Stundenmanagement, Absenzen, Abrechnungen von Familienzulagen sowie EO-Taggeldern).\n• Melden und lückenloses Nachverfolgen von Arbeitsunfähigkeiten infolge Krankheit oder Unfall in enger Abstimmung mit den HR Payroll Officers.\n• Abwickeln von An-, Um- und Abmeldungen bei der AHV-Ausgleichskasse. 3. Operativer Support & Payroll-Unterstützung\n• Aktive administrative Unterstützung des Payroll-Teams bei der Umsetzung bereichsübergreifender HR-Projekte.\n• Mitwirkung bei Plausibilitätsprüfungen sowie bei den monatlichen Lohnläufen und -abschlüssen.\n• Bearbeiten der HR-Korrespondenz sowie Prüfen und Verwalten von Rechnungen (Steuerämter, Migrationsbehörden, Versicherungen usw.). Profil\n• Ausbildung : Abgeschlossene kaufmännische Grundbildung (EFZ) oder gleichwertiger Abschluss, idealerweise ergänzt durch das Zertifikat als Sachbearbeiter/in Personalwesen (HRSE).\n• Erfahrung : Erste ausgewiesene Berufserfahrung in einer ähnlichen Funktion in der Schweizer Personaladministration.\n• Fachwissen : Fundierte Kenntnisse im Schweizer Arbeitsrecht sowie im Schweizer Sozialversicherungssystem.\n• Sprachen: Fliessende Deutsch- und Englischkenntnisse (mündlich und schriftlich). Französischkenntnisse sind ein grosses Plus.\n• IT-Kenntnisse : Sicherer Umgang mit den gängigen Office-Tools. Erfahrung mit einer ERP- oder Lohnbuchhaltungssoftware (z. B. Abacus, ProConcept, Sage) ist ein grosses Plus.\n• Persönlichkeit : Exakte und strukturierte Arbeitsweise, absolute Diskretion im Umgang mit sensiblen Daten, ausgeprägte Dienstleistungsorientierung sowie die Fähigkeit, Prioritäten auch in hektischen Phasen souverän zu setzen.",
       "descriptionByLocale": {
-        "de": "Mission Decathlon Schweiz wächst rasant: Seit dem Start 2017 in Neuchâtel haben wir unser Netz auf mittlerweile rund 53 Verkaufsstellen ausgebaut. Und wir expandieren weiter – besonders in der Deutschschweiz. Deine Hauptaufgaben 1. Personaladministration\n• Erstellen von Arbeitgeberbescheinigungen (z. B. für die Arbeitslosenkasse) sowie sämtlicher administrativer Bestätigungen für unsere Mitarbeitenden.\n• Beantragen und Verlängern von Arbeitsbewilligungen.\n• Abwickeln von Anträgen für Familienzulagen sowie Mutterschafts- und Vaterschaftsentschädigungen (EO).\n• Verfassen von Zwischen- und Arbeitszeugnissen in enger Zusammenarbeit mit den jeweiligen Teamleadern. 2. Versicherungs- und Absenzenmanagement\n• Erfassen, Aufbereiten und Kontrollieren variabler Lohnbestandteile (Stundenmanagement, Absenzen, Abrechnungen von Familienzulagen sowie EO-Taggeldern).\n• Melden und lückenloses Nachverfolgen von Arbeitsunfähigkeiten infolge Krankheit oder Unfall in enger Abstimmung mit den HR Payroll Officers.\n• Abwickeln von An-, Um- und Abmeldungen bei der AHV-Ausgleichskasse. 3. Operativer Support & Payroll-Unterstützung\n• Aktive administrative Unterstützung des Payroll-Teams bei der Umsetzung bereichsübergreifender HR-Projekte.\n• Mitwirkung bei Plausibilitätsprüfungen sowie bei den monatlichen Lohnläufen und -abschlüssen.\n• Bearbeiten der HR-Korrespondenz sowie Prüfen und Verwalten von Rechnungen (Steuerämter, Migrationsbehörden, Versicherungen usw.). Profil\n• Ausbildung : Abgeschlossene kaufmännische Grundbildung (EFZ) oder gleichwertiger Abschluss, idealerweise ergänzt durch das Zertifikat als Sachbearbeiter/in Personalwesen (HRSE).\n• Erfahrung : Erste ausgewiesene Berufserfahrung in einer ähnlichen Funktion in der Schweizer Personaladministration.\n• Fachwissen : Fundierte Kenntnisse im Schweizer Arbeitsrecht sowie im Schweizer Sozialversicherungssystem.\n• Sprachen: Fliessende Deutsch- und Englischkenntnisse (mündlich und schriftlich). Französischkenntnisse sind ein grosses Plus.\n• IT-Kenntnisse : Sicherer Umgang mit den gängigen Office-Tools. Erfahrung mit einer ERP- oder Lohnbuchhaltungssoftware (z. B. Abacus, ProConcept, Sage) ist ein grosses Plus.\n• Persönlichkeit : Exakte und strukturierte Arbeitsweise, absolute Diskretion im Umgang mit sensiblen Daten, ausgeprägte Dienstleistungsorientierung sowie die Fähigkeit, Prioritäten auch in hektischen Phasen souverän zu setzen.",
         "it": "Mission Decathlon Svizzera sta crescendo rapidamente: Dall'inizio a Neuchâtel nel 2017, abbiamo ampliato la nostra rete a circa 53 punti vendita. E continuiamo ad espanderci – soprattutto nella Svizzera di lingua tedesca. I tuoi compiti principali 1. Amministrazione del personale\n• Preparazione dei certificati di datore di lavoro (ad esempio per il fondo di disoccupazione) così come tutte le conferme amministrative per i nostri dipendenti.\n• Richiedere e rinnovare i permessi di lavoro.\n• Gestione delle domande per indennità familiari e indennità di maternità e paternità (EO).\n• Scrivere referenze ad interim e occupazionali in stretta collaborazione con i rispettivi capi squadra. 2. Assicurazione e gestione delle assenze\n• Registrazione, elaborazione e controllo delle componenti salariali variabili (gestione delle ore, assenze, liquidazione degli indennità familiari e indennità giornaliere EO).\n• Segnalazione e monitoraggio completo dell'incapacità lavorativa dovuta a malattia o incidente in stretta coordinazione con gli HR Payroll Officers.\n• Elaborazione di registrazioni, modifiche e radiazioni presso l'ufficio compensi AHV. 3. Supporto Operativo e Supporto alle Buste Paga\n• Supporto amministrativo attivo del team payroll nell'implementazione di progetti HR interdivisionali.\n• Partecipazione a controlli di plausibilità così come a corse salariali mensili e chiusure.\n• Elaborazione della corrispondenza HR, oltre al controllo e gestione delle fatture (uffici fiscali, autorità di migrazione, compagnie assicurative, ecc.). Profilo\n• Formazione: Completamento della formazione commerciale di base (EFZ) o equivalente, idealmente integrata dal certificato di impiegato risorse umane (HRSE).\n• Esperienza: Prima esperienza professionale comprovata in una funzione simile nell'amministrazione del personale svizzera.\n• Competenza: Solida conoscenza del diritto del lavoro svizzero e del sistema di sicurezza sociale svizzero.\n• Lingue: Fluente in tedesco e inglese (orale e scritto). La conoscenza del francese è un grande vantaggio.\n• Competenze IT: Uso sicuro degli strumenti comuni per ufficio. L'esperienza con ERP o software di contabilità delle buste paga (ad esempio Abacus, ProConcept, Sage) è un grande vantaggio.\n• Personalità: Metodo di lavoro preciso e strutturato, assoluta discrezione nel gestire dati sensibili, forte orientamento al servizio e capacità di stabilire priorità con sicurezza anche nelle fasi frenetiche.",
         "en": "Mission Decathlon Switzerland is growing rapidly: Since the start in Neuchâtel in 2017, we have expanded our network to around 53 sales outlets. And we continue to expand – especially in German-speaking Switzerland. Your main tasks 1. Personnel administration\n• Preparation of employer certificates (e.g. for the unemployment fund) as well as all administrative confirmations for our employees.\n• Applying for and renewing work permits.\n• Handling applications for family allowances and maternity and paternity compensation (EO).\n• Writing interim and employment references in close cooperation with the respective team leaders. 2. Insurance and absence management\n• Recording, processing and controlling variable salary components (hour management, absences, settlement of family allowances and EO daily allowances).\n• Reporting and complete tracking of incapacity for work due to illness or accident in close coordination with HR Payroll Officers.\n• Processing registrations, changes and deregistrations with the AHV compensation office. 3. Operational Support & Payroll Support\n• Active administrative support of the payroll team in the implementation of cross-divisional HR projects.\n• Participation in plausibility checks as well as in monthly wage runs and closing.\n• Processing HR correspondence as well as checking and managing invoices (tax offices, migration authorities, insurance companies, etc.). Profile\n• Training: Completed basic commercial training (EFZ) or equivalent, ideally supplemented by the certificate as a human resources clerk (HRSE).\n• Experience : First proven professional experience in a similar function in the Swiss personnel administration.\n• Expertise : Sound knowledge of Swiss labour law as well as the Swiss social security system.\n• Languages: Fluent in German and English (oral and written). Knowledge of French is a big plus.\n• IT skills: Confident use of common office tools. Experience with ERP or payroll accounting software (e.g. Abacus, ProConcept, Sage) is a big plus.\n• Personality: Precise and structured way of working, absolute discretion in dealing with sensitive data, strong service orientation and the ability to set priorities confidently even in hectic phases.",
+        "de": "Mission Decathlon Schweiz wächst rasant: Seit dem Start 2017 in Neuchâtel haben wir unser Netz auf mittlerweile rund 53 Verkaufsstellen ausgebaut. Und wir expandieren weiter – besonders in der Deutschschweiz. Deine Hauptaufgaben 1. Personaladministration\n• Erstellen von Arbeitgeberbescheinigungen (z. B. für die Arbeitslosenkasse) sowie sämtlicher administrativer Bestätigungen für unsere Mitarbeitenden.\n• Beantragen und Verlängern von Arbeitsbewilligungen.\n• Abwickeln von Anträgen für Familienzulagen sowie Mutterschafts- und Vaterschaftsentschädigungen (EO).\n• Verfassen von Zwischen- und Arbeitszeugnissen in enger Zusammenarbeit mit den jeweiligen Teamleadern. 2. Versicherungs- und Absenzenmanagement\n• Erfassen, Aufbereiten und Kontrollieren variabler Lohnbestandteile (Stundenmanagement, Absenzen, Abrechnungen von Familienzulagen sowie EO-Taggeldern).\n• Melden und lückenloses Nachverfolgen von Arbeitsunfähigkeiten infolge Krankheit oder Unfall in enger Abstimmung mit den HR Payroll Officers.\n• Abwickeln von An-, Um- und Abmeldungen bei der AHV-Ausgleichskasse. 3. Operativer Support & Payroll-Unterstützung\n• Aktive administrative Unterstützung des Payroll-Teams bei der Umsetzung bereichsübergreifender HR-Projekte.\n• Mitwirkung bei Plausibilitätsprüfungen sowie bei den monatlichen Lohnläufen und -abschlüssen.\n• Bearbeiten der HR-Korrespondenz sowie Prüfen und Verwalten von Rechnungen (Steuerämter, Migrationsbehörden, Versicherungen usw.). Profil\n• Ausbildung : Abgeschlossene kaufmännische Grundbildung (EFZ) oder gleichwertiger Abschluss, idealerweise ergänzt durch das Zertifikat als Sachbearbeiter/in Personalwesen (HRSE).\n• Erfahrung : Erste ausgewiesene Berufserfahrung in einer ähnlichen Funktion in der Schweizer Personaladministration.\n• Fachwissen : Fundierte Kenntnisse im Schweizer Arbeitsrecht sowie im Schweizer Sozialversicherungssystem.\n• Sprachen: Fliessende Deutsch- und Englischkenntnisse (mündlich und schriftlich). Französischkenntnisse sind ein grosses Plus.\n• IT-Kenntnisse : Sicherer Umgang mit den gängigen Office-Tools. Erfahrung mit einer ERP- oder Lohnbuchhaltungssoftware (z. B. Abacus, ProConcept, Sage) ist ein grosses Plus.\n• Persönlichkeit : Exakte und strukturierte Arbeitsweise, absolute Diskretion im Umgang mit sensiblen Daten, ausgeprägte Dienstleistungsorientierung sowie die Fähigkeit, Prioritäten auch in hektischen Phasen souverän zu setzen.",
         "fr": "Mission Decathlon Suisse connaît une croissance rapide : Depuis le début à Neuchâtel en 2017, nous avons étendu notre réseau à environ 53 points de vente. Et nous continuons à nous développer – notamment en Suisse germanophone. Vos principales missions 1. Gestion du personnel\n• Préparation des certificats d'employeur (par exemple pour le fonds chômage) ainsi que toutes les confirmations administratives pour nos employés.\n• Demander et renouveler des permis de travail.\n• Gestion des demandes d'allocations familiales ainsi que d'indemnisation de maternité et de paternité (EO).\n• Rédiger des références intérimaires et d'emploi en étroite collaboration avec les responsables d'équipe concernés. 2. Assurance et gestion des absences\n• Enregistrement, traitement et contrôle des composantes salariales variables (gestion des heures, absences, règlement des allocations familiales et indemnités journalières EO).\n• Signaler et suivre complètement l'incapacité au travail due à une maladie ou à un accident en étroite coordination avec les responsables RH de la paie.\n• Traitement des enregistrements, modifications et désinscriptions auprès du bureau de rémunération AHV. 3. Soutien opérationnel et soutien à la paie\n• Soutien administratif actif de l'équipe paie dans la mise en œuvre de projets RH interdivisionnaires.\n• Participation aux vérifications de plausibilité ainsi qu'aux périodes mensuelles de salaire et à la clôture.\n• Traitement de la correspondance RH ainsi que vérification et gestion des factures (bureaux de fisc, autorités de migration, compagnies d'assurance, etc.). Profil\n• Formation : Avoir suivi une formation commerciale de base (EFZ) ou équivalente, idéalement complétée par un certificat de commis aux ressources humaines (HRSE).\n• Expérience : Première expérience professionnelle prouvée dans une fonction similaire dans l'administration du personnel suisse.\n• Expertise : Solide connaissance du droit du travail suisse ainsi que du système suisse de sécurité sociale.\n• Langues : Maîtrise l'allemand et l'anglais (oral et écrit). La connaissance du français est un grand atout.\n• Compétences en informatique : Utilisation assurée des outils de bureau courants. Une expérience avec les logiciels ERP ou de comptabilité de paie (par exemple Abacus, ProConcept, Sage) est un atout majeur.\n• Personnalité : Mode de travail précis et structuré, une discrétion absolue dans la gestion des données sensibles, une forte orientation vers le service et la capacité à définir les priorités avec assurance même dans les phases chargées."
       },
       "location": "Spreitenbach",
@@ -3210,7 +3210,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4692367-hr-specialist-personaladministration-mwd-100-befristet-bis-august-2027-8957-spreitenbach",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:28.321Z",
+      "crawledAt": "2026-11-14T21:41:36.776Z",
       "addressLocality": "Spreitenbach",
       "postalCode": "8957",
       "addressRegion": "AG",
@@ -3228,6 +3228,9 @@
       "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4692367-hr-specialist-personaladministration-mwd-100-befristet-bis-august-2027-8957-spreitenbach",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "hr-specialist-personaladministration-m-w-d-100-befristet-bis-august-2027-decathlon-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "hr-specialist-personaladministration-m-w-d-100-befristet-bis-august-2027-decathlon-ch"
@@ -3239,9 +3242,7 @@
           "hr-specialist-personaladministration-m-w-d-100-befristet-bis-august-2027-decathlon-ch"
         ]
       },
-      "previousSlugs": [
-        "hr-specialist-personaladministration-m-w-d-100-befristet-bis-august-2027-decathlon-ch"
-      ],
+      "firstSeenAt": "2026-11-13T21:33:29.860Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -3257,9 +3258,8 @@
       },
       "streetAddress": "Spreitenbach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:29:28.321Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:33:29.860Z"
+      "validThrough": "2027-02-11T21:41:36.776Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "decathlon-f6ecb86a97a2",
@@ -3292,7 +3292,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4521591-mecanicien-ne-technicien-ne-cycle-et-sports-hf-cdi-80-100-bienne-2504-biel",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:29:27.699Z",
+      "crawledAt": "2026-11-14T21:41:36.155Z",
       "addressLocality": "Biel",
       "postalCode": "2504",
       "addressRegion": "BE",
@@ -3367,7 +3367,7 @@
       },
       "streetAddress": "Biel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:29:27.699Z",
+      "validThrough": "2026-12-14T21:41:36.155Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3391,9 +3391,9 @@
       },
       "description": "Mission Dein zukünftiges Spielfeld Du wirst Teil des Stores in Hinwil. Unser Store an der Wässeristrasse ist der ideale Anlaufpunkt für das Zürcher Oberland. Direkt vor unserer Haustür liegen Berge und Seen – genau dort, wo die Outdoor-Abenteuer unserer Kundschaft beginnen. Dein Bereich steht im Mittelpunkt unserer lokalen Strategie. Durch unsere einmalige Lage sind wir besonders stark in den Bereichen Outdoor, Velo und Wintersport und bieten der Region mit unserer Werkstatt und dem Mietservice einen echten sportlichen Mehrwert. Werde Teil eines Abenteuers, das stetig wächst Decathlon in der Schweiz ist eine Erfolgsgeschichte, die 2017 in Neuchâtel begann. Seitdem haben wir jährlich etwa zehn Filialen eröffnet und zählen heute 53 Verkaufsstellen. Und wir haben nicht vor, hier aufzuhören! Unsere Expansion geht weiter, insbesondere in der Deutschschweiz, und bietet landesweit Karrieremöglichkeiten. Und nun zu deinem Job: Suchst du einen Job, bei dem du nicht nur hinter einer Werkbank stehst und Schrauben anziehst? Hast du Lust, Entscheidungen zu treffen und in direktem Kontakt mit Sportler:innen zu stehen? Träumst du davon, deine technische Expertise mit echtem Kundenservice zu verbinden? Dann ist diese Stelle genau das Richtige für dich. Warum?\n• Deine Werkstatt ist dein eigenes Unternehmen: Bei Decathlon geben wir unseren Teamkolleg:innen gerne Verantwortung. Du führst nicht nur Reparaturen aus: Du musst Zeiten mit hoher Auslastung antizipieren, die Richtigkeit deines Ersatzteillagers verwalten und garantieren sowie deine Leistungskennzahlen (Wachstum, Reparaturquote, Kundenzufriedenheit) im Blick behalten.\n• Du bist das Bindeglied zwischen Technik und Mensch: Die Kundschaft steht im Mittelpunkt. Egal, ob es darum geht, eine präzise Diagnose zu stellen, die richtige Serviceauswahl (Second Life, Wartung) anzubieten oder einfach Sportler:innen bezüglich ihres Materials zu beruhigen – du bist vor Ort. Deine technische Expertise ist nur etwas wert, wenn sie mit einem Lächeln geteilt wird.\n• Du schenkst Vertrauen und bekommst es zurück: Du hast eine Idee, um die Effizienz der Werkstatt zu verbessern oder unsere Bearbeitungszeiten zu verkürzen? Du hast das Recht, Dinge auszuprobieren, Fehler zu machen und daraus zu lernen. Man wächst, indem man die Initiative ergreift. Zudem ist diese Stelle ein hervorragendes Sprungbrett: Wenn du ambitioniert bist, warten zahlreiche Entwicklungsmöglichkeiten auf dich (Werkstattleitung, Regionaltechniker:in...). Dieser Job ist NICHTS für dich, wenn...\n• Du NUR Fahrräder reparieren willst (bei uns ist eine Werkstatt vielseitig: Ski, Fitness, Flockdruck/Personalisierung etc. Auch wenn Fahrräder den Grossteil unserer Reparaturen ausmachen).\n• Du dich NUR für reine Technik interessierst und dich der Kundenkontakt langweilt.\n• Du \"Top-down\"-Strukturen magst und darauf wartest, dass andere Entscheidungen für dich treffen.\n• Du nicht bereit bist, samstags zu arbeiten (denn das ist die Zeit, in der die Kunden uns am meisten brauchen). Was macht ein:e Werkstatt-Techniker:in? Deine Mission ist zweigleisig: die einwandfreie Qualität deiner technischen Dienstleistungen sicherstellen und gleichzeitig ein aussergewöhnliches Kundenerlebnis garantieren. Im Alltag teilen sich deine Aufgaben in zwei Hauptbereiche auf: 1. Diagnose und Kundenbeziehung:\n• Die Kundschaft begrüssen, sich ihre Bedürfnisse anhören und eine zuverlässige sowie präzise Diagnose stellen.\n• Die Standards der Werkstattannahme anwenden und die Diagnoseverfahren befolgen.\n• Unsere Produkte und Dienstleistungen (physisch und digital) verkaufen und systematisch die richtige Auswahl an Kreislaufwirtschaftsdienstleistungen anbieten.\n• Einen Kostenvoranschlag und eine Frist vorschlagen, die an die Bedürfnisse der Sportler:innen angepasst sind.\n• Das Kassieren und die Übergabe des Materials samt Pflegetipps übernehmen.\n• Deine Erfolgsindikatoren (KPIs): % der korrekten Diagnosen, % Anteil der lokalen Auftragsannahmen (PEC), Wachstum der Anzahl der Eingriffe (PEC), bezahlter Durchschnittswarenkorb. 2. Technische und operative Dienstleistungen:\n• Reparatur-, Wartungs- und Instandsetzungsarbeiten gemäss den Decathlon-Sicherheitsstandards durchführen.\n• Die Personalisierung von Produkten (Flockdruck, Gravur...) sicherstellen.\n• Die Richtigkeit deines Ersatzteillagers garantieren und Fehlendes bestellen.\n• Auf ein sicheres, sauberes und geschütztes Arbeitsumfeld achten.\n• Deine Erfolgsindikatoren (KPIs): Reparaturquote, lokale Bearbeitungszeit, Bestandsgenauigkeit, Werkstatteffizienz, GMV-Wachstum bei Personalisierung und Auszeichnungen, NPS (Net Promoter Score) Personalisierung. Profil Was wir von dir erwarten:\n• Du verfügst über eine technische Ausbildung (wie EFZ, EBA) und nachweisbare Erfahrung in der Mechanik (idealerweise im Zweiradbereich; Ski/Fitness ist ein grosses Plus).\n• Du bist eine wahrhaft sportbegeisterte und aktive Person.\n• Du bist lösungsorientiert: Bei einem mechanischen Problem oder unzufriedenen Kund:innen findest du immer einen Weg, die Dinge zu klären.\n• Du bist organisiert, gründlich und weisst, wie man stressige Situationen mit emotionaler Intelligenz bewältigt.\n• Du beherrschst Deutsch perfekt. Gute Englisch-/Französischkenntnisse sind ein grosses Plus. Was wir dir bieten: (Kleine Anmerkung: Die unten genannten Beträge und Vorteile gelten für ein 100%-Pensum und werden bei einem niedrigeren Beschäftigungsgrad entsprechend anteilig berechnet!). Im Folgenden listen wir die wichtigsten Vorteile auf.\n• Mitarbeiteraktien: Einmal im Jahr kannst du Aktionär:in des Unternehmens werden. Das ist eine hervorragende Anlage: Der Wert der Aktie war seit der Gründung von Decathlon vor 50 Jahren nie negativ!\n• Ferien: Weil Erholung zur Leistung dazugehört, profitierst du von 5 Wochen bezahlten Ferien pro Jahr.\n• Leidenschaft für den Sport: Wir unterstützen deine sportliche Aktivität voll und ganz! Profitiere von 25 % Rabatt auf deine Decathlon-Einkäufe (und sogar von zusätzlichen 25 % Rabatt, wenn du ein Produkt der sanften Mobilität für deinen Arbeitsweg kaufst). Wir schenken dir ausserdem einen Gutschein im Wert von 225 CHF/Jahr für dein Sport- oder Fitnessabo.\n• Deine Entwicklung: Bei uns hörst du dank unserer hunderten Weiterbildungen nie auf zu lernen. Zudem hast du jeden Monat einen besonderen Austausch mit deinem/deiner Leader:in, um über deine Ziele und Wünsche zu sprechen. Deine Karriere: Bei uns ist Weiterentwicklung kein Mythos Du startest bei uns in der Werkstatt? Du kannst die Werkstattleitung übernehmen, dich in Richtung Verkauf als Abteilungsleitung weiterentwickeln oder sogar Trainer:in werden. Die Möglichkeiten sind vielfältig! Mit tausenden möglichen Berufen in der Schweiz und im Ausland liegt dein Werdegang in deiner Hand. Decathlon beizutreten bedeutet, Teil eines weltweiten Netzwerks zu werden, in dem echte Entwicklungsmöglichkeiten bestehen. Der Bewerbungsprozess: Wie lernen wir uns kennen? Wir setzen auf eine objektive und menschliche Bewertung. Das sind die Schritte, um Teil unseres Teams zu werden:\n• Deine Bewerbung: Bei uns ist kein Motivationsschreiben nötig. Sende einfach deinen Lebenslauf und beantworte unseren kurzen Fragebogen.\n• Das Assessment: Sobald du dich bewirbst, erhältst du eine E-Mail von AssessFirst (denk daran, deinen Spam-Ordner zu überprüfen!). Es handelt sich um einen maximal 30-minütigen Fragebogen, der uns hilft, deine Persönlichkeit und deine Soft Skills kennenzulernen. Keine Sorge, es ist keine KI, die deinen Lebenslauf sortiert: Unsere Teams lesen jede Bewerbung persönlich und übernehmen die Vorauswahl! Der echte Pluspunkt? Du erhältst deine Ergebnisse sofort, ein super Bonus, der dir bei deinen Recherchen oder zukünftigen Vorstellungsgesprächen helfen wird.\n• Interview im Store: Triff deine:n zukünftige:n Manager:in, um konkret zu werden: Wir sprechen über dein zukünftiges Spielfeld und deine technischen Fähigkeiten. (Manchmal wird noch ein letzter Schritt mit der Store-Leitung hinzugefügt).\n• Bereit, die Herausforderung anzunehmen? Komm zu uns!",
       "descriptionByLocale": {
-        "de": "Mission Dein zukünftiges Spielfeld Du wirst Teil des Stores in Hinwil. Unser Store an der Wässeristrasse ist der ideale Anlaufpunkt für das Zürcher Oberland. Direkt vor unserer Haustür liegen Berge und Seen – genau dort, wo die Outdoor-Abenteuer unserer Kundschaft beginnen. Dein Bereich steht im Mittelpunkt unserer lokalen Strategie. Durch unsere einmalige Lage sind wir besonders stark in den Bereichen Outdoor, Velo und Wintersport und bieten der Region mit unserer Werkstatt und dem Mietservice einen echten sportlichen Mehrwert. Werde Teil eines Abenteuers, das stetig wächst Decathlon in der Schweiz ist eine Erfolgsgeschichte, die 2017 in Neuchâtel begann. Seitdem haben wir jährlich etwa zehn Filialen eröffnet und zählen heute 53 Verkaufsstellen. Und wir haben nicht vor, hier aufzuhören! Unsere Expansion geht weiter, insbesondere in der Deutschschweiz, und bietet landesweit Karrieremöglichkeiten. Und nun zu deinem Job: Suchst du einen Job, bei dem du nicht nur hinter einer Werkbank stehst und Schrauben anziehst? Hast du Lust, Entscheidungen zu treffen und in direktem Kontakt mit Sportler:innen zu stehen? Träumst du davon, deine technische Expertise mit echtem Kundenservice zu verbinden? Dann ist diese Stelle genau das Richtige für dich. Warum?\n• Deine Werkstatt ist dein eigenes Unternehmen: Bei Decathlon geben wir unseren Teamkolleg:innen gerne Verantwortung. Du führst nicht nur Reparaturen aus: Du musst Zeiten mit hoher Auslastung antizipieren, die Richtigkeit deines Ersatzteillagers verwalten und garantieren sowie deine Leistungskennzahlen (Wachstum, Reparaturquote, Kundenzufriedenheit) im Blick behalten.\n• Du bist das Bindeglied zwischen Technik und Mensch: Die Kundschaft steht im Mittelpunkt. Egal, ob es darum geht, eine präzise Diagnose zu stellen, die richtige Serviceauswahl (Second Life, Wartung) anzubieten oder einfach Sportler:innen bezüglich ihres Materials zu beruhigen – du bist vor Ort. Deine technische Expertise ist nur etwas wert, wenn sie mit einem Lächeln geteilt wird.\n• Du schenkst Vertrauen und bekommst es zurück: Du hast eine Idee, um die Effizienz der Werkstatt zu verbessern oder unsere Bearbeitungszeiten zu verkürzen? Du hast das Recht, Dinge auszuprobieren, Fehler zu machen und daraus zu lernen. Man wächst, indem man die Initiative ergreift. Zudem ist diese Stelle ein hervorragendes Sprungbrett: Wenn du ambitioniert bist, warten zahlreiche Entwicklungsmöglichkeiten auf dich (Werkstattleitung, Regionaltechniker:in...). Dieser Job ist NICHTS für dich, wenn...\n• Du NUR Fahrräder reparieren willst (bei uns ist eine Werkstatt vielseitig: Ski, Fitness, Flockdruck/Personalisierung etc. Auch wenn Fahrräder den Grossteil unserer Reparaturen ausmachen).\n• Du dich NUR für reine Technik interessierst und dich der Kundenkontakt langweilt.\n• Du \"Top-down\"-Strukturen magst und darauf wartest, dass andere Entscheidungen für dich treffen.\n• Du nicht bereit bist, samstags zu arbeiten (denn das ist die Zeit, in der die Kunden uns am meisten brauchen). Was macht ein:e Werkstatt-Techniker:in? Deine Mission ist zweigleisig: die einwandfreie Qualität deiner technischen Dienstleistungen sicherstellen und gleichzeitig ein aussergewöhnliches Kundenerlebnis garantieren. Im Alltag teilen sich deine Aufgaben in zwei Hauptbereiche auf: 1. Diagnose und Kundenbeziehung:\n• Die Kundschaft begrüssen, sich ihre Bedürfnisse anhören und eine zuverlässige sowie präzise Diagnose stellen.\n• Die Standards der Werkstattannahme anwenden und die Diagnoseverfahren befolgen.\n• Unsere Produkte und Dienstleistungen (physisch und digital) verkaufen und systematisch die richtige Auswahl an Kreislaufwirtschaftsdienstleistungen anbieten.\n• Einen Kostenvoranschlag und eine Frist vorschlagen, die an die Bedürfnisse der Sportler:innen angepasst sind.\n• Das Kassieren und die Übergabe des Materials samt Pflegetipps übernehmen.\n• Deine Erfolgsindikatoren (KPIs): % der korrekten Diagnosen, % Anteil der lokalen Auftragsannahmen (PEC), Wachstum der Anzahl der Eingriffe (PEC), bezahlter Durchschnittswarenkorb. 2. Technische und operative Dienstleistungen:\n• Reparatur-, Wartungs- und Instandsetzungsarbeiten gemäss den Decathlon-Sicherheitsstandards durchführen.\n• Die Personalisierung von Produkten (Flockdruck, Gravur...) sicherstellen.\n• Die Richtigkeit deines Ersatzteillagers garantieren und Fehlendes bestellen.\n• Auf ein sicheres, sauberes und geschütztes Arbeitsumfeld achten.\n• Deine Erfolgsindikatoren (KPIs): Reparaturquote, lokale Bearbeitungszeit, Bestandsgenauigkeit, Werkstatteffizienz, GMV-Wachstum bei Personalisierung und Auszeichnungen, NPS (Net Promoter Score) Personalisierung. Profil Was wir von dir erwarten:\n• Du verfügst über eine technische Ausbildung (wie EFZ, EBA) und nachweisbare Erfahrung in der Mechanik (idealerweise im Zweiradbereich; Ski/Fitness ist ein grosses Plus).\n• Du bist eine wahrhaft sportbegeisterte und aktive Person.\n• Du bist lösungsorientiert: Bei einem mechanischen Problem oder unzufriedenen Kund:innen findest du immer einen Weg, die Dinge zu klären.\n• Du bist organisiert, gründlich und weisst, wie man stressige Situationen mit emotionaler Intelligenz bewältigt.\n• Du beherrschst Deutsch perfekt. Gute Englisch-/Französischkenntnisse sind ein grosses Plus. Was wir dir bieten: (Kleine Anmerkung: Die unten genannten Beträge und Vorteile gelten für ein 100%-Pensum und werden bei einem niedrigeren Beschäftigungsgrad entsprechend anteilig berechnet!). Im Folgenden listen wir die wichtigsten Vorteile auf.\n• Mitarbeiteraktien: Einmal im Jahr kannst du Aktionär:in des Unternehmens werden. Das ist eine hervorragende Anlage: Der Wert der Aktie war seit der Gründung von Decathlon vor 50 Jahren nie negativ!\n• Ferien: Weil Erholung zur Leistung dazugehört, profitierst du von 5 Wochen bezahlten Ferien pro Jahr.\n• Leidenschaft für den Sport: Wir unterstützen deine sportliche Aktivität voll und ganz! Profitiere von 25 % Rabatt auf deine Decathlon-Einkäufe (und sogar von zusätzlichen 25 % Rabatt, wenn du ein Produkt der sanften Mobilität für deinen Arbeitsweg kaufst). Wir schenken dir ausserdem einen Gutschein im Wert von 225 CHF/Jahr für dein Sport- oder Fitnessabo.\n• Deine Entwicklung: Bei uns hörst du dank unserer hunderten Weiterbildungen nie auf zu lernen. Zudem hast du jeden Monat einen besonderen Austausch mit deinem/deiner Leader:in, um über deine Ziele und Wünsche zu sprechen. Deine Karriere: Bei uns ist Weiterentwicklung kein Mythos Du startest bei uns in der Werkstatt? Du kannst die Werkstattleitung übernehmen, dich in Richtung Verkauf als Abteilungsleitung weiterentwickeln oder sogar Trainer:in werden. Die Möglichkeiten sind vielfältig! Mit tausenden möglichen Berufen in der Schweiz und im Ausland liegt dein Werdegang in deiner Hand. Decathlon beizutreten bedeutet, Teil eines weltweiten Netzwerks zu werden, in dem echte Entwicklungsmöglichkeiten bestehen. Der Bewerbungsprozess: Wie lernen wir uns kennen? Wir setzen auf eine objektive und menschliche Bewertung. Das sind die Schritte, um Teil unseres Teams zu werden:\n• Deine Bewerbung: Bei uns ist kein Motivationsschreiben nötig. Sende einfach deinen Lebenslauf und beantworte unseren kurzen Fragebogen.\n• Das Assessment: Sobald du dich bewirbst, erhältst du eine E-Mail von AssessFirst (denk daran, deinen Spam-Ordner zu überprüfen!). Es handelt sich um einen maximal 30-minütigen Fragebogen, der uns hilft, deine Persönlichkeit und deine Soft Skills kennenzulernen. Keine Sorge, es ist keine KI, die deinen Lebenslauf sortiert: Unsere Teams lesen jede Bewerbung persönlich und übernehmen die Vorauswahl! Der echte Pluspunkt? Du erhältst deine Ergebnisse sofort, ein super Bonus, der dir bei deinen Recherchen oder zukünftigen Vorstellungsgesprächen helfen wird.\n• Interview im Store: Triff deine:n zukünftige:n Manager:in, um konkret zu werden: Wir sprechen über dein zukünftiges Spielfeld und deine technischen Fähigkeiten. (Manchmal wird noch ein letzter Schritt mit der Store-Leitung hinzugefügt).\n• Bereit, die Herausforderung anzunehmen? Komm zu uns!",
         "it": "Missione Il vostro futuro terreno di gioco Entrerete a far parte del negozio di Hinwil. Il nostro negozio in Wässeristrasse è il punto di contatto ideale per l'Oberland zurighese. Montagne e laghi sono proprio a portata di mano, esattamente dove iniziano le avventure all’aria aperta dei nostri clienti. La tua zona è al centro della nostra strategia locale. Grazie alla nostra posizione unica, siamo particolarmente forti nei settori dell'outdoor, del ciclismo e degli sport invernali e offriamo alla regione un vero valore aggiunto sportivo con la nostra officina e il servizio di noleggio. Entra a far parte di un'avventura in continua crescita Decathlon in Svizzera è una storia di successo iniziata a Neuchâtel nel 2017. Da allora, abbiamo aperto una decina di filiali ogni anno e ora contiamo 53 punti vendita. E non abbiamo intenzione di fermarci qui! La nostra espansione continua, in particolare nella Svizzera tedesca, e offre opportunità di carriera a livello nazionale. E ora parliamo del tuo lavoro: stai cercando un lavoro in cui non stai semplicemente dietro un banco da lavoro a stringere viti? Vuoi prendere decisioni ed essere in contatto diretto con gli atleti? Sogni di combinare la tua competenza tecnica con un vero servizio clienti? Allora questa posizione è perfetta per te. Perché?\n• Il tuo laboratorio è un tuo business: da Decathlon ci piace affidare responsabilità ai nostri colleghi. Non esegui solo riparazioni: devi prevedere i periodi di alto utilizzo, gestire e garantire l'accuratezza del tuo magazzino di ricambi e tenere d'occhio i tuoi principali indicatori di prestazione (crescita, tasso di riparazione, soddisfazione del cliente).\n• Sei il collegamento tra tecnologia e persone: il cliente è il fulcro. Che si tratti di fare una diagnosi accurata, offrire la scelta giusta di servizi (seconda vita, manutenzione) o semplicemente rassicurare gli atleti riguardo al loro equipaggiamento – ci sei tu. La tua competenza tecnica vale solo se viene condivisa con un sorriso.\n• Dai fiducia e la recuperi: hai un'idea per migliorare l'efficienza del workshop o ridurre i nostri tempi di elaborazione? Hai il diritto di provare cose, commettere errori e imparare da essi. Cresci prendendo l'iniziativa. Inoltre, questa posizione è un eccellente trampolino di lancio: se sei ambizioso, ci sono molte opportunità di sviluppo che ti aspettano (responsabile del workshop, tecnico regionale...). Questo lavoro NON fa per te se...\n• Vuoi SOLO riparare biciclette (con noi, un laboratorio è versatile: sci, fitness, stampa/personalizzazione in flock, ecc. Anche se le biciclette costituiscono la maggior parte delle nostre riparazioni).\n• Sei interessato SOLO alla tecnologia pura e ti annoi dal contatto con i clienti.\n• Ti piacciono le strutture \"dall'alto verso il basso\" e aspetti che gli altri prendano decisioni per te.\n• Non sei disposto a lavorare il sabato (perché è il momento in cui i clienti hanno più bisogno di noi). Cosa fa un tecnico di officina? La tua missione è duplice: garantire la qualità impeccabile dei tuoi servizi tecnici garantendo al contempo un'esperienza eccezionale al cliente. Nella vita quotidiana, le tue responsabilità sono suddivise in due aree principali: 1. Diagnosi e rapporto con il cliente:\n• Per accogliere i clienti, ascoltare le loro esigenze e fare una diagnosi affidabile e precisa.\n• Applicare gli standard di accettazione dei workshop e seguire le procedure diagnostiche.\n• Vendi i nostri prodotti e servizi (fisici e digitali) e offri sistematicamente la giusta gamma di servizi di economia circolare.\n• Proporre una stima dei costi e una scadenza adattata alle esigenze degli atleti.\n• Il check-out e la consegna del materiale, inclusi i consigli di cura, sono occupati.\n• I tuoi indicatori di successo (KPI): percentuale di diagnosi corrette, percentuale di accettazione degli ordini locali (PEC), crescita del numero di procedure (PEC), media del carrello della spesa pagata. 2. Servizi tecnici e operativi:\n• Esegui lavori di riparazione, manutenzione e revisione in conformità con gli standard di sicurezza del Decathlon.\n• Assicura la personalizzazione dei prodotti (stampa a flock, incisione...).\n• Assicurati la correttezza del tuo magazzino di ricambi e ordina ciò che manca.\n• Mantieni un ambiente di lavoro sicuro, pulito e proteguto.\n• I tuoi indicatori di successo (KPI): tasso di riparazione, tempi di consegna locali, accuratezza dell'inventario, efficienza del workshop, crescita GMV nella personalizzazione e nei premi, personalizzazione NPS (Net Promoter Score). Profilo Cosa ci aspettiamo da te:\n• Hai una formazione tecnica (come EFZ, EBA) ed esperienza dimostrabile in meccanica (idealmente nel settore delle due ruote; lo sci/fitness è un grande vantaggio).\n• Sei davvero un appassionato di sport e una persona attiva.\n• Sei orientato alla soluzione: se c'è un problema meccanico o un cliente insoddisfatto, troverai sempre un modo per chiarire le cose.\n• Sei organizzato, scrupoloso e sai come gestire situazioni stressanti con intelligenza emotiva.\n• Hai una padronanza perfetta del tedesco. Buone competenze in inglese/francese sono un grande vantaggio. Cosa ti offriamo: (Piccola nota: Gli importi e i benefici menzionati qui sotto riguardano il 100% del carico di lavoro e sono calcolati su base proporzionale per un livello di impiego inferiore!). Di seguito elenchiamo i benefici più importanti.\n• Azioni dei dipendenti: Una volta all'anno puoi diventare azionista dell'azienda. Questo è un investimento eccellente: il valore delle azioni non è mai stato negativo da quando Decathlon è stata fondata 50 anni fa!\n• Festività: poiché il relax fa parte della performance, benefici di 5 settimane di ferie pagate all'anno.\n• Passione per lo sport: sosteniamo pienamente la tua attività sportiva! Approfitta di uno sconto del 25% sugli acquisti di Decathlon (e anche di un ulteriore 25% di sconto se acquisti un prodotto di mobilità morbida per il tragitto al lavoro). Ti forniremo anche un voucher del valore di 225 CHF all'anno per il tuo abbonamento sportivo o fitness.\n• Il tuo sviluppo: con noi, non smetterai mai di imparare grazie ai nostri centinaia di corsi di formazione. Inoltre, avrai uno scambio speciale con il tuo leader ogni mese per parlare dei tuoi obiettivi e desideri. La tua carriera: con noi, lo sviluppo non è un mito. Inizi con noi nel workshop? Puoi occuparti della gestione del workshop, svilupparti verso le vendite come responsabile di reparto o persino diventare formatore. Le possibilità sono infinite! Con migliaia di possibili professioni in Svizzera e all'estero, la tua carriera è nelle tue mani. Entrare a far parte di una rete mondiale dove ci sono reali opportunità di sviluppo. Il processo di candidatura: come ci conosciamo? Facciamo affidamento su una valutazione oggettiva e umana. Questi sono i passaggi per entrare a far parte del nostro team:\n• La tua candidatura: Non richiediamo una lettera di motivazione. Invia semplicemente il tuo CV e rispondi al nostro breve questionario.\n• La valutazione: Appena ti candidi, riceverai un'email da AssessFirst (ricordati di controllare la cartella spam!). È un questionario di massimo 30 minuti che ci aiuterà a conoscere la tua personalità e le tue soft skills. Non preoccuparti, non è l'IA a gestire il tuo CV: i nostri team leggono personalmente ogni candidatura e si occupano della pre-selezione! Il vero vantaggio? Riceverai immediatamente i risultati, un super bonus che ti aiuterà nella ricerca o nei colloqui futuri.\n• Intervista in negozio: Incontra il tuo futuro manager per essere specifico: parleremo della tua futura presentazione e delle tue competenze tecniche. (A volte viene aggiunto un passo finale con la gestione del negozio).\n• Pronto ad affrontare la sfida? Unisciti a noi!",
         "en": "Mission Your future playing field You will become part of the store in Hinwil. Our store on Wässeristrasse is the ideal point of contact for the Zurich Oberland. Mountains and lakes are right on our doorstep – exactly where our customers’ outdoor adventures begin. Your area is at the heart of our local strategy. Due to our unique location, we are particularly strong in the areas of outdoor, cycling and winter sports and offer the region real sporting added value with our workshop and rental service. Become part of an adventure that is constantly growing Decathlon in Switzerland is a success story that began in Neuchâtel in 2017. Since then, we have opened around ten branches every year and now have 53 sales outlets. And we don't plan on stopping there! Our expansion continues, particularly in German-speaking Switzerland, and offers career opportunities nationwide. And now about your job: Are you looking for a job where you don't just stand behind a workbench and tighten screws? Do you want to make decisions and be in direct contact with athletes? Do you dream of combining your technical expertise with real customer service? Then this position is just right for you. Why?\n• Your workshop is your own business: At Decathlon, we like to give our teammates responsibility. You don't just carry out repairs: you have to anticipate periods of high utilization, manage and guarantee the accuracy of your spare parts warehouse, and keep an eye on your key performance indicators (growth, repair rate, customer satisfaction).\n• You are the link between technology and people: the customer is the focus. Whether it's making an accurate diagnosis, offering the right service selection (second life, maintenance) or simply reassuring athletes about their equipment – you're there. Your technical expertise is only worth something if it's shared with a smile.\n• You give trust and get it back: Do you have an idea to improve the efficiency of the workshop or reduce our processing times? You have the right to try things, make mistakes and learn from them. You grow by taking the initiative. In addition, this position is an excellent stepping stone: if you are ambitious, there are many development opportunities waiting for you (workshop manager, regional technician...). This job is NOT for you if...\n• You ONLY want to repair bicycles (with us, a workshop is versatile: skis, fitness, flock printing/personalization, etc. Even though bicycles make up the majority of our repairs).\n• You are ONLY interested in pure technology and you are bored with customer contact.\n• You like \"top-down\" structures and wait for others to make decisions for you.\n• You're not willing to work on Saturdays (because that's the time when customers need us the most). What does a workshop technician do? Your mission is two-pronged: to ensure the impeccable quality of your technical services while guaranteeing an exceptional customer experience. On a day-to-day basis, your responsibilities are divided into two main areas: 1. Diagnosis and customer relationship:\n• To welcome customers, listen to their needs and make a reliable and precise diagnosis.\n• Apply the standards of workshop acceptance and follow the diagnostic procedures.\n• Sell our products and services (physical and digital) and systematically offer the right range of circular economy services.\n• Propose a cost estimate and deadline adapted to the needs of the athletes.\n• The checkout and handover of the material, including care tips, is taken care of.\n• Your success indicators (KPIs): % of correct diagnoses, % share of local order acceptance (PEC), growth in the number of procedures (PEC), average shopping cart paid. 2. Technical and operational services:\n• Carry out repair, maintenance and overhaul work in accordance with Decathlon safety standards.\n• Ensure the personalisation of products (flock printing, engraving...).\n• Guarantee the correctness of your spare parts warehouse and order what is missing.\n• Maintain a safe, clean, and secure work environment.\n• Your success indicators (KPIs): repair rate, local turnaround time, inventory accuracy, workshop efficiency, GMV growth in personalization and awards, NPS (Net Promoter Score) personalization. Profile What we expect from you:\n• You have technical training (such as EFZ, EBA) and demonstrable experience in mechanics (ideally in the two-wheeler sector; skiing/fitness is a big plus).\n• You are a truly sports enthusiast and active person.\n• You are solution-oriented: If there is a mechanical problem or a dissatisfied customer, you will always find a way to clarify things.\n• You are organized, thorough, and know how to handle stressful situations with emotional intelligence.\n• You have a perfect command of German. Good English/French skills are a big plus. What we offer you: (Small note: The amounts and benefits mentioned below are for a 100% workload and are calculated on a pro rata basis for a lower level of employment!). Below we list the most important benefits.\n• Employee shares: Once a year, you can become a shareholder of the company. This is an excellent investment: the value of the stock has never been negative since Decathlon was founded 50 years ago!\n• Holidays: Because relaxation is part of performance, you benefit from 5 weeks of paid holiday per year.\n• Passion for sport: we fully support your sporting activity! Benefit from a 25% discount on your Decathlon purchases (and even an additional 25% discount if you buy a soft mobility product for your commute). We'll also give you a voucher worth 225 CHF/year for your sports or fitness subscription.\n• Your development: With us, you will never stop learning thanks to our hundreds of training courses. In addition, you will have a special exchange with your leader every month to talk about your goals and wishes. Your career: with us, development is not a myth You start with us in the workshop? You can take over the workshop management, develop your way towards sales as a department manager or even become a trainer. The possibilities are endless! With thousands of possible professions in Switzerland and abroad, your career is in your hands. Joining Decathlon means becoming part of a worldwide network where there are real development opportunities. The application process: how do we get to know each other? We rely on an objective and human evaluation. These are the steps to become part of our team:\n• Your application: We do not require a letter of motivation. Simply send your CV and answer our short questionnaire.\n• The assessment: As soon as you apply, you will receive an email from AssessFirst (remember to check your spam folder!). It is a questionnaire of maximum 30 minutes that will help us get to know your personality and soft skills. Don't worry, it's not AI that sorts your CV: our teams read each application personally and take care of the pre-selection! The real plus? You will receive your results immediately, a super bonus that will help you in your research or future interviews.\n• In-store interview: Meet your future manager to get specific: We'll talk about your future pitch and technical skills. (Sometimes a final step is added with store management).\n• Ready to take on the challenge? Join us!",
+        "de": "Mission Dein zukünftiges Spielfeld Du wirst Teil des Stores in Hinwil. Unser Store an der Wässeristrasse ist der ideale Anlaufpunkt für das Zürcher Oberland. Direkt vor unserer Haustür liegen Berge und Seen – genau dort, wo die Outdoor-Abenteuer unserer Kundschaft beginnen. Dein Bereich steht im Mittelpunkt unserer lokalen Strategie. Durch unsere einmalige Lage sind wir besonders stark in den Bereichen Outdoor, Velo und Wintersport und bieten der Region mit unserer Werkstatt und dem Mietservice einen echten sportlichen Mehrwert. Werde Teil eines Abenteuers, das stetig wächst Decathlon in der Schweiz ist eine Erfolgsgeschichte, die 2017 in Neuchâtel begann. Seitdem haben wir jährlich etwa zehn Filialen eröffnet und zählen heute 53 Verkaufsstellen. Und wir haben nicht vor, hier aufzuhören! Unsere Expansion geht weiter, insbesondere in der Deutschschweiz, und bietet landesweit Karrieremöglichkeiten. Und nun zu deinem Job: Suchst du einen Job, bei dem du nicht nur hinter einer Werkbank stehst und Schrauben anziehst? Hast du Lust, Entscheidungen zu treffen und in direktem Kontakt mit Sportler:innen zu stehen? Träumst du davon, deine technische Expertise mit echtem Kundenservice zu verbinden? Dann ist diese Stelle genau das Richtige für dich. Warum?\n• Deine Werkstatt ist dein eigenes Unternehmen: Bei Decathlon geben wir unseren Teamkolleg:innen gerne Verantwortung. Du führst nicht nur Reparaturen aus: Du musst Zeiten mit hoher Auslastung antizipieren, die Richtigkeit deines Ersatzteillagers verwalten und garantieren sowie deine Leistungskennzahlen (Wachstum, Reparaturquote, Kundenzufriedenheit) im Blick behalten.\n• Du bist das Bindeglied zwischen Technik und Mensch: Die Kundschaft steht im Mittelpunkt. Egal, ob es darum geht, eine präzise Diagnose zu stellen, die richtige Serviceauswahl (Second Life, Wartung) anzubieten oder einfach Sportler:innen bezüglich ihres Materials zu beruhigen – du bist vor Ort. Deine technische Expertise ist nur etwas wert, wenn sie mit einem Lächeln geteilt wird.\n• Du schenkst Vertrauen und bekommst es zurück: Du hast eine Idee, um die Effizienz der Werkstatt zu verbessern oder unsere Bearbeitungszeiten zu verkürzen? Du hast das Recht, Dinge auszuprobieren, Fehler zu machen und daraus zu lernen. Man wächst, indem man die Initiative ergreift. Zudem ist diese Stelle ein hervorragendes Sprungbrett: Wenn du ambitioniert bist, warten zahlreiche Entwicklungsmöglichkeiten auf dich (Werkstattleitung, Regionaltechniker:in...). Dieser Job ist NICHTS für dich, wenn...\n• Du NUR Fahrräder reparieren willst (bei uns ist eine Werkstatt vielseitig: Ski, Fitness, Flockdruck/Personalisierung etc. Auch wenn Fahrräder den Grossteil unserer Reparaturen ausmachen).\n• Du dich NUR für reine Technik interessierst und dich der Kundenkontakt langweilt.\n• Du \"Top-down\"-Strukturen magst und darauf wartest, dass andere Entscheidungen für dich treffen.\n• Du nicht bereit bist, samstags zu arbeiten (denn das ist die Zeit, in der die Kunden uns am meisten brauchen). Was macht ein:e Werkstatt-Techniker:in? Deine Mission ist zweigleisig: die einwandfreie Qualität deiner technischen Dienstleistungen sicherstellen und gleichzeitig ein aussergewöhnliches Kundenerlebnis garantieren. Im Alltag teilen sich deine Aufgaben in zwei Hauptbereiche auf: 1. Diagnose und Kundenbeziehung:\n• Die Kundschaft begrüssen, sich ihre Bedürfnisse anhören und eine zuverlässige sowie präzise Diagnose stellen.\n• Die Standards der Werkstattannahme anwenden und die Diagnoseverfahren befolgen.\n• Unsere Produkte und Dienstleistungen (physisch und digital) verkaufen und systematisch die richtige Auswahl an Kreislaufwirtschaftsdienstleistungen anbieten.\n• Einen Kostenvoranschlag und eine Frist vorschlagen, die an die Bedürfnisse der Sportler:innen angepasst sind.\n• Das Kassieren und die Übergabe des Materials samt Pflegetipps übernehmen.\n• Deine Erfolgsindikatoren (KPIs): % der korrekten Diagnosen, % Anteil der lokalen Auftragsannahmen (PEC), Wachstum der Anzahl der Eingriffe (PEC), bezahlter Durchschnittswarenkorb. 2. Technische und operative Dienstleistungen:\n• Reparatur-, Wartungs- und Instandsetzungsarbeiten gemäss den Decathlon-Sicherheitsstandards durchführen.\n• Die Personalisierung von Produkten (Flockdruck, Gravur...) sicherstellen.\n• Die Richtigkeit deines Ersatzteillagers garantieren und Fehlendes bestellen.\n• Auf ein sicheres, sauberes und geschütztes Arbeitsumfeld achten.\n• Deine Erfolgsindikatoren (KPIs): Reparaturquote, lokale Bearbeitungszeit, Bestandsgenauigkeit, Werkstatteffizienz, GMV-Wachstum bei Personalisierung und Auszeichnungen, NPS (Net Promoter Score) Personalisierung. Profil Was wir von dir erwarten:\n• Du verfügst über eine technische Ausbildung (wie EFZ, EBA) und nachweisbare Erfahrung in der Mechanik (idealerweise im Zweiradbereich; Ski/Fitness ist ein grosses Plus).\n• Du bist eine wahrhaft sportbegeisterte und aktive Person.\n• Du bist lösungsorientiert: Bei einem mechanischen Problem oder unzufriedenen Kund:innen findest du immer einen Weg, die Dinge zu klären.\n• Du bist organisiert, gründlich und weisst, wie man stressige Situationen mit emotionaler Intelligenz bewältigt.\n• Du beherrschst Deutsch perfekt. Gute Englisch-/Französischkenntnisse sind ein grosses Plus. Was wir dir bieten: (Kleine Anmerkung: Die unten genannten Beträge und Vorteile gelten für ein 100%-Pensum und werden bei einem niedrigeren Beschäftigungsgrad entsprechend anteilig berechnet!). Im Folgenden listen wir die wichtigsten Vorteile auf.\n• Mitarbeiteraktien: Einmal im Jahr kannst du Aktionär:in des Unternehmens werden. Das ist eine hervorragende Anlage: Der Wert der Aktie war seit der Gründung von Decathlon vor 50 Jahren nie negativ!\n• Ferien: Weil Erholung zur Leistung dazugehört, profitierst du von 5 Wochen bezahlten Ferien pro Jahr.\n• Leidenschaft für den Sport: Wir unterstützen deine sportliche Aktivität voll und ganz! Profitiere von 25 % Rabatt auf deine Decathlon-Einkäufe (und sogar von zusätzlichen 25 % Rabatt, wenn du ein Produkt der sanften Mobilität für deinen Arbeitsweg kaufst). Wir schenken dir ausserdem einen Gutschein im Wert von 225 CHF/Jahr für dein Sport- oder Fitnessabo.\n• Deine Entwicklung: Bei uns hörst du dank unserer hunderten Weiterbildungen nie auf zu lernen. Zudem hast du jeden Monat einen besonderen Austausch mit deinem/deiner Leader:in, um über deine Ziele und Wünsche zu sprechen. Deine Karriere: Bei uns ist Weiterentwicklung kein Mythos Du startest bei uns in der Werkstatt? Du kannst die Werkstattleitung übernehmen, dich in Richtung Verkauf als Abteilungsleitung weiterentwickeln oder sogar Trainer:in werden. Die Möglichkeiten sind vielfältig! Mit tausenden möglichen Berufen in der Schweiz und im Ausland liegt dein Werdegang in deiner Hand. Decathlon beizutreten bedeutet, Teil eines weltweiten Netzwerks zu werden, in dem echte Entwicklungsmöglichkeiten bestehen. Der Bewerbungsprozess: Wie lernen wir uns kennen? Wir setzen auf eine objektive und menschliche Bewertung. Das sind die Schritte, um Teil unseres Teams zu werden:\n• Deine Bewerbung: Bei uns ist kein Motivationsschreiben nötig. Sende einfach deinen Lebenslauf und beantworte unseren kurzen Fragebogen.\n• Das Assessment: Sobald du dich bewirbst, erhältst du eine E-Mail von AssessFirst (denk daran, deinen Spam-Ordner zu überprüfen!). Es handelt sich um einen maximal 30-minütigen Fragebogen, der uns hilft, deine Persönlichkeit und deine Soft Skills kennenzulernen. Keine Sorge, es ist keine KI, die deinen Lebenslauf sortiert: Unsere Teams lesen jede Bewerbung persönlich und übernehmen die Vorauswahl! Der echte Pluspunkt? Du erhältst deine Ergebnisse sofort, ein super Bonus, der dir bei deinen Recherchen oder zukünftigen Vorstellungsgesprächen helfen wird.\n• Interview im Store: Triff deine:n zukünftige:n Manager:in, um konkret zu werden: Wir sprechen über dein zukünftiges Spielfeld und deine technischen Fähigkeiten. (Manchmal wird noch ein letzter Schritt mit der Store-Leitung hinzugefügt).\n• Bereit, die Herausforderung anzunehmen? Komm zu uns!",
         "fr": "Mission Votre futur terrain de jeu Vous ferez partie du magasin de Hinwil. Notre magasin de la Wässeristrasse est le point de contact idéal pour l'Oberland zurichois. Les montagnes et les lacs sont juste à notre porte – exactement là où commencent les aventures en plein air de nos clients. Votre territoire est au cœur de notre stratégie locale. Grâce à notre situation unique, nous sommes particulièrement forts dans les domaines des sports de plein air, du cyclisme et des sports d'hiver et offrons à la région une véritable valeur ajoutée sportive avec notre service d'atelier et de location. Rejoignez une aventure en constante évolution Decathlon en Suisse, c'est une success story qui a débuté à Neuchâtel en 2017. Depuis, nous avons ouvert une dizaine d'agences chaque année et comptons aujourd'hui 53 points de vente. Et nous ne comptons pas nous arrêter là ! Notre expansion se poursuit, notamment en Suisse alémanique, et offre des opportunités de carrière dans tout le pays. Et maintenant, à propos de votre travail : recherchez-vous un travail dans lequel vous ne vous contentez pas de vous tenir derrière un établi et de serrer des vis ? Vous souhaitez prendre des décisions et être en contact direct avec les sportifs ? Vous rêvez de combiner votre expertise technique avec un véritable service client ? Alors ce poste est fait pour vous. Pourquoi?\n• Votre atelier est votre propre affaire : chez Decathlon, nous aimons confier la responsabilité à nos coéquipiers. Vous ne faites pas que des réparations : vous devez anticiper les périodes d'utilisation élevée, gérer et garantir la précision de votre entrepôt de pièces détachées, et surveiller vos indicateurs clés de performance (croissance, taux de réparation, satisfaction client).\n• Vous êtes le lien entre la technologie et les personnes : le client est au centre de l'attention. Qu'il s'agisse de poser un diagnostic précis, de proposer le bon choix de service (seconde vie, maintenance) ou simplement de rassurer les athlètes sur leur équipement – vous êtes là. Votre expertise technique ne vaut quelque chose que si elle est partagée avec un sourire.\n• Vous donnez confiance et la récupérez : avez-vous une idée pour améliorer l'efficacité de l'atelier ou réduire nos délais de traitement? Vous avez le droit d'essayer des choses, de faire des erreurs et d'en tirer des leçons. Vous grandissez en prenant l'initiative. De plus, ce poste est un excellent tremplin : si vous êtes ambitieux, de nombreuses opportunités de développement vous attendent (responsable d'atelier, technicien régional...). Ce poste n'est PAS fait pour vous si...\n• Vous ne voulez QUE réparer des vélos (chez nous, un atelier est polyvalent : skis, fitness, impression/personnalisation de flocs, etc. Même si les vélos constituent la majorité de nos réparations).\n• Vous ne vous intéressez QU'à la technologie pure et vous vous ennuyez du contact client.\n• Tu aimes les structures « descendantes » et tu attends que les autres prennent des décisions à ta place.\n• Vous n'êtes pas prêt à travailler le samedi (car c'est à ce moment-là que les clients ont le plus besoin de nous). Que fait un technicien d'atelier? Votre mission est double : garantir la qualité impeccable de vos services techniques tout en garantissant une expérience client exceptionnelle. Au quotidien, vos responsabilités sont réparties en deux grands domaines : 1. Diagnostic et relation client :\n• Pour accueillir les clients, écoutez leurs besoins et établissez un diagnostic fiable et précis.\n• Appliquez les critères d'acceptation des ateliers et suivez les procédures de diagnostic.\n• Vendez nos produits et services (physiques et numériques) et offrez systématiquement la bonne gamme de services d'économie circulaire.\n• Proposez une estimation des coûts et un délai adaptés aux besoins des athlètes.\n• La prise en charge et la remise du matériel, y compris les conseils d'entretien, sont prises en charge.\n• Vos indicateurs de réussite (KPI) : % de diagnostics corrects, pourcentage d'acceptation locale des commandes (PEC), croissance du nombre de procédures (PEC), moyenne des paiements en panier d'achat. 2. Services techniques et opérationnels :\n• Effectuer des réparations, de l'entretien et des travaux de révision conformément aux normes de sécurité du Decathlon.\n• Assurez-vous de personnaliser les produits (impression en flocage, gravure, etc.).\n• Assurez-vous de l'exactitude de votre entrepôt de pièces détachées et commandez ce qui manque.\n• Maintenez un environnement de travail sûr, propre et sécurisé.\n• Vos indicateurs de réussite (KPI) : taux de réparation, délai local de rotation, précision des stocks, efficacité en atelier, croissance GMV de la personnalisation et des récompenses, personnalisation NPS (Net Promoter Score). Profil Ce que nous attendons de vous :\n• Vous avez une formation technique (comme EFZ, EBA) et une expérience démontrable en mécanique (idéalement dans le secteur des deux-roues ; le ski/fitness est un gros atout).\n• Vous êtes un véritable passionné de sport et une personne active.\n• Vous êtes orienté solutions : s'il y a un problème mécanique ou un client insatisfait, vous trouverez toujours un moyen de clarifier les choses.\n• Vous êtes organisé, minutieux, et savez gérer les situations stressantes avec votre intelligence émotionnelle.\n• Vous maîtrisez parfaitement l'allemand. De bonnes compétences en anglais/français sont un grand atout. Ce que nous vous proposons : (petite note : Les montants et avantages mentionnés ci-dessous couvrent une charge de travail à 100 % et sont calculés au prorata pour un niveau d'emploi inférieur !). Ci-dessous, nous listons les avantages les plus importants.\n• Actions des employés : Une fois par an, vous pouvez devenir actionnaire de l'entreprise. C'est un excellent investissement : la valeur de l'action n'a jamais été négative depuis la fondation de Decathlon il y a 50 ans !\n• Fêtes : Parce que la détente fait partie de la performance, vous bénéficiez de 5 semaines de congés payés par an.\n• Passion pour le sport : nous soutenons pleinement votre activité sportive ! Bénéficiez d'une réduction de 25 % sur vos achats Decathlon (et même d'une remise supplémentaire de 25 % si vous achetez un produit de mobilité douce pour votre trajet). Nous vous proposerons également un bon d'achat de 225 CHF par an pour votre abonnement sportif ou fitness.\n• Votre développement : Avec nous, vous ne cesserez jamais d'apprendre grâce à nos centaines de formations. De plus, vous aurez chaque mois un échange spécial avec votre leader pour discuter de vos objectifs et souhaits. Votre carrière : chez nous, le développement n'est pas un mythe Vous commencez avec nous à l'atelier? Vous pouvez prendre en charge la gestion de l'atelier, progresser vers la vente en tant que responsable de département ou même devenir formateur. Les possibilités sont infinies ! Avec des milliers de professions possibles en Suisse et à l'étranger, votre carrière est entre vos mains. Rejoindre Decathlon signifie faire partie d'un réseau mondial où il existe de véritables opportunités de développement. Le processus de candidature : comment apprenons-nous à nous connaître? Nous nous appuyons sur une évaluation objective et humaine. Voici les étapes pour faire partie de notre équipe :\n• Votre candidature : Nous ne demandons pas de lettre de motivation. Il suffit d'envoyer votre CV et de répondre à notre court questionnaire.\n• L'évaluation : Dès que vous postulez, vous recevrez un e-mail d'AssessFirst (n'oubliez pas de vérifier votre dossier spam !). C'est un questionnaire de 30 minutes maximum qui nous aidera à mieux connaître votre personnalité et vos compétences relationnelles. Ne vous inquiétez pas, ce n'est pas l'IA qui trie votre CV : nos équipes lisent chaque candidature personnellement et s'occupent de la présélection ! Le vrai avantage? Vous recevrez vos résultats immédiatement, un super bonus qui vous aidera dans vos recherches ou vos futurs entretiens.\n• Entretien en magasin : Rencontrez votre futur manager pour être précis : Nous parlerons de votre future présentation et de vos compétences techniques. (Parfois, une dernière étape est ajoutée avec la gestion du magasin).\n• Prêt à relever le défi? Rejoignez-nous !"
       },
       "location": "Hinwil",
@@ -3401,7 +3401,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4692843-velo-und-werkstattmechanikerin-mwd-60-unbefristet-hinwil-8340-hinwil",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:27.043Z",
+      "crawledAt": "2026-11-14T21:41:35.503Z",
       "addressLocality": "Hinwil",
       "postalCode": "8340",
       "addressRegion": "ZH",
@@ -3419,6 +3419,10 @@
       "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4692843-velo-und-werkstattmechanikerin-mwd-60-unbefristet-hinwil-8340-hinwil",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "velo-und-werkstattmechaniker-in-m-w-d-60-unbefristet-hinwil-decathlon-ch",
+        "velo-e-werkstattmechaniker-in-m-w-d-60-unbefristet-hinwil-decathlon-hinwil"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "velo-und-werkstattmechaniker-in-m-w-d-60-unbefristet-hinwil-decathlon-ch",
@@ -3431,10 +3435,7 @@
           "velo-und-werkstattmechaniker-in-m-w-d-60-unbefristet-hinwil-decathlon-ch"
         ]
       },
-      "previousSlugs": [
-        "velo-und-werkstattmechaniker-in-m-w-d-60-unbefristet-hinwil-decathlon-ch",
-        "velo-e-werkstattmechaniker-in-m-w-d-60-unbefristet-hinwil-decathlon-hinwil"
-      ],
+      "firstSeenAt": "2026-11-13T21:33:28.550Z",
       "salaryMin": 44100,
       "salaryMax": 66900,
       "salarySource": "estimated",
@@ -3450,9 +3451,8 @@
       },
       "streetAddress": "Hinwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:29:27.043Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:33:28.550Z"
+      "validThrough": "2027-02-11T21:41:35.503Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "decathlon-a9f374c142b0",
@@ -3485,7 +3485,7 @@
       "url": "https://joinus.decathlon.ch/fr_CH/annonce/4692897-sport-leader-verkaufsberater-mwd-60-80-decathlon-winterthur-8404-winterthur",
       "source": "Decathlon Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:29:26.367Z",
+      "crawledAt": "2026-11-14T21:41:34.797Z",
       "addressLocality": "Winterthur",
       "postalCode": "8400",
       "addressRegion": "ZH",
@@ -3503,7 +3503,9 @@
       "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4692897-sport-leader-verkaufsberater-mwd-60-80-decathlon-winterthur-8404-winterthur",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-11-13T21:33:27.878Z",
+      "previousSlugs": [
+        "sport-leader-verkaufsberater-m-w-d-60-80-decathlon-winterthur-decathlon-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "sport-leader-verkaufsberater-m-w-d-60-80-decathlon-winterthur-decathlon-ch"
@@ -3512,9 +3514,7 @@
           "sport-leader-verkaufsberater-m-w-d-60-80-decathlon-winterthur-decathlon-ch"
         ]
       },
-      "previousSlugs": [
-        "sport-leader-verkaufsberater-m-w-d-60-80-decathlon-winterthur-decathlon-ch"
-      ],
+      "firstSeenAt": "2026-11-13T21:33:27.878Z",
       "salaryMin": 66400,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -3530,89 +3530,8 @@
       },
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T09:29:26.367Z",
+      "validThrough": "2027-02-11T21:41:34.797Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "decathlon-1ee6edc8bbc2",
-      "slug": "senior-contabile-accounts-payable-m-f-d-100-decathlon-bussigny",
-      "slugByLocale": {
-        "it": "senior-contabile-accounts-payable-m-f-d-100-decathlon-bussigny",
-        "en": "senior-accountant-accounts-payable-m-f-d-100-decathlon-ch",
-        "de": "senior-buchhalter-accounts-payable-m-f-d-100-decathlon-bussigny",
-        "fr": "comptable-principal-comptes-crediteurs-h-f-d-100-decathlon-bussigny"
-      },
-      "company": "Decathlon",
-      "companyKey": "decathlon",
-      "companyDomain": "decathlon.ch",
-      "title": "Senior Accountant - Accounts Payable (m/f/d) 100%",
-      "titleByLocale": {
-        "it": "Senior Contabile - Accounts Payable (m/f/d) 100%",
-        "en": "Senior Accountant - Accounts Payable (m/f/d) 100%",
-        "de": "Senior Buchhalter - Accounts Payable (m/f/d) 100%",
-        "fr": "Comptable principal - Comptes créditeurs (h/f/d) 100%"
-      },
-      "description": "Mission Decathlon Switzerland is growing fast (+50 stores, ~500M€ GMV end of 2026). To support this growth and the transformation of our finance and procurement ERP, we are seeking a dynamic professional to join our team as an Senior Accounts Payable & AP Leader, based in our Geneva or Lausanne offices. Directly reporting to the accounting leader, you will play a strategic and operational role: leading and structuring the Accounts Payable team while ensuring seamless daily operations and driving process transformations. YOUR MISSION & RESPONSIBILITIES 1. Team Leadership & Structuring\n• Structure O2P (Order to Pay) Processes: Build an efficient organization by defining responsibilities and optimizing workflows capable of supporting strong business growth.\n• Lead & Mentor Team: Support, develop, and train local teammates across the country.\n• Performance Management: Ensure high performance across key KPIs (DPO, invoice processing times, automation rates) and provide regular reporting to management. 2. Operational Excellence & Internal Control\n• End-to-End AP & Closing Oversight: Oversee the complete Accounts Payable cycle, serving as the escalation point for complex issues (invoice blocks, holds, ageing) and ensuring monthly/yearly closing excellence (accruals, prepayments, manual entries).\n• Supplier Relations & Communication: Maintain strong supplier relationships through clear, smooth, and professional communication.\n• Process Harmonization & Performance Recovery: Structure, document, and deploy a standardized Procurement process while diagnosing operational issues and leading targeted recovery plans to boost reliability across the value chain.\n• Internal Control & Governance: Establish a robust internal control framework (delegation of authority matrix, segregation of duties, purchase order validation) to mitigate risks and billing errors. 3. Process Transformation & ERP Migration\n• Transformation Leader: Act as a key project stakeholder in the migration and transformation of our ERP and Purchase-to-Pay (P2P) systems.\n• Change Management: Lead change management initiatives for the finance team and provide operational guidelines/training to internal non-finance stakeholders.\n• Standards & Compliance: Ensure full compliance with Swiss accounting standards, local regulations, and Group governance guidelines throughout system changes.\n• Data Quality Governance: Guarantee data quality for purchases, including vendor data, invoicing, and reporting. Profil Professional Background\n• 5 to 7+ years of experience in Accounts Payable and General Accounting, including at least 2 years in a leadership, team lead, or senior coordination role. Systems, ERP & Reporting Tools\n• Strong working knowledge of core accounting systems, such as Oracle.\n• Hands-on experience with expense and P2P platforms, alongside group reporting and BI tools.\n• Advanced proficiency in Excel and Google Sheets. Experience leading or participating in ERP migrations and system implementations is a significant asset. Languages\n• Fluency in French and English is mandatory. Working proficiency in German is a strong advantage for seamless communication with our Swiss-German stores and business partners. Leadership & Organizational Drive\n• Proven ability to build and structure processes from scratch, mentor and upskill junior team members and champion organizational change. Analytical Acumen\n• Strong affinity for data and numbers, a continuous improvement mindset, and a structured approach to solving complex problems. Sport Enthusiast\n• A genuine passion for sports, embodying the active, dynamic and team-oriented culture of the company.",
-      "descriptionByLocale": {
-        "it": "Missione Decathlon Svizzera sta crescendo velocemente (+50 negozi, ~500M€ GMV fine del 2026). Per sostenere questa crescita e la trasformazione del nostro ERP finanziario e di approvvigionamento, stiamo cercando un professionista dinamico per unirsi al nostro team come Senior Accounts Payable & AP Leader, con sede nei nostri uffici di Ginevra o Losanna. Direttamente segnalando al responsabile contabile, si svolgerÃ un ruolo strategico e operativo: leader e strutturazione del team Accounts Payable, garantendo al contempo operazioni quotidiane senza interruzioni e trasformazioni di processo di guida. TUA MISSIONE & RESPONSABILITÀ 1. Team Leadership & Structuring\n• Struttura O2P (Ordine a Paga) Processi: Costruire un'organizzazione efficiente definendo responsabilità e ottimizzando i flussi di lavoro in grado di sostenere una forte crescita aziendale.\n• Lead & Mentor Team: Supporto, sviluppo e formazione di compagni di squadra locali in tutto il paese.\n• Gestione delle prestazioni: Assicurare alte prestazioni tra i KPI chiave (DPO, tempi di elaborazione delle fatture, tassi di automazione) e fornire report periodici alla gestione. 2. Eccellenza operativa e controllo interno\n• Supervisione di chiusura AP & End-to-End: supervisionare il ciclo di pagamento completo dei conti, servendo come punto di escalation per questioni complesse (blocchi di fattura, detiene, invecchiando) e assicurando l'eccellenza di chiusura mensile/anno (acristalli, prepagamenti, voci manuali).\n• Rapporti e comunicazione del fornitore: Mantenere forti relazioni dei fornitori attraverso una comunicazione chiara, liscia e professionale.\n• Processo Harmonization & Performance Recovery: Struttura, documento e dispiegare un processo standardizzato Procurement mentre diagnostica i problemi operativi e i principali piani di recupero mirati per aumentare l'affidabilità attraverso la catena del valore.\n• Controllo interno & Governance: Stabilire un solido quadro di controllo interno (delegazione della matrice dell'autorità, segregazione dei doveri, convalida dell'ordine di acquisto) per mitigare i rischi e gli errori di fatturazione. 3. Trasformazione dei processi e migrazione dell'ERP\n• Leader della trasformazione: agire come stakeholder di progetto chiave nella migrazione e trasformazione dei nostri sistemi ERP e Buy-to-Pay (P2P).\n• Gestione dei cambiamenti: Iniziative di gestione dei cambiamenti di piombo per il team finanziario e fornire linee guida operative / formazione agli stakeholder non finanziari interni.\n• Standards & Compliance: Assicurarsi il pieno rispetto degli standard contabili svizzeri, delle normative locali e delle linee guida di governance del Gruppo durante i cambiamenti del sistema.\n• Gestione della qualità dei dati: garanzia della qualità dei dati per gli acquisti, inclusi i dati del fornitore, fatturazione e reporting. Sfondo professionale Profil\n• da 5 a 7 anni di esperienza in Accounts Payable e General Accounting, tra cui almeno 2 anni in un ruolo di leadership, team lead, o senior coordinamento. Sistemi, ERP & Reporting Tools\n• Forte conoscenza di lavoro dei sistemi di contabilità di base, come Oracle.\n• Esperienza pratica con le piattaforme di spesa e P2P, insieme a report di gruppo e strumenti BI.\n• La competenza avanzata in Excel e Google Sheets. L'esperienza che conduce o partecipa alle migrazioni ERP e alle implementazioni di sistema è un bene significativo. Lingue\n• La fluidità in francese e inglese è obbligatoria. La competenza di lavoro in tedesco è un forte vantaggio per la comunicazione senza soluzione di continuità con i nostri negozi e partner commerciali svizzeri-tedeschi. Leadership & Organizational Drive\n• Prove capacità di costruire e strutturare processi da zero, mentore e upskill junior team membri e campione cambiamento organizzativo. Acume analitico\n• Forte affinità per dati e numeri, una mentalità di miglioramento continuo, e un approccio strutturato per risolvere problemi complessi. Sport Enthusiast\n• Una vera passione per lo sport, che incarna la cultura attiva, dinamica e orientata al team dell'azienda.",
-        "en": "Mission Decathlon Switzerland is growing fast (+50 stores, ~500M€ GMV end of 2026). To support this growth and the transformation of our finance and procurement ERP, we are seeking a dynamic professional to join our team as an Senior Accounts Payable & AP Leader, based in our Geneva or Lausanne offices. Directly reporting to the accounting leader, you will play a strategic and operational role: leading and structuring the Accounts Payable team while ensuring seamless daily operations and driving process transformations. YOUR MISSION & RESPONSIBILITIES 1. Team Leadership & Structuring\n• Structure O2P (Order to Pay) Processes: Build an efficient organization by defining responsibilities and optimizing workflows capable of supporting strong business growth.\n• Lead & Mentor Team: Support, develop, and train local teammates across the country.\n• Performance Management: Ensure high performance across key KPIs (DPO, invoice processing times, automation rates) and provide regular reporting to management. 2. Operational Excellence & Internal Control\n• End-to-End AP & Closing Oversight: Oversee the complete Accounts Payable cycle, serving as the escalation point for complex issues (invoice blocks, holds, ageing) and ensuring monthly/yearly closing excellence (accruals, prepayments, manual entries).\n• Supplier Relations & Communication: Maintain strong supplier relationships through clear, smooth, and professional communication.\n• Process Harmonization & Performance Recovery: Structure, document, and deploy a standardized Procurement process while diagnosing operational issues and leading targeted recovery plans to boost reliability across the value chain.\n• Internal Control & Governance: Establish a robust internal control framework (delegation of authority matrix, segregation of duties, purchase order validation) to mitigate risks and billing errors. 3. Process Transformation & ERP Migration\n• Transformation Leader: Act as a key project stakeholder in the migration and transformation of our ERP and Purchase-to-Pay (P2P) systems.\n• Change Management: Lead change management initiatives for the finance team and provide operational guidelines/training to internal non-finance stakeholders.\n• Standards & Compliance: Ensure full compliance with Swiss accounting standards, local regulations, and Group governance guidelines throughout system changes.\n• Data Quality Governance: Guarantee data quality for purchases, including vendor data, invoicing, and reporting. Profil Professional Background\n• 5 to 7+ years of experience in Accounts Payable and General Accounting, including at least 2 years in a leadership, team lead, or senior coordination role. Systems, ERP & Reporting Tools\n• Strong working knowledge of core accounting systems, such as Oracle.\n• Hands-on experience with expense and P2P platforms, alongside group reporting and BI tools.\n• Advanced proficiency in Excel and Google Sheets. Experience leading or participating in ERP migrations and system implementations is a significant asset. Languages\n• Fluency in French and English is mandatory. Working proficiency in German is a strong advantage for seamless communication with our Swiss-German stores and business partners. Leadership & Organizational Drive\n• Proven ability to build and structure processes from scratch, mentor and upskill junior team members and champion organizational change. Analytical Acumen\n• Strong affinity for data and numbers, a continuous improvement mindset, and a structured approach to solving complex problems. Sport Enthusiast\n• A genuine passion for sports, embodying the active, dynamic and team-oriented culture of the company.",
-        "de": "Mission Decathlon Schweiz wächst schnell (+50 Filialen, ~500 Mio. € GMV Ende 2026). Um dieses Wachstum und die Transformation unseres ERP in den Bereichen Finanzen und Beschaffung zu unterstützen, suchen wir einen dynamischen Fachmann, der sich unserem Team als Senior Accounts Payable & AP Leader mit Sitz in unseren Büros in Genf oder Lausanne anschließt. Direkte Berichterstattung an den Buchhaltungsleiter, werden Sie eine strategische und operative Rolle spielen: Leitung und Strukturierung der Accounts Payable Team bei gleichzeitiger Gewährleistung nahtloser täglicher Operationen und Prozesstransformationen. IHRE MISSION & VERANTWORTUNGEN 1. Teamführung & Strukturierung\n• O2P-Prozesse (Order to Pay) strukturieren: Bauen Sie eine effiziente Organisation auf, indem Sie Verantwortlichkeiten definieren und Workflows optimieren, die ein starkes Geschäftswachstum unterstützen.\n• Lead & Mentor Team: Unterstützen, entwickeln und trainieren Sie lokale Teamkollegen im ganzen Land.\n• Performance Management: Sicherstellen einer hohen Leistung über wichtige KPIs (DPO, Rechnungsbearbeitungszeiten, Automatisierungsraten) hinweg und regelmäßiges Reporting an das Management. 2. Operationelle Exzellenz und interne Kontrolle\n• End-to-End AP & Closing Oversight: Überwachen Sie den kompletten Accounts Payable-Zyklus, der als Eskalationspunkt für komplexe Probleme (Rechnungsblöcke, Holds, Alterung) dient und monatliche / jährliche Closing Excellence (Rechnungen, Vorauszahlungen, manuelle Einträge) sicherstellt.\n• Lieferantenbeziehungen & Kommunikation: Pflegen Sie starke Lieferantenbeziehungen durch eine klare, reibungslose und professionelle Kommunikation.\n• Prozessharmonisierung & Performance Recovery: Strukturieren, dokumentieren und implementieren Sie einen standardisierten Beschaffungsprozess, während Sie operative Probleme diagnostizieren und gezielte Wiederherstellungspläne durchführen, um die Zuverlässigkeit in der gesamten Wertschöpfungskette zu erhöhen.\n• Interne Kontrolle & Governance: Etablierung eines robusten internen Kontrollrahmens (Delegation der Autoritätsmatrix, Aufgabentrennung, Auftragsvalidierung), um Risiken und Abrechnungsfehler zu minimieren. 3. Prozesstransformation & ERP Migration\n• Transformation Leader: Handeln Sie als wichtiger Projektbeteiligter bei der Migration und Transformation unserer ERP- und Purchase-to-Pay (P2P)-Systeme.\n• Change Management: Führen Sie Change Management-Initiativen für das Finanzteam und bieten Sie operative Richtlinien / Schulungen für interne Nicht-Finanz-Stakeholder an.\n• Standards & Compliance: Sicherstellung der vollständigen Einhaltung der Schweizer Rechnungslegungsstandards, lokaler Vorschriften und Gruppenführungsrichtlinien bei Systemänderungen.\n• Data Quality Governance: Garantiert die Datenqualität für Einkäufe, einschließlich Lieferantendaten, Rechnungsstellung und Berichterstattung. Profil Professioneller Hintergrund\n• 5 bis 7+ Jahre Erfahrung in Accounts Payable und General Accounting, davon mindestens 2 Jahre in einer Führungs-, Teamleiter- oder Senior-Koordinationsrolle. Systeme, ERP & Reporting Tools\n• Starke Kenntnisse der Kernbuchhaltungssysteme wie Oracle.\n• Hands-on-Erfahrung mit Kosten- und P2P-Plattformen sowie Gruppenberichtswesen und BI-Tools.\n• Erweiterte Kenntnisse in Excel und Google Sheets. Erfahrung in der Führung oder Teilnahme an ERP-Migrationen und Systemimplementierungen ist ein wesentlicher Vorteil. Sprachen\n• Fließend in Französisch und Englisch ist obligatorisch. Deutschkenntnisse sind ein großer Vorteil für die nahtlose Kommunikation mit unseren deutsch-schweizerischen Geschäften und Geschäftspartnern. Führung und organisatorischer Antrieb\n• Bewährte Fähigkeit, Prozesse von Grund auf neu zu erstellen und zu strukturieren, Mentor und Upskill Junior Teammitglieder und Champion organisatorischen Wandel. Analytischer Scharfsinn\n• Starke Affinität zu Daten und Zahlen, ein kontinuierliches Verbesserungsdenken und ein strukturierter Ansatz zur Lösung komplexer Probleme. Sportbegeisterte\n• Eine echte Leidenschaft für Sport, die die aktive, dynamische und teamorientierte Kultur des Unternehmens verkörpert.",
-        "fr": "Mission Decathlon Suisse est en croissance rapide (+50 magasins, ~500M€ GMV fin de 2026). Pour soutenir cette croissance et la transformation de notre ERP finance et approvisionnement, nous recherchons un professionnel dynamique pour rejoindre notre équipe en tant que Senior Accounts Payable & AP Leader, basé dans nos bureaux de Genève ou Lausanne. Rendre compte directement au chef de la comptabilité, vous jouerez un rôle stratégique et opérationnel : diriger et structurer l'équipe des comptes créditeurs tout en assurant des opérations quotidiennes sans faille et des transformations de processus. MISSION ET RESPONSABILITÉS 1. Leadership d'équipe et structure\n• Structure Processus O2P (Ordonnance à payer) : Construire une organisation efficace en définissant les responsabilités et en optimisant les flux de travail capables de soutenir une forte croissance des entreprises.\n• Chef d'équipe et mentor : Soutenir, développer et former des coéquipiers locaux partout au pays.\n• Gestion du rendement : Assurer un rendement élevé dans les principaux ICR (DP, délais de traitement des factures, taux d'automatisation) et fournir des rapports réguliers à la direction. 2. Excellence opérationnelle et contrôle interne\n• Surveillance de bout en bout de l'AP et de la clôture : Surveiller le cycle complet des comptes créditeurs, servir de point d'escalade pour les questions complexes (blocs de factures, cales, vieillissement) et assurer l'excellence de clôture mensuelle/annuelle (encaisses, prépaiements, entrées manuelles).\n• Relations et communication avec les fournisseurs : maintenir des relations solides avec les fournisseurs grâce à une communication claire, fluide et professionnelle.\n• Harmonisation des processus et rétablissement du rendement : Structurer, documenter et déployer un processus d'approvisionnement normalisé tout en diagnosticant les problèmes opérationnels et en dirigeant des plans de rétablissement ciblés pour accroître la fiabilité dans toute la chaîne de valeur.\n• Contrôle interne et gouvernance : établir un cadre de contrôle interne solide ( matrice de délégation des pouvoirs, séparation des tâches, validation des bons de commande) pour atténuer les risques et les erreurs de facturation. 3. Transformation des processus et migration des PGI\n• Chef de la transformation : Agir comme un acteur clé du projet dans la migration et la transformation de nos systèmes ERP et d'achat à paiement (P2P).\n• Gestion du changement : Diriger les initiatives de gestion du changement pour l'équipe des finances et fournir des directives et une formation opérationnelles aux intervenants internes non financiers.\n• Normes et conformité: assurer le plein respect des normes comptables suisses, des règlements locaux et des directives de gouvernance du Groupe tout au long des changements de système.\n• Gouvernance de la qualité des données : Garantir la qualité des données pour les achats, y compris les données sur les fournisseurs, la facturation et les rapports. Profil Contexte professionnel\n• 5 à 7 ans d'expérience en comptabilité à payer et en comptabilité générale, y compris au moins 2 ans dans un rôle de leadership, de chef d'équipe ou de coordination. Systèmes, ERP et outils de rapport\n• Forte connaissance pratique des systèmes de comptabilité de base, comme Oracle.\n• Expérience pratique des plateformes de dépenses et de P2P, ainsi que des rapports de groupe et des outils BI.\n• Compétence avancée dans Excel et Google Sheets. L ' expérience de la migration des PGI et de la mise en œuvre des systèmes est un atout important. Langues\n• La maîtrise du français et de l'anglais est obligatoire. La maîtrise de l'allemand est un atout important pour une communication transparente avec nos magasins et partenaires commerciaux suisses-allemands. Leadership et dynamisme organisationnel\n• Capacité éprouvée de construire et de structurer des processus à partir de zéro, de mentor et d'équipe junior de haut niveau et de promouvoir le changement organisationnel. Accumen analytique\n• Une forte affinité pour les données et les nombres, un état d'esprit d'amélioration continue et une approche structurée pour résoudre des problèmes complexes. L'enthousiasme sportif\n• Une véritable passion pour le sport, qui incarne la culture active, dynamique et axée sur l'équipe de l'entreprise."
-      },
-      "location": "Bussigny",
-      "canton": "VD",
-      "url": "https://joinus.decathlon.ch/fr_CH/annonce/4657651-senior-accountant-accounts-payable-mfd-100-1030-bussigny",
-      "source": "Decathlon Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-11-13T09:36:57.461Z",
-      "addressLocality": "Bussigny",
-      "postalCode": "1030",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Amministrazione",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "retail",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-22",
-      "postedDate": "2026-10-22",
-      "postingDateSource": "reported",
-      "applyUrl": "https://joinus.decathlon.ch/fr_CH/annonce/4657651-senior-accountant-accounts-payable-mfd-100-1030-bussigny",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-accountant-accounts-payable-m-f-d-100-decathlon-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-accountant-accounts-payable-m-f-d-100-decathlon-ch"
-        ],
-        "de": [
-          "senior-accountant-accounts-payable-m-f-d-100-decathlon-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-22T09:28:10.505Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Bussigny",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:36:57.461Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
     }
   ]
 }

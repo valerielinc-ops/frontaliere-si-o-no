@@ -14,6 +14,7 @@
  *
  * Run: npx vitest run tests/jobs-sitemap-filters.test.ts
  */
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import { describe, it, expect } from 'vitest';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
 
@@ -109,7 +110,7 @@ describe('sitemap-jobs.xml regression guard (dataset-level)', () => {
       // by the synthetic cases above.
       return;
     }
-    const jobs = JSON.parse(fs.readFileSync(jobsPath, 'utf-8')) as SitemapJob[];
+    const jobs = readJsonFile(jobsPath) as SitemapJob[];
     if (!Array.isArray(jobs) || jobs.length === 0) return;
     const before = jobs.filter((j) => {
       const desc = String(j.descriptionByLocale?.it || j.description || '');

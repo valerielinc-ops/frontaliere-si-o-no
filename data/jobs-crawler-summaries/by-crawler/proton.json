@@ -1,11 +1,12 @@
 {
   "key": "proton",
   "label": "Proton",
-  "generatedAt": "2026-11-14T09:30:41.493Z",
+  "generatedAt": "2026-11-14T21:41:03.082Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 5,
@@ -16,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 4800,
-  "avgDurationMs": 4800,
+  "durationMs": 5025,
+  "avgDurationMs": 5025,
   "durationHistory": [
-    4800
+    5025
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +38,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4953188101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:30:13.463Z",
+      "crawledAt": "2026-11-14T21:40:36.125Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -61,7 +62,7 @@
       "addressRegion": "GE",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:30:13.463Z",
+      "validThrough": "2026-12-14T21:40:36.125Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -83,7 +84,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4962235101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:30:13.161Z",
+      "crawledAt": "2026-11-14T21:40:35.818Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -106,7 +107,7 @@
       "addressRegion": "GE",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:30:13.161Z",
+      "validThrough": "2026-12-14T21:40:35.818Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -128,7 +129,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4864462101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:30:12.821Z",
+      "crawledAt": "2026-11-14T21:40:35.479Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -151,7 +152,7 @@
       "addressRegion": "GE",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:30:12.821Z",
+      "validThrough": "2026-12-14T21:40:35.479Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -173,7 +174,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4999112101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:30:12.516Z",
+      "crawledAt": "2026-11-14T21:40:35.174Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -196,7 +197,7 @@
       "addressRegion": "GE",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:30:12.516Z",
+      "validThrough": "2027-01-04T21:40:35.174Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -218,7 +219,7 @@
       "url": "https://job-boards.eu.greenhouse.io/proton/jobs/4936072101",
       "source": "Proton Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:30:12.161Z",
+      "crawledAt": "2026-11-14T21:40:34.828Z",
       "addressLocality": "Geneva",
       "addressCountry": "CH",
       "country": "CH",
@@ -244,7 +245,7 @@
       "addressRegion": "GE",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:30:12.161Z",
+      "validThrough": "2026-12-14T21:40:34.828Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -255,5 +256,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

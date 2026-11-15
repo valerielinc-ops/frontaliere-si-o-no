@@ -9,7 +9,6 @@ import { TabContentContext } from '@/services/TabContentContext';
 import type { TabContentState } from '@/services/TabContentContext';
 
 import { ErrorBoundary, SilentErrorBoundary } from '@/components/shared/ErrorBoundary';
-import { isLikelyBot, isLikelySearchCrawler } from '@/services/botPatterns';
 
 import { reportCaughtError } from '@/services/errorReporter';
 import { fetchCommitHash } from '@/services/buildInfo';
@@ -28,9 +27,6 @@ const GamificationWidget = lazyRetry(() => import('@/components/community/Gamifi
 // imported module: .../NewsletterPopup.js", ref cwji52). Same rationale as
 // WhatsNewModal below.
 const NewsletterPopup = React.lazy(() => import('@/components/community/NewsletterPopup'));
-// Native application offer for human visitors with an ad blocker. Keep it
-// client-only and skip its chunk entirely for known automation and crawlers.
-const AdBlockGate = React.lazy(() => import('@/components/community/AdBlockGate'));
 // Gates [data-pdf-gate] anchor downloads (self-certification forms) behind email/social signup.
 const PdfDownloadGate = React.lazy(() => import('@/components/shared/PdfDownloadGate'));
 const NewsletterInline = lazyRetry(() => import('@/components/community/Newsletter'));
@@ -115,8 +111,9 @@ const TermsOfService = lazyRetry(() => import('@/components/pages/TermsOfService
 const ChiSiamo = lazyRetry(() => import('@/components/pages/ChiSiamo').then(m => ({ default: m.ChiSiamo })));
 const AutorePage = lazyRetry(() => import('@/components/pages/AutorePage').then(m => ({ default: m.AutorePage })));
 const Correzioni = lazyRetry(() => import('@/components/pages/Correzioni').then(m => ({ default: m.Correzioni })));
-// Subscription placeholder — hidden route, CTA target for the AdBlock gate (#3654).
-// No nav/sitemap entry until #3655 builds the real Stripe checkout flow.
+// Reader subscription page. Direct noindex shells are emitted for its
+// localized routes so house-ad clicks and Stripe returns survive full loads;
+// it remains absent from navigation and sitemaps.
 const SubscribePage = lazyRetry(() => import('@/components/pages/SubscribePage'));
 const Metodologia = lazyRetry(() => import('@/components/pages/Metodologia').then(m => ({ default: m.Metodologia })));
 const DataDeletion = lazyRetry(() => import('@/components/pages/DataDeletion').then(m => ({ default: m.DataDeletion })));
@@ -4558,11 +4555,6 @@ const App: React.FC = () => {
  <SafeLazy boundary="job-search-floating-button">
  <JobSearchFloatingButton />
  </SafeLazy>
- {!isLikelyBot() && !isLikelySearchCrawler() && (
-  <SafeLazy boundary="native-application-offer">
-   <AdBlockGate />
-  </SafeLazy>
- )}
  </div>
  </NavigationContext.Provider>
  </TabContentContext.Provider>

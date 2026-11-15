@@ -3,7 +3,13 @@ import { chmodSync, existsSync, mkdtempSync, readFileSync, writeFileSync } from 
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { buildComment, collectFailures } from '../scripts/ci/report-vitest-failure.mjs';
+import {
+  buildComment,
+  buildResolvedComment,
+  collectFailures,
+  reportShowsFailure,
+} from '../scripts/ci/report-vitest-failure.mjs';
+import { parseVitestFailureReport } from '../scripts/ci/lib/vitestCheck.mjs';
 
 const SCRIPT = join(process.cwd(), 'scripts/ci/report-vitest-failure.mjs');
 
@@ -167,5 +173,72 @@ describe('report-vitest-failure', () => {
 
     expect(stdout).not.toMatch(/::warning/);
     expect(readFileSync(summary, 'utf8')).toBe('');
+  });
+
+  describe('run verde: il report sticky non resta un rosso attuale', () => {
+    // gh finto: registra ogni invocazione e alla GET dei commenti risponde col
+    // JSON preparato dal test.
+    function runGreen(comments) {
+      const dir = mkdtempSync(join(tmpdir(), 'frontaliere-vitest-green-'));
+      const log = join(dir, 'gh.log');
+      const commentsFile = join(dir, 'comments.json');
+      writeFileSync(commentsFile, JSON.stringify(comments));
+      const fakeGh = join(dir, 'fake-gh');
+      writeFileSync(fakeGh, [
+        '#!/usr/bin/env bash',
+        `printf '%s\\n---\\n' "$*" >> '${log}'`,
+        'if [ "$1" = api ] && [ "$2" != --method ]; then cat ' + `'${commentsFile}'` + '; fi',
+        'exit 0',
+        '',
+      ].join('\n'));
+      chmodSync(fakeGh, 0o755);
+      const stdout = execFileSync('node', [SCRIPT], {
+        encoding: 'utf8',
+        env: {
+          ...process.env,
+          TRUSTED_GH_BIN: fakeGh,
+          PR_NUMBER: '42',
+          GH_REPO: 'o/r',
+          RUN_ID: '43',
+          HEAD_SHA: 'fedcba9876543210',
+          VITEST_OUTCOME: 'success',
+          VITEST_REPORT_FILES: join(dir, 'assente.json'),
+        },
+      });
+      return { stdout, calls: existsSync(log) ? readFileSync(log, 'utf8').split('\n---\n').filter(Boolean) : [] };
+    }
+
+    const failureBody = buildComment([{
+      file: 'shard-timing-related.json',
+      failedTests: 1,
+      failedFiles: 1,
+      failures: [{ file: 'tests/example.test.ts', test: 'suite fails', error: 'AssertionError' }],
+    }], { headSha: 'abcdef123456789' });
+
+    it('riscrive come superato un report di fallimento', () => {
+      const { stdout, calls } = runGreen([{ id: 7, body: failureBody }]);
+      expect(calls).toHaveLength(2);
+      expect(calls[1]).toContain('--method PATCH repos/o/r/issues/comments/7');
+      expect(calls[1]).toContain('Test Vitest superati');
+      expect(calls[1]).toContain('HEAD verificata: `fedcba987654`');
+      expect(calls[1]).not.toContain('tests/example.test.ts');
+      expect(stdout).toMatch(/segnato come superato/);
+    });
+
+    it('non tocca un report già superato né crea commenti', () => {
+      const resolved = buildResolvedComment({ headSha: 'abcdef123456789' });
+      expect(reportShowsFailure(resolved)).toBe(false);
+      expect(reportShowsFailure(failureBody)).toBe(true);
+      expect(runGreen([{ id: 7, body: resolved }]).calls).toHaveLength(1);
+      const none = runGreen([{ id: 8, body: 'commento qualsiasi' }]);
+      expect(none.calls).toHaveLength(1);
+      expect(none.calls[0]).not.toMatch(/pr comment/);
+      expect(none.stdout).toMatch(/Nessun report failure Vitest da aggiornare/);
+    });
+
+    it('il report superato non offre file al rescue del rosso ereditato', () => {
+      const parsed = parseVitestFailureReport(buildResolvedComment({ headSha: 'abcdef123456789' }));
+      expect(parsed).toMatchObject({ headPrefix: 'abcdef123456', files: [], truncated: false });
+    });
   });
 });

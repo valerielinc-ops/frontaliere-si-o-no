@@ -22,7 +22,7 @@ export function trackHouseAdLanding() {
     action: 'landing', campaign: a.campaign, experiment_id: a.experimentId,
     experiment_variant: a.variant, assignment_source: a.assignmentSource,
     enrolled: Number(a.enrolled), creative_id: a.creativeId,
-    component: `${a.experimentId}.${a.creativeId}.${a.enrolled ? 'test' : 'fixed'}.${a.locale}`,
+    component: `${a.experimentId}.${a.creativeId}.${a.enrolled ? 'test' : 'fixed'}.${a.locale}.${a.contextSource}.${a.contextSector}`,
     format: a.format, locale: a.locale, placement: a.placement,
     surface: `${a.format}.${a.placement}`, device: a.device,
   });

@@ -1,11 +1,12 @@
 {
   "key": "bitfinex",
   "label": "Bitfinex",
-  "generatedAt": "2026-11-14T09:23:18.063Z",
+  "generatedAt": "2026-11-14T21:16:08.190Z",
   "total": 0,
   "discovered": null,
   "parsed": 0,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 0,
@@ -16,14 +17,14 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1255,
-  "avgDurationMs": 1255,
+  "durationMs": 1154,
+  "avgDurationMs": 1154,
   "durationHistory": [
-    1255
+    1154
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

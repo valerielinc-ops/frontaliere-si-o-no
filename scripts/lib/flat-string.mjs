@@ -41,7 +41,7 @@
  * *substring*), not of the parent.
  *
  * The CPU side of that trade is bounded by
- * tests/seo/sitemap-loader-flatten-budget.test.ts, which measures the overhead
+ * tests/perf/sitemap-loader-flatten-budget.test.ts, which measures the overhead
  * against the cost of the parse loop it rides on. It exists because the hot
  * callers flatten per-URL over the whole sitemap corpus, where a flattener of
  * a different order (`split('').join('')` is 2.88x the Buffer round-trip's

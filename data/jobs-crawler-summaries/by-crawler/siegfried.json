@@ -1,25 +1,26 @@
 {
   "key": "siegfried",
   "label": "Siegfried",
-  "generatedAt": "2026-11-14T09:21:14.210Z",
-  "total": 19,
+  "generatedAt": "2026-11-14T21:19:36.271Z",
+  "total": 18,
   "discovered": null,
   "parsed": 18,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 19,
+  "written": 18,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 3,
-  "removedCount": 0,
+  "updatedCount": 2,
+  "removedCount": 1,
   "unchangedCount": 16,
-  "durationMs": 16864,
-  "avgDurationMs": 16864,
+  "durationMs": 14775,
+  "avgDurationMs": 14775,
   "durationHistory": [
-    16864
+    14775
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +36,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:20:58.667Z",
+      "crawledAt": "2026-11-14T21:19:20.332Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -60,7 +61,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:20:58.667Z",
+      "validThrough": "2026-12-14T21:19:20.332Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -82,7 +83,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Supervisor-Stability_R26_813",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:20:49.454Z",
+      "crawledAt": "2026-11-14T21:19:12.045Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -107,7 +108,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:20:49.454Z",
+      "validThrough": "2027-01-27T21:19:12.045Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -116,7 +117,9 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "id": "siegfried-dd76b266a230",
       "slug": "manutenzione-testa-siegfried-zofingen",
@@ -180,7 +183,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "siegfried-b2e1fb16eb0f",
@@ -194,7 +196,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:20:59.324Z",
+      "crawledAt": "2026-11-14T21:19:20.960Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -219,7 +221,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:20:59.324Z",
+      "validThrough": "2026-12-14T21:19:20.960Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -241,7 +243,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:20:57.936Z",
+      "crawledAt": "2026-11-14T21:19:19.695Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -266,7 +268,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:20:57.936Z",
+      "validThrough": "2026-12-14T21:19:19.695Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -288,7 +290,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Intern-Commercial-Excellence_R26_511",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:20:57.288Z",
+      "crawledAt": "2026-11-14T21:19:19.058Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -327,7 +329,7 @@
       },
       "streetAddress": "Untere Brühlstrasse 4",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-14T09:20:57.288Z",
+      "validThrough": "2026-12-14T21:19:19.058Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -349,7 +351,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/CAD-Designer_R26_592",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:20:56.648Z",
+      "crawledAt": "2026-11-14T21:19:18.430Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -374,7 +376,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:20:56.648Z",
+      "validThrough": "2026-12-14T21:19:18.430Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -396,7 +398,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stage---Digitalisation-des-Processus-en-Environnement-Pharma_R26_661",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:20:55.931Z",
+      "crawledAt": "2026-11-14T21:19:17.795Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -421,7 +423,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:20:55.931Z",
+      "validThrough": "2026-12-14T21:19:17.795Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -443,7 +445,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Asset-Reliability-Engineer--a-_R26_713",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:20:55.182Z",
+      "crawledAt": "2026-11-14T21:19:17.144Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -483,7 +485,7 @@
       },
       "streetAddress": "Untere Brühlstrasse 4",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-14T09:20:55.182Z",
+      "validThrough": "2026-12-14T21:19:17.144Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -505,7 +507,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/CAD-Konstrukteur--m-w-d-_R26_621",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:20:54.518Z",
+      "crawledAt": "2026-11-14T21:19:16.509Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -544,7 +546,7 @@
       },
       "streetAddress": "Untere Brühlstrasse 4",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-14T09:20:54.518Z",
+      "validThrough": "2026-12-14T21:19:16.509Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -566,7 +568,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Senior-Maintenance-Manager_R26_795",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:20:53.769Z",
+      "crawledAt": "2026-11-14T21:19:15.865Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -591,7 +593,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:20:53.769Z",
+      "validThrough": "2027-01-18T21:19:15.865Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -613,7 +615,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stagiaire-HSE_R26_804",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:20:53.048Z",
+      "crawledAt": "2026-11-14T21:19:15.245Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -638,7 +640,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:20:53.048Z",
+      "validThrough": "2027-01-24T21:19:15.245Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -660,7 +662,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Chemielaborant-in-analytische-Entwicklung_R26_805",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:20:52.385Z",
+      "crawledAt": "2026-11-14T21:19:14.600Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -699,7 +701,7 @@
       },
       "streetAddress": "Untere Brühlstrasse 4",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-26T09:20:52.385Z",
+      "validThrough": "2027-01-26T21:19:14.600Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -721,7 +723,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Head-of-Engineering---Maintenance_R26_818",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:20:51.634Z",
+      "crawledAt": "2026-11-14T21:19:13.918Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -746,7 +748,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:20:51.634Z",
+      "validThrough": "2027-01-31T21:19:13.918Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -768,7 +770,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stage---Engineering---Maintenance_R26_827",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:20:50.911Z",
+      "crawledAt": "2026-11-14T21:19:13.303Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -793,7 +795,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:20:50.911Z",
+      "validThrough": "2027-02-02T21:19:13.303Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -815,7 +817,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Manager-Business-Development-DP_R26_830",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:20:50.177Z",
+      "crawledAt": "2026-11-14T21:19:12.678Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -854,7 +856,7 @@
       },
       "streetAddress": "Untere Brühlstrasse 4",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T09:20:50.177Z",
+      "validThrough": "2027-02-03T21:19:12.678Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -876,7 +878,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-Stability_R26_835",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:20:48.786Z",
+      "crawledAt": "2026-11-14T21:19:11.396Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -901,7 +903,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:20:48.786Z",
+      "validThrough": "2027-02-04T21:19:11.396Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -923,7 +925,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_839",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:20:48.073Z",
+      "crawledAt": "2026-11-14T21:19:10.769Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -948,7 +950,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:20:48.073Z",
+      "validThrough": "2027-02-08T21:19:10.769Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -970,7 +972,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Executive-Assistant_R26_833",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:20:47.326Z",
+      "crawledAt": "2026-11-14T21:19:10.186Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1008,7 +1010,7 @@
       },
       "streetAddress": "Untere Brühlstrasse 4",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:20:47.326Z",
+      "validThrough": "2027-02-04T21:19:10.186Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -1019,5 +1021,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

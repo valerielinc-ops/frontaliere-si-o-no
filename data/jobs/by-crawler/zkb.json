@@ -1,7 +1,7 @@
 {
   "crawlerKey": "zkb",
-  "assembledAt": "2026-11-14T09:19:00.178Z",
-  "runId": "43578888941",
+  "assembledAt": "2026-11-14T21:20:12.426Z",
+  "runId": "43640929081",
   "jobs": [
     {
       "id": "zkb-1b4fe92e8009",
@@ -35,7 +35,7 @@
       "url": "https://apply.refline.ch/792841/11461/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:51.915Z",
+      "crawledAt": "2026-11-14T21:20:01.624Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -88,7 +88,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-04T09:18:51.915Z",
+      "validThrough": "2027-02-03T21:20:01.624Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -123,7 +123,7 @@
       "url": "https://apply.refline.ch/792841/11466/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:51.467Z",
+      "crawledAt": "2026-11-14T21:20:01.183Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -173,7 +173,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-04T09:18:51.467Z",
+      "validThrough": "2027-02-03T21:20:01.183Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -208,7 +208,7 @@
       "url": "https://apply.refline.ch/792841/11465/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:51.020Z",
+      "crawledAt": "2026-11-14T21:20:00.744Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -261,7 +261,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-04T09:18:51.020Z",
+      "validThrough": "2027-02-03T21:20:00.744Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -296,7 +296,7 @@
       "url": "https://apply.refline.ch/792841/11460/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:50.572Z",
+      "crawledAt": "2026-11-14T21:20:00.305Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -349,7 +349,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-04T09:18:50.572Z",
+      "validThrough": "2027-02-03T21:20:00.305Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -384,7 +384,7 @@
       "url": "https://apply.refline.ch/792841/11314/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:50.128Z",
+      "crawledAt": "2026-11-14T21:19:59.864Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -439,7 +439,7 @@
       },
       "streetAddress": "Dübendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:18:50.128Z",
+      "validThrough": "2026-12-14T21:19:59.864Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -473,7 +473,7 @@
       "url": "https://apply.refline.ch/792841/11467/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:49.684Z",
+      "crawledAt": "2026-11-14T21:19:59.422Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -523,7 +523,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-04T09:18:49.684Z",
+      "validThrough": "2027-02-04T21:19:59.422Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -558,7 +558,7 @@
       "url": "https://apply.refline.ch/792841/11350/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:49.240Z",
+      "crawledAt": "2026-11-14T21:19:58.972Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -611,7 +611,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-14T09:18:49.240Z",
+      "validThrough": "2026-12-14T21:19:58.972Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -646,7 +646,7 @@
       "url": "https://apply.refline.ch/792841/11410/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:48.795Z",
+      "crawledAt": "2026-11-14T21:19:58.532Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -696,7 +696,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-01T09:18:48.795Z",
+      "validThrough": "2026-12-31T21:19:58.532Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -730,7 +730,7 @@
       "url": "https://apply.refline.ch/792841/11444/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:48.353Z",
+      "crawledAt": "2026-11-14T21:19:58.091Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -786,7 +786,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-21T09:18:48.353Z",
+      "validThrough": "2027-01-21T21:19:58.091Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -821,7 +821,7 @@
       "url": "https://apply.refline.ch/792841/11427/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:47.910Z",
+      "crawledAt": "2026-11-14T21:19:57.644Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -877,7 +877,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-08T09:18:47.910Z",
+      "validThrough": "2027-01-07T21:19:57.644Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -912,7 +912,7 @@
       "url": "https://apply.refline.ch/792841/11446/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:47.451Z",
+      "crawledAt": "2026-11-14T21:19:57.203Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -959,7 +959,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-21T09:18:47.451Z",
+      "validThrough": "2027-01-21T21:19:57.203Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -993,7 +993,7 @@
       "url": "https://apply.refline.ch/792841/11264/pub/5",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:47.004Z",
+      "crawledAt": "2026-11-14T21:19:56.760Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1048,7 +1048,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-14T09:18:47.004Z",
+      "validThrough": "2026-12-14T21:19:56.760Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1083,7 +1083,7 @@
       "url": "https://apply.refline.ch/792841/11445/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:46.334Z",
+      "crawledAt": "2026-11-14T21:19:56.318Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1133,7 +1133,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-21T09:18:46.334Z",
+      "validThrough": "2027-01-21T21:19:56.318Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1168,7 +1168,7 @@
       "url": "https://apply.refline.ch/792841/11440/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:45.882Z",
+      "crawledAt": "2026-11-14T21:19:55.878Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1223,7 +1223,7 @@
       },
       "streetAddress": "Küsnacht",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:18:45.882Z",
+      "validThrough": "2027-01-17T21:19:55.878Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1258,7 +1258,7 @@
       "url": "https://apply.refline.ch/792841/11421/pub/2",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:45.434Z",
+      "crawledAt": "2026-11-14T21:19:55.425Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1308,7 +1308,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-07T09:18:45.434Z",
+      "validThrough": "2027-01-06T21:19:55.425Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1343,7 +1343,7 @@
       "url": "https://apply.refline.ch/792841/11423/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:43.772Z",
+      "crawledAt": "2026-11-14T21:19:53.987Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1396,7 +1396,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-07T09:18:43.772Z",
+      "validThrough": "2027-01-07T21:19:53.987Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1431,7 +1431,7 @@
       "url": "https://apply.refline.ch/792841/11424/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:43.327Z",
+      "crawledAt": "2026-11-14T21:19:53.536Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1486,7 +1486,7 @@
       },
       "streetAddress": "Meilen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T09:18:43.327Z",
+      "validThrough": "2027-01-07T21:19:53.536Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1521,7 +1521,7 @@
       "url": "https://apply.refline.ch/792841/11422/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:42.882Z",
+      "crawledAt": "2026-11-14T21:19:53.082Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1571,7 +1571,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-07T09:18:42.882Z",
+      "validThrough": "2027-01-06T21:19:53.082Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1606,7 +1606,7 @@
       "url": "https://apply.refline.ch/792841/11418/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:42.437Z",
+      "crawledAt": "2026-11-14T21:19:52.635Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1656,7 +1656,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-01-06T09:18:42.437Z",
+      "validThrough": "2027-01-06T21:19:52.635Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1691,7 +1691,7 @@
       "url": "https://apply.refline.ch/792841/11406/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:41.993Z",
+      "crawledAt": "2026-11-14T21:19:52.189Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1738,7 +1738,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-31T09:18:41.993Z",
+      "validThrough": "2026-12-31T21:19:52.189Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1773,7 +1773,7 @@
       "url": "https://apply.refline.ch/792841/10967/pub/7",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:41.549Z",
+      "crawledAt": "2026-11-14T21:19:51.746Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1833,7 +1833,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-14T09:18:41.549Z",
+      "validThrough": "2026-12-14T21:19:51.746Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1868,7 +1868,7 @@
       "url": "https://apply.refline.ch/792841/10968/pub/7",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:41.100Z",
+      "crawledAt": "2026-11-14T21:19:51.305Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1926,7 +1926,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-14T09:18:41.100Z",
+      "validThrough": "2026-12-14T21:19:51.305Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1961,7 +1961,7 @@
       "url": "https://apply.refline.ch/792841/11400/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:40.656Z",
+      "crawledAt": "2026-11-14T21:19:50.864Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2016,7 +2016,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-30T09:18:40.656Z",
+      "validThrough": "2026-12-29T21:19:50.864Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2051,7 +2051,7 @@
       "url": "https://apply.refline.ch/792841/11394/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:40.211Z",
+      "crawledAt": "2026-11-14T21:19:50.422Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2103,7 +2103,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-29T09:18:40.211Z",
+      "validThrough": "2026-12-29T21:19:50.422Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2137,7 +2137,7 @@
       "url": "https://apply.refline.ch/792841/11388/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:39.768Z",
+      "crawledAt": "2026-11-14T21:19:49.979Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2189,7 +2189,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-27T09:18:39.768Z",
+      "validThrough": "2026-12-27T21:19:49.979Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2223,7 +2223,7 @@
       "url": "https://apply.refline.ch/792841/11392/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:39.321Z",
+      "crawledAt": "2026-11-14T21:19:49.537Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2278,7 +2278,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-28T09:18:39.321Z",
+      "validThrough": "2026-12-27T21:19:49.537Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2313,7 +2313,7 @@
       "url": "https://apply.refline.ch/792841/11284/pub/5",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:38.874Z",
+      "crawledAt": "2026-11-14T21:19:49.089Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2362,7 +2362,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-14T09:18:38.874Z",
+      "validThrough": "2026-12-14T21:19:49.089Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2397,7 +2397,7 @@
       "url": "https://apply.refline.ch/792841/11381/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:38.428Z",
+      "crawledAt": "2026-11-14T21:19:48.644Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2444,7 +2444,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-24T09:18:38.428Z",
+      "validThrough": "2026-12-23T21:19:48.644Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2479,7 +2479,7 @@
       "url": "https://apply.refline.ch/792841/11377/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:37.983Z",
+      "crawledAt": "2026-11-14T21:19:48.201Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2531,7 +2531,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-22T09:18:37.983Z",
+      "validThrough": "2026-12-21T21:19:48.201Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2566,7 +2566,7 @@
       "url": "https://apply.refline.ch/792841/11371/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:37.538Z",
+      "crawledAt": "2026-11-14T21:19:47.758Z",
       "addressLocality": "Dielsdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2621,7 +2621,7 @@
       },
       "streetAddress": "Dielsdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:18:37.538Z",
+      "validThrough": "2026-12-17T21:19:47.758Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2655,7 +2655,7 @@
       "url": "https://apply.refline.ch/792841/11330/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:37.091Z",
+      "crawledAt": "2026-11-14T21:19:47.313Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2702,7 +2702,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-14T09:18:37.091Z",
+      "validThrough": "2026-12-14T21:19:47.313Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2737,7 +2737,7 @@
       "url": "https://apply.refline.ch/792841/11105/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:36.646Z",
+      "crawledAt": "2026-11-14T21:19:46.870Z",
       "addressLocality": "Witikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2792,7 +2792,7 @@
       },
       "streetAddress": "Witikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:18:36.646Z",
+      "validThrough": "2026-12-14T21:19:46.870Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2827,7 +2827,7 @@
       "url": "https://apply.refline.ch/792841/11232/pub/1",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:36.199Z",
+      "crawledAt": "2026-11-14T21:19:46.430Z",
       "addressLocality": "Rüti",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2884,7 +2884,7 @@
       },
       "streetAddress": "Rüti",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:18:36.199Z",
+      "validThrough": "2026-12-14T21:19:46.430Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2919,7 +2919,7 @@
       "url": "https://apply.refline.ch/792841/10931/pub/3",
       "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:35.730Z",
+      "crawledAt": "2026-11-14T21:19:45.936Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2974,7 +2974,7 @@
       },
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
-      "validThrough": "2026-12-14T09:18:35.730Z",
+      "validThrough": "2026-12-14T21:19:45.936Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3062,7 +3062,7 @@
       "streetAddressSource": "curated-company-city",
       "validThrough": "2026-12-24T09:15:44.046Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "zkb-9ba90bc2bfb1",
@@ -3149,266 +3149,6 @@
       "streetAddress": "Bahnhofstrasse 9",
       "streetAddressSource": "curated-company-city",
       "validThrough": "2026-12-13T09:15:36.772Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "zkb-a7e8c3e1c658",
-      "slug": "solution-architetto-cloud-ingegnere-genai-plattform-m-w-d-zurcher-kantonalbank-zurich",
-      "slugByLocale": {
-        "it": "solution-architetto-cloud-ingegnere-genai-plattform-m-w-d-zurcher-kantonalbank-zurich",
-        "en": "solution-architect-cloud-engineer-genai-platform-m-f-d-zurcher-kantonalbank-zurich",
-        "de": "solution-architect-cloud-engineer-genai-plattform-m-w-d-zkb-zurich",
-        "fr": "solution-architecte-cloud-ingenieur-genai-plattform-m-w-d-zurcher-kantonalbank-zurich"
-      },
-      "company": "Zürcher Kantonalbank",
-      "companyKey": "zkb",
-      "companyDomain": "zkb.ch",
-      "title": "Solution Architect & Cloud Engineer GenAI-Plattform (m/w/d)",
-      "titleByLocale": {
-        "it": "Solution Architetto & Cloud Ingegnere GenAI-Plattform (m/w/d)",
-        "en": "Solution Architect & Cloud Engineer GenAI platform (m/f/d)",
-        "de": "Solution Architect & Cloud Engineer GenAI-Plattform (m/w/d)",
-        "fr": "Solution Architecte & Cloud Ingénieur GenAI-Plattform (m/w/d)"
-      },
-      "description": "80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene\nWillkommen im DevOps Team CHAI der Zürcher Kantonalbank. Wir sind ein dynamisches und innovatives Team, das mit Leidenschaft an der Entwicklung und dem Betrieb einer modernen GenAI-Plattform arbeitet und für unterschiedliche Fachbereiche vielfältige AI Use Cases umsetzt. Unsere Mission ist es, mit OpenAI- und Azure-AI-Services zukunftsweisende Lösungen zu schaffen, welche die IT-Entwicklung und den IT-Betrieb weiterbringen und unsere Bankdienstleistungen optimieren. Gemeinsam begleiten und implementieren wir spannende AI Use Cases und tragen so massgeblich zur digitalen Transformation der Bank bei. Wenn du Freude daran hast, in einem agilen Umfeld die Lösungsarchitektur unserer GenAI-Plattform zu gestalten und dabei moderne Cloud- und Integrationsarchitekturen mit den Anforderungen von Business, IT-Security und Architekturvorgaben zu vereinen, bist du bei uns richtig.\nDeine Aufgaben\n• Gestalten der technischen Gesamtarchitektur der GenAI-Plattform, einschliesslich Datenaufnahme, LLMOps, Bereitstellung von Schnittstellen und Integration in die bestehenden IT-Systeme der Bank\n• Konzipieren der Umsetzung neuer Anforderungen an die GenAI-Plattform sowie verantworten der laufenden Weiterentwicklung und Optimierung unter Berücksichtigung aller Komponenten, Aufwände, des Betriebs und der unternehmensweiten sowie regulatorischen Vorgaben\n• Überprüfen von Designs, Anleiten der Entwicklungsteams zu bewährten Architekturmustern und Entscheiden zu Technologien und Werkzeugen, um Skalierbarkeit und Wartbarkeit sicherzustellen\n• Zusammenarbeiten mit Business- und IT-Teams, insbesondere zur Abstimmung mit Systemarchitektur und IT-Sicherheit, um Anforderungen der Fachbereiche in die bestehende Architektur einzubinden\n• Unterstützen bei der technischen Planung und Koordination von Umsetzungen sowie beim Auflösen von Abhängigkeiten zu anderen Teams\n• Beobachten und beurteilen neuer Technologien, Frameworks und Werkzeuge im Bereich künstliche Intelligenz und maschinelles Lernen\nDein Profil\n• Mehrjährige Berufserfahrung in der Architektur und Umsetzung von komplexen IT- oder Cloud-Plattformen, idealerweise mit Fokus auf AI- oder Datenplattformen\n• Ausgeprägte Expertise im Systemdesign und in Integrationsmustern wie Microservices, ereignisgesteuerte Architekturen und Schnittstellenarchitekturen\n• Tiefgehendes Verständnis und Erfahrung mit LLM- und LLMOps-Umsetzungen, einschliesslich Modellbereitstellung, Pipeline-Orchestrierung und Betrieb eines robusten GenAI-Ökosystems\n• Fundierte Kenntnisse von Cloud-Plattformen, insbesondere Azure, sowie von Container-Orchestrierung wie Kubernetes und der Realisierung skalierbarer, resilienter Plattformlösungen\n• Fähigkeit, Abwägungen zwischen On-Premises- und Cloud-Lösungen zu treffen, insbesondere im Hinblick auf Datenresidenz in der Schweiz und Anforderungen eines hochregulierten Umfelds\n• Fähigkeit, technische Sachverhalte verständlich zu dokumentieren und zu kommunizieren sowie anspruchsvolle Fragestellungen mit unterschiedlichen Ansprechpersonen zu moderieren und voranzubringen\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\nUnser Angebot\n• Motiviertes, selbstorganisiertes und aufgestelltes Team, das sich auf dich freut\n• Spannendes und vielfältiges Aufgabenspektrum mit vielen Netzwerkmöglichkeiten\n• Grosser Freiraum für autonome Entscheidungen und Mitgestaltung\n• Vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln\n• Zentraler und moderner Arbeitsplatz\n• Flexible Arbeitszeiten, mobiles Arbeiten und Vereinbarkeit von Beruf und Privatleben ist bei uns selbstverständlich\n• Kultur der Wertschätzung und stetigen (Weiter-)Entwicklung – persönlich, technisch und fachlich\n• Umfassendes Paket mit attraktivem Grundsalär, variabler Vergütung und vielseitigen Benefits\nFür diese Stelle werden nur Direktbewerbungen berücksichtigt.\nAmir Reshef\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 39",
-      "descriptionByLocale": {
-        "it": "80% - 100% | IT / Business Engineering | Zurich | Professionisti esperti\nBenvenuti al DevOps Team CHAI della Zürcher Kantonalbank. Siamo un team dinamico e innovativo che lavora con passione nello sviluppo e nel funzionamento di una moderna piattaforma GenAI e implementa una vasta gamma di casi di utilizzo AI per diverse discipline. La nostra missione è quella di utilizzare i servizi OpenAI e Azure AI per creare soluzioni orientate al futuro che promuovano lo sviluppo e le operazioni IT e ottimizzano i nostri servizi bancari. Insieme accompagniamo e implementiamo emozionanti casi di utilizzo AI e quindi contribuiamo significativamente alla trasformazione digitale della banca. Se vi piace progettare l'architettura della soluzione della nostra piattaforma GenAI in un ambiente agile, combinando le moderne architetture cloud e di integrazione con i requisiti delle specifiche aziendali, della sicurezza IT e dell'architettura, siete al posto giusto.\nI tuoi compiti\n• Progettare l'architettura tecnica generale della piattaforma GenAI, tra cui l'acquisizione dei dati, LLMOps, la fornitura di interfacce e l'integrazione nei sistemi IT esistenti della banca\n• Progettare l'implementazione di nuovi requisiti per la piattaforma GenAI e sono responsabili per lo sviluppo e l'ottimizzazione in corso tenendo conto di tutti i componenti, le spese, le operazioni e le esigenze aziendali e regolamentari\n• Progetti di revisione, team di sviluppo guida su modelli architettonici collaudati e decidere su tecnologie e strumenti per garantire scalabilità e manutenbilità\n• Collaborazione con i team di business e IT, in particolare per il coordinamento con l'architettura di sistema e la sicurezza IT, per integrare i requisiti dei reparti nell'architettura esistente\n• Sostegno alla pianificazione tecnica e al coordinamento delle implementazioni, nonché alla dissoluzione delle dipendenze con altre squadre\n• Osservare e valutare nuove tecnologie, quadri e strumenti nel campo dell'intelligenza artificiale e dell'apprendimento automatico\nIl tuo profilo\n• Diversi anni di esperienza professionale nell'architettura e nell'implementazione di complesse piattaforme IT o cloud, idealmente con un focus su piattaforme AI o dati\n• Forte competenza nella progettazione del sistema e modelli di integrazione come microservizi, architetture orientate agli eventi e architetture di interfaccia\n• Comprensione e esperienza approfondita con le implementazioni LLM e LLMOps, tra cui la consegna dei modelli, l'orchestrazione delle tubazioni e il funzionamento di un ecosistema GenAI robusto\n• Conoscenza approfondita delle piattaforme cloud, in particolare Azure, così come l'orchestrazione dei container come Kubernetes e la realizzazione di soluzioni di piattaforma scalabili e resilienti\n• Capacità di pesare su premi e soluzioni cloud, soprattutto per quanto riguarda la residenza dei dati in Svizzera e le esigenze di un ambiente altamente regolamentato\n• Capacità di documentare e comunicare i problemi tecnici in modo comprensibile e di affrontare problemi di moderazione e di avanzamento con diverse persone di contatto\n• Molto buona conoscenza del tedesco e dell'inglese in parola e scrittura\nLa nostra offerta\n• Squadra motivata, auto-organizzata e consolidata che vi aspetta\n• Ampia e diversificata gamma di attività con molte possibilità di rete\n• Grande libertà di decisione autonoma e partecipazione\n• Varie opportunità di sviluppo personale e professionale\n• Posti di lavoro centrali e moderni\n• Le ore di lavoro flessibili, il lavoro mobile e l'equilibrio della vita lavorativa sono una questione ovviamente per noi\n• Cultura di apprezzamento e sviluppo continuo (più avanti) – personale, tecnico e professionale\n• Pacchetto completo con uno stipendio base attraente, compensazione variabile e vantaggi versatili\nPer questo lavoro, saranno prese in considerazione solo applicazioni dirette.\nAmir Reshef\nE' felice di aiutarti.\nTelefono: 044 292 27 39",
-        "en": "80% - 100% | IT / Business Engineering | Zurich | Experienced professionals\nWelcome to the DevOps Team CHAI of the Zürcher Kantonalbank. We are a dynamic and innovative team that works passionately on the development and operation of a modern GenAI platform and implements a wide range of AI use cases for different disciplines. Our mission is to use OpenAI and Azure AI services to create future-oriented solutions that advance IT development and operations and optimize our banking services. Together we accompany and implement exciting AI use cases and thus contribute significantly to the digital transformation of the bank. If you enjoy designing the solution architecture of our GenAI platform in an agile environment while combining modern cloud and integration architectures with the requirements of business, IT security and architecture specifications, you are at the right place.\nYour tasks\n• Design the overall technical architecture of the GenAI platform, including data acquisition, LLMOps, provision of interfaces and integration into the bank’s existing IT systems\n• Design the implementation of new requirements for the GenAI platform and are responsible for ongoing development and optimization taking into account all components, expenses, operations and company-wide and regulatory requirements\n• Review designs, guide development teams on proven architectural patterns, and decide on technologies and tools to ensure scalability and maintainability\n• Collaboration with business and IT teams, in particular for coordination with system architecture and IT security, to integrate requirements of the departments into the existing architecture\n• Support in the technical planning and coordination of implementations as well as in dissolving dependencies with other teams\n• Observe and assess new technologies, frameworks and tools in the field of artificial intelligence and machine learning\nYour profile\n• Several years of professional experience in the architecture and implementation of complex IT or cloud platforms, ideally with a focus on AI or data platforms\n• Strong expertise in system design and integration patterns such as microservices, event-driven architectures and interface architectures\n• In-depth understanding and experience with LLM and LLMOps implementations, including model delivery, pipeline orchestration and operation of a robust GenAI ecosystem\n• In-depth knowledge of cloud platforms, especially Azure, as well as container orchestration such as Kubernetes and the realization of scalable, resilient platform solutions\n• Ability to weigh up on-premises and cloud solutions, especially with regard to data residency in Switzerland and requirements of a highly regulated environment\n• Ability to document and communicate technical issues in a comprehensible manner and to moderate and advance challenging issues with different contact persons\n• Very good knowledge of German and English in word and writing\nOur offer\n• Motivated, self-organized and established team that looks forward to you\n• Exciting and diverse range of tasks with many network possibilities\n• Great freedom for autonomous decisions and participation\n• Various opportunities to develop personally and professionally\n• Central and modern workplace\n• Flexible working hours, mobile work and work-life balance are a matter of course for us\n• Culture of appreciation and continuous (further) development – personal, technical and professional\n• Comprehensive package with attractive basic salary, variable compensation and versatile benefits\nFor this job, only direct applications will be considered.\nAmir Reshef\nHe is happy to help you.\nTelephone: 044 292 27 39",
-        "de": "80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene\nWillkommen im DevOps Team CHAI der Zürcher Kantonalbank. Wir sind ein dynamisches und innovatives Team, das mit Leidenschaft an der Entwicklung und dem Betrieb einer modernen GenAI-Plattform arbeitet und für unterschiedliche Fachbereiche vielfältige AI Use Cases umsetzt. Unsere Mission ist es, mit OpenAI- und Azure-AI-Services zukunftsweisende Lösungen zu schaffen, welche die IT-Entwicklung und den IT-Betrieb weiterbringen und unsere Bankdienstleistungen optimieren. Gemeinsam begleiten und implementieren wir spannende AI Use Cases und tragen so massgeblich zur digitalen Transformation der Bank bei. Wenn du Freude daran hast, in einem agilen Umfeld die Lösungsarchitektur unserer GenAI-Plattform zu gestalten und dabei moderne Cloud- und Integrationsarchitekturen mit den Anforderungen von Business, IT-Security und Architekturvorgaben zu vereinen, bist du bei uns richtig.\nDeine Aufgaben\n• Gestalten der technischen Gesamtarchitektur der GenAI-Plattform, einschliesslich Datenaufnahme, LLMOps, Bereitstellung von Schnittstellen und Integration in die bestehenden IT-Systeme der Bank\n• Konzipieren der Umsetzung neuer Anforderungen an die GenAI-Plattform sowie verantworten der laufenden Weiterentwicklung und Optimierung unter Berücksichtigung aller Komponenten, Aufwände, des Betriebs und der unternehmensweiten sowie regulatorischen Vorgaben\n• Überprüfen von Designs, Anleiten der Entwicklungsteams zu bewährten Architekturmustern und Entscheiden zu Technologien und Werkzeugen, um Skalierbarkeit und Wartbarkeit sicherzustellen\n• Zusammenarbeiten mit Business- und IT-Teams, insbesondere zur Abstimmung mit Systemarchitektur und IT-Sicherheit, um Anforderungen der Fachbereiche in die bestehende Architektur einzubinden\n• Unterstützen bei der technischen Planung und Koordination von Umsetzungen sowie beim Auflösen von Abhängigkeiten zu anderen Teams\n• Beobachten und beurteilen neuer Technologien, Frameworks und Werkzeuge im Bereich künstliche Intelligenz und maschinelles Lernen\nDein Profil\n• Mehrjährige Berufserfahrung in der Architektur und Umsetzung von komplexen IT- oder Cloud-Plattformen, idealerweise mit Fokus auf AI- oder Datenplattformen\n• Ausgeprägte Expertise im Systemdesign und in Integrationsmustern wie Microservices, ereignisgesteuerte Architekturen und Schnittstellenarchitekturen\n• Tiefgehendes Verständnis und Erfahrung mit LLM- und LLMOps-Umsetzungen, einschliesslich Modellbereitstellung, Pipeline-Orchestrierung und Betrieb eines robusten GenAI-Ökosystems\n• Fundierte Kenntnisse von Cloud-Plattformen, insbesondere Azure, sowie von Container-Orchestrierung wie Kubernetes und der Realisierung skalierbarer, resilienter Plattformlösungen\n• Fähigkeit, Abwägungen zwischen On-Premises- und Cloud-Lösungen zu treffen, insbesondere im Hinblick auf Datenresidenz in der Schweiz und Anforderungen eines hochregulierten Umfelds\n• Fähigkeit, technische Sachverhalte verständlich zu dokumentieren und zu kommunizieren sowie anspruchsvolle Fragestellungen mit unterschiedlichen Ansprechpersonen zu moderieren und voranzubringen\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\nUnser Angebot\n• Motiviertes, selbstorganisiertes und aufgestelltes Team, das sich auf dich freut\n• Spannendes und vielfältiges Aufgabenspektrum mit vielen Netzwerkmöglichkeiten\n• Grosser Freiraum für autonome Entscheidungen und Mitgestaltung\n• Vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln\n• Zentraler und moderner Arbeitsplatz\n• Flexible Arbeitszeiten, mobiles Arbeiten und Vereinbarkeit von Beruf und Privatleben ist bei uns selbstverständlich\n• Kultur der Wertschätzung und stetigen (Weiter-)Entwicklung – persönlich, technisch und fachlich\n• Umfassendes Paket mit attraktivem Grundsalär, variabler Vergütung und vielseitigen Benefits\nFür diese Stelle werden nur Direktbewerbungen berücksichtigt.\nAmir Reshef\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 39",
-        "fr": "80 % - 100 % de TI / Ingénierie d'affaires\nBienvenue à l'équipe DevOps CHAI de la Zürcher Kantonalbank. Nous sommes une équipe dynamique et innovante qui travaille passionnément sur le développement et le fonctionnement d'une plateforme GenAI moderne et met en œuvre un large éventail de cas d'utilisation de l'IA pour différentes disciplines. Notre mission est d'utiliser les services OpenAI et Azure AI pour créer des solutions orientées vers l'avenir qui favorisent le développement et les opérations informatiques et optimisent nos services bancaires. Ensemble, nous accompagnons et implémentons des cas passionnants d'utilisation de l'IA et contribuons ainsi de manière significative à la transformation numérique de la banque. Si vous aimez concevoir l'architecture de solution de notre plateforme GenAI dans un environnement agile tout en combinant des architectures modernes de cloud et d'intégration avec les exigences des affaires, de la sécurité informatique et des spécifications d'architecture, vous êtes au bon endroit.\nVos tâches\n• Concevoir l'architecture technique globale de la plateforme GenAI, y compris l'acquisition de données, LLMOps, la fourniture d'interfaces et l'intégration dans la banque des systèmes informatiques existants\n• Concevoir la mise en œuvre de nouvelles exigences pour la plateforme GenAI et être responsable du développement et de l'optimisation continus en tenant compte de toutes les composantes, dépenses, opérations et exigences réglementaires de l'entreprise\n• Examiner les conceptions, guider les équipes de développement sur les modèles architecturaux éprouvés et décider des technologies et des outils pour assurer l'évolutivité et la maintenance\n• Collaboration avec les équipes d'affaires et de TI, en particulier pour la coordination avec l'architecture des systèmes et la sécurité des TI, afin d'intégrer les exigences des départements dans l'architecture existante\n• Appui à la planification technique et à la coordination de la mise en œuvre ainsi qu ' à la dissolution des dépendances avec d ' autres équipes\n• Observer et évaluer les nouvelles technologies, cadres et outils dans le domaine de l'intelligence artificielle et de l'apprentissage automatique\nVotre profil\n• Plusieurs années d'expérience professionnelle dans l'architecture et la mise en œuvre de plates-formes informatiques ou cloud complexes, idéalement avec un accent sur l'IA ou les plates-formes de données\n• Forte expertise dans la conception et l'intégration de systèmes tels que les microservices, les architectures événementielles et les architectures d'interface\n• Compréhension approfondie et expérience des implémentations LLM et LLMOps, y compris la livraison de modèles, l'orchestration de pipelines et l'exploitation d'un écosystème GenAI robuste\n• Connaissance approfondie des plateformes cloud, en particulier Azure, ainsi que de l'orchestration de conteneurs tels que Kubernetes et la réalisation de solutions de plateformes évolutives et résistantes\n• Capacité à évaluer les solutions sur site et cloud, en particulier en ce qui concerne la résidence des données en Suisse et les exigences d'un environnement hautement réglementé\n• Capacité de documenter et de communiquer les questions techniques d'une manière compréhensible et de modérer et de faire avancer les questions difficiles avec différentes personnes de contact\n• Très bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\nNotre offre\n• Équipe motivée, auto-organisée et établie qui vous attend avec impatience\n• Excitant et varié gamme de tâches avec de nombreuses possibilités de réseau\n• Grande liberté de décision autonome et de participation\n• Diverses possibilités de développement personnel et professionnel\n• Milieu de travail central et moderne\n• La flexibilité des horaires de travail, la mobilité du travail et l'équilibre entre vie professionnelle et vie privée sont bien sûr une question pour nous.\n• Culture d'appréciation et de développement continu – personnel, technique et professionnel\n• Ensemble complet avec salaire de base attrayant, rémunération variable et avantages polyvalents\nPour ce poste, seules les demandes directes seront prises en considération.\nAmir Reshef\nIl est heureux de vous aider.\nTéléphone : 044 292 27 39"
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/792841/11462/pub/1",
-      "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:17:27.218Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-05T10:14:12.624482+00:00",
-      "postedDate": "2026-11-05T10:14:12.624482+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/792841/11462/pub/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "11462",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "previousSlugs": [
-        "solution-architect-cloud-engineer-genai-plattform-m-w-d-zkb-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "solution-architect-cloud-engineer-genai-plattform-m-w-d-zkb-zurich"
-        ],
-        "en": [
-          "solution-architect-cloud-engineer-genai-plattform-m-w-d-zkb-zurich"
-        ],
-        "fr": [
-          "solution-architect-cloud-engineer-genai-plattform-m-w-d-zkb-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-11-05T21:20:47.202Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Bahnhofstrasse 9",
-      "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-03T21:17:27.218Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "zkb-bff8af11f917",
-      "slug": "projektmitarbeiter-in-process-design-weiterentwicklung-hrba-zurcher-kantonalbank-zurich",
-      "slugByLocale": {
-        "it": "projektmitarbeiter-in-process-design-weiterentwicklung-hrba-zurcher-kantonalbank-zurich",
-        "en": "project-staff-member-process-design-development-hrba-zurcher-kantonalbank-zurich",
-        "de": "projektmitarbeiter-in-process-design-weiterentwicklung-hrba-zkb-zurich",
-        "fr": "collaboratrice-collaborateur-de-projet-process-design-developpement-hrba-zurcher-kantonalbank-zurich"
-      },
-      "company": "Zürcher Kantonalbank",
-      "companyKey": "zkb",
-      "companyDomain": "zkb.ch",
-      "title": "Projektmitarbeiter:in Process Design & Weiterentwicklung HRBA",
-      "titleByLocale": {
-        "it": "Projektmitarbeiter:in Process Design & Weiterentwicklung HRBA",
-        "en": "Project Staff Member Process Design & Development HRBA",
-        "de": "Projektmitarbeiter:in Process Design & Weiterentwicklung HRBA",
-        "fr": "Collaboratrice/collaborateur de projet Process Design & développement HRBA"
-      },
-      "description": "80% - 100% | People & Culture | Zürich | Berufseinsteiger:in\nDas Team HR Business Advisors (HRBA) der Zürcher Kantonalbank begleitet und unterstützt Führungskräfte in allen Führungs- und HR-Themen sowie -Prozessen entlang des gesamten Mitarbeitendenlebenszyklus (z.B. Onboarding, Performance Management, Compensation, Offboarding). Im Rahmen einer gezielten Weiterentwicklung werden Prozesse und Arbeitsweisen im HRBA-Umfeld überarbeitet und optimiert. Ziel ist es, Prozesse end-to-end zu überprüfen, zu optimieren und zu dokumentieren sowie geeignete Vorlagen und technische Unterstützungsmöglichkeiten gezielt einzusetzen, um Führungspersonen künftig noch wirkungsvoller zu unterstützen. In deiner Rolle gestaltest du diese Weiterentwicklung aktiv mit.\nDiese Stelle ist befristet auf 6 Monate.\nDeine Aufgaben\n• Systematisches Strukturieren, dokumentieren und standardisieren der bestehenden Prozesse (inkl. Rollen und Verantwortlichkeiten)\n• Überprüfen der Prozesse und Dokumente hinsichtlich arbeitsrechtlicher Anforderungen , interner Richtlinien, Datenschutz und Verständlichkeit\n• Erarbeiten von Vorlagen, Checklisten und Inhalten mit einheitlichen Formulierungen, die den oben erwähnten Anforderungen entsprechen\n• Enges Zusammenarbeiten mit den HRBAs und Legal\n• Unterstützen beim Aufbau einer strukturierten Ablage und Versionieren der Prozesse und Vorlagen\nDein Profil\n• Abgeschlossenes Masterstudium, vorzugsweise im Bereich Human Resources, Arbeitsrecht, Betriebswirtschaft oder einem vergleichbaren Studiengang\n• Erste Berufserfahrung oder Praktika in der HR‑Administration oder in einem vergleichbar prozessorientierten Umfeld von Vorteil\n• Ausgeprägte Eigeninitiative sowie die Bereitschaft, Ideen einzubringen und Optimierungsmöglichkeiten aufzuzeigen\n• Interesse und Grundverständnis für Prozessarbeit (z.B. aus Studium, Weiterbildung oder Projekterfahrung); idealerweise erste Erfahrung mit Prozessdokumentation\n• Grundkenntnisse im Schweizer Arbeitsrecht und Datenschutz oder hohe Bereitschaft, sich rasch und eigenständig zu vertiefen\n• Hohe Affinität zu Struktur, Regeln und Genauigkeit sowie Freude daran, Ordnung und Klarheit in Prozesse und Dokumente zu bringen\n• Sehr gute Deutschkenntnisse\nUnser Angebot\n• Wir zählen auf deine Ideen und bieten dir Freiraum für deine Impulse in der Weiterentwicklung unserer Prozesslandschaft und Dokumentation\n• Zusammenarbeit mit engagierten Personen mit viel Erfahrung, die ihr Wissen gerne teilen\n• Vertiefte Einblicke in die verschiedenen Themen unserer erfolgreichen Bank\n• Vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln\n• Zentraler und moderner Arbeitsplatz\n• Flexible Arbeitszeiten, mobiles Arbeiten und Vereinbarkeit von Beruf und Privatleben ist bei uns selbstverständlich\nFatima Malik\nfreut sich, dir zu helfen.\nTelefon: 044 292 30 24",
-      "descriptionByLocale": {
-        "it": "80% - 100% | Persone & Cultura | Zurigo | Principianti: in\nIl team HR Business Advisors (HRBA) di Zürcher Kantonalbank accompagna e supporta i dirigenti in tutti gli argomenti e processi di gestione e HR lungo l'intero ciclo di vita dei dipendenti (ad esempio onboarding, performance management, compensazione, offboarding). Come parte di un mirato ulteriore sviluppo, processi e metodi di lavoro nell'ambiente HRBA sono revisionati e ottimizzati. L'obiettivo è quello di rivedere, ottimizzare e documentare i processi end-to-end e utilizzare i modelli adatti e le opzioni di supporto tecnico in modo mirato al fine di supportare i leader ancora più efficacemente in futuro. Nel vostro ruolo, formate attivamente questo ulteriore sviluppo.\nI tuoi compiti\n• Strutturazione sistematica, documentazione e standardizzazione dei processi esistenti (compresi ruoli e responsabilità)\n• Revisione dei processi e dei documenti relativi ai requisiti di diritto del lavoro, politiche interne, protezione dei dati e comprensione\n• Sviluppa modelli, liste di controllo e contenuti con formulazioni uniformi che soddisfano i requisiti di cui sopra\n• Una stretta collaborazione con HRBA e Legali\n• Supporto nella costruzione di uno storage strutturato e nella versione dei processi e dei modelli\nIl tuo profilo\n• Laurea magistrale, preferibilmente nel campo delle risorse umane, del diritto del lavoro, dell'amministrazione aziendale o di un programma di laurea comparabile\n• Prima esperienza professionale o stage in amministrazione HR o in un ambiente simile\n• Pronunciata iniziativa e la volontà di contribuire idee e mostrare possibilità di ottimizzazione\n• interesse e comprensione di base del lavoro di processo (ad esempio dallo studio, dall'ulteriore formazione o dall'esperienza di progetto); idealmente prima esperienza con la documentazione di processo\n• Conoscenza di base del diritto del lavoro svizzero e della protezione dei dati o una grande volontà di approfondire rapidamente e in modo indipendente\n• Alta affinità per la struttura, le regole e la precisione e il piacere di portare ordine e chiarezza a processi e documenti\n• Molto buona conoscenza del tedesco\nLa nostra offerta\n• Contiamo sulle vostre idee e vi offriamo spazio per i vostri impulsi nell'ulteriore sviluppo del nostro paesaggio di processo e documentazione.\n• Collabora con persone dedicate con un sacco di esperienza che sono felici di condividere le loro conoscenze\n• approfondimenti sui vari argomenti della nostra banca di successo\n• Varie opportunità di sviluppo personale e professionale\n• Posti di lavoro centrali e moderni\n• Le ore di lavoro flessibili, il lavoro mobile e l'equilibrio della vita lavorativa sono una questione ovviamente per noi\nFatima Malik\nE' felice di aiutarti.\nTelefono: 044 292 30 24",
-        "en": "80% - 100% | People & Culture | Zurich | Beginners: in\nThe team HR Business Advisors (HRBA) of Zürcher Kantonalbank accompanies and supports executives in all management and HR topics and processes along the entire employee life cycle (e.g. onboarding, performance management, compensation, offboarding). As part of a targeted further development, processes and working methods in the HRBA environment are revised and optimized. The aim is to review, optimize and document processes end-to-end and to use suitable templates and technical support options in a targeted manner in order to support leaders even more effectively in the future. In your role, you actively shape this further development.\nYour tasks\n• Systematic structuring, documenting and standardizing of existing processes (including roles and responsibilities)\n• Review of processes and documents regarding labour law requirements, internal policies, data protection and comprehensibility\n• Develop templates, checklists and content with uniform formulations that meet the requirements mentioned above\n• Close cooperation with HRBAs and Legal\n• Support in building a structured storage and versioning the processes and templates\nYour profile\n• Master's degree, preferably in the field of human resources, labour law, business administration or a comparable degree programme\n• First professional experience or internships in HR administration or in a comparable process-oriented environment\n• Pronounced initiative as well as the willingness to contribute ideas and show optimization possibilities\n• interest and basic understanding of process work (e.g. from study, further education or project experience); ideally first experience with process documentation\n• Basic knowledge of Swiss labour law and data protection or a high willingness to deepen quickly and independently\n• High affinity for structure, rules and accuracy as well as pleasure in bringing order and clarity to processes and documents\n• Very good knowledge of German\nOur offer\n• We count on your ideas and offer you space for your impulses in the further development of our process landscape and documentation.\n• Collaborate with dedicated people with a lot of experience who are happy to share their knowledge\n• In-depth insights into the various topics of our successful bank\n• Various opportunities to develop personally and professionally\n• Central and modern workplace\n• Flexible working hours, mobile work and work-life balance are a matter of course for us\nFatima Malik\nHe is happy to help you.\nTelephone: 044 292 30 24",
-        "de": "80% - 100% | People & Culture | Zürich | Berufseinsteiger:in\nDas Team HR Business Advisors (HRBA) der Zürcher Kantonalbank begleitet und unterstützt Führungskräfte in allen Führungs- und HR-Themen sowie -Prozessen entlang des gesamten Mitarbeitendenlebenszyklus (z.B. Onboarding, Performance Management, Compensation, Offboarding). Im Rahmen einer gezielten Weiterentwicklung werden Prozesse und Arbeitsweisen im HRBA-Umfeld überarbeitet und optimiert. Ziel ist es, Prozesse end-to-end zu überprüfen, zu optimieren und zu dokumentieren sowie geeignete Vorlagen und technische Unterstützungsmöglichkeiten gezielt einzusetzen, um Führungspersonen künftig noch wirkungsvoller zu unterstützen. In deiner Rolle gestaltest du diese Weiterentwicklung aktiv mit.\nDiese Stelle ist befristet auf 6 Monate.\nDeine Aufgaben\n• Systematisches Strukturieren, dokumentieren und standardisieren der bestehenden Prozesse (inkl. Rollen und Verantwortlichkeiten)\n• Überprüfen der Prozesse und Dokumente hinsichtlich arbeitsrechtlicher Anforderungen , interner Richtlinien, Datenschutz und Verständlichkeit\n• Erarbeiten von Vorlagen, Checklisten und Inhalten mit einheitlichen Formulierungen, die den oben erwähnten Anforderungen entsprechen\n• Enges Zusammenarbeiten mit den HRBAs und Legal\n• Unterstützen beim Aufbau einer strukturierten Ablage und Versionieren der Prozesse und Vorlagen\nDein Profil\n• Abgeschlossenes Masterstudium, vorzugsweise im Bereich Human Resources, Arbeitsrecht, Betriebswirtschaft oder einem vergleichbaren Studiengang\n• Erste Berufserfahrung oder Praktika in der HR‑Administration oder in einem vergleichbar prozessorientierten Umfeld von Vorteil\n• Ausgeprägte Eigeninitiative sowie die Bereitschaft, Ideen einzubringen und Optimierungsmöglichkeiten aufzuzeigen\n• Interesse und Grundverständnis für Prozessarbeit (z.B. aus Studium, Weiterbildung oder Projekterfahrung); idealerweise erste Erfahrung mit Prozessdokumentation\n• Grundkenntnisse im Schweizer Arbeitsrecht und Datenschutz oder hohe Bereitschaft, sich rasch und eigenständig zu vertiefen\n• Hohe Affinität zu Struktur, Regeln und Genauigkeit sowie Freude daran, Ordnung und Klarheit in Prozesse und Dokumente zu bringen\n• Sehr gute Deutschkenntnisse\nUnser Angebot\n• Wir zählen auf deine Ideen und bieten dir Freiraum für deine Impulse in der Weiterentwicklung unserer Prozesslandschaft und Dokumentation\n• Zusammenarbeit mit engagierten Personen mit viel Erfahrung, die ihr Wissen gerne teilen\n• Vertiefte Einblicke in die verschiedenen Themen unserer erfolgreichen Bank\n• Vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln\n• Zentraler und moderner Arbeitsplatz\n• Flexible Arbeitszeiten, mobiles Arbeiten und Vereinbarkeit von Beruf und Privatleben ist bei uns selbstverständlich\nFatima Malik\nfreut sich, dir zu helfen.\nTelefon: 044 292 30 24",
-        "fr": "80 % - 100 % de la population et de la culture\nL'équipe HR Business Advisors (HRBA) de Zürcher Kantonalbank accompagne et soutient les cadres supérieurs dans tous les domaines et processus de gestion et de RH tout au long du cycle de vie des employés (par exemple, l'embarquement, la gestion du rendement, la rémunération, le hors-bord). Dans le cadre d'un développement ciblé, les processus et les méthodes de travail de l'ACRH sont révisés et optimisés. L'objectif est d'examiner, d'optimiser et de documenter les processus de bout en bout et d'utiliser des modèles appropriés et des options de soutien technique d'une manière ciblée afin d'aider encore plus efficacement les dirigeants à l'avenir. Dans votre rôle, vous façonnez activement cette évolution.\nVos tâches\n• Structure systématique, documentation et normalisation des processus existants (y compris les rôles et responsabilités)\n• Examen des processus et des documents concernant les exigences du droit du travail, les politiques internes, la protection des données et la compréhensibilité\n• Élaborer des modèles, des listes de contrôle et un contenu comportant des formulations uniformes répondant aux exigences susmentionnées\n• Coopération étroite avec les HRBA et les services juridiques\n• Support dans la construction d'un stockage structuré et la version des processus et des modèles\nVotre profil\n• Maîtrise, de préférence dans le domaine des ressources humaines, du droit du travail, de l'administration des entreprises ou d'un programme d'études comparable\n• Première expérience professionnelle ou stages en administration des RH ou dans un environnement comparable orienté vers les processus\n• Initiative annoncée ainsi que la volonté de contribuer aux idées et de montrer les possibilités d'optimisation\n• Intérêt et compréhension de base du travail de processus (p. ex. études, études complémentaires ou expérience de projet); idéalement première expérience avec la documentation de processus\n• Connaissance de base du droit du travail et de la protection des données en Suisse ou grande volonté d'approfondir rapidement et indépendamment\n• Haute affinité pour la structure, les règles et la précision ainsi que le plaisir d'apporter l'ordre et la clarté aux processus et aux documents\n• Très bonne connaissance de l'allemand\nNotre offre\n• Nous comptons sur vos idées et vous offrons de l'espace pour vos impulsions dans le développement ultérieur de notre paysage de processus et de la documentation.\n• Collaborer avec des gens dévoués avec beaucoup d'expérience qui sont heureux de partager leurs connaissances\n• Aperçus approfondis des différents sujets de notre banque réussie\n• Diverses possibilités de développement personnel et professionnel\n• Milieu de travail central et moderne\n• La flexibilité des horaires de travail, la mobilité du travail et l'équilibre entre vie professionnelle et vie privée sont bien sûr une question pour nous.\nFatima Malik\nIl est heureux de vous aider.\nTéléphone : 044 292 30 24"
-      },
-      "needsRetranslation": true,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/792841/11463/pub/1",
-      "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:17:25.871Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Tecnica",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "intern",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-05T11:41:32.165149+00:00",
-      "postedDate": "2026-11-05T11:41:32.165149+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/792841/11463/pub/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "11463",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "previousSlugs": [
-        "projektmitarbeiter-in-process-design-weiterentwicklung-hrba-zkb-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "projektmitarbeiter-in-process-design-weiterentwicklung-hrba-zkb-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-11-05T21:20:45.865Z",
-      "salaryMin": 83000,
-      "salaryMax": 126000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 126000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Bahnhofstrasse 9",
-      "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-03T21:17:25.871Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "zkb-4711172b3a4a",
-      "slug": "ai-ingegnere-m-w-d-zurcher-kantonalbank-zurich",
-      "slugByLocale": {
-        "it": "ai-ingegnere-m-w-d-zurcher-kantonalbank-zurich",
-        "en": "ai-engineer-m-f-d-zurcher-kantonalbank-zurich",
-        "de": "ai-engineer-m-w-d-zkb-zurich",
-        "fr": "ai-ingenieur-m-w-d-zurcher-kantonalbank-zurich"
-      },
-      "company": "Zürcher Kantonalbank",
-      "companyKey": "zkb",
-      "companyDomain": "zkb.ch",
-      "title": "AI Engineer (m/w/d)",
-      "titleByLocale": {
-        "it": "AI Ingegnere (m/w/d)",
-        "en": "AI Engineer (m/f/d)",
-        "de": "AI Engineer (m/w/d)",
-        "fr": "AI Ingénieur (m/w/d)"
-      },
-      "description": "80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene\nWillkommen im DevOps Team CHAI der Zürcher Kantonalbank. Wir sind ein dynamisches und innovatives Team, das mit Leidenschaft an der Entwicklung und dem Betrieb einer modernen GenAI-Plattform arbeitet und für unterschiedliche Fachbereiche vielfältige AI Use Cases umsetzt. Unsere Mission ist es, mit OpenAI- und Azure-AI-Services zukunftsweisende Lösungen zu schaffen, welche die IT-Entwicklung und den IT-Betrieb weiterbringen und unsere Bankdienstleistungen optimieren. Gemeinsam begleiten und implementieren wir spannende AI Use Cases und tragen so zur digitalen Transformation der Bank bei. Wenn du Freude daran hast, in einem agilen Umfeld robuste GenAI-Lösungen zu entwickeln, skalierbare Datenpipelines zu bauen und AI Use Cases gemeinsam mit Cloud Engineers, Business Engineers und Data Scientists von der Idee bis in den stabilen Produktionsbetrieb zu bringen, bist du bei uns richtig.\nDeine Aufgaben\n• Entwickeln, implementieren und evaluieren von robusten, produktionsreifen GenAI-Lösungen, insbesondere Retrieval-Augmented Generation (RAG), unter Anwendung moderner AI-Technologien und bewährter Software-Engineering-Praktiken\n• Erstellen, bereitstellen und warten von skalierbaren Datenpipelines und Schnittstellen zur Unterstützung von GenAI-Anwendungen, Inferenz und Echtzeit-Integration in Unternehmenssysteme\n• Konzipieren und umsetzen von neuen Anforderungen für AI Use Cases (z. B. RAG, Patterns, Self-Service) sowie deren laufende Weiterentwicklung und Optimierung\n• Zusammenarbeiten mit Cloud Engineers, Business Engineers, Data Scientists, anderen DevOps-Teams und Ansprechpersonen aus den Fachbereichen, um Prototypen in betriebsfähige Lösungen zu überführen\n• Überwachen und optimieren des Einsatzes von GenAI-Lösungen in Produktionsumgebungen, um Zuverlässigkeit, Skalierbarkeit und die Ausrichtung an Geschäftszielen sicherzustellen\nDein Profil\n• Mehrjährige Berufserfahrung in der Umsetzung von AI- oder Softwarelösungen, idealerweise mit Fokus auf GenAI-Anwendungen\n• Tiefgehendes Verständnis von GenAI-Technologien, insbesondere Retrieval-Augmented Generation (RAG), sowie Erfahrung in Prompt- und Context-Engineering\n• Vertrautheit mit Frameworks und Werkzeugen wie LangFuse, LangChain und anderen relevanten Technologien\n• Fundierte Kenntnisse in Cloud-Plattformen, idealerweise auf Azure-Basis, sowie in Services wie App Service, Container Apps, Azure AI Foundry und Azure AI Search oder vergleichbaren Angeboten\n• Solide Erfahrung mit CI/CD-Pipelines, der Schnittstellen-Entwicklung zur Integration von Modellen sowie mit LLM-Tracing, LLMOps und Evaluations\n• Fundierte Programmierkenntnisse in Python sowie in Skriptsprachen wie Bash oder PowerShell; Erfahrung mit Java, Spring und SpringAI ist von Vorteil\n• Erfahrung mit Test-Automatisierung, automatischen Deployments und iterativer Validierung von GenAI-Lösungen\nUnser Angebot\n• Motiviertes, selbstorganisiertes und aufgestelltes Team, das sich auf dich freut\n• Spannendes und vielfältiges Aufgabenspektrum mit vielen Netzwerkmöglichkeiten\n• Grosser Freiraum für autonome Entscheidungen und Mitgestaltung\n• Vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln Zentraler und moderner Arbeitsplatz Flexible Arbeitszeiten, mobiles Arbeiten und Vereinbarkeit von Beruf und Privatleben ist bei uns selbstverständlich\n• Kultur der Wertschätzung und stetigen (Weiter-)Entwicklung – persönlich, technisch und fachlich\n• Umfassendes Paket mit attraktivem Grundsalär, variabler Vergütung und vielseitigen Benefits\nFür diese Stelle werden nur Direktbewerbungen berücksichtigt.\nAmir Reshef\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 39",
-      "descriptionByLocale": {
-        "it": "80% - 100% | IT / Business Engineering | Zurich | Professionisti esperti\nBenvenuti al DevOps Team CHAI della Zürcher Kantonalbank. Siamo un team dinamico e innovativo che lavora con passione nello sviluppo e nel funzionamento di una moderna piattaforma GenAI e implementa una vasta gamma di casi di utilizzo AI per diverse discipline. La nostra missione è quella di utilizzare i servizi OpenAI e Azure AI per creare soluzioni orientate al futuro che promuovano lo sviluppo e le operazioni IT e ottimizzano i nostri servizi bancari. Insieme accompagniamo e implementiamo emozionanti casi di utilizzo AI e quindi contribuiamo alla trasformazione digitale della banca. Se ti piace sviluppare soluzioni GenAI robuste in un ambiente agile, costruire pipeline di dati scalabili e portare casi di utilizzo AI da idea a operazioni di produzione stabili insieme a ingegneri cloud, ingegneri aziendali e scienziati di dati, sei al posto giusto.\nI tuoi compiti\n• Sviluppare, implementare e valutare soluzioni GenAI robuste e pronte alla produzione, in particolare Retrieval-Augmented Generation (RAG), utilizzando tecnologie AI avanzate e comprovate pratiche di ingegneria del software\n• Creazione, distribuzione e manutenzione di datadotti scalabili e interfacce per supportare applicazioni GenAI, inferenza e integrazione in tempo reale nei sistemi aziendali\n• Progettazione e realizzazione di nuovi requisiti per i casi di utilizzo AI (ad esempio RAG, modelli, self-service) e il loro sviluppo e ottimizzazione in corso\n• Collabora con ingegneri cloud, ingegneri aziendali, scienziati di dati, altri team DevOps e specialisti per trasformare i prototipi in soluzioni operative\n• Monitorare e ottimizzare la distribuzione di soluzioni GenAI in ambienti produttivi per garantire affidabilità, scalabilità e allineamento con gli obiettivi aziendali\nIl tuo profilo\n• Diversi anni di esperienza professionale nell'implementazione di soluzioni AI o software, idealmente con un focus sulle applicazioni GenAI\n• La comprensione approfondita delle tecnologie GenAI, in particolare Retrieval-Augmented Generation (RAG), e l'esperienza nell'ingegneria dei tempi e dei contesti\n• Familiarità con strutture e strumenti come LangFuse, LangChain e altre tecnologie rilevanti\n• Conoscenza approfondita delle piattaforme cloud, idealmente basate su Azure, così come nei servizi come App Service, Container Apps, Azure AI Foundry e Azure AI Search o offerte comparabili\n• Esperienza solida con le tubazioni CI/CD, sviluppo dell'interfaccia per l'integrazione dei modelli e tracciamento LLM, LLMOps e valutazioni\n• Capacità di programmazione sonora in Python così come in linguaggi di scrittura come Bash o PowerShell; Esperienza con Java, Spring e SpringAI è benefica\n• Esperienza con automazione dei test, distribuzione automatica e validazione iterativa delle soluzioni GenAI\nLa nostra offerta\n• Squadra motivata, auto-organizzata e consolidata che vi aspetta\n• Ampia e diversificata gamma di attività con molte possibilità di rete\n• Grande libertà di decisione autonoma e partecipazione\n• Possibilità diverse per lo sviluppo personale e professionale Posto di lavoro centrale e moderno Ore lavorative flessibili, lavoro mobile e riconciliazione del lavoro e vita privata è una questione naturalmente per noi\n• Cultura di apprezzamento e sviluppo continuo (più avanti) – personale, tecnico e professionale\n• Pacchetto completo con attraente stipendio base, compensazione variabile e vantaggi versatili\nPer questo lavoro, saranno prese in considerazione solo applicazioni dirette.\nAmir Reshef\nSono felice di aiutarti.\nTelefono: 044 292 27 39",
-        "en": "80% - 100% | IT / Business Engineering | Zurich | Experienced professionals\nWelcome to the DevOps Team CHAI of the Zürcher Kantonalbank. We are a dynamic and innovative team that works passionately on the development and operation of a modern GenAI platform and implements a wide range of AI use cases for different disciplines. Our mission is to use OpenAI and Azure AI services to create future-oriented solutions that advance IT development and operations and optimize our banking services. Together we accompany and implement exciting AI use cases and thus contribute to the digital transformation of the bank. If you enjoy developing robust GenAI solutions in an agile environment, building scalable data pipelines and bringing AI use cases from idea to stable production operations together with cloud engineers, business engineers and data scientists, you’re at the right place.\nYour tasks\n• Develop, implement and evaluate robust, production-ready GenAI solutions, in particular Retrieval-Augmented Generation (RAG), using advanced AI technologies and proven software engineering practices\n• Create, deploy and maintain scalable data pipelines and interfaces to support GenAI applications, inference and real-time integration in enterprise systems\n• Design and implement new requirements for AI use cases (e.g. RAG, patterns, self-service) as well as their ongoing development and optimization\n• Collaborate with cloud engineers, business engineers, data scientists, other DevOps teams and specialists to transform prototypes into operational solutions\n• Monitor and optimize the deployment of GenAI solutions in production environments to ensure reliability, scalability and alignment with business objectives\nYour profile\n• Several years of professional experience in the implementation of AI or software solutions, ideally with a focus on GenAI applications\n• In-depth understanding of GenAI technologies, in particular Retrieval-Augmented Generation (RAG), and experience in prompt and context engineering\n• Familiarity with frameworks and tools such as LangFuse, LangChain and other relevant technologies\n• In-depth knowledge in cloud platforms, ideally Azure-based, as well as in services such as App Service, Container Apps, Azure AI Foundry and Azure AI Search or comparable offerings\n• Solid experience with CI/CD pipelines, interface development for model integration, and LLM tracing, LLMOps and evaluations\n• Sound programming skills in Python as well as in scripting languages such as Bash or PowerShell; Experience with Java, Spring and SpringAI is beneficial\n• Experience with test automation, automatic deployments and iterative validation of GenAI solutions\nOur offer\n• Motivated, self-organized and established team that looks forward to you\n• Exciting and diverse range of tasks with many network possibilities\n• Great freedom for autonomous decisions and participation\n• Diverse possibilities for personal and professional development Central and modern workplace Flexible working hours, mobile working and reconciliation of work and private life is a matter of course for us\n• Culture of appreciation and continuous (further) development – personal, technical and professional\n• Comprehensive package with attractive basic salary, variable compensation and versatile benefits\nFor this job, only direct applications will be considered.\nAmir Reshef\nI am glad to help you.\nTelephone: 044 292 27 39",
-        "de": "80% - 100% | IT / Business Engineering | Zürich | Berufserfahrene\nWillkommen im DevOps Team CHAI der Zürcher Kantonalbank. Wir sind ein dynamisches und innovatives Team, das mit Leidenschaft an der Entwicklung und dem Betrieb einer modernen GenAI-Plattform arbeitet und für unterschiedliche Fachbereiche vielfältige AI Use Cases umsetzt. Unsere Mission ist es, mit OpenAI- und Azure-AI-Services zukunftsweisende Lösungen zu schaffen, welche die IT-Entwicklung und den IT-Betrieb weiterbringen und unsere Bankdienstleistungen optimieren. Gemeinsam begleiten und implementieren wir spannende AI Use Cases und tragen so zur digitalen Transformation der Bank bei. Wenn du Freude daran hast, in einem agilen Umfeld robuste GenAI-Lösungen zu entwickeln, skalierbare Datenpipelines zu bauen und AI Use Cases gemeinsam mit Cloud Engineers, Business Engineers und Data Scientists von der Idee bis in den stabilen Produktionsbetrieb zu bringen, bist du bei uns richtig.\nDeine Aufgaben\n• Entwickeln, implementieren und evaluieren von robusten, produktionsreifen GenAI-Lösungen, insbesondere Retrieval-Augmented Generation (RAG), unter Anwendung moderner AI-Technologien und bewährter Software-Engineering-Praktiken\n• Erstellen, bereitstellen und warten von skalierbaren Datenpipelines und Schnittstellen zur Unterstützung von GenAI-Anwendungen, Inferenz und Echtzeit-Integration in Unternehmenssysteme\n• Konzipieren und umsetzen von neuen Anforderungen für AI Use Cases (z. B. RAG, Patterns, Self-Service) sowie deren laufende Weiterentwicklung und Optimierung\n• Zusammenarbeiten mit Cloud Engineers, Business Engineers, Data Scientists, anderen DevOps-Teams und Ansprechpersonen aus den Fachbereichen, um Prototypen in betriebsfähige Lösungen zu überführen\n• Überwachen und optimieren des Einsatzes von GenAI-Lösungen in Produktionsumgebungen, um Zuverlässigkeit, Skalierbarkeit und die Ausrichtung an Geschäftszielen sicherzustellen\nDein Profil\n• Mehrjährige Berufserfahrung in der Umsetzung von AI- oder Softwarelösungen, idealerweise mit Fokus auf GenAI-Anwendungen\n• Tiefgehendes Verständnis von GenAI-Technologien, insbesondere Retrieval-Augmented Generation (RAG), sowie Erfahrung in Prompt- und Context-Engineering\n• Vertrautheit mit Frameworks und Werkzeugen wie LangFuse, LangChain und anderen relevanten Technologien\n• Fundierte Kenntnisse in Cloud-Plattformen, idealerweise auf Azure-Basis, sowie in Services wie App Service, Container Apps, Azure AI Foundry und Azure AI Search oder vergleichbaren Angeboten\n• Solide Erfahrung mit CI/CD-Pipelines, der Schnittstellen-Entwicklung zur Integration von Modellen sowie mit LLM-Tracing, LLMOps und Evaluations\n• Fundierte Programmierkenntnisse in Python sowie in Skriptsprachen wie Bash oder PowerShell; Erfahrung mit Java, Spring und SpringAI ist von Vorteil\n• Erfahrung mit Test-Automatisierung, automatischen Deployments und iterativer Validierung von GenAI-Lösungen\nUnser Angebot\n• Motiviertes, selbstorganisiertes und aufgestelltes Team, das sich auf dich freut\n• Spannendes und vielfältiges Aufgabenspektrum mit vielen Netzwerkmöglichkeiten\n• Grosser Freiraum für autonome Entscheidungen und Mitgestaltung\n• Vielfältige Möglichkeiten, dich persönlich und fachlich weiterzuentwickeln Zentraler und moderner Arbeitsplatz Flexible Arbeitszeiten, mobiles Arbeiten und Vereinbarkeit von Beruf und Privatleben ist bei uns selbstverständlich\n• Kultur der Wertschätzung und stetigen (Weiter-)Entwicklung – persönlich, technisch und fachlich\n• Umfassendes Paket mit attraktivem Grundsalär, variabler Vergütung und vielseitigen Benefits\nFür diese Stelle werden nur Direktbewerbungen berücksichtigt.\nAmir Reshef\nfreut sich, dir zu helfen.\nTelefon: 044 292 27 39",
-        "fr": "80 % - 100 % de l'informatique / Ingénierie d'affaires\nBienvenue à l'équipe DevOps CHAI de la Zürcher Kantonalbank. Nous sommes une équipe dynamique et innovante qui travaille passionnément sur le développement et le fonctionnement d'une plateforme GenAI moderne et met en œuvre une large gamme de cas d'utilisation de l'IA pour différentes disciplines. Notre mission est d'utiliser les services OpenAI et Azure AI pour créer des solutions orientées vers l'avenir qui favorisent le développement et les opérations informatiques et optimisent nos services bancaires. Ensemble, nous accompagnons et implémentons des cas passionnants d'utilisation de l'IA et contribuons ainsi à la transformation numérique de la banque. Si vous aimez développer des solutions GenAI robustes dans un environnement agile, construire des pipelines de données évolutives et apporter des cas d'utilisation de l'IA de l'idée à des opérations de production stables avec des ingénieurs en nuage, des ingénieurs d'affaires et des data scientists, vous êtes au bon endroit.\nVos tâches\n• Élaborer, mettre en œuvre et évaluer des solutions GenAI robustes et prêtes à la production, en particulier Retrieval-Augmented Generation (RAG), en utilisant des technologies d'IA avancées et des pratiques d'ingénierie logicielle éprouvées\n• Créer, déployer et maintenir des pipelines de données et des interfaces évolutives pour soutenir les applications GenAI, l'inférence et l'intégration en temps réel dans les systèmes d'entreprise\n• Concevoir et mettre en oeuvre de nouvelles exigences pour les cas d'utilisation de l'IA (p. ex. RAG, modèles, libre-service) ainsi que leur développement et optimisation continus\n• Collaborer avec des ingénieurs en nuage, des ingénieurs d'affaires, des data savants, d'autres équipes DevOps et des spécialistes pour transformer les prototypes en solutions opérationnelles\n• Surveiller et optimiser le déploiement des solutions GenAI dans les environnements de production pour assurer la fiabilité, l'évolutivité et l'alignement avec les objectifs commerciaux\nVotre profil\n• Plusieurs années d'expérience professionnelle dans la mise en œuvre de solutions d'IA ou de logiciels, idéalement avec un accent sur les applications GenAI\n• Compréhension approfondie des technologies GenAI, en particulier Retrieval-Augmented Generation (RAG), et expérience en ingénierie rapide et contextuelle\n• Connaissance des cadres et outils tels que LangFuse, LangChain et d'autres technologies pertinentes\n• Connaissance approfondie des plateformes cloud, idéalement basées sur Azure, ainsi que des services tels que App Service, Container Apps, Azure AI Foundry et Azure AI Search ou des offres comparables\n• Forte expérience des pipelines CI/CD, développement d'interfaces pour l'intégration des modèles, localisation des LLM, LLMOps et évaluations\n• Compétences en programmation sonore en Python ainsi que dans les langages de script tels que Bash ou PowerShell; Expérience avec Java, Spring et SpringAI est bénéfique\n• Expérience avec l'automatisation des tests, les déploiements automatiques et la validation itérative des solutions GenAI\nNotre offre\n• Équipe motivée, auto-organisée et établie qui vous attend avec impatience\n• Excitant et varié gamme de tâches avec de nombreuses possibilités de réseau\n• Grande liberté de décision autonome et de participation\n• Différentes possibilités de perfectionnement personnel et professionnel Travail central et moderne Des horaires de travail flexibles, du travail mobile et de la conciliation de la vie professionnelle et de la vie privée est bien sûr une question pour nous\n• Culture d'appréciation et de développement continu – personnel, technique et professionnel\n• Ensemble complet avec salaire de base attrayant, rémunération variable et avantages polyvalents\nPour ce poste, seules les demandes directes seront prises en considération.\nAmir Reshef\nJe suis heureux de vous aider.\nTéléphone : 044 292 27 39"
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/792841/11459/pub/1",
-      "source": "Zürcher Kantonalbank Dedicated Parser (Refline 792841)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:17:22.682Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Sanità / Ospedali",
-      "contract": "part-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "intern",
-      "sector": "Finanza / Banca",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-05T08:01:14.007419+00:00",
-      "postedDate": "2026-11-05T08:01:14.007419+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/792841/11459/pub/1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "11459",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "previousSlugs": [
-        "ai-engineer-m-w-d-zkb-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ai-engineer-m-w-d-zkb-zurich"
-        ],
-        "en": [
-          "ai-engineer-m-w-d-zkb-zurich"
-        ],
-        "fr": [
-          "ai-engineer-m-w-d-zkb-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-11-05T09:16:22.510Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Bahnhofstrasse 9",
-      "streetAddressSource": "curated-company-city",
-      "validThrough": "2027-02-03T21:17:22.682Z",
       "validThroughSource": "last-observed-window",
       "crawlerMissStreak": 2
     }

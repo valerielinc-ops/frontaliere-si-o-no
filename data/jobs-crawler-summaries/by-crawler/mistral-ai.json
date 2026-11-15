@@ -1,11 +1,12 @@
 {
   "key": "mistral-ai",
   "label": "Mistral AI",
-  "generatedAt": "2026-11-14T09:39:42.836Z",
+  "generatedAt": "2026-11-14T21:38:37.583Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 2,
@@ -16,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4011,
-  "avgDurationMs": 4011,
+  "durationMs": 4941,
+  "avgDurationMs": 4941,
   "durationHistory": [
-    4011
+    4941
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +38,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/19026237-fb3d-480d-a1a3-27204bcb154a",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:39:25.019Z",
+      "crawledAt": "2026-11-14T21:38:12.464Z",
       "addressLocality": "Zurich | Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -59,7 +60,7 @@
       "postalCode": "8001",
       "addressRegion": "ZH",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:39:25.019Z",
+      "validThrough": "2027-01-27T21:38:12.464Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -81,7 +82,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:39:25.012Z",
+      "crawledAt": "2026-11-14T21:38:12.460Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -104,7 +105,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:39:25.012Z",
+      "validThrough": "2026-12-14T21:38:12.460Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -115,5 +116,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

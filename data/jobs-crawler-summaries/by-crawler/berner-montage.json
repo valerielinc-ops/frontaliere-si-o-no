@@ -1,11 +1,12 @@
 {
   "key": "berner-montage",
   "label": "Montagetechnik BERNER AG",
-  "generatedAt": "2026-11-14T09:15:29.210Z",
+  "generatedAt": "2026-11-14T21:17:10.402Z",
   "total": 9,
   "discovered": null,
   "parsed": 9,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 9,
@@ -16,10 +17,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 10211,
-  "avgDurationMs": 10211,
+  "durationMs": 10385,
+  "avgDurationMs": 10385,
   "durationHistory": [
-    10211
+    10385
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -36,7 +37,7 @@
       "url": "https://bernergroup.wd3.myworkdayjobs.com/en/Careers_Berner_Group/job/Neuchtel-Switzerland/Responsable-Rgional--h-f-d--pour-la-division-Construction---Rgion-Suisse-Romande_JR00004949",
       "source": "Montagetechnik BERNER AG Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:15:12.131Z",
+      "crawledAt": "2026-11-14T21:16:48.013Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "Kägenstrasse 8",
@@ -60,7 +61,7 @@
       "salaryMax": 129500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T09:15:12.131Z",
+      "validThrough": "2026-12-14T21:16:48.013Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -86,7 +87,7 @@
       "url": "https://bernergroup.wd3.myworkdayjobs.com/en/Careers_Berner_Group/job/Reinach-Switzerland/Mitarbeiter-im-Verkauf-Innendienst--m-w-d--Bauhandwerk-80-100-_JR00004096",
       "source": "Montagetechnik BERNER AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:15:17.703Z",
+      "crawledAt": "2026-11-14T21:16:53.439Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "Kägenstrasse 8",
@@ -110,7 +111,7 @@
       "salaryMax": 113500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T09:15:17.703Z",
+      "validThrough": "2026-12-14T21:16:53.439Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -133,7 +134,7 @@
       "url": "https://bernergroup.wd3.myworkdayjobs.com/en/Careers_Berner_Group/job/Basel-Switzerland/Aussendienstmitarbeiter--m-w-d--fr-das-Bau-Handwerk---Region-Basel_JR00004734",
       "source": "Montagetechnik BERNER AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:15:16.987Z",
+      "crawledAt": "2026-11-14T21:16:52.722Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "Kägenstrasse 8",
@@ -157,7 +158,7 @@
       "salaryMax": 113500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T09:15:16.987Z",
+      "validThrough": "2026-12-14T21:16:52.722Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -180,7 +181,7 @@
       "url": "https://bernergroup.wd3.myworkdayjobs.com/en/Careers_Berner_Group/job/Aarau-Switzerland/Aussendienstmitarbeiter--m-w-d--fr-das-Bau-Handwerk---Region-Aargau_JR00004740",
       "source": "Montagetechnik BERNER AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:15:16.117Z",
+      "crawledAt": "2026-11-14T21:16:51.990Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "Kägenstrasse 8",
@@ -204,7 +205,7 @@
       "salaryMax": 113500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T09:15:16.117Z",
+      "validThrough": "2026-12-14T21:16:51.990Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -227,7 +228,7 @@
       "url": "https://bernergroup.wd3.myworkdayjobs.com/en/Careers_Berner_Group/job/Bern-Switzerland/Aussendienstmitarbeiter--m-w-d--fr-das-Bau-Handwerk---Region-Bern---Bienne_JR00004733",
       "source": "Montagetechnik BERNER AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:15:15.362Z",
+      "crawledAt": "2026-11-14T21:16:51.252Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "Kägenstrasse 8",
@@ -251,7 +252,7 @@
       "salaryMax": 113500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T09:15:15.362Z",
+      "validThrough": "2026-12-14T21:16:51.252Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -274,7 +275,7 @@
       "url": "https://bernergroup.wd3.myworkdayjobs.com/en/Careers_Berner_Group/job/Altdorf-Switzerland/Aussendienstmitarbeiter--m-w-d--fr-das-Bau-Handwerk---Region-Innerschweiz--UR--OW--NW-_JR00004097",
       "source": "Montagetechnik BERNER AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:15:14.494Z",
+      "crawledAt": "2026-11-14T21:16:50.508Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "Kägenstrasse 8",
@@ -298,7 +299,7 @@
       "salaryMax": 113500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T09:15:14.494Z",
+      "validThrough": "2026-12-14T21:16:50.508Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -321,7 +322,7 @@
       "url": "https://bernergroup.wd3.myworkdayjobs.com/en/Careers_Berner_Group/job/St-Gallen-Switzerland/Aussendienstmitarbeiter--m-w-d--fr-das-Bau-Handwerk---Region-Rheintal---St-Gallen_JR00004746",
       "source": "Montagetechnik BERNER AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:15:13.735Z",
+      "crawledAt": "2026-11-14T21:16:49.747Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "Kägenstrasse 8",
@@ -345,7 +346,7 @@
       "salaryMax": 113500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T09:15:13.735Z",
+      "validThrough": "2026-12-14T21:16:49.747Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -368,7 +369,7 @@
       "url": "https://bernergroup.wd3.myworkdayjobs.com/en/Careers_Berner_Group/job/Zrich-Switzerland/Aussendienstmitarbeiter--m-w-d--fr-das-Bau-Handwerk---Region-Zrich_JR00004690",
       "source": "Montagetechnik BERNER AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:15:12.975Z",
+      "crawledAt": "2026-11-14T21:16:48.985Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "Kägenstrasse 8",
@@ -392,7 +393,7 @@
       "salaryMax": 113500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-14T09:15:12.975Z",
+      "validThrough": "2026-12-14T21:16:48.985Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -415,7 +416,7 @@
       "url": "https://bernergroup.wd3.myworkdayjobs.com/en/Careers_Berner_Group/job/Zrich-Switzerland/Aussendienstmitarbeiter--m-w-d--fr-das-Kfz-Handwerk---Region-Zrich-Nord_JR00005338",
       "source": "Montagetechnik BERNER AG Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:15:11.378Z",
+      "crawledAt": "2026-11-14T21:16:47.279Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "streetAddress": "Kägenstrasse 8",
@@ -439,7 +440,7 @@
       "salaryMax": 113500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T09:15:11.378Z",
+      "validThrough": "2027-01-06T21:16:47.279Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -450,5 +451,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

@@ -463,7 +463,7 @@ function canonicalCompanyToken(value) {
  * @param {object|null|undefined} job
  * @returns {string[]}
  */
-function pinnedCompanyIdentityKeys(job) {
+export function pinnedCompanyIdentityKeys(job) {
   return companyDisplayIdentityKeys(job?.company).map(canonicalCompanyToken);
 }
 
@@ -854,7 +854,7 @@ export function jobMatchFeatures(job, locale) {
  * @param {string} jobLoc
  * @returns {string}
  */
-function paddedLocHaystack(jobLoc) {
+export function paddedLocHaystack(jobLoc) {
   return ` ${normalizeLocToken(jobLoc)} `;
 }
 
@@ -866,7 +866,7 @@ function paddedLocHaystack(jobLoc) {
  * @param {string[]} needles
  * @returns {string[]}
  */
-function paddedLocNeedles(needles) {
+export function paddedLocNeedles(needles) {
   const out = [];
   const seen = new Set();
   for (const needle of needles || []) {
@@ -889,13 +889,13 @@ function paddedLocNeedles(needles) {
  * @param {string[]} needles
  * @returns {boolean}
  */
-function includesAny(haystack, needles) {
+export function includesAny(haystack, needles) {
   for (let i = 0; i < needles.length; i++) if (haystack.includes(needles[i])) return true;
   return false;
 }
 
 /** The only possible hit not fully inside one text segment. */
-function keywordAcrossTextJoin(titleText, descriptionText, keyword) {
+export function keywordAcrossTextJoin(titleText, descriptionText, keyword) {
   const edgeLength = Math.max(0, keyword.length - 1);
   const titleTail = titleText.slice(Math.max(0, titleText.length - edgeLength));
   const descriptionHead = descriptionText.slice(0, edgeLength);
@@ -903,13 +903,13 @@ function keywordAcrossTextJoin(titleText, descriptionText, keyword) {
 }
 
 /** `titleText + ' ' + descriptionText` without building that large string. */
-function keywordInTextParts(titleText, descriptionText, keyword) {
+export function keywordInTextParts(titleText, descriptionText, keyword) {
   return titleText.includes(keyword)
     || descriptionText.includes(keyword)
     || keywordAcrossTextJoin(titleText, descriptionText, keyword);
 }
 
-function searchHaystack(job, features, locale) {
+export function searchHaystack(job, features, locale) {
   const category = normalizeJobCategory(job.category, `${job.title || ''} ${String(job.department || '')}`);
   const cantonNames = cantonSearchTokens(job.canton);
   const title = job.titleByLocale?.[locale] || job.title;
@@ -917,12 +917,12 @@ function searchHaystack(job, features, locale) {
   return buildStemmedHaystack(`${features.titleText} ${description} ${job.company || ''} ${features.jobLoc} ${job.contract || ''} ${category} ${features.jobSector} ${cantonNames} ${professionSynonymText(title)}`);
 }
 
-function compileSearchQuery(query) {
+export function compileSearchQuery(query) {
   const tokens = normalizeSearchText(query).split(' ').filter(Boolean).map(stemSearchToken);
   return { query: String(query).toLowerCase(), tokens };
 }
 
-function matchesSearchQuery(compiled, job, features, locale, cached = null) {
+export function matchesSearchQuery(compiled, job, features, locale, cached = null) {
   // Unknown/unsupported script is never an empty AND matching everything.
   if (compiled.tokens.length === 0) {
     return keywordInTextParts(features.titleText, features.descriptionText, compiled.query);
@@ -945,11 +945,11 @@ function createSubstringMemo() {
 const MAX_SHARED_DESCRIPTION_MEMOS = 2048;
 const MAX_SHARED_SEARCH_MEMOS = 256;
 const MAX_SHARED_DESCRIPTION_MEMO_JOBS = 65_536;
-const DESCRIPTION_TRIGRAM_BLOOM_WORDS = 128;
+export const DESCRIPTION_TRIGRAM_BLOOM_WORDS = 128;
 const DESCRIPTION_TRIGRAM_BLOOM_MASK = DESCRIPTION_TRIGRAM_BLOOM_WORDS * 32 - 1;
 
 /** Build a 4,096-bit negative filter for substrings of one normalized description. */
-function buildDescriptionTrigramBloom(text) {
+export function buildDescriptionTrigramBloom(text) {
   const bloom = new Uint32Array(DESCRIPTION_TRIGRAM_BLOOM_WORDS);
   for (let index = 0; index + 2 < text.length; index++) {
     const first = text.charCodeAt(index) + 1;
@@ -972,7 +972,7 @@ function buildDescriptionTrigramBloom(text) {
 }
 
 /** Compile up to five distributed query trigrams once per keyword. */
-function descriptionTrigramBloomQueryBits(keyword) {
+export function descriptionTrigramBloomQueryBits(keyword) {
   const gramCount = keyword.length - 2;
   if (gramCount <= 0) return [];
   const sampleCount = Math.min(5, gramCount);
@@ -1005,7 +1005,7 @@ function descriptionTrigramBloomQueryBits(keyword) {
 }
 
 /** A false result is conclusive; a true result still needs the exact includes check. */
-function descriptionTrigramBloomMayContain(bloom, queryBits) {
+export function descriptionTrigramBloomMayContain(bloom, queryBits) {
   for (const bit of queryBits) {
     if ((bloom[bit >>> 5] & (1 << (bit & 31))) === 0) return false;
   }

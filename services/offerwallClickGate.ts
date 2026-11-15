@@ -55,7 +55,7 @@ import { isJobBoardSectionPathname } from '../scripts/lib/jobBoardSections.mjs';
 
 export interface OfferwallGateState {
   state?: 'idle' | 'held' | 'released' | 'suppressed' | 'off_board';
-  release?: () => boolean;
+  release?: (showOfferwall?: boolean) => boolean;
 }
 
 declare global {
@@ -228,8 +228,9 @@ export interface ReleaseHeldOfferwallOptions {
 }
 
 /**
- * `suppressed`: the gate let the consent message through and dropped the
- * Offerwall for this page view (no stored consent decision yet).
+ * `suppressed`: the gate let other Funding Choices messages through and
+ * dropped the Offerwall for this page view (no stored consent decision or a
+ * confirmed blocker).
  * `off_board`: Funding Choices reached the gate on a page outside the
  * job-board sections, where the Offerwall is always dropped; the visitor
  * then navigated to a job in the SPA without a new page load (the gate may

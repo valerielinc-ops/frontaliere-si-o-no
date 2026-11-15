@@ -316,6 +316,18 @@ export function rankingNeedsAffinityProfile({ config = JOB_EMAIL_RANKING_DEFAULT
     && Number(config.rollout) > 0;
 }
 
+/**
+ * Is any non-control arm assignable right now? True when the switch is on, the
+ * rollout is above zero and the configured treatment is not `control`. While it
+ * is false every recipient is in `control`, so there is no experiment whose CTR
+ * series (per job, per variant) would need the impression events.
+ */
+export function rankingHasActiveTreatment({ config = JOB_EMAIL_RANKING_DEFAULTS } = {}) {
+  return Boolean(config.enabled)
+    && Number(config.rollout) > 0
+    && configuredTreatmentVariant(config) !== JOB_EMAIL_RANKING_VARIANTS.control;
+}
+
 /** Any active ranking treatment may need a wider candidate pool. */
 export function rankingReorders({ variant, affinityScorer = null, config = JOB_EMAIL_RANKING_DEFAULTS } = {}) {
   return affinityReorders({ variant, affinityScorer, config }) || newnessReorders({ variant, config });

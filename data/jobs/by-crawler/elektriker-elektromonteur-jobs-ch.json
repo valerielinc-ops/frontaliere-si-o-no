@@ -1,7 +1,7 @@
 {
   "crawlerKey": "elektriker-elektromonteur-jobs-ch",
-  "assembledAt": "2026-11-13T21:54:51.194Z",
-  "runId": "43510533350",
+  "assembledAt": "2026-11-14T21:47:01.683Z",
+  "runId": "43642841931",
   "jobs": [
     {
       "id": "elektriker-elektromonteur-jobs-ch-05600696c811",
@@ -34,7 +34,7 @@
       "url": "https://www.pks-personal.ch/stellen/hr-assistent-in-50-60-befristet-fuer-4-monate/basel/hrm/82e9b75e",
       "source": "elektriker-elektromonteur-jobs Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:54:46.238Z",
+      "crawledAt": "2026-11-14T21:46:55.498Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -85,7 +85,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:54:46.238Z",
+      "validThrough": "2027-02-10T21:46:55.498Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -174,7 +174,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:53:45.678Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

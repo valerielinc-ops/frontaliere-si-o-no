@@ -631,6 +631,14 @@ describe('automatic section tree fan-out policy', () => {
     })).rejects.toThrow(/refusing to publish hashed paths/u);
   });
 
+  it('reuses the canonical Node Worker probe for shell shard revalidation', () => {
+    const fanoutScript = readFileSync(join(process.cwd(), 'scripts/lib/ticino-tree-fanout.sh'), 'utf8');
+    const stageScript = readFileSync(join(process.cwd(), 'scripts/lib/section-tree-layout-stage.mjs'), 'utf8');
+    expect(stageScript).toContain("if (args[0] === 'probe')");
+    expect(fanoutScript).toContain('node "$SECTION_TREE_LAYOUT_STAGE_TOOL" probe');
+    expect(fanoutScript).not.toContain('curl --silent --show-error --fail --head');
+  });
+
   it('requires build metrics and the cross-locale preflight before both shard push jobs', () => {
     const buildWorkflow = readFileSync(join(process.cwd(), '.github/workflows/deploy.yml'), 'utf8');
     const publishWorkflow = readFileSync(join(process.cwd(), '.github/workflows/deploy-publish.yml'), 'utf8');

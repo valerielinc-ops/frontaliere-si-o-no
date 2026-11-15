@@ -12,6 +12,8 @@ const DELVITECH_LEGACY_CAREER_URL = 'https://legacy.delvi.tech/career/';
 const DELVITECH_NAV_PATH_RE = /^\/(?:about(?:-us)?|company|contact|industr(?:y|ies)|news|solutions?|technology|sustainability|certifications?)(?:\/|$)/i;
 const DELVITECH_CAREER_ROOT_RE = /^\/careers?\/?$/i;
 const GENERIC_ROLE_LINK_TEXT_RE = /^(?:apply(?: now)?|learn more|read more|see (?:open )?roles?|view (?:role|details?)|discover more)$/i;
+const ZOHO_RECRUIT_SITE_RE = /^(?:[a-z0-9-]+\.)*zohorecruit\.eu$/i;
+const ZOHO_CONFIG_EMPTY_MESSAGE_RE = /\bno\s+(?:(?:current|open|available)\s+)?(?:openings?|jobs?|positions?|vacancies?)\b/i;
 const SEMANTIC_ROLE_CARD_SELECTOR = [
   'article',
   '[data-job-card]',
@@ -44,6 +46,61 @@ const LISTING_CONTAINER_SELECTOR = [
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+function readInlineStringProperty(source = '', property = '') {
+  const escapedProperty = String(property || '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const match = String(source || '').match(
+    new RegExp(`\\b${escapedProperty}\\s*:\\s*(["'])(.*?)\\1`, 's'),
+  );
+  return normalizeSpace(match?.[2] || '');
+}
+
+export function isDelvitechRecruitSite(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || '').trim());
+    return url.protocol === 'https:' && ZOHO_RECRUIT_SITE_RE.test(url.hostname);
+  } catch {
+    return false;
+  }
+}
+
+function isDelvitechLegacySite(rawUrl = '') {
+  try {
+    const url = new URL(String(rawUrl || '').trim());
+    const host = url.hostname.toLowerCase();
+    return ['legacy.delvi.tech', 'delvi.tech'].includes(host) || host.endsWith('.delvi.tech');
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Identify stored jobs owned by Delvitech without treating a shared ATS
+ * hostname as an employer identity. The legacy URL-only fallback is retained
+ * only for old records that predate company metadata; explicit foreign
+ * identity always wins.
+ */
+export function isDelvitechCompanyJob(job = {}) {
+  const companyKey = String(job.companyKey || '').trim().toLowerCase();
+  const company = normalizeSpace(job.company || '').toLowerCase();
+  if (companyKey === 'delvitech-sa' || company.includes('delvitech')) return true;
+  if (companyKey || company) return false;
+  return isDelvitechLegacySite(job.url || '');
+}
+
+function normalizeZohoDate(value = '') {
+  const raw = normalizeSpace(value);
+  const match = raw.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+  if (!match) return raw;
+  const month = Number(match[1]);
+  const day = Number(match[2]);
+  const year = Number(match[3]);
+  const date = new Date(Date.UTC(year, month - 1, day));
+  if (date.getUTCFullYear() !== year || date.getUTCMonth() !== month - 1 || date.getUTCDate() !== day) {
+    return '';
+  }
+  return `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 }
 
 function slugify(value = '') {
@@ -248,6 +305,95 @@ export function parseDelvitechCareerPage(html = '', pageUrl = DELVITECH_LEGACY_C
     },
   });
   return jobs;
+}
+
+/**
+ * Read the public ATS configuration embedded by the canonical careers page.
+ * The page is a WordPress shell; the actual vacancies are supplied by the
+ * Zoho Recruit widget and therefore do not appear in the initial HTML.
+ */
+export function parseDelvitechCareerWidgetConfig(html = '') {
+  const dom = new JSDOM(html);
+  const widgetScript = [...dom.window.document.querySelectorAll('script')]
+    .map((script) => String(script.textContent || ''))
+    .find((source) => /\brec_embed_js\.load\s*\(/i.test(source));
+  if (!widgetScript) return null;
+
+  const site = readInlineStringProperty(widgetScript, 'site');
+  const pageName = readInlineStringProperty(widgetScript, 'page_name');
+  const source = readInlineStringProperty(widgetScript, 'source');
+  const emptyJobMessage = readInlineStringProperty(widgetScript, 'empty_job_msg');
+  if (!site || !pageName || !isDelvitechRecruitSite(site)) return null;
+  return {
+    site: site.replace(/\/+$/, ''),
+    pageName,
+    source,
+    emptyJobMessage,
+    emptyJobMessageLooksAuthoritative: ZOHO_CONFIG_EMPTY_MESSAGE_RE.test(emptyJobMessage),
+  };
+}
+
+/**
+ * Convert the successful Zoho Recruit public feed into the same source-record
+ * shape used by the HTML parser. Invalid rows remain part of the completeness
+ * accounting instead of being silently discarded by the crawler.
+ */
+export function parseDelvitechZohoListings(payload = {}) {
+  if (payload?.code !== 'success' || !Array.isArray(payload.data)) return null;
+
+  const rows = payload.data.map((rawRow) => {
+    const row = rawRow && typeof rawRow === 'object' && !Array.isArray(rawRow) ? rawRow : {};
+    const href = String(row.$url || '').trim();
+    const title = normalizeSpace(row.Posting_Title || row.Job_Opening_Name || '');
+    const city = normalizeSpace(row.City || '');
+    const state = normalizeSpace(row.State || '');
+    const country = normalizeSpace(row.Country || '');
+    const location = [city, state, country].filter(Boolean).join(', ');
+    const description = htmlToText(String(row.Job_Description || '').trim()); // parser-contract-ok R5: provider rows are validated for a non-empty source body below
+    const detail = {
+      title,
+      location,
+      country,
+      description,
+      email: '',
+      datePublished: normalizeZohoDate(row.Date_Opened || ''),
+    };
+    return {
+      href,
+      title,
+      source: 'zoho-api',
+      detail,
+    };
+  });
+
+  const malformedRows = rows.filter((row) => (
+    !row.title
+    || !row.href
+    || !isDelvitechRecruitSite(row.href)
+    || !row.detail.location
+    || !row.detail.description
+  )).length;
+  const listings = rows.filter((row) => (
+    row.title
+    && row.href
+    && isDelvitechRecruitSite(row.href)
+    && row.detail.location
+    && row.detail.description
+  ));
+
+  Object.defineProperties(listings, {
+    // Provider JSON is not rendered page evidence. The browser path must
+    // independently observe an explicit empty-state message before the
+    // crawler can authorize removal of an existing slice.
+    delvitechListingMarkupSeen: { value: false, enumerable: false },
+    delvitechListingRecordCount: { value: rows.length, enumerable: false },
+    delvitechListingSkippedMalformedRows: { value: malformedRows, enumerable: false },
+    // An empty API array is only an API result, not independent evidence that
+    // the rendered careers page has no open roles. The runner may replace this
+    // result with a browser-rendered empty state after the API response.
+    delvitechListingEmptyStateObserved: { value: false, enumerable: false },
+  });
+  return listings;
 }
 
 export function parseDelvitechJobDetail(html = '', url = '') {

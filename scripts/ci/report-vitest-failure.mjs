@@ -11,6 +11,11 @@ import { realpathSync } from 'node:fs';
  *
  * Best-effort: questo reporter non deve mai aggiungere un secondo rosso al
  * gate che sta già fallendo.
+ *
+ * Con `VITEST_OUTCOME=success` il commento sticky, se descrive ancora un
+ * fallimento, diventa «superato» per la HEAD verde. Prima restava com'era e
+ * su una PR verde sembrava un rosso attuale (2026-11-14: #18793 mostrava i 5
+ * test falliti delle 20:33 dopo la run verde delle 21:14).
  */
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -21,6 +26,8 @@ const MAX_FAILURES = 20;
 const MAX_MESSAGE_LENGTH = 1800;
 const MAX_BODY_LENGTH = 60_000;
 const MARKER = '<!-- vitest-failure-report -->';
+const FAILURE_TITLE = '## ❌ Test Vitest falliti';
+const RESOLVED_TITLE = '## ✅ Test Vitest superati';
 
 function trustedGhBin() {
   const value = String(process.env.TRUSTED_GH_BIN || '').trim();
@@ -94,7 +101,7 @@ export function buildComment(groups, {
 } = {}) {
   const lines = [
     MARKER,
-    '## ❌ Test Vitest falliti',
+    FAILURE_TITLE,
     '',
     'Il gate `tests` è fallito. Dettaglio estratto dal report JSON del run Vitest:',
     '',
@@ -123,6 +130,35 @@ export function buildComment(groups, {
   if (runId) lines.push('Run ID: `' + runId + '`');
   if (headSha) lines.push('HEAD verificata: `' + headSha.slice(0, 12) + '`');
   return lines.join('\n').slice(0, MAX_BODY_LENGTH);
+}
+
+/**
+ * Corpo del commento sticky dopo una run verde. Tiene il marker, così il
+ * prossimo rosso riscrive lo stesso commento; senza righe `- **file** — `
+ * il rescue del rosso ereditato (`parseVitestFailureReport`) non vi trova
+ * file falliti.
+ */
+export function buildResolvedComment({ runUrl = '', runId = '', headSha = '' } = {}) {
+  const lines = [
+    MARKER,
+    RESOLVED_TITLE,
+    '',
+    'Il report dei test falliti che stava qui non è più attuale: `vitest related (PR diff)` è passato sulla HEAD indicata sotto.',
+    '',
+  ];
+  if (runUrl) lines.push(`Run: ${runUrl}`);
+  if (runId) lines.push('Run ID: `' + runId + '`');
+  if (headSha) lines.push('HEAD verificata: `' + headSha.slice(0, 12) + '`');
+  return lines.join('\n');
+}
+
+/**
+ * Il commento sticky descrive ancora un fallimento? Solo allora una run verde
+ * lo riscrive: un commento già «superato» non costa una PATCH a ogni run.
+ */
+export function reportShowsFailure(body) {
+  const text = String(body || '');
+  return text.includes(MARKER) && text.includes(FAILURE_TITLE);
 }
 
 function describeExecError(error) {
@@ -177,6 +213,24 @@ function publishComment(repo, prNumber, body) {
   return { posted, cause };
 }
 
+function resolveStaleReport(repo, prNumber, body) {
+  let cause = '';
+  const onError = (message) => { cause = message; };
+  const raw = ghOutput(['api', `repos/${repo}/issues/${prNumber}/comments?per_page=100`], onError);
+  let comments = [];
+  try { comments = JSON.parse(raw); } catch { /* best-effort: nessun commento da aggiornare */ }
+  const previous = (Array.isArray(comments) ? comments : [])
+    .find((comment) => String(comment.body || '').includes(MARKER));
+  if (!previous?.id || !reportShowsFailure(previous.body)) return { state: 'unchanged', cause };
+  const patched = gh([
+    'api',
+    '--method', 'PATCH',
+    `repos/${repo}/issues/comments/${previous.id}`,
+    '-f', `body=${body}`,
+  ], onError);
+  return { state: patched ? 'resolved' : 'failed', cause };
+}
+
 function writeStepSummary(repo, prNumber, cause, body) {
   const summaryFile = String(process.env.GITHUB_STEP_SUMMARY || '').trim();
   if (!summaryFile) return;
@@ -197,18 +251,30 @@ function writeStepSummary(repo, prNumber, cause, body) {
 }
 
 function main() {
-  const groups = collectFailures();
   const prNumber = process.env.PR_NUMBER || '';
   const repo = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
+  const run = {
+    runUrl: process.env.RUN_URL || '',
+    runId: process.env.RUN_ID || '',
+    headSha: process.env.HEAD_SHA || '',
+  };
+  if (String(process.env.VITEST_OUTCOME || '').trim() === 'success') {
+    if (!prNumber || !repo) {
+      console.log('Vitest verde: PR/repository non disponibili, nessun report da aggiornare.');
+      return;
+    }
+    const { state, cause } = resolveStaleReport(repo, prNumber, buildResolvedComment(run));
+    if (state === 'resolved') console.log(`Report failure Vitest della PR #${prNumber} segnato come superato.`);
+    else if (state === 'failed') console.log(`Report failure Vitest della PR #${prNumber} non aggiornato: ${cause || 'causa sconosciuta'}.`);
+    else console.log(`Nessun report failure Vitest da aggiornare sulla PR #${prNumber}.`);
+    return;
+  }
+  const groups = collectFailures();
   if (!prNumber || !repo) {
     console.log('Vitest reports: failure rilevati, ma PR/repository non disponibili.');
     return;
   }
-  const body = buildComment(groups, {
-    runUrl: process.env.RUN_URL || '',
-    runId: process.env.RUN_ID || '',
-    headSha: process.env.HEAD_SHA || '',
-  });
+  const body = buildComment(groups, run);
   const { posted, cause } = publishComment(repo, prNumber, body);
   if (posted) {
     console.log(`Commento failure Vitest pubblicato/aggiornato sulla PR #${prNumber}.`);

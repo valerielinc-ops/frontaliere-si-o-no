@@ -47,7 +47,7 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00052869EXTERNALENGLOBAL/Product-Manager"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-11-14T09:22:44.356Z",
+  "updatedAt": "2026-11-14T21:18:10.573Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050918EXTERNALENGLOBAL/XMLNAME--80---100---Compliance-Engineer---Senior-R-D-Engineer-for-SST": {
       "location": "Baden-Daettwil, Aargau, Switzerland",
@@ -73,6 +73,14 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00050875EXTERNALENGLOBAL/Experimental-Physicist--80---100---f-m-d": {
+      "location": "Baden-Daettwil, Aargau, Switzerland",
+      "canton": "AG",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050382EXTERNALENGLOBAL/Events---Exhibitions-CoE-Manager--f-m-d---80-100---12-Month-Maternity-Cover-_JR00050382-1": {
       "location": "Untersiggenthal, Aargau, Switzerland",
       "canton": "AG",
@@ -89,22 +97,6 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00050875EXTERNALENGLOBAL/Experimental-Physicist--80---100---f-m-d": {
-      "location": "Baden-Daettwil, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00052393EXTERNALENGLOBAL/Field-Service-Technician--Region-Central-Switzerland--f-m-d--80-100": {
-      "location": "Baden, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00033628EXTERNALENGLOBAL/DSM-Project-Management-Office-Lead_JR00033628-1": {
       "location": "Zurich, Zurich, Switzerland",
       "canton": "ZH",
@@ -113,7 +105,7 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00051559EXTERNALENGLOBAL/Datacenter-Senior-Automation---Control-Engineer--80-100": {
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00052393EXTERNALENGLOBAL/Field-Service-Technician--Region-Central-Switzerland--f-m-d--80-100": {
       "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
@@ -129,9 +121,9 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00050203EXTERNALENGLOBAL/Data-Managmenet-Specialist---Operations--m-w-d--80--100": {
-      "location": "Schaffhausen, Schaffhausen, Switzerland",
-      "canton": "SH",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00051559EXTERNALENGLOBAL/Datacenter-Senior-Automation---Control-Engineer--80-100": {
+      "location": "Baden, Aargau, Switzerland",
+      "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
@@ -140,6 +132,14 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00048597EXTERNALENGLOBAL/Field-Service-Technician--80---100----f-m-d": {
       "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00050203EXTERNALENGLOBAL/Data-Managmenet-Specialist---Operations--m-w-d--80--100": {
+      "location": "Schaffhausen, Schaffhausen, Switzerland",
+      "canton": "SH",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
@@ -193,16 +193,16 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00052388EXTERNALENGLOBAL/Field-Service-Technician--Region-East-Switzerland--f-m-d--80-100": {
-      "location": "Baden, Aargau, Switzerland",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00047028EXTERNALENGLOBAL/Research-Scientist-in-Operational-Technology--OT--Cybersecurity--80-100": {
+      "location": "Baden-Daettwil, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00047028EXTERNALENGLOBAL/Research-Scientist-in-Operational-Technology--OT--Cybersecurity--80-100": {
-      "location": "Baden-Daettwil, Aargau, Switzerland",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00052388EXTERNALENGLOBAL/Field-Service-Technician--Region-East-Switzerland--f-m-d--80-100": {
+      "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
@@ -281,16 +281,16 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00050906EXTERNALENGLOBAL/XMLNAME--80---100---Technical-Consultant--Medium-Voltage-Drives_JR00050906-1": {
-      "location": "Untersiggenthal, Aargau, Switzerland",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00051474EXTERNALENGLOBAL/Digital-Project-Engineer": {
+      "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00051474EXTERNALENGLOBAL/Digital-Project-Engineer": {
-      "location": "Baden, Aargau, Switzerland",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00050906EXTERNALENGLOBAL/XMLNAME--80---100---Technical-Consultant--Medium-Voltage-Drives_JR00050906-1": {
+      "location": "Untersiggenthal, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
@@ -313,17 +313,17 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00017046EXTERNALENGLOBAL/Sales-Specialist---French-speaking--80-100": {
-      "location": "Morges, Vaud, Switzerland",
-      "canton": "VD",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00051234EXTERNALENGLOBAL/Global-Lead-Engineer": {
+      "location": "Baden, Aargau, Switzerland",
+      "canton": "AG",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00051234EXTERNALENGLOBAL/Global-Lead-Engineer": {
-      "location": "Baden, Aargau, Switzerland",
-      "canton": "AG",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00017046EXTERNALENGLOBAL/Sales-Specialist---French-speaking--80-100": {
+      "location": "Morges, Vaud, Switzerland",
+      "canton": "VD",
       "country": "CH",
       "company": "ABB Svizzera (sede Ticino)",
       "companyDomain": "abb.ch",

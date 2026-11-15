@@ -503,6 +503,28 @@ export const RC_TO_ENV = {
   JOB_EMAIL_RANKING_ROLLOUT:      ['JOB_EMAIL_RANKING_ROLLOUT'],
   JOB_EMAIL_RANKING_AFFINITY_WEIGHT: ['JOB_EMAIL_RANKING_AFFINITY_WEIGHT'],
   JOB_EMAIL_RANKING_TREATMENT:    ['JOB_EMAIL_RANKING_TREATMENT'],
+  // Which ranking impressions the job-alert sender writes: auto | full | manifest
+  // (functions/src/lib/jobEmailRankingStore.js resolveImpressionsMode). Absent = `auto`.
+  JOB_EMAIL_RANKING_IMPRESSIONS_MODE: ['JOB_EMAIL_RANKING_IMPRESSIONS_MODE'],
+  // Job-alert candidate index (perf-plan PR 2, scripts/lib/job-alert-candidate-index.mjs).
+  // MODE = off | shadow | on (default `on`; `off` is the kill switch, `shadow`
+  // lets the legacy path decide while the index is compared on a sample).
+  // SHADOW_SAMPLE = fraction of alerts re-planned with the legacy path to verify
+  // the index (default 0.02 live, 0.10 in --dry-run). Absent = code defaults.
+  // Plan batch size of the job-alert sender (1-256, default 8): lets a dry-run
+  // try a larger group once the candidate index shrinks the per-alert match sets.
+  JOB_ALERT_PLAN_BATCH_SIZE: ['JOB_ALERT_PLAN_BATCH_SIZE'],
+  // Live-link of the job-alert sender (perf-plan PR 5): `auto` (default) uses the
+  // build's manifest of published job pages when it is fresh and covers the open
+  // listings, `off` keeps only the per-page HTTP check. MAX_AGE_HOURS defaults to 36.
+  JOB_ALERT_LIVE_LINK_MANIFEST: ['JOB_ALERT_LIVE_LINK_MANIFEST'],
+  JOB_ALERT_LIVE_LINK_MANIFEST_MAX_AGE_HOURS: ['JOB_ALERT_LIVE_LINK_MANIFEST_MAX_AGE_HOURS'],
+  // Batch bookkeeping of the job-alert sender (perf-plan PR 4b): `on` (default)
+  // writes the delivery intent and finalize as WriteBatch with a lastUpdateTime
+  // precondition, `off` restores the per-email transactions (kill switch).
+  JOB_ALERT_BATCH_BOOKKEEPING: ['JOB_ALERT_BATCH_BOOKKEEPING'],
+  JOB_ALERT_CANDIDATE_INDEX_MODE: ['JOB_ALERT_CANDIDATE_INDEX_MODE'],
+  JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE: ['JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE'],
   // Daily job-alert subject experiment: all controls are required by the
   // sender, so an incomplete RC edit cannot activate traffic accidentally.
   JOB_ALERT_SUBJECT_AB_ENABLED:   ['JOB_ALERT_SUBJECT_AB_ENABLED'],
@@ -651,6 +673,10 @@ export const PLAIN_WORD_RC_KEYS = new Set([
   'ASSISTED_APPLICATION_DOCX_INPLACE',
   'ASSISTED_APPLICATION_AGENT_NAVIGATION',
   'TIKTOK_VIDEO_CREATIVE_MODE',
+  // Rollout words of the job-alert perf switches (`shadow`, `manifest`): masking
+  // them would turn every such word in the run's log into `***`.
+  'JOB_ALERT_CANDIDATE_INDEX_MODE',
+  'JOB_EMAIL_RANKING_IMPRESSIONS_MODE',
 ]);
 
 /**

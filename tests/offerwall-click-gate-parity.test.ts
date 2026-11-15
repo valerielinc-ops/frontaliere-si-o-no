@@ -7,9 +7,9 @@
  *
  * Contract for the Funding Choices callback: it may carry OFFERWALL, the GDPR
  * consent message, and the ad-block message together. The gate filters only
- * Offerwall and AD_BLOCKING while leaving consent available:
+ * Offerwall while leaving consent and Google's native recovery available:
  * - off the job-board sections (JOB_BOARD_SECTION_PATHNAME_RX, shared with
- *   JobBoard's rewarded surface): suppress the Offerwall and AD_BLOCKING, whatever the
+ *   JobBoard's rewarded surface): suppress only the Offerwall, whatever the
  *   consent state, and mark the gate `off_board`. AdSense includes the whole
  *   site (owner decision 2026-09-26), so this is what keeps the Offerwall off
  *   entry everywhere else; it never proceeds there;
@@ -17,7 +17,7 @@
  *   it/en/de/fr), decision stored on both sides (our key AND a TC string in
  *   Funding Choices' FCCDCF cookie): hold the call until
  *   `__ftOfferwallGate.release()`;
- * - on a job-board section otherwise: suppress the Offerwall and AD_BLOCKING, so the CMP
+ * - on a job-board section otherwise: suppress only the Offerwall, so the CMP
  *   shows at once (holding it kept the CMP off screen in the live probe), and
  *   mark the gate `suppressed`.
  * The first, enum-less call proceeds at once everywhere (holding it delayed
@@ -75,7 +75,8 @@ type FakeWindow = {
     __ftOfferwallBootstrapComplete?: boolean;
     __ftOfferwallGateInstalled?: boolean;
   };
-  __ftOfferwallGate?: { state?: string; release?: () => boolean };
+  __ftAdBlock?: { blocked?: boolean; adsAllowed?: boolean };
+  __ftOfferwallGate?: { state?: string; release?: (showOfferwall?: boolean) => boolean };
 };
 
 // FCCDCF in the shape read live on the job board (25-09; ids synthetic),
@@ -203,22 +204,22 @@ describe('fixtures', () => {
 });
 
 describe.each(CASES)('%s', (_name, src, ENUM) => {
-  it.each(OFF_BOARD_PATHS)('suppresses Offerwall and AD_BLOCKING off the job board (%s), even with consent stored', (path) => {
+  it.each(OFF_BOARD_PATHS)('suppresses only Offerwall off the job board (%s), even with consent stored', (path) => {
     const win = install(src, path);
     win.googlefc!.MessageTypeEnum = ENUM;
     const m = message();
     win.googlefc!.controlledMessagingFunction!(m);
-    expect(m.calls).toEqual([[false, [ENUM.AD_BLOCKING, ENUM.OFFERWALL]]]);
+    expect(m.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
     expect(win.__ftOfferwallGate?.state).toBe('off_board');
     expect(win.__ftOfferwallGate?.release).toBeUndefined();
   });
 
-  it('suppresses Offerwall and AD_BLOCKING off the job board without a consent decision too', () => {
+  it('suppresses only Offerwall off the job board without a consent decision too', () => {
     const win = install(src, '/articoli/fisco/', { consent: null, cookie: cookieWith(FCCDCF_BEFORE_CONSENT) });
     win.googlefc!.MessageTypeEnum = ENUM;
     const m = message();
     win.googlefc!.controlledMessagingFunction!(m);
-    expect(m.calls).toEqual([[false, [ENUM.AD_BLOCKING, ENUM.OFFERWALL]]]);
+    expect(m.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
     expect(win.__ftOfferwallGate?.state).toBe('off_board');
   });
 
@@ -252,19 +253,49 @@ describe.each(CASES)('%s', (_name, src, ENUM) => {
       expect(typed.calls).toEqual([]);
       expect(win.__ftOfferwallGate?.state).toBe('held');
     } else {
-      expect(typed.calls).toEqual([[false, [ENUM.AD_BLOCKING, ENUM.OFFERWALL]]]);
+      expect(typed.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
       expect(win.__ftOfferwallGate?.state).toBe('off_board');
     }
   });
 
-  it('suppresses AD_BLOCKING even before the Offerwall enum is available', () => {
+  it('leaves AD_BLOCKING available when the Offerwall enum is missing on the first call', () => {
     const win = install(src, '/articoli/fisco/');
     win.googlefc!.MessageTypeEnum = { AD_BLOCKING: 2, CONSENT: 3 };
     const m = message();
     win.googlefc!.controlledMessagingFunction!(m);
-    expect(m.calls).toEqual([[false, [2]]]);
+    expect(m.calls).toEqual([[true]]);
     expect(win.googlefc!.__ftOfferwallBootstrapComplete).toBe(true);
     expect(win.__ftOfferwallGate).toBeUndefined();
+  });
+
+  it('suppresses only Offerwall when a blocker is already confirmed on the job board', () => {
+    const win = install(src, '/cerca-lavoro-ticino/');
+    win.__ftAdBlock = { blocked: true, adsAllowed: false };
+    win.googlefc!.MessageTypeEnum = ENUM;
+    const m = message();
+    win.googlefc!.controlledMessagingFunction!(m);
+
+    expect(m.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
+    expect(win.__ftOfferwallGate?.state).toBe('suppressed');
+    expect(win.__ftOfferwallGate?.release).toBeUndefined();
+  });
+
+  it('releases a held callback with only Offerwall suppressed when blocker detection arrives', () => {
+    const win = install(src, '/cerca-lavoro-ticino/');
+    win.googlefc!.MessageTypeEnum = ENUM;
+    const held = message();
+    win.googlefc!.controlledMessagingFunction!(held);
+    expect(held.calls).toEqual([]);
+    expect(win.__ftOfferwallGate?.state).toBe('held');
+
+    win.__ftAdBlock = { blocked: true, adsAllowed: false };
+    win.dispatchEvent({ type: 'frontaliere:adblock-data' });
+    expect(held.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
+    expect(win.__ftOfferwallGate?.state).toBe('suppressed');
+
+    const later = message();
+    win.googlefc!.controlledMessagingFunction!(later);
+    expect(later.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
   });
 
   it.each([
@@ -273,13 +304,13 @@ describe.each(CASES)('%s', (_name, src, ENUM) => {
     ['our key, but no FCCDCF cookie at all', { consent: 'granted', cookie: '_ga=GA1.1.1' }],
     ['our key, FCCDCF undecodable', { consent: 'granted', cookie: cookieWith('%E0%A4%A') }],
     ['a TC string, but not our key', { consent: null }],
-  ])('%s: lets the CMP show, suppresses Offerwall and AD_BLOCKING', (_case, opts) => {
+  ])('%s: lets the CMP and native recovery show, suppresses Offerwall', (_case, opts) => {
     for (const path of ['/cerca-lavoro-ticino/stagista-supsi/', '/fr/trouver-emploi-vaud/emploi-x/']) {
       const win = install(src, path, opts);
       win.googlefc!.MessageTypeEnum = ENUM;
       const m = message();
       win.googlefc!.controlledMessagingFunction!(m);
-      expect(m.calls, path).toEqual([[false, [ENUM.AD_BLOCKING, ENUM.OFFERWALL]]]);
+      expect(m.calls, path).toEqual([[false, [ENUM.OFFERWALL]]]);
       expect(win.__ftOfferwallGate?.state, path).toBe('suppressed');
     }
   });
@@ -293,10 +324,10 @@ describe.each(CASES)('%s', (_name, src, ENUM) => {
     expect(win.__ftOfferwallGate?.state).toBe('held');
 
     expect(win.__ftOfferwallGate!.release!()).toBe(true);
-    expect(m.calls).toEqual([[false, [ENUM.AD_BLOCKING]]]);
+    expect(m.calls).toEqual([[true]]);
     expect(win.__ftOfferwallGate?.state).toBe('released');
     expect(win.__ftOfferwallGate!.release!()).toBe(false);
-    expect(m.calls).toEqual([[false, [ENUM.AD_BLOCKING]]]);
+    expect(m.calls).toEqual([[true]]);
   });
 
   it.each(BOARD_PATHS)('holds the Offerwall call on every job-board section (%s)', (path) => {
@@ -307,7 +338,7 @@ describe.each(CASES)('%s', (_name, src, ENUM) => {
     expect(m.calls).toEqual([]);
     expect(win.__ftOfferwallGate?.state).toBe('held');
     expect(win.__ftOfferwallGate!.release!()).toBe(true);
-    expect(m.calls).toEqual([[false, [ENUM.AD_BLOCKING]]]);
+    expect(m.calls).toEqual([[true]]);
   });
 
   it('releases every held call, and proceeds later calls once released', () => {
@@ -318,12 +349,12 @@ describe.each(CASES)('%s', (_name, src, ENUM) => {
     win.googlefc!.controlledMessagingFunction!(first);
     win.googlefc!.controlledMessagingFunction!(second);
     win.__ftOfferwallGate!.release!();
-    expect(first.calls).toEqual([[false, [ENUM.AD_BLOCKING]]]);
-    expect(second.calls).toEqual([[false, [ENUM.AD_BLOCKING]]]);
+    expect(first.calls).toEqual([[true]]);
+    expect(second.calls).toEqual([[true]]);
 
     const late = message();
     win.googlefc!.controlledMessagingFunction!(late);
-    expect(late.calls).toEqual([[false, [ENUM.AD_BLOCKING]]]);
+    expect(late.calls).toEqual([[true]]);
   });
 
   it('composes a pre-existing callback without bypassing the Offerwall gate', () => {
@@ -336,7 +367,7 @@ describe.each(CASES)('%s', (_name, src, ENUM) => {
     expect(m.calls).toEqual([]);
     expect(win.__ftOfferwallGate?.state).toBe('held');
     expect(win.__ftOfferwallGate!.release!()).toBe(true);
-    expect(m.calls).toEqual([[false, [ENUM.AD_BLOCKING]]]);
+    expect(m.calls).toEqual([[true]]);
   });
 
   it('keeps a callback-style delegated decision pending until it arrives', async () => {
@@ -368,7 +399,7 @@ describe.each(CASES)('%s', (_name, src, ENUM) => {
 
     const initial = message();
     callback(initial);
-    expect(initial.calls).toEqual([[false, [ENUM.AD_BLOCKING, ENUM.OFFERWALL]]]);
+    expect(initial.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
     expect(win.__ftOfferwallGate?.state).toBe('off_board');
 
     win.history.pushState({}, '', '/cerca-lavoro-ticino/');
@@ -378,7 +409,7 @@ describe.each(CASES)('%s', (_name, src, ENUM) => {
     expect(win.__ftOfferwallGate?.state).toBe('held');
 
     win.history.replaceState({}, '', '/articoli/fisco/');
-    expect(pushed.calls).toEqual([[false, [ENUM.AD_BLOCKING, ENUM.OFFERWALL]]]);
+    expect(pushed.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
     expect(win.__ftOfferwallGate?.state).toBe('off_board');
 
     win.location.pathname = '/cerca-lavoro-ticino/';
@@ -390,7 +421,7 @@ describe.each(CASES)('%s', (_name, src, ENUM) => {
 
     win.location.pathname = '/articoli/fisco/';
     win.dispatchEvent({ type: 'popstate' });
-    expect(popped.calls).toEqual([[false, [ENUM.AD_BLOCKING, ENUM.OFFERWALL]]]);
+    expect(popped.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
     expect(win.__ftOfferwallGate?.state).toBe('off_board');
     expect(win.googlefc!.controlledMessagingFunction).toBe(callback);
   });
@@ -406,7 +437,7 @@ describe.each(CASES)('%s', (_name, src, ENUM) => {
     win.googlefc!.MessageTypeEnum = ENUM;
     const offBoardOfferwall = message();
     callback(offBoardOfferwall);
-    expect(offBoardOfferwall.calls).toEqual([[false, [ENUM.AD_BLOCKING, ENUM.OFFERWALL]]]);
+    expect(offBoardOfferwall.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
     expect(win.__ftOfferwallGate?.state).toBe('off_board');
 
     win.history.pushState({}, '', '/it/cerca-lavoro-ticino/');
@@ -418,10 +449,10 @@ describe.each(CASES)('%s', (_name, src, ENUM) => {
     expect(destinationOfferwall.calls).toEqual([]);
     expect(win.__ftOfferwallGate?.state).toBe('held');
     expect(win.__ftOfferwallGate!.release!()).toBe(true);
-    expect(offBoardOfferwall.calls).toEqual([[false, [ENUM.AD_BLOCKING, ENUM.OFFERWALL]]]);
-    expect(destinationOfferwall.calls).toEqual([[false, [ENUM.AD_BLOCKING]]]);
+    expect(offBoardOfferwall.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
+    expect(destinationOfferwall.calls).toEqual([[true]]);
     expect(first.calls).toEqual([[true]]);
-    expect([offBoardOfferwall, destinationOfferwall]
+    expect([offBoardOfferwall]
       .flatMap((m) => m.calls)
       .filter(([proceed]) => proceed === true)).toHaveLength(0);
   });

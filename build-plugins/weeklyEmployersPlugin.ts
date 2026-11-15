@@ -135,6 +135,7 @@ import {
 } from './shared/employerLinks';
 import { listSliceFileNames } from '../scripts/lib/crawler-slice-files.mjs';
 import { iterateJsonArrayFile } from '../scripts/lib/read-large-json.mjs';
+import { DatasetReadError } from './shared/readJobsDatasetStrict';
 import { isHeldFromPublication } from '../scripts/lib/translation-publication-hold.mjs';
 import {
   renderEmployerCardListHtml,
@@ -4080,6 +4081,7 @@ export function readSnapshotHistory(rootDir: string): JobsSnapshot[] {
   const snapshots: JobsSnapshot[] = [];
   for (const file of files) {
     try {
+      // large-dataset-read-ok: one weekly snapshot shard (≤14 MB, 40x under the V8 string limit)
       const raw = fs.readFileSync(np.join(historyDir, file), 'utf-8');
       const parsed = JSON.parse(raw) as JobsSnapshot;
       if (parsed && typeof parsed.week === 'string' && Array.isArray(parsed.jobs)) {
@@ -4111,7 +4113,9 @@ function loadAllJobs(rootDir: string): WeeklyCountableJob[] {
         }
       }
     } catch (err) {
-      console.warn('[weekly-employers] failed to parse jobs.json:', err);
+      // Fail closed: continuing with 0 jobs would publish empty per-canton pages
+      // and report the build as healthy.
+      throw new DatasetReadError('weekly-employers', mainPath, err);
     }
   }
 
@@ -4133,8 +4137,8 @@ function loadAllJobs(rootDir: string): WeeklyCountableJob[] {
             out.push(j);
           }
         }
-      } catch {
-        // slice parse failure — skip
+      } catch (err) {
+        throw new DatasetReadError('weekly-employers', np.join(sliceDir, file), err);
       }
     }
   }

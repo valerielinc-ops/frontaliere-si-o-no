@@ -94,7 +94,7 @@ describe('recorder next to the real gate', () => {
           const calls = visit(src, path, ENUM);
           expect(calls).toHaveLength(2);
           expect(calls[0]).toMatchObject({ enumKeys: 0, decision: { allow: true, types: null } });
-          expect(calls[1]).toMatchObject({ enumKeys: 2, decision: { allow: false, types: [ENUM.AD_BLOCKING, ENUM.OFFERWALL] } });
+          expect(calls[1]).toMatchObject({ enumKeys: 2, decision: { allow: false, types: [ENUM.OFFERWALL] } });
           // Offline there is no dialog to see; the verdict must still not fail.
           expect(classifyConsentProbe({ calls, fcRequested: true, dialogVisible: false }).verdict).toBe('inconclusive');
           expect(classifyConsentProbe({ calls, fcRequested: true, dialogVisible: true }).verdict).toBe('pass');

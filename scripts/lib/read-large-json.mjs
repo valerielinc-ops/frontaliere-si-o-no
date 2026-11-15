@@ -392,3 +392,17 @@ export function readJsonFile(filePath, { maxInlineBytes = DEFAULT_JSON_STRING_LI
     chunks.return?.();
   }
 }
+
+/**
+ * The jobs of a parsed dataset: the array itself, or the `jobs` array of the
+ * `{ jobs: [...] }` envelope. Anything else (`{}`, null, a number, an object whose
+ * `jobs` is not an array) throws: a wrong shape is not "no jobs", and reading it as
+ * empty would commit/publish an empty corpus. Same contract as
+ * `jobsFromParsedDataset` in build-plugins/shared/readJobsDatasetStrict.ts.
+ */
+export function jobsArrayFromParsed(parsed) {
+  if (Array.isArray(parsed)) return parsed;
+  if (parsed !== null && typeof parsed === 'object' && Array.isArray(parsed.jobs)) return parsed.jobs;
+  const shape = parsed === null ? 'null' : typeof parsed === 'object' ? 'object without a `jobs` array' : typeof parsed;
+  throw new Error(`expected a JSON array or { jobs: [...] }, got ${shape}`);
+}

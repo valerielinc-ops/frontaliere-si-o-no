@@ -1,11 +1,12 @@
 {
   "key": "kzu",
   "label": "KZU Kompetenzzentrum Pflege und Gesundheit",
-  "generatedAt": "2026-11-14T09:21:15.723Z",
+  "generatedAt": "2026-11-14T21:18:38.908Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 6,
@@ -16,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 14082,
-  "avgDurationMs": 14082,
+  "durationMs": 29901,
+  "avgDurationMs": 29901,
   "durationHistory": [
-    14082
+    29901
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +38,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2075/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:20:49.798Z",
+      "crawledAt": "2026-11-14T21:18:19.673Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -61,7 +62,7 @@
       "salarySource": "estimated",
       "streetAddress": "Embrach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:20:49.798Z",
+      "validThrough": "2026-12-14T21:18:19.673Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -84,7 +85,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/1949/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:20:48.739Z",
+      "crawledAt": "2026-11-14T21:18:15.687Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -107,7 +108,7 @@
       "salarySource": "estimated",
       "streetAddress": "Embrach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:20:48.739Z",
+      "validThrough": "2026-12-14T21:18:15.687Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -130,7 +131,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2086/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:20:47.675Z",
+      "crawledAt": "2026-11-14T21:18:11.699Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -154,7 +155,7 @@
       "salarySource": "estimated",
       "streetAddress": "Embrach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:20:47.675Z",
+      "validThrough": "2026-12-14T21:18:11.699Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -176,7 +177,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2104/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:20:46.597Z",
+      "crawledAt": "2026-11-14T21:18:07.652Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -200,7 +201,7 @@
       "salarySource": "estimated",
       "streetAddress": "Embrach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:20:46.597Z",
+      "validThrough": "2026-12-14T21:18:07.652Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -222,7 +223,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2029/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:20:45.541Z",
+      "crawledAt": "2026-11-14T21:18:03.691Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -245,7 +246,7 @@
       "salarySource": "estimated",
       "streetAddress": "Embrach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:20:45.541Z",
+      "validThrough": "2026-12-14T21:18:03.691Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -267,7 +268,7 @@
       "url": "https://recruitingapp-1251.umantis.com/Vacancies/2011/Description/1",
       "source": "KZU Kompetenzzentrum Pflege und Gesundheit Dedicated Parser (Umantis listing tenant 1251)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:20:44.478Z",
+      "crawledAt": "2026-11-14T21:17:59.710Z",
       "addressLocality": "Embrach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -290,7 +291,7 @@
       "salarySource": "estimated",
       "streetAddress": "Embrach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:20:44.478Z",
+      "validThrough": "2026-12-14T21:17:59.710Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -301,5 +302,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

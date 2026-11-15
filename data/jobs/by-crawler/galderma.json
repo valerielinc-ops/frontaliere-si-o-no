@@ -1,7 +1,7 @@
 {
   "crawlerKey": "galderma",
-  "assembledAt": "2026-11-14T09:47:34.820Z",
-  "runId": "43580433733",
+  "assembledAt": "2026-11-14T21:42:36.146Z",
+  "runId": "43642657079",
   "jobs": [
     {
       "id": "galderma-58c28018924d",
@@ -35,7 +35,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Customer-Service-Specialist_JR021258-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:47:16.809Z",
+      "crawledAt": "2026-11-14T21:42:28.814Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -97,7 +97,7 @@
       },
       "streetAddress": "Zählerweg 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-25T09:47:16.809Z",
+      "validThrough": "2027-01-25T21:42:28.814Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -132,7 +132,7 @@
       "url": "https://galderma.wd3.myworkdayjobs.com/en-US/External/job/Zug/Head-of-Global-Business-Services--GBS-_JR021691-1",
       "source": "Galderma Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:47:16.078Z",
+      "crawledAt": "2026-11-14T21:42:27.988Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -151,7 +151,9 @@
       "requirements": [],
       "requirementsByLocale": {},
       "jobReqId": "JR021691",
-      "firstSeenAt": "2026-11-13T21:42:40.586Z",
+      "previousSlugs": [
+        "head-of-global-business-services-gbs-galderma-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "head-of-global-business-services-gbs-galderma-ch"
@@ -163,9 +165,7 @@
           "head-of-global-business-services-gbs-galderma-ch"
         ]
       },
-      "previousSlugs": [
-        "head-of-global-business-services-gbs-galderma-ch"
-      ],
+      "firstSeenAt": "2026-11-13T21:42:40.586Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -193,7 +193,7 @@
       },
       "streetAddress": "Zählerweg 10",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T09:47:16.078Z",
+      "validThrough": "2027-02-11T21:42:27.988Z",
       "validThroughSource": "last-observed-window"
     }
   ]

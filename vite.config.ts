@@ -24,6 +24,7 @@ import { preloadLocalePlugin } from './build-plugins/preloadLocalePlugin';
 import { ogPagesPlugin } from './build-plugins/ogPagesPlugin';
 import { jobsSeoPagesPlugin } from './build-plugins/jobsSeoPagesPlugin';
 import { withBuildStopAfter } from './build-plugins/buildStopAfterPlugin';
+import { withBuildAbortOnError } from './build-plugins/shared/buildAbortOnError';
 import jobOgImagesPlugin from './build-plugins/jobOgImagesPlugin';
 import { jobRecencyPagesPlugin } from './build-plugins/jobRecencyPagesPlugin';
 import { jobSectorPagesPlugin } from './build-plugins/jobSectorPagesPlugin';
@@ -670,7 +671,7 @@ export default defineConfig(({ mode }) => {
  port: 3000,
  host: '0.0.0.0',
  },
- plugins: [
+ plugins: withBuildAbortOnError([
  // Campiona RSS del processo + MemAvailable dell'host per tutta la build e la
  // fa fallire con un errore NOMINATO prima che l'host la uccida (#5369 §7).
  // Sta per primo perche' il suo `buildStart` deve armare il campionatore prima
@@ -723,7 +724,10 @@ export default defineConfig(({ mode }) => {
  // its `closeBundle` (enforce post, order post, sequential) runs after every
  // measured hook, profileSummaryPlugin's own included.
  buildPhaseTimingPlugin(),
- ],
+ // W0-G: after a failed bundle every closeBundle (the SSG) is skipped, so the
+ // original error is the last word instead of an 85-minute run of emitters
+ // ending in a symptom. Wraps the whole list; build-abort-flag goes first.
+ ]),
  // No build-time `define`: nothing volatile is injected into the bundle.
  // Build id / commit hash are emitted as dist/build-id.txt + commit-hash.txt
  // (buildIdPlugin) and read at RUNTIME. Baking them via define put a fresh

@@ -1,19 +1,21 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-11-14T09:18:26.713Z",
+  "generatedAt": "2026-11-14T21:16:18.902Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6064,
-  "avgDurationMs": 6064,
+  "unchangedCount": 2,
+  "durationMs": 5252,
+  "avgDurationMs": 5252,
   "durationHistory": [
-    6064
+    5252
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "cedes-5263e50a0062",
       "slug": "addetto-a-alle-spedizioni-logistica-di-magazzino-100-cedes-ag-landquart",
@@ -38,8 +40,7 @@
       "url": "https://www.cedes.com/en/career/jobs/mitarbeiter-in-shipping-lagerlogistik-100/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:18:03.008Z",
-      "needsRetranslation": false,
+      "crawledAt": "2026-11-14T21:16:02.129Z",
       "firstSeenAt": "2026-11-13T21:16:37.124Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -58,7 +59,7 @@
       },
       "streetAddress": "Kantonsstrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-12T09:18:03.008Z",
+      "validThrough": "2027-02-12T21:16:02.129Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -67,10 +68,7 @@
         "translation": 25,
         "completeness": 23
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "cedes-3fa516c3ca31",
       "slug": "candidature-non-richiesta-cedes-ag-landquart",
@@ -95,7 +93,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T09:18:02.657Z",
+      "crawledAt": "2026-11-14T21:16:01.772Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -114,7 +112,7 @@
       },
       "streetAddress": "Kantonsstrasse 14",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-14T09:18:02.657Z",
+      "validThrough": "2026-12-14T21:16:01.772Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -125,5 +123,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

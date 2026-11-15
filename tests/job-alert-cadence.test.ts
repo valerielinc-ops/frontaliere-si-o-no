@@ -1047,8 +1047,19 @@ describe('the sender actually consumes the engine', () => {
     // gate has run would come back and then wait a whole interval before its
     // first send, which is not "torna attivo quando la persona torna".
     expect(senderSource).toContain('reactivationAfterReturnVisit(');
-    expect(senderSource.indexOf('reactivationAfterReturnVisit('))
-      .toBeLessThan(senderSource.indexOf('isJobAlertDueToday('));
+    // Perf-plan PR 6: the first cadence pass runs BEFORE the newsletter document
+    // is read, and only classifies a decayed alert as «candidate» (a probe with
+    // `newsletter: null`, which can only refuse, never allow). The decision that
+    // counts is taken with the real newsletter document and is applied to the
+    // alert BEFORE its FINAL due decision: the last isJobAlertDueToday call of
+    // the sender runs on the reactivated alert, so it never waits an interval.
+    const decided = senderSource.indexOf('Object.assign(alert, verdict.alertFields)');
+    expect(decided).toBeGreaterThan(0);
+    expect(senderSource.indexOf('newsletter: subscriberProfiles.get(emailKey) || null,\n        nowIso: reactivationNowIso'))
+      .toBeGreaterThan(0);
+    expect(senderSource.lastIndexOf('isJobAlertDueToday(')).toBeGreaterThan(decided);
+    // And the probe never gets a newsletter document: that is what makes its refusal final.
+    expect(senderSource).toMatch(/newsletter: null,\s*nowIso: reactivationProbeIso/);
   });
 
   it('records the scheduled instant on both clocks, which is what makes two slots safe', () => {

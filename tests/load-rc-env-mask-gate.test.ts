@@ -47,7 +47,7 @@ describe('load-rc-env isTrivialSecret', () => {
 // "single" and "motion" are six or more characters long, so by length alone
 // they would be redacted from every later log line of the job.
 describe('load-rc-env shouldMaskRcValue', () => {
-  const SWITCH_WORDS = ['legacy', 'single', 'separate', 'typst', 'on', 'off', 'motion'];
+  const SWITCH_WORDS = ['legacy', 'single', 'separate', 'typst', 'on', 'off', 'motion', 'shadow', 'manifest'];
 
   it('never masks the value of a plain-word switch, whatever its length', () => {
     expect(shouldMaskRcValue('legacy', 'ASSISTED_APPLICATION_PDF_RENDERER')).toBe(false);
@@ -88,6 +88,8 @@ describe('load-rc-env shouldMaskRcValue', () => {
       'ASSISTED_APPLICATION_DOCX_INPLACE',
       'ASSISTED_APPLICATION_DOSSIER_MODE',
       'ASSISTED_APPLICATION_PDF_RENDERER',
+      'JOB_ALERT_CANDIDATE_INDEX_MODE',
+      'JOB_EMAIL_RANKING_IMPRESSIONS_MODE',
       'TIKTOK_VIDEO_CREATIVE_MODE',
     ]);
   });

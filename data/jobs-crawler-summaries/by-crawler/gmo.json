@@ -1,11 +1,128 @@
 {
   "key": "gmo",
   "label": "gmo",
-  "generatedAt": "2026-11-14T09:21:26.059Z",
+  "generatedAt": "2026-11-14T21:15:40.808Z",
   "total": 20,
   "discovered": 20,
   "parsed": 20,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "gmo",
+    "seedUrls": [
+      "https://www.arsante.ch/emploi"
+    ],
+    "phase": "detail",
+    "pages": 26,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi?page=2"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi?page=3"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/infirmier-ere-en-hematologie-112"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/assistant-e-en-pharmacie-111"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-a-80-110"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-a-50-80-109"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/assistant-e-medicale-a-50-108"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-a-60-107"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/infirmier-ere-a-70-106"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/infirmier-ere-105"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/pharmacien-ne-responsable-a-100-103"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-102"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-98"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/infirmier-ere-pediatrique-95"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/psychologue-psychotherapeute-fsp-94"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/experts-medicaux-93"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/medecin-specialiste-fmh-en-gynecologie-et-obstetrique-90"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-83"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/specialiste-en-medecine-interne-generale-74"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-73"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/medecin-specialiste-fmh-72"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-fmh-28"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/apprenti-e-assistant-e-medical-e-20"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/medecin-expert-18"
+      },
+      {
+        "status": 200,
+        "url": "https://www.arsante.ch/emploi/medecin-assistant-en-pediatrie-4"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 20,
@@ -19,10 +136,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 20,
-  "durationMs": 32186,
-  "avgDurationMs": 32186,
+  "durationMs": 32804,
+  "avgDurationMs": 32804,
   "durationHistory": [
-    32186
+    32804
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -41,7 +158,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-assistant-en-pediatrie-4",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:21:11.176Z",
+      "crawledAt": "2026-11-14T21:15:23.254Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -64,7 +181,7 @@
       "salarySource": "estimated",
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:21:11.176Z",
+      "validThrough": "2026-12-29T21:15:23.254Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -87,7 +204,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-expert-18",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:21:11.175Z",
+      "crawledAt": "2026-11-14T21:15:23.253Z",
       "addressLocality": "Petit-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -110,7 +227,7 @@
       "salarySource": "estimated",
       "streetAddress": "Petit-Lancy",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:21:11.175Z",
+      "validThrough": "2026-12-29T21:15:23.253Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -133,7 +250,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-fmh-28",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:21:11.174Z",
+      "crawledAt": "2026-11-14T21:15:23.252Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -156,7 +273,7 @@
       "salarySource": "estimated",
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:21:11.174Z",
+      "validThrough": "2026-12-29T21:15:23.252Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -179,7 +296,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-specialiste-fmh-72",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:21:11.173Z",
+      "crawledAt": "2026-11-14T21:15:23.251Z",
       "addressLocality": "Crissier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -202,53 +319,7 @@
       "salarySource": "estimated",
       "streetAddress": "Crissier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:21:11.173Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 23
-      }
-    },
-    {
-      "id": "gmo-2d02ba119d36",
-      "slug": "medico-mebeko-fmh-unita-di-cura-intermedia-uatm-gmo-1213-onex-2d02ba11",
-      "slugDisambiguator": "2d02ba11",
-      "company": "gmo",
-      "companyKey": "gmo",
-      "companyDomain": "arsante.ch",
-      "title": "Médecin ( Mebeko / FMH) - Unité de soins intermédiaires (UATm)",
-      "location": "1213 Onex",
-      "canton": "GE",
-      "url": "https://www.arsante.ch/emploi/medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-83",
-      "source": "gmo Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:21:11.170Z",
-      "addressLocality": "Onex",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1213",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.arsante.ch/emploi/medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-83",
-      "firstSeenAt": "2026-09-29T21:15:39.483Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "streetAddress": "Onex",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:21:11.170Z",
+      "validThrough": "2026-12-29T21:15:23.251Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -271,7 +342,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-73",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:21:11.170Z",
+      "crawledAt": "2026-11-14T21:15:23.246Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -294,7 +365,53 @@
       "salarySource": "estimated",
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:21:11.170Z",
+      "validThrough": "2026-12-29T21:15:23.246Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 23
+      }
+    },
+    {
+      "id": "gmo-2d02ba119d36",
+      "slug": "medico-mebeko-fmh-unita-di-cura-intermedia-uatm-gmo-1213-onex-2d02ba11",
+      "slugDisambiguator": "2d02ba11",
+      "company": "gmo",
+      "companyKey": "gmo",
+      "companyDomain": "arsante.ch",
+      "title": "Médecin ( Mebeko / FMH) - Unité de soins intermédiaires (UATm)",
+      "location": "1213 Onex",
+      "canton": "GE",
+      "url": "https://www.arsante.ch/emploi/medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-83",
+      "source": "gmo Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-14T21:15:23.245Z",
+      "addressLocality": "Onex",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1213",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://www.arsante.ch/emploi/medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-83",
+      "firstSeenAt": "2026-09-29T21:15:39.483Z",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "streetAddress": "Onex",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-29T21:15:23.245Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -317,7 +434,7 @@
       "url": "https://www.arsante.ch/emploi/experts-medicaux-93",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:21:11.168Z",
+      "crawledAt": "2026-11-14T21:15:23.244Z",
       "addressLocality": "Petit-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -340,7 +457,7 @@
       "salarySource": "estimated",
       "streetAddress": "Petit-Lancy",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:11.168Z",
+      "validThrough": "2026-12-14T21:15:23.244Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -363,7 +480,7 @@
       "url": "https://www.arsante.ch/emploi/psychologue-psychotherapeute-fsp-94",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:21:11.167Z",
+      "crawledAt": "2026-11-14T21:15:23.242Z",
       "addressLocality": "Le Lignon",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -386,7 +503,7 @@
       "salarySource": "estimated",
       "streetAddress": "Le Lignon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:21:11.167Z",
+      "validThrough": "2027-01-06T21:15:23.242Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -409,7 +526,7 @@
       "url": "https://www.arsante.ch/emploi/infirmier-ere-pediatrique-95",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:21:11.159Z",
+      "crawledAt": "2026-11-14T21:15:23.229Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -432,7 +549,7 @@
       "salarySource": "estimated",
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:11.159Z",
+      "validThrough": "2026-12-14T21:15:23.229Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -455,7 +572,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-98",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:21:11.158Z",
+      "crawledAt": "2026-11-14T21:15:23.228Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -478,7 +595,7 @@
       "salarySource": "estimated",
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:11.158Z",
+      "validThrough": "2026-12-14T21:15:23.228Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -501,7 +618,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-102",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:21:11.157Z",
+      "crawledAt": "2026-11-14T21:15:23.226Z",
       "addressLocality": "Crissier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -524,7 +641,7 @@
       "salarySource": "estimated",
       "streetAddress": "Crissier",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:11.157Z",
+      "validThrough": "2026-12-14T21:15:23.226Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -547,7 +664,7 @@
       "url": "https://www.arsante.ch/emploi/pharmacien-ne-responsable-a-100-103",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:21:11.147Z",
+      "crawledAt": "2026-11-14T21:15:23.215Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -570,7 +687,7 @@
       "salarySource": "estimated",
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T09:21:11.147Z",
+      "validThrough": "2027-01-07T21:15:23.215Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -593,7 +710,7 @@
       "url": "https://www.arsante.ch/emploi/infirmier-ere-105",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:21:11.146Z",
+      "crawledAt": "2026-11-14T21:15:23.213Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -616,7 +733,7 @@
       "salarySource": "estimated",
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:21:11.146Z",
+      "validThrough": "2027-01-20T21:15:23.213Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -639,7 +756,7 @@
       "url": "https://www.arsante.ch/emploi/infirmier-ere-a-70-106",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:21:11.144Z",
+      "crawledAt": "2026-11-14T21:15:23.208Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -662,7 +779,7 @@
       "salarySource": "estimated",
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:21:11.144Z",
+      "validThrough": "2027-01-26T21:15:23.208Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -685,7 +802,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-a-60-107",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:21:11.143Z",
+      "crawledAt": "2026-11-14T21:15:23.207Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -708,7 +825,7 @@
       "salarySource": "estimated",
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:21:11.143Z",
+      "validThrough": "2027-02-01T21:15:23.207Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -731,7 +848,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medicale-a-50-108",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:21:11.141Z",
+      "crawledAt": "2026-11-14T21:15:23.206Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -754,7 +871,7 @@
       "salarySource": "estimated",
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:21:11.141Z",
+      "validThrough": "2027-02-01T21:15:23.206Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -777,7 +894,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-a-50-80-109",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:21:11.140Z",
+      "crawledAt": "2026-11-14T21:15:23.205Z",
       "addressLocality": "Les Acacias",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -800,7 +917,7 @@
       "salarySource": "estimated",
       "streetAddress": "Les Acacias",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:21:11.140Z",
+      "validThrough": "2027-02-01T21:15:23.205Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -823,7 +940,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-a-80-110",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:21:11.116Z",
+      "crawledAt": "2026-11-14T21:15:23.175Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -846,7 +963,7 @@
       "salarySource": "estimated",
       "streetAddress": "Thônex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:21:11.116Z",
+      "validThrough": "2027-02-01T21:15:23.175Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -869,7 +986,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-en-pharmacie-111",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:21:11.106Z",
+      "crawledAt": "2026-11-14T21:15:23.163Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -892,7 +1009,7 @@
       "salarySource": "estimated",
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:21:11.106Z",
+      "validThrough": "2027-02-01T21:15:23.163Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -915,7 +1032,7 @@
       "url": "https://www.arsante.ch/emploi/infirmier-ere-en-hematologie-112",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:21:11.102Z",
+      "crawledAt": "2026-11-14T21:15:23.159Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -938,7 +1055,7 @@
       "salarySource": "estimated",
       "streetAddress": "Onex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:21:11.102Z",
+      "validThrough": "2027-02-02T21:15:23.159Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -949,5 +1066,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

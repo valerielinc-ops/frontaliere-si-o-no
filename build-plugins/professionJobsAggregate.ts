@@ -1,5 +1,6 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
+import { readJobsArrayStrict } from './shared/readJobsDatasetStrict';
 /**
  * Build-time aggregator for the profession landings (AE-3 template B).
  *
@@ -358,16 +359,8 @@ let _cacheRootDir: string | null = null;
 const DAY_MS = 86_400_000;
 
 function loadJobs(rootDir: string): readonly JobRecord[] {
-  const jobsPath = np.join(rootDir, 'data', 'jobs.json');
-  if (!fs.existsSync(jobsPath)) return [];
-  try {
-    const parsed = readJsonFile(jobsPath);
-    if (Array.isArray(parsed)) return parsed as JobRecord[];
-    return [];
-  } catch (err) {
-    console.warn('[profession-aggregate] failed to read jobs.json:', err);
-    return [];
-  }
+  // Fail closed: an unreadable dataset aborts the build instead of yielding 0 jobs.
+  return readJobsArrayStrict<JobRecord>(rootDir, 'profession-aggregate');
 }
 
 // Canonical `job.title` only — deliberately excludes `titleByLocale`. This

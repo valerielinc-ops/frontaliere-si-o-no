@@ -42,6 +42,7 @@ import type { Plugin } from 'vite';
 import { truncateToClauseNonEmpty } from './shared/clauseTail.mjs';
 import { META_DESCRIPTION_MAX_CHARS, truncateHeadline } from './shared/titleSuffix';
 import { WriteCollector } from './batchWrite';
+import { DatasetReadError } from './shared/readJobsDatasetStrict';
 import { shouldEmitLocale, EMIT_LOCALES } from './shared/localeEmitFilter';
 import {
   BASE_URL,
@@ -189,7 +190,8 @@ function loadAllJobs(rootDir: string): OrphanCountableJob[] {
         }
       }
     } catch (err) {
-      console.warn('[orphan-query-landings] failed to parse jobs.json:', err);
+      // Fail closed: 0 jobs would emit no per-canton orphan landings and look healthy.
+      throw new DatasetReadError('orphan-query-landings', mainPath, err);
     }
   }
 
@@ -211,8 +213,8 @@ function loadAllJobs(rootDir: string): OrphanCountableJob[] {
             out.push(j);
           }
         }
-      } catch {
-        /* slice parse failure — skip */
+      } catch (err) {
+        throw new DatasetReadError('orphan-query-landings', path.join(sliceDir, file), err);
       }
     }
   }

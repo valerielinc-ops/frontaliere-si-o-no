@@ -17,11 +17,17 @@ import { realpathSync } from 'node:fs';
 import fs from 'node:fs';
 
 import {
+  CONTRACT_MISMATCH_VERDICT,
   LOCALES,
+  checkPublishContractVersion,
   readLocalePublishProvenanceDirectory,
   validateLocalePublishProvenance,
   validateLocaleSourceProvenance,
 } from './locale-publish-provenance.mjs';
+
+/** Reason handed to deploy-rearm-request.mjs when the plan asks for a rebuild. */
+export const LEGACY_CONTRACT_RECOVERY_REASON = 'legacy-publish-contract';
+export const CONTRACT_MISMATCH_RECOVERY_REASON = CONTRACT_MISMATCH_VERDICT;
 
 const TERMINAL_CONCLUSIONS = new Set(['success', 'failure', 'cancelled', 'skipped', 'timed_out', 'action_required', 'stale', 'neutral']);
 const ADMISSIBLE_RUN_CONCLUSIONS = new Set(['success']);
@@ -148,7 +154,9 @@ function blockedPlan({
   staleReasons = {},
   recoveryRequired = false,
   recoveryReasons = [],
+  recoveryKind = '',
   legacySourceLocales = [],
+  contractMismatchLocales = [],
 }) {
   const recoveryReason = recoveryRequired ? recoveryReasons.join('; ') : '';
   const reason = reasons.join('; ') || 'no locale publish plan was admissible';
@@ -162,7 +170,9 @@ function blockedPlan({
     healthyLocales: [],
     tailLocales: [],
     recoveryRequired,
+    recoveryKind: recoveryRequired ? recoveryKind : '',
     legacySourceLocales,
+    contractMismatchLocales,
     staleLocales: LOCALES.slice(),
     staleReasons,
     reason: [reason, recoveryReason].filter(Boolean).join('; '),
@@ -222,6 +232,7 @@ export function resolveLocalePublishPlan({
   const healthyLocales = [];
   const tailLocales = [];
   const legacySourceLocales = [];
+  const contractMismatchLocales = [];
   const manifestFailures = {};
   let buildId = '';
   for (const locale of LOCALES) {
@@ -232,6 +243,16 @@ export function resolveLocalePublishPlan({
       const reason = 'successful source job has no provenance receipt';
       manifestFailures[locale] = reason;
       staleReasons[locale] = reason;
+      continue;
+    }
+    // The publisher toolchain is pinned to its own SHA, not to the build's.
+    // A receipt stamped with a contract this toolchain cannot read is not
+    // transient: the verdict is `contract-mismatch` and the remedy a rebuild.
+    const contract = checkPublishContractVersion(entry.manifest);
+    if (!contract.ok) {
+      contractMismatchLocales.push(locale);
+      manifestFailures[locale] = `${contract.verdict}: ${contract.reason}`;
+      staleReasons[locale] = `${contract.verdict}: ${contract.reason}`;
       continue;
     }
     const expected = buildId || undefined;
@@ -320,6 +341,14 @@ export function resolveLocalePublishPlan({
   }
 
   const recoveryReasons = [];
+  if (contractMismatchLocales.length > 0) {
+    reasons.push(
+      `${CONTRACT_MISMATCH_VERDICT} for ${contractMismatchLocales.join(', ')}: the source build speaks a publish contract this toolchain does not accept`,
+    );
+    recoveryReasons.push(
+      `${CONTRACT_MISMATCH_VERDICT} for ${contractMismatchLocales.join(', ')}; enqueue one current build request, retrying this publish cannot succeed`,
+    );
+  }
   if (legacySourceLocales.length > 0) {
     recoveryReasons.push(
       `legacy non-IT provenance contract detected for ${legacySourceLocales.join(', ')}; enqueue one current build request to replay the split handoff`,
@@ -331,6 +360,11 @@ export function resolveLocalePublishPlan({
     );
   }
   const recoveryRequired = recoveryReasons.length > 0;
+  const recoveryKind = !recoveryRequired
+    ? ''
+    : contractMismatchLocales.length > 0
+      ? CONTRACT_MISMATCH_RECOVERY_REASON
+      : LEGACY_CONTRACT_RECOVERY_REASON;
 
   if (reasons.length) {
     return blockedPlan({
@@ -341,7 +375,9 @@ export function resolveLocalePublishPlan({
       staleReasons,
       recoveryRequired,
       recoveryReasons,
+      recoveryKind,
       legacySourceLocales,
+      contractMismatchLocales,
     });
   }
 
@@ -357,7 +393,9 @@ export function resolveLocalePublishPlan({
     healthyLocales,
     tailLocales,
     recoveryRequired,
+    recoveryKind,
     legacySourceLocales,
+    contractMismatchLocales,
     staleLocales,
     staleReasons,
     reason: recoveryRequired
@@ -390,6 +428,7 @@ function writeGithubOutputs(file, plan) {
     healthy_locales: JSON.stringify(plan.healthyLocales),
     tail_locales: JSON.stringify(plan.tailLocales || []),
     recovery_required: String(plan.recoveryRequired === true),
+    recovery_reason: plan.recoveryKind || '',
     stale_locales: JSON.stringify(plan.staleLocales),
     stale_reasons: JSON.stringify(plan.staleReasons),
     reason: plan.reason,

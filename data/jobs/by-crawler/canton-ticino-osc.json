@@ -1,7 +1,7 @@
 {
   "crawlerKey": "canton-ticino-osc",
-  "assembledAt": "2026-11-14T09:21:35.033Z",
-  "runId": "43579668640",
+  "assembledAt": "2026-11-14T21:20:39.488Z",
+  "runId": "43641789409",
   "jobs": [
     {
       "id": "canton-ticino-osc-4099-2e16ac30702b",
@@ -35,7 +35,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4099",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-14T09:21:25.012Z",
+      "crawledAt": "2026-11-14T21:20:33.481Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -157,7 +157,7 @@
       },
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:25.012Z",
+      "validThrough": "2026-12-14T21:20:33.481Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -192,7 +192,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4091",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-14T09:21:24.371Z",
+      "crawledAt": "2026-11-14T21:20:32.877Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -306,7 +306,7 @@
       },
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:21:24.371Z",
+      "validThrough": "2026-12-14T21:20:32.877Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -341,7 +341,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4337",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-14T09:21:23.728Z",
+      "crawledAt": "2026-11-14T21:20:32.282Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -376,7 +376,7 @@
       },
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:21:23.728Z",
+      "validThrough": "2027-02-08T21:20:32.282Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -411,7 +411,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4336",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-14T09:21:23.086Z",
+      "crawledAt": "2026-11-14T21:20:31.691Z",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -446,7 +446,7 @@
       },
       "streetAddress": "Mendrisio",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:21:23.086Z",
+      "validThrough": "2027-02-07T21:20:31.691Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -480,7 +480,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4333",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-14T09:21:22.443Z",
+      "crawledAt": "2026-11-14T21:20:31.090Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -515,7 +515,7 @@
       },
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:21:22.443Z",
+      "validThrough": "2027-02-07T21:20:31.090Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -550,7 +550,7 @@
       "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4331",
       "source": "Canton Ticino OSC Dedicated Parser (rexx-systems jobportal, DSS filter)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-14T09:21:21.151Z",
+      "crawledAt": "2026-11-14T21:20:29.898Z",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -585,7 +585,7 @@
       },
       "streetAddress": "Bellinzona",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T09:21:21.151Z",
+      "validThrough": "2027-02-05T21:20:29.898Z",
       "validThroughSource": "last-observed-window"
     }
   ]

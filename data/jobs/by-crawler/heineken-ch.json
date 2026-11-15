@@ -1,14 +1,14 @@
 {
   "crawlerKey": "heineken-ch",
-  "assembledAt": "2026-11-14T09:40:31.408Z",
-  "runId": "43580516814",
+  "assembledAt": "2026-11-14T21:46:06.947Z",
+  "runId": "43642750534",
   "jobs": [
     {
       "id": "heineken-ch-a716028f91b3",
       "jobReqId": "149312",
       "slug": "autista-c-e-heineken-switzerland-fahrweid",
       "slugByLocale": {
-        "it": "chauffeur-c-e-heineken-switzerland-fahrweid",
+        "it": "autista-c-e-heineken-switzerland-fahrweid",
         "en": "driver-c-e-heineken-switzerland-fahrweid",
         "de": "chauffeur-c-e-heineken-ch-fahrweid",
         "fr": "conducteur-de-categorie-c-e-heineken-switzerland-fahrweid"
@@ -51,15 +51,17 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=149312&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:40:24.329Z",
+      "crawledAt": "2026-11-14T21:45:59.976Z",
       "previousSlugs": [
         "chauffeur-c-e-heineken-ch-fahrweid",
-        "c-c-e-heineken-switzerland-fahrweid"
+        "c-c-e-heineken-switzerland-fahrweid",
+        "chauffeur-c-e-heineken-switzerland-fahrweid"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-c-e-heineken-ch-fahrweid",
-          "c-c-e-heineken-switzerland-fahrweid"
+          "c-c-e-heineken-switzerland-fahrweid",
+          "chauffeur-c-e-heineken-switzerland-fahrweid"
         ],
         "en": [
           "c-c-e-heineken-switzerland-fahrweid"
@@ -83,7 +85,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:40:24.329Z",
+      "validThrough": "2027-02-12T21:45:59.976Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -134,7 +136,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156187&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:40:15.419Z",
+      "crawledAt": "2026-11-14T21:45:51.961Z",
       "previousSlugs": [
         "chauffeur-kat-c-e-heineken-ch-luzern",
         "chauffeur-kat-c-e-heineken-switzerland-luzern"
@@ -161,7 +163,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:40:15.419Z",
+      "validThrough": "2027-01-06T21:45:51.961Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -212,7 +214,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164368&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:40:07.585Z",
+      "crawledAt": "2026-11-14T21:45:44.489Z",
       "previousSlugs": [
         "sales-market-analyst-w-m-d-heineken-ch-luzern"
       ],
@@ -237,7 +239,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:40:07.585Z",
+      "validThrough": "2026-12-14T21:45:44.489Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -288,7 +290,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164840&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:39:59.697Z",
+      "crawledAt": "2026-11-14T21:45:37.286Z",
       "previousSlugsByLocale": {
         "de": [
           "specialist-warehouse-m-w-d-heineken-ch-belp"
@@ -324,7 +326,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:39:59.697Z",
+      "validThrough": "2026-12-14T21:45:37.286Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -375,7 +377,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164826&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:39:51.899Z",
+      "crawledAt": "2026-11-14T21:45:28.594Z",
       "previousSlugs": [
         "specialist-business-applications-operations-m-w-d-heineken-ch-luzern"
       ],
@@ -404,7 +406,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:39:51.899Z",
+      "validThrough": "2026-12-14T21:45:28.594Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -455,14 +457,13 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=127858&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:39:44.095Z",
+      "crawledAt": "2026-11-14T21:45:20.747Z",
       "previousSlugsByLocale": {
         "de": [
           "chauffeur-kat-c-e-heineken-ch-luzern",
           "chauffeur-tankwagenfahrer-ce-gastronomie-events-m-w-d-100-heineken-ch-luzern"
         ],
         "it": [
-          "autista-di-camion-heineken-switzerland-content-width-device-width",
           "chauffeur-de-camion-heineken-switzerland-content-width-device-width",
           "titre-truck-driver-heineken-switzerland-content-width-device-width",
           "autista-di-camion-heineken-switzerland-content-width-device-width-bteei3",
@@ -481,7 +482,8 @@
           "title-chauffeur-kat-c-e-heineken-ch-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
           "chauffeur-c-e-heineken-switzerland-warum-zu-uns",
           "chauffeur-c-e-heineken-switzerland-luzern",
-          "chauffeur-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen"
+          "chauffeur-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
+          "autista-di-camion-heineken-switzerland-content-width-device-width"
         ],
         "en": [
           "driver-cat-c-e-heineken-switzerland-luzern"
@@ -535,7 +537,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T09:39:44.095Z",
+      "validThrough": "2026-12-14T21:45:20.747Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -586,7 +588,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=165451&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T09:39:35.776Z",
+      "crawledAt": "2026-11-14T21:45:12.914Z",
       "previousSlugs": [
         "technician-dbo-m-w-d-heineken-ch-denges",
         "techniker-dbo-m-w-d-heineken-switzerland-denges"
@@ -615,7 +617,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:39:35.776Z",
+      "validThrough": "2026-12-19T21:45:12.914Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -666,7 +668,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162220&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:39:28.293Z",
+      "crawledAt": "2026-11-14T21:45:05.965Z",
       "previousSlugs": [
         "logistics-key-account-specialist-m-w-d-80-100-heineken-ch-luzern"
       ],
@@ -691,7 +693,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T09:39:28.293Z",
+      "validThrough": "2026-12-27T21:45:05.965Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -742,7 +744,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164139&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:39:19.894Z",
+      "crawledAt": "2026-11-14T21:44:56.681Z",
       "previousSlugsByLocale": {
         "de": [
           "chauffeur-kat-c1-c-wintersaison-2026-27-chur-arosa-heineken-ch-arosa"
@@ -770,7 +772,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:39:19.894Z",
+      "validThrough": "2027-02-07T21:44:56.681Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -821,7 +823,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=168001&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T09:39:12.403Z",
+      "crawledAt": "2026-11-14T21:44:48.927Z",
       "previousSlugs": [
         "event-portfolio-specialist-m-w-d-100-heineken-ch-luzern"
       ],
@@ -849,7 +851,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:39:12.403Z",
+      "validThrough": "2027-01-27T21:44:48.927Z",
       "validThroughSource": "last-observed-window"
     }
   ]

@@ -7,6 +7,7 @@ import {
   jobRankingAttributes,
   pseudonymousUserId,
   rankingDay,
+  rankingHasActiveTreatment,
   stableJobId,
 } from './jobEmailRanking.js';
 
@@ -20,6 +21,33 @@ export const JOB_EMAIL_RANKING_RETENTION_DAYS = 100;
 // those batches may commit at once — see recordJobEmailImpressions.
 export const IMPRESSION_BATCH_SIZE = 400;
 export const IMPRESSION_COMMIT_CONCURRENCY = 8;
+
+/**
+ * Quali impression scrive un invio (perf-plan PR 4a).
+ *
+ *  - `full`: per ogni email, un documento stats e un evento per annuncio, piu' il
+ *    manifest della consegna. E' il comportamento storico: ~7,7 annunci x 2 + 1
+ *    scritture per email, il grosso delle scritture di un invio di job alert.
+ *  - `manifest`: solo `job_email_ranking_deliveries/{hash}`, l'unico documento che
+ *    `scripts/build-job-email-affinity.mjs` legge per unire i click alla consegna.
+ *    Le serie CTR per annuncio NON vengono scritte: servono solo a misurare un
+ *    esperimento di ranking, e senza un braccio attivo tutti stanno in `control`.
+ *    Il click (`recordJobEmailRankingClick`) crea stats ed evento con un merge, non
+ *    dipende dalle impression gia' scritte.
+ *  - `auto` (default): `full` solo se la configurazione di ranking ha almeno un
+ *    braccio non-control con rollout > 0, altrimenti `manifest`.
+ *
+ * Un valore non riconosciuto ripiega su `full`, cioe' non toglie nessuna scrittura.
+ */
+export const JOB_EMAIL_RANKING_IMPRESSIONS_MODES = Object.freeze(['auto', 'full', 'manifest']);
+
+export function resolveRankingImpressionsMode({ requested, config } = {}) {
+  const raw = String(requested ?? '').trim().toLowerCase();
+  const mode = raw === '' ? 'auto' : raw;
+  if (!JOB_EMAIL_RANKING_IMPRESSIONS_MODES.includes(mode)) return 'full';
+  if (mode === 'auto') return rankingHasActiveTreatment({ config }) ? 'full' : 'manifest';
+  return mode;
+}
 
 function hashId(value) {
   return createHash('sha256').update(String(value || '')).digest('hex').slice(0, 40);
@@ -105,8 +133,10 @@ export function buildRankingJobsManifest(jobs) {
  * aggregates writes in memory first, so a large newsletter does not issue one
  * Firestore commit per recipient.
  */
-export async function recordJobEmailImpressions(db, records) {
+export async function recordJobEmailImpressions(db, records, { mode = 'full' } = {}) {
   if (!db || !Array.isArray(records) || records.length === 0) return { recorded: 0 };
+  // `manifest`: solo il documento di consegna (vedi resolveRankingImpressionsMode).
+  const manifestOnly = mode === 'manifest';
   const stats = new Map();
   const events = new Map();
   const deliveries = new Map();
@@ -137,6 +167,8 @@ export async function recordJobEmailImpressions(db, records) {
       sent_at: sentAt,
       expires_at: retentionDate(sentAt),
     });
+
+    if (manifestOnly) continue;
 
     for (const [index, job] of record.jobs.entries()) {
       const manifestJob = manifest[index];

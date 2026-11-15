@@ -93,7 +93,11 @@
     ['fullName', /^(name|your name|il tuo nome|ihr name|votre nom)$|\b(full name|nome e cognome|nome completo|vor und nachname|vollstandiger name|nom complet)\b/],
     ['firstName', /\b(first name|given name|vorname|prenom|nome)\b/],
     ['lastName', /\b(last name|surname|family name|nachname|familienname|cognome|nom de famille|nom)\b/],
-    ['phone', /(\bphone|\btelefon|\btelephone|\bcellulare|\bmobil|\bnatel|\bhandy|numero di telefono)/],
+    // «Handy» is a German phone caption only when it is the field's own word
+    // or has a German phone qualifier; do not classify English prose such as
+    // «How handy are you with tools?» as a phone field. Bare mobile/mobil is
+    // likewise valid only as the complete field label.
+    ['phone', /(\bphone|\btelefon|\btelephone|\bcellulare|\b(?:mobilnummer|mobiltelefon)\b|\bmobile\s+(?:number|phone|nummer)\b|\bnatel|^handy(?: (?:nummer|telefon|nr|required|erforderlich|pflichtfeld|mandatory|obbligatorio|obligatoire|obligatorisch))?$|^\s*(?:mobile|mobil)\s*$|numero di telefono)/],
     ['postalCode', /(\bcap\b|\bpostal|\bzip\b|\bplz\b|\bpostleitzahl|\bnpa\b|code postal)/],
     ['city', /\b(citta|city|ort|wohnort|ville|localita|comune)\b/],
     ['street', /(\bstreet|\bvia\b|strasse|\badresse|\bindirizzo|\brue\b)/],

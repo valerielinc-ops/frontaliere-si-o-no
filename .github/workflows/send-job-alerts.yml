@@ -148,6 +148,17 @@ jobs:
         uses: actions/checkout@v7
         with:
           fetch-depth: 1
+          # CHECKOUT PIENO, per misura del repo e non per dimenticanza (perf-plan
+          # PR 7). Togliere public/images/ (4,4 GB; il sender legge solo brands/)
+          # con uno sparse-checkout e `filter: blob:none` lascerebbe comunque ~2,2 GB
+          # di dati che l'assemble legge (data/jobs/ da solo e' 702 MB). Oltre ~1 GB
+          # residui il profilo e' piu' LENTO del fetch unico, perche' i blob si
+          # spostano su una seconda richiesta pigra (CROSSOVER_MB in
+          # scripts/ci/checkout-profile-analyzer.mjs; test `nessun job resta sparse
+          # sopra la soglia di convenienza`). Il test del perimetro di questo job
+          # (tests/send-job-alerts-workflow-perimeter.test.ts) tiene vera la
+          # PRECONDIZIONE per un futuro profilo: il codice legge solo
+          # public/images/brands/.
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -155,7 +166,18 @@ jobs:
           node-version: 22
           cache: npm
 
+      # node_modules in cache (perf-plan PR 7): chiave sull'hash del lockfile e sulla
+      # major di Node. `npm ci` costava 46 s a ogni run; con la cache si salta
+      # quando il lockfile non e' cambiato.
+      - name: Cache node_modules
+        id: node-modules-cache
+        uses: actions/cache@v6
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
       - name: Install dependencies
+        if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Prepare Firebase credentials
@@ -169,8 +191,15 @@ jobs:
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
+      # Privilegio minimo (perf-plan PR 7): prima questo step riceveva ~130 segreti,
+      # compresi token GitHub, LinkedIn e TikTok, e il sender ne usa una trentina.
+      # L'elenco e' quello che il codice del job (sender, cascade, assemble,
+      # issue-creator e le loro importazioni) legge davvero da `process.env`, tolti i
+      # moduli dei crawler/traduzione che l'assemble importa ma non esegue. Lo
+      # verifica tests/send-job-alerts-workflow-perimeter.test.ts: una chiave nuova
+      # letta dal codice e non elencata qui fa fallire la CI, non il job in produzione.
       - name: Load secrets from Remote Config
-        run: node scripts/load-rc-env.mjs
+        run: node scripts/load-rc-env.mjs --only-env=APPLICATION_INTENT_RANKING_ENABLED,CF_ACCOUNT_ID,CF_API_TOKEN,CLOUDFLARE_EMAIL_API_TOKEN,ENABLE_JOB_ALERTS,JOB_ALERT_BATCH_BOOKKEEPING,JOB_ALERT_CANDIDATE_INDEX_MODE,JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE,JOB_ALERT_LIVE_LINK_MANIFEST,JOB_ALERT_LIVE_LINK_MANIFEST_MAX_AGE_HOURS,JOB_ALERT_PLAN_BATCH_SIZE,JOB_ALERT_SUBJECT_AB_ENABLED,JOB_ALERT_SUBJECT_AB_ROLLOUT,JOB_ALERT_SUBJECT_AB_VARIANTS,JOB_EMAIL_RANKING_AFFINITY_WEIGHT,JOB_EMAIL_RANKING_ENABLED,JOB_EMAIL_RANKING_IMPRESSIONS_MODE,JOB_EMAIL_RANKING_ROLLOUT,JOB_EMAIL_RANKING_TREATMENT,MAILEROO_ACCOUNT_API_KEY,MAILEROO_API_KEY,MAILEROO_NEWSLETTER_API_KEY,MAILEROO_TRANSACTIONAL_API_KEY,MAILGUN_API_KEY,MAILGUN_DOMAIN,MAILJET_API_KEY,MAILJET_SECRET_KEY,MAILTRAP_API_TOKEN,NEWSLETTER_SECRET,PER_USER_SEND_TIME,RESEND_API_KEY
 
       # Content-addressed cache of the assembled dataset. The key is printed by
       # the assembler itself (.github/actions/assemble-jobs-cache-key): sha256

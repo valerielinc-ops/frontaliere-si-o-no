@@ -1,7 +1,7 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-11-14T09:32:31.846Z",
+  "generatedAt": "2026-11-14T21:44:37.461Z",
   "total": 4,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 2840,
-  "avgDurationMs": 2840,
+  "durationMs": 5392,
+  "avgDurationMs": 5392,
   "durationHistory": [
-    2840
+    5392
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -52,7 +52,7 @@
       "streetAddress": "Chiasso, Ticino, Switzerland",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:32:12.643Z",
+      "crawledAt": "2026-11-14T21:44:16.902Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -96,7 +96,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-02T21:49:51.090Z",
-      "crawledAt": "2026-11-14T09:32:12.643Z",
+      "crawledAt": "2026-11-14T21:44:16.902Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -141,7 +141,7 @@
       "streetAddress": "Chiasso, Ticino, Switzerland",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-14T09:32:12.643Z",
+      "crawledAt": "2026-11-14T21:44:16.902Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -172,7 +172,7 @@
       "postedDate": "2026-08-14",
       "employmentType": "full time",
       "contractType": "full-time",
-      "validThrough": "2026-12-14T09:32:12.643Z",
+      "validThrough": "2026-12-14T21:44:16.902Z",
       "id": "board-international-2a78e3e57c3b",
       "salaryMin": 51500,
       "salaryMax": 88000,
@@ -185,7 +185,7 @@
       "streetAddress": "Chiasso, Switzerland",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-14T09:32:12.643Z",
+      "crawledAt": "2026-11-14T21:44:16.902Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -196,5 +196,5 @@
       }
     }
   ],
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

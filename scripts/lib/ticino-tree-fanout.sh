@@ -79,8 +79,7 @@ section_tree_confirm_worker_layout() {
 section_tree_require_worker_layout() {
   local section_name="$1"
   local section_sub="$2"
-  local probe_url="https://frontaliereticino.ch/${section_sub}/?__frontaliere_section_tree_layout=hash-v1&section=${section_name}"
-  local headers curl_rc attempt fanout_rc max_attempts=18
+  local fanout_rc
   SECTION_TREE_WORKER_LAYOUT_CONFIRMATION=''
   export SECTION_TREE_WORKER_LAYOUT_CONFIRMATION
 
@@ -92,52 +91,17 @@ section_tree_require_worker_layout() {
     return "$fanout_rc"
   fi
 
-  # A timeout is not evidence that the active Worker lacks hash-v1 routing.
-  # Retry only transport failures, with a bounded budget; HTTP responses still
-  # go straight to the semantic header check and every exhausted/unknown
-  # failure remains fail-closed before the hashed tree is published.
-  for ((attempt = 1; attempt <= max_attempts; attempt += 1)); do
-    if headers="$(curl --silent --show-error --fail --head --max-time 20 "$probe_url")"; then
-      if printf '%s\n' "$headers" | tr -d '\r' \
-          | grep -Eiq '^HTTP/[0-9.]+[[:space:]]+204([[:space:]]|$)' \
-          && printf '%s\n' "$headers" | tr -d '\r' \
-          | grep -Eiq '^x-frontaliere-section-tree-layout:[[:space:]]*hash-v1[[:space:]]*$' \
-          && printf '%s\n' "$headers" | tr -d '\r' \
-            | grep -Eiq "^x-frontaliere-section:[[:space:]]*${section_name}[[:space:]]*$"; then
-        section_tree_confirm_worker_layout "$section_name" "$section_sub"
-        return 0
-      fi
-      # Accept the section-specific response during the generic-probe rollout;
-      # the next Worker deployment advertises both headers.
-      if printf '%s\n' "$headers" | tr -d '\r' \
-          | grep -Eiq '^HTTP/[0-9.]+[[:space:]]+204([[:space:]]|$)' \
-          && printf '%s\n' "$headers" | tr -d '\r' \
-          | grep -Eiq "^x-frontaliere-${section_name}-tree-layout:[[:space:]]*hash-v1[[:space:]]*$"; then
-        section_tree_confirm_worker_layout "$section_name" "$section_sub"
-        return 0
-      fi
-      if [ "$attempt" -lt "$max_attempts" ]; then
-        echo "::warning::active Worker does not yet advertise hash-v1 for $section_name at $section_sub (attempt $attempt/$max_attempts); waiting for registry propagation" >&2
-        sleep 20
-        continue
-      fi
-      echo "::error::active Worker does not advertise hash-v1 routing for section $section_name at $section_sub; refusing to publish hashed paths" >&2
-      return 1
-    else
-      curl_rc="$?"
-      case "$curl_rc" in
-        6|7|22|28|35|52|56|92)
-          if [ "$attempt" -lt "$max_attempts" ]; then
-            echo "::warning::${section_name} shard layout probe not ready for $section_sub (curl $curl_rc; attempt $attempt/$max_attempts) — retrying in 20s" >&2
-            sleep 20
-            continue
-          fi
-          ;;
-      esac
-      echo "::error::${section_name} shard layout probe failed for $section_sub; refusing to publish hashed paths" >&2
-      return 1
-    fi
-  done
+  # Reuse the Node probe used by the cross-locale preflight. Keeping one probe
+  # implementation is essential here: it carries the descriptive User-Agent
+  # Cloudflare requires, while still preserving the bounded retry and
+  # fail-closed header checks before hashed paths are published.
+  if ! node "$SECTION_TREE_LAYOUT_STAGE_TOOL" probe \
+      --section "$section_name" --sub "$section_sub"; then
+    echo "::error::${section_name} shard layout probe failed for $section_sub; refusing to publish hashed paths" >&2
+    return 1
+  fi
+  section_tree_confirm_worker_layout "$section_name" "$section_sub"
+  return 0
 }
 
 # section_tree_fanout_stage <section> <section-root>

@@ -1,77 +1,59 @@
 {
   "key": "elektriker-elektromonteur-jobs-ch",
   "label": "elektriker-elektromonteur-jobs",
-  "generatedAt": "2026-11-13T21:54:57.787Z",
-  "total": 3,
+  "generatedAt": "2026-11-14T21:47:12.574Z",
+  "total": 2,
   "discovered": 3,
   "parsed": 3,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "elektriker-elektromonteur-jobs-ch",
+    "seedUrls": [
+      "https://www.pks-personal.ch/pks/bewerber/stellen-kaufmaennisch.php"
+    ],
+    "phase": "detail",
+    "pages": 4,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://www.pks-personal.ch/pks/bewerber/stellen-kaufmaennisch.php"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pks-personal.ch/stellen/hr-assistent-in-50-60-befristet-fuer-4-monate/basel/hrm/82e9b75e"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pks-personal.ch/stellen/hr-professional-50-mit-payroll-erfahrung/basel/hrm/15cad6a3"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pks-personal.ch/stellen/berater-in-abacus-80-100-lohn-hr/basel/hrm/d6f62e50"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 3,
+  "written": 2,
   "detailCandidates": 3,
   "detailGone": 0,
   "detailRejected": 0,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 7298,
-  "avgDurationMs": 7298,
+  "durationMs": 8301,
+  "avgDurationMs": 8301,
   "durationHistory": [
-    7298
+    8301
   ],
-  "newJobs": [
-    {
-      "id": "elektriker-elektromonteur-jobs-ch-86dea4b351cf",
-      "slug": "hr-professional-50-mit-payroll-erfahrung-sie-sind-prazise-wie-origami-bis-auf-den-letzten",
-      "company": "elektriker-elektromonteur-jobs",
-      "companyKey": "elektriker-elektromonteur-jobs-ch",
-      "companyDomain": "pks-personal.ch",
-      "title": "HR Professional 50% (mit Payroll-Erfahrung) - Sie sind präzise wie Origami. Bis auf den letzten Rappen...",
-      "location": "4102 Binningen",
-      "canton": "BL",
-      "url": "https://www.pks-personal.ch/stellen/hr-professional-50-mit-payroll-erfahrung/basel/hrm/15cad6a3",
-      "source": "elektriker-elektromonteur-jobs Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:54:46.239Z",
-      "addressLocality": "Binningen",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4102",
-      "streetAddress": "Binningen",
-      "category": "Risorse Umane",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.pks-personal.ch/stellen/hr-professional-50-mit-payroll-erfahrung/basel/hrm/15cad6a3",
-      "needsRetranslation": true,
-      "salaryMin": 31000,
-      "salaryMax": 47000,
-      "salarySource": "estimated",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:54:46.239Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-13T21:54:46.239Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 21,
-        "completeness": 23
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -87,7 +69,7 @@
       "url": "https://www.pks-personal.ch/stellen/hr-assistent-in-50-60-befristet-fuer-4-monate/basel/hrm/82e9b75e",
       "source": "elektriker-elektromonteur-jobs Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:54:46.238Z",
+      "crawledAt": "2026-11-14T21:46:55.498Z",
       "addressLocality": "Binningen",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -105,13 +87,12 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://www.pks-personal.ch/stellen/hr-assistent-in-50-60-befristet-fuer-4-monate/basel/hrm/82e9b75e",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-12T21:43:20.234Z",
       "salaryMin": 37200,
       "salaryMax": 56400,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:54:46.238Z",
+      "validThrough": "2027-02-10T21:46:55.498Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -158,7 +139,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:53:45.678Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -168,5 +149,5 @@
       }
     }
   ],
-  "codeCommit": "74b448e787a69f74e7aadf705de52bcf4552e3be"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

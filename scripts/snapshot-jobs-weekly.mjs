@@ -19,12 +19,15 @@
 
 import { resolveReportedPostingDate } from './lib/job-posting-date.mjs';
 import { readJsonFile } from './lib/read-large-json.mjs';
+import { jobsArrayFromParsed } from './lib/read-large-json.mjs';
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
-const ROOT = resolve(__dirname, '..');
+// JOBS_SNAPSHOT_ROOT: tests point the script at a temporary root (tests must not write
+// tracked files); production never sets it and keeps the repository root.
+const ROOT = process.env.JOBS_SNAPSHOT_ROOT ? resolve(process.env.JOBS_SNAPSHOT_ROOT) : resolve(__dirname, '..');
 const JOBS_PATH = join(ROOT, 'data', 'jobs.json');
 const HISTORY_DIR = join(ROOT, 'data', 'jobs-snapshots-history');
 
@@ -58,9 +61,12 @@ function main() {
   if (existsSync(JOBS_PATH)) {
     try {
       const raw = readJsonFile(JOBS_PATH);
-      if (Array.isArray(raw)) jobs = raw;
+      // Array or { jobs: [...] }; a wrong shape (`{}`, null) throws: it would commit an
+      // empty snapshot as this week's history.
+      jobs = jobsArrayFromParsed(raw);
     } catch (err) {
-      console.warn(`[snapshot-jobs-weekly] failed to parse jobs.json: ${err?.message || err}`);
+      // Fail closed: an empty snapshot would be committed as this week's history.
+      throw new Error(`[snapshot-jobs-weekly] cannot read jobs.json: ${err?.message || err}`);
     }
   } else {
     console.warn('[snapshot-jobs-weekly] data/jobs.json not found — writing empty snapshot.');

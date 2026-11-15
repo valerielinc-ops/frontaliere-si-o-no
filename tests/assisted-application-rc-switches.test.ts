@@ -97,6 +97,8 @@ describe('the table of the switches', () => {
     expect([...PLAIN_WORD_RC_KEYS].sort()).toEqual([
       ...keys,
       'TIKTOK_VIDEO_CREATIVE_MODE',
+      'JOB_ALERT_CANDIDATE_INDEX_MODE',
+      'JOB_EMAIL_RANKING_IMPRESSIONS_MODE',
     ].sort());
     for (const key of keys) expect((RC_TO_ENV as Record<string, string[]>)[key], key).toContain(key);
   });

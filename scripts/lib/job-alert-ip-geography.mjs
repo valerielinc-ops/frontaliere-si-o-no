@@ -49,3 +49,22 @@ export function createRegistrationGeoLookup({ fetchImpl = fetch, now = () => Dat
     return pending.get(ipHash);
   };
 }
+
+function canonicalGeoJson(value) {
+  if (value === null || typeof value !== 'object') return JSON.stringify(value ?? null);
+  if (Array.isArray(value)) return `[${value.map(canonicalGeoJson).join(',')}]`;
+  return `{${Object.keys(value).sort().map((key) => `${JSON.stringify(key)}:${canonicalGeoJson(value[key])}`).join(',')}}`;
+}
+
+/**
+ * Is `computed` the geography already stored on the document? Firestore hands
+ * maps back with their keys in another order than the one the lookup builds, so
+ * the comparison is canonical, not textual. The sender skips the write (a
+ * transaction: one read and one write) when the answer is yes (perf-plan PR 6):
+ * the lookup returns the SAVED value untouched while it is fresh, which used to
+ * be rewritten identical on every run.
+ */
+export function isSameIpGeo(computed, stored) {
+  if (!computed || !stored) return false;
+  return canonicalGeoJson(computed) === canonicalGeoJson(stored);
+}

@@ -1,11 +1,12 @@
 {
   "key": "huber-suhner",
   "label": "Huber+Suhner AG",
-  "generatedAt": "2026-11-14T09:33:24.497Z",
+  "generatedAt": "2026-11-14T21:51:00.769Z",
   "total": 0,
   "discovered": 50,
   "parsed": 0,
   "lastFetchOutcome": "filtered_empty",
+  "fetchReceipt": null,
   "authoritativeEmptySnapshot": false,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -14,10 +15,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2046,
-  "avgDurationMs": 2046,
+  "durationMs": 2340,
+  "avgDurationMs": 2340,
   "durationHistory": [
-    2046
+    2340
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -25,5 +26,5 @@
   "unchangedJobs": [],
   "earlyExit": false,
   "exitCode": 0,
-  "codeCommit": "3ca392d67d23f8d81975b0f76f9044b757875383"
+  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
 }

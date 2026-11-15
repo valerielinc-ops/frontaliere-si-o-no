@@ -33,12 +33,9 @@ import { buildCanonicalJobDetailPath } from '../build-plugins/shared/jobDetailPa
 import { jobCanonTarget } from '../infra/cloudflare-worker/locale-router.js';
 import {
   clearJobCanonOrderingFields,
-  consumeJobCanonOrderingHandoff,
   getJobCanonOrderingFields,
-  jobCanonOrderingHandoffPath,
+  serializeJobCanonOrderingFields,
   setJobCanonOrderingFields,
-  sha256FileSync,
-  writeJobCanonOrderingHandoff,
 } from '../build-plugins/shared/jobCanonInputs';
 import { localeJobsSplitPlugin } from '../build-plugins/localeJobsSplitPlugin';
 import {
@@ -251,6 +248,8 @@ describe('jobCanonRedirectMapPlugin', () => {
 describe('active job aliases in the IT /job-canon publishing leg', () => {
   let tmp: string;
   let previousBuildLocale: string | undefined;
+  let previousBuildStage: string | undefined;
+  let previousOrderingHandoffPath: string | undefined;
   let activePluginLogs: string[] = [];
 
   const job = (
@@ -358,12 +357,19 @@ describe('active job aliases in the IT /job-canon publishing leg', () => {
 
   beforeAll(async () => {
     previousBuildLocale = process.env.BUILD_LOCALE;
+    previousBuildStage = process.env.BUILD_STAGE;
+    previousOrderingHandoffPath = process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH;
     process.env.BUILD_LOCALE = 'it';
+    process.env.BUILD_STAGE = 'ssg';
     tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-active-'));
     fs.mkdirSync(path.join(tmp, 'data'), { recursive: true });
     fs.writeFileSync(path.join(tmp, 'data', 'jobs.json'), '[]');
     fs.mkdirSync(path.join(tmp, 'dist', 'data'), { recursive: true });
     setJobCanonOrderingFields(activeJobs);
+    const orderingHandoffPath = path.join(tmp, 'job-canon-ordering-fields.json');
+    process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH = orderingHandoffPath;
+    fs.writeFileSync(orderingHandoffPath, serializeJobCanonOrderingFields());
+    clearJobCanonOrderingFields();
     const publicSlugMapRows = activeJobs.map((job) => {
       const { datePosted: _datePosted, firstSeenAt: _firstSeenAt, ...row } = job;
       return row;
@@ -476,8 +482,13 @@ ${duplicateShardEntries.join(',\n')}
 
   afterAll(() => {
     fs.rmSync(tmp, { recursive: true, force: true });
+    clearJobCanonOrderingFields();
     if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
     else process.env.BUILD_LOCALE = previousBuildLocale;
+    if (previousBuildStage === undefined) delete process.env.BUILD_STAGE;
+    else process.env.BUILD_STAGE = previousBuildStage;
+    if (previousOrderingHandoffPath === undefined) delete process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH;
+    else process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH = previousOrderingHandoffPath;
   });
 
   const readShard = (slug: string): Record<string, Record<string, unknown>> => {
@@ -626,6 +637,7 @@ describe('staged job-canon ordering handoff', () => {
   let root = '';
   let previousBuildLocale: string | undefined;
   let previousBuildStage: string | undefined;
+  let previousOrderingHandoffPath: string | undefined;
 
   const sourceJob = (id: string, daysOld: number) => ({
     id,
@@ -647,6 +659,8 @@ describe('staged job-canon ordering handoff', () => {
   beforeEach(() => {
     previousBuildLocale = process.env.BUILD_LOCALE;
     previousBuildStage = process.env.BUILD_STAGE;
+    previousOrderingHandoffPath = process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH;
+    delete process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH;
     clearJobCanonOrderingFields();
     _resetJobsSeoPagesSignalForTests();
   });
@@ -660,6 +674,8 @@ describe('staged job-canon ordering handoff', () => {
     else process.env.BUILD_LOCALE = previousBuildLocale;
     if (previousBuildStage === undefined) delete process.env.BUILD_STAGE;
     else process.env.BUILD_STAGE = previousBuildStage;
+    if (previousOrderingHandoffPath === undefined) delete process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH;
+    else process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH = previousOrderingHandoffPath;
   });
 
   it.each([
@@ -682,7 +698,6 @@ describe('staged job-canon ordering handoff', () => {
         '[job-canon-redirect-map] data/jobs.json missing; skipping Worker map generation',
       );
       expect(getJobCanonOrderingFields()).toBeNull();
-      expect(fs.existsSync(jobCanonOrderingHandoffPath(root))).toBe(false);
       expect(fs.existsSync(path.join(root, 'dist', 'data', 'jobs-slug-map.json'))).toBe(false);
       expect(fs.existsSync(path.join(root, 'dist', 'job-canon'))).toBe(false);
     } finally {
@@ -690,58 +705,36 @@ describe('staged job-canon ordering handoff', () => {
     }
   });
 
-  it('runs all-locale SSG from a bundle artifact after process memory is cleared', async () => {
+  it('runs all-locale SSG from the bundle handoff file after process memory is cleared', async () => {
     root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-staged-ordering-'));
     const jobs = [sourceJob('order-older', 42), sourceJob('order-newer', 12)];
     fs.mkdirSync(path.join(root, 'data'), { recursive: true });
     fs.writeFileSync(path.join(root, 'data/jobs.json'), JSON.stringify(jobs));
     process.env.BUILD_STAGE = 'bundle';
     delete process.env.BUILD_LOCALE;
+    const handoffPath = path.join(root, '.cache', 'job-canon-ordering-fields.json');
+    process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH = handoffPath;
 
-    const splitPlugin = localeJobsSplitPlugin(root);
-    (splitPlugin.buildStart as () => void)();
-    (splitPlugin.closeBundle as () => void)();
-    const handoffPath = jobCanonOrderingHandoffPath(root);
-    const bundleArtifact = fs.readFileSync(handoffPath, 'utf8');
-    const artifactRows = JSON.parse(bundleArtifact).rows;
-    expect(artifactRows.map((row: { id: string }) => row.id)).toEqual(['order-older', 'order-newer']);
-    expect(artifactRows.every((row: Record<string, unknown>) =>
-      Object.keys(row).every((key) => ['id', 'datePosted', 'firstSeenAt'].includes(key)))).toBe(true);
+    (localeJobsSplitPlugin(root).closeBundle as () => void)();
+    const artifact = JSON.parse(fs.readFileSync(handoffPath, 'utf8')) as Array<[string, Record<string, unknown>]>;
+    expect(artifact.map(([id]) => id)).toEqual(['order-older', 'order-newer']);
+    expect(artifact.every(([, fields]) =>
+      Object.keys(fields).every((key) => ['datePosted', 'firstSeenAt'].includes(key)))).toBe(true);
 
     const slugMapPath = path.join(root, 'dist/data/jobs-slug-map.json');
     const publicRows = JSON.parse(fs.readFileSync(slugMapPath, 'utf8')) as ActiveJobSlugMapRow[];
     expect(publicRows.every((row) => row.datePosted === undefined && row.firstSeenAt === undefined)).toBe(true);
 
-    // Recreate the bundle->SSG process boundary: no live module Map survives.
-    clearJobCanonOrderingFields();
-    const reloaded = consumeJobCanonOrderingHandoff(
-      handoffPath,
-      path.join(root, 'data/jobs.json'),
-      root,
-    );
-    const { compareActiveJobsByStableOrder } = await import('../build-plugins/jobsSeoPagesPlugin');
-    const actualOrder = publicRows
-      .map((row) => ({ ...row, ...reloaded.get(String(row.id || row.slug)) }))
-      .sort(compareActiveJobsByStableOrder)
-      .map((row) => row.id);
-    const expectedOrder = [...jobs].sort(compareActiveJobsByStableOrder).map((row) => row.id);
-    expect(actualOrder).toEqual(expectedOrder);
-    expect(fs.existsSync(handoffPath)).toBe(false);
-
-    // Reinstall the exact producer artifact for the SSG plugin invocation.
-    // Its module state remains empty, so success proves it loaded the handoff.
-    fs.writeFileSync(handoffPath, bundleArtifact);
+    // Recreate the bundle->SSG process boundary: no live module Map survives,
+    // so success proves the SSG plugin restored the ordering from the file.
     clearJobCanonOrderingFields();
     writeAllKnownJobSlugs({}, root);
     process.env.BUILD_STAGE = 'ssg';
-    (localeJobsSplitPlugin(root).buildStart as () => void)();
-    expect(fs.readFileSync(handoffPath, 'utf8')).toBe(bundleArtifact);
 
     const workerPlugin = jobCanonRedirectMapPlugin(root);
     await (workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin);
 
     expect(fs.existsSync(path.join(root, 'dist/job-canon'))).toBe(true);
-    expect(fs.existsSync(handoffPath)).toBe(false);
   });
 
   it('fails closed with a named error when a public slug-map ID is absent from the handoff', async () => {
@@ -754,10 +747,10 @@ describe('staged job-canon ordering handoff', () => {
     ]));
     writeAllKnownJobSlugs({}, root);
     setJobCanonOrderingFields([{ id: 'other-id', datePosted: daysAgo(5) }]);
-    writeJobCanonOrderingHandoff(
-      jobCanonOrderingHandoffPath(root),
-      sha256FileSync(path.join(root, 'data/jobs.json')),
-    );
+    const handoffPath = path.join(root, '.cache', 'job-canon-ordering-fields.json');
+    fs.mkdirSync(path.dirname(handoffPath), { recursive: true });
+    fs.writeFileSync(handoffPath, serializeJobCanonOrderingFields());
+    process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH = handoffPath;
     clearJobCanonOrderingFields();
     process.env.BUILD_STAGE = 'ssg';
     delete process.env.BUILD_LOCALE;
@@ -765,34 +758,25 @@ describe('staged job-canon ordering handoff', () => {
     const workerPlugin = jobCanonRedirectMapPlugin(root);
     await expect((workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin))
       .rejects.toThrow('slug map and build handoff do not match');
-    expect(fs.existsSync(jobCanonOrderingHandoffPath(root))).toBe(false);
   });
 
   it('fails closed with a named error when the SSG handoff is missing', async () => {
     root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-staged-missing-'));
     fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+    fs.mkdirSync(path.join(root, 'dist/data'), { recursive: true });
     fs.writeFileSync(path.join(root, 'data/jobs.json'), '[]');
+    fs.writeFileSync(path.join(root, 'dist/data/jobs-slug-map.json'), '[]');
     process.env.BUILD_STAGE = 'ssg';
     delete process.env.BUILD_LOCALE;
 
     const workerPlugin = jobCanonRedirectMapPlugin(root);
     await expect((workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin))
-      .rejects.toThrow('missing build ordering handoff: .cache/job-canon-ordering-fields.json');
-  });
+      .rejects.toThrow('BUILD_JOB_CANON_ORDERING_HANDOFF_PATH');
 
-  it('rejects and consumes an artifact when data/jobs.json changed after the bundle stage', () => {
-    root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-staged-stale-'));
-    fs.mkdirSync(path.join(root, 'data'), { recursive: true });
-    const sourcePath = path.join(root, 'data/jobs.json');
-    fs.writeFileSync(sourcePath, '[]');
-    setJobCanonOrderingFields([{ id: 'stale-job', datePosted: daysAgo(8) }]);
-    const handoffPath = jobCanonOrderingHandoffPath(root);
-    writeJobCanonOrderingHandoff(handoffPath, sha256FileSync(sourcePath));
-    fs.writeFileSync(sourcePath, '[{"id":"changed-after-bundle"}]');
-
-    expect(() => consumeJobCanonOrderingHandoff(handoffPath, sourcePath, root))
-      .toThrow('build ordering handoff source does not match data/jobs.json');
-    expect(fs.existsSync(handoffPath)).toBe(false);
+    const missingPath = path.join(root, '.cache', 'job-canon-ordering-fields.json');
+    process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH = missingPath;
+    await expect((workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin))
+      .rejects.toThrow(`ordering fields handoff missing at ${missingPath}`);
   });
 
   it('keeps single-process builds on their in-memory ordering fields', async () => {
@@ -812,9 +796,10 @@ describe('staged job-canon ordering handoff', () => {
     fs.writeFileSync(path.join(root, 'dist/data/jobs-slug-map.json'), JSON.stringify([row]));
     writeAllKnownJobSlugs({}, root);
     setJobCanonOrderingFields([{ id: row.id, datePosted: daysAgo(4) }]);
-    const handoffPath = jobCanonOrderingHandoffPath(root);
+    const handoffPath = path.join(root, '.cache', 'job-canon-ordering-fields.json');
     fs.mkdirSync(path.dirname(handoffPath), { recursive: true });
     fs.writeFileSync(handoffPath, 'must not be read by a single build');
+    process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH = handoffPath;
     process.env.BUILD_STAGE = 'single';
     delete process.env.BUILD_LOCALE;
 
