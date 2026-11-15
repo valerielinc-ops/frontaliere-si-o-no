@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-15T17:01:00.429Z",
+  "generatedAt": "2026-11-15T18:27:03.790Z",
   "totalEvents": 17280,
   "events": [
     {
@@ -569988,7 +569988,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il corso di rilegatura a Bischofszell introduce alle principali fasi della realizzazione artigianale di un libro. I partecipanti preparano il blocco del libro, progettano la copertina e completano la rilegatura; il materiale è incluso e non sono richieste conoscenze pregresse.",
+      "descriptionByLocale": {
+        "it": "Il corso di rilegatura a Bischofszell introduce alle principali fasi della realizzazione artigianale di un libro. I partecipanti preparano il blocco del libro, progettano la copertina e completano la rilegatura; il materiale è incluso e non sono richieste conoscenze pregresse.",
+        "en": "This bookbinding course in Bischofszell covers the main stages of making a hand-bound book. Participants work on the book block, cover design and binding finish, with materials supplied and no previous experience required.",
+        "de": "Der Buchbindekurs in Bischofszell vermittelt die wesentlichen Arbeitsschritte zur Herstellung eines handgebundenen Buches. Die Teilnehmenden fertigen den Buchblock an, gestalten den Umschlag und vollenden den Einband; das Material ist enthalten, Vorkenntnisse werden nicht vorausgesetzt.",
+        "fr": "Ce cours de reliure à Bischofszell présente les principales étapes de fabrication d’un livre relié à la main. Les participants réalisent le bloc du livre, conçoivent la couverture et achèvent la reliure ; le matériel est fourni et aucune expérience préalable n’est nécessaire."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:a72507956a0f4ae8986514c02efbf65f",
@@ -571075,7 +571083,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La visita guidata presenta il lavoro di trucco di scena e la realizzazione di parrucche e maschere. L’attività si svolge all’Opernhaus Zürich, a Zürich.",
+      "descriptionByLocale": {
+        "it": "La visita guidata presenta il lavoro di trucco di scena e la realizzazione di parrucche e maschere. L’attività si svolge all’Opernhaus Zürich, a Zürich.",
+        "en": "This guided tour focuses on stage makeup, wigs and mask-making at Opernhaus Zürich. It takes place in Zürich and presents the work of the opera house’s makeup department.",
+        "de": "Die Führung widmet sich der Maskenbildnerei sowie der Herstellung von Perücken und Masken im Opernhaus Zürich. Sie findet in Zürich statt und gibt Einblicke in den dortigen Maskenbereich.",
+        "fr": "Cette visite guidée présente le travail de maquillage, de création de perruques et de fabrication de masques à l’Opernhaus Zürich. Elle se déroule à Zürich et porte sur les activités du service de maquillage de l’opéra."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:86158",
