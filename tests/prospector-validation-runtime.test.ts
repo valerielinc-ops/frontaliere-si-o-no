@@ -30,6 +30,7 @@ function fixtureSpec({
   populationCount = 10,
   genericListingTitleIndex = -1,
   allLocationsSwiss = false,
+  foreignLocationIndex = -1,
   detailDescription = DESCRIPTION,
   detailDescriptions,
 }: {
@@ -37,6 +38,7 @@ function fixtureSpec({
   populationCount?: number;
   genericListingTitleIndex?: number;
   allLocationsSwiss?: boolean;
+  foreignLocationIndex?: number;
   detailDescription?: string;
   detailDescriptions?: string[];
 } = {}) {
@@ -45,10 +47,12 @@ function fixtureSpec({
   const listing = urls.map((url, index) => `<a href="${url}">${index === genericListingTitleIndex ? 'Jobs' : `Platform Engineer ${index + 1}`}</a>`).join('\n');
   const detailBodies = new Map(urls.map((url, index) => {
     const description = detailDescriptions?.[index] ?? detailDescription;
-    const jobLocation = index < 2 && !allLocationsSwiss
-      ? (firstTwoLocations === 'foreign'
-        ? { address: { addressLocality: 'Vaduz', addressCountry: 'LI' } }
-        : undefined)
+    const isForeignLocation = index === foreignLocationIndex
+      || (foreignLocationIndex < 0 && index < 2 && firstTwoLocations === 'foreign');
+    const jobLocation = isForeignLocation
+      ? { address: { addressLocality: 'Vaduz', addressCountry: 'LI' } }
+      : index < 2 && !allLocationsSwiss
+        ? undefined
       : { address: { addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' } };
     const posting = {
       '@type': 'JobPosting',
@@ -427,6 +431,45 @@ describe('Prospector production validation', () => {
         sourceBodyFloorFilteredCount: 1,
         dropCounts: { source_body_floor: 1 },
         detailDrop: { candidates: 2, gone: 0, rejected: 0, dropped: 0 },
+      });
+    } finally {
+      clearPoliteFetchStateForTests();
+    }
+  });
+
+  it('classifies an all-thin remainder as filtered_empty when expected filters are present', async () => {
+    const { spec, runtime } = fixtureSpec({
+      populationCount: 2,
+      allLocationsSwiss: true,
+      foreignLocationIndex: 0,
+      detailDescription: SHORT_SOURCE_DESCRIPTION,
+    });
+    spec.companyKey = 'medimeo';
+    const productionOptions = productionRuntimeOptionsFor(spec);
+    clearPoliteFetchStateForTests();
+    try {
+      const observed = await observeSpecInProduction(spec, { ...runtime, ...productionOptions });
+
+      expect(observed.vacancies).toHaveLength(0);
+      expect(observed.vacancies).toMatchObject({
+        fetchOutcome: 'filtered_empty',
+        discoveredCount: 2,
+        sourceBodyFloorFilteredCount: 1,
+        expectedFilterCount: 1,
+      });
+      expect(observed.observation).toMatchObject({
+        listingCount: 2,
+        publishableCount: 0,
+        runtimeOutputCount: 0,
+        snapshotAccepted: true,
+        promotionObservationComplete: true,
+        complete: true,
+        fetchOutcome: 'filtered_empty',
+        sourceBodyFloorFilteredCount: 1,
+        expectedFilterCount: 1,
+        expectedFilters: { source_geography: 1 },
+        dropCounts: { source_body_floor: 1 },
+        detailDrop: { candidates: 1, gone: 0, rejected: 0, dropped: 0 },
       });
     } finally {
       clearPoliteFetchStateForTests();

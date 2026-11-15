@@ -3288,14 +3288,18 @@ export async function runSpecInProduction(spec, runtime = {}) {
       && !expectedAllDetailAntiBotFailure;
     // A fully observed source can legitimately have no indexable rows when
     // every detail body is real but below the shared 50-word publication
-    // floor. Keep this distinct from a detail/parser drop: all candidates
-    // reached the same extraction path and no row was lost to a selector,
-    // geography or identity failure. The standard pipeline will then record
-    // `filtered_empty`, preserving valid stored rows without publishing thin
-    // content or opening a false crawler-health incident.
+    // floor. Keep this distinct from a detail/parser drop: every remaining
+    // candidate reached the same extraction path, while explicitly expected
+    // source filters account for the rows that never become publishedRows.
+    // The standard pipeline will then record `filtered_empty`, preserving
+    // valid stored rows without publishing thin content or opening a false
+    // crawler-health incident.
+    const expectedFilterCount = expectedGeographyFilters
+      + expectedTenantFilters
+      + expectedNotFoundFilters;
     const sourceBodyFloorFilteredEmpty = snapshotAccepted
       && rows.length > 0
-      && publishedRows.length === rows.length
+      && publishedRows.length + expectedFilterCount === rows.length
       && sourceBodyFloorRows.length === 0;
     const outputRows = sourceBodyFloorRows;
     const allUnexpectedDropsNoOutput = rows.length > 0
@@ -3328,7 +3332,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
       qualityDropDenominator: detailDrop.candidates,
       fetchOutcome: sourceBodyFloorFilteredEmpty ? 'filtered_empty' : listingOutcome.outcome,
       sourceBodyFloorFilteredCount,
-      expectedFilterCount: expectedGeographyFilters + expectedTenantFilters + expectedNotFoundFilters,
+      expectedFilterCount,
       expectedFilters: {
         source_geography: expectedGeographyFilters,
         tenant_scope: expectedTenantFilters,
