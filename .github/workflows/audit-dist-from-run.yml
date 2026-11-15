@@ -416,8 +416,9 @@ jobs:
       # growing. The rehydrate scripts use the runner's Node binary and
       # system jq/tar/unzip; npm dependencies are first needed by the
       # validation and audit steps below. Installing here preserves the same
-      # package contract while releasing roughly 1.7 GB during the disk-bound
-      # shard assembly that previously exhausted the runner.
+      # package contract while avoiding dependency-tree co-residency during
+      # the disk-bound shard assembly. The amount of relief and full-corpus
+      # completion remain unvalidated until a hosted replay records them.
       - name: Install minimal deps after dist rehydrate (no build)
         run: npm ci --no-audit --no-fund --ignore-scripts
 
