@@ -12,7 +12,8 @@ name: Assisted application portal replay
 #          another ref replays that ref and never opens or closes the issue).
 #   base = `inputs.base_sha` when given; otherwise the `headSha` of the latest
 #          successful run of this workflow on main (schedule or dispatch, read
-#          with `gh run list`, `actions: read`); otherwise the head itself. The
+#          with `gh run list` over the last 14 days, `actions: read`); otherwise
+#          the head itself (also when that run is older than 14 days). The
 #          head-against-itself comparison has no code delta to blame: it checks
 #          that the portals still behave the way the runner expects.
 #
@@ -124,7 +125,15 @@ jobs:
             base="$(cat "$RUNNER_TEMP/portal-replay-base-sha.txt")"
             source='input'
           else
-            retry gh run list --repo "$REPO" --workflow assisted-application-portal-replay.yml --branch main --status success --created "2020-01-01" --limit 50               --json event,headSha,createdAt > "$RUNNER_TEMP/portal-replay-last-success.json" || {
+            # Without a `created` window a `--branch` listing can come back frozen
+            # weeks in the past (scripts/ci/lib/run-listing-window.mjs). Fourteen
+            # days is far more than the daily cadence needs; when the latest
+            # successful run is older than that, there is no usable base and the
+            # comparison falls back to the head itself (health of the portals).
+            CREATED_SINCE="$(jq -rn 'now - (14 * 86400) | strftime("%Y-%m-%d")')"
+            retry gh run list --repo "$REPO" --workflow assisted-application-portal-replay.yml --branch main --status success \
+              --created ">=$CREATED_SINCE" --limit 50 \
+              --json event,headSha,createdAt > "$RUNNER_TEMP/portal-replay-last-success.json" || {
               echo '::error::could not read the latest successful daily replay run after 4 attempts'
               exit 1
             }
@@ -782,6 +791,7 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             scripts/ci/portal-replay-daily-issue.mjs
+            scripts/lib/is-invoked-directly.mjs
             scripts/lib/github-issue-creator.mjs
           sparse-checkout-cone-mode: false
 

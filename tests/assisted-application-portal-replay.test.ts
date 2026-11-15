@@ -1071,6 +1071,9 @@ describe('portal replay daily check', () => {
     expect(detect).toContain('INPUT_BASE_SHA: ${{ inputs.base_sha }}');
     expect(detect).toContain('gh run list --repo "$REPO" --workflow assisted-application-portal-replay.yml --branch main --status success');
     expect(detect).toContain('select(.event == "schedule" or .event == "workflow_dispatch")');
+    // the listing has a `created` window (a `--branch` listing alone can come back frozen weeks ago)
+    expect(detect).toContain('CREATED_SINCE="$(jq -rn \'now - (14 * 86400) | strftime("%Y-%m-%d")\')"');
+    expect(detect).toContain('--created ">=$CREATED_SINCE" --limit 50');
     expect(detect).toContain("source='last-success'");
     expect(detect).toContain('base="$HEAD_SHA"');
     expect(detect).toContain("source='head'");
@@ -1142,6 +1145,9 @@ describe('portal replay daily check', () => {
     expect(issueBlock).toContain("if: needs.portal-replay-daily-verdict.result == 'success'");
     // the title comes from the same module that owns the marker
     expect(issueBlock).toContain('--print-title');
+    // the sparse, non-cone checkout carries the helper's own import as well
+    expect(issueBlock).toContain('scripts/ci/portal-replay-daily-issue.mjs\n            scripts/lib/is-invoked-directly.mjs\n            scripts/lib/github-issue-creator.mjs');
+    expect(readFileSync(new URL('../scripts/ci/portal-replay-daily-issue.mjs', import.meta.url), 'utf8')).toContain("from '../lib/is-invoked-directly.mjs'");
     expect(issueBlock).toContain('--base-sha "$BASE_SHA"');
     expect(issueBlock).toContain('--head-sha "$HEAD_SHA"');
     expect(issueBlock).toContain('--run-url "$RUN_URL"');
