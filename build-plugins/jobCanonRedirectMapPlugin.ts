@@ -397,8 +397,9 @@ export function jobCanonHandoffErrorMessage(handoff: ReturnType<typeof readJobCa
   if (handoff.status === 'unreadable') {
     return `[job-canon-redirect-map] ordering fields handoff unreadable at ${handoff.path}: ${handoff.reason}`;
   }
-  if (handoff.status === 'ok') {
-    return `[job-canon-redirect-map] ordering fields handoff at ${handoff.path} has no usable fields: the bundle stage wrote an invalid file`;
+  if (handoff.status === 'invalid' || handoff.status === 'ok') {
+    const where = handoff.status === 'invalid' ? ` at ${handoff.path}` : '';
+    return `[job-canon-redirect-map] ordering fields handoff${where} has no usable fields: expected { version: 1, fields: { <id>: {...} } }`;
   }
   return '[job-canon-redirect-map] localeJobsSplitPlugin did not provide ordering fields in this Vite process';
 }

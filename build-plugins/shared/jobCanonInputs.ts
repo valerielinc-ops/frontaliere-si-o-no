@@ -38,9 +38,32 @@ export function setJobCanonOrderingFields(jobs: readonly JobCanonOrderingInput[]
   writeStageHandoff(JOB_CANON_ORDERING_HANDOFF_FILE, { version: 1, fields: Object.fromEntries(fieldsById) });
 }
 
-/** The handoff as the SSG stage sees it: missing / unreadable are reported, not hidden. */
-export function readJobCanonOrderingHandoff(): StageHandoffRead<{ version: number; fields: Record<string, JobCanonOrderingFields> }> {
-  return readStageHandoff(JOB_CANON_ORDERING_HANDOFF_FILE);
+const isPlainObject = (value: unknown): value is Record<string, unknown> =>
+  value !== null && typeof value === 'object' && !Array.isArray(value);
+
+/**
+ * The single validator of the handoff payload, used by the buildStart gate AND by the
+ * reader so they cannot diverge: `version === 1` and `fields` a plain object (not an
+ * array, not null) whose values are plain objects. `{ version: 1, fields: {} }` is
+ * valid: the producer writes it when there are no jobs. Returns null when invalid.
+ */
+export function parseJobCanonOrderingHandoff(data: unknown): Record<string, JobCanonOrderingFields> | null {
+  if (!isPlainObject(data) || data.version !== 1 || !isPlainObject(data.fields)) return null;
+  for (const value of Object.values(data.fields)) if (!isPlainObject(value)) return null;
+  return data.fields as Record<string, JobCanonOrderingFields>;
+}
+
+export type JobCanonHandoffRead =
+  | Exclude<StageHandoffRead<unknown>, { status: 'ok' }>
+  | { status: 'invalid'; path: string }
+  | { status: 'ok'; path: string; fields: Record<string, JobCanonOrderingFields> };
+
+/** The handoff as the SSG stage sees it: missing / unreadable / invalid are reported, not hidden. */
+export function readJobCanonOrderingHandoff(): JobCanonHandoffRead {
+  const handoff = readStageHandoff<unknown>(JOB_CANON_ORDERING_HANDOFF_FILE);
+  if (handoff.status !== 'ok') return handoff;
+  const fields = parseJobCanonOrderingHandoff(handoff.data);
+  return fields ? { status: 'ok', path: handoff.path, fields } : { status: 'invalid', path: handoff.path };
 }
 
 /**
@@ -52,9 +75,7 @@ export function getJobCanonOrderingFields(): ReadonlyMap<string, JobCanonOrderin
   if (orderingFieldsById || handoffLoadAttempted) return orderingFieldsById;
   handoffLoadAttempted = true;
   const handoff = readJobCanonOrderingHandoff();
-  if (handoff.status === 'ok' && handoff.data && typeof handoff.data.fields === 'object' && handoff.data.fields) {
-    orderingFieldsById = new Map(Object.entries(handoff.data.fields));
-  }
+  if (handoff.status === 'ok') orderingFieldsById = new Map(Object.entries(handoff.fields));
   return orderingFieldsById;
 }
 

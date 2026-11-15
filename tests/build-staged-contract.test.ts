@@ -138,6 +138,49 @@ describe('stage handoff: job-canon ordering fields', () => {
     expect(() => plugin.buildStart()).not.toThrow();
   });
 
+  it.each([
+    ['fields is an array', '{"version":1,"fields":[]}'],
+    ['fields is null', '{"version":1,"fields":null}'],
+    ['fields is missing', '{"version":1}'],
+    ['the version is wrong', '{"version":2,"fields":{"a":{}}}'],
+    ['the version is missing', '{"fields":{"a":{}}}'],
+    ['a value is not an object', '{"version":1,"fields":{"a":3}}'],
+    ['a value is null', '{"version":1,"fields":{"a":null}}'],
+    ['the payload is an array', '[]'],
+  ])('ssg stage rejects a readable but malformed handoff before any SSG work: %s', async (_name, body) => {
+    process.env.BUILD_STAGE = 'ssg';
+    process.env.BUILD_LOCALE = 'it';
+    process.env.BUILD_STAGE_HANDOFF_DIR = dir;
+    fs.writeFileSync(path.join(dir, 'job-canon-ordering-fields.json'), body);
+    const { jobCanonRedirectMapPlugin } = await import('../build-plugins/jobCanonRedirectMapPlugin');
+    const plugin = jobCanonRedirectMapPlugin(dir) as unknown as { buildStart: () => void };
+    expect(() => plugin.buildStart()).toThrow(/ordering fields handoff at .*job-canon-ordering-fields\.json has no usable fields/);
+    // the reader agrees with the gate: no map is built from it
+    const { getJobCanonOrderingFields } = await import('../build-plugins/shared/jobCanonInputs');
+    expect(getJobCanonOrderingFields()).toBeNull();
+  });
+
+  it('an empty map is valid: the producer writes it when there are no jobs', async () => {
+    process.env.BUILD_STAGE = 'ssg';
+    process.env.BUILD_LOCALE = 'it';
+    process.env.BUILD_STAGE_HANDOFF_DIR = dir;
+    fs.writeFileSync(path.join(dir, 'job-canon-ordering-fields.json'), '{"version":1,"fields":{}}');
+    const { jobCanonRedirectMapPlugin } = await import('../build-plugins/jobCanonRedirectMapPlugin');
+    const plugin = jobCanonRedirectMapPlugin(dir) as unknown as { buildStart: () => void };
+    expect(() => plugin.buildStart()).not.toThrow();
+    const { getJobCanonOrderingFields } = await import('../build-plugins/shared/jobCanonInputs');
+    expect(getJobCanonOrderingFields()?.size).toBe(0);
+  });
+
+  it('parseJobCanonOrderingHandoff is the one validator', async () => {
+    const { parseJobCanonOrderingHandoff } = await import('../build-plugins/shared/jobCanonInputs');
+    expect(parseJobCanonOrderingHandoff({ version: 1, fields: {} })).toEqual({});
+    expect(parseJobCanonOrderingHandoff({ version: 1, fields: { a: { datePosted: 'x' } } })).toEqual({ a: { datePosted: 'x' } });
+    for (const bad of [null, undefined, 1, 'x', [], { version: 1, fields: [] }, { version: 1, fields: null }, { version: '1', fields: {} }, { version: 1, fields: { a: [] } }]) {
+      expect(parseJobCanonOrderingHandoff(bad)).toBeNull();
+    }
+  });
+
   it('only the IT leg of the ssg stage requires the handoff (the same condition as closeBundle)', async () => {
     process.env.BUILD_STAGE_HANDOFF_DIR = dir;
     const { jobCanonRedirectMapPlugin } = await import('../build-plugins/jobCanonRedirectMapPlugin');
@@ -335,6 +378,106 @@ describe('route chunks handoff', () => {
     } finally {
       if (prev === undefined) delete process.env.BUILD_STAGE_HANDOFF_DIR; else process.env.BUILD_STAGE_HANDOFF_DIR = prev;
       fs.rmSync(dir, { recursive: true, force: true });
+    }
+  });
+});
+
+describe('route chunks handoff is fail-closed in the ssg stage', () => {
+  let dir: string;
+  const saved: Record<string, string | undefined> = {};
+  const ENV = ['BUILD_STAGE', 'BUILD_STAGE_HANDOFF_DIR'] as const;
+  const FILE = 'route-chunks.json';
+
+  beforeEach(() => {
+    dir = fs.mkdtempSync(path.join(os.tmpdir(), 'route-chunks-ssg-'));
+    for (const key of ENV) saved[key] = process.env[key];
+    vi.resetModules();
+  });
+  afterEach(() => {
+    for (const key of ENV) { if (saved[key] === undefined) delete process.env[key]; else process.env[key] = saved[key]; }
+    fs.rmSync(dir, { recursive: true, force: true });
+  });
+  const ssg = async () => {
+    process.env.BUILD_STAGE = 'ssg';
+    process.env.BUILD_STAGE_HANDOFF_DIR = dir;
+    return import('../build-plugins/shared/modulePreloads');
+  };
+
+  it('unreadable -> throws naming the path', async () => {
+    fs.writeFileSync(path.join(dir, FILE), '{"version":1,"chunks":');
+    const mod = await ssg();
+    expect(() => mod.getRegisteredRouteChunks()).toThrow(`route chunks handoff unreadable at ${path.join(dir, FILE)}`);
+  });
+  it('missing -> throws naming the path', async () => {
+    const mod = await ssg();
+    expect(() => mod.getRegisteredRouteChunks()).toThrow(`route chunks handoff missing at ${path.join(dir, FILE)}: the bundle stage did not write it`);
+  });
+  it.each([
+    ['chunks is not an array', '{"version":1,"chunks":"a"}'],
+    ['chunks holds a non-string', '{"version":1,"chunks":["a",3]}'],
+    ['the version is wrong', '{"version":2,"chunks":[]}'],
+    ['the payload is an array', '[]'],
+  ])('malformed (%s) -> throws naming the path', async (_name, body) => {
+    fs.writeFileSync(path.join(dir, FILE), body);
+    const mod = await ssg();
+    expect(() => mod.getRegisteredRouteChunks()).toThrow(`route chunks handoff at ${path.join(dir, FILE)} is malformed`);
+  });
+  it('an empty list is valid (preloadLocalePlugin writes it when nothing was registered)', async () => {
+    fs.writeFileSync(path.join(dir, FILE), '{"version":1,"chunks":[]}');
+    const mod = await ssg();
+    expect(mod.getRegisteredRouteChunks()).toEqual([]);
+  });
+  it('outside the ssg stage, or without the variable, a missing/bad file is tolerated as before', async () => {
+    process.env.BUILD_STAGE_HANDOFF_DIR = dir;
+    for (const stage of ['bundle', 'single', undefined]) {
+      if (stage === undefined) delete process.env.BUILD_STAGE; else process.env.BUILD_STAGE = stage;
+      vi.resetModules();
+      const mod = await import('../build-plugins/shared/modulePreloads');
+      expect(mod.getRegisteredRouteChunks()).toEqual([]);
+    }
+    fs.writeFileSync(path.join(dir, FILE), 'garbage');
+    vi.resetModules();
+    const bundle = await import('../build-plugins/shared/modulePreloads');
+    expect(bundle.getRegisteredRouteChunks()).toEqual([]);
+    process.env.BUILD_STAGE = 'ssg';
+    delete process.env.BUILD_STAGE_HANDOFF_DIR;
+    vi.resetModules();
+    const noDir = await import('../build-plugins/shared/modulePreloads');
+    expect(noDir.getRegisteredRouteChunks()).toEqual([]);
+  });
+
+  it('preloadLocalePlugin persists on EVERY closeBundle path, so missing in ssg means a bundle error', async () => {
+    process.env.BUILD_STAGE_HANDOFF_DIR = dir;
+    process.env.BUILD_STAGE = 'bundle';
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'preload-paths-'));
+    try {
+      const { preloadLocalePlugin } = await import('../build-plugins/preloadLocalePlugin');
+      const run = async (setup: () => void) => {
+        fs.rmSync(path.join(dir, FILE), { force: true });
+        vi.resetModules();
+        const fresh = (await import('../build-plugins/preloadLocalePlugin')).preloadLocalePlugin(root) as any;
+        setup();
+        fresh.buildStart();
+        await fresh.closeBundle();
+        expect(fs.existsSync(path.join(dir, FILE)), 'handoff file written').toBe(true);
+        return JSON.parse(fs.readFileSync(path.join(dir, FILE), 'utf8'));
+      };
+      void preloadLocalePlugin;
+      // 1. no dist/index.html at all -> the read throws inside try, finally still persists
+      expect(await run(() => {})).toEqual({ version: 1, chunks: [] });
+      // 2. index.html present -> the three critical chunks are registered and persisted
+      const withIndex = await run(() => {
+        fs.mkdirSync(path.join(root, 'dist'), { recursive: true });
+        fs.writeFileSync(path.join(root, 'dist', 'index.html'), '<html><head></head></html>');
+      });
+      expect(withIndex.version).toBe(1);
+      expect(withIndex.chunks.length).toBeGreaterThan(0);
+      // 3. the hint is already in index.html -> the early-out of the `if`, still persisted
+      const tagged = fs.readFileSync(path.join(root, 'dist', 'index.html'), 'utf8');
+      expect(tagged).toContain('frontaliere-route-chunks');
+      expect(await run(() => {})).toEqual(withIndex);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
     }
   });
 });
