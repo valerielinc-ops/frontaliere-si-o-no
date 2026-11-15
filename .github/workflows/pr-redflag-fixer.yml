@@ -1771,7 +1771,7 @@ jobs:
             - Mai abbassare quality gate/test/validation/SEO gate per "far passare" (#1). Mai disabilitare AdSense Auto Ads (#7). Mai path home assoluti o email personali (Privacy).
             - CODE vs DATA: non scorrere i blob `data/**`/`public/**`; fixa il CODE che li genera.
             - Esegui i controlli pertinenti con un budget bounded: per un test usa una sola volta `timeout --signal=TERM --kill-after=15s 240s npx --no-install vitest run <file> -t '<singolo test>'` (o un comando equivalente già bounded), mai `npm test` completo o `npx vitest run` senza `timeout`. Se esce `124`, non ripeterlo né alzare il timeout: usa l'evidenza già raccolta, scrivi `not-fixable:` per quel finding se non puoi provarlo, e consegna la risposta. Anche i comandi `node`, `npm`, `git` e `rg` su superfici grandi devono avere un limite o output limitato (`head`/`sed` mirati). Il watchdog automatico dell'action applica lo stesso cap a `npx`; non aggirarlo con un alias o un comando equivalente.
-            - Commit con messaggio conventional; mantieni il gate PII su diff e messaggio.
+            - Commit con messaggio conventional (`fix(...)`/`chore(...)`); mantieni il gate PII su diff e messaggio. Il subject di un commit del fixer NON inizia MAI con `wip(` (neppure imitando lo stile del branch, es. `wip(issue-N): checkpoint pre-test`): la guardia F7 del review gate chiude senza review ogni PR la cui HEAD e' un checkpoint WIP. Uno step deterministico aggiunge un commit conventional sopra se lo dimentichi, ma tu non contarci.
             - Ogni commit porta il trailer `Fixer: redflag-round-${{ steps.guard.outputs.round }}` (`git commit -m "<messaggio>" --trailer "Fixer: redflag-round-${{ steps.guard.outputs.round }}"`): il trailer distingue i push di questo fixer.
             - Push sullo stesso branch: `git push origin HEAD:${{ github.event.pull_request.head.ref }}`. Il remote `origin` è già autenticato con l'App token (se disponibile, altrimenti PAT) → ri-attiva pr-review-loop (re-review). Se il push fallisce per scope/auth → documenta in un commento e TERMINA.
             - Aggiorna il body della PR: scrivi il testo completo nel file assoluto `$RUNNER_TEMP/pr-redflag-pr-body.md` (imposta `BODY_FILE` a quel path), poi esegui `node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"` e solo con exit 0 chiama `gh pr edit "$PR_NUMBER" --repo "$REPO" --body-file "$BODY_FILE"`. Non usare un body inline: il wrapper deterministico su `gh` blocca ogni riscrittura senza body-file o con body non conforme prima della chiamata remota. Mantieni `## Implementato` (aggiungi cosa hai fixato) + `## Non implementato (ancora)`. Ogni bullet della seconda sezione vuole uno STATO LETTERALE, scritto esattamente così: `in questa PR` / `PR concatenata #N` (col numero) / `per scelta` / `by construction` / `falso positivo` / `blocked: <causa esterna reale>` (AGENTS.md #8). La forma `PR concatenata` senza `#N` non è tracciabile, non chiude il bullet e va trattata come lavoro aperto. Non è cosmesi: `scripts/ci/followup-has-candidates.mjs` riapre come issue di follow-up ogni bullet `blocked: <causa tecnica>` **e ogni bullet senza stato** — un 🔴 che hai appena chiuso, descritto senza stato, torna indietro come issue nuova. Le deroghe decisionali (`per scelta`, `by construction`, `falso positivo`, `blocked: decisione del proprietario`) sono chiusure solo con `**Motivo:** <causa concreta>. **Prossimo passo:** <azione concreta>.` nello stesso bullet; una formula nuda, generica o con placeholder resta aperta e il gate la blocca. **Divieto: non scrivere MAI `per scelta` / `by construction` / `falso positivo` / `blocked: decisione del proprietario` su un item che stai SALTANDO in questo round** (sibling non sweepati, finding rimandati, lavoro che non hai fatto). Quei quattro stati chiudono la voce, e al round 2 saresti TU a rileggere il bullet che hai scritto tu come decisione già presa: ritireresti il 🔴 senza averlo fixato, con il round cap che non scatta mai perché ogni round si dichiara terminato. Per ciò che salti usa `PR concatenata #N` (col numero) o `blocked: <causa esterna reale>`; gli stati chiudenti valgono solo per ciò che hai deciso di non fare MAI, col motivo scritto dopo lo stato.
@@ -1806,6 +1806,53 @@ jobs:
       # ha fatto NIENTE e produce una seconda review sullo stesso lavoro —
       # storm #9066/#9074). Qui la condizione è l'opposta: si spinge solo se una
       # modifica c'è stata, ed è limitata dal round cap (MAX_ROUNDS, oggi 3).
+      # PERCHE' ESISTE (misurato il 2026-11-15, #18822 round 1, run 43705023231).
+      # Il fixer ha consegnato la correzione come `wip(issue-18813): checkpoint
+      # pre-test`, messaggio scelto dal modello imitando lo stile del branch. Il
+      # Re-review guard di tests.yml (F7) chiude fail-closed senza modello ogni
+      # HEAD `wip(issue-N): checkpoint ...`, quindi la PR resta senza review.
+      #
+      # Il push lo fa il modello, quindi la rete e' qui, subito dopo di lui e
+      # PRIMA di qualunque step che legga la HEAD (classificatore, avanzamento
+      # del body): se il commit del round (HEAD locale != BASE_SHA, mai un commit
+      # gia' presente nella PR) ha subject `wip(...)`, si aggiunge sopra un
+      # commit conventional vuoto con lo stesso trailer `Fixer:` e lo si pusha
+      # normale. Niente amend ne' rewrite di commit gia' pushati, mai force.
+      # La guardia F7 resta fail-closed per i checkpoint di sessioni morte.
+      - name: Finalize redflag HEAD (never deliver a WIP checkpoint, zero-Claude)
+        id: finalize_head
+        if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true' && steps.final_claim_stop.outputs.superseded != 'true'
+        continue-on-error: true
+        env:
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          BASE_SHA: ${{ steps.base.outputs.sha }}
+          FIX_ROUND: ${{ steps.guard.outputs.round }}
+        run: |
+          set -uo pipefail
+          head_now=$(git rev-parse HEAD 2>/dev/null || echo "")
+          if [ -z "$head_now" ] || [ -z "${BASE_SHA:-}" ] || [ "$head_now" = "$BASE_SHA" ]; then
+            echo "finalize-head: nessun commit nuovo in questo round → niente da fare."
+            exit 0
+          fi
+          subject=$(git log -1 --format=%s HEAD)
+          if ! [[ "$subject" =~ ^wip\( ]]; then
+            echo "finalize-head: l'HEAD del round non e' un commit WIP → niente da fare."
+            exit 0
+          fi
+          echo "::warning::finalize-head: l'HEAD del round e' «$subject»: aggiungo un commit conventional sopra (la guardia F7 chiuderebbe la review)."
+          if ! git commit --allow-empty \
+              -m "chore(redflag): consegna il fix del round ${FIX_ROUND:-?}" \
+              -m "Commit finale non-WIP aggiunto dallo step deterministico del fixer: l'HEAD del round era un checkpoint wip(...), che la guardia F7 del review gate chiude fail-closed senza review." \
+              --trailer "Fixer: redflag-round-${FIX_ROUND:-0}"; then
+            echo "::warning::finalize-head: commit rifiutato (hook o gate PII) — l'HEAD resta il checkpoint."
+            exit 0
+          fi
+          if git push origin "HEAD:refs/heads/${HEAD_REF}" 2>&1 | tail -3; then
+            echo "finalize-head: ${HEAD_REF} ora ha HEAD $(git rev-parse --short HEAD) (commit conventional, non WIP)."
+          else
+            echo "::warning::finalize-head: push fallito — l'HEAD resta il checkpoint."
+          fi
+
       - name: Advance HEAD after a PR-body fix (un body nuovo non è rivedibile senza un commit)
         id: body_advance
         if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true' && steps.final_claim_stop.outputs.superseded != 'true'
