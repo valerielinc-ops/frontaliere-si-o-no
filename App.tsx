@@ -9,7 +9,6 @@ import { TabContentContext } from '@/services/TabContentContext';
 import type { TabContentState } from '@/services/TabContentContext';
 
 import { ErrorBoundary, SilentErrorBoundary } from '@/components/shared/ErrorBoundary';
-import { isLikelyBot, isLikelySearchCrawler } from '@/services/botPatterns';
 
 import { reportCaughtError } from '@/services/errorReporter';
 import { fetchCommitHash } from '@/services/buildInfo';
