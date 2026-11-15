@@ -261,6 +261,7 @@ describe('hourly assemble test snapshot', () => {
     expect(cacheKey?.run).toContain('assemble-test-snapshot.mjs cache-key');
     expect(cacheSave?.with?.key).toBe('${{ steps.snapshot_cache_key.outputs.key }}');
     expect(manifestArtifact?.with?.name).toBe('assemble-test-snapshot-manifest');
+    expect(pruneSnapshots?.with?.script).toContain('github.paginate');
     expect(pruneSnapshots?.with?.script).toContain('github.rest.actions.deleteActionsCacheById');
     expect(metadataDownload?.uses).toBe('actions/download-artifact@v8');
     expect(selectedKey?.run).toContain('assemble-test-snapshot.mjs cache-key');
