@@ -32,4 +32,10 @@ describe('staged production build memory boundary', () => {
     expect(runner).toContain('removeGeneratedFile(reportBase);');
     expect(runner).toContain("removeGeneratedFile(path.resolve(ROOT, 'content-manifest.tsv'));");
   });
+
+  it('passes private job-canon ordering data between stages and cleans it up', () => {
+    const runner = fs.readFileSync(path.join(ROOT, 'scripts/ci/build-staged.mjs'), 'utf8');
+    expect(runner).toContain('BUILD_JOB_CANON_ORDERING_HANDOFF_PATH: jobCanonOrderingHandoffPath');
+    expect(runner).toContain('removeGeneratedFile(jobCanonOrderingHandoffPath);');
+  });
 });

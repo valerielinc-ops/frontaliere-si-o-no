@@ -20,6 +20,12 @@ const reportBase = path.resolve(process.env.BUILD_MEM_REPORT_FILE || '/tmp/build
 const manifestEnabled = ['1', 'true', 'yes'].includes(
   String(process.env.DEPLOY_CONTENT_MANIFEST || '').toLowerCase(),
 );
+const jobCanonOrderingHandoffPath = path.resolve(
+  ROOT,
+  '.cache',
+  'build-staged',
+  `job-canon-ordering-fields-${process.pid}.json`,
+);
 
 function withSuffix(file, suffix) {
   return file.endsWith('.json')
@@ -51,6 +57,7 @@ function runStage(stage) {
     ...process.env,
     BUILD_STAGE: stage,
     BUILD_MEM_REPORT_FILE: reportPath,
+    BUILD_JOB_CANON_ORDERING_HANDOFF_PATH: jobCanonOrderingHandoffPath,
   };
   if (manifestEnabled) env.DEPLOY_CONTENT_MANIFEST_PATH = stageManifestPath(stage);
 
@@ -153,6 +160,7 @@ async function mergeManifests() {
 
 const stages = ['bundle', 'ssg'];
 removeGeneratedFile(reportBase);
+removeGeneratedFile(jobCanonOrderingHandoffPath);
 for (const stage of stages) {
   removeGeneratedFile(stageReportPath(stage));
   if (manifestEnabled) removeGeneratedFile(stageManifestPath(stage));
@@ -163,10 +171,12 @@ for (const stage of stages) {
   const status = runStage(stage);
   if (status !== 0) {
     copyReport(stageReportPath(stage), reportBase);
+    removeGeneratedFile(jobCanonOrderingHandoffPath);
     process.exit(status);
   }
 }
 
+removeGeneratedFile(jobCanonOrderingHandoffPath);
 mergeReports(stages.map(stageReportPath).map(readReport).filter(Boolean));
 await mergeManifests();
 
