@@ -595,6 +595,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     reason: 'createScenario() writes and reads these paths only inside its mkdtemp Git repository; the checkout reads are limited to reconcile-data-refresh-main.mjs and merge-compat-shard.mjs under test',
   },
   {
+    file: 'tests/compat-manifest-lag.test.ts',
+    roots: ['data/seo-404-compat/'],
+    reason: 'the compat shard and manifest paths are created and read only inside mkdtemp Git repositories; the checkout read is limited to the repair and merge helpers under test',
+  },
+  {
     file: 'tests/calculator/calculator-paywall.test.tsx',
     roots: ['services/locales/'],
     evidence: 'review',
