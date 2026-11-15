@@ -7,11 +7,24 @@ export interface ATSApplicationFormField {
   type: string;
   required: boolean;
   kind: 'question' | 'consent';
+  section?: string;
+  options?: string[];
 }
 
+export type ATSApplicationFormProvider =
+  | 'ncoreplat'
+  | 'greenhouse'
+  | 'ashby'
+  | 'workable'
+  | 'lever'
+  | 'dover'
+  | 'recruitee'
+  | 'teamtailor';
+
 export interface ATSApplicationFormSnapshot {
-  provider: 'ncoreplat';
+  provider: ATSApplicationFormProvider;
   sourceUrl: string;
+  jobUrl?: string;
   checkedAt: string;
   stage: string;
   fields: ATSApplicationFormField[];
@@ -32,26 +45,65 @@ const CHECKED_AT_DATE_LOCALES: Record<Locale, string> = {
   fr: 'fr-CH',
 };
 
-function isVerifiedSnapshot(value: ATSApplicationFormSnapshot | undefined): value is ATSApplicationFormSnapshot {
-  if (!value || value.provider !== 'ncoreplat' || !Array.isArray(value.fields) || value.fields.length === 0) return false;
-  if (!Number.isFinite(Date.parse(value.checkedAt))) return false;
-  // Check raw delimiters too: URL implementations may erase empty ?/# in href.
-  if (/[?#]/.test(value.sourceUrl)) return false;
-
+function isCanonicalHttpsUrl(value: string): URL | null {
   try {
-    const source = new URL(value.sourceUrl);
-    return source.protocol === 'https:'
-      && source.hostname.toLowerCase() === 'app.ncoreplat.com'
-      && !source.port
-      && !source.username
-      && !source.password
-      && !source.search
-      && !source.hash
-      && source.href === `https://app.ncoreplat.com${source.pathname}`
-      && /^\/jobposition\/[1-9]\d*\/[^/?#]+(?:\/[^/?#]+)?\/?$/i.test(source.pathname);
+    const url = new URL(value);
+    if (url.protocol !== 'https:' || url.port || url.username || url.password || url.search || url.hash) return null;
+    return url.href === `https://${url.hostname.toLowerCase()}${url.pathname}` ? url : null;
   } catch {
-    return false;
+    return null;
   }
+}
+
+function isVerifiedSource(provider: ATSApplicationFormProvider, source: URL, value: ATSApplicationFormSnapshot): boolean {
+  const host = source.hostname.toLowerCase();
+  const path = source.pathname;
+  if (provider === 'ncoreplat') {
+    return host === 'app.ncoreplat.com'
+      && source.href === `https://app.ncoreplat.com${path}`
+      && /^\/jobposition\/[1-9]\d*\/[^/?#]+(?:\/[^/?#]+)?\/?$/i.test(path);
+  }
+  if (provider === 'greenhouse') {
+    return ['boards.greenhouse.io', 'job-boards.greenhouse.io', 'job-boards.eu.greenhouse.io'].includes(host)
+      && /^\/[^/?#]+\/jobs\/[1-9]\d*\/?$/i.test(path);
+  }
+  if (provider === 'lever') {
+    return ['jobs.lever.co', 'jobs.eu.lever.co'].includes(host)
+      && /^\/[^/?#]+\/[^/?#]+\/apply\/?$/i.test(path);
+  }
+  if (provider === 'workable') {
+    return host === 'apply.workable.com' && /^\/[^/?#]+\/j\/[^/?#]+(?:\/apply)?\/?$/i.test(path);
+  }
+  if (provider === 'ashby') {
+    return host === 'jobs.ashbyhq.com' && /^\/[^/?#]+\/[^/?#]+(?:\/[^/?#]+)?\/?$/i.test(path);
+  }
+  if (provider === 'dover') {
+    return ['app.dover.com', 'jobs.dover.com'].includes(host) && /^\/(?:apply|jobs)\/[^/?#]+(?:\/[^/?#]+)*\/?$/i.test(path);
+  }
+  if (provider === 'recruitee') {
+    return host.endsWith('.recruitee.com') && /^\/o\/[^/?#]+\/?$/i.test(path);
+  }
+  if (provider === 'teamtailor') {
+    const jobUrl = typeof value.jobUrl === 'string' ? isCanonicalHttpsUrl(value.jobUrl) : null;
+    if (!jobUrl || jobUrl.origin !== source.origin) return false;
+    const jobPath = jobUrl.pathname.replace(/\/$/, '');
+    return /^\/jobs\/[^/?#]+\/?$/i.test(jobUrl.pathname)
+      && path === `${jobPath}/applications/new`;
+  }
+  return false;
+}
+
+function isVerifiedSnapshot(value: ATSApplicationFormSnapshot | undefined): value is ATSApplicationFormSnapshot {
+  const providers: ATSApplicationFormProvider[] = ['ncoreplat', 'greenhouse', 'ashby', 'workable', 'lever', 'dover', 'recruitee', 'teamtailor'];
+  if (!value || !providers.includes(value.provider) || !Array.isArray(value.fields) || value.fields.length === 0) return false;
+  if (typeof value.checkedAt !== 'string' || !Number.isFinite(Date.parse(value.checkedAt)) || typeof value.stage !== 'string') return false;
+  if (value.fields.some((field) => !field || typeof field.label !== 'string' || !field.label.trim()
+    || typeof field.type !== 'string' || typeof field.required !== 'boolean'
+    || !['question', 'consent'].includes(field.kind)
+    || (field.section !== undefined && typeof field.section !== 'string')
+    || (field.options !== undefined && (!Array.isArray(field.options) || field.options.some((option) => typeof option !== 'string'))))) return false;
+  const source = typeof value.sourceUrl === 'string' ? isCanonicalHttpsUrl(value.sourceUrl) : null;
+  return Boolean(source && isVerifiedSource(value.provider, source, value));
 }
 
 function formatCheckedAt(value: string, locale: Locale): string {
@@ -102,7 +154,13 @@ export const JobPreApplyChecklist: React.FC<JobPreApplyChecklistProps> = ({
             key={`${field.type}:${field.label}:${index}`}
             className="flex items-center justify-between gap-3 border-b border-edge/60 pb-2.5 text-sm last:border-b-0 last:pb-0"
           >
-            <span className="min-w-0 font-semibold text-heading">{field.label}</span>
+            <span className="min-w-0">
+              <span className="block font-semibold text-heading">{field.label}</span>
+              {field.section && <span className="block text-xs text-subtle">{field.section}</span>}
+              {field.options && field.options.length > 0 && (
+                <span className="block pt-0.5 text-xs text-subtle">{field.options.join(' · ')}</span>
+              )}
+            </span>
             <span className="flex items-center gap-1.5 shrink-0 text-xs text-subtle">
               {field.required ? (
                 <><Asterisk className="w-3.5 h-3.5 text-accent" /> {t('jobBoard.atsChecklist.required')}</>
