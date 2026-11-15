@@ -13,6 +13,7 @@
 import { createHash } from 'node:crypto';
 import { canonicalizeJobUrl, detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { mergeSourcePostingDates } from './source-posting-date.mjs';
 import {
@@ -173,7 +174,7 @@ export async function fetchAllAbsolutLivChJobs() {
     } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
-    if (!descriptionText) continue;
+    if (!meetsSourceBodyFloor(descriptionText)) continue;
     // The detail URL is the vacancy identity: falling back to the listing page
     // would give every posting the same `url`, `applyUrl` and `id` hash.
     const rawUrl = String(listing.url || '').trim();
