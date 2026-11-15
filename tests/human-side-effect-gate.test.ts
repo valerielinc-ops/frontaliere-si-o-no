@@ -562,10 +562,15 @@ describe('workflow wiring without the human approval gate', () => {
     // primary handoff sent one test email to the admin every day and the
     // campaign waited for the late cron fallback.
     const document = YAML.parse(workflow('send-newsletter.yml')) as {
-      jobs: Record<string, { steps: Array<{ name?: string; if?: string; env?: Record<string, string> }> }>
+      jobs: Record<string, { if?: string; steps: Array<{ name?: string; if?: string; env?: Record<string, string> }> }>
     }
     const run = document.jobs.newsletter.steps.find((candidate) => candidate.name === 'Run newsletter job')!
-    expect(run.if).toContain("steps.newsletter_trigger.outputs.allow_workflow_run == 'true'")
+    // The verified-handoff check moved from a per-step guard to a light `gate` job
+    // (perf-plan email senders, C3): the whole `newsletter` job exists only for a
+    // cron/manual run or a verified handoff, so the step needs no guard of its own.
+    expect(document.jobs.newsletter.if).toBe("needs.gate.outputs.proceed == 'true'")
+    const verify = document.jobs.gate.steps.find((candidate) => candidate.name === 'Verify newsletter trigger')!
+    expect(String((verify as { run?: string }).run)).toContain('allow_workflow_run=true')
     expect(run.env?.MODE).toBe(
       "$" + "{{ (github.event_name == 'schedule' || github.event_name == 'workflow_run') && 'send' || inputs.mode || 'test' }}",
     )

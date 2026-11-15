@@ -952,7 +952,6 @@ describe('le finestre dei report non mescolano calendario locale e formato UTC',
     'monitor-gsc-job-indexation.mjs',
     'verify-post-deploy-seo.mjs',
     'submit-google-indexing.js',
-    'send-newsletter.mjs',
   ];
 
   // GSC page exports use the Pacific-calendar adapter because their dates are
@@ -961,6 +960,8 @@ describe('le finestre dei report non mescolano calendario locale e formato UTC',
   // a duplicate direct import in the consumer.
   const filesUsingSharedWindowAdapter = [
     { file: 'gsc-page-query-export.mjs', adapter: 'lib/gsc-final-window.mjs', symbol: 'shiftGscDay' },
+    // The exchange-history window moved with the weekly facts the frozen-content probe shares.
+    { file: 'send-newsletter.mjs', adapter: 'lib/newsletter-weekly-facts.mjs', symbol: 'loadExchangeFacts' },
   ];
 
   // Stessa invariante, ma questi costruiscono le finestre con i setter UTC

@@ -114,6 +114,7 @@ import {
   generatedConflictWorktreePaths,
 } from './generated-files-registry.mjs';
 import { reviewInputRevisionFromPullRequest } from './lib/review-input-revision.mjs';
+import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
 import {
   duplicateOldEnough,
   electHandoffKeeper,
@@ -1425,8 +1426,16 @@ function inheritedRedRescue(num, head) {
   const report = parseVitestFailureReport(reportBody);
   const usedKeys = comments
     .flatMap((c) => [...c.body.matchAll(INHERITED_RED_KEY_RE)].map((m) => m[1]));
-  const prFiles = String(gh(['api', `repos/${REPO}/pulls/${num}/files?per_page=100`, '--paginate',
-    '--jq', '.[].filename'], { json: false, allowFail: true }) || '').split('\n').filter(Boolean);
+  // Elenco file via la fonte condivisa (GraphQL → REST files → file per commit):
+  // la sola REST `pulls/{n}/files` rispondeva `HTTP 422 diff is taking too long`
+  // sulle PR grandi e il rescue leggeva «nessun file». Best-effort come prima:
+  // un elenco non ricavabile resta vuoto.
+  let prFiles = [];
+  try {
+    prFiles = fetchPrFiles(num, gh, REPO).files;
+  } catch {
+    prFiles = [];
+  }
   // Il merge ref è calcolato quando la run NASCE, e un rerun lo riusa: il
   // `started_at` del check di un rerun è successivo e nascondeva la
   // riparazione di main. #9753: run 36079087777 nata alle 00:46Z, rilanciata

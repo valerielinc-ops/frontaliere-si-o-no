@@ -6,6 +6,7 @@ import { createStaticAdSlotEligibility } from '../services/staticAdSlotEligibili
 import { createStaticAdDelivery } from '../services/staticAdDelivery';
 import { probeIabAdBlock } from '../services/iabAdBlockProbe';
 import { installAdRecovery } from '../services/adRecovery';
+import { emitAdDiagnostic } from '../services/adDiagnostics';
 import { ADSENSE_LOADER_CONTENT, FC_ENSURE_JS } from '../build-plugins/constants';
 import { READER_SUBSCRIPTION_PATHS } from '../services/readerSubscriptionPath';
 
@@ -37,6 +38,23 @@ beforeEach(() => {
   };
 });
 afterEach(() => { mutationObservers.forEach((observer) => observer.disconnect()); dom.window.close(); vi.clearAllTimers(); vi.useRealTimers(); });
+
+describe('GA4 ad diagnostic dimensions', () => {
+  it('keeps recovery reasons and sources queryable through registered dimensions', () => {
+    const send = local(emitAdDiagnostic);
+    send('ad_recovery_action', { action: 'reload', reason: 'script_failed' });
+    expect(emit).toHaveBeenCalledWith('event', 'ad_recovery_action', expect.objectContaining({ action: 'reload', component: 'script_failed' }));
+
+    send('ad_block_probe', { source: 'iab_quick_bait', result: 'blocked' });
+    expect(emit).toHaveBeenCalledWith('event', 'ad_block_probe', expect.objectContaining({ action: 'blocked', component: 'iab_quick_bait' }));
+
+    send('ad_reliability_state', { reason: 'response_pending', cmp_state: 'loaded' });
+    expect(emit).toHaveBeenCalledWith('event', 'ad_reliability_state', expect.objectContaining({ action: 'response_pending', component: 'loaded' }));
+
+    send('ad_recovery_prompt', { source: 'funding_choices_native', reason: 'adblock_detected', prompt_action: 'shown' });
+    expect(emit).toHaveBeenCalledWith('event', 'ad_recovery_prompt', expect.objectContaining({ action: 'adblock_detected', component: 'funding_choices_native' }));
+  });
+});
 
 describe('shared manual-slot request contract', () => {
   it('boots the entire static ad loader without MutationObserver and cleans removed slots', async () => {
@@ -356,7 +374,7 @@ describe('IAB detection and independent recovery surface', () => {
     await vi.advanceTimersByTimeAsync(6000);
 
     expect(w.document.querySelector('dialog,.ft-recovery-promo')).toBeNull();
-    expect(emit).toHaveBeenCalledWith('ad_recovery_prompt', expect.objectContaining({ source: 'funding_choices_native', action: 'shown' }));
+    expect(emit).toHaveBeenCalledWith('ad_recovery_prompt', expect.objectContaining({ source: 'funding_choices_native', reason: 'adblock_detected', prompt_action: 'shown' }));
     nativeMessage.remove();
     recoveryApi.refresh();
     await vi.advanceTimersByTimeAsync(5000);

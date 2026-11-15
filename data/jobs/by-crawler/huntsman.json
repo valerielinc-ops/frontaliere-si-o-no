@@ -1,7 +1,7 @@
 {
   "crawlerKey": "huntsman",
-  "assembledAt": "2026-11-14T21:39:42.185Z",
-  "runId": "43642750534",
+  "assembledAt": "2026-11-15T09:46:25.879Z",
+  "runId": "43699096581",
   "jobs": [
     {
       "id": "huntsman-24b5023af669",
@@ -50,7 +50,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:39:23.040Z",
+      "crawledAt": "2026-11-15T09:46:15.285Z",
       "jobReqId": "J-019405",
       "previousSlugs": [
         "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-corporati",
@@ -83,7 +83,7 @@
       "addressRegion": "BS",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:39:23.040Z",
+      "validThrough": "2026-12-15T09:46:15.285Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -133,7 +133,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019937",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:39:22.493Z",
+      "crawledAt": "2026-11-15T09:46:14.591Z",
       "jobReqId": "J-019937",
       "previousSlugs": [
         "electricien-ou-automaticien-metrologie-huntsman-ch"
@@ -161,7 +161,7 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:39:22.493Z",
+      "validThrough": "2026-12-15T09:46:14.591Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -211,7 +211,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Production-Operator_J-019940",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:39:21.862Z",
+      "crawledAt": "2026-11-15T09:46:13.906Z",
       "jobReqId": "J-019940",
       "previousSlugs": [
         "technologue-s-en-production-5-equipes-huntsman-ch"
@@ -245,7 +245,7 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:39:21.862Z",
+      "validThrough": "2027-02-04T09:46:13.906Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -295,7 +295,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Agent-Technique_J-020477-1",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:39:21.156Z",
+      "crawledAt": "2026-11-15T09:46:13.331Z",
       "jobReqId": "J-020477",
       "previousSlugs": [
         "agent-technique-huntsman-ch"
@@ -329,7 +329,7 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:39:21.156Z",
+      "validThrough": "2027-02-11T09:46:13.331Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -379,10 +379,11 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Senior-Procurement-Specialist_J-020336",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:39:20.593Z",
+      "crawledAt": "2026-11-15T09:46:12.700Z",
       "jobReqId": "J-020336",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-11-13T21:51:09.962Z",
+      "previousSlugs": [
+        "senior-procurement-specialist-huntsman-ch"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "senior-procurement-specialist-huntsman-ch"
@@ -391,9 +392,8 @@
           "senior-procurement-specialist-huntsman-ch"
         ]
       },
-      "previousSlugs": [
-        "senior-procurement-specialist-huntsman-ch"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-13T21:51:09.962Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -411,7 +411,7 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:39:20.593Z",
+      "validThrough": "2027-02-11T09:46:12.700Z",
       "validThroughSource": "last-observed-window"
     }
   ]

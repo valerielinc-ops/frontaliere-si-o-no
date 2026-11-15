@@ -184,6 +184,10 @@ describe('per-slot first-party creative delivery', () => {
     await start();
     expect(empty.host.querySelector('a')).not.toBeNull();
     expect(emit).toHaveBeenCalledWith('house_ad_rendered', expect.objectContaining({ fallback_reason: 'adblock_detected' }));
+    expect(emit).toHaveBeenCalledWith('house_ad_fallback_rendered', expect.objectContaining({
+      action: 'adblock_detected', component: expect.stringContaining('house_creatives_v2.control_v1.fixed.it'),
+      surface: 'rectangle.article-inline', device: 'mobile',
+    }));
   });
   it('renders a blocker-only article anchor after a confirmed blocker signal with a static Google marker', async () => {
     const anchor = blockerOnlyFrame();

@@ -48,48 +48,14 @@
 
 import { jobDedupKey } from './alert-sent-jobs.mjs';
 import { computeDeliveryFinalize, computeProviderIntent } from './job-alert-delivery-ledger.mjs';
+import {
+  GROUP_MAX_ITEMS,
+  GROUP_WINDOW_MS,
+  createMicroBatcher,
+  isFailedPrecondition,
+} from './micro-batcher.mjs';
 
-export const GROUP_MAX_ITEMS = 8;
-export const GROUP_WINDOW_MS = 8;
-
-/** Errore di precondizione di Firestore (gRPC 9 FAILED_PRECONDITION). */
-export function isFailedPrecondition(error) {
-  const code = error?.code;
-  return code === 9 || code === 'failed-precondition'
-    || /FAILED_PRECONDITION|precondition/i.test(String(error?.message || ''));
-}
-
-/** Raccoglie le richieste in arrivo entro `windowMs` (o `maxItems`) in un solo flush. */
-export function createMicroBatcher(flush, {
-  maxItems = GROUP_MAX_ITEMS,
-  windowMs = GROUP_WINDOW_MS,
-  setTimer = setTimeout,
-  clearTimer = clearTimeout,
-} = {}) {
-  let pending = [];
-  let timer = null;
-  const run = () => {
-    if (timer) { clearTimer(timer); timer = null; }
-    const group = pending;
-    pending = [];
-    if (group.length === 0) return;
-    Promise.resolve()
-      .then(() => flush(group.map((entry) => entry.request)))
-      .then((results) => group.forEach((entry, index) => entry.resolve(results[index])))
-      .catch((error) => group.forEach((entry) => entry.reject(error)));
-  };
-  return {
-    submit(request) {
-      return new Promise((resolve, reject) => {
-        pending.push({ request, resolve, reject });
-        if (pending.length >= maxItems) run();
-        else if (!timer) timer = setTimer(run, windowMs);
-      });
-    },
-    flushNow: run,
-    get size() { return pending.length; },
-  };
-}
+export { GROUP_MAX_ITEMS, GROUP_WINDOW_MS, createMicroBatcher, isFailedPrecondition };
 
 /**
  * @typedef {object} AlertSnapshot

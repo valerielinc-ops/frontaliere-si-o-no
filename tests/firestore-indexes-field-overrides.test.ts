@@ -43,6 +43,7 @@ const QUERIED: Array<[string, string, string]> = [
   ['plate_auctions_history', 'sourceKey', 'tenuto per parita con plate_auctions_current'],
   ['plate_auctions_history', 'lastSeenAt', 'conteggi diagnostici per giorno'],
   ['campaign_deliveries', 'campaign_id', 'scripts/lib/newsletter-ab-data.mjs'],
+  ['campaign_deliveries', 'delivery_status', 'scripts/lib/newsletter-resume-receipts.mjs (indice composito con campaign_id)'],
   ['campaign_deliveries', 'sent_at', 'scripts/report-daily-brief-cadence.mjs, scripts/ci/export-loop-outcomes.mjs'],
   ['campaign_deliveries', 'clicked_at', 'scripts/send-daily-brief.mjs'],
   ['events', 'timestamp', 'scripts/report-email-engagement.mjs, scripts/build-job-email-affinity.mjs'],

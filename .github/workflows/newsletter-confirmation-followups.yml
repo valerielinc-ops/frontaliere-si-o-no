@@ -90,17 +90,14 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: 22
-          cache: npm
+      # node_modules in cache (perf-plan email senders, A3/F2): key on the lockfile and
+      # the Node major, `npm ci` only on a miss.
+      - name: Setup Node.js and restore node_modules
+        uses: ./.github/actions/npm-ci-cached
 
-      - name: Install dependencies
-        run: npm ci
-
+      # Also for the dry run: the runner reads the confirmation ledger from Firestore
+      # (reads only) even without --apply.
       - name: Prepare Firebase credentials
-        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -111,9 +108,10 @@ jobs:
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
+      # Least privilege (perf-plan email senders, F2): only the keys the job's code reads
+      # from `process.env`. Enforced by tests/email-senders-workflow-perimeter.test.ts.
       - name: Load secrets from Remote Config
-        if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/load-rc-env.mjs
+        run: node scripts/load-rc-env.mjs --only-env=CF_ACCOUNT_ID,CF_API_TOKEN,CLOUDFLARE_EMAIL_API_TOKEN,MAILEROO_ACCOUNT_API_KEY,MAILEROO_API_KEY,MAILEROO_NEWSLETTER_API_KEY,MAILEROO_TRANSACTIONAL_API_KEY,MAILGUN_API_KEY,MAILGUN_DOMAIN,MAILJET_API_KEY,MAILJET_SECRET_KEY,MAILTRAP_API_TOKEN,NEWSLETTER_SECRET,RESEND_API_KEY
 
       - name: Decide the mode
         id: mode
@@ -141,6 +139,12 @@ jobs:
           else
             echo "::notice::Modalità DRY-RUN — nessun invio, nessuna scrittura. Per accendere: repo variable CONFIRMATION_FOLLOWUPS_ARMED=true."
           fi
+
+      # Dry run (input dry_run, default true for manual dispatches): counts and prints what
+      # is due, with no send and no write (reads only).
+      - name: Count due follow-ups (dry run)
+        if: inputs.dry_run == true || inputs.dry_run == 'true'
+        run: node scripts/newsletter-confirmation-followups.mjs --json | tee /tmp/followups.json
 
       - name: Run follow-ups
         id: run

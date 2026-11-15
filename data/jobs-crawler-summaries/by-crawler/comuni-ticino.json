@@ -1,19 +1,25 @@
 {
   "key": "comuni-ticino",
   "label": "Comuni ticinesi",
-  "generatedAt": "2026-11-15T00:58:08.289Z",
+  "generatedAt": "2026-11-15T09:43:42.623Z",
   "total": 11,
   "discovered": 74,
   "parsed": 11,
   "lastFetchOutcome": "selector_miss",
   "fetchReceipt": null,
-  "sourceBodyFailureCount": 1,
+  "sourceBodyFailureCount": 2,
   "sourceBodyFailures": [
+    {
+      "title": "Concorso incarico per funzione temporanea quale operatore sociale intercomunale di Vallemaggia",
+      "url": "https://cevio.ch/wp-content/uploads/Concorso-incarico-temporaneo-operatore-sociale-40.pdf",
+      "reason": "pdf-extraction-failed",
+      "message": "HTTP 429 while fetching PDF"
+    },
     {
       "title": "Concorso personale di pulizia",
       "url": "https://cevio.ch/wp-content/uploads/20260917-Concorso-personale-pulizia.pdf",
       "reason": "pdf-extraction-failed",
-      "message": "fetch failed"
+      "message": "HTTP 429 while fetching PDF"
     }
   ],
   "written": 11,
@@ -24,10 +30,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 11,
-  "durationMs": 85775,
-  "avgDurationMs": 85775,
+  "durationMs": 93541,
+  "avgDurationMs": 93541,
   "durationHistory": [
-    85775
+    93541
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -66,7 +72,7 @@
       "source": "Comune di Ronco sopra Ascona Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-15T00:55:52.213Z",
+      "crawledAt": "2026-11-15T09:41:18.674Z",
       "firstSeenAt": "2026-11-12T09:35:50.554Z",
       "salaryMin": 39600,
       "salaryMax": 60000,
@@ -114,7 +120,7 @@
       "source": "Comune di Massagno Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-15T00:55:52.213Z",
+      "crawledAt": "2026-11-15T09:41:18.674Z",
       "firstSeenAt": "2026-11-11T09:50:36.698Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -162,7 +168,7 @@
       "source": "Comune di Minusio Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-15T00:55:52.213Z",
+      "crawledAt": "2026-11-15T09:41:18.674Z",
       "firstSeenAt": "2026-11-05T21:50:58.108Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -210,7 +216,7 @@
       "source": "Comune di Minusio Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-15T00:55:52.213Z",
+      "crawledAt": "2026-11-15T09:41:18.674Z",
       "firstSeenAt": "2026-11-05T21:50:58.108Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -258,7 +264,7 @@
       "source": "Comune di Monteceneri Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-15T00:55:52.213Z",
+      "crawledAt": "2026-11-15T09:41:18.674Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -306,7 +312,7 @@
       "source": "Comune di Morbio Inferiore Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-15T00:55:52.213Z",
+      "crawledAt": "2026-11-15T09:41:18.674Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -353,13 +359,13 @@
       "source": "Comune di Biasca Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-15T00:55:52.213Z",
+      "crawledAt": "2026-11-15T09:41:18.674Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T00:55:52.213Z",
+      "validThrough": "2027-01-13T09:41:18.674Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -401,13 +407,13 @@
       "source": "Comune di Biasca Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-15T00:55:52.213Z",
+      "crawledAt": "2026-11-15T09:41:18.674Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T00:55:52.213Z",
+      "validThrough": "2027-01-13T09:41:18.674Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -450,7 +456,7 @@
       "source": "Comune di Massagno Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-15T00:55:52.213Z",
+      "crawledAt": "2026-11-15T09:41:18.674Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -498,7 +504,7 @@
       "source": "Comune di Chiasso Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-15T00:55:52.213Z",
+      "crawledAt": "2026-11-15T09:41:18.674Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -546,7 +552,7 @@
       "source": "Comune di Collina d'Oro Dedicated Parser (albo + PDF)",
       "sourceCrawler": "comuni-ticino",
       "sourceLang": "it",
-      "crawledAt": "2026-11-15T00:55:52.213Z",
+      "crawledAt": "2026-11-15T09:41:18.674Z",
       "firstSeenAt": "2026-10-31T22:00:21.787Z",
       "salaryMin": 41600,
       "salaryMax": 63000,
@@ -562,5 +568,5 @@
       }
     }
   ],
-  "codeCommit": "c2738e8d6a9c559fdfaac829986ccf33b5c08c62"
+  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
 }

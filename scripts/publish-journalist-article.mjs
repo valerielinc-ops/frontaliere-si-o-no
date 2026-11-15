@@ -476,6 +476,11 @@ async function processDoc(db, FieldValue, docSnap) {
       // `liveVerifiedAt` in memory (Firestore equality-null wouldn't match
       // pre-existing docs where the field is absent rather than null).
       liveVerifiedAt: null,
+      // Every publish opens a NEW live-notification cycle: a claim left by an
+      // earlier cycle (scripts/notify-journalist-article-live.mjs) would make
+      // the next run stamp the article live without ever sending its email.
+      liveNotifyClaimedAt: FieldValue.delete(),
+      liveNotifyClaimId: FieldValue.delete(),
     });
     console.log(`  ✅ registered (awaiting deploy): ${publishedUrls.it}`);
 

@@ -1,13 +1,13 @@
 {
   "crawlerKey": "creditx-ch",
-  "assembledAt": "2026-11-15T00:59:05.308Z",
-  "runId": "43658593829",
+  "assembledAt": "2026-11-15T09:43:13.798Z",
+  "runId": "43699263393",
   "jobs": [
     {
       "id": "creditx-ch-52825786a669",
-      "slug": "relationship-manager-senior-sion-vs-creditx-ch-ch",
+      "slug": "responsabile-relazioni-senior-creditx-sarl-sion-vs",
       "slugByLocale": {
-        "it": "relationship-manager-senior-sion-vs-creditx-ch-ch",
+        "it": "responsabile-relazioni-senior-creditx-sarl-sion-vs",
         "en": "relationship-manager-senior-sion-vs-creditx-ch-ch",
         "de": "relationship-manager-senior-sion-vs-creditx-ch-ch",
         "fr": "relationship-manager-senior-sion-vs-creditx-ch-ch"
@@ -34,7 +34,7 @@
       "url": "https://www.creditx.ch/careers/relationship-manager-senior-sion",
       "source": "CreditX Sàrl Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T00:58:44.993Z",
+      "crawledAt": "2026-11-15T09:42:29.057Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -69,14 +69,24 @@
       "postalCode": "1950",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T00:58:44.993Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-15T09:42:29.057Z",
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "relationship-manager-senior-sion-vs-creditx-ch-ch",
+          "responsabile-relazioni-senior-creditx-sarl-sion"
+        ]
+      },
+      "previousSlugs": [
+        "relationship-manager-senior-sion-vs-creditx-ch-ch",
+        "responsabile-relazioni-senior-creditx-sarl-sion"
+      ]
     },
     {
       "id": "creditx-ch-ae7f54d22ec9",
-      "slug": "relationship-manager-junior-sion-vs-creditx-ch-ch",
+      "slug": "responsabile-relazioni-junior-creditx-sarl-sion-vs",
       "slugByLocale": {
-        "it": "relationship-manager-junior-sion-vs-creditx-ch-ch",
+        "it": "responsabile-relazioni-junior-creditx-sarl-sion-vs",
         "en": "relationship-manager-junior-sion-vs-creditx-ch-ch",
         "de": "relationship-manager-junior-sion-vs-creditx-ch-ch",
         "fr": "relationship-manager-junior-sion-vs-creditx-ch-ch"
@@ -103,7 +113,7 @@
       "url": "https://www.creditx.ch/careers/relationship-manager-junior-sion",
       "source": "CreditX Sàrl Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T00:58:44.984Z",
+      "crawledAt": "2026-11-15T09:42:29.049Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -138,8 +148,18 @@
       "postalCode": "1950",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T00:58:44.984Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-28T09:42:29.049Z",
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "relationship-manager-junior-sion-vs-creditx-ch-ch",
+          "responsabile-relazioni-junior-creditx-sarl-sion"
+        ]
+      },
+      "previousSlugs": [
+        "relationship-manager-junior-sion-vs-creditx-ch-ch",
+        "responsabile-relazioni-junior-creditx-sarl-sion"
+      ]
     }
   ]
 }
