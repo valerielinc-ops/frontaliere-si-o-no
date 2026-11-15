@@ -4235,7 +4235,7 @@ export default {
         router.fetch(boardRequest, env, ctx),
       );
       return stripStaleAssetIntegrity(request, served);
-    } catch (error) {
+    } catch {
       if (request.method === 'GET' && url.pathname === PUBLIC_CONFIG_PATH) {
         logEdgeFailure('public-config', url, { stage: 'router' });
         return publicConfigFailOpenResponse();
