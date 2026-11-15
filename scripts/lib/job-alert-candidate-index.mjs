@@ -39,7 +39,11 @@
 import {
   DESCRIPTION_TRIGRAM_BLOOM_WORDS,
   buildDescriptionTrigramBloom,
+  defaultPartitionCanton,
+  defaultPartitionPaddedLoc,
   descriptionTrigramBloomQueryBits,
+  freshnessBoost,
+  jobFirstSeenMs,
   jobMatchFeatures,
   keywordAcrossTextJoin,
   matchesSearchQuery,
@@ -49,6 +53,7 @@ import {
   pinnedCompanyIdentityKeys,
   searchHaystack,
 } from '../../services/jobAlertMatching.mjs';
+import { employerDiversityKey } from './job-alert-discovery.mjs';
 import { isOpenJobAlertJob, jobInventoryTimestampMs } from './job-alert-newness.mjs';
 import { isCanaryJob } from './canaryAd.mjs';
 import { createHash } from 'node:crypto';
@@ -615,7 +620,14 @@ export function createJobAlertCandidateIndex(jobs, { nowMs, budgetBytes = DEFAUL
     }
     return bitset;
   });
-  const searchMask = (locale, query, need) => {
+  /**
+   * `answers` (optional Map query → bitset) collects the results that are valid
+   * on EVERY row — the vocabulary path only — by reference, so the planner can
+   * hand them to the scorer for the length of one alert without re-reading the
+   * LRU (perf-plan P1). The per-row paths are valid on `need` only and are
+   * never recorded.
+   */
+  const searchMask = (locale, query, need, answers = null) => {
     let compiled = compiledQueries.get(query);
     if (!compiled) { compiled = compileSearchQuery(query); compiledQueries.set(query, compiled); }
     if (compiled.tokens.length === 0) return keywordMask(locale, compiled.query, need);
@@ -631,8 +643,111 @@ export function createJobAlertCandidateIndex(jobs, { nowMs, budgetBytes = DEFAUL
       result = result ? bitsetAnd(result, mask) : mask;
       if (bitsetIsEmpty(result)) break;
     }
+    if (answers) answers.set(query, result);
     return result;
   };
+
+  // ── predicati per riga dell'alert (perf-plan P4) ──
+
+  /** OR di bitset di predicato; con un solo operando restituisce quello della cache (mai mutato). */
+  const orOf = (masks) => {
+    if (masks.length === 1) return masks[0];
+    const out = newBitset(words);
+    for (const mask of masks) bitsetOrInto(out, mask);
+    return out;
+  };
+
+  /**
+   * I sei fatti per riga che la formula dello scorer legge nel ramo soft-legacy
+   * (nessuna keyword dura, intento legacy), ciascuno già come maschera esatta:
+   *
+   *  - `geo`: il filtro geo DURO dello scorer, `includesAny(paddedLoc, needle di
+   *    alertLocations) || (cantons.length>0 && jobCanton && cantons.includes(jobCanton))`
+   *    = OR(loc:needle) ∪ OR(canton:c con c non vuoto). `null` senza scope geo;
+   *  - `softOverlap`: quanti `softTokens` sono in `jobTokens` della riga, contato
+   *    dalle liste righe-per-token (le stesse da cui `tokenMask` legge i token).
+   *    Un `jobTokens` è un Set, quindi ogni token conta una volta per riga. Il
+   *    contatore satura a 255: la formula usa `min(5, 2·overlap)` e `overlap === 0`;
+   *  - `company`: `companyKeys.some(k => jobCompanyKeys.includes(k))` = OR(company:k),
+   *    solo con `profile.company` non vuota;
+   *  - `location`: `includesAny(paddedLoc, locationNeedles)` = OR(loc:needle);
+   *  - `canton`: `cantons.includes(jobCanton)` (senza il `jobCanton &&` del filtro
+   *    geo: una stringa vuota in `cantons` combacia con un cantone vuoto) =
+   *    OR(canton:c per ogni c);
+   *  - `sector`: `sectors.some(s => jobSector.includes(s) || titleText.includes(s))`
+   *    = OR(sector:s); `contract`: `contractTypes.some(c => jobContract.includes(c))`.
+   *
+   * Sono le stesse maschere che `candidateMask` compone per scegliere le righe,
+   * quindi si leggono dalla cache. `null` = predicato falso su ogni riga.
+   */
+  const softLegacyPredicates = (profile, locale, parts) => {
+    const {
+      softTokens, companyKeys, alertLocationNeedles, locationNeedles, cantons, sectors, contractTypes, hasGeoScope,
+    } = parts;
+    let geo = null;
+    if (hasGeoScope) {
+      const masks = [];
+      for (const needle of alertLocationNeedles) masks.push(locMask(needle));
+      for (const code of cantons) if (code) masks.push(cantonMask(code));
+      geo = masks.length > 0 ? orOf(masks) : emptyBitset;
+    }
+    let softOverlap = null;
+    if (softTokens.size > 0) {
+      softOverlap = new Uint8Array(n);
+      const { postings } = localeData(locale);
+      for (const token of softTokens) {
+        const list = postings.get(token);
+        if (!list) continue;
+        for (let k = 0; k < list.length; k++) {
+          const row = list[k];
+          if (softOverlap[row] < 255) softOverlap[row] += 1;
+        }
+      }
+    }
+    const maskOf = (values, build) => (values.length > 0 ? orOf(values.map(build)) : null);
+    return {
+      profile,
+      geo,
+      softOverlap,
+      company: profile.company && companyKeys.length > 0 ? orOf(companyKeys.map((key) => companyMask(key))) : null,
+      location: maskOf(locationNeedles, (needle) => locMask(needle)),
+      canton: maskOf(cantons, (code) => cantonMask(code)),
+      sector: maskOf(sectors, (sector) => sectorMask(locale, sector)),
+      contract: maskOf(contractTypes, (contract) => contractMask(contract)),
+    };
+  };
+
+  // ── colonne per riga del ranking (perf-plan P2) ──
+
+  /**
+   * Valori per riga che il planner ricalcolava per ogni alert, ora UNA volta per
+   * run. Ognuno è la stessa espressione di prima, valutata su quella riga:
+   *  - `firstSeenMs`: `jobFirstSeenMs(job)` (NaN compreso per un `firstSeenAt` malformato);
+   *  - `freshness`: `freshnessBoost(job, nowMs)` con il `now` della run;
+   *  - `companyId`: id intero della chiave di `employerDiversityKey(job)` (stesse
+   *    chiavi uguali ⇔ stessi id);
+   *  - `canton` / `paddedLoc`: i valori che `partitionByGeoPreference` confronta.
+   */
+  const rankingColumns = () => once('rankingColumns', () => {
+    const firstSeenMs = new Float64Array(n);
+    const freshness = new Uint8Array(n);
+    const companyId = new Int32Array(n);
+    const canton = new Array(n);
+    const paddedLoc = new Array(n);
+    const ids = new Map();
+    for (let i = 0; i < n; i++) {
+      const job = rows[i];
+      firstSeenMs[i] = jobFirstSeenMs(job);
+      freshness[i] = freshnessBoost(job, now);
+      const key = employerDiversityKey(job);
+      let id = ids.get(key);
+      if (id === undefined) { id = ids.size; ids.set(key, id); }
+      companyId[i] = id;
+      canton[i] = defaultPartitionCanton(job);
+      paddedLoc[i] = defaultPartitionPaddedLoc(job);
+    }
+    return { nowMs: now, firstSeenMs, freshness, companyId, canton, paddedLoc };
+  });
 
   // ── composizione per alert ──
 
@@ -690,8 +805,9 @@ export function createJobAlertCandidateIndex(jobs, { nowMs, budgetBytes = DEFAUL
    *
    * In ogni ramo il punteggio finale lo calcola lo scorer, non questo modulo.
    */
-  const candidateMask = (profile, locale, eligible) => {
+  const candidateMask = (profile, locale, eligible, collect = null) => {
     if (!profile) return { mask: emptyBitset, strategy: 'never' };
+    const answers = collect ? collect.answers : null;
 
     const pinnedJobs = profile.specificJobIds || [];
     const pinnedCompany = profile.specificCompanyKey || '';
@@ -734,7 +850,7 @@ export function createJobAlertCandidateIndex(jobs, { nowMs, budgetBytes = DEFAUL
       if (hardSearchQueries.length > 0) {
         let narrowed = base;
         for (const query of hardSearchQueries) {
-          narrowed = bitsetAnd(narrowed, searchMask(locale, query, narrowed));
+          narrowed = bitsetAnd(narrowed, searchMask(locale, query, narrowed, answers));
           if (bitsetIsEmpty(narrowed)) break;
         }
         return { mask: narrowed, strategy: 'hard-search' };
@@ -773,30 +889,52 @@ export function createJobAlertCandidateIndex(jobs, { nowMs, budgetBytes = DEFAUL
       let remaining = bitsetAndNot(base, mask);
       for (const query of softSearchQueries) {
         if (bitsetIsEmpty(remaining)) break;
-        const hit = bitsetAnd(remaining, searchMask(locale, query, remaining));
+        const hit = bitsetAnd(remaining, searchMask(locale, query, remaining, answers));
         bitsetOrInto(mask, hit);
         remaining = bitsetAndNot(remaining, hit);
       }
     }
-    return { mask, strategy: hasLegacyIntentProfile ? 'soft-legacy' : 'soft-signals' };
+    const strategy = hasLegacyIntentProfile ? 'soft-legacy' : 'soft-signals';
+    if (collect && collect.predicates && strategy === 'soft-legacy') {
+      collect.predicatesOut = softLegacyPredicates(profile, locale, {
+        softTokens, companyKeys, alertLocationNeedles, locationNeedles, cantons, sectors, contractTypes, hasGeoScope,
+      });
+    }
+    return { mask, strategy };
   };
 
-  const select = (profile, { locale, ownerAlert = false, cursorMs, forceWindow = false } = {}) => {
+  /**
+   * `rowIndices[k]` è l'indice di `rows[k]` nell'indice (Int32Array parallelo a
+   * `rows`). `searchAnswers` (`{locale, byQuery}`) porta le risposte di ricerca
+   * valide su tutte le righe, solo del percorso a vocabolario. Con `fastpath`
+   * `select` prepara anche i predicati per riga del ramo soft-legacy e le
+   * colonne del ranking: sono dati che il solo piano indicizzato legge; il piano
+   * legacy di verifica non passa mai di qui.
+   */
+  const select = (profile, { locale, ownerAlert = false, cursorMs, forceWindow = false, fastpath = false } = {}) => {
     const eligible = eligibleMask(locale, ownerAlert);
     const sorted = eligibleSortedAt(locale, ownerAlert);
     const candidateCount = sorted.length - upperBound(sorted, cursorMs);
     let strategy = 'window';
     let mask = eligible;
+    const collect = fastpath && !forceWindow ? { answers: new Map(), predicates: true, predicatesOut: null } : null;
     if (!forceWindow) {
-      const composed = candidateMask(profile, locale, eligible);
+      const composed = candidateMask(profile, locale, eligible, collect);
       strategy = composed.strategy;
       mask = bitsetAnd(eligible, composed.mask);
     }
     const selected = [];
+    const selectedIndices = [];
     forEachSetBit(mask, (i) => {
-      if (inventoryAt[i] > cursorMs) selected.push(rows[i]);
+      if (inventoryAt[i] > cursorMs) { selected.push(rows[i]); selectedIndices.push(i); }
     });
-    return { rows: selected, candidateCount, strategy };
+    const selection = { rows: selected, rowIndices: Int32Array.from(selectedIndices), candidateCount, strategy };
+    if (collect) {
+      selection.searchAnswers = { locale, byQuery: collect.answers };
+      selection.predicates = collect.predicatesOut;
+      selection.columns = rankingColumns();
+    }
+    return selection;
   };
 
   const builtMs = performance.now() - startedAt;
