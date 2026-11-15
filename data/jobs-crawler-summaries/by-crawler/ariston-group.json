@@ -1,16 +1,16 @@
 {
   "key": "ariston-group",
   "label": "Ariston Group",
-  "generatedAt": "2026-11-15T09:47:07.538Z",
+  "generatedAt": "2026-11-15T21:50:42.445Z",
   "total": 12,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 12,
-  "durationMs": 8770,
-  "avgDurationMs": 8770,
+  "durationMs": 8011,
+  "avgDurationMs": 8011,
   "durationHistory": [
-    8770
+    8011
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -50,7 +50,7 @@
       "streetAddress": "Gerlafingen, CH, 4563",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T09:46:52.776Z",
+      "crawledAt": "2026-11-15T21:50:31.449Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -95,7 +95,7 @@
       "streetAddress": "Gerlafingen, CH, 4563",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T09:46:52.776Z",
+      "crawledAt": "2026-11-15T21:50:31.449Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -128,14 +128,14 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-02-12T09:46:52.776Z",
+      "validThrough": "2027-02-11T21:50:31.449Z",
       "id": "ariston-group-7ebb02c34e2a",
       "salaryMin": 71000,
       "salaryMax": 107500,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "1028",
-      "crawledAt": "2026-11-15T09:46:52.776Z",
+      "crawledAt": "2026-11-15T21:50:31.449Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Préverenges, CH, 1028",
       "streetAddressSource": "to-enrich",
@@ -172,7 +172,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-24T09:46:52.776Z",
+      "validThrough": "2026-12-23T21:50:31.449Z",
       "id": "ariston-group-53c74dd45e26",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -183,7 +183,7 @@
       "streetAddress": "Genève, CH, 1202",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-15T09:46:52.776Z",
+      "crawledAt": "2026-11-15T21:50:31.449Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -216,7 +216,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-19T09:46:52.776Z",
+      "validThrough": "2026-12-19T21:50:31.449Z",
       "id": "ariston-group-7ba06c921aef",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -227,7 +227,7 @@
       "streetAddress": "Freiburg, CH, 1700",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-15T09:46:52.776Z",
+      "crawledAt": "2026-11-15T21:50:31.449Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -272,7 +272,7 @@
       "streetAddress": "Bern, CH, 3004",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T09:46:52.776Z",
+      "crawledAt": "2026-11-15T21:50:31.449Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -316,7 +316,7 @@
       "streetAddress": "Bern, CH, 3004",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T09:46:52.776Z",
+      "crawledAt": "2026-11-15T21:50:31.449Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -349,7 +349,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-15T09:46:52.776Z",
+      "validThrough": "2026-12-15T21:50:31.449Z",
       "id": "ariston-group-f88fbd22a192",
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -360,7 +360,7 @@
       "streetAddress": "Fontaines, CH, 2046",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-15T09:46:52.776Z",
+      "crawledAt": "2026-11-15T21:50:31.449Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -405,7 +405,7 @@
       "streetAddress": "St. Moritz, CH, 7500",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T09:46:52.776Z",
+      "crawledAt": "2026-11-15T21:50:31.449Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -450,7 +450,7 @@
       "streetAddress": "Rothenburg, CH, 6023",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T09:46:52.776Z",
+      "crawledAt": "2026-11-15T21:50:31.449Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -494,7 +494,7 @@
       "streetAddress": "Winterthur, CH, 8400",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T09:46:52.776Z",
+      "crawledAt": "2026-11-15T21:50:31.449Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -527,14 +527,14 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-02-09T09:46:52.776Z",
+      "validThrough": "2027-02-08T21:50:31.449Z",
       "id": "ariston-group-8d4e64af9aa1",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "currency": "CHF",
       "salarySource": "estimated",
       "postalCode": "8400",
-      "crawledAt": "2026-11-15T09:46:52.776Z",
+      "crawledAt": "2026-11-15T21:50:31.449Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Winterthur (Vilters), CH, 8400",
       "streetAddressSource": "to-enrich",
@@ -549,5 +549,5 @@
       }
     }
   ],
-  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
+  "codeCommit": "b0e0a209c23d72cde28658756e39fb5de3eaaca5"
 }

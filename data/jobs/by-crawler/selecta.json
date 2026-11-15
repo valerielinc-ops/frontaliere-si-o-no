@@ -1,7 +1,7 @@
 {
   "crawlerKey": "selecta",
-  "assembledAt": "2026-11-15T09:26:14.044Z",
-  "runId": "43698391200",
+  "assembledAt": "2026-11-15T21:35:32.236Z",
+  "runId": "43762814121",
   "jobs": [
     {
       "id": "selecta-1ed3c74ce61c",
@@ -34,7 +34,7 @@
       "url": "https://careers.selecta.ch/Job/4591",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:53.574Z",
+      "crawledAt": "2026-11-15T21:35:16.966Z",
       "addressLocality": "Zürich / Aargau",
       "addressRegion": "AG",
       "streetAddress": "Zürich / Aargau",
@@ -88,17 +88,17 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:53.574Z",
+      "validThrough": "2026-12-15T21:35:16.966Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "selecta-f525a4ac08a1",
       "slug": "servizio-clienti-m-w-d-selecta-wallis",
       "slugByLocale": {
-        "it": "account-manager-m-f-d-selecta-wallis",
-        "en": "account-manager-m-f-d-selecta-wallis",
+        "it": "servizio-clienti-m-w-d-selecta-wallis",
+        "en": "customer-service-provider-m-w-d-selecta-wallis",
         "de": "kundenbetreuer-m-w-d-selecta-region-wallis",
-        "fr": "gestionnaire-de-comptes-m-f-d-selecta-wallis"
+        "fr": "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -122,7 +122,7 @@
       "url": "https://careers.selecta.ch/Job/4606",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:53.464Z",
+      "crawledAt": "2026-11-15T21:35:16.821Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "streetAddress": "Wallis",
@@ -151,19 +151,20 @@
       "previousSlugs": [
         "kundenbetreuer-m-w-d-selecta-wallis",
         "kundenbetreuer-m-w-d-selecta-region-wallis",
-        "customer-service-provider-m-w-d-selecta-wallis",
-        "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
+        "account-manager-m-f-d-selecta-wallis",
+        "gestionnaire-de-comptes-m-f-d-selecta-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenbetreuer-m-w-d-selecta-wallis",
-          "kundenbetreuer-m-w-d-selecta-region-wallis"
+          "kundenbetreuer-m-w-d-selecta-region-wallis",
+          "account-manager-m-f-d-selecta-wallis"
         ],
         "en": [
-          "customer-service-provider-m-w-d-selecta-wallis"
+          "account-manager-m-f-d-selecta-wallis"
         ],
         "fr": [
-          "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
+          "gestionnaire-de-comptes-m-f-d-selecta-wallis"
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:32.256Z",
@@ -181,7 +182,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:53.464Z",
+      "validThrough": "2026-12-15T21:35:16.821Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -215,7 +216,7 @@
       "url": "https://careers.selecta.ch/Job/4633",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:53.350Z",
+      "crawledAt": "2026-11-15T21:35:16.677Z",
       "addressLocality": "Reinach BL / Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Reinach BL / Kirchberg BE",
@@ -264,7 +265,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:53.350Z",
+      "validThrough": "2026-12-15T21:35:16.677Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -298,7 +299,7 @@
       "url": "https://careers.selecta.ch/Job/4634",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:53.237Z",
+      "crawledAt": "2026-11-15T21:35:16.530Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE",
@@ -350,7 +351,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:53.237Z",
+      "validThrough": "2026-12-15T21:35:16.530Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -384,7 +385,7 @@
       "url": "https://careers.selecta.ch/Job/4609",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:53.124Z",
+      "crawledAt": "2026-11-15T21:35:16.385Z",
       "addressLocality": "Wädenswil bis Glarus",
       "addressRegion": "GL",
       "streetAddress": "Wädenswil bis Glarus",
@@ -433,7 +434,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:53.124Z",
+      "validThrough": "2026-12-15T21:35:16.385Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -467,7 +468,7 @@
       "url": "https://careers.selecta.ch/Job/4608",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:52.420Z",
+      "crawledAt": "2026-11-15T21:35:16.233Z",
       "addressLocality": "Dübendorf / Volketswil / Pfäffikon",
       "addressRegion": "ZH",
       "streetAddress": "Dübendorf / Volketswil / Pfäffikon",
@@ -516,7 +517,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:52.420Z",
+      "validThrough": "2026-12-15T21:35:16.233Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -550,7 +551,7 @@
       "url": "https://careers.selecta.ch/Job/4558",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:51.355Z",
+      "crawledAt": "2026-11-15T21:35:16.087Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE",
@@ -599,7 +600,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:51.355Z",
+      "validThrough": "2026-12-15T21:35:16.087Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -633,7 +634,7 @@
       "url": "https://careers.selecta.ch/Job/4557",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:51.242Z",
+      "crawledAt": "2026-11-15T21:35:15.938Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE",
@@ -682,7 +683,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:51.242Z",
+      "validThrough": "2026-12-15T21:35:15.938Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -716,7 +717,7 @@
       "url": "https://careers.selecta.ch/Job/4610",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:51.123Z",
+      "crawledAt": "2026-11-15T21:35:15.795Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "streetAddress": "Sursee",
@@ -773,7 +774,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:51.123Z",
+      "validThrough": "2026-12-15T21:35:15.795Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -807,7 +808,7 @@
       "url": "https://careers.selecta.ch/Job/4615",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:50.994Z",
+      "crawledAt": "2026-11-15T21:35:15.648Z",
       "addressLocality": "Sargans / Landquart",
       "addressRegion": "GR",
       "streetAddress": "Sargans / Landquart",
@@ -856,7 +857,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:50.994Z",
+      "validThrough": "2026-12-15T21:35:15.648Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -890,7 +891,7 @@
       "url": "https://careers.selecta.ch/Job/4616",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:50.868Z",
+      "crawledAt": "2026-11-15T21:35:15.496Z",
       "addressLocality": "primär Spiez",
       "addressRegion": "BE",
       "streetAddress": "primär Spiez",
@@ -939,7 +940,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:50.868Z",
+      "validThrough": "2026-12-15T21:35:15.496Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -973,7 +974,7 @@
       "url": "https://careers.selecta.ch/Job/4623",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:50.755Z",
+      "crawledAt": "2026-11-15T21:35:15.348Z",
       "addressLocality": "Wolhusen / Luzern",
       "addressRegion": "LU",
       "streetAddress": "Wolhusen / Luzern",
@@ -1022,7 +1023,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:50.755Z",
+      "validThrough": "2026-12-15T21:35:15.348Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1056,7 +1057,7 @@
       "url": "https://careers.selecta.ch/Job/4637",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:50.639Z",
+      "crawledAt": "2026-11-15T21:35:15.191Z",
       "addressLocality": "Oberwallis und Berner Oberland",
       "addressRegion": "VS",
       "streetAddress": "Oberwallis und Berner Oberland",
@@ -1111,7 +1112,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T09:25:50.639Z",
+      "validThrough": "2027-01-14T21:35:15.191Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1145,7 +1146,7 @@
       "url": "https://careers.selecta.ch/Job/4601",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:50.526Z",
+      "crawledAt": "2026-11-15T21:35:15.043Z",
       "addressLocality": "Kirchberg BE -",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE -",
@@ -1188,12 +1189,12 @@
           "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-12-00-uhr-bis-22",
           "chauffeur-cat-c-and-e-m-f-d-selecta-kirchberg-be-fbad9f"
         ],
+        "de": [
+          "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15"
+        ],
         "fr": [
           "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-12-00-uhr-bis-22",
           "chauffeur-cat-c-et-e-m-f-d-selecta-kirchberg-be-fbad9f"
-        ],
-        "de": [
-          "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15"
         ]
       },
       "firstSeenAt": "2026-07-04T11:56:55.088Z",
@@ -1211,8 +1212,94 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:50.526Z",
+      "validThrough": "2026-12-15T21:35:15.043Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "selecta-2da14a0c9720",
+      "slug": "chauffeur-cat-c-ed-e-m-f-d-selecta-kirchberg-be",
+      "slugByLocale": {
+        "de": "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15",
+        "it": "chauffeur-cat-c-ed-e-m-f-d-selecta-kirchberg-be",
+        "en": "chauffeur-cat-c-and-e-m-f-d-selecta-kirchberg-be-fbad9f",
+        "fr": "chauffeur-cat-c-et-e-m-f-d-selecta-kirchberg-be-fbad9f"
+      },
+      "company": "Selecta",
+      "companyKey": "selecta",
+      "companyDomain": "selecta.com",
+      "title": "Chauffeur Kat. C und E (m/w/d)",
+      "titleByLocale": {
+        "de": "Chauffeur Kat. C und E (m/w/d)",
+        "it": "Chauffeur Kat. C e E (m/w/d)",
+        "en": "Chauffeur Kat. C und E (m/w/d)",
+        "fr": "Chauffeur Kat. C und E (m/w/d)"
+      },
+      "description": "Chauffeur Kat. C und E (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE - (Montag bis Freitag von 05:00 Uhr bis 15:00 Uhr) Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Anlieferung und Einlagerung von Einfüllprodukten an zahlreichen Standorten unserer Verpflegungsautomaten direkt bei unseren Kunden im Mittelland\n• Beladen des Lastwagens mit bereitgestellten Produkten\n• Rücknahme von Leergebinden\n• Pflege und Unterhalt des Fahrzeugs Ausbildung\n• Führerausweis Kat. C/E Profil\n• Mehrjährige Erfahrung als Chauffeur von Vorteil\n• Guter Orientierungssinn\n• Körperlich belastbar und gewohnt, anzupacken\n• Erfahrung im Umgang mit Kunden\n• Sehr gute Deutschkenntnisse in Wort und Schrift Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+      "descriptionByLocale": {
+        "de": "Chauffeur Kat. C und E (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE - (Montag bis Freitag von 05:00 Uhr bis 15:00 Uhr) Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Anlieferung und Einlagerung von Einfüllprodukten an zahlreichen Standorten unserer Verpflegungsautomaten direkt bei unseren Kunden im Mittelland\n• Beladen des Lastwagens mit bereitgestellten Produkten\n• Rücknahme von Leergebinden\n• Pflege und Unterhalt des Fahrzeugs Ausbildung\n• Führerausweis Kat. C/E Profil\n• Mehrjährige Erfahrung als Chauffeur von Vorteil\n• Guter Orientierungssinn\n• Körperlich belastbar und gewohnt, anzupacken\n• Erfahrung im Umgang mit Kunden\n• Sehr gute Deutschkenntnisse in Wort und Schrift Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "it": "Chauffeur Kat. C und E (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE - (Montag bis Freitag von 05:00 Uhr bis 15:00 Uhr) Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Anlieferung und Einlagerung von Einfüllprodukten an zahlreichen Standorten unserer Verpflegungsautomaten direkt bei unseren Kunden im Mittelland\n• Beladen des Lastwagens mit bereitgestellten Produkten\n• Rücknahme von Leergebinden\n• Pflege und Unterhalt des Fahrzeugs Ausbildung\n• Führerausweis Kat. C/E Profil\n• Mehrjährige Erfahrung als Chauffeur von Vorteil\n• Guter Orientierungssinn\n• Körperlich belastbar und gewohnt, anzupacken\n• Erfahrung im Umgang mit Kunden\n• Sehr gute Deutschkenntnisse in Wort und Schrift Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "en": "Chauffeur Kat. C und E (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE - (Montag bis Freitag von 05:00 Uhr bis 15:00 Uhr) Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Anlieferung und Einlagerung von Einfüllprodukten an zahlreichen Standorten unserer Verpflegungsautomaten direkt bei unseren Kunden im Mittelland\n• Beladen des Lastwagens mit bereitgestellten Produkten\n• Rücknahme von Leergebinden\n• Pflege und Unterhalt des Fahrzeugs Ausbildung\n• Führerausweis Kat. C/E Profil\n• Mehrjährige Erfahrung als Chauffeur von Vorteil\n• Guter Orientierungssinn\n• Körperlich belastbar und gewohnt, anzupacken\n• Erfahrung im Umgang mit Kunden\n• Sehr gute Deutschkenntnisse in Wort und Schrift Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "fr": "Chauffeur Kat. C und E (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE - (Montag bis Freitag von 05:00 Uhr bis 15:00 Uhr) Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Anlieferung und Einlagerung von Einfüllprodukten an zahlreichen Standorten unserer Verpflegungsautomaten direkt bei unseren Kunden im Mittelland\n• Beladen des Lastwagens mit bereitgestellten Produkten\n• Rücknahme von Leergebinden\n• Pflege und Unterhalt des Fahrzeugs Ausbildung\n• Führerausweis Kat. C/E Profil\n• Mehrjährige Erfahrung als Chauffeur von Vorteil\n• Guter Orientierungssinn\n• Körperlich belastbar und gewohnt, anzupacken\n• Erfahrung im Umgang mit Kunden\n• Sehr gute Deutschkenntnisse in Wort und Schrift Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt."
+      },
+      "location": "Kirchberg BE -",
+      "canton": "BE",
+      "url": "https://careers.selecta.ch/Job/4600",
+      "source": "Selecta Dedicated Parser (eRecruiter)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-15T21:35:14.897Z",
+      "addressLocality": "Kirchberg BE -",
+      "addressRegion": "BE",
+      "streetAddress": "Kirchberg BE -",
+      "postalCode": "3001",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Vending / Food & Coffee Tech",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-04-24",
+      "postedDate": "2026-04-24",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.selecta.ch/Job/4600",
+      "department": "",
+      "jobReqId": "4600",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Kirchberg BE -"
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15"
+      ],
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T21:35:14.897Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-07-04T11:56:55.088Z"
     },
     {
       "id": "selecta-8b973ef54c2f",
@@ -1245,7 +1332,7 @@
       "url": "https://careers.selecta.ch/Job/4638",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:50.286Z",
+      "crawledAt": "2026-11-15T21:35:14.749Z",
       "addressLocality": "Bern - Betreuung der Kantine im Bundeshaus",
       "addressRegion": "BE",
       "streetAddress": "Bern - Betreuung der Kantine im Bundeshaus",
@@ -1300,7 +1387,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:25:50.286Z",
+      "validThrough": "2027-01-26T21:35:14.749Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1334,7 +1421,7 @@
       "url": "https://careers.selecta.ch/Job/4595",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:50.170Z",
+      "crawledAt": "2026-11-15T21:35:14.069Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE",
@@ -1389,7 +1476,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:50.170Z",
+      "validThrough": "2026-12-15T21:35:14.069Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1399,7 +1486,7 @@
         "it": "tecnico-di-servizio-m-f-d-selecta-tessin",
         "en": "service-technician-m-f-d-selecta-tessin",
         "de": "servicetechniker-m-w-d-selecta-region-tessin",
-        "fr": "servicetechniker-m-w-d-selecta-tessin"
+        "fr": "technicien-de-service-m-w-d-selecta-tessin"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -1423,7 +1510,7 @@
       "url": "https://careers.selecta.ch/Job/4626",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:50.057Z",
+      "crawledAt": "2026-11-15T21:35:13.921Z",
       "addressLocality": "Tessin",
       "addressRegion": "TI",
       "streetAddress": "Tessin",
@@ -1452,8 +1539,7 @@
       "previousSlugs": [
         "servicetechniker-m-w-d-selecta-tessin",
         "technicien-de-service-h-f-d-selecta-tessin",
-        "servicetechniker-m-w-d-selecta-region-tessin",
-        "technicien-de-service-m-w-d-selecta-tessin"
+        "servicetechniker-m-w-d-selecta-region-tessin"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1465,7 +1551,7 @@
         ],
         "fr": [
           "technicien-de-service-h-f-d-selecta-tessin",
-          "technicien-de-service-m-w-d-selecta-tessin"
+          "servicetechniker-m-w-d-selecta-tessin"
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:34.123Z",
@@ -1483,7 +1569,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:50.057Z",
+      "validThrough": "2026-12-15T21:35:13.921Z",
       "validThroughSource": "last-observed-window"
     }
   ]

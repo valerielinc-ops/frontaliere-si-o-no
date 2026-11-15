@@ -1,7 +1,7 @@
 {
   "key": "data-unit-ag",
   "label": "DATA UNIT AG",
-  "generatedAt": "2026-11-15T09:45:35.307Z",
+  "generatedAt": "2026-11-15T21:43:29.879Z",
   "total": 3,
   "discovered": 3,
   "parsed": 3,
@@ -57,16 +57,18 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 16561,
-  "avgDurationMs": 16561,
+  "unchangedCount": 3,
+  "durationMs": 19313,
+  "avgDurationMs": 19313,
   "durationHistory": [
-    16561
+    19313
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "data-unit-ag-ef1949b9ab6f",
       "slug": "stage-di-orientamento-come-sviluppatore-sviluppatrice-di-business-digitale-informatico-a-per-lo-sviluppo-di-applicazioni",
@@ -79,7 +81,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2422130?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:44:50.400Z",
+      "crawledAt": "2026-11-15T21:42:54.261Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -102,7 +104,7 @@
       "salaryMax": 82000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:44:50.400Z",
+      "validThrough": "2027-02-09T21:42:54.261Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -111,10 +113,7 @@
         "translation": 25,
         "completeness": 23
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "data-unit-ag-16969b58c18b",
       "slug": "sviluppo-del-prodotto-di-stage-estivi-data-unit-ag-baden",
@@ -127,7 +126,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2550441?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:44:50.398Z",
+      "crawledAt": "2026-11-15T21:42:54.257Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -150,7 +149,7 @@
       "salaryMax": 76000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:44:50.398Z",
+      "validThrough": "2027-02-09T21:42:54.257Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -172,7 +171,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2319938?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:44:50.390Z",
+      "crawledAt": "2026-11-15T21:42:54.252Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -195,7 +194,7 @@
       "salaryMax": 106000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:44:50.390Z",
+      "validThrough": "2027-02-09T21:42:54.252Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -206,5 +205,5 @@
       }
     }
   ],
-  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
+  "codeCommit": "b0e0a209c23d72cde28658756e39fb5de3eaaca5"
 }

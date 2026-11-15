@@ -967,6 +967,7 @@ export const ASSEMBLE_AUX_DATA_INPUTS = Object.freeze([
   'data/gsc-job-urls.json',
   'data/gsc-orphan-job-slugs.json',
   'data/url-first-seen.json',
+  'data/url-first-seen',
   'data/canton-url-slugs.json',
   'data/canton-municipalities.json',
   'data/crawler-companies-auto.json',
@@ -1410,6 +1411,38 @@ function shrinkJobKey(job) {
 }
 
 /**
+ * Full prior records that a slice rewrite would retire.
+ *
+ * This deliberately uses the same identity as the shrink guard: a title or
+ * locale refresh on the same posting is not a retirement, while a posting no
+ * longer present in the writer's final payload is. Returning the prior object
+ * preserves the exact title and locale routes that were actually served; no
+ * replacement content is synthesized at the archive boundary.
+ */
+export function removedJobsForArchive(priorJobs, nextJobs) {
+  const nextKeys = new Set((nextJobs || []).map(shrinkJobKey));
+  return (priorJobs || []).filter((job) => {
+    if (!job?.slug) return false;
+    return !nextKeys.has(shrinkJobKey(job));
+  });
+}
+
+export function assertRemovedJobsArchivable(removedJobs, crawlerKey = '') {
+  const untitled = (removedJobs || []).filter((job) => {
+    if (typeof job?.title === 'string' && job.title.trim()) return false;
+    return !Object.values(job?.titleByLocale || {}).some(
+      (title) => typeof title === 'string' && title.trim(),
+    );
+  });
+  if (untitled.length === 0) return;
+  const samples = untitled.slice(0, 3).map((job) => job.slug).join(', ');
+  throw new Error(
+    `[retired-archive-guard] ${crawlerKey || 'crawler'} would retire ${untitled.length} `
+      + `posting(s) without title evidence (${samples}) — refusing to replace the active slice`,
+  );
+}
+
+/**
  * Probe the jobs a shrinking write would drop and decide whether the source
  * itself corroborates the drop.
  *
@@ -1707,6 +1740,10 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
       ...(hasRequestedHousekeepingProof && !verifyUnprovenHousekeeping
         ? { housekeepingProof: requestedHousekeepingProof }
         : {}),
+      // The verified wrapper archives the evidence itself. Keep the single
+      // archive call at that decision boundary instead of archiving once
+      // before and once after the retry write.
+      skipRetiredArchive: hasRequestedHousekeepingProof,
       // This wrapper owns the evidence decision. Do not file a parser-health
       // issue until the deterministic housekeeping proof/source probe says
       // whether the shrink is real; a proven quarantine is an accepted write,
@@ -1865,6 +1902,9 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
       ...writeOptions,
       skipShrinkGuard: true,
       housekeepingProof,
+      // `verdict.disappearedJobs` was archived immediately above; the retry
+      // must not send the same records through the archive writer again.
+      skipRetiredArchive: true,
     });
     return { written: true, shrinkAccepted: true, verdict, archived };
   }
@@ -2865,6 +2905,9 @@ export function isNearDuplicateLocalizedTitle(candidate, source) {
  *   evidence for every removed job when accepting a source-verified shrink or
  *   a deliberate thin-source quarantine. Internal callers only; unproven
  *   removals remain blocked by the byte guard.
+ * @param {boolean} [options.skipRetiredArchive] - Internal: the verified
+ *   wrapper already archived the measured removals at its evidence boundary;
+ *   prevents the retry write from duplicating that archive call.
  */
 /**
  * The description as writeJobsCrawlerSlice stores it: artifact clean-up, then
@@ -3560,6 +3603,27 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
           + `${writerSlugRefresh.refreshed} active slug(s) refreshed`,
       );
     }
+  }
+
+  // Every ordinary removal crosses this write boundary, including the many
+  // bespoke runners that do not use crawler-template's diff/archive step.
+  // Archive the exact prior records before replacing the active slice. The
+  // archive writer is idempotent by slug, so template and verified-shrink
+  // callers may reach the same boundary without duplicating records. Missing
+  // title evidence is not repaired with a guessed label: the active write is
+  // refused and the previously served row stays on disk.
+  const removedJobs = Array.isArray(existingSlice?.jobs)
+    ? removedJobsForArchive(existingSlice.jobs, mergedJobs)
+    : [];
+  assertRemovedJobsArchivable(removedJobs, crawlerKey);
+  const archived = options.skipRetiredArchive
+    ? 0
+    : archiveRemovedJobsToSlice(removedJobs, crawlerKey);
+  if (archived > 0) {
+    console.log(
+      `  📦 Retired archive guard: archived ${archived} removed job(s) `
+        + `→ data/jobs/expired/by-crawler/${crawlerKey}.json`,
+    );
   }
 
   const payload = {

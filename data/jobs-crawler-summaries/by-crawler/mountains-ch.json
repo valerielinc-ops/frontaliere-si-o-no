@@ -1,7 +1,7 @@
 {
   "key": "mountains-ch",
   "label": "Engadin St. Moritz Mountains AG",
-  "generatedAt": "2026-11-15T09:44:35.456Z",
+  "generatedAt": "2026-11-15T21:42:36.202Z",
   "total": 5,
   "discovered": 5,
   "parsed": 5,
@@ -64,10 +64,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 16929,
-  "avgDurationMs": 16929,
+  "durationMs": 17338,
+  "avgDurationMs": 17338,
   "durationHistory": [
-    16929
+    17338
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -85,7 +85,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/mitarbeiterin-human-ressources",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:43:47.498Z",
+      "crawledAt": "2026-11-15T21:41:49.598Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:43:47.498Z",
+      "validThrough": "2027-02-03T21:41:49.598Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -130,7 +130,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/schnupperlehre-seilbahnmechatronikerin-efz",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:43:47.490Z",
+      "crawledAt": "2026-11-15T21:41:49.597Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -153,7 +153,7 @@
       "salaryMax": 73000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:43:47.490Z",
+      "validThrough": "2027-02-03T21:41:49.597Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -175,7 +175,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/receptionist",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:43:47.489Z",
+      "crawledAt": "2026-11-15T21:41:49.596Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -198,7 +198,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T09:43:47.489Z",
+      "validThrough": "2027-02-05T21:41:49.596Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -220,7 +220,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/leitung-rezeption-und-bankette",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:43:47.484Z",
+      "crawledAt": "2026-11-15T21:41:49.591Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -243,7 +243,7 @@
       "salaryMax": 120000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:43:47.484Z",
+      "validThrough": "2027-02-03T21:41:49.591Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -265,7 +265,7 @@
       "url": "https://www.mountains.ch/de/offene-stellen/leiter-corporate-services-cfo",
       "source": "Engadin St. Moritz Mountains AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:43:47.478Z",
+      "crawledAt": "2026-11-15T21:41:49.586Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -288,7 +288,7 @@
       "salaryMax": 120000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:43:47.478Z",
+      "validThrough": "2027-02-03T21:41:49.586Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -299,5 +299,5 @@
       }
     }
   ],
-  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
+  "codeCommit": "b0e0a209c23d72cde28658756e39fb5de3eaaca5"
 }

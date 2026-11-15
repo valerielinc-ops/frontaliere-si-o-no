@@ -1,14 +1,11 @@
 {
-  "detailCandidates": 4,
-  "detailGone": 0,
-  "detailRejected": 0,
   "key": "heini-ch-heini-ch",
   "label": "Heini Conditorei AG",
-  "generatedAt": "2026-11-15T09:26:18.098Z",
+  "generatedAt": "2026-11-15T21:40:45.590Z",
   "total": 0,
   "discovered": 4,
-  "parsed": 4,
-  "lastFetchOutcome": null,
+  "parsed": 0,
+  "lastFetchOutcome": "filtered_empty",
   "fetchReceipt": {
     "specKey": "heini-ch-heini-ch",
     "seedUrls": [
@@ -46,19 +43,24 @@
     "fetchOutcome": null,
     "fetchDetail": null
   },
+  "authoritativeEmptySnapshot": false,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": "thin-source-all",
   "written": 0,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 8238,
+  "avgDurationMs": 8238,
+  "durationHistory": [
+    8238
+  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "earlyExit": true,
+  "earlyExit": false,
   "exitCode": 0,
-  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
+  "codeCommit": "b0e0a209c23d72cde28658756e39fb5de3eaaca5"
 }

@@ -51,8 +51,15 @@ data/article-defect-history.jsonl  merge=union
 # `json-first-seen` driver unions the two maps keeping the EARLIEST first-seen
 # date per URL (monotonic), so the conflict cannot occur by construction. The
 # driver is defined with `git config merge.json-first-seen.driver` in the
-# workflow step that rebases this file (see .github/workflows/deploy.yml).
+# workflow step that rebases this file (see .github/workflows/deploy-publish.yml,
+# job commit-it-dist-history).
+#
+# The ledger is now sharded: data/url-first-seen/<h>.json, <h> = first hex digit of
+# sha1(path) (scripts/lib/url-first-seen-store.mjs; the monolith crossed GitHub's
+# 100 MB file limit). Every shard has the same `{path: date}` shape, so the same
+# driver applies to the shards; the legacy file keeps it until it is retired.
 data/url-first-seen.json           merge=json-first-seen
+data/url-first-seen/*.json         merge=json-first-seen
 
 # data/seo-404-compat/part-*.json are the shards of the seo-404 compat store
 # (issue #2988 split the >100MB monolith into 16 sorted JSON shards). Each shard

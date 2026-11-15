@@ -69,6 +69,23 @@ function makeHeavyJob(index: number): SectorCountableJob {
   return job as unknown as SectorCountableJob;
 }
 
+/** Stress the EN ItemList and card renderer with long but valid job URLs. */
+function makeLongEnglishJob(index: number): SectorCountableJob {
+  const job = makeHeavyJob(index);
+  const englishTitle = (
+    'Senior engineer, industrial infrastructure and energy systems, process design, plant operations, and cross-functional project delivery '
+  ).repeat(4).slice(0, 207).trimEnd();
+  const englishSlug = (
+    `senior-engineer-ticino-${String(index).padStart(4, '0')}-industrial-infrastructure-energy-systems-process-design-plant-operations-cross-functional-delivery-`
+  ).padEnd(180, 'x').slice(0, 180);
+
+  return {
+    ...job,
+    titleByLocale: { ...job.titleByLocale, en: englishTitle },
+    slugByLocale: { ...job.slugByLocale, en: englishSlug },
+  } as unknown as SectorCountableJob;
+}
+
 const ROOT_DIR = resolve(__dirname, '..', '..');
 
 function extractJobHrefSlugs(html: string, locale: JobBoardLocale, jobs: readonly SectorCountableJob[]): string[] {
@@ -79,6 +96,14 @@ function extractJobHrefSlugs(html: string, locale: JobBoardLocale, jobs: readonl
     .filter((slug) => expected.has(slug));
 }
 
+function extractItemListSlugs(html: string): string[] {
+  const itemList = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+    .map((match) => JSON.parse(match[1]) as Record<string, unknown>)
+    .find((value) => value['@type'] === 'ItemList');
+  const elements = (itemList?.itemListElement ?? []) as Array<{ url: string }>;
+  return elements.map(({ url }) => new URL(url).pathname.split('/').filter(Boolean).at(-1) || '');
+}
+
 describe('SEO — job-sector landing page windows', () => {
   const sectorProseData = loadSectorProseData(ROOT_DIR);
   const heavyJobs: SectorCountableJob[] = Array.from(
@@ -87,7 +112,8 @@ describe('SEO — job-sector landing page windows', () => {
   );
   const pageCount = sectorHubPageCount(heavyJobs.length);
 
-  it('keeps fixed card and overflow counts across every generated sector page', () => {
+  it('bounds rich cards and compact overflow windows across the sector ladder', () => {
+    expect(SECTOR_PAGE_CARD_CAP).toBe(30);
     expect(pageCount).toBe(5);
     // Case-anzians is the richest journey surface; nurses and engineers cover
     // the other role-journey and plain sector templates without rebuilding the
@@ -120,6 +146,58 @@ describe('SEO — job-sector landing page windows', () => {
             .toBe(expectedOverflowRows);
         }
       }
+    }
+  });
+
+  it('preserves every linked and structured URL on a long EN engineers ladder', () => {
+    const longEnglishJobs: SectorCountableJob[] = Array.from(
+      { length: SYNTHETIC_INVENTORY_SIZE },
+      (_, index) => makeLongEnglishJob(index + 1),
+    );
+    const longPageCount = sectorHubPageCount(longEnglishJobs.length);
+    const pages = Array.from({ length: longPageCount }, (_, index) => index + 1).map((page) =>
+      buildSectorLandingHtml({
+        sector: 'ingegneri',
+        locale: 'en',
+        matchingJobs: longEnglishJobs,
+        count: longEnglishJobs.length,
+        year: 2026,
+        dateStamp: '2026-04-28',
+        sectorProseData,
+        entryJs: 'index-DEADBEEF.js',
+        entryCss: 'index-DEADBEEF.css',
+        page,
+        pageCount: longPageCount,
+      }),
+    );
+
+    expect(longPageCount).toBe(5);
+    for (const [index, html] of pages.entries()) {
+      const page = index + 1;
+      expect((html.match(/<article class="jc-card/g) || []).length)
+        .toBe(page === 1 ? SECTOR_PAGE_CARD_CAP : 0);
+
+      const overflowLinks = html.match(/<ul data-sector-overflow-list="\d+"[\s\S]*?<\/ul>/)?.[0] || '';
+      const expectedOverflowRows = Math.min(
+        SECTOR_OVERFLOW_LINKS_PER_PAGE,
+        Math.max(0, longEnglishJobs.length - SECTOR_PAGE_CARD_CAP - (page - 1) * SECTOR_OVERFLOW_LINKS_PER_PAGE),
+      );
+      expect((overflowLinks.match(/<li class="break-inside-avoid/g) || []).length)
+        .toBe(expectedOverflowRows);
+
+      const itemList = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+        .map((match) => JSON.parse(match[1]) as Record<string, unknown>)
+        .find((value) => value['@type'] === 'ItemList');
+      expect(itemList?.numberOfItems).toBe((page === 1 ? SECTOR_PAGE_CARD_CAP : 0) + expectedOverflowRows);
+    }
+
+    const linkedSlugs = pages.flatMap((html) => extractJobHrefSlugs(html, 'en', longEnglishJobs));
+    const itemListSlugs = pages.flatMap(extractItemListSlugs);
+    const expectedSlugs = longEnglishJobs.map((job) => String((job.slugByLocale as Record<string, string>).en));
+    for (const [label, slugs] of [['links', linkedSlugs], ['ItemList', itemListSlugs]] as const) {
+      expect(slugs, label).toHaveLength(longEnglishJobs.length);
+      expect(new Set(slugs).size, label).toBe(longEnglishJobs.length);
+      expect(new Set(slugs), label).toEqual(new Set(expectedSlugs));
     }
   });
 

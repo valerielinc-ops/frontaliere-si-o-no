@@ -12,6 +12,6 @@ describe('production Rollup memory settings', () => {
     const config = readFileSync(new URL('../vite.config.ts', import.meta.url), 'utf8');
     const rollupOptions = config.match(/rollupOptions:\s*\{([\s\S]*?)\n\s*output:\s*\{/u)?.[1];
 
-    expect(rollupOptions).toContain('maxParallelFileOps: 64');
+    expect(rollupOptions).toContain('maxParallelFileOps: 16');
   });
 });

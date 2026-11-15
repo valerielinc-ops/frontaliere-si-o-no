@@ -280,7 +280,8 @@ function renderJourneyCompanies(
 
 /**
  * Sector landings keep the complete inventory in their metrics and spread its
- * links across bounded listing windows.
+ * links across bounded listing windows. The base page renders up to 30 rich
+ * cards, followed by up to 200 compact links per page in the continuation ladder.
  */
 export const SECTOR_PAGE_CARD_CAP = 30;
 export const SECTOR_OVERFLOW_LINKS_PER_PAGE = 200;
@@ -532,7 +533,8 @@ export interface BuildSectorLandingHtmlOptions {
 /**
  * Pure HTML builder for one bounded page in a sector listing ladder. The
  * caller passes the complete matching inventory for metrics and slicing;
- * only 30 rich cards and 200 compact overflow links can reach one page.
+ * only SECTOR_PAGE_CARD_CAP rich cards and
+ * SECTOR_OVERFLOW_LINKS_PER_PAGE compact overflow links can reach one page.
  */
 export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): string {
   const { sector, locale, matchingJobs, count, year, dateStamp, sectorProseData } = opts;
@@ -615,8 +617,13 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     const title = sanitizeJobTitleForDisplay(String(localizedJobDisplayTitle(job, locale) || 'Offerta lavoro')).trim();
     const company = stripLiteralMarkdown(String(job.company || '')).trim();
     const location = stripLiteralMarkdown(String(job.location || job.addressLocality || '')).trim();
+    // The visible overflow label is capped at 60 code points. Keep its
+    // structured-data name equally compact instead of duplicating a crawler's
+    // arbitrarily long title for all 200 overflow rows. Full titles remain on
+    // the rich cards and canonical job-detail pages; URLs/counts are unchanged.
+    const itemListTitle = Array.from(title).slice(0, 60).join('').trimEnd();
     const label = Array.from([title, company, location].filter(Boolean).join(' · ')).slice(0, 60).join('');
-    return { job: job as JobCardJob, href: buildJobHref(locale, job), title, label };
+    return { job: job as JobCardJob, href: buildJobHref(locale, job), itemListTitle, label };
   });
 
   const noResultsLabel = {
@@ -737,7 +744,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
 
   const pageItemList = [
     ...cardItems.map(({ job, href }) => ({ job, href, title: sanitizeJobTitleForDisplay(String(localizedJobDisplayTitle(job, locale) || 'Offerta lavoro')) })),
-    ...overflowItems,
+    ...overflowItems.map(({ job, href, itemListTitle }) => ({ job, href, title: itemListTitle })),
   ];
   const itemListLd = pageItemList.length > 0
     ? inlineScriptJson({
@@ -1182,7 +1189,7 @@ ${sitemapEntries.join('\n')}
       // hub landing is on disk, so the injector can safely add anchors to them
       // from the 4 job-board root hubs. Same fail-fast contract as
       // resolveJobsSeoPagesFlushed: closeBundle has no early return, so this is
-      // reached on every normal exit. A thrown budget error above propagates to
+      // reached on every normal exit. A thrown safety error above propagates to
       // Vite and fails the build (consumer terminates — not a deadlock).
       resolveSectorPagesFlushed();
     },

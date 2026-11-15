@@ -61,6 +61,7 @@ jobs:
             /*
             !/public/images/
             !/data/jobs/
+            !/data/url-first-seen/
             !/data/translation-cache/
             !/packages/articles/content/
             !/data/related-search-candidates.json

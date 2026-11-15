@@ -32,8 +32,9 @@ import { describe, expect, it } from 'vitest';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { delimiter, join, resolve, dirname } from 'node:path';
+import { delimiter, join, resolve, dirname, relative } from 'node:path';
 import { digestDocument } from '../scripts/lib/crawler-generation-contract.mjs';
+import { writeCompatPaths, readCompatPathsStrict, COMPAT_SHARD_COUNT, compatShardFile } from '../scripts/lib/compat-paths-store.mjs';
 import { localeRouteKeys } from '../scripts/lib/expired-jobs-archive.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
@@ -623,27 +624,55 @@ exec "$GIT_REAL" "$@"
   // rebases and reaches merge_json_3way instead.
   it('unions data/seo-404-compat shard paths (grouped-isolated path has no merge driver)', () => {
     const h = initHarness();
-    const SHARD = 'data/seo-404-compat/part-00.json';
+    const compatShardPaths = Array.from({ length: COMPAT_SHARD_COUNT }, (_, index) =>
+      relative(h.repoDir, compatShardFile(index, h.repoDir)),
+    );
+    const compatManifestPath = 'data/seo-404-compat/manifest.json';
+    const compatStorePaths = [...compatShardPaths, compatManifestPath];
     try {
       const seeded = ['/cerca-lavoro-ticino/a', '/cerca-lavoro-ticino/b'];
-      writeJson(h.repoDir, SHARD, { paths: [...seeded, ...seeded] });
+      writeCompatPaths({ source: 'test', lastUpdated: '2026-11-15', paths: seeded }, h.repoDir);
       commitAndPush(h.repoDir, 'seed');
 
       pushFromConcurrentWriter(
         h,
-        (dir) => writeJson(dir, SHARD, { paths: [...seeded, '/cerca-lavoro-ticino/remoto'] }),
+        (dir) => writeCompatPaths({
+          source: 'test',
+          lastUpdated: '2026-11-15',
+          paths: [...seeded, '/cerca-lavoro-ticino/remoto'],
+        }, dir),
         'discover-404s: new compat path',
       );
 
-      writeJson(h.repoDir, SHARD, { paths: [...seeded, '/cerca-lavoro-ticino/locale'] });
+      writeCompatPaths({
+        source: 'test',
+        lastUpdated: '2026-11-15',
+        paths: [...seeded, '/cerca-lavoro-ticino/locale'],
+      }, h.repoDir);
 
-      runScript(h, [SHARD]);
+      runScript(h, compatStorePaths);
 
-      const merged = readFromOrigin<{ paths: string[] }>(h, SHARD);
-      expect(merged.paths).toEqual(
+      const all = compatShardPaths.flatMap((shardPath) =>
+        readFromOrigin<{ paths: string[] }>(h, shardPath).paths,
+      );
+      expect(all).toEqual(
         expect.arrayContaining([...seeded, '/cerca-lavoro-ticino/remoto', '/cerca-lavoro-ticino/locale']),
       );
-      expect(new Set(merged.paths).size).toBe(merged.paths.length);
+      expect(new Set(all).size).toBe(all.length);
+
+      const manifest = readFromOrigin<{ totalPaths: number }>(h, compatManifestPath);
+      expect(manifest.totalPaths).toBe(all.length);
+
+      const strictDir = mkdtempSync(join(tmpdir(), 'gcd-compat-'));
+      try {
+        for (const shardPath of compatShardPaths) {
+          writeJson(strictDir, shardPath, readFromOrigin(h, shardPath));
+        }
+        writeJson(strictDir, compatManifestPath, manifest);
+        expect(() => readCompatPathsStrict(strictDir)).not.toThrow();
+      } finally {
+        rmSync(strictDir, { recursive: true, force: true });
+      }
     } finally {
       cleanup(h);
     }

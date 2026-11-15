@@ -53,13 +53,14 @@ import {
   parseJobBoardDetailPath,
 } from './job-board-detail-path-core.mjs';
 import { slugify, slugTokenSet } from './regenerate-slugs-helpers.mjs';
+import { loadFirstSeen, urlFirstSeenStorePaths } from './url-first-seen-store.mjs';
 import {
   TRANSLATION_HOLD_RELEASED_FIELD,
   isHeldFromPublication,
 } from './translation-publication-hold.mjs';
 
-const DEFAULT_LEDGER_PATH = path.resolve(
-  path.dirname(fileURLToPath(import.meta.url)), '..', '..', 'data', 'url-first-seen.json',
+const DEFAULT_LEDGER_STORE = urlFirstSeenStorePaths(
+  path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..'),
 );
 const DATA_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..', 'data');
 let jobBoardDetailPathMatcher;
@@ -165,41 +166,60 @@ export function jobDetailPathsFor(locale, slug, job = null) {
 let ledgerCache = { path: null, index: undefined };
 
 /**
+ * Where the ledger lives for this call. `URL_FIRST_SEEN_PATH_OVERRIDE` points
+ * tests at a fixture: a directory is read as a shard store, anything else as
+ * the legacy single file.
+ */
+function ledgerLocation() {
+  const override = process.env.URL_FIRST_SEEN_PATH_OVERRIDE;
+  if (!override) {
+    return { key: DEFAULT_LEDGER_STORE.dir, dir: DEFAULT_LEDGER_STORE.dir, legacyFile: DEFAULT_LEDGER_STORE.legacyFile };
+  }
+  let isDirectory = false;
+  try { isDirectory = fs.statSync(override).isDirectory(); } catch { /* absent: treated as a file path */ }
+  return isDirectory
+    ? { key: override, dir: override, legacyFile: null }
+    : { key: override, dir: null, legacyFile: override };
+}
+
+/**
  * The served-URL ledger as normalized path → first date the URL reached a
- * sitemap. `data/url-first-seen.json` is written by every deploy
- * (`refresh-url-first-seen.mjs`) and is monotonic.
- * `URL_FIRST_SEEN_PATH_OVERRIDE` points tests at a fixture.
+ * sitemap. The ledger is `data/url-first-seen/<h>.json` (sharded: the single
+ * file outgrew GitHub's 100 MB limit), written by every deploy
+ * (`refresh-url-first-seen.mjs`) and monotonic; the legacy
+ * `data/url-first-seen.json` is merged in while it still exists, earliest date
+ * per path. `URL_FIRST_SEEN_PATH_OVERRIDE` points tests at a fixture.
  *
- * A checkout without the file returns null and the callers fall back to the
- * conservative slice reading. A file that IS there but cannot be read as an
+ * A checkout without the ledger returns null and the callers fall back to the
+ * conservative slice reading. A ledger that IS there but cannot be read as an
  * object throws: silently falling back there would flip thousands of served
  * slugs back to never-served slice values in one deploy (measured 2026-11-13:
- * 3,286 locale slots), which is worse than a failed step.
+ * 3,286 locale slots), which is worse than a failed step. That includes ONE
+ * unreadable shard, which would flip its sixteenth of them.
  *
  * @returns {Map<string, string> | null}
  */
 export function loadServedSlugLedger() {
-  const ledgerPath = process.env.URL_FIRST_SEEN_PATH_OVERRIDE || DEFAULT_LEDGER_PATH;
-  if (ledgerCache.path === ledgerPath && ledgerCache.index !== undefined) return ledgerCache.index;
-  if (!fs.existsSync(ledgerPath)) {
-    ledgerCache = { path: ledgerPath, index: null };
+  const location = ledgerLocation();
+  if (ledgerCache.path === location.key && ledgerCache.index !== undefined) return ledgerCache.index;
+  const dirPresent = Boolean(location.dir) && fs.existsSync(location.dir);
+  const legacyPresent = Boolean(location.legacyFile) && fs.existsSync(location.legacyFile);
+  if (!dirPresent && !legacyPresent) {
+    ledgerCache = { path: location.key, index: null };
     return null;
   }
   let raw;
   try {
-    raw = readJsonFile(ledgerPath);
+    raw = loadFirstSeen({ dir: location.dir, legacyFile: location.legacyFile, strict: true }).entries;
   } catch (error) {
-    throw new Error(`[published-slug-stability] served-URL ledger ${ledgerPath} is present but unreadable: ${error?.message || error}`);
-  }
-  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) {
-    throw new Error(`[published-slug-stability] served-URL ledger ${ledgerPath} is present but not a path → date object`);
+    throw new Error(`[published-slug-stability] served-URL ledger ${location.key} is present but unreadable: ${error?.message || error}`);
   }
   // Only job DETAIL routes enter the index. The parser validates the route
   // shape, the data-backed matcher rejects unknown sections and city hubs, and
   // the company matcher removes company pages. Keep the complete normalized
   // path as the key so lookups compare the route emitted for this job.
   const index = new Map();
-  for (const [urlPath, date] of Object.entries(raw)) {
+  for (const [urlPath, date] of raw) {
     const key = normalizeServedPath(urlPath);
     if (
       !parseJobBoardDetailPath(key)
@@ -209,7 +229,7 @@ export function loadServedSlugLedger() {
     const prev = index.get(key);
     if (!prev || String(date) < prev) index.set(key, String(date));
   }
-  ledgerCache = { path: ledgerPath, index };
+  ledgerCache = { path: location.key, index };
   return index;
 }
 
