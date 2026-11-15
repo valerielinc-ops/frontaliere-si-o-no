@@ -1,6 +1,6 @@
 {
   "crawlerKey": "schindler",
-  "assembledAt": "2026-11-15T09:20:43.744Z",
+  "assembledAt": "2026-11-15T12:47:54.720Z",
   "runId": "43697424769",
   "jobs": [
     {
@@ -71,7 +71,8 @@
       "streetAddress": "Le Mont-sur-Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-04T09:20:24.760Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-39830cd570a7",
@@ -503,7 +504,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:20:20.988Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-09ce9e9f6710",
@@ -593,7 +595,8 @@
       "streetAddress": "Küssnacht a",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:20:20.236Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-38747dab18f0",
@@ -771,7 +774,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:20:18.732Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-57197701d231",
@@ -865,7 +869,8 @@
       "streetAddress": "Küssnacht a",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:20:17.994Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-b069643dbe5b",
@@ -1046,7 +1051,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:20:16.492Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-84a1469b220d",
@@ -1210,7 +1216,8 @@
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:20:15.024Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-1156ef7552dd",
@@ -1388,7 +1395,8 @@
       "streetAddress": "Steinach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:20:13.524Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-7233ff8b0202",
@@ -1734,7 +1742,8 @@
       "streetAddress": "Steinach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:20:10.506Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-09690b27570a",
@@ -1820,7 +1829,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-28T09:20:09.749Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-7cd4d372d20a",
@@ -1910,7 +1920,8 @@
       "streetAddress": "Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:20:09.010Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-1bdc0467ca3b",
@@ -2227,7 +2238,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:20:06.050Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-81ff37ecade3",
@@ -2313,7 +2325,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:20:05.296Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-4a383671aa75",
@@ -2399,7 +2412,8 @@
       "streetAddress": "Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:20:04.533Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-0ef04b9f8b6e",
@@ -2649,7 +2663,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:20:02.134Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-6986bd02e3dc",
@@ -2813,7 +2828,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:20:00.620Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-79a9c8401106",
@@ -2891,7 +2907,8 @@
       "streetAddress": "Bussigny",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T09:19:59.860Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-cb560ddf9003",
@@ -3063,7 +3080,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:19:58.353Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-587361ccbd7b",
@@ -3311,7 +3329,8 @@
       "streetAddress": "Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:19:56.114Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-1c64def561ba",
@@ -3491,7 +3510,8 @@
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:19:54.593Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-b3e33745ba1a",
@@ -3545,17 +3565,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprendistato-elettronico-a-afc-per-il-2027-schindler-locarno",
-        "gestore-consenso-ai-cookie-schindler-locarno",
-        "afc-electronic-learning-fur-2027-schindler-locarno",
-        "afc-apprentissage-electronique-pour-2027-schindler-locarno",
         "apprendistato-elettronico-a-afc-per-il-2027-schindler-locarno-46b6b3521d",
         "zustimmung-des-managers-zu-cookies-schindler-locarno",
-        "consentement-du-gestionnaire-aux-cookies-schindler-locarno"
+        "consentement-du-gestionnaire-aux-cookies-schindler-locarno",
+        "gestore-consenso-ai-cookie-schindler-locarno"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-elettronico-a-afc-per-il-2027-schindler-locarno",
-          "apprendistato-elettronico-a-afc-per-il-2027-schindler-locarno-46b6b3521d",
           "gestore-consenso-ai-cookie-schindler-locarno"
         ],
         "de": [
@@ -3585,7 +3602,8 @@
       "streetAddress": "Locarno",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:19:53.861Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-5329457d542b",
@@ -3729,19 +3747,15 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno",
-        "gestore-consenso-ai-cookie-schindler-locarno",
-        "apprentice-afc-automation-machine-operator-for-2027-schindler-locarno",
-        "lehrling-afc-automation-machine-betreiber-fur-2027-schindler-locarno",
-        "apprentissage-afc-automatisation-machine-operateur-pour-2027-schindler-locarno",
         "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno-e7c97534dd",
         "manager-consent-to-cookies-schindler-locarno",
         "zustimmung-des-managers-zu-cookies-schindler-locarno",
-        "consentement-du-gestionnaire-aux-cookies-schindler-locarno"
+        "consentement-du-gestionnaire-aux-cookies-schindler-locarno",
+        "gestore-consenso-ai-cookie-schindler-locarno"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno",
-          "apprendistato-operatore-trice-in-automazione-afc-per-il-2027-schindler-locarno-e7c97534dd",
           "gestore-consenso-ai-cookie-schindler-locarno"
         ],
         "en": [
@@ -3860,7 +3874,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T09:19:51.584Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-9c3131208a87",
@@ -4115,7 +4130,8 @@
       "streetAddress": "Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T09:19:49.354Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-0e7bff713b3e",
@@ -4269,7 +4285,8 @@
       "postalCode": "6934",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-23T09:19:47.855Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-edab4d4f6924",
@@ -4433,7 +4450,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:19:46.368Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-e549070dfda6",
@@ -4691,7 +4709,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:19:44.054Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-59702e483d80",
@@ -4777,7 +4796,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:19:43.317Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-6cee39e5ef53",
@@ -4874,7 +4894,8 @@
       "streetAddress": "Bussigny",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-02T09:19:42.582Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-a528affdf333",
@@ -4960,7 +4981,8 @@
       "streetAddress": "Wettswil",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T09:19:41.790Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-9afa5012253d",
@@ -5132,7 +5154,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:19:40.292Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-1d8886c46547",
@@ -5237,7 +5260,8 @@
       "streetAddress": "Oberentfelden",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:19:39.526Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-fb98eb6f1d6e",
@@ -5704,7 +5728,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:19:35.779Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-c348b8589b5b",
@@ -5807,7 +5832,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:19:35.016Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-ba60ebb57b58",
@@ -5986,7 +6012,8 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:19:33.442Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-559d6d924812",
@@ -6081,7 +6108,8 @@
       "streetAddress": "Wettswil",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:19:32.700Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-d1374400a918",
@@ -6272,7 +6300,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T09:19:31.182Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-48afddb8963f",
@@ -6608,7 +6637,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:19:28.161Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-c9b9c1a7bae8",
@@ -7676,8 +7706,8 @@
       "slug": "supporto-di-vendita-di-riferimento-rep-m-f-d-80-100-schindler-bussigny",
       "slugByLocale": {
         "it": "supporto-di-vendita-di-riferimento-rep-m-f-d-80-100-schindler-bussigny",
-        "en": "supporto-di-vendita-di-riferimento-rep-m-f-d-80-100-schindler-bussigny",
-        "de": "supporto-di-vendita-di-riferimento-rep-m-f-d-80-100-schindler-bussigny",
+        "en": "reference-sales-support-rep-m-f-d-80-100-schindler-bussigny",
+        "de": "referenz-sales-support-rep-m-w-d-80-100-schindler-bussigny",
         "fr": "referent-sales-support-rep-m-f-d-80-100-schindler-bussigny"
       },
       "company": "Schindler",
@@ -7722,11 +7752,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
+        "supporto-di-vendita-di-riferimento-rep-m-f-d-80-100-schindler-bussigny",
         "referent-sales-support-rep-m-f-d-80-100-schindler-bussigny"
       ],
       "previousSlugsByLocale": {
         "it": [
           "referent-sales-support-rep-m-f-d-80-100-schindler-bussigny"
+        ],
+        "en": [
+          "supporto-di-vendita-di-riferimento-rep-m-f-d-80-100-schindler-bussigny"
+        ],
+        "de": [
+          "supporto-di-vendita-di-riferimento-rep-m-f-d-80-100-schindler-bussigny"
         ]
       },
       "firstSeenAt": "2026-10-01T09:17:34.024Z",
@@ -7747,7 +7784,8 @@
       "streetAddress": "Bussigny",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-06T09:19:18.460Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-7b393039ae73",
@@ -8228,7 +8266,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-06T09:19:14.005Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-d5179197fde9",
@@ -8906,7 +8945,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:19:08.007Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-caec93a84429",
@@ -8992,7 +9032,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:19:07.242Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-81fc438808d0",
@@ -9167,7 +9208,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:19:05.724Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-e13a72226ed6",
@@ -9266,7 +9308,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:19:04.990Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-45f8f02bb7f5",
@@ -9352,7 +9395,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:19:04.248Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-211bc7584d15",
@@ -9522,7 +9566,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:19:02.763Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-7be6f3153345",
@@ -9676,7 +9721,39 @@
       "streetAddress": "Fribourg",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-09T09:19:01.280Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "monteur-d-ascenseurs-h-f-d-80-100-schindler-fribourg-2",
+          "elevator-mounting-h-f-d-80-100-schindler-fribourg",
+          "aufzuge-h-f-d-80-100-schindler-fribourg",
+          "editore-capo-m-f-d-80-100-schindler-fribourg",
+          "head-editor-m-f-d-80-100-schindler-fribourg",
+          "chefeditor-m-w-d-80-100-schindler-fribourg",
+          "chef-monteur-m-f-d-80-100-schindler-fribourg"
+        ],
+        "en": [
+          "elevator-mounting-m-f-d-80-100-schindler-fribourg"
+        ],
+        "de": [
+          "aufzugsbefestigung-m-w-d-80-100-schindler-fribourg"
+        ],
+        "fr": [
+          "monteur-d-ascenseurs-h-f-d-80-100-schindler-fribourg-uvm01z"
+        ]
+      },
+      "previousSlugs": [
+        "monteur-d-ascenseurs-h-f-d-80-100-schindler-fribourg-2",
+        "elevator-mounting-h-f-d-80-100-schindler-fribourg",
+        "aufzuge-h-f-d-80-100-schindler-fribourg",
+        "editore-capo-m-f-d-80-100-schindler-fribourg",
+        "head-editor-m-f-d-80-100-schindler-fribourg",
+        "chefeditor-m-w-d-80-100-schindler-fribourg",
+        "chef-monteur-m-f-d-80-100-schindler-fribourg",
+        "elevator-mounting-m-f-d-80-100-schindler-fribourg",
+        "aufzugsbefestigung-m-w-d-80-100-schindler-fribourg",
+        "monteur-d-ascenseurs-h-f-d-80-100-schindler-fribourg-uvm01z"
+      ]
     },
     {
       "id": "schindler-806acdd1f036",
@@ -9862,105 +9939,8 @@
       "streetAddress": "Le Mont-sur-Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:18:59.751Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "schindler-4c7775d07114",
-      "slug": "monteur-d-ascenseurs-h-f-d-80-100-schindler-fribourg-2",
-      "slugByLocale": {
-        "it": "monteur-d-ascenseurs-h-f-d-80-100-schindler-fribourg-2",
-        "en": "elevator-mounting-m-f-d-80-100-schindler-fribourg",
-        "de": "aufzugsbefestigung-m-w-d-80-100-schindler-fribourg",
-        "fr": "monteur-d-ascenseurs-h-f-d-80-100-schindler-fribourg-uvm01z"
-      },
-      "company": "Schindler",
-      "companyKey": "schindler",
-      "companyDomain": "schindler.com",
-      "title": "Monteur d'ascenseurs (h/f/d) 80-100%",
-      "titleByLocale": {
-        "it": "Monteur d'ascenseurs (f/m/d) 80-100%",
-        "en": "Elevator mounting (m/f/d) 80-100%",
-        "de": "Aufzugsbefestigung (m/w/d) 80-100%",
-        "fr": "Monteur d'ascenseurs (h/f/d) 80-100%"
-      },
-      "description": "Plus de deux milliards de personnes font confiance à Schindler chaque jour. Notre expérience de longue date et notre esprit innovant nous positionnent en tant que leader dans le secteur suisse des ascenseurs et des escaliers mécaniques. En tant que membre de la famille Schindler, tu contribues à rendre les lieux plus accessibles, inclusifs et durables pour tous. Nous combinons innovation, sécurité ainsi qu'inclusion et diversité au sein de l'entreprise. Rejoins notre histoire de succès de 150 ans et façonne l'avenir de la mobilité.\n\nEnsemble, montons d'un étage:\n\nMonteur d'ascenseurs (h/f/d) 80-100%\n\nTa journée - ton plan ! Façonne ta semaine de 40 heures selon tes besoins. Ton outil moderne t'accompagne tout au long du processus. Pour en savoir plus, consulte cette vidéo\n\nTa nouvelle mission:\n\n• Montage autonome d'ascenseurs de A à Z, tant sur le plan mécanique qu'électrique\n\n• Planification et coordination de tes tâches avec les clients et les autres parties prenantes du chantier\n\n• Préparation de l’installation et ajustement fin jusqu'à l'acceptation interne\n\nTes qualités idéales:\n\n• Formation technique ou électrique terminée, par exemple en tant que mécanicien(ne), mécatronicien(ne) ou électricien(ne)\n\n• 1 à 2 ans d'expérience professionnelle dans le métier appris\n\n• Tu aimes travailler de manière autonome sur le chantier\n\n• Tu as une bonne forme physique et pas le vertige\n\n• Bonnes connaissances de la langue locale\n\n• Permis de conduire valable - indispensable\n\nNos avantages\n\n• Formation initiale de deux mois avec salaire complet dans notre Lift Camp pour une préparation optimale à ton nouveau poste.\n\n• Indemnisation pour tes repas de midi et le nettoyage de tes vêtements de travail, qui te sont bien sûr fournis gratuitement par nos soins.\n\n• Excellentes opportunités de développement: Le développement personnel est une réalité chez nous. Nous mettons à disposition de nos employés divers programmes de talents nationaux et internationaux et les soutenons, tant sur le plan temporel que financier, dans leur formation initiale et continue.\n\n• Équilibre travail-vie: Semaine de 40 heures, de 25 à 30 jours de vacances, horaires flexibles, possibilité de temps partiel et congés non payés.\n\n• Environnement de travail sain: Normes élevées de santé et de sécurité et gestion de la santé au travail propre à l'entreprise, incluant conseil social et promotion de la santé.\n\n• Avantages pour les employés: Participation à l'abonnement aux transports publics, réductions sur la flotte et primes d'assurance à tarif réduit ainsi que des « avantages d'entreprise ».\n\nLance maintenant ta carrière chez Schindler !\n\nEs-tu prêt à emprunter de nouvelles voies ? Rejoins le #TeamSchindler ! Pour toutes questions, tu peux contacter Simone Fianoau (+41) 414453750.\n\nPour plus d'informations, consulte: www.schindler.ch/karriere\n\nAu sein du groupe Schindler, nous valorisons l'inclusion et la diversité, et nous pratiquons l'équité pour créer des opportunités égales pour tous. Nous nous efforçons de veiller à ce que tous les candidats qualifiés soient pris en considération pour un emploi sans distinction d'âge, de race, d'origine ethnique, de couleur, d'affiliation religieuse, d'affiliation syndicale, de sexe, d'identité de genre, d'orientation sexuelle, d'état matrimonial, d'origine nationale, de nationalité, de génétique et santé ou handicap.\n\nToute candidature non sollicitée provenant d'agences de recrutement est considérée comme rejetée et ne constitue en aucun cas une offre de la part d'une agence de recrutement.",
-      "descriptionByLocale": {
-        "it": "Più di due miliardi di persone si fidano di Schindler ogni giorno. La nostra lunga esperienza e lo spirito innovativo ci collocano come leader nel settore degli ascensori e delle scale mobili svizzere. Come membro della famiglia Schindler, stai aiutando a rendere i luoghi più accessibili, inclusivi e sostenibili per tutti. Uniamo innovazione, sicurezza e inclusione e diversità all'interno dell'azienda. Unisciti alla nostra storia di successo di 150 anni e modella il futuro della mobilità.\n\nInsieme, andiamo di sopra:\n\nMontaggio ascensore (m/f/d) 80-100%\n\nLa tua giornata - il tuo piano! Forma la tua settimana di 40 ore secondo le tue esigenze. Il vostro strumento moderno vi accompagna durante tutto il processo. Per ulteriori informazioni, vedere questo video\n\nLa vostra nuova missione:\n\n• Montaggio autonomo di ascensori da A a Z, meccanicamente ed elettricamente\n\n• Pianificare e coordinare i vostri compiti con i clienti e altri stakeholder del sito\n\n• Preparazione dell'installazione e regolazione finale fino all'accettazione interna\n\nLe tue qualità ideali:\n\n• Allenamento tecnico o elettrico completo, ad esempio come meccanico, meccatronico o elettricista\n\n• da 1 a 2 anni di esperienza professionale nella professione imparata\n\n• Ti piace lavorare indipendentemente sul cantiere\n\n• Hai una buona forma fisica e non vertigini\n\n• Buona conoscenza della lingua locale\n\n• Patente di guida valida - essenziale\n\nI nostri vantaggi\n\n• Formazione iniziale di due mesi con stipendio pieno nel nostro campo di sollevamento per una preparazione ottimale per la vostra nuova posizione.\n\n• Indennizzo per i vostri pranzi e pulizia dei vostri vestiti da lavoro, che sono ovviamente forniti gratuitamente da noi.\n\n• Ottime opportunità di sviluppo: lo sviluppo personale è una realtà per noi. Forniamo ai nostri dipendenti vari programmi di talento nazionali e internazionali e li sosteniamo, sia temporalmente che finanziariamente, nella loro formazione iniziale e continua.\n\n• Equilibrio vita-lavoro: Settimana di 40 ore, 25-30 giorni di vacanza, ore flessibili, possibilità di congedo part-time e non pagato.\n\n• Ambiente di lavoro sano: elevati standard di salute e sicurezza e gestione della salute professionale specifica per le imprese, compresa la consulenza sociale e la promozione della salute.\n\n• Benefici per i dipendenti: Partecipazione agli abbonamenti per i trasporti pubblici, sconti per la flotta e premi assicurativi a tasso ridotto e \"benefici per le imprese\".\n\nOra inizia la tua carriera a Schindler!\n\nSiete pronti a prendere nuove strade? Iscriviti a #TeamSchindler! Per qualsiasi domanda, contatta Simone Fianoau (+41) 414453750.\n\nPer ulteriori informazioni, visitare: www.schindler.ch/karriere\n\nNel Gruppo Schindler, apprezziamo l'inclusione e la diversità, e pratichiamo l'equità per creare pari opportunità per tutti. Ci sforziamo di garantire che tutti i candidati qualificati siano considerati per l'occupazione senza distinzione di età, razza, origine etnica, colore, affiliazione religiosa, affiliazione sindacale, sesso, identità di genere, orientamento sessuale, stato civile, origine nazionale, nazionalità, genetica e salute o invalidità.\n\nQualsiasi domanda non sollecitata da agenzie di reclutamento è considerata respinta e non costituisce in alcun modo un'offerta da un'agenzia di reclutamento.",
-        "en": "Over two billion people trust Schindler every day. Our long-standing experience and innovative spirit position us as a leader in the Swiss elevator and escalator industry. As a member of the Schindler family, you are helping to make places more accessible, inclusive and sustainable for all. We combine innovation, security and inclusion and diversity within the company. Join our 150-year success story and shape the future of mobility.\n\nTogether, let's go upstairs:\n\nElevator mounting (m/f/d) 80-100%\n\nYour day - your plan! Shape your 40-hour week according to your needs. Your modern tool accompanies you throughout the process. For more information, see this video\n\nYour new mission:\n\n• Autonomous assembly of elevators from A to Z, mechanically and electrically\n\n• Planning and coordinating your tasks with customers and other stakeholders at the site\n\n• Preparation of installation and final adjustment until internal acceptance\n\nYour ideal qualities:\n\n• Completed technical or electrical training, e.g. as a mechanic, mechatronician or electrician\n\n• 1 to 2 years of professional experience in the learned profession\n\n• You like to work independently on the construction site\n\n• You have good physical fitness and not dizziness\n\n• Good local language knowledge\n\n• Valid driving licence - essential\n\nOur benefits\n\n• Initial two-month training with full salary in our Lift Camp for optimal preparation for your new position.\n\n• Indemnification for your lunches and cleaning your work clothes, which are of course provided free of charge by us.\n\n• Excellent development opportunities: Personal development is a reality for us. We provide our employees with various national and international talent programs and support them, both temporally and financially, in their initial and continuing training.\n\n• Work-life balance: Week of 40 hours, 25-30 days of vacation, flexible hours, possibility of part-time and unpaid leave.\n\n• Healthy work environment: High standards of health and safety and enterprise-specific occupational health management, including social counselling and health promotion.\n\n• Benefits for employees: Participation in public transport subscriptions, fleet discounts and reduced rate insurance premiums as well as \"business benefits\".\n\nNow start your career at Schindler!\n\nAre you ready to take new paths? Join #TeamSchindler! For any questions, please contact Simone Fianoau (+41) 414453750.\n\nFor more information, visit: www.schindler.ch/karriere\n\nIn the Schindler Group, we value inclusion and diversity, and we practice fairness to create equal opportunities for all. We strive to ensure that all qualified candidates are considered for employment without distinction as to age, race, ethnic origin, colour, religious affiliation, union affiliation, sex, gender identity, sexual orientation, marital status, national origin, nationality, genetics and health or disability.\n\nAny unsolicited application from recruitment agencies shall be considered rejected and shall in no way constitute an offer from a recruitment agency.",
-        "de": "Über zwei Milliarden Menschen vertrauen Schindler täglich. Unsere langjährige Erfahrung und unser Innovationsgeist positionieren uns als Marktführer in der Schweizer Aufzugs- und Rolltreppe. Als Mitglied der Familie Schindler tragen Sie dazu bei, Orte für alle zugänglicher, inklusiver und nachhaltiger zu machen. Wir verbinden Innovation, Sicherheit und Inklusion und Vielfalt im Unternehmen. Schließen Sie sich unserer 150-jährigen Erfolgsgeschichte an und gestalten Sie die Zukunft der Mobilität.\n\nZusammen gehen wir nach oben:\n\nAufzugsbefestigung (m/w/d) 80-100%\n\nDein Tag - dein Plan! Gestalten Sie Ihre 40-Stunden-Woche nach Ihren Bedürfnissen. Ihr modernes Tool begleitet Sie während des gesamten Prozesses. Weitere Informationen finden Sie in diesem Video\n\nIhre neue Mission:\n\n• Autonome Montage von Aufzügen von A nach Z, mechanisch und elektrisch\n\n• Planung und Koordination Ihrer Aufgaben mit Kunden und anderen Stakeholdern vor Ort\n\n• Vorbereitung der Installation und Endeinstellung bis zur internen Abnahme\n\nIhre idealen Qualitäten:\n\n• Abgeschlossene technische oder elektrische Ausbildung, z. B. als Mechaniker, Mechatroniker oder Elektriker\n\n• 1 bis 2 Jahre Berufserfahrung im erlernten Beruf\n\n• Sie arbeiten gerne selbstständig auf der Baustelle\n\n• Sie haben eine gute körperliche Fitness und keinen Schwindel\n\n• Gute lokale Sprachkenntnisse\n\n• Gültiger Führerschein - unerlässlich\n\nUnsere Vorteile\n\n• Erstes zweimonatiges Training mit vollem Gehalt in unserem Lift Camp zur optimalen Vorbereitung auf Ihre neue Position.\n\n• Entschädigung für Ihr Mittagessen und die Reinigung Ihrer Arbeitskleidung, die von uns selbstverständlich kostenlos zur Verfügung gestellt werden.\n\n• Hervorragende Entwicklungsmöglichkeiten: Persönliche Entwicklung ist für uns Realität. Wir stellen unseren Mitarbeitern verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich und finanziell bei ihrer Aus- und Weiterbildung.\n\n• Work-Life-Balance: Woche von 40 Stunden, 25-30 Urlaubstage, flexible Arbeitszeiten, Möglichkeit von Teilzeit- und unbezahltem Urlaub.\n\n• Gesundes Arbeitsumfeld: Hohe Standards für Gesundheit und Sicherheit und unternehmensspezifisches betriebliches Gesundheitsmanagement, einschließlich Sozialberatung und Gesundheitsförderung.\n\n• Leistungen für Mitarbeiter: Teilnahme an Abonnements für öffentliche Verkehrsmittel, Flottenrabatte und ermäßigte Versicherungsprämien sowie \"Geschäftsvorteile\".\n\nJetzt starten Sie Ihre Karriere bei Schindler!\n\nBist du bereit, neue Wege zu gehen? Mach mit bei #TeamSchindler! Bei Fragen wenden Sie sich bitte an Simone Fianoau (+41) 414453750.\n\nWeitere Informationen finden Sie unter: www.schindler.ch/karriere\n\nIn der Schindler Group legen wir Wert auf Inklusion und Vielfalt und wir praktizieren Fairness, um Chancengleichheit für alle zu schaffen. Wir bemühen uns sicherzustellen, dass alle qualifizierten Kandidaten für eine Beschäftigung in Betracht gezogen werden, ohne Unterschied in Bezug auf Alter, Rasse, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, Genetik und Gesundheit oder Behinderung.\n\nJeder unaufgeforderte Antrag von Personalvermittlern gilt als abgelehnt und stellt in keiner Weise ein Angebot einer Personalvermittlerin dar.",
-        "fr": "Plus de deux milliards de personnes font confiance à Schindler chaque jour. Notre expérience de longue date et notre esprit innovant nous positionnent en tant que leader dans le secteur suisse des ascenseurs et des escaliers mécaniques. En tant que membre de la famille Schindler, tu contribues à rendre les lieux plus accessibles, inclusifs et durables pour tous. Nous combinons innovation, sécurité ainsi qu'inclusion et diversité au sein de l'entreprise. Rejoins notre histoire de succès de 150 ans et façonne l'avenir de la mobilité.\n\nEnsemble, montons d'un étage:\n\nMonteur d'ascenseurs (h/f/d) 80-100%\n\nTa journée - ton plan ! Façonne ta semaine de 40 heures selon tes besoins. Ton outil moderne t'accompagne tout au long du processus. Pour en savoir plus, consulte cette vidéo\n\nTa nouvelle mission:\n\n• Montage autonome d'ascenseurs de A à Z, tant sur le plan mécanique qu'électrique\n\n• Planification et coordination de tes tâches avec les clients et les autres parties prenantes du chantier\n\n• Préparation de l’installation et ajustement fin jusqu'à l'acceptation interne\n\nTes qualités idéales:\n\n• Formation technique ou électrique terminée, par exemple en tant que mécanicien(ne), mécatronicien(ne) ou électricien(ne)\n\n• 1 à 2 ans d'expérience professionnelle dans le métier appris\n\n• Tu aimes travailler de manière autonome sur le chantier\n\n• Tu as une bonne forme physique et pas le vertige\n\n• Bonnes connaissances de la langue locale\n\n• Permis de conduire valable - indispensable\n\nNos avantages\n\n• Formation initiale de deux mois avec salaire complet dans notre Lift Camp pour une préparation optimale à ton nouveau poste.\n\n• Indemnisation pour tes repas de midi et le nettoyage de tes vêtements de travail, qui te sont bien sûr fournis gratuitement par nos soins.\n\n• Excellentes opportunités de développement: Le développement personnel est une réalité chez nous. Nous mettons à disposition de nos employés divers programmes de talents nationaux et internationaux et les soutenons, tant sur le plan temporel que financier, dans leur formation initiale et continue.\n\n• Équilibre travail-vie: Semaine de 40 heures, de 25 à 30 jours de vacances, horaires flexibles, possibilité de temps partiel et congés non payés.\n\n• Environnement de travail sain: Normes élevées de santé et de sécurité et gestion de la santé au travail propre à l'entreprise, incluant conseil social et promotion de la santé.\n\n• Avantages pour les employés: Participation à l'abonnement aux transports publics, réductions sur la flotte et primes d'assurance à tarif réduit ainsi que des « avantages d'entreprise ».\n\nLance maintenant ta carrière chez Schindler !\n\nEs-tu prêt à emprunter de nouvelles voies ? Rejoins le #TeamSchindler ! Pour toutes questions, tu peux contacter Simone Fianoau (+41) 414453750.\n\nPour plus d'informations, consulte: www.schindler.ch/karriere\n\nAu sein du groupe Schindler, nous valorisons l'inclusion et la diversité, et nous pratiquons l'équité pour créer des opportunités égales pour tous. Nous nous efforçons de veiller à ce que tous les candidats qualifiés soient pris en considération pour un emploi sans distinction d'âge, de race, d'origine ethnique, de couleur, d'affiliation religieuse, d'affiliation syndicale, de sexe, d'identité de genre, d'orientation sexuelle, d'état matrimonial, d'origine nationale, de nationalité, de génétique et santé ou handicap.\n\nToute candidature non sollicitée provenant d'agences de recrutement est considérée comme rejetée et ne constitue en aucun cas une offre de la part d'une agence de recrutement."
-      },
-      "location": "Fribourg",
-      "canton": "FR",
-      "url": "https://job.schindler.com/Schindler/job/Fribourg-Monteur-d'ascenseurs-%28hfd%29-80-100-Frib/1449033733/",
-      "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:18:58.999Z",
-      "addressLocality": "Fribourg",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industrial",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-19T00:00:00Z",
-      "postedDate": "2026-10-19T00:00:00Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://job.schindler.com/talentcommunity/apply/1449033733/?locale=fr_FR",
-      "jobReqId": "1449033733",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "monteur-d-ascenseurs-h-f-d-80-100-schindler-fribourg",
-        "elevator-mounting-h-f-d-80-100-schindler-fribourg",
-        "aufzuge-h-f-d-80-100-schindler-fribourg",
-        "editore-capo-m-f-d-80-100-schindler-fribourg",
-        "head-editor-m-f-d-80-100-schindler-fribourg",
-        "chefeditor-m-w-d-80-100-schindler-fribourg",
-        "chef-monteur-m-f-d-80-100-schindler-fribourg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "elevator-mounting-h-f-d-80-100-schindler-fribourg",
-          "aufzuge-h-f-d-80-100-schindler-fribourg",
-          "editore-capo-m-f-d-80-100-schindler-fribourg",
-          "head-editor-m-f-d-80-100-schindler-fribourg",
-          "chefeditor-m-w-d-80-100-schindler-fribourg",
-          "chef-monteur-m-f-d-80-100-schindler-fribourg"
-        ],
-        "en": [
-          "elevator-mounting-h-f-d-80-100-schindler-fribourg"
-        ],
-        "de": [
-          "aufzuge-h-f-d-80-100-schindler-fribourg"
-        ],
-        "fr": [
-          "monteur-d-ascenseurs-h-f-d-80-100-schindler-fribourg"
-        ]
-      },
-      "firstSeenAt": "2026-07-16T22:42:55.512Z",
-      "salaryMin": 77000,
-      "salaryMax": 116500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77000,
-          "maxValue": 116500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "1700",
-      "streetAddress": "Fribourg",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T09:18:58.999Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-86b7b701f51c",
@@ -10048,7 +10028,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:58.258Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-77e328639f49",
@@ -10128,7 +10109,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:18:57.523Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-c6f765471b8d",
@@ -10206,7 +10188,8 @@
       "streetAddress": "Steinach",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:18:56.768Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-a82d244bb274",
@@ -10384,7 +10367,8 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:18:55.242Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-5ce0113bb788",
@@ -10576,7 +10560,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:18:53.758Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-163870e9dc4c",
@@ -10662,7 +10647,8 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:18:53.011Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-7807a9a8ea51",
@@ -10839,7 +10825,8 @@
       "streetAddress": "Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:18:51.350Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-43239c3e6fdb",
@@ -10926,7 +10913,8 @@
       "streetAddress": "Schönbühl",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:18:50.529Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-ac50fb4b31b2",
@@ -11021,7 +11009,8 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T09:18:49.733Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-fdb3caacb117",
@@ -11186,7 +11175,8 @@
       "streetAddress": "Ebikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-24T09:18:48.175Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-237ee2a0669c",

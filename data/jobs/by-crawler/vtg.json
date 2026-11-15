@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-11-15T09:32:00.018Z",
+  "assembledAt": "2026-11-15T12:51:49.733Z",
   "runId": "43699011375",
   "jobs": [
     {
@@ -87,7 +87,8 @@
       "validThrough": "2027-02-11T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-xoudaw",
@@ -143,18 +144,63 @@
       "streetAddress": "Ueberlandstrasse 17",
       "previousSlugsByLocale": {
         "it": [
-          "logistiker-in-swiss-armed-forces-vtg-hinwil"
+          "logistiker-in-swiss-armed-forces-vtg-hinwil",
+          "impiegato-a-in-logistica-swiss-armed-forces-vtg-hinwil-552afda317",
+          "logistiker-in-swiss-armed-forces-vtg-bern",
+          "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern-mr5992",
+          "impiegato-a-in-logistica-swiss-armed-forces-vtg-hinwil",
+          "impiegato-a-in-logistica-swiss-armed-forces-vtg-hinwil-7567cd8ea1",
+          "logistiker-in-swiss-armed-forces-vtg-hinwil-kgv9qj",
+          "logistiker-in-confederazione-hinwil",
+          "impiegato-a-in-logistica-confederazione-svizzera-hinwil"
         ],
         "en": [
-          "logistiker-in-swiss-armed-forces-vtg-hinwil-xoudaw"
+          "logistiker-in-swiss-armed-forces-vtg-hinwil-xoudaw",
+          "logistics-specialist-swiss-armed-forces-vtg-hinwil-dc27cc",
+          "logistiker-in-swiss-armed-forces-vtg-bern-mr5992",
+          "logistiker-in-swiss-armed-forces-vtg-hinwil",
+          "logistics-specialist-swiss-armed-forces-vtg-hinwil",
+          "logistiker-in-confederazione-svizzera-hinwil",
+          "logistiker-in-swiss-armed-forces-vtg-hinwil-kgv9qj",
+          "logistics-specialist-confederazione-svizzera-hinwil"
         ],
         "fr": [
-          "logistiker-in-swiss-armed-forces-vtg-hinwil-xoudaw"
+          "logistiker-in-swiss-armed-forces-vtg-hinwil-xoudaw",
+          "logisticien-ne-swiss-armed-forces-vtg-hinwil-dc27cc",
+          "logistiker-in-swiss-armed-forces-vtg-bern-mr5992",
+          "logistiker-in-swiss-armed-forces-vtg-hinwil",
+          "logisticien-ne-swiss-armed-forces-vtg-hinwil",
+          "logistiker-in-confederazione-svizzera-hinwil",
+          "logistiker-in-swiss-armed-forces-vtg-hinwil-kgv9qj",
+          "logisticien-ne-confederazione-svizzera-hinwil"
+        ],
+        "de": [
+          "logistiker-in-swiss-armed-forces-vtg-hinwil",
+          "logistiker-in-swiss-armed-forces-vtg-bern-mr5992",
+          "logistiker-in-swiss-armed-forces-vtg-hinwil-kgv9qj",
+          "logistiker-in-confederazione-hinwil",
+          "logistiker-in-confederazione-svizzera-hinwil"
         ]
       },
       "previousSlugs": [
         "logistiker-in-swiss-armed-forces-vtg-hinwil",
-        "logistiker-in-swiss-armed-forces-vtg-hinwil-xoudaw"
+        "logistiker-in-swiss-armed-forces-vtg-hinwil-xoudaw",
+        "impiegato-a-in-logistica-swiss-armed-forces-vtg-hinwil-552afda317",
+        "logistiker-in-swiss-armed-forces-vtg-bern",
+        "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern-mr5992",
+        "impiegato-a-in-logistica-swiss-armed-forces-vtg-hinwil",
+        "logistics-specialist-swiss-armed-forces-vtg-hinwil-dc27cc",
+        "logistiker-in-swiss-armed-forces-vtg-bern-mr5992",
+        "logisticien-ne-swiss-armed-forces-vtg-hinwil-dc27cc",
+        "impiegato-a-in-logistica-swiss-armed-forces-vtg-hinwil-7567cd8ea1",
+        "logistiker-in-swiss-armed-forces-vtg-hinwil-kgv9qj",
+        "logistiker-in-confederazione-hinwil",
+        "impiegato-a-in-logistica-confederazione-svizzera-hinwil",
+        "logistics-specialist-swiss-armed-forces-vtg-hinwil",
+        "logistiker-in-confederazione-svizzera-hinwil",
+        "logistics-specialist-confederazione-svizzera-hinwil",
+        "logisticien-ne-swiss-armed-forces-vtg-hinwil",
+        "logisticien-ne-confederazione-svizzera-hinwil"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -350,7 +396,7 @@
     },
     {
       "id": "company-bjg7od",
-      "slug": "ingegnere-ingegnera-di-sistema-per-le-operazioni-elettroniche-segnali-swiss-armed-forces-vtg-zimmerwald-be",
+      "slug": "ingegnere-ingegnera-di-sistema-per-le-operazioni-elettroniche-segnali-swiss-armed-forces-vtg-wald",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Systemingenieur/-in elektronische Operationen (Signale)",
       "location": "Zimmerwald (BE)",
@@ -390,7 +436,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "ingegnere-ingegnera-di-sistema-per-le-operazioni-elettroniche-segnali-swiss-armed-forces-vtg-zimmerwald-be",
+        "it": "ingegnere-ingegnera-di-sistema-per-le-operazioni-elettroniche-segnali-swiss-armed-forces-vtg-wald",
         "en": "systems-engineer-electronic-operations-signals-swiss-armed-forces-vtg-zimmerwald-be",
         "de": "systemingenieur-in-elektronische-operationen-signale-swiss-armed-forces-vtg-wald",
         "fr": "ingenieur-e-systeme-en-operations-electroniques-signaux-swiss-armed-forces-vtg-zimmerwald-be"
@@ -404,7 +450,8 @@
         "it": [
           "systemingenieur-in-elektronische-operationen-signale-swiss-armed-forces-vtg-zimmerwald-be",
           "systemingenieur-in-elektronische-operationen-signale-swiss-armed-forces-vtg-zimmerwald-be-bjg7od",
-          "systemingenieur-in-elektronische-operationen-signale-swiss-armed-forces-vtg-wald"
+          "systemingenieur-in-elektronische-operationen-signale-swiss-armed-forces-vtg-wald",
+          "ingegnere-ingegnera-di-sistema-per-le-operazioni-elettroniche-segnali-swiss-armed-forces-vtg-zimmerwald-be"
         ],
         "en": [
           "systemingenieur-in-elektronische-operationen-signale-swiss-armed-forces-vtg-zimmerwald-be-bjg7od",
@@ -421,7 +468,8 @@
       "previousSlugs": [
         "systemingenieur-in-elektronische-operationen-signale-swiss-armed-forces-vtg-zimmerwald-be",
         "systemingenieur-in-elektronische-operationen-signale-swiss-armed-forces-vtg-zimmerwald-be-bjg7od",
-        "systemingenieur-in-elektronische-operationen-signale-swiss-armed-forces-vtg-wald"
+        "systemingenieur-in-elektronische-operationen-signale-swiss-armed-forces-vtg-wald",
+        "ingegnere-ingegnera-di-sistema-per-le-operazioni-elettroniche-segnali-swiss-armed-forces-vtg-zimmerwald-be"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -582,18 +630,42 @@
       "previousSlugsByLocale": {
         "it": [
           "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil",
-          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-tq6nuw"
+          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-tq6nuw",
+          "meccatronico-a-per-sistemi-d-arma-di-veicoli-corazzati-swiss-armed-forces-vtg-hinwil",
+          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-confederazione-hinwil",
+          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-4pi0qn",
+          "meccatronico-a-per-sistemi-d-arma-di-veicoli-corazzati-confederazione-svizzera-hinwil"
         ],
         "en": [
-          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-tq6nuw"
+          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-tq6nuw",
+          "mechatronics-technician-armoured-vehicle-weapon-systems-swiss-armed-forces-vtg-hinwil",
+          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-confederazione-hinwil",
+          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-4pi0qn",
+          "mechatronics-technician-armoured-vehicle-weapon-systems-confederazione-svizzera-hinwil"
         ],
         "fr": [
-          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-tq6nuw"
+          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-tq6nuw",
+          "mecatronicien-ne-pour-systemes-d-armes-de-vehicules-blindes-swiss-armed-forces-vtg-hinwil",
+          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-confederazione-hinwil",
+          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-4pi0qn",
+          "mecatronicien-ne-pour-systemes-d-armes-de-vehicules-blindes-confederazione-svizzera-hinwil"
+        ],
+        "de": [
+          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-4pi0qn",
+          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-confederazione-hinwil"
         ]
       },
       "previousSlugs": [
         "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil",
-        "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-tq6nuw"
+        "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-tq6nuw",
+        "meccatronico-a-per-sistemi-d-arma-di-veicoli-corazzati-swiss-armed-forces-vtg-hinwil",
+        "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-confederazione-hinwil",
+        "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-4pi0qn",
+        "meccatronico-a-per-sistemi-d-arma-di-veicoli-corazzati-confederazione-svizzera-hinwil",
+        "mechatronics-technician-armoured-vehicle-weapon-systems-swiss-armed-forces-vtg-hinwil",
+        "mechatronics-technician-armoured-vehicle-weapon-systems-confederazione-svizzera-hinwil",
+        "mecatronicien-ne-pour-systemes-d-armes-de-vehicules-blindes-swiss-armed-forces-vtg-hinwil",
+        "mecatronicien-ne-pour-systemes-d-armes-de-vehicules-blindes-confederazione-svizzera-hinwil"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -876,7 +948,7 @@
     },
     {
       "id": "company-lpxvhf",
-      "slug": "ict-berater-in-junior-cyber-training-center-swiss-armed-forces-vtg-bern-lpxvhf",
+      "slug": "consulente-ict-junior-cyber-training-center-swiss-armed-forces-vtg-bern",
       "company": "Swiss Armed Forces (VTG)",
       "title": "ICT-Berater/-in Junior Cyber Training Center",
       "location": "Bern",
@@ -916,7 +988,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "ict-berater-in-junior-cyber-training-center-swiss-armed-forces-vtg-bern-lpxvhf",
+        "it": "consulente-ict-junior-cyber-training-center-swiss-armed-forces-vtg-bern",
         "en": "ict-consultant-junior-cyber-training-center-swiss-armed-forces-vtg-bern-lpxvhf",
         "de": "ict-berater-in-junior-cyber-training-center-swiss-armed-forces-vtg-bern-lpxvhf",
         "fr": "conseiller-ere-ict-junior-cyber-training-center-swiss-armed-forces-vtg-bern-lpxvhf"
@@ -928,11 +1000,13 @@
       "streetAddress": "Stauffacherstrasse 65",
       "previousSlugsByLocale": {
         "it": [
-          "ict-berater-in-junior-cyber-training-center-swiss-armed-forces-vtg-bern"
+          "ict-berater-in-junior-cyber-training-center-swiss-armed-forces-vtg-bern",
+          "ict-berater-in-junior-cyber-training-center-swiss-armed-forces-vtg-bern-lpxvhf"
         ]
       },
       "previousSlugs": [
-        "ict-berater-in-junior-cyber-training-center-swiss-armed-forces-vtg-bern"
+        "ict-berater-in-junior-cyber-training-center-swiss-armed-forces-vtg-bern",
+        "ict-berater-in-junior-cyber-training-center-swiss-armed-forces-vtg-bern-lpxvhf"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -1298,7 +1372,7 @@
     },
     {
       "id": "company-tdwj0g",
-      "slug": "data-scientist-analista-in-professional-swiss-armed-forces-vtg-zimmerwald-be-tdwj0g",
+      "slug": "data-scientist-analista-professionista-swiss-armed-forces-vtg-wald",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Data Scientist / Analyst/-in Professional",
       "location": "Zimmerwald (BE)",
@@ -1338,7 +1412,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "data-scientist-analista-in-professional-swiss-armed-forces-vtg-zimmerwald-be-tdwj0g",
+        "it": "data-scientist-analista-professionista-swiss-armed-forces-vtg-wald",
         "en": "data-scientist-analista-professionista-swiss-armed-forces-vtg-zimmerwald-be",
         "de": "data-scientist-analyst-in-professional-swiss-armed-forces-vtg-wald",
         "fr": "data-scientist-analyste-in-professional-swiss-armed-forces-vtg-zimmerwald-be-tdwj0g"
@@ -1350,7 +1424,8 @@
       "streetAddress": "Eichacher",
       "previousSlugsByLocale": {
         "it": [
-          "data-scientist-analyst-in-professional-swiss-armed-forces-vtg-zimmerwald-be"
+          "data-scientist-analyst-in-professional-swiss-armed-forces-vtg-zimmerwald-be",
+          "data-scientist-analista-in-professional-swiss-armed-forces-vtg-zimmerwald-be-tdwj0g"
         ],
         "en": [
           "data-scientist-analyst-in-professional-swiss-armed-forces-vtg-zimmerwald-be-tdwj0g",
@@ -1363,7 +1438,8 @@
       "previousSlugs": [
         "data-scientist-analyst-in-professional-swiss-armed-forces-vtg-zimmerwald-be",
         "data-scientist-analyst-in-professional-swiss-armed-forces-vtg-zimmerwald-be-tdwj0g",
-        "data-scientist-analyst-in-professional-swiss-armed-forces-vtg-wald"
+        "data-scientist-analyst-in-professional-swiss-armed-forces-vtg-wald",
+        "data-scientist-analista-in-professional-swiss-armed-forces-vtg-zimmerwald-be-tdwj0g"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -1381,7 +1457,8 @@
       "validThrough": "2027-02-07T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 73000,
-      "salaryMax": 124500
+      "salaryMax": 124500,
+      "needsRetranslation": true
     },
     {
       "id": "company-4m1gfq",
@@ -1553,7 +1630,8 @@
       "validThrough": "2027-02-07T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-j1k1ww",
@@ -4494,7 +4572,8 @@
       "validThrough": "2027-01-27T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 41600,
-      "salaryMax": 63000
+      "salaryMax": 63000,
+      "needsRetranslation": true
     },
     {
       "id": "company-81u8bt",
@@ -5674,7 +5753,8 @@
       "validThrough": "2027-01-21T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 113000,
-      "salaryMax": 192000
+      "salaryMax": 192000,
+      "needsRetranslation": true
     },
     {
       "id": "company-aepdzp",
@@ -6018,7 +6098,8 @@
       "validThrough": "2027-01-18T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-9ygfnn",
@@ -6749,7 +6830,8 @@
       "validThrough": "2027-01-14T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-m1be64",
@@ -7037,7 +7119,8 @@
       "validThrough": "2027-01-12T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-hsfik1",
@@ -7139,7 +7222,8 @@
       "validThrough": "2027-01-12T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 69500,
-      "salaryMax": 106000
+      "salaryMax": 106000,
+      "needsRetranslation": true
     },
     {
       "id": "company-mdmvrn",
@@ -7870,7 +7954,8 @@
       "validThrough": "2026-12-15T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-j9ms0y",
@@ -7952,7 +8037,8 @@
       "validThrough": "2026-12-15T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-btli50",
@@ -8092,7 +8178,23 @@
       "validThrough": "2026-12-15T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 57000,
-      "salaryMax": 97000
+      "salaryMax": 97000,
+      "previousSlugsByLocale": {
+        "it": [
+          "apprendista-elektroniker-in-cfc-confederazione-svizzera-payerne"
+        ],
+        "en": [
+          "apprentice-electronics-technician-efz-confederazione-svizzera-payerne"
+        ],
+        "fr": [
+          "technicien-en-electronique-des-apprentis-efz-confederazione-svizzera-payerne"
+        ]
+      },
+      "previousSlugs": [
+        "apprendista-elektroniker-in-cfc-confederazione-svizzera-payerne",
+        "apprentice-electronics-technician-efz-confederazione-svizzera-payerne",
+        "technicien-en-electronique-des-apprentis-efz-confederazione-svizzera-payerne"
+      ]
     },
     {
       "id": "company-tav9y4",
@@ -8170,7 +8272,8 @@
       "validThrough": "2026-12-15T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 51100,
-      "salaryMax": 77500
+      "salaryMax": 77500,
+      "needsRetranslation": true
     },
     {
       "id": "company-8c6eax",
@@ -8338,7 +8441,8 @@
       "validThrough": "2026-12-15T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-5wza8v",
@@ -8408,7 +8512,8 @@
       "validThrough": "2026-12-15T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 51000,
-      "salaryMax": 77500
+      "salaryMax": 77500,
+      "needsRetranslation": true
     },
     {
       "id": "company-80n2e",
@@ -8490,7 +8595,8 @@
       "validThrough": "2026-12-15T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-714i40",
@@ -8578,7 +8684,8 @@
       "validThrough": "2026-12-15T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 57000,
-      "salaryMax": 97000
+      "salaryMax": 97000,
+      "needsRetranslation": true
     },
     {
       "id": "company-kkjror",
@@ -8648,7 +8755,8 @@
       "validThrough": "2026-12-15T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-mtg9df",
@@ -8868,7 +8976,8 @@
       "validThrough": "2026-12-15T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-8pukbt",
@@ -9018,7 +9127,8 @@
       "validThrough": "2026-12-15T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-jo0e5a",
@@ -9238,7 +9348,8 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-19T23:13:49.649Z",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-b1yojb",
@@ -9466,7 +9577,8 @@
       "validThrough": "2026-12-15T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-63pew",
@@ -9616,7 +9728,8 @@
       "validThrough": "2026-12-15T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 58500,
-      "salaryMax": 89000
+      "salaryMax": 89000,
+      "needsRetranslation": true
     },
     {
       "id": "company-xjg8t9",
@@ -9756,7 +9869,8 @@
       "validThrough": "2026-12-15T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 51000,
-      "salaryMax": 77500
+      "salaryMax": 77500,
+      "needsRetranslation": true
     },
     {
       "id": "company-amcdbu",
@@ -9974,7 +10088,8 @@
       "validThrough": "2026-12-15T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 52000,
-      "salaryMax": 78500
+      "salaryMax": 78500,
+      "needsRetranslation": true
     },
     {
       "id": "company-pi3gq2",
@@ -10044,7 +10159,8 @@
       "validThrough": "2026-12-15T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 58500,
-      "salaryMax": 89000
+      "salaryMax": 89000,
+      "needsRetranslation": true
     },
     {
       "id": "company-tofvru",
@@ -10142,76 +10258,6 @@
       "validThroughSource": "last-observed-window",
       "salaryMin": 68500,
       "salaryMax": 104000
-    },
-    {
-      "id": "company-g1lxjh",
-      "slug": "apprendista-elektroniker-in-cfc-confederazione-svizzera-payerne",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Lernende/-r Elektroniker/-in EFZ",
-      "location": "Payerne",
-      "canton": "VD",
-      "category": "tech",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "## Auf den Punkt gebracht\n\nMit einer Lehre im Ausbildungszentrum des Flugplatzkommandos Payerne kannst du deine technischen Fähigkeiten weiterentwickeln und an modernen Instrumenten einsetzen. Dank einer voll und ganz auf die Ausbildung ausgerichteten, professionellen Betreuung und deiner Motivation steht deinem Erfolg in der Lehre nichts im Weg.\n\n- Eintrittsdatum: 15.08.2026\n- Anstellungsart: befristet\n- Referenz-Nr.: JRQ$540-15681\n- Arbeitsort: Caserne DCA, 1530 Payerne\n\nDiesen Beitrag kannst du leisten\n\n- Alle für die Elektronik relevanten Grundfertigkeiten erlernen: Elektronische Schaltkreise planen, herstellen, messen und prüfen sowie Software programmieren\n\n- Elektronische Prototypen, elektronische Schaltungen, Testkonzepte und Embedded Software entwickeln\n\n- Probleme anhand von Algorithmen (Prozesslogik) lösen\n\n- Fachbereiche wie die Datenübermittlung, Systemkommunikation, Netzverwaltung und Robotik kennenlernen\n\nDas macht dich einzigartig\n\n- Sekundarschulabschluss oder gleichwertige Schulbildung\n\n- Interesse an Technologie und insbesondere an Elektronik\n\n- Logisches Denkvermögen und handwerkliches Geschick\n\n- Motivation und Fähigkeit dafür, abstrakte Probleme zu lösen\n\n- Lösungsorientierte Arbeitsweise\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nVielfalt, Dynamik, Perspektiven – Lehrberufe der Schweizer Armee\nDas Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.\n\n## Zusätzliche Informationen\n\nHaben wir dein Interesse für diese Ausbildung geweckt? Dann freuen wir uns auf deine Bewerbungsunterlagen mit Motivationsschreiben, Lebenslauf und Schulzeugnissen der letzten zwei Jahre bis am 24. Oktober 2025.\nEine Lehre bei der Schweizer Armee macht Sinn und bringt viele Vorteile mit sich. Überzeuge dich auf armee.ch/lehre.",
-      "requirements": [],
-      "featured": false,
-      "datePosted": "2025-08-07T22:00:00Z",
-      "postedDate": "2025-08-07T22:00:00Z",
-      "postingDateSource": "reported",
-      "url": "https://jobs.admin.ch/offene-stellen/lernende-r-elektroniker-in-efz/4ecc825f-594a-462b-8082-0971eedb621e",
-      "applyUrl": "https://jobs.admin.ch/offene-stellen/lernende-r-elektroniker-in-efz/4ecc825f-594a-462b-8082-0971eedb621e",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Payerne",
-        "canton": "VD"
-      },
-      "companyKey": "swiss-armed-forces-vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-11-15T09:30:21.698Z",
-      "firstSeenAt": "2026-09-19T23:13:49.649Z",
-      "slugByLocale": {
-        "it": "apprendista-elektroniker-in-cfc-confederazione-svizzera-payerne",
-        "en": "apprentice-electronics-technician-efz-confederazione-svizzera-payerne",
-        "de": "lernende-r-elektroniker-in-efz-confederazione-payerne",
-        "fr": "technicien-en-electronique-des-apprentis-efz-confederazione-svizzera-payerne"
-      },
-      "titleByLocale": {
-        "it": "Apprendista/a elettronico/a AFC",
-        "en": "Apprentice electronics technician EFZ",
-        "de": "Lernende/-r Elektroniker/-in EFZ",
-        "fr": "Apprenti (e) électronicien (ne) CFC"
-      },
-      "descriptionByLocale": {
-        "it": "## Metti al punto\n\nCon un apprendistato nel centro di formazione del comando Payerne, puoi sviluppare ulteriormente le tue abilità tecniche e utilizzarle su strumenti moderni. Grazie a un supporto professionale e pienamente orientato e alla vostra motivazione, nulla sta nel modo del vostro successo nell'insegnamento.\n\n- Data di entrata: 15.08.2026\n- Tipo di lavoro: temporaneo\n- Numero di riferimento: JRQ$540-15681\n- Ubicazione: Caserne DCA, 1530 Payerne\n\nPuoi dare questo contributo\n\n- Scopri tutte le competenze di base rilevanti per l'elettronica: pianificare, produrre, misurare e testare circuiti elettronici e software di programma\n\n- Sviluppare prototipi elettronici, circuiti elettronici, concetti di test e software incorporato\n\n- Risolvere problemi utilizzando algoritmi (logiche di processo)\n\n- Scopri aree specialistiche come la trasmissione dei dati, la comunicazione di sistema, la gestione della rete e la robotica\n\nQuesto ti rende unico\n\n- Istruzione secondaria o equivalente\n\n- Interessi tecnologici e soprattutto elettronici\n\n- Il pensiero logico e l'artigianato\n\n- Motivazione e capacità di risolvere problemi astratti\n\n- Metodo di lavoro orientato alla soluzione\n\nOffriamo questo\n\n- Siamo impegnati al modello di successo Svizzera e lavoriamo a beneficio della popolazione.\n\n- Grazie alle pari opportunità, sviluppiamo le nostre competenze e realizziamo prospettive diverse.\n\n- Salute sul lavoro Sosteniamo e consigliamo i nostri dipendenti nel campo della salute fisica e mentale.\n\nDiversità, dinamismo, prospettive – professioni didattiche dell'esercito svizzero\nLe operazioni di comando (Kdo Op) sono responsabili di tutte le operazioni e le operazioni militari dell'esercito svizzero. Il Kdo Op include la Luftwaffe, l'esercito, le quattro divisioni territoriali, il SWISSINT Competence Center, il Comando delle Forze Speciali e la Polizia Militare. Circa il 40% dei circa 2.500 dipendenti sono dipendenti civili – dagli ingegneri alla meccanica degli aeromobili agli analisti.\n\nL'esercito svizzero impiega più di 9.000 persone in quattro militari e circa 200 occupazioni civili – in 110 sedi in tutta la Svizzera. La prossima generazione si occupa anche di: L'esercito svizzero addestra gli studenti in più di 30 professioni.\n\n## Ulteriori informazioni\n\nAbbiamo suscitato il vostro interesse in questa formazione? Quindi non vediamo l'ora che i vostri documenti di domanda con lettera di motivazione, CV e certificati scolastici dagli ultimi due anni fino al 24. Ottobre 2025.\nUn apprendistato con l'esercito svizzero ha senso e porta molti vantaggi. Convincetevi di Army.ch/Lehre.",
-        "en": "## Put to the Point\n\nWith an apprenticeship in the training center of the Payerne airfield command, you can further develop your technical skills and use them on modern instruments. Thanks to a fully oriented, professional support and your motivation, nothing stands in the way of your success in teaching.\n\n- Entry date: 15.08.2026\n- Type of employment: temporary\n- Reference No: JRQ$540-15681\n- Location: Caserne DCA, 1530 Payerne\n\nYou can make this contribution\n\n- Learn all basic skills relevant to electronics: plan, manufacture, measure and test electronic circuits and program software\n\n- Develop electronic prototypes, electronic circuits, test concepts and embedded software\n\n- Solving problems using algorithms (process logic)\n\n- Get to know specialist areas such as data transmission, system communication, network management and robotics\n\nThis makes you unique\n\n- Secondary or equivalent education\n\n- Interest in technology and especially electronics\n\n- Logical thinking and craftsmanship\n\n- Motivation and ability to solve abstract problems\n\n- Solution-oriented working method\n\nWe offer this\n\n- We are committed to the success model Switzerland and work for the benefit of the population.\n\n- Thanks to equal opportunities, we develop our skills and bring in different perspectives.\n\n- Healthy at work We support and advise our employees in the field of physical and mental health.\n\nDiversity, dynamism, perspectives – teaching professions of the Swiss Army\nThe Command Operations (Kdo Op) is responsible for all military operations and operations of the Swiss Army. The Kdo Op includes the Luftwaffe, the Army, the four territorial divisions, the SWISSINT Competence Center, the Special Forces Command and the Military Police. Around 40% of the approximately 2,500 employees are civil employees – from engineers to aircraft mechanics to analysts.\n\nThe Swiss Army employs more than 9,000 people in four military and around 200 civilian occupations – at 110 locations throughout Switzerland. The next generation is also taken care of: The Swiss Army trains learners in more than 30 professions.\n\n## Additional information\n\nHave we aroused your interest in this education? Then we look forward to your application documents with motivation letter, CV and school certificates from the last two years until the 24th. October 2025.\nAn apprenticeship with the Swiss army makes sense and brings many advantages. Convince yourself of Army.ch/Lehre.",
-        "de": "## Auf den Punkt gebracht\n\nMit einer Lehre im Ausbildungszentrum des Flugplatzkommandos Payerne kannst du deine technischen Fähigkeiten weiterentwickeln und an modernen Instrumenten einsetzen. Dank einer voll und ganz auf die Ausbildung ausgerichteten, professionellen Betreuung und deiner Motivation steht deinem Erfolg in der Lehre nichts im Weg.\n\n- Eintrittsdatum: 15.08.2026\n- Anstellungsart: befristet\n- Referenz-Nr.: JRQ$540-15681\n- Arbeitsort: Caserne DCA, 1530 Payerne\n\nDiesen Beitrag kannst du leisten\n\n- Alle für die Elektronik relevanten Grundfertigkeiten erlernen: Elektronische Schaltkreise planen, herstellen, messen und prüfen sowie Software programmieren\n\n- Elektronische Prototypen, elektronische Schaltungen, Testkonzepte und Embedded Software entwickeln\n\n- Probleme anhand von Algorithmen (Prozesslogik) lösen\n\n- Fachbereiche wie die Datenübermittlung, Systemkommunikation, Netzverwaltung und Robotik kennenlernen\n\nDas macht dich einzigartig\n\n- Sekundarschulabschluss oder gleichwertige Schulbildung\n\n- Interesse an Technologie und insbesondere an Elektronik\n\n- Logisches Denkvermögen und handwerkliches Geschick\n\n- Motivation und Fähigkeit dafür, abstrakte Probleme zu lösen\n\n- Lösungsorientierte Arbeitsweise\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nVielfalt, Dynamik, Perspektiven – Lehrberufe der Schweizer Armee\nDas Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.\n\n## Zusätzliche Informationen\n\nHaben wir dein Interesse für diese Ausbildung geweckt? Dann freuen wir uns auf deine Bewerbungsunterlagen mit Motivationsschreiben, Lebenslauf und Schulzeugnissen der letzten zwei Jahre bis am 24. Oktober 2025.\nEine Lehre bei der Schweizer Armee macht Sinn und bringt viele Vorteile mit sich. Überzeuge dich auf armee.ch/lehre.",
-        "fr": "## Mettre au point\n\nAvec un apprentissage dans le centre de formation de l'aérodrome de Payerne, vous pouvez développer vos compétences techniques et les utiliser sur des instruments modernes. Grâce à un soutien professionnel et à votre motivation, rien n'empêche votre réussite dans l'enseignement.\n\n- Date d'entrée: 15.08.2026\n- Type d'emploi: temporaire\n- Numéro de référence: JRQ540-15681$\n- Lieu: Caserne DCA, 1530 Payerne\n\nVous pouvez faire cette contribution\n\n- Apprendre toutes les compétences de base en électronique: planifier, fabriquer, mesurer et tester les circuits électroniques et les logiciels de programme\n\n- Développer des prototypes électroniques, des circuits électroniques, des concepts de test et des logiciels intégrés\n\n- Résoudre les problèmes en utilisant des algorithmes ( logique de processus)\n\n- Apprenez à connaître des domaines spécialisés comme la transmission de données, la communication de systèmes, la gestion de réseaux et la robotique\n\nCela vous rend unique\n\n- Enseignement secondaire ou équivalent\n\n- Intérêt pour la technologie et surtout l'électronique\n\n- Pensée logique et artisanat\n\n- Motivation et capacité à résoudre des problèmes abstraits\n\n- Méthode de travail axée sur la solution\n\nNous offrons ceci\n\n- Nous sommes attachés au modèle de réussite Suisse et travaillons au bénéfice de la population.\n\n- Grâce à l'égalité des chances, nous développons nos compétences et apportons différentes perspectives.\n\n- Santé au travail Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\nDiversité, dynamisme, perspectives – professions enseignantes de l'armée suisse\nLes opérations de commandement (Kdo Op) sont responsables de toutes les opérations militaires de l'armée suisse. L'opération Kdo comprend la Luftwaffe, l'armée, les quatre divisions territoriales, le Centre de compétence SWISSINT, le Commandement des forces spéciales et la police militaire. Environ 40 % des quelque 2 500 employés sont des employés civils – des ingénieurs aux mécaniciens d'aéronefs aux analystes.\n\nL'armée suisse emploie plus de 9 000 personnes dans quatre professions militaires et environ 200 emplois civils – dans 110 localités à travers la Suisse. La prochaine génération est également prise en charge: L'Armée suisse forme les apprenants dans plus de 30 professions.\n\n## Informations complémentaires\n\nAvons-nous suscité votre intérêt pour cette éducation? Ensuite, nous attendons avec impatience vos documents de candidature avec lettre de motivation, CV et certificats scolaires des deux dernières années jusqu'au 24ème. Octobre 2025.\nUn apprentissage avec l'armée suisse a du sens et apporte de nombreux avantages. Convainquez-vous de Army.ch/Lehre."
-      },
-      "requirementsByLocale": {},
-      "sourceLang": "de",
-      "postalCode": "1530",
-      "addressLocality": "Payerne",
-      "addressRegion": "VD",
-      "streetAddress": "Caserne DCA",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57000,
-          "maxValue": 97000,
-          "unitText": "YEAR"
-        }
-      },
-      "employmentType": "FULL_TIME",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:30:21.698Z",
-      "validThroughSource": "last-observed-window",
-      "salaryMin": 57000,
-      "salaryMax": 97000
     },
     {
       "id": "company-r2ylxp",
@@ -10932,7 +10978,8 @@
       "validThrough": "2026-12-15T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-k7or6f",
@@ -11129,7 +11176,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern",
+        "it": "responsabile-del-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern",
         "en": "chief-of-the-tacical-danson-center-chief-tec-swiss-armed-forces-vtg-bern",
         "de": "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
         "fr": "centre-des-effets-tactiques-chef-tec-swiss-armed-forces-vtg-bern"
@@ -11138,7 +11185,8 @@
       "previousSlugsByLocale": {
         "it": [
           "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern"
+          "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern",
+          "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
         ],
         "en": [
           "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz"
@@ -11149,7 +11197,8 @@
       },
       "previousSlugs": [
         "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern-6ugojz",
-        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern"
+        "chef-in-tactical-effects-center-chief-tec-swiss-armed-forces-vtg-bern",
+        "centro-di-effetti-tattici-capo-cce-capo-swiss-armed-forces-vtg-bern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -11430,7 +11479,8 @@
       "validThrough": "2026-12-15T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 85000,
-      "salaryMax": 119000
+      "salaryMax": 119000,
+      "needsRetranslation": true
     },
     {
       "id": "company-6gmxu3",
@@ -12730,98 +12780,8 @@
       "validThrough": "2026-12-15T09:30:21.698Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 68500,
-      "salaryMax": 104000
-    },
-    {
-      "id": "company-mr5992",
-      "slug": "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern-mr5992",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Logistiker/-in",
-      "location": "Hinwil",
-      "canton": "ZH",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "## Auf den Punkt gebracht\n\nAls Schlüsselfunktion sorgst du für das einwandfreie Funktionieren unserer Annahme, die Lagerung, den Versand und die Zustellung sowie die Übergabe von Armeematerial in deinem zugewiesenen Fachgebiet.\n\n- Eintrittsdatum: nach Vereinbarung\n- Anstellungsart: unbefristet\n- Referenz-Nr.: JRQ$540-20875\n- Arbeitsort: Ueberlandstrasse 17, 8340 Hinwil\n\nDiesen Beitrag kannst du leisten\n\n- Material und Munition fachgerecht aus-, ein- und umlagern, inventarisieren und gemäss den geltenden Vorgaben bereitstellen\n\n- Fachgerechte Koordination und Führung von zivilen sowie militärischen Personal, zugunsten einer termingerechten Abgabe bzw. Rücknahme von militärischen Gütern\n\n- Als Bindeglied zwischen Armeelogistikcenter und militärischen bzw. zivilen Leistungsbezügern auftreten\n\n- Durchführen von Rundgängen sowie Überwachungs- und Kontrolltätigkeiten an militärischen Infrastrukturen, Bereitschaft zur Ausführung von Arbeiten ausserhalb der regulären Arbeitszeiten\n\n- Bewaffneten Dienst sowie Pikettdienst gemäss unseren Aufträgen und Vorgaben leisten\n\n- Fähigkeit für das Arbeiten in geschlossenen Räumen und Felsanlagen\n\nDas macht dich einzigartig\n\n- Abgeschlossene Berufslehre als Logistiker/-in EFZ\n\n- Ausgeprägte Dienstleistungsorientierung im Kontakt mit der Truppe sowie bei deren fachlichen Beratung\n\n- Selbständige, effiziente und zuverlässige Arbeitsweise mit ausgeprägtem Organisationstalent\n\n- Führerausweis der Kategorien B, BE und C zwingend, CE und F von Vorteil\n\n- Gute Kenntnisse in SAP (S4/HANA) sowie sichere Anwenderkenntnisse der MS Office Produkte\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nDein Einsatz für Sicherheit und Freiheit\nDie Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da. Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3'500 Mitarbeitenden und 12'000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee. Ob in der Werkstatt oder im Büro, ob drinnen oder draussen: Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen. Bei uns ist für alle etwas dabei.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.\n\n## Zusätzliche Informationen\n\nEine Anstellung bei der Schweizer Armee macht Sinn und bringt viele Vorteile mit sich. Überzeuge dich auf armee.ch/vorteile.\nAngebote von Personalvermittlern werden nicht berücksichtigt.\n\nFrauen sind in unserer Verwaltungseinheit noch untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
-      "requirements": [],
-      "featured": false,
-      "datePosted": "2026-11-12",
-      "postedDate": "2026-11-12",
-      "postingDateSource": "reported",
-      "url": "https://jobs.admin.ch/offene-stellen/logistiker-in/02afa05f-c90d-484f-98bf-663d22d2035b",
-      "applyUrl": "https://jobs.admin.ch/offene-stellen/logistiker-in/02afa05f-c90d-484f-98bf-663d22d2035b",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Rikon",
-        "canton": "ZH"
-      },
-      "companyKey": "swiss-armed-forces-vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-11-12T21:37:39.904Z",
-      "firstSeenAt": "2026-10-09T21:40:49.232Z",
-      "titleByLocale": {
-        "de": "Logistiker/-in",
-        "it": "Impiegato/a in logistica",
-        "en": "Logistics Specialist",
-        "fr": "Logisticien/-ne"
-      },
-      "descriptionByLocale": {
-        "de": "## Auf den Punkt gebracht\n\nAls Schlüsselfunktion sorgst du für das einwandfreie Funktionieren unserer Annahme, die Lagerung, den Versand und die Zustellung sowie die Übergabe von Armeematerial in deinem zugewiesenen Fachgebiet.\n\n- Eintrittsdatum: nach Vereinbarung\n- Anstellungsart: unbefristet\n- Referenz-Nr.: JRQ$540-20875\n- Arbeitsort: Ueberlandstrasse 17, 8340 Hinwil\n\nDiesen Beitrag kannst du leisten\n\n- Material und Munition fachgerecht aus-, ein- und umlagern, inventarisieren und gemäss den geltenden Vorgaben bereitstellen\n\n- Fachgerechte Koordination und Führung von zivilen sowie militärischen Personal, zugunsten einer termingerechten Abgabe bzw. Rücknahme von militärischen Gütern\n\n- Als Bindeglied zwischen Armeelogistikcenter und militärischen bzw. zivilen Leistungsbezügern auftreten\n\n- Durchführen von Rundgängen sowie Überwachungs- und Kontrolltätigkeiten an militärischen Infrastrukturen, Bereitschaft zur Ausführung von Arbeiten ausserhalb der regulären Arbeitszeiten\n\n- Bewaffneten Dienst sowie Pikettdienst gemäss unseren Aufträgen und Vorgaben leisten\n\n- Fähigkeit für das Arbeiten in geschlossenen Räumen und Felsanlagen\n\nDas macht dich einzigartig\n\n- Abgeschlossene Berufslehre als Logistiker/-in EFZ\n\n- Ausgeprägte Dienstleistungsorientierung im Kontakt mit der Truppe sowie bei deren fachlichen Beratung\n\n- Selbständige, effiziente und zuverlässige Arbeitsweise mit ausgeprägtem Organisationstalent\n\n- Führerausweis der Kategorien B, BE und C zwingend, CE und F von Vorteil\n\n- Gute Kenntnisse in SAP (S4/HANA) sowie sichere Anwenderkenntnisse der MS Office Produkte\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nDein Einsatz für Sicherheit und Freiheit\nDie Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da. Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3'500 Mitarbeitenden und 12'000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee. Ob in der Werkstatt oder im Büro, ob drinnen oder draussen: Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen. Bei uns ist für alle etwas dabei.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.\n\n## Zusätzliche Informationen\n\nEine Anstellung bei der Schweizer Armee macht Sinn und bringt viele Vorteile mit sich. Überzeuge dich auf armee.ch/vorteile.\nAngebote von Personalvermittlern werden nicht berücksichtigt.\n\nFrauen sind in unserer Verwaltungseinheit noch untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
-        "it": "## Metti al punto\n\nCome funzione chiave, vi assicurerete il corretto funzionamento della nostra accettazione, stoccaggio, spedizione e consegna, nonché la consegna delle attrezzature dell'esercito nella vostra area di competenza assegnata.\n\n- Data di entrata: d'intesa\n- Tipo di lavoro: perpetuo\n- Numero di riferimento: JRQ$540-20875\n- Luogo di lavoro: Überlandstrasse 17, 8340 Hinwil\n\nPuoi dare questo contributo\n\n- Rimuovere, immagazzinare e spostare i materiali e munizioni professionalmente, inventario loro e fornire loro in conformità con le specifiche applicabili\n\n- Coordinamento professionale e comando del personale civile e militare, a favore di una consegna tempestiva o Take-back di attrezzature militari\n\n- Agire come collegamento tra il centro logistico dell'esercito e i pagatori militari o civili\n\n- Eseguire tour e attività di monitoraggio e controllo sulle infrastrutture militari, disponibilità a svolgere lavori al di fuori delle ore di lavoro regolari\n\n- Fornire servizio armato e servizio pikett in conformità con i nostri ordini e specifiche\n\n- Capacità di lavorare in spazi chiusi e installazioni rocciose\n\nQuesto ti rende unico\n\n- Apprendistato professionale completo come logistico/in EFZ\n\n- Pronunciato orientamento di servizio a contatto con le truppe e nella loro consulenza professionale\n\n- Metodi di lavoro indipendenti, efficienti e affidabili con un forte talento organizzativo\n\n- Patente di guida obbligatoria di categorie B, BE e C, CE e F vantaggiosa\n\n- Buona conoscenza di SAP (S4/HANA) e la conoscenza sicura dei prodotti MS Office\n\nOffriamo questo\n\n- Siamo impegnati al modello di successo Svizzera e lavoriamo a beneficio della popolazione.\n\n- Grazie alle pari opportunità, sviluppiamo le nostre competenze e realizziamo prospettive diverse.\n\n- Salute sul lavoro Sosteniamo e consigliamo i nostri dipendenti nel campo della salute fisica e mentale.\n\nIl vostro impegno per la sicurezza e la libertà\nLa base logistica dell'esercito svizzero (LBA) è lì per la forza. Fornisce tutti i servizi logistici per l'esercito svizzero e gestisce i materiali, i sistemi e le infrastrutture dell'esercito svizzero con i suoi circa 3'500 dipendenti e 12.000 membri della milizia. Sia nel laboratorio o in ufficio, all'interno o all'esterno: L'LBA offre una vasta gamma di posti di lavoro in tutta la Svizzera. Abbiamo qualcosa per tutti.\n\nL'esercito svizzero impiega più di 9.000 persone in quattro militari e circa 200 occupazioni civili – in 110 sedi in tutta la Svizzera. Fornito anche per la prole: L'esercito svizzero addestra gli studenti in più di 30 professioni.\n\n## Ulteriori informazioni\n\nSvuotare l'esercito svizzero ha senso e porta molti vantaggi. Convincetevi di Army.ch/vantages.\nLe offerte dei reclutatori non sono prese in considerazione.\n\nLe donne sono ancora sottorappresentate nella nostra unità amministrativa. Le vostre applicazioni sono quindi particolarmente gradite.",
-        "en": "## Put to the Point\n\nAs a key function, you will ensure the proper functioning of our acceptance, storage, shipping and delivery, as well as handover of Army equipment in your assigned area of expertise.\n\n- Entry date: by agreement\n- Type of employment: perpetual\n- Reference No: JRQ$540-20875\n- Place of work: Überlandstrasse 17, 8340 Hinwil\n\nYou can make this contribution\n\n- Remove, store and relocate materials and ammunition professionally, inventory them and provide them in accordance with applicable specifications\n\n- Professional coordination and command of civilian and military personnel, in favor of a timely delivery or Take-back of military equipment\n\n- To act as a link between the army logistics centre and military or civilian payers\n\n- Performing tours and monitoring and control activities on military infrastructure, readiness to perform work outside regular working hours\n\n- Provide armed service and pikett service in accordance with our orders and specifications\n\n- Ability to work in enclosed spaces and rock installations\n\nThis makes you unique\n\n- Completed vocational apprenticeship as logistician/in EFZ\n\n- Pronounced service orientation in contact with the troops as well as in their professional advice\n\n- Independent, efficient and reliable working methods with a strong organisational talent\n\n- Mandatory driving licence of categories B, BE and C, CE and F advantageous\n\n- Good knowledge of SAP (S4/HANA) and secure user knowledge of MS Office products\n\nWe offer this\n\n- We are committed to the success model Switzerland and work for the benefit of the population.\n\n- Thanks to equal opportunities, we develop our skills and bring in different perspectives.\n\n- Healthy at work We support and advise our employees in the field of physical and mental health.\n\nYour commitment to security and freedom\nThe logistics base of the Swiss Army (LBA) is there for the force. It provides all logistical services for the Swiss army and manages the materials, systems and infrastructure of the Swiss army with its approximately 3'500 employees and 12,000 militia members. Whether in the workshop or in the office, inside or outside: The LBA offers a wide range of workplaces throughout Switzerland. We have something for everyone.\n\nThe Swiss Army employs more than 9,000 people in four military and around 200 civilian occupations – at 110 locations throughout Switzerland. Also provided for the offspring: The Swiss Army trains learners in more than 30 professions.\n\n## Additional information\n\nEmploying the Swiss Army makes sense and brings many advantages. Convince yourself of Army.ch/advantages.\nOffers from recruiters are not taken into account.\n\nWomen are still underrepresented in our administrative unit. Your applications are therefore particularly welcome.",
-        "fr": "## Mettre au point\n\nEn tant que fonction clé, vous assurerez le bon fonctionnement de notre acceptation, stockage, expédition et livraison, ainsi que la remise de l'équipement de l'Armée dans votre domaine d'expertise assigné.\n\n- Date d'entrée: par accord\n- Type d'emploi: perpétuel\n- Numéro de référence: JRQ$540-20875\n- Lieu de travail: Überlandstrasse 17, 8340 Hinwil\n\nVous pouvez faire cette contribution\n\n- Enlevez, entreposez et relocalisez professionnellement les matériaux et les munitions, stockez-les et fournissez-les conformément aux spécifications applicables.\n\n- Coordination professionnelle et commandement du personnel civil et militaire, en faveur d'une livraison en temps voulu ou de la reprise du matériel militaire\n\n- Agir comme un lien entre le centre logistique de l ' armée et les payeurs militaires ou civils\n\n- Effectuer des visites et des activités de surveillance et de contrôle des infrastructures militaires, être prêt à effectuer des travaux en dehors des heures normales de travail\n\n- Fournir le service armé et le service de pikett conformément à nos ordres et spécifications\n\n- Capacité de travailler dans des espaces clos et des installations rocheuses\n\nCela vous rend unique\n\n- Apprentissage professionnel complété en tant que logisticien/en EFZ\n\n- Orientation professionnelle annoncée en contact avec les troupes ainsi que dans leurs conseils professionnels\n\n- Méthodes de travail indépendantes, efficaces et fiables, dotées d'un fort talent organisationnel\n\n- Permis de conduire obligatoire des catégories B, BE et C, CE et F avantageux\n\n- Bonne connaissance de SAP (S4/HANA) et connaissance des utilisateurs des produits MS Office\n\nNous offrons ceci\n\n- Nous sommes attachés au modèle de réussite Suisse et travaillons au profit de la population.\n\n- Grâce à l'égalité des chances, nous développons nos compétences et apportons différentes perspectives.\n\n- Santé au travail Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\nVotre attachement à la sécurité et à la liberté\nLa base logistique de l'armée suisse (LBA) est là pour la force. Il fournit tous les services logistiques à l'armée suisse et gère les matériaux, les systèmes et l'infrastructure de l'armée suisse avec ses quelque 3'500 employés et 12 000 miliciens. Que ce soit dans l'atelier ou dans le bureau, à l'intérieur ou à l'extérieur: La LBA offre un large éventail de lieux de travail en Suisse. Nous avons quelque chose pour tous.\n\nL'armée suisse emploie plus de 9 000 personnes dans quatre professions militaires et environ 200 emplois civils – dans 110 localités à travers la Suisse. Également prévu pour la progéniture: L'armée suisse forme des apprenants dans plus de 30 professions.\n\n## Informations complémentaires\n\nEmployer l'armée suisse a du sens et apporte de nombreux avantages. Convainquez-vous des avantages de Army.ch.\nLes offres des recruteurs ne sont pas prises en compte.\n\nLes femmes sont encore sous-représentées dans notre unité administrative. Vos candidatures sont donc particulièrement bienvenues."
-      },
-      "requirementsByLocale": {},
-      "slugByLocale": {
-        "it": "impiegato-a-in-logistica-swiss-armed-forces-vtg-bern-mr5992",
-        "en": "logistics-specialist-swiss-armed-forces-vtg-hinwil-dc27cc",
-        "de": "logistiker-in-swiss-armed-forces-vtg-hinwil",
-        "fr": "logisticien-ne-swiss-armed-forces-vtg-hinwil-dc27cc"
-      },
-      "sourceLang": "de",
-      "postalCode": "8340",
-      "addressLocality": "Hinwil",
-      "addressRegion": "ZH",
-      "streetAddress": "Ueberlandstrasse 17",
-      "previousSlugsByLocale": {
-        "it": [
-          "logistiker-in-swiss-armed-forces-vtg-bern"
-        ],
-        "en": [
-          "logistiker-in-swiss-armed-forces-vtg-bern-mr5992",
-          "logistiker-in-swiss-armed-forces-vtg-hinwil"
-        ],
-        "de": [
-          "logistiker-in-swiss-armed-forces-vtg-bern-mr5992"
-        ],
-        "fr": [
-          "logistiker-in-swiss-armed-forces-vtg-bern-mr5992",
-          "logistiker-in-swiss-armed-forces-vtg-hinwil"
-        ]
-      },
-      "previousSlugs": [
-        "logistiker-in-swiss-armed-forces-vtg-bern",
-        "logistiker-in-swiss-armed-forces-vtg-bern-mr5992",
-        "logistiker-in-swiss-armed-forces-vtg-hinwil"
-      ],
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "employmentType": "FULL_TIME",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T21:37:39.904Z",
-      "validThroughSource": "last-observed-window"
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-44uwly",
@@ -13100,107 +13060,6 @@
       "salaryMax": 106000
     },
     {
-      "id": "company-kgv9qj",
-      "slug": "impiegato-a-in-logistica-swiss-armed-forces-vtg-hinwil",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Logistiker/-in",
-      "location": "Hinwil",
-      "canton": "ZH",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "## Auf den Punkt gebracht\n\nMit deinem Fachwissen trägst du als Bindeglied zwischen dem Armeelogistikcenter und den militärischen und zivilen Leistungsbezügern bezüglich Armeefahrzeuge und -material, Betriebsstoff, Verpflegung und persönlicher Ausrüstung zum reibungslosen Ablauf des Materialflusses in der ganzen Schweiz bei.\n\n- Eintrittsdatum: nach Vereinbarung\n- Anstellungsart: unbefristet\n- Referenz-Nr.: JRQ$540-20642\n- Arbeitsort: Ueberlandstrasse 17, 8340 Hinwil\n\nDiesen Beitrag kannst du leisten\n\n- Die fachgerechte Führung der Arbeiten und der zugeteilten Armeeangehörigen und/oder des zugeteilten zivilen Personals bei der Abgabe und der Rücknahme von Armeefahrzeugen und -material der Truppe unter Einhaltung der vorgegebenen Termine verantworten\n\n- Die Fahrzeuge sowie das dazugehörige Material fachgerecht aus-, ein- und umlagern und es nach den bestehenden Vorschriften und Anweisungen bereitstellen\n\n- Zustand und Funktionstüchtigkeit der gelagerten Fahrzeuge überprüfen und Rückschub defekten Komponenten zur Reparatur und Revision bei der Instandhaltung verantworten\n\n- Truppe und Spezialisten über die Behandlung und Wartung des Materials in ihrem Zuständigkeitsbereich im Rahmen der Fassungen von Armeesystemen und Armeematerial instruieren und ausbilden\n\n- Lagerverwaltung, Materialverschiebungen und –bereitstellungen in Zusammenarbeit mit dem Prozess Transporte organisieren\n\nDas macht dich einzigartig\n\n- Abgeschlossene Berufslehre als Logistiker/in EFZ, oder gleichwertige Ausbildung\n\n- Gute MS Office und SAP- Anwenderkenntnisse zur Nutzung in der Lagerverwaltung, der Inventarführung und für Nachbestellungen\n\n- Führerausweis der Kategorien B, C, E, F zwingend, CE und A von Vorteil\n\n- Speditive und gewissenhafte Arbeitsweise, sowie organisatorische Fähigkeiten zur Unterstützung eines reibungslosen Ablaufs\n\n- Verantwortungsbewusstes Handling der SAP Materialwirtschaft und ausgesprochene Eignung zu dauerndem Kundenkontakt und -beratung\n\n- Weiterbildungsmöglichkeiten intern/extern Bsp. für einen Eidg. Diplom sind vorhanden\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nDein Einsatz für Sicherheit und Freiheit\nDie Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da. Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3'500 Mitarbeitenden und 12'000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee. Ob in der Werkstatt oder im Büro, ob drinnen oder draussen: Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen. Bei uns ist für alle etwas dabei.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.\n\n## Zusätzliche Informationen\n\nEine Anstellung bei der Schweizer Armee macht Sinn und bringt viele Vorteile mit sich. Überzeuge dich auf armee.ch/vorteile.\nAngebote von Personalvermittlern werden nicht berücksichtigt.\n\nFrauen sind in unserer Verwaltungseinheit noch untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
-      "requirements": [],
-      "featured": false,
-      "datePosted": "2026-10-09",
-      "postedDate": "2026-10-09",
-      "postingDateSource": "reported",
-      "url": "https://jobs.admin.ch/offene-stellen/logistiker-in/f2b2c447-60c1-4e3b-a9de-5662085c3670",
-      "applyUrl": "https://jobs.admin.ch/offene-stellen/logistiker-in/f2b2c447-60c1-4e3b-a9de-5662085c3670",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Hinwil",
-        "canton": "ZH"
-      },
-      "companyKey": "swiss-armed-forces-vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-11-12T21:37:39.904Z",
-      "firstSeenAt": "2026-10-09T21:40:49.232Z",
-      "titleByLocale": {
-        "it": "Impiegato/a in logistica",
-        "en": "Logistics Specialist",
-        "de": "Logistiker/-in",
-        "fr": "Logisticien/-ne"
-      },
-      "descriptionByLocale": {
-        "it": "## Metti al punto\n\nCon la vostra competenza, come collegamento tra il Centro Logistico dell'Esercito e i fornitori di servizi militari e civili per quanto riguarda i veicoli e le attrezzature dell'esercito, i materiali di consumo, il cibo e le attrezzature personali, contribuisce al flusso regolare dei materiali in tutta la Svizzera.\n\n- Data di entrata: d'intesa\n- Tipo di lavoro: perpetuo\n- Numero di riferimento: JRQ$540-20642\n- Luogo di lavoro: Überlandstrasse 17, 8340 Hinwil\n\nPuoi dare questo contributo\n\n- Responsabile della corretta conduzione del lavoro e del personale militare assegnato e/o incaricato del personale civile nella resa e nel ritiro dei veicoli e delle attrezzature militari della forza, nel rispetto delle date specificate\n\n- I veicoli e il materiale associato sono correttamente rimossi, immagazzinati e trasferiti e forniti in base alle normative e alle istruzioni esistenti\n\n- Verificare la condizione e la funzionalità dei veicoli memorizzati e responsabile del ritorno di componenti difettosi per la riparazione e l'ispezione durante la manutenzione\n\n- Istruire e formare truppe e specialisti sul trattamento e la manutenzione dei materiali nella loro area di responsabilità nel contesto delle versioni di sistemi e attrezzature militari\n\n- Organizzare la gestione del magazzino, i cambiamenti materiali e le implementazioni in collaborazione con il processo di trasporto\n\nQuesto ti rende unico\n\n- Apprendistato professionale completo come una formazione logistica o equivalente\n\n- Buone conoscenze di MS Office e SAP per l'uso nella gestione del magazzino, nella gestione dell'inventario e nei riordini\n\n- Patente di guida obbligatoria di categorie B, C, E, F, CE e A benefico\n\n- Lavoro frequente e coscienzioso, così come capacità organizzative per sostenere un funzionamento regolare\n\n- Gestione responsabile della gestione dei materiali SAP e pronunciata idoneità per il continuo contatto con i clienti e la consulenza\n\n- Ulteriori opportunità di formazione interna/esterno E.g. per un Eidg. Diploma è disponibile\n\nOffriamo questo\n\n- Siamo impegnati al modello di successo Svizzera e lavoriamo a beneficio della popolazione.\n\n- Grazie alle pari opportunità, sviluppiamo le nostre competenze e realizziamo prospettive diverse.\n\n- Salute sul lavoro Sosteniamo e consigliamo i nostri dipendenti nel campo della salute fisica e mentale.\n\nIl vostro impegno per la sicurezza e la libertà\nLa base logistica dell'esercito svizzero (LBA) è lì per la forza. Fornisce tutti i servizi logistici per l'esercito svizzero e gestisce i materiali, i sistemi e le infrastrutture dell'esercito svizzero con i suoi circa 3'500 dipendenti e 12.000 membri della milizia. Sia nel laboratorio o in ufficio, all'interno o all'esterno: L'LBA offre una vasta gamma di posti di lavoro in tutta la Svizzera. Abbiamo qualcosa per tutti.\n\nL'esercito svizzero impiega più di 9.000 persone in quattro militari e circa 200 occupazioni civili – in 110 sedi in tutta la Svizzera. La prossima generazione si occupa anche di: L'esercito svizzero addestra gli studenti in più di 30 professioni.\n\n## Ulteriori informazioni\n\nSvuotare l'esercito svizzero ha senso e porta molti vantaggi. Convincetevi di Army.ch/vantages.\nLe offerte dei reclutatori non sono prese in considerazione.\n\nLe donne sono ancora sottorappresentate nella nostra unità amministrativa. Le vostre applicazioni sono quindi particolarmente gradite.",
-        "en": "## Put to the Point\n\nWith your expertise, as a link between the Army Logistics Center and the military and civilian service providers regarding army vehicles and equipment, consumables, food and personal equipment, you contribute to the smooth flow of materials throughout Switzerland.\n\n- Entry date: by agreement\n- Type of employment: perpetual\n- Reference No: JRQ$540-20642\n- Place of work: Überlandstrasse 17, 8340 Hinwil\n\nYou can make this contribution\n\n- Responsible for the proper conduct of the work and assigned military personnel and/or assigned civilian personnel in the surrender and take-back of army vehicles and equipment of the force, in compliance with the specified dates\n\n- The vehicles and the associated material are properly removed, stored and relocated and provided according to the existing regulations and instructions\n\n- Checking the condition and functionality of the stored vehicles and responsible for returning defective components for repair and inspection during maintenance\n\n- Instruct and train troops and specialists on the treatment and maintenance of materials in their area of responsibility in the context of the versions of Army systems and equipment\n\n- Organize warehouse management, material shifts and deployments in cooperation with the transport process\n\nThis makes you unique\n\n- Completed vocational apprenticeship as a logistician, or equivalent training\n\n- Good MS Office and SAP user knowledge for use in warehouse management, inventory management and re-orders\n\n- Mandatory driving licence of categories B, C, E, F, CE and A beneficial\n\n- Frequent and conscientious work, as well as organizational skills to support a smooth operation\n\n- Responsible handling of SAP materials management and pronounced suitability for continuous customer contact and consulting\n\n- Further training opportunities internally/externally E.g. for a Eidg. Diploma is available\n\nWe offer this\n\n- We are committed to the success model Switzerland and work for the benefit of the population.\n\n- Thanks to equal opportunities, we develop our skills and bring in different perspectives.\n\n- Healthy at work We support and advise our employees in the field of physical and mental health.\n\nYour commitment to security and freedom\nThe logistics base of the Swiss Army (LBA) is there for the force. It provides all logistical services for the Swiss army and manages the materials, systems and infrastructure of the Swiss army with its approximately 3'500 employees and 12,000 militia members. Whether in the workshop or in the office, inside or outside: The LBA offers a wide range of workplaces throughout Switzerland. We have something for everyone.\n\nThe Swiss Army employs more than 9,000 people in four military and around 200 civilian occupations – at 110 locations throughout Switzerland. The next generation is also taken care of: The Swiss Army trains learners in more than 30 professions.\n\n## Additional information\n\nEmploying the Swiss Army makes sense and brings many advantages. Convince yourself of Army.ch/advantages.\nOffers from recruiters are not taken into account.\n\nWomen are still underrepresented in our administrative unit. Your applications are therefore particularly welcome.",
-        "de": "## Auf den Punkt gebracht\n\nMit deinem Fachwissen trägst du als Bindeglied zwischen dem Armeelogistikcenter und den militärischen und zivilen Leistungsbezügern bezüglich Armeefahrzeuge und -material, Betriebsstoff, Verpflegung und persönlicher Ausrüstung zum reibungslosen Ablauf des Materialflusses in der ganzen Schweiz bei.\n\n- Eintrittsdatum: nach Vereinbarung\n- Anstellungsart: unbefristet\n- Referenz-Nr.: JRQ$540-20642\n- Arbeitsort: Ueberlandstrasse 17, 8340 Hinwil\n\nDiesen Beitrag kannst du leisten\n\n- Die fachgerechte Führung der Arbeiten und der zugeteilten Armeeangehörigen und/oder des zugeteilten zivilen Personals bei der Abgabe und der Rücknahme von Armeefahrzeugen und -material der Truppe unter Einhaltung der vorgegebenen Termine verantworten\n\n- Die Fahrzeuge sowie das dazugehörige Material fachgerecht aus-, ein- und umlagern und es nach den bestehenden Vorschriften und Anweisungen bereitstellen\n\n- Zustand und Funktionstüchtigkeit der gelagerten Fahrzeuge überprüfen und Rückschub defekten Komponenten zur Reparatur und Revision bei der Instandhaltung verantworten\n\n- Truppe und Spezialisten über die Behandlung und Wartung des Materials in ihrem Zuständigkeitsbereich im Rahmen der Fassungen von Armeesystemen und Armeematerial instruieren und ausbilden\n\n- Lagerverwaltung, Materialverschiebungen und –bereitstellungen in Zusammenarbeit mit dem Prozess Transporte organisieren\n\nDas macht dich einzigartig\n\n- Abgeschlossene Berufslehre als Logistiker/in EFZ, oder gleichwertige Ausbildung\n\n- Gute MS Office und SAP- Anwenderkenntnisse zur Nutzung in der Lagerverwaltung, der Inventarführung und für Nachbestellungen\n\n- Führerausweis der Kategorien B, C, E, F zwingend, CE und A von Vorteil\n\n- Speditive und gewissenhafte Arbeitsweise, sowie organisatorische Fähigkeiten zur Unterstützung eines reibungslosen Ablaufs\n\n- Verantwortungsbewusstes Handling der SAP Materialwirtschaft und ausgesprochene Eignung zu dauerndem Kundenkontakt und -beratung\n\n- Weiterbildungsmöglichkeiten intern/extern Bsp. für einen Eidg. Diplom sind vorhanden\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nDein Einsatz für Sicherheit und Freiheit\nDie Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da. Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3'500 Mitarbeitenden und 12'000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee. Ob in der Werkstatt oder im Büro, ob drinnen oder draussen: Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen. Bei uns ist für alle etwas dabei.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.\n\n## Zusätzliche Informationen\n\nEine Anstellung bei der Schweizer Armee macht Sinn und bringt viele Vorteile mit sich. Überzeuge dich auf armee.ch/vorteile.\nAngebote von Personalvermittlern werden nicht berücksichtigt.\n\nFrauen sind in unserer Verwaltungseinheit noch untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
-        "fr": "## Mettre au point\n\nGrâce à votre expertise, en tant que lien entre le Centre logistique de l'Armée et les fournisseurs de services militaires et civils concernant les véhicules et équipements de l'Armée, les consommables, la nourriture et les équipements personnels, vous contribuez au flux fluide de matériaux dans toute la Suisse.\n\n- Date d'entrée: par accord\n- Type d'emploi: perpétuel\n- Numéro de référence: JRQ$540-20642\n- Lieu de travail: Überlandstrasse 17, 8340 Hinwil\n\nVous pouvez faire cette contribution\n\n- Responsable du bon déroulement des travaux et du personnel militaire et/ou civil affecté à la remise et à la reprise des véhicules et du matériel de l ' armée, conformément aux dates spécifiées\n\n- Les véhicules et le matériel connexe sont correctement enlevés, entreposés et déplacés et fournis conformément aux règlements et instructions existants.\n\n- Vérification de l'état et de la fonctionnalité des véhicules stockés et de la responsabilité de la restitution des composants défectueux pour réparation et inspection pendant l'entretien\n\n- Instruisez et formez des soldats et des spécialistes sur le traitement et l'entretien des matériaux dans leur zone de responsabilité dans le contexte des versions des systèmes et du matériel de l'Armée de terre\n\n- Organiser la gestion des entrepôts, les transferts de matériel et les déploiements en coopération avec le processus de transport\n\nCela vous rend unique\n\n- Apprentissage professionnel accompli en tant que logisticien ou formation équivalente\n\n- Bonnes connaissances des utilisateurs MS Office et SAP pour la gestion des entrepôts, la gestion des stocks et les ré-commandes\n\n- Permis de conduire obligatoire des catégories B, C, E, F, CE et A avantageux\n\n- Travail fréquent et consciencieux, ainsi que des compétences organisationnelles pour soutenir une opération sans heurt\n\n- Manipulation responsable de la gestion des matériaux SAP et adéquation prononcée pour des contacts et des conseils continus avec les clients\n\n- Possibilités de formation continue à l'interne ou à l'externe. Diplôme disponible\n\nNous offrons ceci\n\n- Nous sommes attachés au modèle de réussite Suisse et travaillons au profit de la population.\n\n- Grâce à l'égalité des chances, nous développons nos compétences et apportons différentes perspectives.\n\n- Santé au travail Nous soutenons et conseillons nos employés dans le domaine de la santé physique et mentale.\n\nVotre attachement à la sécurité et à la liberté\nLa base logistique de l'armée suisse (LBA) est là pour la force. Il fournit tous les services logistiques à l'armée suisse et gère les matériaux, les systèmes et l'infrastructure de l'armée suisse avec ses quelque 3'500 employés et 12 000 miliciens. Que ce soit dans l'atelier ou dans le bureau, à l'intérieur ou à l'extérieur: La LBA offre un large éventail de lieux de travail en Suisse. Nous avons quelque chose pour tous.\n\nL'armée suisse emploie plus de 9 000 personnes dans quatre professions militaires et environ 200 emplois civils – dans 110 localités à travers la Suisse. La prochaine génération est également prise en charge: L'Armée suisse forme les apprenants dans plus de 30 professions.\n\n## Informations complémentaires\n\nEmployer l'armée suisse a du sens et apporte de nombreux avantages. Convainquez-vous des avantages de Army.ch.\nLes offres des recruteurs ne sont pas prises en compte.\n\nLes femmes sont encore sous-représentées dans notre unité administrative. Vos candidatures sont donc particulièrement bienvenues."
-      },
-      "requirementsByLocale": {},
-      "slugByLocale": {
-        "it": "impiegato-a-in-logistica-swiss-armed-forces-vtg-hinwil",
-        "en": "logistics-specialist-swiss-armed-forces-vtg-hinwil",
-        "de": "logistiker-in-swiss-armed-forces-vtg-hinwil-kgv9qj",
-        "fr": "logisticien-ne-swiss-armed-forces-vtg-hinwil"
-      },
-      "sourceLang": "de",
-      "postalCode": "8340",
-      "addressLocality": "Hinwil",
-      "addressRegion": "ZH",
-      "streetAddress": "Ueberlandstrasse 17",
-      "previousSlugsByLocale": {
-        "it": [
-          "logistiker-in-swiss-armed-forces-vtg-hinwil",
-          "logistiker-in-swiss-armed-forces-vtg-hinwil-kgv9qj",
-          "logistiker-in-confederazione-hinwil",
-          "impiegato-a-in-logistica-confederazione-svizzera-hinwil"
-        ],
-        "en": [
-          "logistiker-in-confederazione-svizzera-hinwil",
-          "logistiker-in-swiss-armed-forces-vtg-hinwil-kgv9qj",
-          "logistics-specialist-confederazione-svizzera-hinwil"
-        ],
-        "de": [
-          "logistiker-in-confederazione-hinwil",
-          "logistiker-in-confederazione-svizzera-hinwil"
-        ],
-        "fr": [
-          "logistiker-in-confederazione-svizzera-hinwil",
-          "logistiker-in-swiss-armed-forces-vtg-hinwil-kgv9qj",
-          "logisticien-ne-confederazione-svizzera-hinwil"
-        ]
-      },
-      "previousSlugs": [
-        "logistiker-in-swiss-armed-forces-vtg-hinwil",
-        "logistiker-in-swiss-armed-forces-vtg-hinwil-kgv9qj",
-        "logistiker-in-confederazione-hinwil",
-        "impiegato-a-in-logistica-confederazione-svizzera-hinwil",
-        "logistiker-in-confederazione-svizzera-hinwil",
-        "logistics-specialist-confederazione-svizzera-hinwil",
-        "logisticien-ne-confederazione-svizzera-hinwil"
-      ],
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "employmentType": "FULL_TIME",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-07T21:37:39.904Z",
-      "validThroughSource": "last-observed-window",
-      "salaryMin": 73500,
-      "salaryMax": 111500
-    },
-    {
       "id": "company-u0mtba",
       "slug": "apprentice-specialista-di-meccatronica-automobilistica-efz-specializzato-in-veicoli-commerciali-swiss-armed-forces-vtg",
       "company": "Swiss Armed Forces (VTG)",
@@ -13286,7 +13145,8 @@
       "validThrough": "2026-12-12T21:37:39.904Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-8op31x",
@@ -13356,7 +13216,8 @@
       "validThrough": "2026-12-12T21:37:39.904Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-vm71so",
@@ -14063,7 +13924,8 @@
       "validThrough": "2026-12-11T09:40:54.375Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 57500,
-      "salaryMax": 87000
+      "salaryMax": 87000,
+      "needsRetranslation": true
     },
     {
       "id": "company-hlgr7s",
@@ -14163,105 +14025,6 @@
       "validThroughSource": "last-observed-window",
       "salaryMin": 62000,
       "salaryMax": 94000
-    },
-    {
-      "id": "company-4pi0qn",
-      "slug": "meccatronico-a-per-sistemi-d-arma-di-veicoli-corazzati-swiss-armed-forces-vtg-hinwil",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Mechatroniker/-in Waffensystem gepanzerte Fahrzeuge",
-      "location": "Hinwil",
-      "canton": "ZH",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "## Auf den Punkt gebracht\n\nTechnik, Verantwortung und Abwechslung: Bringe dein Können mit ein, halte unsere Raupenfahrzeuge auf Kurs und werde Teil eines Teams, das gemeinsam anpackt und Lösungen findet.\n\n- Eintrittsdatum: Nach Vereinbarung\n- Anstellungsart: unbefristet\n- Referenz-Nr.: JRQ$540-20612\n- Arbeitsort: Ueberlandstrasse 17, 8340 Hinwil\n\nDiesen Beitrag kannst du leisten\n\n- Instandhaltungsarbeiten an Geschützen, Turm und Waffen Baugruppen aller Raupenfahrzeuge durchführen\n\n- Funktion und Justierung an optischen Geräten kontrollieren\n\n- Fachtechnische Unterstützung bei den Materialübernahmen und Materialrücknahmen im Bereich Raupenfahrzeuge leisten\n\n- Daten von Instandhaltungsaufträgen, Reparaturen und Fristenarbeiten im Bereich Geschütz und Turm im SAP pflegen\n\n- Technischer Support bei Instandhaltungshaltungseinsätzen auf dezentralen Schiess- und Waffenplätzen von bis zu 10 Wochen pro Jahr leisten\n\nDas macht dich einzigartig\n\n- Abgeschlossene Berufsausbildung als Mechatroniker/-in LKW oder Personenwagen sowie verwandte Berufe\n\n- Führerausweis der Kat B (Kat C, C1E und SUVA anerkannter Staplerausweis)\n\n- Kundenorientierter Dienstleistungsgedanke\n\n- Organisationstalent mit selbständiger Prioritätensetzung\n\n- Kooperative und flexible Persönlichkeit mit ausgeprägter Teamorientierung\n\n- Strukturierte und verantwortungsbewusster Arbeitsweise\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nDein Einsatz für Sicherheit und Freiheit\nDie Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da. Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3'500 Mitarbeitenden und 12'000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee. Ob in der Werkstatt oder im Büro, ob drinnen oder draussen: Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen. Bei uns ist für alle etwas dabei.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.\n\n## Zusätzliche Informationen\n\nEine Anstellung bei der Schweizer Armee macht Sinn und bringt viele Vorteile mit sich. Überzeuge dich auf armee.ch/vorteile.\nAngebote von Personalvermittlern werden nicht berücksichtigt.\n\nFrauen sind in unserer Verwaltungseinheit noch untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
-      "requirements": [],
-      "featured": false,
-      "datePosted": "2026-10-07",
-      "postedDate": "2026-10-07",
-      "postingDateSource": "reported",
-      "url": "https://jobs.admin.ch/offene-stellen/mechatroniker-in-waffensystem-gepanzerte-fahrzeuge/1998e119-73b0-4b75-ae85-b96699714340",
-      "applyUrl": "https://jobs.admin.ch/offene-stellen/mechatroniker-in-waffensystem-gepanzerte-fahrzeuge/1998e119-73b0-4b75-ae85-b96699714340",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Hinwil",
-        "canton": "ZH"
-      },
-      "companyKey": "swiss-armed-forces-vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-11-10T21:42:55.817Z",
-      "firstSeenAt": "2026-10-07T21:56:07.024Z",
-      "titleByLocale": {
-        "it": "Meccatronico/a per sistemi d'arma di veicoli corazzati",
-        "en": "Mechatronics Technician – Armoured Vehicle Weapon Systems",
-        "de": "Mechatroniker/-in Waffensystem gepanzerte Fahrzeuge",
-        "fr": "Mécatronicien/ne pour systèmes d'armes de véhicules blindés"
-      },
-      "descriptionByLocale": {
-        "it": "In breve\n\nTecnica, responsabilità e varietà: metti a frutto le tue competenze, mantieni i nostri veicoli cingolati sulla rotta e diventa parte di un team che si rimbocca le maniche e trova soluzioni insieme.\n\n- Data di inizio: da concordare\n- Tipo di contratto: a tempo indeterminato\n- N. di riferimento: JRQ$540-20612\n- Luogo di lavoro: Ueberlandstrasse 17, 8340 Hinwil\n\nEcco come puoi contribuire\n\n- Eseguire lavori di manutenzione su pezzi d’artiglieria, torrette e gruppi di armi di tutti i veicoli cingolati\n\n- Verificare il funzionamento e la taratura degli strumenti ottici\n\n- Fornire supporto tecnico-specialistico durante la presa in consegna e la restituzione dei materiali nel settore dei veicoli cingolati\n\n- Gestire in SAP i dati relativi agli ordini di manutenzione, alle riparazioni e agli interventi di manutenzione periodica nel settore del cannone e della torretta\n\n- Fornire supporto tecnico durante interventi di manutenzione presso poligoni di tiro e aree d'armi decentrati fino a 10 settimane all'anno\n\nCiò che ti rende unico\n\n- Formazione professionale completata come meccatronico/a per camion o autovetture, nonché in professioni affini\n\n- Patente di guida della categoria B (categorie C, C1E e patentino per carrelli elevatori riconosciuto dalla SUVA)\n\n- Attitudine al servizio orientata al cliente\n\n- Talento organizzativo con capacità di definire autonomamente le priorità\n\n- Personalità cooperativa e flessibile, con spiccata predisposizione al lavoro di squadra\n\n- Approccio al lavoro strutturato e responsabile\n\nCosa offriamo\n\n- Lavorare per la Svizzera Ci impegniamo per il modello di successo svizzero e lavoriamo per il bene della popolazione.\n\n- Diversità vissuta Grazie alle pari opportunità sviluppiamo le nostre competenze e apportiamo prospettive diverse.\n\n- Salute sul lavoro Offriamo sostegno e consulenza al nostro personale nell'ambito della salute fisica e mentale.\n\nIl tuo impegno per la sicurezza e la libertà\nLa Base logistica dell'esercito svizzero (LBA) è al servizio delle truppe. Fornisce tutti i servizi logistici all'esercito svizzero e gestisce, con i suoi circa 3'500 collaboratori e 12'000 membri della milizia, il materiale, i sistemi e le infrastrutture dell'esercito svizzero. Sia in officina che in ufficio, sia al chiuso che all'aperto: la LBA offre in tutta la Svizzera un'ampia gamma di posti di lavoro. Da noi c'è qualcosa per tutti.\n\nL'esercito svizzero impiega oltre 9'000 collaboratori in quattro professioni militari e circa 200 professioni civili – il tutto in 110 sedi in tutta la Svizzera. Anche per le nuove leve ci sono opportunità: l'esercito svizzero forma apprendisti in oltre 30 professioni.\n\nUlteriori informazioni\n\nUn impiego nell'esercito svizzero ha senso e offre molti vantaggi. Scoprili su armee.ch/vorteile.\nLe offerte delle agenzie di reclutamento non saranno prese in considerazione.\n\nLe donne sono ancora sottorappresentate nella nostra unità amministrativa. Le loro candidature sono pertanto particolarmente benvenute.",
-        "en": "In a nutshell\n\nTechnology, responsibility and variety: Contribute your skills, keep our tracked vehicles on course and become part of a team that works together to get things done and find solutions.\n\n- Start date: By agreement\n- Employment type: permanent\n- Reference no.: JRQ$540-20612\n- Work location: Ueberlandstrasse 17, 8340 Hinwil\n\nThis is how you can contribute\n\n- Perform maintenance work on guns, turrets and weapon assemblies of all tracked vehicles\n\n- Check the functionality and adjustment of optical equipment\n\n- Provide specialist technical support during material handovers and returns in the tracked vehicle area\n\n- Maintain data on maintenance orders, repairs and scheduled work in the gun and turret area in SAP\n\n- Provide technical support during maintenance deployments at decentralized shooting and weapons ranges for up to 10 weeks per year\n\nWhat makes you unique\n\n- Completed vocational training as a mechatronics technician for trucks or passenger cars, or in a related profession\n\n- Category B driver's license (categories C, C1E and a SUVA-recognized forklift license)\n\n- Customer-oriented service mindset\n\n- Organizational skills with the ability to set priorities independently\n\n- Cooperative and flexible personality with a strong team-oriented approach\n\n- Structured and responsible way of working\n\nWhat we offer\n\n- Working for Switzerland We are committed to the Swiss success model and work for the benefit of the population.\n\n- Diversity in action Thanks to equal opportunities, we develop our skills and contribute different perspectives.\n\n- Healthy at the workplace We support and advise our employees on physical and mental health.\n\nYour commitment to security and freedom\nThe Logistics Base of the Swiss Armed Forces (LBA) is there for the troops. It provides all logistical services for the Swiss Armed Forces and, with its approximately 3'500 employees and 12'000 militia members, manages the material, systems and infrastructure of the Swiss Armed Forces. Whether in the workshop or office, indoors or outdoors: the LBA offers a wide range of jobs throughout Switzerland. There is something for everyone here.\n\nThe Swiss Armed Forces employ over 9'000 people in four military and around 200 civilian professions – at 110 locations throughout Switzerland. The next generation is also catered for: the Swiss Armed Forces train apprentices in over 30 professions.\n\nAdditional information\n\nA position with the Swiss Armed Forces makes sense and comes with many benefits. See for yourself at armee.ch/vorteile.\nOffers from recruitment agencies will not be considered.\n\nWomen are still underrepresented in our administrative unit. Their applications are therefore particularly welcome.",
-        "de": "Auf den Punkt gebracht\n\nTechnik, Verantwortung und Abwechslung: Bringe dein Können mit ein, halte unsere Raupenfahrzeuge auf Kurs und werde Teil eines Teams, das gemeinsam anpackt und Lösungen findet.\n\n- Eintrittsdatum: Nach Vereinbarung\n- Anstellungsart: unbefristet\n- Referenz-Nr.: JRQ$540-20612\n- Arbeitsort: Ueberlandstrasse 17, 8340 Hinwil\n\nDiesen Beitrag kannst du leisten\n\n- Instandhaltungsarbeiten an Geschützen, Turm und Waffen Baugruppen aller Raupenfahrzeuge durchführen\n\n- Funktion und Justierung an optischen Geräten kontrollieren\n\n- Fachtechnische Unterstützung bei den Materialübernahmen und Materialrücknahmen im Bereich Raupenfahrzeuge leisten\n\n- Daten von Instandhaltungsaufträgen, Reparaturen und Fristenarbeiten im Bereich Geschütz und Turm im SAP pflegen\n\n- Technischer Support bei Instandhaltungshaltungseinsätzen auf dezentralen Schiess- und Waffenplätzen von bis zu 10 Wochen pro Jahr leisten\n\nDas macht dich einzigartig\n\n- Abgeschlossene Berufsausbildung als Mechatroniker/-in LKW oder Personenwagen sowie verwandte Berufe\n\n- Führerausweis der Kat B (Kat C, C1E und SUVA anerkannter Staplerausweis)\n\n- Kundenorientierter Dienstleistungsgedanke\n\n- Organisationstalent mit selbständiger Prioritätensetzung\n\n- Kooperative und flexible Persönlichkeit mit ausgeprägter Teamorientierung\n\n- Strukturierte und verantwortungsbewusster Arbeitsweise\n\nDas bieten wir\n\n- Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung.\n\n- Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein.\n\n- Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit.\n\nDein Einsatz für Sicherheit und Freiheit\nDie Logistikbasis der Schweizer Armee (LBA) ist für die Truppe da. Sie erbringt sämtliche logistische Leistungen für die Schweizer Armee und bewirtschaftet mit ihren rund 3'500 Mitarbeitenden und 12'000 Milizangehörigen das Material, die Systeme und die Infrastrukturen der Schweizer Armee. Ob in der Werkstatt oder im Büro, ob drinnen oder draussen: Die LBA bietet schweizweit ein breites Spektrum an Arbeitsplätzen. Bei uns ist für alle etwas dabei.\n\nDie Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.\n\nZusätzliche Informationen\n\nEine Anstellung bei der Schweizer Armee macht Sinn und bringt viele Vorteile mit sich. Überzeuge dich auf armee.ch/vorteile.\nAngebote von Personalvermittlern werden nicht berücksichtigt.\n\nFrauen sind in unserer Verwaltungseinheit noch untervertreten. Ihre Bewerbungen sind daher besonders willkommen.",
-        "fr": "En bref\n\nTechnique, responsabilité et diversité : mets tes compétences à profit, garde nos véhicules chenillés sur la bonne voie et rejoins une équipe qui retrousse ses manches et trouve des solutions ensemble.\n\n- Date d’entrée : À convenir\n- Type de contrat : à durée indéterminée\n- N° de référence : JRQ$540-20612\n- Lieu de travail : Ueberlandstrasse 17, 8340 Hinwil\n\nCe que tu peux apporter\n\n- Effectuer des travaux d’entretien sur les canons, la tourelle et les sous-ensembles d’armes de tous les véhicules chenillés\n\n- Contrôler le fonctionnement et le réglage des appareils optiques\n\n- Fournir un soutien technique spécialisé lors de la prise en charge et de la restitution du matériel dans le domaine des véhicules chenillés\n\n- Gérer dans SAP les données des ordres de maintenance, des réparations et des travaux à échéance dans le domaine du canon et de la tourelle\n\n- Assurer un soutien technique lors d’interventions de maintenance sur des places de tir et places d’armes décentralisées pendant jusqu’à 10 semaines par an\n\nCe qui te rend unique\n\n- Formation professionnelle achevée de mécatronicien/-ne pour poids lourds ou voitures de tourisme, ainsi que dans des métiers apparentés\n\n- Permis de conduire de catégorie B (catégories C, C1E et permis de cariste reconnu par la SUVA)\n\n- Esprit de service orienté clientèle\n\n- Sens de l’organisation avec capacité à fixer les priorités de manière autonome\n\n- Personnalité coopérative et flexible, dotée d’un sens aigu du travail en équipe\n\n- Méthode de travail structurée et responsable\n\nCe que nous offrons\n\n- Travailler pour la Suisse Nous nous engageons en faveur du modèle suisse à succès et œuvrons dans l’intérêt de la population.\n\n- La diversité vécue Grâce à l’égalité des chances, nous développons nos compétences et apportons des perspectives différentes.\n\n- En bonne santé au travail Nous soutenons et conseillons notre personnel dans le domaine de la santé physique et psychique.\n\nTon engagement pour la sécurité et la liberté\nLa Base logistique de l’armée suisse (BLA) est au service de la troupe. Elle fournit toutes les prestations logistiques à l’armée suisse et gère, avec ses quelque 3'500 collaboratrices et collaborateurs et 12'000 membres de la milice, le matériel, les systèmes et les infrastructures de l’armée suisse. Que ce soit dans l’atelier ou au bureau, à l’intérieur ou à l’extérieur : la BLA offre un large éventail de postes de travail dans toute la Suisse. Chez nous, il y en a pour tout le monde.\n\nL’armée suisse emploie plus de 9'000 personnes dans quatre professions militaires et quelque 200 professions civiles – et ce sur 110 sites dans toute la Suisse. La relève est également assurée : l’armée suisse forme des apprentis dans plus de 30 professions.\n\nInformations complémentaires\n\nUn emploi au sein de l’armée suisse a du sens et offre de nombreux avantages. Vérifie par toi-même sur armee.ch/vorteile.\nLes offres des agences de placement ne sont pas prises en considération.\n\nLes femmes sont encore sous-représentées dans notre unité administrative. Leurs candidatures sont donc particulièrement bienvenues."
-      },
-      "requirementsByLocale": {},
-      "slugByLocale": {
-        "it": "meccatronico-a-per-sistemi-d-arma-di-veicoli-corazzati-swiss-armed-forces-vtg-hinwil",
-        "en": "mechatronics-technician-armoured-vehicle-weapon-systems-swiss-armed-forces-vtg-hinwil",
-        "de": "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-4pi0qn",
-        "fr": "mecatronicien-ne-pour-systemes-d-armes-de-vehicules-blindes-swiss-armed-forces-vtg-hinwil"
-      },
-      "sourceLang": "de",
-      "postalCode": "8340",
-      "addressLocality": "Hinwil",
-      "addressRegion": "ZH",
-      "streetAddress": "Ueberlandstrasse 17",
-      "previousSlugsByLocale": {
-        "it": [
-          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil",
-          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-confederazione-hinwil",
-          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-4pi0qn",
-          "meccatronico-a-per-sistemi-d-arma-di-veicoli-corazzati-confederazione-svizzera-hinwil"
-        ],
-        "en": [
-          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-confederazione-hinwil",
-          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-4pi0qn",
-          "mechatronics-technician-armoured-vehicle-weapon-systems-confederazione-svizzera-hinwil"
-        ],
-        "de": [
-          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-confederazione-hinwil"
-        ],
-        "fr": [
-          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-confederazione-hinwil",
-          "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-4pi0qn",
-          "mecatronicien-ne-pour-systemes-d-armes-de-vehicules-blindes-confederazione-svizzera-hinwil"
-        ]
-      },
-      "previousSlugs": [
-        "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil",
-        "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-confederazione-hinwil",
-        "mechatroniker-in-waffensystem-gepanzerte-fahrzeuge-swiss-armed-forces-vtg-hinwil-4pi0qn",
-        "meccatronico-a-per-sistemi-d-arma-di-veicoli-corazzati-confederazione-svizzera-hinwil",
-        "mechatronics-technician-armoured-vehicle-weapon-systems-confederazione-svizzera-hinwil",
-        "mecatronicien-ne-pour-systemes-d-armes-de-vehicules-blindes-confederazione-svizzera-hinwil"
-      ],
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "employmentType": "FULL_TIME",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-05T21:42:55.817Z",
-      "validThroughSource": "last-observed-window",
-      "salaryMin": 73500,
-      "salaryMax": 111500
     },
     {
       "id": "company-vmcil5",

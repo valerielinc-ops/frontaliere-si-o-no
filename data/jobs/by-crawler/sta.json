@@ -120668,11 +120668,21 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gartner-in-efz-fur-grunanlagenpflege-zurich-zurich-sta-ch"
+        "gartner-in-efz-fur-grunanlagenpflege-zurich-zurich-sta-ch",
+        "gardener-efz-per-la-cura-delle-piante-verdi-sta-personal-ag-zurich-zurich",
+        "gardener-efz-for-green-plant-care-sta-personal-ag-zurich-zurich",
+        "jardinier-efz-pour-le-soin-des-plantes-vertes-sta-personal-ag-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gartner-in-efz-fur-grunanlagenpflege-zurich-zurich-sta-ch"
+          "gartner-in-efz-fur-grunanlagenpflege-zurich-zurich-sta-ch",
+          "gardener-efz-per-la-cura-delle-piante-verdi-sta-personal-ag-zurich-zurich"
+        ],
+        "en": [
+          "gardener-efz-for-green-plant-care-sta-personal-ag-zurich-zurich"
+        ],
+        "fr": [
+          "jardinier-efz-pour-le-soin-des-plantes-vertes-sta-personal-ag-zurich-zurich"
         ]
       },
       "salaryMin": 73500,
@@ -135067,83 +135077,6 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-09T21:57:00.564Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "sta-665bc6bd8e36",
-      "slug": "gardener-efz-per-la-cura-delle-piante-verdi-sta-personal-ag-zurich-zurich",
-      "slugByLocale": {
-        "it": "gardener-efz-per-la-cura-delle-piante-verdi-sta-personal-ag-zurich-zurich",
-        "en": "gardener-efz-for-green-plant-care-sta-personal-ag-zurich-zurich",
-        "de": "gartner-in-efz-fur-grunanlagenpflege-zurich-zurich-sta-ch",
-        "fr": "jardinier-efz-pour-le-soin-des-plantes-vertes-sta-personal-ag-zurich-zurich"
-      },
-      "company": "STA Personal AG",
-      "companyKey": "sta",
-      "companyDomain": "sta.jobs",
-      "title": "Gärtner/in EFZ für Grünanlagenpflege",
-      "titleByLocale": {
-        "it": "Giardiniere/a AFC per la cura del verde",
-        "en": "Gardener EFZ for green area maintenance",
-        "de": "Gärtner/in EFZ für Grünanlagenpflege",
-        "fr": "Jardinier/ère CFC pour l'entretien des espaces verts"
-      },
-      "description": "Selbständige Pflege und fachgerechte Pflanzungen zählen zu den Hauptaufgaben. Das Arbeitsumfeld ist angenehm und von einem kleinen Team geprägt. Für unseren Auftraggeber suchen wir eine/n\nTätigkeiten\n- Selbständige Pflege von Grünanlagen\n- Mitarbeit bei Gartenbauarbeiten\n- Pflanzungen fachgerecht ausführen\nAnforderungen\n- Abschluss als Gärtnerin oder Gärtner EFZ\n- Führerausweis Kategorie B vorhanden\n- Selbständige und zuverlässige Arbeitsweise\nAngebot\n- Vielseitige Einsätze im Gartenbereich\n- Angenehmes Arbeitsumfeld im kleinen Team",
-      "descriptionByLocale": {
-        "it": "Attività\n- Manutenzione indipendente di aree verdi\n- Partecipazione a lavori orticoli\n- Praticare le piante correttamente\nRequisiti\n- Laurea come giardiniere EFZ\n- Titolo di guida della categoria B\n- Metodi di lavoro autonomi e affidabili\nOfferta\n- Applicazioni versatili nella zona giardino\n- Ambiente di lavoro piacevole in un piccolo team\nCura indipendente e impianti professionali sono tra i compiti principali. L'ambiente di lavoro è piacevole e caratterizzato da una piccola squadra. Per il nostro cliente stiamo cercando un",
-        "en": "Activities\n- Independent maintenance of green areas\n- Participation in horticultural works\n- Practice plantings properly\nRequirements\n- Degree as a gardener EFZ\n- Category B driving licence\n- Self-employed and reliable working methods\nOffer\n- Versatile applications in the garden area\n- Pleasant working environment in a small team\nIndependent care and professional plantings are among the main tasks. The working environment is pleasant and characterized by a small team. For our client we are looking for a",
-        "de": "Selbständige Pflege und fachgerechte Pflanzungen zählen zu den Hauptaufgaben. Das Arbeitsumfeld ist angenehm und von einem kleinen Team geprägt. Für unseren Auftraggeber suchen wir eine/n\nTätigkeiten\n- Selbständige Pflege von Grünanlagen\n- Mitarbeit bei Gartenbauarbeiten\n- Pflanzungen fachgerecht ausführen\nAnforderungen\n- Abschluss als Gärtnerin oder Gärtner EFZ\n- Führerausweis Kategorie B vorhanden\n- Selbständige und zuverlässige Arbeitsweise\nAngebot\n- Vielseitige Einsätze im Gartenbereich\n- Angenehmes Arbeitsumfeld im kleinen Team",
-        "fr": "Activités\n- Entretien indépendant des espaces verts\n- Participation aux travaux horticoles\n- Pratiquer correctement les plantations\nExigences\n- Diplôme de jardinier EFZ\n- Permis de conduire de catégorie B\n- Travailleurs indépendants et méthodes de travail fiables\nOffre\n- Applications polyvalentes dans le jardin\n- Un environnement de travail agréable dans une petite équipe\nLes soins indépendants et les plantations professionnelles font partie des tâches principales. L'environnement de travail est agréable et caractérisé par une petite équipe. Pour notre client, nous cherchons"
-      },
-      "location": "Zürich, Zürich",
-      "canton": "ZH",
-      "url": "https://www.sta.jobs/stellen/gaertner-in-zuerich-dauerstelle-109539/",
-      "source": "STA Personal AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-09T21:57:00.542Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-10T00:00:00+02:00",
-      "postedDate": "2026-09-10T00:00:00+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.sta.jobs/stellen/gaertner-in-zuerich-dauerstelle-109539/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "gartner-in-efz-fur-grunanlagenpflege-zurich-zurich-sta-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gartner-in-efz-fur-grunanlagenpflege-zurich-zurich-sta-ch"
-        ]
-      },
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "postalCode": "8001",
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-09T21:57:00.542Z",
       "validThroughSource": "last-observed-window",
       "crawlerMissStreak": 2
     },
