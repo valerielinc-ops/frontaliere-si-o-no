@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // seed-url-first-seen-precise.mjs
 //
-// One-shot backfill for data/url-first-seen.json with per-URL
+// One-shot backfill for the first-seen ledger (data/url-first-seen/<h>.json,
+// scripts/lib/url-first-seen-store.mjs) with per-URL
 // firstSeenAt dates derived from real source-of-truth data:
 //
 //   1. data/jobs/by-crawler/*.json  → builds slug → firstSeenAt index
@@ -26,23 +27,31 @@
 // Usage:
 //   node scripts/seed-url-first-seen-precise.mjs
 //     [--sitemap-base=https://frontaliereticino.ch]
-//     [--out=data/url-first-seen.json]
+//     [--out=data/url-first-seen]      shard directory
+//     [--legacy=data/url-first-seen.json]  legacy single file, merged in while it exists
 //     [--fallback-date=YYYY-MM-DD]   default 2026-04-01
 //     [--dry-run]
 
-import { readFileSync, existsSync, writeFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { dirname, join, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { DEFAULT_LIVE_CHECK_USER_AGENT, DEFAULT_LIVE_CHECK_TIMEOUT_MS } from './lib/live-link-check.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import { flatString } from './lib/flat-string.mjs';
+import {
+  URL_FIRST_SEEN_DIR,
+  URL_FIRST_SEEN_LEGACY_FILE,
+  loadFirstSeen,
+  writeFirstSeenShards,
+} from './lib/url-first-seen-store.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 
 const DEFAULTS = {
   sitemapBase: 'https://frontaliereticino.ch',
-  out: 'data/url-first-seen.json',
+  out: URL_FIRST_SEEN_DIR,
+  legacy: URL_FIRST_SEEN_LEGACY_FILE,
   fallbackDate: '2026-04-01',
   dryRun: false,
 };
@@ -53,6 +62,7 @@ function parseArgs(argv) {
     if (a === '--dry-run') out.dryRun = true;
     else if (a.startsWith('--sitemap-base=')) out.sitemapBase = a.slice(15);
     else if (a.startsWith('--out=')) out.out = a.slice(6);
+    else if (a.startsWith('--legacy=')) out.legacy = a.slice(9);
     else if (a.startsWith('--fallback-date=')) out.fallbackDate = a.slice(16);
   }
   return out;
@@ -205,16 +215,9 @@ async function main() {
   console.log(`[seed] total unique URLs: ${allUrls.size}`);
 
   const outPath = isAbsolute(args.out) ? args.out : join(ROOT, args.out);
-  let existing = {};
-  if (existsSync(outPath)) {
-    try {
-      const raw = readFileSync(outPath, 'utf8');
-      const parsed = JSON.parse(raw);
-      if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) existing = parsed;
-    } catch (err) {
-      console.warn(`[seed] could not parse ${outPath}: ${err.message}`);
-    }
-  }
+  const legacyPath = args.legacy ? (isAbsolute(args.legacy) ? args.legacy : join(ROOT, args.legacy)) : null;
+  // STRICT: the shards are rewritten below, never from a partial read.
+  const existing = Object.fromEntries(loadFirstSeen({ dir: outPath, legacyFile: legacyPath, strict: true }).entries);
   console.log(`[seed] existing entries: ${Object.keys(existing).length}`);
 
   const stats = {
@@ -257,11 +260,8 @@ async function main() {
     return;
   }
 
-  // Sort keys for predictable diff.
-  const sorted = {};
-  for (const k of Object.keys(out).sort()) sorted[k] = out[k];
-  writeFileSync(outPath, JSON.stringify(sorted, null, 2) + '\n');
-  console.log(`[seed] wrote ${outPath}`);
+  const result = writeFirstSeenShards(outPath, Object.entries(out));
+  console.log(`[seed] wrote ${outPath}: ${result.written.length} shards changed, ${result.unchanged.length} unchanged`);
 }
 
 main().catch(err => {

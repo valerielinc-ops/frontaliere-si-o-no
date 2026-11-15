@@ -4,19 +4,19 @@
   "generatorSha256": "372c1a888462c9bc8be538afa0b35c0b0d6bd4954069a734ed1c25ddb7642b91",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "6945c9032ded6fbeef1f2ff2d4425581e85dddbc",
+  "sourceCommit": "45d34f7822e3bb10bf4d1c93320c460c23251454",
   "sourceCommitVerified": false,
   "artifactObservation": {
     "generatorSha256": "372c1a888462c9bc8be538afa0b35c0b0d6bd4954069a734ed1c25ddb7642b91",
     "sourceRef": "main",
-    "sourceCommit": "6945c9032ded6fbeef1f2ff2d4425581e85dddbc"
+    "sourceCommit": "45d34f7822e3bb10bf4d1c93320c460c23251454"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
   "crawlerCount": 707,
   "crawlerRosterCardinality": {
-    "sourceCommit": "6945c9032ded6fbeef1f2ff2d4425581e85dddbc",
+    "sourceCommit": "45d34f7822e3bb10bf4d1c93320c460c23251454",
     "groupCount": 25,
     "artifactCount": 26,
     "crawlerCount": 707
@@ -732,7 +732,7 @@
       "data/health-premiums/"
     ],
     "excludedMb": 5430,
-    "treeMb": 6829
+    "treeMb": 7043
   },
   "artifacts": [
     {

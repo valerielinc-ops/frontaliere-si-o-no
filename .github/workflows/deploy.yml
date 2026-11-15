@@ -2739,6 +2739,7 @@ jobs:
             /data/build-history/
             /data/dist-size-history.jsonl
             /data/url-first-seen.json
+            /data/url-first-seen/
             /scripts/lib/
             /scripts/ci/assert-accumulator-write.mjs
             /scripts/ci/merge-json-first-seen.mjs
@@ -2914,6 +2915,7 @@ jobs:
             /*
             !/public/images/
             !/data/jobs/
+            !/data/url-first-seen/
             !/data/seo-404-compat/
             !/data/translation-cache/
             !/packages/articles/content/
@@ -3044,6 +3046,7 @@ jobs:
             /*
             !/public/images/
             !/data/jobs/
+            !/data/url-first-seen/
             !/data/seo-404-compat/
             !/data/translation-cache/
             !/packages/articles/content/
@@ -3169,6 +3172,7 @@ jobs:
             /*
             !/public/images/
             !/data/jobs/
+            !/data/url-first-seen/
             !/data/seo-404-compat/
             !/data/translation-cache/
             !/data/all-known-job-slugs/
