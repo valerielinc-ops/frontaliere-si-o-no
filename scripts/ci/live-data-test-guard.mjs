@@ -595,6 +595,28 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     roots: ['data/cf-hot-404s.json', 'data/seo-404-compat/'],
     reason: 'createScenario() writes and reads these paths only inside its mkdtemp Git repository; the checkout reads are limited to reconcile-data-refresh-main.mjs and merge-compat-shard.mjs under test',
   },
+  // Verified against compat-manifest-lag.test.ts: every shard and manifest it
+  // writes or reads lives in an fs.mkdtempSync() directory or a temporary Git
+  // repository; ROOT only locates the scripts and sources under test
+  // (repair-compat-manifest.mjs, git-push-with-retry.sh, merge-compat-shard.mjs,
+  // git-commit-data.sh and the producers it scans as text). The compat store
+  // path appears as the relative layout of those temporary stores, so this is a
+  // textual false positive, not a live-data read.
+  {
+    file: 'tests/compat-manifest-lag.test.ts',
+    roots: ['data/seo-404-compat/'],
+    reason: 'builds the shard and manifest layout only inside mkdtemp directories and temporary Git repositories; the checkout reads are limited to the scripts and producer sources under test',
+  },
+  {
+    file: 'tests/compat-manifest-lag.test.ts',
+    roots: ['data/seo-404-compat/'],
+    reason: 'the real merge-driver scenarios create and read the compat shards only inside mkdtemp Git repositories; checkout reads are limited to the scripts and helpers under test',
+  },
+  {
+    file: 'tests/compat-manifest-lag.test.ts',
+    roots: ['data/seo-404-compat/'],
+    reason: 'the compat shard and manifest paths are created and read only inside mkdtemp Git repositories; the checkout read is limited to the repair and merge helpers under test',
+  },
   {
     file: 'tests/calculator/calculator-paywall.test.tsx',
     roots: ['services/locales/'],

@@ -1,6 +1,5 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
 import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
-import { resolveRolloutPostingDate } from '../scripts/lib/job-posting-date-rollout.mjs';
 /**
  * Vite build plugin that emits static HTML for every registered sector-based
  * job hub in all 4 locales.
@@ -42,6 +41,7 @@ import { asyncCssHeadBlock, rootShell } from './htmlTemplate';
 import { localeHomeUrl } from './shared/breadcrumbHome';
 import { jobBoardHeadTags } from './jobBoardGpt';
 import { buildJobBoardUrl } from './cityJobsAggregate';
+import { localizedJobDisplayTitle } from '../scripts/lib/job-title-identity.mjs';
 import {
   HERO_EYEBROW_STYLE,
   H1_STYLE,
@@ -57,6 +57,7 @@ import {
   type JobCardListItem,
 } from './shared/jobCardHtml';
 import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext';
+import { sanitizeJobTitleForDisplay, stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import type { JobBoardLocale } from './jobBoardSeoPure';
 import {
@@ -74,6 +75,7 @@ import {
   type SectorCountableJob,
   type SectorHubKey,
 } from './jobSectorLanding';
+import { buildSectorHubPagePath } from './shared/jobSectorPaths';
 import { SECTOR_HUB_EMOJI } from './shared/sectorHubEmoji';
 import { JOB_BOARD_NOINDEX_TARGET_MARKER } from './shared/jobBoardNoindexTargetMarker.mjs';
 import { getSafeDistPageTargets } from './shared/distPathSafety';
@@ -277,28 +279,30 @@ function renderJourneyCompanies(
 }
 
 /**
- * Sector landings are primary job-listing pages, not three-card previews: the
- * headline count and the visible inventory must describe the same set, so the
- * builder never truncates the list to fit a byte budget.
- *
- * Page weight is enforced at build time. A single oversized hub must fail the
- * build rather than silently ship a page beyond the repository's hard limit.
+ * Sector landings keep the complete inventory in their metrics and spread its
+ * links across bounded listing windows. The build-time guard stays aligned with
+ * the site's 260 KiB page-weight budget for every base and continuation page.
  */
-export const SECTOR_PAGE_WEIGHT_WARN_BYTES = 260 * 1024;
-
-/** How many of the heaviest pages the end-of-plugin summary lists. */
+export const SECTOR_PAGE_CARD_CAP = 30;
+export const SECTOR_OVERFLOW_LINKS_PER_PAGE = 200;
+export const SECTOR_PAGE_HARD_BUDGET_BYTES = 260 * 1024;
+// Kept as the public observability name used by the page-weight checks. It is
+// also the fail-closed hard limit now that every emitted page is bounded.
+export const SECTOR_PAGE_WEIGHT_WARN_BYTES = SECTOR_PAGE_HARD_BUDGET_BYTES;
 export const SECTOR_PAGE_WEIGHT_TOP_N = 5;
+const SECTOR_PAGE_NAV_LINK_CAP = 120;
 
 export interface SectorPageWeight {
   readonly path: string;
   readonly bytes: number;
 }
 
-/**
- * Pure summary of the emitted page weights: the heaviest `topN` pages (largest
- * first, ties by path for a stable log) and how many exceed the warn
- * threshold. The build-time guard below remains the enforcement point.
- */
+export function sectorHubPageCount(totalJobs: number): number {
+  const overflowCount = Math.max(0, Math.floor(totalJobs) - SECTOR_PAGE_CARD_CAP);
+  return Math.max(1, Math.ceil(overflowCount / SECTOR_OVERFLOW_LINKS_PER_PAGE));
+}
+
+/** Summarise emitted page weights without weakening the hard page guard. */
 export function summarizeSectorPageWeights(
   weights: ReadonlyArray<SectorPageWeight>,
   warnBytes: number = SECTOR_PAGE_WEIGHT_WARN_BYTES,
@@ -310,6 +314,47 @@ export function summarizeSectorPageWeights(
     total: sorted.length,
     top: sorted.slice(0, Math.max(0, topN)),
   };
+}
+
+function sectorPageNavigationTargets(page: number, pageCount: number): number[] {
+  if (pageCount <= SECTOR_PAGE_NAV_LINK_CAP) {
+    return Array.from({ length: pageCount }, (_, index) => index + 1);
+  }
+
+  // Keep the navigation bounded even for a pathological inventory. Power-of-2
+  // jumps let a crawler reach any page in O(log N) hops, while page 1 and the
+  // last page are always one click away.
+  const targets = new Set([1, pageCount, page, Math.max(1, page - 1), Math.min(pageCount, page + 1)]);
+  for (let offset = 1; offset < pageCount; offset *= 2) {
+    if (page - offset >= 1) targets.add(page - offset);
+    if (page + offset <= pageCount) targets.add(page + offset);
+  }
+  return [...targets].sort((a, b) => a - b);
+}
+
+const SECTOR_PAGE_LABELS: Record<JobBoardLocale, { page: string; nav: string }> = {
+  it: { page: 'Pagina', nav: 'Pagine delle offerte' },
+  en: { page: 'Page', nav: 'Listing pages' },
+  de: { page: 'Seite', nav: 'Angebotsseiten' },
+  fr: { page: 'Page', nav: 'Pages des offres' },
+};
+
+function renderSectorPageNavigation(
+  locale: JobBoardLocale,
+  sector: SectorHubKey,
+  page: number,
+  pageCount: number,
+): string {
+  if (pageCount <= 1) return '';
+  const labels = SECTOR_PAGE_LABELS[locale];
+  const items = sectorPageNavigationTargets(page, pageCount).map((target) => {
+    const label = `${labels.page} ${target}`;
+    if (target === page) {
+      return `<span aria-current="page" class="rounded-full border border-accent-border bg-accent-subtle px-3 py-1 text-xs font-semibold text-heading">${esc(label)}</span>`;
+    }
+    return `<a class="rounded-full border border-edge bg-surface-raised px-3 py-1 text-xs font-semibold text-heading hover:border-accent-border" href="${esc(buildSectorHubPagePath(locale, sector, target))}">${esc(label)}</a>`;
+  }).join('');
+  return `<nav data-sector-page-navigation="1" class="mt-4 flex flex-wrap gap-2" aria-label="${esc(labels.nav)}">${items}</nav>`;
 }
 
 const LOCALE_OG: Record<JobBoardLocale, string> = {
@@ -504,18 +549,28 @@ export interface BuildSectorLandingHtmlOptions {
   siblingCounts?: Readonly<Partial<Record<SectorHubKey, number>>>;
   /** Full profession landing paths only; bridge routes must not receive internal links. */
   emittedProfessionLandingPaths?: ReadonlySet<string>;
+  /** One-based sector listing page; page 1 is the established sector URL. */
+  page?: number;
+  /** Shared page count across locales, so sitemap alternates remain reciprocal. */
+  pageCount?: number;
 }
 
 /**
- * Pure HTML builder for a single sector landing page. Extracted so the
- * regression unit test (`tests/seo/job-sector-page-weight.test.ts`) can
- * exercise the exact byte-for-byte output without driving a full Vite
- * build. Callers pass the complete matching set. Truncating the list here
- * would make the count and cards disagree again, so page weight is only
- * reported (see `SECTOR_PAGE_WEIGHT_WARN_BYTES`), never enforced.
+ * Pure HTML builder for one bounded page in a sector listing ladder. The
+ * caller passes the complete matching inventory for metrics and slicing;
+ * only 30 rich cards and 200 compact overflow links can reach one page.
  */
 export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): string {
   const { sector, locale, matchingJobs, count, year, dateStamp, sectorProseData } = opts;
+  const page = opts.page ?? 1;
+  const requiredPageCount = sectorHubPageCount(matchingJobs.length);
+  const pageCount = opts.pageCount ?? requiredPageCount;
+  if (!Number.isSafeInteger(pageCount) || pageCount < requiredPageCount) {
+    throw new RangeError(`Sector page count ${pageCount} cannot cover ${matchingJobs.length} matching jobs`);
+  }
+  if (!Number.isSafeInteger(page) || page < 1 || page > pageCount) {
+    throw new RangeError(`Invalid sector page ${page} of ${pageCount}`);
+  }
   const uniqCount = (vals: ReadonlyArray<unknown>): number =>
     new Set(vals.map((v) => String(v ?? '').trim().toLowerCase()).filter(Boolean)).size;
   const companyCount = opts.companyCount ?? uniqCount(matchingJobs.map((j) => j.company));
@@ -526,33 +581,68 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
   const hasSpaBundle = !!(entryJs && entryCss);
 
   const seo = buildSectorHubSeo(locale, sector, count, year);
+  const pageLabel = SECTOR_PAGE_LABELS[locale].page;
+  const pageTitle = page === 1
+    ? seo.title
+    : `${SECTOR_HUB_DISPLAY[locale][sector]} ${pageLabel.toLowerCase()} ${page} | Frontaliere Ticino`;
+  const pageH1 = page === 1 ? seo.h1 : `${seo.h1} · ${pageLabel} ${page}`;
+  const pageStart = SECTOR_PAGE_CARD_CAP + (page - 1) * SECTOR_OVERFLOW_LINKS_PER_PAGE + 1;
+  const pageEnd = Math.min(matchingJobs.length, SECTOR_PAGE_CARD_CAP + page * SECTOR_OVERFLOW_LINKS_PER_PAGE);
+  const pageHasOverflowRows = pageEnd >= pageStart;
+  const emptyContinuationCopy: Record<JobBoardLocale, string> = {
+    it: `Nessuna offerta aggiuntiva in questa finestra. Totale: ${count} offerte attive.`,
+    en: `No additional listings in this page window. Total: ${count} active jobs.`,
+    de: `Keine weiteren Stellen in diesem Seitenabschnitt. Insgesamt: ${count} aktive Stellen.`,
+    fr: `Aucune offre supplémentaire dans cette fenêtre. Total : ${count} offres actives.`,
+  };
+  const pageDescription = page === 1
+    ? seo.desc
+    : `${seo.desc} ${pageHasOverflowRows
+      ? locale === 'it'
+        ? `Pagina ${page} di ${pageCount}: offerte ${pageStart}–${pageEnd} su ${count}.`
+        : locale === 'en'
+          ? `Page ${page} of ${pageCount}: listings ${pageStart}–${pageEnd} of ${count}.`
+          : locale === 'de'
+            ? `Seite ${page} von ${pageCount}: Stellen ${pageStart}–${pageEnd} von ${count}.`
+            : `Page ${page} sur ${pageCount} : offres ${pageStart}–${pageEnd} sur ${count}.`
+      : emptyContinuationCopy[locale]}`;
+  const pageSeo = { ...seo, title: pageTitle, h1: pageH1, desc: pageDescription, ogT: pageTitle, ogD: pageDescription };
   const proseDisplayName = SECTOR_HUB_DISPLAY[locale][sector];
   const prose = buildSectorProse(sector, locale, proseDisplayName, sectorProseData);
 
-  const canonicalPath = buildSectorHubPath(locale, sector);
+  const canonicalPath = buildSectorHubPagePath(locale, sector, page);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+  const basePath = buildSectorHubPath(locale, sector);
+  const baseUrl = `${BASE_URL}${basePath}`;
 
   const alternates = LOCALES.map((altLocale) => {
-    const altPath = buildSectorHubPath(altLocale, sector);
+    const altPath = buildSectorHubPagePath(altLocale, sector, page);
     return `    <link rel="alternate" hreflang="${altLocale}" href="${BASE_URL}${altPath}">`;
   }).join('\n');
-  const xDefaultPath = buildSectorHubPath('it', sector);
+  const xDefaultPath = buildSectorHubPagePath('it', sector, page);
 
-  const cardItems: JobCardListItem[] = matchingJobs.map((job) => ({
+  const cardJobs = page === 1 ? matchingJobs.slice(0, SECTOR_PAGE_CARD_CAP) : [];
+  const overflowStart = SECTOR_PAGE_CARD_CAP + (page - 1) * SECTOR_OVERFLOW_LINKS_PER_PAGE;
+  const overflowEnd = Math.min(matchingJobs.length, SECTOR_PAGE_CARD_CAP + page * SECTOR_OVERFLOW_LINKS_PER_PAGE);
+  const overflowJobs = Array.from(
+    { length: Math.max(0, overflowEnd - overflowStart) },
+    (_, index) => matchingJobs[overflowStart + index],
+  );
+  const visibleWindowCount = cardJobs.length + overflowJobs.length;
+  const windowStart = visibleWindowCount === 0 ? 0 : page === 1 ? 1 : overflowStart + 1;
+  const windowEnd = visibleWindowCount === 0 ? 0 : overflowEnd;
+
+  const cardItems: JobCardListItem[] = cardJobs.map((job) => ({
     job: job as JobCardJob,
     href: buildJobHref(locale, job),
   }));
 
-  const jobCards = cardItems.map(({ job, href }) => {
-    const titleByLocale = job.titleByLocale as Record<string, string> | undefined;
-    const localizedTitle = String(titleByLocale?.[locale] || job.title || 'Offerta lavoro');
-    return {
-      title: String(localizedTitle).replace(/\s+/g, ' ').trim(),
-      company: String(job.company || '').replace(/\s+/g, ' ').trim(),
-      location: String(job.location || '').replace(/\s+/g, ' ').trim(),
-      href,
-      datePosted: resolveRolloutPostingDate(job, () => job.datePosted || job.postedDate || null) || undefined,
-    };
+  const overflowItems = overflowJobs.map((job) => {
+    const title = sanitizeJobTitleForDisplay(String(localizedJobDisplayTitle(job, locale) || 'Offerta lavoro')).trim();
+    const company = stripLiteralMarkdown(String(job.company || '')).trim();
+    const location = stripLiteralMarkdown(String(job.location || job.addressLocality || '')).trim();
+    const label = Array.from([title, company, location].filter(Boolean).join(' · ')).slice(0, 60).join('');
+    return { job: job as JobCardJob, href: buildJobHref(locale, job), title, label };
   });
 
   const noResultsLabel = {
@@ -574,17 +664,50 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     <summary class="s-HBR0NM">${esc(categorySummaryLabel[locale])}</summary>
     <p class="s-bOIp6r">${esc(seo.intro)}</p>
   </details>`;
-  const jobsHtml = [
-    renderJobCardListHtml(firstResultBlock, {
-      locale,
-      emptyStateHtml,
-      hasFollowingItems: remainingResults.length > 0,
-    }),
-    categorySummaryHtml,
-    remainingResults.length > 0
-      ? renderJobCardListHtml(remainingResults, { locale, positionOffset: firstResultBlock.length })
-      : '',
-  ].join('');
+  const jobsHtml = page === 1
+    ? [
+        renderJobCardListHtml(firstResultBlock, {
+          locale,
+          emptyStateHtml,
+          hasFollowingItems: remainingResults.length > 0,
+        }),
+        categorySummaryHtml,
+        remainingResults.length > 0
+          ? renderJobCardListHtml(remainingResults, { locale, positionOffset: firstResultBlock.length })
+          : '',
+      ].join('')
+    : '';
+
+  const pageWindowCopy: Record<JobBoardLocale, (start: number, end: number, total: number) => string> = {
+    it: (start, end, total) => start === 0
+      ? `Nessuna offerta aggiuntiva in questa finestra. Totale: ${total} offerte attive.`
+      : `Offerte ${start}–${end} su ${total} totali.`,
+    en: (start, end, total) => start === 0
+      ? `No additional listings in this page window. Total: ${total} active jobs.`
+      : `Listings ${start}–${end} of ${total} total.`,
+    de: (start, end, total) => start === 0
+      ? `Keine weiteren Stellen in diesem Seitenabschnitt. Insgesamt: ${total} aktive Stellen.`
+      : `Stellen ${start}–${end} von insgesamt ${total}.`,
+    fr: (start, end, total) => start === 0
+      ? `Aucune offre supplémentaire dans cette fenêtre. Total : ${total} offres actives.`
+      : `Offres ${start}–${end} sur ${total} au total.`,
+  };
+  const pageWindowHtml = `<p data-sector-page-window="${page}" class="mt-2 text-sm leading-6 text-body">${esc(pageWindowCopy[locale](windowStart, windowEnd, count))}</p>`;
+  const overflowLinksHtml = overflowJobs.length > 0
+    ? `<ul data-sector-overflow-list="${page}" class="mt-3 columns-1 gap-4 text-sm leading-6 sm:columns-2">${overflowItems.map(({ href, label }) => {
+        const relativeHref = href.replace(BASE_URL, '');
+        return `<li class="break-inside-avoid py-1"><a class="text-link hover:text-link-hover" href="${esc(relativeHref)}">${esc(label)}</a></li>`;
+      }).join('')}</ul>`
+    : page === 1 && cardItems.length === 0
+      ? ''
+      : `<p class="mt-3 text-sm leading-6 text-body">${esc(locale === 'it'
+        ? 'Non ci sono altre offerte in questa pagina.'
+        : locale === 'en'
+          ? 'There are no additional listings on this page.'
+          : locale === 'de'
+            ? 'Auf dieser Seite gibt es keine weiteren Stellen.'
+            : 'Il n’y a pas d’autres offres sur cette page.')}</p>`;
+  const sectorPageNavigationHtml = renderSectorPageNavigation(locale, sector, page, pageCount);
 
   const faqHtml = seo.faq.length > 0
     ? `<section class="s-m_ILbB">
@@ -633,21 +756,26 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Home', item: localeHomeUrl(locale, BASE_URL) },
       { '@type': 'ListItem', position: 2, name: SECTION_NAME[locale], item: sectionRootUrl },
-      { '@type': 'ListItem', position: 3, name: seo.h1, item: canonicalUrl },
+      ...(page > 1 ? [{ '@type': 'ListItem', position: 3, name: seo.h1, item: baseUrl }] : []),
+      { '@type': 'ListItem', position: page > 1 ? 4 : 3, name: pageSeo.h1, item: canonicalUrl },
     ],
   });
 
-  const itemListLd = jobCards.length > 0
+  const pageItemList = [
+    ...cardItems.map(({ job, href }) => ({ job, href, title: sanitizeJobTitleForDisplay(String(localizedJobDisplayTitle(job, locale) || 'Offerta lavoro')) })),
+    ...overflowItems,
+  ];
+  const itemListLd = pageItemList.length > 0
     ? inlineScriptJson({
         '@context': 'https://schema.org',
         '@type': 'ItemList',
-        name: seo.h1,
-        numberOfItems: jobCards.length,
-        itemListElement: jobCards.map((j, idx) => ({
+        name: pageSeo.h1,
+        numberOfItems: pageItemList.length,
+        itemListElement: pageItemList.map((item, idx) => ({
           '@type': 'ListItem',
-          position: idx + 1,
-          name: j.title,
-          url: j.href,
+          position: (page === 1 ? 0 : overflowStart) + idx + 1,
+          name: item.title,
+          url: item.href,
         })),
       })
     : '';
@@ -655,12 +783,12 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
   const collectionLd = inlineScriptJson({
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
-    name: seo.h1,
+    name: pageSeo.h1,
     url: canonicalUrl,
-    description: seo.desc,
+    description: pageSeo.desc,
     inLanguage: locale,
     isPartOf: sectionRootUrl,
-
+    numberOfItems: count,
   });
 
   const faqLd = seo.faq.length > 0
@@ -789,7 +917,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
   // emits unconditionally regardless of job count, so the robots tag must be
   // computed per-render from the actual assembled body content instead of
   // assumed indexable.
-  const sectorBodyHtml = `${jobsHtml}${prose.html}${journeyRequirementsHtml}${journeyCompaniesHtml}${faqHtml}${sectorContextHtml}${siblingRailHtml}${crossCantonRailHtml}`;
+  const sectorBodyHtml = `${pageWindowHtml}${jobsHtml}${overflowLinksHtml}${sectorPageNavigationHtml}${prose.html}${journeyRequirementsHtml}${journeyCompaniesHtml}${faqHtml}${sectorContextHtml}${siblingRailHtml}${crossCantonRailHtml}`;
   const sectorRobotsTag = robotsMetaEnhancedForContent(sectorBodyHtml);
   const sectorNoindexMarker = /\bnoindex\b/i.test(sectorRobotsTag)
     ? `\n    ${JOB_BOARD_NOINDEX_TARGET_MARKER}`
@@ -801,19 +929,19 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n    ` : ''}${FAVICON_LINKS}
-    <title>${esc(finalizeJobBoardTitle(seo.title))}</title>
-    <meta name="description" content="${esc(clampMetaDescription(seo.desc, undefined, locale))}">${sectorRobotsTag}${sectorNoindexMarker}
+    <title>${esc(finalizeJobBoardTitle(pageSeo.title))}</title>
+    <meta name="description" content="${esc(clampMetaDescription(pageSeo.desc, undefined, locale))}">${sectorRobotsTag}${sectorNoindexMarker}
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${LOCALE_OG[locale]}">
-    <meta property="og:title" content="${esc(seo.ogT)}">
-    <meta property="og:description" content="${esc(clampMetaDescription(seo.ogD, undefined, locale))}">
+    <meta property="og:title" content="${esc(pageSeo.ogT)}">
+    <meta property="og:description" content="${esc(clampMetaDescription(pageSeo.ogD, undefined, locale))}">
     <meta property="og:url" content="${canonicalUrl}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/png">
-    <meta property="og:image:alt" content="${esc(seo.ogT)}">
+    <meta property="og:image:alt" content="${esc(pageSeo.ogT)}">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
     <link rel="alternate" hreflang="x-default" href="${BASE_URL}${xDefaultPath}">
@@ -829,26 +957,30 @@ ${alternates}
   <body>
     ${rootShell(hasSpaBundle)}
     ${railGutters(true).open}
-    <main class="seo-static-content s-Ziv1Xn" data-sector-hub="${esc(sector)}" data-sector-inventory-count="${String(count)}">
+    <main class="seo-static-content s-Ziv1Xn" data-sector-hub="${esc(sector)}" data-sector-inventory-count="${String(count)}" data-sector-page="${page}" data-sector-page-count="${pageCount}">
         <nav class="s-bcr">
           <a href="/" class="s-bcl">Home</a>
           <span> / </span>
           <a href="${sectionRootUrl}" class="s-bcl">${esc(SECTION_NAME[locale])}</a>
           <span> / </span>
-          <span>${esc(seo.h1)}</span>
+          ${page > 1 ? `<a href="${esc(basePath)}" class="s-bcl">${esc(seo.h1)}</a><span> / </span>` : ''}
+          <span>${esc(pageSeo.h1)}</span>
         </nav>
         <header class="s-sy52lX">
           <p style="${HERO_EYEBROW_STYLE}"><span aria-hidden="true" style="font-size:15px">${SECTOR_HUB_EMOJI[sector]}</span> ${esc(updatedLabelByLocale[locale])} · ${dateStamp}</p>
-          <h1 style="${H1_STYLE}">${esc(seo.h1)}</h1>
-          <p style="${LEDE_STYLE}">${esc(seo.desc)}</p>
+          <h1 style="${H1_STYLE}">${esc(pageSeo.h1)}</h1>
+          <p style="${LEDE_STYLE}">${esc(pageSeo.desc)}</p>
         </header>
         ${statGridHtml}
         ${ctaHtml}
         <section id="${PROFESSION_JOURNEY_ANCHORS.offers}" class="s-ziawP1">
           <div class="s-r2QmTP">
-            <h2 class="s-CqexyJ">${esc(jobsSectionLabelByLocale[locale])}</h2>
+            <h2 class="s-CqexyJ">${esc(page === 1 ? jobsSectionLabelByLocale[locale] : `${jobsSectionLabelByLocale[locale]} · ${pageLabel} ${page}`)}</h2>
           </div>
+          ${pageWindowHtml}
           ${jobsHtml}
+          ${overflowLinksHtml}
+          ${sectorPageNavigationHtml}
         </section>
         ${journeyHtml}
         ${prose.html}
@@ -925,26 +1057,33 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
       };
 
       for (const sector of SECTOR_HUB_KEYS) {
+        // Use the maximum complete locale count for this sector so every
+        // locale owns the same page-N matrix and every alternate target exists.
+        const pageCount = Math.max(...LOCALES.map((locale) => sectorHubPageCount(counts[locale][sector])));
         for (const locale of LOCALES) {
           // Per-locale shard render-skip (BUILD_LOCALE matrix builds). The full
           // page render below (buildSectorLandingHtml + the two fs.writeFileSync
-          // emits) is the bulk of this plugin's ~150s closeBundle cost, and on a
+          // emits) is the bulk of this plugin's closeBundle cost, and on a
           // shard build 3 of every 4 locales it produces are deleted afterwards
           // by scripts/ci/prune-locale-shard.mjs. Skipping the non-owned locales
           // here removes that wasted render. SAFE for cross-locale SEO: the
           // sitemap-sector.xml entries are built after this render loop from
-          // buildSectorHubPath, independent of whether EN/DE/FR rendered here.
+          // the full locale/page matrix, independent of whether EN/DE/FR
+          // rendered here.
           // No-op (always true) on the default all-locale build.
           if (!shouldEmitLocale(locale)) continue;
           const count = counts[locale][sector];
-          // Render the complete matching set. The previous 30-card slice made
-          // pages such as Banca/finanza announce 60 offers while exposing only
-          // half of them. Weight is reported by the warning below, not capped.
+          // Keep the complete matching set for metrics and deterministic page
+          // slicing. Each emitted page renders only its fixed-size window.
           const matchingJobs = filterSectorJobs(jobs, sector, locale, Number.MAX_SAFE_INTEGER);
+          if (matchingJobs.length !== count) {
+            throw new Error(
+              `[job-sector-pages] inventory mismatch for ${locale}/${sector}: ` +
+                `count=${count}, matching jobs=${matchingJobs.length}`,
+            );
+          }
 
-          // The same complete set feeds both the cards and the secondary
-          // metrics, so a page can no longer report one inventory and show
-          // another.
+          // Secondary metrics and the sector rails use the complete inventory.
           const allMatching = matchingJobs;
           const normKey = (v: unknown): string => String(v ?? '').trim().toLowerCase();
           const companyCount = new Set(allMatching.map((j) => normKey(j.company)).filter(Boolean)).size;
@@ -964,67 +1103,66 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
             return t >= freshCutoff && t <= freshMax;
           }).length;
 
-          const canonicalPath = buildSectorHubPath(locale, sector);
-          const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+          for (let page = 1; page <= pageCount; page += 1) {
+            const canonicalPath = buildSectorHubPagePath(locale, sector, page);
+            const html = buildSectorLandingHtml({
+              sector,
+              locale,
+              matchingJobs,
+              count,
+              year,
+              dateStamp,
+              sectorProseData,
+              entryJs,
+              entryCss,
+              companyCount,
+              cityCount,
+              freshCount,
+              siblingCounts: counts[locale],
+              emittedProfessionLandingPaths,
+              page,
+              pageCount,
+            });
 
-          const html = buildSectorLandingHtml({
-            sector,
-            locale,
-            matchingJobs,
-            count,
-            year,
-            dateStamp,
-            sectorProseData,
-            entryJs,
-            entryCss,
-            companyCount,
-            cityCount,
-            freshCount,
-            siblingCounts: counts[locale],
-            emittedProfessionLandingPaths,
-          });
+            // Keep an observability record in addition to the fail-closed gate.
+            const htmlBytes = Buffer.byteLength(html, 'utf-8');
+            pageWeights.push({ path: canonicalPath, bytes: htmlBytes });
+            if (htmlBytes > SECTOR_PAGE_WEIGHT_WARN_BYTES) {
+              throw new Error(
+                `[job-sector-pages] HTML for ${canonicalPath} is ${(htmlBytes / 1024).toFixed(1)} KB, ` +
+                  `exceeds hard budget of ${SECTOR_PAGE_WEIGHT_WARN_BYTES / 1024} KB. ` +
+                  `Compress card markup or split the listing before changing the page-weight budget.`,
+              );
+            }
 
-          // Hard budget gate: keep the complete inventory (never truncate
-          // offers to make the page fit), but fail before publishing a page
-          // that exceeds the repository's page-weight contract.
-          const htmlBytes = Buffer.byteLength(html, 'utf-8');
-          pageWeights.push({ path: canonicalPath, bytes: htmlBytes });
-          if (htmlBytes > SECTOR_PAGE_WEIGHT_WARN_BYTES) {
-            throw new Error(
-              `[job-sector-pages] HTML for ${canonicalPath} is ${(htmlBytes / 1024).toFixed(1)} KB, ` +
-                `exceeds hard budget of ${SECTOR_PAGE_WEIGHT_WARN_BYTES / 1024} KB. ` +
-                `Compress card markup or split the listing before changing the page-weight budget.`,
-            );
+            // Write both /path/index.html and /path.html after validating the
+            // URL-derived targets through the shared dist-path safety helper.
+            const safeTargets = getSafeDistPageTargets(distDir, canonicalPath);
+            if (!safeTargets?.flatPath) {
+              throw new Error(`[job-sector-pages] refusing unsafe sector page path ${canonicalPath}`);
+            }
+            ensureDir(safeTargets.directoryPath);
+            fs.writeFileSync(safeTargets.indexPath, html, 'utf-8');
+            ensureDir(np.dirname(safeTargets.flatPath));
+            fs.writeFileSync(safeTargets.flatPath, html, 'utf-8');
           }
-
-          // Write both /path/index.html and /path.html
-          const safeTargets = getSafeDistPageTargets(distDir, canonicalPath);
-          if (!safeTargets?.flatPath) {
-            console.warn(`[job-sector-pages] skipped unsafe path ${canonicalPath}`);
-            continue;
-          }
-          ensureDir(safeTargets.directoryPath);
-          fs.writeFileSync(safeTargets.indexPath, html, 'utf-8');
-          ensureDir(np.dirname(safeTargets.flatPath));
-          fs.writeFileSync(safeTargets.flatPath, html, 'utf-8');
         }
 
         for (const locale of sitemapLocales) {
-          const canonicalPath = buildSectorHubPath(locale, sector);
-          const canonicalUrl = `${BASE_URL}${canonicalPath}`;
-          // Every locale gets its own reciprocal <loc> entry (all 4 carry the
-          // same alternate set) — an IT-only sitemap would leave en/de/fr
-          // as one-sided alternates and outside the publisher page contract.
-          const altLinks = LOCALES.map((altLocale) => {
-            const altPath = buildSectorHubPath(altLocale, sector);
-            return `    <xhtml:link rel="alternate" hreflang="${altLocale}" href="${BASE_URL}${altPath}" />`;
-          }).join('\n');
-          // x-default always anchors to the IT canonical, regardless of which
-          // locale this <url> block itself represents.
-          const itUrl = `${BASE_URL}${buildSectorHubPath('it', sector)}`;
-          sitemapEntries.push(
-            `  <url>\n    <loc>${canonicalUrl}</loc>\n${altLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${itUrl}" />\n    <changefreq>daily</changefreq>\n    <priority>0.9</priority>\n  </url>`,
-          );
+          for (let page = 1; page <= pageCount; page += 1) {
+            const canonicalPath = buildSectorHubPagePath(locale, sector, page);
+            const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+            // Every localized page gets a reciprocal alternate group at the
+            // same page number, including the IT x-default destination.
+            const altLinks = LOCALES.map((altLocale) => {
+              const altPath = buildSectorHubPagePath(altLocale, sector, page);
+              return `    <xhtml:link rel="alternate" hreflang="${altLocale}" href="${BASE_URL}${altPath}" />`;
+            }).join('\n');
+            const itUrl = `${BASE_URL}${buildSectorHubPagePath('it', sector, page)}`;
+            sitemapEntries.push(
+              `  <url>\n    <loc>${canonicalUrl}</loc>\n${altLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${itUrl}" />\n    <changefreq>daily</changefreq>\n    <priority>${page === 1 ? '0.9' : '0.7'}</priority>\n  </url>`,
+            );
+          }
         }
       }
 
@@ -1043,9 +1181,12 @@ ${sitemapEntries.join('\n')}
         }
       }
 
-      const totalPages = LOCALES.length * SECTOR_HUB_KEYS.length;
+      const totalPages = SECTOR_HUB_KEYS.reduce(
+        (total, sector) => total + LOCALES.length * Math.max(...LOCALES.map((locale) => sectorHubPageCount(counts[locale][sector]))),
+        0,
+      );
       console.log(
-        `\x1b[36m[job-sector-pages]\x1b[0m Generated ${totalPages} sector hubs (${jobs.length} candidate jobs)`,
+        `\x1b[36m[job-sector-pages]\x1b[0m Generated ${totalPages} sector pages (${jobs.length} candidate jobs)`,
       );
 
       const weightSummary = summarizeSectorPageWeights(pageWeights);
@@ -1053,10 +1194,9 @@ ${sitemapEntries.join('\n')}
         const heaviest = weightSummary.top
           .map((w) => `${w.path} ${(w.bytes / 1024).toFixed(1)} KB`)
           .join('; ');
-        const log = weightSummary.overCount > 0 ? console.warn : console.log;
-        log(
+        console.log(
           `[job-sector-pages] page weight: ${weightSummary.overCount}/${weightSummary.total} hubs above ` +
-            `${SECTOR_PAGE_WEIGHT_WARN_BYTES / 1024} KB (warning only); heaviest ${weightSummary.top.length}: ${heaviest}`,
+            `${SECTOR_PAGE_WEIGHT_WARN_BYTES / 1024} KB hard limit; heaviest ${weightSummary.top.length}: ${heaviest}`,
         );
       }
 
