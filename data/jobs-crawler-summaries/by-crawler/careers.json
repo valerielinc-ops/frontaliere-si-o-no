@@ -1,7 +1,7 @@
 {
   "key": "careers",
   "label": "lepatron",
-  "generatedAt": "2026-11-14T21:20:25.998Z",
+  "generatedAt": "2026-11-15T09:23:21.080Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 2829,
-  "avgDurationMs": 2829,
+  "durationMs": 4770,
+  "avgDurationMs": 4770,
   "durationHistory": [
-    2829
+    4770
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Teamleiterin-Anlagenf%C3%BChrerin%2C-100-BL/1434644333/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:20:11.212Z",
+      "crawledAt": "2026-11-15T09:23:03.521Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "postalCode": "4461",
       "streetAddress": "Böckten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:20:11.212Z",
+      "validThrough": "2026-12-15T09:23:03.521Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Management-&-QMQS%2C-40-100-BL/1447904133/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:20:11.210Z",
+      "crawledAt": "2026-11-15T09:23:03.520Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "postalCode": "4461",
       "streetAddress": "Böckten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:20:11.210Z",
+      "validThrough": "2027-01-14T09:23:03.520Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -117,5 +117,5 @@
       }
     }
   ],
-  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
+  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
 }
