@@ -260,12 +260,12 @@ describe.each(CASES)('%s', (_name, src, ENUM) => {
     }
   });
 
-  it('leaves AD_BLOCKING available when the Offerwall enum is missing on the first call', () => {
+  it('filters AD_BLOCKING when the Offerwall enum is missing on the first call', () => {
     const win = install(src, '/articoli/fisco/');
     win.googlefc!.MessageTypeEnum = { AD_BLOCKING: 2, CONSENT: 3 };
     const m = message();
     win.googlefc!.controlledMessagingFunction!(m);
-    expect(m.calls).toEqual([[true]]);
+    expect(m.calls).toEqual([[false, [2]]]);
     expect(win.googlefc!.__ftOfferwallBootstrapComplete).toBe(true);
     expect(win.__ftOfferwallGate).toBeUndefined();
   });
