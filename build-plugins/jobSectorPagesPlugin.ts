@@ -280,10 +280,11 @@ function renderJourneyCompanies(
 
 /**
  * Sector landings keep the complete inventory in their metrics and spread its
- * links across bounded listing windows. The build-time guard stays aligned with
- * the site's 260 KiB page-weight budget for every base and continuation page.
+ * links across bounded listing windows. The smaller rich-card window limits
+ * repeated title and URL markup on long base pages. The build-time guard stays
+ * aligned with the site's 260 KiB budget for every base and continuation page.
  */
-export const SECTOR_PAGE_CARD_CAP = 30;
+export const SECTOR_PAGE_CARD_CAP = 25;
 export const SECTOR_OVERFLOW_LINKS_PER_PAGE = 200;
 export const SECTOR_PAGE_HARD_BUDGET_BYTES = 260 * 1024;
 // Kept as the public observability name used by the page-weight checks. It is
@@ -558,7 +559,8 @@ export interface BuildSectorLandingHtmlOptions {
 /**
  * Pure HTML builder for one bounded page in a sector listing ladder. The
  * caller passes the complete matching inventory for metrics and slicing;
- * only 30 rich cards and 200 compact overflow links can reach one page.
+ * only SECTOR_PAGE_CARD_CAP rich cards and
+ * SECTOR_OVERFLOW_LINKS_PER_PAGE compact overflow links can reach one page.
  */
 export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): string {
   const { sector, locale, matchingJobs, count, year, dateStamp, sectorProseData } = opts;
