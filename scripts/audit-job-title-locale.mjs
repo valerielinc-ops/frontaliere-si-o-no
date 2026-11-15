@@ -79,6 +79,7 @@ import { titleLooksUntranslated, DEFAULT_JOB_LOCALES } from './lib/job-locale-ut
 import { titleRepairSourceLang, titleRepairSourceTitle } from './lib/untranslated-title-repair.mjs';
 import { localizeGenderTrigraphs } from './lib/translation-glossary.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -290,12 +291,16 @@ export function auditJobTitles(jobs, { top = 15, samples = 20, limit, urlFor } =
 export function loadJobs({ root = ROOT, fromSlices = false } = {}) {
   const assembled = path.join(root, 'data', 'jobs.json');
   if (!fromSlices && fs.existsSync(assembled)) {
+    // Fail closed. `JSON.parse(readFileSync(...))` throws ERR_STRING_TOO_LONG on
+    // the 539 MB assembled dataset and the old catch silently audited the
+    // (smaller) slices instead, reporting on a different population.
+    let parsed;
     try {
-      const parsed = JSON.parse(fs.readFileSync(assembled, 'utf8'));
-      if (Array.isArray(parsed)) return { jobs: parsed, source: 'data/jobs.json' };
-    } catch {
-      /* fall through to slices */
+      parsed = readJsonFile(assembled);
+    } catch (err) {
+      throw new Error(`audit-job-title-locale: cannot read data/jobs.json: ${err?.message || err}`);
     }
+    if (Array.isArray(parsed)) return { jobs: parsed, source: 'data/jobs.json' };
   }
   const sliceDir = path.join(root, 'data', 'jobs', 'by-crawler');
   if (!fs.existsSync(sliceDir)) return { jobs: [], source: null };
@@ -305,8 +310,9 @@ export function loadJobs({ root = ROOT, fromSlices = false } = {}) {
       const parsed = JSON.parse(fs.readFileSync(path.join(sliceDir, file), 'utf8'));
       const rows = Array.isArray(parsed) ? parsed : parsed?.jobs;
       if (Array.isArray(rows)) jobs.push(...rows);
-    } catch {
-      /* a single unreadable slice must not sink the audit */
+    } catch (err) {
+      // A single unreadable slice must not sink the audit, but it must be said.
+      console.warn(`[audit-job-title-locale] skipping unreadable slice ${file}: ${err?.message || err}`);
     }
   }
   return { jobs, source: jobs.length ? 'data/jobs/by-crawler' : null };

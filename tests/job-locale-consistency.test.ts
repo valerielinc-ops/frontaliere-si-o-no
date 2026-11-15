@@ -44,6 +44,7 @@
  * Both are exercised from synthetic fixtures in
  * `tests/job-locale-population-guard.test.ts`, which needs no dataset.
  */
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import { describe, expect, it } from 'vitest';
 import fs from 'fs';
 import path from 'path';
@@ -82,7 +83,7 @@ interface Job {
 // an earlier version did.
 function loadJobs(): Job[] | null {
   try {
-    const parsed = JSON.parse(fs.readFileSync(DATA_JOBS_PATH, 'utf-8'));
+    const parsed = readJsonFile(DATA_JOBS_PATH);
     return Array.isArray(parsed) && parsed.length > 0 ? parsed : null;
   } catch {
     return null;

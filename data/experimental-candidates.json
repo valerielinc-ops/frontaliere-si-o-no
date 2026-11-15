@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-09T01:25:08.898Z",
+  "generatedAt": "2026-11-15T01:40:42.568Z",
   "sources": {
     "redditTicino": {
       "ok": false,
@@ -23,7 +23,7 @@
     },
     "googleNewsRss": {
       "ok": true,
-      "candidates": 190
+      "candidates": 198
     }
   },
   "candidates": [
@@ -47,6 +47,69 @@
       "demandScore": 0,
       "noveltyScore": 0.933,
       "totalScore": 0.373
+    },
+    {
+      "id": "eb5004a4",
+      "keyword": "Frontalieri: treno e/o bici conviene nel 40% degli spostamenti. Dal 2027 un piano d'azione con Interreg - VareseNews",
+      "normalizedKeyword": "frontalieri: treno e/o bici conviene nel 40% degli spostamenti. dal 2027 un piano d'azione con interreg - varesenews",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "frontaliere Varese Como Ticino",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOWTU4cXd6a1BNZnhkQzdjeWpJNkd2R2NKR2Z5ZlV1LUYtXzl6d2V2emIwQmFFaE1abXAzdnpNTGlCQ1RLaHM3S0xRUXV3eWZCckRjNy1DMy1BZEk4WmpiQ0txZTltcmtxVEpqWWZmLTZIc05FeW5BN3l0RVVCV1hnYTh6MHQtbU9Kd3VnU09LZEV2bjN5WDF0SkdLQTNpNU1qYmFxNG8yejhZQWljNXBQUHFpZmVhSGktTm1BNW9IalI2Q3czdXNmYndZNHBxRXlqREtEeFFRZlZpQQ?oc=5",
+        "googleNewsRssPubDate": "Thu, 12 Nov 2026 10:05:56 GMT",
+        "googleNewsRssSource": "VareseNews",
+        "googleNewsRssSourceUrl": "https://www.varesenews.it"
+      },
+      "rationale": "Google News RSS seed \"frontaliere Varese Como Ticino\" — VareseNews",
+      "demandScore": 0,
+      "noveltyScore": 0.846,
+      "totalScore": 0.338
+    },
+    {
+      "id": "7700f591",
+      "keyword": "Casse malati, anche i frontalieri siano inclusi nella compensazione dei rischi - Ticinonews",
+      "normalizedKeyword": "casse malati, anche i frontalieri siano inclusi nella compensazione dei rischi - ticinonews",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "LAMal frontalieri Ticino",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOYkMyVXdzLXl2MXQ3M0hjaHB2UjhKYTI1elAxUWZGYTA1WGFpWWQ1VjBCNEk4Ym85aDU1WWZRMEs4WTNac044V3lKbWFUQ0RvNkhNaUczSDBadWxLQ0tLTXRTWjRHblN4bFFEVjR6bUNRQjdtNDB4M3FPMEdWdHMyTGp6a0M3bFdJUHhTNWFleU8xYnFmWmVNbTJiTk5vZDVyd3pSSHRiMnlmSFJFNk5kUU1QUGpvWjNMa3Br?oc=5",
+        "googleNewsRssPubDate": "Thu, 14 Dec 2023 08:00:00 GMT",
+        "googleNewsRssSource": "Ticinonews",
+        "googleNewsRssSourceUrl": "https://www.ticinonews.ch"
+      },
+      "rationale": "Google News RSS seed \"LAMal frontalieri Ticino\" — Ticinonews",
+      "demandScore": 0,
+      "noveltyScore": 0.842,
+      "totalScore": 0.337
+    },
+    {
+      "id": "2396e7b1",
+      "keyword": "Como e non solo, i frontalieri in Svizzera sono davvero felici? Nì, tra stipendio, ore in auto e quella domanda - ComoZero",
+      "normalizedKeyword": "como e non solo, i frontalieri in svizzera sono davvero felici? ni, tra stipendio, ore in auto e quella domanda - comozero",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "frontaliere Varese Como Ticino",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi4gFBVV95cUxPOS0zQ3h4ZDh3U3h3Uk5lWURnYmtMQ3JrWHNjbF9wSGlhWC1Kcy1Md182THplWUJ4SXZBOW5aYTVMVUVaY3A4dXhpd0RDZERvX2hRQjhmMUJGbFZiRUtmUC05QUVla1NVYU9NampQUHo1dWZwMFVDOHkxNk0yU3plNEVRNWFYYkxKNkY2MlMxWDRpZGZSWTFCNmJRYlpCMlFIdjRhWG5xX2RYZl9lMjZ3M05ad1ZWdnA1a21UN1pnYUJQU192Z2xvc3pIQ3JUazIxLU05U2hsWEhOTTJCQkFwTFZn?oc=5",
+        "googleNewsRssPubDate": "Sun, 25 Oct 2026 07:00:00 GMT",
+        "googleNewsRssSource": "ComoZero",
+        "googleNewsRssSourceUrl": "https://comozero.it"
+      },
+      "rationale": "Google News RSS seed \"frontaliere Varese Como Ticino\" — ComoZero",
+      "demandScore": 0,
+      "noveltyScore": 0.842,
+      "totalScore": 0.337
     },
     {
       "id": "9df35e54",
@@ -259,27 +322,6 @@
       "totalScore": 0.325
     },
     {
-      "id": "a2e4c18e",
-      "keyword": "Smart working, arrivano i controlli su dove avviene il lavoro - Il Giorno",
-      "normalizedKeyword": "smart working, arrivano i controlli su dove avviene il lavoro - il giorno",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "telelavoro frontalieri Svizzera Italia",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMie0FVX3lxTE44enN1djZmRlRIYVBuYVZZSzA1aTJjOVJKZDRnS09GX21DZHV6UVQwbjNUS3Jmb3VLcHZiVzRBOXZBenBTQ0o2VGZCVlM2Y0I5a214SkFwYjI2WWs4OWQzckpmSWlLbGQ3d1IyQmVvZHJIYU9GcTF1bldMTQ?oc=5",
-        "googleNewsRssPubDate": "Fri, 27 Jan 2023 08:00:00 GMT",
-        "googleNewsRssSource": "Il Giorno",
-        "googleNewsRssSourceUrl": "https://www.ilgiorno.it"
-      },
-      "rationale": "Google News RSS seed \"telelavoro frontalieri Svizzera Italia\" — Il Giorno",
-      "demandScore": 0,
-      "noveltyScore": 0.813,
-      "totalScore": 0.325
-    },
-    {
       "id": "60a855e2",
       "keyword": "Svizzera, aumenta il salario minimo per migliaia di lavoratori (frontalieri inclusi): le cifre e quanto si guadagna - ComoZero",
       "normalizedKeyword": "svizzera, aumenta il salario minimo per migliaia di lavoratori (frontalieri inclusi): le cifre e quanto si guadagna - comozero",
@@ -301,6 +343,27 @@
       "totalScore": 0.324
     },
     {
+      "id": "58bb2651",
+      "keyword": "Frontalieri, che traffico. L’82% sull’auto da soli, pochi con i mezzi pubblici - La Provincia di Como",
+      "normalizedKeyword": "frontalieri, che traffico. l’82% sull’auto da soli, pochi con i mezzi pubblici - la provincia di como",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "frontaliere Varese Como Ticino",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMixgFBVV95cUxOWHkwZ1lwWm82RmIySS00MjI3RHhZZy0wUkJFaGVFVjJ3QmliUDFyRlo2VDFSTFhBaEQyREg3TTNEdkRtblRQYi16WEJ1bUYxQmRMU0FHLWJxeWRfVWVoRHh3cGpjQkFscGttYXBBMENJNFdmWDQ0QzcxVVNEbnNKQVJsby0tN3RzSmNaSHhDU2hEUHNBZURxeXJpc0I5MVpDeFZTekVJUzhocEJaUnhvRElTckhnMkRrYzFKZWJTOGx0TENtN0E?oc=5",
+        "googleNewsRssPubDate": "Thu, 13 Oct 2022 07:00:00 GMT",
+        "googleNewsRssSource": "La Provincia di Como",
+        "googleNewsRssSourceUrl": "https://www.laprovinciadicomo.it"
+      },
+      "rationale": "Google News RSS seed \"frontaliere Varese Como Ticino\" — La Provincia di Como",
+      "demandScore": 0,
+      "noveltyScore": 0.808,
+      "totalScore": 0.323
+    },
+    {
       "id": "709102cc",
       "keyword": "\"Vecchi frontalieri\", ancora tutto fermo sul balzello della salute - La Prealpina",
       "normalizedKeyword": "\"vecchi frontalieri\", ancora tutto fermo sul balzello della salute - la prealpina",
@@ -317,27 +380,6 @@
         "googleNewsRssSourceUrl": "https://www.prealpina.it"
       },
       "rationale": "Google News RSS seed \"frontaliere Varese Como Ticino\" — La Prealpina",
-      "demandScore": 0,
-      "noveltyScore": 0.8,
-      "totalScore": 0.32
-    },
-    {
-      "id": "ba73a23e",
-      "keyword": "Tassa sulla salute dei frontalieri, il conto si avvicina: dal 3% al 6% dello stipendio netto (tra 30 e 200 euro al mese), ecco chi paga e da quando - MoneyMag.ch",
-      "normalizedKeyword": "tassa sulla salute dei frontalieri, il conto si avvicina: dal 3% al 6% dello stipendio netto (tra 30 e 200 euro al mese), ecco chi paga e da quando - moneymag.ch",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "busta paga frontalieri Ticino",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiakFVX3lxTFBPOVZRUktwb0lBQjRVSTZTT0poNUtjbzYwVWVEd09Wc3VjTXRRNXZmX1AyTVJOanJjcHhxSGRlR1RDQ1F6VnMzeGxYRTY4OGRib2VqaWxNTE1QUmpZdnp2Q0VBWnZNSl9ra1E?oc=5",
-        "googleNewsRssPubDate": "Tue, 04 Aug 2026 07:00:00 GMT",
-        "googleNewsRssSource": "MoneyMag.ch",
-        "googleNewsRssSourceUrl": "https://www.moneymag.ch"
-      },
-      "rationale": "Google News RSS seed \"busta paga frontalieri Ticino\" — MoneyMag.ch",
       "demandScore": 0,
       "noveltyScore": 0.8,
       "totalScore": 0.32
@@ -427,6 +469,27 @@
       "totalScore": 0.316
     },
     {
+      "id": "9d0ca1d5",
+      "keyword": "Frontalieri in Ticino a 79'384 a fine settembre (-0,3%), in Svizzera salgono a 414'488 (+1,8%) trainati dal Lemano - MoneyMag.ch",
+      "normalizedKeyword": "frontalieri in ticino a 79'384 a fine settembre (-0,3%), in svizzera salgono a 414'488 (+1,8%) trainati dal lemano - moneymag.ch",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "permesso G frontalieri Ticino",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMigAFBVV95cUxQWmd3S243OEJlOGFrTkpmYlJKUHNHVy1XMld5eDVnQUxBSkFMYlVFZFlVVkg2TUN3R1Z6aFpzU0twRDNmRWwyWTg0VE9jQlJEYlNPVWFQWFhXMFdSMkxYWVpKQXZqRGVVenFLb3JzSXlzNFRRTHMxOXUtdkhDcnZjdA?oc=5",
+        "googleNewsRssPubDate": "Tue, 10 Nov 2026 12:31:00 GMT",
+        "googleNewsRssSource": "MoneyMag.ch",
+        "googleNewsRssSourceUrl": "https://www.moneymag.ch"
+      },
+      "rationale": "Google News RSS seed \"permesso G frontalieri Ticino\" — MoneyMag.ch",
+      "demandScore": 0,
+      "noveltyScore": 0.789,
+      "totalScore": 0.316
+    },
+    {
       "id": "45c90a4e",
       "keyword": "Qual è davvero la differenza di stipendio tra nuovi e vecchi frontalieri - TVS tvsvizzera.it",
       "normalizedKeyword": "qual e davvero la differenza di stipendio tra nuovi e vecchi frontalieri - tvs tvsvizzera.it",
@@ -511,6 +574,27 @@
       "totalScore": 0.314
     },
     {
+      "id": "e53cc0f7",
+      "keyword": "Secondo pilastro LPP: quando e come prelevarlo da frontaliere - CambiaValute.ch",
+      "normalizedKeyword": "secondo pilastro lpp: quando e come prelevarlo da frontaliere - cambiavalute.ch",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "secondo pilastro frontalieri Svizzera",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQU1RRaldnT0RDMGxGUlZvcjZlR21IYVhPTl9rSEN6TFdvX2NYRHNiQ2dqUDBhdHA1U3ltcVoxWEhZcm10cGJKbGR4X0hDNTlzbzNBaWZiU000aHgtYnNQVTBmaGlack5KM3M4VjNtMVRmMHNCT3NHMHlKV2pBMEtpcnlXdExkNEdtWEhNNlNXeVU5cUptcS1JZ291SEdTMTVQREptanVNREJaY0N3?oc=5",
+        "googleNewsRssPubDate": "Sat, 26 Sep 2026 21:30:29 GMT",
+        "googleNewsRssSource": "CambiaValute.ch",
+        "googleNewsRssSourceUrl": "https://cambiavalute.ch"
+      },
+      "rationale": "Google News RSS seed \"secondo pilastro frontalieri Svizzera\" — CambiaValute.ch",
+      "demandScore": 0,
+      "noveltyScore": 0.786,
+      "totalScore": 0.314
+    },
+    {
       "id": "01c3a1b7",
       "keyword": "Frontalieri in Svizzera: un esercito di comaschi guida la classifica, subito dietro Varese. Ma c'è una sorpresa - ComoZero",
       "normalizedKeyword": "frontalieri in svizzera: un esercito di comaschi guida la classifica, subito dietro varese. ma c'e una sorpresa - comozero",
@@ -523,27 +607,6 @@
         "googleNewsRssSeed": "frontaliere Varese Como Ticino",
         "googleNewsRssLink": "https://news.google.com/rss/articles/CBMijAFBVV95cUxNX1JfT0o5Z3dkbUlqS1hVeEVhc05GRUUxMWhMQm5ULWl0UHF2UGlsSHVGM0RQXzh6MWpPbXItbjlReUlXV2tUWGpUSF9NN1JBVmdSNEhqbWowb2QzR2xfc0FWWVE2Rl9DRjBqMUg4MUFQUkVXNVFKZVRYLUhlT2NJYnpkSEoxb1ozTnp1Uw?oc=5",
         "googleNewsRssPubDate": "Mon, 13 Apr 2026 07:00:00 GMT",
-        "googleNewsRssSource": "ComoZero",
-        "googleNewsRssSourceUrl": "https://comozero.it"
-      },
-      "rationale": "Google News RSS seed \"frontaliere Varese Como Ticino\" — ComoZero",
-      "demandScore": 0,
-      "noveltyScore": 0.783,
-      "totalScore": 0.313
-    },
-    {
-      "id": "e1785865",
-      "keyword": "Frontalieri, si potrà andare a lavorare in bicicletta con uno Smile. Novità da 1,7 milioni per la mobilità di confine - ComoZero",
-      "normalizedKeyword": "frontalieri, si potra andare a lavorare in bicicletta con uno smile. novita da 1,7 milioni per la mobilita di confine - comozero",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "frontaliere Varese Como Ticino",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxQdzU1WGFXYTJNWUwwc2h5YmpGbWM1VXZ4MFJVVEx2YWtMRmEtdlYtQ2JZc2JYUW1vLWVucXh6OHFqLTdwMlJRQ1ZnWFVMV1UyeXhtTEhCanVoNFJMWkN2dmtuanZOOENwbVJUdXZqM1lNWmtOSVk3bXpONThaaXlvcllvRU00MGJOMHZwb05qUEdVZHpvUWZZTm5wenBTSjMySWdHcGRsQ2VBNXplR3FYQ1ZvZzVIdjk2RDJTdkpKcVM5MHJya1piODNNNEVHTVZhbzFSQW83ZDRqZVJq?oc=5",
-        "googleNewsRssPubDate": "Mon, 07 Apr 2025 07:00:00 GMT",
         "googleNewsRssSource": "ComoZero",
         "googleNewsRssSourceUrl": "https://comozero.it"
       },
@@ -625,13 +688,13 @@
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "imposta alla fonte frontalieri Ticino",
+        "googleNewsRssSeed": "ristorni frontalieri Ticino",
         "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxNYXZWeTJWeVNnVExZLWJfX2FTN2NERWl0aGJJTl9MS0xqTDByeElOLV96ZHFjNzhJLUFaU0FHSHp1NFliVDNaOUNMZFAtVjNFZXVkNHh5SjNaZmlsNDB4VElnWXllUi1GZEtjNFAwSDY0cHlidVg1LUZibnpuWnYtUzRhd1lnZmNMX2gzakdpVVpRYjkybWFvVU9lUFlMOWZRaHVmeDZMMWk1aGQxR1pNNnlzckVXc0FncG1naHE2bG5ESGFHNU12R2I4S1NfYVJP?oc=5",
         "googleNewsRssPubDate": "Wed, 01 Jul 2026 07:00:00 GMT",
         "googleNewsRssSource": "TVS tvsvizzera.it",
         "googleNewsRssSourceUrl": "https://www.tvsvizzera.it"
       },
-      "rationale": "Google News RSS seed \"imposta alla fonte frontalieri Ticino\" — TVS tvsvizzera.it",
+      "rationale": "Google News RSS seed \"ristorni frontalieri Ticino\" — TVS tvsvizzera.it",
       "demandScore": 0,
       "noveltyScore": 0.778,
       "totalScore": 0.311
@@ -700,6 +763,27 @@
       "totalScore": 0.311
     },
     {
+      "id": "0daa65e7",
+      "keyword": "Meno tasse per chi prende la pensione dal Principato di Monaco - QuotidianoPiù",
+      "normalizedKeyword": "meno tasse per chi prende la pensione dal principato di monaco - quotidianopiu",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "INPS pensione frontalieri Svizzera Italia",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPNFhQRmI0QXZpSFJUSFdHbTZUekViXzkxTnVMZXZtTF9ZaUdXbGxzZmxkU1d5cmJ1blNQcHR3cDBDYlJQcENEci0tX1NfN1djZC1PaDdhb0tzU3ZJVWQ2S1RjcnhYV18tVkJVUmZNenUyanZkbkFtTks1a1BMei05czZjQ1YzY3RwRVZxRWRycmNFMTB5bUlJeFhWLW5oZWZublAycy1kZ05pUU5oekg4?oc=5",
+        "googleNewsRssPubDate": "Mon, 09 Jan 2023 08:00:00 GMT",
+        "googleNewsRssSource": "QuotidianoPiù",
+        "googleNewsRssSourceUrl": "https://www.quotidianopiu.it"
+      },
+      "rationale": "Google News RSS seed \"INPS pensione frontalieri Svizzera Italia\" — QuotidianoPiù",
+      "demandScore": 0,
+      "noveltyScore": 0.778,
+      "totalScore": 0.311
+    },
+    {
       "id": "2808c82d",
       "keyword": "Tassa sulla salute frontalieri 2026: chi deve pagare, costi e come gestirla nella dichiarazione - CambiaValute.ch",
       "normalizedKeyword": "tassa sulla salute frontalieri 2026: chi deve pagare, costi e come gestirla nella dichiarazione - cambiavalute.ch",
@@ -737,6 +821,48 @@
         "googleNewsRssSourceUrl": "https://cambiavalute.ch"
       },
       "rationale": "Google News RSS seed \"Agenzia delle Entrate frontalieri dichiarazione redditi\" — CambiaValute.ch",
+      "demandScore": 0,
+      "noveltyScore": 0.769,
+      "totalScore": 0.308
+    },
+    {
+      "id": "8d1d687d",
+      "keyword": "Il nodo dei ristorni resta sul tavolo - RSI",
+      "normalizedKeyword": "il nodo dei ristorni resta sul tavolo - rsi",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "ristorni frontalieri Ticino",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOSWFmYlRvbm5FZmZjdS00WVhGbm9BMVhEX09YMTNYUGpKRWNQeDBxTlhPSVJHa09meTRJM1FnR2NHVjF1UzJ3Q05RT0xzdWRrMl9PYUkyZEIwelh0bmNVX0tXVUpKQ241TkVCZUhwa1E0ZlhNNHZKUE1rdjR5eEJiRlN2NFZQd3R2TW53cnpHczR0b1l6MUpxZjNRVWhtMzctMkh6eA?oc=5",
+        "googleNewsRssPubDate": "Wed, 24 Jun 2026 07:00:00 GMT",
+        "googleNewsRssSource": "RSI",
+        "googleNewsRssSourceUrl": "https://www.rsi.ch"
+      },
+      "rationale": "Google News RSS seed \"ristorni frontalieri Ticino\" — RSI",
+      "demandScore": 0,
+      "noveltyScore": 0.769,
+      "totalScore": 0.308
+    },
+    {
+      "id": "442d6c6a",
+      "keyword": "Indennità di disoccupazione: «I frontalieri non ruberanno nulla» - Ticinonline",
+      "normalizedKeyword": "indennita di disoccupazione: «i frontalieri non ruberanno nulla» - ticinonline",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "frontalieri Ticino disoccupazione",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQaEpEcUZ6MElId2dZNThJTHFkYjdsXy1jdG81enVJMGlmVmw3dS0wNTlsTkxKWXhNSDNjS3I4U1hKLXhkaFp5ZzNQczQ0MWd4OGpyN1lTYXVvZUxJTy1WanNDbXdtTkFVMEhyWVdvbzFWeUExMXZ3TE8tS3NsY0tObTBkeDhIcDRjOTFXU3lmYW52eWVw?oc=5",
+        "googleNewsRssPubDate": "Fri, 01 May 2026 07:00:00 GMT",
+        "googleNewsRssSource": "Ticinonline",
+        "googleNewsRssSourceUrl": "https://www.tio.ch"
+      },
+      "rationale": "Google News RSS seed \"frontalieri Ticino disoccupazione\" — Ticinonline",
       "demandScore": 0,
       "noveltyScore": 0.769,
       "totalScore": 0.308
@@ -931,25 +1057,25 @@
       "totalScore": 0.306
     },
     {
-      "id": "a0da902e",
-      "keyword": "Dichiarazione dei redditi 2026 per i frontalieri Italia-Ticino: la guida pratica alla precompilata, alla franchigia di 10'000 EUR e al telelavoro fino al 25% - MoneyMag.ch",
-      "normalizedKeyword": "dichiarazione dei redditi 2026 per i frontalieri italia-ticino: la guida pratica alla precompilata, alla franchigia di 10'000 eur e al telelavoro fino al 25% - moneymag.ch",
+      "id": "27b758b8",
+      "keyword": "Frontalieri e ristorni, l'assessore Sertori frena le polemiche: \"Con il Ticino troveremo una soluzione, ma niente diktat\" - Radio Lombardia",
+      "normalizedKeyword": "frontalieri e ristorni, l'assessore sertori frena le polemiche: \"con il ticino troveremo una soluzione, ma niente diktat\" - radio lombardia",
       "angle": null,
-      "locale": "it",
+      "locale": "fr",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "LAMal frontalieri Ticino",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiakFVX3lxTE95b0VrMGNMSmVST1JQNVduUEg1YVpwR1ZqLU9IOWZyc3BNQl9QU1BId0owcVhzelF0Yy00dVg2NlVCZkpxYXlfeUt0Sl9FRDdPSnVjSVhXSW5PSUZaQk4teEhSVDJvbUtOLUE?oc=5",
-        "googleNewsRssPubDate": "Tue, 12 May 2026 07:00:00 GMT",
-        "googleNewsRssSource": "MoneyMag.ch",
-        "googleNewsRssSourceUrl": "https://www.moneymag.ch"
+        "googleNewsRssSeed": "ristorni frontalieri Ticino",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi7gFBVV95cUxOWlQwbjlzZ1FBQTZndnVEVVZTRlk2TDNTTkNMUXBkSEFTYnMtejEycnpmU2ZPLXdobnh2WFFDMDFGV2VIcC1tbkxUZ3Q0T0ZRLVE1a3FyanVKYnl4Nnd1YmZGQzdxV1BwN2hDS2tHalVyT3hBZnp5SWktV01YVGRTbGw2U096cElDVEMxOWcwU0Zqa2ZSc2lvOGhXeWEwaDJodHJ6Y2xJbExUNTB4VnBIUmoySUR1cFBmd0VUU0d6Umg5Nkl3MXJ1ZWhCOUxKUGNKZ3ltNXA4d2pKT3ZSM05NblhHdlY1ci0tR01uS3Rn?oc=5",
+        "googleNewsRssPubDate": "Thu, 02 Jul 2026 07:00:00 GMT",
+        "googleNewsRssSource": "Radio Lombardia",
+        "googleNewsRssSourceUrl": "https://www.radiolombardia.it"
       },
-      "rationale": "Google News RSS seed \"LAMal frontalieri Ticino\" — MoneyMag.ch",
+      "rationale": "Google News RSS seed \"ristorni frontalieri Ticino\" — Radio Lombardia",
       "demandScore": 0,
-      "noveltyScore": 0.76,
-      "totalScore": 0.304
+      "noveltyScore": 0.762,
+      "totalScore": 0.305
     },
     {
       "id": "1564ca02",
@@ -971,27 +1097,6 @@
       "demandScore": 0,
       "noveltyScore": 0.76,
       "totalScore": 0.304
-    },
-    {
-      "id": "6f331ba7",
-      "keyword": "Disoccupazione per i frontalieri, Chiesa incassa un altro sì - Ticinonline",
-      "normalizedKeyword": "disoccupazione per i frontalieri, chiesa incassa un altro si - ticinonline",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "frontalieri Ticino disoccupazione",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQbGd2UzZGZHFqYi1hTEpJbXh5VElpbk0zM2hDYmJwTjU4RTlJWjBvYWQxRmJnM0ZGM0ZKZmVMUHFUR3hpTTI5a21xUE5lS3NrVHpXdVJzNkZFY2JxdTY5bnh3ODNjZURfU3o1dXhqSHJsdVdRNTNXaF9qcUpSLUlBNXoyS0ZyMkhsbV9MS09Tei1qSFJMLVpmTU1yOGlIN0Np?oc=5",
-        "googleNewsRssPubDate": "Thu, 01 Oct 2026 07:00:00 GMT",
-        "googleNewsRssSource": "Ticinonline",
-        "googleNewsRssSourceUrl": "https://www.tio.ch"
-      },
-      "rationale": "Google News RSS seed \"frontalieri Ticino disoccupazione\" — Ticinonline",
-      "demandScore": 0,
-      "noveltyScore": 0.75,
-      "totalScore": 0.3
     },
     {
       "id": "fec5580a",
@@ -1052,27 +1157,6 @@
         "googleNewsRssSourceUrl": "https://www.ilgiorno.it"
       },
       "rationale": "Google News RSS seed \"imposta alla fonte frontalieri Ticino\" — Il Giorno",
-      "demandScore": 0,
-      "noveltyScore": 0.75,
-      "totalScore": 0.3
-    },
-    {
-      "id": "845e84cf",
-      "keyword": "Frontalieri, il nodo della tassa: “I ristorni andrebbero ridotti”. ​​​​​​Tensione fra Ticino e Berna - Il Giorno",
-      "normalizedKeyword": "frontalieri, il nodo della tassa: “i ristorni andrebbero ridotti”. ​​​​​​tensione fra ticino e berna - il giorno",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "ristorni frontalieri Ticino",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiekFVX3lxTFBvYmdDTlU3SjhjbDVlU1Z5bGJGQTVWaHJsMU1qSXdiclNtUmtjektVRHVBVUpEUnVPVTh0N2VPNHJMa0V6eEZRUkxlSWJ6S2FwOXFXZ2lMVmZOWURTRWhHU2VpcGYxVFZ1WGQ5T19SczhNa1hfTk1jUWpB?oc=5",
-        "googleNewsRssPubDate": "Wed, 10 Jun 2026 07:00:00 GMT",
-        "googleNewsRssSource": "Il Giorno",
-        "googleNewsRssSourceUrl": "https://www.ilgiorno.it"
-      },
-      "rationale": "Google News RSS seed \"ristorni frontalieri Ticino\" — Il Giorno",
       "demandScore": 0,
       "noveltyScore": 0.75,
       "totalScore": 0.3
@@ -1267,9 +1351,30 @@
       "totalScore": 0.3
     },
     {
-      "id": "94dedd90",
-      "keyword": "Sulla disoccupazione dei frontalieri si apre un nuovo fronte con Bruxelles - Corriere del Ticino",
-      "normalizedKeyword": "sulla disoccupazione dei frontalieri si apre un nuovo fronte con bruxelles - corriere del ticino",
+      "id": "4c7024d3",
+      "keyword": "Tassazione del lavoro dipendente estero 2026: guida - Fiscomania",
+      "normalizedKeyword": "tassazione del lavoro dipendente estero 2026: guida - fiscomania",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "tassazione frontalieri Svizzera Italia 2026",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFA4VERyQXVHX1MxRkpOM3FFdzM3NG1xUTU4LURDeWZ2bDlQM2FCekNnRURUOUJjY2N6UXRaa3NfaXdDYzhvUW9KYzEwdWptTXVPNzFzLXYtbVRnSXdi?oc=5",
+        "googleNewsRssPubDate": "Wed, 22 Apr 2026 07:00:00 GMT",
+        "googleNewsRssSource": "Fiscomania",
+        "googleNewsRssSourceUrl": "https://fiscomania.com"
+      },
+      "rationale": "Google News RSS seed \"tassazione frontalieri Svizzera Italia 2026\" — Fiscomania",
+      "demandScore": 0,
+      "noveltyScore": 0.75,
+      "totalScore": 0.3
+    },
+    {
+      "id": "b27416c9",
+      "keyword": "\"Mai la disoccupazione ai frontalieri pagata dalla Svizzera\". Spaventa quel miliardo di franchi - ComoZero",
+      "normalizedKeyword": "\"mai la disoccupazione ai frontalieri pagata dalla svizzera\". spaventa quel miliardo di franchi - comozero",
       "angle": null,
       "locale": "it",
       "sources": [
@@ -1277,33 +1382,12 @@
       ],
       "demandSignals": {
         "googleNewsRssSeed": "frontalieri Ticino disoccupazione",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQTG15TkhoUTJTNm1xZDJlN1J5YnpYZktCVTVUVkV0SW9ib2RxQkExSzlVN29TUG5OSVVyVDJGYUxqaWlxbHUwaDlGbVVNWEZzOU04bGJOS0ZrZFRudDl3b3VKOGdlY3FLTmNVVl9sRWVqandMWnlrUG80TEtUQjRFZDhSM2dHb1dWNHctN1FLSWRvancycUVkM3Y3MlkxckhuS2hDS3hPQkFZTE5sZFhBdWdud0c?oc=5",
-        "googleNewsRssPubDate": "Wed, 29 Apr 2026 07:00:00 GMT",
-        "googleNewsRssSource": "Corriere del Ticino",
-        "googleNewsRssSourceUrl": "https://www.cdt.ch"
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxOeFZ0N1FzLVl0aU1aQzlhTnNROVRSSzVoZ2lKQUE3dEVUVzRoaFBpX1lfbXAzbFdIQWphV2FfR2VIYUJtaUlHUDFtYWtXZWdKem9uMlhjWUUxQ3VadTBZZzIzcURwamhNbnlGeHFnWjgxYm1TV21QTlZKYkhGOEx1aHVlSnc5OWtDRm9xVWFvc0lQM2pIbjRBRzZaaThRTHZ2UkV4V1dhTFdLb2FTRjU5Mm5Valp6d0lRQ1l1OWFHWjBkbzQ?oc=5",
+        "googleNewsRssPubDate": "Mon, 27 Apr 2026 07:00:00 GMT",
+        "googleNewsRssSource": "ComoZero",
+        "googleNewsRssSourceUrl": "https://comozero.it"
       },
-      "rationale": "Google News RSS seed \"frontalieri Ticino disoccupazione\" — Corriere del Ticino",
-      "demandScore": 0,
-      "noveltyScore": 0.75,
-      "totalScore": 0.3
-    },
-    {
-      "id": "81a909a1",
-      "keyword": "«Si sospenda il riversamento all’Italia della quota dell’imposta alla fonte prelevata ai frontalieri» - Corriere del Ticino",
-      "normalizedKeyword": "«si sospenda il riversamento all’italia della quota dell’imposta alla fonte prelevata ai frontalieri» - corriere del ticino",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "imposta alla fonte frontalieri Ticino",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxOc0lxb1cxNzQ0RVYwWGMycUE4d205S1NZUUZuRC0xZDFmamFlRW5CM2VYZ3o3V2FCc1RnRkIyY3JQVUhmNWNRWTE5a3B0bkdYOFY0NzdqTXBWeFA2bGFjYjZtXzFKX19wcERoQ3NfTVRXS0RSSVVsbjVBUlJTRzA0S0R2T3NHUjNGNEtka21zTE1GUDNNUmdRcEJUejlhSXRpZ21iYkp3djBGMmVHSUJQZ2xsRE9JUDBFY29YOGFsTVRlV1FKaHhGbUY2Q3RzejltTWRF?oc=5",
-        "googleNewsRssPubDate": "Fri, 12 Jun 2026 07:00:00 GMT",
-        "googleNewsRssSource": "Corriere del Ticino",
-        "googleNewsRssSourceUrl": "https://www.cdt.ch"
-      },
-      "rationale": "Google News RSS seed \"imposta alla fonte frontalieri Ticino\" — Corriere del Ticino",
+      "rationale": "Google News RSS seed \"frontalieri Ticino disoccupazione\" — ComoZero",
       "demandScore": 0,
       "noveltyScore": 0.737,
       "totalScore": 0.295
@@ -1424,7 +1508,7 @@
       ],
       "demandSignals": {
         "googleNewsRssSeed": "Agenzia delle Entrate frontalieri dichiarazione redditi",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMid0FVX3lxTFBQNXBuVjhmdTYxNGRscDB0VEp4NzdUa0hhNVE3YWdyZnhXX2ZzRFlYX1NRZWhEbjItRTY4d25MTUpvTWVwTGN2aWx0Y1lfUEtueGdtRW51MjgzaW5IeFFMeGFJWE1hVGtIblQwWURqaVJmVzJvVFJZ?oc=5",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMixAFBVV95cUxOQ0RqZVAtSGtOLUNoclFtUmJXell4ZVZrOHhrZGJoRWd4d3JnN1VZSHhpME1BM0Nsc1pBV1J1eGw2WFBmczRWNzJQYzBSQmxxYmwwYWJGVFp6U3hOcjBLN1BEZWlJcmFqQ2dWYnlESzgtemI3cHFUOXhMY2xZNXlUT0JkVWRGaUtLVEVqb1BKeVdGLTlqc2J6T0hzRHE0Q0xuOVBETWVIT1RVVWhjazc1Y2lHMU9ENTUxRlZ0M1dLYzlqclhD?oc=5",
         "googleNewsRssPubDate": "Mon, 20 Jan 2025 08:00:00 GMT",
         "googleNewsRssSource": "Consulenti del Lavoro",
         "googleNewsRssSourceUrl": "https://www.consulentidellavoro.it"
@@ -1561,27 +1645,6 @@
       "totalScore": 0.291
     },
     {
-      "id": "02b8e43e",
-      "keyword": "Pensioni svizzere, via libera all’imposizione sostitutiva - QuotidianoPiù",
-      "normalizedKeyword": "pensioni svizzere, via libera all’imposizione sostitutiva - quotidianopiu",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "AVS LPP frontalieri Svizzera",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPMHZKZHJrUGlHRm51cDNacTlMdFdDeGh6dHZNVTNWUHc2dDBMUmxoVXlaR0RmSWRxVndXV25VbkVhd0RBMVVnbDljV2RKcEZteUlxcl9PMDgtR09YTHM0bWoxRVNsSzVGQXluaFJUVkNfUWhyZlFlMHF0azRmVWhFVXNtWGhZLUt0UF94SWZWdnBaQ1l0RGo3bUlvTUxHd2tCa0MtZnp3?oc=5",
-        "googleNewsRssPubDate": "Mon, 03 Jun 2024 07:00:00 GMT",
-        "googleNewsRssSource": "QuotidianoPiù",
-        "googleNewsRssSourceUrl": "https://www.quotidianopiu.it"
-      },
-      "rationale": "Google News RSS seed \"AVS LPP frontalieri Svizzera\" — QuotidianoPiù",
-      "demandScore": 0,
-      "noveltyScore": 0.727,
-      "totalScore": 0.291
-    },
-    {
       "id": "8465f1dd",
       "keyword": "Permessi in Ticino, da agosto la domanda si inoltra solo online: come fare (e cosa cambia per aziende e frontalieri) - MoneyMag.ch",
       "normalizedKeyword": "permessi in ticino, da agosto la domanda si inoltra solo online: come fare (e cosa cambia per aziende e frontalieri) - moneymag.ch",
@@ -1591,13 +1654,13 @@
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "frontalieri Ticino permesso G",
+        "googleNewsRssSeed": "permesso G frontalieri Ticino",
         "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE90TVJpUkxDanNNWEh1LUhNeE9qbExMNnBKSzllekEycW1FR0tOUW5id3h3SVhYNFM4cXZkOE1VV2pXUFQwWlFlQkpSVjY1NTc1LUNCUVBXak10X3JLRUZYNmJWd0xFQQ?oc=5",
         "googleNewsRssPubDate": "Fri, 14 Aug 2026 07:00:00 GMT",
         "googleNewsRssSource": "MoneyMag.ch",
         "googleNewsRssSourceUrl": "https://www.moneymag.ch"
       },
-      "rationale": "Google News RSS seed \"frontalieri Ticino permesso G\" — MoneyMag.ch",
+      "rationale": "Google News RSS seed \"permesso G frontalieri Ticino\" — MoneyMag.ch",
       "demandScore": 0,
       "noveltyScore": 0.727,
       "totalScore": 0.291
@@ -1640,6 +1703,27 @@
         "googleNewsRssSourceUrl": "https://www.moneymag.ch"
       },
       "rationale": "Google News RSS seed \"LAMal frontalieri Ticino\" — MoneyMag.ch",
+      "demandScore": 0,
+      "noveltyScore": 0.722,
+      "totalScore": 0.289
+    },
+    {
+      "id": "3442fe1d",
+      "keyword": "Frontalieri, ogni giorno 92mila passaggi verso il Ticino: «La bicicletta può ridurre il traffico» - La Provincia Di Varese",
+      "normalizedKeyword": "frontalieri, ogni giorno 92mila passaggi verso il ticino: «la bicicletta puo ridurre il traffico» - la provincia di varese",
+      "angle": null,
+      "locale": "fr",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "frontaliere Varese Como Ticino",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQY2hzSGJ5bm5HNFFOYlJJQXJIamlNQl9VQXhQSm9teEVNTVM4Q0ZCd2xPZ0ZCb2h1aUozVkxHdnJOOU1hQWFBTFd4bXYyUVNHM2VmTlczbzJDalVHcENORUF3cXdjcEtrN2Jtd0hNSU13TlBnWHMyenJUcE9TMG1MaUhkT25EQ0d0a1VaZWxJU1RJekMweVRKRVJUMGM1eW5tZW9ueE5jOFhhdDFUYTFURENvWWhXc3pXbEdGWXkta1FRbDFtbF80cDczWDBlWGpDZ0E?oc=5",
+        "googleNewsRssPubDate": "Thu, 12 Nov 2026 10:50:16 GMT",
+        "googleNewsRssSource": "La Provincia Di Varese",
+        "googleNewsRssSourceUrl": "https://www.laprovinciadivarese.it"
+      },
+      "rationale": "Google News RSS seed \"frontaliere Varese Como Ticino\" — La Provincia Di Varese",
       "demandScore": 0,
       "noveltyScore": 0.722,
       "totalScore": 0.289
@@ -1771,6 +1855,27 @@
       "totalScore": 0.286
     },
     {
+      "id": "1ee7e50b",
+      "keyword": "Frontalieri Italia-Svizzera: nuova intesa sullo smart working - QuotidianoPiù",
+      "normalizedKeyword": "frontalieri italia-svizzera: nuova intesa sullo smart working - quotidianopiu",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "telelavoro frontalieri Svizzera Italia",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMirAFBVV95cUxORVhzRVhNeUM1QmpGb1NWUUo0eEhXSmJ5N2FlZlpuWEpEZ3g2d3loZUdXUzZPRWZZQW80Ny03eU42ZTVaNnNRMkh6T3hwZFNyM2NNTXlFRTRfT1RIZ2VySEhVT1pPMFM0MDdZaEdsVnlrQWpKYzJWWkd6MzV0OTZxZHFmdFNuZlBtb3h0Y3lvUW1zZ1Z2eEE5bDNNaWxELW5fMW9Gc09mRVJPWkll?oc=5",
+        "googleNewsRssPubDate": "Tue, 14 Nov 2023 08:00:00 GMT",
+        "googleNewsRssSource": "QuotidianoPiù",
+        "googleNewsRssSourceUrl": "https://www.quotidianopiu.it"
+      },
+      "rationale": "Google News RSS seed \"telelavoro frontalieri Svizzera Italia\" — QuotidianoPiù",
+      "demandScore": 0,
+      "noveltyScore": 0.714,
+      "totalScore": 0.286
+    },
+    {
       "id": "00e92e4b",
       "keyword": "Frontalieri: una crescita strutturale che ridisegna il confine - Ticinonline",
       "normalizedKeyword": "frontalieri: una crescita strutturale che ridisegna il confine - ticinonline",
@@ -1792,22 +1897,22 @@
       "totalScore": 0.286
     },
     {
-      "id": "2ea8f8f5",
-      "keyword": "Il nodo dei ristorni resta sul tavolo - RSI Radiotelevisione svizzera",
-      "normalizedKeyword": "il nodo dei ristorni resta sul tavolo - rsi radiotelevisione svizzera",
+      "id": "e0710229",
+      "keyword": "In Ticino il maggior ricorso alle iniezioni dimagranti - Corriere del Ticino",
+      "normalizedKeyword": "in ticino il maggior ricorso alle iniezioni dimagranti - corriere del ticino",
       "angle": null,
       "locale": "it",
       "sources": [
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "ristorni frontalieri Ticino",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOSWFmYlRvbm5FZmZjdS00WVhGbm9BMVhEX09YMTNYUGpKRWNQeDBxTlhPSVJHa09meTRJM1FnR2NHVjF1UzJ3Q05RT0xzdWRrMl9PYUkyZEIwelh0bmNVX0tXVUpKQ241TkVCZUhwa1E0ZlhNNHZKUE1rdjR5eEJiRlN2NFZQd3R2TW53cnpHczR0b1l6MUpxZjNRVWhtMzctMkh6eA?oc=5",
-        "googleNewsRssPubDate": "Wed, 24 Jun 2026 07:00:00 GMT",
-        "googleNewsRssSource": "RSI Radiotelevisione svizzera",
-        "googleNewsRssSourceUrl": "https://www.rsi.ch"
+        "googleNewsRssSeed": "LAMal frontalieri Ticino",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNTlBnWjB4bUxwU21WOTBId21CdEdzZ0M5WmM0cWliMTZVamNTTDlkeGdTekQ0YWt3THB0S2tHUW90ZVkxNlNLQUdvSTFYU01KdWR5MEx5Zm56NnNqM3pBYnEwcS11NHhMcEdJOHhsQlN6YWowQ19kamFIb19NV19sdF9PN2ZBOGJBbWZnQ3h2MDF2MHVqaGc0NGZn?oc=5",
+        "googleNewsRssPubDate": "Wed, 23 Jul 2025 07:00:00 GMT",
+        "googleNewsRssSource": "Corriere del Ticino",
+        "googleNewsRssSourceUrl": "https://www.cdt.ch"
       },
-      "rationale": "Google News RSS seed \"ristorni frontalieri Ticino\" — RSI Radiotelevisione svizzera",
+      "rationale": "Google News RSS seed \"LAMal frontalieri Ticino\" — Corriere del Ticino",
       "demandScore": 0,
       "noveltyScore": 0.714,
       "totalScore": 0.286
@@ -1843,16 +1948,58 @@
         "googleNewsRss"
       ],
       "demandSignals": {
-        "googleNewsRssSeed": "tassazione frontalieri Svizzera Italia 2026",
+        "googleNewsRssSeed": "matrimonio frontalieri Svizzera Italia fiscale",
         "googleNewsRssLink": "https://news.google.com/rss/articles/CBMivwFBVV95cUxQWDNaUXVOd3RUV0xpeW1IMHhUWFRfQ1BBbnJmcHBzSFlLUmUtMDIyaVhEYk4taUZFcVgtYTRuVklWcE1vOEdTcllJV0g1eFVETWs1QjI0Yl9kWEtLRmx4Z3FEakx6Q3N1S05DY2xwRDE3QUNiZllwOXdqSzZmaXJud2prLXhiT045TDNOU1dyRDZjaEdfdlpfWkl1X0cyZ20wOVJTS0E1dUh6aWxTdURaa1p3QWdyMnFrNEN1U1RySQ?oc=5",
-        "googleNewsRssPubDate": "Mon, 02 Nov 2026 14:07:00 GMT",
+        "googleNewsRssPubDate": "Mon, 02 Nov 2026 08:00:00 GMT",
         "googleNewsRssSource": "Corriere del Ticino",
         "googleNewsRssSourceUrl": "https://www.cdt.ch"
       },
-      "rationale": "Google News RSS seed \"tassazione frontalieri Svizzera Italia 2026\" — Corriere del Ticino",
+      "rationale": "Google News RSS seed \"matrimonio frontalieri Svizzera Italia fiscale\" — Corriere del Ticino",
       "demandScore": 0,
       "noveltyScore": 0.714,
       "totalScore": 0.286
+    },
+    {
+      "id": "f954e14c",
+      "keyword": "Vecchi e nuovi frontalieri e nuova lista comuni di confine - Ticinonline",
+      "normalizedKeyword": "vecchi e nuovi frontalieri e nuova lista comuni di confine - ticinonline",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "imposta alla fonte frontalieri Ticino",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPa0xzbHBWMmVUdlZKWldJV2pkbEJhMFd4OERlUW1ITm5RZ054SEZNc2N4SVdtNWE2dFQtQjluNzBGWUZEZTY5X3JnbmVyeS04NmhyYnAwOWgzNlhMX2VPNTVSME5IMk5ZQ1BkMjg0S0prb250WDVQTnBBQkZ2Zm5iQXdxUG5wMksxTVBZRW5tbjBTTnJrN3ZHaUx2S1lmbG8?oc=5",
+        "googleNewsRssPubDate": "Mon, 03 Jun 2024 07:00:00 GMT",
+        "googleNewsRssSource": "Ticinonline",
+        "googleNewsRssSourceUrl": "https://www.tio.ch"
+      },
+      "rationale": "Google News RSS seed \"imposta alla fonte frontalieri Ticino\" — Ticinonline",
+      "demandScore": 0,
+      "noveltyScore": 0.714,
+      "totalScore": 0.286
+    },
+    {
+      "id": "99bd3808",
+      "keyword": "«Si sospenda il riversamento all’Italia della quota dell’imposta alla fonte prelevata ai frontalieri» - Ticinonews",
+      "normalizedKeyword": "«si sospenda il riversamento all’italia della quota dell’imposta alla fonte prelevata ai frontalieri» - ticinonews",
+      "angle": null,
+      "locale": "it",
+      "sources": [
+        "googleNewsRss"
+      ],
+      "demandSignals": {
+        "googleNewsRssSeed": "imposta alla fonte frontalieri Ticino",
+        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNVFZkbVl5U0hHLXpLUXZDSklhRXFHemw2X0JHMmZ0aXJiYnpMaExETWtOYkdvUlZENlNpOVVXT255MTQ4WlpJODdqOGU5bFlxTENvTXZxM200dXVkN284ZURBVngyaFk5LW9lUHVTWThNV3JkdlVwQ0YzRl8zRmx0eXB0T09IamFpZE5xUThTTFlhc21Ma3hDX2FYeGx1amtPNFN0WExwNWJxUkl4SW85ZVp4TUVnd3cySTVBM2ZWQ3RkZmFEXzhtc1U1dVVnenhUazVR?oc=5",
+        "googleNewsRssPubDate": "Fri, 12 Jun 2026 07:00:00 GMT",
+        "googleNewsRssSource": "Ticinonews",
+        "googleNewsRssSourceUrl": "https://www.ticinonews.ch"
+      },
+      "rationale": "Google News RSS seed \"imposta alla fonte frontalieri Ticino\" — Ticinonews",
+      "demandScore": 0,
+      "noveltyScore": 0.706,
+      "totalScore": 0.282
     },
     {
       "id": "04dc598a",
@@ -1892,27 +2039,6 @@
         "googleNewsRssSourceUrl": "https://www.cdt.ch"
       },
       "rationale": "Google News RSS seed \"frontalieri Ticino disoccupazione\" — Corriere del Ticino",
-      "demandScore": 0,
-      "noveltyScore": 0.706,
-      "totalScore": 0.282
-    },
-    {
-      "id": "ab87b85a",
-      "keyword": "Disoccupazione dei frontalieri: per Bruxelles tocca alla Svizzera (ma l’applicazione non è automatica) - Il Giorno",
-      "normalizedKeyword": "disoccupazione dei frontalieri: per bruxelles tocca alla svizzera (ma l’applicazione non e automatica) - il giorno",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "frontalieri Ticino disoccupazione",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMifkFVX3lxTFB2c3dpSG5DOXBtVUxSdkllNUQxUXJEREdzaWZ6bmszWkQ4dUdHTFJFQ0gxREZlWXZOMUNSRTNFcFRMYW1aZG5pRWF1WW0wbEtyanhPOTNzcHVudV9xMFpjd3Z4Rm5yMzFZc3NvekhsX1FEX2pxV2s3aU42Q05Edw?oc=5",
-        "googleNewsRssPubDate": "Tue, 13 Oct 2026 07:00:00 GMT",
-        "googleNewsRssSource": "Il Giorno",
-        "googleNewsRssSourceUrl": "https://www.ilgiorno.it"
-      },
-      "rationale": "Google News RSS seed \"frontalieri Ticino disoccupazione\" — Il Giorno",
       "demandScore": 0,
       "noveltyScore": 0.706,
       "totalScore": 0.282
@@ -2000,132 +2126,6 @@
       "demandScore": 0,
       "noveltyScore": 0.7,
       "totalScore": 0.28
-    },
-    {
-      "id": "f0eb7585",
-      "keyword": "IL MURO DI CHIASSO - Limes",
-      "normalizedKeyword": "il muro di chiasso - limes",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "frontalieri Chiasso permesso lavoro",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMickFVX3lxTE9vTnRRV2lPTHBwaFk3UTMxQURLN3l6UG5ZbzViRWJkNTVGYjcwRGhrbmhwcjdzOFlOR0Zvb2pGQldqMDMwQU52eVRwQ3M5MThOOENUbkpYOFJNbm5JMTFFS0NDZTFxWmJGNEw0Rl9jM0dpQdIBd0FVX3lxTE82aWpFTlUtMTRBa183cVNMMGxGUENZaXpTSWtDNTE1dUlVRjNxV0E1QUd0dmVNSzFaRmtYMVBsNWZiWGJXZVZ0aFZPdlRwY1VRdnBIMkRSWmtvNWp1UG1WTm5WZ2txeHNyaEFlWFMxWTdLR2lJRVJF?oc=5",
-        "googleNewsRssPubDate": "Tue, 27 Dec 2011 08:00:00 GMT",
-        "googleNewsRssSource": "Limes",
-        "googleNewsRssSourceUrl": "https://www.limesonline.com"
-      },
-      "rationale": "Google News RSS seed \"frontalieri Chiasso permesso lavoro\" — Limes",
-      "demandScore": 0,
-      "noveltyScore": 0.7,
-      "totalScore": 0.28
-    },
-    {
-      "id": "ee2aaf3c",
-      "keyword": "Lavorare in Svizzera nel 2026: gli stipendi dei frontalieri restano il triplo rispetto all'Italia. Ecco i settori top - ComoZero",
-      "normalizedKeyword": "lavorare in svizzera nel 2026: gli stipendi dei frontalieri restano il triplo rispetto all'italia. ecco i settori top - comozero",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "salari frontalieri Ticino",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9wQ3U1cXR4dkx0eEdPeERJYWFjbm96TkphYnFBdGdYOFh0dDFmRm9xVlpDSGRORUdhZlowcU8xdDlWU0dVanptd3R2NW9ZQVhxaXFDVlJlRVJ4OEM1Q1cyaGRSTUZaTEdsNW5JdUVCS3RfZ3NpbGhuTkMwdmg?oc=5",
-        "googleNewsRssPubDate": "Tue, 02 Jun 2026 07:00:00 GMT",
-        "googleNewsRssSource": "ComoZero",
-        "googleNewsRssSourceUrl": "https://comozero.it"
-      },
-      "rationale": "Google News RSS seed \"salari frontalieri Ticino\" — ComoZero",
-      "demandScore": 0,
-      "noveltyScore": 0.7,
-      "totalScore": 0.28
-    },
-    {
-      "id": "4705b0ed",
-      "keyword": "Disoccupazione dei frontalieri, la Svizzera si dovrà opporre - Corriere del Ticino",
-      "normalizedKeyword": "disoccupazione dei frontalieri, la svizzera si dovra opporre - corriere del ticino",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "frontalieri Ticino disoccupazione",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOUGgtVld6NTdYNTc5OUVCTnQwWkF5RUM1X0poYU83R0NTWTVIN1BfSUpDVUIxdGNVWXktRzRpQk9oRjBObzF6dnZoZEVINUdMRDNQVENQLWM4YXBPRWhPTkg2VmpvcFBvdVlhdmZJMjNuMXg2WU5ZeHRTejZjVHMwS0NWN1dBb3hpQTd5VS1qRjVBMkRrUVkxTEE3MjBucWU3MlFZ?oc=5",
-        "googleNewsRssPubDate": "Thu, 01 Oct 2026 07:00:00 GMT",
-        "googleNewsRssSource": "Corriere del Ticino",
-        "googleNewsRssSourceUrl": "https://www.cdt.ch"
-      },
-      "rationale": "Google News RSS seed \"frontalieri Ticino disoccupazione\" — Corriere del Ticino",
-      "demandScore": 0,
-      "noveltyScore": 0.692,
-      "totalScore": 0.277
-    },
-    {
-      "id": "e4873a68",
-      "keyword": "Frontalieri italiani a San Marino: come funziona la tassazione? - Fiscomania",
-      "normalizedKeyword": "frontalieri italiani a san marino: come funziona la tassazione? - fiscomania",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "Agenzia delle Entrate frontalieri dichiarazione redditi",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1McC1KNERwdDNIcTNBZ3BKX3E5TC1pdlg2SE9LRkFzYm5rUFJOZ3VFZHg3dEp3YlFCRjlQZDBvbnZHRnU4empmNEMtdnd0MTVvNDdRTmxVSlExN1BjMGJwdXpuVGFhQWR2TTVuTDhqRmI?oc=5",
-        "googleNewsRssPubDate": "Mon, 19 Jan 2026 08:00:00 GMT",
-        "googleNewsRssSource": "Fiscomania",
-        "googleNewsRssSourceUrl": "https://fiscomania.com"
-      },
-      "rationale": "Google News RSS seed \"Agenzia delle Entrate frontalieri dichiarazione redditi\" — Fiscomania",
-      "demandScore": 0,
-      "noveltyScore": 0.692,
-      "totalScore": 0.277
-    },
-    {
-      "id": "4fc0d20c",
-      "keyword": "Frontalieri: 5 errori da evitare per pensione e stipendio in Svizzera - CambiaValute.ch",
-      "normalizedKeyword": "frontalieri: 5 errori da evitare per pensione e stipendio in svizzera - cambiavalute.ch",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "secondo pilastro frontalieri Svizzera",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBWcTA0RGFYeklWb1U1RW5QSERSTWd2ZktBNVZjZGpfUExuc1BrQXB3TUNYLURpekZSNW9mOWxJenFKa3oyVXRWTGRWLXBENmk4RTNmWmJESUJqU1JjalFEWkpickF1WElfZExIeEdJam9NSW5BSndQdUc1RDJyUQ?oc=5",
-        "googleNewsRssPubDate": "Wed, 02 Sep 2026 15:34:19 GMT",
-        "googleNewsRssSource": "CambiaValute.ch",
-        "googleNewsRssSourceUrl": "https://cambiavalute.ch"
-      },
-      "rationale": "Google News RSS seed \"secondo pilastro frontalieri Svizzera\" — CambiaValute.ch",
-      "demandScore": 0,
-      "noveltyScore": 0.692,
-      "totalScore": 0.277
-    },
-    {
-      "id": "8cc175ab",
-      "keyword": "Il regime fiscale dei lavoratori frontalieri tra Italia e Francia - Fiscomania",
-      "normalizedKeyword": "il regime fiscale dei lavoratori frontalieri tra italia e francia - fiscomania",
-      "angle": null,
-      "locale": "it",
-      "sources": [
-        "googleNewsRss"
-      ],
-      "demandSignals": {
-        "googleNewsRssSeed": "Agenzia delle Entrate frontalieri dichiarazione redditi",
-        "googleNewsRssLink": "https://news.google.com/rss/articles/CBMidEFVX3lxTE5HWlZfUnNKUTNLbUtaMHZpX254UFZIbmVRNVhObTdBVkstcHRqWXJ4Wk91RENnRHRReXlnOEJ4cGhSMVRQUTBYSWhyMVdVMHctN3RlU01EZkk5YlpYT2E5NDdKai1jaVJ3SmRKVGQ3aEZOY1Nv?oc=5",
-        "googleNewsRssPubDate": "Sat, 22 Aug 2026 07:00:00 GMT",
-        "googleNewsRssSource": "Fiscomania",
-        "googleNewsRssSourceUrl": "https://fiscomania.com"
-      },
-      "rationale": "Google News RSS seed \"Agenzia delle Entrate frontalieri dichiarazione redditi\" — Fiscomania",
-      "demandScore": 0,
-      "noveltyScore": 0.692,
-      "totalScore": 0.277
     }
   ]
 }

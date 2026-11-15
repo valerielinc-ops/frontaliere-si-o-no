@@ -1,6 +1,12 @@
 const WORKDAY_HOST_RE = /^(?:[a-z0-9-]+\.)+wd\d+\.myworkdayjobs\.com$/i;
 const WORKDAY_LOCALE_SEGMENT_RE = /^[a-z]{2}(?:-[a-z]{2})?$/i;
-const WORKDAY_REQUISITION_SLUG_RE = /^.+_R-[a-z0-9][a-z0-9-]*$/i;
+// Workday tenants publish more than one requisition-id spelling. The
+// standard `_R-...` form is joined by `_R...`, `_JR...`, `_REQ...`, and
+// Roche's `_YYYYMM-...` ids. Keep arbitrary `/job/123` paths out of the
+// posting identity, while accepting the tenant formats used by the public
+// Workday routes.
+const WORKDAY_REQUISITION_SLUG_RE = /^(?:.+)_(?:R-?[a-z0-9][a-z0-9-]*|JR[a-z0-9][a-z0-9-]*|REQ[a-z0-9][a-z0-9-]*|\d{6}-\d+(?:-\d+)*)$/i;
+const WORKDAY_DETAILS_SLUG_RE = /^[^/]+$/i;
 const WORKDAY_ACCOUNT_ROUTES = new Set([
   'login',
   'createaccount',
@@ -45,17 +51,24 @@ export function workdayJobRoute(value) {
       segments = segments.slice(0, -1);
       suffix = 'apply';
     }
-    const jobIndex = segments.map((segment) => segment.toLowerCase()).lastIndexOf('job');
-    if (jobIndex < 0 || jobIndex === segments.length - 1) return null;
-    const site = workdaySiteSegments(segments.slice(0, jobIndex));
-    const locationAndSlug = segments.slice(jobIndex + 1);
+    const lowerSegments = segments.map((segment) => segment.toLowerCase());
+    const jobIndex = lowerSegments.lastIndexOf('job');
+    const detailsIndex = lowerSegments.lastIndexOf('details');
+    const routeIndex = Math.max(jobIndex, detailsIndex);
+    if (routeIndex < 0 || routeIndex === segments.length - 1) return null;
+    const routeKind = routeIndex === detailsIndex ? 'details' : 'job';
+    const site = workdaySiteSegments(segments.slice(0, routeIndex));
+    const locationAndSlug = segments.slice(routeIndex + 1);
     const requisitionSlug = locationAndSlug.at(-1) || '';
-    if (!site.length || locationAndSlug.length < 2 || !WORKDAY_REQUISITION_SLUG_RE.test(requisitionSlug)) return null;
+    const validPostingPath = routeKind === 'details'
+      ? locationAndSlug.length === 1 && WORKDAY_DETAILS_SLUG_RE.test(requisitionSlug)
+      : locationAndSlug.length >= 2 && WORKDAY_REQUISITION_SLUG_RE.test(requisitionSlug);
+    if (!site.length || !validPostingPath) return null;
     const basePath = `/${segments.join('/')}`;
     return {
       origin: url.origin,
       site,
-      location: locationAndSlug.slice(0, -1),
+      location: routeKind === 'details' ? [] : locationAndSlug.slice(0, -1),
       requisitionSlug,
       suffix,
       basePath,
@@ -105,10 +118,12 @@ export function sameWorkdayJobRoute(first, second) {
     && left.every((part, index) => part === right[index]);
   const firstLocation = first && normalizedLocation(first.location);
   const secondLocation = second && normalizedLocation(second.location);
+  const sameLocation = firstLocation?.length === 0 || secondLocation?.length === 0
+    || (firstLocation && secondLocation && sameParts(firstLocation, secondLocation));
   return Boolean(first && second && first.origin === second.origin
     && first.requisitionSlug === second.requisitionSlug
     && sameParts(first.site, second.site)
-    && firstLocation && secondLocation && sameParts(firstLocation, secondLocation));
+    && sameLocation);
 }
 
 function sameWorkdaySite(first, second) {

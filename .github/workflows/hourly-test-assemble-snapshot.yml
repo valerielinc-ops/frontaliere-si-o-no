@@ -123,11 +123,20 @@ jobs:
               },
               (response) => response.data.actions_caches,
             );
-            const matchingSnapshots = snapshots.filter((cache) => cache.key.startsWith(prefix));
+            const validCaches = snapshots.filter(
+              (cache) => cache && typeof cache.key === 'string',
+            );
+            if (validCaches.length !== snapshots.length) {
+              core.warning(`Ignored ${snapshots.length - validCaches.length} malformed cache entries while pruning`);
+            }
+            const matchingSnapshots = validCaches.filter((cache) => cache.key.startsWith(prefix));
             matchingSnapshots.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
             const keep = new Set([
               currentKey,
-              ...matchingSnapshots.slice(0, 2).map((cache) => cache.key),
+              ...matchingSnapshots
+                .filter((cache) => cache.key !== currentKey)
+                .slice(0, 2)
+                .map((cache) => cache.key),
             ]);
             for (const cache of matchingSnapshots.filter((candidate) => !keep.has(candidate.key))) {
               await github.rest.actions.deleteActionsCacheById({

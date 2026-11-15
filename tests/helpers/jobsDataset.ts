@@ -27,7 +27,11 @@
  * path from its own `__dirname`, and that is the form demonstrably working
  * under both vitest projects (`dom` and `node`).
  */
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync } from 'node:fs';
+// `readFileSync(..., 'utf8')` + JSON.parse throws ERR_STRING_TOO_LONG once the
+// dataset passes the V8 string limit (539 MB since 2026-11); readJsonFile parses
+// item-wise above it and plainly below it.
+import { readJsonFile } from '../../scripts/lib/read-large-json.mjs';
 
 const cache = new Map<string, unknown[] | null>();
 
@@ -43,7 +47,7 @@ export function readJobsDataset<T>(jobsPath: string): T[] | null {
   if (!cache.has(jobsPath)) {
     cache.set(
       jobsPath,
-      existsSync(jobsPath) ? (JSON.parse(readFileSync(jobsPath, 'utf8')) as unknown[]) : null,
+      existsSync(jobsPath) ? (readJsonFile(jobsPath) as unknown[]) : null,
     );
   }
   return cache.get(jobsPath) as T[] | null;
