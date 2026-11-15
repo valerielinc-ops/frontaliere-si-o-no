@@ -213,7 +213,7 @@ describe('buildIssuePayloads — una issue per gate, fallback legacy', () => {
   });
 
   it('run 36922718485: 4 gate rossi → 4 issue, non una riassuntiva', () => {
-    const gates = ['gate:seo-source', 'audit:all/h1-title-duplicates', 'audit:all/page-weight', 'validate:sitemap'].map((gate) => ({
+    const gates = ['gate:seo-source', 'audit:all/h1-title-duplicates', 'audit:hreflang', 'validate:sitemap'].map((gate) => ({
       gate, seconds: 1, rc: 1, line: `❌ FAIL  ${gate}  1.00 rc=1`,
     }));
     const payloads = buildIssuePayloads(bfsInput({
@@ -465,7 +465,7 @@ describe('titoli per-gate: distinti e non prefisso l\'uno dell\'altro (dedup sta
   const REAL_GATES = [
     'audit:max-bfs-depth', 'audit:orphan-sitemap-pages', 'audit:all',
     'validate:translation-completeness', 'validate:crawler-summaries',
-    'validate:third-party-secrets', 'gate:seo-source', 'audit:page-weight',
+    'validate:third-party-secrets', 'gate:seo-source', 'audit:hreflang',
   ];
 
   it('nessuna coppia collide né è prefisso dell\'altra entro la finestra di dedup', () => {
@@ -491,7 +491,7 @@ describe('ciclo di vita per gate (owner 2026-10-02: ogni errore una issue)', () 
     '2026-10-01T23:57:00.4932966Z ❌ FAIL  gate:seo-source                            97.55 rc=1',
     '2026-10-01T23:57:00.4932966Z ✅ PASS  audit:hreflang                            960.28 rc=0',
     '2026-10-01T23:57:00.4932966Z ✅ PASS  audit:job-title-locale(report-only)        25.31 rc=0',
-    '2026-10-01T23:57:00.5340149Z audit-all: failed-audits=h1-title-duplicates,text-html-ratio,page-weight',
+    '2026-10-01T23:57:00.5340149Z audit-all: failed-audits=h1-title-duplicates,text-html-ratio,single-h1-per-page',
   ].join('\n');
 
   it('audit:all si espande nei sotto-auditor falliti, come failed_gates', () => {
@@ -500,11 +500,11 @@ describe('ciclo di vita per gate (owner 2026-10-02: ogni errore una issue)', () 
       'gate:seo-source',
       'audit:all/h1-title-duplicates',
       'audit:all/text-html-ratio',
-      'audit:all/page-weight',
+      'audit:all/single-h1-per-page',
     ]);
     expect(passedGates).toContain('audit:hreflang');
     expect(passedGates).toContain('audit:all/faqpage-validity');
-    expect(passedGates).not.toContain('audit:all/page-weight');
+    expect(passedGates).not.toContain('audit:all/single-h1-per-page');
   });
 
   it('senza marker audit:all resta opaco (fail-closed)', () => {
@@ -517,15 +517,15 @@ describe('ciclo di vita per gate (owner 2026-10-02: ogni errore una issue)', () 
     const resolvable = gatesToResolve(passedGates, failedGates.map((g: { gate: string }) => g.gate));
     expect(resolvable).toContain('audit:hreflang');
     expect(resolvable).toContain('audit:all/title-length');
-    expect(resolvable).not.toContain('audit:all/page-weight');
+    expect(resolvable).not.toContain('audit:all/single-h1-per-page');
     expect(resolvable).not.toContain('gate:seo-source');
     expect(resolvable).not.toContain('audit:all'); // il bundle non è passato per intero
     expect(resolvable.some((g: string) => g.includes('('))).toBe(false); // righe report-only
   });
 
-  it('resolveMode chiude a titolo esatto: «…audit:all» non chiude «…audit:all/page-weight»', () => {
+  it('resolveMode chiude a titolo esatto: «…audit:all» non chiude «…audit:all/single-h1-per-page»', () => {
     const open = [
-      { number: 200, title: 'Validation Failure (dist): audit:all/page-weight', url: 'u', state: 'OPEN' },
+      { number: 200, title: 'Validation Failure (dist): audit:all/single-h1-per-page', url: 'u', state: 'OPEN' },
       { number: 201, title: 'Validation Failure (dist): audit:all', url: 'u', state: 'OPEN' },
     ];
     execFileSync.mockImplementation((_cmd: string, args: string[]) => {

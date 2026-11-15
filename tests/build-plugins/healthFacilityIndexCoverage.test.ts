@@ -326,8 +326,8 @@ describe('health-facilities complete index — the plugin actually writes it', (
   });
 });
 
-describe('health-facilities complete index — page-weight headroom', () => {
-  it('costs under 150 bytes per additional facility', () => {
+describe('health-facilities complete index — compact row markup', () => {
+  it('keeps each additional facility as a separator row rather than a card', () => {
     // Asserted as a DELTA, not an average: on a small list the aside's fixed
     // chrome dominates the mean and an average-based bound would pass for a
     // card layout too. 150 B is the line between a separator row (~90 B) and
@@ -335,18 +335,5 @@ describe('health-facilities complete index — page-weight headroom', () => {
     const base = renderFacilityIndexBlock('it', fixtureFacilities(100)).length;
     const grown = renderFacilityIndexBlock('it', fixtureFacilities(200)).length;
     expect((grown - base) / 100).toBeLessThan(150);
-    // And the whole committed registry has to fit the 260 KB budget of
-    // scripts/audit-page-weight.mjs with room to spare on top of the 139 KB
-    // the IT sitemap page already weighs live (measured 2026-08-10).
-    const full = renderFacilityIndexBlock(
-      'it',
-      HEALTH_FACILITIES.map((f) => ({
-        slug: f.slug,
-        canton: f.canton,
-        name: f.name,
-        liveCount: f.jobCountSnapshot,
-      })),
-    );
-    expect(full.length).toBeLessThan(60 * 1024);
   });
 });

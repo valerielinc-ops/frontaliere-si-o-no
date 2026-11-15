@@ -85,8 +85,8 @@ describe('editorial landing — job-link enrichment', () => {
     expect(model.feed.jobs[0].contract).toBe('full-time');
     expect(model.feed.jobs[0].featured).toBe(true);
     expect(model.feed.jobs[0].canton).toBe('TI');
-    // latestJobs is deduped against feed.jobs by href (page-weight guard):
-    // when the single fixture job is already in feed, latestJobs is empty.
+    // latestJobs is deduped against feed.jobs by href: when the single fixture
+    // job is already in feed, latestJobs is empty.
     expect(model.latestJobs).toHaveLength(0);
   });
 

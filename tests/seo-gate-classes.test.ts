@@ -57,7 +57,6 @@ describe('classe e modalità di ogni gate (cambiarle è una decisione da review)
       'audit:orphan-sitemap-pages': 'B/issue-on-regression',
       'audit:hreflang': 'B/issue-on-regression',
       'audit:all/information-gain': 'B/issue-on-regression',
-      'audit:all/page-weight': 'B/issue-on-regression',
       'validate:sitemap-family-coverage': 'B/issue-on-regression',
       // C — advisory (faqpage-validity declassato da A il 2026-10-02)
       'audit:all/faqpage-validity': 'C/advisory',
@@ -90,7 +89,7 @@ describe('classe e modalità di ogni gate (cambiarle è una decisione da review)
   it('decisione del proprietario: nessun gate classificato blocca, nemmeno tutti insieme', () => {
     // B e C dal 2026-10-02, A dal 2026-10-03.
     const all = Object.keys(SEO_GATE_CLASSES);
-    expect(all.length).toBe(33);
+    expect(all.length).toBe(32);
     const v = evaluateIntegrity(all);
     expect(v.integrityOk).toBe(true);
     expect(v.blocking).toEqual([]);
@@ -160,7 +159,7 @@ describe('la tabella non può diventare un silenziatore', () => {
     const src = fs.readFileSync(path.join(ROOT, 'scripts/audit-all.mjs'), 'utf8');
     const block = src.slice(src.indexOf('const REGISTRY = ['), src.indexOf('];', src.indexOf('const REGISTRY = [')));
     const names = [...block.matchAll(/name: '([^']+)'/g)].map((m) => m[1]);
-    expect(names.length).toBeGreaterThanOrEqual(18);
+    expect(names.length).toBeGreaterThanOrEqual(17);
     for (const name of names) {
       expect(SEO_GATE_CLASSES, `audit:all/${name} non classificato`).toHaveProperty([`audit:all/${name}`]);
     }

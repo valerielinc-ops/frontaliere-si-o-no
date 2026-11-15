@@ -2,7 +2,7 @@
  * Guard for the editorial-article section matcher (scripts/lib/articleSections.mjs)
  * and the audit feature classifier that consumes it (scripts/audit-title-length.mjs
  * → also imported by audit-h1-title-duplicates + audit-title-no-disambig-hash;
- * mirrored in audit-text-html-ratio, audit-page-weight, audit-dist-multi).
+ * mirrored in audit-text-html-ratio and audit-dist-multi).
  *
  * Regression context (2026-06-24 post-deploy validate-dist failure `spa-locale 91>90`):
  * the title-length classifier's `blog` regex only ever listed the `frontaliere`
