@@ -285,7 +285,7 @@ export function installAdRecovery(
     if (googleAdBlockRecoveryMessage() && !nativeRecoveryWasShown()) {
       nativeRecoveryReported = true;
       store('ft_ad_recovery_google_prompted', '1');
-      emit('ad_recovery_prompt', { source: 'funding_choices_native', reason: 'adblock_detected', action: 'shown' });
+      emit('ad_recovery_prompt', { source: 'funding_choices_native', reason: 'adblock_detected', prompt_action: 'shown' });
     }
     if (googleMessage()) { removePromo(); closePopup(); return; }
     const inlineSlotPending = config.inlineHouseAds === true && hasUnfilledHouseSlot();
