@@ -109,6 +109,14 @@ function isRetryableStatus(status) {
   return status >= 500 && status < 600;
 }
 
+function isRetryableSitemapStatus(status) {
+  // The sitemap is a generated discovery artifact and can briefly be absent
+  // while the edge/Pages publish swaps its copy. Keep 4xx hard-fail semantics
+  // for sampled article URLs: a missing article is a content verdict, not a
+  // publication-window transport error.
+  return isRetryableStatus(status) || status === 404;
+}
+
 async function fetchWithRetry(
   url,
   init = {},
@@ -117,6 +125,7 @@ async function fetchWithRetry(
     sleepImpl = sleep,
     retryAttempts = RETRY_ATTEMPTS,
     retryBackoffMs = RETRY_BACKOFF_MS,
+    shouldRetryStatus = isRetryableStatus,
   } = {},
 ) {
   const attempts = Math.max(1, retryAttempts);
@@ -125,7 +134,7 @@ async function fetchWithRetry(
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
       const res = await fetchWithTimeout(url, init, fetchImpl);
-      if (!isRetryableStatus(res.status) || attempt === attempts) return res;
+      if (!shouldRetryStatus(res.status) || attempt === attempts) return res;
       // Release an intermediate error response before opening the next attempt.
       if (res.body) await res.body.cancel().catch(() => {});
     } catch (err) {
@@ -139,7 +148,11 @@ async function fetchWithRetry(
 }
 
 async function loadArticleUrls({ fetchImpl = fetch, sleepImpl = sleep } = {}) {
-  const res = await fetchWithRetry(SITEMAP_URL, {}, { fetchImpl, sleepImpl });
+  const res = await fetchWithRetry(SITEMAP_URL, {}, {
+    fetchImpl,
+    sleepImpl,
+    shouldRetryStatus: isRetryableSitemapStatus,
+  });
   if (!res.ok) throw new Error(`sitemap fetch ${res.status}`);
   const xml = await res.text();
   const urls = [];

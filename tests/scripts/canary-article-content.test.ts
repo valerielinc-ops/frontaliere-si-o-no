@@ -23,6 +23,32 @@ describe('article-content canary live fetches', () => {
     expect(noWait).toHaveBeenCalledTimes(1);
   });
 
+  it('retries a transient sitemap 404 during publication before parsing the sample', async () => {
+    const sitemap = '<urlset><url><loc>https://frontaliereticino.ch/articoli-frontaliere/example/</loc></url></urlset>';
+    const noWait = makeNoWait();
+    const fetchImpl = vi
+      .fn<typeof fetch>()
+      .mockResolvedValueOnce(new Response('', { status: 404 }))
+      .mockResolvedValueOnce(new Response(sitemap, { status: 200 }));
+
+    await expect(loadArticleUrls({ fetchImpl, sleepImpl: noWait })).resolves.toEqual([
+      'https://frontaliereticino.ch/articoli-frontaliere/example/',
+    ]);
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+    expect(noWait).toHaveBeenCalledTimes(1);
+  });
+
+  it('keeps a persistent sitemap 404 as an infrastructure failure after bounded retries', async () => {
+    const noWait = makeNoWait();
+    const fetchImpl = vi.fn<typeof fetch>().mockResolvedValue(new Response('', { status: 404 }));
+
+    await expect(
+      loadArticleUrls({ fetchImpl, sleepImpl: noWait }),
+    ).rejects.toThrow('sitemap fetch 404');
+    expect(fetchImpl).toHaveBeenCalledTimes(3);
+    expect(noWait).toHaveBeenCalledTimes(2);
+  });
+
   it('treats an empty sitemap as an infrastructure failure', async () => {
     const fetchImpl = vi.fn<typeof fetch>().mockResolvedValue(new Response('<urlset />', { status: 200 }));
 
