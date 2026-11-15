@@ -2,11 +2,11 @@
 //
 // L'URL della pagina annuncio sul sito (`<base>/<locale>/<sezione cantone>/<slug>`),
 // quella che il build emette e che il manifest delle pagine pubblicate elenca.
-// Estratto da `jobPageUrl` di scripts/send-job-alerts.mjs perche' anche il sender
-// delle CompanyAlert deve sapere se la pagina di un annuncio e' online prima di
-// spedire: la funzione e' la stessa (il test tests/company-alert-publication-gate
-// ne verifica la parita' con quella della jobalert), qui con i dati iniettati cosi'
-// da non trascinare il sender intero come dipendenza.
+// Estratto da `jobPageUrl` di scripts/send-job-alerts.mjs, che ora usa questa stessa
+// funzione: anche il sender delle CompanyAlert deve sapere se la pagina di un annuncio
+// e' online prima di spedire, e deve costruire lo STESSO URL. Una sola implementazione:
+// due copie divergerebbero in silenzio. I dati sono iniettati per non trascinare
+// il sender intero come dipendenza.
 //
 // Pura: nessuna lettura di file. Chi la chiama passa i due JSON dei cantoni.
 
