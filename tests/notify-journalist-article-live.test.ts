@@ -167,6 +167,16 @@ function claimRef(initial: Record<string, unknown> | null) {
 }
 
 describe('claim before the email', () => {
+  it('every publish clears the claim of an earlier notification cycle', () => {
+    // A re-published article gets `liveVerifiedAt: null` again; a claim left from
+    // its previous cycle would make the next run stamp it without the email.
+    const publisher = readFileSync(path.resolve(__dirname, '../scripts/publish-journalist-article.mjs'), 'utf8');
+    const stamp = publisher.slice(publisher.indexOf("status: 'published'"));
+    expect(stamp).toContain('liveVerifiedAt: null');
+    expect(stamp).toContain('liveNotifyClaimedAt: FieldValue.delete()');
+    expect(stamp).toContain('liveNotifyClaimId: FieldValue.delete()');
+  });
+
   it('claims once: the first run claims, a second run never claims again', async () => {
     const { ref, read } = claimRef({ status: 'published', liveVerifiedAt: null });
     await expect(claimLiveNotification(ref, FV as any, 'run-1')).resolves.toBe('claimed');
