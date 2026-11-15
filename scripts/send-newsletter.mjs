@@ -56,6 +56,7 @@ import {
 } from './lib/newsletterJobAlertCooldown.mjs';
 import { createResumeWriter, fetchAlreadySent as fetchCampaignAlreadySent, resumeChunkState } from './lib/campaignResumeLog.mjs';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import { createNewsletterBookkeeper, resolveBatchBookkeepingMode } from './lib/newsletter-batch-bookkeeping.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import {
   assignJobRankingVariant,
@@ -272,6 +273,30 @@ let firestoreFieldValue;
 /** Test seam: inject a fake Firestore for the exported claim/persist helpers. */
 export function __setNewsletterDbForTest(fakeDb) {
   db = fakeDb;
+}
+
+// Batch bookkeeping of the send phase (perf-plan email senders, point 3): installed by
+// main() in `send` mode when NEWSLETTER_BATCH_BOOKKEEPING is `on`, `null` otherwise
+// (every path then keeps the per-email transactions). Snapshots of the subscriber
+// documents come from the audience scan: they are the state the batch precondition
+// protects when it writes the send counter and the derived engagement score.
+let activeBookkeeper = null;
+const subscriberSnapshots = new Map();
+
+/** Test seam: the FieldValue sentinels (increment, serverTimestamp) of the injected fake Firestore. */
+export function __setNewsletterFieldValueForTest(fieldValue) {
+  firestoreFieldValue = fieldValue;
+}
+
+/** Test seam: install (or clear with `null`) the bookkeeper used by persistDelivery. */
+export function __setNewsletterBookkeeperForTest(bookkeeper) {
+  activeBookkeeper = bookkeeper;
+}
+
+/** Test seam: snapshots of subscriber documents, as the audience scan records them. */
+export function __setSubscriberSnapshotsForTest(entries) {
+  subscriberSnapshots.clear();
+  for (const [id, snapshot] of entries) subscriberSnapshots.set(id, snapshot);
 }
 
 async function initFirebase() {
@@ -1566,6 +1591,7 @@ async function fetchTargetSubscriber(email) {
 
 async function fetchSubscribers() {
   const subscribers = new Map();
+  subscriberSnapshots.clear();
   // Raw rows feed the site-wide preferred-hour fallback (#3798) — the
   // projected subscriber objects still carry preferredSendHourUtc/
   // preferredSendSampleCount, but computeGlobalPreferredHour reads the
@@ -1611,6 +1637,10 @@ async function fetchSubscribers() {
       // #8754 policy (terms, no proof) is unchanged for every other row.
       if (!hasSubscriptionBasis(rowForSend)) { excludedNoBasis++; return; }
       rawRows.push(rowForSend);
+      // The state this scan saw, for the send phase's batch precondition (see
+      // scripts/lib/newsletter-batch-bookkeeping.mjs): the score is derived from it
+      // and the write only lands if the document has not changed since.
+      if (d.updateTime) subscriberSnapshots.set(d.id, { data: rowForSend, updateTime: d.updateTime });
       // Pass the RAW row.email so subscriberFromFirestoreRow can harvest a
       // "Name <addr>" display name; it strips the wrapper internally and
       // returns the bare address on subscriber.email.
@@ -1907,6 +1937,43 @@ async function resolveWinnersForCampaign(database, campaignId, { persist = false
 
 // ─── Resend API ─────────────────────────────────────────────
 
+/**
+ * The `in_flight` intent written BEFORE the provider call. Pure: the per-email
+ * transaction below and the batch bookkeeper (scripts/lib/newsletter-batch-bookkeeping.mjs)
+ * write exactly the same document, so the two paths cannot drift.
+ */
+function buildDeliveryIntentFields(item, provider, attemptId, at = new Date()) {
+  const email = normalizeEmail(item?.recipient?.email);
+  const campaignId = item?.meta?.campaignId;
+  return {
+    email,
+    campaign_id: campaignId,
+    locale: nlNormLocale(item.recipient.locale),
+    source_channel: item.recipient.sourceChannel || null,
+    provider,
+    attempted_provider: provider,
+    delivery_status: 'in_flight',
+    delivery_attempt_id: attemptId,
+    discovery_article_id: item.meta.discoveryArticleId || null,
+    discovery_provider: item.meta.discoveryProvider || null,
+    discovery_commit: item.meta.discoveryCommit || null,
+    is_operator_verification: item.meta.isOperatorVerification ?? false,
+    attempted_at: at,
+    updated_at: at,
+  };
+}
+
+/** Receipt document of one recipient and campaign; throws when the identity is unstable. */
+function deliveryReceiptRef(database, item) {
+  const email = normalizeEmail(item?.recipient?.email);
+  const campaignId = item?.meta?.campaignId;
+  if (!email || typeof campaignId !== 'string' || !campaignId) {
+    throw new Error('Newsletter delivery intent is missing its stable recipient or campaign id.');
+  }
+  return database.collection('newsletter_subscribers').doc(email)
+    .collection('campaign_deliveries').doc(buildDeliveryDocId(campaignId, email));
+}
+
 export async function claimNewsletterDeliveryIntent(item, provider, attemptId) {
   if (!db) throw new Error('Firestore is required to claim a newsletter delivery.');
   const email = normalizeEmail(item?.recipient?.email);
@@ -1936,22 +2003,7 @@ export async function claimNewsletterDeliveryIntent(item, provider, attemptId) {
         }
         return false;
       }
-      transaction.set(deliveryRef, {
-        email,
-        campaign_id: campaignId,
-        locale: nlNormLocale(item.recipient.locale),
-        source_channel: item.recipient.sourceChannel || null,
-        provider,
-        attempted_provider: provider,
-        delivery_status: 'in_flight',
-        delivery_attempt_id: attemptId,
-        discovery_article_id: item.meta.discoveryArticleId || null,
-        discovery_provider: item.meta.discoveryProvider || null,
-        discovery_commit: item.meta.discoveryCommit || null,
-        is_operator_verification: item.meta.isOperatorVerification ?? false,
-        attempted_at: new Date(),
-        updated_at: new Date(),
-      }, { merge: true });
+      transaction.set(deliveryRef, buildDeliveryIntentFields(item, provider, attemptId), { merge: true });
       return true;
     });
   } catch (error) {
@@ -1959,26 +2011,22 @@ export async function claimNewsletterDeliveryIntent(item, provider, attemptId) {
   }
 }
 
-async function persistDelivery(recipient, messageId, meta) {
-  if (!db) return;
-  const FieldValue = firestoreFieldValue;
+/**
+ * Fields of the per-recipient receipt after the provider accepted the message.
+ * Pure over `previous` (the stored document): the per-email transaction feeds it
+ * the document it just read, the batch bookkeeper the intent it wrote and whose
+ * `lastUpdateTime` precondition still holds. Same function, same document.
+ */
+function buildDeliveryReceiptFields(previous, recipient, messageId, meta, at = new Date()) {
   const email = normalizeEmail(recipient.email);
   const locale = nlNormLocale(recipient.locale);
-  const subRef = db.collection('newsletter_subscribers').doc(email);
-  const deliveryDocId = buildDeliveryDocId(meta.campaignId, email);
-  const deliveryRef = subRef.collection('campaign_deliveries').doc(deliveryDocId);
-  // This is the per-recipient receipt and dedupe authority. Failure must bubble
-  // to the cascade; the preceding in_flight intent remains a retry blocker.
-  await db.runTransaction(async (transaction) => {
-    const snapshot = await transaction.get(deliveryRef);
-    const previous = snapshot.data() || {};
-    transaction.set(deliveryRef, {
+  return {
       email,
       campaign_id: meta.campaignId,
       message_id: messageId || previous.message_id || null,
       delivery_status: previous.delivery_status === 'delivered' ? 'delivered' : 'accepted',
       delivery_attempt_id: meta.deliveryAttemptId || previous.delivery_attempt_id || null,
-      accepted_at: new Date(),
+      accepted_at: at,
       locale,
       source_channel: recipient.sourceChannel || null,
       location_interest: recipient.locationInterest || null,
@@ -2011,46 +2059,101 @@ async function persistDelivery(recipient, messageId, meta) {
       // Lean manifest only: the full job objects stay in memory on
       // meta.rankingJobs for recordJobEmailImpressions.
       ranking_jobs: buildRankingJobsManifest(meta.rankingJobs),
-      sent_at: new Date(),
-    }, { merge: true });
-  });
+      sent_at: at,
+  };
+}
+
+export async function persistDelivery(recipient, messageId, meta, item = null) {
+  if (!db) return;
+  // Batch bookkeeping (perf-plan email senders, point 3): only for an item that went
+  // through the cascade with the bookkeeper's intent; every other caller, and every
+  // fallback, keeps the per-email transactions below.
+  const bookkeeper = item ? activeBookkeeper : null;
+  // This is the per-recipient receipt and dedupe authority. Failure must bubble
+  // to the cascade; the preceding in_flight intent remains a retry blocker.
+  if (bookkeeper) await bookkeeper.persistReceipt(item, recipient, messageId, meta);
+  else await persistDeliveryReceiptTransaction(recipient, messageId, meta);
   try {
-    // The Maileroo lookup record (`maileroo_refs/{messageId}`) is NOT written
-    // here any more (perf-plan email senders, C1): sendEmailCascade's wrapper
-    // (scripts/lib/email-cascade.mjs, makeMailerooRefOnSent) already writes it,
-    // with the same document id and equivalent fields (`email`, `campaign_id`
-    // from the campaign_id tag, `is_job_alert: false`), right before this
-    // `onSent` runs. A second write was a pure duplicate on ~11k sends.
-    // Update subscriber-level counters
-    const subUpdate = {
-      last_sent_at: new Date(),
-      send_count: FieldValue ? FieldValue.increment(1) : 1,
-      updated_at: new Date(),
-    };
-    // Persist a freshly-resolved first name (display-name harvest / dataset
-    // email guess) so future sends read it from firstName instead of
-    // re-deriving. Only set when the doc had none (subscriberFromFirestoreRow
-    // leaves firstNameToPersist null otherwise) → never clobbers a stored name.
-    if (recipient.firstNameToPersist) subUpdate.firstName = recipient.firstNameToPersist;
-    if (FieldValue) {
-      // Keep the send counter and its derived score in the same parent write.
-      // This sender is also a recovery path if an ESP webhook is lost.
-      await db.runTransaction(async (transaction) => {
-        const snapshot = await transaction.get(subRef);
-        const current = snapshot.exists ? (snapshot.data() || {}) : {};
-        const scoreUpdate = buildEngagementScoreUpdate(current, FieldValue, {
-          subscriberUpdate: subUpdate,
-        });
-        transaction.set(subRef, { ...subUpdate, ...scoreUpdate }, { merge: true });
-      });
-    } else {
-      await subRef.set(subUpdate, { merge: true });
-    }
+    if (bookkeeper && firestoreFieldValue) await bookkeeper.persistSubscriber(recipient);
+    else await persistSubscriberSendTransaction(recipient);
   } catch (e) {
     // These secondary analytics/ref writes do not determine whether a delivery
     // was accepted. The durable receipt above already protects resume and keeps
     // article attribution available.
     console.warn('\u26a0\ufe0f Secondary delivery bookkeeping failed:', e?.message);
+  }
+}
+
+/** The per-email receipt transaction: the batch bookkeeper's fallback. */
+async function persistDeliveryReceiptTransaction(recipient, messageId, meta) {
+  const email = normalizeEmail(recipient.email);
+  const subRef = db.collection('newsletter_subscribers').doc(email);
+  const deliveryDocId = buildDeliveryDocId(meta.campaignId, email);
+  const deliveryRef = subRef.collection('campaign_deliveries').doc(deliveryDocId);
+  await db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(deliveryRef);
+    const previous = snapshot.data() || {};
+    transaction.set(deliveryRef, buildDeliveryReceiptFields(previous, recipient, messageId, meta), { merge: true });
+  });
+}
+
+/**
+ * Subscriber-level counters of one accepted send: `send_count`, `last_sent_at`
+ * and, when this run owns a freshly-resolved first name, `firstName` (only set
+ * when the doc had none — subscriberFromFirestoreRow leaves firstNameToPersist
+ * null otherwise — so it never clobbers a stored name).
+ */
+function buildSubscriberSendUpdate(recipient, at = new Date()) {
+  const FieldValue = firestoreFieldValue;
+  const subUpdate = {
+    last_sent_at: at,
+    send_count: FieldValue ? FieldValue.increment(1) : 1,
+    updated_at: at,
+  };
+  if (recipient.firstNameToPersist) subUpdate.firstName = recipient.firstNameToPersist;
+  return subUpdate;
+}
+
+/** Fields to write for a subscriber, computed on `current` (a snapshot the caller guarantees). */
+function buildSubscriberSendFields(current, recipient, at = new Date()) {
+  const FieldValue = firestoreFieldValue;
+  if (!FieldValue) return null;
+  const subUpdate = buildSubscriberSendUpdate(recipient, at);
+  const scoreUpdate = buildEngagementScoreUpdate(current, FieldValue, {
+    subscriberUpdate: subUpdate,
+  });
+  return { ...subUpdate, ...scoreUpdate };
+}
+
+/**
+ * Subscriber-level counters (secondary write; the caller wraps it in try/catch).
+ * The per-email transaction, and the batch bookkeeper's fallback.
+ */
+async function persistSubscriberSendTransaction(recipient) {
+  const FieldValue = firestoreFieldValue;
+  const email = normalizeEmail(recipient.email);
+  const subRef = db.collection('newsletter_subscribers').doc(email);
+  // The Maileroo lookup record (`maileroo_refs/{messageId}`) is NOT written
+  // here any more (perf-plan email senders, C1): sendEmailCascade's wrapper
+  // (scripts/lib/email-cascade.mjs, makeMailerooRefOnSent) already writes it,
+  // with the same document id and equivalent fields (`email`, `campaign_id`
+  // from the campaign_id tag, `is_job_alert: false`), right before this
+  // `onSent` runs. A second write was a pure duplicate on ~11k sends.
+  // Update subscriber-level counters
+  const subUpdate = buildSubscriberSendUpdate(recipient);
+  if (FieldValue) {
+    // Keep the send counter and its derived score in the same parent write.
+    // This sender is also a recovery path if an ESP webhook is lost.
+    await db.runTransaction(async (transaction) => {
+      const snapshot = await transaction.get(subRef);
+      const current = snapshot.exists ? (snapshot.data() || {}) : {};
+      const scoreUpdate = buildEngagementScoreUpdate(current, FieldValue, {
+        subscriberUpdate: subUpdate,
+      });
+      transaction.set(subRef, { ...subUpdate, ...scoreUpdate }, { merge: true });
+    });
+  } else {
+    await subRef.set(subUpdate, { merge: true });
   }
 }
 
@@ -2123,6 +2226,27 @@ async function runNewsletterCascade(send, attemptId) {
   return result;
 }
 
+/**
+ * The batch bookkeeper wired to this sender's documents and its per-email
+ * transactions (the fallback). Exported for tests.
+ */
+export function buildNewsletterBookkeeper({ warn = (line) => console.warn(line), metrics = newsletterMetrics } = {}) {
+  return createNewsletterBookkeeper({
+    getDb: async () => db,
+    deliveryRefFor: (database, item) => deliveryReceiptRef(database, item),
+    buildIntentFields: buildDeliveryIntentFields,
+    claimTransaction: claimNewsletterDeliveryIntent,
+    buildReceiptFields: buildDeliveryReceiptFields,
+    receiptTransaction: persistDeliveryReceiptTransaction,
+    subscriberRefFor: (database, recipient) => database.collection('newsletter_subscribers').doc(normalizeEmail(recipient.email)),
+    subscriberSnapshotOf: (recipient) => subscriberSnapshots.get(normalizeEmail(recipient.email)) ?? null,
+    buildSubscriberFields: buildSubscriberSendFields,
+    subscriberTransaction: persistSubscriberSendTransaction,
+    metrics,
+    warn,
+  });
+}
+
 const NEWSLETTER_SEND_THROTTLE = Object.freeze({
   delayMs: 100,
   adaptiveThrottle: Object.freeze({ stepMs: 100, maxDelayMs: 1000 }),
@@ -2156,7 +2280,7 @@ async function sendEmailBatch(emails, finalizeForProvider, onDelivered, onQuaran
       variant,
       subject,
       scheduledFor: res.scheduledFor ?? null,
-    });
+    }, item);
     // Resume marking happens HERE, per confirmed send, not after the loop: a
     // crash partway through a multi-thousand-email run used to leave the whole
     // run unrecorded (#5415 §3.6).
@@ -3290,6 +3414,12 @@ async function main() {
   const resume = mode === 'send' && db
     ? createResumeWriter(db, resumeLogOpts(campaignId), resumeChunkState(resumeState.chunkSizes || []))
     : null;
+  // Batch bookkeeping (perf-plan email senders, point 3). `NEWSLETTER_BATCH_BOOKKEEPING`
+  // = `on` (default) | `off`: `off` is the kill switch back to the per-email
+  // transactions. A failed batch always falls back to them, never to a send without intent.
+  const bookkeepingMode = resolveBatchBookkeepingMode(process.env.NEWSLETTER_BATCH_BOOKKEEPING);
+  activeBookkeeper = mode === 'send' && db && bookkeepingMode === 'on' ? buildNewsletterBookkeeper() : null;
+  newsletterMetrics.set('bookkeepingMode', activeBookkeeper ? 'batch' : 'transactions');
   let sendResult;
   try {
     sendResult = await sendEmailBatch(
@@ -3303,11 +3433,14 @@ async function main() {
         await resume.recordAmbiguous(email);
       } : null,
       mode === 'send' && db
-        ? (item, provider) => claimNewsletterDeliveryIntent(item, provider, deliveryAttemptId)
+        ? (item, provider) => (activeBookkeeper
+          ? activeBookkeeper.requestIntent(item, provider, deliveryAttemptId)
+          : claimNewsletterDeliveryIntent(item, provider, deliveryAttemptId))
         : null,
       deliveryAttemptId,
     );
   } finally {
+    if (activeBookkeeper) activeBookkeeper.flush();
     // Preserve checkpoints from confirmed in-flight sends even if a quarantine
     // write causes the cascade to fail after it settles the active workers.
     if (resume) await resume.flush();

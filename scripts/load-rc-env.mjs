@@ -196,6 +196,16 @@ export const RC_TO_ENV = {
   //   NEWSLETTER_RESUME_RECEIPT_SCAN                targeted (default) | full — `full`
   //     restores the scan of every receipt of the campaign on resume
   //     (scripts/lib/newsletter-resume-receipts.mjs).
+  //   NEWSLETTER_BATCH_BOOKKEEPING                  on (default) | off — `off` is the
+  //     kill switch: claim, receipt and subscriber document are written by per-email
+  //     transactions, as before (scripts/lib/newsletter-batch-bookkeeping.mjs).
+  //   NEWSLETTER_AUDIENCE_SCAN_MODE                 shadow (default) | full | frozen — how
+  //     a resume run builds its audience (scripts/lib/newsletter-audience-freeze.mjs):
+  //     `full` = scan the whole collection, as before (kill switch); `shadow` = `full`
+  //     decides and the frozen-audience result is compared and reported; `frozen` = the
+  //     frozen audience plus the delta decides.
+  NEWSLETTER_AUDIENCE_SCAN_MODE: ['NEWSLETTER_AUDIENCE_SCAN_MODE'],
+  NEWSLETTER_BATCH_BOOKKEEPING: ['NEWSLETTER_BATCH_BOOKKEEPING'],
   NEWSLETTER_CAMPAIGN_CONTENT_FREEZE: ['NEWSLETTER_CAMPAIGN_CONTENT_FREEZE'],
   NEWSLETTER_CONTENT_FREEZE_RATE_THRESHOLD_PCT: ['NEWSLETTER_CONTENT_FREEZE_RATE_THRESHOLD_PCT'],
   NEWSLETTER_RESUME_RECEIPT_SCAN: ['NEWSLETTER_RESUME_RECEIPT_SCAN'],
