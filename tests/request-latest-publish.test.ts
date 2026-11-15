@@ -445,11 +445,34 @@ describe('publish retry policy (classified, backed off, escalating)', () => {
 
   it.each([
     ['unreadable', { state: 'unreadable', detail: 'compare unreadable: HTTP 404' }],
+    ['truncated', { state: 'unreadable', detail: 'compare file list may be truncated at 300 files' }],
     ['absent', null],
-  ])('does not retry when the toolchain compare is %s', (_name, toolchainChange) => {
+  ])('does not retry before the backoff when the toolchain compare is %s, and names the next window', (_name, toolchainChange) => {
+    const completedAt = ago(5);
+    const last = attempt({ completedAt });
+    const verdict = decide([publishRun(10)], { lastAttempt: last, failedAttempts: [last], toolchainChange });
+    expect(verdict).toMatchObject({ action: 'skip', reason: 'publish-toolchain-unreadable' });
+    expect(verdict.detail).toContain(new Date(Date.parse(completedAt) + 15 * MIN).toISOString());
+  });
+
+  it('escalates to a rebuild once the backoff elapsed on an unreadable or truncated compare (no silent stall)', () => {
     const last = attempt({ completedAt: ago(90) });
-    expect(decide([publishRun(10)], { lastAttempt: last, failedAttempts: [last], toolchainChange }))
-      .toMatchObject({ action: 'skip', reason: 'publish-toolchain-unreadable' });
+    const toolchainChange = { state: 'unreadable', detail: 'compare file list may be truncated at 300 files' };
+    const verdict = decide([publishRun(10)], { lastAttempt: last, failedAttempts: [last], toolchainChange });
+    expect(verdict).toMatchObject({ action: 'escalate', reason: 'escalate-rebuild', requestRebuild: true });
+    expect(verdict.detail).toContain('truncated');
+    expect(decide([publishRun(10)], { lastAttempt: last, failedAttempts: [last], toolchainChange: null }))
+      .toMatchObject({ action: 'escalate', reason: 'escalate-rebuild' });
+  });
+
+  it('only updates the issue on an unreadable compare after the backoff when main is the candidate', () => {
+    const last = attempt({ completedAt: ago(90) });
+    expect(decide([publishRun(10)], {
+      lastAttempt: last,
+      failedAttempts: [last],
+      toolchainChange: { state: 'unreadable', detail: 'compare unreadable: HTTP 404' },
+      mainHeadSha: SHA_LATEST,
+    })).toMatchObject({ action: 'escalate', reason: 'escalate-blocked', requestRebuild: false });
   });
 
   it('escalates at once when the publisher declared the source unpublishable (contract-mismatch family)', () => {

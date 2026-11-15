@@ -15,9 +15,12 @@
  *   - `infra`  -> one immediate retry per signature;
  *   - `deterministic` / `unknown` -> retry only when the publisher toolchain
  *     changed since that attempt, and only after a 15 -> 30 -> 60 min backoff;
+ *   - an unreadable or truncated toolchain compare never retries (fail-safe),
+ *     but it does not stall either: inside the backoff it waits, after it the
+ *     same escalation as an unchanged toolchain applies;
  *   - the cap, two equal deterministic failures, a publisher that declared the
- *     source unpublishable (rebuild required) or an unchanged toolchain after
- *     the backoff -> escalate: request one build of the current main tip (a
+ *     source unpublishable (rebuild required), an unchanged toolchain or an
+ *     unreadable compare after the backoff -> escalate: request one build of the current main tip (a
  *     durable per-SHA status, never a dispatch of deploy.yml) and keep one
  *     `Deploy publish blocked:` issue per failure key. Never a silent stall.
  */
@@ -378,7 +381,12 @@ function decideRetryGate({ candidate, attempts, lastAttempt, failedAttempts, too
   const state = text(toolchainChange?.state) || 'unreadable';
   const label = failureLabel(last);
   if (state === 'unreadable') {
-    return skip('publish-toolchain-unreadable', `${label}; publisher toolchain change is unreadable (${text(toolchainChange?.detail) || 'no compare'}), not retrying`);
+    // Never a retry, but never a silent stall either: data commits make a
+    // truncated compare routine. A rebuild of the tip is safe and per-SHA idempotent.
+    const why = `publisher toolchain change is unreadable (${text(toolchainChange?.detail) || 'no compare'})`;
+    return elapsed
+      ? escalation(`${why} and the backoff elapsed`)
+      : skip('publish-toolchain-unreadable', `${label}; ${why}, not retrying; next window ${nextAt} (then a rebuild of main is requested)`);
   }
   if (state === 'changed') {
     return elapsed
