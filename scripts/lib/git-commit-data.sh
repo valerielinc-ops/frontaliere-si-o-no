@@ -3487,7 +3487,11 @@ commit_isolated_from_worktree() {
 
     if git_push_rejection_is_permanent "$push_out"; then
       emit_crawler_generation_receipt "failed" "$new_commit" "$remote_sha"
-      echo "❌ Push declined by a repository rule (GH013/GH006) on attempt $push_attempt — not a ref race, rebuilding the commit cannot change the verdict. Check the pushing identity (scripts/lib/configure-main-push-auth.sh) or the ruleset."
+      if git_push_rejection_is_file_size "$push_out"; then
+        echo "❌ Push refused on attempt $push_attempt: $(git_push_rejection_reason "$push_out")."
+      else
+        echo "❌ Push declined by a repository rule (GH013/GH006) on attempt $push_attempt — not a ref race, rebuilding the commit cannot change the verdict. Check the pushing identity (scripts/lib/configure-main-push-auth.sh) or the ruleset."
+      fi
       return 1
     fi
 
@@ -3854,7 +3858,11 @@ fi
 printf '%s\n' "$push_out"
 
 if git_push_rejection_is_permanent "$push_out"; then
-  echo "❌ Push declined by a repository rule (GH013/GH006) on attempt $push_attempt — not a ref race, re-syncing cannot change the verdict. Check the pushing identity (scripts/lib/configure-main-push-auth.sh) or the ruleset."
+  if git_push_rejection_is_file_size "$push_out"; then
+    echo "❌ Push refused on attempt $push_attempt: $(git_push_rejection_reason "$push_out")."
+  else
+    echo "❌ Push declined by a repository rule (GH013/GH006) on attempt $push_attempt — not a ref race, re-syncing cannot change the verdict. Check the pushing identity (scripts/lib/configure-main-push-auth.sh) or the ruleset."
+  fi
   exit 1
 fi
 

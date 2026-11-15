@@ -118,6 +118,7 @@ on:
       - 'data/translation-observability-state.json'
       - 'data/translation-stats-history.json'
       - 'data/url-first-seen.json'
+      - 'data/url-first-seen/*.json'
   # Required checks are evaluated on the merge queue ref, not on the PR event.
   merge_group:
 # Union of the three original workflows' `permissions:` (tests.yml itself had

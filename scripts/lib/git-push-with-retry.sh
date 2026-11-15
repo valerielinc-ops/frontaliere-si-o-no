@@ -23,8 +23,10 @@
 #     (min(attempt * 2, 12) + random[0..attempt] s) to desynchronise
 #     concurrent retrying workflows (thundering-herd guard).
 #   - A push declined by a repository ruleset or protected branch (GH013 /
-#     GH006, see scripts/lib/git-push-rejection.sh) is not retried: exit 1 at
-#     once, also under --soft-fail-exhausted.
+#     GH006) or refused for a blob over GitHub's 100 MB file limit (GH001), see
+#     scripts/lib/git-push-rejection.sh, is not retried: exit 1 at once, also
+#     under --soft-fail-exhausted. Both are deterministic; a rebase keeps the
+#     same blob and the same identity.
 #   - Uses an explicit non-thin pack with delta search disabled. GitHub Actions
 #     checkouts are shallow by default, so the default thin-pack delta search
 #     can spend most of the job looking for unavailable history (#10319).
@@ -467,8 +469,13 @@ until push_head; do
   # cannot change the verdict, and --soft-fail-exhausted does not apply (it
   # covers a lost race whose delta the next run recaptures, while a declined
   # identity is declined on every run).
-  if git_push_rejection_is_permanent "$(cat -- "$PUSH_STDERR_FILE")"; then
-    echo "::error::Push to ${BRANCH} declined by a repository rule (GH013/GH006): not a ref race, rebasing cannot change the verdict. Check the pushing identity (scripts/lib/configure-main-push-auth.sh) or the ruleset."
+  push_rejection_output="$(cat -- "$PUSH_STDERR_FILE")"
+  if git_push_rejection_is_permanent "$push_rejection_output"; then
+    if git_push_rejection_is_file_size "$push_rejection_output"; then
+      echo "::error::Push to ${BRANCH} refused at attempt ${attempt}: $(git_push_rejection_reason "$push_rejection_output")."
+    else
+      echo "::error::Push to ${BRANCH} declined by a repository rule (GH013/GH006): not a ref race, rebasing cannot change the verdict. Check the pushing identity (scripts/lib/configure-main-push-auth.sh) or the ruleset."
+    fi
     exit 1
   fi
   if [ "$attempt" -ge "$MAX_ATTEMPTS" ]; then

@@ -56,7 +56,21 @@ for section in "${live_sections[@]}"; do
   live_slugs+=("$slug")
 done
 
-root_members=(public/images data/dist-size-history.jsonl data/url-first-seen.json)
+root_members=(public/images data/dist-size-history.jsonl)
+# url-first-seen is sharded (data/url-first-seen/<h>.json, see
+# scripts/lib/url-first-seen-store.mjs). The publisher's writer reads the
+# directory AND the legacy single file and folds both into the shards, so ship
+# whichever exist; a checkout with neither has lost the ledger and must fail
+# here, as the missing legacy file did before, not hand the publisher an empty one.
+first_seen_members=()
+for first_seen_member in data/url-first-seen data/url-first-seen.json; do
+  [ -e "$first_seen_member" ] && first_seen_members+=("$first_seen_member")
+done
+if [ "${#first_seen_members[@]}" -eq 0 ]; then
+  echo "::error::neither data/url-first-seen/ nor data/url-first-seen.json exists in the build checkout"
+  exit 1
+fi
+root_members+=("${first_seen_members[@]}")
 for entry in "${dist_entries[@]}"; do
   is_live_section=false
   for slug in "${live_slugs[@]}"; do
