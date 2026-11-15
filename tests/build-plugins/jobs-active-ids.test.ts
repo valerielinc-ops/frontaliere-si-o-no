@@ -124,4 +124,28 @@ describe('published active job ID index', () => {
     expect(restored.get('active-job-2')).toEqual({});
     expect(fs.existsSync(handoffPath)).toBe(false);
   });
+
+  it('preserves a bundle handoff when the split plugin starts in the SSG stage', () => {
+    root = fs.mkdtempSync(path.join(os.tmpdir(), 'jobs-ordering-handoff-ssg-'));
+    process.env.BUILD_STAGE = 'ssg';
+    const handoffPath = jobCanonOrderingHandoffPath(root);
+    fs.mkdirSync(path.dirname(handoffPath), { recursive: true });
+    fs.writeFileSync(handoffPath, 'bundle artifact');
+
+    (localeJobsSplitPlugin(root).buildStart as () => void)();
+
+    expect(fs.readFileSync(handoffPath, 'utf8')).toBe('bundle artifact');
+  });
+
+  it('removes a stale handoff at the start of a single/default build', () => {
+    root = fs.mkdtempSync(path.join(os.tmpdir(), 'jobs-ordering-handoff-single-'));
+    delete process.env.BUILD_STAGE;
+    const handoffPath = jobCanonOrderingHandoffPath(root);
+    fs.mkdirSync(path.dirname(handoffPath), { recursive: true });
+    fs.writeFileSync(handoffPath, 'stale artifact');
+
+    (localeJobsSplitPlugin(root).buildStart as () => void)();
+
+    expect(fs.existsSync(handoffPath)).toBe(false);
+  });
 });

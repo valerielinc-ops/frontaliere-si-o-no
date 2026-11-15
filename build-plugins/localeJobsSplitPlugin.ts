@@ -296,7 +296,9 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
   buildStart() {
    // A previous interrupted staged build must never feed a later build. The
    // bundle stage recreates this only after filtering the current jobs.json;
-   // single-process builds use the in-memory fields and do not read it.
+   // single-process builds use the in-memory fields and do not read it. SSG
+   // shares the just-written bundle artifact and its consumer removes it.
+   if (process.env.BUILD_STAGE === 'ssg') return;
    try {
     fs.unlinkSync(orderingHandoffPath);
    } catch (error) {

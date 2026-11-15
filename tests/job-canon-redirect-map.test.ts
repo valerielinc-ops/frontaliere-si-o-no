@@ -703,6 +703,9 @@ describe('staged job-canon ordering handoff', () => {
     clearJobCanonOrderingFields();
     writeAllKnownJobSlugs({}, root);
     process.env.BUILD_STAGE = 'ssg';
+    (localeJobsSplitPlugin(root).buildStart as () => void)();
+    expect(fs.readFileSync(handoffPath, 'utf8')).toBe(bundleArtifact);
+
     const workerPlugin = jobCanonRedirectMapPlugin(root);
     await (workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin);
 
