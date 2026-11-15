@@ -1,7 +1,7 @@
 {
   "crawlerKey": "trafigura",
-  "assembledAt": "2026-11-14T21:20:44.112Z",
-  "runId": "43641313004",
+  "assembledAt": "2026-11-15T09:19:32.743Z",
+  "runId": "43697774423",
   "jobs": [
     {
       "id": "trafigura-01401977788d",
@@ -34,7 +34,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Market-Risk-Manager---Oil-products_R-017868",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:20:37.661Z",
+      "crawledAt": "2026-11-15T09:19:12.693Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:20:37.661Z",
+      "validThrough": "2026-12-15T09:19:12.693Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -113,7 +113,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/CTRM-Business-Architect_R-018081",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:20:36.878Z",
+      "crawledAt": "2026-11-15T09:19:11.944Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -157,7 +157,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:20:36.878Z",
+      "validThrough": "2026-12-15T09:19:11.944Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -192,7 +192,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Senior-Investigations-Officer_R-018720",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:20:36.174Z",
+      "crawledAt": "2026-11-15T09:19:11.211Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -242,7 +242,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T21:20:36.174Z",
+      "validThrough": "2026-12-17T09:19:11.211Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -276,7 +276,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Trade-Finance--Automation-Lead_R-018841",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:20:35.454Z",
+      "crawledAt": "2026-11-15T09:19:10.461Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -323,7 +323,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:20:35.454Z",
+      "validThrough": "2027-01-05T09:19:10.461Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -331,7 +331,7 @@
       "slug": "crocifisso-trader-trafigura-geneva",
       "slugByLocale": {
         "it": "crocifisso-trader-trafigura-geneva",
-        "en": "crude-trader-trafigura-ch",
+        "en": "crude-trader-trafigura-geneva",
         "de": "rohhandler-trafigura-geneva",
         "fr": "commerce-brut-trafigura-geneva"
       },
@@ -357,7 +357,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Crude-Trader_R-018866",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:20:34.739Z",
+      "crawledAt": "2026-11-15T09:19:09.697Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -389,6 +389,9 @@
         ],
         "fr": [
           "crude-trader-trafigura-ch"
+        ],
+        "en": [
+          "crude-trader-trafigura-ch"
         ]
       },
       "firstSeenAt": "2026-10-12T21:12:01.143Z",
@@ -408,7 +411,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T21:20:34.739Z",
+      "validThrough": "2027-01-10T09:19:09.697Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -443,7 +446,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Commercial-Manager--Carbon-Upstream_R-018926",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:20:34.004Z",
+      "crawledAt": "2026-11-15T09:19:08.888Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -493,7 +496,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:20:34.004Z",
+      "validThrough": "2027-01-25T09:19:08.888Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -527,7 +530,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/Onboarding-Global-Manager_R-019001",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:20:33.247Z",
+      "crawledAt": "2026-11-15T09:19:08.108Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -574,7 +577,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:20:33.247Z",
+      "validThrough": "2027-02-09T09:19:08.108Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -582,7 +585,7 @@
       "slug": "addetto-alle-fusioni-e-acquisizioni-trafigura-geneva",
       "slugByLocale": {
         "it": "addetto-alle-fusioni-e-acquisizioni-trafigura-geneva",
-        "en": "m-a-associate-trafigura-ch",
+        "en": "m-a-associate-trafigura-geneva",
         "de": "m-a-assoziiert-trafigura-geneva",
         "fr": "m-a-associe-trafigura-geneva"
       },
@@ -609,7 +612,7 @@
       "url": "https://trafigura.wd3.myworkdayjobs.com/en-US/TrafiguraCareerSite/job/Geneva-Switzerland/M-A-Associate_R-019003",
       "source": "Trafigura Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:20:32.553Z",
+      "crawledAt": "2026-11-15T09:19:07.333Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -640,6 +643,9 @@
         ],
         "fr": [
           "m-a-associate-trafigura-ch"
+        ],
+        "en": [
+          "m-a-associate-trafigura-ch"
         ]
       },
       "firstSeenAt": "2026-11-11T21:19:17.951Z",
@@ -659,7 +665,7 @@
       "postalCode": "1204",
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:20:32.553Z",
+      "validThrough": "2027-02-09T09:19:07.333Z",
       "validThroughSource": "last-observed-window"
     }
   ]
