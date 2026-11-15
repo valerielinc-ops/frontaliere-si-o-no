@@ -199,6 +199,10 @@ export const RC_TO_ENV = {
   NEWSLETTER_CAMPAIGN_CONTENT_FREEZE: ['NEWSLETTER_CAMPAIGN_CONTENT_FREEZE'],
   NEWSLETTER_CONTENT_FREEZE_RATE_THRESHOLD_PCT: ['NEWSLETTER_CONTENT_FREEZE_RATE_THRESHOLD_PCT'],
   NEWSLETTER_RESUME_RECEIPT_SCAN: ['NEWSLETTER_RESUME_RECEIPT_SCAN'],
+  // Pending-article scope of scripts/notify-journalist-article-live.mjs (perf-plan email
+  // senders, F3): `pending` (default) reads only `liveVerifiedAt == null`; `all` restores
+  // the read-everything-and-filter scan (kill switch).
+  JOURNALIST_PENDING_SCOPE: ['JOURNALIST_PENDING_SCOPE'],
   // `ac` autologin credential policy (#5685). The MINTING half of the switch —
   // the verifier reads the same three parameters through
   // functions/src/remoteConfigSecrets.js's getAutologinPolicyConfig(). All
