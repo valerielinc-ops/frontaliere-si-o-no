@@ -146,6 +146,7 @@ import {
   getActiveJobSitemapLocs,
   getJobSitemapAllowlist,
   jobsSeoPagesFlushed,
+  shouldAwaitJobsSeoPagesFlushed,
   setActiveJobSitemapLocs,
   setJobSitemapAllowlist,
 } from './shared/buildSignals';
@@ -758,6 +759,23 @@ export async function tryRestoreFromCache(
     ...(retiredFiles ? { retiredFiles } : {}),
     emittedCount: restored,
   };
+}
+
+/**
+ * A valid cache manifest can include a job alias that this build's jobs
+ * producer is about to reserve. Wait before `tryRestoreFromCache` snapshots
+ * that reservation set; cache misses and isolated/FAST_BUILD consumers keep
+ * their existing no-wait path.
+ */
+export async function tryRestoreFromCacheAfterJobsFlush(
+  rootDir: string,
+  distDir: string,
+  cacheKey: string,
+): Promise<CacheManifest | null> {
+  if (readCacheManifest(rootDir, cacheKey) && shouldAwaitJobsSeoPagesFlushed()) {
+    await jobsSeoPagesFlushed;
+  }
+  return tryRestoreFromCache(rootDir, distDir, cacheKey);
 }
 
 export function saveToCache(
@@ -5790,7 +5808,7 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
       let invalidatedRetirementWrites: { rel: string; html: string }[] = [];
       if (cacheEnabled) {
         const __tCacheRestore = profileStart();
-        const restored = await tryRestoreFromCache(rootDir, distDir, cacheKey);
+        const restored = await tryRestoreFromCacheAfterJobsFlush(rootDir, distDir, cacheKey);
         profileRecord('cache-restore-check', __tCacheRestore);
         if (restored) {
           // Re-run the cross-plugin patches against THIS build's dist.
@@ -5831,7 +5849,7 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
             cacheHitRetiredLandingPaths(junkRetirements, restored.retiredFiles ?? []),
           );
           finalSitemapMirrorLocs = [...(restored.crossSectionMirrorLocs ?? [])];
-          await jobsSeoPagesFlushed;
+          if (shouldAwaitJobsSeoPagesFlushed()) await jobsSeoPagesFlushed;
           await reconcileSitemapJobsWithDist(
             distDir,
             restored.crossSectionMirrorLocs ?? [],

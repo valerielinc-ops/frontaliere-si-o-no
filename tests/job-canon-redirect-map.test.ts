@@ -34,6 +34,7 @@ import { jobCanonTarget } from '../infra/cloudflare-worker/locale-router.js';
 import {
   clearJobCanonOrderingFields,
   consumeJobCanonOrderingHandoff,
+  getJobCanonOrderingFields,
   jobCanonOrderingHandoffPath,
   setJobCanonOrderingFields,
   sha256FileSync,
@@ -657,6 +658,34 @@ describe('staged job-canon ordering handoff', () => {
     else process.env.BUILD_LOCALE = previousBuildLocale;
     if (previousBuildStage === undefined) delete process.env.BUILD_STAGE;
     else process.env.BUILD_STAGE = previousBuildStage;
+  });
+
+  it.each([
+    { name: 'all-locale SSG', buildLocale: undefined, buildStage: 'ssg' },
+    { name: 'BUILD_LOCALE=it single build', buildLocale: 'it', buildStage: 'single' },
+  ])('skips Worker map generation for $name when data/jobs.json is absent', async ({ buildLocale, buildStage }) => {
+    root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-no-jobs-owner-'));
+    fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+    setJobCanonOrderingFields([{ id: 'stale-in-memory-ordering', datePosted: daysAgo(2) }]);
+    process.env.BUILD_STAGE = buildStage;
+    if (buildLocale === undefined) delete process.env.BUILD_LOCALE;
+    else process.env.BUILD_LOCALE = buildLocale;
+
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => undefined);
+    try {
+      const workerPlugin = jobCanonRedirectMapPlugin(root);
+      await (workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin);
+
+      expect(logSpy).toHaveBeenCalledWith(
+        '[job-canon-redirect-map] data/jobs.json missing; skipping Worker map generation',
+      );
+      expect(getJobCanonOrderingFields()).toBeNull();
+      expect(fs.existsSync(jobCanonOrderingHandoffPath(root))).toBe(false);
+      expect(fs.existsSync(path.join(root, 'dist', 'data', 'jobs-slug-map.json'))).toBe(false);
+      expect(fs.existsSync(path.join(root, 'dist', 'job-canon'))).toBe(false);
+    } finally {
+      logSpy.mockRestore();
+    }
   });
 
   it('runs all-locale SSG from a bundle artifact after process memory is cleared', async () => {

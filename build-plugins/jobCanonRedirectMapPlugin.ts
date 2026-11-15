@@ -400,10 +400,20 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
       const buildLocale = (process.env.BUILD_LOCALE ?? '').trim();
       const ownsWorkerMap = buildLocale === '' || buildLocale === 'it';
       const buildStage = process.env.BUILD_STAGE || 'single';
+      const distDir = path.resolve(rootDir, 'dist');
+      const jobsPath = path.resolve(rootDir, 'data', 'jobs.json');
+      if (ownsWorkerMap && !fs.existsSync(jobsPath)) {
+        console.log(
+          '[job-canon-redirect-map] data/jobs.json missing; skipping Worker map generation',
+        );
+        clearJobCanonOrderingFields();
+        return;
+      }
+
       const stagedOrderingFieldsById = ownsWorkerMap && buildStage === 'ssg'
         ? consumeJobCanonOrderingHandoff(
           jobCanonOrderingHandoffPath(rootDir),
-          path.resolve(rootDir, 'data', 'jobs.json'),
+          jobsPath,
           rootDir,
         )
         : null;
@@ -413,7 +423,6 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
         await jobsSeoPagesFlushed;
       }
 
-      const distDir = path.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) {
         if (ownsWorkerMap) {
           const slugMapPath = path.join(distDir, 'data', 'jobs-slug-map.json');
