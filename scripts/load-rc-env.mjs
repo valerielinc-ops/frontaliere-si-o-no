@@ -528,7 +528,7 @@ export const RC_TO_ENV = {
   // MODE = off | shadow | on (default `on`; `off` is the kill switch, `shadow`
   // lets the legacy path decide while the index is compared on a sample).
   // SHADOW_SAMPLE = fraction of alerts re-planned with the legacy path to verify
-  // the index (default 0.02 live, 0.10 in --dry-run). Absent = code defaults.
+  // the index (default 0.005 live, 0.10 in --dry-run). Absent = code defaults.
   // Plan batch size of the job-alert sender (1-256, default 8): lets a dry-run
   // try a larger group once the candidate index shrinks the per-alert match sets.
   JOB_ALERT_PLAN_BATCH_SIZE: ['JOB_ALERT_PLAN_BATCH_SIZE'],
@@ -543,6 +543,15 @@ export const RC_TO_ENV = {
   JOB_ALERT_BATCH_BOOKKEEPING: ['JOB_ALERT_BATCH_BOOKKEEPING'],
   JOB_ALERT_CANDIDATE_INDEX_MODE: ['JOB_ALERT_CANDIDATE_INDEX_MODE'],
   JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE: ['JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE'],
+  // Planning fast path of the job-alert sender (scripts/lib/job-alert-planning-fastpath.mjs,
+  // perf-plan P1-P5): `on` (default) hands the index's search answers and per-row
+  // predicates to the scorer and ranks on typed arrays, with identical output;
+  // `off` is the kill switch back to the previous scorer (the index stays on).
+  JOB_ALERT_PLANNING_FASTPATH: ['JOB_ALERT_PLANNING_FASTPATH'],
+  // Search vocabulary of the candidate index (perf-plan W2): `on` (default)
+  // builds the four locales in parallel worker threads on a large inventory,
+  // `off` builds them on the main thread (single pass, W1).
+  JOB_ALERT_VOCABULARY_WORKERS: ['JOB_ALERT_VOCABULARY_WORKERS'],
   // Daily job-alert subject experiment: all controls are required by the
   // sender, so an incomplete RC edit cannot activate traffic accidentally.
   JOB_ALERT_SUBJECT_AB_ENABLED:   ['JOB_ALERT_SUBJECT_AB_ENABLED'],

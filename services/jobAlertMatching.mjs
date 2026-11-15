@@ -271,6 +271,19 @@ function jobTaxonomyValues(job) {
 export const GEO_PREFERENCE_MIN_LOCAL = 5;
 
 /**
+ * The first-seen instant the alert planner ranks on: the exact expression the
+ * send loop used inline — `0` without a `firstSeenAt`, otherwise whatever
+ * `new Date(firstSeenAt).getTime()` returns, `NaN` for a malformed value.
+ * Defined once so the per-row copy of the candidate index cannot drift.
+ *
+ * @param {object} job
+ * @returns {number}
+ */
+export function jobFirstSeenMs(job) {
+  return job.firstSeenAt ? new Date(job.firstSeenAt).getTime() : 0;
+}
+
+/**
  * Freshness-boost windows for {@link freshnessBoost}. The 48h outer window
  * deliberately matches the "✨ NUOVA" badge window in the alert email
  * (send-job-alerts.mjs) so a boosted job and a badged job are the same thing.
@@ -726,6 +739,15 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
   };
 }
 
+/** Job-side values of {@link partitionByGeoPreference}, derived from the job itself. */
+export function defaultPartitionCanton(job) {
+  return String(job?.canton || '').toLowerCase();
+}
+
+export function defaultPartitionPaddedLoc(job) {
+  return paddedLocHaystack(`${job?.location || ''} ${job?.addressLocality || ''} ${job?.addressRegion || ''} ${job?.canton || ''}`);
+}
+
 /**
  * Apply the profile-derived geo PREFERENCE to a ranked job list (issue #2993).
  *
@@ -749,12 +771,22 @@ export function buildAlertProfile(alert, subscriber = null, extras = {}) {
  * Pure (no IO); order WITHIN each partition is preserved (the caller already
  * sorted by score then recency).
  *
+ * `jobCanton` / `jobPaddedLoc` are the job-side values this split compares
+ * (lowercased canton; {@link paddedLocHaystack} of `location addressLocality
+ * addressRegion canton`). A caller that has them per row already (the candidate
+ * index computes them once per run, perf-plan P2) passes accessors that return
+ * the very same strings; the defaults derive them from the job as before.
+ *
  * @param {object[]} jobs        Ranked jobs (best first).
  * @param {AlertProfile} profile Output of {@link buildAlertProfile}.
- * @param {{minLocal?: number}} [opts]
+ * @param {{minLocal?: number, jobCanton?: (job: any) => string, jobPaddedLoc?: (job: any) => string}} [opts]
  * @returns {object[]}
  */
-export function partitionByGeoPreference(jobs, profile, { minLocal = GEO_PREFERENCE_MIN_LOCAL } = {}) {
+export function partitionByGeoPreference(jobs, profile, {
+  minLocal = GEO_PREFERENCE_MIN_LOCAL,
+  jobCanton: jobCantonOf = defaultPartitionCanton,
+  jobPaddedLoc: jobPaddedLocOf = defaultPartitionPaddedLoc,
+} = {}) {
   const list = Array.isArray(jobs) ? jobs : [];
   if (!profile) return list;
   // An explicit alert geo scope is already a HARD filter upstream.
@@ -769,12 +801,9 @@ export function partitionByGeoPreference(jobs, profile, { minLocal = GEO_PREFERE
   const inArea = [];
   const rest = [];
   for (const job of list) {
-    const jobCanton = String(job?.canton || '').toLowerCase();
+    const jobCanton = jobCantonOf(job);
     const hit = (prefCanton.length > 0 && jobCanton && prefCanton.includes(jobCanton))
-      || (prefLocNeedles.length > 0 && includesAny(
-        paddedLocHaystack(`${job?.location || ''} ${job?.addressLocality || ''} ${job?.addressRegion || ''} ${job?.canton || ''}`),
-        prefLocNeedles,
-      ));
+      || (prefLocNeedles.length > 0 && includesAny(jobPaddedLocOf(job), prefLocNeedles));
     (hit ? inArea : rest).push(job);
   }
   return inArea.length >= minLocal ? inArea : inArea.concat(rest);
@@ -831,6 +860,19 @@ function jobMatchFeaturesWithBase(job, locale, shared) {
     jobTaxonomyValues: shared.jobTaxonomyValues,
     jobContract: shared.jobContract,
   };
+}
+
+/**
+ * {@link jobMatchFeatures} for several locales of one job, sharing the
+ * locale-independent base: the same objects `jobMatchFeatures(job, locale)`
+ * returns, without rebuilding the base once per locale (perf-plan W1).
+ *
+ * @param {object} job
+ * @param {string[]} locales
+ */
+export function jobMatchFeaturesByLocale(job, locales) {
+  const shared = jobMatchBaseFeatures(job);
+  return locales.map((locale) => jobMatchFeaturesWithBase(job, locale, shared));
 }
 
 /**
@@ -894,6 +936,11 @@ export function includesAny(haystack, needles) {
   return false;
 }
 
+/** Whether bit `index` of a Uint32Array bitset is set. */
+export function bitTest(bitset, index) {
+  return (bitset[index >>> 5] & (1 << (index & 31))) !== 0;
+}
+
 /** The only possible hit not fully inside one text segment. */
 export function keywordAcrossTextJoin(titleText, descriptionText, keyword) {
   const edgeLength = Math.max(0, keyword.length - 1);
@@ -909,12 +956,47 @@ export function keywordInTextParts(titleText, descriptionText, keyword) {
     || keywordAcrossTextJoin(titleText, descriptionText, keyword);
 }
 
+/**
+ * The locale-independent inputs of {@link searchHaystack}: they depend on the
+ * job only, so a caller building the haystack of every locale for one job
+ * computes them once (perf-plan W1).
+ *
+ * @param {object} job
+ * @returns {{category: string, cantonNames: string}}
+ */
+export function searchHaystackShared(job) {
+  return {
+    category: normalizeJobCategory(job.category, `${job.title || ''} ${String(job.department || '')}`),
+    cantonNames: cantonSearchTokens(job.canton),
+  };
+}
+
+/**
+ * Every text {@link searchHaystack} concatenates, resolved for `locale`. Plain
+ * values only, so a worker thread can receive them (structured clone) and build
+ * the haystack with {@link searchHaystackText} — the same composition.
+ */
+export function searchHaystackInputs(job, features, locale, shared = searchHaystackShared(job)) {
+  return {
+    titleText: features.titleText,
+    description: job.descriptionByLocale?.[locale] ?? job.description ?? '',
+    company: job.company || '',
+    jobLoc: features.jobLoc,
+    contract: job.contract || '',
+    category: shared.category,
+    jobSector: features.jobSector,
+    cantonNames: shared.cantonNames,
+    title: job.titleByLocale?.[locale] || job.title,
+  };
+}
+
+/** The composition of the stemmed search haystack, from {@link searchHaystackInputs}. */
+export function searchHaystackText(inputs) {
+  return buildStemmedHaystack(`${inputs.titleText} ${inputs.description} ${inputs.company} ${inputs.jobLoc} ${inputs.contract} ${inputs.category} ${inputs.jobSector} ${inputs.cantonNames} ${professionSynonymText(inputs.title)}`);
+}
+
 export function searchHaystack(job, features, locale) {
-  const category = normalizeJobCategory(job.category, `${job.title || ''} ${String(job.department || '')}`);
-  const cantonNames = cantonSearchTokens(job.canton);
-  const title = job.titleByLocale?.[locale] || job.title;
-  const description = job.descriptionByLocale?.[locale] ?? job.description ?? '';
-  return buildStemmedHaystack(`${features.titleText} ${description} ${job.company || ''} ${features.jobLoc} ${job.contract || ''} ${category} ${features.jobSector} ${cantonNames} ${professionSynonymText(title)}`);
+  return searchHaystackText(searchHaystackInputs(job, features, locale));
 }
 
 export function compileSearchQuery(query) {
@@ -1121,6 +1203,30 @@ export function createJobFeatureStore() {
     }
     return index;
   };
+  // Run-scoped half of a cache entry: the (job, locale) feature object, the
+  // base it shares and the job's index in the substring memos. None of the
+  // three depends on the alert or on the batch, so a batch only copies the
+  // pointers instead of rebuilding the feature object (perf-plan P3).
+  const runEntriesByJob = new WeakMap();
+  const runEntry = (job, locale) => {
+    let byLocale = runEntriesByJob.get(job);
+    if (!byLocale) {
+      byLocale = new Map();
+      runEntriesByJob.set(job, byLocale);
+    }
+    const key = locale || '';
+    let found = byLocale.get(key);
+    if (!found) {
+      const sharedFeatures = store.base(job);
+      found = {
+        features: jobMatchFeaturesWithBase(job, locale, sharedFeatures),
+        sharedFeatures,
+        jobIndex: store.jobIndex(job),
+      };
+      byLocale.set(key, found);
+    }
+    return found;
+  };
   const descriptionMemo = (keyword, touch = true) => {
     let memo = descriptionMemos.get(keyword);
     if (memo) {
@@ -1189,13 +1295,14 @@ export function createJobFeatureStore() {
     memoWrite(memo, index, found);
     return found;
   };
-  return {
+  const store = {
     get(job, locale) {
       return jobMatchFeaturesWithBase(job, locale, base(job));
     },
     base,
     geo,
     jobIndex,
+    runEntry,
     touchDescriptionMemo(keyword) {
       descriptionMemo(keyword);
     },
@@ -1213,6 +1320,7 @@ export function createJobFeatureStore() {
       return keys;
     },
   };
+  return store;
 }
 
 /**
@@ -1244,12 +1352,14 @@ export function createJobFeatureCache(featureStore = createJobFeatureStore()) {
     let found = byLocale.get(key);
     if (!found) {
       const space = spaceFor(key);
-      const sharedFeatures = featureStore.base(job);
+      // The immutable half lives at run level (see `runEntry` in the store);
+      // only the batch-scoped memo index and the haystacks are per batch.
+      const run = featureStore.runEntry(job, locale);
       found = {
-        features: jobMatchFeaturesWithBase(job, locale, sharedFeatures),
-        sharedFeatures,
+        features: run.features,
+        sharedFeatures: run.sharedFeatures,
         index: space.size++,
-        jobIndex: featureStore.jobIndex(job),
+        jobIndex: run.jobIndex,
         locHaystack: null,
         searchHaystack: null,
       };
@@ -1400,10 +1510,32 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
     contractTypes,
   } = profile;
   const hardList = [...hardKeywords];
-  const compileQueryTest = (query) => {
+  // Run-level answers computed by the candidate index (perf-plan P1). They are
+  // honoured only when they were built for this very locale, and only for a
+  // caller that also passes the row's index; every other query is computed as
+  // before. Never passed by the independent legacy verification path.
+  const searchAnswers = options.searchAnswers && options.searchAnswers.locale === locale
+    && options.searchAnswers.byQuery instanceof Map
+    ? options.searchAnswers.byQuery
+    : null;
+  const compileComputedTest = (query) => {
     if (featureCache) return featureCache.searchTest(locale, query);
     const compiled = compileSearchQuery(query);
     return (job, cached, features) => matchesSearchQuery(compiled, job, features, locale);
+  };
+  const compileQueryTest = (query) => {
+    const answer = searchAnswers ? searchAnswers.get(query) : undefined;
+    if (!answer) return compileComputedTest(query);
+    // The row-level fallback (a caller without row indexes) is built on first use.
+    let computed = null;
+    const test = (job, cached, features, rowIndex) => {
+      if (rowIndex !== undefined) return (answer[rowIndex >>> 5] & (1 << (rowIndex & 31))) !== 0;
+      computed ??= compileComputedTest(query);
+      return computed(job, cached, features);
+    };
+    // Marks a test that needs no job features when the row index is known.
+    test.answered = true;
+    return test;
   };
   const searchTests = (profile.hardSearchQueries || []).map(compileQueryTest);
   const softSearchTests = hardList.length === 0
@@ -1423,10 +1555,22 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
     && softSearchTests.length === 0
     && locationNeedles.length === 0 && sectors.length === 0 && contractTypes.length === 0;
 
-  return (job) => {
+  // Per-row predicates prepared by the candidate index for the soft-legacy
+  // branch (perf-plan P4). The score formula below is the same code for both
+  // sources of the six facts it needs; only where each fact is read from
+  // changes, and only for a caller that passes the row's index.
+  const predicates = options.predicates && options.predicates.profile === profile
+    && hardList.length === 0 && hasLegacyIntentProfile && !neverMatches
+    ? options.predicates
+    : null;
+
+  return (job, rowIndex) => {
     if (!job || neverMatches) return 0;
+    const fromIndex = predicates !== null && rowIndex !== undefined;
     let geoMatched = false;
-    if (hasGeoScope && featureCache) {
+    if (fromIndex) {
+      if (predicates.geo !== null && !bitTest(predicates.geo, rowIndex)) return 0;
+    } else if (hasGeoScope && featureCache) {
       // Decide a hard-geo miss before entry() materializes description/token features.
       const geo = featureCache.geo(job);
       const geoHaystack = alertLocationNeedles.length > 0 ? featureCache.paddedLoc(job) : '';
@@ -1434,33 +1578,39 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
         || (cantons.length > 0 && geo.jobCanton && cantons.includes(geo.jobCanton));
       if (!geoMatched) return 0;
     }
-    const cached = featureCache ? featureCache.entry(job, locale) : null;
-    const features = cached ? cached.features : jobMatchFeatures(job, locale);
-    const {
-      titleText, descriptionText, jobTokens, jobCategoryKeys: jobCategories,
-      jobTaxonomyValues: jobTaxonomy = new Set(),
-      jobLoc, jobCanton, jobSector, jobContract,
-    } = features;
+    let cached = null;
+    let features = null;
+    let titleText; let descriptionText; let jobTokens; let jobCategories;
+    let jobTaxonomy; let jobLoc; let jobCanton; let jobSector; let jobContract;
     let locHaystack = '';
-    if (needsLocation) {
-      if (cached) {
-        if (cached.locHaystack === null) cached.locHaystack = featureCache.paddedLoc(job);
-        locHaystack = cached.locHaystack;
-      } else {
-        locHaystack = paddedLocHaystack(jobLoc);
+    if (!fromIndex) {
+      cached = featureCache ? featureCache.entry(job, locale) : null;
+      features = cached ? cached.features : jobMatchFeatures(job, locale);
+      ({
+        titleText, descriptionText, jobTokens, jobCategoryKeys: jobCategories,
+        jobTaxonomyValues: jobTaxonomy = new Set(),
+        jobLoc, jobCanton, jobSector, jobContract,
+      } = features);
+      if (needsLocation) {
+        if (cached) {
+          if (cached.locHaystack === null) cached.locHaystack = featureCache.paddedLoc(job);
+          locHaystack = cached.locHaystack;
+        } else {
+          locHaystack = paddedLocHaystack(jobLoc);
+        }
       }
-    }
 
-    // HARD geo filter: when the user scoped the alert to explicit locations and/or
-    // cantons, a job OUTSIDE that geography is dropped — even when keywords or
-    // company/sector match. Without this the location was only a +2 ranking nudge,
-    // so a "Lugano, Mendrisio, Bellinzona" alert still surfaced Basel/Lausanne jobs
-    // whose title matched the keyword. Only the alert's OWN locations/cantons are
-    // hard; soft profile-derived locations (geo_city, pref cities) still only rank.
-    if (hasGeoScope && !geoMatched) {
-      const geoHit = includesAny(locHaystack, alertLocationNeedles)
-        || (cantons.length > 0 && jobCanton && cantons.includes(jobCanton));
-      if (!geoHit) return 0;
+      // HARD geo filter: when the user scoped the alert to explicit locations and/or
+      // cantons, a job OUTSIDE that geography is dropped — even when keywords or
+      // company/sector match. Without this the location was only a +2 ranking nudge,
+      // so a "Lugano, Mendrisio, Bellinzona" alert still surfaced Basel/Lausanne jobs
+      // whose title matched the keyword. Only the alert's OWN locations/cantons are
+      // hard; soft profile-derived locations (geo_city, pref cities) still only rank.
+      if (hasGeoScope && !geoMatched) {
+        const geoHit = includesAny(locHaystack, alertLocationNeedles)
+          || (cantons.length > 0 && jobCanton && cantons.includes(jobCanton));
+        if (!geoHit) return 0;
+      }
     }
 
     let score = 0;
@@ -1472,7 +1622,7 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
     //    a substring match against structured values.
     if (hardList.length > 0) {
       let hit = searchTests.length > 0
-        && searchTests.every((test) => test(job, cached, features));
+        && searchTests.every((test) => test(job, cached, features, rowIndex));
       for (let k = 0; searchTests.length === 0 && k < hardList.length; k++) {
         const found = keywordTests
           ? keywordTests[k](cached)
@@ -1506,29 +1656,43 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
     // Company affinity (strong signal — same employer).
     // A crawler key may cover unrelated employers. Match display identities,
     // including their declared aliases/legal forms, exactly as company pins do.
-    const jobCompanyKeys = profile.company
-      ? (featureCache ? featureCache.pinnedKeys(job) : pinnedCompanyIdentityKeys(job))
-      : [];
-    const companyMatch = Boolean(profile.company && companyKeys.some((key) => jobCompanyKeys.includes(key)));
-    if (companyMatch) score += 4;
-
-    // Soft keyword overlap (tokenized, proportional, capped).
+    let companyMatch;
     let softOverlap = 0;
-    for (const t of softTokens) if (jobTokens.has(t)) softOverlap++;
+    let locationMatch;
+    let cantonMatch;
+    let sectorMatch;
+    let contractMatch;
+    if (fromIndex) {
+      // Same six facts, read from the index's per-alert predicates.
+      companyMatch = predicates.company !== null && bitTest(predicates.company, rowIndex);
+      softOverlap = predicates.softOverlap === null ? 0 : predicates.softOverlap[rowIndex];
+      locationMatch = predicates.location !== null && bitTest(predicates.location, rowIndex);
+      cantonMatch = predicates.canton !== null && bitTest(predicates.canton, rowIndex);
+      sectorMatch = predicates.sector !== null && bitTest(predicates.sector, rowIndex);
+      contractMatch = predicates.contract !== null && bitTest(predicates.contract, rowIndex);
+    } else {
+      const jobCompanyKeys = profile.company
+        ? (featureCache ? featureCache.pinnedKeys(job) : pinnedCompanyIdentityKeys(job))
+        : [];
+      companyMatch = Boolean(profile.company && companyKeys.some((key) => jobCompanyKeys.includes(key)));
+      // Soft keyword overlap (tokenized, proportional, capped).
+      for (const t of softTokens) if (jobTokens.has(t)) softOverlap++;
+      locationMatch = includesAny(locHaystack, locationNeedles);
+      cantonMatch = cantons.length > 0 && cantons.includes(jobCanton);
+      // Sector (match against sector/category AND title — sectors often surface in titles).
+      sectorMatch = sectors.some((s) => jobSector.includes(s) || titleText.includes(s));
+      contractMatch = contractTypes.some((c) => jobContract.includes(c));
+    }
+    if (companyMatch) score += 4;
     if (softOverlap > 0) score += Math.min(5, softOverlap * 2);
 
     // Location (jobLoc: see jobMatchFeatures).
-    const locationMatch = includesAny(locHaystack, locationNeedles);
     if (locationMatch) score += 2;
-    const cantonMatch = cantons.length > 0 && cantons.includes(jobCanton);
     if (cantonMatch) score += 1;
 
-    // Sector (match against sector/category AND title — sectors often surface in titles).
-    const sectorMatch = sectors.some((s) => jobSector.includes(s) || titleText.includes(s));
     if (sectorMatch) score += 2;
 
     // Contract type.
-    const contractMatch = contractTypes.some((c) => jobContract.includes(c));
     if (contractMatch) score += 1;
 
     // 2. Filtering policy when there are NO explicit keywords.
@@ -1541,7 +1705,13 @@ export function createAlertScorer(profile, locale, featureCache = null, options 
       if (needsFallback) {
         // A searched employer/locality need not occur in the role's title.
         // Every query token must match, and the hard scope above still holds.
-        if (!softSearchTests.some((test) => test(job, cached, features))) return 0;
+        if (fromIndex && features === null && softSearchTests.some((test) => test.answered !== true)) {
+          // A query the index did not answer (never for a row it selected on
+          // this branch, but not assumed): computed from the row's features.
+          cached = featureCache ? featureCache.entry(job, locale) : null;
+          features = cached ? cached.features : jobMatchFeatures(job, locale);
+        }
+        if (!softSearchTests.some((test) => test(job, cached, features, rowIndex))) return 0;
         score += 2;
       }
     }

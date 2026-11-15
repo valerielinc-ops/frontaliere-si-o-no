@@ -259,16 +259,33 @@ export function filterUnsentJobs(
   deliveryLedger = {},
   quarantineIdless = true,
 ) {
+  return (jobs || []).filter(createUnsentJobPredicate(sentMap, nowMs, windowMs, deliveryLedger, quarantineIdless));
+}
+
+/**
+ * The per-job test of {@link filterUnsentJobs}, with the ledger normalized once.
+ * A caller that ranks row positions (the planner's indexed path) applies it to
+ * the row behind each position: same answer, one definition.
+ *
+ * @returns {(job: object) => boolean}
+ */
+export function createUnsentJobPredicate(
+  sentMap,
+  nowMs,
+  windowMs = DEDUP_WINDOW_MS,
+  deliveryLedger = {},
+  quarantineIdless = true,
+) {
   const map = sentMap || {};
   const ledger = normalizeDeliveryLedger(deliveryLedger);
-  return (jobs || []).filter((job) => {
+  return (job) => {
     const key = jobDedupKey(job);
     if (!key) return !quarantineIdless; // sender passes true to make quarantine explicit
     if (deliveryEntryBlocksRetry(ledger[key], nowMs)) return false;
     const sentAt = map[key];
     if (!Number.isFinite(sentAt)) return true; // never sent
     return nowMs - sentAt >= windowMs; // sent, but outside the window
-  });
+  };
 }
 
 /**
