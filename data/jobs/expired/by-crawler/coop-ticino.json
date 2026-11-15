@@ -9932,6 +9932,11 @@
     },
     "sector": "",
     "expiredAt": "2026-11-12T13:36:34.211Z",
+    "previousSlugs": [
+      "call-agent-m-w-d-kundendienst-coop-ch-80-100-coop-ch-spreitenbach",
+      "call-agent-m-w-d-kundendienst-coop-ch-80-100-coop-ch-spreitenbach-f9f1209c",
+      "call-agent-w-m-d-kundendienst-coop-ch-80-100-coop-genossenschaft-spreitenbach"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "call-agent-m-w-d-kundendienst-coop-ch-80-100-coop-ch-spreitenbach-f9f1209c",
@@ -9955,12 +9960,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.coopjobs.ch/offene-stellen/call-agent-w-m-d-kundendienst-coop-ch/c8281af5-ed79-4c98-aef0-2b0c330d574a",
-    "firstSeenAt": "2026-10-14T09:32:24.210Z",
-    "previousSlugs": [
-      "call-agent-m-w-d-kundendienst-coop-ch-80-100-coop-ch-spreitenbach",
-      "call-agent-m-w-d-kundendienst-coop-ch-80-100-coop-ch-spreitenbach-f9f1209c",
-      "call-agent-w-m-d-kundendienst-coop-ch-80-100-coop-genossenschaft-spreitenbach"
-    ]
+    "firstSeenAt": "2026-10-14T09:32:24.210Z"
   },
   {
     "slug": "chauffeur-cat-ce-coop-genossenschaft-bern",
@@ -21613,7 +21613,8 @@
       "caisses-enregistreuses-services-d-aide-aux-etudiants-coop-zurich-o7c66e",
       "vendeur-dans-les-caisses-services-d-aide-aux-etudiants-coop-genossenschaft-zurich",
       "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-zurich-fe0b9692",
-      "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-zurich-5ac97ff6"
+      "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-zurich-5ac97ff6",
+      "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-c3d05570"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -21646,7 +21647,8 @@
         "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-dfa42514",
         "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-zurich-6b8a52da",
         "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-zurich-84fda153",
-        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-c3d05570"
+        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-c3d05570",
+        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-c1ad0165"
       ],
       "en": [
         "seller-cash-registers-services-student-assistance-coop-zurich-o7c66e",
@@ -21655,7 +21657,8 @@
         "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-ac02fef6",
         "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-zurich-6b8a52da",
         "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-zurich-84fda153",
-        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-1aeb5228"
+        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-1aeb5228",
+        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-b663c94b"
       ],
       "de": [
         "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-zurich-84fda153",
@@ -21667,7 +21670,8 @@
         "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-ac02fef6",
         "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-zurich-fe0b9692",
         "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-zurich-5ac97ff6",
-        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-1aeb5228"
+        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-1aeb5228",
+        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-b663c94b"
       ],
       "fr": [
         "caisses-enregistreuses-services-d-aide-aux-etudiants-coop-zurich-o7c66e",
@@ -21676,7 +21680,8 @@
         "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-ac02fef6",
         "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-zurich-6b8a52da",
         "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-zurich-84fda153",
-        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-1aeb5228"
+        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-1aeb5228",
+        "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-b663c94b"
       ]
     },
     "postalCode": "8047",
@@ -172721,7 +172726,8 @@
       "deputy-head-of-department-caisses-services-m-f-d-coop-genossenschaft-crissier-52723d40",
       "stellvertretender-leiter-der-abteilung-caisses-services-m-w-d-coop-genossenschaft-crissier-579cb52b",
       "deputy-head-of-department-caisses-services-m-f-d-coop-genossenschaft-crissier-15a389a0",
-      "stellvertretender-leiter-der-abteilung-caisses-services-m-w-d-coop-genossenschaft-crissier-ca1f940d"
+      "stellvertretender-leiter-der-abteilung-caisses-services-m-w-d-coop-genossenschaft-crissier-ca1f940d",
+      "adjoint-e-cheffe-chef-de-rayon-caisses-services-f-h-d-coop-genossenschaft-crissier-d7492326"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -172855,7 +172861,8 @@
         "adjoint-e-cheffe-chef-de-rayon-caisses-services-m-w-d-coop-crissier-33415f68",
         "deputy-head-of-department-caisses-services-m-f-d-coop-genossenschaft-crissier-6035028e",
         "stellvertretender-leiter-der-abteilung-caisses-services-m-w-d-coop-genossenschaft-crissier-a9541ca3",
-        "adjoint-e-cheffe-chef-de-rayon-caisses-services-f-h-d-coop-genossenschaft-crissier-cc0f3028"
+        "adjoint-e-cheffe-chef-de-rayon-caisses-services-f-h-d-coop-genossenschaft-crissier-cc0f3028",
+        "adjoint-e-cheffe-chef-de-rayon-caisses-services-f-h-d-coop-genossenschaft-crissier-d7492326"
       ],
       "en": [
         "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-q7cyzn",
@@ -172919,7 +172926,8 @@
         "deputy-head-of-department-caisses-services-m-f-d-coop-genossenschaft-crissier-52723d40",
         "deputy-head-of-department-caisses-services-m-f-d-coop-genossenschaft-crissier-15a389a0",
         "stellvertretender-leiter-der-abteilung-caisses-services-m-w-d-coop-genossenschaft-crissier-a9541ca3",
-        "adjoint-e-cheffe-chef-de-rayon-caisses-services-f-h-d-coop-genossenschaft-crissier-2cba3891"
+        "adjoint-e-cheffe-chef-de-rayon-caisses-services-f-h-d-coop-genossenschaft-crissier-2cba3891",
+        "adjoint-e-cheffe-chef-de-rayon-caisses-services-f-h-d-coop-genossenschaft-crissier-0e3c1b17"
       ],
       "de": [
         "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-q7cyzn",
@@ -172983,7 +172991,8 @@
         "stellvertretender-leiter-der-abteilung-caisses-services-m-w-d-coop-genossenschaft-crissier-579cb52b",
         "stellvertretender-leiter-der-abteilung-caisses-services-m-w-d-coop-genossenschaft-crissier-ca1f940d",
         "deputy-head-of-department-caisses-services-m-f-d-coop-genossenschaft-crissier-6035028e",
-        "adjoint-e-cheffe-chef-de-rayon-caisses-services-f-h-d-coop-genossenschaft-crissier-2cba3891"
+        "adjoint-e-cheffe-chef-de-rayon-caisses-services-f-h-d-coop-genossenschaft-crissier-2cba3891",
+        "adjoint-e-cheffe-chef-de-rayon-caisses-services-f-h-d-coop-genossenschaft-crissier-0e3c1b17"
       ],
       "fr": [
         "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier-q7cyzn",
@@ -173047,7 +173056,8 @@
         "adjoint-e-cheffe-chef-de-rayon-caisses-services-m-w-d-coop-crissier-854db8d4",
         "deputy-head-of-department-caisses-services-m-f-d-coop-genossenschaft-crissier-6035028e",
         "stellvertretender-leiter-der-abteilung-caisses-services-m-w-d-coop-genossenschaft-crissier-a9541ca3",
-        "adjoint-e-cheffe-chef-de-rayon-caisses-services-f-h-d-coop-genossenschaft-crissier-d7492326"
+        "adjoint-e-cheffe-chef-de-rayon-caisses-services-f-h-d-coop-genossenschaft-crissier-d7492326",
+        "adjoint-e-cheffe-chef-de-rayon-caisses-services-f-h-d-coop-genossenschaft-crissier-0b2551d1"
       ]
     },
     "postalCode": "1023",
