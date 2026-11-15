@@ -200,8 +200,9 @@ function assertManifestHeader(manifest, expected, errors, label) {
 // kept out of the page-by-page comparison (its pages are in no page manifest),
 // so the only thing vouching for it is the per-locale canary set: a locale whose
 // archive sitemaps list URLs must have published at least one canary, whatever
-// its overflow counters say. A URL that is ALSO listed by a page sitemap is
-// compared page-by-page and is not counted as excluded.
+// its overflow counters say, and at least one must be verified in a required
+// shard. A URL that is ALSO listed by a page sitemap is compared page-by-page
+// and is not counted as excluded.
 function summarizeExpiredArchiveCoverage({
   archiveUrls,
   urlSet,
@@ -229,6 +230,11 @@ function summarizeExpiredArchiveCoverage({
       errors.push(`expired archive sitemaps list ${count} ${locale} URL(s) but no archive publication evidence was supplied`);
     } else if (canaryEntriesByLocale[locale] === 0) {
       errors.push(`expired archive sitemaps list ${count} ${locale} URL(s) but the ${locale} archive evidence has no publication canary`);
+    } else if (canaryVerifiedByLocale[locale] === 0) {
+      // A canary in `entries` only vouches for the archive once it has been
+      // bound to the final bytes of a REQUIRED shard; an unbound one proves
+      // nothing about what was published.
+      errors.push(`expired archive sitemaps list ${count} ${locale} URL(s) but no ${locale} archive canary was verified in a required shard`);
     } else {
       coveredByCanaryByLocale[locale] = count;
       coveredByCanary += count;

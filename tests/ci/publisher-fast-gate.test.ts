@@ -188,10 +188,13 @@ const ARCHIVE_DIGEST = '7'.repeat(64);
 // URL in `sitemap-jobs-expired-001.xml`, `canaryLocales` get one published
 // canary. The IT canary is bound to the required Ticino shard receipt, as the
 // real evidence is. Evidence manifests are only built when `withEvidence`.
-function archiveFixture({ archiveLocales, canaryLocales, withEvidence = true }: {
+// `unboundLocales` keep their canary in the evidence but get NO required Ticino
+// shard, so the canary can never be verified against published bytes.
+function archiveFixture({ archiveLocales, canaryLocales, withEvidence = true, unboundLocales = [] }: {
   archiveLocales: Array<keyof typeof ARCHIVE_URLS>;
   canaryLocales: Array<keyof typeof ARCHIVE_URLS>;
   withEvidence?: boolean;
+  unboundLocales?: Array<keyof typeof ARCHIVE_URLS>;
 }) {
   const base = fixture();
   base.currentSitemapSnapshot.perSitemap['sitemap-jobs-expired-001.xml'] = archiveLocales.map((l) => ARCHIVE_URLS[l]);
@@ -205,11 +208,39 @@ function archiveFixture({ archiveLocales, canaryLocales, withEvidence = true }: 
       sha256: ARCHIVE_DIGEST, payloadSha256: '1'.repeat(64),
       descriptionSha256: '2'.repeat(64), expiredAtSha256: '3'.repeat(64), ownerSha256: '4'.repeat(64),
     }] : [];
-    if (l === 'it' && entries.length) {
-      base.sectionPage.shards[0].pages.push({
-        evidenceKind: 'expired-archive', locale: 'it', section: 'ticino', url, path: entries[0].path,
+    if (entries.length && !unboundLocales.includes(l)) {
+      const page = {
+        evidenceKind: 'expired-archive', locale, section: 'ticino', url, path: entries[0].path,
         sourceSha256: ARCHIVE_DIGEST, sha256: '8'.repeat(64),
-      });
+      };
+      if (l === 'it') {
+        base.sectionPage.shards[0].pages.push(page);
+      } else {
+        // bind the canary to the final bytes of a required Ticino shard of that locale
+        const shardArtifact = `shard-batch-5-dist-${locale}-${PUBLISHER_RUN_ID}`;
+        base.pageManifests.find((manifest) => manifest.locale === locale)!.requiredSections = ['ticino'];
+        const sectionManifest = base.sectionManifests.find((manifest) => manifest.locale === locale)!;
+        sectionManifest.requiredSections = ['ticino'];
+        sectionManifest.artifactRefs = [{ runId: PUBLISHER_RUN_ID, name: shardArtifact, digest: 'b'.repeat(64), purpose: 'section-shard-tar-batch' }];
+        sectionManifest.shards = [{
+          schemaVersion: 2,
+          kind: 'publisher-shard-content',
+          validatorVersion: 'publisher-shard-content-v2',
+          sourceRunId: SOURCE_RUN_ID,
+          sourceSha: SOURCE_SHA,
+          artifactRunId: PUBLISHER_RUN_ID,
+          artifactName: shardArtifact,
+          artifactDigest: 'b'.repeat(64),
+          locale,
+          section: 'ticino',
+          sourcePathLayout: 'ticino-hash-v1',
+          prefix: entries[0].path.split('/').slice(0, 2).join('/'),
+          tarSha256: 'e'.repeat(64),
+          population: 1,
+          pages: [page],
+        }];
+        base.publisherArtifacts.push(artifact(shardArtifact, 'b'.repeat(64)));
+      }
     }
     return {
       schemaVersion: 1,
@@ -401,8 +432,7 @@ describe('publisher fast provenance gate', () => {
         expiredArchiveSitemapCoveredByCanary: 3,
         expiredArchiveSitemapCoveredByCanaryByLocale: { it: 1, en: 1, de: 1, fr: 0 },
         expiredArchiveCanaryEntriesByLocale: { it: 1, en: 1, de: 1, fr: 1 },
-        // only the IT shard is a required section in this fixture
-        expiredArchiveCanaryVerifiedByLocale: { it: 1, en: 0, de: 0, fr: 0 },
+        expiredArchiveCanaryVerifiedByLocale: { it: 1, en: 1, de: 1, fr: 1 },
       });
     });
 
@@ -417,6 +447,24 @@ describe('publisher fast provenance gate', () => {
         expiredArchiveSitemapExcluded: 2,
         expiredArchiveSitemapCoveredByCanary: 1,
         expiredArchiveSitemapCoveredByCanaryByLocale: { it: 0, en: 1, de: 0, fr: 0 },
+      });
+    });
+
+    it('does not count a canary as coverage when its section is not a required shard (never verified)', () => {
+      const f = archiveFixture({
+        archiveLocales: ['en'], canaryLocales: ['it', 'en', 'de', 'fr'], unboundLocales: ['en'],
+      });
+      const result = f.validate();
+      expect(result.passed).toBe(false);
+      expect(result.errors).toEqual([
+        'expired archive sitemaps list 1 en URL(s) but no en archive canary was verified in a required shard',
+      ]);
+      expect(result).toMatchObject({
+        expiredArchiveSitemapExcluded: 1,
+        expiredArchiveCanaryEntriesByLocale: { it: 1, en: 1, de: 1, fr: 1 },
+        expiredArchiveCanaryVerifiedByLocale: { it: 1, en: 0, de: 1, fr: 1 },
+        expiredArchiveSitemapCoveredByCanary: 0,
+        expiredArchiveSitemapCoveredByCanaryByLocale: { it: 0, en: 0, de: 0, fr: 0 },
       });
     });
 
