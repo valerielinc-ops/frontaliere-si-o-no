@@ -9,16 +9,16 @@
     "eta-sa-swatch-group",
     "swiss-timing-swatch-group"
   ],
-  "generatedAt": "2026-11-14T21:22:52.535Z",
+  "generatedAt": "2026-11-15T09:27:54.962Z",
   "total": 27,
   "newCount": 1,
   "updatedCount": 1,
   "removedCount": 1,
   "unchangedCount": 25,
-  "durationMs": 381232,
-  "avgDurationMs": 381232,
+  "durationMs": 423707,
+  "avgDurationMs": 423707,
   "durationHistory": [
-    381232
+    423707
   ],
   "newJobs": [
     {
@@ -35,12 +35,12 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "url": "https://www.swatchgroup.com/fr/job/34201",
-      "applyUrl": "https://www.swatchgroup.com/fr/job/34201",
+      "url": "https://swatchgroup.com/fr/job/34201",
+      "applyUrl": "https://swatchgroup.com/fr/job/34201",
       "source": "Company Careers Crawler",
       "companyKey": "comadur-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-11-14T21:21:34.902Z",
+      "crawledAt": "2026-11-15T09:26:18.969Z",
       "firstSeenAt": "2026-11-13T21:26:05.084Z",
       "sourceLang": "fr",
       "salaryMin": 60500,
@@ -52,7 +52,7 @@
       "addressRegion": "NE",
       "streetAddress": "La Chaux-de-Fonds",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T21:21:34.902Z",
+      "validThrough": "2026-12-29T09:26:18.969Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -122,12 +122,12 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "url": "https://swatchgroup.com/fr/job/34201",
-      "applyUrl": "https://swatchgroup.com/fr/job/34201",
+      "url": "https://www.swatchgroup.com/fr/job/34201",
+      "applyUrl": "https://www.swatchgroup.com/fr/job/34201",
       "source": "Company Careers Crawler",
       "companyKey": "comadur-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-11-14T09:29:11.743Z",
+      "crawledAt": "2026-11-14T21:21:34.902Z",
       "firstSeenAt": "2026-11-13T21:26:05.084Z",
       "sourceLang": "fr",
       "salaryMin": 60500,
@@ -139,7 +139,7 @@
       "addressRegion": "NE",
       "streetAddress": "La Chaux-de-Fonds",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:29:11.743Z",
+      "validThrough": "2026-12-29T21:21:34.902Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -1178,5 +1178,5 @@
       }
     }
   ],
-  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
+  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
 }

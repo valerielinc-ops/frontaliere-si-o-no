@@ -3262,7 +3262,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Teamleiter:in Strategisches Anlagenmanagement für Zugang zur Mobilität",
       "titleByLocale": {
-        "it": "Teamleiter:in Strategisches Anlagenmanagement per Zugang zur Mobilität",
+        "it": "Responsabile del team per la gestione strategica degli impianti per l'accesso alla mobilità",
         "en": "Access to Mobility Strategic Facility Management Team Leader",
         "de": "Teamleiter:in Strategisches Anlagenmanagement für Zugang zur Mobilität",
         "fr": "Chef d'équipe en gestion stratégique des actifs pour l'accès à la mobilité"
@@ -3333,8 +3333,7 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:29:16.195Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sbb-4fb4ec0a92d0",
@@ -3722,7 +3721,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Teamleiter:in Baueinkauf",
       "titleByLocale": {
-        "it": "Teamleiter:in Baueinkauf",
+        "it": "Responsabile del team acquisti edili",
         "en": "Construction Purchasing Team Leader",
         "de": "Teamleiter:in Baueinkauf",
         "fr": "Chef d'équipe dans les achats de construction"
@@ -3771,7 +3770,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-baueinkauf/7c474209-8d3e-4525-ac53-039c1d849123",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-10T21:29:14.691Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T21:44:41.055Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -5018,7 +5016,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Technische:r Kontrolleur:in Cargo",
       "titleByLocale": {
-        "it": "Technische:r Kontrolleur:in Cargo",
+        "it": "Controllore/trice tecnico/a Cargo",
         "en": "Technical Inspector Cargo",
         "de": "Technische:r Kontrolleur:in Cargo",
         "fr": "Contrôleur technique :in Cargo"
@@ -5071,7 +5069,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/technische-r-kontrolleur-in-cargo/efeee2e2-9f93-4424-adf7-d112b8705635",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-10T21:29:21.210Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T21:44:47.049Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -6001,7 +5998,7 @@
       "title": "System Engineer Operations",
       "titleByLocale": {
         "it": "System Ingegnere Operations",
-        "en": "System Engineer Operations",
+        "en": "Operations System Engineer",
         "de": "System Engineer Operations",
         "fr": "System Ingénieur Operations"
       },
@@ -6035,7 +6032,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/system-engineer-operations/62bc3928-db1f-430c-b37e-008b0d011221",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-10T21:29:13.697Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T21:44:40.090Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -6073,7 +6069,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Teamleiter:in Baustellensicherheit",
       "titleByLocale": {
-        "it": "Teamleiter:in Baustellensicherheit",
+        "it": "Responsabile del team per la sicurezza nei cantieri",
         "en": "Site Safety Team Leader",
         "de": "Teamleiter:in Baustellensicherheit",
         "fr": "Chef d'équipe en sécurité des chantiers"
@@ -6130,7 +6126,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-baustellensicherheit/f651525d-5d0d-4f94-b315-29632224b6af",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-10T21:29:15.189Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-01T09:30:29.332Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -6168,7 +6163,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Spezialist:in Controlling – Schwerpunkt Personalcontrolling (80-100%)",
       "titleByLocale": {
-        "it": "Spezialist:in Controlling – Schwerpunkt Personalcontrolling (80-100%)",
+        "it": "Specialista in controlling – focus sul controllo di gestione del personale (80-100%)",
         "en": "Specialist in Controlling – Focus on Personnel Controlling (80-100%)",
         "de": "Spezialist:in Controlling – Schwerpunkt Personalcontrolling (80-100%)",
         "fr": "Spécialiste en contrôle de gestion – spécialisation en contrôle du personnel (80-100%)"
@@ -6252,7 +6247,6 @@
           "spezialist-in-controlling-schwerpunkt-personalcontrolling-80-100-ffs-officine-ferrovie-federali-olten"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T21:44:38.028Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -8483,7 +8477,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Quereinstieg Zugverkehrsleiter:in",
       "titleByLocale": {
-        "it": "Cambio carriera Zugverkehrsleiter:in",
+        "it": "Cambio di carriera come responsabile del traffico ferroviario",
         "en": "Cross-entry train traffic manager",
         "de": "Quereinstieg Zugverkehrsleiter:in",
         "fr": "Accès transversal Responsable de la circulation des trains"
@@ -8569,8 +8563,7 @@
       "streetAddress": "Muttenz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T21:29:09.291Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sbb-3b00c4c42be3",
@@ -14740,7 +14733,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Techniker:in Sicherungsanlagen Aussen, Produktionsmechaniker:in, Polymechaniker:in, Schlosser:in",
       "titleByLocale": {
-        "it": "Techniker:in Sicherungsanlagen Aussen, Produktionsmechaniker:in, Polymechaniker:in, Schlosser:in",
+        "it": "Tecnico/a impianti di sicurezza esterni, meccanico/a di produzione, polimeccanico/a, fabbro/a",
         "en": "Outside Fuse Systems Technician, Production Mechanic, Polymechanic, Locksmith",
         "de": "Techniker:in Sicherungsanlagen Aussen, Produktionsmechaniker:in, Polymechaniker:in, Schlosser:in",
         "fr": "Technicien (ne)en installations de sécurité à l'extérieur, mécanicien (ne) de production, polymécanicien (ne), serrurier (ne)"
@@ -14791,7 +14784,6 @@
       "previousSlugs": [
         "techniker-in-sicherungsanlagen-aussen-produktionsmechaniker-in-polymechaniker-in-schlosser-in-ffs-officine-ferrovie-federali-zurich"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T21:44:46.068Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -17090,7 +17082,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Techniker:in Klimaanlagen der SBB-Flotte",
       "titleByLocale": {
-        "it": "Techniker:in Klimaanlagen der SBB-Flotte",
+        "it": "Tecnico/a degli impianti di climatizzazione della flotta SBB",
         "en": "SBB Fleet Air Conditioning Technician",
         "de": "Techniker:in Klimaanlagen der SBB-Flotte",
         "fr": "Technicien :dans les systèmes de climatisation de la flotte CFF"
@@ -17138,7 +17130,6 @@
           "techniker-in-klimaanlagen-der-sbb-flotte-ffs-officine-ferrovie-federali-olten"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T21:44:45.554Z",
       "salaryMin": 73000,
       "salaryMax": 124500,

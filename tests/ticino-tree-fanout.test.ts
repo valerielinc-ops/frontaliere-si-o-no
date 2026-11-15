@@ -1,7 +1,8 @@
 import { execFileSync } from 'node:child_process';
-import { chmodSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { describe, expect, it } from 'vitest';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — runtime-neutral Worker helper has no separate declarations.
@@ -269,17 +270,41 @@ describe('Ticino shard tree fan-out', () => {
     }
   });
 
+  // `section_tree_require_worker_layout` delegates to the Node probe
+  // (`section-tree-layout-stage.mjs probe`), which uses `fetch`. These tests run
+  // the real shell helper and the real probe, and replace only the network edge:
+  // a preloaded module stubs `globalThis.fetch` (and shortens the probe's
+  // 20 s inter-attempt wait) so no request leaves the machine.
+  const FETCH_STUB = [
+    "import { appendFileSync, readFileSync, writeFileSync } from 'node:fs';",
+    "const realSetTimeout = globalThis.setTimeout;",
+    "globalThis.setTimeout = (fn, ms, ...args) => realSetTimeout(fn, ms > 1000 ? 0 : ms, ...args);",
+    "globalThis.fetch = async (url, init) => {",
+    "  appendFileSync(process.env.TICINO_PROBE_ARGS, `${url} ${init?.method} ${init?.headers?.['User-Agent']}\\n`);",
+    "  if (process.env.TICINO_PROBE_ATTEMPTS) {",
+    "    let attempts = 0;",
+    "    try { attempts = Number(readFileSync(process.env.TICINO_PROBE_ATTEMPTS, 'utf8')); } catch {}",
+    "    attempts += 1;",
+    "    writeFileSync(process.env.TICINO_PROBE_ATTEMPTS, String(attempts));",
+    "    if (attempts < 2) throw new DOMException('The operation was aborted due to timeout', 'TimeoutError');",
+    "  }",
+    "  const [status, ...headerLines] = process.env.TICINO_PROBE_RESPONSE.split('\\n');",
+    "  const headers = new Headers();",
+    "  for (const line of headerLines.filter(Boolean)) {",
+    "    const at = line.indexOf(':');",
+    "    headers.set(line.slice(0, at).trim(), line.slice(at + 1).trim());",
+    "  }",
+    "  return new Response(null, { status: Number(status.split(' ')[1]), headers });",
+    "};",
+    '',
+  ].join('\n');
+
   it('fails closed unless the active Worker advertises hash-v1', () => {
     const temp = mkdtempSync(join(tmpdir(), 'ticino-layout-probe-'));
-    const bin = join(temp, 'bin');
-    const fakeCurl = join(bin, 'curl');
-    const fakeSleep = join(bin, 'sleep');
+    const fetchStub = join(temp, 'fetch-stub.mjs');
+    const argsFile = join(temp, 'probe-args.txt');
     try {
-      mkdirSync(bin);
-      writeFileSync(fakeCurl, '#!/bin/sh\nprintf "%s\\n" "$TICINO_PROBE_RESPONSE"\nprintf "%s\\n" "$*" > "$TICINO_PROBE_ARGS"\n');
-      writeFileSync(fakeSleep, '#!/bin/sh\nexit 0\n');
-      chmodSync(fakeCurl, 0o755);
-      chmodSync(fakeSleep, 0o755);
+      writeFileSync(fetchStub, FETCH_STUB);
       const invoke = (response: string) => {
         try {
           return execFileSync(
@@ -287,11 +312,12 @@ describe('Ticino shard tree fan-out', () => {
             ['-c', 'source "$1" && ticino_tree_require_worker_layout "$2" && echo probe-ok', 'probe-test', HELPER, 'de/jobs-im-tessin'],
             {
               encoding: 'utf8',
+              stdio: ['ignore', 'pipe', 'ignore'],
               env: {
                 ...process.env,
-                PATH: `${bin}:${process.env.PATH}`,
+                NODE_OPTIONS: `${process.env.NODE_OPTIONS ?? ''} --import ${pathToFileURL(fetchStub).href}`.trim(),
                 TICINO_PROBE_RESPONSE: response,
-                TICINO_PROBE_ARGS: join(temp, 'curl-args.txt'),
+                TICINO_PROBE_ARGS: argsFile,
               },
             },
           );
@@ -301,12 +327,17 @@ describe('Ticino shard tree fan-out', () => {
       };
 
       expect(invoke('HTTP/2 204\nx-frontaliere-section-tree-layout: hash-v1\nx-frontaliere-section: ticino')).toBe('probe-ok\n');
-      expect(readFileSync(join(temp, 'curl-args.txt'), 'utf8')).toContain(
+      const firstProbe = readFileSync(argsFile, 'utf8').split('\n')[0];
+      expect(firstProbe).toContain(
         'https://frontaliereticino.ch/de/jobs-im-tessin/?__frontaliere_section_tree_layout=hash-v1&section=ticino',
       );
+      // The shared probe is a HEAD request carrying the descriptive publisher User-Agent.
+      expect(firstProbe).toMatch(/ HEAD \S.{8,}$/u);
+      expect(firstProbe).not.toContain('undefined');
       expect(invoke('HTTP/2 204\nx-frontaliere-ticino-tree-layout: hash-v1')).toBe('probe-ok\n');
+      // Every non-confirming answer exhausts the probe budget and stays fail-closed.
       expect(invoke('HTTP/2 200\nx-frontaliere-section-tree-layout: hash-v1\nx-frontaliere-section: ticino')).toBe(1);
-      expect(invoke('HTTP/2 302 Found\nx-frontaliere-section-tree-layout: hash-v1\nx-frontaliere-section: ticino')).toBe(1);
+      expect(invoke('HTTP/2 302\nx-frontaliere-section-tree-layout: hash-v1\nx-frontaliere-section: ticino')).toBe(1);
       expect(invoke('HTTP/2 200\n')).toBe(1);
     } finally {
       rmSync(temp, { recursive: true, force: true });
@@ -315,34 +346,22 @@ describe('Ticino shard tree fan-out', () => {
 
   it('retries a transient layout probe timeout before publishing hashed paths', () => {
     const temp = mkdtempSync(join(tmpdir(), 'ticino-layout-probe-retry-'));
-    const bin = join(temp, 'bin');
-    const fakeCurl = join(bin, 'curl');
-    const fakeSleep = join(bin, 'sleep');
+    const fetchStub = join(temp, 'fetch-stub.mjs');
     const attemptsFile = join(temp, 'attempts.txt');
     try {
-      mkdirSync(bin);
-      writeFileSync(
-        fakeCurl,
-        '#!/bin/sh\n' +
-          'attempts="$(cat "$TICINO_PROBE_ATTEMPTS" 2>/dev/null || printf 0)"\n' +
-          'attempts=$((attempts + 1))\n' +
-          'printf "%s" "$attempts" > "$TICINO_PROBE_ATTEMPTS"\n' +
-          'if [ "$attempts" -lt 2 ]; then exit 28; fi\n' +
-          'printf "HTTP/2 204\\nx-frontaliere-section-tree-layout: hash-v1\\nx-frontaliere-section: ticino\\n"\n',
-      );
-      writeFileSync(fakeSleep, '#!/bin/sh\nexit 0\n');
-      chmodSync(fakeCurl, 0o755);
-      chmodSync(fakeSleep, 0o755);
-
+      writeFileSync(fetchStub, FETCH_STUB);
       const output = execFileSync(
         'bash',
         ['-c', 'source "$1" && ticino_tree_require_worker_layout "$2" && echo probe-ok', 'probe-retry-test', HELPER, 'de/jobs-im-tessin'],
         {
           encoding: 'utf8',
+          stdio: ['ignore', 'pipe', 'ignore'],
           env: {
             ...process.env,
-            PATH: `${bin}:${process.env.PATH}`,
+            NODE_OPTIONS: `${process.env.NODE_OPTIONS ?? ''} --import ${pathToFileURL(fetchStub).href}`.trim(),
+            TICINO_PROBE_ARGS: join(temp, 'probe-args.txt'),
             TICINO_PROBE_ATTEMPTS: attemptsFile,
+            TICINO_PROBE_RESPONSE: 'HTTP/2 204\nx-frontaliere-section-tree-layout: hash-v1\nx-frontaliere-section: ticino',
           },
         },
       );
@@ -356,38 +375,29 @@ describe('Ticino shard tree fan-out', () => {
 
   it('revalidates the Worker after measurement before applying the layout change', () => {
     const temp = mkdtempSync(join(tmpdir(), 'ticino-layout-post-measurement-'));
-    const bin = join(temp, 'bin');
-    const fakeCurl = join(bin, 'curl');
-    const fakeSleep = join(bin, 'sleep');
     const fakeStageTool = join(temp, 'stage-tool.mjs');
     const attemptsFile = join(temp, 'attempts.txt');
     const stage = join(temp, 'stage');
     const mutation = join(temp, 'stage-mutated');
     try {
-      mkdirSync(bin);
       mkdirSync(stage);
       writeFileSync(join(stage, 'index.html'), 'before');
-      writeFileSync(
-        fakeCurl,
-        '#!/bin/sh\n'
-          + 'attempts="$(cat "$TICINO_PROBE_ATTEMPTS" 2>/dev/null || printf 0)"\n'
-          + 'attempts=$((attempts + 1))\n'
-          + 'printf "%s" "$attempts" > "$TICINO_PROBE_ATTEMPTS"\n'
-          + 'if [ "$attempts" -eq 1 ]; then\n'
-          + '  printf "HTTP/2 204\\nx-frontaliere-section-tree-layout: hash-v1\\nx-frontaliere-section: ticino\\n"\n'
-          + 'else\n'
-          + '  printf "HTTP/2 200\\n"\n'
-          + 'fi\n',
-      );
-      writeFileSync(fakeSleep, '#!/bin/sh\nexit 0\n');
+      // Stands in for section-tree-layout-stage.mjs: the first `probe` confirms
+      // the Worker, the post-measurement one no longer does, and `stage` records
+      // that the layout change was applied.
       writeFileSync(
         fakeStageTool,
-        "import { writeFileSync } from 'node:fs';\n"
+        "import { readFileSync, writeFileSync } from 'node:fs';\n"
+          + "if (process.argv[2] === 'probe') {\n"
+          + "  let attempts = 0;\n"
+          + "  try { attempts = Number(readFileSync(process.env.TICINO_PROBE_ATTEMPTS, 'utf8')); } catch {}\n"
+          + "  attempts += 1;\n"
+          + "  writeFileSync(process.env.TICINO_PROBE_ATTEMPTS, String(attempts));\n"
+          + "  process.exit(attempts === 1 ? 0 : 1);\n"
+          + "}\n"
           + "writeFileSync(process.env.STAGE_MUTATION, 'mutated');\n"
           + "process.stdout.write(JSON.stringify({ decision: 'already', moved: 0, sections: ['ticino'] }) + '\\n');\n",
       );
-      chmodSync(fakeCurl, 0o755);
-      chmodSync(fakeSleep, 0o755);
 
       const script = [
         'source "$1"',
@@ -405,13 +415,14 @@ describe('Ticino shard tree fan-out', () => {
           stdio: 'pipe',
           env: {
             ...process.env,
-            PATH: `${bin}:${process.env.PATH}`,
             TICINO_PROBE_ATTEMPTS: attemptsFile,
             SECTION_TREE_LAYOUT_STAGE_TOOL: fakeStageTool,
             STAGE_MUTATION: mutation,
           },
         },
       );
+      // One probe before the measurement, one after it; the second one blocked the change.
+      expect(readFileSync(attemptsFile, 'utf8')).toBe('2');
     } finally {
       rmSync(temp, { recursive: true, force: true });
     }

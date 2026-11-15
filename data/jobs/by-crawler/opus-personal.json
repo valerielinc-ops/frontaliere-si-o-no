@@ -2068,7 +2068,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "montatore-di-avvolgibili-tecnico-di-assistenza-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
         "montatore-di-tende-montatore-di-servizio-m-f-opus-personal-ag-zweigniederlassung-altdorf-region-lu-luzern",
@@ -2140,8 +2139,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T21:53:21.764Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-14T09:35:35.431Z",
-      "retranslationAttempts": 1
+      "firstSeenAt": "2026-10-14T09:35:35.431Z"
     },
     {
       "id": "opus-personal-635688b63675",
@@ -3882,7 +3880,6 @@
           "konstrukteur-in-technische-r-zeichner-in-region-lu-luzern-opus-personal-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-14T09:35:35.426Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -3899,8 +3896,7 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T21:53:21.755Z",
-      "validThroughSource": "last-observed-window",
-      "retranslationAttempts": 1
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "opus-personal-11dfc4912456",
@@ -8306,7 +8302,6 @@
           "sanitarmonteur-efz-eba-m-w-region-sz-schwyz-opus-personal-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-10-14T09:35:35.416Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -8323,8 +8318,7 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T21:53:21.735Z",
-      "validThroughSource": "last-observed-window",
-      "retranslationAttempts": 1
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "opus-personal-ee357b8c813d",
