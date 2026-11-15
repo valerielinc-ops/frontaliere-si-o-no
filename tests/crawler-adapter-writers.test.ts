@@ -37,6 +37,7 @@ import {
 } from '../scripts/update-raiffeisen-vc-jobs.mjs';
 import {
   assertSbbAdapterParity,
+  buildSbbSourceHealth,
   ensureAdapterSeedUrls as ensureSbb,
   fetchLoginSbbDetailUrls,
   fetchSbbJobDetailUrls,
@@ -452,6 +453,36 @@ describe('SBB two-source discovery invariants', () => {
     });
   });
 
+  it('sends the official listing fallback as a browser document request', async () => {
+    const requests: Array<{ url: string; init: RequestInit }> = [];
+    const detailUrl = 'https://jobs.sbb.ch/v2/offene-stellen/macchinista/33333333-3333-4333-8333-333333333333';
+    const listingHtml = `<html><body><h1>Posti liberi.</h1><div>1 Posti di lavoro trovati per il tuo profilo.</div>
+      <p>Jobfinder e informazioni sulle candidature disponibili presso le FFS.</p><a href="${detailUrl}">Vai alla descrizione del lavoro</a></body></html>`;
+    vi.stubGlobal('fetch', vi.fn(async (url: string | URL | Request, init: RequestInit = {}) => {
+      requests.push({ url: String(url), init });
+      if (String(url).includes('jobfilter.results.json')) return new Response('', { status: 403 });
+      return new Response(listingHtml, { status: 200 });
+    }));
+    try {
+      await expect(fetchSbbJobDetailUrls({
+        fetchJinaImpl: async () => ({ ok: false, status: 502, text: async () => '' }),
+        timeoutMs: 1000,
+      })).resolves.toMatchObject({ urls: [detailUrl], source: 'sbb-vacancies-listing' });
+    } finally {
+      vi.unstubAllGlobals();
+    }
+
+    expect(requests).toHaveLength(2);
+    expect(requests[1].url).toContain('posti-liberi.html?startItem=1');
+    expect(requests[1].init.headers).toMatchObject({
+      Accept: 'text/html,application/xhtml+xml',
+      'Accept-Language': 'it-CH,it;q=0.9,en;q=0.8',
+      Referer: 'https://company.sbb.ch/it/impieghi-carriera/jobs/posti-liberi.html',
+      'User-Agent': expect.stringContaining('Chrome/131.0.0.0'),
+    });
+    expect(requests[1].init.headers).not.toHaveProperty('X-Requested-With');
+  });
+
   it('uses the current Italian vacancies page for AEM discovery', async () => {
     const requestedUrls: string[] = [];
     const fetchAem = async (url: string) => {
@@ -542,10 +573,62 @@ describe('SBB two-source discovery invariants', () => {
     })).rejects.toThrow(/unavailable/);
   });
 
+  it('falls back to the complete official vacancies listing when AEM and its proxy are unavailable', async () => {
+    const secondSbbUrl = 'https://jobs.sbb.ch/v2/offene-stellen/technico/22222222-2222-4222-8222-222222222222';
+    const listingPageOne = `<!doctype html><html><head><link rel="canonical" href="${'https://company.sbb.ch/it/impieghi-carriera/jobs/posti-liberi.html'}"></head><body>
+      <h1>Posti liberi.</h1><p>Fai qualcosa di grande. Scopri opportunità.</p>
+      <div>2 Posti di lavoro trovati per il tuo profilo.</div><p>Jobfinder e informazioni sulle candidature disponibili.</p>
+      <a href="${sbbUrl}">Vai alla descrizione del lavoro</a>
+      <a href="https://company.sbb.ch/it/impieghi-carriera/jobs/posti-liberi.html?startItem=2">Pagina successiva</a>
+      <p>Il portale ufficiale delle FFS pubblica posizioni nazionali e aggiorna i risultati della ricerca.</p>
+    </body></html>`;
+    const listingPageTwo = `<!doctype html><html><body>
+      <h1>Posti liberi.</h1><p>Jobfinder per le opportunità presso le FFS.</p>
+      <div>2 Posti di lavoro trovati per il tuo profilo.</div>
+      <a href="${secondSbbUrl}">Vai alla descrizione del lavoro</a>
+      <p>Le offerte sono pubblicate dal portale ufficiale delle FFS e restano collegate alla pagina della posizione.</p>
+    </body></html>`;
+    const fetchJina = vi.fn(async (url: string) => {
+      if (url.includes('jobfilter.results.json')) return { ok: false, status: 502, text: async () => '' };
+      return {
+        ok: true,
+        status: 200,
+        text: async () => url.includes('startItem=2') ? listingPageTwo : listingPageOne,
+      };
+    });
+
+    const result = await fetchSbbJobDetailUrls({
+      fetchPageImpl: async () => null,
+      fetchJinaImpl: fetchJina,
+      timeoutMs: 1000,
+    });
+    expect(result).toMatchObject({
+      urls: [secondSbbUrl, sbbUrl].sort(),
+      sourceZero: false,
+      totalJobs: 2,
+      source: 'sbb-vacancies-listing',
+    });
+    expect(buildSbbSourceHealth(result, { urls: [], degraded: false })).toMatchObject({
+      status: 'degraded',
+      degradedSources: ['sbb-aem-json'],
+      sources: { aem: { status: 'degraded', fallbackSource: 'sbb-vacancies-listing' } },
+    });
+    expect(fetchJina).toHaveBeenNthCalledWith(
+      2,
+      expect.stringContaining('posti-liberi.html?startItem=1'),
+      expect.objectContaining({ format: 'html', validateBody: expect.any(Function) }),
+    );
+    expect(fetchJina).toHaveBeenNthCalledWith(
+      3,
+      expect.stringContaining('posti-liberi.html?startItem=2'),
+      expect.objectContaining({ format: 'html', validateBody: expect.any(Function) }),
+    );
+  });
+
   it('fails closed on the primary AEM source, degrades the secondary login.org source on outage, and supports verified empty sources', async () => {
     const unavailable = async () => null;
-    // Primary source (AEM API): unavailable is still fatal — there is no
-    // fallback for the core SBB job feed.
+    // Primary source (AEM API) and the source-backed HTML fallback are both
+    // unavailable, so discovery remains fatal rather than publishing a guess.
     await expect(fetchSbbJobDetailUrls({
       fetchPageImpl: unavailable,
       fetchJinaImpl: async () => ({ ok: false, status: 502, text: async () => '' }),
