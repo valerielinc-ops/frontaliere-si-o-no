@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ch",
-  "assembledAt": "2026-11-15T00:27:51.591Z",
-  "runId": "43657197580",
+  "assembledAt": "2026-11-15T00:54:56.800Z",
+  "runId": "43659336124",
   "jobs": [
     {
       "id": "ch-c130346fd255",
@@ -34,7 +34,7 @@
       "url": "https://ch.talent.com/view?id=620345981570851791&trigger_from=related_jobs",
       "source": "Global Sana Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T00:27:47.367Z",
+      "crawledAt": "2026-11-15T00:54:51.308Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -85,7 +85,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-30T00:27:47.367Z",
+      "validThrough": "2027-01-30T00:54:51.308Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://ch.talent.com/view?id=612989830165106339&trigger_from=related_jobs",
       "source": "Global Sana Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T00:27:47.367Z",
+      "crawledAt": "2026-11-15T00:54:51.307Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
       "postalCode": "8400",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T00:27:47.367Z",
+      "validThrough": "2027-01-11T00:54:51.307Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -202,7 +202,7 @@
       "url": "https://ch.talent.com/view?id=554547064889945322",
       "source": "Global Sana Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T00:27:47.366Z",
+      "crawledAt": "2026-11-15T00:54:51.306Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       "postalCode": "8001",
       "streetAddress": "Zurich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T00:27:47.366Z",
+      "validThrough": "2026-12-15T00:54:51.306Z",
       "validThroughSource": "last-observed-window"
     }
   ]
