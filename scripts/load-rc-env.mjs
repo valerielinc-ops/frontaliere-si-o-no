@@ -537,6 +537,13 @@ export const RC_TO_ENV = {
   // listings, `off` keeps only the per-page HTTP check. MAX_AGE_HOURS defaults to 36.
   JOB_ALERT_LIVE_LINK_MANIFEST: ['JOB_ALERT_LIVE_LINK_MANIFEST'],
   JOB_ALERT_LIVE_LINK_MANIFEST_MAX_AGE_HOURS: ['JOB_ALERT_LIVE_LINK_MANIFEST_MAX_AGE_HOURS'],
+  // CompanyAlert sender (perf-plan email senders, point 1). The run starts after the
+  // deploy that publishes the pages. LIVE_LINK_FILTER: `on` (default) defers jobs whose
+  // page is not published yet (manifest, HTTP fallback on cron/manual); `off` is the kill
+  // switch back to no filter. IMMEDIATE_WINDOW_HOURS: novelty window counted from
+  // `firstSeenAt` (default 48, clamped to 1..168; the code default applies when absent).
+  COMPANY_ALERT_LIVE_LINK_FILTER: ['COMPANY_ALERT_LIVE_LINK_FILTER'],
+  COMPANY_ALERT_IMMEDIATE_WINDOW_HOURS: ['COMPANY_ALERT_IMMEDIATE_WINDOW_HOURS'],
   // Batch bookkeeping of the job-alert sender (perf-plan PR 4b): `on` (default)
   // writes the delivery intent and finalize as WriteBatch with a lastUpdateTime
   // precondition, `off` restores the per-email transactions (kill switch).
