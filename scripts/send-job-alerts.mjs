@@ -76,6 +76,7 @@ import {
   getMatcherHealthMonitorAction,
 } from './lib/job-alert-matcher-health.mjs';
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
+import { createJobPageUrlResolver } from './lib/job-page-url.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import {
@@ -418,13 +419,9 @@ const JOB_LIVE_CHECK_FAIL_OPEN_LIVE_RATIO = 0.34;
 // alert email for this locale (mirrors the `rawJobUrl` built inside
 // buildAlertEmail, minus the alert-specific utm query string — irrelevant to
 // liveness and would otherwise fragment the cache key per alertId).
-function jobPageUrl(job, locale) {
-  const cantonCode = resolveJobCanton({ canton: job.canton, location: job.location });
-  const jobBoardPath = resolveCantonSection(locale, cantonCode);
-  const localizedJobBoardPath = `${localePathPrefix(locale)}/${jobBoardPath}`;
-  const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug || '';
-  return slug ? `${BASE_URL}${localizedJobBoardPath}/${slug}` : null;
-}
+// The one implementation lives in scripts/lib/job-page-url.mjs: the CompanyAlert sender
+// asks the same question («is this job's page online?») and must build the same URL.
+const jobPageUrl = createJobPageUrlResolver({ cantonSlugFile, municipalitiesFile, baseUrl: BASE_URL, localePathPrefix });
 
 // Delegates to the shared checkPageBodyLive (scripts/lib/live-link-check.mjs)
 // — kept as its own export/name here since it's the job-alerts-specific
