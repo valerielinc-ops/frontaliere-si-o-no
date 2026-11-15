@@ -166,7 +166,48 @@ async function run(landing: string, { ownerRetry = false } = {}) {
   return { result, seen };
 }
 
+async function runWorkdayCommunityInvalidUrl() {
+  const invalidUrl = 'https://community.workday.com/invalid-url';
+  const fixture = fakePage([''], { url: invalidUrl });
+  const { page } = fixture;
+  const context: any = { on: () => {}, off: () => {}, pages: () => [page], newPage: async () => page, close: async () => {}, waitForEvent: async () => null, addInitScript: async () => {} };
+  page.context = () => context;
+  const browser = { newContext: async () => context, close: async () => {}, version: () => '130.0.0.0' };
+  return submitViaPortal({
+    applyUrl: invalidUrl,
+    postingUrl: invalidUrl,
+    channelType: 'workday',
+    job: { title: 'Synthetic Workday role' },
+    language: 'en',
+    candidateLocale: 'en',
+    candidate: { identity: {}, profile: {} },
+    files: {},
+    maxSteps: 2,
+    codex: async () => ({ status: 'PARKED', reason: 'PARKED: should not be called', actions: [], questions: [] }),
+    launch: async () => browser,
+  });
+}
+
 describe('a posting that closes behind the registration', () => {
+  it('recognizes Workday Community’s invalid URL as a hard closure without page content or controls', () => {
+    const page = classifyLiveness({
+      status: 200,
+      finalUrl: 'https://community.workday.com/invalid-url',
+      bodyText: '',
+      applyControls: [],
+    });
+    expect(page).toMatchObject({ result: 'expired', code: 'expired_url' });
+    expect(isHardClosed(page)).toBe(true);
+    expect(classifyLiveness({ status: 200, finalUrl: 'https://community.workday.com/invalid-url-other', bodyText: '' }).code)
+      .toBe('insufficient_content');
+  });
+
+  it('does not send the empty Workday Community error page to the navigation agent', async () => {
+    const result = await runWorkdayCommunityInvalidUrl();
+    expect(result.event).toEqual({ type: 'posting_closed', reason: 'expired_url' });
+    expect(result.evidence.liveness).toEqual({ result: 'expired', code: 'expired_url' });
+  }, 45_000);
+
   it('reads the portal\'s own page for a posting it no longer shows as a certain closure', () => {
     const text = 'Diese Stelle kann zurzeit nicht angezeigt werden. Sie wurde entweder gelöscht, oder man kann sich nicht länger darauf bewerben. Weitere Stellenangebote finden Sie, wenn Sie hier klicken';
     const page = classifyLiveness({ status: 200, bodyText: text, applyControls: ['Zurück zur Startseite'] });
