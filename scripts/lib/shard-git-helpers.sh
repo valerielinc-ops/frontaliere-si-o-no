@@ -67,6 +67,38 @@ shard_read_counter() {
   printf '%s' "$val"
 }
 
+# shard_probe_remote_layout <clone_dir> <remote_layout_path>
+# Return 0 when the _tree marker is absent, 1 when it is a readable tree, and
+# 2 when the marker is present but its type cannot be read safely. `ls-tree`
+# distinguishes an absent entry from an unreadable tree object; `cat-file`
+# then proves that the advertised tree is actually available in the filtered
+# clone. Callers must use the full overlay for the unknown result.
+shard_probe_remote_layout() {
+  local dir="$1" remote_layout_path="${2%/}/_tree"
+  local tree_entry entry_type resolved_type
+  SHARD_REMOTE_LAYOUT_PROBE_REASON=''
+
+  if ! tree_entry="$(git -C "$dir" ls-tree HEAD -- "$remote_layout_path" 2>/dev/null)"; then
+    SHARD_REMOTE_LAYOUT_PROBE_REASON='remote layout tree unreadable'
+    return 2
+  fi
+  if [ -z "$tree_entry" ]; then
+    return 0
+  fi
+
+  IFS=' ' read -r _ entry_type _ _ <<< "$tree_entry"
+  if [ "$entry_type" != tree ]; then
+    SHARD_REMOTE_LAYOUT_PROBE_REASON='remote layout marker has unexpected type'
+    return 2
+  fi
+  if ! resolved_type="$(git -C "$dir" cat-file -t "HEAD:$remote_layout_path" 2>/dev/null)" \
+    || [ "$resolved_type" != tree ]; then
+    SHARD_REMOTE_LAYOUT_PROBE_REASON='remote layout tree unreadable'
+    return 2
+  fi
+  return 1
+}
+
 # The apex records the source build SHA in the shard commit subject. Keep a
 # matching tree marker so a build that emits the same served bytes still has a
 # real, auditable publication event instead of looking stale forever.
@@ -123,15 +155,20 @@ shard_manifest_snapshot() {
 
 # shard_delta_clone_and_prepare <stage> <repo> <current_manifest>
 #   <sidecar_path> <scope> <source_root> <tool> <out_dir> <history_cap> <label>
-#   [full_rewrite_threshold]
+#   [full_rewrite_threshold] [remote_layout_path]
 # Clone the remote without checking out blobs, validate both manifest sides,
 # and seed the index from HEAD. Return 0 only when the caller may apply a delta.
-# Normal fallback reasons return 1 and are exposed in SHARD_DELTA_REASON.
+# Normal fallback reasons return 1 and are exposed in SHARD_DELTA_REASON. When
+# remote_layout_path is supplied, a proven _tree below that path returns 2 and
+# sets SHARD_DELTA_REMOTE_LAYOUT_FANNED; the section publisher must use its full
+# overlay in that case because the delta manifest still names canonical paths.
 shard_delta_clone_and_prepare() {
   local stage="$1" repo="$2" current="$3" sidecar="$4" scope="$5"
   local source_root="$6" tool="$7" out_dir="$8" history_cap="$9" label="${10:-shard}"
-  local full_rewrite_threshold="${11:-}" clone_err previous_manifest
+  local full_rewrite_threshold="${11:-}" remote_layout_path="${12:-}"
+  local clone_err previous_manifest layout_probe_rc
   SHARD_DELTA_REASON=''
+  SHARD_DELTA_REMOTE_LAYOUT_FANNED=0
   SHARD_DELTA_DCOUNT=0
   SHARD_DELTA_PREV_N=0
   SHARD_DELTA_FULL_REWRITE=0
@@ -151,6 +188,23 @@ shard_delta_clone_and_prepare() {
     echo "$label delta: remote is empty — full fallback" >&2
     SHARD_DELTA_REASON='first push / remote empty'
     return 1
+  fi
+
+  if [ -n "$remote_layout_path" ]; then
+    layout_probe_rc=0
+    shard_probe_remote_layout "$stage" "$remote_layout_path" || layout_probe_rc=$?
+    case "$layout_probe_rc" in
+      0) ;;
+      1)
+        SHARD_DELTA_REMOTE_LAYOUT_FANNED=1
+        SHARD_DELTA_REASON='remote layout already hash-fanned'
+        return 2
+        ;;
+      *)
+        SHARD_DELTA_REASON="${SHARD_REMOTE_LAYOUT_PROBE_REASON:-remote layout probe unreadable}"
+        return 1
+        ;;
+    esac
   fi
 
   if ! SHARD_DELTA_DCOUNT="$(shard_read_counter "$stage" .shard-deploys)"; then

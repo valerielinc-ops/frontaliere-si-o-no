@@ -13,7 +13,7 @@
  *   recordSlugMutation({ jobId, locale, slug, action, source, reason? })
  *   removePreviousSlugRoutes(job, routes, options?)
  *   replaceSlugRouteEverywhere(job, fromRoute, toRoute, options?)
- *   summarize()      → { total, captured, dropped, restored, capTrimmed, sources, jobs }
+ *   summarize()      → { total, captured, dropped, restored, capTrimmed, capExceeded, sources, jobs }
  *   formatSummary()  → human-readable string for commit message body
  *   writeSummaryOnExit(path?) → registers process.on('exit') hook
  *   clear()          → reset (for tests)
@@ -27,6 +27,27 @@ import fs from 'node:fs';
 import { diffLocaleKeys } from './locale-map-diff.mjs';
 
 const SITE_LOCALES = ['it', 'en', 'de', 'fr'];
+
+/**
+ * Canonical previous-slug bucket cap. Same value as `DEFAULT_PREV_SLUG_CAP` in
+ * `dedicated-crawler-common.mjs` and as the `cap = 20` default of
+ * `mergePreviousSlugsCapped` below; duplicated here only because that module
+ * imports this one. Callers in the archive pass `DEFAULT_PREV_SLUG_CAP` explicitly.
+ */
+const DEFAULT_SLUG_ARRAY_CAP = 20;
+
+/** Drop repeated entries from an array in place, keeping the first of each. */
+function dedupeInPlace(list) {
+  const seen = new Set();
+  let write = 0;
+  for (let read = 0; read < list.length; read += 1) {
+    const value = list[read];
+    if (seen.has(value)) continue;
+    seen.add(value);
+    list[write++] = value;
+  }
+  list.length = write;
+}
 
 /**
  * How many event objects stay in memory. The journal used to retain EVERY
@@ -56,14 +77,16 @@ let _writeIdx = 0;
 let _wrapped = false;
 
 /** Running aggregates — independent of retention, never truncated. */
-const _byAction = { capture: 0, drop: 0, restore: 0, 'cap-trim': 0, sync: 0 };
+const _byAction = { capture: 0, drop: 0, restore: 0, 'cap-trim': 0, 'cap-exceeded': 0, sync: 0 };
 const _bySource = new Map();
 const _jobs = new Set();
 let _total = 0;
 
 let _exitHookRegistered = false;
 
-const VALID_ACTIONS = new Set(['capture', 'drop', 'cap-trim', 'restore', 'sync']);
+// 'cap-exceeded' is the NON-destructive sibling of 'cap-trim': a bucket grew past the
+// canonical cap and nothing was removed. It only makes the growth visible.
+const VALID_ACTIONS = new Set(['capture', 'drop', 'cap-trim', 'cap-exceeded', 'restore', 'sync']);
 
 /**
  * Record a single slug mutation. Best-effort: missing/invalid input is
@@ -176,16 +199,29 @@ export function removePreviousSlugRoutes(job, routes, {
  * while direct writes to those fields outside the authorized mutation
  * boundaries are forbidden by the slug-write encapsulation ratchet.
  *
+ * Idempotent when the record already holds `toRoute`: the old token is then
+ * dropped from each array instead of renamed into a duplicate, so the second
+ * application of the same repair leaves the record byte-identical.
+ *
+ * `cap` NEVER removes a route. A flat previous slug is served under every locale;
+ * repairing one locale copies it into the other three locale lists. That growth is
+ * limited by idempotence and by the dedupe above, not by truncation: an expired page
+ * that is served today must not turn into a 404 because a list reached 21 entries.
+ * When a list this call modified is longer than `cap` the call records a
+ * non-destructive `cap-exceeded` event (job, locale, length) so the growth is visible
+ * in the journal summary; nothing is trimmed (contrast with `capSlugArray`).
+ *
  * @param {object} job
  * @param {string} fromRoute
  * @param {string} toRoute
- * @param {{source?: string, reason?: string, locale?: string}} [options]
+ * @param {{source?: string, reason?: string, locale?: string, cap?: number}} [options]
  * @returns {number} number of route occurrences renamed
  */
 export function replaceSlugRouteEverywhere(job, fromRoute, toRoute, {
   source = 'replaceSlugRouteEverywhere',
   reason = 'route ownership moved to a distinct posting',
   locale: targetLocale = null,
+  cap = DEFAULT_SLUG_ARRAY_CAP,
 } = {}) {
   if (!job || typeof job !== 'object') return 0;
   const from = String(fromRoute ?? '').trim();
@@ -196,6 +232,23 @@ export function replaceSlugRouteEverywhere(job, fromRoute, toRoute, {
   if (scopedLocale === '') return 0;
 
   let replaced = 0;
+  // `toRoute` already held in the flat view is served under EVERY locale. A flat slug
+  // that also sits in a per-locale bucket is read as attributed to that bucket only
+  // (getPreviousSlugsForLocale), so copying `to` into one locale's list would narrow an
+  // alias the record serves everywhere and lose it in the other locales. In that case the
+  // old token is simply removed from the scoped list and `to` is left in the flat view.
+  const flatAlreadyServesTo = Array.isArray(job.previousSlugs) && job.previousSlugs.includes(to);
+  const touchedArrays = new Set();
+  const noteCapExceeded = (locale, length) => {
+    recordSlugMutation({
+      jobId: job.id || '<unkeyed>',
+      locale,
+      slug: '<none>',
+      action: 'cap-exceeded',
+      source,
+      reason: `cap=${cap}, length=${length}, nothing trimmed`,
+    });
+  };
   const recordDrop = (locale) => {
     recordSlugMutation({
       jobId: job.id || '<unkeyed>',
@@ -229,6 +282,7 @@ export function replaceSlugRouteEverywhere(job, fromRoute, toRoute, {
       for (let index = 0; index < job.previousSlugs.length; index += 1) {
         replace(job.previousSlugs[index], (next) => { job.previousSlugs[index] = next; }, null);
       }
+      touchedArrays.add(job.previousSlugs);
     } else {
       // A flat previous slug is served under every locale. When only one
       // locale collides, expand the untouched copies into explicit locale
@@ -256,10 +310,14 @@ export function replaceSlugRouteEverywhere(job, fromRoute, toRoute, {
           const preserved = locale === scopedLocale ? to : from;
           if (locale === scopedLocale) {
             for (let index = 0; index < list.length; index += 1) {
-              if (list[index] === from) list[index] = to;
+              if (list[index] === from) {
+                if (flatAlreadyServesTo) { list.splice(index, 1); index -= 1; } else list[index] = to;
+              }
             }
+            dedupeInPlace(list);
           }
-          if (!list.includes(preserved)) list.push(preserved);
+          if (!list.includes(preserved) && !(locale === scopedLocale && flatAlreadyServesTo)) list.push(preserved);
+          if (list.length > cap) noteCapExceeded(locale, list.length);
         }
       }
       if (retained.length > 0) job.previousSlugs = retained;
@@ -276,12 +334,70 @@ export function replaceSlugRouteEverywhere(job, fromRoute, toRoute, {
       if (scopedLocale != null && locale !== scopedLocale) continue;
       if (!Array.isArray(slugs)) continue;
       for (let index = 0; index < slugs.length; index += 1) {
+        if (flatAlreadyServesTo && slugs[index] === from) {
+          slugs.splice(index, 1);
+          index -= 1;
+          replaced += 1;
+          recordDrop(locale);
+          continue;
+        }
         replace(slugs[index], (next) => { slugs[index] = next; }, locale);
       }
+      touchedArrays.add(slugs);
     }
   }
 
+  // Renaming into a route the record already holds must not leave it twice.
+  for (const list of touchedArrays) dedupeInPlace(list);
+
   return replaced;
+}
+
+/**
+ * Add routes to a record's per-locale history WITHOUT ever removing one.
+ *
+ * The non-destructive counterpart of `addPreviousSlugForLocale`/`capSlugArray`, for a
+ * caller that must merge routes into a record that is already served and may already
+ * be over the cap (an expired Denner record holds 1 029 entries in `it`): trimming it
+ * to the cap would turn served expired pages into 404s. Each addition is journaled as
+ * `capture`; a list that ends up longer than `cap` is noted as `cap-exceeded`.
+ *
+ * @param {object} job
+ * @param {Record<string, string[]>} routesByLocale
+ * @param {{source?: string, reason?: string, cap?: number}} [options]
+ * @returns {number} routes added
+ */
+export function addPreviousSlugRoutesKeepAll(job, routesByLocale, {
+  source = 'addPreviousSlugRoutesKeepAll',
+  reason = 'route merged into the record that already represents this posting',
+  cap = DEFAULT_SLUG_ARRAY_CAP,
+} = {}) {
+  if (!job || typeof job !== 'object' || !routesByLocale || typeof routesByLocale !== 'object') return 0;
+  let added = 0;
+  for (const [locale, routes] of Object.entries(routesByLocale)) {
+    if (!Array.isArray(routes) || routes.length === 0) continue;
+    if (!job.previousSlugsByLocale || typeof job.previousSlugsByLocale !== 'object' || Array.isArray(job.previousSlugsByLocale)) {
+      job.previousSlugsByLocale = {};
+    }
+    const list = Array.isArray(job.previousSlugsByLocale[locale])
+      ? job.previousSlugsByLocale[locale]
+      : (job.previousSlugsByLocale[locale] = []);
+    const current = locale === 'it' ? job.slug : undefined;
+    for (const value of routes) {
+      const route = String(value ?? '').trim();
+      if (!route || list.includes(route) || route === job.slugByLocale?.[locale] || route === current) continue;
+      list.push(route);
+      added += 1;
+      recordSlugMutation({ jobId: job.id || '<unkeyed>', locale, slug: route, action: 'capture', source, reason });
+    }
+    if (list.length > cap) {
+      recordSlugMutation({
+        jobId: job.id || '<unkeyed>', locale, slug: '<none>', action: 'cap-exceeded', source,
+        reason: `cap=${cap}, length=${list.length}, nothing trimmed`,
+      });
+    }
+  }
+  return added;
 }
 
 /**
@@ -517,6 +633,7 @@ export function summarize() {
     dropped: _byAction.drop,
     restored: _byAction.restore,
     capTrimmed: _byAction['cap-trim'],
+    capExceeded: _byAction['cap-exceeded'],
     synced: _byAction.sync,
     sources: [..._bySource.entries()].sort((a, b) => b[1] - a[1]),
     jobsAffected: _jobs.size,
@@ -541,6 +658,7 @@ export function formatSummary() {
     action('drop', s.dropped),
     action('restore', s.restored),
     action('cap-trim', s.capTrimmed),
+    action('cap-exceeded', s.capExceeded),
   ].filter(Boolean).join(', ');
   lines.push(`  ${head || 'no net change'}`);
   // Top-3 sources by event count (full attribution map would bloat the commit).

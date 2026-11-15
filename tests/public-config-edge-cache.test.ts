@@ -97,6 +97,31 @@ describe('public config edge route', () => {
     ]);
   });
 
+  it('fails open when the upstream body stream breaks after a successful response', async () => {
+    const errorLog = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const brokenBody = new ReadableStream({
+      start(controller) {
+        controller.enqueue(new TextEncoder().encode('{'));
+        controller.error(new Error('upstream body truncated'));
+      },
+    });
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response(brokenBody, {
+      status: 200,
+      headers: { 'Content-Type': 'application/json', 'Cache-Control': 'public, max-age=300, s-maxage=300' },
+    }));
+
+    const response = await worker.fetch(new Request(CACHE_KEY), {});
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get('Cache-Control')).toBe('no-store');
+    expect(await response.json()).toEqual({});
+    expect(errorLog).toHaveBeenCalledExactlyOnceWith(JSON.stringify({
+      event: 'origin_failure',
+      reason: 'public-config',
+      path: '/api/public-config/',
+    }));
+  });
+
   it.each([500, 503])('logs an upstream %i and fails open before returning it to the browser', async (status) => {
     const errorLog = vi.spyOn(console, 'error').mockImplementation(() => {});
     vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response('temporarily unavailable', { status }));

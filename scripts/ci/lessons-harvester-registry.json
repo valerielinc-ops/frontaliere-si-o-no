@@ -225,6 +225,13 @@
       "decidedAt": "2026-11-14T12:28:19Z",
       "ref": "#18541, #18047, #16689",
       "reason": "AGENTS.md #6 ora impone che ogni nuovo ramo funnel-critical dimostri discriminatore di dominio/ownership e preservi l'invariante dei rami fratelli; shape/status/match parziale non autorizza da solo classificazione o azione."
+    },
+    {
+      "key": "fix-outcome/fix-outcome:merged-awaiting-monitor",
+      "outcome": "declined",
+      "decidedAt": "2026-11-15T12:59:58Z",
+      "ref": "#17979, #17892, #17814",
+      "reason": "Marker owner/monitor dopo una PR già mergiata, già coperto da `recovery-pending`; non è un abort del fixer né una capability mancante, quindi aggiungerlo confonderebbe la telemetria senza prevenire un comportamento dell'agente."
     }
   ]
 }

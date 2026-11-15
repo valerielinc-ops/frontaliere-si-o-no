@@ -39,8 +39,13 @@
 import {
   DESCRIPTION_TRIGRAM_BLOOM_WORDS,
   buildDescriptionTrigramBloom,
+  defaultPartitionCanton,
+  defaultPartitionPaddedLoc,
   descriptionTrigramBloomQueryBits,
+  freshnessBoost,
+  jobFirstSeenMs,
   jobMatchFeatures,
+  jobMatchFeaturesByLocale,
   keywordAcrossTextJoin,
   matchesSearchQuery,
   compileSearchQuery,
@@ -48,14 +53,27 @@ import {
   paddedLocNeedles,
   pinnedCompanyIdentityKeys,
   searchHaystack,
+  searchHaystackInputs,
+  searchHaystackShared,
+  searchHaystackText,
 } from '../../services/jobAlertMatching.mjs';
+import { employerDiversityKey } from './job-alert-discovery.mjs';
 import { isOpenJobAlertJob, jobInventoryTimestampMs } from './job-alert-newness.mjs';
 import { isCanaryJob } from './canaryAd.mjs';
 import { createHash } from 'node:crypto';
+import { Worker } from 'node:worker_threads';
+import { VOCABULARY_INPUT_FIELDS, createVocabularyBuilder } from './job-alert-vocabulary.mjs';
 
 export const CANDIDATE_INDEX_MODES = Object.freeze(['off', 'shadow', 'on']);
 export const DEFAULT_CANDIDATE_INDEX_MODE = 'on';
-export const DEFAULT_SHADOW_SAMPLE_LIVE = 0.02;
+// 0,5%: con la fast path (risposte di ricerca e predicati dell'indice nello
+// scorer, perf-plan P1/P4) lo scorer si fida di piu' dell'indice, quindi la
+// verifica DEVE restare indipendente — il percorso legacy, senza vocabolario ne'
+// risposte dell'indice — e per costare poco si riduce il campione invece di
+// renderla dipendente. Circa 25 alert per run (il 2% erano ~118, ~218 s di
+// planning) bastano a vedere una divergenza nell'arco di pochi giorni;
+// JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE in Remote Config lo alza.
+export const DEFAULT_SHADOW_SAMPLE_LIVE = 0.005;
 export const DEFAULT_SHADOW_SAMPLE_DRY_RUN = 0.10;
 export const DEFAULT_BITSET_BUDGET_BYTES = 128 * 1024 * 1024;
 
@@ -67,7 +85,11 @@ export const DEFAULT_BITSET_BUDGET_BYTES = 128 * 1024 * 1024;
  *    l'indice, un campione è ricalcolato col legacy). Default locale `on`; un
  *    valore non riconosciuto ripiega su `shadow`, che non cambia nessun esito.
  *  - JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE: frazione di alert verificati, in
- *    [0, 1]. Default 0,02 in LIVE e 0,10 in --dry-run.
+ *    [0, 1]. Default 0,005 in LIVE e 0,10 in --dry-run.
+ *  - JOB_ALERT_PLANNING_FASTPATH: `on` (default) | `off`. `off` e' il kill switch
+ *    della fast path del planning (perf-plan P1–P5): l'indice resta in uso ma lo
+ *    scorer e il ranking tornano a quelli di prima. Un valore non riconosciuto
+ *    vale `off` (il percorso che non cambia nessun esito).
  *  - JOB_ALERT_CANDIDATE_INDEX_BUDGET_MB: budget in MB della cache dei bitset
  *    (default 128). Solo ambiente: non è un parametro Remote Config.
  */
@@ -90,7 +112,28 @@ export function resolveCandidateIndexConfig(env = process.env, { dryRun = false 
   const budgetBytes = Number.isFinite(rawBudget) && rawBudget > 0
     ? Math.floor(rawBudget * 1024 * 1024)
     : DEFAULT_BITSET_BUDGET_BYTES;
-  return { mode, sampleRate, budgetBytes, invalidMode };
+  const planningFastpath = resolveOnOffSwitch(env.JOB_ALERT_PLANNING_FASTPATH);
+  const vocabularyWorkers = resolveOnOffSwitch(env.JOB_ALERT_VOCABULARY_WORKERS);
+  return {
+    mode,
+    sampleRate,
+    budgetBytes,
+    invalidMode,
+    planningFastpath: planningFastpath.on,
+    vocabularyWorkers: vocabularyWorkers.on,
+    invalidSwitches: [
+      ...(planningFastpath.invalid ? ['JOB_ALERT_PLANNING_FASTPATH'] : []),
+      ...(vocabularyWorkers.invalid ? ['JOB_ALERT_VOCABULARY_WORKERS'] : []),
+    ],
+  };
+}
+
+/** `on` (or absent) | `off`; anything else is `off` and flagged — the path that changes no outcome. */
+function resolveOnOffSwitch(raw) {
+  const value = String(raw ?? '').trim().toLowerCase();
+  if (value === '' || value === 'on') return { on: true, invalid: false };
+  if (value === 'off') return { on: false, invalid: false };
+  return { on: false, invalid: true };
 }
 
 /**
@@ -279,56 +322,132 @@ function lowerBoundString(sorted, value) {
  */
 export function buildSearchVocabulary(rows, locale, haystackOf = searchHaystack) {
   const startedAt = performance.now();
-  const ids = new Map();
-  let pairWord = new Int32Array(1 << 16);
-  let pairRow = new Int32Array(1 << 16);
-  let pairs = 0;
-  let lastRowOfWord = [];
+  const builder = createVocabularyBuilder();
   for (let i = 0; i < rows.length; i++) {
     const job = rows[i];
-    const haystack = haystackOf(job, jobMatchFeatures(job, locale), locale);
-    for (const word of haystack.split(' ')) {
-      if (word === '') continue;
-      let id = ids.get(word);
-      if (id === undefined) { id = ids.size; ids.set(word, id); lastRowOfWord.push(-1); }
-      if (lastRowOfWord[id] === i) continue;
-      lastRowOfWord[id] = i;
-      if (pairs === pairWord.length) {
-        const grownWord = new Int32Array(pairs * 2); grownWord.set(pairWord); pairWord = grownWord;
-        const grownRow = new Int32Array(pairs * 2); grownRow.set(pairRow); pairRow = grownRow;
-      }
-      pairWord[pairs] = id;
-      pairRow[pairs] = i;
-      pairs += 1;
+    builder.addHaystack(i, haystackOf(job, jobMatchFeatures(job, locale), locale));
+  }
+  return { ...builder.finish(), buildMs: Math.round(performance.now() - startedAt) };
+}
+
+/**
+ * Vocabolari di PIU' locali in una passata sola (perf-plan W1). Per ogni riga si
+ * fa una volta cio' che `buildSearchVocabulary` rifaceva per locale: il
+ * `JSON.parse` di `descriptionByLocale` (il getter fuori heap lo ripete a ogni
+ * lettura), la base delle feature di riga, categoria e nomi di cantone. L'haystack
+ * di ogni locale e' poi `searchHaystackText` sugli stessi testi che usa
+ * `searchHaystack`: il vocabolario di un locale e' identico a quello di
+ * `buildSearchVocabulary(rows, locale)` (parole, offset, posting).
+ *
+ * @param {object[]} rows
+ * @param {string[]} locales
+ * @returns {Map<string, ReturnType<typeof buildSearchVocabulary>>}
+ */
+export function buildSearchVocabularies(rows, locales) {
+  const builders = locales.map(() => createVocabularyBuilder());
+  const busyMs = locales.map(() => 0);
+  for (let i = 0; i < rows.length; i++) {
+    const inputs = rowHaystackInputs(rows[i], locales);
+    for (let l = 0; l < locales.length; l++) {
+      const startedAt = performance.now();
+      builders[l].addHaystack(i, searchHaystackText(inputs[l]));
+      busyMs[l] += performance.now() - startedAt;
     }
   }
-  lastRowOfWord = null;
+  const out = new Map();
+  locales.forEach((locale, l) => {
+    const startedAt = performance.now();
+    const vocabulary = builders[l].finish();
+    out.set(locale, { ...vocabulary, buildMs: Math.round(busyMs[l] + performance.now() - startedAt) });
+  });
+  return out;
+}
 
-  const sortedWords = [...ids.keys()].sort();
-  const rankOf = new Int32Array(sortedWords.length);
-  for (let rank = 0; rank < sortedWords.length; rank++) rankOf[ids.get(sortedWords[rank])] = rank;
-  ids.clear();
+/**
+ * `searchHaystackInputs` di una riga per ogni locale, con il parse di
+ * `descriptionByLocale` e la base delle feature fatti una volta. La vista della
+ * riga eredita ogni campo dalla riga e sovrascrive solo `descriptionByLocale`
+ * con il valore gia' letto: un campo nuovo letto da `searchHaystackInputs` resta
+ * letto dalla riga.
+ */
+function rowHaystackInputs(job, locales) {
+  const view = Object.create(job, { descriptionByLocale: { value: job.descriptionByLocale } });
+  const shared = searchHaystackShared(job);
+  const features = jobMatchFeaturesByLocale(job, locales);
+  return locales.map((locale, l) => searchHaystackInputs(view, features[l], locale, shared));
+}
 
-  const offsets = new Int32Array(sortedWords.length + 1);
-  for (let k = 0; k < pairs; k++) offsets[rankOf[pairWord[k]] + 1] += 1;
-  for (let rank = 0; rank < sortedWords.length; rank++) offsets[rank + 1] += offsets[rank];
-  const cursor = offsets.slice(0, sortedWords.length);
-  const postings = new Int32Array(pairs);
-  for (let k = 0; k < pairs; k++) postings[cursor[rankOf[pairWord[k]]]++] = pairRow[k];
+const VOCABULARY_WORKER_URL = new URL('./job-alert-vocabulary-worker.mjs', import.meta.url);
+const VOCABULARY_WORKER_CHUNK_ROWS = 1000;
+// Sotto questa taglia il vocabolario costa meno dell'avvio di un worker.
+const VOCABULARY_WORKERS_MIN_ROWS = 20_000;
 
-  let wordChars = 0;
-  for (const word of sortedWords) wordChars += word.length;
-  // Stima: ~1 byte/carattere (stringhe a un byte di V8) + ~24 byte di intestazione
-  // e puntatore per parola. I tipizzati sono esatti.
-  const wordBytes = wordChars + sortedWords.length * 24;
-  const typed = offsets.byteLength + postings.byteLength;
-  return {
-    words: sortedWords,
-    offsets,
-    postings,
-    bytes: { words: sortedWords.length, wordChars, postings: pairs, typed, total: typed + wordBytes },
-    buildMs: Math.round(performance.now() - startedAt),
-  };
+/**
+ * I vocabolari dei `locales` costruiti in parallelo, un worker thread per
+ * locale (perf-plan W2). Il thread principale risolve i testi di ogni riga una
+ * volta (`rowHaystackInputs`) e li manda a blocchi di 1.000 righe; ogni worker
+ * compone l'haystack con `searchHaystackText` e accumula con
+ * `createVocabularyBuilder`. Al massimo due blocchi in volo: la memoria
+ * trasportata non cresce con l'inventario. Rifiuta se un worker fallisce.
+ *
+ * @returns {Promise<Map<string, ReturnType<typeof buildSearchVocabulary>>>}
+ */
+export async function buildSearchVocabulariesInWorkers(rows, locales, { chunkRows = VOCABULARY_WORKER_CHUNK_ROWS } = {}) {
+  const workers = [];
+  try {
+    const states = locales.map(() => ({ acks: 0, done: null, error: null, wake: null }));
+    const settle = (state) => { const wake = state.wake; state.wake = null; if (wake) wake(); };
+    locales.forEach((locale, l) => {
+      const worker = new Worker(VOCABULARY_WORKER_URL);
+      workers.push(worker);
+      worker.on('message', (message) => {
+        if (message.type === 'ack') states[l].acks += 1;
+        else if (message.type === 'done') states[l].done = message;
+        else if (message.type === 'error') states[l].error = new Error(`vocabulary worker ${locale}: ${message.message}`);
+        settle(states[l]);
+      });
+      worker.on('error', (error) => { states[l].error = error; settle(states[l]); });
+      worker.on('exit', (code) => {
+        if (code !== 0 && !states[l].done && !states[l].error) states[l].error = new Error(`vocabulary worker ${locale} exited with code ${code}`);
+        settle(states[l]);
+      });
+    });
+    const waitFor = async (predicate) => {
+      for (const state of states) {
+        while (!state.error && !predicate(state)) await new Promise((resolve) => { state.wake = resolve; });
+        if (state.error) throw state.error;
+      }
+    };
+
+    let sent = 0;
+    for (let start = 0; start < rows.length; start += chunkRows) {
+      const end = Math.min(rows.length, start + chunkRows);
+      const chunks = locales.map(() => Object.fromEntries(VOCABULARY_INPUT_FIELDS.map((field) => [field, []])));
+      for (let i = start; i < end; i++) {
+        const inputs = rowHaystackInputs(rows[i], locales);
+        for (let l = 0; l < locales.length; l++) {
+          for (const field of VOCABULARY_INPUT_FIELDS) chunks[l][field].push(inputs[l][field]);
+        }
+      }
+      // Al piu' due blocchi non ancora riscontrati: la preparazione del blocco
+      // successivo si sovrappone al lavoro dei worker sul precedente.
+      await waitFor((state) => state.acks >= sent - 1);
+      locales.forEach((_locale, l) => workers[l].postMessage({ type: 'rows', start, inputs: chunks[l] }));
+      sent += 1;
+    }
+    await waitFor((state) => state.acks >= sent);
+    workers.forEach((worker) => worker.postMessage({ type: 'finish' }));
+    await waitFor((state) => state.done !== null);
+
+    const out = new Map();
+    locales.forEach((locale, l) => {
+      const { vocabulary, buildMs } = states[l].done;
+      out.set(locale, { ...vocabulary, buildMs });
+    });
+    return out;
+  } finally {
+    await Promise.all(workers.map((worker) => worker.terminate().catch(() => {})));
+  }
 }
 
 // ── Indice ──────────────────────────────────────────────────────────────
@@ -615,7 +734,14 @@ export function createJobAlertCandidateIndex(jobs, { nowMs, budgetBytes = DEFAUL
     }
     return bitset;
   });
-  const searchMask = (locale, query, need) => {
+  /**
+   * `answers` (optional Map query → bitset) collects the results that are valid
+   * on EVERY row — the vocabulary path only — by reference, so the planner can
+   * hand them to the scorer for the length of one alert without re-reading the
+   * LRU (perf-plan P1). The per-row paths are valid on `need` only and are
+   * never recorded.
+   */
+  const searchMask = (locale, query, need, answers = null) => {
     let compiled = compiledQueries.get(query);
     if (!compiled) { compiled = compileSearchQuery(query); compiledQueries.set(query, compiled); }
     if (compiled.tokens.length === 0) return keywordMask(locale, compiled.query, need);
@@ -631,8 +757,111 @@ export function createJobAlertCandidateIndex(jobs, { nowMs, budgetBytes = DEFAUL
       result = result ? bitsetAnd(result, mask) : mask;
       if (bitsetIsEmpty(result)) break;
     }
+    if (answers) answers.set(query, result);
     return result;
   };
+
+  // ── predicati per riga dell'alert (perf-plan P4) ──
+
+  /** OR di bitset di predicato; con un solo operando restituisce quello della cache (mai mutato). */
+  const orOf = (masks) => {
+    if (masks.length === 1) return masks[0];
+    const out = newBitset(words);
+    for (const mask of masks) bitsetOrInto(out, mask);
+    return out;
+  };
+
+  /**
+   * I sei fatti per riga che la formula dello scorer legge nel ramo soft-legacy
+   * (nessuna keyword dura, intento legacy), ciascuno già come maschera esatta:
+   *
+   *  - `geo`: il filtro geo DURO dello scorer, `includesAny(paddedLoc, needle di
+   *    alertLocations) || (cantons.length>0 && jobCanton && cantons.includes(jobCanton))`
+   *    = OR(loc:needle) ∪ OR(canton:c con c non vuoto). `null` senza scope geo;
+   *  - `softOverlap`: quanti `softTokens` sono in `jobTokens` della riga, contato
+   *    dalle liste righe-per-token (le stesse da cui `tokenMask` legge i token).
+   *    Un `jobTokens` è un Set, quindi ogni token conta una volta per riga. Il
+   *    contatore satura a 255: la formula usa `min(5, 2·overlap)` e `overlap === 0`;
+   *  - `company`: `companyKeys.some(k => jobCompanyKeys.includes(k))` = OR(company:k),
+   *    solo con `profile.company` non vuota;
+   *  - `location`: `includesAny(paddedLoc, locationNeedles)` = OR(loc:needle);
+   *  - `canton`: `cantons.includes(jobCanton)` (senza il `jobCanton &&` del filtro
+   *    geo: una stringa vuota in `cantons` combacia con un cantone vuoto) =
+   *    OR(canton:c per ogni c);
+   *  - `sector`: `sectors.some(s => jobSector.includes(s) || titleText.includes(s))`
+   *    = OR(sector:s); `contract`: `contractTypes.some(c => jobContract.includes(c))`.
+   *
+   * Sono le stesse maschere che `candidateMask` compone per scegliere le righe,
+   * quindi si leggono dalla cache. `null` = predicato falso su ogni riga.
+   */
+  const softLegacyPredicates = (profile, locale, parts) => {
+    const {
+      softTokens, companyKeys, alertLocationNeedles, locationNeedles, cantons, sectors, contractTypes, hasGeoScope,
+    } = parts;
+    let geo = null;
+    if (hasGeoScope) {
+      const masks = [];
+      for (const needle of alertLocationNeedles) masks.push(locMask(needle));
+      for (const code of cantons) if (code) masks.push(cantonMask(code));
+      geo = masks.length > 0 ? orOf(masks) : emptyBitset;
+    }
+    let softOverlap = null;
+    if (softTokens.size > 0) {
+      softOverlap = new Uint8Array(n);
+      const { postings } = localeData(locale);
+      for (const token of softTokens) {
+        const list = postings.get(token);
+        if (!list) continue;
+        for (let k = 0; k < list.length; k++) {
+          const row = list[k];
+          if (softOverlap[row] < 255) softOverlap[row] += 1;
+        }
+      }
+    }
+    const maskOf = (values, build) => (values.length > 0 ? orOf(values.map(build)) : null);
+    return {
+      profile,
+      geo,
+      softOverlap,
+      company: profile.company && companyKeys.length > 0 ? orOf(companyKeys.map((key) => companyMask(key))) : null,
+      location: maskOf(locationNeedles, (needle) => locMask(needle)),
+      canton: maskOf(cantons, (code) => cantonMask(code)),
+      sector: maskOf(sectors, (sector) => sectorMask(locale, sector)),
+      contract: maskOf(contractTypes, (contract) => contractMask(contract)),
+    };
+  };
+
+  // ── colonne per riga del ranking (perf-plan P2) ──
+
+  /**
+   * Valori per riga che il planner ricalcolava per ogni alert, ora UNA volta per
+   * run. Ognuno è la stessa espressione di prima, valutata su quella riga:
+   *  - `firstSeenMs`: `jobFirstSeenMs(job)` (NaN compreso per un `firstSeenAt` malformato);
+   *  - `freshness`: `freshnessBoost(job, nowMs)` con il `now` della run;
+   *  - `companyId`: id intero della chiave di `employerDiversityKey(job)` (stesse
+   *    chiavi uguali ⇔ stessi id);
+   *  - `canton` / `paddedLoc`: i valori che `partitionByGeoPreference` confronta.
+   */
+  const rankingColumns = () => once('rankingColumns', () => {
+    const firstSeenMs = new Float64Array(n);
+    const freshness = new Uint8Array(n);
+    const companyId = new Int32Array(n);
+    const canton = new Array(n);
+    const paddedLoc = new Array(n);
+    const ids = new Map();
+    for (let i = 0; i < n; i++) {
+      const job = rows[i];
+      firstSeenMs[i] = jobFirstSeenMs(job);
+      freshness[i] = freshnessBoost(job, now);
+      const key = employerDiversityKey(job);
+      let id = ids.get(key);
+      if (id === undefined) { id = ids.size; ids.set(key, id); }
+      companyId[i] = id;
+      canton[i] = defaultPartitionCanton(job);
+      paddedLoc[i] = defaultPartitionPaddedLoc(job);
+    }
+    return { nowMs: now, firstSeenMs, freshness, companyId, canton, paddedLoc };
+  });
 
   // ── composizione per alert ──
 
@@ -690,8 +919,9 @@ export function createJobAlertCandidateIndex(jobs, { nowMs, budgetBytes = DEFAUL
    *
    * In ogni ramo il punteggio finale lo calcola lo scorer, non questo modulo.
    */
-  const candidateMask = (profile, locale, eligible) => {
+  const candidateMask = (profile, locale, eligible, collect = null) => {
     if (!profile) return { mask: emptyBitset, strategy: 'never' };
+    const answers = collect ? collect.answers : null;
 
     const pinnedJobs = profile.specificJobIds || [];
     const pinnedCompany = profile.specificCompanyKey || '';
@@ -734,7 +964,7 @@ export function createJobAlertCandidateIndex(jobs, { nowMs, budgetBytes = DEFAUL
       if (hardSearchQueries.length > 0) {
         let narrowed = base;
         for (const query of hardSearchQueries) {
-          narrowed = bitsetAnd(narrowed, searchMask(locale, query, narrowed));
+          narrowed = bitsetAnd(narrowed, searchMask(locale, query, narrowed, answers));
           if (bitsetIsEmpty(narrowed)) break;
         }
         return { mask: narrowed, strategy: 'hard-search' };
@@ -771,32 +1001,57 @@ export function createJobAlertCandidateIndex(jobs, { nowMs, budgetBytes = DEFAUL
       // La ricerca soft si valuta solo sulle righe che gli altri predicati non
       // hanno già accettato: sono le uniche per cui può cambiare la risposta.
       let remaining = bitsetAndNot(base, mask);
-      for (const query of softSearchQueries) {
+      // Una query ripetuta non aggiunge righe (la sua seconda passata trova gia'
+      // tolte le righe che accetta): la si valuta una volta. La risposta in
+      // `answers` resta comunque quella del vocabolario su tutte le righe.
+      for (const query of new Set(softSearchQueries)) {
         if (bitsetIsEmpty(remaining)) break;
-        const hit = bitsetAnd(remaining, searchMask(locale, query, remaining));
+        const hit = bitsetAnd(remaining, searchMask(locale, query, remaining, answers));
         bitsetOrInto(mask, hit);
         remaining = bitsetAndNot(remaining, hit);
       }
     }
-    return { mask, strategy: hasLegacyIntentProfile ? 'soft-legacy' : 'soft-signals' };
+    const strategy = hasLegacyIntentProfile ? 'soft-legacy' : 'soft-signals';
+    if (collect && collect.predicates && strategy === 'soft-legacy') {
+      collect.predicatesOut = softLegacyPredicates(profile, locale, {
+        softTokens, companyKeys, alertLocationNeedles, locationNeedles, cantons, sectors, contractTypes, hasGeoScope,
+      });
+    }
+    return { mask, strategy };
   };
 
-  const select = (profile, { locale, ownerAlert = false, cursorMs, forceWindow = false } = {}) => {
+  /**
+   * `rowIndices[k]` è l'indice di `rows[k]` nell'indice (Int32Array parallelo a
+   * `rows`). `searchAnswers` (`{locale, byQuery}`) porta le risposte di ricerca
+   * valide su tutte le righe, solo del percorso a vocabolario. Con `fastpath`
+   * `select` prepara anche i predicati per riga del ramo soft-legacy e le
+   * colonne del ranking: sono dati che il solo piano indicizzato legge; il piano
+   * legacy di verifica non passa mai di qui.
+   */
+  const select = (profile, { locale, ownerAlert = false, cursorMs, forceWindow = false, fastpath = false } = {}) => {
     const eligible = eligibleMask(locale, ownerAlert);
     const sorted = eligibleSortedAt(locale, ownerAlert);
     const candidateCount = sorted.length - upperBound(sorted, cursorMs);
     let strategy = 'window';
     let mask = eligible;
+    const collect = fastpath && !forceWindow ? { answers: new Map(), predicates: true, predicatesOut: null } : null;
     if (!forceWindow) {
-      const composed = candidateMask(profile, locale, eligible);
+      const composed = candidateMask(profile, locale, eligible, collect);
       strategy = composed.strategy;
       mask = bitsetAnd(eligible, composed.mask);
     }
     const selected = [];
+    const selectedIndices = [];
     forEachSetBit(mask, (i) => {
-      if (inventoryAt[i] > cursorMs) selected.push(rows[i]);
+      if (inventoryAt[i] > cursorMs) { selected.push(rows[i]); selectedIndices.push(i); }
     });
-    return { rows: selected, candidateCount, strategy };
+    const selection = { rows: selected, rowIndices: Int32Array.from(selectedIndices), candidateCount, strategy };
+    if (collect) {
+      selection.searchAnswers = { locale, byQuery: collect.answers };
+      selection.predicates = collect.predicatesOut;
+      selection.columns = rankingColumns();
+    }
+    return selection;
   };
 
   const builtMs = performance.now() - startedAt;
@@ -808,6 +1063,35 @@ export function createJobAlertCandidateIndex(jobs, { nowMs, budgetBytes = DEFAUL
       return sorted.length - upperBound(sorted, cursorMs);
     },
     select,
+    /**
+     * Costruisce in anticipo i vocabolari di ricerca dei `locales` che non ci sono
+     * ancora, prima del planning: in una passata sola (W1) oppure, con `workers`
+     * e un inventario grande, in parallelo su worker thread (W2). Il risultato e'
+     * identico a quello della costruzione pigra. Non rifiuta mai: se i worker
+     * falliscono ripiega sulla passata unica e riporta `fallback`.
+     *
+     * @returns {Promise<{mode: 'none'|'single-pass'|'workers', locales: string[], wallMs: number, fallback?: string}>}
+     */
+    async prepareSearchVocabularies({ locales = [], workers = false, workerMinRows = VOCABULARY_WORKERS_MIN_ROWS, log = () => {} } = {}) {
+      const startedAt = performance.now();
+      const missing = [...new Set(locales.map((locale) => locale || ''))].filter((locale) => !lazy.has(`vocab:${locale}`));
+      if (missing.length === 0) return { mode: 'none', locales: [], wallMs: 0 };
+      let mode = 'single-pass';
+      let fallback;
+      let built = null;
+      if (workers && n >= workerMinRows && missing.length >= 2) {
+        try {
+          built = await buildSearchVocabulariesInWorkers(rows, missing);
+          mode = 'workers';
+        } catch (error) {
+          fallback = String(error?.message || error);
+          log(`vocabulary workers failed (${fallback}); building on the main thread`);
+        }
+      }
+      if (!built) built = buildSearchVocabularies(rows, missing);
+      for (const [locale, vocabulary] of built) lazy.set(`vocab:${locale}`, vocabulary);
+      return { mode, locales: missing, wallMs: Math.round(performance.now() - startedAt), ...(fallback ? { fallback } : {}) };
+    },
     /** Millisecondi cumulati di costruzione dei vocabolari di ricerca (per la telemetria). */
     searchVocabularyBuildMs: () => [...lazy.entries()]
       .filter(([key]) => key.startsWith('vocab:'))

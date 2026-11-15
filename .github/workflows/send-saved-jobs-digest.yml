@@ -40,17 +40,14 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: 22
-          cache: npm
+      # node_modules in cache (perf-plan email senders, A3/D4): key on the lockfile and
+      # the Node major, `npm ci` only on a miss.
+      - name: Setup Node.js and restore node_modules
+        uses: ./.github/actions/npm-ci-cached
 
-      - name: Install dependencies
-        run: npm ci
-
+      # Needed by the dry run too: the sender reads users and consent from Firestore
+      # (reads only) even with --dry-run.
       - name: Prepare Firebase credentials
-        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -61,9 +58,10 @@ jobs:
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
+      # Least privilege (perf-plan email senders, D4): only the keys the job's code
+      # reads from `process.env`. Enforced by tests/email-senders-workflow-perimeter.test.ts.
       - name: Load secrets from Remote Config
-        if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/load-rc-env.mjs
+        run: node scripts/load-rc-env.mjs --only-env=CF_ACCOUNT_ID,CF_API_TOKEN,CLOUDFLARE_EMAIL_API_TOKEN,JOB_EMAIL_RANKING_AFFINITY_WEIGHT,JOB_EMAIL_RANKING_ENABLED,JOB_EMAIL_RANKING_ROLLOUT,JOB_EMAIL_RANKING_TREATMENT,MAILEROO_ACCOUNT_API_KEY,MAILEROO_API_KEY,MAILEROO_NEWSLETTER_API_KEY,MAILEROO_TRANSACTIONAL_API_KEY,MAILGUN_API_KEY,MAILGUN_DOMAIN,MAILJET_API_KEY,MAILJET_SECRET_KEY,MAILTRAP_API_TOKEN,NEWSLETTER_SECRET,RESEND_API_KEY
 
       # Content-addressed cache of the assembled dataset. The key is printed by
       # the assembler itself (.github/actions/assemble-jobs-cache-key): sha256
@@ -72,9 +70,19 @@ jobs:
       # the script checks before restoring, so a hit can only replay an output
       # built from byte-identical inputs; no restore-keys fallback. Measured
       # miss cost: 4m41 (run 35422626497).
+      #
+      # ACTIVE-ONLY, NO SUMMARIES (perf-plan email senders, D1). The digest reads ONE
+      # data file, data/jobs.json (loadJobsById): never expired-jobs.json,
+      # `previousSlugs` or the crawler summaries. The expired archive and slug
+      # reconciliation took 503 s of the assembly on a cache miss. The flags MUST be
+      # identical in the key action and in the assemble step, or every run misses the
+      # cache (tests/email-senders-assemble-flags.test.ts). The key still hashes the
+      # expired slices: the active assembly reads them to carry `firstSeenAt` forward.
       - name: Compute assemble-jobs cache key
         id: assemble_cache_key
         uses: ./.github/actions/assemble-jobs-cache-key
+        with:
+          args: --active-only --no-summaries
 
       - name: Restore assemble-jobs cache
         id: assemble_cache
@@ -86,7 +94,7 @@ jobs:
 
       - name: Assemble jobs dataset
         id: assemble
-        run: node scripts/assemble-jobs-dataset.mjs
+        run: node scripts/assemble-jobs-dataset.mjs --active-only --no-summaries
 
       - name: Save assemble-jobs cache
         if: steps.assemble.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true'
@@ -95,6 +103,16 @@ jobs:
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-send-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+
+      # Dry run (input dry_run, default true for manual dispatches): builds every
+      # digest from production data and prints recipients, subjects and the
+      # SAVEDJOBS_METRICS line, claiming and sending nothing (reads only).
+      - name: Build saved-jobs digests without sending (dry run)
+        if: inputs.dry_run == true || inputs.dry_run == 'true'
+        env:
+          TARGET_EMAIL: ${{ inputs.target_email }}
+        run: |
+          node scripts/send-saved-jobs-digest.mjs --dry-run
 
       - name: Send saved-jobs digest emails
         if: inputs.dry_run != true && inputs.dry_run != 'true'

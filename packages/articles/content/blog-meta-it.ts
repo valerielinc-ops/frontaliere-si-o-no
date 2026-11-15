@@ -13725,6 +13725,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-costi-aggiuntivi.title': 'Frontalieri disoccupati: timore costi aggiuntivi per centinaia di milioni',
     'blog.article.frontalieri-disoccupati-costi-aggiuntivi.excerpt': 'Berna ha ricevuto oggi dalla Commissione europea una comunicazione su una modifica delle competenze relative ai lavoratori frontalieri disoccupati.',
     'blog.article.frontalieri-disoccupati-costi-aggiuntivi.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.bollettino-frontaliere-2026-11-15.title': 'Frontalieri: cambio -42.80 € su 4.000 CHF — 15 novembre 2026',
+    'blog.article.bollettino-frontaliere-2026-11-15.excerpt': 'I numeri di oggi, 15 novembre 2026, per chi attraversa il confine: le ultime attese ai valichi, i comuni con la benzina meno cara, il cambio franco-euro e gli annunci di lavoro attivi sul nostro job board in Svizzera. Dati del nostro monitoraggio quotidiano.',
+    'blog.article.bollettino-frontaliere-2026-11-15.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
+    'blog.article.bollettino-frontaliere-2026-11-15.seoDescription': 'Bollettino frontalieri 15 novembre 2026: attese ai valichi, prezzi benzina, cambio CHF/EUR e offerte attive di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-11-15.ogDescription': 'I numeri del 15 novembre 2026 per i frontalieri: quanto si aspetta a ogni valico, in quali comuni conviene fare il pieno, quanto vale il franco al cambio rilevato e quanti annunci di lavoro attivi sono presenti sul nostro job board in Svizzera.',
 };
 
 export default blogMetaIt;

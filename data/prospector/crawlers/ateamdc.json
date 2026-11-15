@@ -1,0 +1,21 @@
+{
+  "companyKey": "ateamdc",
+  "companyName": "A-Team Consultants",
+  "companyHost": "ateamdc.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://ateamdc.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Director of Strategic Philanthropy | Confidential Client"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-15T13:54:30.142Z",
+  "candidateKey": "ateamdc@applytojob.com"
+}

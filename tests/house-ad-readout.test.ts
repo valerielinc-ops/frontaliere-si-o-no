@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
-  summarizeHouseOrders, summarizeHouseTraffic, summarizeHouseTrafficTotals, summarizeReaderSubscriptionPurchases,
+  summarizeHouseFallbacks, summarizeHouseOrders, summarizeHouseTraffic, summarizeHouseTrafficTotals, summarizeReaderSubscriptionPurchases,
   summarizeReaderSubscriptionResults, summarizeReaderSubscriptionTraffic,
 } from '../scripts/analytics/house-ad-readout.mjs';
 
@@ -52,6 +52,20 @@ describe('house creative readout', () => {
       house_ad_impression: { events: 300, uniqueUsers: 120 },
       house_ad_click: { events: 14, uniqueUsers: 11 },
     });
+  });
+  it('breaks rendered fallback creatives down by reason, creative, format, placement and device', () => {
+    const row = (reason: string, creative: string, surface: string, device: string, events: number, users: number) => ({
+      dimensionValues: [reason, creative, surface, device].map(value => ({ value })),
+      metricValues: [{ value: String(events) }, { value: String(users) }],
+    });
+    expect(summarizeHouseFallbacks({ rowCount: 2, rows: [
+      row('adblock_detected', 'house_creatives_v2.profile_match_v1.test.it.job_detail.logistics', 'rectangle.job-detail', 'desktop', 8, 7),
+      row('ads_consent_denied', 'reader_subscription_house_v1.subscription.test.it', 'mobile_banner.article-inline', 'mobile', 4, 4),
+    ] })).toEqual([
+      expect.objectContaining({ reason: 'adblock_detected', creative: 'house_creatives_v2.profile_match_v1.test.it.job_detail.logistics', surface: 'rectangle.job-detail', device: 'desktop', events: 8, uniqueUsers: 7 }),
+      expect.objectContaining({ reason: 'ads_consent_denied', creative: 'reader_subscription_house_v1.subscription.test.it', surface: 'mobile_banner.article-inline', device: 'mobile', events: 4, uniqueUsers: 4 }),
+    ]);
+    expect(() => summarizeHouseFallbacks({ rowCount: 0, rows: [], metadata: { subjectToThresholding: true } })).toThrow('thresholding');
   });
   it('rejects aggregate totals that GA4 says are thresholded or merged into Other', () => {
     expect(() => summarizeHouseTraffic({ rows: [], metadata: { subjectToThresholding: true } })).toThrow('thresholding');

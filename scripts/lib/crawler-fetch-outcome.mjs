@@ -117,6 +117,27 @@ export function fetchOutcomeAllowsStampedEmpty(value) {
 }
 
 /**
+ * Whether a run explicitly proves that it observed candidates and filtered
+ * every one of them before returning an empty job slice.
+ *
+ * This is distinct from an authoritative source-level zero: the source was
+ * observed, but the normal merge must retain the previous slice under its
+ * miss-grace policy. Keeping the predicate here makes the shared crawler
+ * merge and Prospector's adapter validation agree on the same contract.
+ *
+ * @param {unknown} value
+ * @param {unknown} discoveredCount
+ * @param {unknown} outputCount
+ * @returns {boolean}
+ */
+export function isSuccessfulFilteredEmptyOutcome(value, discoveredCount, outputCount = 0) {
+  return value === 'filtered_empty'
+    && Number.isSafeInteger(discoveredCount)
+    && discoveredCount > 0
+    && outputCount === 0;
+}
+
+/**
  * Read a slice's (or parser's) self-reported outcome, or `null` when it is
  * absent or not a recognised value. An unknown string is a producer bug, and
  * reading it as evidence would let a typo (`selector-miss`) flip a verdict.

@@ -1,13 +1,14 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 705,
+  "crawlerCount": 707,
   "groups": {
     "10": [
       "atec-personal",
       "berit-klinik",
       "bucherer",
       "centiel",
+      "cnvo-ch",
       "debiopharm",
       "emmi",
       "ems-chemie",
@@ -331,6 +332,7 @@
       "vereinaklosters"
     ],
     "20": [
+      "absolut-liv-ch",
       "accor",
       "adus-klinik",
       "arxada",
@@ -767,6 +769,7 @@
     "abb-svizzera-sede-ticino": "data/jobs/by-crawler/abb-svizzera-sede-ticino.json",
     "abbott": "data/jobs/by-crawler/abbott.json",
     "abraxas": "data/jobs/by-crawler/abraxas.json",
+    "absolut-liv-ch": "data/jobs/by-crawler/absolut-liv-ch.json",
     "accor": "data/jobs/by-crawler/accor.json",
     "adullam": "data/jobs/by-crawler/adullam.json",
     "adus-klinik": "data/jobs/by-crawler/adus-klinik.json",
@@ -904,6 +907,7 @@
     "clinique-la-source": "data/jobs/by-crawler/clinique-la-source.json",
     "clinique-le-noirmont": "data/jobs/by-crawler/clinique-le-noirmont.json",
     "cnp": "data/jobs/by-crawler/cnp.json",
+    "cnvo-ch": "data/jobs/by-crawler/cnvo-ch.json",
     "colin-cie": "data/jobs/by-crawler/colin-cie.json",
     "comuni-ticino": "data/jobs/by-crawler/comuni-ticino.json",
     "concara": "data/jobs/by-crawler/concara.json",
@@ -1466,5 +1470,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:caf601493f0eccfd7b8d0e1f9a47e10c020927da9948419704dddebe8fd2a656"
+  "digest": "sha256:e51c4a53a7f9154cb29c99b0c9c9c1e6c4aa34f7db3ca6a21336ed5ef81b5360"
 }

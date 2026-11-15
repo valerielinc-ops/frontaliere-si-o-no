@@ -443,6 +443,46 @@ describe('issue #6759 reconciliation', () => {
     }
   });
 
+  it('processes each overlapping company group without cloning unrelated archives', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'expired-cross-slice-groups-'));
+    const daysAgo = (days: number) => new Date(Date.now() - days * 86_400_000).toISOString();
+    const entry = (companyKey: string, slug: string, expiredDaysAgo: number) => ({
+      slug,
+      companyKey,
+      expiredAt: daysAgo(expiredDaysAgo),
+      slugByLocale: { it: slug },
+      previousSlugsByLocale: { de: [`${companyKey}-shared-route`] },
+    });
+    const files = [
+      ['company-a-old.json', [entry('company-a', 'a-old', 20)]],
+      ['company-a-new.json', [entry('company-a', 'a-new', 10)]],
+      ['company-b-old.json', [entry('company-b', 'b-old', 30)]],
+      ['company-b-new.json', [entry('company-b', 'b-new', 5)]],
+      ['unrelated.json', [entry('company-c', 'c-only', 1)]],
+    ] as const;
+    for (const [file, jobs] of files) writeFileSync(join(dir, file), JSON.stringify(jobs));
+
+    try {
+      const report = sweepExpiredArchiveSlices({ dir, apply: true });
+      expect(report).toMatchObject({
+        crossSliceCollapsed: 2,
+        crossSliceDuplicatesAfter: 0,
+        filesChanged: 4,
+      });
+      expect(JSON.parse(readFileSync(join(dir, 'company-a-new.json'), 'utf8'))).toHaveLength(1);
+      expect(JSON.parse(readFileSync(join(dir, 'company-a-old.json'), 'utf8'))).toEqual([]);
+      expect(JSON.parse(readFileSync(join(dir, 'company-b-new.json'), 'utf8'))).toHaveLength(1);
+      expect(JSON.parse(readFileSync(join(dir, 'company-b-old.json'), 'utf8'))).toEqual([]);
+      expect(JSON.parse(readFileSync(join(dir, 'unrelated.json'), 'utf8'))).toEqual(files[4][1]);
+      for (const [file] of files) {
+        const persisted = JSON.parse(readFileSync(join(dir, file), 'utf8'));
+        expect(JSON.stringify(persisted)).not.toContain('__sweepSourceFile');
+      }
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
   it('returns entries in expiredAt-descending order, so the callers that cap keep the most recent', () => {
     // The survivor carries the NEWEST payload but is pushed at the position of
     // the OLDEST member of its component. `assemble-jobs-dataset` and

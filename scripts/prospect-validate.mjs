@@ -61,7 +61,11 @@ import {
 } from './lib/prospector/promotion-gate.mjs';
 import { loadSourceHostOwnership } from './lib/crawler-source-hosts.mjs';
 import { tenantHostOwner } from './lib/prospector/coverage.mjs';
-import { alignCandidateQualityContractVersion, qualityContractVersionOf } from './lib/prospector/quality-contract.mjs';
+import {
+  alignCandidateQualityContractVersion,
+  CURRENT_QUALITY_CONTRACT_VERSION,
+  qualityContractVersionOf,
+} from './lib/prospector/quality-contract.mjs';
 import { assertKnownFlags } from './lib/prospector/cli-flags.mjs';
 
 const argv = process.argv.slice(2);
@@ -704,7 +708,7 @@ else {
   }
   fs.writeFileSync(VALIDATION_PATH, `${JSON.stringify({
     generatedAt: new Date().toISOString(),
-    qualityContractVersion: 3,
+    qualityContractVersion: CURRENT_QUALITY_CONTRACT_VERSION,
     validationSchedule: Object.fromEntries([...nextValidationSchedule.entries()].sort(([a], [b]) => a.localeCompare(b))),
     tally,
     measuredTally,

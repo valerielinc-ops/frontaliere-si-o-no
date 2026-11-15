@@ -294,6 +294,10 @@ jobs:
           } >> "$GITHUB_ENV"
       - name: Checkout
         uses: actions/checkout@v7
+        # checkout profile: intentionally full
+        # The SEO source gate reads the complete article registry and its
+        # generated shard tree; a sparse verdict would conflate missing
+        # checkout inputs with a source regression.
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:

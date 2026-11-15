@@ -5,6 +5,7 @@ import {
   filterSectorHubSiblings,
 } from '../build-plugins/jobSectorPagesPlugin';
 import {
+  injectSectorHubLinks,
   renderSectorHubLinksBlock,
   type InjectionTarget,
 } from '../build-plugins/sectorHubLinksPlugin';
@@ -52,5 +53,15 @@ describe('sector hub links follow emitted inventory', () => {
     expect(html).toContain('/fr/trouver-emploi-tessin/chauffeurs/');
     expect(html).not.toContain('/fr/trouver-emploi-tessin/educateurs/');
     expect(html).not.toContain('href="/fr/trouver-emploi-tessin/infirmiers"');
+  });
+
+  it('keeps the primary job-board content before the discovery block', () => {
+    const html = '<main class="seo-static-content"><h1>Jobs</h1><p>Latest results</p></main>';
+    const block = '<aside data-sector-hub-links>Sector links</aside>';
+    const { html: out, outcome } = injectSectorHubLinks(html, block);
+
+    expect(outcome).toBe('inserted');
+    expect(out.indexOf('<p>Latest results</p>')).toBeLessThan(out.indexOf('data-sector-hub-links'));
+    expect(out.indexOf('data-sector-hub-links')).toBeLessThan(out.indexOf('</main>'));
   });
 });

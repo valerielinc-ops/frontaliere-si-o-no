@@ -1,7 +1,7 @@
 {
   "key": "matterhorn-gotthard-bahn",
   "label": "Matterhorn Gotthard Bahn",
-  "generatedAt": "2026-11-14T21:39:17.729Z",
+  "generatedAt": "2026-11-15T09:28:40.076Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 10580,
-  "avgDurationMs": 10580,
+  "durationMs": 10615,
+  "avgDurationMs": 10615,
   "durationHistory": [
-    10580
+    10615
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://jobs.bvzholding.ch/Werkstattmitarbeiter-Instandhaltung-GGB-mwd-de-j732.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:38:58.589Z",
+      "crawledAt": "2026-11-15T09:28:18.468Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -87,7 +87,7 @@
       "url": "https://jobs.bvzholding.ch/Werkstattmitarbeiter-Instandhaltung-mwd-de-j728.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:38:57.523Z",
+      "crawledAt": "2026-11-15T09:28:17.515Z",
       "addressLocality": "Andermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -137,7 +137,7 @@
       "url": "https://jobs.bvzholding.ch/Quereinsteiger-Rangierer-Rangierlokfuehrer-mwd-80-100-de-j717.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:38:56.603Z",
+      "crawledAt": "2026-11-15T09:28:16.660Z",
       "addressLocality": "Brig",
       "addressCountry": "CH",
       "country": "CH",
@@ -186,7 +186,7 @@
       "url": "https://jobs.bvzholding.ch/Mitarbeiter-Kundenservice-Autoverlad-50-100-mwd-de-j736.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:38:55.529Z",
+      "crawledAt": "2026-11-15T09:28:15.719Z",
       "addressLocality": "Oberwald, Realp",
       "addressCountry": "CH",
       "country": "CH",
@@ -236,7 +236,7 @@
       "url": "https://jobs.bvzholding.ch/Mitarbeiter-Intervention-Autoverlad-50-100-mwd-de-j735.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:38:54.579Z",
+      "crawledAt": "2026-11-15T09:28:14.750Z",
       "addressLocality": "Oberwald, Realp",
       "addressCountry": "CH",
       "country": "CH",
@@ -286,7 +286,7 @@
       "url": "https://jobs.bvzholding.ch/Elektroinstallateur-Fachspezialist-Elektro-und-Sicherungsa-de-j624.html",
       "source": "Matterhorn Gotthard Bahn Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:38:53.619Z",
+      "crawledAt": "2026-11-15T09:28:13.860Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -325,5 +325,5 @@
       }
     }
   ],
-  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
+  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
 }

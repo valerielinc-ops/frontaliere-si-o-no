@@ -224,9 +224,6 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install minimal deps (no build)
-        run: npm ci --no-audit --no-fund --ignore-scripts
-
       # A replay must use artifacts belonging to the selected run (or to the
       # explicitly supplied publisher run). Resolve every live subtree before
       # rehydrate can reach its git-clone resilience path; an expired artifact
@@ -414,6 +411,16 @@ jobs:
         env:
           REHYDRATE_PROVENANCE_FILE: ${{ runner.temp }}/replay-shard-provenance.tsv
         run: bash scripts/lib/rehydrate-provenance.sh verify dist
+
+      # Keep the dependency tree off the runner while the logical dist is
+      # growing. The rehydrate scripts use the runner's Node binary and
+      # system jq/tar/unzip; npm dependencies are first needed by the
+      # validation and audit steps below. Installing here preserves the same
+      # package contract while avoiding dependency-tree co-residency during
+      # the disk-bound shard assembly. The amount of relief and full-corpus
+      # completion remain unvalidated until a hosted replay records them.
+      - name: Install minimal deps after dist rehydrate (no build)
+        run: npm ci --no-audit --no-fund --ignore-scripts
 
       # The build-time sitemap hook runs before the logical dist is assembled.
       # Rehydrated shard HTML is the final serving truth, so remove fuel locs

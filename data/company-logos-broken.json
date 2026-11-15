@@ -1,25 +1,25 @@
 {
-  "generatedAt": "2026-11-08T11:11:46.489Z",
+  "generatedAt": "2026-11-15T11:48:51.348Z",
   "source": {
     "path": "data/jobs.json",
-    "jobCount": 34625
+    "jobCount": 34484
   },
-  "checked": 628,
-  "ok": 628,
-  "qualityOk": 624,
+  "checked": 656,
+  "ok": 656,
+  "qualityOk": 654,
   "broken": 0,
   "brokenJobCount": 0,
   "pendingDeploy": 0,
   "pendingDeployJobCount": 0,
   "pendingDeployUrls": [],
-  "missing": 732,
-  "missingJobCount": 2109,
+  "missing": 697,
+  "missingJobCount": 1912,
   "partial": 0,
   "partialJobCount": 0,
   "unverified": 0,
   "unverifiedJobCount": 0,
-  "lowQuality": 4,
-  "lowQualityJobCount": 7,
+  "lowQuality": 2,
+  "lowQualityJobCount": 2,
   "qualityUnverified": 0,
   "qualityUnverifiedJobCount": 0,
   "urls": [],
@@ -49,32 +49,6 @@
       "qualityReason": "intrinsic-dimensions-too-small",
       "width": 48,
       "height": 48
-    },
-    {
-      "reference": "/images/brands/mpa-praxisstellen-ch.ico",
-      "kind": "local",
-      "jobs": 3,
-      "companyKeys": [
-        "mpa-praxisstellen-ch"
-      ],
-      "url": "https://cdn.frontaliereticino.ch/images/brands/mpa-praxisstellen-ch.ico",
-      "qualityStatus": "low-quality",
-      "qualityReason": "intrinsic-dimensions-too-small",
-      "width": 32,
-      "height": 32
-    },
-    {
-      "reference": "/images/brands/pks-bewerbung-ch.ico",
-      "kind": "local",
-      "jobs": 2,
-      "companyKeys": [
-        "pks-bewerbung-ch"
-      ],
-      "url": "https://cdn.frontaliereticino.ch/images/brands/pks-bewerbung-ch.ico",
-      "qualityStatus": "low-quality",
-      "qualityReason": "intrinsic-dimensions-too-small",
-      "width": 32,
-      "height": 32
     }
   ]
 }

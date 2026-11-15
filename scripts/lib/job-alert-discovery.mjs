@@ -18,11 +18,21 @@ export function findDiscoveryBlockedRecipients(alerts) {
   return blocked;
 }
 
-/** Same employer diversity policy for personalized and discovery selections. */
-export function diversifyJobEmployers(jobs) {
+/** The employer a job counts toward in {@link diversifyJobEmployers}. */
+export function employerDiversityKey(job) {
+  return String(job.company || '∅').toLowerCase();
+}
+
+/**
+ * Same employer diversity policy for personalized and discovery selections.
+ * `keyOf` maps an entry to the employer it counts toward; a caller that ranks
+ * row positions instead of job objects passes the per-row key it computed once
+ * per run (any value whose equality is `employerDiversityKey` equality).
+ */
+export function diversifyJobEmployers(jobs, keyOf = employerDiversityKey) {
   const counts = new Map(); const first = []; const rest = [];
   for (const job of jobs) {
-    const key = String(job.company || '∅').toLowerCase();
+    const key = keyOf(job);
     const count = counts.get(key) || 0;
     if (count < 2) { first.push(job); counts.set(key, count + 1); }
     else rest.push(job);

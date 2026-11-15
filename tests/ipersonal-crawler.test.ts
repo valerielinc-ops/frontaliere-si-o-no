@@ -21,6 +21,7 @@ const REAL_IPERSONAL_LISTING_FIXTURE = readFileSync(
   resolve(import.meta.dirname, 'fixtures/ipersonal-live-listing-20261001.html'),
   'utf8',
 );
+const SOURCE_BODY_SUFFIX = ' Die Stelle erfordert sorgfältige Planung, verlässliche Kommunikation, selbstständige Umsetzung, gute Zusammenarbeit, Qualitätskontrolle, Kundenbetreuung und nachvollziehbare Dokumentation im täglichen Arbeitsumfeld mit Kundinnen, Kunden und internen Fachstellen im Schichtalltag.';
 
 describe('MediPersonal crawler parser', () => {
   it.each([
@@ -311,7 +312,7 @@ describe('MediPersonal crawler parser', () => {
             '@type': 'JobPosting',
             title: 'Pflegefachperson Zürich',
             url: detailUrl,
-            description: 'Eine langfristige Aufgabe in einem professionellen Team mit persönlicher Begleitung und klarer fachlicher Verantwortung im Pflegealltag.',
+            description: 'Eine langfristige Aufgabe in einem professionellen Team mit persönlicher Begleitung und klarer fachlicher Verantwortung im Pflegealltag.' + SOURCE_BODY_SUFFIX,
             jobLocation: {
               '@type': 'Place',
               address: {
@@ -323,7 +324,7 @@ describe('MediPersonal crawler parser', () => {
         return new Response(`
           <script type="application/ld+json">${escapedLocalitySchema}</script>
           <section class="job-profile-section"><div id="Jobdetails">
-            <p>Eine langfristige Aufgabe in einem professionellen Team mit persönlicher Begleitung und klarer fachlicher Verantwortung im Pflegealltag.</p>
+            <p>Eine langfristige Aufgabe in einem professionellen Team mit persönlicher Begleitung und klarer fachlicher Verantwortung im Pflegealltag.${SOURCE_BODY_SUFFIX}</p>
             <h3>Deine Aufgaben</h3><ul><li>Patientinnen kompetent betreuen</li><li>Pflege sorgfältig dokumentieren</li></ul>
           </div></section>`, { status: 200, headers: { 'Content-Type': 'text/html' } });
       };
@@ -387,7 +388,7 @@ describe('MediPersonal crawler parser', () => {
       const seedUrl = 'https://ipersonal-title-variant.example/';
       const detailUrl = `${seedUrl}jobs/elektroplaner-mels/`;
       const listingTitle = 'Elektroplaner 100% in der Region Mels – Direkte Festanstellung';
-      const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, dokumentiert Ergebnisse und koordiniert Termine zuverlässig.';
+      const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, dokumentiert Ergebnisse und koordiniert Termine zuverlässig.' + SOURCE_BODY_SUFFIX;
       const fetchImpl = async (input: string | URL | Request) => {
         const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
         if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
@@ -441,7 +442,7 @@ describe('MediPersonal crawler parser', () => {
       const detailUrl = `${seedUrl}jobs/elektroplaner-mels/`;
       const relatedUrl = `${seedUrl}jobs/related-zurich/`;
       const listingTitle = 'Elektroplaner 100% in der Region Mels – Direkte Festanstellung';
-      const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, dokumentiert Ergebnisse und koordiniert Termine zuverlässig.';
+      const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, dokumentiert Ergebnisse und koordiniert Termine zuverlässig.' + SOURCE_BODY_SUFFIX;
       const record = (title: string, url: string, locality: string, region: string) => ({
         '@context': 'https://schema.org',
         '@type': 'JobPosting', title, url, description,
@@ -493,7 +494,7 @@ describe('MediPersonal crawler parser', () => {
     it('prefers the vacancy workplace over a generic location element', async () => {
       const seedUrl = 'https://ipersonal-location-priority.example/';
       const detailUrl = `${seedUrl}jobs/pflegefachperson-opfikon/`;
-      const description = 'Eine verantwortungsvolle Aufgabe mit enger Zusammenarbeit, klarer fachlicher Verantwortung und verlässlicher Begleitung im Berufsalltag. Die Fachperson plant Einsätze, dokumentiert Ergebnisse und unterstützt das Team sorgfältig.';
+      const description = 'Eine verantwortungsvolle Aufgabe mit enger Zusammenarbeit, klarer fachlicher Verantwortung und verlässlicher Begleitung im Berufsalltag. Die Fachperson plant Einsätze, dokumentiert Ergebnisse und unterstützt das Team sorgfältig.' + SOURCE_BODY_SUFFIX;
       const fetchImpl = async (input: string | URL | Request) => {
         const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
         if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
@@ -529,7 +530,7 @@ describe('MediPersonal crawler parser', () => {
     it('accounts for Jina-rescued seed and detail pages in the complete snapshot', async () => {
       const seedUrl = 'https://ipersonal-proxy-fixture.example/';
       const detailUrl = `${seedUrl}jobs/proxy-role/`;
-      const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.';
+      const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.' + SOURCE_BODY_SUFFIX;
       const detailHtml = `<script type="application/ld+json">${JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'JobPosting',
@@ -578,7 +579,7 @@ describe('MediPersonal crawler parser', () => {
       const seedUrl = 'https://ipersonal-challenge-fixture.example/';
       const detailUrl = `${seedUrl}jobs/rescued-role/`;
       const resolvedDetailUrl = `${seedUrl}jobs/resolved-role/`;
-      const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.';
+      const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.' + SOURCE_BODY_SUFFIX;
       const challenge = '<html><head><title>Challenge Validation</title></head>'
         + '<body><meta name="sec-cpt-if" content="provider=crypto">'
         + `${' blocked'.repeat(30)}</body></html>`;
@@ -646,7 +647,7 @@ describe('MediPersonal crawler parser', () => {
         /href="([^"]+\/jobs\/[^"?]+)"/g,
       )].map(([, url]) => url);
       const rescueCalls: string[] = [];
-      const description = 'Eine verantwortungsvolle Aufgabe mit enger Zusammenarbeit, klarer fachlicher Verantwortung und verlässlicher Begleitung im Berufsalltag. Die Fachperson plant Einsätze, dokumentiert Ergebnisse und unterstützt das Team sorgfältig.';
+      const description = 'Eine verantwortungsvolle Aufgabe mit enger Zusammenarbeit, klarer fachlicher Verantwortung und verlässlicher Begleitung im Berufsalltag. Die Fachperson plant Einsätze, dokumentiert Ergebnisse und unterstützt das Team sorgfältig.' + SOURCE_BODY_SUFFIX;
       const fetchImpl = async (input: string | URL | Request) => {
         const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
         if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
@@ -713,7 +714,7 @@ describe('MediPersonal crawler parser', () => {
       // quel riempimento girasse.
       const seedUrl = 'https://ipersonal-authored-body.example/';
       const detailUrl = `${seedUrl}jobs/nur-im-koerper/`;
-      const authored = 'Du planst und dokumentierst die Pflege in einem professionellen Team, berätst Angehörige und koordinierst Termine mit den behandelnden Ärztinnen und Ärzten zuverlässig und nachvollziehbar.';
+      const authored = 'Du planst und dokumentierst die Pflege in einem professionellen Team, berätst Angehörige und koordinierst Termine mit den behandelnden Ärztinnen und Ärzten zuverlässig und nachvollziehbar.' + SOURCE_BODY_SUFFIX;
       const fetchImpl = async (input: string | URL | Request) => {
         const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
         if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
@@ -763,7 +764,7 @@ describe('MediPersonal crawler parser', () => {
       const seedUrl = 'https://ipersonal-rich-body-gate.example/';
       const richDetailUrl = `${seedUrl}jobs/rich-body/`;
       const unstructuredDetailUrl = `${seedUrl}jobs/unstructured-body/`;
-      const richDescription = 'Eine verantwortungsvolle Aufgabe mit enger Zusammenarbeit, klarer fachlicher Verantwortung und verlässlicher Begleitung im Berufsalltag. Die Fachperson plant Einsätze, dokumentiert Ergebnisse und unterstützt das Team sorgfältig.';
+      const richDescription = 'Eine verantwortungsvolle Aufgabe mit enger Zusammenarbeit, klarer fachlicher Verantwortung und verlässlicher Begleitung im Berufsalltag. Die Fachperson plant Einsätze, dokumentiert Ergebnisse und unterstützt das Team sorgfältig.' + SOURCE_BODY_SUFFIX;
       const unstructuredDescription = 'Eine verantwortungsvolle Aufgabe mit enger Zusammenarbeit, klarer fachlicher Verantwortung und verlässlicher Begleitung im Berufsalltag. Die Fachperson plant Einsätze, dokumentiert Ergebnisse und unterstützt das Team sorgfältig. Sie organisiert Termine, stimmt Abläufe ab, beantwortet Rückfragen und hält die Ergebnisse nachvollziehbar fest.\n- JSON-LD metadata item';
       const fetchImpl = async (input: string | URL | Request) => {
         const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
@@ -860,7 +861,7 @@ describe('MediPersonal crawler parser', () => {
       const seedUrl = 'https://ipersonal-retry.example/';
       const detailUrl = `${seedUrl}jobs/retry-winner/`;
       let detailCalls = 0;
-      const winningDescription = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.';
+      const winningDescription = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.' + SOURCE_BODY_SUFFIX;
       const fetchImpl = async (input: string | URL | Request) => {
         const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
         if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
@@ -927,7 +928,7 @@ describe('MediPersonal crawler parser', () => {
         if (url === seedUrl) return new Response(`<a href="${detailUrl}">First success</a>`, { status: 200 });
         detailCalls++;
         if (detailCalls > 1) throw new Error('a successful detail must terminate retries');
-        const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.';
+        const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.' + SOURCE_BODY_SUFFIX;
         return new Response(`
           <script type="application/ld+json">${JSON.stringify({
             '@context': 'https://schema.org', '@type': 'JobPosting', title: 'First success',
@@ -957,7 +958,7 @@ describe('MediPersonal crawler parser', () => {
       const seedUrl = 'https://ipersonal-one-to-one.example/';
       const aliasUrl = `${seedUrl}jobs/legacy-alias/`;
       const canonicalDetailUrl = `${seedUrl}jobs/canonical-role/`;
-      const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.';
+      const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.' + SOURCE_BODY_SUFFIX;
       const fetchImpl = async (input: string | URL | Request) => {
         const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
         if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
@@ -1007,12 +1008,13 @@ describe('MediPersonal crawler parser', () => {
             <a href="${rejectedUrl}">Remote role without Swiss location</a>`, { status: 200 });
         }
         const accepted = url === acceptedUrl;
+        const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.' + SOURCE_BODY_SUFFIX;
         const schema = {
           '@context': 'https://schema.org',
           '@type': 'JobPosting',
           title: accepted ? 'Fachperson Zürich' : 'Remote role without Swiss location',
           url,
-          description: 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.',
+          description,
           ...(accepted ? {
             jobLocation: {
               '@type': 'Place',
@@ -1028,7 +1030,7 @@ describe('MediPersonal crawler parser', () => {
         return new Response(`
           <script type="application/ld+json">${JSON.stringify(schema)}</script>
           <section class="job-profile-section"><div id="Jobdetails">
-            <p>Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards.</p>
+            <p>${description}</p>
             <h3>Deine Aufgaben</h3><ul><li>Ergebnisse zuverlässig und nachvollziehbar dokumentieren</li><li>Kundinnen und Kunden professionell beraten und Termine koordinieren</li></ul>
           </div></section>`, { status: 200 });
       };
@@ -1118,7 +1120,7 @@ describe('MediPersonal crawler parser', () => {
         (_, index) => `${seedUrl}jobs/accepted-${index + 1}/`,
       );
       const failedUrl = `${seedUrl}jobs/temporarily-blocked/`;
-      const previousDescription = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.\n• Ergebnisse zuverlässig dokumentieren';
+      const previousDescription = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.\n• Ergebnisse zuverlässig dokumentieren' + SOURCE_BODY_SUFFIX;
       const fetchImpl = async (input: string | URL | Request) => {
         const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
         if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
@@ -1130,7 +1132,7 @@ describe('MediPersonal crawler parser', () => {
           );
         }
         if (url === failedUrl) return new Response('temporary upstream outage', { status: 500 });
-        const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.';
+        const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.' + SOURCE_BODY_SUFFIX;
         return new Response(`
           <script type="application/ld+json">${JSON.stringify({
             '@context': 'https://schema.org',
@@ -1435,7 +1437,7 @@ describe('iPersonal client-side listing index (#17594)', () => {
   const unpublishedUrl = `${origin}/jobs/unpublished-zuerich/`;
   const removedUrl = `${origin}/jobs/removed-zuerich/`;
   const indexRow = (url: string) => ['Fachperson 100%', 'Zürich', 'ZH', 'fest', '100 %', new URL(url).pathname, 3, 0, 1];
-  const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.';
+  const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.' + SOURCE_BODY_SUFFIX;
   const previousRow = (url: string) => ({
     url, title: 'Fachperson Zürich', description, location: 'Zürich', canton: 'ZH', company: 'iPersonal AG',
   });

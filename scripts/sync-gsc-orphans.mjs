@@ -37,7 +37,11 @@ import {
 import { JOB_BOARD_SEGMENT_RX, JOB_BOARD_SECTION_GSC_STEMS } from './lib/jobBoardSections.mjs';
 import { stripScriptsAndStyles } from './lib/crawler-template.mjs';
 import { assertCompatFloor } from './lib/compat-paths-floor-guard.mjs';
-import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import {
+  readCompatPathsStrict,
+  readCompatPathsStrictWithManifestRepair,
+  writeCompatPaths,
+} from './lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
 import {
   readOrphanEnriched,
@@ -1256,7 +1260,9 @@ async function main() {
   // Sharded accumulator (issue #2988): logical {paths} spread across shards;
   // always go through readCompatPathsStrict/writeCompatPaths, never a single file.
   const compatPathsFile = dataPath('seo-404-compat');
-  const compatData = readCompatPathsStrict(ROOT);
+  const compatData = !DRY_RUN
+    ? readCompatPathsStrictWithManifestRepair(ROOT).data
+    : readCompatPathsStrict(ROOT);
   if (compatData?.paths && Array.isArray(compatData.paths)) {
     // Canton-aware: the previous regex matched ONLY the four Ticino sections,
     // so every non-TI compat job path (grigioni, vallese, zurigo, soletta, …)

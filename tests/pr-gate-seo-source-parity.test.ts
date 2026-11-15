@@ -56,6 +56,20 @@ describe('F1.1 — tests.yml (the required check) runs gate:seo-source on every 
     expect(deployStep).toBeTruthy();
   });
 
+  it('runs both gate callers from complete checkouts', () => {
+    const prCheckout = stepsOf(vitestJob).find(
+      (step) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
+    );
+    const deployCheckout = stepsOf(deploy.jobs.prep).find(
+      (step) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
+    );
+
+    expect(prCheckout?.with?.['sparse-checkout']).toBeUndefined();
+    expect(deployCheckout?.with?.['sparse-checkout']).toBeUndefined();
+    expect(read('.github/workflows/tests.yml')).toContain('# checkout profile: intentionally full');
+    expect(read('.github/workflows/deploy.yml')).toContain('# checkout profile: intentionally full');
+  });
+
   it('puts the large-dataset AST lint in the parallel source guards (every PR)', () => {
     const guards = find(stepsOf(vitestJob), 'Run source guards in parallel');
     expect(guards.run).toContain('start_gate large-dataset-reads node scripts/ci/check-large-dataset-reads.mjs');

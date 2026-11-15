@@ -23,6 +23,8 @@ function response(url: string, body: string) {
 
 afterEach(() => clearPoliteFetchStateForTests());
 
+const SOURCE_BODY_SUFFIX = ' Die Stelle erfordert sorgfältige Planung, verlässliche Kommunikation, selbstständige Umsetzung, gute Zusammenarbeit, Qualitätskontrolle, Kundenbetreuung und nachvollziehbare Dokumentation im täglichen Arbeitsumfeld mit Kundinnen, Kunden und internen Fachstellen im Schichtalltag.';
+
 describe('CSL Immobilien AG crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
@@ -168,7 +170,7 @@ describe('CSL Immobilien AG crawler parser', () => {
         '@type': 'JobPosting',
         url: detailUrl,
         title: 'Sachbearbeiter Immobilienbewirtschaftung (M/W/D) 100%',
-        description: 'CSL Immobilien sucht eine engagierte Persönlichkeit für die Bewirtschaftung eines abwechslungsreichen Portfolios. Die Stelle umfasst die Organisation von Besichtigungen, die Bearbeitung von Mietverträgen, die Zusammenarbeit mit Mietern und Handwerkern sowie die Unterstützung des Teams im täglichen Geschäft.',
+        description: 'CSL Immobilien sucht eine engagierte Persönlichkeit für die Bewirtschaftung eines abwechslungsreichen Portfolios. Die Stelle umfasst die Organisation von Besichtigungen, die Bearbeitung von Mietverträgen, die Zusammenarbeit mit Mietern und Handwerkern sowie die Unterstützung des Teams im täglichen Geschäft.' + SOURCE_BODY_SUFFIX,
         datePosted: '2026-10-28',
         employmentType: 'FULL_TIME',
         hiringOrganization: { '@type': 'Organization', name: 'CSL Immobilien AG' },

@@ -19,7 +19,6 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00047021EXTERNALENGLOBAL/Mechanical-Supervisor--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00047028EXTERNALENGLOBAL/Research-Scientist-in-Operational-Technology--OT--Cybersecurity--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00047476EXTERNALENGLOBAL/Senior-Project-Lead-Engineer---Power-Systems--80-100",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00048597EXTERNALENGLOBAL/Field-Service-Technician--80---100----f-m-d",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00048851EXTERNALENGLOBAL/XMLNAME--80--100---R-D-Electronics-Hardware--Engineer",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00049886EXTERNALENGLOBAL/Modelling-and-Experimental-scientist--80---100---f-m-d",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050203EXTERNALENGLOBAL/Data-Managmenet-Specialist---Operations--m-w-d--80--100",
@@ -32,7 +31,6 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050906EXTERNALENGLOBAL/XMLNAME--80---100---Technical-Consultant--Medium-Voltage-Drives_JR00050906-1",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050918EXTERNALENGLOBAL/XMLNAME--80---100---Compliance-Engineer---Senior-R-D-Engineer-for-SST",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00051041EXTERNALENGLOBAL/XMLNAME--80---100---Customer-Application-Engineer",
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00051077EXTERNALENGLOBAL/Strategy---Business-Development-Intern-f-m-d--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00051234EXTERNALENGLOBAL/Global-Lead-Engineer",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00051299EXTERNALENGLOBAL/R-D-Manager--GBL-Power-Reliability",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00051419EXTERNALENGLOBAL/R-D-Testing---Lab-Specialist--m-w-d--80--100",
@@ -47,7 +45,7 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00052869EXTERNALENGLOBAL/Product-Manager"
   ],
   "notes": "Dedicated ABB crawler seeds from the careers.abb Phenom refineSearch API (country=Switzerland, CH-wide / all cantons), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-11-14T21:18:10.573Z",
+  "updatedAt": "2026-11-15T09:21:35.106Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00050918EXTERNALENGLOBAL/XMLNAME--80---100---Compliance-Engineer---Senior-R-D-Engineer-for-SST": {
       "location": "Baden-Daettwil, Aargau, Switzerland",
@@ -113,23 +111,7 @@
       "companyDomain": "abb.ch",
       "contract": "Full-time"
     },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00051077EXTERNALENGLOBAL/Strategy---Business-Development-Intern-f-m-d--80-100": {
-      "location": "Baden, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00051559EXTERNALENGLOBAL/Datacenter-Senior-Automation---Control-Engineer--80-100": {
-      "location": "Baden, Aargau, Switzerland",
-      "canton": "AG",
-      "country": "CH",
-      "company": "ABB Svizzera (sede Ticino)",
-      "companyDomain": "abb.ch",
-      "contract": "Full-time"
-    },
-    "https://careers.abb/global/en/job/ABB1GLOBALJR00048597EXTERNALENGLOBAL/Field-Service-Technician--80---100----f-m-d": {
       "location": "Baden, Aargau, Switzerland",
       "canton": "AG",
       "country": "CH",

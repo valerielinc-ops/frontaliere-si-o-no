@@ -628,8 +628,15 @@ describe('workflow wiring for one review per HEAD', () => {
     // HEAD nuova il reviewer non la giudica mai (#9147: quattro review
     // identiche dopo «già risolto alla riga 282»). Anche questo è
     // deterministico, uno per round, e parte solo se la HEAD è ferma.
+    //
+    // Il terzo (2026-11-15, #18822) non e' un'eccezione al divieto ma la sua
+    // difesa: il fixer aveva consegnato il round come `wip(issue-N): checkpoint
+    // pre-test` e il Re-review guard (F7) lo lascia senza review. Lo step
+    // deterministico `Finalize redflag HEAD` aggiunge un commit conventional
+    // vuoto SOLO se l'HEAD del round (!= BASE_SHA) e' un `wip(...)`; mai un
+    // commit su lavoro non fatto. Vedi tests/fixer-wip-head-contract.test.ts.
     const emptyCommits = fixerYml.match(/git commit --allow-empty/gu) ?? [];
-    expect(emptyCommits).toHaveLength(2);
+    expect(emptyCommits).toHaveLength(3);
     const stepBody = (name: string) => {
       const start = fixerYml.indexOf(`- name: ${name}`);
       expect(start, name).toBeGreaterThan(0);
@@ -643,6 +650,10 @@ describe('workflow wiring for one review per HEAD', () => {
     expect(dispute).toContain('git commit --allow-empty');
     expect(dispute).toContain('disputed');
     expect(dispute).toMatch(/"\$head_now" != "\$\{BASE_SHA:-\}"/);
+    const finalize = stepBody('Finalize redflag HEAD (never deliver a WIP checkpoint, zero-Claude)');
+    expect(finalize).toContain('git commit --allow-empty');
+    expect(finalize).toMatch(/"\$head_now" = "\$BASE_SHA"/); // niente commit se il round non ne ha fatti
+    expect(finalize).toContain('^wip\\('); // solo su un HEAD WIP
   });
 
   it('attesta il CLI anche prima del preflight e nel watcher di superseded HEAD', () => {

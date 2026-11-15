@@ -436,6 +436,7 @@ export function installHouseAds(
       const impressionKey = `${path}:${data.creative_id}:${format}:${data.context_source || 'generic'}:${data.context_sector || 'generic'}`;
       entries.set(frame, { creative, seen: counted.get(frame)?.has(impressionKey) || false, data, contextSignature });
       report('house_ad_rendered', { ...data, action: 'render' });
+      report('house_ad_fallback_rendered', { ...data, action: fallbackReason });
     }
     measure();
   }

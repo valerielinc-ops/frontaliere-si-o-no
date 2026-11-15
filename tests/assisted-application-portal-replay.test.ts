@@ -1145,6 +1145,15 @@ describe('portal replay daily check', () => {
     expect(issueBlock).toContain("if: needs.portal-replay-daily-verdict.result == 'success'");
     // the title comes from the same module that owns the marker
     expect(issueBlock).toContain('--print-title');
+    // `scan-unreported-failures.mjs` recognizes a domain issue only when its
+    // `**Workflow:**` field equals the workflow `name:` EXACTLY. A suffix such
+    // as " (daily)" hides the daily issue from the scanner, which then opened a
+    // duplicate `CI Failure:` thread for a run already reported (run 43693504790).
+    const workflowName = /^name:\s*(.+?)\s*$/mu.exec(text)?.[1];
+    expect(workflowName).toBe('Assisted application portal replay');
+    const declared = [...issueBlock.matchAll(/--workflow '([^']*)'/gu)].map((match) => match[1]);
+    expect(declared).toEqual([workflowName, workflowName]); // open step + close step
+    expect(issueBlock).not.toContain('(daily)');
     // the sparse, non-cone checkout carries the helper's own import as well
     expect(issueBlock).toContain('scripts/ci/portal-replay-daily-issue.mjs\n            scripts/lib/is-invoked-directly.mjs\n            scripts/lib/github-issue-creator.mjs');
     expect(readFileSync(new URL('../scripts/ci/portal-replay-daily-issue.mjs', import.meta.url), 'utf8')).toContain("from '../lib/is-invoked-directly.mjs'");

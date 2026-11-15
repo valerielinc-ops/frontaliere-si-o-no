@@ -1,0 +1,23 @@
+{
+  "companyKey": "weber-calibra-sa",
+  "companyName": "Weber Calibra SA",
+  "companyHost": "app.jobportal.abaservices.ch",
+  "verifiedEmployerDomain": "webercalibra.ch",
+  "platform": "abaservices.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://app.jobportal.abaservices.ch/page/0c4f9ce4-ea85-4fd4-9b5c-2eb6a4e40af7/0ca460c9-35cf-4169-b8be-f6e0c6e053d6/ad612d3f-8998-6821-fe92-5c6ef62ce245"
+  ],
+  "detailTemplate": "/page/0c4f9ce4-ea85-4fd4-9b5c-2eb6a4e40af7/0ca460c9-35cf-4169-b8be-f6e0c6e053d6/ad612d3f-8998-6821-fe92-5c6ef62ce245",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Spontanbewerber/in"
+  ],
+  "canton": "BE",
+  "sourceLang": "it",
+  "learnedAt": "2026-11-15T14:09:04.131Z",
+  "candidateKey": "weber-calibra@sonceboz-sombeval"
+}

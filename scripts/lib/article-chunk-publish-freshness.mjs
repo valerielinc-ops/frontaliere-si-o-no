@@ -11,6 +11,8 @@ import fs from 'node:fs';
 
 export const GIT_SHA_RE = /^[0-9a-f]{40}$/iu;
 
+export const ARTICLE_PUBLISHER_WORKFLOW_PATH = '.github/workflows/sync-articles-sitemaps.yml';
+
 // Keep this list in lockstep with the push trigger in the sync workflow. The
 // workflow test compares the two lists so this safety decision cannot drift
 // away from the event that schedules the replay.
@@ -25,7 +27,7 @@ export const ARTICLE_SURFACE_PATHS = Object.freeze([
   'public/sitemap.xml',
   'public/rss*.xml',
   'public/news-ticker-live.json',
-  '.github/workflows/sync-articles-sitemaps.yml',
+  ARTICLE_PUBLISHER_WORKFLOW_PATH,
 ]);
 
 // The code that decides what the replay writes: the scripts its publishing
@@ -118,6 +120,11 @@ export function isArticleSurfacePath(changedPath) {
 export function isArticlePublisherCodePath(changedPath) {
   return typeof changedPath === 'string'
     && ARTICLE_PUBLISHER_CODE_REGEXES.some((pattern) => pattern.test(changedPath));
+}
+
+/** True for the workflow whose path filter is part of the publisher contract. */
+export function isArticlePublisherWorkflowPath(changedPath) {
+  return changedPath === ARTICLE_PUBLISHER_WORKFLOW_PATH;
 }
 
 /**

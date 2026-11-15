@@ -59,17 +59,15 @@ jobs:
         with:
           fetch-depth: 1
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
-        with:
-          node-version: 22
-          cache: npm
+      # node_modules in cache (perf-plan email senders, A3/B4): chiave sul lockfile
+      # e sulla major di Node, `npm ci` solo su miss. Il sender gira fino a ~37
+      # volte al giorno e `npm ci` costava 37-49 s a ogni run.
+      - name: Setup Node.js and restore node_modules
+        uses: ./.github/actions/npm-ci-cached
 
-      - name: Install dependencies
-        run: npm ci
-
+      # Servono anche al dry run: il sender legge alert e consenso da Firestore
+      # (solo letture) anche con --dry-run.
       - name: Prepare Firebase credentials
-        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -80,9 +78,13 @@ jobs:
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
           echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
 
+      # Privilegio minimo (perf-plan email senders, B4): l'elenco e' quello che il
+      # codice del job (sender, cascade, assemble, issue-creator e le loro
+      # importazioni) legge davvero da `process.env`. Lo verifica
+      # tests/email-senders-workflow-perimeter.test.ts: una chiave nuova letta dal
+      # codice e non elencata qui fa fallire la CI, non il job in produzione.
       - name: Load secrets from Remote Config
-        if: inputs.dry_run != true && inputs.dry_run != 'true'
-        run: node scripts/load-rc-env.mjs
+        run: node scripts/load-rc-env.mjs --only-env=CF_ACCOUNT_ID,CF_API_TOKEN,CLOUDFLARE_EMAIL_API_TOKEN,ENABLE_JOB_ALERTS,MAILEROO_ACCOUNT_API_KEY,MAILEROO_API_KEY,MAILEROO_NEWSLETTER_API_KEY,MAILEROO_TRANSACTIONAL_API_KEY,MAILGUN_API_KEY,MAILGUN_DOMAIN,MAILJET_API_KEY,MAILJET_SECRET_KEY,MAILTRAP_API_TOKEN,NEWSLETTER_SECRET,RESEND_API_KEY
 
       # data/jobs.json is gitignored — it is assembled from the committed
       # by-crawler slices. The sender reads firstSeenAt off it.
@@ -93,9 +95,26 @@ jobs:
       # the script checks before restoring, so a hit can only replay an output
       # built from byte-identical inputs; no restore-keys fallback. Measured
       # miss cost: 4m41 (run 35422626497).
+      #
+      # ACTIVE-ONLY, NO SUMMARIES (perf-plan email senders, B1). The sender reads
+      # ONE file, data/jobs.json: never expired-jobs.json, `previousSlugs` or the
+      # crawler summaries. In a full assembly the expired archive and the slug
+      # reconciliation took 499 s of a 633 s miss and the summaries wrote ~111
+      # `crawler-quality-scores` documents; `--active-only --no-summaries` skips
+      # both. The flags MUST be identical in the key action and in the assemble
+      # step, or every run misses the cache
+      # (tests/send-company-alerts-workflow.test.ts).
+      #
+      # The key still hashes the expired slices ON PURPOSE: the active assembly
+      # reads them to carry `firstSeenAt` forward for a re-published job
+      # (carryForwardFirstSeenAt, archivedJobs), and `firstSeenAt` is exactly the
+      # novelty field this sender selects on. Dropping them from the key would
+      # allow a false HIT.
       - name: Compute assemble-jobs cache key
         id: assemble_cache_key
         uses: ./.github/actions/assemble-jobs-cache-key
+        with:
+          args: --active-only --no-summaries
 
       - name: Restore assemble-jobs cache
         id: assemble_cache
@@ -107,7 +126,7 @@ jobs:
 
       - name: Assemble jobs dataset
         id: assemble
-        run: node scripts/assemble-jobs-dataset.mjs
+        run: node scripts/assemble-jobs-dataset.mjs --active-only --no-summaries
 
       - name: Save assemble-jobs cache
         if: steps.assemble.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true'
@@ -116,6 +135,17 @@ jobs:
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-send-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+
+      # Dry run (input dry_run, default true per i dispatch manuali): costruisce le
+      # email con i dati di produzione e stampa destinatari/sezioni e la riga
+      # COMPANYALERT_METRICS, senza reclamare ne' inviare nulla (solo letture).
+      - name: Build CompanyAlert emails without sending (dry run)
+        if: inputs.dry_run == true || inputs.dry_run == 'true'
+        env:
+          ENABLE_JOB_ALERTS: 'true'
+          TARGET_EMAIL: ${{ inputs.target_email }}
+        run: |
+          node scripts/send-company-alerts.mjs --dry-run
 
       - name: Send CompanyAlert emails
         if: inputs.dry_run != true && inputs.dry_run != 'true'

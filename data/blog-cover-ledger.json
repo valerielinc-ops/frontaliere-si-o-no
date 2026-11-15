@@ -15,10 +15,10 @@
       "2": 197,
       "3": 0,
       "4": 0,
-      "5": 1171,
+      "5": 1172,
       "6": 5062
     },
-    "publishedCovers": 7914,
+    "publishedCovers": 7915,
     "publishedWithExistingOrInheritedRecord": 1769,
     "publishedReplacements": 1,
     "inheritedRecordsMaterialized": 197,
@@ -218432,6 +218432,39 @@
         "provider": "openai-codex",
         "assetId": "article-imc-oberengadin-weekend",
         "imageUrl": "/images/blog/article-imc-oberengadin-weekend.webp",
+        "evidence": "generated-engine-record"
+      }
+    },
+    "article-bollettino-frontaliere-2026-11-15": {
+      "cover": "/images/blog/article-bollettino-frontaliere-2026-11-15.webp",
+      "hash": "1111750816cbb231d770d51df0a63390bf6a1ab30c110c20643d8f1d385d3022",
+      "published": true,
+      "historicalPublished": true,
+      "references": [
+        {
+          "section": "frontaliere",
+          "id": "bollettino-frontaliere-2026-11-15",
+          "category": "novita",
+          "date": "2026-11-15T12:38:22.386Z",
+          "updatedAt": null,
+          "authorSlug": "marco-ferrari"
+        }
+      ],
+      "proofLevel": 5,
+      "evidence": "generated-engine-record",
+      "recordFile": "packages/articles/content/image-credits/blog/article-bollettino-frontaliere-2026-11-15.json",
+      "inheritedFrom": null,
+      "action": "generated",
+      "reason": "Copertina generata con record article-hero verificato e sha256 coincidente con i byte pubblicati.",
+      "priority": 1795,
+      "verifiedAt": "2026-11-15",
+      "provider": "openai-codex",
+      "currentlyPublished": true,
+      "status": "generated",
+      "generated": {
+        "provider": "openai-codex",
+        "assetId": "article-bollettino-frontaliere-2026-11-15",
+        "imageUrl": "/images/blog/article-bollettino-frontaliere-2026-11-15.webp",
         "evidence": "generated-engine-record"
       }
     }

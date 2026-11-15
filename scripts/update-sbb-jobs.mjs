@@ -96,6 +96,8 @@ const DEFAULT_CANTON = getCompanyDefaults(SBB_KEY)?.canton || 'TI';
 const SBB_API_URL =
   'https://company.sbb.ch/content/internet/corporate/it/impieghi-carriera/jobs/posti-liberi/jcr:content/parmain/jobfilter.results.json';
 const SBB_LISTING_URL = 'https://company.sbb.ch/it/impieghi-carriera/jobs/posti-liberi.html';
+const SBB_LISTING_START_URL = `${SBB_LISTING_URL}?startItem=1`;
+const SBB_LISTING_MAX_PAGES = 40;
 const SBB_AEM_BROWSER_USER_AGENT =
   'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
 
@@ -166,17 +168,27 @@ function isLoginSbbJob(job) {
 }
 
 export function buildSbbSourceHealth(apiSeed = {}, loginDiscovery = {}) {
+  const aemDegraded = apiSeed?.source === 'sbb-vacancies-listing';
   const loginDegraded = loginDiscovery?.degraded === true;
   return {
-    status: loginDegraded ? 'degraded' : 'healthy',
-    degradedSources: loginDegraded ? ['login.org-apprenticeships'] : [],
+    status: aemDegraded || loginDegraded ? 'degraded' : 'healthy',
+    degradedSources: [
+      ...(aemDegraded ? ['sbb-aem-json'] : []),
+      ...(loginDegraded ? ['login.org-apprenticeships'] : []),
+    ],
     sources: {
       aem: {
         id: 'sbb-aem',
         role: 'primary',
-        status: 'healthy',
+        status: aemDegraded ? 'degraded' : 'healthy',
         sourceZero: apiSeed?.sourceZero === true,
         aemUrlCount: Array.isArray(apiSeed?.urls) ? apiSeed.urls.length : 0,
+        ...(aemDegraded
+          ? {
+              fallbackSource: 'sbb-vacancies-listing',
+              failureReason: 'aem-api-unavailable',
+            }
+          : {}),
       },
       loginOrg: {
         id: 'login.org-apprenticeships',
@@ -243,6 +255,12 @@ async function fetchPage(url, timeoutMs = 15000, accept = 'application/json') {
       headers['Accept-Language'] = 'it-CH,it;q=0.9,en;q=0.8';
       headers.Referer = SBB_LISTING_URL;
       headers['X-Requested-With'] = 'XMLHttpRequest';
+      headers['User-Agent'] = SBB_AEM_BROWSER_USER_AGENT;
+    } else if (isSbbListingUrl(url)) {
+      // Use a browser-shaped document request for the official HTML fallback,
+      // but keep its HTML Accept value and do not mark it as an XHR.
+      headers['Accept-Language'] = 'it-CH,it;q=0.9,en;q=0.8';
+      headers.Referer = SBB_LISTING_URL;
       headers['User-Agent'] = SBB_AEM_BROWSER_USER_AGENT;
     }
     const res = await fetch(url, {
@@ -319,7 +337,11 @@ function validateSbbAemJinaBody(body = '') {
  */
 async function fetchSbbAemBody({ fetchPageImpl, fetchJinaImpl, timeoutMs }) {
   const directBody = await fetchPageImpl(SBB_API_URL, timeoutMs);
-  if (directBody) return directBody;
+  const directSourceBody = extractSbbAemJsonBody(directBody);
+  if (directSourceBody) return directSourceBody;
+  if (directBody) {
+    console.warn('⚠️ Direct SBB AEM discovery body was not a valid JSON array — trying the clean-IP proxy...');
+  }
 
   console.warn('⚠️ Direct SBB AEM discovery was unavailable — retrying via Jina clean-IP proxy...');
   const response = await fetchJinaImpl(SBB_API_URL, {
@@ -340,6 +362,167 @@ async function fetchSbbAemBody({ fetchPageImpl, fetchJinaImpl, timeoutMs }) {
   const reason = validateSbbAemJinaBody(body);
   console.warn(`⚠️ Jina-proxied SBB AEM discovery body was not valid JSON${reason ? ` (${reason})` : ''}.`);
   return null;
+}
+
+function isSbbListingUrl(rawUrl = '') {
+  try {
+    const url = new URL(rawUrl, SBB_LISTING_URL);
+    return url.protocol === 'https:'
+      && url.hostname === 'company.sbb.ch'
+      && url.pathname === new URL(SBB_LISTING_URL).pathname;
+  } catch {
+    return false;
+  }
+}
+
+function extractSbbListingDetailJobs(html = '') {
+  const jobs = new Map();
+  const anchorRe = /<a\b[^>]*\bhref\s*=\s*(["'])(.*?)\1[^>]*>([\s\S]*?)<\/a>/gi;
+  let match;
+  while ((match = anchorRe.exec(String(html || ''))) !== null) {
+    const href = decodeHtmlEntities(match[2]);
+    let url;
+    try {
+      url = new URL(href, SBB_LISTING_URL);
+    } catch {
+      continue;
+    }
+    const identity = url.pathname.match(/^\/v2\/offene-stellen\/[^/]+\/([0-9a-f-]{20,})$/i);
+    if (url.protocol !== 'https:' || url.hostname !== 'jobs.sbb.ch' || !identity || url.search || url.hash) continue;
+    const detailUrl = normalizeDetailUrl(url.toString());
+    if (!jobs.has(detailUrl)) {
+      jobs.set(detailUrl, {
+        url: detailUrl,
+      });
+    }
+  }
+  return [...jobs.values()];
+}
+
+function extractSbbListingPaginationUrls(html = '') {
+  const urls = new Set();
+  const anchorRe = /<a\b[^>]*\bhref\s*=\s*(["'])(.*?)\1[^>]*>/gi;
+  let match;
+  while ((match = anchorRe.exec(String(html || ''))) !== null) {
+    let url;
+    try {
+      url = new URL(decodeHtmlEntities(match[2]), SBB_LISTING_URL);
+    } catch {
+      continue;
+    }
+    if (!isSbbListingUrl(url.toString())) continue;
+    const startItem = Number(url.searchParams.get('startItem'));
+    const allowedParams = [...url.searchParams.keys()].every((key) => key === 'startItem' || key === 'reentry');
+    if (!allowedParams || !Number.isInteger(startItem) || startItem < 1) continue;
+    urls.add(url.toString());
+  }
+  return [...urls];
+}
+
+function extractSbbListingDeclaredCount(html = '') {
+  const text = stripHtml(html);
+  const countMatch = text.match(/\b(\d{1,5})\s+(?:posti di lavoro trovati|stellen gefunden|jobs found|postes? trouv(?:e|é|ées?)s?)\b/i);
+  if (countMatch) return Number(countMatch[1]);
+  return null;
+}
+
+function validateSbbListingBody(body = '') {
+  const jinaReason = detectJinaErrorBody(body);
+  if (jinaReason) return jinaReason;
+  const text = stripHtml(body);
+  const hasListingIdentity = /(?:posti\s+liberi|offene\s+stellen|vacancies|postes\s+vacants)/i.test(text)
+    && /(?:jobfinder|job\s+finder|jobfilter|posti\s+di\s+lavoro\s+trovati|stellen\s+gefunden|jobs\s+found|postes?\s+trouv)/i.test(text);
+  if (!hasListingIdentity) return 'SBB vacancies listing identity marker missing';
+  if (extractSbbListingDeclaredCount(body) === null) return 'SBB vacancies listing result count missing';
+  return null;
+}
+
+async function fetchSbbListingPageBody(pageUrl, { fetchPageImpl, fetchJinaImpl, timeoutMs }) {
+  const directBody = await fetchPageImpl(pageUrl, timeoutMs, 'text/html,application/xhtml+xml');
+  if (directBody && !validateSbbListingBody(directBody)) return directBody;
+  if (directBody) {
+    console.warn(`⚠️ Direct SBB vacancies listing was not usable (${validateSbbListingBody(directBody)}): ${pageUrl}`);
+  }
+
+  const response = await fetchJinaImpl(pageUrl, {
+    timeoutMs,
+    format: 'html',
+    validateBody: validateSbbListingBody,
+  });
+  if (!response?.ok) {
+    console.warn(`⚠️ Jina proxy returned HTTP ${response?.status ?? 'unknown'} for SBB vacancies listing.`);
+    return null;
+  }
+  const body = await response.text();
+  const reason = validateSbbListingBody(body);
+  if (reason) {
+    console.warn(`⚠️ Jina-proxied SBB vacancies listing was not usable (${reason}).`);
+    return null;
+  }
+  return body;
+}
+
+/**
+ * Recover the national SBB seed list from the official vacancies page when the
+ * AEM JSON endpoint is blocked for both the Actions egress and Jina. The page
+ * is a source-backed listing, not a generic search result: every page must
+ * identify the SBB vacancies component, declare its result count, and expose
+ * canonical jobs.sbb.ch detail URLs. A count mismatch fails closed rather than
+ * publishing a partial snapshot.
+ */
+async function fetchSbbListingDetailUrls({ fetchPageImpl, fetchJinaImpl, timeoutMs }) {
+  const queue = [SBB_LISTING_START_URL];
+  const visited = new Set();
+  const detailJobs = new Map();
+  let declaredCount = null;
+
+  while (queue.length > 0 && visited.size < SBB_LISTING_MAX_PAGES) {
+    const pageUrl = queue.shift();
+    if (!pageUrl || visited.has(pageUrl)) continue;
+    visited.add(pageUrl);
+
+    const body = await fetchSbbListingPageBody(pageUrl, { fetchPageImpl, fetchJinaImpl, timeoutMs });
+    if (!body) return null;
+
+    const pageCount = extractSbbListingDeclaredCount(body);
+    if (pageCount === null) {
+      throw new Error(`SBB vacancies listing failed: result count missing (${pageUrl}).`);
+    }
+    if (declaredCount === null) declaredCount = pageCount;
+    else if (declaredCount !== pageCount) {
+      throw new Error(`SBB vacancies listing failed: declared count drifted (${declaredCount} != ${pageCount}).`);
+    }
+
+    for (const job of extractSbbListingDetailJobs(body)) detailJobs.set(job.url, job);
+    for (const nextUrl of extractSbbListingPaginationUrls(body)) {
+      if (!visited.has(nextUrl) && !queue.includes(nextUrl)) queue.push(nextUrl);
+    }
+  }
+
+  if (queue.length > 0) {
+    throw new Error(`SBB vacancies listing incomplete: reached SBB_LISTING_MAX_PAGES=${SBB_LISTING_MAX_PAGES} with ${queue.length} page(s) pending.`);
+  }
+  if (declaredCount === null || detailJobs.size !== declaredCount) {
+    throw new Error(`SBB vacancies listing invariant failed: declared=${declaredCount ?? 'unknown'}, canonical=${detailJobs.size}.`);
+  }
+
+  const urls = [...detailJobs.keys()].sort((a, b) => a.localeCompare(b));
+  // The listing link text is often a generic CTA, not the vacancy title. Keep
+  // source metadata unknown and let the authoritative detail page provide the
+  // title, location and dates instead of inventing values from the card markup.
+  const apiMetaByUrl = new Map();
+  const apiMetaByTitle = new Map();
+  console.log(`✅ SBB official vacancies listing detail URLs discovered: ${urls.length}`);
+  return {
+    urls,
+    apiMetaByUrl,
+    apiMetaByTitle,
+    sourceZero: urls.length === 0,
+    totalJobs: declaredCount,
+    targetJobs: urls.length,
+    duplicateIdentity: 0,
+    source: 'sbb-vacancies-listing',
+  };
 }
 
 function decodeHtmlHref(value = '') {
@@ -694,6 +877,9 @@ export async function fetchSbbJobDetailUrls(options = {}) {
   const body = await fetchSbbAemBody({ fetchPageImpl, fetchJinaImpl, timeoutMs });
 
   if (!body) {
+    console.warn('⚠️ SBB AEM discovery unavailable — falling back to the official vacancies listing...');
+    const listingSeed = await fetchSbbListingDetailUrls({ fetchPageImpl, fetchJinaImpl, timeoutMs });
+    if (listingSeed) return listingSeed;
     throw new Error('SBB AEM discovery failed: API response unavailable.');
   }
 

@@ -25,6 +25,8 @@ import {
   inspectLedgerOnlyHead,
   postLedgerOnlyReview,
   findLedgerOnlyApproval,
+  isDiffUnavailableError,
+  verifyNonRuntimeCodeHead,
 } from '../scripts/ci/review-test-policy.mjs';
 import { codeContributionFingerprint } from '../scripts/ci/auto-merge-eval.mjs';
 import {
@@ -870,5 +872,60 @@ describe('owner policy excluding test files from review', () => {
     expect(ledgerReview['continue-on-error']).toBeUndefined();
     expect(ledgerReview.run).toContain('APP_TOKEN');
     expect(source).not.toContain('ledger-fast-review.yml');
+  });
+});
+
+// #18870 (run 43709592384) e #18860: `pulls/{n}/files` calcola il diff e per un
+// diff troppo grande risponde `HTTP 422 ... diff is taking too long to generate`.
+// Lo step `Classify bounded ledger or non-runtime-code path` crashava con lo
+// stack dell'`execFileSync` ("job fail-closed" senza una classificazione).
+// Il fast path non e' dimostrabile: la classificazione e' quella conservativa
+// (non idonea, percorso ordinario), mai un crash.
+describe('REST pulls/{n}/files in 422 (diff troppo grande)', () => {
+  const tooLong = Object.assign(
+    new Error('Command failed: /usr/bin/gh api repos/o/r/pulls/18870/files --paginate --slurp\ngh: Server Error: Sorry, this diff is taking too long to generate. (HTTP 422)'),
+    {
+      status: 1,
+      stderr: 'gh: Server Error: Sorry, this diff is taking too long to generate. (HTTP 422)\n',
+      stdout: '[{"message":"Server Error: Sorry, this diff is taking too long to generate.","errors":[{"resource":"PullRequest","field":"diff","code":"not_available"}],"status":"422"}]',
+    },
+  );
+  const failDetails = (ghFn: (args: string[], options?: any) => any, error: unknown = tooLong) =>
+    (args: string[], options: any = {}) => {
+      if (String(args[1] ?? '').endsWith('/files') && args.includes('--slurp')) throw error;
+      return ghFn(args, options);
+    };
+
+  it('riconosce solo il 422 del diff troppo grande, non gli altri errori', () => {
+    expect(isDiffUnavailableError(tooLong)).toBe(true);
+    expect(isDiffUnavailableError({ stderr: 'HTTP 422 {"code":"not_available"}' })).toBe(true);
+    expect(isDiffUnavailableError(new Error('HTTP 502 Bad Gateway'))).toBe(false);
+    expect(isDiffUnavailableError(new Error('HTTP 422 Validation Failed'))).toBe(false);
+    expect(isDiffUnavailableError(undefined)).toBe(false);
+  });
+
+  it('non-code-check: dettagli file in 422 → PR non idonea al fast path, senza lanciare', () => {
+    const files = GENERATED_ARTICLE_DATA_FILES;
+    const ok = fixture({ files });
+    expect(verifyNonRuntimeCodeHead(ok.ghFn, 'owner/repo', 1, 'a'.repeat(40))).toBe(true);
+    const f = fixture({ files });
+    expect(verifyNonRuntimeCodeHead(failDetails(f.ghFn), 'owner/repo', 1, 'a'.repeat(40))).toBe(false);
+  });
+
+  it('un errore diverso dal 422 resta fail-closed con l\'eccezione originale', () => {
+    const f = fixture({ files: GENERATED_ARTICLE_DATA_FILES });
+    const boom = new Error('HTTP 502 Bad Gateway');
+    expect(() => verifyNonRuntimeCodeHead(failDetails(f.ghFn, boom), 'owner/repo', 1, 'a'.repeat(40))).toThrow(boom);
+  });
+
+  it('ledger-check: dettagli file in 422 → non ledger-only (percorso ordinario), non unverifiable', () => {
+    const f = ledgerFixture();
+    const inspected = inspectLedgerOnlyHead(failDetails(f.ghFn), 'owner/repo', 1, ledgerHead);
+    expect(inspected.ok).toBe(false);
+    expect(inspected).toMatchObject({ kind: 'not-ledger-only' });
+    // gli altri errori sui dettagli restano 'unverifiable'
+    const g = ledgerFixture();
+    expect(inspectLedgerOnlyHead(failDetails(g.ghFn, new Error('HTTP 502')), 'owner/repo', 1, ledgerHead))
+      .toMatchObject({ ok: false, kind: 'unverifiable' });
   });
 });

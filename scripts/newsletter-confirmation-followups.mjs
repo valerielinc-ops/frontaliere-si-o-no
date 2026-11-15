@@ -87,6 +87,8 @@ import {
   confirmationFrameForAttempt,
 } from '../functions/src/lib/confirmationEmailContent.js';
 import { sendEmailCascade, PROVIDERS, isProviderConfigured } from '../functions/src/emailCascade.js';
+import * as baseEmailCascade from '../functions/src/emailCascade.js';
+import { bulkOptionsFor } from './lib/bulk-send-throttle.mjs';
 import {
   mintNewsletterActionToken,
   resolveNewsletterTokenPolicy,
@@ -287,12 +289,17 @@ export async function sendConfirmationRequests(db, due, { nowIso, secret, tokenP
   // same delivery-reference hook as the Cloud Function sender: without the
   // campaign id persisted beside the provider message reference, engagement
   // events cannot attribute a follow-up to its frozen copy arm.
-  const { sent, failed } = await sendEmailCascade(items, {
+  //
+  // Throttle and concurrency are the job alerts' (scripts/lib/bulk-send-throttle.mjs),
+  // not the cascade defaults of one worker and 1 s spacing (perf-plan email senders,
+  // F2). The per-provider floors (BULK_PROVIDER_MIN_INTERVAL_MS) and the adaptive
+  // backoff on an explicit 429/5xx still bound the pace.
+  const { sent, failed } = await sendEmailCascade(items, bulkOptionsFor(baseEmailCascade, {
     onSent: makeDeliveryRefOnSent(async () => db, {
       defaultCampaignId: 'confirmation',
       isJobAlert: false,
     }),
-  });
+  }));
 
   const ambiguous = failed.filter((f) => f.ambiguousDelivery);
   const definitelyNotSent = failed.filter((f) => !f.ambiguousDelivery);

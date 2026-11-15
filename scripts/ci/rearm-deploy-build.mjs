@@ -462,6 +462,7 @@ export function sequenceConcludedRuns({ runs, selfRunId, selfConclusion = '', no
   for (const run of Array.isArray(runs) ? runs : []) {
     if (!run || run.event === 'schedule') continue;
     const isSelf = self != null && String(run.id) === self;
+    if (isSelf && !String(selfConclusion ?? '').trim()) continue; // observer without a conclusion is not a verdict (watchdog)
     if (!isSelf && run.status !== 'completed') continue;
     const conclusion = isSelf
       ? (String(selfConclusion).toLowerCase() === 'success' ? 'success' : 'failure')
@@ -498,7 +499,10 @@ export function countRearmFailuresInWindow({
     if (run?.event !== 'workflow_dispatch') return false;
     if (!/\[bot\]$/.test(String(run?.actor || ''))) return false;
     if (!(Date.parse(run?.createdAt || '') >= since)) return false;
-    if (self != null && String(run.id) === self) return String(selfConclusion).toLowerCase() !== 'success';
+    if (self != null && String(run.id) === self) {
+      if (!String(selfConclusion ?? '').trim()) return false;
+      return String(selfConclusion).toLowerCase() !== 'success';
+    }
     return run.status === 'completed' && (run.conclusion === 'failure' || run.conclusion === 'timed_out');
   }).length;
 }
@@ -761,7 +765,7 @@ function inspectFailureStreak({ repo, workflow, branch, runs, selfRunId, selfCon
   try {
     const completed = readCompletedBuildRuns({ repo, workflow, branch });
     const known = mergeRuns(completed, (Array.isArray(runs) ? runs : []).filter((run) => run?.event !== 'schedule'));
-    if (selfRunId && !known.some((run) => String(run.id) === String(selfRunId))) {
+    if (selfRunId && String(selfConclusion ?? '').trim() && !known.some((run) => String(run.id) === String(selfRunId))) {
       known.push({
         id: selfRunId, headSha: selfHeadSha, status: 'in_progress', conclusion: null,
         event: 'workflow_dispatch', createdAt: new Date(nowMs).toISOString(),
@@ -961,6 +965,10 @@ async function main() {
   const workflow = process.env.REARM_WORKFLOW || 'deploy.yml';
   const branch = process.env.REARM_BRANCH || 'main';
   const selfRunId = process.env.GITHUB_RUN_ID;
+  const selfConclusion = process.env.REARM_SELF_CONCLUSION;
+  if (!String(selfConclusion ?? '').trim()) {
+    console.log('[rearm] observer run (no REARM_SELF_CONCLUSION): own run excluded from the failure streak and re-arm budget');
+  }
   const maxBuildsPerSha = Number(process.env.REARM_MAX_BUILDS_PER_SHA) || DEFAULT_MAX_BUILDS_PER_SHA;
   const maxLocaleRecoveryAttempts = intFromEnv(
     'REARM_MAX_LOCALE_RECOVERY_ATTEMPTS',

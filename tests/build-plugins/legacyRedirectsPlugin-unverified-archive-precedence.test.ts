@@ -124,6 +124,27 @@ describe('canonical aliases versus existing HTML ownership', () => {
     }
   });
 
+  it('leaves a tracked German legacy-section alias to the Worker instead of emitting a 200', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'legacy-german-section-alias-'));
+    roots.push(root);
+    fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+    const slug = 'schulbotschafter-in-stadt-zurich-zurich';
+    const legacyPath = `/de/jobs-im-zurich/${slug}/`;
+    fs.writeFileSync(path.join(root, 'data/jobs.json'), '[]');
+    fs.writeFileSync(path.join(root, 'data/article-redirects.json'), '{}');
+    fs.writeFileSync(path.join(root, 'data/seo-404-compat-paths.json'), JSON.stringify({
+      source: 'gsc',
+      paths: [legacyPath],
+    }));
+
+    const hook = legacyRedirectsPlugin(root).closeBundle as unknown as { handler: () => Promise<void> };
+    await hook.handler();
+
+    const dist = path.join(root, 'dist');
+    expect(fs.existsSync(path.join(dist, 'de/jobs-im-zurich', slug, 'index.html'))).toBe(false);
+    expect(fs.existsSync(path.join(dist, 'de/jobs-im-zurich', `${slug}.html`))).toBe(false);
+  });
+
   it('emits forced legacy salary aliases as marked noindex bridges without canonicals', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'salary-legacy-bridge-contract-'));
     roots.push(root);

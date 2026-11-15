@@ -1,0 +1,27 @@
+{
+  "companyKey": "stibus-ch",
+  "companyName": "STI Bus AG",
+  "companyHost": "sti.ch",
+  "verifiedEmployerDomain": "stibus.ch",
+  "platform": "sti.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.sti.ch/stellen/index.php"
+  ],
+  "detailTemplate": "/stellen/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Mehr Informationen",
+    "Mehr Informationen",
+    "Mehr Informationen",
+    "Mehr Informationen",
+    "Mehr Informationen"
+  ],
+  "canton": "BE",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-15T14:09:02.588Z",
+  "candidateKey": "sti-bus@thun"
+}

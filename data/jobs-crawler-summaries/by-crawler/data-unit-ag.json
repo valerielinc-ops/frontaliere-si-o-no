@@ -1,7 +1,7 @@
 {
   "key": "data-unit-ag",
   "label": "DATA UNIT AG",
-  "generatedAt": "2026-11-15T00:58:25.560Z",
+  "generatedAt": "2026-11-15T09:45:35.307Z",
   "total": 3,
   "discovered": 3,
   "parsed": 3,
@@ -60,10 +60,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 51217,
-  "avgDurationMs": 51217,
+  "durationMs": 16561,
+  "avgDurationMs": 16561,
   "durationHistory": [
-    51217
+    16561
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -79,7 +79,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2422130?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T00:57:05.733Z",
+      "crawledAt": "2026-11-15T09:44:50.400Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -102,7 +102,7 @@
       "salaryMax": 82000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T00:57:05.733Z",
+      "validThrough": "2027-02-09T09:44:50.400Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -127,7 +127,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2550441?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T00:57:05.732Z",
+      "crawledAt": "2026-11-15T09:44:50.398Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -150,7 +150,7 @@
       "salaryMax": 76000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T00:57:05.732Z",
+      "validThrough": "2027-02-09T09:44:50.398Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -172,7 +172,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2319938?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T00:57:05.728Z",
+      "crawledAt": "2026-11-15T09:44:50.390Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -195,7 +195,7 @@
       "salaryMax": 106000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T00:57:05.728Z",
+      "validThrough": "2027-02-09T09:44:50.390Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -206,5 +206,5 @@
       }
     }
   ],
-  "codeCommit": "c2738e8d6a9c559fdfaac829986ccf33b5c08c62"
+  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
 }

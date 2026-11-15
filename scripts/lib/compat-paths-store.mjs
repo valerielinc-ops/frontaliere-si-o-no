@@ -223,7 +223,81 @@ export function readCompatPathsStrictAfterMerge(rootDir = process.cwd(), expecte
   return readCompatPathsStrictInternal(rootDir, { expectedTotalPaths });
 }
 
-function readCompatPathsStrictInternal(rootDir, { expectedTotalPaths = null } = {}) {
+/**
+ * Repair only stale manifest metadata after the complete shard set has been
+ * validated. Shard contents are never rewritten here: a stale count is a
+ * recoverable merge-order artifact, while missing/corrupt/duplicate/wrongly
+ * assigned shard data remains a hard failure.
+ *
+ * This is intentionally separate from readCompatPathsStrict(). Consumers that
+ * are about to mine or append the accumulator may opt into this metadata-only
+ * recovery; strict readers keep rejecting stale manifests so a caller cannot
+ * accidentally treat an unvalidated store as safe.
+ */
+function repairCompatManifestFromValidated(rootDir, validated) {
+  const dir = path.resolve(rootDir, COMPAT_SHARD_DIR);
+  let shardNames;
+  try {
+    shardNames = fs.readdirSync(dir).filter((name) => SHARD_FILE_RE.test(name)).sort();
+  } catch (err) {
+    if (err?.code === 'ENOENT') {
+      return { changed: false, totalPaths: null, previousTotalPaths: null };
+    }
+    throw new Error(`[compat-paths-store] cannot list shards: ${err?.message ?? err}`);
+  }
+
+  // A non-empty directory with no canonical shards is not a safe repair target.
+  // Let the strict validator produce the existing fail-closed error instead of
+  // guessing whether a legacy or partial migration is intended.
+  if (shardNames.length === 0) {
+    throw new Error('[compat-paths-store] compatibility shard directory has no canonical shards; refusing manifest repair');
+  }
+
+  const manifestPath = compatManifestFile(rootDir);
+  let manifest;
+  try {
+    manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf-8'));
+  } catch (err) {
+    throw new Error(`[compat-paths-store] cannot read shard manifest: ${err?.message ?? err}`);
+  }
+
+  const { paths: _manifestPaths, ...manifestMeta } = manifest;
+  const nextManifest = {
+    ...manifestMeta,
+    shardCount: COMPAT_SHARD_COUNT,
+    totalPaths: validated.paths.length,
+  };
+  const nextContent = JSON.stringify(nextManifest, null, 2) + '\n';
+  const currentContent = fs.readFileSync(manifestPath, 'utf-8');
+  const changed = currentContent !== nextContent;
+  if (changed) writeFileAtomic(manifestPath, nextContent);
+
+  return {
+    changed,
+    totalPaths: validated.paths.length,
+    previousTotalPaths: manifest.totalPaths,
+  };
+}
+
+export function repairCompatManifest(rootDir = process.cwd()) {
+  const validated = readCompatPathsStrictInternal(rootDir, { allowStaleManifest: true });
+  return repairCompatManifestFromValidated(rootDir, validated);
+}
+
+/**
+ * Strictly read the store and repair only its derived manifest metadata in the
+ * same validation pass. The returned `data` is safe for a destructive writer;
+ * `changed` describes whether the manifest was rewritten.
+ */
+export function readCompatPathsStrictWithManifestRepair(rootDir = process.cwd()) {
+  const data = readCompatPathsStrictInternal(rootDir, { allowStaleManifest: true });
+  return {
+    data,
+    ...repairCompatManifestFromValidated(rootDir, data),
+  };
+}
+
+function readCompatPathsStrictInternal(rootDir, { expectedTotalPaths = null, allowStaleManifest = false } = {}) {
   const dir = path.resolve(rootDir, COMPAT_SHARD_DIR);
   let shardNames;
   try {
@@ -325,7 +399,7 @@ function readCompatPathsStrictInternal(rootDir, { expectedTotalPaths = null } = 
     );
   }
 
-  if (expectedTotalPaths === null && paths.length !== meta.totalPaths) {
+  if (expectedTotalPaths === null && !allowStaleManifest && paths.length !== meta.totalPaths) {
     throw new Error(
       `[compat-paths-store] manifest declares ${meta.totalPaths} paths, `
       + `but complete shards contain ${paths.length}; refusing destructive rewrite`,

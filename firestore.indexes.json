@@ -59,6 +59,14 @@
       ]
     },
     {
+      "collectionGroup": "campaign_deliveries",
+      "queryScope": "COLLECTION_GROUP",
+      "fields": [
+        { "fieldPath": "campaign_id", "order": "ASCENDING" },
+        { "fieldPath": "delivery_status", "order": "ASCENDING" }
+      ]
+    },
+    {
       "collectionGroup": "events",
       "queryScope": "COLLECTION_GROUP",
       "fields": [

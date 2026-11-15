@@ -1,7 +1,7 @@
 {
   "key": "sicpa",
   "label": "SICPA SA",
-  "generatedAt": "2026-11-14T21:49:11.833Z",
+  "generatedAt": "2026-11-15T09:35:27.683Z",
   "total": 8,
   "discovered": null,
   "parsed": 8,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 9036,
-  "avgDurationMs": 9036,
+  "durationMs": 8982,
+  "avgDurationMs": 8982,
   "durationHistory": [
-    9036
+    8982
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Op%C3%A9rateur-de-logistique-confirm%C3%A9/1400431333/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:48:54.397Z",
+      "crawledAt": "2026-11-15T09:35:14.141Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Chavornay",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T21:48:54.397Z",
+      "validThrough": "2026-12-26T09:35:14.141Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Principal-Software-Engineer-Mobile-SDK-Tooling-&-On%E2%80%91Device-Computer-Vision-%28iOSAndroid%29/1393025833/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:48:53.762Z",
+      "crawledAt": "2026-11-15T09:35:13.537Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -120,7 +120,7 @@
       },
       "streetAddress": "Avenue de Florissant 41",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-02T21:48:53.762Z",
+      "validThrough": "2027-01-02T09:35:13.537Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -142,7 +142,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Automaticien/1448503333/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:48:53.132Z",
+      "crawledAt": "2026-11-15T09:35:12.940Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -165,7 +165,7 @@
       "salarySource": "estimated",
       "streetAddress": "Chavornay",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:48:53.132Z",
+      "validThrough": "2027-01-14T09:35:12.940Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -188,7 +188,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Technical-Coordinator/1404844633/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:48:52.517Z",
+      "crawledAt": "2026-11-15T09:35:12.332Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -225,7 +225,7 @@
       },
       "streetAddress": "Avenue de Florissant 41",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-14T21:48:52.517Z",
+      "validThrough": "2026-12-15T09:35:12.332Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -247,7 +247,7 @@
       "url": "https://jobs.sicpa.com/job/Chavornay-Automaticien/1409947133/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:48:51.891Z",
+      "crawledAt": "2026-11-15T09:35:11.720Z",
       "addressLocality": "Chavornay",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -270,7 +270,7 @@
       "salarySource": "estimated",
       "streetAddress": "Chavornay",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T21:48:51.891Z",
+      "validThrough": "2027-01-22T09:35:11.720Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -293,7 +293,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-AI-&-Data-Solution-Expert/1454766333/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:48:51.274Z",
+      "crawledAt": "2026-11-15T09:35:11.018Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -330,7 +330,7 @@
       },
       "streetAddress": "Avenue de Florissant 41",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T21:48:51.274Z",
+      "validThrough": "2027-02-03T09:35:11.018Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -353,7 +353,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Business-Analyst-Intern/1456834533/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:48:50.652Z",
+      "crawledAt": "2026-11-15T09:35:10.416Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -390,7 +390,7 @@
       },
       "streetAddress": "Avenue de Florissant 41",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-10T21:48:50.652Z",
+      "validThrough": "2027-02-10T09:35:10.416Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -413,7 +413,7 @@
       "url": "https://jobs.sicpa.com/job/Prilly-Senior-Patent-Counsel/1448011633/",
       "source": "SICPA SA Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:48:50.043Z",
+      "crawledAt": "2026-11-15T09:35:09.792Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -450,7 +450,7 @@
       },
       "streetAddress": "Avenue de Florissant 41",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T21:48:50.043Z",
+      "validThrough": "2027-01-13T09:35:09.792Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -461,5 +461,5 @@
       }
     }
   ],
-  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
+  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
 }

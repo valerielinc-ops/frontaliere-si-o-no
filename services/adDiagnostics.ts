@@ -3,10 +3,12 @@ export function emitAdDiagnostic(event: string, properties: Record<string, strin
   try {
     const w = window as Window & { gtag?: (...args: unknown[]) => void; dataLayer?: unknown[] };
     // These EVENT dimensions already exist in GA4. Its dimension quota is
-    // full: retain native fields for debugging while keeping state/outcome
-    // and library queryable in ordinary reports, filtered by event name.
-    const action = properties.action ?? properties.outcome ?? properties.state ?? properties.result;
-    const component = properties.component ?? properties.library;
+    // full: retain native fields for debugging while making recovery reasons,
+    // probe sources, and CMP states queryable in ordinary reports.
+    const action = properties.action ?? properties.outcome ?? properties.state ?? properties.result
+      ?? properties.reason ?? properties.fallback_reason;
+    const component = properties.component ?? properties.library ?? properties.source
+      ?? properties.cmp_state ?? properties.probe ?? properties.campaign ?? properties.reason;
     const payload = {
       ...properties,
       ...(action !== undefined ? { action } : {}),

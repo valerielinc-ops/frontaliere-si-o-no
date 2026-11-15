@@ -1,0 +1,23 @@
+{
+  "companyKey": "astrica",
+  "companyName": "Astrica",
+  "companyHost": "astrica.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://astrica.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Senior, Sales Executive",
+    "ServiceNow Platform Operations Analyst",
+    "Technical Consultant (Remote)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-15T13:54:28.800Z",
+  "candidateKey": "astrica@applytojob.com"
+}

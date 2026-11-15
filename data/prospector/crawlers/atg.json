@@ -1,0 +1,21 @@
+{
+  "companyKey": "atg",
+  "companyName": "Accretive Technology Group",
+  "companyHost": "atg.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://atg.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Customer Service Representative"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-15T13:54:31.484Z",
+  "candidateKey": "atg@applytojob.com"
+}

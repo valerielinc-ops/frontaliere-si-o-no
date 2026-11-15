@@ -57,7 +57,7 @@ import {
   professionLandingsFlushed,
 } from './shared/buildSignals';
 import {
-  injectBlockAfterMain,
+  injectBlockBeforeMainClose,
   type InjectionOutcome,
 } from './shared/injectAfterMain';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
@@ -245,7 +245,7 @@ export function injectAe3Block(
   html: string,
   block: string,
 ): { html: string; outcome: InjectionOutcome } {
-  return injectBlockAfterMain(html, block, AE3_MARKER);
+  return injectBlockBeforeMainClose(html, block, AE3_MARKER);
 }
 
 interface PatchResult {

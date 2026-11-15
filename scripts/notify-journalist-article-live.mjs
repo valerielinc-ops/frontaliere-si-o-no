@@ -26,8 +26,28 @@ import { realpathSync } from 'node:fs';
  *       and just mean "try again next run", not a failure).
  *   1 — hard infra failure only (Firestore query itself failed).
  *
+ * Which docs are read (perf-plan email senders, F3, review round 1). The DEFAULT stays the
+ * historical scan: every `status:'published'` article, filtered in memory on
+ * `liveVerifiedAt`. A server-side `liveVerifiedAt == null` query would save reads, but
+ * equality-null only matches an EXPLICIT null: a published article with the field entirely
+ * absent would never be seen again. Production has 13 such articles in total (read-only
+ * `count()` on 2026-11-15, 0 without the field), so the saving is negligible and the
+ * risk is not worth it. `JOURNALIST_PENDING_SCOPE=pending` (Remote Config) opts in to the
+ * narrowed query for the day the collection is large enough to matter and the writers are
+ * proven to always stamp `null` (tests/notify-journalist-article-live.test.ts pins that).
+ *
+ * The email is claimed before it is sent. The "online" email used to leave BEFORE the
+ * `liveVerifiedAt` stamp, so a failed stamp made the next run send it again. Now a
+ * transaction writes `liveNotifyClaimedAt` first, the email goes out, and the stamp
+ * comes last. A claim left by a crash or by an AMBIGUOUS outcome (timeout, provider that
+ * may have accepted) blocks the resend (the article is still stamped live on the next
+ * run, without a second email). A DEFINITE failure (the provider explicitly refused
+ * before accepting) releases the claim, only if it is ours and the article is not yet
+ * stamped, and does NOT stamp: the next run retries the email.
+ *
  * Usage:
- *   GOOGLE_APPLICATION_CREDENTIALS=<sa.json> node scripts/notify-journalist-article-live.mjs
+ *   GOOGLE_APPLICATION_CREDENTIALS=<sa.json> node scripts/notify-journalist-article-live.mjs [--dry-run]
+ *   --dry-run: reads and live-checks, claims/sends/stamps/requeues nothing.
  */
 
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -70,14 +90,24 @@ async function checkAllLocalesLive(publishedUrls) {
  * low volume already-quota-aware/paced send never competes unaccounted
  * against the dynamic Resend cap, and falls back to another provider
  * instead of silently dropping the email if Resend alone is exhausted. */
+/**
+ * @returns {Promise<'sent'|'skipped'|'definite-failure'|'ambiguous'>}
+ *   - `skipped`: nothing to send (no author address);
+ *   - `sent`: a provider accepted the message;
+ *   - `definite-failure`: every provider explicitly refused BEFORE accepting (cascade
+ *     `failed` entries without `ambiguousDelivery`): safe to retry;
+ *   - `ambiguous`: anything else (an exception such as the timeout abort, a failure the
+ *     cascade flags `ambiguousDelivery`, or an empty result): the message may have gone
+ *     out, so it is NOT retried.
+ */
 async function sendPublishedEmail(doc, publishedUrls) {
   try {
     const to = doc.authorEmail;
-    if (!to) return;
+    if (!to) return 'skipped';
     const linkList = Object.entries(publishedUrls)
       .map(([locale, url]) => `<li>${locale.toUpperCase()}: <a href="${url}">${url}</a></li>`)
       .join('');
-    const { failed } = await sendEmailCascade([{
+    const { sent = [], failed = [] } = await sendEmailCascade([{
       payload: {
         from: 'Frontaliere Ticino <redazione@frontaliereticino.ch>',
         to,
@@ -98,15 +128,63 @@ async function sendPublishedEmail(doc, publishedUrls) {
       // provider API call must not block this run indefinitely.
       signal: AbortSignal.timeout(LIVE_CHECK_TIMEOUT_MS),
     });
+    if (sent.length > 0) return 'sent';
     if (failed.length > 0) {
       console.warn(`  ⚠️  publish notification email failed: ${failed[0].error}`);
+      return failed.some((failure) => failure?.ambiguousDelivery === true) ? 'ambiguous' : 'definite-failure';
     }
+    return 'ambiguous';
   } catch (err) {
     console.warn(`  ⚠️  publish notification email failed (non-fatal): ${err.message}`);
+    return 'ambiguous';
   }
 }
 
-async function processDoc(FieldValue, docSnap) {
+/**
+ * Atomically claim the "online" email of one article before it is sent.
+ *
+ *   - `liveVerifiedAt` already set (another run stamped it): nothing to do;
+ *   - `liveNotifyClaimedAt` already present: an earlier run claimed it and may have sent
+ *     the email, so it is NEVER sent again;
+ *   - otherwise the claim is written and the caller may send.
+ *
+ * @returns {Promise<'claimed'|'already-claimed'|'already-verified'|'missing'>}
+ */
+export async function claimLiveNotification(docRef, FieldValue, claimId) {
+  return docRef.firestore.runTransaction(async (tx) => {
+    const snapshot = await tx.get(docRef);
+    if (!snapshot.exists) return 'missing';
+    const data = snapshot.data() || {};
+    if (data.liveVerifiedAt) return 'already-verified';
+    if (data.liveNotifyClaimedAt) return 'already-claimed';
+    tx.update(docRef, {
+      liveNotifyClaimedAt: FieldValue.serverTimestamp(),
+      liveNotifyClaimId: claimId,
+    });
+    return 'claimed';
+  });
+}
+
+/**
+ * Release OUR claim after a definite failure: only if `liveNotifyClaimId` is ours and the
+ * article is not stamped live. Anything else (another run's claim, an already verified
+ * article) is left alone.
+ *
+ * @returns {Promise<'released'|'not-owner'|'already-verified'|'missing'>}
+ */
+export async function releaseLiveNotificationClaim(docRef, FieldValue, claimId) {
+  return docRef.firestore.runTransaction(async (tx) => {
+    const snapshot = await tx.get(docRef);
+    if (!snapshot.exists) return 'missing';
+    const data = snapshot.data() || {};
+    if (data.liveVerifiedAt) return 'already-verified';
+    if (data.liveNotifyClaimId !== claimId) return 'not-owner';
+    tx.update(docRef, { liveNotifyClaimedAt: FieldValue.delete(), liveNotifyClaimId: FieldValue.delete() });
+    return 'released';
+  });
+}
+
+async function processDoc(FieldValue, docSnap, { dryRun = false, claimId = `journalist-live-${Date.now()}` } = {}) {
   const docId = docSnap.id;
   const doc = docSnap.data();
   const publishedUrls = doc.publishedUrls || {};
@@ -118,6 +196,10 @@ async function processDoc(FieldValue, docSnap) {
     if (ageMs > ORPHAN_THRESHOLD_MS) {
       const articleId = slugify(docId) || docId;
       if (!checkArticleIdExists(articleId)) {
+        if (dryRun) {
+          console.log(`  🔵 [dry-run] ${docId}: would requeue (not live after ${Math.round(ageMs / 3_600_000)}h, absent from the registry).`);
+          return;
+        }
         console.warn(
           `  ♻️  ${docId}: still not live after ${Math.round(ageMs / 3_600_000)}h and "${articleId}" is absent ` +
             `from the article registry — requeuing (publish commit likely never landed on main).`,
@@ -137,26 +219,63 @@ async function processDoc(FieldValue, docSnap) {
   }
 
   console.log(`  ✅ ${docId}: live in all ${ARTICLE_LOCALES.length} locales.`);
-  await sendPublishedEmail(doc, publishedUrls);
+  if (dryRun) {
+    console.log(`  🔵 [dry-run] ${docId}: would claim, send the email and stamp liveVerifiedAt.`);
+    return;
+  }
+  const claim = await claimLiveNotification(docSnap.ref, FieldValue, claimId);
+  if (claim === 'already-verified' || claim === 'missing') return;
+  if (claim === 'already-claimed') {
+    // An earlier run claimed the email and then died before stamping. It may have been
+    // sent, so it is not sent again; the page IS live, so the article is stamped.
+    console.warn(`  ⚠️  ${docId}: a previous run already claimed the notification — not sending it again; stamping liveVerifiedAt.`);
+    await docSnap.ref.update({ liveVerifiedAt: FieldValue.serverTimestamp() });
+    return;
+  }
+  const outcome = await sendPublishedEmail(doc, publishedUrls);
+  if (outcome === 'definite-failure') {
+    // Every provider refused before accepting: nothing went out. Release our claim and do
+    // NOT stamp, so the next run retries the email (a stamp here would lose it for good).
+    try {
+      await releaseLiveNotificationClaim(docSnap.ref, FieldValue, claimId);
+    } catch (err) {
+      console.warn(`  ⚠️  ${docId}: could not release the notification claim (${err.message}); the next run will stamp without re-sending.`);
+    }
+    console.warn(`  ↻ ${docId}: notification not sent (definite failure) — will retry next run.`);
+    return;
+  }
+  // `sent`, `skipped` and `ambiguous` all stamp: a message that may have left is never retried.
   await docSnap.ref.update({ liveVerifiedAt: FieldValue.serverTimestamp() });
+}
+
+/**
+ * The pending articles: published and not yet stamped live. Narrowed server-side to
+ * `liveVerifiedAt == null` only when explicitly asked (`scope === 'pending'`, see the
+ * header); the default `all` is the historical read-everything-and-filter scan, which also
+ * sees a published article that lacks the field entirely.
+ */
+export async function loadPendingArticles(db, { scope = 'all' } = {}) {
+  const published = db.collection('journalist_articles').where('status', '==', 'published');
+  if (scope !== 'pending') {
+    const snap = await published.get();
+    return snap.docs.filter((docSnap) => !docSnap.data().liveVerifiedAt);
+  }
+  const snap = await published.where('liveVerifiedAt', '==', null).get();
+  return snap.docs;
 }
 
 async function main() {
   const { db, FieldValue } = await initDb();
+  const dryRun = process.argv.includes('--dry-run');
 
-  // In-memory filter, not `.where('liveVerifiedAt', '==', null)`: Firestore
-  // equality-null only matches docs where the field is explicitly null, not
-  // docs where it's entirely absent — and every doc published before this
-  // script existed has no `liveVerifiedAt` field at all. Fetch-all + filter
-  // matches the pattern already used correctly in
-  // check-journalist-article-links.mjs.
-  const snap = await db.collection('journalist_articles').where('status', '==', 'published').get();
-  const pending = snap.docs.filter((docSnap) => !docSnap.data().liveVerifiedAt);
-  console.log(`[notify-journalist-article-live] ${pending.length} published article(s) awaiting live confirmation.`);
+  const scope = String(process.env.JOURNALIST_PENDING_SCOPE || '').trim().toLowerCase() === 'pending' ? 'pending' : 'all';
+  const pending = await loadPendingArticles(db, { scope });
+  console.log(`[notify-journalist-article-live] ${pending.length} published article(s) awaiting live confirmation${dryRun ? ' (dry-run)' : ''}.`);
 
+  const claimId = `journalist-live-${Date.now()}`;
   for (const docSnap of pending) {
     try {
-      await processDoc(FieldValue, docSnap);
+      await processDoc(FieldValue, docSnap, { dryRun, claimId });
     } catch (err) {
       // Best-effort per doc: a live-check hiccup on one article must never
       // abort the run or block the others.

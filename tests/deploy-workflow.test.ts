@@ -309,6 +309,12 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     const rehydrateIndex = steps.findIndex((step: any) => (
       step.name === 'Rehydrate locale then section shards into dist/ (when sharding active)'
     ));
+    const installIndex = steps.findIndex((step: any) => (
+      step.name === 'Install minimal deps after dist rehydrate (no build)'
+    ));
+    const reconcileIndex = steps.findIndex((step: any) => (
+      step.name === 'Reconcile rehydrated sitemaps against final dist'
+    ));
     const prune = steps[pruneIndex];
 
     expect(workflow.on.workflow_dispatch.inputs.prune_source_images).toMatchObject({
@@ -328,6 +334,8 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(full.jobs['full-audit'].with.prune_source_images).toBe(true);
     expect(steps[rehydrateIndex]?.env?.REHYDRATE_MAX_PARALLEL)
       .toBe("${{ inputs.prune_source_images && '2' || '1' }}");
+    expect(installIndex).toBeGreaterThan(rehydrateIndex);
+    expect(installIndex).toBeLessThan(reconcileIndex);
     expect(published.jobs.report.with.prune_source_images).not.toBe(true);
   });
 

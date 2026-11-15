@@ -158,6 +158,19 @@ export function buildSectorHubPath(locale: JobBoardLocale, sector: SectorHubKey)
   return `${prefix}/${section}/${slug}/`.replace(/\/+/g, '/');
 }
 
+/** Return the canonical base or continuation path for one sector hub. */
+export function buildSectorHubPagePath(
+  locale: JobBoardLocale,
+  sector: SectorHubKey,
+  page: number,
+): string {
+  if (!Number.isSafeInteger(page) || page < 1) {
+    throw new RangeError(`Sector hub page must be a positive safe integer; received ${page}`);
+  }
+  const basePath = buildSectorHubPath(locale, sector);
+  return page === 1 ? basePath : `${basePath}page-${page}/`;
+}
+
 /** Return all configured hub paths (each sector × 4 locales). */
 export function allSectorHubPaths(): SectorHubPath[] {
   const out: SectorHubPath[] = [];

@@ -24,7 +24,11 @@ import path from 'node:path';
 import { execFileSync, execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { assertCompatFloor } from './lib/compat-paths-floor-guard.mjs';
-import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import {
+  readCompatPathsStrict,
+  readCompatPathsStrictWithManifestRepair,
+  writeCompatPaths,
+} from './lib/compat-paths-store.mjs';
 import {
   readAllKnownJobSlugs,
   writeAllKnownJobSlugs,
@@ -86,7 +90,7 @@ export function measureSerializedJsonObjectLength(record) {
   return length;
 }
 
-function isValidJobSlug(slug) {
+export function isValidJobSlug(slug) {
   if (!slug || typeof slug !== 'string' || slug.length < 3) return false;
   // A real job slug is a single path segment — anything containing a slash
   // is a multi-segment URL tail (e.g. hub-pagination `<hub>/page-N`), not a
@@ -96,6 +100,9 @@ function isValidJobSlug(slug) {
   // Filter out clearly corrupted slugs
   if (slug.includes('undefined') || slug.includes('null')) return false;
   if (slug.length > 250) return false; // filesystem limit safety
+  // A job slug is derived from words. One with no letter at all (`0-0-0-…-0`,
+  // 3 production URLs) is a corrupted derivation, not a job route.
+  if (!/\p{L}/u.test(slug)) return false;
   return true;
 }
 
@@ -368,7 +375,20 @@ function mineOrphanData(orphansOverride = null) {
 
 function mineCompatPaths() {
   const slugs = new Map();
-  const compat = readCompatPathsStrict(ROOT); // sharded accumulator (issue #2988)
+  let compat;
+  if (!DRY_RUN) {
+    const prepared = readCompatPathsStrictWithManifestRepair(ROOT);
+    if (prepared.changed) {
+      console.warn(
+        `⚠️ Repaired stale seo-404-compat manifest count ${prepared.previousTotalPaths} → `
+          + `${prepared.totalPaths} from validated shards`,
+      );
+    }
+    compat = prepared.data;
+  } else {
+    compat = readCompatPathsStrict(ROOT);
+  }
+  // sharded accumulator (issue #2988)
   if (!compat?.paths) return slugs;
 
   for (const p of compat.paths) {

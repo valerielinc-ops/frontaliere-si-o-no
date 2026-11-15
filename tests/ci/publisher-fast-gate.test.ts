@@ -11,6 +11,8 @@ import {
   sectionBatch,
 } from '../../scripts/ci/shard-content-manifest.mjs';
 import { validatePublisherFastGate } from '../../scripts/ci/publisher-fast-gate.mjs';
+import { writeSnapshotFile } from '../../scripts/lib/sitemap-snapshot.mjs';
+import { EXPIRED_JOB_SITEMAP_FILE_RX, isExpiredJobSitemapKey } from '../../scripts/lib/sitemap-family-coverage.mjs';
 
 const SOURCE_RUN_ID = '101';
 const PUBLISHER_RUN_ID = '202';
@@ -174,6 +176,107 @@ function fixture() {
   };
 }
 
+const ARCHIVE_URLS = {
+  it: 'https://frontaliereticino.ch/cerca-lavoro-ticino/late-overflow-alias/',
+  en: 'https://frontaliereticino.ch/en/find-jobs-ticino/late-overflow-alias/',
+  de: 'https://frontaliereticino.ch/de/jobs-im-tessin/late-overflow-alias/',
+  fr: 'https://frontaliereticino.ch/fr/trouver-emploi-tessin/late-overflow-alias/',
+} as const;
+const ARCHIVE_DIGEST = '7'.repeat(64);
+
+// Adds the expired-archive family to a base fixture: `archiveLocales` get a
+// URL in `sitemap-jobs-expired-001.xml`, `canaryLocales` get one published
+// canary. The IT canary is bound to the required Ticino shard receipt, as the
+// real evidence is. Evidence manifests are only built when `withEvidence`.
+// `unboundLocales` keep their canary in the evidence but get NO required Ticino
+// shard, so the canary can never be verified against published bytes.
+function archiveFixture({ archiveLocales, canaryLocales, withEvidence = true, unboundLocales = [] }: {
+  archiveLocales: Array<keyof typeof ARCHIVE_URLS>;
+  canaryLocales: Array<keyof typeof ARCHIVE_URLS>;
+  withEvidence?: boolean;
+  unboundLocales?: Array<keyof typeof ARCHIVE_URLS>;
+}) {
+  const base = fixture();
+  base.currentSitemapSnapshot.perSitemap['sitemap-jobs-expired-001.xml'] = archiveLocales.map((l) => ARCHIVE_URLS[l]);
+  fs.writeFileSync(path.join(base.sitemapDir, 'new-sitemap-urls.json'), JSON.stringify(base.currentSitemapSnapshot));
+  const archiveEvidenceManifests = ['it', 'en', 'de', 'fr'].map((locale) => {
+    const l = locale as keyof typeof ARCHIVE_URLS;
+    const url = ARCHIVE_URLS[l];
+    const entries = canaryLocales.includes(l) ? [{
+      evidenceKind: 'expired-archive', locale, section: 'ticino', url,
+      path: `${new URL(url).pathname.replace(/^\/|\/$/gu, '')}/index.html`,
+      sha256: ARCHIVE_DIGEST, payloadSha256: '1'.repeat(64),
+      descriptionSha256: '2'.repeat(64), expiredAtSha256: '3'.repeat(64), ownerSha256: '4'.repeat(64),
+    }] : [];
+    if (entries.length && !unboundLocales.includes(l)) {
+      const page = {
+        evidenceKind: 'expired-archive', locale, section: 'ticino', url, path: entries[0].path,
+        sourceSha256: ARCHIVE_DIGEST, sha256: '8'.repeat(64),
+      };
+      if (l === 'it') {
+        base.sectionPage.shards[0].pages.push(page);
+      } else {
+        // bind the canary to the final bytes of a required Ticino shard of that locale
+        const shardArtifact = `shard-batch-5-dist-${locale}-${PUBLISHER_RUN_ID}`;
+        base.pageManifests.find((manifest) => manifest.locale === locale)!.requiredSections = ['ticino'];
+        const sectionManifest = base.sectionManifests.find((manifest) => manifest.locale === locale)!;
+        sectionManifest.requiredSections = ['ticino'];
+        sectionManifest.artifactRefs = [{ runId: PUBLISHER_RUN_ID, name: shardArtifact, digest: 'b'.repeat(64), purpose: 'section-shard-tar-batch' }];
+        sectionManifest.shards = [{
+          schemaVersion: 2,
+          kind: 'publisher-shard-content',
+          validatorVersion: 'publisher-shard-content-v2',
+          sourceRunId: SOURCE_RUN_ID,
+          sourceSha: SOURCE_SHA,
+          artifactRunId: PUBLISHER_RUN_ID,
+          artifactName: shardArtifact,
+          artifactDigest: 'b'.repeat(64),
+          locale,
+          section: 'ticino',
+          sourcePathLayout: 'ticino-hash-v1',
+          prefix: entries[0].path.split('/').slice(0, 2).join('/'),
+          tarSha256: 'e'.repeat(64),
+          population: 1,
+          pages: [page],
+        }];
+        base.publisherArtifacts.push(artifact(shardArtifact, 'b'.repeat(64)));
+      }
+    }
+    return {
+      schemaVersion: 1,
+      kind: 'expired-archive-publication-evidence',
+      validatorVersion: 'expired-archive-publication-v1',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      locale,
+      indexedOverflowAliases: 1000,
+      // a locale without a canary renders no overflow page: the pre-existing per-locale
+      // check (indexed>0 && rendered>0) stays silent, which is the hole the new check closes
+      renderedOverflowPages: entries.length ? 1000 : 0,
+      sampleSize: entries.length,
+      entries,
+    };
+  });
+  const validate = () => validatePublisherFastGate({
+    sourceRunId: SOURCE_RUN_ID,
+    sourceSha: SOURCE_SHA,
+    publisherRunId: PUBLISHER_RUN_ID,
+    sitemapDir: base.sitemapDir,
+    previousSitemapSnapshot: base.previousSitemapSnapshot,
+    sitemapCoverageDeclarations: { version: 1, decreases: [] },
+    pageManifests: base.pageManifests,
+    sectionManifests: base.sectionManifests,
+    ...(withEvidence ? { archiveEvidenceManifests } : {}),
+    sourceArtifacts: { artifacts: base.sourceArtifacts },
+    publisherArtifacts: { artifacts: base.publisherArtifacts },
+    manifestArtifactNames: [
+      ...base.pageManifests.map((manifest) => manifest.manifestArtifactName),
+      ...base.sectionManifests.map((manifest) => manifest.manifestArtifactName),
+    ],
+  });
+  return { ...base, validate };
+}
+
 afterEach(() => {
   for (const root of roots.splice(0)) fs.rmSync(root, { recursive: true, force: true });
 });
@@ -284,6 +387,148 @@ describe('publisher fast provenance gate', () => {
 
   it('accepts complete sitemap, path, digest, and Ticino shard evidence', () => {
     expect(fixture().result).toMatchObject({ passed: true, errorCount: 0, sampleRate: 1 });
+  });
+
+  it('reports ONE root-cause error, not one per page, when the current sitemap snapshot is missing', () => {
+    const f = fixture();
+    fs.rmSync(path.join(f.sitemapDir, 'new-sitemap-urls.json'));
+    const result = f.validate();
+    expect(result.passed).toBe(false);
+    expect(result.errorCount).toBe(1);
+    expect(result.errors[0]).toContain('current sitemap snapshot is missing or invalid');
+    expect(result.errors[0]).toContain('ENOENT');
+    expect(result.errors.join('\n')).not.toContain('absent from the source sitemap bundle');
+  });
+
+  it('reports ONE root-cause error when the current snapshot file is truncated', () => {
+    const f = fixture();
+    const file = path.join(f.sitemapDir, 'new-sitemap-urls.json');
+    fs.writeFileSync(file, '{"version":4,"sitemapFiles":["a.xml","b.xml"]}\n{"sitemap":"a.xml","urls":["https://frontaliereticino.ch/x/"],"digest":"d","lastmod":{}}\n');
+    const result = f.validate();
+    expect(result.passed).toBe(false);
+    expect(result.errorCount).toBe(1);
+    expect(result.errors[0]).toMatch(/current sitemap snapshot is missing or invalid .*incomplete/);
+  });
+
+  it('accepts a v4 NDJSON current snapshot written by the streaming writer', async () => {
+    const f = fixture();
+    const file = path.join(f.sitemapDir, 'new-sitemap-urls.json');
+    await writeSnapshotFile(file, f.currentSitemapSnapshot);
+    expect(fs.readFileSync(file, 'utf8').split('\n')[0]).toContain('"version":4');
+    expect(f.validate()).toMatchObject({ passed: true, errorCount: 0 });
+  });
+
+  describe('expired archive sitemap family', () => {
+    it('counts the archive URLs kept out of the page comparison and ties them to the locale canaries', () => {
+      const f = archiveFixture({ archiveLocales: ['it', 'en', 'de'], canaryLocales: ['it', 'en', 'de', 'fr'] });
+      const result = f.validate();
+      expect(result.errors).toEqual([]);
+      expect(result).toMatchObject({
+        passed: true,
+        sitemapUrlPopulation: f.pageManifests.length + 3,
+        pageManifestPopulation: f.pageManifests.length,
+        expiredArchiveSitemapExcluded: 3,
+        expiredArchiveSitemapExcludedByLocale: { it: 1, en: 1, de: 1, fr: 0 },
+        expiredArchiveSitemapCoveredByCanary: 3,
+        expiredArchiveSitemapCoveredByCanaryByLocale: { it: 1, en: 1, de: 1, fr: 0 },
+        expiredArchiveCanaryEntriesByLocale: { it: 1, en: 1, de: 1, fr: 1 },
+        expiredArchiveCanaryVerifiedByLocale: { it: 1, en: 1, de: 1, fr: 1 },
+      });
+    });
+
+    it('fails a locale whose archive sitemaps list URLs but whose evidence has no canary', () => {
+      const f = archiveFixture({ archiveLocales: ['en', 'de'], canaryLocales: ['it', 'en', 'fr'] });
+      const result = f.validate();
+      expect(result.passed).toBe(false);
+      expect(result.errors).toEqual([
+        'expired archive sitemaps list 1 de URL(s) but the de archive evidence has no publication canary',
+      ]);
+      expect(result).toMatchObject({
+        expiredArchiveSitemapExcluded: 2,
+        expiredArchiveSitemapCoveredByCanary: 1,
+        expiredArchiveSitemapCoveredByCanaryByLocale: { it: 0, en: 1, de: 0, fr: 0 },
+      });
+    });
+
+    it('does not count a canary as coverage when its section is not a required shard (never verified)', () => {
+      const f = archiveFixture({
+        archiveLocales: ['en'], canaryLocales: ['it', 'en', 'de', 'fr'], unboundLocales: ['en'],
+      });
+      const result = f.validate();
+      expect(result.passed).toBe(false);
+      expect(result.errors).toEqual([
+        'expired archive sitemaps list 1 en URL(s) but no en archive canary was verified in a required shard',
+      ]);
+      expect(result).toMatchObject({
+        expiredArchiveSitemapExcluded: 1,
+        expiredArchiveCanaryEntriesByLocale: { it: 1, en: 1, de: 1, fr: 1 },
+        expiredArchiveCanaryVerifiedByLocale: { it: 1, en: 0, de: 1, fr: 1 },
+        expiredArchiveSitemapCoveredByCanary: 0,
+        expiredArchiveSitemapCoveredByCanaryByLocale: { it: 0, en: 0, de: 0, fr: 0 },
+      });
+    });
+
+    it('fails when archive sitemap URLs exist and no archive evidence was supplied at all', () => {
+      const f = archiveFixture({ archiveLocales: ['it'], canaryLocales: ['it'], withEvidence: false });
+      const result = f.validate();
+      expect(result.passed).toBe(false);
+      expect(result.errors).toContain('expired archive sitemaps list 1 it URL(s) but no archive publication evidence was supplied');
+    });
+
+    it('does not let the archive family mask a non-archive sitemap URL without a page manifest entry', () => {
+      const f = archiveFixture({ archiveLocales: ['en'], canaryLocales: ['it', 'en', 'de', 'fr'] });
+      f.currentSitemapSnapshot.perSitemap['sitemap-jobs.xml'] = [
+        'https://frontaliereticino.ch/de/jobs-im-tessin/landing-without-manifest/',
+      ];
+      fs.writeFileSync(path.join(f.sitemapDir, 'new-sitemap-urls.json'), JSON.stringify(f.currentSitemapSnapshot));
+      const result = f.validate();
+      expect(result.passed).toBe(false);
+      expect(result.errors).toEqual([
+        '[sitemap-jobs.xml] sitemap URL has no page manifest entry: https://frontaliereticino.ch/de/jobs-im-tessin/landing-without-manifest/',
+      ]);
+    });
+
+    it('still compares page-by-page a URL that an archive sitemap ALSO shares with a page sitemap', () => {
+      const f = archiveFixture({ archiveLocales: ['en'], canaryLocales: ['it', 'en', 'de', 'fr'] });
+      f.currentSitemapSnapshot.perSitemap['sitemap-jobs.xml'] = [ARCHIVE_URLS.en];
+      fs.writeFileSync(path.join(f.sitemapDir, 'new-sitemap-urls.json'), JSON.stringify(f.currentSitemapSnapshot));
+      const result = f.validate();
+      expect(result.errors).toEqual([`[sitemap-jobs.xml] sitemap URL has no page manifest entry: ${ARCHIVE_URLS.en}`]);
+      expect(result.expiredArchiveSitemapExcluded).toBe(0);
+    });
+
+    it('keeps the archive file-name predicate identical to every other copy of the pattern', () => {
+      const root = path.resolve(__dirname, '..', '..');
+      const rx = EXPIRED_JOB_SITEMAP_FILE_RX.source;
+      const copies = [
+        ['build-plugins/jobsSeoPagesPlugin.ts', /expiredSitemapFilePattern\s*=\s*\/(.+?)\/u;/u],
+        ['build-plugins/shared/sitemapDerivedLastmod.ts', /EXPIRED_JOB_SITEMAP_RX\s*=\s*\/(.+?)\/;/u],
+        ['scripts/lib/indexing-jobs-planner.mjs', /!\/(sitemap-jobs-expired.+?)\/\.test/u],
+      ] as const;
+      for (const [file, extract] of copies) {
+        const source = fs.readFileSync(path.join(root, file), 'utf8');
+        const match = source.match(extract);
+        expect(match, `${file} no longer carries the expired-archive sitemap pattern`).not.toBeNull();
+        // the shared constant anchors with ^...$; the planner copy is unanchored
+        expect(rx).toContain((match as RegExpMatchArray)[1].replace(/^\^|\$$/gu, ''));
+      }
+      expect(isExpiredJobSitemapKey('sitemap-jobs-expired.xml')).toBe(true);
+      expect(isExpiredJobSitemapKey('sitemap-jobs-expired-044.xml')).toBe(true);
+      expect(isExpiredJobSitemapKey('x/sitemap-jobs-expired-1.xml')).toBe(true);
+      expect(isExpiredJobSitemapKey('sitemap-jobs-expired-ticino.xml')).toBe(false);
+      expect(isExpiredJobSitemapKey('sitemap-jobs.xml')).toBe(false);
+    });
+  });
+
+  it('keeps comparing URL-by-URL when a readable snapshot is merely incomplete', async () => {
+    const f = fixture();
+    const file = path.join(f.sitemapDir, 'new-sitemap-urls.json');
+    const incomplete = structuredClone(f.currentSitemapSnapshot);
+    incomplete.perSitemap['sitemap-job-market.xml'].pop();
+    await writeSnapshotFile(file, incomplete);
+    const result = f.validate();
+    expect(result.passed).toBe(false);
+    expect(result.errors.join('\n')).toContain('page manifest URL is absent from the source sitemap bundle');
   });
 
   it('unions URLs across the legacy IT sitemap and per-locale canton shards', () => {

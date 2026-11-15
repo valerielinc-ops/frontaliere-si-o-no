@@ -1,7 +1,7 @@
 {
   "key": "privatklinik-hohenegg",
   "label": "Privatklinik Hohenegg",
-  "generatedAt": "2026-11-14T21:18:39.371Z",
+  "generatedAt": "2026-11-15T09:19:25.649Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -15,80 +15,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 4827,
-  "avgDurationMs": 4827,
+  "durationMs": 5529,
+  "avgDurationMs": 5529,
   "durationHistory": [
-    4827
+    5529
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "privatklinik-hohenegg-dcfb55bdfc33",
-      "slug": "infermiere-infermiera-hf-con-specializzazione-in-psichiatria-60-100-privatklinik-hohenegg-meilen",
-      "company": "Privatklinik Hohenegg",
-      "companyKey": "privatklinik-hohenegg",
-      "companyDomain": "hohenegg.ch",
-      "title": "Pflegefachperson HF mit Schwerpunkt Psychiatrie (60-100%)",
-      "needsRetranslation": false,
-      "location": "Meilen",
-      "canton": "ZH",
-      "url": "https://apply.refline.ch/640332/0038/pub/15/index.html",
-      "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-13T09:17:50.770Z",
-      "addressLocality": "Meilen",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8706",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2025-05-16T04:46:23.709896+00:00",
-      "postedDate": "2025-05-16T04:46:23.709896+00:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://apply.refline.ch/640332/0038/pub/15/index.html",
-      "pensumMin": 60,
-      "pensumMax": 60,
-      "pensum": "60%",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "companyRegisteredAddress": {
-        "status": "matched",
-        "source": "zefix-lindas",
-        "companyName": "Privatklinik Hohenegg",
-        "streetAddress": "Hohenegg 1",
-        "postalCode": "8706",
-        "registeredName": "Privatklinik Hohenegg AG",
-        "matchType": "exact",
-        "streetAddressSource": "zefix-registry",
-        "jobPostalCode": "8706",
-        "addressLocality": "Meilen",
-        "addressRegion": "ZH",
-        "checkedAt": "2026-11-09T15:43:11.574Z"
-      },
-      "streetAddress": "Hohenegg 1",
-      "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-13T09:17:50.770Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "privatklinik-hohenegg-ab3fc3a8544f",
@@ -102,7 +38,7 @@
       "url": "https://apply.refline.ch/640332/0063/pub/6/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:18:25.139Z",
+      "crawledAt": "2026-11-15T09:19:01.305Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -142,7 +78,7 @@
       },
       "streetAddress": "Hohenegg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-14T21:18:25.139Z",
+      "validThrough": "2026-12-15T09:19:01.305Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -165,7 +101,7 @@
       "url": "https://apply.refline.ch/640332/0057/pub/5/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:18:24.719Z",
+      "crawledAt": "2026-11-15T09:19:00.824Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -205,7 +141,7 @@
       },
       "streetAddress": "Hohenegg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-14T21:18:24.719Z",
+      "validThrough": "2026-12-15T09:19:00.824Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -227,7 +163,7 @@
       "url": "https://apply.refline.ch/640332/0055/pub/2/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:18:24.300Z",
+      "crawledAt": "2026-11-15T09:19:00.340Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -267,7 +203,7 @@
       },
       "streetAddress": "Hohenegg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-14T21:18:24.300Z",
+      "validThrough": "2026-12-15T09:19:00.340Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -290,7 +226,7 @@
       "url": "https://apply.refline.ch/640332/0052/pub/3/index.html",
       "source": "Privatklinik Hohenegg Dedicated Parser (Refline 640332)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:18:23.869Z",
+      "crawledAt": "2026-11-15T09:18:59.843Z",
       "addressLocality": "Meilen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -330,7 +266,7 @@
       },
       "streetAddress": "Hohenegg 1",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-14T21:18:23.869Z",
+      "validThrough": "2026-12-15T09:18:59.843Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -341,5 +277,5 @@
       }
     }
   ],
-  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
+  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
 }

@@ -1,0 +1,22 @@
+{
+  "companyKey": "avolvesoftwaregroup",
+  "companyName": "Avolve Software Group",
+  "companyHost": "avolvesoftwaregroup.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://avolvesoftwaregroup.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Account Executive (GovTech SaaS)",
+    "Product Marketing Manager"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-15T13:54:37.730Z",
+  "candidateKey": "avolvesoftwaregroup@applytojob.com"
+}

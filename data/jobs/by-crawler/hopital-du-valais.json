@@ -1,7 +1,7 @@
 {
   "crawlerKey": "hopital-du-valais",
-  "assembledAt": "2026-11-14T21:17:59.241Z",
-  "runId": "43641218122",
+  "assembledAt": "2026-11-15T09:20:55.757Z",
+  "runId": "43697691342",
   "jobs": [
     {
       "id": "hopital-du-valais-58323e4bcee1",
@@ -47,7 +47,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4efe0cbb87918f54dbd6ebd30cbb35be/ATSANN0004722/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:51.795Z",
+      "crawledAt": "2026-11-15T09:20:48.411Z",
       "_hvsMeta": {
         "number": "ATSANN0004722",
         "sysId": "4efe0cbb87918f54dbd6ebd30cbb35be",
@@ -87,7 +87,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:17:51.795Z",
+      "validThrough": "2026-12-15T09:20:48.411Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -134,7 +134,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/022404fb83d9c39417a39d20ceaad393/ATSANN0004721/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:51.439Z",
+      "crawledAt": "2026-11-15T09:20:48.008Z",
       "_hvsMeta": {
         "number": "ATSANN0004721",
         "sysId": "022404fb83d9c39417a39d20ceaad393",
@@ -174,7 +174,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:17:51.439Z",
+      "validThrough": "2026-12-15T09:20:48.008Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -221,7 +221,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3706103387958f54dbd6ebd30cbb35f5/ATSANN0004728/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:51.073Z",
+      "crawledAt": "2026-11-15T09:20:47.609Z",
       "_hvsMeta": {
         "number": "ATSANN0004728",
         "sysId": "3706103387958f54dbd6ebd30cbb35f5",
@@ -255,7 +255,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:17:51.073Z",
+      "validThrough": "2026-12-15T09:20:47.609Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -302,7 +302,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/470810f387d58f54dbd6ebd30cbb3533/ATSANN0004731/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:50.727Z",
+      "crawledAt": "2026-11-15T09:20:47.208Z",
       "_hvsMeta": {
         "number": "ATSANN0004731",
         "sysId": "470810f387d58f54dbd6ebd30cbb3533",
@@ -342,7 +342,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:17:50.727Z",
+      "validThrough": "2026-12-15T09:20:47.208Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -389,7 +389,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3bc394fb87158f54dbd6ebd30cbb35f1/ATSANN0004725/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:50.348Z",
+      "crawledAt": "2026-11-15T09:20:46.796Z",
       "_hvsMeta": {
         "number": "ATSANN0004725",
         "sysId": "3bc394fb87158f54dbd6ebd30cbb35f1",
@@ -429,7 +429,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:17:50.348Z",
+      "validThrough": "2026-12-15T09:20:46.796Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -476,7 +476,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/efd69cf787958f54dbd6ebd30cbb3575/ATSANN0004729/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:50.007Z",
+      "crawledAt": "2026-11-15T09:20:46.389Z",
       "_hvsMeta": {
         "number": "ATSANN0004729",
         "sysId": "efd69cf787958f54dbd6ebd30cbb3575",
@@ -516,7 +516,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:17:50.007Z",
+      "validThrough": "2026-12-15T09:20:46.389Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -563,7 +563,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7659a0d287f20f50dbd6ebd30cbb35ab/ATSANN0004855/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:49.672Z",
+      "crawledAt": "2026-11-15T09:20:45.955Z",
       "_hvsMeta": {
         "number": "ATSANN0004855",
         "sysId": "7659a0d287f20f50dbd6ebd30cbb35ab",
@@ -597,7 +597,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:17:49.672Z",
+      "validThrough": "2026-12-15T09:20:45.955Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -644,7 +644,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/fb1bef51470f8310296bd1eb736d4347/ATSANN0004869/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:49.335Z",
+      "crawledAt": "2026-11-15T09:20:45.556Z",
       "_hvsMeta": {
         "number": "ATSANN0004869",
         "sysId": "fb1bef51470f8310296bd1eb736d4347",
@@ -681,7 +681,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:17:49.335Z",
+      "validThrough": "2026-12-15T09:20:45.556Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -728,7 +728,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dfdd86de976626501b87322f2153af9d/ATSANN0004228/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:48.999Z",
+      "crawledAt": "2026-11-15T09:20:45.132Z",
       "_hvsMeta": {
         "number": "ATSANN0004228",
         "sysId": "dfdd86de976626501b87322f2153af9d",
@@ -762,7 +762,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:17:48.999Z",
+      "validThrough": "2026-12-15T09:20:45.132Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -809,7 +809,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3925254147538354ff8065f8736d4338/ATSANN0004899/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:48.656Z",
+      "crawledAt": "2026-11-15T09:20:44.728Z",
       "_hvsMeta": {
         "number": "ATSANN0004899",
         "sysId": "3925254147538354ff8065f8736d4338",
@@ -848,7 +848,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:17:48.656Z",
+      "validThrough": "2026-12-15T09:20:44.728Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -895,7 +895,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6fc6a771971fcb501b87322f2153af21/ATSANN0004900/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:48.283Z",
+      "crawledAt": "2026-11-15T09:20:44.332Z",
       "_hvsMeta": {
         "number": "ATSANN0004900",
         "sysId": "6fc6a771971fcb501b87322f2153af21",
@@ -934,7 +934,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:17:48.283Z",
+      "validThrough": "2026-12-15T09:20:44.332Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -981,7 +981,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/cf492ffd971fcb501b87322f2153af75/ATSANN0004902/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:47.945Z",
+      "crawledAt": "2026-11-15T09:20:43.935Z",
       "_hvsMeta": {
         "number": "ATSANN0004902",
         "sysId": "cf492ffd971fcb501b87322f2153af75",
@@ -1023,7 +1023,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:17:47.945Z",
+      "validThrough": "2026-12-15T09:20:43.935Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1070,7 +1070,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/9b68ebf9971fcb501b87322f2153af18/ATSANN0004901/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:47.610Z",
+      "crawledAt": "2026-11-15T09:20:43.538Z",
       "_hvsMeta": {
         "number": "ATSANN0004901",
         "sysId": "9b68ebf9971fcb501b87322f2153af18",
@@ -1110,7 +1110,7 @@
       "addressRegion": "VS",
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:17:47.610Z",
+      "validThrough": "2026-12-15T09:20:43.538Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1157,7 +1157,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6456fbb5479f0710ff8065f8736d4368/ATSANN0004904/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:47.235Z",
+      "crawledAt": "2026-11-15T09:20:43.132Z",
       "_hvsMeta": {
         "number": "ATSANN0004904",
         "sysId": "6456fbb5479f0710ff8065f8736d4368",
@@ -1197,7 +1197,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:17:47.235Z",
+      "validThrough": "2026-12-15T09:20:43.132Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1244,7 +1244,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/facd39e6979f839012f9322f2153af5a/ATSANN0004920/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:46.896Z",
+      "crawledAt": "2026-11-15T09:20:42.727Z",
       "_hvsMeta": {
         "number": "ATSANN0004920",
         "sysId": "facd39e6979f839012f9322f2153af5a",
@@ -1278,7 +1278,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:17:46.896Z",
+      "validThrough": "2026-12-15T09:20:42.727Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1325,7 +1325,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/17bdd6924757cb14296bd1eb736d4385/ATSANN0004919/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:46.562Z",
+      "crawledAt": "2026-11-15T09:20:42.332Z",
       "_hvsMeta": {
         "number": "ATSANN0004919",
         "sysId": "17bdd6924757cb14296bd1eb736d4385",
@@ -1365,7 +1365,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:17:46.562Z",
+      "validThrough": "2026-12-15T09:20:42.332Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1412,7 +1412,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/8f38b372974e0390316bb0b71153afa1/ATSANN0004805/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:46.227Z",
+      "crawledAt": "2026-11-15T09:20:41.925Z",
       "_hvsMeta": {
         "number": "ATSANN0004805",
         "sysId": "8f38b372974e0390316bb0b71153afa1",
@@ -1452,7 +1452,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T21:17:46.227Z",
+      "validThrough": "2026-12-29T09:20:41.925Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1499,7 +1499,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dd66a35bc3ab0f18a043be4c05013142/ATSANN0004943/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:45.885Z",
+      "crawledAt": "2026-11-15T09:20:41.530Z",
       "_hvsMeta": {
         "number": "ATSANN0004943",
         "sysId": "dd66a35bc3ab0f18a043be4c05013142",
@@ -1539,7 +1539,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T21:17:45.885Z",
+      "validThrough": "2026-12-30T09:20:41.530Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1586,7 +1586,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/56597bad97b387941b87322f2153affa/ATSANN0004959/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:45.548Z",
+      "crawledAt": "2026-11-15T09:20:41.132Z",
       "_hvsMeta": {
         "number": "ATSANN0004959",
         "sysId": "56597bad97b387941b87322f2153affa",
@@ -1626,7 +1626,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T21:17:45.548Z",
+      "validThrough": "2027-01-06T09:20:41.132Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1673,7 +1673,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6f53e9c697bf0b1812f9322f2153af93/ATSANN0004962/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:45.215Z",
+      "crawledAt": "2026-11-15T09:20:40.726Z",
       "_hvsMeta": {
         "number": "ATSANN0004962",
         "sysId": "6f53e9c697bf0b1812f9322f2153af93",
@@ -1713,7 +1713,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:17:45.215Z",
+      "validThrough": "2027-01-07T09:20:40.726Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1760,7 +1760,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/cf1d6c8a477f8350ff8065f8736d4390/ATSANN0004961/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:44.878Z",
+      "crawledAt": "2026-11-15T09:20:40.317Z",
       "_hvsMeta": {
         "number": "ATSANN0004961",
         "sysId": "cf1d6c8a477f8350ff8065f8736d4390",
@@ -1802,7 +1802,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T21:17:44.878Z",
+      "validThrough": "2027-01-07T09:20:40.317Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1849,7 +1849,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/315bf223c37b8fd8a043be4c05013174/ATSANN0004966/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:44.505Z",
+      "crawledAt": "2026-11-15T09:20:39.919Z",
       "_hvsMeta": {
         "number": "ATSANN0004966",
         "sysId": "315bf223c37b8fd8a043be4c05013174",
@@ -1875,7 +1875,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:17:44.505Z",
+      "validThrough": "2027-01-12T09:20:39.919Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1922,7 +1922,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6fa87773473bcf50296bd1eb736d4395/ATSANN0004970/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:44.130Z",
+      "crawledAt": "2026-11-15T09:20:39.520Z",
       "_hvsMeta": {
         "number": "ATSANN0004970",
         "sysId": "6fa87773473bcf50296bd1eb736d4395",
@@ -1962,7 +1962,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-13T21:17:44.130Z",
+      "validThrough": "2027-01-13T09:20:39.520Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2009,7 +2009,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c47fc994470cd790ff8065f8736d4339/ATSANN0004972/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:43.794Z",
+      "crawledAt": "2026-11-15T09:20:39.118Z",
       "_hvsMeta": {
         "number": "ATSANN0004972",
         "sysId": "c47fc994470cd790ff8065f8736d4339",
@@ -2049,7 +2049,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sierre",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:17:43.794Z",
+      "validThrough": "2027-01-14T09:20:39.118Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2096,7 +2096,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/984d5d11470853d0ff8065f8736d4347/ATSANN0004973/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:43.458Z",
+      "crawledAt": "2026-11-15T09:20:38.693Z",
       "_hvsMeta": {
         "number": "ATSANN0004973",
         "sysId": "984d5d11470853d0ff8065f8736d4347",
@@ -2136,7 +2136,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:17:43.458Z",
+      "validThrough": "2027-01-17T09:20:38.693Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2183,7 +2183,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4cd23cbe4747cb90ff8065f8736d43a7/ATSANN0004885/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:43.118Z",
+      "crawledAt": "2026-11-15T09:20:38.259Z",
       "_hvsMeta": {
         "number": "ATSANN0004885",
         "sysId": "4cd23cbe4747cb90ff8065f8736d43a7",
@@ -2220,7 +2220,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-17T21:17:43.118Z",
+      "validThrough": "2027-01-17T09:20:38.259Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2267,7 +2267,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/43e0edce47744394296bd1eb736d43f5/ATSANN0004672/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:42.708Z",
+      "crawledAt": "2026-11-15T09:20:37.852Z",
       "_hvsMeta": {
         "number": "ATSANN0004672",
         "sysId": "43e0edce47744394296bd1eb736d43f5",
@@ -2318,7 +2318,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:17:42.708Z",
+      "validThrough": "2026-12-15T09:20:37.852Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2365,7 +2365,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/fd6bb74c47dcd750ff8065f8736d43be/ATSANN0004981/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:42.336Z",
+      "crawledAt": "2026-11-15T09:20:37.451Z",
       "_hvsMeta": {
         "number": "ATSANN0004981",
         "sysId": "fd6bb74c47dcd750ff8065f8736d43be",
@@ -2407,7 +2407,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:17:42.336Z",
+      "validThrough": "2027-01-26T09:20:37.451Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2454,7 +2454,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/39138054971cdb101b87322f2153af70/ATSANN0004982/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:41.990Z",
+      "crawledAt": "2026-11-15T09:20:37.042Z",
       "_hvsMeta": {
         "number": "ATSANN0004982",
         "sysId": "39138054971cdb101b87322f2153af70",
@@ -2496,7 +2496,7 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:17:41.990Z",
+      "validThrough": "2027-01-26T09:20:37.042Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2543,7 +2543,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/b96018e8c3d45350a043be4c05013111/ATSANN0004983/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:41.620Z",
+      "crawledAt": "2026-11-15T09:20:36.629Z",
       "_hvsMeta": {
         "number": "ATSANN0004983",
         "sysId": "b96018e8c3d45350a043be4c05013111",
@@ -2568,7 +2568,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:17:41.620Z",
+      "validThrough": "2027-01-27T09:20:36.629Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2615,7 +2615,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/6a0a7f67c3fbcfd8a043be4c050131fb/ATSANN0004968/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:41.281Z",
+      "crawledAt": "2026-11-15T09:20:36.227Z",
       "_hvsMeta": {
         "number": "ATSANN0004968",
         "sysId": "6a0a7f67c3fbcfd8a043be4c050131fb",
@@ -2655,7 +2655,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T21:17:41.281Z",
+      "validThrough": "2027-01-12T09:20:36.227Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2702,7 +2702,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/bc4c8a3c47585710ff8065f8736d4317/ATSANN0004986/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:40.933Z",
+      "crawledAt": "2026-11-15T09:20:35.790Z",
       "_hvsMeta": {
         "number": "ATSANN0004986",
         "sysId": "bc4c8a3c47585710ff8065f8736d4317",
@@ -2742,7 +2742,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:17:40.933Z",
+      "validThrough": "2027-01-28T09:20:35.790Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2789,7 +2789,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/96ae497047d81710ff8065f8736d439b/ATSANN0004985/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:40.562Z",
+      "crawledAt": "2026-11-15T09:20:35.389Z",
       "_hvsMeta": {
         "number": "ATSANN0004985",
         "sysId": "96ae497047d81710ff8065f8736d439b",
@@ -2829,7 +2829,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T21:17:40.562Z",
+      "validThrough": "2027-01-28T09:20:35.389Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2876,7 +2876,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4d1d61398350171017a39d20ceaad3fc/ATSANN0004988/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:39.906Z",
+      "crawledAt": "2026-11-15T09:20:34.478Z",
       "_hvsMeta": {
         "number": "ATSANN0004988",
         "sysId": "4d1d61398350171017a39d20ceaad3fc",
@@ -2916,7 +2916,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T21:17:39.906Z",
+      "validThrough": "2027-01-31T09:20:34.478Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2963,7 +2963,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/7d13df21c37fc398a043be4c05013182/ATSANN0004957/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:39.566Z",
+      "crawledAt": "2026-11-15T09:20:34.080Z",
       "_hvsMeta": {
         "number": "ATSANN0004957",
         "sysId": "7d13df21c37fc398a043be4c05013182",
@@ -3003,7 +3003,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:17:39.566Z",
+      "validThrough": "2027-01-05T09:20:34.080Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3050,7 +3050,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/f73d0f828794d350dbd6ebd30cbb354c/ATSANN0004990/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:39.229Z",
+      "crawledAt": "2026-11-15T09:20:33.680Z",
       "_hvsMeta": {
         "number": "ATSANN0004990",
         "sysId": "f73d0f828794d350dbd6ebd30cbb354c",
@@ -3090,7 +3090,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sierre",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:17:39.229Z",
+      "validThrough": "2027-02-01T09:20:33.680Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3137,7 +3137,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c6680bcc8378b69017a39d20ceaad30d/ATSANN0004378/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:38.891Z",
+      "crawledAt": "2026-11-15T09:20:33.283Z",
       "_hvsMeta": {
         "number": "ATSANN0004378",
         "sysId": "c6680bcc8378b69017a39d20ceaad30d",
@@ -3174,7 +3174,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T21:17:38.891Z",
+      "validThrough": "2027-02-01T09:20:33.283Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3221,7 +3221,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/c94d379e47189f10339c9146736d43e9/ATSANN0004993/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:38.552Z",
+      "crawledAt": "2026-11-15T09:20:32.876Z",
       "_hvsMeta": {
         "number": "ATSANN0004993",
         "sysId": "c94d379e47189f10339c9146736d43e9",
@@ -3261,7 +3261,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:17:38.552Z",
+      "validThrough": "2027-02-02T09:20:32.876Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3308,7 +3308,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/346b33d247189f10339c9146736d4352/ATSANN0004992/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:38.206Z",
+      "crawledAt": "2026-11-15T09:20:32.474Z",
       "_hvsMeta": {
         "number": "ATSANN0004992",
         "sysId": "346b33d247189f10339c9146736d4352",
@@ -3348,7 +3348,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T21:17:38.206Z",
+      "validThrough": "2027-02-02T09:20:32.474Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3395,7 +3395,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/cc7770038314575017a39d20ceaad34c/ATSANN0004997/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:37.868Z",
+      "crawledAt": "2026-11-15T09:20:32.028Z",
       "_hvsMeta": {
         "number": "ATSANN0004997",
         "sysId": "cc7770038314575017a39d20ceaad34c",
@@ -3435,7 +3435,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:17:37.868Z",
+      "validThrough": "2027-02-03T09:20:32.028Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3482,7 +3482,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/18ece4478350575017a39d20ceaad370/ATSANN0004996/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:37.533Z",
+      "crawledAt": "2026-11-15T09:20:31.628Z",
       "_hvsMeta": {
         "number": "ATSANN0004996",
         "sysId": "18ece4478350575017a39d20ceaad370",
@@ -3522,7 +3522,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:17:37.533Z",
+      "validThrough": "2027-02-03T09:20:31.628Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3569,7 +3569,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/878e0a4f839c975017a39d20ceaad3e7/ATSANN0004998/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:37.197Z",
+      "crawledAt": "2026-11-15T09:20:31.230Z",
       "_hvsMeta": {
         "number": "ATSANN0004998",
         "sysId": "878e0a4f839c975017a39d20ceaad3e7",
@@ -3609,7 +3609,7 @@
       "addressRegion": "VS",
       "streetAddress": "Granges",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:17:37.197Z",
+      "validThrough": "2027-02-04T09:20:31.230Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3656,7 +3656,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/3dede48c9724d310316bb0b71153afcc/ATSANN0004999/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:36.856Z",
+      "crawledAt": "2026-11-15T09:20:30.828Z",
       "_hvsMeta": {
         "number": "ATSANN0004999",
         "sysId": "3dede48c9724d310316bb0b71153afcc",
@@ -3696,7 +3696,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sierre",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:17:36.856Z",
+      "validThrough": "2027-02-07T09:20:30.828Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3743,7 +3743,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/1ed985b6971cd750316bb0b71153afa4/ATSANN0004995/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:36.515Z",
+      "crawledAt": "2026-11-15T09:20:30.402Z",
       "_hvsMeta": {
         "number": "ATSANN0004995",
         "sysId": "1ed985b6971cd750316bb0b71153afa4",
@@ -3783,7 +3783,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:17:36.515Z",
+      "validThrough": "2027-02-09T09:20:30.402Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3830,7 +3830,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/4f30855d47645b10339c9146736d43ad/ATSANN0005014/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:36.176Z",
+      "crawledAt": "2026-11-15T09:20:30.001Z",
       "_hvsMeta": {
         "number": "ATSANN0005014",
         "sysId": "4f30855d47645b10339c9146736d43ad",
@@ -3871,7 +3871,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:17:36.176Z",
+      "validThrough": "2027-02-10T09:20:30.001Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3918,7 +3918,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/dbffc5c197e45b10e7ce346e2153afab/ATSANN0005005/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:17:35.553Z",
+      "crawledAt": "2026-11-15T09:20:29.217Z",
       "_hvsMeta": {
         "number": "ATSANN0005005",
         "sysId": "dbffc5c197e45b10e7ce346e2153afab",
@@ -3958,7 +3958,7 @@
       "addressRegion": "VS",
       "streetAddress": "Brig",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:17:35.553Z",
+      "validThrough": "2027-02-10T09:20:29.217Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4005,7 +4005,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/5f1bc99147685b10339c9146736d439b/ATSANN0005017/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:35.209Z",
+      "crawledAt": "2026-11-15T09:20:28.795Z",
       "_hvsMeta": {
         "number": "ATSANN0005017",
         "sysId": "5f1bc99147685b10339c9146736d439b",
@@ -4045,7 +4045,7 @@
       "addressRegion": "VS",
       "streetAddress": "Martigny",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:17:35.209Z",
+      "validThrough": "2027-02-11T09:20:28.795Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4092,7 +4092,7 @@
       "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/0d1fc59997e0db10316bb0b71153af28/ATSANN0005020/params/language/fr",
       "source": "HVS Dedicated Parser (ServiceNow API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:17:34.873Z",
+      "crawledAt": "2026-11-15T09:20:28.390Z",
       "_hvsMeta": {
         "number": "ATSANN0005020",
         "sysId": "0d1fc59997e0db10316bb0b71153af28",
@@ -4132,90 +4132,8 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:17:34.873Z",
+      "validThrough": "2027-02-11T09:20:28.390Z",
       "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "hopital-du-valais-e43935c58911",
-      "slug": "responsabile-di-reparto-frau-kind-80-100-hopital-du-valais-visp",
-      "slugByLocale": {
-        "it": "responsabile-di-reparto-frau-kind-80-100-hopital-du-valais-visp",
-        "en": "head-of-department-women-children-80-100-hopital-du-valais-visp",
-        "de": "stationsleitung-frau-kind-80-100-hopital-du-valais-visp",
-        "fr": "chef-de-service-femme-enfant-80-100-hopital-du-valais-visp"
-      },
-      "company": "Hôpital du Valais",
-      "companyKey": "hopital-du-valais",
-      "companyDomain": "hopitalvs.ch",
-      "title": "Stationsleitung Frau-Kind 80-100%",
-      "titleByLocale": {
-        "it": "Gestione stazione Frau-Kind 80-100 %",
-        "en": "Station management Frau-Kind 80-100 %",
-        "de": "Stationsleitung Frau-Kind 80-100%",
-        "fr": "Gestion de station Frau-Kind 80-100 %"
-      },
-      "description": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Klinik Frau-Kind eine:\n\nStationsleitung 80-100%\n\nIhre Aufgaben:\n• In Zusammenarbeit mit der Bereichsleitung Pflege sind Sie für die stationäre Abteilung sowie die Führung, Koordination und Organisation verantwortlich\n\n• Mit der Pflegefachverantwortlichen und der Praxisausbildnerin (Dreibein) schaffen Sie eine motivierende Arbeitsumgebung, die eine hohe Arbeitsqualität sicherstellt\n\n• Sie unterstützen und begleiten die Mitarbeitenden im Rahmen der Bezugspflege und setzen sich für die Umsetzung von Pathway to Excellence ein\n\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit im Rahmen des Lean-Management\n\n• Sie arbeiten in Projekten mit\n\nIhr Profil:\n• Abgeschlossene Ausbildung als Pflegefachperson mit Berufserfahrung\n\n• Initiative und belastbare Persönlichkeit mit ausgeprägtem Organisationstalent und Durchsetzungsvermögen\n\n• Patientensicherheit und Kundenorientierung sind Ihnen wichtig\n\n• Abgeschlossene Führungsausbildung oder die Bereitschaft ein CAS in Führung und Leadership zu absolvieren\n\nWir bieten:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Sorgfältige Einführung in den Aufgabenbereich\n\n• Unterstützung durch motiviertes und engagiertes Team\n\n• Möglichkeit zur Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
-      "descriptionByLocale": {
-        "it": "L'Ospedale Wallis ne sta cercando uno per il Centro Ospedale Oberwallis nella Clinica Frau-Kind:\n\nLinea di stazione 80-100 %\n\nI loro compiti:\n• In collaborazione con la direzione dipartimentale si è responsabili per il dipartimento stazionario e la gestione, il coordinamento e l'organizzazione\n\n• Con l'infermiera responsabile e l'allenatore di pratica (tre gambe), si crea un ambiente di lavoro motivante che garantisce un'alta qualità del lavoro.\n\n• Sostengono e accompagnano i dipendenti nel contesto del mantenimento del riferimento e si impegnano per l'implementazione di Pathway to Excellence\n\n• Essi promuovono una buona cooperazione interdisciplinare e interprofessionale nell'ambito della gestione magra\n\n• Lavori in progetti\n\nIl tuo profilo:\n• Formazione come infermiera con esperienza professionale\n\n• Iniziativa e personalità resiliente con forte talento organizzativo e assertività\n\n• La sicurezza del paziente e l'orientamento del cliente sono importanti per voi\n\n• Completa la formazione di leadership o la volontà di completare un CAS nella leadership e nella leadership\n\nOffriamo:\n• Lavori diversi, responsabili e indipendenti\n\n• Introduzione attenta all'area attività\n\n• Supporto da parte di team motivati e impegnati\n\n• Opportunità di ulteriore formazione\n\n• Condizioni di lavoro interessanti",
-        "en": "The Wallis Hospital is looking for one for the Oberwallis Hospital Center in the Frau-Kind Clinic:\n\nStation line 80-100 %\n\nTheir tasks:\n• In cooperation with the departmental management you are responsible for the stationary department as well as the management, coordination and organization\n\n• With the nurse responsible and the practice trainer (three legs), you create a motivating working environment that ensures a high quality of work.\n\n• They support and accompany employees in the context of the maintenance of reference and are committed to the implementation of Pathway to Excellence\n\n• They promote good interdisciplinary and interprofessional cooperation within the framework of lean management\n\n• You work in projects\n\nYour profile:\n• Training as a nurse with professional experience\n\n• Initiative and resilient personality with strong organizational talent and assertiveness\n\n• Patient safety and customer orientation are important to you\n\n• Completed leadership training or willingness to complete a CAS in leadership and leadership\n\nWe offer:\n• Varied, responsible and independent work\n\n• Careful introduction to the task area\n\n• Support by motivated and committed team\n\n• Opportunity for further training\n\n• Attractive employment conditions",
-        "de": "Das Spital Wallis sucht für das Spitalzentrum Oberwallis in der Klinik Frau-Kind eine:\n\nStationsleitung 80-100%\n\nIhre Aufgaben:\n• In Zusammenarbeit mit der Bereichsleitung Pflege sind Sie für die stationäre Abteilung sowie die Führung, Koordination und Organisation verantwortlich\n\n• Mit der Pflegefachverantwortlichen und der Praxisausbildnerin (Dreibein) schaffen Sie eine motivierende Arbeitsumgebung, die eine hohe Arbeitsqualität sicherstellt\n\n• Sie unterstützen und begleiten die Mitarbeitenden im Rahmen der Bezugspflege und setzen sich für die Umsetzung von Pathway to Excellence ein\n\n• Sie fördern eine gute interdisziplinäre und interprofessionelle Zusammenarbeit im Rahmen des Lean-Management\n\n• Sie arbeiten in Projekten mit\n\nIhr Profil:\n• Abgeschlossene Ausbildung als Pflegefachperson mit Berufserfahrung\n\n• Initiative und belastbare Persönlichkeit mit ausgeprägtem Organisationstalent und Durchsetzungsvermögen\n\n• Patientensicherheit und Kundenorientierung sind Ihnen wichtig\n\n• Abgeschlossene Führungsausbildung oder die Bereitschaft ein CAS in Führung und Leadership zu absolvieren\n\nWir bieten:\n• Abwechslungsreiche, verantwortungsvolle und selbständige Tätigkeit\n\n• Sorgfältige Einführung in den Aufgabenbereich\n\n• Unterstützung durch motiviertes und engagiertes Team\n\n• Möglichkeit zur Weiterbildung\n\n• Attraktive Anstellungsbedingungen",
-        "fr": "L'hôpital Wallis en recherche un pour le centre hospitalier Oberwallis de la clinique Frau-Kind:\n\nLigne de gare 80-100 %\n\nLeurs tâches :\n• En collaboration avec la direction départementale, vous êtes responsable du département stationnaire ainsi que de la gestion, de la coordination et de l'organisation\n\n• Avec l'infirmière responsable et l'entraîneur de pratique (trois jambes), vous créez un environnement de travail motivant qui assure une qualité de travail élevée.\n\n• Ils soutiennent et accompagnent les employés dans le contexte du maintien des références et s'engagent à la mise en oeuvre de Pathway to Excellence\n\n• Ils favorisent une bonne coopération interdisciplinaire et interprofessionnelle dans le cadre de la gestion des ressources\n\n• Vous travaillez dans des projets\n\nVotre profil:\n• Formation en tant qu'infirmière ayant une expérience professionnelle\n\n• Initiative et personnalité résiliente avec un talent organisationnel fort et une assurance\n\n• La sécurité des patients et l'orientation des clients sont importantes pour vous\n\n• Formation en leadership terminée ou volonté de compléter un SAE en leadership et en leadership\n\nNous offrons:\n• Travail varié, responsable et indépendant\n\n• Introduction attentive à la zone de travail\n\n• Soutien d'une équipe motivée et engagée\n\n• Possibilité de formation continue\n\n• Conditions d'emploi attrayantes"
-      },
-      "location": "Visp",
-      "canton": "VS",
-      "addressLocality": "Visp",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3930",
-      "category": "healthcare-nursing",
-      "sector": "Santé / Hôpital",
-      "contract": "full-time",
-      "employmentType": "80 - 100%",
-      "featured": false,
-      "datePosted": "2026-10-13",
-      "postedDate": "2026-10-13",
-      "postingDateSource": "reported",
-      "url": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e771404b8301cb9017a39d20ceaad319/ATSANN0004696/params/language/fr",
-      "applyUrl": "https://vs.service-now.com/x/hdvi2/hvs-ats-portal/annonce-details-page/x_hdvi2_hvs_applic_annonce/e771404b8301cb9017a39d20ceaad319/ATSANN0004696/params/language/fr",
-      "source": "HVS Dedicated Parser (ServiceNow API)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-13T21:17:14.682Z",
-      "_hvsMeta": {
-        "number": "ATSANN0004696",
-        "sysId": "e771404b8301cb9017a39d20ceaad319",
-        "societe": "Spitalzentrum Oberwallis",
-        "famille": "Soins",
-        "site": "VISP"
-      },
-      "previousSlugs": [
-        "stationsleitung-frau-kind-80-100-hopital-du-valais-visp"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stationsleitung-frau-kind-80-100-hopital-du-valais-visp"
-        ]
-      },
-      "firstSeenAt": "2026-10-13T09:19:20.513Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VS",
-      "streetAddress": "Visp",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T21:17:14.682Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
     }
   ]
 }

@@ -49,35 +49,33 @@ describe('emittedProfessionIdsForTarget — no links to bridge routes', () => {
 });
 
 describe('injectAe3Block — pure AE-3 profession-links injector', () => {
-  it('inserts the block immediately after <main …> when present', () => {
+  it('keeps the primary content before the discovery block', () => {
     const html =
-      '<!doctype html><html><head></head><body><main id="main-content"></main></body></html>';
+      '<!doctype html><html><head></head><body><main id="main-content"><h1>Hub</h1><p>Primary content</p></main></body></html>';
     const { html: out, outcome } = injectAe3Block(html, BLOCK);
 
     expect(outcome).toBe('inserted');
     expect(out).toContain(MARKER);
 
-    const mainOpen = out.indexOf('<main id="main-content">');
+    const primaryContent = out.indexOf('<p>Primary content</p>');
     const blockAt = out.indexOf(MARKER);
     const mainClose = out.indexOf('</main>');
 
-    // Block must sit AFTER the opening <main> tag and BEFORE </main>.
-    expect(mainOpen).toBeGreaterThan(-1);
-    expect(blockAt).toBeGreaterThan(mainOpen);
+    // Crawl-critical discovery links stay inside <main>, but after the page
+    // answer so the H1/lede can win the mobile first-paint/LCP surface.
+    expect(primaryContent).toBeGreaterThan(-1);
+    expect(blockAt).toBeGreaterThan(primaryContent);
     expect(blockAt).toBeLessThan(mainClose);
   });
 
   it('preserves <main> attributes when injecting (regex must not eat them)', () => {
     const html =
-      '<body><main id="main-content" class="hub" data-foo="bar"></main></body>';
+      '<body><main id="main-content" class="hub" data-foo="bar"><p>Primary content</p></main></body>';
     const { html: out, outcome } = injectAe3Block(html, BLOCK);
 
     expect(outcome).toBe('inserted');
     expect(out).toContain('<main id="main-content" class="hub" data-foo="bar">');
-    // Block sits right after the closing `>` of the opening <main> tag.
-    expect(out).toMatch(
-      /<main id="main-content" class="hub" data-foo="bar"><aside data-ae3-profession-links/,
-    );
+    expect(out.indexOf(MARKER)).toBeGreaterThan(out.indexOf('<p>Primary content</p>'));
   });
 
   it('falls back to inserting before </main> when no <main …> match (defensive)', () => {

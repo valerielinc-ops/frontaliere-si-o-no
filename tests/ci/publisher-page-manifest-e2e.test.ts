@@ -3,9 +3,10 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { afterEach, describe, expect, it } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { jobSectorPagesPlugin } from '../../build-plugins/jobSectorPagesPlugin';
+import { buildSectorHubPagePath } from '../../build-plugins/jobSectorLanding';
 import { validatePublisherFastGate } from '../../scripts/ci/publisher-fast-gate.mjs';
 import { collectOwnedLocaleEntries } from '../../scripts/validate-sitemap-links.mjs';
 
@@ -14,6 +15,35 @@ const PUBLISHER_RUN_ID = '9246002';
 const SOURCE_SHA = '9'.repeat(40);
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 const roots: string[] = [];
+const DAY_MS = 24 * 60 * 60 * 1000;
+const daysAgo = (days: number) => new Date(Date.now() - days * DAY_MS).toISOString();
+
+function syntheticEngineerJobs(count = 331): Record<string, unknown>[] {
+  return Array.from({ length: count }, (_, index) => ({
+    title: `Ingegnere civile ${index + 1}`,
+    company: `Studio Tecnico ${index + 1}`,
+    location: 'Lugano',
+    canton: 'TI',
+    slug: `ingegnere-civile-${index + 1}`,
+    description: `Studio tecnico cerca un ingegnere civile in Ticino. ${'Responsabilità professionale e coordinamento tecnico. '.repeat(12)}`,
+    descriptionByLocale: {
+      it: `Studio tecnico cerca un ingegnere civile in Ticino. ${'Responsabilità professionale e coordinamento tecnico. '.repeat(12)}`,
+      en: `Technical studio seeks a civil engineer in Ticino. ${'Professional duties and technical coordination. '.repeat(12)}`,
+      de: `Technisches Büro sucht Bauingenieur im Tessin. ${'Berufliche Aufgaben und technische Koordination. '.repeat(12)}`,
+      fr: `Bureau technique recherche un ingénieur civil au Tessin. ${'Responsabilités professionnelles et coordination technique. '.repeat(12)}`,
+    },
+    datePosted: daysAgo(index + 1),
+    tags: ['ingegneria civile'],
+  }));
+}
+
+function writeRootDataset(root: string, jobs: readonly Record<string, unknown>[]): string {
+  const distDir = path.join(root, 'dist');
+  fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+  fs.mkdirSync(distDir, { recursive: true });
+  fs.writeFileSync(path.join(root, 'data', 'jobs.json'), JSON.stringify(jobs));
+  return distDir;
+}
 
 const artifact = (name: string, digest: string) => ({
   name,
@@ -26,15 +56,12 @@ afterEach(() => {
 });
 
 describe('publisher page-manifest end-to-end union (#9246)', () => {
-  it('passes the real sector generator through validate-sitemap-links and publisher-fast-gate for all four locales', async () => {
+  it('passes the sector generator, including continuations, through sitemap and page-manifest validation', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'publisher-page-manifest-e2e-'));
     roots.push(root);
-    const distDir = path.join(root, 'dist');
+    const distDir = writeRootDataset(root, syntheticEngineerJobs());
     const sitemapDir = path.join(root, 'sitemaps');
-    fs.mkdirSync(path.join(root, 'data'), { recursive: true });
-    fs.mkdirSync(distDir, { recursive: true });
     fs.mkdirSync(sitemapDir, { recursive: true });
-    fs.writeFileSync(path.join(root, 'data', 'jobs.json'), '[]');
 
     const plugin = jobSectorPagesPlugin(root);
     if (typeof plugin.closeBundle !== 'function') throw new Error('Expected closeBundle handler.');
@@ -42,6 +69,20 @@ describe('publisher page-manifest end-to-end union (#9246)', () => {
 
     const sitemapXml = fs.readFileSync(path.join(distDir, 'sitemap-sector.xml'), 'utf8');
     const sitemapUrls = [...sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+    const continuationUrls = LOCALES.map((locale) =>
+      `https://frontaliereticino.ch${buildSectorHubPagePath(locale, 'ingegneri', 2)}`,
+    );
+    expect(sitemapUrls).toEqual(expect.arrayContaining(continuationUrls));
+    for (const locale of LOCALES) {
+      const continuationPath = buildSectorHubPagePath(locale, 'ingegneri', 2);
+      expect(fs.existsSync(path.join(distDir, continuationPath.replace(/^\/+/, ''), 'index.html'))).toBe(true);
+      const localeEntries = [...sitemapXml.matchAll(/<url>([\s\S]*?)<\/url>/g)]
+        .map((match) => match[1])
+        .filter((block) => block.includes(`<loc>https://frontaliereticino.ch${continuationPath}</loc>`));
+      expect(localeEntries).toHaveLength(1);
+      for (const alternateUrl of continuationUrls) expect(localeEntries[0]).toContain(`href="${alternateUrl}"`);
+      expect(localeEntries[0]).toContain(`hreflang="x-default" href="${continuationUrls[0]}"`);
+    }
     const currentSitemapSnapshot = {
       version: 3,
       perSitemap: { 'sitemap-sector.xml': sitemapUrls },
@@ -63,6 +104,9 @@ describe('publisher page-manifest end-to-end union (#9246)', () => {
       const collected = collectOwnedLocaleEntries(locale, distDir);
       expect(collected.missing, locale).toEqual([]);
       expect(collected.entries, locale).toHaveLength(sitemapUrls.length / LOCALES.length);
+      expect(collected.entries.map((entry) => entry.url)).toContain(
+        `https://frontaliereticino.ch${buildSectorHubPagePath(locale, 'ingegneri', 2)}`,
+      );
 
       const baseArtifact = locale === 'it' ? 'github-pages' : `locale-source-${locale}-${SOURCE_RUN_ID}`;
       const baseDigest = crypto.createHash('sha256').update(locale).digest('hex');
@@ -166,5 +210,40 @@ describe('publisher page-manifest end-to-end union (#9246)', () => {
     expect(rejected.errors.join('\n')).toContain(
       'page manifest URL is absent from the source sitemap bundle',
     );
+  });
+
+  it('writes only the owning locale on the IT shard while its sitemap names all four continuation targets', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'publisher-sector-shard-e2e-'));
+    roots.push(root);
+    const distDir = writeRootDataset(root, syntheticEngineerJobs());
+    vi.stubEnv('BUILD_LOCALE', 'it');
+    vi.resetModules();
+    try {
+      const { jobSectorPagesPlugin: shardPlugin } = await import('../../build-plugins/jobSectorPagesPlugin');
+      const plugin = shardPlugin(root);
+      if (typeof plugin.closeBundle !== 'function') throw new Error('Expected closeBundle handler.');
+      await (plugin.closeBundle as () => Promise<void>)();
+
+      for (const locale of LOCALES) {
+        for (const page of [1, 2]) {
+          const pagePath = buildSectorHubPagePath(locale, 'ingegneri', page).replace(/^\/+/, '');
+          expect(fs.existsSync(path.join(distDir, pagePath, 'index.html'))).toBe(locale === 'it');
+        }
+      }
+      const sitemapXml = fs.readFileSync(path.join(distDir, 'sitemap-sector.xml'), 'utf8');
+      const sitemapUrls = [...sitemapXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+      const perLocaleSitemapCounts = LOCALES.map((locale) => {
+        const pathSegments = buildSectorHubPagePath(locale, 'ingegneri', 1).split('/');
+        const pathPrefix = `${pathSegments.slice(0, -2).join('/')}/`;
+        return sitemapUrls.filter((url) => new URL(url).pathname.startsWith(pathPrefix)).length;
+      });
+      expect(new Set(perLocaleSitemapCounts).size).toBe(1);
+      expect(sitemapUrls).toEqual(expect.arrayContaining(LOCALES.map((locale) =>
+        `https://frontaliereticino.ch${buildSectorHubPagePath(locale, 'ingegneri', 2)}`,
+      )));
+    } finally {
+      vi.unstubAllEnvs();
+      vi.resetModules();
+    }
   });
 });

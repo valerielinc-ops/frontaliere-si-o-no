@@ -181,6 +181,7 @@ describe('segreti: solo le chiavi che il codice legge', () => {
     for (const name of [
       'JOB_ALERT_CANDIDATE_INDEX_MODE', 'JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE', 'JOB_EMAIL_RANKING_IMPRESSIONS_MODE',
       'JOB_ALERT_BATCH_BOOKKEEPING', 'JOB_ALERT_LIVE_LINK_MANIFEST', 'JOB_ALERT_LIVE_LINK_MANIFEST_MAX_AGE_HOURS', 'JOB_ALERT_PLAN_BATCH_SIZE',
+      'JOB_ALERT_PLANNING_FASTPATH', 'JOB_ALERT_VOCABULARY_WORKERS',
     ]) {
       expect(mapped.has(name), `${name} in RC_TO_ENV`).toBe(true);
       expect(listed.has(name), `${name} in --only-env`).toBe(true);

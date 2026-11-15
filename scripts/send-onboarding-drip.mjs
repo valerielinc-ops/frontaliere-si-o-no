@@ -54,6 +54,18 @@ import { isNewsletterExcluded } from '../services/emailSuppression.mjs';
 import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import { loadOnboardingDripCandidates } from './lib/onboarding-drip-candidates.mjs';
+import { createSenderMetrics, emitSenderMetrics } from './lib/sender-metrics.mjs';
+import { installFirestoreOpCounterOnAdminSdk } from './lib/firestore-op-counter.mjs';
+import { bulkCascadeOptions } from './lib/bulk-send-throttle.mjs';
+import { createBatchedStateWriter } from './lib/batched-state-writes.mjs';
+
+/**
+ * Per-phase telemetry (perf-plan email senders, E3): one `DRIP_METRICS` line per run
+ * plus a table in the Job Summary. The per-send state writes happen inside `send`
+ * (they are the cascade's `onSent`), so their time and operations are part of it.
+ */
+export const DRIP_PHASES = Object.freeze(['load', 'queue', 'send']);
+export const dripMetrics = createSenderMetrics({ tag: 'DRIP', phases: DRIP_PHASES });
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const DEFAULT_FROM_EMAIL = 'Frontaliere Ticino <newsletter@frontaliereticino.ch>';
@@ -158,10 +170,17 @@ function resolveDueStep(data, now, enrollWindowMs) {
 
 // ── Build the queue of due drip emails ───────────────────────
 export async function buildQueue(globalHour, now, firestoreDb = db) {
-  const { docs } = await loadOnboardingDripCandidates(firestoreDb, {
+  // The scan already counts its own reads (billing-equivalent: documents returned,
+  // minimum 1 per query). They used to be computed and thrown away (perf-plan
+  // email senders, E3); now they are reported.
+  const { docs, reads, queryCount } = await loadOnboardingDripCandidates(firestoreDb, {
     now,
     enrollWindowDays: ENROLL_WINDOW_DAYS,
   });
+  dripMetrics.set('candidateDocs', docs.length);
+  dripMetrics.set('candidateReads', reads ?? docs.length);
+  dripMetrics.set('candidateQueries', queryCount ?? 0);
+  console.log(`🔎 Candidate scan: ${docs.length} document(s), ${reads ?? docs.length} read(s), ${queryCount ?? '?'} queries`);
   const queue = [];
   for (const doc of docs) {
     if (doc.id === '_meta_') continue;
@@ -237,7 +256,12 @@ export async function buildQueue(globalHour, now, firestoreDb = db) {
   return queue;
 }
 
-async function persistSent(item) {
+/**
+ * The state writes of ONE confirmed send: the subscriber patch (`set` merge) and the
+ * `onboarding_drip_sent` event. Same two writes as ever; the event document id is
+ * generated up front so a retried write cannot create a second event.
+ */
+function buildSentWrites(item) {
   const patch = {
     drip_last_step: item.step,
     drip_segment: item.segment,
@@ -248,15 +272,30 @@ async function persistSent(item) {
     patch.drip_started_at = adminSdk.firestore.Timestamp.fromDate(item.startedAt);
   }
   if (item.step >= DRIP_STEP_COUNT - 1) patch.drip_completed = true;
-  await item.docRef.set(patch, { merge: true });
-  await item.docRef.collection('events').add({
-    email: item.email,
-    event_type: 'onboarding_drip_sent',
-    source_channel: 'onboarding_drip',
-    meta: { step: item.step, card: item.cardId, segment: item.segment },
-    timestamp: adminSdk.firestore.FieldValue.serverTimestamp(),
-    occurred_at: new Date().toISOString(),
-  });
+  return [
+    { ref: item.docRef, data: patch, options: { merge: true } },
+    {
+      ref: item.docRef.collection('events').doc(),
+      data: {
+        email: item.email,
+        event_type: 'onboarding_drip_sent',
+        source_channel: 'onboarding_drip',
+        meta: { step: item.step, card: item.cardId, segment: item.segment },
+        timestamp: adminSdk.firestore.FieldValue.serverTimestamp(),
+        occurred_at: new Date().toISOString(),
+      },
+    },
+  ];
+}
+
+/**
+ * Persist the state of one confirmed send NOW (the cascade's `onSent`), micro-batched
+ * with the sends that confirm at the same time, with the single writes as fallback.
+ * A crash after N confirmed sends leaves those N persisted, so the rerun does not
+ * send them again (it used to lose the state of every send of the run).
+ */
+export async function persistSentNow(item, writer) {
+  return writer.write(buildSentWrites(item));
 }
 
 // ── Modes ────────────────────────────────────────────────────
@@ -297,7 +336,14 @@ async function runTest() {
 }
 
 async function runScan() {
+  dripMetrics.enter('load');
   await initFirebase();
+  try {
+    await installFirestoreOpCounterOnAdminSdk(dripMetrics);
+  } catch (error) {
+    console.warn(`⚠️ Firestore op counter unavailable (metrics will lack read/write totals): ${String(error?.message || error).slice(0, 120)}`);
+  }
+  dripMetrics.startMemorySampler();
   const now = new Date();
 
   // Global preferred-hour fallback (#3798) persisted by send-newsletter.mjs.
@@ -308,7 +354,9 @@ async function runScan() {
     globalHour = Number.isInteger(h) ? h : null;
   } catch { /* immediate send if unavailable */ }
 
+  dripMetrics.enter('queue');
   const queue = await buildQueue(globalHour, now);
+  dripMetrics.set('queueSize', queue.length);
   const byStep = queue.reduce((acc, q) => { acc[q.step] = (acc[q.step] || 0) + 1; return acc; }, {});
   console.log(`📊 Onboarding drip: ${queue.length} subscribers due (by step: ${JSON.stringify(byStep)})`);
 
@@ -331,19 +379,33 @@ async function runScan() {
   }
 
   // ── Real send ──
+  dripMetrics.enter('send');
   const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
-  const byEmail = new Map(capped.map((q) => [q.email.toLowerCase(), q]));
-  const { sent, failed } = await sendEmailCascade(capped);
-  logProviderSummary();
-
+  const writer = createBatchedStateWriter({
+    getDb: async () => db,
+    metrics: dripMetrics,
+    warn: (line) => console.warn(line),
+  });
   let persisted = 0;
-  for (const s of sent) {
-    const item = byEmail.get(String(s.recipient?.email || '').toLowerCase());
-    if (!item) continue;
-    try { await persistSent(item); persisted += 1; }
-    catch (e) { console.warn(`⚠️  persist failed for ${item.email}: ${e?.message}`); }
-  }
+  // Same throttle and concurrency as the job alerts (scripts/lib/bulk-send-throttle.mjs):
+  // the drip ran with the cascade defaults (concurrency 1, 1 s spacing).
+  const { sent, failed } = await sendEmailCascade(capped, await bulkCascadeOptions({
+    // The state of THIS send is durable before the worker takes the next one.
+    onSent: async (item) => {
+      await persistSentNow(item, writer);
+      persisted += 1;
+    },
+  }));
+  logProviderSummary();
+  dripMetrics.set('emailsSent', sent.length);
+  dripMetrics.set('emailsFailed', failed.length);
+  dripMetrics.set('statePersisted', persisted);
   console.log(`✅ Onboarding drip: ${sent.length} sent, ${failed.length} failed, ${persisted} state-updated.`);
+}
+
+export function __setDripFirestoreForTest(fakeDb, fakeSdk) {
+  db = fakeDb;
+  adminSdk = fakeSdk;
 }
 
 async function main() {
@@ -352,11 +414,29 @@ async function main() {
   return runScan();
 }
 
+/** `DRIP_METRICS` line + Job Summary table. Never throws. */
+export function emitDripMetrics({ metrics = dripMetrics, log = console.log } = {}) {
+  return emitSenderMetrics(metrics, {
+    tag: 'DRIP',
+    date: new Date().toISOString().slice(0, 10),
+    mode: IS_SEND ? 'LIVE' : IS_TEST ? 'TEST' : 'DRY RUN',
+    log,
+  });
+}
+
+async function runMain() {
+  try {
+    await main();
+  } finally {
+    emitDripMetrics();
+  }
+}
+
 if (process.argv[1] && (() => {
   try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; }
   catch { return false; }
 })()) {
-  main().catch((e) => {
+  runMain().catch((e) => {
     console.error('❌ Onboarding drip failed:', e?.stack || e?.message || e);
     process.exit(1);
   });

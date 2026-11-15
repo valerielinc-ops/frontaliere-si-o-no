@@ -25,7 +25,7 @@ describe('resolveExpiredEmitPath', () => {
   });
 
   it('canonicalizes a genuinely expired Zurich alias to its current section', () => {
-    const slug = 'expired-zurich-role';
+    const slug = 'schulbotschafter-in-stadt-zurich-zurich';
     expect(resolveExpiredEmitPath({
       locale: 'de',
       trackedPath: '/de/jobs-im-zurich/' + slug,

@@ -6,6 +6,7 @@ import { createStaticAdSlotEligibility } from '../services/staticAdSlotEligibili
 import { createStaticAdDelivery } from '../services/staticAdDelivery';
 import { probeIabAdBlock } from '../services/iabAdBlockProbe';
 import { installAdRecovery } from '../services/adRecovery';
+import { emitAdDiagnostic } from '../services/adDiagnostics';
 import { ADSENSE_LOADER_CONTENT, FC_ENSURE_JS } from '../build-plugins/constants';
 import { READER_SUBSCRIPTION_PATHS } from '../services/readerSubscriptionPath';
 
@@ -37,6 +38,23 @@ beforeEach(() => {
   };
 });
 afterEach(() => { mutationObservers.forEach((observer) => observer.disconnect()); dom.window.close(); vi.clearAllTimers(); vi.useRealTimers(); });
+
+describe('GA4 ad diagnostic dimensions', () => {
+  it('keeps recovery reasons and sources queryable through registered dimensions', () => {
+    const send = local(emitAdDiagnostic);
+    send('ad_recovery_action', { action: 'reload', reason: 'script_failed' });
+    expect(emit).toHaveBeenCalledWith('event', 'ad_recovery_action', expect.objectContaining({ action: 'reload', component: 'script_failed' }));
+
+    send('ad_block_probe', { source: 'iab_quick_bait', result: 'blocked' });
+    expect(emit).toHaveBeenCalledWith('event', 'ad_block_probe', expect.objectContaining({ action: 'blocked', component: 'iab_quick_bait' }));
+
+    send('ad_reliability_state', { reason: 'response_pending', cmp_state: 'loaded' });
+    expect(emit).toHaveBeenCalledWith('event', 'ad_reliability_state', expect.objectContaining({ action: 'response_pending', component: 'loaded' }));
+
+    send('ad_recovery_prompt', { source: 'funding_choices_native', reason: 'adblock_detected', prompt_action: 'shown' });
+    expect(emit).toHaveBeenCalledWith('event', 'ad_recovery_prompt', expect.objectContaining({ action: 'adblock_detected', component: 'funding_choices_native' }));
+  });
+});
 
 describe('shared manual-slot request contract', () => {
   it('boots the entire static ad loader without MutationObserver and cleans removed slots', async () => {
@@ -282,7 +300,7 @@ describe('IAB detection and independent recovery surface', () => {
     expect(w.__ftAdBlockProbe).toBe('blocked');
     expect(houseRefresh).toHaveBeenCalled();
   });
-  it('shows honest allow-ads instructions for a blocker and keeps them dismissible', async () => {
+  it('offers the localized application service for a blocker and keeps every choice dismissible', async () => {
     const houseRefresh = vi.fn();
     w.__ftHouseAds = { refresh: houseRefresh };
     const filledSlot = w.document.createElement('ins');
@@ -301,19 +319,45 @@ describe('IAB detection and independent recovery surface', () => {
     await vi.advanceTimersByTimeAsync(5000);
 
     const dialog = w.document.querySelector('dialog[open]');
-    expect(dialog?.textContent).toContain('Vuoi consentire gli annunci su Frontaliereticino?');
-    expect(dialog?.textContent).toContain('Dal sito non possiamo modificare queste impostazioni.');
-    expect(dialog?.textContent).toContain('Ricarica dopo la modifica');
-    expect(dialog?.querySelector('a')).toBeNull();
+    expect(dialog?.textContent).toContain('Candidature su misura per il tuo prossimo lavoro in Svizzera');
+    expect(dialog?.textContent).toContain('39,99 €');
+    expect(dialog?.textContent).toContain('Pagamento unico · senza rinnovo');
+    expect(dialog?.textContent).toContain('Gli annunci aiutano a mantenere gratuito il sito.');
+    expect(dialog?.textContent).toContain('Ho consentito gli annunci — ricarica');
+    const offer = dialog?.querySelector<HTMLAnchorElement>('.ft-recovery-offer-link');
+    expect(offer?.href).toContain('/automatizza-ricerca-lavoro-svizzera/?');
+    expect(offer?.href).toContain('utm_campaign=application_concierge_adblock');
     expect(filledSlot.getAttribute('data-ad-status')).toBe('filled');
     expect(houseRefresh).toHaveBeenCalled();
-    dialog!.querySelector<HTMLButtonElement>('.ft-recovery-actions .ft-recovery-secondary')!.click();
+    Array.from(dialog!.querySelectorAll<HTMLButtonElement>('.ft-recovery-actions button'))
+      .find((el) => el.textContent === 'Continua a leggere')!.click();
     expect(w.document.querySelector('dialog[open]')).toBeNull();
     expect(w.sessionStorage.getItem('ft_native_application_offer_seen_v1')).toBe('1');
     expect(w.sessionStorage.getItem('ft_native_application_offer_dismissed_v1')).toBe('1');
     expect(w.localStorage.getItem('frontaliere_ads_consent')).toBeNull();
   });
-  it.each(['escape', 'backdrop', 'close button'])('dismisses the allow-ads prompt with %s', async (method) => {
+  it.each([
+    ['it', 'Candidature su misura per il tuo prossimo lavoro in Svizzera', '39,99 €', 'Scopri il servizio'],
+    ['en', 'Tailored applications for your next job in Switzerland', '€39.99', 'See how it works'],
+    ['de', 'Passende Bewerbungen für deinen nächsten Job in der Schweiz', '39,99 €', 'Service ansehen'],
+    ['fr', 'Des candidatures sur mesure pour votre prochain emploi en Suisse', '39,99 €', 'Découvrir le service'],
+  ])('localizes the application offer in %s', async (locale, title, price, cta) => {
+    w.document.documentElement.lang = locale;
+    const houseSlot = w.document.createElement('div');
+    houseSlot.setAttribute('data-house', 'article-inline');
+    houseSlot.innerHTML = '<div data-ft-house-google data-ft-ad-state="waiting_response"></div>';
+    w.document.body.append(houseSlot);
+    recovery('blocked', 'loaded', true);
+    w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(0);
+
+    const dialog = w.document.querySelector('dialog[open]');
+    expect(dialog?.textContent).toContain(title);
+    expect(dialog?.textContent).toContain(price);
+    expect(dialog?.querySelector('.ft-recovery-offer-link')?.textContent).toBe(cta);
+    expect(dialog?.textContent).toMatch(/free|gratuito|kostenlos|gratuit/i);
+  });
+  it.each(['escape', 'backdrop', 'close button'])('dismisses the application offer with %s', async (method) => {
     const houseSlot = w.document.createElement('div');
     houseSlot.setAttribute('data-house', 'article-inline');
     houseSlot.innerHTML = '<div data-ft-house-google data-ft-ad-state="waiting_response"></div>';
@@ -331,7 +375,7 @@ describe('IAB detection and independent recovery surface', () => {
     expect(w.document.querySelector('dialog[open]')).toBeNull();
     expect(w.sessionStorage.getItem('ft_native_application_offer_dismissed_v1')).toBe('1');
   });
-  it('does not reopen the allow-ads prompt already shown in this session', async () => {
+  it('does not reopen the application offer already shown in this session', async () => {
     w.sessionStorage.setItem('ft_native_application_offer_seen_v1', '1');
     const houseSlot = w.document.createElement('div');
     houseSlot.setAttribute('data-house', 'article-inline');
@@ -356,7 +400,7 @@ describe('IAB detection and independent recovery surface', () => {
     await vi.advanceTimersByTimeAsync(6000);
 
     expect(w.document.querySelector('dialog,.ft-recovery-promo')).toBeNull();
-    expect(emit).toHaveBeenCalledWith('ad_recovery_prompt', expect.objectContaining({ source: 'funding_choices_native', action: 'shown' }));
+    expect(emit).toHaveBeenCalledWith('ad_recovery_prompt', expect.objectContaining({ source: 'funding_choices_native', reason: 'adblock_detected', prompt_action: 'shown' }));
     nativeMessage.remove();
     recoveryApi.refresh();
     await vi.advanceTimersByTimeAsync(5000);
@@ -615,14 +659,14 @@ describe('IAB detection and independent recovery surface', () => {
     await vi.advanceTimersByTimeAsync(250);
     expect(intervals).toHaveBeenCalledTimes(2);
   });
-  it('offers localized allow-ads guidance and reload without inventing ad consent', async () => {
+  it('offers the localized service, a reload choice, and dismissal without inventing ad consent', async () => {
     recovery(); w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
     await vi.advanceTimersByTimeAsync(13000);
     const dialog = w.document.querySelector('dialog[open]'); expect(dialog).not.toBeNull();
-    expect(dialog.textContent).toContain('Apri il menu del blocco pubblicità');
-    expect(dialog.textContent).toContain('non possiamo modificare queste impostazioni');
-    expect(dialog.textContent).toContain('Ricarica dopo la modifica');
-    expect(dialog.querySelector('a')).toBeNull();
+    expect(dialog.textContent).toContain('39,99 €');
+    expect(dialog.textContent).toContain('Gli annunci aiutano a mantenere gratuito il sito.');
+    expect(dialog.textContent).toContain('Ho consentito gli annunci — ricarica');
+    expect(dialog.querySelector('.ft-recovery-offer-link')).not.toBeNull();
     const dismiss = Array.from(dialog.querySelectorAll('button')).find((el: any) => el.textContent === 'Continua a leggere') as HTMLButtonElement;
     dismiss.click();
     expect(w.document.querySelector('dialog[open]')).toBeNull();

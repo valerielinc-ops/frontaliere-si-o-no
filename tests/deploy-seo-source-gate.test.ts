@@ -12,7 +12,8 @@ function workflowSteps(job: Record<string, any>): Array<Record<string, any>> {
 
 describe('deploy SEO source preflight', () => {
   it('gates the locale matrix once, before expensive shared prep', () => {
-    const workflow = YAML.parse(readFileSync(WORKFLOW_PATH, 'utf8')) as {
+    const workflowSource = readFileSync(WORKFLOW_PATH, 'utf8');
+    const workflow = YAML.parse(workflowSource) as {
       jobs?: Record<string, Record<string, any>>;
     };
     const prep = workflow.jobs?.prep;
@@ -22,6 +23,15 @@ describe('deploy SEO source preflight', () => {
     expect(buildLocale).toBeDefined();
     expect(prep?.needs).toBe('matrix-setup');
     expect(buildLocale?.needs).toEqual(expect.arrayContaining(['prep']));
+
+    const checkoutSteps = workflowSteps(prep!).filter(
+      (step) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
+    );
+    expect(checkoutSteps).toHaveLength(1);
+    expect(checkoutSteps[0].with?.['sparse-checkout']).toBeUndefined();
+    expect(workflowSource).toMatch(
+      /- name: Checkout\n\s+uses: actions\/checkout@[^\n]+\n\s+# checkout profile: intentionally full/,
+    );
 
     const prepGateSteps = workflowSteps(prep!).filter((step) => step.name === 'Run SEO source tests once per build');
     expect(prepGateSteps).toHaveLength(1);

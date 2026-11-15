@@ -1,7 +1,7 @@
 {
   "crawlerKey": "kulm-hotel",
-  "assembledAt": "2026-11-14T21:30:22.792Z",
-  "runId": "43641606307",
+  "assembledAt": "2026-11-15T09:27:40.527Z",
+  "runId": "43698037334",
   "jobs": [
     {
       "id": "kulm-hotel-5c7fbfc6c5a5",
@@ -34,7 +34,7 @@
       "url": "https://careers.kulm.com/en/vacancies/737",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:30:16.392Z",
+      "crawledAt": "2026-11-15T09:27:35.044Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -89,7 +89,7 @@
       },
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:30:16.392Z",
+      "validThrough": "2027-01-15T09:27:35.044Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -123,7 +123,7 @@
       "url": "https://careers.kulm.com/en/vacancies/723",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:30:16.183Z",
+      "crawledAt": "2026-11-15T09:27:34.895Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -181,7 +181,7 @@
       },
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:30:16.183Z",
+      "validThrough": "2026-12-15T09:27:34.895Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -215,7 +215,7 @@
       "url": "https://careers.kulm.com/en/vacancies/696",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:30:15.169Z",
+      "crawledAt": "2026-11-15T09:27:33.946Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -241,16 +241,33 @@
       "previousSlugsByLocale": {
         "en": [
           "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz",
-          "luxury-housekeeping-specialist-room-attendant-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm"
+          "luxury-housekeeping-specialist-room-attendant-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm",
+          "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-st-moritz-696"
         ],
         "it": [
           "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz",
-          "luxury-housekeeping-specialist-room-attendant-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm"
+          "luxury-housekeeping-specialist-room-attendant-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm",
+          "partecipante-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-st-moritz",
+          "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz-st-moritz-696",
+          "luxury-housekeeping-specialist-room-attendant-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz-st-moritz-696"
+        ],
+        "de": [
+          "luxury-housekeeping-spezialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz-st-moritz",
+          "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz-st-moritz-696"
+        ],
+        "fr": [
+          "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-st-moritz"
         ]
       },
       "previousSlugs": [
         "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz",
-        "luxury-housekeeping-specialist-room-attendant-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm"
+        "luxury-housekeeping-specialist-room-attendant-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm",
+        "partecipante-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz-st-moritz-696",
+        "luxury-housekeeping-specialist-room-attendant-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz-st-moritz-696",
+        "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-st-moritz-696",
+        "luxury-housekeeping-spezialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-st-moritz"
       ],
       "firstSeenAt": "2026-09-29T21:18:40.951Z",
       "salaryMin": 62000,
@@ -268,7 +285,7 @@
       },
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T21:30:15.169Z",
+      "validThrough": "2026-12-29T09:27:33.946Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -302,7 +319,7 @@
       "url": "https://careers.kulm.com/en/vacancies/749",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:30:14.162Z",
+      "crawledAt": "2026-11-15T09:27:32.992Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -341,7 +358,7 @@
       },
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:30:14.162Z",
+      "validThrough": "2027-02-12T09:27:32.992Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -375,7 +392,7 @@
       "url": "https://careers.kulm.com/en/vacancies/745",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:30:13.155Z",
+      "crawledAt": "2026-11-15T09:27:32.040Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -414,8 +431,35 @@
       },
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:30:13.155Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-07T09:27:32.040Z",
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistente-supervisore-ai-piani-assistente-della-governante-m-f-d-kulm-hotel-st-moritz-st-moritz",
+          "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz-st-moritz-745",
+          "hausdamenassistenz-floor-supervisor-housekeeping-m-w-d-kulm-hotel-st-moritz-st-moritz-745"
+        ],
+        "en": [
+          "hausdamenassistenz-floor-supervisor-housekeeping-m-w-d-kulm-hotel-st-moritz-st-moritz",
+          "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz-st-moritz-745"
+        ],
+        "de": [
+          "assistent-floor-vorgesetzter-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz-st-moritz-35bbd1",
+          "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz-st-moritz-745"
+        ],
+        "fr": [
+          "superviseur-adjoint-d-etage-hausdamena-persistance-en-h-f-d-kulm-hotel-st-moritz-st-moritz",
+          "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz-st-moritz-745"
+        ]
+      },
+      "previousSlugs": [
+        "assistente-supervisore-ai-piani-assistente-della-governante-m-f-d-kulm-hotel-st-moritz-st-moritz",
+        "assistant-floor-supervisor-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz-st-moritz-745",
+        "hausdamenassistenz-floor-supervisor-housekeeping-m-w-d-kulm-hotel-st-moritz-st-moritz-745",
+        "hausdamenassistenz-floor-supervisor-housekeeping-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "assistent-floor-vorgesetzter-hausdamenassistent-in-m-w-d-kulm-hotel-st-moritz-st-moritz-35bbd1",
+        "superviseur-adjoint-d-etage-hausdamena-persistance-en-h-f-d-kulm-hotel-st-moritz-st-moritz"
+      ]
     },
     {
       "id": "kulm-hotel-bc6fe33a9e98",
@@ -448,7 +492,7 @@
       "url": "https://careers.kulm.com/en/vacancies/736",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:30:12.138Z",
+      "crawledAt": "2026-11-15T09:27:31.083Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -472,11 +516,24 @@
       "department": "Kulm Hotel",
       "pensum": "100%",
       "previousSlugs": [
-        "group-finance-intern-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st"
+        "group-finance-intern-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st",
+        "group-finanza-tirocinante-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "group-finance-intern-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz-736"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "group-finance-intern-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st"
+          "group-finance-intern-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st",
+          "group-finanza-tirocinante-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz",
+          "group-finance-intern-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz-736"
+        ],
+        "en": [
+          "group-finance-intern-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz-736"
+        ],
+        "de": [
+          "group-finance-intern-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz-736"
+        ],
+        "fr": [
+          "group-finance-intern-requirement-own-accommodation-in-the-engadin-m-w-d-kulm-hotel-st-moritz-st-moritz-736"
         ]
       },
       "firstSeenAt": "2026-11-08T21:38:23.231Z",
@@ -495,7 +552,7 @@
       },
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T21:30:12.138Z",
+      "validThrough": "2026-12-24T09:27:31.083Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -529,7 +586,7 @@
       "url": "https://careers.kulm.com/en/vacancies/680",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:30:11.123Z",
+      "crawledAt": "2026-11-15T09:27:30.132Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -579,7 +636,7 @@
       },
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T21:30:11.123Z",
+      "validThrough": "2026-12-23T09:27:30.132Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -613,7 +670,7 @@
       "url": "https://careers.kulm.com/en/vacancies/679",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:30:10.111Z",
+      "crawledAt": "2026-11-15T09:27:29.186Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -706,7 +763,7 @@
       },
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:30:10.111Z",
+      "validThrough": "2026-12-15T09:27:29.186Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -740,7 +797,7 @@
       "url": "https://careers.kulm.com/en/vacancies/735",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:30:09.099Z",
+      "crawledAt": "2026-11-15T09:27:28.235Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -779,8 +836,27 @@
       },
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:30:09.099Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-07T09:27:28.235Z",
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "digital-marketing-executive-m-w-d-kulm-hotel-st-moritz-st-moritz-735"
+        ],
+        "en": [
+          "digital-marketing-executive-m-w-d-kulm-hotel-st-moritz-st-moritz-735"
+        ],
+        "de": [
+          "fachkraft-fur-digitales-marketing-m-w-d-kulm-hotel-st-moritz-st-moritz"
+        ],
+        "fr": [
+          "direction-du-marketing-numerique-h-f-d-kulm-hotel-st-moritz-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "digital-marketing-executive-m-w-d-kulm-hotel-st-moritz-st-moritz-735",
+        "fachkraft-fur-digitales-marketing-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "direction-du-marketing-numerique-h-f-d-kulm-hotel-st-moritz-st-moritz"
+      ]
     },
     {
       "id": "kulm-hotel-849d4022cc45",
@@ -813,7 +889,7 @@
       "url": "https://careers.kulm.com/en/vacancies/748",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:30:08.079Z",
+      "crawledAt": "2026-11-15T09:27:27.287Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -866,7 +942,7 @@
       },
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:30:08.079Z",
+      "validThrough": "2026-12-15T09:27:27.287Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -900,7 +976,7 @@
       "url": "https://careers.kulm.com/en/vacancies/746",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:30:07.069Z",
+      "crawledAt": "2026-11-15T09:27:26.333Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -953,7 +1029,7 @@
       },
       "streetAddress": "Pontresina",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:30:07.069Z",
+      "validThrough": "2027-02-03T09:27:26.333Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -987,7 +1063,7 @@
       "url": "https://careers.kulm.com/en/vacancies/744",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:30:06.057Z",
+      "crawledAt": "2026-11-15T09:27:25.386Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -1037,7 +1113,7 @@
       },
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T21:30:06.057Z",
+      "validThrough": "2027-02-13T09:27:25.386Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1071,7 +1147,7 @@
       "url": "https://careers.kulm.com/en/vacancies/742",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:30:05.040Z",
+      "crawledAt": "2026-11-15T09:27:24.429Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -1095,17 +1171,30 @@
       "department": "Kulm Hotel",
       "pensum": "100%",
       "previousSlugs": [
-        "accountant-m-w-d-kulm-hotel-st-moritz"
+        "accountant-m-w-d-kulm-hotel-st-moritz",
+        "contabile-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "accountant-m-w-d-kulm-hotel-st-moritz-st-moritz-742",
+        "buchhalter-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "comptable-m-w-d-kulm-hotel-st-moritz-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "accountant-m-w-d-kulm-hotel-st-moritz"
+          "accountant-m-w-d-kulm-hotel-st-moritz",
+          "contabile-m-w-d-kulm-hotel-st-moritz-st-moritz",
+          "accountant-m-w-d-kulm-hotel-st-moritz-st-moritz-742"
         ],
         "de": [
-          "accountant-m-w-d-kulm-hotel-st-moritz"
+          "accountant-m-w-d-kulm-hotel-st-moritz",
+          "buchhalter-m-w-d-kulm-hotel-st-moritz-st-moritz",
+          "accountant-m-w-d-kulm-hotel-st-moritz-st-moritz-742"
         ],
         "fr": [
-          "accountant-m-w-d-kulm-hotel-st-moritz"
+          "accountant-m-w-d-kulm-hotel-st-moritz",
+          "comptable-m-w-d-kulm-hotel-st-moritz-st-moritz",
+          "accountant-m-w-d-kulm-hotel-st-moritz-st-moritz-742"
+        ],
+        "en": [
+          "accountant-m-w-d-kulm-hotel-st-moritz-st-moritz-742"
         ]
       },
       "firstSeenAt": "2026-11-08T21:38:19.351Z",
@@ -1124,7 +1213,7 @@
       },
       "streetAddress": "St. Moritz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:30:05.040Z",
+      "validThrough": "2027-02-07T09:27:24.429Z",
       "validThroughSource": "last-observed-window"
     }
   ]

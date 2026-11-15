@@ -46,7 +46,8 @@ describe('Ticino shard tree fan-out', () => {
     const script = readFileSync(PUSH_SCRIPT, 'utf8');
     const helper = readFileSync(HELPER, 'utf8');
     expect(script).toContain('source "$(dirname "${BASH_SOURCE[0]}")/ticino-tree-fanout.sh"');
-    expect(script).toContain('if section_tree_uses_hash_fanout "$section" && [ "$SHARD_PUSH_MODE" = delta ]');
+    expect(script).toContain('SHARD_DELTA_REMOTE_LAYOUT_FANNED');
+    expect(script).toContain('if [ "$remote_layout_fanned" -ge 1 ]');
     expect(script).toContain('skipping advisory delta verifier');
     expect(script).toContain('section_tree_require_worker_layout "$section" "$sub"');
     expect(script.indexOf('section_tree_require_worker_layout "$section" "$sub"')).toBeLessThan(

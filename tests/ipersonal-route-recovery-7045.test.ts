@@ -40,9 +40,14 @@ function incidentRemovedJobs() {
   IPERSONAL_7045_LOST_ROUTES.forEach((route, index) => {
     routesByOwner[index % ownerCount].push(route);
   });
+  // Distinct postings: the ids and URLs must not collide with `syntheticJob('removed', i)` below
+  // (they used to: `incident-removed-0..2` named both a recovered and an already-archived job). The
+  // archive now treats the same source URL as the same posting and merges it into the existing
+  // record instead of creating a second one, so a fixture that reuses a URL no longer describes
+  // two jobs.
   return routesByOwner.map((routes, index) => ({
-      id: `incident-removed-${index}`,
-      url: `https://jobs.example.invalid/incident-removed-${index}/`,
+      id: `incident-lost-${index}`,
+      url: `https://jobs.example.invalid/incident-lost-${index}/`,
       slug: routes[0],
       previousSlugs: routes.slice(1),
     }));

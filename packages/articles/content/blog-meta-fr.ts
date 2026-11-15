@@ -13726,6 +13726,11 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontalieri-disoccupati-costi-aggiuntivi.title': 'Chômeurs frontaliers : coûts redoutés, centaines de millions',
     'blog.article.frontalieri-disoccupati-costi-aggiuntivi.excerpt': 'Berne a reçu aujourd’hui de la Commission européenne une communication sur une modification des compétences relatives aux travailleurs frontaliers au chômage.',
     'blog.article.frontalieri-disoccupati-costi-aggiuntivi.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.bollettino-frontaliere-2026-11-15.title': 'Frontaliers : change -42,80 € sur 4 000 CHF — 15 novembre 2026',
+    'blog.article.bollettino-frontaliere-2026-11-15.excerpt': 'Les chiffres du jour, 15 novembre 2026, pour les frontaliers : les dernières attentes aux douanes, les communes où le carburant coûte le moins cher, le taux franc-euro et les offres d\'emploi actives en Suisse sur notre job board. Relevés quotidiens de notre suivi.',
+    'blog.article.bollettino-frontaliere-2026-11-15.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.bollettino-frontaliere-2026-11-15.seoDescription': 'Bulletin frontalier 15 novembre 2026 : attentes aux douanes, prix du carburant, taux CHF/EUR et offres d\'emploi actives en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-11-15.ogDescription': 'Les chiffres du 15 novembre 2026 pour les frontaliers : attentes aux douanes, communes où le carburant coûte le moins cher, dernier taux CHF/EUR et offres d\'emploi actives sur notre job board suisse au quotidien.',
 };
 
 export default blogMetaFr;

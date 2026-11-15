@@ -8,6 +8,8 @@ import {
   iterateCompatPaths,
   readCompatPathsStrict,
   readCompatPathsStrictAfterMerge,
+  readCompatPathsStrictWithManifestRepair,
+  repairCompatManifest,
   writeCompatPaths,
   compatShardFile,
   compatShardIndex,
@@ -137,6 +139,34 @@ describe('writeCompatPaths — shard write minimization', () => {
 
     expect(() => readCompatPathsStrictAfterMerge(rootDir, Number.NaN)).toThrow(/expected path count/);
     expect(readCompatPathsStrictAfterMerge(rootDir, 1).paths).toEqual(['/stale-manifest/']);
+  });
+
+  it('repairs only stale manifest metadata after validating every shard', () => {
+    writeCompatPaths({ paths: ['/repair-a/', '/repair-b/'] }, rootDir);
+    const manifestFile = compatManifestFile(rootDir);
+    const manifest = JSON.parse(fs.readFileSync(manifestFile, 'utf-8'));
+    manifest.totalPaths -= 1;
+    fs.writeFileSync(manifestFile, JSON.stringify(manifest));
+
+    const repaired = repairCompatManifest(rootDir);
+
+    expect(repaired).toMatchObject({ changed: true, previousTotalPaths: 1, totalPaths: 2 });
+    expect(new Set(readCompatPathsStrict(rootDir).paths)).toEqual(new Set(['/repair-a/', '/repair-b/']));
+    expect(repairCompatManifest(rootDir).changed).toBe(false);
+  });
+
+  it('returns the validated store while repairing its manifest in one pass', () => {
+    writeCompatPaths({ paths: ['/one-pass-a/', '/one-pass-b/'] }, rootDir);
+    const manifestFile = compatManifestFile(rootDir);
+    const manifest = JSON.parse(fs.readFileSync(manifestFile, 'utf-8'));
+    manifest.totalPaths += 4;
+    fs.writeFileSync(manifestFile, JSON.stringify(manifest));
+
+    const prepared = readCompatPathsStrictWithManifestRepair(rootDir);
+
+    expect(prepared).toMatchObject({ changed: true, previousTotalPaths: 6, totalPaths: 2 });
+    expect(new Set(prepared.data.paths)).toEqual(new Set(['/one-pass-a/', '/one-pass-b/']));
+    expect(readCompatPathsStrict(rootDir).paths).toHaveLength(2);
   });
 
   it('rejects a post-merge count that does not match the resolver preflight', () => {

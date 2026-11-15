@@ -283,8 +283,26 @@ function runPush(
   mkdirSync(binDir);
   const curlStub = join(binDir, 'curl');
   const realCurl = execFileSync('sh', ['-c', 'command -v curl'], { encoding: 'utf8' }).trim();
+  const realGit = execFileSync('sh', ['-c', 'command -v git'], { encoding: 'utf8' }).trim();
+  if (extraEnv.SHARD_TEST_LAYOUT_PROBE_ERROR === '1') {
+    const gitStub = join(binDir, 'git');
+    writeFileSync(gitStub, [
+      '#!/bin/sh',
+      'if [ "$#" -ge 5 ] && [ "$1" = "-C" ] && [ "$3" = "cat-file" ] && [ "$4" = "-t" ]; then',
+      '  case "$5" in',
+      '    HEAD:*_tree) echo "simulated remote layout read failure" >&2; exit 128 ;;',
+      '  esac',
+      'fi',
+      `exec ${JSON.stringify(realGit)} "$@"`,
+      '',
+    ].join('\n'));
+    chmodSync(gitStub, 0o755);
+  }
   const layoutRegistryStub = join(runnerTemp, 'section-tree-layout-registry.stub.mjs');
-  writeFileSync(layoutRegistryStub, 'process.stdout.write("[\\"ticino\\",\\"zurigo\\",\\"berna\\"]\\n");\n');
+  writeFileSync(
+    layoutRegistryStub,
+    'process.stdout.write((process.env.SECTION_TREE_TEST_REGISTRY_SECTIONS || "[\\"ticino\\",\\"zurigo\\",\\"berna\\"]") + "\\n");\n',
+  );
   const layoutStageStub = join(runnerTemp, 'section-tree-layout-stage.stub.mjs');
   writeFileSync(layoutStageStub, [
     "import { execFileSync } from 'node:child_process';",
@@ -295,7 +313,7 @@ function runPush(
     "const stage = get('--stage');",
     "const sub = get('--sub');",
     "const mode = get('--mode');",
-    "const sections = ['ticino', 'zurigo', 'berna'];",
+    "const sections = JSON.parse(process.env.SECTION_TREE_TEST_REGISTRY_SECTIONS || '[\"ticino\",\"zurigo\",\"berna\"]');",
     "let moved = 0;",
     "const decision = sections.includes(section) ? 'already' : 'keep';",
     "if (decision === 'already' && mode === 'filesystem') execFileSync(process.execPath, [resolve(process.env.SHARD_TEST_TOOL_ROOT, 'scripts/lib/ticino-tree-fanout.mjs'), 'fanout', resolve(stage, sub)]);",
@@ -317,6 +335,9 @@ function runPush(
       '    ;;',
       '  *__frontaliere_section_tree_layout=hash-v1*section=berna*)',
       '    printf "HTTP/2 204\\nx-frontaliere-section-tree-layout: %s\\nx-frontaliere-section: berna\\n" "${BERNA_TEST_TREE_LAYOUT:-hash-v1}"',
+      '    ;;',
+      '  *__frontaliere_section_tree_layout=hash-v1*section=lucerna*)',
+      '    printf "HTTP/2 204\\nx-frontaliere-section-tree-layout: %s\\nx-frontaliere-section: lucerna\\n" "${LUCERNA_TEST_TREE_LAYOUT:-hash-v1}"',
       '    ;;',
       '  *)',
       `    exec ${JSON.stringify(realCurl)} "$@"`,
@@ -918,6 +939,108 @@ describe('delta push degli shard', () => {
       expect(git(['-C', scenario.remote, 'show', `main:${section}/_tree/${ticinoTreeBucket('job-0001')}/job-0001/index.html`])).toBe('<html>job-0001</html>');
       expect(git(['-C', scenario.remote, 'ls-tree', '-r', '--name-only', 'main', '--', `${section}/_tree`])).toContain(`${section}/_tree/`);
       expect(git(['-C', scenario.remote, 'ls-tree', '-r', '--name-only', 'main', '--', section])).not.toContain(`${section}/job-0001/`);
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  }, 60_000);
+
+  it('mantiene il delta durante il primo crossing registrato e migra con seed vuoto', () => {
+    const scenario = createScenario('section-first-crossing-delta');
+    const section = 'en/find-jobs-lucerne';
+    const sectionTarget = {
+      script: PUSH_SECTION,
+      args: (current: Scenario) => ['lucerna', 'en', current.dist],
+      deployKey: 'SHARD_LUCERNA_EN_DEPLOY_KEY',
+      label: 'lucerna-first-crossing',
+    };
+    const canonicalRegistry = { SECTION_TREE_TEST_REGISTRY_SECTIONS: '[]' };
+    const fannedRegistry = { SECTION_TREE_TEST_REGISTRY_SECTIONS: '["lucerna"]' };
+    try {
+      writeSectionPayload(scenario, {
+        'jobs/a': '<html>A v1</html>',
+        'jobs/b': '<html>B v1</html>',
+      }, 'find-jobs-lucerne');
+      writeManifest(scenario, ['jobs/a', 'jobs/b'], 'v1', section);
+      expect(runPush(scenario, 'delta', canonicalRegistry, sectionTarget).status).toBe(0);
+
+      writeSectionPayload(scenario, {
+        'jobs/a': '<html>A v2</html>',
+        'jobs/c': '<html>C v2</html>',
+      }, 'find-jobs-lucerne');
+      writeManifest(scenario, ['jobs/a', 'jobs/c'], 'v2', section);
+      const result = runPush(scenario, 'delta', {
+        ...fannedRegistry,
+        SHARD_DELTA_CHECKPOINT_FILES: '50',
+      }, sectionTarget);
+
+      expect(result.status, result.output).toBe(0);
+      expect(result.output).toContain('delta indexed tree');
+      expect(result.output).toContain('resumable-layout-migration');
+      expect(result.output).toContain('checkpoint seed=empty');
+      expect(result.output).not.toContain('using a full canonical overlay');
+      expect(treeFiles(scenario.remote)).toContain(
+        `${section}/_tree/${ticinoTreeBucket('jobs')}/jobs/a/index.html`,
+      );
+      expect(treeFiles(scenario.remote)).not.toContain(`${section}/jobs/a/index.html`);
+    } finally {
+      rmSync(scenario.root, { recursive: true, force: true });
+    }
+  }, 60_000);
+
+  it('usa il full overlay quando il probe del tree hash-fanned è illeggibile', () => {
+    const scenario = createScenario('section-layout-probe-error');
+    const section = 'en/find-jobs-lucerne';
+    const sectionTarget = {
+      script: PUSH_SECTION,
+      args: (current: Scenario) => ['lucerna', 'en', current.dist],
+      deployKey: 'SHARD_LUCERNA_EN_DEPLOY_KEY',
+      label: 'lucerna-layout-probe-error',
+    };
+    try {
+      writeSectionPayload(scenario, {
+        'jobs/a': '<html>A v1</html>',
+        'jobs/b': '<html>B v1</html>',
+      }, 'find-jobs-lucerne');
+      writeManifest(scenario, ['jobs/a', 'jobs/b'], 'v1', 'en/find-jobs-lucerne');
+      expect(runPush(scenario, 'delta', {
+        SECTION_TREE_TEST_REGISTRY_SECTIONS: '[]',
+      }, sectionTarget).status).toBe(0);
+
+      writeSectionPayload(scenario, {
+        'jobs/a': '<html>A v2</html>',
+        'jobs/c': '<html>C v2</html>',
+      }, 'find-jobs-lucerne');
+      writeManifest(scenario, ['jobs/a', 'jobs/c'], 'v2', 'en/find-jobs-lucerne');
+      expect(runPush(scenario, 'delta', {
+        SECTION_TREE_TEST_REGISTRY_SECTIONS: '["lucerna"]',
+      }, sectionTarget).status).toBe(0);
+      expect(treeFiles(scenario.remote)).toContain(
+        `${section}/_tree/${ticinoTreeBucket('jobs')}/jobs/a/index.html`,
+      );
+
+      writeSectionPayload(scenario, {
+        'jobs/a': '<html>A v3</html>',
+        'jobs/d': '<html>D v3</html>',
+      }, 'find-jobs-lucerne');
+      writeManifest(scenario, ['jobs/a', 'jobs/d'], 'v3', 'en/find-jobs-lucerne');
+      const result = runPush(scenario, 'delta', {
+        SECTION_TREE_TEST_REGISTRY_SECTIONS: '["lucerna"]',
+        SHARD_TEST_LAYOUT_PROBE_ERROR: '1',
+      }, sectionTarget);
+
+      expect(result.status, result.output).toBe(0);
+      expect(result.output).toContain('remote layout tree unreadable');
+      expect(result.output).toContain('delta fallback:');
+      expect(result.output).not.toContain('delta indexed tree');
+      expect(treeFiles(scenario.remote)).toContain(
+        `${section}/_tree/${ticinoTreeBucket('jobs')}/jobs/d/index.html`,
+      );
+      expect(treeFiles(scenario.remote)).not.toContain(`${section}/jobs/d/index.html`);
+      assertContent(
+        scenario.remote,
+        `${section}/_tree/${ticinoTreeBucket('jobs')}/jobs/a/index.html`,
+        '<html>A v3</html>',
+      );
     } finally {
       rmSync(scenario.root, { recursive: true, force: true });
     }
