@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-15T04:20:41.278Z",
+  "generatedAt": "2026-11-15T05:20:51.463Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -168930,6 +168930,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T00:17:57.311Z"
     },
+    "myswitzerland:ea8d4befe76740ae8ec77ed312568827::eed257d2d8e73a043ba35ef1fbef988453b70f37b16b5ded0bcd17a4bda09af9": {
+      "id": "myswitzerland:ea8d4befe76740ae8ec77ed312568827",
+      "sourceDescriptionHash": "eed257d2d8e73a043ba35ef1fbef988453b70f37b16b5ded0bcd17a4bda09af9",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Basel; cantone: BS; categoria: Event; partecipante: Sneakers Depeche Mode Tribute; data: 2027-02-27; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Basel; cantone: BS; categoria: Event; partecipante: Sneakers Depeche Mode Tribute; data: 2027-02-27; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Basel; canton: BS; category: Event; participant: Sneakers Depeche Mode Tribute; date: 2027-02-27; time: 20:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Basel; kanton: BS; kategorie: Event; mitwirkender: Sneakers Depeche Mode Tribute; datum: 2027-02-27; uhrzeit: 20:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Basel; canton: BS; catégorie: Event; participant: Sneakers Depeche Mode Tribute; date: 2027-02-27; heure: 20:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-15T05:16:56.246Z"
+    },
     "myswitzerland:ea9c72a8a1a84eea97a5a1be9a7b2c10::9b9d56b6626da700873428c0d4a79a44947be3aad80c060c5057f7f9b6a8ab26": {
       "id": "myswitzerland:ea9c72a8a1a84eea97a5a1be9a7b2c10",
       "sourceDescriptionHash": "9b9d56b6626da700873428c0d4a79a44947be3aad80c060c5057f7f9b6a8ab26",
@@ -197159,15 +197173,6 @@
       "code": "poor-source-word-floor",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T03:23:27.578Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:ea8d4befe76740ae8ec77ed312568827::eed257d2d8e73a043ba35ef1fbef988453b70f37b16b5ded0bcd17a4bda09af9": {
-      "id": "myswitzerland:ea8d4befe76740ae8ec77ed312568827",
-      "sourceDescriptionHash": "eed257d2d8e73a043ba35ef1fbef988453b70f37b16b5ded0bcd17a4bda09af9",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T13:18:36.442Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
