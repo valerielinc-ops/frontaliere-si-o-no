@@ -14,7 +14,11 @@ import {
 import { buildJobSlugShards, type SlugMapJobEntry } from '../services/jobSlugShards';
 import { ACTIVE_JOB_IDS_FILE_NAME, buildActiveJobIdIndex } from '../functions/src/assistedApplicationActiveJobIndex.js';
 import { isListingInventoryJob, normalizeListingIdentity } from '../services/jobBoardInventory';
-import { setJobCanonOrderingFields } from './shared/jobCanonInputs';
+import {
+ JOB_CANON_ORDERING_FIELDS_FILE_NAME,
+ serializeJobCanonOrderingFields,
+ setJobCanonOrderingFields,
+} from './shared/jobCanonInputs';
 import {
  buildCantonShards,
  cantonShardFileName,
@@ -289,7 +293,25 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
  apply: 'build',
  closeBundle() {
  const distDir = path.resolve(rootDir, 'dist');
+  const buildStage = process.env.BUILD_STAGE || 'single';
+  const orderingFieldsPath = path.resolve(distDir, 'data', JOB_CANON_ORDERING_FIELDS_FILE_NAME);
+  if (buildStage === 'bundle') fs.rmSync(orderingFieldsPath, { force: true });
+
  const count = generateFiles(distDir);
+  if (buildStage === 'bundle') {
+   const orderingFields = serializeJobCanonOrderingFields();
+   if (orderingFields) {
+    const temporaryPath = `${orderingFieldsPath}.tmp-${process.pid}`;
+    try {
+     fs.writeFileSync(temporaryPath, JSON.stringify(orderingFields), 'utf-8');
+     fs.renameSync(temporaryPath, orderingFieldsPath);
+     console.log(`[locale-jobs-split] staged job-canon ordering fields entries=${orderingFields.length}`);
+    } catch (error) {
+     fs.rmSync(temporaryPath, { force: true });
+     throw error;
+    }
+   }
+  }
  if (count > 0) {
  console.log(`[locale-jobs-split] Generated 4 slim index files + 4 first-page slim files + ${CANTON_SHARD_KEYS.length * LOCALES.length} canton shards + slug map (+ sharded slug map) + ${count} detail files (${count} jobs)`);
  }
