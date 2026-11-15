@@ -239,7 +239,7 @@ function isIndividualJobPage(path) {
 // `timeout-minutes` — about 0.15 %. The fallback the issue proposed (flatten
 // only what enters a cross-shard collection) is therefore moot: every call
 // site here already does, and there is nothing to claw back.
-// The bound that keeps this true is tests/seo/sitemap-loader-flatten-budget.test.ts.
+// The bound that keeps this true is tests/perf/sitemap-loader-flatten-budget.test.ts.
 
 /** audit-sitemap-canonicals: dist/sitemap-*.xml minus index + news, no asset URLs. */
 function loadAuditSitemapCanonicalsUrls() {

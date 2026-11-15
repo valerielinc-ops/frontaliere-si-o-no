@@ -43,6 +43,7 @@ import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -260,7 +261,7 @@ export function migrateUmantisRegistry(registry, jobIndex) {
 
 function main() {
   const APPLY = process.argv.includes('--apply');
-  const registry = JSON.parse(fs.readFileSync(REGISTRY_PATH, 'utf8'));
+  const registry = readJsonFile(REGISTRY_PATH);
   const jobIndex = buildUmantisJobIndex();
   console.log(`Registry entries: ${Object.keys(registry).length}; umantis vacancy ids in slices: ${jobIndex.size}`);
 

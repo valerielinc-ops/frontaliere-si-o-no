@@ -717,7 +717,7 @@
       "sourceLang": "de",
       "slug": "projektleiter-projektleiterin-logistik-supply-chain-w-m-d-galenica-galenica-burgdorf",
       "slugByLocale": {
-        "it": "project-manager-project-manager-logistica-supply-chain-m-f-d-galenica-galenica-burgdorf",
+        "it": "projektleiter-projektleiterin-logistik-supply-chain-w-m-d-galenica-galenica-burgdorf",
         "en": "project-manager-project-manager-logistics-supply-chain-m-f-d-galenica-galenica-burgdorf",
         "de": "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf",
         "fr": "chef-de-projet-cheffe-de-projet-logistique-chaine-d-approvisionnement-h-f-d-galenica-galenica-burgdorf"
@@ -733,12 +733,14 @@
       "id": "galenica-70edf8af43c1",
       "previousSlugs": [
         "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf",
-        "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf"
+        "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf",
+        "project-manager-project-manager-logistica-supply-chain-m-f-d-galenica-galenica-burgdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf",
-          "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf"
+          "projektleiter-projektleiterin-logistik-supply-chain-m-w-d-galenica-burgdorf",
+          "project-manager-project-manager-logistica-supply-chain-m-f-d-galenica-galenica-burgdorf"
         ],
         "en": [
           "galenica-galenica-projektleiter-projektleiterin-logistik-supply-chain-w-m-d-burgdorf"
@@ -1843,7 +1845,8 @@
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-22T21:17:45.580Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "title": "Assistent / Assistentin Schulungen & Events (w/m/d)",
@@ -2738,7 +2741,8 @@
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-05T21:17:45.580Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "title": "Pharma-Assistent / Pharma-Assistentin (w/m/d)",
@@ -3362,7 +3366,8 @@
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-14T21:17:45.580Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "needsRetranslation": true
     },
     {
       "title": "Assistenzjahr für Pharmaziestudierende (w/m/d)",
@@ -6653,7 +6658,7 @@
       "sourceLang": "fr",
       "slug": "pharmacien-adjoint-pharmacienne-adjointe-f-m-d-galenica-galenica-nyon",
       "slugByLocale": {
-        "it": "assistente-farmacista-assistente-farmacista-m-f-d-galenica-galenica-nyon",
+        "it": "pharmacien-adjoint-pharmacienne-adjointe-f-m-d-galenica-galenica-nyon",
         "en": "assistant-pharmacist-assistant-pharmacist-m-f-d-galenica-galenica-nyon",
         "de": "assistenzapotheker-assistenzapotheker-m-w-d-galenica-galenica-nyon",
         "fr": "galenica-galenica-pharmacien-adjoint-pharmacienne-adjointe-f-h-d-nyon"
@@ -6669,12 +6674,14 @@
       "id": "galenica-4b8a3441a5ae",
       "previousSlugs": [
         "galenica-galenica-pharmacien-adjoint-pharmacienne-adjointe-f-h-d-nyon",
-        "pharmacien-adjoint-pharmacienne-adjointe-m-w-d-galenica-nyon"
+        "pharmacien-adjoint-pharmacienne-adjointe-m-w-d-galenica-nyon",
+        "assistente-farmacista-assistente-farmacista-m-f-d-galenica-galenica-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-pharmacien-adjoint-pharmacienne-adjointe-f-h-d-nyon",
-          "pharmacien-adjoint-pharmacienne-adjointe-m-w-d-galenica-nyon"
+          "pharmacien-adjoint-pharmacienne-adjointe-m-w-d-galenica-nyon",
+          "assistente-farmacista-assistente-farmacista-m-f-d-galenica-galenica-nyon"
         ],
         "en": [
           "galenica-galenica-pharmacien-adjoint-pharmacienne-adjointe-f-h-d-nyon"

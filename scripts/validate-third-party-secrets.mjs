@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 const ROOT = process.cwd();
 const SKIP_DIRS = new Set(['.git', 'node_modules', 'dist', '.firebase']);
@@ -105,32 +106,98 @@ function findMatches(filePath, content) {
   return findings;
 }
 
-const findings = [];
+// V8 cannot hold a string longer than ~512 MiB: `data/jobs.json` is past that,
+// and `readFileSync(..., 'utf8')` throws ERR_STRING_TOO_LONG (this script
+// crashed on it). Past the inline limit the file is scanned in overlapping
+// chunks instead, so the secret scan still covers the whole dataset.
+export const LARGE_FILE_INLINE_BYTES = 256 * 1024 * 1024;
+const LARGE_CHUNK_BYTES = 64 * 1024 * 1024;
+const LARGE_OVERLAP_BYTES = 64 * 1024; // longer than any URL the patterns can match
 
-for (const filePath of getFiles()) {
-  let content;
+export function scanLargeFile(filePath, {
+  chunkBytes = LARGE_CHUNK_BYTES,
+  overlapBytes = LARGE_OVERLAP_BYTES,
+} = {}) {
+  const findings = [];
+  const seen = new Set();
+  const fd = fs.openSync(filePath, 'r');
   try {
-    content = fs.readFileSync(filePath, 'utf8');
-  } catch (err) {
-    // Several tracked paths (data/blog-articles-data.ts, services/seo/seo-blog*.ts, …)
-    // are symlinks into packages/articles/content/, which sparse-checkout jobs like
-    // validate-dist-source deliberately exclude (out of scope for this validator).
-    // A broken symlink under that exclusion is expected, not a finding — skip it.
-    if (err.code === 'ENOENT') continue;
-    throw err;
+    const { size } = fs.fstatSync(fd);
+    let position = 0;
+    let newlinesBefore = 0; // newlines in bytes [0, position)
+    while (position < size) {
+      const start = Math.max(0, position - overlapBytes);
+      const length = Math.min(size - start, chunkBytes + (position - start));
+      const buffer = Buffer.allocUnsafe(length);
+      fs.readSync(fd, buffer, 0, length, start);
+      const text = buffer.toString('utf8');
+      // lines before `start`: only the overlap region is re-read, so count from the carried total
+      const startNewlines = newlinesBefore - countNewlines(buffer.subarray(0, position - start));
+      for (const { name, regex } of SUSPICIOUS_PATTERNS) {
+        regex.lastIndex = 0;
+        let match;
+        while ((match = regex.exec(text)) !== null) {
+          const absolute = start + Buffer.byteLength(text.slice(0, match.index), 'utf8');
+          const key = `${name}@${absolute}`;
+          if (seen.has(key)) continue;
+          seen.add(key);
+          findings.push({
+            type: name,
+            line: startNewlines + countNewlines(Buffer.from(text.slice(0, match.index), 'utf8')) + 1,
+            excerpt: match[0].slice(0, 200),
+            filePath,
+          });
+        }
+      }
+      newlinesBefore += countNewlines(buffer.subarray(position - start));
+      position = start + length;
+    }
+  } finally {
+    fs.closeSync(fd);
   }
-  findings.push(...findMatches(filePath, content));
+  return findings;
 }
 
-if (findings.length > 0) {
-  console.error('❌ Third-party secret/access URL validation failed:');
-  for (const finding of findings.slice(0, 50)) {
-    console.error(`- ${path.relative(ROOT, finding.filePath)}:${finding.line} [${finding.type}] ${finding.excerpt}`);
-  }
-  if (findings.length > 50) {
-    console.error(`…and ${findings.length - 50} more findings`);
-  }
-  process.exit(1);
+function countNewlines(buffer) {
+  let count = 0;
+  for (let i = buffer.indexOf(10); i !== -1; i = buffer.indexOf(10, i + 1)) count += 1;
+  return count;
 }
 
-console.log('✅ No suspicious third-party secret/access URLs found in tracked data files.');
+function main() {
+  const findings = [];
+
+  for (const filePath of getFiles()) {
+    let content;
+    try {
+      if (fs.statSync(filePath).size > LARGE_FILE_INLINE_BYTES) {
+        findings.push(...scanLargeFile(filePath));
+        continue;
+      }
+      content = fs.readFileSync(filePath, 'utf8');
+    } catch (err) {
+      // Several tracked paths (data/blog-articles-data.ts, services/seo/seo-blog*.ts, …)
+      // are symlinks into packages/articles/content/, which sparse-checkout jobs like
+      // validate-dist-source deliberately exclude (out of scope for this validator).
+      // A broken symlink under that exclusion is expected, not a finding — skip it.
+      if (err.code === 'ENOENT') continue;
+      throw err;
+    }
+    findings.push(...findMatches(filePath, content));
+  }
+
+  if (findings.length > 0) {
+    console.error('❌ Third-party secret/access URL validation failed:');
+    for (const finding of findings.slice(0, 50)) {
+      console.error(`- ${path.relative(ROOT, finding.filePath)}:${finding.line} [${finding.type}] ${finding.excerpt}`);
+    }
+    if (findings.length > 50) {
+      console.error(`…and ${findings.length - 50} more findings`);
+    }
+    process.exit(1);
+  }
+
+  console.log('✅ No suspicious third-party secret/access URLs found in tracked data files.');
+}
+
+if (isInvokedDirectly(import.meta.url)) main();

@@ -1,3 +1,4 @@
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import { aggregateProfessionJobs, _resetProfessionJobsAggregateCache } from '../build-plugins/professionJobsAggregate';
 import { aggregateNursingJobs, _resetNursingJobsAggregateCache } from '../build-plugins/nursingJobsAggregate';
 import { aggregateCityJobs, _resetCityJobsAggregateCache } from '../build-plugins/cityJobsAggregate';
@@ -124,7 +125,7 @@ describe('publication provenance through remaining listing consumers', () => {
       }
       execFileSync(process.execPath, [join(root, 'scripts/snapshot-jobs-weekly.mjs')], { encoding: 'utf8' });
       const dir = join(root, 'data/jobs-snapshots-history');
-      const snapshot = JSON.parse(readFileSync(join(dir, readdirSync(dir)[0]), 'utf8'));
+      const snapshot = readJsonFile(join(dir, readdirSync(dir)[0]));
       expect(snapshot.jobs).toHaveLength(36);
       expect(snapshot.jobs.filter((job: { postedAt?: string }) => job.postedAt)).toHaveLength(10);
       expect(snapshot.jobs.filter((job: { postingDateSource?: string }) => job.postingDateSource === 'unknown')).toHaveLength(15);

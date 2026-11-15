@@ -19,8 +19,8 @@
  * Reads the CI-assembled data/jobs.json (gitignored, rebuilt before vitest by
  * tests.yml — same dependency as tests/canton-empty-canton-guard.test.ts).
  */
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import { describe, expect, it } from 'vitest';
-import fs from 'node:fs';
 import path from 'node:path';
 // @ts-expect-error — plain .mjs lib, no type declarations
 import { inferAnyCanton } from '../scripts/lib/target-swiss-locations.mjs';
@@ -34,7 +34,7 @@ interface Job {
 }
 
 const DATA_JOBS_PATH = path.resolve(__dirname, '..', 'data', 'jobs.json');
-const jobs: Job[] = JSON.parse(fs.readFileSync(DATA_JOBS_PATH, 'utf-8'));
+const jobs: Job[] = readJsonFile(DATA_JOBS_PATH);
 
 describe('canton-ti-misclassification-guard', () => {
   it('jobs.json exists and is a non-empty array', () => {

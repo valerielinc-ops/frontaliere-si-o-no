@@ -19,8 +19,8 @@
  * Reads the CI-assembled data/jobs.json (gitignored, rebuilt before vitest by
  * tests.yml — same dependency as ti-sector-hub-canton-scope.test.ts).
  */
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import { describe, expect, it } from 'vitest';
-import fs from 'node:fs';
 import path from 'node:path';
 import { resolveJobCanton } from '../build-plugins/shared/cantonSection';
 import {
@@ -30,7 +30,7 @@ import {
 import { WEEKLY_EMPLOYERS_LOCALES } from '../build-plugins/weeklyEmployersData';
 
 const DATA_JOBS_PATH = path.resolve(__dirname, '..', 'data', 'jobs.json');
-const jobs: WeeklyCountableJob[] = JSON.parse(fs.readFileSync(DATA_JOBS_PATH, 'utf-8'));
+const jobs: WeeklyCountableJob[] = readJsonFile(DATA_JOBS_PATH);
 
 describe('ti-weekly-employers-canton-scope', () => {
   it("the 'ticino' regional bucket reflects canton=TI jobs only, not all of Switzerland", () => {

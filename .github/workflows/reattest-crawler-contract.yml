@@ -244,11 +244,11 @@ jobs:
           fi
 
           git add -- "$CONTRACT_PATH"
-          # GitHub suppresses push/pull_request workflows for this commit. The
-          # PR is still created with the trusted App/PAT identity because this
-          # repository deliberately disallows Actions' standard token from
-          # creating PRs. The trusted exact-head gate below performs the merge.
-          git commit -m "ci: reattest crawler contract to landed main [skip ci]"
+          # This contract-only branch does not match this workflow's source
+          # paths, so its push cannot start another reattestation. Keep the
+          # commit eligible for the normal pull_request checks: the repository
+          # ruleset requires those checks before the contract can land.
+          git commit -m "ci: reattest crawler contract to landed main"
           git push --set-upstream origin "$REATTEST_BRANCH"
 
           body="$RUNNER_TEMP/reattest-pr-body.md"
@@ -285,13 +285,14 @@ jobs:
 
           # This PR is intentionally a one-file contract reattestation. Use
           # the canonical non-runtime-code verifier from trusted main, then
-          # merge with the App bypass bound to the exact HEAD. The commit's
-          # skip-ci marker prevents PR workflows; a changed file-list, body,
-          # author, base, or HEAD fails closed.
+          # opt into GitHub's native auto-merge bound to the exact HEAD. Native
+          # auto-merge waits for the required pull_request checks instead of
+          # attempting an administrative merge while they are still expected;
+          # a changed file-list, body, author, base, or HEAD fails closed.
           REPO="$GITHUB_REPOSITORY" \
             PR_NUMBER="$pr_number" \
             HEAD_SHA="$head_sha" \
             TRUSTED_GH_BIN="$(command -v gh)" \
             node .trusted-main/scripts/ci/review-test-policy.mjs non-code-merge-check
           gh pr merge "$pr_number" --repo "$GITHUB_REPOSITORY" \
-            --admin --squash --delete-branch --match-head-commit "$head_sha"
+            --auto --squash --delete-branch --match-head-commit "$head_sha"

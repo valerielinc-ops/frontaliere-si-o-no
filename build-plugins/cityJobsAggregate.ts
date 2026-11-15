@@ -1,5 +1,5 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
-import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
+import { readJobsArrayStrict } from './shared/readJobsDatasetStrict';
 /**
  * Build-time aggregator for the cost-of-living city landings (AE-4 template B).
  *
@@ -27,8 +27,6 @@ import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
  * Read-only by design — no write side effects.
  */
 
-import * as fs from 'node:fs';
-import * as np from 'node:path';
 import {
   COL_CITY_IDS,
   type ColCityId,
@@ -183,16 +181,8 @@ let _cacheRootDir: string | null = null;
 const DAY_MS = 86_400_000;
 
 function loadJobs(rootDir: string): readonly JobRecord[] {
-  const jobsPath = np.join(rootDir, 'data', 'jobs.json');
-  if (!fs.existsSync(jobsPath)) return [];
-  try {
-    const parsed = readJsonFile(jobsPath);
-    if (Array.isArray(parsed)) return parsed as JobRecord[];
-    return [];
-  } catch (err) {
-    console.warn('[city-jobs-aggregate] failed to read jobs.json:', err);
-    return [];
-  }
+  // Fail closed: an unreadable dataset aborts the build instead of yielding 0 jobs.
+  return readJobsArrayStrict<JobRecord>(rootDir, 'city-jobs-aggregate');
 }
 
 /**

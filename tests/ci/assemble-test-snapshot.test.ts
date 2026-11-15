@@ -252,6 +252,7 @@ describe('hourly assemble test snapshot', () => {
     const cacheKey = seedSteps.find((step) => step.id === 'snapshot_cache_key');
     const cacheSave = seedSteps.find((step) => step.name === 'Save hourly test snapshot');
     const manifestArtifact = seedSteps.find((step) => step.name === 'Publish latest snapshot manifest');
+    const pruneSnapshots = seedSteps.find((step) => step.name === 'Prune older hourly test snapshots');
     const metadataDownload = testSteps.find((step) => step.id === 'latest_hourly_snapshot_manifest');
     const selectedKey = testSteps.find((step) => step.id === 'hourly_snapshot_key');
     const cacheRestore = testSteps.find((step) => step.id === 'hourly_snapshot_cache');
@@ -260,6 +261,8 @@ describe('hourly assemble test snapshot', () => {
     expect(cacheKey?.run).toContain('assemble-test-snapshot.mjs cache-key');
     expect(cacheSave?.with?.key).toBe('${{ steps.snapshot_cache_key.outputs.key }}');
     expect(manifestArtifact?.with?.name).toBe('assemble-test-snapshot-manifest');
+    expect(pruneSnapshots?.with?.script).toContain('github.paginate');
+    expect(pruneSnapshots?.with?.script).toContain('github.rest.actions.deleteActionsCacheById');
     expect(metadataDownload?.uses).toBe('actions/download-artifact@v8');
     expect(selectedKey?.run).toContain('assemble-test-snapshot.mjs cache-key');
     expect(cacheRestore?.with?.key).toBe('${{ steps.hourly_snapshot_key.outputs.key }}');

@@ -123,6 +123,7 @@ import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import https from 'node:https';
 import { flatString } from './lib/flat-string.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 // Exercise the REAL newsletter URL builder, not a frozen copy of the bug — so
 // check (B) auto-resolves once companyPageUrl is fixed AND catches any future
 // prefix/slug regression (the builder is the single source of truth).
@@ -863,10 +864,23 @@ async function loadCompanySample(limit) {
   for (const p of candidates) {
     try {
       await access(p);
-      const raw = JSON.parse(await readFile(p, 'utf8'));
-      jobs = Array.isArray(raw) ? raw : (Array.isArray(raw?.jobs) ? raw.jobs : null);
-      if (jobs) break;
-    } catch { /* try next */ }
+    } catch { continue; /* not present: try the next candidate */ }
+    // The file exists. `readFile(..., 'utf8')` + JSON.parse throws
+    // ERR_STRING_TOO_LONG on the 539 MB dataset and the old catch turned that
+    // into an empty company sample without a word. readJsonFile parses
+    // item-wise above the limit; a genuine read/parse failure now stops the
+    // audit instead of auditing a sample of one.
+    let raw;
+    try {
+      raw = readJsonFile(p);
+    } catch (err) {
+      throw new Error(`audit-404-risk: cannot read ${p}: ${err?.message || err}`);
+    }
+    jobs = Array.isArray(raw) ? raw : (Array.isArray(raw?.jobs) ? raw.jobs : null);
+    if (jobs) break;
+  }
+  if (!jobs) {
+    console.warn('::warning::audit-404-risk: no readable jobs dataset found — the company sample is limited to the built-in sentinel');
   }
   const names = new Set();
   if (jobs) {

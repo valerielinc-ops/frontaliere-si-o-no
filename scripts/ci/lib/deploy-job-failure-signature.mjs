@@ -14,6 +14,13 @@ export const TIMEOUT_ANNOTATION_RE = /exceeded[^.]*(maximum execution time|maxim
 export const TIMEOUT_JOB_CONCLUSIONS = new Set(['cancelled', 'timed_out']);
 export const HOST_KILL_SETTLE_MS = intFromEnv('HOST_KILL_SETTLE_MS', 120_000);
 
+/**
+ * Memory-class evidence for a concluded `failure`: the build memory guard
+ * aborting the leg, or V8/the kernel killing the process (exit 134 / 137).
+ * Only the failure annotations are read, so ordinary log text cannot match.
+ */
+export const MEMORY_ANNOTATION_RE = /\[build-mem-guard\]|heap out of memory|JavaScript heap out of memory|exit code (?:134|137)\b/i;
+
 const BUILD_LOCALE_JOB_RE = /^build-locale \(([^)\s]+)\)$/;
 
 export function buildLocaleFromJobName(name) {
@@ -91,6 +98,26 @@ export function detectBuildLocaleHostKill(job, nowMs = Date.now(), settleMs = HO
 }
 
 /**
+ * A completed failed job whose failure annotation names a memory abort.
+ *
+ * @param {{status?: string, conclusion?: string|null}} job
+ * @param {Array} annotations
+ * @returns {object|null} the matching annotation
+ */
+export function detectMemoryFailure(job, annotations) {
+  if (job?.status !== 'completed' || job?.conclusion !== 'failure' || !Array.isArray(annotations)) return null;
+  return annotations.find((annotation) => {
+    const level = String(annotation?.annotation_level || '').toLowerCase();
+    if (level && level !== 'failure' && level !== 'error') return false;
+    return MEMORY_ANNOTATION_RE.test(
+      [annotation?.message, annotation?.title, annotation?.raw_details]
+        .filter((value) => typeof value === 'string')
+        .join('\n'),
+    );
+  }) || null;
+}
+
+/**
  * Classify one build-locale job without treating a normal application failure
  * as transient infrastructure. The caller supplies annotations so this stays
  * pure and the recovery path can fail closed when they are unreadable.
@@ -108,6 +135,11 @@ export function classifyBuildLocaleFailure(
 
   const timeout = detectTimeout(job, annotations);
   if (timeout) return { kind: 'timeout', locale, evidence: timeout };
+
+  // Memory: the leg was aborted by the guard or OOM-killed. Same recovery
+  // contract as the two signatures above (one leg, green siblings, snapshot).
+  const memory = detectMemoryFailure(job, annotations);
+  if (memory) return { kind: 'memory', locale, evidence: memory };
 
   return null;
 }
