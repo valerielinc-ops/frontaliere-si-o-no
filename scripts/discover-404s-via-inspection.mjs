@@ -38,7 +38,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
-import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import { readCompatPathsStrict, ADDITIVE_COMPAT_READ, writeCompatPaths } from './lib/compat-paths-store.mjs';
 import { gscCoveragePopulationSummary, readCanonicalGscCoverage } from './lib/gsc-coverage-population.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 
@@ -185,7 +185,7 @@ async function main() {
   // Coverage export. Keep the job-orphan ledger separate; it is owned by the
   // dedicated synchronizer.
   const compatPath = dataPath('seo-404-compat'); // sharded dir (issue #2988)
-  const compat = readCompatPathsStrict(ROOT);
+  const compat = readCompatPathsStrict(ROOT, ADDITIVE_COMPAT_READ);
 
   // Collect candidate URLs and rank by "most in need of inspection"
   const candidates = collectCandidatePaths(population, compat.paths);
@@ -312,7 +312,7 @@ async function main() {
     // floor 150000 violato). Guard condiviso in scripts/lib/compat-paths-floor-guard.mjs
     // (stessa semantica per tutti i writer del compat): fire solo se il write
     // scende sotto floor MENTRE l'esistente è già grande. ABORTISCE rumorosamente.
-    const prevCount = readCompatPathsStrict(ROOT).paths?.length ?? 0;
+    const prevCount = readCompatPathsStrict(ROOT, ADDITIVE_COMPAT_READ).paths?.length ?? 0;
     try {
       assertCompatFloor(prevCount, updatedCompat.paths.length, {
         floor: COMPAT_PATHS_SANITY_FLOOR,

@@ -24,7 +24,7 @@ import path from 'node:path';
 import { execFileSync, execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { assertCompatFloor } from './lib/compat-paths-floor-guard.mjs';
-import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import { readCompatPathsStrict, ADDITIVE_COMPAT_READ, writeCompatPaths } from './lib/compat-paths-store.mjs';
 import {
   readAllKnownJobSlugs,
   writeAllKnownJobSlugs,
@@ -371,7 +371,7 @@ function mineOrphanData(orphansOverride = null) {
 
 function mineCompatPaths() {
   const slugs = new Map();
-  const compat = readCompatPathsStrict(ROOT); // sharded accumulator (issue #2988)
+  const compat = readCompatPathsStrict(ROOT, ADDITIVE_COMPAT_READ); // sharded accumulator (issue #2988)
   if (!compat?.paths) return slugs;
 
   for (const p of compat.paths) {
@@ -775,7 +775,7 @@ function main() {
 
   // Update compat paths: add ALL tracking paths as safety net
   const compatFile = dataPath('seo-404-compat'); // sharded dir (issue #2988)
-  const compat = readCompatPathsStrict(ROOT) || { paths: [] };
+  const compat = readCompatPathsStrict(ROOT, ADDITIVE_COMPAT_READ) || { paths: [] };
   const existingCompat = new Set(compat.paths);
   let compatAdded = 0;
 
@@ -858,7 +858,7 @@ function main() {
     // additive update can persist a partial set. Re-read on-disk for the
     // authoritative pre-write count and keep the shared floor guard as a
     // second defense against a broad logical regression.
-    const prevCount = readCompatPathsStrict(ROOT)?.paths?.length ?? 0;
+    const prevCount = readCompatPathsStrict(ROOT, ADDITIVE_COMPAT_READ)?.paths?.length ?? 0;
     assertCompatFloor(prevCount, updatedCompat.paths.length, { label: compatFile });
     writeCompatPaths(updatedCompat, ROOT);
     console.log('\n  ✅ Files written');

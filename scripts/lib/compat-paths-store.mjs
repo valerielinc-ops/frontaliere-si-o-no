@@ -188,6 +188,19 @@ export function* iterateCompatPaths(rootDir = process.cwd()) {
 }
 
 /**
+ * Options for `readCompatPathsStrict()` in the pure readers and the producers
+ * that merge new observations into the set (discover-404s-*, sync-gsc-orphans,
+ * ingest-gsc-coverage-404s, mine-all-job-slugs, build-search-cluster-301-map):
+ * each rewrites through `writeCompatPaths` behind `assertCompatFloor`, so a
+ * manifest total that merely LAGS the shards cannot make them lose anything
+ * (discover-404s-via-inspection also drops the few URLs it has just proved
+ * recovered, bounded by its batch). The prune and the merge resolver, which
+ * remove paths by rule over the whole set, must not use it
+ * (tests/compat-manifest-lag.test.ts pins both lists).
+ */
+export const ADDITIVE_COMPAT_READ = Object.freeze({ allowManifestSurplus: true });
+
+/**
  * Read the accumulator for a destructive rewrite. Unlike readCompatPaths(),
  * this fails closed if a shard or its manifest is missing, corrupt, or
  * inconsistent: a partial read must never be written back as the new set.
@@ -195,9 +208,24 @@ export function* iterateCompatPaths(rootDir = process.cwd()) {
  * `readCompatPathsStrictAfterMerge()` entry point for its post-write invariant
  * check with an independently computed expected path count; shard
  * completeness, assignment, uniqueness, and that count remain mandatory.
+ *
+ * `options.allowManifestSurplus` (default false) is for pure readers and the
+ * producers that merge new observations into the set and rewrite it through
+ * `writeCompatPaths` (which recomputes the manifest) behind `assertCompatFloor`
+ * (see `ADDITIVE_COMPAT_READ`): a manifest `totalPaths` LOWER than the complete,
+ * valid, unique, correctly assigned shards loses nothing (a merge unioned the
+ * shards without refreshing the manifest, 2026-11-15, build 43728895227), so
+ * it is reported through `onManifestSurplus` (default: a `console.warn`) and
+ * the read proceeds. A `totalPaths` HIGHER than the shards (possible
+ * truncation) and every other check stay fatal. Removers (the prune and the
+ * merge resolver) keep the default exact mode.
  */
-export function readCompatPathsStrict(rootDir = process.cwd()) {
-  return readCompatPathsStrictInternal(rootDir);
+export function readCompatPathsStrict(rootDir = process.cwd(), options = {}) {
+  const { allowManifestSurplus = false, onManifestSurplus } = options ?? {};
+  return readCompatPathsStrictInternal(rootDir, {
+    manifestTotal: allowManifestSurplus ? 'allow-surplus' : 'exact',
+    onManifestSurplus,
+  });
 }
 
 /**
@@ -223,7 +251,10 @@ export function readCompatPathsStrictAfterMerge(rootDir = process.cwd(), expecte
   return readCompatPathsStrictInternal(rootDir, { expectedTotalPaths });
 }
 
-function readCompatPathsStrictInternal(rootDir, { expectedTotalPaths = null } = {}) {
+function readCompatPathsStrictInternal(
+  rootDir,
+  { expectedTotalPaths = null, manifestTotal = 'exact', onManifestSurplus } = {},
+) {
   const dir = path.resolve(rootDir, COMPAT_SHARD_DIR);
   let shardNames;
   try {
@@ -281,7 +312,7 @@ function readCompatPathsStrictInternal(rootDir, { expectedTotalPaths = null } = 
   }
   if (!meta || typeof meta !== 'object' || Array.isArray(meta)
     || meta.shardCount !== COMPAT_SHARD_COUNT
-    || !Number.isSafeInteger(meta.totalPaths) || meta.totalPaths < 0) {
+    || (manifestTotal !== 'ignore' && (!Number.isSafeInteger(meta.totalPaths) || meta.totalPaths < 0))) {
     throw new Error('[compat-paths-store] invalid shard manifest; refusing destructive rewrite');
   }
 
@@ -325,17 +356,71 @@ function readCompatPathsStrictInternal(rootDir, { expectedTotalPaths = null } = 
     );
   }
 
-  if (expectedTotalPaths === null && paths.length !== meta.totalPaths) {
-    throw new Error(
-      `[compat-paths-store] manifest declares ${meta.totalPaths} paths, `
-      + `but complete shards contain ${paths.length}; refusing destructive rewrite`,
-    );
+  const declaredTotalPaths = meta.totalPaths;
+  if (expectedTotalPaths === null && manifestTotal !== 'ignore' && paths.length !== declaredTotalPaths) {
+    if (manifestTotal === 'allow-surplus' && paths.length > declaredTotalPaths) {
+      const report = onManifestSurplus ?? ((info) => console.warn(info.message));
+      report({
+        declaredTotalPaths,
+        actualTotalPaths: paths.length,
+        message: `[compat-paths-store] WARNING manifest totalPaths lags its shards: manifest declares ${declaredTotalPaths} paths, `
+          + `complete shards contain ${paths.length} (+${paths.length - declaredTotalPaths}); the shards are complete, `
+          + 'unique and correctly assigned, so nothing is lost; continuing. '
+          + 'Realign with: node scripts/ci/refresh-compat-manifest.mjs',
+      });
+    } else {
+      throw new Error(
+        `[compat-paths-store] manifest declares ${declaredTotalPaths} paths, `
+        + `but complete shards contain ${paths.length}; refusing destructive rewrite`,
+      );
+    }
   }
 
   delete meta.paths;
   delete meta.shardCount;
   delete meta.totalPaths;
   return { ...meta, paths };
+}
+
+/**
+ * Realign `manifest.json`'s `totalPaths` with the shards it describes.
+ *
+ * A merge that unions the shards (the `merge=compat-shard` driver, or GitHub's
+ * own text merge) without going through `writeCompatPaths` leaves the manifest
+ * with the total of ONE side, so `readCompatPathsStrict()` then refuses every
+ * read (2026-11-15: manifest 6411550 vs 6411560 in the shards, build
+ * 43728895227). The shards are the source of truth: this validates them with
+ * every check of the strict reader (complete set, valid JSON, string paths, no
+ * duplicates, correct shard assignment) and only then rewrites the manifest
+ * with the byte-identical serialisation of `writeCompatPaths`, preserving
+ * `source`/`lastUpdated` and any other metadata. No shard is ever touched. A
+ * corrupt or incomplete shard set throws: it is never "fixed" by re-counting.
+ *
+ * @param {string} [rootDir]
+ * @param {{ check?: boolean }} [options] `check: true` reports without writing
+ * @returns {{ declaredTotalPaths: number|null, actualTotalPaths: number, changed: boolean, skipped?: string }}
+ */
+export function refreshCompatManifest(rootDir = process.cwd(), { check = false } = {}) {
+  if (listCompatShardFiles(rootDir).length === 0) {
+    return { declaredTotalPaths: null, actualTotalPaths: 0, changed: false, skipped: 'no-shards' };
+  }
+  const store = readCompatPathsStrictInternal(rootDir, { manifestTotal: 'ignore' });
+  const manifestFile = compatManifestFile(rootDir);
+  const raw = fs.readFileSync(manifestFile, 'utf-8');
+  const declared = JSON.parse(raw)?.totalPaths;
+  const { paths, ...meta } = store;
+  const content = JSON.stringify(
+    { ...meta, shardCount: COMPAT_SHARD_COUNT, totalPaths: paths.length },
+    null,
+    2,
+  ) + '\n';
+  const changed = content !== raw;
+  if (changed && !check) writeFileAtomic(manifestFile, content);
+  return {
+    declaredTotalPaths: Number.isSafeInteger(declared) ? declared : null,
+    actualTotalPaths: paths.length,
+    changed,
+  };
 }
 
 /**

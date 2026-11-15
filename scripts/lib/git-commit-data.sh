@@ -1046,6 +1046,16 @@ restore_stashed_changes_with_safe_merge() {
   # unavailable here, the prune ABORTS the push (exit 1) rather than committing
   # an unvalidated merge.
   if [ -n "${COMPAT_STORE_TOUCHED:-}" ]; then
+    # The shard driver unions the shards but cannot update manifest.json, and a
+    # manifest that merges cleanly keeps ONE side's totalPaths: the strict
+    # (exact) read in the prune below would then refuse the whole store
+    # (2026-11-15, build 43728895227). Realign it from the validated shards
+    # first; a corrupt/incomplete shard set is still fatal.
+    echo "🔎 Realigning compat manifest total with the merged shards…"
+    node "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/../ci/refresh-compat-manifest.mjs" --root "$PWD" || {
+      echo "❌ Compat manifest realignment failed — refusing to stage an inconsistent compat store."
+      exit 1
+    }
     echo "🔎 Re-validating sharded seo-404 compat store after 3-way merge (fail-closed)…"
     PRUNE_404_STRICT=1 npx tsx scripts/prune-404-compat-paths.ts || {
       echo "❌ Post-merge resolvability prune failed — refusing to stage a possibly-poisoned compat store."

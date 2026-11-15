@@ -78,6 +78,7 @@ set -euo pipefail
 
 BOUNDED_COMMAND_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/run-bounded-command.mjs"
 MAIN_PUSH_GUARD_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/main-push-guard.mjs"
+REFRESH_COMPAT_MANIFEST_SCRIPT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/../ci/refresh-compat-manifest.mjs"
 
 # The 300-second fetch ceiling is supported by issue 12175's 61.6, 62.6,
 # 83.0 and 95.1-second commit-graph measurements. The 180-second push ceiling
@@ -91,6 +92,31 @@ run_bounded() {
   local seconds="$1" label="$2"
   shift 2
   node "$BOUNDED_COMMAND_SCRIPT" --timeout-seconds "$seconds" --label "$label" -- "$@"
+}
+
+# After a rebase the seo-404 compat shards are unioned by the `compat-shard`
+# driver, which cannot update data/seo-404-compat/manifest.json: a manifest that
+# merges cleanly keeps ONE side's totalPaths (2026-11-15: 6411550 declared vs
+# 6411560 in the shards, every deploy `prep` failed on it, build 43728895227).
+# Only when the commit about to be pushed touches the compat store AND this
+# checkout has its shards on disk, realign the manifest from the validated
+# shards and fold the fix into the (still unpushed) head commit. A corrupt or
+# incomplete shard set is fatal: it must not be pushed.
+realign_compat_manifest() {
+  [ -f "$REFRESH_COMPAT_MANIFEST_SCRIPT" ] || return 0
+  [ -f data/seo-404-compat/part-00.json ] || return 0
+  if [ -z "$(git diff-tree -r --name-only --no-renames "origin/${BRANCH}" HEAD -- data/seo-404-compat/ 2>/dev/null | head -n 1)" ]; then
+    return 0
+  fi
+  if ! node "$REFRESH_COMPAT_MANIFEST_SCRIPT" --root "$PWD"; then
+    echo "::error::Compat manifest realignment failed; refusing to push an inconsistent seo-404 compat store"
+    exit 1
+  fi
+  if ! git diff --quiet -- data/seo-404-compat/manifest.json; then
+    git add -- data/seo-404-compat/manifest.json
+    git commit --amend --no-edit --only -q -- data/seo-404-compat/manifest.json
+    echo "Compat manifest total realigned with its shards and folded into the head commit"
+  fi
 }
 
 # Register the seo-404 compat-shard merge driver (.gitattributes
@@ -617,6 +643,7 @@ until push_head; do
     # Rebase succeeded cleanly — restore the leftover state for later steps.
     restore_stashed_wip || exit 1
   fi
+  realign_compat_manifest
   attempt=$((attempt + 1))
   # Cap the linear-backoff base at 12s (not the total sleep) so late attempts
   # don't consume the job-timeout budget, while the jitter term is added
