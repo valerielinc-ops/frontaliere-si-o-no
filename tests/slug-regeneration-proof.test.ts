@@ -5,6 +5,7 @@ import path from 'node:path';
 
 import {
   assertSlugRegenerationPostRun,
+  compareActiveRouteCoverage,
   compareSlugBridgeCoverage,
   createSlugRegenerationProof,
   snapshotSlugCorpus,
@@ -82,6 +83,70 @@ describe('slug regeneration post-run proof', () => {
         after,
         ownership: { moved: 0, emptyLocaleBucketsPruned: 0 },
       })).toThrow(/missing_bridge_count=1/);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('fails closed when a pre-run active locale route disappears', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'slug-regeneration-proof-active-'));
+    const slicePath = path.join(root, 'slice.json');
+    try {
+      fs.writeFileSync(slicePath, JSON.stringify({
+        jobs: [{
+          slug: 'canonical-it',
+          slugByLocale: { it: 'canonical-it', en: 'served-en' },
+        }],
+      }));
+      const before = snapshotSlugCorpus([slicePath], { root });
+      fs.writeFileSync(slicePath, JSON.stringify({
+        jobs: [{
+          slug: 'canonical-it',
+          slugByLocale: { it: 'canonical-it', en: 'replacement-en' },
+        }],
+      }));
+      const after = snapshotSlugCorpus([slicePath], { root });
+
+      expect(compareActiveRouteCoverage(before, after)).toMatchObject({
+        beforeActiveRouteRefs: 4,
+        missingActiveRouteCount: 1,
+        missingActiveRouteSamples: [{ kind: 'locale', locale: 'en', slug: 'served-en' }],
+      });
+      expect(() => assertSlugRegenerationPostRun({
+        before,
+        after,
+        ownership: { moved: 0, emptyLocaleBucketsPruned: 0 },
+      })).toThrow(/missing_active_route_count=1/);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('accepts an active locale route moved to locale-aware history', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'slug-regeneration-proof-preserved-'));
+    const slicePath = path.join(root, 'slice.json');
+    try {
+      fs.writeFileSync(slicePath, JSON.stringify({
+        jobs: [{
+          slug: 'canonical-it',
+          slugByLocale: { it: 'canonical-it', en: 'served-en' },
+        }],
+      }));
+      const before = snapshotSlugCorpus([slicePath], { root });
+      fs.writeFileSync(slicePath, JSON.stringify({
+        jobs: [{
+          slug: 'canonical-it',
+          slugByLocale: { it: 'canonical-it', en: 'replacement-en' },
+          previousSlugsByLocale: { en: ['served-en'] },
+        }],
+      }));
+      const after = snapshotSlugCorpus([slicePath], { root });
+
+      expect(assertSlugRegenerationPostRun({
+        before,
+        after,
+        ownership: { moved: 0, emptyLocaleBucketsPruned: 0 },
+      })).toMatchObject({ pass: true, missingActiveRouteCount: 0 });
     } finally {
       fs.rmSync(root, { recursive: true, force: true });
     }

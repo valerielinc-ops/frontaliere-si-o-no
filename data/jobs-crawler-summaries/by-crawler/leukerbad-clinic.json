@@ -1,7 +1,7 @@
 {
   "key": "leukerbad-clinic",
   "label": "Leukerbad Clinic",
-  "generatedAt": "2026-11-15T09:27:38.966Z",
+  "generatedAt": "2026-11-15T21:38:14.002Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 4057,
-  "avgDurationMs": 4057,
+  "durationMs": 4425,
+  "avgDurationMs": 4425,
   "durationHistory": [
-    4057
+    4425
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -54,7 +54,7 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/carriere/candidature-spontanee?offre=infirmierinfirmiere-diplome-e-hf-80-100",
       "source": "Leukerbad Clinic Dedicated Parser (official Astro HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:27:18.822Z",
+      "crawledAt": "2026-11-15T21:37:59.762Z",
       "needsRetranslation": false,
       "sourceConditions": "80–100 % · De suite ou à convenir",
       "firstSeenAt": "2026-07-06T22:22:23.632Z",
@@ -74,7 +74,7 @@
       },
       "streetAddress": "Willy-Spühler-Strasse 2",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-15T09:27:18.822Z",
+      "validThrough": "2026-12-15T21:37:59.762Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -112,7 +112,7 @@
       "applyUrl": "https://leukerbadclinic.ch/fr/carriere/candidature-spontanee?offre=assistant-e-en-soins-et-sante-communautaire-cfc-as",
       "source": "Leukerbad Clinic Dedicated Parser (official Astro HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:27:18.718Z",
+      "crawledAt": "2026-11-15T21:37:59.634Z",
       "sourceConditions": "80–100 % · De suite ou à convenir",
       "firstSeenAt": "2026-07-06T22:22:23.632Z",
       "salaryMin": 86500,
@@ -131,7 +131,7 @@
       },
       "streetAddress": "Willy-Spühler-Strasse 2",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-15T09:27:18.718Z",
+      "validThrough": "2026-12-15T21:37:59.634Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -169,7 +169,7 @@
       "applyUrl": "https://leukerbadclinic.ch/de/karriere/initiativbewerbung?offre=ma-gap",
       "source": "Leukerbad Clinic Dedicated Parser (official Astro HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:27:18.614Z",
+      "crawledAt": "2026-11-15T21:37:59.505Z",
       "needsRetranslation": false,
       "sourceConditions": "100 % · Sofort oder nach Vereinbarung",
       "firstSeenAt": "2026-07-06T22:22:23.632Z",
@@ -189,7 +189,7 @@
       },
       "streetAddress": "Willy-Spühler-Strasse 2",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-15T09:27:18.614Z",
+      "validThrough": "2026-12-15T21:37:59.505Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -227,7 +227,7 @@
       "applyUrl": "https://leukerbadclinic.ch/de/karriere/initiativbewerbung?offre=mpa",
       "source": "Leukerbad Clinic Dedicated Parser (official Astro HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:27:18.508Z",
+      "crawledAt": "2026-11-15T21:37:59.376Z",
       "sourceConditions": "60–100 % · sofort oder nach Vereinbarung",
       "firstSeenAt": "2026-10-14T09:30:54.536Z",
       "salaryMin": 86500,
@@ -246,7 +246,7 @@
       },
       "streetAddress": "Willy-Spühler-Strasse 2",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T09:27:18.508Z",
+      "validThrough": "2027-01-12T21:37:59.376Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -284,7 +284,7 @@
       "applyUrl": "https://leukerbadclinic.ch/de/karriere/initiativbewerbung?offre=ihre-aufgaben",
       "source": "Leukerbad Clinic Dedicated Parser (official Astro HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:27:18.404Z",
+      "crawledAt": "2026-11-15T21:37:59.247Z",
       "needsRetranslation": false,
       "sourceConditions": "80–100 % · Nach Vereinbarung",
       "firstSeenAt": "2026-10-14T09:30:54.095Z",
@@ -304,7 +304,7 @@
       },
       "streetAddress": "Willy-Spühler-Strasse 2",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-13T09:27:18.404Z",
+      "validThrough": "2027-01-12T21:37:59.247Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -315,5 +315,5 @@
       }
     }
   ],
-  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
+  "codeCommit": "b0e0a209c23d72cde28658756e39fb5de3eaaca5"
 }
