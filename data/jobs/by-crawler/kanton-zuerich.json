@@ -2582,17 +2582,25 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "aufseher-in-betreuer-in-kanton-zuerich-zurich"
+        "aufseher-in-betreuer-in-kanton-zuerich-zurich",
+        "sorvegliante-e-assistente-kantonale-verwaltung-zurich-zurich",
+        "aufseher-in-betreuer-in-kanton-zuerich-zurich-2",
+        "supervisor-caregiver-kantonale-verwaltung-zurich-zurich",
+        "surveillant-e-encadrant-e-kantonale-verwaltung-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "aufseher-in-betreuer-in-kanton-zuerich-zurich"
+          "aufseher-in-betreuer-in-kanton-zuerich-zurich",
+          "sorvegliante-e-assistente-kantonale-verwaltung-zurich-zurich",
+          "aufseher-in-betreuer-in-kanton-zuerich-zurich-2"
         ],
         "en": [
-          "aufseher-in-betreuer-in-kanton-zuerich-zurich"
+          "aufseher-in-betreuer-in-kanton-zuerich-zurich",
+          "supervisor-caregiver-kantonale-verwaltung-zurich-zurich"
         ],
         "fr": [
-          "aufseher-in-betreuer-in-kanton-zuerich-zurich"
+          "aufseher-in-betreuer-in-kanton-zuerich-zurich",
+          "surveillant-e-encadrant-e-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-11-03T22:07:22.621Z",
@@ -6359,12 +6367,24 @@
       "previousSlugsByLocale": {
         "it": [
           "praktikantin-praktikant-im-sozialdienst-kanton-zuerich-affoltern",
-          "interno-interno-del-servizio-sociale-kantonale-verwaltung-zurich-affoltern"
+          "interno-interno-del-servizio-sociale-kantonale-verwaltung-zurich-affoltern",
+          "interno-interno-del-servizio-sociale-kantonale-verwaltung-zurich-affoltern-5f54847a48"
+        ],
+        "en": [
+          "praktikantin-praktikant-im-sozialdienst-kanton-zuerich-affoltern"
+        ],
+        "de": [
+          "praktikantin-praktikant-im-sozialdienst-kantonale-verwaltung-zurich-affoltern"
+        ],
+        "fr": [
+          "praktikantin-praktikant-im-sozialdienst-kanton-zuerich-affoltern"
         ]
       },
       "previousSlugs": [
         "praktikantin-praktikant-im-sozialdienst-kanton-zuerich-affoltern",
-        "interno-interno-del-servizio-sociale-kantonale-verwaltung-zurich-affoltern"
+        "interno-interno-del-servizio-sociale-kantonale-verwaltung-zurich-affoltern",
+        "interno-interno-del-servizio-sociale-kantonale-verwaltung-zurich-affoltern-5f54847a48",
+        "praktikantin-praktikant-im-sozialdienst-kantonale-verwaltung-zurich-affoltern"
       ],
       "salaryMin": 82000,
       "salaryMax": 114500,
@@ -6441,17 +6461,27 @@
       "pensumMax": 80,
       "pensum": "80%",
       "previousSlugs": [
-        "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen"
+        "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen",
+        "assistente-sociale-nel-kjz-horgen-kantonale-verwaltung-zurich-horgen",
+        "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen-2",
+        "social-worker-in-the-kjz-horgen-kantonale-verwaltung-zurich-horgen",
+        "travailleur-social-au-kjz-horgen-kantonale-verwaltung-zurich-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen"
+          "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen",
+          "assistente-sociale-nel-kjz-horgen-kantonale-verwaltung-zurich-horgen",
+          "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen-2"
         ],
         "en": [
-          "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen"
+          "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen",
+          "social-worker-in-the-kjz-horgen-kantonale-verwaltung-zurich-horgen",
+          "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen-2"
         ],
         "fr": [
-          "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen"
+          "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen",
+          "travailleur-social-au-kjz-horgen-kantonale-verwaltung-zurich-horgen",
+          "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen-2"
         ]
       },
       "firstSeenAt": "2026-11-03T22:06:40.753Z",
@@ -6650,96 +6680,6 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:39:01.593Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "kanton-zuerich-bddff49cc7b4",
-      "slug": "sorvegliante-e-assistente-kantonale-verwaltung-zurich-zurich",
-      "slugByLocale": {
-        "it": "sorvegliante-e-assistente-kantonale-verwaltung-zurich-zurich",
-        "en": "supervisor-caregiver-kantonale-verwaltung-zurich-zurich",
-        "de": "aufseher-in-betreuer-in-kanton-zuerich-zurich",
-        "fr": "surveillant-e-encadrant-e-kantonale-verwaltung-zurich-zurich"
-      },
-      "company": "Kantonale Verwaltung Zürich",
-      "companyKey": "kanton-zuerich",
-      "companyDomain": "zh.ch",
-      "title": "Aufseher:in & Betreuer:in",
-      "titleByLocale": {
-        "it": "Sorvegliante e assistente",
-        "en": "Supervisor & Caregiver",
-        "de": "Aufseher:in & Betreuer:in",
-        "fr": "Surveillant/e & encadrant/e"
-      },
-      "description": "Als Teil der UGZ ist das Gefängnis Zürich West im Polizei- und Justizzentrum Zürich angesiedelt und verfügt über 241 Haftplätze. Es ist auf die vorläufige Festnahme sowie die Untersuchungshaft spezialisiert und übernimmt eine Schlüsselfunktion bei der Aufnahme und Erstbetreuung inhaftierter Personen. Wir suchen engagierte, motivierte und teamfähige Persönlichkeiten mit einem hohen Verantwortungsbewusstsein, die mit ihrer Fachkompetenz und positiven Grundhaltung aktiv am Gefängnis Zürich West mitwirken möchten. Das bewirkst du bei uns\n• Du begleitest eingewiesene Personen in besonders belastenden Situationen wie Haftschock, Suizidalität oder nach persönlichen Krisen, und gestaltest ihren Tagesablauf innerhalb klar definierter Strukturen\n• Du überwachst sämtliche sicherheitsrelevanten Prozesse; von der Aufnahme neuer Personen über Zellkontrollen bis hin zur Bedienung technischer Anlagen\n• Du führst Leibesvisitationen durch, sicherst Beweismittel, kontrollierst Effekten und begleitest eingewiesene Personen, u.a. mit psychischen, physischen oder suchtbedingten Belastungen\n• In Krisensituationen reagierst Du kompetent und verantwortungsbewusst und übernimmst im Nachtdienst auch eigenständig die Verantwortung für mehrere Abteilungen\n• Du arbeitest eng mit dem interprofessionellen Betreuungsteam zusammen und entwickelst gemeinsam nachhaltige Lösungen für die Betreuung\n• Schriftliche Dokumentation und Rapportwesen gehören ebenso zu Deinem Alltag wie die Vermittlung der Hausordnung und die Durchsetzung geltender Vorschriften Das bringst du mit\n• Du bist mindestens 25 Jahre alt, verfügst über einen Lehrabschluss (EFZ oder Gesellenbrief) und hast keine Einträge im Straf- oder Betreibungsregister\n• Du bringst mindestens 3 Jahre allgemeine Berufserfahrung mit; eine Weiterbildung zum/zur Fachmann/-frau Justizvollzug ist von Vorteil. Quereinsteiger sind willkommen.\n• Du verfügst über sehr gute Deutschkenntnisse in Wort und Schrift; mündliche Fremdsprachenkenntnisse sind ein Plus\n• Du verfügst über MS-Office-Anwenderkenntnisse und gehst sicher mit digitalen Tools um\n• Die Tätigkeit erfordert Schichtarbeit (inkl. Tag-, Nacht-, Wochenend- und Bereitschaftsdienste) sowie ein hohes Mass an körperlicher und psychischer Belastbarkeit\n• Du bist kommunikativ, konfliktfähig und belastbar auch in emotional anspruchsvollen Situationen. Gleichzeitig bringst Du hohe Sozialkompetenz, Durchsetzungsvermögen und Freude an der Arbeit mit Menschen unterschiedlichster Herkunft mit Deine Kontakte Danijel Petrovic Leiter Vorläufige Festnahme +41 43 257 30 05 Livia Stutz Recruitment Coordinator +41 43 259 47 86 Liebe Personaldienstleister! Leider können wir keine Dossiers berücksichtigen, die mit Honorarforderungen verbunden sind. Es werden ausschliesslich Direktbewerbungen beantwortet und im Auswahlverfahren berücksichtigt. Über uns Die Untersuchungsgefängnisse Zürich (UGZ) sind eine von acht Hauptabteilungen von JuWe. Sie umfassen sieben Betriebe mit rund 735 Gefängnisplätzen und etwa 500 Mitarbeitenden. Sie sind zuständig für die vorläufige Festnahme, die Untersuchungs- und Sicherheitshaft sowie den vorzeitigen Straf- und Massnahmenvollzug bis zur Überführung in eine Vollzugseinrichtung. Damit erfüllen sie von Anfang an eine zentrale Funktion innerhalb des Zürcher Justizsystems. Als Mitarbeitende der Untersuchungsgefängnisse Zürich sorgen wir mit Fachkompetenz und Engagement für eine strukturierte und menschliche Betreuung eingewiesener Personen und tragen dazu bei, dass Strafverfahren geordnet durchgeführt werden, bevor über Schuld oder Unschuld entschieden ist. Mit rund 1400 Mitarbeitenden ist Justizvollzug und Wiedereingliederung (JuWe) das grösste Amt innerhalb der Direktion der Justiz und des Innern und für den Straf- und Massnahmenvollzug sowie für die Durchführung verschiedener Haftarten verantwortlich. Unsere Mitarbeitenden aus rund 40 Berufen unterstützen und fördern die Wiedereingliederung straffällig gewordener Menschen und setzen sich wirksam und fortschrittlich für eine sichere und gerechte Gesellschaft ein. Wir bieten… Einarbeitung eine strukturierte und persönliche Einarbeitung für einen gelungenen Start Faire Gehälter einen fairen Lohn mit transparentem Lohnsystem und Zulagen nach Funktion Sinnstiftende Arbeit sinnstiftende Arbeit mit echtem Mehrwert für die Gesellschaft Gutes und breites Aus- und Weiterbildungsangebot vielfältige Aus- und Weiterbildungsmöglichkeiten Gute Sozialleistungen (PK) eine attraktive Pensionskasse mit vielen Möglichkeiten Arbeitsort Nähe Bahnhof eine zentrale Lage mit guter ÖV-Anbindung Dein Bewerbungsprozess Online-Assessment Erstgespräch Zweitgespräch Finaler Entscheid Weitere interessante Stellen beim Kanton Zürich Alle offenen Stellen\n\nPensum: 80-100%",
-      "descriptionByLocale": {
-        "it": "Nell'ambito della UGZ, la prigione di Zurigo Ovest si trova nel centro di polizia e giustizia di Zurigo e dispone di 241 posti di detenzione. È specializzata in arresto temporaneo e detenzione pre-triale e svolge un ruolo chiave nella ricezione e primo soccorso di persone detenute. Siamo alla ricerca di personalità impegnate, motivate e capaci con un alto senso di responsabilità che vogliono partecipare attivamente alla prigione di Zurigo Ovest con la loro competenza e atteggiamento positivo. Fallo con noi.\n• Accompagnate persone riconosciute in situazioni particolarmente stressanti come shock di arresto, suicidio o dopo crisi personali, e modellate la loro routine quotidiana all'interno di strutture chiaramente definite\n• Monitora tutti i processi legati alla sicurezza; dalla ricezione di nuove persone ai controlli cellulari e al funzionamento di apparecchiature tecniche\n• Effettuate ricerche fisiche, prove sicure, effetti di controllo e persone accompagnanti, comprese quelle con stress psicologico, fisico o tossicodipendente\n• In situazioni di crisi, reagisci in modo competente e responsabile e ti assumerai la responsabilità di diversi dipartimenti indipendentemente durante il servizio notturno.\n• Lavorate a stretto contatto con il team di supporto interprofessionale e sviluppate congiuntamente soluzioni sostenibili per il supporto\n• La documentazione scritta e il rapporto sono tanto parte della vostra vita quotidiana quanto la mediazione delle regole della casa e l'applicazione delle normative applicabili Lo porti con te.\n• Hai almeno 25 anni, hai un diploma di apprendistato (EFZ o Gesellenbrief) e non hai voce nel registro penale o di applicazione\n• Hai almeno 3 anni di esperienza professionale generale; ulteriore formazione per l'applicazione professionale / femminile è un vantaggio. I cross-starter sono i benvenuti.\n• Hai una buona conoscenza del tedesco in parola e nella scrittura; Le competenze linguistiche orali sono un plus\n• Hai la conoscenza degli utenti di MS Office e sei sicuro di strumenti digitali\n• L'attività richiede il lavoro a turni (compreso il giorno, la notte, il fine settimana e i servizi on-call) e un elevato grado di resilienza fisica e psicologica\n• Sei comunicativo, capace di conflitto e resiliente anche in situazioni emotivamente impegnative. Allo stesso tempo, si portano elevate competenze sociali, assertività e piacere a lavorare con persone di diversa provenienza con i vostri contatti Danijel Petrovic Capo di Arresto provvisorio +41 43 257 30 05 Livia Stutz Recruitment Coordinator +41 43 259 47 86 Cari fornitori di servizi di reclutamento! Purtroppo non possiamo tener conto dei dossier relativi alle tasse. Solo le applicazioni dirette saranno risolte e considerate nel processo di selezione. I centri di detenzione di Zurigo (UGZ) sono uno degli otto reparti principali di JuWe. Comprendono sette aziende con circa 735 posti in carcere e circa 500 dipendenti. Essi sono responsabili per l'arresto provvisorio, la detenzione pre-triale e la detenzione di sicurezza, nonché l'esecuzione anticipata di sanzioni e misure fino al trasferimento in una struttura carceraria. In questo modo essi svolgono una funzione centrale nel sistema giudiziario di Zurigo fin dall'inizio. Come dipendenti dei Centri di detenzione di Zurigo, forniamo esperienza e impegno per la cura strutturata e umana delle persone ricoverate e aiutiamo a garantire che i procedimenti penali siano effettuati in modo ordinato prima che una decisione venga presa in senso di colpa o innocenza. Con circa 1400 dipendenti, JuWe è il più grande ufficio all'interno della Direzione Giustizia e Affari Interni ed è responsabile per l'esecuzione di sanzioni e misure, nonché per l'esecuzione di vari tipi di detenzione. I nostri dipendenti di circa 40 professioni sostengono e promuovono il reinserimento dei delinquenti e lavorano efficacemente e progressivamente per una società sicura e giusta. Offriamo... formazione di una formazione strutturata e personale per un buon inizio salario equo con sistema di salario trasparente e indennità secondo funzione Lavoro significativo Lavoro significativo con valore aggiunto reale per la società Buona e formazione ampia e ulteriore istruzione offrono diverse opportunità di formazione e di formazione Buone prestazioni sociali (PK) un attraente fondo pensionistico con molte possibilità Workplace Vicino alla stazione una posizione centrale con un buon collegamento con i trasporti pubblici Il vostro processo di domanda Valutazione online Seconda intervista\n\nPenso: 80-100 %",
-        "en": "As part of the UGZ, Zurich West Prison is located in the Zurich Police and Justice Centre and has 241 detention places. It specialises in temporary arrest and pre-trial detention and plays a key role in the reception and first-aid of detained persons. We are looking for committed, motivated and capable personalities with a high sense of responsibility who want to actively participate in the prison Zurich West with their expertise and positive attitude. You do that with us.\n• You accompany admitted persons in particularly stressful situations such as arrest shock, suicidality or after personal crises, and shape their daily routine within clearly defined structures\n• You monitor all security-related processes; from the reception of new persons to cell checks and the operation of technical equipment\n• You carry out physical searches, secure evidence, control effects and accompanying persons, including those with psychological, physical or addictive stress\n• In crisis situations, you react competently and responsibly and take on responsibility for several departments independently during night service.\n• You work closely with the interprofessional support team and jointly develop sustainable solutions for support\n• Written documentation and rapport are just as much part of your everyday life as the mediation of house rules and the enforcement of applicable regulations You bring that with you\n• You are at least 25 years old, have an apprenticeship degree (EFZ or Gesellenbrief) and have no entries in the penal or enforcement register\n• You have at least 3 years of general professional experience; further training for the professional/female law enforcement is an advantage. Cross-starters are welcome.\n• You have very good knowledge of German in word and writing; Oral foreign language skills are a plus\n• You have MS Office user knowledge and are confident with digital tools\n• The activity requires shift work (including day, night, weekend and on-call services) as well as a high degree of physical and psychological resilience\n• You are communicative, capable of conflict and resilient even in emotionally demanding situations. At the same time, you bring high social skills, assertiveness and pleasure in working with people from different backgrounds with your contacts Danijel Petrovic Head of Provisional Arrest +41 43 257 30 05 Livia Stutz Recruitment Coordinator +41 43 259 47 86 Dear recruitment service providers! Unfortunately, we cannot take account of dossiers relating to fees. Only direct applications will be answered and considered in the selection process. Zurich Detention Centers (UGZ) are one of eight main departments of JuWe. They comprise seven companies with about 735 prison places and about 500 employees. They are responsible for provisional arrest, pre-trial detention and security detention, as well as the early execution of penalties and measures until transfer to a prison facility. In this way, they fulfil a central function within the Zurich justice system right from the start. As employees of the Zurich Detention Centers, we provide with expertise and commitment for structured and humane care of admitted persons and help ensure that criminal proceedings are carried out in an orderly manner before a decision is made on guilt or innocence. With around 1400 employees, JuWe is the largest office within the Directorate of Justice and Home Affairs and is responsible for the execution of penalties and measures as well as for the execution of various types of detention. Our employees from around 40 professions support and promote the reintegration of delinquents and work effectively and progressively for a safe and just society. We offer... training a structured and personal training for a successful start Fair salaries a fair wage with transparent wage system and allowances according to function Meaningful work Meaningful work with real added value for society Good and broad training and further education offer diverse training and further education opportunities Good social benefits (PK) an attractive pension fund with many possibilities Workplace Near station a central location with good public transport connection Your application process Online assessment Second interview Final decision More interesting positions at the Canton of Zurich All vacancies\n\nPensum: 80-100 %",
-        "de": "Als Teil der UGZ ist das Gefängnis Zürich West im Polizei- und Justizzentrum Zürich angesiedelt und verfügt über 241 Haftplätze. Es ist auf die vorläufige Festnahme sowie die Untersuchungshaft spezialisiert und übernimmt eine Schlüsselfunktion bei der Aufnahme und Erstbetreuung inhaftierter Personen. Wir suchen engagierte, motivierte und teamfähige Persönlichkeiten mit einem hohen Verantwortungsbewusstsein, die mit ihrer Fachkompetenz und positiven Grundhaltung aktiv am Gefängnis Zürich West mitwirken möchten. Das bewirkst du bei uns\n• Du begleitest eingewiesene Personen in besonders belastenden Situationen wie Haftschock, Suizidalität oder nach persönlichen Krisen, und gestaltest ihren Tagesablauf innerhalb klar definierter Strukturen\n• Du überwachst sämtliche sicherheitsrelevanten Prozesse; von der Aufnahme neuer Personen über Zellkontrollen bis hin zur Bedienung technischer Anlagen\n• Du führst Leibesvisitationen durch, sicherst Beweismittel, kontrollierst Effekten und begleitest eingewiesene Personen, u.a. mit psychischen, physischen oder suchtbedingten Belastungen\n• In Krisensituationen reagierst Du kompetent und verantwortungsbewusst und übernimmst im Nachtdienst auch eigenständig die Verantwortung für mehrere Abteilungen\n• Du arbeitest eng mit dem interprofessionellen Betreuungsteam zusammen und entwickelst gemeinsam nachhaltige Lösungen für die Betreuung\n• Schriftliche Dokumentation und Rapportwesen gehören ebenso zu Deinem Alltag wie die Vermittlung der Hausordnung und die Durchsetzung geltender Vorschriften Das bringst du mit\n• Du bist mindestens 25 Jahre alt, verfügst über einen Lehrabschluss (EFZ oder Gesellenbrief) und hast keine Einträge im Straf- oder Betreibungsregister\n• Du bringst mindestens 3 Jahre allgemeine Berufserfahrung mit; eine Weiterbildung zum/zur Fachmann/-frau Justizvollzug ist von Vorteil. Quereinsteiger sind willkommen.\n• Du verfügst über sehr gute Deutschkenntnisse in Wort und Schrift; mündliche Fremdsprachenkenntnisse sind ein Plus\n• Du verfügst über MS-Office-Anwenderkenntnisse und gehst sicher mit digitalen Tools um\n• Die Tätigkeit erfordert Schichtarbeit (inkl. Tag-, Nacht-, Wochenend- und Bereitschaftsdienste) sowie ein hohes Mass an körperlicher und psychischer Belastbarkeit\n• Du bist kommunikativ, konfliktfähig und belastbar auch in emotional anspruchsvollen Situationen. Gleichzeitig bringst Du hohe Sozialkompetenz, Durchsetzungsvermögen und Freude an der Arbeit mit Menschen unterschiedlichster Herkunft mit Deine Kontakte Danijel Petrovic Leiter Vorläufige Festnahme +41 43 257 30 05 Livia Stutz Recruitment Coordinator +41 43 259 47 86 Liebe Personaldienstleister! Leider können wir keine Dossiers berücksichtigen, die mit Honorarforderungen verbunden sind. Es werden ausschliesslich Direktbewerbungen beantwortet und im Auswahlverfahren berücksichtigt. Über uns Die Untersuchungsgefängnisse Zürich (UGZ) sind eine von acht Hauptabteilungen von JuWe. Sie umfassen sieben Betriebe mit rund 735 Gefängnisplätzen und etwa 500 Mitarbeitenden. Sie sind zuständig für die vorläufige Festnahme, die Untersuchungs- und Sicherheitshaft sowie den vorzeitigen Straf- und Massnahmenvollzug bis zur Überführung in eine Vollzugseinrichtung. Damit erfüllen sie von Anfang an eine zentrale Funktion innerhalb des Zürcher Justizsystems. Als Mitarbeitende der Untersuchungsgefängnisse Zürich sorgen wir mit Fachkompetenz und Engagement für eine strukturierte und menschliche Betreuung eingewiesener Personen und tragen dazu bei, dass Strafverfahren geordnet durchgeführt werden, bevor über Schuld oder Unschuld entschieden ist. Mit rund 1400 Mitarbeitenden ist Justizvollzug und Wiedereingliederung (JuWe) das grösste Amt innerhalb der Direktion der Justiz und des Innern und für den Straf- und Massnahmenvollzug sowie für die Durchführung verschiedener Haftarten verantwortlich. Unsere Mitarbeitenden aus rund 40 Berufen unterstützen und fördern die Wiedereingliederung straffällig gewordener Menschen und setzen sich wirksam und fortschrittlich für eine sichere und gerechte Gesellschaft ein. Wir bieten… Einarbeitung eine strukturierte und persönliche Einarbeitung für einen gelungenen Start Faire Gehälter einen fairen Lohn mit transparentem Lohnsystem und Zulagen nach Funktion Sinnstiftende Arbeit sinnstiftende Arbeit mit echtem Mehrwert für die Gesellschaft Gutes und breites Aus- und Weiterbildungsangebot vielfältige Aus- und Weiterbildungsmöglichkeiten Gute Sozialleistungen (PK) eine attraktive Pensionskasse mit vielen Möglichkeiten Arbeitsort Nähe Bahnhof eine zentrale Lage mit guter ÖV-Anbindung Dein Bewerbungsprozess Online-Assessment Erstgespräch Zweitgespräch Finaler Entscheid Weitere interessante Stellen beim Kanton Zürich Alle offenen Stellen\n\nPensum: 80-100%",
-        "fr": "Dans le cadre de l'UGZ, la prison de Zurich-Ouest est située dans le centre de police et de justice de Zurich et compte 241 lieux de détention. Il se spécialise dans l ' arrestation temporaire et la détention provisoire et joue un rôle essentiel dans l ' accueil et les premiers secours des personnes détenues. Nous recherchons des personnalités engagées, motivées et compétentes avec un sens élevé des responsabilités qui veulent participer activement à la prison de Zurich-Ouest avec leur expertise et leur attitude positive. Fais ça avec nous.\n• Vous accompagnez les personnes admises dans des situations particulièrement stressantes telles que le choc d'arrestation, la suicidité ou après des crises personnelles, et façonnez leur routine quotidienne dans des structures clairement définies\n• Vous surveillez tous les processus liés à la sécurité; de l'accueil de nouvelles personnes aux contrôles de cellules et au fonctionnement des équipements techniques\n• Vous effectuez des recherches physiques, des preuves sûres, des effets de contrôle et des personnes qui vous accompagnent, y compris celles souffrant de stress psychologique, physique ou addictif\n• Dans les situations de crise, vous réagissez de manière compétente et responsable et vous assumez la responsabilité de plusieurs départements indépendamment pendant le service de nuit.\n• Vous travaillez en étroite collaboration avec l'équipe de soutien interprofessionnel et développez conjointement des solutions durables pour le soutien\n• La documentation écrite et les rapports font autant partie de votre vie quotidienne que la médiation du règlement intérieur et l'application des règlements applicables. Apporte ça avec toi.\n• Vous avez au moins 25 ans, avez un diplôme d'apprentissage (EFZ ou Gesellenbrief) et n'avez pas d'inscription au registre pénal ou d'exécution\n• Vous disposez d'au moins 3 ans d'expérience professionnelle générale; une formation complémentaire pour l'application de la loi professionnelle/féminine est un avantage. Les croisés sont les bienvenus.\n• Vous avez une très bonne connaissance de l'allemand en paroles et en écriture; Les compétences orales en langues étrangères sont un plus\n• Vous avez une connaissance utilisateur MS Office et êtes confiant avec les outils numériques\n• L'activité nécessite un travail posté (y compris des services de jour, de nuit, de fin de semaine et de garde) ainsi qu'un degré élevé de résilience physique et psychologique.\n• Vous êtes communicatif, capable de conflit et résilient même dans des situations émotionnellement exigeantes. Dans le même temps, vous apportez de hautes compétences sociales, l'affirmation et le plaisir de travailler avec des personnes de différents horizons avec vos contacts Danijel Petrovic Chef de l'arrestation provisoire +41 43 257 30 05 Livia Stutz Coordonnateur du recrutement +41 43 259 47 86 Chers fournisseurs de services de recrutement! Malheureusement, nous ne pouvons pas tenir compte des dossiers relatifs aux redevances. Seules les demandes directes seront répondues et prises en considération dans le processus de sélection. Les centres de détention de Zurich (UGZ) sont l'un des huit principaux départements de JuWe. Ils comprennent sept entreprises comptant environ 735 prisons et environ 500 employés. Ils sont responsables de l ' arrestation provisoire, de la détention provisoire et de la détention provisoire, ainsi que de l ' exécution rapide des peines et des mesures jusqu ' à leur transfert dans un établissement pénitentiaire. Ainsi, ils remplissent dès le départ une fonction centrale au sein du système judiciaire de Zurich. En tant qu'employés des centres de détention de Zurich, nous fournissons une expertise et un engagement pour la prise en charge structurée et humaine des personnes admises et nous aidons à ce que les procédures pénales soient menées de manière ordonnée avant qu'une décision ne soit prise sur la culpabilité ou l'innocence. Avec environ 1400 employés, JuWe est le plus grand bureau de la Direction de la justice et des affaires intérieures et est responsable de l'exécution des peines et des mesures ainsi que de l'exécution de divers types de détention. Nos employés d'environ 40 professions soutiennent et favorisent la réinsertion des délinquants et travaillent efficacement et progressivement pour une société sûre et juste. Nous offrons... formation d'une formation structurée et personnelle pour un démarrage réussi Salaire équitable un salaire équitable avec un système de salaire transparent et des indemnités selon la fonction Travail significatif Travail significatif avec une réelle valeur ajoutée pour la société Formation et perfectionnement de qualité et large offrent des possibilités de formation et d'éducation continue diversifiées Bons avantages sociaux (PK) un fonds de pension attrayant avec de nombreuses possibilités Milieu de travail Près d'une station centrale avec un bon réseau de transport en commun Votre processus de candidature Évaluation en ligne Deuxième interview Décision finale Plus de postes intéressants au Canton de Zurich Toutes les offres d'emploi\n\nPensum: 80-100 %"
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ktzh/job/details/4096450/",
-      "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:39:01.067Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-03T15:42:38+01:00",
-      "postedDate": "2026-11-03T15:42:38+01:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://live.solique.ch/ktzh/job/details/4096450/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4096450",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "previousSlugs": [
-        "aufseher-in-betreuer-in-kanton-zuerich-zurich",
-        "aufseher-in-betreuer-in-kanton-zuerich-zurich-2"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "aufseher-in-betreuer-in-kanton-zuerich-zurich",
-          "aufseher-in-betreuer-in-kanton-zuerich-zurich-2"
-        ],
-        "en": [
-          "aufseher-in-betreuer-in-kanton-zuerich-zurich"
-        ],
-        "fr": [
-          "aufseher-in-betreuer-in-kanton-zuerich-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-11-03T22:07:22.621Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:39:01.067Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -10467,19 +10407,27 @@
       "previousSlugs": [
         "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh",
         "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh",
-        "segretario-amministrativo-tuttofare-kantonale-verwaltung-zurich-8330-pfaffikon-zh-2c2fbf1548"
+        "segretario-amministrativo-tuttofare-kantonale-verwaltung-zurich-8330-pfaffikon-zh-2c2fbf1548",
+        "segretario-amministrativo-tuttofare-kantonale-verwaltung-zurich-8330-pfaffikon-zh-1a4b9d",
+        "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh-2",
+        "administrative-secretary-all-rounder-kantonale-verwaltung-zurich-8330-pfaffikon-zh-1a4b9d",
+        "secretaire-administratif-polyvalent-kantonale-verwaltung-zurich-8330-pfaffikon-zh-1a4b9d"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh",
           "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh",
-          "segretario-amministrativo-tuttofare-kantonale-verwaltung-zurich-8330-pfaffikon-zh-2c2fbf1548"
+          "segretario-amministrativo-tuttofare-kantonale-verwaltung-zurich-8330-pfaffikon-zh-2c2fbf1548",
+          "segretario-amministrativo-tuttofare-kantonale-verwaltung-zurich-8330-pfaffikon-zh-1a4b9d",
+          "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh-2"
         ],
         "en": [
-          "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh"
+          "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh",
+          "administrative-secretary-all-rounder-kantonale-verwaltung-zurich-8330-pfaffikon-zh-1a4b9d"
         ],
         "fr": [
-          "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh"
+          "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh",
+          "secretaire-administratif-polyvalent-kantonale-verwaltung-zurich-8330-pfaffikon-zh-1a4b9d"
         ]
       },
       "firstSeenAt": "2026-11-07T21:34:34.317Z",
@@ -11324,96 +11272,6 @@
       "validThroughSource": "last-observed-window"
     },
     {
-      "id": "kanton-zuerich-5f4c0cd666ed",
-      "slug": "segretario-amministrativo-tuttofare-kantonale-verwaltung-zurich-8330-pfaffikon-zh-1a4b9d",
-      "slugByLocale": {
-        "it": "segretario-amministrativo-tuttofare-kantonale-verwaltung-zurich-8330-pfaffikon-zh-1a4b9d",
-        "en": "administrative-secretary-all-rounder-kantonale-verwaltung-zurich-8330-pfaffikon-zh-1a4b9d",
-        "de": "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh",
-        "fr": "secretaire-administratif-polyvalent-kantonale-verwaltung-zurich-8330-pfaffikon-zh-1a4b9d"
-      },
-      "company": "Kantonale Verwaltung Zürich",
-      "companyKey": "kanton-zuerich",
-      "companyDomain": "zh.ch",
-      "title": "Verwaltungssekretär/in (Allrounder/in)",
-      "titleByLocale": {
-        "it": "Segretario amministrativo (tuttofare)",
-        "en": "Administrative secretary (all-rounder)",
-        "de": "Verwaltungssekretär/in (Allrounder/in)",
-        "fr": "Secrétaire administratif (polyvalent)"
-      },
-      "description": "Für unsere kaufmännische Kanzlei suchen wir per 1. Januar 2027 oder nach Vereinbarung und befristet bis 31. Dezember 2027 eine/n Verwaltungssekretär/in (Allrounder/in) (50-90%) Ihr Aufgabenbereich\n• digitale und physische Postverarbeitung\n• Erfassen neuer Geschäfte\n• digitale und physische Aktenpflege und Aktenführung\n• Betreuung des Empfangsschalters und der Telefonzentrale\n• Terminmanagement (Festlegen von Verhandlungsterminen, teils nach Absprache)\n• Vorladungswesen\n• Ausfertigung und Versand von Entscheiden inkl. Rechtskraftkontrolle\n• Archivierungsarbeiten\n• Mithilfe in der Erbschaftskanzlei (Erbenermittlung, Vorbereitung von Entscheiden)\n• allgemeine Sekretariatsarbeiten Ihr Profil\n• kaufmännische Grundausbildung, Gerichtserfahrung und/oder Erfahrung in einer Erbschaftskanzlei von Vorteil\n• digitale Gewandtheit\n• selbständige, sehr exakte, sorgfältige und zuverlässige Arbeitsweise\n• Ordnungssinn und ein hohes Mass an Dienstleistungs- und Verantwortungsbewusstsein\n• verschwiegen, diskret, flexibel, kollegial und loyal\n• Interesse an juristischen Fragestellungen und an der Rechtspflege Unser Angebot\n• abwechslungsreiche und sinnstiftende Tätigkeit in einem kleinen Team\n• Anstellungsbedingungen gemäss Personalgesetz des Kantons Zürich\n• attraktiver Arbeitsplatz in Gehdistanz zum Bahnhof\n• breites Aus- und Weiterbildungsangebot Für weitere Auskünfte steht Ihnen der Leitende Gerichtsschreiber Michael Schulze (Tel. 044 952 46 46) gerne zur Verfügung. Ihre Bewerbung reichen Sie bitte mit den üblichen Unterlagen und unter Angabe Ihrer Lohnvorstellung sowie Ihres Wunschpensums ein (bei Bewerbungen per E-Mail in einem einzigen PDF-Dokument an bewerbung.pfaeffikon@gerichte-zh.ch).\n\nBezirksgericht Pfäffikon Gerichtsleitung Das Bezirksgericht Pfäffikon beschäftigt im schönen Bezirkshauptort Pfäffikon ZH 30 Mitarbeitende und ist in erster Instanz zuständig für die Beurteilung sämtlicher Zivil- und Straffälle im Bezirk.\n\nPensum: 50-90%",
-      "descriptionByLocale": {
-        "it": "Per il nostro studio legale commerciale stiamo cercando 1. Gennaio 2027 o per accordo e limitato a 31. Dicembre 2027 un segretario amministrativo (tutti i brani) (50-90%) Le tue responsabilità\n• Elaborazione digitale e fisica della posta\n• Registrazione di nuove transazioni\n• Manutenzione di file digitali e fisici e servizi di conservazione record\n• Supporto dell'interruttore di ricezione e dello scambio telefonico\n• Gestione delle nomine (determinazione delle date di negoziazione, in parte per accordo)\n• Operazioni di subpoena\n• Preparazione e spedizione delle decisioni incl. Controllo della forza giuridica\n• Archiviazione del lavoro\n• Assistenza nello studio legale ereditario (determinazione dell'eredità, preparazione delle decisioni)\n• Il tuo profilo\n• istruzione commerciale di base, esperienza di corte e/o esperienza in una società di diritto ereditario\n• Agilità digitale\n• metodo di lavoro indipendente, molto preciso, attento e affidabile\n• Un senso di ordine e un alto grado di servizio e responsabilità\n• nascosto, discreto, flessibile, collegiale e leale\n• Interessi in questioni legali e l'amministrazione della giustizia La nostra offerta\n• attività varia e significativa in un piccolo team\n• Condizioni di lavoro secondo la legge sullo statuto del Cantone di Zurigo\n• Posto di lavoro attraente a pochi passi dalla stazione\n• Per ulteriori informazioni, il Chief Court Clerk Michael Schulze (tel. 044 952 46 46) è a vostra disposizione. Si prega di inviare la domanda con i soliti documenti e di indicare le vostre aspettative salariali e il vostro importo desiderato (per le domande via e-mail in un unico documento PDF a bewerbung.pfaeffikon@gerichte-zh.ch).\n\nIl Tribunale distrettuale di Pfäffikon impiega 30 dipendenti nella bella capitale di Pfäffikon ZH ed è responsabile in prima istanza per la valutazione di tutti i casi civili e criminali nel distretto.\n\nPenso: 50-90 %",
-        "en": "For our commercial law firm we are looking for 1. January 2027 or by arrangement and limited to 31. December 2027 an administrative secretary (all-rounder) (50-90%) Your responsibilities\n• Digital and physical mail processing\n• Recording of new transactions\n• Digital and physical file maintenance and record keeping services\n• Support of the receiving switch and the telephone exchange\n• Appointment management (determination of negotiation dates, partly by agreement)\n• Subpoena operations\n• Preparation and dispatch of decisions incl. Legal force control\n• Archiving work\n• Assistance in the inheritance law firm (determination of inheritance, preparation of decisions)\n• General secretarial work Your profile\n• basic commercial education, court experience and/or experience in an inheritance law firm\n• Digital agility\n• independent, very exact, careful and reliable working method\n• A sense of order and a high degree of service and responsibility\n• concealed, discreet, flexible, collegial and loyal\n• Interest in legal issues and the administration of justice Our offer\n• varied and meaningful activity in a small team\n• Conditions of employment in accordance with the Staff Act of the Canton of Zurich\n• Attractive workplace in walking distance to the station\n• For further information, the Chief Court Clerk Michael Schulze (tel. 044 952 46 46) is at your disposal. Please submit your application with the usual documents and stating your salary expectations and your desired amount (for applications by e-mail in a single PDF document to bewerbung.pfaeffikon@gerichte-zh.ch).\n\nThe District Court of Pfäffikon employs 30 employees in the beautiful district capital of Pfäffikon ZH and is responsible at first instance for the assessment of all civil and criminal cases in the district.\n\nPensum: 50-90 %",
-        "de": "Für unsere kaufmännische Kanzlei suchen wir per 1. Januar 2027 oder nach Vereinbarung und befristet bis 31. Dezember 2027 eine/n Verwaltungssekretär/in (Allrounder/in) (50-90%) Ihr Aufgabenbereich\n• digitale und physische Postverarbeitung\n• Erfassen neuer Geschäfte\n• digitale und physische Aktenpflege und Aktenführung\n• Betreuung des Empfangsschalters und der Telefonzentrale\n• Terminmanagement (Festlegen von Verhandlungsterminen, teils nach Absprache)\n• Vorladungswesen\n• Ausfertigung und Versand von Entscheiden inkl. Rechtskraftkontrolle\n• Archivierungsarbeiten\n• Mithilfe in der Erbschaftskanzlei (Erbenermittlung, Vorbereitung von Entscheiden)\n• allgemeine Sekretariatsarbeiten Ihr Profil\n• kaufmännische Grundausbildung, Gerichtserfahrung und/oder Erfahrung in einer Erbschaftskanzlei von Vorteil\n• digitale Gewandtheit\n• selbständige, sehr exakte, sorgfältige und zuverlässige Arbeitsweise\n• Ordnungssinn und ein hohes Mass an Dienstleistungs- und Verantwortungsbewusstsein\n• verschwiegen, diskret, flexibel, kollegial und loyal\n• Interesse an juristischen Fragestellungen und an der Rechtspflege Unser Angebot\n• abwechslungsreiche und sinnstiftende Tätigkeit in einem kleinen Team\n• Anstellungsbedingungen gemäss Personalgesetz des Kantons Zürich\n• attraktiver Arbeitsplatz in Gehdistanz zum Bahnhof\n• breites Aus- und Weiterbildungsangebot Für weitere Auskünfte steht Ihnen der Leitende Gerichtsschreiber Michael Schulze (Tel. 044 952 46 46) gerne zur Verfügung. Ihre Bewerbung reichen Sie bitte mit den üblichen Unterlagen und unter Angabe Ihrer Lohnvorstellung sowie Ihres Wunschpensums ein (bei Bewerbungen per E-Mail in einem einzigen PDF-Dokument an bewerbung.pfaeffikon@gerichte-zh.ch).\n\nBezirksgericht Pfäffikon Gerichtsleitung Das Bezirksgericht Pfäffikon beschäftigt im schönen Bezirkshauptort Pfäffikon ZH 30 Mitarbeitende und ist in erster Instanz zuständig für die Beurteilung sämtlicher Zivil- und Straffälle im Bezirk.\n\nPensum: 50-90%",
-        "fr": "Pour notre cabinet d'avocats commerciaux que nous recherchons 1. Janvier 2027 ou par arrangement et limité à 31. Décembre 2027 un secrétaire administratif (ensemble) (50-19%) Vos responsabilités\n• Traitement du courrier numérique et physique\n• Enregistrement des nouvelles transactions\n• Services de maintenance et de tenue de dossiers numériques et physiques\n• Soutien de l'interrupteur récepteur et du central téléphonique\n• Gestion des nominations (détermination des dates de négociation, en partie par entente)\n• Opérations d'assignation\n• Préparation et expédition des décisions Contrôle des forces juridiques\n• Archivage\n• Assistance dans le cabinet de droit successoral (détermination de l'héritage, préparation des décisions)\n• Travaux généraux de secrétariat Votre profil\n• enseignement commercial de base, expérience judiciaire et/ou expérience dans un cabinet d'avocats en succession\n• Agilité numérique\n• méthode de travail indépendante, très précise, prudente et fiable\n• Un sens de l'ordre et un haut degré de service et de responsabilité\n• dissimulé, discret, flexible, collégial et loyal\n• Intérêt pour les questions juridiques et l'administration de la justice Notre offre\n• activité variée et significative dans une petite équipe\n• Conditions d'emploi conformément à la loi sur le personnel du canton de Zurich\n• Un lieu de travail attrayant à distance de marche de la station\n• Pour de plus amples informations, le greffier en chef Michael Schulze (tél. 044 952 46 46) est à votre disposition. Veuillez soumettre votre demande avec les documents habituels et indiquer vos attentes salariales et le montant souhaité (pour les demandes par e-mail dans un document PDF unique à bewerbung.pfaeffikon@gerichte-zh.ch).\n\nLe tribunal de district de Pfäffikon emploie 30 employés dans la belle capitale de district de Pfäffikon ZH et est responsable en première instance de l'évaluation de toutes les affaires civiles et pénales dans le district.\n\nPensum: 50-90 %"
-      },
-      "needsRetranslation": false,
-      "location": "8330 Pfäffikon ZH",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ktzh/job/details/4098987/",
-      "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:38:30.600Z",
-      "addressLocality": "8330 Pfäffikon ZH",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8330",
-      "category": "Amministrazione Pubblica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/ktzh/job/details/4098987/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4098987",
-      "pensumMin": 50,
-      "pensumMax": 90,
-      "pensum": "50 - 90%",
-      "previousSlugs": [
-        "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh-2",
-        "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "verwaltungssekretar-in-allrounder-in-kanton-zuerich-8330-pfaffikon-zh-2",
-          "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh"
-        ],
-        "en": [
-          "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh"
-        ],
-        "fr": [
-          "verwaltungssekretar-in-allrounder-in-kantonale-verwaltung-zurich-8330-pfaffikon-zh"
-        ]
-      },
-      "firstSeenAt": "2026-11-07T21:34:34.317Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "8330 Pfäffikon ZH",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T09:38:30.600Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
       "id": "kanton-zuerich-545cc437a9f9",
       "slug": "il-nostro-team-ti-sta-cercando-come-responsabile-del-team-revisione-comunale-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
@@ -11663,11 +11521,17 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-einsprachen-alv-gestalte-mit-uns-den-arbeitsmarkt-von-zurich-kanton"
+          "fachspezialist-in-einsprachen-alv-gestalte-mit-uns-den-arbeitsmarkt-von-zurich-kanton",
+          "lingua-specialistica-alv-modellare-il-mercato-del-lavoro-di-zurigo-con-noi-kantonale-verwaltung-zurich-zurich-ff2b3fee48"
+        ],
+        "de": [
+          "fachspezialist-in-einsprachen-alv-gestalte-mit-uns-den-arbeitsmarkt-von-zurich-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-einsprachen-alv-gestalte-mit-uns-den-arbeitsmarkt-von-zurich-kanton"
+        "fachspezialist-in-einsprachen-alv-gestalte-mit-uns-den-arbeitsmarkt-von-zurich-kanton",
+        "lingua-specialistica-alv-modellare-il-mercato-del-lavoro-di-zurigo-con-noi-kantonale-verwaltung-zurich-zurich-ff2b3fee48",
+        "fachspezialist-in-einsprachen-alv-gestalte-mit-uns-den-arbeitsmarkt-von-zurich-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -14786,94 +14650,6 @@
       "validThroughSource": "last-observed-window"
     },
     {
-      "id": "kanton-zuerich-fad1e5b652e9",
-      "slug": "assistente-sociale-nel-kjz-horgen-kantonale-verwaltung-zurich-horgen",
-      "slugByLocale": {
-        "it": "assistente-sociale-nel-kjz-horgen-kantonale-verwaltung-zurich-horgen",
-        "en": "social-worker-in-the-kjz-horgen-kantonale-verwaltung-zurich-horgen",
-        "de": "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen",
-        "fr": "travailleur-social-au-kjz-horgen-kantonale-verwaltung-zurich-horgen"
-      },
-      "company": "Kantonale Verwaltung Zürich",
-      "companyKey": "kanton-zuerich",
-      "companyDomain": "zh.ch",
-      "title": "Sozialarbeiter/in im kjz Horgen",
-      "titleByLocale": {
-        "it": "Assistente sociale nel kjz Horgen",
-        "en": "Social worker in the KJZ Horgen",
-        "de": "Sozialarbeiter/in im kjz Horgen",
-        "fr": "Travailleur social au KJZ Horgen"
-      },
-      "description": "Kanton Zürich Bildungsdirektion Amt für Jugend und Berufsberatung Sozialarbeiter/in im kjz Horgen 80% Das Amt für Jugend und Berufsberatung Kanton Zürich, Geschäftsstelle der Bezirke Affoltern, Dietikon, Horgen, ist ein kantonales Kompetenzzentrum, das in den Bereichen Familie/Jugend und Berufsberatung fachliche Unterstützung anbietet. Das Kinder- und Jugendhilfezentrum (kjz) ist eine Beratungsstelle für Familien, Eltern, Jugendliche, Kinder sowie Kleinkinder und arbeitet auf der Grundlage des Kinder- und Jugendhilfegesetzes des Kantons Zürich. Für unser kjz-Team suchen wir eine/n Sozialarbeiter/in. Zugehörigkeit, Sinnhaftigkeit und Kompetenz Wir sind ein eingespieltes Team mit viel Fachkompetenz, Humor und Kreativität. Wir unterstützen uns gegenseitig, arbeiten gerne interdisziplinär und engagieren uns für den Kindesschutz.\n• Aufgaben Sie beraten und begleiten Kinder, Jugendliche und Eltern im Rahmen von Kindesschutzmassnahmen in der Mandatsführung sowie auf freiwilliger Basis. Zudem führen Sie Abklärungen bei Verdacht auf Kindswohlgefährdung durch. Intensive Zusammenarbeit mit den Familiensystemen, den Behörden, den Schulen sowie anderen Institutionen und Fachstellen ist uns wichtig. Darüber hinaus sind Ihre Inputs und Anregungen bei der Weiterentwicklung unseres kjz Horgen gefragt. Profil Sie verfügen über einen Abschluss in Sozialer Arbeit (FH) und bringen Erfahrung in der Jugend- und Familienhilfe mit. Wir suchen Sie als lösungsorientierte und belastbare Persönlichkeit mit hohen Sozialkompetenzen, einer wertschätzenden Grundhaltung und Freude an der Teamarbeit. Administrative Tätigkeiten sowie die Erstellung von Berichten und Aktennotizen fallen Ihnen leicht. Angebot\n• Wir bieten Ihnen eine sinnvolle, vielseitige und anspruchsvolle Tätigkeit in einem spannenden und interdisziplinären Arbeitsfeld. Wir werden Sie sorgfältig einarbeiten und Sie dürfen auf Gefässe für Unterstützung zählen wie Coachings, Intervisionsgruppen und Supervision. Denn Kindesschutz bedeutet Teamarbeit und Rückhalt durch die Leitung. Interne Weiterbildungsangebote stehen zur Verfügung und darüber hinaus beteiligen wir uns auch an externen Weiterbildungen. Die Anstellungsbedingungen entsprechen den kantonalen Richtlinien. Ihr Arbeitsplatz befindet sich direkt am Bahnhof und am See. Bewerbung Für weitere Auskünfte steht Ihnen Salomé Gossaint, Leitung Soziale Arbeit und Mandate, unter 043 259 92 10 oder salome.gossaint@ajb.zh.ch gerne zur Verfügung. Unter www.ajb.zh.ch finden Sie zusätzliche Informationen. Entdecken Sie unsere Arbeitswelt! Ihre vollständigen Bewerbungsunterlagen übermitteln Sie bitte über den Bewerbungslink. Bewerbungen per Post oder E-Mail können wir nicht berücksichtigen.\n\nPensum: 80%",
-      "descriptionByLocale": {
-        "it": "Cantone dell'Istruzione di Zurigo Ufficio per la Gioventù e l'Avviamento Professionale Lavoro Sociale in kjz Horgen 80% L'Ufficio per la Gioventù e l'Avviamento Professionale Cantone di Zurigo, ufficio dei distretti di Affoltern, Dietikon, Horgen, è un centro di competenza cantonale che offre supporto professionale nei settori della famiglia / gioventù e della consulenza professionale. Il Kinder- und Jugendhilfezentrum (kjz) è un centro di consulenza per famiglie, genitori, adolescenti, bambini e bambini piccoli e lavora sulla base del Kinder- und Jugendhilfegesetz del Canton Zurigo. Per il nostro team di kjz stiamo cercando un assistente sociale. Appartenenza, significato e competenza Siamo un team esperto con molta esperienza, umorismo e creatività. Ci sosteniamo a vicenda, godiamo di lavorare interdisciplinare e siamo impegnati nella protezione dei bambini.\n• Essi consigliano e accompagnano bambini, adolescenti e genitori nell'ambito delle misure di protezione dei bambini nella gestione dei mandati e su base volontaria. Inoltre, effettui chiarimenti in caso di sospetto di benessere dei bambini. La cooperazione intensiva con sistemi familiari, autorità, scuole e altre istituzioni e organismi specializzati è importante per noi. Inoltre, i vostri input e suggerimenti sono richiesti nell'ulteriore sviluppo del nostro kjz Horgen. Profilo Hai una laurea in lavoro sociale (FH) e hai esperienza in gioventù e famiglia aiuto. Siamo alla ricerca di voi come una personalità orientata alla soluzione e resiliente con alte competenze sociali, un atteggiamento di base apprezzativo e il godimento del lavoro di squadra. Le attività amministrative e la creazione di rapporti e note di file sono facili per voi. Offerta\n• Vi offriamo un lavoro significativo, versatile e impegnativo in un campo di lavoro emozionante e interdisciplinare. Noi lavoreremo con voi con attenzione e potrete contare su navi di supporto come coaching, gruppi di intervisione e supervisione. Perché la protezione dei bambini significa lavoro di squadra e supporto dalla gestione. Sono disponibili offerte di formazione interna e partecipiamo anche alla formazione esterna. Le condizioni di lavoro corrispondono agli orientamenti cantonali. Il vostro posto di lavoro si trova direttamente alla stazione ferroviaria e al lago. Per ulteriori informazioni, Salomé Gossaint, Head of Social Work and Mandates, è disponibile al 043 259 92 10 o salome.gossaint@ajb.zh.ch. Ulteriori informazioni sono disponibili su www.ajb.zh.ch. Scopri il nostro mondo del lavoro! Si prega di inviare i documenti di richiesta completa tramite il link di richiesta. Le domande per posta o e-mail non possono essere considerate.\n\nPenso: 80 %",
-        "en": "Canton of Zurich Education Directorate Office for Youth and Vocational Advice Social Worker in kjz Horgen 80% The Office for Youth and Vocational Counselling Canton of Zurich, office of the districts of Affoltern, Dietikon, Horgen, is a cantonal competence centre that offers professional support in the areas of family/youth and professional counselling. The Kinder- und Jugendhilfezentrum (kjz) is a counselling centre for families, parents, adolescents, children and small children and works on the basis of the Kinder- und Jugendhilfegesetz of the Canton of Zurich. For our kjz team we are looking for a social worker. Belonging, meaningfulness and competence We are an experienced team with a lot of expertise, humour and creativity. We support each other, enjoy working interdisciplinary and are committed to child protection.\n• They advise and accompany children, adolescents and parents within the framework of child protection measures in mandate management as well as on a voluntary basis. In addition, you carry out clarifications in case of suspicion of child welfare. Intensive cooperation with family systems, authorities, schools and other institutions and specialist bodies is important to us. In addition, your inputs and suggestions are required in the further development of our kjz Horgen. Profile You have a degree in social work (FH) and have experience in youth and family help. We are looking for you as a solution-oriented and resilient personality with high social skills, an appreciative basic attitude and enjoyment of teamwork. Administrative activities as well as the creation of reports and file notes are easy for you. Offer\n• We offer you a meaningful, versatile and demanding job in an exciting and interdisciplinary field of work. We will work with you carefully and you can count on support vessels such as coaching, intervision groups and supervision. Because child protection means teamwork and support from the management. Internal training offers are available and we also participate in external training. The employment conditions correspond to the cantonal guidelines. Your workplace is located directly at the train station and at the lake. For further information, Salomé Gossaint, Head of Social Work and Mandates, is available at 043 259 92 10 or salome.gossaint@ajb.zh.ch. Additional information can be found at www.ajb.zh.ch. Discover our working world! Please submit your complete application documents via the application link. Applications by post or e-mail cannot be considered.\n\nPensum: 80 %",
-        "de": "Kanton Zürich Bildungsdirektion Amt für Jugend und Berufsberatung Sozialarbeiter/in im kjz Horgen 80% Das Amt für Jugend und Berufsberatung Kanton Zürich, Geschäftsstelle der Bezirke Affoltern, Dietikon, Horgen, ist ein kantonales Kompetenzzentrum, das in den Bereichen Familie/Jugend und Berufsberatung fachliche Unterstützung anbietet. Das Kinder- und Jugendhilfezentrum (kjz) ist eine Beratungsstelle für Familien, Eltern, Jugendliche, Kinder sowie Kleinkinder und arbeitet auf der Grundlage des Kinder- und Jugendhilfegesetzes des Kantons Zürich. Für unser kjz-Team suchen wir eine/n Sozialarbeiter/in. Zugehörigkeit, Sinnhaftigkeit und Kompetenz Wir sind ein eingespieltes Team mit viel Fachkompetenz, Humor und Kreativität. Wir unterstützen uns gegenseitig, arbeiten gerne interdisziplinär und engagieren uns für den Kindesschutz.\n• Aufgaben Sie beraten und begleiten Kinder, Jugendliche und Eltern im Rahmen von Kindesschutzmassnahmen in der Mandatsführung sowie auf freiwilliger Basis. Zudem führen Sie Abklärungen bei Verdacht auf Kindswohlgefährdung durch. Intensive Zusammenarbeit mit den Familiensystemen, den Behörden, den Schulen sowie anderen Institutionen und Fachstellen ist uns wichtig. Darüber hinaus sind Ihre Inputs und Anregungen bei der Weiterentwicklung unseres kjz Horgen gefragt. Profil Sie verfügen über einen Abschluss in Sozialer Arbeit (FH) und bringen Erfahrung in der Jugend- und Familienhilfe mit. Wir suchen Sie als lösungsorientierte und belastbare Persönlichkeit mit hohen Sozialkompetenzen, einer wertschätzenden Grundhaltung und Freude an der Teamarbeit. Administrative Tätigkeiten sowie die Erstellung von Berichten und Aktennotizen fallen Ihnen leicht. Angebot\n• Wir bieten Ihnen eine sinnvolle, vielseitige und anspruchsvolle Tätigkeit in einem spannenden und interdisziplinären Arbeitsfeld. Wir werden Sie sorgfältig einarbeiten und Sie dürfen auf Gefässe für Unterstützung zählen wie Coachings, Intervisionsgruppen und Supervision. Denn Kindesschutz bedeutet Teamarbeit und Rückhalt durch die Leitung. Interne Weiterbildungsangebote stehen zur Verfügung und darüber hinaus beteiligen wir uns auch an externen Weiterbildungen. Die Anstellungsbedingungen entsprechen den kantonalen Richtlinien. Ihr Arbeitsplatz befindet sich direkt am Bahnhof und am See. Bewerbung Für weitere Auskünfte steht Ihnen Salomé Gossaint, Leitung Soziale Arbeit und Mandate, unter 043 259 92 10 oder salome.gossaint@ajb.zh.ch gerne zur Verfügung. Unter www.ajb.zh.ch finden Sie zusätzliche Informationen. Entdecken Sie unsere Arbeitswelt! Ihre vollständigen Bewerbungsunterlagen übermitteln Sie bitte über den Bewerbungslink. Bewerbungen per Post oder E-Mail können wir nicht berücksichtigen.\n\nPensum: 80%",
-        "fr": "Canton de Zurich Direction de l'éducation Bureau de la jeunesse et de l'orientation professionnelle Travailleur social au kjz Horgen 80% L'Office de la jeunesse et de l'orientation professionnelle Canton de Zurich, bureau des districts d'Affoltern, Dietikon, Horgen, est un centre cantonal de compétence qui offre un soutien professionnel dans les domaines de la famille/jeunesse et de l'orientation professionnelle. Le Kinder- und Jugendhilfezentrum (kjz) est un centre de conseil pour les familles, les parents, les adolescents, les enfants et les enfants en bas âge. Pour notre équipe de kjz, nous cherchons un travailleur social. Appartenance, sens et compétence Nous sommes une équipe expérimentée avec beaucoup d'expertise, d'humour et de créativité. Nous nous soutenons mutuellement, nous aimons travailler interdisciplinairement et nous sommes attachés à la protection de l'enfance.\n• Ils conseillent et accompagnent les enfants, les adolescents et les parents dans le cadre des mesures de protection de l ' enfance dans la gestion des mandats ainsi que sur une base volontaire. En outre, vous effectuez des clarifications en cas de soupçon de bien-être de l'enfant. Une coopération intensive avec les systèmes familiaux, les autorités, les écoles et d'autres institutions et organismes spécialisés est importante pour nous. En outre, vos contributions et suggestions sont nécessaires dans le développement ultérieur de notre kjz Horgen. Profil Vous avez un diplôme en travail social (FH) et avez de l'expérience en aide aux jeunes et aux familles. Nous vous recherchons comme une personnalité orientée vers la solution et résiliente avec de hautes compétences sociales, une attitude de base appréciatrice et la jouissance du travail d'équipe. Les activités administratives ainsi que la création de rapports et de notes de dossier sont faciles pour vous. Offre\n• Nous vous offrons un travail significatif, polyvalent et exigeant dans un domaine de travail passionnant et interdisciplinaire. Nous travaillerons avec vous avec soin et vous pouvez compter sur des vaisseaux de soutien tels que l'encadrement, les groupes d'intervision et la supervision. Parce que la protection de l'enfance signifie le travail d'équipe et le soutien de la direction. Des offres de formation interne sont disponibles et nous participons également à des formations externes. Les conditions d'emploi correspondent aux directives cantonales. Votre lieu de travail est situé directement à la gare et au lac. Pour de plus amples informations, Salomé Gossaint, chef du travail social et des mandats, est disponible au 043 259 92 10 ou salome.gossaint@ajb.zh.ch. Des informations complémentaires sont disponibles à l'adresse www.ajb.zh.ch. Découvrez notre monde de travail ! Veuillez soumettre vos documents de candidature complets via le lien de candidature. Les demandes par courrier postal ou par courrier électronique ne peuvent être examinées.\n\nPensum: 80 %"
-      },
-      "needsRetranslation": false,
-      "location": "Horgen",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ktzh/job/details/4096500/",
-      "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:38:08.241Z",
-      "addressLocality": "Horgen",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8810",
-      "category": "Sanità e Sociale",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-03T14:18:56+01:00",
-      "postedDate": "2026-11-03T14:18:56+01:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://live.solique.ch/ktzh/job/details/4096500/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4096500",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "previousSlugs": [
-        "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen-2"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen-2"
-        ],
-        "en": [
-          "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen-2"
-        ],
-        "fr": [
-          "sozialarbeiter-in-im-kjz-horgen-kanton-zuerich-horgen-2"
-        ]
-      },
-      "firstSeenAt": "2026-11-03T22:06:40.753Z",
-      "salaryMin": 91500,
-      "salaryMax": 128000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 91500,
-          "maxValue": 128000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Horgen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:38:08.241Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
       "id": "kanton-zuerich-075ea16498ce",
       "slug": "stagista-in-agricoltura-biologica-e-prove-sul-campo-kantonale-verwaltung-zurich-lindau",
       "slugByLocale": {
@@ -15233,190 +15009,6 @@
       "streetAddress": "Wädenswil",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T21:47:13.873Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "kanton-zuerich-e06f65e23b1b",
-      "slug": "interno-interno-del-servizio-sociale-kantonale-verwaltung-zurich-affoltern-5f54847a48",
-      "slugByLocale": {
-        "it": "interno-interno-del-servizio-sociale-kantonale-verwaltung-zurich-affoltern-5f54847a48",
-        "en": "intern-internship-in-social-service-kantonale-verwaltung-zurich-affoltern",
-        "de": "praktikantin-praktikant-im-sozialdienst-kanton-zuerich-affoltern",
-        "fr": "stages-dans-les-services-sociaux-kantonale-verwaltung-zurich-affoltern"
-      },
-      "company": "Kantonale Verwaltung Zürich",
-      "companyKey": "kanton-zuerich",
-      "companyDomain": "zh.ch",
-      "title": "Praktikantin / Praktikant im Sozialdienst",
-      "titleByLocale": {
-        "it": "Interno/Interno del Servizio Sociale",
-        "en": "Intern/Internship in Social Service",
-        "de": "Praktikantin / Praktikant im Sozialdienst",
-        "fr": "Stages dans les services sociaux"
-      },
-      "description": "• Interessanter und anspruchsvoller Tätigkeitsbereich und die Möglichkeit, Erfahrungen im Strafvollzug zu sammeln\n• Einblick in die verschiedenen Vollzugsformen und deren Besonderheiten sowie Angebote\n• Ausgewiesene fachliche Begleitung während des Praktikums\n• Regelmässige Arbeitszeiten\n• Arbeitsort ca. 5 Gehminuten ab Bahnhof Affoltern am Albis\n• Anstellungsbedingungen nach kantonalen Richtlinien Dein Kontakt Hast Du noch Fragen? Annika Münch Leiterin Sozialdienst 043 258 13 05 Recruiting Team Rekrutierung & Assessment 043 257 58 73",
-      "descriptionByLocale": {
-        "it": "• Campo di attività interessante e impegnativo e l'opportunità di acquisire esperienza nel sistema carcerario\n• Insight nelle varie forme di esecuzione e le loro caratteristiche speciali e offerte\n• Supporto professionale progettato durante lo stage\n• Ore lavorative regolari\n• Posizione di lavoro a circa 5 minuti a piedi dalla stazione di Affoltern am Albis\n• Condizioni di lavoro secondo le linee guida cantonali Il vostro contatto Avete ancora domande? Annika Münch Responsabile Servizio Sociale 043 258 13 05 Reclutamento e Valutazione Team di Reclutamento 043 257 58 73",
-        "en": "• Interesting and demanding field of activity and the opportunity to gain experience in the prison system\n• Insight into the various forms of execution and their special features as well as offers\n• Designated professional support during the internship\n• Regular working hours\n• Work location about 5 minutes walk from station Affoltern am Albis\n• Employment conditions according to cantonal guidelines Your contact Do you still have questions? Annika Münch Head of Social Service 043 258 13 05 Recruiting Team Recruitment & Assessment 043 257 58 73",
-        "de": "• Interessanter und anspruchsvoller Tätigkeitsbereich und die Möglichkeit, Erfahrungen im Strafvollzug zu sammeln\n• Einblick in die verschiedenen Vollzugsformen und deren Besonderheiten sowie Angebote\n• Ausgewiesene fachliche Begleitung während des Praktikums\n• Regelmässige Arbeitszeiten\n• Arbeitsort ca. 5 Gehminuten ab Bahnhof Affoltern am Albis\n• Anstellungsbedingungen nach kantonalen Richtlinien Dein Kontakt Hast Du noch Fragen? Annika Münch Leiterin Sozialdienst 043 258 13 05 Recruiting Team Rekrutierung & Assessment 043 257 58 73",
-        "fr": "• Domaine d'activité intéressant et exigeant et possibilité d'acquérir de l'expérience dans le système pénitentiaire\n• Regard sur les différentes formes d'exécution et leurs particularités ainsi que leurs offres\n• Soutien professionnel désigné pendant le stage\n• Heures de travail régulières\n• Emplacement du travail à environ 5 minutes à pied de la station Affoltern am Albis\n• Conditions d'emploi selon les directives cantonales Votre contact Vous avez encore des questions ? Annika Münch Chef du service social 043 258 13 05 Recrutement et évaluation de l'équipe 043 257 58 73"
-      },
-      "needsRetranslation": false,
-      "location": "Affoltern",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ktzh/job/details/4087141/",
-      "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:46:54.851Z",
-      "addressLocality": "Affoltern",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "Sanità e Sociale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://live.solique.ch/ktzh/job/details/4087141/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4087141",
-      "pensumMin": 80,
-      "pensumMax": 80,
-      "pensum": "80%",
-      "previousSlugs": [
-        "praktikantin-praktikant-im-sozialdienst-kanton-zuerich-affoltern",
-        "praktikantin-praktikant-im-sozialdienst-kantonale-verwaltung-zurich-affoltern",
-        "interno-interno-del-servizio-sociale-kantonale-verwaltung-zurich-affoltern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikantin-praktikant-im-sozialdienst-kanton-zuerich-affoltern",
-          "interno-interno-del-servizio-sociale-kantonale-verwaltung-zurich-affoltern"
-        ],
-        "en": [
-          "praktikantin-praktikant-im-sozialdienst-kanton-zuerich-affoltern"
-        ],
-        "de": [
-          "praktikantin-praktikant-im-sozialdienst-kantonale-verwaltung-zurich-affoltern"
-        ],
-        "fr": [
-          "praktikantin-praktikant-im-sozialdienst-kanton-zuerich-affoltern"
-        ]
-      },
-      "firstSeenAt": "2026-10-16T21:39:21.082Z",
-      "salaryMin": 82000,
-      "salaryMax": 114500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 82000,
-          "maxValue": 114500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Affoltern",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:46:54.851Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "kanton-zuerich-7dc43307fac6",
-      "slug": "lingua-specialistica-alv-modellare-il-mercato-del-lavoro-di-zurigo-con-noi-kantonale-verwaltung-zurich-zurich-ff2b3fee48",
-      "slugByLocale": {
-        "it": "lingua-specialistica-alv-modellare-il-mercato-del-lavoro-di-zurigo-con-noi-kantonale-verwaltung-zurich-zurich-ff2b3fee48",
-        "en": "specialist-language-alv-shape-the-labour-market-of-zurich-with-us-kantonale-verwaltung-zurich-zurich",
-        "de": "fachspezialist-in-einsprachen-alv-gestalte-mit-uns-den-arbeitsmarkt-von-zurich-kanton",
-        "fr": "langue-specialisee-alv-faconner-le-marche-du-travail-de-zurich-avec-nous-kantonale-verwaltung-zurich-zurich"
-      },
-      "company": "Kantonale Verwaltung Zürich",
-      "companyKey": "kanton-zuerich",
-      "companyDomain": "zh.ch",
-      "title": "Fachspezialist/in Einsprachen ALV - gestalte mit uns den Arbeitsmarkt von Zürich",
-      "titleByLocale": {
-        "it": "Lingua specialistica ALV - modellare il mercato del lavoro di Zurigo con noi",
-        "en": "Specialist language ALV - shape the labour market of Zurich with us",
-        "de": "Fachspezialist/in Einsprachen ALV - gestalte mit uns den Arbeitsmarkt von Zürich",
-        "fr": "Langue spécialisée ALV - façonner le marché du travail de Zurich avec nous"
-      },
-      "description": "Kanton Zürich Volkswirtschaftsdirektion Amt für Arbeit Fachspezialist/in Einsprachen ALV - gestalte mit uns den Arbeitsmarkt von Zürich 80 - 100% Du möchtest mit deiner Arbeit etwas bewegen und suchst eine Aufgabe, die Sinn stiftet? Dann könnte diese Position genau das Richtige für dich sein. Im Amt für Arbeit (AFA) setzt du dich dafür ein, dass der Arbeitsmarkt im Kanton Zürich fair, effizient und zukunftsfähig bleibt – gemeinsam mit rund 800 Kolleginnen und Kollegen an über 20 Standorten. Aufgrund der Vergrösserung unseres Teams suchen wir Verstärkung. Du kannst ab sofort oder nach Vereinbarung Teil unseres Teams werden. Deine\n• Aufgaben - Du erarbeitest selbstständig Einspracheentscheide, klärst rechtliche Fragen ab und beschaffst alle relevanten Unterlagen - Du holst Auskünfte bei RAV, Arbeitslosenkassen, Arbeitgebenden und weiteren Stellen ein - Du verfasst Vernehmlassungen für das Sozialversicherungsgericht des Kantons Zürich - Ausserdem unterstützt du bei Bedarf bei der Prüfung von Sanktionsmeldungen und beim Erstellen von Einstellungsverfügungen Spricht dich die spannende Mischung aus juristischem Denken, Kommunikation und Verantwortung an? Dann melde dich! Das bringst du mit - Eine 3‑jährige kaufmännische Grundausbildung und Erfahrung in der Fallbearbeitung im Bereich Sozialversicherung oder der schriftlichen Fallbearbeitung - Eine Weiterbildung als Sozialversicherungsfachfrau/-mann oder eine andere gleichwertige Weiterbildung (oder schliesst diese demnächst ab) - Sehr gute MS‑Office‑Kenntnisse, eine präzise Ausdrucksweise und Freude am Schreiben - Logisch‑analytisches Denken und effiziente Arbeitsweise - Souveräner Umgang mit verschiedenen Anspruchsgruppen Wenn dir bei der Strukturierung von komplexen Fällen und der Vorgehensweise zu rechtlichen Abklärungen sofort etwas einfällt, lass es uns wissen! Darauf kannst du dich freuen - Eine sinnvolle, abwechslungsreiche Tätigkeit mit viel Eigenverantwortung - Attraktive Anstellungsbedingungen nach kantonalen Richtlinien - Ein moderner Arbeitsplatz nahe Bahnhof Zürich Oerlikon - Sehr gute Sozialleistungen - Flexible Arbeitszeiten, Beiträge an die Verpflegungskosten (Lunch-Check) und Homeoffice sind für uns selbstverständlich Bereit für den nächsten Schritt? Wenn du ein lebendiges Umfeld schätzt und dir faire Rahmenbedingungen wichtig sind, sollten wir uns kennenlernen! Joël Rohrer , Teamleiter Einsprachen, freut sich auf deinen Anruf: 043 259 49 28 . Wir freuen uns auf deine Bewerbung. Mehr über uns erfährst du unter www.zh.ch/afa .\n\nPensum: 80-100%",
-      "descriptionByLocale": {
-        "it": "Cantone di Zurigo Direzione Economica per il Lavoro Specialista / in lingua ALV - modellare il mercato del lavoro di Zurigo con noi 80 - 100% Vuoi fare la differenza con il tuo lavoro e stai cercando un compito che ha senso? Allora questa posizione potrebbe essere giusta per te. Presso l'Ufficio del Lavoro (AFA), vi impegnate a garantire che il mercato del lavoro nel Cantone di Zurigo rimanga equo, efficiente e sostenibile, insieme a circa 800 colleghi in più di 20 sedi. A causa dell'espansione del nostro team, stiamo cercando rinforzi. Puoi diventare parte della nostra squadra ora o su appuntamento. Il tuo\n• Compiti - Lei elabora decisioni di appello indipendentemente, chiarisca le domande legali e ottenga tutti i documenti pertinenti - Lei ottiene informazioni da RAV, fondi di disoccupazione, datori di lavoro e altre agenzie - Lei elabora consultazioni per la Corte di Sicurezza Sociale del Cantone di Zurigo - Inoltre, se necessario, Lei sostiene nell'esame delle notifiche di sanzione e nella preparazione degli ordini di reclutamento Fa l'emozionante miscela di pensiero legale, comunicazione e responsabilità appello a Lei? Allora riporta indietro! Lo portate con voi - A 3 anni di formazione di base commerciale e di esperienza nella gestione dei casi nel campo dell'assicurazione sociale o della gestione di casi scritti - Un'ulteriore formazione come specialista di assicurazione sociale o un altro equivalente ulteriore istruzione (o finire questo presto) - Conoscenza di MS Office molto buona, un'espressione precisa e la gioia di scrivere - pensiero logico-analitico e metodo di lavoro efficiente - Gestione sovrana di diversi stakeholders Se si può pensare a qualcosa immediatamente nella strutturazione di casi complessi e la procedura per chiarimenti legali, fateci sapere! Si può guardare avanti a questo - Un lavoro significativo e variegato con un sacco di responsabilità personale - condizioni di lavoro attraenti secondo le linee guida cantonali - Un posto di lavoro moderno vicino a Bahnhof Zürich Oerlikon - Prestazioni sociali molto buone - Ore di lavoro flessibili, contributi ai costi alimentari (controllo) e l'ufficio domestico sono naturalmente pronti per il prossimo passo per noi? Se si valuta un ambiente di vita e le condizioni quadro eque sono importanti per voi, dovremmo conoscerci a vicenda! Joël Rohrer, Team Leader delle Interrogazioni, non vede l'ora della vostra chiamata: 043 259 49 28 . Attendiamo con ansia la vostra applicazione. Potete saperne di più su di noi su www.zh.ch/afa.\n\nPensum: 80-100 %",
-        "en": "Canton of Zurich Economic Directorate Office for Labour Specialist / in language ALV - shape the labour market of Zurich with us 80 - 100% You want to make a difference with your work and are looking for a task that makes sense? Then this position could be just right for you. At the Office of Labour (AFA), you are committed to ensuring that the labour market in the Canton of Zurich remains fair, efficient and sustainable – together with around 800 colleagues at more than 20 locations. Due to the expansion of our team, we are looking for reinforcements. You can become part of our team now or by appointment. Your\n• Tasks - You work out appeal decisions independently, clarify legal questions and obtain all relevant documents - You obtain information from RAV, unemployment funds, employers and other agencies - You draft consultations for the Social Security Court of the Canton of Zurich - Furthermore, if necessary, you support you in the examination of sanction notifications and in the preparation of recruitment orders Does the exciting mixture of legal thinking, communication and responsibility appeal to you? Then report back! You bring this with you - A 3 years of commercial basic training and experience in case management in the field of social insurance or written case management - A further education as a social insurance specialist or another equivalent further education (or finish this soon) - Very good MS Office knowledge, a precise expression and joy of writing - Logical-analytical thinking and efficient working method - Sovereign handling of different stakeholders If you can think of something immediately in the structuring of complex cases and the procedure for legal clarifications, let us know! You can look forward to this - A meaningful, varied job with a lot of personal responsibility - Attractive employment conditions according to cantonal guidelines - A modern workplace near Bahnhof Zürich Oerlikon - Very good social benefits - Flexible working hours, contributions to the food costs (lunch check) and home office are of course ready for the next step for us? If you value a living environment and fair framework conditions are important to you, we should get to know each other! Joël Rohrer, Team Leader of Interrogations, is looking forward to your call: 043 259 49 28 . We look forward to your application. You can find out more about us at www.zh.ch/afa.\n\nPensum: 80-100 %",
-        "de": "Kanton Zürich Volkswirtschaftsdirektion Amt für Arbeit Fachspezialist/in Einsprachen ALV - gestalte mit uns den Arbeitsmarkt von Zürich 80 - 100% Du möchtest mit deiner Arbeit etwas bewegen und suchst eine Aufgabe, die Sinn stiftet? Dann könnte diese Position genau das Richtige für dich sein. Im Amt für Arbeit (AFA) setzt du dich dafür ein, dass der Arbeitsmarkt im Kanton Zürich fair, effizient und zukunftsfähig bleibt – gemeinsam mit rund 800 Kolleginnen und Kollegen an über 20 Standorten. Aufgrund der Vergrösserung unseres Teams suchen wir Verstärkung. Du kannst ab sofort oder nach Vereinbarung Teil unseres Teams werden. Deine\n• Aufgaben - Du erarbeitest selbstständig Einspracheentscheide, klärst rechtliche Fragen ab und beschaffst alle relevanten Unterlagen - Du holst Auskünfte bei RAV, Arbeitslosenkassen, Arbeitgebenden und weiteren Stellen ein - Du verfasst Vernehmlassungen für das Sozialversicherungsgericht des Kantons Zürich - Ausserdem unterstützt du bei Bedarf bei der Prüfung von Sanktionsmeldungen und beim Erstellen von Einstellungsverfügungen Spricht dich die spannende Mischung aus juristischem Denken, Kommunikation und Verantwortung an? Dann melde dich! Das bringst du mit - Eine 3‑jährige kaufmännische Grundausbildung und Erfahrung in der Fallbearbeitung im Bereich Sozialversicherung oder der schriftlichen Fallbearbeitung - Eine Weiterbildung als Sozialversicherungsfachfrau/-mann oder eine andere gleichwertige Weiterbildung (oder schliesst diese demnächst ab) - Sehr gute MS‑Office‑Kenntnisse, eine präzise Ausdrucksweise und Freude am Schreiben - Logisch‑analytisches Denken und effiziente Arbeitsweise - Souveräner Umgang mit verschiedenen Anspruchsgruppen Wenn dir bei der Strukturierung von komplexen Fällen und der Vorgehensweise zu rechtlichen Abklärungen sofort etwas einfällt, lass es uns wissen! Darauf kannst du dich freuen - Eine sinnvolle, abwechslungsreiche Tätigkeit mit viel Eigenverantwortung - Attraktive Anstellungsbedingungen nach kantonalen Richtlinien - Ein moderner Arbeitsplatz nahe Bahnhof Zürich Oerlikon - Sehr gute Sozialleistungen - Flexible Arbeitszeiten, Beiträge an die Verpflegungskosten (Lunch-Check) und Homeoffice sind für uns selbstverständlich Bereit für den nächsten Schritt? Wenn du ein lebendiges Umfeld schätzt und dir faire Rahmenbedingungen wichtig sind, sollten wir uns kennenlernen! Joël Rohrer , Teamleiter Einsprachen, freut sich auf deinen Anruf: 043 259 49 28 . Wir freuen uns auf deine Bewerbung. Mehr über uns erfährst du unter www.zh.ch/afa .\n\nPensum: 80-100%",
-        "fr": "Canton de Zurich Direction économique Office for Labour Specialist / in language ALV - façonner le marché du travail de Zurich avec nous 80 - 100% Vous voulez faire une différence avec votre travail et êtes à la recherche d'une tâche qui a du sens? Alors cette position pourrait être juste pour vous. Au Bureau du Travail (AFA), vous vous êtes engagé à faire en sorte que le marché du travail dans le canton de Zurich reste équitable, efficace et durable – avec environ 800 collègues dans plus de 20 localités. En raison de l'expansion de notre équipe, nous cherchons des renforts. Vous pouvez faire partie de notre équipe maintenant ou sur rendez-vous. Votre\n• Tâches - Vous élaborez les décisions d'appel indépendamment, éclaircissez les questions juridiques et obtenez tous les documents pertinents - Vous obtenez des informations du RAV, des caisses de chômage, des employeurs et d'autres agences - Vous préparez des consultations pour le Tribunal de la sécurité sociale du canton de Zurich - En outre, si nécessaire, vous aidez à l'examen des notifications de sanction et à la préparation des ordres de recrutement. Alors rapportez-nous ! Vous apportez ceci avec vous - A 3 années de formation commerciale de base et d'expérience en gestion de cas dans le domaine de l'assurance sociale ou de la gestion écrite de cas - Une formation complémentaire en tant que spécialiste de l'assurance sociale ou autre formation complémentaire équivalente (ou terminer bientôt) - Très bonne connaissance MS Office, une expression précise et joie de l'écriture - pensée logique-analytique et méthode de travail efficace - Gestion souveraine des différents intervenants Si vous pouvez immédiatement penser à quelque chose dans la structuration de cas complexes et la procédure de clarifications juridiques, faites-le-nous savoir! Vous pouvez vous attendre à cela - Un travail significatif et varié avec beaucoup de responsabilité personnelle - Des conditions d'emploi attrayantes selon les directives cantonales - Un lieu de travail moderne près de Bahnhof Zürich Oerlikon - Des avantages sociaux très bons - Des horaires de travail flexibles, des contributions aux coûts de la nourriture (vérification du lunch) et du bureau à domicile sont bien sûr prêts pour la prochaine étape pour nous ? Si vous appréciez un milieu de vie et des conditions-cadres équitables sont importantes pour vous, nous devrions apprendre à nous connaître! Joël Rohrer, chef d'équipe des Interrogations, attend avec impatience votre appel : 043 259 49 28 . Nous attendons avec impatience votre candidature. Vous pouvez en savoir plus sur nous à www.zh.ch/afa.\n\nRécipient: 80-100 %"
-      },
-      "needsRetranslation": false,
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ktzh/job/details/4087221/",
-      "source": "Kantonale Verwaltung Zürich Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:46:31.089Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Amministrazione Pubblica",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-16T11:55:32+02:00",
-      "postedDate": "2026-10-16T11:55:32+02:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://live.solique.ch/ktzh/job/details/4087221/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4087221",
-      "pensumMin": 80,
-      "pensumMax": 100,
-      "pensum": "80 - 100%",
-      "previousSlugs": [
-        "fachspezialist-in-einsprachen-alv-gestalte-mit-uns-den-arbeitsmarkt-von-zurich-kanton",
-        "lingua-specialistica-alv-modellare-il-mercato-del-lavoro-di-zurigo-con-noi-kantonale-verwaltung-zurich-zurich",
-        "fachspezialist-in-einsprachen-alv-gestalte-mit-uns-den-arbeitsmarkt-von-zurich-kantonale-verwaltung-zurich-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachspezialist-in-einsprachen-alv-gestalte-mit-uns-den-arbeitsmarkt-von-zurich-kanton",
-          "lingua-specialistica-alv-modellare-il-mercato-del-lavoro-di-zurigo-con-noi-kantonale-verwaltung-zurich-zurich"
-        ],
-        "de": [
-          "fachspezialist-in-einsprachen-alv-gestalte-mit-uns-den-arbeitsmarkt-von-zurich-kantonale-verwaltung-zurich-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:05:40.913Z",
-      "salaryMin": 79000,
-      "salaryMax": 134500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 134500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:46:31.089Z",
       "validThroughSource": "last-observed-window",
       "crawlerMissStreak": 1
     }

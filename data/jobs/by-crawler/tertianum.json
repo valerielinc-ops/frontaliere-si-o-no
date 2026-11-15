@@ -2833,14 +2833,26 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-bern"
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-bern",
+          "lernende-r-fachfrau-mann-gesundheit-efz-start-2027-tertianum-bern"
         ],
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-bern"
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-bern",
+          "apprendista-fachfrau-mann-gesundheit-cfc-start-2027-tertianum-bern"
+        ],
+        "en": [
+          "apprenticeship-as-a-specialist-health-efz-tertianum-bern"
+        ],
+        "fr": [
+          "apprentissage-en-tant-que-specialiste-de-la-sante-efz-tertianum-bern"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-bern"
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-bern",
+        "apprendista-fachfrau-mann-gesundheit-cfc-start-2027-tertianum-bern",
+        "apprenticeship-as-a-specialist-health-efz-tertianum-bern",
+        "lernende-r-fachfrau-mann-gesundheit-efz-start-2027-tertianum-bern",
+        "apprentissage-en-tant-que-specialiste-de-la-sante-efz-tertianum-bern"
       ],
       "firstSeenAt": "2026-05-19T12:21:34.277Z",
       "salaryMin": 66000,
@@ -9414,11 +9426,27 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich"
+        "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich",
+        "specialista-della-salute-efz-tertianum-zurich",
+        "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich-m638ak",
+        "healthcare-specialist-efz-tertianum-zurich",
+        "fachfrau-mann-gesundheit-efz-tertianum-zurich",
+        "specialiste-en-sante-efz-tertianum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich"
+          "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich",
+          "specialista-della-salute-efz-tertianum-zurich",
+          "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich-m638ak"
+        ],
+        "en": [
+          "healthcare-specialist-efz-tertianum-zurich"
+        ],
+        "de": [
+          "fachfrau-mann-gesundheit-efz-tertianum-zurich"
+        ],
+        "fr": [
+          "specialiste-en-sante-efz-tertianum-zurich"
         ]
       },
       "firstSeenAt": "2026-05-19T12:22:50.730Z",
@@ -9772,10 +9800,24 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-fur-den-geschutzten-wohnbe-reich-30-100-tertianum"
+        "fachfrau-fachmann-gesundheit-efz-fur-den-geschutzten-wohnbe-reich-30-100-tertianum",
+        "fachfrau-fachmann-gesundheit-cfc-per-den-geschutzten-wohnbe-reich-30-100-tertianum-berlingen-67453bbe81",
+        "fachfrau-fachmann-gesundheit-cfc-per-den-geschutzten-wohnbe-reich-30-100-tertianum-berlingen",
+        "health-efz-for-the-protected-residential-area-30-100-tertianum-berlingen",
+        "sante-efz-pour-la-zone-residentielle-protegee-30-100-tertianum-berlingen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-fachmann-gesundheit-efz-fur-den-geschutzten-wohnbe-reich-30-100-tertianum",
+          "fachfrau-fachmann-gesundheit-cfc-per-den-geschutzten-wohnbe-reich-30-100-tertianum-berlingen-67453bbe81",
+          "fachfrau-fachmann-gesundheit-cfc-per-den-geschutzten-wohnbe-reich-30-100-tertianum-berlingen"
+        ],
+        "en": [
+          "health-efz-for-the-protected-residential-area-30-100-tertianum-berlingen",
+          "fachfrau-fachmann-gesundheit-efz-fur-den-geschutzten-wohnbe-reich-30-100-tertianum"
+        ],
+        "fr": [
+          "sante-efz-pour-la-zone-residentielle-protegee-30-100-tertianum-berlingen",
           "fachfrau-fachmann-gesundheit-efz-fur-den-geschutzten-wohnbe-reich-30-100-tertianum"
         ]
       },
@@ -10768,91 +10810,6 @@
       "streetAddress": "Berlingen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-25T09:35:49.117Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "tertianum-aa9a622ca3a6",
-      "slug": "fachfrau-fachmann-gesundheit-cfc-per-den-geschutzten-wohnbe-reich-30-100-tertianum-berlingen-67453bbe81",
-      "slugByLocale": {
-        "it": "fachfrau-fachmann-gesundheit-cfc-per-den-geschutzten-wohnbe-reich-30-100-tertianum-berlingen-67453bbe81",
-        "en": "health-efz-for-the-protected-residential-area-30-100-tertianum-berlingen",
-        "de": "fachfrau-fachmann-gesundheit-efz-fur-den-geschutzten-wohnbe-reich-30-100-tertianum",
-        "fr": "sante-efz-pour-la-zone-residentielle-protegee-30-100-tertianum-berlingen"
-      },
-      "company": "Tertianum",
-      "companyKey": "tertianum",
-      "companyDomain": "tertianum.ch",
-      "title": "Fachfrau/Fachmann Gesundheit EFZ für den geschützten Wohnbe-reich (30-100%)",
-      "titleByLocale": {
-        "it": "Operatrice/operatore sociosanitario AFC per l'area abitativa protetta (30-100%)",
-        "en": "Health EFZ for the protected residential area (30-100%)",
-        "de": "Fachfrau/Fachmann Gesundheit EFZ für den geschützten Wohnbe-reich (30-100%)",
-        "fr": "Santé EFZ pour la zone résidentielle protégée (30-100%)"
-      },
-      "description": "Pflege mit Herz und Verstand – Wir suchen dich!\n\nDu bist Fachfrau/Fachmann Gesundheit EFZ und möchtest in einem herzlichen Umfeld arbeiten, in dem Menschlichkeit und Teamgeist im Mittelpunkt stehen? Dann passt du perfekt zu uns!\n\nWir sind ein motiviertes Team in der Langzeitpflege und suchen Verstärkung durch engagierte Fachpersonen, die mit Freude und Fachkompetenz für das Wohl unserer Gäste sorgen.\n\nFür das Alters- und Pflegeheim Haus Seefeld in Berlingen suchen wir per sofort oder nach Vereinbarung eine/einen\n\nFachfrau/Fachmann Gesundheit EFZ für den geschützten Wohnbereich (30-100%)\n\nDeine Aufgaben\n\n• Ganzheitliche Betreuung und Pflege der Gäste im Sinne unseres Pflegeleitbildes und des Pflegeprozesses\n\n• Ausführen von behandlungspflegerischen Tätigkeiten\n\n• Elektronische Pflegedokumentation mittels CareCoach\n\n• Übernahme von Aufgaben als Bezugsperson\n\n• Mitarbeit bei der Umsetzung des Pflegeprozesses\n\n• Übernahme der Tagesverantwortung\n\n• Übernahme von Aufgaben als Thementräger/in, fachliche Weisungsbefugnis\n\nDein Profil\n\n• Abgeschlossene Ausbildung zur/zum Fachfrau/Fachmann Gesundheit EFZ oder eine gleichwertige, durch das SRK anerkannte Ausbildung\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Verantwortungsbewusstsein und Teamfähigkeit\n\n• Humor und die Fähigkeit, auch im turbulenten Alltag den Überblick zu behalten\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWarum Tertianum?\n\nUns liegt viel daran, dass unsere Mitarbeitenden ihre berufliche Entwicklung und ihre Lebensgestaltung in Einklang bringen können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Flexible Arbeitsmodelle (Jobsharing, Teilzeitmodelle, flexible Dienstplangestaltung, Wiedereinstieg nach Auszeit)\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Fitnessvergünstigungen\n\n• SBB Halbtaxabonnement\n\n• Versicherungsvergünstigungen\n\n• Flottenrabatte\n\n• Vergünstigungen bei Sunrise\n\nWeitere Benefits findest Du auf unsere Website.\n\nBist Du interessiert?\n\nDann bieten wir Dir eine spannende Perspektive: Bei uns setzt Du Deine individuellen Fähigkeiten und Deine Professionalität in einem motivierten und flexiblen Team ein. Zudem übernimmst Du ein hohes Mass an Verantwortung und gestaltest so die Zukunft von Tertianum aktiv mit. Bewirb Dich jetzt und werde Teil unseres Teams.\n\nWir freuen uns auf Deine vollständige Online-Bewerbung über unser Bewerbungs-Tool.\n\nFür Fragen steht Dir Frau Rebecca Baumgartner, Leitung Pflege und Betreuung unter der Telefonnummer 052 762 53 44 oder via Mail unter rebecca.baumgartner@tertianum.ch gerne zur Verfügung.\n\n​",
-      "descriptionByLocale": {
-        "it": "Cura con cuore e mente – Ti stiamo cercando!\n\nSei un esperto di salute EFZ e vuoi lavorare in un ambiente caldo in cui l'umanità e lo spirito di squadra sono al centro? Allora ci si adatta perfettamente!\n\nSiamo un team motivato nella cura a lungo termine e siamo alla ricerca di rinforzo da professionisti dedicati che offrono piacere e competenza per il benessere dei nostri ospiti.\n\nPer la pensione e la casa di cura Haus Seefeld a Berlingen stiamo cercando un\n\nSalute EFZ per la zona giorno protetta (30-100%)\n\nI tuoi compiti\n\n• Cura olistica e cura degli ospiti nel senso della nostra dichiarazione di missione di cura e il processo di cura\n\n• Eseguire attività di cura\n\n• Documentazione di assistenza elettronica tramite CareCoach\n\n• Prendere le responsabilità come persona di riferimento\n\n• Cooperazione nell'attuazione del processo di cura\n\n• Assumere responsabilità quotidiana\n\n• Assunzione di compiti come vettore di argomento, autorità tecnica\n\nIl tuo profilo\n\n• Formazione completa per EFZ o formazione equivalente riconosciuta dalla SRC\n\n• Un atteggiamento di base caldo e umoristico\n\n• Responsabilità e lavoro di squadra\n\n• Humor e la capacità di tenere traccia anche nella vita quotidiana turbolenta\n\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n\nPerché Tertianum?\n\nSiamo entusiasti che i nostri dipendenti siano in grado di conciliare il loro sviluppo professionale e lo stile di vita. Questo include una vasta gamma di diversi vantaggi, come:\n\n• Modelli di lavoro flessibili (condivisione del lavoro, modelli part-time, progettazione flessibile del programma, rientro dopo il time off)\n\n• Opportunità di formazione interna ed esterna\n\n• Vantaggi per il fitness\n\n• Abbonamento SBB Mezza Tassa\n\n• Prestazioni assicurative\n\n• Sconti delle pulci\n\n• Vantaggi a Sunrise\n\nUlteriori vantaggi possono essere trovati sul nostro sito web.\n\nSei interessato?\n\nAllora vi offriamo una prospettiva emozionante: con noi usiamo le vostre abilità individuali e la vostra professionalità in un team motivato e flessibile. Inoltre, si assume un alto grado di responsabilità e forma attivamente il futuro di Tertianum. Applicare ora e diventare parte della nostra squadra.\n\nAttendiamo con ansia la vostra applicazione online completa tramite il nostro strumento di applicazione.\n\nSe avete domande, si prega di contattare Rebecca Baumgartner, responsabile della cura e dell'assistenza al 052 762 53 44 o via e-mail a rebecca.baumgartner@tertianum.ch.\n\n​",
-        "en": "Care with heart and mind – We are looking for you!\n\nYou are an expert in health EFZ and would like to work in a warm environment in which humanity and team spirit are the focus? Then you fit us perfectly!\n\nWe are a motivated team in long-term care and are looking for reinforcement by dedicated professionals who provide with pleasure and expertise for the well-being of our guests.\n\nFor the retirement and nursing home Haus Seefeld in Berlingen we are looking for an\n\nHealth EFZ for the protected living area (30-100%)\n\nYour tasks\n\n• Holistic care and care of guests in the sense of our care mission statement and the care process\n\n• Carrying out care activities\n\n• Electronic care documentation through CareCoach\n\n• Taking on responsibilities as a reference person\n\n• Cooperation in the implementation of the care process\n\n• Assuming daily responsibility\n\n• Assumption of tasks as a topic carrier, technical authority\n\nYour profile\n\n• Completed training for EFZ or equivalent training recognised by the SRC\n\n• A warm and humorous basic attitude\n\n• Responsibility and teamwork\n\n• Humor and the ability to keep track even in turbulent everyday life\n\n• Good knowledge of German in words and writing\n\nWhy Tertianum?\n\nWe are keen that our employees are able to reconcile their professional development and lifestyle. This includes a diverse range of different benefits, such as:\n\n• Flexible working models (job sharing, part-time models, flexible schedule design, re-entry after time off)\n\n• Internal and external training opportunities\n\n• Fitness benefits\n\n• SBB Half Tax Subscription\n\n• Insurance benefits\n\n• Fleet discounts\n\n• Benefits at Sunrise\n\nFurther benefits can be found on our website.\n\nAre you interested?\n\nThen we offer you an exciting perspective: With us you use your individual skills and your professionalism in a motivated and flexible team. In addition, you take on a high degree of responsibility and actively shape the future of Tertianum. Apply now and become part of our team.\n\nWe look forward to your complete online application via our application tool.\n\nIf you have any questions, please contact Rebecca Baumgartner, Head of Care and Assistance at 052 762 53 44 or via e-mail at rebecca.baumgartner@tertianum.ch.\n\n​",
-        "de": "Pflege mit Herz und Verstand – Wir suchen dich!\n\nDu bist Fachfrau/Fachmann Gesundheit EFZ und möchtest in einem herzlichen Umfeld arbeiten, in dem Menschlichkeit und Teamgeist im Mittelpunkt stehen? Dann passt du perfekt zu uns!\n\nWir sind ein motiviertes Team in der Langzeitpflege und suchen Verstärkung durch engagierte Fachpersonen, die mit Freude und Fachkompetenz für das Wohl unserer Gäste sorgen.\n\nFür das Alters- und Pflegeheim Haus Seefeld in Berlingen suchen wir per sofort oder nach Vereinbarung eine/einen\n\nFachfrau/Fachmann Gesundheit EFZ für den geschützten Wohnbereich (30-100%)\n\nDeine Aufgaben\n\n• Ganzheitliche Betreuung und Pflege der Gäste im Sinne unseres Pflegeleitbildes und des Pflegeprozesses\n\n• Ausführen von behandlungspflegerischen Tätigkeiten\n\n• Elektronische Pflegedokumentation mittels CareCoach\n\n• Übernahme von Aufgaben als Bezugsperson\n\n• Mitarbeit bei der Umsetzung des Pflegeprozesses\n\n• Übernahme der Tagesverantwortung\n\n• Übernahme von Aufgaben als Thementräger/in, fachliche Weisungsbefugnis\n\nDein Profil\n\n• Abgeschlossene Ausbildung zur/zum Fachfrau/Fachmann Gesundheit EFZ oder eine gleichwertige, durch das SRK anerkannte Ausbildung\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Verantwortungsbewusstsein und Teamfähigkeit\n\n• Humor und die Fähigkeit, auch im turbulenten Alltag den Überblick zu behalten\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWarum Tertianum?\n\nUns liegt viel daran, dass unsere Mitarbeitenden ihre berufliche Entwicklung und ihre Lebensgestaltung in Einklang bringen können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Flexible Arbeitsmodelle (Jobsharing, Teilzeitmodelle, flexible Dienstplangestaltung, Wiedereinstieg nach Auszeit)\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Fitnessvergünstigungen\n\n• SBB Halbtaxabonnement\n\n• Versicherungsvergünstigungen\n\n• Flottenrabatte\n\n• Vergünstigungen bei Sunrise\n\nWeitere Benefits findest Du auf unsere Website.\n\nBist Du interessiert?\n\nDann bieten wir Dir eine spannende Perspektive: Bei uns setzt Du Deine individuellen Fähigkeiten und Deine Professionalität in einem motivierten und flexiblen Team ein. Zudem übernimmst Du ein hohes Mass an Verantwortung und gestaltest so die Zukunft von Tertianum aktiv mit. Bewirb Dich jetzt und werde Teil unseres Teams.\n\nWir freuen uns auf Deine vollständige Online-Bewerbung über unser Bewerbungs-Tool.\n\nFür Fragen steht Dir Frau Rebecca Baumgartner, Leitung Pflege und Betreuung unter der Telefonnummer 052 762 53 44 oder via Mail unter rebecca.baumgartner@tertianum.ch gerne zur Verfügung.\n\n​",
-        "fr": "Soin avec cœur et esprit – Nous vous cherchons !\n\nVous êtes un expert en santé EFZ et souhaitez travailler dans un environnement chaud dans lequel l'humanité et l'esprit d'équipe sont au centre ? Alors tu nous corresponds parfaitement !\n\nNous sommes une équipe motivée dans les soins de longue durée et sommes à la recherche de renfort par des professionnels dévoués qui fournissent avec plaisir et expertise pour le bien-être de nos invités.\n\nPour la maison de retraite et de retraite Haus Seefeld à Berlingen, nous recherchons\n\nSanté EFZ pour la zone de vie protégée (30-100%)\n\nVos tâches\n\n• Soins holistiques et soins aux clients dans le sens de notre énoncé de mission de soins et du processus de soins\n\n• Activités de soins\n\n• Documentation électronique sur les soins par CareCoach\n\n• Prise de responsabilités en tant que personne de référence\n\n• Coopération dans la mise en œuvre du processus de soins\n\n• Responsabilité quotidienne\n\n• Assomption de tâches en tant que transporteur thématique, autorité technique\n\nVotre profil\n\n• Formation complète pour EFZ ou formation équivalente reconnue par le SRC\n\n• Une attitude de base chaleureuse et humoristique\n\n• Responsabilité et travail d'équipe\n\n• L'humour et la capacité à suivre même dans la vie quotidienne turbulente\n\n• Bonne connaissance de l'allemand en paroles et en écriture\n\nPourquoi Tertianum ?\n\nNous tenons à ce que nos employés puissent concilier leur perfectionnement professionnel et leur mode de vie. Cela comprend une gamme variée d'avantages différents, tels que:\n\n• Modèles de travail flexibles (partage de l'emploi, modèles à temps partiel, planning flexible, retour après arrêt)\n\n• Possibilités de formation internes et externes\n\n• Prestations de condition physique\n\n• CFF demi-abonnement fiscal\n\n• Prestations d'assurance\n\n• Remises sur la flotte\n\n• Avantages à Sunrise\n\nD'autres avantages peuvent être trouvés sur notre site Web.\n\nÇa t'intéresse ?\n\nEnsuite, nous vous offrons une perspective passionnante: Avec nous vous utilisez vos compétences individuelles et votre professionnalisme dans une équipe motivée et flexible. En outre, vous assumez un haut degré de responsabilité et façonnez activement l'avenir de Tertianum. Postulez maintenant et faites partie de notre équipe.\n\nNous attendons avec impatience votre candidature complète en ligne via notre outil d'application.\n\nSi vous avez des questions, veuillez communiquer avec Rebecca Baumgartner, chef des soins et de l'aide au 052 762 53 44 ou par courriel à rebecca.baumgartner@tertianum.ch.\n\n​"
-      },
-      "location": "Berlingen",
-      "canton": "TG",
-      "url": "https://jobs.tertianum.ch/job/Berlingen-FachfrauFachmann-Gesundheit-EFZ-f%C3%BCr-den-gesch%C3%BCtzten-Wohnbe-reich-%2830-100%29-TG-8267/1451118033/",
-      "source": "Tertianum Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:35:48.360Z",
-      "addressLocality": "Berlingen",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8267",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.tertianum.ch/talentcommunity/apply/8948/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-fur-den-geschutzten-wohnbe-reich-30-100-tertianum",
-        "fachfrau-fachmann-gesundheit-cfc-per-den-geschutzten-wohnbe-reich-30-100-tertianum-berlingen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachfrau-fachmann-gesundheit-efz-fur-den-geschutzten-wohnbe-reich-30-100-tertianum",
-          "fachfrau-fachmann-gesundheit-cfc-per-den-geschutzten-wohnbe-reich-30-100-tertianum-berlingen"
-        ],
-        "en": [
-          "fachfrau-fachmann-gesundheit-efz-fur-den-geschutzten-wohnbe-reich-30-100-tertianum"
-        ],
-        "fr": [
-          "fachfrau-fachmann-gesundheit-efz-fur-den-geschutzten-wohnbe-reich-30-100-tertianum"
-        ]
-      },
-      "firstSeenAt": "2026-10-26T09:39:02.128Z",
-      "salaryMin": 60000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60000,
-          "maxValue": 102000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Berlingen",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:35:48.360Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -13415,88 +13372,6 @@
       "validThroughSource": "last-observed-window"
     },
     {
-      "id": "tertianum-997310fd4add",
-      "slug": "specialista-della-salute-efz-tertianum-zurich",
-      "slugByLocale": {
-        "it": "specialista-della-salute-efz-tertianum-zurich",
-        "en": "healthcare-specialist-efz-tertianum-zurich",
-        "de": "fachfrau-mann-gesundheit-efz-tertianum-zurich",
-        "fr": "specialiste-en-sante-efz-tertianum-zurich"
-      },
-      "company": "Tertianum",
-      "companyKey": "tertianum",
-      "companyDomain": "tertianum.ch",
-      "title": "Fachfrau / Fachmann Gesundheit EFZ 100%",
-      "titleByLocale": {
-        "it": "Salute professionale EFZ 100%",
-        "en": "Professional Health EFZ 100%",
-        "de": "Fachfrau / Fachmann Gesundheit EFZ 100%",
-        "fr": "Santé professionnelle EFZ 100%"
-      },
-      "description": "Ihr Herz schlägt für ältere Menschen? Ist der Pflegeberuf Ihre Berufung? Sehen Sie Möglichkeiten, Ihre Fähigkeiten und Erfahrungen sinnstiftend bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kundinnen und Kunden zu haben? Dann passen Sie perfekt zu uns!\n\nFür das Tertianum Letzipark in der Region Zürich suchen wir per 1. Juni oder nach Vereinbarung eine/einen\n\nFachfrau / Fachmann Gesundheit EFZ 100%\n\nIhre Aufgaben\n\n• Ganzheitliche Betreuung und Pflege der Gäste im Sinne unseres Pflegeleitbildes und des Pflegeprozesses\n\n• Übernahme von Aufgaben als Bezugsperson Pflege\n\n• Mitwirkung im Pflegeprozesses und bei der Pflegebedarfseinstufung mit RAI bei den zugeteilten Gästen\n\n• Elektronische Pflegedokumentation mittels CareCoach (mobil möglich mit CareCoach-Smartphone)\n\n• Planung und Begleitung von Arztvisiten\n\n• Übernahme der Tagesverantwortung\n\n• Übernahme von Aufgaben als Thementrägerin/Thementräger einem Fachthema und damit Mitwirkung im gruppenweiten Netzwerk zur Pflegequalität\n\nIhr Profil\n\n• Abgeschlossene Ausbildung zur/zum Fachfrau/Fachmann Gesundheit EFZ\n\n• Berufserfahrung in der Langzeitpflege von Vorteil\n\n• RAI - Kenntnisse erwünscht oder Bereitschaft, diese Kurse zu besuchen (wird bezahlt)\n\n• Eine herzliche, positive und verantwortungsvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWarum Tertianum?\n\nTertianum bietet interessante Möglichkeiten in der Fach- und Führungskarriere.\n\nUns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• Tägliches Mittagessen für CHF 10\n\n• Vergünstigte Mobile- und Internet-Abos bei Sunrise\n\n• Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen\n\n• SBB-Halbtaxabonnement\n\n• Diverse Flottenrabatte\n\nWeitere Benefits finden Sie auf unserer Website .\n\nSind Sie interessiert?\n\nWir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto.",
-      "descriptionByLocale": {
-        "it": "Il tuo cuore batte per le persone anziane? La professione di infermieristica ti chiama? Vedete le opportunità di contribuire le vostre competenze e esperienza a noi in modo significativo per avere un impatto positivo sulla vita dei nostri clienti? Allora si adatta perfettamente a noi!\n\nPer il Tertianum Letzipark nella regione di Zurigo stiamo cercando 1. giugno o accordo uno o\n\nSalute professionale EFZ 100%\n\nI loro compiti\n\n• Cura olistica e cura degli ospiti nel senso della nostra missione di cura e il processo di cura\n\n• Assunzione dei compiti come caregiver\n\n• La partecipazione al processo di cura e nella cura ha bisogno di classificazione con RAI tra gli ospiti assegnati\n\n• Documentazione di assistenza elettronica utilizzando CareCoach (mobile con smartphone CareCoach)\n\n• Pianificazione e supporto delle visite mediche\n\n• Assunzione della responsabilità quotidiana\n\n• Assumendo i compiti come vettore di argomento per un soggetto e partecipando così alla rete di gruppo sulla qualità della cura\n\nIl tuo profilo\n\n• Formazione completa per / salute specialistica EFZ\n\n• Esperienza professionale nella cura a lungo termine è benefica\n\n• RAI - Conoscenza desiderata o disponibilità a frequentare questi corsi (pagati)\n\n• Un atteggiamento sentito, positivo e responsabile\n\n• Godere di più sfide\n\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n\nPerché Tertianum?\n\nTertianum offre interessanti opportunità nelle carriere professionali e di leadership.\n\nÈ importante per noi che i nostri dipendenti possano conciliare bene il lavoro e la vita privata. Questo include una vasta gamma di diversi vantaggi, come:\n\n• Opportunità di formazione interna ed esterna\n\n• Ulteriore giorno libero nel mese di compleanno\n\n• Pranzo giornaliero di CHF 10\n\n• Abbonamenti Mobile e Internet ridotti a Sunrise\n\n• Sconti su assicurazione malattia selezionata assicurazione integrativa\n\n• Abbonamento FFS a metà ax\n\n• Vari sconti della flotta\n\nUlteriori vantaggi possono essere trovati sul nostro sito web.\n\nSei interessato?\n\nVi offriamo una prospettiva emozionante: con noi, è possibile utilizzare le vostre competenze e competenze in un team motivato e flessibile. Si prendono la responsabilità e aiutano a plasmare il futuro di Tertianum. Applicare ora e diventare parte della nostra squadra.\n\nAttendiamo con ansia la vostra applicazione online completa tramite il nostro strumento di applicazione. Clicca su “Applica ora” e crea il tuo account personale.",
-        "en": "Your heart beats for older people? Is the nursing profession your calling? Do you see opportunities to contribute your skills and experience to us in a meaningful way in order to have a positive impact on the lives of our customers? Then you fit perfectly with us!\n\nFor the Tertianum Letzipark in the Zurich region we are looking for 1. June or by arrangement one or\n\nProfessional Health EFZ 100%\n\nTheir tasks\n\n• Holistic care and care of the guests in the sense of our care mission statement and the care process\n\n• Assumption of tasks as a caregiver\n\n• Participation in the care process and in the care needs classification with RAI among the assigned guests\n\n• Electronic care documentation using CareCoach (mobile possible with CareCoach smartphone)\n\n• Planning and support of medical visits\n\n• Assumption of day-to-day responsibility\n\n• Assuming tasks as a topic carrier for a subject and thus participating in the group-wide network on care quality\n\nYour profile\n\n• Completed training for/specialist health EFZ\n\n• Professional experience in long-term care is beneficial\n\n• RAI - Knowledge desired or willingness to attend these courses (paid)\n\n• A heartfelt, positive and responsible attitude\n\n• Enjoying multiple challenges\n\n• Good knowledge of German in words and writing\n\nWhy Tertianum?\n\nTertianum offers interesting opportunities in professional and leadership careers.\n\nIt is important to us that our employees can reconcile work and private life well. This includes a diverse range of different benefits, such as:\n\n• Internal and external training opportunities\n\n• Additional free day in the birthday month\n\n• Daily lunch for CHF 10\n\n• Reduced Mobile and Internet Subscriptions at Sunrise\n\n• Discounts on selected health insurance supplementary insurance\n\n• SBB half-ax subscription\n\n• Miscellaneous fleet rebates\n\nFurther benefits can be found on our website.\n\nAre you interested?\n\nWe offer you an exciting perspective: With us, you can use your skills and expertise in a motivated and flexible team. They take responsibility and help shape the future of Tertianum. Apply now and become part of our team.\n\nWe look forward to your complete online application via our application tool. Click on “Apply now” and create your personal account.",
-        "de": "Ihr Herz schlägt für ältere Menschen? Ist der Pflegeberuf Ihre Berufung? Sehen Sie Möglichkeiten, Ihre Fähigkeiten und Erfahrungen sinnstiftend bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kundinnen und Kunden zu haben? Dann passen Sie perfekt zu uns!\n\nFür das Tertianum Letzipark in der Region Zürich suchen wir per 1. Juni oder nach Vereinbarung eine/einen\n\nFachfrau / Fachmann Gesundheit EFZ 100%\n\nIhre Aufgaben\n\n• Ganzheitliche Betreuung und Pflege der Gäste im Sinne unseres Pflegeleitbildes und des Pflegeprozesses\n\n• Übernahme von Aufgaben als Bezugsperson Pflege\n\n• Mitwirkung im Pflegeprozesses und bei der Pflegebedarfseinstufung mit RAI bei den zugeteilten Gästen\n\n• Elektronische Pflegedokumentation mittels CareCoach (mobil möglich mit CareCoach-Smartphone)\n\n• Planung und Begleitung von Arztvisiten\n\n• Übernahme der Tagesverantwortung\n\n• Übernahme von Aufgaben als Thementrägerin/Thementräger einem Fachthema und damit Mitwirkung im gruppenweiten Netzwerk zur Pflegequalität\n\nIhr Profil\n\n• Abgeschlossene Ausbildung zur/zum Fachfrau/Fachmann Gesundheit EFZ\n\n• Berufserfahrung in der Langzeitpflege von Vorteil\n\n• RAI - Kenntnisse erwünscht oder Bereitschaft, diese Kurse zu besuchen (wird bezahlt)\n\n• Eine herzliche, positive und verantwortungsvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWarum Tertianum?\n\nTertianum bietet interessante Möglichkeiten in der Fach- und Führungskarriere.\n\nUns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• Tägliches Mittagessen für CHF 10\n\n• Vergünstigte Mobile- und Internet-Abos bei Sunrise\n\n• Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen\n\n• SBB-Halbtaxabonnement\n\n• Diverse Flottenrabatte\n\nWeitere Benefits finden Sie auf unserer Website .\n\nSind Sie interessiert?\n\nWir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto.",
-        "fr": "Votre coeur bat pour les personnes âgées ? La profession d'infirmière est à vous ? Voyez-vous des occasions de nous apporter vos compétences et votre expérience de manière significative afin d'avoir un impact positif sur la vie de nos clients? Alors vous vous mariez parfaitement avec nous !\n\nPour le Tertianum Letzipark dans la région de Zurich, nous recherchons 1. Juin ou par arrangement\n\nSanté professionnelle EFZ 100%\n\nLeurs tâches\n\n• Soins holistiques et soins des invités dans le sens de notre énoncé de mission de soins et le processus de soins\n\n• Assomption des tâches de soignant\n\n• Participation au processus de prise en charge et à la classification des besoins de prise en charge avec la RAI parmi les invités assignés\n\n• Documentation de soins électroniques utilisant CareCoach (mobile possible avec le smartphone CareCoach)\n\n• Planification et soutien des visites médicales\n\n• Hypothèse de la responsabilité quotidienne\n\n• En assumant les tâches de support thématique pour un sujet et en participant ainsi au réseau à l'échelle du groupe sur la qualité des soins\n\nVotre profil\n\n• Formation complète pour/spécialiste en santé EFZ\n\n• L'expérience professionnelle en soins de longue durée est bénéfique\n\n• RAI - Connaissances souhaitées ou volonté d'assister à ces cours (payés)\n\n• Une attitude sincère, positive et responsable\n\n• Des défis multiples\n\n• Bonne connaissance de l'allemand en mots et en écriture\n\nPourquoi Tertianum ?\n\nTertianum offre des opportunités intéressantes dans les carrières professionnelles et de leadership.\n\nIl est important pour nous que nos employés puissent bien concilier le travail et la vie privée. Cela comprend une gamme variée d'avantages, tels que:\n\n• Possibilités de formation internes et externes\n\n• Jour gratuit supplémentaire dans le mois d'anniversaire\n\n• Déjeuner quotidien pour CHF 10\n\n• Réduction des abonnements mobiles et Internet à Sunrise\n\n• Réductions sur certaines assurances complémentaires\n\n• Abonnement demi-axe CFF\n\n• Remises diverses sur la flotte\n\nD'autres avantages peuvent être trouvés sur notre site Web.\n\nÇa t'intéresse ?\n\nNous vous offrons une perspective passionnante: Avec nous, vous pouvez utiliser vos compétences et votre expertise dans une équipe motivée et flexible. Ils prennent la responsabilité et aident à façonner l'avenir de Tertianum. Postulez maintenant et faites partie de notre équipe.\n\nNous attendons avec impatience votre candidature complète en ligne via notre outil d'application. Cliquez sur \"Appliquer maintenant\" et créer votre compte personnel."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.tertianum.ch/job/Z%C3%BCrich-Fachfrau-Fachmann-Gesundheit-EFZ-100-Z%C3%BCri-8048/1390025333/",
-      "source": "Tertianum Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:35:25.984Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8001",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.tertianum.ch/talentcommunity/apply/8506/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich"
-        ],
-        "it": [
-          "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich",
-          "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich-m638ak"
-        ]
-      },
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich",
-        "fachfrau-fachmann-gesundheit-efz-100-tertianum-zurich-m638ak"
-      ],
-      "firstSeenAt": "2026-05-19T12:22:50.730Z",
-      "salaryMin": 79000,
-      "salaryMax": 134500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 134500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Zürich",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:35:25.984Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
       "id": "tertianum-8904e3b05b92",
       "slug": "specialista-della-cura-degli-studenti-hf-tertianum-zurich",
       "slugByLocale": {
@@ -15515,87 +15390,6 @@
       "validThroughSource": "last-observed-window"
     },
     {
-      "id": "tertianum-e1be81a68d79",
-      "slug": "apprendista-fachfrau-mann-gesundheit-cfc-start-2027-tertianum-bern",
-      "slugByLocale": {
-        "it": "apprendista-fachfrau-mann-gesundheit-cfc-start-2027-tertianum-bern",
-        "en": "apprenticeship-as-a-specialist-health-efz-tertianum-bern",
-        "de": "lernende-r-fachfrau-mann-gesundheit-efz-start-2027-tertianum-bern",
-        "fr": "apprentissage-en-tant-que-specialiste-de-la-sante-efz-tertianum-bern"
-      },
-      "company": "Tertianum",
-      "companyKey": "tertianum",
-      "companyDomain": "tertianum.ch",
-      "title": "Lehrstelle als Fachfrau / Fachmann Gesundheit EFZ",
-      "titleByLocale": {
-        "it": "Apprendistato come specialista in sanità AFC",
-        "en": "Apprenticeship as a specialist / health professional EFZ",
-        "de": "Lehrstelle als Fachfrau / Fachmann Gesundheit EFZ",
-        "fr": "Apprentissage en tant que spécialiste / professionnel de la santé EFZ"
-      },
-      "description": "Du bist bereit für eine FaGe Lehrstelle? Hol dir dein EFZ über eine Ausbildung in der Pflege. Bei uns startest du eine abwechslungsreiche und sinnvolle Lehre mit Zukunft, denn als Fachfrau / Fachmann Gesundheit erwartet dich ab Tag eins ein unterstützendes Arbeitsumfeld, in dem du zugleich Menschen helfen kannst und durch unsere erfahrenen Berufsbildnerinnen und Berufsbildner begleitet und unterstützt wirst.\n\nFür das Haus «Résidence» in Bern suchen wir DICH per 1. August 2027 für die\n\nLehrstelle als Fachfrau / Fachmann Gesundheit EFZ\n\nDas lernst du bei uns\n\n• Pflege, Betreuung und Begleitung der Gäste in alltäglichen und anspruchsvollen Situationen\n\n• Unterstützung bei der Körperpflege, beim Aufstehen, An- und Ausziehen, Essen und Trinken\n\n• Medizinaltechnische Verrichtungen wie Blutdruck, Puls und Temperatur messen, Blutentnahme, Verbandswechsel und vieles mehr\n\n• Alltagsbegleitung der Gäste mit Spielen, Basteln, Singen, usw.\n\n• Hauswirtschaftliche, administrative und logistische Aufgaben\n\n• Einhaltung und Umsetzung der Hygiene- und Sicherheitsvorschriften\n\n• Elektronische Pflegedokumentation\n\nDas bringst du mit\n\n• Abgeschlossene Schulbildung (Sekundarschule A oder B) mit guten schulischen Leistungen\n\n• Grosse Lernbereitschaft und Verantwortungsbewusstsein\n\n• Einfühlungsvermögen und Geduld sowie Interesse am Umgang mit unseren Gästen\n\n• Hilfsbereit, kontaktfreudig und teamorientiert, mit einem starken Sinn für Sorgfalt und Gewissenhaftigkeit\n\n• Bereitschaft zu unregelmässigen Arbeitszeiten\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen und praktischen Arbeiten\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWelche Benefits bieten wir dir?\nDu bist uns genauso wichtig wie dir deine Ausbildung! Deshalb bieten wir dir folgende Vorteile:\n\n• An deinem Geburtstag bekommst du frei\n\n• CHF 500 an dein obligatorisches Schulmaterial\n\n• Gratis SBB-Halbtaxabonnement\n\n• Jedes Mittagessen für CHF 5\n\n• Vergünstigte Handy-Abos bei Sunrise\n\n• Vergünstigungen und Angebote rund um Fitness, Freizeit und dein Wellbeing\n\n• Bis zu 10 % Rabatt auf deine Krankenkassen-Zusatzversicherung\n\n• Und noch vieles mehr…\n\nDu startest direkt mit einem spannenden Einführungstag und in der Hälfte deiner Ausbildung laden wir dich eine ganze Woche lang zu unserem Summer Camp ein. Natürlich muss dein Ausbildungsabschluss gebührend gefeiert werden, dafür organisieren wir für alle Absolventinnen und Absolventen eine unvergessliche Abschlussfeier. Und vielleicht ist das dann auch erst der Anfang deiner Karriere bei uns! Wir bieten zahlreiche Möglichkeiten direkt nach Lehrabschluss innerhalb unseres Unternehmens zu arbeiten.\n\nWeitere Vorteile und Einblicke findest du auf unserer Website .\n\nNa, interessiert?\n Sobald wir deine vollständigen Bewerbungsunterlagen haben, werden sie von unserem Team geprüft. Wenn dein Dossier uns überzeugt, freuen wir uns dich bei einem ersten Gespräch persönlich kennenzulernen. Danach darfst du schon direkt an einem oder mehreren Schnuppertagen in die Tertianum-Welt eintauchen und dir ein Bild zum Alltag bei uns machen.\n\nWas brauchen wir für deine vollständige Bewerbung?\n\n• Lebenslauf\n\n• Schulzeugnisse\n\n• Resultate des Stellwerktests und sofern vorhanden des Multichecks\n\nKönnte diese Lehre etwas für dich sein?\n Dann klicke auf «Jetzt bewerben» und erstelle dein persönliches Konto, um uns deine vollständige Bewerbung zukommen zu lassen.\n\nWir freuen uns auf deine Bewerbung!\n\nNoch Fragen? Kein Problem, melde dich ganz einfach bei: Sandra Gjergjaj, Leiterin Pflege & Betreuung unter der Telefonnummer 031 300 36 02.",
-      "descriptionByLocale": {
-        "it": "Pronto per un apprendistato FaGe? Ottenere il vostro EFZ attraverso una formazione in allattamento. Con noi, si inizia un apprendistato vario e significativo con un futuro, perché come specialista / professionista sanitario, si può aspettare un ambiente di lavoro di supporto dal primo giorno, in cui è possibile anche aiutare le persone e sono accompagnati e supportati dai nostri formatori professionali esperti.\n\nPer la casa «Résidence» a Berna ti cerchiamo entro 1. agosto 2027 per il\n\nApprendistato come specialista / salute professionale EFZ\n\nLo imparerai con noi\n\n• Cura, cura e accompagnamento degli ospiti in situazioni quotidiane ed esigenti\n\n• Supporto per la cura personale, in piedi, vestire e togliere, mangiare e bere\n\n• Tecniche mediche come la misurazione della pressione sanguigna, del polso e della temperatura, il campionamento del sangue, il cambio di vestimenti e molto altro\n\n• Accompagnamento giornaliero di ospiti con giochi, artigianato, canto, ecc.\n\n• Compiti nazionali, amministrativi e logistici\n\n• Compliance e attuazione delle regole di igiene e sicurezza\n\n• Documentazione di manutenzione elettronica\n\nLo porti con te.\n\n• Completato l'istruzione scolastica (scuola secondaria A o B) con buoni risultati accademici\n\n• Grande disponibilità ad imparare e un senso di responsabilità\n\n• Empatia e pazienza e interesse a trattare con i nostri ospiti\n\n• Aiutante, uscente e orientato al team, con un forte senso di cura e coscienza\n\n• La volontà di lavorare irregolarmente\n\n• Un atteggiamento di base caldo e umoristico\n\n• Godetevi sfide versatili e lavoro pratico\n\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n\nQuali vantaggi offriamo?\nSei altrettanto importante per noi come la tua educazione! Pertanto, vi offriamo i seguenti vantaggi:\n\n• Il tuo compleanno sei libero\n\n• CHF 500 per la vostra scuola obbligatoria\n\n• Abbonamento SBB gratuito a metà ax\n\n• Ogni pranzo per CHF 5\n\n• Abbonamenti mobili ridotti a Sunrise\n\n• Perks e offerte intorno al fitness, il tempo libero e il vostro benessere\n\n• Fino al 10% di sconto sulla vostra assicurazione malattia assicurazione integrativa\n\n• E molto altro...\n\nSi inizia direttamente con un'emozionante giornata introduttiva e in metà della vostra formazione vi invitiamo al nostro campo estivo per una settimana intera. Naturalmente, la vostra laurea deve essere adeguatamente celebrata, per questo organizziamo una cerimonia di laurea indimenticabile per tutti i laureati. E forse questo è solo l'inizio della tua carriera con noi! Offriamo numerose opportunità di lavorare all'interno della nostra azienda direttamente dopo la laurea.\n\nUlteriori vantaggi e approfondimenti possono essere trovati sul nostro sito web.\n\nBeh, interessato?\nUna volta che avremo i vostri documenti applicativi completi, saranno esaminati dal nostro team. Se il tuo dossier ci convince, non vediamo l'ora di incontrarti personalmente durante una prima conversazione. Poi si può immergere direttamente nel mondo di Tertianum in uno o più giorni di prova e ottenere una foto della vita quotidiana con noi.\n\nChe cosa ci serve per la vostra applicazione completa?\n\n• CVC\n\n• Certificati scolastici\n\n• Risultati del test di interlocking e, se disponibile, il multicheck\n\nQuesto insegnamento potrebbe essere qualcosa per te?\nQuindi fare clic su “Applica ora” e creare il tuo account personale per inviarci la tua applicazione completa.\n\nAttendiamo con ansia la vostra applicazione!\n\nAncora domande? Nessun problema, basta registrarsi con: Sandra Gjergjaj, Head of Care & Care al numero di telefono 031 300 36 02.",
-        "en": "Ready for a FaGe apprenticeship? Get your EFZ through an education in nursing. With us, you start a varied and meaningful apprenticeship with a future, because as a specialist / health professional, you can expect a supportive working environment from day one, in which you can also help people and are accompanied and supported by our experienced vocational trainers.\n\nFor the house «Résidence» in Bern we are looking for YOU by 1. August 2027 for the\n\nApprenticeship as a specialist / health professional EFZ\n\nYou will learn this with us\n\n• Care, care and accompaniment of guests in everyday and demanding situations\n\n• Support for personal care, standing up, dressing and taking off, eating and drinking\n\n• Medical techniques such as measuring blood pressure, pulse and temperature, blood sampling, changing dressings and much more\n\n• Daily accompaniment of guests with games, crafts, singing, etc.\n\n• Domestic, administrative and logistical tasks\n\n• Compliance and implementation of hygiene and safety rules\n\n• Electronic maintenance documentation\n\nYou bring that with you\n\n• Completed school education (secondary school A or B) with good academic achievements\n\n• Great willingness to learn and a sense of responsibility\n\n• Empathy and patience as well as interest in dealing with our guests\n\n• Helpful, outgoing and team-oriented, with a strong sense of care and conscientiousness\n\n• Willingness to work irregularly\n\n• A warm and humorous basic attitude\n\n• Enjoying versatile challenges and practical work\n\n• Good knowledge of German in words and writing\n\nWhat benefits do we offer you?\nYou are just as important to us as your education! Therefore, we offer you the following advantages:\n\n• On your birthday you get free\n\n• CHF 500 to your compulsory school supplies\n\n• Free SBB half-ax subscription\n\n• Each lunch for CHF 5\n\n• Reduced mobile subscriptions at Sunrise\n\n• Perks and offers around fitness, leisure and your wellbeing\n\n• Up to 10% discount on your health insurance supplementary insurance\n\n• And much more...\n\nYou start directly with an exciting introductory day and in half of your training we invite you to our summer camp for a whole week. Of course, your training degree must be properly celebrated, for this we organize an unforgettable graduation ceremony for all graduates. And maybe this is just the beginning of your career with us! We offer numerous opportunities to work within our company directly after graduation.\n\nFurther benefits and insights can be found on our website.\n\nWell, interested?\nOnce we have your complete application documents, they will be reviewed by our team. If your dossier convinces us, we look forward to meeting you personally during a first conversation. Then you can dive directly into the Tertianum world on one or more trial days and get a picture of everyday life with us.\n\nWhat do we need for your full application?\n\n• CVC\n\n• School certificates\n\n• Results of the interlocking test and, if available, the multicheck\n\nCould this teaching be something for you?\nThen click on “Apply now” and create your personal account to send us your full application.\n\nWe look forward to your application!\n\nStill questions? No problem, just register with: Sandra Gjergjaj, Head of Care & Care at the phone number 031 300 36 02.",
-        "de": "Du bist bereit für eine FaGe Lehrstelle? Hol dir dein EFZ über eine Ausbildung in der Pflege. Bei uns startest du eine abwechslungsreiche und sinnvolle Lehre mit Zukunft, denn als Fachfrau / Fachmann Gesundheit erwartet dich ab Tag eins ein unterstützendes Arbeitsumfeld, in dem du zugleich Menschen helfen kannst und durch unsere erfahrenen Berufsbildnerinnen und Berufsbildner begleitet und unterstützt wirst.\n\nFür das Haus «Résidence» in Bern suchen wir DICH per 1. August 2027 für die\n\nLehrstelle als Fachfrau / Fachmann Gesundheit EFZ\n\nDas lernst du bei uns\n\n• Pflege, Betreuung und Begleitung der Gäste in alltäglichen und anspruchsvollen Situationen\n\n• Unterstützung bei der Körperpflege, beim Aufstehen, An- und Ausziehen, Essen und Trinken\n\n• Medizinaltechnische Verrichtungen wie Blutdruck, Puls und Temperatur messen, Blutentnahme, Verbandswechsel und vieles mehr\n\n• Alltagsbegleitung der Gäste mit Spielen, Basteln, Singen, usw.\n\n• Hauswirtschaftliche, administrative und logistische Aufgaben\n\n• Einhaltung und Umsetzung der Hygiene- und Sicherheitsvorschriften\n\n• Elektronische Pflegedokumentation\n\nDas bringst du mit\n\n• Abgeschlossene Schulbildung (Sekundarschule A oder B) mit guten schulischen Leistungen\n\n• Grosse Lernbereitschaft und Verantwortungsbewusstsein\n\n• Einfühlungsvermögen und Geduld sowie Interesse am Umgang mit unseren Gästen\n\n• Hilfsbereit, kontaktfreudig und teamorientiert, mit einem starken Sinn für Sorgfalt und Gewissenhaftigkeit\n\n• Bereitschaft zu unregelmässigen Arbeitszeiten\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen und praktischen Arbeiten\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWelche Benefits bieten wir dir?\nDu bist uns genauso wichtig wie dir deine Ausbildung! Deshalb bieten wir dir folgende Vorteile:\n\n• An deinem Geburtstag bekommst du frei\n\n• CHF 500 an dein obligatorisches Schulmaterial\n\n• Gratis SBB-Halbtaxabonnement\n\n• Jedes Mittagessen für CHF 5\n\n• Vergünstigte Handy-Abos bei Sunrise\n\n• Vergünstigungen und Angebote rund um Fitness, Freizeit und dein Wellbeing\n\n• Bis zu 10 % Rabatt auf deine Krankenkassen-Zusatzversicherung\n\n• Und noch vieles mehr…\n\nDu startest direkt mit einem spannenden Einführungstag und in der Hälfte deiner Ausbildung laden wir dich eine ganze Woche lang zu unserem Summer Camp ein. Natürlich muss dein Ausbildungsabschluss gebührend gefeiert werden, dafür organisieren wir für alle Absolventinnen und Absolventen eine unvergessliche Abschlussfeier. Und vielleicht ist das dann auch erst der Anfang deiner Karriere bei uns! Wir bieten zahlreiche Möglichkeiten direkt nach Lehrabschluss innerhalb unseres Unternehmens zu arbeiten.\n\nWeitere Vorteile und Einblicke findest du auf unserer Website .\n\nNa, interessiert?\nSobald wir deine vollständigen Bewerbungsunterlagen haben, werden sie von unserem Team geprüft. Wenn dein Dossier uns überzeugt, freuen wir uns dich bei einem ersten Gespräch persönlich kennenzulernen. Danach darfst du schon direkt an einem oder mehreren Schnuppertagen in die Tertianum-Welt eintauchen und dir ein Bild zum Alltag bei uns machen.\n\nWas brauchen wir für deine vollständige Bewerbung?\n\n• Lebenslauf\n\n• Schulzeugnisse\n\n• Resultate des Stellwerktests und sofern vorhanden des Multichecks\n\nKönnte diese Lehre etwas für dich sein?\nDann klicke auf «Jetzt bewerben» und erstelle dein persönliches Konto, um uns deine vollständige Bewerbung zukommen zu lassen.\n\nWir freuen uns auf deine Bewerbung!\n\nNoch Fragen? Kein Problem, melde dich ganz einfach bei: Sandra Gjergjaj, Leiterin Pflege & Betreuung unter der Telefonnummer 031 300 36 02.",
-        "fr": "Prêt pour un apprentissage FaGe ? Obtenez votre EFZ par une formation en soins infirmiers. Avec nous, vous commencez un apprentissage varié et significatif avec un avenir, car en tant que spécialiste / professionnel de la santé, vous pouvez vous attendre à un environnement de travail favorable dès le premier jour, dans lequel vous pouvez également aider les gens et sont accompagnés et soutenus par nos formateurs professionnels expérimentés.\n\nPour la maison «Résidence» à Berne nous sommes à la recherche de VOUS par 1. Août 2027 pour\n\nApprentissage en tant que spécialiste / professionnel de la santé EFZ\n\nTu apprendras ça avec nous.\n\n• Soins, soins et accompagnement des clients dans des situations quotidiennes et exigeantes\n\n• Soutien aux soins personnels, se lever, s'habiller et décoller, manger et boire\n\n• Techniques médicales telles que la mesure de la pression artérielle, du pouls et de la température, l'échantillonnage du sang, le changement des pansements et bien plus encore\n\n• Accompagnement quotidien des invités avec jeux, artisanat, chant, etc.\n\n• Tâches domestiques, administratives et logistiques\n\n• Respect et application des règles d'hygiène et de sécurité\n\n• Documentation électronique de maintenance\n\nApporte ça avec toi.\n\n• Études terminées (écoles secondaires A ou B) avec de bons résultats scolaires\n\n• Grande volonté d'apprendre et sens des responsabilités\n\n• Empathie et patience ainsi que l'intérêt pour traiter avec nos invités\n\n• Utile, sortante et axée sur l'équipe, avec un fort sens du soin et de la conscience\n\n• Volonté de travailler irrégulièrement\n\n• Une attitude de base chaleureuse et humoristique\n\n• Des défis polyvalents et un travail pratique\n\n• Bonne connaissance de l'allemand en mots et en écriture\n\nQuels avantages vous offrons-nous ?\nVous êtes tout aussi important pour nous que votre éducation ! Par conséquent, nous vous offrons les avantages suivants:\n\n• Pour ton anniversaire tu es libre\n\n• 500 CHF pour vos fournitures scolaires obligatoires\n\n• Abonnement gratuit à mi-axe CFF\n\n• Chaque déjeuner pour CHF 5\n\n• Réduction des abonnements mobiles à Sunrise\n\n• Avantages et offres autour du fitness, des loisirs et de votre bien-être\n\n• Jusqu'à 10% de réduction sur votre assurance maladie complémentaire\n\n• Et bien plus encore...\n\nVous commencez directement par une journée d'initiation passionnante et dans la moitié de votre entraînement nous vous invitons à notre camp d'été pour une semaine entière. Bien sûr, votre diplôme de formation doit être correctement célébré, pour cela nous organisons une cérémonie de graduation inoubliable pour tous les diplômés. Et peut-être que ce n'est que le début de votre carrière avec nous ! Nous offrons de nombreuses possibilités de travailler au sein de notre entreprise directement après l'obtention du diplôme.\n\nD'autres avantages et idées peuvent être trouvés sur notre site Web.\n\nIntéressant ?\nUne fois que nous aurons vos documents de demande complets, ils seront examinés par notre équipe. Si votre dossier nous convainc, nous nous réjouissons de vous rencontrer personnellement lors d'une première conversation. Ensuite, vous pouvez plonger directement dans le monde Tertianum un ou plusieurs jours d'essai et obtenir une image de la vie quotidienne avec nous.\n\nDe quoi avons-nous besoin pour votre demande complète?\n\n• CVC\n\n• Certificats scolaires\n\n• Résultats de l'essai de verrouillage et, le cas échéant, du multicontrôle\n\nCet enseignement pourrait-il être quelque chose pour vous ?\nEnsuite, cliquez sur \"Appliquer maintenant\" et créez votre compte personnel pour nous envoyer votre application complète.\n\nNous nous réjouissons de votre candidature!\n\nToujours des questions ? Pas de problème, il suffit de s'inscrire avec: Sandra Gjergjaj, Chef de Care & Care au numéro de téléphone 031 300 36 02."
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.tertianum.ch/job/Bern-Lehrstelle-als-Fachfrau-Fachmann-Gesundheit-EFZ-BE-3012/1420504833/",
-      "source": "Tertianum Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:35:08.488Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.tertianum.ch/talentcommunity/apply/8737/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-bern"
-        ],
-        "it": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-bern"
-        ]
-      },
-      "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-bern"
-      ],
-      "firstSeenAt": "2026-05-19T12:21:34.277Z",
-      "salaryMin": 66000,
-      "salaryMax": 112000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 66000,
-          "maxValue": 112000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:35:08.488Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
       "id": "tertianum-05424ec1c2e0",
       "slug": "dipl-infermieristica-professionale-hf-fh-dnii-dn1-50-100-tertianum-bern",
       "slugByLocale": {
@@ -16114,17 +15908,27 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "infirmiere-infirmier-responsable-d-unite-de-soins-irus-a-100-tertianum-montreux"
+        "infirmiere-infirmier-responsable-d-unite-de-soins-irus-a-100-tertianum-montreux",
+        "100-infermiera-responsabile-dell-unita-di-cura-irus-tertianum-montreux",
+        "100-nurse-in-charge-of-care-unit-irus-tertianum-montreux",
+        "100-krankenschwester-verantwortlich-fur-pflegeeinheit-irus-tertianum-montreux",
+        "infirmiere-infirmier-responsable-d-unite-de-soins-irus-a-100-tertianum-montreux-ye275n"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "infirmiere-infirmier-responsable-d-unite-de-soins-irus-a-100-tertianum-montreux"
+          "infirmiere-infirmier-responsable-d-unite-de-soins-irus-a-100-tertianum-montreux",
+          "100-infermiera-responsabile-dell-unita-di-cura-irus-tertianum-montreux"
         ],
         "en": [
-          "infirmiere-infirmier-responsable-d-unite-de-soins-irus-a-100-tertianum-montreux"
+          "infirmiere-infirmier-responsable-d-unite-de-soins-irus-a-100-tertianum-montreux",
+          "100-nurse-in-charge-of-care-unit-irus-tertianum-montreux"
         ],
         "de": [
-          "infirmiere-infirmier-responsable-d-unite-de-soins-irus-a-100-tertianum-montreux"
+          "infirmiere-infirmier-responsable-d-unite-de-soins-irus-a-100-tertianum-montreux",
+          "100-krankenschwester-verantwortlich-fur-pflegeeinheit-irus-tertianum-montreux"
+        ],
+        "fr": [
+          "infirmiere-infirmier-responsable-d-unite-de-soins-irus-a-100-tertianum-montreux-ye275n"
         ]
       },
       "firstSeenAt": "2026-10-27T22:03:16.076Z",
@@ -16228,90 +16032,6 @@
       "streetAddress": "Montreux",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T09:35:03.124Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "tertianum-3b5ced338067",
-      "slug": "100-infermiera-responsabile-dell-unita-di-cura-irus-tertianum-montreux",
-      "slugByLocale": {
-        "it": "100-infermiera-responsabile-dell-unita-di-cura-irus-tertianum-montreux",
-        "en": "100-nurse-in-charge-of-care-unit-irus-tertianum-montreux",
-        "de": "100-krankenschwester-verantwortlich-fur-pflegeeinheit-irus-tertianum-montreux",
-        "fr": "infirmiere-infirmier-responsable-d-unite-de-soins-irus-a-100-tertianum-montreux-ye275n"
-      },
-      "company": "Tertianum",
-      "companyKey": "tertianum",
-      "companyDomain": "tertianum.ch",
-      "title": "Infirmière / infirmier responsable d'unité de soins (IRUS) à 100%",
-      "titleByLocale": {
-        "it": "100% infermiera responsabile dell'unità di cura (IRUS)",
-        "en": "100% nurse in charge of care unit (IRUS)",
-        "de": "100% Krankenschwester verantwortlich für Pflegeeinheit (IRUS)",
-        "fr": "Infirmière / infirmier responsable d'unité de soins (IRUS) à 100%"
-      },
-      "description": "Pour notre nouvel établissement Tertianum Le Rolliet à Plan-les-Ouates (GE) , qui ouvrira ses portes en avril 2027, nous recherchons un·e\n\nInfirmière / infirmier responsable d’unité de soins (IRUS) à 100%\n\nVotre rôle\n\nSous la responsabilité de l’infirmier·ère chef·fe, vous êtes une personne de référence proche du terrain et des équipes. Vous veillez au bon déroulement des soins au quotidien, soutenez les collaborateurs dans leurs pratiques et contribuez à garantir la qualité et la sécurité de l’accompagnement des résident·e·s.\n\nVous assurez également un suivi rigoureux des dossiers de soins et participez activement à la mise en œuvre et à l’amélioration des processus du service.\n\nVos principales responsabilités\n\n• Participer à la construction, à la mise en œuvre et à l’amélioration continue des processus du service dans le contexte de l’ouverture de l’établissement.\n\n• Organiser et planifier le travail terrain en lien avec l’infirmier·ère chef·fe dans le respect de la législation du travail, de la CCT EMS Genève et des directives Tertianum.\n\n• Assurer une présence de proximité auprès des équipes et soutenir les collaborateurs·rices dans leur quotidien. Les accompagner et les coacher afin qu’ils puissent s’appuyer sur des processus clairs, des bonnes pratiques et des repères communs pour agir avec confiance et autonomie.\n\n• Veiller à la qualité et à la continuité de la documentation des soins et accompagner les équipes dans les bonnes pratiques de traçabilité.\n\n• Être un relais entre le terrain et l’infirmier·ère chef·fe : identifier les besoins des équipes, faire remonter les informations pertinentes et contribuer à la recherche de solutions adaptées.\n\n• Soutenir les équipes dans l’évaluation et la gestion des situations cliniques, notamment lors de situations complexes, en favorisant une prise en charge sécurisée, cohérente et interdisciplinaire.\n\n• Participer à l’accueil, à l’intégration et au développement des compétences des nouveaux collaborateurs, apprenti·e·s et stagiaires.\n\n• Contribuer au travail interdisciplinaire et maintenir des relations de confiance avec les résident·e·s, leurs proches et les autres secteurs.\n\n• Assurer les responsabilités qui vous sont confiées par l’infirmier·ère chef·fe et le/la soutenir dans la gestion du service, notamment en suppléance en cas de son absence.\n\nVotre profil\n\n• Diplôme d’infirmier·ère ES/HES ou formation équivalente reconnue par la Croix-Rouge Suisse.\n\n• Expérience confirmée dans les soins auprès de personnes âgées ; expérience en EMS, un atout.\n\n• Expérience dans une fonction de référence ou d’encadrement, un atout.\n\n• Goût marqué pour le terrain, proximité avec les équipes et capacité à accompagner avec bienveillance et exigence.\n\n• Rigueur dans la gestion et la documentation des dossiers de soins.\n\n• Bonnes capacités d’organisation, de communication et de transmission.\n\n• Sensibilité au travail interdisciplinaire et à l’amélioration continue.\n\n• Empathie, écoute et aisance relationnelle avec les résident·e·s, les proches et les collaborateurs.\n\n• Très bonne maîtrise du français, à l’oral comme à l’écrit.\n\nPourquoi Tertianum ?\n\nTertianum offre des possibilités intéressantes en matière de carrière professionnelle et de direction et nous tenons beaucoup à ce que nos collaborateurs·rices puissent concilier leur développement professionnel et leur mode de vie. Cela implique une offre variée d’avantages, par exemple :\n\n• Possibilités de formation continue internes et externes\n\n• Un jour de congé supplémentaire durant le mois d’anniversaire\n\n• Repas de midi quotidien pour CHF 10\n\n• Abonnements mobile et Internet Sunrise à prix réduits\n\n• Rabais sur certaines assurances complémentaires maladie\n\n• Divers rabais flotte\n\nVous trouverez d'autres avantages sur notre site web.\n\nVous êtes intéressé·e ?\n\nNous vous offrons la possibilité de participer à l’ouverture d’un établissement et de contribuer concrètement à la qualité des soins, au développement des équipes et à la mise en place d’une organisation claire et sécurisante.\n\nNous nous réjouissons de recevoir votre candidature complète en ligne via notre outil de candidature.",
-      "descriptionByLocale": {
-        "it": "Per il nostro nuovo stabilimento Tertianum Le Rolliet a Plan-les-Ouates (GE), che aprirà nell'aprile 2026, stiamo cercando un\n\n100% infermiera responsabile dell'unità di cura (IRUS)\n\nIl tuo ruolo\n\nSotto la responsabilità dell'infermiera capo, lei è una persona di riferimento vicino al campo e alle squadre. Garantisci il regolare funzionamento della cura quotidiana, supporta i dipendenti nelle loro pratiche e aiuta a garantire la qualità e la sicurezza del supporto dei residenti.\n\nAssicura inoltre un rigoroso follow-up dei registri delle cure e partecipa attivamente all'implementazione e al miglioramento dei processi di servizio.\n\nLe tue principali responsabilità\n\n• Partecipano alla costruzione, all'implementazione e al miglioramento continuo dei processi di servizio nell'ambito dell'apertura dello stabilimento.\n\n• Organizzare e pianificare il lavoro sul campo in collaborazione con il Capo Infermiere nel rispetto della legislazione sul lavoro, il CLC EMS Ginevra e le Linee Guida di Tertianum.\n\n• Assicurare una stretta presenza con i team e sostenere i collaboratori nella loro vita quotidiana. Supporta e allenali in modo che possano costruire processi chiari, buone pratiche e benchmark comuni per agire con fiducia e autonomia.\n\n• Assicurare la qualità e la continuità della documentazione e dei team di supporto in buone pratiche di tracciabilità.\n\n• Essere un relè tra il campo e l'infermiera principale: identificare le esigenze dei team, tracciare le informazioni pertinenti e contribuire alla ricerca di soluzioni adeguate.\n\n• I team di supporto nella valutazione e nella gestione delle situazioni cliniche, anche in situazioni complesse, promuovendo una gestione sicura, coerente e interdisciplinare.\n\n• Partecipano all'accoglienza, all'integrazione e allo sviluppo di competenze di nuovi dipendenti, apprendisti e tirocinanti.\n\n• Contribuire al lavoro interdisciplinare e mantenere la fiducia con i residenti, i loro parenti e altri settori.\n\n• Assicurare le responsabilità affidate dal Capo Infermiere e sostenerlo nella gestione del servizio, in particolare in caso di sua assenza.\n\nIl tuo profilo\n\n• Corso di allattamento ES/HES o formazione equivalente riconosciuto dalla Croce Rossa svizzera.\n\n• Esperienza confermata nella cura degli anziani; esperienza nello SME, un bene.\n\n• Esperienza in una funzione di riferimento o di coaching, un bene.\n\n• Gusto segnato per il campo, vicinanza alle squadre e capacità di accompagnare con gentilezza e domanda.\n\n• Rigor nella gestione e documentazione dei registri di cura.\n\n• Buone capacità organizzative, di comunicazione e di comunicazione.\n\n• Sensibilità al lavoro interdisciplinare e miglioramento continuo.\n\n• Empatia, ascolto e facilità con residenti, parenti e dipendenti.\n\n• Ottimo comando del francese, sia orale che scritto.\n\nPerché Tertianum?\n\nTertianum offre interessanti opportunità di carriera e di gestione e siamo desiderosi di garantire che i nostri dipendenti possano conciliare il loro sviluppo professionale con il loro stile di vita. Ciò implica una varietà di vantaggi, ad esempio:\n\n• Opportunità di formazione continua interna ed esterna\n\n• Un altro giorno libero durante il mese di compleanno\n\n• Pranzo giornaliero di CHF 10\n\n• Abbonamenti mobili e Sunrise Internet a prezzi ridotti\n\n• Sconti per una certa assicurazione malattia complementare\n\n• Varie flotte di sconto\n\nAltri vantaggi possono essere trovati sul nostro sito web.\n\nSei interessato?\n\nVi offriamo l'opportunità di partecipare all'apertura di un'istituzione e di dare un contributo concreto alla qualità della cura, allo sviluppo di team e alla creazione di un'organizzazione chiara e sicura.\n\nNon vediamo l'ora di ricevere la tua applicazione completa online tramite il nostro strumento di applicazione.",
-        "en": "For our new Tertianum Le Rolliet establishment in Plan-les-Ouates (GE), which will open in April 2026, we are looking for a\n\n100% nurse in charge of care unit (IRUS)\n\nYour role\n\nUnder the responsibility of the Chief Nurse, you are a reference person close to the field and the teams. You ensure the smooth running of day-to-day care, support employees in their practices and help ensure the quality and safety of the support of residents.\n\nYou also ensure rigorous follow-up of care records and actively participate in the implementation and improvement of service processes.\n\nYour main responsibilities\n\n• Participate in the construction, implementation and continuous improvement of service processes in the context of the establishment's opening.\n\n• Organize and plan field work in conjunction with the Chief Nurse in compliance with labour legislation, the CLC EMS Geneva and the Tertianum Guidelines.\n\n• Ensure a close presence with the teams and support the collaborators in their daily lives. Support and coach them so that they can build on clear processes, good practices and common benchmarks to act with confidence and autonomy.\n\n• Ensure quality and continuity of care documentation and support teams in good traceability practices.\n\n• To be a relay between the field and the chief nurse: to identify the needs of the teams, to trace the relevant information and to contribute to the search for suitable solutions.\n\n• Support teams in assessing and managing clinical situations, including in complex situations, by promoting secure, coherent and interdisciplinary management.\n\n• Participate in the reception, integration and development of skills of new employees, apprentices and trainees.\n\n• Contribute to interdisciplinary work and maintain trust with residents, their relatives and other sectors.\n\n• To ensure the responsibilities entrusted to you by the Chief Nurse and to support him/her in the management of the service, in particular in the event of his/her absence.\n\nYour profile\n\n• ES/HES nursing degree or equivalent training recognised by the Swiss Red Cross.\n\n• Confirmed experience in caring for the elderly; experience in EMS, an asset.\n\n• Experience in a reference or coaching function, an asset.\n\n• Taste marked for the field, proximity to the teams and ability to accompany with kindness and demand.\n\n• Rigor in the management and documentation of care records.\n\n• Good organizational, communication and communication skills.\n\n• Sensitivity to interdisciplinary work and continuous improvement.\n\n• Empathy, listening and ease with residents, relatives and employees.\n\n• Very good command of French, both oral and written.\n\nWhy Tertianum?\n\nTertianum offers interesting career and management opportunities and we are keen to ensure that our employees can reconcile their professional development with their lifestyle. This implies a variety of advantages, for example:\n\n• Internal and external continuing training opportunities\n\n• One additional day off during the birthday month\n\n• Daily lunch for CHF 10\n\n• Mobile subscriptions and Sunrise Internet at reduced prices\n\n• Discount on certain supplementary health insurance\n\n• Various discount fleet\n\nOther benefits can be found on our website.\n\nAre you interested?\n\nWe offer you the opportunity to participate in the opening of an institution and to make a concrete contribution to the quality of care, the development of teams and the establishment of a clear and secure organisation.\n\nWe look forward to receiving your complete application online via our application tool.",
-        "de": "Für unser neues Tertianum Le Rolliet in Plan-les-Ouates (GE), das im April 2026 eröffnet wird, suchen wir eine\n\n100% Krankenschwester verantwortlich für Pflegeeinheit (IRUS)\n\nDeine Rolle\n\nUnter der Verantwortung der Oberschwester sind Sie eine Referenzperson in der Nähe des Feldes und der Teams. Sie sorgen für den reibungslosen Ablauf der täglichen Pflege, unterstützen die Mitarbeiter in ihren Praktiken und tragen zur Qualität und Sicherheit der Unterstützung der Bewohner bei.\n\nSie sorgen auch für eine strenge Nachverfolgung der Pflegeaufzeichnungen und beteiligen sich aktiv an der Umsetzung und Verbesserung von Serviceprozessen.\n\nIhre Hauptaufgaben\n\n• Beteiligen Sie sich an der Errichtung, Umsetzung und kontinuierlichen Verbesserung von Serviceprozessen im Rahmen der Betriebseröffnung.\n\n• Organisieren und planen Sie die Feldarbeit in Zusammenarbeit mit der Chefkrankenschwester in Übereinstimmung mit dem Arbeitsrecht, dem CLC EMS Genf und den Tertianum-Richtlinien.\n\n• Sicherstellen einer engen Präsenz mit den Teams und unterstützen die Mitarbeiter in ihrem täglichen Leben. Unterstützen und coachen Sie sie, damit sie auf klaren Prozessen, bewährten Praktiken und gemeinsamen Benchmarks aufbauen können, um mit Vertrauen und Autonomie zu handeln.\n\n• Gewährleistung der Qualität und Kontinuität der Pflegedokumentation und Unterstützung der Teams bei guten Rückverfolgbarkeitspraktiken.\n\n• Ein Relais zwischen dem Feld und der Hauptkrankenschwester zu sein: die Bedürfnisse der Teams zu identifizieren, die relevanten Informationen zu verfolgen und zur Suche nach geeigneten Lösungen beizutragen.\n\n• Unterstützung von Teams bei der Bewertung und dem Management klinischer Situationen, auch in komplexen Situationen, durch die Förderung eines sicheren, kohärenten und interdisziplinären Managements.\n\n• Beteiligen Sie sich an der Aufnahme, Integration und Entwicklung von Fähigkeiten neuer Mitarbeiter, Auszubildender und Auszubildender.\n\n• Beitrag zur interdisziplinären Arbeit und Wahrung des Vertrauens mit den Bewohnern, ihren Verwandten und anderen Sektoren.\n\n• Um die Ihnen von der Oberschwester übertragenen Aufgaben zu gewährleisten und ihn bei der Verwaltung des Dienstes zu unterstützen, insbesondere im Falle seiner Abwesenheit.\n\nDein Profil\n\n• ES/HES Krankenpflege oder gleichwertige Ausbildung, die vom Schweizerischen Roten Kreuz anerkannt ist.\n\n• Bestätigte Erfahrung in der Pflege älterer Menschen; Erfahrung in EMS, ein Asset.\n\n• Erfahrung in einer Referenz- oder Coaching-Funktion, einem Asset.\n\n• Geschmack markiert für das Feld, die Nähe zu den Teams und die Fähigkeit, mit Freundlichkeit und Nachfrage zu begleiten.\n\n• Strenge bei der Verwaltung und Dokumentation von Pflegeaufzeichnungen.\n\n• Gute Organisations-, Kommunikations- und Kommunikationsfähigkeiten.\n\n• Sensibilität für interdisziplinäres Arbeiten und kontinuierliche Verbesserung.\n\n• Empathie, Zuhören und Leichtigkeit mit Bewohnern, Verwandten und Angestellten.\n\n• Sehr gute Französischkenntnisse, sowohl mündlich als auch schriftlich.\n\nWarum Tertianum?\n\nTertianum bietet interessante Karriere- und Managementmöglichkeiten und wir sind bestrebt, dass unsere Mitarbeiter ihre berufliche Entwicklung mit ihrem Lebensstil in Einklang bringen können. Dies impliziert eine Vielzahl von Vorteilen, zum Beispiel:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Ein zusätzlicher freier Tag während des Geburtstagsmonats\n\n• Tägliches Mittagessen für CHF 10\n\n• Mobile Abonnements und Sunrise Internet zu reduzierten Preisen\n\n• Rabatt auf bestimmte Zusatzkrankenversicherungen\n\n• Diverse Discount-Flotte\n\nWeitere Vorteile finden Sie auf unserer Website.\n\nSind Sie interessiert?\n\nWir bieten Ihnen die Möglichkeit, an der Eröffnung einer Institution mitzuwirken und einen konkreten Beitrag zur Qualität der Pflege, zur Entwicklung von Teams und zum Aufbau einer klaren und sicheren Organisation zu leisten.\n\nWir freuen uns auf Ihre vollständige Bewerbung online über unser Bewerbungstool.",
-        "fr": "Pour notre nouvel établissement Tertianum Le Rolliet à Plan-les-Ouates (GE) , qui ouvrira ses portes en avril 2027, nous recherchons un·e\n\nInfirmière / infirmier responsable d’unité de soins (IRUS) à 100%\n\nVotre rôle\n\nSous la responsabilité de l’infirmier·ère chef·fe, vous êtes une personne de référence proche du terrain et des équipes. Vous veillez au bon déroulement des soins au quotidien, soutenez les collaborateurs dans leurs pratiques et contribuez à garantir la qualité et la sécurité de l’accompagnement des résident·e·s.\n\nVous assurez également un suivi rigoureux des dossiers de soins et participez activement à la mise en œuvre et à l’amélioration des processus du service.\n\nVos principales responsabilités\n\n• Participer à la construction, à la mise en œuvre et à l’amélioration continue des processus du service dans le contexte de l’ouverture de l’établissement.\n\n• Organiser et planifier le travail terrain en lien avec l’infirmier·ère chef·fe dans le respect de la législation du travail, de la CCT EMS Genève et des directives Tertianum.\n\n• Assurer une présence de proximité auprès des équipes et soutenir les collaborateurs·rices dans leur quotidien. Les accompagner et les coacher afin qu’ils puissent s’appuyer sur des processus clairs, des bonnes pratiques et des repères communs pour agir avec confiance et autonomie.\n\n• Veiller à la qualité et à la continuité de la documentation des soins et accompagner les équipes dans les bonnes pratiques de traçabilité.\n\n• Être un relais entre le terrain et l’infirmier·ère chef·fe : identifier les besoins des équipes, faire remonter les informations pertinentes et contribuer à la recherche de solutions adaptées.\n\n• Soutenir les équipes dans l’évaluation et la gestion des situations cliniques, notamment lors de situations complexes, en favorisant une prise en charge sécurisée, cohérente et interdisciplinaire.\n\n• Participer à l’accueil, à l’intégration et au développement des compétences des nouveaux collaborateurs, apprenti·e·s et stagiaires.\n\n• Contribuer au travail interdisciplinaire et maintenir des relations de confiance avec les résident·e·s, leurs proches et les autres secteurs.\n\n• Assurer les responsabilités qui vous sont confiées par l’infirmier·ère chef·fe et le/la soutenir dans la gestion du service, notamment en suppléance en cas de son absence.\n\nVotre profil\n\n• Diplôme d’infirmier·ère ES/HES ou formation équivalente reconnue par la Croix-Rouge Suisse.\n\n• Expérience confirmée dans les soins auprès de personnes âgées ; expérience en EMS, un atout.\n\n• Expérience dans une fonction de référence ou d’encadrement, un atout.\n\n• Goût marqué pour le terrain, proximité avec les équipes et capacité à accompagner avec bienveillance et exigence.\n\n• Rigueur dans la gestion et la documentation des dossiers de soins.\n\n• Bonnes capacités d’organisation, de communication et de transmission.\n\n• Sensibilité au travail interdisciplinaire et à l’amélioration continue.\n\n• Empathie, écoute et aisance relationnelle avec les résident·e·s, les proches et les collaborateurs.\n\n• Très bonne maîtrise du français, à l’oral comme à l’écrit.\n\nPourquoi Tertianum ?\n\nTertianum offre des possibilités intéressantes en matière de carrière professionnelle et de direction et nous tenons beaucoup à ce que nos collaborateurs·rices puissent concilier leur développement professionnel et leur mode de vie. Cela implique une offre variée d’avantages, par exemple :\n\n• Possibilités de formation continue internes et externes\n\n• Un jour de congé supplémentaire durant le mois d’anniversaire\n\n• Repas de midi quotidien pour CHF 10\n\n• Abonnements mobile et Internet Sunrise à prix réduits\n\n• Rabais sur certaines assurances complémentaires maladie\n\n• Divers rabais flotte\n\nVous trouverez d'autres avantages sur notre site web.\n\nVous êtes intéressé·e ?\n\nNous vous offrons la possibilité de participer à l’ouverture d’un établissement et de contribuer concrètement à la qualité des soins, au développement des équipes et à la mise en place d’une organisation claire et sécurisante.\n\nNous nous réjouissons de recevoir votre candidature complète en ligne via notre outil de candidature."
-      },
-      "needsRetranslation": false,
-      "location": "Montreux",
-      "canton": "VD",
-      "url": "https://jobs.tertianum.ch/job/Montreux-Infirmi%C3%A8re-infirmier-responsable-d'unit%C3%A9-de-soins-%28IRUS%29-%C3%A0-100-VD-1820/1451671333/",
-      "source": "Tertianum Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:35:02.285Z",
-      "addressLocality": "Montreux",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1820",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.tertianum.ch/talentcommunity/apply/8957/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "infirmiere-infirmier-responsable-d-unite-de-soins-irus-a-100-tertianum-montreux"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "infirmiere-infirmier-responsable-d-unite-de-soins-irus-a-100-tertianum-montreux"
-        ],
-        "en": [
-          "infirmiere-infirmier-responsable-d-unite-de-soins-irus-a-100-tertianum-montreux"
-        ],
-        "de": [
-          "infirmiere-infirmier-responsable-d-unite-de-soins-irus-a-100-tertianum-montreux"
-        ]
-      },
-      "firstSeenAt": "2026-10-27T22:03:16.076Z",
-      "salaryMin": 116500,
-      "salaryMax": 162500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 116500,
-          "maxValue": 162500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Montreux",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:35:02.285Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -17559,11 +17279,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern-2",
+        "diploma-in-nursing-hf-fh-dnii-80-100-tertianum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern-2"
+        ],
+        "en": [
+          "diploma-in-nursing-hf-fh-dnii-80-100-tertianum-bern"
         ]
       },
       "firstSeenAt": "2026-05-19T12:23:03.973Z",
@@ -17714,106 +17440,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistante-assistant-en-soins-et-sante-communautaire-cfc-80-100-tertianum-nendaz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistante-assistant-en-soins-et-sante-communautaire-cfc-80-100-tertianum-nendaz"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T12:21:28.091Z",
-      "salaryMin": 86500,
-      "salaryMax": 120500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 86500,
-          "maxValue": 120500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Nendaz",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:34:50.477Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "tertianum-f3c3748ebf7e",
-      "slug": "assistente-assistente-in-cure-e-salute-comunitaria-cfc-dell-80-al-100-tertianum-nendaz",
-      "slugByLocale": {
-        "it": "assistente-assistente-in-cure-e-salute-comunitaria-cfc-dell-80-al-100-tertianum-nendaz",
-        "en": "community-health-care-assistant-apprenticeship-80-to-100-tertianum-nendaz",
-        "de": "gesundheits-und-sozialassistent-in-80-100-efz-tertianum-nendaz",
-        "fr": "assistant-assistane-en-soins-et-sante-communautaire-cfc-de-80-a-100-tertianum-nendaz"
-      },
-      "company": "Tertianum",
-      "companyKey": "tertianum",
-      "companyDomain": "tertianum.ch",
-      "title": "Assistante / Assistant en soins et santé communautaire CFC 80-100 %",
-      "titleByLocale": {
-        "it": "Assistente / Assistente in cure e salute comunitaria CFC 80-100 %",
-        "en": "Community Health Care Assistant CFC 80-100 %",
-        "de": "Fachfrau / Fachmann Gesundheit und Soziales EFZ 80-100 %",
-        "fr": "Assistante / Assistant en soins et santé communautaire CFC 80-100 %"
-      },
-      "description": "Vous souhaitez non seulement améliorer la qualité de vie des autres, mais aussi de donner un sens à votre activité professionnelle ? Vous voyez des possibilités d'apporter vos compétences et votre expérience chez nous pour avoir un impact positif sur la vie de nos résidents  ? Alors vous êtes à la bonne adresse !\n\nPour l'établissement  Tertianum les Vergers dans la région du Valais central à Aproz nous recherchons de suite ou à convenir un / une\n\nAssistante / Assistant  en soins et santé communautaire CFC de 80% à 100%\n\nVos tâches\n\n• Encadrement et accompagnement des hôtes attribués\n\n• Soutien pour les soins corporels, les mouvements et autres activités quotidiennes.\n\n• Prise en charge de tâches en tant que personne de référence\n\n• Participation aux rapports de soins et transmission des observations importantes\n\n• Rédaction de notes de soins dans notre système de documentation des soins CareCoach (possible en mobilité avec le smartphone CareCoach)\n\nVotre profil\n\n• Formation ASSC achevée\n\n• Une expérience professionnelle dans les soins de plusieurs années est un atout\n\n• Une attitude chaleureuse\n\n• Plaisir à relever des défis variés\n\n• Bonne connaissance du français à l'oral et à l'écrit\n\nPourquoi Tertianum ?\n\nNous tenons beaucoup à ce que nos collaborateurs / collaborat rices puissent concilier leur développement professionnel et leur mode de vie. Cela passe par une offre variée d'avantages divers, par exemple\n\n• Journées d'introduction et beaucoup d'autres cours passionnants\n\n• Possibilités de formation continue interne et externe\n\n• Réductions pour le fitness\n\n• Avantages sur les assurances\n\n• Remises sur la flotte\n\n• Réductions chez Sunrise\n\nVous trouverez d'autres avantages sur notre site web.  https://www.tertianum.ch/fr/ueber-uns/arbeitgeber/benefits\n\nVous êtes intéressé(e) ?\n\nAlors nous vous offrons une perspective passionnante : chez nous, vous mettez à profit vos capacités individuelles et votre professionnalisme au sein d'une équipe motivée et flexible. De plus, vous assumez un haut degré de responsabilité et participez ainsi activement à la construction de l'avenir de Tertianum. Posez votre candidature dès maintenant et rejoignez notre équipe.\n\nNous attendons votre candidature complète en ligne via notre outil.",
-      "descriptionByLocale": {
-        "it": "Vuoi non solo migliorare la qualità della vita degli altri, ma anche dare un senso alla tua attività professionale? Vedi delle possibilità di portare le tue competenze e la tua esperienza da noi per avere un impatto positivo sulla vita dei nostri residenti? Allora sei nel posto giusto!\n\nPer la struttura Tertianum Les Vergers nella regione del Vallese centrale ad Aproz, stiamo cercando immediatamente o a convenire un / una\n\nAssistente / Assistente in cure e salute comunitaria CFC dall'80% al 100%\n\nI tuoi compiti\n\n• Assistenza e accompagnamento degli ospiti assegnati\n• Supporto per le cure corporali, i movimenti e altre attività quotidiane.\n• Gestione di compiti come persona di riferimento\n• Partecipazione ai rapporti di cura e trasmissione di osservazioni importanti\n• Redazione di note di cura nel nostro sistema di documentazione delle cure CareCoach (possibile in mobilità con lo smartphone CareCoach)\n\nIl tuo profilo\n\n• Formazione ASSC completata\n• Esperienza professionale nelle cure di diversi anni è un vantaggio\n• Atteggiamento caloroso\n• Piacere nel affrontare sfide varie\n• Buona conoscenza del francese parlato e scritto\n\nPerché Tertianum?\nTeniamo molto a far sì che i nostri collaboratori possano conciliare il loro sviluppo professionale e il loro stile di vita. Questo passa attraverso un'offerta varia di vantaggi diversi, ad esempio\n\n• Giornate di introduzione e molti altri corsi interessanti\n• Possibilità di formazione continua interna ed esterna\n• Sconti per il fitness\n• Vantaggi sulle assicurazioni\n• Sconti sulla flotta\n• Sconti su Sunrise\n\nTroverai altri vantaggi sul nostro sito web. https://www.tertianum.ch/fr/ueber-uns/arbeitgeber/benefits\n\nSei interessato/a?\nAllora ti offriamo una prospettiva entusiasmante: da noi metti a frutto le tue capacità individuali e il tuo professionalismo all'interno di un team motivato e flessibile. Inoltre, assumi un alto grado di responsabilità e partecipi attivamente alla costruzione del futuro di Tertianum.",
-        "en": "Do you want to not only improve the quality of life of others but also give meaning to your professional activity? Do you see opportunities to bring your skills and experience to us to have a positive impact on the lives of our residents? Then you are in the right place!\n\nFor the Tertianum Les Vergers facility in the central Valais region in Aproz, we are looking for immediately or to be agreed a\n\nCommunity Health Care Assistant CFC from 80% to 100%\n\nYour tasks\n\n• Supervision and support of assigned guests\n• Support for body care, movements, and other daily activities.\n• Handling tasks as a reference person\n• Participation in care reports and transmission of important observations\n• Writing care notes in our CareCoach care documentation system (possible on the go with the CareCoach smartphone)\n\nYour profile\n\n• Completed ASSC training\n• Several years of professional experience in care is an advantage\n• Warm attitude\n• Enjoyment of tackling various challenges\n• Good knowledge of spoken and written French\n\nWhy Tertianum?\nWe place great importance on our employees being able to reconcile their professional development and lifestyle. This is achieved through a varied range of different benefits, for example\n\n• Introduction days and many other exciting courses\n• Internal and external continuing education opportunities\n• Fitness discounts\n• Insurance benefits\n• Fleet discounts\n• Sunrise discounts\n\nYou will find more benefits on our website. https://www.tertianum.ch/fr/ueber-uns/arbeitgeber/benefits\n\nAre you interested?\nThen we offer you an exciting perspective: with us, you put your individual skills and professionalism to use within a motivated and flexible team. In addition, you take on a high degree of responsibility and actively participate in shaping the future of Tertianum. Apply now and join our team.\n\nWe look forward to receiving your complete application online via our tool.",
-        "de": "Möchten Sie nicht nur die Lebensqualität anderer verbessern, sondern auch Ihrer beruflichen Tätigkeit einen Sinn geben? Sehen Sie Möglichkeiten, Ihre Fähigkeiten und Erfahrungen bei uns einzubringen, um das Leben unserer Bewohner positiv zu beeinflussen? Dann sind Sie bei uns richtig!\n\nFür das Tertianum Les Vergers in der Region Zentralwallis in Aproz suchen wir sofort oder nach Vereinbarung eine\n\nFachfrau / Fachmann Gesundheit und Soziales EFZ von 80% bis 100%\n\nIhre Aufgaben\n\n• Betreuung und Begleitung der zugeteilten Gäste\n• Unterstützung bei Körperpflege, Bewegungen und anderen täglichen Aktivitäten.\n• Übernahme von Aufgaben als Ansprechperson\n• Teilnahme an Pflegeberichten und Weitergabe wichtiger Beobachtungen\n• Verfassen von Pflegenotizen in unserem Pflegedokumentationssystem CareCoach (mobil mit dem CareCoach-Smartphone möglich)\n\nIhr Profil\n\n• Abgeschlossene Ausbildung zur Fachfrau / zum Fachmann Gesundheit und Soziales\n• Mehrjährige Berufserfahrung in der Pflege ist von Vorteil\n• Herzliche Einstellung\n• Freude an der Bewältigung verschiedener Herausforderungen\n• Gute Kenntnisse in mündlichem und schriftlichem Französisch\n\nWarum Tertianum?\nWir legen großen Wert darauf, dass unsere Mitarbeiter ihre berufliche Entwicklung und ihren Lebensstil in Einklang bringen können. Dies geschieht durch ein vielfältiges Angebot an verschiedenen Vorteilen, zum Beispiel\n\n• Einführungs- und viele weitere spannende Kurse\n• Interne und externe Weiterbildungsmöglichkeiten\n• Fitness-Rabatte\n• Versicherungsvorteile\n• Flottenrabatte\n• Sunrise-Rabatte\n\nWeitere Vorteile finden Sie auf unserer Website. https://www.tertianum.ch/fr/ueber-uns/arbeitgeber/benefits\n\nSind Sie interessiert?\nDann bieten wir Ihnen eine spannende Perspektive: Bei uns setzen Sie Ihre individuellen Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team ein. Darüber hinaus übernehmen Sie einen hohen Grad an Verantwortung und tragen aktiv zum Aufbau der Zukunft von Tertianum bei. Bewerben Sie sich noch heute und werden Sie Teil unseres Teams.\n\nWir freuen uns auf Ihre vollständige Bewerbung online über unser Tool.",
-        "fr": "Vous souhaitez non seulement améliorer la qualité de vie des autres, mais aussi de donner un sens à votre activité professionnelle ? Vous voyez des possibilités d'apporter vos compétences et votre expérience chez nous pour avoir un impact positif sur la vie de nos résidents ? Alors vous êtes à la bonne adresse !\n\nPour l'établissement Tertianum les Vergers dans la région du Valais central à Aproz nous recherchons de suite ou à convenir un / une\n\nAssistante / Assistant en soins et santé communautaire CFC de 80% à 100%\n\nVos tâches\n\n• Encadrement et accompagnement des hôtes attribués\n\n• Soutien pour les soins corporels, les mouvements et autres activités quotidiennes.\n\n• Prise en charge de tâches en tant que personne de référence\n\n• Participation aux rapports de soins et transmission des observations importantes\n\n• Rédaction de notes de soins dans notre système de documentation des soins CareCoach (possible en mobilité avec le smartphone CareCoach)\n\nVotre profil\n\n• Formation ASSC achevée\n\n• Une expérience professionnelle dans les soins de plusieurs années est un atout\n\n• Une attitude chaleureuse\n\n• Plaisir à relever des défis variés\n\n• Bonne connaissance du français à l'oral et à l'écrit\n\nPourquoi Tertianum ?\n\nNous tenons beaucoup à ce que nos collaborateurs / collaborat rices puissent concilier leur développement professionnel et leur mode de vie. Cela passe par une offre variée d'avantages divers, par exemple\n\n• Journées d'introduction et beaucoup d'autres cours passionnants\n\n• Possibilités de formation continue interne et externe\n\n• Réductions pour le fitness\n\n• Avantages sur les assurances\n\n• Remises sur la flotte\n\n• Réductions chez Sunrise\n\nVous trouverez d'autres avantages sur notre site web. https://www.tertianum.ch/fr/ueber-uns/arbeitgeber/benefits\n\nVous êtes intéressé(e) ?\n\nAlors nous vous offrons une perspective passionnante : chez nous, vous mettez à profit vos capacités individuelles et votre professionnalisme au sein d'une équipe motivée et flexible. De plus, vous assumez un haut degré de responsabilité et participez ainsi activement à la construction de l'avenir de Tertianum. Posez votre candidature dès maintenant et rejoignez notre équipe.\n\nNous attendons votre candidature complète en ligne via notre outil."
-      },
-      "location": "Nendaz",
-      "canton": "VS",
-      "url": "https://jobs.tertianum.ch/job/Nendaz-Assistante-Assistant-en-soins-et-sant%C3%A9-communautaire-CFC-80-100-Vala-1994/1158964301/",
-      "source": "Tertianum Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:34:49.740Z",
-      "addressLocality": "Nendaz",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1993",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.tertianum.ch/talentcommunity/apply/7333/?locale=fr_FR",
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [
-          "Formazione ASSC completata",
-          "Esperienza professionale nelle cure di diversi anni è un vantaggio",
-          "Atteggiamento caloroso",
-          "Piacere nel affrontare sfide varie",
-          "Buona conoscenza del francese parlato e scritto"
-        ],
-        "en": [
-          "You see opportunities to bring your skills and experience to us to have a positive impact on the lives of our residents?",
-          "Completed ASSC training",
-          "Several years of professional experience in care is an advantage",
-          "Warm attitude",
-          "Enjoyment of tackling various challenges",
-          "Good knowledge of spoken and written French"
-        ],
-        "de": [
-          "Abgeschlossene Ausbildung zur Fachfrau / zum Fachmann Gesundheit und Soziales",
-          "Mehrjährige Berufserfahrung in der Pflege ist von Vorteil",
-          "Herzliche Einstellung",
-          "Freude an der Bewältigung verschiedener Herausforderungen",
-          "Gute Kenntnisse in mündlichem und schriftlichem Französisch"
-        ]
-      },
-      "previousSlugs": [
+        "assistante-assistant-en-soins-et-sante-communautaire-cfc-80-100-tertianum-nendaz",
+        "assistente-assistente-in-cure-e-salute-comunitaria-cfc-dell-80-al-100-tertianum-nendaz",
         "assistant-assistane-en-soins-et-sante-communautaire-cfc-de-80-a-100-tertianum-nendaz",
         "assistente-in-cure-e-salute-comunitaria-cfc-tertianum-court",
         "community-health-care-assistant-cfc-tertianum-court",
@@ -17824,10 +17452,13 @@
         "assc-care-and-community-health-assistant-between-70-90-tertianum-delemont",
         "assc-assistant-e-en-soins-et-sante-communautaire-entre-70-90-tertianum-delemont",
         "assistante-assistant-en-soins-et-sante-communautaire-afp-a-70-90-tertianum-delemont",
-        "assistante-assistant-en-soins-et-sante-communautaire-cfc-80-100-tertianum-nendaz"
+        "community-health-care-assistant-apprenticeship-80-to-100-tertianum-nendaz",
+        "gesundheits-und-sozialassistent-in-80-100-efz-tertianum-nendaz"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "assistante-assistant-en-soins-et-sante-communautaire-cfc-80-100-tertianum-nendaz",
+          "assistente-assistente-in-cure-e-salute-comunitaria-cfc-dell-80-al-100-tertianum-nendaz",
           "assistant-assistane-en-soins-et-sante-communautaire-cfc-de-80-a-100-tertianum-nendaz",
           "assistente-in-cure-e-salute-comunitaria-cfc-tertianum-court",
           "community-health-care-assistant-cfc-tertianum-court",
@@ -17837,17 +17468,19 @@
           "assc-care-and-community-health-assistant-tra-il-70-90-tertianum-delemont",
           "assc-care-and-community-health-assistant-between-70-90-tertianum-delemont",
           "assc-assistant-e-en-soins-et-sante-communautaire-entre-70-90-tertianum-delemont",
-          "assistante-assistant-en-soins-et-sante-communautaire-afp-a-70-90-tertianum-delemont",
-          "assistante-assistant-en-soins-et-sante-communautaire-cfc-80-100-tertianum-nendaz"
+          "assistante-assistant-en-soins-et-sante-communautaire-afp-a-70-90-tertianum-delemont"
         ],
         "en": [
+          "community-health-care-assistant-apprenticeship-80-to-100-tertianum-nendaz",
           "community-health-care-assistant-cfc-tertianum-court",
           "assc-care-and-community-health-assistant-between-70-90-tertianum-delemont"
         ],
         "de": [
+          "gesundheits-und-sozialassistent-in-80-100-efz-tertianum-nendaz",
           "gesundheits-und-pflegeassistent-in-efz-tertianum-court"
         ],
         "fr": [
+          "assistant-assistane-en-soins-et-sante-communautaire-cfc-de-80-a-100-tertianum-nendaz",
           "assistant-e-en-soins-et-sante-communautaire-cfc-tertianum-court",
           "assc-assistant-e-en-soins-et-sante-communautaire-entre-70-90-tertianum-delemont"
         ]
@@ -17868,7 +17501,7 @@
       },
       "streetAddress": "Nendaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:34:49.740Z",
+      "validThrough": "2026-12-15T09:34:50.477Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -18436,11 +18069,43 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern"
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern",
+        "apprendistato-come-specialista-in-sanita-afc-100-tertianum-bern-31ac77",
+        "apprenticeship-as-a-specialist-health-professional-efz-100-tertianum-bern-31ac77",
+        "apprentissage-en-tant-que-specialiste-professionnel-de-la-sante-efz-100-tertianum-bern-31ac77",
+        "apprendistato-come-specialista-in-sanita-afc-100-tertianum-bern-b77d45",
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern-2",
+        "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-100-tertianum-bern",
+        "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-100-tertianum-bern-55d100a059",
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern-3",
+        "apprenticeship-as-a-specialist-health-professional-efz-100-tertianum-bern-b77d45",
+        "apprentissage-en-tant-que-specialiste-professionnel-de-la-sante-efz-100-tertianum-bern-b77d45",
+        "apprendistato-come-specialista-salute-professionale-efz-100-tertianum-bern",
+        "apprenticeship-as-a-specialist-health-professional-efz-100-tertianum-bern",
+        "apprentissage-en-tant-que-specialiste-professionnel-de-la-sante-efz-100-tertianum-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern"
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern",
+          "apprendistato-come-specialista-in-sanita-afc-100-tertianum-bern-31ac77",
+          "apprendistato-come-specialista-in-sanita-afc-100-tertianum-bern-b77d45",
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern-2",
+          "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-100-tertianum-bern",
+          "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-100-tertianum-bern-55d100a059",
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern-3",
+          "apprendistato-come-specialista-salute-professionale-efz-100-tertianum-bern"
+        ],
+        "en": [
+          "apprenticeship-as-a-specialist-health-professional-efz-100-tertianum-bern-31ac77",
+          "apprenticeship-as-a-specialist-health-professional-efz-100-tertianum-bern-b77d45",
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern-2",
+          "apprenticeship-as-a-specialist-health-professional-efz-100-tertianum-bern"
+        ],
+        "fr": [
+          "apprentissage-en-tant-que-specialiste-professionnel-de-la-sante-efz-100-tertianum-bern-31ac77",
+          "apprentissage-en-tant-que-specialiste-professionnel-de-la-sante-efz-100-tertianum-bern-b77d45",
+          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern-2",
+          "apprentissage-en-tant-que-specialiste-professionnel-de-la-sante-efz-100-tertianum-bern"
         ]
       },
       "firstSeenAt": "2026-09-07T15:20:10.738Z",
@@ -18460,254 +18125,6 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:34:44.278Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "tertianum-c72253ec29ba",
-      "slug": "apprendistato-come-specialista-in-sanita-afc-100-tertianum-bern-31ac77",
-      "slugByLocale": {
-        "it": "apprendistato-come-specialista-in-sanita-afc-100-tertianum-bern-31ac77",
-        "en": "apprenticeship-as-a-specialist-health-professional-efz-100-tertianum-bern-31ac77",
-        "de": "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern",
-        "fr": "apprentissage-en-tant-que-specialiste-professionnel-de-la-sante-efz-100-tertianum-bern-31ac77"
-      },
-      "company": "Tertianum",
-      "companyKey": "tertianum",
-      "companyDomain": "tertianum.ch",
-      "title": "Lehrstelle als Fachfrau / Fachmann Gesundheit EFZ 100%",
-      "titleByLocale": {
-        "it": "Apprendistato come specialista in sanità AFC 100%",
-        "en": "Apprenticeship as a specialist / health professional EFZ 100%",
-        "de": "Lehrstelle als Fachfrau / Fachmann Gesundheit EFZ 100%",
-        "fr": "Apprentissage en tant que spécialiste / professionnel de la santé EFZ 100%"
-      },
-      "description": "Du bist bereit für eine FaGe Lehrstelle? Hol dir dein EFZ über eine Ausbildung in der Pflege. Bei uns startest du eine abwechslungsreiche und sinnvolle Lehre mit Zukunft, denn als Fachfrau / Fachmann Gesundheit erwartet dich ab Tag eins ein unterstützendes Arbeitsumfeld, in dem du zugleich Menschen helfen kannst und durch unsere erfahrenen Berufsbildnerinnen und Berufsbildner begleitet und unterstützt wirst.\n\nFür das Haus Schönberg in Bern suchen wir dich per 1. August 2027 für die\n\nLehrstelle als Fachfrau / Fachmann Gesundheit EFZ\n\nDas lernst du bei uns\n\n• Pflege, Betreuung und Begleitung der Gäste in alltäglichen und anspruchsvollen Situationen\n\n• Unterstützung bei der Körperpflege, beim Aufstehen, An- und Ausziehen, Essen und Trinken\n\n• Medizinaltechnische Verrichtungen wie Blutdruck, Puls und Temperatur messen, Blutentnahme, Verbandswechsel und vieles mehr\n\n• Alltagsbegleitung der Gäste mit Spielen, Basteln, Singen, usw.\n\n• Hauswirtschaftliche, administrative und logistische Aufgaben\n\n• Einhaltung und Umsetzung der Hygiene- und Sicherheitsvorschriften\n\n• Elektronische Pflegedokumentation\n\nDas bringst du mit\n\n• Abgeschlossene Schulbildung (Sekundarschule A oder B) mit guten schulischen Leistungen\n\n• Grosse Lernbereitschaft und Verantwortungsbewusstsein\n\n• Einfühlungsvermögen und Geduld sowie Interesse am Umgang mit unseren Gästen\n\n• Hilfsbereit, kontaktfreudig und teamorientiert, mit einem starken Sinn für Sorgfalt und Gewissenhaftigkeit\n\n• Bereitschaft zu unregelmässigen Arbeitszeiten\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen und praktischen Arbeiten\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWelche Benefits bieten wir dir?\nDu bist uns genauso wichtig wie dir deine Ausbildung! Deshalb bieten wir dir folgende Vorteile:\n\n• An deinem Geburtstag bekommst du frei\n\n• CHF 500 an dein obligatorisches Schulmaterial\n\n• Gratis SBB-Halbtaxabonnement\n\n• Jedes Mittagessen für CHF 5\n\n• Vergünstigte Handy-Abos bei Sunrise\n\n• Vergünstigungen und Angebote rund um Fitness, Freizeit und dein Wellbeing\n\n• Bis zu 10 % Rabatt auf deine Krankenkassen-Zusatzversicherung\n\n• Regelmässige Teamanlässe\n\n• Mind. 2x pro Monat 90 Minuten Lernzeit im Lernraum oder der Lernwerkstatt\n\n• Und noch vieles mehr…\n\nDu startest direkt mit einem spannenden Einführungstag und in der Hälfte deiner Ausbildung laden wir dich eine ganze Woche lang zu unserem Summer Camp ein. Natürlich muss dein Ausbildungsabschluss gebührend gefeiert werden, dafür organisieren wir für alle Absolventinnen und Absolventen eine unvergessliche Abschlussfeier. Und vielleicht ist das dann auch erst der Anfang deiner Karriere bei uns! Wir bieten zahlreiche Möglichkeiten direkt nach Lehrabschluss innerhalb unseres Unternehmens zu arbeiten.\n\nWeitere Vorteile und Einblicke findest du auf unserer Website .\n\nNa, interessiert?\n Sobald wir deine vollständigen Bewerbungsunterlagen haben, werden sie von unserem Team geprüft. Wenn dein Dossier uns überzeugt, freuen wir uns dich bei einem ersten Gespräch persönlich kennenzulernen. Danach darfst du schon direkt an einem oder mehreren Schnuppertagen in die Tertianum-Welt eintauchen und dir ein Bild zum Alltag bei uns machen.\n\nWas brauchen wir für deine vollständige Bewerbung?\n\n• Lebenslauf\n\n• Schulzeugnisse\n\n• Resultate des Stellwerktests und sofern vorhanden des Multichecks\n\nKönnte diese Lehre etwas für dich sein?\n Dann klicke auf «Jetzt bewerben» und erstelle dein persönliches Konto, um uns deine vollständige Bewerbung zukommen zu lassen.\n\nWir freuen uns auf deine Bewerbung!\n\nNoch Fragen? Kein Problem, melde dich ganz einfach bei: Regina Hak, Bildungsverantwortliche, unter der Telefonnummer 031 388 66 20",
-      "descriptionByLocale": {
-        "it": "Pronto per un apprendistato FaGe? Ottenere il vostro EFZ attraverso una formazione in allattamento. Con noi, si inizia un apprendistato vario e significativo con un futuro, perché come specialista / professionista sanitario, si può aspettare un ambiente di lavoro di supporto dal primo giorno, in cui è possibile anche aiutare le persone e sono accompagnati e supportati dai nostri formatori professionali esperti.\n\nPer la casa Schönberg a Berna ti stiamo cercando a 1. agosto 2027 per il\n\nApprendistato come specialista / salute professionale EFZ\n\nLo imparerai con noi\n\n• Cura, cura e accompagnamento degli ospiti in situazioni quotidiane ed esigenti\n\n• Supporto per la cura personale, in piedi, vestire e togliere, mangiare e bere\n\n• Tecniche mediche come la misurazione della pressione sanguigna, del polso e della temperatura, il campionamento del sangue, il cambio di vestimenti e molto altro\n\n• Accompagnamento giornaliero di ospiti con giochi, artigianato, canto, ecc.\n\n• Compiti nazionali, amministrativi e logistici\n\n• Compliance e attuazione delle regole di igiene e sicurezza\n\n• Documentazione di manutenzione elettronica\n\nLo porti con te.\n\n• Completato l'istruzione scolastica (scuola secondaria A o B) con buoni risultati accademici\n\n• Grande disponibilità ad imparare e un senso di responsabilità\n\n• Empatia e pazienza e interesse a trattare con i nostri ospiti\n\n• Aiutante, uscente e orientato al team, con un forte senso di cura e coscienza\n\n• La volontà di lavorare irregolarmente\n\n• Un atteggiamento di base caldo e umoristico\n\n• Godetevi sfide versatili e lavoro pratico\n\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n\nQuali vantaggi offriamo?\nSei altrettanto importante per noi come la tua educazione! Pertanto, vi offriamo i seguenti vantaggi:\n\n• Il tuo compleanno sei libero\n\n• CHF 500 per la vostra scuola obbligatoria\n\n• Abbonamento SBB gratuito a metà ax\n\n• Ogni pranzo per CHF 5\n\n• Abbonamenti mobili ridotti a Sunrise\n\n• Perks e offerte intorno al fitness, il tempo libero e il vostro benessere\n\n• Fino al 10% di sconto sulla vostra assicurazione malattia assicurazione integrativa\n\n• Eventi di squadra regolari\n\n• Mente. 2x al mese 90 minuti di tempo di apprendimento nella sala di apprendimento o workshop\n\n• E molto altro...\n\nSi inizia direttamente con un'emozionante giornata introduttiva e in metà della vostra formazione vi invitiamo al nostro campo estivo per una settimana intera. Naturalmente, la vostra laurea deve essere adeguatamente celebrata, per questo organizziamo una cerimonia di laurea indimenticabile per tutti i laureati. E forse questo è solo l'inizio della tua carriera con noi! Offriamo numerose opportunità di lavorare all'interno della nostra azienda direttamente dopo la laurea.\n\nUlteriori vantaggi e approfondimenti possono essere trovati sul nostro sito web.\n\nBeh, interessato?\nUna volta che avremo i vostri documenti applicativi completi, saranno esaminati dal nostro team. Se il tuo dossier ci convince, non vediamo l'ora di incontrarti personalmente durante una prima conversazione. Poi si può immergere direttamente nel mondo di Tertianum in uno o più giorni di prova e ottenere una foto della vita quotidiana con noi.\n\nChe cosa ci serve per la vostra applicazione completa?\n\n• CVC\n\n• Certificati scolastici\n\n• Risultati del test di interlocking e, se disponibile, il multicheck\n\nQuesto insegnamento potrebbe essere qualcosa per te?\nQuindi fare clic su “Applica ora” e creare il tuo account personale per inviarci la tua applicazione completa.\n\nAttendiamo con ansia la vostra applicazione!\n\nAncora domande? Nessun problema, basta iscriversi: Regina Hak, responsabile dell'istruzione, al numero di telefono 031 388 66 20",
-        "en": "Ready for a FaGe apprenticeship? Get your EFZ through an education in nursing. With us, you start a varied and meaningful apprenticeship with a future, because as a specialist / health professional, you can expect a supportive working environment from day one, in which you can also help people and are accompanied and supported by our experienced vocational trainers.\n\nFor the house Schönberg in Bern we are looking for you at 1. August 2027 for the\n\nApprenticeship as a specialist / health professional EFZ\n\nYou will learn this with us\n\n• Care, care and accompaniment of guests in everyday and demanding situations\n\n• Support for personal care, standing up, dressing and taking off, eating and drinking\n\n• Medical techniques such as measuring blood pressure, pulse and temperature, blood sampling, changing dressings and much more\n\n• Daily accompaniment of guests with games, crafts, singing, etc.\n\n• Domestic, administrative and logistical tasks\n\n• Compliance and implementation of hygiene and safety rules\n\n• Electronic maintenance documentation\n\nYou bring that with you\n\n• Completed school education (secondary school A or B) with good academic achievements\n\n• Great willingness to learn and a sense of responsibility\n\n• Empathy and patience as well as interest in dealing with our guests\n\n• Helpful, outgoing and team-oriented, with a strong sense of care and conscientiousness\n\n• Willingness to work irregularly\n\n• A warm and humorous basic attitude\n\n• Enjoying versatile challenges and practical work\n\n• Good knowledge of German in words and writing\n\nWhat benefits do we offer you?\nYou are just as important to us as your education! Therefore, we offer you the following advantages:\n\n• On your birthday you get free\n\n• CHF 500 to your compulsory school supplies\n\n• Free SBB half-ax subscription\n\n• Each lunch for CHF 5\n\n• Reduced mobile subscriptions at Sunrise\n\n• Perks and offers around fitness, leisure and your wellbeing\n\n• Up to 10% discount on your health insurance supplementary insurance\n\n• Regular team events\n\n• Mind. 2x per month 90 minutes of learning time in the learning room or workshop\n\n• And much more...\n\nYou start directly with an exciting introductory day and in half of your training we invite you to our summer camp for a whole week. Of course, your training degree must be properly celebrated, for this we organize an unforgettable graduation ceremony for all graduates. And maybe this is just the beginning of your career with us! We offer numerous opportunities to work within our company directly after graduation.\n\nFurther benefits and insights can be found on our website.\n\nWell, interested?\nOnce we have your complete application documents, they will be reviewed by our team. If your dossier convinces us, we look forward to meeting you personally during a first conversation. Then you can dive directly into the Tertianum world on one or more trial days and get a picture of everyday life with us.\n\nWhat do we need for your full application?\n\n• CVC\n\n• School certificates\n\n• Results of the interlocking test and, if available, the multicheck\n\nCould this teaching be something for you?\nThen click on “Apply now” and create your personal account to send us your full application.\n\nWe look forward to your application!\n\nStill questions? No problem, just sign up: Regina Hak, education manager, on the phone number 031 388 66 20",
-        "de": "Du bist bereit für eine FaGe Lehrstelle? Hol dir dein EFZ über eine Ausbildung in der Pflege. Bei uns startest du eine abwechslungsreiche und sinnvolle Lehre mit Zukunft, denn als Fachfrau / Fachmann Gesundheit erwartet dich ab Tag eins ein unterstützendes Arbeitsumfeld, in dem du zugleich Menschen helfen kannst und durch unsere erfahrenen Berufsbildnerinnen und Berufsbildner begleitet und unterstützt wirst.\n\nFür das Haus Schönberg in Bern suchen wir dich per 1. August 2027 für die\n\nLehrstelle als Fachfrau / Fachmann Gesundheit EFZ\n\nDas lernst du bei uns\n\n• Pflege, Betreuung und Begleitung der Gäste in alltäglichen und anspruchsvollen Situationen\n\n• Unterstützung bei der Körperpflege, beim Aufstehen, An- und Ausziehen, Essen und Trinken\n\n• Medizinaltechnische Verrichtungen wie Blutdruck, Puls und Temperatur messen, Blutentnahme, Verbandswechsel und vieles mehr\n\n• Alltagsbegleitung der Gäste mit Spielen, Basteln, Singen, usw.\n\n• Hauswirtschaftliche, administrative und logistische Aufgaben\n\n• Einhaltung und Umsetzung der Hygiene- und Sicherheitsvorschriften\n\n• Elektronische Pflegedokumentation\n\nDas bringst du mit\n\n• Abgeschlossene Schulbildung (Sekundarschule A oder B) mit guten schulischen Leistungen\n\n• Grosse Lernbereitschaft und Verantwortungsbewusstsein\n\n• Einfühlungsvermögen und Geduld sowie Interesse am Umgang mit unseren Gästen\n\n• Hilfsbereit, kontaktfreudig und teamorientiert, mit einem starken Sinn für Sorgfalt und Gewissenhaftigkeit\n\n• Bereitschaft zu unregelmässigen Arbeitszeiten\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen und praktischen Arbeiten\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWelche Benefits bieten wir dir?\nDu bist uns genauso wichtig wie dir deine Ausbildung! Deshalb bieten wir dir folgende Vorteile:\n\n• An deinem Geburtstag bekommst du frei\n\n• CHF 500 an dein obligatorisches Schulmaterial\n\n• Gratis SBB-Halbtaxabonnement\n\n• Jedes Mittagessen für CHF 5\n\n• Vergünstigte Handy-Abos bei Sunrise\n\n• Vergünstigungen und Angebote rund um Fitness, Freizeit und dein Wellbeing\n\n• Bis zu 10 % Rabatt auf deine Krankenkassen-Zusatzversicherung\n\n• Regelmässige Teamanlässe\n\n• Mind. 2x pro Monat 90 Minuten Lernzeit im Lernraum oder der Lernwerkstatt\n\n• Und noch vieles mehr…\n\nDu startest direkt mit einem spannenden Einführungstag und in der Hälfte deiner Ausbildung laden wir dich eine ganze Woche lang zu unserem Summer Camp ein. Natürlich muss dein Ausbildungsabschluss gebührend gefeiert werden, dafür organisieren wir für alle Absolventinnen und Absolventen eine unvergessliche Abschlussfeier. Und vielleicht ist das dann auch erst der Anfang deiner Karriere bei uns! Wir bieten zahlreiche Möglichkeiten direkt nach Lehrabschluss innerhalb unseres Unternehmens zu arbeiten.\n\nWeitere Vorteile und Einblicke findest du auf unserer Website .\n\nNa, interessiert?\nSobald wir deine vollständigen Bewerbungsunterlagen haben, werden sie von unserem Team geprüft. Wenn dein Dossier uns überzeugt, freuen wir uns dich bei einem ersten Gespräch persönlich kennenzulernen. Danach darfst du schon direkt an einem oder mehreren Schnuppertagen in die Tertianum-Welt eintauchen und dir ein Bild zum Alltag bei uns machen.\n\nWas brauchen wir für deine vollständige Bewerbung?\n\n• Lebenslauf\n\n• Schulzeugnisse\n\n• Resultate des Stellwerktests und sofern vorhanden des Multichecks\n\nKönnte diese Lehre etwas für dich sein?\nDann klicke auf «Jetzt bewerben» und erstelle dein persönliches Konto, um uns deine vollständige Bewerbung zukommen zu lassen.\n\nWir freuen uns auf deine Bewerbung!\n\nNoch Fragen? Kein Problem, melde dich ganz einfach bei: Regina Hak, Bildungsverantwortliche, unter der Telefonnummer 031 388 66 20",
-        "fr": "Prêt pour un apprentissage FaGe ? Obtenez votre EFZ par une formation en soins infirmiers. Avec nous, vous commencez un apprentissage varié et significatif avec un avenir, car en tant que spécialiste / professionnel de la santé, vous pouvez vous attendre à un environnement de travail favorable dès le premier jour, dans lequel vous pouvez également aider les gens et sont accompagnés et soutenus par nos formateurs professionnels expérimentés.\n\nPour la maison Schönberg à Berne nous vous cherchons à 1. Août 2027 pour\n\nApprentissage en tant que spécialiste / professionnel de la santé EFZ\n\nTu apprendras ça avec nous.\n\n• Soins, soins et accompagnement des clients dans des situations quotidiennes et exigeantes\n\n• Soutien aux soins personnels, se lever, s'habiller et décoller, manger et boire\n\n• Techniques médicales telles que la mesure de la pression artérielle, du pouls et de la température, l'échantillonnage du sang, le changement des pansements et bien plus encore\n\n• Accompagnement quotidien des invités avec jeux, artisanat, chant, etc.\n\n• Tâches domestiques, administratives et logistiques\n\n• Respect et application des règles d'hygiène et de sécurité\n\n• Documentation électronique de maintenance\n\nApporte ça avec toi.\n\n• Études terminées (écoles secondaires A ou B) avec de bons résultats scolaires\n\n• Grande volonté d'apprendre et sens des responsabilités\n\n• Empathie et patience ainsi que l'intérêt pour traiter avec nos invités\n\n• Utile, sortante et axée sur l'équipe, avec un fort sens du soin et de la conscience\n\n• Volonté de travailler irrégulièrement\n\n• Une attitude de base chaleureuse et humoristique\n\n• Des défis polyvalents et un travail pratique\n\n• Bonne connaissance de l'allemand en mots et en écriture\n\nQuels avantages vous offrons-nous ?\nVous êtes tout aussi important pour nous que votre éducation ! Par conséquent, nous vous offrons les avantages suivants:\n\n• Pour ton anniversaire tu es libre\n\n• 500 CHF pour vos fournitures scolaires obligatoires\n\n• Abonnement gratuit à mi-axe CFF\n\n• Chaque déjeuner pour CHF 5\n\n• Réduction des abonnements mobiles à Sunrise\n\n• Avantages et offres autour du fitness, des loisirs et de votre bien-être\n\n• Jusqu'à 10% de réduction sur votre assurance maladie complémentaire\n\n• Manifestations régulières en équipe\n\n• Mind. 2x par mois 90 minutes de temps d'apprentissage dans la salle d'apprentissage ou l'atelier\n\n• Et bien plus encore...\n\nVous commencez directement par une journée d'initiation passionnante et dans la moitié de votre entraînement nous vous invitons à notre camp d'été pour une semaine entière. Bien sûr, votre diplôme de formation doit être correctement célébré, pour cela nous organisons une cérémonie de graduation inoubliable pour tous les diplômés. Et peut-être que ce n'est que le début de votre carrière avec nous ! Nous offrons de nombreuses possibilités de travailler au sein de notre entreprise directement après l'obtention du diplôme.\n\nD'autres avantages et idées peuvent être trouvés sur notre site Web.\n\nIntéressant ?\nUne fois que nous aurons vos documents de demande complets, ils seront examinés par notre équipe. Si votre dossier nous convainc, nous nous réjouissons de vous rencontrer personnellement lors d'une première conversation. Ensuite, vous pouvez plonger directement dans le monde Tertianum un ou plusieurs jours d'essai et obtenir une image de la vie quotidienne avec nous.\n\nDe quoi avons-nous besoin pour votre demande complète?\n\n• CVC\n\n• Certificats scolaires\n\n• Résultats de l'essai de verrouillage et, le cas échéant, du multicontrôle\n\nCet enseignement pourrait-il être quelque chose pour vous ?\nEnsuite, cliquez sur \"Appliquer maintenant\" et créez votre compte personnel pour nous envoyer votre application complète.\n\nNous nous réjouissons de votre candidature!\n\nToujours des questions ? Pas de problème, il suffit de s'inscrire: Regina Hak, responsable de l'éducation, au numéro de téléphone 031 388 66 20"
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.tertianum.ch/job/Bern-Lehrstelle-als-Fachfrau-Fachmann-Gesundheit-EFZ-100-BE-3006/1449975733/",
-      "source": "Tertianum Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:34:43.532Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.tertianum.ch/talentcommunity/apply/8927/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern"
-        ]
-      },
-      "firstSeenAt": "2026-09-07T15:20:10.738Z",
-      "salaryMin": 66000,
-      "salaryMax": 112000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 66000,
-          "maxValue": 112000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:34:43.532Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "tertianum-b20459e0ca68",
-      "slug": "apprendistato-come-specialista-in-sanita-afc-100-tertianum-bern-b77d45",
-      "slugByLocale": {
-        "it": "apprendistato-come-specialista-in-sanita-afc-100-tertianum-bern-b77d45",
-        "en": "apprenticeship-as-a-specialist-health-professional-efz-100-tertianum-bern-b77d45",
-        "de": "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern",
-        "fr": "apprentissage-en-tant-que-specialiste-professionnel-de-la-sante-efz-100-tertianum-bern-b77d45"
-      },
-      "company": "Tertianum",
-      "companyKey": "tertianum",
-      "companyDomain": "tertianum.ch",
-      "title": "Lehrstelle als Fachfrau / Fachmann Gesundheit EFZ 100%",
-      "titleByLocale": {
-        "it": "Apprendistato come specialista in sanità AFC 100%",
-        "en": "Apprenticeship as a specialist / health professional EFZ 100%",
-        "de": "Lehrstelle als Fachfrau / Fachmann Gesundheit EFZ 100%",
-        "fr": "Apprentissage en tant que spécialiste / professionnel de la santé EFZ 100%"
-      },
-      "description": "Du bist bereit für eine FaGe Lehrstelle? Hol dir dein EFZ über eine Ausbildung in der Pflege. Bei uns startest du eine abwechslungsreiche und sinnvolle Lehre mit Zukunft, denn als Fachfrau / Fachmann Gesundheit erwartet dich ab Tag eins ein unterstützendes Arbeitsumfeld, in dem du zugleich Menschen helfen kannst und durch unsere erfahrenen Berufsbildnerinnen und Berufsbildner begleitet und unterstützt wirst.\n\nFür das Haus Schönberg in Bern suchen wir dich per 1. August 2027 für die\n\nLehrstelle als Fachfrau / Fachmann Gesundheit EFZ\n\nDas lernst du bei uns\n\n• Pflege, Betreuung und Begleitung der Gäste in alltäglichen und anspruchsvollen Situationen\n\n• Unterstützung bei der Körperpflege, beim Aufstehen, An- und Ausziehen, Essen und Trinken\n\n• Medizinaltechnische Verrichtungen wie Blutdruck, Puls und Temperatur messen, Blutentnahme, Verbandswechsel und vieles mehr\n\n• Alltagsbegleitung der Gäste mit Spielen, Basteln, Singen, usw.\n\n• Hauswirtschaftliche, administrative und logistische Aufgaben\n\n• Einhaltung und Umsetzung der Hygiene- und Sicherheitsvorschriften\n\n• Elektronische Pflegedokumentation\n\nDas bringst du mit\n\n• Abgeschlossene Schulbildung (Sekundarschule A oder B) mit guten schulischen Leistungen\n\n• Grosse Lernbereitschaft und Verantwortungsbewusstsein\n\n• Einfühlungsvermögen und Geduld sowie Interesse am Umgang mit unseren Gästen\n\n• Hilfsbereit, kontaktfreudig und teamorientiert, mit einem starken Sinn für Sorgfalt und Gewissenhaftigkeit\n\n• Bereitschaft zu unregelmässigen Arbeitszeiten\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen und praktischen Arbeiten\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWelche Benefits bieten wir dir?\nDu bist uns genauso wichtig wie dir deine Ausbildung! Deshalb bieten wir dir folgende Vorteile:\n\n• An deinem Geburtstag bekommst du frei\n\n• CHF 500 an dein obligatorisches Schulmaterial\n\n• Gratis SBB-Halbtaxabonnement\n\n• Jedes Mittagessen für CHF 5\n\n• Vergünstigte Handy-Abos bei Sunrise\n\n• Vergünstigungen und Angebote rund um Fitness, Freizeit und dein Wellbeing\n\n• Bis zu 10 % Rabatt auf deine Krankenkassen-Zusatzversicherung\n\n• Regelmässige Teamanlässe\n\n• Mind. 2x pro Monat 90 Minuten Lernzeit im Lernraum oder der Lernwerkstatt\n\n• Und noch vieles mehr…\n\nDu startest direkt mit einem spannenden Einführungstag und in der Hälfte deiner Ausbildung laden wir dich eine ganze Woche lang zu unserem Summer Camp ein. Natürlich muss dein Ausbildungsabschluss gebührend gefeiert werden, dafür organisieren wir für alle Absolventinnen und Absolventen eine unvergessliche Abschlussfeier. Und vielleicht ist das dann auch erst der Anfang deiner Karriere bei uns! Wir bieten zahlreiche Möglichkeiten direkt nach Lehrabschluss innerhalb unseres Unternehmens zu arbeiten.\n\nWeitere Vorteile und Einblicke findest du auf unserer Website .\n\nNa, interessiert?\n Sobald wir deine vollständigen Bewerbungsunterlagen haben, werden sie von unserem Team geprüft. Wenn dein Dossier uns überzeugt, freuen wir uns dich bei einem ersten Gespräch persönlich kennenzulernen. Danach darfst du schon direkt an einem oder mehreren Schnuppertagen in die Tertianum-Welt eintauchen und dir ein Bild zum Alltag bei uns machen.\n\nWas brauchen wir für deine vollständige Bewerbung?\n\n• Lebenslauf\n\n• Schulzeugnisse\n\n• Resultate des Stellwerktests und sofern vorhanden des Multichecks\n\nKönnte diese Lehre etwas für dich sein?\n Dann klicke auf «Jetzt bewerben» und erstelle dein persönliches Konto, um uns deine vollständige Bewerbung zukommen zu lassen.\n\nWir freuen uns auf deine Bewerbung!\n\nNoch Fragen? Kein Problem, melde dich ganz einfach bei: Regina Hak, Bildungsverantwortliche, unter der Telefonnummer 031 388 66 20\n\n​",
-      "descriptionByLocale": {
-        "it": "Pronto per un apprendistato FaGe? Ottenere il vostro EFZ attraverso una formazione in allattamento. Con noi, si inizia un apprendistato vario e significativo con un futuro, perché come specialista / medico, si può aspettare un ambiente di lavoro di supporto dal primo giorno, in cui è possibile aiutare le persone e sono accompagnati e supportati dai nostri formatori professionali esperti.\n\nPer la casa Schönberg a Berna ti stiamo cercando a 1. agosto 2027 per il\n\nApprendistato come specialista / salute professionale EFZ\n\nLo imparerai con noi\n\n• Cura, cura e accompagnamento degli ospiti in situazioni quotidiane ed esigenti\n\n• Supporto per la cura personale, in piedi, vestire e togliere, mangiare e bere\n\n• Tecniche mediche come la misurazione della pressione sanguigna, del polso e della temperatura, il campionamento del sangue, il cambio di vestimenti e molto altro\n\n• Accompagnamento giornaliero di ospiti con giochi, artigianato, canto, ecc.\n\n• Compiti nazionali, amministrativi e logistici\n\n• Compliance e attuazione delle regole di igiene e sicurezza\n\n• Documentazione di manutenzione elettronica\n\nLo porti con te.\n\n• Completato l'istruzione scolastica (scuola secondaria A o B) con buoni risultati accademici\n\n• Grande disponibilità ad imparare e un senso di responsabilità\n\n• Empatia e pazienza e interesse a trattare con i nostri ospiti\n\n• Aiutante, uscente e orientato al team, con un forte senso di cura e coscienza\n\n• La volontà di lavorare irregolarmente\n\n• Un atteggiamento di base caldo e umoristico\n\n• Godetevi sfide versatili e lavoro pratico\n\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n\nQuali vantaggi offriamo?\nSei altrettanto importante per noi come la tua educazione! Pertanto, vi offriamo i seguenti vantaggi:\n\n• Il tuo compleanno sei libero\n\n• CHF 500 per la vostra scuola obbligatoria\n\n• Abbonamento SBB gratuito a metà ax\n\n• Ogni pranzo per CHF 5\n\n• Abbonamenti mobili ridotti a Sunrise\n\n• Perks e offerte intorno al fitness, il tempo libero e il vostro benessere\n\n• Fino al 10% di sconto sulla vostra assicurazione malattia assicurazione integrativa\n\n• Eventi di squadra regolari\n\n• Mente. 2x al mese 90 minuti di tempo di apprendimento nella sala di apprendimento o workshop\n\n• E molto altro...\n\nSi inizia direttamente con un'emozionante giornata introduttiva e in metà della vostra formazione vi invitiamo al nostro campo estivo per una settimana intera. Naturalmente, la vostra laurea deve essere adeguatamente celebrata, per questo organizziamo una cerimonia di laurea indimenticabile per tutti i laureati. E forse questo è solo l'inizio della tua carriera con noi! Offriamo numerose opportunità di lavorare all'interno della nostra azienda direttamente dopo la laurea.\n\nUlteriori vantaggi e approfondimenti possono essere trovati sul nostro sito web.\n\nBeh, interessato?\nUna volta che avremo i vostri documenti applicativi completi, saranno esaminati dal nostro team. Se il tuo dossier ci convince, non vediamo l'ora di incontrarti personalmente durante una prima conversazione. Poi si può immergere direttamente nel mondo di Tertianum in uno o più giorni di prova e ottenere una foto della vita quotidiana con noi.\n\nChe cosa ci serve per la vostra applicazione completa?\n\n• CVC\n\n• Certificati scolastici\n\n• Risultati del test di interlocking e, se disponibile, il multicheck\n\nQuesto insegnamento potrebbe essere qualcosa per te?\nQuindi fare clic su “Applica ora” e creare il tuo account personale per inviarci la tua applicazione completa.\n\nAttendiamo con ansia la vostra applicazione!\n\nAncora domande? Nessun problema, basta iscriversi: Regina Hak, responsabile dell'istruzione, al numero di telefono 031 388 66 20\n\n​",
-        "en": "Ready for a FaGe apprenticeship? Get your EFZ through an education in nursing. With us, you start a varied and meaningful apprenticeship with a future, because as a specialist / health professional, you can expect a supportive working environment from day one, in which you can help people and are accompanied and supported by our experienced vocational trainers.\n\nFor the house Schönberg in Bern we are looking for you at 1. August 2027 for the\n\nApprenticeship as a specialist / health professional EFZ\n\nYou will learn this with us\n\n• Care, care and accompaniment of guests in everyday and demanding situations\n\n• Support for personal care, standing up, dressing and taking off, eating and drinking\n\n• Medical techniques such as measuring blood pressure, pulse and temperature, blood sampling, changing dressings and much more\n\n• Daily accompaniment of guests with games, crafts, singing, etc.\n\n• Domestic, administrative and logistical tasks\n\n• Compliance and implementation of hygiene and safety rules\n\n• Electronic maintenance documentation\n\nYou bring that with you\n\n• Completed school education (secondary school A or B) with good academic achievements\n\n• Great willingness to learn and a sense of responsibility\n\n• Empathy and patience as well as interest in dealing with our guests\n\n• Helpful, outgoing and team-oriented, with a strong sense of care and conscientiousness\n\n• Willingness to work irregularly\n\n• A warm and humorous basic attitude\n\n• Enjoying versatile challenges and practical work\n\n• Good knowledge of German in words and writing\n\nWhat benefits do we offer you?\nYou are just as important to us as your education! Therefore, we offer you the following advantages:\n\n• On your birthday you get free\n\n• CHF 500 to your compulsory school supplies\n\n• Free SBB half-ax subscription\n\n• Each lunch for CHF 5\n\n• Reduced mobile subscriptions at Sunrise\n\n• Perks and offers around fitness, leisure and your wellbeing\n\n• Up to 10% discount on your health insurance supplementary insurance\n\n• Regular team events\n\n• Mind. 2x per month 90 minutes of learning time in the learning room or workshop\n\n• And much more...\n\nYou start directly with an exciting introductory day and in half of your training we invite you to our summer camp for a whole week. Of course, your training degree must be properly celebrated, for this we organize an unforgettable graduation ceremony for all graduates. And maybe this is just the beginning of your career with us! We offer numerous opportunities to work within our company directly after graduation.\n\nFurther benefits and insights can be found on our website.\n\nWell, interested?\nOnce we have your complete application documents, they will be reviewed by our team. If your dossier convinces us, we look forward to meeting you personally during a first conversation. Then you can dive directly into the Tertianum world on one or more trial days and get a picture of everyday life with us.\n\nWhat do we need for your full application?\n\n• CVC\n\n• School certificates\n\n• Results of the interlocking test and, if available, the multicheck\n\nCould this teaching be something for you?\nThen click on “Apply now” and create your personal account to send us your full application.\n\nWe look forward to your application!\n\nStill questions? No problem, just sign up: Regina Hak, education manager, on the phone number 031 388 66 20\n\n​",
-        "de": "Du bist bereit für eine FaGe Lehrstelle? Hol dir dein EFZ über eine Ausbildung in der Pflege. Bei uns startest du eine abwechslungsreiche und sinnvolle Lehre mit Zukunft, denn als Fachfrau / Fachmann Gesundheit erwartet dich ab Tag eins ein unterstützendes Arbeitsumfeld, in dem du zugleich Menschen helfen kannst und durch unsere erfahrenen Berufsbildnerinnen und Berufsbildner begleitet und unterstützt wirst.\n\nFür das Haus Schönberg in Bern suchen wir dich per 1. August 2027 für die\n\nLehrstelle als Fachfrau / Fachmann Gesundheit EFZ\n\nDas lernst du bei uns\n\n• Pflege, Betreuung und Begleitung der Gäste in alltäglichen und anspruchsvollen Situationen\n\n• Unterstützung bei der Körperpflege, beim Aufstehen, An- und Ausziehen, Essen und Trinken\n\n• Medizinaltechnische Verrichtungen wie Blutdruck, Puls und Temperatur messen, Blutentnahme, Verbandswechsel und vieles mehr\n\n• Alltagsbegleitung der Gäste mit Spielen, Basteln, Singen, usw.\n\n• Hauswirtschaftliche, administrative und logistische Aufgaben\n\n• Einhaltung und Umsetzung der Hygiene- und Sicherheitsvorschriften\n\n• Elektronische Pflegedokumentation\n\nDas bringst du mit\n\n• Abgeschlossene Schulbildung (Sekundarschule A oder B) mit guten schulischen Leistungen\n\n• Grosse Lernbereitschaft und Verantwortungsbewusstsein\n\n• Einfühlungsvermögen und Geduld sowie Interesse am Umgang mit unseren Gästen\n\n• Hilfsbereit, kontaktfreudig und teamorientiert, mit einem starken Sinn für Sorgfalt und Gewissenhaftigkeit\n\n• Bereitschaft zu unregelmässigen Arbeitszeiten\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen und praktischen Arbeiten\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWelche Benefits bieten wir dir?\nDu bist uns genauso wichtig wie dir deine Ausbildung! Deshalb bieten wir dir folgende Vorteile:\n\n• An deinem Geburtstag bekommst du frei\n\n• CHF 500 an dein obligatorisches Schulmaterial\n\n• Gratis SBB-Halbtaxabonnement\n\n• Jedes Mittagessen für CHF 5\n\n• Vergünstigte Handy-Abos bei Sunrise\n\n• Vergünstigungen und Angebote rund um Fitness, Freizeit und dein Wellbeing\n\n• Bis zu 10 % Rabatt auf deine Krankenkassen-Zusatzversicherung\n\n• Regelmässige Teamanlässe\n\n• Mind. 2x pro Monat 90 Minuten Lernzeit im Lernraum oder der Lernwerkstatt\n\n• Und noch vieles mehr…\n\nDu startest direkt mit einem spannenden Einführungstag und in der Hälfte deiner Ausbildung laden wir dich eine ganze Woche lang zu unserem Summer Camp ein. Natürlich muss dein Ausbildungsabschluss gebührend gefeiert werden, dafür organisieren wir für alle Absolventinnen und Absolventen eine unvergessliche Abschlussfeier. Und vielleicht ist das dann auch erst der Anfang deiner Karriere bei uns! Wir bieten zahlreiche Möglichkeiten direkt nach Lehrabschluss innerhalb unseres Unternehmens zu arbeiten.\n\nWeitere Vorteile und Einblicke findest du auf unserer Website .\n\nNa, interessiert?\nSobald wir deine vollständigen Bewerbungsunterlagen haben, werden sie von unserem Team geprüft. Wenn dein Dossier uns überzeugt, freuen wir uns dich bei einem ersten Gespräch persönlich kennenzulernen. Danach darfst du schon direkt an einem oder mehreren Schnuppertagen in die Tertianum-Welt eintauchen und dir ein Bild zum Alltag bei uns machen.\n\nWas brauchen wir für deine vollständige Bewerbung?\n\n• Lebenslauf\n\n• Schulzeugnisse\n\n• Resultate des Stellwerktests und sofern vorhanden des Multichecks\n\nKönnte diese Lehre etwas für dich sein?\nDann klicke auf «Jetzt bewerben» und erstelle dein persönliches Konto, um uns deine vollständige Bewerbung zukommen zu lassen.\n\nWir freuen uns auf deine Bewerbung!\n\nNoch Fragen? Kein Problem, melde dich ganz einfach bei: Regina Hak, Bildungsverantwortliche, unter der Telefonnummer 031 388 66 20\n\n​",
-        "fr": "Prêt pour un apprentissage FaGe ? Obtenez votre EFZ par une formation en soins infirmiers. Avec nous, vous commencez un apprentissage varié et significatif avec un avenir, car en tant que spécialiste / professionnel de la santé, vous pouvez vous attendre à un environnement de travail favorable dès le premier jour, dans lequel vous pouvez aider les gens et être accompagné et soutenu par nos formateurs professionnels expérimentés.\n\nPour la maison Schönberg à Berne nous vous cherchons à 1. Août 2027 pour\n\nApprentissage en tant que spécialiste / professionnel de la santé EFZ\n\nTu apprendras ça avec nous.\n\n• Soins, soins et accompagnement des clients dans des situations quotidiennes et exigeantes\n\n• Soutien aux soins personnels, se lever, s'habiller et décoller, manger et boire\n\n• Techniques médicales telles que la mesure de la pression artérielle, du pouls et de la température, l'échantillonnage du sang, le changement des pansements et bien plus encore\n\n• Accompagnement quotidien des invités avec jeux, artisanat, chant, etc.\n\n• Tâches domestiques, administratives et logistiques\n\n• Respect et application des règles d'hygiène et de sécurité\n\n• Documentation électronique de maintenance\n\nApporte ça avec toi.\n\n• Études terminées (écoles secondaires A ou B) avec de bons résultats scolaires\n\n• Grande volonté d'apprendre et sens des responsabilités\n\n• Empathie et patience ainsi que l'intérêt pour traiter avec nos invités\n\n• Utile, sortante et axée sur l'équipe, avec un fort sens du soin et de la conscience\n\n• Volonté de travailler irrégulièrement\n\n• Une attitude de base chaleureuse et humoristique\n\n• Des défis polyvalents et un travail pratique\n\n• Bonne connaissance de l'allemand en mots et en écriture\n\nQuels avantages vous offrons-nous ?\nVous êtes tout aussi important pour nous que votre éducation ! Par conséquent, nous vous offrons les avantages suivants:\n\n• Pour ton anniversaire tu es libre\n\n• 500 CHF pour vos fournitures scolaires obligatoires\n\n• Abonnement gratuit à mi-axe CFF\n\n• Chaque déjeuner pour CHF 5\n\n• Réduction des abonnements mobiles à Sunrise\n\n• Avantages et offres autour du fitness, des loisirs et de votre bien-être\n\n• Jusqu'à 10% de réduction sur votre assurance maladie complémentaire\n\n• Manifestations régulières en équipe\n\n• Mind. 2x par mois 90 minutes de temps d'apprentissage dans la salle d'apprentissage ou l'atelier\n\n• Et bien plus encore...\n\nVous commencez directement par une journée d'initiation passionnante et dans la moitié de votre entraînement nous vous invitons à notre camp d'été pour une semaine entière. Bien sûr, votre diplôme de formation doit être correctement célébré, pour cela nous organisons une cérémonie de graduation inoubliable pour tous les diplômés. Et peut-être que ce n'est que le début de votre carrière avec nous ! Nous offrons de nombreuses possibilités de travailler au sein de notre entreprise directement après l'obtention du diplôme.\n\nD'autres avantages et idées peuvent être trouvés sur notre site Web.\n\nIntéressant ?\nUne fois que nous aurons vos documents de demande complets, ils seront examinés par notre équipe. Si votre dossier nous convainc, nous nous réjouissons de vous rencontrer personnellement lors d'une première conversation. Ensuite, vous pouvez plonger directement dans le monde Tertianum un ou plusieurs jours d'essai et obtenir une image de la vie quotidienne avec nous.\n\nDe quoi avons-nous besoin pour votre demande complète?\n\n• CVC\n\n• Certificats scolaires\n\n• Résultats de l'essai de verrouillage et, le cas échéant, du multicontrôle\n\nCet enseignement pourrait-il être quelque chose pour vous ?\nEnsuite, cliquez sur \"Appliquer maintenant\" et créez votre compte personnel pour nous envoyer votre application complète.\n\nNous nous réjouissons de votre candidature!\n\nToujours des questions ? Pas de problème, il suffit de s'inscrire: Regina Hak, responsable de l'éducation, au numéro de téléphone 031 388 66 20\n\n​"
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.tertianum.ch/job/Bern-Lehrstelle-als-Fachfrau-Fachmann-Gesundheit-EFZ-100-BE-3006/1449976333/",
-      "source": "Tertianum Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:34:42.713Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.tertianum.ch/talentcommunity/apply/8929/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern",
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern-2",
-        "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-100-tertianum-bern",
-        "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-100-tertianum-bern-55d100a059",
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern-3"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern",
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern-2",
-          "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-100-tertianum-bern",
-          "apprendistato-come-fachfrau-fachmann-gesundheit-cfc-100-tertianum-bern-55d100a059",
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern-3"
-        ],
-        "en": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern-2"
-        ],
-        "fr": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern-2"
-        ]
-      },
-      "firstSeenAt": "2026-09-07T15:20:10.738Z",
-      "salaryMin": 66000,
-      "salaryMax": 112000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 66000,
-          "maxValue": 112000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:34:42.713Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "tertianum-da52f47da0f4",
-      "slug": "apprendistato-come-specialista-salute-professionale-efz-100-tertianum-bern",
-      "slugByLocale": {
-        "it": "apprendistato-come-specialista-salute-professionale-efz-100-tertianum-bern",
-        "en": "apprenticeship-as-a-specialist-health-professional-efz-100-tertianum-bern",
-        "de": "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern",
-        "fr": "apprentissage-en-tant-que-specialiste-professionnel-de-la-sante-efz-100-tertianum-bern"
-      },
-      "company": "Tertianum",
-      "companyKey": "tertianum",
-      "companyDomain": "tertianum.ch",
-      "title": "Lehrstelle als Fachfrau / Fachmann Gesundheit EFZ 100%",
-      "titleByLocale": {
-        "it": "Apprendistato come specialista in sanità AFC 100%",
-        "en": "Apprenticeship as a specialist / health professional EFZ 100%",
-        "de": "Lehrstelle als Fachfrau / Fachmann Gesundheit EFZ 100%",
-        "fr": "Apprentissage en tant que spécialiste / professionnel de la santé EFZ 100%"
-      },
-      "description": "Du bist bereit für eine FaGe Lehrstelle? Hol dir dein EFZ über eine Ausbildung in der Pflege. Bei uns startest du eine abwechslungsreiche und sinnvolle Lehre mit Zukunft, denn als Fachfrau / Fachmann Gesundheit erwartet dich ab Tag eins ein unterstützendes Arbeitsumfeld, in dem du zugleich Menschen helfen kannst und durch unsere erfahrenen Berufsbildnerinnen und Berufsbildner begleitet und unterstützt wirst.\n\nFür das Haus Schönberg in Bern suchen wir dich per 1. August 2027 für die\n\nLehrstelle als Fachfrau / Fachmann Gesundheit EFZ\n\nDas lernst du bei uns\n\n• Pflege, Betreuung und Begleitung der Gäste in alltäglichen und anspruchsvollen Situationen\n\n• Unterstützung bei der Körperpflege, beim Aufstehen, An- und Ausziehen, Essen und Trinken\n\n• Medizinaltechnische Verrichtungen wie Blutdruck, Puls und Temperatur messen, Blutentnahme, Verbandswechsel und vieles mehr\n\n• Alltagsbegleitung der Gäste mit Spielen, Basteln, Singen, usw.\n\n• Hauswirtschaftliche, administrative und logistische Aufgaben\n\n• Einhaltung und Umsetzung der Hygiene- und Sicherheitsvorschriften\n\n• Elektronische Pflegedokumentation\n\nDas bringst du mit\n\n• Abgeschlossene Schulbildung (Sekundarschule A oder B) mit guten schulischen Leistungen\n\n• Grosse Lernbereitschaft und Verantwortungsbewusstsein\n\n• Einfühlungsvermögen und Geduld sowie Interesse am Umgang mit unseren Gästen\n\n• Hilfsbereit, kontaktfreudig und teamorientiert, mit einem starken Sinn für Sorgfalt und Gewissenhaftigkeit\n\n• Bereitschaft zu unregelmässigen Arbeitszeiten\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen und praktischen Arbeiten\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWelche Benefits bieten wir dir?\nDu bist uns genauso wichtig wie dir deine Ausbildung! Deshalb bieten wir dir folgende Vorteile:\n\n• An deinem Geburtstag bekommst du frei\n\n• CHF 500 an dein obligatorisches Schulmaterial\n\n• Gratis SBB-Halbtaxabonnement\n\n• Jedes Mittagessen für CHF 5\n\n• Vergünstigte Handy-Abos bei Sunrise\n\n• Vergünstigungen und Angebote rund um Fitness, Freizeit und dein Wellbeing\n\n• Bis zu 10 % Rabatt auf deine Krankenkassen-Zusatzversicherung\n\n• Regelmässige Teamanlässe\n\n• Mind. 2x pro Monat 90 Minuten Lernzeit im Lernraum oder der Lernwerkstatt\n\n• Und noch vieles mehr…\n\nDu startest direkt mit einem spannenden Einführungstag und in der Hälfte deiner Ausbildung laden wir dich eine ganze Woche lang zu unserem Summer Camp ein. Natürlich muss dein Ausbildungsabschluss gebührend gefeiert werden, dafür organisieren wir für alle Absolventinnen und Absolventen eine unvergessliche Abschlussfeier. Und vielleicht ist das dann auch erst der Anfang deiner Karriere bei uns! Wir bieten zahlreiche Möglichkeiten direkt nach Lehrabschluss innerhalb unseres Unternehmens zu arbeiten.\n\nWeitere Vorteile und Einblicke findest du auf unserer Website .\n\nNa, interessiert?\n Sobald wir deine vollständigen Bewerbungsunterlagen haben, werden sie von unserem Team geprüft. Wenn dein Dossier uns überzeugt, freuen wir uns dich bei einem ersten Gespräch persönlich kennenzulernen. Danach darfst du schon direkt an einem oder mehreren Schnuppertagen in die Tertianum-Welt eintauchen und dir ein Bild zum Alltag bei uns machen.\n\nWas brauchen wir für deine vollständige Bewerbung?\n\n• Lebenslauf\n\n• Schulzeugnisse\n\n• Resultate des Stellwerktests und sofern vorhanden des Multichecks\n\nKönnte diese Lehre etwas für dich sein?\n Dann klicke auf «Jetzt bewerben» und erstelle dein persönliches Konto, um uns deine vollständige Bewerbung zukommen zu lassen.\n\nWir freuen uns auf deine Bewerbung!\n\nNoch Fragen? Kein Problem, melde dich ganz einfach bei: Regina Hak, Bildungsverantwortliche, unter der Telefonnummer 031 388 66 20",
-      "descriptionByLocale": {
-        "it": "Pronto per un apprendistato FaGe? Ottenere il vostro EFZ attraverso una formazione in allattamento. Con noi, si inizia un apprendistato vario e significativo con un futuro, perché come specialista / professionista sanitario, si può aspettare un ambiente di lavoro di supporto dal primo giorno, in cui è possibile anche aiutare le persone e sono accompagnati e supportati dai nostri formatori professionali esperti.\n\nPer la casa Schönberg a Berna ti stiamo cercando a 1. agosto 2027 per il\n\nApprendistato come specialista / salute professionale EFZ\n\nLo imparerai con noi\n\n• Cura, cura e accompagnamento degli ospiti in situazioni quotidiane ed esigenti\n\n• Supporto per la cura personale, in piedi, vestire e togliere, mangiare e bere\n\n• Tecniche mediche come la misurazione della pressione sanguigna, del polso e della temperatura, il campionamento del sangue, il cambio di vestimenti e molto altro\n\n• Accompagnamento giornaliero di ospiti con giochi, artigianato, canto, ecc.\n\n• Compiti nazionali, amministrativi e logistici\n\n• Compliance e attuazione delle regole di igiene e sicurezza\n\n• Documentazione di manutenzione elettronica\n\nLo porti con te.\n\n• Completato l'istruzione scolastica (scuola secondaria A o B) con buoni risultati accademici\n\n• Grande disponibilità ad imparare e un senso di responsabilità\n\n• Empatia e pazienza e interesse a trattare con i nostri ospiti\n\n• Aiutante, uscente e orientato al team, con un forte senso di cura e coscienza\n\n• La volontà di lavorare irregolarmente\n\n• Un atteggiamento di base caldo e umoristico\n\n• Godetevi sfide versatili e lavoro pratico\n\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n\nQuali vantaggi offriamo?\nSei altrettanto importante per noi come la tua educazione! Pertanto, vi offriamo i seguenti vantaggi:\n\n• Il tuo compleanno sei libero\n\n• CHF 500 per la vostra scuola obbligatoria\n\n• Abbonamento SBB gratuito a metà ax\n\n• Ogni pranzo per CHF 5\n\n• Abbonamenti mobili ridotti a Sunrise\n\n• Perks e offerte intorno al fitness, il tempo libero e il vostro benessere\n\n• Fino al 10% di sconto sulla vostra assicurazione malattia assicurazione integrativa\n\n• Eventi di squadra regolari\n\n• Mente. 2x al mese 90 minuti di tempo di apprendimento nella sala di apprendimento o workshop\n\n• E molto altro...\n\nSi inizia direttamente con un'emozionante giornata introduttiva e in metà della vostra formazione vi invitiamo al nostro campo estivo per una settimana intera. Naturalmente, la vostra laurea deve essere adeguatamente celebrata, per questo organizziamo una cerimonia di laurea indimenticabile per tutti i laureati. E forse questo è solo l'inizio della tua carriera con noi! Offriamo numerose opportunità di lavorare all'interno della nostra azienda direttamente dopo la laurea.\n\nUlteriori vantaggi e approfondimenti possono essere trovati sul nostro sito web.\n\nBeh, interessato?\nUna volta che avremo i vostri documenti applicativi completi, saranno esaminati dal nostro team. Se il tuo dossier ci convince, non vediamo l'ora di incontrarti personalmente durante una prima conversazione. Poi si può immergere direttamente nel mondo di Tertianum in uno o più giorni di prova e ottenere una foto della vita quotidiana con noi.\n\nChe cosa ci serve per la vostra applicazione completa?\n\n• CVC\n\n• Certificati scolastici\n\n• Risultati del test di interlocking e, se disponibile, il multicheck\n\nQuesto insegnamento potrebbe essere qualcosa per te?\nQuindi fare clic su “Applica ora” e creare il tuo account personale per inviarci la tua applicazione completa.\n\nAttendiamo con ansia la vostra applicazione!\n\nAncora domande? Nessun problema, basta iscriversi: Regina Hak, responsabile dell'istruzione, al numero di telefono 031 388 66 20",
-        "en": "Ready for a FaGe apprenticeship? Get your EFZ through an education in nursing. With us, you start a varied and meaningful apprenticeship with a future, because as a specialist / health professional, you can expect a supportive working environment from day one, in which you can also help people and are accompanied and supported by our experienced vocational trainers.\n\nFor the house Schönberg in Bern we are looking for you at 1. August 2027 for the\n\nApprenticeship as a specialist / health professional EFZ\n\nYou will learn this with us\n\n• Care, care and accompaniment of guests in everyday and demanding situations\n\n• Support for personal care, standing up, dressing and taking off, eating and drinking\n\n• Medical techniques such as measuring blood pressure, pulse and temperature, blood sampling, changing dressings and much more\n\n• Daily accompaniment of guests with games, crafts, singing, etc.\n\n• Domestic, administrative and logistical tasks\n\n• Compliance and implementation of hygiene and safety rules\n\n• Electronic maintenance documentation\n\nYou bring that with you\n\n• Completed school education (secondary school A or B) with good academic achievements\n\n• Great willingness to learn and a sense of responsibility\n\n• Empathy and patience as well as interest in dealing with our guests\n\n• Helpful, outgoing and team-oriented, with a strong sense of care and conscientiousness\n\n• Willingness to work irregularly\n\n• A warm and humorous basic attitude\n\n• Enjoying versatile challenges and practical work\n\n• Good knowledge of German in words and writing\n\nWhat benefits do we offer you?\nYou are just as important to us as your education! Therefore, we offer you the following advantages:\n\n• On your birthday you get free\n\n• CHF 500 to your compulsory school supplies\n\n• Free SBB half-ax subscription\n\n• Each lunch for CHF 5\n\n• Reduced mobile subscriptions at Sunrise\n\n• Perks and offers around fitness, leisure and your wellbeing\n\n• Up to 10% discount on your health insurance supplementary insurance\n\n• Regular team events\n\n• Mind. 2x per month 90 minutes of learning time in the learning room or workshop\n\n• And much more...\n\nYou start directly with an exciting introductory day and in half of your training we invite you to our summer camp for a whole week. Of course, your training degree must be properly celebrated, for this we organize an unforgettable graduation ceremony for all graduates. And maybe this is just the beginning of your career with us! We offer numerous opportunities to work within our company directly after graduation.\n\nFurther benefits and insights can be found on our website.\n\nWell, interested?\nOnce we have your complete application documents, they will be reviewed by our team. If your dossier convinces us, we look forward to meeting you personally during a first conversation. Then you can dive directly into the Tertianum world on one or more trial days and get a picture of everyday life with us.\n\nWhat do we need for your full application?\n\n• CVC\n\n• School certificates\n\n• Results of the interlocking test and, if available, the multicheck\n\nCould this teaching be something for you?\nThen click on “Apply now” and create your personal account to send us your full application.\n\nWe look forward to your application!\n\nStill questions? No problem, just sign up: Regina Hak, education manager, on the phone number 031 388 66 20",
-        "de": "Du bist bereit für eine FaGe Lehrstelle? Hol dir dein EFZ über eine Ausbildung in der Pflege. Bei uns startest du eine abwechslungsreiche und sinnvolle Lehre mit Zukunft, denn als Fachfrau / Fachmann Gesundheit erwartet dich ab Tag eins ein unterstützendes Arbeitsumfeld, in dem du zugleich Menschen helfen kannst und durch unsere erfahrenen Berufsbildnerinnen und Berufsbildner begleitet und unterstützt wirst.\n\nFür das Haus Schönberg in Bern suchen wir dich per 1. August 2027 für die\n\nLehrstelle als Fachfrau / Fachmann Gesundheit EFZ\n\nDas lernst du bei uns\n\n• Pflege, Betreuung und Begleitung der Gäste in alltäglichen und anspruchsvollen Situationen\n\n• Unterstützung bei der Körperpflege, beim Aufstehen, An- und Ausziehen, Essen und Trinken\n\n• Medizinaltechnische Verrichtungen wie Blutdruck, Puls und Temperatur messen, Blutentnahme, Verbandswechsel und vieles mehr\n\n• Alltagsbegleitung der Gäste mit Spielen, Basteln, Singen, usw.\n\n• Hauswirtschaftliche, administrative und logistische Aufgaben\n\n• Einhaltung und Umsetzung der Hygiene- und Sicherheitsvorschriften\n\n• Elektronische Pflegedokumentation\n\nDas bringst du mit\n\n• Abgeschlossene Schulbildung (Sekundarschule A oder B) mit guten schulischen Leistungen\n\n• Grosse Lernbereitschaft und Verantwortungsbewusstsein\n\n• Einfühlungsvermögen und Geduld sowie Interesse am Umgang mit unseren Gästen\n\n• Hilfsbereit, kontaktfreudig und teamorientiert, mit einem starken Sinn für Sorgfalt und Gewissenhaftigkeit\n\n• Bereitschaft zu unregelmässigen Arbeitszeiten\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen und praktischen Arbeiten\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWelche Benefits bieten wir dir?\nDu bist uns genauso wichtig wie dir deine Ausbildung! Deshalb bieten wir dir folgende Vorteile:\n\n• An deinem Geburtstag bekommst du frei\n\n• CHF 500 an dein obligatorisches Schulmaterial\n\n• Gratis SBB-Halbtaxabonnement\n\n• Jedes Mittagessen für CHF 5\n\n• Vergünstigte Handy-Abos bei Sunrise\n\n• Vergünstigungen und Angebote rund um Fitness, Freizeit und dein Wellbeing\n\n• Bis zu 10 % Rabatt auf deine Krankenkassen-Zusatzversicherung\n\n• Regelmässige Teamanlässe\n\n• Mind. 2x pro Monat 90 Minuten Lernzeit im Lernraum oder der Lernwerkstatt\n\n• Und noch vieles mehr…\n\nDu startest direkt mit einem spannenden Einführungstag und in der Hälfte deiner Ausbildung laden wir dich eine ganze Woche lang zu unserem Summer Camp ein. Natürlich muss dein Ausbildungsabschluss gebührend gefeiert werden, dafür organisieren wir für alle Absolventinnen und Absolventen eine unvergessliche Abschlussfeier. Und vielleicht ist das dann auch erst der Anfang deiner Karriere bei uns! Wir bieten zahlreiche Möglichkeiten direkt nach Lehrabschluss innerhalb unseres Unternehmens zu arbeiten.\n\nWeitere Vorteile und Einblicke findest du auf unserer Website .\n\nNa, interessiert?\nSobald wir deine vollständigen Bewerbungsunterlagen haben, werden sie von unserem Team geprüft. Wenn dein Dossier uns überzeugt, freuen wir uns dich bei einem ersten Gespräch persönlich kennenzulernen. Danach darfst du schon direkt an einem oder mehreren Schnuppertagen in die Tertianum-Welt eintauchen und dir ein Bild zum Alltag bei uns machen.\n\nWas brauchen wir für deine vollständige Bewerbung?\n\n• Lebenslauf\n\n• Schulzeugnisse\n\n• Resultate des Stellwerktests und sofern vorhanden des Multichecks\n\nKönnte diese Lehre etwas für dich sein?\nDann klicke auf «Jetzt bewerben» und erstelle dein persönliches Konto, um uns deine vollständige Bewerbung zukommen zu lassen.\n\nWir freuen uns auf deine Bewerbung!\n\nNoch Fragen? Kein Problem, melde dich ganz einfach bei: Regina Hak, Bildungsverantwortliche, unter der Telefonnummer 031 388 66 20",
-        "fr": "Prêt pour un apprentissage FaGe ? Obtenez votre EFZ par une formation en soins infirmiers. Avec nous, vous commencez un apprentissage varié et significatif avec un avenir, car en tant que spécialiste / professionnel de la santé, vous pouvez vous attendre à un environnement de travail favorable dès le premier jour, dans lequel vous pouvez également aider les gens et sont accompagnés et soutenus par nos formateurs professionnels expérimentés.\n\nPour la maison Schönberg à Berne nous vous cherchons à 1. Août 2027 pour\n\nApprentissage en tant que spécialiste / professionnel de la santé EFZ\n\nTu apprendras ça avec nous.\n\n• Soins, soins et accompagnement des clients dans des situations quotidiennes et exigeantes\n\n• Soutien aux soins personnels, se lever, s'habiller et décoller, manger et boire\n\n• Techniques médicales telles que la mesure de la pression artérielle, du pouls et de la température, l'échantillonnage du sang, le changement des pansements et bien plus encore\n\n• Accompagnement quotidien des invités avec jeux, artisanat, chant, etc.\n\n• Tâches domestiques, administratives et logistiques\n\n• Respect et application des règles d'hygiène et de sécurité\n\n• Documentation électronique de maintenance\n\nApporte ça avec toi.\n\n• Études terminées (écoles secondaires A ou B) avec de bons résultats scolaires\n\n• Grande volonté d'apprendre et sens des responsabilités\n\n• Empathie et patience ainsi que l'intérêt pour traiter avec nos invités\n\n• Utile, sortante et axée sur l'équipe, avec un fort sens du soin et de la conscience\n\n• Volonté de travailler irrégulièrement\n\n• Une attitude de base chaleureuse et humoristique\n\n• Des défis polyvalents et un travail pratique\n\n• Bonne connaissance de l'allemand en mots et en écriture\n\nQuels avantages vous offrons-nous ?\nVous êtes tout aussi important pour nous que votre éducation ! Par conséquent, nous vous offrons les avantages suivants:\n\n• Pour ton anniversaire tu es libre\n\n• 500 CHF pour vos fournitures scolaires obligatoires\n\n• Abonnement gratuit à mi-axe CFF\n\n• Chaque déjeuner pour CHF 5\n\n• Réduction des abonnements mobiles à Sunrise\n\n• Avantages et offres autour du fitness, des loisirs et de votre bien-être\n\n• Jusqu'à 10% de réduction sur votre assurance maladie complémentaire\n\n• Manifestations régulières en équipe\n\n• Mind. 2x par mois 90 minutes de temps d'apprentissage dans la salle d'apprentissage ou l'atelier\n\n• Et bien plus encore...\n\nVous commencez directement par une journée d'initiation passionnante et dans la moitié de votre entraînement nous vous invitons à notre camp d'été pour une semaine entière. Bien sûr, votre diplôme de formation doit être correctement célébré, pour cela nous organisons une cérémonie de graduation inoubliable pour tous les diplômés. Et peut-être que ce n'est que le début de votre carrière avec nous ! Nous offrons de nombreuses possibilités de travailler au sein de notre entreprise directement après l'obtention du diplôme.\n\nD'autres avantages et idées peuvent être trouvés sur notre site Web.\n\nIntéressant ?\nUne fois que nous aurons vos documents de demande complets, ils seront examinés par notre équipe. Si votre dossier nous convainc, nous nous réjouissons de vous rencontrer personnellement lors d'une première conversation. Ensuite, vous pouvez plonger directement dans le monde Tertianum un ou plusieurs jours d'essai et obtenir une image de la vie quotidienne avec nous.\n\nDe quoi avons-nous besoin pour votre demande complète?\n\n• CVC\n\n• Certificats scolaires\n\n• Résultats de l'essai de verrouillage et, le cas échéant, du multicontrôle\n\nCet enseignement pourrait-il être quelque chose pour vous ?\nEnsuite, cliquez sur \"Appliquer maintenant\" et créez votre compte personnel pour nous envoyer votre application complète.\n\nNous nous réjouissons de votre candidature!\n\nToujours des questions ? Pas de problème, il suffit de s'inscrire: Regina Hak, responsable de l'éducation, au numéro de téléphone 031 388 66 20"
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.tertianum.ch/job/Bern-Lehrstelle-als-Fachfrau-Fachmann-Gesundheit-EFZ-100-BE-3006/1434522433/",
-      "source": "Tertianum Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:34:41.884Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.tertianum.ch/talentcommunity/apply/8818/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-100-tertianum-bern"
-        ]
-      },
-      "firstSeenAt": "2026-09-07T15:20:10.738Z",
-      "salaryMin": 66000,
-      "salaryMax": 112000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 66000,
-          "maxValue": 112000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:34:41.884Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -18796,84 +18213,6 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:34:41.060Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "tertianum-6c41d9bd9155",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern-2",
-      "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern-2",
-        "en": "diploma-in-nursing-hf-fh-dnii-80-100-tertianum-bern",
-        "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern",
-        "fr": "diplome-e-en-soins-infirmiers-hf-fh-dnii-80-100-tertianum-bern"
-      },
-      "company": "Tertianum",
-      "companyKey": "tertianum",
-      "companyDomain": "tertianum.ch",
-      "title": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH/DNII  80-100%",
-      "titleByLocale": {
-        "it": "Dipl. Infermieristica professionale HF/FH/DNII 80-100 %",
-        "en": "Dipl. Nursing professional HF/FH/DNII 80-100 %",
-        "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH/DNII  80-100%",
-        "fr": "Dipl. Professionnels des soins infirmiers HF/FH/DNII 80-100 %"
-      },
-      "description": "Ihr Herz schlägt für ältere Menschen? Ist der Pflegeberuf Ihre Berufung? Sehen Sie Möglichkeiten, Ihre Fähigkeiten und Erfahrungen sinnstiftend bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kundinnen und Kunden zu haben? Dann passen Sie perfekt zu uns!\n\nFür das Haus Tertianum Schönberg in Bern suchen wir per sofort oder nach Vereinbarung eine/einen\n\nDipl. Pflegefachfrau / Pflegefachmann HF/FH/DNII  80-100%\n\nIhre Aufgaben\n\n• Ganzheitliche Betreuung und Pflege der Gäste im Sinne unseres Pflegeleitbildes und des Pflegeprozesses\n\n• Übernahme von Aufgaben als Bezugsperson Pflege\n\n• Verantwortung und Steuerung des Pflegeprozesses der zugeteilten Gäste inkl. der Pflegebedarfseinstufung RAI\n\n• Elektronische Pflegedokumentation mittels CareCoach\n\n• Planung und Begleitung von Arztvisiten\n\n• Übernahme von der Tagesverantwortung mit Koordination des Tagesteams\n\n• Leitung von Fallbesprechungen und Pflegerapporten\n\n• Übernahme von Aufgaben als Thementrägerin/Thementräger in einem Fachthema und damit Mitwirkung im gruppenweiten Netzwerk zur Pflegequalität\n\nIhr Profil\n\n• Abgeschlossene Ausbildung zur/zum Dipl. Pflegefachfrau/Pflegefachmann HF/FH/DNII oder eine gleichwertige, durch das SRK anerkannte Ausbildung\n\n• Berufserfahrung in der Langzeitpflege von Vorteil\n\n• RAI-Kenntnisse erwünscht oder Bereitschaft, diese Kurse zu besuchen (wird bezahlt)\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWarum Tertianum?\nUns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• Tägliches Mittagessen für CHF 10\n\n• Vergünstigte Mobile- und Internet-Abos bei Sunrise\n\n• Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen\n\n• SBB-Halbtaxabonnement\n\n• Diverse Flottenrabatte\n\nWeitere Benefits finden Sie auf unserer Website .\n\nSind Sie interessiert?\nWir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto.",
-      "descriptionByLocale": {
-        "it": "Il tuo cuore batte per le persone anziane? La professione di infermieristica ti chiama? Vedete le opportunità di contribuire le vostre competenze e esperienza a noi in modo significativo per avere un impatto positivo sulla vita dei nostri clienti? Allora si adatta perfettamente a noi!\n\nPer la casa Tertianum Schönberg a Berna stiamo cercando un\n\nDipl. Infermieristica professionale HF/FH/DNII 80-100 %\n\nI loro compiti\n\n• Cura olistica e cura degli ospiti nel senso della nostra missione di cura e il processo di cura\n\n• Assunzione dei compiti come caregiver\n\n• Responsabilità e controllo del processo di cura degli ospiti assegnati, comprese le esigenze di assistenza classificazione RAI\n\n• Documentazione di assistenza elettronica tramite CareCoach\n\n• Pianificazione e supporto delle visite mediche\n\n• Assunzione di responsabilità quotidiana con coordinamento del team diurno\n\n• Gestione delle riunioni di caso e dei rapporti di allattamento\n\n• Assumere i compiti come vettore di argomento in un argomento specializzato e quindi partecipare alla rete di gruppo sulla qualità della cura\n\nIl tuo profilo\n\n• Formazione completa per/per dipl. Infermiera HF/FH/DNII o formazione equivalente riconosciuta dal CCR\n\n• Esperienza professionale nella cura a lungo termine è benefica\n\n• Conoscenza RAI desiderata o disponibilità a frequentare questi corsi (a pagamento)\n\n• Un atteggiamento di base caldo e umoristico\n\n• Godere di più sfide\n\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n\nPerché Tertianum?\nÈ importante per noi che i nostri dipendenti possano conciliare bene il lavoro e la vita privata. Questo include una vasta gamma di diversi vantaggi, come:\n\n• Opportunità di formazione interna ed esterna\n\n• Ulteriore giorno libero nel mese di compleanno\n\n• Pranzo giornaliero di CHF 10\n\n• Abbonamenti Mobile e Internet ridotti a Sunrise\n\n• Sconti su assicurazione malattia selezionata assicurazione integrativa\n\n• Abbonamento FFS a metà ax\n\n• Vari sconti della flotta\n\nUlteriori vantaggi possono essere trovati sul nostro sito web.\n\nSei interessato?\nVi offriamo una prospettiva emozionante: con noi, è possibile utilizzare le vostre competenze e competenze in un team motivato e flessibile. Si prendono la responsabilità e aiutano a plasmare il futuro di Tertianum. Applicare ora e diventare parte della nostra squadra.\n\nAttendiamo con ansia la vostra applicazione online completa tramite il nostro strumento di applicazione. Clicca su “Applica ora” e crea il tuo account personale.",
-        "en": "Your heart beats for older people? Is the nursing profession your calling? Do you see opportunities to contribute your skills and experience to us in a meaningful way in order to have a positive impact on the lives of our customers? Then you fit perfectly with us!\n\nFor the house Tertianum Schönberg in Bern we are looking for an\n\nDipl. Nursing professional HF/FH/DNII 80-100 %\n\nTheir tasks\n\n• Holistic care and care of the guests in the sense of our care mission statement and the care process\n\n• Assumption of tasks as a caregiver\n\n• Responsibility and control of the care process of the assigned guests including the care needs classification RAI\n\n• Electronic care documentation through CareCoach\n\n• Planning and support of medical visits\n\n• Assumption of daily responsibility with coordination of the day team\n\n• Management of case meetings and nursing reports\n\n• Assuming tasks as a topic carrier in a specialist topic and thus participating in the group-wide network on care quality\n\nYour profile\n\n• Completed training for/for dipl. Nurse HF/FH/DNII or equivalent training recognised by the SRC\n\n• Professional experience in long-term care is beneficial\n\n• RAI knowledge desired or willingness to attend these courses (paid)\n\n• A warm and humorous basic attitude\n\n• Enjoying multiple challenges\n\n• Good knowledge of German in words and writing\n\nWhy Tertianum?\nIt is important to us that our employees can reconcile work and private life well. This includes a diverse range of different benefits, such as:\n\n• Internal and external training opportunities\n\n• Additional free day in the birthday month\n\n• Daily lunch for CHF 10\n\n• Reduced Mobile and Internet Subscriptions at Sunrise\n\n• Discounts on selected health insurance supplementary insurance\n\n• SBB half-ax subscription\n\n• Miscellaneous fleet rebates\n\nFurther benefits can be found on our website.\n\nAre you interested?\nWe offer you an exciting perspective: With us, you can use your skills and expertise in a motivated and flexible team. They take responsibility and help shape the future of Tertianum. Apply now and become part of our team.\n\nWe look forward to your complete online application via our application tool. Click on “Apply now” and create your personal account.",
-        "de": "Ihr Herz schlägt für ältere Menschen? Ist der Pflegeberuf Ihre Berufung? Sehen Sie Möglichkeiten, Ihre Fähigkeiten und Erfahrungen sinnstiftend bei uns einzubringen, um einen positiven Einfluss auf das Leben unserer Kundinnen und Kunden zu haben? Dann passen Sie perfekt zu uns!\n\nFür das Haus Tertianum Schönberg in Bern suchen wir per sofort oder nach Vereinbarung eine/einen\n\nDipl. Pflegefachfrau / Pflegefachmann HF/FH/DNII 80-100%\n\nIhre Aufgaben\n\n• Ganzheitliche Betreuung und Pflege der Gäste im Sinne unseres Pflegeleitbildes und des Pflegeprozesses\n\n• Übernahme von Aufgaben als Bezugsperson Pflege\n\n• Verantwortung und Steuerung des Pflegeprozesses der zugeteilten Gäste inkl. der Pflegebedarfseinstufung RAI\n\n• Elektronische Pflegedokumentation mittels CareCoach\n\n• Planung und Begleitung von Arztvisiten\n\n• Übernahme von der Tagesverantwortung mit Koordination des Tagesteams\n\n• Leitung von Fallbesprechungen und Pflegerapporten\n\n• Übernahme von Aufgaben als Thementrägerin/Thementräger in einem Fachthema und damit Mitwirkung im gruppenweiten Netzwerk zur Pflegequalität\n\nIhr Profil\n\n• Abgeschlossene Ausbildung zur/zum Dipl. Pflegefachfrau/Pflegefachmann HF/FH/DNII oder eine gleichwertige, durch das SRK anerkannte Ausbildung\n\n• Berufserfahrung in der Langzeitpflege von Vorteil\n\n• RAI-Kenntnisse erwünscht oder Bereitschaft, diese Kurse zu besuchen (wird bezahlt)\n\n• Eine herzliche und humorvolle Grundeinstellung\n\n• Freude an vielseitigen Herausforderungen\n\n• Gute Deutschkenntnisse in Wort und Schrift\n\nWarum Tertianum?\nUns ist wichtig, dass unsere Mitarbeitenden Beruf und Privatleben gut miteinander vereinbaren können. Dazu gehört ein vielfältiges Angebot an unterschiedlichen Benefits, z.B.:\n\n• Interne und externe Weiterbildungsmöglichkeiten\n\n• Zusätzlicher freier Tag im Geburtstagsmonat\n\n• Tägliches Mittagessen für CHF 10\n\n• Vergünstigte Mobile- und Internet-Abos bei Sunrise\n\n• Rabatte auf ausgewählte Krankenkassen-Zusatzversicherungen\n\n• SBB-Halbtaxabonnement\n\n• Diverse Flottenrabatte\n\nWeitere Benefits finden Sie auf unserer Website .\n\nSind Sie interessiert?\nWir bieten Ihnen eine spannende Perspektive: Bei uns können Sie Ihre Fähigkeiten und Ihr Fachwissen in einem motivierten und flexiblen Team einsetzen. Sie übernehmen Verantwortung und helfen mit, die Zukunft von Tertianum zu gestalten. Bewerben Sie sich jetzt und werden Sie Teil unseres Teams.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung über unser Bewerbungs-Tool. Klicken Sie auf «Jetzt bewerben» und erstellen Sie Ihr persönliches Konto.",
-        "fr": "Votre coeur bat pour les personnes âgées ? La profession d'infirmière est à vous ? Voyez-vous des occasions de nous apporter vos compétences et votre expérience de manière significative afin d'avoir un impact positif sur la vie de nos clients? Alors vous vous mariez parfaitement avec nous !\n\nPour la maison Tertianum Schönberg à Berne, nous recherchons un\n\nDipl. Professionnels des soins infirmiers HF/FH/DNII 80-100 %\n\nLeurs tâches\n\n• Soins holistiques et soins des invités dans le sens de notre énoncé de mission de soins et le processus de soins\n\n• Assomption des tâches de soignant\n\n• Responsabilité et contrôle du processus de soins des invités assignés, y compris la classification des besoins de soins RAI\n\n• Documentation électronique sur les soins par CareCoach\n\n• Planification et soutien des visites médicales\n\n• Assomption de la responsabilité quotidienne avec la coordination de l'équipe de jour\n\n• Gestion des réunions de cas et des rapports sur les soins infirmiers\n\n• En assumant les tâches en tant que sujet porteur dans un sujet spécialisé et participant ainsi au réseau à l'échelle du groupe sur la qualité des soins\n\nVotre profil\n\n• Formation complète pour/pour dipl. Infirmière HF/FH/DNII ou formation équivalente reconnue par le SRC\n\n• L'expérience professionnelle en soins de longue durée est bénéfique\n\n• Connaissances RAI souhaitées ou volonté d'assister à ces cours (payés)\n\n• Une attitude de base chaleureuse et humoristique\n\n• Des défis multiples\n\n• Bonne connaissance de l'allemand en mots et en écriture\n\nPourquoi Tertianum ?\nIl est important pour nous que nos employés puissent bien concilier le travail et la vie privée. Cela comprend une gamme variée d'avantages, tels que:\n\n• Possibilités de formation internes et externes\n\n• Jour gratuit supplémentaire dans le mois d'anniversaire\n\n• Déjeuner quotidien pour CHF 10\n\n• Réduction des abonnements mobiles et Internet à Sunrise\n\n• Réductions sur certaines assurances complémentaires\n\n• Abonnement demi-axe CFF\n\n• Remises diverses sur la flotte\n\nD'autres avantages peuvent être trouvés sur notre site Web.\n\nÇa t'intéresse ?\nNous vous offrons une perspective passionnante: Avec nous, vous pouvez utiliser vos compétences et votre expertise dans une équipe motivée et flexible. Ils prennent la responsabilité et aident à façonner l'avenir de Tertianum. Postulez maintenant et faites partie de notre équipe.\n\nNous attendons avec impatience votre candidature complète en ligne via notre outil d'application. Cliquez sur \"Appliquer maintenant\" et créer votre compte personnel."
-      },
-      "needsRetranslation": false,
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.tertianum.ch/job/Bern-Dipl_-Pflegefachfrau-Pflegefachmann-HFFHDNII-%C2%A080-100-BE-3006/1366258433/",
-      "source": "Tertianum Dedicated Parser (SuccessFactors CSB)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:34:40.318Z",
-      "addressLocality": "Bern",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3004",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://jobs.tertianum.ch/talentcommunity/apply/8296/?locale=de_DE",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-80-100-tertianum-bern"
-        ]
-      },
-      "firstSeenAt": "2026-05-19T12:23:03.973Z",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85000,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Bern",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:34:40.318Z",
       "validThroughSource": "last-observed-window"
     },
     {
