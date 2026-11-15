@@ -1712,6 +1712,7 @@ jobs:
           ref: ${{ github.ref }}
           fetch-depth: 0
           filter: tree:0
+          # checkout profile: intentionally full
           # No sparse-checkout is intentional: the required related-test
           # verdict must be produced from the complete event tree, including
           # generated data, public assets and the article corpus. `tree:0`
