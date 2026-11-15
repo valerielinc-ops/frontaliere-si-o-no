@@ -141,6 +141,27 @@ describe('prospector source-crawler adapters', () => {
       });
     }
 
+    const filteredObserved: any[] = [];
+    Object.defineProperties(filteredObserved, {
+      fetchOutcome: { value: 'filtered_empty', enumerable: false },
+      discoveredCount: { value: 4, enumerable: false },
+      sourceBodyFloorFilteredCount: { value: 4, enumerable: false },
+      detailDrop: {
+        value: { candidates: 4, gone: 0, rejected: 0, dropped: 0 },
+        enumerable: false,
+      },
+    });
+    expect(sourceAdapterRuntimeObservationFor(filteredObserved)).toMatchObject({
+      fetchOutcome: 'filtered_empty',
+      listingCount: 4,
+      publishableCount: 0,
+      runtimeOutputCount: 0,
+      snapshotAccepted: true,
+      complete: true,
+      promotionObservationComplete: true,
+      failure: null,
+    });
+
     const provenEmpty: any[] = [];
     Object.defineProperty(provenEmpty, 'authoritativeSnapshotProof', {
       value: {

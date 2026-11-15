@@ -3242,6 +3242,8 @@ export async function runSpecInProduction(spec, runtime = {}) {
     const expectedTenantFilters = detailTenantMatches > 0 ? detailTenantMismatches : 0;
     const unmatchedTenantFailures = detailTenantMatches > 0 ? 0 : detailTenantMismatches;
     const publishedRows = enriched.filter(Boolean);
+    const sourceBodyFloorRows = publishedRows.filter((row) => meetsSourceBodyFloor(row.description));
+    const sourceBodyFloorFilteredCount = publishedRows.length - sourceBodyFloorRows.length;
     const configuredMinimumPublished = Number(spec.detailNotFoundMinimumPublished);
     const minimumPublishedForNotFoundFilter = Number.isInteger(configuredMinimumPublished)
       && configuredMinimumPublished > 0
@@ -3294,8 +3296,8 @@ export async function runSpecInProduction(spec, runtime = {}) {
     const sourceBodyFloorFilteredEmpty = snapshotAccepted
       && rows.length > 0
       && publishedRows.length === rows.length
-      && publishedRows.every((row) => !meetsSourceBodyFloor(row.description));
-    const outputRows = sourceBodyFloorFilteredEmpty ? [] : publishedRows;
+      && sourceBodyFloorRows.length === 0;
+    const outputRows = sourceBodyFloorRows;
     const allUnexpectedDropsNoOutput = rows.length > 0
       && publishedRows.length === 0
       && detailDrop.dropped > 0;
@@ -3307,7 +3309,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
       source_backed_geography_missing: geographyDrops,
       publishable_description_missing: descriptionDrops,
       generic_or_missing_title: titleDrops,
-      ...(sourceBodyFloorFilteredEmpty ? { source_body_floor: rows.length } : {}),
+      ...(sourceBodyFloorFilteredCount ? { source_body_floor: sourceBodyFloorFilteredCount } : {}),
       ...(listingOutcome.failed
         ? { [listingOutcome.unknown ? 'unknown_fetch_outcome' : `fetch_outcome_${listingOutcome.outcome}`]: 1 }
         : {}),
@@ -3325,7 +3327,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
       promotionObservationComplete: complete,
       qualityDropDenominator: detailDrop.candidates,
       fetchOutcome: sourceBodyFloorFilteredEmpty ? 'filtered_empty' : listingOutcome.outcome,
-      sourceBodyFloorFilteredCount: sourceBodyFloorFilteredEmpty ? rows.length : 0,
+      sourceBodyFloorFilteredCount,
       expectedFilterCount: expectedGeographyFilters + expectedTenantFilters + expectedNotFoundFilters,
       expectedFilters: {
         source_geography: expectedGeographyFilters,
@@ -3393,12 +3395,8 @@ export async function runSpecInProduction(spec, runtime = {}) {
       fetchReceipt: completedReceipt,
       detailDrop,
       discoveredCount: rows.length,
-      ...(sourceBodyFloorFilteredEmpty
-        ? {
-          fetchOutcome: 'filtered_empty',
-          sourceBodyFloorFilteredCount: rows.length,
-        }
-        : {}),
+      ...(sourceBodyFloorFilteredEmpty ? { fetchOutcome: 'filtered_empty' } : {}),
+      sourceBodyFloorFilteredCount,
       expectedFilterCount: observation.expectedFilterCount,
       expectedFilters: observation.expectedFilters,
       ...(detailPagesByUrl ? { observedDetailsByUrl: detailPagesByUrl } : {}),

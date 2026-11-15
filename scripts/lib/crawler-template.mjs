@@ -152,6 +152,7 @@ import {
   CRAWLER_ABORT_KINDS,
   CRAWLER_FETCH_OUTCOMES,
   fetchOutcomeAllowsStampedEmpty,
+  isSuccessfulFilteredEmptyOutcome,
 } from './crawler-fetch-outcome.mjs';
 import { isAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { normalizeDetailDrop, detailDropSummaryFields } from './crawler-detail-drop.mjs';
@@ -1116,9 +1117,11 @@ export async function runStandardCrawlerPipeline(config) {
   const filteredEmptySnapshot = Array.isArray(parsedJobs)
     && parsedJobs.length === 0
     && !authoritativeEmptySnapshot
-    && reportedFetchOutcome === 'filtered_empty'
-    && Number.isFinite(counts.discovered)
-    && counts.discovered > 0;
+    && isSuccessfulFilteredEmptyOutcome(
+      reportedFetchOutcome,
+      counts.discovered,
+      parsedJobs.length,
+    );
   if (filteredEmptySnapshot) {
     const durationMs = getCrawlerElapsedMs();
     console.log(

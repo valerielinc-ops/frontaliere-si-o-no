@@ -31,17 +31,20 @@ function fixtureSpec({
   genericListingTitleIndex = -1,
   allLocationsSwiss = false,
   detailDescription = DESCRIPTION,
+  detailDescriptions,
 }: {
   firstTwoLocations?: 'missing' | 'foreign';
   populationCount?: number;
   genericListingTitleIndex?: number;
   allLocationsSwiss?: boolean;
   detailDescription?: string;
+  detailDescriptions?: string[];
 } = {}) {
   const seed = 'https://employer.example/careers/';
   const urls = Array.from({ length: populationCount }, (_, index) => `https://employer.example/jobs/${index + 1}`);
   const listing = urls.map((url, index) => `<a href="${url}">${index === genericListingTitleIndex ? 'Jobs' : `Platform Engineer ${index + 1}`}</a>`).join('\n');
   const detailBodies = new Map(urls.map((url, index) => {
+    const description = detailDescriptions?.[index] ?? detailDescription;
     const jobLocation = index < 2 && !allLocationsSwiss
       ? (firstTwoLocations === 'foreign'
         ? { address: { addressLocality: 'Vaduz', addressCountry: 'LI' } }
@@ -50,12 +53,12 @@ function fixtureSpec({
     const posting = {
       '@type': 'JobPosting',
       title: 'Header',
-      description: detailDescription,
+      description,
       ...(jobLocation ? { jobLocation } : {}),
     };
     return [url, `<html><head><title>Header</title></head><body><h1>Header</h1>
       <script type="application/ld+json">${JSON.stringify(posting)}</script>
-      <main><p>Platform Engineer ${index + 1}</p><p>${detailDescription}</p></main></body></html>`];
+      <main><p>Platform Engineer ${index + 1}</p><p>${description}</p></main></body></html>`];
   }));
   const fetchImpl = async (input: string | URL | Request) => {
     const url = String(input);
@@ -393,6 +396,38 @@ describe('Prospector production validation', () => {
         },
       });
       expect(graded.contentful).toBe(false);
+    } finally {
+      clearPoliteFetchStateForTests();
+    }
+  });
+
+  it('filters thin rows from a fully observed mixed source before publication', async () => {
+    const { spec, runtime } = fixtureSpec({
+      populationCount: 2,
+      allLocationsSwiss: true,
+      detailDescriptions: [DESCRIPTION, SHORT_SOURCE_DESCRIPTION],
+    });
+    clearPoliteFetchStateForTests();
+    try {
+      const observed = await observeSpecInProduction(spec, runtime);
+
+      expect(observed.vacancies).toHaveLength(1);
+      expect(observed.vacancies[0].url).toBe('https://employer.example/jobs/1');
+      expect(observed.vacancies).toMatchObject({
+        discoveredCount: 2,
+        sourceBodyFloorFilteredCount: 1,
+      });
+      expect(observed.observation).toMatchObject({
+        listingCount: 2,
+        publishableCount: 1,
+        runtimeOutputCount: 1,
+        snapshotAccepted: true,
+        promotionObservationComplete: true,
+        complete: true,
+        sourceBodyFloorFilteredCount: 1,
+        dropCounts: { source_body_floor: 1 },
+        detailDrop: { candidates: 2, gone: 0, rejected: 0, dropped: 0 },
+      });
     } finally {
       clearPoliteFetchStateForTests();
     }
