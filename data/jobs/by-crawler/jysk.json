@@ -1,7 +1,7 @@
 {
   "crawlerKey": "jysk",
-  "assembledAt": "2026-11-15T03:07:09.193Z",
-  "runId": "43669857021",
+  "assembledAt": "2026-11-15T09:25:24.352Z",
+  "runId": "43698123537",
   "jobs": [
     {
       "id": "company-fj8btr",
@@ -24,7 +24,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-09-11T13:37:28.541Z",
       "slugByLocale": {
         "it": "branch-manager-a-100-nel-ramo-langenthal-jysk-langenthal",
@@ -48,7 +48,7 @@
       "sourceLang": "de",
       "salaryMin": 68500,
       "salaryMax": 104000,
-      "salarySource": "estimated",
+      "salarySource": "reported",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -65,7 +65,7 @@
       "addressRegion": "BE",
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T03:06:57.552Z",
+      "validThrough": "2027-02-12T09:25:04.036Z",
       "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
@@ -78,7 +78,7 @@
     },
     {
       "id": "company-idqq9i",
-      "slug": "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon-idqq9i",
+      "slug": "addetto-a-alle-vendite-60-80-nella-filiale-di-wetzikon-jysk-wetzikon",
       "company": "JYSK",
       "title": "Verkäufer/in 60-80 % in der Filiale Wetzikon",
       "location": "Wetzikon",
@@ -97,7 +97,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "titleByLocale": {
         "de": "Verkäufer/in 60-80 % in der Filiale Wetzikon",
@@ -112,20 +112,28 @@
         "fr": "Êtes-vous passionné par la vente et voulez-vous offrir le meilleur service à la clientèle avec votre équipe? Alors vous pourriez être le vendeur que nous recherchons !\nCe que nous vous offrons\n\nVous aurez la chance de rejoindre une entreprise de détail qui veut être le premier choix de candidats en tant qu'employeur. En tant qu'ambassadeur JYSK, vous bénéficiez des avantages suivants :\n\n- Possibilités de développement grâce à une excellente formation et à un excellent encadrement\n\n- Concours internes entre les branches avec des prix attractifs tels que des montants d'argent ou des bons\n\n- Prime de vente supérieure à la moyenne pour toute l'équipe\n\n- 20% de réduction chez JYSK et d'autres sociétés du groupe Lars Larsen\n\n- Les principaux services des fonds de pension\n\n- 5 semaines de vacances, ce qui augmente tous les 5 ans de service\n\n- D'autres avantages comme une assurance accident supérieure à la moyenne, diverses activités (anniversaire, événements d'équipe) et de grands cadeaux d'anniversaire\nPourquoi il va aller dans votre prochain travail\n\n- Vous êtes responsable de la vente dans le magasin et offrez à nos clients un service haut de gamme\n\n- Vous assurez-vous que le magasin est propre et bien rempli avec nos produits\n\n- Vous aidez à recevoir et stocker les marchandises\n\n- Vous assumez la responsabilité de votre propre zone (p. ex. matelas, meubles) et vous la gérez de façon indépendante.\nApprenez à connaître une de nos vendeuses ici et découvrez comment nous sommes en tant qu'employeur.\nCe que vous devriez apporter avec vous\n\n- Vous êtes sociable, prenez des initiatives et offrez à nos clients la meilleure expérience d'achat\n\n- Vous avez un enthousiasme contagieux et profitez de la conversation avec les clients\n\n- Vous avez une mentalité de joueur d'équipe\n\n- Vous vous sentez dans un environnement de travail dynamique en constante évolution\n\n- Vous aimez le travail physique, avez une mentalité pratique et l'exemple\n\n- Vous êtes flexible et prêt à travailler le samedi aussi\nDonnez-vous aujourd'hui."
       },
       "slugByLocale": {
-        "it": "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon-idqq9i",
-        "en": "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon-idqq9i",
+        "it": "addetto-a-alle-vendite-60-80-nella-filiale-di-wetzikon-jysk-wetzikon",
+        "en": "salesperson-60-80-at-the-wetzikon-branch-jysk-wetzikon-idqq9i",
         "de": "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon-idqq9i",
-        "fr": "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon-idqq9i"
+        "fr": "vendeur-vendeuse-60-80-dans-la-filiale-de-wetzikon-jysk-wetzikon-idqq9i"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon"
+          "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon",
+          "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon-idqq9i"
+        ],
+        "en": [
+          "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon-idqq9i"
+        ],
+        "fr": [
+          "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon-idqq9i"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon"
+        "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon",
+        "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon-idqq9i"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -146,12 +154,12 @@
       "addressRegion": "ZH",
       "streetAddress": "Wetzikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T03:06:57.552Z",
+      "validThrough": "2027-02-11T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-wk702w",
-      "slug": "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen-wk702w",
+      "slug": "addetto-a-alle-vendite-a-30-nella-filiale-di-schaffhausen-jysk-schaffhausen",
       "company": "JYSK",
       "title": "Verkäufer/in (a) 30% in der Filiale Schaffhausen",
       "location": "Schaffhausen",
@@ -170,7 +178,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "titleByLocale": {
         "de": "Verkäufer/in (a) 30% in der Filiale Schaffhausen",
@@ -185,20 +193,28 @@
         "fr": "Êtes-vous passionné par la vente et voulez-vous offrir le meilleur service à la clientèle avec votre équipe? Alors vous pourriez être le vendeur que nous recherchons !\nCe que nous vous offrons\n\nVous aurez la chance de rejoindre une entreprise de détail qui veut être le premier choix de candidats en tant qu'employeur. En tant qu'ambassadeur JYSK, vous bénéficiez des avantages suivants :\n\n- Possibilités de développement grâce à une excellente formation et à un excellent encadrement\n\n- Concours internes entre les branches avec des prix attractifs tels que des montants d'argent ou des bons\n\n- Prime de vente supérieure à la moyenne pour toute l'équipe\n\n- 20% de réduction chez JYSK et d'autres sociétés du groupe Lars Larsen\n\n- Les principaux services des fonds de pension\n\n- 5 semaines de vacances, ce qui augmente tous les 5 ans de service\n\n- D'autres avantages comme une assurance accident supérieure à la moyenne, diverses activités (anniversaire, événements d'équipe) et de grands cadeaux d'anniversaire\nPourquoi il va aller dans votre prochain travail\n\n- Vous êtes responsable de la vente dans le magasin et offrez à nos clients un service haut de gamme\n\n- Vous assurez-vous que le magasin est propre et bien rempli avec nos produits\n\n- Vous aidez à recevoir et stocker les marchandises\n\n- Vous assumez la responsabilité de votre propre zone (p. ex. matelas, meubles) et vous la gérez de façon indépendante.\nApprenez à connaître une de nos vendeuses ici et découvrez comment nous sommes en tant qu'employeur.\nCe que vous devriez apporter avec vous\n\n- Vous êtes sociable, prenez des initiatives et offrez à nos clients la meilleure expérience d'achat\n\n- Vous avez un enthousiasme contagieux et profitez de la conversation avec les clients\n\n- Vous avez une mentalité de joueur d'équipe\n\n- Vous vous sentez dans un environnement de travail dynamique en constante évolution\n\n- Vous aimez le travail physique, avez une mentalité pratique et l'exemple\n\n- Vous êtes flexible et prêt à travailler le samedi aussi\nDonnez-vous aujourd'hui."
       },
       "slugByLocale": {
-        "it": "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen-wk702w",
-        "en": "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen-wk702w",
+        "it": "addetto-a-alle-vendite-a-30-nella-filiale-di-schaffhausen-jysk-schaffhausen",
+        "en": "salesperson-a-30-at-the-schaffhausen-branch-jysk-schaffhausen-wk702w",
         "de": "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen-wk702w",
-        "fr": "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen-wk702w"
+        "fr": "vendeur-vendeuse-a-30-dans-la-filiale-de-schaffhausen-jysk-schaffhausen-wk702w"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen"
+          "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen",
+          "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen-wk702w"
+        ],
+        "en": [
+          "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen-wk702w"
+        ],
+        "fr": [
+          "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen-wk702w"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen"
+        "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen",
+        "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen-wk702w"
       ],
       "salaryMin": 17300,
       "salaryMax": 26100,
@@ -219,12 +235,12 @@
       "addressRegion": "SH",
       "streetAddress": "Schaffhausen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T03:06:57.552Z",
+      "validThrough": "2027-02-10T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-8ursxu",
-      "slug": "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil-8ursxu",
+      "slug": "addetto-a-alle-vendite-a-80-nella-filiale-di-amriswil-jysk-amriswil",
       "company": "JYSK",
       "title": "Verkäufer/in (a) 80% in der Filiale Amriswil",
       "location": "Amriswil",
@@ -243,7 +259,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "titleByLocale": {
         "de": "Verkäufer/in (a) 80% in der Filiale Amriswil",
@@ -258,20 +274,28 @@
         "fr": "Êtes-vous passionné par la vente et voulez-vous offrir le meilleur service à la clientèle avec votre équipe? Alors vous pourriez être le vendeur que nous recherchons !\nCe que nous vous offrons\n\nVous aurez la chance de rejoindre une entreprise de détail qui veut être le premier choix de candidats en tant qu'employeur. En tant qu'ambassadeur JYSK, vous bénéficiez des avantages suivants :\n\n- Possibilités de développement grâce à une excellente formation et à un excellent encadrement\n\n- Concours internes entre les branches avec des prix attractifs tels que des montants d'argent ou des bons\n\n- Prime de vente supérieure à la moyenne pour toute l'équipe\n\n- 20% de réduction chez JYSK et d'autres sociétés du groupe Lars Larsen\n\n- Les principaux services des fonds de pension\n\n- 5 semaines de vacances, ce qui augmente tous les 5 ans de service\n\n- D'autres avantages comme une assurance accident supérieure à la moyenne, diverses activités (anniversaire, événements d'équipe) et de grands cadeaux d'anniversaire\nPourquoi il va aller dans votre prochain travail\n\n- Vous êtes responsable de la vente dans le magasin et offrez à nos clients un service haut de gamme\n\n- Vous assurez-vous que le magasin est propre et bien rempli avec nos produits\n\n- Vous aidez à recevoir et stocker les marchandises\n\n- Vous assumez la responsabilité de votre propre zone (p. ex. matelas, meubles) et vous la gérez de façon indépendante.\nApprenez à connaître une de nos vendeuses ici et découvrez comment nous sommes en tant qu'employeur.\nCe que vous devriez apporter avec vous\n\n- Vous êtes sociable, prenez des initiatives et offrez à nos clients la meilleure expérience d'achat\n\n- Vous avez un enthousiasme contagieux et profitez de la conversation avec les clients\n\n- Vous avez une mentalité de joueur d'équipe\n\n- Vous vous sentez dans un environnement de travail dynamique en constante évolution\n\n- Vous aimez le travail physique, avez une mentalité pratique et l'exemple\n\n- Vous êtes flexible et prêt à travailler le samedi aussi\nDonnez-vous aujourd'hui."
       },
       "slugByLocale": {
-        "it": "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil-8ursxu",
-        "en": "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil-8ursxu",
+        "it": "addetto-a-alle-vendite-a-80-nella-filiale-di-amriswil-jysk-amriswil",
+        "en": "salesperson-a-80-at-the-amriswil-branch-jysk-amriswil-8ursxu",
         "de": "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil-8ursxu",
-        "fr": "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil-8ursxu"
+        "fr": "vendeur-euse-a-80-dans-la-filiale-d-amriswil-jysk-amriswil-8ursxu"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil"
+          "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil",
+          "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil-8ursxu"
+        ],
+        "en": [
+          "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil-8ursxu"
+        ],
+        "fr": [
+          "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil-8ursxu"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil"
+        "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil",
+        "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil-8ursxu"
       ],
       "salaryMin": 46000,
       "salaryMax": 69600,
@@ -292,12 +316,12 @@
       "addressRegion": "TG",
       "streetAddress": "Amriswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T03:06:57.552Z",
+      "validThrough": "2027-02-10T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-b5sjpz",
-      "slug": "verkaufer-in-40-60-in-der-filiale-schattdorf-jysk-schattdorf",
+      "slug": "addetto-a-alle-vendite-40-60-nella-filiale-di-schattdorf-jysk-schattdorf",
       "company": "JYSK",
       "title": "Verkäufer/in 40-60% in der Filiale Schattdorf",
       "location": "Schattdorf",
@@ -316,11 +340,11 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "slugByLocale": {
         "de": "verkaufer-in-a-40-60-in-der-filiale-schattdorf-jysk-schattdorf-b5sjpz",
-        "it": "verkaufer-in-40-60-in-der-filiale-schattdorf-jysk-schattdorf",
+        "it": "addetto-a-alle-vendite-40-60-nella-filiale-di-schattdorf-jysk-schattdorf",
         "en": "seller-a-40-60-in-the-schattdorf-branch-jysk-schattdorf",
         "fr": "vendeur-a-40-60-dans-la-succursale-de-schattdorf-jysk-schattdorf"
       },
@@ -340,11 +364,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "venditore-a-40-60-nel-ramo-schattdorf-jysk-schattdorf"
+          "venditore-a-40-60-nel-ramo-schattdorf-jysk-schattdorf",
+          "verkaufer-in-40-60-in-der-filiale-schattdorf-jysk-schattdorf"
+        ],
+        "en": [
+          "verkaufer-in-40-60-in-der-filiale-schattdorf-jysk-schattdorf"
+        ],
+        "fr": [
+          "verkaufer-in-40-60-in-der-filiale-schattdorf-jysk-schattdorf"
         ]
       },
       "previousSlugs": [
-        "venditore-a-40-60-nel-ramo-schattdorf-jysk-schattdorf"
+        "venditore-a-40-60-nel-ramo-schattdorf-jysk-schattdorf",
+        "verkaufer-in-40-60-in-der-filiale-schattdorf-jysk-schattdorf"
       ],
       "salaryMin": 41700,
       "salaryMax": 63600,
@@ -365,12 +397,12 @@
       "addressRegion": "UR",
       "streetAddress": "Schattdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T03:06:57.552Z",
+      "validThrough": "2027-02-10T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-6jvozq",
-      "slug": "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg-6jvozq",
+      "slug": "addetto-a-alle-vendite-a-20-40-presso-la-filiale-heimberg-jysk-heimberg",
       "company": "JYSK",
       "title": "Verkäufer/in (a) 20-40% in der Filiale Heimberg",
       "location": "Heimberg",
@@ -389,7 +421,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "titleByLocale": {
         "de": "Verkäufer/in (a) 20-40% in der Filiale Heimberg",
@@ -404,20 +436,28 @@
         "fr": "Êtes-vous passionné par la vente et voulez-vous offrir le meilleur service à la clientèle avec votre équipe? Alors vous pourriez être le vendeur que nous recherchons !\nCe que nous vous offrons\n\nVous aurez la chance de rejoindre une entreprise de détail qui veut être le premier choix de candidats en tant qu'employeur. En tant qu'ambassadeur JYSK, vous bénéficiez des avantages suivants :\n\n- Possibilités de développement grâce à une excellente formation et à un excellent encadrement\n\n- Concours internes entre les branches avec des prix attractifs tels que des montants d'argent ou des bons\n\n- Prime de vente supérieure à la moyenne pour toute l'équipe\n\n- 20% de réduction chez JYSK et d'autres sociétés du groupe Lars Larsen\n\n- Les principaux services des fonds de pension\n\n- 5 semaines de vacances, ce qui augmente tous les 5 ans de service\n\n- D'autres avantages comme une assurance accident supérieure à la moyenne, diverses activités (anniversaire, événements d'équipe) et de grands cadeaux d'anniversaire\nPourquoi il va aller dans votre prochain travail\n\n- Vous êtes responsable de la vente dans le magasin et offrez à nos clients un service haut de gamme\n\n- Vous assurez-vous que le magasin est propre et bien rempli avec nos produits\n\n- Vous aidez à recevoir et stocker les marchandises\n\n- Vous assumez la responsabilité de votre propre zone (p. ex. matelas, meubles) et vous la gérez de façon indépendante.\nApprenez à connaître une de nos vendeuses ici et découvrez comment nous sommes en tant qu'employeur.\nCe que vous devriez apporter avec vous\n\n- Vous êtes sociable, prenez des initiatives et offrez à nos clients la meilleure expérience d'achat\n\n- Vous avez un enthousiasme contagieux et profitez de la conversation avec les clients\n\n- Vous avez une mentalité de joueur d'équipe\n\n- Vous vous sentez dans un environnement de travail dynamique en constante évolution\n\n- Vous aimez le travail physique, avez une mentalité pratique et l'exemple\n\n- Vous êtes flexible et prêt à travailler le samedi aussi\nDonnez-vous aujourd'hui."
       },
       "slugByLocale": {
-        "it": "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg-6jvozq",
-        "en": "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg-6jvozq",
+        "it": "addetto-a-alle-vendite-a-20-40-presso-la-filiale-heimberg-jysk-heimberg",
+        "en": "sales-assistant-a-20-40-at-the-heimberg-branch-jysk-heimberg-6jvozq",
         "de": "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg-6jvozq",
-        "fr": "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg-6jvozq"
+        "fr": "vendeur-euse-a-20-40-dans-la-filiale-de-heimberg-jysk-heimberg-6jvozq"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg"
+          "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg",
+          "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg-6jvozq"
+        ],
+        "en": [
+          "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg-6jvozq"
+        ],
+        "fr": [
+          "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg-6jvozq"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg"
+        "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg",
+        "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg-6jvozq"
       ],
       "salaryMin": 27400,
       "salaryMax": 41600,
@@ -438,7 +478,7 @@
       "addressRegion": "BE",
       "streetAddress": "Heimberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T03:06:57.552Z",
+      "validThrough": "2027-02-09T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -462,7 +502,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-09-11T13:37:28.541Z",
       "slugByLocale": {
         "it": "gestione-del-ramo-aggiunto-a-80-100-nel-ramo-heimberg-jysk-heimberg",
@@ -503,12 +543,12 @@
       "addressRegion": "BE",
       "streetAddress": "Heimberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T03:06:57.552Z",
+      "validThrough": "2027-02-05T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-4kfz7n",
-      "slug": "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil-4kfz7n",
+      "slug": "gestione-del-ramo-aggiunto-80-100-nella-regione-di-zurigo-jysk-volketswil",
       "company": "JYSK",
       "title": "Stellvertretende Filialleitung 80-100% in der Region Zürich",
       "location": "Volketswil",
@@ -527,38 +567,44 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "titleByLocale": {
-        "de": "Stellvertretende Filialleitung 80-100% in der Region Zürich",
         "it": "Gestione del ramo aggiunto 80-100% nella regione di Zurigo",
         "en": "Deputy branch management 80-100% in the Zurich region",
+        "de": "Stellvertretende Filialleitung 80-100% in der Region Zürich",
         "fr": "Direction générale adjointe 80-100% dans la région de Zurich"
       },
       "descriptionByLocale": {
-        "de": "Bist du bereit, das Team mit der Filialleitung zu motivieren und zu coachen, um Top-Ergebnisse zu erzielen und unseren Kundinnen & Kunden ein einzigartiges Einkaufserlebnis zu bieten?💪\nDann könntest du die stellvertretende Filialleitung sein, die wir suchen! 🙋\nWAS WIR DIR BIETEN\n\nDu erhältst die Chance, einem Detailhandelsunternehmen beizutreten, das als Arbeitgeberin die erste Wahl der Kandidatinnen und Kandidaten sein möchte. Als JYSK-Botschafter/in bekommst du folgende Vorteile:\n\n- Entwicklungsmöglichkeiten durch exzellente Ausbildung und Mentoring\n\n- Interne Wettbewerbe zwischen den Filialen mit attraktiven Preisen wie Geldbeträge oder Gutscheine\n\n- Überdurchschnittlicher Umsatzbonus für das gesamte Team\n\n- 20% Rabatt bei JYSK und anderen Unternehmen der Lars Larsen Gruppe\n\n- Top Pensionskassenleistungen\n\n- 5 Wochen Ferien, welche sich alle 5 Dienstjahre erhöhen\n\n- Weitere Vorteile wie z.B. eine überdurchschnittliche Unfallzusatzversicherung, verschiedene Aktivitäten (Jahresfeier, Teamevents) und tolle Jubiläumsgeschenke\nWORUM ES IN DEINEM NÄCHSTEN JOB GEHEN WIRD\n\n- Zusammen mit der Filialleitung optimierst du die Filialabläufe für tolle Verkaufsergebnisse\n\n- Du stellst die wöchentlichen Kampagnen und eine positive Verkaufseinstellung der Mitarbeitenden sicher\n\n- Du führst und coachst dein Team auf der Verkaufsfläche\n\n- Du schulst dein Team im kundenorientierten Handeln und Zusatzverkäufe\n\n- In Zukunft siehst du dich als Filialleitung deiner eigenen Filiale und bringst Engagement mit, um dorthin zu gelangen\nTriff einen unserer stellvertretenden Filialleiter und erfahren hier mehr über den Job.\nWAS DU MITBRINGEN SOLLTEST\n\n- Erfahrung in Führung und Motivation eines Teams, vorzugsweise im Detailhandel oder der Hotellerie\n\n- Inspirierende, kommunikative Persönlichkeit mit Verkaufsorientierung\n\n- Du fühlst dich in einem dynamischen Arbeitsumfeld im ständigen Wandel bestens aufgehoben\n\n- Du magst körperliche Arbeit, hast eine Hands-On Mentalität und gehst mit gutem Beispiel voran\n\n- Du bist bereit die Mitverantwortung für deine Filiale und deren Ergebnisse zu übernehmen\n\n- Du hast die Fähigkeit, auch in stressigen Situationen ruhig und zielgerichtet zu bleiben\n\n- Du bist flexibel und bereit auch an Samstagen zu arbeiten\nBEWIRB DICH NOCH HEUTE!",
         "it": "Sei pronto a motivare e allenare il team con la gestione del negozio per ottenere i migliori risultati e fornire un'esperienza di shopping unica per i nostri clienti?\nPoi si potrebbe essere il vice-direttore di ramo che stiamo cercando!\nCosa ti offriamo\n\nAvrai la possibilità di aderire a una società di vendita al dettaglio che vuole essere la prima scelta di candidati come datore di lavoro. Come Ambasciatore JYSK ottieni i seguenti vantaggi:\n\n- Opportunità di sviluppo attraverso un'eccellente formazione e mentoring\n\n- Competizioni interne tra le filiali con prezzi attraenti come importi di denaro o buoni\n\n- Bonus di vendita superiore alla media per l'intero team\n\n- 20% di sconto su JYSK e altre società del Gruppo Lars Larsen\n\n- Servizi pensionistici\n\n- 5 settimane di vacanza, che aumenta ogni 5 anni di servizio\n\n- Ulteriori vantaggi come un'assicurazione infortuni sopra la media, varie attività (anniversario, eventi di squadra) e grandi regali di anniversario\nPerché andrà nel tuo prossimo lavoro\n\n- Insieme alla gestione del ramo si ottimizzano i processi di branch per grandi risultati di vendita\n\n- Assicurare le campagne settimanali e un atteggiamento di vendita positivo dei dipendenti\n\n- Guida e allena la tua squadra al piano di vendita\n\n- Allena il tuo team in azione orientata al cliente e vendite aggiuntive\n\n- In futuro, si vede come la gestione di ramo del proprio ramo e portare l'impegno per arrivarci.\nIncontra uno dei nostri vice manager e scopri di più sul lavoro qui.\nCosa dovresti portare con te\n\n- Esperienza nella leadership e motivazione di un team, preferibilmente nel settore retail o alberghiero\n\n- Personalità stimolante e comunicativa con orientamento alle vendite\n\n- Ti senti in un ambiente di lavoro dinamico in costante cambiamento\n\n- Ti piace il lavoro fisico, avere una mentalità hands-on e guidare per esempio\n\n- Sei pronto ad assumerti la responsabilità del tuo ramo e dei suoi risultati\n\n- Hai la capacità di rimanere calmo e mirato anche in situazioni stressanti\n\n- Sei flessibile e pronto a lavorare anche il sabato\nDatti da fare oggi.",
         "en": "Are you ready to motivate and coach the team with store management to achieve top results and provide a unique shopping experience for our customers? 💪\nThen you could be the deputy branch management we are looking for! 🙋\nWhat we offer you\n\nYou will get the chance to join a retail company that wants to be the first choice of candidates as an employer. As a JYSK Ambassador you get the following advantages:\n\n- Development opportunities through excellent training and mentoring\n\n- Internal competitions between the branches with attractive prices such as amounts of money or vouchers\n\n- Above-average sales bonus for the entire team\n\n- 20% discount at JYSK and other Lars Larsen Group companies\n\n- Top pension funds services\n\n- 5 weeks of vacation, which increases every 5 years of service\n\n- Further advantages such as an above-average accident insurance, various activities (anniversary, team events) and great anniversary gifts\nWhy It Will Go In Your Next Job\n\n- Together with the branch management you optimize the branch processes for great sales results\n\n- You ensure the weekly campaigns and a positive sales attitude of the employees\n\n- You lead and coach your team on the sales floor\n\n- You train your team in customer-oriented action and additional sales\n\n- In the future, you see yourself as the branch management of your own branch and bring commitment to get there.\nMeet one of our deputy branch managers and find out more about the job here.\nWhat you should bring with you\n\n- Experience in leadership and motivation of a team, preferably in the retail or hotel industry\n\n- Inspiring, communicative personality with sales orientation\n\n- You feel in a dynamic working environment in constant change\n\n- You like physical work, have a hands-on mentality and lead by example\n\n- You are ready to take responsibility for your branch and its results\n\n- You have the ability to stay calm and purposeful even in stressful situations\n\n- You are flexible and ready to work on Saturdays too\nGive yourself today.",
+        "de": "Bist du bereit, das Team mit der Filialleitung zu motivieren und zu coachen, um Top-Ergebnisse zu erzielen und unseren Kundinnen & Kunden ein einzigartiges Einkaufserlebnis zu bieten?💪\nDann könntest du die stellvertretende Filialleitung sein, die wir suchen! 🙋\nWAS WIR DIR BIETEN\n\nDu erhältst die Chance, einem Detailhandelsunternehmen beizutreten, das als Arbeitgeberin die erste Wahl der Kandidatinnen und Kandidaten sein möchte. Als JYSK-Botschafter/in bekommst du folgende Vorteile:\n\n- Entwicklungsmöglichkeiten durch exzellente Ausbildung und Mentoring\n\n- Interne Wettbewerbe zwischen den Filialen mit attraktiven Preisen wie Geldbeträge oder Gutscheine\n\n- Überdurchschnittlicher Umsatzbonus für das gesamte Team\n\n- 20% Rabatt bei JYSK und anderen Unternehmen der Lars Larsen Gruppe\n\n- Top Pensionskassenleistungen\n\n- 5 Wochen Ferien, welche sich alle 5 Dienstjahre erhöhen\n\n- Weitere Vorteile wie z.B. eine überdurchschnittliche Unfallzusatzversicherung, verschiedene Aktivitäten (Jahresfeier, Teamevents) und tolle Jubiläumsgeschenke\nWORUM ES IN DEINEM NÄCHSTEN JOB GEHEN WIRD\n\n- Zusammen mit der Filialleitung optimierst du die Filialabläufe für tolle Verkaufsergebnisse\n\n- Du stellst die wöchentlichen Kampagnen und eine positive Verkaufseinstellung der Mitarbeitenden sicher\n\n- Du führst und coachst dein Team auf der Verkaufsfläche\n\n- Du schulst dein Team im kundenorientierten Handeln und Zusatzverkäufe\n\n- In Zukunft siehst du dich als Filialleitung deiner eigenen Filiale und bringst Engagement mit, um dorthin zu gelangen\nTriff einen unserer stellvertretenden Filialleiter und erfahren hier mehr über den Job.\nWAS DU MITBRINGEN SOLLTEST\n\n- Erfahrung in Führung und Motivation eines Teams, vorzugsweise im Detailhandel oder der Hotellerie\n\n- Inspirierende, kommunikative Persönlichkeit mit Verkaufsorientierung\n\n- Du fühlst dich in einem dynamischen Arbeitsumfeld im ständigen Wandel bestens aufgehoben\n\n- Du magst körperliche Arbeit, hast eine Hands-On Mentalität und gehst mit gutem Beispiel voran\n\n- Du bist bereit die Mitverantwortung für deine Filiale und deren Ergebnisse zu übernehmen\n\n- Du hast die Fähigkeit, auch in stressigen Situationen ruhig und zielgerichtet zu bleiben\n\n- Du bist flexibel und bereit auch an Samstagen zu arbeiten\nBEWIRB DICH NOCH HEUTE!",
         "fr": "Êtes-vous prêt à motiver et coacher l'équipe avec la gestion des magasins pour obtenir des résultats supérieurs et fournir une expérience d'achat unique pour nos clients?\nAlors vous pourriez être la direction adjointe de la branche que nous recherchons !\nCe que nous vous offrons\n\nVous aurez la chance de rejoindre une entreprise de détail qui veut être le premier choix de candidats en tant qu'employeur. En tant qu'ambassadeur JYSK, vous bénéficiez des avantages suivants :\n\n- Possibilités de développement grâce à une excellente formation et à un excellent encadrement\n\n- Concours internes entre les branches avec des prix attractifs tels que des montants d'argent ou des bons\n\n- Prime de vente supérieure à la moyenne pour toute l'équipe\n\n- 20% de réduction chez JYSK et d'autres sociétés du groupe Lars Larsen\n\n- Les principaux services des fonds de pension\n\n- 5 semaines de vacances, ce qui augmente tous les 5 ans de service\n\n- D'autres avantages comme une assurance accident supérieure à la moyenne, diverses activités (anniversaire, événements d'équipe) et de grands cadeaux d'anniversaire\nPourquoi il va aller dans votre prochain travail\n\n- Avec la direction de la branche, vous optimisez les processus de la branche pour de grands résultats commerciaux\n\n- Vous assurez les campagnes hebdomadaires et une attitude de vente positive des employés\n\n- Vous dirigez et coachez votre équipe sur le plancher des ventes\n\n- Vous formez votre équipe à l'action orientée client et aux ventes supplémentaires\n\n- À l'avenir, vous vous voyez comme la direction de votre propre branche et vous vous engagez à y arriver.\nRencontrez l'un de nos sous-directeurs et découvrez le travail ici.\nCe que vous devriez apporter avec vous\n\n- Expérience en leadership et motivation d'une équipe, de préférence dans le commerce de détail ou l'hôtellerie\n\n- Inspirant, personnalité communicative avec orientation commerciale\n\n- Vous vous sentez dans un environnement de travail dynamique en constante évolution\n\n- Vous aimez le travail physique, avez une mentalité pratique et l'exemple\n\n- Vous êtes prêt à prendre la responsabilité de votre branche et de ses résultats\n\n- Vous avez la capacité de rester calme et objectif même dans des situations stressantes\n\n- Vous êtes flexible et prêt à travailler le samedi aussi\nDonnez-vous aujourd'hui."
       },
       "slugByLocale": {
-        "it": "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil-4kfz7n",
-        "en": "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil-4kfz7n",
+        "it": "gestione-del-ramo-aggiunto-80-100-nella-regione-di-zurigo-jysk-volketswil",
+        "en": "deputy-branch-management-80-100-in-the-zurich-region-jysk-volketswil-4kfz7n",
         "de": "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil-4kfz7n",
-        "fr": "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil-4kfz7n"
+        "fr": "direction-generale-adjointe-80-100-dans-la-region-de-zurich-jysk-volketswil-4kfz7n"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil"
+          "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil",
+          "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil-4kfz7n"
+        ],
+        "en": [
+          "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil-4kfz7n"
+        ],
+        "fr": [
+          "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil-4kfz7n"
         ]
       },
       "previousSlugs": [
-        "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil"
+        "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil",
+        "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil-4kfz7n"
       ],
-      "salaryMin": 73500,
-      "salaryMax": 111500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -576,12 +622,14 @@
       "addressRegion": "ZH",
       "streetAddress": "Volketswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T03:06:57.552Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-05T09:25:04.036Z",
+      "validThroughSource": "last-observed-window",
+      "salaryMin": 73500,
+      "salaryMax": 111500
     },
     {
       "id": "company-xh1mdh",
-      "slug": "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil-xh1mdh",
+      "slug": "addetto-a-alle-vendite-a-20-presso-la-filiale-hinwil-jysk-hinwil",
       "company": "JYSK",
       "title": "Verkäufer/in (a) 20% in der Filiale Hinwil",
       "location": "Hinwil",
@@ -600,7 +648,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "titleByLocale": {
         "de": "Verkäufer/in (a) 20% in der Filiale Hinwil",
@@ -615,20 +663,28 @@
         "fr": "Êtes-vous passionné par la vente et voulez-vous offrir le meilleur service à la clientèle avec votre équipe? Alors vous pourriez être le vendeur que nous recherchons !\nCe que nous vous offrons\n\nVous aurez la chance de rejoindre une entreprise de détail qui veut être le premier choix de candidats en tant qu'employeur. En tant qu'ambassadeur JYSK, vous bénéficiez des avantages suivants :\n\n- Possibilités de développement grâce à une excellente formation et à un excellent encadrement\n\n- Concours internes entre les branches avec des prix attractifs tels que des montants d'argent ou des bons\n\n- Prime de vente supérieure à la moyenne pour toute l'équipe\n\n- 20% de réduction chez JYSK et d'autres sociétés du groupe Lars Larsen\n\n- Les principaux services des fonds de pension\n\n- 5 semaines de vacances, ce qui augmente tous les 5 ans de service\n\n- D'autres avantages comme une assurance accident supérieure à la moyenne, diverses activités (anniversaire, événements d'équipe) et de grands cadeaux d'anniversaire\nPourquoi il va aller dans votre prochain travail\n\n- Vous êtes responsable de la vente dans le magasin et offrez à nos clients un service haut de gamme\n\n- Vous assurez-vous que le magasin est propre et bien rempli avec nos produits\n\n- Vous aidez à recevoir et stocker les marchandises\n\n- Vous assumez la responsabilité de votre propre zone (p. ex. matelas, meubles) et vous la gérez de façon indépendante.\nApprenez à connaître une de nos vendeuses ici et découvrez comment nous sommes en tant qu'employeur.\nCe que vous devriez apporter avec vous\n\n- Vous êtes sociable, prenez des initiatives et offrez à nos clients la meilleure expérience d'achat\n\n- Vous avez un enthousiasme contagieux et profitez de la conversation avec les clients\n\n- Vous avez une mentalité de joueur d'équipe\n\n- Vous vous sentez dans un environnement de travail dynamique en constante évolution\n\n- Vous aimez le travail physique, avez une mentalité pratique et l'exemple\n\n- Vous êtes flexible et prêt à travailler le samedi aussi\nDonnez-vous aujourd'hui."
       },
       "slugByLocale": {
-        "it": "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil-xh1mdh",
-        "en": "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil-xh1mdh",
+        "it": "addetto-a-alle-vendite-a-20-presso-la-filiale-hinwil-jysk-hinwil",
+        "en": "sales-assistant-a-20-at-the-hinwil-branch-jysk-hinwil-xh1mdh",
         "de": "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil-xh1mdh",
-        "fr": "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil-xh1mdh"
+        "fr": "vendeur-euse-a-20-dans-la-filiale-de-hinwil-jysk-hinwil-xh1mdh"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil"
+          "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil",
+          "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil-xh1mdh"
+        ],
+        "en": [
+          "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil-xh1mdh"
+        ],
+        "fr": [
+          "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil-xh1mdh"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil"
+        "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil",
+        "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil-xh1mdh"
       ],
       "salaryMin": 14700,
       "salaryMax": 22300,
@@ -649,12 +705,12 @@
       "addressRegion": "ZH",
       "streetAddress": "Hinwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T03:06:57.552Z",
+      "validThrough": "2027-02-04T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-zdus1y",
-      "slug": "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg-zdus1y",
+      "slug": "addetto-a-alle-vendite-a-40-60-presso-la-filiale-heimberg-jysk-heimberg",
       "company": "JYSK",
       "title": "Verkäufer/in (a) 40-60% in der Filiale Heimberg",
       "location": "Heimberg",
@@ -673,7 +729,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "titleByLocale": {
         "de": "Verkäufer/in (a) 40-60% in der Filiale Heimberg",
@@ -688,20 +744,28 @@
         "fr": "Êtes-vous passionné par la vente et voulez-vous offrir le meilleur service à la clientèle avec votre équipe? Alors vous pourriez être le vendeur que nous recherchons !\nCe que nous vous offrons\n\nVous aurez la chance de rejoindre une entreprise de détail qui veut être le premier choix de candidats en tant qu'employeur. En tant qu'ambassadeur JYSK, vous bénéficiez des avantages suivants :\n\n- Possibilités de développement grâce à une excellente formation et à un excellent encadrement\n\n- Concours internes entre les branches avec des prix attractifs tels que des montants d'argent ou des bons\n\n- Prime de vente supérieure à la moyenne pour toute l'équipe\n\n- 20% de réduction chez JYSK et d'autres sociétés du groupe Lars Larsen\n\n- Les principaux services des fonds de pension\n\n- 5 semaines de vacances, ce qui augmente tous les 5 ans de service\n\n- D'autres avantages comme une assurance accident supérieure à la moyenne, diverses activités (anniversaire, événements d'équipe) et de grands cadeaux d'anniversaire\nPourquoi il va aller dans votre prochain travail\n\n- Vous êtes responsable de la vente dans le magasin et offrez à nos clients un service haut de gamme\n\n- Vous assurez-vous que le magasin est propre et bien rempli avec nos produits\n\n- Vous aidez à recevoir et stocker les marchandises\n\n- Vous assumez la responsabilité de votre propre zone (p. ex. matelas, meubles) et vous la gérez de façon indépendante.\nApprenez à connaître une de nos vendeuses ici et découvrez comment nous sommes en tant qu'employeur.\nCe que vous devriez apporter avec vous\n\n- Vous êtes sociable, prenez des initiatives et offrez à nos clients la meilleure expérience d'achat\n\n- Vous avez un enthousiasme contagieux et profitez de la conversation avec les clients\n\n- Vous avez une mentalité de joueur d'équipe\n\n- Vous vous sentez dans un environnement de travail dynamique en constante évolution\n\n- Vous aimez le travail physique, avez une mentalité pratique et l'exemple\n\n- Vous êtes flexible et prêt à travailler le samedi aussi\nDonnez-vous aujourd'hui."
       },
       "slugByLocale": {
-        "it": "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg-zdus1y",
-        "en": "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg-zdus1y",
+        "it": "addetto-a-alle-vendite-a-40-60-presso-la-filiale-heimberg-jysk-heimberg",
+        "en": "sales-assistant-a-40-60-at-the-heimberg-branch-jysk-heimberg-zdus1y",
         "de": "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg-zdus1y",
-        "fr": "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg-zdus1y"
+        "fr": "vendeur-euse-a-40-60-dans-la-filiale-de-heimberg-jysk-heimberg-zdus1y"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg"
+          "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg",
+          "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg-zdus1y"
+        ],
+        "en": [
+          "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg-zdus1y"
+        ],
+        "fr": [
+          "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg-zdus1y"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg"
+        "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg",
+        "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg-zdus1y"
       ],
       "salaryMin": 41100,
       "salaryMax": 62400,
@@ -722,12 +786,12 @@
       "addressRegion": "BE",
       "streetAddress": "Heimberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T03:06:57.552Z",
+      "validThrough": "2027-02-04T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-jhpoqp",
-      "slug": "verkaufer-in-a-60-in-der-filiale-hinwil-jysk-hinwil-jhpoqp",
+      "slug": "addetto-a-alle-vendite-a-60-presso-la-filiale-hinwil-jysk-hinwil",
       "company": "JYSK",
       "title": "Verkäufer/in (a) 60% in der Filiale Hinwil",
       "location": "Hinwil",
@@ -746,13 +810,13 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "slugByLocale": {
-        "it": "verkaufer-in-a-60-in-der-filiale-hinwil-jysk-hinwil-jhpoqp",
-        "en": "verkaufer-in-a-60-in-der-filiale-hinwil-jysk-hinwil-jhpoqp",
+        "it": "addetto-a-alle-vendite-a-60-presso-la-filiale-hinwil-jysk-hinwil",
+        "en": "sales-assistant-a-60-at-the-hinwil-branch-jysk-hinwil-jhpoqp",
         "de": "verkaufer-in-a-60-in-der-filiale-hinwil-jysk-hinwil-jhpoqp",
-        "fr": "verkaufer-in-a-60-in-der-filiale-hinwil-jysk-hinwil-jhpoqp"
+        "fr": "vendeur-euse-a-60-dans-la-filiale-de-hinwil-jysk-hinwil-jhpoqp"
       },
       "titleByLocale": {
         "de": "Verkäufer/in (a) 60% in der Filiale Hinwil",
@@ -787,12 +851,26 @@
       "addressRegion": "ZH",
       "streetAddress": "Hinwil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T03:06:57.552Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-04T09:25:04.036Z",
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "en": [
+          "verkaufer-in-a-60-in-der-filiale-hinwil-jysk-hinwil-jhpoqp"
+        ],
+        "fr": [
+          "verkaufer-in-a-60-in-der-filiale-hinwil-jysk-hinwil-jhpoqp"
+        ],
+        "it": [
+          "verkaufer-in-a-60-in-der-filiale-hinwil-jysk-hinwil-jhpoqp"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-a-60-in-der-filiale-hinwil-jysk-hinwil-jhpoqp"
+      ]
     },
     {
       "id": "company-y0trys",
-      "slug": "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden-y0trys",
+      "slug": "venditore-in40-nel-ramo-baden-dattwil-jysk-baden",
       "company": "JYSK",
       "title": "Verkäufer/in40% in der Filiale Baden Dättwil",
       "location": "Baden",
@@ -811,7 +889,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "titleByLocale": {
         "de": "Verkäufer/in40% in der Filiale Baden Dättwil",
@@ -825,22 +903,29 @@
         "en": "Are you passionate about sales and would you like to provide the best customer service together with your team? Then you could be the salesperson we are looking for! 🙋\nWHAT WE OFFER YOU\n\nYou will have the opportunity to join a retail company that wants to be the employer of choice for candidates. As a JYSK ambassador, you will receive the following benefits:\n\n- Development opportunities through excellent training and mentoring\n\n- Internal competitions between stores with attractive prizes such as cash amounts or vouchers\n\n- Above-average sales bonus for the entire team\n\n- 20% discount at JYSK and other companies in the Lars Larsen Group\n\n- Top pension fund benefits\n\n- 5 weeks of vacation, increasing every 5 years of service\n\n- Additional benefits such as above-average supplementary accident insurance, various activities (annual celebration, team events) and great anniversary gifts\nWHAT YOUR NEXT JOB WILL INVOLVE\n\n- You are responsible for sales in the store and provide our customers with top service\n\n- You ensure that the store is clean and well stocked with our products\n\n- You help receive and store the goods\n\n- You take responsibility for your own area (e.g. mattresses, furniture) and manage it independently\nMeet one of our sales assistants here and find out what we are like as an employer.\nWHAT YOU SHOULD BRING\n\n- You are outgoing, take initiative and offer our customers the best shopping experience\n\n- You have infectious enthusiasm and enjoy talking with customers\n\n- You have a team-player mentality\n\n- You feel right at home in a dynamic, constantly changing work environment\n\n- You enjoy physical work, have a hands-on mentality and lead by example\n\n- You are flexible and willing to work on Saturdays as well\nAPPLY TODAY!",
         "fr": "Êtes-vous passionné(e) par la vente et souhaitez-vous offrir, avec votre équipe, le meilleur service à la clientèle ? Alors vous pourriez être la vendeuse ou le vendeur que nous recherchons ! 🙋\nCE QUE NOUS VOUS OFFRONS\n\nVous avez la possibilité de rejoindre une entreprise de commerce de détail qui souhaite être l’employeur de premier choix des candidates et candidats. En tant qu’ambassadeur ou ambassadrice JYSK, vous bénéficiez des avantages suivants :\n\n- Des possibilités d’évolution grâce à une excellente formation et à un mentorat\n\n- Des concours internes entre les magasins avec des prix attrayants tels que des sommes d’argent ou des bons d’achat\n\n- Un bonus sur le chiffre d’affaires supérieur à la moyenne pour toute l’équipe\n\n- 20% de rabais chez JYSK et dans d’autres entreprises du groupe Lars Larsen\n\n- Des prestations de caisse de pension de premier ordre\n\n- 5 semaines de vacances, qui augmentent tous les 5 ans de service\n\n- D’autres avantages, tels qu’une assurance-accidents complémentaire supérieure à la moyenne, diverses activités (fête annuelle, événements d’équipe) et de superbes cadeaux d’ancienneté\nCE QUI VOUS ATTEND DANS VOTRE PROCHAIN EMPLOI\n\n- Vous êtes responsable des ventes dans le magasin et offrez à notre clientèle un service de premier ordre\n\n- Vous vous assurez que le magasin est propre et bien approvisionné en nos produits\n\n- Vous aidez à réceptionner et à stocker les marchandises\n\n- Vous assumez la responsabilité d’un domaine propre (p. ex. matelas, meubles) et le dirigez de manière autonome\nFaites ici connaissance avec l’une de nos vendeuses et découvrez comment nous nous positionnons en tant qu’employeuse.\nCE QUE VOUS DEVEZ APPORTER\n\n- Vous êtes sociable, prenez des initiatives et offrez à nos clientes et clients la meilleure expérience d’achat\n\n- Vous avez un enthousiasme communicatif et appréciez les échanges avec les clientes et les clients\n\n- Vous avez un esprit d’équipe\n\n- Vous vous sentez parfaitement à l’aise dans un environnement de travail dynamique en constante évolution\n\n- Vous aimez le travail physique, avez un esprit pratique et montrez l’exemple\n\n- Vous êtes flexible et acceptez également de travailler les samedis\nPOSTULEZ DÈS AUJOURD’HUI !"
       },
-      "needsRetranslation": true,
       "slugByLocale": {
-        "it": "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden-y0trys",
-        "en": "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden-y0trys",
+        "it": "venditore-in40-nel-ramo-baden-dattwil-jysk-baden",
+        "en": "seller-in40-in-the-baden-dattwil-branch-jysk-baden-y0trys",
         "de": "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden-y0trys",
-        "fr": "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden-y0trys"
+        "fr": "vendeur-in40-dans-la-branche-baden-dattwil-jysk-baden-y0trys"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden"
+          "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden",
+          "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden-y0trys"
+        ],
+        "en": [
+          "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden-y0trys"
+        ],
+        "fr": [
+          "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden-y0trys"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden"
+        "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden",
+        "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden-y0trys"
       ],
       "salaryMin": 24800,
       "salaryMax": 37600,
@@ -861,7 +946,7 @@
       "addressRegion": "AG",
       "streetAddress": "Baden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T03:06:57.552Z",
+      "validThrough": "2027-02-03T09:25:04.036Z",
       "validThroughSource": "last-observed-window",
       "retranslationAttempts": 1
     },
@@ -886,7 +971,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "titleByLocale": {
         "de": "Verkäufer/in mit Lagerverantwortung (a) 50% in der Filiale Schaffhausen",
@@ -902,7 +987,7 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-con-lagerverantwortung-a-50-in-der-filiale-schaffhausen-jysk-schaffhausen-ue1i5p",
-        "en": "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-schaffhausen-jysk-schaffhausen-ue1i5p",
+        "en": "sales-assistant-with-warehouse-responsibility-a-50-at-the-schaffhausen-branch-jysk-schaffhausen",
         "de": "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-schaffhausen-jysk-schaffhausen-ue1i5p",
         "fr": "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-schaffhausen-jysk-schaffhausen-ue1i5p"
       },
@@ -911,10 +996,14 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-schaffhausen-jysk-schaffhausen"
+        ],
+        "en": [
+          "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-schaffhausen-jysk-schaffhausen-ue1i5p"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-schaffhausen-jysk-schaffhausen"
+        "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-schaffhausen-jysk-schaffhausen",
+        "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-schaffhausen-jysk-schaffhausen-ue1i5p"
       ],
       "salaryMin": 28800,
       "salaryMax": 43500,
@@ -935,7 +1024,7 @@
       "addressRegion": "SH",
       "streetAddress": "Schaffhausen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T03:06:57.552Z",
+      "validThrough": "2027-02-01T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -959,7 +1048,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "titleByLocale": {
         "de": "Filialleiter/in (a) mit Potenzial 100% in der Filiale Emmenbrücke",
@@ -1009,13 +1098,13 @@
       "addressRegion": "LU",
       "streetAddress": "Emmen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T03:06:57.552Z",
+      "validThrough": "2027-02-01T09:25:04.036Z",
       "validThroughSource": "last-observed-window",
       "retranslationAttempts": 1
     },
     {
       "id": "company-jj7nwo",
-      "slug": "verkaufer-in-a-40-in-der-filiale-pratteln-jysk-pratteln",
+      "slug": "addetto-a-alle-vendite-a-al-40-presso-la-filiale-di-pratteln-jysk-pratteln",
       "company": "JYSK",
       "title": "Verkäufer/in (a) 40% in der Filiale Pratteln",
       "location": "Pratteln",
@@ -1034,10 +1123,10 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-09-08T23:26:05.190Z",
       "slugByLocale": {
-        "it": "verkaufer-in-a-40-in-der-filiale-pratteln-jysk-pratteln",
+        "it": "addetto-a-alle-vendite-a-al-40-presso-la-filiale-di-pratteln-jysk-pratteln",
         "en": "seller-a-40-in-the-pratteln-branch-jysk-pratteln",
         "de": "verkaufer-in-a-40-in-der-filiale-pratteln-jysk-pratteln-jj7nwo",
         "fr": "vendeur-a-40-dans-la-succursale-pratteln-jysk-pratteln"
@@ -1058,11 +1147,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "venditore-a-40-nel-ramo-pratteln-jysk-pratteln"
+          "venditore-a-40-nel-ramo-pratteln-jysk-pratteln",
+          "verkaufer-in-a-40-in-der-filiale-pratteln-jysk-pratteln"
+        ],
+        "en": [
+          "verkaufer-in-a-40-in-der-filiale-pratteln-jysk-pratteln"
+        ],
+        "fr": [
+          "verkaufer-in-a-40-in-der-filiale-pratteln-jysk-pratteln"
         ]
       },
       "previousSlugs": [
-        "venditore-a-40-nel-ramo-pratteln-jysk-pratteln"
+        "venditore-a-40-nel-ramo-pratteln-jysk-pratteln",
+        "verkaufer-in-a-40-in-der-filiale-pratteln-jysk-pratteln"
       ],
       "salaryMin": 24800,
       "salaryMax": 37600,
@@ -1083,12 +1180,12 @@
       "addressRegion": "BL",
       "streetAddress": "Pratteln",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T03:06:57.552Z",
+      "validThrough": "2027-02-01T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-uucvus",
-      "slug": "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen-uucvus",
+      "slug": "addetto-a-alle-vendite-a-40-60-nella-filiale-di-wettingen-jysk-wettingen",
       "company": "JYSK",
       "title": "Verkäufer/in (a) 40-60% in der Filiale Wettingen",
       "location": "Wettingen",
@@ -1107,7 +1204,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "titleByLocale": {
         "de": "Verkäufer/in (a) 40-60% in der Filiale Wettingen",
@@ -1122,20 +1219,28 @@
         "fr": "Êtes-vous passionné par la vente et voulez-vous offrir le meilleur service à la clientèle avec votre équipe? Alors vous pourriez être le vendeur que nous recherchons !\nCe que nous vous offrons\n\nVous aurez la chance de rejoindre une entreprise de détail qui veut être le premier choix de candidats en tant qu'employeur. En tant qu'ambassadeur JYSK, vous bénéficiez des avantages suivants :\n\n- Possibilités de développement grâce à une excellente formation et à un excellent encadrement\n\n- Concours internes entre les branches avec des prix attractifs tels que des montants d'argent ou des bons\n\n- Prime de vente supérieure à la moyenne pour toute l'équipe\n\n- 20% de réduction chez JYSK et d'autres sociétés du groupe Lars Larsen\n\n- Les principaux services des fonds de pension\n\n- 5 semaines de vacances, ce qui augmente tous les 5 ans de service\n\n- D'autres avantages comme une assurance accident supérieure à la moyenne, diverses activités (anniversaire, événements d'équipe) et de grands cadeaux d'anniversaire\nPourquoi il va aller dans votre prochain travail\n\n- Vous êtes responsable de la vente dans le magasin et offrez à nos clients un service haut de gamme\n\n- Vous assurez-vous que le magasin est propre et bien rempli avec nos produits\n\n- Vous aidez à recevoir et stocker les marchandises\n\n- Vous assumez la responsabilité de votre propre zone (p. ex. matelas, meubles) et vous la gérez de façon indépendante.\nApprenez à connaître une de nos vendeuses ici et découvrez comment nous sommes en tant qu'employeur.\nCe que vous devriez apporter avec vous\n\n- Vous êtes sociable, prenez des initiatives et offrez à nos clients la meilleure expérience d'achat\n\n- Vous avez un enthousiasme contagieux et profitez de la conversation avec les clients\n\n- Vous avez une mentalité de joueur d'équipe\n\n- Vous vous sentez dans un environnement de travail dynamique en constante évolution\n\n- Vous aimez le travail physique, avez une mentalité pratique et l'exemple\n\n- Vous êtes flexible et prêt à travailler le samedi aussi\nDonnez-vous aujourd'hui."
       },
       "slugByLocale": {
-        "it": "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen-uucvus",
-        "en": "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen-uucvus",
+        "it": "addetto-a-alle-vendite-a-40-60-nella-filiale-di-wettingen-jysk-wettingen",
+        "en": "sales-assistant-a-40-60-at-the-wettingen-branch-jysk-wettingen-uucvus",
         "de": "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen-uucvus",
-        "fr": "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen-uucvus"
+        "fr": "vendeur-euse-a-40-60-dans-la-filiale-de-wettingen-jysk-wettingen-uucvus"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen"
+          "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen",
+          "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen-uucvus"
+        ],
+        "en": [
+          "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen-uucvus"
+        ],
+        "fr": [
+          "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen-uucvus"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen"
+        "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen",
+        "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen-uucvus"
       ],
       "salaryMin": 37200,
       "salaryMax": 56400,
@@ -1156,12 +1261,12 @@
       "addressRegion": "AG",
       "streetAddress": "Wettingen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T03:06:57.552Z",
+      "validThrough": "2027-02-01T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-eckrr5",
-      "slug": "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz-eckrr5",
+      "slug": "addetto-a-alle-vendite-a-60-nella-filiale-di-seewen-jysk-schwyz",
       "company": "JYSK",
       "title": "Verkäufer/in (a) 60% in der Filiale Seewen",
       "location": "Schwyz",
@@ -1180,7 +1285,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "titleByLocale": {
         "de": "Verkäufer/in (a) 60% in der Filiale Seewen",
@@ -1195,20 +1300,28 @@
         "fr": "Êtes-vous passionné par la vente et voulez-vous offrir le meilleur service à la clientèle avec votre équipe? Alors vous pourriez être le vendeur que nous recherchons !\nCe que nous vous offrons\n\nVous aurez la chance de rejoindre une entreprise de détail qui veut être le premier choix de candidats en tant qu'employeur. En tant qu'ambassadeur JYSK, vous bénéficiez des avantages suivants :\n\n- Possibilités de développement grâce à une excellente formation et à un excellent encadrement\n\n- Concours internes entre les branches avec des prix attractifs tels que des montants d'argent ou des bons\n\n- Prime de vente supérieure à la moyenne pour toute l'équipe\n\n- 20% de réduction chez JYSK et d'autres sociétés du groupe Lars Larsen\n\n- Les principaux services des fonds de pension\n\n- 5 semaines de vacances, ce qui augmente tous les 5 ans de service\n\n- D'autres avantages comme une assurance accident supérieure à la moyenne, diverses activités (anniversaire, événements d'équipe) et de grands cadeaux d'anniversaire\nPourquoi il va aller dans votre prochain travail\n\n- Vous êtes responsable de la vente dans le magasin et offrez à nos clients un service haut de gamme\n\n- Vous assurez-vous que le magasin est propre et bien rempli avec nos produits\n\n- Vous aidez à recevoir et stocker les marchandises\n\n- Vous assumez la responsabilité de votre propre zone (p. ex. matelas, meubles) et vous la gérez de façon indépendante.\nApprenez à connaître une de nos vendeuses ici et découvrez comment nous sommes en tant qu'employeur.\nCe que vous devriez apporter avec vous\n\n- Vous êtes sociable, prenez des initiatives et offrez à nos clients la meilleure expérience d'achat\n\n- Vous avez un enthousiasme contagieux et profitez de la conversation avec les clients\n\n- Vous avez une mentalité de joueur d'équipe\n\n- Vous vous sentez dans un environnement de travail dynamique en constante évolution\n\n- Vous aimez le travail physique, avez une mentalité pratique et l'exemple\n\n- Vous êtes flexible et prêt à travailler le samedi aussi\nDonnez-vous aujourd'hui."
       },
       "slugByLocale": {
-        "it": "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz-eckrr5",
-        "en": "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz-eckrr5",
+        "it": "addetto-a-alle-vendite-a-60-nella-filiale-di-seewen-jysk-schwyz",
+        "en": "sales-assistant-a-60-at-the-seewen-branch-jysk-schwyz-eckrr5",
         "de": "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz-eckrr5",
-        "fr": "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz-eckrr5"
+        "fr": "vendeur-euse-a-60-dans-la-filiale-de-seewen-jysk-schwyz-eckrr5"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz"
+          "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz",
+          "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz-eckrr5"
+        ],
+        "en": [
+          "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz-eckrr5"
+        ],
+        "fr": [
+          "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz-eckrr5"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz"
+        "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz",
+        "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz-eckrr5"
       ],
       "salaryMin": 41700,
       "salaryMax": 63600,
@@ -1229,12 +1342,12 @@
       "addressRegion": "SZ",
       "streetAddress": "Schwyz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T03:06:57.552Z",
+      "validThrough": "2027-01-26T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-1i296q",
-      "slug": "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz-1i296q",
+      "slug": "addetto-a-al-disimballaggio-a-40-nella-filiale-di-seewen-jysk-schwyz",
       "company": "JYSK",
       "title": "Verkäufer/in (a) Auspackhilfe 40% in der Filiale Seewen",
       "location": "Schwyz",
@@ -1253,7 +1366,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "titleByLocale": {
         "de": "Verkäufer/in (a) Auspackhilfe 40% in der Filiale Seewen",
@@ -1268,20 +1381,28 @@
         "fr": "Êtes-vous passionné par la vente et voulez-vous offrir le meilleur service à la clientèle avec votre équipe? Alors vous pourriez être le vendeur que nous recherchons !\nCe que nous vous offrons\n\nVous aurez la chance de rejoindre une entreprise de détail qui veut être le premier choix de candidats en tant qu'employeur. En tant qu'ambassadeur JYSK, vous bénéficiez des avantages suivants :\n\n- Possibilités de développement grâce à une excellente formation et à un excellent encadrement\n\n- Concours internes entre les branches avec des prix attractifs tels que des montants d'argent ou des bons\n\n- Prime de vente supérieure à la moyenne pour toute l'équipe\n\n- 20% de réduction chez JYSK et d'autres sociétés du groupe Lars Larsen\n\n- Les principaux services des fonds de pension\n\n- 5 semaines de vacances, ce qui augmente tous les 5 ans de service\n\n- D'autres avantages comme une assurance accident supérieure à la moyenne, diverses activités (anniversaire, événements d'équipe) et de grands cadeaux d'anniversaire\nPourquoi il va aller dans votre prochain travail\n\n- Vous êtes responsable de la vente dans le magasin et offrez à nos clients un service haut de gamme\n\n- Vous assurez-vous que le magasin est propre et bien rempli avec nos produits\n\n- Vous aidez à recevoir et stocker les marchandises\n\n- Vous assumez la responsabilité de votre propre zone (p. ex. matelas, meubles) et vous la gérez de façon indépendante.\nApprenez à connaître une de nos vendeuses ici et découvrez comment nous sommes en tant qu'employeur.\nCe que vous devriez apporter avec vous\n\n- Vous êtes sociable, prenez des initiatives et offrez à nos clients la meilleure expérience d'achat\n\n- Vous avez un enthousiasme contagieux et profitez de la conversation avec les clients\n\n- Vous avez une mentalité de joueur d'équipe\n\n- Vous vous sentez dans un environnement de travail dynamique en constante évolution\n\n- Vous aimez le travail physique, avez une mentalité pratique et l'exemple\n\n- Vous êtes flexible et prêt à travailler le samedi aussi\nDonnez-vous aujourd'hui."
       },
       "slugByLocale": {
-        "it": "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz-1i296q",
-        "en": "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz-1i296q",
+        "it": "addetto-a-al-disimballaggio-a-40-nella-filiale-di-seewen-jysk-schwyz",
+        "en": "sales-assistant-a-unpacking-assistant-40-at-the-seewen-branch-jysk-schwyz-1i296q",
         "de": "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz-1i296q",
-        "fr": "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz-1i296q"
+        "fr": "vendeur-euse-a-aide-au-deballage-40-dans-la-filiale-de-seewen-jysk-schwyz-1i296q"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz"
+          "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz",
+          "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz-1i296q"
+        ],
+        "en": [
+          "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz-1i296q"
+        ],
+        "fr": [
+          "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz-1i296q"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz"
+        "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz",
+        "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz-1i296q"
       ],
       "salaryMin": 27800,
       "salaryMax": 42400,
@@ -1302,7 +1423,7 @@
       "addressRegion": "SZ",
       "streetAddress": "Schwyz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T03:06:57.552Z",
+      "validThrough": "2027-01-26T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1326,7 +1447,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "titleByLocale": {
         "de": "Verkäufer/in mit Lagerverantwortung (a) 40-60% in der Filiale Seewen",
@@ -1342,19 +1463,26 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-con-lagerverantwortung-a-40-60-in-der-filiale-seewen-jysk-schwyz-hyse17",
-        "en": "verkaufer-in-mit-lagerverantwortung-a-40-60-in-der-filiale-seewen-jysk-schwyz-hyse17",
+        "en": "sales-assistant-with-warehouse-responsibility-a-40-60-at-the-seewen-branch-jysk-schwyz",
         "de": "verkaufer-in-mit-lagerverantwortung-a-40-60-in-der-filiale-seewen-jysk-schwyz-hyse17",
-        "fr": "verkaufer-in-mit-lagerverantwortung-a-40-60-in-der-filiale-seewen-jysk-schwyz-hyse17"
+        "fr": "vendeur-euse-responsable-du-stock-a-40-60-dans-la-filiale-de-seewen-jysk-schwyz"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-mit-lagerverantwortung-a-40-60-in-der-filiale-seewen-jysk-schwyz"
+        ],
+        "en": [
+          "verkaufer-in-mit-lagerverantwortung-a-40-60-in-der-filiale-seewen-jysk-schwyz-hyse17"
+        ],
+        "fr": [
+          "verkaufer-in-mit-lagerverantwortung-a-40-60-in-der-filiale-seewen-jysk-schwyz-hyse17"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-mit-lagerverantwortung-a-40-60-in-der-filiale-seewen-jysk-schwyz"
+        "verkaufer-in-mit-lagerverantwortung-a-40-60-in-der-filiale-seewen-jysk-schwyz",
+        "verkaufer-in-mit-lagerverantwortung-a-40-60-in-der-filiale-seewen-jysk-schwyz-hyse17"
       ],
       "salaryMin": 41700,
       "salaryMax": 63600,
@@ -1375,7 +1503,7 @@
       "addressRegion": "SZ",
       "streetAddress": "Schwyz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T03:06:57.552Z",
+      "validThrough": "2027-01-26T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1399,7 +1527,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-08-28T05:26:43.382Z",
       "slugByLocale": {
         "it": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-davos-jysk-davos-platz-ky3bj6",
@@ -1414,9 +1542,9 @@
         "fr": "Apprenti/e gestionnaire du commerce de détail CFC (a) dans la filiale de Davos"
       },
       "descriptionByLocale": {
-        "de": "Ready, set, go! Starte im August 2027 deine Lehre im Detailhandel bei JYSK. Werde Teil unserer Erfolgsgeschichte und erlebe ein Miteinander auf Augenhöhe. Wir sind auf der Suche nach engagierten und begeisterungsfähigen Talenten, die bei uns Erfahrungen sammeln und Verantwortung übernehmen wollen. #BuildYourCareer💪\nDu könntest die/der Lernende Detailhandelsfachfrau/-mann sein, die/den wir suchen!  🙋\n\nWAS WIR DIR BIETEN\n\nDu erhältst die Chance, einem Detailhandelsunternehmen beizutreten, das als Arbeitgeberin die erste Wahl der Talente sein möchte.\n\nZusätzlich kannst du dich auf folgende Vorteile bei uns freuen:\n\n- Ein sehr attraktiver Lohn:\n- Im 1. Lehrjahr: 1‘000 CHF\n\n- Im 2. Lehrjahr: 1‘200 CHF\n\n- Im 3. Lehrjahr: 1‘500 CHF\n\n- Einen 13. Monatslohn\n\n- Sehr attraktive Bonuszahlungen\n\n- Zeugnisprämien bei guten Noten #BringDedicationMeetPossibilities\n\n- Eine solide und anerkannte Grundausbildung\n\n- Motivierte Berufsbildner/innen, die dir auf Augenhöhe begegnen\n\n- Lernendenausflüge\n\n- Hohe Übernahmechancen nach der Ausbildung\n\n- Tolle Mitarbeitendenvorteile und regelmässige Events\n\n- Eine grossartige Unternehmenskultur\nErfahre  hier  mehr über JYSK als Lehrbetrieb.\nWORUM ES IN DEINER AUSBILDUNG GEHEN WIRD\n1. Lehrjahr\n\n- Du nimmst an unseren zweitätigen Welcome Day mit allen Lernenden aus der Schweiz teil.\n\n- Du lernst die Routinen in der Filiale kennen\n\n- Du wirst unterstützt in der Berufsschule und im Verkaufsgespräch mit Kunden/innen zu glänzen.\n2. Lehrjahr\n\n- Du erhältst Verantwortung für bestimmte Aufgaben in der Filiale\n\n- Du wirst mit Unterstützung deines/r Berufsbildners zum Verkaufsprofi\n\n- Du wirst in die Warenbestellung und das Lagermanagement eingearbeitet und hilfst bei Aktionen und Saisonplatzierungen.\n3. Lehrjahr\n\n- Du wirst in einem zweitägigen Seminar gezielt auf deine Abschlussprüfung vorbereitet, damit du sie mit Bravour meisterst.\n\n- Du erhältst wertvolle Einblicke in die Aufgaben eines Managers und lernst, was es bedeutet, ein echter Leader zu sein.\n\n- Du übernimmst im dritten Lehrjahr eine zentrale Rolle in der Filiale und kannst bereits die Verantwortung für eine eigene Abteilung tragen.\nErfahre in unserem  Lehrstellenflyer  mehr über deine Lehre bei JYSK.\nWAS DU MITBRINGEN SOLLTEST\n\n- Du hast die obigatorische Schulzeit abgeschlossen\n\n- Du hast Interesse an einer Karriere im Detailhandel\n\n- Du bist engagiert, bist gerne unter Menschen und magst den Kundenkontakt\n\n- Du bist zuverlässig und hilfsbereit\n\n- Du bist ein/eine richtiger Teamplayer/in\nBEWIRB DICH NOCH HEUTE!",
         "it": "Pronti, pronti, via! Inizia il tuo apprendistato al dettaglio a JYSK nell'agosto 2027. Diventa parte della nostra storia di successo e sperimentare una cooperazione a livello degli occhi. Siamo alla ricerca di talenti impegnati ed entusiasti che vogliono acquisire esperienza e assumersi la responsabilità. #BuildYourCareer #\nSi potrebbe essere il rivenditore di apprendimento che stiamo cercando!\n\nCosa ti offriamo\n\nAvrai la possibilità di aderire a una società di vendita al dettaglio che vuole essere la prima scelta di talento come datore di lavoro.\n\nInoltre, si può aspettare con noi i seguenti vantaggi:\n\n- Un salario molto attraente:\n- Nel primo anno di apprendistato: 1.000 CHF\n\n- Nel 2° anno di apprendistato: 1.200 CHF\n\n- Nel 3° anno di apprendistato: 1.500 CHF\n\n- A 13. Salari mensili\n\n- Bonus molto attraente\n\n- Buoni gradi #BringDedicationMeetPossibilities\n\n- Una formazione di base solida e riconosciuta\n\n- Allenatori professionisti motivati che ti incontrano a livello degli occhi\n\n- Escursioni di apprendimento\n\n- Alte opportunità di acquisizione dopo la formazione\n\n- Grandi benefici per i dipendenti ed eventi regolari\n\n- Una grande cultura aziendale\nScopri di più su JYSK come azienda didattica qui.\nPerché sarà nella tua formazione\n1. Anno di formazione\n\n- Partecipate al nostro giorno di benvenuto di due giorni con tutti gli studenti della Svizzera.\n\n- Si arriva a conoscere le routine nel negozio\n\n- Sarete sostenuti nella scuola professionale e nella discussione di vendita con i clienti a brillare.\n2. Anno di formazione\n\n- Riceverai la responsabilità di determinati compiti nel ramo\n\n- Diventa un professionista delle vendite con il supporto del tuo formatore professionale\n\n- Sarete incorporati nella gestione dell'ordine e del magazzino merci e aiuto con promozioni e collocamenti stagionali.\n3. Anno di formazione\n\n- Sarete preparati per il vostro esame finale in un seminario di due giorni in modo da padroneggiare con colori volanti.\n\n- Si otterrà preziose intuizioni nei compiti di un manager e imparare che cosa significa essere un vero leader.\n\n- Nel terzo anno di apprendistato, si assume un ruolo centrale nel ramo e può già assumersi la responsabilità per il proprio dipartimento.\nScopri di più sul tuo insegnamento a JYSK nel nostro volantino di apprendistato.\nCosa dovresti portare con te\n\n- Hai completato la scuola obbligatoria\n\n- Sei interessato a una carriera nel retailing\n\n- Sei impegnato, come essere tra le persone e come il contatto con il cliente\n\n- Sei affidabile e disponibile\n\n- Sei un vero giocatore di squadra\nDatti da fare oggi.",
         "en": "Ready, set, go! Start your apprenticeship in retail at JYSK in August 2027. Become part of our success story and experience a cooperation at eye level. We are looking for committed and enthusiastic talents who want to gain experience and take on responsibility. #BuildYourCareer\nYou could be the learning retailer we are looking for! 🙋\n\nWhat we offer you\n\nYou will get the chance to join a retail company that wants to be the first choice of talent as an employer.\n\nIn addition, you can look forward to the following advantages with us:\n\n- A very attractive wage:\n- In the first year of apprenticeship: 1,000 CHF\n\n- In the 2nd year of apprenticeship: 1’200 CHF\n\n- In the 3rd year of apprenticeship: 1’500 CHF\n\n- A 13. Monthly wages\n\n- Very attractive bonuses\n\n- Good grades #BringDedicationMeetPossibilities\n\n- A solid and recognised basic education\n\n- Motivated professional trainers who meet you at eye level\n\n- Learning excursions\n\n- High takeover opportunities after training\n\n- Great employee benefits and regular events\n\n- A great company culture\nLearn more about JYSK as a teaching company here.\nWHY IT WILL BE IN YOUR TRAINING\n1. Training year\n\n- You participate in our two-day Welcome Day with all learners from Switzerland.\n\n- You get to know the routines in the store\n\n- You will be supported in the vocational school and in the sales discussion with customers to shine.\n2. Training year\n\n- You receive responsibility for certain tasks in the branch\n\n- You become a sales professional with the support of your vocational trainer\n\n- You will be incorporated into the goods order and warehouse management and help with promotions and seasonal placements.\n3. Training year\n\n- You will be prepared for your final exam in a two-day seminar so that you master it with flying colors.\n\n- You will gain valuable insights into the tasks of a manager and learn what it means to be a true leader.\n\n- In the third year of apprenticeship, you take on a central role in the branch and can already take on responsibility for your own department.\nFind out more about your teaching at JYSK in our apprenticeship flyer.\nWhat you should bring with you\n\n- You have completed obligatory schooling\n\n- You are interested in a career in retailing\n\n- You are engaged, like to be among people and like customer contact\n\n- You are reliable and helpful\n\n- You are a real team player\nGive yourself today.",
+        "de": "Ready, set, go! Starte im August 2027 deine Lehre im Detailhandel bei JYSK. Werde Teil unserer Erfolgsgeschichte und erlebe ein Miteinander auf Augenhöhe. Wir sind auf der Suche nach engagierten und begeisterungsfähigen Talenten, die bei uns Erfahrungen sammeln und Verantwortung übernehmen wollen. #BuildYourCareer💪\nDu könntest die/der Lernende Detailhandelsfachfrau/-mann sein, die/den wir suchen! 🙋\n\nWAS WIR DIR BIETEN\n\nDu erhältst die Chance, einem Detailhandelsunternehmen beizutreten, das als Arbeitgeberin die erste Wahl der Talente sein möchte.\n\nZusätzlich kannst du dich auf folgende Vorteile bei uns freuen:\n\n- Ein sehr attraktiver Lohn:\n- Im 1. Lehrjahr: 1‘000 CHF\n\n- Im 2. Lehrjahr: 1‘200 CHF\n\n- Im 3. Lehrjahr: 1‘500 CHF\n\n- Einen 13. Monatslohn\n\n- Sehr attraktive Bonuszahlungen\n\n- Zeugnisprämien bei guten Noten #BringDedicationMeetPossibilities\n\n- Eine solide und anerkannte Grundausbildung\n\n- Motivierte Berufsbildner/innen, die dir auf Augenhöhe begegnen\n\n- Lernendenausflüge\n\n- Hohe Übernahmechancen nach der Ausbildung\n\n- Tolle Mitarbeitendenvorteile und regelmässige Events\n\n- Eine grossartige Unternehmenskultur\nErfahre hier mehr über JYSK als Lehrbetrieb.\nWORUM ES IN DEINER AUSBILDUNG GEHEN WIRD\n1. Lehrjahr\n\n- Du nimmst an unseren zweitätigen Welcome Day mit allen Lernenden aus der Schweiz teil.\n\n- Du lernst die Routinen in der Filiale kennen\n\n- Du wirst unterstützt in der Berufsschule und im Verkaufsgespräch mit Kunden/innen zu glänzen.\n2. Lehrjahr\n\n- Du erhältst Verantwortung für bestimmte Aufgaben in der Filiale\n\n- Du wirst mit Unterstützung deines/r Berufsbildners zum Verkaufsprofi\n\n- Du wirst in die Warenbestellung und das Lagermanagement eingearbeitet und hilfst bei Aktionen und Saisonplatzierungen.\n3. Lehrjahr\n\n- Du wirst in einem zweitägigen Seminar gezielt auf deine Abschlussprüfung vorbereitet, damit du sie mit Bravour meisterst.\n\n- Du erhältst wertvolle Einblicke in die Aufgaben eines Managers und lernst, was es bedeutet, ein echter Leader zu sein.\n\n- Du übernimmst im dritten Lehrjahr eine zentrale Rolle in der Filiale und kannst bereits die Verantwortung für eine eigene Abteilung tragen.\nErfahre in unserem Lehrstellenflyer mehr über deine Lehre bei JYSK.\nWAS DU MITBRINGEN SOLLTEST\n\n- Du hast die obigatorische Schulzeit abgeschlossen\n\n- Du hast Interesse an einer Karriere im Detailhandel\n\n- Du bist engagiert, bist gerne unter Menschen und magst den Kundenkontakt\n\n- Du bist zuverlässig und hilfsbereit\n\n- Du bist ein/eine richtiger Teamplayer/in\nBEWIRB DICH NOCH HEUTE!",
         "fr": "Prêts, prêts, partez ! Commencez votre apprentissage au détail chez JYSK en août 2027. Faites partie de notre réussite et vivez une coopération au niveau des yeux. Nous recherchons des talents engagés et enthousiastes qui veulent acquérir de l'expérience et prendre des responsabilités. #Construisez votre carrière\nVous pourriez être le détaillant d'apprentissage que nous recherchons!\n\nCe que nous vous offrons\n\nVous aurez la chance de rejoindre une entreprise de détail qui veut être le premier choix de talent en tant qu'employeur.\n\nEn outre, vous pouvez attendre avec impatience les avantages suivants avec nous:\n\n- Un salaire très attrayant:\n- Dans la première année d'apprentissage: 1000 CHF\n\n- Dans la 2ème année d'apprentissage: 1.200 CHF\n\n- Dans la 3ème année d'apprentissage: 1500 CHF\n\n- A 13. Salaire mensuel\n\n- Primes très intéressantes\n\n- Bonnes notes #BringDedicationMeetPossibilités\n\n- Une éducation de base solide et reconnue\n\n- Des formateurs professionnels motivés qui vous rencontrent au niveau des yeux\n\n- Des excursions d'apprentissage\n\n- Possibilités de reprise élevées après la formation\n\n- Grandes prestations aux employés et événements réguliers\n\n- Une grande culture d'entreprise\nEn savoir plus sur JYSK en tant qu'entreprise d'enseignement ici.\nPOURQUOI C'EST DANS VOTRE FORMATION\n1. Année de formation\n\n- Vous participez à notre journée d'accueil de deux jours avec tous les apprenants de Suisse.\n\n- Vous apprenez à connaître les routines dans le magasin\n\n- Vous serez soutenu dans l'école professionnelle et dans la discussion de vente avec les clients pour briller.\n2. Année de formation\n\n- Vous recevez la responsabilité de certaines tâches dans la branche\n\n- Vous devenez un professionnel des ventes avec le soutien de votre formateur professionnel\n\n- Vous serez intégré à la gestion de l'ordre et de l'entrepôt des marchandises et vous aiderez dans les promotions et les placements saisonniers.\n3. Année de formation\n\n- Vous serez préparé pour votre examen final dans un séminaire de deux jours afin de le maîtriser avec des couleurs volantes.\n\n- Vous apprendrez à connaître les tâches d'un gestionnaire et apprendrez ce que signifie être un véritable leader.\n\n- En troisième année d'apprentissage, vous assumez un rôle central dans la branche et pouvez déjà assumer la responsabilité de votre propre département.\nEn savoir plus sur votre enseignement chez JYSK dans notre dépliant d'apprentissage.\nCe que vous devriez apporter avec vous\n\n- Vous avez terminé votre scolarité obligatoire\n\n- Vous êtes intéressé par une carrière dans le commerce de détail\n\n- Vous êtes engagé, comme être parmi les gens et comme contact client\n\n- Vous êtes fiable et utile\n\n- Vous êtes un vrai joueur d'équipe\nDonnez-vous aujourd'hui."
       },
       "requirementsByLocale": {},
@@ -1440,7 +1568,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos Platz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T03:06:57.552Z",
+      "validThrough": "2027-01-26T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1464,7 +1592,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "slugByLocale": {
         "it": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-gumligenfeld-bei-muri-bern-jysk-muri-bei-bern-o8o9yf",
@@ -1506,7 +1634,7 @@
       "addressRegion": "BE",
       "streetAddress": "Muri bei Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T03:06:57.552Z",
+      "validThrough": "2027-01-25T09:25:04.036Z",
       "validThroughSource": "last-observed-window",
       "retranslationAttempts": 1
     },
@@ -1531,7 +1659,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "slugByLocale": {
         "it": "apprendista-impiegato-a-del-commercio-al-dettaglio-cfc-a-in-der-filiale-oftringen-jysk-oftringen-hfbjsr",
@@ -1546,9 +1674,9 @@
         "fr": "Apprenti/e gestionnaire du commerce de détail CFC (a) dans la filiale d'Oftringen"
       },
       "descriptionByLocale": {
-        "de": "Ready, set, go! Starte im August 2027 deine Lehre im Detailhandel bei JYSK. Werde Teil unserer Erfolgsgeschichte und erlebe ein Miteinander auf Augenhöhe. Wir sind auf der Suche nach engagierten und begeisterungsfähigen Talenten, die bei uns Erfahrungen sammeln und Verantwortung übernehmen wollen. #BuildYourCareer💪\nDu könntest die/der Lernende Detailhandelsfachfrau/-mann sein, die/den wir suchen!  🙋\nWAS WIR DIR BIETEN\n\nDu erhältst die Chance, einem Detailhandelsunternehmen beizutreten, das als Arbeitgeberin die erste Wahl der Talente sein möchte.\n\nZusätzlich kannst du dich auf folgende Vorteile bei uns freuen:\n\n- Ein sehr attraktiver Lohn:\n- Im 1. Lehrjahr: 1‘000 CHF\n\n- Im 2. Lehrjahr: 1‘200 CHF\n\n- Im 3. Lehrjahr: 1‘500 CHF\n\n- Einen 13. Monatslohn\n\n- Sehr attraktive Bonuszahlungen\n\n- Zeugnisprämien bei guten Noten #BringDedicationMeetPossibilities\n\n- Eine solide und anerkannte Grundausbildung\n\n- Motivierte Berufsbildner/innen, die dir auf Augenhöhe begegnen\n\n- Lernendenausflüge\n\n- Hohe Übernahmechancen nach der Ausbildung\n\n- Tolle Mitarbeitendenvorteile und regelmässige Events\n\n- Eine grossartige Unternehmenskultur\nErfahre  hier  mehr über JYSK als Lehrbetrieb.\nWORUM ES IN DEINER AUSBILDUNG GEHEN WIRD\n1. Lehrjahr\n\n- Du nimmst an unseren zweitätigen Welcome Day mit allen Lernenden aus der Schweiz teil.\n\n- Du lernst die Routinen in der Filiale kennen\n\n- Du wirst unterstützt in der Berufsschule und im Verkaufsgespräch mit Kunden/innen zu glänzen.\n2. Lehrjahr\n\n- Du erhältst Verantwortung für bestimmte Aufgaben in der Filiale\n\n- Du wirst mit Unterstützung deines/r Berufsbildners zum Verkaufsprofi\n\n- Du wirst in die Warenbestellung und das Lagermanagement eingearbeitet und hilfst bei Aktionen und Saisonplatzierungen.\n3. Lehrjahr\n\n- Du wirst in einem zweitägigen Seminar gezielt auf deine Abschlussprüfung vorbereitet, damit du sie mit Bravour meisterst.\n\n- Du erhältst wertvolle Einblicke in die Aufgaben eines Managers und lernst, was es bedeutet, ein echter Leader zu sein.\n\n- Du übernimmst im dritten Lehrjahr eine zentrale Rolle in der Filiale und kannst bereits die Verantwortung für eine eigene Abteilung tragen.\nErfahre in unserem  Lehrstellenflyer  mehr über deine Lehre bei JYSK.\nWAS DU MITBRINGEN SOLLTEST\n\n- Du hast die obigatorische Schulzeit abgeschlossen\n\n- Du hast Interesse an einer Karriere im Detailhandel\n\n- Du bist engagiert, bist gerne unter Menschen und magst den Kundenkontakt\n\n- Du bist zuverlässig und hilfsbereit\n\n- Du bist ein/eine richtiger Teamplayer/in\nBEWIRB DICH NOCH HEUTE!",
         "it": "Pronti, pronti, via! Inizia il tuo apprendistato al dettaglio a JYSK nell'agosto 2027. Diventa parte della nostra storia di successo e sperimentare una cooperazione a livello degli occhi. Siamo alla ricerca di talenti impegnati ed entusiasti che vogliono acquisire esperienza e assumersi la responsabilità. #BuildYourCareer #\nSi potrebbe essere il rivenditore di apprendimento che stiamo cercando!\nCosa ti offriamo\n\nAvrai la possibilità di aderire a una società di vendita al dettaglio che vuole essere la prima scelta di talento come datore di lavoro.\n\nInoltre, si può aspettare con noi i seguenti vantaggi:\n\n- Un salario molto attraente:\n- Nel primo anno di apprendistato: 1.000 CHF\n\n- Nel 2° anno di apprendistato: 1.200 CHF\n\n- Nel 3° anno di apprendistato: 1.500 CHF\n\n- A 13. Salari mensili\n\n- Bonus molto attraente\n\n- Buoni gradi #BringDedicationMeetPossibilities\n\n- Una formazione di base solida e riconosciuta\n\n- Allenatori professionisti motivati che ti incontrano a livello degli occhi\n\n- Escursioni di apprendimento\n\n- Alte opportunità di acquisizione dopo la formazione\n\n- Grandi benefici per i dipendenti ed eventi regolari\n\n- Una grande cultura aziendale\nScopri di più su JYSK come azienda didattica qui.\nPerché sarà nella tua formazione\n1. Anno di formazione\n\n- Partecipate al nostro giorno di benvenuto di due giorni con tutti gli studenti della Svizzera.\n\n- Si arriva a conoscere le routine nel negozio\n\n- Sarete sostenuti nella scuola professionale e nella discussione di vendita con i clienti a brillare.\n2. Anno di formazione\n\n- Riceverai la responsabilità di determinati compiti nel ramo\n\n- Diventa un professionista delle vendite con il supporto del tuo formatore professionale\n\n- Sarete incorporati nella gestione dell'ordine e del magazzino merci e aiuto con promozioni e collocamenti stagionali.\n3. Anno di formazione\n\n- Sarete preparati per il vostro esame finale in un seminario di due giorni in modo da padroneggiare con colori volanti.\n\n- Si otterrà preziose intuizioni nei compiti di un manager e imparare che cosa significa essere un vero leader.\n\n- Nel terzo anno di apprendistato, si assume un ruolo centrale nel ramo e può già assumersi la responsabilità per il proprio dipartimento.\nScopri di più sul tuo insegnamento a JYSK nel nostro volantino di apprendistato.\nCosa dovresti portare con te\n\n- Hai completato la scuola obbligatoria\n\n- Sei interessato a una carriera nel retailing\n\n- Sei impegnato, come essere tra le persone e come il contatto con il cliente\n\n- Sei affidabile e disponibile\n\n- Sei un vero giocatore di squadra\nDatti da fare oggi.",
         "en": "Ready, set, go! Start your apprenticeship in retail at JYSK in August 2027. Become part of our success story and experience a cooperation at eye level. We are looking for committed and enthusiastic talents who want to gain experience and take on responsibility. #BuildYourCareer\nYou could be the learning retailer we are looking for! 🙋\nWhat we offer you\n\nYou will get the chance to join a retail company that wants to be the first choice of talent as an employer.\n\nIn addition, you can look forward to the following advantages with us:\n\n- A very attractive wage:\n- In the first year of apprenticeship: 1,000 CHF\n\n- In the 2nd year of apprenticeship: 1’200 CHF\n\n- In the 3rd year of apprenticeship: 1’500 CHF\n\n- A 13. Monthly wages\n\n- Very attractive bonuses\n\n- Good grades #BringDedicationMeetPossibilities\n\n- A solid and recognised basic education\n\n- Motivated professional trainers who meet you at eye level\n\n- Learning excursions\n\n- High takeover opportunities after training\n\n- Great employee benefits and regular events\n\n- A great company culture\nLearn more about JYSK as a teaching company here.\nWHY IT WILL BE IN YOUR TRAINING\n1. Training year\n\n- You participate in our two-day Welcome Day with all learners from Switzerland.\n\n- You get to know the routines in the store\n\n- You will be supported in the vocational school and in the sales discussion with customers to shine.\n2. Training year\n\n- You receive responsibility for certain tasks in the branch\n\n- You become a sales professional with the support of your vocational trainer\n\n- You will be incorporated into the goods order and warehouse management and help with promotions and seasonal placements.\n3. Training year\n\n- You will be prepared for your final exam in a two-day seminar so that you master it with flying colors.\n\n- You will gain valuable insights into the tasks of a manager and learn what it means to be a true leader.\n\n- In the third year of apprenticeship, you take on a central role in the branch and can already take on responsibility for your own department.\nFind out more about your teaching at JYSK in our apprenticeship flyer.\nWhat you should bring with you\n\n- You have completed obligatory schooling\n\n- You are interested in a career in retailing\n\n- You are engaged, like to be among people and like customer contact\n\n- You are reliable and helpful\n\n- You are a real team player\nGive yourself today.",
+        "de": "Ready, set, go! Starte im August 2027 deine Lehre im Detailhandel bei JYSK. Werde Teil unserer Erfolgsgeschichte und erlebe ein Miteinander auf Augenhöhe. Wir sind auf der Suche nach engagierten und begeisterungsfähigen Talenten, die bei uns Erfahrungen sammeln und Verantwortung übernehmen wollen. #BuildYourCareer💪\nDu könntest die/der Lernende Detailhandelsfachfrau/-mann sein, die/den wir suchen! 🙋\nWAS WIR DIR BIETEN\n\nDu erhältst die Chance, einem Detailhandelsunternehmen beizutreten, das als Arbeitgeberin die erste Wahl der Talente sein möchte.\n\nZusätzlich kannst du dich auf folgende Vorteile bei uns freuen:\n\n- Ein sehr attraktiver Lohn:\n- Im 1. Lehrjahr: 1‘000 CHF\n\n- Im 2. Lehrjahr: 1‘200 CHF\n\n- Im 3. Lehrjahr: 1‘500 CHF\n\n- Einen 13. Monatslohn\n\n- Sehr attraktive Bonuszahlungen\n\n- Zeugnisprämien bei guten Noten #BringDedicationMeetPossibilities\n\n- Eine solide und anerkannte Grundausbildung\n\n- Motivierte Berufsbildner/innen, die dir auf Augenhöhe begegnen\n\n- Lernendenausflüge\n\n- Hohe Übernahmechancen nach der Ausbildung\n\n- Tolle Mitarbeitendenvorteile und regelmässige Events\n\n- Eine grossartige Unternehmenskultur\nErfahre hier mehr über JYSK als Lehrbetrieb.\nWORUM ES IN DEINER AUSBILDUNG GEHEN WIRD\n1. Lehrjahr\n\n- Du nimmst an unseren zweitätigen Welcome Day mit allen Lernenden aus der Schweiz teil.\n\n- Du lernst die Routinen in der Filiale kennen\n\n- Du wirst unterstützt in der Berufsschule und im Verkaufsgespräch mit Kunden/innen zu glänzen.\n2. Lehrjahr\n\n- Du erhältst Verantwortung für bestimmte Aufgaben in der Filiale\n\n- Du wirst mit Unterstützung deines/r Berufsbildners zum Verkaufsprofi\n\n- Du wirst in die Warenbestellung und das Lagermanagement eingearbeitet und hilfst bei Aktionen und Saisonplatzierungen.\n3. Lehrjahr\n\n- Du wirst in einem zweitägigen Seminar gezielt auf deine Abschlussprüfung vorbereitet, damit du sie mit Bravour meisterst.\n\n- Du erhältst wertvolle Einblicke in die Aufgaben eines Managers und lernst, was es bedeutet, ein echter Leader zu sein.\n\n- Du übernimmst im dritten Lehrjahr eine zentrale Rolle in der Filiale und kannst bereits die Verantwortung für eine eigene Abteilung tragen.\nErfahre in unserem Lehrstellenflyer mehr über deine Lehre bei JYSK.\nWAS DU MITBRINGEN SOLLTEST\n\n- Du hast die obigatorische Schulzeit abgeschlossen\n\n- Du hast Interesse an einer Karriere im Detailhandel\n\n- Du bist engagiert, bist gerne unter Menschen und magst den Kundenkontakt\n\n- Du bist zuverlässig und hilfsbereit\n\n- Du bist ein/eine richtiger Teamplayer/in\nBEWIRB DICH NOCH HEUTE!",
         "fr": "Prêts, prêts, partez ! Commencez votre apprentissage au détail chez JYSK en août 2027. Faites partie de notre réussite et vivez une coopération au niveau des yeux. Nous recherchons des talents engagés et enthousiastes qui veulent acquérir de l'expérience et prendre des responsabilités. #Construisez votre carrière\nVous pourriez être le détaillant d'apprentissage que nous recherchons!\nCe que nous vous offrons\n\nVous aurez la chance de rejoindre une entreprise de détail qui veut être le premier choix de talent en tant qu'employeur.\n\nEn outre, vous pouvez attendre avec impatience les avantages suivants avec nous:\n\n- Un salaire très attrayant:\n- Dans la première année d'apprentissage: 1000 CHF\n\n- Dans la 2ème année d'apprentissage: 1.200 CHF\n\n- Dans la 3ème année d'apprentissage: 1500 CHF\n\n- A 13. Salaire mensuel\n\n- Primes très intéressantes\n\n- Bonnes notes #BringDedicationMeetPossibilités\n\n- Une éducation de base solide et reconnue\n\n- Des formateurs professionnels motivés qui vous rencontrent au niveau des yeux\n\n- Des excursions d'apprentissage\n\n- Possibilités de reprise élevées après la formation\n\n- Grandes prestations aux employés et événements réguliers\n\n- Une grande culture d'entreprise\nEn savoir plus sur JYSK en tant qu'entreprise d'enseignement ici.\nPOURQUOI C'EST DANS VOTRE FORMATION\n1. Année de formation\n\n- Vous participez à notre journée d'accueil de deux jours avec tous les apprenants de Suisse.\n\n- Vous apprenez à connaître les routines dans le magasin\n\n- Vous serez soutenu dans l'école professionnelle et dans la discussion de vente avec les clients pour briller.\n2. Année de formation\n\n- Vous recevez la responsabilité de certaines tâches dans la branche\n\n- Vous devenez un professionnel des ventes avec le soutien de votre formateur professionnel\n\n- Vous serez intégré à la gestion de l'ordre et de l'entrepôt des marchandises et vous aiderez dans les promotions et les placements saisonniers.\n3. Année de formation\n\n- Vous serez préparé pour votre examen final dans un séminaire de deux jours afin de le maîtriser avec des couleurs volantes.\n\n- Vous apprendrez à connaître les tâches d'un gestionnaire et apprendrez ce que signifie être un véritable leader.\n\n- En troisième année d'apprentissage, vous assumez un rôle central dans la branche et pouvez déjà assumer la responsabilité de votre propre département.\nEn savoir plus sur votre enseignement chez JYSK dans notre dépliant d'apprentissage.\nCe que vous devriez apporter avec vous\n\n- Vous avez terminé votre scolarité obligatoire\n\n- Vous êtes intéressé par une carrière dans le commerce de détail\n\n- Vous êtes engagé, comme être parmi les gens et comme contact client\n\n- Vous êtes fiable et utile\n\n- Vous êtes un vrai joueur d'équipe\nDonnez-vous aujourd'hui."
       },
       "requirementsByLocale": {},
@@ -1572,7 +1700,7 @@
       "addressRegion": "AG",
       "streetAddress": "Oftringen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T03:06:57.552Z",
+      "validThrough": "2027-01-25T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1596,7 +1724,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-07-10T12:19:52.077Z",
       "slugByLocale": {
         "it": "venditore-a-60-nel-ramo-stans-jysk-stans",
@@ -1648,7 +1776,7 @@
       "addressRegion": "NW",
       "streetAddress": "Stans",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T03:06:57.552Z",
+      "validThrough": "2027-01-25T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1672,7 +1800,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-09-08T13:41:23.110Z",
       "slugByLocale": {
         "it": "venditore-a-20-nel-ramo-amriswil-sabati-jysk-amriswil",
@@ -1724,7 +1852,7 @@
       "addressRegion": "TG",
       "streetAddress": "Amriswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T03:06:57.552Z",
+      "validThrough": "2027-01-25T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1748,7 +1876,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-09-04T23:01:25.650Z",
       "slugByLocale": {
         "it": "venditore-in-a-40-nel-ramo-dell-aia-jysk-sennwald",
@@ -1800,7 +1928,7 @@
       "addressRegion": "SG",
       "streetAddress": "Sennwald",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T03:06:57.552Z",
+      "validThrough": "2027-01-20T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1824,7 +1952,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "titleByLocale": {
         "de": "Verkäufer/in mit Lagerverantwortung (a) 50% in der Filiale Wädenswil",
@@ -1840,19 +1968,26 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-con-lagerverantwortung-a-50-in-der-filiale-wadenswil-jysk-wadenswil-tqeasd",
-        "en": "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-wadenswil-jysk-wadenswil-tqeasd",
+        "en": "sales-assistant-with-warehouse-responsibility-a-50-at-the-wadenswil-branch-jysk-wadenswil",
         "de": "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-wadenswil-jysk-wadenswil-tqeasd",
-        "fr": "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-wadenswil-jysk-wadenswil-tqeasd"
+        "fr": "vendeur-euse-responsable-du-stock-a-50-dans-la-filiale-de-wadenswil-jysk-wadenswil"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-wadenswil-jysk-wadenswil"
+        ],
+        "en": [
+          "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-wadenswil-jysk-wadenswil-tqeasd"
+        ],
+        "fr": [
+          "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-wadenswil-jysk-wadenswil-tqeasd"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-wadenswil-jysk-wadenswil"
+        "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-wadenswil-jysk-wadenswil",
+        "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-wadenswil-jysk-wadenswil-tqeasd"
       ],
       "salaryMin": 36800,
       "salaryMax": 55800,
@@ -1873,7 +2008,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Wädenswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T03:06:57.552Z",
+      "validThrough": "2027-01-19T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1897,7 +2032,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "titleByLocale": {
         "de": "Filialleiter/in mit Potential (a) 100% in der Filiale Chur",
@@ -1913,23 +2048,30 @@
       },
       "slugByLocale": {
         "it": "filialleiter-in-con-potential-a-100-in-der-filiale-chur-jysk-chur-74579r",
-        "en": "filialleiter-in-mit-potential-a-100-in-der-filiale-chur-jysk-chur-74579r",
+        "en": "branch-manager-with-potential-a-100-at-the-chur-branch-jysk-chur",
         "de": "filialleiter-in-mit-potential-a-100-in-der-filiale-chur-jysk-chur-74579r",
-        "fr": "filialleiter-in-mit-potential-a-100-in-der-filiale-chur-jysk-chur-74579r"
+        "fr": "responsable-de-filiale-avec-potentiel-a-a-100-dans-la-filiale-de-chur-jysk-chur"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-mit-potential-a-100-in-der-filiale-chur-jysk-chur"
+        ],
+        "en": [
+          "filialleiter-in-mit-potential-a-100-in-der-filiale-chur-jysk-chur-74579r"
+        ],
+        "fr": [
+          "filialleiter-in-mit-potential-a-100-in-der-filiale-chur-jysk-chur-74579r"
         ]
       },
       "previousSlugs": [
-        "filialleiter-in-mit-potential-a-100-in-der-filiale-chur-jysk-chur"
+        "filialleiter-in-mit-potential-a-100-in-der-filiale-chur-jysk-chur",
+        "filialleiter-in-mit-potential-a-100-in-der-filiale-chur-jysk-chur-74579r"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "salarySource": "estimated",
+      "salarySource": "reported",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1946,7 +2088,7 @@
       "addressRegion": "GR",
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T03:06:57.552Z",
+      "validThrough": "2027-01-19T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1970,18 +2112,18 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "titleByLocale": {
-        "de": "Verkäufer/in (a) 60% in der Filiale Winterthur Grüzepark",
         "it": "Verkäufer/in (a) 60% in der Filiale Winterthur Grüzepark",
         "en": "Verkäufer/in (a) 60% in der Filiale Winterthur Grüzepark",
+        "de": "Verkäufer/in (a) 60% in der Filiale Winterthur Grüzepark",
         "fr": "Verkäufer/in (a) 60% in der Filiale Winterthur Grüzepark"
       },
       "descriptionByLocale": {
-        "de": "Begeisterst du dich für den Verkauf und möchtest mit deinem Team den besten Kundenservice bieten? Dann könntest du die Verkäuferin oder der Verkäufer sein, die/den wir suchen! 🙋\nWAS WIR DIR BIETEN\n\nDu erhältst die Chance, einem Detailhandelsunternehmen beizutreten, das als Arbeitgeberin die erste Wahl der Kandidatinnen und Kandidaten sein möchte. Als JYSK-Botschafter/in bekommst du folgende Vorteile:\n\n- Entwicklungsmöglichkeiten durch exzellente Ausbildung und Mentoring\n\n- Interne Wettbewerbe zwischen den Filialen mit attraktiven Preisen wie Geldbeträge oder Gutscheine\n\n- Überdurchschnittlicher Umsatzbonus für das gesamte Team\n\n- 20% Rabatt bei JYSK und anderen Unternehmen der Lars Larsen Gruppe\n\n- Top Pensionskassenleistungen\n\n- 5 Wochen Ferien, welche sich alle 5 Dienstjahre erhöhen\n\n- Weitere Vorteile wie z.B. eine überdurchschnittliche Unfallzusatzversicherung, verschiedene Aktivitäten (Jahresfeier, Teamevents) und tolle Jubiläumsgeschenke\nWORUM ES IN DEINEM NÄCHSTEN JOB GEHEN WIRD\n\n- Du bist verantwortlich für den Verkauf in der Filiale und bietest unseren Kundinnen und Kunden einen Top-Service\n\n- Du stellst sicher, dass die Filiale sauber und gut mit unseren Produkten aufgefüllt ist\n\n- Du hilfst beim Empfangen und Einlagern der Waren\n\n- Du übernimmst Verantwortung für einen eigenen Bereich (z.B. Matratzen, Möbel), und führst diesen selbständig\nLerne hier eine unserer Verkäuferinnen kennen und erfahre, wie wir als Arbeitgeberin dastehen.\nWAS DU MITBRINGEN SOLLTEST\n\n- Du bist kontaktfreudig, ergreifst Initiativen und bietest unseren Kundinnen und Kunden das beste Einkaufserlebnis\n\n- Du hast eine ansteckende Begeisterung und geniesst das Gespräch mit Kundinnen und Kunden\n\n- Du hast eine Teamplayer-Mentalität\n\n- Du fühlst dich in einem dynamischen Arbeitsumfeld im ständigen Wandel bestens aufgehoben\n\n- Du magst körperliche Arbeit, hast eine Hands-On Mentalität und gehst mit gutem Beispiel voran\n\n- Du bist flexibel und bereit auch an Samstagen zu arbeiten\nBEWIRB DICH NOCH HEUTE!",
         "it": "Sei appassionato di vendita e vuoi offrire il miglior servizio clienti con il tuo team? Allora potresti essere il venditore che stiamo cercando!\nCosa ti offriamo\n\nAvrai la possibilità di aderire a una società di vendita al dettaglio che vuole essere la prima scelta di candidati come datore di lavoro. Come Ambasciatore JYSK ottieni i seguenti vantaggi:\n\n- Opportunità di sviluppo attraverso un'eccellente formazione e mentoring\n\n- Competizioni interne tra le filiali con prezzi attraenti come importi di denaro o buoni\n\n- Bonus di vendita superiore alla media per l'intero team\n\n- 20% di sconto su JYSK e altre società del Gruppo Lars Larsen\n\n- Servizi pensionistici\n\n- 5 settimane di vacanza, che aumenta ogni 5 anni di servizio\n\n- Ulteriori vantaggi come un'assicurazione infortuni sopra la media, varie attività (anniversario, eventi di squadra) e grandi regali di anniversario\nPerché andrà nel tuo prossimo lavoro\n\n- Sei responsabile per la vendita nel negozio e offrire ai nostri clienti un servizio top\n\n- Assicurati che il negozio sia pulito e ben riempito con i nostri prodotti\n\n- Aiuta a ricevere e memorizzare le merci\n\n- Si assume la responsabilità per la propria area (ad esempio materassi, mobili), e gestire in modo indipendente\nVieni a conoscere una delle nostre donne qui e scopri come siamo datore di lavoro.\nCosa dovresti portare con te\n\n- Sei socievole, prendi iniziative e offri ai nostri clienti la migliore esperienza di shopping\n\n- Hai un entusiasmo contagioso e goditi la conversazione con i clienti\n\n- Hai una mentalità da giocatore di squadra\n\n- Ti senti in un ambiente di lavoro dinamico in costante cambiamento\n\n- Ti piace il lavoro fisico, avere una mentalità hands-on e guidare per esempio\n\n- Sei flessibile e pronto a lavorare anche il sabato\nDatti da fare oggi.",
         "en": "Are you passionate about selling and want to offer the best customer service with your team? Then you could be the seller we are looking for! 🙋\nWhat we offer you\n\nYou will get the chance to join a retail company that wants to be the first choice of candidates as an employer. As a JYSK Ambassador you get the following advantages:\n\n- Development opportunities through excellent training and mentoring\n\n- Internal competitions between the branches with attractive prices such as amounts of money or vouchers\n\n- Above-average sales bonus for the entire team\n\n- 20% discount at JYSK and other Lars Larsen Group companies\n\n- Top pension funds services\n\n- 5 weeks of vacation, which increases every 5 years of service\n\n- Further advantages such as an above-average accident insurance, various activities (anniversary, team events) and great anniversary gifts\nWhy It Will Go In Your Next Job\n\n- You are responsible for the sale in the store and offer our customers a top service\n\n- You make sure the store is clean and well filled with our products\n\n- You help to receive and store the goods\n\n- You take responsibility for your own area (e.g. mattresses, furniture), and manage it independently\nGet to know one of our saleswomen here and find out how we stand as an employer.\nWhat you should bring with you\n\n- You are sociable, take initiatives and offer our customers the best shopping experience\n\n- You have a contagious enthusiasm and enjoy the conversation with customers\n\n- You have a team player mentality\n\n- You feel in a dynamic working environment in constant change\n\n- You like physical work, have a hands-on mentality and lead by example\n\n- You are flexible and ready to work on Saturdays too\nGive yourself today.",
+        "de": "Begeisterst du dich für den Verkauf und möchtest mit deinem Team den besten Kundenservice bieten? Dann könntest du die Verkäuferin oder der Verkäufer sein, die/den wir suchen! 🙋\nWAS WIR DIR BIETEN\n\nDu erhältst die Chance, einem Detailhandelsunternehmen beizutreten, das als Arbeitgeberin die erste Wahl der Kandidatinnen und Kandidaten sein möchte. Als JYSK-Botschafter/in bekommst du folgende Vorteile:\n\n- Entwicklungsmöglichkeiten durch exzellente Ausbildung und Mentoring\n\n- Interne Wettbewerbe zwischen den Filialen mit attraktiven Preisen wie Geldbeträge oder Gutscheine\n\n- Überdurchschnittlicher Umsatzbonus für das gesamte Team\n\n- 20% Rabatt bei JYSK und anderen Unternehmen der Lars Larsen Gruppe\n\n- Top Pensionskassenleistungen\n\n- 5 Wochen Ferien, welche sich alle 5 Dienstjahre erhöhen\n\n- Weitere Vorteile wie z.B. eine überdurchschnittliche Unfallzusatzversicherung, verschiedene Aktivitäten (Jahresfeier, Teamevents) und tolle Jubiläumsgeschenke\nWORUM ES IN DEINEM NÄCHSTEN JOB GEHEN WIRD\n\n- Du bist verantwortlich für den Verkauf in der Filiale und bietest unseren Kundinnen und Kunden einen Top-Service\n\n- Du stellst sicher, dass die Filiale sauber und gut mit unseren Produkten aufgefüllt ist\n\n- Du hilfst beim Empfangen und Einlagern der Waren\n\n- Du übernimmst Verantwortung für einen eigenen Bereich (z.B. Matratzen, Möbel), und führst diesen selbständig\nLerne hier eine unserer Verkäuferinnen kennen und erfahre, wie wir als Arbeitgeberin dastehen.\nWAS DU MITBRINGEN SOLLTEST\n\n- Du bist kontaktfreudig, ergreifst Initiativen und bietest unseren Kundinnen und Kunden das beste Einkaufserlebnis\n\n- Du hast eine ansteckende Begeisterung und geniesst das Gespräch mit Kundinnen und Kunden\n\n- Du hast eine Teamplayer-Mentalität\n\n- Du fühlst dich in einem dynamischen Arbeitsumfeld im ständigen Wandel bestens aufgehoben\n\n- Du magst körperliche Arbeit, hast eine Hands-On Mentalität und gehst mit gutem Beispiel voran\n\n- Du bist flexibel und bereit auch an Samstagen zu arbeiten\nBEWIRB DICH NOCH HEUTE!",
         "fr": "Êtes-vous passionné par la vente et voulez-vous offrir le meilleur service à la clientèle avec votre équipe? Alors vous pourriez être le vendeur que nous recherchons !\nCe que nous vous offrons\n\nVous aurez la chance de rejoindre une entreprise de détail qui veut être le premier choix de candidats en tant qu'employeur. En tant qu'ambassadeur JYSK, vous bénéficiez des avantages suivants :\n\n- Possibilités de développement grâce à une excellente formation et à un excellent encadrement\n\n- Concours internes entre les branches avec des prix attractifs tels que des montants d'argent ou des bons\n\n- Prime de vente supérieure à la moyenne pour toute l'équipe\n\n- 20% de réduction chez JYSK et d'autres sociétés du groupe Lars Larsen\n\n- Les principaux services des fonds de pension\n\n- 5 semaines de vacances, ce qui augmente tous les 5 ans de service\n\n- D'autres avantages comme une assurance accident supérieure à la moyenne, diverses activités (anniversaire, événements d'équipe) et de grands cadeaux d'anniversaire\nPourquoi il va aller dans votre prochain travail\n\n- Vous êtes responsable de la vente dans le magasin et offrez à nos clients un service haut de gamme\n\n- Vous assurez-vous que le magasin est propre et bien rempli avec nos produits\n\n- Vous aidez à recevoir et stocker les marchandises\n\n- Vous assumez la responsabilité de votre propre zone (p. ex. matelas, meubles) et vous la gérez de façon indépendante.\nApprenez à connaître une de nos vendeuses ici et découvrez comment nous sommes en tant qu'employeur.\nCe que vous devriez apporter avec vous\n\n- Vous êtes sociable, prenez des initiatives et offrez à nos clients la meilleure expérience d'achat\n\n- Vous avez un enthousiasme contagieux et profitez de la conversation avec les clients\n\n- Vous avez une mentalité de joueur d'équipe\n\n- Vous vous sentez dans un environnement de travail dynamique en constante évolution\n\n- Vous aimez le travail physique, avez une mentalité pratique et l'exemple\n\n- Vous êtes flexible et prêt à travailler le samedi aussi\nDonnez-vous aujourd'hui."
       },
       "needsRetranslation": true,
@@ -2001,8 +2143,6 @@
       "previousSlugs": [
         "verkaufer-in-a-60-in-der-filiale-winterthur-gruzepark-jysk-winterthur"
       ],
-      "salaryMin": 44100,
-      "salaryMax": 66900,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -2020,12 +2160,14 @@
       "addressRegion": "ZH",
       "streetAddress": "Winterthur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T03:06:57.552Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-19T09:25:04.036Z",
+      "validThroughSource": "last-observed-window",
+      "salaryMin": 44100,
+      "salaryMax": 66900
     },
     {
       "id": "company-dveizn",
-      "slug": "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs-dveizn",
+      "slug": "gestione-di-ramo-aggiunto-a-80-100-nel-ramo-di-wangs-sargans-jysk-vilters-wangs",
       "company": "JYSK",
       "title": "Stellvertretende Filialleitung (a) 80-100% in der Filiale Wangs (Sargans)",
       "location": "Vilters-Wangs",
@@ -2044,38 +2186,44 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "titleByLocale": {
-        "de": "Stellvertretende Filialleitung (a) 80-100% in der Filiale Wangs (Sargans)",
         "it": "Gestione di ramo aggiunto (a) 80-100% nel ramo di Wangs (Sargans)",
         "en": "Deputy Branch Management (a) 80-100% in the branch of Wangs (Sargans)",
+        "de": "Stellvertretende Filialleitung (a) 80-100% in der Filiale Wangs (Sargans)",
         "fr": "Direction générale adjointe (a) 80-100 % dans la direction générale de Wangs (Sargans)"
       },
       "descriptionByLocale": {
-        "de": "Bist du bereit, das Team mit der Filialleitung zu motivieren und zu coachen, um Top-Ergebnisse zu erzielen und unseren Kundinnen & Kunden ein einzigartiges Einkaufserlebnis zu bieten?💪\nDann könntest du die stellvertretende Filialleitung sein, die wir suchen! 🙋\nWAS WIR DIR BIETEN\n\nDu erhältst die Chance, einem Detailhandelsunternehmen beizutreten, das als Arbeitgeberin die erste Wahl der Kandidatinnen und Kandidaten sein möchte. Als JYSK-Botschafter/in bekommst du folgende Vorteile:\n\n- Entwicklungsmöglichkeiten durch exzellente Ausbildung und Mentoring\n\n- Interne Wettbewerbe zwischen den Filialen mit attraktiven Preisen wie Geldbeträge oder Gutscheine\n\n- Überdurchschnittlicher Umsatzbonus für das gesamte Team\n\n- 20% Rabatt bei JYSK und anderen Unternehmen der Lars Larsen Gruppe\n\n- Top Pensionskassenleistungen\n\n- 5 Wochen Ferien, welche sich alle 5 Dienstjahre erhöhen\n\n- Weitere Vorteile wie z.B. eine überdurchschnittliche Unfallzusatzversicherung, verschiedene Aktivitäten (Jahresfeier, Teamevents) und tolle Jubiläumsgeschenke\nWORUM ES IN DEINEM NÄCHSTEN JOB GEHEN WIRD\n\n- Zusammen mit der Filialleitung optimierst du die Filialabläufe für tolle Verkaufsergebnisse\n\n- Du stellst die wöchentlichen Kampagnen und eine positive Verkaufseinstellung der Mitarbeitenden sicher\n\n- Du führst und coachst dein Team auf der Verkaufsfläche\n\n- Du schulst dein Team im kundenorientierten Handeln und Zusatzverkäufe\n\n- In Zukunft siehst du dich als Filialleitung deiner eigenen Filiale und bringst Engagement mit, um dorthin zu gelangen\nTriff einen unserer stellvertretenden Filialleiter und erfahren hier mehr über den Job.\nWAS DU MITBRINGEN SOLLTEST\n\n- Erfahrung in Führung und Motivation eines Teams, vorzugsweise im Detailhandel oder der Hotellerie\n\n- Inspirierende, kommunikative Persönlichkeit mit Verkaufsorientierung\n\n- Du fühlst dich in einem dynamischen Arbeitsumfeld im ständigen Wandel bestens aufgehoben\n\n- Du magst körperliche Arbeit, hast eine Hands-On Mentalität und gehst mit gutem Beispiel voran\n\n- Du bist bereit die Mitverantwortung für deine Filiale und deren Ergebnisse zu übernehmen\n\n- Du hast die Fähigkeit, auch in stressigen Situationen ruhig und zielgerichtet zu bleiben\n\n- Du bist flexibel und bereit auch an Samstagen zu arbeiten\nBEWIRB DICH NOCH HEUTE!",
         "it": "Sei pronto a motivare e allenare il team con la gestione del negozio per ottenere i migliori risultati e fornire un'esperienza di shopping unica per i nostri clienti?\nPoi si potrebbe essere il vice-direttore di ramo che stiamo cercando!\nCosa ti offriamo\n\nAvrai la possibilità di aderire a una società di vendita al dettaglio che vuole essere la prima scelta di candidati come datore di lavoro. Come Ambasciatore JYSK ottieni i seguenti vantaggi:\n\n- Opportunità di sviluppo attraverso un'eccellente formazione e mentoring\n\n- Competizioni interne tra le filiali con prezzi attraenti come importi di denaro o buoni\n\n- Bonus di vendita superiore alla media per l'intero team\n\n- 20% di sconto su JYSK e altre società del Gruppo Lars Larsen\n\n- Servizi pensionistici\n\n- 5 settimane di vacanza, che aumenta ogni 5 anni di servizio\n\n- Ulteriori vantaggi come un'assicurazione infortuni sopra la media, varie attività (anniversario, eventi di squadra) e grandi regali di anniversario\nPerché andrà nel tuo prossimo lavoro\n\n- Insieme alla gestione del ramo si ottimizzano i processi di branch per grandi risultati di vendita\n\n- Assicurare le campagne settimanali e un atteggiamento di vendita positivo dei dipendenti\n\n- Guida e allena la tua squadra al piano di vendita\n\n- Allena il tuo team in azione orientata al cliente e vendite aggiuntive\n\n- In futuro, si vede come la gestione di ramo del proprio ramo e portare l'impegno per arrivarci.\nIncontra uno dei nostri vice manager e scopri di più sul lavoro qui.\nCosa dovresti portare con te\n\n- Esperienza nella leadership e motivazione di un team, preferibilmente nel settore retail o alberghiero\n\n- Personalità stimolante e comunicativa con orientamento alle vendite\n\n- Ti senti in un ambiente di lavoro dinamico in costante cambiamento\n\n- Ti piace il lavoro fisico, avere una mentalità hands-on e guidare per esempio\n\n- Sei pronto ad assumerti la responsabilità del tuo ramo e dei suoi risultati\n\n- Hai la capacità di rimanere calmo e mirato anche in situazioni stressanti\n\n- Sei flessibile e pronto a lavorare anche il sabato\nDatti da fare oggi.",
         "en": "Are you ready to motivate and coach the team with store management to achieve top results and provide a unique shopping experience for our customers? 💪\nThen you could be the deputy branch management we are looking for! 🙋\nWhat we offer you\n\nYou will get the chance to join a retail company that wants to be the first choice of candidates as an employer. As a JYSK Ambassador you get the following advantages:\n\n- Development opportunities through excellent training and mentoring\n\n- Internal competitions between the branches with attractive prices such as amounts of money or vouchers\n\n- Above-average sales bonus for the entire team\n\n- 20% discount at JYSK and other Lars Larsen Group companies\n\n- Top pension funds services\n\n- 5 weeks of vacation, which increases every 5 years of service\n\n- Further advantages such as an above-average accident insurance, various activities (anniversary, team events) and great anniversary gifts\nWhy It Will Go In Your Next Job\n\n- Together with the branch management you optimize the branch processes for great sales results\n\n- You ensure the weekly campaigns and a positive sales attitude of the employees\n\n- You lead and coach your team on the sales floor\n\n- You train your team in customer-oriented action and additional sales\n\n- In the future, you see yourself as the branch management of your own branch and bring commitment to get there.\nMeet one of our deputy branch managers and find out more about the job here.\nWhat you should bring with you\n\n- Experience in leadership and motivation of a team, preferably in the retail or hotel industry\n\n- Inspiring, communicative personality with sales orientation\n\n- You feel in a dynamic working environment in constant change\n\n- You like physical work, have a hands-on mentality and lead by example\n\n- You are ready to take responsibility for your branch and its results\n\n- You have the ability to stay calm and purposeful even in stressful situations\n\n- You are flexible and ready to work on Saturdays too\nGive yourself today.",
+        "de": "Bist du bereit, das Team mit der Filialleitung zu motivieren und zu coachen, um Top-Ergebnisse zu erzielen und unseren Kundinnen & Kunden ein einzigartiges Einkaufserlebnis zu bieten?💪\nDann könntest du die stellvertretende Filialleitung sein, die wir suchen! 🙋\nWAS WIR DIR BIETEN\n\nDu erhältst die Chance, einem Detailhandelsunternehmen beizutreten, das als Arbeitgeberin die erste Wahl der Kandidatinnen und Kandidaten sein möchte. Als JYSK-Botschafter/in bekommst du folgende Vorteile:\n\n- Entwicklungsmöglichkeiten durch exzellente Ausbildung und Mentoring\n\n- Interne Wettbewerbe zwischen den Filialen mit attraktiven Preisen wie Geldbeträge oder Gutscheine\n\n- Überdurchschnittlicher Umsatzbonus für das gesamte Team\n\n- 20% Rabatt bei JYSK und anderen Unternehmen der Lars Larsen Gruppe\n\n- Top Pensionskassenleistungen\n\n- 5 Wochen Ferien, welche sich alle 5 Dienstjahre erhöhen\n\n- Weitere Vorteile wie z.B. eine überdurchschnittliche Unfallzusatzversicherung, verschiedene Aktivitäten (Jahresfeier, Teamevents) und tolle Jubiläumsgeschenke\nWORUM ES IN DEINEM NÄCHSTEN JOB GEHEN WIRD\n\n- Zusammen mit der Filialleitung optimierst du die Filialabläufe für tolle Verkaufsergebnisse\n\n- Du stellst die wöchentlichen Kampagnen und eine positive Verkaufseinstellung der Mitarbeitenden sicher\n\n- Du führst und coachst dein Team auf der Verkaufsfläche\n\n- Du schulst dein Team im kundenorientierten Handeln und Zusatzverkäufe\n\n- In Zukunft siehst du dich als Filialleitung deiner eigenen Filiale und bringst Engagement mit, um dorthin zu gelangen\nTriff einen unserer stellvertretenden Filialleiter und erfahren hier mehr über den Job.\nWAS DU MITBRINGEN SOLLTEST\n\n- Erfahrung in Führung und Motivation eines Teams, vorzugsweise im Detailhandel oder der Hotellerie\n\n- Inspirierende, kommunikative Persönlichkeit mit Verkaufsorientierung\n\n- Du fühlst dich in einem dynamischen Arbeitsumfeld im ständigen Wandel bestens aufgehoben\n\n- Du magst körperliche Arbeit, hast eine Hands-On Mentalität und gehst mit gutem Beispiel voran\n\n- Du bist bereit die Mitverantwortung für deine Filiale und deren Ergebnisse zu übernehmen\n\n- Du hast die Fähigkeit, auch in stressigen Situationen ruhig und zielgerichtet zu bleiben\n\n- Du bist flexibel und bereit auch an Samstagen zu arbeiten\nBEWIRB DICH NOCH HEUTE!",
         "fr": "Êtes-vous prêt à motiver et coacher l'équipe avec la gestion des magasins pour obtenir des résultats supérieurs et fournir une expérience d'achat unique pour nos clients?\nAlors vous pourriez être la direction adjointe de la branche que nous recherchons !\nCe que nous vous offrons\n\nVous aurez la chance de rejoindre une entreprise de détail qui veut être le premier choix de candidats en tant qu'employeur. En tant qu'ambassadeur JYSK, vous bénéficiez des avantages suivants :\n\n- Possibilités de développement grâce à une excellente formation et à un excellent encadrement\n\n- Concours internes entre les branches avec des prix attractifs tels que des montants d'argent ou des bons\n\n- Prime de vente supérieure à la moyenne pour toute l'équipe\n\n- 20% de réduction chez JYSK et d'autres sociétés du groupe Lars Larsen\n\n- Les principaux services des fonds de pension\n\n- 5 semaines de vacances, ce qui augmente tous les 5 ans de service\n\n- D'autres avantages comme une assurance accident supérieure à la moyenne, diverses activités (anniversaire, événements d'équipe) et de grands cadeaux d'anniversaire\nPourquoi il va aller dans votre prochain travail\n\n- Avec la direction de la branche, vous optimisez les processus de la branche pour de grands résultats commerciaux\n\n- Vous assurez les campagnes hebdomadaires et une attitude de vente positive des employés\n\n- Vous dirigez et coachez votre équipe sur le plancher des ventes\n\n- Vous formez votre équipe à l'action orientée client et aux ventes supplémentaires\n\n- À l'avenir, vous vous voyez comme la direction de votre propre branche et vous vous engagez à y arriver.\nRencontrez l'un de nos sous-directeurs et découvrez le travail ici.\nCe que vous devriez apporter avec vous\n\n- Expérience en leadership et motivation d'une équipe, de préférence dans le commerce de détail ou l'hôtellerie\n\n- Inspirant, personnalité communicative avec orientation commerciale\n\n- Vous vous sentez dans un environnement de travail dynamique en constante évolution\n\n- Vous aimez le travail physique, avez une mentalité pratique et l'exemple\n\n- Vous êtes prêt à prendre la responsabilité de votre branche et de ses résultats\n\n- Vous avez la capacité de rester calme et objectif même dans des situations stressantes\n\n- Vous êtes flexible et prêt à travailler le samedi aussi\nDonnez-vous aujourd'hui."
       },
       "slugByLocale": {
-        "it": "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs-dveizn",
-        "en": "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs-dveizn",
+        "it": "gestione-di-ramo-aggiunto-a-80-100-nel-ramo-di-wangs-sargans-jysk-vilters-wangs",
+        "en": "deputy-branch-management-a-80-100-in-the-branch-of-wangs-sargans-jysk-vilters-wangs-dveizn",
         "de": "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs-dveizn",
-        "fr": "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs-dveizn"
+        "fr": "direction-generale-adjointe-a-80-100-dans-la-direction-generale-de-wangs-sargans-jysk-vilters-wangs-dveizn"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs"
+          "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs",
+          "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs-dveizn"
+        ],
+        "en": [
+          "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs-dveizn"
+        ],
+        "fr": [
+          "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs-dveizn"
         ]
       },
       "previousSlugs": [
-        "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs"
+        "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs",
+        "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs-dveizn"
       ],
-      "salaryMin": 57500,
-      "salaryMax": 87000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -2093,12 +2241,14 @@
       "addressRegion": "SG",
       "streetAddress": "Vilters-Wangs",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T03:06:57.552Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-12T09:25:04.036Z",
+      "validThroughSource": "last-observed-window",
+      "salaryMin": 57500,
+      "salaryMax": 87000
     },
     {
       "id": "company-vmq9ob",
-      "slug": "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs-vmq9ob",
+      "slug": "venditore-trice-a-60-80-presso-la-filiale-di-wangs-sargans-jysk-vilters-wangs",
       "company": "JYSK",
       "title": "Verkäufer/in (a) 60-80%% in der Filiale Wangs (Sargans)",
       "location": "Vilters-Wangs",
@@ -2117,7 +2267,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "titleByLocale": {
         "de": "Verkäufer/in (a) 60-80%% in der Filiale Wangs (Sargans)",
@@ -2132,20 +2282,28 @@
         "fr": "Êtes-vous passionné par la vente et voulez-vous offrir le meilleur service à la clientèle avec votre équipe? Alors vous pourriez être le vendeur que nous recherchons !\nCe que nous vous offrons\n\nVous aurez la chance de rejoindre une entreprise de détail qui veut être le premier choix de candidats en tant qu'employeur. En tant qu'ambassadeur JYSK, vous bénéficiez des avantages suivants :\n\n- Possibilités de développement grâce à une excellente formation et à un excellent encadrement\n\n- Concours internes entre les branches avec des prix attractifs tels que des montants d'argent ou des bons\n\n- Prime de vente supérieure à la moyenne pour toute l'équipe\n\n- 20% de réduction chez JYSK et d'autres sociétés du groupe Lars Larsen\n\n- Les principaux services des fonds de pension\n\n- 5 semaines de vacances, ce qui augmente tous les 5 ans de service\n\n- D'autres avantages comme une assurance accident supérieure à la moyenne, diverses activités (anniversaire, événements d'équipe) et de grands cadeaux d'anniversaire\nPourquoi il va aller dans votre prochain travail\n\n- Vous êtes responsable de la vente dans le magasin et offrez à nos clients un service haut de gamme\n\n- Vous assurez-vous que le magasin est propre et bien rempli avec nos produits\n\n- Vous aidez à recevoir et stocker les marchandises\n\n- Vous assumez la responsabilité de votre propre zone (p. ex. matelas, meubles) et vous la gérez de façon indépendante.\nApprenez à connaître une de nos vendeuses ici et découvrez comment nous sommes en tant qu'employeur.\nCe que vous devriez apporter avec vous\n\n- Vous êtes sociable, prenez des initiatives et offrez à nos clients la meilleure expérience d'achat\n\n- Vous avez un enthousiasme contagieux et profitez de la conversation avec les clients\n\n- Vous avez une mentalité de joueur d'équipe\n\n- Vous vous sentez dans un environnement de travail dynamique en constante évolution\n\n- Vous aimez le travail physique, avez une mentalité pratique et l'exemple\n\n- Vous êtes flexible et prêt à travailler le samedi aussi\nDonnez-vous aujourd'hui."
       },
       "slugByLocale": {
-        "it": "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs-vmq9ob",
-        "en": "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs-vmq9ob",
+        "it": "venditore-trice-a-60-80-presso-la-filiale-di-wangs-sargans-jysk-vilters-wangs",
+        "en": "salesperson-a-60-80-at-the-wangs-sargans-branch-jysk-vilters-wangs-vmq9ob",
         "de": "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs-vmq9ob",
-        "fr": "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs-vmq9ob"
+        "fr": "vendeur-euse-a-60-80-dans-la-filiale-de-wangs-sargans-jysk-vilters-wangs-vmq9ob"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs"
+          "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs",
+          "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs-vmq9ob"
+        ],
+        "en": [
+          "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs-vmq9ob"
+        ],
+        "fr": [
+          "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs-vmq9ob"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs"
+        "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs",
+        "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs-vmq9ob"
       ],
       "salaryMin": 46000,
       "salaryMax": 69600,
@@ -2166,7 +2324,7 @@
       "addressRegion": "SG",
       "streetAddress": "Vilters-Wangs",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T03:06:57.552Z",
+      "validThrough": "2027-01-12T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2190,7 +2348,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "jysk",
       "companyDomain": "jysk.ch",
-      "crawledAt": "2026-11-15T03:06:57.552Z",
+      "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "titleByLocale": {
         "de": "Verkäufer/in mit Lagerverantwortung (a) 60-80% in der Filiale Sirnach",
@@ -2206,19 +2364,26 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-con-lagerverantwortung-a-60-80-in-der-filiale-sirnach-jysk-sirnach-jbllf0",
-        "en": "verkaufer-in-mit-lagerverantwortung-a-60-80-in-der-filiale-sirnach-jysk-sirnach-jbllf0",
+        "en": "salesperson-with-warehouse-responsibility-a-60-80-at-the-sirnach-branch-jysk-sirnach",
         "de": "verkaufer-in-mit-lagerverantwortung-a-60-80-in-der-filiale-sirnach-jysk-sirnach-jbllf0",
-        "fr": "verkaufer-in-mit-lagerverantwortung-a-60-80-in-der-filiale-sirnach-jysk-sirnach-jbllf0"
+        "fr": "vendeur-euse-avec-responsabilite-du-stock-a-a-60-80-dans-la-filiale-de-sirnach-jysk-sirnach"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-mit-lagerverantwortung-a-60-80-in-der-filiale-sirnach-jysk-sirnach"
+        ],
+        "en": [
+          "verkaufer-in-mit-lagerverantwortung-a-60-80-in-der-filiale-sirnach-jysk-sirnach-jbllf0"
+        ],
+        "fr": [
+          "verkaufer-in-mit-lagerverantwortung-a-60-80-in-der-filiale-sirnach-jysk-sirnach-jbllf0"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-mit-lagerverantwortung-a-60-80-in-der-filiale-sirnach-jysk-sirnach"
+        "verkaufer-in-mit-lagerverantwortung-a-60-80-in-der-filiale-sirnach-jysk-sirnach",
+        "verkaufer-in-mit-lagerverantwortung-a-60-80-in-der-filiale-sirnach-jysk-sirnach-jbllf0"
       ],
       "salaryMin": 46000,
       "salaryMax": 69600,
@@ -2239,7 +2404,7 @@
       "addressRegion": "TG",
       "streetAddress": "Sirnach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T03:06:57.552Z",
+      "validThrough": "2027-01-11T09:25:04.036Z",
       "validThroughSource": "last-observed-window"
     }
   ]
