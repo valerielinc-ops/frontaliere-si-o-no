@@ -1979,7 +1979,8 @@ describe('quality grading', () => {
       + `<p>Your role includes designing, implementing, testing and documenting features, collaborating with product and operations, reviewing code, and supporting production releases.</p>`
       + `<p>Requirements include professional experience with software development, clear communication, and a practical approach to solving problems in a team. Apply now with your CV for this full-time position.</p></article></main></body></html>`;
     let extractorCalls = 0;
-    const publishableDescription = 'Software Engineer responsibilities and requirements include designing, implementing, testing and documenting reliable services for Swiss customers. The role collaborates with product and operations, reviews code and supports production releases. Apply with your CV for this full-time position.';
+    const publishableDescription = 'Software Engineer responsibilities and requirements include designing, implementing, testing and documenting reliable services for Swiss customers. The role collaborates with product and operations, reviews code and supports production releases. Apply with your CV for this full-time position.'
+      + ' The position includes careful planning, reliable communication, independent execution, team coordination, quality checks, customer support, risk awareness, clear documentation, and dependable cooperation with colleagues and internal specialists throughout the daily work and seasonal service.';
     clearPoliteFetchStateForTests();
     try {
       const report = await gradeExtraction(

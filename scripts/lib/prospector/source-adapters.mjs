@@ -24,7 +24,11 @@ import {
 import { extractPhysioswissListingCandidates } from '../physioswiss-job-parser.mjs';
 import { extractRuntimeDetailFields } from './detail-extract.mjs';
 import { platformListingExtractorFor } from './platform-extractors.mjs';
-import { CRAWLER_FETCH_FAILURE_OUTCOMES, CRAWLER_FETCH_OUTCOMES } from '../crawler-fetch-outcome.mjs';
+import {
+  CRAWLER_FETCH_FAILURE_OUTCOMES,
+  CRAWLER_FETCH_OUTCOMES,
+  isSuccessfulFilteredEmptyOutcome,
+} from '../crawler-fetch-outcome.mjs';
 import { DETAIL_DROP_ADVISORY_MIN_CANDIDATES, normalizeDetailDrop } from '../crawler-detail-drop.mjs';
 import { isDetailFailureWithinGrace } from '../detail-failure-reuse-policy.mjs';
 
@@ -214,6 +218,11 @@ export function sourceAdapterRuntimeObservationFor(rows, options = {}) {
       ? { authoritative_foreign_geography: proofExpectedForeignCount }
       : {}),
   };
+  const filteredEmptySnapshot = isSuccessfulFilteredEmptyOutcome(
+    outcome,
+    discoveredCount,
+    output.length,
+  );
 
   const unknownOutcome = outcomePresent
     && typeof rawOutcome === 'string'
@@ -226,10 +235,12 @@ export function sourceAdapterRuntimeObservationFor(rows, options = {}) {
     && proof.publishedCount !== output.length;
   const allUnexpectedDropsNoOutput = discoveredCount > 0
     && output.length === 0
+    && !filteredEmptySnapshot
     && ((detailDrop?.dropped || 0) > 0 || expectedFilterCount < discoveredCount);
   const unexplainedEmpty = discoveredCount > 0
     && discoveredCount > expectedFilterCount
     && output.length === 0
+    && !filteredEmptySnapshot
     && !proof
     && (detailDrop?.dropped || 0) === 0;
   const unaccountedProofRows = proof && proofComplete && !detailDrop
@@ -254,7 +265,8 @@ export function sourceAdapterRuntimeObservationFor(rows, options = {}) {
     : 0;
   const observedDetailsIncomplete = options.requireObservedDetails === true
     && missingObservedDetailCount > 0;
-  const accountedRows = output.length + expectedFilterCount + (detailDrop?.dropped || 0);
+  const accountedRows = output.length + expectedFilterCount + (detailDrop?.dropped || 0)
+    + (filteredEmptySnapshot ? discoveredCount : 0);
   const rowAccountingMismatch = exactListingCount && discoveredCount !== accountedRows;
   const complete = productionSnapshotAccepted
     && exactListingCount
