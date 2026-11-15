@@ -11,6 +11,7 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import {
   archiveRemovedJobsToSlice,
   collapseDuplicateRouteEntries,
+  localeRouteKeys,
   readExpiredSlice,
   repairExpiredRoutesAgainstActive,
   repairExpiredRoutesWithinArchive,
@@ -188,27 +189,57 @@ describe('the REAL sequence of passes of the pipeline, repeated', () => {
   // the stem is now owned by another, still active, Denner posting
   const stillActive = () => activeOwners().map((job) => ({ ...job }));
 
-  it('after the first pass: zero changes, no new record, no new alias — N=5', () => {
+  // One production cycle. `assemble-jobs-dataset.mjs:1842` and the ~25 update-*.mjs archive WITHOUT
+  // activeJobs; `crawler-template` / `assemble:2977` archive WITH them; then the assemble step collapses
+  // and repairs the slice.
+  type Step = 'archive-without-active' | 'archive-with-active';
+  const cycle = (steps: Step[], active: any[]) => {
+    for (const step of steps) {
+      archiveRemovedJobsToSlice([removedJob()], 'denner', step === 'archive-with-active' ? { dir, activeJobs: active } : { dir });
+    }
+    const collapsed = collapseDuplicateRouteEntries(readExpiredSlice('denner', { dir }), { source: 'test' });
+    const repaired = repairExpiredRoutesAgainstActive(collapsed.entries, active);
+    fs.writeFileSync(path.join(dir, 'denner.json'), JSON.stringify(repaired.entries));
+    return { state: repaired.entries as any[], churn: collapsed.collapsed + collapsed.repairedRoutes + repaired.changed };
+  };
+
+  it.each([
+    ['without activeJobs first, then with (assemble:1842 then crawler-template)', ['archive-without-active', 'archive-with-active'] as Step[]],
+    ['with activeJobs first, then without (reverse order)', ['archive-with-active', 'archive-without-active'] as Step[]],
+    ['without activeJobs only (the ~25 update-*.mjs crawlers)', ['archive-without-active'] as Step[]],
+  ])('N=5 cycles, %s: after the first cycle zero new records, zero new aliases, identical snapshots', (_name, steps) => {
     const active = stillActive();
-    let state: any[] = [];
     const snapshots: string[] = [];
     const aliasCounts: number[] = [];
-    for (let pass = 1; pass <= PASSES; pass += 1) {
-      archiveRemovedJobsToSlice([removedJob()], 'denner', { dir, activeJobs: active });
-      const collapsed = collapseDuplicateRouteEntries(readExpiredSlice('denner', { dir }), { source: 'test' });
-      const repaired = repairExpiredRoutesAgainstActive(collapsed.entries, active);
-      state = repaired.entries as any[];
-      fs.writeFileSync(path.join(dir, 'denner.json'), JSON.stringify(state));
+    const recordCounts: number[] = [];
+    let firstCycleRoutes = new Set<string>();
+    for (let n = 1; n <= PASSES; n += 1) {
+      const { state, churn } = cycle(steps, active);
+      const served = new Set(state.flatMap((row) => [...localeRouteKeys(row)]));
+      if (n === 1) firstCycleRoutes = served;
+      // no URL that was served after the first cycle stops being served in a later one
+      expect([...firstCycleRoutes].filter((key) => !served.has(key)), `cycle ${n}`).toEqual([]);
       snapshots.push(JSON.stringify(state));
       aliasCounts.push(aliasesOf(state).size);
-      if (pass > 1) {
-        expect(collapsed.collapsed + collapsed.repairedRoutes + repaired.changed, `pass ${pass}`).toBe(0);
-      }
+      recordCounts.push(state.length);
+      if (n > 1) expect(churn, `cycle ${n}`).toBe(0);
     }
     expect(aliasCounts[0]).toBeGreaterThan(0);
     expect(new Set(aliasCounts).size).toBe(1);
+    expect(new Set(recordCounts)).toEqual(new Set([1]));
     expect(new Set(snapshots.slice(1)).size).toBe(1);
-    expect(state).toHaveLength(1);
+    expect(snapshots[1]).toBe(snapshots[0]);
+  });
+
+  it('archiving without activeJobs a job whose original route a still-active posting holds does not create a second record', () => {
+    const active = stillActive();
+    cycle(['archive-with-active'], active); // the record's slug is now an alias
+    expect((readExpiredSlice('denner', { dir }) as any[])[0].slug).toMatch(HEX8);
+    for (let i = 0; i < PASSES; i += 1) {
+      // no activeJobs: the writer cannot know the stem belongs to an active posting
+      expect(archiveRemovedJobsToSlice([removedJob()], 'denner', { dir })).toBe(0);
+      expect(readExpiredSlice('denner', { dir })).toHaveLength(1);
+    }
   });
 
   it('re-archiving a job whose record was already moved to an alias does not create a second record', () => {
@@ -222,11 +253,37 @@ describe('the REAL sequence of passes of the pipeline, repeated', () => {
     expect(readExpiredSlice('denner', { dir })).toHaveLength(1);
   });
 
-  it('a route nobody serves any more is still archived (no URL becomes a 404)', () => {
+  it('a route nobody serves is MERGED into the existing record, not into a second one, and is not lost', () => {
     archiveRemovedJobsToSlice([removedJob()], 'denner', { dir, activeJobs: [] });
     const other = { ...removedJob(), slug: 'a-route-only-the-new-job-had', slugByLocale: { it: 'a-route-only-the-new-job-had' }, previousSlugs: [] };
-    // same posting, different slug, and its route is held by neither the archived record nor an active job
-    expect(archiveRemovedJobsToSlice([other], 'denner', { dir, activeJobs: [] })).toBe(1);
+    // same posting, different slug; the route is held by neither the record, an alias of it, nor anything else
+    expect(archiveRemovedJobsToSlice([other], 'denner', { dir, activeJobs: [] })).toBe(0);
+    const rows = readExpiredSlice('denner', { dir }) as any[];
+    expect(rows).toHaveLength(1);
+    expect(localeRouteKeys(rows[0]).has('it:a-route-only-the-new-job-had')).toBe(true);
+    // and doing it again changes nothing
+    const settled = clone(rows);
+    expect(archiveRemovedJobsToSlice([other], 'denner', { dir, activeJobs: [] })).toBe(0);
+    expect(readExpiredSlice('denner', { dir })).toEqual(settled);
+  });
+
+  it('a route another record of the slice serves is not copied into the existing record', () => {
+    archiveRemovedJobsToSlice([removedJob()], 'denner', { dir, activeJobs: [] });
+    const rows = readExpiredSlice('denner', { dir }) as any[];
+    const stranger = expiredRecord({
+      slug: 'the-stranger-slug',
+      slugByLocale: { it: 'the-stranger-slug' },
+      sourceIdentity: 'url:https://jobs.example/denner/stranger',
+      previousSlugs: ['route-only-the-stranger-serves'],
+    });
+    fs.writeFileSync(path.join(dir, 'denner.json'), JSON.stringify([...rows, stranger]));
+    const other = { ...removedJob(), slug: 'brand-new-slug-of-the-same-job', slugByLocale: { it: 'brand-new-slug-of-the-same-job' }, previousSlugs: ['route-only-the-stranger-serves'] };
+    expect(archiveRemovedJobsToSlice([other], 'denner', { dir })).toBe(0);
+    const after = readExpiredSlice('denner', { dir }) as any[];
+    expect(after).toHaveLength(2);
+    const owner = after.find((r) => r.sourceIdentity !== stranger.sourceIdentity)!;
+    expect(localeRouteKeys(owner).has('it:brand-new-slug-of-the-same-job')).toBe(true); // its own route is kept
+    expect(localeRouteKeys(owner).has('it:route-only-the-stranger-serves')).toBe(false); // the stranger's is not copied
   });
 });
 
@@ -239,24 +296,56 @@ describe('replaceSlugRouteEverywhere: cap and dedupe', () => {
     return job;
   };
 
-  it('expands a flat route into the other locales through the shared cap and journals cap-trim', () => {
+  it('never removes a route: expanding a flat route past the cap keeps every entry and journals cap-exceeded', () => {
     const job = recordWith({ en: 20, de: 20, fr: 20 });
+    const before = Object.fromEntries(['en', 'de', 'fr'].map((l) => [l, [...job.previousSlugsByLocale[l]]]));
     replaceSlugRouteEverywhere(job, 'stem', 'stem-aaaaaaaa', { locale: 'it', source: 'test', cap: 20 });
     for (const locale of ['en', 'de', 'fr']) {
-      expect(job.previousSlugsByLocale[locale]).toHaveLength(20);
-      expect(job.previousSlugsByLocale[locale]).toContain('stem'); // the newest entries survive
+      // 20 -> 21: the oldest entry (a served expired page) is still there, plus the preserved stem
+      expect(job.previousSlugsByLocale[locale]).toEqual([...before[locale], 'stem']);
     }
     expect(job.previousSlugsByLocale.it).toEqual(['stem-aaaaaaaa']);
     expect(job.previousSlugs).toBeUndefined();
-    expect(summarize().capTrimmed).toBe(3);
+    const summary = summarize();
+    expect(summary.capTrimmed).toBe(0);
+    expect(summary.capExceeded).toBe(3);
+    expect(summary.net).toBe(summary.captured + summary.restored - summary.dropped); // cap-exceeded is not a loss
   });
 
-  it('never trims a legacy list that is ALREADY over the cap (that would 404 published routes)', () => {
+  it('a legacy list already over the cap is not touched either (only noted)', () => {
     const job = recordWith({ en: 40, de: 3, fr: 3 });
     const before = [...job.previousSlugsByLocale.en];
     replaceSlugRouteEverywhere(job, 'stem', 'stem-aaaaaaaa', { locale: 'it', source: 'test', cap: 20 });
     expect(job.previousSlugsByLocale.en).toEqual([...before, 'stem']);
     expect(summarize().capTrimmed).toBe(0);
+    expect(summarize().capExceeded).toBeGreaterThan(0);
+  });
+
+  it('within the cap nothing is journaled', () => {
+    const job = recordWith({ en: 3, de: 3, fr: 3 });
+    replaceSlugRouteEverywhere(job, 'stem', 'stem-aaaaaaaa', { locale: 'it', source: 'test', cap: 20 });
+    expect(summarize().capExceeded).toBe(0);
+  });
+
+  it('an alias the record already serves from the FLAT view stays served in every locale', () => {
+    // A flat slug that also sits in one locale bucket is read as attributed to that bucket only
+    // (getPreviousSlugsForLocale): copying the alias into `it` would drop it from en/de/fr.
+    const job: any = { id: 'job-3', slug: 'x', previousSlugs: ['stem', 'stem-aaaaaaaa'] };
+    replaceSlugRouteEverywhere(job, 'stem', 'stem-aaaaaaaa', { locale: 'it', source: 'test' });
+    const served = localeRouteKeys(job);
+    for (const locale of LOCALES) expect(served.has(`${locale}:stem-aaaaaaaa`), locale).toBe(true);
+    expect(served.has('it:stem')).toBe(false); // moved away from the colliding locale
+    for (const locale of ['en', 'de', 'fr']) expect(served.has(`${locale}:stem`), locale).toBe(true); // still served elsewhere
+    expect(job.previousSlugsByLocale.it).not.toContain('stem-aaaaaaaa');
+  });
+
+  it('the same holds when the stem sits in a locale bucket and the alias in the flat view', () => {
+    const job: any = { id: 'job-4', slug: 'x', previousSlugs: ['stem-aaaaaaaa'], previousSlugsByLocale: { it: ['stem'], en: ['stem'] } };
+    replaceSlugRouteEverywhere(job, 'stem', 'stem-aaaaaaaa', { locale: 'it', source: 'test' });
+    const served = localeRouteKeys(job);
+    for (const locale of LOCALES) expect(served.has(`${locale}:stem-aaaaaaaa`), locale).toBe(true);
+    expect(served.has('it:stem')).toBe(false);
+    expect(served.has('en:stem')).toBe(true);
   });
 
   it('renaming into a route the record already holds leaves it once, so a second application is a no-op', () => {
