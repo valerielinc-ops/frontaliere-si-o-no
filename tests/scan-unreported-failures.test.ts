@@ -160,6 +160,23 @@ describe('dedup con issue canoniche che dichiarano il workflow nel corpo', () =>
     })).toBe('crawler-health-monitor');
   });
 
+  it('associa la issue giornaliera del replay portali al workflow solo col nome esatto', () => {
+    // Il creator scrive `**Workflow:** <--workflow>`; il run rosso porta il `name:` del workflow.
+    const daily = (workflow: string) => ({
+      number: 18850,
+      title: 'Portal replay giornaliero: regressione sui portali',
+      updatedAt: '2026-11-15T08:20:00Z',
+      body: `**Workflow:** ${workflow}\n\n<!-- portal-replay-daily -->\n## Replay giornaliero sui portali: verdetto rosso`,
+    });
+    const exact = latestIssuePerWorkflow([daily('Assisted application portal replay')]);
+    expect(exact.get('Assisted application portal replay')).toMatchObject({ number: 18850 });
+    expect(latestDomainIssuePerWorkflow([daily('Assisted application portal replay')])
+      .get('Assisted application portal replay')).toMatchObject({ number: 18850 });
+    // con il suffisso storico lo scanner non la vede: apriva un secondo thread (#18851)
+    const suffixed = latestIssuePerWorkflow([daily('Assisted application portal replay (daily)')]);
+    expect(suffixed.get('Assisted application portal replay')).toBeUndefined();
+  });
+
   it('non deduce il workflow da testo libero', () => {
     expect(workflowNameFromIssue({
       title: 'A crawler needs attention',

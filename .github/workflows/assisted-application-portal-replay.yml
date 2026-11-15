@@ -840,7 +840,7 @@ jobs:
             --priority 2 \
             --label Bug \
             --label portal-replay-daily \
-            --workflow 'Assisted application portal replay (daily)' \
+            --workflow 'Assisted application portal replay' \
             --require-persisted
 
       - name: Close the daily replay issue after a green verdict
@@ -855,5 +855,5 @@ jobs:
           title="$(node scripts/ci/portal-replay-daily-issue.mjs --print-title)"
           node scripts/lib/github-issue-creator.mjs --resolve \
             --title "$title" \
-            --workflow 'Assisted application portal replay (daily)' \
+            --workflow 'Assisted application portal replay' \
             --run-url "$RUN_URL"
