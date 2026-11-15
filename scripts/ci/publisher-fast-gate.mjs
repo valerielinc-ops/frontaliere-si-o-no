@@ -13,7 +13,7 @@ import {
 import { ownsSitemapUrl, sectionForUrl } from '../validate-sitemap-links.mjs';
 import { SHARD_VALIDATOR_VERSION } from './shard-content-manifest.mjs';
 
-export const FAST_GATE_VALIDATOR_VERSION = 'publisher-fast-gate-v4';
+export const FAST_GATE_VALIDATOR_VERSION = 'publisher-fast-gate-v5';
 export const SITE_ORIGIN = 'https://frontaliereticino.ch';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const SHA_RE = /^[0-9a-f]{64}$/u;
@@ -117,23 +117,26 @@ function isSupportedSnapshot(snapshot) {
 // the single root cause reported here.
 function parseSitemapSnapshot(root, previousSnapshot, declarations, errors) {
   const urlSet = new Map();
+  // Expired-archive sitemap URLs (url -> locale), kept ONLY to be counted and
+  // tied to the archive canaries; they never enter the page-by-page comparison.
+  const archiveUrls = new Map();
   const snapshotPath = path.join(root, 'new-sitemap-urls.json');
   let currentSnapshot;
   try {
     currentSnapshot = readSitemapSnapshot(snapshotPath);
   } catch (error) {
     errors.push(`current sitemap snapshot is missing or invalid (${error.message}); skipping the URL-by-URL comparison against page manifests`);
-    return { urlSet, files: [], usable: false };
+    return { urlSet, archiveUrls, files: [], usable: false };
   }
   if (!isSupportedSnapshot(currentSnapshot)) {
     errors.push('current sitemap snapshot must use schema version 3 or 4 with perSitemap URL sets; skipping the URL-by-URL comparison against page manifests');
-    return { urlSet, files: [], usable: false };
+    return { urlSet, archiveUrls, files: [], usable: false };
   }
 
   const files = Object.keys(currentSnapshot.perSitemap).sort();
   if (!files.length) {
     errors.push(`current sitemap snapshot has no URL sets under ${root}; skipping the URL-by-URL comparison against page manifests`);
-    return { urlSet, files, usable: false };
+    return { urlSet, archiveUrls, files, usable: false };
   }
   for (const [sitemap, urls] of Object.entries(currentSnapshot.perSitemap)) {
     if (!Array.isArray(urls)) {
@@ -154,7 +157,10 @@ function parseSitemapSnapshot(root, previousSnapshot, declarations, errors) {
       // expired-archive-evidence canaries, not the active page manifests.
       // Keep the URL/domain/ownership checks above, but do not compare the
       // intentionally larger archive population as active-page coverage.
-      if (isExpiredArchiveSitemap) continue;
+      if (isExpiredArchiveSitemap) {
+        if (!archiveUrls.has(url)) archiveUrls.set(url, locale);
+        continue;
+      }
       if (!urlSet.has(url)) urlSet.set(url, { locale, sitemap });
     }
   }
@@ -179,7 +185,7 @@ function parseSitemapSnapshot(root, previousSnapshot, declarations, errors) {
       );
     }
   }
-  return { urlSet, files, usable: true };
+  return { urlSet, archiveUrls, files, usable: true };
 }
 
 function assertManifestHeader(manifest, expected, errors, label) {
@@ -188,6 +194,54 @@ function assertManifestHeader(manifest, expected, errors, label) {
   if (manifest?.validatorVersion !== expected.validatorVersion) errors.push(`${label}: validatorVersion mismatch`);
   if (String(manifest?.sourceRunId) !== String(expected.sourceRunId)) errors.push(`${label}: sourceRunId mismatch`);
   if (String(manifest?.sourceSha).toLowerCase() !== String(expected.sourceSha).toLowerCase()) errors.push(`${label}: sourceSha mismatch`);
+}
+
+// Fail-closed accounting for the expired-archive sitemap family. The family is
+// kept out of the page-by-page comparison (its pages are in no page manifest),
+// so the only thing vouching for it is the per-locale canary set: a locale whose
+// archive sitemaps list URLs must have published at least one canary, whatever
+// its overflow counters say. A URL that is ALSO listed by a page sitemap is
+// compared page-by-page and is not counted as excluded.
+function summarizeExpiredArchiveCoverage({
+  archiveUrls,
+  urlSet,
+  archiveEvidenceByLocale,
+  archiveEvidenceManifests,
+  canaryVerifiedByLocale,
+  errors,
+}) {
+  const excludedByLocale = Object.fromEntries(LOCALES.map((locale) => [locale, 0]));
+  const canaryEntriesByLocale = Object.fromEntries(LOCALES.map((locale) => [
+    locale,
+    archiveEvidenceByLocale.get(locale)?.entries?.length ?? 0,
+  ]));
+  for (const [url, locale] of archiveUrls) {
+    if (!urlSet.has(url)) excludedByLocale[locale] += 1;
+  }
+  const coveredByCanaryByLocale = Object.fromEntries(LOCALES.map((locale) => [locale, 0]));
+  let excluded = 0;
+  let coveredByCanary = 0;
+  for (const locale of LOCALES) {
+    const count = excludedByLocale[locale];
+    excluded += count;
+    if (count === 0) continue;
+    if (archiveEvidenceManifests === null) {
+      errors.push(`expired archive sitemaps list ${count} ${locale} URL(s) but no archive publication evidence was supplied`);
+    } else if (canaryEntriesByLocale[locale] === 0) {
+      errors.push(`expired archive sitemaps list ${count} ${locale} URL(s) but the ${locale} archive evidence has no publication canary`);
+    } else {
+      coveredByCanaryByLocale[locale] = count;
+      coveredByCanary += count;
+    }
+  }
+  return {
+    excluded,
+    excludedByLocale,
+    coveredByCanary,
+    coveredByCanaryByLocale,
+    canaryEntriesByLocale,
+    canaryVerifiedByLocale,
+  };
 }
 
 export function validatePublisherFastGate({
@@ -401,7 +455,7 @@ export function validatePublisherFastGate({
     }
   }
 
-  const { urlSet, files: sitemapFiles, usable: sitemapSnapshotUsable } = parseSitemapSnapshot(
+  const { urlSet, archiveUrls, files: sitemapFiles, usable: sitemapSnapshotUsable } = parseSitemapSnapshot(
     sitemapDir,
     previousSitemapSnapshot,
     sitemapCoverageDeclarations,
@@ -429,6 +483,7 @@ export function validatePublisherFastGate({
       if (!urlSet.has(url)) errors.push(`page manifest URL is absent from the source sitemap bundle: ${url}`);
     }
   }
+  const canaryVerifiedByLocale = Object.fromEntries(LOCALES.map((locale) => [locale, 0]));
   for (const [url, evidence] of archiveEvidenceByUrl) {
     const pageManifest = pageManifestByLocale.get(evidence.locale);
     if ((pageManifest?.requiredSections ?? []).includes(evidence.section)) {
@@ -436,9 +491,19 @@ export function validatePublisherFastGate({
       if (!shardPage) errors.push(`expired archive canary is absent from required shard ${evidence.locale}/${evidence.section}: ${url}`);
       else if (normalizeDigest(shardPage.sourceSha256) !== normalizeDigest(evidence.sha256)) {
         errors.push(`expired archive canary digest differs in required shard ${evidence.locale}/${evidence.section}: ${url}`);
+      } else {
+        canaryVerifiedByLocale[evidence.locale] += 1;
       }
     }
   }
+  const archive = summarizeExpiredArchiveCoverage({
+    archiveUrls,
+    urlSet,
+    archiveEvidenceByLocale,
+    archiveEvidenceManifests,
+    canaryVerifiedByLocale,
+    errors,
+  });
   for (const name of manifestArtifactNames) {
     const runId = name.startsWith('section-page-manifest-') || name.startsWith('sitemap-page-manifest-it-') ? String(publisherRunId)
         : String(sourceRunId);
@@ -453,10 +518,16 @@ export function validatePublisherFastGate({
     sourceSha: String(sourceSha).toLowerCase(),
     publisherRunId: String(publisherRunId),
     sitemapFiles: sitemapFiles.length,
-    sitemapUrlPopulation: urlSet.size,
+    sitemapUrlPopulation: urlSet.size + archive.excluded,
     pageManifestPopulation: pageByUrl.size,
     sectionManifestPopulation: [...sectionByKey.values()].reduce((sum, pages) => sum + pages.size, 0),
     expiredArchiveEvidencePopulation: archiveEvidenceByUrl.size,
+    expiredArchiveSitemapExcluded: archive.excluded,
+    expiredArchiveSitemapExcludedByLocale: archive.excludedByLocale,
+    expiredArchiveSitemapCoveredByCanary: archive.coveredByCanary,
+    expiredArchiveSitemapCoveredByCanaryByLocale: archive.coveredByCanaryByLocale,
+    expiredArchiveCanaryEntriesByLocale: archive.canaryEntriesByLocale,
+    expiredArchiveCanaryVerifiedByLocale: archive.canaryVerifiedByLocale,
     sampleRate: 1,
     sampledPages: urlSet.size,
     offendersTotal: errors.length,
@@ -480,6 +551,10 @@ function parseArgs(argv) {
 }
 
 function readJson(file) { return JSON.parse(fs.readFileSync(file, 'utf8')); }
+
+function formatByLocale(byLocale) {
+  return LOCALES.map((locale) => `${locale}=${byLocale?.[locale] ?? 0}`).join(' ');
+}
 
 // Absent or unreadable baseline -> null, so the gate reports it as an error
 // (fail-closed) instead of crashing before it can write its result file.
@@ -521,6 +596,11 @@ function main() {
     fs.writeFileSync(args.out, `${JSON.stringify(result, null, 2)}\n`);
   }
   console.log(`[publisher-fast-gate] ${result.passed ? 'PASS' : 'FAIL'} source=${result.sourceRunId}@${result.sourceSha.slice(0, 12)} URLs=${result.sitemapUrlPopulation} pages=${result.pageManifestPopulation} shardPages=${result.sectionManifestPopulation} errors=${result.errorCount}`);
+  console.log(
+    `[publisher-fast-gate] expired-archive family: ${result.expiredArchiveSitemapExcluded} sitemap URL(s) excluded from the page-by-page comparison (${formatByLocale(result.expiredArchiveSitemapExcludedByLocale)}); `
+    + `${result.expiredArchiveSitemapCoveredByCanary} covered by a locale canary set (${formatByLocale(result.expiredArchiveSitemapCoveredByCanaryByLocale)}); `
+    + `canary entries ${formatByLocale(result.expiredArchiveCanaryEntriesByLocale)}, verified in a required shard ${formatByLocale(result.expiredArchiveCanaryVerifiedByLocale)}`,
+  );
   for (const error of result.errors.slice(0, 100)) console.error(`  - ${error}`);
   if (result.errors.length > 100) console.error(`  - … ${result.errors.length - 100} additional errors`);
   if (!result.passed) process.exitCode = 1;
