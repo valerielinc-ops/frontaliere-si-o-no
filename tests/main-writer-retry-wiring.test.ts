@@ -179,9 +179,11 @@ describe('main data writers use the shared retry contract', () => {
 
   it('keeps generated build snapshots out of history checkpoint commits', () => {
     const deploy = read('.github/workflows/deploy-publish.yml');
-    expect(deploy).toContain('node scripts/ci/assert-accumulator-write.mjs "$accumulator"');
+    expect(deploy).toContain('node scripts/ci/assert-accumulator-write.mjs "${history_paths[@]}"');
+    expect(deploy).toContain('node scripts/ci/assert-accumulator-write.mjs data/url-first-seen/');
     expect(deploy).toContain('git commit --only \\');
     expect(deploy).toContain('-m "chore(dist-history): append source run ${SOURCE_RUN_ID} (${SOURCE_SHA::8})" \\');
-    expect(deploy).toContain('-- data/dist-size-history.jsonl data/url-first-seen.json');
+    // Explicit allowlisted paths (the size guard's survivors), never `-a`/`.`.
+    expect(deploy).toContain('-- "${stage_paths[@]}"');
   });
 });

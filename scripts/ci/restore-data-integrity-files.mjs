@@ -59,7 +59,10 @@ function isMissingAtRef(error, ref, file) {
     : typeof error?.stderr === 'string'
       ? error.stderr
       : '';
-  return stderr.includes(`Not a valid object name ${ref}:${file}`);
+  // `exists on disk, but not in '<ref>'`: the paired slice is absent at the ref
+  // but present in the working tree; same "not in that tree" as the first form.
+  return stderr.includes(`Not a valid object name ${ref}:${file}`)
+    || stderr.includes(`exists on disk, but not in '${ref}'`);
 }
 
 function existsAt(exec, ref, file) {

@@ -129,7 +129,7 @@ export const MAX_PROFILES = 1000;
  *
  *   Demotion — do NOT hand-roll it here. build-plugins/shared/trafficEvidenceFilter.ts
  *   already exposes `FilterDecision.noindex`, gated on `noindexMinAgeDays`
- *   against data/url-first-seen.json precisely so a freshly emitted URL is not
+ *   against the first-seen ledger (data/url-first-seen/) precisely so a freshly emitted URL is not
  *   punished for being new, and sized by a one-number edit in
  *   data/url-pruning-approved-patterns.json. Registering an employer-profile
  *   `urlClass` there is a data edit with a documented revert, which is the

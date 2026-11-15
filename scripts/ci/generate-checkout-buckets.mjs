@@ -16,6 +16,7 @@
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import { applyForwardBuckets } from './checkout-bucket-forward.mjs';
 
 const ref = process.argv.includes('--ref') ? process.argv[process.argv.indexOf('--ref') + 1] : 'origin/main';
 const MIN_MB = 15;
@@ -55,13 +56,15 @@ const buckets = [...agg.entries()]
 
 const treeBytes = files.reduce((a, f) => a + f.size, 0);
 const covered = buckets.reduce((a, b) => a + b.mb, 0);
-const payload = {
+// Directories a PR introduces before their data reaches main (see
+// checkout-bucket-forward.mjs); baselineMb is computed from the measurement.
+const payload = applyForwardBuckets({
   _comment: 'GENERATO da scripts/ci/generate-checkout-buckets.mjs — non modificare a mano.',
   ref, measuredAt: new Date().toISOString().slice(0, 10), minMb: MIN_MB,
   treeMb: Math.round(treeBytes / 1048576), treeFiles: files.length,
   baselineMb: Math.round(treeBytes / 1048576) - covered,
   buckets,
-};
+});
 fs.writeFileSync(OUT, JSON.stringify(payload, null, 2) + '\n');
 console.log(`albero: ${payload.treeMb} MB / ${payload.treeFiles} file`);
 console.log(`bucket (>=${MIN_MB} MB): ${buckets.length} — coprono ${covered} MB`);

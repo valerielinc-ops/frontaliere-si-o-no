@@ -126,6 +126,7 @@ export const BOT_AUDIT_LIVE_DATA_ROOTS = Object.freeze([
   'data/translation-stats-history.json',
   'data/translation-title-fix-attempts.json',
   'data/url-first-seen.json',
+  'data/url-first-seen/',
   'data/webcam-status.json',
   'data/weekly-employers-delta.json',
   'data/weekly-employers-top-pairs.json',
@@ -852,6 +853,21 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     file: 'tests/sync-articles-sitemaps-parse-gate.test.ts',
     roots: ['packages/articles/content/'],
     reason: 'packages/articles/content/ appears as text the workflow steps must contain and as a made-up changed path handed to a stubbed git; the test runs the real step script in a temporary directory with git and npx replaced by recording stubs and reads no synced file',
+  },
+  {
+    file: 'tests/dist-history-accumulators.test.ts',
+    roots: ['data/dist-size-history.jsonl', 'data/jobs.json', 'data/url-first-seen/'],
+    reason: 'the data paths are string arguments for the size guard and the allowlist (sparse files and fixtures are created only under mkdtemp); the checkout read is limited to the script under test',
+  },
+  {
+    file: 'tests/merge-json-first-seen-driver.test.ts',
+    roots: ['data/url-first-seen/'],
+    reason: 'the shard path exists only inside a mkdtemp git repository used to run the merge driver; the checkout read is limited to the driver script and .gitattributes',
+  },
+  {
+    file: 'tests/url-first-seen-sharding-wiring.test.ts',
+    roots: ['data/dist-size-history.jsonl', 'data/url-first-seen.json'],
+    reason: 'the paths are expected workflow and sparse-checkout entries and fixtures under mkdtemp; the test reads workflow text, shell scripts and the bucket table, never the ledger or the history file',
   },
 ]);
 

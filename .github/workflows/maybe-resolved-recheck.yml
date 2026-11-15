@@ -41,6 +41,7 @@ jobs:
             /*
             !/public/images/
             !/data/jobs/
+            !/data/url-first-seen/
             !/data/seo-404-compat/
             !/data/translation-cache/
             !/packages/articles/content/

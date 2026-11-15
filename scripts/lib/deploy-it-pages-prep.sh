@@ -14,7 +14,8 @@
 # NOT handled here (handled separately). The dist-size-history / url-first-seen
 # GIT COMMIT step (deploy.yml "Commit dist-size-history row + url-first-seen
 # updates") is NOT here either: this script only RUNS the scripts that WRITE
-# data/dist-size-history.jsonl + data/url-first-seen.json; the commit+push to
+# data/dist-size-history.jsonl + data/url-first-seen/<h>.json (sharded ledger,
+# scripts/lib/url-first-seen-store.mjs); the commit+push to
 # main (with its retry loop) stays in YAML.
 #
 # Maps to these deploy.yml steps (see README in report):
@@ -56,7 +57,7 @@
 #   /tmp/pre-deploy-sitemap-urls.json          — produced by capture-deployed-sitemaps.mjs
 #   /tmp/sitemaps-bundle/                       — pre-deploy + build-id.txt + new-sitemap-urls
 #   data/dist-size-history.jsonl               — appended by report-dist-bytes-by-plugin.mjs
-#   data/url-first-seen.json                    — updated by refresh-url-first-seen.mjs
+#   data/url-first-seen/<h>.json                — updated by refresh-url-first-seen.mjs
 #
 # FATAL vs NON-FATAL (matches deploy.yml exactly):
 #   FATAL    : SPA fallback (1); Drop dist/assets guard (5); tar pack (9);
@@ -1667,7 +1668,9 @@ step_file_delta() {
 
 # ── 12. Refresh url-first-seen (grace-window seed) ────────────────────────────
 # deploy.yml: "Refresh url-first-seen" — FATAL (plain `run:`).
-# Updates data/url-first-seen.json. Commit handled by YAML.
+# Updates the sharded ledger data/url-first-seen/<h>.json (and folds the legacy
+# data/url-first-seen.json into it while that file exists). Commit handled by
+# deploy-publish.yml (job commit-it-dist-history).
 step_refresh_url_first_seen() {
   node scripts/refresh-url-first-seen.mjs --dist=dist
 }

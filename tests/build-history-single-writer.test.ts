@@ -142,7 +142,7 @@ describe('deploy.yml — la storia di build ha un solo scrittore per run (#9247)
     // le righe build restano nel writer dedicato del workflow sorgente.
     expect(names).not.toContain('Commit build-history rows (one commit per run)');
     const sparse = String(job.steps.find((s: Record<string, any>) => s.name === 'Checkout IT history writer')?.with?.['sparse-checkout']);
-    for (const p of ['/data/dist-size-history.jsonl', '/data/url-first-seen.json', '/scripts/ci/merge-json-first-seen.mjs']) {
+    for (const p of ['/data/dist-size-history.jsonl', '/data/url-first-seen/', '/scripts/ci/merge-json-first-seen.mjs', '/scripts/ci/dist-history-accumulators.mjs']) {
       expect(sparse).toContain(p);
     }
   });

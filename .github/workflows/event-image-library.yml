@@ -43,6 +43,7 @@ jobs:
             /*
             !/public/images/
             !/data/jobs/
+            !/data/url-first-seen/
             !/data/translation-cache/
             !/data/all-known-job-slugs/
             !/data/orphan-enriched-data/
