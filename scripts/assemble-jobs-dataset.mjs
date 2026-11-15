@@ -4373,6 +4373,9 @@ export function normalizeAndPersistExpiredSlice(slicePath, entries, options = {}
     + entries.reduce((count, job) => count + repairJobTranslationSemanticsInPlace(job), 0);
   const routeResult = collapseDuplicateRouteEntries(entries, {
     source: `${options.source || 'assemble-expired-slice'}/route-repair`,
+    // This is the publication boundary: keep an ambiguous record separate,
+    // but never publish the same locale route under two expired records.
+    repairUnprovenCollisions: true,
   });
   const routeChanged = routeResult.collapsed > 0 || routeResult.repairedRoutes > 0;
   if (routeChanged) entries.splice(0, entries.length, ...routeResult.entries);
@@ -4423,6 +4426,10 @@ export function repairExpiredArchiveSlicesAgainstActive(activeJobs, { sliceDir =
     // collision cannot survive outside the aggregate's publication cap.
     const collapsed = collapseDuplicateRouteEntries(entries, {
       source: `assemble-jobs-dataset/expired-slice/${path.basename(slicePath)}`,
+      // The uncapped slice is published to route-recovery consumers directly;
+      // preserve both records while giving a shared route one deterministic
+      // owner before the aggregate cap is applied.
+      repairUnprovenCollisions: true,
     });
     const archiveChanged = collapsed.collapsed > 0 || collapsed.repairedRoutes > 0;
     const workingEntries = archiveChanged ? collapsed.entries : entries;
@@ -4494,9 +4501,13 @@ export function assembleExpiredJobs({ sliceDir = EXPIRED_SLICES_DIR, aggregatePa
     // normal return path so the caller repairs route ownership against the
     // active dataset and persists the repaired archive below.
     normalizeExpiredAtEntries(legacyEntries, { source: 'assemble/legacy-aggregate' });
-    relabelExpiredArchiveEntries(legacyEntries);
-    console.log(`  📄 No per-crawler expired slices: carried ${legacyEntries.length} legacy archive entries into assembly`);
-    return legacyEntries;
+    const collapsedLegacy = collapseDuplicateRouteEntries(legacyEntries, {
+      source: 'assemble-jobs-dataset/expired-legacy',
+      repairUnprovenCollisions: true,
+    });
+    relabelExpiredArchiveEntries(collapsedLegacy.entries);
+    console.log(`  📄 No per-crawler expired slices: carried ${collapsedLegacy.entries.length} legacy archive entries into assembly`);
+    return collapsedLegacy.entries;
   }
 
   // Keyed by companyKey+slug, not bare slug — this aggregates EVERY
@@ -4566,7 +4577,13 @@ export function assembleExpiredJobs({ sliceDir = EXPIRED_SLICES_DIR, aggregatePa
   // capping — same primitive the slice writers use, route-union preserving.
   const collapsedExpired = collapseDuplicateRouteEntries(
     [...bySlug.values()].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
-    { source: 'assemble-jobs-dataset/expired' },
+    {
+      source: 'assemble-jobs-dataset/expired',
+      // The aggregate is another publication boundary. Generic archive
+      // writers stay fail-closed; assembly must nevertheless make its live
+      // route ownership invariant true without merging unknown records.
+      repairUnprovenCollisions: true,
+    },
   );
   let assembled = collapsedExpired.entries;
   if (assembled.length > EXPIRED_JOBS_CAP) {

@@ -278,11 +278,39 @@ function renderJourneyCompanies(
 
 /**
  * Sector landings are primary job-listing pages, not three-card previews: the
- * headline count and the visible inventory must describe the same set. Keep
- * the build-time guard aligned with the site's 260 KB page-weight budget so a
- * growing corpus fails loudly instead of silently hiding matching jobs.
+ * headline count and the visible inventory must describe the same set, so the
+ * builder never truncates the list to fit a byte budget.
+ *
+ * Page weight is enforced at build time. A single oversized hub must fail the
+ * build rather than silently ship a page beyond the repository's hard limit.
  */
-const SECTOR_PAGE_HARD_BUDGET_BYTES = 260 * 1024;
+export const SECTOR_PAGE_WEIGHT_WARN_BYTES = 260 * 1024;
+
+/** How many of the heaviest pages the end-of-plugin summary lists. */
+export const SECTOR_PAGE_WEIGHT_TOP_N = 5;
+
+export interface SectorPageWeight {
+  readonly path: string;
+  readonly bytes: number;
+}
+
+/**
+ * Pure summary of the emitted page weights: the heaviest `topN` pages (largest
+ * first, ties by path for a stable log) and how many exceed the warn
+ * threshold. The build-time guard below remains the enforcement point.
+ */
+export function summarizeSectorPageWeights(
+  weights: ReadonlyArray<SectorPageWeight>,
+  warnBytes: number = SECTOR_PAGE_WEIGHT_WARN_BYTES,
+  topN: number = SECTOR_PAGE_WEIGHT_TOP_N,
+): { overCount: number; total: number; top: SectorPageWeight[] } {
+  const sorted = [...weights].sort((a, b) => b.bytes - a.bytes || a.path.localeCompare(b.path));
+  return {
+    overCount: sorted.filter((w) => w.bytes > warnBytes).length,
+    total: sorted.length,
+    top: sorted.slice(0, Math.max(0, topN)),
+  };
+}
 
 const LOCALE_OG: Record<JobBoardLocale, string> = {
   it: 'it_CH',
@@ -482,9 +510,9 @@ export interface BuildSectorLandingHtmlOptions {
  * Pure HTML builder for a single sector landing page. Extracted so the
  * regression unit test (`tests/seo/job-sector-page-weight.test.ts`) can
  * exercise the exact byte-for-byte output without driving a full Vite
- * build. Callers pass the complete matching set. The 260 KB guard is the
- * safety net for corpus growth; truncating the list here would make the
- * count and cards disagree again.
+ * build. Callers pass the complete matching set. Truncating the list here
+ * would make the count and cards disagree again, so page weight is only
+ * reported (see `SECTOR_PAGE_WEIGHT_WARN_BYTES`), never enforced.
  */
 export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): string {
   const { sector, locale, matchingJobs, count, year, dateStamp, sectorProseData } = opts;
@@ -888,6 +916,7 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
         ? LOCALES
         : LOCALES.filter(shouldEmitLocale);
 
+      const pageWeights: SectorPageWeight[] = [];
       const ensuredDirs = new Set<string>();
       const ensureDir = (dir: string): void => {
         if (ensuredDirs.has(dir)) return;
@@ -910,7 +939,7 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
           const count = counts[locale][sector];
           // Render the complete matching set. The previous 30-card slice made
           // pages such as Banca/finanza announce 60 offers while exposing only
-          // half of them. The global page-weight audit remains the guardrail.
+          // half of them. Weight is reported by the warning below, not capped.
           const matchingJobs = filterSectorJobs(jobs, sector, locale, Number.MAX_SAFE_INTEGER);
 
           // The same complete set feeds both the cards and the secondary
@@ -955,15 +984,15 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
             emittedProfessionLandingPaths,
           });
 
-          // Hard budget gate — prevents future regressions from quietly
-          // breaking the site's page-weight gate. If the complete inventory
-          // outgrows the budget, split the listing or compress the card
-          // markup; never silently drop offers.
+          // Hard budget gate: keep the complete inventory (never truncate
+          // offers to make the page fit), but fail before publishing a page
+          // that exceeds the repository's page-weight contract.
           const htmlBytes = Buffer.byteLength(html, 'utf-8');
-          if (htmlBytes > SECTOR_PAGE_HARD_BUDGET_BYTES) {
+          pageWeights.push({ path: canonicalPath, bytes: htmlBytes });
+          if (htmlBytes > SECTOR_PAGE_WEIGHT_WARN_BYTES) {
             throw new Error(
               `[job-sector-pages] HTML for ${canonicalPath} is ${(htmlBytes / 1024).toFixed(1)} KB, ` +
-                `exceeds hard budget of ${SECTOR_PAGE_HARD_BUDGET_BYTES / 1024} KB. ` +
+                `exceeds hard budget of ${SECTOR_PAGE_WEIGHT_WARN_BYTES / 1024} KB. ` +
                 `Compress card markup or split the listing before changing the page-weight budget.`,
             );
           }
@@ -1019,6 +1048,18 @@ ${sitemapEntries.join('\n')}
         `\x1b[36m[job-sector-pages]\x1b[0m Generated ${totalPages} sector hubs (${jobs.length} candidate jobs)`,
       );
 
+      const weightSummary = summarizeSectorPageWeights(pageWeights);
+      if (weightSummary.total > 0) {
+        const heaviest = weightSummary.top
+          .map((w) => `${w.path} ${(w.bytes / 1024).toFixed(1)} KB`)
+          .join('; ');
+        const log = weightSummary.overCount > 0 ? console.warn : console.log;
+        log(
+          `[job-sector-pages] page weight: ${weightSummary.overCount}/${weightSummary.total} hubs above ` +
+            `${SECTOR_PAGE_WEIGHT_WARN_BYTES / 1024} KB (warning only); heaviest ${weightSummary.top.length}: ${heaviest}`,
+        );
+      }
+
       // Always-run: patch sitemap.xml index lastmod entry. Other plugins
       // regenerate sitemap.xml every build, so our entry's <lastmod> would
       // otherwise drop out. Runs whether the cache hit or miss, but only
@@ -1050,7 +1091,7 @@ ${sitemapEntries.join('\n')}
       // hub landing is on disk, so the injector can safely add anchors to them
       // from the 4 job-board root hubs. Same fail-fast contract as
       // resolveJobsSeoPagesFlushed: closeBundle has no early return, so this is
-      // reached on every normal exit. A thrown budget-error above propagates to
+      // reached on every normal exit. A thrown budget error above propagates to
       // Vite and fails the build (consumer terminates — not a deadlock).
       resolveSectorPagesFlushed();
     },

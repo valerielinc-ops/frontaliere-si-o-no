@@ -11,6 +11,8 @@ import {
 } from '../scripts/assemble-jobs-dataset.mjs';
 import {
   archiveRemovedJobsToSlice,
+  collapseDuplicateRouteEntries,
+  localeRouteKeys,
   repairExpiredRoutesAgainstActive,
 } from '../scripts/lib/expired-jobs-archive.mjs';
 
@@ -213,6 +215,51 @@ describe('repairExpiredRoutesAgainstActive', () => {
     }
   });
 
+  it('repairs a mixed named and identity-less collision at the assembly boundary', () => {
+    const root = mkdtempSync(join(tmpdir(), 'expired-mixed-identity-route-'));
+    try {
+      const sharedRoute = 'dipl-pflegefachfrau-mann-50-100-kssg-ch';
+      const entries = [
+        {
+          companyKey: 'hoch-health',
+          sourceIdentity: 'url:https://jobs.h-och.ch/job/grabs/1406303133',
+          slug: 'dipl-infermieristica-professionale-50-100-hoch-health',
+          expiredAt: new Date(Date.now() - 86_400_000).toISOString(),
+          slugByLocale: { it: 'dipl-infermieristica-professionale-50-100-hoch-health' },
+          previousSlugs: [sharedRoute],
+          previousSlugsByLocale: { it: [sharedRoute] },
+        },
+        {
+          companyKey: 'hoch-health',
+          slug: 'infermiere-a-diplomato-a-50-100-kantonsspital-st-gallen-kssg',
+          expiredAt: new Date(Date.now() - 86_400_000 * 180).toISOString(),
+          slugByLocale: { it: 'infermiere-a-diplomato-a-50-100-kantonsspital-st-gallen-kssg' },
+          previousSlugs: [sharedRoute],
+          previousSlugsByLocale: { it: [sharedRoute] },
+        },
+      ];
+      const slicePath = join(root, 'hoch-health.json');
+
+      expect(normalizeAndPersistExpiredSlice(slicePath, entries, {
+        source: 'test/issue-17512',
+      })).toBeGreaterThan(0);
+
+      const persisted = JSON.parse(readFileSync(slicePath, 'utf8'));
+      expect(persisted).toHaveLength(2);
+      const routeOwners = persisted.flatMap((entry: Record<string, unknown>) => [
+        ...localeRouteKeys(entry as never),
+      ]).filter((route: string) => route === `it:${sharedRoute}`);
+      expect(routeOwners).toHaveLength(1);
+      expect(persisted.some((entry: Record<string, unknown>) => entry.sourceIdentity === undefined)).toBe(true);
+
+      expect(normalizeAndPersistExpiredSlice(slicePath, entries, {
+        source: 'test/issue-17512',
+      })).toBe(0);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('reconciles same-posting ghosts from the uncapped slice corpus', () => {
     const root = mkdtempSync(join(tmpdir(), 'expired-slice-ghost-cap-'));
     try {
@@ -340,6 +387,84 @@ describe('repairExpiredRoutesAgainstActive', () => {
       expect(persisted).toHaveLength(2);
       expect(persisted[0].slug).toBe(duplicateSlug);
       expect(persisted[1].slug).toMatch(new RegExp(`^${duplicateSlug}-[0-9a-f]{8}$`));
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('collapses same-identity route collisions before unproven route repair', () => {
+    const duplicateRoute = 'same-identity-shared-route';
+    const entries = [
+      {
+        companyKey: 'example-company',
+        sourceIdentity: 'url:https://jobs.example.test/same-posting',
+        slug: 'same-posting-newer',
+        expiredAt: '2026-11-07T00:00:00.000Z',
+        slugByLocale: { it: duplicateRoute },
+        previousSlugs: [duplicateRoute],
+        previousSlugsByLocale: { it: [duplicateRoute] },
+      },
+      {
+        companyKey: 'example-company',
+        sourceIdentity: 'url:https://jobs.example.test/same-posting',
+        slug: 'same-posting-older',
+        expiredAt: '2026-10-07T00:00:00.000Z',
+        slugByLocale: { it: duplicateRoute },
+        previousSlugs: [duplicateRoute],
+        previousSlugsByLocale: { it: [duplicateRoute] },
+      },
+    ];
+
+    const result = collapseDuplicateRouteEntries(entries, {
+      source: 'test/same-identity-route',
+      repairUnprovenCollisions: true,
+    });
+
+    expect(result.entries).toHaveLength(1);
+    expect(result.collapsed).toBe(1);
+    expect(result.repairedRoutes).toBe(0);
+    expect(result.entries.flatMap((entry) => [...localeRouteKeys(entry)])
+      .filter((route) => route === `it:${duplicateRoute}`)).toHaveLength(1);
+  });
+
+  it('repairs duplicate routes in the no-slice legacy aggregate before return', () => {
+    const root = mkdtempSync(join(tmpdir(), 'expired-legacy-duplicate-route-'));
+    try {
+      const sliceDir = join(root, 'expired-slices');
+      const aggregatePath = join(root, 'expired-jobs.json');
+      const publicPath = join(root, 'public', 'data', 'expired-jobs.json');
+      mkdirSync(sliceDir, { recursive: true });
+      const sharedRoute = 'legacy-shared-route';
+      writeFileSync(aggregatePath, JSON.stringify([
+        {
+          companyKey: 'example-company',
+          sourceIdentity: 'url:https://jobs.example.test/legacy-newer',
+          slug: 'legacy-newer',
+          expiredAt: '2026-11-07T00:00:00.000Z',
+          slugByLocale: { it: 'legacy-newer' },
+          previousSlugs: [sharedRoute],
+          previousSlugsByLocale: { it: [sharedRoute] },
+        },
+        {
+          companyKey: 'example-company',
+          sourceIdentity: 'url:https://jobs.example.test/legacy-older',
+          slug: 'legacy-older',
+          expiredAt: '2026-10-07T00:00:00.000Z',
+          slugByLocale: { it: 'legacy-older' },
+          previousSlugs: [sharedRoute],
+          previousSlugsByLocale: { it: [sharedRoute] },
+        },
+      ]));
+
+      const assembled = assembleExpiredJobs({ sliceDir, aggregatePath });
+      expect(assembled).toHaveLength(2);
+      expect(assembled.flatMap((entry) => [...localeRouteKeys(entry)])
+        .filter((route) => route === `it:${sharedRoute}`)).toHaveLength(1);
+
+      persistExpiredArchive(assembled, { aggregatePath, publicPath });
+      const persisted = JSON.parse(readFileSync(aggregatePath, 'utf8'));
+      expect(persisted.flatMap((entry: Record<string, unknown>) => [...localeRouteKeys(entry as never)])
+        .filter((route: string) => route === `it:${sharedRoute}`)).toHaveLength(1);
     } finally {
       rmSync(root, { recursive: true, force: true });
     }

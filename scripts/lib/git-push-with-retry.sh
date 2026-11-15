@@ -433,6 +433,33 @@ push_head() {
   fi
   return "$status"
 }
+
+# A compat-shard merge driver can resolve the 16 path sets cleanly while the
+# tiny manifest remains from only one side of the rebase. Recompute that
+# metadata from the validated candidate before every push; never infer a count
+# from the diff or repair a partial/corrupt store.
+repair_compat_manifest_before_push() {
+  local touched
+  touched="$(git diff-tree --no-commit-id --name-only -r HEAD -- 'data/seo-404-compat/part-*.json' \
+    | grep -E '^data/seo-404-compat/part-[0-9]+\.json$' || true)"
+  [ -n "$touched" ] || return 0
+
+  if [ -n "$(git status --porcelain -- data/seo-404-compat)" ]; then
+    echo "::error::Cannot repair seo-404-compat manifest while its working tree is dirty"
+    return 1
+  fi
+
+  if ! node "$(dirname "$0")/../ci/repair-compat-manifest.mjs" "$PWD"; then
+    echo "::error::Compat manifest repair failed; refusing to commit or push the candidate" >&2
+    return 1
+  fi
+  if ! git diff --quiet -- data/seo-404-compat/manifest.json; then
+    git add -- data/seo-404-compat/manifest.json
+    git commit --amend --no-edit
+  fi
+}
+
+repair_compat_manifest_before_push || exit 1
 until push_head; do
   if [ "$PUSH_GUARD_FAILED" -eq 1 ]; then
     echo "::error::Main push guard rejected the candidate; refusing to retry a potentially destructive write"
@@ -624,6 +651,7 @@ until push_head; do
     # Rebase succeeded cleanly — restore the leftover state for later steps.
     restore_stashed_wip || exit 1
   fi
+  repair_compat_manifest_before_push || exit 1
   attempt=$((attempt + 1))
   # Cap the linear-backoff base at 12s (not the total sleep) so late attempts
   # don't consume the job-timeout budget, while the jitter term is added
