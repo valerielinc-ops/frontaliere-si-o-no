@@ -38,15 +38,21 @@ import { selectMaxWorkers, vitestChildEnv } from './lib/select-max-workers.mjs';
 import { missingFullCheckoutArtifacts } from './lib/typecheck-sparse.mjs';
 import { GRAPH_IGNORED_RE, GRAPH_SOURCE_RE, isGraphSourceFile } from './lib/related-graph-scope.mjs';
 import { CRAWLER_GENERATION_RUNTIME_PATHS } from '../lib/crawler-generation-runtime-paths.mjs';
-import { isArticlePublisherCodePath } from '../lib/article-chunk-publish-freshness.mjs';
+import {
+  isArticlePublisherCodePath,
+  isArticlePublisherWorkflowPath,
+} from '../lib/article-chunk-publish-freshness.mjs';
 import { isScanned as isSecretScanned, scanText } from './scan-site-hardcoded-secrets.mjs';
 import { TRANSPORT_MANIFEST, transportManifestPaths } from './corpus-ahead-check.mjs';
 import { stripSourceComments } from '../lib/source-comments.mjs';
 
+const isArticlePublisherSelectionPath = (file) =>
+  isArticlePublisherCodePath(file) || isArticlePublisherWorkflowPath(file);
+
 const changedPathFile = process.env.CHANGED_PATHS_FILE || 'changed-paths.txt';
 const changedStatusFile = process.env.CHANGED_PATHS_STATUS_FILE || 'changed-paths-status.txt';
 const graphFile = process.env.VITEST_RELATED_GRAPH || '.cache/vitest-related/graph.json';
-const graphVersion = 20;
+const graphVersion = 21;
 const require = createRequire(import.meta.url);
 let typescript;
 const selectionOnly = process.argv.includes('--select-only');
@@ -329,7 +335,7 @@ const sourceTreeLintTests = new Map([
   // ma ne importa solo due. Un import nuovo in uno degli altri allarga la
   // chiusura senza che il grafo scelga il test. Il perimetro e' l'elenco che
   // il classificatore stesso usa.
-  ['tests/scripts/article-chunk-publish-freshness.test.ts', isArticlePublisherCodePath],
+  ['tests/scripts/article-chunk-publish-freshness.test.ts', isArticlePublisherSelectionPath],
   // Il ledger durevole dei loop e' riletto a runtime contro il registry
   // corrente: un cambio di sourceRefs senza historicalSourceRefs lo rende
   // illeggibile. Registry e ledger sono dati, nessun import li collega al test
@@ -592,6 +598,10 @@ const relatedAssetFileScopes = new Map([
   ...workflowAssetGlobalTests.map((file) => [file, allWorkflowAssetScope]),
   ['tests/assisted-application-portal-replay.test.ts', portalReplayWorkflowScope],
   ['tests/social-robot.test.ts', socialWorkflowScope],
+  ['tests/scripts/article-chunk-publish-freshness.test.ts', [
+    isArticlePublisherCodePath,
+    isArticlePublisherWorkflowPath,
+  ]],
   ...[
     'tests/deploy-workflow.test.ts',
     'tests/deploy-matrix-experiment-workflow.test.ts',
@@ -1110,7 +1120,9 @@ function loadGraph(files, assets) {
   // 17 registra i binding degli import per la selezione symbol-aware; la 18
   // restringe i wildcard ai path che raggiungono davvero una directory scan;
   // la 19 limita gli asset workflow ai contratti globali o a scope espliciti;
-  // la 20 conserva i reader che nominano il file workflow esatto.
+  // la 20 conserva i reader che nominano il file workflow esatto; la 21
+  // invalida le entry del publisher freshness test quando il suo workflow
+  // trigger entra nello scope asset esplicito.
   const assetsDigest = createHash('sha1').update([...assets].sort().join('\n')).digest('hex');
   try {
     const cached = JSON.parse(readFileSync(graphFile, 'utf8'));
