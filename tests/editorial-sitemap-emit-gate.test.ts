@@ -52,10 +52,12 @@ describe('editorialSitemapEmitGate - build that emits IT (monolithic or IT leg)'
 
 describe('editorialSitemapEmitGate - BUILD_LOCALE=de|en|fr build (class 2)', () => {
   for (const owned of ['en', 'de', 'fr'] as const) {
-    it(`${owned} build publishes its group when the ${owned} page was emitted although the IT file is absent`, () => {
+    it(`${owned} build publishes only its owned group when the ${owned} page was emitted`, () => {
       const gate = gateFor([owned], [owned]);
       expect(gate).not.toBeNull();
-      expect(gate!.advertises(owned)).toBe(true);
+      for (const locale of ALL) {
+        expect(gate!.advertises(locale)).toBe(locale === owned);
+      }
     });
 
     it(`${owned} build does NOT publish when the ${owned} page was not emitted`, () => {
@@ -63,19 +65,13 @@ describe('editorialSitemapEmitGate - BUILD_LOCALE=de|en|fr build (class 2)', () 
     });
   }
 
-  it('keeps the sibling-locale groups (not vouched for here) alongside the emitted one, as the IT build does', () => {
-    const gate = gateFor(['en'], ['en']);
-    expect(gate!.advertises('it')).toBe(true);
-    expect(gate!.advertises('de')).toBe(true);
-    expect(gate!.advertises('fr')).toBe(true);
-  });
-
-  it('a build owning two locales drops only the owned locale whose page is missing', () => {
+  it('a build owning two locales publishes only owned groups whose pages were emitted', () => {
     const gate = gateFor(['en', 'de'], ['en']);
     expect(gate).not.toBeNull();
     expect(gate!.advertises('en')).toBe(true);
     expect(gate!.advertises('de')).toBe(false);
-    expect(gate!.advertises('fr')).toBe(true);
+    expect(gate!.advertises('it')).toBe(false);
+    expect(gate!.advertises('fr')).toBe(false);
   });
 
   it('is not fooled by an emitted page of a locale the build does not own', () => {

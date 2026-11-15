@@ -7,12 +7,10 @@
  *  - A build that emits IT (the monolithic build and the IT leg) gates the
  *    whole group on the IT page: it is the x-default/canonical fallback, and it
  *    cannot probe sibling-locale files, which belong to other legs.
- *  - A build that does NOT emit IT (`BUILD_LOCALE=de|en|fr`) never writes the IT
- *    file, so probing it hid every editorial entry from that locale's sitemap and
- *    page manifest while the live IT-built sitemap still advertised the URL
- *    (publisher fast gate, class 2). Such a build can only vouch for the locales
- *    it renders: it advertises the group of an owned locale only when that
- *    locale's own page was emitted, and it publishes nothing when none was.
+ *  - A build that does NOT emit IT (`BUILD_LOCALE=de|en|fr`) advertises and
+ *    claims only groups for locales it owns and has emitted. Sitemaps for
+ *    other locales are the responsibility of their own builds and the shared
+ *    sitemap from the IT build.
  *
  * Pure on purpose: the filesystem probe and the locale ownership are injected,
  * so the contract is testable without a build.
@@ -52,6 +50,6 @@ export function editorialSitemapEmitGate<TLocale extends string>(
   const ownedEmitted = sitemapLocales.some((locale) => emitsLocale(locale) && emitted(locale));
   if (!ownedEmitted) return null;
   return {
-    advertises: (locale) => !emitsLocale(locale) || emitted(locale),
+    advertises: (locale) => emitsLocale(locale) && emitted(locale),
   };
 }
