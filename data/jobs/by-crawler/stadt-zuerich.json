@@ -2001,9 +2001,9 @@
       "slug": "automatico-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "automatico-stadt-zurich-zurich",
-        "en": "automation-technician-stadt-zurich",
+        "en": "automatics-stadt-zurich-zurich",
         "de": "automatiker-in-stadt-zuerich-zurigo-5782",
-        "fr": "automaticien-ne-stadt-zurich"
+        "fr": "automatique-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -2053,8 +2053,8 @@
       "previousSlugs": [
         "automatiker-in-stadt-zuerich-zurigo-5782",
         "automatiker-in-stadt-zurich",
-        "automatics-stadt-zurich-zurich",
-        "automatique-stadt-zurich-zurich"
+        "automation-technician-stadt-zurich",
+        "automaticien-ne-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2062,11 +2062,11 @@
         ],
         "en": [
           "automatiker-in-stadt-zurich",
-          "automatics-stadt-zurich-zurich"
+          "automation-technician-stadt-zurich"
         ],
         "fr": [
           "automatiker-in-stadt-zurich",
-          "automatique-stadt-zurich-zurich"
+          "automaticien-ne-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-10-20T09:44:27.697Z",
@@ -2628,7 +2628,7 @@
       "slug": "assemblaggio-automatico-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "assemblaggio-automatico-stadt-zurich-zurich",
-        "en": "automation-fitter-stadt-zurich",
+        "en": "automatic-assembler-stadt-zurich-zurich",
         "de": "automatikmonteur-in-stadt-zuerich-zurigo-5465",
         "fr": "monteur-automatique-stadt-zurich-zurich"
       },
@@ -2680,7 +2680,7 @@
       "previousSlugs": [
         "automatikmonteur-in-stadt-zuerich-zurigo-5465",
         "automatikmonteur-in-stadt-zurich",
-        "automatic-assembler-stadt-zurich-zurich"
+        "automation-fitter-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2688,7 +2688,7 @@
         ],
         "en": [
           "automatikmonteur-in-stadt-zurich",
-          "automatic-assembler-stadt-zurich-zurich"
+          "automation-fitter-stadt-zurich"
         ],
         "fr": [
           "automatikmonteur-in-stadt-zurich"
@@ -4526,7 +4526,7 @@
         "it": "elettromeccanica-stadt-zurich-zurich",
         "en": "electromechanic-stadt-zurich-zurich",
         "de": "elektromechaniker-in-stadt-zuerich-zurigo-5800",
-        "fr": "electromecanicien-ne-stadt-zurich"
+        "fr": "electromecanique-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -4576,7 +4576,7 @@
       "previousSlugs": [
         "elektromechaniker-in-stadt-zuerich-zurigo-5800",
         "elektromechaniker-in-stadt-zurich",
-        "electromecanique-stadt-zurich-zurich"
+        "electromecanicien-ne-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4587,7 +4587,7 @@
         ],
         "fr": [
           "elektromechaniker-in-stadt-zurich",
-          "electromecanique-stadt-zurich-zurich"
+          "electromecanicien-ne-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-10-20T09:44:27.697Z",
@@ -5697,7 +5697,7 @@
       "id": "stadt-zuerich-7b6cd3f09bf0",
       "slug": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
       "slugByLocale": {
-        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
+        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich",
         "en": "apprenticeship-2027-logistician-logistician-efz-lager-stadt-zurich-zurich",
         "de": "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
         "fr": "apprentissage-2027-logisticien-logisticien-efz-lager-stadt-zurich-zurich"
@@ -10075,12 +10075,12 @@
     },
     {
       "id": "stadt-zuerich-8b8c48fe52bc",
-      "slug": "assistenzzahnarzt-in-stadt-zurich-zurich",
+      "slug": "dentista-assistente-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "assistenzzahnarzt-in-stadt-zurich-zurich",
-        "en": "assistenzzahnarzt-in-stadt-zurich-zurich",
+        "it": "dentista-assistente-stadt-zurich-zurich",
+        "en": "assistant-dentist-stadt-zurich-zurich",
         "de": "assistenzzahnarzt-in-stadt-zuerich-zurigo-52072",
-        "fr": "assistenzzahnarzt-in-stadt-zurich-zurich"
+        "fr": "medecin-dentiste-assistant-e-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -10128,11 +10128,19 @@
       "unit": "Schulgesundheitsdienste",
       "referenceNumber": "52072",
       "previousSlugs": [
-        "assistenzzahnarzt-in-stadt-zuerich-zurigo-52072"
+        "assistenzzahnarzt-in-stadt-zuerich-zurigo-52072",
+        "assistenzzahnarzt-in-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzzahnarzt-in-stadt-zuerich-zurigo-52072"
+          "assistenzzahnarzt-in-stadt-zuerich-zurigo-52072",
+          "assistenzzahnarzt-in-stadt-zurich-zurich"
+        ],
+        "en": [
+          "assistenzzahnarzt-in-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "assistenzzahnarzt-in-stadt-zurich-zurich"
         ]
       },
       "firstSeenAt": "2026-10-28T21:56:05.267Z",
@@ -11272,12 +11280,12 @@
     },
     {
       "id": "stadt-zuerich-a30ed1790a73",
-      "slug": "hochschulpraktikant-in-human-resources-100-stadt-zurich-zurich",
+      "slug": "tirocinante-universitario-a-in-risorse-umane-100-stadt-zurich-zurich",
       "slugByLocale": {
-        "it": "hochschulpraktikant-in-human-resources-100-stadt-zurich-zurich",
+        "it": "tirocinante-universitario-a-in-risorse-umane-100-stadt-zurich-zurich",
         "en": "hochschulpraktikant-in-human-resources-100-stadt-zurich-zurich",
         "de": "hochschulpraktikant-in-human-resources-100-stadt-zuerich-zurigo-52099",
-        "fr": "hochschulpraktikant-in-human-resources-100-stadt-zurich-zurich"
+        "fr": "stagiaireuniversitaireen-ressources-humaines-100-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -11325,11 +11333,16 @@
       "unit": "Support Sozialdepartement",
       "referenceNumber": "52099",
       "previousSlugs": [
-        "hochschulpraktikant-in-human-resources-100-stadt-zuerich-zurigo-52099"
+        "hochschulpraktikant-in-human-resources-100-stadt-zuerich-zurigo-52099",
+        "hochschulpraktikant-in-human-resources-100-stadt-zurich-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hochschulpraktikant-in-human-resources-100-stadt-zuerich-zurigo-52099"
+          "hochschulpraktikant-in-human-resources-100-stadt-zuerich-zurigo-52099",
+          "hochschulpraktikant-in-human-resources-100-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "hochschulpraktikant-in-human-resources-100-stadt-zurich-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -20561,9 +20574,9 @@
       "slug": "sozialpadagog-in-o-fachperson-betreuung-stadt-zurich",
       "slugByLocale": {
         "it": "sozialpadagog-in-o-fachperson-betreuung-stadt-zurich",
-        "en": "guidance-or-expert-support-stadt-zurich",
+        "en": "social-pedagogue-or-specialist-care-stadt-zurich-zurich",
         "de": "sozialpadagog-in-oder-fachperson-betreuung-stadt-zuerich-zurigo-50376",
-        "fr": "orientation-ou-appui-d-experts-stadt-zurich"
+        "fr": "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -20619,18 +20632,18 @@
         ],
         "en": [
           "hortleitung-oder-fachperson-betreuung-stadt-zurich",
-          "social-pedagogue-or-specialist-care-stadt-zurich-zurich"
+          "guidance-or-expert-support-stadt-zurich"
         ],
         "fr": [
           "hortleitung-oder-fachperson-betreuung-stadt-zurich",
-          "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich"
+          "orientation-ou-appui-d-experts-stadt-zurich"
         ]
       },
       "previousSlugs": [
         "hortleitung-oder-fachperson-betreuung-stadt-zuerich-zurigo-50376",
         "hortleitung-oder-fachperson-betreuung-stadt-zurich",
-        "social-pedagogue-or-specialist-care-stadt-zurich-zurich",
-        "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich"
+        "guidance-or-expert-support-stadt-zurich",
+        "orientation-ou-appui-d-experts-stadt-zurich"
       ],
       "firstSeenAt": "2026-11-09T10:08:37.401Z",
       "salaryMin": 63000,
@@ -31431,7 +31444,7 @@
       "id": "stadt-zuerich-40e99d7f88af",
       "slug": "tirocinante-della-scuola-universitaria-professionale-presso-un-dormitorio-d-emergenza-stadt-zurich",
       "slugByLocale": {
-        "it": "tirocinante-della-scuola-universitaria-professionale-presso-un-dormitorio-d-emergenza-stadt-zurich",
+        "it": "university-of-applied-sciences-practitioner-emergency-sleeping-point-stadt-zurich-zurich",
         "en": "university-of-applied-sciences-practitioner-in-emergency-sleeping-area-stadt-zurich-zurich",
         "de": "fachhochschulpraktikant-in-notschlafstelle-stadt-zurich-zurich",
         "fr": "professeur-a-l-universite-des-sciences-appliquees-en-zone-de-couchage-d-urgence-stadt-zurich-zurich"
@@ -31484,8 +31497,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fachhochschulpraktikant-in-notschlafstelle-stadt-zurich",
-          "fachhochschulpraktikant-in-notschlafstelle-stadt-zuerich-zurigo-51487",
-          "university-of-applied-sciences-practitioner-emergency-sleeping-point-stadt-zurich-zurich"
+          "fachhochschulpraktikant-in-notschlafstelle-stadt-zuerich-zurigo-51487"
         ],
         "de": [
           "fachhochschulpraktikant-in-notschlafstelle-stadt-zuerich-zurigo-51487"
@@ -31493,8 +31505,7 @@
       },
       "previousSlugs": [
         "fachhochschulpraktikant-in-notschlafstelle-stadt-zurich",
-        "fachhochschulpraktikant-in-notschlafstelle-stadt-zuerich-zurigo-51487",
-        "university-of-applied-sciences-practitioner-emergency-sleeping-point-stadt-zurich-zurich"
+        "fachhochschulpraktikant-in-notschlafstelle-stadt-zuerich-zurigo-51487"
       ],
       "firstSeenAt": "2026-09-01T14:26:21.613Z",
       "salaryMin": 62000,

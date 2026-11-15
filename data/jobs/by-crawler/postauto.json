@@ -776,12 +776,12 @@
     },
     {
       "id": "postauto-9e66d50ec27c",
-      "slug": "postauto-fahrer-in-postauto-bad-ragaz",
+      "slug": "autista-di-postauto-postauto-ag-bad-ragaz",
       "slugByLocale": {
         "de": "postauto-fahrer-in-postauto-bad-ragaz",
-        "it": "postauto-fahrer-in-postauto-bad-ragaz",
-        "en": "postauto-fahrer-in-postauto-bad-ragaz",
-        "fr": "postauto-fahrer-in-postauto-bad-ragaz"
+        "it": "autista-di-postauto-postauto-ag-bad-ragaz",
+        "en": "postauto-driver-postauto-ag-bad-ragaz",
+        "fr": "conducteur-trice-postauto-postauto-ag-bad-ragaz"
       },
       "company": "PostAuto AG",
       "companyKey": "postauto",
@@ -845,7 +845,21 @@
       },
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-15T09:52:42.835Z"
+      "firstSeenAt": "2026-11-15T09:52:42.835Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postauto-fahrer-in-postauto-bad-ragaz"
+        ],
+        "en": [
+          "postauto-fahrer-in-postauto-bad-ragaz"
+        ],
+        "fr": [
+          "postauto-fahrer-in-postauto-bad-ragaz"
+        ]
+      },
+      "previousSlugs": [
+        "postauto-fahrer-in-postauto-bad-ragaz"
+      ]
     },
     {
       "id": "postauto-bb80ddabedba",

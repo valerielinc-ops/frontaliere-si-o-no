@@ -21460,12 +21460,12 @@
     },
     {
       "id": "physioswiss-b3d611fafe66",
-      "slug": "dipl-physiotherapeut-in-50-80-eigenes-behandlungszimmer-flexible-arbeitszeiten-9469-haag",
+      "slug": "fisioterapista-diplomato-a-50-80-sala-per-trattamenti-propria-orari-di-lavoro-flessibili-physio-swiss-9469-haag",
       "slugByLocale": {
         "de": "dipl-physiotherapeut-in-50-80-eigenes-behandlungszimmer-flexible-arbeitszeiten-9469-haag",
-        "it": "dipl-physiotherapeut-in-50-80-eigenes-behandlungszimmer-flexible-arbeitszeiten-9469-haag",
-        "en": "dipl-physiotherapeut-in-50-80-eigenes-behandlungszimmer-flexible-arbeitszeiten-9469-haag",
-        "fr": "dipl-physiotherapeut-in-50-80-eigenes-behandlungszimmer-flexible-arbeitszeiten-9469-haag"
+        "it": "fisioterapista-diplomato-a-50-80-sala-per-trattamenti-propria-orari-di-lavoro-flessibili-physio-swiss-9469-haag",
+        "en": "qualified-physiotherapist-50-80-own-treatment-room-flexible-working-hours-physio-swiss-9469-haag",
+        "fr": "physiotherapeute-diplome-e-50-80-salle-de-traitement-personnelle-horaires-de-travail-flexibles-physio-swiss-9469-haag"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -21527,7 +21527,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-13T09:56:32.624Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T09:56:32.624Z"
+      "firstSeenAt": "2026-11-15T09:56:32.624Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-physiotherapeut-in-50-80-eigenes-behandlungszimmer-flexible-arbeitszeiten-9469-haag"
+        ],
+        "en": [
+          "dipl-physiotherapeut-in-50-80-eigenes-behandlungszimmer-flexible-arbeitszeiten-9469-haag"
+        ],
+        "fr": [
+          "dipl-physiotherapeut-in-50-80-eigenes-behandlungszimmer-flexible-arbeitszeiten-9469-haag"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-physiotherapeut-in-50-80-eigenes-behandlungszimmer-flexible-arbeitszeiten-9469-haag"
+      ]
     }
   ]
 }
