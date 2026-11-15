@@ -1,12 +1,14 @@
 import { afterEach, describe, expect, it } from 'vitest';
 import { execFileSync } from 'node:child_process';
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { request as httpRequest } from 'node:http';
 import { createServer as createNetServer, connect as connectSocket, Socket } from 'node:net';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { runInNewContext } from 'node:vm';
 import { JSDOM } from 'jsdom';
+import YAML from 'yaml';
 import { startPortalDiagnostics, warmPortalDiagnostics } from '../scripts/assisted-application/lib/portal/diagnostics.mjs';
 import { capturePortalReplayFinalClicksInPage, createPinnedPublicHttpsProxy, installPortalReplayFence, installPortalReplayNodeEgressFence, sealPortalReplayContext } from '../scripts/assisted-application/lib/portal/replay-fence.mjs';
 import {
@@ -32,6 +34,11 @@ import {
   mergePortalReplayRetryEvidence,
   violationsFor,
 } from '../scripts/assisted-application/portal-replay.mjs';
+import {
+  buildPortalReplayDailyIssueBody,
+  PORTAL_REPLAY_DAILY_ISSUE_MARKER,
+  PORTAL_REPLAY_DAILY_ISSUE_TITLE,
+} from '../scripts/ci/portal-replay-daily-issue.mjs';
 
 const tempDirs: string[] = [];
 const tempDir = () => {
@@ -472,16 +479,16 @@ describe('portal replay workflow wiring', () => {
     expect(brokerGuard).toBeGreaterThan(codex);
     expect(brokerGuard).toBeLessThan(replay);
     expect(workflow).toContain('! -S "$CODEX_AUTH_BROKER_SOCKET"');
-    const replayGate = workflow.indexOf('\n  portal-replay-gate:');
-    const replayBlock = workflow.slice(replay, replayGate);
+    const verdictJob = workflow.indexOf('\n  portal-replay-daily-verdict:');
+    const replayBlock = workflow.slice(replay, verdictJob);
     expect(replayBlock).toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
     expect(workflow).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
-    const gateBlock = workflow.slice(replayGate);
-    expect(gateBlock).toContain('ref: ${{ github.event.pull_request.merge_commit_sha }}');
-    expect(gateBlock).toContain('path: .portal-head');
-    expect(gateBlock).toContain("PORTAL_REPLAY_GATE_SEMANTICS = 'measured-baseline-v2'");
-    expect(gateBlock).toContain('gate_cli=.portal-head/scripts/assisted-application/portal-replay.mjs');
-    expect(gateBlock).toContain('node "$gate_cli" aggregate');
+    const verdictBlock = workflow.slice(verdictJob, workflow.indexOf('\n  portal-replay-daily-issue:'));
+    expect(verdictBlock).toContain('ref: ${{ github.sha }}');
+    expect(verdictBlock).toContain('path: .portal-head');
+    expect(verdictBlock).toContain("PORTAL_REPLAY_GATE_SEMANTICS = 'measured-baseline-v2'");
+    expect(verdictBlock).toContain('gate_cli=.portal-head/scripts/assisted-application/portal-replay.mjs');
+    expect(verdictBlock).toContain('node "$gate_cli" aggregate');
   });
 
   it('runs bounded family groups in parallel workers and keeps one group scheduler per worker', () => {
@@ -1012,44 +1019,144 @@ describe('portal replay live preflight', () => {
   });
 });
 
-describe('portal replay gate determinism (F2)', () => {
+describe('portal replay daily check', () => {
   const workflow = () => readFileSync(new URL('../.github/workflows/assisted-application-portal-replay.yml', import.meta.url), 'utf8');
+  const parsed = () => YAML.parse(workflow()) as {
+    on: Record<string, any>;
+    permissions: Record<string, string>;
+    concurrency: { group: string; 'cancel-in-progress': boolean };
+    jobs: Record<string, any>;
+  };
 
-  it('lists the changed paths from the merge commit with git, never through the REST API', () => {
+  it('runs on a daily schedule and on demand, and never on a pull request', () => {
+    const doc = parsed();
+    expect(Object.keys(doc.on).sort()).toEqual(['schedule', 'workflow_dispatch']);
+    expect(doc.on.schedule).toHaveLength(1);
+    const cron = String(doc.on.schedule[0].cron);
+    // one run a day, off the :00/:30 marks
+    expect(cron).toMatch(/^(?!0 |30 )\d{1,2} \d{1,2} \* \* \*$/u);
+    expect(doc.on.workflow_dispatch.inputs.base_sha).toMatchObject({ required: false, type: 'string' });
     const text = workflow();
-    expect(text).not.toMatch(/gh pr diff/u);
-    expect(text).not.toContain('portal-replay-paths.patch');
-    expect(text).toContain('ref: ${{ github.sha }}');
-    expect(text).toContain('fetch-depth: 2');
-    expect(text).toContain('filter: blob:none');
-    expect(text).toContain('git diff --name-only --no-renames HEAD^1 HEAD');
-    // un diff a due punti contro la base corrente darebbe falsi positivi quando main avanza
-    expect(text).not.toMatch(/git diff[^\n]*(BASE_SHA|base\.sha)/u);
-    // prepare riusa l'elenco di detect invece di richiederlo di nuovo
-    expect(text).toContain('name: portal-replay-paths-${{ github.run_id }}');
-    expect(text).toContain('uses: actions/download-artifact@v8');
+    expect(text).not.toContain('github.event.pull_request');
+    expect(text).not.toMatch(/^\s*pull_request/mu);
+    expect(text).not.toContain('pull-requests:');
+    expect(text).not.toContain('merge_commit_sha');
+    expect(text).not.toContain('portal-replay-report-comment');
+    expect(text).not.toContain('upsertStickyComment');
   });
 
-  it('keeps trusted base setup while running comparison semantics from the PR CLI', () => {
+  it('serializes runs under one fixed group, never cancelling the active replay', () => {
+    const doc = parsed();
+    expect(doc.concurrency.group).toBe('assisted-application-portal-replay-daily');
+    expect(doc.concurrency['cancel-in-progress']).toBe(false);
+    expect(doc.permissions).toEqual({ contents: 'read', actions: 'read', issues: 'write' });
+  });
+
+  it('retires the required `portal replay gate` job and publishes a daily verdict instead', () => {
+    const doc = parsed();
+    expect(Object.keys(doc.jobs)).toEqual(['detect', 'prepare', 'replay', 'portal-replay-daily-verdict', 'portal-replay-daily-issue']);
+    const names = Object.values(doc.jobs).map((job: any) => String(job.name));
+    expect(names).not.toContain('portal replay gate');
+    expect(doc.jobs['portal-replay-daily-verdict'].name).toBe('portal replay daily verdict');
+    // nothing is required any more, so a cancelled run is skipped rather than reported
+    expect(doc.jobs['portal-replay-daily-verdict'].if).toBe('${{ !cancelled() }}');
+    expect(doc.jobs['portal-replay-daily-verdict'].needs).toEqual(['detect', 'prepare', 'replay']);
+    expect(workflow()).toContain('node "$gate_cli" aggregate');
+  });
+
+  it('compares the tip of main against the last green daily run, an explicit base_sha, or itself', () => {
     const text = workflow();
-    expect(text).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
-    const replayStart = text.indexOf('Replay portal families in parallel inside this worker');
-    const gateStart = text.indexOf('\n  portal-replay-gate:');
-    expect(text.slice(replayStart, gateStart)).toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
+    const detect = text.slice(text.indexOf('\n  detect:'), text.indexOf('\n  prepare:'));
+    expect(detect).toContain('HEAD_SHA: ${{ github.sha }}');
+    expect(detect).toContain('INPUT_BASE_SHA: ${{ inputs.base_sha }}');
+    expect(detect).toContain('gh run list --repo "$REPO" --workflow assisted-application-portal-replay.yml --branch main --status success');
+    expect(detect).toContain('select(.event == "schedule" or .event == "workflow_dispatch")');
+    expect(detect).toContain("source='last-success'");
+    expect(detect).toContain('base="$HEAD_SHA"');
+    expect(detect).toContain("source='head'");
+    // the input only ever reaches the shell through env, and must be a full SHA
+    expect(detect.match(/\$\{\{ inputs\./gu)).toHaveLength(1);
+    expect(detect).toContain('INPUT_BASE_SHA: ${{ inputs.base_sha }}');
+    expect(detect).toContain("sha_re='^[0-9a-f]{40}$'");
+    // the lookup is bounded, with a growing backoff
+    expect(detect).toContain('for attempt in 1 2 3 4; do');
+    expect(detect).toContain('delay=$((attempt * attempt * 15))');
+    // every checkout downstream takes its refs from the resolved SHAs
+    expect(text).toContain('ref: ${{ steps.base.outputs.base_sha }}');
+    expect(text).toContain('ref: ${{ needs.detect.outputs.base_sha }}');
+    expect(text).toContain('ref: ${{ needs.detect.outputs.head_sha }}');
+    expect(text).not.toContain('base.sha');
+    expect(text).not.toContain('head.sha');
+  });
+
+  it('replays every family each day through one shared runner path, with no git diff', () => {
+    const text = workflow();
+    const match = /printf '%s\\n' '([^']+)' > "\$RUNNER_TEMP\/portal-replay-paths\.txt"/u.exec(text);
+    expect(match).not.toBeNull();
+    const sharedPath = String(match?.[1]);
+    // the trusted CLI (any base commit) expands that one path to the complete set
+    expect(affectedPortalReplayFamilies([sharedPath])).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
+    expect(affectedPortalReplayFamilies(affectedPortalReplayPaths(`${sharedPath}\n`))).toEqual([...PORTAL_REPLAY_FAMILIES].sort());
+    // detect fails loudly instead of skipping the portals when the CLI stops expanding it
+    expect(text).toContain("if [[ \"$run_value\" != 'true' ]]; then");
+    expect(text).toContain('did not select any family for the full-matrix path list');
+    expect(text).not.toContain('git diff --name-only');
+    expect(text).not.toContain('fetch-depth: 2');
+    expect(text).not.toContain('filter: blob:none');
+    // prepare reuses the list written by detect
+    expect(text).toContain('name: portal-replay-paths-${{ github.run_id }}');
+    expect(text).toContain('uses: actions/download-artifact@v8');
     expect(text).toContain('--diff-file "$RUNNER_TEMP/portal-replay-paths.txt"');
   });
 
-  it('keeps the required gate fail-closed and comments only on uncancelled runs, once per PR', () => {
+  it('keeps trusted base setup while running comparison semantics from the head checkout', () => {
     const text = workflow();
-    // a job skipped by `if` counts as success for a required check: the gate must not use `!cancelled()`
-    expect(text).toMatch(/name: portal replay gate\n(?:\s*#.*\n)*\s*if: always\(\)\n\s*needs: \[detect, prepare, replay\]/u);
-    expect(text).toContain("if: ${{ !cancelled() && needs.detect.outputs.run == 'true' }}");
-    expect(text).not.toContain('if: always() && needs.detect.outputs.run');
-    expect(text).toContain('upsertStickyComment');
-    expect(text).toContain('<!-- portal-replay-gate -->');
-    expect(text).toContain('portal-replay-gate-head:');
-    expect(text).not.toMatch(/gh pr comment "\$PR_NUMBER"/u);
-    expect(text).toContain('cancel-in-progress: false');
+    expect(text).toContain('portal_replay_cli=.portal-base/scripts/assisted-application/portal-replay.mjs');
+    const replayStart = text.indexOf('Replay portal families in parallel inside this worker');
+    const verdictStart = text.indexOf('\n  portal-replay-daily-verdict:');
+    expect(text.slice(replayStart, verdictStart)).toContain('portal_replay_cli=scripts/assisted-application/portal-replay.mjs');
+    expect(text).toContain('--base-root .portal-base');
+    expect(text).toContain('--head-root .');
+  });
+
+  it('opens or updates ONE marked issue on a red verdict and closes it on a green one', () => {
+    const doc = parsed();
+    const issue = doc.jobs['portal-replay-daily-issue'];
+    expect(issue.needs).toEqual(['detect', 'portal-replay-daily-verdict']);
+    expect(issue.permissions).toEqual({ contents: 'read', issues: 'write' });
+    // decided verdicts only, never a cancelled run, never a trial dispatch from another branch
+    // `needs.*.result == 'failure'` behind an implicit success() would never run
+    expect(issue.if).toMatch(/^always\(\) && !cancelled\(\)/u);
+    expect(issue.if).toContain("github.ref == 'refs/heads/main'");
+    expect(issue.if).toContain("needs.portal-replay-daily-verdict.result == 'failure'");
+    expect(issue.if).toContain("needs.portal-replay-daily-verdict.result == 'success'");
+    const text = workflow();
+    const issueBlock = text.slice(text.indexOf('\n  portal-replay-daily-issue:'));
+    expect(issueBlock).toContain('TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}');
+    expect(issueBlock.indexOf('Resolve trusted GitHub CLI (before checkout)')).toBeLessThan(issueBlock.indexOf('Checkout issue helpers'));
+    expect(issueBlock).toContain('node scripts/lib/github-issue-creator.mjs');
+    expect(issueBlock).toContain('--label portal-replay-daily');
+    expect(issueBlock).toContain('--require-persisted');
+    expect(issueBlock).toContain('node scripts/lib/github-issue-creator.mjs --resolve');
+    expect(issueBlock).toContain("if: always() && needs.portal-replay-daily-verdict.result == 'failure'");
+    expect(issueBlock).toContain("if: needs.portal-replay-daily-verdict.result == 'success'");
+    // the title comes from the same module that owns the marker
+    expect(issueBlock).toContain('--print-title');
+    expect(issueBlock).toContain('--base-sha "$BASE_SHA"');
+    expect(issueBlock).toContain('--head-sha "$HEAD_SHA"');
+    expect(issueBlock).toContain('--run-url "$RUN_URL"');
+  });
+
+  it('keeps the family and job budgets of the former gate unchanged', () => {
+    const text = workflow();
+    expect(text).toContain('timeout-minutes: 120');
+    expect(text).toContain("PORTAL_REPLAY_BROKER_LANES: '6'");
+    expect(text).toContain("PORTAL_REPLAY_GROUP_COUNT: '3'");
+    expect(text).toContain('group: [0, 1, 2]');
+    expect(text).toContain('timeout --kill-after=30s 3060s node "$portal_replay_cli" compare');
+    expect(text).toContain('--timeout-ms 75000');
+    expect(text).toContain("broker_max_timeout_ms: '150000'");
+    expect(text).toContain('Warm up the Codex broker and measure its lanes');
   });
 
   it('treats a cancelled run as transient for the red-check fixer and the auto-merge evaluator', () => {
@@ -1061,28 +1168,124 @@ describe('portal replay gate determinism (F2)', () => {
     expect(evaluator).toContain("conclusion !== 'failure'");
   });
 
-  it('merge-commit parent diff lists only the PR paths even when main moved on', () => {
-    const repo = mkdtempSync(join(tmpdir(), 'portal-replay-merge-'));
-    try {
-      const git = (...args: string[]) => execFileSync('git', ['-C', repo, '-c', 'user.email=t@example.com', '-c', 'user.name=t', '-c', 'commit.gpgsign=false', ...args], { encoding: 'utf8' });
-      git('init', '-q', '-b', 'main');
-      writeFileSync(join(repo, 'a.txt'), 'a');
-      git('add', '.'); git('commit', '-q', '-m', 'base');
-      git('checkout', '-q', '-b', 'pr');
-      writeFileSync(join(repo, 'pr-only.txt'), 'pr');
-      git('add', '.'); git('commit', '-q', '-m', 'pr');
-      git('checkout', '-q', 'main');
-      writeFileSync(join(repo, 'main-only.txt'), 'main');
-      git('add', '.'); git('commit', '-q', '-m', 'main moved');
-      git('checkout', '-q', '-b', 'merge-ref');
-      git('merge', '-q', '--no-ff', '-m', 'merge', 'pr');
-      const names = git('diff', '--name-only', '--no-renames', 'HEAD^1', 'HEAD').trim().split('\n');
-      expect(names).toEqual(['pr-only.txt']);
-      // la forma scartata: un diff a due punti fra base corrente e head include i file di main
-      const staleBase = git('diff', '--name-only', '--no-renames', 'pr', 'main').trim().split('\n').sort();
-      expect(staleBase).toEqual(['main-only.txt', 'pr-only.txt']);
-    } finally {
-      rmSync(repo, { recursive: true, force: true });
+  it('no PR-side automation names the retired check or the replay workflow', () => {
+    const roots = ['.github/workflows', 'scripts/ci'];
+    const offenders: string[] = [];
+    for (const root of roots) {
+      const dir = new URL(`../${root}/`, import.meta.url);
+      for (const name of readdirSync(dir, { recursive: true }) as string[]) {
+        const file = String(name);
+        if (!/\.(?:ya?ml|mjs)$/u.test(file)) continue;
+        const rel = `${root}/${file}`;
+        if (rel === '.github/workflows/assisted-application-portal-replay.yml') continue;
+        if (rel === '.github/workflows/assisted-application-portal-recovery.yml') continue;
+        if (rel === 'scripts/ci/portal-replay-daily-issue.mjs') continue;
+        if (rel === 'scripts/ci/check-main-ruleset-invariants.mjs' || rel === 'scripts/ci/lib/constants.mjs') continue;
+        if (rel === 'scripts/ci/run-related-tests.mjs') continue;
+        if (/portal replay gate|portal-replay-gate|assisted-application-portal-replay/iu.test(readFileSync(new URL(`../${rel}`, import.meta.url), 'utf8'))) offenders.push(rel);
+      }
     }
+    expect(offenders).toEqual([]);
   });
 });
+
+describe('portal replay daily issue body', () => {
+  const runUrl = 'https://github.com/valerielinc-ops/frontaliere-si-o-no/actions/runs/123456';
+  const base = 'a'.repeat(40);
+  const head = 'b'.repeat(40);
+  const now = new Date('2026-11-16T04:30:00Z');
+  const failingGate = {
+    verdict: { status: 'fail', code: 'matrix_incomplete_or_failed', missingFamilies: ['umantis'], failedFamilies: ['workday'], reportCount: 1 },
+    reports: [{
+      schemaVersion: 1,
+      family: 'workday',
+      status: 'fail',
+      findingCodes: ['family_ready_rate_decreased', 'stage_regression'],
+      familyRates: { comparable: 2, baseReady: 2, headReady: 1 },
+      cases: [
+        { host: 'careers.example.test', path: '/jobs/*', base: { stage: 'dry_run_ready' }, head: { stage: 'form', stopCode: 'ok' }, findingCodes: ['stage_regression'] },
+        { host: 'ok.example.test', path: '/jobs/*', base: { stage: 'dry_run_ready' }, head: { stage: 'dry_run_ready', stopCode: 'ok' }, findingCodes: [] },
+      ],
+    }],
+  };
+
+  it('keeps the title within the 60 characters the shared issue helper deduplicates on', () => {
+    expect(PORTAL_REPLAY_DAILY_ISSUE_TITLE.length).toBeLessThanOrEqual(60);
+    expect(PORTAL_REPLAY_DAILY_ISSUE_MARKER).toBe('<!-- portal-replay-daily -->');
+  });
+
+  it('carries the marker, run link, base..head, failing families with their reasons, and the date', () => {
+    const body = buildPortalReplayDailyIssueBody({ gate: failingGate, runUrl, repo: 'valerielinc-ops/frontaliere-si-o-no', baseSha: base, headSha: head, baseSource: 'last-success', now });
+    expect(body.startsWith('<!-- portal-replay-daily -->\n')).toBe(true);
+    expect(body).toContain(runUrl);
+    expect(body).toContain(`\`${'a'.repeat(12)}..${'b'.repeat(12)}\``);
+    expect(body).toContain(`/compare/${base}...${head}`);
+    expect(body).toContain('2026-11-16');
+    expect(body).toContain('**workday**');
+    expect(body).toContain('`family_ready_rate_decreased`');
+    expect(body).toContain('`stage_regression`');
+    expect(body).toContain('READY base 2/2, head 1/2');
+    expect(body).toContain('careers.example.test/jobs/*: base `dry_run_ready` → head `form`');
+    expect(body).not.toContain('ok.example.test');
+    expect(body).toContain('`umantis`');
+    expect(body).toContain('matrix_incomplete_or_failed');
+  });
+
+  it('says so when base and head are the same commit, and when the verdict cannot be read', () => {
+    const same = buildPortalReplayDailyIssueBody({ gate: failingGate, runUrl, baseSha: head, headSha: head, baseSource: 'head', now });
+    expect(same).toContain('(stesso commit)');
+    expect(same).toContain('autoconfronto');
+    const unreadable = buildPortalReplayDailyIssueBody({ gate: null, runUrl, now });
+    expect(unreadable).toContain('verdict_unavailable');
+    expect(unreadable).toContain('non disponibili');
+  });
+
+  it('never lets an unexpected value from the report reach the issue text', () => {
+    const hostile = {
+      verdict: { status: 'fail', code: 'x]\n# injected', failedFamilies: ['y\n@everyone'], missingFamilies: [] },
+      reports: [{ family: 'z <script>', status: 'fail', findingCodes: ['[click](http://evil.test)'], familyRates: {}, cases: [] }],
+    };
+    const body = buildPortalReplayDailyIssueBody({ gate: hostile, runUrl: 'http://evil.test/run', baseSha: 'nothex', headSha: head, now });
+    expect(body).not.toContain('evil.test');
+    expect(body).not.toContain('@everyone');
+    expect(body).not.toContain('<script>');
+    expect(body).not.toContain('# injected');
+  });
+});
+
+describe('portal replay daily helpers (CLI)', () => {
+  it('prints the title and writes the body file through the CLI', () => {
+    const script = fileURLToPath(new URL('../scripts/ci/portal-replay-daily-issue.mjs', import.meta.url));
+    expect(execFileSync(process.execPath, [script, '--print-title'], { encoding: 'utf8' }).trim()).toBe(PORTAL_REPLAY_DAILY_ISSUE_TITLE);
+    const dir = tempDir();
+    const gate = join(dir, 'gate.json');
+    const out = join(dir, 'body.md');
+    writeFileSync(gate, JSON.stringify({ verdict: { status: 'fail', code: 'prepare_failed' }, reports: [] }));
+    execFileSync(process.execPath, [script, '--gate-json', gate, '--run-url', 'https://github.com/o/r/actions/runs/1', '--repo', 'o/r', '--base-sha', '', '--head-sha', 'c'.repeat(40), '--out', out]);
+    const body = readFileSync(out, 'utf8');
+    expect(body).toContain('<!-- portal-replay-daily -->');
+    expect(body).toContain('prepare_failed');
+    // a missing or corrupt gate file still produces a body
+    execFileSync(process.execPath, [script, '--gate-json', join(dir, 'missing.json'), '--run-url', 'https://github.com/o/r/actions/runs/1', '--out', out]);
+    expect(readFileSync(out, 'utf8')).toContain('verdict_unavailable');
+  });
+});
+
+describe('portal replay base resolution', () => {
+  it('picks the newest successful schedule or dispatch run and falls back to the head', () => {
+    const text = readFileSync(new URL('../.github/workflows/assisted-application-portal-replay.yml', import.meta.url), 'utf8');
+    const filter = /base="\$\(jq -r '([^\n]+)' "\$RUNNER_TEMP\/portal-replay-last-success\.json"\)"/u.exec(text)?.[1];
+    expect(filter).toBeTruthy();
+    const run = (runs: unknown[]) => execFileSync('jq', ['-r', String(filter)], { input: JSON.stringify(runs), encoding: 'utf8' }).trim();
+    const sha = (char: string) => char.repeat(40);
+    expect(run([
+      { event: 'schedule', headSha: sha('1'), createdAt: '2026-11-14T04:20:00Z' },
+      { event: 'workflow_dispatch', headSha: sha('2'), createdAt: '2026-11-15T09:00:00Z' },
+      { event: 'push', headSha: sha('3'), createdAt: '2026-11-16T01:00:00Z' },
+      { event: 'schedule', headSha: 'not-a-sha', createdAt: '2026-11-16T02:00:00Z' },
+    ])).toBe(sha('2'));
+    expect(run([])).toBe('');
+    expect(run([{ event: 'pull_request', headSha: sha('4'), createdAt: '2026-11-16T01:00:00Z' }])).toBe('');
+  });
+});
+

@@ -15,8 +15,15 @@
  */
 export const VITEST_CHECK_NAME = 'vitest (unit + integration)';
 
-/** Read-only real-portal replay required before runner changes can merge. */
-export const PORTAL_REPLAY_GATE_CHECK_NAME = 'portal replay gate';
+/**
+ * Check ritirato il 2026-11-15 (decisione del proprietario): il replay sui
+ * portali non gira piu' sulle PR, e' un check giornaliero schedulato che apre
+ * una issue (`assisted-application-portal-replay.yml`). Nessun job pubblica piu'
+ * questo nome: se il ruleset di `main` lo richiede ancora, ogni PR resta in
+ * attesa di un check che non arrivera' mai. Lo usa solo il monitor del ruleset,
+ * per segnalarlo.
+ */
+export const RETIRED_PORTAL_REPLAY_GATE_CHECK_NAME = 'portal replay gate';
 
 /** The required check is the execution job itself; no separate wrapper. */
 export const VITEST_EXECUTION_JOB_NAME = VITEST_CHECK_NAME;
