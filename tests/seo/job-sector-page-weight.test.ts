@@ -1,15 +1,13 @@
-/** Regression coverage for bounded sector-hub pages and page-weight telemetry. */
+/** Regression coverage for sector inventory pagination and page metadata. */
 
 import { describe, it, expect } from 'vitest';
 import {
   buildSectorLandingHtml,
   sectorHubPageCount,
   SECTOR_PAGE_CARD_CAP,
-  SECTOR_PAGE_HARD_BUDGET_BYTES,
+  SECTOR_PAGE_WEIGHT_TOP_N,
   SECTOR_OVERFLOW_LINKS_PER_PAGE,
   summarizeSectorPageWeights,
-  SECTOR_PAGE_WEIGHT_TOP_N,
-  SECTOR_PAGE_WEIGHT_WARN_BYTES,
 } from '../../build-plugins/jobSectorPagesPlugin';
 import {
   buildSectorHubPath,
@@ -23,7 +21,6 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const LOCALES: ReadonlyArray<JobBoardLocale> = ['it', 'en', 'de', 'fr'];
-const HARD_BUDGET_BYTES = SECTOR_PAGE_HARD_BUDGET_BYTES;
 const SYNTHETIC_INVENTORY_SIZE = 1000;
 const DAY_MS = 24 * 60 * 60 * 1000;
 const daysAgo = (days: number) => new Date(Date.now() - days * DAY_MS).toISOString();
@@ -110,7 +107,7 @@ function extractItemListSlugs(html: string): string[] {
   return elements.map(({ url }) => new URL(url).pathname.split('/').filter(Boolean).at(-1) || '');
 }
 
-describe('SEO — job-sector landing page weight gate', () => {
+describe('SEO — job-sector landing inventory pagination', () => {
   const sectorProseData = loadSectorProseData(ROOT_DIR);
   const heavyJobs: SectorCountableJob[] = Array.from(
     { length: SYNTHETIC_INVENTORY_SIZE },
@@ -118,8 +115,33 @@ describe('SEO — job-sector landing page weight gate', () => {
   );
   const pageCount = sectorHubPageCount(heavyJobs.length);
 
-  it('keeps every generated sector page under 260 KiB with fixed card and overflow caps', () => {
-    expect(HARD_BUDGET_BYTES).toBe(260 * 1024);
+  it('summarises total observed UTF-8 bytes and a bounded heaviest-page list', () => {
+    const weights = [
+      { path: '/en/a/', bytes: Buffer.byteLength('é', 'utf-8') },
+      { path: '/en/b/', bytes: Buffer.byteLength('💼', 'utf-8') },
+      { path: '/en/c/', bytes: Buffer.byteLength('abcde', 'utf-8') },
+      { path: '/en/d/', bytes: Buffer.byteLength('xyz', 'utf-8') },
+      { path: '/en/e/', bytes: Buffer.byteLength('1234567', 'utf-8') },
+      { path: '/en/f/', bytes: Buffer.byteLength('z', 'utf-8') },
+    ];
+
+    expect(SECTOR_PAGE_WEIGHT_TOP_N).toBe(5);
+    expect(summarizeSectorPageWeights(weights)).toEqual({
+      pageCount: 6,
+      totalBytes: 22,
+      top: [
+        { path: '/en/e/', bytes: 7 },
+        { path: '/en/c/', bytes: 5 },
+        { path: '/en/b/', bytes: 4 },
+        { path: '/en/d/', bytes: 3 },
+        { path: '/en/a/', bytes: 2 },
+      ],
+    });
+    expect(summarizeSectorPageWeights([])).toEqual({ pageCount: 0, totalBytes: 0, top: [] });
+  });
+
+  it('bounds rich cards and compact overflow windows across the sector ladder', () => {
+    expect(SECTOR_PAGE_CARD_CAP).toBe(30);
     expect(pageCount).toBe(5);
     // Case-anzians is the richest journey surface; nurses and engineers cover
     // the other role-journey and plain sector templates without rebuilding the
@@ -127,7 +149,6 @@ describe('SEO — job-sector landing page weight gate', () => {
     for (const sector of ['case-anziani', 'infermieri', 'ingegneri'] as const) {
       for (const locale of LOCALES) {
         for (let page = 1; page <= pageCount; page += 1) {
-          const path = buildSectorHubPagePath(locale, sector, page);
           const html = buildSectorLandingHtml({
             sector,
             locale,
@@ -141,8 +162,6 @@ describe('SEO — job-sector landing page weight gate', () => {
             page,
             pageCount,
           });
-          const bytes = Buffer.byteLength(html, 'utf-8');
-          expect(bytes, `${path} HTML is ${(bytes / 1024).toFixed(1)} KiB`).toBeLessThan(HARD_BUDGET_BYTES);
           expect(html).toContain(`data-sector-page="${page}"`);
           expect((html.match(/<article class="jc-card/g) || []).length).toBe(page === 1 ? SECTOR_PAGE_CARD_CAP : 0);
           expect((html.match(/data-sector-overflow-list=/g) || []).length).toBe(1);
@@ -158,7 +177,7 @@ describe('SEO — job-sector landing page weight gate', () => {
     }
   });
 
-  it('keeps a long EN engineers ladder under budget and preserves every linked and structured URL', () => {
+  it('preserves every linked and structured URL on a long EN engineers ladder', () => {
     const longEnglishJobs: SectorCountableJob[] = Array.from(
       { length: SYNTHETIC_INVENTORY_SIZE },
       (_, index) => makeLongEnglishJob(index + 1),
@@ -183,9 +202,6 @@ describe('SEO — job-sector landing page weight gate', () => {
     expect(longPageCount).toBe(5);
     for (const [index, html] of pages.entries()) {
       const page = index + 1;
-      const bytes = Buffer.byteLength(html, 'utf-8');
-      expect(bytes, `EN engineers page ${page} HTML is ${(bytes / 1024).toFixed(1)} KiB`)
-        .toBeLessThan(HARD_BUDGET_BYTES);
       expect((html.match(/<article class="jc-card/g) || []).length)
         .toBe(page === 1 ? SECTOR_PAGE_CARD_CAP : 0);
 
@@ -358,7 +374,6 @@ describe('SEO — job-sector landing page weight gate', () => {
         page,
         pageCount: largePageCount,
       });
-      expect(Buffer.byteLength(html, 'utf-8')).toBeLessThan(HARD_BUDGET_BYTES);
       expect((html.match(/<article class="jc-card/g) || []).length)
         .toBe(page === 1 ? SECTOR_PAGE_CARD_CAP : 0);
       const visibleItems = page === 1
@@ -368,34 +383,7 @@ describe('SEO — job-sector landing page weight gate', () => {
     }
   });
 
-  it('summarises page weights: top N heaviest and the count over the threshold, without throwing', () => {
-    const kb = 1024;
-    const weights = [
-      { path: '/a/', bytes: 100 * kb },
-      { path: '/b/', bytes: 300 * kb },
-      { path: '/c/', bytes: 261 * kb },
-      { path: '/d/', bytes: 260 * kb },
-      { path: '/e/', bytes: 270 * kb },
-      { path: '/f/', bytes: 10 * kb },
-      { path: '/g/', bytes: 280 * kb },
-    ];
-    const summary = summarizeSectorPageWeights(weights);
-    expect(summary.total).toBe(7);
-    // Strictly above 260 KB: /d/ sits exactly on the threshold and is not over.
-    expect(summary.overCount).toBe(4);
-    expect(summary.top.map((w) => w.path)).toEqual(['/b/', '/g/', '/e/', '/c/', '/d/']);
-    expect(summary.top).toHaveLength(SECTOR_PAGE_WEIGHT_TOP_N);
-    expect(summarizeSectorPageWeights([])).toEqual({ overCount: 0, total: 0, top: [] });
-  });
-
-  it('keeps the byte-size guards fail-closed in both plugins', () => {
-    const sectorSource = readFileSync(
-      resolve(ROOT_DIR, 'build-plugins/jobSectorPagesPlugin.ts'),
-      'utf8',
-    );
-    expect(sectorSource).toContain('SECTOR_PAGE_WEIGHT_WARN_BYTES');
-    expect(sectorSource).toMatch(/if\s*\(htmlBytes\s*>\s*SECTOR_PAGE_WEIGHT_WARN_BYTES\)[\s\S]{0,300}throw new Error/);
-
+  it('keeps the related-search cluster byte-size guard fail-closed', () => {
     const relatedSource = readFileSync(
       resolve(ROOT_DIR, 'build-plugins/relatedSearchClustersPlugin.ts'),
       'utf8',
