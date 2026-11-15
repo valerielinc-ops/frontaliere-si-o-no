@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-11-14T12:55:18.841Z",
+  "assembledAt": "2026-11-15T13:24:45.630Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -10289,11 +10289,11 @@
       },
       "startDate": "2026-11-24",
       "endDate": "2026-11-24",
-      "startTime": "09:30",
       "category": "Event",
       "venue": "Verbier",
-      "canton": "",
-      "url": "https://www.myswitzerland.com/it-ch/experiences/events/coccicontes-5/",
+      "comune": "Val de Bagnes",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/coccicontes-5/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -10301,7 +10301,14 @@
         "lng": 7.1740963
       },
       "recurring": false,
-      "sourceDescriptionHash": "27702378459db265b21db4de6bd34efc5135290e530af4759057e53cc10da5af"
+      "sourceDescriptionHash": "27702378459db265b21db4de6bd34efc5135290e530af4759057e53cc10da5af",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "coccicontes-2026-11-24"
+        }
+      ]
     },
     {
       "id": "myswitzerland:f9bc936c28c84a8880519c36e9932c90",
@@ -129793,12 +129800,11 @@
       },
       "startDate": "2027-06-08",
       "endDate": "2027-06-08",
-      "startTime": "19:30",
       "category": "Event",
-      "venue": "Alambics Théâtre-École",
+      "venue": "Martigny",
       "comune": "Martigny",
       "canton": "VS",
-      "url": "https://www.myswitzerland.com/fr-ch/decouvrir/manifestations/pororoca-2027manifesting/",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/pororoca-2027manifesting/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -129806,6 +129812,9 @@
         "lng": 7.0753244
       },
       "recurring": false,
+      "performer": {
+        "name": "Schnittstelle"
+      },
       "sourceDescriptionHash": "6bf4d41122257b8f6f1c5bc2a8d319f8e433e8696a58ceb8242825d252c37040"
     },
     {
@@ -130084,21 +130093,20 @@
     },
     {
       "id": "myswitzerland:fb43c928090544698b6023267722df4f",
-      "title": "SAINT-EXUPÉRY, LE COMMANDEUR DES OISEAUX",
+      "title": "SAINT-EXUPÉRY, THE COMMANDER OF THE BIRDS",
       "titleByLocale": {
-        "it": "SAINT-EXUPÉRY, LE COMMANDEUR DES OISEAUX",
-        "en": "SAINT-EXUPÉRY, LE COMMANDEUR DES OISEAUX",
-        "de": "SAINT-EXUPÉRY, LE COMMANDEUR DES OISEAUX",
+        "it": "SAINT-EXUPÉRY, THE COMMANDER OF THE BIRDS",
+        "en": "SAINT-EXUPÉRY, THE COMMANDER OF THE BIRDS",
+        "de": "SAINT-EXUPÉRY, DER KOMMANDANT DER VÖGEL",
         "fr": "SAINT-EXUPÉRY, LE COMMANDEUR DES OISEAUX"
       },
       "startDate": "2026-12-03",
       "endDate": "2026-12-03",
-      "startTime": "20:30",
       "category": "Event",
-      "venue": "Théâtre Le Baladin",
+      "venue": "Savièse",
       "comune": "Savièse",
       "canton": "VS",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/saintexupery-le-commandeur-des-oiseaux/",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/saintexupery-le-commandeur-des-oiseaux/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -130106,7 +130114,14 @@
         "lng": 7.3519778
       },
       "recurring": false,
-      "sourceDescriptionHash": "0f27cae19ef2be8b87ca0643233b233c9778cb16700a13679781a15b246c2f3d"
+      "sourceDescriptionHash": "2ca7c8bf80a97830c0328eaf9110b1c1082ada95be5cac1b1e690f0fd0958176",
+      "previousRoutes": [
+        {
+          "canton": "VS",
+          "comune": "Savièse",
+          "slug": "saint-exupery-le-commandeur-des-oiseaux-2026-12-03"
+        }
+      ]
     },
     {
       "id": "myswitzerland:face469a8891498abc29e3535ffdf97f",
@@ -201631,12 +201646,11 @@
       },
       "startDate": "2026-11-17",
       "endDate": "2026-11-17",
-      "startTime": "18:30",
       "category": "Event",
       "venue": "Uitikon-Waldegg",
       "comune": "Uitikon",
       "canton": "ZH",
-      "url": "https://www.myswitzerland.com/it-ch/experiences/events/kreativ-advents-floristik/",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/kreativ-advents-floristik/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -276906,6 +276920,399 @@
       },
       "recurring": false,
       "sourceDescriptionHash": "e49af0af2d8bae4f37b8d2ecdc3a79909c748a47b7e6281bace50fd6b15de28e"
+    },
+    {
+      "id": "myswitzerland:fedc1dfb30da4686b450dd275c909265",
+      "title": "Puppet show",
+      "titleByLocale": {
+        "it": "Puppet show",
+        "en": "Puppet show",
+        "de": "Puppentheater",
+        "fr": "Spectacle de marionnettes"
+      },
+      "startDate": "2026-12-16",
+      "endDate": "2027-01-10",
+      "category": "Event",
+      "venue": "Estavayer-le-Lac",
+      "comune": "Estavayer",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/puppet-show/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.849504,
+        "lng": 6.8487096
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Cécile Duffey im bezaubernden Rahmen des"
+      },
+      "sourceDescriptionHash": "a66eb3c75ce94b2b40e38b88bc95e8c71ae0528f9d0d028aaa29628138b42703"
+    },
+    {
+      "id": "myswitzerland:fe76ca12d617499c9ac301a36532411d",
+      "title": "New Year's Eve at the Chalet",
+      "titleByLocale": {
+        "it": "New Year's Eve at the Chalet",
+        "en": "New Year's Eve at the Chalet",
+        "de": "Silvester im Chalet",
+        "fr": "New Year's Eve at the Chalet"
+      },
+      "startDate": "2026-12-31",
+      "endDate": "2026-12-31",
+      "category": "Event",
+      "venue": "Engelberg",
+      "comune": "Engelberg",
+      "canton": "OW",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/new-years-eve-at-the-chalet/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8177531,
+        "lng": 8.3980913
+      },
+      "recurring": false,
+      "performer": {
+        "name": "DJ Plax"
+      },
+      "sourceDescriptionHash": "3195fd5808c1f3051a22a9940c003336f73c91715508b9b7a717eca715aa14cc"
+    },
+    {
+      "id": "myswitzerland:fe276c83e19e43f09ce2e9294fb18fc4",
+      "title": "Valentine’s Romance with Raclette Delight",
+      "titleByLocale": {
+        "it": "Valentine’s Romance with Raclette Delight",
+        "en": "Valentine’s Romance with Raclette Delight",
+        "de": "Valentinsromantik mit Raclettegenuss",
+        "fr": "Romantisme de la Saint-Valentin et plaisir de la raclette"
+      },
+      "startDate": "2027-02-14",
+      "endDate": "2027-02-14",
+      "category": "Event",
+      "venue": "Adelboden",
+      "comune": "Adelboden",
+      "canton": "BE",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/valentines-romance-with-raclette-delight/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.4308464,
+        "lng": 7.5800089
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Raclette Delight"
+      },
+      "sourceDescriptionHash": "2cbd0aef393e0816ddb2115b1cc90f0487cb1edf44465ea0a1eb7d9f483bbc04"
+    },
+    {
+      "id": "myswitzerland:fe1ea0ae6a774f84a1d679ee15babcea",
+      "title": "Bruckner Orchester Linz ǀ M. Poschner ǀ J. Hagen",
+      "titleByLocale": {
+        "it": "Bruckner Orchester Linz ǀ M. Poschner ǀ J. Hagen",
+        "en": "Bruckner Orchester Linz ǀ M. Poschner ǀ J. Hagen",
+        "de": "Bruckner Orchester Linz ǀ M. Poschner ǀ J. Hagen",
+        "fr": "Bruckner Orchester Linz ǀ M. Poschner ǀ J. Hagen"
+      },
+      "startDate": "2027-02-10",
+      "endDate": "2027-02-10",
+      "category": "Event",
+      "venue": "Sion / Sitten",
+      "comune": "Sion",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/bruckner-orchester-linz-m-poschner-j-hagen/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2283929,
+        "lng": 7.3624633
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "b0270ee633350400509dec589a59fdaa503ae0b9ce5bf5db6b6ca35bbed6fe10"
+    },
+    {
+      "id": "myswitzerland:fde00546dc434399af71e46d364a840e",
+      "title": "Pool Kino im Hallenbad Mooshüsli",
+      "titleByLocale": {
+        "it": "Pool Kino im Hallenbad Mooshüsli",
+        "en": "Pool Kino im Hallenbad Mooshüsli",
+        "de": "Pool Kino im Hallenbad Mooshüsli",
+        "fr": "Pool Kino im Hallenbad Mooshüsli"
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "category": "Event",
+      "venue": "Emmen",
+      "comune": "Emmen",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/pool-kino-im-hallenbad-mooshuesli/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0789278,
+        "lng": 8.2887127
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "f40bb954708c4d0bba636e6bb8af54d31b1077d7947e9dccf8e29202bdf2e47f"
+    },
+    {
+      "id": "myswitzerland:fd8a96c427674cca84722ff3fc378f9b",
+      "title": "Sacred Art Festival",
+      "titleByLocale": {
+        "it": "Sacred Art Festival",
+        "en": "Sacred Art Festival",
+        "de": "Festival für sakrale Kunst",
+        "fr": "Festival d'Art Sacré"
+      },
+      "startDate": "2026-12-20",
+      "endDate": "2026-12-20",
+      "category": "Event",
+      "venue": "Sion / Sitten",
+      "comune": "Sion",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/festival-dart-sacre-4/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2340387,
+        "lng": 7.3593194
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "e5f5b34fa9298d51fee328da484ee1dd897986fb51f67e29baf46c460bd74aa3"
+    },
+    {
+      "id": "myswitzerland:fd463135d8394f8e859671b773301180",
+      "title": "Advent live milonga with TangoTronics",
+      "titleByLocale": {
+        "it": "Advent live milonga with TangoTronics",
+        "en": "Advent live milonga with TangoTronics",
+        "de": "Advents-Live-Milonga mit TangoTronics",
+        "fr": "Advent live milonga with TangoTronics"
+      },
+      "startDate": "2026-12-13",
+      "endDate": "2026-12-13",
+      "category": "Event",
+      "venue": "Pfungen",
+      "comune": "Pfungen",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/advent-live-milonga-with-tangotronics/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5144562,
+        "lng": 8.6398429
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Advent"
+        },
+        {
+          "name": "Advents-Stimmung"
+        }
+      ],
+      "sourceDescriptionHash": "572c95112b668455924681a51a64fe972ef91570dee97b8d0718484202dfa942"
+    },
+    {
+      "id": "myswitzerland:fcb4f595563b41249d1861e6d80bcb86",
+      "title": "From Haydn to Beethoven: Between Shadow and Light",
+      "titleByLocale": {
+        "it": "From Haydn to Beethoven: Between Shadow and Light",
+        "en": "From Haydn to Beethoven: Between Shadow and Light",
+        "de": "Von Haydn bis Beethoven: Zwischen Schatten und Licht",
+        "fr": "De Haydn à Beethoven : entre ombre et lumière"
+      },
+      "startDate": "2027-02-07",
+      "endDate": "2027-02-07",
+      "category": "Event",
+      "venue": "Sion / Sitten",
+      "comune": "Sion",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/from-haydn-to-beethoven-between-shadow-and-light/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2283929,
+        "lng": 7.3624633
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "608d4959097d272e6a547590896868b73645f4c4aeb2e32960fea40dd4dea0fd"
+    },
+    {
+      "id": "myswitzerland:fc990fc84cd846f799905936a4421d1f",
+      "title": "Movie Premiere Night – Season Opening",
+      "titleByLocale": {
+        "it": "Movie Premiere Night – Season Opening",
+        "en": "Movie Premiere Night – Season Opening",
+        "de": "Movie Premiere Night – Season Opening",
+        "fr": "Movie Premiere Night – Season Opening"
+      },
+      "startDate": "2026-11-27",
+      "endDate": "2026-11-27",
+      "startTime": "22:00",
+      "category": "Event",
+      "venue": "Laax",
+      "comune": "Laax",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/movie-premiere-night-season-opening/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.8175776242451,
+        "lng": 9.2651966411045
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Elias Allenspach"
+        },
+        {
+          "name": "Elio Fumagalli"
+        },
+        {
+          "name": "Lloyd Frize"
+        },
+        {
+          "name": "Daniel Lanz"
+        }
+      ],
+      "sourceDescriptionHash": "105da958f9c72f4d35dff403b12f17a23111a081dc16c90f7cd0803836309250"
+    },
+    {
+      "id": "myswitzerland:fc950bfad71a481594a2f256dbc9ddc3",
+      "title": "Rosas danst Rosas",
+      "titleByLocale": {
+        "it": "Rosas danst Rosas",
+        "en": "Rosas danst Rosas",
+        "de": "Rosas danst Rosas",
+        "fr": "Rosas danst Rosas"
+      },
+      "startDate": "2026-11-25",
+      "endDate": "2026-11-25",
+      "category": "Event",
+      "venue": "Sierre",
+      "comune": "Sierre",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/rosas-danst-rosas-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2856142,
+        "lng": 7.5296657
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5a94f6549100392e90a422961d83e48eae5a23a09393e384264e140894417b74"
+    },
+    {
+      "id": "myswitzerland:fc1e6f6d05bb48fc989356971428003b",
+      "title": "Sergey Malov & Irina Zahharenkova",
+      "titleByLocale": {
+        "it": "Sergey Malov & Irina Zahharenkova",
+        "en": "Sergey Malov & Irina Zahharenkova",
+        "de": "Sergey Malov & Irina Zahharenkova",
+        "fr": "Sergey Malov & Irina Zahharenkova"
+      },
+      "startDate": "2027-02-18",
+      "endDate": "2027-02-18",
+      "category": "Event",
+      "venue": "Crans-Montana",
+      "comune": "Crans-Montana",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/sergey-malov-irina-zahharenkova/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.3044785,
+        "lng": 7.4689201
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Generation"
+      },
+      "sourceDescriptionHash": "89ccf8e79f62947270c01759063fd28f4bc9dba9679230a627c011fb8f986434"
+    },
+    {
+      "id": "myswitzerland:fadc254f7c5d43e59ac8c91e201651a5",
+      "title": "IMMERSIVE MEDIEVAL EVENING – SION",
+      "titleByLocale": {
+        "it": "IMMERSIVE MEDIEVAL EVENING – SION",
+        "en": "IMMERSIVE MEDIEVAL EVENING – SION",
+        "de": "EIN TAUCHERLEBNIS IN DAS MITTELALTER – SION",
+        "fr": "SOIRÉE IMMERSIVE MÉDIÉVALE – SION"
+      },
+      "startDate": "2026-12-04",
+      "endDate": "2026-12-05",
+      "category": "Event",
+      "venue": "Sion / Sitten",
+      "comune": "Sion",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/soiree-immersive-medievale-sion/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2273948,
+        "lng": 7.3842893
+      },
+      "recurring": true,
+      "organizer": {
+        "@type": "Organization",
+        "name": "NOC EVENT and the VR Center in Sion"
+      },
+      "sourceDescriptionHash": "7f513db727e8a3528a9459d91b8444ff76d722baa6e80f70e7d39e1fa173b23d"
+    },
+    {
+      "id": "myswitzerland:fa2f8b09aeed413798dc586cf51b489f",
+      "title": "Dinner and Show with LOÏC THOMAS",
+      "titleByLocale": {
+        "it": "Dinner and Show with LOÏC THOMAS",
+        "en": "Dinner and Show with LOÏC THOMAS",
+        "de": "Dinner-Show mit LOÏC THOMAS",
+        "fr": "Souper-Spectacle LOÏC THOMAS"
+      },
+      "startDate": "2026-12-16",
+      "endDate": "2026-12-17",
+      "category": "Event",
+      "venue": "Savièse",
+      "comune": "Savièse",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/souper-spectacle-loic-thomas/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2484323,
+        "lng": 7.3175252
+      },
+      "recurring": true,
+      "performer": {
+        "name": "LOÏC THOMAS"
+      },
+      "sourceDescriptionHash": "46f3e94c93716b3631dafbdef1fff7ba48866cdfc1732480a8141c590722f2e1"
+    },
+    {
+      "id": "myswitzerland:f97a7eeff8c342ea939048977e398b3e",
+      "title": "Kunst nach Wahl",
+      "titleByLocale": {
+        "it": "Kunst nach Wahl",
+        "en": "Kunst nach Wahl",
+        "de": "Kunst nach Wahl",
+        "fr": "Kunst nach Wahl"
+      },
+      "startDate": "2026-12-06",
+      "endDate": "2026-12-06",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/kunst-nach-wahl/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3589181,
+        "lng": 8.5300924
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "774e12187a53cc98ed805d2b628f2c9a28b97a852af1d8e521de9d0ac3c73386"
     }
   ]
 }
