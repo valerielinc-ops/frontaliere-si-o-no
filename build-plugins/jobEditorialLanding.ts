@@ -1418,8 +1418,7 @@ function sortByFreshness(jobs: JobLike[], now: Date): JobLike[] {
  * Since `latestJobs` is built from the same `matches` array and sorted by
  * recency, when fewer than ~30 jobs match the city × sector slice (common
  * case for small cantons/sectors), the entire `latestJobs` slice duplicates
- * the head of `feed.jobs` — pushing rendered HTML over the 200 KB
- * page-weight gate without adding any new content for the user.
+ * the head of `feed.jobs` without adding any new content for the user.
  *
  * Deduping at the model layer preserves both sections (and the structured-
  * data ItemList) while emitting each job-tile exactly once per page.
@@ -2236,12 +2235,8 @@ export function buildJobLocationLandingModel(options: {
  updatedLabel: copy.updatedLabel,
  countsLabel: copy.countsLabel,
  totalJobs: locationJobs.length,
- // Caps held at 25 (feed) + 12 (latest) to keep emitted city-hub HTML
- // strictly under the 195 KB hard budget enforced by audit:page-weight.
- // Earlier bump to 60 + 30 violated that budget on Lugano/Bellinzona
- // (376 KB); the 30 + 15 step also tripped the hard-fail at 203.5 KB on
- // lugano (commuter-context prose adds ~5-7 KB structural HTML on top of
- // the per-card cost). BFS reachability for the long tail of detail
+ // Caps held at 25 (feed) + 12 (latest) to keep the visible job lists
+ // focused. BFS reachability for the long tail of detail
  // pages is achieved via paginated /<city>/page-N/ archives + the
  // per-detail related-jobs cross-link block (see jobsSeoPagesPlugin),
  // not by packing more cards onto the city hub itself.
@@ -2295,7 +2290,6 @@ export function buildJobLocationTypeLandingModel(options: {
  updatedLabel: copy.updatedLabel,
  countsLabel: copy.countsLabel,
  totalJobs: matches.length,
- // Page-weight cap (see buildJobLocationLandingModel comment).
  feed: { label: copy.feedLabel(label, location), jobs: feedJobsLocType },
  latestLabel: copy.latestLabel(label, location),
  latestJobs: latestJobsLocType,
@@ -2346,7 +2340,6 @@ export function buildJobLocationSectorLandingModel(options: {
  updatedLabel: copy.updatedLabel,
  countsLabel: copy.countsLabel,
  totalJobs: matches.length,
- // Page-weight cap (see buildJobLocationLandingModel comment).
  feed: { label: copy.feedLabel(label, location), jobs: feedJobsLocSector },
  latestLabel: copy.latestLabel(label, location),
  latestJobs: latestJobsLocSector,

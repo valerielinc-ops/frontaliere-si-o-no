@@ -189,13 +189,9 @@ function renderBlock(
  *    family lacked — «every emitted facility is linked from a page the crawler
  *    reaches» — so it takes the list it is given whole. Anything that trims
  *    here silently re-orphans the tail, which is the exact bug #5434 records.
- *  - **Separator rows, not cards.** Same trade #5512 measured on the border
- *    comuni: at ~90 B per anchor the 107 facilities of the current corpus cost
- *    ≈ 10 KB, against ≈ 26 KB as `<li>` cards. The four sitemap pages are
- *    103–139 KB live (measured 2026-08-10) and `scripts/audit-page-weight.mjs`
- *    budgets 260 KB, so the compact form leaves the IT page — the heaviest —
- *    about 110 KB of headroom, i.e. room for the family to roughly double
- *    before the shape has to change.
+ *  - **Separator rows, not cards.** The compact rows keep the complete index
+ *    readable while avoiding repeated image and metadata markup for every
+ *    facility.
  *
  * The `liveCount` is deliberately NOT in the label here (unlike the near-you
  * block): it churns every build, and this is an index, not a listing.

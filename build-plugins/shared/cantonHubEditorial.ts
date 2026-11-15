@@ -247,12 +247,10 @@ export function buildCantonHubEditorial(opts: CantonHubEditorialOpts): string[] 
   // navigator anchors resolve correctly. TI keeps the navigator via its
   // master `emitHub` which always emits full page-N HTML.
   //
-  // Page-weight guard: for long archives, a flat page-1 ladder grows with
-  // every archive page and can dominate the canton landing. The parent now
-  // links to a bounded set of page-range indexes; each index links one
-  // sqrt-sized range of archive pages. This keeps the parent → index → page
-  // graph shallow enough for job leaves while making the page-1 payload
-  // O(sqrt(totalPages)). Small archives retain the direct ladder.
+  // For long archives, the parent links to a bounded set of page-range
+  // indexes; each index links one sqrt-sized range of archive pages. This
+  // keeps the parent → index → page graph shallow enough for job leaves.
+  // Small archives retain the direct ladder.
   const archiveNav = buildCantonHubArchiveNavigation(opts);
   if (archiveNav) out.push(archiveNav);
 

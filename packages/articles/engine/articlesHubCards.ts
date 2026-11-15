@@ -54,15 +54,12 @@ export interface HubCardMeta {
 }
 
 /**
- * Shared static-card budget for article hubs, declared in
+ * Shared static-card limit for article hubs, declared in
  * `shared/articleHubCardBudget.mjs` so standalone probes use the same value.
  *
  * Keeping this in the engine makes the site and corpus renderers agree on the
- * same page-weight contract. Sixteen cards leave room for the shell, hero,
- * structured data and navigation while keeping the largest localized hub
- * below the 260 KB audit ceiling. The shell is already close to that ceiling
- * on the largest locales, so a larger card count would make the contract
- * depend on current article text lengths rather than on a bounded payload.
+ * same concise editorial shortlist. The full article archive remains
+ * available separately; the landing grid surfaces only its newest entries.
  */
 export interface RenderArticleHubCardsArgs {
   /** Registry entries, ALREADY sorted newest-first — the order is the caller's. */
@@ -82,7 +79,7 @@ export interface RenderArticleHubCardsArgs {
   readonly resolveMeta: (id: string, articlePath: string) => HubCardMeta | null;
   /** Resolve the final owned route for the emitted card href, when available. */
   readonly resolveHref?: (href: string) => string;
-  /** Cards to render. Defaults to the shared page-weight budget. */
+  /** Cards to render. Defaults to the shared card-count limit. */
   readonly limit?: number;
 }
 
@@ -134,13 +131,10 @@ function stripHubMarkdown(value: string): string {
 /**
  * The inner HTML of `<div class="ssg-article-grid">` — cards only, no wrapper.
  *
- * The per-card styles are CSS classes rather than inline style attributes:
- * Repeated card markup is the dominant variable part of these pages, so the
- * shared 16-card budget keeps the hub below the page-weight gate (260 KB —
- * `scripts/audit-page-weight.mjs`) even after the page shell is included.
- * The `.ssg-*` rules live in `public/assets/seo-static.css`, already linked on
- * these pages. The renderer test pins the card payload budget; the deploy
- * audit remains the authority for the complete localized page.
+ * The per-card styles are CSS classes rather than inline style attributes.
+ * The shared 16-card limit keeps the landing grid a concise preview; readers
+ * can reach the full archive from the hub navigation. The `.ssg-*` rules live
+ * in `public/assets/seo-static.css`, already linked on these pages.
  */
 export function renderArticleHubCards(args: RenderArticleHubCardsArgs): string {
   const { articles, locale, sectionSlug, localePrefix, resolveSlug, resolveMeta, resolveHref } = args;
@@ -184,7 +178,7 @@ export function renderArticleHubCards(args: RenderArticleHubCardsArgs): string {
       : '';
     // First two cards are above-the-fold on the hub — mark them
     // fetchpriority="high" (eager load, but flagged to the browser as LCP
-    // candidates) so `audit-page-weight` sees the required loading signal.
+    // candidates) to prioritize the likely LCP images.
     const imgLoadingAttrs = idx < 2 ? ' fetchpriority="high"' : ' loading="lazy"';
     // The visible label includes category, date, title, and description. A
     // title-only aria-label would override that text as the accessible name

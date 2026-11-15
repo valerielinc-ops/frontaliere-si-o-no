@@ -61,15 +61,11 @@ export function hubSlugFor(canton: string, locale: CantonLocale, hub: HubKind): 
 
 export const HUB_LOCALES: readonly HubLocale[] = ['it', 'en', 'de', 'fr'] as const;
 
-// ── Per-hub page sizes (tuned for crawl depth + reasonable HTML byte size) ──
+// ── Per-hub page sizes (tuned for crawl depth) ───────────────────────────────
 export const JOBS_PAGE_SIZE = 100;
-// 100 keeps the page-1 HTML under the 200 KB hard cap enforced by
-// `audit:page-weight`. The previous value (200) emitted ~270 KB pages
-// for IT/EN/DE/FR `companies/all/page-1`, blocking deploys on the
-// post-deploy validation gate. Doubling the page count (more page-N
-// URLs) is harmless — the BFS-depth audit allows up to depth 4 and
-// the long-archive navigator now links page ranges through bounded index
-// pages rather than placing every page-N URL on the parent HTML.
+// The 100-item window keeps archive pages scannable. Every item remains
+// reachable through the page-range navigator, which avoids placing every
+// page-N URL on the parent HTML.
 export const COMPANIES_PAGE_SIZE = 100;
 export const ARTICLES_PAGE_SIZE = SHARED_ARTICLES_PAGE_SIZE;
 
