@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-15T18:27:03.790Z",
+  "generatedAt": "2026-11-15T19:51:25.023Z",
   "totalEvents": 17280,
   "events": [
     {
@@ -430190,7 +430190,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento ricorrente si svolge ogni domenica al LATENIUM, museo e parco archeologico di Neuchâtel. Il team di mediazione propone un momento condiviso negli spazi del museo o del parco archeologico.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento ricorrente si svolge ogni domenica al LATENIUM, museo e parco archeologico di Neuchâtel. Il team di mediazione propone un momento condiviso negli spazi del museo o del parco archeologico.",
+        "en": "This recurring event takes place on Sundays at LATENIUM, the archaeology museum and park in Neuchâtel. The mediation team hosts a convivial gathering in the museum or archaeological park.",
+        "de": "Die wiederkehrende Veranstaltung findet sonntags im LATENIUM, dem Archäologiemuseum und -park von Neuenburg, statt. Das Vermittlungsteam lädt zu einem geselligen Aufenthalt im Museum oder im archäologischen Park ein.",
+        "fr": "Le rendez-vous récurrent a lieu chaque dimanche au LATENIUM, musée et parc d’archéologie de Neuchâtel. L’équipe de médiation y propose un moment partagé dans le musée ou sur le site archéologique."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:APejZ67",
@@ -498256,7 +498264,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il concerto allo Studio Foce di Lugano è dedicato alla chitarra acustica suonata in stile fingerstyle. La performance combina percussioni sulla cassa, tapping e arrangiamenti originali, alternando passaggi energici a momenti più intimi e melodici.",
+      "descriptionByLocale": {
+        "it": "Il concerto allo Studio Foce di Lugano è dedicato alla chitarra acustica suonata in stile fingerstyle. La performance combina percussioni sulla cassa, tapping e arrangiamenti originali, alternando passaggi energici a momenti più intimi e melodici.",
+        "en": "The concert at Studio Foce in Lugano focuses on acoustic guitar played in the fingerstyle tradition. The performance combines percussion on the guitar body, tapping and original arrangements, moving between energetic passages and more intimate, melodic moments.",
+        "de": "Das Konzert im Studio Foce in Lugano widmet sich der akustischen Gitarre im Fingerstyle. Die Darbietung verbindet perkussive Schläge auf dem Gitarrenkorpus, Tapping und eigene Arrangements mit kraftvollen sowie zurückhaltenden melodischen Passagen.",
+        "fr": "Le concert au Studio Foce de Lugano met en avant la guitare acoustique jouée en fingerstyle. La performance associe des percussions sur la caisse, le tapping et des arrangements originaux, avec des passages énergiques ainsi que des moments plus intimes et mélodiques."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:7b4854914c8f41789f077bfd4cf3945d",
@@ -531068,7 +531084,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il programma propone un concerto di Julien Lieb. L’evento si svolge all’Alhambra, a Ginevra.",
+      "descriptionByLocale": {
+        "it": "Il programma propone un concerto di Julien Lieb. L’evento si svolge all’Alhambra, a Ginevra.",
+        "en": "The programme features a concert by Julien Lieb. The event takes place at Alhambra in Geneva.",
+        "de": "Auf dem Programm steht ein Konzert mit Julien Lieb. Die Veranstaltung findet im Alhambra in Genf statt.",
+        "fr": "La programmation comprend un concert de Julien Lieb. Le rendez-vous a lieu à l’Alhambra, à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AWUWTkD",
@@ -532571,7 +532595,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Un pasto per persone senior è organizzato nello spazio di quartiere Champel, a Ginevra. Si tratta di un’attività di animazione basata sulla condivisione di un pasto tra persone anziane.",
+      "descriptionByLocale": {
+        "it": "Un pasto per persone senior è organizzato nello spazio di quartiere Champel, a Ginevra. Si tratta di un’attività di animazione basata sulla condivisione di un pasto tra persone anziane.",
+        "en": "A meal for seniors is held at the Champel neighbourhood community space in Geneva. The activity is an organised gathering centred on sharing a meal among older participants.",
+        "de": "Im Quartierzentrum Champel in Genf findet ein Essen für Seniorinnen und Senioren statt. Die Veranstaltung ist als Treffen rund um eine gemeinsame Mahlzeit angelegt.",
+        "fr": "Un repas destiné aux seniors est organisé à l’espace de quartier Champel, à Genève. L’activité prend la forme d’une rencontre autour d’un repas entre personnes âgées."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:ARMYxSq",
@@ -540073,7 +540105,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il convegno propone una riflessione sul ruolo della teleologia in alcuni processi biologici, con particolare attenzione all’organogenesi e al cancro. L’analisi considera la tendenza verso determinati stati finali e mette a confronto analogie e differenze tra questi processi e alcuni loro sottoprocessi cellulari.",
+      "descriptionByLocale": {
+        "it": "Il convegno propone una riflessione sul ruolo della teleologia in alcuni processi biologici, con particolare attenzione all’organogenesi e al cancro. L’analisi considera la tendenza verso determinati stati finali e mette a confronto analogie e differenze tra questi processi e alcuni loro sottoprocessi cellulari.",
+        "en": "This conference examines how teleological interpretations can be applied to organogenesis and cancer. It considers whether these biological processes and selected cellular subprocesses are directed towards particular end states, while comparing their similarities and differences.",
+        "de": "Die Veranstaltung untersucht, wie sich teleologische Deutungen auf Organogenese und Krebs anwenden lassen. Dabei werden eine mögliche Ausrichtung auf bestimmte Endzustände sowie Gemeinsamkeiten und Unterschiede dieser biologischen Prozesse und einzelner zellulärer Teilprozesse betrachtet.",
+        "fr": "Cette conférence examine l’application d’une approche téléologique à l’organogenèse et au cancer. Elle étudie la question d’une orientation vers certains états finaux et compare les ressemblances et les différences entre ces processus biologiques ainsi qu’entre quelques sous-processus cellulaires."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e48bc62ad9504c83816156068866b889",
