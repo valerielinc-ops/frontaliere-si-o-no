@@ -579,6 +579,11 @@ export function resolveSearchConsoleCompatTarget(
   locale: 'de',
  };
  }
+ const pathSegments = path.split('/').filter(Boolean);
+ const firstSegment = pathSegments[0]?.toLowerCase();
+ const hasLocalePrefix = firstSegment === 'en' || firstSegment === 'de' || firstSegment === 'fr';
+ const requestedSection = pathSegments[hasLocalePrefix ? 1 : 0]?.toLowerCase();
+ if (requestedSection && LEGACY_GERMAN_SECTION_ALIASES.has(requestedSection)) return null;
  const sourceBackedOnly = options?.sourceBackedOnly === true;
  const exact = COMPAT_REDIRECTS[path] || COMPAT_REDIRECTS[`${path}/`];
  if (exact) {
@@ -970,13 +975,20 @@ export function resolveSearchConsoleCompatTarget(
  if (known) {
  const target = known[locale] || known.it;
  if (target) {
- const targetNorm = normalizePath(target);
+ // Tracking can retain the old German `jobs-im-*` section even after the
+ // route moved. Never use that historical alias as a destination: a
+ // canonical section must not be sent back to a Worker-owned 301 source.
+ const targetLegacyGermanPath = locale === 'de'
+ ? resolveLegacyGermanSectionPath(target)
+ : null;
+ const canonicalTarget = targetLegacyGermanPath?.canonicalPath || target;
+ const targetNorm = normalizePath(canonicalTarget);
  if (targetNorm !== path) {
- return {
- canonicalPath: ensureTrailingSlash(target),
- kind: 'canton-moved',
- locale,
- };
+  return {
+   canonicalPath: ensureTrailingSlash(canonicalTarget),
+   kind: 'canton-moved',
+   locale,
+  };
  }
  }
  }
