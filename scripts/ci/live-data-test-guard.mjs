@@ -682,6 +682,7 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     ['tests/articles-sync-pin.test.ts', ['packages/articles/content/'], 'packages/articles/content e` creato dentro due cartelle mkdtemp (il finto mirror e il finto checkout del sito); dal checkout si leggono i due script di pull e il workflow sync-articles-sitemaps.yml'],
     ['tests/dist-hash-manifest-deploy-perimeter.test.ts', ['data/jobs.json'], 'data/jobs.json e` un file sintetico scritto in una cartella mkdtemp e un nome atteso nel perimetro; nessuna lettura dal checkout'],
     ['tests/git-commit-data-append-only-sets.test.ts', ['data/jobs/', 'data/seo-404-compat/'], 'ogni slice vive in repository git creati sotto os.tmpdir(); dal checkout si legge solo lo script sotto test'],
+    ['tests/compat-manifest-lag.test.ts', ['data/seo-404-compat/'], 'ogni percorso data/seo-404-compat/ vive in un repository git creato con mkdtemp sotto os.tmpdir() (cartella compat-lag-*); dal checkout non si legge nessun dato vivo'],
     ['tests/git-commit-data-grouped-isolation.test.ts', ['data/jobs/'], 'ogni slice vive in repository git creati sotto os.tmpdir(); dal checkout si legge solo lo script sotto test'],
     ['tests/git-commit-data-skip-identical.test.ts', ['data/jobs/'], 'ogni slice vive in repository git creati sotto os.tmpdir(); dal checkout si legge solo lo script sotto test'],
     ['tests/git-commit-data-slice-scoping.test.ts', ['data/jobs-crawler-summaries/', 'data/jobs/'], 'ogni slice vive in repository git creati sotto os.tmpdir(); dal checkout si legge solo lo script sotto test'],
