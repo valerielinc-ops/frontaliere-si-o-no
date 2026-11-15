@@ -573,12 +573,12 @@
     },
     {
       "id": "msc-cargo-366420ad6a7c",
-      "slug": "hr-director-msc-geneva",
+      "slug": "risorse-umane-direttore-msc-group-geneva",
       "slugByLocale": {
         "en": "hr-director-msc-geneva",
-        "it": "hr-director-msc-geneva",
-        "de": "hr-director-msc-geneva",
-        "fr": "hr-director-msc-geneva"
+        "it": "risorse-umane-direttore-msc-group-geneva",
+        "de": "personalwesen-direktor-msc-group-geneva",
+        "fr": "ressources-humaines-directeur-msc-group-geneva"
       },
       "company": "MSC Group",
       "companyKey": "msc-cargo",
@@ -649,25 +649,24 @@
           "ressources-humaines-directeur-msc-group-geneva",
           "directeur-des-ressources-humaines-msc-group-geneva",
           "directeur-rh-msc-group-geneva",
-          "hr-director-msc-group-geneva"
+          "hr-director-msc-group-geneva",
+          "hr-director-msc-geneva"
         ],
         "de": [
-          "personalwesen-direktor-msc-group-geneva"
+          "hr-director-msc-geneva"
         ],
         "fr": [
-          "ressources-humaines-directeur-msc-group-geneva",
           "directeur-des-ressources-humaines-msc-group-geneva",
           "directeur-rh-msc-group-geneva",
-          "hr-director-msc-group-geneva"
+          "hr-director-msc-group-geneva",
+          "hr-director-msc-geneva"
         ]
       },
       "previousSlugs": [
-        "risorse-umane-direttore-msc-group-geneva",
-        "personalwesen-direktor-msc-group-geneva",
-        "ressources-humaines-directeur-msc-group-geneva",
         "directeur-des-ressources-humaines-msc-group-geneva",
         "directeur-rh-msc-group-geneva",
-        "hr-director-msc-group-geneva"
+        "hr-director-msc-group-geneva",
+        "hr-director-msc-geneva"
       ]
     },
     {
@@ -762,8 +761,8 @@
       "id": "msc-cargo-f0daf0e92f7f",
       "slug": "onboard-finanza-operations-specialista-msc-group-geneva",
       "slugByLocale": {
-        "it": "onboard-finanza-operations-specialista-msc-group-geneva",
         "en": "onboard-finance-operations-specialist-msc-geneva",
+        "it": "onboard-finanza-operations-specialista-msc-group-geneva",
         "de": "onboard-finanzen-operations-spezialist-msc-group-geneva",
         "fr": "onboard-finance-operations-specialiste-msc-group-geneva"
       },
@@ -808,25 +807,6 @@
       "jobReqId": "17945",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "onboard-finanzen-operations-spezialist-msc-group-geneva",
-        "onboard-finance-operations-specialiste-msc-group-geneva",
-        "onboard-finance-operations-specialist-msc-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "onboard-finance-operations-specialiste-msc-group-geneva",
-          "onboard-finanzen-operations-spezialist-msc-group-geneva",
-          "onboard-finance-operations-specialist-msc-geneva"
-        ],
-        "de": [
-          "onboard-finance-operations-specialist-msc-geneva"
-        ],
-        "fr": [
-          "onboard-finance-operations-specialist-msc-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-10-14T21:29:29.822Z",
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -844,14 +824,33 @@
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T00:33:13.156Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-10-14T21:29:29.822Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "onboard-finance-operations-specialiste-msc-group-geneva",
+          "onboard-finanzen-operations-spezialist-msc-group-geneva",
+          "onboard-finance-operations-specialist-msc-geneva"
+        ],
+        "de": [
+          "onboard-finance-operations-specialist-msc-geneva"
+        ],
+        "fr": [
+          "onboard-finance-operations-specialist-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "onboard-finanzen-operations-spezialist-msc-group-geneva",
+        "onboard-finance-operations-specialiste-msc-group-geneva",
+        "onboard-finance-operations-specialist-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-b97d5d608b1c",
       "slug": "responsabile-del-visual-merchandising-msc-group-geneva",
       "slugByLocale": {
-        "it": "responsabile-del-visual-merchandising-msc-group-geneva",
         "en": "visual-merchandising-manager-msc-geneva",
+        "it": "responsabile-del-visual-merchandising-msc-group-geneva",
         "de": "visual-merchandising-manager-msc-geneva",
         "fr": "gestionnaire-de-marchandises-visuelles-msc-group-geneva"
       },
@@ -896,23 +895,6 @@
       "jobReqId": "17627",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "gestionnaire-de-marchandises-visuelles-msc-group-geneva",
-        "responsable-merchandising-visuel-msc-group-geneva",
-        "visual-merchandising-manager-msc-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "responsable-merchandising-visuel-msc-group-geneva",
-          "gestionnaire-de-marchandises-visuelles-msc-group-geneva",
-          "visual-merchandising-manager-msc-geneva"
-        ],
-        "fr": [
-          "responsable-merchandising-visuel-msc-group-geneva",
-          "visual-merchandising-manager-msc-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-10-04T09:20:23.745Z",
       "salaryMin": 88000,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -930,7 +912,24 @@
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T00:33:12.379Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-10-04T09:20:23.745Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "responsable-merchandising-visuel-msc-group-geneva",
+          "visual-merchandising-manager-msc-geneva"
+        ],
+        "it": [
+          "responsable-merchandising-visuel-msc-group-geneva",
+          "gestionnaire-de-marchandises-visuelles-msc-group-geneva",
+          "visual-merchandising-manager-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "gestionnaire-de-marchandises-visuelles-msc-group-geneva",
+        "responsable-merchandising-visuel-msc-group-geneva",
+        "visual-merchandising-manager-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-3217dfcb7ff6",
@@ -1487,8 +1486,8 @@
       "id": "msc-cargo-df9ddece23d5",
       "slug": "risorse-umane-tirocinante-msc-group-geneva",
       "slugByLocale": {
-        "it": "risorse-umane-tirocinante-msc-group-geneva",
         "en": "hr-intern-msc-geneva",
+        "it": "risorse-umane-tirocinante-msc-group-geneva",
         "de": "personalwesen-praktikant-msc-group-geneva",
         "fr": "ressources-humaines-stagiaire-msc-group-geneva"
       },
@@ -1533,21 +1532,6 @@
       "jobReqId": "17976",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "hr-intern-msc-geneva"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "hr-intern-msc-geneva"
-        ],
-        "de": [
-          "hr-intern-msc-geneva"
-        ],
-        "fr": [
-          "hr-intern-msc-geneva"
-        ]
-      },
-      "firstSeenAt": "2026-10-21T09:31:52.338Z",
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -1565,7 +1549,22 @@
       "streetAddress": "Geneva",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T00:33:01.038Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-10-21T09:31:52.338Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-intern-msc-geneva"
+        ],
+        "de": [
+          "hr-intern-msc-geneva"
+        ],
+        "fr": [
+          "hr-intern-msc-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "hr-intern-msc-geneva"
+      ]
     },
     {
       "id": "msc-cargo-c0a3fef0fd77",
