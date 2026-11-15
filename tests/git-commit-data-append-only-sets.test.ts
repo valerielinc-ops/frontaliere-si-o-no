@@ -66,6 +66,19 @@ function writeJson(dir: string, relPath: string, value: unknown): void {
   writeFileSync(join(dir, relPath), `${JSON.stringify(value, null, 2)}\n`);
 }
 
+function seedCompatShardSet(dir: string, shard0: string[]): void {
+  for (let index = 0; index < 16; index += 1) {
+    const shard = String(index).padStart(2, '0');
+    writeJson(dir, `data/seo-404-compat/part-${shard}.json`, {
+      paths: index === 0 ? shard0 : [],
+    });
+  }
+  writeJson(dir, 'data/seo-404-compat/manifest.json', {
+    shardCount: 16,
+    totalPaths: new Set(shard0).size,
+  });
+}
+
 function commitAndPush(dir: string, message: string): void {
   execFileSync('git', ['add', '-A'], { cwd: dir });
   execFileSync('git', ['commit', '-q', '-m', message], { cwd: dir });
@@ -621,12 +634,13 @@ exec "$GIT_REAL" "$@"
   // has a `merge=compat-shard` set-union driver in .gitattributes, but that
   // only covers the REBASE path — the grouped-isolated commit path never
   // rebases and reaches merge_json_3way instead.
+  // Il set completo di 16 shard è l'invariante di produzione: la riparazione del manifest (#18932) rifiuta un set incompleto.
   it('unions data/seo-404-compat shard paths (grouped-isolated path has no merge driver)', () => {
     const h = initHarness();
     const SHARD = 'data/seo-404-compat/part-00.json';
     try {
       const seeded = ['/cerca-lavoro-ticino/a', '/cerca-lavoro-ticino/b'];
-      writeJson(h.repoDir, SHARD, { paths: [...seeded, ...seeded] });
+      seedCompatShardSet(h.repoDir, [...seeded, ...seeded]);
       commitAndPush(h.repoDir, 'seed');
 
       pushFromConcurrentWriter(
