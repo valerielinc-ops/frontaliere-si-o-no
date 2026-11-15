@@ -32,6 +32,8 @@ function response(url: string, status: number, location: string | null = null, b
   } as any;
 }
 
+const SOURCE_BODY_SUFFIX = ' The position includes careful planning, reliable communication, independent execution, team coordination, quality checks, customer support, risk awareness, clear documentation, and dependable cooperation with colleagues and internal specialists throughout the daily work and seasonal service.';
+
 describe('prospector public-only polite transport', () => {
   beforeEach(() => {
     clearPoliteFetchStateForTests();
@@ -265,7 +267,8 @@ describe('prospector public-only polite transport', () => {
       if (url === detail) return response(url, 200, null,
         '<h1>Platform Engineer</h1><div class="job-location">Zürich</div>' +
         '<article class="vacancy-description">Build reliable systems for our engineering organisation, ' +
-        'coordinate production releases, improve observability and support colleagues across the platform team.</article>');
+        'coordinate production releases, improve observability and support colleagues across the platform team.'
+        + SOURCE_BODY_SUFFIX + '</article>');
       throw new Error(`unexpected URL ${url}`);
     });
     const rows = await runSpecInProduction({
@@ -292,6 +295,7 @@ describe('prospector public-only polite transport', () => {
       + '<article class="vacancy-description">'
       + 'Unterstützen Sie unser Housekeeping-Team im Romantik Hotel Schweizerhof Flims. '
       + 'Wir bieten eine verantwortungsvolle Tätigkeit, faire Arbeitszeiten und ein familiäres Umfeld.'
+      + SOURCE_BODY_SUFFIX
       + '</article>';
     const fetchImpl = vi.fn(async (url: string) => {
       if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
@@ -730,7 +734,8 @@ describe('prospector public-only polite transport', () => {
     const detailHtml = '<h1>Platform Engineer</h1><div class="job-location">Zürich</div>'
       + '<article class="vacancy-description">Build reliable systems for our engineering organisation, '
       + 'coordinate production releases, improve observability, support colleagues across the platform team, '
-      + 'and document resilient operational practices for every service owner.</article>';
+      + 'and document resilient operational practices for every service owner.'
+      + SOURCE_BODY_SUFFIX + '</article>';
     const fetchImpl = vi.fn(async (url: string) => {
       if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
       if (url === seed) return response(url, 403, null, 'Forbidden by edge policy');
@@ -767,7 +772,8 @@ describe('prospector public-only polite transport', () => {
     const detailHtml = '<h1>Chef de partie</h1><div class="job-location">Klosters</div>'
       + '<article class="vacancy-description">Prepare and coordinate kitchen service for the hotel team, '
       + 'maintain food quality and hygiene standards, and support the daily operation with colleagues across '
-      + 'the restaurant and guest service departments in Klosters.</article>';
+      + 'the restaurant and guest service departments in Klosters.'
+      + SOURCE_BODY_SUFFIX + '</article>';
     const fetchImpl = vi.fn(async (url: string) => {
       if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
       if (url === seed) return response(url, 403, null, 'Challenge Validation');
@@ -805,13 +811,14 @@ describe('prospector public-only polite transport', () => {
       '@type': 'JobPosting',
       title: `Position ${id}`,
       url: details[id - 1],
-      description: 'Eine verantwortungsvolle Aufgabe in einem verlässlichen Schweizer Team mit klaren Abläufen und persönlicher Begleitung.',
+      description: 'Eine verantwortungsvolle Aufgabe in einem verlässlichen Schweizer Team mit klaren Abläufen und persönlicher Begleitung.' + SOURCE_BODY_SUFFIX,
       jobLocation: { '@type': 'Place', address: { addressLocality: 'Zürich', addressCountry: 'CH' } },
     })).map((record) => `<script type="application/ld+json">${record}</script>`).join('');
     const browserListing = details.map((url, index) => `<a href="${url}">Position ${index + 1}</a>`).join('');
     const detailHtml = (id: number) => `<h1>Position ${id}</h1><div class="job-location">Zürich</div>`
       + '<article class="vacancy-description">Eine verantwortungsvolle Aufgabe in einem verlässlichen Schweizer Team mit klaren Abläufen, '
-      + 'persönlicher Begleitung und täglicher Zusammenarbeit in Zürich. Die Stelle bietet Entwicklungsmöglichkeiten und einen langfristigen Einsatz.</article>';
+      + 'persönlicher Begleitung und täglicher Zusammenarbeit in Zürich. Die Stelle bietet Entwicklungsmöglichkeiten und einen langfristigen Einsatz.'
+      + SOURCE_BODY_SUFFIX + '</article>';
     const fetchImpl = vi.fn(async (url: string) => {
       if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
       if (url === seed) return response(url, 200, null, directListing);
@@ -848,7 +855,8 @@ describe('prospector public-only polite transport', () => {
     const detailHtml = '<h1>Platform Engineer</h1><div class="job-location">Zürich</div>'
       + '<article class="vacancy-description">Build reliable systems for our engineering organisation, '
       + 'coordinate production releases, improve observability, support colleagues across the platform team, '
-      + 'and document resilient operational practices for every service owner.</article>';
+      + 'and document resilient operational practices for every service owner.'
+      + SOURCE_BODY_SUFFIX + '</article>';
     const fetchImpl = vi.fn(async (url: string) => {
       if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
       if (url === seed) return response(url, 200, null, challenge);
@@ -892,7 +900,8 @@ describe('prospector public-only polite transport', () => {
     const detailHtml = '<h1>Platform Engineer</h1><div class="job-location">Zürich</div>'
       + '<article class="vacancy-description">Build reliable systems for our engineering organisation, '
       + 'coordinate production releases, improve observability, support colleagues across the platform team, '
-      + 'and document resilient operational practices for every service owner.</article>';
+      + 'and document resilient operational practices for every service owner.'
+      + SOURCE_BODY_SUFFIX + '</article>';
     const fetchImpl = vi.fn(async (url: string) => {
       if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
       if (url === seed) return response(url, 200, null, challenge);
@@ -935,7 +944,8 @@ describe('prospector public-only polite transport', () => {
     const detailHtml = '<h1>Platform Engineer</h1><div class="job-location">Zürich</div>'
       + '<article class="vacancy-description">Build reliable systems for our engineering organisation, '
       + 'coordinate production releases, improve observability, support colleagues across the platform team, '
-      + 'and document resilient operational practices for every service owner.</article>';
+      + 'and document resilient operational practices for every service owner.'
+      + SOURCE_BODY_SUFFIX + '</article>';
     const fetchImpl = vi.fn(async (url: string) => {
       if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
       if (url === seed) return response(url, 200, null, interstitial);
@@ -1106,7 +1116,8 @@ describe('prospector public-only polite transport', () => {
     const detailHtml = '<h1>Platform Engineer</h1><div class="job-location">Zürich</div>'
       + '<article class="vacancy-description">Build reliable systems for our engineering organisation, '
       + 'coordinate production releases, improve observability, support colleagues across the platform team, '
-      + 'and document resilient operational practices for every service owner.</article>';
+      + 'and document resilient operational practices for every service owner.'
+      + SOURCE_BODY_SUFFIX + '</article>';
     const fetchImpl = vi.fn(async (url: string) => {
       if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
       if (url === seed) throw new TypeError('fetch failed');
@@ -1142,7 +1153,8 @@ describe('prospector public-only polite transport', () => {
     const detailHtml = '<h1>Platform Engineer</h1><div class="job-location">Zürich</div>'
       + '<article class="vacancy-description">Build reliable systems for our engineering organisation, '
       + 'coordinate production releases, improve observability, support colleagues across the platform team, '
-      + 'and document resilient operational practices for every service owner.</article>';
+      + 'and document resilient operational practices for every service owner.'
+      + SOURCE_BODY_SUFFIX + '</article>';
     const fetchImpl = vi.fn(async (url: string) => {
       if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
       if (url === primary) throw new TypeError('fetch failed');

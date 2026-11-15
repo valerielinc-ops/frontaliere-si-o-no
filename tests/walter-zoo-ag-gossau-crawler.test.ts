@@ -8,6 +8,8 @@ import {
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import { loadSpec, runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
 
+const SOURCE_BODY_SUFFIX = ' Die Stelle erfordert sorgfältige Planung, verlässliche Kommunikation, selbstständige Umsetzung, gute Zusammenarbeit, Qualitätskontrolle, Kundenbetreuung und nachvollziehbare Dokumentation im täglichen Arbeitsumfeld mit Kundinnen, Kunden und internen Fachstellen im Schichtalltag.';
+
 describe('WALTER ZOO AG GOSSAU crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
@@ -35,7 +37,7 @@ describe('WALTER ZOO AG GOSSAU crawler parser', () => {
       '@context': 'https://schema.org',
       '@type': 'JobPosting',
       title: 'Praktikant:in Tierpflege',
-      description: 'Du pflegst Tiere und unterstützt das erfahrene Team im täglichen Zoobetrieb mit abwechslungsreichen Aufgaben.',
+      description: 'Du pflegst Tiere und unterstützt das erfahrene Team im täglichen Zoobetrieb mit abwechslungsreichen Aufgaben.' + SOURCE_BODY_SUFFIX,
       hiringOrganization: { '@type': 'Organization', name: 'WALTER ZOO AG GOSSAU' },
       jobLocation: {
         '@type': 'Place',
