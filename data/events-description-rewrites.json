@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-15T05:20:51.463Z",
+  "generatedAt": "2026-11-15T06:21:04.042Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -175076,6 +175076,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T13:18:12.441Z"
     },
+    "myswitzerland:f89f901060a841bcb499acb38f8e5b4c::cdee2993fcf18c109498f9a17cf547d9aec48edd3004052bea9e06428d907499": {
+      "id": "myswitzerland:f89f901060a841bcb499acb38f8e5b4c",
+      "sourceDescriptionHash": "cdee2993fcf18c109498f9a17cf547d9aec48edd3004052bea9e06428d907499",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: The Chedi Andermatt; comune: Andermatt; cantone: UR; categoria: Music; data: 2027-02-28; ora: 17:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: The Chedi Andermatt; comune: Andermatt; cantone: UR; categoria: Music; data: 2027-02-28; ora: 17:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: The Chedi Andermatt; municipality: Andermatt; canton: UR; category: Music; date: 2027-02-28; time: 17:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: The Chedi Andermatt; gemeinde: Andermatt; kanton: UR; kategorie: Music; datum: 2027-02-28; uhrzeit: 17:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: The Chedi Andermatt; commune: Andermatt; canton: UR; catégorie: Music; date: 2027-02-28; heure: 17:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-15T06:15:27.361Z"
+    },
     "myswitzerland:f8a2ddd77ec94510921f12ba55860d0c::fed022a73436ec41c644392632979f6f00e7e0031cc529c965d4b4a69b23abfd": {
       "id": "myswitzerland:f8a2ddd77ec94510921f12ba55860d0c",
       "sourceDescriptionHash": "fed022a73436ec41c644392632979f6f00e7e0031cc529c965d4b4a69b23abfd",
@@ -197425,15 +197439,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-17T11:50:28.518Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:f89f901060a841bcb499acb38f8e5b4c::cdee2993fcf18c109498f9a17cf547d9aec48edd3004052bea9e06428d907499": {
-      "id": "myswitzerland:f89f901060a841bcb499acb38f8e5b4c",
-      "sourceDescriptionHash": "cdee2993fcf18c109498f9a17cf547d9aec48edd3004052bea9e06428d907499",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T09:43:24.654Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
