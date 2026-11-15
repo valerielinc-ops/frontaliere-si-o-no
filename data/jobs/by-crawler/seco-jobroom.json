@@ -9112,7 +9112,7 @@
       "id": "seco-jobroom-dc8044b7-3475-4701-a336-575b3f2888d4",
       "slug": "gartner-m-w-d-tschuggen-collection-ag-ascona",
       "slugByLocale": {
-        "it": "gartner-m-w-d-tschuggen-collection-ag-ascona",
+        "it": "gardener-m-f-d-tschuggen-collection-ag-ascona-dc8044b7",
         "en": "gartner-m-w-d-tschuggen-collection-ag-ascona-dc8044b7",
         "de": "gartner-m-w-d-tschuggen-collection-ag-ascona-dc8044b7",
         "fr": "gartner-m-w-d-tschuggen-collection-ag-ascona"
@@ -9163,20 +9163,18 @@
       "validThrough": "2027-01-12T23:59:59.999Z",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "jardinier-h-f-d-tschuggen-collection-ag-ascona-dc8044b7",
-        "gartner-m-w-d-tschuggen-collection-ag-ascona-dc8044b7",
-        "gardener-m-f-d-tschuggen-collection-ag-ascona-dc8044b7"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "gartner-m-w-d-tschuggen-collection-ag-ascona-dc8044b7",
-          "gardener-m-f-d-tschuggen-collection-ag-ascona-dc8044b7"
+          "gartner-m-w-d-tschuggen-collection-ag-ascona-dc8044b7"
         ],
         "fr": [
           "jardinier-h-f-d-tschuggen-collection-ag-ascona-dc8044b7"
         ]
       },
+      "previousSlugs": [
+        "jardinier-h-f-d-tschuggen-collection-ag-ascona-dc8044b7",
+        "gartner-m-w-d-tschuggen-collection-ag-ascona-dc8044b7"
+      ],
       "firstSeenAt": "2026-11-13T21:49:25.964Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -61806,7 +61804,7 @@
       "slugByLocale": {
         "it": "orologiaio-di-produzione-multitime-quartz-sa-losone-240a1e50",
         "en": "orologiaio-di-production-multitime-quartz-sa-losone-240a1e50",
-        "de": "orologiaio-di-produzione-multitime-quartz-sa-losone",
+        "de": "produktionsuhr-multitime-quartz-sa-losone-240a1e50",
         "fr": "orologiaio-di-produzione-multitime-quartz-sa-losone-240a1e50"
       },
       "slugDisambiguator": "240a1e50",
@@ -61855,11 +61853,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "produktionsuhr-multitime-quartz-sa-losone-240a1e50"
+        "orologiaio-di-produzione-multitime-quartz-sa-losone"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "produktionsuhr-multitime-quartz-sa-losone-240a1e50"
+          "orologiaio-di-produzione-multitime-quartz-sa-losone"
         ]
       },
       "firstSeenAt": "2026-11-12T09:35:51.012Z",
@@ -67009,9 +67007,9 @@
       "slug": "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso-b08e3218",
       "slugByLocale": {
         "it": "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso-b08e3218",
-        "en": "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso",
-        "de": "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso",
-        "fr": "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso"
+        "en": "construction-worker-edilservizi-swiss-sagl-paradiso-b08e3218",
+        "de": "bauarbeiter-edilservizi-swiss-sagl-paradiso-b08e3218",
+        "fr": "ouvriers-de-construction-edilservizi-swiss-sagl-paradiso-b08e3218"
       },
       "slugDisambiguator": "b08e3218",
       "company": "Edilservizi Swiss Sagl",
@@ -67059,19 +67057,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bauarbeiter-edilservizi-swiss-sagl-paradiso-b08e3218",
-        "construction-worker-edilservizi-swiss-sagl-paradiso-b08e3218",
-        "ouvriers-de-construction-edilservizi-swiss-sagl-paradiso-b08e3218"
+        "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "construction-worker-edilservizi-swiss-sagl-paradiso-b08e3218"
+          "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso"
         ],
         "de": [
-          "bauarbeiter-edilservizi-swiss-sagl-paradiso-b08e3218"
+          "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso"
         ],
         "fr": [
-          "ouvriers-de-construction-edilservizi-swiss-sagl-paradiso-b08e3218"
+          "lavoratore-edile-edilizia-principale-edilservizi-swiss-sagl-paradiso"
         ]
       },
       "firstSeenAt": "2026-11-04T21:49:10.043Z",
@@ -81735,9 +81731,9 @@
       "slug": "ein-e-collaboratore-trice-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
       "slugByLocale": {
         "it": "ein-e-collaboratore-trice-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
-        "en": "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt",
+        "en": "one-employee-seasonal-worker-80-prim-frais-valais-sa-zermatt-28955270",
         "de": "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
-        "fr": "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt"
+        "fr": "un-employe-travailleur-saisonnier-80-prim-frais-valais-sa-zermatt-28955270"
       },
       "slugDisambiguator": "28955270",
       "company": "Prim'frais Valais SA",
@@ -81788,8 +81784,7 @@
         "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
         "ein-e-collaboratore-trice-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt",
         "un-a-collaboratore-trice-stagionale-all-80-prim-frais-valais-sa-zermatt-28955270",
-        "un-employe-travailleur-saisonnier-80-prim-frais-valais-sa-zermatt-28955270",
-        "one-employee-seasonal-worker-80-prim-frais-valais-sa-zermatt-28955270"
+        "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -81799,11 +81794,11 @@
         ],
         "en": [
           "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
-          "one-employee-seasonal-worker-80-prim-frais-valais-sa-zermatt-28955270"
+          "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt"
         ],
         "fr": [
-          "un-employe-travailleur-saisonnier-80-prim-frais-valais-sa-zermatt-28955270",
-          "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270"
+          "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt-28955270",
+          "ein-e-mitarbeiter-in-saisonarbeiter-80-prim-frais-valais-sa-zermatt"
         ]
       },
       "firstSeenAt": "2026-11-02T11:10:41.077Z",
@@ -83628,7 +83623,7 @@
       "slugByLocale": {
         "it": "impiegato-di-pulizie-il-team-sa-locarno-56ea34a6",
         "en": "employee-di-pulizie-il-team-sa-locarno-56ea34a6",
-        "de": "impiegato-di-pulizie-il-team-sa-locarno",
+        "de": "reinigungspersonal-il-team-sa-locarno-56ea34a6",
         "fr": "employe-di-pulizie-il-team-sa-locarno-56ea34a6"
       },
       "slugDisambiguator": "56ea34a6",
@@ -83677,11 +83672,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "reinigungspersonal-il-team-sa-locarno-56ea34a6"
+        "impiegato-di-pulizie-il-team-sa-locarno"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "reinigungspersonal-il-team-sa-locarno-56ea34a6"
+          "impiegato-di-pulizie-il-team-sa-locarno"
         ]
       },
       "firstSeenAt": "2026-11-10T09:36:06.423Z",
@@ -86751,9 +86746,9 @@
       "slug": "pittore-cappottista-das-team-ag-ligornetto-acb3823c",
       "slugByLocale": {
         "it": "pittore-cappottista-das-team-ag-ligornetto-acb3823c",
-        "en": "pittore-cappottista-das-team-ag-ligornetto",
-        "de": "pittore-cappottista-das-team-ag-ligornetto",
-        "fr": "pittore-cappottista-das-team-ag-ligornetto"
+        "en": "external-insulation-painter-das-team-ag-ligornetto-acb3823c",
+        "de": "maler-fur-warmedammverbundsysteme-das-team-ag-ligornetto-acb3823c",
+        "fr": "peintre-en-isolation-thermique-par-l-exterieur-das-team-ag-ligornetto-acb3823c"
       },
       "slugDisambiguator": "acb3823c",
       "company": "das team ag",
@@ -86800,19 +86795,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "maler-fur-warmedammverbundsysteme-das-team-ag-ligornetto-acb3823c",
-        "external-insulation-painter-das-team-ag-ligornetto-acb3823c",
-        "peintre-en-isolation-thermique-par-l-exterieur-das-team-ag-ligornetto-acb3823c"
+        "pittore-cappottista-das-team-ag-ligornetto"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "external-insulation-painter-das-team-ag-ligornetto-acb3823c"
+          "pittore-cappottista-das-team-ag-ligornetto"
         ],
         "de": [
-          "maler-fur-warmedammverbundsysteme-das-team-ag-ligornetto-acb3823c"
+          "pittore-cappottista-das-team-ag-ligornetto"
         ],
         "fr": [
-          "peintre-en-isolation-thermique-par-l-exterieur-das-team-ag-ligornetto-acb3823c"
+          "pittore-cappottista-das-team-ag-ligornetto"
         ]
       },
       "firstSeenAt": "2026-11-04T21:49:10.043Z",
@@ -95676,9 +95669,9 @@
       "slug": "operaio-di-cantiere-c-il-team-sa-riva-san-vitale-1aa6bc44",
       "slugByLocale": {
         "it": "operaio-di-cantiere-c-il-team-sa-riva-san-vitale-1aa6bc44",
-        "en": "operaio-di-cantiere-c-il-team-sa-riva-san-vitale",
-        "de": "operaio-di-cantiere-c-il-team-sa-riva-san-vitale",
-        "fr": "operaio-di-cantiere-c-il-team-sa-riva-san-vitale"
+        "en": "construction-worker-c-il-team-sa-riva-san-vitale-1aa6bc44",
+        "de": "bauarbeiter-c-il-team-sa-riva-san-vitale-1aa6bc44",
+        "fr": "ouvrier-de-construction-c-il-team-sa-riva-san-vitale-1aa6bc44"
       },
       "slugDisambiguator": "1aa6bc44",
       "company": "il team sa",
@@ -95725,19 +95718,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bauarbeiter-c-il-team-sa-riva-san-vitale-1aa6bc44",
-        "construction-worker-c-il-team-sa-riva-san-vitale-1aa6bc44",
-        "ouvrier-de-construction-c-il-team-sa-riva-san-vitale-1aa6bc44"
+        "operaio-di-cantiere-c-il-team-sa-riva-san-vitale"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "construction-worker-c-il-team-sa-riva-san-vitale-1aa6bc44"
+          "operaio-di-cantiere-c-il-team-sa-riva-san-vitale"
         ],
         "de": [
-          "bauarbeiter-c-il-team-sa-riva-san-vitale-1aa6bc44"
+          "operaio-di-cantiere-c-il-team-sa-riva-san-vitale"
         ],
         "fr": [
-          "ouvrier-de-construction-c-il-team-sa-riva-san-vitale-1aa6bc44"
+          "operaio-di-cantiere-c-il-team-sa-riva-san-vitale"
         ]
       },
       "firstSeenAt": "2026-11-07T09:45:52.062Z",
@@ -95929,9 +95920,9 @@
       "slug": "pittore-il-team-sa-bellinzona-23db02a3",
       "slugByLocale": {
         "it": "pittore-il-team-sa-bellinzona-23db02a3",
-        "en": "pittore-il-team-sa-bellinzona",
-        "de": "pittore-il-team-sa-bellinzona",
-        "fr": "pittore-il-team-sa-bellinzona"
+        "en": "painter-il-team-sa-bellinzona-23db02a3",
+        "de": "maler-il-team-sa-bellinzona-23db02a3",
+        "fr": "peintre-il-team-sa-bellinzona-23db02a3"
       },
       "slugDisambiguator": "23db02a3",
       "company": "il team sa",
@@ -95980,19 +95971,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "maler-il-team-sa-bellinzona-23db02a3"
+          "pittore-il-team-sa-bellinzona"
         ],
         "en": [
-          "painter-il-team-sa-bellinzona-23db02a3"
+          "pittore-il-team-sa-bellinzona"
         ],
         "fr": [
-          "peintre-il-team-sa-bellinzona-23db02a3"
+          "pittore-il-team-sa-bellinzona"
         ]
       },
       "previousSlugs": [
-        "maler-il-team-sa-bellinzona-23db02a3",
-        "painter-il-team-sa-bellinzona-23db02a3",
-        "peintre-il-team-sa-bellinzona-23db02a3"
+        "pittore-il-team-sa-bellinzona"
       ],
       "firstSeenAt": "2026-11-07T09:45:52.062Z",
       "salaryMin": 49500,
@@ -98581,7 +98570,7 @@
       "slugByLocale": {
         "it": "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona-70e2e8c1",
         "en": "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona-70e2e8c1",
-        "de": "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona",
+        "de": "befestigung-am-bau-von-gerusten-il-team-sa-bellinzona-70e2e8c1",
         "fr": "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona-70e2e8c1"
       },
       "slugDisambiguator": "70e2e8c1",
@@ -98630,11 +98619,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "befestigung-am-bau-von-gerusten-il-team-sa-bellinzona-70e2e8c1"
+        "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona"
       ],
       "previousSlugsByLocale": {
         "de": [
-          "befestigung-am-bau-von-gerusten-il-team-sa-bellinzona-70e2e8c1"
+          "addetto-alla-costruzione-di-ponteggi-il-team-sa-bellinzona"
         ]
       },
       "firstSeenAt": "2026-11-07T09:45:52.062Z",
@@ -99073,9 +99062,9 @@
       "slug": "aiuto-pittore-il-team-sa-grancia-8178d34c",
       "slugByLocale": {
         "it": "aiuto-pittore-il-team-sa-grancia-8178d34c",
-        "en": "aiuto-pittore-il-team-sa-grancia",
-        "de": "aiuto-pittore-il-team-sa-grancia",
-        "fr": "aiuto-pittore-il-team-sa-grancia"
+        "en": "help-painter-il-team-sa-grancia-8178d34c",
+        "de": "malerhilfe-il-team-sa-grancia-8178d34c",
+        "fr": "aide-peintre-il-team-sa-grancia-8178d34c"
       },
       "slugDisambiguator": "8178d34c",
       "company": "il team sa",
@@ -99122,19 +99111,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "malerhilfe-il-team-sa-grancia-8178d34c",
-        "help-painter-il-team-sa-grancia-8178d34c",
-        "aide-peintre-il-team-sa-grancia-8178d34c"
+        "aiuto-pittore-il-team-sa-grancia"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "help-painter-il-team-sa-grancia-8178d34c"
+          "aiuto-pittore-il-team-sa-grancia"
         ],
         "de": [
-          "malerhilfe-il-team-sa-grancia-8178d34c"
+          "aiuto-pittore-il-team-sa-grancia"
         ],
         "fr": [
-          "aide-peintre-il-team-sa-grancia-8178d34c"
+          "aiuto-pittore-il-team-sa-grancia"
         ]
       },
       "firstSeenAt": "2026-11-07T09:45:52.062Z",
@@ -115800,9 +115787,9 @@
       "slug": "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona-7f00910d",
       "slugByLocale": {
         "it": "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona-7f00910d",
-        "en": "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona",
-        "de": "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona",
-        "fr": "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona"
+        "en": "construction-worker-il-team-sa-bellinzona-7f00910d",
+        "de": "bauarbeiter-il-team-sa-bellinzona-7f00910d",
+        "fr": "ouvriers-de-construction-il-team-sa-bellinzona-7f00910d"
       },
       "slugDisambiguator": "7f00910d",
       "company": "il team sa",
@@ -115850,19 +115837,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "bauarbeiter-il-team-sa-bellinzona-7f00910d",
-        "construction-worker-il-team-sa-bellinzona-7f00910d",
-        "ouvriers-de-construction-il-team-sa-bellinzona-7f00910d"
+        "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona"
       ],
       "previousSlugsByLocale": {
         "en": [
-          "construction-worker-il-team-sa-bellinzona-7f00910d"
+          "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona"
         ],
         "de": [
-          "bauarbeiter-il-team-sa-bellinzona-7f00910d"
+          "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona"
         ],
         "fr": [
-          "ouvriers-de-construction-il-team-sa-bellinzona-7f00910d"
+          "lavoratore-edile-edilizia-principale-il-team-sa-bellinzona"
         ]
       },
       "firstSeenAt": "2026-11-05T09:35:14.514Z",
@@ -121822,7 +121807,7 @@
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "translationHoldReleasedAt": "2026-11-15T09:44:32.192Z"
+      "translationHoldReleasedAt": "2026-11-15T10:04:28.799Z"
     },
     {
       "id": "seco-jobroom-519bdcda-d3c2-402b-9263-069cb34c149a",
@@ -126668,9 +126653,9 @@
       "slug": "pittore-il-team-sa-solduno-d6cbdc66",
       "slugByLocale": {
         "it": "pittore-il-team-sa-solduno-d6cbdc66",
-        "en": "pittore-il-team-sa-solduno",
-        "de": "pittore-il-team-sa-solduno",
-        "fr": "pittore-il-team-sa-solduno"
+        "en": "painter-il-team-sa-solduno-d6cbdc66",
+        "de": "maler-il-team-sa-solduno-d6cbdc66",
+        "fr": "peintre-il-team-sa-solduno-d6cbdc66"
       },
       "slugDisambiguator": "d6cbdc66",
       "company": "il team sa",
@@ -126718,19 +126703,17 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "maler-il-team-sa-solduno-d6cbdc66"
+          "pittore-il-team-sa-solduno"
         ],
         "en": [
-          "painter-il-team-sa-solduno-d6cbdc66"
+          "pittore-il-team-sa-solduno"
         ],
         "fr": [
-          "peintre-il-team-sa-solduno-d6cbdc66"
+          "pittore-il-team-sa-solduno"
         ]
       },
       "previousSlugs": [
-        "maler-il-team-sa-solduno-d6cbdc66",
-        "painter-il-team-sa-solduno-d6cbdc66",
-        "peintre-il-team-sa-solduno-d6cbdc66"
+        "pittore-il-team-sa-solduno"
       ],
       "firstSeenAt": "2026-11-04T21:49:10.043Z",
       "salaryMin": 49500,
@@ -138608,9 +138591,9 @@
       "slug": "dipendenti-del-magazzino-conforama-suisse-sa-chur-6d96af81",
       "slugByLocale": {
         "it": "dipendenti-del-magazzino-conforama-suisse-sa-chur-6d96af81",
-        "en": "lagermitarbeiter-conforama-suisse-sa-chur",
+        "en": "warehouse-employees-conforama-suisse-sa-chur-6d96af81",
         "de": "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81",
-        "fr": "lagermitarbeiter-conforama-suisse-sa-chur"
+        "fr": "employes-d-entrepot-conforama-suisse-sa-chur-6d96af81"
       },
       "slugDisambiguator": "6d96af81",
       "company": "Conforama Suisse SA",
@@ -138658,9 +138641,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81",
-        "lagermitarbeiter-conforama-suisse-sa-chur",
-        "employes-d-entrepot-conforama-suisse-sa-chur-6d96af81",
-        "warehouse-employees-conforama-suisse-sa-chur-6d96af81"
+        "lagermitarbeiter-conforama-suisse-sa-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -138669,11 +138650,11 @@
         ],
         "en": [
           "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81",
-          "warehouse-employees-conforama-suisse-sa-chur-6d96af81"
+          "lagermitarbeiter-conforama-suisse-sa-chur"
         ],
         "fr": [
-          "employes-d-entrepot-conforama-suisse-sa-chur-6d96af81",
-          "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81"
+          "lagermitarbeiter-conforama-suisse-sa-chur-6d96af81",
+          "lagermitarbeiter-conforama-suisse-sa-chur"
         ]
       },
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
@@ -162467,7 +162448,7 @@
         "it": "infermiera-ticinocure-sa-manno-a6ff2a39",
         "en": "nurse-ticinocure-sa-manno-a6ff2a39",
         "de": "infermiera-ticinocure-sa-manno",
-        "fr": "infirmiere-ticinocure-sa-manno"
+        "fr": "infirmier-ticinocure-sa-manno-a6ff2a39"
       },
       "slugDisambiguator": "a6ff2a39",
       "company": "TICINOCURE SA",
@@ -162528,13 +162509,13 @@
         "fr": [
           "infermiere-ticinocure-sa-manno-a6ff2a39",
           "infermiera-ticinocure-sa-manno",
-          "infirmier-ticinocure-sa-manno-a6ff2a39"
+          "infirmiere-ticinocure-sa-manno"
         ]
       },
       "previousSlugs": [
         "infermiere-ticinocure-sa-manno-a6ff2a39",
         "infermiera-ticinocure-sa-manno",
-        "infirmier-ticinocure-sa-manno-a6ff2a39"
+        "infirmiere-ticinocure-sa-manno"
       ],
       "firstSeenAt": "2026-10-31T22:00:02.073Z",
       "salaryMin": 70500,
@@ -168600,7 +168581,7 @@
       "previousSlugs": [
         "sicherheitsmitarbeiter-temporareinsatz-davos-2027-50-100-securitas-ag-64788208"
       ],
-      "translationHoldReleasedAt": "2026-11-15T09:44:32.192Z"
+      "translationHoldReleasedAt": "2026-11-15T10:04:28.799Z"
     },
     {
       "id": "seco-jobroom-c371e0ce-9cd4-478f-9dbb-a50b34e5b8e4",
@@ -168687,7 +168668,7 @@
       "previousSlugs": [
         "einsatze-im-eventbereich-10-40-securitas-ag-regionaldirektion-st-gallen-chur-c371e0ce"
       ],
-      "translationHoldReleasedAt": "2026-11-15T09:44:32.192Z"
+      "translationHoldReleasedAt": "2026-11-15T10:04:28.799Z"
     },
     {
       "id": "seco-jobroom-c765934d-ce95-4b92-87e5-58c8ddc3f1b1",
@@ -168849,14 +168830,14 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "translationHoldReleasedAt": "2026-11-15T09:44:32.192Z"
+      "translationHoldReleasedAt": "2026-11-15T10:04:28.799Z"
     },
     {
       "id": "seco-jobroom-f0b1f306-20d1-4bcc-bf67-e28b872f3331",
       "slug": "candidato-a-in-riqualificazione-20-80-securitas-ag-regionaldirektion-st-gallen-chur-f0b1f306",
       "slugByLocale": {
         "it": "candidato-a-in-riqualificazione-20-80-securitas-ag-regionaldirektion-st-gallen-chur-f0b1f306",
-        "en": "quereinsteiger-20-80-securitas-ag-regionaldirektion-st-gallen-chur-f0b1f306",
+        "en": "sidewalkers-20-80-securitas-ag-regionaldirektion-st-gallen-chur-f0b1f306",
         "de": "quereinsteiger-20-80-securitas-ag-regionaldirektion-st-gallen-chur-f0b1f306",
         "fr": "marcheurs-lateraux-20-80-securitas-ag-regionaldirektion-st-gallen-chur-f0b1f306"
       },
@@ -168912,6 +168893,9 @@
         ],
         "fr": [
           "quereinsteiger-20-80-securitas-ag-regionaldirektion-st-gallen-chur-f0b1f306"
+        ],
+        "en": [
+          "quereinsteiger-20-80-securitas-ag-regionaldirektion-st-gallen-chur-f0b1f306"
         ]
       },
       "previousSlugs": [
@@ -168933,7 +168917,7 @@
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
       "crawlerMissStreak": 1,
-      "translationHoldReleasedAt": "2026-11-15T09:44:32.192Z"
+      "translationHoldReleasedAt": "2026-11-15T10:04:28.799Z"
     },
     {
       "id": "seco-jobroom-f90d8c7f-2d96-47a1-99d2-1bca82f20b20",
@@ -169101,7 +169085,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "crawlerMissStreak": 1,
-      "translationHoldReleasedAt": "2026-11-15T09:44:32.192Z"
+      "translationHoldReleasedAt": "2026-11-15T10:04:28.799Z"
     },
     {
       "id": "seco-jobroom-06da5e6f-4588-43e3-b2a0-982e4b02c843",

@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "asanti-ch-79e0c45c428a",
-      "slug": "portiere-tecnico-100-m-f-d-asanti-ag-kloten",
+      "slug": "portiere-tecnico-100-m-f-d-asanti-ag-8302-kloten",
       "slugByLocale": {
-        "it": "portiere-tecnico-100-m-f-d-asanti-ag-kloten",
-        "en": "technical-housekeeper-100-m-f-d-asanti-ag-kloten",
         "de": "technischer-hauswart-100-m-w-d-8302-kloten-asanti-ch-ch",
-        "fr": "menageuse-technique-100-h-f-d-asanti-ag-kloten"
+        "it": "portiere-tecnico-100-m-f-d-asanti-ag-8302-kloten",
+        "en": "technical-housekeeper-100-m-f-d-asanti-ag-8302-kloten",
+        "fr": "menageuse-technique-100-h-f-d-asanti-ag-8302-kloten"
       },
       "company": "Asanti AG",
       "companyKey": "asanti-ch",
@@ -73,27 +73,33 @@
       "firstSeenAt": "2026-11-15T00:56:01.848Z",
       "previousSlugsByLocale": {
         "it": [
-          "technischer-hauswart-100-m-w-d-8302-kloten-asanti-ch-ch"
+          "technischer-hauswart-100-m-w-d-8302-kloten-asanti-ch-ch",
+          "portiere-tecnico-100-m-f-d-asanti-ag-kloten"
         ],
         "en": [
-          "technischer-hauswart-100-m-w-d-8302-kloten-asanti-ch-ch"
+          "technischer-hauswart-100-m-w-d-8302-kloten-asanti-ch-ch",
+          "technical-housekeeper-100-m-f-d-asanti-ag-kloten"
         ],
         "fr": [
-          "technischer-hauswart-100-m-w-d-8302-kloten-asanti-ch-ch"
+          "technischer-hauswart-100-m-w-d-8302-kloten-asanti-ch-ch",
+          "menageuse-technique-100-h-f-d-asanti-ag-kloten"
         ]
       },
       "previousSlugs": [
-        "technischer-hauswart-100-m-w-d-8302-kloten-asanti-ch-ch"
+        "technischer-hauswart-100-m-w-d-8302-kloten-asanti-ch-ch",
+        "portiere-tecnico-100-m-f-d-asanti-ag-kloten",
+        "technical-housekeeper-100-m-f-d-asanti-ag-kloten",
+        "menageuse-technique-100-h-f-d-asanti-ag-kloten"
       ]
     },
     {
       "id": "asanti-ch-25fdcb48f620",
-      "slug": "contabile-80-100-asanti-ag-zurich",
+      "slug": "contabile-80-100-asanti-ag-region-zurich",
       "slugByLocale": {
-        "it": "contabile-80-100-asanti-ag-zurich",
-        "en": "accountant-80-100-asanti-ag-zurich",
         "de": "buchhalter-in-80-100-region-zurich-asanti-ch-ch",
-        "fr": "comptable-80-100-asanti-ag-zurich"
+        "it": "contabile-80-100-asanti-ag-region-zurich",
+        "en": "accountant-80-100-asanti-ag-region-zurich",
+        "fr": "comptable-80-100-asanti-ag-region-zurich"
       },
       "company": "Asanti AG",
       "companyKey": "asanti-ch",
@@ -156,17 +162,23 @@
       "firstSeenAt": "2026-11-15T00:56:01.845Z",
       "previousSlugsByLocale": {
         "it": [
-          "buchhalter-in-80-100-region-zurich-asanti-ch-ch"
+          "buchhalter-in-80-100-region-zurich-asanti-ch-ch",
+          "contabile-80-100-asanti-ag-zurich"
         ],
         "en": [
-          "buchhalter-in-80-100-region-zurich-asanti-ch-ch"
+          "buchhalter-in-80-100-region-zurich-asanti-ch-ch",
+          "accountant-80-100-asanti-ag-zurich"
         ],
         "fr": [
-          "buchhalter-in-80-100-region-zurich-asanti-ch-ch"
+          "buchhalter-in-80-100-region-zurich-asanti-ch-ch",
+          "comptable-80-100-asanti-ag-zurich"
         ]
       },
       "previousSlugs": [
-        "buchhalter-in-80-100-region-zurich-asanti-ch-ch"
+        "buchhalter-in-80-100-region-zurich-asanti-ch-ch",
+        "contabile-80-100-asanti-ag-zurich",
+        "accountant-80-100-asanti-ag-zurich",
+        "comptable-80-100-asanti-ag-zurich"
       ]
     },
     {

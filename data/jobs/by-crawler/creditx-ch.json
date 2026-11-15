@@ -5,9 +5,9 @@
   "jobs": [
     {
       "id": "creditx-ch-52825786a669",
-      "slug": "responsabile-relazioni-senior-creditx-sarl-sion",
+      "slug": "responsabile-relazioni-senior-creditx-sarl-sion-vs",
       "slugByLocale": {
-        "it": "responsabile-relazioni-senior-creditx-sarl-sion",
+        "it": "responsabile-relazioni-senior-creditx-sarl-sion-vs",
         "en": "relationship-manager-senior-sion-vs-creditx-ch-ch",
         "de": "relationship-manager-senior-sion-vs-creditx-ch-ch",
         "fr": "relationship-manager-senior-sion-vs-creditx-ch-ch"
@@ -73,18 +73,20 @@
       "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
-          "relationship-manager-senior-sion-vs-creditx-ch-ch"
+          "relationship-manager-senior-sion-vs-creditx-ch-ch",
+          "responsabile-relazioni-senior-creditx-sarl-sion"
         ]
       },
       "previousSlugs": [
-        "relationship-manager-senior-sion-vs-creditx-ch-ch"
+        "relationship-manager-senior-sion-vs-creditx-ch-ch",
+        "responsabile-relazioni-senior-creditx-sarl-sion"
       ]
     },
     {
       "id": "creditx-ch-ae7f54d22ec9",
-      "slug": "responsabile-relazioni-junior-creditx-sarl-sion",
+      "slug": "responsabile-relazioni-junior-creditx-sarl-sion-vs",
       "slugByLocale": {
-        "it": "responsabile-relazioni-junior-creditx-sarl-sion",
+        "it": "responsabile-relazioni-junior-creditx-sarl-sion-vs",
         "en": "relationship-manager-junior-sion-vs-creditx-ch-ch",
         "de": "relationship-manager-junior-sion-vs-creditx-ch-ch",
         "fr": "relationship-manager-junior-sion-vs-creditx-ch-ch"
@@ -150,11 +152,13 @@
       "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
         "it": [
-          "relationship-manager-junior-sion-vs-creditx-ch-ch"
+          "relationship-manager-junior-sion-vs-creditx-ch-ch",
+          "responsabile-relazioni-junior-creditx-sarl-sion"
         ]
       },
       "previousSlugs": [
-        "relationship-manager-junior-sion-vs-creditx-ch-ch"
+        "relationship-manager-junior-sion-vs-creditx-ch-ch",
+        "responsabile-relazioni-junior-creditx-sarl-sion"
       ]
     }
   ]

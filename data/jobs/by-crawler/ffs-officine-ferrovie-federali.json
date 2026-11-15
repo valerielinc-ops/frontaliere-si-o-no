@@ -3250,9 +3250,9 @@
     },
     {
       "id": "sbb-78ee69ffe579",
-      "slug": "teamleiter-in-strategisches-anlagenmanagement-per-zugang-zur-mobilitat-ffs-officine-ferrovie-federali-bern",
+      "slug": "responsabile-del-team-per-la-gestione-strategica-degli-impianti-per-l-accesso-alla-mobilita-ffs-officine-ferrovie",
       "slugByLocale": {
-        "it": "teamleiter-in-strategisches-anlagenmanagement-per-zugang-zur-mobilitat-ffs-officine-ferrovie-federali-bern",
+        "it": "responsabile-del-team-per-la-gestione-strategica-degli-impianti-per-l-accesso-alla-mobilita-ffs-officine-ferrovie",
         "en": "access-to-mobility-strategic-facility-management-team-leader-ffs-officine-ferrovie-federali-bern",
         "de": "teamleiter-in-strategisches-anlagenmanagement-fur-zugang-zur-mobilitat-ffs-officine-ferrovie-federali-bern",
         "fr": "chef-d-equipe-en-gestion-strategique-des-actifs-pour-l-acces-a-la-mobilite-ffs-officine-ferrovie-federali-bern"
@@ -3299,11 +3299,13 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-10T21:29:16.195Z",
       "previousSlugs": [
-        "teamleiter-in-strategisches-anlagenmanagement-fur-zugang-zur-mobilitat-ffs-officine-ferrovie-federali-bern"
+        "teamleiter-in-strategisches-anlagenmanagement-fur-zugang-zur-mobilitat-ffs-officine-ferrovie-federali-bern",
+        "teamleiter-in-strategisches-anlagenmanagement-per-zugang-zur-mobilitat-ffs-officine-ferrovie-federali-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-strategisches-anlagenmanagement-fur-zugang-zur-mobilitat-ffs-officine-ferrovie-federali-bern"
+          "teamleiter-in-strategisches-anlagenmanagement-fur-zugang-zur-mobilitat-ffs-officine-ferrovie-federali-bern",
+          "teamleiter-in-strategisches-anlagenmanagement-per-zugang-zur-mobilitat-ffs-officine-ferrovie-federali-bern"
         ],
         "en": [
           "teamleiter-in-strategisches-anlagenmanagement-fur-zugang-zur-mobilitat-ffs-officine-ferrovie-federali-bern"
@@ -3709,9 +3711,9 @@
     },
     {
       "id": "sbb-26ff7f8b294c",
-      "slug": "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten",
+      "slug": "responsabile-del-team-acquisti-edili-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
-        "it": "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten",
+        "it": "responsabile-del-team-acquisti-edili-ffs-officine-ferrovie-federali-olten",
         "en": "construction-purchasing-team-leader-ffs-officine-ferrovie-federali-olten",
         "de": "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten",
         "fr": "chef-d-equipe-dans-les-achats-de-construction-ffs-officine-ferrovie-federali-olten"
@@ -3791,7 +3793,15 @@
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:29:14.691Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten"
+      ]
     },
     {
       "id": "sbb-ef149023e3e7",
@@ -5004,9 +5014,9 @@
     },
     {
       "id": "sbb-da735b6c07dd",
-      "slug": "technische-r-kontrolleur-in-cargo-ffs-officine-ferrovie-federali-landquart",
+      "slug": "controllore-trice-tecnico-a-cargo-ffs-officine-ferrovie-federali-landquart",
       "slugByLocale": {
-        "it": "technische-r-kontrolleur-in-cargo-ffs-officine-ferrovie-federali-landquart",
+        "it": "controllore-trice-tecnico-a-cargo-ffs-officine-ferrovie-federali-landquart",
         "en": "technical-inspector-cargo-ffs-officine-ferrovie-federali-landquart",
         "de": "technische-r-kontrolleur-in-cargo-ffs-officine-ferrovie-federali-landquart",
         "fr": "controleur-technique-in-cargo-ffs-officine-ferrovie-federali-landquart"
@@ -5090,7 +5100,15 @@
       "streetAddress": "Landquart",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:29:21.210Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-kontrolleur-in-cargo-ffs-officine-ferrovie-federali-landquart"
+        ]
+      },
+      "previousSlugs": [
+        "technische-r-kontrolleur-in-cargo-ffs-officine-ferrovie-federali-landquart"
+      ]
     },
     {
       "id": "sbb-8cf50d6a8420",
@@ -6057,9 +6075,9 @@
     },
     {
       "id": "sbb-903adc116cc7",
-      "slug": "teamleiter-in-baustellensicherheit-ffs-officine-ferrovie-federali-ostermundigen",
+      "slug": "responsabile-del-team-per-la-sicurezza-nei-cantieri-ffs-officine-ferrovie-federali-ostermundigen",
       "slugByLocale": {
-        "it": "teamleiter-in-baustellensicherheit-ffs-officine-ferrovie-federali-ostermundigen",
+        "it": "responsabile-del-team-per-la-sicurezza-nei-cantieri-ffs-officine-ferrovie-federali-ostermundigen",
         "en": "site-safety-team-leader-ffs-officine-ferrovie-federali-ostermundigen",
         "de": "teamleiter-in-baustellensicherheit-ffs-officine-ferrovie-federali-ostermundigen",
         "fr": "chef-d-equipe-en-securite-des-chantiers-ffs-officine-ferrovie-federali-ostermundigen"
@@ -6147,7 +6165,15 @@
       "streetAddress": "Ostermundigen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:29:15.189Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-baustellensicherheit-ffs-officine-ferrovie-federali-ostermundigen"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-baustellensicherheit-ffs-officine-ferrovie-federali-ostermundigen"
+      ]
     },
     {
       "id": "sbb-3b88e82523f2",

@@ -20642,12 +20642,12 @@
     },
     {
       "id": "physioswiss-370d2f319f0f",
-      "slug": "un-physiotherapeute-diplome-et-specialise-en-sport-40-100-physio-swiss-biel",
+      "slug": "un-fisioterapista-laureato-e-specializzato-nello-sport-40-100-physio-swiss-2501-biel",
       "slugByLocale": {
         "fr": "un-physiotherapeute-diplome-et-specialise-en-sport-40-100-2501-biel-physioswiss-ch",
-        "it": "un-physiotherapeute-diplome-et-specialise-en-sport-40-100-physio-swiss-biel",
-        "en": "un-physiotherapeute-diplome-et-specialise-en-sport-40-100-physio-swiss-biel",
-        "de": "un-physiotherapeute-diplome-et-specialise-en-sport-40-100-2501-biel-physioswiss-ch"
+        "it": "un-fisioterapista-laureato-e-specializzato-nello-sport-40-100-physio-swiss-2501-biel",
+        "en": "a-physiotherapist-graduated-and-specialized-in-sport-40-100-physio-swiss-2501-biel",
+        "de": "ein-physiotherapeut-absolviert-und-spezialisiert-auf-sport-40-100-physio-swiss-2501-biel"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -20694,11 +20694,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "un-physiotherapeute-diplome-et-specialise-en-sport-40-100-2501-biel-physioswiss-ch",
+          "un-physiotherapeute-diplome-et-specialise-en-sport-40-100-physio-swiss-biel"
+        ],
+        "en": [
+          "un-physiotherapeute-diplome-et-specialise-en-sport-40-100-physio-swiss-biel"
+        ],
+        "de": [
           "un-physiotherapeute-diplome-et-specialise-en-sport-40-100-2501-biel-physioswiss-ch"
         ]
       },
       "previousSlugs": [
-        "un-physiotherapeute-diplome-et-specialise-en-sport-40-100-2501-biel-physioswiss-ch"
+        "un-physiotherapeute-diplome-et-specialise-en-sport-40-100-2501-biel-physioswiss-ch",
+        "un-physiotherapeute-diplome-et-specialise-en-sport-40-100-physio-swiss-biel"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -20721,12 +20729,12 @@
     },
     {
       "id": "physioswiss-20f7880fb634",
-      "slug": "diplomierten-physiotherapeuten-in-mit-spezialisierung-im-bereich-sport-40-100-2501-biel",
+      "slug": "fisioterapista-diplomato-a-con-specializzazione-nell-ambito-dello-sport-40-100-physio-swiss-2501-biel",
       "slugByLocale": {
         "de": "diplomierten-physiotherapeuten-in-mit-spezialisierung-im-bereich-sport-40-100-2501-biel",
-        "it": "diplomierten-physiotherapeuten-in-mit-spezialisierung-im-bereich-sport-40-100-2501-biel",
-        "en": "diplomierten-physiotherapeuten-in-mit-spezialisierung-im-bereich-sport-40-100-2501-biel",
-        "fr": "diplomierten-physiotherapeuten-in-mit-spezialisierung-im-bereich-sport-40-100-2501-biel"
+        "it": "fisioterapista-diplomato-a-con-specializzazione-nell-ambito-dello-sport-40-100-physio-swiss-2501-biel",
+        "en": "qualified-physiotherapist-specializing-in-sports-40-100-physio-swiss-2501-biel",
+        "fr": "physiotherapeute-diplome-e-specialise-e-dans-le-domaine-du-sport-40-100-physio-swiss-2501-biel"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -20788,7 +20796,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-27T21:52:06.966Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-29T14:41:46.586Z"
+      "firstSeenAt": "2026-10-29T14:41:46.586Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierten-physiotherapeuten-in-mit-spezialisierung-im-bereich-sport-40-100-2501-biel"
+        ],
+        "en": [
+          "diplomierten-physiotherapeuten-in-mit-spezialisierung-im-bereich-sport-40-100-2501-biel"
+        ],
+        "fr": [
+          "diplomierten-physiotherapeuten-in-mit-spezialisierung-im-bereich-sport-40-100-2501-biel"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierten-physiotherapeuten-in-mit-spezialisierung-im-bereich-sport-40-100-2501-biel"
+      ]
     },
     {
       "id": "physioswiss-9768f3253727",
@@ -20877,12 +20899,12 @@
     },
     {
       "id": "physioswiss-c1a369b47f60",
-      "slug": "physiotherapeut-in-gesucht-physio-swiss-buchs",
+      "slug": "cercasi-fisioterapista-physio-swiss-ist-buchs-und-grabs",
       "slugByLocale": {
         "de": "physiotherapeut-in-gesucht-ist-buchs-und-grabs-physioswiss-ch",
-        "it": "physiotherapeut-in-gesucht-physio-swiss-buchs",
-        "en": "physiotherapeut-in-gesucht-physio-swiss-buchs",
-        "fr": "physiotherapeut-in-gesucht-physio-swiss-buchs"
+        "it": "cercasi-fisioterapista-physio-swiss-ist-buchs-und-grabs",
+        "en": "physiotherapist-wanted-physio-swiss-ist-buchs-und-grabs",
+        "fr": "physiotherapeute-recherche-e-physio-swiss-ist-buchs-und-grabs"
       },
       "company": "Physio swiss",
       "companyKey": "physioswiss",
@@ -20928,11 +20950,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "physiotherapeut-in-gesucht-ist-buchs-und-grabs-physioswiss-ch"
+          "physiotherapeut-in-gesucht-ist-buchs-und-grabs-physioswiss-ch",
+          "physiotherapeut-in-gesucht-physio-swiss-buchs"
+        ],
+        "en": [
+          "physiotherapeut-in-gesucht-physio-swiss-buchs"
+        ],
+        "fr": [
+          "physiotherapeut-in-gesucht-physio-swiss-buchs"
         ]
       },
       "previousSlugs": [
-        "physiotherapeut-in-gesucht-ist-buchs-und-grabs-physioswiss-ch"
+        "physiotherapeut-in-gesucht-ist-buchs-und-grabs-physioswiss-ch",
+        "physiotherapeut-in-gesucht-physio-swiss-buchs"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

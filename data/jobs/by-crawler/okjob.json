@@ -1860,12 +1860,12 @@
     },
     {
       "id": "okjob-bdab54a4c985",
-      "slug": "chef-d-equipe-en-genie-civil-ok-job-sa-succursale-di-mendrisio-1700-fribourg-bdab54a4",
+      "slug": "leader-del-team-di-ingegneria-civile-ok-job-sa-succursale-di-mendrisio-1700-fribourg-bdab54a4",
       "slugByLocale": {
         "fr": "chef-d-equipe-en-genie-civil-ok-job-sa-succursale-di-mendrisio-1700-fribourg-bdab54a4",
-        "it": "chef-d-equipe-en-genie-civil-ok-job-sa-succursale-di-mendrisio-1700-fribourg-bdab54a4",
-        "en": "chef-d-equipe-en-genie-civil-ok-job-sa-succursale-di-mendrisio-1700-fribourg-bdab54a4",
-        "de": "chef-d-equipe-en-genie-civil-ok-job-sa-succursale-di-mendrisio-1700-fribourg-bdab54a4"
+        "it": "leader-del-team-di-ingegneria-civile-ok-job-sa-succursale-di-mendrisio-1700-fribourg-bdab54a4",
+        "en": "civil-engineering-team-leader-ok-job-sa-succursale-di-mendrisio-1700-fribourg-bdab54a4",
+        "de": "leiter-des-bauingenieurteams-ok-job-sa-succursale-di-mendrisio-1700-fribourg-bdab54a4"
       },
       "slugDisambiguator": "bdab54a4",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -1928,16 +1928,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T21:40:07.381Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T21:40:07.381Z"
+      "firstSeenAt": "2026-11-14T21:40:07.381Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-d-equipe-en-genie-civil-ok-job-sa-succursale-di-mendrisio-1700-fribourg-bdab54a4"
+        ],
+        "en": [
+          "chef-d-equipe-en-genie-civil-ok-job-sa-succursale-di-mendrisio-1700-fribourg-bdab54a4"
+        ],
+        "de": [
+          "chef-d-equipe-en-genie-civil-ok-job-sa-succursale-di-mendrisio-1700-fribourg-bdab54a4"
+        ]
+      },
+      "previousSlugs": [
+        "chef-d-equipe-en-genie-civil-ok-job-sa-succursale-di-mendrisio-1700-fribourg-bdab54a4"
+      ]
     },
     {
       "id": "okjob-35b6ef4571c6",
-      "slug": "isoleur-coupe-feu-ok-job-sa-succursale-di-mendrisio-1630-bulle-35b6ef45",
+      "slug": "isolante-antincendio-ok-job-sa-succursale-di-mendrisio-1630-bulle-35b6ef45",
       "slugByLocale": {
         "fr": "isoleur-coupe-feu-ok-job-sa-succursale-di-mendrisio-1630-bulle-35b6ef45",
-        "it": "isoleur-coupe-feu-ok-job-sa-succursale-di-mendrisio-1630-bulle-35b6ef45",
-        "en": "isoleur-coupe-feu-ok-job-sa-succursale-di-mendrisio-1630-bulle-35b6ef45",
-        "de": "isoleur-coupe-feu-ok-job-sa-succursale-di-mendrisio-1630-bulle-35b6ef45"
+        "it": "isolante-antincendio-ok-job-sa-succursale-di-mendrisio-1630-bulle-35b6ef45",
+        "en": "fire-insulator-ok-job-sa-succursale-di-mendrisio-1630-bulle-35b6ef45",
+        "de": "feuerisolator-ok-job-sa-succursale-di-mendrisio-1630-bulle-35b6ef45"
       },
       "slugDisambiguator": "35b6ef45",
       "company": "OK Job SA, succursale di Mendrisio",
@@ -2000,7 +2014,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-12T21:40:07.380Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-14T21:40:07.380Z"
+      "firstSeenAt": "2026-11-14T21:40:07.380Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "isoleur-coupe-feu-ok-job-sa-succursale-di-mendrisio-1630-bulle-35b6ef45"
+        ],
+        "en": [
+          "isoleur-coupe-feu-ok-job-sa-succursale-di-mendrisio-1630-bulle-35b6ef45"
+        ],
+        "de": [
+          "isoleur-coupe-feu-ok-job-sa-succursale-di-mendrisio-1630-bulle-35b6ef45"
+        ]
+      },
+      "previousSlugs": [
+        "isoleur-coupe-feu-ok-job-sa-succursale-di-mendrisio-1630-bulle-35b6ef45"
+      ]
     }
   ]
 }

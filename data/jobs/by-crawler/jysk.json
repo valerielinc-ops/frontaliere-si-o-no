@@ -113,9 +113,9 @@
       },
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-60-80-nella-filiale-di-wetzikon-jysk-wetzikon",
-        "en": "salesperson-60-80-at-the-wetzikon-branch-jysk-wetzikon-idqq9i",
+        "en": "salesperson-60-80-at-the-wetzikon-branch-jysk-wetzikon",
         "de": "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon-idqq9i",
-        "fr": "vendeur-vendeuse-60-80-dans-la-filiale-de-wetzikon-jysk-wetzikon-idqq9i"
+        "fr": "vendeur-vendeuse-60-80-dans-la-filiale-de-wetzikon-jysk-wetzikon"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -125,15 +125,19 @@
           "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon-idqq9i"
         ],
         "en": [
-          "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon-idqq9i"
+          "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon-idqq9i",
+          "salesperson-60-80-at-the-wetzikon-branch-jysk-wetzikon-idqq9i"
         ],
         "fr": [
-          "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon-idqq9i"
+          "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon-idqq9i",
+          "vendeur-vendeuse-60-80-dans-la-filiale-de-wetzikon-jysk-wetzikon-idqq9i"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon",
-        "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon-idqq9i"
+        "verkaufer-in-60-80-in-der-filiale-wetzikon-jysk-wetzikon-idqq9i",
+        "salesperson-60-80-at-the-wetzikon-branch-jysk-wetzikon-idqq9i",
+        "vendeur-vendeuse-60-80-dans-la-filiale-de-wetzikon-jysk-wetzikon-idqq9i"
       ],
       "salaryMin": 58800,
       "salaryMax": 89200,
@@ -194,9 +198,9 @@
       },
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-a-30-nella-filiale-di-schaffhausen-jysk-schaffhausen",
-        "en": "salesperson-a-30-at-the-schaffhausen-branch-jysk-schaffhausen-wk702w",
+        "en": "salesperson-a-30-at-the-schaffhausen-branch-jysk-schaffhausen",
         "de": "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen-wk702w",
-        "fr": "vendeur-vendeuse-a-30-dans-la-filiale-de-schaffhausen-jysk-schaffhausen-wk702w"
+        "fr": "vendeur-vendeuse-a-30-dans-la-filiale-de-schaffhausen-jysk-schaffhausen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -206,15 +210,19 @@
           "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen-wk702w"
         ],
         "en": [
-          "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen-wk702w"
+          "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen-wk702w",
+          "salesperson-a-30-at-the-schaffhausen-branch-jysk-schaffhausen-wk702w"
         ],
         "fr": [
-          "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen-wk702w"
+          "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen-wk702w",
+          "vendeur-vendeuse-a-30-dans-la-filiale-de-schaffhausen-jysk-schaffhausen-wk702w"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen",
-        "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen-wk702w"
+        "verkaufer-in-a-30-in-der-filiale-schaffhausen-jysk-schaffhausen-wk702w",
+        "salesperson-a-30-at-the-schaffhausen-branch-jysk-schaffhausen-wk702w",
+        "vendeur-vendeuse-a-30-dans-la-filiale-de-schaffhausen-jysk-schaffhausen-wk702w"
       ],
       "salaryMin": 17300,
       "salaryMax": 26100,
@@ -275,9 +283,9 @@
       },
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-a-80-nella-filiale-di-amriswil-jysk-amriswil",
-        "en": "salesperson-a-80-at-the-amriswil-branch-jysk-amriswil-8ursxu",
+        "en": "salesperson-a-80-at-the-amriswil-branch-jysk-amriswil",
         "de": "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil-8ursxu",
-        "fr": "vendeur-euse-a-80-dans-la-filiale-d-amriswil-jysk-amriswil-8ursxu"
+        "fr": "vendeur-euse-a-80-dans-la-filiale-d-amriswil-jysk-amriswil"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -287,15 +295,19 @@
           "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil-8ursxu"
         ],
         "en": [
-          "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil-8ursxu"
+          "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil-8ursxu",
+          "salesperson-a-80-at-the-amriswil-branch-jysk-amriswil-8ursxu"
         ],
         "fr": [
-          "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil-8ursxu"
+          "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil-8ursxu",
+          "vendeur-euse-a-80-dans-la-filiale-d-amriswil-jysk-amriswil-8ursxu"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil",
-        "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil-8ursxu"
+        "verkaufer-in-a-80-in-der-filiale-amriswil-jysk-amriswil-8ursxu",
+        "salesperson-a-80-at-the-amriswil-branch-jysk-amriswil-8ursxu",
+        "vendeur-euse-a-80-dans-la-filiale-d-amriswil-jysk-amriswil-8ursxu"
       ],
       "salaryMin": 46000,
       "salaryMax": 69600,
@@ -344,7 +356,7 @@
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "slugByLocale": {
         "de": "verkaufer-in-a-40-60-in-der-filiale-schattdorf-jysk-schattdorf-b5sjpz",
-        "it": "addetto-a-alle-vendite-40-60-nella-filiale-di-schattdorf-jysk-schattdorf",
+        "it": "venditore-a-40-60-nel-ramo-schattdorf-jysk-schattdorf",
         "en": "seller-a-40-60-in-the-schattdorf-branch-jysk-schattdorf",
         "fr": "vendeur-a-40-60-dans-la-succursale-de-schattdorf-jysk-schattdorf"
       },
@@ -437,9 +449,9 @@
       },
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-a-20-40-presso-la-filiale-heimberg-jysk-heimberg",
-        "en": "sales-assistant-a-20-40-at-the-heimberg-branch-jysk-heimberg-6jvozq",
+        "en": "sales-assistant-a-20-40-at-the-heimberg-branch-jysk-heimberg",
         "de": "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg-6jvozq",
-        "fr": "vendeur-euse-a-20-40-dans-la-filiale-de-heimberg-jysk-heimberg-6jvozq"
+        "fr": "vendeur-euse-a-20-40-dans-la-filiale-de-heimberg-jysk-heimberg"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -449,15 +461,19 @@
           "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg-6jvozq"
         ],
         "en": [
-          "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg-6jvozq"
+          "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg-6jvozq",
+          "sales-assistant-a-20-40-at-the-heimberg-branch-jysk-heimberg-6jvozq"
         ],
         "fr": [
-          "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg-6jvozq"
+          "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg-6jvozq",
+          "vendeur-euse-a-20-40-dans-la-filiale-de-heimberg-jysk-heimberg-6jvozq"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg",
-        "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg-6jvozq"
+        "verkaufer-in-a-20-40-in-der-filiale-heimberg-jysk-heimberg-6jvozq",
+        "sales-assistant-a-20-40-at-the-heimberg-branch-jysk-heimberg-6jvozq",
+        "vendeur-euse-a-20-40-dans-la-filiale-de-heimberg-jysk-heimberg-6jvozq"
       ],
       "salaryMin": 27400,
       "salaryMax": 41600,
@@ -583,9 +599,9 @@
       },
       "slugByLocale": {
         "it": "gestione-del-ramo-aggiunto-80-100-nella-regione-di-zurigo-jysk-volketswil",
-        "en": "deputy-branch-management-80-100-in-the-zurich-region-jysk-volketswil-4kfz7n",
+        "en": "deputy-branch-management-80-100-in-the-zurich-region-jysk-volketswil",
         "de": "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil-4kfz7n",
-        "fr": "direction-generale-adjointe-80-100-dans-la-region-de-zurich-jysk-volketswil-4kfz7n"
+        "fr": "direction-generale-adjointe-80-100-dans-la-region-de-zurich-jysk-volketswil"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -595,15 +611,19 @@
           "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil-4kfz7n"
         ],
         "en": [
-          "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil-4kfz7n"
+          "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil-4kfz7n",
+          "deputy-branch-management-80-100-in-the-zurich-region-jysk-volketswil-4kfz7n"
         ],
         "fr": [
-          "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil-4kfz7n"
+          "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil-4kfz7n",
+          "direction-generale-adjointe-80-100-dans-la-region-de-zurich-jysk-volketswil-4kfz7n"
         ]
       },
       "previousSlugs": [
         "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil",
-        "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil-4kfz7n"
+        "stellvertretende-filialleitung-80-100-in-der-region-zurich-jysk-volketswil-4kfz7n",
+        "deputy-branch-management-80-100-in-the-zurich-region-jysk-volketswil-4kfz7n",
+        "direction-generale-adjointe-80-100-dans-la-region-de-zurich-jysk-volketswil-4kfz7n"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -664,9 +684,9 @@
       },
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-a-20-presso-la-filiale-hinwil-jysk-hinwil",
-        "en": "sales-assistant-a-20-at-the-hinwil-branch-jysk-hinwil-xh1mdh",
+        "en": "sales-assistant-a-20-at-the-hinwil-branch-jysk-hinwil",
         "de": "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil-xh1mdh",
-        "fr": "vendeur-euse-a-20-dans-la-filiale-de-hinwil-jysk-hinwil-xh1mdh"
+        "fr": "vendeur-euse-a-20-dans-la-filiale-de-hinwil-jysk-hinwil"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -676,15 +696,19 @@
           "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil-xh1mdh"
         ],
         "en": [
-          "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil-xh1mdh"
+          "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil-xh1mdh",
+          "sales-assistant-a-20-at-the-hinwil-branch-jysk-hinwil-xh1mdh"
         ],
         "fr": [
-          "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil-xh1mdh"
+          "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil-xh1mdh",
+          "vendeur-euse-a-20-dans-la-filiale-de-hinwil-jysk-hinwil-xh1mdh"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil",
-        "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil-xh1mdh"
+        "verkaufer-in-a-20-in-der-filiale-hinwil-jysk-hinwil-xh1mdh",
+        "sales-assistant-a-20-at-the-hinwil-branch-jysk-hinwil-xh1mdh",
+        "vendeur-euse-a-20-dans-la-filiale-de-hinwil-jysk-hinwil-xh1mdh"
       ],
       "salaryMin": 14700,
       "salaryMax": 22300,
@@ -745,9 +769,9 @@
       },
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-a-40-60-presso-la-filiale-heimberg-jysk-heimberg",
-        "en": "sales-assistant-a-40-60-at-the-heimberg-branch-jysk-heimberg-zdus1y",
+        "en": "sales-assistant-a-40-60-at-the-heimberg-branch-jysk-heimberg",
         "de": "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg-zdus1y",
-        "fr": "vendeur-euse-a-40-60-dans-la-filiale-de-heimberg-jysk-heimberg-zdus1y"
+        "fr": "vendeur-euse-a-40-60-dans-la-filiale-de-heimberg-jysk-heimberg"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -757,15 +781,19 @@
           "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg-zdus1y"
         ],
         "en": [
-          "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg-zdus1y"
+          "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg-zdus1y",
+          "sales-assistant-a-40-60-at-the-heimberg-branch-jysk-heimberg-zdus1y"
         ],
         "fr": [
-          "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg-zdus1y"
+          "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg-zdus1y",
+          "vendeur-euse-a-40-60-dans-la-filiale-de-heimberg-jysk-heimberg-zdus1y"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg",
-        "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg-zdus1y"
+        "verkaufer-in-a-40-60-in-der-filiale-heimberg-jysk-heimberg-zdus1y",
+        "sales-assistant-a-40-60-at-the-heimberg-branch-jysk-heimberg-zdus1y",
+        "vendeur-euse-a-40-60-dans-la-filiale-de-heimberg-jysk-heimberg-zdus1y"
       ],
       "salaryMin": 41100,
       "salaryMax": 62400,
@@ -814,9 +842,9 @@
       "firstSeenAt": "2026-11-15T03:06:57.552Z",
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-a-60-presso-la-filiale-hinwil-jysk-hinwil",
-        "en": "sales-assistant-a-60-at-the-hinwil-branch-jysk-hinwil-jhpoqp",
+        "en": "sales-assistant-a-60-at-the-hinwil-branch-jysk-hinwil",
         "de": "verkaufer-in-a-60-in-der-filiale-hinwil-jysk-hinwil-jhpoqp",
-        "fr": "vendeur-euse-a-60-dans-la-filiale-de-hinwil-jysk-hinwil-jhpoqp"
+        "fr": "vendeur-euse-a-60-dans-la-filiale-de-hinwil-jysk-hinwil"
       },
       "titleByLocale": {
         "de": "Verkäufer/in (a) 60% in der Filiale Hinwil",
@@ -854,23 +882,27 @@
       "validThrough": "2027-02-04T09:25:04.036Z",
       "validThroughSource": "last-observed-window",
       "previousSlugsByLocale": {
-        "en": [
-          "verkaufer-in-a-60-in-der-filiale-hinwil-jysk-hinwil-jhpoqp"
-        ],
-        "fr": [
-          "verkaufer-in-a-60-in-der-filiale-hinwil-jysk-hinwil-jhpoqp"
-        ],
         "it": [
           "verkaufer-in-a-60-in-der-filiale-hinwil-jysk-hinwil-jhpoqp"
+        ],
+        "en": [
+          "verkaufer-in-a-60-in-der-filiale-hinwil-jysk-hinwil-jhpoqp",
+          "sales-assistant-a-60-at-the-hinwil-branch-jysk-hinwil-jhpoqp"
+        ],
+        "fr": [
+          "verkaufer-in-a-60-in-der-filiale-hinwil-jysk-hinwil-jhpoqp",
+          "vendeur-euse-a-60-dans-la-filiale-de-hinwil-jysk-hinwil-jhpoqp"
         ]
       },
       "previousSlugs": [
-        "verkaufer-in-a-60-in-der-filiale-hinwil-jysk-hinwil-jhpoqp"
+        "verkaufer-in-a-60-in-der-filiale-hinwil-jysk-hinwil-jhpoqp",
+        "sales-assistant-a-60-at-the-hinwil-branch-jysk-hinwil-jhpoqp",
+        "vendeur-euse-a-60-dans-la-filiale-de-hinwil-jysk-hinwil-jhpoqp"
       ]
     },
     {
       "id": "company-y0trys",
-      "slug": "venditore-in40-nel-ramo-baden-dattwil-jysk-baden",
+      "slug": "addetto-a-alle-vendite-al-40-presso-la-filiale-di-baden-dattwil-jysk-baden",
       "company": "JYSK",
       "title": "Verkäufer/in40% in der Filiale Baden Dättwil",
       "location": "Baden",
@@ -904,28 +936,34 @@
         "fr": "Êtes-vous passionné(e) par la vente et souhaitez-vous offrir, avec votre équipe, le meilleur service à la clientèle ? Alors vous pourriez être la vendeuse ou le vendeur que nous recherchons ! 🙋\nCE QUE NOUS VOUS OFFRONS\n\nVous avez la possibilité de rejoindre une entreprise de commerce de détail qui souhaite être l’employeur de premier choix des candidates et candidats. En tant qu’ambassadeur ou ambassadrice JYSK, vous bénéficiez des avantages suivants :\n\n- Des possibilités d’évolution grâce à une excellente formation et à un mentorat\n\n- Des concours internes entre les magasins avec des prix attrayants tels que des sommes d’argent ou des bons d’achat\n\n- Un bonus sur le chiffre d’affaires supérieur à la moyenne pour toute l’équipe\n\n- 20% de rabais chez JYSK et dans d’autres entreprises du groupe Lars Larsen\n\n- Des prestations de caisse de pension de premier ordre\n\n- 5 semaines de vacances, qui augmentent tous les 5 ans de service\n\n- D’autres avantages, tels qu’une assurance-accidents complémentaire supérieure à la moyenne, diverses activités (fête annuelle, événements d’équipe) et de superbes cadeaux d’ancienneté\nCE QUI VOUS ATTEND DANS VOTRE PROCHAIN EMPLOI\n\n- Vous êtes responsable des ventes dans le magasin et offrez à notre clientèle un service de premier ordre\n\n- Vous vous assurez que le magasin est propre et bien approvisionné en nos produits\n\n- Vous aidez à réceptionner et à stocker les marchandises\n\n- Vous assumez la responsabilité d’un domaine propre (p. ex. matelas, meubles) et le dirigez de manière autonome\nFaites ici connaissance avec l’une de nos vendeuses et découvrez comment nous nous positionnons en tant qu’employeuse.\nCE QUE VOUS DEVEZ APPORTER\n\n- Vous êtes sociable, prenez des initiatives et offrez à nos clientes et clients la meilleure expérience d’achat\n\n- Vous avez un enthousiasme communicatif et appréciez les échanges avec les clientes et les clients\n\n- Vous avez un esprit d’équipe\n\n- Vous vous sentez parfaitement à l’aise dans un environnement de travail dynamique en constante évolution\n\n- Vous aimez le travail physique, avez un esprit pratique et montrez l’exemple\n\n- Vous êtes flexible et acceptez également de travailler les samedis\nPOSTULEZ DÈS AUJOURD’HUI !"
       },
       "slugByLocale": {
-        "it": "venditore-in40-nel-ramo-baden-dattwil-jysk-baden",
-        "en": "seller-in40-in-the-baden-dattwil-branch-jysk-baden-y0trys",
+        "it": "addetto-a-alle-vendite-al-40-presso-la-filiale-di-baden-dattwil-jysk-baden",
+        "en": "sales-associate-40-at-the-baden-dattwil-branch-jysk-baden",
         "de": "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden-y0trys",
-        "fr": "vendeur-in40-dans-la-branche-baden-dattwil-jysk-baden-y0trys"
+        "fr": "vendeur-euse-a-40-dans-la-filiale-de-baden-dattwil-jysk-baden"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden",
-          "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden-y0trys"
+          "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden-y0trys",
+          "venditore-in40-nel-ramo-baden-dattwil-jysk-baden"
         ],
         "en": [
-          "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden-y0trys"
+          "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden-y0trys",
+          "seller-in40-in-the-baden-dattwil-branch-jysk-baden-y0trys"
         ],
         "fr": [
-          "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden-y0trys"
+          "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden-y0trys",
+          "vendeur-in40-dans-la-branche-baden-dattwil-jysk-baden-y0trys"
         ]
       },
       "previousSlugs": [
         "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden",
-        "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden-y0trys"
+        "verkaufer-in40-in-der-filiale-baden-dattwil-jysk-baden-y0trys",
+        "venditore-in40-nel-ramo-baden-dattwil-jysk-baden",
+        "seller-in40-in-the-baden-dattwil-branch-jysk-baden-y0trys",
+        "vendeur-in40-dans-la-branche-baden-dattwil-jysk-baden-y0trys"
       ],
       "salaryMin": 24800,
       "salaryMax": 37600,
@@ -987,9 +1025,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-con-lagerverantwortung-a-50-in-der-filiale-schaffhausen-jysk-schaffhausen-ue1i5p",
-        "en": "sales-assistant-with-warehouse-responsibility-a-50-at-the-schaffhausen-branch-jysk-schaffhausen",
+        "en": "sales-assistant-with-warehouse-responsibility-a-50-at-the-schaffhausen-store-jysk-schaffhausen",
         "de": "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-schaffhausen-jysk-schaffhausen-ue1i5p",
-        "fr": "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-schaffhausen-jysk-schaffhausen-ue1i5p"
+        "fr": "vendeur-euse-responsable-de-l-entrepot-a-a-50-au-magasin-de-schaffhausen-jysk-schaffhausen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -998,12 +1036,17 @@
           "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-schaffhausen-jysk-schaffhausen"
         ],
         "en": [
+          "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-schaffhausen-jysk-schaffhausen-ue1i5p",
+          "sales-assistant-with-warehouse-responsibility-a-50-at-the-schaffhausen-branch-jysk-schaffhausen"
+        ],
+        "fr": [
           "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-schaffhausen-jysk-schaffhausen-ue1i5p"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-schaffhausen-jysk-schaffhausen",
-        "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-schaffhausen-jysk-schaffhausen-ue1i5p"
+        "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-schaffhausen-jysk-schaffhausen-ue1i5p",
+        "sales-assistant-with-warehouse-responsibility-a-50-at-the-schaffhausen-branch-jysk-schaffhausen"
       ],
       "salaryMin": 28800,
       "salaryMax": 43500,
@@ -1065,19 +1108,26 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "filialleiter-in-a-con-potenzial-100-in-der-filiale-emmenbrucke-jysk-emmen-vbmirm",
-        "en": "filialleiter-in-a-mit-potenzial-100-in-der-filiale-emmenbrucke-jysk-emmen-vbmirm",
+        "en": "branch-manager-a-with-potential-100-at-the-emmenbrucke-branch-jysk-emmen",
         "de": "filialleiter-in-a-mit-potenzial-100-in-der-filiale-emmenbrucke-jysk-emmen-vbmirm",
-        "fr": "filialleiter-in-a-mit-potenzial-100-in-der-filiale-emmenbrucke-jysk-emmen-vbmirm"
+        "fr": "responsable-de-filiale-a-avec-potentiel-a-100-dans-la-filiale-d-emmenbrucke-jysk-emmen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
           "filialleiter-in-a-mit-potenzial-100-in-der-filiale-emmenbrucke-jysk-emmen"
+        ],
+        "en": [
+          "filialleiter-in-a-mit-potenzial-100-in-der-filiale-emmenbrucke-jysk-emmen-vbmirm"
+        ],
+        "fr": [
+          "filialleiter-in-a-mit-potenzial-100-in-der-filiale-emmenbrucke-jysk-emmen-vbmirm"
         ]
       },
       "previousSlugs": [
-        "filialleiter-in-a-mit-potenzial-100-in-der-filiale-emmenbrucke-jysk-emmen"
+        "filialleiter-in-a-mit-potenzial-100-in-der-filiale-emmenbrucke-jysk-emmen",
+        "filialleiter-in-a-mit-potenzial-100-in-der-filiale-emmenbrucke-jysk-emmen-vbmirm"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -1126,7 +1176,7 @@
       "crawledAt": "2026-11-15T09:25:04.036Z",
       "firstSeenAt": "2026-09-08T23:26:05.190Z",
       "slugByLocale": {
-        "it": "addetto-a-alle-vendite-a-al-40-presso-la-filiale-di-pratteln-jysk-pratteln",
+        "it": "venditore-a-40-nel-ramo-pratteln-jysk-pratteln",
         "en": "seller-a-40-in-the-pratteln-branch-jysk-pratteln",
         "de": "verkaufer-in-a-40-in-der-filiale-pratteln-jysk-pratteln-jj7nwo",
         "fr": "vendeur-a-40-dans-la-succursale-pratteln-jysk-pratteln"
@@ -1220,9 +1270,9 @@
       },
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-a-40-60-nella-filiale-di-wettingen-jysk-wettingen",
-        "en": "sales-assistant-a-40-60-at-the-wettingen-branch-jysk-wettingen-uucvus",
+        "en": "sales-assistant-a-40-60-at-the-wettingen-branch-jysk-wettingen",
         "de": "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen-uucvus",
-        "fr": "vendeur-euse-a-40-60-dans-la-filiale-de-wettingen-jysk-wettingen-uucvus"
+        "fr": "vendeur-euse-a-40-60-dans-la-filiale-de-wettingen-jysk-wettingen"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -1232,15 +1282,19 @@
           "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen-uucvus"
         ],
         "en": [
-          "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen-uucvus"
+          "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen-uucvus",
+          "sales-assistant-a-40-60-at-the-wettingen-branch-jysk-wettingen-uucvus"
         ],
         "fr": [
-          "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen-uucvus"
+          "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen-uucvus",
+          "vendeur-euse-a-40-60-dans-la-filiale-de-wettingen-jysk-wettingen-uucvus"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen",
-        "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen-uucvus"
+        "verkaufer-in-a-40-60-in-der-filiale-wettingen-jysk-wettingen-uucvus",
+        "sales-assistant-a-40-60-at-the-wettingen-branch-jysk-wettingen-uucvus",
+        "vendeur-euse-a-40-60-dans-la-filiale-de-wettingen-jysk-wettingen-uucvus"
       ],
       "salaryMin": 37200,
       "salaryMax": 56400,
@@ -1301,9 +1355,9 @@
       },
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-a-60-nella-filiale-di-seewen-jysk-schwyz",
-        "en": "sales-assistant-a-60-at-the-seewen-branch-jysk-schwyz-eckrr5",
+        "en": "sales-assistant-a-60-at-the-seewen-branch-jysk-schwyz",
         "de": "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz-eckrr5",
-        "fr": "vendeur-euse-a-60-dans-la-filiale-de-seewen-jysk-schwyz-eckrr5"
+        "fr": "vendeur-euse-a-60-dans-la-filiale-de-seewen-jysk-schwyz"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -1313,15 +1367,19 @@
           "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz-eckrr5"
         ],
         "en": [
-          "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz-eckrr5"
+          "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz-eckrr5",
+          "sales-assistant-a-60-at-the-seewen-branch-jysk-schwyz-eckrr5"
         ],
         "fr": [
-          "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz-eckrr5"
+          "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz-eckrr5",
+          "vendeur-euse-a-60-dans-la-filiale-de-seewen-jysk-schwyz-eckrr5"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz",
-        "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz-eckrr5"
+        "verkaufer-in-a-60-in-der-filiale-seewen-jysk-schwyz-eckrr5",
+        "sales-assistant-a-60-at-the-seewen-branch-jysk-schwyz-eckrr5",
+        "vendeur-euse-a-60-dans-la-filiale-de-seewen-jysk-schwyz-eckrr5"
       ],
       "salaryMin": 41700,
       "salaryMax": 63600,
@@ -1382,9 +1440,9 @@
       },
       "slugByLocale": {
         "it": "addetto-a-al-disimballaggio-a-40-nella-filiale-di-seewen-jysk-schwyz",
-        "en": "sales-assistant-a-unpacking-assistant-40-at-the-seewen-branch-jysk-schwyz-1i296q",
+        "en": "sales-assistant-a-unpacking-assistant-40-at-the-seewen-branch-jysk-schwyz",
         "de": "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz-1i296q",
-        "fr": "vendeur-euse-a-aide-au-deballage-40-dans-la-filiale-de-seewen-jysk-schwyz-1i296q"
+        "fr": "vendeur-euse-a-aide-au-deballage-40-dans-la-filiale-de-seewen-jysk-schwyz"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -1394,15 +1452,19 @@
           "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz-1i296q"
         ],
         "en": [
-          "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz-1i296q"
+          "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz-1i296q",
+          "sales-assistant-a-unpacking-assistant-40-at-the-seewen-branch-jysk-schwyz-1i296q"
         ],
         "fr": [
-          "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz-1i296q"
+          "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz-1i296q",
+          "vendeur-euse-a-aide-au-deballage-40-dans-la-filiale-de-seewen-jysk-schwyz-1i296q"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz",
-        "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz-1i296q"
+        "verkaufer-in-a-auspackhilfe-40-in-der-filiale-seewen-jysk-schwyz-1i296q",
+        "sales-assistant-a-unpacking-assistant-40-at-the-seewen-branch-jysk-schwyz-1i296q",
+        "vendeur-euse-a-aide-au-deballage-40-dans-la-filiale-de-seewen-jysk-schwyz-1i296q"
       ],
       "salaryMin": 27800,
       "salaryMax": 42400,
@@ -1968,9 +2030,9 @@
       },
       "slugByLocale": {
         "it": "verkaufer-in-con-lagerverantwortung-a-50-in-der-filiale-wadenswil-jysk-wadenswil-tqeasd",
-        "en": "sales-assistant-with-warehouse-responsibility-a-50-at-the-wadenswil-branch-jysk-wadenswil",
+        "en": "sales-associate-with-warehouse-responsibility-a-50-at-the-wadenswil-store-jysk-wadenswil",
         "de": "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-wadenswil-jysk-wadenswil-tqeasd",
-        "fr": "vendeur-euse-responsable-du-stock-a-50-dans-la-filiale-de-wadenswil-jysk-wadenswil"
+        "fr": "vendeur-euse-avec-responsabilite-du-stock-a-a-50-dans-la-filiale-de-wadenswil-jysk-wadenswil"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -1979,15 +2041,19 @@
           "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-wadenswil-jysk-wadenswil"
         ],
         "en": [
-          "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-wadenswil-jysk-wadenswil-tqeasd"
+          "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-wadenswil-jysk-wadenswil-tqeasd",
+          "sales-assistant-with-warehouse-responsibility-a-50-at-the-wadenswil-branch-jysk-wadenswil"
         ],
         "fr": [
-          "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-wadenswil-jysk-wadenswil-tqeasd"
+          "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-wadenswil-jysk-wadenswil-tqeasd",
+          "vendeur-euse-responsable-du-stock-a-50-dans-la-filiale-de-wadenswil-jysk-wadenswil"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-wadenswil-jysk-wadenswil",
-        "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-wadenswil-jysk-wadenswil-tqeasd"
+        "verkaufer-in-mit-lagerverantwortung-a-50-in-der-filiale-wadenswil-jysk-wadenswil-tqeasd",
+        "sales-assistant-with-warehouse-responsibility-a-50-at-the-wadenswil-branch-jysk-wadenswil",
+        "vendeur-euse-responsable-du-stock-a-50-dans-la-filiale-de-wadenswil-jysk-wadenswil"
       ],
       "salaryMin": 36800,
       "salaryMax": 55800,
@@ -2202,9 +2268,9 @@
       },
       "slugByLocale": {
         "it": "gestione-di-ramo-aggiunto-a-80-100-nel-ramo-di-wangs-sargans-jysk-vilters-wangs",
-        "en": "deputy-branch-management-a-80-100-in-the-branch-of-wangs-sargans-jysk-vilters-wangs-dveizn",
+        "en": "deputy-branch-management-a-80-100-in-the-branch-of-wangs-sargans-jysk-vilters-wangs",
         "de": "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs-dveizn",
-        "fr": "direction-generale-adjointe-a-80-100-dans-la-direction-generale-de-wangs-sargans-jysk-vilters-wangs-dveizn"
+        "fr": "direction-generale-adjointe-a-80-100-dans-la-direction-generale-de-wangs-sargans-jysk-vilters-wangs"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -2214,15 +2280,19 @@
           "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs-dveizn"
         ],
         "en": [
-          "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs-dveizn"
+          "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs-dveizn",
+          "deputy-branch-management-a-80-100-in-the-branch-of-wangs-sargans-jysk-vilters-wangs-dveizn"
         ],
         "fr": [
-          "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs-dveizn"
+          "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs-dveizn",
+          "direction-generale-adjointe-a-80-100-dans-la-direction-generale-de-wangs-sargans-jysk-vilters-wangs-dveizn"
         ]
       },
       "previousSlugs": [
         "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs",
-        "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs-dveizn"
+        "stellvertretende-filialleitung-a-80-100-in-der-filiale-wangs-sargans-jysk-vilters-wangs-dveizn",
+        "deputy-branch-management-a-80-100-in-the-branch-of-wangs-sargans-jysk-vilters-wangs-dveizn",
+        "direction-generale-adjointe-a-80-100-dans-la-direction-generale-de-wangs-sargans-jysk-vilters-wangs-dveizn"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -2283,9 +2353,9 @@
       },
       "slugByLocale": {
         "it": "venditore-trice-a-60-80-presso-la-filiale-di-wangs-sargans-jysk-vilters-wangs",
-        "en": "salesperson-a-60-80-at-the-wangs-sargans-branch-jysk-vilters-wangs-vmq9ob",
+        "en": "salesperson-a-60-80-at-the-wangs-sargans-branch-jysk-vilters-wangs",
         "de": "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs-vmq9ob",
-        "fr": "vendeur-euse-a-60-80-dans-la-filiale-de-wangs-sargans-jysk-vilters-wangs-vmq9ob"
+        "fr": "vendeur-euse-a-a-60-80-dans-la-filiale-de-wangs-sargans-jysk-vilters-wangs"
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
@@ -2295,15 +2365,19 @@
           "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs-vmq9ob"
         ],
         "en": [
-          "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs-vmq9ob"
+          "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs-vmq9ob",
+          "salesperson-a-60-80-at-the-wangs-sargans-branch-jysk-vilters-wangs-vmq9ob"
         ],
         "fr": [
-          "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs-vmq9ob"
+          "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs-vmq9ob",
+          "vendeur-euse-a-60-80-dans-la-filiale-de-wangs-sargans-jysk-vilters-wangs-vmq9ob"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs",
-        "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs-vmq9ob"
+        "verkaufer-in-a-60-80-in-der-filiale-wangs-sargans-jysk-vilters-wangs-vmq9ob",
+        "salesperson-a-60-80-at-the-wangs-sargans-branch-jysk-vilters-wangs-vmq9ob",
+        "vendeur-euse-a-60-80-dans-la-filiale-de-wangs-sargans-jysk-vilters-wangs-vmq9ob"
       ],
       "salaryMin": 46000,
       "salaryMax": 69600,
