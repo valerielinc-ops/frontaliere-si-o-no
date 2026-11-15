@@ -331,18 +331,20 @@ export async function crawlSitemaps({
   };
 }
 
-export function snapshotFromCrawl(crawl) {
+export function snapshotFromCrawl(crawl, { includeDerivedIndexes = true } = {}) {
   const perSitemap = {};
   const perSitemapDigests = {};
-  const perSitemapLastmod = {};
-  const allUrls = new Set();
+  const perSitemapLastmod = includeDerivedIndexes ? {} : null;
+  const allUrls = includeDerivedIndexes ? new Set() : null;
   for (const [key, record] of [...crawl.records.entries()].sort(([a], [b]) => a.localeCompare(b))) {
     perSitemap[key] = record.urls;
     perSitemapDigests[key] = record.digest;
-    perSitemapLastmod[key] = record.lastmod;
-    for (const url of record.urls) allUrls.add(url);
+    if (includeDerivedIndexes) {
+      perSitemapLastmod[key] = record.lastmod;
+      for (const url of record.urls) allUrls.add(url);
+    }
   }
-  return {
+  const snapshot = {
     version: 3,
     capturedAt: new Date().toISOString(),
     source: crawl.source,
@@ -350,10 +352,13 @@ export function snapshotFromCrawl(crawl) {
     sitemapFiles: Object.keys(perSitemap),
     perSitemap,
     perSitemapDigests,
-    perSitemapLastmod,
     missingSitemaps: crawl.missing,
-    _allUrls: [...allUrls].sort(),
   };
+  if (includeDerivedIndexes) {
+    snapshot.perSitemapLastmod = perSitemapLastmod;
+    snapshot._allUrls = [...allUrls].sort();
+  }
+  return snapshot;
 }
 
 function asSet(value) {
@@ -387,6 +392,7 @@ export function changedUrls(
   const previousDigests = previous?.perSitemapDigests || {};
   const currentLastmods = current?.perSitemapLastmod || {};
   const previousLastmods = previous?.perSitemapLastmod || {};
+  const comparePerUrlLastmod = Boolean(current?.perSitemapLastmod && previous?.perSitemapLastmod);
   const legacyPrevious = Array.isArray(previous) || previous?.version !== 3 || Object.keys(previousDigests).length === 0;
   const changed = new Set();
 
@@ -422,8 +428,13 @@ export function changedUrls(
     const nowLastmod = currentLastmods[key] || {};
     const beforeLastmod = previousLastmods[key] || {};
     if (currentDigests[key] === previousDigests[key]) {
-      for (const url of now) {
-        if ((nowLastmod[url] || '') !== (beforeLastmod[url] || '')) changed.add(url);
+      // Large publisher snapshots can omit the URL-indexed lastmod map. When
+      // it is present on both sides, retain the finer-grained comparison; when
+      // absent, the sitemap digest remains authoritative for embedded XML data.
+      if (comparePerUrlLastmod) {
+        for (const url of now) {
+          if ((nowLastmod[url] || '') !== (beforeLastmod[url] || '')) changed.add(url);
+        }
       }
       continue;
     }

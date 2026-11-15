@@ -183,13 +183,24 @@ export function sampleConverged(okCount, sampleSize, minOkRatio) {
   return sampleSize - okCount <= tolerated;
 }
 
-/** Extract the sample-source URL list from a parsed new-sitemap-urls.json
- * (version 2 shape: `{ _allUrls: string[] }`). Returns [] on any other shape
- * so the caller can fail open. */
+/** Extract the sample-source URL list from a parsed new-sitemap-urls.json.
+ * Accepts the expanded `_allUrls` shape and compact v3 `perSitemap` snapshots.
+ * Returns [] on any other shape so the caller can fail open. */
 export function extractBundleUrls(parsed) {
   if (!parsed || typeof parsed !== 'object') return [];
   const all = parsed._allUrls;
-  return Array.isArray(all) ? all.filter((u) => typeof u === 'string') : [];
+  if (Array.isArray(all)) return all.filter((url) => typeof url === 'string');
+
+  const perSitemap = parsed.perSitemap;
+  if (!perSitemap || typeof perSitemap !== 'object' || Array.isArray(perSitemap)) return [];
+  const urls = new Set();
+  for (const sitemapUrls of Object.values(perSitemap)) {
+    if (!Array.isArray(sitemapUrls)) continue;
+    for (const url of sitemapUrls) {
+      if (typeof url === 'string') urls.add(url);
+    }
+  }
+  return [...urls];
 }
 
 /** Cache-busted origin liveness probe for one URL — the SHARED checkLink()

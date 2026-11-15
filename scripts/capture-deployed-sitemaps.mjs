@@ -9,8 +9,9 @@
  * complete while silently excluding a whole URL family.
  *
  * Output defaults to /tmp/pre-deploy-sitemap-urls.json and uses snapshot v3:
- * per-sitemap URL sets plus XML digests and per-URL lastmod values. The latter
- * let IndexNow submit existing URLs whose content changed, not only additions.
+ * per-sitemap URL sets plus XML digests. Live snapshots retain the expanded
+ * URL indexes and per-URL lastmod values; local publisher snapshots omit those
+ * duplicate indexes so large builds stay below V8's string-size limit.
  */
 
 import { writeFileSync } from 'node:fs';
@@ -32,10 +33,13 @@ async function main() {
     // scoped to files present in this build. Live snapshots remain strict.
     strict: SOURCE !== 'local',
   });
-  const snapshot = snapshotFromCrawl(crawl);
+  const snapshot = snapshotFromCrawl(crawl, { includeDerivedIndexes: SOURCE !== 'local' });
   writeFileSync(OUTPUT, JSON.stringify(snapshot), 'utf8');
+  const urlCount = snapshot._allUrls?.length
+    ?? Object.values(snapshot.perSitemap).reduce((total, urls) => total + urls.length, 0);
+  const urlCountLabel = snapshot._allUrls ? 'unique URLs' : 'sitemap URL entries';
   console.log(
-    `📸 Captured ${snapshot._allUrls.length} URLs across ${snapshot.sitemapFiles.length} sitemap files ` +
+    `📸 Captured ${urlCount} ${urlCountLabel} across ${snapshot.sitemapFiles.length} sitemap files ` +
     `(${SOURCE}) → ${OUTPUT}`,
   );
 }
