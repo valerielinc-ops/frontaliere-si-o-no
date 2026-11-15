@@ -16,6 +16,7 @@ import { realpathSync } from 'node:fs';
  *   node scripts/reconcile-crawler-company-ownership.mjs --expired-sweep --apply
  */
 import fs from 'node:fs';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractStableJobId, hasUsableJobId } from './lib/job-match-key.mjs';
@@ -31,6 +32,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import { deleteExpiredSlice, readExpiredSliceShards, writeExpiredSliceRows } from './lib/expired-slice-store.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 // Route identity and history transfer now live with the archive WRITERS, which
 // need the same two primitives to stop emitting duplicate routes in the first
 // place. Re-exported here because this module is their historical home and the
@@ -90,6 +92,22 @@ function jobsOf(payload) {
 
 function withJobs(payload, jobs) {
   return Array.isArray(payload) ? jobs : { ...payload, jobs };
+}
+
+/**
+ * Compare a slice without retaining a second object graph or materialising the
+ * whole archive as one JSON string. The sweep can hold several large expired
+ * slices at once, so the signature must be incremental per entry.
+ */
+function entriesSignature(entries) {
+  const hash = createHash('sha256');
+  hash.update('[');
+  for (let index = 0; index < entries.length; index += 1) {
+    if (index > 0) hash.update(',');
+    hash.update(JSON.stringify(entries[index]) ?? 'null');
+  }
+  hash.update(']');
+  return hash.digest('hex');
 }
 
 function readSliceFrom(dir, key) {
@@ -517,12 +535,12 @@ export function sweepExpiredArchiveSlices({ dir = EXPIRED_SLICES_DIR, apply = fa
     const filePath = path.join(dir, file);
     let jobs;
     try {
-      jobs = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+      jobs = readJsonFile(filePath);
     } catch (error) {
       throw new Error(`expired archive ${file} is not valid JSON: ${error.message}`, { cause: error });
     }
     if (!Array.isArray(jobs)) throw new Error(`expired archive ${file} is not a JSON array`);
-    return { file, filePath, jobs, originalJobs: structuredClone(jobs) };
+    return { file, filePath, jobs, originalSignature: entriesSignature(jobs) };
   });
   const beforeAudit = auditExpiredArchiveRouteOverlaps(slices);
   let collapsed = 0;
@@ -565,33 +583,58 @@ export function sweepExpiredArchiveSlices({ dir = EXPIRED_SLICES_DIR, apply = fa
   let crossSliceCapRefused = 0;
   let finalJobsByFile = new Map(slices.map((slice) => [slice.file, slice.candidateJobs]));
   if (candidateAudit.crossSliceDuplicateRoutes.length > 0) {
-    const taggedEntries = slices.flatMap((slice) => slice.candidateJobs.map((job) => ({
-      ...structuredClone(job),
-      __sweepSourceFile: slice.file,
-    })));
-    const crossResult = collapseDuplicateRouteEntries(taggedEntries, {
-      source: 'expired-sweep/cross-slice',
-    });
-    assertRoutesPreserved(taggedEntries, crossResult.entries, 'expired-sweep/cross-slice');
-    crossSliceCapRefused = crossResult.capRefused;
-    if (crossSliceCapRefused > 0) {
-      // A global result can contain both a safe component and a component
-      // refused by the legacy route cap. Do not adopt its sorted output: that
-      // would silently reorder or rewrite the refused component while the
-      // report says it was left untouched. The next run can retry the safe
-      // component after the cap is resolved, while this run stays fail-closed.
-      crossSliceCollapsed = 0;
-    } else if (crossResult.collapsed > 0) {
-      crossSliceCollapsed = crossResult.collapsed;
-      finalJobsByFile = new Map(slices.map((slice) => [slice.file, []]));
+    // Cross-slice collapse only needs entries from a company that actually
+    // overlaps. Avoid retaining a second graph for the complete archive as the
+    // corpus grows. Keep the clone transactional per company: if any group
+    // hits the legacy cap, discard all temporary results and retain the
+    // candidate files.
+    const affectedCompanyKeys = [...new Set(
+      candidateAudit.crossSliceDuplicateRoutes.map((overlap) => overlap.companyKey),
+    )].sort();
+    const candidateJobsByFile = finalJobsByFile;
+    finalJobsByFile = new Map(slices.map((slice) => [slice.file, [...slice.candidateJobs]]));
+
+    for (const companyKey of affectedCompanyKeys) {
+      const taggedEntries = [];
+      for (const slice of slices) {
+        for (const job of slice.candidateJobs) {
+          if (job?.companyKey !== companyKey) continue;
+          const taggedJob = structuredClone(job);
+          taggedJob.__sweepSourceFile = slice.file;
+          taggedEntries.push(taggedJob);
+        }
+      }
+
+      const crossResult = collapseDuplicateRouteEntries(taggedEntries, {
+        source: 'expired-sweep/cross-slice',
+      });
+      assertRoutesPreserved(taggedEntries, crossResult.entries, 'expired-sweep/cross-slice');
+      crossSliceCapRefused += crossResult.capRefused;
+      if (crossSliceCapRefused > 0) continue;
+      if (crossResult.collapsed === 0) continue;
+
+      crossSliceCollapsed += crossResult.collapsed;
+      for (const [file, jobs] of finalJobsByFile) {
+        finalJobsByFile.set(file, jobs.filter((job) => job?.companyKey !== companyKey));
+      }
       for (const entry of crossResult.entries) {
         const sourceFile = entry.__sweepSourceFile;
         if (!finalJobsByFile.has(sourceFile)) {
           throw new Error(`expired archive sweep lost source file marker for ${sourceFile}`);
         }
-        const { __sweepSourceFile: _sourceFile, ...cleanEntry } = entry;
-        finalJobsByFile.get(sourceFile).push(cleanEntry);
+        delete entry.__sweepSourceFile;
+        finalJobsByFile.get(sourceFile).push(entry);
       }
+    }
+
+    if (crossSliceCapRefused > 0) {
+      // A global result can contain both a safe component and a component
+      // refused by the legacy route cap. Do not adopt any temporary result:
+      // that would silently reorder or rewrite the refused component while the
+      // report says it was left untouched. The next run can retry the safe
+      // component after the cap is resolved, while this run stays fail-closed.
+      crossSliceCollapsed = 0;
+      finalJobsByFile = candidateJobsByFile;
     }
   }
   collapsed += crossSliceCollapsed;
@@ -600,12 +643,12 @@ export function sweepExpiredArchiveSlices({ dir = EXPIRED_SLICES_DIR, apply = fa
   const changedFiles = new Set();
   for (const slice of slices) {
     const finalJobs = finalJobsByFile.get(slice.file) || [];
-    const changed = JSON.stringify(slice.originalJobs) !== JSON.stringify(finalJobs);
+    const changed = entriesSignature(finalJobs) !== slice.originalSignature;
     if (changed) changedFiles.add(slice.file);
     // Make the audit below represent exactly what an apply would persist. An
-    // unchanged file retains its original ordering and object identity rather
-    // than an unpersisted sorted candidate.
-    slice.jobs = changed ? finalJobs : slice.originalJobs;
+    // unchanged file retains the parsed candidate; no deep-cloned original is
+    // kept solely for this comparison.
+    slice.jobs = finalJobs;
     const entryReport = report.find((item) => item.file === slice.file);
     if (entryReport) entryReport.changed = changed;
   }
