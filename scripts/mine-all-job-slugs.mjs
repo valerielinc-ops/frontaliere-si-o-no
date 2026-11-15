@@ -24,7 +24,11 @@ import path from 'node:path';
 import { execFileSync, execSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { assertCompatFloor } from './lib/compat-paths-floor-guard.mjs';
-import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import {
+  readCompatPathsStrict,
+  readCompatPathsStrictWithManifestRepair,
+  writeCompatPaths,
+} from './lib/compat-paths-store.mjs';
 import {
   readAllKnownJobSlugs,
   writeAllKnownJobSlugs,
@@ -371,7 +375,20 @@ function mineOrphanData(orphansOverride = null) {
 
 function mineCompatPaths() {
   const slugs = new Map();
-  const compat = readCompatPathsStrict(ROOT); // sharded accumulator (issue #2988)
+  let compat;
+  if (!DRY_RUN) {
+    const prepared = readCompatPathsStrictWithManifestRepair(ROOT);
+    if (prepared.changed) {
+      console.warn(
+        `⚠️ Repaired stale seo-404-compat manifest count ${prepared.previousTotalPaths} → `
+          + `${prepared.totalPaths} from validated shards`,
+      );
+    }
+    compat = prepared.data;
+  } else {
+    compat = readCompatPathsStrict(ROOT);
+  }
+  // sharded accumulator (issue #2988)
   if (!compat?.paths) return slugs;
 
   for (const p of compat.paths) {

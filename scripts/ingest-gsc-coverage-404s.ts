@@ -66,7 +66,11 @@ import {
 } from '../build-plugins/searchConsoleCompat';
 import { readAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
-import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import {
+  readCompatPathsStrict,
+  readCompatPathsStrictWithManifestRepair,
+  writeCompatPaths,
+} from './lib/compat-paths-store.mjs';
 import { gscOrphanPathKey, isAllowedGscOrphanUrl } from './lib/gsc-orphan-snapshot.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -350,7 +354,10 @@ function main(): void {
   let prevCompat: string[] = [];
   let compatUnion: string[] = [];
   if (ALSO_COMPAT) {
-    prevCompat = readCompatPathsStrict(ROOT).paths.map((p) => String(p));
+    const compatData = !DRY_RUN
+      ? readCompatPathsStrictWithManifestRepair(ROOT).data
+      : readCompatPathsStrict(ROOT);
+    prevCompat = compatData.paths.map((p) => String(p));
     // Use coverageUnion (full accumulated coverage set) not just `seen` (current CSV batch):
     // on subsequent runs without new CSVs the existing 999 coverage paths would otherwise
     // be silently skipped, leaving TI paths without rich soft-landings.
