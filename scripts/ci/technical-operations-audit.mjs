@@ -1670,6 +1670,9 @@ function functionOutputObjectKeys(source) {
 function defaultedOutputCallbackKeys(source) {
   const raw = String(source || '');
   const keys = new Set();
+  if (!/\bGITHUB_OUTPUT\b/u.test(raw) || !/\b[A-Za-z_$][A-Za-z0-9_$]*\s*=\s*[A-Za-z_$][A-Za-z0-9_$]*/u.test(raw)) {
+    return keys;
+  }
   const provenWriters = new Set();
   for (const declaration of raw.matchAll(/\bfunction\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*\(/g)) {
     const name = declaration[1];
@@ -1690,10 +1693,12 @@ function defaultedOutputCallbackKeys(source) {
     const bodyOpen = raw.indexOf('{', paramsClose);
     const bodyClose = matchingBrace(raw, bodyOpen);
     if (bodyOpen < 0 || bodyClose < 0) continue;
-    const callbacks = splitTopLevelArguments(raw.slice(paramsOpen + 1, paramsClose))
-      .map((param) => /^([A-Za-z_$][A-Za-z0-9_$]*)\s*=\s*([A-Za-z_$][A-Za-z0-9_$]*)$/u.exec(param.text.trim()))
-      .filter((match) => match && provenWriters.has(match[2]))
-      .map((match) => match[1]);
+    const callbacks = [];
+    for (const param of splitTopLevelArguments(raw.slice(paramsOpen + 1, paramsClose))) {
+      for (const match of param.text.matchAll(/\b([A-Za-z_$][A-Za-z0-9_$]*)\s*=\s*([A-Za-z_$][A-Za-z0-9_$]*)\b/gu)) {
+        if (provenWriters.has(match[2])) callbacks.push(match[1]);
+      }
+    }
     for (const callback of callbacks) {
       const escaped = callback.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       const callRe = new RegExp(`\\b${escaped}\\s*\\(\\s*["'\`]([A-Za-z_][A-Za-z0-9_-]*)["'\`]\\s*,`, 'g');
