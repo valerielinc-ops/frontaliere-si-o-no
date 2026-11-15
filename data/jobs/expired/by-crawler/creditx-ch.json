@@ -20,14 +20,15 @@
     },
     "slugByLocale": {
       "it": "responsabile-relazioni-junior-creditx-sarl-sion-vs",
-      "en": "relationship-manager-junior-sion-vs-creditx-ch-ch",
-      "de": "relationship-manager-junior-sion-vs-creditx-ch-ch",
+      "en": "relationship-manager-junior-sion-vs-creditx-ch-ch-66afbb69",
+      "de": "relationship-manager-junior-sion-vs-creditx-ch-ch-66afbb69",
       "fr": "relationship-manager-junior-sion-vs-creditx-ch-ch-66afbb69"
     },
     "sector": "Altro",
     "expiredAt": "2026-11-11T12:28:38.004Z",
     "previousSlugs": [
-      "beziehungsmanager-junior-creditx-sarl-sion-vs"
+      "beziehungsmanager-junior-creditx-sarl-sion-vs",
+      "relationship-manager-junior-sion-vs-creditx-ch-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -35,9 +36,11 @@
       ],
       "de": [
         "beziehungsmanager-junior-creditx-sarl-sion-vs",
+        "relationship-manager-junior-sion-vs-creditx-ch-ch-66afbb69",
         "relationship-manager-junior-sion-vs-creditx-ch-ch"
       ],
       "en": [
+        "relationship-manager-junior-sion-vs-creditx-ch-ch-66afbb69",
         "relationship-manager-junior-sion-vs-creditx-ch-ch"
       ],
       "fr": [
@@ -74,8 +77,8 @@
     },
     "slugByLocale": {
       "it": "responsabile-relazioni-senior-creditx-sarl-sion-vs",
-      "en": "relationship-manager-senior-sion-vs-creditx-ch-ch",
-      "de": "relationship-manager-senior-sion-vs-creditx-ch-ch",
+      "en": "relationship-manager-senior-sion-vs-creditx-ch-ch-562a03fa",
+      "de": "relationship-manager-senior-sion-vs-creditx-ch-ch-562a03fa",
       "fr": "relationship-manager-senior-sion-vs-creditx-ch-ch-562a03fa"
     },
     "sector": "Altro",
@@ -85,9 +88,11 @@
         "relationship-manager-senior-sion-vs-creditx-ch-ch-562a03fa"
       ],
       "en": [
+        "relationship-manager-senior-sion-vs-creditx-ch-ch-562a03fa",
         "relationship-manager-senior-sion-vs-creditx-ch-ch"
       ],
       "de": [
+        "relationship-manager-senior-sion-vs-creditx-ch-ch-562a03fa",
         "relationship-manager-senior-sion-vs-creditx-ch-ch"
       ],
       "fr": [
@@ -101,6 +106,9 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://creditx.ch/careers/relationship-manager-senior-sion",
-    "firstSeenAt": "2026-11-04T21:49:23.619Z"
+    "firstSeenAt": "2026-11-04T21:49:23.619Z",
+    "previousSlugs": [
+      "relationship-manager-senior-sion-vs-creditx-ch-ch"
+    ]
   }
 ]

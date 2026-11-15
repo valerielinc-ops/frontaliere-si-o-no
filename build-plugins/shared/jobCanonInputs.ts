@@ -1,5 +1,3 @@
-import { readStageHandoff, writeStageHandoff, type StageHandoffRead } from './stageHandoff';
-
 /** Small build-process handoff for the durable ordering fields omitted from the public slug map. */
 export interface JobCanonOrderingInput {
   id?: unknown;
@@ -13,12 +11,7 @@ export interface JobCanonOrderingFields {
   firstSeenAt?: unknown;
 }
 
-/** File name inside BUILD_STAGE_HANDOFF_DIR (see shared/stageHandoff.ts). */
-export const JOB_CANON_ORDERING_HANDOFF_FILE = 'job-canon-ordering-fields.json';
-
 let orderingFieldsById: ReadonlyMap<string, JobCanonOrderingFields> | null = null;
-// After clear() the map is deliberately gone: do not resurrect it from the handoff file.
-let handoffLoadAttempted = false;
 
 /** Keep only the two sort fields and stable key; never retain full job records. */
 export function setJobCanonOrderingFields(jobs: readonly JobCanonOrderingInput[]): void {
@@ -32,54 +25,39 @@ export function setJobCanonOrderingFields(jobs: readonly JobCanonOrderingInput[]
     });
   }
   orderingFieldsById = fieldsById;
-  handoffLoadAttempted = false;
-  // Staged build: the SSG runs in another Vite process, so persist the same map
-  // (id -> sort fields only) for it. No-op without BUILD_STAGE_HANDOFF_DIR.
-  writeStageHandoff(JOB_CANON_ORDERING_HANDOFF_FILE, { version: 1, fields: Object.fromEntries(fieldsById) });
 }
 
-const isPlainObject = (value: unknown): value is Record<string, unknown> =>
-  value !== null && typeof value === 'object' && !Array.isArray(value);
-
-/**
- * The single validator of the handoff payload, used by the buildStart gate AND by the
- * reader so they cannot diverge: `version === 1` and `fields` a plain object (not an
- * array, not null) whose values are plain objects. `{ version: 1, fields: {} }` is
- * valid: the producer writes it when there are no jobs. Returns null when invalid.
- */
-export function parseJobCanonOrderingHandoff(data: unknown): Record<string, JobCanonOrderingFields> | null {
-  if (!isPlainObject(data) || data.version !== 1 || !isPlainObject(data.fields)) return null;
-  for (const value of Object.values(data.fields)) if (!isPlainObject(value)) return null;
-  return data.fields as Record<string, JobCanonOrderingFields>;
+/** Serialize the compact sort handoff for the separate SSG build process. */
+export function serializeJobCanonOrderingFields(): string {
+  if (!orderingFieldsById) throw new Error('job-canon ordering fields are not initialized');
+  return JSON.stringify(Array.from(orderingFieldsById.entries()));
 }
 
-export type JobCanonHandoffRead =
-  | Exclude<StageHandoffRead<unknown>, { status: 'ok' }>
-  | { status: 'invalid'; path: string }
-  | { status: 'ok'; path: string; fields: Record<string, JobCanonOrderingFields> };
+/** Restore the sort handoff emitted by the bundle-stage locale splitter. */
+export function restoreJobCanonOrderingFields(serialized: string): void {
+  const parsed: unknown = JSON.parse(serialized);
+  if (!Array.isArray(parsed)) throw new Error('job-canon ordering handoff must be an array');
 
-/** The handoff as the SSG stage sees it: missing / unreadable / invalid are reported, not hidden. */
-export function readJobCanonOrderingHandoff(): JobCanonHandoffRead {
-  const handoff = readStageHandoff<unknown>(JOB_CANON_ORDERING_HANDOFF_FILE);
-  if (handoff.status !== 'ok') return handoff;
-  const fields = parseJobCanonOrderingHandoff(handoff.data);
-  return fields ? { status: 'ok', path: handoff.path, fields } : { status: 'invalid', path: handoff.path };
+  const fieldsById = new Map<string, JobCanonOrderingFields>();
+  for (const entry of parsed) {
+    if (!Array.isArray(entry) || entry.length !== 2 || typeof entry[0] !== 'string' || !entry[0]
+        || !entry[1] || typeof entry[1] !== 'object' || Array.isArray(entry[1])) {
+      throw new Error('job-canon ordering handoff contains an invalid entry');
+    }
+    const fields = entry[1] as Record<string, unknown>;
+    fieldsById.set(entry[0], {
+      ...(fields.datePosted !== undefined ? { datePosted: fields.datePosted } : {}),
+      ...(fields.firstSeenAt !== undefined ? { firstSeenAt: fields.firstSeenAt } : {}),
+    });
+  }
+  orderingFieldsById = fieldsById;
 }
 
-/**
- * Null means no producer ran in this process AND no usable handoff file exists.
- * In the staged build the producer (localeJobsSplitPlugin) lives in the bundle
- * process; its map is loaded once from the handoff file written by it.
- */
+/** Null means the locale split producer has not run in this Vite process. */
 export function getJobCanonOrderingFields(): ReadonlyMap<string, JobCanonOrderingFields> | null {
-  if (orderingFieldsById || handoffLoadAttempted) return orderingFieldsById;
-  handoffLoadAttempted = true;
-  const handoff = readJobCanonOrderingHandoff();
-  if (handoff.status === 'ok') orderingFieldsById = new Map(Object.entries(handoff.fields));
   return orderingFieldsById;
 }
 
 export function clearJobCanonOrderingFields(): void {
   orderingFieldsById = null;
-  handoffLoadAttempted = true;
 }

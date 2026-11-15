@@ -3,6 +3,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { runInNewContext } from 'node:vm';
 import YAML from 'yaml';
 import {
   ASSEMBLE_OUTPUT_CACHE_VERSION,
@@ -266,5 +267,47 @@ describe('hourly assemble test snapshot', () => {
     expect(metadataDownload?.uses).toBe('actions/download-artifact@v8');
     expect(selectedKey?.run).toContain('assemble-test-snapshot.mjs cache-key');
     expect(cacheRestore?.with?.key).toBe('${{ steps.hourly_snapshot_key.outputs.key }}');
+  });
+
+  it('skips malformed cache entries while pruning older snapshots', async () => {
+    const seed = YAML.parse(fs.readFileSync(
+      new URL('../../.github/workflows/hourly-test-assemble-snapshot.yml', import.meta.url),
+      'utf8',
+    )) as any;
+    const pruneSnapshots = (seed.jobs.seed.steps as Array<Record<string, any>>)
+      .find((step) => step.name === 'Prune older hourly test snapshots');
+    const prefix = 'assemble-jobs-test-snapshot-Linux-';
+    const currentKey = prefix + 'current';
+    const deletedCacheIds: number[] = [];
+    const warnings: string[] = [];
+
+    await runInNewContext('(async () => {\n' + pruneSnapshots.with.script + '\n})()', {
+      github: {
+        paginate: async () => [
+          undefined,
+          { key: currentKey, id: 1, created_at: '2026-11-15T00:03:00.000Z' },
+          { key: prefix + 'previous-1', id: 2, created_at: '2026-11-15T00:02:00.000Z' },
+          { key: prefix + 'previous-2', id: 3, created_at: '2026-11-15T00:01:00.000Z' },
+          { key: prefix + 'old', id: 4, created_at: '2026-11-15T00:00:00.000Z' },
+        ],
+        rest: {
+          actions: {
+            getActionsCacheList: () => undefined,
+            deleteActionsCacheById: async ({ cache_id }: { cache_id: number }) => {
+              deletedCacheIds.push(cache_id);
+            },
+          },
+        },
+      },
+      core: {
+        info: () => undefined,
+        warning: (message: string) => warnings.push(message),
+      },
+      context: { repo: { owner: 'owner', repo: 'repo' } },
+      process: { env: { CURRENT_SNAPSHOT_CACHE_KEY: currentKey } },
+    });
+
+    expect(deletedCacheIds).toEqual([4]);
+    expect(warnings).toEqual(['Ignored 1 malformed cache entries while pruning']);
   });
 });

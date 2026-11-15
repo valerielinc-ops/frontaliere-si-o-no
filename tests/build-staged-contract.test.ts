@@ -32,6 +32,19 @@ describe('staged production build memory boundary', () => {
     expect(runner).toContain('removeGeneratedFile(reportBase);');
     expect(runner).toContain("removeGeneratedFile(path.resolve(ROOT, 'content-manifest.tsv'));");
   });
+
+  it('passes private job-canon ordering data between stages and cleans it up', () => {
+    // #18828 contract kept: the plugin reads BUILD_JOB_CANON_ORDERING_HANDOFF_PATH. The path now
+    // points INTO the single handoff directory (BUILD_STAGE_HANDOFF_DIR), which build-staged.mjs
+    // creates outside dist/ and removes in a finally: one location, one cleanup, instead of a
+    // pid-named file under .cache/ with its own removeGeneratedFile calls.
+    const runner = fs.readFileSync(path.join(ROOT, 'scripts/ci/build-staged.mjs'), 'utf8');
+    expect(runner).toContain("const JOB_CANON_HANDOFF_ENV = 'BUILD_JOB_CANON_ORDERING_HANDOFF_PATH';");
+    expect(runner).toContain("[JOB_CANON_HANDOFF_ENV]: path.join(handoffDir, JOB_CANON_HANDOFF_FILE)");
+    expect(runner).not.toContain('.cache');
+    expect(runner).not.toContain('removeGeneratedFile(jobCanonOrderingHandoffPath)');
+    expect(runner).toContain('cleanupHandoff();');
+  });
 });
 
 // ── Handoff between the two Vite processes (#18780, run 43643571377) ─────────────────
@@ -43,14 +56,19 @@ import os from 'node:os';
 import { afterEach, beforeEach, vi } from 'vitest';
 import { build, type Plugin } from 'vite';
 
-describe('stage handoff: job-canon ordering fields', () => {
+describe('stage handoff: job-canon ordering fields (#18828 mechanism, fail-fast gate)', () => {
   let dir: string;
+  let handoffFile: string;
   const saved: Record<string, string | undefined> = {};
-  const ENV = ['BUILD_STAGE', 'BUILD_LOCALE', 'BUILD_STAGE_HANDOFF_DIR'] as const;
+  const ENV = ['BUILD_STAGE', 'BUILD_LOCALE', 'BUILD_JOB_CANON_ORDERING_HANDOFF_PATH'] as const;
 
   beforeEach(() => {
     dir = fs.mkdtempSync(path.join(os.tmpdir(), 'stage-handoff-test-'));
+    handoffFile = path.join(dir, 'job-canon-ordering-fields.json');
     for (const key of ENV) saved[key] = process.env[key];
+    process.env.BUILD_STAGE = 'ssg';
+    process.env.BUILD_LOCALE = 'it';
+    process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH = handoffFile;
     vi.resetModules();
   });
   afterEach(() => {
@@ -66,136 +84,88 @@ describe('stage handoff: job-canon ordering fields', () => {
     { slug: 'b', datePosted: '2026-10-01' },
     { id: 'c' },
   ];
+  const buildStartOf = async () => {
+    const { jobCanonRedirectMapPlugin } = await import('../build-plugins/jobCanonRedirectMapPlugin');
+    return (jobCanonRedirectMapPlugin(dir) as unknown as { buildStart: () => void }).buildStart;
+  };
 
-  it('round-trips through the handoff file into a FRESH module registry (= another process)', async () => {
-    process.env.BUILD_STAGE_HANDOFF_DIR = dir;
+  it('round-trips through the file into a FRESH module registry (= the ssg process)', async () => {
+    delete process.env.BUILD_STAGE; // the bundle process
     const producer = await import('../build-plugins/shared/jobCanonInputs');
     producer.setJobCanonOrderingFields(jobs);
     const written = producer.getJobCanonOrderingFields();
-    expect(written?.size).toBe(3);
-    expect(fs.existsSync(path.join(dir, producer.JOB_CANON_ORDERING_HANDOFF_FILE))).toBe(true);
-    // compact: id -> sort fields only, no atomic-write leftovers
-    expect(fs.readdirSync(dir)).toEqual([producer.JOB_CANON_ORDERING_HANDOFF_FILE]);
+    fs.writeFileSync(handoffFile, producer.serializeJobCanonOrderingFields());
 
-    vi.resetModules(); // the ssg process: module state is gone
+    process.env.BUILD_STAGE = 'ssg';
+    vi.resetModules(); // module state is gone, exactly like a new Node process
     const consumer = await import('../build-plugins/shared/jobCanonInputs');
-    const loaded = consumer.getJobCanonOrderingFields();
+    expect(consumer.getJobCanonOrderingFields()).toBeNull();
+    (await buildStartOf())(); // restores in buildStart
+    const loaded = (await import('../build-plugins/shared/jobCanonInputs')).getJobCanonOrderingFields();
     expect(loaded).not.toBeNull();
     expect([...loaded!.entries()]).toEqual([...written!.entries()]);
     expect(loaded!.get('a')).toEqual({ datePosted: '2026-11-01', firstSeenAt: '2026-11-02T00:00:00Z' });
-    expect(loaded!.get('b')).toEqual({ datePosted: '2026-10-01' });
     expect(loaded!.get('c')).toEqual({});
   });
 
-  it('single build (no handoff dir): nothing is written and the map stays in memory only', async () => {
-    delete process.env.BUILD_STAGE_HANDOFF_DIR;
-    const mod = await import('../build-plugins/shared/jobCanonInputs');
-    mod.setJobCanonOrderingFields(jobs);
-    expect(mod.getJobCanonOrderingFields()?.size).toBe(3);
-    expect(fs.readdirSync(dir)).toEqual([]);
-    vi.resetModules();
-    const other = await import('../build-plugins/shared/jobCanonInputs');
-    expect(other.getJobCanonOrderingFields()).toBeNull();
+  it('ssg without BUILD_JOB_CANON_ORDERING_HANDOFF_PATH fails in buildStart, naming the variable', async () => {
+    delete process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH;
+    expect(await buildStartOf()).toThrow(/requires BUILD_JOB_CANON_ORDERING_HANDOFF_PATH/);
   });
 
-  it('clear() is final: the map is not resurrected from the handoff file', async () => {
-    process.env.BUILD_STAGE_HANDOFF_DIR = dir;
-    const mod = await import('../build-plugins/shared/jobCanonInputs');
-    mod.setJobCanonOrderingFields(jobs);
-    mod.clearJobCanonOrderingFields();
-    expect(mod.getJobCanonOrderingFields()).toBeNull();
-  });
-
-  it('an unreadable handoff file yields null, never a partial map', async () => {
-    process.env.BUILD_STAGE_HANDOFF_DIR = dir;
-    fs.writeFileSync(path.join(dir, 'job-canon-ordering-fields.json'), '{"version":1,"fields":');
-    const mod = await import('../build-plugins/shared/jobCanonInputs');
-    expect(mod.getJobCanonOrderingFields()).toBeNull();
-    expect(mod.readJobCanonOrderingHandoff().status).toBe('unreadable');
-  });
-
-  it('ssg stage without the handoff file fails in buildStart with a message that names the cause', async () => {
-    process.env.BUILD_STAGE = 'ssg';
-    process.env.BUILD_LOCALE = 'it';
-    process.env.BUILD_STAGE_HANDOFF_DIR = dir;
-    const { jobCanonRedirectMapPlugin } = await import('../build-plugins/jobCanonRedirectMapPlugin');
-    const plugin = jobCanonRedirectMapPlugin(dir) as unknown as { buildStart: () => void };
-    expect(() => plugin.buildStart()).toThrow(
-      `[job-canon-redirect-map] ordering fields handoff missing at ${path.join(dir, 'job-canon-ordering-fields.json')}: the bundle stage did not write it`,
+  it('ssg without the file fails in buildStart naming the path and the cause', async () => {
+    expect(await buildStartOf()).toThrow(
+      `[job-canon-redirect-map] ordering fields handoff missing at ${handoffFile}: the bundle stage did not write it`,
     );
   });
 
-  it('ssg stage with a corrupt handoff says unreadable; with a good one it passes', async () => {
-    process.env.BUILD_STAGE = 'ssg';
-    process.env.BUILD_LOCALE = 'it';
-    process.env.BUILD_STAGE_HANDOFF_DIR = dir;
-    const { jobCanonRedirectMapPlugin } = await import('../build-plugins/jobCanonRedirectMapPlugin');
-    const plugin = jobCanonRedirectMapPlugin(dir) as unknown as { buildStart: () => void };
-    fs.writeFileSync(path.join(dir, 'job-canon-ordering-fields.json'), 'not json');
-    expect(() => plugin.buildStart()).toThrow(/ordering fields handoff unreadable at .*job-canon-ordering-fields\.json/);
-    const { setJobCanonOrderingFields } = await import('../build-plugins/shared/jobCanonInputs');
-    setJobCanonOrderingFields(jobs);
-    expect(() => plugin.buildStart()).not.toThrow();
+  it('an unreadable path (a directory) fails naming the path', async () => {
+    fs.mkdirSync(handoffFile);
+    expect(await buildStartOf()).toThrow(new RegExp(`ordering fields handoff unreadable at ${handoffFile.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`));
   });
 
   it.each([
-    ['fields is an array', '{"version":1,"fields":[]}'],
-    ['fields is null', '{"version":1,"fields":null}'],
-    ['fields is missing', '{"version":1}'],
-    ['the version is wrong', '{"version":2,"fields":{"a":{}}}'],
-    ['the version is missing', '{"fields":{"a":{}}}'],
-    ['a value is not an object', '{"version":1,"fields":{"a":3}}'],
-    ['a value is null', '{"version":1,"fields":{"a":null}}'],
-    ['the payload is an array', '[]'],
-  ])('ssg stage rejects a readable but malformed handoff before any SSG work: %s', async (_name, body) => {
-    process.env.BUILD_STAGE = 'ssg';
-    process.env.BUILD_LOCALE = 'it';
-    process.env.BUILD_STAGE_HANDOFF_DIR = dir;
-    fs.writeFileSync(path.join(dir, 'job-canon-ordering-fields.json'), body);
-    const { jobCanonRedirectMapPlugin } = await import('../build-plugins/jobCanonRedirectMapPlugin');
-    const plugin = jobCanonRedirectMapPlugin(dir) as unknown as { buildStart: () => void };
-    expect(() => plugin.buildStart()).toThrow(/ordering fields handoff at .*job-canon-ordering-fields\.json has no usable fields/);
-    // the reader agrees with the gate: no map is built from it
-    const { getJobCanonOrderingFields } = await import('../build-plugins/shared/jobCanonInputs');
-    expect(getJobCanonOrderingFields()).toBeNull();
+    ['an object instead of an array', '{"version":1,"fields":[]}'],
+    ['null', 'null'],
+    ['a number', '42'],
+    ['an entry that is not a pair', '[["a"]]'],
+    ['a non-string id', '[[1,{}]]'],
+    ['an empty id', '[["",{}]]'],
+    ['a value that is not an object', '[["a",3]]'],
+    ['a null value', '[["a",null]]'],
+    ['an array value', '[["a",[]]]'],
+    ['truncated JSON', '[["a",{"datePosted":'],
+  ])('a malformed handoff (%s) fails in buildStart with the path, before any SSG work', async (_name, body) => {
+    fs.writeFileSync(handoffFile, body);
+    expect(await buildStartOf()).toThrow(new RegExp(`ordering fields handoff malformed at ${handoffFile.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`));
   });
 
-  it('an empty map is valid: the producer writes it when there are no jobs', async () => {
-    process.env.BUILD_STAGE = 'ssg';
-    process.env.BUILD_LOCALE = 'it';
-    process.env.BUILD_STAGE_HANDOFF_DIR = dir;
-    fs.writeFileSync(path.join(dir, 'job-canon-ordering-fields.json'), '{"version":1,"fields":{}}');
-    const { jobCanonRedirectMapPlugin } = await import('../build-plugins/jobCanonRedirectMapPlugin');
-    const plugin = jobCanonRedirectMapPlugin(dir) as unknown as { buildStart: () => void };
-    expect(() => plugin.buildStart()).not.toThrow();
+  it('an empty list is valid: the producer writes it when there are no jobs', async () => {
+    fs.writeFileSync(handoffFile, '[]');
+    (await buildStartOf())();
     const { getJobCanonOrderingFields } = await import('../build-plugins/shared/jobCanonInputs');
     expect(getJobCanonOrderingFields()?.size).toBe(0);
   });
 
-  it('parseJobCanonOrderingHandoff is the one validator', async () => {
-    const { parseJobCanonOrderingHandoff } = await import('../build-plugins/shared/jobCanonInputs');
-    expect(parseJobCanonOrderingHandoff({ version: 1, fields: {} })).toEqual({});
-    expect(parseJobCanonOrderingHandoff({ version: 1, fields: { a: { datePosted: 'x' } } })).toEqual({ a: { datePosted: 'x' } });
-    for (const bad of [null, undefined, 1, 'x', [], { version: 1, fields: [] }, { version: 1, fields: null }, { version: '1', fields: {} }, { version: 1, fields: { a: [] } }]) {
-      expect(parseJobCanonOrderingHandoff(bad)).toBeNull();
-    }
+  it('there is ONE validator: restoreJobCanonOrderingFields (no second parser of the handoff)', () => {
+    const inputs = fs.readFileSync(path.join(ROOT, 'build-plugins/shared/jobCanonInputs.ts'), 'utf8');
+    expect(inputs).toContain('export function restoreJobCanonOrderingFields');
+    expect(inputs).not.toMatch(/parseJobCanonOrderingHandoff|readJobCanonOrderingHandoff|JOB_CANON_ORDERING_HANDOFF_FILE|stageHandoff/);
+    const plugin = fs.readFileSync(path.join(ROOT, 'build-plugins/jobCanonRedirectMapPlugin.ts'), 'utf8');
+    expect(plugin.match(/restoreJobCanonOrderingFields\(/g)).toHaveLength(1); // only inside the shared helper
+    expect(plugin.match(/restoreJobCanonOrderingHandoffFromEnv\(\)/g)!.length).toBeGreaterThanOrEqual(2); // buildStart + closeBundle defence
   });
 
   it('only the IT leg of the ssg stage requires the handoff (the same condition as closeBundle)', async () => {
-    process.env.BUILD_STAGE_HANDOFF_DIR = dir;
-    const { jobCanonRedirectMapPlugin } = await import('../build-plugins/jobCanonRedirectMapPlugin');
-    const plugin = jobCanonRedirectMapPlugin(dir) as unknown as { buildStart: () => void };
+    const buildStart = await buildStartOf();
     for (const [stage, locale] of [['ssg', 'de'], ['ssg', 'en'], ['ssg', 'fr'], ['bundle', 'it'], ['single', 'it'], [undefined, 'it']] as const) {
       if (stage === undefined) delete process.env.BUILD_STAGE; else process.env.BUILD_STAGE = stage;
       process.env.BUILD_LOCALE = locale;
-      expect(() => plugin.buildStart(), `${stage}/${locale}`).not.toThrow();
+      expect(() => buildStart(), `${stage}/${locale}`).not.toThrow();
     }
   });
 
   it('a missing handoff aborts a real Vite build before any closeBundle (the SSG) runs', async () => {
-    process.env.BUILD_STAGE = 'ssg';
-    process.env.BUILD_LOCALE = 'it';
-    process.env.BUILD_STAGE_HANDOFF_DIR = dir;
     const { jobCanonRedirectMapPlugin } = await import('../build-plugins/jobCanonRedirectMapPlugin');
     const { withBuildAbortOnError, resetBuildAbortState } = await import('../build-plugins/shared/buildAbortOnError');
     resetBuildAbortState();
@@ -242,7 +212,7 @@ describe('build-staged.mjs owns the handoff directory', () => {
     expect(runner).not.toMatch(/process\.exit\(status\)/);
   });
 
-  it('the plugin side reads the same variable name', () => {
+  it('the route-chunks side reads the same variable name', () => {
     const shared = fs.readFileSync(path.join(ROOT, 'build-plugins/shared/stageHandoff.ts'), 'utf8');
     expect(shared).toContain("BUILD_STAGE_HANDOFF_ENV = 'BUILD_STAGE_HANDOFF_DIR'");
   });
@@ -301,13 +271,14 @@ describe('class closure: module state shared by the bundle and ssg stages', () =
   /**
    * The complete audit (2026-11-15). A NEW entry in sharedStateModules() fails the
    * test below until someone decides, in writing, how its state crosses the stages.
-   *   handoff   - written by a core plugin, read by an ssg plugin: goes through stageHandoff
+   *   handoff   - written by a core plugin, read by an ssg plugin, through a file in the handoff dir
+   *               (job-canon: the BUILD_JOB_CANON_ORDERING_HANDOFF_PATH of #18828; the rest: stageHandoff)
    *   same-stage - writer and reader both run in the ssg process, or only one stage touches it
    *   constant  - immutable lookup table / lazily derived deterministic value
    *   diagnostic - per-process telemetry or registry; losing it across stages loses a report, not an output
    */
   const AUDIT: Record<string, string> = {
-    'build-plugins/shared/jobCanonInputs.ts': 'handoff: localeJobsSplitPlugin (bundle) -> jobCanonRedirectMapPlugin (ssg), file job-canon-ordering-fields.json',
+    'build-plugins/shared/jobCanonInputs.ts': 'handoff: localeJobsSplitPlugin (bundle, serializeJobCanonOrderingFields) -> jobCanonRedirectMapPlugin (ssg, restoreJobCanonOrderingFields in buildStart), file job-canon-ordering-fields.json via BUILD_JOB_CANON_ORDERING_HANDOFF_PATH',
     'build-plugins/shared/modulePreloads.ts': 'handoff: preloadLocalePlugin (bundle) registers it-core/it-calculator/App, versionedCdnAssetsPlugin (ssg) builds the allowlist; file route-chunks.json',
     'build-plugins/shared/assetIntegrity.ts': 'same-stage: SRI is disabled (STABLE_ASSET_SRI_ENABLED=false, nothing registered) and postWalkCoordinatorPlugin re-registers from dist/assets itself (registerDistAssets)',
     'build-plugins/shared/postWalkDerivedDigest.ts': 'same-stage: written and read only by postWalkCoordinatorPlugin / batchWrite in the ssg process',
@@ -331,7 +302,7 @@ describe('class closure: module state shared by the bundle and ssg stages', () =
 
   it('every module with state reachable from both stages has a written disposition', () => {
     const unaccounted = sharedStateModules().filter((file) => !(file in AUDIT));
-    expect(unaccounted, `new shared module state: add it to AUDIT with how it crosses the bundle/ssg boundary (or hand it off through build-plugins/shared/stageHandoff.ts)`).toEqual([]);
+    expect(unaccounted, `new shared module state: add it to AUDIT with how it crosses the bundle/ssg boundary (or hand it off through a file in the handoff dir: build-plugins/shared/stageHandoff.ts)`).toEqual([]);
   });
 
   it('AUDIT has no stale entries', () => {
@@ -339,13 +310,19 @@ describe('class closure: module state shared by the bundle and ssg stages', () =
     expect(Object.keys(AUDIT).filter((file) => !found.has(file))).toEqual([]);
   });
 
-  it('every module audited as "handoff" really goes through stageHandoff', () => {
+  it('every module audited as "handoff" really crosses through a file', () => {
     for (const [file, why] of Object.entries(AUDIT)) {
       if (!why.startsWith('handoff')) continue;
       const source = fs.readFileSync(path.join(ROOT, file), 'utf8');
-      expect(source, file).toContain("from './stageHandoff'");
-      expect(source, file).toMatch(/writeStageHandoff\(/);
-      expect(source, file).toMatch(/readStageHandoff/);
+      if (file.endsWith('jobCanonInputs.ts')) {
+        // #18828: serialize/restore + the env path; the writer and the restorer are checked below
+        expect(source, file).toMatch(/export function serializeJobCanonOrderingFields/);
+        expect(source, file).toMatch(/export function restoreJobCanonOrderingFields/);
+      } else {
+        expect(source, file).toContain("from './stageHandoff'");
+        expect(source, file).toMatch(/writeStageHandoff\(/);
+        expect(source, file).toMatch(/readStageHandoff/);
+      }
     }
   });
 
@@ -354,6 +331,8 @@ describe('class closure: module state shared by the bundle and ssg stages', () =
     expect(factoriesIn(ssgBlock)).toEqual(expect.arrayContaining(['jobCanonRedirectMapPlugin', 'versionedCdnAssetsPlugin']));
     const producer = fs.readFileSync(path.join(BP, 'localeJobsSplitPlugin.ts'), 'utf8');
     expect(producer).toContain('setJobCanonOrderingFields(jobs)');
+    expect(producer).toContain('serializeJobCanonOrderingFields()');
+    expect(producer).toContain('BUILD_JOB_CANON_ORDERING_HANDOFF_PATH');
     const preload = fs.readFileSync(path.join(BP, 'preloadLocalePlugin.ts'), 'utf8');
     expect(preload).toContain('persistRegisteredRouteChunks()');
   });

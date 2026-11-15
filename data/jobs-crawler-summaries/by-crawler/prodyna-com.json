@@ -1,7 +1,7 @@
 {
   "key": "prodyna-com",
   "label": "PRODYNA (Schweiz) AG",
-  "generatedAt": "2026-11-15T00:39:57.946Z",
+  "generatedAt": "2026-11-15T00:59:07.635Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -60,10 +60,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 13639,
-  "avgDurationMs": 13639,
+  "durationMs": 14328,
+  "avgDurationMs": 14328,
   "durationHistory": [
-    13639
+    14328
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -81,7 +81,7 @@
       "url": "https://www.prodyna.com/jobs/senior-data-engineer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T00:39:08.106Z",
+      "crawledAt": "2026-11-15T00:58:18.124Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "salaryMax": 151000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T00:39:08.106Z",
+      "validThrough": "2027-02-09T00:58:18.124Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -126,7 +126,7 @@
       "url": "https://www.prodyna.com/jobs/senior-java-developer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T00:39:08.103Z",
+      "crawledAt": "2026-11-15T00:58:18.118Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -149,7 +149,7 @@
       "salaryMax": 169500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T00:39:08.103Z",
+      "validThrough": "2027-02-09T00:58:18.118Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -160,5 +160,5 @@
       }
     }
   ],
-  "codeCommit": "270d6369e95753d967bf3c60693d6e505ecd270f"
+  "codeCommit": "c2738e8d6a9c559fdfaac829986ccf33b5c08c62"
 }

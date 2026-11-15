@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-15T00:21:04.681Z",
+  "generatedAt": "2026-11-15T01:21:35.758Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -170372,6 +170372,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T11:39:41.041Z"
     },
+    "myswitzerland:ee5d2b761f324f3489f8b16cd69149a5::e13eeeca0446d5a651a9a2bf8395af76350f18faf1ad7b0b42abf8770698f1d9": {
+      "id": "myswitzerland:ee5d2b761f324f3489f8b16cd69149a5",
+      "sourceDescriptionHash": "e13eeeca0446d5a651a9a2bf8395af76350f18faf1ad7b0b42abf8770698f1d9",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Nebia poche; cantone: BE; categoria: Event; data: 2027-02-25; ora: 19:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Nebia poche; cantone: BE; categoria: Event; data: 2027-02-25; ora: 19:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Nebia poche; canton: BE; category: Event; date: 2027-02-25; time: 19:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Nebia poche; kanton: BE; kategorie: Event; datum: 2027-02-25; uhrzeit: 19:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Nebia poche; canton: BE; catégorie: Event; date: 2027-02-25; heure: 19:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-15T01:15:59.529Z"
+    },
     "myswitzerland:ee65566ff0a748e8b0194a4d335be653::533bc2635e0371efcebc29d79231d1678c400f26074c5967e5231c347df105fb": {
       "id": "myswitzerland:ee65566ff0a748e8b0194a4d335be653",
       "sourceDescriptionHash": "533bc2635e0371efcebc29d79231d1678c400f26074c5967e5231c347df105fb",
@@ -197197,15 +197211,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-14T03:21:18.806Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:ee5d2b761f324f3489f8b16cd69149a5::e13eeeca0446d5a651a9a2bf8395af76350f18faf1ad7b0b42abf8770698f1d9": {
-      "id": "myswitzerland:ee5d2b761f324f3489f8b16cd69149a5",
-      "sourceDescriptionHash": "e13eeeca0446d5a651a9a2bf8395af76350f18faf1ad7b0b42abf8770698f1d9",
-      "code": "source-ngram-8",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T09:30:54.365Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },

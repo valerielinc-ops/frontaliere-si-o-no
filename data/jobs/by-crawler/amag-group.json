@@ -1,7 +1,7 @@
 {
   "crawlerKey": "amag-group",
-  "assembledAt": "2026-11-15T00:31:31.528Z",
-  "runId": "43657197580",
+  "assembledAt": "2026-11-15T00:58:34.563Z",
+  "runId": "43659336124",
   "jobs": [
     {
       "title": "Consulente vendita veicoli commerciali (m/f) - 100%",
@@ -66,7 +66,7 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T00:31:29.374Z",
+      "crawledAt": "2026-11-15T00:58:32.006Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -132,7 +132,7 @@
       "firstSeenAt": "2026-10-09T21:30:03.052Z",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T00:31:29.374Z",
+      "crawledAt": "2026-11-15T00:58:32.006Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -198,7 +198,7 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T00:31:29.374Z",
+      "crawledAt": "2026-11-15T00:58:32.006Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -282,7 +282,7 @@
       "streetAddress": "Gordola",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T00:31:29.374Z",
+      "crawledAt": "2026-11-15T00:58:32.006Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -348,7 +348,7 @@
       "streetAddress": "Tutti",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T00:31:29.374Z",
+      "crawledAt": "2026-11-15T00:58:32.006Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -415,7 +415,7 @@
       "streetAddress": "Breganzona",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T00:31:29.374Z",
+      "crawledAt": "2026-11-15T00:58:32.006Z",
       "crawledAtSource": "slice-writer"
     }
   ]

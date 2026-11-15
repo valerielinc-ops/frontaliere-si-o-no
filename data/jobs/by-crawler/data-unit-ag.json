@@ -1,7 +1,7 @@
 {
   "crawlerKey": "data-unit-ag",
-  "assembledAt": "2026-11-15T00:41:28.505Z",
-  "runId": "43658265927",
+  "assembledAt": "2026-11-15T00:57:56.607Z",
+  "runId": "43658593829",
   "jobs": [
     {
       "id": "data-unit-ag-ef1949b9ab6f",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "stage-di-orientamento-come-sviluppatore-sviluppatrice-di-business-digitale-informatico-a-per-lo-sviluppo-di-applicazioni",
         "en": "trial-apprenticeship-as-a-developer-digital-business-computer-scientist-application-development-data-unit-ag-sursee",
-        "de": "schnupperlehre-als-entwickler-in-digitales-business-informatiker-in-applikationsentwicklun",
+        "de": "schnupperlehre-als-entwickler-in-digitales-business-informatiker-in-applikationsentwicklung-data-unit-ag-sursee",
         "fr": "apprentissage-d-initiation-en-tant-que-developpeur-en-affaires-numeriques-informaticien-en-developpement-d-applications"
       },
       "company": "DATA UNIT AG",
@@ -34,7 +34,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2422130?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T00:41:16.089Z",
+      "crawledAt": "2026-11-15T00:57:05.733Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -69,6 +69,9 @@
         ],
         "fr": [
           "schnupperlehre-als-entwickler-in-digitales-business-informatiker-in-applikationsentwicklung-data-unit-ag-sursee"
+        ],
+        "de": [
+          "schnupperlehre-als-entwickler-in-digitales-business-informatiker-in-applikationsentwicklun"
         ]
       },
       "firstSeenAt": "2026-11-10T22:04:48.256Z",
@@ -86,7 +89,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T00:41:16.089Z",
+      "validThrough": "2027-02-09T00:57:05.733Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -120,7 +123,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2550441?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T00:41:16.087Z",
+      "crawledAt": "2026-11-15T00:57:05.732Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -169,7 +172,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T00:41:16.087Z",
+      "validThrough": "2027-02-09T00:57:05.732Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -203,7 +206,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2319938?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T00:41:16.085Z",
+      "crawledAt": "2026-11-15T00:57:05.728Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -246,7 +249,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T00:41:16.085Z",
+      "validThrough": "2027-02-09T00:57:05.728Z",
       "validThroughSource": "last-observed-window"
     }
   ]

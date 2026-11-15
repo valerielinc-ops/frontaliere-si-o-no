@@ -23,6 +23,10 @@ const reportBase = path.resolve(process.env.BUILD_MEM_REPORT_FILE || '/tmp/build
 // through files in this directory (build-plugins/shared/stageHandoff.ts). It lives
 // OUTSIDE dist/, which is published, and is removed when the runner ends.
 const HANDOFF_ENV = 'BUILD_STAGE_HANDOFF_DIR';
+// The plugin-facing contract of #18828 stays an explicit path; it points INTO the single
+// handoff directory, so there is one location and one cleanup (the `finally` below).
+const JOB_CANON_HANDOFF_ENV = 'BUILD_JOB_CANON_ORDERING_HANDOFF_PATH';
+const JOB_CANON_HANDOFF_FILE = 'job-canon-ordering-fields.json';
 const handoffDir = fs.mkdtempSync(path.join(os.tmpdir(), 'build-stage-handoff-'));
 
 function cleanupHandoff() {
@@ -68,6 +72,7 @@ function runStage(stage) {
     BUILD_STAGE: stage,
     BUILD_MEM_REPORT_FILE: reportPath,
     [HANDOFF_ENV]: handoffDir,
+    [JOB_CANON_HANDOFF_ENV]: path.join(handoffDir, JOB_CANON_HANDOFF_FILE),
   };
   if (manifestEnabled) env.DEPLOY_CONTENT_MANIFEST_PATH = stageManifestPath(stage);
 

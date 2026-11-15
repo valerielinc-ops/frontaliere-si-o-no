@@ -172,6 +172,19 @@ const BOT_CHALLENGE_PATTERNS = [
   /please complete the security check/i,
 ];
 const EXPIRED_URL_PATTERNS = [/[?&]error=true/i];
+
+function isWorkdayCommunityInvalidUrl(value = '') {
+  try {
+    const url = new URL(String(value || ''));
+    return url.protocol === 'https:' && url.port === ''
+      && url.hostname.toLowerCase() === 'community.workday.com'
+      && /^\/invalid-url\/?$/i.test(url.pathname)
+      && !url.username && !url.password && !url.hash;
+  } catch {
+    return false;
+  }
+}
+
 const APPLY_PATTERNS = [
   /^applica(?: ora| adesso| subito)?$/i,
   /\bapply\b/i,
@@ -278,6 +291,7 @@ export function classifyLiveness({ status = 0, requestedUrl = '', finalUrl = '',
   if (botChallenge) return { result: 'uncertain', code: 'bot_challenge', reason: 'anti-bot challenge' };
   if (status === 403 || status === 429 || status === 503) return { result: 'uncertain', code: 'access_blocked', reason: `HTTP ${status}` };
   if (status >= 500) return { result: 'uncertain', code: 'server_error', reason: `HTTP ${status}` };
+  if (isWorkdayCommunityInvalidUrl(finalUrl)) return { result: 'expired', code: 'expired_url', reason: 'Workday Community invalid URL' };
   if (firstMatch(EXPIRED_URL_PATTERNS, finalUrl)) return { result: 'expired', code: 'expired_url', reason: 'error redirect' };
   const expiredBody = firstUnconditionalHardExpiredStatement(rawBodyText, pageLocale);
   if (expiredBody) return { result: 'expired', code: 'expired_body', reason: `pattern matched: ${expiredBody.source}` };
