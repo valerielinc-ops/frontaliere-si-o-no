@@ -1413,14 +1413,29 @@
     "slugByLocale": {},
     "sector": "Edilizia e tecnica",
     "expiredAt": "2026-09-11T13:44:07.716Z",
-    "previousSlugs": [
-      "installatore-elettricista-afc-m-f-d-pemsa-sion"
-    ],
     "salaryMin": 74500,
     "salaryMax": 94000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
-    "dedupArchive": true
+    "dedupArchive": true,
+    "previousSlugsByLocale": {
+      "it": [
+        "installatore-elettricista-afc-m-f-d-pemsa-sion-487129ba"
+      ],
+      "en": [
+        "installatore-elettricista-afc-m-f-d-pemsa-sion"
+      ],
+      "de": [
+        "installatore-elettricista-afc-m-f-d-pemsa-sion"
+      ],
+      "fr": [
+        "installatore-elettricista-afc-m-f-d-pemsa-sion"
+      ]
+    },
+    "previousSlugs": [
+      "installatore-elettricista-afc-m-f-d-pemsa-sion",
+      "installatore-elettricista-afc-m-f-d-pemsa-sion-487129ba"
+    ]
   },
   {
     "slug": "carrellista-da-cantiere-patente-r4-pemsa-fribourg",
