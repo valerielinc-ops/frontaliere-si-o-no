@@ -53,6 +53,7 @@ import { renderBridgePageProse, type BridgePageKind } from './shared/bridgePageP
 import type { Locale } from '../services/i18n';
 import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippableSections';
 import { getSafeDistPageTargets, isDistPathOverFilesystemLimits } from './shared/distPathSafety';
+import { shouldEmitLocale } from './shared/localeEmitFilter';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -333,6 +334,7 @@ export function legacyAliasPlugin(rootDir: string): Plugin {
       let emitted = 0;
       let skipped = 0;
       let skippedUnshippable = 0;
+      let skippedNotEmitted = 0;
       let skippedUnsafePath = 0;
       let skippedFilesystemLimitPaths = 0;
       const start = Date.now();
@@ -347,6 +349,13 @@ export function legacyAliasPlugin(rootDir: string): Plugin {
       const unshippablePrefixes = unshippableSectionPrefixes();
 
       for (const entry of file.aliases) {
+        // A BUILD_LOCALE leg writes only its own locale's aliases. The IT leg
+        // used to write the en/de/fr alias at the path of that locale's REAL page
+        // (e.g. /fr/prix-essence-suisse/<city>/stations/<station>/, a fuel
+        // station that is also a legacy alias): the IT sitemap reconcile read the
+        // alias bridge and dropped a URL the fr sitemap keeps (fast gate, class
+        // 3). The shard prune deletes the non-owned files anyway.
+        if (!shouldEmitLocale(entry.locale)) { skippedNotEmitted++; continue; }
         if (isDistPathOverFilesystemLimits(entry.orphanPath)) {
           skippedFilesystemLimitPaths++;
           continue;
@@ -380,7 +389,7 @@ export function legacyAliasPlugin(rootDir: string): Plugin {
 
       const dur = ((Date.now() - start) / 1000).toFixed(1);
       console.log(
-        `\x1b[36m[legacy-alias]\x1b[0m emitted ${emitted} bridge files (${file.aliases.length - skipped - skippedUnshippable - skippedUnsafePath - skippedFilesystemLimitPaths} pages, ${skipped} collision skips, ${skippedUnsafePath} unsafe-path skips) in ${dur}s`,
+        `\x1b[36m[legacy-alias]\x1b[0m emitted ${emitted} bridge files (${file.aliases.length - skippedNotEmitted - skipped - skippedUnshippable - skippedUnsafePath - skippedFilesystemLimitPaths} pages, ${skipped} collision skips, ${skippedUnsafePath} unsafe-path skips) in ${dur}s`,
       );
       if (skippedFilesystemLimitPaths > 0) {
         console.warn(`[legacy-alias] skipped ${skippedFilesystemLimitPaths} paths over filesystem limits`);

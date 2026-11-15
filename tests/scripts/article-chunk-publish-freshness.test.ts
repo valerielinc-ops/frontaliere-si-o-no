@@ -7,6 +7,7 @@ import { build } from 'esbuild';
 import { parse } from 'yaml';
 import { describe, expect, it } from 'vitest';
 import {
+  ARTICLE_PUBLISHER_WORKFLOW_PATH,
   ARTICLE_PUBLISHER_CODE_PATHS,
   ARTICLE_SURFACE_PATHS,
   classifyPublishSource,
@@ -137,7 +138,7 @@ const SURFACE_PATHS = [
   ['root sitemap', 'public/sitemap.xml'],
   ['RSS glob', 'public/rss-it.xml'],
   ['news ticker', 'public/news-ticker-live.json'],
-  ['workflow trigger', '.github/workflows/sync-articles-sitemaps.yml'],
+  ['workflow trigger', ARTICLE_PUBLISHER_WORKFLOW_PATH],
 ] as const;
 
 describe('article chunk publish freshness fence', () => {

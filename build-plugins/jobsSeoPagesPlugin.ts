@@ -128,6 +128,7 @@ import { normalizeExpiredJobEdgePath, parseExpiredJobEdgeSections } from '../scr
 import { truncateCodeUnits } from './shared/safeTruncate';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
+import { editorialSitemapEmitGate } from './shared/editorialSitemapEmitGate';
 import {
   JOB_PAGES_MANIFEST_FILE,
   buildJobPagesManifest,
@@ -7170,18 +7171,28 @@ ${companyFollowHtml}
  // (e.g. zero jobs for that location/sector), the sitemap entry must
  // follow. IT gates the whole group (it's the x-default/canonical
  // fallback) -- alternates would all be dead too if the IT canonical isn't.
- const itDirIndex = np.join(distDir, itPath.slice(1).replace(/\/$/, ''), 'index.html');
- const itFlatHtml = np.join(distDir, itPath.replace(/\/+$/, '').slice(1) + '.html');
- const itEmitted = pathWasClaimed(itDirIndex) || pathWasClaimed(itFlatHtml) || fs.existsSync(itDirIndex) || fs.existsSync(itFlatHtml);
- if (!itEmitted) return;
  const localePaths = new Map<typeof localeList[number], string>();
  localePaths.set('it', itPath);
  for (const locale of sitemapLocales) {
  if (locale === 'it') continue;
- const slug = slugForLocale(locale);
- editorialSearchSlugsByLocale.get(locale)?.add(slug);
- const path = withSlash(`${localePrefix[locale]}/${sectionFor(locale)}/${slug}`.replace(/\/+/g, '/'));
- localePaths.set(locale, path);
+ localePaths.set(locale, withSlash(`${localePrefix[locale]}/${sectionFor(locale)}/${slugForLocale(locale)}`.replace(/\/+/g, '/')));
+ }
+ // Gate decision (shared/editorialSitemapEmitGate.ts): the IT build gates on
+ // the IT page; a BUILD_LOCALE de|en|fr build never writes it, so it gates on
+ // its own locale's page instead (publisher fast gate, class 2).
+ const emitGate = editorialSitemapEmitGate({
+  sitemapLocales,
+  localePaths,
+  emitsLocale: shouldEmitLocale,
+  pageEmitted: (pagePath) => {
+   const dirIndex = np.join(distDir, pagePath.slice(1).replace(/\/$/, ''), 'index.html');
+   const flatHtml = np.join(distDir, pagePath.replace(/\/+$/, '').slice(1) + '.html');
+   return pathWasClaimed(dirIndex) || pathWasClaimed(flatHtml) || fs.existsSync(dirIndex) || fs.existsSync(flatHtml);
+  },
+ });
+ if (!emitGate) return;
+ for (const locale of sitemapLocales) {
+ if (locale !== 'it') editorialSearchSlugsByLocale.get(locale)?.add(slugForLocale(locale));
  }
  const groups = reciprocalSitemapLocaleGroups(
   localeList,
@@ -7193,6 +7204,7 @@ ${companyFollowHtml}
  // locs. The IT sitemap build cannot use sibling files in its own dist as
  // evidence because those files belong to other locale builds.
  for (const group of groups) {
+ if (!emitGate.advertises(group.locale)) continue;
  pagePathClaims.claim(group.locale, localePaths.get(group.locale)!);
  const alternateLinks = group.alternates.map(({ locale, href }) =>
  `    <xhtml:link rel="alternate" hreflang="${locale}" href="${href}" />`,
