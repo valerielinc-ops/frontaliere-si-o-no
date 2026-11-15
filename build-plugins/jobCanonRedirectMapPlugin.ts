@@ -26,7 +26,11 @@ import {
 import { getSafeDistPageTargets, isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
 import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import { localizedActiveJobSlug } from './shared/activeJobPageSelection';
-import { clearJobCanonOrderingFields, getJobCanonOrderingFields } from './shared/jobCanonInputs';
+import {
+  clearJobCanonOrderingFields,
+  getJobCanonOrderingFields,
+  readJobCanonOrderingHandoff,
+} from './shared/jobCanonInputs';
 import {
   emitActiveJobCanonAliases,
   JOB_CANON_LOCALES,
@@ -382,11 +386,40 @@ function summarizeBytes(values: readonly number[]): { count: number; total: numb
   };
 }
 
+/**
+ * Why the ordering fields are unavailable. In a staged build the cause is the handoff
+ * (named, with its path); in the single in-process build it is the old message.
+ */
+export function jobCanonHandoffErrorMessage(handoff: ReturnType<typeof readJobCanonOrderingHandoff>): string {
+  if (handoff.status === 'missing') {
+    return `[job-canon-redirect-map] ordering fields handoff missing at ${handoff.path}: the bundle stage did not write it`;
+  }
+  if (handoff.status === 'unreadable') {
+    return `[job-canon-redirect-map] ordering fields handoff unreadable at ${handoff.path}: ${handoff.reason}`;
+  }
+  if (handoff.status === 'ok') {
+    return `[job-canon-redirect-map] ordering fields handoff at ${handoff.path} has no usable fields: the bundle stage wrote an invalid file`;
+  }
+  return '[job-canon-redirect-map] localeJobsSplitPlugin did not provide ordering fields in this Vite process';
+}
+
 export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
   return {
     name: 'job-canon-redirect-map',
     apply: 'build',
     enforce: 'post',
+    // Staged build (BUILD_STAGE=ssg, the second Vite process): the ordering fields are
+    // produced by localeJobsSplitPlugin in the FIRST process and arrive through the
+    // handoff file. Check it here, before any SSG work, so a missing handoff fails in
+    // seconds instead of ~2 h in (run 43643571377). Same condition as closeBundle: IT leg.
+    // A throw in buildStart reaches buildEnd(error), i.e. the abort flag of
+    // shared/buildAbortOnError.ts, like every other build error.
+    buildStart() {
+      if (process.env.BUILD_STAGE !== 'ssg' || process.env.BUILD_LOCALE !== 'it') return;
+      const handoff = readJobCanonOrderingHandoff();
+      if (handoff.status === 'ok') return;
+      throw new Error(jobCanonHandoffErrorMessage(handoff));
+    },
     async closeBundle() {
       const distDir = path.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
@@ -602,7 +635,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           } = await import('./jobsSeoPagesPlugin');
           let orderingFieldsById = getJobCanonOrderingFields();
           if (!orderingFieldsById) {
-            throw new Error('[job-canon-redirect-map] localeJobsSplitPlugin did not provide ordering fields in this Vite process');
+            throw new Error(jobCanonHandoffErrorMessage(readJobCanonOrderingHandoff()));
           }
           let writeIndex = 0;
           for (const row of jobs) {

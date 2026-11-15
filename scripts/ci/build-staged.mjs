@@ -8,6 +8,7 @@
  * can make the graph collectible while SSG is still running.
  */
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { pipeline } from 'node:stream/promises';
@@ -17,6 +18,21 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const VITE_BIN = path.join(ROOT, 'node_modules', 'vite', 'bin', 'vite.js');
 const reportBase = path.resolve(process.env.BUILD_MEM_REPORT_FILE || '/tmp/build-memory-peak.json');
+// In-memory state does not cross the two Vite processes (#18780 broke the IT SSG that
+// way: run 43643571377). Whatever a bundle-stage plugin must hand to the SSG stage goes
+// through files in this directory (build-plugins/shared/stageHandoff.ts). It lives
+// OUTSIDE dist/, which is published, and is removed when the runner ends.
+const HANDOFF_ENV = 'BUILD_STAGE_HANDOFF_DIR';
+const handoffDir = fs.mkdtempSync(path.join(os.tmpdir(), 'build-stage-handoff-'));
+
+function cleanupHandoff() {
+  try {
+    fs.rmSync(handoffDir, { recursive: true, force: true });
+  } catch (error) {
+    console.warn(`[build-staged] could not remove handoff dir ${handoffDir}: ${error.message}`);
+  }
+}
+
 const manifestEnabled = ['1', 'true', 'yes'].includes(
   String(process.env.DEPLOY_CONTENT_MANIFEST || '').toLowerCase(),
 );
@@ -51,6 +67,7 @@ function runStage(stage) {
     ...process.env,
     BUILD_STAGE: stage,
     BUILD_MEM_REPORT_FILE: reportPath,
+    [HANDOFF_ENV]: handoffDir,
   };
   if (manifestEnabled) env.DEPLOY_CONTENT_MANIFEST_PATH = stageManifestPath(stage);
 
@@ -159,17 +176,26 @@ for (const stage of stages) {
 }
 if (manifestEnabled) removeGeneratedFile(path.resolve(ROOT, 'content-manifest.tsv'));
 
-for (const stage of stages) {
-  const status = runStage(stage);
-  if (status !== 0) {
-    copyReport(stageReportPath(stage), reportBase);
-    process.exit(status);
+let failedStatus = 0;
+try {
+  for (const stage of stages) {
+    const status = runStage(stage);
+    if (status !== 0) {
+      copyReport(stageReportPath(stage), reportBase);
+      failedStatus = status;
+      break;
+    }
   }
-}
 
-mergeReports(stages.map(stageReportPath).map(readReport).filter(Boolean));
-await mergeManifests();
+  if (failedStatus === 0) {
+    mergeReports(stages.map(stageReportPath).map(readReport).filter(Boolean));
+    await mergeManifests();
 
-for (const stage of stages) {
-  try { fs.unlinkSync(stageReportPath(stage)); } catch { /* generated telemetry only */ }
+    for (const stage of stages) {
+      try { fs.unlinkSync(stageReportPath(stage)); } catch { /* generated telemetry only */ }
+    }
+  }
+} finally {
+  cleanupHandoff();
 }
+if (failedStatus !== 0) process.exit(failedStatus);
