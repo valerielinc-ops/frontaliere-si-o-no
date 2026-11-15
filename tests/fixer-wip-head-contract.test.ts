@@ -43,10 +43,13 @@ describe.each(KINDS)('$kind fixer non consegna mai un checkpoint WIP come HEAD',
     expect(finalize.run).not.toMatch(/--force|\+HEAD|--amend|git reset|git rebase|git push[^\n]*\s-f(?:\s|$)/u);
     expect(finalize.run).toContain('git push origin "HEAD:refs/heads/${HEAD_REF}"');
     expect(finalize.run).toContain(`--trailer "Fixer: ${kind}-round-`);
+    // albero pulito prima del commit
+    expect(finalize.run.indexOf('git status --porcelain')).toBeGreaterThan(0);
+    expect(finalize.run.indexOf('git status --porcelain')).toBeLessThan(finalize.run.indexOf('git commit --allow-empty'));
   });
 
   describe('comportamento dello step su un repository reale', () => {
-    function run(opts: { subject: string; baseIsHead?: boolean; round?: string }) {
+    function run(opts: { subject: string; baseIsHead?: boolean; round?: string; dirty?: boolean }) {
       const temp = mkdtempSync(join(tmpdir(), 'fixer-finalize-'));
       try {
         const remote = join(temp, 'remote.git');
@@ -69,6 +72,7 @@ describe.each(KINDS)('$kind fixer non consegna mai un checkpoint WIP come HEAD',
           git(work, 'add', '-A');
           git(work, 'commit', '-q', '-m', opts.subject, '-m', `Fixer: ${kind}-round-1`);
         }
+        if (opts.dirty) writeFileSync(join(work, 'residuo.txt'), 'lavoro non committato');
         execFileSync('bash', ['-c', finalize.run], {
           cwd: work,
           env: {
@@ -102,6 +106,13 @@ describe.each(KINDS)('$kind fixer non consegna mai un checkpoint WIP come HEAD',
       expect(result.commits).toBe(2); // il commit del round + quello nuovo: nessun amend
       expect(result.parentIsPriorRoundCommit).toBe(true);
       expect(result.pushed).toBe(true);
+    });
+
+    it('albero di lavoro sporco: nessun commit finale e nessun push (review del bot su #3834)', () => {
+      const result = run({ subject: 'wip(issue-18813): checkpoint pre-test', dirty: true });
+      expect(result.commits).toBe(1); // solo il commit del round
+      expect(result.subject).toBe('wip(issue-18813): checkpoint pre-test');
+      expect(result.remoteIsBase).toBe(true);
     });
 
     it('non tocca un commit conventional, ne un round senza commit nuovi', () => {

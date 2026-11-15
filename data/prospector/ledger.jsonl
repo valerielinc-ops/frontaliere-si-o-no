@@ -58066,3 +58066,5 @@
 {"eventType":"candidate_attempt","key":"sintio.ch","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-15T14:54:11.136Z","runId":"43707024661","runAttempt":1,"phase":"promote","eventId":"fcb2a8d7724e50bad68e866a"}
 {"eventType":"candidate_attempt","key":"skan","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-15T14:54:11.136Z","runId":"43707024661","runAttempt":1,"phase":"promote","eventId":"1c071f97533577f60e28ca89"}
 {"eventType":"candidate_transition","key":"creditx@sion","from":"awaiting_first_crawl","to":"production","at":"2026-11-15T14:54:11.137Z","runId":"43707024661","runAttempt":1,"phase":"promote","eventId":"47712acf45b633f3b5a296ab"}
+{"eventType":"candidate_transition","key":"absolutliv@olten","from":"promoted","to":"promoting","at":"2026-11-15T14:57:13.833Z","runId":"43707024661","runAttempt":1,"phase":"promote","eventId":"a13fbde1fb7747c335c7caaa"}
+{"eventType":"candidate_transition","key":"cnvo@yverdon-les-bains","from":"promoted","to":"promoting","at":"2026-11-15T14:57:13.833Z","runId":"43707024661","runAttempt":1,"phase":"promote","eventId":"4c36336027a1f15521ba1784"}

@@ -180,6 +180,12 @@ export function sourceAdapterRuntimeObservationFor(rows, options = {}) {
   const rawDetailDrop = rows?.detailDrop;
   const detailDrop = rawDetailDrop == null ? null : normalizeDetailDrop(rawDetailDrop);
   const malformedDetailDrop = rawDetailDrop != null && !detailDrop;
+  const rawSourceBodyFloorFilteredCount = rows?.sourceBodyFloorFilteredCount;
+  const hasSourceBodyFloorFilteredCount = Number.isInteger(rawSourceBodyFloorFilteredCount)
+    && rawSourceBodyFloorFilteredCount >= 0;
+  const sourceBodyFloorFilteredCount = hasSourceBodyFloorFilteredCount
+    ? rawSourceBodyFloorFilteredCount
+    : 0;
   const detailDropExceeded = Boolean(detailDrop)
     && detailDrop.candidates >= DETAIL_DROP_ADVISORY_MIN_CANDIDATES
     && !isDetailFailureWithinGrace(detailDrop.dropped, detailDrop.candidates);
@@ -223,6 +229,15 @@ export function sourceAdapterRuntimeObservationFor(rows, options = {}) {
     discoveredCount,
     output.length,
   );
+  // A filtered-empty outcome used to account for every discovered row in one
+  // lump. When a source publishes some rows and removes the rest for the
+  // source-body floor, that lump hides the floor-filtered rows from the
+  // accounting invariant. Prefer the explicit floor count whenever the
+  // producer supplied it, and keep the lump only for legacy adapters that do
+  // not expose the metadata yet.
+  const filteredEmptyFallbackCount = filteredEmptySnapshot && !hasSourceBodyFloorFilteredCount
+    ? discoveredCount
+    : 0;
 
   const unknownOutcome = outcomePresent
     && typeof rawOutcome === 'string'
@@ -266,7 +281,8 @@ export function sourceAdapterRuntimeObservationFor(rows, options = {}) {
   const observedDetailsIncomplete = options.requireObservedDetails === true
     && missingObservedDetailCount > 0;
   const accountedRows = output.length + expectedFilterCount + (detailDrop?.dropped || 0)
-    + (filteredEmptySnapshot ? discoveredCount : 0);
+    + sourceBodyFloorFilteredCount
+    + filteredEmptyFallbackCount;
   const rowAccountingMismatch = exactListingCount && discoveredCount !== accountedRows;
   const complete = productionSnapshotAccepted
     && exactListingCount
@@ -294,6 +310,9 @@ export function sourceAdapterRuntimeObservationFor(rows, options = {}) {
     ...(unverifiedListingCount ? { source_adapter_listing_count_unverified: 1 } : {}),
     ...(malformedExpectedFilterCount || malformedExpectedFilters
       ? { malformed_expected_filter_metadata: 1 }
+      : {}),
+    ...(sourceBodyFloorFilteredCount
+      ? { source_body_floor: sourceBodyFloorFilteredCount }
       : {}),
     ...(rowAccountingMismatch ? { source_adapter_row_accounting_mismatch: 1 } : {}),
     ...(observedDetailsIncomplete
@@ -336,6 +355,7 @@ export function sourceAdapterRuntimeObservationFor(rows, options = {}) {
     listingCount: discoveredCount,
     partialListingCount: exactListingCount ? null : discoveredCount,
     publishableCount: output.length,
+    sourceBodyFloorFilteredCount,
     runtimeOutputCount: productionSnapshotAccepted ? output.length : 0,
     snapshotAccepted: productionSnapshotAccepted || authoritativeEmptyAccepted,
     productionSnapshotAccepted: productionSnapshotAccepted || authoritativeEmptyAccepted,

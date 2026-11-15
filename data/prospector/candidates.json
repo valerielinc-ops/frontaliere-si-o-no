@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-15T14:54:11.243Z",
+  "updatedAt": "2026-11-15T14:57:13.906Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -15566,12 +15566,12 @@
     },
     "absolutliv@olten": {
       "key": "absolutliv@olten",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-22T04:04:53.422Z",
-      "updatedAt": "2026-11-15T14:17:16.274Z",
+      "updatedAt": "2026-11-15T14:57:13.833Z",
       "name": "absolutLIV AG",
       "city": "Olten",
       "zip": "4600",
@@ -16093,7 +16093,9 @@
           "logoSourceUrl": "https://absolut-liv.ch/logos/logo-absolutliv.png",
           "employerSiteName": "absolutLIV"
         }
-      ]
+      ],
+      "promotionPr": "18909",
+      "promotionBranch": "prospector/promote-2026-11-15"
     },
     "absolutliv@regensdorf": {
       "key": "absolutliv@regensdorf",
@@ -337129,13 +337131,13 @@
     },
     "cnvo@yverdon-les-bains": {
       "key": "cnvo@yverdon-les-bains",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco",
         "osm"
       ],
       "firstSeenAt": "2026-10-15T08:33:29.859Z",
-      "updatedAt": "2026-11-15T14:15:12.835Z",
+      "updatedAt": "2026-11-15T14:57:13.833Z",
       "name": "CNVO",
       "city": "Yverdon-les-Bains",
       "zip": "1400",
@@ -337694,7 +337696,9 @@
       },
       "secoEmployerClassification": "direct",
       "secoStaffingMatchConfidence": "curated-registry-and-signal-residual",
-      "emailDomainHints": []
+      "emailDomainHints": [],
+      "promotionPr": "18909",
+      "promotionBranch": "prospector/promote-2026-11-15"
     },
     "co-bo.ch": {
       "key": "co-bo.ch",

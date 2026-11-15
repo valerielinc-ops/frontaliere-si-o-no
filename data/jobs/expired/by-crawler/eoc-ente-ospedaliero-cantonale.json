@@ -202,8 +202,6 @@
     "sector": "",
     "expiredAt": "2026-10-10T21:30:57.885Z",
     "previousSlugs": [
-      "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio",
-      "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio",
       "karriere-eoc-ente-ospedaliero-cantonale-novaggio-011ab575",
       "carriere-eoc-ente-ospedaliero-cantonale-novaggio-bd632f4f",
       "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-15d9fa5e",
@@ -277,30 +275,44 @@
       "carriere-eoc-ente-ospedaliero-cantonale-novaggio-3d7537f2",
       "karriere-eoc-ente-ospedaliero-cantonale-novaggio-e3242bec",
       "carriere-eoc-ente-ospedaliero-cantonale-novaggio-66a581a8",
+      "karriere-eoc-ente-ospedaliero-cantonale-novaggio-624a13d8",
+      "carriere-eoc-ente-ospedaliero-cantonale-novaggio-8c24b1f2",
+      "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio",
+      "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio",
       "karriere-eoc-ente-ospedaliero-cantonale-novaggio",
       "carriere-eoc-ente-ospedaliero-cantonale-novaggio",
-      "karriere-eoc-ente-ospedaliero-cantonale-novaggio-624a13d8",
-      "carriere-eoc-ente-ospedaliero-cantonale-novaggio-8c24b1f2"
+      "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio-9e39f7f9",
+      "karriere-eoc-ente-ospedaliero-cantonale-novaggio-4f2d8449",
+      "carriere-eoc-ente-ospedaliero-cantonale-novaggio-21c1964d",
+      "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-36f83839"
     ],
     "previousSlugsByLocale": {
       "en": [
-        "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio",
-        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio",
+        "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio-9e39f7f9",
+        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-15d9fa5e",
         "karriere-eoc-ente-ospedaliero-cantonale-novaggio",
-        "carriere-eoc-ente-ospedaliero-cantonale-novaggio"
+        "carriere-eoc-ente-ospedaliero-cantonale-novaggio",
+        "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio",
+        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "de": [
         "karriere-eoc-ente-ospedaliero-cantonale-novaggio-011ab575",
-        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio",
+        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-15d9fa5e",
         "carriere-eoc-ente-ospedaliero-cantonale-novaggio",
         "karriere-eoc-ente-ospedaliero-cantonale-novaggio-67119333",
+        "karriere-eoc-ente-ospedaliero-cantonale-novaggio-9dabadd4",
+        "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio",
+        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio",
         "karriere-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "fr": [
         "carriere-eoc-ente-ospedaliero-cantonale-novaggio-bd632f4f",
-        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio",
+        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-15d9fa5e",
         "karriere-eoc-ente-ospedaliero-cantonale-novaggio",
         "carriere-eoc-ente-ospedaliero-cantonale-novaggio-8555a7db",
+        "carriere-eoc-ente-ospedaliero-cantonale-novaggio-de54a795",
+        "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio",
+        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio",
         "carriere-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "it": [
@@ -379,6 +391,10 @@
         "carriere-eoc-ente-ospedaliero-cantonale-novaggio-66a581a8",
         "karriere-eoc-ente-ospedaliero-cantonale-novaggio-624a13d8",
         "carriere-eoc-ente-ospedaliero-cantonale-novaggio-8c24b1f2",
+        "karriere-eoc-ente-ospedaliero-cantonale-novaggio-4f2d8449",
+        "carriere-eoc-ente-ospedaliero-cantonale-novaggio-21c1964d",
+        "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio-9e39f7f9",
+        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-36f83839",
         "karriere-eoc-ente-ospedaliero-cantonale-novaggio",
         "carriere-eoc-ente-ospedaliero-cantonale-novaggio"
       ]
@@ -415,41 +431,55 @@
     "sector": "",
     "expiredAt": "2026-10-10T21:30:57.885Z",
     "previousSlugs": [
-      "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio-f2b1d1",
-      "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
       "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio-a8a7067f",
       "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio-1c09f4d2",
       "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio-ac05eee0",
+      "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio-16bb579e",
+      "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio-8836b04f",
+      "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio-f2b1d1",
+      "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
       "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
       "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio",
-      "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio-16bb579e",
-      "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio-8836b04f"
+      "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio-f2b1d1-7e085cda",
+      "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio-3a5b2786",
+      "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio-25b3262d",
+      "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio-821e2132"
     ],
     "previousSlugsByLocale": {
       "en": [
-        "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio-f2b1d1",
-        "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
+        "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio-f2b1d1-7e085cda",
+        "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio-ac05eee0",
         "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
-        "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio"
+        "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio",
+        "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio-f2b1d1",
+        "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "de": [
         "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio-a8a7067f",
-        "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
+        "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio-ac05eee0",
         "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio",
         "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio-16bb579e",
+        "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio-3a5b2786",
+        "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio-f2b1d1",
+        "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
         "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "fr": [
         "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio-1c09f4d2",
-        "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
+        "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio-ac05eee0",
         "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
         "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio-8836b04f",
+        "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio-25b3262d",
+        "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio-f2b1d1",
+        "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio",
         "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "it": [
         "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio-ac05eee0",
         "krankenschwestern-in-allgemeiner-pflege-eoc-ente-ospedaliero-cantonale-novaggio",
-        "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio"
+        "infirmieres-en-general-eoc-ente-ospedaliero-cantonale-novaggio",
+        "general-care-nurse-eoc-ente-ospedaliero-cantonale-novaggio-f2b1d1",
+        "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-novaggio-821e2132"
       ]
     },
     "postalCode": "6986",
@@ -496,33 +526,43 @@
       "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona-dd9b8a14",
       "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona-60bf5cfa",
       "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-e7e2338e",
-      "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
-      "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
       "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-523d26af",
       "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona-2af59fe7",
+      "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-e6cfeb51",
+      "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona-d84ef0c9",
+      "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+      "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
       "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
       "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
-      "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-e6cfeb51",
-      "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona-d84ef0c9"
+      "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona-35149baf",
+      "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-075dd3cc",
+      "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona-539be340",
+      "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona-a490840a"
     ],
     "previousSlugsByLocale": {
       "en": [
         "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona-2b9b8fdb",
         "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona-a250f539",
         "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona-b4d6308c",
-        "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona-35149baf",
         "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-523d26af",
         "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-e6cfeb51"
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-e6cfeb51",
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-075dd3cc",
+        "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "de": [
         "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona-93fd0ec5",
         "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona-77055e51",
         "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona-dd9b8a14",
-        "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona-539be340",
         "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-523d26af",
         "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-e6cfeb51"
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-e6cfeb51",
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-075dd3cc",
+        "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "fr": [
         "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona-6255266b",
@@ -532,12 +572,19 @@
         "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-523d26af",
         "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona-d84ef0c9",
         "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-e6cfeb51",
+        "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona-a490840a",
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-075dd3cc",
+        "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona",
         "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "it": [
         "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-523d26af",
         "stages-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-e6cfeb51"
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-e6cfeb51",
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona-075dd3cc",
+        "nursing-service-internship-eoc-ente-ospedaliero-cantonale-bellinzona-2b9b8fdb",
+        "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-bellinzona-93fd0ec5"
       ]
     },
     "postalCode": "6500",
