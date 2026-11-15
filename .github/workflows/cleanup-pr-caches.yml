@@ -1,0 +1,162 @@
+name: Cleanup PR caches
+
+# The Actions cache pool is 10 GiB and GitHub evicts the least recently used
+# entries when it fills. Measured 2026-11-14 13:20Z: 9.73 GB used in 93 entries,
+# a large share of them created by PRs (`vitest-transform-*`, ~25 x 95 MB
+# `assemble-jobs-*`): a PR cache lives in a scope only that PR can read, yet it
+# competed with the deploy's own entries. The visible effect on the deploy was
+# the "no cache for prefix incremental-manifest-<loc>-... evicted from the 10 GiB
+# ceiling" warning on almost every build, i.e. a leg rebuilding without reuse, and
+# a missing OG cache in 4 of 7 green IT builds (+30 min).
+#
+# This workflow only DELETES cache entries that belong to PRs:
+#   - when a PR closes, every cache of refs/pull/<n>/merge and refs/pull/<n>/head;
+#   - daily, the caches of PRs that are already closed (a missed event), and the
+#     transform/assemble caches of still-open PRs not read for 2 days.
+# It never touches an entry saved on refs/heads/main, which is where the deploy
+# keeps `jobs-seo-html-*`, `incremental-manifest-*`, `og-jobs-*`,
+# `deploy-content-manifest-*`, `node-modules-*`, `node-cache-*` and `assemble-jobs-*`.
+#
+# `pull_request_target` runs the workflow from the default branch, so it works for
+# fork PRs too and, deliberately, there is NO checkout: nothing from the PR is ever
+# executed. The calls use the runner's own `gh` with the job token (this is a
+# workflow, not a local agent).
+
+on:
+  pull_request_target:
+    types: [closed]
+  schedule:
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'List what the daily sweep would delete without deleting'
+        required: false
+        type: boolean
+        default: true
+
+permissions:
+  actions: write
+  contents: read
+
+concurrency:
+  group: cleanup-pr-caches-${{ github.event.pull_request.number || 'sweep' }}
+  cancel-in-progress: false
+
+jobs:
+  delete-closed-pr-caches:
+    name: Delete the caches of the closed PR
+    if: ${{ github.event_name == 'pull_request_target' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Delete refs/pull/<n>/merge and refs/pull/<n>/head caches
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+          case "$PR_NUMBER" in ''|*[!0-9]*) echo "::error::unexpected PR number"; exit 1 ;; esac
+          deleted=0; freed=0
+          for ref in "refs/pull/${PR_NUMBER}/merge" "refs/pull/${PR_NUMBER}/head"; do
+            rows="$(gh api --paginate -X GET "repos/${GH_REPO}/actions/caches" \
+              -f "ref=${ref}" -f per_page=100 \
+              --jq '.actions_caches[] | [.id, .size_in_bytes] | @tsv')"
+            while IFS=$'\t' read -r id size; do
+              [ -n "${id:-}" ] || continue
+              if gh api -X DELETE "repos/${GH_REPO}/actions/caches/${id}" >/dev/null; then
+                deleted=$((deleted + 1)); freed=$((freed + size))
+              else
+                echo "::warning::could not delete cache ${id} on ${ref}"
+              fi
+            done <<< "$rows"
+          done
+          echo "PR #${PR_NUMBER}: deleted ${deleted} cache entr(y/ies), $((freed / 1048576)) MiB"
+          {
+            echo "### PR #${PR_NUMBER} caches"
+            echo "Deleted ${deleted} entr(y/ies), $((freed / 1048576)) MiB freed."
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  sweep-stale-pr-caches:
+    name: Daily sweep of orphaned and stale PR caches
+    if: ${{ github.event_name != 'pull_request_target' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Delete caches of closed PRs and stale transform/assemble caches of open ones
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && 'true' || 'false' }}
+          # Families that exist for the deploy on refs/heads/main: NEVER deleted here.
+          PROTECTED_KEY_PREFIXES: >-
+            jobs-seo-html- incremental-manifest- og-jobs- deploy-content-manifest-
+            node-modules- node-cache- assemble-jobs-
+          # Families an OPEN PR may have left behind; deleted only on a PR ref and
+          # only when not read for STALE_DAYS (a CLOSED PR loses all of its caches).
+          STALE_KEY_PREFIXES: 'vitest-transform- assemble-jobs- tsc-incremental-'
+          STALE_DAYS: '2'
+        run: |
+          set -euo pipefail
+          now="$(date +%s)"
+          cutoff=$(( now - STALE_DAYS * 86400 ))
+          rows="$(gh api --paginate -X GET "repos/${GH_REPO}/actions/caches" -f per_page=100 \
+            --jq '.actions_caches[] | [.id, .ref, .key, (.last_accessed_at | sub("\\.[0-9]+Z$"; "Z") | fromdateiso8601), .size_in_bytes] | @tsv')"
+
+          has_prefix() { # key, space separated prefixes
+            local key="$1" p
+            for p in $2; do [[ "$key" == "$p"* ]] && return 0; done
+            return 1
+          }
+
+          # PR number -> state, memoised in a plain string (no bash 4 arrays, so the
+          # sweep also runs under the macOS bash 3.2 used to test it locally).
+          states=" "
+          state=""
+          load_pr_state() { # sets $state; called without a subshell so the memo persists
+            local pr="$1" found
+            found="${states##* ${pr}=}"
+            if [ "$found" = "$states" ]; then
+              found="$(gh api "repos/${GH_REPO}/pulls/${pr}" --jq .state 2>/dev/null || echo unknown)"
+              states="${states}${pr}=${found} "
+            else
+              found="${found%% *}"
+            fi
+            state="$found"
+          }
+          deleted=0; freed=0; kept_main=0
+          while IFS=$'\t' read -r id ref key accessed size; do
+            [ -n "${id:-}" ] || continue
+            # Hard guard: nothing saved on main, and no protected family on any
+            # non-PR ref, is ever a candidate. Only refs/pull/<n>/* is swept.
+            if [ "$ref" = "refs/heads/main" ] \
+                || { ! [[ "$ref" =~ ^refs/pull/ ]] && has_prefix "$key" "$PROTECTED_KEY_PREFIXES"; }; then
+              kept_main=$((kept_main + 1)); continue
+            fi
+            if [[ ! "$ref" =~ ^refs/pull/([0-9]+)/(merge|head)$ ]]; then continue; fi
+            pr="${BASH_REMATCH[1]}"
+            load_pr_state "$pr"
+            reason=""
+            if [ "$state" = "closed" ]; then
+              reason="PR #${pr} is closed"
+            elif [ "$state" = "open" ] \
+                && has_prefix "$key" "$STALE_KEY_PREFIXES" \
+                && [ "$accessed" -lt "$cutoff" ]; then
+              reason="PR #${pr} cache not read for ${STALE_DAYS}+ days"
+            fi
+            [ -n "$reason" ] || continue
+            if [ "$DRY_RUN" = "true" ]; then
+              echo "would delete ${id} ${key} (${ref}, $((size / 1048576)) MiB): ${reason}"
+              deleted=$((deleted + 1)); freed=$((freed + size))
+              continue
+            fi
+            if gh api -X DELETE "repos/${GH_REPO}/actions/caches/${id}" >/dev/null; then
+              deleted=$((deleted + 1)); freed=$((freed + size))
+            else
+              echo "::warning::could not delete cache ${id} (${key})"
+            fi
+          done <<< "$rows"
+          msg="dry_run=${DRY_RUN}: ${deleted} entr(y/ies) $((freed / 1048576)) MiB; ${kept_main} entr(y/ies) on main left untouched"
+          echo "$msg"
+          { echo "### Cache sweep"; echo "$msg"; } >> "$GITHUB_STEP_SUMMARY"

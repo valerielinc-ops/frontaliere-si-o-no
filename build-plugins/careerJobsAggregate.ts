@@ -1,5 +1,5 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
-import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
+import { readJobsArrayStrict } from './shared/readJobsDatasetStrict';
 /**
  * Build-time aggregator for the 4 career-landing topic pages (template B).
  *
@@ -170,16 +170,8 @@ let _cache: {
 } | null = null;
 
 function loadJobs(rootDir: string): readonly JobRecord[] {
-  const jobsPath = np.join(rootDir, 'data', 'jobs.json');
-  if (!fs.existsSync(jobsPath)) return [];
-  try {
-    const parsed = readJsonFile(jobsPath);
-    if (Array.isArray(parsed)) return parsed as JobRecord[];
-    return [];
-  } catch (err) {
-    console.warn('[career-aggregate] failed to read jobs.json:', err);
-    return [];
-  }
+  // Fail closed: an unreadable dataset aborts the build instead of yielding 0 jobs.
+  return readJobsArrayStrict<JobRecord>(rootDir, 'career-aggregate');
 }
 
 interface SecoAgency {

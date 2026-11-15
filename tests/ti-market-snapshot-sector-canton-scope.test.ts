@@ -11,17 +11,15 @@
  * Reads the CI-assembled data/jobs.json (gitignored, rebuilt before vitest by
  * tests.yml — same dependency as ti-sector-hub-canton-scope.test.ts).
  */
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import { describe, expect, it } from 'vitest';
-import fs from 'node:fs';
 import path from 'node:path';
 import { resolveJobCanton } from '../build-plugins/shared/cantonSection';
 import { generateSectorSnapshotPages } from '../build-plugins/jobMarketSnapshotPlugin';
 import { JOB_MARKET_SECTOR_KEYS } from '../build-plugins/jobMarketSnapshotData';
 
 const DATA_JOBS_PATH = path.resolve(__dirname, '..', 'data', 'jobs.json');
-const jobs: Array<{ canton?: string; location?: string }> = JSON.parse(
-  fs.readFileSync(DATA_JOBS_PATH, 'utf-8'),
-);
+const jobs: Array<{ canton?: string; location?: string }> = readJsonFile(DATA_JOBS_PATH);
 
 describe('ti-market-snapshot-sector-canton-scope', () => {
   it('mercato-lavoro-ticino sector counts reflect canton=TI jobs only, not all of Switzerland', () => {

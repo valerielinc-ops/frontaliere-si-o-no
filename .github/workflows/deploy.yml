@@ -154,6 +154,7 @@ jobs:
             /scripts/ci/rearm-deploy-build.mjs
             /scripts/ci/deploy-rearm-request.mjs
             /scripts/ci/lib/deploy-job-failure-signature.mjs
+            /scripts/ci/deploy-failure-classifier.mjs
             /scripts/ci/lib/run-listing-window.mjs
             /scripts/lib/int-from-env.mjs
             /scripts/lib/is-invoked-directly.mjs
@@ -1365,8 +1366,15 @@ jobs:
             fi
           } | tee -a "$GITHUB_STEP_SUMMARY"
 
+      # W0-G: every `node` that reads `dist` below carries an EXPLICIT heap limit.
+      # Run 43131340812 OOM-ed all four legs in `hreflang-index-manifest.mjs dist`
+      # because the process ran with Node's default heap. These readers use ~1.2 GB
+      # in healthy runs: 6144 MB leaves margin and, unlike raising it, does not
+      # compete with the swap. tests/deploy-node-heap-contract.test.ts pins it.
       - name: Verify critical dist pages before upload
         if: matrix.locale == 'it'
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
         run: node scripts/validate-critical-dist-pages.mjs
 
       - name: Verify build profile markers before upload
@@ -1497,6 +1505,8 @@ jobs:
       # write every locale. This removes the non-owned locale output the same
       # way deploy.yml copies only dist/<locale> to each shard repo.
       - name: Prune to locale shard
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
         run: node scripts/ci/prune-locale-shard.mjs dist
 
       # Run artifact checks after removing other locales. The dotfile audit
@@ -1519,6 +1529,8 @@ jobs:
       - name: Hreflang index manifest (pre-barrier, no rewrite)
         id: hreflang-index-manifest-pre
         timeout-minutes: 30
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
         run: |
           set -euo pipefail
           rm -rf .cache/hreflang-index-manifest
@@ -1595,10 +1607,14 @@ jobs:
         if: matrix.locale == 'it'
         id: hreflang-index-manifest
         timeout-minutes: 30
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
         run: node scripts/ci/hreflang-index-manifest.mjs dist --manifest-dir .cache/hreflang-index-manifest --require-foreign-manifests --reuse-prepass-cache .cache/hreflang-index-manifest/it.pages.jsonl
 
       - name: Refresh expired archive evidence after Hreflang rewrite
         if: matrix.locale == 'it'
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
         run: node scripts/ci/shard-content-manifest.mjs refresh-expired-archive-evidence --root dist --locale it --evidence-manifest dist/assets/expired-archive-evidence-it.json
 
       # Keep this source-side validation successful for the locale provenance
@@ -1606,6 +1622,8 @@ jobs:
       # after the deferred hreflang rewrite, before any shard side effects.
       - name: Validate locale shard output
         id: validate-locale-shard
+        env:
+          NODE_OPTIONS: --max-old-space-size=6144
         run: node scripts/ci/validate-locale-shard-build.mjs dist
 
       # Owner decision 2026-10-24: an active job ALWAYS emits JobPosting.
@@ -1617,6 +1635,7 @@ jobs:
       - name: Assert active JobPosting coverage
         env:
           JOBPOSTING_COVERAGE_OUT: ${{ runner.temp }}/jobposting-coverage.json
+          NODE_OPTIONS: --max-old-space-size=6144
         run: node scripts/ci/assert-active-jobposting-coverage.mjs dist
 
       # The publisher has parallel locale jobs. Persist one compact exact Git
@@ -2601,6 +2620,51 @@ jobs:
           retention-days: 8
           if-no-files-found: error
 
+      # Telemetry only. It sits just BEFORE the incremental-manifest save, which must
+      # stay the final step of the job (tests/deploy-workflow.test.ts), so the figure
+      # excludes this leg's own new manifest entry (a few MB).
+      # The 10 GiB pool evicts the least recently used entry, and on 2026-11-14
+      # (9.73 GB in 93 entries) that regularly removed `incremental-manifest-*`,
+      # `og-jobs-*` and `deploy-content-manifest-*` before the next build. Without
+      # a per-build measurement the eviction is only visible as a warning on the
+      # leg that already lost its cache. This writes the occupancy per key family
+      # to the summary, so a trend (and who fills the pool) is readable per build.
+      # It changes no build outcome: continue-on-error, 3 minutes, read-only API.
+      - name: Cache pool occupancy (per key family)
+        if: always()
+        continue-on-error: true
+        timeout-minutes: 3
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -uo pipefail
+          usage="$(gh api "repos/${GITHUB_REPOSITORY}/actions/cache/usage" \
+            --jq '[.active_caches_size_in_bytes, .active_caches_count] | @tsv')" || exit 0
+          used_bytes="${usage%%$'\t'*}"; count="${usage##*$'\t'}"
+          used_gib="$(awk -v b="$used_bytes" 'BEGIN { printf "%.2f", b / 1073741824 }')"
+          table="$(gh api --paginate --slurp -X GET "repos/${GITHUB_REPOSITORY}/actions/caches" -f per_page=100 \
+            | jq -r '[.[].actions_caches[]]
+                | map({family: (.key | sub("-([0-9a-f]{7,}|[0-9]+)(-.*)?$"; "")),
+                       scope: (if (.ref | startswith("refs/pull/")) then "pull-request" else "main/branch" end),
+                       size: .size_in_bytes})
+                | group_by([.family, .scope])
+                | map({family: .[0].family, scope: .[0].scope, n: length, mib: ((map(.size) | add) / 1048576 | floor)})
+                | sort_by(-.mib)[:15][]
+                | "| `\(.family)` | \(.scope) | \(.n) | \(.mib) |"')" || table=""
+          {
+            echo "### Actions cache pool after build-locale (${{ matrix.locale }})"
+            echo "${used_gib} GiB of 10 GiB used in ${count} entries."
+            if [ -n "$table" ]; then
+              echo
+              echo "| key family | scope | entries | MiB |"
+              echo "|---|---|---|---|"
+              echo "$table"
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
+          if awk -v b="$used_bytes" 'BEGIN { exit !(b / 1073741824 >= 9.0) }'; then
+            echo "::warning title=Cache pool near the 10 GiB ceiling (${{ matrix.locale }})::${used_gib} GiB in ${count} entries: least recently used entries (incremental-manifest-*, og-jobs-*) are about to be evicted."
+          fi
+
       # Save the current shadow snapshot only after the report and history row:
       # the run-specific key is unique, while restore-keys above picks the
       # newest prior snapshot on the next run for this locale. Keep this as the
@@ -2818,6 +2882,7 @@ jobs:
       contents: read
       actions: write   # read this workflow's run list + POST /dispatches
       statuses: read   # read the durable canonical-regression queue
+      issues: write    # one "Deploy build blocked" issue per failure signature
     steps:
       - name: Restore runner CA trust before checkout (#9681)
         shell: bash
@@ -2886,6 +2951,10 @@ jobs:
           # job-level rerun. The rerun reuses this run's SHA and prepared
           # snapshot artifact; it must never fan out into a second full matrix.
           REARM_MAX_LOCALE_RECOVERY_ATTEMPTS: '1'
+          # The failure circuit breaker (backoff + 6/12 h budget) also files and
+          # closes the single "Deploy build blocked: <signature>" issue; only
+          # this job has `issues: write`, the resolvers just write the summary.
+          REARM_ISSUE_UPDATE: '1'
         run: node scripts/ci/rearm-deploy-build.mjs
 
       # This dispatch is deliberately at the end of the build workflow. The
