@@ -447,7 +447,10 @@ repair_compat_manifest_before_push() {
     return 1
   fi
 
-  node "$(dirname "$0")/../ci/repair-compat-manifest.mjs" "$PWD"
+  if ! node "$(dirname "$0")/../ci/repair-compat-manifest.mjs" "$PWD"; then
+    echo "::error::Compat manifest repair failed; refusing to commit or push the candidate" >&2
+    return 1
+  fi
   if ! git diff --quiet -- data/seo-404-compat/manifest.json; then
     git add -- data/seo-404-compat/manifest.json
     git commit --amend --no-edit

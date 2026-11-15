@@ -965,7 +965,10 @@ repair_compat_manifest_in_worktree() {
     esac
   done
   [ "$compat_touched" = true ] || return 0
-  node "$(dirname "$0")/../ci/repair-compat-manifest.mjs" "$PWD"
+  if ! node "$(dirname "$0")/../ci/repair-compat-manifest.mjs" "$PWD"; then
+    echo "❌ Compat manifest repair failed; refusing to stage or commit the candidate" >&2
+    return 1
+  fi
   git add -- data/seo-404-compat/manifest.json
 }
 
@@ -2611,7 +2614,11 @@ repair_compat_manifest_in_index() {
 
   manifest_path="$scratch_root/data/seo-404-compat/manifest.json"
   manifest_before="$(GIT_INDEX_FILE="$index_file" git rev-parse :data/seo-404-compat/manifest.json 2>/dev/null || true)"
-  node "$(dirname "$0")/../ci/repair-compat-manifest.mjs" "$scratch_root"
+  if ! node "$(dirname "$0")/../ci/repair-compat-manifest.mjs" "$scratch_root"; then
+    echo "❌ grouped-isolated: compat manifest repair failed — refusing to build a commit from an unvalidated manifest" >&2
+    rm -rf -- "$scratch_root"
+    return 1
+  fi
   manifest_after="$(git hash-object -- "$manifest_path")"
   if [ "$manifest_after" != "$manifest_before" ]; then
     manifest_blob="$(git hash-object -w -- "$manifest_path")"
