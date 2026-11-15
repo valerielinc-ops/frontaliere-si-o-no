@@ -681,6 +681,7 @@ describe('staged job-canon ordering handoff', () => {
   it.each([
     { name: 'all-locale SSG', buildLocale: undefined, buildStage: 'ssg' },
     { name: 'BUILD_LOCALE=it single build', buildLocale: 'it', buildStage: 'single' },
+    { name: 'BUILD_LOCALE=it staged SSG', buildLocale: 'it', buildStage: 'ssg' },
   ])('skips Worker map generation for $name when data/jobs.json is absent', async ({ buildLocale, buildStage }) => {
     root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-no-jobs-owner-'));
     fs.mkdirSync(path.join(root, 'data'), { recursive: true });
@@ -692,12 +693,14 @@ describe('staged job-canon ordering handoff', () => {
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => undefined);
     try {
       const workerPlugin = jobCanonRedirectMapPlugin(root);
+      (workerPlugin.buildStart as () => void).call(workerPlugin);
       await (workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin);
 
       expect(logSpy).toHaveBeenCalledWith(
         '[job-canon-redirect-map] data/jobs.json missing; skipping Worker map generation',
       );
       expect(getJobCanonOrderingFields()).toBeNull();
+      expect(fs.existsSync(path.join(root, '.cache', 'job-canon-ordering-fields.json'))).toBe(false);
       expect(fs.existsSync(path.join(root, 'dist', 'data', 'jobs-slug-map.json'))).toBe(false);
       expect(fs.existsSync(path.join(root, 'dist', 'job-canon'))).toBe(false);
     } finally {
@@ -777,6 +780,22 @@ describe('staged job-canon ordering handoff', () => {
     process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH = missingPath;
     await expect((workerPlugin.closeBundle as () => Promise<void>).call(workerPlugin))
       .rejects.toThrow(`ordering fields handoff missing at ${missingPath}`);
+  });
+
+  it('keeps staged IT SSG fail-closed when jobs exist but the ordering handoff is missing', () => {
+    root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-staged-it-missing-'));
+    fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+    fs.writeFileSync(path.join(root, 'data/jobs.json'), '[]');
+    process.env.BUILD_STAGE = 'ssg';
+    process.env.BUILD_LOCALE = 'it';
+
+    const workerPlugin = jobCanonRedirectMapPlugin(root);
+    const buildStart = workerPlugin.buildStart as () => void;
+    expect(() => buildStart.call(workerPlugin)).toThrow('BUILD_JOB_CANON_ORDERING_HANDOFF_PATH');
+
+    const missingPath = path.join(root, '.cache', 'job-canon-ordering-fields.json');
+    process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH = missingPath;
+    expect(() => buildStart.call(workerPlugin)).toThrow(`ordering fields handoff missing at ${missingPath}`);
   });
 
   it('keeps single-process builds on their in-memory ordering fields', async () => {

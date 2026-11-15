@@ -426,6 +426,14 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
     // shared/buildAbortOnError.ts. Same condition as closeBundle: the IT leg.
     buildStart() {
       if (process.env.BUILD_STAGE !== 'ssg' || process.env.BUILD_LOCALE !== 'it') return;
+      // The bundle stage intentionally does not create an ordering handoff
+      // when data/jobs.json is absent. Keep the existing no-jobs safe default
+      // across the staged boundary instead of requiring artifacts that cannot
+      // exist for this input.
+      if (!fs.existsSync(path.resolve(rootDir, 'data', 'jobs.json'))) {
+        clearJobCanonOrderingFields();
+        return;
+      }
       restoreJobCanonOrderingHandoffFromEnv();
     },
     async closeBundle() {
