@@ -3206,10 +3206,19 @@ export function planAlertForRun(alert, context, {
 } = {}) {
   let legacyWindowRows = null;
   let sampled = false;
+  // Il piano legacy e' la VERIFICA indipendente dell'indice: non riceve mai
+  // l'indice, quindi ne' vocabolario ne' risposte di ricerca ne' predicati ne'
+  // colonne per riga (perf-plan V). Lo si toglie dal contesto anche se un
+  // chiamante lo avesse messo li'.
+  const {
+    candidateIndex: _ignoredIndex,
+    candidateCursorMs: _ignoredCursor,
+    ...legacyContext
+  } = context;
   const legacyPlan = () => {
     const jobs = selectLegacyWindow();
     legacyWindowRows = jobs.length;
-    return planAlertMatch(alert, { ...context, recentJobs: jobs });
+    return planAlertMatch(alert, { ...legacyContext, recentJobs: jobs });
   };
   const indexedPlan = () => planAlertMatch(alert, {
     ...context,

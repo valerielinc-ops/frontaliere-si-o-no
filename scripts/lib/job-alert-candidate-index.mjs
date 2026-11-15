@@ -60,7 +60,14 @@ import { createHash } from 'node:crypto';
 
 export const CANDIDATE_INDEX_MODES = Object.freeze(['off', 'shadow', 'on']);
 export const DEFAULT_CANDIDATE_INDEX_MODE = 'on';
-export const DEFAULT_SHADOW_SAMPLE_LIVE = 0.02;
+// 0,5%: con la fast path (risposte di ricerca e predicati dell'indice nello
+// scorer, perf-plan P1/P4) lo scorer si fida di piu' dell'indice, quindi la
+// verifica DEVE restare indipendente — il percorso legacy, senza vocabolario ne'
+// risposte dell'indice — e per costare poco si riduce il campione invece di
+// renderla dipendente. Circa 25 alert per run (il 2% erano ~118, ~218 s di
+// planning) bastano a vedere una divergenza nell'arco di pochi giorni;
+// JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE in Remote Config lo alza.
+export const DEFAULT_SHADOW_SAMPLE_LIVE = 0.005;
 export const DEFAULT_SHADOW_SAMPLE_DRY_RUN = 0.10;
 export const DEFAULT_BITSET_BUDGET_BYTES = 128 * 1024 * 1024;
 

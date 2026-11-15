@@ -511,8 +511,8 @@ describe('rollout — planAlertForRun', () => {
 });
 
 describe('rollout — configurazione e campionamento', () => {
-  it('default locale on; 0,02 in LIVE e 0,10 in dry-run', () => {
-    expect(resolveCandidateIndexConfig({}, { dryRun: false })).toMatchObject({ mode: 'on', sampleRate: 0.02 });
+  it('default locale on; 0,005 in LIVE e 0,10 in dry-run', () => {
+    expect(resolveCandidateIndexConfig({}, { dryRun: false })).toMatchObject({ mode: 'on', sampleRate: 0.005 });
     expect(resolveCandidateIndexConfig({}, { dryRun: true })).toMatchObject({ mode: 'on', sampleRate: 0.1 });
   });
 
@@ -521,7 +521,7 @@ describe('rollout — configurazione e campionamento', () => {
     expect(resolveCandidateIndexConfig({ JOB_ALERT_CANDIDATE_INDEX_MODE: 'shadow' }).mode).toBe('shadow');
     expect(resolveCandidateIndexConfig({ JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE: '0.5' }).sampleRate).toBe(0.5);
     expect(resolveCandidateIndexConfig({ JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE: '7' }).sampleRate).toBe(1);
-    expect(resolveCandidateIndexConfig({ JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE: 'x' }).sampleRate).toBe(0.02);
+    expect(resolveCandidateIndexConfig({ JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE: 'x' }).sampleRate).toBe(0.005);
     expect(resolveCandidateIndexConfig({ JOB_ALERT_CANDIDATE_INDEX_BUDGET_MB: '8' }).budgetBytes).toBe(8 * 1024 * 1024);
     const odd = resolveCandidateIndexConfig({ JOB_ALERT_CANDIDATE_INDEX_MODE: 'turbo' });
     expect(odd).toMatchObject({ mode: 'shadow', invalidMode: true });
