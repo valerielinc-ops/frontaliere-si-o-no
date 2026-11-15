@@ -36276,6 +36276,11 @@
     },
     "sector": "Amministrazione Pubblica",
     "expiredAt": "2026-09-22T00:14:52.830Z",
+    "previousSlugs": [
+      "notar-stellvertreter-in-kanton-zuerich-wadenswil",
+      "notar-stellvertreter-in-kantonale-verwaltung-zurich-wadenswil",
+      "notar-stellvertreter-in-kantonale-verwaltung-zurich-wadenswil-f9967665"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "notar-stellvertreter-in-kanton-zuerich-wadenswil-eb7c7d4c",
@@ -36302,12 +36307,7 @@
     "salaryMin": 73500,
     "salaryMax": 111500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "previousSlugs": [
-      "notar-stellvertreter-in-kanton-zuerich-wadenswil",
-      "notar-stellvertreter-in-kantonale-verwaltung-zurich-wadenswil",
-      "notar-stellvertreter-in-kantonale-verwaltung-zurich-wadenswil-f9967665"
-    ]
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "direttore-aggiunto-kantonale-verwaltung-zurich-wila",

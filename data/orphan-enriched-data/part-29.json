@@ -3011,9 +3011,14 @@
       },
       "queries": [
         {
+          "query": "apprendistato ticino",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
           "query": "apprendistato ticino posti liberi",
           "clicks": 0,
-          "impressions": 5
+          "impressions": 6
         },
         {
           "query": "offerte lavoro parrucchiere turgovia",
@@ -3024,6 +3029,11 @@
           "query": "apprendistato ticino 2026",
           "clicks": 0,
           "impressions": 4
+        },
+        {
+          "query": "apprendistato in ticino per italiani",
+          "clicks": 1,
+          "impressions": 2
         },
         {
           "query": "apprendistato svizzera per italiani",
@@ -3049,11 +3059,6 @@
           "query": "stipendi apprendisti ticino 2026",
           "clicks": 0,
           "impressions": 2
-        },
-        {
-          "query": "apprendistato in ticino per italiani",
-          "clicks": 1,
-          "impressions": 1
         },
         {
           "query": "cantone di basilea",
@@ -3091,7 +3096,7 @@
           "impressions": 1
         },
         {
-          "query": "apprendistato ticino",
+          "query": "posti apprendistato ticino",
           "clicks": 0,
           "impressions": 1
         },
@@ -3104,16 +3109,11 @@
           "query": "apprendistati ticino",
           "clicks": 0,
           "impressions": 1
-        },
-        {
-          "query": "comune di grancia",
-          "clicks": 0,
-          "impressions": 1
         }
       ],
-      "totalImpressions": 40,
+      "totalImpressions": 50,
       "totalClicks": 1,
-      "topQuery": "apprendistato ticino posti liberi",
+      "topQuery": "apprendistato ticino",
       "title": "Apprendistato",
       "titleByLocale": {
         "it": "",
@@ -9440,6 +9440,58 @@
       ]
     },
     {
+      "slug": "assistenza-didattica-70-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
+      "locale": "it",
+      "path": "/cerca-lavoro-berna/assistenza-didattica-70-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
+      "observedPaths": {
+        "it": "/cerca-lavoro-berna/assistenza-didattica-70-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Assistenza didattica 70 ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "assistenza-didattica-70-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
+        "en": "assistenza-didattica-70-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
+        "de": "assistenza-didattica-70-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
+        "fr": "assistenza-didattica-70-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/assistenza-didattica-70-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
+        "en": "/en/find-jobs-bern/assistenza-didattica-70-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
+        "de": "/de/jobs-im-bern/assistenza-didattica-70-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern",
+        "fr": "/fr/trouver-emploi-berne/assistenza-didattica-70-100-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "assistenza-sanitaria-e-sociale-m-w-d-80-universitatsklinik-balgrist-zurich",
       "locale": "de",
       "path": "/de/jobs-in-zurich/assistenza-sanitaria-e-sociale-m-w-d-80-universitatsklinik-balgrist-zurich",
@@ -10852,6 +10904,58 @@
       ]
     },
     {
+      "slug": "automatiker-in-con-betriebselektrikerbewilligung-fachkraft-ch-gmbh-baden",
+      "locale": "it",
+      "path": "/cerca-lavoro-zurigo/automatiker-in-con-betriebselektrikerbewilligung-fachkraft-ch-gmbh-baden",
+      "observedPaths": {
+        "it": "/cerca-lavoro-zurigo/automatiker-in-con-betriebselektrikerbewilligung-fachkraft-ch-gmbh-baden"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Automatiker in con betriebselektrikerbewilligung fachkraft ch gmbh",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Baden",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "automatiker-in-con-betriebselektrikerbewilligung-fachkraft-ch-gmbh-baden",
+        "en": "automatiker-in-con-betriebselektrikerbewilligung-fachkraft-ch-gmbh-baden",
+        "de": "automatiker-in-con-betriebselektrikerbewilligung-fachkraft-ch-gmbh-baden",
+        "fr": "automatiker-in-con-betriebselektrikerbewilligung-fachkraft-ch-gmbh-baden"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/automatiker-in-con-betriebselektrikerbewilligung-fachkraft-ch-gmbh-baden",
+        "en": "/en/find-jobs-zurich/automatiker-in-con-betriebselektrikerbewilligung-fachkraft-ch-gmbh-baden",
+        "de": "/de/jobs-im-zurich/automatiker-in-con-betriebselektrikerbewilligung-fachkraft-ch-gmbh-baden",
+        "fr": "/fr/trouver-emploi-zurich/automatiker-in-con-betriebselektrikerbewilligung-fachkraft-ch-gmbh-baden"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "automatiker-in-mit-sap-kenntnissen-sta-personal-ag-zurich",
       "locale": "fr",
       "path": "/fr/trouver-emploi-zurich/automatiker-in-mit-sap-kenntnissen-sta-personal-ag-zurich",
@@ -11497,6 +11601,58 @@
         "en": "/en/find-jobs-zurich/avvocato-danni-in-lesioni-personali-axa-svizzera-winterthur-mit-der-moglichkeit-zur-flexiblen-ausgestaltung-mittels-home",
         "de": "/de/jobs-in-zurich/avvocato-danni-in-lesioni-personali-axa-svizzera-winterthur-mit-der-moglichkeit-zur-flexiblen-ausgestaltung-mittels-home",
         "fr": "/fr/trouver-emploi-zurich/avvocato-danni-in-lesioni-personali-axa-svizzera-winterthur-mit-der-moglichkeit-zur-flexiblen-ausgestaltung-mittels-home"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "bachelor-of-science-fhnw-en-optometrie-f-m-d-dans-tout-la-suisse-fielmann-group-basel",
+      "locale": "it",
+      "path": "/cerca-lavoro-basilea/bachelor-of-science-fhnw-en-optometrie-f-m-d-dans-tout-la-suisse-fielmann-group-basel",
+      "observedPaths": {
+        "it": "/cerca-lavoro-basilea/bachelor-of-science-fhnw-en-optometrie-f-m-d-dans-tout-la-suisse-fielmann-group-basel"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Bachelor of science fhnw en optometrie dans tout la suisse fielmann group",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Basel",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "bachelor-of-science-fhnw-en-optometrie-f-m-d-dans-tout-la-suisse-fielmann-group-basel",
+        "en": "bachelor-of-science-fhnw-en-optometrie-f-m-d-dans-tout-la-suisse-fielmann-group-basel",
+        "de": "bachelor-of-science-fhnw-en-optometrie-f-m-d-dans-tout-la-suisse-fielmann-group-basel",
+        "fr": "bachelor-of-science-fhnw-en-optometrie-f-m-d-dans-tout-la-suisse-fielmann-group-basel"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-basilea/bachelor-of-science-fhnw-en-optometrie-f-m-d-dans-tout-la-suisse-fielmann-group-basel",
+        "en": "/en/find-jobs-basel/bachelor-of-science-fhnw-en-optometrie-f-m-d-dans-tout-la-suisse-fielmann-group-basel",
+        "de": "/de/jobs-im-basel/bachelor-of-science-fhnw-en-optometrie-f-m-d-dans-tout-la-suisse-fielmann-group-basel",
+        "fr": "/fr/trouver-emploi-bale/bachelor-of-science-fhnw-en-optometrie-f-m-d-dans-tout-la-suisse-fielmann-group-basel"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -15492,6 +15648,109 @@
       ]
     },
     {
+      "slug": "cdi-host-di-benvenuto-w-m-hermes-geneve",
+      "locale": "it",
+      "path": "/cerca-lavoro-ginevra/cdi-host-di-benvenuto-w-m-hermes-geneve",
+      "observedPaths": {
+        "it": "/cerca-lavoro-ginevra/cdi-host-di-benvenuto-w-m-hermes-geneve"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Cdi host di benvenuto hermes geneve",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "cdi-host-di-benvenuto-w-m-hermes-geneve",
+        "en": "cdi-host-di-benvenuto-w-m-hermes-geneve",
+        "de": "cdi-host-di-benvenuto-w-m-hermes-geneve",
+        "fr": "cdi-host-di-benvenuto-w-m-hermes-geneve"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ginevra/cdi-host-di-benvenuto-w-m-hermes-geneve",
+        "en": "/en/find-jobs-geneva/cdi-host-di-benvenuto-w-m-hermes-geneve",
+        "de": "/de/jobs-im-genf/cdi-host-di-benvenuto-w-m-hermes-geneve",
+        "fr": "/fr/trouver-emploi-geneve/cdi-host-di-benvenuto-w-m-hermes-geneve"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "cerchiamo-un-rinforzo-per-il-nostro-team-della-scuola-secondaria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-linden",
+      "locale": "it",
+      "path": "/cerca-lavoro-berna/cerchiamo-un-rinforzo-per-il-nostro-team-della-scuola-secondaria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-linden",
+      "observedPaths": {
+        "it": "/cerca-lavoro-berna/cerchiamo-un-rinforzo-per-il-nostro-team-della-scuola-secondaria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-linden"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Cerchiamo un rinforzo per il nostro team della scuola secondaria ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton linden",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "cerchiamo-un-rinforzo-per-il-nostro-team-della-scuola-secondaria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-linden",
+        "en": "cerchiamo-un-rinforzo-per-il-nostro-team-della-scuola-secondaria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-linden",
+        "de": "cerchiamo-un-rinforzo-per-il-nostro-team-della-scuola-secondaria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-linden",
+        "fr": "cerchiamo-un-rinforzo-per-il-nostro-team-della-scuola-secondaria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-linden"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/cerchiamo-un-rinforzo-per-il-nostro-team-della-scuola-secondaria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-linden",
+        "en": "/en/find-jobs-bern/cerchiamo-un-rinforzo-per-il-nostro-team-della-scuola-secondaria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-linden",
+        "de": "/de/jobs-im-bern/cerchiamo-un-rinforzo-per-il-nostro-team-della-scuola-secondaria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-linden",
+        "fr": "/fr/trouver-emploi-berne/cerchiamo-un-rinforzo-per-il-nostro-team-della-scuola-secondaria-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-linden"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "certified-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7",
       "locale": "en",
       "path": "/en/find-jobs-ticino/certified-ergotherapist-eoc-ente-ospedaliero-cantonale-novaggio-bf9fb7",
@@ -16280,6 +16539,58 @@
       ]
     },
     {
+      "slug": "chef-de-projet-en-installation-et-securite-benisa-sa-cadempino",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-tessin/chef-de-projet-en-installation-et-securite-benisa-sa-cadempino",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-tessin/chef-de-projet-en-installation-et-securite-benisa-sa-cadempino"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Chef de projet en installation et securite benisa sa",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Cadempino",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "chef-de-projet-en-installation-et-securite-benisa-sa-cadempino",
+        "en": "chef-de-projet-en-installation-et-securite-benisa-sa-cadempino",
+        "de": "chef-de-projet-en-installation-et-securite-benisa-sa-cadempino",
+        "fr": "chef-de-projet-en-installation-et-securite-benisa-sa-cadempino"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/chef-de-projet-en-installation-et-securite-benisa-sa-cadempino",
+        "en": "/en/find-jobs-ticino/chef-de-projet-en-installation-et-securite-benisa-sa-cadempino",
+        "de": "/de/jobs-im-tessin/chef-de-projet-en-installation-et-securite-benisa-sa-cadempino",
+        "fr": "/fr/trouver-emploi-tessin/chef-de-projet-en-installation-et-securite-benisa-sa-cadempino"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "chef-du-departement-textile-coop-genossenschaft-thun",
       "locale": "de",
       "path": "/de/jobs-in-bern/chef-du-departement-textile-coop-genossenschaft-thun",
@@ -16843,6 +17154,58 @@
         "en": "/en/find-jobs-lucerne/civilian-service-worker-as-nursing-assistant-emergency-center-position-101140-luzerner-kantonsspital-luks-luzern",
         "de": "/de/jobs-im-luzern/civilian-service-worker-as-nursing-assistant-emergency-center-position-101140-luzerner-kantonsspital-luks-luzern",
         "fr": "/fr/trouver-emploi-lucerne/civilian-service-worker-as-nursing-assistant-emergency-center-position-101140-luzerner-kantonsspital-luks-luzern"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "claims-fraud-senior-investigator-motor-vehicles-biel-jura-region-m-f-d-80-100-zurich-insurance-sede-ticino-ticino",
+      "locale": "en",
+      "path": "/en/find-jobs-ticino/claims-fraud-senior-investigator-motor-vehicles-biel-jura-region-m-f-d-80-100-zurich-insurance-sede-ticino-ticino",
+      "observedPaths": {
+        "en": "/en/find-jobs-ticino/claims-fraud-senior-investigator-motor-vehicles-biel-jura-region-m-f-d-80-100-zurich-insurance-sede-ticino-ticino"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Claims fraud senior investigator motor vehicles biel jura region",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Zurich Insurance",
+      "companyKey": "zurich-insurance-sede-ticino",
+      "location": "Ticino",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "claims-fraud-senior-investigator-motor-vehicles-biel-jura-region-m-f-d-80-100-zurich-insurance-sede-ticino-ticino",
+        "en": "claims-fraud-senior-investigator-motor-vehicles-biel-jura-region-m-f-d-80-100-zurich-insurance-sede-ticino-ticino",
+        "de": "claims-fraud-senior-investigator-motor-vehicles-biel-jura-region-m-f-d-80-100-zurich-insurance-sede-ticino-ticino",
+        "fr": "claims-fraud-senior-investigator-motor-vehicles-biel-jura-region-m-f-d-80-100-zurich-insurance-sede-ticino-ticino"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/claims-fraud-senior-investigator-motor-vehicles-biel-jura-region-m-f-d-80-100-zurich-insurance-sede-ticino-ticino",
+        "en": "/en/find-jobs-ticino/claims-fraud-senior-investigator-motor-vehicles-biel-jura-region-m-f-d-80-100-zurich-insurance-sede-ticino-ticino",
+        "de": "/de/jobs-im-tessin/claims-fraud-senior-investigator-motor-vehicles-biel-jura-region-m-f-d-80-100-zurich-insurance-sede-ticino-ticino",
+        "fr": "/fr/trouver-emploi-tessin/claims-fraud-senior-investigator-motor-vehicles-biel-jura-region-m-f-d-80-100-zurich-insurance-sede-ticino-ticino"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -23717,6 +24080,57 @@
       ]
     },
     {
+      "slug": "decolleteur-h-f-x-cartier-manufacture-le-locle",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-jura/decolleteur-h-f-x-cartier-manufacture-le-locle",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-jura/decolleteur-h-f-x-cartier-manufacture-le-locle"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Decolleteur h x cartier manufacture le locle",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "decolleteur-h-f-x-cartier-manufacture-le-locle",
+        "en": "decolleteur-h-f-x-cartier-manufacture-le-locle",
+        "de": "decolleteur-h-f-x-cartier-manufacture-le-locle",
+        "fr": "decolleteur-h-f-x-cartier-manufacture-le-locle"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-giura/decolleteur-h-f-x-cartier-manufacture-le-locle",
+        "en": "/en/find-jobs-jura/decolleteur-h-f-x-cartier-manufacture-le-locle",
+        "de": "/de/jobs-im-jura/decolleteur-h-f-x-cartier-manufacture-le-locle",
+        "fr": "/fr/trouver-emploi-jura/decolleteur-h-f-x-cartier-manufacture-le-locle"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "decorateur-angleur-f-m-d-chopard-winkel",
       "locale": "it",
       "path": "/cerca-lavoro-zurigo/decorateur-angleur-f-m-d-chopard-winkel/",
@@ -25291,6 +25705,58 @@
       ]
     },
     {
+      "slug": "dipl-fachfrau-mann-operationstechnik-hf-swiss-medical-network-zurich",
+      "locale": "it",
+      "path": "/cerca-lavoro-zurigo/dipl-fachfrau-mann-operationstechnik-hf-swiss-medical-network-zurich",
+      "observedPaths": {
+        "it": "/cerca-lavoro-zurigo/dipl-fachfrau-mann-operationstechnik-hf-swiss-medical-network-zurich"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Dipl fachfrau mann operationstechnik hf",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "dipl-fachfrau-mann-operationstechnik-hf-swiss-medical-network-zurich",
+        "en": "dipl-fachfrau-mann-operationstechnik-hf-swiss-medical-network-zurich",
+        "de": "dipl-fachfrau-mann-operationstechnik-hf-swiss-medical-network-zurich",
+        "fr": "dipl-fachfrau-mann-operationstechnik-hf-swiss-medical-network-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/dipl-fachfrau-mann-operationstechnik-hf-swiss-medical-network-zurich",
+        "en": "/en/find-jobs-zurich/dipl-fachfrau-mann-operationstechnik-hf-swiss-medical-network-zurich",
+        "de": "/de/jobs-im-zurich/dipl-fachfrau-mann-operationstechnik-hf-swiss-medical-network-zurich",
+        "fr": "/fr/trouver-emploi-zurich/dipl-fachfrau-mann-operationstechnik-hf-swiss-medical-network-zurich"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "dipl-infermieristica-professionale-dipl-infermieristica-piscina-professionale-su-richiesta-diakoniewerk-neumunster",
       "locale": "en",
       "path": "/en/find-jobs-ticino/dipl-infermieristica-professionale-dipl-infermieristica-piscina-professionale-su-richiesta-diakoniewerk-neumunster",
@@ -25630,6 +26096,58 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-adullam-stiftung-basel",
+      "locale": "it",
+      "path": "/cerca-lavoro-neuchatel/dipl-pflegefachfrau-pflegefachmann-hf-adullam-stiftung-basel",
+      "observedPaths": {
+        "it": "/cerca-lavoro-neuchatel/dipl-pflegefachfrau-pflegefachmann-hf-adullam-stiftung-basel"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Dipl pflegefachfrau pflegefachmann hf adullam stiftung",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Basel",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "dipl-pflegefachfrau-pflegefachmann-hf-adullam-stiftung-basel",
+        "en": "dipl-pflegefachfrau-pflegefachmann-hf-adullam-stiftung-basel",
+        "de": "dipl-pflegefachfrau-pflegefachmann-hf-adullam-stiftung-basel",
+        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-adullam-stiftung-basel"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-neuchatel/dipl-pflegefachfrau-pflegefachmann-hf-adullam-stiftung-basel",
+        "en": "/en/find-jobs-neuchatel/dipl-pflegefachfrau-pflegefachmann-hf-adullam-stiftung-basel",
+        "de": "/de/jobs-im-neuenburg/dipl-pflegefachfrau-pflegefachmann-hf-adullam-stiftung-basel",
+        "fr": "/fr/trouver-emploi-neuchatel/dipl-pflegefachfrau-pflegefachmann-hf-adullam-stiftung-basel"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -28692,6 +29210,57 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "electrical-installer-betriebselektriker-in-fur-tolle-dauerstelle-fachkraft-ch-gmbh-sursee",
+      "locale": "en",
+      "path": "/en/find-jobs-lucerne/electrical-installer-betriebselektriker-in-fur-tolle-dauerstelle-fachkraft-ch-gmbh-sursee",
+      "observedPaths": {
+        "en": "/en/find-jobs-lucerne/electrical-installer-betriebselektriker-in-fur-tolle-dauerstelle-fachkraft-ch-gmbh-sursee"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Electrical installer betriebselektriker in fur tolle dauerstelle fachkraft ch gmbh sursee",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "electrical-installer-betriebselektriker-in-fur-tolle-dauerstelle-fachkraft-ch-gmbh-sursee",
+        "en": "electrical-installer-betriebselektriker-in-fur-tolle-dauerstelle-fachkraft-ch-gmbh-sursee",
+        "de": "electrical-installer-betriebselektriker-in-fur-tolle-dauerstelle-fachkraft-ch-gmbh-sursee",
+        "fr": "electrical-installer-betriebselektriker-in-fur-tolle-dauerstelle-fachkraft-ch-gmbh-sursee"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-lucerna/electrical-installer-betriebselektriker-in-fur-tolle-dauerstelle-fachkraft-ch-gmbh-sursee",
+        "en": "/en/find-jobs-lucerne/electrical-installer-betriebselektriker-in-fur-tolle-dauerstelle-fachkraft-ch-gmbh-sursee",
+        "de": "/de/jobs-im-luzern/electrical-installer-betriebselektriker-in-fur-tolle-dauerstelle-fachkraft-ch-gmbh-sursee",
+        "fr": "/fr/trouver-emploi-lucerne/electrical-installer-betriebselektriker-in-fur-tolle-dauerstelle-fachkraft-ch-gmbh-sursee"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -34157,6 +34726,57 @@
       ]
     },
     {
+      "slug": "front-office-manager-in-unbefristeter-jahresanstellung-m-w-d-tschuggen-collection-arosa",
+      "locale": "en",
+      "path": "/en/find-jobs-graubunden/front-office-manager-in-unbefristeter-jahresanstellung-m-w-d-tschuggen-collection-arosa",
+      "observedPaths": {
+        "en": "/en/find-jobs-graubunden/front-office-manager-in-unbefristeter-jahresanstellung-m-w-d-tschuggen-collection-arosa"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Front office manager in unbefristeter jahresanstellung tschuggen collection arosa",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "front-office-manager-in-unbefristeter-jahresanstellung-m-w-d-tschuggen-collection-arosa",
+        "en": "front-office-manager-in-unbefristeter-jahresanstellung-m-w-d-tschuggen-collection-arosa",
+        "de": "front-office-manager-in-unbefristeter-jahresanstellung-m-w-d-tschuggen-collection-arosa",
+        "fr": "front-office-manager-in-unbefristeter-jahresanstellung-m-w-d-tschuggen-collection-arosa"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-grigioni/front-office-manager-in-unbefristeter-jahresanstellung-m-w-d-tschuggen-collection-arosa",
+        "en": "/en/find-jobs-graubunden/front-office-manager-in-unbefristeter-jahresanstellung-m-w-d-tschuggen-collection-arosa",
+        "de": "/de/jobs-im-graubunden/front-office-manager-in-unbefristeter-jahresanstellung-m-w-d-tschuggen-collection-arosa",
+        "fr": "/fr/trouver-emploi-grisons/front-office-manager-in-unbefristeter-jahresanstellung-m-w-d-tschuggen-collection-arosa"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "funds-processing-operation-spezialist-union-bancaire-privee-geneva",
       "locale": "de",
       "path": "/de/jobs-in-genf/funds-processing-operation-spezialist-union-bancaire-privee-geneva",
@@ -34440,6 +35060,109 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nxn9ag",
+      "locale": "it",
+      "path": "/cerca-lavoro-berna/galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nxn9ag",
+      "observedPaths": {
+        "it": "/cerca-lavoro-berna/galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nxn9ag"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Galenica apotheker apothekerin nxn9ag",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "Galenica AG",
+      "companyKey": "galenica-ag",
+      "location": "Bern",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nxn9ag",
+        "en": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nxn9ag",
+        "de": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nxn9ag",
+        "fr": "galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nxn9ag"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nxn9ag",
+        "en": "/en/find-jobs-bern/galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nxn9ag",
+        "de": "/de/jobs-im-bern/galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nxn9ag",
+        "fr": "/fr/trouver-emploi-berne/galenica-galenica-ag-apotheker-apothekerin-w-m-d-bern-nxn9ag"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "gartner-in-garten-und-landschaftsbau-mit-fuhrungsverantwortung-fachkraft-ch-gmbh-muri-ag",
+      "locale": "en",
+      "path": "/en/find-jobs-fribourg/gartner-in-garten-und-landschaftsbau-mit-fuhrungsverantwortung-fachkraft-ch-gmbh-muri-ag",
+      "observedPaths": {
+        "en": "/en/find-jobs-fribourg/gartner-in-garten-und-landschaftsbau-mit-fuhrungsverantwortung-fachkraft-ch-gmbh-muri-ag"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Gartner in garten und landschaftsbau mit fuhrungsverantwortung fachkraft ch gmbh muri ag",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "gartner-in-garten-und-landschaftsbau-mit-fuhrungsverantwortung-fachkraft-ch-gmbh-muri-ag",
+        "en": "gartner-in-garten-und-landschaftsbau-mit-fuhrungsverantwortung-fachkraft-ch-gmbh-muri-ag",
+        "de": "gartner-in-garten-und-landschaftsbau-mit-fuhrungsverantwortung-fachkraft-ch-gmbh-muri-ag",
+        "fr": "gartner-in-garten-und-landschaftsbau-mit-fuhrungsverantwortung-fachkraft-ch-gmbh-muri-ag"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-friburgo/gartner-in-garten-und-landschaftsbau-mit-fuhrungsverantwortung-fachkraft-ch-gmbh-muri-ag",
+        "en": "/en/find-jobs-fribourg/gartner-in-garten-und-landschaftsbau-mit-fuhrungsverantwortung-fachkraft-ch-gmbh-muri-ag",
+        "de": "/de/jobs-im-freiburg/gartner-in-garten-und-landschaftsbau-mit-fuhrungsverantwortung-fachkraft-ch-gmbh-muri-ag",
+        "fr": "/fr/trouver-emploi-fribourg/gartner-in-garten-und-landschaftsbau-mit-fuhrungsverantwortung-fachkraft-ch-gmbh-muri-ag"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -37241,6 +37964,57 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "hote-ou-hotesse-d-accueil-des-bains-de-cressy-50-hug-geneve",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-geneve/hote-ou-hotesse-d-accueil-des-bains-de-cressy-50-hug-geneve",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-geneve/hote-ou-hotesse-d-accueil-des-bains-de-cressy-50-hug-geneve"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Hote ou hotesse accueil des bains de cressy 50 hug geneve",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "hote-ou-hotesse-d-accueil-des-bains-de-cressy-50-hug-geneve",
+        "en": "hote-ou-hotesse-d-accueil-des-bains-de-cressy-50-hug-geneve",
+        "de": "hote-ou-hotesse-d-accueil-des-bains-de-cressy-50-hug-geneve",
+        "fr": "hote-ou-hotesse-d-accueil-des-bains-de-cressy-50-hug-geneve"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ginevra/hote-ou-hotesse-d-accueil-des-bains-de-cressy-50-hug-geneve",
+        "en": "/en/find-jobs-geneva/hote-ou-hotesse-d-accueil-des-bains-de-cressy-50-hug-geneve",
+        "de": "/de/jobs-im-genf/hote-ou-hotesse-d-accueil-des-bains-de-cressy-50-hug-geneve",
+        "fr": "/fr/trouver-emploi-geneve/hote-ou-hotesse-d-accueil-des-bains-de-cressy-50-hug-geneve"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -44236,6 +45010,58 @@
       ]
     },
     {
+      "slug": "localita-baden-dattwil",
+      "locale": "it",
+      "path": "/cerca-lavoro-ticino/localita-baden-dattwil",
+      "observedPaths": {
+        "it": "/cerca-lavoro-ticino/localita-baden-dattwil"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Localita datt",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Wil",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "localita-baden-dattwil",
+        "en": "localita-baden-dattwil",
+        "de": "localita-baden-dattwil",
+        "fr": "localita-baden-dattwil"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/localita-baden-dattwil",
+        "en": "/en/find-jobs-ticino/localita-baden-dattwil",
+        "de": "/de/jobs-im-tessin/localita-baden-dattwil",
+        "fr": "/fr/trouver-emploi-tessin/localita-baden-dattwil"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "localita-berne",
       "locale": "it",
       "path": "/cerca-lavoro-ticino/localita-berne",
@@ -46967,6 +47793,58 @@
       "source": [
         "gsc",
         "all-known-slugs"
+      ]
+    },
+    {
+      "slug": "location-chur",
+      "locale": "en",
+      "path": "/en/find-jobs-ticino/location-chur",
+      "observedPaths": {
+        "en": "/en/find-jobs-ticino/location-chur"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Location",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Chur",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "location-chur",
+        "en": "location-chur",
+        "de": "location-chur",
+        "fr": "location-chur"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/location-chur",
+        "en": "/en/find-jobs-ticino/location-chur",
+        "de": "/de/jobs-im-tessin/location-chur",
+        "fr": "/fr/trouver-emploi-tessin/location-chur"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
       ]
     },
     {
@@ -55702,6 +56580,57 @@
       ]
     },
     {
+      "slug": "painter-with-personal-responsibility-fachkraft-ch-gmbh-dietikon",
+      "locale": "en",
+      "path": "/en/find-jobs-zurich/painter-with-personal-responsibility-fachkraft-ch-gmbh-dietikon",
+      "observedPaths": {
+        "en": "/en/find-jobs-zurich/painter-with-personal-responsibility-fachkraft-ch-gmbh-dietikon"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Painter with personal responsibility fachkraft ch gmbh dietikon",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "painter-with-personal-responsibility-fachkraft-ch-gmbh-dietikon",
+        "en": "painter-with-personal-responsibility-fachkraft-ch-gmbh-dietikon",
+        "de": "painter-with-personal-responsibility-fachkraft-ch-gmbh-dietikon",
+        "fr": "painter-with-personal-responsibility-fachkraft-ch-gmbh-dietikon"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/painter-with-personal-responsibility-fachkraft-ch-gmbh-dietikon",
+        "en": "/en/find-jobs-zurich/painter-with-personal-responsibility-fachkraft-ch-gmbh-dietikon",
+        "de": "/de/jobs-im-zurich/painter-with-personal-responsibility-fachkraft-ch-gmbh-dietikon",
+        "fr": "/fr/trouver-emploi-zurich/painter-with-personal-responsibility-fachkraft-ch-gmbh-dietikon"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "partenaire-franchise-coop-pronto-sans-station-de-service-entreprise-familiale-coop-genossenschaft-allschwil-0aer1j",
       "locale": "en",
       "path": "/en/find-jobs-ticino/partenaire-franchise-coop-pronto-sans-station-de-service-entreprise-familiale-coop-genossenschaft-allschwil-0aer1j",
@@ -56946,6 +57875,58 @@
         "en": "/en/find-jobs-ticino/physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
         "de": "/de/jobs-im-tessin/physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-224f42",
         "fr": "/fr/trouver-emploi-tessin/physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio-224f42"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "physiotherapeute-diplome-e-stiftung-solina-spiez",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-berne/physiotherapeute-diplome-e-stiftung-solina-spiez",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-berne/physiotherapeute-diplome-e-stiftung-solina-spiez"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Physiotherapeute diplome stiftung solina",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Spiez",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "physiotherapeute-diplome-e-stiftung-solina-spiez",
+        "en": "physiotherapeute-diplome-e-stiftung-solina-spiez",
+        "de": "physiotherapeute-diplome-e-stiftung-solina-spiez",
+        "fr": "physiotherapeute-diplome-e-stiftung-solina-spiez"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-berna/physiotherapeute-diplome-e-stiftung-solina-spiez",
+        "en": "/en/find-jobs-bern/physiotherapeute-diplome-e-stiftung-solina-spiez",
+        "de": "/de/jobs-im-bern/physiotherapeute-diplome-e-stiftung-solina-spiez",
+        "fr": "/fr/trouver-emploi-berne/physiotherapeute-diplome-e-stiftung-solina-spiez"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -63286,6 +64267,57 @@
       ]
     },
     {
+      "slug": "responsabile-del-negozio-m-f-d-volg-detailhandels-ag-flims-waldhaus-29e3863c93",
+      "locale": "it",
+      "path": "/cerca-lavoro-grigioni/responsabile-del-negozio-m-f-d-volg-detailhandels-ag-flims-waldhaus-29e3863c93",
+      "observedPaths": {
+        "it": "/cerca-lavoro-grigioni/responsabile-del-negozio-m-f-d-volg-detailhandels-ag-flims-waldhaus-29e3863c93"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Responsabile del negozio volg detailhandels ag flims waldhaus 29e3863c93",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "responsabile-del-negozio-m-f-d-volg-detailhandels-ag-flims-waldhaus-29e3863c93",
+        "en": "responsabile-del-negozio-m-f-d-volg-detailhandels-ag-flims-waldhaus-29e3863c93",
+        "de": "responsabile-del-negozio-m-f-d-volg-detailhandels-ag-flims-waldhaus-29e3863c93",
+        "fr": "responsabile-del-negozio-m-f-d-volg-detailhandels-ag-flims-waldhaus-29e3863c93"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-grigioni/responsabile-del-negozio-m-f-d-volg-detailhandels-ag-flims-waldhaus-29e3863c93",
+        "en": "/en/find-jobs-graubunden/responsabile-del-negozio-m-f-d-volg-detailhandels-ag-flims-waldhaus-29e3863c93",
+        "de": "/de/jobs-im-graubunden/responsabile-del-negozio-m-f-d-volg-detailhandels-ag-flims-waldhaus-29e3863c93",
+        "fr": "/fr/trouver-emploi-grisons/responsabile-del-negozio-m-f-d-volg-detailhandels-ag-flims-waldhaus-29e3863c93"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "responsabile-del-progetto-servizi-clinici-i-roche-tucson",
       "locale": "de",
       "path": "/de/jobs-im-tessin/responsabile-del-progetto-servizi-clinici-i-roche-tucson",
@@ -65451,6 +66483,58 @@
         "en": "/en/find-jobs-ticino/responsable-fiscalite-des-societes-80-100-pwc-switzerland-zurich",
         "de": "/de/jobs-im-tessin/responsable-fiscalite-des-societes-80-100-pwc-switzerland-zurich",
         "fr": "/fr/trouver-emploi-tessin/responsable-fiscalite-des-societes-80-100-pwc-switzerland-zurich"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "responsable-group-sustainability-office-hybrid-m-f-x-d-80-100-swiss-re-zurich",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-zurich/responsable-group-sustainability-office-hybrid-m-f-x-d-80-100-swiss-re-zurich",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-zurich/responsable-group-sustainability-office-hybrid-m-f-x-d-80-100-swiss-re-zurich"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Responsable group sustainability office hybrid x swiss re",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "responsable-group-sustainability-office-hybrid-m-f-x-d-80-100-swiss-re-zurich",
+        "en": "responsable-group-sustainability-office-hybrid-m-f-x-d-80-100-swiss-re-zurich",
+        "de": "responsable-group-sustainability-office-hybrid-m-f-x-d-80-100-swiss-re-zurich",
+        "fr": "responsable-group-sustainability-office-hybrid-m-f-x-d-80-100-swiss-re-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/responsable-group-sustainability-office-hybrid-m-f-x-d-80-100-swiss-re-zurich",
+        "en": "/en/find-jobs-zurich/responsable-group-sustainability-office-hybrid-m-f-x-d-80-100-swiss-re-zurich",
+        "de": "/de/jobs-im-zurich/responsable-group-sustainability-office-hybrid-m-f-x-d-80-100-swiss-re-zurich",
+        "fr": "/fr/trouver-emploi-zurich/responsable-group-sustainability-office-hybrid-m-f-x-d-80-100-swiss-re-zurich"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
@@ -71743,6 +72827,58 @@
       ]
     },
     {
+      "slug": "senior-blockchain-ingegnere-vontobel-zurich",
+      "locale": "it",
+      "path": "/cerca-lavoro-zurigo/senior-blockchain-ingegnere-vontobel-zurich",
+      "observedPaths": {
+        "it": "/cerca-lavoro-zurigo/senior-blockchain-ingegnere-vontobel-zurich"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Senior blockchain ingegnere vontobel",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Zürich",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "senior-blockchain-ingegnere-vontobel-zurich",
+        "en": "senior-blockchain-ingegnere-vontobel-zurich",
+        "de": "senior-blockchain-ingegnere-vontobel-zurich",
+        "fr": "senior-blockchain-ingegnere-vontobel-zurich"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-zurigo/senior-blockchain-ingegnere-vontobel-zurich",
+        "en": "/en/find-jobs-zurich/senior-blockchain-ingegnere-vontobel-zurich",
+        "de": "/de/jobs-im-zurich/senior-blockchain-ingegnere-vontobel-zurich",
+        "fr": "/fr/trouver-emploi-zurich/senior-blockchain-ingegnere-vontobel-zurich"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
       "slug": "senior-business-analyst-market-and-treasury-risk-80-100-f-m-d-contrasporta-il-nostro-partner-di-payroll-esterno-con",
       "locale": "it",
       "path": "/cerca-lavoro-zurigo/senior-business-analyst-market-and-treasury-risk-80-100-f-m-d-contrasporta-il-nostro-partner-di-payroll-esterno-con",
@@ -77557,6 +78693,63 @@
       ]
     },
     {
+      "slug": "stagiaire-charge-de-projets-valfleurier-buttes",
+      "locale": "fr",
+      "path": "/fr/trouver-emploi-geneve/stagiaire-charge-de-projets-valfleurier-buttes/",
+      "observedPaths": {
+        "fr": "/fr/trouver-emploi-geneve/stagiaire-charge-de-projets-valfleurier-buttes/"
+      },
+      "queries": [
+        {
+          "query": "richemont carrière",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ],
+      "totalImpressions": 1,
+      "totalClicks": 0,
+      "topQuery": "richemont carrière",
+      "title": "Stagiaire charge de projets valfleurier buttes",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "stagiaire-charge-de-projets-valfleurier-buttes",
+        "en": "stagiaire-charge-de-projets-valfleurier-buttes",
+        "de": "stagiaire-charge-de-projets-valfleurier-buttes",
+        "fr": "stagiaire-charge-de-projets-valfleurier-buttes"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ginevra/stagiaire-charge-de-projets-valfleurier-buttes",
+        "en": "/en/find-jobs-geneva/stagiaire-charge-de-projets-valfleurier-buttes",
+        "de": "/de/jobs-im-genf/stagiaire-charge-de-projets-valfleurier-buttes",
+        "fr": "/fr/trouver-emploi-geneve/stagiaire-charge-de-projets-valfleurier-buttes"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
+      ]
+    },
+    {
       "slug": "stagiaire-crm-loyaute-programme-de-stage-emea-vf-international-the-north-face-timberland-e",
       "locale": "de",
       "path": "/de/jobs-im-tessin/stagiaire-crm-loyaute-programme-de-stage-emea-vf-international-the-north-face-timberland-e",
@@ -78189,6 +79382,57 @@
         "gsc",
         "all-known-slugs",
         "slug-parsing"
+      ]
+    },
+    {
+      "slug": "standort-be-munsingen",
+      "locale": "de",
+      "path": "/de/jobs-im-tessin/standort-be-munsingen",
+      "observedPaths": {
+        "de": "/de/jobs-im-tessin/standort-be-munsingen"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Standort be munsingen",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "standort-be-munsingen",
+        "en": "standort-be-munsingen",
+        "de": "standort-be-munsingen",
+        "fr": "standort-be-munsingen"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/standort-be-munsingen",
+        "en": "/en/find-jobs-ticino/standort-be-munsingen",
+        "de": "/de/jobs-im-tessin/standort-be-munsingen",
+        "fr": "/fr/trouver-emploi-tessin/standort-be-munsingen"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs"
       ]
     },
     {
@@ -89318,6 +90562,58 @@
         "en": "/en/find-jobs-ticino/venditore-venditrice-food-prodotti-freschi-macelleria-fiori-chiosco-coop-grigioni",
         "de": "/de/jobs-im-tessin/venditore-venditrice-food-prodotti-freschi-macelleria-fiori-chiosco-coop-grigioni",
         "fr": "/fr/trouver-emploi-tessin/venditore-venditrice-food-prodotti-freschi-macelleria-fiori-chiosco-coop-grigioni"
+      },
+      "sourceUrl": "",
+      "googleStatus": "unknown",
+      "googleCanonical": "",
+      "lastCrawlTime": "",
+      "source": [
+        "gsc",
+        "all-known-slugs",
+        "slug-parsing"
+      ]
+    },
+    {
+      "slug": "venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-morbio-inferiore",
+      "locale": "it",
+      "path": "/cerca-lavoro-ticino/venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-morbio-inferiore",
+      "observedPaths": {
+        "it": "/cerca-lavoro-ticino/venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-morbio-inferiore"
+      },
+      "queries": [],
+      "totalImpressions": 0,
+      "totalClicks": 0,
+      "topQuery": null,
+      "title": "Venditrice tore casse servizi coop genossenschaft",
+      "titleByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "descriptionByLocale": {
+        "it": "",
+        "en": "",
+        "de": "",
+        "fr": ""
+      },
+      "company": "",
+      "companyKey": "",
+      "location": "Morbio Inferiore",
+      "sector": "",
+      "salaryMin": 0,
+      "salaryCurrency": "CHF",
+      "slugByLocale": {
+        "it": "venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-morbio-inferiore",
+        "en": "venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-morbio-inferiore",
+        "de": "venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-morbio-inferiore",
+        "fr": "venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-morbio-inferiore"
+      },
+      "localePaths": {
+        "it": "/cerca-lavoro-ticino/venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-morbio-inferiore",
+        "en": "/en/find-jobs-ticino/venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-morbio-inferiore",
+        "de": "/de/jobs-im-tessin/venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-morbio-inferiore",
+        "fr": "/fr/trouver-emploi-tessin/venditrice-tore-casse-servizi-f-m-d-coop-genossenschaft-morbio-inferiore"
       },
       "sourceUrl": "",
       "googleStatus": "unknown",
