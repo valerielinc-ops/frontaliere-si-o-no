@@ -6,7 +6,7 @@ import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFile
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { applicationStage } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { navigationInfrastructureFailure } from '../functions/src/assistedApplicationTransportRetryPolicy.js';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, handleAuth, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, PREREAD_CHANNELS, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, formPostingMatch, handleAuth, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, PREREAD_CHANNELS, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
@@ -60,6 +60,30 @@ describe('application-surface detection', () => {
       applyUrl: formUrl,
       job: { title: 'Projektleiter/in Elektroinstallation' },
     })).toMatchObject({ kind: 'form' });
+    expect(formPostingMatch([
+      'Projektleiter/in Elektroinstallation, Frauenfeld | endeso',
+      'Vorname', 'Nachname', 'E-Mail', 'Mobile Nummer', 'Datei hochladen',
+      'Ich stimme den Datenschutzbestimmungen zu.', 'Jetzt Bewerben', 'endeso GmbH',
+    ].join('\n'), { company: 'endeso GmbH', title: 'Projektleiter/in Elektroinstallation', location: 'Frauenfeld' }, {
+      pageUrl: formUrl,
+      postingUrl: formUrl,
+      applyUrl: formUrl,
+      postingMatched: true,
+      pageHeading: 'Projektleiter/in Elektroinstallation',
+      pageHeadings: ['Projektleiter/in Elektroinstallation'],
+    })).toBe('match');
+    expect(formPostingMatch([
+      'Projektleiter/in Elektroinstallation, Frauenfeld | Other Employer',
+      'Vorname', 'Nachname', 'E-Mail', 'Mobile Nummer', 'Datei hochladen',
+      'Ich stimme den Datenschutzbestimmungen zu.', 'Jetzt Bewerben', 'Other Employer GmbH',
+    ].join('\n'), { company: 'endeso GmbH', title: 'Projektleiter/in Elektroinstallation', location: 'Frauenfeld' }, {
+      pageUrl: formUrl,
+      postingUrl: formUrl,
+      applyUrl: formUrl,
+      postingMatched: true,
+      pageHeading: 'Projektleiter/in Elektroinstallation',
+      pageHeadings: ['Projektleiter/in Elektroinstallation'],
+    })).toBe('mismatch');
     expect(questionTopic('Mobile Nummer')).toBe('phone');
     expect(candidateAnswerForField({ identity: { phone: '+41 00 000 00 00' } }, fields[3]))
       .toEqual({ value: '+41 00 000 00 00', source: 'identity' });

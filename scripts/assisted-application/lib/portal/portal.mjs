@@ -4382,22 +4382,33 @@ const isStandaloneNextLabel = (value) => {
  */
 function postingLocationSuffixWords(formText, ours, locationWords) {
   if (!locationWords.size) return new Set();
-  const lines = String(formText || '').split(/\r?\n/).map((line) => normalizeWords(line).split(' ').filter(Boolean));
+  const rawLines = String(formText || '').split(/\r?\n/);
+  const lines = rawLines.map((line) => normalizeWords(line).split(' ').filter(Boolean));
   const employerLines = lines.map((words) => words.some((word) => ours.has(word)));
   const neutral = new Set();
   for (const [lineIndex, words] of lines.entries()) {
     const locationIndexes = words.flatMap((word, index) => locationWords.has(word) ? [index] : []);
     if (!locationIndexes.length) continue;
     const employerBefore = employerLines.slice(Math.max(0, lineIndex - 2), lineIndex + 1).some(Boolean);
-    if (!employerBefore) continue;
-    const lastEmployer = Math.max(-1, ...words.map((word, index) => ours.has(word) ? index : -1));
-    const locationIndex = locationIndexes.find((index) => lastEmployer < 0 || index > lastEmployer);
-    if (locationIndex === undefined) continue;
-    locationIndexes.forEach((index) => neutral.add(words[index]));
-    const labelStart = lastEmployer >= 0 ? lastEmployer + 1 : Math.max(0, locationIndex - 1);
-    words.slice(labelStart, locationIndex)
-      .filter((word) => POSTING_LOCATION_LABEL_WORDS.has(word))
-      .forEach((word) => neutral.add(word));
+    const employerIndexes = words.flatMap((word, index) => ours.has(word) ? [index] : []);
+    const lastEmployer = Math.max(-1, ...employerIndexes);
+    const locationAfterEmployer = locationIndexes.find((index) => lastEmployer < 0 || index > lastEmployer);
+    if (employerBefore && locationAfterEmployer !== undefined) {
+      locationIndexes.forEach((index) => neutral.add(words[index]));
+      const labelStart = lastEmployer >= 0 ? lastEmployer + 1 : Math.max(0, locationAfterEmployer - 1);
+      words.slice(labelStart, locationAfterEmployer)
+        .filter((word) => POSTING_LOCATION_LABEL_WORDS.has(word))
+        .forEach((word) => neutral.add(word));
+      continue;
+    }
+    // Some employer sites put the posting location before the employer in a
+    // compact title (`Role, Frauenfeld | endeso`). Only accept that reverse
+    // order when a visual title separator and the selected employer are both
+    // present; an unbound phrase such as `Zurich AG` stays conflicting.
+    if (employerIndexes.length && EMPLOYER_TITLE_SEPARATOR_RE.test(rawLines[lineIndex])) {
+      locationIndexes.filter((index) => index < employerIndexes[0])
+        .forEach((index) => neutral.add(words[index]));
+    }
   }
   return neutral;
 }
@@ -5232,7 +5243,15 @@ export function formPostingMatch(formText, job = {}, {
     pageHeading,
     ...(Array.isArray(pageHeadings) ? pageHeadings : []),
   ].map((line) => String(line || '').trim()).filter(Boolean))];
-  const roleHeading = formRoleHeadingStatus(formText, job);
+  // Document titles often append posting metadata (`Role, Frauenfeld |
+  // employer`). When the browser supplied one visible H1, use that bounded
+  // heading for role classification instead of treating the metadata as a
+  // second role; ambiguous or missing heading sets remain conservative.
+  const boundedRoleHeading = pageHeading || (Array.isArray(pageHeadings) && pageHeadings.length === 1 ? pageHeadings[0] : '');
+  const roleEvidenceText = boundedRoleHeading
+    ? [boundedRoleHeading, ...String(formText || '').split(/\r?\n/).slice(1)].join('\n')
+    : formText;
+  const roleHeading = formRoleHeadingStatus(roleEvidenceText, job);
   const currentPageUrl = String(pageUrl || '').trim();
   const formApplicationUrl = isUmantisApplicationRoute(currentPageUrl)
     ? currentPageUrl
@@ -5255,6 +5274,11 @@ export function formPostingMatch(formText, job = {}, {
       && samePostingAddress(pageUrl, applicationEntryUrl));
   const verifiedEntry = postingEntry || (applicationEntry && postingMatched && applicationEntryRouteBound);
   const roleOnlyPostingBound = postingEntry || (postingMatched && applicationEntryRouteBound);
+  // A same-route employer form can prove the posting from the selected page
+  // without carrying a requisition key. That proof is enough to classify the
+  // posting's own location in the title as metadata, but it must not weaken
+  // the separate employer/role conflict checks below.
+  const postingLocationBound = bound || roleOnlyPostingBound;
   const verifiedApplicationEntryRoute = verifiedEntry && Boolean(applicationEntryUrl)
     && samePostingAddress(pageUrl, applicationEntryUrl);
   const verifiedEmployerFormRoute = verifiedApplicationEntryRoute
@@ -5279,13 +5303,16 @@ export function formPostingMatch(formText, job = {}, {
     return employerHeading === heading ? text : text.split(heading).join(employerHeading);
   }, identityFormText.split(/\r?\n/).map((line, index) =>
     index === 0 ? employerIdentityHeadingText(line, { allowAmbiguous: allowAmbiguousStageHeading }) : line).join('\n'));
-  const employerText = [...employerHeadingCandidates, formIdentityText].filter(Boolean).join('\n');
+  // Keep the raw first line for metadata-aware employer conflict checks. The
+  // normalized heading text intentionally removes separators, which would
+  // erase the boundary that proves a location-before-employer title.
+  const employerText = [...employerHeadingCandidates, identityFormText].filter(Boolean).join('\n');
   const postingEvidenceText = [...headingCandidates, identityFormText].filter(Boolean).join('\n');
   const direct = postingMatch(postingEvidenceText, job, pageUrl);
   const rawDirect = postingMatch(String(formText || ''), job, pageUrl);
-  const formTitleLine = formIdentityText.split(/\r?\n/, 1)[0];
+  const formTitleLine = rawFormTitleLine;
   const headingConflict = [...employerHeadingCandidates, formTitleLine].filter(Boolean)
-    .some((headingText) => namesAnotherEmployer(headingText, job, { allowPostingLocation: bound }));
+    .some((headingText) => namesAnotherEmployer(headingText, job, { allowPostingLocation: postingLocationBound }));
   const talentSoftAlias = talentSoftEmployerAliasMatches(identityFormText, job, pageUrl);
   const heading = rawFormTitleLine;
   const umantisPostingPair = isUmantisPostingEntry({
@@ -5317,7 +5344,7 @@ export function formPostingMatch(formText, job = {}, {
   if (direct === 'match' && !talentSoftAlias
     && (trustedUmantisApplication
       ? umantisHeadingConflict
-      : (headingConflict || namesAnotherEmployer(employerText, job, { allowPostingLocation: bound })))) return 'mismatch';
+      : (headingConflict || namesAnotherEmployer(employerText, job, { allowPostingLocation: postingLocationBound })))) return 'mismatch';
   // If the browser cannot return a bounded heading set on a TalentSoft form,
   // the tenant alias and title alone do not resolve who owns the final page.
   let isTalentSoftHost = false;
@@ -5381,10 +5408,10 @@ export function formPostingMatch(formText, job = {}, {
   // The requisition the runner entered, shown with its role on the same SuccessFactors tenant.
   // A conflicting employer identity on the form: no fallback to the role.
   if (successFactorsBound) return 'match';
-  if (namesAnotherEmployer(employerText, job)
+  if (namesAnotherEmployer(employerText, job, { allowPostingLocation: postingLocationBound })
     || (/\bhttps?:\/\//iu.test(formText)
       && !formTextMentionsEmployerHost(formText, job)
-      && namesAnotherEmployer(formText, job))) return 'mismatch';
+      && namesAnotherEmployer(formText, job, { allowPostingLocation: postingLocationBound }))) return 'mismatch';
   if (roleHeading === 'mismatch') return 'mismatch';
   // A verified posting can expose a generic application shell whose heading
   // normalizer deliberately remains uncertain (for example across languages),
@@ -10973,8 +11000,13 @@ export async function submitViaPortal(ctx) {
       const pageHeadings = await postingMainHeadings(page);
       const pageHeading = Array.isArray(pageHeadings) && pageHeadings.length === 1 ? pageHeadings[0] : '';
       const seen = `${await page.title().catch(() => '')}\n${await pageText(page)}\n${pageUrl}`;
+      // Embedded employer forms keep the selected `/jobs/*` address while
+      // their final snapshot may expose only native controls. Preserve the
+      // posting proof established on that exact route; a route change still
+      // requires the normal application-entry binding below.
+      const sameSelectedPosting = postingVacancyMatched && samePostingAddress(pageUrl, postingUrl);
       const result = formPostingMatch(seen, portalJob, {
-        postingMatched: enteredFromMatchingPosting || (postingVacancyMatched && page.url() !== postingUrl),
+        postingMatched: enteredFromMatchingPosting || sameSelectedPosting,
         postingEntry: enteredFromMatchingPosting,
         applicationEntry: postingVacancyMatched && enteredThroughApplicationEntry,
         applicationEntryUrl,

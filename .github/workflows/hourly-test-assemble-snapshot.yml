@@ -110,23 +110,27 @@ jobs:
           script: |
             const prefix = 'assemble-jobs-test-snapshot-Linux-';
             const currentKey = process.env.CURRENT_SNAPSHOT_CACHE_KEY;
-            const { data } = await github.rest.actions.getActionsCacheList({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: 'refs/heads/main',
-              key: prefix,
-              sort: 'created_at',
-              direction: 'desc',
-              per_page: 100,
-            });
-            const snapshots = data.actions_caches.filter((cache) => cache.key.startsWith(prefix));
-            snapshots.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
+            const snapshots = await github.paginate(
+              github.rest.actions.getActionsCacheList,
+              {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: 'refs/heads/main',
+                key: prefix,
+                sort: 'created_at',
+                direction: 'desc',
+                per_page: 100,
+              },
+              (response) => response.data.actions_caches,
+            );
+            const matchingSnapshots = snapshots.filter((cache) => cache.key.startsWith(prefix));
+            matchingSnapshots.sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
             const keep = new Set([
               currentKey,
-              ...snapshots.slice(0, 2).map((cache) => cache.key),
+              ...matchingSnapshots.slice(0, 2).map((cache) => cache.key),
             ]);
-            for (const cache of snapshots.filter((candidate) => !keep.has(candidate.key))) {
-              await github.rest.actions.deleteActionsCache({
+            for (const cache of matchingSnapshots.filter((candidate) => !keep.has(candidate.key))) {
+              await github.rest.actions.deleteActionsCacheById({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 cache_id: cache.id,
