@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-15T02:21:13.006Z",
+  "generatedAt": "2026-11-15T03:20:46.611Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -176700,6 +176700,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-09T14:25:52.242Z"
     },
+    "myswitzerland:fca6cdc3e8ae448c821a83084d50988c::d762e6c6922995cbcf94939f9d6a1b5aa90b5638e796d0ae5173641434692a78": {
+      "id": "myswitzerland:fca6cdc3e8ae448c821a83084d50988c",
+      "sourceDescriptionHash": "d762e6c6922995cbcf94939f9d6a1b5aa90b5638e796d0ae5173641434692a78",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Aarau; cantone: AG; categoria: Event; partecipante: OtraDanza, BallettkompanieAsun Noales, Regie; data: 2027-02-26; ora: 19:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Aarau; cantone: AG; categoria: Event; partecipante: OtraDanza, BallettkompanieAsun Noales, Regie; data: 2027-02-26; ora: 19:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Aarau; canton: AG; category: Event; participant: OtraDanza, BallettkompanieAsun Noales, Regie; date: 2027-02-26; time: 19:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Aarau; kanton: AG; kategorie: Event; mitwirkender: OtraDanza, BallettkompanieAsun Noales, Regie; datum: 2027-02-26; uhrzeit: 19:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Aarau; canton: AG; catégorie: Event; participant: OtraDanza, BallettkompanieAsun Noales, Regie; date: 2027-02-26; heure: 19:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-15T03:16:48.901Z"
+    },
     "myswitzerland:fcb8cf8cdd584691bb0f35e1a947e212::003b8011a1ea8faf73f95979f240e96f48de6fb0cbfd76d2431860dcb9ccd193": {
       "id": "myswitzerland:fcb8cf8cdd584691bb0f35e1a947e212",
       "sourceDescriptionHash": "003b8011a1ea8faf73f95979f240e96f48de6fb0cbfd76d2431860dcb9ccd193",
@@ -197482,15 +197496,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-15T21:35:11.468Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:fca6cdc3e8ae448c821a83084d50988c::d762e6c6922995cbcf94939f9d6a1b5aa90b5638e796d0ae5173641434692a78": {
-      "id": "myswitzerland:fca6cdc3e8ae448c821a83084d50988c",
-      "sourceDescriptionHash": "d762e6c6922995cbcf94939f9d6a1b5aa90b5638e796d0ae5173641434692a78",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T09:35:39.277Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
