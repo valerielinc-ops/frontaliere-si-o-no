@@ -1,0 +1,25 @@
+{
+  "companyKey": "beesweetcitrus",
+  "companyName": "Bee Sweet Citrus",
+  "companyHost": "beesweetcitrus.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://beesweetcitrus.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 9,
+  "sampleTitles": [
+    "Truck Driver",
+    "Maintenance Technician",
+    "Data Processing Intern",
+    "Farm Management Intern (26-27 Season)",
+    "Farm Management Intern (26-27 Season)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-15T13:54:41.821Z",
+  "candidateKey": "beesweetcitrus@applytojob.com"
+}

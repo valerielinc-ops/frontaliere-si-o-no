@@ -1,0 +1,25 @@
+{
+  "companyKey": "belaytechnologies",
+  "companyName": "Belay Technologies",
+  "companyHost": "belaytechnologies.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://belaytechnologies.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 116,
+  "sampleTitles": [
+    "Information System Security Officer",
+    "Junior Software Engineer",
+    "Mid-Level System Engineer",
+    "Senior Software Engineer",
+    "Senior Software Engineer"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-15T13:54:48.084Z",
+  "candidateKey": "belaytechnologies@applytojob.com"
+}

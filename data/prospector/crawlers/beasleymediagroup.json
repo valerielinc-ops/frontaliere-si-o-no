@@ -1,0 +1,25 @@
+{
+  "companyKey": "beasleymediagroup",
+  "companyName": "Beasley Media Group",
+  "companyHost": "beasleymediagroup.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://beasleymediagroup.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 29,
+  "sampleTitles": [
+    "Account Executive",
+    "Account Executive",
+    "Account Executive",
+    "Account Executive",
+    "Account Executive"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-15T13:54:40.462Z",
+  "candidateKey": "beasleymediagroup@applytojob.com"
+}

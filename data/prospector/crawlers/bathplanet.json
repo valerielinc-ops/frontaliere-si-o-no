@@ -1,0 +1,25 @@
+{
+  "companyKey": "bathplanet",
+  "companyName": "Bath Planet",
+  "companyHost": "bathplanet.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://bathplanet.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 287,
+  "sampleTitles": [
+    "Acrylic Bath Installer",
+    "Acrylic Bath Installer",
+    "Acrylic Bath Installer",
+    "Acrylic Bath Installer",
+    "Acrylic Bath Installer"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-11-15T13:54:39.105Z",
+  "candidateKey": "bathplanet@applytojob.com"
+}
