@@ -25,6 +25,7 @@ import {
 } from '../scripts/update-efg-jobs.mjs';
 import {
   assertJyskAdapterParity,
+  buildJyskCrawlerEnv,
   ensureAdapterSeedUrls as ensureJysk,
   fetchJyskJobUrls,
 } from '../scripts/update-jysk-jobs.mjs';
@@ -277,6 +278,12 @@ describe('EFG Oracle discovery invariants', () => {
 });
 
 describe('JYSK SSR discovery invariants', () => {
+  it('routes detail-page fetches through the host-scoped clean egress by default', () => {
+    expect(buildJyskCrawlerEnv({}).JOBS_CRAWLER_FETCH_PROXY).toBe('jobs.de.jysk.ch');
+    expect(buildJyskCrawlerEnv({ JOBS_CRAWLER_FETCH_PROXY: 'custom.example' }).JOBS_CRAWLER_FETCH_PROXY)
+      .toBe('custom.example');
+  });
+
   it('retries transient transport failures while preserving discovery guards', async () => {
     const marker = '<title>Switzerland (German) | JYSK Open Positions</title>';
     const complete = async () => new Response(`${marker}<a href="/offene-stellen/verkaeufer-lugano">job</a>`, { status: 200 });

@@ -102,6 +102,8 @@ jobs:
             /scripts/ci/deploy-rearm-request.mjs
             /scripts/ci/lib/deploy-job-failure-signature.mjs
             /scripts/ci/deploy-failure-classifier.mjs
+            /scripts/ci/lib/deploy-run-evidence.mjs
+            /scripts/ci/lib/deploy-blocked-issue.mjs
             /scripts/ci/lib/run-listing-window.mjs
             /scripts/lib/int-from-env.mjs
             /scripts/lib/is-invoked-directly.mjs
