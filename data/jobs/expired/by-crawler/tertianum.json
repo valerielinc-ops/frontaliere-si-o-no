@@ -15328,12 +15328,12 @@
     "previousSlugs": [
       "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-bern",
       "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-bern-b3f33da2",
-      "apprendista-fachfrau-mann-gesundheit-cfc-start-2027-tertianum-bern",
-      "apprenticeship-as-a-specialist-health-efz-tertianum-bern",
-      "apprentissage-en-tant-que-specialiste-de-la-sante-efz-tertianum-bern",
       "apprendista-fachfrau-mann-gesundheit-cfc-start-2027-tertianum-bern-40e3761a",
       "apprenticeship-as-a-specialist-health-efz-tertianum-bern-f39addc8",
-      "apprentissage-en-tant-que-specialiste-de-la-sante-efz-tertianum-bern-f3eff376"
+      "apprentissage-en-tant-que-specialiste-de-la-sante-efz-tertianum-bern-f3eff376",
+      "apprendista-fachfrau-mann-gesundheit-cfc-start-2027-tertianum-bern",
+      "apprenticeship-as-a-specialist-health-efz-tertianum-bern",
+      "apprentissage-en-tant-que-specialiste-de-la-sante-efz-tertianum-bern"
     ],
     "postalCode": "3012",
     "salaryCurrency": "CHF",
@@ -15773,8 +15773,8 @@
       "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-2b6752f5",
       "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-3a11e8dd",
       "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-ad0775f5",
-      "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten",
-      "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-358e1705"
+      "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten-358e1705",
+      "fachfrau-fachmann-gesundheit-efz-80-100-tertianum-olten"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -16883,8 +16883,8 @@
       "fachfrau-mann-gesundheit-tertianum-winterthur-6b3ed9f0",
       "fachfrau-mann-gesundheit-tertianum-winterthur-ce0d2d52",
       "fachfrau-mann-gesundheit-tertianum-winterthur-d2ce207a",
-      "fachfrau-mann-gesundheit-tertianum-winterthur",
-      "fachfrau-mann-gesundheit-tertianum-winterthur-94642c5d"
+      "fachfrau-mann-gesundheit-tertianum-winterthur-94642c5d",
+      "fachfrau-mann-gesundheit-tertianum-winterthur"
     ],
     "previousSlugsByLocale": {
       "de": [
@@ -18703,10 +18703,10 @@
       "nursing-assistant-srk-tertianum-rheinfelden-72be7054",
       "pflegehelfer-in-srk-tertianum-rheinfelden-f6e6f94e",
       "nursing-assistant-srk-tertianum-rheinfelden-d5d66413",
-      "pflegehelfer-in-srk-tertianum-rheinfelden",
-      "nursing-assistant-srk-tertianum-rheinfelden",
       "pflegehelfer-in-srk-tertianum-rheinfelden-2de1f190",
-      "nursing-assistant-srk-tertianum-rheinfelden-d8d0ec57"
+      "nursing-assistant-srk-tertianum-rheinfelden-d8d0ec57",
+      "pflegehelfer-in-srk-tertianum-rheinfelden",
+      "nursing-assistant-srk-tertianum-rheinfelden"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -19188,6 +19188,7 @@
         "nursing-assistant-srk-tertianum-rheinfelden-d5d66413",
         "pflegehelfer-in-srk-tertianum-rheinfelden-2de1f190",
         "nursing-assistant-srk-tertianum-rheinfelden-d8d0ec57",
+        "nursing-assistant-srk-tertianum-rheinfelden-dce7929a",
         "pflegehelfer-in-srk-tertianum-rheinfelden",
         "nursing-assistant-srk-tertianum-rheinfelden"
       ],
@@ -24917,7 +24918,7 @@
     "slugByLocale": {
       "it": "dipl-infermieristica-professionale-hf-fh-dnii-20-100-tertianum-schlieren",
       "en": "diploma-in-nursing-hf-fh-dnii-50-100-tertianum-schlieren",
-      "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-schlieren",
+      "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-schlieren-5479c913",
       "fr": "diplome-e-en-soins-infirmiers-hf-fh-dnii-50-100-tertianum-schlieren"
     },
     "sector": "Sanità / Ospedali",
@@ -24929,7 +24930,17 @@
     "previousSlugsByLocale": {
       "it": [
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-20-100-tertianum-schlieren",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-schlieren-5479c913",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-schlieren"
+      ],
+      "en": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-schlieren-5479c913"
+      ],
+      "de": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-schlieren-5479c913"
+      ],
+      "fr": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dnii-50-100-tertianum-schlieren-5479c913"
       ]
     },
     "postalCode": "8952",
@@ -25017,11 +25028,12 @@
       "apprendistato-come-specialista-o-specialista-in-salute-fage-efz-tertianum-wald",
       "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-wald",
       "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-wald-2",
-      "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-wald",
       "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-tertianum-wald",
       "apprendistato-come-specialista-in-salute-fage-efz-tertianum-wald",
       "apprenticeship-as-health-care-specialist-fage-efz-tertianum-wald",
-      "apprentissage-en-tant-que-specialiste-en-soins-de-sante-fage-efz-tertianum-wald"
+      "apprentissage-en-tant-que-specialiste-en-soins-de-sante-fage-efz-tertianum-wald",
+      "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-wald",
+      "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-wald-e90d7146"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -25029,15 +25041,21 @@
         "apprendistato-come-specialista-o-specialista-in-salute-fage-efz-tertianum-wald",
         "lehrstelle-als-fachfrau-fachmann-gesundheit-fage-efz-tertianum-wald",
         "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-wald-2",
-        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-wald",
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-wald-e90d7146",
         "apprendistato-come-fachfrau-fachmann-gesundheit-fage-cfc-tertianum-wald",
-        "apprendistato-come-specialista-in-salute-fage-efz-tertianum-wald"
+        "apprendistato-come-specialista-in-salute-fage-efz-tertianum-wald",
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-wald"
       ],
       "en": [
-        "apprenticeship-as-health-care-specialist-fage-efz-tertianum-wald"
+        "apprenticeship-as-health-care-specialist-fage-efz-tertianum-wald",
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-wald"
       ],
       "fr": [
-        "apprentissage-en-tant-que-specialiste-en-soins-de-sante-fage-efz-tertianum-wald"
+        "apprentissage-en-tant-que-specialiste-en-soins-de-sante-fage-efz-tertianum-wald",
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-wald"
+      ],
+      "de": [
+        "lehrstelle-als-fachfrau-fachmann-gesundheit-efz-tertianum-wald-e90d7146"
       ]
     },
     "postalCode": "8636",
@@ -27746,7 +27764,6 @@
       ],
       "fr": [
         "infirmiere-infirmier-responsable-d-unite-de-soins-irus-a-100-tertianum-montreux-ye275n-143b592d",
-        "infirmiere-infirmier-responsable-d-unite-de-soins-irus-a-100-tertianum-montreux-752238f0",
         "100-infermiera-responsabile-dell-unita-di-cura-irus-tertianum-montreux",
         "100-nurse-in-charge-of-care-unit-irus-tertianum-montreux",
         "100-krankenschwester-verantwortlich-fur-pflegeeinheit-irus-tertianum-montreux",
@@ -27812,12 +27829,6 @@
       ],
       "fr": [
         "lead-integration-data-architect-80-100-tertianum-dubendorf-7dfc89bf"
-      ],
-      "en": [
-        "lead-integration-data-architect-80-100-tertianum-dubendorf-10fdcc90"
-      ],
-      "de": [
-        "lead-integration-data-architect-80-100-tertianum-dubendorf-10fdcc90"
       ]
     },
     "postalCode": "8600",
@@ -27869,9 +27880,6 @@
       ],
       "fr": [
         "assistent-in-gesundheit-soziales-im-nachtdienst-60-100-tertianum-luzern-eb27b0f0"
-      ],
-      "de": [
-        "assistent-in-gesundheit-soziales-im-nachtdienst-60-100-tertianum-luzern-eb27b0f0"
       ]
     },
     "postalCode": "6003",
@@ -27918,9 +27926,6 @@
         "directrice-directeur-des-soins-et-de-l-accompagnement-a-100-tertianum-ecublens-bd272145"
       ],
       "de": [
-        "directrice-directeur-des-soins-et-de-l-accompagnement-a-100-tertianum-ecublens-bd272145"
-      ],
-      "fr": [
         "directrice-directeur-des-soins-et-de-l-accompagnement-a-100-tertianum-ecublens-bd272145"
       ]
     },
@@ -27971,9 +27976,6 @@
         "infirmiere-infirmier-diplome-e-pour-le-service-de-l-osad-tertianum-martigny-0723b62a"
       ],
       "de": [
-        "infirmiere-infirmier-diplome-e-pour-le-service-de-l-osad-tertianum-martigny-0723b62a"
-      ],
-      "fr": [
         "infirmiere-infirmier-diplome-e-pour-le-service-de-l-osad-tertianum-martigny-0723b62a"
       ]
     },
@@ -28072,7 +28074,6 @@
         "100-betriebsleiter-technischer-offizier-tertianum-montreux-fe9dc91a"
       ],
       "fr": [
-        "agent-agente-d-exploitation-technique-a-100-tertianum-montreux-e8e7670a",
         "agent-agente-d-exploitation-technique-a-100-tertianum-montreux-14ad5427",
         "agent-agente-d-exploitation-technique-a-100-tertianum-montreux-b20b85bd",
         "agent-agente-d-exploitation-technique-a-100-tertianum-montreux-46cf5b65",
@@ -28095,7 +28096,6 @@
       "agent-agente-d-exploitation-technique-a-100-tertianum-montreux-b14cc0ef",
       "responsabile-operativo-tecnico-al-100-tertianum-montreux-8ff83a57",
       "agent-agente-d-exploitation-technique-a-100-tertianum-montreux",
-      "agent-agente-d-exploitation-technique-a-100-tertianum-montreux-e8e7670a",
       "agent-agente-d-exploitation-technique-a-100-tertianum-montreux-860f6a72",
       "responsabile-operativo-tecnico-al-100-tertianum-montreux-f5f779b1",
       "agent-agente-d-exploitation-technique-a-100-tertianum-montreux-14ad5427",
@@ -28184,9 +28184,6 @@
       ],
       "fr": [
         "fachspezialistin-fachspezialist-pflege-mit-fokus-auf-demenz-palliative-care-80-100-4947501f"
-      ],
-      "de": [
-        "fachspezialistin-fachspezialist-pflege-mit-fokus-auf-demenz-palliative-care-80-100-4947501f"
       ]
     },
     "postalCode": "8600",
@@ -28233,9 +28230,6 @@
         "responsable-d-animation-tertianum-villeneuve-bdf4d88b"
       ],
       "de": [
-        "responsable-d-animation-tertianum-villeneuve-bdf4d88b"
-      ],
-      "fr": [
         "responsable-d-animation-tertianum-villeneuve-bdf4d88b"
       ]
     },

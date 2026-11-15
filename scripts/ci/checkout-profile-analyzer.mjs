@@ -539,13 +539,19 @@ export function bucketsReferencedBy(text, { strictPathTokens = false } = {}) {
 
 const CODE_SOURCE = /\.(?:mjs|cjs|js|mts|cts|tsx?|jsx?)$/i;
 
-function bucketsReferencedByJobSources(exec, sources, { strictPathTokens = false } = {}) {
+// I cataloghi di traduzione sono linguaggio naturale, non percorsi: una frase
+// come 'Italy data' + l'esempio di ricerca "jobs" bastano all'indizio debole per
+// nominare `data/jobs/` (702 MB) senza che nessun codice la apra.
+const LOCALE_CATALOG_SOURCE = /^services\/locales\/[^/]+\.ts$/;
+
+function bucketsReferencedByJobSources(exec, sources, { strictPathTokens = false, skipLocaleCatalogs = false } = {}) {
   // Keep the workflow commands and each loaded module separate. Combining
   // unrelated source text let a parent token in one module and a child token
   // in another fabricate a generated-data path that no code opens. Comments
   // in source files are not runtime dependencies either.
   const needed = new Set(bucketsReferencedBy(exec, { strictPathTokens }));
   for (const { rel, src } of sources) {
+    if (skipLocaleCatalogs && LOCALE_CATALOG_SOURCE.test(rel)) continue;
     const code = CODE_SOURCE.test(rel) ? stripSourceComments(src) : src;
     for (const bucket of bucketsReferencedBy(code, { strictPathTokens })) needed.add(bucket);
   }
@@ -558,6 +564,26 @@ function bucketsReferencedByJobSources(exec, sources, { strictPathTokens = false
 // runtime reads would keep the checkout full and recreate the timeout that
 // this mode is meant to avoid.
 const EXTRA_ONLY_DATA_COMMIT = /\b(?:bash|sh)\s+scripts\/lib\/git-commit-data\.sh\s+(?:\\\s+)*--extra-only\b/;
+
+/**
+ * Il job drip legge solo Firestore e pochi file sorgente. Con l'analisi
+ * lessicale predefinita il bucket `data/jobs/` entra nei `needs` per un indizio
+ * debole (un identificatore `data` in un modulo + la stringa quotata `'jobs'`,
+ * per esempio la costante `JOBS: 'jobs'` di newsletterSegments.js, che e' un
+ * segmento di interesse e non un percorso, o una frase dei cataloghi di
+ * traduzione): 702 MB di checkout per nessuna lettura reale. Qui si usa
+ * l'analisi stretta per modulo, senza commenti, con percorsi per intero e senza
+ * i cataloghi `services/locales/*.ts`: la stessa del job `deploy-functions`. La chiusura
+ * resta comunque verificata dal verifier (`verify-checkout-profiles.mjs`) e dal
+ * test di perimetro di tests/checkout-sparse-profiles.test.ts.
+ * Il winback resta a checkout pieno: la CI, su un albero completo, trova nella
+ * sua chiusura 6.829 MB di dipendenze (`data/jobs/`, `public/images/` e altri
+ * percorsi), mentre un worktree sparse non contiene `data/` e `public/` e non
+ * permette di misurare correttamente quella chiusura.
+ */
+const STRICT_SOURCE_ANALYSIS_JOBS = new Set([
+  'send-onboarding-drip.yml:drip',
+]);
 
 /** Analizza un singolo job. */
 function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts, workflowFile) {
@@ -574,13 +600,15 @@ function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts, workflowFil
     : resolved;
   const codeCorpus = bucketResolved.map((r) => r.src).join('\n');
   const corpus = exec + '\n' + codeCorpus;
-  // This is the job where both false positives were observed. Keep the stricter
-  // source/path analysis scoped here so unrelated generated profiles stay stable.
-  const isolatedCloudFunctionsSources = workflowFile === 'deploy-cloud-functions.yml' && jobId === 'deploy-functions';
+  // Questo e' il job in cui sono stati osservati entrambi i falsi positivi.
+  // L'analisi stretta resta limitata al drip.
+  const emailJobSources = STRICT_SOURCE_ANALYSIS_JOBS.has(`${workflowFile}:${jobId}`);
+  const strictSourceAnalysis = (workflowFile === 'deploy-cloud-functions.yml' && jobId === 'deploy-functions')
+    || emailJobSources;
   let needs = opaqueBy.length
     ? new Set(BUCKETS.map((b) => b.id))
-    : isolatedCloudFunctionsSources
-      ? bucketsReferencedByJobSources(exec, bucketResolved, { strictPathTokens: true })
+    : strictSourceAnalysis
+      ? bucketsReferencedByJobSources(exec, bucketResolved, { strictPathTokens: true, skipLocaleCatalogs: emailJobSources })
       : bucketsReferencedBy(corpus);
   if (workflowFile === 'social-copy-pack.yml' && jobId === 'generate') {
     const executableCode = bucketResolved.map((r) => stripSourceComments(r.src)).join('\n');
