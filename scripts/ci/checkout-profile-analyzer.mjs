@@ -566,7 +566,7 @@ function bucketsReferencedByJobSources(exec, sources, { strictPathTokens = false
 const EXTRA_ONLY_DATA_COMMIT = /\b(?:bash|sh)\s+scripts\/lib\/git-commit-data\.sh\s+(?:\\\s+)*--extra-only\b/;
 
 /**
- * Job email che leggono solo Firestore e pochi file sorgente. Con l'analisi
+ * Il job drip legge solo Firestore e pochi file sorgente. Con l'analisi
  * lessicale predefinita il bucket `data/jobs/` entra nei `needs` per un indizio
  * debole (un identificatore `data` in un modulo + la stringa quotata `'jobs'`,
  * per esempio la costante `JOBS: 'jobs'` di newsletterSegments.js, che e' un
@@ -576,10 +576,13 @@ const EXTRA_ONLY_DATA_COMMIT = /\b(?:bash|sh)\s+scripts\/lib\/git-commit-data\.s
  * i cataloghi `services/locales/*.ts`: la stessa del job `deploy-functions`. La chiusura
  * resta comunque verificata dal verifier (`verify-checkout-profiles.mjs`) e dal
  * test di perimetro di tests/checkout-sparse-profiles.test.ts.
+ * Il winback resta a checkout pieno: la CI, su un albero completo, trova nella
+ * sua chiusura 6.829 MB di dipendenze (`data/jobs/`, `public/images/` e altri
+ * percorsi), mentre un worktree sparse non contiene `data/` e `public/` e non
+ * permette di misurare correttamente quella chiusura.
  */
 const STRICT_SOURCE_ANALYSIS_JOBS = new Set([
   'send-onboarding-drip.yml:drip',
-  'newsletter-dormant-winback.yml:dormant-winback',
 ]);
 
 /** Analizza un singolo job. */
@@ -597,8 +600,8 @@ function analyzeJobCheckout(jobId, job, workflowEnvText, npmScripts, workflowFil
     : resolved;
   const codeCorpus = bucketResolved.map((r) => r.src).join('\n');
   const corpus = exec + '\n' + codeCorpus;
-  // This is the job where both false positives were observed. Keep the stricter
-  // source/path analysis scoped here so unrelated generated profiles stay stable.
+  // Questo e' il job in cui sono stati osservati entrambi i falsi positivi.
+  // L'analisi stretta resta limitata al drip.
   const emailJobSources = STRICT_SOURCE_ANALYSIS_JOBS.has(`${workflowFile}:${jobId}`);
   const strictSourceAnalysis = (workflowFile === 'deploy-cloud-functions.yml' && jobId === 'deploy-functions')
     || emailJobSources;

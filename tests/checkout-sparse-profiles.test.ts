@@ -763,24 +763,26 @@ describe('materializzazioni sparse dichiarate nel workflow', () => {
 });
 
 /**
- * Drip e win-back della newsletter: checkout parziale (perf-plan email senders, punto 4).
+ * Drip della newsletter: checkout parziale (perf-plan email senders, punto 4).
  *
- * Il checkout pieno di questi due job costava ~135-141 s per leggere da Firestore
+ * Il checkout pieno del drip costava ~135-141 s per leggere da Firestore
  * e spedire. Il profilo era stato tolto in #11775 perche' l'analisi lessicale
  * metteva `data/jobs/` (702 MB) nei `needs` per un indizio debole (costante
  * `JOBS: 'jobs'`, frasi dei cataloghi di traduzione): il profilo risultante
  * pesava oltre 1 GB e il fetch pigro lo rendeva piu' lento del checkout pieno.
- * Ora l'analisi di questi due job e' stretta (per modulo, senza commenti, senza
- * cataloghi di traduzione) e il profilo e' sotto i 400 MB.
+ * Ora l'analisi del drip e' stretta (per modulo, senza commenti, senza cataloghi
+ * di traduzione) e il profilo e' sotto i 400 MB. Il winback resta a checkout
+ * pieno perche' la CI, su un albero completo, trova nella sua chiusura 6.829 MB
+ * di dipendenze (`data/jobs/`, `public/images/` e altri percorsi), che un
+ * worktree sparse privo di `data/` e `public/` non mostra.
  *
- * Il test fallisce se un modulo importato dai due script, un percorso letterale
- * dei loro moduli o un import di dati esce dal profilo: e' il caso del mese dopo,
+ * Il test fallisce se un modulo importato dallo script, un percorso letterale
+ * dei suoi moduli o un import di dati esce dal profilo: e' il caso del mese dopo,
  * quando qualcuno fa leggere `data/jobs/` a un modulo che prima non lo leggeva.
  */
-describe('drip e win-back: checkout parziale', () => {
+describe('drip: checkout parziale', () => {
   const CASES = [
     { file: 'send-onboarding-drip.yml', job: 'drip', maxMb: 400 },
-    { file: 'newsletter-dormant-winback.yml', job: 'dormant-winback', maxMb: 400 },
   ];
   const pkg = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package.json'), 'utf8'));
 
@@ -796,6 +798,20 @@ describe('drip e win-back: checkout parziale', () => {
       .filter(Boolean);
     return { job, checkouts, sparse };
   };
+
+  it('drip: il winback resta a checkout pieno', () => {
+    const file = 'newsletter-dormant-winback.yml';
+    const source = fs.readFileSync(path.join(WF_DIR, file), 'utf8');
+    const workflow = YAML.parse(source, { logLevel: 'silent' });
+    const job = workflow?.jobs?.['dormant-winback'];
+    const checkout = (job?.steps ?? []).find(
+      (step: any) => step?.name === 'Checkout' && typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
+    );
+
+    expect(checkout).toBeDefined();
+    expect(checkout?.with?.['sparse-checkout']).toBeUndefined();
+    expect(source).toContain('checkout profile: intentionally full');
+  });
 
   for (const { file, job: jobId, maxMb } of CASES) {
     it(`${file}: profilo sparse non-cone senza passo che lo disabilita`, () => {
@@ -849,11 +865,9 @@ describe('drip e win-back: checkout parziale', () => {
     }, TIMEOUT);
   }
 
-  it('i due script restano sul perimetro del test: gli entry point sono quelli attesi', () => {
+  it('lo script del drip resta sul perimetro del test: l\'entry point e\' quello atteso', () => {
     const drip = load('send-onboarding-drip.yml', 'drip');
-    const winback = load('newsletter-dormant-winback.yml', 'dormant-winback');
     const runs = (job: any) => (job.steps ?? []).map((step: any) => String(step?.run ?? '')).join('\n');
     expect(checkoutEntryPoints(runs(drip.job), pkg.scripts)).toContain('scripts/send-onboarding-drip.mjs');
-    expect(checkoutEntryPoints(runs(winback.job), pkg.scripts)).toContain('scripts/newsletter-winback-campaign.mjs');
   });
 });
