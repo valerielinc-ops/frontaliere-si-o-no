@@ -4114,12 +4114,15 @@ async function main() {
   if (indexConfig.invalidMode) {
     console.warn('   ⚠️  JOB_ALERT_CANDIDATE_INDEX_MODE non riconosciuto: ripiego su `shadow` (decide il legacy, l\'indice è solo confrontato)');
   }
+  for (const name of indexConfig.invalidSwitches) {
+    console.warn(`   ⚠️  ${name} non riconosciuto (atteso on|off): ripiego su off, il percorso che non cambia nessun esito`);
+  }
   const candidateIndex = indexConfig.mode === 'off' || quotaCapacity <= 0
     ? null
     : createJobAlertCandidateIndex(inventoryJobs, { nowMs: now, budgetBytes: indexConfig.budgetBytes });
   if (candidateIndex) {
     const indexStats = candidateIndex.stats();
-    console.log(`   🗂️ Candidate index: mode=${indexConfig.mode}, ${indexStats.rows} open rows, verification sample ${(indexConfig.sampleRate * 100).toFixed(1)}%, bitset budget ${(indexConfig.budgetBytes / 1024 / 1024).toFixed(0)} MiB`);
+    console.log(`   🗂️ Candidate index: mode=${indexConfig.mode}, ${indexStats.rows} open rows, verification sample ${(indexConfig.sampleRate * 100).toFixed(1)}%, bitset budget ${(indexConfig.budgetBytes / 1024 / 1024).toFixed(0)} MiB, planning fast path ${indexConfig.planningFastpath ? 'on' : 'off'}, vocabulary workers ${indexConfig.vocabularyWorkers ? 'on' : 'off'}`);
   }
   // Vocabolari di ricerca: costruiti subito, in parallelo ai caricamenti che
   // seguono (manifest delle pagine, profili di affinita'), invece che pigramente
@@ -4434,6 +4437,7 @@ async function main() {
         allowDiscovery: !discoveryRecipientsPlanned.has(alert.email.toLowerCase())
           && !discoveryBlockedRecipients.has(alert.email.toLowerCase()),
         compactMatches: true,
+        planningFastpath: indexConfig.planningFastpath,
       }, {
         cursor,
         // `planAlertMatch` keeps its historical `recentJobs` name for the test

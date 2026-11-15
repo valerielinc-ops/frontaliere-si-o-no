@@ -85,7 +85,11 @@ export const DEFAULT_BITSET_BUDGET_BYTES = 128 * 1024 * 1024;
  *    l'indice, un campione è ricalcolato col legacy). Default locale `on`; un
  *    valore non riconosciuto ripiega su `shadow`, che non cambia nessun esito.
  *  - JOB_ALERT_CANDIDATE_INDEX_SHADOW_SAMPLE: frazione di alert verificati, in
- *    [0, 1]. Default 0,02 in LIVE e 0,10 in --dry-run.
+ *    [0, 1]. Default 0,005 in LIVE e 0,10 in --dry-run.
+ *  - JOB_ALERT_PLANNING_FASTPATH: `on` (default) | `off`. `off` e' il kill switch
+ *    della fast path del planning (perf-plan P1–P5): l'indice resta in uso ma lo
+ *    scorer e il ranking tornano a quelli di prima. Un valore non riconosciuto
+ *    vale `off` (il percorso che non cambia nessun esito).
  *  - JOB_ALERT_CANDIDATE_INDEX_BUDGET_MB: budget in MB della cache dei bitset
  *    (default 128). Solo ambiente: non è un parametro Remote Config.
  */
@@ -108,7 +112,28 @@ export function resolveCandidateIndexConfig(env = process.env, { dryRun = false 
   const budgetBytes = Number.isFinite(rawBudget) && rawBudget > 0
     ? Math.floor(rawBudget * 1024 * 1024)
     : DEFAULT_BITSET_BUDGET_BYTES;
-  return { mode, sampleRate, budgetBytes, invalidMode };
+  const planningFastpath = resolveOnOffSwitch(env.JOB_ALERT_PLANNING_FASTPATH);
+  const vocabularyWorkers = resolveOnOffSwitch(env.JOB_ALERT_VOCABULARY_WORKERS);
+  return {
+    mode,
+    sampleRate,
+    budgetBytes,
+    invalidMode,
+    planningFastpath: planningFastpath.on,
+    vocabularyWorkers: vocabularyWorkers.on,
+    invalidSwitches: [
+      ...(planningFastpath.invalid ? ['JOB_ALERT_PLANNING_FASTPATH'] : []),
+      ...(vocabularyWorkers.invalid ? ['JOB_ALERT_VOCABULARY_WORKERS'] : []),
+    ],
+  };
+}
+
+/** `on` (or absent) | `off`; anything else is `off` and flagged — the path that changes no outcome. */
+function resolveOnOffSwitch(raw) {
+  const value = String(raw ?? '').trim().toLowerCase();
+  if (value === '' || value === 'on') return { on: true, invalid: false };
+  if (value === 'off') return { on: false, invalid: false };
+  return { on: false, invalid: true };
 }
 
 /**
