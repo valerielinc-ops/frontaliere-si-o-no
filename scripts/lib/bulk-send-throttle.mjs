@@ -23,15 +23,27 @@ export const BULK_SEND_THROTTLE = Object.freeze({
 });
 
 /**
- * Le opzioni di `sendEmailCascade` per un invio in blocco: throttle + i pavimenti
- * per provider. `BULK_PROVIDER_MIN_INTERVAL_MS` si importa dalla cascade al momento
- * dell'invio, per non caricarla in un dry run.
+ * Le opzioni di `sendEmailCascade` per un invio in blocco, dato il modulo della cascade
+ * da cui l'entry script importa (lo shim `email-cascade.mjs` o la cascade base
+ * `functions/src/emailCascade.js`). Usa `in`, non una lettura destrutturata: un
+ * doppio parziale del modulo, come quelli dei test dei sender, semplicemente non ha i
+ * pavimenti; il modulo vero li esporta sempre.
  */
-export async function bulkCascadeOptions(extra = {}) {
-  const { BULK_PROVIDER_MIN_INTERVAL_MS } = await import('./email-cascade.mjs');
+export function bulkOptionsFor(cascadeModule, extra = {}) {
+  const floors = cascadeModule && 'BULK_PROVIDER_MIN_INTERVAL_MS' in cascadeModule
+    ? cascadeModule.BULK_PROVIDER_MIN_INTERVAL_MS
+    : undefined;
   return {
     ...BULK_SEND_THROTTLE,
-    providerMinIntervalMs: BULK_PROVIDER_MIN_INTERVAL_MS,
+    ...(floors ? { providerMinIntervalMs: floors } : {}),
     ...extra,
   };
+}
+
+/**
+ * Le stesse opzioni, con la cascade dello shim importata al momento dell'invio, per non
+ * caricarla in un dry run.
+ */
+export async function bulkCascadeOptions(extra = {}) {
+  return bulkOptionsFor(await import('./email-cascade.mjs'), extra);
 }

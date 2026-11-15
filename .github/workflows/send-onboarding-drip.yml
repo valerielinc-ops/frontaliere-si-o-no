@@ -75,9 +75,14 @@ jobs:
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs --only-env=CF_ACCOUNT_ID,CF_API_TOKEN,CLOUDFLARE_EMAIL_API_TOKEN,MAILEROO_ACCOUNT_API_KEY,MAILEROO_API_KEY,MAILEROO_NEWSLETTER_API_KEY,MAILEROO_TRANSACTIONAL_API_KEY,MAILGUN_API_KEY,MAILGUN_DOMAIN,MAILJET_API_KEY,MAILJET_SECRET_KEY,MAILTRAP_API_TOKEN,NEWSLETTER_FROM,NEWSLETTER_SECRET,PER_USER_SEND_TIME,RESEND_API_KEY
 
-      # Runs for a dry run too: EFFECTIVE_DRY_RUN forces MODE=dry-run below, so the scan
-      # builds the queue and prints DRIP_METRICS without any provider call or write.
+      # Dry run (input dry_run, default true for manual dispatches): builds the queue and
+      # prints DRIP_METRICS, with no provider call and no write (reads only).
+      - name: Scan onboarding drip without sending (dry run)
+        if: inputs.dry_run == true || inputs.dry_run == 'true'
+        run: node scripts/send-onboarding-drip.mjs --dry-run
+
       - name: Run onboarding drip
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           MODE: ${{ github.event.inputs.mode || 'send' }}
           TARGET: ${{ github.event.inputs.target_email || '' }}
