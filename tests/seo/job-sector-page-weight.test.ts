@@ -5,7 +5,9 @@ import {
   buildSectorLandingHtml,
   sectorHubPageCount,
   SECTOR_PAGE_CARD_CAP,
+  SECTOR_PAGE_WEIGHT_TOP_N,
   SECTOR_OVERFLOW_LINKS_PER_PAGE,
+  summarizeSectorPageWeights,
 } from '../../build-plugins/jobSectorPagesPlugin';
 import {
   buildSectorHubPath,
@@ -112,6 +114,31 @@ describe('SEO — job-sector landing inventory pagination', () => {
     (_, index) => makeHeavyJob(index + 1),
   );
   const pageCount = sectorHubPageCount(heavyJobs.length);
+
+  it('summarises total observed UTF-8 bytes and a bounded heaviest-page list', () => {
+    const weights = [
+      { path: '/en/a/', bytes: Buffer.byteLength('é', 'utf-8') },
+      { path: '/en/b/', bytes: Buffer.byteLength('💼', 'utf-8') },
+      { path: '/en/c/', bytes: Buffer.byteLength('abcde', 'utf-8') },
+      { path: '/en/d/', bytes: Buffer.byteLength('xyz', 'utf-8') },
+      { path: '/en/e/', bytes: Buffer.byteLength('1234567', 'utf-8') },
+      { path: '/en/f/', bytes: Buffer.byteLength('z', 'utf-8') },
+    ];
+
+    expect(SECTOR_PAGE_WEIGHT_TOP_N).toBe(5);
+    expect(summarizeSectorPageWeights(weights)).toEqual({
+      pageCount: 6,
+      totalBytes: 22,
+      top: [
+        { path: '/en/e/', bytes: 7 },
+        { path: '/en/c/', bytes: 5 },
+        { path: '/en/b/', bytes: 4 },
+        { path: '/en/d/', bytes: 3 },
+        { path: '/en/a/', bytes: 2 },
+      ],
+    });
+    expect(summarizeSectorPageWeights([])).toEqual({ pageCount: 0, totalBytes: 0, top: [] });
+  });
 
   it('bounds rich cards and compact overflow windows across the sector ladder', () => {
     expect(SECTOR_PAGE_CARD_CAP).toBe(30);

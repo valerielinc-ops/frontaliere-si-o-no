@@ -285,7 +285,31 @@ function renderJourneyCompanies(
  */
 export const SECTOR_PAGE_CARD_CAP = 30;
 export const SECTOR_OVERFLOW_LINKS_PER_PAGE = 200;
+export const SECTOR_PAGE_WEIGHT_TOP_N = 5;
 const SECTOR_PAGE_NAV_LINK_CAP = 120;
+
+export interface SectorPageWeight {
+  readonly path: string;
+  readonly bytes: number;
+}
+
+export interface SectorPageWeightSummary {
+  readonly pageCount: number;
+  readonly totalBytes: number;
+  readonly top: SectorPageWeight[];
+}
+
+/** Summarise observed page weights for diagnostics without classifying pages. */
+export function summarizeSectorPageWeights(
+  weights: ReadonlyArray<SectorPageWeight>,
+): SectorPageWeightSummary {
+  const sorted = [...weights].sort((a, b) => b.bytes - a.bytes || a.path.localeCompare(b.path));
+  return {
+    pageCount: sorted.length,
+    totalBytes: sorted.reduce((total, weight) => total + weight.bytes, 0),
+    top: sorted.slice(0, SECTOR_PAGE_WEIGHT_TOP_N),
+  };
+}
 
 export function sectorHubPageCount(totalJobs: number): number {
   const overflowCount = Math.max(0, Math.floor(totalJobs) - SECTOR_PAGE_CARD_CAP);
@@ -1025,6 +1049,7 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
         ? LOCALES
         : LOCALES.filter(shouldEmitLocale);
 
+      const pageWeights: SectorPageWeight[] = [];
       const ensuredDirs = new Set<string>();
       const ensureDir = (dir: string): void => {
         if (ensuredDirs.has(dir)) return;
@@ -1100,6 +1125,9 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
               pageCount,
             });
 
+            const htmlBytes = Buffer.byteLength(html, 'utf-8');
+            pageWeights.push({ path: canonicalPath, bytes: htmlBytes });
+
             // Write both /path/index.html and /path.html after validating the
             // URL-derived targets through the shared dist-path safety helper.
             const safeTargets = getSafeDistPageTargets(distDir, canonicalPath);
@@ -1153,6 +1181,17 @@ ${sitemapEntries.join('\n')}
       console.log(
         `\x1b[36m[job-sector-pages]\x1b[0m Generated ${totalPages} sector pages (${jobs.length} candidate jobs)`,
       );
+
+      const weightSummary = summarizeSectorPageWeights(pageWeights);
+      if (weightSummary.pageCount > 0) {
+        const heaviest = weightSummary.top
+          .map((weight) => `${weight.path} ${weight.bytes} bytes`)
+          .join('; ');
+        console.warn(
+          `[job-sector-pages] HTML size observed: ${weightSummary.totalBytes} bytes across ` +
+            `${weightSummary.pageCount} pages; heaviest ${weightSummary.top.length}: ${heaviest}`,
+        );
+      }
 
       // Always-run: patch sitemap.xml index lastmod entry. Other plugins
       // regenerate sitemap.xml every build, so our entry's <lastmod> would
