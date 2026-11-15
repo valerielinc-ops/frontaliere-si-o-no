@@ -186,6 +186,20 @@ export function ensureAdapterSeedUrls(
 }
 
 /* ── Base Crawler ──────────────────────────────────────────── */
+export function buildJyskCrawlerEnv(env = process.env) {
+  return {
+    JOBS_CRAWLER_MAX_JOB_LINKS: env.JOBS_CRAWLER_MAX_JOB_LINKS || '100000',
+    JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: env.JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES || '100000',
+    JOBS_CRAWLER_FETCH_RETRIES: env.JOBS_CRAWLER_FETCH_RETRIES || '2',
+    JOBS_CRAWLER_CONCURRENCY: env.JOBS_CRAWLER_CONCURRENCY || '4',
+    // JYSK's Drupal detail pages can fail on the GitHub Actions direct-egress
+    // path. Use the existing host-gated Jina clean-egress transport for this
+    // source only; the shared crawler keeps the original canonical URL and
+    // retains its direct-fetch fallback if the proxy is unavailable.
+    JOBS_CRAWLER_FETCH_PROXY: env.JOBS_CRAWLER_FETCH_PROXY || JYSK_HOST,
+  };
+}
+
 function runBaseCrawler() {
   return runDedicatedBaseCrawler({
     root: ROOT,
@@ -193,12 +207,7 @@ function runBaseCrawler() {
     localizeOnlyCompanyKeys: JYSK_KEY,
     forceLocalizeKeys: JYSK_KEY,
     disableWorkdayForce: true,
-    extraEnv: {
-      JOBS_CRAWLER_MAX_JOB_LINKS: process.env.JOBS_CRAWLER_MAX_JOB_LINKS || '100000',
-      JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: process.env.JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES || '100000',
-      JOBS_CRAWLER_FETCH_RETRIES: process.env.JOBS_CRAWLER_FETCH_RETRIES || '2',
-      JOBS_CRAWLER_CONCURRENCY: process.env.JOBS_CRAWLER_CONCURRENCY || '4',
-    },
+    extraEnv: buildJyskCrawlerEnv(),
   });
 }
 
