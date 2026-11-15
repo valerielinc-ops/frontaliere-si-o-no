@@ -183,8 +183,12 @@ export function buildSbbSourceHealth(apiSeed = {}, loginDiscovery = {}) {
         status: aemDegraded ? 'degraded' : 'healthy',
         sourceZero: apiSeed?.sourceZero === true,
         aemUrlCount: Array.isArray(apiSeed?.urls) ? apiSeed.urls.length : 0,
-        fallbackSource: aemDegraded ? 'sbb-vacancies-listing' : null,
-        failureReason: aemDegraded ? 'aem-api-unavailable' : null,
+        ...(aemDegraded
+          ? {
+              fallbackSource: 'sbb-vacancies-listing',
+              failureReason: 'aem-api-unavailable',
+            }
+          : {}),
       },
       loginOrg: {
         id: 'login.org-apprenticeships',
