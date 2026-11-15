@@ -4577,6 +4577,10 @@
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-06-24T22:39:02.358Z",
+    "previousSlugs": [
+      "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-vorwiegend-spatdienst",
+      "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-maladies-liees-a-la-dependance-essentiellement-en"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-vorwiegend-spatdienst-0ff766de",
@@ -4597,11 +4601,7 @@
     "salaryMin": 62000,
     "salaryMax": 94000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "previousSlugs": [
-      "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-vorwiegend-spatdienst",
-      "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-maladies-liees-a-la-dependance-essentiellement-en"
-    ]
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "salute-specialistica-malattie-di-dipendenza-sanitaria-specialistica-principalmente-servizio-tardivo-psychiatrische",
