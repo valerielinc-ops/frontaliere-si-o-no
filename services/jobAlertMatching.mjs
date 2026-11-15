@@ -863,6 +863,19 @@ function jobMatchFeaturesWithBase(job, locale, shared) {
 }
 
 /**
+ * {@link jobMatchFeatures} for several locales of one job, sharing the
+ * locale-independent base: the same objects `jobMatchFeatures(job, locale)`
+ * returns, without rebuilding the base once per locale (perf-plan W1).
+ *
+ * @param {object} job
+ * @param {string[]} locales
+ */
+export function jobMatchFeaturesByLocale(job, locales) {
+  const shared = jobMatchBaseFeatures(job);
+  return locales.map((locale) => jobMatchFeaturesWithBase(job, locale, shared));
+}
+
+/**
  * The job-side half of {@link scoreJobForAlert}: values that depend only on
  * the job and recipient locale, never on the alert.
  *
@@ -943,12 +956,47 @@ export function keywordInTextParts(titleText, descriptionText, keyword) {
     || keywordAcrossTextJoin(titleText, descriptionText, keyword);
 }
 
+/**
+ * The locale-independent inputs of {@link searchHaystack}: they depend on the
+ * job only, so a caller building the haystack of every locale for one job
+ * computes them once (perf-plan W1).
+ *
+ * @param {object} job
+ * @returns {{category: string, cantonNames: string}}
+ */
+export function searchHaystackShared(job) {
+  return {
+    category: normalizeJobCategory(job.category, `${job.title || ''} ${String(job.department || '')}`),
+    cantonNames: cantonSearchTokens(job.canton),
+  };
+}
+
+/**
+ * Every text {@link searchHaystack} concatenates, resolved for `locale`. Plain
+ * values only, so a worker thread can receive them (structured clone) and build
+ * the haystack with {@link searchHaystackText} — the same composition.
+ */
+export function searchHaystackInputs(job, features, locale, shared = searchHaystackShared(job)) {
+  return {
+    titleText: features.titleText,
+    description: job.descriptionByLocale?.[locale] ?? job.description ?? '',
+    company: job.company || '',
+    jobLoc: features.jobLoc,
+    contract: job.contract || '',
+    category: shared.category,
+    jobSector: features.jobSector,
+    cantonNames: shared.cantonNames,
+    title: job.titleByLocale?.[locale] || job.title,
+  };
+}
+
+/** The composition of the stemmed search haystack, from {@link searchHaystackInputs}. */
+export function searchHaystackText(inputs) {
+  return buildStemmedHaystack(`${inputs.titleText} ${inputs.description} ${inputs.company} ${inputs.jobLoc} ${inputs.contract} ${inputs.category} ${inputs.jobSector} ${inputs.cantonNames} ${professionSynonymText(inputs.title)}`);
+}
+
 export function searchHaystack(job, features, locale) {
-  const category = normalizeJobCategory(job.category, `${job.title || ''} ${String(job.department || '')}`);
-  const cantonNames = cantonSearchTokens(job.canton);
-  const title = job.titleByLocale?.[locale] || job.title;
-  const description = job.descriptionByLocale?.[locale] ?? job.description ?? '';
-  return buildStemmedHaystack(`${features.titleText} ${description} ${job.company || ''} ${features.jobLoc} ${job.contract || ''} ${category} ${features.jobSector} ${cantonNames} ${professionSynonymText(title)}`);
+  return searchHaystackText(searchHaystackInputs(job, features, locale));
 }
 
 export function compileSearchQuery(query) {

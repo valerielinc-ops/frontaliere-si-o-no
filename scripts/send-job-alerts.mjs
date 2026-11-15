@@ -4121,6 +4121,20 @@ async function main() {
     const indexStats = candidateIndex.stats();
     console.log(`   🗂️ Candidate index: mode=${indexConfig.mode}, ${indexStats.rows} open rows, verification sample ${(indexConfig.sampleRate * 100).toFixed(1)}%, bitset budget ${(indexConfig.budgetBytes / 1024 / 1024).toFixed(0)} MiB`);
   }
+  // Vocabolari di ricerca: costruiti subito, in parallelo ai caricamenti che
+  // seguono (manifest delle pagine, profili di affinita'), invece che pigramente
+  // al primo alert con una ricerca; l'attesa e' prima del primo piano.
+  const vocabularyLocales = [...new Set(alerts.map((alert) => nlNormLocale(alert.locale)))];
+  const vocabularyReady = candidateIndex && quotaCapacity > 0 && vocabularyLocales.length > 0
+    ? candidateIndex.prepareSearchVocabularies({
+      locales: vocabularyLocales,
+      workers: indexConfig.vocabularyWorkers,
+      log: (line) => console.warn(`   ⚠️  ${line}`),
+    }).catch((error) => ({
+      // Mai un rifiuto non atteso: i vocabolari si costruiranno pigramente, come prima.
+      mode: 'none', locales: [], wallMs: 0, fallback: String(error?.message || error),
+    }))
+    : null;
   // Liveness: manifest delle pagine pubblicate (una richiesta) o controllo HTTP per
   // pagina, secondo disponibilita' e coerenza del manifest (perf-plan PR 5).
   jobAlertMetrics.enter('live_link');
@@ -4367,6 +4381,14 @@ async function main() {
   let quotaExhausted = quotaCapacity <= 0;
   let planBatchNumber = 0;
   let jobFeatureStore = createJobFeatureStore();
+  if (vocabularyReady) {
+    jobAlertMetrics.enter('planning');
+    const vocabularyWaitStartedAt = performance.now();
+    const vocabularyBuild = await vocabularyReady;
+    jobAlertMetrics.set('vocabularyWaitMs', Math.round(performance.now() - vocabularyWaitStartedAt));
+    jobAlertMetrics.set('vocabularyWallMs', vocabularyBuild.wallMs);
+    console.log(`   📚 Search vocabulary: ${vocabularyBuild.mode}${vocabularyBuild.locales.length ? ` (${vocabularyBuild.locales.join(', ')}) in ${vocabularyBuild.wallMs} ms` : ''}${vocabularyBuild.fallback ? `, workers failed: ${vocabularyBuild.fallback}` : ''}`);
+  }
   if (quotaCapacity > 0) await forEachJobAlertPlanBatch(alerts, async (alertBatch) => {
     jobAlertMetrics.enter('planning');
     planBatchNumber += 1;
