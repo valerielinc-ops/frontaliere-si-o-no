@@ -261,7 +261,19 @@ describe('capture-deployed-sitemaps (local source) end to end', () => {
     const snapshot = readSitemapSnapshot(out);
     expect(snapshot.sitemapFiles).toEqual(['sitemap-a.xml', 'sitemap.xml']);
     expect([...snapshotUrls(snapshot)].sort()).toEqual([`${BASE}/a/1/`, `${BASE}/a/2/`]);
-    expect(snapshot.perSitemapLastmod['sitemap-a.xml'][`${BASE}/a/1/`]).toBe('2026-11-15');
+    // Local captures omit the duplicate per-URL lastmod index; the v4 reader
+    // keeps the in-memory shape stable with an empty map for each sitemap.
+    expect(snapshot.perSitemapLastmod).toEqual({ 'sitemap-a.xml': {}, 'sitemap.xml': {} });
+  });
+
+  it('keeps the local snapshot compact without changing the URL set', async () => {
+    const crawl = await crawlSitemaps({ source: 'local', rootDir: makeDist(), baseUrl: BASE, strict: false });
+    const out = tempFile('compact-snapshot.ndjson');
+    await writeSnapshotFile(out, crawl, { includeDerivedIndexes: false });
+
+    const snapshot = readSitemapSnapshot(out);
+    expect([...snapshotUrls(snapshot)].sort()).toEqual([`${BASE}/a/1/`, `${BASE}/a/2/`]);
+    expect(snapshot.perSitemapLastmod).toEqual({ 'sitemap-a.xml': {}, 'sitemap.xml': {} });
   });
 
   it('exits non-zero and leaves no OUTPUT when the capture fails', () => {

@@ -10,8 +10,8 @@
  *
  * Output defaults to /tmp/pre-deploy-sitemap-urls.json and uses snapshot v4
  * (NDJSON, one line per sitemap): per-sitemap URL sets plus XML digests and
- * per-URL lastmod values. The latter let IndexNow submit existing URLs whose
- * content changed, not only additions. The file is streamed one sitemap at a
+ * per-URL lastmod values for live snapshots. Local publisher snapshots omit
+ * the duplicate per-URL lastmod index. The file is streamed one sitemap at a
  * time, so its size can never hit V8's maximum string length no matter how
  * large the sitemap graph grows; read it back with `readSitemapSnapshot`.
  */
@@ -35,7 +35,9 @@ async function main() {
     // scoped to files present in this build. Live snapshots remain strict.
     strict: SOURCE !== 'local',
   });
-  const stats = await writeSnapshotFile(OUTPUT, crawl);
+  const stats = await writeSnapshotFile(OUTPUT, crawl, {
+    includeDerivedIndexes: SOURCE !== 'local',
+  });
   console.log(
     `📸 Captured ${stats.urls} URL entries across ${stats.sitemaps} sitemap files ` +
     `(${SOURCE}, ${stats.bytes} bytes, largest chunk ${stats.maxChunkChars} chars) → ${OUTPUT}`,
