@@ -408,6 +408,13 @@ function hasExplicitlyDifferentArchiveIdentity(left, right) {
   return [...leftIdentities].every((identity) => !rightIdentities.has(identity));
 }
 
+function hasExplicitlySharedArchiveIdentity(left, right) {
+  const leftIdentities = explicitArchiveSourceIdentities(left);
+  const rightIdentities = explicitArchiveSourceIdentities(right);
+  if (leftIdentities.size === 0 || rightIdentities.size === 0) return false;
+  return [...leftIdentities].some((identity) => rightIdentities.has(identity));
+}
+
 function localeFromRouteKey(routeKey) {
   const separator = String(routeKey).indexOf(':');
   return separator > 0 ? String(routeKey).slice(0, separator) : 'it';
@@ -480,7 +487,10 @@ export function repairExpiredRoutesWithinArchive(
         const ownerKey = `${entry.companyKey}::${routeKey}`;
         const routeOwners = owners.get(ownerKey) || [];
         if (routeOwners.length === 0) continue;
-        if (repairUnprovenCollisions
+        const hasProvenSharedIdentity = routeOwners.some((owner) => (
+          hasExplicitlySharedArchiveIdentity(entry, owner)
+        ));
+        if ((!hasProvenSharedIdentity && repairUnprovenCollisions)
           || routeOwners.every((owner) => hasExplicitlyDifferentArchiveIdentity(entry, owner))) {
           conflictingRouteKeys.push(routeKey);
         }
