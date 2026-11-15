@@ -32,7 +32,7 @@ import {
   LOCALES,
   promotePreviousSlugToLegacy,
 } from './dedicated-crawler-common.mjs';
-import { replaceSlugRouteEverywhere } from './slug-history-journal.mjs';
+import { addPreviousSlugRoutesKeepAll, replaceSlugRouteEverywhere } from './slug-history-journal.mjs';
 import {
   archiveRecordNamesPosting,
   archiveRecordSourceIdentities,
@@ -644,6 +644,42 @@ export function readExpiredSlice(crawlerKey, opts = {}) {
   }
 }
 
+/** How many deterministic aliases of a route are probed (the repair picks the lowest free attempt). */
+const MAX_ALIAS_PROBE = 256;
+
+/** Whether `record` already holds a deterministic collision alias of `routeKey`. */
+function holdsDeterministicAlias(record, routeKey, heldKeys = localeRouteKeys(record)) {
+  const locale = localeFromRouteKey(routeKey);
+  const route = rawRouteFromLocaleKey(routeKey);
+  for (let attempt = 0; attempt < MAX_ALIAS_PROBE; attempt += 1) {
+    const alias = appendSlugDisambiguator(route, collisionRouteSuffix(record, route, attempt));
+    if (heldKeys.has(`${locale}:${alias}`)) return true;
+  }
+  return false;
+}
+
+/**
+ * Merge routes an existing record no longer serves into ITS history through the journal
+ * primitive `addPreviousSlugRoutesKeepAll`, which never trims: `transferSlugHistory` goes
+ * through the 20-entry buckets and would evict served routes from a record that is already
+ * far over the cap (one Denner record holds 1 029 entries in `it`). Only the given routes
+ * travel: a route the repair already moved to an alias must not come back as a stem.
+ *
+ * @returns {boolean} whether the routes were merged
+ */
+function mergeUnservedRoutesIntoRecord(record, routeKeys) {
+  const byLocale = {};
+  for (const routeKey of routeKeys) {
+    const locale = localeFromRouteKey(routeKey);
+    (byLocale[locale] ||= []).push(rawRouteFromLocaleKey(routeKey));
+  }
+  addPreviousSlugRoutesKeepAll(record, byLocale, {
+    source: 'expired-jobs-archive.archiveRemovedJobsToSlice/same-identity',
+    cap: DEFAULT_PREV_SLUG_CAP,
+  });
+  return true;
+}
+
 export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
   if (!crawlerKey) return 0;
   if (!Array.isArray(removedJobs)) return 0;
@@ -670,12 +706,16 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
   // minted a second record carrying the job's original (colliding) history, and the
   // next repair coined fresh aliases for it: the loop behind the linear growth of
   // the expired pages (#14030 added the alias repair, 20 Oct 2026). Index the
-  // archive by source identity too, so the same posting is recognised.
+  // archive by source identity too, so the same posting is recognised. This must NOT
+  // depend on `opts.activeJobs`: assemble-jobs-dataset.mjs (every assembly) and the
+  // ~25 update-*.mjs crawlers call this writer without it.
   const recordBySourceIdentity = new Map();
+  const sliceRouteHolders = new Map();
   for (const ej of existing) {
     for (const identity of archiveRecordSourceIdentities(ej)) {
       if (!recordBySourceIdentity.has(identity)) recordBySourceIdentity.set(identity, ej);
     }
+    addRouteHolders(sliceRouteHolders, localeRouteKeys(ej));
   }
   const activeRouteKeys = new Set();
   for (const activeJob of Array.isArray(opts.activeJobs) ? opts.activeJobs : []) {
@@ -698,17 +738,29 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
     const entry = buildExpiredEntry(job);
     const prev = bySlug.get(entry.slug);
     if (!prev) {
-      // Same posting already archived under another slug: its record is already
-      // the owner of this job's history. Skip only when every route of the
-      // incoming job is still served (by that record, or by an active posting
-      // that took the route over); otherwise a URL would stop resolving.
+      // Same posting already archived under another slug (its slug was moved to an
+      // alias by the collision repair): NEVER a second record. The existing record
+      // stays the owner of the posting; routes it no longer serves are merged into
+      // its history below, so no URL stops resolving. A route counts as served when
+      //   - the record holds it, or
+      //   - the record holds one of its deterministic aliases (the repair already
+      //     moved it, and the idempotent repair will move it there again), or
+      //   - an active posting (when the caller knows them) or ANOTHER record of the
+      //     slice holds it.
       const sameRecord = entry.sourceIdentity ? recordBySourceIdentity.get(entry.sourceIdentity) : undefined;
       if (sameRecord) {
         const held = localeRouteKeys(sameRecord);
-        const everyRouteServed = [...localeRouteKeys(entry)].every(
-          (routeKey) => held.has(routeKey) || activeRouteKeys.has(routeKey),
-        );
-        if (everyRouteServed) continue;
+        const unserved = [...localeRouteKeys(entry)].filter((routeKey) => {
+          if (held.has(routeKey) || activeRouteKeys.has(routeKey)) return false;
+          if ((sliceRouteHolders.get(routeKey) || 0) > 0) return false; // held by another record (not this one: `held` is checked above)
+          return !holdsDeterministicAlias(sameRecord, routeKey, held);
+        });
+        if (unserved.length === 0) continue;
+        if (mergeUnservedRoutesIntoRecord(sameRecord, unserved)) {
+          addRouteHolders(sliceRouteHolders, unserved);
+          metadataChanged = true;
+          continue;
+        }
       }
       bySlug.set(entry.slug, entry);
       added++;

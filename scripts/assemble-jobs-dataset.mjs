@@ -1837,8 +1837,13 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
     // its indexed URL into a hard 404 instead of an enriched soft-landing
     // page (docs/CRAWLERS.md → "Slug Lifecycle & SEO Continuity"). The
     // template pipeline already archives `diff.removedJobs` at its own step;
-    // archiving here as well is idempotent (the archive merges by slug) and
-    // closes the same gap for bespoke runners that have no such step.
+    // archiving here as well closes the same gap for bespoke runners that have
+    // no such step. It is repeatable because the archive recognises a posting
+    // it already holds by source identity, NOT only by slug: the collision repair
+    // moves a record's slug to a deterministic alias, so a by-slug merge would miss
+    // it and mint a second record. This call passes no `activeJobs`, so a route a
+    // still-active posting has taken over is judged from the slice itself: the
+    // record's own routes and aliases, or another record's.
     const archived = archiveRemovedJobsToSlice(verdict.disappearedJobs, crawlerKey);
     if (archived > 0) {
       console.warn(`  📦 Archived ${archived} expired job(s) → data/jobs/expired/by-crawler/${crawlerKey}.json (soft-landing pages preserved).`);
