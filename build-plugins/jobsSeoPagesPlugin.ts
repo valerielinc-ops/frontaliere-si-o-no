@@ -393,11 +393,8 @@ import { normalizeCantonCode, inferAnyCanton } from '../scripts/lib/target-swiss
 import { formatJobLocation, splitJobLocation } from '../scripts/lib/job-location-display.mjs';
 import { buildJobListEntry } from './shared/jobListEntry';
 import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
-import {
- employerProfilesFlushed,
- registerJobsSeoPagesProducer,
- resolveJobsSeoPagesFlushed,
-} from './shared/buildSignals';
+import { employerProfilesFlushed, resolveJobsSeoPagesFlushed } from './shared/buildSignals';
+import { registerJobsSeoPagesProducer } from './shared/buildSignals';
 import { getTiHubLatestJobsBlocks, setActiveJobSitemapLocs, setJobSitemapAllowlist, setTiHubLatestJobsBlocks } from './shared/buildSignals';
 import { renderTiHubLatestJobsBlock, summarizeTiHubInventory, TI_HUB_LATEST_JOBS_LIMIT } from './shared/tiHubLatestJobs';
 import { listJobsSeoAdapterFiles, listJobsSeoExpiredSliceFiles } from './shared/jobsSeoDeterministicInputs';
