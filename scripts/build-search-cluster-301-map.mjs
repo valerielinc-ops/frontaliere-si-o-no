@@ -61,7 +61,7 @@ import {
   SEARCH_QUERY_BOILERPLATE_TOKENS,
 } from '../services/searchQueryBoilerplate.mjs';
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
-import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import { readCompatPathsStrictWithManifestRepair, writeCompatPaths } from './lib/compat-paths-store.mjs';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
 import {
   DEFAULT_LIVE_CHECK_USER_AGENT,
@@ -491,7 +491,7 @@ async function main() {
   // a soft-404 SPA fallback, never a real 4xx in the CF log it scans) or
   // discover-404s-via-inspection.mjs (never queues this URL family as an
   // inspection candidate at all).
-  const compat = readCompatPathsStrict(ROOT);
+  const compat = readCompatPathsStrictWithManifestRepair(ROOT).data;
   const compatSet = new Set(compat.paths);
   const prevCompatCount = compatSet.size;
   for (const oldUrl of Object.keys(map)) compatSet.add(oldUrl);

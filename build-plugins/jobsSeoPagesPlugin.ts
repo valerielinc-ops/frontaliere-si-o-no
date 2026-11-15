@@ -23,6 +23,7 @@ import { pruneSelfHealTracking, pruneSelfHealTrackingRow } from './shared/pruneS
 import { resolveExpiredEmitPath } from './shared/expiredEmitPath';
 import { CompactLocalePathClaims } from './shared/compactLocalePathClaims';
 import { CompactStringHashSet } from './shared/compactStringHashSet';
+import { createPageWeightReporter } from './shared/pageWeightReport';
 /**
  * Generate localized static landing pages for every job in data/jobs.json.
  *
@@ -128,6 +129,7 @@ import { normalizeExpiredJobEdgePath, parseExpiredJobEdgeSections } from '../scr
 import { truncateCodeUnits } from './shared/safeTruncate';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
+import { editorialSitemapEmitGate } from './shared/editorialSitemapEmitGate';
 import {
   JOB_PAGES_MANIFEST_FILE,
   buildJobPagesManifest,
@@ -1861,6 +1863,8 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  apply: 'build',
  enforce: 'post',
  async closeBundle() {
+ const pageWeight = createPageWeightReporter();
+ pageWeight.reset();
  if (options.fastLane && (
   options.activeJobIds === undefined
   || !options.fastLaneVisibleJobIdsByLocale
@@ -7170,18 +7174,28 @@ ${companyFollowHtml}
  // (e.g. zero jobs for that location/sector), the sitemap entry must
  // follow. IT gates the whole group (it's the x-default/canonical
  // fallback) -- alternates would all be dead too if the IT canonical isn't.
- const itDirIndex = np.join(distDir, itPath.slice(1).replace(/\/$/, ''), 'index.html');
- const itFlatHtml = np.join(distDir, itPath.replace(/\/+$/, '').slice(1) + '.html');
- const itEmitted = pathWasClaimed(itDirIndex) || pathWasClaimed(itFlatHtml) || fs.existsSync(itDirIndex) || fs.existsSync(itFlatHtml);
- if (!itEmitted) return;
  const localePaths = new Map<typeof localeList[number], string>();
  localePaths.set('it', itPath);
  for (const locale of sitemapLocales) {
  if (locale === 'it') continue;
- const slug = slugForLocale(locale);
- editorialSearchSlugsByLocale.get(locale)?.add(slug);
- const path = withSlash(`${localePrefix[locale]}/${sectionFor(locale)}/${slug}`.replace(/\/+/g, '/'));
- localePaths.set(locale, path);
+ localePaths.set(locale, withSlash(`${localePrefix[locale]}/${sectionFor(locale)}/${slugForLocale(locale)}`.replace(/\/+/g, '/')));
+ }
+ // Gate decision (shared/editorialSitemapEmitGate.ts): the IT build gates on
+ // the IT page; a BUILD_LOCALE de|en|fr build never writes it, so it gates on
+ // its own locale's page instead (publisher fast gate, class 2).
+ const emitGate = editorialSitemapEmitGate({
+  sitemapLocales,
+  localePaths,
+  emitsLocale: shouldEmitLocale,
+  pageEmitted: (pagePath) => {
+   const dirIndex = np.join(distDir, pagePath.slice(1).replace(/\/$/, ''), 'index.html');
+   const flatHtml = np.join(distDir, pagePath.replace(/\/+$/, '').slice(1) + '.html');
+   return pathWasClaimed(dirIndex) || pathWasClaimed(flatHtml) || fs.existsSync(dirIndex) || fs.existsSync(flatHtml);
+  },
+ });
+ if (!emitGate) return;
+ for (const locale of sitemapLocales) {
+ if (locale !== 'it') editorialSearchSlugsByLocale.get(locale)?.add(slugForLocale(locale));
  }
  const groups = reciprocalSitemapLocaleGroups(
   localeList,
@@ -7193,6 +7207,7 @@ ${companyFollowHtml}
  // locs. The IT sitemap build cannot use sibling files in its own dist as
  // evidence because those files belong to other locale builds.
  for (const group of groups) {
+ if (!emitGate.advertises(group.locale)) continue;
  pagePathClaims.claim(group.locale, localePaths.get(group.locale)!);
  const alternateLinks = group.alternates.map(({ locale, href }) =>
  `    <xhtml:link rel="alternate" hreflang="${locale}" href="${href}" />`,
@@ -8044,9 +8059,7 @@ ${staticAnalyticsHtml}
  </body>
 </html>`;
  const intentHtmlBytes = Buffer.byteLength(intentHtml, 'utf-8');
- if (intentHtmlBytes > 195 * 1024) {
- throw new Error(`[jobs-seo-pages] Intent landing ${canonicalPath} renders to ${(intentHtmlBytes / 1024).toFixed(1)} KB — reduce its feed cap before shipping.`);
- }
+ pageWeight.observe('intent-landing', canonicalPath, intentHtmlBytes);
  const outDir = np.join(distDir, canonicalPath.slice(1));
  _md(outDir);
  _qw(np.join(outDir, 'index.html'), intentHtml);
@@ -8462,21 +8475,10 @@ ${staticAnalyticsHtml}
  _qwFlat(flatFile, body);
  }
  };
- // Hard-fail guard mirroring the jobSectorPagesPlugin invariant — keeps
- // city/type/sector landing HTML strictly under the 195 KB safety margin
- // (200 KB audit:page-weight budget − 5 KB headroom). If a future cap
- // bump or template change pushes us over, the build fails immediately
- // with a precise URL instead of waiting for the post-build audit.
- const CITY_HUB_HARD_BUDGET_BYTES = 195 * 1024;
+ // Page weight is observed, never enforced (owner decision, run 43712804687):
+ // the page is emitted whole and the heaviest ones are reported at the end.
  const htmlBytes = Buffer.byteLength(html, 'utf-8');
- if (htmlBytes > CITY_HUB_HARD_BUDGET_BYTES) {
- throw new Error(
- `[jobsSeoPagesPlugin] City/editorial landing ${canonicalPath} renders to ` +
- `${(htmlBytes / 1024).toFixed(1)} KB — exceeds hard budget of ` +
- `${CITY_HUB_HARD_BUDGET_BYTES / 1024} KB. Reduce feed/latest caps in ` +
- `buildJobLocationLandingModel or trim per-card markup.`,
- );
- }
+ pageWeight.observe('city-editorial-landing', canonicalPath, htmlBytes);
  writeCityOrLegacy(canonicalPath, html);
  // Geo-hub cities: keep the legacy /<section>/ricerca-<city>/ path live
  // (backward-compat + external links). Strip hreflang on the legacy
@@ -9135,16 +9137,8 @@ ${staticAnalyticsHtml}
  // inventory and the commuter context, so they are not thin rescue pages.
  robots: cityHubIndexable ? 'index,follow' : 'noindex,follow',
  });
- // Hard-fail guard mirroring TI city hubs (195 KB budget)
- const CITY_HUB_HARD_BUDGET_BYTES = 195 * 1024;
  const htmlBytes = Buffer.byteLength(html, 'utf-8');
- if (htmlBytes > CITY_HUB_HARD_BUDGET_BYTES) {
- throw new Error(
- `[jobs-seo-pages] Per-canton city hub ${canonicalPath} renders to ` +
- `${(htmlBytes / 1024).toFixed(1)} KB — exceeds hard budget of ` +
- `${CITY_HUB_HARD_BUDGET_BYTES / 1024} KB.`
- );
- }
+ pageWeight.observe('city-hub', canonicalPath, htmlBytes);
  const outDir = np.join(distDir, canonicalPath.slice(1));
  activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
  _md(outDir);
@@ -10043,16 +10037,8 @@ ${staticAnalyticsHtml}
  bodyHtml,
  distDir,
  });
- // Hard budget guard (mirror per-canton city hub 195 KB cap).
- const SECTOR_CANTON_HARD_BUDGET = 195 * 1024;
  const htmlBytes = Buffer.byteLength(html, 'utf-8');
- if (htmlBytes > SECTOR_CANTON_HARD_BUDGET) {
- throw new Error(
- `[jobs-seo-pages] Sector hub ${canonicalPath} renders to ` +
- `${(htmlBytes / 1024).toFixed(1)} KB — exceeds hard budget of ` +
- `${SECTOR_CANTON_HARD_BUDGET / 1024} KB.`
- );
- }
+ pageWeight.observe('sector-canton-hub', canonicalPath, htmlBytes);
  const outDir = np.join(distDir, canonicalPath.slice(1));
  activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
  _md(outDir);
@@ -10884,15 +10870,8 @@ ${staticAnalyticsHtml}
  bodyHtml,
  distDir,
  });
- const COMPANY_CITY_HARD_BUDGET = 195 * 1024;
  const htmlBytes = Buffer.byteLength(html, 'utf-8');
- if (htmlBytes > COMPANY_CITY_HARD_BUDGET) {
- throw new Error(
- `[jobs-seo-pages] Per-canton company×city hub ${canonicalPath} renders to ` +
- `${(htmlBytes / 1024).toFixed(1)} KB — exceeds hard budget of ` +
- `${COMPANY_CITY_HARD_BUDGET / 1024} KB.`
- );
- }
+ pageWeight.observe('company-city-hub', canonicalPath, htmlBytes);
  const outDir = np.join(distDir, canonicalPath.slice(1));
  activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
  _md(outDir);
@@ -17574,6 +17553,10 @@ ${staticAnalyticsHtml}
  const skipped = collector.skippedByHash;
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s` +
  (skipped > 0 ? ` (${skipped} skipped by content hash)` : ''));
+ if (pageWeight.summary().total > 0) {
+  const pageWeightLog = pageWeight.summary().overCount > 0 ? console.warn : console.log;
+  pageWeightLog(pageWeight.formatSummary());
+ }
  // Print profiler summary in normal profiled CI builds; local opt-out:
  // JOBS_SEO_PROFILE=0.
  printJobsSeoProfile();

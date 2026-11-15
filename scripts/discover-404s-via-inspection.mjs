@@ -38,7 +38,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { assertCompatFloor, COMPAT_PATHS_SANITY_FLOOR } from './lib/compat-paths-floor-guard.mjs';
-import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import {
+  readCompatPathsStrict,
+  readCompatPathsStrictWithManifestRepair,
+  writeCompatPaths,
+} from './lib/compat-paths-store.mjs';
 import { gscCoveragePopulationSummary, readCanonicalGscCoverage } from './lib/gsc-coverage-population.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 
@@ -185,7 +189,9 @@ async function main() {
   // Coverage export. Keep the job-orphan ledger separate; it is owned by the
   // dedicated synchronizer.
   const compatPath = dataPath('seo-404-compat'); // sharded dir (issue #2988)
-  const compat = readCompatPathsStrict(ROOT);
+  const compat = !DRY_RUN
+    ? readCompatPathsStrictWithManifestRepair(ROOT).data
+    : readCompatPathsStrict(ROOT);
 
   // Collect candidate URLs and rank by "most in need of inspection"
   const candidates = collectCandidatePaths(population, compat.paths);

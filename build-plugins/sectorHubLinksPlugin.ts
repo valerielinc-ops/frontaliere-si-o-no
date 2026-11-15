@@ -50,7 +50,7 @@ import {
   sectorPagesFlushed,
 } from './shared/buildSignals';
 import {
-  injectBlockAfterMain,
+  injectBlockBeforeMainClose,
   type InjectionOutcome,
 } from './shared/injectAfterMain';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
@@ -135,7 +135,7 @@ export function injectSectorHubLinks(
   html: string,
   block: string,
 ): { html: string; outcome: InjectionOutcome } {
-  return injectBlockAfterMain(html, block, SECTOR_LINKS_MARKER);
+  return injectBlockBeforeMainClose(html, block, SECTOR_LINKS_MARKER);
 }
 
 interface PatchResult {

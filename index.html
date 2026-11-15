@@ -421,9 +421,10 @@
          demand) must appear only when the visitor clicks "Candidati" on a
          job-board section. Funding Choices calls this twice per page view;
          on the job board the call that carries OFFERWALL is held and released
-         by services/offerwallClickGate.ts. The gate suppresses only the
-         Offerwall message, leaving Google's native AD_BLOCKING recovery and
-         consent messages available. Readable twin of
+         by services/offerwallClickGate.ts. The gate suppresses AD_BLOCKING
+         while leaving consent and other Funding Choices messages available;
+         the first-party recovery offers the application service to visitors.
+         Readable twin of
          FC_JOBBOARD_OFFERWALL_GATE_JS
          (build-plugins/constants.ts); tests/offerwall-click-gate-parity.test.ts
          executes both and pins this path regex to
@@ -569,6 +570,9 @@
             g.__ftOfferwallBootstrapComplete = true;
             deliver(message, previous, { allow: true });
             return;
+          }
+          if (typeof E.AD_BLOCKING === 'number' || typeof E.AD_BLOCKING === 'string') {
+            previous = mergeDecisions(previous, { allow: false, types: [E.AD_BLOCKING] });
           }
           syncRoute();
           if (!isJobBoardPath()) {
