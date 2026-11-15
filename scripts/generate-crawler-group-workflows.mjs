@@ -85,6 +85,7 @@ import { computeProfiledText } from './ci/apply-checkout-profiles.mjs';
 // non e' un dato brutto, e' il pin dell'intera schedulazione perso, committato.
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { writeFileAtomic } from './lib/atomic-shard-write.mjs';
+import { contractContentEquals } from './lib/crawler-contract-compare.mjs';
 import {
   GROUP_IDS,
   canonicalJson,
@@ -4214,7 +4215,10 @@ export function checkGeneratedArtifacts({ profileRenderer = computeProfiledText 
   if (canonicalJson(loadJson(CRAWLER_GENERATION_ROSTER_PATH)) !== canonicalJson(groupResults.generationRoster)) {
     changed.push(CRAWLER_GENERATION_ROSTER_PATH);
   }
-  if (canonicalJson(loadJson(PORTABLE_CONTRACT_PATH)) !== canonicalJson(cross.contract)) {
+  // Il confronto ignora i campi di attestazione elencati in
+  // `scripts/lib/crawler-contract-compare.mjs`: dipendono dal commit di `main`,
+  // che cambia a ogni riattestazione dopo il merge. Il contenuto resta confrontato.
+  if (!contractContentEquals(loadJson(PORTABLE_CONTRACT_PATH), cross.contract)) {
     changed.push(PORTABLE_CONTRACT_PATH);
   }
   const lockstep = checkPortableTreeLockstep({ portableDir: PORTABLE_CORPUS_DIR, contract: cross.contract });
