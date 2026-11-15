@@ -1,5 +1,5 @@
 import { execFileSync } from 'node:child_process';
-import { existsSync, mkdtempSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
+import { chmodSync, existsSync, mkdtempSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -629,6 +629,54 @@ describe('automatic section tree fan-out policy', () => {
       attempts: 2,
       retryMs: 0,
     })).rejects.toThrow(/refusing to publish hashed paths/u);
+  });
+
+  it('reuses the canonical Node Worker probe for shell shard revalidation', () => {
+    const workspace = tempDir('section-tree-layout-shell-probe-');
+    const fakeFanoutTool = join(workspace, 'fanout.mjs');
+    const fakeStageTool = join(workspace, 'stage.mjs');
+    const fakeBin = join(workspace, 'bin');
+    const fakeCurl = join(fakeBin, 'curl');
+    const probeLog = join(workspace, 'probe-args.log');
+    const fanoutScript = readFileSync(join(process.cwd(), 'scripts/lib/ticino-tree-fanout.sh'), 'utf8');
+
+    mkdirSync(fakeBin, { recursive: true });
+    writeFileSync(fakeFanoutTool, "if (process.argv[2] === 'is-fanned') process.stdout.write('true\\n');\n");
+    writeFileSync(fakeStageTool, [
+      "import { appendFileSync } from 'node:fs';",
+      "appendFileSync(process.env.PROBE_LOG, `${JSON.stringify(process.argv.slice(2))}\\n`);",
+    ].join('\n'));
+    // The old shell-local probe would pass against this response, so the log
+    // assertion below catches a regression back to the duplicated curl path.
+    writeFileSync(fakeCurl, [
+      '#!/usr/bin/env bash',
+      "printf '%s\\n' 'HTTP/1.1 204 No Content' 'x-frontaliere-section-tree-layout: hash-v1' 'x-frontaliere-section: zurigo'",
+    ].join('\n'));
+    chmodSync(fakeCurl, 0o755);
+
+    const output = execFileSync('bash', [
+      '-c',
+      [
+        'set -euo pipefail',
+        'export TICINO_TREE_FANOUT_TOOL="$1"',
+        'export SECTION_TREE_LAYOUT_STAGE_TOOL="$2"',
+        'export PROBE_LOG="$3"',
+        'source "$4"',
+        'section_tree_require_worker_layout zurigo zurigo-zh',
+        'printf \'%s\\n\' "$SECTION_TREE_WORKER_LAYOUT_CONFIRMATION"',
+      ].join('\n'),
+      'shell-probe-test',
+      fakeFanoutTool,
+      fakeStageTool,
+      probeLog,
+      join(process.cwd(), 'scripts/lib/ticino-tree-fanout.sh'),
+    ], {
+      encoding: 'utf8',
+      env: { ...process.env, PATH: `${fakeBin}:${process.env.PATH ?? ''}` },
+    });
+
+    expect(output.trim()).toBe('zurigo:zurigo-zh');
+    expect(readFileSync(probeLog, 'utf8')).toContain('["probe","--section","zurigo","--sub","zurigo-zh"]');
   });
 
   it('requires build metrics and the cross-locale preflight before both shard push jobs', () => {

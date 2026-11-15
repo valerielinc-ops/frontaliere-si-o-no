@@ -113,7 +113,11 @@ function flag(args, name, fallback) {
 }
 
 async function main(args = process.argv.slice(2)) {
-  if (args[0] !== 'stage') throw new Error('usage: section-tree-layout-stage.mjs stage --section NAME --locale LOCALE --pct PCT --stage DIR --sub PATH --mode filesystem|index [--worker-layout-confirmed]');
+  if (args[0] === 'probe') {
+    await requireWorkerSectionTreeLayout(flag(args, '--section'), flag(args, '--sub'));
+    return;
+  }
+  if (args[0] !== 'stage') throw new Error('usage: section-tree-layout-stage.mjs probe --section NAME --sub PATH | stage --section NAME --locale LOCALE --pct PCT --stage DIR --sub PATH --mode filesystem|index [--worker-layout-confirmed]');
   const result = await stageSectionTreeLayout({
     section: flag(args, '--section'),
     locale: flag(args, '--locale'),
