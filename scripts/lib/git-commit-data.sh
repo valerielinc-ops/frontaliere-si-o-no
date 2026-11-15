@@ -955,6 +955,20 @@ canonicalize_restored_expired_slices() {
   done
 }
 
+repair_compat_manifest_in_worktree() {
+  local f compat_touched=false
+  for f in "${RESOLVED_FILES[@]}"; do
+    case "$f" in
+      data/seo-404-compat/part-*.json|data/seo-404-compat/manifest.json)
+        compat_touched=true
+        ;;
+    esac
+  done
+  [ "$compat_touched" = true ] || return 0
+  node "$(dirname "$0")/../ci/repair-compat-manifest.mjs" "$PWD"
+  git add -- data/seo-404-compat/manifest.json
+}
+
 restore_stashed_changes_with_safe_merge() {
   local snapshot_dir="$1"
   local conflict_message="$2"
@@ -2581,6 +2595,31 @@ write_isolated_tree() {
   printf '%s\n' "$tree"
 }
 
+# The compat shard merge driver owns the path-set merge, but it cannot update
+# the shared manifest while Git is resolving shards independently. Rebuild only
+# the manifest from the exact private-index candidate before commit-tree.
+repair_compat_manifest_in_index() {
+  local index_file="$1" tree_sha="$2" scratch_root="$3"
+  local manifest_path manifest_before manifest_after manifest_blob
+  scratch_root="$scratch_root/compat-manifest"
+  rm -rf -- "$scratch_root"
+  mkdir -p -- "$scratch_root"
+  if ! git archive --format=tar "$tree_sha" data/seo-404-compat | tar -xf - -C "$scratch_root"; then
+    echo "❌ grouped-isolated: could not materialise the candidate seo-404-compat store for manifest repair"
+    return 1
+  fi
+
+  manifest_path="$scratch_root/data/seo-404-compat/manifest.json"
+  manifest_before="$(GIT_INDEX_FILE="$index_file" git rev-parse :data/seo-404-compat/manifest.json 2>/dev/null || true)"
+  node "$(dirname "$0")/../ci/repair-compat-manifest.mjs" "$scratch_root"
+  manifest_after="$(git hash-object -- "$manifest_path")"
+  if [ "$manifest_after" != "$manifest_before" ]; then
+    manifest_blob="$(git hash-object -w -- "$manifest_path")"
+    stage_isolated_blob "$index_file" "100644" "$manifest_blob" data/seo-404-compat/manifest.json || return 1
+  fi
+  rm -rf -- "$scratch_root"
+}
+
 append_translation_stats_to_index() {
   local tmp_index="$1"
   local tree_sha="$2"
@@ -2734,6 +2773,7 @@ commit_isolated_from_worktree() {
   local snapshot_operation snapshot_state registry_status
   local ownership_root ownership_base_path ownership_remote_path ownership_output_path ownership_result crawler_key ownership_helper
   local has_primary_slice=false delay
+  local compat_store_touched=false
   local -a effective_files
   local skipped_identical
   local result_key result_cacheable ownership_verdict proof_digest owned_blob reused_count computed_count
@@ -2840,6 +2880,11 @@ commit_isolated_from_worktree() {
         fi
       fi
       effective_files+=("$f")
+      case "$f" in
+        data/seo-404-compat/part-*.json|data/seo-404-compat/manifest.json)
+          compat_store_touched=true
+          ;;
+      esac
       if [[ "$f" == data/jobs/by-crawler/*.json ]]; then
         if [ "$GROUP_BATCH" = true ]; then
           [ "${_BATCH_SNAPSHOT_STATE[$f]:-absent}" = present ] && has_primary_slice=true
@@ -3349,6 +3394,10 @@ commit_isolated_from_worktree() {
 
     isolated_mark phase_started
     new_tree="$(write_isolated_tree "$tmp_index")" || return 1
+    if [ "$compat_store_touched" = true ]; then
+      repair_compat_manifest_in_index "$tmp_index" "$new_tree" "$merge_dir" || return 1
+      new_tree="$(write_isolated_tree "$tmp_index")" || return 1
+    fi
     if [ "${TRANSLATION_STATS_AFTER_TREE:-0}" = "1" ]; then
       # The snapshot must happen after the remote refresh and every 3-way merge,
       # but before this exact index becomes the pushed commit. On a retry the
@@ -3585,6 +3634,7 @@ fi
 # construct the fallback candidate once that exact remote marker still belongs
 # to this recovery run.
 translation_handoff_recovery_prepare_candidate
+repair_compat_manifest_in_worktree
 
 # ── 4. Stage, commit, push ────────────────────────────────────────────────
 # Keep canonical files aligned after any merge path.
@@ -3734,6 +3784,7 @@ if ! git rebase origin/main 2>/dev/null; then
   # The merge pull above may have moved origin/main again; revalidate before
   # staging or rebuilding a fallback candidate from the recovered run.
   translation_handoff_recovery_prepare_candidate
+  repair_compat_manifest_in_worktree
 
   collect_stageable_files
   if [ "${#STAGEABLE_FILES[@]}" -gt 0 ]; then

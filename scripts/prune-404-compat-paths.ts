@@ -19,7 +19,7 @@
  * reviewing an intentional cleanup, opt in with
  * PRUNE_404_ALLOW_LARGE_PRUNE=1. Idempotent; exits 0 when nothing changes.
  */
-import { readCompatPathsStrict, writeCompatPaths } from './lib/compat-paths-store.mjs';
+import { readCompatPathsStrictWithManifestRepair, writeCompatPaths } from './lib/compat-paths-store.mjs';
 import { classifyCompatPath } from './lib/compat-path-safety.mjs';
 import {
   assertCompatPruneFamilySafety,
@@ -66,7 +66,7 @@ async function main(): Promise<void> {
     return;
   }
 
-  const data = readCompatPathsStrict(ROOT) as { paths?: unknown; [k: string]: unknown };
+  const data = readCompatPathsStrictWithManifestRepair(ROOT).data as { paths?: unknown; [k: string]: unknown };
   if (!Array.isArray(data.paths)) {
     console.log('[prune-404-compat] no `paths` — nothing to do.');
     return;
