@@ -709,14 +709,35 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
   // archive by source identity too, so the same posting is recognised. This must NOT
   // depend on `opts.activeJobs`: assemble-jobs-dataset.mjs (every assembly) and the
   // ~25 update-*.mjs crawlers call this writer without it.
-  const recordBySourceIdentity = new Map();
+  //
+  // The index lives for the whole call: every record that enters `bySlug` (new or
+  // replacing) is indexed as it enters and a replaced record is un-indexed, so two
+  // removed jobs of the SAME call with one source identity and different slugs also end
+  // up in one record (the second one's routes are merged into the first).
+  const recordsBySourceIdentity = new Map(); // identity -> Set<record>, insertion order
   const sliceRouteHolders = new Map();
-  for (const ej of existing) {
-    for (const identity of archiveRecordSourceIdentities(ej)) {
-      if (!recordBySourceIdentity.has(identity)) recordBySourceIdentity.set(identity, ej);
+  const indexRecord = (record) => {
+    for (const identity of archiveRecordSourceIdentities(record)) {
+      let records = recordsBySourceIdentity.get(identity);
+      if (!records) recordsBySourceIdentity.set(identity, records = new Set());
+      records.add(record);
     }
-    addRouteHolders(sliceRouteHolders, localeRouteKeys(ej));
-  }
+    addRouteHolders(sliceRouteHolders, localeRouteKeys(record));
+  };
+  const unindexRecord = (record) => {
+    for (const identity of archiveRecordSourceIdentities(record)) {
+      const records = recordsBySourceIdentity.get(identity);
+      if (!records) continue;
+      records.delete(record);
+      if (records.size === 0) recordsBySourceIdentity.delete(identity);
+    }
+    syncRouteHolders(sliceRouteHolders, localeRouteKeys(record), new Set());
+  };
+  const recordOfSourceIdentity = (identity) => {
+    const records = identity ? recordsBySourceIdentity.get(identity) : undefined;
+    return records ? records.values().next().value : undefined;
+  };
+  for (const ej of existing) indexRecord(ej);
   const activeRouteKeys = new Set();
   for (const activeJob of Array.isArray(opts.activeJobs) ? opts.activeJobs : []) {
     for (const routeKey of localeRouteKeys(activeJob)) activeRouteKeys.add(routeKey);
@@ -747,7 +768,7 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
       //     moved it, and the idempotent repair will move it there again), or
       //   - an active posting (when the caller knows them) or ANOTHER record of the
       //     slice holds it.
-      const sameRecord = entry.sourceIdentity ? recordBySourceIdentity.get(entry.sourceIdentity) : undefined;
+      const sameRecord = recordOfSourceIdentity(entry.sourceIdentity);
       if (sameRecord) {
         const held = localeRouteKeys(sameRecord);
         const unserved = [...localeRouteKeys(entry)].filter((routeKey) => {
@@ -763,11 +784,14 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
         }
       }
       bySlug.set(entry.slug, entry);
+      indexRecord(entry);
       added++;
     } else if (compareExpiredAt(entry.expiredAt, prev.expiredAt) >= 0) {
       const previousMetadata = firstSeenMetadata(prev);
+      unindexRecord(prev); // the replaced record no longer owns its identities or routes
       bySlug.set(entry.slug, entry);
       const merged = mergeSourceIdentityHistory(entry, prev);
+      indexRecord(entry); // after the merge: it may now carry the old record's identity history
       // A newer payload may replace a legacy entry that has no metadata. The
       // merge itself is intentionally a no-op when there is only one source
       // identity, so compare the selected payload before returning below.
@@ -776,6 +800,12 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
         || metadataChanged;
     } else {
       metadataChanged = mergeSourceIdentityHistory(prev, entry) || metadataChanged;
+      // `prev` may have gained identities from `entry`'s history: keep the index in step.
+      for (const identity of archiveRecordSourceIdentities(prev)) {
+        let records = recordsBySourceIdentity.get(identity);
+        if (!records) recordsBySourceIdentity.set(identity, records = new Set());
+        records.add(prev);
+      }
     }
   }
 

@@ -267,6 +267,57 @@ describe('the REAL sequence of passes of the pipeline, repeated', () => {
     expect(readExpiredSlice('denner', { dir })).toEqual(settled);
   });
 
+  describe('one call, one source identity, several slugs', () => {
+    const sameJob = (slug: string, extra: Partial<Record<string, unknown>> = {}) => ({
+      slug,
+      slugByLocale: { it: slug, en: `${slug}-en`, de: `${slug}-de`, fr: `${slug}-fr` },
+      previousSlugs: [`${slug}-old`],
+      url: 'https://jobs.example/denner/one-posting',
+      title: 'Verkäufer/in', company: 'Denner AG', companyKey: 'denner',
+      ...extra,
+    });
+    const routesOf = (jobs: any[]) => new Set(jobs.flatMap((job) => [...localeRouteKeys(job)]));
+
+    it.each([
+      ['two entries', ['slug-a', 'slug-b']],
+      ['three entries', ['slug-a', 'slug-b', 'slug-c']],
+    ])('existing=[] and %s with one sourceIdentity: one persisted record, added === 1, no route lost', (_name, slugs) => {
+      const jobs = slugs.map((slug) => sameJob(slug));
+      expect(archiveRemovedJobsToSlice(jobs, 'denner', { dir })).toBe(1);
+      const rows = readExpiredSlice('denner', { dir }) as any[];
+      expect(rows).toHaveLength(1);
+      const served = routesOf(rows);
+      for (const route of routesOf(jobs)) expect(served.has(route), route).toBe(true);
+      // repeating the call adds nothing and serves the same routes (a same-slug payload refreshes
+      // `expiredAt`, which is the documented behaviour, so compare without it)
+      const withoutClock = (list: any[]) => list.map(({ expiredAt: _expiredAt, ...rest }) => rest);
+      expect(archiveRemovedJobsToSlice(jobs, 'denner', { dir })).toBe(0);
+      const again = readExpiredSlice('denner', { dir }) as any[];
+      expect(again).toHaveLength(1);
+      expect(routesOf(again)).toEqual(served);
+      expect(withoutClock(again)).toEqual(withoutClock(rows));
+    });
+
+    it('a distinct identity in the same call still gets its own record', () => {
+      const jobs = [sameJob('slug-a'), sameJob('slug-b'), sameJob('slug-other', { url: 'https://jobs.example/denner/another-posting' })];
+      expect(archiveRemovedJobsToSlice(jobs, 'denner', { dir })).toBe(2);
+      expect(readExpiredSlice('denner', { dir })).toHaveLength(2);
+    });
+
+    it('a same-slug replacement inside the call keeps the index coherent: its identity history is indexed', () => {
+      archiveRemovedJobsToSlice([sameJob('slug-a')], 'denner', { dir });
+      // the replacement (same slug, newer payload, ANOTHER identity) inherits the old identity through
+      // mergeSourceIdentityHistory, so a later job of the same call with the OLD identity joins it
+      const replacement = sameJob('slug-a', { url: 'https://jobs.example/denner/replacement-posting' });
+      const returning = sameJob('slug-z');
+      expect(archiveRemovedJobsToSlice([replacement, returning], 'denner', { dir })).toBe(0);
+      const rows = readExpiredSlice('denner', { dir }) as any[];
+      expect(rows).toHaveLength(1);
+      const served = routesOf(rows);
+      for (const route of [...routesOf([replacement]), ...routesOf([returning])]) expect(served.has(route), route).toBe(true);
+    });
+  });
+
   it('a route another record of the slice serves is not copied into the existing record', () => {
     archiveRemovedJobsToSlice([removedJob()], 'denner', { dir, activeJobs: [] });
     const rows = readExpiredSlice('denner', { dir }) as any[];
