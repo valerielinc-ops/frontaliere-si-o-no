@@ -1,7 +1,7 @@
 {
   "key": "creditx-ch",
   "label": "CreditX Sàrl",
-  "generatedAt": "2026-11-15T00:59:32.940Z",
+  "generatedAt": "2026-11-15T09:43:46.286Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -52,16 +52,16 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 22916,
-  "avgDurationMs": 22916,
+  "durationMs": 45964,
+  "avgDurationMs": 45964,
   "durationHistory": [
-    22916
+    45964
   ],
   "newJobs": [],
   "updatedJobs": [
     {
       "id": "creditx-ch-52825786a669",
-      "slug": "relationship-manager-senior-sion-vs-creditx-ch-ch",
+      "slug": "responsabile-relazioni-senior-creditx-sarl-sion",
       "company": "CreditX Sàrl",
       "companyKey": "creditx-ch",
       "companyDomain": "creditx.ch",
@@ -71,7 +71,7 @@
       "url": "https://www.creditx.ch/careers/relationship-manager-senior-sion",
       "source": "CreditX Sàrl Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T00:58:44.993Z",
+      "crawledAt": "2026-11-15T09:42:29.057Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -95,19 +95,19 @@
       "postalCode": "1950",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T00:58:44.993Z",
+      "validThrough": "2026-12-15T09:42:29.057Z",
       "validThroughSource": "last-observed-window",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "id": "creditx-ch-ae7f54d22ec9",
-      "slug": "relationship-manager-junior-sion-vs-creditx-ch-ch",
+      "slug": "responsabile-relazioni-junior-creditx-sarl-sion",
       "company": "CreditX Sàrl",
       "companyKey": "creditx-ch",
       "companyDomain": "creditx.ch",
@@ -117,7 +117,7 @@
       "url": "https://www.creditx.ch/careers/relationship-manager-junior-sion",
       "source": "CreditX Sàrl Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T00:58:44.984Z",
+      "crawledAt": "2026-11-15T09:42:29.049Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -141,18 +141,18 @@
       "postalCode": "1950",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T00:58:44.984Z",
+      "validThrough": "2027-01-28T09:42:29.049Z",
       "validThroughSource": "last-observed-window",
-      "_qualityScore": 88,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "c2738e8d6a9c559fdfaac829986ccf33b5c08c62"
+  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
 }
