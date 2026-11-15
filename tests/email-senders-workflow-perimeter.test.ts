@@ -51,8 +51,14 @@ interface SenderPerimeter {
   workflow: string;
   jobId: string;
   entryPoints: string[];
+  /** Sostituisce l'elenco di default dei moduli le cui chiavi non servono (con motivo). */
+  keysNotNeededFrom?: string[];
   /** Moduli aggiuntivi le cui chiavi non servono (con motivo). */
   extraKeysNotNeededFrom?: string[];
+  /** File di composite action o script shell il cui testo legge chiavi RC (scansione testuale). */
+  actionFiles?: string[];
+  /** Tetto di timeout-minutes (default 120; la newsletter ha una campagna lunga e resta a 360). */
+  maxTimeoutMinutes?: number;
   /** Chiavi che DEVONO restare elencate. */
   mustList?: string[];
   /** Chiavi che NON devono comparire (segreti di altri canali). */
@@ -69,6 +75,31 @@ const SENDERS: SenderPerimeter[] = [
     entryPoints: ['scripts/assemble-jobs-dataset.mjs', 'scripts/send-company-alerts.mjs'],
     mustList: ['ENABLE_JOB_ALERTS', 'NEWSLETTER_SECRET', 'MAILEROO_API_KEY', 'RESEND_API_KEY'],
     mustNotList: [...UNRELATED, 'GEMINI_API_KEY', 'GROQ_API_KEY'],
+  },
+  {
+    name: 'newsletter',
+    workflow: 'send-newsletter.yml',
+    jobId: 'newsletter',
+    // La newsletter USA la catena dei provider LLM: ai-models.mjs NON e escluso. Restano
+    // esclusi solo i moduli di traduzione e di crawler che l'assemble importa e non esegue.
+    entryPoints: [
+      'scripts/assemble-jobs-dataset.mjs',
+      'scripts/send-newsletter.mjs',
+      'scripts/lib/ai-models.mjs',
+      // Lo step setup-omniroute registra i provider con questo script.
+      'scripts/ci/omniroute-poc-register.mjs',
+      'scripts/newsletter-content-probe.mjs',
+    ],
+    keysNotNeededFrom: ['scripts/lib/free-translate.mjs', 'scripts/lib/shared-jobs-crawler.mjs'],
+    // Chiavi che i passi di composite action leggono dall'ambiente caricato da Remote Config.
+    actionFiles: [
+      '.github/actions/setup-omniroute/action.yml',
+      '.github/actions/setup-claude-haiku-fallback/action.yml',
+    ],
+    mustList: ['NEWSLETTER_SECRET', 'MAILEROO_API_KEY', 'GEMINI_API_KEY', 'OMNIROUTE_PROVIDERS_JSON', 'ENABLE_OMNIROUTE_FALLBACK',
+      'ENABLE_CODEX_ARTICLE_FALLBACK', 'NEWSLETTER_CAMPAIGN_CONTENT_FREEZE', 'NEWSLETTER_RESUME_RECEIPT_SCAN'],
+    mustNotList: UNRELATED,
+    maxTimeoutMinutes: 360,
   },
 ];
 
@@ -164,7 +195,7 @@ describe.each(SENDERS)('$name — perimetro del workflow', (sender) => {
   it('ogni chiave Remote Config letta dal codice del job e elencata', () => {
     const closure = closureOf([...COMMON_ENTRY_POINTS, ...sender.entryPoints]);
     expect(closure.missing).toEqual([]);
-    const skip = new Set([...KEYS_NOT_NEEDED_FROM, ...(sender.extraKeysNotNeededFrom ?? [])]);
+    const skip = new Set([...(sender.keysNotNeededFrom ?? [...KEYS_NOT_NEEDED_FROM]), ...(sender.extraKeysNotNeededFrom ?? [])]);
     const missing: string[] = [];
     for (const rel of closure.files) {
       if (skip.has(rel) || !/\.(m?js|ts)$/.test(rel)) continue;
@@ -174,6 +205,17 @@ describe.each(SENDERS)('$name — perimetro del workflow', (sender) => {
     }
     expect(missing, `chiavi lette dal codice e assenti da --only-env: ${missing.join(', ')}`).toEqual([]);
   }, SLOW);
+
+  it('ogni chiave Remote Config letta dai passi di composite action e elencata', () => {
+    const missing: string[] = [];
+    for (const file of sender.actionFiles ?? []) {
+      const text = fs.readFileSync(path.join(ROOT, file), 'utf8');
+      for (const name of mapped) {
+        if (!listed.has(name) && new RegExp(`\\b${name}\\b`).test(text)) missing.push(`${name} (${file})`);
+      }
+    }
+    expect(missing, `chiavi lette dalle composite action e assenti da --only-env: ${missing.join(', ')}`).toEqual([]);
+  });
 
   it('le chiavi del canale ci sono e i segreti di altri canali no', () => {
     for (const needed of sender.mustList ?? []) expect(listed.has(needed), needed).toBe(true);
@@ -191,6 +233,6 @@ describe.each(SENDERS)('$name — perimetro del workflow', (sender) => {
   it('il job dichiara timeout-minutes', () => {
     expect(typeof job['timeout-minutes']).toBe('number');
     expect(job['timeout-minutes']).toBeGreaterThan(0);
-    expect(job['timeout-minutes']).toBeLessThanOrEqual(120);
+    expect(job['timeout-minutes']).toBeLessThanOrEqual(sender.maxTimeoutMinutes ?? 120);
   });
 });

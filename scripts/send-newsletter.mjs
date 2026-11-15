@@ -57,7 +57,6 @@ import {
 import { createResumeWriter, fetchAlreadySent as fetchCampaignAlreadySent, resumeChunkState } from './lib/campaignResumeLog.mjs';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
-import { recordMailerooRef } from '../functions/src/lib/mailerooRef.js';
 import {
   assignJobRankingVariant,
   buildJobEmailDeliveryId,
@@ -71,6 +70,7 @@ import { appendJobRankingParams, NEWSLETTER_JOB_LIMIT } from '../functions/src/l
 import {
   buildRankingJobsManifest,
   recordJobEmailImpressions,
+  resolveRankingImpressionsMode,
 } from '../functions/src/lib/jobEmailRankingStore.js';
 import { affinityRankingContext } from '../functions/src/lib/jobEmailAffinity.js';
 import { loadJobEmailAffinityProfiles } from '../functions/src/lib/jobEmailAffinityStore.js';
@@ -107,6 +107,15 @@ import { readSliceDirectory } from './lib/crawler-slice-files.mjs';
 import { excludeHeldFromPublication } from './lib/translation-publication-hold.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
+import { createSenderMetrics, emitSenderMetrics } from './lib/sender-metrics.mjs';
+import { loadResumeReceipts, resolveResumeReceiptScan } from './lib/newsletter-resume-receipts.mjs';
+import { installFirestoreOpCounterOnAdminSdk } from './lib/firestore-op-counter.mjs';
+import {
+  createCampaignContentProvider,
+  fetchStoredExchangeRate,
+  resolveFreezeMode,
+  resolveRateThresholdPct,
+} from './lib/newsletter-campaign-content.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -160,11 +169,30 @@ const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'resend'
   ? finiteDailyLimit(EMAIL_PROVIDERS.find(p => p.id === 'resend'))
   : getCascadeDailyCapacity();
 const JOB_EMAIL_RANKING_CONFIG = readJobEmailRankingConfig();
+// Quali impression di ranking scrive un invio (perf-plan email senders, C2):
+// `full` (stats + eventi + manifest) oppure `manifest` (solo
+// job_email_ranking_deliveries, l'unico input di build-job-email-affinity.mjs).
+// `auto` sceglie `full` solo con un braccio di ranking non-control attivo. Stesso
+// parametro RC della jobalert: JOB_EMAIL_RANKING_IMPRESSIONS_MODE.
+export const JOB_EMAIL_RANKING_IMPRESSIONS_MODE = resolveRankingImpressionsMode({
+  requested: process.env.JOB_EMAIL_RANKING_IMPRESSIONS_MODE,
+  config: JOB_EMAIL_RANKING_CONFIG,
+});
 const JOB_EMAIL_RANKING_RUN_ID = process.env.GITHUB_RUN_ID
   || process.env.RUN_ID
   || `${process.pid}_${Date.now()}`;
 
 export { NEWSLETTER_JOB_LIMIT };
+
+/**
+ * Per-phase telemetry (perf-plan email senders, C8): one `NEWSLETTER_METRICS` line
+ * per run plus a table in the Job Summary. `assemble` (Phases 4-5, CPU only) is
+ * kept apart from `send` so the provider time is not diluted by template work.
+ */
+export const NEWSLETTER_PHASES = Object.freeze([
+  'resume', 'audience', 'alerts', 'matching', 'ai', 'assemble', 'send', 'post',
+]);
+export const newsletterMetrics = createSenderMetrics({ tag: 'NEWSLETTER', phases: NEWSLETTER_PHASES });
 
 // A treatment that actually reorders picks its four cards among the same twelve
 // relevant candidates the retired CTR treatment had; control keeps the
@@ -237,6 +265,11 @@ function slugifyHeaderValue(value) {
 
 let db;
 let firestoreFieldValue;
+
+/** Test seam: inject a fake Firestore for the exported claim/persist helpers. */
+export function __setNewsletterDbForTest(fakeDb) {
+  db = fakeDb;
+}
 
 async function initFirebase() {
   const { FieldValue } = await import('firebase-admin/firestore');
@@ -1043,21 +1076,9 @@ const PROVIDERS = [
 ];
 
 async function fetchExchangeRate() {
-  try {
-    const doc = await db.collection('config').doc('exchange_rate').get();
-    if (!doc.exists) return null;
-    const data = doc.data();
-    const rawRate = Number(data.rate || 0.94);
-    const normalize = (v) => (v > 0 && v < 0.8 ? 1 / v : v);
-    const rate = normalize(rawRate);
-    // previousRate may not be stored — will be enriched from history later
-    const rawPrev = data.previousRate ? Number(data.previousRate) : null;
-    const previousRate = rawPrev ? normalize(rawPrev) : null;
-    return { rate, previousRate };
-  } catch (e) {
-    console.warn('\u26a0\ufe0f Exchange rate fetch failed:', e.message);
-    return null;
-  }
+  // The stored-rate reader lives in lib/newsletter-campaign-content.mjs so the
+  // workflow's frozen-content probe reads the rate exactly the way the sender does.
+  return fetchStoredExchangeRate(db);
 }
 
 async function fetchExchangeHistory(days = 120) {
@@ -1263,6 +1284,27 @@ const DEFAULT_ARTICLE_ID = 'comuni-migliori-frontalieri';
 // with write-through stays consistent.
 let _metaCache = null;
 let _metaPromise = null;
+
+/**
+ * Whether the site-wide preferred send hour has to be written to `_meta_`
+ * (perf-plan email senders, C5). The hour is what the other senders read; the
+ * sample size and `updated_at` are informational, so they are refreshed at most
+ * once a week. A missing or unreadable stored value always writes.
+ */
+export function shouldPersistGlobalPreferredHour(meta, next, nowMs, refreshMs = 7 * 24 * 60 * 60 * 1000) {
+  const stored = meta || {};
+  if (!('global_preferred_send_hour_utc' in stored)) return true;
+  const sameHour = (stored.global_preferred_send_hour_utc ?? null) === (next?.hourUtc ?? null);
+  if (!sameHour) return true;
+  const updated = stored.global_preferred_send_updated_at;
+  const updatedMs = typeof updated?.toMillis === 'function' ? updated.toMillis() : (updated instanceof Date ? updated.getTime() : Number(updated));
+  return !Number.isFinite(updatedMs) || nowMs - updatedMs >= refreshMs;
+}
+
+/** Rotation history slides on the first run of a campaign that actually sent, never on a resume. */
+export function shouldPersistRotation({ mode, confirmedSent, isResume }) {
+  return mode === 'send' && confirmedSent > 0 && !isResume;
+}
 
 function metaDocRef() {
   return db.collection('newsletter_subscribers').doc('_meta_');
@@ -1806,9 +1848,13 @@ async function fetchAlreadySent(campaignId) {
   }
   try {
     const resume = await fetchCampaignAlreadySent(db, resumeLogOpts(campaignId));
-    const receiptSnapshot = await db.collectionGroup('campaign_deliveries')
-      .where('campaign_id', '==', campaignId)
-      .get();
+    // Resume = the resume log + only the NON-TERMINAL receipts (perf-plan email
+    // senders, C6). The per-email claim before the provider stays the guarantee
+    // against a second send; see scripts/lib/newsletter-resume-receipts.mjs.
+    const receiptSnapshot = await loadResumeReceipts(db, campaignId, {
+      mode: resolveResumeReceiptScan(process.env.NEWSLETTER_RESUME_RECEIPT_SCAN),
+      metrics: newsletterMetrics,
+    });
     const receiptSent = new Set();
     const receiptAmbiguous = new Set();
     const legacyOperatorEmails = new Set();
@@ -2004,7 +2050,7 @@ async function resolveWinnersForCampaign(database, campaignId, { persist = false
 
 // ─── Resend API ─────────────────────────────────────────────
 
-async function claimNewsletterDeliveryIntent(item, provider, attemptId) {
+export async function claimNewsletterDeliveryIntent(item, provider, attemptId) {
   if (!db) throw new Error('Firestore is required to claim a newsletter delivery.');
   const email = normalizeEmail(item?.recipient?.email);
   const campaignId = item?.meta?.campaignId;
@@ -2112,18 +2158,12 @@ async function persistDelivery(recipient, messageId, meta) {
     }, { merge: true });
   });
   try {
-    // Maileroo's open/click webhooks carry only message_reference_id (no recipient,
-    // no tags), so the webhook can attribute them only through this lookup. The
-    // write itself lives in functions/src/lib/mailerooRef.js — one writer for
-    // every sender, so the shape cannot drift between copies. See
-    // functions/src/newsletterMailerooWebhookCore.js for the read side.
-    await recordMailerooRef(db, {
-      provider: meta.provider,
-      messageId,
-      email,
-      campaignId: meta.campaignId,
-      isJobAlert: false,
-    });
+    // The Maileroo lookup record (`maileroo_refs/{messageId}`) is NOT written
+    // here any more (perf-plan email senders, C1): sendEmailCascade's wrapper
+    // (scripts/lib/email-cascade.mjs, makeMailerooRefOnSent) already writes it,
+    // with the same document id and equivalent fields (`email`, `campaign_id`
+    // from the campaign_id tag, `is_job_alert: false`), right before this
+    // `onSent` runs. A second write was a pure duplicate on ~11k sends.
     // Update subscriber-level counters
     const subUpdate = {
       last_sent_at: new Date(),
@@ -2539,7 +2579,16 @@ async function main() {
   }
 
   // Init Firebase (required for test/send/dry-run)
-  if (mode !== 'preview') await initFirebase();
+  newsletterMetrics.enter('resume');
+  if (mode !== 'preview') {
+    await initFirebase();
+    try {
+      await installFirestoreOpCounterOnAdminSdk(newsletterMetrics);
+    } catch (error) {
+      console.warn(`⚠️ Firestore op counter unavailable (metrics will lack read/write totals): ${String(error?.message || error).slice(0, 120)}`);
+    }
+  }
+  newsletterMetrics.startMemorySampler();
 
   // Init AI (unless --no-ai)
   if (!noAI) await initAI();
@@ -2761,6 +2810,7 @@ async function main() {
   }
 
   // ── Fetch subscribers ──
+  newsletterMetrics.enter('audience');
   let subscribers;
   // Per-user send-time (#3798): site-wide fallback hour, populated below only
   // for a real 'send' run (test/dry-run recipients are single-target and
@@ -2813,12 +2863,22 @@ async function main() {
     globalPreferredHour = subscribers.globalPreferredHour || { hourUtc: null, sampleUsers: 0 };
     if (mode === 'send' && db) {
       try {
-        await writeMetaDoc({
-          global_preferred_send_hour_utc: globalPreferredHour.hourUtc,
-          global_preferred_send_sample_users: globalPreferredHour.sampleUsers,
-          global_preferred_send_updated_at: new Date(),
-        });
-        console.log(`\ud83d\udd50 Global preferred send hour: ${globalPreferredHour.hourUtc ?? 'n/a'} UTC (${globalPreferredHour.sampleUsers} qualified users)`);
+        // Written only when it changes (perf-plan email senders, C5): every write to
+        // newsletter_subscribers/_meta_ fires three Cloud Functions, and the hour is
+        // the same on almost every resume day.
+        const metaNow = await readMetaDoc();
+        if (shouldPersistGlobalPreferredHour(metaNow, globalPreferredHour, Date.now())) {
+          await writeMetaDoc({
+            global_preferred_send_hour_utc: globalPreferredHour.hourUtc,
+            global_preferred_send_sample_users: globalPreferredHour.sampleUsers,
+            global_preferred_send_updated_at: new Date(),
+          });
+          newsletterMetrics.count('metaWrites');
+          console.log(`\ud83d\udd50 Global preferred send hour: ${globalPreferredHour.hourUtc ?? 'n/a'} UTC (${globalPreferredHour.sampleUsers} qualified users)`);
+        } else {
+          newsletterMetrics.count('metaWritesSkipped');
+          console.log(`\ud83d\udd50 Global preferred send hour unchanged: ${globalPreferredHour.hourUtc ?? 'n/a'} UTC`);
+        }
       } catch (e) {
         console.warn('\u26a0\ufe0f  Global preferred send hour persist failed:', e?.message);
       }
@@ -2900,6 +2960,8 @@ async function main() {
     }
   }
 
+  newsletterMetrics.enter('alerts');
+  newsletterMetrics.set('audienceSize', subscribers.length);
   const alertLoad = await loadJobAlertsForSubscribers(
     db,
     subscribers.map((subscriber) => subscriber.email),
@@ -2941,6 +3003,7 @@ async function main() {
       profiles: new Map(),
       stats: { recipients: 0, opted_out: 0, read: 0, found: 0, failed: 0, skipped_reason: 'not_required' },
     };
+  newsletterMetrics.enter('matching');
   const subscriberData = subscribers.map((subscriber) => {
     const locale = nlNormLocale(subscriber.locale);
     const subscriberAlerts = allJobAlerts.get((subscriber.email || '').toLowerCase()) || [];
@@ -2999,6 +3062,7 @@ async function main() {
     cohorts.get(entry.cohortKey).members.push(entry);
   }
   console.log(`  ${subscribers.length} subscribers → ${cohorts.size} cohorts`);
+  newsletterMetrics.set('cohorts', cohorts.size);
 
   // ── Phase 2: ONE combined AI content response per locale ──
   // The model writes the shared editorial briefing and all A/B subject
@@ -3010,19 +3074,48 @@ async function main() {
   // calls for a 2119-cohort Monday campaign.
   const locales = [...new Set([...cohorts.values()].map((c) => c.locale))];
 
+  newsletterMetrics.enter('ai');
   const variantIds = listVariantIds();
   const subjectKey = newsletterSubjectKey;
   console.log(`🧠 Phase 2: combined AI content (1 call per locale: ${locales.join(', ')}; ${variantIds.length} subject templates/locale)...`);
   const briefingDeadlineMs = Date.now() + AI_PHASE_BUDGET_MS;
   const localeContentCalls = new Map();
+  // Campaign content freeze (perf-plan email senders, C4): the combined content of
+  // a (campaign, locale) is generated once and reused by the resume runs while no
+  // fact in the text has gone false (scripts/lib/newsletter-campaign-content.mjs).
+  // Read in `send` and `dry-run`; written only in `send`. RC kill switch:
+  // NEWSLETTER_CAMPAIGN_CONTENT_FREEZE=off regenerates every run, as before.
+  const freezeMode = resolveFreezeMode(process.env.NEWSLETTER_CAMPAIGN_CONTENT_FREEZE);
+  const freezeScope = (mode === 'send' || mode === 'dry-run') && Boolean(db);
+  const campaignContentFor = createCampaignContentProvider({
+    db,
+    mode: freezeScope ? freezeMode : 'off',
+    persist: mode === 'send',
+    campaignId,
+    variants: variantIds,
+    campaignLocales: locales,
+    thresholdPct: resolveRateThresholdPct(process.env.NEWSLETTER_CONTENT_FREEZE_RATE_THRESHOLD_PCT),
+    metrics: newsletterMetrics,
+    generate: (ctx) => generateLocaleNewsletterContent(ctx, { deadlineMs: briefingDeadlineMs, variants: variantIds }),
+    // A frozen document is re-run through today's acceptance functions: a stricter
+    // sanitizer or subject gate must also apply to content written yesterday.
+    revalidate: (content) => {
+      const briefing = sanitizeAIBriefingHtml(content.briefing);
+      if (!briefing) return null;
+      return {
+        briefing,
+        subjects: Object.fromEntries(variantIds.map((variant) => [variant, acceptAISubjectTemplate(content.subjects?.[variant])])),
+      };
+    },
+  });
   const contentFor = noAI ? null : (loc) => {
     if (!localeContentCalls.has(loc)) {
-      localeContentCalls.set(loc, generateLocaleNewsletterContent({
+      localeContentCalls.set(loc, campaignContentFor({
         locale: loc,
         exchangeRate, exchangeInsight,
         weeklyFact: getWeeklyFact(loc),
         featuredTool: getFeaturedToolForLocale(loc),
-      }, { deadlineMs: briefingDeadlineMs, variants: variantIds }));
+      }));
     }
     return localeContentCalls.get(loc);
   };
@@ -3041,6 +3134,9 @@ async function main() {
   if (subjectOverride) {
     for (const loc of locales) for (const variant of variantIds) subjectMap.set(subjectKey(loc, variant), subjectOverride);
   }
+  newsletterMetrics.set('aiLocales', locales.length);
+  newsletterMetrics.set('aiBriefings', localeBriefings.size);
+  newsletterMetrics.enter('assemble');
   console.log(`  ✓ ${localeBriefings.size}/${locales.length} locale AI briefings (${aiCohorts} cohorts on AI, ${fallbackCohorts} on the fallback template)`);
   console.log(`  ✓ ${subjectMap.size} subject templates: ${[...subjectMap.entries()].map(([k, s]) => `${k}="${s}"`).join(', ')}`);
 
@@ -3312,6 +3408,8 @@ async function main() {
   }
 
   // ── Send ──
+  newsletterMetrics.enter('send');
+  newsletterMetrics.set('emailsBuilt', emails.length);
   const apiKey = process.env.RESEND_API_KEY;
   if (EMAIL_PROVIDER === 'resend' && !apiKey) {
     console.error('\u274c RESEND_API_KEY required');
@@ -3377,7 +3475,11 @@ async function main() {
     if (resume) await resume.flush();
   }
   const { sent, ambiguous, failed } = sendResult;
+  newsletterMetrics.enter('post');
   const confirmedSent = sent.filter((item) => item.ack !== 'unidentifiable');
+  newsletterMetrics.set('emailsSent', confirmedSent.length);
+  newsletterMetrics.set('emailsFailed', failed.length);
+  newsletterMetrics.set('emailsAmbiguous', ambiguous.length);
   const ambiguousFailed = failed.filter((item) => item.ambiguousDelivery).length;
   const quarantinedThisRun = ambiguous.length + ambiguousFailed;
 
@@ -3401,7 +3503,7 @@ async function main() {
       }));
     if (rankingRecords.length > 0) {
       try {
-        await recordJobEmailImpressions(db, rankingRecords);
+        await recordJobEmailImpressions(db, rankingRecords, { mode: JOB_EMAIL_RANKING_IMPRESSIONS_MODE });
       } catch (error) {
         console.warn('⚠️ Newsletter ranking impression persist failed:', error?.message || error);
       }
@@ -3452,24 +3554,54 @@ async function main() {
   // Track featured article for rotation — only persist on real sends, not test/preview.
   // Pre-2026-05-19 every test send polluted the article history; today's test mode
   // could push 12 entries and overwrite the whole window before any real send.
-  if (mode === 'send' && confirmedSent.length > 0 && featuredArticle.persistRotation) {
+  // Rotation windows (26 articles / 100 jobs) slide once per CAMPAIGN, not once per
+  // resume day (perf-plan email senders, C5): a resume run keeps the history it
+  // read, so the windows are not consumed by every daily continuation.
+  if (shouldPersistRotation({ mode, confirmedSent: confirmedSent.length, isResume }) && featuredArticle.persistRotation) {
     await featuredArticle.persistRotation();
+    newsletterMetrics.count('metaWrites');
   }
 
   // Track featured jobs for rotation — only persist on real sends, not test/preview
-  if (mode === 'send' && confirmedSent.length > 0) {
+  if (shouldPersistRotation({ mode, confirmedSent: confirmedSent.length, isResume })) {
     const shownSlugs = [...new Set(
       subscriberData.flatMap((sd) => sd.matchedJobs.map((j) => j.slug).filter(Boolean))
     )];
     await saveRecentlyFeaturedJobs(shownSlugs);
+    newsletterMetrics.count('metaWrites');
   }
 
   if (flushScores) await flushScores();
 }
 
 // Only run main() when executed directly — allows import for tests / dry-run.
+/** `NEWSLETTER_METRICS` line + Job Summary table. Never throws. */
+export function emitNewsletterMetrics({ metrics = newsletterMetrics, mode = null, log = console.log } = {}) {
+  return emitSenderMetrics(metrics, {
+    tag: 'NEWSLETTER',
+    date: new Date().toISOString().slice(0, 10),
+    mode,
+    log,
+  });
+}
+
+async function runMain() {
+  const args = process.argv.slice(2);
+  const mode = args.includes('--send') ? 'send'
+    : args.includes('--dry-run') ? 'dry-run'
+    : args.includes('--test') ? 'test'
+    : 'preview';
+  try {
+    await main();
+  } finally {
+    // Also when main() returns early or throws: a run that dies midway is the one
+    // whose cost the telemetry exists to show.
+    emitNewsletterMetrics({ mode });
+  }
+}
+
 if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
-  main().catch(async (e) => {
+  runMain().catch(async (e) => {
     // `process.exit()` salta `beforeExit`: senza questa attesa il ramo di
     // errore butta via gli esiti dei modelli accumulati dalla run \u2014 per lo
     // piu' fallimenti, cioe' il segnale che serve al ledger. I due

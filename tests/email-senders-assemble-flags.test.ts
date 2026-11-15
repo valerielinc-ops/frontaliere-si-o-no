@@ -41,6 +41,29 @@ const CASES: Case[] = [
   },
 ];
 
+// C7 / D1 — dove i flag NON si applicano, e perche.
+//   newsletter: il sender legge `previousSlugs` / `previousSlugsByLocale`
+//   (buildJobContextIndex, validSlugs di sanitizeJobUrls): in modalita active-only
+//   l'assemble non esegue la riconciliazione degli scaduti che li popola, quindi un
+//   link valido per slug storico verrebbe riscritto. Il workflow resta in assemble
+//   completo e questo test tiene vera la ragione.
+describe('newsletter: assemble completo, perche legge previousSlugs', () => {
+  const source = stripSourceComments(fs.readFileSync(path.join(ROOT, 'scripts/send-newsletter.mjs'), 'utf8'));
+  const doc: any = YAML.parse(fs.readFileSync(path.join(ROOT, '.github/workflows/send-newsletter.yml'), 'utf8'), { logLevel: 'silent' });
+  const steps: any[] = doc.jobs.newsletter.steps;
+
+  it('il sender legge previousSlugs: il flag --active-only non e applicabile', () => {
+    expect(source).toContain('previousSlugs');
+  });
+
+  it('il workflow non passa --active-only / --no-summaries ne alla key action ne all assemble', () => {
+    const keyStep = steps.find((s) => s?.uses === './.github/actions/assemble-jobs-cache-key');
+    const assembleStep = steps.find((s) => /assemble-jobs-dataset\.mjs/.test(String(s?.run ?? '')));
+    expect(String(keyStep?.with?.args ?? '')).toBe('');
+    expect(String(assembleStep?.run)).not.toMatch(/--active-only|--no-summaries/);
+  });
+});
+
 const normalize = (value: string) => value.trim().split(/\s+/).filter(Boolean).join(' ');
 
 describe.each(CASES)('$name — flag dell\'assemble', (c) => {
