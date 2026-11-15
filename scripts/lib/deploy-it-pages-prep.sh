@@ -1585,9 +1585,16 @@ step_drop_assets() {
 # deploy.yml: "Capture pre-deploy sitemap URLs" — NON-FATAL.
 # Writes /tmp/pre-deploy-sitemap-urls.json.
 step_capture_sitemaps() {
-  if ! node scripts/capture-deployed-sitemaps.mjs; then
+  local _cap_log _cap_cause
+  _cap_log="$(mktemp 2>/dev/null || echo "${RUNNER_TEMP:-/tmp}/capture-sitemaps.$$.log")"
+  if ! node scripts/capture-deployed-sitemaps.mjs 2>&1 | tee "$_cap_log"; then
+    # Still NON-FATAL, but the publisher gate treats a missing pre-deploy
+    # snapshot as an error, so the cause must be visible on the run.
+    _cap_cause="$(grep -m1 'Sitemap snapshot failed' "$_cap_log" 2>/dev/null | tr -d '\r' | cut -c1-300)"
+    echo "::error title=Sitemap snapshot (pre-deploy)::${_cap_cause:-pre-deploy-sitemap-urls.json was not produced (see the capture log above)}"
     echo '⚠️ pre-deploy sitemap capture failed — IndexNow will reconcile the full current build graph'
   fi
+  rm -f "$_cap_log"
 }
 
 # ── 7. Pack new sitemap URLs from dist/ ───────────────────────────────────────
