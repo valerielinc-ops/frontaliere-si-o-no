@@ -123,15 +123,20 @@ shard_manifest_snapshot() {
 
 # shard_delta_clone_and_prepare <stage> <repo> <current_manifest>
 #   <sidecar_path> <scope> <source_root> <tool> <out_dir> <history_cap> <label>
-#   [full_rewrite_threshold]
+#   [full_rewrite_threshold] [remote_layout_path]
 # Clone the remote without checking out blobs, validate both manifest sides,
 # and seed the index from HEAD. Return 0 only when the caller may apply a delta.
-# Normal fallback reasons return 1 and are exposed in SHARD_DELTA_REASON.
+# Normal fallback reasons return 1 and are exposed in SHARD_DELTA_REASON. When
+# remote_layout_path is supplied, a proven _tree below that path returns 2 and
+# sets SHARD_DELTA_REMOTE_LAYOUT_FANNED; the section publisher must use its full
+# overlay in that case because the delta manifest still names canonical paths.
 shard_delta_clone_and_prepare() {
   local stage="$1" repo="$2" current="$3" sidecar="$4" scope="$5"
   local source_root="$6" tool="$7" out_dir="$8" history_cap="$9" label="${10:-shard}"
-  local full_rewrite_threshold="${11:-}" clone_err previous_manifest
+  local full_rewrite_threshold="${11:-}" remote_layout_path="${12:-}"
+  local clone_err previous_manifest remote_layout_entry_type
   SHARD_DELTA_REASON=''
+  SHARD_DELTA_REMOTE_LAYOUT_FANNED=0
   SHARD_DELTA_DCOUNT=0
   SHARD_DELTA_PREV_N=0
   SHARD_DELTA_FULL_REWRITE=0
@@ -151,6 +156,15 @@ shard_delta_clone_and_prepare() {
     echo "$label delta: remote is empty — full fallback" >&2
     SHARD_DELTA_REASON='first push / remote empty'
     return 1
+  fi
+
+  if [ -n "$remote_layout_path" ]; then
+    remote_layout_entry_type="$(git -C "$stage" cat-file -t "HEAD:${remote_layout_path%/}/_tree" 2>/dev/null || true)"
+    if [ "$remote_layout_entry_type" = tree ]; then
+      SHARD_DELTA_REMOTE_LAYOUT_FANNED=1
+      SHARD_DELTA_REASON='remote layout already hash-fanned'
+      return 2
+    fi
   fi
 
   if ! SHARD_DELTA_DCOUNT="$(shard_read_counter "$stage" .shard-deploys)"; then
