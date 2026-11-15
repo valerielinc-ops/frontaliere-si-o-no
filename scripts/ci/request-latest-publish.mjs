@@ -31,7 +31,7 @@ import { githubApiHeaders } from '../lib/githubApiHeaders.mjs';
 import { createdSinceQuery } from './lib/run-listing-window.mjs';
 import { classifyDeployFailure } from './deploy-failure-classifier.mjs';
 import { enqueueDeployRearmRequest } from './deploy-rearm-request.mjs';
-import { readFailedJobAnnotations, readRunJobs } from './lib/deploy-run-evidence.mjs';
+import { readFailedJobAnnotations, readRunJobs } from './lib/deploy-run-evidence.mjs'; // not ghJson: here it is the local REST helper (fetch + App token); the CLI one must not be imported
 import {
   PUBLISH_BLOCKED_ISSUE_PREFIX,
   resolveBlockedIssues,

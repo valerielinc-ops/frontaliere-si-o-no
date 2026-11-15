@@ -29,6 +29,16 @@ export function gh(args) {
   }).trim();
 }
 
+/**
+ * `gh` CLI helper: takes the argv of a `gh` invocation (`['api', path, ...]`),
+ * runs it through `execFileSync` and parses the JSON it prints.
+ *
+ * Not interchangeable with the `ghJson(urlPath)` of
+ * `scripts/ci/request-latest-publish.mjs`, which is a REST read over `fetch`
+ * with the App token (`GH_TOKEN`). That module imports this file on purpose
+ * WITHOUT `ghJson` and keeps its own; importing this one there would
+ * redeclare the name and change the transport and the token path.
+ */
 export function ghJson(args) {
   const raw = gh(args);
   if (!raw) throw new Error(`empty GitHub API response for ${args.join(' ')}`);
