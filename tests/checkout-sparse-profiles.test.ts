@@ -660,8 +660,19 @@ describe('allow-list sparse: il codice caricato deve essere materializzato', () 
       'scripts/lib/is-invoked-directly.mjs',
       'scripts/lib/githubApiHeaders.mjs',
     ];
-    expect(uncoveredAllowListCode(OLD_DISPATCHER_LIST, DISPATCHER_ENTRIES, { cone: false }))
-      .toEqual(['scripts/ci/request-latest-publish.mjs']);
+    // The old list lacks the reconciler and the modules it imports for the
+    // classified publish retry (classifier, evidence reader, blocked issue,
+    // rebuild request).
+    expect([...uncoveredAllowListCode(OLD_DISPATCHER_LIST, DISPATCHER_ENTRIES, { cone: false })].sort())
+      .toEqual([
+        'scripts/ci/deploy-failure-classifier.mjs',
+        'scripts/ci/deploy-rearm-request.mjs',
+        'scripts/ci/lib/deploy-blocked-issue.mjs',
+        'scripts/ci/lib/deploy-job-failure-signature.mjs',
+        'scripts/ci/lib/deploy-run-evidence.mjs',
+        'scripts/ci/request-latest-publish.mjs',
+        'scripts/lib/int-from-env.mjs',
+      ]);
     const doc = YAML.parse(fs.readFileSync(path.join(WF_DIR, 'deploy-request.yml'), 'utf8'));
     const checkout = doc.jobs.request.steps.find((st: any) => String(st?.uses).startsWith('actions/checkout@'));
     const lines = String(checkout.with['sparse-checkout']).split('\n').map((l: string) => l.trim()).filter(Boolean);

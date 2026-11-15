@@ -3,10 +3,23 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import YAML from 'yaml';
 import {
+  classifyPublishAttempt,
   decideLatestPublish,
   DEFAULT_MAX_PUBLISH_ATTEMPTS,
   deploymentSourceSha,
+  publishBackoffMs,
+  publishToolchainPathHit,
+  readToolchainChange,
 } from '../scripts/ci/request-latest-publish.mjs';
+import {
+  BUILD_BLOCKED_ISSUE_PREFIX,
+  blockedIssueTitle,
+  issueUpdatesEnabled,
+  PUBLISH_BLOCKED_ISSUE_PREFIX,
+  resolveBlockedIssues,
+  upsertBlockedIssue,
+} from '../scripts/ci/lib/deploy-blocked-issue.mjs';
+import { classifyDeployFailure } from '../scripts/ci/deploy-failure-classifier.mjs';
 
 const SHA_OLD = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 const SHA_LATEST = 'bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb';
@@ -328,6 +341,266 @@ describe('decideLatestPublish', () => {
   });
 });
 
+const SHA_TOOLCHAIN = 'dddddddddddddddddddddddddddddddddddddddd';
+const SHA_TIP = 'eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee';
+const MIN = 60_000;
+const NOW = Date.now();
+const ago = (minutes: number) => new Date(NOW - minutes * MIN).toISOString();
+
+const publishRun = (id: number, status = 'completed', conclusion: string | null = 'failure', completedAt = ago(60)) => ({
+  id,
+  status,
+  conclusion,
+  headSha: SHA_TOOLCHAIN,
+  displayTitle: `Publish Pages build 2 @ ${SHA_LATEST}`,
+  completedAt,
+});
+
+const attempt = (over: Record<string, unknown> = {}) => ({
+  id: 10,
+  conclusion: 'failure',
+  completedAt: ago(30),
+  toolchainSha: SHA_TOOLCHAIN,
+  rebuildRequired: false,
+  classification: 'deterministic',
+  signature: 'publish-nonit-shards::Push locale shard::ERR_STRING_TOO_LONG',
+  job: 'publish-nonit-shards',
+  step: 'Push locale shard',
+  firstError: 'ERR_STRING_TOO_LONG',
+  ...over,
+});
+
+const decide = (
+  runs: Array<ReturnType<typeof publishRun>>,
+  policy: Record<string, unknown>,
+) => decideLatestPublish({
+  builds: [build(2, SHA_LATEST, ago(300))],
+  publishRuns: runs,
+  lastSuccessfulDeployment: deployment(SHA_OLD, ago(500)),
+  mainHeadSha: SHA_TIP,
+  nowMs: NOW,
+  ...policy,
+});
+
+describe('publish retry policy (classified, backed off, escalating)', () => {
+  const changed = { state: 'changed', path: 'scripts/ci/x.mjs' };
+  const unchanged = { state: 'unchanged' };
+
+  it('replays 43379239998: one deterministic failure at an unchanged toolchain is not retried, then escalates to a rebuild', () => {
+    const one = [attempt({ completedAt: ago(5) })];
+    expect(decide([publishRun(10)], { lastAttempt: one[0], failedAttempts: one, toolchainChange: unchanged }))
+      .toMatchObject({ action: 'skip', reason: 'publish-deterministic-unchanged' });
+
+    const later = [attempt({ completedAt: ago(20) })];
+    const verdict = decide([publishRun(10)], { lastAttempt: later[0], failedAttempts: later, toolchainChange: unchanged });
+    expect(verdict).toMatchObject({ action: 'escalate', reason: 'escalate-rebuild', requestRebuild: true, mainHeadSha: SHA_TIP });
+    expect(verdict.detail).toContain('ERR_STRING_TOO_LONG');
+  });
+
+  it('never dispatches a third identical publish: the cap escalates instead of stalling', () => {
+    const runs = [publishRun(10), publishRun(11), publishRun(12)];
+    const failed = [attempt({ id: 12 }), attempt({ id: 11 }), attempt({ id: 10 })];
+    const verdict = decide(runs, { lastAttempt: failed[0], failedAttempts: failed, toolchainChange: unchanged });
+    expect(verdict).toMatchObject({ action: 'escalate', reason: 'escalate-rebuild' });
+    expect(verdict.detail).toContain('attempt cap reached (3/3)');
+  });
+
+  it('escalates after two equal deterministic signatures even below the cap', () => {
+    const failed = [attempt({ id: 11 }), attempt({ id: 10 })];
+    expect(decide([publishRun(10), publishRun(11)], { lastAttempt: failed[0], failedAttempts: failed, toolchainChange: changed }))
+      .toMatchObject({ action: 'escalate', reason: 'escalate-rebuild' });
+  });
+
+  it('retries an infrastructure failure immediately, once per signature', () => {
+    const infra = attempt({ classification: 'infra', signature: 'publish::deploy::Unexpected token', completedAt: ago(1) });
+    expect(decide([publishRun(10)], { lastAttempt: infra, failedAttempts: [infra], toolchainChange: unchanged }))
+      .toMatchObject({ action: 'dispatch', reason: 'retry-publish' });
+    // The same infra signature already retried once is gated like any other failure.
+    const again = [attempt({ ...infra, id: 11 }), attempt({ ...infra, id: 10 })];
+    expect(decide([publishRun(10), publishRun(11)], { lastAttempt: again[0], failedAttempts: again, toolchainChange: unchanged }))
+      .toMatchObject({ action: 'skip', reason: 'publish-deterministic-unchanged' });
+  });
+
+  it('retries a deterministic failure once the toolchain changed and the backoff elapsed', () => {
+    const last = attempt({ completedAt: ago(16) });
+    expect(decide([publishRun(10)], { lastAttempt: last, failedAttempts: [last], toolchainChange: changed }))
+      .toMatchObject({ action: 'dispatch', reason: 'retry-publish' });
+  });
+
+  it('holds a changed toolchain inside the backoff and names the next window', () => {
+    const completedAt = ago(5);
+    const last = attempt({ completedAt });
+    const verdict = decide([publishRun(10)], { lastAttempt: last, failedAttempts: [last], toolchainChange: changed });
+    expect(verdict).toMatchObject({ action: 'skip', reason: 'publish-backoff' });
+    expect(verdict.detail).toContain(new Date(Date.parse(completedAt) + 15 * MIN).toISOString());
+    expect(verdict.detail).toContain('ERR_STRING_TOO_LONG');
+  });
+
+  it('widens the backoff 15 -> 30 -> 60 minutes by failed attempts', () => {
+    expect([1, 2, 3, 4].map((n) => publishBackoffMs(n) / MIN)).toEqual([15, 30, 60, 60]);
+    const failed = [attempt({ id: 11, signature: 'b', completedAt: ago(20) }), attempt({ id: 10, signature: 'a' })];
+    expect(decide([publishRun(10), publishRun(11)], { lastAttempt: failed[0], failedAttempts: failed, toolchainChange: changed }))
+      .toMatchObject({ action: 'skip', reason: 'publish-backoff' });
+  });
+
+  it.each([
+    ['unreadable', { state: 'unreadable', detail: 'compare unreadable: HTTP 404' }],
+    ['absent', null],
+  ])('does not retry when the toolchain compare is %s', (_name, toolchainChange) => {
+    const last = attempt({ completedAt: ago(90) });
+    expect(decide([publishRun(10)], { lastAttempt: last, failedAttempts: [last], toolchainChange }))
+      .toMatchObject({ action: 'skip', reason: 'publish-toolchain-unreadable' });
+  });
+
+  it('escalates at once when the publisher declared the source unpublishable (contract-mismatch family)', () => {
+    const last = attempt({ rebuildRequired: true, classification: 'deterministic', signature: 'publish::rebuild-required', completedAt: ago(1) });
+    expect(decide([publishRun(10, 'completed', 'success')], { lastAttempt: last, failedAttempts: [last], toolchainChange: changed }))
+      .toMatchObject({ action: 'escalate', reason: 'escalate-rebuild' });
+  });
+
+  it('only updates the issue when main is the build already tried (a rebuild is the same artifact)', () => {
+    const last = attempt({ completedAt: ago(20) });
+    const verdict = decide([publishRun(10)], { lastAttempt: last, failedAttempts: [last], toolchainChange: unchanged, mainHeadSha: SHA_LATEST });
+    expect(verdict).toMatchObject({ action: 'escalate', reason: 'escalate-blocked', requestRebuild: false });
+    expect(verdict.detail).toContain('no rearm request');
+  });
+
+  it('keeps the plain cap when there is no policy context, or a live attempt may still win', () => {
+    const runs = [publishRun(10), publishRun(11), publishRun(12)];
+    expect(decide(runs, {})).toMatchObject({ action: 'skip', reason: 'attempt-cap' });
+    const live = [publishRun(10), publishRun(11), publishRun(12, 'in_progress', null)];
+    const last = attempt();
+    expect(decide(live, { lastAttempt: last, failedAttempts: [last], toolchainChange: unchanged }))
+      .toMatchObject({ action: 'skip', reason: 'attempt-cap' });
+  });
+
+  it('keeps already-live, publish-moving and pages-moving ahead of the retry policy', () => {
+    const last = attempt({ completedAt: ago(90) });
+    const policy = { lastAttempt: last, failedAttempts: [last], toolchainChange: unchanged };
+    expect(decide([publishRun(10), { ...publishRun(11, 'in_progress', null), headSha: SHA_LATEST }], policy))
+      .toMatchObject({ action: 'skip', reason: 'publish-moving' });
+    expect(decide([publishRun(10)], { ...policy, activeDeployment: { id: 1, state: 'in_progress' } }))
+      .toMatchObject({ action: 'skip', reason: 'pages-moving' });
+    expect(decideLatestPublish({
+      builds: [build(2, SHA_LATEST, ago(300))],
+      publishRuns: [publishRun(10)],
+      lastSuccessfulDeployment: deployment(SHA_LATEST, ago(10)),
+      ...policy,
+      mainHeadSha: SHA_TIP,
+    })).toMatchObject({ action: 'skip', reason: 'already-live' });
+  });
+});
+
+describe('classifyPublishAttempt', () => {
+  const failedJob = (name: string, id = 1) => ({
+    id,
+    name,
+    status: 'completed',
+    conclusion: 'failure',
+    steps: [{ name: 'Push locale shard', conclusion: 'failure' }],
+  });
+  const run = { id: 77, headSha: SHA_TOOLCHAIN, conclusion: 'failure', completedAt: ago(10) };
+
+  it('records the classifier signature and the toolchain SHA of the attempt', () => {
+    const jobs = [failedJob('publish-nonit-shards')];
+    const annotationsByJob = { 1: [{ annotation_level: 'failure', message: 'RangeError [ERR_STRING_TOO_LONG]: Cannot create a string longer than 0x1fffffe8 characters' }] };
+    const result = classifyPublishAttempt({ run, jobs, annotationsByJob });
+    expect(result).toMatchObject({ id: 77, toolchainSha: SHA_TOOLCHAIN, classification: 'deterministic', rebuildRequired: false });
+    expect(result?.signature).toBe(classifyDeployFailure({ jobs, annotationsByJob }).signature);
+  });
+
+  it('keeps a warning that quotes ECONNRESET from turning an assertion failure into infra', () => {
+    const jobs = [failedJob('publish-nonit-shards')];
+    const annotationsByJob = {
+      1: [
+        { annotation_level: 'warning', message: 'read ECONNRESET while fetching the cache' },
+        { annotation_level: 'failure', message: 'AssertionError: expected 1 to be 2' },
+      ],
+    };
+    expect(classifyPublishAttempt({ run, jobs, annotationsByJob })?.classification).toBe('deterministic');
+  });
+
+  it('degrades to unknown when the jobs could not be read', () => {
+    expect(classifyPublishAttempt({ run })).toMatchObject({ classification: 'unknown', rebuildRequired: false });
+  });
+
+  it('recognises the publisher recovery job as rebuild-required, even on a green run', () => {
+    const jobs = [{ id: 5, name: 'Recover legacy publish contract through deploy queue', status: 'completed', conclusion: 'success' }];
+    expect(classifyPublishAttempt({ run: { ...run, conclusion: 'success' }, jobs })).toMatchObject({ rebuildRequired: true });
+    expect(classifyPublishAttempt({ run: { ...run, conclusion: 'success' }, jobs: [] })).toBeNull();
+  });
+
+  it('treats a cancelled run with no failed job as infrastructure', () => {
+    expect(classifyPublishAttempt({ run: { ...run, conclusion: 'cancelled' }, jobs: [] })).toMatchObject({ classification: 'infra' });
+  });
+});
+
+describe('readToolchainChange', () => {
+  const page = (names: string[]) => Promise.resolve({ files: names.map((filename) => ({ filename })) });
+  const filler = (n: number) => Array.from({ length: n }, (_, i) => `data/jobs/${i}.json`);
+
+  it('lists the publisher toolchain paths', () => {
+    for (const file of [
+      '.github/workflows/deploy-publish.yml', '.github/workflows/post-deploy-validate-dist.yml',
+      'scripts/ci/request-latest-publish.mjs', 'scripts/lib/push-locale-shard.sh',
+    ]) expect(publishToolchainPathHit([file])).toBe(file);
+    expect(publishToolchainPathHit(['data/jobs.json', 'components/App.tsx', '.github/workflows/tests.yml'])).toBeNull();
+  });
+
+  it('reports a change, no change, and an identical SHA', async () => {
+    expect(await readToolchainChange({ baseSha: SHA_OLD, headSha: SHA_TIP, fetchPage: () => page(['scripts/ci/a.mjs']) }))
+      .toMatchObject({ state: 'changed', path: 'scripts/ci/a.mjs' });
+    expect(await readToolchainChange({ baseSha: SHA_OLD, headSha: SHA_TIP, fetchPage: () => page(['data/a.json']) }))
+      .toMatchObject({ state: 'unchanged' });
+    expect(await readToolchainChange({ baseSha: SHA_TIP, headSha: SHA_TIP, fetchPage: () => { throw new Error('no call'); } }))
+      .toMatchObject({ state: 'unchanged' });
+  });
+
+  it('is unreadable on an API error or a malformed list, never a retry', async () => {
+    expect(await readToolchainChange({ baseSha: SHA_OLD, headSha: SHA_TIP, fetchPage: () => Promise.reject(new Error('HTTP 404')) }))
+      .toMatchObject({ state: 'unreadable' });
+    expect(await readToolchainChange({ baseSha: SHA_OLD, headSha: SHA_TIP, fetchPage: () => Promise.resolve({}) }))
+      .toMatchObject({ state: 'unreadable' });
+    expect(await readToolchainChange({ baseSha: 'x', headSha: SHA_TIP, fetchPage: () => page([]) }))
+      .toMatchObject({ state: 'unreadable' });
+  });
+
+  it('treats a 300-file list with no hit as truncated, but still reports a hit on a later page', async () => {
+    const truncated = await readToolchainChange({ baseSha: SHA_OLD, headSha: SHA_TIP, fetchPage: () => page(filler(100)) });
+    expect(truncated).toMatchObject({ state: 'unreadable' });
+    expect(truncated.detail).toContain('truncated');
+    const late = await readToolchainChange({
+      baseSha: SHA_OLD,
+      headSha: SHA_TIP,
+      fetchPage: (n: number) => page(n === 3 ? [...filler(99), 'scripts/lib/x.mjs'] : filler(100)),
+    });
+    expect(late).toMatchObject({ state: 'changed', path: 'scripts/lib/x.mjs' });
+  });
+});
+
+describe('shared blocked-issue module', () => {
+  it('keeps the build title and prefix and gives the publish its own', () => {
+    expect(BUILD_BLOCKED_ISSUE_PREFIX).toBe('Deploy build blocked:');
+    expect(PUBLISH_BLOCKED_ISSUE_PREFIX).toBe('Deploy publish blocked:');
+    expect(blockedIssueTitle(BUILD_BLOCKED_ISSUE_PREFIX, { job: 'prep', step: 'Build' })).toBe('Deploy build blocked: prep / Build');
+    expect(blockedIssueTitle(PUBLISH_BLOCKED_ISSUE_PREFIX, { job: 'publish', step: 'rebuild-required' })).toBe('Deploy publish blocked: publish / rebuild-required');
+  });
+
+  it('writes nothing unless the caller flag is exactly 1', () => {
+    expect(issueUpdatesEnabled('X', {})).toBe(false);
+    expect(issueUpdatesEnabled('X', { X: 'true' })).toBe(false);
+    expect(issueUpdatesEnabled('X', { X: '1' })).toBe(true);
+    const was = process.env.PUBLISH_ISSUE_UPDATE;
+    delete process.env.PUBLISH_ISSUE_UPDATE;
+    try {
+      expect(upsertBlockedIssue({ prefix: PUBLISH_BLOCKED_ISSUE_PREFIX, flag: 'PUBLISH_ISSUE_UPDATE', workflowName: 'w', failure: {}, body: 'b' })).toBe(false);
+      expect(resolveBlockedIssues({ prefix: PUBLISH_BLOCKED_ISSUE_PREFIX, flag: 'PUBLISH_ISSUE_UPDATE', workflowName: 'w' })).toBe(false);
+    } finally {
+      if (was !== undefined) process.env.PUBLISH_ISSUE_UPDATE = was;
+    }
+  });
+});
+
 describe('Pages publish queue wiring', () => {
   const request = readFileSync(resolve('.github/workflows/deploy-request.yml'), 'utf8');
   const publish = readFileSync(resolve('.github/workflows/deploy-publish.yml'), 'utf8');
@@ -338,12 +611,44 @@ describe('Pages publish queue wiring', () => {
     expect(request).toContain("cron: '*/10 * * * *'");
     expect(request).toContain('actions: write');
     expect(request).toContain('deployments: read');
-    expect(request).toContain('statuses: read');
+    // The job token writes the rebuild request; the App token still reads statuses.
+    expect(request).toContain('statuses: write');
     expect(request).toContain("APP_TOKEN_REQUEST_DEPLOYMENTS_READ: 'true'");
     expect(request).toContain('APP_TOKEN_DEPLOYMENTS_READ');
     expect(request).toContain('APP_TOKEN_STATUSES_READ');
     expect(request).not.toContain('request-latest-deploy.mjs');
     expect(request).not.toContain('gh workflow run deploy.yml');
+  });
+
+  it('gives the reconciler job exactly the permissions its escalation writes need', () => {
+    const doc = YAML.parse(request) as any;
+    expect(doc.permissions).toEqual({ contents: 'read' });
+    expect(doc.jobs.request.permissions).toEqual({
+      contents: 'read',
+      actions: 'write',
+      deployments: 'read',
+      statuses: 'write',
+      issues: 'write',
+    });
+    const step = doc.jobs.request.steps.find((entry: any) => String(entry.run || '').includes('request-latest-publish.mjs'));
+    expect(step.env.ESCALATION_TOKEN).toBe('${{ secrets.GITHUB_TOKEN }}');
+    expect(step.env.PUBLISH_ISSUE_UPDATE).toBe('1');
+    expect(step.run).not.toContain('${{');
+  });
+
+  it('checks out every module the reconciler imports', () => {
+    const doc = YAML.parse(request) as any;
+    const checkout = doc.jobs.request.steps.find((entry: any) => entry.uses?.startsWith('actions/checkout'));
+    const sparse = String(checkout.with['sparse-checkout']).split('\n').map((line: string) => line.trim());
+    for (const file of [
+      'scripts/ci/deploy-rearm-request.mjs',
+      'scripts/ci/deploy-failure-classifier.mjs',
+      'scripts/ci/lib/deploy-job-failure-signature.mjs',
+      'scripts/ci/lib/deploy-run-evidence.mjs',
+      'scripts/ci/lib/deploy-blocked-issue.mjs',
+      'scripts/lib/int-from-env.mjs',
+      'scripts/lib/github-issue-creator.mjs',
+    ]) expect(sparse, file).toContain(`/${file}`);
   });
 
   it('passes the minted App token to the reconciler at shell runtime', () => {

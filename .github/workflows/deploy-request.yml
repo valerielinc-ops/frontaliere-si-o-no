@@ -57,15 +57,25 @@ concurrency:
 
 permissions:
   contents: read
-  actions: write
-  deployments: read
-  statuses: read
 
 jobs:
   request:
     name: Reconcile latest publish when needed
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    # Minimum per job. The App token mints with its own least-privilege set
+    # (actions write, deployments/statuses read) and does the reads + dispatch.
+    # The escalation (one commit status asking for a build, one blocked issue)
+    # is written with the job's GITHUB_TOKEN, which therefore needs
+    # `statuses: write` and `issues: write`, exactly like the `rearm` job of
+    # deploy.yml. A GITHUB_TOKEN write cannot start a workflow; the status is
+    # only read by deploy.yml's schedule/finalizer.
+    permissions:
+      contents: read
+      actions: write
+      deployments: read
+      statuses: write
+      issues: write
     steps:
       - name: Checkout dispatcher
         uses: actions/checkout@v7
@@ -75,7 +85,14 @@ jobs:
           sparse-checkout: |
             /.github/workflows/deploy-request.yml
             /scripts/ci/request-latest-publish.mjs
+            /scripts/ci/deploy-rearm-request.mjs
+            /scripts/ci/deploy-failure-classifier.mjs
+            /scripts/ci/lib/deploy-job-failure-signature.mjs
+            /scripts/ci/lib/deploy-run-evidence.mjs
+            /scripts/ci/lib/deploy-blocked-issue.mjs
             /scripts/ci/lib/run-listing-window.mjs
+            /scripts/lib/int-from-env.mjs
+            /scripts/lib/github-issue-creator.mjs
             /scripts/lib/is-invoked-directly.mjs
             /scripts/lib/githubApiHeaders.mjs
             /scripts/ci/publish-receipts.mjs
@@ -100,6 +117,10 @@ jobs:
       - name: Reconcile the latest successful Pages publish
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
+          GH_REPO: ${{ github.repository }}
+          # Escalation writes only (rebuild request status, blocked issue).
+          ESCALATION_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_ISSUE_UPDATE: '1'
         run: |
           set -euo pipefail
           if [[ "${APP_TOKEN_ACTIONS:-false}" != 'true' || "${APP_TOKEN_DEPLOYMENTS_READ:-false}" != 'true' || "${APP_TOKEN_STATUSES_READ:-false}" != 'true' || -z "${APP_TOKEN:-}" ]]; then
