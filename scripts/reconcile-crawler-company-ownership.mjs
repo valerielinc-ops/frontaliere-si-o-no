@@ -584,10 +584,10 @@ export function sweepExpiredArchiveSlices({ dir = EXPIRED_SLICES_DIR, apply = fa
   let finalJobsByFile = new Map(slices.map((slice) => [slice.file, slice.candidateJobs]));
   if (candidateAudit.crossSliceDuplicateRoutes.length > 0) {
     // Cross-slice collapse only needs entries from a company that actually
-    // overlaps. Cloning the complete archive here doubled the resident object
-    // graph and made the scheduled sweep exceed V8's heap on the accumulated
-    // corpus. Keep the clone transactional per company: if any group hits the
-    // legacy cap, discard all temporary results and retain the candidate files.
+    // overlaps. Avoid retaining a second graph for the complete archive as the
+    // corpus grows. Keep the clone transactional per company: if any group
+    // hits the legacy cap, discard all temporary results and retain the
+    // candidate files.
     const affectedCompanyKeys = [...new Set(
       candidateAudit.crossSliceDuplicateRoutes.map((overlap) => overlap.companyKey),
     )].sort();
