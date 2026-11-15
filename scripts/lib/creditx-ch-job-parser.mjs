@@ -2,7 +2,7 @@
 /**
  * CreditX Sàrl job parser — Fetcher and job builder.
  *
- * Source: https://creditx.ch/it/careers
+ * Source: https://www.creditx.ch/fr/careers/
  *
  * Exports the 4 required functions for the crawler template:
  *   - fetchAllCreditxChJobs()  — Fetch and parse all jobs
@@ -27,7 +27,7 @@ export const CREDITX_CH_KEY = 'creditx-ch';
 export const CREDITX_CH_COMPANY_NAME = 'CreditX Sàrl';
 export const CREDITX_CH_COMPANY_DOMAIN = 'creditx.ch';
 
-const CAREER_URL = 'https://creditx.ch/it/careers';
+const CAREER_URL = 'https://www.creditx.ch/fr/careers/';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 

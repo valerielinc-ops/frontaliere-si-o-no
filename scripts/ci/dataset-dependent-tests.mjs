@@ -121,6 +121,12 @@ const DATASET_READ_CALLS = new Set([
   'createReadStream',
   'readJson',
   'loadJson',
+  // The size-safe readers (scripts/lib/read-large-json.mjs): data/jobs.json passed
+  // V8's string limit, so tests and scripts read it through these instead of
+  // readFileSync. Missing here, a test migrated to them stopped counting as
+  // dataset-dependent and ran without the assembled dataset.
+  'readJsonFile',
+  'iterateJsonArrayFile',
 ]);
 const DATASET_READER_EXPORTS = new Set([
   'readJobsDataset',

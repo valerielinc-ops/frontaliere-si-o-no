@@ -707,6 +707,7 @@ describe('writeJsonAtomic wiring (the guard cannot be bypassed by forgetting it)
     const target = path.join(tmpRoot, 'data', 'slug-registry.json');
     const payload = { jobs: [{ id: 'x', slug: 'y' }] };
     writeJsonAtomic(target, payload);
+    // large-dataset-read-ok: `target` is a tiny file this test just wrote under its tmp root
     expect(JSON.parse(fs.readFileSync(target, 'utf8'))).toEqual(payload);
     expect(getEvents()).toHaveLength(0);
   });

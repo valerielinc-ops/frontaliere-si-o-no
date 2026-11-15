@@ -561,6 +561,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     reason: 'these paths are asserted in parsed deploy workflow configuration; the test reads workflow and source files, not the changing data files',
   },
   {
+    file: 'tests/check-large-dataset-reads.test.ts',
+    roots: ['data/all-known-job-slugs/', 'data/jobs-ai-cache.json', 'data/jobs.json', 'data/jobs/'],
+    reason: 'the dataset paths are in-memory lint fixtures (source strings handed to the AST scanner) and a mkdtemp tree; the test never opens the live datasets',
+  },
+  {
     file: 'tests/workflow-timeout-contract.test.ts',
     roots: ['data/translation-deploy-handoff.json'],
     reason: 'the path is asserted in parsed translation timeout workflows; the test reads workflow and committer source, not the changing handoff marker',

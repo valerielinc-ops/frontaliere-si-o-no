@@ -128,6 +128,7 @@ describe('repairExpiredRoutesAgainstActive', () => {
       persistExpiredArchive(repair.entries, { aggregatePath, publicPath });
 
       const persisted = JSON.parse(readFileSync(aggregatePath, 'utf8'));
+      // large-dataset-read-ok: publicPath is a fixture file written by persistExpiredArchive into a tmp dir
       const published = JSON.parse(readFileSync(publicPath, 'utf8'));
       expect(persisted[0].slug).toMatch(/^same-title-company-lugano-[0-9a-f]{8}$/);
       expect(persisted[0].slug).not.toBe(COLLIDING_ROUTE);

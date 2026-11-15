@@ -21,7 +21,7 @@ describe('CreditX Sàrl crawler parser', () => {
       'utf8',
     ));
 
-    expect(spec.seedUrls).toEqual(['https://creditx.ch/fr/careers/']);
+    expect(spec.seedUrls).toEqual(['https://www.creditx.ch/fr/careers/']);
     expect(spec.sourceLang).toBe('fr');
     expect(spec.detailTemplate).toBe('/careers/*');
   });
@@ -59,6 +59,7 @@ describe('CreditX Sàrl crawler parser', () => {
 
     it('trusts subdomains', () => {
       expect(isTrustedDomain('https://careers.creditx.ch/job/456')).toBe(true);
+      expect(isTrustedDomain('https://www.creditx.ch/fr/careers/')).toBe(true);
     });
 
     it('rejects other domains', () => {
