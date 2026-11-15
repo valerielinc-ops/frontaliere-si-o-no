@@ -43,6 +43,7 @@ const QUERIED: Array<[string, string, string]> = [
   ['plate_auctions_history', 'sourceKey', 'tenuto per parita con plate_auctions_current'],
   ['plate_auctions_history', 'lastSeenAt', 'conteggi diagnostici per giorno'],
   ['campaign_deliveries', 'campaign_id', 'scripts/lib/newsletter-ab-data.mjs'],
+  ['campaign_deliveries', 'delivery_status', 'scripts/lib/newsletter-resume-receipts.mjs (indice composito con campaign_id)'],
   ['campaign_deliveries', 'sent_at', 'scripts/report-daily-brief-cadence.mjs, scripts/ci/export-loop-outcomes.mjs'],
   ['campaign_deliveries', 'clicked_at', 'scripts/send-daily-brief.mjs'],
   ['events', 'timestamp', 'scripts/report-email-engagement.mjs, scripts/build-job-email-affinity.mjs'],
@@ -216,6 +217,9 @@ function extractGroupQueryFields(source: string, file: string): GroupQueryField[
   const lineAt = (offset: number) => source.slice(0, offset).split('\n').length;
   const collectFields = (collectionGroup: string, text: string, offset: number) => {
     for (const field of text.matchAll(FIELD_CALL)) {
+      // `__name__` is Firestore's built-in document-id ordering, not a
+      // user field whose collection-group coverage belongs in the config.
+      if (field[2] === '__name__') continue;
       found.push({ collectionGroup, fieldPath: field[2], file, line: lineAt(offset + (field.index ?? 0)) });
     }
   };
@@ -289,6 +293,7 @@ describe('firestore.indexes.json — query collection-group', () => {
       "const a = await db.collectionGroup('events')",
       "  .where('event_type', '==', 'x')",
       "  .orderBy('timestamp', 'desc')",
+      "  .orderBy('__name__')",
       '  .get();',
       "const privateCollection = db.collectionGroup('private');",
       "const query = ok ? privateCollection.where('applicationIntentAuthUid', '==', uid) : privateCollection;",
@@ -296,14 +301,15 @@ describe('firestore.indexes.json — query collection-group', () => {
       "return await base.where('frequency', '==', f).get();",
       "const dynamic = await db.collectionGroup(group).where(field, '>=', cutoff).get();",
       "const scan = await db.collectionGroup('savedJobs').get();",
+      "const orderedByDocumentId = db.collectionGroup('automation').orderBy('__name__');",
       "const other = db.collection('users').where('email', '==', email);",
     ].join('\n');
     expect(extractGroupQueryFields(sample, 'sample.js').map((q) => `${key(q.collectionGroup, q.fieldPath)}:${q.line}`)).toEqual([
       'events.event_type:2',
       'events.timestamp:3',
-      'private.applicationIntentAuthUid:6',
-      'alerts.active:7',
-      'alerts.frequency:8',
+      'private.applicationIntentAuthUid:7',
+      'alerts.active:8',
+      'alerts.frequency:9',
     ]);
   });
 

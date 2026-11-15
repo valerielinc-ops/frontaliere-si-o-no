@@ -1,0 +1,25 @@
+{
+  "companyKey": "aliz",
+  "companyName": "Aliz",
+  "companyHost": "aliz.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://aliz.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 23,
+  "sampleTitles": [
+    "Business Intelligence Architect",
+    "Data Architect",
+    "Delivery Operations & Resourcing Analyst",
+    "Delivery Operations & Resourcing Analyst",
+    "Engineering Manager"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-13T13:47:25.767Z",
+  "candidateKey": "aliz@applytojob.com"
+}

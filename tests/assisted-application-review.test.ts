@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { JPEG_2X2 } from './helpers/pdfImages';
-import { ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from '../functions/src/assistedApplicationCandidateEdits.js';
+import { candidateAnswerHistoryState, ORDER_QUESTION_ANSWER_EVIDENCE_VERSION } from '../functions/src/assistedApplicationCandidateEdits.js';
 
 vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
   getRemoteConfigValue: vi.fn(async () => ''),
@@ -430,6 +430,8 @@ describe('candidate review API', () => {
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({ questions: [changedWhy] }));
     expect((await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps())).body.answers)
       .toEqual({ german_skill_level: '' });
+    expect(candidateAnswerHistoryState(store.read(`${BASE}/automation/flow`)?.candidateAnswerHistory))
+      .toContainEqual(expect.objectContaining({ id: 'german_level', answer: 'B1', status: 'answered' }));
   });
 
   it('counts the new versions left from the drafts the candidate was shown, not from the round\'s number', async () => {
@@ -629,6 +631,24 @@ describe('candidate review API', () => {
       await post({ action: 'document_remove', documentId: 'reports', fileId: store.read(`${BASE}/automation/flow`).documents.reports.files[4].key.split('/').pop() });
       await upload('reports', PDF, { clientCheck: { verdict: 'trust_me' } });
       expect(store.read(`${BASE}/automation/flow`).documents.reports.files.at(-1).clientCheck).toEqual({ verdict: 'unreadable', matched: '' });
+    });
+
+    it('checks a required photo against the portal accept list and byte limit before storing it', async () => {
+      await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(draft({
+        questions: [],
+        requiredDocuments: [{
+          id: 'portal_photo', label: 'Foto', kind: 'photo', required: true,
+          accept: 'image/jpeg', maxBytes: JPEG_2X2.length - 1,
+        }],
+      }));
+      await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow')
+        .set({ state: 'candidate_review', heldBy: ['document:portal_photo'], heldSince: T0 }, { merge: true });
+
+      expect(await upload('portal_photo', PNG)).toMatchObject({ status: 415, body: { error: 'file_type_not_allowed' } });
+      expect(await upload('portal_photo', JPEG_2X2, { fileName: 'photo.jpg' }))
+        .toMatchObject({ status: 413, body: { error: 'file_too_large', maxBytes: JPEG_2X2.length - 1 } });
+      expect(saved.size).toBe(0);
+      expect(store.read(`${BASE}/automation/flow`).documents?.portal_photo?.files ?? []).toEqual([]);
     });
 
     // A cut JPG would print half grey inside the grouped PDF of the documents (lib/dossier.mjs).

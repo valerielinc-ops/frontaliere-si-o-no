@@ -46,6 +46,10 @@ inputs:
     description: "Internal watchdog for the Codex process, in whole minutes (1-300). Default 15 fits reviews; agentic fixers pass a larger value that stays below their step `timeout-minutes`."
     required: false
     default: "15"
+  command_timeout_seconds:
+    description: "Optional per-npx watchdog for agentic fixers, in whole seconds (30-900). Empty leaves the shared action behavior unchanged."
+    required: false
+    default: ""
   response_artifact:
     description: "Optional plain basename of a response file to export from sandbox RUNNER_TEMP before cleanup (regular file, maximum 1 MiB)."
     required: false
@@ -529,6 +533,7 @@ runs:
         CODEX_REVIEW_MARKER: ${{ inputs.review_marker }}
         CODEX_REASONING_EFFORT: ${{ inputs.reasoning_effort }}
         CODEX_EXEC_TIMEOUT_MINUTES: ${{ inputs.exec_timeout_minutes }}
+        CODEX_COMMAND_TIMEOUT_SECONDS: ${{ inputs.command_timeout_seconds }}
         CODEX_RESPONSE_ARTIFACT: ${{ inputs.response_artifact }}
         CODEX_OUTPUT: ${{ runner.temp }}/codex-fallback-${{ github.run_id }}-${{ github.run_attempt }}.txt
       run: |
@@ -1165,6 +1170,32 @@ runs:
           exit 1
         fi
         codex_command_path="$bridge_dir:$node_root/bin:/usr/bin:/bin"
+        codex_command_timeout_seconds="${CODEX_COMMAND_TIMEOUT_SECONDS:-}"
+        if [ -n "$codex_command_timeout_seconds" ]; then
+          case "$codex_command_timeout_seconds" in
+            ''|*[!0-9]*) echo "::error::Unsupported command_timeout_seconds '$codex_command_timeout_seconds' (whole seconds 30-900)."; exit 1 ;;
+          esac
+          if [ "$codex_command_timeout_seconds" -lt 30 ] || [ "$codex_command_timeout_seconds" -gt 900 ]; then
+            echo "::error::Unsupported command_timeout_seconds '$codex_command_timeout_seconds' (whole seconds 30-900)."
+            exit 1
+          fi
+          codex_npx_real="$node_root/bin/npx"
+          [ -x "$codex_npx_real" ] || {
+            echo '::error::Pinned npx runtime is unavailable for the bounded command wrapper.'
+            exit 1
+          }
+          # The wrapper is created before the sandbox starts and the bridge
+          # directory is read-only inside it. This bounds the expensive local
+          # test commands used by fixers without changing the shared action's
+          # default behavior for review callers.
+          # Use printf rather than a here-document so YAML indentation cannot
+          # change the generated wrapper's shell syntax.
+          printf '%s\n' '#!/bin/sh' \
+            "exec /usr/bin/timeout --signal=TERM --kill-after=15s \"${codex_command_timeout_seconds}s\" \"$codex_npx_real\" \"\$@\"" \
+            > "$bridge_dir/npx"
+          chmod 500 "$bridge_dir/npx"
+          echo "Codex npx command watchdog: ${codex_command_timeout_seconds}s"
+        fi
         if [ -n "${PR_BODY_GATE_BIN:-}" ]; then
           # PR_BODY_GATE_BIN is rewritten above from runner.temp to the copied
           # scratch path.  Put that rewritten path in PATH; the original

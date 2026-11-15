@@ -5,6 +5,7 @@ import {
   isPaginationSitemapEligible,
   paginationPageFromPath,
   paginationRobots,
+  pushPaginationSitemapEntry,
 } from '../../build-plugins/shared/paginationIndexPolicy';
 
 // P1 noindex plan (2026-10-24): one rule for every `/page-N/` listing the SSG
@@ -32,12 +33,42 @@ describe('paginationIndexPolicy', () => {
     for (const page of [2, 5, 10, 11, 5011]) expect(isPaginationSitemapEligible(page), String(page)).toBe(false);
   });
 
+  it('rejects non-integer and non-first page inputs from the sitemap', () => {
+    for (const page of [0, -1, 1.5, Number.NaN, Number.POSITIVE_INFINITY, Number.NEGATIVE_INFINITY]) {
+      expect(isPaginationSitemapEligible(page), String(page)).toBe(false);
+    }
+  });
+
+  it('keeps the sitemap mutation behind the same page policy', () => {
+    const entries: string[] = [];
+
+    expect(pushPaginationSitemapEntry(entries, 1, 'page-1')).toBe(true);
+    expect(pushPaginationSitemapEntry(entries, 2, 'page-2')).toBe(false);
+    expect(entries).toEqual(['page-1']);
+  });
+
   it('reads the page number of every pagination segment the site emits', () => {
     expect(paginationPageFromPath('/prezzi-diesel/stazioni-italia/')).toBe(1);
-    expect(paginationPageFromPath('/prezzi-diesel/stazioni-italia/page-6/')).toBe(6);
+    expect(paginationPageFromPath('/prezzi-diesel/stazioni-italia/page-7/')).toBe(7);
     expect(paginationPageFromPath('/cerca-lavoro-zurigo/pagina-25/')).toBe(25);
     expect(paginationPageFromPath('/de/jobs-zuerich/seite-11')).toBe(11);
     // A slug that merely contains the word is not a page.
     expect(paginationPageFromPath('/articoli-frontaliere/page-turner-guide/')).toBe(1);
+  });
+
+  it('rejects non-canonical and unsafe pagination numbers without making them page 1', () => {
+    for (const path of [
+      '/x/page-0/',
+      '/x/page-01/',
+      '/x/pagina-01/',
+      '/x/seite-01/',
+      '/x/page-9007199254740992/',
+      '/x/pagina-9007199254740993/',
+      '/x/seite-9007199254740993/',
+    ]) {
+      const page = paginationPageFromPath(path);
+      expect(Number.isNaN(page), path).toBe(true);
+      expect(isPaginationSitemapEligible(page), path).toBe(false);
+    }
   });
 });

@@ -2,10 +2,11 @@
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 /**
  * jobgate-rc.mjs — prepare (and, with --apply, publish) the Remote Config
- * values of the jobgate-v5 Spotlight experiment.
+ * values of the jobgate-v6 tinted-control experiment.
  *
- * Stages the three v5 experiment keys, a server-only start-date marker and
- * JOBGATE_EXPERIMENT_FORCE=spotlight for cached v4 clients. It reads the live
+ * Stages the three v6 experiment keys, a server-only start-date marker,
+ * JOBGATE_V5_EXPERIMENT_FORCE=spotlight_tinted for cached v5 clients and the
+ * existing v4 pin. It reads the live
  * template, validates the exact diff, and publishes with the template etag
  * only when `--apply` is passed.
  *
@@ -19,12 +20,12 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
  *
  *   node scripts/experiments/jobgate-rc.mjs                      # dry-run launch config
  *   node scripts/experiments/jobgate-rc.mjs --apply              # publish after owner review
- *   node scripts/experiments/jobgate-rc.mjs --kill --apply       # v5 kill switch; Spotlight stays default
- *   node scripts/experiments/jobgate-rc.mjs --force-arm spotlight_quiet --apply
- *   node scripts/experiments/jobgate-rc.mjs --arms '{"spotlight":25,"spotlight_quiet":25,"spotlight_tinted":25,"spotlight_outline":25}'
+ *   node scripts/experiments/jobgate-rc.mjs --kill --apply       # v6 kill switch; tinted stays default
+ *   node scripts/experiments/jobgate-rc.mjs --force-arm navy_companion --apply
+ *   node scripts/experiments/jobgate-rc.mjs --arms '{"control":25,"navy_companion":25,"tinted_frame":25,"dossier":25}'
  *
  * Remote Config changes reach the browser only through getPublicConfig
- * (functions/src/publicConfigKeys.js): the three v5 keys must be deployed in
+ * (functions/src/publicConfigKeys.js): the three v6 keys must be deployed in
  * that allowlist before a publish here has any effect. STARTED_AT is server-only.
  */
 
@@ -32,14 +33,15 @@ import {
   JOBGATE_ARMS,
   JOBGATE_EXPERIMENT_ID,
   JOBGATE_LEGACY_FORCE_KEY,
+  JOBGATE_PREVIOUS_FORCE_KEY,
   JOBGATE_RC_KEYS,
   JOBGATE_STARTED_AT_KEY,
   normalizeJobGateArm,
   validateJobGateWeights,
 } from '../../services/jobGateExperimentCore.mjs';
 
-/** Launch configuration: promoted Spotlight plus three visual challengers. */
-export const JOBGATE_LAUNCH_ARMS = '{"spotlight":25,"spotlight_quiet":25,"spotlight_tinted":25,"spotlight_outline":25}';
+/** Launch configuration: tinted control plus the selected V6-13, V6-02, V6-07 styles. */
+export const JOBGATE_LAUNCH_ARMS = '{"control":25,"navy_companion":25,"tinted_frame":25,"dossier":25}';
 
 export function todayInZurich(now = new Date()) {
   const parts = Object.fromEntries(new Intl.DateTimeFormat('en-CA', {
@@ -55,11 +57,12 @@ function isDateOnly(value) {
 }
 
 const DESCRIPTIONS = {
-  [JOBGATE_RC_KEYS.enabled]: `${JOBGATE_EXPERIMENT_ID} kill switch: "true" enrols visitors, anything else = promoted Spotlight default.`,
-  [JOBGATE_RC_KEYS.arms]: `${JOBGATE_EXPERIMENT_ID} integer weights per arm (${JOBGATE_ARMS.join(', ')}). Invalid JSON = Spotlight default.`,
+  [JOBGATE_RC_KEYS.enabled]: `${JOBGATE_EXPERIMENT_ID} kill switch: "true" enrols visitors, anything else = promoted tinted default.`,
+  [JOBGATE_RC_KEYS.arms]: `${JOBGATE_EXPERIMENT_ID} integer weights per arm (${JOBGATE_ARMS.join(', ')}). Invalid JSON = tinted control default.`,
   [JOBGATE_RC_KEYS.force]: `${JOBGATE_EXPERIMENT_ID} QA/promotion: a valid arm name forces it for every visitor while ENABLED=true; empty = weighted split.`,
-  [JOBGATE_STARTED_AT_KEY]: 'Server-only Europe/Zurich launch date of jobgate-v5; analysis starts the next day.',
-  [JOBGATE_LEGACY_FORCE_KEY]: 'Legacy jobgate-v4 clients are pinned to the promoted Spotlight default.',
+  [JOBGATE_STARTED_AT_KEY]: 'Server-only Europe/Zurich launch date of jobgate-v6; analysis starts the next day.',
+  [JOBGATE_PREVIOUS_FORCE_KEY]: 'Cached jobgate-v5 clients are pinned to the promoted tinted treatment.',
+  [JOBGATE_LEGACY_FORCE_KEY]: 'Legacy jobgate-v4 clients keep their existing promoted default.',
 };
 
 export function parseArgs(argv) {
@@ -107,6 +110,7 @@ export function buildJobGateValues(opts, { existingStartedAt = '', now = new Dat
     [JOBGATE_RC_KEYS.arms]: JSON.stringify(weights.weights),
     [JOBGATE_RC_KEYS.force]: force,
     [JOBGATE_STARTED_AT_KEY]: startedAt,
+    [JOBGATE_PREVIOUS_FORCE_KEY]: 'spotlight_tinted',
     [JOBGATE_LEGACY_FORCE_KEY]: 'spotlight',
   };
 }

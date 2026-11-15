@@ -1,0 +1,27 @@
+{
+  "companyKey": "klinik-bethesda-ch",
+  "companyName": "Rehaklinik Tschugg AG",
+  "companyHost": "klinik-bethesda.ch",
+  "verifiedEmployerDomain": "klinik-bethesda.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.klinik-bethesda.ch/jobs.html"
+  ],
+  "detailTemplate": "/files/stellen/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Dienstarzt/ärztin für Wochenend- und/oder Nachtdienste 50-100%",
+    "Fachfrau/Fachmann Gesundheit für Neurorehabilitation",
+    "Dipl. Pflegefachperson HF für Neurorehabilitation 70 %",
+    "Dipl. Pflegefachmann/frau, Physiotherapeut/in, Ergotherapeut/in, Logopäde/in, Neuropsychologe/in",
+    "Dipl. Pflegefachperson HF für das Parkinson-Zentrum 60-100%"
+  ],
+  "canton": "BE",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-14T13:19:37.576Z",
+  "candidateKey": "rehaklinik-tschugg@tschugg"
+}

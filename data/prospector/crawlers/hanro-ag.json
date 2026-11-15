@@ -1,0 +1,27 @@
+{
+  "companyKey": "hanro-ag",
+  "companyName": "Hanro AG",
+  "companyHost": "jobs.huberholding.com",
+  "verifiedEmployerDomain": "hanro.com",
+  "platform": "huberholding.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.huberholding.com/"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 9,
+  "sampleTitles": [
+    "Verkaufsberatung / 15 Wochenstunden Huber Shop &middot; Steyr &middot; Vor Ort",
+    "Verkaufsberatung / 27-30 Wochenstunden Huber Shop &middot; Leoben &middot; Vor Ort",
+    "Verkaufsberatung / 20-25 Wochenstunden Huber Shop &middot; Donauzentrum Wien &middot; Vor Ort",
+    "Verkaufsberatung / 8 - 8,5 Wochenstunden Huber Shop &middot; Schwaz &middot; Vor Ort",
+    "Verkaufsberatung / 25-35 Wochenstunden Huber Shop &middot; Stadtgebiet Wien"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-13T13:54:30.845Z",
+  "candidateKey": "hanro@liestal"
+}

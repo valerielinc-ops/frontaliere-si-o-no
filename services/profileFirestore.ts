@@ -186,6 +186,7 @@ export interface UserCvProfileRecord {
   userId: string;
   status: 'processing' | 'ready' | 'needs_review' | string;
   parserVersion?: number;
+  jobAlertPersonalizationEnabled?: boolean;
   cvDocument?: {
     fileName?: string;
     sourceType?: string;

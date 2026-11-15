@@ -1563,16 +1563,33 @@ function matchesLocation(job: JobLike, location: string): boolean {
  return normalizeSpace(job.location || '').toLowerCase() === normalizeSpace(location).toLowerCase();
 }
 
-function buildLocationSlug(locale: JobLandingLocale, location: string): string {
+export function buildLocationSlug(locale: JobLandingLocale, location: string): string {
  return `${SEARCH_ROUTE_PREFIX[locale]}-${slugifyTerm(location)}`;
 }
 
-function buildLocationTypeSlug(locale: JobLandingLocale, location: string, typeKey: JobLandingTypeKey): string {
+export function buildLocationTypeSlug(locale: JobLandingLocale, location: string, typeKey: JobLandingTypeKey): string {
  return `${buildLocationSlug(locale, location)}-${getTypeDef(typeKey).slug[locale]}`;
 }
 
-function buildLocationSectorSlug(locale: JobLandingLocale, location: string, sectorKey: JobLandingSectorKey): string {
+export function buildLocationSectorSlug(locale: JobLandingLocale, location: string, sectorKey: JobLandingSectorKey): string {
  return `${buildLocationSlug(locale, location)}-${getSectorDef(sectorKey).slug[locale]}`;
+}
+
+/** Count care-cluster matches without allocating a landing model or result array. */
+export function countJobCareVariantMatches(
+ jobs: readonly JobLike[],
+ clusterKey: JobCareClusterKey,
+ cantonCode: string = 'TI',
+ partition?: CareClusterPartition,
+): number {
+ const candidates = partition?.byCluster[clusterKey] ?? jobs;
+ const matchesCluster = getCareClusterDef(clusterKey).matcher;
+ let count = 0;
+ for (const job of candidates) {
+  if (!partition && !matchesCluster(job)) continue;
+  if (isCantonScoped(job, cantonCode)) count++;
+ }
+ return count;
 }
 
 /**

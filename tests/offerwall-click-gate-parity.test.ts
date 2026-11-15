@@ -5,8 +5,9 @@
  * This file EXECUTES both against a fake Funding Choices, because identical
  * identifiers in both places prove nothing about identical behaviour.
  *
- * Contract for the Funding Choices call that carries OFFERWALL (the same
- * call also carries the GDPR consent message and the ad-block message):
+ * Contract for the Funding Choices callback: it may carry OFFERWALL, the GDPR
+ * consent message, and the ad-block message together. The gate filters only
+ * Offerwall while leaving consent and Google's native recovery available:
  * - off the job-board sections (JOB_BOARD_SECTION_PATHNAME_RX, shared with
  *   JobBoard's rewarded surface): suppress only the Offerwall, whatever the
  *   consent state, and mark the gate `off_board`. AdSense includes the whole
@@ -74,7 +75,8 @@ type FakeWindow = {
     __ftOfferwallBootstrapComplete?: boolean;
     __ftOfferwallGateInstalled?: boolean;
   };
-  __ftOfferwallGate?: { state?: string; release?: () => boolean };
+  __ftAdBlock?: { blocked?: boolean; adsAllowed?: boolean };
+  __ftOfferwallGate?: { state?: string; release?: (showOfferwall?: boolean) => boolean };
 };
 
 // FCCDCF in the shape read live on the job board (25-09; ids synthetic),
@@ -202,7 +204,7 @@ describe('fixtures', () => {
 });
 
 describe.each(CASES)('%s', (_name, src, ENUM) => {
-  it.each(OFF_BOARD_PATHS)('suppresses only the Offerwall off the job board (%s), even with consent stored', (path) => {
+  it.each(OFF_BOARD_PATHS)('suppresses only Offerwall off the job board (%s), even with consent stored', (path) => {
     const win = install(src, path);
     win.googlefc!.MessageTypeEnum = ENUM;
     const m = message();
@@ -212,7 +214,7 @@ describe.each(CASES)('%s', (_name, src, ENUM) => {
     expect(win.__ftOfferwallGate?.release).toBeUndefined();
   });
 
-  it('suppresses only the Offerwall off the job board without a consent decision too', () => {
+  it('suppresses only Offerwall off the job board without a consent decision too', () => {
     const win = install(src, '/articoli/fisco/', { consent: null, cookie: cookieWith(FCCDCF_BEFORE_CONSENT) });
     win.googlefc!.MessageTypeEnum = ENUM;
     const m = message();
@@ -256,13 +258,53 @@ describe.each(CASES)('%s', (_name, src, ENUM) => {
     }
   });
 
+  it('leaves AD_BLOCKING available when the Offerwall enum is missing on the first call', () => {
+    const win = install(src, '/articoli/fisco/');
+    win.googlefc!.MessageTypeEnum = { AD_BLOCKING: 2, CONSENT: 3 };
+    const m = message();
+    win.googlefc!.controlledMessagingFunction!(m);
+    expect(m.calls).toEqual([[true]]);
+    expect(win.googlefc!.__ftOfferwallBootstrapComplete).toBe(true);
+    expect(win.__ftOfferwallGate).toBeUndefined();
+  });
+
+  it('suppresses only Offerwall when a blocker is already confirmed on the job board', () => {
+    const win = install(src, '/cerca-lavoro-ticino/');
+    win.__ftAdBlock = { blocked: true, adsAllowed: false };
+    win.googlefc!.MessageTypeEnum = ENUM;
+    const m = message();
+    win.googlefc!.controlledMessagingFunction!(m);
+
+    expect(m.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
+    expect(win.__ftOfferwallGate?.state).toBe('suppressed');
+    expect(win.__ftOfferwallGate?.release).toBeUndefined();
+  });
+
+  it('releases a held callback with only Offerwall suppressed when blocker detection arrives', () => {
+    const win = install(src, '/cerca-lavoro-ticino/');
+    win.googlefc!.MessageTypeEnum = ENUM;
+    const held = message();
+    win.googlefc!.controlledMessagingFunction!(held);
+    expect(held.calls).toEqual([]);
+    expect(win.__ftOfferwallGate?.state).toBe('held');
+
+    win.__ftAdBlock = { blocked: true, adsAllowed: false };
+    win.dispatchEvent({ type: 'frontaliere:adblock-data' });
+    expect(held.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
+    expect(win.__ftOfferwallGate?.state).toBe('suppressed');
+
+    const later = message();
+    win.googlefc!.controlledMessagingFunction!(later);
+    expect(later.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
+  });
+
   it.each([
     ['no decision anywhere', { consent: null, cookie: cookieWith(FCCDCF_BEFORE_CONSENT) }],
     ['our key, but Funding Choices has no TC string', { consent: 'granted', cookie: cookieWith(FCCDCF_BEFORE_CONSENT) }],
     ['our key, but no FCCDCF cookie at all', { consent: 'granted', cookie: '_ga=GA1.1.1' }],
     ['our key, FCCDCF undecodable', { consent: 'granted', cookie: cookieWith('%E0%A4%A') }],
     ['a TC string, but not our key', { consent: null }],
-  ])('%s: lets the CMP show, suppresses only the Offerwall', (_case, opts) => {
+  ])('%s: lets the CMP and native recovery show, suppresses Offerwall', (_case, opts) => {
     for (const path of ['/cerca-lavoro-ticino/stagista-supsi/', '/fr/trouver-emploi-vaud/emploi-x/']) {
       const win = install(src, path, opts);
       win.googlefc!.MessageTypeEnum = ENUM;
@@ -409,9 +451,10 @@ describe.each(CASES)('%s', (_name, src, ENUM) => {
     expect(win.__ftOfferwallGate!.release!()).toBe(true);
     expect(offBoardOfferwall.calls).toEqual([[false, [ENUM.OFFERWALL]]]);
     expect(destinationOfferwall.calls).toEqual([[true]]);
-    expect([offBoardOfferwall, destinationOfferwall]
+    expect(first.calls).toEqual([[true]]);
+    expect([offBoardOfferwall]
       .flatMap((m) => m.calls)
-      .filter(([proceed]) => proceed === true)).toHaveLength(1);
+      .filter(([proceed]) => proceed === true)).toHaveLength(0);
   });
 });
 

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 /**
  * Dedicated CSC Costruzioni crawler runner.
  *
@@ -46,7 +47,7 @@ import {
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { extractBalancedTagBlock } from './lib/hospital-custom-html-helpers.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
-import { launchChromium } from './lib/ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from './lib/stealth-browser.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './lib/transient-fetch.mjs';
 // NCore's listing/detail markup is shared with the Sintetica runner. Keep the
 // platform parser in one place while CSC-specific discovery and trust rules
@@ -448,12 +449,17 @@ async function waitForCscNcoreBoardMarkup(page, responseUrlMarkups, timeoutMs) {
  * trusted seed without the same parser and detail verification below.
  */
 export async function renderCscNcoreBoardPage(boardUrl, { timeoutMs = 12000 } = {}) {
-  const browser = await launchChromium({ headless: true });
+  const browser = await launchStealthOrChromium({
+    purpose: 'crawler',
+    fallbackOptions: { headless: true },
+  });
   try {
-    const context = await browser.newContext({
-      userAgent: CSC_NCORE_BROWSER_UA,
-      viewport: { width: 1280, height: 720 },
-    });
+    const context = await browser.newContext(isStealthBrowser(browser)
+      ? { viewport: null }
+      : {
+          userAgent: CSC_NCORE_BROWSER_UA,
+          viewport: { width: 1280, height: 720 },
+        });
     const page = await context.newPage();
     const responseUrlMarkups = [];
     const responseCaptureState = { remaining: CSC_NCORE_CAPTURE_MAX_CHARS };
@@ -511,12 +517,17 @@ export async function renderCscNcoreBoardPage(boardUrl, { timeoutMs = 12000 } = 
  * browser response alone never promotes an unverified seed.
  */
 export async function renderCscNcoreDetailPage(detailUrl, { timeoutMs = 12000 } = {}) {
-  const browser = await launchChromium({ headless: true });
+  const browser = await launchStealthOrChromium({
+    purpose: 'crawler',
+    fallbackOptions: { headless: true },
+  });
   try {
-    const context = await browser.newContext({
-      userAgent: CSC_NCORE_BROWSER_UA,
-      viewport: { width: 1280, height: 720 },
-    });
+    const context = await browser.newContext(isStealthBrowser(browser)
+      ? { viewport: null }
+      : {
+          userAgent: CSC_NCORE_BROWSER_UA,
+          viewport: { width: 1280, height: 720 },
+        });
     const page = await context.newPage();
     const response = await page.goto(detailUrl, {
       waitUntil: 'domcontentloaded',
@@ -1132,7 +1143,7 @@ function logStats(beforeSnapshot = new Map()) {
     console.log('ℹ️ jobs.json not found — no stats available.');
     return { total: 0 };
   }
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const allJobs = Array.isArray(raw) ? raw : [];
   const jobs = allJobs.filter(isCscJob);
   const byCanton = new Map();
@@ -1214,7 +1225,7 @@ async function main() {
 
   // Step 4b: Ensure sourceLang is set on CSC jobs
   if (fs.existsSync(DATA_JOBS)) {
-    const allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+    const allJobs = readJsonFile(DATA_JOBS);
     let patched = 0;
     for (const j of allJobs) {
       if (!isCscJob(j)) continue;
@@ -1242,7 +1253,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isCscJob) : [];
   writeJobsCrawlerSlice(CSC_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

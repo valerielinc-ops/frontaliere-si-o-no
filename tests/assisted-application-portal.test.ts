@@ -4,8 +4,9 @@ import { permitStatement } from '../functions/src/lib/permitStatus.js';
 import { isIdentityEmailConfirmation } from '../functions/src/lib/identityEmail.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFiles, findButton, nationalityOptionLabel, phoneCountryOptionLabel, residenceCountryOptionLabel, searchHolds, separatePhonePrefixMetadata, uniqueNormalizedOptionIndex, uploadReceipt } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
+import { applicationStage } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { navigationInfrastructureFailure } from '../functions/src/assistedApplicationTransportRetryPolicy.js';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, handleAuth, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, PREREAD_CHANNELS, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, formPostingMatch, handleAuth, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, PREREAD_CHANNELS, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
@@ -32,6 +33,76 @@ describe('application-surface detection', () => {
       fields: [{ id: 'f1', kind: 'text' }],
       buttons: [{ text: 'Menu', chrome: true }],
     })).toBe(true);
+  });
+
+  it('keeps endeso embedded German job forms usable and fills Mobile Nummer from identity', () => {
+    const formUrl = 'https://endeso.ch/jobs/job-28143-projektleiter-in-elektroinstallation/';
+    const formId = 'endeso-application';
+    const fields = [
+      { id: 'first', kind: 'text', inputType: 'text', label: 'Vorname', formId, required: true, frame: 0 },
+      { id: 'last', kind: 'text', inputType: 'text', label: 'Nachname', formId, required: true, frame: 0 },
+      { id: 'email', kind: 'text', inputType: 'email', label: 'E-Mail', formId, required: true, frame: 0 },
+      { id: 'mobile', kind: 'text', inputType: 'text', label: 'Mobile Nummer', formId, required: true, frame: 0 },
+      { id: 'cv', kind: 'file', inputType: 'file', label: 'Datei hochladen', formId, required: true, frame: 0 },
+      { id: 'privacy', kind: 'checkbox', inputType: 'checkbox', label: 'Ich stimme den Datenschutzbestimmungen zu.', formId, required: true, frame: 0 },
+    ];
+    const snapshot = {
+      url: formUrl,
+      text: 'Projektleiter/in Elektroinstallation endeso GmbH',
+      buttons: [
+        { id: 'back', text: 'ZURÜCK', formId: '', frame: 0, disabled: false },
+        { id: 'apply', text: 'Jetzt Bewerben', formId, frame: 0, disabled: false },
+      ],
+      fields,
+    };
+    expect(applicationStage(snapshot, {
+      url: formUrl,
+      applyUrl: formUrl,
+      job: { title: 'Projektleiter/in Elektroinstallation' },
+    })).toMatchObject({ kind: 'form' });
+    expect(formPostingMatch([
+      'Projektleiter/in Elektroinstallation, Frauenfeld | endeso',
+      'Vorname', 'Nachname', 'E-Mail', 'Mobile Nummer', 'Datei hochladen',
+      'Ich stimme den Datenschutzbestimmungen zu.', 'Jetzt Bewerben', 'endeso GmbH',
+    ].join('\n'), { company: 'endeso GmbH', title: 'Projektleiter/in Elektroinstallation', location: 'Frauenfeld' }, {
+      pageUrl: formUrl,
+      postingUrl: formUrl,
+      applyUrl: formUrl,
+      postingMatched: true,
+      pageHeading: 'Projektleiter/in Elektroinstallation',
+      pageHeadings: ['Projektleiter/in Elektroinstallation'],
+    })).toBe('match');
+    expect(formPostingMatch([
+      'Projektleiter/in Elektroinstallation, Frauenfeld | Other Employer',
+      'Vorname', 'Nachname', 'E-Mail', 'Mobile Nummer', 'Datei hochladen',
+      'Ich stimme den Datenschutzbestimmungen zu.', 'Jetzt Bewerben', 'Other Employer GmbH',
+    ].join('\n'), { company: 'endeso GmbH', title: 'Projektleiter/in Elektroinstallation', location: 'Frauenfeld' }, {
+      pageUrl: formUrl,
+      postingUrl: formUrl,
+      applyUrl: formUrl,
+      postingMatched: true,
+      pageHeading: 'Projektleiter/in Elektroinstallation',
+      pageHeadings: ['Projektleiter/in Elektroinstallation'],
+    })).toBe('mismatch');
+    expect(questionTopic('Mobile Nummer')).toBe('phone');
+    expect(candidateAnswerForField({ identity: { phone: '+41 00 000 00 00' } }, fields[3]))
+      .toEqual({ value: '+41 00 000 00 00', source: 'identity' });
+  });
+
+  it('keeps English handy questions out of phone identity mapping', () => {
+    const candidate = { identity: { phone: '+41 00 000 00 00' } };
+    const skills = { kind: 'text', inputType: 'text', label: 'How handy are you with tools?' };
+    expect(questionTopic(skills.label)).not.toBe('phone');
+    expect(candidateAnswerForField(candidate, skills)).toBeNull();
+    expect(questionTopic('Handy', 'Telefonnummer')).toBe('phone');
+  });
+
+  it('does not map mobility questions to phone identity', () => {
+    const candidate = { identity: { phone: '+41 00 000 00 00' } };
+    for (const label of ['Are you mobile, willing to travel?', 'Sind Sie mobil, bereit zu reisen?']) {
+      expect(questionTopic(label)).not.toBe('phone');
+      expect(candidateAnswerForField(candidate, { kind: 'text', inputType: 'text', label })).toBeNull();
+    }
   });
 });
 
@@ -1989,6 +2060,71 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(result).toEqual([expect.objectContaining({ fieldId: 'privacy', ok: false, error: 'choice_not_registered' })]);
   });
 
+  it('clicks the visible label when a custom Workday consent input is visually hidden', async () => {
+    let checked = false;
+    let labelClicks = 0;
+    const control: any = {
+      setChecked: vi.fn(async (_wanted: boolean, options: { force?: boolean } = {}) => {
+        if (!options.force) throw new Error('input is not visible');
+        checked = true;
+      }),
+      isChecked: vi.fn(async () => checked),
+      evaluate: vi.fn(async (run: (element: unknown) => unknown) => {
+        const source = String(run);
+        if (source.includes('getBoundingClientRect') || source.includes('data-aa-label')) return true;
+        return null;
+      }),
+      locator: vi.fn(() => ({
+        first: () => ({
+          click: vi.fn(async () => { labelClicks += 1; checked = true; }),
+          evaluate: vi.fn(async () => null),
+        }),
+      })),
+    };
+    const frame = { locator: vi.fn(() => ({ first: () => control })) };
+    const page = { frames: () => [frame], mainFrame: () => frame };
+    const result = await applyActions(page as any, [{
+      id: 'terms', kind: 'checkbox', inputType: 'checkbox', label: "J'ai lu et j'accepte les conditions générales", required: false,
+    }], [{ fieldId: 'terms', action: 'check', value: '' }], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'terms', ok: true }]);
+    expect(labelClicks).toBe(1);
+    expect(control.setChecked).not.toHaveBeenCalled();
+  });
+
+  it('falls back to the native radio check when a custom label click does not commit', async () => {
+    let checked = false;
+    let labelClicks = 0;
+    const label = {
+      click: vi.fn(async () => { labelClicks += 1; }),
+      evaluate: vi.fn(async () => null),
+    };
+    const control: any = {
+      count: vi.fn(async () => 1),
+      setChecked: vi.fn(async (_wanted: boolean, options: { force?: boolean } = {}) => {
+        if (!options.force) throw new Error('input is not visible');
+        checked = true;
+      }),
+      isChecked: vi.fn(async () => checked),
+      evaluate: vi.fn(async (run: (element: unknown) => unknown) => {
+        const source = String(run);
+        return source.includes('getBoundingClientRect') || source.includes('data-aa-label');
+      }),
+      locator: vi.fn(() => ({ first: () => label })),
+    };
+    const frame = { locator: vi.fn(() => ({ first: () => control })) };
+    const page = { frames: () => [frame], mainFrame: () => frame };
+    const result = await applyActions(page as any, [{
+      id: 'workday-radio', kind: 'radio', inputType: 'radio', label: 'No', required: true,
+      options: [{ label: 'No', value: 'no' }],
+    }], [{ fieldId: 'workday-radio', action: 'select', value: 'No' }], {}, { pause: async () => {} });
+
+    expect(result).toEqual([{ fieldId: 'workday-radio', ok: true }]);
+    expect(labelClicks).toBe(1);
+    expect(control.setChecked).toHaveBeenCalledWith(true, { force: true, timeout: 6000 });
+    expect(checked).toBe(true);
+  });
+
   it('resolves a localized nationality in a generic combobox when the raw label is absent', async () => {
     let selected = '';
     const localizedOption = {
@@ -2304,7 +2440,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(guarded.missingRequired.map((item: any) => item.fieldId)).toEqual(['f1', 'f2', 'f4', 'f5']);
     expect(guarded.actions).toEqual([
       { fieldId: 'f3', action: 'skip', source: 'rule', value: '' },
-      { fieldId: 'f6', action: 'check', value: 'true', document: 'none', source: 'policy_default', evidence: '' },
+      { fieldId: 'f6', action: 'check', value: 'true', document: 'none', source: 'consent', evidence: '' },
     ]);
     // A policy-defaultable privacy notice stays checked despite an opposing plan action; a prompt value stays blank and an optional newsletter may be cleared.
     const projected = guardPlan({
@@ -2328,7 +2464,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(holdsValue({ kind: 'file', value: '' })).toBe(false);
   });
 
-  it('uses policy defaults for application privacy acknowledgments and keeps marketing/fact questions', () => {
+  it('keeps consent provenance for application acknowledgments and policy defaults for review statements', () => {
     const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
     const fields = [
       { id: 'c1', kind: 'checkbox', label: 'I agree to the Privacy Policy Statement', required: true, checked: false },
@@ -2346,7 +2482,7 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
       missingRequired: [{ fieldId: 'c1', question: 'Accetti l’informativa?', why: '', type: 'yes_no', options: [] }],
     }, fields, candidate);
     expect(guarded.actions.filter((action: any) => action.action === 'check').map((action: any) => [action.fieldId, action.source])).toEqual([
-      ['c1', 'policy_default'], ['c4', 'policy_default'], ['c5', 'policy_default'], ['c6', 'policy_default'],
+      ['c1', 'consent'], ['c4', 'policy_default'], ['c5', 'consent'], ['c6', 'consent'],
     ]);
     // Marketing and a checkbox that also declares a candidate fact remain questions.
     expect(guarded.missingRequired.map((item: any) => item.fieldId).sort()).toEqual(['c2', 'c3']);

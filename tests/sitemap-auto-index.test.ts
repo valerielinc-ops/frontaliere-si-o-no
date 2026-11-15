@@ -16,6 +16,7 @@ import path from 'node:path';
 import {
   buildSitemapIndexXml,
   discoverSitemapFiles,
+  forEachSitemapLocInFile,
   reconcileFinalSitemapsWithDist,
   reconcileRemainingSitemapsWithDist,
   reconcileSitemapFuelWithDist,
@@ -231,6 +232,26 @@ describe('sitemapAliasPlugin — auto-discovery', () => {
     fs.writeFileSync(path.join(distDir, 'index.html'), '<!doctype html>', 'utf-8');
     const discovered = await discoverSitemapFiles(distDir);
     expect(discovered).toEqual([]);
+  });
+
+  it('streams loc values when XML tags cross read chunks', async () => {
+    const first = `${BASE_URL}/cerca-lavoro-ticino/primo/`;
+    const second = `${BASE_URL}/cerca-lavoro-ticino/secondo/`;
+    const sitemapPath = path.join(distDir, 'sitemap-large.xml');
+    // forEachSitemapLocInFile intentionally reads 64 KiB chunks. Put the
+    // opening tag exactly where the first chunk ends so the test exercises
+    // the carry buffer rather than only the common in-chunk path.
+    const splitPrefix = 'x'.repeat(64 * 1024 - 2);
+    fs.writeFileSync(
+      sitemapPath,
+      `${splitPrefix}<loc>${first}</loc><loc>${second}</loc>`,
+      'utf-8',
+    );
+
+    const locs: string[] = [];
+    await forEachSitemapLocInFile(sitemapPath, (loc) => locs.push(loc));
+
+    expect(locs).toEqual([first, second]);
   });
 });
 

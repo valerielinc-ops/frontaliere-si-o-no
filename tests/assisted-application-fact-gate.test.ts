@@ -1539,6 +1539,29 @@ describe('letter at submission', () => {
     // The stored file leaves: its key, and no writer when the draft does not record one.
     expect(older).toMatchObject({ renderer: null, key: 'k' });
   });
+
+  it('uses the registered account email when rebuilding the letter for submission', async () => {
+    const orderWithoutApplicantEmail = {
+      applicantName: 'Marco Bianchi', customerEmail: 'payer@example.test', userId: 'synthetic-user-id',
+      companyName: 'Esempio Fintech SA', jobTitle: 'Sviluppatore', locale: 'it',
+    };
+    const auth = { getUser: vi.fn(async () => ({ email: 'registered@example.test' })) };
+    const draft = {
+      language: 'it', coverLetter: { salutation: 'Gentile Laura Esempio,', paragraphs: ['sviluppo applicazioni web.'], closing: 'Cordiali saluti' },
+      letterAddress: { contactPerson: 'Laura Esempio', streetAddress: 'Via Esempio 3', postalCode: '6900', location: 'Lugano' },
+      job: { title: 'Sviluppatore' }, profile: { location: 'Como' },
+    };
+
+    const rebuilt = await letterForSubmission({
+      bucket: bucket('stored'), order: orderWithoutApplicantEmail, orderId: 'order_X', draft, flow: {}, nowMs: Date.now(), auth,
+    });
+    const text = await extractPdfText(rebuilt.pdf);
+
+    expect(auth.getUser).toHaveBeenCalledWith('synthetic-user-id');
+    expect(text).toContain('registered@example.test');
+    expect(text).not.toContain('payer@example.test');
+    expect(orderWithoutApplicantEmail).not.toHaveProperty('documentAccountEmail');
+  });
 });
 
 describe('index without options keeps the old behaviour (interview prep, follow-ups)', () => {

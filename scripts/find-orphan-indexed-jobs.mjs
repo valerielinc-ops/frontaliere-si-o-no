@@ -92,7 +92,7 @@ function collectKnownSlugs() {
   // Expired jobs
   const expiredPath = path.join(ROOT, 'data', 'expired-jobs.json');
   if (fs.existsSync(expiredPath)) {
-    const expired = JSON.parse(fs.readFileSync(expiredPath, 'utf-8'));
+    const expired = readJsonFile(expiredPath);
     for (const job of (Array.isArray(expired) ? expired : [])) {
       if (job.slug) slugs.add(job.slug);
       if (job.slugByLocale) {

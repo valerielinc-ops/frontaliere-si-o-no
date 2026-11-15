@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 /**
  * Dedicated Coop (Coop Società Cooperativa) crawler runner.
  * Coop is a national retail cooperative (~2600 stores, HQ Basel), so this
@@ -894,7 +895,7 @@ export function coopDetailNeedsQuarantine(job, jsonLd, page = null) {
 async function postProcessCoopJobs() {
   if (!fs.existsSync(DATA_JOBS)) return;
 
-  const allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const allJobs = readJsonFile(DATA_JOBS);
   const coopJobs = allJobs.filter(isCoopJob);
   if (coopJobs.length === 0) return;
 
@@ -1180,7 +1181,7 @@ function logCoopJobStats(beforeSnapshot = new Map()) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
     return { total: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const allJobs = Array.isArray(raw) ? raw : [];
   const coopJobs = allJobs.filter(isCoopJob);
   const unrecognizedDivisions = findUnrecognizedCoopDivisions(allJobs);
@@ -1286,7 +1287,7 @@ async function main() {
   // Coop-group brands whose company name isn't "Coop" (Bell, Halba, Coop
   // Vitality, …). The title-overlap guard already runs in-line (≥0.6).
   if (process.env.SKIP_QUALITY_GUARDS !== '1') {
-    const raw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+    const raw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
     const allJobs = Array.isArray(raw) ? raw : [];
     const coopSubset = allJobs.filter(isCoopJob);
     const report = runQualityGuards(coopSubset, {

@@ -256,6 +256,41 @@ export function matchesSquareScreenFleetSignature(ua: string): boolean {
  */
 export const CRAWLER_UA_DEVICE_EXCEPTIONS: readonly string[] = ['cubot'];
 
+/** Search crawlers that can execute JavaScript despite usually consuming SSG HTML. */
+export const SEARCH_CRAWLER_UA_PATTERNS: readonly string[] = [
+  'googlebot',
+  'google-inspectiontool',
+  'adsbot-google',
+  'mediapartners-google',
+  'storebot-google',
+  'bingbot',
+  'adidxbot',
+  'bingpreview',
+  'duckduckbot',
+  'baiduspider',
+  'yandexbot',
+  'applebot',
+  'slurp',
+  'qwantbot',
+  'seznambot',
+  'sogou',
+  'naverbot',
+  'petalbot',
+  'yeti',
+];
+
+/**
+ * Search crawlers are excluded from client-only promotional dialogs even if
+ * they execute JavaScript. This stays separate from `isLikelyBot()` so the
+ * existing AdSense and analytics loader policy is unchanged.
+ */
+export function isLikelySearchCrawler(): boolean {
+  if (typeof window === 'undefined' || typeof navigator === 'undefined') return true;
+  const ua = (navigator.userAgent || '').toLowerCase();
+  if (!ua) return true;
+  return SEARCH_CRAWLER_UA_PATTERNS.some((pattern) => ua.includes(pattern));
+}
+
 /**
  * Layered bot detection. Each layer cuts a different population:
  *  1. SSR / no UA      — never an ad-eligible session.

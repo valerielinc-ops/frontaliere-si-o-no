@@ -11,6 +11,8 @@ import { parseKsgrApiJob } from '../scripts/lib/ksgr-job-parser.mjs';
 import { parseJobPage } from '../scripts/update-manor-jobs.mjs';
 import { __testables } from '../scripts/lib/shared-jobs-crawler.mjs';
 import { restoreLidlSourceLocaleStructure, hasListContent, MIN_LIDL_FULL_DESC } from '../scripts/lib/lidl-job-parser.mjs';
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
+import { isDelvitechCompanyJob } from '../scripts/lib/delvitech-job-parser.mjs';
 
 type Job = Record<string, unknown>;
 type Builder = (input: Job, observedAt?: string) => Job;
@@ -27,7 +29,8 @@ function isolatedFunction<T>(file: string, name: string, dependencies: Record<st
     ts.isFunctionDeclaration(node) && node.name?.text === name);
   if (!declaration) throw new Error(`Missing crawler function ${file}:${name}`);
   const context = vm.createContext({
-    sourcePostingDateCandidatesFields, sourcePostingDateFields, mergeSourcePostingDates, console: { log: noop, warn: noop }, ...dependencies,
+    sourcePostingDateCandidatesFields, sourcePostingDateFields, mergeSourcePostingDates, readJsonFile,
+    console: { log: noop, warn: noop }, ...dependencies,
   });
   return vm.runInContext(`(${declaration.getText(ast).replace(/^export\s+/, '')})`, context) as T;
 }
@@ -37,6 +40,22 @@ function expectUnknown(job: Job) {
 }
 
 describe('crawler publication evidence at source and merge boundaries', () => {
+  it('Delvitech target matching binds URL ownership to the hostname boundary', () => {
+    // isTargetJob delegates to the parser's isDelvitechCompanyJob: bind the real one.
+    const isTargetJob = isolatedFunction<(job: Job) => boolean>('update-delvitech-jobs.mjs', 'isTargetJob', {
+      isDelvitechCompanyJob,
+    });
+
+    // URL-only records (no company metadata) are matched on the hostname boundary.
+    expect(isTargetJob({ url: 'https://notdelvi.tech/careers/role/' })).toBe(false);
+    expect(isTargetJob({ url: 'https://delvi.tech.evil.example/careers/role/' })).toBe(false);
+    expect(isTargetJob({ url: 'https://jobs.delvi.tech/careers/role/' })).toBe(true);
+    // An explicit foreign employer identity wins over a Delvitech hostname.
+    expect(isTargetJob({ company: 'Other', url: 'https://notdelvi.tech/careers/role/' })).toBe(false);
+    expect(isTargetJob({ company: 'Other', url: 'https://jobs.delvi.tech/careers/role/' })).toBe(false);
+    expect(isTargetJob({ companyKey: 'delvitech-sa', url: 'https://delvi.zohorecruit.eu/jobs/Careers/123' })).toBe(true);
+  });
+
   it('does not turn absent parser timestamps or modification time into publication', () => {
     expect(parseHitachiEnergyListingJson({ items: [{ title: 'Engineer', url: '/details/JID3-123' }] })[0].publicationDate).toBe('');
     expect(parseEngelvoelkersDetailPage('<h1>Sales consultant</h1>').datePosted).toBe('');
@@ -74,6 +93,7 @@ describe('crawler publication evidence at source and merge boundaries', () => {
     const enrich = isolatedFunction<(jobs: Job[]) => number>('update-lidl-jobs.mjs', 'mergeApiDescriptions', {
       fs: { existsSync: () => true, readFileSync: () => JSON.stringify([job]) },
       DATA_JOBS: '/unused-data', PUBLIC_DATA_JOBS: '/unused-public',
+      readJsonFile: () => [job],
       normalizeLidlDetailPath: (value: string) => new URL(value).pathname,
       extractReqId: () => '123456', isLidlJob: () => true,
       restoreLidlSourceLocaleStructure, hasListContent, MIN_LIDL_FULL_DESC,
@@ -178,6 +198,7 @@ describe('crawler publication evidence at source and merge boundaries', () => {
     const writes: unknown[] = [];
     const merge = isolatedFunction<(jobs: Job[]) => unknown>('update-delvitech-jobs.mjs', 'mergeJobs', {
       readExistingCrawlerJobs: () => [previous], isTargetJob: () => true,
+      shouldPreserveDelvitechSnapshot: isolatedFunction('update-delvitech-jobs.mjs', 'shouldPreserveDelvitechSnapshot'),
       jobMatchKey: (job: Job) => job.url, snapshotJobSlugs: () => [],
       mergeLocaleTextMap: () => ({}), dropStaleLocaleDescriptions: noop, captureLostSlugs: noop,
       writeJson: (_target: string, jobs: unknown) => writes.push(jobs),

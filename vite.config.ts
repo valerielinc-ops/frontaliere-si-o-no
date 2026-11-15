@@ -24,6 +24,7 @@ import { preloadLocalePlugin } from './build-plugins/preloadLocalePlugin';
 import { ogPagesPlugin } from './build-plugins/ogPagesPlugin';
 import { jobsSeoPagesPlugin } from './build-plugins/jobsSeoPagesPlugin';
 import { withBuildStopAfter } from './build-plugins/buildStopAfterPlugin';
+import { withBuildAbortOnError } from './build-plugins/shared/buildAbortOnError';
 import jobOgImagesPlugin from './build-plugins/jobOgImagesPlugin';
 import { jobRecencyPagesPlugin } from './build-plugins/jobRecencyPagesPlugin';
 import { jobSectorPagesPlugin } from './build-plugins/jobSectorPagesPlugin';
@@ -150,7 +151,8 @@ const __dirname = path.dirname(__filename);
 
 /* ── Build modes ─────────────────────────────────────────────────
  * npm run build → FAST_BUILD=1, esbuild, skip SEO plugins (~30-45s, dev)
- * npm run build:ci → esbuild + ALL plugins + 8GB heap (~3-4 min, prepush)
+ * npm run build:ci → two short-lived esbuild processes: SPA bundle, then SSG
+ *                     closeBundle emitters (~3-4 min, prepush)
  * npm run build:prod → terser + ALL plugins + 8GB heap (~5-6 min, deploy)
  * ─────────────────────────────────────────────────────────────── */
 
@@ -162,11 +164,20 @@ export default defineConfig(({ mode }) => {
  // after importing this module still see the current value.
  const isFastBuild = !!process.env.FAST_BUILD;
  const env = loadEnv(mode, '.', '');
+ // Production SSG used to run inside the same Rollup process that owns the
+ // 20k-module SPA graph.  That graph remains reachable until bundle.close(),
+ // so a large SEO phase could never reclaim the ~4 GB of live graph state.
+ // `build-staged.mjs` runs the two phases in separate processes; the default
+ // stays `single` for local/dev callers and for byte-for-byte compatibility
+ // outside the CI entry point.
+ const buildStage = process.env.BUILD_STAGE || 'single';
+ const isBundleStage = buildStage === 'bundle';
+ const isSsgStage = buildStage === 'ssg';
  // Build the unified plugin list, then wrap every entry in `withProfile()`
  // and append `profileSummaryPlugin()` last so it emits the total line
  // after every wrapped closeBundle has resolved. Profiling is on by default;
  // set BUILD_PROFILE=0 to opt out for local one-offs.
- const allPlugins: Plugin[] = [
+ const corePlugins: Plugin[] = [
  // ── Core plugins (always run, including FAST_BUILD) ──────────
  // `@vitejs/plugin-react` returns multiple plugins (one per React feature
  // such as Fast Refresh, JSX runtime). Spread so each is wrapped
@@ -208,8 +219,10 @@ export default defineConfig(({ mode }) => {
  // other closeBundle.
  jobsJsonDistCleanupPlugin(__dirname),
  affiliateRedirectPlugin(__dirname),
+ ];
+
  // ── SEO plugins (skipped when FAST_BUILD=1) ──────────────────
- ...(isFastBuild ? [] : [
+ const seoPlugins: Plugin[] = isFastBuild ? [] : [
  // Asserts every hand-authored Record<Locale, Record<Key, string>>
  // slug table used to build a canonical URL is fully populated (issue
  // #3608 item 2 sibling fix). Cheap in-memory check with no I/O; placed
@@ -597,7 +610,9 @@ export default defineConfig(({ mode }) => {
  // <10KB so only large pages benefit. Code retained at
  // build-plugins/precompressHtmlPlugin.ts for future revival.
  // precompressHtmlPlugin(__dirname),
- ]),
+ ];
+
+ const finalOutputPlugins: Plugin[] = [
  // Blog-image CDN offload: rewrites full /images/blog refs in emitted
  // HTML/XML to jsDelivr (SHA-pinned), guards against any survivor, then
  // deletes the full images from dist (keeps 480w thumbnails). It runs after
@@ -617,6 +632,12 @@ export default defineConfig(({ mode }) => {
  // Paired with the disabled bootstrap above. Code retained for future
  // revival once a use-case (rollback / hotfix-only chains) emerges.
  ];
+
+ const allPlugins: Plugin[] = isBundleStage
+ ? corePlugins
+ : isSsgStage
+ ? [...seoPlugins, ...finalOutputPlugins]
+ : [...corePlugins, ...seoPlugins, ...finalOutputPlugins];
  // When ASSET_CDN is set (deploy build only), emit absolute CDN URLs for all
  // bundler assets (JS/CSS/chunks) so dist/assets can be offloaded to the
  // frontaliere-cdn Pages site. Unset (dev / normal builds) → renderBuiltUrl is
@@ -650,7 +671,7 @@ export default defineConfig(({ mode }) => {
  port: 3000,
  host: '0.0.0.0',
  },
- plugins: [
+ plugins: withBuildAbortOnError([
  // Campiona RSS del processo + MemAvailable dell'host per tutta la build e la
  // fa fallire con un errore NOMINATO prima che l'host la uccida (#5369 §7).
  // Sta per primo perche' il suo `buildStart` deve armare il campionatore prima
@@ -703,7 +724,10 @@ export default defineConfig(({ mode }) => {
  // its `closeBundle` (enforce post, order post, sequential) runs after every
  // measured hook, profileSummaryPlugin's own included.
  buildPhaseTimingPlugin(),
- ],
+ // W0-G: after a failed bundle every closeBundle (the SSG) is skipped, so the
+ // original error is the last word instead of an 85-minute run of emitters
+ // ending in a symptom. Wraps the whole list; build-abort-flag goes first.
+ ]),
  // No build-time `define`: nothing volatile is injected into the bundle.
  // Build id / commit hash are emitted as dist/build-id.txt + commit-hash.txt
  // (buildIdPlugin) and read at RUNTIME. Baking them via define put a fresh
@@ -717,6 +741,11 @@ export default defineConfig(({ mode }) => {
  },
  build: {
  emptyOutDir: false,
+ // The SSG stage only needs Rollup to execute the lifecycle hooks; its tiny
+ // sentinel entry must never be written over the bundle produced by the first
+ // process. Vite still calls `bundle.close()` with `write:false`, which is the
+ // boundary that runs every closeBundle emitter.
+ write: !isSsgStage,
  // Public source maps made the complete application source downloadable from
  // the CDN. Keep them opt-in for a controlled symbolication build instead of
  // shipping them with the normal production artifact. `dist/assets` is copied
@@ -778,6 +807,9 @@ export default defineConfig(({ mode }) => {
  },
  },
  rollupOptions: {
+ ...(isSsgStage
+ ? { input: path.resolve(__dirname, 'build-plugins/ssgStageEntry.ts') }
+ : {}),
  // The production build runs once and never reuses a Rollup watch cache. Keep
  // Rollup's per-module AST cache disabled so the large article graph can use
  // its bounded AST LRU instead of retaining every parsed module through the

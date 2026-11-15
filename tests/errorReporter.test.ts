@@ -251,6 +251,23 @@ describe('reportCaughtError', () => {
       expect(Analytics.trackAppError).not.toHaveBeenCalled();
     });
 
+    it('drops exact `Na` from a Google vignette document stack', async () => {
+      vi.stubGlobal('window', {
+        location: {
+          href: 'https://frontaliereticino.ch/en/aziende/example/?utm_source=company_alert#google_vignette',
+        },
+      });
+      try {
+        const error = new Error('Na');
+        error.stack = '@https://frontaliereticino.ch/en/aziende/example/:190:70\n@https://frontaliereticino.ch/en/aziende/example/:197:363';
+        reportCaughtError(error, 'ads.vignette');
+        await settleAnalyticsImport();
+        expect(Analytics.trackAppError).not.toHaveBeenCalled();
+      } finally {
+        vi.unstubAllGlobals();
+      }
+    });
+
     it('drops permanent Firebase Installations configuration failures', async () => {
       reportCaughtError(
         new Error('Installations: Create Installation request failed with error "400 INVALID_ARGUMENT: invalid client configuration"'),

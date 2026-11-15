@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import np from 'node:path';
-import { readJsonFile } from '../../scripts/lib/read-large-json.mjs';
+import { iterateJsonArrayFile } from '../../scripts/lib/read-large-json.mjs';
 import type {
   SectorHubJobLike,
   SectorHubPublication,
@@ -126,27 +126,35 @@ export function listIndexableAutoSectorHubLinks(
 export function readAutoSectorHubInventory(rootDir: string): AutoSectorHubInventory {
   const registry = readSectorHubPublicationRegistry(rootDir);
   const jobsFile = np.join(rootDir, 'data', 'jobs.json');
-  let jobs: AutoSectorJob[] = [];
-  if (fs.existsSync(jobsFile)) {
-    const raw: unknown = readJsonFile(jobsFile);
-    if (!Array.isArray(raw)) throw new Error('data/jobs.json must contain an array.');
-    jobs = raw
-      .filter((job): job is AutoSectorJob => Boolean(job && typeof job === 'object'))
-      .filter(isPublishableListingJob)
-      .map((job) => normalizeListingIdentity(job));
+  const jobsBySlug = new Map<string, AutoSectorJob[]>();
+  const seenBySlug = new Map<string, Set<string>>();
+  for (const publication of registry.hubs) {
+    jobsBySlug.set(publication.slug, []);
+    seenBySlug.set(publication.slug, new Set<string>());
   }
 
-  const jobsBySlug = new Map<string, AutoSectorJob[]>();
-  for (const publication of registry.hubs) {
-    const seen = new Set<string>();
-    const matching = jobs.filter((job, index) => {
-      if (!isActiveTicinoJob(job) || !sectorHubMatchesJob(publication, job)) return false;
-      const id = jobIdentity(job, index);
-      if (seen.has(id)) return false;
-      seen.add(id);
-      return true;
-    });
-    jobsBySlug.set(publication.slug, matching);
+  if (fs.existsSync(jobsFile)) {
+    let jobIndex = 0;
+    for (const value of iterateJsonArrayFile(jobsFile)) {
+      if (!value || typeof value !== 'object') continue;
+      const rawJob = value as AutoSectorJob;
+      if (!isPublishableListingJob(rawJob)) continue;
+      const job = normalizeListingIdentity(rawJob);
+      const sourceIndex = jobIndex;
+      jobIndex += 1;
+      if (!isActiveTicinoJob(job)) continue;
+
+      for (const publication of registry.hubs) {
+        if (!sectorHubMatchesJob(publication, job)) continue;
+        const seen = seenBySlug.get(publication.slug);
+        const matching = jobsBySlug.get(publication.slug);
+        if (!seen || !matching) continue;
+        const id = jobIdentity(job, sourceIndex);
+        if (seen.has(id)) continue;
+        seen.add(id);
+        matching.push(job);
+      }
+    }
   }
   return { registry, jobsBySlug };
 }

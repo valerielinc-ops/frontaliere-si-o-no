@@ -10,7 +10,7 @@
  */
 import { JSDOM } from 'jsdom';
 import { ENTITY_MAP, ENTITY_PATTERN, decodeHtmlEntities } from './decode-html-entities.mjs';
-import { launchChromium } from './ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from './stealth-browser.mjs';
 import { CAREER_TOKEN_RX, HOST_DELAY_MS, UA } from './prospector/config.mjs';
 import { NAMED, decodeEntities } from './prospector/entities.mjs';
 import { extractJobPostingNodes } from './jobposting-jsonld.mjs';
@@ -141,10 +141,14 @@ function isAllowedGardeniaBrowserUrl(rawUrl) {
  * Eligibility also proves that politeFetch already evaluated robots.txt under
  * its documented unreachable-robots policy before this transport is entered.
  *
- * @param {{ launchBrowserImpl?: typeof launchChromium, nowImpl?: () => number, sleepImpl?: (ms: number) => Promise<unknown> }} [runtime]
+ * @param {{ launchBrowserImpl?: typeof launchStealthOrChromium, nowImpl?: () => number, sleepImpl?: (ms: number) => Promise<unknown> }} [runtime]
  */
 export function createAlbergoGardeniaBrowserTransport({
-  launchBrowserImpl = launchChromium,
+  launchBrowserImpl = (options) => launchStealthOrChromium({
+    purpose: 'crawler',
+    ...options,
+    fallbackOptions: options,
+  }),
   nowImpl = Date.now,
   sleepImpl = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
 } = {}) {
@@ -172,7 +176,9 @@ export function createAlbergoGardeniaBrowserTransport({
     if (!contextPromise) {
       contextPromise = (async () => {
         const browser = await browserPromise;
-        const context = await browser.newContext({ userAgent: UA });
+        const context = await browser.newContext(isStealthBrowser(browser)
+          ? { viewport: null }
+          : { userAgent: UA });
         await context.route('**/*', async (route) => {
           const request = route.request();
           if (

@@ -3,20 +3,26 @@ import { JSDOM } from 'jsdom';
 import { installHouseAds } from '../services/houseAdRuntime';
 import { createHouseAdCreative, HOUSE_AD_CREATIVE_CSS, HOUSE_AD_VARIANTS } from '../services/houseAdCreative';
 import { sanitizeHouseAdAttribution, sanitizeReaderSubscriptionAdAttribution } from '../functions/src/houseAdAttribution.js';
+import { resolveHouseAdImageSector, sanitizeHouseAdContextLabel } from '../services/houseAdContext';
+import { ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT } from '../packages/articles/engine/shared/articleAtfAdExperiment';
+import { READER_SUBSCRIPTION_PATHS } from '../services/readerSubscriptionPath';
 
 let dom: JSDOM;
 let w: any;
+let testHouseBlock: HTMLElement;
 const emit = vi.fn();
-const config = { assignmentUrl: 'https://example.test/house-ad-assignment', consentKey: 'frontaliere_ads_consent', consentEvent: 'frontaliere:ads-consent', variants: HOUSE_AD_VARIANTS };
-function frame(state: string, placement = 'article-inline') {
+const config = { assignmentUrl: 'https://example.test/house-ad-assignment', consentKey: 'frontaliere_ads_consent', consentEvent: 'frontaliere:ads-consent', variants: HOUSE_AD_VARIANTS, readerSubscriptionPaths: READER_SUBSCRIPTION_PATHS };
+function frame(state: string, placement = 'article-inline', block: HTMLElement = testHouseBlock) {
   const el = w.document.createElement('div'); el.dataset.house = placement; el.dataset.ftHouseHeight = '250';
   const google = w.document.createElement('div'); google.dataset.ftHouseGoogle = ''; google.dataset.ftAdState = state;
   const host = w.document.createElement('div'); host.dataset.ftHouseHost = '';
-  el.append(google, host); w.document.body.append(el); return { el, google, host };
+  el.append(google, host); block.append(el); return { el, google, host };
 }
 function blockerOnlyFrame(placement = 'article-atf') {
   const el = w.document.createElement('div'); el.dataset.house = placement;
-  el.dataset.ftHouseBlockerOnly = 'true'; el.dataset.ftHouseHeight = '220';
+  el.dataset.ftHouseBlockerOnly = 'true'; el.dataset.ftHouseHeight = String(ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT);
+  const google = w.document.createElement('div'); google.dataset.ftHouseGoogle = '';
+  el.append(google);
   w.document.body.append(el); return el;
 }
 async function start(allowed = () => true) {
@@ -28,6 +34,7 @@ beforeEach(() => {
   vi.useFakeTimers(); emit.mockClear();
   dom = new JSDOM('<!doctype html><html lang="it"><head></head><body></body></html>', { url: 'https://frontaliereticino.ch/articoli-frontaliere/esempio/', runScripts: 'outside-only', pretendToBeVisual: true });
   w = dom.window; w.Date = Date; w.setTimeout = setTimeout; w.clearTimeout = clearTimeout;
+  testHouseBlock = w.document.createElement('div'); testHouseBlock.dataset.ftHouseBlock = 'test-article-block'; w.document.body.append(testHouseBlock);
   Object.defineProperty(w.crypto, 'randomUUID', { configurable: true, value: () => '123e4567-e89b-42d3-a456-426614174000' });
   w.fetch = vi.fn().mockResolvedValue({ ok: true, json: async () => ({ variant: 'control', enrolled: false, experimentId: 'house_creatives_v2', assignmentSource: 'local_default' }) });
   w.matchMedia = () => ({ matches: true });
@@ -61,6 +68,19 @@ describe('per-slot first-party creative delivery', () => {
     expect(el.querySelector('ins')).toBe(ins);
     expect(el.style.getPropertyValue('--ft-house-height')).toBe('220px');
     expect(el.querySelector('a').href).toContain('1234567890');
+  });
+  it('fills a static slot when the visitor explicitly denies Google ads consent', async () => {
+    const el = w.document.createElement('div'); el.dataset.house = 'article-atf'; el.dataset.ftHouseHeight = '220'; el.dataset.width = '452';
+    const ins = w.document.createElement('ins'); ins.dataset.adSlot = '1982411173'; ins.dataset.ftStaticAd = 'true'; ins.dataset.ftStaticAdPending = ''; ins.dataset.ftAdRequestPending = '';
+    ins.dataset.adPlacement = 'article-atf'; ins.style.minHeight = '220px';
+    el.append(ins); testHouseBlock.append(el);
+    w.localStorage.setItem(config.consentKey, 'denied');
+    await start();
+    expect(el.querySelector('[data-ft-house-host] a')).not.toBeNull();
+    expect(el.querySelector('ins')).toBe(ins);
+    expect(emit).toHaveBeenCalledWith('house_ad_rendered', expect.objectContaining({
+      fallback_reason: 'ads_consent_denied', placement: 'article-atf',
+    }));
   });
   it('fills the actual 220px article reserve without increasing it to a standard 250px banner', async () => {
     const empty = frame('unfilled'); empty.el.dataset.width = '918'; empty.el.dataset.ftHouseHeight = '220';
@@ -164,8 +184,12 @@ describe('per-slot first-party creative delivery', () => {
     await start();
     expect(empty.host.querySelector('a')).not.toBeNull();
     expect(emit).toHaveBeenCalledWith('house_ad_rendered', expect.objectContaining({ fallback_reason: 'adblock_detected' }));
+    expect(emit).toHaveBeenCalledWith('house_ad_fallback_rendered', expect.objectContaining({
+      action: 'adblock_detected', component: expect.stringContaining('house_creatives_v2.control_v1.fixed.it'),
+      surface: 'rectangle.article-inline', device: 'mobile',
+    }));
   });
-  it('renders a blocker-only article anchor after a confirmed blocker signal without a Google slot', async () => {
+  it('renders a blocker-only article anchor after a confirmed blocker signal with a static Google marker', async () => {
     const anchor = blockerOnlyFrame();
     await start();
     expect(anchor.querySelector('[data-ft-house-host] a')).toBeNull();
@@ -178,6 +202,19 @@ describe('per-slot first-party creative delivery', () => {
     expect(anchor.style.getPropertyValue('--ft-house-height')).toBe('220px');
     expect(emit).toHaveBeenCalledWith('house_ad_rendered', expect.objectContaining({
       fallback_reason: 'adblock_detected', placement: 'article-atf', format: 'rectangle',
+    }));
+  });
+  it('renders the article creative on first paint when the blocker is already confirmed', async () => {
+    const anchor = blockerOnlyFrame();
+    w.__ftAdBlock = { blocked: true, adsAllowed: false };
+    await start();
+
+    expect(anchor.querySelector('[data-ft-house-google]')).not.toBeNull();
+    expect(anchor.querySelector('[data-ft-house-host] a')).not.toBeNull();
+    expect(anchor.style.getPropertyValue('--ft-house-height')).toBe(`${ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT}px`);
+    expect(ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT).toBe(220);
+    expect(emit).toHaveBeenCalledWith('house_ad_rendered', expect.objectContaining({
+      fallback_reason: 'adblock_detected', placement: 'article-atf',
     }));
   });
   it.each([
@@ -334,6 +371,47 @@ describe('per-slot first-party creative delivery', () => {
       variant: 'subscription', touchpoint: 'exposure', enrolled: true,
     });
   });
+  it('keeps a lone fallback slot on the job creative when no contiguous ad block exists', async () => {
+    w.__ftAdsAuthState = 'anonymous';
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({
+      variant: 'control', enrolled: false, assignmentSource: 'local_default',
+      readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
+      readerSubscriptionExperimentId: 'reader_subscription_house_v1', readerSubscriptionAssignmentSource: 'firebase_remote_config',
+    }) });
+    const single = frame('unfilled');
+    await start();
+    expect(single.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+    expect(emit.mock.calls.filter(([name]) => name === 'reader_subscription_experiment_exposure')).toHaveLength(0);
+  });
+  it('does not combine isolated fallback slots from separate ad blocks', async () => {
+    w.__ftAdsAuthState = 'anonymous';
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({
+      variant: 'control', enrolled: false, assignmentSource: 'local_default',
+      readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
+      readerSubscriptionExperimentId: 'reader_subscription_house_v1', readerSubscriptionAssignmentSource: 'firebase_remote_config',
+    }) });
+    const firstBlock = w.document.createElement('div'); firstBlock.dataset.ftHouseBlock = 'first'; w.document.body.append(firstBlock);
+    const secondBlock = w.document.createElement('div'); secondBlock.dataset.ftHouseBlock = 'second'; w.document.body.append(secondBlock);
+    const first = frame('unfilled', 'article-inline', firstBlock);
+    const second = frame('unfilled', 'article-end', secondBlock);
+    await start();
+    expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+    expect(second.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+  });
+  it('does not treat all article placements as a contiguous ad block', async () => {
+    w.__ftAdsAuthState = 'anonymous';
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({
+      variant: 'control', enrolled: false, assignmentSource: 'local_default',
+      readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
+      readerSubscriptionExperimentId: 'reader_subscription_house_v1', readerSubscriptionAssignmentSource: 'firebase_remote_config',
+    }) });
+    const articleBody = w.document.createElement('div'); articleBody.dataset.ftArticleBody = 'true'; w.document.body.append(articleBody);
+    const first = frame('unfilled', 'article-inline', articleBody);
+    const second = frame('unfilled', 'article-end', articleBody);
+    await start();
+    expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+    expect(second.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+  });
   it('measures one matched control slot impression and click for the subscription experiment', async () => {
     w.__ftAdsAuthState = 'anonymous';
     w.fetch.mockResolvedValue({ ok: true, json: async () => ({
@@ -361,7 +439,7 @@ describe('per-slot first-party creative delivery', () => {
       readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
       readerSubscriptionExperimentId: 'reader_subscription_house_v1', readerSubscriptionAssignmentSource: 'firebase_remote_config',
     }) });
-    const empty = frame('unfilled'); await start();
+    const empty = frame('unfilled'); frame('unfilled', 'article-end'); await start();
     expect(empty.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
   });
   it('keeps a viewable subscription impression stable and stores click attribution separately from job-search clicks', async () => {
@@ -371,7 +449,7 @@ describe('per-slot first-party creative delivery', () => {
       readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
       readerSubscriptionExperimentId: 'reader_subscription_house_v1', readerSubscriptionAssignmentSource: 'firebase_remote_config',
     }) });
-    const empty = frame('unfilled'); await start();
+    const empty = frame('unfilled'); frame('unfilled', 'article-end'); await start();
     const creative = empty.host.querySelector('a');
     expect(creative.dataset.houseCampaign).toBe('reader_subscription');
     creative.click();
@@ -385,18 +463,103 @@ describe('per-slot first-party creative delivery', () => {
   it('renders the localized subscription offer for a compact banner', () => {
     const render = w.eval(`(${createHouseAdCreative.toString()})`);
     const creative = render({ campaign: 'reader_subscription', variant: 'control', format: 'mobile_banner', locale: 'it', placement: 'article-inline' });
-    expect(creative.href).toContain('/abbonamento/?');
+    expect(creative.href).toContain(`${READER_SUBSCRIPTION_PATHS.it}?`);
     expect(creative.textContent).toContain('Naviga senza pubblicità');
     expect(creative.textContent).toContain('CHF 2.99 al mese');
     expect(creative.textContent).toContain('Scopri');
     expect(creative.dataset.houseCreative).toBe('subscription_v1');
   });
+  it.each(['en', 'de', 'fr'] as const)('routes the %s anonymous treatment to its localized subscription page', async (locale) => {
+    w.document.documentElement.lang = locale;
+    w.__ftAdsAuthState = 'anonymous';
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({
+      variant: 'control', enrolled: false, assignmentSource: 'local_default',
+      readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
+      readerSubscriptionExperimentId: 'reader_subscription_house_v1', readerSubscriptionAssignmentSource: 'firebase_remote_config',
+    }) });
+    const first = frame('unfilled'); frame('unfilled', 'article-end'); await start();
+    expect(first.host.querySelector('a')?.href).toContain(`${READER_SUBSCRIPTION_PATHS[locale]}?utm_source=house_ads`);
+  });
+  it('uses the job role, place, and matching artwork in desktop and mobile creatives', () => {
+    const render = w.eval(`(${createHouseAdCreative.toString()})`);
+    const context = { source: 'job_detail', sector: 'logistics', role: 'Logistiker in Kommissionierung', place: 'Rotkreuz' } as const;
+    const desktop = render({ variant: 'profile_match', format: 'billboard', locale: 'it', placement: 'job-detail', context });
+    expect(desktop.querySelector('img').src).toContain('logistics-wide-v1.webp');
+    expect(desktop.querySelector('.ft-house-title').textContent).toBe('Logistiker in Svizzera?');
+    expect(desktop.querySelector('.ft-house-body').textContent).toContain('Logistiker in Kommissionierung');
+    expect(desktop.querySelector('.ft-house-body').textContent).toContain('Rotkreuz');
+    expect(desktop.getAttribute('aria-label')).toContain('Lo cerchiamo noi per te.');
+
+    const alternate = render({ variant: 'time_saved', format: 'mobile_banner', locale: 'it', placement: 'job-detail', context });
+    expect(alternate.querySelector('.ft-house-title').textContent).toBe('Logistiker in Svizzera?');
+    expect(alternate.querySelector('.ft-house-promise').textContent).toBe('Ci pensiamo noi.');
+    const alternateBillboard = render({ variant: 'time_saved', format: 'billboard', locale: 'it', placement: 'job-detail', context });
+    expect(alternateBillboard.querySelector('.ft-house-title').textContent).toBe('Logistiker in Svizzera?');
+    expect(alternateBillboard.querySelector('.ft-house-promise').textContent).toBe('Alla ricerca pensiamo noi.');
+    expect(alternateBillboard.querySelector('.ft-house-body').textContent).toContain('Logistiker in Kommissionierung');
+
+    const longRole = render({
+      variant: 'profile_match', format: 'billboard', locale: 'it', placement: 'job-detail',
+      context: { ...context, role: 'Berufskraftfahrer im Fernverkehr' },
+    });
+    expect(longRole.querySelector('.ft-house-title').textContent).toBe('Lavoro in Svizzera?');
+    expect(longRole.querySelector('.ft-house-body').textContent).toContain('Berufskraftfahrer im Fernverkehr');
+
+    const french = render({ variant: 'time_saved', format: 'billboard', locale: 'fr', placement: 'job-detail', context: { ...context, role: 'Agent logistique en entrepôt' } });
+    expect(french.querySelector('.ft-house-title').textContent).toBe('Agent en Suisse ?');
+    expect(french.querySelector('.ft-house-body').textContent).toContain('Offres d’agent logistique en entrepôt à Rotkreuz.');
+
+    const mobile = render({ variant: 'profile_match', format: 'mobile_large', locale: 'it', placement: 'job-detail', context });
+    expect(mobile.querySelector('img').src).toContain('logistics-portrait-v1.webp');
+    expect(mobile.querySelector('.ft-house-title').textContent).toBe('Logistiker in Svizzera?');
+    expect(mobile.querySelector('.ft-house-promise').textContent).toContain('Cerchiamo Logistiker.');
+  });
+  it('maps job context to an existing visual sector without guessing unsupported trades', () => {
+    expect(resolveHouseAdImageSector('other', 'Logistica', 'Logistiker in Kommissionierung')).toBe('logistics');
+    expect(resolveHouseAdImageSector('hospitality', '', 'Cuoco')).toBe('hospitality');
+    expect(resolveHouseAdImageSector('health', '', 'Infermiere')).toBe('commute');
+    expect(sanitizeHouseAdContextLabel('  Tecnico\n manutentore  ')).toBe('Tecnico manutentore');
+  });
+  it('adds only low-cardinality context codes to tracking and stores no role or place', async () => {
+    testHouseBlock.dataset.ftHouseContext = 'job_detail';
+    testHouseBlock.dataset.ftHouseSector = 'logistics';
+    testHouseBlock.dataset.ftHouseRole = 'Logistiker in Kommissionierung';
+    testHouseBlock.dataset.ftHousePlace = 'Rotkreuz';
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({ variant: 'profile_match', enrolled: true, experimentId: 'house_creatives_v2', assignmentSource: 'firebase_remote_config' }) });
+    const empty = frame('unfilled');
+    await start();
+    const creative = empty.host.querySelector('a');
+    expect(creative.querySelector('img').src).toContain('logistics-portrait-v1.webp');
+    const rendered = emit.mock.calls.find(([name]) => name === 'house_ad_rendered')?.[1];
+    expect(rendered).toMatchObject({ component: 'house_creatives_v2.profile_match_v1.test.it.job_detail.logistics', context_source: 'job_detail', context_sector: 'logistics' });
+    expect(JSON.stringify(rendered)).not.toContain('Logistiker');
+    creative.click();
+    const attribution = JSON.parse(w.sessionStorage.getItem('ft_house_ad_click_v1'));
+    expect(attribution).toMatchObject({ contextSource: 'job_detail', contextSector: 'logistics' });
+    expect(attribution).not.toHaveProperty('role');
+    expect(attribution).not.toHaveProperty('place');
+  });
+  it('updates the creative when the job board publishes its selected-job context after startup', async () => {
+    const empty = frame('unfilled');
+    await start();
+    expect(empty.host.querySelector('.ft-house-title')?.textContent).toBe('Lavoro in Svizzera?');
+
+    testHouseBlock.dataset.ftHouseContext = 'job_detail';
+    testHouseBlock.dataset.ftHouseSector = 'logistics';
+    testHouseBlock.dataset.ftHouseRole = 'Logistiker in Kommissionierung';
+    testHouseBlock.dataset.ftHousePlace = 'Rotkreuz';
+    await vi.advanceTimersByTimeAsync(150);
+
+    expect(empty.host.querySelector('img')?.getAttribute('src')).toContain('logistics-portrait-v1.webp');
+    expect(empty.host.querySelector('.ft-house-title')?.textContent).toBe('Logistiker in Svizzera?');
+    expect(empty.host.querySelector('.ft-house-body')?.textContent).toContain('Rotkreuz');
+  });
 });
 
 describe('bounded purchase attribution', () => {
-  const click = () => ({ campaign: 'job_search_automation', variant: 'control', creativeId: 'control_v1', format: 'rectangle', locale: 'it', placement: 'article-inline', device: 'mobile', enrolled: true, clickedAt: Date.now() - 1000 });
+  const click = () => ({ campaign: 'job_search_automation', variant: 'control', creativeId: 'control_v1', format: 'rectangle', locale: 'it', placement: 'article-inline', device: 'mobile', enrolled: true, contextSource: 'generic', contextSector: 'generic', clickedAt: Date.now() - 1000 });
   it('keeps public campaign fields and strips arbitrary user data', () => {
-    expect(sanitizeHouseAdAttribution({ ...click(), email: 'discard@example.test', url: 'https://example.test/private/' })).toEqual({ ...click(), experimentId: 'house_creatives_v1', assignmentSource: 'legacy_client_hash' });
+    expect(sanitizeHouseAdAttribution({ ...click(), email: 'discard@example.test', url: 'https://example.test/private/', role: 'private role', place: 'private place' })).toEqual({ ...click(), experimentId: 'house_creatives_v1', assignmentSource: 'legacy_client_hash' });
   });
   it('preserves Firebase assignment through click attribution and purchase enrollment', () => {
     const current = { ...click(), experimentId: 'house_creatives_v2', assignmentSource: 'firebase_remote_config' };
@@ -405,8 +568,15 @@ describe('bounded purchase attribution', () => {
   });
   it.each([
     { variant: 'unknown' }, { experimentId: 'unreleased_experiment' }, { creativeId: 'mismatch_v1' }, { placement: 'https://example.test/private/' },
+    { contextSource: 'job_detail', contextSector: 'generic' }, { contextSector: 'unknown' },
     { clickedAt: Infinity }, { clickedAt: Date.now() + 86400000 }, { clickedAt: Date.now() - 8 * 86400000 },
   ])('rejects invalid or expired metadata %j', bad => { expect(sanitizeHouseAdAttribution({ ...click(), ...bad })).toBeNull(); });
+  it('preserves bounded job context codes and discards the display text', () => {
+    expect(sanitizeHouseAdAttribution({ ...click(), contextSource: 'job_detail', contextSector: 'logistics', role: 'Logistiker', place: 'Rotkreuz' }))
+      .toMatchObject({ contextSource: 'job_detail', contextSector: 'logistics' });
+    expect(sanitizeHouseAdAttribution({ ...click(), contextSource: 'job_detail', contextSector: 'logistics', role: 'Logistiker', place: 'Rotkreuz' }))
+      .not.toHaveProperty('role');
+  });
   it('accepts only bounded Firebase subscription experiment attribution', () => {
     const value = {
       campaign: 'reader_subscription', experimentId: 'reader_subscription_house_v1',

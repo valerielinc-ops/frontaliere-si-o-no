@@ -31,7 +31,11 @@ import {
   WEEKLY_EMPLOYERS_CITIES,
   WEEKLY_EMPLOYERS_ROUTE_CONFIG,
 } from '../../build-plugins/shared/weeklyEmployersRoutes.mjs';
-import { BING_METADATA_FINDING_CODES } from './bing-finding-codes.mjs';
+import {
+  BING_FRONTIER_CANONICAL_DRIFT,
+  BING_FRONTIER_NOINDEX,
+  BING_METADATA_FINDING_CODES,
+} from './bing-finding-codes.mjs';
 
 export const TEMPLATE_FINDING_CODES = BING_METADATA_FINDING_CODES;
 
@@ -358,6 +362,30 @@ export const BING_TEMPLATE_TABLE = Object.freeze([
 const TEMPLATE_INDEX_BY_ID = new Map(BING_TEMPLATE_TABLE.map((family, index) => [family.id, index]));
 const UNKNOWN_TEMPLATE_INDEX = TEMPLATE_INDEX_BY_ID.get(UNKNOWN_FAMILY.id);
 
+const RECONCILED_FRONTIER_FAMILIES = Object.freeze({
+  [BING_FRONTIER_NOINDEX]: new Set([
+    'plate-auction-route-family',
+    'job-board-pages',
+    'event-pages',
+  ]),
+  [BING_FRONTIER_CANONICAL_DRIFT]: new Set([
+    'job-board-pages',
+    'event-pages',
+  ]),
+});
+
+/**
+ * A frontier finding is reconciled only when every valid referrer agrees with
+ * the target owner. A single unknown or cross-family referrer keeps the
+ * finding actionable: attribution is evidence, not permission to hide an
+ * ambiguous internal link.
+ */
+export function isReconciledFrontierFinding({ code, targetFamily, referrerFamilies = [] } = {}) {
+  const allowedFamilies = RECONCILED_FRONTIER_FAMILIES[code];
+  if (!allowedFamilies?.has(targetFamily) || referrerFamilies.length === 0) return false;
+  return referrerFamilies.every((family) => family === targetFamily);
+}
+
 /**
  * Referrer records are compact artifact data, not trusted ownership proof.
  * Keep malformed or out-of-range indexes unknown instead of attributing a
@@ -503,6 +531,8 @@ export function buildFrontierAttribution(findings, {
     sourceCount: Array.isArray(sitemapManifest?.urls) ? sitemapManifest.urls.length : 0,
     templateCount: templateTable.length,
   };
+  const unknownTemplate = templateTable.findIndex((family) => family?.id === UNKNOWN_FAMILY.id);
+  const fallbackTemplate = unknownTemplate >= 0 ? unknownTemplate : UNKNOWN_TEMPLATE_INDEX;
   const refsByTarget = new Map(frontierUrls.map((url, index) => [
     url,
     (referrerRefs[index] || [])
@@ -514,18 +544,50 @@ export function buildFrontierAttribution(findings, {
 
   for (const item of findings || []) {
     if (item?.scope !== 'discovered-frontier') continue;
-    const targetTemplate = templateIndexFor(item.url);
+    const targetClassification = classifyBingTemplate(item.url);
+    const targetTemplate = templateTable.findIndex((family) => family?.id === targetClassification.id);
+    const ownerTemplate = targetTemplate >= 0 ? targetTemplate : fallbackTemplate;
     const refs = refsByTarget.get(item.url) || [];
-    const effectiveRefs = refs.length > 0 ? refs : [[-1, UNKNOWN_TEMPLATE_INDEX]];
+    const referrerRecords = refs.map(([sourceIndex, referrerTemplate]) => {
+      const declaredFamily = templateTable[referrerTemplate]?.id || UNKNOWN_FAMILY.id;
+      const sourceFamily = classifyBingTemplate(sitemapManifest?.urls?.[sourceIndex]).id;
+      return {
+        sourceIndex,
+        referrerTemplate,
+        family: sourceFamily === declaredFamily ? declaredFamily : UNKNOWN_FAMILY.id,
+      };
+    });
+    const reconciled = targetTemplate >= 0 && isReconciledFrontierFinding({
+      code: item.code,
+      targetFamily: targetClassification.id,
+      referrerFamilies: referrerRecords.map(({ family }) => family),
+    });
+    item.frontierAttribution = {
+      ownerFamily: targetClassification.id,
+      ownerTemplate,
+      referrers: referrerRecords.map(({ sourceIndex, referrerTemplate, family }) => ({
+        sourceIndex,
+        template: referrerTemplate,
+        family,
+      })),
+      status: reconciled ? 'reconciled' : 'actionable',
+    };
+    const effectiveRefs = referrerRecords.length > 0
+      ? referrerRecords
+      : [{ sourceIndex: -1, referrerTemplate: fallbackTemplate, family: UNKNOWN_FAMILY.id }];
     if (refs.length > 0) findingsWithReferrer += 1;
 
-    for (const [sourceIndex, referrerTemplate] of effectiveRefs) {
-      const key = `${referrerTemplate}\u0000${targetTemplate}\u0000${item.code}`;
+    for (const { sourceIndex, referrerTemplate, family: referrerFamily } of effectiveRefs) {
+      const key = `${referrerTemplate}\u0000${ownerTemplate}\u0000${item.code}`;
       const current = rows.get(key) || {
         referrerTemplate,
-        targetTemplate,
+        targetTemplate: ownerTemplate,
+        referrerFamily,
+        targetFamily: targetClassification.id,
         code: item.code,
         findingCount: 0,
+        actionableCount: 0,
+        reconciledCount: 0,
         samples: [],
         sampleKeys: new Set(),
         findingKeys: new Set(),
@@ -533,6 +595,8 @@ export function buildFrontierAttribution(findings, {
       if (!current.findingKeys.has(item.url)) {
         current.findingKeys.add(item.url);
         current.findingCount += 1;
+        if (reconciled) current.reconciledCount += 1;
+        else current.actionableCount += 1;
       }
       const sourceUrl = sitemapManifest?.urls?.[sourceIndex] || '';
       if (sourceUrl && current.samples.length < limit) {

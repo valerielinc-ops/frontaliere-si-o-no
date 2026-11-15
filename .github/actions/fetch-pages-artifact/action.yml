@@ -162,9 +162,11 @@ runs:
               ' "$PINNED_RUN_JSON" >/dev/null 2>&1; then
             jq -r '[(.id|tostring), .created_at, .head_sha] | @tsv' "$PINNED_RUN_JSON" > "$CANDS"
             echo "Operator-pinned source deploy run: $(cat "$CANDS")"
+          # The REST `name` field is the run-name, not the workflow name. The
+          # publisher uses a dynamic run-name, so its workflow identity is the
+          # workflow path plus the canonical source-build title below.
           elif jq -e --arg pinned "$PINNED" '
                 ((.id // "") | tostring) == $pinned
-                and .name == "Publish to GitHub Pages (deploy + validate)"
                 and .path == ".github/workflows/deploy-publish.yml"
                 and .head_branch == "main"
                 and .event == "workflow_dispatch"

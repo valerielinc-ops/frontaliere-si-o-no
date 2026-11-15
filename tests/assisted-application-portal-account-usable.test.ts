@@ -286,7 +286,7 @@ describe('a profile or registration confirmation of the order’s account', () =
     expect(sendCascade).not.toHaveBeenCalled();
   });
 
-  it('forwards a reset mail for a sibling tenant or when no recovery is active', async () => {
+  it('keeps a reset mail in the concierge for a sibling tenant or when no recovery is active', async () => {
     const wrongTenantLink = 'https://another.successfactors.eu/password-reset?token=synthetic-wrong-tenant';
     const wrongTenantMail = mail('Careers <noreply@successfactors.com>', 'successfactors.com', 'Reset your password',
       `You requested a password reset. Use this link:\n${wrongTenantLink}`);
@@ -297,18 +297,18 @@ describe('a profile or registration confirmation of the order’s account', () =
       },
     });
     expect(wrongTenant.inbox.passwordResetHost).toBeUndefined();
-    expect(wrongTenant.inbox.forwardDelivery.status).toBe('sent');
-    expect(wrongTenant.sendCascade).toHaveBeenCalledTimes(1);
+    expect(wrongTenant.inbox.forwardDelivery).toMatchObject({ status: 'skipped', reason: 'account_verification' });
+    expect(wrongTenant.sendCascade).not.toHaveBeenCalled();
 
     const link = `https://${SBB}/password-reset?token=synthetic-no-recovery`;
     const noRecovery = await deliver(SBB, mail('Careers <noreply@successfactors.com>', 'successfactors.com', 'Reset your password',
       `You requested a password reset. Use this link:\n${link}`), { ...verification, verificationUrl: link }, { accountEntry: null });
     expect(noRecovery.inbox.passwordResetHost).toBeUndefined();
-    expect(noRecovery.inbox.forwardDelivery.status).toBe('sent');
-    expect(noRecovery.sendCascade).toHaveBeenCalledTimes(1);
+    expect(noRecovery.inbox.forwardDelivery).toMatchObject({ status: 'skipped', reason: 'account_verification' });
+    expect(noRecovery.sendCascade).not.toHaveBeenCalled();
   });
 
-  it('claims an activation mail only after recovery begins; earlier mail remains candidate-visible', async () => {
+  it('claims an activation mail only after recovery begins; earlier mail stays in the concierge', async () => {
     const link = `https://${SBB}/activate?token=synthetic-activation`;
     const raw = mail('Careers <noreply@successfactors.com>', 'successfactors.com', 'Verify your account',
       `Please verify your account. Click here to verify your account:\n${link}`);
@@ -332,8 +332,8 @@ describe('a profile or registration confirmation of the order’s account', () =
     expect(earlier.inbox.portalVerificationHost).toBe('');
     expect(earlier.inbox.sourceVerificationLinkHost).toBe(SBB);
     expect(earlier.inbox.sourceVerificationLinkEnc).toBeTruthy();
-    expect(earlier.inbox.forwardDelivery.status).toBe('sent');
-    expect(earlier.sendCascade).toHaveBeenCalledTimes(1);
+    expect(earlier.inbox.forwardDelivery).toMatchObject({ status: 'skipped', reason: 'account_verification' });
+    expect(earlier.sendCascade).not.toHaveBeenCalled();
   });
 
   it('does not claim a stale verification code for a newer recovery request', async () => {
@@ -348,8 +348,8 @@ describe('a profile or registration confirmation of the order’s account', () =
 
     const stale = await deliver(SBB, raw, answer, { accountEntry, receivedAt: 1999, processedAt: 1999 });
     expect(stale.inbox.portalVerificationHost).toBe('');
-    expect(stale.inbox.forwardDelivery.status).toBe('sent');
-    expect(stale.sendCascade).toHaveBeenCalledTimes(1);
+    expect(stale.inbox.forwardDelivery).toMatchObject({ status: 'skipped', reason: 'account_verification' });
+    expect(stale.sendCascade).not.toHaveBeenCalled();
 
     const current = await deliver(SBB, raw, answer, { accountEntry, receivedAt: 2001, processedAt: 2001 });
     expect(current.inbox.portalVerificationHost).toBe(SBB);

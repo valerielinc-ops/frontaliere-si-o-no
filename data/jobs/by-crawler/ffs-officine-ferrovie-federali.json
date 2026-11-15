@@ -112,9 +112,9 @@
     },
     {
       "id": "sbb-351ab04cc079",
-      "slug": "business-analyist-in-facility-management-ffs-officine-ferrovie-federali-bern",
+      "slug": "analista-aziendale-facility-management-ffs-officine-ferrovie-federali-bern",
       "slugByLocale": {
-        "it": "business-analyist-in-facility-management-ffs-officine-ferrovie-federali-bern",
+        "it": "analista-aziendale-facility-management-ffs-officine-ferrovie-federali-bern",
         "en": "business-analyist-in-facility-management-ffs-officine-ferrovie-federali-bern",
         "de": "business-analyist-in-facility-management-ffs-officine-ferrovie-federali-bern",
         "fr": "analyste-d-affaires-en-gestion-des-installations-ffs-officine-ferrovie-federali-bern"
@@ -125,7 +125,7 @@
       "title": "Business Analyist:in Facility Management",
       "titleByLocale": {
         "de": "Business Analyist:in Facility Management",
-        "it": "Business Analyist:in Facility Management",
+        "it": "Analista aziendale Facility Management",
         "en": "Business Analyst Facility Management",
         "fr": "Analyste d'affaires :en gestion des installations"
       },
@@ -193,7 +193,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/business-analyist-in-facility-management/b6a7b944-6887-4ee3-aa92-d5d0b75e1be2",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-10T21:28:07.199Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -215,13 +214,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:28:07.199Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:28:07.199Z"
+      "firstSeenAt": "2026-11-10T21:28:07.199Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyist-in-facility-management-ffs-officine-ferrovie-federali-bern"
+        ]
+      },
+      "previousSlugs": [
+        "business-analyist-in-facility-management-ffs-officine-ferrovie-federali-bern"
+      ]
     },
     {
       "id": "sbb-318efd3fd54b",
-      "slug": "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-rothenburg-oder-rotkreuz",
+      "slug": "caposquadra-costruzione-di-binari-ffs-officine-ferrovie-federali-rothenburg-oder-rotkreuz",
       "slugByLocale": {
-        "it": "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-rothenburg-oder-rotkreuz",
+        "it": "caposquadra-costruzione-di-binari-ffs-officine-ferrovie-federali-rothenburg-oder-rotkreuz",
         "en": "foreman-track-construction-ffs-officine-ferrovie-federali-rothenburg-oder-rotkreuz",
         "de": "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-rothenburg-oder-rotkreuz",
         "fr": "contremaitre-dans-la-construction-de-voies-ferrees-ffs-officine-ferrovie-federali-rothenburg-oder-rotkreuz"
@@ -232,7 +239,7 @@
       "title": "Vorarbeiter:in Gleisbau",
       "titleByLocale": {
         "de": "Vorarbeiter:in Gleisbau",
-        "it": "Vorarbeiter:in Gleisbau",
+        "it": "Caposquadra costruzione di binari",
         "en": "Foreman Track Construction",
         "fr": "Contremaître :dans la construction de voies ferrées"
       },
@@ -295,7 +302,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/vorarbeiter-in-gleisbau/dcd5ea92-d77d-45f0-aae1-dda305f7b5ca",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-10T21:29:24.706Z",
-      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
@@ -317,7 +323,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:29:24.706Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-10T21:29:24.706Z"
+      "firstSeenAt": "2026-11-10T21:29:24.706Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-rothenburg-oder-rotkreuz"
+        ]
+      },
+      "previousSlugs": [
+        "vorarbeiter-in-gleisbau-ffs-officine-ferrovie-federali-rothenburg-oder-rotkreuz"
+      ]
     },
     {
       "id": "sbb-da78f058b2c0",
@@ -397,7 +411,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/hr-berater-in/67a17956-fdb1-4401-b478-72a032983929",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-10T21:28:28.696Z",
-      "needsRetranslation": true,
       "salaryMin": 65700,
       "salaryMax": 112100,
       "salarySource": "estimated",
@@ -651,8 +664,7 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T21:28:34.714Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sbb-16e3b4b1bd11",
@@ -2856,8 +2868,8 @@
       "slug": "creatore-di-decisione-del-ciclo-di-vita-ib-ffs-officine-ferrovie-federali-bellinzona",
       "slugByLocale": {
         "it": "creatore-di-decisione-del-ciclo-di-vita-ib-ffs-officine-ferrovie-federali-bellinzona",
-        "en": "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona",
-        "de": "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona",
+        "en": "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona-lqr57y",
+        "de": "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona-lqr57y",
         "fr": "decideur-du-cycle-de-vie-ib-ffs-officine-ferrovie-federali-bellinzona-00cef5"
       },
       "company": "FFS Officine (Ferrovie Federali)",
@@ -2936,6 +2948,12 @@
           "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona-6d0f93e07e"
         ],
         "fr": [
+          "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona"
+        ],
+        "en": [
+          "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona"
+        ],
+        "de": [
           "life-cycle-decision-maker-ib-ffs-officine-ferrovie-federali-bellinzona"
         ]
       },
@@ -3232,9 +3250,9 @@
     },
     {
       "id": "sbb-78ee69ffe579",
-      "slug": "teamleiter-in-strategisches-anlagenmanagement-per-zugang-zur-mobilitat-ffs-officine-ferrovie-federali-bern",
+      "slug": "responsabile-del-team-per-la-gestione-strategica-degli-impianti-per-l-accesso-alla-mobilita-ffs-officine-ferrovie",
       "slugByLocale": {
-        "it": "teamleiter-in-strategisches-anlagenmanagement-per-zugang-zur-mobilitat-ffs-officine-ferrovie-federali-bern",
+        "it": "responsabile-del-team-per-la-gestione-strategica-degli-impianti-per-l-accesso-alla-mobilita-ffs-officine-ferrovie",
         "en": "access-to-mobility-strategic-facility-management-team-leader-ffs-officine-ferrovie-federali-bern",
         "de": "teamleiter-in-strategisches-anlagenmanagement-fur-zugang-zur-mobilitat-ffs-officine-ferrovie-federali-bern",
         "fr": "chef-d-equipe-en-gestion-strategique-des-actifs-pour-l-acces-a-la-mobilite-ffs-officine-ferrovie-federali-bern"
@@ -3244,7 +3262,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Teamleiter:in Strategisches Anlagenmanagement für Zugang zur Mobilität",
       "titleByLocale": {
-        "it": "Teamleiter:in Strategisches Anlagenmanagement per Zugang zur Mobilität",
+        "it": "Responsabile del team per la gestione strategica degli impianti per l'accesso alla mobilità",
         "en": "Access to Mobility Strategic Facility Management Team Leader",
         "de": "Teamleiter:in Strategisches Anlagenmanagement für Zugang zur Mobilität",
         "fr": "Chef d'équipe en gestion stratégique des actifs pour l'accès à la mobilité"
@@ -3281,11 +3299,13 @@
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-10T21:29:16.195Z",
       "previousSlugs": [
-        "teamleiter-in-strategisches-anlagenmanagement-fur-zugang-zur-mobilitat-ffs-officine-ferrovie-federali-bern"
+        "teamleiter-in-strategisches-anlagenmanagement-fur-zugang-zur-mobilitat-ffs-officine-ferrovie-federali-bern",
+        "teamleiter-in-strategisches-anlagenmanagement-per-zugang-zur-mobilitat-ffs-officine-ferrovie-federali-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-strategisches-anlagenmanagement-fur-zugang-zur-mobilitat-ffs-officine-ferrovie-federali-bern"
+          "teamleiter-in-strategisches-anlagenmanagement-fur-zugang-zur-mobilitat-ffs-officine-ferrovie-federali-bern",
+          "teamleiter-in-strategisches-anlagenmanagement-per-zugang-zur-mobilitat-ffs-officine-ferrovie-federali-bern"
         ],
         "en": [
           "teamleiter-in-strategisches-anlagenmanagement-fur-zugang-zur-mobilitat-ffs-officine-ferrovie-federali-bern"
@@ -3315,8 +3335,7 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:29:16.195Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sbb-4fb4ec0a92d0",
@@ -3692,9 +3711,9 @@
     },
     {
       "id": "sbb-26ff7f8b294c",
-      "slug": "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten",
+      "slug": "responsabile-del-team-acquisti-edili-ffs-officine-ferrovie-federali-olten",
       "slugByLocale": {
-        "it": "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten",
+        "it": "responsabile-del-team-acquisti-edili-ffs-officine-ferrovie-federali-olten",
         "en": "construction-purchasing-team-leader-ffs-officine-ferrovie-federali-olten",
         "de": "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten",
         "fr": "chef-d-equipe-dans-les-achats-de-construction-ffs-officine-ferrovie-federali-olten"
@@ -3704,7 +3723,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Teamleiter:in Baueinkauf",
       "titleByLocale": {
-        "it": "Teamleiter:in Baueinkauf",
+        "it": "Responsabile del team acquisti edili",
         "en": "Construction Purchasing Team Leader",
         "de": "Teamleiter:in Baueinkauf",
         "fr": "Chef d'équipe dans les achats de construction"
@@ -3753,7 +3772,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-baueinkauf/7c474209-8d3e-4525-ac53-039c1d849123",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-10T21:29:14.691Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T21:44:41.055Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -3775,7 +3793,15 @@
       "streetAddress": "Olten",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:29:14.691Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-baueinkauf-ffs-officine-ferrovie-federali-olten"
+      ]
     },
     {
       "id": "sbb-ef149023e3e7",
@@ -4988,9 +5014,9 @@
     },
     {
       "id": "sbb-da735b6c07dd",
-      "slug": "technische-r-kontrolleur-in-cargo-ffs-officine-ferrovie-federali-landquart",
+      "slug": "controllore-trice-tecnico-a-cargo-ffs-officine-ferrovie-federali-landquart",
       "slugByLocale": {
-        "it": "technische-r-kontrolleur-in-cargo-ffs-officine-ferrovie-federali-landquart",
+        "it": "controllore-trice-tecnico-a-cargo-ffs-officine-ferrovie-federali-landquart",
         "en": "technical-inspector-cargo-ffs-officine-ferrovie-federali-landquart",
         "de": "technische-r-kontrolleur-in-cargo-ffs-officine-ferrovie-federali-landquart",
         "fr": "controleur-technique-in-cargo-ffs-officine-ferrovie-federali-landquart"
@@ -5000,7 +5026,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Technische:r Kontrolleur:in Cargo",
       "titleByLocale": {
-        "it": "Technische:r Kontrolleur:in Cargo",
+        "it": "Controllore/trice tecnico/a Cargo",
         "en": "Technical Inspector Cargo",
         "de": "Technische:r Kontrolleur:in Cargo",
         "fr": "Contrôleur technique :in Cargo"
@@ -5053,7 +5079,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/technische-r-kontrolleur-in-cargo/efeee2e2-9f93-4424-adf7-d112b8705635",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-10T21:29:21.210Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T21:44:47.049Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -5075,7 +5100,15 @@
       "streetAddress": "Landquart",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:29:21.210Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "technische-r-kontrolleur-in-cargo-ffs-officine-ferrovie-federali-landquart"
+        ]
+      },
+      "previousSlugs": [
+        "technische-r-kontrolleur-in-cargo-ffs-officine-ferrovie-federali-landquart"
+      ]
     },
     {
       "id": "sbb-8cf50d6a8420",
@@ -5488,9 +5521,9 @@
     },
     {
       "id": "sbb-f294257a6f6a",
-      "slug": "ultraschallprufer-in-ffs-officine-ferrovie-federali-zurich-luzern",
+      "slug": "tecnico-a-per-i-controlli-a-ultrasuoni-ffs-officine-ferrovie-federali-zurich-luzern",
       "slugByLocale": {
-        "it": "ultraschallprufer-in-ffs-officine-ferrovie-federali-zurich-luzern",
+        "it": "tecnico-a-per-i-controlli-a-ultrasuoni-ffs-officine-ferrovie-federali-zurich-luzern",
         "en": "ultrasonic-examiner-ffs-officine-ferrovie-federali-zurich-luzern",
         "de": "ultraschallprufer-in-ffs-officine-ferrovie-federali-zurich-luzern",
         "fr": "controleura-ultrasons-ffs-officine-ferrovie-federali-zurich-luzern"
@@ -5500,7 +5533,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Ultraschallprüfer:in",
       "titleByLocale": {
-        "it": "Ultraschallprüfer:in",
+        "it": "Tecnico/a per i controlli a ultrasuoni",
         "en": "Ultrasonic examiner",
         "de": "Ultraschallprüfer:in",
         "fr": "Contrôleurà ultrasons"
@@ -5552,7 +5585,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/ultraschallpruefer-in/c5a9066b-4f8f-489c-9934-5c678e120780",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-10T09:40:22.125Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-07T21:29:15.387Z",
       "salaryMin": 74500,
       "salaryMax": 127000,
@@ -5575,7 +5607,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:40:22.125Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "ultraschallprufer-in-ffs-officine-ferrovie-federali-zurich-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "ultraschallprufer-in-ffs-officine-ferrovie-federali-zurich-luzern"
+      ]
     },
     {
       "id": "sbb-42eee1464076",
@@ -5976,7 +6016,7 @@
       "title": "System Engineer Operations",
       "titleByLocale": {
         "it": "System Ingegnere Operations",
-        "en": "System Engineer Operations",
+        "en": "Operations System Engineer",
         "de": "System Engineer Operations",
         "fr": "System Ingénieur Operations"
       },
@@ -6010,7 +6050,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/system-engineer-operations/62bc3928-db1f-430c-b37e-008b0d011221",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-10T21:29:13.697Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T21:44:40.090Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -6036,9 +6075,9 @@
     },
     {
       "id": "sbb-903adc116cc7",
-      "slug": "teamleiter-in-baustellensicherheit-ffs-officine-ferrovie-federali-ostermundigen",
+      "slug": "responsabile-del-team-per-la-sicurezza-nei-cantieri-ffs-officine-ferrovie-federali-ostermundigen",
       "slugByLocale": {
-        "it": "teamleiter-in-baustellensicherheit-ffs-officine-ferrovie-federali-ostermundigen",
+        "it": "responsabile-del-team-per-la-sicurezza-nei-cantieri-ffs-officine-ferrovie-federali-ostermundigen",
         "en": "site-safety-team-leader-ffs-officine-ferrovie-federali-ostermundigen",
         "de": "teamleiter-in-baustellensicherheit-ffs-officine-ferrovie-federali-ostermundigen",
         "fr": "chef-d-equipe-en-securite-des-chantiers-ffs-officine-ferrovie-federali-ostermundigen"
@@ -6048,7 +6087,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Teamleiter:in Baustellensicherheit",
       "titleByLocale": {
-        "it": "Teamleiter:in Baustellensicherheit",
+        "it": "Responsabile del team per la sicurezza nei cantieri",
         "en": "Site Safety Team Leader",
         "de": "Teamleiter:in Baustellensicherheit",
         "fr": "Chef d'équipe en sécurité des chantiers"
@@ -6105,7 +6144,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-baustellensicherheit/f651525d-5d0d-4f94-b315-29632224b6af",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-10T21:29:15.189Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-01T09:30:29.332Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -6127,7 +6165,15 @@
       "streetAddress": "Ostermundigen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:29:15.189Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-baustellensicherheit-ffs-officine-ferrovie-federali-ostermundigen"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-baustellensicherheit-ffs-officine-ferrovie-federali-ostermundigen"
+      ]
     },
     {
       "id": "sbb-3b88e82523f2",
@@ -6143,7 +6189,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Spezialist:in Controlling – Schwerpunkt Personalcontrolling (80-100%)",
       "titleByLocale": {
-        "it": "Spezialist:in Controlling – Schwerpunkt Personalcontrolling (80-100%)",
+        "it": "Specialista in controlling – focus sul controllo di gestione del personale (80-100%)",
         "en": "Specialist in Controlling – Focus on Personnel Controlling (80-100%)",
         "de": "Spezialist:in Controlling – Schwerpunkt Personalcontrolling (80-100%)",
         "fr": "Spécialiste en contrôle de gestion – spécialisation en contrôle du personnel (80-100%)"
@@ -6227,7 +6273,6 @@
           "spezialist-in-controlling-schwerpunkt-personalcontrolling-80-100-ffs-officine-ferrovie-federali-olten"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T21:44:38.028Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -8458,7 +8503,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Quereinstieg Zugverkehrsleiter:in",
       "titleByLocale": {
-        "it": "Cambio carriera Zugverkehrsleiter:in",
+        "it": "Cambio di carriera come responsabile del traffico ferroviario",
         "en": "Cross-entry train traffic manager",
         "de": "Quereinstieg Zugverkehrsleiter:in",
         "fr": "Accès transversal Responsable de la circulation des trains"
@@ -8544,8 +8589,7 @@
       "streetAddress": "Muttenz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T21:29:09.291Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sbb-3b00c4c42be3",
@@ -14715,7 +14759,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Techniker:in Sicherungsanlagen Aussen, Produktionsmechaniker:in, Polymechaniker:in, Schlosser:in",
       "titleByLocale": {
-        "it": "Techniker:in Sicherungsanlagen Aussen, Produktionsmechaniker:in, Polymechaniker:in, Schlosser:in",
+        "it": "Tecnico/a impianti di sicurezza esterni, meccanico/a di produzione, polimeccanico/a, fabbro/a",
         "en": "Outside Fuse Systems Technician, Production Mechanic, Polymechanic, Locksmith",
         "de": "Techniker:in Sicherungsanlagen Aussen, Produktionsmechaniker:in, Polymechaniker:in, Schlosser:in",
         "fr": "Technicien (ne)en installations de sécurité à l'extérieur, mécanicien (ne) de production, polymécanicien (ne), serrurier (ne)"
@@ -14766,7 +14810,6 @@
       "previousSlugs": [
         "techniker-in-sicherungsanlagen-aussen-produktionsmechaniker-in-polymechaniker-in-schlosser-in-ffs-officine-ferrovie-federali-zurich"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T21:44:46.068Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -17065,7 +17108,7 @@
       "companyDomain": "jobs.sbb.ch",
       "title": "Techniker:in Klimaanlagen der SBB-Flotte",
       "titleByLocale": {
-        "it": "Techniker:in Klimaanlagen der SBB-Flotte",
+        "it": "Tecnico/a degli impianti di climatizzazione della flotta SBB",
         "en": "SBB Fleet Air Conditioning Technician",
         "de": "Techniker:in Klimaanlagen der SBB-Flotte",
         "fr": "Technicien :dans les systèmes de climatisation de la flotte CFF"
@@ -17113,7 +17156,6 @@
           "techniker-in-klimaanlagen-der-sbb-flotte-ffs-officine-ferrovie-federali-olten"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T21:44:45.554Z",
       "salaryMin": 73000,
       "salaryMax": 124500,

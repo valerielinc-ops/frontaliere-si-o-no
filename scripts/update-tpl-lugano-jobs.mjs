@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -443,7 +444,7 @@ function logStats(beforeSnapshot = new Map()) {
     console.log('ℹ️ jobs.json not found — no stats available.');
     return { total: 0 };
   }
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const allJobs = Array.isArray(raw) ? raw : [];
   const jobs = allJobs.filter(isTplJob);
 
@@ -533,7 +534,7 @@ async function main() {
   // block. The shared engine remains responsible for identity and slug history.
   if (fs.existsSync(DATA_JOBS)) {
     try {
-      const rawJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+      const rawJobs = readJsonFile(DATA_JOBS);
       const authoritative = applyTplAuthoritativeDetails(rawJobs, sourceSnapshot.jobs);
       const allJobs = authoritative.jobs;
       let patched = 0;
@@ -580,7 +581,7 @@ async function main() {
   validateLocaleCoverage();
 
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTplJob) : [];
   if (_sliceJobs.length !== sourceSnapshot.jobs.length) {
     throw new Error(`TPL source/slice parity failed: source=${sourceSnapshot.jobs.length}, slice=${_sliceJobs.length}.`);

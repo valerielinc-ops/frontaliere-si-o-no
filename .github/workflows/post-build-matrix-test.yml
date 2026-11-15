@@ -34,6 +34,22 @@ on:
         required: false
         type: boolean
         default: false
+      build_locale:
+        description: 'Locale leg for a build-only comparison; monolithic builds all locales.'
+        required: false
+        type: choice
+        options:
+          - monolithic
+          - it
+          - en
+          - de
+          - fr
+        default: monolithic
+      build_source_sha:
+        description: 'Full source commit SHA used by the build job for reproducible baseline/HEAD comparisons.'
+        required: false
+        type: string
+        default: ''
       hreflang_source_run_id:
         description: 'Investigation-only: rebuild the IT shard from this deploy run snapshot and measure hreflang staging; no deploy or publish occurs.'
         required: false
@@ -81,6 +97,8 @@ jobs:
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.inputs.build_source_sha || github.sha }}
 
       # Review di #6150: questo job lancia `npm run build:ci` come MONOLITE
       # (nessun BUILD_LOCALE — il profilo di memoria peggiore) col tetto V8 a
@@ -110,6 +128,7 @@ jobs:
 
       - name: Build
         env:
+          BUILD_LOCALE: ${{ github.event.inputs.build_locale != 'monolithic' && github.event.inputs.build_locale || '' }}
           FAST_BUILD: ''
           BUILD_PROFILE: '1'
           SEQUENTIAL_PROFILE: '1'

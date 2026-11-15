@@ -26,6 +26,7 @@ const POST_BUILD_MATRIX_YML = readFileSync(resolve(ROOT, '.github/workflows/post
 const DEPLOY_REQUEST_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy-request.yml'), 'utf-8');
 const DEPLOY_PUBLISH_YML = readFileSync(resolve(ROOT, '.github/workflows/deploy-publish.yml'), 'utf-8');
 const AUDIT_REPORT_YML = readFileSync(resolve(ROOT, '.github/workflows/audit-dist-from-run.yml'), 'utf-8');
+const CATHEDRAL_YML = readFileSync(resolve(ROOT, '.github/workflows/cathedral-seo-gates-check.yml'), 'utf-8');
 const AUDIT_PUBLISHED_YML = readFileSync(resolve(ROOT, '.github/workflows/audit-published-dist.yml'), 'utf-8');
 const AUDIT_FULL_YML = readFileSync(resolve(ROOT, '.github/workflows/audit-published-dist-full.yml'), 'utf-8');
 const CRAWLER_CONTENT_AUDIT_YML = readFileSync(resolve(ROOT, '.github/workflows/crawler-content-plausibility-audit.yml'), 'utf-8');
@@ -132,6 +133,31 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(buildStep.env.JOBS_SEO_PROFILE_PHASES).not.toBe('1');
   });
 
+  it('supports pinned locale-leg memory comparisons without publishing', () => {
+    const inputs = POST_BUILD_MATRIX_WORKFLOW.on.workflow_dispatch.inputs;
+    expect(inputs.build_locale).toMatchObject({
+      type: 'choice',
+      default: 'monolithic',
+      options: ['monolithic', 'it', 'en', 'de', 'fr'],
+    });
+    expect(inputs.build_source_sha).toMatchObject({ type: 'string', default: '' });
+
+    const checkout = POST_BUILD_MATRIX_WORKFLOW.jobs.build.steps.find(
+      (step: any) => step.uses === 'actions/checkout@v7',
+    );
+    expect(checkout.with.ref).toContain('build_source_sha');
+
+    const buildStep = POST_BUILD_MATRIX_WORKFLOW.jobs.build.steps.find(
+      (step: any) => step.name === 'Build',
+    );
+    expect(String(buildStep.env.BUILD_LOCALE)).toContain('build_locale');
+
+    const uploadStep = POST_BUILD_MATRIX_WORKFLOW.jobs.build.steps.find(
+      (step: any) => step.name === 'Upload build output for shards',
+    );
+    expect(uploadStep.if).toContain("build_only != 'true'");
+  });
+
   it('keeps the blocking publisher gate short and limited to provenance evidence', () => {
     const workflow = YAML.parse(VALIDATION_YML) as any;
     const job = workflow.jobs['fast-gate'];
@@ -151,14 +177,29 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(VALIDATION_YML).not.toContain('npm run validate:page-seo');
   });
 
-  it('runs report audits in a separate workflow_run with no publisher dependency edge', () => {
+  it('dispatches report audits with immutable publisher inputs and no publisher dependency edge', () => {
     const published = YAML.parse(AUDIT_PUBLISHED_YML) as any;
     const publisher = YAML.parse(DEPLOY_PUBLISH_YML) as any;
     const publishNeeds = publisher.jobs.publish.needs as string[];
-    expect(published.on.workflow_run.workflows).toContain('Publish to GitHub Pages (deploy + validate)');
+    expect(published.on.workflow_dispatch.inputs).toMatchObject({
+      deploy_run_id: { type: 'string' },
+      shard_artifact_run_id: { type: 'string' },
+      deploy_ref: { type: 'string' },
+      audit_sample_salt: { type: 'string' },
+    });
+    expect(published.on.workflow_run).toBeUndefined();
     expect(published.jobs.report.uses).toBe('./.github/workflows/audit-dist-from-run.yml');
     expect(String(published.jobs.report.with.audits)).toContain('validate:page-seo');
     expect(String(published.jobs.report.with.audits)).toContain('validate:og-images');
+    const runtimeWatchdog = publisher.jobs['runtime-watchdog'];
+    expect(runtimeWatchdog.needs).toContain('publish');
+    const dispatchStep = runtimeWatchdog.steps.find(
+      (step: any) => step.name === 'Dispatch published dist audit',
+    );
+    expect(dispatchStep.if).toContain("needs.publish.result == 'success'");
+    expect(dispatchStep.run).toContain('audit-published-dist.yml');
+    expect(dispatchStep.run).toContain('-f deploy_run_id="$PUBLISHER_SOURCE_RUN_ID"');
+    expect(dispatchStep.run).toContain('-f shard_artifact_run_id="$PUBLISHER_RUN_ID"');
     expect(publisher.jobs['audit-dist-report']).toBeUndefined();
     expect(publishNeeds).not.toContain('audit-dist-report');
     expect(publishNeeds).toContain('validate-dist');
@@ -170,10 +211,13 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(workflow.on.workflow_call.inputs.full_scan.type).toBe('boolean');
     expect(workflow.on.workflow_call.inputs.it_shard_artifact_run_id).toBeTruthy();
     const steps = workflow.jobs.audit.steps;
-    const indexValidatorCheckout = steps.find((step: any) => step.name === 'Checkout current publisher index validator');
+    const indexValidatorCheckout = steps.find((step: any) => step.name === 'Checkout current publisher index validator and artifact resolver');
     expect(indexValidatorCheckout.uses).toBe('actions/checkout@v7');
     expect(indexValidatorCheckout.with.ref).toBe('refs/heads/main');
     expect(indexValidatorCheckout.with['sparse-checkout']).toContain('/scripts/ci/page-audit-index.mjs');
+    expect(indexValidatorCheckout.with['sparse-checkout']).toContain('/.github/actions/fetch-pages-artifact/');
+    const fetchPages = steps.find((step: any) => step.name === 'Fetch the deployed dist (github-pages artifact)');
+    expect(fetchPages.uses).toBe('./current-index-validator/.github/actions/fetch-pages-artifact');
     expect(steps.some((step: any) => step.name === 'Download source page manifests')).toBe(true);
     for (const locale of ['it', 'en', 'de', 'fr']) {
       const upperLocale = locale.toUpperCase();
@@ -203,6 +247,33 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(auditStep.env.AUDIT_FORCE_FULL).toContain('inputs.full_scan');
     expect(auditStep.env.PUBLISHER_PAGE_MANIFEST_DIR).toContain('publisher-audit-manifests/pages');
     expect(auditStep.env.PUBLISHER_AUDIT_RECEIPT_DIR).toContain('publisher-audit-receipts');
+  });
+
+  it('loads the artifact resolver from main when the replay code is historical', () => {
+    const cases = [
+      {
+        source: AUDIT_REPORT_YML,
+        resolverPath: './current-index-validator/.github/actions/fetch-pages-artifact',
+        checkoutPath: 'current-index-validator',
+      },
+      {
+        source: CATHEDRAL_YML,
+        resolverPath: './current-artifact-resolver/.github/actions/fetch-pages-artifact',
+        checkoutPath: 'current-artifact-resolver',
+      },
+    ];
+
+    for (const { source, resolverPath, checkoutPath } of cases) {
+      const workflow = YAML.parse(source) as any;
+      const job = Object.values(workflow.jobs ?? {}).find((candidate: any) => (
+        (candidate.steps ?? []).some((step: any) => step.uses === resolverPath)
+      )) as any;
+      const resolverCheckout = job.steps.find((step: any) => step.with?.path === checkoutPath);
+      expect(resolverCheckout?.uses).toBe('actions/checkout@v7');
+      expect(resolverCheckout?.with?.ref).toBe('refs/heads/main');
+      expect(resolverCheckout?.with?.['sparse-checkout']).toContain('/.github/actions/fetch-pages-artifact/');
+      expect(job.steps.find((step: any) => step.uses === resolverPath)).toBeTruthy();
+    }
   });
 
   it('uses bounded parallelism only after source-only images are pruned', () => {
@@ -839,6 +910,46 @@ describe('deploy.yml — expired archive memory delta observation (#17888)', () 
     expect(observer!.run).toContain('wall_seconds');
     expect(observer!.run).toContain('20.002 MB');
     expect(observer!.run).toContain('revert: dynamic memory threshold breached');
+  });
+});
+
+describe('deploy.yml — Rollup cap build memory budget observation (#18517)', () => {
+  const workflow = YAML.parse(DEPLOY_YML) as any;
+  const steps: Array<Record<string, any>> = workflow.jobs['build-locale'].steps;
+
+  it('wires a read-only, always-running report directly after memguard', () => {
+    const memguardIndex = steps.findIndex((step) => step.id === 'memguard');
+    const observer = steps.find((step) => step.id === 'build_memory_budget');
+    expect(observer, 'deploy.yml: manca l osservatore del budget memoria Rollup').toBeDefined();
+    expect(observer!.name).toBe('Observe build memory budget after Rollup cap');
+    expect(observer!.if).toBe('always()');
+    expect(observer!['continue-on-error']).toBe(true);
+    expect(steps.indexOf(observer!)).toBe(memguardIndex + 1);
+    expect(observer!.env).toMatchObject({
+      BUILD_MEMORY_BUDGET_BASELINE_PEAK_RSS_MB: '13200',
+      BUILD_MEMORY_BUDGET_MAX_WALL_SECONDS: '21000',
+      BUILD_MEMORY_BUDGET_REPORT_PATH: '/tmp/build-memory-peak.json',
+      BUILD_MEMORY_BUDGET_BREACH: '${{ steps.memguard.outputs.breach }}',
+      BUILD_MEMORY_BUDGET_PEAK_RSS_MB: '${{ steps.memguard.outputs.peak_rss_mb }}',
+      BUILD_MEMORY_BUDGET_PEAK_ANON_MB: '${{ steps.memguard.outputs.peak_anon_mb }}',
+      BUILD_MEMORY_BUDGET_WALL_SECONDS: '${{ steps.build_step.outputs.wall_seconds }}',
+    });
+    expect(observer!.run).toContain('buildMemoryBudgetObserved()');
+    expect(observer!.run).toContain('peak_rss_mb');
+    expect(observer!.run).toContain('peak_anon_mb');
+    expect(observer!.run).toContain('wall_seconds');
+    expect(observer!.run).toContain('report availability');
+    expect(observer!.run).toContain('not-comparable');
+    expect(observer!.run).toContain('350 minutes');
+    expect(observer!.run).toContain('revert: wall_seconds exceeded 350-minute budget');
+  });
+
+  it('keeps the existing build and memory gate wiring intact', () => {
+    const build = steps.find((step) => step.id === 'build_step');
+    const memguard = steps.find((step) => step.id === 'memguard');
+    expect(build!.run).toContain('wall_seconds=$SECONDS');
+    expect(memguard!.if).toBe('always()');
+    expect(memguard!.run).toContain('/tmp/build-memory-peak.json');
   });
 });
 

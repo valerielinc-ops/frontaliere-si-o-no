@@ -1,0 +1,26 @@
+{
+  "companyKey": "topmenage-ch",
+  "companyName": "Top Menage Schmid Reinigungen,",
+  "companyHost": "topservicesgroup.ch",
+  "verifiedEmployerDomain": "topmenage.ch",
+  "platform": "topservicesgroup.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://topservicesgroup.ch/jobs/"
+  ],
+  "detailTemplate": "/stellen/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "zum Inserat",
+    "zum Inserat",
+    "zum Inserat",
+    "zum Inserat"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-13T13:54:34.714Z",
+  "candidateKey": "top-menage-schmid-reinigungen@frenkendorf"
+}

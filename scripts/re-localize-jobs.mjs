@@ -14,6 +14,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { callLLM, flushScores, flushScoresBeforeExit } from './lib/ai-models.mjs';
 import { detectLanguage, detectLanguageWithConfidence } from './lib/detect-language.mjs';
 import { isSourcePassthrough } from './lib/free-translate.mjs';
@@ -53,7 +54,7 @@ const MIN_SOURCE_LEN = 300;
 // Optional filter: only re-localize jobs matching this company substring
 const COMPANY_FILTER = (process.env.RELOCALIZE_COMPANY || '').toLowerCase().trim();
 
-function readJson(p) { return JSON.parse(fs.readFileSync(p, 'utf8')); }
+function readJson(p) { return readJsonFile(p); }
 
 function normalizeSpace(s) { return String(s || '').replace(/\s+/g, ' ').trim(); }
 

@@ -246,6 +246,7 @@ import { salaryProvenanceSuffix } from '@/build-plugins/shared/salaryEstimateSuf
 import { callNativeHistory } from '@/services/nativeHistoryCall';
 import { useNavigation } from '@/services/NavigationContext';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
+import { resolveHouseAdImageSector, sanitizeHouseAdContextLabel, type HouseAdCreativeContext } from '@/services/houseAdContext';
 import Callout from '@/components/shared/Callout';
 import { SkeletonJobDetail, SkeletonJobBoard, SkeletonLine } from '@/components/shared/Skeletons';
 import { useExpiredJob, hasSeededExpiredData, seededJobMatchesSlug } from '@/hooks/useExpiredJob';
@@ -2496,10 +2497,16 @@ JobCard.displayName = 'JobCard';
  * after a rail reports empty: collapsing a desktop track after the first paint
  * reallocates its width to `min-w-0`, rewraps job cards, and records CLS.
  */
-const JobBoardRailShell: React.FC<{ isDesktopLg: boolean; children: React.ReactNode }> = ({ isDesktopLg, children }) => {
+const JobBoardRailShell: React.FC<{ isDesktopLg: boolean; children: React.ReactNode; adContext?: HouseAdCreativeContext | null }> = ({ isDesktopLg, children, adContext }) => {
  const { onLeftEmptyResolved, onRightEmptyResolved, style: railStyle } = useRailGridCollapse({ collapseOnEmpty: false });
  return (
- <div className="space-y-6">
+ <div
+ className="space-y-6"
+ data-ft-house-context={adContext?.source}
+ data-ft-house-sector={adContext?.sector}
+ data-ft-house-role={adContext?.role}
+ data-ft-house-place={adContext?.place}
+ >
  {isDesktopLg && (
  <AdSenseBanner
  adSlot={AD_SLOTS.JOBDETAIL_TOP_BANNER.slot}
@@ -2606,7 +2613,7 @@ function useInterruptibleDerivation<TItem, TAccumulator, TResult>({
 
 /**
  * The gate's unified subscriber write. An enrolled jobgate visitor also gets
- * `variant: 'jobgate-v5:<arm>'` on the document (the readout's join key); the
+ * `variant: 'jobgate-v6:<arm>'` on the document (the readout's join key); the
  * consent fields still come from `unifiedEmailConsentInput`, unchanged. Not
  * enrolled (kill switch, timeout, bot bypass) → exactly `upsertUnifiedEmailSubscriber`.
  */
@@ -4327,6 +4334,51 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // record), closing the timing race that intermittently showed the orphan banner.
  return unscopedJobs.find((j) => matchesRouteSlug(j, lookupSlug)) || null;
  }, [jobs, unscopedJobs, initialJobSlug, bridgeTargetSlug, aliasCanonical, companySlugFilter, locationSlugFilter, searchSlugFilter, editorialLandingDescriptor, isSeededExpiredDetail]);
+
+ const houseAdContext = useMemo<HouseAdCreativeContext | null>(() => {
+  const cantonCode = (selectedJob ? resolveJobCanton(selectedJob) : initialFilterCanton)?.toUpperCase();
+  const localizedCanton = cantonCode && cantonCode !== AGGREGATE_CANTON_CODE
+   ? getCantonDisplayName(cantonCode, locale)
+   : undefined;
+  const cantonLabel = localizedCanton && localizedCanton !== cantonCode ? localizedCanton : undefined;
+  const filteredLocality = locationSlugFilter
+   ? boardRouteAlertLocation
+   : selectedLocation !== 'all'
+    ? uniqueLocalities.find((locality) => locality.value === selectedLocation)?.label
+    : undefined;
+
+  if (selectedJob) {
+   const role = sanitizeHouseAdContextLabel(sanitizeJobTitle(localizedJobDisplayTitle(selectedJob, locale)), 52);
+   const place = sanitizeHouseAdContextLabel(selectedJob.addressLocality || cantonLabel, 36);
+   return {
+    source: 'job_detail',
+    sector: resolveHouseAdImageSector(selectedJob.category, selectedJob.sector, role),
+    ...(role ? { role } : {}),
+    ...(place ? { place } : {}),
+   };
+  }
+
+  const hasExplicitContext = selectedCategory !== 'all'
+   || selectedSector !== 'all'
+   || selectedLocation !== 'all'
+   || Boolean(locationSlugFilter)
+   || Boolean(initialFilterCanton && initialFilterCanton !== AGGREGATE_CANTON_CODE);
+  if (!hasExplicitContext) return null;
+
+  const categoryLabel = selectedCategory === 'all'
+   ? undefined
+   : sanitizeHouseAdContextLabel(t(`jobBoard.filter.${selectedCategory}`).replace(/^[^\p{L}\p{N}]+/u, ''), 40);
+  const sectorLabel = selectedSector === 'all'
+   ? undefined
+   : sanitizeHouseAdContextLabel(uniqueSectors.find((sector) => sector.toLowerCase() === selectedSector) || selectedSector, 40);
+  const place = sanitizeHouseAdContextLabel(filteredLocality || cantonLabel, 36);
+  return {
+   source: 'job_filter',
+   sector: resolveHouseAdImageSector(selectedCategory, selectedSector, ''),
+   ...((sectorLabel || categoryLabel) ? { role: sectorLabel || categoryLabel } : {}),
+   ...(place ? { place } : {}),
+  };
+ }, [selectedJob, initialFilterCanton, locale, locationSlugFilter, boardRouteAlertLocation, selectedLocation, uniqueLocalities, selectedCategory, selectedSector, t]);
 
  // Profession landing links use `?alert=1`; query state is reliable even if
  // SPA boot has already discarded the URL hash. Queue the open request before
@@ -9446,7 +9498,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return (
  // Company-brand pages keep a layout-matching skeleton because their loaded
  // hero is the richer EmployerBrandHub, not the listing hero.
- <JobBoardRailShell isDesktopLg={isDesktopLg}>
+ <JobBoardRailShell isDesktopLg={isDesktopLg} adContext={houseAdContext}>
  <SkeletonJobBoard />
  </JobBoardRailShell>
  );
@@ -9493,7 +9545,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  if (editorialJobTodayLanding) {
  return (
- <JobBoardRailShell isDesktopLg={isDesktopLg}>
+ <JobBoardRailShell isDesktopLg={isDesktopLg} adContext={houseAdContext}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -9594,7 +9646,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  if (editorialOfficialGazetteLanding) {
  return (
- <JobBoardRailShell isDesktopLg={isDesktopLg}>
+ <JobBoardRailShell isDesktopLg={isDesktopLg} adContext={houseAdContext}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -9717,7 +9769,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  if (editorialNursesHubLanding) {
  return (
- <JobBoardRailShell isDesktopLg={isDesktopLg}>
+ <JobBoardRailShell isDesktopLg={isDesktopLg} adContext={houseAdContext}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -9828,7 +9880,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (editorialCareVariantLanding) {
  const { canton: parentCanton, slug: parentSlug } = hubLinkRoute(editorialCareVariantLanding.parentHubHref);
  return (
- <JobBoardRailShell isDesktopLg={isDesktopLg}>
+ <JobBoardRailShell isDesktopLg={isDesktopLg} adContext={houseAdContext}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -9927,7 +9979,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  if (editorialLocationLanding) {
  return (
- <JobBoardRailShell isDesktopLg={isDesktopLg}>
+ <JobBoardRailShell isDesktopLg={isDesktopLg} adContext={houseAdContext}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -10043,7 +10095,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (editorialLocationTypeLanding) {
  const { canton: parentCanton, slug: parentSlug } = hubLinkRoute(editorialLocationTypeLanding.parentLocationHref);
  return (
- <JobBoardRailShell isDesktopLg={isDesktopLg}>
+ <JobBoardRailShell isDesktopLg={isDesktopLg} adContext={houseAdContext}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -10142,7 +10194,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (editorialLocationSectorLanding) {
  const { canton: parentCanton, slug: parentSlug } = hubLinkRoute(editorialLocationSectorLanding.parentLocationHref);
  return (
- <JobBoardRailShell isDesktopLg={isDesktopLg}>
+ <JobBoardRailShell isDesktopLg={isDesktopLg} adContext={houseAdContext}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -10240,7 +10292,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  if (editorialSectorRegionLanding) {
  return (
- <JobBoardRailShell isDesktopLg={isDesktopLg}>
+ <JobBoardRailShell isDesktopLg={isDesktopLg} adContext={houseAdContext}>
  <div className="space-y-6">
  <section className="rounded-3xl border border-info-border bg-gradient-to-br from-info-subtle via-surface to-success-subtle p-6 sm:p-8">
  <p className="text-xs font-bold uppercase tracking-[0.18em] text-info">
@@ -10459,8 +10511,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const descriptionPreview = selectedJob.descriptionPreview || jobDescriptionPreview(publicDescription);
  const descriptionPending = !publicDescription
  && (enrichmentLoading || (!resolvedJobDetail.has(selectedJob.id) && !jobDetailCache.has(selectedJob.id)));
- // jobgate-v5: contrast/accent treatment per arm; Spotlight is also the
- // fail-safe product default. Copy and order stay fixed in every arm.
+ // jobgate-v6: visual treatment per arm; tinted control is also the fail-safe
+ // product default. Copy, order, disclosure and methods stay fixed in every arm.
  const gateSkin = jobGateSkin(jobGate.arm);
  const inlineEmailForm = (
  <form
@@ -10494,7 +10546,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  placeholder={t('jobBoard.authGateEmailPlaceholder')}
  className={gateSkin.emailInput}
  />
- {/* `spotlight` keeps the CTA enabled on an empty field: the input is
+ {/* The v6 skins keep the CTA enabled on an empty field: the input is
      `required`, so the browser stops the submit and focuses it. */}
  <button
  type="submit"
@@ -10658,7 +10710,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </section>
 
  {/* Auth gate — embedded inline for all viewports (no extra click needed).
-     jobgate-v5 arms change only contrast/accent through `gateSkin`
+     jobgate-v6 arms change only presentation through `gateSkin`
      (components/community/jobGateSkin.ts). */}
  {(() => {
  const gateHeading = (
@@ -11767,9 +11819,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
   <div className="space-y-2">
    <JobCvFitMatcher
     key={authUser?.uid || 'anonymous'}
-    requirements={Array.isArray(requirements) ? requirements : []}
+    requirements={Array.isArray(canonicalRequirements) ? canonicalRequirements : []}
     userId={authUser?.uid}
     locale={locale}
+    onRequireAuth={onRequireAuth}
     onDownloadBilingualCv={bilingualCvStatus === 'ready' || bilingualCvStatus === 'failed' ? downloadBilingualCv : undefined}
    />
    {bilingualCvStatus !== 'ready' && (
@@ -12156,7 +12209,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const utilitiesAfterPosition = Math.min(3, displayJobs.length);
 
  return (
- <JobBoardRailShell isDesktopLg={isDesktopLg}>
+ <JobBoardRailShell isDesktopLg={isDesktopLg} adContext={houseAdContext}>
  <div className="space-y-6">
  {searchSlugFilter && (
  <div className="rounded-xl border border-accent-border bg-accent-subtle p-3 text-sm text-accent flex items-center justify-between gap-3">

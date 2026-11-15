@@ -228,7 +228,12 @@ export default function ApplicationConciergeAdmin() {
                     <p className="mt-1 text-sm text-subtle">{order.companyName}</p>
                     <p className="mt-3 text-sm font-semibold text-strong">{step.label}</p><p className="mt-1 max-w-prose text-sm text-subtle">{step.detail}</p>
                     <div className="mt-4 border-t border-edge pt-4"><h5 className="mb-3 text-sm font-semibold text-heading">Email al candidato</h5><CandidateEmails emails={order.candidateEmails || []} /></div>
-                    <ApplicationInbox automation={order.automation} />
+                    <ApplicationInbox
+                      automation={order.automation}
+                      orderId={order.orderId}
+                      user={user}
+                      onForwarded={async () => { setOrders(await fetchApplicationConciergeAssistedOrders(user)); }}
+                    />
                     {order.submissionStatus !== 'refunded' && <AssistedApplicationAutomationPanel order={order} user={user} onChanged={async (next) => {
                       setMessage(next.text);
                       try { setOrders(await fetchApplicationConciergeAssistedOrders(user)); }

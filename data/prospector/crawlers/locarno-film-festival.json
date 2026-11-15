@@ -23,5 +23,7 @@
   "canton": "TI",
   "sourceLang": "it",
   "browserRescue": true,
+  "rescueOnEmptyListing": true,
+  "emptyListingOutcome": "anti_bot_block",
   "learnedAt": "2026-11-10T07:03:19.000Z"
 }

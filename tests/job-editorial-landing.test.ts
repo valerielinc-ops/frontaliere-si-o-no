@@ -9,11 +9,17 @@ import {
   buildJobLocationSectorLandingModel,
   buildJobNursesHubLandingModel,
   buildJobSectorRegionLandingModel,
+  buildLocationSectorSlug,
+  buildLocationSlug,
+  buildLocationTypeSlug,
+  countJobCareVariantMatches,
   isJobTodayLandingSlug,
   JOB_NURSES_HUB_SLUGS,
   JOB_OFFICIAL_GAZETTE_LANDING_SLUGS,
   resolveEditorialJobLandingDescriptor,
   JOB_TODAY_LANDING_SLUGS,
+  partitionByLocation,
+  partitionCareClusters,
 } from '../build-plugins/jobEditorialLanding';
 
 function job(overrides: Record<string, unknown> = {}) {
@@ -118,6 +124,32 @@ describe('jobEditorialLanding', () => {
     expect(model.sections.partTime.label).toBe('Teilzeitjobs im Tessin');
     expect(model.sections.cityHubLabel).toBe('Nach Stadt suchen');
     expect(model.sections.cities[0].href).toBe('https://frontaliereticino.ch/de/jobs-im-tessin/suche-chiasso/');
+  });
+
+  it('shares lightweight location slugs with the emitted page models in every locale', () => {
+    const locationJob = job({ slug: 'baden-part-time', title: 'Finance assistant', location: 'Baden', canton: 'AG', contract: 'Part-time' });
+    const jobs = [locationJob];
+    const partition = partitionByLocation(jobs, ['Baden']);
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      const localePrefix = locale === 'it' ? '' : `/${locale}`;
+      const common = {
+        jobs,
+        locale,
+        now: new Date().toISOString(),
+        localizedSlug: (item: Record<string, unknown>) => String(item.slug),
+        baseUrl: 'https://frontaliereticino.ch',
+        sectionSlug: 'jobs-in-aargau',
+        localePrefix,
+        partition,
+      };
+      expect(buildLocationSlug(locale, 'Baden')).toBe(buildJobLocationLandingModel({ ...common, location: 'Baden' }).slug);
+      expect(buildLocationTypeSlug(locale, 'Baden', 'partTime')).toBe(
+        buildJobLocationTypeLandingModel({ ...common, location: 'Baden', typeKey: 'partTime' }).slug,
+      );
+      expect(buildLocationSectorSlug(locale, 'Baden', 'finance')).toBe(
+        buildJobLocationSectorLandingModel({ ...common, location: 'Baden', sectorKey: 'finance' }).slug,
+      );
+    }
   });
 
   it('recognizes editorial landing slugs in all supported languages', () => {
@@ -674,5 +706,8 @@ describe('jobEditorialLanding', () => {
       canton: 'BASILEA',
     });
     expect(basileaClinics.feed.jobs.every((j) => !j.href.includes('/ti-'))).toBe(true);
+    const carePartition = partitionCareClusters(nursing);
+    expect(countJobCareVariantMatches(nursing, 'clinics', 'BASILEA')).toBe(basileaClinics.totalJobs);
+    expect(countJobCareVariantMatches(nursing, 'clinics', 'BASILEA', carePartition)).toBe(basileaClinics.totalJobs);
   });
 });

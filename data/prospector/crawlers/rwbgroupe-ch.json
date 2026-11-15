@@ -1,0 +1,27 @@
+{
+  "companyKey": "rwbgroupe-ch",
+  "companyName": "RWB Groupe SA",
+  "companyHost": "rwbgroupe.ch",
+  "verifiedEmployerDomain": "rwbgroupe.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.rwbgroupe.ch/emploi"
+  ],
+  "detailTemplate": "/files/2325/Emploi/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Fiche du poste",
+    "Fiche du poste",
+    "Fiche du poste",
+    "Fiche du poste",
+    "Fiche du poste"
+  ],
+  "canton": "VS",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-13T13:48:20.337Z",
+  "candidateKey": "rwb@martigny"
+}

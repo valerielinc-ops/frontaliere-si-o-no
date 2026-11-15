@@ -1,0 +1,21 @@
+{
+  "companyKey": "aerialgroup",
+  "companyName": "The Aerial, BVI",
+  "companyHost": "aerialgroup.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://aerialgroup.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Watersports & Activities Coordinator"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-13T13:47:15.850Z",
+  "candidateKey": "aerialgroup@applytojob.com"
+}

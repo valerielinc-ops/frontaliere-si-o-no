@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
+import { DatasetReadError } from './shared/readJobsDatasetStrict';
 import type { Plugin } from 'vite';
 import {
   buildSlimExpiredEntry,
@@ -27,8 +28,10 @@ export function expiredJobsSplitPlugin(rootDir: string): Plugin {
     let entries: Record<string, unknown>[];
     try {
       entries = readJsonFile(expiredJobsPath);
-    } catch {
-      return 0;
+    } catch (err) {
+      // Fail closed: 0 entries would drop every expired-detail file while the
+      // soft-landing pages that fetch them are still emitted.
+      throw new DatasetReadError('expired-jobs-split', expiredJobsPath, err);
     }
     if (!Array.isArray(entries)) return 0;
 

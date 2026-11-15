@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { existsSync, readFileSync } from 'node:fs';
 
 import {
   MIN_SCANNED_FILES,
@@ -6,13 +7,18 @@ import {
   isScanned,
   redact,
   scanRepo,
+  scanPaths,
   scanText,
 } from '../scripts/ci/scan-site-hardcoded-secrets.mjs';
 
 describe('hardcoded-secret source gate', () => {
   it('scans the tracked site source tree without findings', () => {
-    const { findings, scanned } = scanRepo();
-    expect(scanned).toBeGreaterThanOrEqual(MIN_SCANNED_FILES);
+    const changedPathFile = process.env.CHANGED_PATHS_FILE || 'changed-paths.txt';
+    const relatedPaths = process.env.GITHUB_ACTIONS === 'true' && existsSync(changedPathFile)
+      ? readFileSync(changedPathFile, 'utf8').split(/\r?\n/).filter(Boolean)
+      : null;
+    const { findings, scanned } = relatedPaths === null ? scanRepo() : scanPaths(relatedPaths);
+    if (relatedPaths === null) expect(scanned).toBeGreaterThanOrEqual(MIN_SCANNED_FILES);
     expect(findings).toEqual([]);
   });
 

@@ -43,11 +43,18 @@ import { fileURLToPath } from 'node:url';
 import { buildSlug } from './lib/regenerate-slugs-helpers.mjs';
 import { addPreviousSlugForLocale } from './lib/dedicated-crawler-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { listExpiredSliceFiles } from './lib/expired-slice-store.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+// The expired archive is the monolith plus any `hilcona.shard-NNN.json`
+// (scripts/lib/expired-slice-store.mjs); each file is scrubbed in place.
+const EXPIRED_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'expired', 'by-crawler');
 const SLICE_PATHS = [
   path.resolve(__dirname, '..', 'data', 'jobs', 'by-crawler', 'hilcona.json'),
-  path.resolve(__dirname, '..', 'data', 'jobs', 'expired', 'by-crawler', 'hilcona.json'),
+  path.join(EXPIRED_DIR, 'hilcona.json'),
+  ...listExpiredSliceFiles('hilcona', { dir: EXPIRED_DIR })
+    .filter((file) => file.index > 0)
+    .map((file) => file.path),
 ];
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const UNDEFINED_RE = /undefined/;

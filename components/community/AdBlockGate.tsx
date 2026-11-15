@@ -1,164 +1,90 @@
 /**
- * AdBlockGate — client-only AdBlock detection gate + 30/70 A/B test.
- * Part 1/2 of #2961, issue #3654.
- *
- * Scope:
- * - Stable A/B bucket per visitor (services/adBlockAbTest.ts) — 30% "test",
- *   70% "control". Control always sees the site unchanged, even with an ad
- *   blocker active.
- * - In the "test" bucket only: run the dual-signal ad-blocker probe
- *   (services/adBlockDetection.ts). If detected, show a full-screen gate
- *   offering exactly two ways forward — disable the blocker for the site,
- *   or go to the CHF 2.99/month no-ads subscription page. No dismiss/X
- *   button, no click-outside-to-close: one deliberate exception to the
- *   site's "no invasive extra popups" convention, explicitly approved for
- *   this gate only (see AGENTS.md § Non-Negotiables), not to be
- *   generalized to any other popup on the site.
- * - Never mounted for bots (isLikelyBot() gate, layered on top of the
- *   structural guarantee that this component only exists in the client
- *   React tree — lazy-loaded, never part of any server-rendered
- *   static HTML; no ReactDOMServer usage anywhere in the build's SSG plugins).
- * - Hard-excluded (owner refinement, #3655): a visitor already subscribed to
- *   the newsletter OR with an active job alert is treated exactly like the
- *   bot/control arm — no bucket resolution, no detection, no gate, ever.
- *   Checked via raw localStorage flags (services/newsletterCtaState.ts,
- *   services/jobAlertCtaState.ts) immediately before any bot check, before
- *   any A/B assignment.
- * - Firebase Analytics measurement: bucket-assignment event (fires for every
- *   non-bot visitor, both arms — needed to validate the split ratio) + gate-shown
- *   event + outcome event (disabled / subscribe CTA clicked / abandoned /
- *   reload_still_blocked). 'disabled' is reported from two places: the
- *   in-place recheck, and — via a sessionStorage marker that survives the
- *   reload — the document that comes back after the gate's own reload button,
- *   which is the only path on which a paused blocker actually stops reporting
- *   itself. Hiding the tab is recorded as `tab_hidden`, never as an outcome:
- *   it is how the visitor reaches the extension menu.
- * - GA4 measurement (#3654 UX pass): distinct named events for every
- *   interactive element in the gate — popup_cta_subscribe, popup_cta_adblock,
- *   popup_adblock_disable, popup_instructions_toggle — each carrying
- *   event_category: 'popup', event_label: <element>, page_location. The
- *   page_view for /abbonamento/ itself is already covered by the app-wide
- *   SPA route-change tracker (App.tsx), not duplicated here.
- * - Re-arm on navigation away from the subscribe escape-hatch page: the gate
- *   suppresses itself while the visitor is on the 'subscribe' tab (so it
- *   never traps them on their own way out), but re-runs detection the
- *   moment they leave that tab for anywhere else, reopening if the blocker
- *   is still active. Edge-triggered on the subscribe→elsewhere transition
- *   only, so it fires once per visit to the page, not on every navigation.
+ * Native application-concierge promotion shown to human visitors when an
+ * advertising blocker is detected. The client-only gate never enters static
+ * SEO HTML; crawler checks also run before its lazy chunk is loaded in App.tsx.
  */
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import { ShieldAlert, Loader2, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, X } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
-import { getConfigValue } from '@/services/firebase';
-import { isLikelyBot } from '@/services/botPatterns';
-import {
-  parseAdBlockTestBucketShare,
-  resolveAdBlockAbBucket,
-  type AdBlockAbBucket,
-} from '@/services/adBlockAbTest';
+import { isLikelyBot, isLikelySearchCrawler } from '@/services/botPatterns';
 import { detectAdBlockDetailed } from '@/services/adBlockDetection';
-import { useNavigationOptional } from '@/services/NavigationContext';
+import { getApplicationConciergePath, isApplicationConciergePath } from '@/services/router';
 import { NEWSLETTER_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
 import { JOB_ALERT_SUBSCRIBED_KEY } from '@/services/jobAlertCtaState';
 
 type GateLocale = 'it' | 'en' | 'de' | 'fr';
-type GateOutcome = 'disabled' | 'subscribe_clicked' | 'abandoned' | 'reload_still_blocked';
+type CloseReason = 'close_button' | 'continue_reading' | 'backdrop' | 'escape' | 'cta_click';
 
-// Self-contained 4-locale copy, matching the OfferwallNewsletterGate pattern —
-// keeps this gate free of any dependency on the on-demand locale chunk loader.
+const SESSION_DISMISSAL_KEY = 'ft_native_application_offer_dismissed_v1';
+const SESSION_SHOWN_KEY = 'ft_native_application_offer_seen_v1';
+
 const COPY: Record<GateLocale, {
+  label: string;
   title: string;
-  body: string;
-  headline: string;
-  urgency: string;
-  benefits: string[];
-  socialProof: string;
-  instructionsToggle: string;
-  instructionsBody: string;
-  recheck: string;
-  rechecking: string;
-  reloadHint: string;
-  reloadCta: string;
-  subscribeCta: string;
+  description: string;
+  duration: string;
+  limit: string;
+  price: string;
+  priceNote: string;
+  disclaimer: string;
+  cta: string;
+  dismiss: string;
+  close: string;
 }> = {
   it: {
-    title: 'Abbiamo notato un AdBlock attivo',
-    body: 'Il sito vive di pubblicità: senza, non possiamo restare gratuiti.',
-    headline: 'Naviga senza pubblicità, per sempre.',
-    urgency: 'Bastano 30 secondi per liberarti dalla pubblicità su tutto il sito.',
-    benefits: [
-      'Zero banner, video e interstitial pubblicitari su tutto il sito',
-      'Attivo subito dopo il pagamento, nessun vincolo',
-      'Disdici quando vuoi in un clic dal portale Stripe',
-    ],
-    socialProof: 'Fai parte di una community di oltre 2.500 frontalieri',
-    instructionsToggle: 'Come disattivare l’AdBlock',
-    instructionsBody: 'Apri l’icona dell’estensione AdBlock/uBlock nella barra degli strumenti del browser e scegli "Disattiva su questo sito" o "Metti in pausa". Poi premi "Ricontrolla" qui sotto.',
-    recheck: 'Ricontrolla AdBlock',
-    rechecking: 'Verifica in corso…',
-    reloadHint: 'Ancora rilevato. Se hai già disattivato l’estensione, il browser deve ricaricare la pagina per applicare la modifica.',
-    reloadCta: 'Ricarica pagina',
-    subscribeCta: 'Attiva l’abbonamento — CHF 2.99/mese',
+    label: 'Promozione',
+    title: 'Candidature su misura per il tuo prossimo lavoro in Svizzera',
+    description: 'Per 30 giorni cerchiamo posizioni compatibili con il tuo profilo e prepariamo CV, lettere e risposte personalizzate.',
+    duration: '30 giorni',
+    limit: 'Fino a 10 posizioni che accetti',
+    price: '39,99 €',
+    priceNote: 'Pagamento unico · senza rinnovo',
+    disclaimer: 'Le risposte delle aziende e l’assunzione non sono garantite.',
+    cta: 'Scopri il servizio',
+    dismiss: 'Continua a leggere',
+    close: 'Chiudi promozione',
   },
   en: {
-    title: 'We noticed an active ad blocker',
-    body: 'This site runs on advertising — without it, we can’t keep it free.',
-    headline: 'Browse ad-free. For good.',
-    urgency: 'Takes 30 seconds to go ad-free across the whole site.',
-    benefits: [
-      'Zero banners, video or interstitial ads sitewide',
-      'Active immediately after payment, no lock-in',
-      'Cancel anytime in one click from Stripe’s portal',
-    ],
-    socialProof: 'Join a community of 2,500+ cross-border workers',
-    instructionsToggle: 'How to disable your ad blocker',
-    instructionsBody: 'Open your AdBlock/uBlock extension icon in the browser toolbar and choose "Disable on this site" or "Pause". Then press "Recheck" below.',
-    recheck: 'Recheck ad blocker',
-    rechecking: 'Checking…',
-    reloadHint: 'Still detected. If you’ve already disabled the extension, the browser needs to reload the page for the change to take effect.',
-    reloadCta: 'Reload page',
-    subscribeCta: 'Subscribe — CHF 2.99/mo',
+    label: 'Promotion',
+    title: 'Tailored applications for your next job in Switzerland',
+    description: 'For 30 days, we look for roles that fit your profile and prepare tailored CVs, cover letters, and answers.',
+    duration: '30 days',
+    limit: 'Up to 10 positions you accept',
+    price: '€39.99',
+    priceNote: 'One-off payment · no renewal',
+    disclaimer: 'Employer replies and hiring are not guaranteed.',
+    cta: 'See how it works',
+    dismiss: 'Continue reading',
+    close: 'Close promotion',
   },
   de: {
-    title: 'Wir haben einen aktiven Werbeblocker bemerkt',
-    body: 'Diese Website finanziert sich über Werbung — ohne sie können wir sie nicht kostenlos anbieten.',
-    headline: 'Werbefrei surfen. Für immer.',
-    urgency: 'In 30 Sekunden werbefrei auf der ganzen Website.',
-    benefits: [
-      'Keine Banner, Video- oder Interstitial-Werbung auf der ganzen Seite',
-      'Sofort aktiv nach der Zahlung, keine Mindestlaufzeit',
-      'Jederzeit mit einem Klick über das Stripe-Portal kündbar',
-    ],
-    socialProof: 'Werden Sie Teil einer Community von über 2.500 Grenzgängern',
-    instructionsToggle: 'So deaktivieren Sie Ihren Werbeblocker',
-    instructionsBody: 'Öffnen Sie das Symbol Ihrer AdBlock/uBlock-Erweiterung in der Symbolleiste des Browsers und wählen Sie „Auf dieser Website deaktivieren“ oder „Pausieren“. Klicken Sie danach unten auf „Erneut prüfen“.',
-    recheck: 'Werbeblocker erneut prüfen',
-    rechecking: 'Wird geprüft…',
-    reloadHint: 'Weiterhin erkannt. Wenn Sie die Erweiterung bereits deaktiviert haben, muss die Seite neu geladen werden, damit die Änderung wirksam wird.',
-    reloadCta: 'Seite neu laden',
-    subscribeCta: 'Abonnieren — CHF 2.99/Monat',
+    label: 'Anzeige',
+    title: 'Passende Bewerbungen für deinen nächsten Job in der Schweiz',
+    description: '30 Tage lang suchen wir Stellen, die zu deinem Profil passen, und erstellen passende Lebensläufe, Anschreiben und Antworten.',
+    duration: '30 Tage',
+    limit: 'Bis zu 10 Stellen, die du annimmst',
+    price: '39,99 €',
+    priceNote: 'Einmalige Zahlung · keine Verlängerung',
+    disclaimer: 'Antworten der Unternehmen und eine Anstellung sind nicht garantiert.',
+    cta: 'Service ansehen',
+    dismiss: 'Weiterlesen',
+    close: 'Anzeige schließen',
   },
   fr: {
-    title: 'Nous avons détecté un bloqueur de publicités actif',
-    body: 'Ce site vit de la publicité — sans elle, nous ne pouvons pas rester gratuits.',
-    headline: 'Naviguez sans publicité. Pour de bon.',
-    urgency: '30 secondes suffisent pour dire adieu à la pub sur tout le site.',
-    benefits: [
-      'Aucune bannière, vidéo ou publicité interstitielle sur tout le site',
-      'Actif immédiatement après paiement, sans engagement',
-      'Résiliable à tout moment en un clic depuis le portail Stripe',
-    ],
-    socialProof: 'Rejoignez une communauté de plus de 2 500 frontaliers',
-    instructionsToggle: 'Comment désactiver votre bloqueur de publicités',
-    instructionsBody: 'Ouvrez l’icône de votre extension AdBlock/uBlock dans la barre d’outils du navigateur et choisissez « Désactiver sur ce site » ou « Mettre en pause ». Puis cliquez sur « Revérifier » ci-dessous.',
-    recheck: 'Revérifier le bloqueur',
-    rechecking: 'Vérification…',
-    reloadHint: 'Toujours détecté. Si vous avez déjà désactivé l’extension, le navigateur doit recharger la page pour appliquer le changement.',
-    reloadCta: 'Recharger la page',
-    subscribeCta: 'S’abonner — CHF 2.99/mois',
+    label: 'Promotion',
+    title: 'Des candidatures sur mesure pour votre prochain emploi en Suisse',
+    description: 'Pendant 30 jours, nous recherchons des postes compatibles avec votre profil et préparons CV, lettres de motivation et réponses personnalisés.',
+    duration: '30 jours',
+    limit: 'Jusqu’à 10 postes que vous acceptez',
+    price: '39,99 €',
+    priceNote: 'Paiement unique · sans renouvellement',
+    disclaimer: 'Les réponses des entreprises et l’embauche ne sont pas garanties.',
+    cta: 'Découvrir le service',
+    dismiss: 'Continuer la lecture',
+    close: 'Fermer la promotion',
   },
 };
 
@@ -168,364 +94,260 @@ function normalizeLocale(code?: string | null): GateLocale {
   return 'it';
 }
 
-/**
- * The gate's reload button unloads the page on purpose, so whatever happens
- * next — blocker gone or still there — happens in a different document than
- * the one that asked. Without a marker that survives the reload, the only
- * path on which a visitor CAN successfully disable a blocker is also the one
- * path whose outcome we never see. sessionStorage, not localStorage: the
- * question is scoped to this visit.
- */
-const RELOAD_MARKER_KEY = 'ft_adblock_reload_pending';
-const RELOAD_MARKER_TTL_MS = 5 * 60 * 1000;
-
-function markReloadFromGate(): void {
-  try { sessionStorage.setItem(RELOAD_MARKER_KEY, String(Date.now())); } catch { /* storage disabled — outcome simply stays unknown */ }
-}
-
-/** Reads and clears the marker. Stale markers (restored tab, much later) do not count. */
-function consumeReloadMarker(): boolean {
-  try {
-    const raw = sessionStorage.getItem(RELOAD_MARKER_KEY);
-    if (!raw) return false;
-    sessionStorage.removeItem(RELOAD_MARKER_KEY);
-    const at = Number(raw);
-    return Number.isFinite(at) && Date.now() - at < RELOAD_MARKER_TTL_MS;
-  } catch { return false; }
-}
-
-function trackPopupEvent(eventName: string, buttonName: string): void {
-  try {
-    Analytics.trackExperimentEvent(eventName, {
-      event_category: 'popup',
-      event_label: buttonName,
-      page_location: window.location.href,
-    });
-  } catch { /* no-op */ }
-}
-
 function isEngagedVisitor(): boolean {
   try {
-    return (
-      localStorage.getItem(NEWSLETTER_SUBSCRIBED_KEY) === 'true' ||
-      localStorage.getItem(JOB_ALERT_SUBSCRIBED_KEY) === 'true'
+    return localStorage.getItem(NEWSLETTER_SUBSCRIBED_KEY) === 'true'
+      || localStorage.getItem(JOB_ALERT_SUBSCRIBED_KEY) === 'true';
+  } catch {
+    return false;
+  }
+}
+
+function isApplicationConciergeSurface(): boolean {
+  if (typeof window === 'undefined') return true;
+  const params = new URLSearchParams(window.location.search);
+  return isApplicationConciergePath(window.location.pathname)
+    || params.has('application_concierge')
+    || params.has('application_concierge_service_id');
+}
+
+function wasDismissedThisSession(): boolean {
+  try {
+    return sessionStorage.getItem(SESSION_DISMISSAL_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
+function wasShownThisSession(): boolean {
+  if (typeof window === 'undefined') return false;
+  if ((window as Window & { __ftNativeApplicationOfferShown?: boolean }).__ftNativeApplicationOfferShown) return true;
+  try {
+    return sessionStorage.getItem(SESSION_SHOWN_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
+function rememberShown(): void {
+  if (typeof window !== 'undefined') {
+    (window as Window & { __ftNativeApplicationOfferShown?: boolean }).__ftNativeApplicationOfferShown = true;
+  }
+  try {
+    sessionStorage.setItem(SESSION_SHOWN_KEY, '1');
+  } catch {
+    // The window flag still coordinates both first-party promotion surfaces during this page visit.
+  }
+}
+
+function rememberDismissal(): void {
+  try {
+    sessionStorage.setItem(SESSION_DISMISSAL_KEY, '1');
+  } catch {
+    // The in-memory flag still prevents the offer reopening during this app visit.
+  }
+}
+
+function trackOffer(action: 'impression' | 'click' | 'dismiss', detail: string): void {
+  try {
+    Analytics.trackUIInteraction(
+      'application_concierge',
+      'adblock_native_offer',
+      'modal',
+      action,
+      detail,
+      `application_concierge.adblock_native_offer.${action}`,
     );
   } catch {
-    return false; // fail-open: treat as not-subscribed on error.
+    // Promotion tracking must never interrupt reading or navigation.
   }
 }
 
 const AdBlockGate: React.FC = () => {
   const { locale } = useTranslation();
-  const nav = useNavigationOptional();
   const [open, setOpen] = useState(false);
-  const [showInstructions, setShowInstructions] = useState(false);
-  const [rechecking, setRechecking] = useState(false);
-  const [recheckFailed, setRecheckFailed] = useState(false);
-  const outcomeLoggedRef = useRef(false);
-  // The gate asks the visitor to leave the page; that is not abandonment.
-  // These two keep the intended flow from being logged as one.
-  const tabHiddenLoggedRef = useRef(false);
-  const reloadInitiatedRef = useRef(false);
-  const activeTabRef = useRef(nav?.activeTab);
-  activeTabRef.current = nav?.activeTab;
-  const bucketRef = useRef<AdBlockAbBucket | null>(null);
-  const wasOnSubscribeTabRef = useRef(false);
-
+  const dialogRef = useRef<HTMLElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const restoreFocusRef = useRef<HTMLElement | null>(null);
+  const dismissedRef = useRef(false);
   const copy = COPY[normalizeLocale(locale)];
+  const offerQuery = new URLSearchParams({
+    utm_source: 'frontaliere',
+    utm_medium: 'native_ad',
+    utm_campaign: 'application_concierge_adblock',
+    utm_content: 'popup_creative_v1',
+  });
+  const offerHref = `${getApplicationConciergePath(normalizeLocale(locale))}?${offerQuery.toString()}`;
 
-  const logOutcome = useCallback((outcome: GateOutcome) => {
-    if (outcomeLoggedRef.current) return;
-    outcomeLoggedRef.current = true;
-    try { Analytics.trackExperimentUIInteraction('adblock_gate', 'modal', 'outcome', outcome); } catch { /* no-op */ }
-  }, []);
-
-  const closeGate = useCallback((outcome: 'disabled' | 'subscribe_clicked') => {
-    logOutcome(outcome);
+  const closeOffer = useCallback((reason: CloseReason) => {
+    dismissedRef.current = true;
+    rememberDismissal();
     setOpen(false);
-  }, [logOutcome]);
+    if (reason === 'cta_click') trackOffer('click', reason);
+    else trackOffer('dismiss', reason);
+  }, []);
 
-  // Bucket assignment — resolved once per mount, reported for every non-bot
-  // visitor (both arms) so the split can be validated in Firebase Analytics.
-  // Detection itself only runs for the "test" arm.
   useEffect(() => {
-    if (isLikelyBot()) return;
-    // Retained/engaged visitors (newsletter or job-alert subscribers) never
-    // see this gate, regardless of bucket — same hard exclusion as bots,
-    // checked BEFORE any bucket assignment (owner refinement, #3655).
-    if (isEngagedVisitor()) return;
+    // Keep known automation and search crawlers out before assigning or showing
+    // any promotional UI, even when a crawler executes the client application.
+    if (
+      isLikelyBot()
+      || isLikelySearchCrawler()
+      || isEngagedVisitor()
+      || isApplicationConciergeSurface()
+      || wasDismissedThisSession()
+      || wasShownThisSession()
+    ) return;
 
     let cancelled = false;
-    const runAssignment = async () => {
-      const [enabledRaw, shareRaw] = await Promise.all([
-        getConfigValue('ADBLOCK_GATE_EXPERIMENT_ENABLED').catch(() => ''),
-        getConfigValue('ADBLOCK_GATE_TEST_SHARE').catch(() => ''),
-      ]);
-      if (cancelled || enabledRaw.trim().toLowerCase() === 'false') return;
-
-      const bucket = resolveAdBlockAbBucket(parseAdBlockTestBucketShare(shareRaw));
-      bucketRef.current = bucket;
-      try { Analytics.trackExperimentUIInteraction('adblock_gate', 'ab_test', 'bucket_assigned', bucket); } catch { /* no-op */ }
-      if (bucket !== 'test') return; // control arm: no detection, no gate, ever.
-
-      // Read before the probe: this document exists because the previous one
-      // reloaded itself from the gate, and this is where that path's outcome
-      // becomes observable at all.
-      const cameBackFromGateReload = consumeReloadMarker();
-      const { blocked, adsAllowed } = await detectAdBlockDetailed();
-      if (cancelled) return;
-      // Funding Choices says this visitor already allowlisted the site. They
-      // did exactly what the gate asks for, possibly through Google's own
-      // recovery message rather than ours — gating them again would punish
-      // the one action we wanted. Their ads may still be blocked elsewhere on
-      // the page, so `blocked` alone is not enough to tell the two apart.
-      if (adsAllowed) {
-        if (cameBackFromGateReload) {
-          try { Analytics.trackExperimentUIInteraction('adblock_gate', 'modal', 'outcome', 'disabled', 'allowlisted'); } catch { /* no-op */ }
-        }
-        return;
-      }
-      if (cameBackFromGateReload) {
-        // A reload is the only way a paused blocker stops reporting itself:
-        // cosmetic filter rules already injected into the previous document
-        // survive the pause, which is why the in-place recheck so rarely
-        // succeeds (see the comment on handleRecheck).
-        try {
-          Analytics.trackExperimentUIInteraction(
-            'adblock_gate',
-            'modal',
-            'outcome',
-            blocked ? 'reload_still_blocked' : 'disabled',
-            'after_reload',
-          );
-        } catch { /* no-op */ }
-      }
-      if (!blocked) return;
-      // Never trap the visitor on the escape-hatch page itself.
-      if (activeTabRef.current === 'subscribe') return;
-      outcomeLoggedRef.current = false;
-      tabHiddenLoggedRef.current = false;
-      setRecheckFailed(false);
+    void detectAdBlockDetailed().then(({ blocked, adsAllowed }) => {
+      if (
+        cancelled
+        || !blocked
+        || adsAllowed
+        || isLikelyBot()
+        || isLikelySearchCrawler()
+        || isEngagedVisitor()
+        || isApplicationConciergeSurface()
+        || dismissedRef.current
+        || wasDismissedThisSession()
+        || wasShownThisSession()
+      ) return;
+      rememberShown();
       setOpen(true);
-      try { Analytics.trackExperimentUIInteraction('adblock_gate', 'modal', 'show', 'detected'); } catch { /* no-op */ }
-    };
-    void runAssignment().catch(() => { /* fail closed: no gate when config/probe fails */ });
+      trackOffer('impression', 'adblock_detected');
+    }).catch(() => {
+      // Ambiguous detection stays fail-open: never interrupt a visitor without proof.
+    });
+
     return () => { cancelled = true; };
   }, []);
 
-  // Re-arm on navigation away from the subscribe page (#3654 UX fix): the
-  // gate is suppressed while the visitor is on 'subscribe' (effect below),
-  // but nothing previously re-ran detection once they left it — a full page
-  // refresh was required to see the gate again even if the blocker was
-  // still active. Edge-triggered on the subscribe→elsewhere transition only
-  // (tracked via wasOnSubscribeTabRef), so this fires once per visit to the
-  // page rather than on every tab change, avoiding any re-check loop.
-  useEffect(() => {
-    const currentTab = nav?.activeTab;
-    const leftSubscribeTab = wasOnSubscribeTabRef.current && currentTab !== 'subscribe';
-    wasOnSubscribeTabRef.current = currentTab === 'subscribe';
-    if (!leftSubscribeTab || open) return;
-    if (bucketRef.current !== 'test') return;
-    if (isLikelyBot() || isEngagedVisitor()) return;
-
-    let cancelled = false;
-    detectAdBlockDetailed().then(({ blocked, adsAllowed }) => {
-      if (cancelled || !blocked || adsAllowed) return;
-      outcomeLoggedRef.current = false;
-      tabHiddenLoggedRef.current = false;
-      setRecheckFailed(false);
-      setOpen(true);
-      try { Analytics.trackExperimentUIInteraction('adblock_gate', 'modal', 'show', 'detected_revisit'); } catch { /* no-op */ }
-    });
-    return () => { cancelled = true; };
-  }, [nav?.activeTab, open]);
-
-  // Defensive auto-suppress if the visitor ends up on the subscribe
-  // placeholder while the gate happens to still be open (the CTA click
-  // already closes it — this covers back/forward navigation too).
-  useEffect(() => {
-    if (open && nav?.activeTab === 'subscribe') setOpen(false);
-  }, [open, nav?.activeTab]);
-
-  // Lock body scroll while the gate blocks the page, mirroring other
-  // full-screen overlays on the site.
   useEffect(() => {
     if (!open) return;
-    const prevOverflow = document.body.style.overflow;
+    restoreFocusRef.current = document.activeElement instanceof HTMLElement
+      ? document.activeElement
+      : null;
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    return () => { document.body.style.overflow = prevOverflow; };
-  }, [open]);
+    closeButtonRef.current?.focus();
 
-  // "Abandoned" now means the visitor really walked away. Two things used to
-  // be counted as abandonment and are not:
-  //
-  //  - visibilitychange → hidden fires when the visitor switches to the
-  //    browser's extension menu to turn the blocker off — the single action
-  //    this gate exists to ask for. Because logOutcome is one-shot, that
-  //    reading also SEALED the outcome, so the 'disabled' that followed was
-  //    dropped. Measured over 2026-07-27..08-18: outcome=disabled 0 while the
-  //    in-page popup_adblock_disable counter recorded 4, and
-  //    'subscribe_clicked' — the one outcome reachable without leaving the
-  //    page — matched its counter exactly (3 = 3).
-  //  - the gate's own reload button, which unloads the page deliberately; the
-  //    outcome of that path is decided after the reload, in the mount effect.
-  //
-  // Tab-hiding is still worth counting, just not as an outcome.
-  useEffect(() => {
-    if (!open) return;
-    const handleHidden = () => {
-      if (document.visibilityState !== 'hidden') return;
-      if (tabHiddenLoggedRef.current) return;
-      tabHiddenLoggedRef.current = true;
-      try { Analytics.trackExperimentUIInteraction('adblock_gate', 'modal', 'tab_hidden', 'while_open'); } catch { /* no-op */ }
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeOffer('escape');
+        return;
+      }
+      if (event.key !== 'Tab') return;
+      const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      if (!focusable?.length) {
+        event.preventDefault();
+        dialogRef.current?.focus();
+        return;
+      }
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
-    const handleUnload = () => {
-      if (reloadInitiatedRef.current) return; // our own reload, not a departure
-      logOutcome('abandoned');
-    };
-    document.addEventListener('visibilitychange', handleHidden);
-    window.addEventListener('pagehide', handleUnload);
+
+    document.addEventListener('keydown', handleKeyDown);
     return () => {
-      document.removeEventListener('visibilitychange', handleHidden);
-      window.removeEventListener('pagehide', handleUnload);
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      restoreFocusRef.current?.focus();
     };
-  }, [open, logOutcome]);
-
-  // Most ad blockers apply cosmetic CSS hiding rules via a content script
-  // that only runs on page load — pausing/disabling the extension mid-session
-  // does not retroactively strip the already-injected rules, so the bait
-  // element in the heuristic fallback keeps reporting "blocked" until the page
-  // is reloaded (the network-level signal alone updates live, but the probe ORs
-  // it with the stale cosmetic one). Funding Choices' getAllowAdsStatus() is
-  // exempt from this — it reports the allowlisting itself, not a side effect of
-  // it, which is why the recheck consults it first. A second failed check offers an
-  // explicit reload instead of leaving the visitor re-clicking a button that
-  // can never succeed without one.
-  const handleRecheck = async () => {
-    trackPopupEvent('popup_cta_adblock', 'recheck_cta');
-    setRechecking(true);
-    try {
-      // `live`: the Funding Choices snapshot was taken at page load, when the
-      // blocker was still on. Trusting its verdict here would answer the
-      // question the visitor just changed the answer to.
-      const { blocked: stillBlocked, adsAllowed } = await detectAdBlockDetailed({ live: true });
-      if (adsAllowed) {
-        trackPopupEvent('popup_adblock_disable', 'adblock_allowlisted_confirmed');
-        closeGate('disabled');
-        return;
-      }
-      if (!stillBlocked) {
-        trackPopupEvent('popup_adblock_disable', 'adblock_disabled_confirmed');
-        closeGate('disabled');
-        return;
-      }
-      setRecheckFailed(true);
-    } finally {
-      setRechecking(false);
-    }
-  };
-
-  const handleReload = () => {
-    trackPopupEvent('popup_cta_adblock', 'reload_cta');
-    // Set BOTH before reloading: the ref stops this unload being read as a
-    // departure, the marker lets the next document report what happened.
-    reloadInitiatedRef.current = true;
-    markReloadFromGate();
-    window.location.reload();
-  };
-
-  const handleSubscribeClick = () => {
-    trackPopupEvent('popup_cta_subscribe', 'subscribe_cta');
-    closeGate('subscribe_clicked');
-    if (nav) nav.navigateTo('subscribe');
-  };
-
-  const handleToggleInstructions = () => {
-    trackPopupEvent('popup_instructions_toggle', showInstructions ? 'hide' : 'show');
-    setShowInstructions((v) => !v);
-  };
+  }, [open, closeOffer]);
 
   if (!open) return null;
 
   return createPortal(
     <div
-      className="fixed inset-0 z-[2147483647] flex items-center justify-center bg-black/70 backdrop-blur-sm px-4"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="adblock-gate-title"
+      className="fixed inset-0 z-[2147483647] flex items-center justify-center bg-slate-950/65 px-3 py-3 backdrop-blur-[2px] sm:px-5"
+      role="presentation"
+      onMouseDown={(event) => {
+        if (event.target === event.currentTarget) closeOffer('backdrop');
+      }}
     >
-      <div className="animate-gate-in relative w-full max-w-md overflow-hidden rounded-2xl border border-edge bg-gradient-to-br from-navy-900 via-navy-950 to-navy-900 p-6 shadow-2xl sm:p-7">
-        <div className="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-accent/20 blur-3xl" aria-hidden="true" />
-
-        {/* Secondary: adblock-detected notice strip (was the whole gate's framing; demoted to context) */}
-        <div className="relative mb-4 flex items-start gap-2 rounded-lg bg-white/5 px-3 py-2">
-          <ShieldAlert className="h-4 w-4 mt-0.5 shrink-0 text-warning" aria-hidden="true" />
-          <p className="text-xs leading-snug text-on-accent/80">{copy.title} — {copy.body}</p>
-        </div>
-
-        {/* Primary: headline + benefits + social proof + subscribe CTA */}
-        <h2 id="adblock-gate-title" className="relative mb-2 text-2xl font-extrabold leading-tight text-on-accent sm:text-[1.75rem]">
-          {copy.headline}
-        </h2>
-        <p className="relative mb-4 text-sm text-on-accent/85">{copy.urgency}</p>
-
-        <ul className="relative mb-5 flex flex-col gap-2">
-          {copy.benefits.map((benefit) => (
-            <li key={benefit} className="flex items-start gap-2 text-sm text-on-accent/90">
-              <CheckCircle2 className="h-4 w-4 mt-0.5 shrink-0 text-accent-hover" aria-hidden="true" />
-              <span>{benefit}</span>
-            </li>
-          ))}
-        </ul>
-
+      <section
+        ref={dialogRef}
+        className="animate-gate-in relative grid max-h-[calc(100dvh-1.5rem)] w-full max-w-4xl grid-cols-1 overflow-y-auto rounded-2xl bg-surface text-heading shadow-2xl md:max-h-[calc(100dvh-3rem)] md:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="native-application-offer-title"
+        aria-describedby="native-application-offer-description"
+        tabIndex={-1}
+      >
         <button
+          ref={closeButtonRef}
           type="button"
-          onClick={handleSubscribeClick}
-          className="cta-sheen animate-cta-pulse relative flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent to-accent-hover px-5 py-3.5 text-base font-bold text-on-accent shadow-lg transition hover:brightness-110"
+          onClick={() => closeOffer('close_button')}
+          className="absolute right-3 top-3 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-edge bg-surface text-heading shadow-sm transition-colors hover:bg-surface-alt focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+          aria-label={copy.close}
         >
-          <Sparkles className="h-5 w-5" aria-hidden="true" />
-          {copy.subscribeCta}
+          <X size={18} aria-hidden="true" />
         </button>
 
-        <p className="relative mt-3 text-center text-xs text-on-accent/75">{copy.socialProof}</p>
+        <picture className="relative block h-36 min-h-36 overflow-hidden bg-surface-raised sm:h-48 md:h-full md:min-h-[30rem]">
+          <source media="(max-width: 767px)" srcSet="/images/job-search-campaign/commute-wide-v1.webp" />
+          <img
+            src="/images/job-search-campaign/commute-portrait-v1.webp"
+            alt=""
+            width={887}
+            height={1774}
+            loading="eager"
+            decoding="async"
+            className="absolute inset-0 h-full w-full object-cover object-right md:object-center md:object-[center_24%]"
+          />
+        </picture>
 
-        <div className="relative mt-5 border-t border-white/10 pt-4">
-          <button
-            type="button"
-            onClick={handleToggleInstructions}
-            className="text-xs font-medium text-on-accent/70 hover:text-on-accent hover:underline"
-            aria-expanded={showInstructions}
-          >
-            {copy.instructionsToggle}
-          </button>
-          {showInstructions && (
-            <p className="mt-2 rounded-lg bg-white/5 p-3 text-xs text-on-accent/75">{copy.instructionsBody}</p>
-          )}
+        <div className="flex min-w-0 flex-col justify-center px-5 pb-5 pt-5 sm:px-7 sm:pb-7 md:px-8 md:py-10">
+          <span className="mb-4 inline-flex w-fit items-center rounded-full border border-accent/25 bg-accent-subtle px-3 py-1 text-xs font-semibold text-accent">
+            {copy.label}
+          </span>
+          <h2 id="native-application-offer-title" className="font-display text-2xl font-semibold leading-tight tracking-[-0.025em] text-heading sm:text-3xl">
+            {copy.title}
+          </h2>
+          <p id="native-application-offer-description" className="mt-3 text-sm leading-6 text-body sm:text-base">
+            {copy.description}
+          </p>
 
-          <button
-            type="button"
-            onClick={handleRecheck}
-            disabled={rechecking}
-            className="mt-3 flex w-full items-center justify-center gap-2 rounded-lg border border-white/15 px-4 py-2 text-xs font-medium text-on-accent/70 transition hover:bg-white/5 hover:text-on-accent disabled:opacity-60"
-          >
-            {rechecking && <Loader2 className="h-3.5 w-3.5 animate-spin" aria-hidden="true" />}
-            {rechecking ? copy.rechecking : copy.recheck}
-          </button>
-
-          {recheckFailed && (
-            <div className="mt-3">
-              <p className="mb-2 text-xs text-on-accent/75">{copy.reloadHint}</p>
-              <button
-                type="button"
-                onClick={handleReload}
-                className="flex w-full items-center justify-center gap-2 rounded-lg bg-white/10 px-4 py-2 text-xs font-semibold text-on-accent transition hover:bg-white/15"
-              >
-                {copy.reloadCta}
-              </button>
+          <div className="mt-5 flex flex-wrap items-end justify-between gap-x-4 gap-y-3 border-t border-edge pt-4">
+            <div className="space-y-1 text-sm text-subtle">
+              <p className="font-semibold text-heading">{copy.duration}</p>
+              <p>{copy.limit}</p>
             </div>
-          )}
+            <div className="text-left sm:text-right">
+              <p className="font-display text-3xl font-bold tabular-nums leading-none text-heading">{copy.price}</p>
+              <p className="mt-1 text-xs leading-5 text-subtle">{copy.priceNote}</p>
+            </div>
+          </div>
+
+          <a
+            href={offerHref}
+            onClick={() => closeOffer('cta_click')}
+            className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+          >
+            {copy.cta}
+            <ArrowRight size={18} aria-hidden="true" />
+          </a>
+          <p className="mt-3 text-center text-xs leading-5 text-subtle">{copy.disclaimer}</p>
+          <button
+            type="button"
+            onClick={() => closeOffer('continue_reading')}
+            className="mt-3 min-h-11 self-center px-3 text-sm font-medium text-subtle underline decoration-edge underline-offset-4 transition-colors hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+          >
+            {copy.dismiss}
+          </button>
         </div>
-      </div>
+      </section>
     </div>,
     document.body,
   );

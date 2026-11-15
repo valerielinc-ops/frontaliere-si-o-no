@@ -28,6 +28,7 @@ import {
 } from './lib/orphan-enriched-store.mjs';
 import { JOB_BOARD_SECTION_PREFIX_SOURCE } from './lib/jobBoardSections.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -79,7 +80,7 @@ function matchJobBoardPath(raw) {
 const SKIP_PREFIX_RE = /^(?:search|ricerca|suche|recherche|azienda|company|unternehmen|entreprise)-/;
 
 function readJson(p, fallback = null) {
-  try { return JSON.parse(fs.readFileSync(p, 'utf8')); } catch { return fallback; }
+  try { return readJsonFile(p); } catch { return fallback; }
 }
 
 /** Load translation cache: slug -> { titles, descriptions, sourceFile }. */

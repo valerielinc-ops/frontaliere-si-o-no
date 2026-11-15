@@ -18,6 +18,7 @@ import {
   REVIEW_QUESTION_MAX_ATTEMPTS,
   REVIEW_QUESTION_RETRY_MS,
   currentReviewQuestionVersion,
+  platformSuggestionUpdate,
   reconcileReviewQuestions,
   reviewQuestionFingerprintFiles,
   reviewQuestionPlan,
@@ -325,17 +326,39 @@ describe('candidate answers survive question reconciliation', () => {
   const history = () => rememberCandidateAnswerHistory({ questions: [previousQuestion], changed: { [previousQuestion.id]: answer },
     round: 1, confirmedAt: now, actor: 'candidate' });
 
-  it('reapplies a saved answer to the same question after its id and compatible field type change', () => {
-    const candidateAnswerHistory = history();
-    expect(candidateAnswersForQuestions([changedQuestion], {}, {}, candidateAnswerHistory, now)[changedQuestion.id]).toBe(answer);
-    expect(evaluateRedFlags(draftOf([changedQuestion]), {}, {}, {}, { state: 'candidate_review', round: 1,
-      candidateAnswerHistory }, order).candidate).toEqual([]);
+  it('removes a platform default suggestion when the preserved candidate answer no longer fits', () => {
+    const previousWorkload = { id: 'workload_before', question: 'Grado di occupazione', type: 'choice',
+      options: ['80%', '100%'], required: true, source: 'portal' };
+    const currentWorkload = { id: 'workload_after', question: previousWorkload.question, type: 'choice',
+      options: ['50%', '100%'], required: true, source: 'portal', suggestedAnswer: '100%', answerOrigin: 'platform_rule' };
+    const candidateAnswerHistory = rememberCandidateAnswerHistory({ questions: [previousWorkload],
+      changed: { [previousWorkload.id]: '80%' }, round: 1, confirmedAt: now, actor: 'candidate' });
+    const result = platformSuggestionUpdate({ order, draft: draftOf([currentWorkload]),
+      flow: { ...heldFlow([`question:${currentWorkload.id}`]), candidateAnswerHistory } });
+
+    expect(result.ids).toEqual([currentWorkload.id]);
+    expect(result.questions[0]).not.toHaveProperty('suggestedAnswer');
+    expect(result.questions[0]).not.toHaveProperty('answerOrigin');
+    expect(candidateAnswerHistoryState(candidateAnswerHistory)).toEqual(candidateAnswerHistory);
   });
 
-  it('maps a normalized catalog match to the current option label', () => {
+  it('keeps the answer in history and leaves the question open when its type and catalog change', () => {
+    const candidateAnswerHistory = history();
+    expect(candidateAnswersForQuestions([changedQuestion], {}, {}, candidateAnswerHistory, now))
+      .not.toHaveProperty(changedQuestion.id);
+    expect(candidateAnswerHistoryState(candidateAnswerHistory)).toEqual(candidateAnswerHistory);
+    expect(evaluateRedFlags(draftOf([changedQuestion]), {}, {}, {}, { state: 'candidate_review', round: 1,
+      candidateAnswerHistory }, order).candidate).toEqual([changedQuestion.id]);
+  });
+
+  it('does not reuse a historical answer when the new catalog adds options', () => {
     const candidateAnswerHistory = history();
     const changedCatalog = { ...changedQuestion, options: ['YES', 'NO', 'NOT SURE'] };
-    expect(candidateAnswersForQuestions([changedCatalog], {}, {}, candidateAnswerHistory, now)[changedCatalog.id]).toBe('YES');
+    expect(candidateAnswersForQuestions([changedCatalog], {}, {}, candidateAnswerHistory, now))
+      .not.toHaveProperty(changedCatalog.id);
+    expect(candidateAnswerHistoryState(candidateAnswerHistory)).toEqual(candidateAnswerHistory);
+    expect(evaluateRedFlags(draftOf([changedCatalog]), {}, {}, {}, { state: 'candidate_review', round: 1,
+      candidateAnswerHistory }, order).candidate).toEqual([changedCatalog.id]);
   });
 
   it('keeps a value in the ledger and leaves the question open when the new option catalog rejects it', () => {
@@ -468,7 +491,7 @@ describe('candidate answers survive question reconciliation', () => {
       answers: directAnswers, candidateAnswerHistory: historyWithAnswer }, order).candidate).toEqual([currentQuestion.id]);
   });
 
-  it('preserves every candidate answer before and after a reconciliation tick', async () => {
+  it('preserves incompatible answers in history and leaves the question open before and after a reconciliation tick', async () => {
     const base = 'assisted_applications/candidate_answer_history_reconcile';
     const candidateAnswerHistory = history();
     const previousFlow = { ...heldFlow([`question:${previousQuestion.id}`]), answers: { [previousQuestion.id]: answer },
@@ -481,10 +504,11 @@ describe('candidate answers survive question reconciliation', () => {
     const report = await reconcileReviewQuestions({ db: store.db, nowMs: now, apply: true });
     const afterFlow = store.read(`${base}/automation/flow`);
     const tick = transition(previousFlow, { type: 'tick' }, { order, draft: draftOf([changedQuestion]), nowMs: now });
-    expect(report.orders[0]).toMatchObject({ stillOpen: [] });
+    expect(report.orders[0]).toMatchObject({ stillOpen: [changedQuestion.id] });
     expect(tick.flow).toMatchObject(before);
     expect(afterFlow).toMatchObject(before);
-    expect(candidateWithEdits({ order, draft: draftOf([changedQuestion]), flow: afterFlow }).answers[changedQuestion.id]).toBe(answer);
+    expect(candidateWithEdits({ order, draft: draftOf([changedQuestion]), flow: afterFlow }).answers)
+      .not.toHaveProperty(changedQuestion.id);
   });
 });
 

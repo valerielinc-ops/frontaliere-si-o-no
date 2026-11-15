@@ -4,6 +4,7 @@ import fs, { realpathSync } from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
+import { readJsonFile } from "./lib/read-large-json.mjs";
 import { isFixtureJob } from "./lib/fixture-data-filter.mjs";
 import {
   discoverFastPublishJobs,
@@ -1397,8 +1398,7 @@ async function publishSectionPayloads(sections, heartbeat, runnerTemp) {
   }
 }
 
-function parseJobInput(raw) {
-  const data = JSON.parse(raw);
+function parseJobInput(data) {
   return Array.isArray(data) ? data : [];
 }
 
@@ -1440,7 +1440,7 @@ export async function runJobsFastPublish({
     ]);
   const { jobsSeoPagesPlugin, compareActiveJobsByStableOrder } = jobRenderer;
   const { employerProfilePagesPlugin } = employerRenderer;
-  const rawJobs = parseJobInput(fs.readFileSync(dataPath, "utf8"));
+  const rawJobs = parseJobInput(readJsonFile(dataPath));
   let validJobs = rawJobs
     .filter((job) => !isFixtureJob(job))
     .filter((job) => isListingInventoryJob(job))

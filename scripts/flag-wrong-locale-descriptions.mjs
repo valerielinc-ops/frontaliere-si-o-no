@@ -27,6 +27,7 @@ import {
 } from './lib/job-locale-utils.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -68,7 +69,7 @@ function processFile(filePath, label) {
   if (!fs.existsSync(filePath)) return { flagged: 0, total: 0 };
   let raw;
   try {
-    raw = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+    raw = readJsonFile(filePath);
   } catch (e) {
     console.error(`  ⚠️  ${label}: failed to parse`);
     return { flagged: 0, total: 0 };

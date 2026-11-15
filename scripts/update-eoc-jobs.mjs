@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 /**
  * Dedicated EOC (Ente Ospedaliero Cantonale) crawler runner.
  * Runs only EOC hospital jobs (Umantis ATS at recruitingapp-2761.umantis.com)
@@ -727,7 +728,7 @@ function stabilizeEocSlugs() {
   } catch { return; }
   if (preSliceJobs.length === 0) return;
 
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const jobs = Array.isArray(raw) ? raw : [];
 
   const { stabilizedSlugs, stabilizedLocaleSlugs } =
@@ -761,7 +762,7 @@ function stabilizeEocSlugs() {
  */
 function postProcessEocJobs() {
   if (!fs.existsSync(DATA_JOBS)) return;
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const jobs = Array.isArray(raw) ? raw : [];
 
   const { stats } = postProcessEocJobsInMemory(jobs);
@@ -785,7 +786,7 @@ function logEocJobStats(beforeSnapshot = new Map()) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
     return { total: 0, ticino: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const allJobs = Array.isArray(raw) ? raw : [];
   const eocJobs = allJobs.filter(isEocJob);
   const ticinoJobs = eocJobs.filter((job) => normalize(job?.canton) === 'ti');
@@ -874,7 +875,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isEocJob) : [];
   writeJobsCrawlerSlice(EOC_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

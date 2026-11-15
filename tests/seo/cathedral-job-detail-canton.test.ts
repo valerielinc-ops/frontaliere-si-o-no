@@ -1,3 +1,4 @@
+import { readJsonFile } from '../../scripts/lib/read-large-json.mjs';
 import { describe, it, expect } from 'vitest';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
@@ -134,7 +135,7 @@ describe('en/de/fr: no legacy TI copy of a non-TI job', () => {
 
     it(`${locale}: expired non-TI registry slugs have no page under /${locale}/${SECTION_LEGACY_TI[locale]}/`, { timeout: SCAN_TEST_TIMEOUT_MS }, () => {
       if (!fs.existsSync(path.join(DIST, locale)) || !fs.existsSync(REGISTRY_SAMPLE_PART)) return;
-      const part = JSON.parse(fs.readFileSync(REGISTRY_SAMPLE_PART, 'utf8')) as { slugs?: Record<string, Record<string, string>> };
+      const part = readJsonFile(REGISTRY_SAMPLE_PART) as { slugs?: Record<string, Record<string, string>> };
       const section = `/${locale}/${SECTION_LEGACY_TI[locale]}/`;
       let checked = 0;
       for (const [slug, paths] of Object.entries(part.slugs ?? {})) {

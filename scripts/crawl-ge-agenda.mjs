@@ -361,6 +361,10 @@ const crawler = createAgendaCrawler({
   iterations: MAX_PAGES,
   horizonDays: HORIZON_DAYS,
   stopOnEmptyPage: true,
+  // The listing already supplies the title/date/description facts. Detail
+  // pages add optional tariff/canonical metadata, so an unavailable detail
+  // must not discard a fresh, source-backed listing row.
+  detailFailureStrategy: 'source-backed-listing',
 });
 
 async function main() {

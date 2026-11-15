@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { applicationReceipt, applicationStage, isApplicationRegionUnsupported, portalJobKey } from '../scripts/assisted-application/lib/portal/stages.mjs';
+import { applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, isApplicationRegionUnsupported, portalJobKey } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { applicationEntryControls, isVerifiedPostingEntry, pageControls, urlConfirms } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const origin = 'https://careers.example';
@@ -19,6 +19,115 @@ const receipt = { url: receiptUrl, fields: [], text: `Thank you for your applica
 const controls = (snapshot: any) => pageControls(snapshot.buttons, known, snapshot.url, { snapshot, applyUrl, job });
 
 describe('application stage ownership', () => {
+  it.each([
+    'Introduce yourself',
+    'Initiativbewerbung',
+    'Candidature spontanée',
+    'Candidatura spontanea',
+    'Spontaneous application',
+    'Job-Abo erstellen',
+    'Create a job alert',
+    'Job alert',
+    'Créer une alerte emploi',
+  ])('returns talent-pool and alert language as an agent hint, not a route stop: %s', (text) => {
+    expect(applicationDiversionHint({ title: text })).toBe('talent_pool_or_job_alert');
+  });
+
+  it('keeps ambiguous self-introduction titles as hints, not final diversion proof', () => {
+    expect(applicationDiversionHint({ title: 'Introduce yourself' })).toBe('talent_pool_or_job_alert');
+    expect(applicationDestinationDiversionHint({ title: 'Introduce yourself' })).toBe('');
+    expect(applicationDestinationDiversionHint({
+      title: 'Application',
+      url: 'https://careers.example/apply/REQ-42',
+      pageHeadings: ['Personal information', 'Candidature spontanée'],
+    })).toBe('talent_pool_or_job_alert');
+  });
+
+  it('does not call ordinary job-specific application labels a diversion', () => {
+    expect(applicationDiversionHint({ title: 'Apply for Payroll Specialist', text: 'Continue your application.' })).toBe('');
+  });
+
+  it('recognizes a diversion route even when the page title is generic', () => {
+    expect(applicationDiversionHint({
+      title: 'Application',
+      url: 'https://careers.example/talent-pool',
+    })).toBe('talent_pool_or_job_alert');
+  });
+
+  it('recognizes a generic application page whose body disclaims a specific job', () => {
+    expect(applicationDestinationDiversionHint({
+      title: 'Application',
+      url: 'https://example.test/apply/',
+      text: 'This is not an application for a specific job',
+    })).toBe('talent_pool_or_job_alert');
+  });
+
+  it('does not let a generic Application heading suppress a diversion warning', () => {
+    expect(applicationDestinationDiversionHint({
+      title: 'Application',
+      pageHeadings: ['Application'],
+      text: 'This is not an application for a specific job',
+    })).toBe('talent_pool_or_job_alert');
+  });
+
+  it('recognizes an unsolicited-application warning on a generic destination', () => {
+    expect(applicationDestinationDiversionHint({
+      title: 'Application',
+      text: 'This is an unsolicited application',
+    })).toBe('talent_pool_or_job_alert');
+  });
+
+  it('does not treat a job-alert sidebar link as a diversion destination for final binding', () => {
+    const snapshot = {
+      title: 'Application',
+      url: 'https://careers.example/apply/REQ-42',
+      links: [{ text: 'Create a job alert' }],
+    };
+    expect(applicationDiversionHint(snapshot)).toBe('talent_pool_or_job_alert');
+    expect(applicationDestinationDiversionHint(snapshot)).toBe('');
+  });
+
+  it('keeps an adjacent panel warning as an agent hint without overriding a bound job heading', () => {
+    const snapshot = {
+      title: 'Application',
+      url: 'https://careers.example/en-US/job/Infrastructure-Strategy-Manager_R-12345',
+      pageHeadings: ['Infrastructure Strategy Manager'],
+      text: 'This is not an application for a specific job. Apply to this selected position.',
+    };
+    expect(applicationDiversionHint(snapshot)).toBe('talent_pool_or_job_alert');
+    expect(applicationDestinationDiversionHint(snapshot)).toBe('');
+  });
+
+  it('does not promote a secondary accessibility heading to destination evidence', () => {
+    const snapshot = {
+      title: 'Application',
+      url: 'https://careers.example/apply/REQ-42',
+      text: '- heading "Application" [level=1] [ref=e1]\n- heading "Not an application for a specific job" [level=2] [ref=e2]',
+    };
+    expect(applicationDestinationDiversionHint(snapshot)).toBe('');
+    expect(applicationDiversionHint(snapshot)).toBe('talent_pool_or_job_alert');
+  });
+
+  it('does not treat ordinary application copy containing Introduce yourself as a diversion', () => {
+    expect(applicationDiversionHint({
+      title: 'Payroll Specialist application',
+      text: 'Payroll Specialist application\nIntroduce yourself\nSubmit application',
+    })).toBe('');
+  });
+
+  it('recognizes a spontaneous-application warning in page text as a hint', () => {
+    expect(applicationDiversionHint({ text: 'Candidature spontanée: présentez-vous à notre équipe.' })).toBe('talent_pool_or_job_alert');
+  });
+
+  it('ignores application copy and site job-alert links on a bound application form', () => {
+    expect(applicationDiversionHint({
+      title: 'Application',
+      text: 'Seasonal Sales Consultant — Introduce yourself — Submit application',
+      buttons: [{ text: 'Submit application', formId: 'application' }],
+      links: [{ text: 'Create a job alert', chrome: true }],
+    })).toBe('');
+  });
+
   it.each([
     'Leider können wir Bewerbungen aus Ihrer Region aktuell nicht unterstützen.',
     'Applications from your region are not currently supported.',
@@ -107,7 +216,30 @@ describe('application stage ownership', () => {
       .toMatchObject({ kind: 'application_start', control: start });
   });
 
-  it('keeps the Swarovski Workday login module bound to the selected posting', () => {
+  it('keeps a Roche Workday details module bound to the selected announcement', () => {
+    const detailsUrl = 'https://roche.wd3.myworkdayjobs.com/en-US/roche-ext/details/Technical-Product-Owner--Sites--SHE---Sustainability_202606-116471-2';
+    const apply = { text: 'Apply', frame: 0, disabled: false };
+    const snapshot = {
+      url: detailsUrl,
+      text: 'Technical Product Owner — Sites, SHE & Sustainability',
+      fields: [],
+      buttons: [
+        { text: 'Search', chrome: true },
+        { text: 'Apply', frame: 0, disabled: false },
+        { text: 'View All Jobs', chrome: true },
+      ],
+    };
+    const context = {
+      applyUrl: detailsUrl,
+      postingUrl: detailsUrl,
+      job: { title: 'Technical Product Owner — Sites, SHE & Sustainability', company: 'Roche' },
+    };
+
+    expect(applicationEntryControls(snapshot, context)).toEqual([apply]);
+    expect(applicationStage(snapshot, context).kind).not.toBe('posting_mismatch');
+  });
+
+  it('treats the Swarovski Workday login route as account only after selected application entry proof', () => {
     const postingUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet-CHE/Seasonal-Sales-Consultant_R-12345';
     const loginUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/login';
     const snapshot = {
@@ -134,9 +266,17 @@ describe('application stage ownership', () => {
       ],
     };
 
+    expect(applicationStage(snapshot, {
+      applyUrl: postingUrl,
+      job: { title: 'Seasonal Sales Consultant' },
+      workdayApplicationEntryProven: true,
+    })).toMatchObject({ kind: 'account' });
     expect(applicationStage(snapshot, { applyUrl: postingUrl, job: { title: 'Seasonal Sales Consultant' } }))
-      .toMatchObject({ kind: 'form' });
-    expect(applicationStage({ ...snapshot, url: 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/other-site/login' }, { applyUrl: postingUrl }))
+      .toMatchObject({ kind: 'posting_mismatch' });
+    expect(applicationStage({ ...snapshot, url: 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/other-site/login' }, {
+      applyUrl: postingUrl,
+      workdayApplicationEntryProven: true,
+    }))
       .toMatchObject({ kind: 'posting_mismatch' });
     expect(applicationStage({ ...snapshot, url: 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/forgotPassword' }, { applyUrl: postingUrl }))
       .toMatchObject({ kind: 'posting_mismatch' });
@@ -655,5 +795,49 @@ describe('application stage ownership', () => {
     'Merci pour votre candidature pour Infrastructure Strategy Manager.',
   ])('continues to accept a completed receipt in the selected communication language: %s', text => {
     expect(applicationReceipt({ ...receipt, text }, { applyUrl, job })).toBe(true);
+  });
+});
+
+describe('Workday account route stages', () => {
+  const workdayApplyUrl = 'https://acme.wd3.myworkdayjobs.com/fr-FR/AcmeCareers/job/Mendrisio-Outlet/Consultant_R-12345-1/apply/applyManually';
+  const loginUrl = 'https://acme.wd3.myworkdayjobs.com/fr-FR/AcmeCareers/login';
+  const login = {
+    url: loginUrl,
+    text: 'Connexion Adresse e-mail Mot de passe Créer un compte',
+    fields: [
+      { id: 'email', inputType: 'email', label: 'Adresse e-mail' },
+      { id: 'password', inputType: 'password', label: 'Mot de passe' },
+    ],
+    buttons: [{ id: 'sign-in', text: 'Connexion' }],
+  };
+
+  it('accepts the login page as an account stage only after this run entered the selected apply route', () => {
+    expect(applicationStage(login, {
+      applyUrl: workdayApplyUrl,
+      workdayApplicationEntryProven: true,
+    })).toEqual({ kind: 'account' });
+    expect(applicationStage(login, { applyUrl: workdayApplyUrl })).toEqual({ kind: 'posting_mismatch' });
+  });
+
+  it.each([
+    'https://acme.wd3.myworkdayjobs.com/fr-FR/AcmeCareers/introduceYourself',
+    'https://acme.wd3.myworkdayjobs.com/fr-FR/OtherSite/login',
+    'https://other.wd3.myworkdayjobs.com/fr-FR/AcmeCareers/login',
+    'https://acme.wd3.myworkdayjobs.com/fr-FR/AcmeCareers/job/Other/Consultant_R-54321-2',
+  ])('keeps non-account and unselected routes mismatched even with entry proof: %s', (url) => {
+    expect(applicationStage({ ...login, url }, {
+      applyUrl: workdayApplyUrl,
+      workdayApplicationEntryProven: true,
+    })).toEqual({ kind: 'posting_mismatch' });
+  });
+
+  it('does not expose account controls as application next or submit buttons', () => {
+    const result = pageControls(login.buttons, known, loginUrl, {
+      snapshot: login,
+      applyUrl: workdayApplyUrl,
+      workdayApplicationEntryProven: true,
+      job,
+    });
+    expect(result).toMatchObject({ stage: { kind: 'account' }, submit: null, next: null });
   });
 });

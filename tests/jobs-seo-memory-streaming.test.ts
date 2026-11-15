@@ -316,9 +316,15 @@ describe('jobsSeoPages disk-backed HTML retention', () => {
       'utf8',
     );
     expect(source).toContain("logJobsSeoMem('after-active-pages'");
+    expect(source).toContain("import { iterateJsonArrayFile } from '../scripts/lib/read-large-json.mjs';");
+    expect(source).toContain('for (const rawJob of iterateJsonArrayFile(jobsPath))');
+    expect(source).not.toContain('readJsonFile(jobsPath)');
     expect(source).toContain('activeHtmlSource: \'disk\'');
     expect(source).toContain('const EXPIRED_HTML_CACHE_CHUNK_SIZE = 512');
     expect(source).toContain('const ACTIVE_HTML_CACHE_CHUNK_SIZE = 512');
+    expect(source).toContain('const claimedTitlesByLocale: Record<\'it\' | \'en\' | \'de\' | \'fr\', CompactStringHashSet>');
+    expect(source).toContain('const claimedJobPaths = new CompactLocalePathClaims();');
+    expect(source).toContain('claimedJobPaths.claim(localePathClaimKey(relPath));');
     expect(source).toContain("const JOBS_SEO_HTML_GC_INTERVAL_MB = process.env.JOBS_SEO_HTML_GC_INTERVAL_MB === '512'");
     expect(source).toContain(': 1024;');
     expect(source).toContain('autoFlushThreshold: HUB_PAGE_WRITE_FLUSH_THRESHOLD,');

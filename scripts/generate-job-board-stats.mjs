@@ -5,6 +5,7 @@ import { realpathSync } from 'node:fs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readJsonFile } from './lib/read-large-json.mjs';
 
 import { buildJobsStatsArtifacts, buildJobKeysSnapshot } from './lib/job-board-stats.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -23,7 +24,7 @@ const PUBLIC_SUMMARY_PATH = path.join(ROOT, 'public', 'data', 'jobs-stats.json')
 function readJson(filePath, fallback) {
   if (!fs.existsSync(filePath)) return fallback;
   try {
-    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    return readJsonFile(filePath);
   } catch (error) {
     console.warn(`⚠️ Failed to parse ${path.relative(ROOT, filePath)}: ${error.message}`);
     return fallback;

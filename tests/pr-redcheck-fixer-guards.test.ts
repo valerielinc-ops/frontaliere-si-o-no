@@ -282,6 +282,17 @@ describe('parità col gemello — ciò che è stato ereditato deve restare intat
     expect(src).toContain('Classify outcome (work-done, not CLI exit)');
   });
 
+  it('mantiene bounded i test locali nei due fixer gemelli', () => {
+    for (const workflow of [src, TWIN]) {
+      expect(workflow).toContain('command_timeout_seconds: "240"');
+      expect(workflow).toContain('timeout --signal=TERM --kill-after=15s 240s npx --no-install vitest run');
+      expect(workflow).toContain('non ripeterlo né alzare il timeout');
+      expect(workflow).toContain('non aggirarlo con un alias o un comando equivalente');
+    }
+    expect(src).toContain('Prima di eseguire qualunque test, confronta il path del test/failure');
+    expect(src).toContain('non rilanciare Vitest');
+  });
+
   it('ha lo stesso capability guard su .github/workflows/**', () => {
     expect(src).toMatch(/touches_wf=/);
     expect(TWIN).toMatch(/touches_wf=/);

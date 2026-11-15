@@ -32,7 +32,7 @@ import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mj
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { markAuthoritativeEmptySnapshot, isAuthoritativeEmptySnapshot } from './lib/authoritative-empty-snapshot.mjs';
-import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
+import { archiveRemovedJobsToSlice, readExpiredSlice } from './lib/expired-jobs-archive.mjs';
 import { classifyCountryValue } from './lib/prospector/country-inventory.mjs';
 import { isExplicitlyForeign } from './lib/prospector/location-evidence.mjs';
 
@@ -53,7 +53,6 @@ const COMPANY_HOST = 'www.zambon.com';
 const CAREERS_URL = 'https://www.zambon.com/en/open-positions';
 const CAREERS_API = 'https://www.zambon.com/it/api/careers-api?visibility=external';
 const LOCALES = ['it', 'en', 'de', 'fr'];
-const EXPIRED_JOBS_ARCHIVE = path.join(ROOT, 'data', 'jobs', 'expired', 'by-crawler', `${COMPANY_KEY}.json`);
 // The archived Zambon detail records were crawled from the English NcorePlat
 // page. The archive writer does not persist sourceLang, so use only this
 // explicitly evidenced slot; never pick an arbitrary locale as a fallback.
@@ -215,13 +214,9 @@ const DETAIL_DELAY_MS = 1000;
 // Only ever recognised to be removed from stored records.
 export const ZAMBON_FABRICATED_DESCRIPTION_RE = /opportunità professionale presso Zambon Svizzera SA|— posizione presso Zambon Svizzera SA a /;
 
+// Monolith + shards of the archive (scripts/lib/expired-slice-store.mjs).
 function readZambonExpiredJobs() {
-  try {
-    const parsed = JSON.parse(fs.readFileSync(EXPIRED_JOBS_ARCHIVE, 'utf8'));
-    return Array.isArray(parsed) ? parsed : [];
-  } catch {
-    return [];
-  }
+  return readExpiredSlice(COMPANY_KEY);
 }
 
 function archivedZambonSourceUrl(entry = {}) {

@@ -307,11 +307,26 @@ function ownerPreferenceAnswer(question, { locale, facts = null } = {}) {
 export function withOperationalQuestionAnswers(questions, confirmedAnswers = {}, options = {}) {
   const answers = { ...confirmedAnswers };
   const defaults = {};
+  const suppressedDefaults = options.suppressDefaultQuestionIds instanceof Set
+    ? options.suppressDefaultQuestionIds : new Set(Array.isArray(options.suppressDefaultQuestionIds) ? options.suppressDefaultQuestionIds : []);
+  const suppressedCandidateAnswers = new Map((Array.isArray(options.candidateAnswerSuppressedQuestionContracts)
+    ? options.candidateAnswerSuppressedQuestionContracts : [])
+    .filter(contract => typeof contract?.id === 'string' && contract.status === 'answered'
+      && contract.allowLiveMapping === true && hasAnswer(contract.answer))
+    .map(contract => [contract.id, contract.answer]));
   for (const question of Array.isArray(questions) ? questions : []) {
     if (!question?.id) continue;
     if (hasAnswer(answers[question.id])) {
       const projected = operationalAnswerForOption(question, answers[question.id]);
       if (projected) answers[question.id] = projected;
+      continue;
+    }
+    if (suppressedDefaults.has(question.id)) {
+      const saved = suppressedCandidateAnswers.get(question.id);
+      if (saved !== undefined) {
+        const projected = operationalAnswerForOption(question, saved);
+        if (projected) answers[question.id] = projected;
+      }
       continue;
     }
     const answer = operationalDefaultAnswer(question, options);
@@ -359,12 +374,16 @@ export function withoutPlatformSuggestions(questions) {
  * @param {{facts?: object|null, locale?: string, keepExisting?: boolean, answers?: object}} [options]
  * @returns {object[]}
  */
-export function withPlatformSuggestions(questions, { facts = null, locale, keepExisting = false, answers = {} } = {}) {
+export function withPlatformSuggestions(questions, { facts = null, locale, keepExisting = false, answers = {},
+  suppressDefaultQuestionIds } = {}) {
+  const suppressedDefaults = suppressDefaultQuestionIds instanceof Set
+    ? suppressDefaultQuestionIds : new Set(Array.isArray(suppressDefaultQuestionIds) ? suppressDefaultQuestionIds : []);
   return (Array.isArray(questions) ? questions : []).map(question => {
     if (!question?.id) return question;
     const mirrored = isPlatformSuggestion(question);
     if (!mirrored && String(question.suggestedAnswer ?? '').trim()) return question;
     const bare = withoutMirror(question);
+    if (suppressedDefaults.has(question.id)) return bare;
     if (hasAnswer(answers?.[question.id])) return bare;
     const answer = operationalDefaultAnswer(bare, { locale, facts });
     const value = String(answer?.value ?? '').trim();
@@ -402,8 +421,11 @@ export function isOperationalDefaultValue(question, value, options = {}) {
 }
 
 /** Required form preferences also leave with an email application. Never edit the CV. */
-export function operationalEmailBody(draft, confirmedAnswers = {}, { facts } = {}) {
-  const { answers, defaults } = withOperationalQuestionAnswers(draft?.questions, confirmedAnswers, { locale: draft?.language, facts });
+export function operationalEmailBody(draft, confirmedAnswers = {}, { facts, suppressDefaultQuestionIds,
+  candidateAnswerSuppressedQuestionContracts } = {}) {
+  const { answers, defaults } = withOperationalQuestionAnswers(draft?.questions, confirmedAnswers, {
+    locale: draft?.language, facts, suppressDefaultQuestionIds, candidateAnswerSuppressedQuestionContracts,
+  });
   // A CV answer is already in the CV the e-mail carries: no line of its own.
   const lines = (draft?.questions || []).filter(question => question.required && defaults[question.id] && !isCvAnswerDefault(defaults[question.id]))
     .map(question => `${question.applicationQuestion || question.question}: ${answers[question.id]}`);

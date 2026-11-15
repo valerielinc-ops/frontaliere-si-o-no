@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { VITEST_CHECK_NAME } from '../scripts/ci/lib/constants.mjs';
+import { RETIRED_PORTAL_REPLAY_GATE_CHECK_NAME, VITEST_CHECK_NAME } from '../scripts/ci/lib/constants.mjs';
 import {
   evaluateRulesets,
   rulesetGuardsMain,
@@ -10,8 +10,9 @@ import {
 
 /**
  * L'invariante sorvegliata sta in una impostazione GitHub, non nel repo: il
- * Ruleset di `main` che rende obbligatorio il check vitest (#6590, follow-up di
- * #6584). Questi test non parlano con l'API — coprono la LOGICA del verdetto,
+ * Ruleset di `main` che rende obbligatorio vitest (#6590,
+ * follow-up di #6584) e non richiede più il check ritirato `portal replay gate`
+ * (replay sui portali giornaliero dal 2026-11-15). Questi test non parlano con l'API — coprono la LOGICA del verdetto,
  * cioè l'unica parte che può sbagliare in silenzio: dire «protetto» su una
  * configurazione che non protegge niente.
  */
@@ -94,6 +95,7 @@ describe('evaluateRulesets', () => {
     const verdict = evaluateRulesets([guardingRuleset()]);
     expect(verdict.ok).toBe(true);
     expect(verdict.contexts).toContain(VITEST_CHECK_NAME);
+    expect(verdict.contexts).not.toContain(RETIRED_PORTAL_REPLAY_GATE_CHECK_NAME);
   });
 
   it('violazione quando nessun ruleset attivo protegge main', () => {
@@ -131,6 +133,21 @@ describe('evaluateRulesets', () => {
       ],
     });
     expect(evaluateRulesets([rs]).ok).toBe(false);
+  });
+
+  it('fallisce quando il check ritirato del replay sui portali è ancora required', () => {
+    const rs = guardingRuleset({
+      rules: [
+        {
+          type: 'required_status_checks',
+          parameters: { required_status_checks: [{ context: VITEST_CHECK_NAME }, { context: RETIRED_PORTAL_REPLAY_GATE_CHECK_NAME }] },
+        },
+      ],
+    });
+    const verdict = evaluateRulesets([rs]);
+    expect(verdict.ok).toBe(false);
+    expect(verdict.reason).toBe('retired-required-check');
+    expect(verdict.message).toContain(RETIRED_PORTAL_REPLAY_GATE_CHECK_NAME);
   });
 
   it('somma i context di più ruleset che proteggono main', () => {

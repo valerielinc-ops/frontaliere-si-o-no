@@ -286,10 +286,9 @@ jobs:
           APP_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || '' }}
           GITHUB_REPOSITORY: ${{ github.repository }}
           PROMOTE_MAX: ${{ github.event.inputs.promote_max || '15' }}
-          # Il cron non passa mai questo input, quindi resta 2: la leva e'
-          # raggiungibile solo da un dispatch manuale, e ogni uso finisce
-          # scritto nel titolo e nel corpo della PR prodotta.
-          PROMOTE_MIN_DAYS: ${{ github.event.inputs.promote_min_days || '2' }}
+          # La leva e' disponibile solo al dispatch manuale; il cron deve
+          # lasciare che PROMOTE usi il requisito pieno definito nel gate.
+          PROMOTE_MIN_DAYS: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.promote_min_days || '' }}
         run: |
           # Checkout deliberately does not persist credentials. GH_TOKEN is
           # APP_TOKEN when the App was minted, otherwise the ordinary
@@ -302,4 +301,8 @@ jobs:
           bash scripts/lib/clear-checkout-git-credentials.sh
           git remote set-url origin \
             "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
-          node scripts/prospect-promote.mjs --max="$PROMOTE_MAX" --min-days="$PROMOTE_MIN_DAYS" --open-pr
+          PROMOTE_ARGS=(--max="$PROMOTE_MAX" --open-pr)
+          if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ]; then
+            PROMOTE_ARGS+=(--min-days="$PROMOTE_MIN_DAYS")
+          fi
+          node scripts/prospect-promote.mjs "${PROMOTE_ARGS[@]}"

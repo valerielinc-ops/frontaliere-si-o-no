@@ -74,11 +74,14 @@ import {
   MAX_DOCUMENT_BYTES,
   MAX_FILES_PER_DOCUMENT,
   MAX_REQUIRED_DOCUMENTS,
+  MAX_PORTAL_PHOTO_BYTES,
   detectDocumentType,
   documentFileId,
   documentsView,
   documentFilesOf,
   openRequiredDocuments,
+  photoFileAccepted,
+  photoFilesOf,
   requiredDocumentsOf,
   requiredDocumentsFor,
   sanitizeClientCheck,
@@ -257,7 +260,8 @@ function postalPacketChecklist({ draft, flow, orderId, locale }) {
   return requiredDocumentsFor(draft, flow).map((document) => {
     const given = flow?.documents?.[document.id] || {};
     const exemption = (document.exemptions || []).includes(given.exemption) ? given.exemption : '';
-    const files = documentFilesOf(flow, orderId, document.id);
+    const files = document.kind === 'photo'
+      ? photoFilesOf(flow, orderId, document) : documentFilesOf(flow, orderId, document.id);
     const status = exemption ? 'exempt'
       : document.localOnly ? 'local'
         : document.delivery === 'service' || files.length ? 'included' : 'missing';
@@ -407,8 +411,11 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
   // The answers shown are candidateVisibleAnswers' (the handler passes the ones its revisions hash).
   const candidateFlow = { ...candidateEditFlow({ orderId, order, flow, draft, nowMs }),
     answers: visibleAnswers || candidateVisibleAnswers({ orderId, order, flow, draft, nowMs }) };
-  const { profile, answers: candidateAnswers, platformFacts } = candidateWithEdits({ order, draft, flow: candidateFlow, locale });
-  const { answers, defaults } = withOperationalQuestionAnswers(draft?.questions, candidateAnswers, { locale, facts: platformFacts });
+  const { profile, answers: candidateAnswers, platformFacts, candidateAnswerDefaultSuppressionIds,
+    candidateAnswerSuppressedQuestionContracts } = candidateWithEdits({ order, draft, flow: candidateFlow, locale });
+  const answerProjectionOptions = { locale, facts: platformFacts, suppressDefaultQuestionIds: candidateAnswerDefaultSuppressionIds,
+    candidateAnswerSuppressedQuestionContracts };
+  const { answers, defaults } = withOperationalQuestionAnswers(draft?.questions, candidateAnswers, answerProjectionOptions);
   const askedQuestions = questionsForCandidate(draft?.questions, profile, candidateAnswers, candidateFlow.questionAnswers, draft);
   // Owner directive 2026-11-10 (DECISIONS.md: «modificabili, non bloccanti»): every answer the platform gives
   // (a rule, the CV, a decision of the engine) is shown, already filled in and editable, with where it comes
@@ -460,7 +467,9 @@ export function buildReviewPayload({ order, orderId = '', flow, draft, round, co
   // With what the candidate changed on this page (assistedApplicationCandidateEdits.js).
   const formAnswers = formAnswersWithEdits({ order, draft, flow: candidateFlow, locale });
   const applicationEmail = channel.type === 'email' && draft?.applicationEmail
-    ? { to: draft.applicationEmail.to, subject: draft.applicationEmail.subject, body: operationalEmailBody(draft, candidateAnswers, { facts: platformFacts }) }
+    ? { to: draft.applicationEmail.to, subject: draft.applicationEmail.subject,
+      body: operationalEmailBody(draft, candidateAnswers, { facts: platformFacts, suppressDefaultQuestionIds: candidateAnswerDefaultSuppressionIds,
+        candidateAnswerSuppressedQuestionContracts }) }
     : null;
   const editSnapshot = candidateEditSnapshot({ secret: editSnapshotSecret, orderId, order, flow, draft,
     communicationLocale: locale, nowMs });
@@ -834,6 +843,13 @@ async function saveDocumentChange({ db, bucket, orderId, flow, requested, action
     if (buffer.length > MAX_DOCUMENT_BYTES) throw new ReviewError('file_too_large', 413);
     const type = detectDocumentType(buffer.subarray(0, 16));
     if (!type) throw new ReviewError('file_type_not_allowed');
+    if (requested.kind === 'photo'
+      && !photoFileAccepted(requested, { detectedType: type, size: buffer.length })) {
+      const typeAccepted = photoFileAccepted(requested, { detectedType: type, size: 1 });
+      throw typeAccepted
+        ? new ReviewError('file_too_large', 413, { maxBytes: Math.min(MAX_PORTAL_PHOTO_BYTES, requested.maxBytes || MAX_PORTAL_PHOTO_BYTES) })
+        : new ReviewError('file_type_not_allowed', 415);
+    }
     if (flow?.postalSubmission?.enabled === true && !['pdf', 'jpg', 'png'].includes(type)) {
       throw new ReviewError('postal_packet_unsupported_file', 422);
     }
@@ -969,7 +985,8 @@ export async function handleAssistedApplicationReview(req, deps) {
       const kept = keptDocumentsOf({ order, orderId, flow, draft });
       const documentFiles = flow?.postalSubmission?.enabled === true
         ? requiredDocumentsFor(draft, reviewFlow).filter((document) => !document.localOnly)
-          .flatMap((document) => documentFilesOf(flow, orderId, document.id))
+          .flatMap((document) => document.kind === 'photo'
+            ? photoFilesOf(flow, orderId, document) : documentFilesOf(flow, orderId, document.id))
         : [];
       const [coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, originalCvUrl, ...documentAndKeptUrls] = await Promise.all([
         sign(draft?.coverLetterPdfKey),

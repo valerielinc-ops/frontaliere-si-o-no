@@ -2098,7 +2098,7 @@ ${href}
   })
   : '';
  const articleAtfBlockerOnlyHtml = articleAtfEligible && !articleAtfAdHtml
-  ? `<div class="ft-article-atf-ad" data-house="article-atf" data-ft-house-blocker-only="true" data-ft-house-height="${ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT}" data-ft-article-atf-slot="true" data-ad-experiment="${ARTICLE_DETAIL_ATF_EXPERIMENT_ID}" data-ad-variant="${articleAtfVariant}" aria-label="advertisement"></div>`
+  ? `<div class="ft-article-atf-ad" data-house="article-atf" data-ft-house-blocker-only="true" data-ft-house-height="${ARTICLE_DETAIL_ATF_PLACEHOLDER_HEIGHT}" data-ft-article-atf-slot="true" data-ad-experiment="${ARTICLE_DETAIL_ATF_EXPERIMENT_ID}" data-ad-variant="${articleAtfVariant}" aria-label="advertisement"><div data-ft-house-google=""></div></div>`
   : '';
  const articleAtfMarkup = articleAtfAdHtml
   ? `<div class="ft-article-atf-ad" data-ft-article-atf-slot="true" data-ad-experiment="${ARTICLE_DETAIL_ATF_EXPERIMENT_ID}" data-ad-variant="${articleAtfVariant}" aria-label="advertisement">${articleAtfAdHtml}</div>`

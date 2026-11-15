@@ -3,6 +3,22 @@ export function installFinalFormGuardCaptureInPage(targetDocument = globalThis.d
   const document = targetDocument;
   const view = document?.defaultView || globalThis.window;
   if (!document || !view) return false;
+  const finalSendRe = /\b(?:submit|send|senden|absenden|abschicken|abschlie(?:ß|ss)en|invia|envoy|soumettre|finish|finali[sz]e|fertig|complete|conclud|termina)\b/iu;
+  const finalConfirmationRe = /\b(?:best[aä]tig\w*|conferm\w*|confirm\w*)\b/iu;
+  const applicationContextRe = /\b(?:application|bewerbung|bewerb(?:en)?|candidatur\w*|candidature\w*|candidatura\w*|postulation\w*|postul(?:er|ar)|cover\s+letter|resume|curriculum\s+vitae|lebenslauf|cv)\b/iu;
+  const nonApplicationContextRe = /\b(?:cookie|preference|privacy\s+setting|consent|newsletter|marketing|subscription|job\s*alert|job[- ]?abo|stellenalarm)\b/iu;
+  const preferenceConfirmationRe = /\b(?:confirm\w*|conferm\w*|best[aä]tig\w*)\b.{0,24}\b(?:selection|auswahl|selezione|s[eé]lection)\b/iu;
+  const formContext = control => {
+    const form = control?.form || control?.closest?.('form');
+    return `${control?.innerText || control?.textContent || ''} ${form?.getAttribute?.('aria-label') || ''} ${form?.getAttribute?.('name') || ''} ${form?.id || ''} ${form?.innerText || form?.textContent || ''}`
+      .replace(/\s+/gu, ' ').trim().slice(0, 1200);
+  };
+  const isFinalControl = (control, name) => {
+    const context = formContext(control);
+    if (nonApplicationContextRe.test(context) || preferenceConfirmationRe.test(name)) return false;
+    if (finalSendRe.test(name)) return true;
+    return finalConfirmationRe.test(name) && applicationContextRe.test(context);
+  };
   if (view.__frontaliereFinalFormGuardCaptureInstalled) return true;
   Object.defineProperty(view, '__frontaliereFinalFormGuardCaptureInstalled', { configurable: true, value: true });
   const capture = method => event => {
@@ -13,6 +29,80 @@ export function installFinalFormGuardCaptureInPage(targetDocument = globalThis.d
   for (const eventName of ['pointerdown', 'mousedown', 'touchstart', 'click']) {
     view.addEventListener(eventName, capture('onClick'), true);
   }
+  view.addEventListener('click', event => {
+    const locks = view.__frontaliereAgentFinalClickLocks;
+    if (!locks || !Object.keys(locks).length) return;
+    const path = typeof event.composedPath === 'function' ? event.composedPath() : [event.target];
+    const target = path.find(node => node?.nodeType === 1) || event.target;
+    const control = target?.closest?.('button, a, input[type="submit"], input[type="button"], [role="button"], [role="link"], [onclick]') || target;
+    const name = String(control?.getAttribute?.('aria-label') || control?.getAttribute?.('title')
+      || control?.value || control?.innerText || control?.textContent || '').replace(/\s+/gu, ' ').trim();
+    const finalControl = isFinalControl(control, name);
+    const applicationVerb = /\b(?:apply|bewerb|candida|postul)\w*\b/iu.test(name);
+    const allowedEntries = view.__frontaliereAgentAllowedEntryClicks;
+    const isAllowedEntry = allowedEntries?.has(control) && !control.closest?.('form, [role="form"]')
+      && applicationVerb && !finalControl;
+    if (isAllowedEntry) {
+      allowedEntries.delete(control);
+      return;
+    }
+    if (!(finalControl || (applicationVerb && !nonApplicationContextRe.test(formContext(control))))) return;
+    const registry = view.__frontaliereFinalFormGuards || {};
+    const explicitlyArmed = Object.values(registry).some(state => state.status === 'click_checked'
+      && (path.includes(state.button) || state.button?.contains?.(target)));
+    if (explicitlyArmed) return;
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+  }, true);
+  document.addEventListener('submit', event => {
+    const locks = view.__frontaliereAgentFinalClickLocks;
+    if (!locks || !Object.keys(locks).length) return;
+    const form = event.target;
+    const submitter = event.submitter;
+    const registry = view.__frontaliereFinalFormGuards || {};
+    const explicitlyArmed = Object.values(registry).some(state => state.status === 'click_checked'
+      && state.button?.form === form);
+    if (explicitlyArmed) return;
+    const name = String(submitter?.getAttribute?.('aria-label') || submitter?.getAttribute?.('title')
+      || submitter?.value || submitter?.innerText || submitter?.textContent || '').replace(/\s+/gu, ' ').trim();
+    const nonApplicationForm = nonApplicationContextRe.test(formContext(form));
+    const finalSubmit = !submitter
+      ? !nonApplicationForm
+      : isFinalControl(submitter, name)
+        || (/\b(?:apply|bewerb|candida|postul)\w*\b/iu.test(name) && !nonApplicationForm);
+    if (!finalSubmit) return;
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+  }, true);
+  return true;
+}
+
+/** Allow one explicitly authorized application-entry control outside a form. */
+export function allowAgentApplicationEntryClickInPage(element, targetWindow = globalThis.window) {
+  const view = targetWindow;
+  const control = element?.closest?.('button, a, input[type="submit"], input[type="button"], [role="button"], [role="link"], [onclick]') || element;
+  if (!view || !control || control.closest?.('form, [role="form"]')) return false;
+  const allowed = view.__frontaliereAgentAllowedEntryClicks || (view.__frontaliereAgentAllowedEntryClicks = new WeakSet());
+  allowed.add(control);
+  return true;
+}
+
+/** Prevent agent-driven final clicks while allowing the runner's armed click. */
+export function installAgentFinalClickLockInPage(token, targetWindow = globalThis.window) {
+  const view = targetWindow;
+  if (!view || typeof token !== 'string' || !token) return false;
+  const locks = view.__frontaliereAgentFinalClickLocks || (view.__frontaliereAgentFinalClickLocks = Object.create(null));
+  locks[token] = true;
+  return true;
+}
+
+export function releaseAgentFinalClickLockInPage(token, targetWindow = globalThis.window) {
+  const view = targetWindow;
+  const locks = view?.__frontaliereAgentFinalClickLocks;
+  if (!locks || typeof token !== 'string') return false;
+  delete locks[token];
   return true;
 }
 

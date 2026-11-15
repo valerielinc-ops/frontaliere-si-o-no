@@ -302,17 +302,18 @@ describe('search-landing emitters route every hreflang block through the shared 
   it('active job detail pages derive eligibility from the dedup winner set', () => {
     const src = read('build-plugins/jobsSeoPagesPlugin.ts');
     expect(src).toContain('const activeJobEligibleLocales = new Set(');
-    expect(src).toContain('emittedActiveJobPaths.has(`${jobCanton}:${candidateLocale}:${perLocaleSlug[candidateLocale]}`)');
+    expect(src).toContain('activeJobPathOwners.get(');
+    expect(src).toContain('activeJobPathOwnerKey(jobCanton, candidateLocale, perLocaleSlug[candidateLocale])');
     expect(src).toContain('eligibleLocales: activeJobEligibleLocales');
   });
 
   it('expired job alternates share the active localized-path claim set', () => {
     const src = read('build-plugins/jobsSeoPagesPlugin.ts');
-    expect(src).toContain('const claimedJobPaths = new Set<string>();');
-    expect(src).toContain('claimedJobPaths.add(localePathClaimKey(relPath));');
+    expect(src).toContain('const claimedJobPaths = new CompactLocalePathClaims();');
+    expect(src).toContain('claimedJobPaths.claim(localePathClaimKey(relPath));');
     expect(src).toContain('const expiredClusterClaim = resolveLocaleClusterClaim(paths, claimedJobPaths);');
     expect(src).toContain('expiredClusterClaim.hasUnclaimedCluster');
-    expect(src).toContain('expiredClusterClaim.unclaimedLocales.has(l)');
+    expect(src).toContain('expiredClusterClaim.unclaimedLocales.has(candidateLocale)');
     expect(src).toContain('emitAlternates: expiredClusterHasHreflang');
   });
 
@@ -409,6 +410,6 @@ describe('search-landing emitters route every hreflang block through the shared 
     expect(src).toMatch(/if \(matchingJobs\.length < GSC_SEARCH_LANDING_MIN_JOBS\) continue;/);
     expect(src).toMatch(/if \(matchingJobs\.length < GSC_SEARCH_LANDING_MIN_JOBS\) return;/);
     expect(src).toMatch(/if \(hasOwnEligibleLocale && ssDemandIndexable\)/);
-    expect(src).toMatch(/if \(!_eligibleLocales\.has\(l\)\) continue;/);
+    expect(src).toMatch(/if \(!_eligibleLocales\.has\(locale\)\) return false;/);
   });
 });

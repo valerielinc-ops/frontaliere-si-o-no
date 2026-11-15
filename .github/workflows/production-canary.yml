@@ -41,7 +41,10 @@ concurrency:
 
 permissions:
   contents: read
-  actions: read
+  # The workflow-run endpoint used by admission returns 403 with this
+  # repository's GITHUB_TOKEN when the permission is read-only. Keep this
+  # aligned with pages-publish-lag-watchdog, which reads the same queue.
+  actions: write
   issues: write
 
 jobs:

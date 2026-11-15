@@ -16,9 +16,9 @@ import { pdfRendererMode, renderLetterPdf } from './assistedApplicationPdfRender
 /**
  * The letter's blocks (letterPdfBlocks): what every rebuild prints, the PDF and the candidate's Word copy
  * alike (assistedApplicationDocx.js).
- * @param {{order:object, orderId:string, draft:object, flow?:object, letter?:object, nowMs:number}} input
+ * @param {{order:object, orderId:string, draft:object, flow?:object, letter?:object, nowMs:number, dateMs?:number}} input
  */
-export function letterBlocksFor({ order, orderId, draft, flow = {}, letter, nowMs }) {
+export function letterBlocksFor({ order, orderId, draft, flow = {}, letter, nowMs, dateMs = nowMs }) {
   const { identity: candidate, profile } = candidateWithEdits({ order, draft, flow });
   const language = draft?.language || 'it';
   return letterPdfBlocks({
@@ -29,7 +29,7 @@ export function letterBlocksFor({ order, orderId, draft, flow = {}, letter, nowM
     language,
     letter: letter || draft?.coverLetter || {},
     title: draft?.job?.title || order?.jobTitle || '',
-    now: new Date(nowMs),
+    now: new Date(dateMs),
     enclosures: letterEnclosures(language, enclosedDocumentLabels(draft, flow, orderId)),
     // The apprenticeship's subject needs the type the draft was written for.
     type: draftCandidateType(draft),
@@ -37,9 +37,9 @@ export function letterBlocksFor({ order, orderId, draft, flow = {}, letter, nowM
 }
 
 /**
- * @param {{order:object, orderId:string, draft:object, flow?:object, letter?:object, nowMs:number, mode?:string}} input
+ * @param {{order:object, orderId:string, draft:object, flow?:object, letter?:object, nowMs:number, dateMs?:number, mode?:string}} input
  * @returns {Promise<{pdf: Buffer, renderer: 'typst'|'legacy'}>} renderer: kept on the draft (`coverLetterRenderer`)
  */
-export async function rebuildLetterPdf({ order, orderId, draft, flow = {}, letter, nowMs, mode }) {
-  return renderLetterPdf(letterBlocksFor({ order, orderId, draft, flow, letter, nowMs }), { mode: mode || await pdfRendererMode() });
+export async function rebuildLetterPdf({ order, orderId, draft, flow = {}, letter, nowMs, dateMs = nowMs, mode }) {
+  return renderLetterPdf(letterBlocksFor({ order, orderId, draft, flow, letter, nowMs, dateMs }), { mode: mode || await pdfRendererMode() });
 }

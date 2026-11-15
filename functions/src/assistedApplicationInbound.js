@@ -14,14 +14,11 @@
  *      available, deterministic multilingual rules classify it;
  *   4. the raw message is stored encrypted (90-day retention), the
  *      classification in `assisted_applications/{id}/inbox`;
- *   5. the message goes to the candidate at once — full text, attachments up to
- *      10 MB, our one-line summary on top, Reply-To set to the authenticated
- *      source Reply-To (or the source From) so the candidate answers them directly.
- *      Never forwarded: a portal's verification or account mail the runner
- *      holds, the employer's automatic receipt of the application, which
- *      asks for nothing (automaticApplicationReceipt; the concierge shows it),
- *      and a portal's reminder of an application the robot started there and
- *      did not send (portalApplicationReminder; an event of the order);
+ *   5. only a clear candidate action reaches the candidate — an interview,
+ *      rejection, offer, assessment, requested documents, or a human employer
+ *      message that asks for a reply. The owner reviews uncertain automated
+ *      messages before choosing to forward them. Receipts, account notices,
+ *      verifications, reminders, and other notifications stay in the concierge.
  *   6. an acknowledgement or a reply of the employer settles a submission of
  *      unknown outcome (career-ops: "sent" on the success page OR the
  *      confirmation e-mail): see confirmSubmissionByEmployer.
@@ -50,6 +47,10 @@ export const INBOUND_CATEGORIES = [
   'interview_invite', 'rejection', 'documents_request', 'question', 'assessment',
   'auto_acknowledgement', 'verification', 'offer', 'other',
 ];
+export const PORTAL_NOTICE_KINDS = Object.freeze([
+  'automatic_application_receipt', 'account_verification', 'portal_preferences', 'employer_platform_redirect',
+]);
+const CANDIDATE_ACTION_CATEGORIES = new Set(['interview_invite', 'rejection', 'offer', 'assessment', 'documents_request']);
 // The employer has the application: an automatic acknowledgement, or a reply
 // about it. An account verification or an unrelated message proves nothing.
 const RECEIPT_CATEGORIES = new Set([
@@ -289,7 +290,7 @@ const PASSWORD_CHANGED_RE = /((ihr|dein) (passwort|kennwort) (wurde|ist) (erfolg
 const PASSWORD_RESET_REQUEST_RE = /(?:\b(?:you\s+(?:have\s+)?requested|request(?:ed)?\s+(?:a\s+)?(?:password\s+)?reset|reset\s+(?:your\s+)?(?:account\s+)?password|password\s+reset\s+(?:(?:has\s+been\s+|was\s+)?requested|link|instructions|request))\b|\bpasswort\s+(?:zurücksetzen|zuruecksetzen|wiederherstellen)(?:\s+(?:angefordert|beantragt))?\b|\bkennwort\s+(?:zurücksetzen|zuruecksetzen)(?:\s+(?:angefordert|beantragt))?\b|\bmot de passe\s+(?:réinitialiser|reinitialiser|réinitialisation|reinitialisation)(?:\s+(?:demandée|demandee))?\b|\b(?:réinitialiser|reinitialiser|récupérer|recuperer)\s+(?:votre\s+)?mot de passe\b|\b(?:hai\s+)?richiesto\s+(?:di\s+)?(?:reimpostare\s+)?la?\s*password\b|\b(?:reimpostare|recuperare)\s+(?:la\s+)?password\b)/iu;
 // The receipt wording the rules know (RULES' auto_acknowledgement), and more.
 // The federal SuccessFactors tenant (2026-11-10): «Ihre Bewerbung ist bei uns angekommen».
-const APPLICATION_RECEIVED_RE = /(we have received|abbiamo ricevuto|nous avons bien reçu|thank you for (your )?appl|thanks for applying|vielen dank für (ihre|deine) bewerbung|grazie per (la tua|la sua|aver inviato)( la)? candidatura|merci pour votre candidature|bewerbung (ist )?(bei uns )?(gut |erfolgreich )?(eingegangen|erhalten|angekommen|eingetroffen)|eingang (ihrer|deiner) bewerbung|wir haben (ihre|deine) bewerbung|received your application|your application (has been |was )?(successfully )?(received|submitted|registered)|bewerbung (wurde|ist) (erfolgreich |bei uns )?(registriert|erfasst)|candidatura (è stata )?(correttamente )?(ricevuta|inviata|registrata)|ricevuto la (tua|sua) candidatura|candidature (a bien été |a été )?(reçue|envoyée|transmise|enregistrée)|reçu votre candidature)/i;
+const APPLICATION_RECEIVED_RE = /(we have received|abbiamo ricevuto|nous avons bien reçu|thank you for (your )?appl|thanks for applying|vielen dank für (ihre|deine) bewerbung|grazie per (la tua|la sua|aver inviato)( la)? candidatura|merci pour votre candidature|bewerbung (ist )?(bei uns )?(gut |erfolgreich )?(eingegangen|erhalten|angekommen|eingetroffen)|eingang (ihrer|deiner) bewerbung|wir haben (ihre|deine) (bewerbung|bewerbungsunterlagen)|received your application|your application (has been |was )?(successfully )?(received|submitted|registered)|bewerbung (wurde|ist) (erfolgreich |bei uns )?(registriert|erfasst)|candidatura (è stata )?(correttamente )?(ricevuta|inviata|registrata)|ricevuto la (tua|sua) candidatura|candidature (a bien été |a été )?(reçue|envoyée|transmise|enregistrée)|reçu votre candidature)/i;
 
 /** An "acknowledgement" that only confirms a portal account is the account's own mail. */
 export function correctedCategory(category, { subject = '', text = '' } = {}) {
@@ -302,7 +303,7 @@ const phrases = (source) => new RegExp(String.raw`(?<![\p{L}\p{N}])(?:${source})
 const words = (max) => String.raw`(?:[\p{L}\p{N}-]+(?:\s+|['’])){0,${max}}`;
 
 const NEGATION = String.raw`(?:not|never|cannot|unable to|\p{L}+n['’]t|nicht|nie|niemals|kein\p{L}*|non|pas|jamais|aucun\p{L}*|nessun\p{L}*)`;
-const INTERVIEW = String.raw`(?:(?<!video[- ])interviews?|colloqui[oa]?|\p{L}*gespr(?:ä|ae)ch(?:e|en|s|es)?|(?<!(?:agents?|techniciens?|personnel|services?|travaux|ouvriers?)\s+d['’])entretiens?|kennenlernen|incontro conoscitivo)`;
+const INTERVIEW = String.raw`(?:(?<!video[- ])interviews?|meetings?|colloqui[oa]?|\p{L}*gespr(?:ä|ae)ch(?:e|en|s|es)?|(?<!(?:agents?|techniciens?|personnel|services?|travaux|ouvriers?)\s+d['’])entretiens?|kennenlernen|incontro conoscitivo)`;
 const INVITE_VERB = String.raw`(?:invit\p{L}*|einlad\p{L}*|schedul\p{L}*|arrange|offer|propos\p{L}*|propor\p{L}*|convoc\p{L}*)`;
 // Neither a receipt nor the channel: "confirm by e-mail" asks for an answer, not for a proof of the address.
 const NOT_A_RECEIPT = String.raw`(?:(?!receipt|reception|réception|eingang|erhalt|ricezione|ricevimento|(?:by|via|per|par|tramite)\s)[\p{L}\p{N}-]+\s+){0,2}`;
@@ -398,6 +399,36 @@ const VERIFY_WORD_RE = phrases(String.raw`verify|verifica|verifizieren|v[eé]rif
 // Labels only the fallback reads; VERIFICATION_CODE_RE stays the model's net.
 const NAMED_CODE_RE = /(?<![\p{L}\p{N}])(?:(?:verification|confirmation|activation|security|one[- ]time)\s+(?:code|passcode)|(?:verifizierungs|sicherheits|aktivierungs|best[aä]tigungs)code|einmalige[rnsm]? (?:passcode|code|kennwort|passwort)|einmal(?:passcode|kennwort|passwort|code)|codice di (?:verifica|conferma|attivazione)|code de (?:v[eé]rification|confirmation|activation)|(?:(?:pass)?code|codice) (?:f[üu]r|zur|for|per|pour) (?:die |the |la |l['’])?(?:verifizierung|best[aä]tigung|aktivierung|verification|confirmation|activation|verifica|conferma|attivazione|v[eé]rification))(?![\p{L}\p{N}])[^\d]{0,100}(?<!\d)(\d{4,8})(?!\d)/iu;
 
+// A portal preference notice has both a preference/settings subject and a
+// bounded state or management action. A bare "preferences" word is not enough:
+// it can occur in an employer's ordinary application correspondence.
+const PORTAL_PREFERENCE_TOPIC_RE = phrases([
+  String.raw`(?:your|our|their|e-?mail|email|notification|communication|job alert|newsletter)\s+(?:preferences?|settings?|subscriptions?)`,
+  String.raw`(?:e-?mail|benachrichtigungs?|kommunikations?|newsletter)[-\s](?:einstellungen|präferenzen)`,
+  String.raw`(?:präferenzen|einstellungen)\s+(?:für\s+)?(?:e-?mail|benachrichtigungen?|kommunikation|newsletter)`,
+  String.raw`(?:preferenze?|impostazioni)\s+(?:di\s+|delle?\s+|per\s+)?(?:e-?mail|notifiche?|comunicazioni?|newsletter|avvisi?)`,
+  String.raw`(?:préférences?|paramètres?)\s+(?:d['’]e-?mail|de notification|de communication|de newsletter)`,
+].join('|'));
+const PORTAL_PREFERENCE_ACTION_RE = phrases([
+  String.raw`(?:manage|update|change|save|confirm|unsubscribe|subscribe|disable|enable|review)\s+(?:your\s+)?(?:e-?mail|email|notification|communication|job alert|newsletter)?\s*(?:preferences?|settings?|subscriptions?)`,
+  String.raw`(?:preferences?|settings?|subscriptions?)\s+(?:have been|were|are|is)\s+(?:updated|changed|saved|confirmed|disabled|enabled)`,
+  String.raw`(?:gestisc|aggiorn|modific|salv|conferm|disiscriv|iscriv|disattiv|attiv)\p{L}*[^.\n]{0,50}(?:preferenze?|impostazioni|notifiche?|comunicazioni?)`,
+  String.raw`(?:preferenze?|impostazioni|notifiche?|comunicazioni?)\s+(?:sono state|sono|vengono)\s+(?:aggiornate|modificate|salvate|confermate|disattivate|attivate)`,
+  String.raw`(?:gér|modif|enregistr|confirm|désinscri|inscri|activ|désactiv)\p{L}*[^.\n]{0,50}(?:préférences?|paramètres?)`,
+  String.raw`(?:präferenzen|einstellungen)\s+(?:wurden|sind|werden)\s+(?:aktualisiert|geändert|gespeichert|bestätigt|deaktiviert|aktiviert)`,
+].join('|'));
+
+// A redirect is only this explicit when it names the application and the
+// employer's own portal/platform. Generic links or "visit our website" mail
+// remain ordinary messages and follow the existing forwarding policy.
+const EMPLOYER_PLATFORM_REDIRECT_RE = phrases([
+  String.raw`(?:submit|send|complete|file)\s+(?:your\s+)?application\s+(?:through|via|on|using)\s+(?:our|the)\s+(?:online\s+)?(?:application\s+)?(?:portal|platform|career site)`,
+  String.raw`(?:apply|complete your application)\s+(?:through|via|on|using)\s+(?:our|the)\s+(?:online\s+)?(?:application\s+)?(?:portal|platform|career site)`,
+  String.raw`(?:applications?|candidacy|candidature|candidatura|bewerbungen?|bewerbung)\s+(?:are|must be|sollen|müssen|devono|doivent|devono)\s+(?:submitted|sent|completed|eingereicht|abgeschickt|inviate|envoyées|déposées)\s+(?:through|via|on|über|auf|tramite|sul|sur|via)\s+(?:our|the|unser(?:em|er)?|nostr[oa]|notre|notre)\s+(?:online\s+)?(?:portal|platform|portal[eé]|piattaforma|plattform|plateforme)`,
+  String.raw`(?:please\s+)?(?:use|access|open)\s+(?:our|the)\s+(?:online\s+)?(?:application\s+)?(?:portal|platform|career site)\s+to\s+(?:apply|submit|complete)`,
+  String.raw`(?:invia|present|complet|finaliz|einreich|abschick|dépos|soumet)\p{L}*\s+(?:la\s+)?(?:votre\s+|your\s+|ihre\s+|deine\s+)?(?:candidatura|candidature|bewerbung|application)\s+(?:tramite|sul|nel|über|auf|via|sur)\s+(?:il\s+|la\s+|nostr[oa]\s+|unser(?:em|er)?\s+|notre\s+)?(?:portale|piattaforma|portal|plattform|plateforme)`,
+].join('|'));
+
 const REPLY_SUBJECT_RE = /^\s*(?:re|aw|antw|wg|fw|fwd|tr|r|i|sv)\s*(?:\[\d+\])?\s*:/i;
 const QUOTE_RULE_RE = /^\s*[-_=]{2,}\s*(?:original message|forwarded message|original-nachricht|ursprüngliche nachricht|weitergeleitete nachricht|messaggio originale|messaggio inoltrato|message d['’]origine|message original|message transféré)/i;
 const QUOTE_FORWARD_RE = /^\s*(?:begin forwarded message|anfang der weitergeleiteten nachricht|inizio messaggio inoltrato|début du message réexpédié)\s*:/i;
@@ -451,6 +482,10 @@ const proposesInterview = (sentence) => namesInterview(sentence) && INVITATION_R
 const invitesToInterview = (sentence) => proposesInterview(sentence) && !NEGATED.test(sentence) && ADDRESSEE_RE.test(sentence);
 
 const changesInterview = (sentence) => INTERVIEW_RE.test(sentence) && INTERVIEW_CHANGE_RE.test(sentence) && !HYPOTHETICAL_RE.test(sentence);
+const INTERVIEW_DETAILS_RE = phrases(String.raw`details?|time|date|slot|termin|zeit|datum|dettagli|orario|appuntamento|d[ée]tails?|cr[ée]neau|horaire`);
+const INTERVIEW_REVIEW_VERB_RE = phrases(String.raw`verify|check|confirm|review|best[aä]tig\p{L}*|pr[uü]f\p{L}*|verifica\p{L}*|controll\p{L}*|conferm\p{L}*|v[ée]rifie\p{L}*`);
+const checksInterviewDetails = (sentence) => INTERVIEW_RE.test(sentence)
+  && INTERVIEW_DETAILS_RE.test(sentence) && INTERVIEW_REVIEW_VERB_RE.test(sentence);
 
 const rejectsApplication = (sentence) => !HYPOTHETICAL_RE.test(sentence) && (
   (REJECTION_RE.test(sentence) && (ADDRESSEE_RE.test(sentence) || REGRET_RE.test(sentence) || POST_FILLED_RE.test(sentence)))
@@ -476,7 +511,8 @@ const asksAccountVerification = (sentence) => {
   if (isDirectlyNegatedVerificationInstruction(sentence)) return false;
   return requestsVerification(sentence)
     || (VERIFICATION_NAMED_RE.test(sentence) && (!NEGATED.test(sentence) || /\d{4,8}/.test(sentence)))
-    || (VERIFY_WORD_RE.test(sentence) && LINK_WORD_RE.test(sentence) && /https:\/\/\S/i.test(sentence) && !APPLICATION_TOPIC_RE.test(sentence));
+    || (VERIFY_WORD_RE.test(sentence) && LINK_WORD_RE.test(sentence) && /https:\/\/\S/i.test(sentence)
+      && !APPLICATION_TOPIC_RE.test(sentence) && !INTERVIEW_RE.test(sentence));
 };
 
 const offersJob = (sentence) => (OFFER_RE.test(sentence) || (CONTRACT_RE.test(sentence) && CONTRACT_SENT_RE.test(sentence)))
@@ -585,8 +621,14 @@ const AUTOMATED_TEXT_RE = phrases([
 const NO_REPLY_SOURCE = String.raw`(?:please\s+)?(?:do not|don['’]t)\s+reply(?:\s+(?:to|on)\s+(?:this|it)(?:\s+(?:e-?mail|message))?)?|(?:bitte\s+)?(?:antworten sie|antworte)\s+nicht(?:\s+(?:direkt\s+)?(?:darauf|auf diese\s+\p{L}+))?|(?:bitte\s+)?nicht\s+(?:direkt\s+)?(?:darauf|auf diese\s+\p{L}+)\s+(?:zu\s+)?antworten|(?:si prega di\s+|per favore\s+|ti preghiamo di\s+|la preghiamo di\s+)?non\s+rispondere(?:\s+a\s+questa\s+\p{L}+)?|(?:merci de\s+|veuillez\s+)?ne\s+(?:pas\s+)?r[ée]pond(?:re|ez)(?:\s+pas)?(?:\s+[àa]\s+ce(?:t)?\s+\p{L}+)?`;
 const NO_REPLY_TEXT_RE = phrases(NO_REPLY_SOURCE);
 const NO_REPLY_TEXT_ALL_RE = new RegExp(NO_REPLY_TEXT_RE.source, 'giu');
-const NO_REPLY_MAILBOX_RE = /(?:^|[._+-])(?:no[._-]?reply|do[._-]?not[._-]?reply|ne[._-]?pas[._-]?repondre|non[._-]?rispondere)(?:$|[._+-])/i;
-const AUTOMATED_HEADER = { 'auto-submitted': /^(?!no\b)\S/i, 'x-autoreply': /\S/, 'x-autorespond': /\S/, precedence: /^(?:auto_reply|bulk|junk)\b/i };
+const AUTOMATED_SENDER_MAILBOX_RE = /(?:^|[._+-])(?:no[._-]?reply|do[._-]?not[._-]?reply|ne[._-]?pas[._-]?repondre|non[._-]?rispondere|customer[._-]?service|notifications?|system)(?:$|[._+-])/i;
+const AUTOMATED_HEADER = {
+  'auto-submitted': /^(?!no\b)\S/i,
+  'x-autoreply': /\S/,
+  'x-autorespond': /\S/,
+  precedence: /^(?:auto_reply|bulk|junk)\b/i,
+  'list-unsubscribe': /\S/,
+};
 // A sentence that asks the reader to do something; «merci de votre candidature» thanks, it does not ask.
 const ASK_RE = phrases(String.raw`please|kindly|bitte|wir bitten|bitten wir|per favore|la preghiamo|ti preghiamo|vi preghiamo|si prega|(?:ti|le|vi) chiediamo|(?:la|ti|vi) invitiamo|veuillez|merci de(?!\s+(?:votre|vos|ton|ta|tes|nous avoir|l['’]int[ée]r[êe]t|avoir))|nous vous (?:prions|invitons|demandons)|we (?:ask|invite) you|(?:you|sie|du) (?:must|need to|are required to|m[üu]ssen|musst)|devi|deve|dovr\p{L}*|vous devez|tu dois`);
 const ACTION_VERB_RE = phrases([
@@ -602,7 +644,7 @@ function automatedMessage(message) {
   const headers = Array.isArray(message.headers) ? message.headers : [];
   if (headers.some(([key, value]) => AUTOMATED_HEADER[key]?.test(String(value || '').trim()))) return true;
   const local = /^([^@\s]+)@[^@\s]+$/.exec(singleMailboxAddress(message.from) || '')?.[1] || '';
-  if (local && NO_REPLY_MAILBOX_RE.test(local)) return true;
+  if (local && AUTOMATED_SENDER_MAILBOX_RE.test(local)) return true;
   const own = normalizedMail(ownMessageText(decodeHtmlEntities(String(message.text || '').replace(/\r\n?/g, '\n').slice(0, 20_000))));
   return AUTOMATED_TEXT_RE.test(own) || NO_REPLY_TEXT_RE.test(own);
 }
@@ -625,16 +667,19 @@ const asksForAction = (sentence) => {
  * acknowledgement and settles a submission of unknown outcome; the candidate
  * reads it on the Application Concierge page.
  *
- * Everything must agree, else the message goes to the candidate as before:
+ * Informational links and a normal sign-off do not change the receipt. It must
+ * still be a clear acknowledgement and ask for no candidate action.
+ *
+ * Everything must agree, else the message stays unconfirmed:
  * the model and the rules both read an acknowledgement, the message says it was
  * generated by a machine, it asks for nothing (no reply, interview, document,
  * test, verification, question or action of any kind), mentions no interview,
  * and carries no file but images.
  */
-export function automaticApplicationReceipt(message, classification = {}) {
-  if (classification.category !== 'auto_acknowledgement' || classification.needsReply === true
-    || classification.interviewWhen || (classification.requestedDocuments || []).length
-    || classification.verificationCode || classification.verificationUrl) return false;
+function structuralAutomaticApplicationReceipt(message, classification = {}) {
+  if (classification.category && !['auto_acknowledgement', 'other'].includes(classification.category)) return false;
+  if (classification.needsReply === true || classification.interviewWhen
+    || (classification.requestedDocuments || []).length || classification.verificationCode) return false;
   if ((message.attachments || []).some((item) => !/^image\//i.test(String(item?.contentType || '')))) return false;
   const rules = readByRules(message);
   if (rules.category !== 'auto_acknowledgement' || rules.verificationAsked) return false;
@@ -644,6 +689,11 @@ export function automaticApplicationReceipt(message, classification = {}) {
     || offersJob(sentence) || assignsAssessment(sentence) || requestsDocuments(sentence) || asksAccountVerification(sentence)
     || asksForAction(sentence) || /\?\s*$/.test(sentence))) return false;
   return automatedMessage(message);
+}
+
+export function automaticApplicationReceipt(message, classification = {}) {
+  return classification.category === 'auto_acknowledgement'
+    && structuralAutomaticApplicationReceipt(message, classification);
 }
 
 // A portal's reminder that an application was started there and never sent (SBB on SuccessFactors,
@@ -658,6 +708,7 @@ const PORTAL_APPLICATION_REMINDER_RE = phrases([
   String.raw`(?:incomplete|unfinished|unsubmitted|started|saved)\s+${REMINDED_APPLICATION}`,
   String.raw`(?:not|n['’]t)\s+(?:yet\s+)?(?:completed?|finished)\s+(?:your|the|this)\s+(?:\S+\s+){0,2}?${REMINDED_APPLICATION}`,
   String.raw`(?:complete|finish|finali[sz]e)\s+(?:your|the|this)\s+(?:\S+\s+){0,2}?${REMINDED_APPLICATION}`,
+  String.raw`(?:you were|you['’]re|you are)\s+so close\s+(?:to\s+)?(?:complet\p{L}*|finish\p{L}*)\s+(?:your|the|this)\s+(?:\S+\s+){0,2}?${REMINDED_APPLICATION}`,
   String.raw`${REMINDED_APPLICATION}\s+(?:you|that you)\s+(?:have\s+)?(?:started|began|begun)`,
   // German
   String.raw`${REMINDED_APPLICATION}\s+(?:\S+\s+){0,4}?(?:wurden?|ist|sind|haben)\s+(?:\S+\s+){0,2}?(?:begonnen|angefangen|gestartet)`,
@@ -665,6 +716,9 @@ const PORTAL_APPLICATION_REMINDER_RE = phrases([
   String.raw`${REMINDED_APPLICATION}\s+(?:\S+\s+){0,3}?(?:ist|sind|bleibt)\s+(?:noch\s+)?unvollständig`,
   String.raw`(?:begonnene|angefangene|unvollständige|nicht abgeschlossene|gespeicherte)[nrs]?\s+${REMINDED_APPLICATION}`,
   String.raw`${REMINDED_APPLICATION}\s+(?:\S+\s+){0,3}?(?:abschliess|abschließ|abzuschliess|abzuschließ|fertigstell|fertigzustell|vervollständig|zu vervollständig)\p{L}*`,
+  String.raw`(?:vollend\p{L}*|vervollständ\p{L}*)\s+(?:sie|du|deine|ihre|ihren|ihrem|ihres)?\s*(?:\S+\s+){0,2}?${REMINDED_APPLICATION}`,
+  String.raw`beinahe\s+(?:h[aä]tten?\s+)?(?:sie|du|ihr)?\s*(?:\S+\s+){0,3}?${REMINDED_APPLICATION}\s+(?:\S+\s+){0,4}?(?:ausgefüllt|abgeschlossen|fertiggestellt)`,
+  String.raw`${REMINDED_APPLICATION}\s+(?:\S+\s+){0,3}?(?:ausgefüllt|bearbeitet)\s+(?:aber\s+)?(?:noch\s+)?nicht\s+(?:abgeschickt|abgesendet|eingereicht|übermittelt)`,
   String.raw`(?:schliess|schließ)\p{L}*\s+(?:\S+\s+){0,3}?${REMINDED_APPLICATION}\s+(?:\S+\s+){0,3}?ab(?![\p{L}\p{N}])`,
   // Italian
   String.raw`${REMINDED_APPLICATION}\s+(?:\S+\s+){0,4}?non\s+(?:(?:è|e)\s+stata\s+|risulta\s+)?(?:ancora\s+)?(?:completata|conclusa|inviata|terminata|finalizzata|ultimata)`,
@@ -698,8 +752,8 @@ const SENDS_EMPLOYER_PURPOSE = new Set(['interview_invite', 'rejection', 'offer'
  * codes, confirmations, receipts and reminders are never forwarded). It proves nothing was received: it
  * never settles a submission, and it is no employer reply.
  *
- * Everything must agree, else the message goes to the candidate as before: a sentence says the
- * application was started and not completed (or asks to complete it), no sentence carries an employer's own
+ * Everything must agree for this hold to apply: a sentence says the application was started and not
+ * completed (or asks to complete it), no sentence carries an employer's own
  * purpose (an interview, a refusal, an offer, a test, a document request, a verification, a receipt, a
  * withdrawn posting), no other sentence asks for anything beyond going back to the portal, the model reads
  * no interview, document or code, and no file but images is attached. The sender is bound to the order's
@@ -717,6 +771,55 @@ export function portalApplicationReminder(message, classification = {}) {
   return !sentences.some((sentence) => namesInterview(sentence) || changesInterview(sentence) || rejectsApplication(sentence)
     || offersJob(sentence) || assignsAssessment(sentence) || requestsDocuments(sentence) || asksAccountVerification(sentence)
     || acknowledgesApplication(sentence) || asksAQuestion(sentence) || asksMoreThanThePortal(sentence));
+}
+
+/**
+ * Classify the remaining portal-shaped messages without granting them any
+ * order effect. The caller must still bind account notices to the order's
+ * authenticated portal account before suppressing delivery. An unknown or
+ * contradictory message returns the empty string and follows the existing
+ * candidate/owner-review policy.
+ */
+export function portalNoticeKind(message, classification = {}) {
+  const rules = readByRules(message);
+  const sentences = [...sentencesOf(rules.subject), ...sentencesOf(rules.text)];
+  const modelHasCandidateAction = CANDIDATE_ACTION_CATEGORIES.has(classification.category)
+    || classification.interviewWhen || (classification.requestedDocuments || []).length;
+  if (modelHasCandidateAction) return '';
+
+  const hasEmployerPurpose = sentences.some((sentence) => invitesToInterview(sentence) || changesInterview(sentence)
+    || rejectsApplication(sentence) || offersJob(sentence) || assignsAssessment(sentence) || requestsDocuments(sentence)
+    || asksAQuestion(sentence) || rules.postingWithdrawn);
+
+  // This is intentionally the same strict, machine-authored receipt contract
+  // used by settlement, but it accepts `other` as the model result so a
+  // mislabelled receipt can be held without becoming proof of submission.
+  if (!hasEmployerPurpose && structuralAutomaticApplicationReceipt(message, classification)) {
+    return 'automatic_application_receipt';
+  }
+
+  // Account verification is a candidate action for the portal runner, not for
+  // the candidate. The host/code/link is bound later by verificationAccountHost.
+  if (!hasEmployerPurpose && rules.category === 'verification' && rules.verificationAsked) {
+    return 'account_verification';
+  }
+
+  // A reminder has a separate contract and event. Do not let the broader
+  // preference/redirect wording steal it, especially for "complete your
+  // application through the portal" variants.
+  if (sentences.some(remindsOfApplication)) return '';
+
+  const hasPreferenceTopic = sentences.some((sentence) => PORTAL_PREFERENCE_TOPIC_RE.test(sentence));
+  const hasPreferenceAction = sentences.some((sentence) => PORTAL_PREFERENCE_ACTION_RE.test(sentence));
+  if (!hasEmployerPurpose && !sentences.some(acknowledgesApplication)
+    && hasPreferenceTopic && hasPreferenceAction) return 'portal_preferences';
+
+  if (!hasEmployerPurpose && !sentences.some(acknowledgesApplication)
+    && sentences.some((sentence) => EMPLOYER_PLATFORM_REDIRECT_RE.test(sentence))) {
+    return 'employer_platform_redirect';
+  }
+
+  return '';
 }
 
 /**
@@ -754,6 +857,23 @@ function containsVerbatimCode(text, code) {
     from = index + 1;
   }
   return false;
+}
+
+function structuralVerificationClassification(classification, rules) {
+  const sourceText = String(rules?.sourceText || '');
+  const proposedCode = String(classification?.verificationCode || '');
+  const verificationCode = proposedCode && containsVerbatimCode(sourceText, proposedCode)
+    ? proposedCode
+    : NAMED_CODE_RE.exec(sourceText)?.[1] || '';
+  const sourceLink = rules?.linkAsked ? soleSecureLink(sourceText) : '';
+  const proposedUrl = String(classification?.verificationUrl || '');
+  const verificationUrl = proposedUrl && sourceLink === proposedUrl ? proposedUrl : sourceLink;
+  return {
+    ...classification,
+    category: 'verification',
+    verificationCode,
+    verificationUrl,
+  };
 }
 
 function sanitizeClassification(raw, message) {
@@ -1116,6 +1236,19 @@ function forwardedFromDelivery(state) {
   return { status: state.status || 'queued' };
 }
 
+function candidateForwardAllowed(message, classification) {
+  if (CANDIDATE_ACTION_CATEGORIES.has(classification.category)) return true;
+  const rules = readByRules(message);
+  const sentences = [...sentencesOf(rules.subject), ...sentencesOf(rules.text)];
+  if (CANDIDATE_ACTION_CATEGORIES.has(rules.category)
+    || sentences.some((sentence) => invitesToInterview(sentence) || changesInterview(sentence) || rejectsApplication(sentence)
+      || offersJob(sentence) || assignsAssessment(sentence) || requestsDocuments(sentence) || checksInterviewDetails(sentence))) return true;
+  if (rules.category === 'verification') return false;
+  if (classification.category === 'question' && classification.needsReply === true && !automatedMessage(message)) return true;
+  if (rules.category === 'auto_acknowledgement') return false;
+  return classification.category === 'other' && classification.needsReply === true && !automatedMessage(message);
+}
+
 async function claimInboundForward({ db, ref, nowMs }) {
   let claimed = null;
   await db.runTransaction(async (transaction) => {
@@ -1124,6 +1257,7 @@ async function claimInboundForward({ db, ref, nowMs }) {
     const current = snapshot.data();
     if (!current?.processedAt) return;
     const delivery = current.forwardDelivery || {};
+    if (current.forwarded?.status === 'sent') return;
     const terminal = new Set(['sent', 'ambiguous', 'failed', 'skipped']);
     if (terminal.has(delivery.status)) return;
     if (delivery.status === 'retry_scheduled' && Number(delivery.retryAt || 0) > nowMs) return;
@@ -1206,7 +1340,7 @@ async function attemptAssistedApplicationInboundForward({ db, bucket, orderId, m
     const inbox = inboxSnapshot.data() || {};
     const to = customerEmailFor(order);
     const keptFromCandidate = Boolean(inbox.portalVerificationHost || inbox.passwordResetHost || inbox.portalAccountNoticeHost || inbox.automaticApplicationReceipt
-      || inbox.portalApplicationReminder);
+      || inbox.portalApplicationReminder || inbox.portalNoticeHeld || inbox.candidateForwardAllowed !== true);
     if (!to || keptFromCandidate) {
       const status = keptFromCandidate ? 'skipped' : 'failed';
       await updateInboundForward({ db, ref, claimId: claim.claimId, nowMs, status, error: status === 'failed' ? 'candidate_email_missing' : '' });
@@ -1343,6 +1477,51 @@ export async function runAssistedApplicationInboundForwardSweep({ db, bucket, ru
   return { scanned: snapshots.size, attempted: results.filter((result) => !result.skipped).length, results };
 }
 
+/** Explicit owner decision for an automated message the classifier could not resolve. */
+export async function forwardAssistedApplicationInboundByOwner({ db, bucket, orderId, messageId, runKey, sendCascade, nowMs = Date.now() }) {
+  const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
+  const ref = orderRef.collection('inbox').doc(messageId);
+  let result = null;
+  await db.runTransaction(async (transaction) => {
+    result = null;
+    const snapshot = await transaction.get(ref);
+    const current = snapshot.data();
+    const delivery = current?.forwardDelivery || {};
+    if (!current?.processedAt || current.ownerReviewRequired !== true) return;
+    if (delivery.status === 'sent') {
+      result = { forwarded: 'sent', duplicate: true };
+      return;
+    }
+    if (current.ownerReviewStatus !== 'pending' || delivery.status !== 'skipped' || delivery.reason !== 'owner_review') {
+      result = { forwarded: current.forwarded?.status || delivery.status || 'skipped', duplicate: current.ownerReviewStatus === 'approved' };
+      return;
+    }
+    const nextDelivery = {
+      ...delivery,
+      status: 'queued',
+      reason: null,
+      retryAt: nowMs,
+      leaseUntil: null,
+      providerAttemptStartedAt: null,
+      attemptedProvider: null,
+    };
+    transaction.set(ref, {
+      candidateForwardAllowed: true,
+      ownerReviewStatus: 'approved',
+      ownerReviewedAt: nowMs,
+      forwardDelivery: nextDelivery,
+      forwarded: forwardedFromDelivery(nextDelivery),
+    }, { merge: true });
+    result = { approved: true };
+  });
+  if (!result) {
+    if (!(await ref.get()).exists) throw new Error('inbound_message_not_found');
+    throw new Error('owner_review_not_pending');
+  }
+  if (!result.approved) return result;
+  return attemptAssistedApplicationInboundForward({ db, bucket, orderId, messageId, runKey, sendCascade, nowMs });
+}
+
 /**
  * Step 2, Firestore trigger on `inbox/{id}`: claim, decrypt, classify, and
  * record the employer response before attempting the candidate forward. A
@@ -1396,11 +1575,17 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
       }, { subject: rules.sourceSubject, text: rules.sourceText });
     }
 
+    // Structural portal notices are only a content classification. Any order
+    // effect still needs the exact account binding below; an unknown or
+    // contradictory message keeps the existing forwarding/owner-review path.
+    const detectedPortalNotice = portalNoticeKind(message, classification);
+    const verificationClassification = detectedPortalNotice === 'account_verification'
+      ? structuralVerificationClassification(classification, rules)
+      : classification;
     // A portal's account verification (a verbatim link or code) is read by the
-    // runner that created the account on the alias, and kept from the
-    // candidate, only when an account of this order waits for it: a link on
-    // that portal's site, or a code. Anything else reaches the candidate.
-    const portalVerificationHost = await verificationAccountHost(orderRef, classification, sender, { authenticated, verificationAsked: rules.verificationAsked, linkAsked: rules.linkAsked, text: rules.sourceText, receivedAt: claimed.receivedAt });
+    // runner that created the account on the alias when it can be bound safely.
+    // It remains in the concierge in every case and never goes to the candidate.
+    const portalVerificationHost = await verificationAccountHost(orderRef, verificationClassification, sender, { authenticated, verificationAsked: rules.verificationAsked, linkAsked: rules.linkAsked, text: rules.sourceText, receivedAt: claimed.receivedAt });
     const passwordReset = await passwordResetAccount(orderRef, {
       authenticated,
       asksPasswordReset: rules.asksPasswordReset,
@@ -1428,6 +1613,12 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     // recorded below as its acknowledgement (and proof of a submission of unknown
     // outcome), shown on the Application Concierge page, never forwarded.
     const applicationReceipt = !consumedByRunner && !portalAccountNoticeHost && automaticApplicationReceipt(message, classification);
+    const structuralApplicationReceipt = detectedPortalNotice === 'automatic_application_receipt';
+    const portalNoticeAccountHost = !consumedByRunner && !portalAccountNoticeHost
+      && !applicationReceipt
+      && (detectedPortalNotice === 'portal_preferences' || detectedPortalNotice === 'employer_platform_redirect')
+      ? await accountNoticeHost(orderRef, { authenticated, sender, sourceText: rules.sourceText, receivedAt: claimed.receivedAt })
+      : '';
     // A portal's reminder of an application started there and not sent (portalApplicationReminder), from an
     // authenticated sender bound to the order's portal account: the robot's own unfinished run. Recorded as
     // an event of the order, never forwarded, never an employer reply, never a proof of submission. It
@@ -1438,9 +1629,12 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
       ? await accountNoticeHost(orderRef, { authenticated, sender, sourceText: rules.sourceText, receivedAt: claimed.receivedAt })
       : '';
     const applicationReminder = Boolean(reminderHost);
-    const keptFromCandidate = consumedByRunner || Boolean(portalAccountNoticeHost) || applicationReceipt || applicationReminder;
+    const portalNoticeHeld = structuralApplicationReceipt || Boolean(portalNoticeAccountHost);
+    const knownSystemHold = consumedByRunner || Boolean(portalAccountNoticeHost) || applicationReceipt || applicationReminder || portalNoticeHeld;
     // What the order records: a reminder is no answer of the employer, whatever the model read.
     const recorded = passwordReset
+      ? { ...classification, category: 'verification', verificationCode: '', verificationUrl: '', summaryCandidate: '', needsReply: false }
+      : portalVerificationHost && classification.category !== 'verification'
       ? { ...classification, category: 'verification', verificationCode: '', verificationUrl: '', summaryCandidate: '', needsReply: false }
       : applicationReminder
       ? { ...classification, category: 'other', summaryCandidate: '', needsReply: false }
@@ -1451,7 +1645,21 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
           verificationUrl: '',
           ...(classification.needsReply === true ? { summaryCandidate: '', needsReply: false } : {}),
         }
+        : portalNoticeAccountHost
+          ? { ...classification, summaryCandidate: '', needsReply: false }
+          : structuralApplicationReceipt
+            ? { ...classification, summaryCandidate: '', needsReply: false }
+        : classification.category === 'auto_acknowledgement' && rules.category !== 'auto_acknowledgement'
+          ? { ...classification, category: 'other', summaryIt: '', summaryCandidate: '', needsReply: false }
         : classification;
+    const correlationStatus = RECEIPT_CATEGORIES.has(recorded.category)
+      && (recorded.category !== 'auto_acknowledgement' || rules.category === 'auto_acknowledgement')
+      ? 'verified'
+      : 'unknown';
+    const automatedSender = automatedMessage(message);
+    const mayForwardToCandidate = !knownSystemHold && candidateForwardAllowed(message, recorded);
+    const ownerReviewRequired = !knownSystemHold && recorded.category === 'other'
+      && correlationStatus === 'unknown' && automatedSender && !mayForwardToCandidate;
     const to = customerEmailFor(order);
     const initialDelivery = passwordReset
       ? { status: 'skipped', reason: 'portal_password_reset', attempts: 0, lastError: null }
@@ -1463,8 +1671,18 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         ? { status: 'skipped', reason: 'portal_account_notice', attempts: 0, lastError: null }
         : applicationReceipt
         ? { status: 'skipped', reason: 'application_receipt', attempts: 0, lastError: null }
+        : structuralApplicationReceipt
+        ? { status: 'skipped', reason: 'application_receipt', attempts: 0, lastError: null }
+        : portalNoticeAccountHost
+        ? { status: 'skipped', reason: detectedPortalNotice, attempts: 0, lastError: null }
         : applicationReminder
         ? { status: 'skipped', reason: 'portal_application_reminder', attempts: 0, lastError: null }
+        : recorded.category === 'verification' && !mayForwardToCandidate
+        ? { status: 'skipped', reason: 'account_verification', attempts: 0, lastError: null }
+        : ownerReviewRequired
+        ? { status: 'skipped', reason: 'owner_review', attempts: 0, lastError: null }
+        : !mayForwardToCandidate
+        ? { status: 'skipped', reason: 'not_candidate_action', attempts: 0, lastError: null }
         : to
         ? { status: 'queued', attempts: 0, retryAt: nowMs, lastError: null }
         : { status: 'failed', attempts: 0, lastError: 'candidate_email_missing' };
@@ -1495,10 +1713,14 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         attachments: message.attachments.map((item) => item.filename || 'allegato').slice(0, 20),
         classifiedBy,
         ...recorded,
+        ...(detectedPortalNotice ? { portalNoticeKind: detectedPortalNotice } : {}),
+        ...(portalNoticeHeld ? { portalNoticeHeld: true } : {}),
         senderAuthenticated: authenticated,
         ...(sourceVerificationLinkHost ? { sourceVerificationLinkHost } : {}),
         ...(sourceVerificationLink ? { sourceVerificationLinkEnc: encryptJson({ url: sourceVerificationLink }, runKeyFrom(runKey)) } : {}),
-        correlationStatus: RECEIPT_CATEGORIES.has(recorded.category) ? 'verified' : 'unknown',
+        correlationStatus,
+        candidateForwardAllowed: mayForwardToCandidate,
+        ...(ownerReviewRequired ? { ownerReviewRequired: true, ownerReviewStatus: 'pending' } : {}),
         portalVerificationHost,
         ...(passwordReset ? {
           passwordResetHost: passwordReset.host,
@@ -1512,14 +1734,18 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
         forwarded: forwardedFromDelivery(initialDelivery),
       }, { merge: true });
       if (applicationReminder) {
-        // The order's event, with its kind and time and nothing personal: no sender, subject or text.
-        transaction.set(orderRef.collection(ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION).doc(`portal-reminder-${messageId}`), buildAssistedApplicationEvent('portal_application_reminder', {
-          actor: 'inbound-mail',
-          messageId,
-          receivedAt: claimed.receivedAt,
-          portalHost: reminderHost,
-          flowState: liveFlowState,
-        }));
+        const alreadySubmitted = liveOrder.submissionStatus === 'submitted'
+          || liveOrder.automationState === 'submitted' || liveFlowState === 'submitted';
+        if (!alreadySubmitted) {
+          // Signal the flow with only event kind, time, and portal host; no sender, subject or text.
+          transaction.set(orderRef.collection(ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION).doc(`portal-reminder-${messageId}`), buildAssistedApplicationEvent('portal_application_reminder', {
+            actor: 'inbound-mail',
+            messageId,
+            receivedAt: claimed.receivedAt,
+            portalHost: reminderHost,
+            flowState: liveFlowState,
+          }));
+        }
         written = true;
         return;
       }
@@ -1536,18 +1762,18 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
     });
     if (!written) return { ok: true, skipped: true };
     let forwarded = (await ref.get()).data()?.forwarded?.status || null;
-    if (to && !keptFromCandidate) {
+    if (to && mayForwardToCandidate) {
       const delivery = await attemptAssistedApplicationInboundForward({ db, bucket, orderId, messageId, runKey, sendCascade, nowMs });
       forwarded = delivery.forwarded || forwarded;
     }
-    const settled = runEffect && !applicationReminder && RECEIPT_CATEGORIES.has(recorded.category)
+    const settled = runEffect && !applicationReminder && correlationStatus === 'verified' && RECEIPT_CATEGORIES.has(recorded.category)
       ? await settleSubmission({ db, orderId, receivedAt: claimed.receivedAt, runEffect, nowMs })
       : null;
     // The employer's authenticated e-mail says the posting was withdrawn (owner decision 2026-11-11): the flow
     // withdraws the application when its round waited for the candidate, or its order is under the Terms that
     // refund nothing once the process started (refundEndsAtStart, owner decision of the same day), and nothing
     // may have left (assistedApplicationFlow.js); otherwise it changes nothing, and the runner reads the posting.
-    const employerWithdrawal = runEffect && !settled?.ok && authenticated && !keptFromCandidate && rules.postingWithdrawn
+    const employerWithdrawal = runEffect && !settled?.ok && authenticated && !knownSystemHold && rules.postingWithdrawn
       ? await withdrawForEmployerMail({ db, orderId, receivedAt: claimed.receivedAt, runEffect, nowMs })
       : null;
     return {

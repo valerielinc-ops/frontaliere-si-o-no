@@ -71,11 +71,17 @@ section_tree_manifest_layout() {
   fi
 }
 
+section_tree_confirm_worker_layout() {
+  SECTION_TREE_WORKER_LAYOUT_CONFIRMATION="$1:$2"
+  export SECTION_TREE_WORKER_LAYOUT_CONFIRMATION
+}
+
 section_tree_require_worker_layout() {
   local section_name="$1"
   local section_sub="$2"
-  local probe_url="https://frontaliereticino.ch/${section_sub}/?__frontaliere_section_tree_layout=hash-v1&section=${section_name}"
-  local headers curl_rc attempt fanout_rc max_attempts=18
+  local fanout_rc
+  SECTION_TREE_WORKER_LAYOUT_CONFIRMATION=''
+  export SECTION_TREE_WORKER_LAYOUT_CONFIRMATION
 
   if section_tree_uses_hash_fanout "$section_name"; then
     :
@@ -85,46 +91,17 @@ section_tree_require_worker_layout() {
     return "$fanout_rc"
   fi
 
-  # A timeout is not evidence that the active Worker lacks hash-v1 routing.
-  # Retry only transport failures, with a bounded budget; HTTP responses still
-  # go straight to the semantic header check and every exhausted/unknown
-  # failure remains fail-closed before the hashed tree is published.
-  for ((attempt = 1; attempt <= max_attempts; attempt += 1)); do
-    if headers="$(curl --silent --show-error --fail --head --max-time 20 "$probe_url")"; then
-      if printf '%s\n' "$headers" | tr -d '\r' \
-          | grep -Eiq '^x-frontaliere-section-tree-layout:[[:space:]]*hash-v1[[:space:]]*$' \
-          && printf '%s\n' "$headers" | tr -d '\r' \
-            | grep -Eiq "^x-frontaliere-section:[[:space:]]*${section_name}[[:space:]]*$"; then
-        return 0
-      fi
-      # Accept the section-specific response during the generic-probe rollout;
-      # the next Worker deployment advertises both headers.
-      if printf '%s\n' "$headers" | tr -d '\r' \
-          | grep -Eiq "^x-frontaliere-${section_name}-tree-layout:[[:space:]]*hash-v1[[:space:]]*$"; then
-        return 0
-      fi
-      if [ "$attempt" -lt "$max_attempts" ]; then
-        echo "::warning::active Worker does not yet advertise hash-v1 for $section_name at $section_sub (attempt $attempt/$max_attempts); waiting for registry propagation" >&2
-        sleep 20
-        continue
-      fi
-      echo "::error::active Worker does not advertise hash-v1 routing for section $section_name at $section_sub; refusing to publish hashed paths" >&2
-      return 1
-    else
-      curl_rc="$?"
-      case "$curl_rc" in
-        6|7|22|28|35|52|56|92)
-          if [ "$attempt" -lt "$max_attempts" ]; then
-            echo "::warning::${section_name} shard layout probe not ready for $section_sub (curl $curl_rc; attempt $attempt/$max_attempts) — retrying in 20s" >&2
-            sleep 20
-            continue
-          fi
-          ;;
-      esac
-      echo "::error::${section_name} shard layout probe failed for $section_sub; refusing to publish hashed paths" >&2
-      return 1
-    fi
-  done
+  # Reuse the Node probe used by the cross-locale preflight. Keeping one probe
+  # implementation is essential here: it carries the descriptive User-Agent
+  # Cloudflare requires, while still preserving the bounded retry and
+  # fail-closed header checks before hashed paths are published.
+  if ! node "$SECTION_TREE_LAYOUT_STAGE_TOOL" probe \
+      --section "$section_name" --sub "$section_sub"; then
+    echo "::error::${section_name} shard layout probe failed for $section_sub; refusing to publish hashed paths" >&2
+    return 1
+  fi
+  section_tree_confirm_worker_layout "$section_name" "$section_sub"
+  return 0
 }
 
 # section_tree_fanout_stage <section> <section-root>
@@ -210,20 +187,40 @@ section_tree_measure_unfanned_pct() {
 # section_tree_evaluate_and_apply <section> <locale> <stage> <sub> <filesystem|index> <label>
 # The cross-locale preflight owns add-only registry writes and confirms the
 # Worker before any publisher starts. The per-locale stage reads that durable
-# decision, fails closed if a new threshold crossing missed preflight, confirms
-# the Worker for this route, then fans the temporary tree/index. Its JSON
+# decision, fails closed if a new threshold crossing missed preflight, then
+# revalidates the Worker after the expensive measurement before it fans the
+# temporary tree/index. Direct Node callers still probe by default. Its JSON
 # result is kept separate from the GitHub annotation log lines.
 section_tree_evaluate_and_apply() {
   local section_name="$1" locale="$2" stage="$3" sub="$4" mode="$5" label="$6"
-  local pct result stage_stderr
+  local pct result stage_stderr fanout_rc
+  local -a stage_args
   if ! pct="$(section_tree_measure_unfanned_pct "$stage" "$section_name" "$sub" "$mode" "$label")"; then
     return 1
   fi
+  if section_tree_uses_hash_fanout "$section_name"; then
+    if ! section_tree_require_worker_layout "$section_name" "$sub"; then
+      return 1
+    fi
+  else
+    fanout_rc="$?"
+    if [ "$fanout_rc" -ne 1 ]; then return "$fanout_rc"; fi
+  fi
   stage_stderr="$(mktemp "${RUNNER_TEMP:-/tmp}/section-tree-layout-stage.XXXXXX")" || return 1
-  if ! result="$(node "$SECTION_TREE_LAYOUT_STAGE_TOOL" stage \
-      --section "$section_name" --locale "$locale" --pct "$pct" \
-      --stage "$stage" --sub "$sub" --mode "$mode" \
-      --threshold "${FANOUT_AUTO_THRESHOLD_PCT:-40}" 2>"$stage_stderr")"; then
+  stage_args=(
+    stage
+    --section "$section_name"
+    --locale "$locale"
+    --pct "$pct"
+    --stage "$stage"
+    --sub "$sub"
+    --mode "$mode"
+    --threshold "${FANOUT_AUTO_THRESHOLD_PCT:-40}"
+  )
+  if [ "${SECTION_TREE_WORKER_LAYOUT_CONFIRMATION:-}" = "$section_name:$sub" ]; then
+    stage_args+=(--worker-layout-confirmed)
+  fi
+  if ! result="$(node "$SECTION_TREE_LAYOUT_STAGE_TOOL" "${stage_args[@]}" 2>"$stage_stderr")"; then
     cat "$stage_stderr" >&2 || true
     if grep -Fq '[section-tree-layout:preflight-required]' "$stage_stderr"; then
       : > "${RUNNER_TEMP:-/tmp}/section-tree-layout-preflight-required"

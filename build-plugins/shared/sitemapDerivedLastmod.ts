@@ -28,7 +28,7 @@ interface SitemapDocument {
 
 /** Sitemaps of pages that list job postings. */
 const JOB_LISTING_SITEMAP_RX =
-  /^sitemap-(?:jobs(?:-[a-z-]+)?|search-clusters-\d+|orphan-landings|professions|profession-cantons|profession-cities|sector|auto-sector-hubs|seo-hubs|recency|employer-profiles|weekly-employers|career-landings|nursing)\.xml$/;
+  /^sitemap-(?:jobs(?:-[a-z0-9][a-z0-9-]*)?|search-clusters-\d+|orphan-landings|professions|profession-cantons|profession-cities|sector|auto-sector-hubs|seo-hubs|recency|employer-profiles|weekly-employers|career-landings|nursing)\.xml$/;
 
 /** Sitemaps of pages that state their own `dateModified` (sampled live 2026-10-31).
  * Article detail pages expose the editor's update date in JSON-LD; the separate
@@ -45,8 +45,8 @@ const DECLARED_DATE_SITEMAPS: ReadonlySet<string> = new Set([
 ]);
 
 /** Files whose dated entries are job details: the expired family is not a listing target. */
-const JOB_DETAIL_SITEMAP_RX = /^sitemap-jobs(?:-[a-z-]+)?\.xml$/;
-const EXPIRED_JOB_SITEMAP = 'sitemap-jobs-expired.xml';
+const JOB_DETAIL_SITEMAP_RX = /^sitemap-jobs(?:-[a-z0-9][a-z0-9-]*)?\.xml$/;
+const EXPIRED_JOB_SITEMAP_RX = /^sitemap-jobs-expired(?:-\d+)?\.xml$/;
 
 const URL_BLOCK_RX = /[ \t]*<url>[\s\S]*?<\/url>/g;
 const LOC_RX = /<loc>\s*([^<]+?)\s*<\/loc>/;
@@ -58,7 +58,7 @@ const DATE_MODIFIED_RX = /"dateModified"\s*:\s*"([^"]+)"/g;
 export function collectJobDetailDays(files: readonly SitemapDocument[]): Map<string, string> {
   const days = new Map<string, string>();
   for (const { file, xml } of files) {
-    if (!JOB_DETAIL_SITEMAP_RX.test(file) || file === EXPIRED_JOB_SITEMAP) continue;
+    if (!JOB_DETAIL_SITEMAP_RX.test(file) || EXPIRED_JOB_SITEMAP_RX.test(file)) continue;
     for (const match of xml.matchAll(URL_BLOCK_RX)) {
       const day = match[0].match(LASTMOD_DAY_RX)?.[1];
       const loc = match[0].match(LOC_RX)?.[1];
@@ -104,7 +104,7 @@ export function deriveSitemapLastmods(
   const jobDays = collectJobDetailDays(files);
   const out = new Map<string, string>();
   for (const { file, xml } of files) {
-    const isListing = JOB_LISTING_SITEMAP_RX.test(file) && file !== EXPIRED_JOB_SITEMAP;
+    const isListing = JOB_LISTING_SITEMAP_RX.test(file) && !EXPIRED_JOB_SITEMAP_RX.test(file);
     const isDeclared = DECLARED_DATE_SITEMAPS.has(file);
     if (!isListing && !isDeclared) continue;
     const next = xml.replace(URL_BLOCK_RX, (block) => {

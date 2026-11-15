@@ -1,0 +1,25 @@
+{
+  "companyKey": "aspincorporated",
+  "companyName": "A.S.P. Incorporated",
+  "companyHost": "aspincorporated.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://aspincorporated.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 21,
+  "sampleTitles": [
+    "Access Control Officer- Pearson Airport",
+    "Airport Operations Communication Centre Specialist- Billy Bishop Airport",
+    "Aviation Security Specialist",
+    "Baggage Cart Attendant - French and English Required",
+    "Bilingual Baggage Cart Attendant - French & English Required"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-14T13:06:51.795Z",
+  "candidateKey": "aspincorporated@applytojob.com"
+}

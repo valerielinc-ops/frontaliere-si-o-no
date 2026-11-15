@@ -1,0 +1,27 @@
+{
+  "companyKey": "kidston-ch",
+  "companyName": "Kidston People GmbH",
+  "companyHost": "kidston.ch",
+  "verifiedEmployerDomain": "kidston.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://kidston.ch/candidates"
+  ],
+  "detailTemplate": "/job/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Senior ICT-Projektleiter/in IAM 80-100% Nordschweiz (BS B... | Temporär",
+    "Kaufm. Mitarbeiter/in Befragung West Switzerland... | Temporär",
+    "Mitarbeiter/in Planung techn. KV Zurich Region | Temporär",
+    "Mitarbeiter/in Projektierung Elektro Zurich Region | Temporär",
+    "ICT Business Owner IAM/PKI Bern Region | Permanent"
+  ],
+  "canton": "AG",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-14T13:18:20.794Z",
+  "candidateKey": "kidston-people@zurich"
+}

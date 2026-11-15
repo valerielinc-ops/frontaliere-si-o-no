@@ -25,6 +25,9 @@ import {
   planDeferredDeliveryWrites,
   planDeliveryWriteback,
   persistDeferredDeliveryWrites,
+  isNoOpDeferredWrite,
+  resolveSendableRecipients,
+  companyAlertMetrics,
   selectNewlyPublishedJobs,
   sortCompanyAlertRecipients,
 } from '../scripts/send-company-alerts.mjs';
@@ -1057,5 +1060,175 @@ describe('B6 — the per-run cap leaves a durable, fair backlog', () => {
       DEDUP_WINDOW_MS,
       [sourceJob],
     )).toEqual([]);
+  });
+});
+
+
+/** Firestore double for the consent lookup: records every document asked for. */
+function consentDb(docsByPath: Record<string, Record<string, unknown> | undefined>, { failLookup = false } = {}) {
+  const requested: string[] = [];
+  const db = {
+    requested,
+    collection: (name: string) => ({ doc: (id: string) => ({ path: `${name}/${id}` }) }),
+    getAll: vi.fn(async (...refs: Array<{ path: string }>) => {
+      if (failLookup) throw new Error('UNAVAILABLE: simulated outage');
+      return refs.map((r) => {
+        requested.push(r.path);
+        const data = docsByPath[r.path];
+        return { exists: Boolean(data), data: () => data };
+      });
+    }),
+  };
+  return db as any;
+}
+
+describe('B3 — consent is read only after planning, for recipients with something to send (perf-plan email senders)', () => {
+  const sendableConsent = (email: string) => ({
+    [`job_alert_subscribers/${email}`]: { active: true },
+    [`newsletter_subscribers/${email}`]: { status: 'active' },
+  });
+
+  it('a recipient with no section costs zero consent reads', async () => {
+    const quiet = alert('b3-quiet', 'Acme');
+    const db = consentDb({});
+    // No job of the followed employer: nothing to plan for this recipient.
+    const out = await resolveSendableRecipients(db, [quiet], {
+      newJobs: [job('other', 'Zeta', 'zeta')], allJobs: [job('other', 'Zeta', 'zeta')], now: NOW,
+    });
+    expect(db.getAll).not.toHaveBeenCalled();
+    expect(out.consentCandidates).toEqual([]);
+    expect(out.recipients).toEqual([]);
+    expect(out.deferredDeliveryWrites).toEqual([]);
+  });
+
+  it('looks up only the recipients that have a section (2 documents each)', async () => {
+    const withJob = alert('b3-with-job', 'Acme');
+    const quiet = alert('b3-quiet-2', 'Zeta');
+    const acmeJob = job('b3-acme-job', 'Acme', 'acme');
+    const db = consentDb(sendableConsent(withJob.email));
+    const out = await resolveSendableRecipients(db, [withJob, quiet], { newJobs: [acmeJob], allJobs: [acmeJob], now: NOW });
+    expect(db.requested.sort()).toEqual([
+      `job_alert_subscribers/${withJob.email}`,
+      `newsletter_subscribers/${withJob.email}`,
+    ].sort());
+    expect(out.recipients).toEqual([withJob.email]);
+    expect(out.plannedByRecipient.get(withJob.email)?.[0].jobs.map((j: any) => j.id)).toEqual(['b3-acme-job']);
+  });
+
+  it('a denied consent never reaches the claim: the recipient is not sendable', async () => {
+    const denied = alert('b3-denied', 'Acme');
+    const acmeJob = job('b3-denied-job', 'Acme', 'acme');
+    const db = consentDb({
+      [`job_alert_subscribers/${denied.email}`]: { active: false },
+      [`newsletter_subscribers/${denied.email}`]: { status: 'active' },
+    });
+    const out = await resolveSendableRecipients(db, [denied], { newJobs: [acmeJob], allJobs: [acmeJob], now: NOW });
+    expect(out.recipients).toEqual([]);
+    expect(out.alertsByRecipient.size).toBe(0);
+    expect(out.suppressionCounts).toEqual({ suppress: 1, defer: 0 });
+    expect(out.deferredDeliveryWrites).toEqual([]);
+  });
+
+  it('a failed consent lookup is fail-closed and persisted as a retryable deferral', async () => {
+    const unknown = alert('b3-outage', 'Acme');
+    const acmeJob = job('b3-outage-job', 'Acme', 'acme');
+    const db = consentDb({}, { failLookup: true });
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      const out = await resolveSendableRecipients(db, [unknown], { newJobs: [acmeJob], allJobs: [acmeJob], now: NOW });
+      expect(out.recipients).toEqual([]);
+      expect(out.suppressionCounts).toEqual({ suppress: 0, defer: 1 });
+      expect(out.deferredDeliveryWrites).toHaveLength(1);
+      expect(out.deferredDeliveryWrites[0]).toMatchObject({ reason: 'suppression-lookup-failed', deliveryDeferredAttempts: 1 });
+    } finally { warn.mockRestore(); }
+  });
+
+  it('a missing consent document defers (never sends) and a present one sends', async () => {
+    const a = alert('b3-missing', 'Acme');
+    const acmeJob = job('b3-missing-job', 'Acme', 'acme');
+    const out = await resolveSendableRecipients(consentDb({}), [a], { newJobs: [acmeJob], allJobs: [acmeJob], now: NOW });
+    expect(out.recipients).toEqual([]);
+    expect(out.deferredDeliveryWrites[0]).toMatchObject({ reason: 'consent-document-missing' });
+  });
+});
+
+describe('B3 — an unchanged deferral is not written again (perf-plan email senders)', () => {
+  const capLedgerAlert = (extra: Record<string, unknown> = {}) => alert('b3-noop', 'Acme', {
+    deliveryLastDeferredReason: 'per-run-cap',
+    deliveryLastDeferredAt: NOW - 3_600_000,
+    hasDeferredCompanyAlertWork: true,
+    deliveryLedger: {
+      'b3-noop-job': { state: DELIVERY_STATES.DEFERRED, at: NOW - 3_600_000, reason: 'per-run-cap' },
+    },
+    ...extra,
+  });
+
+  it('re-deferring the same job for the same reason writes nothing (0 transactions)', async () => {
+    const sourceAlert = capLedgerAlert();
+    const sourceJob = job('b3-noop-job', 'Acme', 'acme');
+    const section = buildRecipientSections([sourceAlert], [sourceJob], NOW)[0];
+    const writes = planDeferredDeliveryWrites([section], NOW, 'per-run-cap');
+    expect(isNoOpDeferredWrite(writes[0])).toBe(true);
+
+    const db = serializedDb({ [sourceAlert.ref.path]: { ...sourceAlert, ref: undefined } });
+    const spy = vi.spyOn(db, 'runTransaction');
+    const before = companyAlertMetrics.snapshot().counters.deferredWritesSkippedNoop || 0;
+    const persisted = await persistDeferredDeliveryWrites(db, writes, false);
+    expect(persisted).toBe(0);
+    expect(spy).not.toHaveBeenCalled();
+    expect(companyAlertMetrics.snapshot().counters.deferredWritesSkippedNoop).toBe(before + 1);
+  });
+
+  it('the first deferral of a job persists exactly one alert write', async () => {
+    const sourceAlert = alert('b3-first', 'Acme');
+    const sourceJob = job('b3-first-job', 'Acme', 'acme');
+    const section = buildRecipientSections([sourceAlert], [sourceJob], NOW)[0];
+    const writes = planDeferredDeliveryWrites([section], NOW, 'per-run-cap');
+    expect(isNoOpDeferredWrite(writes[0])).toBe(false);
+
+    const db = serializedDb({ [sourceAlert.ref.path]: { ...sourceAlert, ref: undefined } });
+    const spy = vi.spyOn(db, 'runTransaction');
+    expect(await persistDeferredDeliveryWrites(db, writes, false)).toBe(1);
+    expect(spy).toHaveBeenCalledTimes(1);
+    expect(db.docs.get(sourceAlert.ref.path)).toMatchObject({
+      deliveryLastDeferredReason: 'per-run-cap',
+      hasDeferredCompanyAlertWork: true,
+      deliveryLedger: { 'b3-first-job': { state: DELIVERY_STATES.DEFERRED, reason: 'per-run-cap' } },
+    });
+  });
+
+  it('a new reason, a new job, or a consumed attempt still persists', async () => {
+    const sourceAlert = capLedgerAlert();
+    const sourceJob = job('b3-noop-job', 'Acme', 'acme');
+    const section = buildRecipientSections([sourceAlert], [sourceJob], NOW)[0];
+    // Another reason for the same job.
+    expect(isNoOpDeferredWrite(planDeferredDeliveryWrites([section], NOW, 'card-cap')[0])).toBe(false);
+    // An alert-level (consent) deferral consumes an attempt: a state change.
+    expect(isNoOpDeferredWrite(planDeferredDeliveryWrites([section], NOW, 'consent-lookup-failed')[0])).toBe(false);
+    // A job the ledger has not seen yet.
+    const other = job('b3-other-job', 'Acme', 'acme');
+    const wider = buildRecipientSections([sourceAlert], [sourceJob, other], NOW)[0];
+    expect(isNoOpDeferredWrite(planDeferredDeliveryWrites([wider], NOW, 'per-run-cap')[0])).toBe(false);
+    // A flag that was never stored must be written once so the backlog index sees it.
+    const unflagged = capLedgerAlert({ hasDeferredCompanyAlertWork: undefined });
+    const s2 = buildRecipientSections([unflagged], [sourceJob], NOW)[0];
+    expect(isNoOpDeferredWrite(planDeferredDeliveryWrites([s2], NOW, 'per-run-cap')[0])).toBe(false);
+  });
+
+  it('a write without a baseline is never treated as a no-op', () => {
+    expect(isNoOpDeferredWrite({ ref: ref('x/y'), deliveryLedger: {}, reason: 'per-run-cap', at: NOW })).toBe(false);
+    expect(isNoOpDeferredWrite(null)).toBe(false);
+  });
+
+  it('the dry run reports only the writes that would change something', async () => {
+    const sourceAlert = capLedgerAlert();
+    const sourceJob = job('b3-noop-job', 'Acme', 'acme');
+    const section = buildRecipientSections([sourceAlert], [sourceJob], NOW)[0];
+    const log = vi.spyOn(console, 'log').mockImplementation(() => {});
+    try {
+      const count = await persistDeferredDeliveryWrites(null, planDeferredDeliveryWrites([section], NOW, 'per-run-cap'), true);
+      expect(count).toBe(0);
+      expect(log.mock.calls.flat().join('\n')).not.toContain('would be persisted');
+    } finally { log.mockRestore(); }
   });
 });

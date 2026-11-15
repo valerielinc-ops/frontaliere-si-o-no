@@ -34,6 +34,12 @@
       "issue": 11094,
       "homeGroup": 10,
       "reason": "PZM e' confluita in UPZ Bern: il medium Prospective condiviso pubblica link generici che il parser dedicato scarta, mentre le posizioni di Muensingen sono gia' coperte dal crawler upd"
+    },
+    "lipsuisse-ch-lipsuisse-ch": {
+      "retiredAt": "2026-11-14T18:01:50Z",
+      "issue": 18778,
+      "homeGroup": 20,
+      "reason": "Il crawler duplicato condivide il dominio lipsuisse.ch con il crawler canonico lipsuisse-ch, che ora pubblica gli annunci correnti; il suo seed di dettaglio storico fallisce no-jobs-parsed e la slice residua resta storica per continuita' di route e dati."
     }
   }
 }

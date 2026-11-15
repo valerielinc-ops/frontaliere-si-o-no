@@ -1,11 +1,12 @@
 {
   "key": "giardino",
   "label": "Giardino Group",
-  "generatedAt": "2026-11-12T21:43:54.306Z",
+  "generatedAt": "2026-11-15T09:46:13.150Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 0,
@@ -16,14 +17,14 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1039,
-  "avgDurationMs": 1039,
+  "durationMs": 739,
+  "avgDurationMs": 739,
   "durationHistory": [
-    1039
+    739
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
 }

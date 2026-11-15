@@ -92,6 +92,9 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * @property {number} [politeDelayMs]
  * @property {number} [imageMirrorDelayMs]
  * @property {boolean} [mirrorImages] - default true (no-hotlink policy).
+ * @property {string} [detailFailureStrategy] - explicit source-backed fallback
+ *   strategy for a source whose listing remains publishable when detail
+ *   enrichment fails; default is the shared reuse-or-reject policy.
  * @property {typeof fetch} [fetchImpl] - injectable for tests.
  * @property {string} [sliceDir] - where the per-source slice is merged;
  *   default EVENTS_SLICE_DIR (data/events/by-source). Tests pass a tmpdir so
@@ -113,6 +116,7 @@ export function createAgendaCrawler(config) {
     politeDelayMs = DEFAULT_POLITE_DELAY_MS,
     imageMirrorDelayMs = DEFAULT_IMAGE_MIRROR_DELAY_MS,
     mirrorImages = true,
+    detailFailureStrategy = 'reuse-or-reject',
     fetchImpl = fetch,
     sliceDir = EVENTS_SLICE_DIR,
   } = config || {};
@@ -296,6 +300,7 @@ export function createAgendaCrawler(config) {
       crawledAt,
       detailFailureIds,
       detailAttemptCount: events.length,
+      detailFailureStrategy,
     });
     console.log(`[${sourceKey}] merged ${sorted.length} events → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
     return {

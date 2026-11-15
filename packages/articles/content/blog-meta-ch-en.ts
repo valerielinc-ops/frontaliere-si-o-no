@@ -8512,7 +8512,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.agenda-federale-voto-2026.imageAlt': 'Swiss institutional scene linked to federal decisions and popular votes',
     'blog.article.giovani-donne-stipendi-svizzera.title': 'More Young Swiss women earn less despite being more educated',
     'blog.article.giovani-donne-stipendi-svizzera.excerpt': 'Born in 1995: income gap of 14% Born in 1965: income gap of 55% In 2025: tertiary education at 54% versus 48% Among parents.',
-    'blog.article.giovani-donne-stipendi-svizzera.imageAlt': 'Young woman working in a modern office in Switzerland',
+    'blog.article.giovani-donne-stipendi-svizzera.imageAlt': 'Illustrative image relevant to the article topic',
     'blog.article.imposta-successione-donazione-zurigo-regole.title': 'Inheritance and gift tax in the Canton of Zurich',
     'blog.article.imposta-successione-donazione-zurigo-regole.excerpt': 'Guide to inheritance and gift tax in the Canton of Zurich: rates based on degree of kinship, exemptions for spouse and descendants, and compliance requirements.',
     'blog.article.imposta-successione-donazione-zurigo-regole.imageAlt': 'Inheritance and gift tax in the Canton of Zurich',

@@ -12,7 +12,7 @@ vi.mock('../functions/src/assistedApplicationPostalPacket.js', () => ({
 }));
 
 const { ensureOrderAlias } = await import('../functions/src/assistedApplicationAlias.js');
-const { handleAssistedApplicationInbound, portalAccountNoticeKind, processAssistedApplicationInbound } = await import('../functions/src/assistedApplicationInbound.js');
+const { handleAssistedApplicationInbound, portalAccountNoticeKind, portalNoticeKind, processAssistedApplicationInbound } = await import('../functions/src/assistedApplicationInbound.js');
 const { portalAccountForNotice } = await import('../functions/src/assistedApplicationPortalSites.js');
 const { decodeHtmlEntities } = await import('../functions/src/lib/mimeMessage.js');
 
@@ -207,43 +207,151 @@ describe('a portal account notice for the order’s own account', () => {
   });
 });
 
-describe('what still reaches the candidate', () => {
-  it('without a portal account of the order', async () => {
-    const { store, alias } = await setup(null);
-    const { inbox, sendCascade } = await deliver({ store, alias, raw: mail(), answer: modelAnswer() });
-    expect(inbox.portalAccountNoticeHost).toBeUndefined();
-    expect(inbox.forwarded).toMatchObject({ status: 'sent' });
-    expect(sendCascade).toHaveBeenCalledTimes(1);
-  });
+describe('residual portal notices are deterministic and fail closed', () => {
+  const other = { category: 'other', needsReply: false, requestedDocuments: [], interviewWhen: '', verificationCode: '', verificationUrl: '' };
 
-  it('from a sender whose mail is not authenticated', async () => {
-    const { store, alias } = await setup();
-    const { inbox, sendCascade } = await deliver({ store, alias, raw: mail({ dkim: '' }), answer: modelAnswer() });
-    expect(inbox.portalAccountNoticeHost).toBeUndefined();
-    expect(sendCascade).toHaveBeenCalledTimes(1);
+  it.each([
+    ['an automatic application receipt', {
+      from: 'notifications@stelle.admin.ch',
+      subject: 'Application received',
+      text: 'We have received your application. This is an automatically generated email.',
+    }, 'automatic_application_receipt'],
+    ['an account verification request', {
+      from: 'job@stelle.admin.ch',
+      subject: 'Verify your email',
+      text: `Please verify your email address: ${LINK}`,
+    }, 'account_verification'],
+    ['a portal preference update', {
+      from: 'job@stelle.admin.ch',
+      subject: 'Email preferences updated',
+      text: `Your email preferences have been updated. Manage your notification preferences: ${LINK}`,
+    }, 'portal_preferences'],
+    ['an employer platform redirect', {
+      from: 'job@stelle.admin.ch',
+      subject: 'Your application',
+      text: `Thank you for your interest. Please submit your application through our online portal: ${LINK}`,
+    }, 'employer_platform_redirect'],
+  ])('%s has a stable kind', (_label, message, expected) => {
+    expect(portalNoticeKind(message, other)).toBe(expected);
   });
 
   it.each([
-    ['an interview invitation', `${CREATED}\n\nGerne laden wir Sie zu einem Vorstellungsgespräch am 12. Dezember ein.`, { interviewWhen: '12. Dezember' }],
-    ['a refusal', `${CREATED}\n\nLeider müssen wir Ihnen mitteilen, dass wir Ihre Bewerbung nicht berücksichtigen können.`, {}],
-    ['a document request', `${CREATED}\n\nBitte senden Sie uns Ihre Diplome und Zeugnisse.`, { requestedDocuments: ['Diplome'] }],
-    ['a receipt of the application', `${CREATED}\n\nWir haben Ihre Bewerbung erhalten.`, {}],
-  ])('when the account notice also carries %s', async (_name, text, overrides) => {
+    ['a human application acknowledgement', {
+      from: 'recruiter@stelle.admin.ch',
+      subject: 'Application received',
+      text: 'We have received your application.',
+    }],
+    ['an ambiguous preference mention', {
+      from: 'job@stelle.admin.ch',
+      subject: 'Application update',
+      text: 'We noted your preference for the role and will contact you later.',
+    }],
+    ['a redirect that also contains an interview action', {
+      from: 'job@stelle.admin.ch',
+      subject: 'Your application',
+      text: `Please submit your application through our online portal: ${LINK}. We invite you to an interview next week.`,
+    }],
+  ])('%s remains unclassified', (_label, message) => {
+    expect(portalNoticeKind(message, other)).toBe('');
+  });
+
+  it('holds a misclassified verification only after binding it to the order account', async () => {
+    const { store, alias } = await setup();
+    const { inbox, sendCascade } = await deliver({
+      store,
+      alias,
+      raw: mail({ subject: 'Verify your email', text: `Please verify your email address: ${LINK}` }),
+      answer: modelAnswer({ category: 'other', verificationUrl: '', needsReply: true }),
+    });
+
+    expect(inbox).toMatchObject({
+      category: 'verification', portalNoticeKind: 'account_verification', portalVerificationHost: HOST,
+      forwarded: { status: 'skipped', reason: 'portal_verification' },
+    });
+    expect(sendCascade).not.toHaveBeenCalled();
+  });
+
+  it.each([
+    ['portal preferences', 'Email preferences updated', `Your email preferences have been updated. Manage your notification preferences: ${LINK}`, 'portal_preferences'],
+    ['employer platform redirect', 'Your application', `Please submit your application through our online portal: ${LINK}`, 'employer_platform_redirect'],
+  ])('holds %s only for the account bound to the order', async (_label, subject, text, kind) => {
+    const { store, alias } = await setup();
+    const { inbox, sendCascade } = await deliver({
+      store,
+      alias,
+      raw: mail({ subject, text }),
+      answer: modelAnswer({ category: 'other', verificationUrl: '', needsReply: true }),
+    });
+
+    expect(inbox).toMatchObject({
+      category: 'other', portalNoticeKind: kind, portalNoticeHeld: true,
+      forwarded: { status: 'skipped', reason: kind },
+    });
+    expect(sendCascade).not.toHaveBeenCalled();
+  });
+
+  it('does not suppress a portal-shaped message when the order has no account proof', async () => {
+    const { store, alias } = await setup(null);
+    const { inbox, sendCascade } = await deliver({
+      store,
+      alias,
+      raw: mail({ subject: 'Email preferences updated', text: `Your email preferences have been updated. Manage your notification preferences: ${LINK}` }),
+      answer: modelAnswer({ category: 'other', verificationUrl: '', needsReply: true }),
+    });
+
+    expect(inbox).toMatchObject({ portalNoticeKind: 'portal_preferences' });
+    expect(inbox.portalNoticeHeld).toBeUndefined();
+    expect(inbox.forwarded).toMatchObject({ status: 'sent' });
+    expect(sendCascade).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('what still reaches the candidate', () => {
+  it('keeps an account alert in the concierge when it cannot bind it to this order', async () => {
+    const { store, alias } = await setup(null);
+    const { inbox, sendCascade } = await deliver({ store, alias, raw: mail(), answer: modelAnswer() });
+    expect(inbox.portalAccountNoticeHost).toBeUndefined();
+    expect(inbox.forwarded).toMatchObject({ status: 'skipped', reason: 'account_verification' });
+    expect(sendCascade).not.toHaveBeenCalled();
+  });
+
+  it('keeps an unauthenticated account alert in the concierge', async () => {
+    const { store, alias } = await setup();
+    const { inbox, sendCascade } = await deliver({ store, alias, raw: mail({ dkim: '' }), answer: modelAnswer() });
+    expect(inbox.portalAccountNoticeHost).toBeUndefined();
+    expect(inbox.forwarded).toMatchObject({ status: 'skipped', reason: 'account_verification' });
+    expect(sendCascade).not.toHaveBeenCalled();
+  });
+
+  it.each([
+    ['an interview invitation', `${CREATED}\n\nGerne laden wir Sie zu einem Vorstellungsgespräch am 12. Dezember ein.`, { interviewWhen: '12. Dezember' }, true],
+    ['a refusal', `${CREATED}\n\nLeider müssen wir Ihnen mitteilen, dass wir Ihre Bewerbung nicht berücksichtigen können.`, {}, true],
+    ['a document request', `${CREATED}\n\nBitte senden Sie uns Ihre Diplome und Zeugnisse.`, { requestedDocuments: ['Diplome'] }, true],
+    ['an assessment', `${CREATED}\n\nBitte absolvieren Sie den Online-Test bis Freitag.`, { category: 'assessment' }, true],
+    ['an offer', `${CREATED}\n\nWir freuen uns, Ihnen die Stelle anzubieten.`, { category: 'offer' }, true],
+    ['a receipt of the application', `${CREATED}\n\nWir haben Ihre Bewerbung erhalten.`, { category: 'auto_acknowledgement' }, false],
+  ])('when the account notice also carries %s', async (_name, text, overrides, shouldForward) => {
     const { store, alias } = await setup();
     const { inbox, sendCascade } = await deliver({ store, alias, raw: mail({ text }), answer: modelAnswer(overrides) });
     expect(inbox.portalAccountNoticeHost).toBeUndefined();
-    expect(sendCascade).toHaveBeenCalledTimes(1);
+    if (shouldForward) {
+      expect(inbox.forwarded).toMatchObject({ status: 'sent' });
+      expect(sendCascade).toHaveBeenCalledTimes(1);
+    } else {
+      expect(inbox).toMatchObject({ automaticApplicationReceipt: true, forwarded: { status: 'skipped', reason: 'application_receipt' } });
+      expect(sendCascade).not.toHaveBeenCalled();
+    }
   });
 
-  it('forwards the welcome when it also asks the candidate to verify an e-mail address', async () => {
+  it('keeps an account welcome and verification request in the concierge', async () => {
     const { store, alias } = await setup();
     const text = `${CITY_PORTAL_WELCOME}\n\nBitte bestätigen Sie Ihre E-Mail-Adresse über den folgenden Link.`;
     expect(portalAccountNoticeKind({ subject: 'Willkommen', text }, modelAnswer({ verificationUrl: '' }))).toBe('');
     const { inbox, sendCascade } = await deliver({ store, alias, raw: mail({ subject: 'Willkommen', text }), answer: modelAnswer({ verificationUrl: '' }) });
 
-    expect(inbox).toMatchObject({ category: 'verification', forwarded: { status: 'sent' } });
+    expect(inbox).toMatchObject({ category: 'verification', forwarded: { status: 'skipped', reason: 'account_verification' } });
     expect(inbox.portalAccountNoticeHost).toBeUndefined();
-    expect(sendCascade).toHaveBeenCalledTimes(1);
+    expect(sendCascade).not.toHaveBeenCalled();
   });
 
   it('forwards the welcome when it also invites the candidate to an interview', async () => {
@@ -271,11 +379,15 @@ describe('what still reaches the candidate', () => {
     expect(sendCascade).not.toHaveBeenCalled();
   });
 
-  it('when the model reads it as something else than an account mail', async () => {
+  it('queues an unresolved automated account alert for owner review', async () => {
     const { store, alias } = await setup();
     const { inbox, sendCascade } = await deliver({ store, alias, raw: mail(), answer: modelAnswer({ category: 'other' }) });
     expect(inbox.portalAccountNoticeHost).toBeUndefined();
-    expect(sendCascade).toHaveBeenCalledTimes(1);
+    expect(inbox).toMatchObject({
+      category: 'other', correlationStatus: 'unknown', ownerReviewRequired: true, ownerReviewStatus: 'pending',
+      forwarded: { status: 'skipped', reason: 'owner_review' },
+    });
+    expect(sendCascade).not.toHaveBeenCalled();
   });
 });
 

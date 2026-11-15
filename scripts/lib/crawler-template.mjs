@@ -155,6 +155,7 @@ import {
 } from './crawler-fetch-outcome.mjs';
 import { isAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { normalizeDetailDrop, detailDropSummaryFields } from './crawler-detail-drop.mjs';
+import { normalizeCrawlerFetchReceipt } from './crawler-fetch-receipt.mjs';
 import {
   writeJobsCrawlerSlice,
   writeJobsCrawlerSliceVerified,
@@ -882,6 +883,7 @@ export async function runStandardCrawlerPipeline(config) {
     lastFetchOutcome: null,
     abortKind: null,
     detailDrop: null,
+    fetchReceipt: null,
     sourceBodyFailures: [],
   };
   registerCrawlerSummaryGuard(companyKey, companyLabel, counts);
@@ -933,6 +935,7 @@ export async function runStandardCrawlerPipeline(config) {
     const fetchResult = await fetchJobs({ existingJobs: companyExisting });
     ({ jobs: parsedJobs, metadata: fetchMetadata } = normalizeCrawlerFetchResult(fetchResult));
   } catch (err) {
+    counts.fetchReceipt = normalizeCrawlerFetchReceipt(err?.specFetchReceipt);
     // Connection-level fetch failure = the runner's datacenter egress could not
     // reach an otherwise-healthy source (transient IP-reputation / egress block,
     // ~1-3% of fetches per wave; sites return 200 from a clean IP). This is
@@ -1031,6 +1034,7 @@ export async function runStandardCrawlerPipeline(config) {
   if (Number.isFinite(fetchMetadata?.discoveredCount)) {
     counts.discovered = fetchMetadata.discoveredCount;
   }
+  counts.fetchReceipt = normalizeCrawlerFetchReceipt(fetchMetadata?.fetchReceipt);
   if (CRAWLER_FETCH_OUTCOMES.has(fetchMetadata?.fetchOutcome)) {
     counts.lastFetchOutcome = fetchMetadata.fetchOutcome;
   }
@@ -1129,6 +1133,7 @@ export async function runStandardCrawlerPipeline(config) {
       discovered: counts.discovered,
       parsed: counts.parsed,
       lastFetchOutcome: 'filtered_empty',
+      fetchReceipt: counts.fetchReceipt,
       authoritativeEmptySnapshot: false,
       sourceBodyFailureCount: counts.sourceBodyFailures.length,
       sourceBodyFailures: counts.sourceBodyFailures,
@@ -1417,6 +1422,7 @@ export async function runStandardCrawlerPipeline(config) {
     discovered: counts.discovered,
     parsed: counts.parsed,
     lastFetchOutcome: counts.lastFetchOutcome,
+    fetchReceipt: counts.fetchReceipt,
     sourceBodyFailureCount: counts.sourceBodyFailures.length,
     sourceBodyFailures: counts.sourceBodyFailures,
     written: sliceJobs.length,

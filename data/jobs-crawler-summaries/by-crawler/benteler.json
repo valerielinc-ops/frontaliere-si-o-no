@@ -1,11 +1,12 @@
 {
   "key": "benteler",
   "label": "Benteler",
-  "generatedAt": "2026-11-12T21:52:56.661Z",
+  "generatedAt": "2026-11-15T09:29:47.169Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 0,
@@ -16,14 +17,14 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7775,
-  "avgDurationMs": 7775,
+  "durationMs": 7006,
+  "avgDurationMs": 7006,
   "durationHistory": [
-    7775
+    7006
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
 }

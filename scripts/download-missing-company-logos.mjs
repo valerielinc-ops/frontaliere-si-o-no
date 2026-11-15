@@ -34,6 +34,7 @@ import { readBoundedResponseBytes } from './lib/bounded-response-body.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { directLogoSources, loadLogoRegistry } from './lib/company-logo-registry.mjs';
 import { companyLogoKeyForJob } from './lib/company-logo-key.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import {
   domainCandidates,
   isAtsDomain,
@@ -73,7 +74,7 @@ function extractJobs(value, sourcePath) {
 
 async function readJson(file, fallback = null) {
   try {
-    return JSON.parse(await readFile(file, 'utf8'));
+    return readJsonFile(file);
   } catch (error) {
     if (fallback !== null && (error.code === 'ENOENT' || error instanceof SyntaxError)) return fallback;
     throw error;

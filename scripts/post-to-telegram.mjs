@@ -43,9 +43,10 @@ import { randomUUID } from 'node:crypto';
  *   TODAY_ISO=YYYY-MM-DD   — pin "today" for the border window (tests/CI).
  */
 
-import { readFileSync, existsSync } from 'node:fs';
+import { existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readJsonFile } from './lib/read-large-json.mjs';
 
 import {
   selectUnpostedJobs,
@@ -118,7 +119,7 @@ function loadJobs(repoRoot, log) {
       log('⚠️', `jobs.json not found at ${file}`);
       return [];
     }
-    const parsed = JSON.parse(readFileSync(file, 'utf-8'));
+    const parsed = readJsonFile(file);
     return Array.isArray(parsed) ? parsed : [];
   } catch (err) {
     log('⚠️', `failed to read jobs.json: ${err.message}`);

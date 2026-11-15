@@ -1,0 +1,24 @@
+{
+  "companyKey": "jobboxx-ch",
+  "companyName": "jobboxx ag",
+  "companyHost": "experts.jobs",
+  "verifiedEmployerDomain": "jobboxx.ch",
+  "platform": "experts.jobs",
+  "mode": "template",
+  "seedUrls": [
+    "https://experts.jobs/"
+  ],
+  "detailTemplate": "/bewerber/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Internationale Bewerberinnen und Bewerber",
+    "Karriereberatung & Coaching"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-13T13:54:37.968Z",
+  "candidateKey": "jobboxx@basel"
+}

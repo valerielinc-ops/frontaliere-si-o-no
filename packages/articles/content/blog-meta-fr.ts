@@ -13723,6 +13723,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavoro-transfrontaliero-osservatorio.title': 'Naît un observatoire permanent du travail entre l’Italie et la Suisse',
     'blog.article.lavoro-transfrontaliero-osservatorio.excerpt': 'Le 20 novembre, à Ville Ponti de Varese, seront présentées les premières activités de Forum Insubria 2050.',
     'blog.article.lavoro-transfrontaliero-osservatorio.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
+    'blog.article.frontalieri-disoccupati-costi-aggiuntivi.title': 'Chômeurs frontaliers : coûts redoutés, centaines de millions',
+    'blog.article.frontalieri-disoccupati-costi-aggiuntivi.excerpt': 'Berne a reçu aujourd’hui de la Commission européenne une communication sur une modification des compétences relatives aux travailleurs frontaliers au chômage.',
+    'blog.article.frontalieri-disoccupati-costi-aggiuntivi.imageAlt': 'Image illustrative en lien avec le sujet de l’article',
 };
 
 export default blogMetaFr;

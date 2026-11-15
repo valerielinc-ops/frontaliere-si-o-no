@@ -24,6 +24,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import { writeEmployerInsightsDocuments } from './lib/employer-insights-firestore.mjs';
 import { assertEmployerInsightsSource } from './lib/employer-insights-contract.mjs';
@@ -256,7 +257,7 @@ export function loadJsonJobs() {
   const monolith = ['data/jobs.json', 'public/data/jobs.json']
     .map((relative) => path.join(ROOT, relative))
     .find((candidate) => fs.existsSync(candidate));
-  if (monolith) return unwrapList(JSON.parse(fs.readFileSync(monolith, 'utf8')));
+  if (monolith) return unwrapList(readJsonFile(monolith));
 
   const directories = [
     path.join(ROOT, 'data', 'jobs', 'by-crawler'),

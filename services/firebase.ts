@@ -73,14 +73,18 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  JOBGATE_EXPERIMENT_ENABLED: 'false',
  JOBGATE_EXPERIMENT_ARMS: '{"control":100}',
  JOBGATE_EXPERIMENT_FORCE: '',
- // The promoted Spotlight is the safe visual default even when v5 is disabled
- // or public config fails. Enrollment stays off until explicitly enabled.
+ // The promoted tinted treatment is the safe visual default even when v6 is
+ // disabled or public config fails. Enrollment stays off until explicitly enabled.
  JOBGATE_V5_EXPERIMENT_ENABLED: 'false',
  JOBGATE_V5_EXPERIMENT_ARMS: '{"spotlight":100}',
  JOBGATE_V5_EXPERIMENT_FORCE: '',
- // The custom anti-adblock overlay is retired in favour of Google's Funding
- // Choices recovery message. Keep the old flag fail-closed for any legacy
- // caller that still imports AdBlockGate directly.
+ // v6 starts disabled; control maps to the promoted tinted treatment.
+ JOBGATE_V6_EXPERIMENT_ENABLED: 'false',
+ JOBGATE_V6_EXPERIMENT_ARMS: '{"control":100}',
+ JOBGATE_V6_EXPERIMENT_FORCE: '',
+ // The custom promotional overlay is retired. Retain its legacy Remote Config
+ // key as a disabled compatibility default; inline house ads and Google's
+ // native Funding Choices recovery remain active.
  ADBLOCK_GATE_EXPERIMENT_ENABLED: 'false',
  ADBLOCK_GATE_TEST_SHARE: '0.30',
  GOOGLE_MAPS_API_KEY: '',
@@ -173,6 +177,7 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
 const OPTIONAL_EMPTY_CONFIG_KEYS = new Set([
  'JOBGATE_EXPERIMENT_FORCE',
  'JOBGATE_V5_EXPERIMENT_FORCE',
+ 'JOBGATE_V6_EXPERIMENT_FORCE',
 ]);
 
 const FIREBASE_RUNTIME_LOGS = import.meta.env.MODE !== 'test';

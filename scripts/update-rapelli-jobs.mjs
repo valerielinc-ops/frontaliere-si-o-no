@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 /**
  * Dedicated Rapelli (ORIOR Food AG) crawler runner.
  *
@@ -234,7 +235,7 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   // Read from DATA_JOBS (just written by mergeCompanyJobs), not from the per-crawler
   // slice which still has stale data at this point.
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw)
     ? _sliceRaw.filter(isCompanyJob).filter((job) => meetsSourceBodyFloor(sourceBodyForJob(job)))
     : [];

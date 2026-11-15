@@ -174,3 +174,25 @@ export function resolveSwissPostalCodePlace(postalCode = '') {
   const entry = SWISS_POSTAL_CODE_INDEX?.postalCodes?.[code];
   return Array.isArray(entry) && entry.length === 2 ? { canton: entry[0], locality: entry[1] } : null;
 }
+
+/**
+ * Return the canton shared by every official locality carrying a postal code,
+ * even when the code is shared by several localities and therefore cannot
+ * identify one municipality. An empty result means the code is unknown or
+ * crosses canton boundaries.
+ *
+ * @param {string|number} postalCode
+ * @returns {string}
+ */
+export function resolveSwissPostalCodeCanton(postalCode = '') {
+  const code = String(postalCode ?? '').trim();
+  if (!/^\d{4}$/.test(code)) return '';
+  const cantons = new Set();
+  for (const [canton, entry] of Object.entries(SWISS_LOCALITY_POSTAL_CODES?.cantons || {})) {
+    for (const rawPostalCode of Object.values(entry || {})) {
+      if (String(rawPostalCode || '') !== code) continue;
+      cantons.add(canton);
+    }
+  }
+  return cantons.size === 1 ? [...cantons][0] : '';
+}

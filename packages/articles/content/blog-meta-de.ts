@@ -13720,6 +13720,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-transfrontaliero-osservatorio.title': 'Ständiges Arbeitsmarktobservatorium Italien-Schweiz entsteht',
     'blog.article.lavoro-transfrontaliero-osservatorio.excerpt': 'Am 20. November werden in den Ville Ponti von Varese die ersten Aktivitäten des Forum Insubria 2050 vorgestellt.',
     'blog.article.lavoro-transfrontaliero-osservatorio.imageAlt': 'Illustratives Bild zum Thema des Artikels',
+    'blog.article.frontalieri-disoccupati-costi-aggiuntivi.title': 'Arbeitslose Grenzgänger: Millionenmehrkosten befürchtet',
+    'blog.article.frontalieri-disoccupati-costi-aggiuntivi.excerpt': 'Bern hat heute von der Europäischen Kommission eine Mitteilung über eine Änderung der Zuständigkeiten im Zusammenhang mit arbeitslosen Grenzgängern erhalten.',
+    'blog.article.frontalieri-disoccupati-costi-aggiuntivi.imageAlt': 'Illustratives Bild zum Thema des Artikels',
 };
 
 export default blogMetaDe;

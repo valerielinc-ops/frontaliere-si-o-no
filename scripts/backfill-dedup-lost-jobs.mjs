@@ -24,7 +24,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
-import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { readExpiredSliceRows, readExpiredSliceShards, writeExpiredSliceRows } from './lib/expired-slice-store.mjs';
 import {
   collapseDuplicateRouteEntries,
   mergeSourceIdentityHistory,
@@ -441,12 +441,9 @@ export function validateExpiredEntry(entry) {
 }
 
 function loadExpiredSliceFromDisk(crawlerKey) {
-  const slicePath = path.join(EXPIRED_SLICES_DIR, `${crawlerKey}.json`);
-  if (!fs.existsSync(slicePath)) return [];
+  // Monolith + shards (scripts/lib/expired-slice-store.mjs).
   try {
-    const text = fs.readFileSync(slicePath, 'utf8');
-    const parsed = JSON.parse(text);
-    if (!Array.isArray(parsed)) return [];
+    const parsed = readExpiredSliceRows(crawlerKey, { dir: EXPIRED_SLICES_DIR });
     normalizeExpiredAtEntries(parsed, { source: `backfill-dedup-lost-jobs/${crawlerKey}` });
     return parsed;
   } catch {
@@ -724,8 +721,10 @@ function applyToDisk(filtered) {
   fs.mkdirSync(EXPIRED_SLICES_DIR, { recursive: true });
   const summary = [];
   for (const [crawlerKey, proposals] of filtered.entries()) {
-    const slicePath = path.join(EXPIRED_SLICES_DIR, `${crawlerKey}.json`);
-    const existing = loadExpiredSliceFromDisk(crawlerKey);
+    // Fail closed here: --apply must not rewrite an unreadable archive.
+    const existingShards = readExpiredSliceShards(crawlerKey, { dir: EXPIRED_SLICES_DIR });
+    const existing = existingShards.flatMap((shard) => shard.rows);
+    normalizeExpiredAtEntries(existing, { source: `backfill-dedup-lost-jobs/${crawlerKey}` });
     // A recovered dedup loser shares its slug with the winner by definition,
     // so the union below can hand two entries the same locale route. Collapse
     // by route — the union of routes is what the soft landings need.
@@ -733,7 +732,7 @@ function applyToDisk(filtered) {
       [...existing, ...proposals].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
       { source: 'backfill-dedup-lost-jobs' },
     ).entries;
-    writeJsonAtomic(slicePath, merged);
+    writeExpiredSliceRows(crawlerKey, merged, { dir: EXPIRED_SLICES_DIR, existing: existingShards });
     summary.push({ crawlerKey, added: proposals.length, total: merged.length });
   }
   return summary;

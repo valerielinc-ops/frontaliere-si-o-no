@@ -1,11 +1,52 @@
 {
   "key": "data-unit-ag",
   "label": "DATA UNIT AG",
-  "generatedAt": "2026-11-12T22:02:28.500Z",
+  "generatedAt": "2026-11-15T09:45:35.307Z",
   "total": 3,
   "discovered": 3,
   "parsed": 3,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "data-unit-ag",
+    "seedUrls": [
+      "https://dataunit.jobs.personio.de/?language=de"
+    ],
+    "phase": "detail",
+    "pages": 8,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://dataunit.jobs.personio.de/?language=de"
+      },
+      {
+        "status": 200,
+        "url": "https://www.dataunit.ch/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.dataunit.ch/erp-losung-kmu-kontakt/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.dataunit.ch/impressum/"
+      },
+      {
+        "status": 200,
+        "url": "https://dataunit.jobs.personio.de/job/2319938?language=de"
+      },
+      {
+        "status": 200,
+        "url": "https://dataunit.jobs.personio.de/job/2550441?language=de"
+      },
+      {
+        "status": 200,
+        "url": "https://dataunit.jobs.personio.de/job/2422130?language=de"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 3,
@@ -16,21 +57,19 @@
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 22895,
-  "avgDurationMs": 22895,
+  "unchangedCount": 2,
+  "durationMs": 16561,
+  "avgDurationMs": 16561,
   "durationHistory": [
-    22895
+    16561
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "data-unit-ag-ef1949b9ab6f",
-      "slug": "schnupperlehre-come-entwickler-in-digitales-business-informatiker-in-applikationsentwicklung-data-unit-ag-sursee",
+      "slug": "stage-di-orientamento-come-sviluppatore-sviluppatrice-di-business-digitale-informatico-a-per-lo-sviluppo-di-applicazioni",
       "company": "DATA UNIT AG",
       "companyKey": "data-unit-ag",
       "companyDomain": "dataunit.jobs.personio.de",
@@ -40,7 +79,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2422130?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T22:01:57.478Z",
+      "crawledAt": "2026-11-15T09:44:50.400Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -58,13 +97,12 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://dataunit.jobs.personio.de/job/2422130?language=de",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-10T22:04:48.256Z",
-      "salaryMin": 78500,
-      "salaryMax": 119000,
+      "salaryMin": 54000,
+      "salaryMax": 82000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T22:01:57.478Z",
+      "validThrough": "2027-02-09T09:44:50.400Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -73,7 +111,10 @@
         "translation": 25,
         "completeness": 23
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "data-unit-ag-16969b58c18b",
       "slug": "sviluppo-del-prodotto-di-stage-estivi-data-unit-ag-baden",
@@ -86,7 +127,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2550441?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T22:01:57.474Z",
+      "crawledAt": "2026-11-15T09:44:50.398Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -109,7 +150,7 @@
       "salaryMax": 76000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T22:01:57.474Z",
+      "validThrough": "2027-02-09T09:44:50.398Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -131,7 +172,7 @@
       "url": "https://dataunit.jobs.personio.de/job/2319938?language=de",
       "source": "DATA UNIT AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T22:01:57.469Z",
+      "crawledAt": "2026-11-15T09:44:50.390Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -154,7 +195,7 @@
       "salaryMax": 106000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T22:01:57.469Z",
+      "validThrough": "2027-02-09T09:44:50.390Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -165,5 +206,5 @@
       }
     }
   ],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
 }

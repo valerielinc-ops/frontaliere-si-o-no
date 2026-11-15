@@ -288,7 +288,7 @@ function main() {
 
   const jobs = readJsonFile(JOBS_PATH);
   const expiredArr = fs.existsSync(EXPIRED_PATH)
-    ? (() => { const e = JSON.parse(fs.readFileSync(EXPIRED_PATH, 'utf-8')); return Array.isArray(e) ? e : (e.jobs || e.entries || []); })()
+    ? (() => { const e = readJsonFile(EXPIRED_PATH); return Array.isArray(e) ? e : (e.jobs || e.entries || []); })()
     : [];
   const expiredIdx = buildExpiredIndex(expiredArr);
   const slugIndex = buildSlugIndex(jobs);

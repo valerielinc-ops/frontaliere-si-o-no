@@ -30,13 +30,13 @@ import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { decontaminateJobs } from './decontaminate-prev-slugs.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import {
-  assertExpiredSliceSize,
   collapseDuplicateRouteEntries,
   mergeSourceIdentityHistory,
   normalizeExpiredEntryTitles,
   normalizeExpiredAtEntries,
 } from './lib/expired-jobs-archive.mjs';
 import { isSliceFile, listSliceFilePaths } from './lib/crawler-slice-files.mjs';
+import { readExpiredSliceShards, writeExpiredSliceRows } from './lib/expired-slice-store.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
 import { deduplicateJobsBySlug } from './lib/job-slug-dedup.mjs';
 import { isHeldFromPublication } from './lib/translation-publication-hold.mjs';
@@ -495,13 +495,12 @@ function archiveExpiredJobsPerCrawler(removedJobs, allJobsById, crawlerKey) {
   if (!crawlerKey) return 0;
 
   fs.mkdirSync(EXPIRED_SLICES_DIR, { recursive: true });
-  const slicePath = path.join(EXPIRED_SLICES_DIR, `${crawlerKey}.json`);
 
-  let existing = [];
-  try {
-    existing = JSON.parse(fs.readFileSync(slicePath, 'utf-8'));
-    if (!Array.isArray(existing)) existing = [];
-  } catch { /* file missing or malformed — start fresh */ }
+  // The crawler's whole archive: monolith + `<key>.shard-NNN.json`
+  // (scripts/lib/expired-slice-store.mjs). An unreadable file throws instead
+  // of starting fresh, which would rewrite it with only this run's rows.
+  const shards = readExpiredSliceShards(crawlerKey, { dir: EXPIRED_SLICES_DIR });
+  const existing = shards.flatMap((shard) => shard.rows);
 
   const repaired = normalizeExpiredAtEntries(existing, { source: `cleanup-jobs/slice/${crawlerKey}` });
   const bySlug = new Map();
@@ -528,8 +527,8 @@ function archiveExpiredJobsPerCrawler(removedJobs, allJobsById, crawlerKey) {
   if (added === 0 && existing.length === bySlug.size && repaired === 0
     && collapse.collapsed === 0 && collapse.repairedRoutes === 0) return 0;
   const archived = collapse.entries;
-  assertExpiredSliceSize(slicePath, archived);
-  writeJson(slicePath, archived);
+  // Shard placement + the 90 MB ceiling on every file.
+  writeExpiredSliceRows(crawlerKey, archived, { dir: EXPIRED_SLICES_DIR, existing: shards });
   return added;
 }
 

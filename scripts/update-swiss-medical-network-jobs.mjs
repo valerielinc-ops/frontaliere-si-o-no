@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -348,7 +349,7 @@ async function main() {
 
   // Post-process
   if (fs.existsSync(DATA_JOBS)) {
-    const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+    const jobs = readJsonFile(DATA_JOBS);
     let fixed = 0;
     for (const j of (Array.isArray(jobs) ? jobs : [])) { if (!isSwissMedicalJob(j)) continue; if (j.company !== COMPANY_NAME) { j.company = COMPANY_NAME; fixed++; } j.companyKey = COMPANY_KEY; j.country = 'CH'; if (!j.canton) { const c = inferAnyCanton(j.location || j.addressLocality || ''); if (c) { j.canton = c; fixed++; } } }
     if (fixed > 0) { writeJsonAtomic(DATA_JOBS, jobs); writeJsonAtomic(PUBLIC_JOBS, jobs); }

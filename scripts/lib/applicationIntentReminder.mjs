@@ -285,39 +285,96 @@ function jobKeySet(job) {
   ].filter(Boolean).map((value) => String(value)));
 }
 
+function applicationIntentJobCompany(job) {
+  return String(job?.companyKey || job?.company || '').trim().toLowerCase();
+}
+
+function applicationIntentJobKeys(job) {
+  return jobKeySet(job);
+}
+
+function applicationIntentJobSimilarityFeatures(job) {
+  return {
+    keywords: extractKeywords(sourceTitle(job)),
+    locations: jobLocationTokens(job),
+    canton: String(job?.canton || '').toLowerCase(),
+  };
+}
+
+/** Reuse immutable job-side recommendation features for one sender run. */
+export function createApplicationIntentReminderFeatureCache() {
+  const byJob = new WeakMap();
+  const entryFor = (job) => {
+    if (!job || typeof job !== 'object') return null;
+    let entry = byJob.get(job);
+    if (!entry) {
+      entry = { company: undefined, keys: null, similarity: null };
+      byJob.set(job, entry);
+    }
+    return entry;
+  };
+  return {
+    company(job) {
+      const entry = entryFor(job);
+      if (!entry) return applicationIntentJobCompany(job);
+      if (entry.company === undefined) entry.company = applicationIntentJobCompany(job);
+      return entry.company;
+    },
+    keys(job) {
+      const entry = entryFor(job);
+      if (!entry) return applicationIntentJobKeys(job);
+      return (entry.keys ||= applicationIntentJobKeys(job));
+    },
+    similarity(job) {
+      const entry = entryFor(job);
+      if (!entry) return applicationIntentJobSimilarityFeatures(job);
+      return (entry.similarity ||= applicationIntentJobSimilarityFeatures(job));
+    },
+  };
+}
+
 /** Rank semantically and geographically similar live jobs, with no popularity fallback. */
 export function rankSimilarApplicationJobs(sourceJobs = [], candidateJobs = [], {
   max = MAX_APPLICATION_INTENT_RECOMMENDATIONS,
   excludedJobIds = new Set(),
+  featureCache = null,
 } = {}) {
   const sources = Array.isArray(sourceJobs) ? sourceJobs.filter(Boolean) : [];
   const candidates = Array.isArray(candidateJobs) ? candidateJobs : [];
   const excluded = new Set([...excludedJobIds].map((value) => String(value)));
+  const companyFor = (job) => featureCache
+    ? featureCache.company(job)
+    : applicationIntentJobCompany(job);
+  const keysFor = (job) => featureCache
+    ? featureCache.keys(job)
+    : applicationIntentJobKeys(job);
+  const similarityFor = (job) => featureCache
+    ? featureCache.similarity(job)
+    : applicationIntentJobSimilarityFeatures(job);
   const sourceProfiles = sources.map((job) => ({
     job,
-    keywords: extractKeywords(sourceTitle(job)),
-    locations: jobLocationTokens(job),
-    canton: String(job?.canton || '').toLowerCase(),
+    company: companyFor(job),
+    keys: keysFor(job),
+    ...similarityFor(job),
   }));
-  const sourceCompanies = new Set(sources
-    .map((job) => String(job?.companyKey || job?.company || '').trim().toLowerCase())
+  const sourceCompanies = new Set(sourceProfiles
+    .map(({ company }) => company)
     .filter(Boolean));
   const scored = [];
   for (const candidate of candidates) {
     if (!candidate?.id || excluded.has(String(candidate.id))) continue;
-    const candidateCompany = String(candidate.companyKey || candidate.company || '').trim().toLowerCase();
+    const candidateCompany = companyFor(candidate);
     if (candidateCompany && sourceCompanies.has(candidateCompany)) continue;
-    const candidateKeys = jobKeySet(candidate);
-    if (sourceProfiles.some(({ job }) => [...jobKeySet(job)].some((key) => candidateKeys.has(key)))) continue;
-    const candidateKeywords = extractKeywords(sourceTitle(candidate));
-    const candidateLocations = jobLocationTokens(candidate);
+    const candidateKeys = keysFor(candidate);
+    if (sourceProfiles.some(({ keys }) => [...keys].some((key) => candidateKeys.has(key)))) continue;
+    const candidateSimilarity = similarityFor(candidate);
     let best = null;
     for (const source of sourceProfiles) {
       let overlap = 0;
-      for (const keyword of source.keywords) if (candidateKeywords.has(keyword)) overlap++;
+      for (const keyword of source.keywords) if (candidateSimilarity.keywords.has(keyword)) overlap++;
       if (overlap === 0) continue;
-      const sameLocation = [...source.locations].some((token) => candidateLocations.has(token));
-      const sameCanton = source.canton && source.canton === String(candidate.canton || '').toLowerCase();
+      const sameLocation = [...source.locations].some((token) => candidateSimilarity.locations.has(token));
+      const sameCanton = source.canton && source.canton === candidateSimilarity.canton;
       const score = overlap * 4 + (sameLocation ? 7 : 0) + (sameCanton ? 2 : 0);
       if (!best || score > best.score) best = { score, overlap, sameLocation, sameCanton };
     }

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -425,7 +426,7 @@ async function injectMedactaJobs(alliboJobs) {
   // still need to come from DATA_JOBS when present.
   let jobs = [];
   if (fs.existsSync(DATA_JOBS)) {
-    try { jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')); } catch { jobs = []; }
+    try { jobs = readJsonFile(DATA_JOBS); } catch { jobs = []; }
   }
   if (!Array.isArray(jobs)) jobs = [];
   if (!jobs.some(isMedactaJob)) {
@@ -1076,7 +1077,7 @@ function cleanMedactaDescription(desc = '') {
  */
 function postProcessMedactaJobs() {
   if (!fs.existsSync(DATA_JOBS)) return;
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const jobs = Array.isArray(raw) ? raw : [];
   let fixed = 0;
   const withoutSourceBody = new Set();
@@ -1238,7 +1239,7 @@ function logMedactaJobStats(beforeSnapshot = new Map()) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
     return { total: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const allJobs = Array.isArray(raw) ? raw : [];
   const medactaJobs = allJobs.filter(isMedactaJob);
   const byCanton = new Map();
@@ -1349,7 +1350,7 @@ async function main() {
   // 6. Print published URLs
   if (fs.existsSync(DATA_JOBS)) {
     try {
-      const endJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+      const endJobs = readJsonFile(DATA_JOBS);
       const medJobs = Array.isArray(endJobs) ? endJobs.filter(isMedactaJob) : [];
       printPublishedJobUrls(medJobs, MEDACTA_KEY);
       writeJobsSummary(medJobs, MEDACTA_KEY);
@@ -1358,7 +1359,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isMedactaJob) : [];
   writeJobsCrawlerSlice(MEDACTA_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

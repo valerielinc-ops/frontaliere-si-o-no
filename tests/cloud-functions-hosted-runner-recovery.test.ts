@@ -188,18 +188,31 @@ describe('bounded Cloud Functions hosted-runner recovery', () => {
     expect(recovery.jobs.retry.if).toContain("run_attempt == 1");
     expect(recovery.jobs.retry.if).toContain("startup_failure");
     expect(recovery.jobs.retry.steps[0].with['sparse-checkout']).toContain('scripts/ci/lib/workflow-run-list-recovery.mjs');
+    expect(recovery.jobs.retry.steps[0].with['sparse-checkout']).toContain('scripts/load-rc-env.mjs');
+    expect(recovery.jobs.retry.steps[0].with['sparse-checkout']).toContain('scripts/lib/google-service-account-token.mjs');
+    expect(recovery.jobs.retry.steps[0].with['sparse-checkout']).toContain('scripts/lib/fetch-with-ref-timeout.mjs');
+    expect(recovery.jobs.retry.steps[0].with['sparse-checkout']).toContain('scripts/lib/remote-config-template-url.mjs');
+    const recoveryTokenStep = recovery.jobs.retry.steps.find((step: any) => step.name === 'Load recovery API token from Remote Config');
+    expect(recoveryTokenStep?.run).toContain('node scripts/load-rc-env.mjs --only-env=GITHUB_PAT');
+    const recoveryScript = recovery.jobs.retry.steps.at(-1).with.script;
+    expect(recoveryScript).toContain("getOctokit(recoveryToken)");
+    expect(recoveryScript).toContain('process.env.GITHUB_PAT');
+    expect(recoveryScript).toContain('recoveryGithub.rest.actions.listJobsForWorkflowRunAttempt');
+    expect(recoveryScript).toContain('recoveryGithub.rest.checks.listAnnotations');
+    expect(recoveryScript).toContain('recoveryGithub.rest.actions.reRunWorkflow');
+    expect(recoveryScript).not.toContain('github.rest.actions.listJobsForWorkflowRunAttempt');
     expect(recovery.jobs.retry.steps.at(-1).uses).toBe('actions/github-script@v9');
-    expect(recovery.jobs.retry.steps.at(-1).with.script).toContain('shouldRetryCloudFunctionsRun');
-    expect(recovery.jobs.retry.steps.at(-1).with.script).toContain('startup/runner recovery signature');
-    expect(recovery.jobs.retry.steps.at(-1).with.script).toContain('listRecentCloudFunctionsRuns');
-    expect(recovery.jobs.retry.steps.at(-1).with.script).not.toContain('github.paginate(\n              github.rest.actions.listWorkflowRuns');
+    expect(recoveryScript).toContain('shouldRetryCloudFunctionsRun');
+    expect(recoveryScript).toContain('startup/runner recovery signature');
+    expect(recoveryScript).toContain('listRecentCloudFunctionsRuns');
+    expect(recoveryScript).not.toContain('github.paginate(\n              github.rest.actions.listWorkflowRuns');
     expect(deploy.concurrency['cancel-in-progress']).toBe(false);
   });
 
   it.each([
     ['Cloud Functions', DEPLOY_WORKFLOW_PATH],
     ['Firestore/Storage rules', RULES_DEPLOY_WORKFLOW_PATH],
-  ])('retries the %s sparse checkout once before deploy logic', (_label, workflowPath) => {
+  ])('retries the %s sparse checkout once before deploy logic', (label, workflowPath) => {
     const workflow = parse(fs.readFileSync(workflowPath, 'utf8')) as any;
     const job = Object.values(workflow.jobs)[0] as any;
     const steps = job.steps as Array<Record<string, any>>;
@@ -213,8 +226,16 @@ describe('bounded Cloud Functions hosted-runner recovery', () => {
       uses: 'actions/checkout@v7',
       'continue-on-error': true,
     });
-    expect(String(primary?.with?.['sparse-checkout'])).toContain('/*');
-    expect(primary?.with?.['sparse-checkout-cone-mode']).toBe(false);
+    if (label === 'Cloud Functions') {
+      const profile = String(primary?.with?.['sparse-checkout']);
+      expect(profile).toContain('/*');
+      expect(profile).toContain('!/public/images/');
+      expect(profile).toContain('!/data/jobs/');
+      expect(primary?.with?.['sparse-checkout-cone-mode']).toBe(false);
+    } else {
+      expect(String(primary?.with?.['sparse-checkout'])).toContain('/*');
+      expect(primary?.with?.['sparse-checkout-cone-mode']).toBe(false);
+    }
     expect(retry).toMatchObject({
       uses: 'actions/checkout@v7',
       if: "steps.checkout_primary.outcome == 'failure'",

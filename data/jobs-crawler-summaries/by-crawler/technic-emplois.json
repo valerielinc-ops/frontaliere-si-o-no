@@ -1,11 +1,12 @@
 {
   "key": "technic-emplois",
   "label": "Technic Emplois SA",
-  "generatedAt": "2026-11-11T09:28:32.509Z",
+  "generatedAt": "2026-11-15T09:37:05.555Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
   "lastFetchOutcome": "selector_miss",
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "abortKind": "no-jobs-parsed",
@@ -20,5 +21,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "528606922e99214a615a2151a4bc677b79a3326f"
+  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
 }

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 import dns from 'node:dns';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
@@ -277,7 +278,7 @@ function cleanTichDescription(raw) {
 function postProcessTichJobs() {
   if (!fs.existsSync(DATA_JOBS)) return 0;
 
-  const allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const allJobs = readJsonFile(DATA_JOBS);
   if (!Array.isArray(allJobs)) return 0;
 
   let updated = 0;
@@ -892,7 +893,7 @@ function logTichJobStats(beforeSnapshot = new Map()) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
     return { total: 0, ticino: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const allJobs = Array.isArray(raw) ? raw : [];
   const tichJobs = allJobs.filter(isTichJob);
   const ticinoJobs = tichJobs.filter((job) => normalize(job?.canton) === 'ti');
@@ -1008,7 +1009,7 @@ export async function fetchTichHtml(
  */
 async function enrichTichJobs({ preferMorss = false } = {}) {
   if (!fs.existsSync(DATA_JOBS)) return 0;
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const jobs = Array.isArray(raw) ? raw : [];
   let enriched = 0;
 
@@ -1122,7 +1123,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTichJob) : [];
   writeJobsCrawlerSlice(TICH_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

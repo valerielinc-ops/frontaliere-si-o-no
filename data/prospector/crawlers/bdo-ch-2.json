@@ -1,0 +1,27 @@
+{
+  "companyKey": "bdo-ch-2",
+  "companyName": "BDO AG",
+  "companyHost": "bdo.ch",
+  "verifiedEmployerDomain": "bdo.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.bdo.ch/de-ch/karriere"
+  ],
+  "detailTemplate": "/de-ch/karriere/lernende/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "KV Lehre in Dienstleistung und Administration (D&A) chevron_right",
+    "Lehre als Entwickler oder Entwicklerin digitales Business (EDB) chevron_right",
+    "Lehre als Informatiker oder Informatikerin Applikationsentwicklung chevron_right",
+    "Lehre als Informatiker oder Informatikerin Plattformentwicklung chevron_right",
+    "Lehre als Mediamatiker oder Mediamatikerin chevron_right"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-13T13:57:22.646Z",
+  "candidateKey": "bdo@zurich"
+}

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -40,7 +41,7 @@ import {
 } from './lib/crawler-template.mjs';
 import { CRAWLER_TRANSPORT_FAILURE_OUTCOMES } from './lib/crawler-fetch-outcome.mjs';
 import { WAF_IP_BLOCK_STATUS, isRetryBudgetExhausted } from './lib/transient-fetch.mjs';
-import { launchChromium } from './lib/ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from './lib/stealth-browser.mjs';
 import { looksLikeAntiBotChallenge } from './lib/jina-proxy.mjs';
 import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
@@ -405,7 +406,13 @@ export function looksLikeUsiListingHtml(html = '') {
  * Chromium is lazy and self-healing; normal runs pay no browser startup cost.
  */
 export async function fetchUsiPageViaBrowser(url, timeoutMs, {
-  launchBrowser = launchChromium,
+  launchBrowser = (options) => launchStealthOrChromium({
+    purpose: 'crawler',
+    locale: 'it-CH',
+    timezone: 'Europe/Zurich',
+    ...options,
+    fallbackOptions: options,
+  }),
   attempts = 3,
   sleepImpl = (ms) => new Promise((resolve) => setTimeout(resolve, ms)),
 } = {}) {
@@ -415,14 +422,19 @@ export async function fetchUsiPageViaBrowser(url, timeoutMs, {
       headless: true,
       args: ['--disable-blink-features=AutomationControlled'],
     });
-    const context = await browser.newContext({
-      userAgent: USI_BROWSER_HEADERS['User-Agent'],
-      viewport: { width: 1280, height: 720 },
-      locale: 'it-CH',
-      timezoneId: 'Europe/Zurich',
-      extraHTTPHeaders: USI_BROWSER_EXTRA_HEADERS,
-    });
-    if (typeof context.addInitScript === 'function') {
+    const context = await browser.newContext(isStealthBrowser(browser)
+      ? {
+          viewport: null,
+          extraHTTPHeaders: USI_BROWSER_EXTRA_HEADERS,
+        }
+      : {
+          userAgent: USI_BROWSER_HEADERS['User-Agent'],
+          viewport: { width: 1280, height: 720 },
+          locale: 'it-CH',
+          timezoneId: 'Europe/Zurich',
+          extraHTTPHeaders: USI_BROWSER_EXTRA_HEADERS,
+        });
+    if (!isStealthBrowser(browser) && typeof context.addInitScript === 'function') {
       await context.addInitScript(() => {
         Object.defineProperty(navigator, 'webdriver', { get: () => undefined });
         Object.defineProperty(navigator, 'languages', { get: () => ['it-CH', 'it', 'en'] });
@@ -1285,7 +1297,7 @@ function localizeUsiJobs() {
  */
 async function postProcessUsiJobs() {
   if (!fs.existsSync(DATA_JOBS)) return;
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const jobs = Array.isArray(raw) ? raw : [];
   let fixed = 0;
 
@@ -1486,7 +1498,7 @@ async function postProcessUsiJobs() {
 
 function applyUsiLocaleOverrides() {
   if (!fs.existsSync(DATA_JOBS)) return 0;
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const jobs = Array.isArray(raw) ? raw : [];
   let fixed = 0;
 
@@ -1547,7 +1559,7 @@ function logUsiJobStats(beforeSnapshot = new Map()) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
     return { total: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const allJobs = Array.isArray(raw) ? raw : [];
   const usiJobs = allJobs.filter(isUsiJob);
 
@@ -1688,7 +1700,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isUsiJob) : [];
   writeJobsCrawlerSlice(USI_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

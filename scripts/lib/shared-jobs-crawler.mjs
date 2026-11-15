@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { localeTitleDropsSourceWords } from './job-title-identity.mjs';
+import { mayReplacePublishedSlug } from './published-slug-stability.mjs';
 import { sourceCompactOffsetPostingDateFields, sourcePostingDateFields, mergeSourcePostingDates } from './source-posting-date.mjs';
 import { successFactorsPostingDateFields } from './ats-clients/successfactors-client.mjs';
 /**
@@ -21,6 +22,7 @@ import { successFactorsPostingDateFields } from './ats-clients/successfactors-cl
 import fs from 'node:fs';
 import { stripHtmlTags } from '../../packages/articles/engine/shared/htmlMarkup.mjs';
 import { listSliceFileNames } from './crawler-slice-files.mjs';
+import { readJsonFile } from './read-large-json.mjs';
 import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
 import path from 'node:path';
 import { performance } from 'node:perf_hooks';
@@ -168,6 +170,12 @@ import {
 // Reused rather than re-implemented so the matcher can't drift from the
 // dedicated parsers that already gate on it.
 import { coerceCountryField, isChCountry } from './ch-country-guard.mjs';
+import {
+  createBrowser,
+  createPoliteContext,
+  fetchWithRateLimit,
+  closeAll,
+} from './ats-clients/playwright-runtime.mjs';
 import {
   JOBS_CRAWLER_CONFIG_DEFAULTS,
   JOBS_CRAWLER_CONFIG_LIMITS,
@@ -456,7 +464,6 @@ let aiCacheLoadedEntries = 0;
 let aiCacheHits = 0;
 let aiCacheMisses = 0;
 let fastXmlParserModulePromise = null;
-let playwrightChromiumPromise = null;
 
 function buildAiCacheKey(prefix = '', parts = []) {
   const h = createHash('sha256');
@@ -621,16 +628,6 @@ async function getFastXmlParserModule() {
   return fastXmlParserModulePromise;
 }
 
-import { launchChromium } from './ensure-chromium.mjs';
-
-async function getPlaywrightChromium() {
-  if (playwrightChromiumPromise) return playwrightChromiumPromise;
-  playwrightChromiumPromise = import('playwright')
-    .then((mod) => mod?.chromium || null)
-    .catch(() => null);
-  return playwrightChromiumPromise;
-}
-
 function clampNum(value, min, max, fallback) {
   const n = Number(value);
   if (!Number.isFinite(n)) return fallback;
@@ -646,6 +643,14 @@ function clampFloat(value, min, max, fallback) {
 function readJson(filePath, fallback = null) {
   try {
     return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  } catch {
+    return fallback;
+  }
+}
+
+function readJobsJson(filePath, fallback = null) {
+  try {
+    return readJsonFile(filePath);
   } catch {
     return fallback;
   }
@@ -2545,9 +2550,17 @@ export function ensureLocaleFields(job) {
     // distinct city openings (e.g. Lidl in Cadenazzo vs Locarno) into the
     // same slug even when the title-token Jaccard score exceeds 0.80.
     const _slugLocationHint = String(out.addressLocality || out.location || '');
+    // A copy of the IT slug or a wrong-language slug is a TITLE reason: once
+    // served, the slug stays canonical unless the job's identity moved
+    // (scripts/lib/published-slug-stability.mjs). A low-quality slug is a slug
+    // defect and stays repairable.
+    const mayRederivePublishedSlug = mayReplacePublishedSlug(currentSlug, {
+      company: out.company || '',
+      location: _slugLocationHint,
+    }, { job: out, locale });
     const willDiscardSlug =
       isLowQualityLocalizedSlug(currentSlug) ||
-      (shouldRegenerateLocalizedSlug && !isSlugStable(currentSlug, derivedSlug, {
+      (shouldRegenerateLocalizedSlug && mayRederivePublishedSlug && !isSlugStable(currentSlug, derivedSlug, {
         existingLocation: _slugLocationHint,
         newLocation: _slugLocationHint,
       }));
@@ -3343,17 +3356,17 @@ async function discoverCareerUrlsWithBrowserFallback(companyWebsite) {
   if (!BROWSER_FALLBACK_ENABLED) {
     return { urls: [], reason: 'disabled' };
   }
-  const chromium = await getPlaywrightChromium();
-  if (!chromium) {
-    return { urls: [], reason: 'playwright_unavailable' };
-  }
 
   let browser = null;
   const out = new Set();
   try {
-    browser = await launchChromium({ headless: true });
-    const page = await browser.newPage({ userAgent: CRAWLER_USER_AGENT });
-    await page.goto(companyWebsite, { waitUntil: 'domcontentloaded', timeout: BROWSER_FALLBACK_TIMEOUT_MS });
+    browser = await createBrowser({ userAgent: CRAWLER_USER_AGENT });
+    const context = await createPoliteContext(browser, { userAgent: CRAWLER_USER_AGENT });
+    context.setDefaultNavigationTimeout(BROWSER_FALLBACK_TIMEOUT_MS);
+    const page = await fetchWithRateLimit(context, companyWebsite, {
+      minDelayMs: 0,
+      navigationTimeoutMs: BROWSER_FALLBACK_TIMEOUT_MS,
+    });
     if (BROWSER_FALLBACK_WAIT_MS > 0) {
       await page.waitForTimeout(BROWSER_FALLBACK_WAIT_MS);
     }
@@ -3374,9 +3387,7 @@ async function discoverCareerUrlsWithBrowserFallback(companyWebsite) {
       reason: normalizeSpace(String(err?.message || 'browser_fallback_failed')).slice(0, 160) || 'browser_fallback_failed',
     };
   } finally {
-    if (browser) {
-      try { await browser.close(); } catch {}
-    }
+    await closeAll(browser);
   }
 }
 
@@ -6301,7 +6312,7 @@ async function main(runtimeOptions = {}) {
   } else {
     // Pre-load known job URLs to skip re-crawling detail pages already in data/jobs.json
     // Fall back to per-crawler slices when data/jobs.json is absent (CI environment)
-    let _preloadedJobs = readJson(DATA_JOBS, null);
+    let _preloadedJobs = readJobsJson(DATA_JOBS, null);
     if (_preloadedJobs === null) {
       _preloadedJobs = readExistingJobsFromSlices([...requestedCompanyKeyAliases]);
       if (_preloadedJobs.length > 0) {
@@ -6402,7 +6413,7 @@ async function main(runtimeOptions = {}) {
   // Read existing jobs from data/jobs.json — or fall back to per-crawler slices.
   // In CI, data/jobs.json is gitignored and absent. Without this fallback,
   // existingJobs=[] causes mergeAndDeduplicate to lose all translated titles/slugs.
-  let existingJobs = readJson(DATA_JOBS, null);
+  let existingJobs = readJobsJson(DATA_JOBS, null);
   if (existingJobs === null) {
     existingJobs = readExistingJobsFromSlices([...requestedCompanyKeyAliases]);
     if (existingJobs.length > 0) {
@@ -7001,6 +7012,7 @@ export const __testables = {
   readExistingJobsFromSlices,
   pruneStaleCrawlerJobs,
   getCompanyAdapter,
+  discoverCareerUrlsWithBrowserFallback,
   absoluteLinks,
   absoluteSameHostLinks,
   // Canton mis-tagging guard: the JSON-LD → job mapper and the

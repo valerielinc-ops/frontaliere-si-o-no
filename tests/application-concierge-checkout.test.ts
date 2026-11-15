@@ -197,7 +197,7 @@ function pendingService(provider: 'sumup' | 'stripe', overrides: Record<string, 
 
 describe('application concierge checkout', () => {
   it('saves bounded house creative attribution on creation and preserves it on checkout retries', async () => {
-    const attribution = { campaign: 'job_search_automation', experimentId: 'house_creatives_v2', assignmentSource: 'firebase_remote_config', variant: 'control', creativeId: 'control_v1', format: 'rectangle', locale: 'it', placement: 'article-inline', device: 'mobile', enrolled: true, clickedAt: Date.now() - 1000 };
+    const attribution = { campaign: 'job_search_automation', experimentId: 'house_creatives_v2', assignmentSource: 'firebase_remote_config', variant: 'control', creativeId: 'control_v1', format: 'rectangle', locale: 'it', placement: 'article-inline', device: 'mobile', enrolled: true, contextSource: 'generic', contextSector: 'generic', clickedAt: Date.now() - 1000 };
     const base = request();
     const result = await handleCreateApplicationConciergeCheckout(request({ body: { ...base.body, houseAdAttribution: { ...attribution, privateField: 'discard' } } }));
     expect(result.status).toBe(200);

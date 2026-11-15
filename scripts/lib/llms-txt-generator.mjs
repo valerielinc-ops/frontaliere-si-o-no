@@ -22,6 +22,7 @@
  * seed file in place would compound substitutions on every run.
  */
 import path from 'node:path';
+import { readJsonFile } from './read-large-json.mjs';
 import { isJobBoardSectionPath } from './jobBoardSections.mjs';
 import { discoverSitemapFiles } from '../../build-plugins/sitemapAliasPlugin.ts';
 import { authorSeoPageEntries } from '../../services/seo/authorProfileMetadata.ts';
@@ -449,7 +450,7 @@ export async function generateLlmsTxtFamily({ rootDir, publicDir, distDir }) {
     const jobsDataPath = path.join(dir, 'data', 'jobs.json');
     if (!fs.existsSync(jobsDataPath)) return content;
     try {
-      const jobsRaw = JSON.parse(fs.readFileSync(jobsDataPath, 'utf-8'));
+      const jobsRaw = readJsonFile(jobsDataPath);
       const activeJobs = Array.isArray(jobsRaw) ? jobsRaw : (jobsRaw.jobs ?? []);
       const jobCount = activeJobs.length;
       const companyCount = new Set(activeJobs.map((j) => j.company).filter(Boolean)).size;

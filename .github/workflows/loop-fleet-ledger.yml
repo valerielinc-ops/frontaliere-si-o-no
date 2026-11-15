@@ -67,6 +67,9 @@ jobs:
             /data/loop-fleet/ledger/
             /scripts/ci/merge-loop-fleet-ledger.mjs
             /scripts/ci/benchmark-loop-fleet-ledger.mjs
+            /scripts/ci/read-workflow-run-provenance.mjs
+            /scripts/ci/lib/github-api-retry.mjs
+            /scripts/lib/is-invoked-directly.mjs
             /scripts/lib/canonical-json-digest.mjs
             /scripts/lib/loop-fleet-ledger-index.mjs
             /scripts/lib/loop-fleet-ledger-files.mjs
@@ -154,7 +157,7 @@ jobs:
           SOURCE_SHA: ${{ steps.source.outputs.sha }}
         run: |
           set -euo pipefail
-          source_run=$(gh run view "$SOURCE_RUN_ID" --repo "$GITHUB_REPOSITORY" --json event,headBranch,headSha,status,conclusion)
+          source_run=$(node scripts/ci/read-workflow-run-provenance.mjs "$SOURCE_RUN_ID" "$GITHUB_REPOSITORY")
           source_event=$(jq -r '.event // ""' <<<"$source_run")
           source_branch=$(jq -r '.headBranch // ""' <<<"$source_run")
           observed_source_sha=$(jq -r '.headSha // ""' <<<"$source_run")
@@ -193,10 +196,32 @@ jobs:
             echo "::error::expected exactly one unexpired source artifact named $SOURCE_ARTIFACT, found $artifact_count"
             exit 1
           fi
-          set +e
-          download_output="$(gh run download "$SOURCE_RUN_ID" --repo "$GITHUB_REPOSITORY" --name "$SOURCE_ARTIFACT" --dir "$INPUT_DIR" 2>&1)"
-          download_status=$?
-          set -e
+          download_is_retryable_transient_failure() {
+            grep -Eqi -- 'HTTP (500|502|503|504):' <<<"$download_output"
+          }
+          download_attempt=1
+          download_max_attempts=3
+          download_dir="$INPUT_DIR/artifact"
+          download_output=''
+          download_status=1
+          while [ "$download_attempt" -le "$download_max_attempts" ]; do
+            rm -rf -- "$download_dir"
+            mkdir -p "$download_dir"
+            set +e
+            download_output="$(gh run download "$SOURCE_RUN_ID" --repo "$GITHUB_REPOSITORY" --name "$SOURCE_ARTIFACT" --dir "$download_dir" 2>&1)"
+            download_status=$?
+            set -e
+            if [ "$download_status" -eq 0 ]; then
+              break
+            fi
+            if ! download_is_retryable_transient_failure || [ "$download_attempt" -eq "$download_max_attempts" ]; then
+              break
+            fi
+            retry_delay=$((download_attempt * 5))
+            echo "::warning::transient source artifact download failed (attempt $download_attempt/$download_max_attempts); retrying in ${retry_delay}s"
+            sleep "$retry_delay"
+            download_attempt=$((download_attempt + 1))
+          done
           if [ "$download_status" -ne 0 ]; then
             download_is_confirmed_missing_artifact() {
               [ "$EVENT_NAME" = 'workflow_run' ] &&

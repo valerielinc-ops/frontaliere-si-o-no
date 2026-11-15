@@ -58,7 +58,7 @@ describe('Phase 8c — expired-tracking is canton-aware', () => {
     const writeRegion = src.slice(writeStart, writeEnd);
 
     expect(writeRegion).toMatch(
-      /writeSoftLandingPage\(relPath\.slice\(1\), softLandingHtml(?:, skipForExpiredJobEdge)?\);/,
+      /writeSoftLandingPage\(relPath\.slice\(1\), softLandingHtml(?:, skipForExpiredJobEdge)?(?:, locale)?\);/,
     );
     expect(writeRegion).not.toContain('writeSoftLandingPage(legacyRel');
     expect(writeRegion).not.toContain('expired-soft-landing-legacy-locale');

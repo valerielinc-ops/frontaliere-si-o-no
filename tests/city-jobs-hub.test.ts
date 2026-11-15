@@ -371,9 +371,10 @@ describe('per-canton city hub — hydration-safe SPA shell', () => {
     // Every canonical city URL now carries the complete geographic template,
     // including the empty/low-inventory variant, so it may expose its
     // CollectionPage/ItemList and remains indexable.
-    expect(block).toContain('const cityHubIndexable = true;');
+    expect(block).toContain('const cityHubIndexableLocales = indexableLocalePageSet(localeList, () => true);');
+    expect(block).toContain('const cityHubIndexable = isIndexableLocalePage(locale, cityHubIndexableLocales);');
     expect(block).toContain('jsonLdScripts: cityHubIndexable ? [breadcrumbLd, collectionLd, itemListLd] : [],');
-    expect(block).toContain("robots: 'index,follow',");
+    expect(block).toContain("robots: cityHubIndexable ? 'index,follow' : 'noindex,follow',");
   });
 
   // Anti-regression sweep — every staticOverlay page emit in jobsSeoPagesPlugin

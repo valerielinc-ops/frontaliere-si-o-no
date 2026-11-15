@@ -63,11 +63,15 @@ function applicationAnswer(question, answer) {
  * @returns {object} the kit (no secret: what the extension types and attaches)
  */
 export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, documents = {} }) {
-  const { identity, profile, answers, personal, platformFacts } = candidateWithEdits({ order, draft, flow });
+  const { identity, profile, answers, personal, platformFacts, candidateAnswerDefaultSuppressionIds,
+    candidateAnswerSuppressedQuestionContracts } = candidateWithEdits({ order, draft, flow });
   const address = profile.address || {};
   const language = LETTER_FILE_LABEL[draft.language] ? draft.language : 'it';
   const questions = questionsForCandidate(draft.questions, profile, answers, flow.questionAnswers, draft);
-  const { answers: projectedAnswers, defaults } = withOperationalQuestionAnswers(questions, answers, { locale: language, facts: platformFacts });
+  const { answers: projectedAnswers, defaults } = withOperationalQuestionAnswers(questions, answers, {
+    locale: language, facts: platformFacts, suppressDefaultQuestionIds: candidateAnswerDefaultSuppressionIds,
+    candidateAnswerSuppressedQuestionContracts,
+  });
   // Keep the runner's portal wording and owner, with a current candidate
   // correction taking precedence over a previous answer to that exact scope.
   const fromPortal = (draft.portalAnswers?.answers || [])

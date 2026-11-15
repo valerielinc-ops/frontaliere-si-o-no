@@ -8512,7 +8512,7 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.agenda-federale-voto-2026.imageAlt': 'Scena istituzionale svizzera legata a decisioni federali e votazioni popolari',
     'blog.article.giovani-donne-stipendi-svizzera.title': 'Le giovani svizzere guadagnano meno nonostante siano più istruite',
     'blog.article.giovani-donne-stipendi-svizzera.excerpt': 'Nati nel 1995: divario di reddito del 14% Nati nel 1965: divario di reddito del 55% Nel 2025: istruzione terziaria al 54% contro il 48% Tra i genitori.',
-    'blog.article.giovani-donne-stipendi-svizzera.imageAlt': 'Giovane donna lavora in un ufficio moderno in Svizzera',
+    'blog.article.giovani-donne-stipendi-svizzera.imageAlt': 'Immagine illustrativa pertinente al tema dell’articolo',
     'blog.article.imposta-successione-donazione-zurigo-regole.title': 'Imposta di successione e donazione nel Cantone di Zurigo',
     'blog.article.imposta-successione-donazione-zurigo-regole.excerpt': 'Guida all\'imposta di successione e di donazione nel Cantone di Zurigo: aliquote per grado di parentela, esenzioni per coniuge e discendenti, e adempimenti.',
     'blog.article.imposta-successione-donazione-zurigo-regole.imageAlt': 'Imposta di successione e donazione nel Cantone di Zurigo',

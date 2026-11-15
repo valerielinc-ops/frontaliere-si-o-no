@@ -1,5 +1,5 @@
 /**
- * followup-drainer — detectBacklogTracker pre-flight (#5312/#5314/#5283).
+ * followup-drainer — detectBacklogTracker pre-flight (#5312/#5314/#5283/#18710).
  *
  * Le issue di handoff di sessione ("Backlog dalla sessione …", "… il residuo")
  * elencano il lavoro residuo invece di descrivere UN difetto: nessuna root
@@ -60,6 +60,32 @@ const RESIDUAL_PROFESSION_CANTON_BODY = [
   '',
   '## Origine',
   'Parent: #13323',
+].join('\n');
+
+/** Forma del contenitore residual follow-up #18710: item FU con target verificabile. */
+const RESIDUAL_FOLLOWUP_TITLE =
+  'Residual follow-up 2026-11-08: CI, portal, crawler and metadata verification';
+const RESIDUAL_FOLLOWUP_BODY = [
+  '## Scheda',
+  '- CAUSA: i residui sono verifiche indipendenti e vanno scorporati.',
+  '',
+  '## Residui da scorporare',
+  '- FU-2026-11-001 — target scripts/assisted-application/lib/portal/portal.mjs; METRICA: test.',
+  '- FU-2026-11-002 — target scripts/assisted-application/lib/portal/portal.mjs; METRICA: rg.',
+  '- FU-2026-11-003 — target tests/assisted-application-portal-hardening.test.ts; METRICA: test.',
+  '- FU-2026-11-007 — target scripts/ci/check-sibling-patterns.mjs; METRICA: node.',
+  '- FU-2026-11-008 — target scripts/seo/bing-site-explorer-crawl.mjs; METRICA: test.',
+  '- FU-2026-11-011 — target scripts/assisted-application/lib/portal/read-only-contracts.mjs; METRICA: e2e.',
+  '- FU-2026-11-013 — target .github/workflows/backfill-expired-from-history.yml; METRICA: test.',
+  '- FU-2026-11-015 — target tests/assisted-application-review.test.ts; METRICA: test.',
+  '- FU-2026-11-016 — target scripts/lib/klinik-adelheid-job-parser.mjs; METRICA: typecheck.',
+  '- FU-2026-11-018 — target scripts/assisted-application/lib/portal/residence-address.mjs; METRICA: test.',
+  '- FU-2026-11-019 — target scripts/assisted-application/portal-e2e.mjs; METRICA: e2e.',
+  '- FU-2026-11-020 — target tests/seo/bing-site-explorer-crawl.test.ts; METRICA: test.',
+  '- FU-2026-11-024 — target scripts/lib/live-article-meta.mjs; METRICA: typecheck.',
+  '',
+  '## Origine',
+  'Parent: #17602',
 ].join('\n');
 
 describe('detectBacklogTracker — contenitore di lavoro residuo (park preemptivo)', () => {
@@ -144,6 +170,24 @@ describe('countBacklogItems', () => {
       RESIDUAL_PROFESSION_CANTON_TITLE,
       RESIDUAL_PROFESSION_CANTON_BODY,
     )).toBe(true);
+  });
+
+  it('instrada il contenitore residual follow-up con 13 item FU allo stadio di decomposizione', () => {
+    expect(detectBacklogTracker(RESIDUAL_FOLLOWUP_TITLE, RESIDUAL_FOLLOWUP_BODY)).toBe(true);
+    expect(countBacklogItems(RESIDUAL_FOLLOWUP_BODY)).toBe(13);
+  });
+
+  it('non usa il solo prefisso residual follow-up senza l’inventario FU target', () => {
+    const body = [
+      '## Residui da scorporare',
+      '- FU-2026-11-001 — target scripts/ci/one.mjs',
+      '- FU-2026-11-002 — target scripts/ci/two.mjs',
+    ].join('\n');
+    expect(detectBacklogTracker(RESIDUAL_FOLLOWUP_TITLE, body)).toBe(false);
+    expect(detectBacklogTracker(
+      'Residual follow-up: prose-only handoff',
+      ['## Residui da scorporare', '- voce normale', '- altra voce', '- terza voce'].join('\n'),
+    )).toBe(false);
   });
 
   it('non usa il solo elenco di professioni per riconoscere un titolo non-target', () => {

@@ -973,6 +973,23 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('codex_command_path="$bridge_dir:$node_root/bin:/usr/bin:/bin"');
   });
 
+  it('applica il watchdog npx solo quando il caller lo richiede', () => {
+    const action = readFileSync(resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'action.yml'), 'utf8');
+    const definition = codexActionDefinition();
+    const input = definition.inputs.command_timeout_seconds;
+    expect(input?.default).toBe('');
+
+    const codexStep = codexActionStep('Run Codex primary (bounded capacity retry)');
+    const script = codexStep.run!;
+    expect(codexStep.env?.CODEX_COMMAND_TIMEOUT_SECONDS).toBe('${{ inputs.command_timeout_seconds }}');
+    expect(script).toContain('Unsupported command_timeout_seconds');
+    expect(script).toContain('codex_npx_real="$node_root/bin/npx"');
+    expect(script).toContain('exec /usr/bin/timeout --signal=TERM --kill-after=15s');
+    expect(script).toContain('> "$bridge_dir/npx"');
+    expect(action).toContain('command_timeout_seconds:');
+    expect(action).toContain('default: ""');
+  });
+
   it('rifiuta un archivio Node con checksum alterato', () => {
     const action = readFileSync(resolve(repoRoot, '.github', 'actions', 'claude-codex-fallback', 'action.yml'), 'utf8');
     const checksumStart = action.indexOf('        archive_sha256="$(/usr/bin/sha256sum');

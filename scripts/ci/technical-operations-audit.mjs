@@ -33,6 +33,7 @@ import { createGithubIssue, ensureLabelsExist } from '../lib/github-issue-creato
 import { loadLoopPolicy } from '../lib/loop-fleet-contract.mjs';
 import { auditLoopFleetBindings } from './loop-fleet-registry-audit.mjs';
 import { lineAt } from './line-at.mjs';
+import { workflowInputReferences } from './lib/workflow-input-references.mjs';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 export const WORKFLOW_DIR_NAME = path.join('.github', 'workflows');
@@ -164,19 +165,32 @@ function inputDefinitions(triggers) {
   return inputs;
 }
 
-function localReferenceExists(root, rawPath, workingDirectory = '.', exists = fs.existsSync) {
+function localReferenceExists(root, rawPath, workingDirectory = '.', exists = fs.existsSync, checkoutPaths = []) {
   if (rawPath.includes('${{')) return true;
   const cleanPath = rawPath.replace(/[),;:'"`]+$/g, '');
   const base = path.resolve(root, workingDirectory);
-  if (cleanPath.startsWith('./.github/workflows/')) {
-    return exists(path.resolve(base, cleanPath.slice(2)));
+  const isActionReference = /(?:^|\/)\.github\/actions\//u.test(cleanPath);
+  const referenceExists = (candidate) => {
+    if (!isActionReference) return exists(candidate);
+    return exists(path.join(candidate, 'action.yml'))
+      || exists(path.join(candidate, 'action.yaml'));
+  };
+  const candidate = path.resolve(base, cleanPath);
+  if (referenceExists(candidate)) return true;
+
+  // A workflow may deliberately use an action from a repository checked out
+  // into a runtime subdirectory (for example `./.portal-base/.github/...`).
+  // The static audit cannot see that checkout tree, but it can verify the
+  // same relative path in the repository source. Do not apply this fallback
+  // to an undeclared checkout: a path that appears before its checkout step
+  // must still fail closed.
+  for (const checkoutPath of checkoutPaths) {
+    const checkoutRoot = path.resolve(base, checkoutPath);
+    const relative = path.relative(checkoutRoot, candidate);
+    if (!relative || relative.startsWith('..') || path.isAbsolute(relative)) continue;
+    if (referenceExists(path.resolve(root, relative))) return true;
   }
-  if (cleanPath.startsWith('./.github/actions/')) {
-    const actionRoot = path.resolve(base, cleanPath.slice(2));
-    return exists(path.join(actionRoot, 'action.yml'))
-      || exists(path.join(actionRoot, 'action.yaml'));
-  }
-  return exists(path.resolve(base, cleanPath));
+  return false;
 }
 
 function staticWorkingDirectory(root, rawWorkingDirectory) {
@@ -403,12 +417,49 @@ function isKnownNonDataShellTarget(value, assignments, seen = new Set()) {
   return true;
 }
 
-function extractDataWritePaths(run, operationalRun) {
+function isSafeRelativePath(value) {
+  return /^[A-Za-z0-9._/-]+$/u.test(value)
+    && !value.startsWith('/')
+    && value.split('/').every((part) => part && part !== '.' && part !== '..');
+}
+
+/**
+ * Identify only the redirection command that is directly fed by its matching
+ * `git show "HEAD:path"` command. A path set would also exempt an unrelated
+ * later `> path`, which is a real rewrite.
+ *
+ * @param {string} source
+ * @returns {Set<number>}
+ */
+function materializedHeadTargetStarts(source) {
+  const { commands } = parseShellCommands(source);
+  const starts = new Set();
+  for (let index = 0; index < commands.length - 1; index += 1) {
+    const producer = commands[index];
+    const target = commands[index + 1];
+    if (producer.name !== 'git'
+      || producer.operatorAfter !== '>'
+      || target.operatorBefore !== '>'
+      || target.args.length > 0
+      || producer.args.length !== 2
+      || producer.args[0].value !== 'show') continue;
+    const sourceReference = producer.args[1].value;
+    if (!sourceReference.startsWith('HEAD:')) continue;
+    const sourcePath = sourceReference.slice('HEAD:'.length);
+    if (sourcePath && sourcePath === target.name && isSafeRelativePath(sourcePath)) {
+      starts.add(target.start);
+    }
+  }
+  return starts;
+}
+
+export function extractDataWritePaths(run, operationalRun) {
   const dataPaths = extractDataPaths(operationalRun);
   if (dataPaths.length === 0 || !/(?:\bgit\s+(?:add|commit)\b|(?:>>?|>\|))/i.test(operationalRun)) return [];
 
   const assignments = shellDataPathAssignments(run);
   const { commands } = parseShellCommands(operationalRun);
+  const materializedHeadTargets = materializedHeadTargetStarts(run);
   const written = new Set();
   const staged = new Set();
   let broadStage = false;
@@ -418,6 +469,16 @@ function extractDataWritePaths(run, operationalRun) {
   for (const command of commands) {
     if (['>', '>>', '>|'].includes(command.operatorBefore)) {
       const target = resolveShellDataPath(command.name, assignments);
+      // `git show "HEAD:path" > path` only materializes a tracked blob that
+      // sparse checkout intentionally omitted. It is not a generated-data
+      // write and cannot publish a value without a later explicit stage or
+      // commit, so do not make the data-write guard demand a schema check for
+      // this read-only checkout repair.
+      const isHeadMaterialization = command.operatorBefore === '>'
+        && command.args.length === 0
+        && target
+        && materializedHeadTargets.has(command.start);
+      if (isHeadMaterialization) continue;
       if (target) written.add(target);
       else if (!isKnownNonDataShellTarget(command.name, assignments)
         && (/\$|(?:^|\/)data\//.test(command.name) || /\$|(?:^|\/)data\//.test(command.args.map((token) => token.value).join(' ')))) {
@@ -597,7 +658,10 @@ function parseShellCommands(source) {
   let operatorBefore = null;
 
   const flush = (operatorAfter = null) => {
-    if (segment.length === 0) return;
+    if (segment.length === 0) {
+      operatorBefore = operatorAfter;
+      return;
+    }
     const prefixKeywords = [];
     let commandIndex = -1;
     for (let index = 0; index < segment.length; index += 1) {
@@ -1346,7 +1410,7 @@ function outputSinkRanges(source) {
     .map((value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
     .join('|');
   const sinkRe = new RegExp(
-    '\\b(?:appendFileSync|writeFileSync)\\(\\s*(?:'
+    '\\b(?:appendFileSync|writeFileSync|appendFile|writeFile)\\(\\s*(?:'
       + variableAlternation
       + ')\\s*,',
     'g',
@@ -1525,6 +1589,84 @@ function objectEntryOutputKeys(source, sinkRanges = outputSinkRanges(source)) {
   return keys;
 }
 
+function objectLiteralEntryKeys(expression) {
+  const raw = String(expression || '').trim();
+  if (!raw.startsWith('{')) return new Set();
+  const closingIndex = matchingBrace(raw, 0);
+  if (closingIndex < 0) return new Set();
+  const keys = new Set();
+  for (const entry of splitTopLevelArguments(raw.slice(1, closingIndex))) {
+    const key = /^\s*(?:["']?)([A-Za-z_][A-Za-z0-9_-]*)(?:["']?)\s*:/u.exec(entry.text);
+    if (key) keys.add(key[1]);
+  }
+  return keys;
+}
+
+function objectLiteralVariableKeys(source, expression, before) {
+  const raw = String(source || '');
+  const identifier = String(expression || '').trim();
+  if (!/^[A-Za-z_$][A-Za-z0-9_$]*$/u.test(identifier)) return new Set();
+  const escaped = identifier.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const declarationRe = new RegExp(`\\b(?:const|let|var)\\s+${escaped}\\s*=\\s*\\{`, 'g');
+  let result = new Set();
+  for (const declaration of raw.matchAll(declarationRe)) {
+    const declarationStart = declaration.index ?? 0;
+    if (declarationStart >= before) break;
+    const openingIndex = raw.indexOf('{', declarationStart);
+    const closingIndex = matchingBrace(raw, openingIndex);
+    if (closingIndex >= 0 && closingIndex < before) {
+      result = objectLiteralEntryKeys(raw.slice(openingIndex, closingIndex + 1));
+    }
+  }
+  return result;
+}
+
+/**
+ * Follow an inline object map passed to a helper that writes `env.GITHUB_OUTPUT`.
+ * The writer is intentionally proved through the function body, while the
+ * output keys come from the call-site argument rather than a function name.
+ */
+function functionOutputObjectKeys(source) {
+  const raw = String(source || '');
+  const keys = new Set();
+  for (const declaration of raw.matchAll(/\bfunction\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*\(/g)) {
+    const name = declaration[1];
+    const declarationStart = declaration.index ?? 0;
+    const paramsOpen = declarationStart + declaration[0].length - 1;
+    const paramsClose = matchingParen(raw, paramsOpen);
+    if (paramsClose < 0) continue;
+    const bodyOpen = raw.indexOf('{', paramsClose);
+    const bodyClose = matchingBrace(raw, bodyOpen);
+    if (bodyOpen < 0 || bodyClose < 0) continue;
+    const params = splitTopLevelArguments(raw.slice(paramsOpen + 1, paramsClose))
+      .map((param) => param.text.split('=')[0].trim());
+    const writers = fileWriterCalls(raw, bodyOpen + 1, bodyClose);
+    const outputParamIndex = params.findIndex((param) => param && writers.some(
+      (writer) => writer.target === `${param}.GITHUB_OUTPUT`,
+    ));
+    if (outputParamIndex < 0) continue;
+    const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const callRe = new RegExp(`(?<!\\bfunction\\s+)\\b${escapedName}\\s*\\(`, 'g');
+    for (const call of raw.matchAll(callRe)) {
+      const callStart = call.index ?? 0;
+      if (callStart >= declarationStart && callStart < bodyClose) continue;
+      const callOpen = callStart + call[0].length - 1;
+      const callClose = matchingParen(raw, callOpen);
+      if (callClose < 0) continue;
+      const argumentsList = splitTopLevelArguments(raw.slice(callOpen + 1, callClose));
+      for (let position = 0; position < argumentsList.length; position += 1) {
+        if (position === outputParamIndex) continue;
+        const argument = argumentsList[position].text.trim();
+        for (const key of objectLiteralEntryKeys(argument)) keys.add(key);
+        if (!argument.startsWith('{')) {
+          for (const key of objectLiteralVariableKeys(raw, argument, callStart)) keys.add(key);
+        }
+      }
+    }
+  }
+  return keys;
+}
+
 function likelyOutputTarget(value) {
   return /(?:GITHUB_OUTPUT|output|target)/iu.test(String(value || ''));
 }
@@ -1532,7 +1674,7 @@ function likelyOutputTarget(value) {
 function directOutputWriterRanges(source) {
   const raw = String(source || '');
   const ranges = [];
-  const writerRe = /\b(?:appendFileSync|writeFileSync)\s*\(\s*([A-Za-z_$][A-Za-z0-9_$]*(?:\.[A-Za-z_$][A-Za-z0-9_$]*)*)\s*,\s*\[/g;
+  const writerRe = /\b(?:appendFileSync|writeFileSync|appendFile|writeFile)\s*\(\s*([A-Za-z_$][A-Za-z0-9_$]*(?:\.[A-Za-z_$][A-Za-z0-9_$]*)*)\s*,\s*\[/g;
   for (const match of raw.matchAll(writerRe)) {
     if (!likelyOutputTarget(match[1])) continue;
     const openingIndex = raw.indexOf('(', match.index ?? 0);
@@ -1693,7 +1835,7 @@ function returnedStringLiteralOperands(source) {
 function returnedOutputArrayKeys(source) {
   const raw = String(source || '');
   const keys = new Set();
-  const writerRe = /\b(?:appendFileSync|writeFileSync)\s*\(\s*([A-Za-z_$][A-Za-z0-9_$]*(?:\.[A-Za-z_$][A-Za-z0-9_$]*)*)\s*,\s*([A-Za-z_$][A-Za-z0-9_$]*)\s*\(/g;
+  const writerRe = /\b(?:appendFileSync|writeFileSync|appendFile|writeFile)\s*\(\s*([A-Za-z_$][A-Za-z0-9_$]*(?:\.[A-Za-z_$][A-Za-z0-9_$]*)*)\s*,\s*([A-Za-z_$][A-Za-z0-9_$]*)\s*\(/g;
   const helperNames = new Set();
   for (const match of raw.matchAll(writerRe)) {
     if (likelyOutputTarget(match[1])) helperNames.add(match[2]);
@@ -1794,7 +1936,7 @@ function stdoutOutputPathsByCommand(run) {
 function fileWriterCalls(source, start = 0, end = String(source || '').length) {
   const raw = String(source || '');
   const writers = [];
-  const writerRe = /\b(?:appendFileSync|writeFileSync)\s*\(/g;
+  const writerRe = /\b(?:appendFileSync|writeFileSync|appendFile|writeFile)\s*\(/g;
   writerRe.lastIndex = start;
   for (let match = writerRe.exec(raw); match && match.index < end; match = writerRe.exec(raw)) {
     const openingIndex = match.index + match[0].length - 1;
@@ -1911,13 +2053,37 @@ function flagOutputSinkRanges(source, flags) {
   const raw = String(source || '');
   if (!flags || flags.size === 0) return [];
   const flagLiteralRes = [...flags].map((flag) => new RegExp(
-    `(["'\`])(?:--)?${flag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\1`,
+    `(?:args|argv)\\s*\\[\\s*(["'])(?:--)?${flag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\1\\s*\\]`,
   ));
-  const flagPropertyRes = [...flags].map((flag) => new RegExp(
-    `\\[\\s*(["'])(?:--)?${flag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\1\\s*\\]`,
-  ));
-  const readsFlag = (text) => flagLiteralRes.some((re) => re.test(text))
-    || flagPropertyRes.some((re) => re.test(text));
+  const flagAccessorRes = [...flags].map((flag) => {
+    const escapedFlag = flag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return new RegExp(
+      `^(?:`
+        + `(?:args|argv)\\s*\\[\\s*(["'])(?:--)?${escapedFlag}\\1\\s*\\]`
+        + `|argument\\s*\\(\\s*(["'])(?:--)?${escapedFlag}\\2(?:\\s*,[^;\\n]*)?\\s*\\)`
+        + `|flag\\s*\\(\\s*(?:args|argv)\\s*,\\s*(["'])(?:--)?${escapedFlag}\\3(?:\\s*,[^;\\n]*)?\\s*\\)`
+        + `)$`,
+    );
+  });
+  const flagVariables = new Set();
+  for (const flag of flags) {
+    const escapedFlag = flag.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const flagValueRe = new RegExp(
+      `\\b(?:const|let|var)\\s+([A-Za-z_$][A-Za-z0-9_$]*)\\s*=\\s*(?:`
+        + `(?:args|argv)\\s*\\[\\s*(["'])(?:--)?${escapedFlag}\\2\\s*\\]`
+        + `|argument\\s*\\(\\s*(["'])(?:--)?${escapedFlag}\\3(?:\\s*,[^;\\n]*)?\\s*\\)`
+        + `|flag\\s*\\(\\s*(?:args|argv)\\s*,\\s*(["'])(?:--)?${escapedFlag}\\4(?:\\s*,[^;\\n]*)?\\s*\\)`
+        + `)`,
+      'g',
+    );
+    for (const match of raw.matchAll(flagValueRe)) flagVariables.add(match[1]);
+  }
+  const readsFlag = (text) => {
+    const value = String(text || '').trim();
+    return flagLiteralRes.some((re) => re.test(value))
+      || flagAccessorRes.some((re) => re.test(value))
+      || flagVariables.has(value);
+  };
   const ranges = fileWriterCalls(raw).filter((writer) => readsFlag(writer.target));
   for (const declaration of raw.matchAll(/\bfunction\s+([A-Za-z_$][A-Za-z0-9_$]*)\s*\(/g)) {
     const name = declaration[1];
@@ -1979,6 +2145,7 @@ function outputKeysFromSource(source, { outputFlags = null, stdoutToGithubOutput
   for (const key of objectEntryOutputKeys(raw, sinkRanges)) keys.add(key);
   for (const key of literalOutputKeys(raw, directOutputWriterRanges(raw))) keys.add(key);
   for (const key of returnedOutputArrayKeys(raw)) keys.add(key);
+  for (const key of functionOutputObjectKeys(raw)) keys.add(key);
 
   // A workflow commonly delegates its output writer to a first-party script.
   // Follow only a statically-known output file (the literal env expression or
@@ -2119,7 +2286,7 @@ function validateInputs(triggers, file, source, findings) {
 
   for (const expression of expressions(source)) {
     const line = lineFor(source, source.slice(expression.offset));
-    for (const match of expression.text.matchAll(/\b(?:github\.event\.)?inputs\.([A-Za-z_][A-Za-z0-9_-]*)\b/g)) {
+    for (const match of workflowInputReferences(expression.text)) {
       if (!inputNames.has(match[1])) {
         findings.push(finding(file, 'workflow.input-reference', 'error', `input non dichiarato usato nell'espressione: ${match[1]}`, line, expression.text.trim()));
       }
@@ -2255,7 +2422,7 @@ function validateExpressionText(source, file, text, {
         findings.push(finding(file, 'workflow.secret-reference', 'error', `secret non dichiarata in workflow_call: ${match[1]}`, line, expressionText));
       }
     }
-    for (const match of expression.text.matchAll(/\b(?:github\.event\.)?inputs\.([A-Za-z_][A-Za-z0-9_-]*)\b/g)) {
+    for (const match of workflowInputReferences(expression.text)) {
       if (!inputNames.has(match[1])) {
         findings.push(finding(file, 'workflow.input-reference', 'error', `input non dichiarato usato nell'espressione: ${match[1]}`, line, expressionText));
       }
@@ -2374,7 +2541,7 @@ function validateJobs(workflow, file, source, root, exists, readFile, knownWorkf
         }
       }
       if (hasRun === hasUses) findings.push(finding(file, 'workflow.step-executor', 'error', `step ${jobName}#${index + 1} deve avere esattamente uno tra run e uses`, stepLine));
-      if (hasUses && rawStep.uses.startsWith('./') && !localReferenceExists(root, rawStep.uses, '.', exists)) {
+      if (hasUses && rawStep.uses.startsWith('./') && !localReferenceExists(root, rawStep.uses, '.', exists, checkoutPaths)) {
         findings.push(finding(file, 'workflow.local-action', 'error', `local action non trovata: ${rawStep.uses}`, stepLine));
       }
       let outputKeys = new Set();

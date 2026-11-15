@@ -22,6 +22,7 @@ const { prepareConciergeEligibility, vettedConciergeDraftInputs } = await import
 const {
   answerConciergeClarifications, conciergePlatformFacts, conciergePlatformInputs, platformAnswerInputs, platformQuestionShape,
 } = await import('../functions/src/applicationConciergePlatformAnswers.js');
+const operationalAnswers = await import('../functions/src/assistedApplicationOperationalAnswers.js');
 const { PROFILE_SYSTEM_PROMPT, REQUIREMENTS_SYSTEM_PROMPT } = await import('../functions/src/assistedApplicationAiPrompts.js');
 const { decisionsSystemPrompt } = await import('../functions/src/assistedApplicationDecisionAnswers.js');
 const { platformAnswerEvidenceSources } = await import('../functions/src/lib/sourceCitations.js');
@@ -112,6 +113,60 @@ describe('the platform answers what the concierge eligibility check asks', () =>
     // The language answer also reaches the eligibility language rule.
     expect(platformAnswerInputs(result.entries, [{ id: 'german', question: 'Qual è il tuo livello di conoscenza della lingua tedesca?' }]).answers)
       .toMatchObject({ german: 'B2', language_de_any_proficiency: 'B2' });
+  });
+
+  it('uses a verified combined-passport answer and foreign permit for every passport form', async () => {
+    const facts = conciergePlatformFacts({
+      service: { ...SERVICE, candidateFacts: { workPermit: 'permit_g' } }, profile: {}, job: JOB,
+    });
+    const passportQuestions = [
+      { id: 'passport_binary', question: 'Do you hold a Swiss/EU/EFTA passport?', type: 'yes_no', options: [], required: true },
+      { id: 'passport_type_no_options', question: 'Type of valid passport', type: 'choice', options: [], required: true },
+      { id: 'passport_type_select', question: 'Type of valid passport', type: 'choice', options: ['Swiss', 'EU/EFTA', 'Other'], required: true },
+    ];
+    const generate = vi.fn(async () => decisions([{ id: 'passport_binary', value: 'yes' }]));
+    const result = await answerConciergeClarifications({ facts, generate, cvText: CV, locale: 'en', questions: passportQuestions });
+    const byId = Object.fromEntries(result.entries.map((entry: any) => [entry.questionId, entry.answer]));
+
+    expect(generate).toHaveBeenCalledTimes(1);
+    expect(byId).toEqual({ passport_binary: 'Yes', passport_type_no_options: 'EU/EFTA', passport_type_select: 'EU/EFTA' });
+    expect(result.left).toEqual([]);
+    expect(result.decisions).toMatchObject({ passport_binary: expect.objectContaining({ value: 'yes' }) });
+  });
+
+  it('uses compatible nationality after a candidate says no to only a Swiss passport', async () => {
+    const facts = conciergePlatformFacts({
+      service: { ...SERVICE, candidateFacts: { nationality: 'Italia' } }, profile: {}, job: JOB,
+    });
+    const generate = vi.fn();
+    const result = await answerConciergeClarifications({ facts, generate, locale: 'en',
+      candidateAnswers: { passport_swiss: 'No' }, questions: [
+        { id: 'passport_swiss', question: 'Do you hold a Swiss passport?', type: 'yes_no', options: ['Yes', 'No'], required: true },
+        { id: 'passport_type', question: 'Type of valid passport', type: 'choice', options: ['Swiss', 'EU/EFTA', 'Other'], required: true },
+      ] });
+
+    expect(generate).not.toHaveBeenCalled();
+    expect(result.entries).toEqual([expect.objectContaining({ questionId: 'passport_type', answer: 'EU/EFTA' })]);
+    expect(result.left).toEqual([]);
+  });
+
+  it('keeps an unresolved experience item in candidate action when no verified decision exists', async () => {
+    const facts = conciergePlatformFacts({ service: SERVICE, profile: PROFILE, job: JOB });
+    const question = { ...payrollQuestion, id: 'experience_with_synthetic_platform_rule' };
+    const simulatedRule = { value: 'synthetic fallback', topic: 'platform_rule', source: 'policy_default', origin: 'synthetic', version: 'test' };
+    const defaultSpy = vi.spyOn(operationalAnswers, 'operationalDefaultAnswer').mockReturnValue(simulatedRule);
+    try {
+      expect(operationalAnswers.operationalDefaultAnswer(question, { facts, locale: 'it' })).toBe(simulatedRule);
+      defaultSpy.mockClear();
+      const generate = vi.fn(async () => decisions([]));
+      const result = await answerConciergeClarifications({ facts, generate, cvText: CV, locale: 'it', questions: [question] });
+
+      expect(defaultSpy).not.toHaveBeenCalled();
+      expect(result.entries).toEqual([]);
+      expect(result.left.map((item: any) => item.id)).toEqual([question.id]);
+    } finally {
+      defaultSpy.mockRestore();
+    }
   });
 
   it('decides experience with the engine in one call and never says yes to a formal title the CV lacks', async () => {

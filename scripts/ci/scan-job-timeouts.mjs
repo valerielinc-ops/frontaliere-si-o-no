@@ -166,6 +166,11 @@ import { intFromEnv } from '../lib/int-from-env.mjs';
 const GITHUB_API_TRANSIENT_RETRY_STATUSES = new Set([408, 425, 429, 500, 502, 503, 504]);
 const GITHUB_API_TRANSIENT_RETRIES = 2;
 const GITHUB_API_TRANSIENT_RETRY_BASE_MS = 1000;
+// Keep this transport contract byte-aligned with scripts/ci/lib/github-api-retry.mjs.
+// GitHub can report a rate-limited read as HTTP 403 with only a rate-limit
+// sentence, so an HTTP-status-only classifier lets an idempotent scan die before
+// its bounded retry budget is used.
+const GITHUB_API_TRANSIENT_MESSAGE_RE = /\b(?:rate limit exceeded|too many requests|exceeded a secondary rate limit)\b/i;
 
 function sleepSync(milliseconds) {
   if (!Number.isFinite(milliseconds) || milliseconds <= 0) return;
@@ -188,7 +193,8 @@ function isTransientGithubApiError(error) {
   if (GITHUB_API_TRANSIENT_RETRY_STATUSES.has(status)) return true;
   const text = errorChainText(error);
   return /\bHTTP\s+(?:408|425|429|500|502|503|504)\b/i.test(text)
-    || /\b(?:Bad Gateway|Service Unavailable|Gateway Timeout)\b/i.test(text);
+    || /\b(?:Bad Gateway|Service Unavailable|Gateway Timeout)\b/i.test(text)
+    || GITHUB_API_TRANSIENT_MESSAGE_RE.test(text);
 }
 
 function withTransientGithubApiRetry(operation, {

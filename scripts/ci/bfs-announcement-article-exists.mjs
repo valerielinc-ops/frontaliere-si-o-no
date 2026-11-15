@@ -112,11 +112,42 @@ export function isCompletePublishedIndex(index, expectedArticleCount) {
     && index.articles.length === expectedArticleCount;
 }
 
+const ITALIAN_QUARTER_NAMES = Object.freeze({
+  1: 'primo',
+  2: 'secondo',
+  3: 'terzo',
+  4: 'quarto',
+});
+
+function articlePublishedInYear(article, year) {
+  const date = typeof article?.date === 'string' ? article.date.trim() : '';
+  return new RegExp(`^${year}-`).test(date);
+}
+
+function articleHasQuarter(evidence, article, year, quarterNumber) {
+  const explicitQuarter = new RegExp(
+    `\\b${year}\\s*[-–]?\\s*Q${quarterNumber}\\b|\\bQ${quarterNumber}\\s+${year}\\b`,
+    'i',
+  );
+  if (explicitQuarter.test(evidence)) return true;
+
+  // The Italian published index uses prose such as "Nel terzo trimestre"
+  // instead of the machine key `2026-Q3`. Accept that form only when the
+  // entry's publication year agrees with the requested quarter; otherwise a
+  // generic old article could suppress a new announcement.
+  const ordinal = ITALIAN_QUARTER_NAMES[quarterNumber];
+  if (!ordinal || !articlePublishedInYear(article, year)) return false;
+  return new RegExp(`\\b${ordinal}\\s+trimestre\\b`, 'i').test(evidence);
+}
+
 /**
  * Resolve an announcement only from a complete, public index. An ID from the
  * exact source ledger is authoritative once it is present in the published
  * index. If the bounded ledger has evicted the key, use a narrow metadata
- * fallback: quarter + BFS + frontalieri must all occur in the same entry.
+ * fallback: quarter + statistical evidence + frontalieri must all occur in
+ * the same entry. The localized Italian quarter form is accepted only with a
+ * matching publication year, so an old generic article cannot satisfy a new
+ * quarter.
  */
 export function articleIdFromPublishedIndex(index, quarter, expectedArticleCount, ledgerArticleId = '') {
   if (!isCompletePublishedIndex(index, expectedArticleCount)) return undefined;
@@ -124,7 +155,6 @@ export function articleIdFromPublishedIndex(index, quarter, expectedArticleCount
   const match = String(quarter || '').trim().match(/^(\d{4})-Q([1-4])$/i);
   if (!match) return undefined;
   const [, year, quarterNumber] = match;
-  const quarterPattern = new RegExp(`\\b${year}\\s*[-–]?\\s*Q${quarterNumber}\\b|\\bQ${quarterNumber}\\s+${year}\\b`, 'i');
   const ledgerId = String(ledgerArticleId || '').trim();
   const articles = index.articles;
 
@@ -136,8 +166,11 @@ export function articleIdFromPublishedIndex(index, quarter, expectedArticleCount
     const evidence = [article.title, article.excerpt]
       .filter((value) => typeof value === 'string')
       .join('\n');
-    return quarterPattern.test(evidence)
-      && /\bBFS\b|ufficio\s+federale\s+di\s+statistica/i.test(evidence)
+    const statisticalEvidence = /\bBFS\b|\bUST\b|ufficio\s+federale\s+di\s+statistica/i.test(evidence)
+      || (/statistica\s+(?:dei|sui|del)\s+frontalier\w*/i.test(evidence)
+        && /\bTicino\b/i.test(evidence));
+    return articleHasQuarter(evidence, article, year, quarterNumber)
+      && statisticalEvidence
       && /\bfrontalier\w*\b/i.test(evidence);
   });
   return found?.id?.trim() || undefined;

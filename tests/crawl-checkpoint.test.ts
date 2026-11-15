@@ -256,4 +256,58 @@ describe('mergeEventsIntoSlice', () => {
       detailAttemptCount: 20,
     })).toThrow(/detail failure\/reuse policy rejected 4\/20/);
   });
+
+  it('publishes fresh GE listing rows when optional detail enrichment exceeds the bound', () => {
+    const previousEvents = Array.from({ length: 20 }, (_, index) => ({
+      id: `ge-agenda:${index}`,
+      title: `Previous ${index}`,
+      startDate: '2099-01-01',
+    }));
+    mergeEventsIntoSlice({
+      slicePath: path.join(dir, 'ge-agenda.json'),
+      sourceKey: 'ge-agenda',
+      sourceName: 'Ville de Genève Agenda',
+      canton: 'GE',
+      freshEvents: previousEvents,
+      goneIds: [],
+      crawledAt: '2026-07-02T00:00:00.000Z',
+    });
+
+    const freshEvents = previousEvents.map((event) => ({
+      ...event,
+      title: `Fresh ${event.id}`,
+    }));
+    const failed = ['ge-agenda:0', 'ge-agenda:1', 'ge-agenda:2', 'ge-agenda:3'];
+    mergeEventsIntoSlice({
+      slicePath: path.join(dir, 'ge-agenda.json'),
+      sourceKey: 'ge-agenda',
+      sourceName: 'Ville de Genève Agenda',
+      canton: 'GE',
+      freshEvents,
+      goneIds: [],
+      crawledAt: '2026-07-03T00:00:00.000Z',
+      detailFailureIds: failed,
+      detailAttemptCount: 20,
+      detailFailureStrategy: 'source-backed-listing',
+    });
+
+    const written = JSON.parse(fs.readFileSync(path.join(dir, 'ge-agenda.json'), 'utf-8'));
+    const failedRow = written.events.find((event: any) => event.id === failed[0]);
+    expect(failedRow.title).toBe('Fresh ge-agenda:0');
+    expect(failedRow.startDate).toBe('2099-01-01');
+  });
+
+  it('does not allow the GE listing fallback for another source', () => {
+    expect(() => mergeEventsIntoSlice({
+      slicePath,
+      sourceKey: 'guidle',
+      sourceName: 'Guidle',
+      freshEvents: [{ id: 'guidle:0', title: 'Fresh', startDate: '2099-01-01' }],
+      goneIds: [],
+      crawledAt: '2026-07-03T00:00:00.000Z',
+      detailFailureIds: ['guidle:0'],
+      detailAttemptCount: 1,
+      detailFailureStrategy: 'source-backed-listing',
+    })).toThrow(/detail failure\/reuse policy rejected 1\/1/);
+  });
 });

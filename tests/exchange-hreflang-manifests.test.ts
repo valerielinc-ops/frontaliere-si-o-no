@@ -248,6 +248,27 @@ describe('exchangeHreflangManifests', () => {
       expect(downloaded).toEqual(names({ it: 1, en: 2, de: 2 }));
     });
 
+    it('rerunning only the leg lost to memory reads de/fr/en from the attempt in which they shipped', async () => {
+      // Run 43582924519: it died with exit 134 while de/fr/en were green. The
+      // memory recovery reruns it alone (attempt 2); the three green siblings
+      // are not run again, so their manifests only exist under attempt 1.
+      const { gh, calls } = fakeGh({
+        jobs: [
+          { name: 'build-locale (de)', conclusion: 'success', run_attempt: 1 },
+          { name: 'build-locale (fr)', conclusion: 'success', run_attempt: 1 },
+          { name: 'build-locale (en)', conclusion: 'success', run_attempt: 1 },
+          { name: 'build-locale (it)', conclusion: 'failure', run_attempt: 1 },
+          { name: 'build-locale (it)', conclusion: null, run_attempt: 2 },
+        ],
+        list: artifactsFor(names({ de: 1, fr: 1, en: 1, it: 2 })),
+      });
+      await exchangeHreflangManifests({ ...base(), buildLocale: 'it', ...rerun, gh });
+      const downloaded = calls.filter((args) => args[0] === 'run').map((args) => args[args.indexOf('--name') + 1]);
+      // the leg under test (it) is the caller's own, so it reads the three siblings
+      expect(downloaded.sort()).toEqual(names({ de: 1, fr: 1, en: 1 }).sort());
+      expect(downloaded).not.toContain(manifestArtifactName('de', RUN_ID, 2));
+    });
+
     it('drops a manifest seen earlier when the job list then shows that leg running again', async () => {
       const jobs: Array<{ name: string; conclusion: string | null; run_attempt?: number }> = [
         { name: 'build-locale (it)', conclusion: 'success', run_attempt: 1 },

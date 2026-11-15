@@ -1,5 +1,11 @@
 name: Recover assisted applications after portal fixes
 
+# The push-to-main re-enqueue below no longer rests on a required PR check: from
+# 2026-11-15 the portal replay (same public listings on base and head behind a
+# GET-only browser fence) runs once a day on main
+# (`assisted-application-portal-replay.yml`) and opens an issue when a family
+# regresses, instead of gating every PR as `portal replay gate`. Keep this
+# recovery automatic; a regression surfaces through that daily issue.
 on:
   push:
     branches: [main]

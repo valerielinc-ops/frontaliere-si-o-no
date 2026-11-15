@@ -150,6 +150,29 @@ describe('priorita per traffico — e davvero funzione del traffico', () => {
     expect(selected.map((candidate: any) => candidate.slug)).toEqual(['copy', 'hot']);
   });
 
+  it('il cascade mantiene i job marcati davanti alla coda non marcata', () => {
+    const pending = [
+      job('hot-unflagged', daysAgo(1), { needsRetranslation: false }),
+      job('flagged', daysAgo(30), { needsRetranslation: true }),
+    ];
+    const { selected } = buildTrafficPriority(pending, popularity, {
+      now: NOW,
+      cap: 1,
+      lane: CASCADE_TRAFFIC_LANE,
+      priorityOf: (candidate: any) => Boolean(candidate.needsRetranslation),
+    });
+
+    expect(selected.map((candidate: any) => candidate.slug)).toEqual(['flagged']);
+
+    // Keep the production call site wired to the same repair class. Without
+    // this guard, the pending sort runs but orderPendingByTraffic silently
+    // rebuilds the queue without it before the cap is applied.
+    const runtime = fs.readFileSync(path.join(ROOT, 'scripts/relocalize-pending-jobs.mjs'), 'utf8');
+    const call = runtime.match(/buildTrafficPriority\(pending, popularity, \{([\s\S]*?)\}\);/);
+    expect(call?.[1]).toMatch(/lane:\s*CASCADE_TRAFFIC_LANE/);
+    expect(call?.[1]).toMatch(/priorityOf:\s*\(job\)\s*=>\s*Boolean\(job\?\.needsRetranslation\)/);
+  });
+
   it('il traffico si legge anche dagli slug localizzati, e si prende il MAX', () => {
     const j = { slug: 'nope', slugByLocale: { it: 'nope', de: 'hot' } };
     expect(jobTrafficScore(j, popularity)).toBe(500);

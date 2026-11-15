@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -185,6 +186,20 @@ export function ensureAdapterSeedUrls(
 }
 
 /* ── Base Crawler ──────────────────────────────────────────── */
+export function buildJyskCrawlerEnv(env = process.env) {
+  return {
+    JOBS_CRAWLER_MAX_JOB_LINKS: env.JOBS_CRAWLER_MAX_JOB_LINKS || '100000',
+    JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: env.JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES || '100000',
+    JOBS_CRAWLER_FETCH_RETRIES: env.JOBS_CRAWLER_FETCH_RETRIES || '2',
+    JOBS_CRAWLER_CONCURRENCY: env.JOBS_CRAWLER_CONCURRENCY || '4',
+    // JYSK's Drupal detail pages can fail on the GitHub Actions direct-egress
+    // path. Use the existing host-gated Jina clean-egress transport for this
+    // source only; the shared crawler keeps the original canonical URL and
+    // retains its direct-fetch fallback if the proxy is unavailable.
+    JOBS_CRAWLER_FETCH_PROXY: env.JOBS_CRAWLER_FETCH_PROXY || JYSK_HOST,
+  };
+}
+
 function runBaseCrawler() {
   return runDedicatedBaseCrawler({
     root: ROOT,
@@ -192,12 +207,7 @@ function runBaseCrawler() {
     localizeOnlyCompanyKeys: JYSK_KEY,
     forceLocalizeKeys: JYSK_KEY,
     disableWorkdayForce: true,
-    extraEnv: {
-      JOBS_CRAWLER_MAX_JOB_LINKS: process.env.JOBS_CRAWLER_MAX_JOB_LINKS || '100000',
-      JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES: process.env.JOBS_CRAWLER_MAX_GENERIC_DETAIL_PAGES || '100000',
-      JOBS_CRAWLER_FETCH_RETRIES: process.env.JOBS_CRAWLER_FETCH_RETRIES || '2',
-      JOBS_CRAWLER_CONCURRENCY: process.env.JOBS_CRAWLER_CONCURRENCY || '4',
-    },
+    extraEnv: buildJyskCrawlerEnv(),
   });
 }
 
@@ -207,7 +217,7 @@ function logStats(beforeSnapshot = new Map()) {
     console.log('ℹ️ jobs.json not found — no stats available.');
     return { total: 0 };
   }
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const allJobs = Array.isArray(raw) ? raw : [];
   const jobs = allJobs.filter(isJyskJob);
   const byCanton = new Map();
@@ -244,7 +254,13 @@ function validateLocaleCoverage() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(JYSK_KEY, 'JYSK');
+  const summaryCounts = {
+    discovered: null,
+    parsed: null,
+    lastFetchOutcome: null,
+    abortKind: null,
+  };
+  registerCrawlerSummaryGuard(JYSK_KEY, 'JYSK', summaryCounts);
   console.log('🛋️ Running dedicated JYSK jobs crawler...');
   console.log(`   Portal: ${JYSK_HOST} (Drupal CMS)`);
   console.log('');
@@ -252,8 +268,16 @@ async function main() {
   // Step 1: Discover job detail URLs from the listing page
   const discovery = await fetchJyskJobUrls();
   const detailUrls = discovery.urls;
+  summaryCounts.discovered = detailUrls.length;
+  summaryCounts.lastFetchOutcome = discovery.sourceZero ? 'selector_miss' : 'ok';
   if (discovery.sourceZero) {
-    console.log('ℹ️ No JYSK job URLs discovered. Exiting OK.');
+    // The title marker proves that the page belongs to JYSK, but an empty link
+    // set is not proof that the board has no vacancies. Keep the live slice and
+    // name this fail-closed bail-out so crawler-health can route it to the
+    // discovery/parser boundary instead of reporting an anonymous exit guard.
+    summaryCounts.parsed = 0;
+    summaryCounts.abortKind = 'no-jobs-parsed';
+    console.log('⚠️ No JYSK job URLs discovered without an empty-board proof; preserving the existing slice.');
     return;
   }
 
@@ -264,11 +288,14 @@ async function main() {
     const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(JYSK_KEY, DATA_JOBS).filter(isJyskJob))
 
   // Step 3: Run the base crawler (fetches JSON-LD from detail pages)
-  await runBaseCrawler();
+  const crawlResult = await runBaseCrawler();
+  summaryCounts.parsed = Array.isArray(crawlResult?.observedJobs)
+    ? crawlResult.observedJobs.length
+    : null;
 
   // Step 3b: Stamp sourceLang on JYSK jobs
   if (fs.existsSync(DATA_JOBS)) {
-    const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+    const raw = readJsonFile(DATA_JOBS);
     if (Array.isArray(raw)) {
       for (const job of raw) {
         if (isJyskJob(job) && !job.sourceLang) {
@@ -289,7 +316,8 @@ async function main() {
   const stats = logStats(_beforeSnapshot);
   const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
-    console.log('ℹ️ No JYSK jobs found after crawl. Exiting OK.');
+    summaryCounts.abortKind = 'no-jobs-parsed';
+    console.log('⚠️ No JYSK jobs found after a non-empty discovery; preserving the existing slice and recording the fail-closed result.');
     return;
   }
 
@@ -297,7 +325,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isJyskJob) : [];
   writeJobsCrawlerSlice(JYSK_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

@@ -56,6 +56,8 @@ import {
   evaluateWeekdayDrop,
   evaluateRichShare,
   seededSample,
+  isIndexedUrlInspection,
+  isRichResultEligibleRow,
   CLICK_DROP_THRESHOLD,
   RICH_SHARE_THRESHOLD,
 } from './lib/job-rich-result-guard.mjs';
@@ -317,11 +319,11 @@ async function isLiveJobPage(url) {
  * its loop and, because the CLI wrapper exited 0, every run was green while
  * the history, the rich-result guard and `job-rich-missing` were never
  * produced. Exported so tests/monitor-gsc-job-rich-missing.test.ts runs it.
- * @param {{pageUrl: string, liveJob: boolean, result: {error?: string, hasJobs?: boolean}}} p
+ * @param {{pageUrl: string, liveJob: boolean, result: {error?: string, verdict?: string, hasJobs?: boolean}}} p
  * @returns {string|null}
  */
 export function jobRichResultRegression({ pageUrl, liveJob, result }) {
-  if (!isJobDetailCandidate(pageUrl) || !liveJob || !result || result.error) return null;
+  if (!isJobDetailCandidate(pageUrl) || !liveJob || !result || result.error || !isIndexedUrlInspection(result)) return null;
   return result.hasJobs ? null : 'no Job postings rich result in URL Inspection';
 }
 
@@ -623,6 +625,7 @@ async function main() {
       url: pageUrl,
       liveJob,
       inspected: !result.error,
+      indexed: isIndexedUrlInspection(result),
       hasJobs: !!result.hasJobs,
       coverageState: result.coverageState || null,
       crawlTime: result.crawlTime || null,
@@ -776,7 +779,7 @@ async function checkRichResultRegression({ accessToken, siteUrl, today, richRows
     log('🧪', `${name} clicks ${a.day || 'n/a'}: ${a.clicks ?? 'n/a'} vs same-weekday median ${a.baseline ?? 'n/a'} → drop ${fmtPct(a.drop)} (${a.reason})`);
   }
 
-  const missing = richRows.filter(r => r.liveJob && !r.hasJobs).map(r => r.url);
+  const missing = richRows.filter(r => isRichResultEligibleRow(r) && !r.hasJobs).map(r => r.url);
   if (RICH_MISSING_OUT) {
     try {
       writeFileSync(RICH_MISSING_OUT, JSON.stringify({ date: today, urls: missing }, null, 2));
@@ -826,16 +829,16 @@ export const RICH_REGRESSION_TITLE = '[Monitor] job rich results regression (JOB
 /** Corpo della issue anti-regressione, scheda inclusa. Esportato per il test. */
 export function buildRichRegressionIssueBody({ share, listing, details, rows }) {
   const pct = v => (v == null ? 'n/a' : `${(v * 100).toFixed(0)}%`);
-  const missing = rows.filter(r => r.liveJob && !r.hasJobs);
+  const missing = rows.filter(r => isRichResultEligibleRow(r) && !r.hasJobs);
   return [
     '## Job rich results — regressione rilevata',
     '',
     `**Data**: ${new Date().toISOString().split('T')[0]}`,
-    `- Pagine annuncio live con rich result "Job Postings": **${share.withJobs}/${share.eligible} (${pct(share.share)})**, soglia ${pct(RICH_SHARE_THRESHOLD)}${share.alert ? ' — 🔴 sotto soglia' : ''}`,
+    `- Pagine annuncio live e indicizzate con rich result "Job Postings": **${share.withJobs}/${share.eligible} (${pct(share.share)})**, soglia ${pct(RICH_SHARE_THRESHOLD)}${share.alert ? ' — 🔴 sotto soglia' : ''}`,
     `- Clic JOB_LISTING del ${listing.day || 'n/a'}: **${listing.clicks ?? 'n/a'}** contro mediana ${listing.baseline ?? 'n/a'} dello stesso giorno della settimana nelle 4 settimane precedenti → calo ${pct(listing.drop)}${listing.alert ? ` — 🔴 oltre il ${pct(CLICK_DROP_THRESHOLD)}` : ''}`,
     `- Clic JOB_DETAILS del ${details?.day || 'n/a'} (informativo): ${details?.clicks ?? 'n/a'} contro ${details?.baseline ?? 'n/a'}`,
     '',
-    '### Pagine live senza rich result Jobs nel campione',
+    '### Pagine live e indicizzate senza rich result Jobs nel campione',
     ...(missing.length
       ? missing.slice(0, 30).map(r => `- \`${new URL(r.url).pathname}\` — ${r.coverageState || 'stato sconosciuto'}, ultima scansione ${r.crawlTime || 'n/a'}`)
       : ['- nessuna (allarme dai soli clic)']),
@@ -845,13 +848,13 @@ export function buildRichRegressionIssueBody({ share, listing, details, rows }) 
     '',
     buildScheda({
       causa: [
-        '(ipotesi, da confermare.) Google mostra meno annunci come offerte di lavoro. Le cause',
-        "osservate finora: pagine servite senza JSON-LD JobPosting (4-22/10/2026, PR 11394) e",
-        "Google che conserva lo stato dell'ultima scansione finche' non riscansiona.",
+        '(ipotesi, da confermare.) Google mostra meno annunci come offerte di lavoro. Il monitor',
+        'deve distinguere le pagine vive ma non ancora indicizzate, che non possono avere un rich',
+        'result, dalle pagine indicizzate senza Job Postings (come nell outage 4-22/10/2026, PR 11394).',
       ],
       fix: [
-        "Verificare che le pagine elencate emettano JobPosting valido (`curl -s URL | grep JobPosting`);",
-        "se si', la riscansione e' gia' richiesta via Indexing API; se no, correggere l'emissione. | **REPO**: sito.",
+        'Contare e accodare come regressione solo le URL vive con URL Inspection `verdict=PASS`;',
+        'le URL non ancora indicizzate restano nella normale pipeline Indexing API. | **REPO**: sito.',
       ],
       metrica: `prima=${pct(share.share)} pagine con Jobs, calo clic ${pct(listing.drop)} atteso=share ≥ ${pct(RICH_SHARE_THRESHOLD)} e calo ≤ ${pct(CLICK_DROP_THRESHOLD)}`,
       comando: 'node scripts/monitor-gsc-job-indexation.mjs --dry-run',

@@ -1,0 +1,27 @@
+{
+  "companyKey": "serco-landtechnik-ag",
+  "companyName": "Serco Landtechnik AG",
+  "companyHost": "jobs.fenaco.com",
+  "verifiedEmployerDomain": "sercolandtechnik.ch",
+  "platform": "fenaco.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.fenaco.com/?filter_30=1158627,1158646,1368331,1158677,1158678,1763450,1158686&filter_80=false&lang=de"
+  ],
+  "detailTemplate": "/offene-stellen/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Mitarbeiter/in Finanzen & Controlling w/m/d Serco Landtechnik AG, Oberbipp 60-100%, befristet",
+    "Landmaschinenmechaniker/in w/m/d Anliker Landtechnik, Serco Retail AG, Fraubrunnen 80-100%, unbefristet",
+    "Landmaschinenmechaniker/in w/m/d Schöpfer Landtechnik, Serco Retail AG, Schmitten 80-100%, unbefristet",
+    "Landmaschinenmechaniker/in w/m/d Meier Maschinen, Serco Retail AG, Marthalen 80-100%, unbefristet",
+    "Landmaschinenmechaniker/in w/m/d Kunz Landtechnik, Serco Retail AG, Reiden 80-100%, unbefristet"
+  ],
+  "canton": "BE",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-14T13:17:26.063Z",
+  "candidateKey": "serco-landtechnik@oberbipp"
+}

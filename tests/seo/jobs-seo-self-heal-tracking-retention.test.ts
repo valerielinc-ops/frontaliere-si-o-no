@@ -90,17 +90,31 @@ describe('self-heal tracking retention', () => {
     expect(previousSlugPhase).toBeGreaterThan(prune);
   });
 
-  it('releases expired-sweep rows on both sweep exits and preserves cross-locale rows', () => {
+  it('releases expired-sweep rows on every sweep exit and preserves cross-locale rows', () => {
     const release = pluginSource.indexOf('const releaseExpiredSweepSlug = (slug: string, expiredSlugIndex: number)');
     const releaseCalls = [...pluginSource.matchAll(/releaseExpiredSweepSlug\(slug, expiredSlugIndex\);/gu)]
       .map((match) => match.index ?? -1);
+    const noResolvedLocalePaths = pluginSource.indexOf('if (!localeList.some((locale) => paths[locale])) {');
+    const noResolvedLocaleRelease = pluginSource.indexOf(
+      'releaseExpiredSweepSlug(slug, expiredSlugIndex);',
+      noResolvedLocalePaths,
+    );
+    const noResolvedLocaleDrain = pluginSource.indexOf(
+      'await drainExpiredSweepSlot(expiredSlugIndex);',
+      noResolvedLocaleRelease,
+    );
     const crossLocalePass = pluginSource.indexOf('/* ── Cross-locale reconciliation for expired jobs');
     const retainedCrossLocaleSlugs = pluginSource.indexOf(
       '!progressiveExpiredCrossLocaleSlugs?.has(slug)',
     );
 
     expect(release).toBeGreaterThan(-1);
-    expect(releaseCalls).toHaveLength(2);
+    // The third release handles rows whose every locale path was filtered by
+    // the expired-emission policy before rendering. It runs before the shared
+    // cross-locale pass, while the release helper still retains cross-locale rows.
+    expect(releaseCalls).toHaveLength(3);
+    expect(noResolvedLocaleRelease).toBeGreaterThan(noResolvedLocalePaths);
+    expect(noResolvedLocaleDrain).toBeGreaterThan(noResolvedLocaleRelease);
     expect(releaseCalls.every((index) => index > release && index < crossLocalePass)).toBe(true);
     expect(retainedCrossLocaleSlugs).toBeGreaterThan(release);
     expect(retainedCrossLocaleSlugs).toBeLessThan(crossLocalePass);

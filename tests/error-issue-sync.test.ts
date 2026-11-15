@@ -717,6 +717,15 @@ describe('deny-list parity (scripts/lib/error-issue-sync.mjs cannot import the .
     expect(isIssueDenied('[articleBody] TypeError: cancelled')).toBe(false);
   });
 
+  it('mirrors the browser-extension tab bridge no-listener pattern (#18593)', () => {
+    const sample = 'No Listener: tabs:outgoing.message.ready';
+    const benignPattern = UNIVERSAL_BENIGN_PATTERNS.find((p) => p.test(sample));
+    expect(benignPattern).toBeDefined();
+    expect(ISSUE_DENY_PATTERNS.map((p: RegExp) => p.source)).toContain(benignPattern!.source);
+    expect(isIssueDenied(sample)).toBe(true);
+    expect(isIssueDenied('No Listener: tabs:outgoing.message.readyState')).toBe(false);
+  });
+
   it('mirrors the Firebase auth/network-request-failed pattern from services/benignErrorPatterns.ts byte-for-byte (#4174)', () => {
     const benignPattern = UNIVERSAL_BENIGN_PATTERNS.find((p) =>
       p.test('Firebase: Error (auth/network-request-failed).'),

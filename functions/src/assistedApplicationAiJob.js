@@ -25,6 +25,7 @@ const MAX_POSTING_CHARS = 14_000;
 const MAX_PAGE_BYTES = 1_500_000;
 const MAX_REDIRECTS = 3;
 const JOB_ROOM_API_BASE = 'https://www.job-room.ch/jobadservice/api/jobAdvertisements';
+const JOB_ROOM_HOSTS = new Set(['job-room.ch', 'arbeit.swiss', 'travail.swiss', 'lavoro.swiss', 'work.swiss']);
 const JOB_ROOM_UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const JOB_ROOM_JOB_ID_RE = /^seco-jobroom-([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$/i;
 
@@ -92,6 +93,20 @@ export function htmlToText(html) {
     .replace(/ *\n */g, '\n')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
+}
+
+function isJobRoomHost(hostname) {
+  const host = String(hostname || '').toLowerCase();
+  return [...JOB_ROOM_HOSTS].some(domain => host === domain || host.endsWith(`.${domain}`));
+}
+
+function sourceTitleFromHtml(html) {
+  const matches = [...String(html || '').slice(0, MAX_PAGE_BYTES).matchAll(/<h1\b[^>]*>([\s\S]*?)<\/h1\s*>/gi)]
+    .slice(0, 3)
+    .map(([, content]) => clean(htmlToText(content), 300))
+    .filter(Boolean);
+  const distinct = [...new Set(matches)];
+  return distinct.length === 1 && distinct[0].length >= 3 ? distinct[0] : '';
 }
 
 async function fetchWithTimeout(fetchImpl, url, init = {}) {
@@ -492,7 +507,7 @@ function jobRoomAdvertisementId(order = {}) {
   try {
     const url = new URL(String(order?.jobUrl || ''));
     if (url.protocol !== 'https:' || url.username || url.password) return '';
-    if (!['www.job-room.ch', 'job-room.ch'].includes(url.hostname.toLowerCase())) return '';
+    if (!isJobRoomHost(url.hostname)) return '';
     const pathId = url.pathname.match(/^\/job-search\/([^/]+)\/?$/i)?.[1] || '';
     return JOB_ROOM_UUID_RE.test(pathId) ? pathId.toLowerCase() : '';
   } catch {
@@ -505,9 +520,9 @@ function jobRoomAdvertisementId(order = {}) {
  * while the published corpus deliberately strips contact data. Read only the
  * channel here, at application time, and never fall back to publicContact.
  */
-async function fetchJobRoomApplyUrl(order, { fetchImpl = fetch, resolve = lookup } = {}) {
+async function fetchJobRoomApplicationChannel(order, { fetchImpl = fetch, resolve = lookup } = {}) {
   const advertisementId = jobRoomAdvertisementId(order);
-  if (!advertisementId) return '';
+  if (!advertisementId) return { applyUrl: '', externalUrl: '', formUrl: '' };
 
   try {
     const response = await fetchPublicPage(
@@ -517,27 +532,34 @@ async function fetchJobRoomApplyUrl(order, { fetchImpl = fetch, resolve = lookup
       { accept: 'application/json' },
     );
     const contentType = String(response?.headers?.get?.('content-type') || '').toLowerCase();
-    if (!response?.ok || !contentType.includes('json')) return '';
+    if (!response?.ok || !contentType.includes('json')) return { applyUrl: '', externalUrl: '', formUrl: '' };
 
-    const applyChannel = (await response.json())?.jobContent?.applyChannel;
-    if (!applyChannel || typeof applyChannel !== 'object') return '';
+    const jobContent = (await response.json())?.jobContent;
+    if (!jobContent || typeof jobContent !== 'object') return { applyUrl: '', externalUrl: '', formUrl: '' };
+    const applyChannel = jobContent.applyChannel && typeof jobContent.applyChannel === 'object'
+      ? jobContent.applyChannel : {};
+
+    let externalUrl = String(jobContent.externalUrl || '').trim();
+    if (externalUrl && (!await resolvesToPublicHost(externalUrl, resolve)
+      || isJobRoomHost(new URL(externalUrl).hostname))) externalUrl = '';
 
     const formUrl = String(applyChannel.formUrl || '').trim();
     if (/^mailto:/i.test(formUrl)) {
       const email = decodeURIComponent(formUrl.replace(/^mailto:/i, '').split('?')[0]).trim().toLowerCase();
-      if (isPlausibleEmail(email)) return `mailto:${email}`;
+      if (isPlausibleEmail(email)) return { applyUrl: `mailto:${email}`, externalUrl, formUrl };
     }
-    if (formUrl && await resolvesToPublicHost(formUrl, resolve)) return formUrl;
+    if (formUrl && await resolvesToPublicHost(formUrl, resolve)
+      && !isJobRoomHost(new URL(formUrl).hostname)) return { applyUrl: formUrl, externalUrl, formUrl };
+    if (externalUrl) return { applyUrl: externalUrl, externalUrl, formUrl: '' };
 
     const email = String(applyChannel.emailAddress || '').replace(/\s+/g, '').trim().toLowerCase();
-    return isPlausibleEmail(email) ? `mailto:${email}` : '';
+    return { applyUrl: isPlausibleEmail(email) ? `mailto:${email}` : '', externalUrl, formUrl: '' };
   } catch (error) {
     console.warn(
       '[assistedApplicationAi] Job-Room application channel lookup failed',
-      advertisementId,
       error instanceof Error ? error.message : String(error),
     );
-    return '';
+    return { applyUrl: '', externalUrl: '', formUrl: '' };
   }
 }
 
@@ -585,6 +607,11 @@ function postingFromDetail(detail, maxPostingChars = MAX_POSTING_CHARS) {
     .join('\n\n');
   const guarded = guardPosting(rawText, 'auto');
   const text = guarded.cleanText;
+  const titles = detail?.titleByLocale && typeof detail.titleByLocale === 'object' && !Array.isArray(detail.titleByLocale)
+    ? detail.titleByLocale : {};
+  const sourceLang = clean(detail?.sourceLang, 12).toLowerCase();
+  const sourceLocale = sourceLang.split(/[-_]/)[0];
+  const sourceTitle = clean(detail?.sourceTitle || titles[sourceLang] || titles[sourceLocale] || detail?.title || '', 300);
   return {
     text: text.slice(0, maxPostingChars),
     textTruncated: text.length > maxPostingChars,
@@ -593,7 +620,9 @@ function postingFromDetail(detail, maxPostingChars = MAX_POSTING_CHARS) {
     postingGuardFindings: guarded.findings,
     postingUrl: postingUrlFromDetail(detail),
     applyUrl: clean(detail?.applyUrl, 1000),
-    titles: detail?.titleByLocale && typeof detail.titleByLocale === 'object' ? detail.titleByLocale : {},
+    sourceTitle,
+    sourceLang,
+    titles,
     location: clean([detail?.addressLocality, detail?.addressRegion].filter(Boolean).join(', '), 200),
     postalCode: clean(detail?.postalCode, 20),
     streetAddress: clean(detail?.streetAddress, 200),
@@ -611,7 +640,7 @@ function postingFromDetail(detail, maxPostingChars = MAX_POSTING_CHARS) {
 }
 
 /**
- * @returns {Promise<{source:'job_detail'|'job_page'|'none', text:string, postingUrl:string, publishedPostingUrl:string, applyUrl:string, jobRoomChannelResolved?:boolean, titles:object,
+ * @returns {Promise<{source:'job_detail'|'job_page'|'none', text:string, postingUrl:string, publishedPostingUrl:string, applyUrl:string, jobRoomChannelResolved?:boolean, jobRoomApplyUrl?:string, jobRoomFormUrl?:string, jobRoomExternalUrl?:string, sourceTitle:string, sourceLang:string, titles:object,
  *   location:string, postalCode:string, streetAddress:string, contactPerson:string, contactPhone:string,
  *   salary:string, employmentType:string, datePosted:string, postedDate:string, postingDateSource:string, firstSeenAt:string, validThrough:string,
  *   postingGuardVerdict?:string, postingGuardClean?:boolean, postingGuardFindings?:object}>}
@@ -626,20 +655,27 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
   }
   maxPostingChars = Math.min(60_000, Math.max(MAX_POSTING_CHARS, Number(maxPostingChars) || MAX_POSTING_CHARS));
   const empty = {
-    source: 'none', text: '', postingUrl: clean(order?.jobUrl, 1000), publishedPostingUrl: '', applyUrl: clean(order?.jobUrl, 1000), titles: {}, location: '', postalCode: '',
+    source: 'none', text: '', postingUrl: clean(order?.jobUrl, 1000), publishedPostingUrl: '', applyUrl: clean(order?.jobUrl, 1000),
+    sourceTitle: '', sourceLang: '', titles: {}, location: '', postalCode: '',
     streetAddress: '', contactPerson: '', contactPhone: '', salary: '', employmentType: '', datePosted: '', postedDate: '', postingDateSource: 'unknown', firstSeenAt: '', validThrough: '',
     postingGuardVerdict: 'posting_guard: uninspected', postingGuardClean: true, postingGuardFindings: {},
   };
   const jobId = String(order?.jobId || '');
   const jobRoomOrder = Boolean(jobRoomAdvertisementId(order));
-  if (jobRoomOrder) empty.jobRoomChannelResolved = false;
-  let jobRoomApplyUrlPromise;
-  const jobRoomApplyUrl = () => {
-    jobRoomApplyUrlPromise ??= fetchJobRoomApplyUrl(order, { fetchImpl, resolve }).then((value) => {
-      if (jobRoomOrder) empty.jobRoomChannelResolved = Boolean(value);
-      return value;
+  if (jobRoomOrder) Object.assign(empty, {
+    publishedPostingUrl: empty.postingUrl,
+    jobRoomChannelResolved: false,
+    jobRoomApplyUrl: '',
+    jobRoomFormUrl: '',
+    jobRoomExternalUrl: '',
+  });
+  let jobRoomChannelPromise;
+  const jobRoomChannel = () => {
+    jobRoomChannelPromise ??= fetchJobRoomApplicationChannel(order, { fetchImpl, resolve }).then((channel) => {
+      if (jobRoomOrder) empty.jobRoomChannelResolved = Boolean(channel.applyUrl);
+      return channel;
     });
-    return jobRoomApplyUrlPromise;
+    return jobRoomChannelPromise;
   };
   if (JOB_ID_RE.test(jobId)) {
     try {
@@ -647,14 +683,19 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
       if (response.ok) {
         const posting = postingFromDetail(await response.json(), maxPostingChars);
         if (posting.text) {
-          const resolvedApplyUrl = await jobRoomApplyUrl();
+          const resolvedChannel = await jobRoomChannel();
           return {
             ...empty,
             ...posting,
-            publishedPostingUrl: posting.postingUrl,
-            postingUrl: posting.postingUrl || empty.postingUrl,
-            applyUrl: resolvedApplyUrl || posting.applyUrl || empty.applyUrl,
-            ...(jobRoomOrder ? { jobRoomChannelResolved: Boolean(resolvedApplyUrl) } : {}),
+            publishedPostingUrl: jobRoomOrder ? empty.publishedPostingUrl : posting.postingUrl,
+            postingUrl: resolvedChannel.externalUrl || posting.postingUrl || empty.postingUrl,
+            applyUrl: resolvedChannel.applyUrl || posting.applyUrl || empty.applyUrl,
+            ...(jobRoomOrder ? {
+              jobRoomChannelResolved: Boolean(resolvedChannel.applyUrl),
+              jobRoomApplyUrl: resolvedChannel.applyUrl,
+              jobRoomFormUrl: resolvedChannel.formUrl,
+              jobRoomExternalUrl: resolvedChannel.externalUrl,
+            } : {}),
             source: 'job_detail',
           };
         }
@@ -689,13 +730,20 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
         const fullText = guarded.cleanText || htmlToText(html);
         const text = fullText.slice(0, maxPostingChars);
         if (text.length > 200) {
-          const resolvedApplyUrl = await jobRoomApplyUrl();
+          const resolvedChannel = await jobRoomChannel();
           return {
             ...empty,
             text,
             textTruncated: pageTruncated || fullText.length > maxPostingChars,
-            applyUrl: resolvedApplyUrl || empty.applyUrl,
-            ...(jobRoomOrder ? { jobRoomChannelResolved: Boolean(resolvedApplyUrl) } : {}),
+            sourceTitle: sourceTitleFromHtml(html),
+            postingUrl: resolvedChannel.externalUrl || empty.postingUrl,
+            applyUrl: resolvedChannel.applyUrl || empty.applyUrl,
+            ...(jobRoomOrder ? {
+              jobRoomChannelResolved: Boolean(resolvedChannel.applyUrl),
+              jobRoomApplyUrl: resolvedChannel.applyUrl,
+              jobRoomFormUrl: resolvedChannel.formUrl,
+              jobRoomExternalUrl: resolvedChannel.externalUrl,
+            } : {}),
             source: 'job_page',
             postingGuardVerdict: guarded.verdict,
             postingGuardClean: guarded.isClean,
@@ -706,6 +754,18 @@ export async function fetchJobPosting(order, { fetchImpl = fetch, resolve = look
     } catch (error) {
       console.warn('[assistedApplicationAi] job page fetch failed', error instanceof Error ? error.message : String(error));
     }
+  }
+  if (jobRoomOrder) {
+    const resolvedChannel = await jobRoomChannel();
+    return {
+      ...empty,
+      postingUrl: resolvedChannel.externalUrl || empty.postingUrl,
+      applyUrl: resolvedChannel.applyUrl || empty.applyUrl,
+      jobRoomChannelResolved: Boolean(resolvedChannel.applyUrl),
+      jobRoomApplyUrl: resolvedChannel.applyUrl,
+      jobRoomFormUrl: resolvedChannel.formUrl,
+      jobRoomExternalUrl: resolvedChannel.externalUrl,
+    };
   }
   return empty;
 }
@@ -774,7 +834,7 @@ export async function refreshApplicationChannel(draft, order, {
   } catch {
     return current;
   }
-  if (!posting || posting.source === 'none') return current;
+  if (!posting || (posting.source === 'none' && posting.jobRoomChannelResolved !== true)) return current;
   if (posting.jobRoomChannelResolved !== true) return current;
 
   const currentJob = current.job && typeof current.job === 'object' ? current.job : {};
@@ -783,9 +843,6 @@ export async function refreshApplicationChannel(draft, order, {
   // A failed Job-Room API lookup leaves fetchJobPosting's apply URL at the
   // order's posting URL. That is not evidence of a changed channel.
   if (liveApplyUrl === String(order?.jobUrl || '').trim()) return current;
-  // `fetchJobPosting` keeps the saved posting URL when a live channel lookup
-  // is unavailable. Do not erase a previously verified channel in that case.
-  if (liveApplyUrl === String(currentJob.applyUrl || '').trim() && current.channel?.type) return current;
   let channel;
   try {
     channel = classifyApplicationChannel({ applyUrl: liveApplyUrl, postingText: posting.text });
@@ -797,11 +854,26 @@ export async function refreshApplicationChannel(draft, order, {
   const jobApplyUrl = channel.type === 'email'
     ? posting.postingUrl || currentJob.applyUrl || order?.jobUrl || ''
     : channel.applyUrl || posting.applyUrl || currentJob.applyUrl || order?.jobUrl || '';
+  const liveTitles = Object.fromEntries(Object.entries(posting.titles || {})
+    .filter(([locale, title]) => ['it', 'en', 'de', 'fr'].includes(String(locale).toLowerCase().split(/[-_]/)[0])
+      && typeof title === 'string' && title.trim())
+    .map(([locale, title]) => [String(locale).toLowerCase().split(/[-_]/)[0], title.trim().slice(0, 300)]));
+  const currentTitles = currentJob.titleByLocale && typeof currentJob.titleByLocale === 'object' && !Array.isArray(currentJob.titleByLocale)
+    ? currentJob.titleByLocale : {};
   return {
     ...current,
     job: {
       ...currentJob,
       ...(posting.postingUrl ? { postingUrl: posting.postingUrl } : {}),
+      ...(posting.sourceTitle ? { sourceTitle: posting.sourceTitle, postingTitle: posting.sourceTitle } : {}),
+      ...(posting.sourceLang ? { sourceLang: posting.sourceLang } : {}),
+      ...(Object.keys(liveTitles).length ? { titleByLocale: { ...currentTitles, ...liveTitles } } : {}),
+      ...(posting.jobRoomChannelResolved === true ? {
+        jobRoomChannelResolved: true,
+        jobRoomApplyUrl: posting.jobRoomApplyUrl || liveApplyUrl,
+        jobRoomFormUrl: posting.jobRoomFormUrl || '',
+        jobRoomExternalUrl: posting.jobRoomExternalUrl || '',
+      } : {}),
       applyUrl: jobApplyUrl,
     },
     channel: { ...(current.channel || {}), ...channel },

@@ -124,6 +124,32 @@ test('admission skip summary does not execute shell command substitutions', () =
   assert.doesNotMatch(workflow, /motivo: `\$reason`/u);
 });
 
+test('GitHub Actions reads use bounded retry and keep optional observations optional', () => {
+  assert.match(workflow, /scripts\/ci\/run-gh-read\.mjs/u);
+  assert.match(workflow, /node scripts\/load-rc-env\.mjs --only-env=GITHUB_PAT/u);
+  assert.doesNotMatch(workflow, /^\s+gh run list\s*\\/mu);
+  assert.doesNotMatch(workflow, /^\s+gh pr list\s*\\/mu);
+
+  const admissionStart = workflow.indexOf('- name: Check rewrite admission');
+  const previousStateStart = workflow.indexOf('- name: Read previous run state');
+  const sourceStart = workflow.indexOf('- name: Locate latest private crawl input');
+  const recentStart = workflow.indexOf('- name: Download recent successful run state');
+  const nextStep = (start) => workflow.indexOf('\n      - name: ', start + 1);
+  const admission = workflow.slice(admissionStart, previousStateStart);
+  const previousState = workflow.slice(previousStateStart, sourceStart);
+  const source = workflow.slice(sourceStart, recentStart);
+  const recent = workflow.slice(recentStart, nextStep(recentStart));
+
+  assert.match(admission, /node scripts\/ci\/run-gh-read\.mjs run list/u);
+  assert.match(admission, /node scripts\/ci\/run-gh-read\.mjs pr list/u);
+  assert.doesNotMatch(admission, /continuing without/u);
+  assert.match(previousState, /continuing without historical state/u);
+  assert.match(source, /continuing without incremental input/u);
+  assert.match(source, /has_incremental=false/u);
+  assert.match(recent, /continuing without historical throughput state/u);
+  assert.match(recent, /recent-run-ids\.txt/u);
+});
+
 test('planner emits every workflow output without replacing existing step outputs', () => {
   const root = mkdtempSync(path.join(tmpdir(), 'event-description-plan-'));
   const outputPath = path.join(root, 'github-output');

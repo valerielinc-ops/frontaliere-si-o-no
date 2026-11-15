@@ -14,10 +14,13 @@
  *
  *   2. Share of sampled live job pages that Google reports with a
  *      "Job Postings" rich result (URL Inspection, richResultsResult). Below
- *      80% alerts. The verdict alone is NOT enough: a page with only
- *      Breadcrumbs reports richResultsResult.verdict = PASS, which is exactly
- *      how 13 of 60 inspected job pages looked healthy on 2026-10-23 while
- *      carrying no Jobs result (jp/insp60-out.json).
+ *      80% alerts. Only URL inspections whose index-status verdict is PASS
+ *      are eligible: an unindexed page cannot have a rich result yet and is
+ *      handled by the indexing pipeline. The rich-results verdict alone is
+ *      NOT enough: a page with only Breadcrumbs reports
+ *      richResultsResult.verdict = PASS, which is exactly how 13 of 60
+ *      inspected job pages looked healthy on 2026-10-23 while carrying no
+ *      Jobs result (jp/insp60-out.json).
  *
  * @module scripts/lib/job-rich-result-guard
  */
@@ -43,6 +46,21 @@ export function hasJobPostingRichResult(richResultsResult) {
   const items = richResultsResult?.detectedItems;
   if (!Array.isArray(items)) return false;
   return items.some((d) => /job\s*posting/i.test(String(d?.richResultType || '')) && (d.items?.length ?? 1) > 0);
+}
+
+/** True only when URL Inspection confirms that Google has indexed the URL. */
+export function isIndexedUrlInspection(result) {
+  return result?.verdict === 'PASS';
+}
+
+/**
+ * A row is eligible for a rich-result comparison only after both fetches
+ * succeeded and URL Inspection confirmed indexing. Live-but-unindexed pages
+ * belong to the indexing queue, not to this regression denominator.
+ * @param {{liveJob: boolean, inspected: boolean, indexed: boolean}} row
+ */
+export function isRichResultEligibleRow(row) {
+  return Boolean(row?.liveJob && row?.inspected && row?.indexed);
 }
 
 /**
@@ -90,11 +108,11 @@ export function evaluateWeekdayDrop(series, { day, threshold = CLICK_DROP_THRESH
 }
 
 /**
- * Share of eligible (live job, inspected) pages that carry a Jobs rich result.
- * @param {Array<{liveJob: boolean, inspected: boolean, hasJobs: boolean}>} rows
+ * Share of eligible (live, inspected, indexed) pages that carry a Jobs rich result.
+ * @param {Array<{liveJob: boolean, inspected: boolean, indexed: boolean, hasJobs: boolean}>} rows
  */
 export function evaluateRichShare(rows, { threshold = RICH_SHARE_THRESHOLD, minSample = MIN_RICH_SAMPLE } = {}) {
-  const eligible = rows.filter((r) => r.liveJob && r.inspected);
+  const eligible = rows.filter(isRichResultEligibleRow);
   const withJobs = eligible.filter((r) => r.hasJobs).length;
   const share = eligible.length ? withJobs / eligible.length : null;
   const alert = eligible.length >= minSample && share < threshold;

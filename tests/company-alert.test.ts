@@ -2261,7 +2261,10 @@ describe('the follow cap, after grouping (residuo #5283)', () => {
     // unit test above still green, because they test the pieces, not the walk.
     const sender = readRepoFile('scripts/send-company-alerts.mjs');
     expect(sender).toContain('groupAlertsByRecipient(alerts)');
-    expect(sender).toContain('buildRecipientSections(alertsByRecipient.get(recipient)');
+    // B3 (perf-plan email senders): sections are planned per RECIPIENT before
+    // the consent lookup, and the send loop walks those recipients.
+    expect(sender).toContain('for (const [recipient, recipientAlerts] of alertsByRecipient)');
+    expect(sender).toContain('plannedByRecipient.get(recipient)');
     expect(sender).toContain('for (let i = 0; i < recipients.length; i += 1)');
     expect(sender.includes('for (const alert of alerts) {')).toBe(false);
     // PER_RUN_CAP now counts recipients — the unit changed even though the

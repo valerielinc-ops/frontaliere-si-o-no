@@ -361,12 +361,15 @@ describe('tier step: fingerprint before the code delta (#9968)', () => {
       const gh = join(dir, 'gh');
       writeFileSync(gh, `#!/usr/bin/env bash\nexec node "${join(dir, 'gh.cjs')}" "$@"\n`);
       chmodSync(gh, 0o755);
+      const timeout = join(dir, 'timeout');
+      writeFileSync(timeout, '#!/usr/bin/env bash\nshift 2\nexec "$@"\n');
+      chmodSync(timeout, 0o755);
       const output = join(dir, 'github-output');
       writeFileSync(output, '');
       const result = spawnSync('bash', ['-c', tierRun], {
         encoding: 'utf8',
         env: {
-          PATH: process.env.PATH,
+          PATH: `${dir}:${process.env.PATH}`,
           HOME: process.env.HOME,
           GITHUB_OUTPUT: output,
           REVIEW_POLICY_ROOT: join(dir, 'policy'),

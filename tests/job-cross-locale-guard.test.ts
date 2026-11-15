@@ -9,6 +9,7 @@
  * - Object.values().find() fallback in readCanonicalLocaleContent that could pick any locale
  * - readCanonicalByLocale in jobsSeoPagesPlugin falling back to other locales
  */
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import { describe, expect, it } from 'vitest';
 import fs from 'fs';
 import path from 'path';
@@ -52,7 +53,7 @@ function flattenCanonical(entry: CanonicalEntry): string {
 }
 
 describe('cross-locale content leakage guard', () => {
-  const jobs: Job[] = JSON.parse(fs.readFileSync(DATA_JOBS_PATH, 'utf-8'));
+  const jobs: Job[] = readJsonFile(DATA_JOBS_PATH);
   const jobsWithCanonical = jobs.filter(j => j.canonicalContent?.byLocale && !j.needsRetranslation);
 
   // Dato vivo: data/jobs.json, il dataset assemblato dagli output dei crawler.

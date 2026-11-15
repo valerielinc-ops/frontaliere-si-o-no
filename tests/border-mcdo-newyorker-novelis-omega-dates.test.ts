@@ -56,7 +56,16 @@ async function crawl(family: Family, records: Posting[], { locationless = false,
     ? (new URL(String(url)).searchParams.get('page') === '0' ? list : '<html></html>') : html)));
   return fetchAllOmegaJobs();
 }
-beforeEach(() => { fetchHtml.mockReset(); });
+beforeEach(() => {
+  fetchHtml.mockReset();
+  // Omega now uses the shared HTML transport. Keep this cross-parser fixture
+  // bound to its existing global-fetch stub unless a parser-specific branch
+  // installs its own list/detail implementation below.
+  fetchHtml.mockImplementation(async (url: string, options?: RequestInit) => {
+    const response = await globalThis.fetch(url, options);
+    return response.text();
+  });
+});
 afterEach(() => { vi.unstubAllGlobals(); });
 for (const family of Object.keys(urls) as Family[]) {
   describe(`${family}: source detail → emitted job`, () => {

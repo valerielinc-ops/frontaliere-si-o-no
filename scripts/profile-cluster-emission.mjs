@@ -35,6 +35,7 @@
 
 import fs from 'node:fs';
 import path from 'node:path';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { fileURLToPath } from 'node:url';
 import { stemSearchToken, stemHaystack } from '../services/searchStem.mjs';
 
@@ -149,7 +150,7 @@ function loadJSON(file) {
     console.error(`[profile] missing input: ${full}`);
     process.exit(2);
   }
-  return JSON.parse(fs.readFileSync(full, 'utf-8'));
+  return readJsonFile(full);
 }
 
 function loadCandidates() {

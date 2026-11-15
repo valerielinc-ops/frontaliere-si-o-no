@@ -29,6 +29,7 @@
 import { fileURLToPath } from 'node:url';
 import * as path from 'node:path';
 import * as fs from 'node:fs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import {
   employerMatchesHospital,
   isHospitalTypeName,
@@ -55,7 +56,7 @@ const CANTON_BORDER_PROVINCES = {
 };
 
 function readJson(rel) {
-  return JSON.parse(fs.readFileSync(path.join(ROOT, rel), 'utf-8'));
+  return readJsonFile(path.join(ROOT, rel));
 }
 
 function main() {

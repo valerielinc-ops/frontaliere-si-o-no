@@ -156,6 +156,7 @@ export const CLIENT_APP_ERROR_DROP_PATTERNS = [
   /__gCrWeb/,
   /TrackerStorageType/,
   /Invalid call to (?:runtime|tabs)\.sendMessage\(\)\. Tab not found\.?/i,
+  /No Listener:\s*tabs:outgoing\.message\.ready\b/i,
   /\bstandardSelectors\b/,
   /Unexpected token ['"]?\?['"]?/i,
   /NotReadableError: The I\/O read operation failed/i,

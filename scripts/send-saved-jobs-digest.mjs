@@ -108,8 +108,16 @@ import {
 // the implementation is the canonical shared helper (also used by
 // send-newsletter.mjs, send-job-alerts.mjs, AGENTS.md #6).
 import { localePathPrefix } from './lib/articleContent.mjs';
-import { rankSimilarApplicationJobs, snapshotData } from './lib/applicationIntentReminder.mjs';
+import {
+  createApplicationIntentReminderFeatureCache,
+  rankSimilarApplicationJobs,
+  snapshotData,
+} from './lib/applicationIntentReminder.mjs';
 import { verifiedEmailForUid } from './lib/verifiedAccountEmail.mjs';
+import { createSenderMetrics, emitSenderMetrics } from './lib/sender-metrics.mjs';
+import { installFirestoreOpCounterOnAdminSdk } from './lib/firestore-op-counter.mjs';
+import { bulkCascadeOptions } from './lib/bulk-send-throttle.mjs';
+import { createSavedJobsDigestClaimer } from './lib/saved-jobs-digest-claim.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -118,6 +126,13 @@ const BASE_URL = 'https://frontaliereticino.ch';
 const IMAGE_CDN_BASE = 'https://cdn.frontaliereticino.ch';
 const FROM_EMAIL = 'Frontaliere Ticino <alerts@frontaliereticino.ch>';
 const DRY_RUN = process.argv.includes('--dry-run');
+
+/**
+ * Per-phase telemetry (perf-plan email senders, D4): one `SAVEDJOBS_METRICS` line per
+ * run plus a table in the Job Summary.
+ */
+export const SAVED_JOBS_DIGEST_PHASES = Object.freeze(['load', 'users', 'send', 'persist']);
+export const savedJobsMetrics = createSenderMetrics({ tag: 'SAVEDJOBS', phases: SAVED_JOBS_DIGEST_PHASES });
 export const APPLICATION_INTENT_RETENTION_DAYS = 90;
 const MAX_DIGEST_ENTRIES = 20; // one bounded message across both source lists
 const MAX_APPLICATION_INTENTS_LISTED = 5; // application reminders take priority
@@ -406,8 +421,12 @@ function jobMatchesIdentity(job, candidate) {
   return String(job.url || '').trim() === value || String(job.applyUrl || '').trim() === value;
 }
 
-/** Resolve only against the current jobs index; stale or unidentifiable intents are omitted. */
-export function resolveApplicationIntentJob(data, documentId, jobsById) {
+/**
+ * The linear reference version of `resolveApplicationIntentJob` (one scan of the
+ * whole inventory per candidate). Kept so tests can prove the indexed version
+ * returns exactly the same job; nothing in the send path calls it.
+ */
+export function resolveApplicationIntentJobLinear(data, documentId, jobsById) {
   const nestedJob = data?.job && typeof data.job === 'object' ? data.job : {};
   const nestedListing = data?.listing && typeof data.listing === 'object' ? data.listing : {};
   const directCandidates = [
@@ -440,6 +459,96 @@ export function resolveApplicationIntentJob(data, documentId, jobsById) {
     for (const job of jobsById.values()) {
       if (jobMatchesIdentity(job, candidate)) return job;
     }
+  }
+  return null;
+}
+
+/**
+ * Every identity string `jobMatchesIdentity` accepts for a job, computed with the
+ * SAME expressions (so the index and the predicate cannot drift apart).
+ */
+function jobIdentityStrings(job) {
+  const out = [];
+  if (!job) return out;
+  const push = (value) => { const text = String(value ?? '').trim(); if (text) out.push(text); };
+  push(job.id);
+  push(job.slug);
+  for (const slug of Object.values(job.slugByLocale || {})) push(slug);
+  const companyKey = String(job.companyKey || '').trim() || 'unknown-company';
+  const canonicalSlug = String(job.slugByLocale?.it || job.slug || '').trim();
+  if (canonicalSlug) out.push(`${companyKey}:${canonicalSlug}`);
+  if (job.id) out.push(`${companyKey}:id:${String(job.id).trim()}`);
+  push(job.url);
+  push(job.applyUrl);
+  return out;
+}
+
+// One identity index per jobs Map, cached by the Map's IDENTITY (a WeakMap: it dies with the
+// Map). CONTRACT: the Map built by `loadJobsById` is never mutated after loading, so the
+// index is built once per run (perf-plan email senders, D3). As a cheap guard against the
+// common mutations a size change also rebuilds it; replacing an entry in place keeps the
+// size and is NOT detected, so a caller that does that must call
+// `invalidateApplicationIntentIdentityIndex(jobsById)` (the tests swap inventories that way).
+const identityIndexCache = new WeakMap();
+
+export function invalidateApplicationIntentIdentityIndex(jobsById) {
+  identityIndexCache.delete(jobsById);
+}
+
+/**
+ * `identity string → first job (in Map insertion order) whose identity set contains it`:
+ * exactly what the linear `for (const job of jobsById.values())` scan returns.
+ */
+function identityIndexFor(jobsById) {
+  const cached = identityIndexCache.get(jobsById);
+  if (cached && cached.size === jobsById.size) return cached.index;
+  const index = new Map();
+  for (const job of jobsById.values()) {
+    for (const identity of jobIdentityStrings(job)) {
+      if (!index.has(identity)) index.set(identity, job);
+    }
+  }
+  identityIndexCache.set(jobsById, { size: jobsById.size, index });
+  return index;
+}
+
+/** Resolve only against the current jobs index; stale or unidentifiable intents are omitted. */
+export function resolveApplicationIntentJob(data, documentId, jobsById) {
+  const nestedJob = data?.job && typeof data.job === 'object' ? data.job : {};
+  const nestedListing = data?.listing && typeof data.listing === 'object' ? data.listing : {};
+  const index = identityIndexFor(jobsById);
+  const lookup = (candidate) => {
+    const value = String(candidate || '').trim();
+    return value ? (index.get(value) ?? null) : null;
+  };
+  const directCandidates = [
+    ...APPLICATION_INTENT_JOB_ID_FIELDS.map((field) => data?.[field]),
+    nestedJob.id,
+    nestedListing.id,
+    data?.id,
+    documentId,
+  ];
+  for (const candidate of directCandidates) {
+    if (jobsById.has(candidate)) return jobsById.get(candidate);
+    const match = lookup(candidate);
+    if (match) return match;
+  }
+
+  const identityCandidates = [
+    data?.jobKey,
+    data?.job_key,
+    ...APPLICATION_INTENT_JOB_SLUG_FIELDS.map((field) => data?.[field]),
+    nestedJob.jobKey,
+    nestedJob.slug,
+    nestedListing.jobKey,
+    nestedListing.slug,
+    data?.jobUrl,
+    data?.job_url,
+    data?.url,
+  ];
+  for (const candidate of identityCandidates) {
+    const match = lookup(candidate);
+    if (match) return match;
   }
   return null;
 }
@@ -956,22 +1065,17 @@ export async function hasSavedJobsDigestDelivery(db, { uid, email, campaignId })
     || data.status === 'accepted';
 }
 
-async function sendDigest({ db, uid, email, locale, savedEntries, applicationIntentEntries, recommendations, campaignId }) {
+/** One digest as a cascade item: subject, body and the unsubscribe headers, nothing sent yet. */
+function buildDigestItem({ uid, email, locale, savedEntries, applicationIntentEntries, recommendations, campaignId }) {
   const s = getStrings(locale);
   const manageUrl = profileUrl(locale);
   const unsubUrl = makeUnsubscribeUrl(uid, email, locale);
   const html = buildEmailHtml({ locale, s, savedEntries, applicationIntentEntries, recommendations, manageUrl, unsubUrl, email });
   const text = buildEmailText({ html });
   const subject = s.subject({ savedCount: savedEntries.length, intentCount: applicationIntentEntries.length });
-
-  if (DRY_RUN) {
-    console.log(`   📝 [dry-run] would send to ${email} (${locale}) — subject: ${subject}`);
-    return { sent: true, dryRun: true };
-  }
-
-  const { sendEmailCascade } = await import('./lib/email-cascade.mjs');
-  const result = await sendEmailCascade([
-    {
+  return {
+    subject,
+    item: {
       payload: {
         from: FROM_EMAIL,
         to: [email],
@@ -991,22 +1095,60 @@ async function sendDigest({ db, uid, email, locale, savedEntries, applicationInt
       recipient: { email },
       meta: { type: 'saved-jobs-digest', uid, campaignId },
     },
-  ], {
-    concurrency: 1,
-    onSent: (item, sendResult) => persistSavedJobsDigestDelivery(db, { uid, email, campaignId }, sendResult),
-  });
+  };
+}
 
-  const sent = result.sent.length > 0;
-  const failures = Array.isArray(result.failed) ? result.failed : [];
-  if (!sent && failures.length > 0 && failures.every((failure) => failure.ambiguousDelivery !== true)) {
+/**
+ * ONE cascade for every digest of the run (perf-plan email senders, D2). It used to
+ * be one `sendEmailCascade` call per user at concurrency 1 and the default 1 s
+ * spacing: 467 s for 241 emails. Now the same throttle and concurrency as the job
+ * alerts (scripts/lib/bulk-send-throttle.mjs), and the durable claim before the
+ * provider is a micro-batched `WriteBatch.create` (scripts/lib/saved-jobs-digest-claim.mjs)
+ * with the per-email transaction as fallback.
+ *
+ * The claim is released only on a DEFINITE failure that this run's claim owns, as
+ * before; an ambiguous outcome, a cascade that throws, or a claim the run did not
+ * make leaves it in place.
+ *
+ * @returns {Promise<{ sent: number, skipped: number }>}
+ */
+async function sendDigestBatch(db, items, { campaignId, metrics = savedJobsMetrics, sendEmailCascade = null } = {}) {
+  if (items.length === 0) return { sent: 0, skipped: 0 };
+  const cascade = sendEmailCascade || (await import('./lib/email-cascade.mjs')).sendEmailCascade;
+  const claimer = createSavedJobsDigestClaimer({
+    getDb: async () => db,
+    campaignId,
+    claimTransaction: (target) => claimSavedJobsDigestDelivery(db, target),
+    metrics,
+    warn: (line) => console.warn(line),
+  });
+  const result = await cascade(items, await bulkCascadeOptions({
+    // The durable intent, before any provider request. `false` = already claimed.
+    beforeProviderAttempt: async (item) => claimer.claim({ uid: item.meta.uid, email: item.recipient.email }),
+    onSent: (item, sendResult) => persistSavedJobsDigestDelivery(db, { uid: item.meta.uid, email: item.recipient.email, campaignId }, sendResult),
+  }));
+  metrics.enter('persist');
+
+  const sent = Array.isArray(result?.sent) ? result.sent.length : 0;
+  const failures = Array.isArray(result?.failed) ? result.failed : [];
+  for (const failure of failures) {
+    if (failure?.ambiguousDelivery === true) continue;
+    const uid = failure?.meta?.uid;
+    const email = failure?.recipient?.email || failure?.payload?.to?.[0];
+    // Only a claim this run made, and only when the failure is not the claim itself.
+    if (!uid || !email || !claimer.owns({ uid, email }) || failure?.beforeProviderAttemptFailed) continue;
     try {
       await releaseSavedJobsDigestDeliveryClaim(db, { uid, email, campaignId });
+      metrics.count('claimsReleased');
     } catch (error) {
       console.warn('⚠️ Saved-jobs-digest failed-send claim release failed:', error?.message);
     }
   }
-
-  return { sent, failed: result.failed };
+  const skippedByClaim = items.length - sent - failures.length;
+  metrics.set('emailsSent', sent);
+  metrics.set('emailsFailed', failures.length);
+  metrics.set('emailsSkippedClaimed', Math.max(0, skippedByClaim));
+  return { sent, skipped: items.length - sent, failed: failures.length };
 }
 
 // ── Main ──────────────────────────────────────────────────────────────────
@@ -1025,7 +1167,16 @@ export function assertUnsubscribeSecret(dryRun = DRY_RUN, env = process.env) {
 async function main() {
   assertUnsubscribeSecret();
   const db = await getFirestoreAdmin();
+  try {
+    await installFirestoreOpCounterOnAdminSdk(savedJobsMetrics);
+  } catch (error) {
+    console.warn(`⚠️ Firestore op counter unavailable (metrics will lack read/write totals): ${String(error?.message || error).slice(0, 120)}`);
+  }
+  savedJobsMetrics.startMemorySampler();
+  savedJobsMetrics.enter('load');
   const jobsById = loadJobsById();
+  const allJobs = [...jobsById.values()];
+  const recommendationFeatureCache = createApplicationIntentReminderFeatureCache();
   const nowMs = Date.now();
   // One campaignId per run (#4862) — all recipients of a given weekly send
   // share it, same convention as send-newsletter.mjs's weekly_{monday}.
@@ -1038,6 +1189,8 @@ async function main() {
   ]);
   const savedDocs = savedSnap.docs || [];
   const intentDocs = intentSnap.docs || [];
+  savedJobsMetrics.set('savedJobDocs', savedDocs.length);
+  savedJobsMetrics.set('applicationIntentDocs', intentDocs.length);
   if (savedDocs.length === 0) {
     console.log('   No saved jobs found — nothing to send.');
     return;
@@ -1064,6 +1217,10 @@ async function main() {
   let skippedCount = 0;
   let anchorCount = 0;
   let markedCount = 0;
+  // Digests built in the loop and sent by ONE cascade after it (perf-plan email senders, D2).
+  const pendingDigests = [];
+  savedJobsMetrics.enter('users');
+  savedJobsMetrics.set('usersWithSavedJobs', byUid.size);
 
   for (const [uid, sources] of byUid) {
     const savedSourceEntries = sources;
@@ -1211,9 +1368,10 @@ async function main() {
     const savedIds = new Set([...savedCardCandidates, ...rankingIntentEntries].map((entry) => entry.id));
     const recommendations = [];
     const intentSourceJobs = rankingIntentEntries.map((entry) => entry.sourceJob).filter(Boolean);
-    for (const job of rankSimilarApplicationJobs(intentSourceJobs, [...jobsById.values()], {
+    for (const job of rankSimilarApplicationJobs(intentSourceJobs, allJobs, {
       max: MAX_RECOMMENDATIONS,
       excludedJobIds: savedIds,
+      featureCache: recommendationFeatureCache,
     })) {
       recommendations.push({
         id: job.id,
@@ -1261,15 +1419,8 @@ async function main() {
       }
     }
 
-    if (!DRY_RUN && !await claimSavedJobsDigestDelivery(db, { uid, email, campaignId })) {
-      console.log(`   ↩️  ${email} already has campaign ${campaignId} claimed or delivered — skip`);
-      skippedCount++;
-      continue;
-    }
-
     console.log(`   ✉️  ${email} (${locale}) — ${selected.savedEntries.length} saved, ${recommendations.length} recommended`);
-    const result = await sendDigest({
-      db,
+    const built = buildDigestItem({
       uid,
       email,
       locale,
@@ -1278,8 +1429,22 @@ async function main() {
       recommendations,
       campaignId,
     });
-    if (result.sent) sentCount++;
-    else skippedCount++;
+    if (DRY_RUN) {
+      console.log(`   📝 [dry-run] would send to ${email} (${locale}) — subject: ${built.subject}`);
+      sentCount++;
+      continue;
+    }
+    // The claim is NOT taken here: it is the cascade's `beforeProviderAttempt`, so it
+    // is durable right before the provider and a build error cannot leak one.
+    pendingDigests.push(built.item);
+  }
+
+  if (pendingDigests.length > 0) {
+    savedJobsMetrics.enter('send');
+    savedJobsMetrics.set('emailsPlanned', pendingDigests.length);
+    const outcome = await sendDigestBatch(db, pendingDigests, { campaignId });
+    sentCount += outcome.sent;
+    skippedCount += outcome.skipped;
   }
 
   console.log(`\n📊 Done — sent ${sentCount}, skipped ${skippedCount}${DRY_RUN ? ' (dry-run)' : ''}`);
@@ -1291,8 +1456,26 @@ async function main() {
   }
 }
 
+/** `SAVEDJOBS_METRICS` line + Job Summary table. Never throws. */
+export function emitSavedJobsMetrics({ metrics = savedJobsMetrics, log = console.log } = {}) {
+  return emitSenderMetrics(metrics, {
+    tag: 'SAVEDJOBS',
+    date: new Date().toISOString().slice(0, 10),
+    mode: DRY_RUN ? 'DRY RUN' : (TARGET_EMAIL_RAW ? 'TEST' : 'LIVE'),
+    log,
+  });
+}
+
+async function runMain() {
+  try {
+    await main();
+  } finally {
+    emitSavedJobsMetrics();
+  }
+}
+
 if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) {
-  main().catch((error) => {
+  runMain().catch((error) => {
     console.error('❌ send-saved-jobs-digest.mjs failed:', error);
     process.exitCode = 1;
   });
@@ -1300,6 +1483,8 @@ if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process
 
 export {
   main,
+  sendDigestBatch,
+  buildDigestItem,
   jobPageUrl,
   makeUnsubscribeUrl,
   loadJobsById,

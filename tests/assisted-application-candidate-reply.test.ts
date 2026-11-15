@@ -91,6 +91,26 @@ describe('facts of a candidate reply, checked against its own words', () => {
     expect(workloadOfQuote('preferibilmente sì')).toBeNull();
   });
 
+  it('keeps an explicitly unknown passport blank only when the candidate says so', () => {
+    const text = 'Non so il tipo di passaporto.';
+    expect(verifiedCandidateReply({
+      ...ANSWER,
+      passport: { value: '', quote: 'Non so il tipo di passaporto' },
+    }, text, { nowMs: NOW })).toMatchObject({ candidateFacts: { passport: '' } });
+    expect(verifiedCandidateReply({ ...ANSWER, passport: { value: '', quote: '' } }, text, { nowMs: NOW }).candidateFacts)
+      .not.toHaveProperty('passport');
+
+    // The field supplies the context: a candidate need not repeat «passport» in the quoted reply.
+    expect(verifiedCandidateReply({
+      ...ANSWER,
+      passport: { value: '', quote: "I don't know" },
+    }, "I don't know.", { nowMs: NOW })).toMatchObject({ candidateFacts: { passport: '' } });
+    expect(verifiedCandidateReply({
+      ...ANSWER,
+      passport: { value: '', quote: 'I do not hold one' },
+    }, 'I do not hold one.', { nowMs: NOW })).toMatchObject({ candidateFacts: { passport: '' } });
+  });
+
   it('asks the model for a strict schema with a quote for every fact', () => {
     expect(CANDIDATE_REPLY_SCHEMA.required).toEqual(['workPermit', 'passport', 'nationality', 'phone', 'startDate', 'workload', 'languages']);
     expect(CANDIDATE_REPLY_SCHEMA.properties.passport.properties.value.enum).toEqual(['', 'swiss', 'eu_efta', 'other']);
@@ -117,7 +137,23 @@ describe('applying the reply to the order', () => {
     expect(applied).toContain('workPermit');
     expect(orderPatch.candidateFacts).toEqual({ workPermit: 'permit_c', passport: 'eu_efta', nationality: 'Italiana' });
     const fresh = candidateReplyPatch({}, null, verified, { nowMs: NOW });
-    expect(fresh.orderPatch.candidateFacts).toEqual({ workPermit: 'permit_c', passport: '', nationality: 'italiana' });
+    expect(fresh.orderPatch.candidateFacts).toEqual({ workPermit: 'permit_c', nationality: 'italiana' });
+  });
+
+  it('keeps an explicitly cleared passport instead of filling it from the reply nationality', () => {
+    const { orderPatch } = candidateReplyPatch({ candidateFacts: { passport: '', nationality: 'Francese' } }, null, verified, { nowMs: NOW });
+    expect(orderPatch.candidateFacts).toMatchObject({ passport: '', nationality: 'italiana' });
+  });
+
+  it('persists a candidate reply that clears a previously declared passport', () => {
+    const { orderPatch, applied } = candidateReplyPatch(
+      { candidateFacts: { passport: 'eu_efta', nationality: 'italiana' } },
+      null,
+      { candidateFacts: { passport: '' } },
+      { nowMs: NOW },
+    );
+    expect(applied).toContain('passport');
+    expect(orderPatch.candidateFacts).toEqual({ passport: '', nationality: 'italiana' });
   });
 
   it('the stated start date and languages win over the CV and the platform default', () => {

@@ -135,13 +135,13 @@ describe('review page save: contract and concurrency', () => {
       .set({ questions: [currentPassport, currentPassportType] }, { merge: true });
 
     const report = await reconcileReviewQuestions({ db: store.db, apply: true, nowMs: T0 + 10_000 });
-    expect(report.orders[0]).toMatchObject({ stillOpen: [] });
+    expect(report.orders[0]).toMatchObject({ stillOpen: [currentPassport.id, currentPassportType.id] });
     expect(store.read(FLOW).candidateAnswerHistory).toEqual(savedFlow.candidateAnswerHistory);
+    expect(savedFlow.candidateAnswerHistory.map(record => record.answer).sort())
+      .toEqual(['EU/EFTA passport', 'Yes']);
     const refreshed = await load();
-    expect(refreshed.answers).toMatchObject({
-      [currentPassport.id]: 'Yes',
-      [currentPassportType.id]: 'EU/EFTA passport',
-    });
+    expect(refreshed.answers[currentPassport.id]).toBe('');
+    expect(refreshed.answers[currentPassportType.id]).toBe('');
   });
 
   it('saves after a technical write between the page load and the save', async () => {

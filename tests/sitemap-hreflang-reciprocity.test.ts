@@ -126,6 +126,33 @@ describe('sanitizeSitemapHreflangReciprocity — fixtures', () => {
     expect(out.size).toBe(0);
   });
 
+  it('keeps Baden hreflang reciprocity when IT and non-IT locales live in different sitemap shards', () => {
+    const locations = {
+      it: `${BASE}/cerca-lavoro-argovia/baden/`,
+      en: `${BASE}/en/find-jobs-aargau/baden/`,
+      de: `${BASE}/de/jobs-im-aargau/baden/`,
+      fr: `${BASE}/fr/trouver-emploi-argovie/baden/`,
+    };
+    const fullLocaleGroup = () =>
+      Object.entries(locations).map(([locale, href]) => ann(locale, href))
+        .concat(ann('x-default', locations.it));
+    const files: SitemapXmlFile[] = [
+      {
+        file: 'sitemap-jobs.xml',
+        xml: urlset(urlBlock(locations.it, fullLocaleGroup())),
+      },
+      ...(['en', 'de', 'fr'] as const).map((locale) => ({
+        file: `sitemap-jobs-argovia-${locale}.xml`,
+        xml: urlset(urlBlock(locations[locale], fullLocaleGroup())),
+      })),
+    ];
+
+    const out = sanitizeSitemapHreflangReciprocity(files);
+
+    expect(out.size).toBe(0);
+    expect(reciprocityViolations(files.map(({ xml }) => xml))).toEqual([]);
+  });
+
   it('strips when the alternate is a listed <loc> WITHOUT a return annotation (bare-loc jobs pattern)', () => {
     const xml = urlset(
       urlBlock(itLoc, [ann('it', itLoc), ann('en', enLoc)]),

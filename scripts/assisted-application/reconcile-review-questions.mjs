@@ -126,8 +126,9 @@ function reviewDraftOf({ order, flow, draft }) {
 export function platformSuggestionUpdate({ order, flow, draft }) {
   const questions = Array.isArray(draft?.questions) ? draft.questions : [];
   if (!reviewDraftOf({ order, flow, draft })) return { questions, ids: [] };
-  const { answers, platformFacts } = candidateWithEdits({ order, draft, flow });
-  const updated = withPlatformSuggestions(questions, { facts: platformFacts, locale: platformFacts?.locale, keepExisting: true, answers });
+  const { answers, platformFacts, candidateAnswerDefaultSuppressionIds } = candidateWithEdits({ order, draft, flow });
+  const updated = withPlatformSuggestions(questions, { facts: platformFacts, locale: platformFacts?.locale,
+    keepExisting: true, answers, suppressDefaultQuestionIds: candidateAnswerDefaultSuppressionIds });
   const mirror = (question) => JSON.stringify([question?.suggestedAnswer ?? null, question?.answerOrigin ?? null]);
   const ids = updated.filter((question, index) => question?.id && mirror(question) !== mirror(questions[index])).map((question) => question.id);
   return { questions: updated, ids };

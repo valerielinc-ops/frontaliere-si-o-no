@@ -1,6 +1,7 @@
 /**
  * Reviewer subagent for the Assisted Application drafting pipeline,
  * ported from the ai-job-search drafter-reviewer architecture (MIT).
+ * Copyright (c) 2026 Mads Lorentzen.
  *
  * Runs an isolated review pass on the drafted application materials:
  * 1. Checks alignment with the target Swiss posting requirements.

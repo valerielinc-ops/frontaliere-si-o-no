@@ -85,25 +85,54 @@ describe('expired slice push-safety ceiling', () => {
       .toThrow(FileSizeCeilingError);
   });
 
-  it('archiveRemovedJobsToSlice refuses the write and leaves the slice on disk untouched', () => {
+  it('archiveRemovedJobsToSlice never writes a file past the ceiling: a full monolith overflows into a shard', () => {
+    // Since the sharded store (scripts/lib/expired-slice-store.mjs) a monolith
+    // past the 45 MB shard target stops growing: the 15 new rows land in
+    // `<key>.shard-001.json` instead of pushing `<key>.json` to ~95 MB.
     const dir = tmpExpiredDir();
     const slicePath = path.join(dir, 'coop-ticino.json');
     const big = 'x'.repeat(MB);
-    const existing = Array.from({ length: 80 }, (_, n) => ({ ...job(n, big), expiredAt: new Date().toISOString() }));
+    // ~1 MB per row (descriptionByLocale.it): an ~80 MB monolith, under the
+    // ceiling but past the shard target, like coop-ticino on 2026-11-12.
+    const existing = Array.from({ length: 80 }, (_, n) => ({
+      ...job(n, big),
+      description: 'Descrizione breve.',
+      expiredAt: new Date().toISOString(),
+    }));
     fs.writeFileSync(slicePath, `${JSON.stringify(existing, null, 2)}\n`);
-    const before = fs.readFileSync(slicePath, 'utf8');
+    const slugsOf = (file: string) => (JSON.parse(fs.readFileSync(file, 'utf8')) as Array<{ slug: string }>)
+      .map((row) => row.slug).sort();
+    const before = slugsOf(slicePath);
 
-    expect(() => archiveRemovedJobsToSlice(
+    expect(archiveRemovedJobsToSlice(
       Array.from({ length: 15 }, (_, n) => job(100 + n, big)),
       'coop-ticino',
       { dir },
-    )).toThrow(FileSizeCeilingError);
+    )).toBe(15);
+    // The monolith keeps exactly its rows (the writer may only re-sort them).
+    expect(slugsOf(slicePath)).toEqual(before);
+    expect(slugsOf(path.join(dir, 'coop-ticino.shard-001.json'))).toHaveLength(15);
+    for (const name of fs.readdirSync(dir)) {
+      expect(fs.statSync(path.join(dir, name)).size).toBeLessThanOrEqual(EXPIRED_SLICE_SIZE_LIMIT_BYTES);
+    }
+    expect(fs.readdirSync(dir).sort()).toEqual(['coop-ticino.json', 'coop-ticino.shard-001.json']);
+  }, 120_000);
+
+  it('archiveRemovedJobsToSlice refuses a row no file can hold and leaves the slice on disk untouched', () => {
+    const dir = tmpExpiredDir();
+    const slicePath = path.join(dir, 'coop-ticino.json');
+    fs.writeFileSync(slicePath, `${JSON.stringify([{ ...job(1), expiredAt: new Date().toISOString() }], null, 2)}\n`);
+    const before = fs.readFileSync(slicePath, 'utf8');
+    // descriptionByLocale.it is archived: one ~91 MB row.
+    expect(() => archiveRemovedJobsToSlice([job(2, 'x'.repeat(91 * MB))], 'coop-ticino', { dir }))
+      .toThrow(FileSizeCeilingError);
     expect(fs.readFileSync(slicePath, 'utf8')).toBe(before);
+    expect(fs.readdirSync(dir)).toEqual(['coop-ticino.json']);
 
     // A small addition still goes through.
     const smallDir = tmpExpiredDir();
     expect(archiveRemovedJobsToSlice([job(1)], 'coop-ticino', { dir: smallDir })).toBe(1);
-  });
+  }, 120_000);
 
   it('keeps the CLI contract (exit 1 on an oversize file, 0 otherwise)', () => {
     const dir = tmpExpiredDir();

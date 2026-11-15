@@ -433,6 +433,7 @@ describe('applying events', () => {
       source: 'portal',
       question: 'Qual è la tua regione di provenienza?',
       applicationQuestion: 'Welche Region ist dein Herkunftskanton?',
+      required: true,
     });
     const ref = await events.add({
       type: 'submit_needs_candidate',
@@ -459,6 +460,27 @@ describe('applying events', () => {
     expect(portal.source).toBe('portal');
     expect(matcher.source).toBe('match');
     expect(untrusted.source).toBeUndefined();
+  });
+
+  it('preserves answer constraints in runner question descriptors', () => {
+    const question = {
+      id: 'bounded_contract', source: 'portal', question: 'Translated prompt', applicationQuestion: 'Native prompt',
+      why: 'A synthetic explanation', type: 'text', required: true,
+      validation: { minLength: 2, maxLength: 40, pattern: '^[A-Z]+$' },
+      minLength: 2, maxLength: 40, pattern: '^[A-Z]+$', requiresAffirmativeConsent: true,
+    };
+
+    expect(questionDetailsForEvent([question])[0]).toMatchObject({
+      why: question.why,
+      type: 'text',
+      required: true,
+      validation: question.validation,
+      minLength: 2,
+      maxLength: 40,
+      pattern: question.pattern,
+      requiresAffirmativeConsent: true,
+    });
+    expect(questionDetailsForEvent([{ ...question, required: false }])[0].required).toBe(false);
   });
 
   it('preserves semantic identity when the ATS option catalogue exceeds the event descriptor limit', () => {

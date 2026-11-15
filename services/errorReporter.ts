@@ -18,7 +18,11 @@
  * to at most 1 report per 60 seconds to avoid flooding GA4.
  */
 
-import { isBenignErrorMessage, isOriginRedactedThirdPartyStack } from './benignErrorPatterns';
+import {
+  isBenignErrorMessage,
+  isGoogleVignetteInjectedOpaqueError,
+  isOriginRedactedThirdPartyStack,
+} from './benignErrorPatterns';
 import { isNewsletterAutologinInFlight } from './newsletterAutologinSignal';
 import { isVersionSkewError, recoverFromStaleChunk } from './resilientImport';
 
@@ -155,6 +159,8 @@ function reportCaughtErrorUnsafe(
  // which not one frame carries a source is a cross-origin third-party script,
  // never our own modules. Shared predicate so the three pipelines can't drift.
  const stack = extractStack(error);
+ const pageUrl = typeof window !== 'undefined' ? window.location.href : '';
+ if (isGoogleVignetteInjectedOpaqueError(message, stack, pageUrl)) return;
  const originRedactedThirdParty = isOriginRedactedThirdPartyStack(stack);
 
  // ── Per-page-load cap to prevent flood storms ──

@@ -228,7 +228,11 @@ export function emitSitemapXml(urls) {
     if (entry.priority !== undefined && entry.priority !== null) {
       const p = Number(entry.priority);
       if (Number.isFinite(p)) {
-        lines.push(`    <priority>${p.toFixed(1)}</priority>`);
+        // Keep the source precision (up to two decimals): canton city hubs
+        // use 0.85, which must not be rounded when they share a shard with
+        // localized job-detail URLs.
+        const priority = p.toFixed(2).replace(/\.?0+$/, '');
+        lines.push(`    <priority>${priority}</priority>`);
       }
     }
     lines.push('  </url>');

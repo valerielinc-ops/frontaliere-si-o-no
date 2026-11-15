@@ -39,17 +39,35 @@ export function paginationRobots(page: number): 'index,follow' | 'noindex,follow
 
 /** Only the first page of a listing may appear in a sitemap. */
 export function isPaginationSitemapEligible(page: number): boolean {
-  return !(Number.isFinite(page) && page >= 2);
+  return Number.isInteger(page) && page === 1;
 }
 
-const PAGINATED_PATH_RE = /\/(?:page|pagina|seite)-(\d+)\/?$/;
+/**
+ * Append a paginated sitemap entry only when the shared P1 sitemap policy
+ * allows that page. Keeping the guard beside the mutation prevents an emitter
+ * from drifting when it changes how it assembles its locale set.
+ */
+export function pushPaginationSitemapEntry<T>(entries: T[], page: number, entry: T): boolean {
+  if (!isPaginationSitemapEligible(page)) return false;
+  entries.push(entry);
+  return true;
+}
+
+const PAGINATED_PATH_RE = /\/(?:page|pagina|seite)-(\d+)\/?$/u;
+const CANONICAL_PAGE_NUMBER_RE = /^[1-9]\d*$/u;
 
 /**
  * Page number of a listing URL path (`/x/page-7/` → 7, `/x/` → 1), for the
- * emitters that only hold the path when they write the sitemap. Accepts every
- * pagination segment the site emits (`page-N`, `pagina-N`, `seite-N`).
+ * emitters that only hold the path when they write the sitemap. Accepts only
+ * canonical pagination segments the site emits (`page-N`, `pagina-N`,
+ * `seite-N`): zero/leading-zero values and unsafe integers are rejected as
+ * `NaN`, so a malformed pagination URL cannot become sitemap page 1.
  */
 export function paginationPageFromPath(urlPath: string): number {
   const match = PAGINATED_PATH_RE.exec(urlPath);
-  return match ? Number(match[1]) : 1;
+  if (!match) return 1;
+  if (!CANONICAL_PAGE_NUMBER_RE.test(match[1])) return Number.NaN;
+
+  const page = Number(match[1]);
+  return Number.isSafeInteger(page) ? page : Number.NaN;
 }

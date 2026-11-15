@@ -571,7 +571,7 @@ export default function AssistedApplicationAdmin({ locationKey, onSummary }: { l
                   </DataRow>
                 </dl>
 
-                <ApplicationInbox automation={order.automation} />
+                <ApplicationInbox automation={order.automation} orderId={order.orderId} user={user} onForwarded={() => loadOrders(true)} />
 
                 {candidatePreview?.orderId === order.orderId && <CandidateStatusPreview view={candidatePreview} />}
 

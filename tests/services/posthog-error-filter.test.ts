@@ -57,6 +57,11 @@ describe('createExceptionFilter()', () => {
     expect(filter(event)).toBeNull();
   });
 
+  it('drops the browser-extension tab bridge no-listener error (#18593)', () => {
+    const event = makeExceptionEvent('Error: No Listener: tabs:outgoing.message.ready');
+    expect(filter(event)).toBeNull();
+  });
+
   it('drops Safari generic "TypeError: Load failed" (transport noise — no actionable source)', () => {
     const event = makeExceptionEvent('TypeError: Load failed');
     expect(filter(event)).toBeNull();

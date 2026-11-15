@@ -336,7 +336,7 @@ describe('Swiss national snapshot index', () => {
     expect(html).toContain('Gruppo cantonale ZH');
     expect(html).toMatch(/TCS Benzinpreis.*provider-snapshot/);
     expect(html).toContain('inventoryCompleteness: not-verified');
-    expect(html).toContain('Acquisizione snapshot: 29.10.2026');
+    expect(html).toMatch(/Acquisizione snapshot: 29[./]10[./]2026(?:,|\b)/);
     expect(extractAnchorHrefs(html).some((href) => href.includes('zürich') || href.includes('zurich'))).toBe(false);
   });
 

@@ -29,6 +29,7 @@ import {
   uncoveredAllowListCode,
   uncoveredAllowListOpenedFiles,
   openedByNameIn,
+  materializedHeadPathsBeforeRuntime,
 } from '../scripts/ci/verify-checkout-profiles.mjs';
 import {
   BUCKETS,
@@ -348,6 +349,25 @@ describe('profili di sparse-checkout', () => {
       .toEqual([]);
   });
 
+  it('l analisi isolata non scambia identificatori Firestore per percorsi del checkout', () => {
+    const strictBuckets = (source: string) => bucketsReferencedBy(source, { strictPathTokens: true });
+    expect([...strictBuckets("const docs = await orderRef.collection('automation').get();")])
+      .not.toContain('docs/');
+    expect([...strictBuckets("const names = fs.readdirSync('docs');")])
+      .toContain('docs/');
+    expect([...strictBuckets("const dir = path.join(ROOT, 'data', 'jobs');")])
+      .toContain('data/jobs/');
+  });
+
+  it('non combina token di bucket da moduli indipendenti', () => {
+    const workflow = analyzeAll().find((item) => item.file === 'deploy-cloud-functions.yml');
+    const job = workflow?.jobs.find((item) => item.jobId === 'deploy-functions');
+    expect(job?.needs).not.toContain('docs/');
+    expect(job?.needs).not.toContain('public/data/');
+    expect(job?.needs).not.toContain('data/jobs/');
+    expect(job?.aboveCrossover).toBe(false);
+  }, TIMEOUT);
+
   it('preserva regex dopo un commento a blocco e il codice successivo', () => {
     const source = 'const r = /* c */ /[/*]/;\nconst x = import("./real.mjs");';
     const expected = source.replace('/* c */', '       ');
@@ -628,6 +648,9 @@ describe('allow-list sparse: il codice caricato deve essere materializzato', () 
       '/scripts/lib/is-invoked-directly.mjs',
       '/scripts/lib/githubApiHeaders.mjs',
       '/scripts/ci/publish-receipts.mjs',
+      // publish-receipts.mjs imports the file-free IT group contract; the old
+      // list is only meant to lack the reconciler itself.
+      '/scripts/ci/it-shard-group-contract.mjs',
       '/functions/src/githubApiHeaders.js',
     ];
     const DISPATCHER_ENTRIES = [
@@ -637,8 +660,19 @@ describe('allow-list sparse: il codice caricato deve essere materializzato', () 
       'scripts/lib/is-invoked-directly.mjs',
       'scripts/lib/githubApiHeaders.mjs',
     ];
-    expect(uncoveredAllowListCode(OLD_DISPATCHER_LIST, DISPATCHER_ENTRIES, { cone: false }))
-      .toEqual(['scripts/ci/request-latest-publish.mjs']);
+    // The old list lacks the reconciler and the modules it imports for the
+    // classified publish retry (classifier, evidence reader, blocked issue,
+    // rebuild request).
+    expect([...uncoveredAllowListCode(OLD_DISPATCHER_LIST, DISPATCHER_ENTRIES, { cone: false })].sort())
+      .toEqual([
+        'scripts/ci/deploy-failure-classifier.mjs',
+        'scripts/ci/deploy-rearm-request.mjs',
+        'scripts/ci/lib/deploy-blocked-issue.mjs',
+        'scripts/ci/lib/deploy-job-failure-signature.mjs',
+        'scripts/ci/lib/deploy-run-evidence.mjs',
+        'scripts/ci/request-latest-publish.mjs',
+        'scripts/lib/int-from-env.mjs',
+      ]);
     const doc = YAML.parse(fs.readFileSync(path.join(WF_DIR, 'deploy-request.yml'), 'utf8'));
     const checkout = doc.jobs.request.steps.find((st: any) => String(st?.uses).startsWith('actions/checkout@'));
     const lines = String(checkout.with['sparse-checkout']).split('\n').map((l: string) => l.trim()).filter(Boolean);
@@ -671,5 +705,59 @@ describe('allow-list sparse: il codice caricato deve essere materializzato', () 
       'node -e "import(\'./scripts/lazy-only.mjs\')"',
     ].join('\n');
     expect(inlineModuleEntryPoints(text)).toEqual(['scripts/runtime-reliability-watch.mjs']);
+  });
+});
+
+describe('materializzazioni sparse dichiarate nel workflow', () => {
+  it('copre solo i file tracked copiati da HEAD prima dell esecuzione nell observer', () => {
+    const workflow = YAML.parse(
+      fs.readFileSync(path.join(WF_DIR, 'retired-jobs-archive-observer.yml'), 'utf8'),
+      { logLevel: 'silent' },
+    );
+    const job = workflow?.jobs?.observe;
+    const checkout = job?.steps?.find(
+      (step: any) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
+    );
+    const materialized = materializedHeadPathsBeforeRuntime(job?.steps);
+
+    expect(String(checkout?.with?.['sparse-checkout'] ?? '').trim()).toBe('scripts');
+    expect(checkout?.with?.['sparse-checkout-cone-mode']).toBe(true);
+    expect([...materialized].sort()).toEqual([
+      'build-plugins/shared/cantonResolvers.mjs',
+      'data/canton-municipalities.json',
+      'data/canton-url-slugs.json',
+    ]);
+  });
+
+  it.each([
+    [
+      'destination differs from source',
+      'git show "HEAD:data/canton-url-slugs.json" > data/other.json',
+    ],
+    [
+      'source is not HEAD',
+      'git show "origin/main:data/canton-url-slugs.json" > data/canton-url-slugs.json',
+    ],
+    [
+      'source is not tracked',
+      'git show "HEAD:data/not-a-tracked-file.json" > data/not-a-tracked-file.json',
+    ],
+  ])('does not cover a %s', (_description, copyCommand) => {
+    const materialized = materializedHeadPathsBeforeRuntime([
+      { run: 'mkdir -p data' },
+      { run: copyCommand },
+      { run: 'node scripts/ci/check-retired-jobs-archived.mjs' },
+    ]);
+
+    expect([...materialized]).toEqual([]);
+  });
+
+  it('non copre materiale dichiarato dopo il primo comando runtime', () => {
+    const materialized = materializedHeadPathsBeforeRuntime([
+      { run: 'node scripts/ci/check-retired-jobs-archived.mjs' },
+      { run: 'mkdir -p data\ngit show "HEAD:data/canton-url-slugs.json" > data/canton-url-slugs.json' },
+    ]);
+
+    expect([...materialized]).toEqual([]);
   });
 });

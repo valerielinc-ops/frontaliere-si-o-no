@@ -1,0 +1,25 @@
+{
+  "companyKey": "hubacontrol-com",
+  "companyName": "Huba Control",
+  "companyHost": "hubacontrol.com",
+  "verifiedEmployerDomain": "hubacontrol.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://hubacontrol.com/de-CH/Karriere/Ausbildung.html"
+  ],
+  "detailTemplate": "/de-CH/Karriere/Ausbildung/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Kaufmann/-frau EFZ Entdecke die vielfältige Welt der kaufmännischen Prozesse und organisatorischen Aufgaben Lehrstelle offen auf: Sommer 2027",
+    "Polymechaniker/-in EFZ Gestalte Präzision und Technik mit modernsten Fertigungsmethoden Lehrstelle offen auf: Sommer 2027",
+    "Logistiker/-in EFZ Gestalte die logistischen Prozesse in unserem Unternehmen mit und lerne alles über Warenfluss und Lagerhaltung Lehrstelle offen auf: Sommer 2"
+  ],
+  "canton": "AG",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-13T13:57:49.154Z",
+  "candidateKey": "huba-control@wurenlos"
+}

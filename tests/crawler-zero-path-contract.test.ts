@@ -58,12 +58,11 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
     // Giorgio Armani runner too. The budget must EQUAL the count: lower it in
     // the same PR that instruments a runner; never raise it. Reproduce with:
     //   node -e "const fs=require('fs');let n=0;for(const f of fs.readdirSync('scripts')){if(!/^update-.*-jobs\.mjs$/.test(f))continue;const s=fs.readFileSync('scripts/'+f,'utf8');if([...s.matchAll(/registerCrawlerSummaryGuard\(([^()]*)\)/g)].some(m=>m[1].split(',').filter(a=>a.trim()).length===2))n++}console.log(n)"
-    // 104 → 99: the existing four runners above plus
-    // update-citta-di-lugano-jobs.mjs now pass `summaryCounts` as the third
-    // argument. Its `fetchResult` assignments populate discovered/parsed and
-    // fetch outcome, and the zero path assigns the validated `no-jobs-parsed`
-    // kind, so this runner no longer has the null-counter guard shape.
-    const TWO_ARGUMENT_GUARD_BUDGET = 99;
+    // 99 → 98: update-jysk-jobs.mjs now passes `summaryCounts` as the third
+    // argument. Its discovery and post-parser assignments populate the
+    // counters, and both zero paths name the validated `no-jobs-parsed` kind,
+    // so this runner no longer has the null-counter guard shape.
+    const TWO_ARGUMENT_GUARD_BUDGET = 98;
     const offenders = customRunners
       .filter(({ source }) => summaryGuardCalls(source).some((args) => args.length === 2))
       .map(({ name }) => name);
@@ -91,14 +90,15 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
     // The budget must EQUAL the count: lower it in the same PR in which a
     // runner starts naming its bail-out; never raise it. Reproduce with:
     //   node -e "const fs=require('fs');let n=0;for(const f of fs.readdirSync('scripts')){if(!/^update-.*-jobs\.mjs$/.test(f))continue;const s=fs.readFileSync('scripts/'+f,'utf8');if(s.includes('registerCrawlerSummaryGuard(')&&!/abortKind\s*[:=]|markCrawlerSummaryAbortKind\(/.test(s))n++}console.log(n)"
-    // 113 → 104: the existing three runners above plus the zero-job exits in
+    // 104 → 103: the zero-job exits in
     // update-casale-jobs.mjs, update-citta-di-lugano-jobs.mjs,
     // update-ems-chemie-jobs.mjs, update-ferrovia-retica-jobs.mjs,
-    // update-helsinn-jobs.mjs, and update-sintetica-jobs.mjs now name their
-    // bail-out. Each call/assignment is in the runner's pre-return path and
-    // uses the shared `no-jobs-parsed` vocabulary, so the debt count really
-    // decreased rather than the guard being bypassed.
-    const NO_ABORT_KIND_BUDGET = 104;
+    // update-helsinn-jobs.mjs, update-jysk-jobs.mjs, and
+    // update-sintetica-jobs.mjs now name their bail-out. Each
+    // call/assignment is in the runner's pre-return path and uses the shared
+    // `no-jobs-parsed` vocabulary, so the debt count really decreased rather
+    // than the guard being bypassed.
+    const NO_ABORT_KIND_BUDGET = 103;
     const offenders = customRunners
       .filter(({ source }) => !/abortKind\s*[:=]|markCrawlerSummaryAbortKind\(/.test(source))
       .map(({ name }) => name);
@@ -112,6 +112,29 @@ describe('custom runners: zero-path debt (ratchet, may only go down)', () => {
       `RATCHET STALE: the count fell below the budget (a runner now names its bail-out or was removed). `
         + `Lower NO_ABORT_KIND_BUDGET to ${offenders.length} in this same PR. Offenders: ${offenders.join(', ')}`,
     ).toBeGreaterThanOrEqual(NO_ABORT_KIND_BUDGET);
+  });
+});
+
+describe('JYSK runner: named zero outcomes', () => {
+  const source = read('scripts/update-jysk-jobs.mjs');
+
+  it('records both discovery and parser zero paths before returning', () => {
+    expect(source).toContain("registerCrawlerSummaryGuard(JYSK_KEY, 'JYSK', summaryCounts);");
+    expect(source.match(/summaryCounts\.abortKind = 'no-jobs-parsed';/g) ?? []).toHaveLength(2);
+    expect(source).toContain('summaryCounts.discovered = detailUrls.length;');
+    expect(source).toMatch(/summaryCounts\.parsed = Array\.isArray\(crawlResult\?\.observedJobs\)/);
+
+    const discoveryExit = source.indexOf('if (discovery.sourceZero)');
+    const parserExit = source.indexOf('if (stats.total === 0)');
+    expect(discoveryExit).toBeGreaterThan(-1);
+    expect(parserExit).toBeGreaterThan(discoveryExit);
+
+    const discoveryReturn = source.indexOf('return;', discoveryExit);
+    const parserReturn = source.indexOf('return;', parserExit);
+    expect(source.indexOf("summaryCounts.abortKind = 'no-jobs-parsed';", discoveryExit))
+      .toBeLessThan(discoveryReturn);
+    expect(source.indexOf("summaryCounts.abortKind = 'no-jobs-parsed';", parserExit))
+      .toBeLessThan(parserReturn);
   });
 });
 

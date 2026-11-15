@@ -52,7 +52,7 @@ function observe(localeRc: number, sectionRc: number): string {
   }
 }
 
-function runRehydrateStep(sectionScript: string): { status: number; summary: string } {
+function runRehydrateStep(sectionScript: string, localeScript = 'exit 0'): { status: number; summary: string } {
   const directory = mkdtempSync(join(tmpdir(), 'audit-dist-rehydrate-step-'));
   const runnerTemp = join(directory, 'runner-temp');
   const scriptsDirectory = join(directory, 'scripts', 'lib');
@@ -60,7 +60,7 @@ function runRehydrateStep(sectionScript: string): { status: number; summary: str
   mkdirSync(runnerTemp, { recursive: true });
   mkdirSync(scriptsDirectory, { recursive: true });
   mkdirSync(join(directory, 'dist'), { recursive: true });
-  writeFileSync(join(scriptsDirectory, 'rehydrate-locale-shards.sh'), '#!/usr/bin/env bash\nexit 0\n');
+  writeFileSync(join(scriptsDirectory, 'rehydrate-locale-shards.sh'), `#!/usr/bin/env bash\n${localeScript}\n`);
   writeFileSync(join(scriptsDirectory, 'rehydrate-section-shards.sh'), `#!/usr/bin/env bash\n${sectionScript}\n`);
 
   let status = 0;
@@ -104,7 +104,7 @@ describe('audit-dist-from-run rehydrate runtime budget observer', () => {
 
   it('is called after both rehydrate commands and before the locale gate exit', () => {
     const run = rehydrateStepScript();
-    const locale = run.indexOf('bash scripts/lib/rehydrate-locale-shards.sh || LOCALE_RC=$?');
+    const locale = run.indexOf('bash scripts/lib/rehydrate-locale-shards.sh 2>&1');
     const sections = run.indexOf('bash scripts/lib/rehydrate-section-shards.sh || SECTION_RC=$?');
     const observer = run.indexOf('rehydrateRuntimeBudgetObserved "$REHYDRATE_STARTED_AT" "$LOCALE_RC" "$SECTION_RC"');
     const exit = run.indexOf('if [ "$LOCALE_RC" -ne 0 ]; then exit "$LOCALE_RC"; fi');
@@ -130,5 +130,19 @@ describe('audit-dist-from-run rehydrate runtime budget observer', () => {
 
     expect(result.status).toBe(0);
     expect(result.summary).toContain('outcome | `success`');
+    expect(result.summary).toContain('locale_rehydrate_completed | `true`');
+    expect(result.summary).toContain('locale_rehydrate_enospc | `not-observed`');
+  });
+
+  it('records locale completion and ENOSPC while preserving the locale hard-fail', () => {
+    const result = runRehydrateStep(
+      'echo "section rehydrate reached"',
+      'echo "No space left on device" >&2; exit 1',
+    );
+
+    expect(result.status).toBe(1);
+    expect(result.summary).toContain('locale_rehydrate_completed | `false`');
+    expect(result.summary).toContain('locale_rehydrate_enospc | `observed`');
+    expect(result.summary).toContain('outcome | `locale-failed`');
   });
 });

@@ -2,13 +2,16 @@
  * Bounded retry for idempotent GitHub API reads.
  *
  * GitHub Actions occasionally returns a gateway/server response for a valid
- * read. Retry only the explicit transient HTTP classes; authentication,
- * permission, malformed-request, command-timeout and malformed-payload errors
- * remain terminal so callers keep their fail-closed behaviour.
+ * read. Retry only the explicit transient HTTP classes, including GitHub's
+ * rate-limit messages that can arrive as HTTP 403 without an HTTP 429 label;
+ * authentication, other permission, malformed-request, command-timeout and
+ * malformed-payload errors remain terminal so callers keep their fail-closed
+ * behaviour.
  */
 export const GITHUB_API_TRANSIENT_RETRY_STATUSES = new Set([408, 425, 429, 500, 502, 503, 504]);
 export const GITHUB_API_TRANSIENT_RETRIES = 2;
 export const GITHUB_API_TRANSIENT_RETRY_BASE_MS = 1000;
+const GITHUB_API_TRANSIENT_MESSAGE_RE = /\b(?:rate limit exceeded|too many requests|exceeded a secondary rate limit)\b/i;
 
 function sleepSync(milliseconds) {
   if (!Number.isFinite(milliseconds) || milliseconds <= 0) return;
@@ -35,7 +38,8 @@ export function isTransientGithubApiError(error) {
   if (GITHUB_API_TRANSIENT_RETRY_STATUSES.has(status)) return true;
   const text = errorChainText(error);
   return /\bHTTP\s+(?:408|425|429|500|502|503|504)\b/i.test(text)
-    || /\b(?:Bad Gateway|Service Unavailable|Gateway Timeout)\b/i.test(text);
+    || /\b(?:Bad Gateway|Service Unavailable|Gateway Timeout)\b/i.test(text)
+    || GITHUB_API_TRANSIENT_MESSAGE_RE.test(text);
 }
 
 /**

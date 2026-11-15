@@ -126,6 +126,8 @@ import { isImmediateCompanyAlert, IMMEDIATE_FREQUENCY } from './lib/company-aler
 import { canonicalCompanyAlertKey, companyAlertQuarantineReason } from './lib/company-alert-routing.mjs';
 import { companyFollowGroupKey } from '../build-plugins/shared/companyFollowGroups.mjs';
 import { translationHoldReleasedMs } from './lib/translation-publication-hold.mjs';
+import { createSenderMetrics, emitSenderMetrics } from './lib/sender-metrics.mjs';
+import { installFirestoreOpCounterOnAdminSdk } from './lib/firestore-op-counter.mjs';
 /**
  * `/aziende-seguite/` per locale — ONE literal segment for every language, like
  * `/aziende/` in services/companyAlertEmail.mjs.
@@ -148,6 +150,21 @@ const ROOT = path.resolve(__dirname, '..');
 const JOBS_PATH = path.join(ROOT, 'data', 'jobs.json');
 const FROM_EMAIL = 'Frontaliere Ticino <alerts@frontaliereticino.ch>';
 const DRY_RUN = process.argv.includes('--dry-run');
+
+/**
+ * Per-phase telemetry (perf-plan email senders, B2): one `COMPANYALERT_METRICS`
+ * line per run plus a table in the Job Summary. The sender fires ~37 times a
+ * day, so every run has to say where its time and Firestore operations go.
+ */
+export const COMPANY_ALERT_PHASES = Object.freeze([
+  'load_jobs',
+  'load_alerts',
+  'planning',
+  'consent',
+  'send',
+  'persist',
+]);
+export const companyAlertMetrics = createSenderMetrics({ tag: 'COMPANYALERT', phases: COMPANY_ALERT_PHASES });
 const COMPANY_ALERT_DEFERRED_INDEX_CONFIG_ID = 'company-alert-deferred-index';
 const COMPANY_ALERT_DEFERRED_INDEX_VERSION = 1;
 const COMPANY_ALERT_DEFERRED_INDEX_FIELD = 'hasDeferredCompanyAlertWork';
@@ -698,73 +715,86 @@ export function planDeferredDeliveryWrites(sections, nowMs, reason) {
   const alertLevel = !isThroughputDeferReason(normalizedReason);
   return (sections || [])
     .filter((section) => section?.alert?.ref)
-    .map((section) => {
-      let deliveryLedger = normalizeDeliveryLedger(section.alert.deliveryLedger);
-      if (!alertLevel) {
-        for (const job of section.jobs || []) {
-          const key = jobDedupKey(job);
-          if (!key) continue;
-          const previous = deliveryLedger[key];
-          if (previous?.state === DELIVERY_STATES.DEFERRED_EXHAUSTED) continue;
-          const attempts = positiveAttempts(previous?.attempts);
-          const state = attempts >= DEFERRED_MAX_ATTEMPTS
-            ? DELIVERY_STATES.DEFERRED_EXHAUSTED
-            : DELIVERY_STATES.DEFERRED;
-          deliveryLedger = mergeDeliveryLedger(
-            deliveryLedger,
-            [job],
-            nowMs,
-            state,
-            attempts > 0 ? { reason: normalizedReason, attempts } : { reason: normalizedReason },
-          );
-        }
-        return {
-          ref: section.alert.ref,
-          deliveryLedger,
-          reason: normalizedReason,
-          at: nowMs,
-        };
-      }
+    .map((section) => withBaseline(planDeferredWriteForSection(section, nowMs, normalizedReason, alertLevel), section.alert));
+}
 
-      const previousAttempts = deferredAttemptsForAlert(section.alert);
-      const alreadyExhausted = isDeferredExhausted(section.alert);
-      const attempts = alreadyExhausted
-        ? Math.max(previousAttempts, DEFERRED_MAX_ATTEMPTS)
-        : previousAttempts + 1;
-      const state = alreadyExhausted || attempts >= DEFERRED_MAX_ATTEMPTS
+/**
+ * The alert state a planned write was derived from. It travels with the write
+ * as a NON-enumerable property (so the plan stays a plain value for equality
+ * checks) and lets `persistDeferredDeliveryWrites` recognise a write that would
+ * change nothing but a timestamp, without reading the document again.
+ */
+function withBaseline(write, alert) {
+  Object.defineProperty(write, '__baseline', { value: alert, enumerable: false, writable: true, configurable: true });
+  return write;
+}
+
+function planDeferredWriteForSection(section, nowMs, normalizedReason, alertLevel) {
+  let deliveryLedger = normalizeDeliveryLedger(section.alert.deliveryLedger);
+  if (!alertLevel) {
+    for (const job of section.jobs || []) {
+      const key = jobDedupKey(job);
+      if (!key) continue;
+      const previous = deliveryLedger[key];
+      if (previous?.state === DELIVERY_STATES.DEFERRED_EXHAUSTED) continue;
+      const attempts = positiveAttempts(previous?.attempts);
+      const state = attempts >= DEFERRED_MAX_ATTEMPTS
         ? DELIVERY_STATES.DEFERRED_EXHAUSTED
         : DELIVERY_STATES.DEFERRED;
-
-      // Do not promote older ledger entries here. Their per-job state may have
-      // come from the pre-alert-level schema or from a different deferral
-      // reason; the alert-level terminal state blocks their rehydration without
-      // rewriting unrelated evidence.
-      for (const job of section.jobs || []) {
-        const key = jobDedupKey(job);
-        if (!key) continue;
-        const previous = deliveryLedger[key];
-        if (previous?.state === DELIVERY_STATES.DEFERRED_EXHAUSTED) continue;
-        const attemptsForJob = Math.max(attempts, positiveAttempts(previous?.attempts) + 1);
-        const stateForJob = attemptsForJob >= DEFERRED_MAX_ATTEMPTS
-          ? DELIVERY_STATES.DEFERRED_EXHAUSTED
-          : state;
-        deliveryLedger = mergeDeliveryLedger(
-          deliveryLedger,
-          [job],
-          nowMs,
-          stateForJob,
-          { reason: normalizedReason, attempts: attemptsForJob },
-        );
-      }
-      return {
-        ref: section.alert.ref,
+      deliveryLedger = mergeDeliveryLedger(
         deliveryLedger,
-        deliveryDeferredAttempts: attempts,
-        deliveryDeferredState: state,
-        reason: normalizedReason,
-        at: nowMs,
-      };
-    });
+        [job],
+        nowMs,
+        state,
+        attempts > 0 ? { reason: normalizedReason, attempts } : { reason: normalizedReason },
+      );
+    }
+    return {
+      ref: section.alert.ref,
+      deliveryLedger,
+      reason: normalizedReason,
+      at: nowMs,
+    };
+  }
+
+  const previousAttempts = deferredAttemptsForAlert(section.alert);
+  const alreadyExhausted = isDeferredExhausted(section.alert);
+  const attempts = alreadyExhausted
+    ? Math.max(previousAttempts, DEFERRED_MAX_ATTEMPTS)
+    : previousAttempts + 1;
+  const state = alreadyExhausted || attempts >= DEFERRED_MAX_ATTEMPTS
+    ? DELIVERY_STATES.DEFERRED_EXHAUSTED
+    : DELIVERY_STATES.DEFERRED;
+
+  // Do not promote older ledger entries here. Their per-job state may have
+  // come from the pre-alert-level schema or from a different deferral
+  // reason; the alert-level terminal state blocks their rehydration without
+  // rewriting unrelated evidence.
+  for (const job of section.jobs || []) {
+    const key = jobDedupKey(job);
+    if (!key) continue;
+    const previous = deliveryLedger[key];
+    if (previous?.state === DELIVERY_STATES.DEFERRED_EXHAUSTED) continue;
+    const attemptsForJob = Math.max(attempts, positiveAttempts(previous?.attempts) + 1);
+    const stateForJob = attemptsForJob >= DEFERRED_MAX_ATTEMPTS
+      ? DELIVERY_STATES.DEFERRED_EXHAUSTED
+      : state;
+    deliveryLedger = mergeDeliveryLedger(
+      deliveryLedger,
+      [job],
+      nowMs,
+      stateForJob,
+      { reason: normalizedReason, attempts: attemptsForJob },
+    );
+  }
+  return {
+    ref: section.alert.ref,
+    deliveryLedger,
+    deliveryDeferredAttempts: attempts,
+    deliveryDeferredState: state,
+    reason: normalizedReason,
+    at: nowMs,
+  };
 }
 
 export function coalesceDeliveryWrites(writes) {
@@ -774,10 +804,12 @@ export function coalesceDeliveryWrites(writes) {
     const key = write.ref.path || write.ref.id || write.ref;
     const prior = byRef.get(key);
     if (!prior) {
-      byRef.set(key, {
+      const copy = {
         ...write,
         deliveryLedger: { ...write.deliveryLedger },
-      });
+      };
+      if (write.__baseline) withBaseline(copy, write.__baseline);
+      byRef.set(key, copy);
       continue;
     }
     const priorHasAlertLevelAttempt = deferredAttemptsForAlert(prior) > 0;
@@ -823,15 +855,27 @@ export function coalesceDeliveryWrites(writes) {
 export async function persistDeferredDeliveryWrites(db, writes, dryRun) {
   const coalesced = coalesceDeliveryWrites(writes);
   if (coalesced.length === 0) return 0;
+  // A deferral that would change nothing but a timestamp is not written (nor
+  // read): the same backlog entry used to be re-persisted by every run, one
+  // transaction read + one write per alert, ~37 times a day. The first deferral,
+  // an attempt that increments, a new reason and every state change still go
+  // through.
+  const pending = coalesced.filter((write) => !isNoOpDeferredWrite(write));
+  const skipped = coalesced.length - pending.length;
+  if (skipped > 0) {
+    companyAlertMetrics.count('deferredWritesSkippedNoop', skipped);
+    console.log(`   ⏭️  Deferred backlog unchanged: ${skipped} alert write(s) skipped`);
+  }
+  if (pending.length === 0) return 0;
   if (dryRun) {
-    console.log(`   🔵 DRY RUN — ${coalesced.length} alert backlog write(s) would be persisted`);
-    return coalesced.length;
+    console.log(`   🔵 DRY RUN — ${pending.length} alert backlog write(s) would be persisted`);
+    return pending.length;
   }
   if (!db || typeof db.runTransaction !== 'function') {
     throw new Error('Firestore transaction support is required for CompanyAlert backlog persistence');
   }
-  for (let start = 0; start < coalesced.length; start += DEDUP_CHUNK_SIZE) {
-    const chunk = coalesced.slice(start, start + DEDUP_CHUNK_SIZE);
+  for (let start = 0; start < pending.length; start += DEDUP_CHUNK_SIZE) {
+    const chunk = pending.slice(start, start + DEDUP_CHUNK_SIZE);
     await db.runTransaction(async (tx) => {
       const snapshots = [];
       for (const write of chunk) snapshots.push(await tx.get(write.ref));
@@ -839,68 +883,115 @@ export async function persistDeferredDeliveryWrites(db, writes, dryRun) {
         const write = chunk[index];
         const snapshot = snapshots[index];
         if (!snapshot?.exists) continue;
-        const currentData = snapshot.data() || {};
-        const current = normalizeDeliveryLedger(currentData.deliveryLedger);
-        const hasAlertLevelAttempt = deferredAttemptsForAlert(write) > 0;
-        const currentExhausted = isDeferredExhausted(currentData);
-        const desired = normalizeDeliveryLedger(write.deliveryLedger);
-        const preserveConsentRecoveryMarker = isThroughputDeferReason(write.reason)
-          && String(currentData.deliveryLastDeferredReason || '').trim().toLowerCase()
-            === NEWSLETTER_CONSENT_STATUS_UNKNOWN;
-        const next = { ...current };
-        for (const [key, entry] of Object.entries(desired)) {
-          if (currentExhausted && entry.state === DELIVERY_STATES.DEFERRED) continue;
-          // A concurrent sender may have claimed or marked the same job after
-          // this plan was built. Never let a stale deferred write downgrade a
-          // retry-blocking state and reopen a duplicate-send race.
-          if (deliveryEntryBlocksRetry(current[key], write.at)) continue;
-          const attempts = Math.max(
-            positiveAttempts(current[key]?.attempts),
-            positiveAttempts(entry.attempts),
-          );
-          const nextEntry = attempts > 0 ? { ...entry, attempts } : entry;
-          if (nextEntry.state === DELIVERY_STATES.DEFERRED
-            && attempts >= DEFERRED_MAX_ATTEMPTS) {
-            nextEntry.state = DELIVERY_STATES.DEFERRED_EXHAUSTED;
-          }
-          next[key] = nextEntry;
-        }
-        const update = {
-          deliveryLedger: next,
-          // A recovered legacy consent terminal may hit the per-run/card cap
-          // before the provider. Keep its marker until an accepted send clears
-          // it; otherwise the next run would treat the old terminal as final
-          // again and the alert could remain stuck forever.
-          deliveryLastDeferredReason: preserveConsentRecoveryMarker
-            ? currentData.deliveryLastDeferredReason
-            : write.reason,
-          deliveryLastDeferredAt: write.at,
-        };
-        if (hasAlertLevelAttempt) {
-          // This callback runs inside Firestore's transaction. If another run
-          // commits first, Firestore retries the callback with its new
-          // deliveryDeferredAttempts, so concurrent deferrals cannot both
-          // commit the same alert-level value.
-          const priorAttempts = deferredAttemptsForAlert(currentData);
-          const plannedAttempts = deferredAttemptsForAlert(write);
-          const deferredAttempts = currentExhausted
-            ? Math.max(priorAttempts, DEFERRED_MAX_ATTEMPTS)
-            : Math.max(priorAttempts + 1, plannedAttempts);
-          update.deliveryDeferredAttempts = deferredAttempts;
-          update.deliveryDeferredState = deferredAttempts >= DEFERRED_MAX_ATTEMPTS
-            ? DELIVERY_STATES.DEFERRED_EXHAUSTED
-            : DELIVERY_STATES.DEFERRED;
-        }
-        update.hasDeferredCompanyAlertWork = hasPendingCompanyAlertWork([{
-          ...currentData,
-          ...update,
-        }]);
-        tx.update(write.ref, update);
+        tx.update(write.ref, computeDeferredUpdate(snapshot.data() || {}, write));
       }
     });
   }
-  console.log(`   📥 Deferred backlog persisted: ${coalesced.length} alert(s)`);
-  return coalesced.length;
+  companyAlertMetrics.count('deferredWritesPersisted', pending.length);
+  console.log(`   📥 Deferred backlog persisted: ${pending.length} alert(s)`);
+  return pending.length;
+}
+
+/**
+ * The alert fields a deferred write sets, computed against the alert's CURRENT
+ * data. Pure: shared by the transaction (current = the transactional read) and
+ * by the no-op check (current = the state the plan was built from).
+ */
+function computeDeferredUpdate(currentData, write) {
+  const current = normalizeDeliveryLedger(currentData.deliveryLedger);
+  const hasAlertLevelAttempt = deferredAttemptsForAlert(write) > 0;
+  const currentExhausted = isDeferredExhausted(currentData);
+  const desired = normalizeDeliveryLedger(write.deliveryLedger);
+  const preserveConsentRecoveryMarker = isThroughputDeferReason(write.reason)
+    && String(currentData.deliveryLastDeferredReason || '').trim().toLowerCase()
+      === NEWSLETTER_CONSENT_STATUS_UNKNOWN;
+  const next = { ...current };
+  for (const [key, entry] of Object.entries(desired)) {
+    if (currentExhausted && entry.state === DELIVERY_STATES.DEFERRED) continue;
+    // A concurrent sender may have claimed or marked the same job after
+    // this plan was built. Never let a stale deferred write downgrade a
+    // retry-blocking state and reopen a duplicate-send race.
+    if (deliveryEntryBlocksRetry(current[key], write.at)) continue;
+    const attempts = Math.max(
+      positiveAttempts(current[key]?.attempts),
+      positiveAttempts(entry.attempts),
+    );
+    const nextEntry = attempts > 0 ? { ...entry, attempts } : entry;
+    if (nextEntry.state === DELIVERY_STATES.DEFERRED
+      && attempts >= DEFERRED_MAX_ATTEMPTS) {
+      nextEntry.state = DELIVERY_STATES.DEFERRED_EXHAUSTED;
+    }
+    next[key] = nextEntry;
+  }
+  const update = {
+    deliveryLedger: next,
+    // A recovered legacy consent terminal may hit the per-run/card cap
+    // before the provider. Keep its marker until an accepted send clears
+    // it; otherwise the next run would treat the old terminal as final
+    // again and the alert could remain stuck forever.
+    deliveryLastDeferredReason: preserveConsentRecoveryMarker
+      ? currentData.deliveryLastDeferredReason
+      : write.reason,
+    deliveryLastDeferredAt: write.at,
+  };
+  if (hasAlertLevelAttempt) {
+    // This callback runs inside Firestore's transaction. If another run
+    // commits first, Firestore retries the callback with its new
+    // deliveryDeferredAttempts, so concurrent deferrals cannot both
+    // commit the same alert-level value.
+    const priorAttempts = deferredAttemptsForAlert(currentData);
+    const plannedAttempts = deferredAttemptsForAlert(write);
+    const deferredAttempts = currentExhausted
+      ? Math.max(priorAttempts, DEFERRED_MAX_ATTEMPTS)
+      : Math.max(priorAttempts + 1, plannedAttempts);
+    update.deliveryDeferredAttempts = deferredAttempts;
+    update.deliveryDeferredState = deferredAttempts >= DEFERRED_MAX_ATTEMPTS
+      ? DELIVERY_STATES.DEFERRED_EXHAUSTED
+      : DELIVERY_STATES.DEFERRED;
+  }
+  update.hasDeferredCompanyAlertWork = hasPendingCompanyAlertWork([{
+    ...currentData,
+    ...update,
+  }]);
+  return update;
+}
+
+/** A ledger entry without its timestamp: `at` of a deferred entry never gates a retry. */
+function ledgerEntryIdentity(entry) {
+  const { at: _at, ...rest } = entry || {};
+  return JSON.stringify(Object.keys(rest).sort().map((key) => [key, rest[key]]));
+}
+
+/**
+ * True when applying `write` to the alert state it was planned from would leave
+ * every persisted field unchanged except timestamps (`deliveryLastDeferredAt`
+ * and the `at` of deferred ledger entries, which nothing reads to decide a
+ * send). Without a baseline the answer is `false`: the write is persisted
+ * exactly as before.
+ */
+export function isNoOpDeferredWrite(write) {
+  const baseline = write?.__baseline;
+  if (!baseline || typeof baseline !== 'object') return false;
+  let update;
+  try {
+    update = computeDeferredUpdate(baseline, write);
+  } catch {
+    return false;
+  }
+  if (String(update.deliveryLastDeferredReason ?? '') !== String(baseline.deliveryLastDeferredReason ?? '')) return false;
+  if ('deliveryDeferredAttempts' in update) {
+    if (update.deliveryDeferredAttempts !== baseline.deliveryDeferredAttempts) return false;
+    if (update.deliveryDeferredState !== baseline.deliveryDeferredState) return false;
+  }
+  if (update.hasDeferredCompanyAlertWork !== baseline.hasDeferredCompanyAlertWork) return false;
+  const before = normalizeDeliveryLedger(baseline.deliveryLedger);
+  const after = update.deliveryLedger || {};
+  const keys = new Set([...Object.keys(before), ...Object.keys(after)]);
+  for (const key of keys) {
+    if (!(key in before) || !(key in after)) return false;
+    if (ledgerEntryIdentity(before[key]) !== ledgerEntryIdentity(after[key])) return false;
+  }
+  return true;
 }
 
 /**
@@ -1482,6 +1573,124 @@ export async function loadImmediateAlertDocs(db, {
   }
 }
 
+const CONSENT_LOOKUP_CHUNK_SIZE = 200;
+
+/**
+ * Plan every recipient's sections, then verify registration/suppression ONLY for
+ * the recipients that have at least one section to mail (perf-plan email
+ * senders, B3).
+ *
+ * Registration/suppression comes from both documents. The newsletter side uses
+ * isCrossChannelStop for recorded unsubscribes, address-level hard signals and
+ * legacy explicit global stop-all. An explicit active alert is itself a
+ * subscription basis; only missing or unknown data outside that basis is
+ * DEFERRED, never fail-open. A failed lookup is fail-closed and observable: the
+ * recipient is deferred for retry and does not reach the provider.
+ *
+ * Behaviour that is intentionally different from the old "look everyone up
+ * first" order: a recipient with NOTHING to send is not looked up and does not
+ * burn an alert-level deferral attempt (`deliveryDeferredAttempts`) on a run
+ * that had nothing to mail them. The attempt is consumed on the first run where
+ * a job is actually waiting and consent is still unknown — which is the run the
+ * deferral protects.
+ *
+ * @param {object} db
+ * @param {object[]} alerts immediate, unpaused, non-quarantined alerts
+ * @param {{newJobs: object[], allJobs: object[], now: number}} ctx
+ */
+export async function resolveSendableRecipients(db, alerts, { newJobs, allJobs, now }) {
+  const alertsByRecipient = groupAlertsByRecipient(alerts);
+
+  // 1. Planning (in memory): the recipients with something to mail.
+  const plannedByRecipient = new Map();
+  for (const [recipient, recipientAlerts] of alertsByRecipient) {
+    const plannedSections = buildRecipientSections(
+      recipientAlerts,
+      newJobs,
+      now,
+      DEDUP_WINDOW_MS,
+      allJobs,
+      { recoverConsentDeferrals: true },
+    );
+    if (plannedSections.length > 0) plannedByRecipient.set(recipient, plannedSections);
+  }
+  const consentCandidates = [...plannedByRecipient.keys()];
+  const skippedWithoutSections = alertsByRecipient.size - consentCandidates.length;
+  companyAlertMetrics.count('recipientsWithoutSections', skippedWithoutSections);
+  companyAlertMetrics.count('recipientsWithSections', consentCandidates.length);
+
+  // 2. Consent lookup, only for the candidates.
+  companyAlertMetrics.enter('consent');
+  const representativeAlertByEmail = new Map();
+  for (const recipient of consentCandidates) {
+    representativeAlertByEmail.set(recipient, alertsByRecipient.get(recipient)[0]);
+  }
+  const consentByEmail = new Map();
+  for (let i = 0; i < consentCandidates.length; i += CONSENT_LOOKUP_CHUNK_SIZE) {
+    const chunk = consentCandidates.slice(i, i + CONSENT_LOOKUP_CHUNK_SIZE);
+    try {
+      const refs = chunk.flatMap((e) => [
+        db.collection('newsletter_subscribers').doc(e),
+        db.collection('job_alert_subscribers').doc(e),
+      ]);
+      const snaps = await db.getAll(...refs);
+      chunk.forEach((e, idx) => {
+        const [nlDoc, jaDoc] = snaps.slice(idx * 2, idx * 2 + 2);
+        consentByEmail.set(e, classifyRecipientConsent(
+          nlDoc && { exists: nlDoc.exists, data: nlDoc.data() },
+          jaDoc && { exists: jaDoc.exists, data: jaDoc.data() },
+          representativeAlertByEmail.get(e),
+        ));
+      });
+      companyAlertMetrics.count('consentDocsRead', refs.length);
+    } catch (err) {
+      // Fail-closed and observable: the next run retries the lookup, and no
+      // recipient in a failed chunk reaches the provider by accident.
+      for (const email of chunk) {
+        consentByEmail.set(email, { action: 'defer', reason: 'suppression-lookup-failed' });
+      }
+      console.warn(`   ⚠️  suppression lookup failed for ${chunk.length} address(es) — deferred for retry (${String(err?.message || err).slice(0, 120)})`);
+    }
+  }
+
+  // 3. Decisions.
+  companyAlertMetrics.enter('planning');
+  const suppressionCounts = { suppress: 0, defer: 0 };
+  const deferredDeliveryWrites = [];
+  const sendable = new Map();
+  for (const recipient of consentCandidates) {
+    const recipientAlerts = alertsByRecipient.get(recipient);
+    const decision = consentByEmail.get(recipient)
+      || { action: 'defer', reason: 'consent-decision-missing' };
+    if (decision.action === 'send') {
+      sendable.set(recipient, recipientAlerts);
+      continue;
+    }
+    if (decision.action === 'suppress') {
+      suppressionCounts.suppress += recipientAlerts.length;
+      continue;
+    }
+    suppressionCounts.defer += recipientAlerts.length;
+    for (const alert of recipientAlerts) {
+      const sections = buildRecipientSections([alert], newJobs, now, DEDUP_WINDOW_MS, allJobs);
+      deferredDeliveryWrites.push(...planDeferredDeliveryWrites(
+        sections.length > 0 ? sections : [{ alert, jobs: [] }],
+        now,
+        decision.reason,
+      ));
+    }
+  }
+
+  return {
+    alertsByRecipient: sendable,
+    plannedByRecipient,
+    recipients: sortCompanyAlertRecipients(sendable),
+    deferredDeliveryWrites,
+    suppressionCounts,
+    consentCandidates,
+  };
+}
+
 async function main() {
   console.log('🏢 CompanyAlert — immediate sender');
 
@@ -1490,12 +1699,23 @@ async function main() {
     return;
   }
 
+  try {
+    await installFirestoreOpCounterOnAdminSdk(companyAlertMetrics);
+  } catch (error) {
+    console.warn(`   ⚠️  Firestore op counter unavailable (metrics will lack read/write totals): ${String(error?.message || error).slice(0, 120)}`);
+  }
+  companyAlertMetrics.startMemorySampler();
+  companyAlertMetrics.enter('load_jobs');
+
   const now = Date.now();
   const allJobs = loadJobs();
   const newJobs = loadNewJobs(now, allJobs);
+  companyAlertMetrics.set('jobsLoaded', allJobs.length);
+  companyAlertMetrics.set('newJobs', newJobs.length);
   console.log(`   Newly published jobs in the last ${IMMEDIATE_WINDOW_MS / 3600000}h: ${newJobs.length}`);
   if (newJobs.length === 0) console.log('   No fresh jobs — checking durable deferred backlog.');
 
+  companyAlertMetrics.enter('load_alerts');
   const db = await getFirestoreAdmin();
 
   // Narrowed server-side on the cadence half of isImmediateCompanyAlert —
@@ -1550,75 +1770,33 @@ async function main() {
     console.log(`   ⚠️  TARGET_EMAIL active — ${alerts.length} alert(s) in scope`);
   }
   console.log(`   Immediate CompanyAlerts: ${alerts.length}`);
+  companyAlertMetrics.set('alertsImmediate', alerts.length);
   if (alerts.length === 0) return;
 
-  // Registration/suppression, from both documents. The newsletter side uses
-  // isCrossChannelStop for recorded unsubscribes, address-level hard signals
-  // and legacy explicit global stop-all. An explicit active alert is itself a
-  // subscription basis; only missing or unknown data outside that basis is
-  // DEFERRED, never fail-open.
-  const emailsInScope = [...new Set(alerts.map((a) => String(a.email || '').toLowerCase()))];
-  const representativeAlertByEmail = new Map();
-  for (const alert of alerts || []) {
-    const email = String(alert.email || '').toLowerCase();
-    if (email && !representativeAlertByEmail.has(email)) representativeAlertByEmail.set(email, alert);
-  }
-  const consentByEmail = new Map();
-  const LOOKUP_CHUNK_SIZE = 200;
-  for (let i = 0; i < emailsInScope.length; i += LOOKUP_CHUNK_SIZE) {
-    const chunk = emailsInScope.slice(i, i + LOOKUP_CHUNK_SIZE);
-    try {
-      const refs = chunk.flatMap((e) => [
-        db.collection('newsletter_subscribers').doc(e),
-        db.collection('job_alert_subscribers').doc(e),
-      ]);
-      const snaps = await db.getAll(...refs);
-      chunk.forEach((e, idx) => {
-        const [nlDoc, jaDoc] = snaps.slice(idx * 2, idx * 2 + 2);
-        consentByEmail.set(e, classifyRecipientConsent(
-          nlDoc && { exists: nlDoc.exists, data: nlDoc.data() },
-          jaDoc && { exists: jaDoc.exists, data: jaDoc.data() },
-          representativeAlertByEmail.get(e),
-        ));
-      });
-    } catch (err) {
-      // Fail-closed and observable: the next run retries the lookup, and no
-      // recipient in a failed chunk reaches the provider by accident.
-      for (const email of chunk) {
-        consentByEmail.set(email, { action: 'defer', reason: 'suppression-lookup-failed' });
-      }
-      console.warn(`   ⚠️  suppression lookup failed for ${chunk.length} address(es) — deferred for retry (${String(err?.message || err).slice(0, 120)})`);
-    }
-  }
-  const suppressionCounts = { suppress: 0, defer: 0 };
-  const beforeConsentFilter = alerts.length;
-  const deferredDeliveryWrites = [];
-  const consentDeferredAlerts = [];
-  alerts = alerts.filter((alert) => {
-    const decision = consentByEmail.get(String(alert.email || '').toLowerCase())
-      || { action: 'defer', reason: 'consent-decision-missing' };
-    if (decision.action === 'suppress') suppressionCounts.suppress += 1;
-    if (decision.action === 'defer') {
-      suppressionCounts.defer += 1;
-      consentDeferredAlerts.push({ alert, reason: decision.reason });
-    }
-    return decision.action === 'send';
-  });
+  // Plan first, verify consent second (perf-plan email senders, B3). The
+  // registration/suppression lookup used to cover EVERY recipient in scope —
+  // two document reads each, ~37 runs a day — although most runs have nothing
+  // to send to most of them. Now only a recipient with at least one section to
+  // mail is looked up, and the lookup still happens before any claim: the
+  // fail-closed contract (no verified consent, no provider call) is unchanged.
+  companyAlertMetrics.enter('planning');
+  const resolved = await resolveSendableRecipients(db, alerts, { newJobs, allJobs, now });
+  const {
+    alertsByRecipient,
+    plannedByRecipient,
+    recipients,
+    deferredDeliveryWrites,
+    suppressionCounts,
+    consentCandidates,
+  } = resolved;
   if (suppressionCounts.suppress > 0) {
     console.log(`   🚫 Suppressed (known stop state): ${suppressionCounts.suppress} alert(s) skipped`);
   }
   if (suppressionCounts.defer > 0) {
     console.warn(`   ⏳ Consent/suppression unknown: ${suppressionCounts.defer} alert(s) deferred for recovery`);
   }
-  for (const { alert, reason } of consentDeferredAlerts) {
-    const sections = buildRecipientSections([alert], newJobs, now, DEDUP_WINDOW_MS, allJobs);
-    deferredDeliveryWrites.push(...planDeferredDeliveryWrites(
-      sections.length > 0 ? sections : [{ alert, jobs: [] }],
-      now,
-      reason,
-    ));
-  }
-  if (beforeConsentFilter !== alerts.length && alerts.length === 0) {
+  if (consentCandidates.length > 0 && recipients.length === 0) {
+    companyAlertMetrics.enter('persist');
     await persistDeferredDeliveryWrites(db, deferredDeliveryWrites, DRY_RUN);
     console.log('   No recipient has a verified sendable consent state — nothing to send.');
     return;
@@ -1628,22 +1806,14 @@ async function main() {
   // Sorted so the PER_RUN_CAP cut is deterministic: a run that hits the cap and
   // a retry of that run must defer the SAME addresses, or a recipient could sit
   // just past the boundary on every attempt and never be mailed at all.
-  const alertsByRecipient = groupAlertsByRecipient(alerts);
-  const recipients = sortCompanyAlertRecipients(alertsByRecipient);
-  console.log(`   Recipients in scope: ${recipients.length} (from ${alerts.length} alert(s))`);
+  console.log(`   Recipients in scope: ${recipients.length} (from ${recipients.reduce((sum, r) => sum + (alertsByRecipient.get(r)?.length || 0), 0)} alert(s))`);
 
   const emailsToSend = [];
   const claimId = `company-alert-${now}-${process.pid || 'worker'}`;
   let capLogged = false;
   for (let i = 0; i < recipients.length; i += 1) {
     const recipient = recipients[i];
-    const plannedSections = buildRecipientSections(alertsByRecipient.get(recipient),
-      newJobs,
-      now,
-      DEDUP_WINDOW_MS,
-      allJobs,
-      { recoverConsentDeferrals: true },
-    );
+    const plannedSections = plannedByRecipient.get(recipient) || [];
     if (plannedSections.length === 0) continue;
     if (plannedSections.some((section) => !section.alert?.ref)) {
       console.warn('   🧰 CompanyAlert quarantine: alert reference missing before send; recipient deferred');
@@ -1678,6 +1848,7 @@ async function main() {
 
     let sections = plannedSections;
     if (!DRY_RUN) {
+      companyAlertMetrics.enter('send');
       sections = await claimRecipientSections(
         db,
         plannedSections,
@@ -1685,6 +1856,7 @@ async function main() {
         claimId,
         { recoverConsentDeferrals: true },
       );
+      companyAlertMetrics.enter('planning');
     }
     if (sections.length === 0) continue;
 
@@ -1806,8 +1978,10 @@ async function main() {
     }
   }
 
+  companyAlertMetrics.enter('persist');
   await persistDeferredDeliveryWrites(db, deferredDeliveryWrites, DRY_RUN);
 
+  companyAlertMetrics.set('emailsPlanned', emailsToSend.length);
   if (emailsToSend.length === 0) {
     console.log('   No new jobs for any followed employer — nothing to send.');
     return;
@@ -1826,6 +2000,7 @@ async function main() {
   // the provider boundary, atomically mark every rendered job in the email as
   // an ambiguous attempt. If the process dies after this point, a later run
   // must reconcile the provider result instead of blindly sending a duplicate.
+  companyAlertMetrics.enter('send');
   const attemptedEmails = [];
   for (const email of emailsToSend) {
     const marked = await markRecipientDeliveryAttempted(db, email.dedupWrites, now, claimId);
@@ -1860,6 +2035,9 @@ async function main() {
     throw error;
   }
   console.log(`   ✅ Accepted ${result.sent?.length || 0} · ❌ failed ${result.failed?.length || 0}`);
+  companyAlertMetrics.set('emailsSent', result.sent?.length || 0);
+  companyAlertMetrics.set('emailsFailed', result.failed?.length || 0);
+  companyAlertMetrics.enter('persist');
 
   const { FieldValue } = await import('firebase-admin/firestore');
   const fieldValues = {
@@ -1888,8 +2066,28 @@ async function main() {
 }
 
 const invokedDirectly = process.argv[1] && (() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })();
+/** `COMPANYALERT_METRICS` line + Job Summary table. Never throws. */
+export function emitCompanyAlertMetrics({ metrics = companyAlertMetrics, log = console.log } = {}) {
+  return emitSenderMetrics(metrics, {
+    tag: 'COMPANYALERT',
+    date: new Date().toISOString().slice(0, 10),
+    mode: DRY_RUN ? 'DRY RUN' : (ALLOWED_EMAILS ? 'TEST' : 'LIVE'),
+    log,
+  });
+}
+
+async function runMain() {
+  try {
+    await main();
+  } finally {
+    // Also when main() ends early or throws: the cost of a run that dies midway
+    // is exactly what the telemetry is for.
+    emitCompanyAlertMetrics();
+  }
+}
+
 if (invokedDirectly) {
-  main().catch((err) => {
+  runMain().catch((err) => {
     console.error('❌ send-company-alerts failed:', err);
     process.exit(1);
   });

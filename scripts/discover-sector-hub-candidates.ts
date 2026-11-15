@@ -7,6 +7,7 @@ import { fetchGscQueries } from './lib/evidence/gscFetcher.mjs';
 import { DEFAULT_GA4_PROPERTY_ID, ga4DateRange } from './lib/ga4-service-account.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { freeTranslateWithRetry } from './lib/free-translate.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { localizeSectorHubLabel } from './lib/sector-hub-label-localization';
 import {
   buildSectorHubDiscoveryReport,
@@ -81,7 +82,7 @@ function parseArgs(argv: string[]): Args {
 
 function readJson<T>(file: string, fallback: T): T {
   try {
-    return JSON.parse(fs.readFileSync(file, 'utf8')) as T;
+    return readJsonFile(file) as T;
   } catch (error) {
     if ((error as NodeJS.ErrnoException)?.code === 'ENOENT') return fallback;
     throw error;

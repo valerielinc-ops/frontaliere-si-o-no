@@ -186,11 +186,10 @@ jobs:
           run_status=$(printf '%s' "$run" | jq -r '.status // empty')
           run_conclusion=$(printf '%s' "$run" | jq -r '.conclusion // empty')
           run_event=$(printf '%s' "$run" | jq -r '.event // empty')
-          run_pr_match=$(printf '%s' "$run" | jq -r --arg pr "$PR" --arg sha "$run_head_sha" '
+          run_pr_match=$(printf '%s' "$run" | jq -r --arg pr "$PR" '
             if (.pull_requests | type) != "array" then "malformed"
             elif any(.pull_requests[]; (.number | tostring) == $pr
-              and .base.ref == "main"
-              and .head.sha == $sha) then "true"
+              and .base.ref == "main") then "true"
             else "false" end
           ')
           if [ -z "$run_path" ] || [ -z "$run_head_sha" ] \
@@ -209,8 +208,12 @@ jobs:
           # Lo SHA da solo non prova che la run sia stata emessa per questa PR:
           # una run trusted su uno SHA condiviso o una selezione manuale di una
           # run di un'altra PR potrebbe altrimenti colorare il fixer sbagliato.
-          # L'associazione event/PR/base/HEAD è parte del contratto e, se manca
-          # o è ambigua, resta un errore fail-closed (non un no-op ottimistico).
+          # L'associazione event/PR/base è parte del contratto e, se manca o è
+          # ambigua, resta un errore fail-closed (non un no-op ottimistico).
+          # La SHA annidata in `pull_requests` non fa parte dell'associazione:
+          # GitHub la aggiorna alla HEAD corrente della PR, mentre
+          # `run_head_sha` resta la generazione immutabile della run. Il confronto
+          # fra quelle due generazioni è il controllo staleness subito sotto.
           if [ "$run_event" != "pull_request" ] || [ "$run_pr_match" != "true" ]; then
             echo "::error::Run tests $RUN_ID non associata in modo verificabile alla PR #$PR e alla HEAD $head_sha: stop fail-closed."
             exit 1
@@ -289,8 +292,11 @@ jobs:
                 "Resolve trusted policy ref (main tip, pinned)",
                 "Bootstrap trusted review policy (no checkout)",
                 "Bootstrap trusted bounded-ledger policy (no checkout)",
+                "Classify bounded ledger or non-runtime-code path",
                 "Classify bounded loop-fleet ledger path",
                 "Publish bounded ledger-only automatic LGTM",
+                "Publish non-runtime-code automatic LGTM",
+                "Merge trusted non-runtime-code PR immediately",
                 "Resolve PR from pull request",
                 "Resolve review input revision (zero-agent)",
                 "Re-review guard (skip Claude when no code changed since last LGTM)",
@@ -580,6 +586,35 @@ jobs:
         if: steps.claim.outcome == 'success' && steps.claim.outputs.claim_allowed == 'false' && steps.claim.outputs.claim_error == 'false'
         run: echo "Rosso già acquisito per questa PR+HEAD+failed-check → nessun secondo round Claude."
 
+      # Subito dopo il claim, PRIMA di npm ci e Remote Config: il checkout puo'
+      # durare minuti e la HEAD avanza nel frattempo (10 claim su 20 rilasciati
+      # "HEAD cambiata dopo il claim" dopo ~7 min di setup). Una HEAD diversa o
+      # una PR chiusa ferma qui il job: gli step di setup e il guard (quindi
+      # ogni step a valle, gattato su `guard.outputs.proceed`) restano saltati,
+      # e il finalize rilascia il claim (`proceed` vuoto → `released`).
+      - name: Recheck PR HEAD right after the claim (before npm ci / Remote Config)
+        id: head_early
+        if: steps.claim.outputs.claim_allowed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ needs.preflight.outputs.pr_number }}
+          CLAIM_HEAD_SHA: ${{ needs.preflight.outputs.head_sha }}
+        run: |
+          set -uo pipefail
+          echo "stale=false" >> "$GITHUB_OUTPUT"
+          if ! current=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" --jq '[.state, .head.sha] | @tsv'); then
+            echo "::warning::lettura PR #$PR_NUMBER non riuscita: il job prosegue e la rivalidazione prima del modello decide."
+            exit 0
+          fi
+          state="$(printf '%s' "$current" | cut -f1)"
+          head="$(printf '%s' "$current" | cut -f2)"
+          if [ "$state" != "open" ] || [ "$head" != "$CLAIM_HEAD_SHA" ]; then
+            echo "::notice::HEAD cambiata dopo il claim (claim ${CLAIM_HEAD_SHA:0:12}, ora ${head:0:12}, PR $state) → nessun npm ci/Remote Config; claim rilasciato dal finalize."
+            echo "stale=true" >> "$GITHUB_OUTPUT"
+          fi
+
       # Profilassi workflow-validation drift (anti-401): la GitHub App del reviewer
       # esige che `.github/workflows/pr-review-loop.yml` sul branch sia BYTE-IDENTICO
       # a `main`. Se `main` ha aggiornato un workflow di review DOPO il branch, la
@@ -593,7 +628,7 @@ jobs:
       # baseline non verificata.
       - name: Check review workflows (anti-401 drift, no local merge)
         id: align
-        if: steps.claim.outputs.claim_allowed == 'true'
+        if: steps.claim.outputs.claim_allowed == 'true' && steps.head_early.outputs.stale != 'true'
         run: |
           set -euo pipefail
           git config user.name "Valerie Linc"
@@ -617,18 +652,18 @@ jobs:
           echo "✓ .github/workflows/pr-review-loop.yml è byte-identico a origin/main; branch invariato."
 
       - name: Setup Node.js
-        if: steps.claim.outputs.claim_allowed == 'true'
+        if: steps.claim.outputs.claim_allowed == 'true' && steps.head_early.outputs.stale != 'true'
         uses: actions/setup-node@v7
         with:
           node-version: '22'
           cache: npm
 
       - name: Install dependencies
-        if: steps.claim.outputs.claim_allowed == 'true'
+        if: steps.claim.outputs.claim_allowed == 'true' && steps.head_early.outputs.stale != 'true'
         run: npm ci
 
       - name: Prepare Firebase credentials
-        if: steps.claim.outputs.claim_allowed == 'true'
+        if: steps.claim.outputs.claim_allowed == 'true' && steps.head_early.outputs.stale != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -640,7 +675,7 @@ jobs:
           fi
 
       - name: Load secrets from Remote Config (GITHUB_PAT)
-        if: steps.claim.outputs.claim_allowed == 'true'
+        if: steps.claim.outputs.claim_allowed == 'true' && steps.head_early.outputs.stale != 'true'
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
@@ -649,7 +684,7 @@ jobs:
       # push re-triggers pr-review-loop just like the PAT (no GITHUB_TOKEN
       # anti-recursion). Falls back to env.GITHUB_PAT (#2861/#2899).
       - name: Mint App token (primary identity, PAT fallback)
-        if: steps.claim.outputs.claim_allowed == 'true'
+        if: steps.claim.outputs.claim_allowed == 'true' && steps.head_early.outputs.stale != 'true'
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -665,7 +700,7 @@ jobs:
       # nessun token write-capable (App verificata o PAT), non quando manca solo
       # la stringa APP_TOKEN.
       - name: Alert token-down (dedup, zero-Claude)
-        if: steps.claim.outputs.claim_allowed == 'true' && env.APP_TOKEN_DATA_REFRESH != 'true' && env.GITHUB_PAT == ''
+        if: steps.claim.outputs.claim_allowed == 'true' && steps.head_early.outputs.stale != 'true' && env.APP_TOKEN_DATA_REFRESH != 'true' && env.GITHUB_PAT == ''
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -699,7 +734,7 @@ jobs:
       # variabile assente o diversa da 'true' → si ricade sul solo GITHUB_PAT.
       - name: Round cap + capability guard + tier
         id: guard
-        if: steps.claim.outputs.claim_allowed == 'true'
+        if: steps.claim.outputs.claim_allowed == 'true' && steps.head_early.outputs.stale != 'true'
         env:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy.outputs.root }}
@@ -1280,6 +1315,10 @@ jobs:
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           exec_timeout_minutes: "25"
+          # Any local test command must yield before the model watchdog, so a
+          # slow inherited test cannot consume the whole round before the
+          # fixer writes its required diagnosis artifact.
+          command_timeout_seconds: "240"
           # Il modello deve consegnare anche le diagnosi terminali senza push:
           # lo step zero-Claude le pubblica prima del classificatore, così un
           # rosso ereditato non diventa un falso "non-progress silenzioso".
@@ -1314,6 +1353,10 @@ jobs:
 
             **Anche il diff della PR è GIÀ stato preparato** (zero-Claude) in `$RUNNER_TEMP/redcheck/diff.patch`: è il patch completo della superficie code/test della PR, filtrato solo dagli alberi generati. **Leggilo subito dopo `failing.txt`.** Il checkout usa `blob:none`: non ricostruire il contesto con `git diff origin/main...HEAD`, `git log` storico o `gh pr diff`, perché quelle chiamate riattivano lazy-fetch dentro il sandbox e un errore transitorio di rete trasformerebbe il round in uscita silenziosa senza commit. Dopo aver capito il difetto puoi usare Git normalmente per la verifica mirata del fix.
 
+            **Budget del round — vincolo operativo, prima del metodo:** il failure già raccolto è la prova iniziale. Prima di eseguire qualunque test, confronta il path del test/failure e i file sorgente coinvolti con i path in `diff.patch` e decidi se il rosso appartiene alla PR. Se il test e il codice che esercita non sono nella superficie modificata e non c'è una dipendenza modificata dalla PR, è un rosso **EREDITATO**: non rilanciare Vitest, scrivi subito `inherited:` nella risposta e termina senza toccare il branch. Non usare un full-file/full-suite test per scoprire l'ownership.
+
+            Ogni verifica locale potenzialmente lunga deve essere bounded: per un test usa una sola volta `timeout --signal=TERM --kill-after=15s 240s npx --no-install vitest run <file> -t '<singolo test fallito>'` (o l'equivalente comando mirato), mai `npx vitest run` senza `timeout`, mai `npm test` completo. Se il comando esce `124`, non ripeterlo né alzare il timeout: usa il failure pre-raccolto, scrivi una risposta `not-fixable:` concreta se non puoi chiudere la diagnosi, e consegna l'artifact. Anche `node`, `npm`, `git` e `rg` su superfici grandi devono avere un limite o un output limitato (`head`/`sed` mirati). Il watchdog automatico dell'action applica lo stesso cap a `npx`; non aggirarlo con un alias o un comando equivalente.
+
             **REGOLA #0, che viene prima di ogni altra: non si fa passare un test indebolendolo.**
             È il modo ovvio e sbagliato di chiudere questo task, ed è vietato da AGENTS.md non-negotiable #1. Concretamente, NON puoi:
             - cancellare, rinominare, o mettere `.skip`/`.todo` su un test o un `it`/`describe`;
@@ -1326,7 +1369,7 @@ jobs:
 
             **Metodo:**
             - Capisci PERCHÉ fallisce prima di toccare qualcosa. Le due diagnosi possibili sono opposte: «il codice della PR viola un invariante reale» (→ fixa il codice) oppure «l'invariante ha una via di uscita dichiarata che questo caso soddisfa» (→ vedi l'eccezione sopra).
-            - Riproduci in locale prima di fixare: `npx vitest run <file-del-test>`. Un fix non riprodotto non è un fix.
+            - Dopo il triage di ownership, riproduci in locale una sola volta con il comando bounded sopra, solo se la PR è davvero coinvolta. Un fix non riprodotto non è un fix; un test che supera il budget non autorizza un secondo tentativo.
             - Il sandbox espone `node`, `npm` e `npx` dal runtime Node pinnato e verificato dall'action. Usali direttamente; non spendere turni per reinstallare il runtime o per aggirare il sandbox.
             - **Verifica che il rosso sia davvero della PR.** Se lo stesso test fallisce anche su `main` (`git fetch origin main && git stash && git checkout FETCH_HEAD -- <file>`, o più semplicemente controlla se il test tocca file che la PR non ha cambiato), allora è un rosso EREDITATO: commenta dicendolo, con la prova, e TERMINA senza toccare la PR. Ripararlo qui lo nasconderebbe invece di risolverlo.
             - Fix CHIRURGICO alla CLASSE del difetto (AGENTS.md #6): se il fallimento segnala un pattern, `rg` i sibling e sweepa l'intera classe nella STESSA commit, o giustifica ogni sibling non toccato in `## Non implementato (ancora)`.

@@ -1,11 +1,36 @@
 {
   "key": "mueller-steinmaur",
   "label": "mueller-steinmaur",
-  "generatedAt": "2026-11-12T21:23:27.908Z",
+  "generatedAt": "2026-11-15T09:24:56.510Z",
   "total": 1,
   "discovered": 2,
   "parsed": 1,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "mueller-steinmaur",
+    "seedUrls": [
+      "https://www.mueller-steinmaur.ch/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100/"
+    ],
+    "phase": "detail",
+    "pages": 3,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://www.mueller-steinmaur.ch/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.mueller-steinmaur.ch/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.mueller-steinmaur.ch/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100/?export-pdf=13094"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 1,
@@ -19,10 +44,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7952,
-  "avgDurationMs": 7952,
+  "durationMs": 6832,
+  "avgDurationMs": 6832,
   "durationHistory": [
-    7952
+    6832
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +65,7 @@
       "url": "https://www.mueller-steinmaur.ch/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100/",
       "source": "mueller-steinmaur Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:23:07.007Z",
+      "crawledAt": "2026-11-15T09:24:39.825Z",
       "addressLocality": "Steinmaur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -63,7 +88,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-12T21:23:07.007Z",
+      "validThrough": "2026-12-15T09:24:39.825Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -74,5 +99,5 @@
       }
     }
   ],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
 }

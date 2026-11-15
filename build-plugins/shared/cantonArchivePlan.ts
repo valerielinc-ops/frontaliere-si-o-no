@@ -59,6 +59,7 @@ export function readJobsData(
     if (files.length === 0) {
       return { counts, urlToKey, cantonJobCounts, cantonJobs, cantonEmployerCounts };
     }
+    // large-dataset-read-ok: one weekly snapshot shard (≤14 MB, 40x under the limit) through the injected fs
     const raw = JSON.parse(fs.readFileSync(np.join(historyDir, files[0]), 'utf-8'));
     for (const job of Array.isArray(raw?.jobs) ? raw.jobs : []) {
       if (typeof job?.employerKey === 'string' && job.employerKey) {

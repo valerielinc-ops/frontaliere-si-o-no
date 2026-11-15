@@ -8,9 +8,9 @@
  * and React hook live in hooks/useJobGateExperiment.ts; the per-arm classes
  * JobBoard renders live in components/community/jobGateSkin.ts.
  *
- * Round 5 (`jobgate-v5`) compares visual refinements of the promoted
- * Spotlight gate; copy, order, controls, consent and dimensions stay fixed.
- * When the experiment is off or cannot assign a visitor, `spotlight` remains
+ * Round 6 (`jobgate-v6`) compares the promoted tinted gate with three visual
+ * treatments; copy, order, controls, consent and dimensions stay fixed.
+ * When the experiment is off or cannot assign a visitor, `control` remains
  * the safe product default (round history:
  * docs/AUTHGATE-HEADLINE-EXPERIMENT.md).
  */
@@ -20,6 +20,7 @@ import {
   JOBGATE_DEFAULT_ARMS_JSON,
   JOBGATE_EXPERIMENT_ID,
   JOBGATE_LEGACY_FORCE_KEY,
+  JOBGATE_PREVIOUS_FORCE_KEY,
   JOBGATE_RC_KEYS,
   JOBGATE_STARTED_AT_KEY,
   isJobGateNewsletterCta,
@@ -36,6 +37,7 @@ export {
   JOBGATE_DEFAULT_ARMS_JSON,
   JOBGATE_EXPERIMENT_ID,
   JOBGATE_LEGACY_FORCE_KEY,
+  JOBGATE_PREVIOUS_FORCE_KEY,
   JOBGATE_RC_KEYS,
   JOBGATE_STARTED_AT_KEY,
   isJobGateNewsletterCta,
@@ -45,19 +47,19 @@ export {
   validateJobGateWeights,
 };
 
-export type JobGateArm = 'spotlight' | 'spotlight_quiet' | 'spotlight_tinted' | 'spotlight_outline';
+export type JobGateArm = 'control' | 'navy_companion' | 'tinted_frame' | 'dossier';
 
 export interface JobGateAssignment {
   /** False until Remote Config answered (or the load timed out). */
   ready: boolean;
   /** True only when the visitor counts for the experiment and events carry its tags. */
   enrolled: boolean;
-  /** Always `spotlight` when not enrolled, the promoted product default. */
+  /** Always `control` when not enrolled, the promoted tinted product default. */
   arm: JobGateArm;
 }
 
-export const JOBGATE_PENDING: JobGateAssignment = Object.freeze({ ready: false, enrolled: false, arm: 'spotlight' });
-export const JOBGATE_NOT_ENROLLED: JobGateAssignment = Object.freeze({ ready: true, enrolled: false, arm: 'spotlight' });
+export const JOBGATE_PENDING: JobGateAssignment = Object.freeze({ ready: false, enrolled: false, arm: 'control' });
+export const JOBGATE_NOT_ENROLLED: JobGateAssignment = Object.freeze({ ready: true, enrolled: false, arm: 'control' });
 
 export function resolveJobGateAssignment(input: {
   enabled?: unknown;
@@ -85,7 +87,7 @@ export function getJobGateTelemetryParams(): { experiment_id: string; variant: J
     : null;
 }
 
-/** `newsletter_subscribers.variant` for the enrolled visitor (`jobgate-v5:<arm>`), else null. */
+/** `newsletter_subscribers.variant` for the enrolled visitor (`jobgate-v6:<arm>`), else null. */
 export function getJobGateSubscriberVariant(assignment: JobGateAssignment | null = activeAssignment): string | null {
   return assignment && assignment.enrolled ? jobGateSubscriberVariant(assignment.arm) : null;
 }

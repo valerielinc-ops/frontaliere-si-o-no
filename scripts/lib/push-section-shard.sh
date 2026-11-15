@@ -236,14 +236,10 @@ push_section_shard() {
   # The durable registry is the publisher's source of truth. A failed read
   # must stop before selecting a canonical layout for this locale.
   if ! section_tree_load_layout_registry; then return 1; fi
-  # Hash-layout sections use the full canonical overlay when the layout was
-  # already sticky at publisher start. A section crossing the threshold in
-  # this invocation remains delta-capable; its complete index path move is
-  # checkpointed from an empty seed before main is promoted.
-  if section_tree_uses_hash_fanout "$section" && [ "$SHARD_PUSH_MODE" = delta ]; then
-    echo "::notice::$section-$loc shard: using a full canonical overlay for the existing hash-v1 layout"
-    SHARD_PUSH_MODE=full
-  fi
+  # The durable registry names the target layout, but it does not prove that
+  # this shard's remote HEAD has already been migrated. Keep delta mode until
+  # the remote tree is inspected below; a newly registered section must retain
+  # its resumable canonical-to-hash migration path.
   if section_tree_uses_hash_fanout "$section" && [ "${SHARD_PUSH_VERIFY:-}" = 1 ]; then
     echo "::notice::$section-$loc shard: skipping advisory delta verifier for the existing hash-v1 layout"
     SHARD_PUSH_VERIFY=0
@@ -374,7 +370,7 @@ push_section_shard() {
       if shard_delta_clone_and_prepare \
           "$stage" "$SHARD_REPO" "$current_manifest" "$delta_sidecar" \
           "$sub" "$stage_src/dist" "$manifest_tool" "$delta_output" \
-          "$SHARD_HISTORY_CAP" "$section-$loc shard" "${SHARD_DELTA_FULL_REWRITE_THRESHOLD:-0.9}"; then
+          "$SHARD_HISTORY_CAP" "$section-$loc shard" "${SHARD_DELTA_FULL_REWRITE_THRESHOLD:-0.9}" "$sub"; then
         delta_snapshot="$delta_output/snapshot.jsonl"
         delta_base_sha="$(git -C "$stage" rev-parse HEAD)"
         delta_checkpoint_ref="refs/heads/shard-resume/$section-$loc-$delta_base_sha"
@@ -469,7 +465,15 @@ push_section_shard() {
           echo "$section-$loc shard: delta indexed tree, $n files (src $src_n, prev $prev_n, changed=$SHARD_DELTA_CHANGED_FILES, unmanifested-overlay=$SHARD_DELTA_UNMANIFESTED_FILES, reused=$SHARD_DELTA_REUSED_FILES, removed=$SHARD_DELTA_REMOVED_FILES, full-rewrite=$SHARD_DELTA_FULL_REWRITE, deploys-since-flatten=$((dcount + 1)))"
         fi
       else
-        delta_fallback_reason="${SHARD_DELTA_REASON:-remote delta preparation failed}"
+        if [ "${SHARD_DELTA_REMOTE_LAYOUT_FANNED:-0}" = 1 ]; then
+          remote_layout_fanned=1
+          echo "::notice::$section-$loc shard: remote HEAD already uses the hash-v1 layout — using a full canonical overlay"
+          SHARD_PUSH_MODE=full
+          rm -rf "$stage"; mkdir -p "$stage"
+          delta_fallback_reason="${SHARD_DELTA_REASON:-remote layout already hash-fanned}"
+        else
+          delta_fallback_reason="${SHARD_DELTA_REASON:-remote delta preparation failed}"
+        fi
       fi
       if [ "$delta_applied" != 1 ]; then
         if [ -z "$delta_snapshot" ] && [ -s "$current_manifest" ] \
@@ -507,8 +511,18 @@ push_section_shard() {
          && [ -d "$stage/.git" ]; then
         if git -C "$stage" rev-parse -q --verify HEAD >/dev/null 2>&1; then
           remote_base_sha="$(git -C "$stage" rev-parse HEAD)"
-          remote_layout_entry_type="$(git -C "$stage" cat-file -t "HEAD:$sub/_tree" 2>/dev/null || true)"
-          if [ "$remote_layout_entry_type" = tree ]; then remote_layout_fanned=1; fi
+          remote_layout_probe_rc=0
+          shard_probe_remote_layout "$stage" "$sub" || remote_layout_probe_rc=$?
+          case "$remote_layout_probe_rc" in
+            1) remote_layout_fanned=1 ;;
+            2) echo "::warning::$section-$loc shard: remote layout probe unreadable — keeping the full overlay" >&2 ;;
+          esac
+          if [ "$remote_layout_fanned" -ge 1 ] \
+             && [ "$source_path_layout" != canonical ] \
+             && [ "$SHARD_PUSH_MODE" = delta ]; then
+            echo "::notice::$section-$loc shard: remote HEAD already uses the hash-v1 layout — using a full canonical overlay"
+            SHARD_PUSH_MODE=full
+          fi
         fi
         # git-plumbing reads (git show HEAD:<path>), NOT working-tree file
         # checks — --no-checkout NEVER materializes a working-tree file, so a
@@ -674,8 +688,9 @@ push_section_shard() {
     fi
 
     # Measure the canonical representation before mutating the stage. The
-    # stage tool adds a sticky registry entry before probing the live Worker;
-    # only after that probe succeeds does it rewrite the filesystem or index.
+    # route probe above records an initial Worker confirmation; the stage
+    # helper revalidates the live route after this measurement and only then
+    # lets the tool rewrite the filesystem or index.
     if [ "$delta_applied" = 1 ]; then
       if ! section_tree_evaluate_and_apply "$section" "$loc" "$stage" "$sub" index "$section-$loc shard"; then
         echo "::error::$section-$loc shard: automatic tree fan-out staging failed" >&2
@@ -758,7 +773,11 @@ push_section_shard() {
           else
             _push_rc="$_tree_rc"
           fi
-          shard_phase resumable-git-push
+          if [ "$layout_migration" = 1 ]; then
+            shard_phase resumable-layout-migration
+          else
+            shard_phase resumable-git-push
+          fi
         else
           _delta_commit="$(git commit-tree "$_delta_tree" -p HEAD -m "$_delta_message [delta]")"
           shard_phase git-commit

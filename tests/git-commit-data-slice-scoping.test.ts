@@ -155,6 +155,73 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
     }
   });
 
+  it('stages the invoking crawler\'s expired shards (`<key>.shard-NNN.json`), not a sibling\'s', () => {
+    // scripts/lib/expired-slice-store.mjs: once a crawler's expired monolith
+    // is past the shard target, its new archive rows land in
+    // `<key>.shard-NNN.json`. A scope limited to `<key>.json` would leave them
+    // out of the crawler's own commit.
+    const originDir = mkdtempSync(join(tmpdir(), 'git-commit-data-origin-'));
+    const repoDir = mkdtempSync(join(tmpdir(), 'git-commit-data-repo-'));
+    try {
+      execFileSync('git', ['init', '-q', '--bare', '--initial-branch=main', originDir]);
+      execFileSync('git', ['clone', '-q', originDir, repoDir]);
+      execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: repoDir });
+      execFileSync('git', ['config', 'user.name', 'Test'], { cwd: repoDir });
+
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      mkdirSync(join(repoDir, 'data/jobs/expired/by-crawler'), { recursive: true });
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[]\n');
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/ab.json'), '[]\n');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      const expiredAt = new Date().toISOString();
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"a1"}]\n');
+      writeFileSync(
+        join(repoDir, 'data/jobs/expired/by-crawler/a.shard-001.json'),
+        `${JSON.stringify([{ slug: 'a-old', title: 'A old', expiredAt }], null, 2)}\n`,
+      );
+      // A sibling whose key shares the prefix must not be swept in.
+      writeFileSync(
+        join(repoDir, 'data/jobs/expired/by-crawler/ab.shard-001.json'),
+        `${JSON.stringify([{ slug: 'ab-old', title: 'AB old', expiredAt }], null, 2)}\n`,
+      );
+
+      execFileSync(
+        BASH_BIN,
+        [SCRIPT_PATH, '--slice-only', 'test commit'],
+        {
+          cwd: repoDir,
+          env: {
+            ...process.env,
+            JOBS_SLICE_FILE: 'data/jobs/by-crawler/a.json',
+            SKIP_AI_TRANSLATION: '1',
+            SLUG_HISTORY_SUMMARY_FILE: join(repoDir, 'no-such-slug-history-summary.txt'),
+            GH_TOKEN: '',
+            GITHUB_TOKEN: '',
+            GITHUB_RUN_ID: '',
+            GITHUB_REPOSITORY: '',
+            GITHUB_OUTPUT: '',
+          },
+        },
+      );
+
+      const committedFiles = execFileSync(
+        'git',
+        ['show', '--name-only', '--format=', 'origin/main'],
+        { cwd: repoDir, encoding: 'utf-8' },
+      ).split('\n').filter(Boolean).sort();
+      expect(committedFiles).toEqual([
+        'data/jobs/by-crawler/a.json',
+        'data/jobs/expired/by-crawler/a.shard-001.json',
+      ]);
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+    }
+  });
+
   it('does not publish the shared AI cache from a crawler-owned slice commit', () => {
     const originDir = mkdtempSync(join(tmpdir(), 'git-commit-data-origin-'));
     const repoDir = mkdtempSync(join(tmpdir(), 'git-commit-data-repo-'));

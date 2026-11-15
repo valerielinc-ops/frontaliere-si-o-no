@@ -40,6 +40,8 @@ describe('isBenignErrorMessage()', () => {
       "TypeError: undefined is not an object (evaluating 'window.ethereum.selectedAddress = undefined')",
       'i: Failed to connect to MetaMask',
       'TrackerStorageType is not defined',
+      'No Listener: tabs:outgoing.message.ready',
+      'Error: No Listener: tabs:outgoing.message.ready',
       // Microsoft Clarity internal crash (#3760)
       "TypeError: undefined is not an object (evaluating 'n.standardSelectors')",
       "Cannot read properties of undefined (reading 'standardSelectors')",
@@ -73,6 +75,7 @@ describe('isBenignErrorMessage()', () => {
       '[firebase.initRemoteConfig] NetworkError when attempting to fetch resource.',
       '[articleBody] TypeError: cancelled',
       'TypeError: cancelled while loading article body',
+      'No Listener: tabs:outgoing.message.readyState',
       // Genuine app bugs
       "TypeError: Cannot read properties of undefined (reading 'trackCalculation')",
       'TypeError: Ze is not a constructor',

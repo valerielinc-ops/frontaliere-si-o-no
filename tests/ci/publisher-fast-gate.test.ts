@@ -41,7 +41,10 @@ function fixture() {
   const sourceArtifacts = [];
   const publisherArtifacts = [];
   const sitemapUrls = routes.map(([locale, route]) => `https://frontaliereticino.ch/${route}`);
-  const currentSitemapSnapshot = { version: 3, perSitemap: { 'sitemap-job-market.xml': sitemapUrls } };
+  const currentSitemapSnapshot: { version: number; perSitemap: Record<string, string[]> } = {
+    version: 3,
+    perSitemap: { 'sitemap-job-market.xml': sitemapUrls },
+  };
   const previousSitemapSnapshot = structuredClone(currentSitemapSnapshot);
   fs.writeFileSync(path.join(sitemapDir, 'new-sitemap-urls.json'), JSON.stringify(currentSitemapSnapshot));
   fs.writeFileSync(path.join(sitemapDir, 'pre-deploy-sitemap-urls.json'), JSON.stringify(previousSitemapSnapshot));
@@ -148,7 +151,7 @@ function fixture() {
     });
     publisherArtifacts.push(artifact(name, digest));
   }
-  const result = validatePublisherFastGate({
+  const validate = () => validatePublisherFastGate({
     sourceRunId: SOURCE_RUN_ID,
     sourceSha: SOURCE_SHA,
     publisherRunId: PUBLISHER_RUN_ID,
@@ -164,9 +167,10 @@ function fixture() {
       ...sectionManifests.map((manifest) => manifest.manifestArtifactName),
     ],
   });
+  const result = validate();
   return {
     result, pageManifests, sectionPage, sectionManifests, sourceArtifacts, publisherArtifacts,
-    sitemapDir, currentSitemapSnapshot, previousSitemapSnapshot,
+    sitemapDir, currentSitemapSnapshot, previousSitemapSnapshot, validate,
   };
 }
 
@@ -280,6 +284,30 @@ describe('publisher fast provenance gate', () => {
 
   it('accepts complete sitemap, path, digest, and Ticino shard evidence', () => {
     expect(fixture().result).toMatchObject({ passed: true, errorCount: 0, sampleRate: 1 });
+  });
+
+  it('unions URLs across the legacy IT sitemap and per-locale canton shards', () => {
+    const f = fixture();
+    const urls = f.pageManifests.flatMap((manifest) => manifest.entries.map((entry) => entry.url));
+    f.currentSitemapSnapshot.perSitemap = {
+      'sitemap-jobs.xml': [urls[0]],
+      'sitemap-jobs-argovia-en.xml': [urls[1]],
+      'sitemap-jobs-argovia-de.xml': [urls[2]],
+      'sitemap-jobs-argovia-fr.xml': [urls[3]],
+    };
+    f.previousSitemapSnapshot.perSitemap = structuredClone(f.currentSitemapSnapshot.perSitemap);
+    fs.writeFileSync(
+      path.join(f.sitemapDir, 'new-sitemap-urls.json'),
+      JSON.stringify(f.currentSitemapSnapshot),
+    );
+
+    const result = f.validate();
+    expect(result).toMatchObject({
+      passed: true,
+      errorCount: 0,
+      sitemapUrlPopulation: urls.length,
+      pageManifestPopulation: urls.length,
+    });
   });
 
   it('accepts the IT page manifest as bound by the publisher (sitemaps ref on the publisher run)', () => {

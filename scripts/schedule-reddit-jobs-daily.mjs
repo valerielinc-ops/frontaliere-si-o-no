@@ -32,6 +32,7 @@ import { realpathSync } from 'node:fs';
 import { readFileSync, existsSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readJsonFile } from './lib/read-large-json.mjs';
 
 import {
   selectUnpostedJobs,
@@ -101,8 +102,7 @@ function loadJobs(repoRoot, log) {
       log('⚠️', `jobs.json not found at ${file}`);
       return [];
     }
-    const raw = readFileSync(file, 'utf-8');
-    const parsed = JSON.parse(raw);
+    const parsed = readJsonFile(file);
     return Array.isArray(parsed) ? parsed : [];
   } catch (err) {
     log('⚠️', `failed to read jobs.json: ${err.message}`);

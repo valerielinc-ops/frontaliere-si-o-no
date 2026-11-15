@@ -374,4 +374,33 @@ describe("jobs fast-publish HTML asset contract", () => {
     expect(renderer).toContain('src="/assets/${entryJs}"');
     expect(fastPublisher).toContain("fastLaneDistDir: distDir,");
   });
+
+  it('matches the full build active path and exits before expired-page emission', () => {
+    const job = { id: 'active-zurich-fast-parity', slug: 'active-zurich-fast-parity', canton: 'ZH' };
+    const resolveJobCanton = (candidate: { canton: string }) => candidate.canton;
+    const pathOwners = buildActiveJobPathOwners(
+      [job],
+      ACTIVE_JOB_PAGE_LOCALES,
+      resolveJobCanton,
+      localizedActiveJobSlug,
+    );
+    const fastPaths = canonicalPathsForFastLaneJob(job, {
+      buildCanonicalJobDetailPath,
+      resolveJobCanton,
+      pathOwners,
+    });
+    const fullBuildDePath = buildCanonicalJobDetailPath('de', job, job.slug, 'ZH');
+    expect(fullBuildDePath).toBe('/de/jobs-in-zurich/active-zurich-fast-parity/');
+    expect(fastPaths).toContain(fullBuildDePath);
+
+    const renderer = readFileSync(
+      new URL('../build-plugins/jobsSeoPagesPlugin.ts', import.meta.url),
+      'utf8',
+    );
+    const fastLaneExit = renderer.indexOf('if (options.fastLane) {');
+    const expiredPhase = renderer.indexOf('/* ── Expired-job soft-landing pages');
+    expect(fastLaneExit).toBeGreaterThanOrEqual(0);
+    expect(expiredPhase).toBeGreaterThan(fastLaneExit);
+    expect(renderer.slice(fastLaneExit, expiredPhase)).toMatch(/resolveJobsSeoPagesFlushed\(\);\s*return;/);
+  });
 });

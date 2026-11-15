@@ -1,4 +1,8 @@
 import { classifyProfessionLandingFeature } from './professionLandingsSections.mjs';
+import { JOB_BOARD_COMPANY_HUB_PATH_RX } from './jobBoardCompanyHubPath.mjs';
+import { JOB_BOARD_SECTION_PREFIX_SOURCE } from './jobBoardSectionPrefixes.mjs';
+
+export { JOB_BOARD_COMPANY_HUB_PATH_RX, JOB_BOARD_SECTION_PREFIX_SOURCE };
 
 /**
  * Shared canton-aware job-board section matcher.
@@ -51,15 +55,6 @@ import { classifyProfessionLandingFeature } from './professionLandingsSections.m
  * deeper, more specific buckets (blog, fuel, health, …) are checked before
  * this in every classifier and still win.
  */
-
-/**
- * Canonical prefix alternation, exported separately so callers that need to
- * CAPTURE the matched board segment (e.g. rewriting/validating an href, not
- * just testing membership) can compose their own regex around it instead of
- * copy-pasting the prefix list — keeps every consumer in lockstep with any
- * future canton prefix added here.
- */
-export const JOB_BOARD_SECTION_PREFIX_SOURCE = 'cerca-lavoro|find-jobs|trouver-emploi|jobs-in|jobs-im';
 
 /**
  * Matches the leading job-board section segment of a normalised dist path
@@ -139,18 +134,6 @@ function normalizeProfessionLandingPath(path) {
 export function isJobBoardProfessionCantonPath(normalisedPath) {
   return classifyProfessionLandingFeature(normalizeProfessionLandingPath(normalisedPath)) === 'profession-canton';
 }
-
-/**
- * Matches the company-hub segment immediately below a job-board section,
- * including both the directory index and the flat `.html` emitter output.
- * Keeping the section prefix in this shared matcher prevents page-weight
- * exceptions from accidentally covering a job-detail slug that happens to
- * start with `azienda-`/`company-`.
- */
-export const JOB_BOARD_COMPANY_HUB_PATH_RX = new RegExp(
-  `^(?:/(?:en|de|fr))?/(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*/` +
-  '(?:azienda|company|unternehmen|entreprise)-[a-z0-9][a-z0-9-]*(?:/|\\.html$|$)',
-);
 
 /**
  * Matches an evergreen employer profile path, including the directory index

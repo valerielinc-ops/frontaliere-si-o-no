@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 /**
  * Dedicated VF crawler runner.
  * Runs only VF company jobs and enforces full locale coverage for title/description.
@@ -87,7 +88,7 @@ function runBaseCrawler() {
 
 function normalizeVfLocations() {
   if (!fs.existsSync(DATA_JOBS)) return { normalized: 0, unresolved: 0, total: 0, byCanton: {} };
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const jobs = Array.isArray(raw) ? raw : [];
   let normalized = 0;
   let unresolved = 0;
@@ -133,7 +134,7 @@ function normalizeVfLocations() {
 
 function ensureSourceLang() {
   if (!fs.existsSync(DATA_JOBS)) return;
-  const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const jobs = readJsonFile(DATA_JOBS);
   if (!Array.isArray(jobs)) return;
   let changed = 0;
   for (const job of jobs) {
@@ -180,7 +181,7 @@ async function main() {
   });
   // Crawl change summary (new/updated/removed)
   {
-    const raw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+    const raw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
     const jobs = (Array.isArray(raw) ? raw : []).filter(isVfJob);
     const afterSnapshot = snapshotJobSlugs(jobs);
     const crawlDiff = computeCrawlDiff(_beforeSnapshot, afterSnapshot);
@@ -192,7 +193,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isVfJob) : [];
   writeJobsCrawlerSlice(VF_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

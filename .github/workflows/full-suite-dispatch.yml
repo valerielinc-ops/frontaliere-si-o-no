@@ -97,8 +97,6 @@ jobs:
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
-          restore-keys: |
-            assemble-jobs-${{ runner.os }}-
 
       - name: Assemble data/jobs.json
         # `data/jobs.json` è gitignored: senza questo step i test che lo leggono

@@ -7,11 +7,11 @@
  * canonical dataset is a failed audit, not a zero-logo result.
  */
 import { existsSync } from 'node:fs';
-import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { readBoundedResponseBytes } from './bounded-response-body.mjs';
 import { companyLogoKeyForJob } from './company-logo-key.mjs';
 import { isGreyGlobe, LOGO_BOT_USER_AGENT } from './google-favicon.mjs';
+import { readJsonFile } from './read-large-json.mjs';
 
 export const DEFAULT_ASSET_BASE_URL = 'https://cdn.frontaliereticino.ch';
 export const DEFAULT_FETCH_TIMEOUT_MS = 8_000;
@@ -73,7 +73,7 @@ export async function loadCanonicalJobs({ root, file, minJobs = 1 } = {}) {
 
   let parsed;
   try {
-    parsed = JSON.parse(await readFile(selected, 'utf8'));
+    parsed = readJsonFile(selected);
   } catch (error) {
     throw new Error(`Cannot parse canonical job dataset ${selected}: ${error.message}`);
   }

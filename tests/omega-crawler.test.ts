@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
@@ -10,6 +10,7 @@ import {
   parseListPage,
   parseDetailPage,
   parseJobLocation,
+  fetchPage,
   jinaSafeUrl,
   detectCategory,
   detectExperienceLevel,
@@ -21,6 +22,11 @@ const FIXTURES = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtur
 const listHtml = readFileSync(path.join(FIXTURES, 'omega-swatchgroup-list.html'), 'utf8');
 const detailHtml = readFileSync(path.join(FIXTURES, 'omega-swatchgroup-detail.html'), 'utf8');
 const nestedDivDetailHtml = readFileSync(path.join(FIXTURES, 'omega-swatchgroup-detail-nested-div.html'), 'utf8');
+
+afterEach(() => {
+  vi.unstubAllEnvs();
+  vi.unstubAllGlobals();
+});
 
 describe('OMEGA SA crawler parser', () => {
   // ── Constants ──
@@ -218,6 +224,24 @@ describe('OMEGA SA crawler parser', () => {
     it('leaves query-less URLs untouched', () => {
       expect(jinaSafeUrl('https://www.swatchgroup.com/en/job/32500'))
         .toBe('https://www.swatchgroup.com/en/job/32500');
+    });
+  });
+
+  // ── shared fetch transport ──
+  describe('fetchPage', () => {
+    it('retries a transient direct connection before returning the page', async () => {
+      vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
+      vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+      vi.stubEnv('JOBS_CRAWLER_TIMEOUT_MS', '1000');
+
+      const fetchMock = vi.fn()
+        .mockRejectedValueOnce(new TypeError('fetch failed'))
+        .mockResolvedValueOnce(new Response('<html><body>job page</body></html>', { status: 200 }));
+      vi.stubGlobal('fetch', fetchMock);
+
+      await expect(fetchPage('https://www.swatchgroup.com/en/job/32500'))
+        .resolves.toContain('job page');
+      expect(fetchMock).toHaveBeenCalledTimes(2);
     });
   });
 

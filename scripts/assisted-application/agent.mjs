@@ -30,6 +30,7 @@ import { persistLivePortalRequirements } from './lib/portal/merge-live-requireme
 import { scheduleFollowups } from '../../functions/src/assistedApplicationFollowup.js';
 import { portalNeedsPlanner, submitApplication } from './lib/submit.mjs';
 import { submissionGuard } from '../../functions/src/assistedApplicationSubmissionGuard.js';
+import { persistPreparedPhoto as persistPreparedPhotoForSubmission } from './lib/persist-prepared-photo.mjs';
 import { supersededPhotoPdf } from '../../functions/src/assistedApplicationTailoredCvPdf.js';
 import { withRegisteredCandidateEmail } from '../../functions/src/assistedApplicationDocumentIdentity.js';
 import { automationEligibility } from '../../functions/src/assistedApplicationAutomation.js';
@@ -283,6 +284,9 @@ async function main() {
       // The record of a send whose outcome may stay unknown, on the draft before the send (null: it failed
       // for certain). A dry run sends nothing.
       keepSentAttempt: dryRun ? null : (sentAttempt) => orderRef.collection('ai_drafts').doc('current').set({ sentAttempt }, { merge: true }),
+      persistPreparedPhoto: dryRun ? null : (preparedPhoto) => persistPreparedPhotoForSubmission({
+        db, orderRef, draft: submitDraft, flow: executionFlow, ...preparedPhoto,
+      }),
     });
     // Refresh an existing question's live type/catalogue before the backend
     // consumes this event. A superseded run cannot replace the current draft.

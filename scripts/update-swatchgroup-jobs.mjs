@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 /**
  * Dedicated Swatch Group crawler runner.
  * Runs only companies mapped to swatchgroup.com and enforces locale coverage.
@@ -111,7 +112,7 @@ function runBaseCrawler(companyKeys) {
 function ensureSourceLang(companyKeys) {
   if (!fs.existsSync(DATA_JOBS)) return;
   const swatchKeysSet = new Set(companyKeys.map((k) => normalizeKey(k)));
-  const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const jobs = readJsonFile(DATA_JOBS);
   if (!Array.isArray(jobs)) return;
   let changed = 0;
   for (const job of jobs) {
@@ -131,7 +132,7 @@ function logSwatchJobStats(companyKeys, beforeSnapshot = new Map()) {
     return { total: 0, byCanton: {}, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
   const swatchKeysSet = new Set(companyKeys.map((k) => normalizeKey(k)));
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const allJobs = Array.isArray(raw) ? raw : [];
 
   // All Swatch jobs (any location)
@@ -187,7 +188,7 @@ async function main() {
   if (fs.existsSync(DATA_JOBS)) {
     try {
       const swatchKeysSet = new Set(companyKeys.map((k) => normalizeKey(k)));
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+      const pre = readJsonFile(DATA_JOBS);
       _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter((j) => isSwatchJob(j, swatchKeysSet)) : []);
     } catch {}
   }
@@ -214,7 +215,7 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   // Swatchgroup is a multi-company crawler — read from assembled data/jobs.json
   // (not a single per-crawler slice) to get all sub-company jobs for slicing.
-  const _allJobsRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _allJobsRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _allJobs = Array.isArray(_allJobsRaw) ? _allJobsRaw : [];
   let _aggregateTotal = 0;
   // Sub-brands whose slice write was refused this run by a persist-time guard

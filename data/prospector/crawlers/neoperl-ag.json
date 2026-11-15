@@ -1,0 +1,23 @@
+{
+  "companyKey": "neoperl-ag",
+  "companyName": "Neoperl AG",
+  "companyHost": "jobs-switzerland-neoperl.jobportal.abaservices.ch",
+  "verifiedEmployerDomain": "neoperl.com",
+  "platform": "abaservices.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://jobs-switzerland-neoperl.jobportal.abaservices.ch/job-advertisement/b69306e2-2384-41a4-a60a-c83d5d21e762/b60e278b-fb52-95e7-9aba-84cd4844ab66"
+  ],
+  "detailTemplate": "/job-advertisement/b69306e2-2384-41a4-a60a-c83d5d21e762/b60e278b-fb52-95e7-9aba-84cd4844ab66",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "POOL"
+  ],
+  "canton": "BL",
+  "sourceLang": "it",
+  "learnedAt": "2026-11-13T13:54:39.550Z",
+  "candidateKey": "neoperl@reinach-bl"
+}

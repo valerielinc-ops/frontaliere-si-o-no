@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 import { pathToFileURL } from 'node:url';
-import { realpathSync } from 'node:fs';
+import { readFileSync, realpathSync } from 'node:fs';
 
 /**
  * check-main-ruleset-invariants.mjs — verifica che il Ruleset di `main` imponga
- * ancora il check `vitest (unit + integration)` come required status check.
+ * il check `vitest (unit + integration)` come required e non richieda più il
+ * check ritirato `portal replay gate`.
  *
  * PERCHÉ ESISTE (follow-up #6590 di #6584)
  * ----------------------------------------
@@ -13,7 +14,7 @@ import { realpathSync } from 'node:fs';
  * vede, nessun test la copre, e se qualcuno disattiva il ruleset, ne cambia il
  * target o rimuove il context dall'elenco dei required checks, il ciclo
  * autonomo continua a mergiare come prima — solo che da quel momento
- * `auto-merge-on-lgtm` può portare su `main` una PR con il check vitest rosso, e
+ * `auto-merge-on-lgtm` può portare su `main` una PR con test rossi, e
  * nessuno se ne accorge finché la produzione non si rompe.
  *
  * Il ruleset ATTIVO al 2026-09-03 (`main required CI checks`, id 21626297)
@@ -33,13 +34,14 @@ import { realpathSync } from 'node:fs';
  * Usage:
  *   node scripts/ci/check-main-ruleset-invariants.mjs
  *   node scripts/ci/check-main-ruleset-invariants.mjs --json
+ *   node scripts/ci/check-main-ruleset-invariants.mjs --rulesets-file <json> --json
  *   GH_REPO=owner/repo node scripts/ci/check-main-ruleset-invariants.mjs
  *
  * Exit code: 0 invariante rispettata · 1 violata · 2 impossibile determinare
  * (rete/credenziale) — un dubbio non è una violazione e non deve aprire alert.
  */
 
-import { VITEST_CHECK_NAME } from './lib/constants.mjs';
+import { RETIRED_PORTAL_REPLAY_GATE_CHECK_NAME, VITEST_CHECK_NAME } from './lib/constants.mjs';
 
 /** Ref di `main` nelle `conditions.ref_name.include` di un ruleset branch. */
 const MAIN_REFS = new Set(['refs/heads/main', '~DEFAULT_BRANCH', '~ALL']);
@@ -102,10 +104,24 @@ export function evaluateRulesets(rulesets) {
       contexts,
     };
   }
+  // Dal 2026-11-15 il replay sui portali è un check giornaliero, non un check di
+  // PR: nessun job pubblica più `portal replay gate`. Se il ruleset lo richiede
+  // ancora, ogni PR aspetta all'infinito un check che non arriverà.
+  if (contexts.includes(RETIRED_PORTAL_REPLAY_GATE_CHECK_NAME)) {
+    return {
+      ok: false,
+      reason: 'retired-required-check',
+      message:
+        `Il check ritirato \`${RETIRED_PORTAL_REPLAY_GATE_CHECK_NAME}\` è ancora fra i required status checks di \`main\`, ` +
+        'ma nessun workflow lo pubblica più (il replay sui portali è giornaliero): ogni PR resterebbe in attesa. ' +
+        'Rimuovilo dal ruleset. Required attuali: ' + contexts.map((context) => '`' + context + '`').join(', ') + '.',
+      contexts,
+    };
+  }
   return {
     ok: true,
     reason: 'ok',
-    message: `\`${VITEST_CHECK_NAME}\` è un required status check di \`main\`.`,
+    message: `\`${VITEST_CHECK_NAME}\` è required status check di \`main\` e il check ritirato \`${RETIRED_PORTAL_REPLAY_GATE_CHECK_NAME}\` non è più richiesto.`,
     contexts,
   };
 }
@@ -126,6 +142,15 @@ async function ghJson(path, token) {
 
 async function main() {
   const asJson = process.argv.includes('--json');
+  const fileIndex = process.argv.indexOf('--rulesets-file');
+  if (fileIndex >= 0) {
+    const filename = process.argv[fileIndex + 1];
+    if (!filename) throw new Error('--rulesets-file requires a JSON file');
+    const verdict = evaluateRulesets(JSON.parse(readFileSync(filename, 'utf8')));
+    if (asJson) console.log(JSON.stringify(verdict, null, 2));
+    else console.log(verdict.ok ? `✅ ${verdict.message}` : `❌ ${verdict.message}`);
+    process.exit(verdict.ok ? 0 : 1);
+  }
   const repo = process.env.GH_REPO || process.env.GITHUB_REPOSITORY;
   const token = process.env.GH_TOKEN || process.env.GITHUB_TOKEN || process.env.GITHUB_PAT;
   if (!repo || !token) {

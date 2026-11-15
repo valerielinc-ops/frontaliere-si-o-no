@@ -1,11 +1,12 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-posting-date.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { launchChromium } from './lib/ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from './lib/stealth-browser.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -165,17 +166,24 @@ async function waitForDetail(page) {
 }
 
 async function withBrowser(fn) {
-  const browser = await launchChromium({
-    headless: process.env.JOBS_ALTEN_HEADLESS === '1',
-    args: ['--disable-blink-features=AutomationControlled'],
-  });
-  const context = await browser.newContext({
-    userAgent:
-      process.env.JOBS_CRAWLER_USER_AGENT ||
-      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36',
-    viewport: { width: 1440, height: 1200 },
+  const headless = process.env.JOBS_ALTEN_HEADLESS === '1';
+  const args = ['--disable-blink-features=AutomationControlled'];
+  const browser = await launchStealthOrChromium({
+    purpose: 'crawler',
+    headless,
     locale: 'en-US',
+    args,
+    fallbackOptions: { headless, args },
   });
+  const context = await browser.newContext(isStealthBrowser(browser)
+    ? { viewport: null }
+    : {
+        userAgent:
+          process.env.JOBS_CRAWLER_USER_AGENT ||
+          'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36',
+        viewport: { width: 1440, height: 1200 },
+        locale: 'en-US',
+      });
   const page = await context.newPage();
   try {
     return await fn(page);
@@ -604,7 +612,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
   await writeJobsCrawlerSliceVerified(COMPANY_KEY, _sliceJobs, {
     isTargetJob,

@@ -581,13 +581,25 @@ describe('locale publish workflow wiring', () => {
     expect(String((resolver.steps as Array<Record<string, any>>)
       .find((step) => step.name === 'Resolve fail-closed locale plan')?.run))
       .toContain('--source-artifacts-file "$RUNNER_TEMP/source-artifacts.json"');
-    expect(deployJob.needs).toEqual(['resolve-publish-plan', 'resolve-publish-receipts', 'resolve-nonit-publish']);
+    expect(deployJob.needs).toEqual([
+      'resolve-publish-plan',
+      'resolve-publish-receipts',
+      'publish-nonit-shards',
+      'finalize-it-publish',
+      'resolve-nonit-publish',
+    ]);
     expect(String(deployJob.if)).toContain('outputs.allowed');
     expect(String(deployJob.if)).toContain("needs.resolve-publish-plan.outputs.it_admitted == 'true'");
     expect(String(deployJob.if)).toContain("needs.resolve-publish-receipts.result == 'success'");
     expect(String(deployJob.if)).toContain("needs.resolve-nonit-publish.outputs.allowed == 'true'");
     expect(String(deployJob.if)).not.toContain('workflow_run.conclusion');
-    expect(validateDist.needs).toEqual(['resolve-publish-plan', 'resolve-nonit-publish', 'publish-nonit-shards']);
+    expect(validateDist.needs).toEqual([
+      'resolve-publish-plan',
+      'resolve-publish-receipts',
+      'publish-nonit-shards',
+      'finalize-it-publish',
+      'resolve-nonit-publish',
+    ]);
     expect(validateDist.with.shard_artifact_run_id).toContain('github.run_id');
     expect(publish.jobs['resolve-nonit-publish'].needs)
       .toEqual(['resolve-publish-plan', 'resolve-publish-receipts', 'publish-nonit-shards', 'finalize-it-publish']);
@@ -605,11 +617,11 @@ describe('locale publish workflow wiring', () => {
     expect(publish).not.toContain('gh workflow run deploy.yml');
     expect((publish.jobs['resolve-nonit-publish'].steps as Array<Record<string, any>>)
       .find((step) => step.name === 'Checkout current publish resolver')?.with?.ref)
-      .toBe('refs/heads/main');
+      .toBe('${{ github.sha }}');
     const tailJob = publish.jobs['publish-nonit-shards'];
     expect((tailJob.steps as Array<Record<string, any>>)
       .find((step) => step.name === 'Checkout durable receipt resolver')?.with?.ref)
-      .toBe('refs/heads/main');
+      .toBe('${{ github.sha }}');
     expect(String((tailJob.steps as Array<Record<string, any>>)
       .find((step) => step.name === 'Write durable locale shard receipt')?.run))
       .toContain('node receipt-resolver/scripts/ci/publish-receipts.mjs');

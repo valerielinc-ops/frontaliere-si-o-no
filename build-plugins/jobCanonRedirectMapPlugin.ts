@@ -27,7 +27,11 @@ import {
 import { getSafeDistPageTargets, isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
 import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import { localizedActiveJobSlug } from './shared/activeJobPageSelection';
-import { clearJobCanonOrderingFields, getJobCanonOrderingFields } from './shared/jobCanonInputs';
+import {
+  clearJobCanonOrderingFields,
+  getJobCanonOrderingFields,
+  restoreJobCanonOrderingFields,
+} from './shared/jobCanonInputs';
 import {
   emitActiveJobCanonAliases,
   JOB_CANON_LOCALES,
@@ -398,11 +402,39 @@ function summarizeBytes(values: readonly number[]): { count: number; total: numb
   };
 }
 
+/** Read BUILD_JOB_CANON_ORDERING_HANDOFF_PATH and restore it; every failure names the path. */
+export function restoreJobCanonOrderingHandoffFromEnv(): void {
+  const handoffPath = process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH;
+  if (!handoffPath) {
+    throw new Error('[job-canon-redirect-map] staged SSG build requires BUILD_JOB_CANON_ORDERING_HANDOFF_PATH (the bundle ordering-fields handoff)');
+  }
+  if (!fs.existsSync(handoffPath)) {
+    throw new Error(`[job-canon-redirect-map] ordering fields handoff missing at ${handoffPath}: the bundle stage did not write it`);
+  }
+  let serialized: string;
+  try {
+    serialized = fs.readFileSync(handoffPath, 'utf8');
+  } catch (error) {
+    throw new Error(`[job-canon-redirect-map] ordering fields handoff unreadable at ${handoffPath}: ${error instanceof Error ? error.message : String(error)}`);
+  }
+  try {
+    restoreJobCanonOrderingFields(serialized);
+  } catch (error) {
+    throw new Error(`[job-canon-redirect-map] ordering fields handoff malformed at ${handoffPath}: ${error instanceof Error ? error.message : String(error)}`);
+  }
+}
+
 export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
   return {
     name: 'job-canon-redirect-map',
     apply: 'build',
     enforce: 'post',
+    // Staged build (BUILD_STAGE=ssg, the second Vite process): restore the ordering
+    // fields written by localeJobsSplitPlugin in the first process before any SSG work.
+    buildStart() {
+      if (process.env.BUILD_STAGE !== 'ssg' || process.env.BUILD_LOCALE !== 'it') return;
+      restoreJobCanonOrderingHandoffFromEnv();
+    },
     async closeBundle() {
       const distDir = path.resolve(rootDir, 'dist');
       if (!fs.existsSync(distDir)) return;
@@ -410,6 +442,16 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
       if (buildLocale !== 'it') {
         clearJobCanonOrderingFields();
         return;
+      }
+
+      let orderingFieldsById = getJobCanonOrderingFields();
+      if (!orderingFieldsById && process.env.BUILD_STAGE === 'ssg') {
+        // Second defence: buildStart normally restored it.
+        restoreJobCanonOrderingHandoffFromEnv();
+        orderingFieldsById = getJobCanonOrderingFields();
+      }
+      if (!orderingFieldsById) {
+        throw new Error('[job-canon-redirect-map] localeJobsSplitPlugin did not provide ordering fields in this Vite process');
       }
 
       let peakHeapUsed = process.memoryUsage().heapUsed;
@@ -616,10 +658,6 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             buildReservedHubSlugs,
             compareActiveJobsByStableOrder,
           } = await import('./jobsSeoPagesPlugin');
-          let orderingFieldsById = getJobCanonOrderingFields();
-          if (!orderingFieldsById) {
-            throw new Error('[job-canon-redirect-map] localeJobsSplitPlugin did not provide ordering fields in this Vite process');
-          }
           let writeIndex = 0;
           for (const row of jobs) {
             if (!row || typeof row !== 'object') continue;

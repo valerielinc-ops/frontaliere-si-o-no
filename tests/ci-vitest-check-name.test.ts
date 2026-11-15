@@ -57,6 +57,16 @@ function assembleDecision(
 }
 
 describe('tests.yml dataset assembly predicate (#B4)', () => {
+  it('skips the repository-dependent blog ledger verifier on the pre-checkout fast path', () => {
+    const start = TESTS_YML.indexOf('- name: Verify published blog cover ledger');
+    const nextStep = TESTS_YML.indexOf('\n      - name:', start + 1);
+    const ledgerVerifier = TESTS_YML.slice(start, nextStep === -1 ? TESTS_YML.length : nextStep);
+
+    expect(start).toBeGreaterThanOrEqual(0);
+    expect(ledgerVerifier).toContain("steps.body_contract.outcome != 'failure'");
+    expect(ledgerVerifier).toContain("steps.ledger_scope.outputs.ledger_only != 'true'");
+  });
+
   it('falls back to executing the assembly when classification is unresolved', () => {
     for (const input of [
       {
@@ -239,8 +249,10 @@ describe('trusted GitHub CLI process deadline (#16248)', () => {
       line.includes('timeout --kill-after=1s "${TRUSTED_GH_TIMEOUT_SECONDS:-60}s" "$TRUSTED_GH_BIN" pr review '),
     );
     // Keep the census explicit: a newly added trusted CLI call must update
-    // this contract and carry the same process deadline.
-    expect(boundedShellCalls).toHaveLength(23);
+    // this contract and carry the same process deadline. 24th: the re-review
+    // guard reads the HEAD subject to close the gate on WIP checkpoints (F7,
+    // #18684).
+    expect(boundedShellCalls).toHaveLength(24);
 
     expect(TESTS_YML).toContain("const raw = cp.execFileSync(\n                  'timeout',");
     expect(TESTS_YML).toContain("`${process.env.TRUSTED_GH_TIMEOUT_SECONDS || '60'}s`");

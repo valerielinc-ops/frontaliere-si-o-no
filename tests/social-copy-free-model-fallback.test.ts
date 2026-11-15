@@ -8,10 +8,12 @@ import { afterEach, describe, expect, it } from 'vitest';
 import {
   buildSocialCopyFallbackMessages,
   classifySocialCopyFallbackFailure,
+  fallbackPackEditorialParity,
   FREE_SOCIAL_COPY_MODEL_CANDIDATES,
   run,
   selectAvailableFreeModels,
 } from '../scripts/social-copy/generate-free-model-fallback.mjs';
+import { normalizeSocialCopyPack } from '../scripts/lib/social-copy-pack.mjs';
 
 const ROOT = path.resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const tempDirs: string[] = [];
@@ -200,6 +202,29 @@ describe('social copy free-model fallback', () => {
     expect(callOptions).toMatchObject({ model: 'gemini-test', jsonMode: true, maxRetriesPerModel: 1, recordScore: false });
     expect(Object.keys(generated).sort()).toEqual(['channels', 'editorialPlan']);
     expect(stdout.value).toContain('provider=gemini');
+    expect(stdout.value).toContain('editorial_parity=match');
+    expect(stdout.value).toContain('editorial_parity_provider=gemini');
+    expect(result.editorialParity).toMatchObject({ provider: 'gemini', status: 'match' });
+  });
+
+  it('observes stable Italian editorial parity per generation provider', () => {
+    const previousPath = path.join(ROOT, 'data/social-copy-packs/current.json');
+    const previous = JSON.parse(readFileSync(previousPath, 'utf8'));
+    const generated = normalizeSocialCopyPack({
+      editorialPlan: previous.editorialPlan,
+      channels: previous.channels,
+    }, { generatedAt: previous.generatedAt, generationProvider: 'gemini' });
+
+    expect(fallbackPackEditorialParity(generated, previous)).toMatchObject({
+      provider: 'gemini',
+      status: 'match',
+      baseline: 'current-pack-editorial-plan',
+    });
+  });
+
+  it('does not observe a raw or invalid pack as editorial parity', () => {
+    expect(() => fallbackPackEditorialParity({ generationProvider: 'gemini' }, null))
+      .toThrow('fallback pack is not normalized');
   });
 
   it('does not reserve the fallback allowance when a supplied brief is missing', async () => {

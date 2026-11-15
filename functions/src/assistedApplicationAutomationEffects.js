@@ -91,9 +91,13 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
   const draft = draftSnapshot.exists ? draftSnapshot.data() || {} : {};
   const orderSnapshot = await orderRefFor(db, orderId).get();
   const order = orderSnapshot.data() || {};
-  const { profile, answers, platformFacts } = candidateWithEdits({ order, draft, flow });
+  const { profile, answers, platformFacts, candidateAnswerDefaultSuppressionIds,
+    candidateAnswerSuppressedQuestionContracts } = candidateWithEdits({ order, draft, flow });
   const candidateQuestions = questionsForCandidate(draft.questions, profile, answers, flow?.questionAnswers, draft);
-  const formAnswers = withOperationalQuestionAnswers(candidateQuestions, answers, { locale: platformFacts?.locale, facts: platformFacts }).answers;
+  const formAnswers = withOperationalQuestionAnswers(candidateQuestions, answers, {
+    locale: platformFacts?.locale, facts: platformFacts, suppressDefaultQuestionIds: candidateAnswerDefaultSuppressionIds,
+    candidateAnswerSuppressedQuestionContracts,
+  }).answers;
   const key = automationEmailKey(effect, flow);
   const isOwner = effect.kind.startsWith('owner_');
   // Open questions and the required documents still missing (school reports, test results…).

@@ -1,11 +1,44 @@
 {
   "key": "pianorm",
   "label": "pianorm",
-  "generatedAt": "2026-11-12T21:43:46.019Z",
+  "generatedAt": "2026-11-15T09:48:54.313Z",
   "total": 3,
   "discovered": 4,
   "parsed": 3,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "pianorm",
+    "seedUrls": [
+      "https://www.pianorm.ch/jobs/"
+    ],
+    "phase": "detail",
+    "pages": 5,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://www.pianorm.ch/jobs/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pianorm.ch/job/kalkulator-verkaeufer-m-w-100-2-2-2/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pianorm.ch/job/cnc-maschinist-m-w-100/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pianorm.ch/job/projektleiter-avor-m-w-100-2-2/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.pianorm.ch/job/blindbewerbung/"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 3,
@@ -19,60 +52,15 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 8490,
-  "avgDurationMs": 8490,
+  "durationMs": 8923,
+  "avgDurationMs": 8923,
   "durationHistory": [
-    8490
+    8923
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
-    {
-      "id": "pianorm-6c0cc8f2f116",
-      "slug": "operatore-trice-di-macchine-o-specialista-della-produzione-m-f-100-pianorm-illnau",
-      "company": "pianorm",
-      "companyKey": "pianorm",
-      "companyDomain": "pianorm.ch",
-      "title": "Maschinist oder Fertigungsspezialist (m/w) 100%",
-      "location": "Illnau",
-      "canton": "ZH",
-      "url": "https://www.pianorm.ch/job/cnc-maschinist-m-w-100/",
-      "source": "pianorm Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:43:30.006Z",
-      "addressLocality": "Illnau",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8308",
-      "streetAddress": "Kempttalstrasse 21",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-03-03T14:43:03+01:00",
-      "postedDate": "2026-03-03T14:43:03+01:00",
-      "postingDateSource": "reported",
-      "applyUrl": "https://www.pianorm.ch/job/cnc-maschinist-m-w-100/",
-      "firstSeenAt": "2026-10-09T09:46:10.975Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:43:30.006Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
     {
       "id": "pianorm-717860a2d1f6",
       "slug": "project-manager-avor-m-f-100-pianorm-illnau",
@@ -85,7 +73,7 @@
       "url": "https://www.pianorm.ch/job/projektleiter-avor-m-w-100-2-2/",
       "source": "pianorm Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:43:30.006Z",
+      "crawledAt": "2026-11-15T09:48:39.401Z",
       "addressLocality": "Illnau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -108,7 +96,52 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T21:43:30.006Z",
+      "validThrough": "2026-12-15T09:48:39.401Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "pianorm-6c0cc8f2f116",
+      "slug": "operatore-trice-di-macchine-o-specialista-della-produzione-m-f-100-pianorm-illnau",
+      "company": "pianorm",
+      "companyKey": "pianorm",
+      "companyDomain": "pianorm.ch",
+      "title": "Maschinist oder Fertigungsspezialist (m/w) 100%",
+      "location": "Illnau",
+      "canton": "ZH",
+      "url": "https://www.pianorm.ch/job/cnc-maschinist-m-w-100/",
+      "source": "pianorm Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-15T09:48:39.400Z",
+      "addressLocality": "Illnau",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8308",
+      "streetAddress": "Kempttalstrasse 21",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-03-03T14:43:03+01:00",
+      "postedDate": "2026-03-03T14:43:03+01:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.pianorm.ch/job/cnc-maschinist-m-w-100/",
+      "firstSeenAt": "2026-10-09T09:46:10.975Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-15T09:48:39.400Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -130,7 +163,7 @@
       "url": "https://www.pianorm.ch/job/kalkulator-verkaeufer-m-w-100-2-2-2/",
       "source": "pianorm Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-12T21:43:30.004Z",
+      "crawledAt": "2026-11-15T09:48:39.399Z",
       "addressLocality": "Illnau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -153,7 +186,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-02T21:43:30.004Z",
+      "validThrough": "2027-02-03T09:48:39.399Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -164,5 +197,5 @@
       }
     }
   ],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
 }

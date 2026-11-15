@@ -1,0 +1,25 @@
+{
+  "companyKey": "ronda-ch-ronda-ch",
+  "companyName": "Ronda AG",
+  "companyHost": "yousty.ch",
+  "verifiedEmployerDomain": "ronda.ch",
+  "platform": "yousty.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.yousty.ch/de-CH/lehrstellen/firmen/2144960-ronda-ag"
+  ],
+  "detailTemplate": "/de-CH/lehrstellen/profile/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Polymechaniker/in EFZ, Lausen",
+    "Produktionsmechaniker/in EFZ, Lausen",
+    "Kaufmann/-frau (KV) EFZ, Lausen"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-13T13:54:36.394Z",
+  "candidateKey": "ronda"
+}

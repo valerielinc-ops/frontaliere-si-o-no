@@ -25,6 +25,7 @@ import {
 } from '../scripts/update-efg-jobs.mjs';
 import {
   assertJyskAdapterParity,
+  buildJyskCrawlerEnv,
   ensureAdapterSeedUrls as ensureJysk,
   fetchJyskJobUrls,
 } from '../scripts/update-jysk-jobs.mjs';
@@ -277,6 +278,12 @@ describe('EFG Oracle discovery invariants', () => {
 });
 
 describe('JYSK SSR discovery invariants', () => {
+  it('routes detail-page fetches through the host-scoped clean egress by default', () => {
+    expect(buildJyskCrawlerEnv({}).JOBS_CRAWLER_FETCH_PROXY).toBe('jobs.de.jysk.ch');
+    expect(buildJyskCrawlerEnv({ JOBS_CRAWLER_FETCH_PROXY: 'custom.example' }).JOBS_CRAWLER_FETCH_PROXY)
+      .toBe('custom.example');
+  });
+
   it('retries transient transport failures while preserving discovery guards', async () => {
     const marker = '<title>Switzerland (German) | JYSK Open Positions</title>';
     const complete = async () => new Response(`${marker}<a href="/offene-stellen/verkaeufer-lugano">job</a>`, { status: 200 });
@@ -493,8 +500,46 @@ describe('SBB two-source discovery invariants', () => {
     })).resolves.toMatchObject({ urls: [sbbUrl], targetJobs: 1, sourceZero: false });
     expect(fetchJina).toHaveBeenCalledWith(
       expect.stringContaining('jobfilter.results.json'),
-      expect.objectContaining({ format: 'text', timeoutMs: 1000 }),
+      expect.objectContaining({ format: 'text', accept: 'application/json', timeoutMs: 1000 }),
     );
+  });
+
+  it('unwraps the Jina JSON envelope instead of treating its content as the AEM body', async () => {
+    const aemJob = {
+      id: '1', title: 'Macchinista', links: { directlink: sbbUrl },
+      attributes: { '100': ['Bellinzona'], '110': ['Ticino (TI)'], '160': ['100%'] },
+    };
+    const fetchJina = vi.fn(async (url: string) => ({
+      ok: true,
+      status: 200,
+      text: async () => JSON.stringify({
+        data: { url, content: JSON.stringify([aemJob]) },
+      }),
+    }));
+
+    await expect(fetchSbbJobDetailUrls({
+      fetchPageImpl: async () => null,
+      fetchJinaImpl: fetchJina,
+      timeoutMs: 1000,
+    })).resolves.toMatchObject({ urls: [sbbUrl], targetJobs: 1, sourceZero: false });
+    expect(fetchJina).toHaveBeenCalledWith(
+      expect.stringContaining('jobfilter.results.json'),
+      expect.objectContaining({ accept: 'application/json', validateBody: expect.any(Function) }),
+    );
+  });
+
+  it('rejects an unverified Jina envelope without an AEM source URL', async () => {
+    const fetchJina = vi.fn(async () => ({
+      ok: true,
+      status: 200,
+      text: async () => JSON.stringify({ data: { content: '[]' } }),
+    }));
+
+    await expect(fetchSbbJobDetailUrls({
+      fetchPageImpl: async () => null,
+      fetchJinaImpl: fetchJina,
+      timeoutMs: 1000,
+    })).rejects.toThrow(/unavailable/);
   });
 
   it('fails closed on the primary AEM source, degrades the secondary login.org source on outage, and supports verified empty sources', async () => {

@@ -143,7 +143,7 @@ const ENTITY_DISCRIMINANTS: Record<string, string[]> = {
   // The env token is the correct shape; the allowlist is what has to know it.
   'rerender-article-hubs.yml': ['$INPUT_SECTION'], // one issue per section shard
   // One issue per social channel and condition. `CH` ranges over a CLOSED set
-  // of names from --ready-channels or --action-required-channels, so it says
+  // of names from --activation-required-channels or --action-required-channels, so it says
   // WHICH channel changed state — never when, never how many. The channel name
   // is the first title token so the 60-char dedup prefix keeps conditions from
   // different channels from collapsing into one issue.
@@ -154,7 +154,7 @@ const ENTITY_DISCRIMINANTS: Record<string, string[]> = {
   // issue was minted first.
   //
   // Spelled `$CH` because the value is a shell loop variable over
-  // `$READY_CHANNELS`, which the workflow hands to the step through `env:`
+  // `$ACTIVATION_REQUIRED_CHANNELS`, which the workflow hands to the step through `env:`
   // rather than interpolating `${{ }}` into the script text — the form
   // scripts/ci/check-workflow-input-injection.mjs requires.
   'social-publish-readiness-watch.yml': ['$CH'], // one issue per social channel

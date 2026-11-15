@@ -772,6 +772,21 @@ describe('approval flow', () => {
     expect(step.flow).toMatchObject({ state: 'needs_candidate_action', heldBy: ['question:q1', 'document:reports'], heldSince: T0 });
   });
 
+  it('resumes the same approved round when a held photo is now available, without a candidate email', () => {
+    const draft = { ...cleanDraft, round: 1, requiredDocuments: [{ id: 'portal_photo', label: 'Foto', required: true }] };
+    const flow = {
+      state: 'needs_candidate_action', round: 1, heldBy: ['document:portal_photo'], heldSince: T0,
+      reminderAt: T0 + HELD_REMINDERS_AFTER_MS[0], dispatch: { mode: 'submit', round: 1, attempts: 1 },
+    };
+    const documents = { portal_photo: { files: [{ key: 'assisted-application-uploads/order_fixture/doc-portal_photo-0-1234abcd.jpg', detectedType: 'jpg', size: 1234 }] } };
+
+    const step = transition(flow, { type: 'tick' }, { draft, documents, nowMs: T0 + 1 });
+
+    expect(step.flow).toMatchObject({ state: 'submitting', round: 1, heldBy: [], reminderAt: null });
+    expect(step.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'resolved_candidate_requirements' }]);
+    expect(step.effects.some((effect: any) => effect.type === 'email')).toBe(false);
+  });
+
   it('regenerates on rejection and hands over to Valerie after the third one', () => {
     let flow: any = { state: 'candidate_review', round: 1, deadlineAt: T0 + CANDIDATE_REVIEW_MS };
     for (let round = 1; round < MAX_REVIEW_ROUNDS; round += 1) {

@@ -9,6 +9,7 @@ import {
   auditIssueRouting,
   buildL11IssueContract,
   buildL11OperationalMetadata,
+  extractDataWritePaths,
   l11OperationalMetadataFinding,
   loadL11OperationalMetadata,
   cronError,
@@ -295,6 +296,40 @@ describe('technical operations audit', () => {
     expect(literalHash.filter((item: any) => item.rule === 'workflow.input-reference')).toHaveLength(1);
   });
 
+  it('non interpreta il suffisso -inputs di un job come contesto inputs', () => {
+    const source = [
+      'name: needs-suffix',
+      'on: [workflow_dispatch]',
+      'jobs:',
+      '  validate-inputs:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - run: echo ready',
+      '  report:',
+      '    needs: validate-inputs',
+      "    if: ${{ needs.validate-inputs.result == 'success' }}",
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - run: echo report',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/needs-suffix.yml', source, { root: '/repo' });
+    expect(findings.filter((item: any) => item.rule === 'workflow.input-reference')).toEqual([]);
+  });
+
+  it('mantiene osservabili i contratti dei workflow che alimentavano il report L11', () => {
+    const files = [
+      '.github/workflows/assisted-application-portal-replay.yml',
+      '.github/workflows/audit-published-dist.yml',
+      '.github/workflows/retired-jobs-archive-observer.yml',
+    ];
+    const findings = files.flatMap((file) => auditWorkflowText(
+      file,
+      fs.readFileSync(path.resolve(file), 'utf8'),
+      { root: path.resolve('.') },
+    ));
+    expect(findings).toEqual([]);
+  });
+
   it('segnala riferimenti, step executor, concurrency e scrittura dati senza check', () => {
     const source = [
       'name: broken',
@@ -427,6 +462,15 @@ describe('technical operations audit', () => {
     ].join('\n');
     const findings = auditWorkflowText('.github/workflows/redirected-write.yml', source, { root: '/repo' });
     expect(findings.filter((item: any) => item.rule === 'workflow.data-write-without-check')).toHaveLength(1);
+  });
+
+  it('non esenta una redirezione successiva al materializzare lo stesso blob HEAD', () => {
+    const run = [
+      'git show "HEAD:data/x.json" > data/x.json',
+      '> data/x.json',
+    ].join('\n');
+
+    expect(extractDataWritePaths(run, run)).toEqual(['data/x.json']);
   });
 
   it('rileva anche il path quotato in una scrittura mista', () => {

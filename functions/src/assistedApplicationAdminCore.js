@@ -17,6 +17,7 @@ import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { resolveCvLink } from './publisherApplicationsCore.js';
 import { getStripe } from './stripePublisherCore.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { sendEmailCascade } from './emailCascade.js';
 import { answerContractRequired } from './assistedApplicationAnswerConfirmation.js';
 import {
   refundSumUpTransaction,
@@ -1126,6 +1127,7 @@ async function handleMutate(db, req, adminEmail) {
     try {
       const body = await handleAutomationAdminAction(db, raw, adminEmail, {
         runEffect: runAutomationEffect,
+        sendCascade: sendEmailCascade,
         bucket: getStorage().bucket(STORAGE_BUCKET),
         requireAnswerContracts: action === 'automationSetAnswers' ? await answerContractRequired(getRemoteConfigValue) : false,
         // Read only by automationRevealAccount (portal accounts on the alias).

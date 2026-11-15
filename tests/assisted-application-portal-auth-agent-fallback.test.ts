@@ -240,7 +240,7 @@ async function run(fixture: ReturnType<typeof fakePage>, agentTurns: any[], { ac
     prompts.push(prompt);
     if (schema === AGENT_SCHEMA) {
       agentCalls.push(prompt);
-      const turn = agentTurns.shift() || { status: 'stuck', reason: 'no more turns', actions: [], advanceRef: '', submitRef: '', questions: [] };
+      const turn = agentTurns.shift() || { status: 'PARKED', reason: 'PARKED: no more turns', actions: [], advanceRef: '', submitRef: '', questions: [] };
       return typeof turn === 'function' ? turn(prompt) : turn;
     }
     // Question localization: the form is German, as is the candidate's language here.
@@ -281,20 +281,20 @@ describe('the agentic fallback on the account page', { timeout: 120_000 }, () =>
     const seen = wireSuccessFactors(fixture);
     const { step, accounts, prompts, agentCalls } = await run(fixture, [
       // The agent opens the picklist from its trigger and picks the candidate's country, nothing else.
-      (prompt: string) => turn('act', [action(refOf(prompt, 'Auswahl öffnen'), 'click')]),
-      (prompt: string) => turn('act', [
+      (prompt: string) => turn('ACT', [action(refOf(prompt, 'Auswahl öffnen'), 'click')]),
+      (prompt: string) => turn('ACT', [
         action(refOf(prompt, 'Land des Wohnorts: *'), 'select', { value: 'Schweiz', question: 'Land des Wohnorts', answer: 'Schweiz', source: 'profile' }),
       ]),
-      turn('done'),
+      turn('REACHED_FORM'),
     ]);
 
-    expect(agentCalls).toHaveLength(3);
+    expect(agentCalls).toHaveLength(4);
     expect(step.auth).toMatchObject({
       outcome: 'ok',
       privacy: 'accepted',
-      agentRecovery: { stop: 'registration_answer_unconfirmed', status: 'done', outcome: 'ok' },
+      agentRecovery: { stop: 'registration_answer_unconfirmed', status: 'REACHED_FORM', outcome: 'ok' },
     });
-    expect(step.agent).toEqual([expect.objectContaining({ hint: 'registration_incomplete', status: 'done' })]);
+    expect(step.agent).toEqual([expect.objectContaining({ hint: 'registration_incomplete', status: 'REACHED_FORM' })]);
     // One create click, by the runner, after the credential was saved; the agent pressed none.
     expect(seen).toMatchObject({ ctaClicks: 1, requests: 1 });
     expect(accounts).toEqual(['save', 'mark:created']);
@@ -307,11 +307,11 @@ describe('the agentic fallback on the account page', { timeout: 120_000 }, () =>
     const typed: string[] = [];
     fixture.element('p1').addEventListener('input', () => typed.push(fixture.element('p1').value));
     const { agentCalls } = await run(fixture, [
-      (prompt: string) => turn('act', [action(refOf(prompt, 'Auswahl öffnen'), 'click')]),
-      (prompt: string) => turn('act', [
+      (prompt: string) => turn('ACT', [action(refOf(prompt, 'Auswahl öffnen'), 'click')]),
+      (prompt: string) => turn('ACT', [
         action(refOf(prompt, 'Land des Wohnorts: *'), 'select', { value: 'Schweiz', question: 'Land des Wohnorts', answer: 'Schweiz', source: 'profile' }),
       ]),
-      turn('done'),
+      turn('REACHED_FORM'),
     ]);
     expect(agentCalls.length).toBeGreaterThan(0);
     expect(typed.filter(Boolean).length).toBeGreaterThan(0);
@@ -323,21 +323,17 @@ describe('the agentic fallback on the account page', { timeout: 120_000 }, () =>
   it('refuses the agent the account buttons and the privacy statement: only the runner presses them', async () => {
     const fixture = fakePage(SUCCESSFACTORS_REGISTRATION);
     const seen = wireSuccessFactors(fixture);
-    let refusals: string[] = [];
     const { step } = await run(fixture, [
-      (prompt: string) => turn('act', [action(refOf(prompt, 'Bewerbungskonto erstellen'), 'click')]),
-      (prompt: string) => turn('act', [action(refOf(prompt, 'Lesen und akzeptieren Sie die Datenschutzerklärung'), 'click')]),
-      (prompt: string) => {
-        refusals = (JSON.parse(prompt.slice(prompt.indexOf('{"agentPage"'), prompt.indexOf('\n\nPage snapshot:'))).agentPage.history || [])
-          .flatMap((round: any) => round.results.map((result: any) => result.error));
-        return turn('stuck');
-      },
+      (prompt: string) => turn('ACT', [action(refOf(prompt, 'Bewerbungskonto erstellen'), 'click')]),
+      (prompt: string) => turn('ACT', [action(refOf(prompt, 'Lesen und akzeptieren Sie die Datenschutzerklärung'), 'click')]),
     ]);
+    const refusals = step.agent.flatMap((agent: any) => agent.rounds.flatMap((round: any) =>
+      round.actions.map((result: any) => result.error).filter(Boolean)));
     expect(refusals).toEqual(['final_submit_reserved', 'account_action_reserved']);
     expect(seen).toMatchObject({ ctaClicks: 0, noticeClicks: 0 });
     // Nothing converged: the owner gets the original handoff, with the agent's evidence.
-    expect(step.auth).toMatchObject({ outcome: 'portal_needs_candidate', stop: 'registration_answer_unconfirmed', agentRecovery: { status: 'stuck' } });
-    expect(step.agent).toEqual([expect.objectContaining({ hint: 'registration_incomplete', status: 'stuck' })]);
+    expect(step.auth).toMatchObject({ outcome: 'portal_needs_candidate', stop: 'registration_answer_unconfirmed', agentRecovery: { status: 'ACCOUNT_STEP' } });
+    expect(step.agent).toEqual([expect.objectContaining({ hint: 'registration_incomplete', status: 'ACCOUNT_STEP' })]);
   });
 
   it('refuses the agent a reserved privacy checkbox or label as it refuses the button', () => {
@@ -367,7 +363,7 @@ describe('the agentic fallback on the account page', { timeout: 120_000 }, () =>
     ));
     const seen = wireSuccessFactors(fixture);
     const { result, step, accounts } = await run(fixture, [{
-      ...turn('needs_candidate'),
+      ...turn('NEEDS_CANDIDATE'),
       questions: [{
         question: 'Qual è il tuo numero di telefono?', applicationQuestion: 'Telefonnummer', context: '', why: 'Il portale lo richiede per creare l’account.', type: 'text',
         options: [], applicationOptions: [], optionMap: [],
@@ -376,7 +372,7 @@ describe('the agentic fallback on the account page', { timeout: 120_000 }, () =>
     }]);
     expect(result.event.type).toBe('submit_needs_candidate');
     expect(result.event.questions.map((item: any) => item.applicationQuestion)).toEqual(['Telefonnummer']);
-    expect(step.auth).toMatchObject({ outcome: 'questions', agentRecovery: { stop: 'registration_answer_unconfirmed', status: 'needs_candidate' } });
+    expect(step.auth).toMatchObject({ outcome: 'questions', agentRecovery: { stop: 'registration_answer_unconfirmed', status: 'NEEDS_CANDIDATE' } });
     // Nothing was answered for the candidate and nothing pressed: no account, no credential residue.
     expect(fixture.element('phone').value).toBe('');
     expect(seen).toMatchObject({ ctaClicks: 0 });
@@ -415,12 +411,12 @@ describe('the agentic fallback on the account page', { timeout: 120_000 }, () =>
     });
     const account = { email: 'candidate@example.test', password: 'synthetic-secret-1', status: 'created', verifiedAt: 1 };
     const { step, accounts, agentCalls } = await run(fixture, [
-      (prompt: string) => turn('act', [action(refOf(prompt, 'Verstanden'), 'click')]),
-      turn('done'),
+      (prompt: string) => turn('ACT', [action(refOf(prompt, 'Verstanden'), 'click')]),
+      turn('REACHED_FORM'),
     ], { account });
 
-    expect(step.auth).toMatchObject({ kind: 'sign_in', outcome: 'ok', agentRecovery: { stop: 'sign_in_typing_unconfirmed', status: 'done', outcome: 'ok' } });
-    expect(step.agent).toEqual([expect.objectContaining({ hint: 'sign_in_incomplete', status: 'done' })]);
+    expect(step.auth).toMatchObject({ kind: 'sign_in', outcome: 'ok', agentRecovery: { stop: 'sign_in_typing_unconfirmed', status: 'REACHED_FORM', outcome: 'ok' } });
+    expect(step.agent).toEqual([expect.objectContaining({ hint: 'sign_in_incomplete', status: 'REACHED_FORM' })]);
     expect(signIns).toBe(1);
     expect(accounts).toEqual(['mark:created']);
     for (const prompt of agentCalls) expect(prompt).not.toContain(account.password);

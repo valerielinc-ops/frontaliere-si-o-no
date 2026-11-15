@@ -21,10 +21,14 @@ const S = 'https://frontaliereticino.ch';
 describe('jobRichResultRegression', () => {
   const live = `${S}/cerca-lavoro-ticino/farmacista-chiasso/`;
   it('flags a live job page URL Inspection reports without Job postings', () => {
-    expect(jobRichResultRegression({ pageUrl: live, liveJob: true, result: { hasJobs: false } })).toMatch(/no Job postings/);
+    expect(jobRichResultRegression({ pageUrl: live, liveJob: true, result: { verdict: 'PASS', hasJobs: false } })).toMatch(/no Job postings/);
   });
-  it('does not flag a page that has the rich result, is not live, was not inspected, or is not a job detail', () => {
-    expect(jobRichResultRegression({ pageUrl: live, liveJob: true, result: { hasJobs: true } })).toBeNull();
+  it('does not flag an unindexed live page or a page that has the rich result', () => {
+    expect(jobRichResultRegression({ pageUrl: live, liveJob: true, result: { verdict: 'NEUTRAL', hasJobs: false } })).toBeNull();
+    expect(jobRichResultRegression({ pageUrl: live, liveJob: true, result: { verdict: 'PASS', hasJobs: true } })).toBeNull();
+  });
+  it('does not flag a page that is not live, was not inspected, or is not a job detail', () => {
+    expect(jobRichResultRegression({ pageUrl: live, liveJob: true, result: { verdict: 'PASS', hasJobs: true } })).toBeNull();
     expect(jobRichResultRegression({ pageUrl: live, liveJob: false, result: { hasJobs: false } })).toBeNull();
     expect(jobRichResultRegression({ pageUrl: live, liveJob: true, result: { error: 'quota' } })).toBeNull();
     expect(jobRichResultRegression({ pageUrl: `${S}/cerca-lavoro-ticino/`, liveJob: true, result: { hasJobs: false } })).toBeNull();

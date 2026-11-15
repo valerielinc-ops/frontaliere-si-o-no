@@ -1,11 +1,28 @@
 {
   "key": "a2nails-ch",
   "label": "A2 Nails Nyon",
-  "generatedAt": "2026-11-12T22:04:53.431Z",
+  "generatedAt": "2026-11-15T09:45:41.628Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "a2nails-ch",
+    "seedUrls": [
+      "https://a2nails.ch/jobs/"
+    ],
+    "phase": "listing",
+    "pages": 1,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://a2nails.ch/jobs/"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 1,
@@ -19,10 +36,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4350,
-  "avgDurationMs": 4350,
+  "durationMs": 7324,
+  "avgDurationMs": 7324,
   "durationHistory": [
-    4350
+    7324
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +57,7 @@
       "url": "https://a2nails.ch/jobs/",
       "source": "A2 Nails Nyon Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-12T22:04:21.274Z",
+      "crawledAt": "2026-11-15T09:44:57.376Z",
       "addressLocality": "Nyon",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -63,7 +80,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-12T22:04:21.274Z",
+      "validThrough": "2026-12-15T09:44:57.376Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -74,5 +91,5 @@
       }
     }
   ],
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
 }

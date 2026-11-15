@@ -57,6 +57,7 @@ function hanseisenringLocationEvidence(record = {}) {
       }
     }
   }
+  if (Array.isArray(record.workplaceLabels)) values.push(...record.workplaceLabels);
   return values.map(normalizeSpace).filter(Boolean);
 }
 
@@ -146,13 +147,16 @@ export function isHanseisenringExpectedDetailFilter({
   decision,
   descriptionSufficient,
 } = {}) {
+  const reviewedBroadWorkplace = hasHanseisenringExpectedBroadWorkplace(detail);
+  const sourceDetailIsSufficient = detail?.hasStructuredVacancy === true
+    || (reviewedBroadWorkplace && Array.isArray(detail?.workplaceLabels));
   return reason === 'geography'
     && !decision?.geography
-    && decision?.explicitlyForeign !== true
+    && (decision?.explicitlyForeign !== true || detail?.authoritativeLocationConflict === true)
     && decision?.hasDeclaredLocation === true
-    && detail?.hasStructuredVacancy === true
+    && sourceDetailIsSufficient
     && descriptionSufficient === true
-    && hasHanseisenringExpectedBroadWorkplace(detail);
+    && reviewedBroadWorkplace;
 }
 
 /* ── Fetcher guidato dalla spec ───────────────────────────────

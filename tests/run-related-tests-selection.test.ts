@@ -76,6 +76,9 @@ function select(
     cwd: root,
     encoding: 'utf8',
     maxBuffer: 8 * 1024 * 1024,
+    // A selection that does not terminate must fail this file, not hold the
+    // worker: the CI step once ran for the whole 6-hour job budget.
+    timeout: 10_000,
     env: {
       ...process.env,
       CHANGED_PATHS_FILE: changedPath,
@@ -101,6 +104,68 @@ afterEach(() => {
 });
 
 describe('run-related-tests selection contract', () => {
+  const sourceTreeLintFiles = [
+    'tests/gh-slurp-jq-guard.test.ts',
+    'tests/no-hardcoded-secrets.test.ts',
+    'tests/run-listing-created-window.test.ts',
+    'tests/workflow-app-token-capability.test.ts',
+    'tests/crawler-generation-observer-workflow.test.ts',
+    'tests/housekeeping-sparse-paths.test.ts',
+    'tests/score-ledger-persistence.test.ts',
+    'tests/undici-dispatcher-fetch-pairing.test.ts',
+    'tests/is-invoked-directly.test.ts',
+    'tests/entrypoint-guard-identity.test.ts',
+    'tests/translation-protected-tokens.test.ts',
+    'tests/myswitzerland-browser-ua-confinement.test.ts',
+    'tests/slug-write-encapsulation.test.ts',
+    'tests/resolve-issue-by-title-ratchet.test.ts',
+    'tests/gh-exec-buffer-census.test.ts',
+    'tests/seo/bing-seo-loop-sparse-closure.test.ts',
+    'tests/vite-config-import-graph.test.ts',
+    'tests/vite-config-graph-no-alias.test.ts',
+    'tests/checkout-sparse-profiles.test.ts',
+  ];
+
+  it('does not fan out source-tree lints for an unrelated scripts file', () => {
+    const root = fixture({
+      'scripts/assisted-application/portal-replay.mjs': 'export const replay = true;\n',
+      'tests/portal-replay-direct.test.ts': "import '../scripts/assisted-application/portal-replay.mjs';\n",
+      ...Object.fromEntries(sourceTreeLintFiles.map((file) => [file, 'export const guard = true;\n'])),
+    });
+    const result = select(root, ['scripts/assisted-application/portal-replay.mjs']);
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    for (const file of sourceTreeLintFiles) expect(result.stdout).not.toContain(file);
+  });
+
+  it('keeps a source-tree lint tied to the construct it guards', () => {
+    const root = fixture({
+      'scripts/ci/gh-query.mjs': "export const query = 'gh api --paginate --slurp --jq \\\".items[]\\\"';\n",
+      'tests/gh-query.test.ts': "import '../scripts/ci/gh-query.mjs';\n",
+      ...Object.fromEntries(sourceTreeLintFiles.map((file) => [file, 'export const guard = true;\n'])),
+    });
+    const result = select(root, ['scripts/ci/gh-query.mjs']);
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    expect(result.stdout).toContain('tests/gh-query.test.ts');
+    expect(result.stdout).toContain('tests/gh-slurp-jq-guard.test.ts');
+    for (const file of sourceTreeLintFiles.filter((file) => file !== 'tests/gh-slurp-jq-guard.test.ts')) {
+      expect(result.stdout).not.toContain(file);
+    }
+  });
+
+  it('keeps direct-invocation guards local instead of treating them as every scripts lint', () => {
+    const root = fixture({
+      'scripts/assisted-application/portal-replay.mjs': "if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();\n",
+      'tests/portal-replay-direct.test.ts': "import '../scripts/assisted-application/portal-replay.mjs';\n",
+      ...Object.fromEntries(sourceTreeLintFiles.map((file) => [file, 'export const guard = true;\n'])),
+    });
+    const result = select(root, ['scripts/assisted-application/portal-replay.mjs']);
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    expect(result.stdout).toContain('tests/is-invoked-directly.test.ts');
+    expect(result.stdout).toContain('tests/entrypoint-guard-identity.test.ts');
+    expect(result.stdout).not.toContain('tests/gh-slurp-jq-guard.test.ts');
+    expect(result.stdout).not.toContain('tests/checkout-sparse-profiles.test.ts');
+  });
+
   it('selects pruner subprocess safety tests for a pruner-only change, not unrelated scripts', () => {
     const prunerTests = [
       'tests/pruner-isolation.test.ts',
@@ -140,6 +205,135 @@ describe('run-related-tests selection contract', () => {
     expect(result.stdout).not.toContain('tests/unrelated.test.ts');
     expect(result.output).toContain('required=false');
     expect(result.output).not.toContain('selection_failed=true');
+  });
+
+  it('uses changed export symbols to keep direct consumers precise', () => {
+    const source = 'services/changed.mjs';
+    const root = fixture({
+      [source]: [
+        'export const impacted = 1;',
+        'export const untouched = 1;',
+        '',
+      ].join('\n'),
+      'tests/impacted.test.ts': "import { impacted } from '../services/changed.mjs'; export const observed = impacted;\n",
+      'tests/untouched.test.ts': "import { untouched } from '../services/changed.mjs'; export const observed = untouched;\n",
+    });
+    fs.writeFileSync(path.join(root, source), [
+      'export const impacted = 2;',
+      'export const untouched = 1;',
+      '',
+    ].join('\n'));
+
+    const result = select(root, [source]);
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    expect(result.stdout).toContain('tests/impacted.test.ts');
+    expect(result.stdout).not.toContain('tests/untouched.test.ts');
+  });
+
+  it('propagates a private helper change only through its owning export', () => {
+    const source = 'services/changed.mjs';
+    const root = fixture({
+      [source]: [
+        'const changedHelper = () => 1;',
+        'const untouchedHelper = () => 1;',
+        'export function impacted() { return changedHelper(); }',
+        'export function untouched() { return untouchedHelper(); }',
+        '',
+      ].join('\n'),
+      'tests/impacted.test.ts': "import { impacted } from '../services/changed.mjs'; export const observed = impacted;\n",
+      'tests/untouched.test.ts': "import { untouched } from '../services/changed.mjs'; export const observed = untouched;\n",
+    });
+    fs.writeFileSync(path.join(root, source), [
+      'const changedHelper = () => 2;',
+      'const untouchedHelper = () => 1;',
+      'export function impacted() { return changedHelper(); }',
+      'export function untouched() { return untouchedHelper(); }',
+      '',
+    ].join('\n'));
+
+    const result = select(root, [source]);
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    expect(result.stdout).toContain('tests/impacted.test.ts');
+    expect(result.stdout).not.toContain('tests/untouched.test.ts');
+  });
+
+  it('includes an anonymous default export when its private helper changes', () => {
+    const source = 'services/changed.mjs';
+    const root = fixture({
+      [source]: [
+        'const changedHelper = () => 1;',
+        'export default () => changedHelper();',
+        'export const untouched = true;',
+        '',
+      ].join('\n'),
+      'tests/default.test.ts': "import changed from '../services/changed.mjs'; export const observed = changed;\n",
+      'tests/untouched.test.ts': "import { untouched } from '../services/changed.mjs'; export const observed = untouched;\n",
+    });
+    fs.writeFileSync(path.join(root, source), [
+      'const changedHelper = () => 2;',
+      'export default () => changedHelper();',
+      'export const untouched = true;',
+      '',
+    ].join('\n'));
+
+    const result = select(root, [source]);
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    expect(result.stdout).toContain('tests/default.test.ts');
+    expect(result.stdout).not.toContain('tests/untouched.test.ts');
+  });
+
+  it('propagates a changed import through an anonymous default export', () => {
+    const source = 'services/changed.mjs';
+    const root = fixture({
+      [source]: 'export const value = 1;\n',
+      'services/intermediate.mjs': [
+        "import { value } from './changed.mjs';",
+        'export default () => value;',
+        'export const untouched = true;',
+        '',
+      ].join('\n'),
+      'tests/default.test.ts': "import changed from '../services/intermediate.mjs'; export const observed = changed;\n",
+      'tests/untouched.test.ts': "import { untouched } from '../services/intermediate.mjs'; export const observed = untouched;\n",
+    });
+    fs.writeFileSync(path.join(root, source), 'export const value = 2;\n');
+
+    const result = select(root, [source]);
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    expect(result.stdout).toContain('tests/default.test.ts');
+    expect(result.stdout).not.toContain('tests/untouched.test.ts');
+  });
+
+  it('propagates through a long private helper chain in linear time', () => {
+    // Declared in reverse dependency order: the old round-based fixed point
+    // impacted one helper per round and recompiled `\bname\b` for every
+    // (declaration, impacted name) pair, cubic in the helper count. On a
+    // large real importer that kept the CI selection step running for hours.
+    const helpers = 1500;
+    const wide = [
+      "import { seed } from './changed.mjs';",
+      ...Array.from({ length: helpers }, (_, index) => (index === helpers - 1
+        ? `const helper${index} = () => seed;`
+        : `const helper${index} = () => helper${index + 1}();`)),
+      'export const exposed = () => helper0();',
+      'export const unrelated = () => 0;',
+      '',
+    ].join('\n');
+    const source = 'services/changed.mjs';
+    const root = fixture({
+      [source]: 'export const seed = 1;\n',
+      'services/wide.mjs': wide,
+      'tests/exposed.test.ts': "import { exposed } from '../services/wide.mjs'; export const observed = exposed;\n",
+      'tests/unrelated.test.ts': "import { unrelated } from '../services/wide.mjs'; export const observed = unrelated;\n",
+    });
+    fs.writeFileSync(path.join(root, source), 'export const seed = 2;\n');
+
+    const started = Date.now();
+    const result = select(root, [source]);
+    expect(result.signal, 'selection did not terminate').toBeNull();
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    expect(result.stdout).toContain('tests/exposed.test.ts');
+    expect(result.stdout).not.toContain('tests/unrelated.test.ts');
+    expect(Date.now() - started).toBeLessThan(60_000);
   });
 
   it('scopes shared locale and concierge service roots to their owning tests', () => {
@@ -192,6 +386,36 @@ describe('run-related-tests selection contract', () => {
     expect(conciergeChange.stdout).toContain('tests/application-concierge-service.test.ts');
     expect(conciergeChange.stdout).toContain('tests/userProfile.test.ts');
     expect(conciergeChange.stdout).not.toContain('tests/AdBlockGate.test.tsx');
+  });
+
+  it('scopes shared job landing roots before they reach the app shell', () => {
+    const landingSources = [
+      'build-plugins/jobEditorialLanding.ts',
+      'build-plugins/jobIntentLanding.ts',
+    ];
+    const owningTests = [
+      'tests/job-editorial-landing.test.ts',
+      'tests/router/job-intent-routing.test.ts',
+    ];
+    const root = fixture({
+      'build-plugins/jobEditorialLanding.ts': 'export const landing = true;\n',
+      'build-plugins/jobIntentLanding.ts': 'export const intent = true;\n',
+      'services/router.ts': "import '../build-plugins/jobEditorialLanding'; import '../build-plugins/jobIntentLanding'; export const route = true;\n",
+      'components/community/JobBoard.tsx': "import '../../build-plugins/jobEditorialLanding'; export const board = true;\n",
+      'components/App.tsx': "import './community/JobBoard'; import '../services/router'; export const app = true;\n",
+      'tests/job-editorial-landing.test.ts': "import '../build-plugins/jobEditorialLanding'; import '../build-plugins/jobIntentLanding'; export const landingContract = true;\n",
+      'tests/router/job-intent-routing.test.ts': "import '../../services/router'; export const routeContract = true;\n",
+      'tests/AdBlockGate.test.tsx': "import '../components/App'; export const unrelatedUi = true;\n",
+      'tests/unrelated.test.ts': 'export const unrelated = true;\n',
+    });
+
+    for (const source of landingSources) {
+      const result = select(root, [source]);
+      expect(result.status, result.stderr || result.stdout).toBe(0);
+      for (const test of owningTests) expect(result.stdout).toContain(test);
+      expect(result.stdout).not.toContain('tests/AdBlockGate.test.tsx');
+      expect(result.stdout).not.toContain('tests/unrelated.test.ts');
+    }
   });
 
   it('selects the trusted mid-plugin equivalence suite when the shared flag facade changes', () => {
@@ -291,6 +515,39 @@ describe('run-related-tests selection contract', () => {
     expect(result.stdout).toContain('tests/full-suite-dispatch-workflow.test.ts');
     expect(result.stdout).not.toContain('tests/asset-message.test.ts');
     expect(result.output).toContain('required=false');
+  });
+
+  it('scopes workflow directory readers to the workflow family they inspect', () => {
+    const directoryReader = [
+      "import { readdirSync } from 'node:fs';",
+      "import path from 'node:path';",
+      "const workflows = path.join('.github', 'workflows');",
+      'readdirSync(workflows);',
+      'export const contract = true;',
+    ].join('\n');
+    const root = fixture({
+      '.github/workflows/tests.yml': 'name: tests\n',
+      '.github/workflows/crawler-group-01.yml': 'name: crawler group\n',
+      '.github/workflows/reconcile-expired-route-duplicates.yml': 'run: node scripts/audit-expired-at-parsable.mjs\n',
+      '.github/workflows/unrelated.yml': 'name: unrelated\n',
+      'tests/nord-anglia-crawler.test.ts': directoryReader,
+      'tests/expired-at-parsable.test.ts': directoryReader,
+      'tests/generic-workflow-directory-reader.test.ts': directoryReader,
+      'tests/unrelated.test.ts': 'export const unrelated = true;\n',
+    });
+
+    const testsWorkflow = select(root, ['.github/workflows/tests.yml']);
+    expect(testsWorkflow.stdout).not.toContain('tests/nord-anglia-crawler.test.ts');
+    expect(testsWorkflow.stdout).not.toContain('tests/expired-at-parsable.test.ts');
+    expect(testsWorkflow.stdout).not.toContain('tests/generic-workflow-directory-reader.test.ts');
+
+    const crawlerWorkflow = select(root, ['.github/workflows/crawler-group-01.yml']);
+    expect(crawlerWorkflow.stdout).toContain('tests/nord-anglia-crawler.test.ts');
+    expect(crawlerWorkflow.stdout).not.toContain('tests/expired-at-parsable.test.ts');
+
+    const expiredWorkflow = select(root, ['.github/workflows/reconcile-expired-route-duplicates.yml']);
+    expect(expiredWorkflow.stdout).toContain('tests/expired-at-parsable.test.ts');
+    expect(expiredWorkflow.stdout).not.toContain('tests/nord-anglia-crawler.test.ts');
   });
 
   it('fails fast when a source change has no statically related runnable test', () => {
@@ -500,7 +757,7 @@ describe('run-related-tests selection contract', () => {
       }
       expect(result.output).not.toContain('selection_failed=true');
     }
-  });
+  }, 30_000);
 
   it('indexes full quoted data paths precisely and ignores comment-only mentions', () => {
     const reader = 'tests/translation-data-reader.test.ts';

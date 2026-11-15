@@ -1,47 +1,57 @@
 name: Audit Published Dist (async)
 
 on:
-  workflow_run:
-    workflows:
-      - Publish to GitHub Pages (deploy + validate)
-    types: [completed]
+  workflow_dispatch:
+    inputs:
+      deploy_run_id:
+        description: 'Source build run ID whose published dist is audited'
+        required: true
+        type: string
+      shard_artifact_run_id:
+        description: 'Publisher run ID containing the published shard artifacts'
+        required: true
+        type: string
+      deploy_ref:
+        description: 'Exact source build commit containing the audit scripts'
+        required: true
+        type: string
+      audit_sample_salt:
+        description: 'Publisher run number used to rotate the audit sample'
+        required: true
+        type: string
 
 permissions:
   contents: read
   actions: read
 
 jobs:
-  source-identity:
+  validate-inputs:
     runs-on: ubuntu-latest
     timeout-minutes: 2
-    outputs:
-      source_run_id: ${{ steps.identity.outputs.source_run_id }}
-      source_sha: ${{ steps.identity.outputs.source_sha }}
     steps:
-      - name: Extract source identity from publisher run title
-        id: identity
+      - name: Validate source and publisher identity
         env:
-          RUN_TITLE: ${{ github.event.workflow_run.display_title }}
+          DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
+          SHARD_ARTIFACT_RUN_ID: ${{ inputs.shard_artifact_run_id }}
+          DEPLOY_REF: ${{ inputs.deploy_ref }}
+          AUDIT_SAMPLE_SALT: ${{ inputs.audit_sample_salt }}
         run: |
           set -euo pipefail
-          if [[ "$RUN_TITLE" =~ ^Publish\ Pages\ build\ ([0-9]+)\ @\ ([a-f0-9]{40})$ ]]; then
-            printf 'source_run_id=%s\n' "${BASH_REMATCH[1]}" >> "$GITHUB_OUTPUT"
-            printf 'source_sha=%s\n' "${BASH_REMATCH[2]}" >> "$GITHUB_OUTPUT"
-          else
-            echo "::error::unexpected publisher run title: $RUN_TITLE"
-            exit 1
-          fi
+          [[ "$DEPLOY_RUN_ID" =~ ^[0-9]+$ ]] || { echo '::error::deploy_run_id must contain only decimal digits'; exit 1; }
+          [[ "$SHARD_ARTIFACT_RUN_ID" =~ ^[0-9]+$ ]] || { echo '::error::shard_artifact_run_id must contain only decimal digits'; exit 1; }
+          [[ "$DEPLOY_REF" =~ ^[a-f0-9]{40}$ ]] || { echo '::error::deploy_ref must be a 40-character lowercase commit SHA'; exit 1; }
+          [[ "$AUDIT_SAMPLE_SALT" =~ ^[0-9]+$ ]] || { echo '::error::audit_sample_salt must contain only decimal digits'; exit 1; }
 
   report:
-    needs: [source-identity]
-    if: ${{ needs.source-identity.result == 'success' && github.event.workflow_run.conclusion != 'cancelled' }}
+    needs: [validate-inputs]
+    if: ${{ needs.validate-inputs.result == 'success' }}
     uses: ./.github/workflows/audit-dist-from-run.yml
     with:
-      deploy_run_id: ${{ needs.source-identity.outputs.source_run_id }}
-      shard_artifact_run_id: ${{ github.event.workflow_run.id }}
-      deploy_ref: ${{ needs.source-identity.outputs.source_sha }}
+      deploy_run_id: ${{ inputs.deploy_run_id }}
+      shard_artifact_run_id: ${{ inputs.shard_artifact_run_id }}
+      deploy_ref: ${{ inputs.deploy_ref }}
       audit_sample_rate: '0.25'
-      audit_sample_salt: ${{ github.event.workflow_run.run_number }}
+      audit_sample_salt: ${{ inputs.audit_sample_salt }}
       audits: >-
         audit:all,audit:hreflang,audit:max-bfs-depth,
         audit:orphan-sitemap-pages,validate:jobs-quality,

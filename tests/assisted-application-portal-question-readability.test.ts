@@ -766,8 +766,8 @@ it('names the class of a failed pre-read without copying the browser message', (
 it('accepts a generic ATS form only after a matched posting Apply control was followed', () => {
   const genericForm = 'Bewerbung\nVorname *\nE-Mail *\nhttps://ats.example/apply';
   const job = { title: 'Pflegefachperson 80%' };
-  expect(formPostingMatch(genericForm, job, { postingMatched: true })).toBe('mismatch');
-  expect(formPostingMatch(genericForm, job, { postingMatched: true, applicationEntry: true })).toBe('match');
+  expect(formPostingMatch(genericForm, job, { postingMatched: true })).toBe('unknown');
+  expect(formPostingMatch(genericForm, job, { postingMatched: true, applicationEntry: true })).toBe('unknown');
   expect(formPostingMatch('Other employer\nBewerbung', { ...job, company: 'Muster AG' }, {
     postingMatched: true, applicationEntry: true,
   })).toBe('mismatch');
@@ -1117,7 +1117,7 @@ it('pre-reads a unique external Apply link for an allowlisted ATS form', async (
   const applicationUrl = 'https://ats.example.test/apply/42';
   const formSnapshot = {
     url: applicationUrl, buttons: [], links: [], captcha: false, passwordVisible: false, errors: [],
-    text: 'Social worker application Acme AG',
+    text: 'Pflegefachfrau Gesundheit 80–100% (H/F) - Bewerbung',
     fields: [
       { id: 'question', kind: 'text', inputType: 'text', label: 'Do you have a license?', form: 0, required: true },
       { id: 'cv', kind: 'file', inputType: 'file', label: 'CV', form: 0, required: false },
@@ -1125,14 +1125,14 @@ it('pre-reads a unique external Apply link for an allowlisted ATS form', async (
   };
   const postingSnapshot = {
     url: postingUrl, buttons: [], captcha: false, passwordVisible: false, errors: [],
-    text: 'Social worker at Acme AG',
+    text: 'Pflegefachfrau Gesundheit 80–100%',
     fields: [],
-    links: [{ id: 'apply-link', text: 'Apply', href: applicationUrl, vacancyContext: 'Social worker — Acme AG', frame: 0, chrome: false }],
+    links: [{ id: 'apply-link', text: 'Apply', href: applicationUrl, vacancyContext: 'Pflegefachfrau Gesundheit 80–100%', frame: 0, chrome: false }],
   };
-  const job = { title: 'Social worker', company: 'Acme AG' };
+  const job = { title: 'Operatrice sociosanitaria' };
   expect(hasVacancySpecificPostingEvidence(postingSnapshot.text, job, {
     pageUrl: postingUrl,
-    pageTitle: 'Social worker | Rival AG',
+    pageTitle: 'Pflegefachfrau Gesundheit 80–100% | Pflegeheim Gegenteilig',
     postingUrl,
     uniqueApplicationEntryProven: true,
   })).toBe(false);
@@ -1149,13 +1149,15 @@ it('pre-reads a unique external Apply link for an allowlisted ATS form', async (
   };
   const page = {
     frames: () => [frame], url: () => state.url,
-    title: vi.fn(async () => state.url === postingUrl ? 'Social worker | Acme AG' : 'Social worker application | Acme AG'),
+    title: vi.fn(async () => state.url === postingUrl ? 'Pflegefachfrau Gesundheit 80–100%' : 'Pflegefachfrau Gesundheit 80% (H/F) - Bewerbung'),
     goto: vi.fn(async (url: string) => {
       state.url = url;
       state.snapshot = url === postingUrl ? postingSnapshot : formSnapshot;
     }),
     evaluate: vi.fn(async (evaluate: unknown) => typeof evaluate === 'function'
-      && String(evaluate).includes("querySelectorAll('h1,") ? [] : false),
+      && String(evaluate).includes("querySelectorAll('h1,")
+      ? state.url === postingUrl ? ['Pflegefachfrau Gesundheit 80–100%'] : []
+      : false),
     waitForLoadState: vi.fn(async () => {}),
     waitForTimeout: vi.fn(async () => {}),
   };
@@ -1524,6 +1526,67 @@ it('keeps deterministic German field copies when an unresolved same-language que
     { id: 'salutation', question: 'Come preferisci essere indicato/a?', applicationQuestionLocale: 'de', localizationStatus: 'translated' },
     { id: 'skills', question: 'Quali requisiti e competenze hai per questa candidatura?', applicationQuestionLocale: 'it', localizationStatus: 'same_language' },
   ]);
+});
+
+it('keeps the federal SuccessFactors German page readable when localization is unavailable', async () => {
+  const buttons = [
+    'Optionen', 'Alle Abschnitte einblenden', 'Alle Abschnitte ausblenden', 'Meine Dokumente',
+    'Meine persönlichen Informationen', 'Stellenspezifische Informationen', 'Bewerbungsprofil anzeigen',
+    'Speichern', 'Bewerben',
+  ];
+  const fields = [
+    ['* Anrede', []],
+    ['* Vorname', []],
+    ['* Nachname', []],
+    ['* E-Mail-Adresse', []],
+    ['* Strasse / Nr.', []],
+    ['* Postleitzahl', []],
+    ['* Ort', []],
+    ['* Land', ['Keine Auswahl', 'Schweiz', 'Italien', 'Deutschland', 'Frankreich']],
+    ['* Telefon', []],
+    ['* Erstsprache', ['Keine Auswahl', 'Deutsch', 'Französisch', 'Italienisch', 'Rätoromanisch', 'Englisch', 'Andere']],
+    ['Zweitsprache (bei Mehrsprachigkeit)', ['Keine Auswahl', 'Deutsch', 'Französisch', 'Italienisch', 'Rätoromanisch', 'Englisch', 'Andere']],
+    ['* Korrespondenzsprache', ['Keine Auswahl', 'Deutsch', 'Französisch', 'Italienisch']],
+    ['Herkunftskanton', ['Keine Auswahl', 'Bern', 'Tessin', 'Zürich']],
+    ['* Wie haben Sie von dieser Stelle erfahren?', ['Keine Auswahl', 'Stellenportal Bund', 'Internet/Stellenportal', 'Zeitung', 'Soziale Medien', 'Empfehlung']],
+    ['Jobsharing-Partner/-in', []],
+    ['Bemerkungen', []],
+    ['Geburtsdatum', []],
+    ['* Haben Sie die Rekrutenschule (RS) der Schweizer Armee absolviert?', ['Ja', 'Nein']],
+    ['* Haben Sie eine Unteroffiziers- oder Offiziersschule der Schweizer Armee absolviert?', ['Ja', 'Nein']],
+    ['Haben Sie einen einwandfreien Leumund (Strafregister- und Betreibungsregisterauszug, beide ohne Einträge)?', ['Ja', 'Nein']],
+  ];
+  expect(buttons).toEqual(expect.arrayContaining(['Alle Abschnitte einblenden', 'Bewerben']));
+  expect(fields.map(([label]) => label)).toContain('* Erstsprache');
+
+  const questions = fields.map(([label, options], index) => ({
+    id: `bund-${index}`,
+    question: label,
+    applicationQuestion: label,
+    type: options.length ? 'choice' : 'text',
+    options,
+    applicationOptions: options,
+  }));
+  const codex = vi.fn().mockRejectedValue(new Error('translation unavailable'));
+  const request = await portalRequirementsForCandidate({ questions, documents: [] }, {
+    candidateLocale: 'it', applicationLocale: 'de', codex,
+  });
+
+  expect(codex).not.toHaveBeenCalled();
+  expect(request.questions).toHaveLength(fields.length);
+  expect(request.questions.every((question: any) => question.localizationStatus !== 'fallback')).toBe(true);
+  expect(request.questions.find((question: any) => question.applicationQuestion.includes('Erstsprache'))).toMatchObject({
+    question: 'Lingua madre',
+    options: ['Seleziona', 'Tedesco', 'Francese', 'Italiano', 'Romancio', 'Inglese', 'Altro'],
+  });
+  expect(request.questions.find((question: any) => question.applicationQuestion.includes('Korrespondenzsprache'))).toMatchObject({
+    question: 'Lingua di corrispondenza',
+    options: ['Seleziona', 'Tedesco', 'Francese', 'Italiano'],
+  });
+  expect(request.questions.find((question: any) => question.applicationQuestion.includes('Rekrutenschule'))).toMatchObject({
+    question: 'Hai svolto la scuola reclute (SR) dell’esercito svizzero?',
+    options: ['Sì', 'No'],
+  });
 });
 
 it('does not use the same-language fast path when options are in another language', async () => {

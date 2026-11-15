@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -296,7 +297,7 @@ async function runBaseCrawler() {
 /* ── Post-processing ───────────────────────────────────────── */
 function postProcess() {
   if (!fs.existsSync(DATA_JOBS)) return;
-  const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const jobs = readJsonFile(DATA_JOBS);
   if (!Array.isArray(jobs)) return;
   let changed = false;
   const seenKeys = new Map();
@@ -339,7 +340,7 @@ async function main() {
 
   // Re-read company jobs after base crawler processing
   const companyJobs = fs.existsSync(DATA_JOBS)
-    ? (JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) || []).filter(isCompanyJob)
+    ? (readJsonFile(DATA_JOBS) || []).filter(isCompanyJob)
     : [];
   console.log(`\n🏦 Total ${COMPANY_NAME} jobs: ${companyJobs.length}`);
   for (const j of companyJobs) console.log(`  • ${j.title} (${j.location})`);

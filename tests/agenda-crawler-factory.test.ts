@@ -100,6 +100,31 @@ describe('createAgendaCrawler — crawl()', () => {
     expect(result.written).toBe(false);
   });
 
+  it('passes an explicit source-backed detail strategy through to slice merge', async () => {
+    const startDate = new Date(Date.now() + 14 * 86_400_000).toISOString().slice(0, 10);
+    const events = Array.from({ length: 20 }, (_, index) => ({
+      id: `ge-agenda:factory-${index}`,
+      title: `Listing ${index}`,
+      startDate,
+    }));
+    const failedIds = new Set(events.slice(0, 4).map((event) => event.id));
+    const crawler = createAgendaCrawler(makeConfig({
+      sourceKey: 'ge-agenda',
+      fetchImpl: async () => okResponse('<html></html>'),
+      parseDayHtml: () => events,
+      iterations: 1,
+      detailFailureStrategy: 'source-backed-listing',
+      enrichEvent: async (event) => (failedIds.has(event.id) ? null : event),
+    }));
+
+    const result = await crawler.crawl();
+
+    expect(result.written).toBe(true);
+    expect(result.detailFailureIds).toEqual([...failedIds]);
+    const written = JSON.parse(readFileSync(path.join(SLICE_DIR, 'ge-agenda.json'), 'utf8'));
+    expect(written.events.find((event: any) => event.id === events[0].id).title).toBe('Listing 0');
+  });
+
   it('merges events by id across iterations, extending endDate forward, and writes the slice', async () => {
     const fetchImpl = async () => okResponse('<html></html>');
     const parseDayHtml = (_html: string, i: number) => [

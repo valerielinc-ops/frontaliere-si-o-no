@@ -1,0 +1,24 @@
+{
+  "companyKey": "oda-gesundheit-ch",
+  "companyName": "OdA Gesundheit beider Basel",
+  "companyHost": "oda-gesundheit.ch",
+  "verifiedEmployerDomain": "oda-gesundheit.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.oda-gesundheit.ch/oda/oda-gesundheit/offene-stellen.html"
+  ],
+  "detailTemplate": "/oda/oda-gesundheit/offene-stellen/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Mehr zu den Mitarbeitervorteilen",
+    "Initiativbewerbung"
+  ],
+  "canton": "BL",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-14T13:17:05.517Z",
+  "candidateKey": "oda-gesundheit-beider-basel@munchenstein"
+}

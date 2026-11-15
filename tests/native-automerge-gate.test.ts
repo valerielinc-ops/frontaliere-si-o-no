@@ -664,7 +664,7 @@ describe('native auto-merge gate (#8512)', () => {
     });
 
     expect(result).toMatchObject({ allow: true, reviewId: 2 });
-    expect(result.reason).toMatch(/tests-only review verificata/i);
+    expect(result.reason).toMatch(/non-runtime-code\/test automatic review verificata/i);
   });
 
   it('does not require a reviewer identity for a general approval', () => {

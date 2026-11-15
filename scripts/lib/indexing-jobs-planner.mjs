@@ -139,7 +139,7 @@ export function parseSitemapUrlset(xml) {
 export function parseJobSitemapIndex(xml) {
   const locs = [...xml.matchAll(/<loc>\s*([^<\s]+)\s*<\/loc>/g)].map((m) => m[1]);
   // The expired-jobs sitemap lists pages that must NOT be URL_UPDATED.
-  return locs.filter((l) => /\/sitemap-jobs(?:-[a-z0-9-]+)?\.xml$/.test(l) && !/sitemap-jobs-expired\.xml$/.test(l));
+  return locs.filter((l) => /\/sitemap-jobs(?:-[a-z0-9-]+)?\.xml$/.test(l) && !/sitemap-jobs-expired(?:-\d+)?\.xml$/.test(l));
 }
 
 function decodeXmlEntities(s) {

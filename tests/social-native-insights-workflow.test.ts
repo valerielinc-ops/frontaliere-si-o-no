@@ -8,6 +8,19 @@ import YAML from 'yaml';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 
 describe('social native insights workflow contract', () => {
+  it('skips unrelated native lifecycle downloads in the bounded social workflows', () => {
+    for (const [name, job] of [
+      ['social-copy-experiment-config.yml', 'publish'],
+      ['social-native-insights.yml', 'collect'],
+    ]) {
+      const workflow = readFileSync(resolve(ROOT, '.github/workflows', name), 'utf8');
+      const install = YAML.parse(workflow, { logLevel: 'silent' }).jobs[job]
+        .steps.find((step: any) => step.name === 'Install dependencies');
+
+      expect(install?.run, `${name} must skip native dependency lifecycle hooks`).toBe('npm ci --ignore-scripts');
+    }
+  });
+
   it('bounds social experiment checkouts to runtime inputs instead of the generated corpus', () => {
     for (const name of ['social-copy-experiment-config.yml', 'social-native-insights.yml']) {
       const workflow = readFileSync(resolve(ROOT, '.github/workflows', name), 'utf8');

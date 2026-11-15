@@ -17,7 +17,7 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
  *  4. aggiorna UNA issue di stato a titolo stabile; apre (dedup) o chiude le
  *     issue di allarme quando un allarme compare o rientra;
  *  5. se TUTTE le condizioni sono vere e la promozione ha `--apply` e
- *     `--approve-promotion`, scrive `JOBGATE_V5_EXPERIMENT_FORCE=<vincente>` con
+ *     `--approve-promotion`, scrive `JOBGATE_V6_EXPERIMENT_FORCE=<vincente>` con
  *     scripts/experiments/jobgate-rc.mjs (etag, niente force) e apre la
  *     issue «promosso». Al giro dopo FORCE è impostato: fase `forced`, nessuna
  *     nuova pubblicazione (idempotente).
@@ -290,7 +290,7 @@ async function syncIssues({ report, state, prevIssue, alarms, decision, applied,
         'Passi per renderlo definitivo nel codice:',
         `1. In \`components/community/JobBoard.tsx\` rendere il comportamento di \`${decision.winner}\` quello di default e togliere i rami degli altri bracci.`,
         '2. Rimuovere `hooks/useJobGateExperiment.ts`, `services/jobGateExperiment.ts` e il tag `variant` nella scrittura dell\'iscritto (lasciare `services/jobGateExperimentCore.mjs` finché lo usano script e readout).',
-        '3. Togliere le chiavi `JOBGATE_V5_EXPERIMENT_*` da `functions/src/publicConfigKeys.js` e da `REMOTE_CONFIG_DEFAULTS` (`services/firebase.ts`), poi spegnere il test con `node scripts/experiments/jobgate-rc.mjs --kill --apply` DOPO il deploy.',
+        '3. Togliere le chiavi `JOBGATE_V6_EXPERIMENT_*` da `functions/src/publicConfigKeys.js` e da `REMOTE_CONFIG_DEFAULTS` (`services/firebase.ts`), poi spegnere il test con `node scripts/experiments/jobgate-rc.mjs --kill --apply` DOPO il deploy.',
         '4. Disattivare il workflow `jobgate-experiment-monitor.yml` e aggiungere la voce in `WhatsNewModal.tsx`.',
         '',
         `Numeri completi: ${statusRef}.${runUrl ? `\n\nRun: ${runUrl}` : ''}`,

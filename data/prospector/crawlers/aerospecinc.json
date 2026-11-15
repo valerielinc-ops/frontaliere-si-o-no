@@ -1,0 +1,25 @@
+{
+  "companyKey": "aerospecinc",
+  "companyName": "AeroSpec Inc",
+  "companyHost": "aerospecinc.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://aerospecinc.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Control Panel Builder I",
+    "Facilities Technician (Full Time; Chandler, AZ)",
+    "General Application",
+    "General Application for Career Fair Candidates",
+    "General Application for Interns"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-13T13:47:18.389Z",
+  "candidateKey": "aerospecinc@applytojob.com"
+}

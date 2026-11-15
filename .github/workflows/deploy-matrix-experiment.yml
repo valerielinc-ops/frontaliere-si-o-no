@@ -321,8 +321,6 @@ jobs:
         with:
           path: .cache/assemble-jobs
           key: assemble-jobs-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
-          restore-keys: |
-            assemble-jobs-${{ runner.os }}-
       - name: Assemble jobs dataset from per-crawler slices
         # assembleJobsDataset() only reads+aggregates committed per-slice
         # files; it never calls writeJobsCrawlerSlice()/the shrink/boilerplate

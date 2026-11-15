@@ -114810,6 +114810,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontalieri-disoccupati-costi-aggiuntivi': {
+    title: 'Frontalieri disoccupati: timore costi aggiuntivi per centinaia di milioni',
+    description: 'La Commissione europea ha informato Berna su modifica competenze relative a lavoratori frontalieri disoccupati, rilevante per la Svizzera per accordi bilaterali.',
+    keywords: 'frontalieri disoccupati, commissione europea, berna, accordi bilaterali, svizzera, costi aggiuntivi',
+    ogTitle: 'Frontalieri disoccupati: timore costi aggiuntivi',
+    ogDescription: 'La Commissione europea ha informato Berna su una modifica delle competenze relative ai lavoratori frontalieri disoccupati, un tema rilevante per la Svizzera in base agli accordi bilaterali.',
+    canonicalPath: '/articoli-frontaliere/frontalieri-disoccupati-costi-aggiuntivi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri disoccupati: timore costi aggiuntivi per centinaia di milioni",
+      "description": "La Commissione europea ha informato Berna su modifica competenze relative a lavoratori frontalieri disoccupati, rilevante per la Svizzera per accordi bilaterali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://openai.com/policies/terms-of-use/",
+        "copyrightNotice": "Generated media; provider terms apply.",
+        "license": "https://openai.com/policies/terms-of-use/",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "frontaliereticino.ch", "url": "https://frontaliereticino.ch/" },
+        "creditText": "frontaliereticino.ch",
+        "url": `${BASE_URL}/images/blog/article-frontalieri-disoccupati-costi-aggiuntivi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine illustrativa pertinente al tema dell’articolo"
+      },
+      "datePublished": "2026-11-13T11:43:30+00:00",
+      "dateModified": "2026-11-13T11:43:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-disoccupati-costi-aggiuntivi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

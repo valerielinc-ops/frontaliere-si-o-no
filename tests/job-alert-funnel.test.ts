@@ -88,6 +88,24 @@ describe('buildJobAlertFunnel', () => {
     expect(quota?.count).toBe(300);
   });
 
+  it('applies the cadence gate before the suppression gates (perf-plan PR 6): decayed and not-due come first', () => {
+    const labels = buildJobAlertFunnel(RUN_2026_10_30).rows.map((row) => row.label);
+    const at = (needle: string) => labels.findIndex((label) => label.includes(needle));
+    expect(at('decaduti per cadenza')).toBeLessThan(at('soppressi'));
+    expect(at('non in programma oggi')).toBeLessThan(at('soppressi'));
+    expect(at('soppressi')).toBeLessThan(at('Eleggibili oggi'));
+  });
+
+  it('counts a profile-lookup failure (before the cadence gate) as its own step and keeps the sum balanced', () => {
+    const base = { ...RUN_2026_10_30 };
+    expect(buildJobAlertFunnel(base).rows.map((row) => row.label)).not.toContain('lettura profilo di cadenza fallita');
+    const deferred = buildJobAlertFunnel({ ...base, profileDeferred: 40, notDue: base.notDue - 40 });
+    expect(deferred.rows.find((row) => row.label === 'lettura profilo di cadenza fallita')?.count).toBe(40);
+    expect(deferred.balanced).toBe(true);
+    // Senza correggere un'altra voce il conto non quadra, e il funnel lo dichiara.
+    expect(buildJobAlertFunnel({ ...base, profileDeferred: 40 }).balanced).toBe(false);
+  });
+
   it('hides the test-list step on normal runs and shows it when TARGET_EMAIL excluded alerts', () => {
     const normal = buildJobAlertFunnel(RUN_2026_10_30).rows.map((row) => row.label);
     expect(normal).not.toContain('fuori dalla lista di test');
@@ -198,7 +216,9 @@ describe('formatJobAlertFunnelMarkdown', () => {
     expect(markdown).toContain('## 📬 Funnel job alert · 2026-10-30 · LIVE');
     expect(markdown).toContain('| − in pausa | −39 |');
     expect(markdown).toContain('| = **Base attiva** | **14.305** |');
-    expect(markdown).toContain('| − soppressi (stop globale, bounce, reclamo, lista provider) | −1.392 | nessun invio finché il consenso non torna |');
+    expect(markdown).toContain('| − soppressi in programma oggi (stop globale, bounce, reclamo, lista provider) | −1.392 | nessun invio finché il consenso non torna |');
+    // Perf-plan PR 6: la cadenza precede la lettura del documento newsletter, e la nota lo dice.
+    expect(markdown).toContain('contano solo gli alert in programma oggi');
     expect(markdown).toContain('| = **Eleggibili oggi** | **2.643** |');
   });
 

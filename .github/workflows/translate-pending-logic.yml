@@ -663,10 +663,11 @@ jobs:
         if: always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && inputs.skip_translate != true && inputs.dry_run != true
         env:
           REPAIR_LANE_DEADLINE_MS: '12600000' # same 210min envelope as Phases 2a-2e.
-          # Pre-merge evidence contract: the path-triggered benchmark checks
-          # out the PR HEAD, captures this same repair population, and runs the
-          # selected Phase 2d/2e lane through its commit, statistics, handoff,
-          # and 350min cap. Keep its baseline and comparison in the PR body.
+          # Same-HEAD pre-merge evidence is a one-off measurement: dispatch
+          # translate-pending-budget-benchmark.yml with the exact PR HEAD. It
+          # captures this repair population and runs the selected Phase 2d/2e
+          # lane through commit, statistics, handoff, and the 350min cap. Keep
+          # its baseline and comparison in the PR body.
           REPAIR_LANE_MIN_REMAINING_MS: '5400000' # 90min: complete lane + bounded in-flight overhead.
         run: node scripts/translate-repair-lane-gate.mjs
 

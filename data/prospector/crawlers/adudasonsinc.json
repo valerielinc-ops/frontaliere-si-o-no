@@ -1,0 +1,25 @@
+{
+  "companyKey": "adudasonsinc",
+  "companyName": "A. Duda & Sons Inc.",
+  "companyHost": "adudasonsinc.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://adudasonsinc.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 22,
+  "sampleTitles": [
+    "Director of IT Applications",
+    "Director of Marketing",
+    "Farm Equipment Mechanic Helper",
+    "Food Safety Assistant",
+    "Housing Maintenance - Laborer"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-13T13:47:14.572Z",
+  "candidateKey": "adudasonsinc@applytojob.com"
+}

@@ -96,7 +96,7 @@ test('workflow reattests every contract source input', () => {
   }
 });
 
-test('workflow publishes through a trusted App/PAT identity, never GITHUB_TOKEN', () => {
+test('workflow pushes and merges through a trusted App/PAT identity', () => {
   const workflow = fs.readFileSync(WORKFLOW_PATH, 'utf8');
 
   assert.doesNotMatch(workflow, /GH_TOKEN:\s*\$\{\{\s*github\.token\s*\}\}/u);
@@ -105,6 +105,18 @@ test('workflow publishes through a trusted App/PAT identity, never GITHUB_TOKEN'
   assert.match(workflow, /GITHUB_PAT/u);
   assert.match(workflow, /git remote set-url origin .*\$\{PUSH_TOKEN\}/u);
   assert.match(workflow, /GH_TOKEN=\$PUSH_TOKEN/u);
+  assert.match(workflow, /git commit -m "ci: reattest crawler contract to landed main \[skip ci\]"/u);
+});
+
+test('safe reattestation PRs bypass PR workflows only after the trusted exact-head gate', () => {
+  const workflow = fs.readFileSync(WORKFLOW_PATH, 'utf8');
+  const openStep = workflow.slice(workflow.indexOf('      - name: Open or update the reattestation PR'));
+
+  assert.match(openStep, /gh pr (?:edit|create)/u);
+  assert.doesNotMatch(openStep, /PR_API_TOKEN/u);
+  assert.match(openStep, /review-test-policy\.mjs non-code-merge-check/u);
+  assert.match(openStep, /--admin --squash --delete-branch --match-head-commit "\$head_sha"/u);
+  assert.doesNotMatch(openStep, /gh pr merge[^\n]*--auto/u);
 });
 
 test('workflow verifies current artifacts against the landed source revision', () => {
@@ -125,7 +137,7 @@ test('workflow verifies the reconciled contract before publishing it', () => {
   const openStep = workflow.slice(workflow.indexOf('      - name: Open or update the reattestation PR'));
   const reattest = openStep.indexOf('reattest-crawler-contract.mjs');
   const verify = openStep.indexOf('verify-crawler-contract-provenance.mjs');
-  const add = openStep.indexOf('git add -- "$CONTRACT_PATH"');
+  const add = openStep.indexOf('git add -- "$CONTRACT_PATH"', verify);
   const push = openStep.indexOf('git push --set-upstream origin "$REATTEST_BRANCH"');
 
   assert.match(
@@ -150,4 +162,21 @@ test('workflow configures commit identity before reconciling the persistent bran
   assert.ok(merge >= 0, 'persistent branch reconciliation must merge origin/main');
   assert.ok(identity < merge, 'committer name must precede the merge');
   assert.ok(email < merge, 'committer email must precede the merge');
+});
+
+test('workflow resolves only the generated contract when persistent branch reconciliation conflicts', () => {
+  const workflow = fs.readFileSync(WORKFLOW_PATH, 'utf8');
+  const openStep = workflow.slice(workflow.indexOf('      - name: Open or update the reattestation PR'));
+  const merge = openStep.indexOf('if ! git merge --no-edit origin/main; then');
+  const conflictPaths = openStep.indexOf('conflicted_paths=$(git diff --name-only --diff-filter=U)');
+  const abort = openStep.indexOf('git merge --abort || true');
+  const resolve = openStep.indexOf('git checkout --theirs -- "$CONTRACT_PATH"');
+  const commit = openStep.indexOf('git commit --no-edit');
+
+  assert.ok(merge >= 0, 'persistent branch reconciliation must inspect merge failure');
+  assert.ok(conflictPaths > merge, 'conflict paths must be collected after merge failure');
+  assert.match(openStep, /if \[ "\$conflicted_paths" != "\$CONTRACT_PATH" \]; then/u);
+  assert.ok(abort > conflictPaths, 'unexpected conflicts must abort the merge');
+  assert.ok(resolve > conflictPaths, 'only the contract conflict may be auto-resolved');
+  assert.ok(commit > resolve, 'the resolved merge must be committed before reattestation');
 });

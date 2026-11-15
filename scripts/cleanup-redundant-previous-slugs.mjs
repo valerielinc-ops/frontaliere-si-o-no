@@ -11,6 +11,7 @@ import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
+import { readJsonFile } from './lib/read-large-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -76,7 +77,7 @@ function main() {
   // Also clean the main jobs.json
   const mainJobsPath = path.resolve(ROOT, 'data', 'jobs.json');
   if (fs.existsSync(mainJobsPath)) {
-    const mainRaw = JSON.parse(fs.readFileSync(mainJobsPath, 'utf-8'));
+    const mainRaw = readJsonFile(mainJobsPath);
     const mainJobs = Array.isArray(mainRaw) ? mainRaw : [];
     let mainRemoved = 0;
     for (const job of mainJobs) {

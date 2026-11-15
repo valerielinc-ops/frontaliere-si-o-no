@@ -3,16 +3,21 @@ import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 import { localeJobsSplitPlugin } from '../../build-plugins/localeJobsSplitPlugin';
-import { getJobCanonOrderingFields } from '../../build-plugins/shared/jobCanonInputs';
+import { clearJobCanonOrderingFields, getJobCanonOrderingFields } from '../../build-plugins/shared/jobCanonInputs';
 
 const daysAgo = (days: number): string => new Date(Date.now() - days * 86_400_000).toISOString();
 
 describe('published active job ID index', () => {
   let root = '';
+  let previousOrderingHandoffPath: string | undefined;
 
   afterEach(() => {
     if (root) fs.rmSync(root, { recursive: true, force: true });
     root = '';
+    clearJobCanonOrderingFields();
+    if (previousOrderingHandoffPath === undefined) delete process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH;
+    else process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH = previousOrderingHandoffPath;
+    previousOrderingHandoffPath = undefined;
   });
 
   it('emits a fresh, deduplicated index from exactly the published listing inventory', () => {
@@ -31,6 +36,9 @@ describe('published active job ID index', () => {
       { id: 'missing-title', title: '  ', company: 'Acme SA', canton: 'TI', location: 'Lugano' },
     ]));
 
+    previousOrderingHandoffPath = process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH;
+    const handoffPath = path.join(root, '.cache', 'job-canon-ordering-fields.json');
+    process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH = handoffPath;
     (localeJobsSplitPlugin(root).closeBundle as () => void)();
     const index = JSON.parse(fs.readFileSync(path.join(root, 'dist/data/jobs-active-ids.json'), 'utf8'));
 
@@ -46,6 +54,12 @@ describe('published active job ID index', () => {
       datePosted: active.datePosted,
       firstSeenAt: active.firstSeenAt,
     });
+    const handoff = JSON.parse(fs.readFileSync(handoffPath, 'utf8')) as Array<[string, Record<string, unknown>]>;
+    expect(handoff).toContainEqual(['active-job-1', {
+      datePosted: active.datePosted,
+      firstSeenAt: active.firstSeenAt,
+    }]);
+    expect(handoff).toContainEqual(['slug-only-job', {}]);
     const detail = JSON.parse(fs.readFileSync(path.join(root, 'dist/data/job-detail/active-job-1.json'), 'utf8'));
     expect(detail.url).toBe(active.url);
   });

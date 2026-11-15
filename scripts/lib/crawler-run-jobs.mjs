@@ -1,4 +1,5 @@
 import fs from 'node:fs';
+import { readJsonFile } from './read-large-json.mjs';
 
 /**
  * Read the jobs the CURRENT run has merged, from its own scratch working set.
@@ -39,7 +40,7 @@ import fs from 'node:fs';
 export function readCurrentRunJobs(dataJobsPath) {
   if (!dataJobsPath || !fs.existsSync(dataJobsPath)) return [];
   try {
-    const raw = JSON.parse(fs.readFileSync(dataJobsPath, 'utf-8'));
+    const raw = readJsonFile(dataJobsPath);
     return Array.isArray(raw) ? raw : [];
   } catch {
     return [];

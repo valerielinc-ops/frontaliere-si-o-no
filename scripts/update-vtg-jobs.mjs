@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 /**
  * Dedicated Swiss Armed Forces (VTG) crawler runner.
  *
@@ -429,7 +430,7 @@ function runBaseCrawler() {
 
 function ensureSourceLang() {
   if (!fs.existsSync(DATA_JOBS)) return;
-  const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const jobs = readJsonFile(DATA_JOBS);
   if (!Array.isArray(jobs)) return;
   let changed = 0;
   for (const job of jobs) {
@@ -458,7 +459,7 @@ function ensureSourceLang() {
  */
 async function enrichVtgDescriptionsFromDetailPages(seedMetaByUrl = {}) {
   if (!fs.existsSync(DATA_JOBS)) return;
-  const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const jobs = readJsonFile(DATA_JOBS);
   if (!Array.isArray(jobs)) return;
   const seedMetaById = new Map(Object.entries(seedMetaByUrl || {})
     .map(([url, meta]) => [extractStableJobId(url), meta])
@@ -556,7 +557,7 @@ function logStats(beforeSnapshot = new Map()) {
     console.log('ℹ️ jobs.json not found — no stats available.');
     return { total: 0 };
   }
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const raw = readJsonFile(DATA_JOBS);
   const allJobs = Array.isArray(raw) ? raw : [];
   const jobs = allJobs.filter(isVtgJob);
   const byCanton = new Map();
@@ -641,7 +642,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isVtgJob) : [];
   writeJobsCrawlerSlice(VTG_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

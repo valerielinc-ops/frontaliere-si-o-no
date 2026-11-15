@@ -221,11 +221,12 @@ describe('automatic recovery after a portal fix', () => {
     expect(store.read(base).automationDueAt).toBeNull();
   });
 
-  it.each(['portal:account_create_unanswered', 'portal:privacy_not_accepted', 'portal:upload_failed', 'portal:cv_upload_failed', 'portal:question_label_unreadable', 'portal:portal_choice_not_registered'])('recovers a fixed portal stop only with pre-click failed proof: %s', async reason => {
+  it.each(['portal:account_create_unanswered', 'portal:privacy_not_accepted', 'portal:upload_failed', 'portal:cv_upload_failed', 'portal:question_label_unreadable', 'portal:portal_choice_not_registered', 'portal:posting_mismatch'])('recovers a fixed portal stop only with pre-click failed proof: %s', async reason => {
     const store = fixture();
     store.docs.set(`${base}/automation/flow`, { ...store.read(`${base}/automation/flow`), heldBy: [reason] });
     const ctx = { db: store.db, version, apply: true, nowMs: now, isEnabled: async () => true };
     expect(await reconcilePortalCode(ctx)).toMatchObject({ queued: 1 });
+    expect(await reconcilePortalCode(ctx)).toMatchObject({ eligible: 0, queued: 0 });
     const ambiguous = fixture();
     ambiguous.docs.set(`${base}/automation/flow`, { ...ambiguous.read(`${base}/automation/flow`), heldBy: [reason] });
     ambiguous.docs.set(`${base}/automation/submission`, { r1: { state: 'failed', channel: 'portal', clickedAt: now, releasedAt: now, confirmedNotSent: false } });

@@ -259,6 +259,19 @@ export function matchesJobIntent(job: JobLike, intentKey: JobIntentKey): boolean
   return INTENT_MATCHERS[intentKey](job);
 }
 
+/** Count indexable intent candidates without constructing a landing model. */
+export function countJobIntentLandingMatches(
+  jobs: readonly JobLike[],
+  intentKey: JobIntentKey,
+  canton: string = 'TI',
+): number {
+  let count = 0;
+  for (const job of jobs) {
+    if (resolveJobCanton(job) === canton && matchesJobIntent(job, intentKey)) count++;
+  }
+  return count;
+}
+
 export type JobIntentLandingModel = {
   kind: 'intent';
   intentKey: JobIntentKey;

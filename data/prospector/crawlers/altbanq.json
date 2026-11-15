@@ -1,0 +1,24 @@
+{
+  "companyKey": "altbanq",
+  "companyName": "altbanq",
+  "companyHost": "altbanq.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://altbanq.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Business Development",
+    "Executive Assistant to the CEO",
+    "Senior Credit Analyst",
+    "Treasury & Operations Associate"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-14T13:06:36.899Z",
+  "candidateKey": "altbanq@applytojob.com"
+}

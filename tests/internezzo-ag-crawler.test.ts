@@ -24,8 +24,20 @@ describe('Internezzo AG crawler parser', () => {
       expect(isInternezzoAgJob({ company: 'Internezzo AG' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isInternezzoAgJob({ url: 'https://link.ostendis.com/jobs/123' })).toBe(true);
+    it('matches by employer-specific Ostendis publication', () => {
+      expect(isInternezzoAgJob({
+        companyKey: 'other',
+        company: 'Other',
+        url: 'https://link.ostendis.com/publication/buchhaltungs-und-office-allrounder-in/b5iri3n0gom4x6gveta6dkaeckzck3p6ydjk6cporphkjkgqt30kpdiz660qdab3',
+      })).toBe(true);
+    });
+
+    it('rejects unrelated jobs on the shared Ostendis host', () => {
+      expect(isInternezzoAgJob({
+        companyKey: 'other',
+        company: 'Other',
+        url: 'https://link.ostendis.com/publication/other-employer-role/id',
+      })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {

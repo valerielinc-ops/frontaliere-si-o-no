@@ -53,6 +53,20 @@ describe('Locarno Film Festival crawler parser', () => {
     expect(jobs[0].applyUrl).toBe(detailUrl);
   });
 
+  it('rescues an unmarked empty listing before failing closed', async () => {
+    runSpecInProduction.mockResolvedValueOnce([]);
+
+    await expect(fetchAllLocarnoFilmFestivalJobs()).resolves.toEqual([]);
+
+    expect(runSpecInProduction).toHaveBeenCalledWith(
+      expect.objectContaining({
+        browserRescue: true,
+        rescueOnEmptyListing: true,
+        emptyListingOutcome: 'anti_bot_block',
+      }),
+    );
+  });
+
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(LOCARNO_FILM_FESTIVAL_KEY).toBe('locarno-film-festival');

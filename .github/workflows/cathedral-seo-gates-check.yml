@@ -269,6 +269,19 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
+      # The gate's validators stay pinned to the publisher source SHA, but the
+      # shared artifact resolver is workflow control-plane code. Keep it on
+      # main so an old build cannot reintroduce a stale publisher identity
+      # contract while this gate is replaying a historical dist.
+      - name: Checkout current artifact resolver
+        uses: actions/checkout@v7
+        with:
+          ref: refs/heads/main
+          path: current-artifact-resolver
+          sparse-checkout: |
+            /.github/actions/fetch-pages-artifact/
+          sparse-checkout-cone-mode: false
+
       # Free disk before dist/ lands. This gate no longer BUILDS dist
       # (issue #5169 — see the replay steps below), but it still materialises
       # the whole logical site: the github-pages tarball plus every locale and
@@ -335,7 +348,7 @@ jobs:
       # they need a dist tree, just not one built here.
       - name: Resolve + download the deployed dist (github-pages artifact)
         id: pages
-        uses: ./.github/actions/fetch-pages-artifact
+        uses: ./current-artifact-resolver/.github/actions/fetch-pages-artifact
         with:
           # Empty on the schedule, set by the publisher or operator when pinned. The
           # walk-back this gate used to carry inline — client-side created_at

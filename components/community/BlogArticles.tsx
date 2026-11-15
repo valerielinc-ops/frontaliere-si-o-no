@@ -2893,7 +2893,9 @@ function BlogArticlesContent({
   data-house="article-atf"
   data-ft-house-blocker-only="true"
   data-ft-house-height={AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight}
- />
+ >
+  <div data-ft-house-google="" />
+ </div>
  )}
 
  {/* Mobile TOC — collapsible (hidden on xl where it shows in right rail) */}

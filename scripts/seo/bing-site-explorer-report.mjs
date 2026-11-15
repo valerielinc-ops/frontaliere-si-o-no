@@ -24,7 +24,6 @@ import {
   templateIndexFor,
 } from './bing-template-inventory.mjs';
 import {
-  BING_ACTIONABLE_FINDING_CODES,
   BING_FRONTIER_FINDING_DEFINITIONS,
   BING_META_DESCRIPTION_TOO_SHORT,
   BING_TITLE_TOO_LONG,
@@ -33,8 +32,6 @@ import {
 
 // Re-exported so callers of the report module keep a single import.
 export { writeJsonStreaming };
-
-const ACTIONABLE_CODES = new Set(BING_ACTIONABLE_FINDING_CODES);
 
 // The report job has a 15-minute Actions timeout. Leave room for artifact
 // downloads, summary serialization and issue mutation after the rescue pass.
@@ -78,6 +75,10 @@ function mergeCounters(target, source) {
 }
 
 function ensureParent(filePath) { mkdirSync(dirname(resolve(filePath)), { recursive: true }); }
+
+function isReportActionableFinding(item) {
+  return isBingActionableCode(item?.code) && item?.frontierAttribution?.status !== 'reconciled';
+}
 
 export function readPartitionReports(reportsDir, prefix = 'partition-') {
   return readdirSync(resolve(reportsDir))
@@ -341,7 +342,13 @@ export function aggregateCrawlReports(reports, manifest = null, options = {}) {
     if (reason === 'crawl') unverified.push(url);
   }
   const findings = [...findingMap.values()].sort((a, b) => `${a.scope}\u0000${a.code}${a.url}`.localeCompare(`${b.scope}\u0000${b.code}${b.url}`));
-  const actionableFindings = findings.filter((item) => isBingActionableCode(item.code));
+  const frontierScope = scopes.find((scope) =>
+    (scope.manifest?.kind || (scope.name === 'sitemap' ? 'sitemap' : 'discovered-frontier')) === 'discovered-frontier');
+  const frontierAttribution = buildFrontierAttribution(findings, {
+    frontierManifest: frontierScope?.manifest || null,
+    sitemapManifest: primary.manifest || manifest || null,
+  });
+  const actionableFindings = findings.filter(isReportActionableFinding);
   const scopeSummaries = scopes.map((scope) => {
     const kind = scope.manifest?.kind || (scope.name === 'sitemap' ? 'sitemap' : 'discovered-frontier');
     const scopeFindings = findings.filter((item) => item.scope === kind);
@@ -349,7 +356,7 @@ export function aggregateCrawlReports(reports, manifest = null, options = {}) {
     const scopedActionableCodeCounts = {};
     for (const item of scopeFindings) {
       increment(scopedCodeCounts, item.code);
-      if (isBingActionableCode(item.code)) increment(scopedActionableCodeCounts, item.code);
+      if (isReportActionableFinding(item)) increment(scopedActionableCodeCounts, item.code);
     }
     const structural = {
       name: scope.name,
@@ -362,19 +369,13 @@ export function aggregateCrawlReports(reports, manifest = null, options = {}) {
     return {
       ...structural,
       findingCount: scopeFindings.length,
-      actionableCount: scopeFindings.filter((item) => isBingActionableCode(item.code)).length,
-      informativeCount: scopeFindings.filter((item) => !isBingActionableCode(item.code)).length,
+      actionableCount: scopeFindings.filter(isReportActionableFinding).length,
+      informativeCount: scopeFindings.filter((item) => !isReportActionableFinding(item)).length,
       codeCounts: scopedCodeCounts,
       actionableCodeCounts: scopedActionableCodeCounts,
     };
   });
   const templateInventory = buildTemplateInventory(actionableFindings);
-  const frontierScope = scopes.find((scope) =>
-    (scope.manifest?.kind || (scope.name === 'sitemap' ? 'sitemap' : 'discovered-frontier')) === 'discovered-frontier');
-  const frontierAttribution = buildFrontierAttribution(findings, {
-    frontierManifest: frontierScope?.manifest || null,
-    sitemapManifest: primary.manifest || manifest || null,
-  });
   return {
     schemaVersion: CRAWLER_SCHEMA_VERSION,
     checkedAt: new Date().toISOString(),
@@ -428,8 +429,9 @@ function scopeTitle(kind) {
   return kind === 'sitemap' ? 'Sitemap' : 'Frontiera interna';
 }
 
-function findingClass(code) {
+function findingClass(code, { actionable = null } = {}) {
   const definition = BING_FRONTIER_FINDING_DEFINITIONS[code];
+  if (actionable === false && isBingActionableCode(code)) return 'riconciliato';
   if (definition) return definition.actionable ? 'azionabile' : 'informativo';
   return isBingActionableCode(code) ? 'azionabile' : 'informativo';
 }
@@ -446,7 +448,12 @@ function templateLabel(table, index) {
 }
 
 export function buildIssueBody(summary, { maxSamples = 80, artifactUrl = '' } = {}) {
-  const actionableFindings = (summary.findings || []).filter((item) => isBingActionableCode(item.code));
+  const actionableFindings = (summary.findings || []).filter(isReportActionableFinding);
+  const actionableByRoot = new Map();
+  for (const item of actionableFindings) {
+    const root = item.root || folderFor(item.url);
+    actionableByRoot.set(root, (actionableByRoot.get(root) || 0) + 1);
+  }
   const scopeSummaries = summary.scopeSummaries || (summary.scopes || []).map((scope) => ({
     ...scope,
     findingCount: 0,
@@ -482,7 +489,8 @@ export function buildIssueBody(summary, { maxSamples = 80, artifactUrl = '' } = 
       '|---|---|---:|---|',
     );
     for (const [code, count] of Object.entries(scope.codeCounts || {}).sort((a, b) => b[1] - a[1])) {
-      lines.push(`| \`${code}\` | ${findingClass(code)} | ${count} | ${findingReason(code)} |`);
+      const codeActionable = Number(scope.actionableCodeCounts?.[code] || 0);
+      lines.push(`| \`${code}\` | ${findingClass(code, { actionable: codeActionable > 0 || !isBingActionableCode(code) })} | ${count} | ${findingReason(code)} |`);
     }
   }
 
@@ -503,7 +511,12 @@ export function buildIssueBody(summary, { maxSamples = 80, artifactUrl = '' } = 
     );
     for (const row of frontierAttribution.rows || []) {
       const samples = (row.samples || []).map(([from, to]) => `\`${from}\` → \`${to}\``).join('<br>') || '—';
-      lines.push(`| ${templateLabel(table, row.referrerTemplate)} | ${templateLabel(table, row.targetTemplate)} | \`${row.code}\` | ${findingClass(row.code)} | ${row.findingCount} | ${samples} |`);
+      const rowClass = row.actionableCount > 0
+        ? findingClass(row.code)
+        : row.reconciledCount > 0
+          ? findingClass(row.code, { actionable: false })
+          : findingClass(row.code);
+      lines.push(`| ${templateLabel(table, row.referrerTemplate)} | ${templateLabel(table, row.targetTemplate)} | \`${row.code}\` | ${rowClass} | ${row.findingCount} | ${samples} |`);
     }
   }
   const templateInventory = summary.templateInventory;
@@ -541,9 +554,7 @@ export function buildIssueBody(summary, { maxSamples = 80, artifactUrl = '' } = 
   lines.push('', '### Root del sito', '', '| Root | URL | 4xx/5xx | Finding |', '|---|---:|---:|---:|');
   for (const [root, stats] of Object.entries(summary.folderStats).sort((a, b) => b[1].checked - a[1].checked)) {
     const errors = Object.entries(stats.statuses).filter(([status]) => Number(status) >= 400 || Number(status) === 0).reduce((total, [, count]) => total + count, 0);
-    const findings = Object.entries(stats.findings)
-      .filter(([code]) => ACTIONABLE_CODES.has(code))
-      .reduce((total, [, count]) => total + count, 0);
+    const findings = actionableByRoot.get(root) || 0;
     lines.push(`| \`${root}\` | ${stats.checked} | ${errors} | ${findings} |`);
   }
   if (Object.keys(summary.excludedDiscoveryCounts || {}).length > 0) {

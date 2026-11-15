@@ -162,6 +162,7 @@ const entryContext = {
   postingUrl,
   applyUrl: postingUrl,
   allowSingleExternalApplicationEntry: true,
+  selectedPostingIsApplicationUrl: true,
   job: { title: role, company: 'Helsana Versicherungen AG' },
 };
 

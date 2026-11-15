@@ -1,19 +1,8 @@
 name: Translate Pending Budget Benchmark
 
 on:
-  pull_request:
-    paths:
-      - .github/workflows/translate-pending-logic.yml
-      - .github/workflows/translate-pending-budget-benchmark.yml
-      - .github/actions/ci-npm-setup/action.yml
-      - scripts/ci/translate-pending-budget-benchmark.mjs
-      - scripts/translate-repair-lane-gate.mjs
-      - scripts/fix-untranslated-titles.mjs
-      - scripts/fix-untranslated-descriptions.mjs
-      - scripts/lib/git-commit-data.sh
-      - scripts/log-translation-stats.mjs
-      - scripts/regenerate-slugs-by-locale.mjs
-      - scripts/validate-translation-completeness.mjs
+  # The full lane can run for hours. Dispatch against the exact SHA when
+  # same-HEAD budget evidence is needed; do not rerun it on every PR update.
   workflow_dispatch:
     inputs:
       source_ref:
@@ -40,7 +29,6 @@ permissions:
 
 jobs:
   benchmark:
-    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     timeout-minutes: 350
     env:
@@ -48,7 +36,7 @@ jobs:
       TRANSLATE_RUN_CLOCK_REQUIRED: '1'
       BENCHMARK_PHASE: ${{ inputs.phase || 'descriptions' }}
       BENCHMARK_MAX_CANDIDATES: ${{ inputs.max_candidates || '2000' }}
-      BENCHMARK_SOURCE_REF: ${{ inputs.source_ref || github.event.pull_request.head.sha || github.sha }}
+      BENCHMARK_DISPATCH_REF: ${{ inputs.source_ref || github.sha }}
       BENCHMARK_BASELINE_RUN: '42348235004'
       BENCHMARK_BASELINE_LANE_MINUTES: '73'
       BENCHMARK_BASELINE_NOTE: 'Historical Phase 2e lane duration; the downstream persistence queue did not complete before the 350min cap.'
@@ -59,7 +47,7 @@ jobs:
         uses: actions/checkout@v7
         with:
           repository: valerielinc-ops/frontaliere-si-o-no
-          ref: ${{ inputs.source_ref || github.event.pull_request.head.sha || github.sha }}
+          ref: ${{ inputs.source_ref || github.sha }}
           fetch-depth: 50
           persist-credentials: false
 
@@ -71,7 +59,7 @@ jobs:
       - name: Initialize benchmark report
         env:
           BENCHMARK_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-        run: node scripts/ci/translate-pending-budget-benchmark.mjs --init --phase "$BENCHMARK_PHASE" --source-ref "$BENCHMARK_SOURCE_REF" --run-url "$BENCHMARK_RUN_URL" --report "$BENCHMARK_REPORT"
+        run: node scripts/ci/translate-pending-budget-benchmark.mjs --init --phase "$BENCHMARK_PHASE" --source-ref "$BENCHMARK_DISPATCH_REF" --run-url "$BENCHMARK_RUN_URL" --report "$BENCHMARK_REPORT"
 
       - name: Prepare Firebase credentials for Remote Config
         env:

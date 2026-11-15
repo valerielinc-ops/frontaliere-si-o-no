@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 /**
  * Dedicated ALDI Suisse crawler runner.
  *
@@ -331,7 +332,7 @@ async function main() {
     deriveSlug: deriveLocalizedSlug,
   });
 
-  const finalJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const finalJobs = readJsonFile(DATA_JOBS);
   const aldiJobs = Array.isArray(finalJobs) ? finalJobs.filter(isAldiJob) : [];
 
   console.log(`\n\ud83d\udcca === ALDI Suisse Job Stats ===`);

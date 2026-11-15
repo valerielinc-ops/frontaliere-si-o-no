@@ -564,6 +564,43 @@ describe('guard-data-integrity — main() detects a catastrophic shrink', () => 
       expect((await runGuard('{"jobs":[]}')).map((v) => v.file)).toEqual([ACTIVE]);
     });
 
+    it('reads the paired archive across its shards (scripts/lib/expired-slice-store.mjs)', async () => {
+      // The monolith stopped growing past the shard target: jobs 3 and 4 were
+      // archived into `<key>.shard-001.json` by the same push.
+      const SHARD = 'data/jobs/expired/by-crawler/convit-holding.shard-001.json';
+      const run = (shardRaw: string) => {
+        execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+          if (args[0] === 'merge-base') return '';
+          if (args[0] === 'diff') return `${ACTIVE}\n`;
+          if (args[0] === 'ls-tree') {
+            return 'convit-holding.json\nconvit-holding.shard-001.json\nconvit-holding-x.json\nother.json\n';
+          }
+          if (args[0] === 'cat-file' && args[1] === '-s') {
+            const ref = args[2].split(':')[0];
+            return ref === BEFORE ? '1620353' : '191884';
+          }
+          if (args[0] === 'cat-file' && args[1] === 'blob') {
+            const [ref, file] = args[2].split(':');
+            if (file === EXPIRED) return JSON.stringify([archived(2)]);
+            if (file === SHARD) return shardRaw;
+            if (file.startsWith('data/jobs/expired/')) throw new Error(`unexpected archive read ${file}`);
+            return ref === BEFORE ? previous : next;
+          }
+          return '';
+        });
+        const writeSpy = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+        return import('../scripts/ci/guard-data-integrity.mjs').then(({ main }) => {
+          main();
+          const written = writeSpy.mock.calls.map((c) => c[0]).join('');
+          writeSpy.mockRestore();
+          return JSON.parse(written) as Array<{ file: string }>;
+        });
+      };
+      expect(await run(JSON.stringify([archived(3), archived(4)]))).toEqual([]);
+      // A removed job archived nowhere still fails, shards or not.
+      expect((await run(JSON.stringify([archived(3)]))).map((v) => v.file)).toEqual([ACTIVE]);
+    });
+
     describe('when the same push also publishes new jobs (crawler run, convit-holding 2026-09-27)', () => {
       // A crawler archives its dead postings and writes the new ones in the
       // same commit: the next slice is no longer a subset of the previous one.

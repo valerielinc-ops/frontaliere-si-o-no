@@ -190,6 +190,15 @@ describe('parseListingPage', () => {
   it('does not recover a route suffix from an external URL', () => {
     expect(parseListingPage('<script>https://evil.example/jobposition/42/x/sintetica</script>')).toEqual([]);
   });
+
+  it.each([
+    'https://app.ncoreplat.com/jobposition/123/foo?utm=1',
+    'https://app.ncoreplat.com/jobposition/123/foo#application',
+    'https://app.ncoreplat.com/jobposition/123/foo?',
+    'https://app.ncoreplat.com/jobposition/123/foo#',
+  ])('rejects embedded non-canonical NCore URL: %s', (url) => {
+    expect(parseListingPage(`<script>${url}</script>`)).toEqual([]);
+  });
 });
 
 // ─── parseDetailPage tests ──────────────────────────────────────────────────
@@ -333,6 +342,22 @@ describe('parseNcoreApplicationForm', () => {
     const html = `<div id="hiddenForm"><form name="form" action="${action}"><label>Email<input type="email" name="form[basic_personal_data][email]"></label></form></div>`;
 
     expect(parseNcoreApplicationForm(html, { sourceUrl, checkedAt })).toBeNull();
+  });
+
+  it.each([
+    ['non-default port', 'https://app.ncoreplat.com:8443/jobposition/808005/cmc-senior-specialist/sintetica'],
+    ['query string', `${sourceUrl}?step=2`],
+    ['empty query delimiter', `${sourceUrl}?`],
+    ['fragment', `${sourceUrl}#application-form`],
+    ['empty fragment delimiter', `${sourceUrl}#`],
+    ['embedded credentials', sourceUrl.replace('https://', 'https://candidate@')],
+    ['missing slug', 'https://app.ncoreplat.com/jobposition/808005/'],
+    ['too many slug segments', 'https://app.ncoreplat.com/jobposition/808005/cmc/sintetica/extra'],
+  ])('rejects a non-canonical source URL with %s', (_reason, invalidSourceUrl) => {
+    expect(parseNcoreApplicationForm(FIXTURE_NCORE_APPLICATION_PAGE, {
+      sourceUrl: invalidSourceUrl,
+      checkedAt,
+    })).toBeNull();
   });
 
   it('rejects unverified forms and pages without the NCore application form marker', () => {

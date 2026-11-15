@@ -2677,7 +2677,7 @@ export async function runReviewGate({
     pr,
     reviewRevision: expectedRevision,
   });
-  if (automatic) return { approved: true, reason: 'tests-only owner policy', review: automatic, reviewCommit: headSha };
+  if (automatic) return { approved: true, reason: 'non-runtime-code owner policy', review: automatic, reviewCommit: headSha };
   const codexEvidenceRequested = Boolean(codexEvidence || codexEvidenceFile || process.env.CODEX_FALLBACK_EVIDENCE_FILE);
   if (codexEvidenceRequested
       && (!isValidCodexFallbackEvidence(structuredCodexEvidence)

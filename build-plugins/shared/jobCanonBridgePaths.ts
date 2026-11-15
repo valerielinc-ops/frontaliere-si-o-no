@@ -7,9 +7,12 @@ import {
 } from './cantonSection';
 import { ACTIVE_JOB_PAGE_LOCALES, localizedActiveJobSlug } from './activeJobPageSelection';
 import {
+  addWinnerCandidate,
+  createWinnerCandidateAccumulator,
   makeKey as previousSlugWinnerKey,
   resolveWinner,
   type CandidateInput,
+  type WinnerCandidateAccumulator,
   type WinnersFile,
 } from '../../services/previousSlugWinners';
 import {
@@ -118,32 +121,78 @@ function normalizedPathKey(value: string): string {
   return value.replace(/^\/+|\/+$/g, '');
 }
 
-function stringsFrom(value: unknown): string[] {
-  return Array.isArray(value)
-    ? value.filter((item): item is string => typeof item === 'string' && item.length > 0)
-    : [];
-}
-
-function previousSlugsFor(job: ActiveJobSlugMapRow, locale: JobCanonLocale): string[] {
+function forEachPreviousSlugByLocale(
+  job: ActiveJobSlugMapRow,
+  visit: (locale: JobCanonLocale, slug: string) => void,
+  includeSlug: (slug: string) => boolean = () => true,
+): void {
   const byLocale = job.previousSlugsByLocale;
-  const allLocaleSlugs = new Set<string>();
-  if (byLocale && typeof byLocale === 'object') {
-    for (const value of Object.values(byLocale)) {
-      for (const slug of stringsFrom(value)) allLocaleSlugs.add(slug);
+  const flat = Array.isArray(job.previousSlugs) && job.previousSlugs.length > 0
+    ? job.previousSlugs
+    : null;
+  const allLocaleSlugs = flat && byLocale && typeof byLocale === 'object'
+    ? new Set<string>()
+    : null;
+  if (allLocaleSlugs && byLocale && typeof byLocale === 'object') {
+    for (const localeKey in byLocale) {
+      if (!Object.prototype.hasOwnProperty.call(byLocale, localeKey)) continue;
+      const value = (byLocale as Record<string, unknown>)[localeKey];
+      if (!Array.isArray(value)) continue;
+      for (const slug of value) {
+        if (typeof slug === 'string' && slug && includeSlug(slug)) allLocaleSlugs.add(slug);
+      }
     }
   }
-  const legacyOnly = stringsFrom(job.previousSlugs).filter((slug) => !allLocaleSlugs.has(slug));
-  const localeSpecific = byLocale && typeof byLocale === 'object'
-    ? stringsFrom(byLocale[locale])
-    : [];
-  return [...new Set([...localeSpecific, ...legacyOnly])];
+
+  for (const locale of JOB_CANON_LOCALES) {
+    let firstSeen: string | undefined;
+    let seen: Set<string> | null = null;
+    const alreadySeen = (slug: string): boolean => {
+      if (firstSeen === undefined) {
+        firstSeen = slug;
+        return false;
+      }
+      if (seen === null) {
+        if (firstSeen === slug) return true;
+        seen = new Set([firstSeen]);
+      }
+      if (seen.has(slug)) return true;
+      seen.add(slug);
+      return false;
+    };
+    const values = byLocale && typeof byLocale === 'object' ? byLocale[locale] : undefined;
+    if (Array.isArray(values)) {
+      for (const slug of values) {
+        if (typeof slug !== 'string' || !slug || !includeSlug(slug) || alreadySeen(slug)) continue;
+        visit(locale, slug);
+      }
+    }
+    if (flat) {
+      for (const slug of flat) {
+        if (
+          typeof slug !== 'string'
+          || !slug
+          || !includeSlug(slug)
+          || allLocaleSlugs?.has(slug)
+          || alreadySeen(slug)
+        ) continue;
+        visit(locale, slug);
+      }
+    }
+  }
 }
 
-function localePreviousSlugs(job: ActiveJobSlugMapRow, locale: JobCanonLocale): string[] {
+function* localePreviousSlugs(
+  job: ActiveJobSlugMapRow,
+  locale: JobCanonLocale,
+  includeSlug: (slug: string) => boolean = () => true,
+): IterableIterator<string> {
   const byLocale = job.previousSlugsByLocale;
-  return byLocale && typeof byLocale === 'object'
-    ? stringsFrom(byLocale[locale])
-    : [];
+  const values = byLocale && typeof byLocale === 'object' ? byLocale[locale] : undefined;
+  if (!Array.isArray(values)) return;
+  for (const value of values) {
+    if (typeof value === 'string' && value && includeSlug(value)) yield value;
+  }
 }
 
 /**
@@ -156,6 +205,8 @@ export function buildActiveJobBridgePathPlan(
   jobs: readonly ActiveJobSlugMapRow[],
   options: {
     winners: WinnersFile;
+    /** Reusable caller-owned copy for callers that emit one v2 bucket at a time. */
+    resolvedWinners?: WinnersFile;
     reservedHubSlugs: ReadonlySet<string>;
     workerWouldRecover?: (locale: JobCanonLocale, slug: string, path: string) => boolean;
     canWriteCrossLocalePath?: (path: string) => boolean;
@@ -218,26 +269,24 @@ export function buildActiveJobBridgePathPlan(
     const canton = cantonByJob.get(job)!;
     const identifier = String(job.id || job.slug || '');
     const currentByLocale = currentSlugByJobLocale.get(job)!;
-    for (const locale of JOB_CANON_LOCALES) {
+    forEachPreviousSlugByLocale(job, (locale, oldSlug) => {
       const currentSlug = currentByLocale[locale];
-      if (!currentSlug) continue;
-      for (const oldSlug of previousSlugsFor(job, locale)) {
-        if (oldSlug === currentSlug) {
-          stats.previousSlugAutoClaims += 1;
-          continue;
-        }
-        if (reservedHubSlugs.has(oldSlug)) {
-          stats.previousSlugReservedClaims += 1;
-          continue;
-        }
-        stats.previousSlugClaims += 1;
-        const key = previousSlugWinnerKey(canton, locale, oldSlug);
-        const group = claimantGroups.get(key);
-        const candidate = { jobIdentifier: identifier || currentSlug, canonicalSlug: currentSlug };
-        if (group) group.candidates.push(candidate);
-        else claimantGroups.set(key, { canton, locale, oldSlug, candidates: [candidate] });
+      if (!currentSlug) return;
+      if (oldSlug === currentSlug) {
+        stats.previousSlugAutoClaims += 1;
+        return;
       }
-    }
+      if (reservedHubSlugs.has(oldSlug)) {
+        stats.previousSlugReservedClaims += 1;
+        return;
+      }
+      stats.previousSlugClaims += 1;
+      const key = previousSlugWinnerKey(canton, locale, oldSlug);
+      const group = claimantGroups.get(key);
+      const candidate = { jobIdentifier: identifier || currentSlug, canonicalSlug: currentSlug };
+      if (group) group.candidates.push(candidate);
+      else claimantGroups.set(key, { canton, locale, oldSlug, candidates: [candidate] });
+    });
   }
 
   const resolvedWinners: WinnersFile = { ...options.winners };
@@ -293,26 +342,24 @@ export function buildActiveJobBridgePathPlan(
     const canton = cantonByJob.get(job)!;
     const currentByLocale = currentSlugByJobLocale.get(job)!;
     const jobIdentifier = String(job.id || job.slug || '');
-    for (const locale of JOB_CANON_LOCALES) {
+    forEachPreviousSlugByLocale(job, (locale, oldSlug) => {
       const currentSlug = currentByLocale[locale];
-      if (!currentSlug) continue;
-      for (const oldSlug of previousSlugsFor(job, locale)) {
-        if (oldSlug === currentSlug || reservedHubSlugs.has(oldSlug)) continue;
-        const winnerKey = previousSlugWinnerKey(canton, locale, oldSlug);
-        const winnerId = winnerByClaimKey.get(winnerKey);
-        if (winnerId && winnerId !== (jobIdentifier || currentSlug)) {
-          stats.previousSlugNonWinnerClaims += 1;
-          continue;
-        }
+      if (!currentSlug || oldSlug === currentSlug || reservedHubSlugs.has(oldSlug)) return;
+      const winnerKey = previousSlugWinnerKey(canton, locale, oldSlug);
+      const winnerId = winnerByClaimKey.get(winnerKey);
+      if (winnerId && winnerId !== (jobIdentifier || currentSlug)) {
+        stats.previousSlugNonWinnerClaims += 1;
+        return;
+      }
 
-        const oldPath = buildCanonicalJobDetailPath(locale, job, oldSlug, canton);
-        const oldPathKey = normalizedPathKey(oldPath);
+      const oldPath = buildCanonicalJobDetailPath(locale, job, oldSlug, canton);
+      const oldPathKey = normalizedPathKey(oldPath);
         if (
           activeJobDirs.has(oldPathKey)
           || activeRouteOwnerKeys.has(`${canton}:${locale}:${oldSlug}`)
         ) {
           stats.previousSlugActivePathCollisions += 1;
-          continue;
+          return;
         }
         bridgeByPath.set(`${locale}\u0000${oldPathKey}`, {
           path: oldPath,
@@ -332,7 +379,7 @@ export function buildActiveJobBridgePathPlan(
             activeJobDirs.has(mirrorKey)
             || activeLegacyTiBridgeDirs.has(mirrorMapKey)
             || legacyTiMirrorDirs.has(mirrorMapKey)
-          ) continue;
+          ) return;
           legacyTiMirrorDirs.add(mirrorMapKey);
           bridgeByPath.set(mirrorMapKey, {
             path: mirrorPath,
@@ -344,8 +391,7 @@ export function buildActiveJobBridgePathPlan(
           });
           claimedPaths.add(mirrorMapKey);
         }
-      }
-    }
+    });
   }
 
   stats.previousSlugPaths = [...bridgeByPath.values()].filter((record) => record.kind === 'previousSlug').length;
@@ -510,7 +556,7 @@ export function emitActiveJobCanonAliases(
   jobs: readonly ActiveJobSlugMapRow[],
   options: {
     winners: WinnersFile;
-    /** Restrict alias planning to the v2 bucket currently being emitted. */
+    /** Restrict active alias planning to the v2 bucket currently being emitted. */
     bucketIndex?: number;
     reservedHubSlugs: ReadonlySet<string>;
     entryForSlug: (slug: string) => JobCanonEntryLike | undefined;
@@ -518,7 +564,7 @@ export function emitActiveJobCanonAliases(
     workerWouldRecover?: (locale: JobCanonLocale, slug: string, path: string) => boolean;
     canWriteCrossLocalePath?: (path: string) => boolean;
     emitAlias: (slug: string, locale: JobCanonLocale, targetPath: string) => void;
-    onHeapSample?: () => void;
+    onHeapSample?: (phase?: string) => void;
   },
 ): ActiveJobAliasStats {
   const workerWouldRecover = options.workerWouldRecover ?? (() => false);
@@ -541,13 +587,10 @@ export function emitActiveJobCanonAliases(
     JOB_CANON_LOCALES.map((locale) => [locale, new Set<string>()]),
   );
 
-  type PreviousClaimGroup = {
-    canton: string;
-    locale: JobCanonLocale;
-    oldSlug: string;
-    candidates: CandidateInput[];
-  };
-  const claimsByCanton = new Map<string, Map<JobCanonLocale, Map<string, PreviousClaimGroup>>>();
+  const claimsByCanton = new Map<
+    string,
+    Map<JobCanonLocale, Map<string, WinnerCandidateAccumulator>>
+  >();
 
   const recordClaim = (
     canton: string,
@@ -559,23 +602,24 @@ export function emitActiveJobCanonAliases(
     if (!byLocale) { byLocale = new Map(); claimsByCanton.set(canton, byLocale); }
     let bySlug = byLocale.get(locale);
     if (!bySlug) { bySlug = new Map(); byLocale.set(locale, bySlug); }
-    let group = bySlug.get(oldSlug);
-    if (!group) {
-      group = { canton, locale, oldSlug, candidates: [] };
-      bySlug.set(oldSlug, group);
+    let accumulator = bySlug.get(oldSlug);
+    if (!accumulator) {
+      const previousWinner = options.winners[previousSlugWinnerKey(canton, locale, oldSlug)]
+        ?.winnerJobIdentifier;
+      accumulator = createWinnerCandidateAccumulator(previousWinner);
+      bySlug.set(oldSlug, accumulator);
     }
-    group.candidates.push(candidate);
+    addWinnerCandidate(oldSlug, accumulator, candidate);
   };
 
   for (const job of jobs) {
-    options.onHeapSample?.();
+    options.onHeapSample?.('claims');
     const canton = resolveJobCanton(job);
     const identifier = String(job.id || job.slug || '');
-    const currentByLocale = {} as Record<JobCanonLocale, string>;
     for (const locale of JOB_CANON_LOCALES) {
       const currentSlug = localizedActiveJobSlug(job, locale);
-      currentByLocale[locale] = currentSlug;
-      if (!currentSlug || !isInBucket(currentSlug)) continue;
+      if (!currentSlug) continue;
+      if (!isInBucket(currentSlug)) continue;
       activeRouteSlugs.get(locale)!.add(currentSlug);
       if (canton === 'TI') activeTiSlugs.get(locale)!.add(currentSlug);
     }
@@ -592,50 +636,48 @@ export function emitActiveJobCanonAliases(
     // cross-locale reconciliation phase when the job itself belongs to TI.
     if (italianSlug && isInBucket(italianSlug) && canton === 'TI') {
       for (const locale of JOB_CANON_LOCALES) {
-        if (locale !== 'it' && currentByLocale[locale] !== italianSlug) {
+        if (locale !== 'it' && localizedActiveJobSlug(job, locale) !== italianSlug) {
           claimedTiBridgeSlugs.get(locale)!.add(italianSlug);
         }
       }
     }
 
-    for (const locale of JOB_CANON_LOCALES) {
-      const currentSlug = currentByLocale[locale];
-      if (!currentSlug) continue;
-      for (const oldSlug of previousSlugsFor(job, locale)) {
-        if (!isInBucket(oldSlug) || oldSlug === currentSlug || options.reservedHubSlugs.has(oldSlug)) continue;
-        recordClaim(canton, locale, oldSlug, {
-          jobIdentifier: identifier || currentSlug,
-          canonicalSlug: currentSlug,
-        });
-      }
-    }
+    forEachPreviousSlugByLocale(job, (locale, oldSlug) => {
+      const currentSlug = localizedActiveJobSlug(job, locale);
+      if (!currentSlug || oldSlug === currentSlug || options.reservedHubSlugs.has(oldSlug)) return;
+      recordClaim(canton, locale, oldSlug, {
+        jobIdentifier: identifier || currentSlug,
+        canonicalSlug: currentSlug,
+      });
+    }, isInBucket);
   }
 
-  let resolvedWinners: WinnersFile = { ...options.winners };
   const winnerByCanton = new Map<string, Map<JobCanonLocale, Map<string, string>>>();
-  const now = new Date().toISOString().slice(0, 10) + 'T00:00:00.000Z';
+  const winnerNow = new Date().toISOString().slice(0, 10) + 'T00:00:00.000Z';
   for (const [canton, byLocale] of claimsByCanton) {
     const winnersByLocale = new Map<JobCanonLocale, Map<string, string>>();
     winnerByCanton.set(canton, winnersByLocale);
     for (const [locale, bySlug] of byLocale) {
       const winnersBySlug = new Map<string, string>();
       winnersByLocale.set(locale, winnersBySlug);
-      for (const [oldSlug, group] of bySlug) {
+      for (const [oldSlug, accumulator] of bySlug) {
         const winner = resolveWinner(
-          resolvedWinners,
-          group.canton,
-          group.locale,
-          group.oldSlug,
-          group.candidates,
-          now,
+          options.winners,
+          canton,
+          locale,
+          oldSlug,
+          accumulator,
+          winnerNow,
+          { persist: false },
         );
         if (winner) winnersBySlug.set(oldSlug, winner.winnerJobIdentifier);
-        group.candidates.length = 0;
       }
+      bySlug.clear();
     }
+    byLocale.clear();
   }
   claimsByCanton.clear();
-  options.onHeapSample?.();
+  options.onHeapSample?.('claims-cleared');
 
   const targetPathIds = new Map<string, number>();
   const targetPaths: string[] = [];
@@ -680,43 +722,41 @@ export function emitActiveJobCanonAliases(
   );
 
   for (const job of jobs) {
-    options.onHeapSample?.();
+    options.onHeapSample?.('previous-targets');
     const canton = resolveJobCanton(job);
     const identifier = String(job.id || job.slug || '');
-    for (const locale of JOB_CANON_LOCALES) {
+    forEachPreviousSlugByLocale(job, (locale, oldSlug) => {
       const currentSlug = localizedActiveJobSlug(job, locale);
-      if (!currentSlug) continue;
-      for (const oldSlug of previousSlugsFor(job, locale)) {
-        if (!isInBucket(oldSlug) || oldSlug === currentSlug || options.reservedHubSlugs.has(oldSlug)) continue;
-        const winnerId = winnerByCanton.get(canton)?.get(locale)?.get(oldSlug);
-        if (winnerId && winnerId !== (identifier || currentSlug)) {
-          continue;
-        }
-        const targetPath = buildCanonicalJobDetailPath(locale, job, currentSlug, canton);
-        if (canton === 'TI') {
-          tiBridgeTargetIds.get(locale)!.set(oldSlug, internTarget(targetPath));
-        } else {
-          recordDestination(locale, oldSlug, targetPath);
-        }
-
-        // Only TI-section bridges can collide with the later cross-locale
-        // phase. A mirror has the same destination as its canton path, so it
-        // adds no new target ID; retain just its compact locale+slug claim.
-        if (canton === 'TI') {
-          claimedTiBridgeSlugs.get(locale)!.add(oldSlug);
-        } else if (
-          !isCompanyHubNamespaceSlug(oldSlug, locale)
-          && !activeTiSlugs.get(locale)!.has(oldSlug)
-          && !legacyTiCurrentSlugs.get(locale)!.has(oldSlug)
-          && !emittedTiMirrors.get(locale)!.has(oldSlug)
-        ) {
-          claimedTiBridgeSlugs.get(locale)!.add(oldSlug);
-          emittedTiMirrors.get(locale)!.add(oldSlug);
-          tiBridgeTargetIds.get(locale)!.set(oldSlug, internTarget(targetPath));
-        }
+      if (!currentSlug || oldSlug === currentSlug || options.reservedHubSlugs.has(oldSlug)) return;
+      const winnerId = winnerByCanton.get(canton)?.get(locale)?.get(oldSlug);
+      if (winnerId && winnerId !== (identifier || currentSlug)) return;
+      const targetPath = buildCanonicalJobDetailPath(locale, job, currentSlug, canton);
+      if (canton === 'TI') {
+        tiBridgeTargetIds.get(locale)!.set(oldSlug, internTarget(targetPath));
+      } else {
+        recordDestination(locale, oldSlug, targetPath);
       }
-    }
+
+      // Only TI-section bridges can collide with the later cross-locale
+      // phase. A mirror has the same destination as its canton path, so it
+      // adds no new target ID; retain just its compact locale+slug claim.
+      if (canton === 'TI') {
+        claimedTiBridgeSlugs.get(locale)!.add(oldSlug);
+      } else if (
+        !isCompanyHubNamespaceSlug(oldSlug, locale)
+        && !activeTiSlugs.get(locale)!.has(oldSlug)
+        && !legacyTiCurrentSlugs.get(locale)!.has(oldSlug)
+        && !emittedTiMirrors.get(locale)!.has(oldSlug)
+      ) {
+        claimedTiBridgeSlugs.get(locale)!.add(oldSlug);
+        emittedTiMirrors.get(locale)!.add(oldSlug);
+        tiBridgeTargetIds.get(locale)!.set(oldSlug, internTarget(targetPath));
+      }
+    }, isInBucket);
   }
+  winnerByCanton.clear();
+  emittedTiMirrors.clear();
+  legacyTiCurrentSlugs.clear();
 
   // One final TI path survives per locale+slug. The bridge emitter's later
   // writes replace an earlier TI previous-slug page with a legacy mirror (or
@@ -729,37 +769,40 @@ export function emitActiveJobCanonAliases(
   }
 
   for (const job of jobs) {
-    options.onHeapSample?.();
+    options.onHeapSample?.('cross-locale');
     const canton = resolveJobCanton(job);
     for (const baseLocale of JOB_CANON_LOCALES) {
       const baseSlug = localizedActiveJobSlug(job, baseLocale);
       if (!baseSlug) continue;
-      const foreignSlugs = new Set<string>();
-      for (const otherLocale of JOB_CANON_LOCALES) {
-        if (otherLocale === baseLocale) continue;
-        const foreignCurrent = localizedActiveJobSlug(job, otherLocale);
-        if (foreignCurrent && foreignCurrent !== baseSlug) foreignSlugs.add(foreignCurrent);
-        for (const previousSlug of localePreviousSlugs(job, otherLocale)) {
-          if (previousSlug !== baseSlug) foreignSlugs.add(previousSlug);
-        }
-      }
-      for (const foreignSlug of foreignSlugs) {
-        if (!isInBucket(foreignSlug) || options.reservedHubSlugs.has(foreignSlug)) continue;
-        if (isCompanyHubNamespaceSlug(foreignSlug, baseLocale)) continue;
-        if (activeTiSlugs.get(baseLocale)!.has(foreignSlug)) continue;
+      const processForeignSlug = (foreignSlug: string): void => {
+        if (!isInBucket(foreignSlug)) return;
+        if (options.reservedHubSlugs.has(foreignSlug)) return;
+        if (isCompanyHubNamespaceSlug(foreignSlug, baseLocale)) return;
+        if (activeTiSlugs.get(baseLocale)!.has(foreignSlug)) return;
         const bridgePath = buildCanonicalJobDetailPath(baseLocale, 'TI', foreignSlug);
-        if (workerWouldRecover(baseLocale, foreignSlug, bridgePath)) continue;
-        if (!canWriteCrossLocalePath(bridgePath)) continue;
-        if (claimedTiBridgeSlugs.get(baseLocale)!.has(foreignSlug)) continue;
+        if (workerWouldRecover(baseLocale, foreignSlug, bridgePath)) return;
+        if (!canWriteCrossLocalePath(bridgePath)) return;
+        if (claimedTiBridgeSlugs.get(baseLocale)!.has(foreignSlug)) return;
         claimedTiBridgeSlugs.get(baseLocale)!.add(foreignSlug);
         recordDestination(
           baseLocale,
           foreignSlug,
           buildCanonicalJobDetailPath(baseLocale, job, baseSlug, canton),
         );
+      };
+      for (const otherLocale of JOB_CANON_LOCALES) {
+        if (otherLocale === baseLocale) continue;
+        const foreignCurrent = localizedActiveJobSlug(job, otherLocale);
+        if (foreignCurrent && foreignCurrent !== baseSlug) processForeignSlug(foreignCurrent);
+        for (const previousSlug of localePreviousSlugs(job, otherLocale, isInBucket)) {
+          if (previousSlug !== baseSlug) processForeignSlug(previousSlug);
+        }
       }
     }
   }
+  activeTiSlugs.clear();
+  claimedTiBridgeSlugs.clear();
+  targetPathIds.clear();
 
   const stats: ActiveJobAliasStats = {
     candidateGroups: 0,
@@ -779,13 +822,24 @@ export function emitActiveJobCanonAliases(
   for (const locale of JOB_CANON_LOCALES) {
     const bySlug = targetIdByLocaleSlug.get(locale)!;
     stats.candidateGroups += bySlug.size;
+    let groupsVisited = 0;
     for (const [slug, targetId] of bySlug) {
+      groupsVisited += 1;
+      if (groupsVisited % 4096 === 0) options.onHeapSample?.('alias-emission');
       if (activeRouteSlugs.get(locale)!.has(slug)) {
         stats.realPageGroups++;
         continue;
       }
       if (targetId === AMBIGUOUS_TARGET) {
         stats.ambiguousCantonGroups++;
+        const example = ambiguousTargetsByLocaleSlug.get(localeSlugKey(locale, slug));
+        if (example) {
+          stats.ambiguousExamples.push({
+            locale,
+            slug,
+            targets: [...example.targets].sort(),
+          });
+        }
         continue;
       }
       const targetPath = targetPaths[targetId];
@@ -812,14 +866,13 @@ export function emitActiveJobCanonAliases(
   targetPathIds.clear();
   targetPaths.length = 0;
   winnerByCanton.clear();
-  resolvedWinners = {};
-  ambiguousTargetsByLocaleSlug.clear();
   activeRouteSlugs.clear();
   activeTiSlugs.clear();
   legacyTiCurrentSlugs.clear();
   claimedTiBridgeSlugs.clear();
   emittedTiMirrors.clear();
   tiBridgeTargetIds.clear();
+  ambiguousTargetsByLocaleSlug.clear();
   return stats;
 }
 

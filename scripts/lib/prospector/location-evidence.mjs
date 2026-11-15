@@ -921,10 +921,11 @@ export function localityCountryFromStreetOnlyAddress(address = {}) {
  * Prospector runtime so a foreign first entry cannot hide a later CH place.
  *
  * @param {unknown} jobLocation
- * @param {{ allowStreetOnlyAddress?: boolean }} [options]
+ * @param {{ allowStreetOnlyAddress?: boolean, allowPostalCodeOnly?: boolean }} [options]
  */
 export function schemaJobLocationCandidates(jobLocation, options = {}) {
   const allowStreetOnlyAddress = options.allowStreetOnlyAddress === true;
+  const allowPostalCodeOnly = options.allowPostalCodeOnly === true;
   const places = Array.isArray(jobLocation) ? jobLocation : [jobLocation];
   const candidates = [];
   for (const place of places) {
@@ -948,7 +949,7 @@ export function schemaJobLocationCandidates(jobLocation, options = {}) {
         continue;
       }
       const location = [addressLocality || placeName, addressRegion].filter(Boolean).join(', ');
-      if (!location && !addressCountry) continue;
+      if (!location && !addressCountry && !(allowPostalCodeOnly && postalCode)) continue;
       candidates.push({
         location,
         addressCountry,

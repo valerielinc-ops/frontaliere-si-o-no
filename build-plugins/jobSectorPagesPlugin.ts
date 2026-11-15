@@ -26,6 +26,7 @@ import np from 'node:path';
 import type { Plugin } from 'vite';
 import { clampMetaDescription, finalizeJobBoardTitle } from './shared/titleSuffix';
 import { railGutters } from './shared/railGutters';
+import { DatasetReadError, jobsFromParsedDataset } from './shared/readJobsDatasetStrict';
 import { firstParsableMs } from './shared/firstParsableDate';
 import {
   BASE_URL,
@@ -856,10 +857,12 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
       try {
         if (fs.existsSync(jobsPath)) {
           const raw = readJsonFile(jobsPath);
-          if (Array.isArray(raw)) jobs = raw as SectorCountableJob[];
+          jobs = jobsFromParsedDataset<SectorCountableJob>(raw, 'job-sector-pages', jobsPath);
         }
       } catch (err) {
-        console.warn('[job-sector-pages] failed to read data/jobs.json', err);
+        // Fail closed: 0 jobs would emit empty sector pages as healthy.
+        if (err instanceof DatasetReadError) throw err;
+        throw new DatasetReadError('job-sector-pages', jobsPath, err);
       }
 
       // These pages are branded "Cerca lavoro in Ticino" — scope to TI jobs only.

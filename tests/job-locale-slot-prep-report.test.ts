@@ -185,7 +185,12 @@ function makeSandbox(jobs: Job[], slices: Record<string, Job[]>) {
   const sandbox = path.join(dir, 'sandbox');
   fs.mkdirSync(path.join(sandbox, 'data', 'jobs', 'by-crawler'), { recursive: true });
   fs.mkdirSync(path.join(sandbox, 'public', 'data'), { recursive: true });
+  fs.mkdirSync(path.join(sandbox, 'build-plugins', 'shared'), { recursive: true });
   fs.symlinkSync(path.resolve(process.cwd(), 'scripts'), path.join(sandbox, 'scripts'));
+  fs.symlinkSync(
+    path.resolve(process.cwd(), 'build-plugins', 'shared', 'cantonResolvers.mjs'),
+    path.join(sandbox, 'build-plugins', 'shared', 'cantonResolvers.mjs'),
+  );
   fs.symlinkSync(path.resolve(process.cwd(), 'node_modules'), path.join(sandbox, 'node_modules'));
   fs.symlinkSync(path.resolve(process.cwd(), 'packages'), path.join(sandbox, 'packages'));
   // cleanup-jobs.mjs reaches these through JSON import attributes

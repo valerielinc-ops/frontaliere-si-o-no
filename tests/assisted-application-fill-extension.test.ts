@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE } from '../scripts/assisted-application/lib/portal/fill.mjs';
-import { APPLY_LATER_RE, APPLY_RE, COOKIE_CUSTOMIZE_RE, COOKIE_MANAGE_CONSENT_RE, COOKIE_REJECT_RE } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { APPLY_LATER_RE, APPLY_RE, COOKIE_CUSTOMIZE_RE, COOKIE_MANAGE_CONSENT_RE, COOKIE_REJECT_RE, startsApplication } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { NOT_ADVANCE_RE } from '../scripts/assisted-application/lib/portal/agent.mjs';
 
 const extension = resolve(fileURLToPath(new URL('..', import.meta.url)), 'scripts/assisted-application/extension');
@@ -355,6 +355,10 @@ describe('fill extension: patterns', () => {
     expect(F.APPLY_RE.test('mailto:apply+foo@example.ch')).toBe(false);
     expect(F.APPLY_RE.test('Apply now')).toBe(true);
     expect(F.pageState(document).start?.textContent).toBe('Apply now');
+  });
+
+  it.each(['Postuler »»', 'Bewerben »»', 'Candidati »»', 'Apply »»', 'Postuler ›'])('recognizes a decorated SuccessFactors Apply control: %s', label => {
+    expect(startsApplication(label)).toBe(true);
   });
 
   it('uses the runner’s own patterns', () => {
@@ -1083,6 +1087,36 @@ describe('fill extension: the runner’s reading on any portal', () => {
     expect(`${check.status} ${check.stdout}${check.stderr}`.trim()).toBe('0 runner-fields.js up to date');
   });
 
+  it('keeps runner ownership aligned for required marketing and role-form shell controls', () => {
+    const { window, read } = runnerPage(`<header><form>
+      <input name="newsletter" required>
+      <input name="notizie">
+      <input name="jobbenachrichtigung">
+    </form></header>
+    <div role="form">
+      <select id="languageDropdown"><option value="en">English</option></select>
+      <button type="button">🌙</button>
+    </div>`, 'https://jobs.example.ch/apply');
+    const snapshot = read();
+    const newsletter = snapshot.fields.find((field: any) => field.name === 'newsletter');
+    const marketing = snapshot.fields.filter((field: any) => ['notizie', 'jobbenachrichtigung'].includes(field.name));
+    const language = snapshot.fields.find((field: any) => field.domId === 'languageDropdown');
+    const theme = snapshot.buttons.find((button: any) => button.text === '🌙');
+
+    expect(newsletter).toMatchObject({ required: true });
+    expect(newsletter).not.toHaveProperty('chrome');
+    expect(marketing).toHaveLength(2);
+    expect(marketing).toEqual(expect.arrayContaining([
+      expect.objectContaining({ name: 'notizie', chrome: true }),
+      expect.objectContaining({ name: 'jobbenachrichtigung', chrome: true }),
+    ]));
+    expect(language).toBeDefined();
+    expect(language).not.toHaveProperty('chrome');
+    expect(theme).toBeDefined();
+    expect(theme).not.toHaveProperty('chrome');
+    window.close();
+  });
+
   it('keeps an Italian apply link ahead of the field snapshot budget', () => {
     const navigation = Array.from({ length: 60 }, (_, index) => `<button type="button">Action ${index}</button>`).join('');
     const { window, read } = runnerPage(`${navigation}<a class="btn" href="/apply">Applica ora</a>`, 'https://jobs.example.ch/posting/example');
@@ -1512,6 +1546,22 @@ describe('fill extension: other portals', () => {
     // German compounds count; a bare postal field has no residence provenance, and a place of birth is no date.
     expect(['fn', 'ln', 'last', 'company', 'tel', 'dob', 'plz', 'birthplace'].map(value)).toEqual(['Luigi', 'Prova', 'Prova', '', '333 1234567', '12.09.1986', '', '']);
     expect(F.parseDate('12/09/1986')).toEqual({ year: 1986, month: 9, day: 12 });
+  });
+
+  it('keeps English handy questions out of phone identity mapping', () => {
+    const { F, document, window } = page(`<form>
+      <label for="handy">Handy</label><input id="handy">
+      <label for="skills">How handy are you with tools?</label><input id="skills">
+      <label for="mobility-en">Are you mobile, willing to travel?</label><input id="mobility-en">
+      <label for="mobility-de">Sind Sie mobil, bereit zu reisen?</label><input id="mobility-de">
+    </form>`, 'https://jobs.example.ch/apply');
+    const fields = F.collect(document);
+    expect(F.answerFor(fields.find((entry: any) => entry.element.id === 'handy'), kit))
+      .toEqual({ value: '+39 333 1234567', family: 'phone' });
+    expect(F.answerFor(fields.find((entry: any) => entry.element.id === 'skills'), kit)).toBeNull();
+    expect(F.answerFor(fields.find((entry: any) => entry.element.id === 'mobility-en'), kit)).toBeNull();
+    expect(F.answerFor(fields.find((entry: any) => entry.element.id === 'mobility-de'), kit)).toBeNull();
+    window.close();
   });
 
   it('keeps phone country and residence country separate from stale portal answers', async () => {

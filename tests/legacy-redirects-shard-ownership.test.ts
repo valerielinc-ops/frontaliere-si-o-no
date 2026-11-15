@@ -47,6 +47,9 @@ describe('legacy redirects respect locale-shard ownership before gap-fill', () =
         fs.writeFileSync(file(url), html);
       };
       const archives = Object.values(sections).map(section => `${section}/mendrisio/${month}/`);
+      const legacyGermanAlias = '/de/jobs-im-zurich/legacy-zurich-expired';
+      const legacyGermanAliasSearch = '/de/jobs-im-zurich/suche-legacy-zurich';
+      const legacyGermanAliasRoot = '/de/jobs-im-zurich';
       // Same topology as production: the collector writes only owned pages,
       // but the shared IT sitemap lists the healthy URLs in every shard.
       for (const url of archives) if (shouldEmitPath(file(url), dist)) writePage(url, page(url));
@@ -56,7 +59,9 @@ describe('legacy redirects respect locale-shard ownership before gap-fill', () =
       const drift = `${ownedSection}/drift/${month}/`;
       const missing = `${ownedSection}/missing/${month}/`;
       writePage(drift, page(owned));
-      fs.writeFileSync(path.join(root, 'data/seo-404-compat-paths.json'), JSON.stringify({ paths: [...archives, gap] }));
+      fs.writeFileSync(path.join(root, 'data/seo-404-compat-paths.json'), JSON.stringify({
+        paths: [...archives, gap, legacyGermanAlias, legacyGermanAliasSearch, legacyGermanAliasRoot],
+      }));
       const sitemap = path.join(dist, 'sitemap-fuel-daily.xml');
       fs.writeFileSync(sitemap, '<urlset>' + [...archives, gap, drift, missing]
         .map(url => `<url><loc>${BASE}${url}</loc></url>`).join('\n') + '</urlset>');
@@ -77,6 +82,12 @@ describe('legacy redirects respect locale-shard ownership before gap-fill', () =
           expect(fs.existsSync(path.dirname(file(url))), `foreign compat directory ${url}`).toBe(false);
           expect(fs.existsSync(path.join(dist, url.slice(1, -1) + '.html'))).toBe(false);
         }
+      }
+      expect(fs.existsSync(file(legacyGermanAlias))).toBe(false);
+      expect(fs.existsSync(path.join(dist, legacyGermanAlias.slice(1) + '.html'))).toBe(false);
+      for (const unroutableAlias of [legacyGermanAliasSearch, legacyGermanAliasRoot]) {
+        expect(fs.existsSync(file(unroutableAlias))).toBe(false);
+        expect(fs.existsSync(path.join(dist, unroutableAlias.slice(1) + '.html'))).toBe(false);
       }
       expect(fs.readFileSync(file(gap), 'utf8')).toContain('noindex');
       const bridgeBefore = fs.readFileSync(file(gap), 'utf8');

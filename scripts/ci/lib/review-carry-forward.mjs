@@ -102,7 +102,7 @@ export function decideNoCodeDeltaTier({ reviews, headSha, priorCommit, fpHead, f
     return full(`il verdetto più recente è su ${prior.commit_id || '<nessun commit>'}, non sul commit confrontato ${priorCommit}`);
   }
   if (!validFingerprint(fpHead) || !validFingerprint(fpPrior)) {
-    return full('fingerprint del contributo non calcolabile (compare troncato o errore)');
+    return full('fingerprint del contributo non calcolabile (UNKNOWN: la causa — troncato, non verificabile o errore — è nella riga `fingerprint-contributo` del log dello step)');
   }
   if (fpHead !== fpPrior) return full('fingerprint del contributo cambiato');
   if (reviewBodyIsApproving(prior.body)) {

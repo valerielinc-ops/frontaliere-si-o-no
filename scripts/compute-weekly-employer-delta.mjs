@@ -26,9 +26,10 @@
  * file with `degraded: true` and empty deltas. Never exits non-zero.
  */
 
-import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readJsonFile } from './lib/read-large-json.mjs';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -68,7 +69,7 @@ function readSnapshots() {
   const out = [];
   for (const file of files) {
     try {
-      const raw = JSON.parse(readFileSync(join(HISTORY_DIR, file), 'utf-8'));
+      const raw = readJsonFile(join(HISTORY_DIR, file));
       if (raw && typeof raw.week === 'string' && Array.isArray(raw.jobs)) {
         out.push(raw);
       }

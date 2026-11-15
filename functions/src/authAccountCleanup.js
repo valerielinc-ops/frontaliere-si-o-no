@@ -27,6 +27,7 @@
  */
 
 import { FieldValue, getFirestore } from 'firebase-admin/firestore';
+import { getStorage } from 'firebase-admin/storage';
 import {
  APPLICATION_INTENTS_COLLECTION,
  APPLICATION_INTENT_ACCOUNT_TOMBSTONES_COLLECTION,
@@ -34,6 +35,7 @@ import {
  buildApplicationIntentAccountTombstone,
 } from './applicationIntentPrivacy.js';
 import { eraseJobEmailAffinityProfile } from './lib/jobEmailAffinityStore.js';
+import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
 
 const DELETE_PAGE_SIZE = 450;
 const SUBSCRIBER_UID_FIELDS = Object.freeze(['user_id', 'userId', 'uid', 'auth_uid']);
@@ -293,8 +295,31 @@ export async function cleanupSavedJobsForDeletedUser(uid, injectedDb) {
 
   await db.collection('users').doc(uid).delete();
   await db.collection('user_cv_profiles').doc(uid).delete();
+  await db.collection('candidate_job_profiles').doc(uid).delete();
 
   return { deletedSavedJobs, deletedCvProfile: true };
+}
+
+/** Remove the direct-to-profile CV object when its Auth owner is deleted. */
+export async function cleanupCandidateCvFilesForDeletedUser(uid, injectedDb, injectedBucket = null) {
+  const userId = typeof uid === 'string' ? uid.trim() : '';
+  if (!userId) return { deletedCandidateCvSource: false, deletedCandidateCvFile: false };
+  const db = injectedDb || getFirestore();
+  const sourceRef = db.collection('candidate_cv_sources').doc(userId);
+  const sourceSnapshot = await sourceRef.get();
+  if (!sourceSnapshot.exists) return { deletedCandidateCvSource: false, deletedCandidateCvFile: false };
+  const source = sourceSnapshot.data() || {};
+  const prefix = `candidate-cv-profiles/${userId}/`;
+  const key = typeof source.cvStorageKey === 'string' ? source.cvStorageKey : '';
+  let deletedCandidateCvFile = false;
+  if (source.userId === userId && key.startsWith(prefix)
+    && /^[A-Za-z0-9_-]{16,80}$/.test(key.slice(prefix.length))) {
+    const bucket = injectedBucket || getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET);
+    await bucket.file(key).delete({ ignoreNotFound: true });
+    deletedCandidateCvFile = true;
+  }
+  await sourceRef.delete();
+  return { deletedCandidateCvSource: true, deletedCandidateCvFile };
 }
 
 /**
@@ -380,7 +405,8 @@ export async function cleanupUserDataForDeletedAccount(user, injectedDb, { newsl
  // The tombstone is the safety boundary: finish it before best-effort data
  // deletion so a savedJobs failure can never leave the old email lifecycle
  // without an address-level cleanup marker.
+ const candidateCvFiles = await cleanupCandidateCvFilesForDeletedUser(uid, db);
  const saved = await cleanupSavedJobsForDeletedUser(uid, db);
  const petition = await cleanupPetitionSignatureForDeletedUser(uid, db);
- return { ...saved, ...subscribers, ...petition, ...applicationIntent, metaAdsConsentDeviceLinksRemoved: metaAdsConsentDeviceLinks };
+ return { ...saved, ...candidateCvFiles, ...subscribers, ...petition, ...applicationIntent, metaAdsConsentDeviceLinksRemoved: metaAdsConsentDeviceLinks };
 }

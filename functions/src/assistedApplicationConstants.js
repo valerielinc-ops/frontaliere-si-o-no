@@ -20,8 +20,12 @@ export const ASSISTED_APPLICATION_AUDIT_SUBCOLLECTION = 'events';
 // The kinds of documents a posting may require besides the CV and the cover
 // letter (assistedApplicationExtraDocuments.js, the requirements schema).
 export const DOCUMENT_KINDS = Object.freeze([
-  'school_report', 'aptitude_test', 'diploma', 'certificate', 'reference', 'work_permit', 'identity', 'portfolio', 'other',
+  'school_report', 'aptitude_test', 'diploma', 'certificate', 'reference', 'work_permit', 'identity', 'portfolio', 'photo', 'other',
 ]);
+/** Bounded recovery for a required portrait when the original CV may contain one. */
+export const CV_PORTRAIT_RECOVERY_VERSION = 1;
+export const CV_PORTRAIT_RECOVERY_MAX_ATTEMPTS = 3;
+export const CV_PORTRAIT_RECOVERY_BACKOFF_MS = Object.freeze([5 * 60 * 1000, 30 * 60 * 1000]);
 /** Follow-ups of an application sent by e-mail: `{order}/automation/followup` (assistedApplicationFollowup.js). */
 export const FOLLOWUP_DOC_ID = 'followup';
 

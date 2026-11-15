@@ -798,6 +798,36 @@ describe('issue #6759 reconciliation', () => {
     expect(result.jobs.map((entry) => entry.sourceIdentity).sort()).toEqual(['source:A', 'source:B']);
   });
 
+  it('keeps a cap-refused legacy archive route-unique without losing routes', () => {
+    const sharedHistory = 'shared-history-route';
+    const deep = (companyKey: string, slug: string, expiredAt: string, prefix: string) => ({
+      companyKey,
+      slug,
+      expiredAt,
+      slugByLocale: { it: slug },
+      previousSlugs: [
+        sharedHistory,
+        ...Array.from({ length: 79 }, (_, index) => `${prefix}-${index}`),
+      ],
+      previousSlugsByLocale: {},
+    });
+    const canonical = deep('canonical', 'canonical-newer', '2026-11-07T00:00:00.000Z', 'canonical-history');
+    const retired = deep('retired', 'retired-older', '2026-10-17T00:00:00.000Z', 'retired-history');
+    const beforeRoutes = new Set([
+      ...localeRouteKeys(canonical),
+      ...localeRouteKeys(retired),
+    ]);
+
+    const result = mergeRetiredCrawlerArchive([canonical], [retired], 'canonical');
+    const afterRoutes = new Set(result.jobs.flatMap((entry) => [...localeRouteKeys(entry)]));
+
+    expect(result.capRefused).toBe(1);
+    expect(result.repairedRoutes).toBeGreaterThan(0);
+    expect(result.jobs).toHaveLength(2);
+    expect([...beforeRoutes].filter((route) => !afterRoutes.has(route))).toEqual([]);
+    expect(() => assertNoDuplicateRoutesWithin(result.jobs, 'cap-refused archive')).not.toThrow();
+  });
+
   it('collapses matching aliases while preserving active and historical routes', () => {
     const canonical = job('canonical', '1', 'canonical-slug');
     const retired = job('retired', '1', 'retired-slug');

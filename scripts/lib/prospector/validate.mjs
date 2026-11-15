@@ -418,6 +418,7 @@ export async function gradeVacancy(vacancy, fetchOptions = {}) {
       }, {
         readPdf: true,
         detailLocationLabel: fetchOptions.spec.detailLocationLabel,
+        detailLocationCantonOverrides: fetchOptions.spec.detailLocationCantonOverrides,
         detailTitleLeadIn: fetchOptions.spec.detailTitleLeadIn,
         detailTitleEndLabel: fetchOptions.spec.detailTitleEndLabel,
         detailApplyUrlHost: fetchOptions.spec.detailApplyUrlHost,

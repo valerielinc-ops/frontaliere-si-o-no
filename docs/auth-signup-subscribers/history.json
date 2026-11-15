@@ -715,6 +715,36 @@
       },
       "subscribedWithoutCreatedAt": 0,
       "findings": []
+    },
+    {
+      "date": "2026-11-13",
+      "windowHours": 24,
+      "subscribersCreated": 104,
+      "authSubscribers": 84,
+      "accountsTotal": 105,
+      "accountsExcluded": 0,
+      "accountClasses": {
+        "subscribed": 104,
+        "stub": 0,
+        "missing": 1
+      },
+      "subscribedWithoutCreatedAt": 0,
+      "findings": []
+    },
+    {
+      "date": "2026-11-14",
+      "windowHours": 24,
+      "subscribersCreated": 68,
+      "authSubscribers": 56,
+      "accountsTotal": 68,
+      "accountsExcluded": 0,
+      "accountClasses": {
+        "subscribed": 68,
+        "stub": 0,
+        "missing": 0
+      },
+      "subscribedWithoutCreatedAt": 0,
+      "findings": []
     }
   ]
 }

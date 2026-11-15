@@ -4,7 +4,9 @@ import path from 'node:path';
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 
 import {
+ addWinnerCandidate,
  chooseWinner,
+ createWinnerCandidateAccumulator,
  jaccardSimilarity,
  loadWinners,
  makeKey,
@@ -109,6 +111,87 @@ describe('previousSlugWinners', () => {
  ];
  const winner = chooseWinner(oldSlug, candidates, NOW);
  expect(winner!.winnerJobIdentifier).toBe('convit-cd35c2a7593a');
+ });
+
+ it('matches array-based winner resolution when candidates are accumulated compactly', () => {
+  const candidates: CandidateInput[] = [
+   { jobIdentifier: 'job-zzz', canonicalSlug: 'foo-bar' },
+   { jobIdentifier: 'job-aaa', canonicalSlug: 'foo-baz' },
+   { jobIdentifier: 'job-mmm', canonicalSlug: 'foo-bar-baz' },
+  ];
+  const accumulator = createWinnerCandidateAccumulator();
+  for (const candidate of candidates) addWinnerCandidate('foo-bar', accumulator, candidate);
+
+  const arrayWinners: WinnersFile = {};
+  const compactWinners: WinnersFile = {};
+  const arrayResult = resolveWinner(arrayWinners, 'TI', 'en', 'foo-bar', candidates, NOW);
+  const compactResult = resolveWinner(compactWinners, 'TI', 'en', 'foo-bar', accumulator, NOW);
+
+  expect(compactResult).toEqual(arrayResult);
+  expect(compactWinners).toEqual(arrayWinners);
+ });
+
+ it('can resolve compact candidates without persisting a build-local winner', () => {
+  const winners: WinnersFile = {};
+  const accumulator = createWinnerCandidateAccumulator();
+  addWinnerCandidate('shared-old', accumulator, {
+   jobIdentifier: 'job-a',
+   canonicalSlug: 'shared-current-a',
+  });
+  addWinnerCandidate('shared-old', accumulator, {
+   jobIdentifier: 'job-b',
+   canonicalSlug: 'shared-current-b',
+  });
+
+  const result = resolveWinner(
+   winners,
+   'ZH',
+   'it',
+   'shared-old',
+   accumulator,
+   NOW,
+   { persist: false },
+  );
+
+  expect(result?.winnerJobIdentifier).toBe('job-a');
+  expect(winners).toEqual({});
+ });
+
+ it('preserves the unrounded score for a compact single-candidate winner', () => {
+  const candidate = { jobIdentifier: 'job-one', canonicalSlug: 'a-b-c' };
+  const accumulator = createWinnerCandidateAccumulator();
+  addWinnerCandidate('a-b', accumulator, candidate);
+  const arrayResult = resolveWinner({}, 'TI', 'it', 'a-b', [candidate], NOW);
+  const compactResult = resolveWinner({}, 'TI', 'it', 'a-b', accumulator, NOW);
+  expect(compactResult).toEqual(arrayResult);
+ });
+
+ it('reuses a persisted winner observed by the compact accumulator', () => {
+  const key = makeKey('TI', 'de', 'shared-old');
+  const winners: WinnersFile = {
+   [key]: {
+    winnerJobIdentifier: 'job-stable',
+    winnerCanonical: 'shared-current',
+    decidedAt: '2026-01-01T00:00:00.000Z',
+    lastSeenAt: '2026-01-01T00:00:00.000Z',
+    score: 1,
+    candidatesCount: 2,
+   },
+  };
+  const accumulator = createWinnerCandidateAccumulator('job-stable');
+  addWinnerCandidate('shared-old', accumulator, {
+   jobIdentifier: 'job-other',
+   canonicalSlug: 'other-current',
+  });
+  addWinnerCandidate('shared-old', accumulator, {
+   jobIdentifier: 'job-stable',
+   canonicalSlug: 'shared-current',
+  });
+
+  const result = resolveWinner(winners, 'TI', 'de', 'shared-old', accumulator, NOW);
+  expect(result!.winnerJobIdentifier).toBe('job-stable');
+  expect(result!.lastSeenAt).toBe(NOW);
+  expect(winners[key].winnerJobIdentifier).toBe('job-stable');
  });
  });
 

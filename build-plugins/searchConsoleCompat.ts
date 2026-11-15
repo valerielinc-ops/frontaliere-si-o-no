@@ -1,6 +1,10 @@
 import { LEGACY_LUGANO_COMPETITION_REDIRECTS } from './shared/legacyLuganoCompetitionRedirects';
 import { isEmittedEventArchivePath } from './shared/eventArchiveCompat';
 import { resolveCantonSection, AGGREGATE_KEY, type CantonLocale } from './shared/cantonSection';
+import {
+ LEGACY_GERMAN_SECTION_ALIASES,
+ resolveLegacyGermanSectionPath,
+} from './shared/legacyGermanSectionAliases';
 import { SECTOR_HUB_KEYS, SECTOR_HUB_SLUG } from './jobSectorLanding';
 import { BASE_URL } from './constants';
 import cantonSlugFile from '../data/canton-url-slugs.json';
@@ -464,28 +468,6 @@ function listingPathForLocale(locale: SupportedLocale): string {
  return `${prefix}/${section}/`.replace(/\/+/g, '/');
 }
 
-// German canton sections used the broad `jobs-im-` prefix before the URL
-// vocabulary was corrected to the current `jobs-in-*` / `jobs-in-der-*`
-// forms. The Search Console 404 accumulator still contains those historical
-// paths (for example `/de/jobs-im-appenzell/<slug>`). Keep the aliases in the
-// compat resolver so they canonicalize to the live current section instead of
-// falling through as an unresolved path. Derive both sides from the same
-// canton data used by the emitters; TI remains unchanged at `jobs-im-tessin`.
-const LEGACY_GERMAN_SECTION_ALIASES: ReadonlyMap<string, string> = (() => {
- const aliases = new Map<string, string>();
- const cantons = (cantonSlugFile as {
-   cantons: Record<string, { de?: string }>;
- }).cantons || {};
- for (const cantonCode of Object.keys(cantons)) {
-   const legacySlug = cantons[cantonCode]?.de;
-   if (!legacySlug) continue;
-   const legacySection = `jobs-im-${legacySlug}`;
-   const canonicalSection = resolveCantonSection('de', cantonCode);
-   if (legacySection !== canonicalSection) aliases.set(legacySection, canonicalSection);
- }
- return aliases;
-})();
-
 function canonicalJobBoardSection(section: string): string {
  return LEGACY_GERMAN_SECTION_ALIASES.get(section) || section;
 }
@@ -589,6 +571,14 @@ export function resolveSearchConsoleCompatTarget(
  options?: SearchConsoleCompatResolutionOptions,
 ): SearchConsoleCompatResolution | null {
  const path = normalizePath(inputPath);
+ const legacyGermanPath = resolveLegacyGermanSectionPath(path);
+ if (legacyGermanPath) {
+ return {
+  canonicalPath: legacyGermanPath.canonicalPath,
+  kind: 'canton-moved',
+  locale: 'de',
+ };
+ }
  const sourceBackedOnly = options?.sourceBackedOnly === true;
  const exact = COMPAT_REDIRECTS[path] || COMPAT_REDIRECTS[`${path}/`];
  if (exact) {

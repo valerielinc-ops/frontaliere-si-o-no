@@ -1,0 +1,42 @@
+name: 'npm ci with node_modules cache'
+description: >-
+  Post-checkout install per i workflow dei sender di email (perf-plan email
+  senders, A3): actions/setup-node + cache di `node_modules` + `npm ci` solo su
+  miss. Replica, byte per byte nella chiave, lo schema di `send-job-alerts.yml`
+  (`node-modules-<os>-node22-<hash lockfile>`): chiave sull'hash di
+  package-lock.json e sulla major di Node, nessuna `restore-keys` (un prefisso
+  riporterebbe un `node_modules` di un altro lockfile). `npm ci` costava 37-49 s
+  a ogni run; con un hit si salta.
+
+  Il checkout resta uno step esplicito del chiamante, prima di questo: una local
+  composite action si risolve dai file gia' presenti nel checkout (vedi
+  `ci-npm-setup`). Non usa `cache: npm` di setup-node, quindi non scrive la cache
+  `~/.npm` su nessun ref (vedi tests/npm-cache-save-main-only.test.ts).
+inputs:
+  node-version:
+    description: 'Node major; entra nella chiave della cache.'
+    required: false
+    default: '22'
+outputs:
+  cache-hit:
+    description: "'true' se node_modules e' stato ripristinato dalla cache e `npm ci` e' stato saltato."
+    value: ${{ steps.node-modules-cache.outputs.cache-hit }}
+runs:
+  using: composite
+  steps:
+    - name: Setup Node.js
+      uses: actions/setup-node@v7
+      with:
+        node-version: ${{ inputs.node-version }}
+
+    - name: Cache node_modules
+      id: node-modules-cache
+      uses: actions/cache@v6
+      with:
+        path: node_modules
+        key: node-modules-${{ runner.os }}-node${{ inputs.node-version }}-${{ hashFiles('package-lock.json') }}
+
+    - name: Install dependencies
+      if: steps.node-modules-cache.outputs.cache-hit != 'true'
+      shell: bash
+      run: npm ci

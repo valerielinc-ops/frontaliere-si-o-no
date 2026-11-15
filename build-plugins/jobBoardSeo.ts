@@ -8,9 +8,14 @@
 
 export * from './jobBoardSeoPure';
 
-import fs from 'node:fs';
 import path from 'node:path';
-import { isListingInventoryJob, normalizeListingIdentity, selectJobBoardInventory } from '../services/jobBoardInventory';
+import { expandCantonGroup } from '../services/cantonList';
+import {
+  isListingInventoryJob,
+  listingInventoryId,
+  normalizeListingIdentity,
+} from '../services/jobBoardInventory';
+import { iterateJsonArrayFile } from '../scripts/lib/read-large-json.mjs';
 import { buildLocaleJob, type JobEntry } from './shared/slimJobIndex';
 import { isFixtureJob } from '../scripts/lib/fixture-data-filter.mjs';
 import type { JobBoardLocale } from './jobBoardSeoPure';
@@ -29,14 +34,36 @@ export function getActiveJobCountsByLocale(
 ): Record<JobBoardLocale, number> {
   const file = path.resolve(rootDir, 'data/jobs.json');
   try {
-    const raw = fs.readFileSync(file, 'utf-8');
-    const parsed = JSON.parse(raw) as unknown;
-    if (!Array.isArray(parsed)) return { it: 0, en: 0, de: 0, fr: 0 };
-    const jobs = (parsed as JobEntry[]).filter((job) => !isFixtureJob(job) && isListingInventoryJob(job)).map(normalizeListingIdentity);
     const inventoryCanton = canton ?? '_AGGREGATE_';
-    return Object.fromEntries((['it', 'en', 'de', 'fr'] as const).map((locale) => [
-      locale, selectJobBoardInventory(jobs.map((job) => buildLocaleJob(job, locale)), inventoryCanton).length,
-    ])) as Record<JobBoardLocale, number>;
+    const cantonMembers = inventoryCanton === '_AGGREGATE_'
+      ? null
+      : new Set(expandCantonGroup(inventoryCanton));
+    const seenByLocale = {
+      it: new Set<string>(),
+      en: new Set<string>(),
+      de: new Set<string>(),
+      fr: new Set<string>(),
+    };
+
+    for (const value of iterateJsonArrayFile(file)) {
+      if (!value || typeof value !== 'object') continue;
+      const rawJob = value as JobEntry;
+      if (isFixtureJob(rawJob) || !isListingInventoryJob(rawJob)) continue;
+      const job = normalizeListingIdentity(rawJob);
+      for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+        const localized = buildLocaleJob(job, locale);
+        if (!isListingInventoryJob(localized)) continue;
+        if (cantonMembers && !cantonMembers.has(String(localized.canton || ''))) continue;
+        seenByLocale[locale].add(listingInventoryId(localized));
+      }
+    }
+
+    return {
+      it: seenByLocale.it.size,
+      en: seenByLocale.en.size,
+      de: seenByLocale.de.size,
+      fr: seenByLocale.fr.size,
+    };
   } catch {
     return { it: 0, en: 0, de: 0, fr: 0 };
   }

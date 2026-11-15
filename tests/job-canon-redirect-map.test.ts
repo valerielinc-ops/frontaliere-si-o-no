@@ -23,7 +23,11 @@ import {
   type JobCanonEntryLike,
 } from '../build-plugins/shared/jobCanonBridgePaths';
 import { buildCanonicalJobDetailPath } from '../build-plugins/shared/jobDetailPath';
-import { setJobCanonOrderingFields } from '../build-plugins/shared/jobCanonInputs';
+import {
+  clearJobCanonOrderingFields,
+  serializeJobCanonOrderingFields,
+  setJobCanonOrderingFields,
+} from '../build-plugins/shared/jobCanonInputs';
 import {
   jobCanonV2ShardKey,
   jobSlugShardKey,
@@ -200,6 +204,8 @@ describe('jobCanonRedirectMapPlugin', () => {
 describe('active job aliases in the IT /job-canon publishing leg', () => {
   let tmp: string;
   let previousBuildLocale: string | undefined;
+  let previousBuildStage: string | undefined;
+  let previousOrderingHandoffPath: string | undefined;
   let activePluginLogs: string[] = [];
 
   const job = (
@@ -307,11 +313,18 @@ describe('active job aliases in the IT /job-canon publishing leg', () => {
 
   beforeAll(async () => {
     previousBuildLocale = process.env.BUILD_LOCALE;
+    previousBuildStage = process.env.BUILD_STAGE;
+    previousOrderingHandoffPath = process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH;
     process.env.BUILD_LOCALE = 'it';
+    process.env.BUILD_STAGE = 'ssg';
     tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-active-'));
     fs.mkdirSync(path.join(tmp, 'data'), { recursive: true });
     fs.mkdirSync(path.join(tmp, 'dist', 'data'), { recursive: true });
     setJobCanonOrderingFields(activeJobs);
+    const orderingHandoffPath = path.join(tmp, 'job-canon-ordering-fields.json');
+    process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH = orderingHandoffPath;
+    fs.writeFileSync(orderingHandoffPath, serializeJobCanonOrderingFields());
+    clearJobCanonOrderingFields();
     const publicSlugMapRows = activeJobs.map((job) => {
       const { datePosted: _datePosted, firstSeenAt: _firstSeenAt, ...row } = job;
       return row;
@@ -424,8 +437,13 @@ ${duplicateShardEntries.join(',\n')}
 
   afterAll(() => {
     fs.rmSync(tmp, { recursive: true, force: true });
+    clearJobCanonOrderingFields();
     if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
     else process.env.BUILD_LOCALE = previousBuildLocale;
+    if (previousBuildStage === undefined) delete process.env.BUILD_STAGE;
+    else process.env.BUILD_STAGE = previousBuildStage;
+    if (previousOrderingHandoffPath === undefined) delete process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH;
+    else process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH = previousOrderingHandoffPath;
   });
 
   const readShard = (slug: string): Record<string, Record<string, unknown>> => {

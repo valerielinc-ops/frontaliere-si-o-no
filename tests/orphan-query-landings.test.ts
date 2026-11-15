@@ -50,7 +50,6 @@ import {
   buildNursingLandingPath,
   resolveNursingOrphanQueryTarget,
 } from '../build-plugins/nursingLandingsData';
-import { buildCanonicalJobDetailPath } from '../build-plugins/shared/jobDetailPath';
 import { detectLocale, tokenize } from '../scripts/lib/query-tokenizer.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));

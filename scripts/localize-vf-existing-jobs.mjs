@@ -4,6 +4,7 @@ import { realpathSync } from 'node:fs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readJsonFile } from './lib/read-large-json.mjs';
 import { hasUsableTitle, isAcceptableTranslation, MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
@@ -216,8 +217,7 @@ export async function localizeJob(job, { translate = translateText } = {}) {
 }
 
 function readJobs(filePath) {
-  const raw = fs.readFileSync(filePath, 'utf-8');
-  const data = JSON.parse(raw);
+  const data = readJsonFile(filePath);
   if (!Array.isArray(data)) throw new Error(`${filePath} must contain an array`);
   return data;
 }

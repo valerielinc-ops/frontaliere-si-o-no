@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { readJsonFile } from './lib/read-large-json.mjs';
 /**
  * Dedicated Giorgio Armani crawler runner.
  * Crawls the Giorgio Armani SAP SuccessFactors careers portal for
@@ -30,7 +31,7 @@ import { sourcePostingDateFields, mergeSourcePostingDates } from './lib/source-p
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { launchChromium } from './lib/ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from './lib/stealth-browser.mjs';
 import {
   printPublishedJobUrls,
   writeJobsSummary,
@@ -141,12 +142,19 @@ function isTrustedDomain(rawUrl = '') {
  * Run `fn(page)` inside a headless Chromium session (self-healing install).
  */
 async function withBrowser(fn) {
-  const browser = await launchChromium({ headless: HEADLESS });
-  const context = await browser.newContext({
-    userAgent: DEFAULT_UA,
-    viewport: { width: 1440, height: 1200 },
+  const browser = await launchStealthOrChromium({
+    purpose: 'crawler',
+    headless: HEADLESS,
     locale: 'en-US',
+    fallbackOptions: { headless: HEADLESS },
   });
+  const context = await browser.newContext(isStealthBrowser(browser)
+    ? { viewport: null }
+    : {
+        userAgent: DEFAULT_UA,
+        viewport: { width: 1440, height: 1200 },
+        locale: 'en-US',
+      });
   const page = await context.newPage();
   try {
     return await fn(page);
@@ -557,7 +565,7 @@ async function main() {
   console.log(`\n✅ Giorgio Armani crawler complete (${total} jobs, added=${added}, updated=${updated}).`);
 
   // Write per-crawler slice and reassemble global dataset
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? readJsonFile(DATA_JOBS) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
   writeGiorgioArmaniSummary({ counts: summaryCounts, sliceJobs: _sliceJobs, diff });

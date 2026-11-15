@@ -18,6 +18,14 @@ import { applyDetailFailureReuse } from './detail-failure-reuse-policy.mjs';
 import { mergeEventHistory, publishedEventRoutes } from './events-retention.mjs';
 import { appendPrivateEventDescriptionSources, sanitizeEventForPublication } from './event-description-policy.mjs';
 
+// A source may opt into a listing/index fallback only when its listing already
+// contains the publishable event facts. Keep this allowlist explicit: the
+// shared detail-failure policy remains fail-closed for every other source.
+const SOURCE_BACKED_DETAIL_FALLBACKS = Object.freeze({
+  geAgenda: { sourceKey: 'ge-agenda', strategy: 'source-backed-listing', label: 'listing rows' },
+  mySwitzerland: { sourceKey: 'myswitzerland', strategy: 'source-backed-index', label: 'index-backed rows' },
+});
+
 export const CHECKPOINT_DIR = path.join(EVENTS_SLICE_DIR, '..', 'checkpoints');
 
 /** Index to resume from in this source's catalog; 0 if no checkpoint yet. */
@@ -118,35 +126,37 @@ export function mergeEventsIntoSlice({
       return { ...previous };
     },
   });
-  // MySwitzerland has an independently verified Algolia event row. When its
-  // detail transport stops on the 406 policy threshold, the caller may make
-  // that source-backed fallback explicit. It must still provide a fresh row
-  // for every failed identity; other sources keep the shared reject policy.
+  // MySwitzerland has an independently verified Algolia event row, while the
+  // GE listing already carries the event facts and uses details only for
+  // optional tariff/canonical enrichment. Both callers may make their
+  // source-backed fallback explicit. Every failed identity must still have a
+  // fresh row; other sources keep the shared reject policy.
   const freshEventIds = new Set(
     safeFreshEvents.map((event) => (typeof event?.id === 'string' ? event.id.trim() : '')).filter(Boolean),
   );
-  const canPublishSourceBackedIndex = sourceKey === 'myswitzerland'
-    && detailFailureStrategy === 'source-backed-index'
+  const fallback = Object.values(SOURCE_BACKED_DETAIL_FALLBACKS)
+    .find((candidate) => candidate.sourceKey === sourceKey && candidate.strategy === detailFailureStrategy);
+  const canPublishSourceBackedFallback = Boolean(fallback)
     && detailReuse.detailFailureCount > 0
     && detailReuse.invalidFailureIdentityCount === 0
     && detailReuse.duplicateFailureIdentityCount === 0
     && detailReuse.previousSnapshotIdentityCollisionCount === 0
     && detailReuse.detailFailureIdentities.every((identity) => freshEventIds.has(identity));
-  if (!detailReuse.canPublish && !canPublishSourceBackedIndex) {
+  if (!detailReuse.canPublish && !canPublishSourceBackedFallback) {
     throw new Error(
       `[${sourceKey}] detail failure/reuse policy rejected ${detailReuse.detailFailureCount}/`
       + `${detailReuse.attemptedCount} attempted detail(s)`,
     );
   }
-  if (canPublishSourceBackedIndex) {
+  if (canPublishSourceBackedFallback) {
     console.warn(
-      `[${sourceKey}] detail failure/reuse policy exceeded; publishing the explicit source-backed index fallback`,
+      `[${sourceKey}] detail failure/reuse policy exceeded; publishing the explicit source-backed ${fallback.label}`,
     );
   }
   if (detailReuse.detailFailureCount > 0) {
     console.warn(
       `[${sourceKey}] detail failure/reuse accounting: ${detailReuse.detailFailureCount} failed, `
-      + `${canPublishSourceBackedIndex ? 'index-backed rows published' : `${detailReuse.reusedDetailCount} previous snapshot row(s) reused`}`,
+      + `${canPublishSourceBackedFallback ? `${fallback.label} published` : `${detailReuse.reusedDetailCount} previous snapshot row(s) reused`}`,
     );
   }
 
@@ -157,7 +167,7 @@ export function mergeEventsIntoSlice({
   );
   // Deliberately retain goneIds: source disappearance is a crawl observation,
   // not authorization to erase a public event URL.
-  const rowsToMerge = canPublishSourceBackedIndex ? safeFreshEvents : detailReuse.rows;
+  const rowsToMerge = canPublishSourceBackedFallback ? safeFreshEvents : detailReuse.rows;
   for (const event of rowsToMerge) {
     if (!event?.id) continue;
     const previous = byId.get(event.id);

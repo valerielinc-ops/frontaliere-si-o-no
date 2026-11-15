@@ -4,11 +4,28 @@
   "detailRejected": 0,
   "key": "internezzo-ag",
   "label": "Internezzo AG",
-  "generatedAt": "2026-11-12T22:02:31.385Z",
+  "generatedAt": "2026-11-15T09:43:31.482Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "internezzo-ag",
+    "seedUrls": [
+      "https://link.ostendis.com/publication/buchhaltungs-und-office-allrounder-in/b5iri3n0gom4x6gveta6dkaeckzck3p6ydjk6cporphkjkgqt30kpdiz660qdab3"
+    ],
+    "phase": "listing",
+    "pages": 1,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://link.ostendis.com/publication/buchhaltungs-und-office-allrounder-in/b5iri3n0gom4x6gveta6dkaeckzck3p6ydjk6cporphkjkgqt30kpdiz660qdab3"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "abortKind": "no-jobs-parsed",
@@ -23,5 +40,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "da884d8ab9d43c560d37a55178e122e250d02276"
+  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
 }

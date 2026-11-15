@@ -29,8 +29,7 @@
 
 import { applicationDefault, getApps, initializeApp } from 'firebase-admin/app';
 import { FieldValue, getFirestore } from 'firebase-admin/firestore';
-import { appendFileSync, readFileSync, existsSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { appendFileSync } from 'node:fs';
 import { buildStatsFromCSV, fetchBfsCsv } from './lib/bfs-stats-parser.mjs';
 
 const FIRESTORE_COLLECTION = 'config';
@@ -52,28 +51,6 @@ function emitOutput(key, value) {
 function quarterToYear(q) {
   const m = String(q || '').match(/^(\d{4})-Q([1-4])$/);
   return m ? Number(m[1]) : null;
-}
-
-/**
- * Idempotency check: has create-article.mjs already produced an article for
- * this quarter? Reads the per-repo article-source-urls.json registry that
- * create-article writes after a successful publish. The synthetic URL
- * `stats-bfs://2026-Q1` (lowercased by normalizeNewsUrl) is the dedup key.
- *
- * Used to keep dispatching across cron ticks until the article actually
- * lands in main — the generate-article concurrency chain frequently cancels
- * one-shot dispatches, so a single trigger isn't reliable.
- */
-function articleAlreadyPublished(latestQuarter) {
-  const path = resolve('data/article-source-urls.json');
-  if (!existsSync(path)) return false;
-  try {
-    const map = JSON.parse(readFileSync(path, 'utf8'));
-    const key = `stats-bfs://${String(latestQuarter).toLowerCase()}`;
-    return Object.prototype.hasOwnProperty.call(map, key);
-  } catch {
-    return false;
-  }
 }
 
 function findValueAt(trend, quarter) {
@@ -122,17 +99,10 @@ async function main() {
   emitOutput('latest_quarter', latestQuarter);
 
   // ── Article-dispatch decision ───────────────────────────────────────
-  // Decoupled from the Firestore write so:
-  //  (a) clients always see fresh data even on intra-quarter revisions
-  //  (b) if a previous dispatch was cancelled by the generate-article
-  //      concurrency chain, the next cron retries until the article lands
-  //      (idempotency check via data/article-source-urls.json registry).
-  if (articleAlreadyPublished(latestQuarter)) {
-    logInfo(`Articolo per ${latestQuarter} già pubblicato (registrato in data/article-source-urls.json) — niente dispatch.`);
-    emitOutput('new_quarter', '');
-    return;
-  }
-
+  // The workflow owns publication idempotency: its canonical corpus probe
+  // checks the corpus ledger and published API before dispatching. Keeping
+  // that decision here would read this consumer checkout's incomplete/stale
+  // data snapshot and could suppress a real editorial signal.
   if (!prevQuarter) {
     // First write ever to Firestore — typically the very first deploy. We
     // intentionally do NOT publish an article retroactively for the bootstrap

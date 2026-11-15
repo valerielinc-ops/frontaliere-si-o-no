@@ -359,16 +359,193 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       'Sie können nun Ihren Lebenslauf hochladen.',
       ...snapshot.fields.map((field) => field.label),
     ].join('\n');
+    const postingUrl = url.replace('?ApplicationType=OfferApplication', '?source=paid-posting');
 
     expect(hasApplicationSurface(snapshot)).toBe(true);
     expect(pageControls(snapshot.buttons, { nextButtons: [], finalButtons: [] }, url).next).toEqual(expect.objectContaining({ text: 'Weiter' }));
     expect(postingMatch('Senior Engineer Weiter', { company: 'Ferrovia Retica (RhB)', title: 'Senior Engineer' }, url)).toBe('match');
-    expect(formPostingMatch(formText, job, { pageUrl: url })).toBe('match');
+    expect(formPostingMatch(formText, job, { pageUrl: url, postingUrl, paidPostingUrl: postingUrl })).toBe('match');
+    expect(formPostingMatch(formText.replace('Rhätische Bahn', 'Rhätische Bahn AG'), job, {
+      pageUrl: url, postingUrl, paidPostingUrl: postingUrl,
+    })).toBe('match');
+    expect(formPostingMatch(formText, job, { pageUrl: url })).toBe('mismatch');
+    expect(formPostingMatch(formText, job, {
+      pageUrl: url, postingUrl, paidPostingUrl: postingUrl.replace('_2233.aspx', '_2234.aspx'),
+    })).toBe('mismatch');
+    expect(formPostingMatch(formText, job, {
+      pageUrl: url,
+      paidPostingUrl: postingUrl.replace('_2233.aspx', '_2234.aspx'),
+      postingEntry: true,
+    })).toBe('mismatch');
+    expect(formPostingMatch(formText, job, {
+      pageUrl: url,
+      paidPostingUrl: postingUrl.replace('_2233.aspx', '_2234.aspx'),
+      applicationEntry: true,
+      postingMatched: true,
+    })).toBe('mismatch');
+    expect(formPostingMatch(formText, job, {
+      pageUrl: url,
+      paidPostingUrl: 'https://rhb-career.talent-soft.com/application?source=paid',
+      postingEntry: true,
+    })).toBe('mismatch');
+    for (const suffix of ['/', '/step']) {
+      expect(formPostingMatch(formText, job, {
+        pageUrl: url.replace('_2233.aspx', `_2233.aspx${suffix}`),
+        paidPostingUrl: postingUrl.replace('_2233.aspx', '_2234.aspx'),
+        postingEntry: true,
+      })).toBe('mismatch');
+    }
+    expect(formPostingMatch(formText.replace('Meine Bewerbung absenden', 'Other Resort - Meine Bewerbung absenden'), job, { pageUrl: url })).toBe('mismatch');
+    expect(formPostingMatch(formText.replace('Meine Bewerbung absenden', 'Other Resort - Meine Bewerbung absenden'), job, {
+      pageUrl: url, postingUrl, paidPostingUrl: postingUrl,
+    })).toBe('mismatch');
+    expect(formPostingMatch(formText.replace('Meine Bewerbung absenden', 'Rhätische Bahn - Other Resort - Meine Bewerbung absenden'), job, {
+      pageUrl: url, postingUrl, paidPostingUrl: postingUrl,
+    })).toBe('mismatch');
+    expect(formPostingMatch(formText.replace('Rhätische Bahn - Meine Bewerbung absenden', 'Other Resort - Rhätische Bahn - Meine Bewerbung absenden'), job, {
+      pageUrl: url, postingUrl, paidPostingUrl: postingUrl,
+    })).toBe('mismatch');
+    expect(formPostingMatch(formText.replace('Rhätische Bahn', 'Other Resort'), job, { pageUrl: url })).toBe('mismatch');
     expect(formPostingMatch(formText, job, { pageUrl: url.replace('rhb-career', 'other-career') })).toBe('mismatch');
     expect(formPostingMatch(formText, {
       ...job,
       title: 'Rangiermitarbeiter/in (50-100%)',
     })).toBe('mismatch');
+  });
+
+  it('rejects a TalentSoft form headed by another employer even when tenant alias and role match', () => {
+    const job = { company: 'Acme AG (ACME)', title: 'Senior Engineer' };
+    const heading = 'Greenfield Systems - My application';
+    const formText = `${heading}\nSenior Engineer`;
+    const talentSoftUrl = 'https://acme-career.talent-soft.com/job/fixture_123.aspx';
+
+    expect(formPostingMatch(formText, job, { pageUrl: talentSoftUrl })).toBe('mismatch');
+    expect(formPostingMatch(formText, job, { pageUrl: talentSoftUrl, paidPostingUrl: talentSoftUrl })).toBe('mismatch');
+    expect(formPostingMatch(`ACME - Greenfield Systems\n${job.title}`, job, { pageUrl: talentSoftUrl })).toBe('mismatch');
+    expect(formPostingMatch(`Research Hub - My application\n${job.title}`, job, { pageUrl: talentSoftUrl })).toBe('mismatch');
+    expect(formPostingMatch(`${formText}\n${talentSoftUrl}`, job, {
+      pageUrl: 'https://other-career.example/apply/fixture',
+    })).toBe('mismatch');
+
+    const mixedCaseAliasJob = { company: 'Acme AG (RhB)', title: 'Senior Engineer' };
+    expect(formPostingMatch('Research High Bio - My application\nSenior Engineer', mixedCaseAliasJob, {
+      pageUrl: 'https://rhb-career.talent-soft.com/apply/fixture',
+    })).toBe('mismatch');
+  });
+
+  it('does not treat arbitrary names beginning with the letters of a mixed-case employer alias as equivalent', () => {
+    const job = { company: 'Ferrovia Retica (RhB)', title: 'Senior Engineer' };
+    const pageUrl = 'https://rhb-career.talent-soft.com/job/fixture_2233.aspx';
+    const paidPostingUrl = 'https://rhb-career.talent-soft.com/job/fixture_2233.aspx?source=paid-posting';
+    const wrongPaidPostingUrl = paidPostingUrl.replace('_2233.aspx', '_2234.aspx');
+    const localizedDocumentTitle = `My application\nRhätische Bahn - My application\n${job.title}`;
+
+    expect(formPostingMatch(localizedDocumentTitle, job, {
+      pageUrl,
+      paidPostingUrl,
+      pageHeading: 'Rhätische Bahn - My application',
+    })).toBe('match');
+    expect(formPostingMatch(localizedDocumentTitle, job, {
+      pageUrl,
+      paidPostingUrl: wrongPaidPostingUrl,
+      postingEntry: true,
+      pageHeading: 'Rhätische Bahn - My application',
+    })).toBe('mismatch');
+    expect(formPostingMatch(localizedDocumentTitle, job, {
+      pageUrl,
+      paidPostingUrl,
+      pageHeading: 'Other Resort - My application',
+    })).toBe('mismatch');
+    expect(formPostingMatch('My application\nSenior Engineer', job, {
+      pageUrl,
+      paidPostingUrl,
+      pageHeadings: ['Rhätische Bahn - My application', 'Other Resort - My application'],
+    })).toBe('mismatch');
+    expect(formPostingMatch('My application\nSenior Engineer', job, {
+      pageUrl,
+      paidPostingUrl,
+      pageHeadings: null,
+    })).toBe('unknown');
+    expect(formPostingMatch('My application\nSenior Engineer', job, {
+      pageUrl: 'https://rhb-career.talent-soft.com/application',
+      pageHeadings: null,
+    })).toBe('unknown');
+    const wrongFinalRoute = pageUrl.replace('_2233.aspx', '_2234.aspx');
+    for (const formText of ['My application\nSenior Engineer', 'My application']) {
+      expect(formPostingMatch(formText, job, {
+        pageUrl: wrongFinalRoute,
+        paidPostingUrl,
+        postingEntry: true,
+        postingMatched: true,
+        pageHeadings: [],
+      })).toBe('mismatch');
+    }
+
+    for (const employer of ['Rhine Business', 'Rhodium Bank']) {
+      expect(formPostingMatch(`${employer} - My application\n${job.title}`, job, {
+        pageUrl,
+        paidPostingUrl,
+      })).toBe('mismatch');
+    }
+    expect(formPostingMatch(`Bahn AG - My application\n${job.title}`, job, {
+      pageUrl,
+      paidPostingUrl,
+    })).toBe('mismatch');
+  });
+
+  it('does not treat a generic Workday information heading as another employer', () => {
+    const job = { company: 'Acme AG', title: 'Senior Engineer' };
+    for (const heading of [
+      'My Information', 'My Experience', 'My Documents', 'Application Questions', 'Voluntary Disclosures', 'My Education',
+      'Meine Ausbildung', 'Mes études', 'La mia formazione', 'Review', 'Review and Submit', 'Personal Details',
+      'Contact Details', 'Your Profile', 'Work History', 'Candidate Details',
+    ]) {
+      expect(formPostingMatch(`${heading}\nSenior Engineer`, job, {
+        pageUrl: 'https://careers.acme.example/application',
+        postingMatched: true,
+        applicationEntry: true,
+        pageHeading: heading,
+        pageHeadings: [heading],
+      })).toBe('unknown');
+    }
+    expect(formPostingMatch('Review\nSenior Engineer', job, {
+      pageUrl: 'https://careers.acme.example/application',
+      postingMatched: true,
+      applicationEntry: true,
+      pageHeading: 'Review - Other Resort',
+      pageHeadings: ['Review - Other Resort'],
+    })).toBe('mismatch');
+  });
+
+  it('keeps the ambiguous “About You” heading unknown until a posting link is proved', () => {
+    const job = { company: 'Acme AG', title: 'Senior Engineer' };
+    const formText = 'About You\nSenior Engineer';
+    const pageUrl = 'https://careers.example/application';
+
+    expect(formPostingMatch(formText, job, {
+      pageUrl,
+      pageHeading: 'About You',
+      pageHeadings: ['About You'],
+    })).toBe('unknown');
+    expect(formPostingMatch(formText, job, {
+      pageUrl,
+      postingMatched: true,
+      applicationEntry: true,
+      pageHeading: 'About You',
+      pageHeadings: ['About You'],
+    })).toBe('unknown');
+    expect(formPostingMatch(formText, job, {
+      pageUrl,
+      postingMatched: true,
+      applicationEntry: true,
+      pageHeading: 'About You - Other Resort',
+      pageHeadings: ['About You - Other Resort'],
+    })).toBe('unknown');
+    expect(formPostingMatch(formText, { company: 'ABOUT YOU', title: 'Senior Engineer' }, {
+      pageUrl,
+      pageHeading: 'About You',
+      pageHeadings: ['About You'],
+    })).toBe('match');
   });
 
   it('opens a SuccessFactors application from its matching posting page', () => {
@@ -540,8 +717,8 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       postingMatch: 'match',
     })).toBe(false);
     expect(hasApplicationSurface({}, {
-      pageUrl: 'https://jobs.stadt-zuerich.ch/posting',
-      postingUrl: 'https://jobs.stadt-zuerich.ch/posting',
+      pageUrl: postingUrl,
+      postingUrl,
       postingMatch: 'match',
     })).toBe(true);
     const umantisPostingUrl = 'https://company.umantis.com/Vacancies/123/Description/456';
@@ -797,6 +974,38 @@ describe('portal runner hardening (career-ops apply.md)', () => {
   });
 
   it.each([
+    ['an external source posting', 'https://jobs.example.test/room/rituals'],
+    ['an absent source posting', ''],
+  ])('accepts the sole Workday Apply opener with %s on the exact requisition route', (_description, postingUrl) => {
+    const applyUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Conseiller-de-Vente-h-f_R-12345';
+    const context = { applyUrl, postingUrl, job: { title: 'Conseiller de Vente (h/f)', company: 'Rituals' } };
+    const snapshot = {
+      url: applyUrl,
+      fields: [],
+      buttons: [
+        { text: 'Read Full Privacy Message', frame: 0 },
+        { text: 'Decline', frame: 0 },
+        { text: 'Accept Cookies', frame: 0 },
+        { text: 'Sign In', frame: 0 },
+        { text: 'Rituals Careers', frame: 0 },
+        { text: 'Apply', frame: 0 },
+        { text: 'View All 4 Jobs', frame: 0 },
+        { text: 'Read More', frame: 0 },
+      ],
+      links: [],
+    };
+
+    expect(applicationEntryControls(snapshot, context)).toEqual([
+      expect.objectContaining({ text: 'Apply' }),
+    ]);
+
+    expect(applicationEntryControls(snapshot, {
+      ...context,
+      postingUrl: applyUrl.replace('R-12345', 'R-99999'),
+    })).toEqual([]);
+  });
+
+  it.each([
     ['fr', 'Créer une alerte', 'Sélectionnez la fréquence (en jours) de réception d’une alerte :'],
     ['en', 'Create an alert', 'Select how often (in days) to receive an alert:'],
     ['en-job', 'Create a job alert', 'Select how often (in days) to receive an alert:'],
@@ -1036,7 +1245,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
 
     expect(formPostingMatch(genericForm, job)).toBe('mismatch');
     expect(formPostingMatch(genericForm, job, { postingMatched: true })).toBe('mismatch');
-    expect(formPostingMatch(genericForm, job, { postingMatched: true, postingEntry: true })).toBe('match');
+    expect(formPostingMatch(genericForm, job, { postingMatched: true, postingEntry: true })).toBe('unknown');
     expect(formPostingMatch('Project Manager — Other Employer\nSend application', job, { postingMatched: true, postingEntry: true })).toBe('mismatch');
     expect(formPostingMatch('Grand Hotel — Other Resort', {
       title: 'Concierge',
@@ -1162,9 +1371,10 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     const palace = { title: 'Concierge', company: 'Palace Resort AG' };
     // An account page's own words name no employer either: Workday keeps «Create Account» as the title of
     // every step of the form behind it (2026-10-07).
-    for (const title of ['Create Account', 'Sign In', 'Konto erstellen', 'Anmelden', 'Créer un compte', 'Crea account']) {
+    for (const title of ['Create Account', 'Sign In', 'Konto erstellen', 'Anmelden', 'Créer un compte', 'Crea account', 'Weiter', 'Continue', 'Avanti', 'Suivant', 'Save and continue']) {
       expect(namesAnotherEmployer(`${title}\nConcierge\nMy Information`, palace)).toBe(false);
     }
+    expect(namesAnotherEmployer('Weiter — Other Resort\nConcierge', palace)).toBe(true);
     expect(namesAnotherEmployer('Create Account — Other Resort\nConcierge', palace)).toBe(true);
     expect(formPostingMatch('Concierge — Hotel application', palace, { postingMatched: true })).toBe('match');
     expect(formPostingMatch('Concierge — Hotel Splendide', palace, { postingMatched: true })).toBe('mismatch');
@@ -1186,9 +1396,31 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     // Without a posting that named the company there is no fallback at all.
     expect(formPostingMatch('Concierge — Application Tracking System', job)).toBe('mismatch');
     expect(formPostingMatch('Concierge — Application Tracking System', job, { postingMatched: false })).toBe('mismatch');
+    const umantisPage = 'https://recruitingapp-0000.umantis.com/Vacancies/717/Application/New/2';
+    const umantisPosting = 'https://recruitingapp-0000.umantis.com/Vacancies/717/Description/1';
+    expect(formPostingMatch('Weiter', job, {
+      pageUrl: umantisPage,
+      postingUrl: umantisPosting,
+      postingMatched: true,
+      postingEntry: true,
+    })).toBe('match');
+    expect(formPostingMatch('Weiter — Other Hotel', job, {
+      pageUrl: umantisPage,
+      postingUrl: umantisPosting,
+      postingMatched: true,
+      postingEntry: true,
+    })).toBe('mismatch');
     // The whole name on the form is the direct match, as ever.
     expect(viaPosting('Concierge — Grand Hotel Esempio')).toBe('match');
     expect(viaPosting('Concierge — Grand Hotel Esempio AG', { ...job, company: 'Grand Hotel Esempio AG' })).toBe('match');
+  });
+
+  it('keeps birth-date fields neutral and stops role evidence at the form surface', () => {
+    const job = { company: 'Acme', title: 'Nurse' };
+    for (const label of ['Date de naissance', 'Date of birth', 'Data di nascita', 'Geburtsdatum']) {
+      expect(namesAnotherEmployer(label, job)).toBe(false);
+    }
+    expect(formPostingMatch('Application Tracking System\nFirst name:\nNurse', job, { postingMatched: true })).toBe('unknown');
   });
 
   it('takes an ATS careers section in the page title for no employer', () => {
@@ -1692,8 +1924,8 @@ describe('portal runner hardening (career-ops apply.md)', () => {
 
   it('applies the same knock-out rule to the agent', () => {
     const candidate = { answers: {}, profile: { languages: ['Tedesco B2'] }, portalQuestionsAnswered: [] };
-    const turn = (evidence: string, answer: string) => ({ status: 'act', reason: '', advanceRef: '', questions: [], actions: [{ ref: 'e5', action: 'click', value: '', document: 'none', question: 'Livello di tedesco', answer, source: 'profile', evidence }] });
-    expect(guardAgentStep(turn('', 'C1'), candidate)).toMatchObject({ status: 'needs_candidate', actions: [] });
+    const turn = (evidence: string, answer: string) => ({ status: 'ACT', reason: '', advanceRef: '', questions: [], actions: [{ ref: 'e5', action: 'click', value: '', document: 'none', question: 'Livello di tedesco', answer, source: 'profile', evidence }] });
+    expect(guardAgentStep(turn('', 'C1'), candidate)).toMatchObject({ status: 'NEEDS_CANDIDATE', actions: [] });
     expect(guardAgentStep(turn('Tedesco B2', 'B2'), candidate).actions).toHaveLength(1);
   });
 
@@ -1704,12 +1936,12 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     const plan = guardPlan({ actions: [{ fieldId: 'k1', action: 'select', value: 'Ja', source: 'profile', evidence: 'Deutsch B2' }], missingRequired: [] }, [field], candidate);
     expect(plan.actions).toEqual([]);
     expect(plan.missingRequired.map((item: any) => item.fieldId)).toEqual(['k1']);
-    const agent = guardAgentStep({ status: 'act', reason: '', advanceRef: '', questions: [], actions: [{ ref: 'e5', action: 'click', value: '', document: 'none', question: 'Deutsch C1?', answer: 'Ja', source: 'profile', evidence: 'Deutsch B2' }] }, candidate);
-    expect(agent).toMatchObject({ status: 'needs_candidate', actions: [] });
+    const agent = guardAgentStep({ status: 'ACT', reason: '', advanceRef: '', questions: [], actions: [{ ref: 'e5', action: 'click', value: '', document: 'none', question: 'Deutsch C1?', answer: 'Ja', source: 'profile', evidence: 'Deutsch B2' }] }, candidate);
+    expect(agent).toMatchObject({ status: 'NEEDS_CANDIDATE', actions: [] });
     // Second review: levels are read where the quote names the language asked.
     const mixed = { answers: {}, profile: { languages: ['Deutsch B2; Englisch C2'] }, portalQuestionsAnswered: [] };
     expect(guardPlan({ actions: [{ fieldId: 'k1', action: 'select', value: 'Ja', source: 'profile', evidence: 'Deutsch B2; Englisch C2' }], missingRequired: [] }, [field], mixed).actions).toEqual([]);
-    expect(guardAgentStep({ status: 'act', reason: '', advanceRef: '', questions: [], actions: [{ ref: 'e5', action: 'click', value: '', document: 'none', question: 'Deutsch C1?', answer: 'Ja', source: 'profile', evidence: 'Deutsch B2; Englisch C2' }] }, mixed)).toMatchObject({ status: 'needs_candidate', actions: [] });
+    expect(guardAgentStep({ status: 'ACT', reason: '', advanceRef: '', questions: [], actions: [{ ref: 'e5', action: 'click', value: '', document: 'none', question: 'Deutsch C1?', answer: 'Ja', source: 'profile', evidence: 'Deutsch B2; Englisch C2' }] }, mixed)).toMatchObject({ status: 'NEEDS_CANDIDATE', actions: [] });
     // The same quote does support a "yes" to B2 or lower, in another language's words too.
     const b2 = guardPlan({ actions: [{ fieldId: 'k2', action: 'select', value: 'Ja', source: 'profile', evidence: 'Deutsch B2' }], missingRequired: [] }, [{ ...field, id: 'k2', label: 'Tedesco almeno B1?' }], candidate);
     expect(b2.actions).toHaveLength(1);
