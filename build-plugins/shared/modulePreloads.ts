@@ -17,6 +17,11 @@
  */
 export const ROUTE_CHUNKS_META_NAME = 'frontaliere-route-chunks';
 
+import { readStageHandoff, writeStageHandoff } from './stageHandoff';
+
+/** File name inside BUILD_STAGE_HANDOFF_DIR (see shared/stageHandoff.ts). */
+export const ROUTE_CHUNKS_HANDOFF_FILE = 'route-chunks.json';
+
 const registeredRouteChunks = new Set<string>();
 const activeEmitters = new Set<object>();
 let settledWaiters: Array<() => void> = [];
@@ -53,8 +58,24 @@ export function routeChunksMetaTag(chunks: ReadonlyArray<string | null | undefin
   return `<meta name="${ROUTE_CHUNKS_META_NAME}" content="${unique.join(' ')}">`;
 }
 
+/**
+ * Staged build: persist what THIS process registered, for the other one. The SPA
+ * index.html is hinted by preloadLocalePlugin in the bundle process (it-core,
+ * it-calculator, App); the versioned-CDN bootstrap that builds the allowlist runs in
+ * the SSG process, whose own registry does not contain those. No-op without
+ * BUILD_STAGE_HANDOFF_DIR.
+ */
+export function persistRegisteredRouteChunks(): void {
+  writeStageHandoff(ROUTE_CHUNKS_HANDOFF_FILE, { version: 1, chunks: [...registeredRouteChunks].sort() });
+}
+
 export function getRegisteredRouteChunks(): string[] {
-  return [...registeredRouteChunks].sort();
+  const all = new Set(registeredRouteChunks);
+  const handoff = readStageHandoff<{ chunks?: unknown }>(ROUTE_CHUNKS_HANDOFF_FILE);
+  if (handoff.status === 'ok' && Array.isArray(handoff.data?.chunks)) {
+    for (const chunk of handoff.data.chunks) if (typeof chunk === 'string' && chunk) all.add(chunk);
+  }
+  return [...all].sort();
 }
 
 export function resetRegisteredRouteChunks(): void {
