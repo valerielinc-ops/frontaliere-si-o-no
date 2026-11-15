@@ -67,7 +67,6 @@ import {
   SECTOR_HUB_LOCALE_PREFIX,
   SECTOR_HUB_DISPLAY,
   buildSectorHubPath,
-  buildSectorHubPagePath,
   buildSectorHubSeo,
   buildSectorProse,
   loadSectorProseData,
@@ -76,6 +75,7 @@ import {
   type SectorCountableJob,
   type SectorHubKey,
 } from './jobSectorLanding';
+import { buildSectorHubPagePath } from './shared/jobSectorPaths';
 import { SECTOR_HUB_EMOJI } from './shared/sectorHubEmoji';
 import { JOB_BOARD_NOINDEX_TARGET_MARKER } from './shared/jobBoardNoindexTargetMarker.mjs';
 import { getSafeDistPageTargets } from './shared/distPathSafety';
