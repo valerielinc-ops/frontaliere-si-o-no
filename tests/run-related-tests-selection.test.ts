@@ -814,6 +814,20 @@ describe('run-related-tests selection contract', () => {
     expect(unrelated.stdout).not.toContain(freshness);
   });
 
+  it('runs the publisher freshness test when its workflow trigger changes', () => {
+    const freshness = 'tests/scripts/article-chunk-publish-freshness.test.ts';
+    const workflow = '.github/workflows/sync-articles-sitemaps.yml';
+    const root = fixture({
+      [workflow]: 'name: article sync\n',
+      [freshness]: `import { readFileSync } from 'node:fs';\nreadFileSync('${workflow}', 'utf8');\n`,
+      'tests/unrelated.test.ts': "export const unrelated = true;\n",
+    });
+
+    const result = select(root, [workflow]);
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    expect(result.stdout, workflow).toContain(freshness);
+  });
+
   it('reuses an ancestor graph across data snapshots and reindexes intervening source edits', () => {
     const reader = 'tests/live-snapshot-reader.test.ts';
     const root = fixture({
