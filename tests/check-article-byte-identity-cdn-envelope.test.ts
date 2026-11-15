@@ -50,6 +50,18 @@ describe('canonicalizeCdnDataEnvelope — deployment boundary only', () => {
     expect(canonicalizeCdnDataEnvelope(fast)).toBe(live);
   });
 
+  it('keeps adjacent head tags separated when the envelope was injected contiguously', () => {
+    const fast = page(
+      `<meta charset="utf-8">${ENVELOPE}<meta name="description" content="Articolo">`,
+    );
+    const live = page(
+      `<meta charset="utf-8">\n <meta name="description" content="Articolo">`,
+    );
+
+    expect(canonicalizeCdnDataEnvelope(fast)).toBe(live);
+    expect(canonicalizeForComparison(fast)).toBe(canonicalizeForComparison(live));
+  });
+
   it('keeps a wrong or changed CDN runtime value as a mismatch', () => {
     const wrongOrigin = page(
       '<script>window.__CDN_DATA_BASE__="https://cdn.example.test"</script>',

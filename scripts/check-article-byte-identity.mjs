@@ -414,8 +414,11 @@ function findCdnEnvelopeRanges(html, headStart, headEnd) {
  *
  * This is deliberately a deletion of exact source ranges, not a regex replace:
  * comments, templates, raw-text elements, body content, and a wrong CDN origin
- * must remain observable. Malformed head markup returns unchanged, so the
- * normalizer fails closed with a mismatch rather than guessing at scope.
+ * must remain observable. When the envelope was injected directly between two
+ * head nodes, the removal leaves no separator; in that one boundary shape we
+ * add a canonical newline so removing deployment-only markup cannot join two
+ * real tags. Malformed head markup returns unchanged, so the normalizer fails
+ * closed with a mismatch rather than guessing at scope.
  */
 export function canonicalizeCdnDataEnvelope(html) {
   const open = /<head\b[^>]*>/i.exec(html);
@@ -427,9 +430,23 @@ export function canonicalizeCdnDataEnvelope(html) {
   const scan = findCdnEnvelopeRanges(html, headStart, headEnd);
   if (scan.malformed || scan.ranges.length === 0) return html;
 
+  // The three generated nodes are normally contiguous. Treat ranges separated
+  // only by whitespace as one envelope so a boundary separator is inserted at
+  // most once, rather than once per generated tag.
+  const groups = [];
+  for (const range of scan.ranges) {
+    const previous = groups[groups.length - 1];
+    if (previous && /^[ \t\n\r\f]*$/u.test(html.slice(previous.end, range.start))) {
+      previous.end = range.end;
+    } else {
+      groups.push({ start: range.start, end: range.end });
+    }
+  }
+
   let normalized = html;
-  for (let i = scan.ranges.length - 1; i >= 0; i--) {
-    const { start, end: tagEnd } = scan.ranges[i];
+  for (let i = groups.length - 1; i >= 0; i--) {
+    const { start, end: tagEnd } = groups[i];
+    const hasWhitespaceBefore = start > headStart && isHtmlWhitespace(html[start - 1]);
     // The offload pass can insert the exact envelope either directly beside
     // the existing head tag or on its own indented line. Removing only the
     // tags leaves an extra blank line in the latter shape, which can hide a
@@ -438,10 +455,19 @@ export function canonicalizeCdnDataEnvelope(html) {
     // the exact envelope tag only when another head tag follows; when the
     // envelope is the last head node, retain the surrounding whitespace so an
     // otherwise empty head keeps the same layout as the no-envelope shape.
-    let end = tagEnd;
-    while (end < headEnd && isHtmlWhitespace(html[end])) end++;
-    if (end === headEnd || html[end] !== '<') end = tagEnd;
-    normalized = normalized.slice(0, start) + normalized.slice(end);
+    let after = tagEnd;
+    while (after < headEnd && isHtmlWhitespace(html[after])) after++;
+    const hasWhitespaceAfter = after > tagEnd;
+    const nextIsHeadTag = html[after] === '<';
+    const end = !hasWhitespaceAfter && nextIsHeadTag
+      ? tagEnd
+      : (after === headEnd || html[after] !== '<' ? tagEnd : after);
+    const needsBoundarySeparator = !hasWhitespaceBefore
+      && html[start - 1] === '>'
+      && nextIsHeadTag;
+    normalized = normalized.slice(0, start)
+      + (needsBoundarySeparator ? '\n ' : '')
+      + normalized.slice(end);
   }
   return normalized;
 }
