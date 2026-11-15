@@ -423,7 +423,6 @@ function extractSbbListingDeclaredCount(html = '') {
   const text = stripHtml(html);
   const countMatch = text.match(/\b(\d{1,5})\s+(?:posti di lavoro trovati|stellen gefunden|jobs found|postes? trouv(?:e|é|ées?)s?)\b/i);
   if (countMatch) return Number(countMatch[1]);
-  if (/non ha prodotto risultati|keine resultate gefunden|no results found|aucun résultat/i.test(text)) return 0;
   return null;
 }
 

@@ -483,6 +483,27 @@ describe('SBB two-source discovery invariants', () => {
     expect(requests[1].init.headers).not.toHaveProperty('X-Requested-With');
   });
 
+  it('rejects the generic uncounted no-results shell instead of publishing source-zero', async () => {
+    const listingHtml = `<html><body><h1>Posti liberi.</h1><div>Posti di lavoro trovati per il tuo profilo.</div>
+      <p>Non ha prodotto risultati.</p><p>Jobfinder e informazioni sulle candidature disponibili.</p></body></html>`;
+    let listingValidationReason;
+    const fetchJina = vi.fn(async (
+      url: string,
+      options: { validateBody?: (body: string) => string | null } = {},
+    ) => {
+      if (url.includes('jobfilter.results.json')) return { ok: false, status: 502, text: async () => '' };
+      listingValidationReason = options.validateBody?.(listingHtml);
+      return { ok: true, status: 200, text: async () => listingHtml };
+    });
+
+    await expect(fetchSbbJobDetailUrls({
+      fetchPageImpl: async () => null,
+      fetchJinaImpl: fetchJina,
+      timeoutMs: 1000,
+    })).rejects.toThrow(/unavailable/);
+    expect(listingValidationReason).toBe('SBB vacancies listing result count missing');
+  });
+
   it('uses the current Italian vacancies page for AEM discovery', async () => {
     const requestedUrls: string[] = [];
     const fetchAem = async (url: string) => {
