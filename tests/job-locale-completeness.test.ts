@@ -7,8 +7,8 @@
  * No fallbacks allowed: every field must be translated in every locale.
  * Run `node scripts/repair-job-locales.mjs` to fix missing translations.
  */
+import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import { describe, expect, it } from 'vitest';
-import fs from 'fs';
 import path from 'path';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
@@ -26,7 +26,7 @@ interface Job {
 }
 
 describe('job-locale-completeness', () => {
-  const jobs: Job[] = JSON.parse(fs.readFileSync(DATA_JOBS_PATH, 'utf-8'));
+  const jobs: Job[] = readJsonFile(DATA_JOBS_PATH);
 
   it('jobs.json exists and is a non-empty array', () => {
     expect(Array.isArray(jobs)).toBe(true);

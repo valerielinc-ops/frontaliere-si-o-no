@@ -76,9 +76,14 @@ function staticallyImportedDataFiles(): Set<string> {
  * da `main` per sempre, ed e' una porta che questa PR non vuole chiudere.
  * Le letture dentro un repo temporaneo (`join(repoDir, 'data/...')`) non
  * contano: sono fixture, non l'albero vero.
+ *
+ * Contano anche i lettori a prova di limite V8 (`readJsonFile`,
+ * `iterateJsonArrayFile`, scripts/lib/read-large-json.mjs): `data/jobs.json` e'
+ * oltre i 512 MB, i test che lo aprono sono stati migrati ad essi, e senza questi
+ * nomi il rilevatore diventa cieco (era l'asserzione sotto).
  */
 function diskReadDataFiles(): Set<string> {
-  const pattern = String.raw`(readFileSync|readFile|existsSync|readdirSync)\([^)]*(path\.resolve|__dirname|'data/)[^)]*data/[^']*\.(json|jsonl)`;
+  const pattern = String.raw`(readFileSync|readFile|existsSync|readdirSync|readJsonFile|iterateJsonArrayFile)\([^)]*(path\.resolve|__dirname|'data/)[^)]*data/[^']*\.(json|jsonl)`;
   const out = grep(['-hoE', pattern, '--', 'tests/']);
   const files = new Set<string>();
   for (const line of out) {
