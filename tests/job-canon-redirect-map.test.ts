@@ -115,6 +115,7 @@ describe('jobCanonRedirectMapPlugin', () => {
     process.env.BUILD_LOCALE = 'it';
     tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-'));
     fs.mkdirSync(path.join(tmp, 'data'), { recursive: true });
+    fs.writeFileSync(path.join(tmp, 'data', 'jobs.json'), '[]');
     fs.mkdirSync(path.join(tmp, 'dist'), { recursive: true });
     fs.mkdirSync(path.join(tmp, 'dist', 'data'), { recursive: true });
     fs.writeFileSync(path.join(tmp, 'dist', 'data', 'jobs-slug-map.json'), '[]');
@@ -360,6 +361,7 @@ describe('active job aliases in the IT /job-canon publishing leg', () => {
     process.env.BUILD_LOCALE = 'it';
     tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-active-'));
     fs.mkdirSync(path.join(tmp, 'data'), { recursive: true });
+    fs.writeFileSync(path.join(tmp, 'data', 'jobs.json'), '[]');
     fs.mkdirSync(path.join(tmp, 'dist', 'data'), { recursive: true });
     setJobCanonOrderingFields(activeJobs);
     const publicSlugMapRows = activeJobs.map((job) => {
@@ -1120,6 +1122,7 @@ describe('job canon bridge path planning and PR-B classification', () => {
     const previousLocale = process.env.BUILD_LOCALE;
     try {
       fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.writeFileSync(path.join(root, 'data', 'jobs.json'), '[]');
       fs.mkdirSync(path.join(root, 'dist', 'data'), { recursive: true });
       fs.writeFileSync(path.join(root, 'dist', 'data', 'jobs-slug-map.json'), '[]');
 
@@ -1441,6 +1444,8 @@ describe('job canon bridge path planning and PR-B classification', () => {
     process.env.BUILD_LOCALE = 'it';
     delete process.env.FAST_BUILD;
     try {
+      fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.writeFileSync(path.join(root, 'data', 'jobs.json'), '[]');
       // Register the producer directly. This suite mocks jobsSeoPagesPlugin's
       // data helpers, so importing a second real plugin instance here would
       // make the test depend on Vitest's mocked module graph rather than the
@@ -1505,6 +1510,7 @@ describe('job canon bridge path planning and PR-B classification', () => {
     try {
       const slug = 'all-locale-worker-map-fixture';
       fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.writeFileSync(path.join(root, 'data', 'jobs.json'), '[]');
       fs.mkdirSync(path.join(root, 'dist', 'data'), { recursive: true });
       fs.writeFileSync(path.join(root, 'dist', 'data', 'jobs-slug-map.json'), '[]');
       writeAllKnownJobSlugs({
@@ -1540,6 +1546,7 @@ describe('job canon bridge path planning and PR-B classification', () => {
     process.env.BUILD_LOCALE = buildLocale;
     try {
       fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.writeFileSync(path.join(root, 'data', 'jobs.json'), '[]');
       fs.mkdirSync(path.join(root, 'dist', 'data'), { recursive: true });
       fs.writeFileSync(path.join(root, 'dist', 'data', 'jobs-slug-map.json'), '[]');
       writeAllKnownJobSlugs({}, root);
@@ -1567,6 +1574,7 @@ describe('job canon bridge path planning and PR-B classification', () => {
     delete process.env.BUILD_LOCALE;
     try {
       fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.writeFileSync(path.join(root, 'data', 'jobs.json'), '[]');
       fs.mkdirSync(path.join(root, 'dist', 'data'), { recursive: true });
       if (mapContents !== undefined) {
         fs.writeFileSync(path.join(root, 'dist', 'data', 'jobs-slug-map.json'), mapContents);
