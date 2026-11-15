@@ -8,7 +8,7 @@ import {
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import { loadSpec, runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
 
-const SOURCE_BODY_SUFFIX = ' Die Stelle erfordert sorgfältige Planung, verlässliche Kommunikation, selbstständige Umsetzung, gute Zusammenarbeit, Qualitätskontrolle, Kundenbetreuung und nachvollziehbare Dokumentation im täglichen Arbeitsumfeld mit Kundinnen, Kunden und internen Fachstellen im Schichtalltag.';
+const SOURCE_BODY_SUFFIX = ' Die Stelle erfordert sorgfältige Planung, verlässliche Kommunikation, selbstständige Umsetzung, gute Zusammenarbeit, Qualitätskontrolle, Kundenbetreuung und nachvollziehbare Dokumentation im täglichen Arbeitsumfeld mit Kundinnen, Kunden und internen Fachstellen im Schichtalltag und bietet klare Lernziele, zuverlässige Abläufe sowie persönliche Betreuung im abwechslungsreichen Arbeitsalltag.';
 
 describe('WALTER ZOO AG GOSSAU crawler parser', () => {
   // ── Constants ──
