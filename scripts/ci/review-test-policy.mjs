@@ -334,6 +334,23 @@ export function gh(args, { json = true, allowFail = false, allowNotFound = false
     throw error;
   }
 }
+/**
+ * `pulls/{n}/files` calcola il diff della PR e, per un diff troppo grande,
+ * risponde `HTTP 422 Sorry, this diff is taking too long to generate`
+ * (`errors[].code: not_available`): #18870 (run 43709592384) e #18860. Non e'
+ * un errore transitorio ne' un'evidenza contraria: i dettagli per file (rename,
+ * additions/deletions) non sono ottenibili, quindi il fast path non e'
+ * dimostrabile. Chi lo incontra deve scegliere la classificazione conservativa
+ * (percorso ordinario), non far crashare lo step.
+ */
+export function isDiffUnavailableError(error) {
+  const text = [error?.message, error?.stderr, error?.stdout]
+    .map((value) => String(value || ''))
+    .join('\n');
+  return /diff is taking too long to generate/iu.test(text)
+    || (/HTTP 422/u.test(text) && /not_available/u.test(text));
+}
+
 export function verifyTestOnlyHead(ghFn, repo, pr, head) {
   const current = () => ghFn(['api', `repos/${repo}/pulls/${pr}`]);
   const before = current();
@@ -346,7 +363,15 @@ export function verifyTestOnlyHead(ghFn, repo, pr, head) {
   const snapshot = fetchPrFiles(pr, ghFn, repo);
   if (!isNonRuntimeCodeSnapshot(snapshot)) return false;
   // A rename into a non-runtime path still removes application code at its old path.
-  const pages = ghFn(['api', `repos/${repo}/pulls/${pr}/files`, '--paginate', '--slurp']);
+  let pages;
+  try {
+    pages = ghFn(['api', `repos/${repo}/pulls/${pr}/files`, '--paginate', '--slurp']);
+  } catch (error) {
+    // Diff troppo grande per la REST: fast path non dimostrabile → non idonea
+    // (percorso ordinario), mai un crash. Gli altri errori restano fail-closed.
+    if (isDiffUnavailableError(error)) return false;
+    throw error;
+  }
   if (!Array.isArray(pages)) return false;
   const entries = pages.flat();
   const names = new Set(snapshot.files);
@@ -620,7 +645,12 @@ export function inspectLedgerOnlyHead(ghFn, repo, pr, head) {
   let pages;
   try {
     pages = ghFn(['api', `repos/${repo}/pulls/${pr}/files`, '--paginate', '--slurp']);
-  } catch {
+  } catch (error) {
+    if (isDiffUnavailableError(error)) {
+      // Diff troppo grande per la REST: i dettagli append-only non sono
+      // dimostrabili, quindi non e' una PR ledger-only (percorso ordinario).
+      return inspectionFailure('not-ledger-only', 'dettagli file PR non disponibili (diff troppo grande per la REST)');
+    }
     return inspectionFailure('unverifiable', 'lettura dettagli file PR fallita');
   }
   if (!Array.isArray(pages) || pages.some((page) => !Array.isArray(page))) {
