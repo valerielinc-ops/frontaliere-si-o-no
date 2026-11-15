@@ -3333,8 +3333,7 @@
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:29:16.195Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sbb-4fb4ec0a92d0",
@@ -3771,7 +3770,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-baueinkauf/7c474209-8d3e-4525-ac53-039c1d849123",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-10T21:29:14.691Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T21:44:41.055Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -5071,7 +5069,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/technische-r-kontrolleur-in-cargo/efeee2e2-9f93-4424-adf7-d112b8705635",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-10T21:29:21.210Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T21:44:47.049Z",
       "salaryMin": 60000,
       "salaryMax": 102000,
@@ -6035,7 +6032,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/system-engineer-operations/62bc3928-db1f-430c-b37e-008b0d011221",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-10T21:29:13.697Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T21:44:40.090Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -6130,7 +6126,6 @@
       "url": "https://jobs.sbb.ch/v2/offene-stellen/teamleiter-in-baustellensicherheit/f651525d-5d0d-4f94-b315-29632224b6af",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-10T21:29:15.189Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-01T09:30:29.332Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -6252,7 +6247,6 @@
           "spezialist-in-controlling-schwerpunkt-personalcontrolling-80-100-ffs-officine-ferrovie-federali-olten"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T21:44:38.028Z",
       "salaryMin": 73000,
       "salaryMax": 124500,
@@ -8569,8 +8563,7 @@
       "streetAddress": "Muttenz",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T21:29:09.291Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "sbb-3b00c4c42be3",
@@ -14791,7 +14784,6 @@
       "previousSlugs": [
         "techniker-in-sicherungsanlagen-aussen-produktionsmechaniker-in-polymechaniker-in-schlosser-in-ffs-officine-ferrovie-federali-zurich"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T21:44:46.068Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -17138,7 +17130,6 @@
           "techniker-in-klimaanlagen-der-sbb-flotte-ffs-officine-ferrovie-federali-olten"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-08T21:44:45.554Z",
       "salaryMin": 73000,
       "salaryMax": 124500,

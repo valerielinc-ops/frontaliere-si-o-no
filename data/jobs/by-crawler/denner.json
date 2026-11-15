@@ -8859,7 +8859,6 @@
           "stv-filialleiter-in-denner-wadenswil"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
@@ -18450,7 +18449,7 @@
       "slugByLocale": {
         "it": "venditore-venditrice-denner-worb",
         "en": "salesperson-denner-worb",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-9d0cuj",
         "fr": "vendeur-euse-denner-worb"
       },
       "company": "Denner",
@@ -18515,8 +18514,7 @@
         "verkaufer-in-denner-7",
         "verkaufer-in-denner-6",
         "verkaufer-in-denner-5",
-        "verkaufer-in-denner-2",
-        "verkaufer-in-denner-9d0cuj"
+        "verkaufer-in-denner-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -18537,7 +18535,7 @@
         ],
         "de": [
           "verkaufer-in-denner-worb",
-          "verkaufer-in-denner-9d0cuj"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-worb"
@@ -18573,7 +18571,7 @@
       "slugByLocale": {
         "it": "venditore-trice-denner-worb",
         "en": "shop-assistant-denner-worb",
-        "de": "verkaufer-in-denner",
+        "de": "verkaufer-in-denner-k5mgo5",
         "fr": "vendeur-euse-denner-worb-675a07"
       },
       "company": "Denner",
@@ -18631,7 +18629,8 @@
         "verkaufer-in-denner",
         "verkaufer-in-denner-worb",
         "verkaufer-in-denner-k5mgo5",
-        "salesperson-denner-worb-675a07"
+        "salesperson-denner-worb-675a07",
+        "shop-assistant-denner-worb"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -18642,7 +18641,7 @@
           "salesperson-denner-worb-675a07"
         ],
         "de": [
-          "verkaufer-in-denner-k5mgo5"
+          "verkaufer-in-denner"
         ],
         "fr": [
           "verkaufer-in-denner-worb"
