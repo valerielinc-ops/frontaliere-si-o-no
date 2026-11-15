@@ -557,11 +557,14 @@
         }
         function handleControlledMessaging(message, previous){
           var E = g.MessageTypeEnum || {};
-          // The first call arrives with an empty enum and must proceed at
-          // once: holding it delays the CMP and the display ads. If a later
-          // call is still unclassified, fail closed because the Offerwall
-          // cannot be suppressed by type without its enum value. The live
-          // enum values are strings ("offerwall"); a number is accepted too.
+          if (typeof E.AD_BLOCKING === 'number' || typeof E.AD_BLOCKING === 'string') {
+            previous = mergeDecisions(previous, { allow: false, types: [E.AD_BLOCKING] });
+          }
+          // The first call may arrive before the Offerwall enum and must not
+          // wait: holding it delays the CMP and display ads. If AD_BLOCKING is
+          // already typed, filter only that type even before OFFERWALL is
+          // typed. Later unclassified calls fail closed because the Offerwall
+          // cannot be suppressed by type without its enum value.
           if (typeof E.OFFERWALL !== 'number' && typeof E.OFFERWALL !== 'string') {
             if (g.__ftOfferwallBootstrapComplete) {
               deliver(message, previous, { allow: false });
@@ -570,9 +573,6 @@
             g.__ftOfferwallBootstrapComplete = true;
             deliver(message, previous, { allow: true });
             return;
-          }
-          if (typeof E.AD_BLOCKING === 'number' || typeof E.AD_BLOCKING === 'string') {
-            previous = mergeDecisions(previous, { allow: false, types: [E.AD_BLOCKING] });
           }
           syncRoute();
           if (!isJobBoardPath()) {
