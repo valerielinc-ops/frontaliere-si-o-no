@@ -4250,8 +4250,7 @@ export function renderHubPage(input: HubPageInput): { urlPath: string; html: str
  * landing (emitted by `jobsSeoPagesPlugin`). Keeps the hub at BFS depth
  * ≤4 from `/`. If the section landing is missing (jobs plugin skipped),
  * we log a warning and skip — never fail on a missing/unwritable file.
- * The ONE hard failure is the page-weight guard at the end: an oversized
- * landing must fail the build here rather than the post-deploy audit.
+ * Page weight is only warned about at the end, never a build failure.
  */
 function injectHubLinkIntoSectionLanding(
   distDir: string,
@@ -4316,28 +4315,21 @@ function injectHubLinkIntoSectionLanding(
     console.warn('\x1b[33m[related-search-clusters]\x1b[0m failed to write section landing:', err);
   }
 
-  // Build-time page-weight guard. This injection is the last known mutator
-  // of the job-board landing, the only repeat offender of the post-deploy
-  // audit:page-weight gate (broke at 200 KB on run 26112128794, again at
-  // 215 KB on run 27386112992 → issue #1887; gate raised again 215->260 KB
-  // for the unrelated /tutti/ pagination-ladder headroom, issue #4209(b) —
-  // this landing-page guard is intentionally NOT raised alongside it, see
-  // below). Failing HERE turns "deploy → validate-dist red → rollback →
-  // prod frozen on a stale build" into a build-job failure that never
-  // reaches deploy and names the page. Kept at a fixed 205 KB (independent
-  // of the shared audit budget above) so the build fails before the audit
-  // ever can. Do NOT raise this guard to pass a build — trim the
-  // data-driven blocks instead (see .jbx-* in seo-static.css for the
-  // 119 KB inline-style precedent).
-  const JOB_BOARD_LANDING_GUARD_BYTES = 205 * 1024;
+  // Build-time page-weight OBSERVATION (never a failure). This injection is
+  // the last known mutator of the job-board landing, a repeat offender of the
+  // post-deploy audit:page-weight gate (200 KB on run 26112128794, 215 KB on
+  // run 27386112992 → issue #1887). It used to throw at a fixed 205 KB; the
+  // owner dropped build-time page-weight ceilings after one oversized hub
+  // aborted a whole locale build (run 43712804687: «togliamo questo tetto per
+  // le pagine»). The page is still written whole and the weight is reported so
+  // growth stays visible: the post-publish audit:page-weight run is the
+  // observer, and it does not block deploy or publish.
+  const JOB_BOARD_LANDING_WARN_BYTES = 205 * 1024;
   const patchedBytes = Buffer.byteLength(patched, 'utf-8');
-  if (patchedBytes > JOB_BOARD_LANDING_GUARD_BYTES) {
-    throw new Error(
-      `[related-search-clusters] job-board landing ${sectionPath} is ${patchedBytes} B after hub-link injection, ` +
-      `over the ${JOB_BOARD_LANDING_GUARD_BYTES} B build-time guard (fixed, independent of the shared ` +
-      `audit:page-weight budget in scripts/audit-page-weight.mjs). ` +
-      `A data-driven block on this landing grew past its headroom — trim the offending block ` +
-      `(do not raise this guard or the audit budget; non-negotiable #1).`,
+  if (patchedBytes > JOB_BOARD_LANDING_WARN_BYTES) {
+    console.warn(
+      `\x1b[33m[related-search-clusters]\x1b[0m job-board landing ${sectionPath} is ${patchedBytes} B after hub-link injection, ` +
+      `above the ${JOB_BOARD_LANDING_WARN_BYTES} B page-weight warning threshold (emitted in full; warning only).`,
     );
   }
 }
