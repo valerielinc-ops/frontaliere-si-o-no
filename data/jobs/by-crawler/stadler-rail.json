@@ -848,8 +848,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T10:07:50.206Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-16a77e7d68aa",
@@ -932,8 +931,7 @@
       "streetAddress": "St. Margrethen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-20T10:07:38.113Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-257eac56e5fb",
@@ -1010,8 +1008,7 @@
       "streetAddress": "Altenrhein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-22T10:07:26.736Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-ad9b09116a2d",
@@ -1502,8 +1499,7 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-23T10:06:12.997Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-0fa950db023e",
@@ -1820,7 +1816,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "system-test-engineer-stadler-rail-ch",
-        "system-test-ingegnere-stadler-rail-olten-26eec790fb",
         "system-test-ingegnere-stadler-rail-olten",
         "system-test-ingegnere-stadler-rail-olten-4ea7fb1eed",
         "system-test-ingegnere-stadler-rail-olten-4c156d117e",
@@ -1831,7 +1826,6 @@
       "previousSlugsByLocale": {
         "it": [
           "system-test-engineer-stadler-rail-ch",
-          "system-test-ingegnere-stadler-rail-olten-26eec790fb",
           "system-test-ingegnere-stadler-rail-olten",
           "system-test-ingegnere-stadler-rail-olten-4ea7fb1eed",
           "system-test-ingegnere-stadler-rail-olten-4c156d117e",
@@ -2192,8 +2186,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-25T10:04:11.723Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-f04118d145a7",
@@ -2353,8 +2346,7 @@
       "streetAddress": "Vufflens-la-Ville",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-25T10:03:47.947Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-d9aeaefbe37c",
@@ -3005,8 +2997,7 @@
       "streetAddress": "St. Margrethen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T10:02:09.896Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-dca83855a6a7",
@@ -3169,8 +3160,7 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T10:01:46.283Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-3c20f8312515",
@@ -3247,8 +3237,7 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-27T10:01:33.854Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-322bcbd24554",
@@ -4901,8 +4890,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-29T09:56:58.653Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-3c9413ab3366",
@@ -5474,8 +5462,7 @@
       "streetAddress": "St. Margrethen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-01T09:55:32.298Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-4b285db0e2fd",
@@ -5557,8 +5544,7 @@
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-01T09:55:19.139Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-3840da13c729",
@@ -5638,8 +5624,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-01T09:55:06.270Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-2f970019788f",
@@ -5971,8 +5956,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T09:54:09.848Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-e312e1370e7d",
@@ -6145,8 +6129,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-02T09:53:34.615Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-674be6778582",
@@ -6229,8 +6212,7 @@
       "streetAddress": "St. Margrethen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-02T09:53:22.534Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-aa8cbd9c121d",
@@ -6411,8 +6393,7 @@
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-02T09:52:59.134Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-8e877077d971",
@@ -6495,8 +6476,7 @@
       "streetAddress": "St. Margrethen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-02T09:52:46.692Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-583afe76880c",
@@ -6579,8 +6559,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:52:34.224Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-a3b73eed8fca",
@@ -6838,8 +6817,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:51:47.303Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-b23a24c7075f",
@@ -6999,8 +6977,7 @@
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:51:23.246Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-f7f799ccc958",
@@ -7160,8 +7137,7 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:50:58.829Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-b79a4b358648",
@@ -7410,8 +7386,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-03T09:50:21.082Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-08c6c912614a",
@@ -7652,8 +7627,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:49:43.836Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-c2e565e32f6d",
@@ -7736,8 +7710,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T09:49:32.046Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-86f8747c234f",
@@ -7820,8 +7793,7 @@
       "streetAddress": "St. Margrethen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T09:49:20.140Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-193397f6177a",
@@ -7904,8 +7876,7 @@
       "streetAddress": "St. Margrethen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T09:49:07.409Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-110e94231742",
@@ -7984,8 +7955,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:48:55.807Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-87ed84d1c807",
@@ -8093,8 +8063,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:48:31.256Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-f7a1491a0bba",
@@ -8173,8 +8142,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:48:18.820Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-61d84f561ebf",
@@ -8295,8 +8263,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:48:06.866Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-72398b6e61b3",
@@ -8872,8 +8839,7 @@
       "streetAddress": "St. Margrethen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:46:41.999Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-99ada87030fd",
@@ -9565,8 +9531,7 @@
       "streetAddress": "Biel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:45:01.396Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-e40f4ac4365d",
@@ -10074,8 +10039,7 @@
       "streetAddress": "St. Margrethen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:43:47.382Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-045a903e0eca",
@@ -10493,8 +10457,7 @@
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-07T09:42:44.492Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-be468e9199d9",
@@ -10813,8 +10776,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:41:52.447Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-4aa1fccd8842",
@@ -11117,8 +11079,7 @@
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:41:13.986Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-c6fc59433fdf",
@@ -11201,8 +11162,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:41:01.350Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-937e0658259e",
@@ -11371,8 +11331,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:40:34.395Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-0228f0399c75",
@@ -12225,8 +12184,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:38:20.574Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-1c70f2c73470",
@@ -12280,7 +12238,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "testing-commissioning-engineer-stadler-rail-ch",
-        "pruf-und-inbetriebnahmeingenieur-stadler-rail-wallisellen",
         "reclutamento-stadler-rail-wallisellen",
         "testing-and-commissioning-engineer-stadler-rail-wallisellen",
         "testing-commissioning-engineer-stadler-rail-wallisellen",
@@ -12297,7 +12254,6 @@
           "testing-commissioning-ingegnere-stadler-rail-wallisellen"
         ],
         "de": [
-          "pruf-und-inbetriebnahmeingenieur-stadler-rail-wallisellen",
           "testing-commissioning-engineer-stadler-rail-wallisellen",
           "testing-commissioning-engineer-stadler-rail-ch",
           "recruiting-stadler-rail-ch",
@@ -12416,8 +12372,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:37:30.331Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-71352e29dbe4",
@@ -13667,8 +13622,7 @@
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-16T09:34:00.582Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-5e6c95f98023",
@@ -13836,8 +13790,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-16T09:33:24.059Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-55cc28708b78",
@@ -13923,8 +13876,7 @@
       "streetAddress": "Altenrhein",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T09:33:10.988Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-e05df9660d3f",
@@ -14257,8 +14209,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T09:32:21.300Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "stadler-rail-6de49652998d",
@@ -14338,8 +14289,7 @@
       "streetAddress": "Bussnang",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T09:32:08.978Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
