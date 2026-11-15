@@ -64,7 +64,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     # Minimum per job. The App token mints with its own least-privilege set
-    # (actions write, deployments/statuses read) and does the reads + dispatch.
+    # (contents read, actions write, deployments/statuses read; see
+    # requestedPermissions() in mint-app-token.mjs) and does the reads + dispatch.
     # The escalation (one commit status asking for a build, one blocked issue)
     # is written with the job's GITHUB_TOKEN, which therefore needs
     # `statuses: write` and `issues: write`, exactly like the `rearm` job of

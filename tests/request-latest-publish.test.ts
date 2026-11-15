@@ -624,6 +624,45 @@ describe('shared blocked-issue module', () => {
   });
 });
 
+describe('reconciler contracts disputed in review 5908376206', () => {
+  const source = readFileSync(resolve('scripts/ci/request-latest-publish.mjs'), 'utf8');
+
+  it('ghJson-contract: declares exactly one module-level fetch-based ghJson and never imports the CLI one', async () => {
+    expect(source.match(/^async function ghJson\(urlPath\) \{/gm)).toHaveLength(1);
+    expect(source.match(/\bfunction ghJson\b/g)).toHaveLength(1);
+    const body = source.slice(source.indexOf('async function ghJson(urlPath)'), source.indexOf('async function ghPost'));
+    expect(body).toContain('await fetch(');
+    expect(body).toContain('authToken()');
+    // `./lib/deploy-run-evidence.mjs#ghJson(args)` takes CLI argv: importing it would redeclare the name.
+    const evidenceImport = source.match(/import \{([^}]*)\} from '\.\/lib\/deploy-run-evidence\.mjs'/);
+    expect(evidenceImport?.[1]).not.toMatch(/\bghJson\b/);
+    // The tip lookup of the retry evidence uses the local fetch-based reader.
+    expect(source).toContain('await ghJson(`/repos/${repo}/commits/${BRANCH}`)');
+    // The module loads without a ReferenceError or a duplicate declaration.
+    await expect(import('../scripts/ci/request-latest-publish.mjs')).resolves.toHaveProperty('decideLatestPublish');
+  });
+
+  it('app-token-contents-read: the reconciler token is minted with contents: read next to actions write and deployments/statuses read', () => {
+    const doc = YAML.parse(readFileSync(resolve('.github/workflows/deploy-request.yml'), 'utf8')) as any;
+    const mint = doc.jobs.request.steps.find((step: any) => String(step.name).startsWith('Mint App token'));
+    expect(mint.env.APP_TOKEN_REQUEST_DEPLOYMENTS_READ).toBe('true');
+    // requestedPermissions() is not exported: pin its source block instead.
+    const mintSource = readFileSync(resolve('scripts/ci/mint-app-token.mjs'), 'utf8');
+    const start = mintSource.indexOf('function requestedPermissions()');
+    const block = mintSource.slice(start, mintSource.indexOf('\n}\n', start));
+    expect(block).toContain("process.env.APP_TOKEN_REQUEST_DEPLOYMENTS_READ !== 'true'");
+    expect(block).toMatch(/contents:\s*'read'/);
+    expect(block).toMatch(/actions:\s*'write'/);
+    expect(block).toMatch(/deployments:\s*'read'/);
+    expect(block).toMatch(/statuses:\s*'read'/);
+  });
+
+  it('the job-permission comment names the whole App token set', () => {
+    const request = readFileSync(resolve('.github/workflows/deploy-request.yml'), 'utf8');
+    expect(request).toContain('(contents read, actions write, deployments/statuses read;');
+  });
+});
+
 describe('Pages publish queue wiring', () => {
   const request = readFileSync(resolve('.github/workflows/deploy-request.yml'), 'utf8');
   const publish = readFileSync(resolve('.github/workflows/deploy-publish.yml'), 'utf8');
