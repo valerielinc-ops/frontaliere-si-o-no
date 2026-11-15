@@ -8,6 +8,7 @@ import { sectionTreeLayout, sectionTreeLayoutAllowed } from '../../infra/cloudfl
 import {
   evaluateSitemapFamilyCoverage,
   filterExternallyServedUrlsFromSitemapCoverage,
+  isExpiredJobSitemapKey,
 } from '../lib/sitemap-family-coverage.mjs';
 import { ownsSitemapUrl, sectionForUrl } from '../validate-sitemap-links.mjs';
 import { SHARD_VALIDATOR_VERSION } from './shard-content-manifest.mjs';
@@ -139,6 +140,7 @@ function parseSitemapSnapshot(root, previousSnapshot, declarations, errors) {
       errors.push(`${sitemap}: sitemap snapshot URL set is not an array`);
       continue;
     }
+    const isExpiredArchiveSitemap = isExpiredJobSitemapKey(sitemap);
     for (const url of urls) {
       let parsed;
       try { parsed = new URL(url); } catch { errors.push(`${sitemap}: malformed URL ${url}`); continue; }
@@ -148,6 +150,11 @@ function parseSitemapSnapshot(root, previousSnapshot, declarations, errors) {
         errors.push(`${sitemap}: URL is not owned by a published locale: ${url}`);
         continue;
       }
+      // Expired archive URLs are attested through the bounded
+      // expired-archive-evidence canaries, not the active page manifests.
+      // Keep the URL/domain/ownership checks above, but do not compare the
+      // intentionally larger archive population as active-page coverage.
+      if (isExpiredArchiveSitemap) continue;
       if (!urlSet.has(url)) urlSet.set(url, { locale, sitemap });
     }
   }

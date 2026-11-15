@@ -34,6 +34,16 @@ export function filterExternallyServedUrlsFromSitemapCoverage(snapshot) {
   };
 }
 
+/**
+ * Expired job pages have a separate archive-evidence contract. Their sitemap
+ * population is intentionally much larger than the active page manifests, so
+ * the publisher gate must not treat those URLs as active-page omissions.
+ */
+export function isExpiredJobSitemapKey(key) {
+  const name = String(key || '').split('/').pop().toLowerCase();
+  return /^sitemap-jobs-expired(?:-\d+)?\.xml$/u.test(name);
+}
+
 export function sitemapCoverageFamilyForKey(key) {
   const name = String(key || '').split('/').pop().toLowerCase();
   if (name === 'sitemap-orphan-landings.xml') return 'orphan-landings';
