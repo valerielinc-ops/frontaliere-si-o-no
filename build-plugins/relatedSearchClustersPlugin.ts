@@ -677,7 +677,13 @@ export async function tryRestoreFromCache(
   // 4-thread pool with mkdir overlap, low enough to avoid EMFILE on the
   // runner's default ulimit (1024 open files).
   const concurrency = 64;
-  const files = manifest.files;
+  // Job alias reservations are build-scoped, while the cache key is not. A
+  // cache produced before a reservation must not recreate either static
+  // representation of that alias on a later cache HIT.
+  const files = manifest.files.filter((rel) =>
+    !isJobAliasRedirectPath(path.resolve(distDir, rel)));
+  const retiredFiles = manifest.retiredFiles?.filter((rel) =>
+    !isJobAliasRedirectPath(path.resolve(distDir, rel)));
   const ensuredDirs = new Set<string>();
   let restored = 0;
   let missing = 0;
@@ -737,7 +743,7 @@ export async function tryRestoreFromCache(
     // populations). Re-apply the manifest's retired files before returning
     // null, so the fallback cannot leave a live doorway behind; the caller
     // also carries these rels into the next cache save.
-    const reapplied = reapplyRetiredManifestFiles(distDir, manifest.retiredFiles ?? []);
+    const reapplied = reapplyRetiredManifestFiles(distDir, retiredFiles ?? []);
     if (reapplied > 0) {
       console.warn(
         `\x1b[33m[related-search-clusters]\x1b[0m cache INVALID (key=${cacheKey}): re-applied ${reapplied} manifest retirement file(s) before full emit`,
@@ -746,7 +752,12 @@ export async function tryRestoreFromCache(
     return null;
   }
 
-  return { ...manifest, emittedCount: restored };
+  return {
+    ...manifest,
+    files,
+    ...(retiredFiles ? { retiredFiles } : {}),
+    emittedCount: restored,
+  };
 }
 
 export function saveToCache(
@@ -778,6 +789,7 @@ export function saveToCache(
   for (const rel of emittedFiles) {
     if (visited.has(rel)) continue;
     visited.add(rel);
+    if (isJobAliasRedirectPath(path.resolve(distDir, rel))) continue;
     const src = path.join(distDir, rel);
     if (!fs.existsSync(src)) {
       skipped++;

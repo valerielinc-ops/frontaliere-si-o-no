@@ -515,6 +515,107 @@ describe('retired manifest restore respects reserved job alias paths', () => {
   });
 });
 
+describe('related-search cache respects reserved job alias paths', () => {
+  it('filters reserved index and flat outputs on cache HIT while keeping unreserved restores unchanged', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'rsc-cache-job-alias-hit-'));
+    const dist = path.join(root, 'source-dist');
+    const aliasDir = 'cerca-lavoro-svizzera/ricerca-cookie-bern';
+    const aliasIndex = `${aliasDir}/index.html`;
+    const aliasFlat = `${aliasDir}.html`;
+    const live = 'cerca-lavoro-svizzera/ricerca-infermiere-lugano/index.html';
+    const key = 'reserved-job-alias-hit';
+    resetSharedWriteRegistry();
+    try {
+      for (const [rel, body] of [
+        [aliasIndex, '<html>alias index</html>'],
+        [aliasFlat, '<html>alias flat</html>'],
+        [live, '<html>live cluster</html>'],
+      ]) {
+        const file = path.join(dist, rel);
+        fs.mkdirSync(path.dirname(file), { recursive: true });
+        fs.writeFileSync(file, body, 'utf-8');
+      }
+      expect(saveToCache(root, dist, key, [aliasIndex, aliasFlat, live], [], [], [], [], [
+        aliasIndex,
+        aliasFlat,
+      ])).toBe(3);
+
+      const reservedDist = path.join(root, 'reserved-dist');
+      fs.mkdirSync(reservedDist, { recursive: true });
+      reserveJobAliasRedirectDir(path.join(reservedDist, aliasDir));
+      const restored = await tryRestoreFromCache(root, reservedDist, key);
+
+      expect(restored).not.toBeNull();
+      expect(restored!.files).toEqual([live]);
+      expect(restored!.retiredFiles).toEqual([]);
+      expect(restored!.emittedCount).toBe(1);
+      expect(fs.readFileSync(path.join(reservedDist, live), 'utf-8')).toBe('<html>live cluster</html>');
+      expect(fs.existsSync(path.join(reservedDist, aliasIndex))).toBe(false);
+      expect(fs.existsSync(path.join(reservedDist, aliasFlat))).toBe(false);
+      expect(restoredKeywordLandingPaths(restored!.files, restored!.retiredFiles ?? []))
+        .toEqual(['/cerca-lavoro-svizzera/ricerca-infermiere-lugano']);
+
+      resetSharedWriteRegistry();
+      const unreservedDist = path.join(root, 'unreserved-dist');
+      fs.mkdirSync(unreservedDist, { recursive: true });
+      const unreserved = await tryRestoreFromCache(root, unreservedDist, key);
+
+      expect(unreserved).not.toBeNull();
+      expect(unreserved!.files).toEqual([aliasIndex, aliasFlat, live]);
+      expect(unreserved!.emittedCount).toBe(3);
+      expect(fs.existsSync(path.join(unreservedDist, aliasIndex))).toBe(true);
+      expect(fs.existsSync(path.join(unreservedDist, aliasFlat))).toBe(true);
+    } finally {
+      resetSharedWriteRegistry();
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('does not save reserved alias bytes or advertise reserved paths in the manifest', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'rsc-cache-job-alias-save-'));
+    const dist = path.join(root, 'dist');
+    const aliasDir = 'cerca-lavoro-svizzera/ricerca-cookie-bern';
+    const aliasIndex = `${aliasDir}/index.html`;
+    const aliasFlat = `${aliasDir}.html`;
+    const live = 'cerca-lavoro-svizzera/ricerca-infermiere-lugano/index.html';
+    const key = 'reserved-job-alias-save';
+    resetSharedWriteRegistry();
+    try {
+      reserveJobAliasRedirectDir(path.join(dist, aliasDir));
+      for (const [rel, body] of [
+        [aliasIndex, '<html>reserved alias index</html>'],
+        [aliasFlat, '<html>reserved alias flat</html>'],
+        [live, '<html>live cluster</html>'],
+      ]) {
+        const file = path.join(dist, rel);
+        fs.mkdirSync(path.dirname(file), { recursive: true });
+        fs.writeFileSync(file, body, 'utf-8');
+      }
+
+      expect(saveToCache(root, dist, key, [aliasIndex, aliasFlat, live], [], [], [], [], [
+        aliasIndex,
+        aliasFlat,
+      ])).toBe(1);
+
+      const cacheDir = path.join(root, '.cache', 'related-search-clusters', key);
+      const manifest = JSON.parse(fs.readFileSync(path.join(cacheDir, 'manifest.json'), 'utf-8')) as {
+        files: string[];
+        retiredFiles?: string[];
+        emittedCount: number;
+      };
+      expect(manifest.files).toEqual([live]);
+      expect(manifest.retiredFiles ?? []).toEqual([]);
+      expect(manifest.emittedCount).toBe(1);
+      expect(fs.existsSync(path.join(cacheDir, 'files', aliasIndex))).toBe(false);
+      expect(fs.existsSync(path.join(cacheDir, 'files', aliasFlat))).toBe(false);
+      expect(fs.existsSync(path.join(cacheDir, 'files', live))).toBe(true);
+    } finally {
+      resetSharedWriteRegistry();
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+});
+
 describe('loadPreviouslyEmittedClusterKeys — the manifests are the emit record (issue #7753)', () => {
   const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'rsc-cache-'));
   const cacheDir = path.join(rootDir, '.cache', 'related-search-clusters', 'abc123');
