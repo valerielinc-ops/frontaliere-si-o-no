@@ -185,15 +185,15 @@ export function sampleConverged(okCount, sampleSize, minOkRatio) {
 }
 
 /** Extract the sample-source URL list from a snapshot read with
- * `readSitemapSnapshot` (v4 NDJSON files arrive v3-shaped: `perSitemap`, no
- * `_allUrls`) or from a legacy version-2 document (`{ _allUrls: string[] }`).
+ * `readSitemapSnapshot` (v4 NDJSON files arrive v3-shaped) or from a legacy
+ * single-document snapshot (`{ _allUrls: string[] }`).
  * Returns [] on any other shape so the caller can fail open. */
 export function extractBundleUrls(parsed) {
   if (!parsed || typeof parsed !== 'object') return [];
   const all = parsed._allUrls;
-  if (Array.isArray(all)) return all.filter((u) => typeof u === 'string');
-  if (parsed.perSitemap && typeof parsed.perSitemap === 'object') {
-    return [...snapshotUrls(parsed)].filter((u) => typeof u === 'string').sort();
+  if (Array.isArray(all)) return all.filter((url) => typeof url === 'string');
+  if (parsed.perSitemap && typeof parsed.perSitemap === 'object' && !Array.isArray(parsed.perSitemap)) {
+    return [...snapshotUrls(parsed)].filter((url) => typeof url === 'string').sort();
   }
   return [];
 }

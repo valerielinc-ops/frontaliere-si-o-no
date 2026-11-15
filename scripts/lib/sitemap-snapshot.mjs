@@ -42,10 +42,10 @@ const SNAPSHOT_PEEK_BYTES = 4096;
 const SNAPSHOT_READ_CHUNK_BYTES = 1 << 20;
 const V4_HEADER_RE = /^\s*\{\s*"version"\s*:\s*4\s*[,}]/;
 
-function* snapshotSitemapEntries(source) {
+function* snapshotSitemapEntries(source, { includeDerivedIndexes = true } = {}) {
   if (source?.records instanceof Map) {
     for (const [key, record] of [...source.records.entries()].sort(([a], [b]) => a.localeCompare(b))) {
-      yield [key, record.urls || [], record.digest ?? '', record.lastmod || {}];
+      yield [key, record.urls || [], record.digest ?? '', includeDerivedIndexes ? (record.lastmod || {}) : {}];
     }
     return;
   }
@@ -55,7 +55,7 @@ function* snapshotSitemapEntries(source) {
       key,
       perSitemap[key] || [],
       source.perSitemapDigests?.[key] ?? '',
-      source.perSitemapLastmod?.[key] || {},
+      includeDerivedIndexes ? (source.perSitemapLastmod?.[key] || {}) : {},
     ];
   }
 }
@@ -65,8 +65,11 @@ function* snapshotSitemapEntries(source) {
  * sitemap). Accepts a crawl result or a v3-shaped snapshot. No chunk is ever
  * longer than the largest single sitemap's serialisation.
  */
-export function* serializeSnapshotChunks(source, { capturedAt = new Date().toISOString() } = {}) {
-  const entries = [...snapshotSitemapEntries(source)];
+export function* serializeSnapshotChunks(source, {
+  capturedAt = new Date().toISOString(),
+  includeDerivedIndexes = true,
+} = {}) {
+  const entries = [...snapshotSitemapEntries(source, { includeDerivedIndexes })];
   const missing = Array.isArray(source?.missing)
     ? source.missing
     : (Array.isArray(source?.missingSitemaps) ? source.missingSitemaps : []);
@@ -114,7 +117,7 @@ export async function writeSnapshotFile(file, source, options = {}) {
     await rm(file, { force: true }).catch(() => {});
     throw error;
   }
-  for (const [, urls] of snapshotSitemapEntries(source)) {
+  for (const [, urls] of snapshotSitemapEntries(source, options)) {
     stats.sitemaps += 1;
     stats.urls += urls.length;
   }
