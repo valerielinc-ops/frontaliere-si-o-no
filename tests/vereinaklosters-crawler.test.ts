@@ -25,6 +25,7 @@ const VEREINA_NO_VACANCY_PAGE = fs.readFileSync(
   'utf8',
 );
 const VEREINA_SEED = 'https://www.hotelcareer.ch/jobs/hotel-vereina-52746';
+const SOURCE_BODY_SUFFIX = ' Die Aufgabe umfasst sorgfältige Planung, verlässliche Kommunikation, selbstständige Umsetzung, gute Zusammenarbeit, Qualitätskontrolle, Kundenbetreuung und nachvollziehbare Dokumentation im täglichen Arbeitsumfeld mit Kundinnen, Kunden und internen Fachstellen.';
 const VEREINA_SPEC = {
   companyKey: 'vereinaklosters',
   companyName: 'Vereina',
@@ -116,7 +117,8 @@ describe('Vereina crawler parser', () => {
     const unrelated = 'https://local-job.ch/job/chef-de-rang-m-w-3795000/';
     const description = 'Zur Ergänzung unseres Küchenteams suchen wir eine erfahrene Persönlichkeit. '
       + 'Sie führen Ihren eigenen Posten, arbeiten mit dem Küchenteam zusammen und sorgen für Qualität. '
-      + 'Wir bieten ein angenehmes Arbeitsklima, Verpflegung und eine moderne Unterkunft.';
+      + 'Wir bieten ein angenehmes Arbeitsklima, Verpflegung und eine moderne Unterkunft.'
+      + SOURCE_BODY_SUFFIX;
     const detail = (url: string, company: string) => `<script type="application/ld+json">${JSON.stringify({
       '@type': 'JobPosting',
       title: url === wanted ? 'Chef de partie (m/w)' : 'Chef de Rang (m/w)',

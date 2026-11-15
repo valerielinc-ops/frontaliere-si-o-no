@@ -24,6 +24,7 @@ import {
   isSufficientVacancyDescription,
   textOf,
 } from './extract.mjs';
+import { meetsSourceBodyFloor } from '../source-body-floor.mjs';
 import { extractLinks } from './careers-trail.mjs';
 import { extractFreeTextOffers, isFreeTextSpec } from './free-text-extract.mjs';
 import { extractBalancedTagBlock } from '../hospital-custom-html-helpers.mjs';
@@ -398,6 +399,7 @@ const SPEC_FETCH_METADATA_KEYS = [
   'fetchDetail',
   'fetchReceipt',
   'detailDrop',
+  'sourceBodyFloorFilteredCount',
   'expectedFilterCount',
   'expectedFilters',
   'authoritativeEmptyState',
@@ -3240,6 +3242,8 @@ export async function runSpecInProduction(spec, runtime = {}) {
     const expectedTenantFilters = detailTenantMatches > 0 ? detailTenantMismatches : 0;
     const unmatchedTenantFailures = detailTenantMatches > 0 ? 0 : detailTenantMismatches;
     const publishedRows = enriched.filter(Boolean);
+    const sourceBodyFloorRows = publishedRows.filter((row) => meetsSourceBodyFloor(row.description));
+    const sourceBodyFloorFilteredCount = publishedRows.length - sourceBodyFloorRows.length;
     const configuredMinimumPublished = Number(spec.detailNotFoundMinimumPublished);
     const minimumPublishedForNotFoundFilter = Number.isInteger(configuredMinimumPublished)
       && configuredMinimumPublished > 0
@@ -3282,6 +3286,22 @@ export async function runSpecInProduction(spec, runtime = {}) {
       && !listingOutcome.unverifiedEmpty
       && !exceedsDropGrace
       && !expectedAllDetailAntiBotFailure;
+    // A fully observed source can legitimately have no indexable rows when
+    // every detail body is real but below the shared 50-word publication
+    // floor. Keep this distinct from a detail/parser drop: every remaining
+    // candidate reached the same extraction path, while explicitly expected
+    // source filters account for the rows that never become publishedRows.
+    // The standard pipeline will then record `filtered_empty`, preserving
+    // valid stored rows without publishing thin content or opening a false
+    // crawler-health incident.
+    const expectedFilterCount = expectedGeographyFilters
+      + expectedTenantFilters
+      + expectedNotFoundFilters;
+    const sourceBodyFloorFilteredEmpty = snapshotAccepted
+      && rows.length > 0
+      && publishedRows.length + expectedFilterCount === rows.length
+      && sourceBodyFloorRows.length === 0;
+    const outputRows = sourceBodyFloorRows;
     const allUnexpectedDropsNoOutput = rows.length > 0
       && publishedRows.length === 0
       && detailDrop.dropped > 0;
@@ -3293,6 +3313,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
       source_backed_geography_missing: geographyDrops,
       publishable_description_missing: descriptionDrops,
       generic_or_missing_title: titleDrops,
+      ...(sourceBodyFloorFilteredCount ? { source_body_floor: sourceBodyFloorFilteredCount } : {}),
       ...(listingOutcome.failed
         ? { [listingOutcome.unknown ? 'unknown_fetch_outcome' : `fetch_outcome_${listingOutcome.outcome}`]: 1 }
         : {}),
@@ -3303,14 +3324,15 @@ export async function runSpecInProduction(spec, runtime = {}) {
       listingCount: rows.length,
       exactListingCount: (rows.length > 0 && !listingOutcome.failed) || listingOutcome.authoritativeEmpty,
       listingPopulationComplete: (rows.length > 0 && !listingOutcome.failed) || listingOutcome.authoritativeEmpty,
-      publishableCount: publishedRows.length,
-      runtimeOutputCount: snapshotAccepted ? publishedRows.length : 0,
+      publishableCount: outputRows.length,
+      runtimeOutputCount: snapshotAccepted ? outputRows.length : 0,
       snapshotAccepted,
       productionSnapshotAccepted: snapshotAccepted,
       promotionObservationComplete: complete,
       qualityDropDenominator: detailDrop.candidates,
-      fetchOutcome: listingOutcome.outcome,
-      expectedFilterCount: expectedGeographyFilters + expectedTenantFilters + expectedNotFoundFilters,
+      fetchOutcome: sourceBodyFloorFilteredEmpty ? 'filtered_empty' : listingOutcome.outcome,
+      sourceBodyFloorFilteredCount,
+      expectedFilterCount,
       expectedFilters: {
         source_geography: expectedGeographyFilters,
         tenant_scope: expectedTenantFilters,
@@ -3366,17 +3388,19 @@ export async function runSpecInProduction(spec, runtime = {}) {
     // geography drops remain fail-closed without reinterpretation.
     if (publishedRows.length === 0 && rows.length > 0
       && emptyOutcome && detailAntiBotFailures === rows.length) {
-      copySpecFetchMetadata(publishedRows, {
+      copySpecFetchMetadata(outputRows, {
         fetchOutcome: emptyOutcome,
         discoveredCount: rows.length,
         fetchDetail: `${rows.length} detail page(s) exhausted anti-bot rescue`,
       });
     }
-    const output = copySpecFetchMetadata(publishedRows, rows);
+    const output = copySpecFetchMetadata(outputRows, rows);
     copySpecFetchMetadata(output, {
       fetchReceipt: completedReceipt,
       detailDrop,
       discoveredCount: rows.length,
+      ...(sourceBodyFloorFilteredEmpty ? { fetchOutcome: 'filtered_empty' } : {}),
+      sourceBodyFloorFilteredCount,
       expectedFilterCount: observation.expectedFilterCount,
       expectedFilters: observation.expectedFilters,
       ...(detailPagesByUrl ? { observedDetailsByUrl: detailPagesByUrl } : {}),

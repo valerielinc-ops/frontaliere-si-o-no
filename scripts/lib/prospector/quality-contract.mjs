@@ -3,7 +3,7 @@
  * Bump a crawler spec's version when a quality rule changes in a way that can
  * invalidate its older proof; the promotion gate then requires fresh reports.
  */
-export const CURRENT_QUALITY_CONTRACT_VERSION = 3;
+export const CURRENT_QUALITY_CONTRACT_VERSION = 4;
 
 export function qualityContractVersionOf(value = {}) {
   const version = Number(value?.qualityContractVersion);

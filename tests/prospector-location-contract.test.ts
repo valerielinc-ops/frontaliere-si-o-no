@@ -782,7 +782,8 @@ describe('prospector location and identity contract', () => {
     })}</script><h1>Sales Executive</h1>${'<!-- shell -->'.repeat(20)}`;
     politeFetch.mockResolvedValue({ ok: true, status: 200, body, url: JOB_URL });
 
-    const publishableListing = 'Lead commercial development, manage client relationships and coordinate the local sales team while delivering measurable results for hotel guests and colleagues.';
+    const publishableListing = 'Lead commercial development, manage client relationships and coordinate the local sales team while delivering measurable results for hotel guests and colleagues. '
+      .repeat(3);
     await expect(gradeVacancy({
       title: 'Sales Executive', url: JOB_URL, location: 'Chiasso', description: publishableListing,
     })).resolves.toMatchObject({ contentful: true });
