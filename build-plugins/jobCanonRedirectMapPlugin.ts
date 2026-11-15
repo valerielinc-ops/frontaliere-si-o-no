@@ -26,7 +26,11 @@ import {
 import { getSafeDistPageTargets, isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
 import { buildCanonicalJobDetailPath } from './shared/jobDetailPath';
 import { localizedActiveJobSlug } from './shared/activeJobPageSelection';
-import { clearJobCanonOrderingFields, getJobCanonOrderingFields } from './shared/jobCanonInputs';
+import {
+  clearJobCanonOrderingFields,
+  getJobCanonOrderingFields,
+  restoreJobCanonOrderingFields,
+} from './shared/jobCanonInputs';
 import {
   emitActiveJobCanonAliases,
   JOB_CANON_LOCALES,
@@ -396,6 +400,19 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
         return;
       }
 
+      let orderingFieldsById = getJobCanonOrderingFields();
+      if (!orderingFieldsById && process.env.BUILD_STAGE === 'ssg') {
+        const handoffPath = process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH;
+        if (!handoffPath || !fs.existsSync(handoffPath)) {
+          throw new Error('[job-canon-redirect-map] staged SSG build requires the bundle ordering-fields handoff');
+        }
+        restoreJobCanonOrderingFields(fs.readFileSync(handoffPath, 'utf8'));
+        orderingFieldsById = getJobCanonOrderingFields();
+      }
+      if (!orderingFieldsById) {
+        throw new Error('[job-canon-redirect-map] localeJobsSplitPlugin did not provide ordering fields in this Vite process');
+      }
+
       let peakHeapUsed = process.memoryUsage().heapUsed;
       let peakHeapPhase = 'start';
       let currentHeapPhase = 'initialization';
@@ -600,10 +617,6 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             buildReservedHubSlugs,
             compareActiveJobsByStableOrder,
           } = await import('./jobsSeoPagesPlugin');
-          let orderingFieldsById = getJobCanonOrderingFields();
-          if (!orderingFieldsById) {
-            throw new Error('[job-canon-redirect-map] localeJobsSplitPlugin did not provide ordering fields in this Vite process');
-          }
           let writeIndex = 0;
           for (const row of jobs) {
             if (!row || typeof row !== 'object') continue;

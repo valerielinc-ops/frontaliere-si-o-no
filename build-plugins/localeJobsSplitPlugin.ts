@@ -14,7 +14,7 @@ import {
 import { buildJobSlugShards, type SlugMapJobEntry } from '../services/jobSlugShards';
 import { ACTIVE_JOB_IDS_FILE_NAME, buildActiveJobIdIndex } from '../functions/src/assistedApplicationActiveJobIndex.js';
 import { isListingInventoryJob, normalizeListingIdentity } from '../services/jobBoardInventory';
-import { setJobCanonOrderingFields } from './shared/jobCanonInputs';
+import { serializeJobCanonOrderingFields, setJobCanonOrderingFields } from './shared/jobCanonInputs';
 import {
  buildCantonShards,
  cantonShardFileName,
@@ -115,9 +115,14 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
    }
    jobs.push(normalizeListingIdentity(job));
  }
- // The /job-canon plugin runs later in this Vite process. Keep only the stable
- // sort fields it needs; datePosted/firstSeenAt stay out of the public slug map.
+ // Keep only the stable sort fields job-canon needs; they stay out of the
+ // public slug map and cross the staged-build process boundary in a private file.
  setJobCanonOrderingFields(jobs);
+ const orderingHandoffPath = process.env.BUILD_JOB_CANON_ORDERING_HANDOFF_PATH;
+ if (orderingHandoffPath) {
+  fs.mkdirSync(path.dirname(orderingHandoffPath), { recursive: true });
+  fs.writeFileSync(orderingHandoffPath, serializeJobCanonOrderingFields(), 'utf-8');
+ }
  if (dropped > 0) {
  console.log(`[locale-jobs-split] Filtered ${dropped} fixture or ineligible listing job(s) before locale split`);
  }
