@@ -23,17 +23,20 @@ import {
 
 const PUBLIC_IP = [{ address: '93.184.216.34', family: 4 }];
 const DESCRIPTION = 'The successful candidate will plan and deliver reliable customer services, work with the engineering team, document procedures, solve operational issues, and support continuous improvement across the organisation. '.repeat(3);
+const SHORT_SOURCE_DESCRIPTION = 'Wir bieten eine abwechslungsreiche und spannende Lehrstelle. Wenn dich dieser Lehrberuf interessiert, dann bist du bei uns genau richtig. Wir suchen motivierte und begeisterte Talente. Starte deine Zukunft bei uns noch heute.';
 
 function fixtureSpec({
   firstTwoLocations = 'missing',
   populationCount = 10,
   genericListingTitleIndex = -1,
   allLocationsSwiss = false,
+  detailDescription = DESCRIPTION,
 }: {
   firstTwoLocations?: 'missing' | 'foreign';
   populationCount?: number;
   genericListingTitleIndex?: number;
   allLocationsSwiss?: boolean;
+  detailDescription?: string;
 } = {}) {
   const seed = 'https://employer.example/careers/';
   const urls = Array.from({ length: populationCount }, (_, index) => `https://employer.example/jobs/${index + 1}`);
@@ -47,12 +50,12 @@ function fixtureSpec({
     const posting = {
       '@type': 'JobPosting',
       title: 'Header',
-      description: DESCRIPTION,
+      description: detailDescription,
       ...(jobLocation ? { jobLocation } : {}),
     };
     return [url, `<html><head><title>Header</title></head><body><h1>Header</h1>
       <script type="application/ld+json">${JSON.stringify(posting)}</script>
-      <main><p>Platform Engineer ${index + 1}</p><p>${DESCRIPTION}</p></main></body></html>`];
+      <main><p>Platform Engineer ${index + 1}</p><p>${detailDescription}</p></main></body></html>`];
   }));
   const fetchImpl = async (input: string | URL | Request) => {
     const url = String(input);
@@ -339,6 +342,57 @@ describe('Prospector production validation', () => {
       expect(report.sampleSelection.selected).toHaveLength(3);
       expect(report.samples.every((sample) => sample.titleMatch > 0.8)).toBe(true);
       expect(urls).toHaveLength(10);
+    } finally {
+      clearPoliteFetchStateForTests();
+    }
+  });
+
+  it('reports a fully observed all-thin source as filtered_empty without publishing it', async () => {
+    const { spec, runtime } = fixtureSpec({
+      populationCount: 4,
+      allLocationsSwiss: true,
+      detailDescription: SHORT_SOURCE_DESCRIPTION,
+    });
+    clearPoliteFetchStateForTests();
+    try {
+      const observed = await observeSpecInProduction(spec, runtime);
+
+      expect(observed.vacancies).toHaveLength(0);
+      expect(observed.vacancies).toMatchObject({
+        fetchOutcome: 'filtered_empty',
+        discoveredCount: 4,
+        sourceBodyFloorFilteredCount: 4,
+      });
+      expect(observed.observation).toMatchObject({
+        listingCount: 4,
+        publishableCount: 0,
+        runtimeOutputCount: 0,
+        snapshotAccepted: true,
+        promotionObservationComplete: true,
+        complete: true,
+        fetchOutcome: 'filtered_empty',
+        sourceBodyFloorFilteredCount: 4,
+        dropCounts: { source_body_floor: 4 },
+        detailDrop: { candidates: 4, gone: 0, rejected: 0, dropped: 0 },
+      });
+
+      const graded = await gradeVacancy({
+        url: 'https://employer.example/jobs/short',
+        title: 'Platform Engineer',
+        description: SHORT_SOURCE_DESCRIPTION,
+      }, {
+        observedDetail: {
+          body: `<html><h1>Platform Engineer</h1><p>${SHORT_SOURCE_DESCRIPTION}</p></html>`,
+          status: 200,
+          url: 'https://employer.example/jobs/short',
+          detail: {
+            title: 'Platform Engineer',
+            description: SHORT_SOURCE_DESCRIPTION,
+            locationCandidates: [],
+          },
+        },
+      });
+      expect(graded.contentful).toBe(false);
     } finally {
       clearPoliteFetchStateForTests();
     }
