@@ -415,7 +415,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
         } finally {
           fs.rmSync(orderingFieldsPath, { force: true });
         }
-      } else {
+      } else if (buildStage !== 'bundle') {
         // The handoff is build-only; a previous failed staged build must not
         // leave metadata in an incremental single-process deploy artifact.
         fs.rmSync(orderingFieldsPath, { force: true });
