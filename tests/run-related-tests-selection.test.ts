@@ -3,6 +3,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { execFileSync, spawnSync } from 'node:child_process';
 import { afterEach, describe, expect, it } from 'vitest';
+import { ARTICLE_PUBLISHER_WORKFLOW_PATH } from '../scripts/lib/article-chunk-publish-freshness.mjs';
 
 /**
  * Focused contract tests for the related selector.
@@ -816,7 +817,7 @@ describe('run-related-tests selection contract', () => {
 
   it('runs the publisher freshness test when its workflow trigger changes', () => {
     const freshness = 'tests/scripts/article-chunk-publish-freshness.test.ts';
-    const workflow = '.github/workflows/sync-articles-sitemaps.yml';
+    const workflow = ARTICLE_PUBLISHER_WORKFLOW_PATH;
     const root = fixture({
       [workflow]: 'name: article sync\n',
       [freshness]: `import { readFileSync } from 'node:fs';\nreadFileSync('${workflow}', 'utf8');\n`,
