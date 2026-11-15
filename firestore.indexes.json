@@ -470,6 +470,8 @@
     { "collectionGroup": "plate_auctions_history", "fieldPath": "startingPriceChf", "indexes": [] },
     { "collectionGroup": "plate_auctions_history", "fieldPath": "startsAt", "indexes": [] },
     { "collectionGroup": "plate_auctions_history", "fieldPath": "vehicleType", "indexes": [] },
+    { "collectionGroup": "newsletter_campaign_audience", "fieldPath": "expires_at", "ttl": true, "indexes": [] },
+    { "collectionGroup": "newsletter_campaign_audience", "fieldPath": "ids", "indexes": [] },
     { "collectionGroup": "job_email_affinity", "fieldPath": "expires_at", "ttl": true, "indexes": [] },
     { "collectionGroup": "job_email_affinity", "fieldPath": "user_id", "indexes": [] },
     { "collectionGroup": "job_email_affinity", "fieldPath": "dimensions", "indexes": [] },

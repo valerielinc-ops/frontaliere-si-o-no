@@ -57,6 +57,13 @@ import {
 import { createResumeWriter, fetchAlreadySent as fetchCampaignAlreadySent, resumeChunkState } from './lib/campaignResumeLog.mjs';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
 import { createNewsletterBookkeeper, resolveBatchBookkeepingMode } from './lib/newsletter-batch-bookkeeping.mjs';
+import {
+  compareAudiences,
+  loadFrozenAudience,
+  resolveAudienceScanMode,
+  resolveFrozenAudienceDocs,
+  saveFrozenAudience,
+} from './lib/newsletter-audience-freeze.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import {
   assignJobRankingVariant,
@@ -1589,9 +1596,15 @@ async function fetchTargetSubscriber(email) {
   return { subscriber: subscriberFromFirestoreRow(rowForSend), refusal: null };
 }
 
-async function fetchSubscribers() {
+async function fetchSubscribers({ docs: providedDocs = null, computeGlobalHour = true, label = 'full scan', recordSnapshots = true } = {}) {
   const subscribers = new Map();
-  subscriberSnapshots.clear();
+  // Document ids behind the audience, in document-id order: what a campaign freezes.
+  const eligibleIdBySubscriberEmail = new Map();
+  if (recordSnapshots) subscriberSnapshots.clear();
+  // Taken BEFORE the read: a document written while the scan runs is covered by the
+  // delta of a later resume (which also looks a little before this instant).
+  const scanStartedAt = new Date();
+  let scanComplete = false;
   // Raw rows feed the site-wide preferred-hour fallback (#3798) — the
   // projected subscriber objects still carry preferredSendHourUtc/
   // preferredSendSampleCount, but computeGlobalPreferredHour reads the
@@ -1609,8 +1622,12 @@ async function fetchSubscribers() {
     // and rows without a confirmation proof. The delivery stops are the
     // newsletter opt-out/status, cross-channel hard stop, malformed address
     // and a row with no subscription basis at all (hasSubscriptionBasis).
-    const snap = await db.collection('newsletter_subscribers').get();
-    snap.docs.forEach((d) => {
+    // `docs` (frozen audience + delta, scripts/lib/newsletter-audience-freeze.mjs) goes
+    // through the very same predicate below: consent and suppression are judged by one
+    // piece of code on every route.
+    const sourceDocs = providedDocs ?? (await db.collection('newsletter_subscribers').get()).docs;
+    scanComplete = sourceDocs.length > 0;
+    sourceDocs.forEach((d) => {
       if (d.id === '_meta_') return;
       scannedRows++;
       const row = d.data() || {};
@@ -1640,18 +1657,21 @@ async function fetchSubscribers() {
       // The state this scan saw, for the send phase's batch precondition (see
       // scripts/lib/newsletter-batch-bookkeeping.mjs): the score is derived from it
       // and the write only lands if the document has not changed since.
-      if (d.updateTime) subscriberSnapshots.set(d.id, { data: rowForSend, updateTime: d.updateTime });
+      if (recordSnapshots && d.updateTime) subscriberSnapshots.set(d.id, { data: rowForSend, updateTime: d.updateTime });
       // Pass the RAW row.email so subscriberFromFirestoreRow can harvest a
       // "Name <addr>" display name; it strips the wrapper internally and
       // returns the bare address on subscriber.email.
       const subscriber = subscriberFromFirestoreRow(rowForSend);
-      if (subscriber) subscribers.set(subscriber.email, subscriber);
+      if (subscriber) {
+        subscribers.set(subscriber.email, subscriber);
+        eligibleIdBySubscriberEmail.set(subscriber.email, d.id);
+      }
     });
   } catch (e) {
     console.warn('\u26a0\ufe0f Subscriber fetch failed:', e.message);
   }
 
-  console.log(`\ud83d\udc65 Subscribers eligible: ${subscribers.size}/${scannedRows} (excludedStatus ${excludedStatus}, statusBy ${JSON.stringify(excludedStatusBy)}, crossChannelStop ${excludedCrossChannel}, newsletterOptOut ${excludedNewsletterOptOut}, excludedNoBasis ${excludedNoBasis}, malformed ${excludedMalformed})`);
+  console.log(`\ud83d\udc65 Subscribers eligible (${label}): ${subscribers.size}/${scannedRows} (excludedStatus ${excludedStatus}, statusBy ${JSON.stringify(excludedStatusBy)}, crossChannelStop ${excludedCrossChannel}, newsletterOptOut ${excludedNewsletterOptOut}, excludedNoBasis ${excludedNoBasis}, malformed ${excludedMalformed})`);
 
   // user_profiles collection removed — all subscriber data is in newsletter_subscribers
 
@@ -1659,10 +1679,124 @@ async function fetchSubscribers() {
   // Attach the site-wide preferred-hour aggregate as a property on the array
   // (same idiom as pickFeaturedArticle's getArticle.articleId/persistRotation)
   // so callers that only care about the subscriber list are unaffected.
-  prioritized.globalPreferredHour = computeGlobalPreferredHour(rawRows);
+  prioritized.globalPreferredHour = computeGlobalHour
+    ? computeGlobalPreferredHour(rawRows)
+    : { hourUtc: null, sampleUsers: 0 };
+  // What a first run freezes (and only a scan that actually read documents may).
+  prioritized.eligibleDocIds = [...eligibleIdBySubscriberEmail.values()];
+  prioritized.scanStartedAt = scanStartedAt;
+  prioritized.scanComplete = scanComplete;
   return prioritized;
 }
 
+
+/**
+ * The send audience of this run (perf-plan email senders, point 2). `full` is the
+ * scan of every run as before; `shadow` (default) lets the full scan decide and
+ * compares it with the frozen audience plus delta on resumes; `frozen` lets the
+ * frozen audience decide, falling back to the full scan on any error. See
+ * scripts/lib/newsletter-audience-freeze.mjs.
+ *
+ * @param {string} campaignId
+ * @param {Set<string>} attempted normalized addresses that already have a send or a receipt
+ */
+export async function resolveSendAudience(campaignId, attempted, {
+  mode = resolveAudienceScanMode(process.env.NEWSLETTER_AUDIENCE_SCAN_MODE),
+  metrics = newsletterMetrics,
+  log = (line) => console.log(line),
+  warn = (line) => console.warn(line),
+} = {}) {
+  metrics.set('audienceScanMode', mode);
+  if (mode === 'full' || !db) {
+    metrics.set('audienceSource', 'full');
+    return fetchSubscribers();
+  }
+
+  let frozen = null;
+  try {
+    frozen = await loadFrozenAudience(db, campaignId, { warn });
+  } catch (error) {
+    metrics.count('audienceFrozenLoadError');
+    warn(`   ⚠️  frozen audience unreadable (${String(error?.message || error).slice(0, 120)}) — full scan decides`);
+  }
+
+  if (!frozen) {
+    // First run of the campaign (or nothing usable): the full scan decides and its
+    // result is frozen for the resumes. A failed freeze costs only the saving.
+    metrics.set('audienceSource', 'full-first-run');
+    const audience = await fetchSubscribers();
+    if (audience.scanComplete && audience.eligibleDocIds.length > 0) {
+      try {
+        const saved = await saveFrozenAudience(db, campaignId, {
+          docIds: audience.eligibleDocIds,
+          snapshotAt: audience.scanStartedAt,
+          globalPreferredHour: audience.globalPreferredHour,
+        });
+        metrics.set('audienceFrozenSize', saved.total);
+        metrics.count(saved.saved ? 'audienceFrozenSaved' : 'audienceFrozenAlreadyThere');
+        log(`🧊 Frozen audience for ${campaignId}: ${saved.total} subscriber(s) in ${saved.pages} page(s)${saved.saved ? '' : ' (already present, kept)'}`);
+      } catch (error) {
+        metrics.count('audienceFrozenSaveError');
+        warn(`   ⚠️  frozen audience not saved (${String(error?.message || error).slice(0, 120)}) — resumes will rescan`);
+      }
+    }
+    return audience;
+  }
+
+  const fromFrozen = async ({ recordSnapshots }) => {
+    const isAttempted = (docId) => attempted.has(normalizeEmail(docId));
+    const resolved = await resolveFrozenAudienceDocs({ db, frozen, isAttempted });
+    metrics.set('audienceFrozenSize', frozen.total);
+    metrics.set('audienceResidualReads', resolved.readCount);
+    metrics.set('audienceDeltaDocs', resolved.deltaCount);
+    const audience = await fetchSubscribers({
+      docs: resolved.docs,
+      computeGlobalHour: false,
+      label: 'frozen audience + delta',
+      recordSnapshots,
+    });
+    audience.globalPreferredHour = frozen.globalPreferredHour;
+    return { audience, resolved };
+  };
+
+  if (mode === 'frozen') {
+    try {
+      const { audience, resolved } = await fromFrozen({ recordSnapshots: true });
+      metrics.set('audienceSource', 'frozen');
+      audience.audienceSource = 'frozen';
+      log(`🧊 Audience from the frozen set: ${resolved.residualCount} residual(s) re-read, ${resolved.deltaCount} new/changed since the snapshot, ${audience.length} eligible`);
+      return audience;
+    } catch (error) {
+      metrics.count('audienceFrozenFallback');
+      warn(`   ⚠️  frozen audience unusable (${String(error?.message || error).slice(0, 120)}) — falling back to the full scan`);
+      metrics.set('audienceSource', 'full-fallback');
+      return fetchSubscribers();
+    }
+  }
+
+  // shadow: the full scan decides; the frozen path is computed and compared.
+  metrics.set('audienceSource', 'full-shadow');
+  const full = await fetchSubscribers();
+  try {
+    // A scan that read nothing (a failed fetch) is not a baseline to compare against.
+    if (!full.scanComplete) throw new Error('the full scan returned no documents');
+    const fullUnattempted = filterUnsentSubscribers(full, attempted);
+    const idOf = (subscriber) => normalizeEmail(subscriber.email);
+    const { audience: shadow, resolved } = await fromFrozen({ recordSnapshots: false });
+    const comparison = compareAudiences(fullUnattempted.map(idOf), shadow.map(idOf));
+    metrics.set('audienceShadowMismatch', comparison.mismatch);
+    metrics.set('audienceShadowOnlyFull', comparison.onlyFull);
+    metrics.set('audienceShadowOnlyFrozen', comparison.onlyFrozen);
+    log(`🧊 Audience shadow: full ${comparison.fullSize} vs frozen+delta ${comparison.frozenSize} unattempted (${resolved.residualCount} residual re-read, ${resolved.deltaCount} delta) — mismatch ${comparison.mismatch} (onlyFull ${comparison.onlyFull}, onlyFrozen ${comparison.onlyFrozen}); hashes ${comparison.fullHash.slice(0, 12)}/${comparison.frozenHash.slice(0, 12)}`);
+    if (comparison.mismatch > 0) {
+      warn(`   ⚠️  audience shadow mismatch ${comparison.mismatch}: id hashes only in full [${comparison.sampleOnlyFull.join(',')}], only in frozen [${comparison.sampleOnlyFrozen.join(',')}]`);
+    }
+  } catch (error) {
+    metrics.count('audienceShadowError');
+    warn(`   ⚠️  audience shadow comparison failed (${String(error?.message || error).slice(0, 120)}) — the full scan decides`);
+  }
+  return full;
+}
 
 // ─── Email headers ──────────────────────────────────────────
 
@@ -2813,7 +2947,10 @@ async function main() {
     subscribers = [subscriber];
     console.log(`🧪 Dry-run target: ${subscriber.email}`);
   } else {
-    subscribers = await fetchSubscribers();
+    // Audience: the full scan, or (resumes, NEWSLETTER_AUDIENCE_SCAN_MODE) the frozen
+    // audience of the campaign plus its delta. Everyone still passes the consent and
+    // suppression predicate on every run, before the claim.
+    subscribers = await resolveSendAudience(campaignId, attemptedForCampaign);
     console.log(`\ud83d\udce8 Send mode: ${subscribers.length} active subscribers`);
 
     // Per-user send-time (#3798): fetchSubscribers() (only reached in the real
@@ -2823,7 +2960,9 @@ async function main() {
     // global fallback for its own recipients -- real sends only, guarded
     // explicitly even though this branch is currently the only caller.
     globalPreferredHour = subscribers.globalPreferredHour || { hourUtc: null, sampleUsers: 0 };
-    if (mode === 'send' && db) {
+    // The frozen audience carries the hour its first scan computed from every row: a
+    // resume has not read the rest of the collection, so it neither recomputes nor rewrites it.
+    if (mode === 'send' && db && subscribers.audienceSource !== 'frozen') {
       try {
         // Written only when it changes (perf-plan email senders, C5): every write to
         // newsletter_subscribers/_meta_ fires three Cloud Functions, and the hour is
