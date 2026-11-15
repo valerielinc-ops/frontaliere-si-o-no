@@ -28,6 +28,7 @@
  */
 import { describe, it, expect } from 'vitest';
 import { fetchPrFiles, GRAPHQL_FILES_CAP, REST_FILES_HARD_CAP, decideCollisionLabel } from '../scripts/ci/pr-collision-detector.mjs';
+import { COMMIT_FALLBACK_MAX_COMMITS } from '../scripts/ci/lib/fetchPrFiles.mjs';
 
 const REST_PAGE = 30; // quanti file rende l'endpoint REST senza `--paginate`
 
@@ -56,7 +57,16 @@ const REST_PAGE = 30; // quanti file rende l'endpoint REST senza `--paginate`
  * rende (o l'errore che lancerebbe/inghiotte, stesso trattamento del vecchio
  * `graphql`).
  */
-function fakeGh({ view, rest }: { view?: unknown; rest?: string | Error }) {
+function fakeGh({ view, rest, pull, commits, commitFiles }: {
+  view?: unknown;
+  rest?: string | Error;
+  /** `changed_files` della REST `pulls/{n}` (secondo oracolo); assente = endpoint non risponde. */
+  pull?: string | Error;
+  /** sha dei commit della PR (righe) o l'errore di `pulls/{n}/commits`. */
+  commits?: string | Error;
+  /** file per commit, per sha, o l'errore di `commits/{sha}`. */
+  commitFiles?: Record<string, string | Error> | Error;
+}) {
   const calls: string[][] = [];
   const fn = (args: string[], opts: { json?: boolean; allowFail?: boolean } = {}) => {
     calls.push(args);
@@ -72,8 +82,24 @@ function fakeGh({ view, rest }: { view?: unknown; rest?: string | Error }) {
       }
       return view ?? {};
     }
-    if (!/^repos\/[^/]+\/[^/]+\/pulls\/\d+\/files$/.test(args[1] ?? '')) {
-      throw new Error(`endpoint REST inatteso: ${args[1]}`);
+    const endpoint = args[1] ?? '';
+    if (/^repos\/[^/]+\/[^/]+\/pulls\/\d+$/.test(endpoint)) {
+      if (pull === undefined || pull instanceof Error) throw pull ?? new Error(`endpoint REST inatteso: ${endpoint}`);
+      return pull;
+    }
+    if (/^repos\/[^/]+\/[^/]+\/pulls\/\d+\/commits\?per_page=100$/.test(endpoint)) {
+      if (commits === undefined || commits instanceof Error) throw commits ?? new Error(`endpoint REST inatteso: ${endpoint}`);
+      return commits;
+    }
+    const commitMatch = /^repos\/[^/]+\/[^/]+\/commits\/([0-9a-f]{40})\?per_page=100$/.exec(endpoint);
+    if (commitMatch) {
+      if (!commitFiles || commitFiles instanceof Error) throw commitFiles ?? new Error(`endpoint REST inatteso: ${endpoint}`);
+      const value = commitFiles[commitMatch[1]];
+      if (value === undefined || value instanceof Error) throw value ?? new Error(`commit sconosciuto: ${commitMatch[1]}`);
+      return value;
+    }
+    if (!/^repos\/[^/]+\/[^/]+\/pulls\/\d+\/files$/.test(endpoint)) {
+      throw new Error(`endpoint REST inatteso: ${endpoint}`);
     }
     if (rest instanceof Error) {
       // Il `gh()` reale con `allowFail` INGHIOTTE: rende `''`/`null` invece di
@@ -145,7 +171,8 @@ describe('fetchPrFiles — le tre modalita di gh pr view --json changedFiles,fil
     const { files, complete } = fetchPrFiles(6175, fn as never, 'o/r');
     expect(files).toHaveLength(100);
     expect(complete).toBe(false);
-    expect(verbs(calls)).toEqual(['pr', 'api']);
+    // `pr`, REST files, e il contatore REST `pulls/{n}` (che qui non risponde).
+    expect(verbs(calls)).toEqual(['pr', 'api', 'api']);
   });
 
   it('PR rebase-only: 0 attesi e 0 trovati → completa, non «sconosciuta»', () => {
@@ -205,7 +232,7 @@ describe('fetchPrFiles — la clausola del cap, isolata', () => {
       rest: listOf(250).join('\n'),
     });
     const { files, complete } = fetchPrFiles(7, fn as never, 'o/r');
-    expect(verbs(calls)).toEqual(['pr', 'api']);
+    expect(verbs(calls)).toEqual(['pr', 'api', 'api']); // + contatore REST, muto
     expect(files).toHaveLength(250);
     expect(complete).toBe(false); // oracolo assente + file presenti = non lo so
   });
@@ -386,5 +413,117 @@ describe('fetchPrFiles — la CAUSA dell incompletezza, non solo il fatto (follo
   it('una lista completa porta reason "complete"', () => {
     const { fn } = fakeGh({ view: { changedFiles: 12, files: listOf(12) }, rest: 'non-deve-servire\n' });
     expect(fetchPrFiles(1, fn as never, 'o/r').reason).toBe('complete');
+  });
+});
+
+
+// PR #18860 (run 43699831609): la vista GraphQL rende `changedFiles: 0, files: []`
+// su un diff grande e la REST `pulls/{n}/files` risponde `HTTP 422 Sorry, this
+// diff is taking too long to generate`. Con REST muta quel vuoto usciva
+// `complete: true` e il gate nativo negava `paths-unverifiable`.
+describe('fetchPrFiles — HTTP 422 «diff is taking too long» (PR #18860)', () => {
+  const sha = (n: number) => n.toString(16).padStart(40, '0');
+  const tooLong = new Error('gh: Server Error: Sorry, this diff is taking too long to generate. (HTTP 422)');
+
+  it('vista vuota + REST files 422 + nessun fallback: elenco MANCANTE, non vuoto e completo', () => {
+    const { fn } = fakeGh({ view: { changedFiles: 0, files: [] }, rest: tooLong });
+    const result = fetchPrFiles(18860, fn as never, 'o/r');
+    expect(result.files).toEqual([]);
+    expect(result.complete).toBe(false);
+    expect(result.reason).toBe('list-fetch-failed'); // transitorio: il chiamante ritenta
+  });
+
+  it('con la REST files in 422 i file per commit rendono l elenco completo', () => {
+    const { fn, calls } = fakeGh({
+      view: { changedFiles: 0, files: [] },
+      rest: tooLong,
+      commits: `${sha(1)}\n${sha(2)}\n`,
+      commitFiles: { [sha(1)]: 'a.ts\nb.ts\n', [sha(2)]: 'b.ts\nc/d.ts\n' },
+    });
+    const result = fetchPrFiles(18860, fn as never, 'o/r');
+    expect(result.files.sort()).toEqual(['a.ts', 'b.ts', 'c/d.ts']);
+    expect(result.complete).toBe(true);
+    expect(result.reason).toBe('complete');
+    const commitCalls = calls.filter((a) => a[1]?.includes('/commits'));
+    expect(commitCalls.every((a) => a.includes('--paginate'))).toBe(true);
+  });
+
+  it('un commit con file vuoti (commit vuoto) non rende l elenco incompleto', () => {
+    const { fn } = fakeGh({
+      view: { changedFiles: 0, files: [] },
+      rest: tooLong,
+      commits: `${sha(1)}\n${sha(2)}\n`,
+      commitFiles: { [sha(1)]: 'a.ts\n', [sha(2)]: '' },
+    });
+    const result = fetchPrFiles(1, fn as never, 'o/r');
+    expect(result.files).toEqual(['a.ts']);
+    expect(result.complete).toBe(true);
+  });
+
+  it('fail-closed: un commit illeggibile, o troppi commit, lasciano l elenco incompleto', () => {
+    const broken = fakeGh({
+      view: { changedFiles: 0, files: [] },
+      rest: tooLong,
+      commits: `${sha(1)}\n${sha(2)}\n`,
+      commitFiles: { [sha(1)]: 'a.ts\n', [sha(2)]: tooLong },
+    });
+    expect(fetchPrFiles(1, broken.fn as never, 'o/r').complete).toBe(false);
+
+    const many = Array.from({ length: COMMIT_FALLBACK_MAX_COMMITS + 1 }, (_, i) => sha(i + 1));
+    const tooMany = fakeGh({
+      view: { changedFiles: 0, files: [] },
+      rest: tooLong,
+      commits: `${many.join('\n')}\n`,
+      commitFiles: Object.fromEntries(many.map((value) => [value, 'a.ts\n'])),
+    });
+    const result = fetchPrFiles(1, tooMany.fn as never, 'o/r');
+    expect(result.complete).toBe(false);
+    expect(result.files).toEqual([]);
+
+    const nonSha = fakeGh({
+      view: { changedFiles: 0, files: [] },
+      rest: tooLong,
+      commits: 'not-a-sha\n',
+      commitFiles: {},
+    });
+    expect(fetchPrFiles(1, nonSha.fn as never, 'o/r').complete).toBe(false);
+  });
+
+  it('un commit al tetto REST dei file e un fallback senza commit restano incompleti', () => {
+    const atCap = fakeGh({
+      view: { changedFiles: 0, files: [] },
+      rest: tooLong,
+      commits: `${sha(1)}\n`,
+      commitFiles: { [sha(1)]: `${listOf(REST_FILES_HARD_CAP).join('\n')}\n` },
+    });
+    expect(fetchPrFiles(1, atCap.fn as never, 'o/r').complete).toBe(false);
+    const none = fakeGh({ view: { changedFiles: 0, files: [] }, rest: tooLong, commits: '' });
+    expect(fetchPrFiles(1, none.fn as never, 'o/r').complete).toBe(false);
+  });
+
+  it('oracolo GraphQL a 0 ma REST files consegnata: il contatore REST pulls/{n} la conferma', () => {
+    const { fn } = fakeGh({ view: { changedFiles: 0, files: [] }, rest: `${listOf(17).join('\n')}\n`, pull: '17\n' });
+    const result = fetchPrFiles(18860, fn as never, 'o/r');
+    expect(result.files).toHaveLength(17);
+    expect(result.expected).toBe(17);
+    expect(result.complete).toBe(true);
+  });
+
+  it('il contatore REST piu alto della lista consegnata lascia l elenco incompleto', () => {
+    const { fn } = fakeGh({ view: { changedFiles: 0, files: [] }, rest: `${listOf(17).join('\n')}\n`, pull: '40' });
+    expect(fetchPrFiles(1, fn as never, 'o/r').complete).toBe(false);
+  });
+
+  it('oltre il tetto di 3000 file della REST l elenco resta incompleto anche se il contatore coincide', () => {
+    const huge = listOf(REST_FILES_HARD_CAP);
+    const { fn } = fakeGh({ view: { changedFiles: 0, files: [] }, rest: `${huge.join('\n')}\n`, pull: String(REST_FILES_HARD_CAP) });
+    const result = fetchPrFiles(1, fn as never, 'o/r');
+    expect(result.complete).toBe(false);
+    expect(result.reason).toBe('rest-hard-limit');
+  });
+
+  it('vista GraphQL in errore ma REST consegnata e confermata dal contatore: completa', () => {
+    const { fn } = fakeGh({ view: new Error('gh: HTTP 502'), rest: `${listOf(5).join('\n')}\n`, pull: '5' });
+    expect(fetchPrFiles(1, fn as never, 'o/r').complete).toBe(true);
   });
 });
