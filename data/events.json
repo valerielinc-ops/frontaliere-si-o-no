@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-15T20:29:42.042Z",
+  "generatedAt": "2026-11-15T21:27:16.742Z",
   "totalEvents": 17280,
   "events": [
     {
@@ -462265,7 +462265,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Ec Convento Agostiniane; comune: Bellinzona; cantone: TI; categoria: conferenze; data: 2026-11-20; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Ec Convento Agostiniane; comune: Bellinzona; cantone: TI; categoria: conferenze; data: 2026-11-20; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Ec Convento Agostiniane; municipality: Bellinzona; canton: TI; category: conferenze; date: 2026-11-20; time: 20:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Ec Convento Agostiniane; gemeinde: Bellinzona; kanton: TI; kategorie: conferenze; datum: 2026-11-20; uhrzeit: 20:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Ec Convento Agostiniane; commune: Bellinzona; canton: TI; catégorie: conferenze; date: 2026-11-20; heure: 20:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:639df42d74064af0932a74ca80db3678",
@@ -480702,7 +480710,15 @@
         "cropped",
         "resized",
         "converted-to-webp"
-      ]
+      ],
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Chiesa San Eusebio; comune: Castel San Pietro; cantone: TI; categoria: musica; data: 2026-11-22; ora: 17:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Chiesa San Eusebio; comune: Castel San Pietro; cantone: TI; categoria: musica; data: 2026-11-22; ora: 17:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Chiesa San Eusebio; municipality: Castel San Pietro; canton: TI; category: musica; date: 2026-11-22; time: 17:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Chiesa San Eusebio; gemeinde: Castel San Pietro; kanton: TI; kategorie: musica; datum: 2026-11-22; uhrzeit: 17:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Chiesa San Eusebio; commune: Castel San Pietro; canton: TI; catégorie: musica; date: 2026-11-22; heure: 17:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64029",
@@ -583571,7 +583587,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Lo spettacolo di marionette è presentato da Cécile Duffey a Estavayer-le-Lac. L’appuntamento si rivolge alle famiglie e si svolge durante il periodo invernale.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo di marionette è presentato da Cécile Duffey a Estavayer-le-Lac. L’appuntamento si rivolge alle famiglie e si svolge durante il periodo invernale.",
+        "en": "Cécile Duffey presents this puppet show in Estavayer-le-Lac. The event is intended for families and takes place during the winter season.",
+        "de": "Cécile Duffey präsentiert das Puppentheater in Estavayer-le-Lac. Die Veranstaltung richtet sich an Familien und findet in der Wintersaison statt.",
+        "fr": "Cécile Duffey présente ce spectacle de marionnettes à Estavayer-le-Lac. Le rendez-vous s’adresse aux familles et a lieu pendant la saison hivernale."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:91138",
