@@ -19,8 +19,9 @@
 //                copre abbastanza annunci aperti          L'assenza e' «scaduta o non ancora
 //                                                         pubblicata»: rimanda.
 //   http         cron/manuale con manifest assente,       GET della pagina (checkPageBodyLive).
-//                stantio o poco coerente                  Ogni risposta negativa o non
-//                                                         ottenibile rimanda.
+//                stantio o poco coerente                  Si invia solo cio' che una GET ha
+//                                                         confermato; esito negativo,
+//                                                         non verificato o oltre il tetto rimanda.
 //   deferAll     workflow_run con manifest inutilizzabile  rimanda tutto: se il deploy e' appena
 //                                                         finito e il manifest non e' leggibile,
 //                                                         il cron orario riprovera'.
@@ -143,7 +144,6 @@ export async function createCompanyAlertPublicationGate({
   const deferredKeys = new Set();
   const decisions = new WeakMap();
   const httpResults = new Map();
-  const preparedAll = new Set();
   let httpRequests = 0;
   let source = 'off';
   let reason = 'disabled';
@@ -208,11 +208,9 @@ export async function createCompanyAlertPublicationGate({
     // radice (sempre online): niente da filtrare, come nella jobalert.
     if (!url) return true;
     if (source === 'manifest') return lookup.has(url);
-    // http: solo cio' che `prepare` ha verificato; gli annunci non nella finestra
-    // di novita' (backlog differito) non sono mai stati «appena scoperti».
-    const cached = httpResults.get(url);
-    if (cached === undefined) return !preparedAll.has(url);
-    return cached;
+    // Nel percorso HTTP gli annunci non verificati — fuori dal pool, o oltre
+    // `maxHttpChecks` — si rimandano; si invia solo cio' che una GET ha confermato.
+    return httpResults.get(url) === true;
   };
 
   return {
@@ -225,14 +223,13 @@ export async function createCompanyAlertPublicationGate({
     get deferredCount() { return deferredKeys.size; },
     /**
      * Nel percorso `http` verifica in anticipo le pagine degli annunci dati (una
-     * GET per URL distinto, al massimo `maxHttpChecks`). Oltre il tetto, o con
-     * qualunque esito negativo, l'annuncio e' rimandato. Negli altri percorsi non
-     * fa niente. Non lancia mai.
+     * GET per URL distinto, al massimo `maxHttpChecks`). Gli annunci non verificati
+     * — fuori dal pool, o oltre il tetto — si rimandano; si invia solo cio' che una
+     * GET ha confermato. Negli altri percorsi non fa niente. Non lancia mai.
      */
     async prepare(jobs) {
       if (mode === 'off' || source !== 'http') return;
       const urls = [...new Set((jobs || []).map((job) => jobPageUrl(job, 'it')).filter(Boolean))];
-      for (const url of urls) preparedAll.add(url);
       const toCheck = urls.filter((url) => !httpResults.has(url)).slice(0, Math.max(0, maxHttpChecks));
       await runWithConcurrency(toCheck, HTTP_CHECK_CONCURRENCY, async (url) => {
         httpRequests += 1;

@@ -22,6 +22,7 @@ import {
   buildRecipientSections,
   claimRecipientSections,
   classifyRecipientConsent,
+  collectGateCandidatePool,
   finalizeRecipientDelivery,
   markRecipientDeliveryAttempted,
   resolveSendableRecipients,
@@ -345,7 +346,7 @@ describe('il gate di pubblicazione', () => {
     expect(fresh.every((item) => allDead.isLive(item) === false)).toBe(true);
   });
 
-  it('HTTP: un errore del controllo rimanda; gli annunci non verificati (backlog) non cambiano', async () => {
+  it('HTTP: un errore del controllo e un URL non verificato rimandano, backlog incluso', async () => {
     const checked = job('checked');
     const backlog = job('backlog');
     const gate = await createCompanyAlertPublicationGate({
@@ -354,7 +355,39 @@ describe('il gate di pubblicazione', () => {
     });
     await gate.prepare([checked]);
     expect(gate.isLive(checked)).toBe(false);
-    expect(gate.isLive(backlog)).toBe(true);
+    expect(gate.isLive(backlog)).toBe(false);
+  });
+
+  it('HTTP: il pool include il backlog da allJobs e solo una GET positiva consente la sezione prima del claim', async () => {
+    const deferredJob = job('old-deferred', 'Acme', { firstSeenAt: iso(200) });
+    const target = alert('follower-http-backlog', 'acme', {
+      deliveryLedger: { 'old-deferred': { state: DELIVERY_STATES.DEFERRED, at: NOW - HOUR, attempts: 1 } },
+    });
+    const allJobs = [deferredJob];
+    const pool = collectGateCandidatePool({ alerts: [target], newJobs: [], now: NOW, allJobs });
+    expect(pool).toEqual(new Set([deferredJob]));
+
+    const makeGate = (live: boolean) => createCompanyAlertPublicationGate({
+      trigger: 'schedule', inventory: [], datasetAtMs: NOW, jobPageUrl: pageUrl,
+      config: { ...gateConfig, mode: 'off' }, httpCheck: async () => live,
+    });
+    const offlineGate = await makeGate(false);
+    expect(offlineGate.source).toBe('http');
+    await offlineGate.prepare([...pool]);
+    const offlineSections = buildRecipientSections([target], [], NOW, DEDUP_WINDOW_MS, allJobs, {
+      publicationGate: offlineGate,
+    });
+    expect(offlineSections).toEqual([]);
+    const db = { runTransaction: vi.fn() };
+    expect(await claimRecipientSections(db, offlineSections, NOW, 'claim-http-backlog')).toEqual([]);
+    expect(db.runTransaction).not.toHaveBeenCalled();
+
+    const liveGate = await makeGate(true);
+    await liveGate.prepare([...pool]);
+    const liveSections = buildRecipientSections([target], [], NOW, DEDUP_WINDOW_MS, allJobs, {
+      publicationGate: liveGate,
+    });
+    expect(liveSections).toHaveLength(1);
   });
 
   it('HTTP: oltre il tetto di richieste per run gli annunci in eccesso si rimandano', async () => {
@@ -366,7 +399,8 @@ describe('il gate di pubblicazione', () => {
     });
     await gate.prepare(jobs);
     expect(httpCheck).toHaveBeenCalledTimes(2);
-    expect(jobs.filter((item) => gate.isLive(item))).toHaveLength(2);
+    expect(jobs.slice(0, 2).every((item) => gate.isLive(item))).toBe(true);
+    expect(jobs.slice(2).every((item) => gate.isLive(item) === false)).toBe(true);
   });
 
   it('kill switch: con COMPANY_ALERT_LIVE_LINK_FILTER=off nessun filtro, nessuna richiesta', async () => {

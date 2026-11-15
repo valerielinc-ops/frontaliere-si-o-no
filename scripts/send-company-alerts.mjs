@@ -744,6 +744,25 @@ export function buildRecipientSections(
 }
 
 /**
+ * Raccoglie gli annunci che la pianificazione puo' considerare, inclusi il
+ * backlog durevole e il recupero delle deferral di consenso.
+ *
+ * `buildRecipientSections` resta pura: il collector registra i candidati e li
+ * lascia passare solo per costruire il pool che il gate HTTP verifichera'.
+ */
+export function collectGateCandidatePool({ alerts, newJobs, now, allJobs = newJobs }) {
+  const pool = new Set();
+  const collector = { isLive: (job) => { pool.add(job); return true; } };
+  for (const alert of alerts || []) {
+    for (const recoverConsentDeferrals of [false, true]) {
+      buildRecipientSections([alert], newJobs, now, DEDUP_WINDOW_MS, allJobs,
+        { recoverConsentDeferrals, publicationGate: collector });
+    }
+  }
+  return pool;
+}
+
+/**
  * Build a durable backlog write for one deferred alert.
  *
  * The job key is stored, not the rendered email: the next run rehydrates the
@@ -1867,10 +1886,14 @@ async function main() {
   companyAlertMetrics.set('alertsImmediate', alerts.length);
   if (alerts.length === 0) return;
 
-  // HTTP fallback only: verify the fresh jobs' pages up front (one pooled pass),
-  // after the cheap early exits above so an idle run costs no GET.
+  // HTTP fallback only: verify the actual candidate pool up front, including
+  // durable backlog and consent recovery (one pooled pass).
   companyAlertMetrics.enter('publication_gate');
-  await publicationGate.prepare(newJobs);
+  if (publicationGate.source === 'http') {
+    const pool = collectGateCandidatePool({ alerts, newJobs, now, allJobs });
+    companyAlertMetrics.set('liveFilterCandidatePool', pool.size);
+    await publicationGate.prepare([...pool]);
+  }
 
   // Plan first, verify consent second (perf-plan email senders, B3). The
   // registration/suppression lookup used to cover EVERY recipient in scope —
