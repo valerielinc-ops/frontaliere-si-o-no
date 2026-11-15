@@ -22,7 +22,7 @@
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { parseArgs } from 'node:util';
-import { pathToFileURL } from 'node:url';
+import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 
 /** Titolo stabile, entro i 60 caratteri che l'helper usa per la deduplica. */
 export const PORTAL_REPLAY_DAILY_ISSUE_TITLE = 'Portal replay giornaliero: regressione sui portali';
@@ -175,7 +175,7 @@ function main(argv = process.argv.slice(2)) {
   return 0;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (isInvokedDirectly(import.meta.url)) {
   try { process.exitCode = main(); }
   catch (error) {
     console.error(`portal-replay-daily-issue: ${error?.message || error}`);

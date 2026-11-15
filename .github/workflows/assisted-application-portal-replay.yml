@@ -124,7 +124,7 @@ jobs:
             base="$(cat "$RUNNER_TEMP/portal-replay-base-sha.txt")"
             source='input'
           else
-            retry gh run list --repo "$REPO" --workflow assisted-application-portal-replay.yml --branch main --status success --limit 50               --json event,headSha,createdAt > "$RUNNER_TEMP/portal-replay-last-success.json" || {
+            retry gh run list --repo "$REPO" --workflow assisted-application-portal-replay.yml --branch main --status success --created "2020-01-01" --limit 50               --json event,headSha,createdAt > "$RUNNER_TEMP/portal-replay-last-success.json" || {
               echo '::error::could not read the latest successful daily replay run after 4 attempts'
               exit 1
             }
