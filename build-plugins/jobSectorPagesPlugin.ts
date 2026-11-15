@@ -642,8 +642,13 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     const title = sanitizeJobTitleForDisplay(String(localizedJobDisplayTitle(job, locale) || 'Offerta lavoro')).trim();
     const company = stripLiteralMarkdown(String(job.company || '')).trim();
     const location = stripLiteralMarkdown(String(job.location || job.addressLocality || '')).trim();
+    // The visible overflow label is capped at 60 code points. Keep its
+    // structured-data name equally compact instead of duplicating a crawler's
+    // arbitrarily long title for all 200 overflow rows. Full titles remain on
+    // the rich cards and canonical job-detail pages; URLs/counts are unchanged.
+    const itemListTitle = Array.from(title).slice(0, 60).join('').trimEnd();
     const label = Array.from([title, company, location].filter(Boolean).join(' · ')).slice(0, 60).join('');
-    return { job: job as JobCardJob, href: buildJobHref(locale, job), title, label };
+    return { job: job as JobCardJob, href: buildJobHref(locale, job), itemListTitle, label };
   });
 
   const noResultsLabel = {
@@ -764,7 +769,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
 
   const pageItemList = [
     ...cardItems.map(({ job, href }) => ({ job, href, title: sanitizeJobTitleForDisplay(String(localizedJobDisplayTitle(job, locale) || 'Offerta lavoro')) })),
-    ...overflowItems,
+    ...overflowItems.map(({ job, href, itemListTitle }) => ({ job, href, title: itemListTitle })),
   ];
   const itemListLd = pageItemList.length > 0
     ? inlineScriptJson({
