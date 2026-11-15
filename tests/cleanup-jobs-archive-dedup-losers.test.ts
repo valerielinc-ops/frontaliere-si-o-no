@@ -789,6 +789,7 @@ describe('cleanup-jobs standard mode — archives within-slice slug-dedup losers
     const output = result.stdout + result.stderr;
     expect(result.code, output).toBe(0);
 
+    // large-dataset-read-ok: sandbox copy written by the script under test, a handful of fixture jobs
     const sandboxJobs = JSON.parse(fs.readFileSync(path.join(sandbox, 'data', 'jobs.json'), 'utf-8'));
     expect(Array.isArray(sandboxJobs), output).toBe(true);
     expect(sandboxJobs.length, output).toBe(3);

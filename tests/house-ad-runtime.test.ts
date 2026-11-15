@@ -69,6 +69,19 @@ describe('per-slot first-party creative delivery', () => {
     expect(el.style.getPropertyValue('--ft-house-height')).toBe('220px');
     expect(el.querySelector('a').href).toContain('1234567890');
   });
+  it('fills a static slot when the visitor explicitly denies Google ads consent', async () => {
+    const el = w.document.createElement('div'); el.dataset.house = 'article-atf'; el.dataset.ftHouseHeight = '220'; el.dataset.width = '452';
+    const ins = w.document.createElement('ins'); ins.dataset.adSlot = '1982411173'; ins.dataset.ftStaticAd = 'true'; ins.dataset.ftStaticAdPending = ''; ins.dataset.ftAdRequestPending = '';
+    ins.dataset.adPlacement = 'article-atf'; ins.style.minHeight = '220px';
+    el.append(ins); testHouseBlock.append(el);
+    w.localStorage.setItem(config.consentKey, 'denied');
+    await start();
+    expect(el.querySelector('[data-ft-house-host] a')).not.toBeNull();
+    expect(el.querySelector('ins')).toBe(ins);
+    expect(emit).toHaveBeenCalledWith('house_ad_rendered', expect.objectContaining({
+      fallback_reason: 'ads_consent_denied', placement: 'article-atf',
+    }));
+  });
   it('fills the actual 220px article reserve without increasing it to a standard 250px banner', async () => {
     const empty = frame('unfilled'); empty.el.dataset.width = '918'; empty.el.dataset.ftHouseHeight = '220';
     await start();

@@ -1,5 +1,5 @@
 import { resolveReportedPostingDate } from '../scripts/lib/job-posting-date.mjs';
-import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
+import { readJobsArrayStrict } from './shared/readJobsDatasetStrict';
 /**
  * Build-time aggregator for the nursing/healthcare landings (template B).
  *
@@ -17,8 +17,6 @@ import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
  * effects — read-only by design.
  */
 
-import * as fs from 'node:fs';
-import * as np from 'node:path';
 import {
   NURSING_LANDING_IDS,
   type NursingLandingId,
@@ -108,16 +106,8 @@ let _cacheRootDir: string | null = null;
 const DAY_MS = 86_400_000;
 
 function loadJobs(rootDir: string): readonly JobRecord[] {
-  const jobsPath = np.join(rootDir, 'data', 'jobs.json');
-  if (!fs.existsSync(jobsPath)) return [];
-  try {
-    const parsed = readJsonFile(jobsPath);
-    if (Array.isArray(parsed)) return parsed as JobRecord[];
-    return [];
-  } catch (err) {
-    console.warn('[nursing-aggregate] failed to read jobs.json:', err);
-    return [];
-  }
+  // Fail closed: an unreadable dataset aborts the build instead of yielding 0 jobs.
+  return readJobsArrayStrict<JobRecord>(rootDir, 'nursing-aggregate');
 }
 
 // Canonical `job.title` only — deliberately excludes `titleByLocale`. This

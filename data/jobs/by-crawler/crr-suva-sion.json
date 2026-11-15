@@ -1,7 +1,7 @@
 {
   "crawlerKey": "crr-suva-sion",
-  "assembledAt": "2026-11-14T21:19:39.643Z",
-  "runId": "43641699841",
+  "assembledAt": "2026-11-15T00:27:34.584Z",
+  "runId": "43657197580",
   "jobs": [
     {
       "id": "crr-suva-sion-1ef627a9dcec",
@@ -35,7 +35,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/assistant-qualite-processus-2396.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:19:33.407Z",
+      "crawledAt": "2026-11-15T00:27:28.120Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-15T21:19:33.407Z",
+      "validThrough": "2027-01-15T00:27:28.120Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/infirmier-2445.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:19:32.940Z",
+      "crawledAt": "2026-11-15T00:27:25.206Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -167,7 +167,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-14T21:19:32.940Z",
+      "validThrough": "2026-12-15T00:27:25.206Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -202,7 +202,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/stagiaire-mp-e-2449.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:19:32.447Z",
+      "crawledAt": "2026-11-15T00:27:22.428Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:19:32.447Z",
+      "validThrough": "2027-02-11T00:27:22.428Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -286,7 +286,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/apprenti-gestionnaire-hotellerie-intendance-2448.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:19:31.949Z",
+      "crawledAt": "2026-11-15T00:27:20.053Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -337,7 +337,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:19:31.949Z",
+      "validThrough": "2027-02-11T00:27:20.053Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -372,7 +372,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/apprenti-bottier-ere-orthopediste-2446.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:19:31.430Z",
+      "crawledAt": "2026-11-15T00:27:17.965Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -421,7 +421,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:19:31.430Z",
+      "validThrough": "2027-02-11T00:27:17.965Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -455,7 +455,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/apprenti-assistant-soins-sante-communautaire-2447.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:19:30.926Z",
+      "crawledAt": "2026-11-15T00:27:14.824Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -504,7 +504,7 @@
       },
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:19:30.926Z",
+      "validThrough": "2027-02-11T00:27:14.824Z",
       "validThroughSource": "last-observed-window"
     }
   ]
