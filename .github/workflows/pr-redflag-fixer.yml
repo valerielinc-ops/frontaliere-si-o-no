@@ -1839,6 +1839,12 @@ jobs:
             echo "finalize-head: l'HEAD del round non e' un commit WIP → niente da fare."
             exit 0
           fi
+          # Albero di lavoro pulito: un commit vuoto sopra modifiche non committate
+          # consegnerebbe un HEAD apparentemente completo senza il lavoro residuo.
+          if [ -n "$(git status --porcelain=v1)" ]; then
+            echo "::warning::finalize-head: working tree non pulito — nessun commit/push per non perdere modifiche residue."
+            exit 0
+          fi
           echo "::warning::finalize-head: l'HEAD del round e' «$subject»: aggiungo un commit conventional sopra (la guardia F7 chiuderebbe la review)."
           if ! git commit --allow-empty \
               -m "chore(redflag): consegna il fix del round ${FIX_ROUND:-?}" \
