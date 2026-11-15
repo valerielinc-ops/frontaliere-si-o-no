@@ -1,7 +1,7 @@
 {
   "crawlerKey": "sanatorium-kilchberg",
-  "assembledAt": "2026-11-15T09:30:28.584Z",
-  "runId": "43698213928",
+  "assembledAt": "2026-11-15T21:40:12.103Z",
+  "runId": "43762616436",
   "jobs": [
     {
       "id": "sanatorium-kilchberg-57bc0cc78487",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/289/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:30:21.654Z",
+      "crawledAt": "2026-11-15T21:40:06.152Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -123,7 +123,7 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:30:21.654Z",
+      "validThrough": "2026-12-15T21:40:06.152Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -158,7 +158,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/344/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:30:19.736Z",
+      "crawledAt": "2026-11-15T21:40:02.165Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -226,7 +226,7 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:30:19.736Z",
+      "validThrough": "2026-12-15T21:40:02.165Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -261,7 +261,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/528/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:30:18.926Z",
+      "crawledAt": "2026-11-15T21:39:58.155Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -335,7 +335,7 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:30:18.926Z",
+      "validThrough": "2026-12-15T21:39:58.155Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -369,7 +369,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/542/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:30:18.084Z",
+      "crawledAt": "2026-11-15T21:39:54.152Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -421,12 +421,12 @@
           "fachperson-gesundheit-efz-sanatorium-kilchberg-kilchberg",
           "fachperson-gesundheit-cfc-sanatorium-kilchberg-kilchberg"
         ],
+        "en": [
+          "health-professional-efz-sanatorium-kilchberg-kilchberg"
+        ],
         "de": [
           "vorsorgeberater-in-80-100-generalagentur-berner-oberland",
           "fachperson-gesundheit-efz-sanatorium-kilchberg-kilchberg-4x5esi"
-        ],
-        "en": [
-          "health-professional-efz-sanatorium-kilchberg-kilchberg"
         ],
         "fr": [
           "professionnels-de-la-sante-efz-sanatorium-kilchberg-kilchberg"
@@ -448,7 +448,7 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:30:18.084Z",
+      "validThrough": "2026-12-15T21:39:54.152Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -482,7 +482,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/587/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:30:17.267Z",
+      "crawledAt": "2026-11-15T21:39:50.147Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -557,7 +557,7 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:30:17.267Z",
+      "validThrough": "2026-12-15T21:39:50.147Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -592,7 +592,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/629/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:30:16.478Z",
+      "crawledAt": "2026-11-15T21:39:46.151Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -617,7 +617,6 @@
         "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5fho",
         "professionista-hf-fh-sanatorium-kilchberg-kilchberg-6bba6b",
         "care-professional-hf-fh-sanatorium-kilchberg-kilchberg-6bba6b",
-        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5fk5",
         "soins-professionnels-hf-fh-sanatorium-kilchberg-kilchberg-6bba6b",
         "dipl-specialista-di-cura-hf-sanatorium-kilchberg-kilchberg",
         "dipl-care-specialist-hf-sanatorium-kilchberg-kilchberg",
@@ -625,7 +624,8 @@
         "dipl-specialiste-des-soins-hf-sanatorium-kilchberg-kilchberg",
         "professionista-hf-fh-sanatorium-kilchberg-kilchberg-2edf5e",
         "care-professional-hf-fh-sanatorium-kilchberg-kilchberg-2edf5e",
-        "soins-professionnels-hf-fh-sanatorium-kilchberg-kilchberg-2edf5e"
+        "soins-professionnels-hf-fh-sanatorium-kilchberg-kilchberg-2edf5e",
+        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5fk5"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -634,16 +634,16 @@
           "dipl-specialista-di-cura-hf-sanatorium-kilchberg-kilchberg",
           "professionista-hf-fh-sanatorium-kilchberg-kilchberg-2edf5e"
         ],
-        "de": [
-          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5fho",
-          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5fk5",
-          "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg"
-        ],
         "en": [
           "care-professional-hf-fh-sanatorium-kilchberg-kilchberg-6bba6b",
           "dipl-care-specialist-hf-sanatorium-kilchberg-kilchberg",
           "care-professional-hf-fh-sanatorium-kilchberg-kilchberg-2edf5e",
           "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
+        ],
+        "de": [
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5fho",
+          "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg",
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5fk5"
         ],
         "fr": [
           "soins-professionnels-hf-fh-sanatorium-kilchberg-kilchberg-6bba6b",
@@ -668,8 +668,257 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:30:16.478Z",
+      "validThrough": "2026-12-15T21:39:46.151Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "sanatorium-kilchberg-11a5e19f0f00",
+      "slug": "professionista-hf-fh-sanatorium-kilchberg-kilchberg-6bba6b",
+      "slugByLocale": {
+        "de": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg-4x5fk5",
+        "it": "professionista-hf-fh-sanatorium-kilchberg-kilchberg-6bba6b",
+        "en": "care-professional-hf-fh-sanatorium-kilchberg-kilchberg-6bba6b",
+        "fr": "soins-professionnels-hf-fh-sanatorium-kilchberg-kilchberg-6bba6b"
+      },
+      "company": "Sanatorium Kilchberg",
+      "companyKey": "sanatorium-kilchberg",
+      "companyDomain": "sanatorium-kilchberg.ch",
+      "title": "Pflegefachperson HF/FH",
+      "titleByLocale": {
+        "de": "Pflegefachperson HF/FH",
+        "it": "Pflegefachperson HF/FH",
+        "en": "Pflegefachperson HF/FH",
+        "fr": "Pflegefachperson HF/FH"
+      },
+      "description": "Sanatorium Kilchberg AG | online seit: 21.08.2026\n\nWir suchen per 1. September 2026 oder nach Vereinbarung\n\n80 - 100%\n\nAlterspsychiatrische Akutstation Schwerpunkt Demenz, Delir\n\nZusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station B3 arbeiten wir als lebendiges, motiviertes und humorvolles interdisziplinäres Team eng zusammen.\n\nIhre Aufgaben:\n\n• Sicherstellen der patientenorientierten professionellen psychiatrischen wie somatischen Pflege\n• Bezugspersonenarbeit\n• Mitwirken bei der Verbesserung der Qualität und der Prozessabläufe\n• Aktive Mitgestaltung des Behandlungsprozesses in der interdisziplinären Zusammenarbeit\n• Aktive Beteiligung an Familiengesprächen, am Austausch mit Heimen und an Fallbesprechungen unter Einbringung des eigenen Fachwissens\n\nIhr Profil:\n\n• Abschluss als dipl. Pflegefachperson HF (Anerkennung bei ausländischem Diplom)\n• Freude und Interesse an der Arbeit mit älteren Menschen\n• Eine engagierte, aufgeschlossene Persönlichkeit, die Veränderungen nicht nur begleiten, sondern aktiv mitgestalten will\n• Weiterbildung in Aggressionsmanagement oder die Bereitschaft den Kurs zu absolvieren\n• Offenes humorvolles Erscheinungsbild\n• Gute Deutschkenntnisse in Wort und Schrift\n• Hohe Flexibilität und Selbstmanagementfähigkeiten\n\nDas Sanatorium Kilchberg ist eine der traditionsreichsten psychiatrischen Privatkliniken der Schweiz und blickt auf eine fast 160-jährige Geschichte zurück. Nur 15 Minuten von der Zürcher Innenstadt entfernt mit wunderschönem Ausblick auf den Zürichsee und die Alpen. Als Listenspital bieten wir umfassende psychiatrische Betreuung für alle Versicherten und verfügen über stationäre und ambulante Einrichtungen in Kilchberg und Zürich. Unsere rund 650 Mitarbeitenden aus über 25 Berufsgruppen sind das Herzstück der Klinik und engagieren sich für die bestmögliche Behandlung unserer Patientinnen und Patienten. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der psychiatrischen Versorgung mit.\n\nhttp://www.fanergy.net\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+      "descriptionByLocale": {
+        "de": "Sanatorium Kilchberg AG | online seit: 21.08.2026\n\nWir suchen per 1. September 2026 oder nach Vereinbarung\n\n80 - 100%\n\nAlterspsychiatrische Akutstation Schwerpunkt Demenz, Delir\n\nZusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station B3 arbeiten wir als lebendiges, motiviertes und humorvolles interdisziplinäres Team eng zusammen.\n\nIhre Aufgaben:\n\n• Sicherstellen der patientenorientierten professionellen psychiatrischen wie somatischen Pflege\n• Bezugspersonenarbeit\n• Mitwirken bei der Verbesserung der Qualität und der Prozessabläufe\n• Aktive Mitgestaltung des Behandlungsprozesses in der interdisziplinären Zusammenarbeit\n• Aktive Beteiligung an Familiengesprächen, am Austausch mit Heimen und an Fallbesprechungen unter Einbringung des eigenen Fachwissens\n\nIhr Profil:\n\n• Abschluss als dipl. Pflegefachperson HF (Anerkennung bei ausländischem Diplom)\n• Freude und Interesse an der Arbeit mit älteren Menschen\n• Eine engagierte, aufgeschlossene Persönlichkeit, die Veränderungen nicht nur begleiten, sondern aktiv mitgestalten will\n• Weiterbildung in Aggressionsmanagement oder die Bereitschaft den Kurs zu absolvieren\n• Offenes humorvolles Erscheinungsbild\n• Gute Deutschkenntnisse in Wort und Schrift\n• Hohe Flexibilität und Selbstmanagementfähigkeiten\n\nDas Sanatorium Kilchberg ist eine der traditionsreichsten psychiatrischen Privatkliniken der Schweiz und blickt auf eine fast 160-jährige Geschichte zurück. Nur 15 Minuten von der Zürcher Innenstadt entfernt mit wunderschönem Ausblick auf den Zürichsee und die Alpen. Als Listenspital bieten wir umfassende psychiatrische Betreuung für alle Versicherten und verfügen über stationäre und ambulante Einrichtungen in Kilchberg und Zürich. Unsere rund 650 Mitarbeitenden aus über 25 Berufsgruppen sind das Herzstück der Klinik und engagieren sich für die bestmögliche Behandlung unserer Patientinnen und Patienten. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der psychiatrischen Versorgung mit.\n\nhttp://www.fanergy.net\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "it": "Sanatorium Kilchberg AG | online seit: 21.08.2026\n\nWir suchen per 1. September 2026 oder nach Vereinbarung\n\n80 - 100%\n\nAlterspsychiatrische Akutstation Schwerpunkt Demenz, Delir\n\nZusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station B3 arbeiten wir als lebendiges, motiviertes und humorvolles interdisziplinäres Team eng zusammen.\n\nIhre Aufgaben:\n\n• Sicherstellen der patientenorientierten professionellen psychiatrischen wie somatischen Pflege\n• Bezugspersonenarbeit\n• Mitwirken bei der Verbesserung der Qualität und der Prozessabläufe\n• Aktive Mitgestaltung des Behandlungsprozesses in der interdisziplinären Zusammenarbeit\n• Aktive Beteiligung an Familiengesprächen, am Austausch mit Heimen und an Fallbesprechungen unter Einbringung des eigenen Fachwissens\n\nIhr Profil:\n\n• Abschluss als dipl. Pflegefachperson HF (Anerkennung bei ausländischem Diplom)\n• Freude und Interesse an der Arbeit mit älteren Menschen\n• Eine engagierte, aufgeschlossene Persönlichkeit, die Veränderungen nicht nur begleiten, sondern aktiv mitgestalten will\n• Weiterbildung in Aggressionsmanagement oder die Bereitschaft den Kurs zu absolvieren\n• Offenes humorvolles Erscheinungsbild\n• Gute Deutschkenntnisse in Wort und Schrift\n• Hohe Flexibilität und Selbstmanagementfähigkeiten\n\nDas Sanatorium Kilchberg ist eine der traditionsreichsten psychiatrischen Privatkliniken der Schweiz und blickt auf eine fast 160-jährige Geschichte zurück. Nur 15 Minuten von der Zürcher Innenstadt entfernt mit wunderschönem Ausblick auf den Zürichsee und die Alpen. Als Listenspital bieten wir umfassende psychiatrische Betreuung für alle Versicherten und verfügen über stationäre und ambulante Einrichtungen in Kilchberg und Zürich. Unsere rund 650 Mitarbeitenden aus über 25 Berufsgruppen sind das Herzstück der Klinik und engagieren sich für die bestmögliche Behandlung unserer Patientinnen und Patienten. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der psychiatrischen Versorgung mit.\n\nhttp://www.fanergy.net\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "en": "Sanatorium Kilchberg AG | online seit: 21.08.2026\n\nWir suchen per 1. September 2026 oder nach Vereinbarung\n\n80 - 100%\n\nAlterspsychiatrische Akutstation Schwerpunkt Demenz, Delir\n\nZusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station B3 arbeiten wir als lebendiges, motiviertes und humorvolles interdisziplinäres Team eng zusammen.\n\nIhre Aufgaben:\n\n• Sicherstellen der patientenorientierten professionellen psychiatrischen wie somatischen Pflege\n• Bezugspersonenarbeit\n• Mitwirken bei der Verbesserung der Qualität und der Prozessabläufe\n• Aktive Mitgestaltung des Behandlungsprozesses in der interdisziplinären Zusammenarbeit\n• Aktive Beteiligung an Familiengesprächen, am Austausch mit Heimen und an Fallbesprechungen unter Einbringung des eigenen Fachwissens\n\nIhr Profil:\n\n• Abschluss als dipl. Pflegefachperson HF (Anerkennung bei ausländischem Diplom)\n• Freude und Interesse an der Arbeit mit älteren Menschen\n• Eine engagierte, aufgeschlossene Persönlichkeit, die Veränderungen nicht nur begleiten, sondern aktiv mitgestalten will\n• Weiterbildung in Aggressionsmanagement oder die Bereitschaft den Kurs zu absolvieren\n• Offenes humorvolles Erscheinungsbild\n• Gute Deutschkenntnisse in Wort und Schrift\n• Hohe Flexibilität und Selbstmanagementfähigkeiten\n\nDas Sanatorium Kilchberg ist eine der traditionsreichsten psychiatrischen Privatkliniken der Schweiz und blickt auf eine fast 160-jährige Geschichte zurück. Nur 15 Minuten von der Zürcher Innenstadt entfernt mit wunderschönem Ausblick auf den Zürichsee und die Alpen. Als Listenspital bieten wir umfassende psychiatrische Betreuung für alle Versicherten und verfügen über stationäre und ambulante Einrichtungen in Kilchberg und Zürich. Unsere rund 650 Mitarbeitenden aus über 25 Berufsgruppen sind das Herzstück der Klinik und engagieren sich für die bestmögliche Behandlung unserer Patientinnen und Patienten. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der psychiatrischen Versorgung mit.\n\nhttp://www.fanergy.net\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "fr": "Sanatorium Kilchberg AG | online seit: 21.08.2026\n\nWir suchen per 1. September 2026 oder nach Vereinbarung\n\n80 - 100%\n\nAlterspsychiatrische Akutstation Schwerpunkt Demenz, Delir\n\nZusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station B3 arbeiten wir als lebendiges, motiviertes und humorvolles interdisziplinäres Team eng zusammen.\n\nIhre Aufgaben:\n\n• Sicherstellen der patientenorientierten professionellen psychiatrischen wie somatischen Pflege\n• Bezugspersonenarbeit\n• Mitwirken bei der Verbesserung der Qualität und der Prozessabläufe\n• Aktive Mitgestaltung des Behandlungsprozesses in der interdisziplinären Zusammenarbeit\n• Aktive Beteiligung an Familiengesprächen, am Austausch mit Heimen und an Fallbesprechungen unter Einbringung des eigenen Fachwissens\n\nIhr Profil:\n\n• Abschluss als dipl. Pflegefachperson HF (Anerkennung bei ausländischem Diplom)\n• Freude und Interesse an der Arbeit mit älteren Menschen\n• Eine engagierte, aufgeschlossene Persönlichkeit, die Veränderungen nicht nur begleiten, sondern aktiv mitgestalten will\n• Weiterbildung in Aggressionsmanagement oder die Bereitschaft den Kurs zu absolvieren\n• Offenes humorvolles Erscheinungsbild\n• Gute Deutschkenntnisse in Wort und Schrift\n• Hohe Flexibilität und Selbstmanagementfähigkeiten\n\nDas Sanatorium Kilchberg ist eine der traditionsreichsten psychiatrischen Privatkliniken der Schweiz und blickt auf eine fast 160-jährige Geschichte zurück. Nur 15 Minuten von der Zürcher Innenstadt entfernt mit wunderschönem Ausblick auf den Zürichsee und die Alpen. Als Listenspital bieten wir umfassende psychiatrische Betreuung für alle Versicherten und verfügen über stationäre und ambulante Einrichtungen in Kilchberg und Zürich. Unsere rund 650 Mitarbeitenden aus über 25 Berufsgruppen sind das Herzstück der Klinik und engagieren sich für die bestmögliche Behandlung unserer Patientinnen und Patienten. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der psychiatrischen Versorgung mit.\n\nhttp://www.fanergy.net\n\nIch bin interessiert und möchte mich bewerben\n\nZurück"
+      },
+      "needsRetranslation": true,
+      "location": "Kilchberg",
+      "canton": "ZH",
+      "url": "https://recruitingapp-3010.umantis.com/Vacancies/655/Description/1",
+      "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-15T21:39:42.152Z",
+      "addressLocality": "Kilchberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8802",
+      "category": "Sanità / Ospedali",
+      "department": "Pflegeberufe",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/655/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
+        ],
+        "de": [
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
+      ],
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Kilchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T21:39:42.152Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-07-29T11:41:38.590Z"
+    },
+    {
+      "id": "sanatorium-kilchberg-9a9af16c5117",
+      "slug": "fachperson-gesundheit-cfc-sanatorium-kilchberg-kilchberg",
+      "slugByLocale": {
+        "de": "fachperson-gesundheit-efz-sanatorium-kilchberg-kilchberg",
+        "it": "fachperson-gesundheit-cfc-sanatorium-kilchberg-kilchberg",
+        "en": "health-professional-efz-sanatorium-kilchberg-kilchberg",
+        "fr": "professionnels-de-la-sante-efz-sanatorium-kilchberg-kilchberg"
+      },
+      "company": "Sanatorium Kilchberg",
+      "companyKey": "sanatorium-kilchberg",
+      "companyDomain": "sanatorium-kilchberg.ch",
+      "title": "Fachperson Gesundheit EFZ",
+      "titleByLocale": {
+        "de": "Fachperson Gesundheit EFZ",
+        "it": "Fachperson Gesundheit CFC",
+        "en": "Fachperson Gesundheit EFZ",
+        "fr": "Fachperson Gesundheit EFZ"
+      },
+      "description": "Sanatorium Kilchberg AG | online seit: 19.10.2026\n\nWir suchen per 1. Oktober 2026 oder nach Vereinbarung\n\nAkutstation Schwerpunkt Psychosespektrum\n\nZusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station D3 finden Sie sich in einem spannenden Umfeld wieder, das die interdisziplinäre Zusammenarbeit lebt.\n\nIhre Aufgaben:\n\n• Tätigkeit auf einer offenen akutpsychiatrischen Station mit dem Schwerpunkt Psychosespektrum\n• Individuelle Mitgestaltung des akutpsychiatrischen Settings\n• Unterstützung in der Umsetzung des Pflegeprozesses im multidisziplinären Team\n• Aktive Teilnahme an der Umsetzung von neuen stationären Projekten\n• Aktive Begleitung in Alltags- und Beziehungsgestaltung\n• Einsätze im Tag- und Nachtdienst (Nachtdienstbesetzung zusätzlich mit einer Dipl. Person)\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung zur Fachperson Gesundheit mit Erfahrung in der psychiatrischen Arbeit\n• Hohe Flexibilität und Selbstmanagementfähigkeiten\n• Offenes, humorvolles und herzliches Erscheinungsbild\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Recovery-orientierte Haltung\n• Im Optimalfall bereits eine Weiterbildung im Aggressionsmanagement oder Bereitschaft, diesen Kurs zu machen\n\nDas Sanatorium Kilchberg ist eine der traditionsreichsten psychiatrischen Privatkliniken der Schweiz und blickt auf eine fast 160-jährige Geschichte zurück. Nur 15 Minuten von der Zürcher Innenstadt entfernt mit wunderschönem Ausblick auf den Zürichsee und die Alpen. Als Listenspital bieten wir umfassende psychiatrische Betreuung für alle Versicherten und verfügen über stationäre und ambulante Einrichtungen in Kilchberg und Zürich. Unsere rund 650 Mitarbeitenden aus über 25 Berufsgruppen sind das Herzstück der Klinik und engagieren sich für die bestmögliche Behandlung unserer Patientinnen und Patienten. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der psychiatrischen Versorgung mit.\n\nhttp://www.fanergy.net\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+      "descriptionByLocale": {
+        "de": "Sanatorium Kilchberg AG | online seit: 19.10.2026\n\nWir suchen per 1. Oktober 2026 oder nach Vereinbarung\n\nAkutstation Schwerpunkt Psychosespektrum\n\nZusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station D3 finden Sie sich in einem spannenden Umfeld wieder, das die interdisziplinäre Zusammenarbeit lebt.\n\nIhre Aufgaben:\n\n• Tätigkeit auf einer offenen akutpsychiatrischen Station mit dem Schwerpunkt Psychosespektrum\n• Individuelle Mitgestaltung des akutpsychiatrischen Settings\n• Unterstützung in der Umsetzung des Pflegeprozesses im multidisziplinären Team\n• Aktive Teilnahme an der Umsetzung von neuen stationären Projekten\n• Aktive Begleitung in Alltags- und Beziehungsgestaltung\n• Einsätze im Tag- und Nachtdienst (Nachtdienstbesetzung zusätzlich mit einer Dipl. Person)\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung zur Fachperson Gesundheit mit Erfahrung in der psychiatrischen Arbeit\n• Hohe Flexibilität und Selbstmanagementfähigkeiten\n• Offenes, humorvolles und herzliches Erscheinungsbild\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Recovery-orientierte Haltung\n• Im Optimalfall bereits eine Weiterbildung im Aggressionsmanagement oder Bereitschaft, diesen Kurs zu machen\n\nDas Sanatorium Kilchberg ist eine der traditionsreichsten psychiatrischen Privatkliniken der Schweiz und blickt auf eine fast 160-jährige Geschichte zurück. Nur 15 Minuten von der Zürcher Innenstadt entfernt mit wunderschönem Ausblick auf den Zürichsee und die Alpen. Als Listenspital bieten wir umfassende psychiatrische Betreuung für alle Versicherten und verfügen über stationäre und ambulante Einrichtungen in Kilchberg und Zürich. Unsere rund 650 Mitarbeitenden aus über 25 Berufsgruppen sind das Herzstück der Klinik und engagieren sich für die bestmögliche Behandlung unserer Patientinnen und Patienten. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der psychiatrischen Versorgung mit.\n\nhttp://www.fanergy.net\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "it": "Sanatorium Kilchberg AG | online seit: 19.10.2026\n\nWir suchen per 1. Oktober 2026 oder nach Vereinbarung\n\nAkutstation Schwerpunkt Psychosespektrum\n\nZusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station D3 finden Sie sich in einem spannenden Umfeld wieder, das die interdisziplinäre Zusammenarbeit lebt.\n\nIhre Aufgaben:\n\n• Tätigkeit auf einer offenen akutpsychiatrischen Station mit dem Schwerpunkt Psychosespektrum\n• Individuelle Mitgestaltung des akutpsychiatrischen Settings\n• Unterstützung in der Umsetzung des Pflegeprozesses im multidisziplinären Team\n• Aktive Teilnahme an der Umsetzung von neuen stationären Projekten\n• Aktive Begleitung in Alltags- und Beziehungsgestaltung\n• Einsätze im Tag- und Nachtdienst (Nachtdienstbesetzung zusätzlich mit einer Dipl. Person)\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung zur Fachperson Gesundheit mit Erfahrung in der psychiatrischen Arbeit\n• Hohe Flexibilität und Selbstmanagementfähigkeiten\n• Offenes, humorvolles und herzliches Erscheinungsbild\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Recovery-orientierte Haltung\n• Im Optimalfall bereits eine Weiterbildung im Aggressionsmanagement oder Bereitschaft, diesen Kurs zu machen\n\nDas Sanatorium Kilchberg ist eine der traditionsreichsten psychiatrischen Privatkliniken der Schweiz und blickt auf eine fast 160-jährige Geschichte zurück. Nur 15 Minuten von der Zürcher Innenstadt entfernt mit wunderschönem Ausblick auf den Zürichsee und die Alpen. Als Listenspital bieten wir umfassende psychiatrische Betreuung für alle Versicherten und verfügen über stationäre und ambulante Einrichtungen in Kilchberg und Zürich. Unsere rund 650 Mitarbeitenden aus über 25 Berufsgruppen sind das Herzstück der Klinik und engagieren sich für die bestmögliche Behandlung unserer Patientinnen und Patienten. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der psychiatrischen Versorgung mit.\n\nhttp://www.fanergy.net\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "en": "Sanatorium Kilchberg AG | online seit: 19.10.2026\n\nWir suchen per 1. Oktober 2026 oder nach Vereinbarung\n\nAkutstation Schwerpunkt Psychosespektrum\n\nZusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station D3 finden Sie sich in einem spannenden Umfeld wieder, das die interdisziplinäre Zusammenarbeit lebt.\n\nIhre Aufgaben:\n\n• Tätigkeit auf einer offenen akutpsychiatrischen Station mit dem Schwerpunkt Psychosespektrum\n• Individuelle Mitgestaltung des akutpsychiatrischen Settings\n• Unterstützung in der Umsetzung des Pflegeprozesses im multidisziplinären Team\n• Aktive Teilnahme an der Umsetzung von neuen stationären Projekten\n• Aktive Begleitung in Alltags- und Beziehungsgestaltung\n• Einsätze im Tag- und Nachtdienst (Nachtdienstbesetzung zusätzlich mit einer Dipl. Person)\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung zur Fachperson Gesundheit mit Erfahrung in der psychiatrischen Arbeit\n• Hohe Flexibilität und Selbstmanagementfähigkeiten\n• Offenes, humorvolles und herzliches Erscheinungsbild\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Recovery-orientierte Haltung\n• Im Optimalfall bereits eine Weiterbildung im Aggressionsmanagement oder Bereitschaft, diesen Kurs zu machen\n\nDas Sanatorium Kilchberg ist eine der traditionsreichsten psychiatrischen Privatkliniken der Schweiz und blickt auf eine fast 160-jährige Geschichte zurück. Nur 15 Minuten von der Zürcher Innenstadt entfernt mit wunderschönem Ausblick auf den Zürichsee und die Alpen. Als Listenspital bieten wir umfassende psychiatrische Betreuung für alle Versicherten und verfügen über stationäre und ambulante Einrichtungen in Kilchberg und Zürich. Unsere rund 650 Mitarbeitenden aus über 25 Berufsgruppen sind das Herzstück der Klinik und engagieren sich für die bestmögliche Behandlung unserer Patientinnen und Patienten. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der psychiatrischen Versorgung mit.\n\nhttp://www.fanergy.net\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "fr": "Sanatorium Kilchberg AG | online seit: 19.10.2026\n\nWir suchen per 1. Oktober 2026 oder nach Vereinbarung\n\nAkutstation Schwerpunkt Psychosespektrum\n\nZusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station D3 finden Sie sich in einem spannenden Umfeld wieder, das die interdisziplinäre Zusammenarbeit lebt.\n\nIhre Aufgaben:\n\n• Tätigkeit auf einer offenen akutpsychiatrischen Station mit dem Schwerpunkt Psychosespektrum\n• Individuelle Mitgestaltung des akutpsychiatrischen Settings\n• Unterstützung in der Umsetzung des Pflegeprozesses im multidisziplinären Team\n• Aktive Teilnahme an der Umsetzung von neuen stationären Projekten\n• Aktive Begleitung in Alltags- und Beziehungsgestaltung\n• Einsätze im Tag- und Nachtdienst (Nachtdienstbesetzung zusätzlich mit einer Dipl. Person)\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung zur Fachperson Gesundheit mit Erfahrung in der psychiatrischen Arbeit\n• Hohe Flexibilität und Selbstmanagementfähigkeiten\n• Offenes, humorvolles und herzliches Erscheinungsbild\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Recovery-orientierte Haltung\n• Im Optimalfall bereits eine Weiterbildung im Aggressionsmanagement oder Bereitschaft, diesen Kurs zu machen\n\nDas Sanatorium Kilchberg ist eine der traditionsreichsten psychiatrischen Privatkliniken der Schweiz und blickt auf eine fast 160-jährige Geschichte zurück. Nur 15 Minuten von der Zürcher Innenstadt entfernt mit wunderschönem Ausblick auf den Zürichsee und die Alpen. Als Listenspital bieten wir umfassende psychiatrische Betreuung für alle Versicherten und verfügen über stationäre und ambulante Einrichtungen in Kilchberg und Zürich. Unsere rund 650 Mitarbeitenden aus über 25 Berufsgruppen sind das Herzstück der Klinik und engagieren sich für die bestmögliche Behandlung unserer Patientinnen und Patienten. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der psychiatrischen Versorgung mit.\n\nhttp://www.fanergy.net\n\nIch bin interessiert und möchte mich bewerben\n\nZurück"
+      },
+      "needsRetranslation": true,
+      "location": "Kilchberg",
+      "canton": "ZH",
+      "url": "https://recruitingapp-3010.umantis.com/Vacancies/673/Description/1",
+      "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-15T21:39:38.209Z",
+      "addressLocality": "Kilchberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8802",
+      "category": "Sanità / Ospedali",
+      "department": "Pflegeberufe",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/673/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-sanatorium-kilchberg-kilchberg"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-efz-sanatorium-kilchberg-kilchberg"
+      ],
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Kilchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T21:39:38.209Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-05-19T14:37:15.820Z"
+    },
+    {
+      "id": "sanatorium-kilchberg-de4d9ebaf506",
+      "slug": "dipl-specialista-di-cura-hf-sanatorium-kilchberg-kilchberg",
+      "slugByLocale": {
+        "de": "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg",
+        "it": "dipl-specialista-di-cura-hf-sanatorium-kilchberg-kilchberg",
+        "en": "dipl-care-specialist-hf-sanatorium-kilchberg-kilchberg",
+        "fr": "dipl-specialiste-des-soins-hf-sanatorium-kilchberg-kilchberg"
+      },
+      "company": "Sanatorium Kilchberg",
+      "companyKey": "sanatorium-kilchberg",
+      "companyDomain": "sanatorium-kilchberg.ch",
+      "title": "Pflegefachperson HF/FH",
+      "titleByLocale": {
+        "de": "Pflegefachperson HF/FH",
+        "it": "Pflegefachperson HF/FH",
+        "en": "Pflegefachperson HF/FH",
+        "fr": "Pflegefachperson HF/FH"
+      },
+      "description": "Sanatorium Kilchberg AG | online seit: 16.09.2026\n\nWir suchen per 1. Oktober 2026 oder nach Vereinbarung\n\nAkutstation Schwerpunkt Psychosespektrum\n\nZusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station D3 finden Sie sich in einem spannenden Umfeld wieder, das die interdisziplinäre Zusammenarbeit lebt.\n\nIhre Aufgaben:\n\n• Tätigkeit auf einer offenen akutpsychiatrischen Station mit dem Schwerpunkt Psychosespektrum\n• Individuelle Mitgestaltung des akutpsychiatrischen Settings\n• Unterstützung in der Umsetzung des Pflegeprozesses im multidisziplinären Team\n• Aktive Teilnahme an der Umsetzung von neuen stationären Projekten\n• Aktive Begleitung in Alltags- und Beziehungsgestaltung nach Safewards Konzept\n• Übernahme von Bezugspersonenarbeit beziehungsweise Arbeiten im Kernbehandlungsteam\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Pflegefachfrau/Pflegefachmann HF oder Anerkennung bei Ausländischen Ausbildung\n• Hohe Flexibilität und Selbstmanagementfähigkeiten\n• Offenes, humorvolles und herzliches Erscheinungsbild\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Recovery-orientierte Haltung\n• Im Optimalfall bereits eine Weiterbildung im Aggressionsmanagement oder Bereitschaft diesen Kurs zu machen\n\nDas Sanatorium Kilchberg ist eine der traditionsreichsten psychiatrischen Privatkliniken der Schweiz und blickt auf eine fast 160-jährige Geschichte zurück. Nur 15 Minuten von der Zürcher Innenstadt entfernt mit wunderschönem Ausblick auf den Zürichsee und die Alpen. Als Listenspital bieten wir umfassende psychiatrische Betreuung für alle Versicherten und verfügen über stationäre und ambulante Einrichtungen in Kilchberg und Zürich. Unsere rund 650 Mitarbeitenden aus über 25 Berufsgruppen sind das Herzstück der Klinik und engagieren sich für die bestmögliche Behandlung unserer Patientinnen und Patienten. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der psychiatrischen Versorgung mit.\n\nhttp://www.fanergy.net\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+      "descriptionByLocale": {
+        "de": "Sanatorium Kilchberg AG | online seit: 16.09.2026\n\nWir suchen per 1. Oktober 2026 oder nach Vereinbarung\n\nAkutstation Schwerpunkt Psychosespektrum\n\nZusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station D3 finden Sie sich in einem spannenden Umfeld wieder, das die interdisziplinäre Zusammenarbeit lebt.\n\nIhre Aufgaben:\n\n• Tätigkeit auf einer offenen akutpsychiatrischen Station mit dem Schwerpunkt Psychosespektrum\n• Individuelle Mitgestaltung des akutpsychiatrischen Settings\n• Unterstützung in der Umsetzung des Pflegeprozesses im multidisziplinären Team\n• Aktive Teilnahme an der Umsetzung von neuen stationären Projekten\n• Aktive Begleitung in Alltags- und Beziehungsgestaltung nach Safewards Konzept\n• Übernahme von Bezugspersonenarbeit beziehungsweise Arbeiten im Kernbehandlungsteam\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Pflegefachfrau/Pflegefachmann HF oder Anerkennung bei Ausländischen Ausbildung\n• Hohe Flexibilität und Selbstmanagementfähigkeiten\n• Offenes, humorvolles und herzliches Erscheinungsbild\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Recovery-orientierte Haltung\n• Im Optimalfall bereits eine Weiterbildung im Aggressionsmanagement oder Bereitschaft diesen Kurs zu machen\n\nDas Sanatorium Kilchberg ist eine der traditionsreichsten psychiatrischen Privatkliniken der Schweiz und blickt auf eine fast 160-jährige Geschichte zurück. Nur 15 Minuten von der Zürcher Innenstadt entfernt mit wunderschönem Ausblick auf den Zürichsee und die Alpen. Als Listenspital bieten wir umfassende psychiatrische Betreuung für alle Versicherten und verfügen über stationäre und ambulante Einrichtungen in Kilchberg und Zürich. Unsere rund 650 Mitarbeitenden aus über 25 Berufsgruppen sind das Herzstück der Klinik und engagieren sich für die bestmögliche Behandlung unserer Patientinnen und Patienten. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der psychiatrischen Versorgung mit.\n\nhttp://www.fanergy.net\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "it": "Sanatorium Kilchberg AG | online seit: 16.09.2026\n\nWir suchen per 1. Oktober 2026 oder nach Vereinbarung\n\nAkutstation Schwerpunkt Psychosespektrum\n\nZusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station D3 finden Sie sich in einem spannenden Umfeld wieder, das die interdisziplinäre Zusammenarbeit lebt.\n\nIhre Aufgaben:\n\n• Tätigkeit auf einer offenen akutpsychiatrischen Station mit dem Schwerpunkt Psychosespektrum\n• Individuelle Mitgestaltung des akutpsychiatrischen Settings\n• Unterstützung in der Umsetzung des Pflegeprozesses im multidisziplinären Team\n• Aktive Teilnahme an der Umsetzung von neuen stationären Projekten\n• Aktive Begleitung in Alltags- und Beziehungsgestaltung nach Safewards Konzept\n• Übernahme von Bezugspersonenarbeit beziehungsweise Arbeiten im Kernbehandlungsteam\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Pflegefachfrau/Pflegefachmann HF oder Anerkennung bei Ausländischen Ausbildung\n• Hohe Flexibilität und Selbstmanagementfähigkeiten\n• Offenes, humorvolles und herzliches Erscheinungsbild\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Recovery-orientierte Haltung\n• Im Optimalfall bereits eine Weiterbildung im Aggressionsmanagement oder Bereitschaft diesen Kurs zu machen\n\nDas Sanatorium Kilchberg ist eine der traditionsreichsten psychiatrischen Privatkliniken der Schweiz und blickt auf eine fast 160-jährige Geschichte zurück. Nur 15 Minuten von der Zürcher Innenstadt entfernt mit wunderschönem Ausblick auf den Zürichsee und die Alpen. Als Listenspital bieten wir umfassende psychiatrische Betreuung für alle Versicherten und verfügen über stationäre und ambulante Einrichtungen in Kilchberg und Zürich. Unsere rund 650 Mitarbeitenden aus über 25 Berufsgruppen sind das Herzstück der Klinik und engagieren sich für die bestmögliche Behandlung unserer Patientinnen und Patienten. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der psychiatrischen Versorgung mit.\n\nhttp://www.fanergy.net\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "en": "Sanatorium Kilchberg AG | online seit: 16.09.2026\n\nWir suchen per 1. Oktober 2026 oder nach Vereinbarung\n\nAkutstation Schwerpunkt Psychosespektrum\n\nZusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station D3 finden Sie sich in einem spannenden Umfeld wieder, das die interdisziplinäre Zusammenarbeit lebt.\n\nIhre Aufgaben:\n\n• Tätigkeit auf einer offenen akutpsychiatrischen Station mit dem Schwerpunkt Psychosespektrum\n• Individuelle Mitgestaltung des akutpsychiatrischen Settings\n• Unterstützung in der Umsetzung des Pflegeprozesses im multidisziplinären Team\n• Aktive Teilnahme an der Umsetzung von neuen stationären Projekten\n• Aktive Begleitung in Alltags- und Beziehungsgestaltung nach Safewards Konzept\n• Übernahme von Bezugspersonenarbeit beziehungsweise Arbeiten im Kernbehandlungsteam\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Pflegefachfrau/Pflegefachmann HF oder Anerkennung bei Ausländischen Ausbildung\n• Hohe Flexibilität und Selbstmanagementfähigkeiten\n• Offenes, humorvolles und herzliches Erscheinungsbild\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Recovery-orientierte Haltung\n• Im Optimalfall bereits eine Weiterbildung im Aggressionsmanagement oder Bereitschaft diesen Kurs zu machen\n\nDas Sanatorium Kilchberg ist eine der traditionsreichsten psychiatrischen Privatkliniken der Schweiz und blickt auf eine fast 160-jährige Geschichte zurück. Nur 15 Minuten von der Zürcher Innenstadt entfernt mit wunderschönem Ausblick auf den Zürichsee und die Alpen. Als Listenspital bieten wir umfassende psychiatrische Betreuung für alle Versicherten und verfügen über stationäre und ambulante Einrichtungen in Kilchberg und Zürich. Unsere rund 650 Mitarbeitenden aus über 25 Berufsgruppen sind das Herzstück der Klinik und engagieren sich für die bestmögliche Behandlung unserer Patientinnen und Patienten. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der psychiatrischen Versorgung mit.\n\nhttp://www.fanergy.net\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "fr": "Sanatorium Kilchberg AG | online seit: 16.09.2026\n\nWir suchen per 1. Oktober 2026 oder nach Vereinbarung\n\nAkutstation Schwerpunkt Psychosespektrum\n\nZusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit. Auf der Station D3 finden Sie sich in einem spannenden Umfeld wieder, das die interdisziplinäre Zusammenarbeit lebt.\n\nIhre Aufgaben:\n\n• Tätigkeit auf einer offenen akutpsychiatrischen Station mit dem Schwerpunkt Psychosespektrum\n• Individuelle Mitgestaltung des akutpsychiatrischen Settings\n• Unterstützung in der Umsetzung des Pflegeprozesses im multidisziplinären Team\n• Aktive Teilnahme an der Umsetzung von neuen stationären Projekten\n• Aktive Begleitung in Alltags- und Beziehungsgestaltung nach Safewards Konzept\n• Übernahme von Bezugspersonenarbeit beziehungsweise Arbeiten im Kernbehandlungsteam\n\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Pflegefachfrau/Pflegefachmann HF oder Anerkennung bei Ausländischen Ausbildung\n• Hohe Flexibilität und Selbstmanagementfähigkeiten\n• Offenes, humorvolles und herzliches Erscheinungsbild\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n• Recovery-orientierte Haltung\n• Im Optimalfall bereits eine Weiterbildung im Aggressionsmanagement oder Bereitschaft diesen Kurs zu machen\n\nDas Sanatorium Kilchberg ist eine der traditionsreichsten psychiatrischen Privatkliniken der Schweiz und blickt auf eine fast 160-jährige Geschichte zurück. Nur 15 Minuten von der Zürcher Innenstadt entfernt mit wunderschönem Ausblick auf den Zürichsee und die Alpen. Als Listenspital bieten wir umfassende psychiatrische Betreuung für alle Versicherten und verfügen über stationäre und ambulante Einrichtungen in Kilchberg und Zürich. Unsere rund 650 Mitarbeitenden aus über 25 Berufsgruppen sind das Herzstück der Klinik und engagieren sich für die bestmögliche Behandlung unserer Patientinnen und Patienten. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der psychiatrischen Versorgung mit.\n\nhttp://www.fanergy.net\n\nIch bin interessiert und möchte mich bewerben\n\nZurück"
+      },
+      "needsRetranslation": true,
+      "location": "Kilchberg",
+      "canton": "ZH",
+      "url": "https://recruitingapp-3010.umantis.com/Vacancies/682/Description/1",
+      "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-15T21:39:34.151Z",
+      "addressLocality": "Kilchberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8802",
+      "category": "Sanità / Ospedali",
+      "department": "Pflegeberufe",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/682/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
+        ],
+        "de": [
+          "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
+      ],
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Kilchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T21:39:34.151Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-07-29T11:41:38.590Z"
     },
     {
       "id": "sanatorium-kilchberg-7df7510e7b96",
@@ -702,7 +951,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/695/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:30:13.180Z",
+      "crawledAt": "2026-11-15T21:39:32.267Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -752,8 +1001,81 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T09:30:13.180Z",
+      "validThrough": "2027-01-25T21:39:32.267Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "sanatorium-kilchberg-6ac5c7d708e1",
+      "slug": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
+      "slugByLocale": {
+        "de": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
+        "it": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
+        "en": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg",
+        "fr": "pflegefachperson-hf-fh-sanatorium-kilchberg-kilchberg"
+      },
+      "company": "Sanatorium Kilchberg",
+      "companyKey": "sanatorium-kilchberg",
+      "companyDomain": "sanatorium-kilchberg.ch",
+      "title": "Pflegefachperson HF/FH",
+      "titleByLocale": {
+        "de": "Pflegefachperson HF/FH",
+        "it": "Pflegefachperson HF/FH",
+        "en": "Pflegefachperson HF/FH",
+        "fr": "Pflegefachperson HF/FH"
+      },
+      "description": "Sanatorium Kilchberg AG | online seit: 21.10.2026\n\n80 - 100%\n\nAkutstation Schwerpunkt Krisenintervention\n\nZusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit.\n\nIhre Aufgaben:\n\n• Tätigkeit auf einer Akutstation mit dem Schwerpunkt Krisenintervention\n• Individuelle Behandlung psychisch erkrankter Menschen mit Absprache und Planung im interdisziplinären Team\n• Durchführung der Bezugspflege und Sicherstellung des Pflegeprozesses\n• Leitung von stationären pflegetherapeutischen Gruppenangeboten\n• Arbeiten im Schichtdienst (Frühdienst/Spätdienst/Wochenende)\n• Unterstützung bei der Weiterentwicklung des stationären Behandlungssettings und aktive Teilnahme an der Umsetzung von neuen Projekten\n\nIhr Profil:\n\n• Abschluss als Dipl. Pflegefachperson HF/FH/DNII (Anerkennungsnachweis bei ausländischen Diplomen)\n• Hohe Fach- und Sozialkompetenz\n• Freude an interdisziplinärer Teamkultur\n• Flexibilität, Belastbarkeit sowie Teamfähigkeit und Humor\n• Lösungsorientierte Arbeitsweise und vernetztes Denken\n• Gute Deutschkenntnisse in Wort und Schrift\n• Kundenorientierung mit guten Umgangsformen\n• Interesse an und Erfahrung mit deeskalierenden Massnahmen sowie einer recoveryorientierten Haltung\n• Interesse an oder Erfahrungen mit Konzepten wie Safewards sowie deren Umsetzung\n\nDas Sanatorium Kilchberg ist eine der traditionsreichsten psychiatrischen Privatkliniken der Schweiz und blickt auf eine fast 160-jährige Geschichte zurück. Nur 15 Minuten von der Zürcher Innenstadt entfernt mit wunderschönem Ausblick auf den Zürichsee und die Alpen. Als Listenspital bieten wir umfassende psychiatrische Betreuung für alle Versicherten und verfügen über stationäre und ambulante Einrichtungen in Kilchberg und Zürich. Unsere rund 650 Mitarbeitenden aus über 25 Berufsgruppen sind das Herzstück der Klinik und engagieren sich für die bestmögliche Behandlung unserer Patientinnen und Patienten. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der psychiatrischen Versorgung mit.\n\nhttp://www.fanergy.net\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+      "descriptionByLocale": {
+        "de": "Sanatorium Kilchberg AG | online seit: 21.10.2026\n\n80 - 100%\n\nAkutstation Schwerpunkt Krisenintervention\n\nZusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit.\n\nIhre Aufgaben:\n\n• Tätigkeit auf einer Akutstation mit dem Schwerpunkt Krisenintervention\n• Individuelle Behandlung psychisch erkrankter Menschen mit Absprache und Planung im interdisziplinären Team\n• Durchführung der Bezugspflege und Sicherstellung des Pflegeprozesses\n• Leitung von stationären pflegetherapeutischen Gruppenangeboten\n• Arbeiten im Schichtdienst (Frühdienst/Spätdienst/Wochenende)\n• Unterstützung bei der Weiterentwicklung des stationären Behandlungssettings und aktive Teilnahme an der Umsetzung von neuen Projekten\n\nIhr Profil:\n\n• Abschluss als Dipl. Pflegefachperson HF/FH/DNII (Anerkennungsnachweis bei ausländischen Diplomen)\n• Hohe Fach- und Sozialkompetenz\n• Freude an interdisziplinärer Teamkultur\n• Flexibilität, Belastbarkeit sowie Teamfähigkeit und Humor\n• Lösungsorientierte Arbeitsweise und vernetztes Denken\n• Gute Deutschkenntnisse in Wort und Schrift\n• Kundenorientierung mit guten Umgangsformen\n• Interesse an und Erfahrung mit deeskalierenden Massnahmen sowie einer recoveryorientierten Haltung\n• Interesse an oder Erfahrungen mit Konzepten wie Safewards sowie deren Umsetzung\n\nDas Sanatorium Kilchberg ist eine der traditionsreichsten psychiatrischen Privatkliniken der Schweiz und blickt auf eine fast 160-jährige Geschichte zurück. Nur 15 Minuten von der Zürcher Innenstadt entfernt mit wunderschönem Ausblick auf den Zürichsee und die Alpen. Als Listenspital bieten wir umfassende psychiatrische Betreuung für alle Versicherten und verfügen über stationäre und ambulante Einrichtungen in Kilchberg und Zürich. Unsere rund 650 Mitarbeitenden aus über 25 Berufsgruppen sind das Herzstück der Klinik und engagieren sich für die bestmögliche Behandlung unserer Patientinnen und Patienten. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der psychiatrischen Versorgung mit.\n\nhttp://www.fanergy.net\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "it": "Sanatorium Kilchberg AG | online seit: 21.10.2026\n\n80 - 100%\n\nAkutstation Schwerpunkt Krisenintervention\n\nZusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit.\n\nIhre Aufgaben:\n\n• Tätigkeit auf einer Akutstation mit dem Schwerpunkt Krisenintervention\n• Individuelle Behandlung psychisch erkrankter Menschen mit Absprache und Planung im interdisziplinären Team\n• Durchführung der Bezugspflege und Sicherstellung des Pflegeprozesses\n• Leitung von stationären pflegetherapeutischen Gruppenangeboten\n• Arbeiten im Schichtdienst (Frühdienst/Spätdienst/Wochenende)\n• Unterstützung bei der Weiterentwicklung des stationären Behandlungssettings und aktive Teilnahme an der Umsetzung von neuen Projekten\n\nIhr Profil:\n\n• Abschluss als Dipl. Pflegefachperson HF/FH/DNII (Anerkennungsnachweis bei ausländischen Diplomen)\n• Hohe Fach- und Sozialkompetenz\n• Freude an interdisziplinärer Teamkultur\n• Flexibilität, Belastbarkeit sowie Teamfähigkeit und Humor\n• Lösungsorientierte Arbeitsweise und vernetztes Denken\n• Gute Deutschkenntnisse in Wort und Schrift\n• Kundenorientierung mit guten Umgangsformen\n• Interesse an und Erfahrung mit deeskalierenden Massnahmen sowie einer recoveryorientierten Haltung\n• Interesse an oder Erfahrungen mit Konzepten wie Safewards sowie deren Umsetzung\n\nDas Sanatorium Kilchberg ist eine der traditionsreichsten psychiatrischen Privatkliniken der Schweiz und blickt auf eine fast 160-jährige Geschichte zurück. Nur 15 Minuten von der Zürcher Innenstadt entfernt mit wunderschönem Ausblick auf den Zürichsee und die Alpen. Als Listenspital bieten wir umfassende psychiatrische Betreuung für alle Versicherten und verfügen über stationäre und ambulante Einrichtungen in Kilchberg und Zürich. Unsere rund 650 Mitarbeitenden aus über 25 Berufsgruppen sind das Herzstück der Klinik und engagieren sich für die bestmögliche Behandlung unserer Patientinnen und Patienten. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der psychiatrischen Versorgung mit.\n\nhttp://www.fanergy.net\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "en": "Sanatorium Kilchberg AG | online seit: 21.10.2026\n\n80 - 100%\n\nAkutstation Schwerpunkt Krisenintervention\n\nZusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit.\n\nIhre Aufgaben:\n\n• Tätigkeit auf einer Akutstation mit dem Schwerpunkt Krisenintervention\n• Individuelle Behandlung psychisch erkrankter Menschen mit Absprache und Planung im interdisziplinären Team\n• Durchführung der Bezugspflege und Sicherstellung des Pflegeprozesses\n• Leitung von stationären pflegetherapeutischen Gruppenangeboten\n• Arbeiten im Schichtdienst (Frühdienst/Spätdienst/Wochenende)\n• Unterstützung bei der Weiterentwicklung des stationären Behandlungssettings und aktive Teilnahme an der Umsetzung von neuen Projekten\n\nIhr Profil:\n\n• Abschluss als Dipl. Pflegefachperson HF/FH/DNII (Anerkennungsnachweis bei ausländischen Diplomen)\n• Hohe Fach- und Sozialkompetenz\n• Freude an interdisziplinärer Teamkultur\n• Flexibilität, Belastbarkeit sowie Teamfähigkeit und Humor\n• Lösungsorientierte Arbeitsweise und vernetztes Denken\n• Gute Deutschkenntnisse in Wort und Schrift\n• Kundenorientierung mit guten Umgangsformen\n• Interesse an und Erfahrung mit deeskalierenden Massnahmen sowie einer recoveryorientierten Haltung\n• Interesse an oder Erfahrungen mit Konzepten wie Safewards sowie deren Umsetzung\n\nDas Sanatorium Kilchberg ist eine der traditionsreichsten psychiatrischen Privatkliniken der Schweiz und blickt auf eine fast 160-jährige Geschichte zurück. Nur 15 Minuten von der Zürcher Innenstadt entfernt mit wunderschönem Ausblick auf den Zürichsee und die Alpen. Als Listenspital bieten wir umfassende psychiatrische Betreuung für alle Versicherten und verfügen über stationäre und ambulante Einrichtungen in Kilchberg und Zürich. Unsere rund 650 Mitarbeitenden aus über 25 Berufsgruppen sind das Herzstück der Klinik und engagieren sich für die bestmögliche Behandlung unserer Patientinnen und Patienten. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der psychiatrischen Versorgung mit.\n\nhttp://www.fanergy.net\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "fr": "Sanatorium Kilchberg AG | online seit: 21.10.2026\n\n80 - 100%\n\nAkutstation Schwerpunkt Krisenintervention\n\nZusätzlicher Benefit für Pflegende im Schichtdienst: 37-Stunden-Woche Das Sanatorium Kilchberg bietet Ihnen ein erfüllendes Arbeitsumfeld mit spannenden Entwicklungsmöglichkeiten in einem dynamischen und wertschätzenden Team. Bringen Sie Ihre Stärken ein und gestalten Sie die Zukunft der Klinik mit.\n\nIhre Aufgaben:\n\n• Tätigkeit auf einer Akutstation mit dem Schwerpunkt Krisenintervention\n• Individuelle Behandlung psychisch erkrankter Menschen mit Absprache und Planung im interdisziplinären Team\n• Durchführung der Bezugspflege und Sicherstellung des Pflegeprozesses\n• Leitung von stationären pflegetherapeutischen Gruppenangeboten\n• Arbeiten im Schichtdienst (Frühdienst/Spätdienst/Wochenende)\n• Unterstützung bei der Weiterentwicklung des stationären Behandlungssettings und aktive Teilnahme an der Umsetzung von neuen Projekten\n\nIhr Profil:\n\n• Abschluss als Dipl. Pflegefachperson HF/FH/DNII (Anerkennungsnachweis bei ausländischen Diplomen)\n• Hohe Fach- und Sozialkompetenz\n• Freude an interdisziplinärer Teamkultur\n• Flexibilität, Belastbarkeit sowie Teamfähigkeit und Humor\n• Lösungsorientierte Arbeitsweise und vernetztes Denken\n• Gute Deutschkenntnisse in Wort und Schrift\n• Kundenorientierung mit guten Umgangsformen\n• Interesse an und Erfahrung mit deeskalierenden Massnahmen sowie einer recoveryorientierten Haltung\n• Interesse an oder Erfahrungen mit Konzepten wie Safewards sowie deren Umsetzung\n\nDas Sanatorium Kilchberg ist eine der traditionsreichsten psychiatrischen Privatkliniken der Schweiz und blickt auf eine fast 160-jährige Geschichte zurück. Nur 15 Minuten von der Zürcher Innenstadt entfernt mit wunderschönem Ausblick auf den Zürichsee und die Alpen. Als Listenspital bieten wir umfassende psychiatrische Betreuung für alle Versicherten und verfügen über stationäre und ambulante Einrichtungen in Kilchberg und Zürich. Unsere rund 650 Mitarbeitenden aus über 25 Berufsgruppen sind das Herzstück der Klinik und engagieren sich für die bestmögliche Behandlung unserer Patientinnen und Patienten. Werden Sie Teil unseres Teams und gestalten Sie die Zukunft der psychiatrischen Versorgung mit.\n\nhttp://www.fanergy.net\n\nIch bin interessiert und möchte mich bewerben\n\nZurück"
+      },
+      "needsRetranslation": true,
+      "location": "Kilchberg",
+      "canton": "ZH",
+      "url": "https://recruitingapp-3010.umantis.com/Vacancies/702/Description/1",
+      "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-15T21:39:31.319Z",
+      "addressLocality": "Kilchberg",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8802",
+      "category": "Sanità / Ospedali",
+      "department": "Pflegeberufe",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://recruitingapp-3010.umantis.com/Vacancies/702/Application/CheckLogin/1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 91500,
+      "salaryMax": 128000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 91500,
+          "maxValue": 128000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Kilchberg",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T21:39:31.319Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-07-29T11:41:38.590Z"
     },
     {
       "id": "sanatorium-kilchberg-472e40510b6d",
@@ -787,7 +1109,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/708/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:30:11.516Z",
+      "crawledAt": "2026-11-15T21:39:30.382Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -837,7 +1159,7 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:30:11.516Z",
+      "validThrough": "2027-02-07T21:39:30.382Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -871,7 +1193,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/714/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:30:10.689Z",
+      "crawledAt": "2026-11-15T21:39:29.437Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -921,7 +1243,7 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:30:10.689Z",
+      "validThrough": "2027-02-09T21:39:29.437Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -955,7 +1277,7 @@
       "url": "https://recruitingapp-3010.umantis.com/Vacancies/717/Description/1",
       "source": "Sanatorium Kilchberg Dedicated Parser (Umantis listing tenant 3010)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:30:09.709Z",
+      "crawledAt": "2026-11-15T21:39:28.310Z",
       "addressLocality": "Kilchberg",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1005,7 +1327,7 @@
       },
       "streetAddress": "Kilchberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:30:09.709Z",
+      "validThrough": "2027-02-09T21:39:28.310Z",
       "validThroughSource": "last-observed-window"
     }
   ]
