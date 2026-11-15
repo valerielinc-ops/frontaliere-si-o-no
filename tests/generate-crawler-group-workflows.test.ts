@@ -2786,12 +2786,11 @@ describe('cross-repo crawler execution artifacts', () => {
   it('gli artifact portabili committati includono hash del transformer e sono la sorgente del corpus', () => {
     const { contract, outDir, contractPath } = generateArtifacts();
     const portableDir = path.join(repoRoot, '.github/corpus-workflows');
-    const message = 'artefatto portabile obsoleto: NON risolverlo a mano né copiarlo da main; rigeneralo con CRAWLER_SOURCE_REF=main CRAWLER_SOURCE_COMMIT="$(git merge-base origin/main HEAD)" node scripts/generate-crawler-group-workflows.mjs e verifica con --check';
     for (const artifact of contract.artifacts) {
-      expect(fs.readFileSync(path.join(portableDir, artifact.file), 'utf8'), `${message} [${artifact.file}]`)
+      expect(fs.readFileSync(path.join(portableDir, artifact.file), 'utf8'))
         .toBe(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
     }
-    expect(fs.readFileSync(path.join(portableDir, 'contract.json'), 'utf8'), message)
+    expect(fs.readFileSync(path.join(portableDir, 'contract.json'), 'utf8'))
       .toBe(fs.readFileSync(contractPath, 'utf8'));
     expect(contract.generatorSha256).toMatch(/^[a-f0-9]{64}$/);
     expect(contract.sourceCommit).toMatch(/^[a-f0-9]{40}$/);
