@@ -48,6 +48,71 @@ export const GRAPHQL_FILES_CAP = 100;
  * mentre gli altri `complete:false` sono condizioni transitorie.
  */
 export const REST_FILES_HARD_CAP = 3000;
+
+/**
+ * Tetto del fallback per-commit: `pulls/{n}/commits` non rende piu' di 250
+ * commit, e ogni commit costa una chiamata. Sopra questa soglia l'elenco
+ * resta sconosciuto (fail-closed), non campionato.
+ */
+export const COMMIT_FALLBACK_MAX_COMMITS = 100;
+
+const nonEmptyLines = (raw) => String(raw || '').split('\n').map((line) => line.trim()).filter(Boolean);
+
+/**
+ * Terza sorgente, che non genera il diff della PR: l'unione dei file toccati da
+ * ciascun commit (`pulls/{n}/commits` + `commits/{sha}`). La REST
+ * `pulls/{n}/files` e `gh pr view --json files` calcolano il diff complessivo
+ * e per i diff grandi rispondono `HTTP 422 Sorry, this diff is taking too long
+ * to generate` (PR #18860, run 43699831609): lo stesso errore che prima lasciava
+ * l'elenco VUOTO e «completo» e negava l'auto-merge con `paths-unverifiable`.
+ *
+ * L'unione e' un SOPRAINSIEME del diff netto: ogni file cambiato dalla PR e'
+ * toccato da almeno un commit (un file toccato e poi ripristinato compare in
+ * piu'), quindi e' sicura per un gate che classifica i path. Qualunque
+ * impossibilita' di provarla intera — commit non elencabili, piu' di
+ * COMMIT_FALLBACK_MAX_COMMITS commit, un commit che raggiunge il tetto REST dei
+ * file, un errore su una chiamata — rende `null`: sconosciuto, mai parziale.
+ *
+ * @returns {string[]|null}
+ */
+function filesFromPullCommits(number, ghFn, repo) {
+  try {
+    const shas = nonEmptyLines(ghFn(['api', `repos/${repo}/pulls/${number}/commits?per_page=100`,
+      '--paginate', '--jq', '.[].sha'], { json: false }));
+    if (shas.length === 0 || shas.length > COMMIT_FALLBACK_MAX_COMMITS) return null;
+    const union = new Set();
+    for (const sha of shas) {
+      if (!/^[0-9a-f]{40}$/iu.test(sha)) return null;
+      const files = nonEmptyLines(ghFn(['api', `repos/${repo}/commits/${sha}?per_page=100`,
+        '--paginate', '--jq', '(.files // [])[].filename'], { json: false }));
+      if (files.length >= REST_FILES_HARD_CAP) return null;
+      for (const file of files) union.add(file);
+    }
+    return [...union];
+  } catch (error) {
+    if (isTypedTransientReadError(error)) throw error;
+    return null;
+  }
+}
+
+/**
+ * `changed_files` della REST `pulls/{n}`: un contatore, non un diff, quindi
+ * risponde anche quando GraphQL rende `changedFiles: 0` / `files: null` su un
+ * diff grande (misurato su #18860: GraphQL 0, REST 17). Secondo oracolo per
+ * `complete`, solo quando il primo e' sconosciuto.
+ *
+ * @returns {number|undefined}
+ */
+function restChangedFilesOracle(number, ghFn, repo) {
+  try {
+    const raw = ghFn(['api', `repos/${repo}/pulls/${number}`, '--jq', '.changed_files'], { json: false });
+    const value = Number(String(raw || '').trim());
+    return Number.isSafeInteger(value) && value > 0 ? value : undefined;
+  } catch (error) {
+    if (isTypedTransientReadError(error)) throw error;
+    return undefined;
+  }
+}
 const TRANSIENT_PR_FILE_SNAPSHOT_REASONS = new Set([
   'list-fetch-failed',
   'graphql-cap',
@@ -92,7 +157,7 @@ export function fetchPrFiles(number, ghFn, repo) {
     files = [];
   }
 
-  const known = Number.isFinite(expected) && expected > 0;
+  let known = Number.isFinite(expected) && expected > 0;
   const cappedExactly = files.length === GRAPHQL_FILES_CAP;
   const suspect = !files.length || files.length >= GRAPHQL_FILES_CAP
     || (known && files.length < expected);
@@ -100,6 +165,14 @@ export function fetchPrFiles(number, ghFn, repo) {
   // arrivata». Senza, un elenco troncato passa per completo ogni volta che
   // l'oracolo e' piu' basso del cap: vedi il calcolo di `complete` sotto.
   let restConfirmed = false;
+  // `restAnswered`: la REST `pulls/{n}/files` ha RISPOSTO (anche a vuoto). Se ha
+  // lanciato (422 «diff is taking too long», rate limit, rete) la vista
+  // combinata che rendeva `{changedFiles: 0, files: []}` non e' un «nessun
+  // file»: e' l'assenza di un elenco. Con la REST muta quel vuoto usciva
+  // `complete: true` e il gate nativo negava `paths-unverifiable` (#18860).
+  let restAnswered = false;
+  let fromCommits = false;
+  let oracleFromRest = false;
   if (suspect) {
     try {
       // `--paginate` applica il `--jq` a OGNI pagina: un filtro che produce un
@@ -116,6 +189,7 @@ export function fetchPrFiles(number, ghFn, repo) {
       const raw = ghFn(['api', `repos/${repo}/pulls/${number}/files`, '--paginate',
         '--jq', '.[].filename'], { json: false }) || '';
       const rest = raw.split('\n').map((l) => l.trim()).filter(Boolean);
+      restAnswered = true;
       // Conferma vuol dire CONSEGNA, non «non ha lanciato». Una REST che esce 0
       // a mani vuote, o che rende meno file della GraphQL, non scioglie
       // l'ambiguita' del cap: la lista puo' essere ancora quella troncata.
@@ -129,21 +203,57 @@ export function fetchPrFiles(number, ghFn, repo) {
       if (isTypedTransientReadError(error)) throw error;
       // Tiene la lista GraphQL, già valutata da `complete`.
     }
+    if (!restAnswered) {
+      // Terza sorgente senza diff: i file per commit. Solo se la REST non ha
+      // risposto: con una risposta (anche troncata) vale la logica sopra.
+      const perCommit = filesFromPullCommits(number, ghFn, repo);
+      if (perCommit !== null && perCommit.length >= files.length) {
+        files = perCommit;
+        fromCommits = true;
+      }
+    }
+    if (!known && files.length > 0 && !fromCommits) {
+      // Oracolo GraphQL sconosciuto (oversize: `changedFiles: 0`) ma una lista
+      // consegnata: il contatore REST `changed_files` scioglie il dubbio.
+      const restExpected = restChangedFilesOracle(number, ghFn, repo);
+      if (restExpected !== undefined) {
+        expected = restExpected;
+        known = true;
+        oracleFromRest = true;
+      }
+    }
   }
 
   // `complete` e' una MISURA, non un default ottimista: se l'oracolo non c'e'
   // (campo assente, fetch fallito) e qualche file c'e', resta false.
   // `listOk` e' la precondizione: un elenco che nessuno ha mai consegnato non
   // e' «vuoto», e' sconosciuto — e sconosciuto non e' completo.
-  let complete = listOk && (known ? files.length >= expected : files.length === 0);
+  // Una lista consegnata dalla REST e misurata dal suo contatore e' affidabile
+  // anche se la vista GraphQL non ha risposto.
+  let complete = (listOk || oracleFromRest) && (known ? files.length >= expected : files.length === 0);
+  if (fromCommits) {
+    // Il soprainsieme per commit e' completo per costruzione; resta falso solo
+    // se un oracolo noto dice che mancano file.
+    complete = !(known && files.length < expected);
+  } else if (suspect && files.length === 0 && !restAnswered) {
+    // Vista combinata vuota + REST muta + nessun fallback: elenco mancante.
+    complete = false;
+  }
   // Esattamente al cap e senza conferma dalla REST, «100» e' ambiguo per
   // costruzione: puo' essere una PR da 100 file o il troncamento di una da
   // 250. `expected` non scioglie il dubbio quando e' piu' basso del cap —
   // succede se la PR cresce fra la `gh pr list` e questa fetch — e in quel
   // caso `files.length >= expected` direbbe «completo» su una lista tagliata.
   // Unknown non e' completo: e' il verso che tutto questo modulo difende.
-  if (cappedExactly && !restConfirmed) complete = false;
-  return { files, complete, expected, reason: incompletenessReason({ complete, listOk, files, cappedExactly, restConfirmed }) };
+  if (cappedExactly && !restConfirmed && !fromCommits) complete = false;
+  if (files.length >= REST_FILES_HARD_CAP) complete = false;
+  const listMissing = suspect && files.length === 0 && !restAnswered && !fromCommits;
+  return {
+    files,
+    complete,
+    expected,
+    reason: incompletenessReason({ complete, listOk: listOk || oracleFromRest, listMissing, files, cappedExactly, restConfirmed }),
+  };
 }
 
 /**
@@ -167,9 +277,9 @@ export function isRetryablePrFileSnapshot(snapshot) {
  *
  * @returns {'complete'|'list-fetch-failed'|'rest-hard-limit'|'graphql-cap'|'short-of-oracle'}
  */
-function incompletenessReason({ complete, listOk, files, cappedExactly, restConfirmed }) {
+function incompletenessReason({ complete, listOk, listMissing = false, files, cappedExactly, restConfirmed }) {
   if (complete) return 'complete';
-  if (!listOk) return 'list-fetch-failed';
+  if (!listOk || listMissing) return 'list-fetch-failed';
   if (files.length >= REST_FILES_HARD_CAP) return 'rest-hard-limit';
   if (cappedExactly && !restConfirmed) return 'graphql-cap';
   return 'short-of-oracle';
