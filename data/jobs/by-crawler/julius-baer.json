@@ -544,7 +544,7 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 5188,
-      "retranslationAttempts": 81,
+      "retranslationAttempts": 82,
       "firstSeenAt": "2026-10-01T09:13:13.433Z",
       "crawledAt": "2026-11-15T09:18:44.912Z",
       "streetAddressSource": "to-enrich",
@@ -967,7 +967,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Financial-Crime-Compliance-Methodology-Specialist-100---f-m-d-_r-20287-2",
@@ -1567,7 +1567,6 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-03T21:24:53.488Z",
       "crawledAt": "2026-11-15T09:18:44.912Z",
       "streetAddressSource": "to-enrich",
@@ -1587,7 +1586,10 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 6146,
+      "needsRetranslation": true
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Finance-Business-Partner---Global-Product-Solutions-and-CIO-100---f-m-d-_r-20236",
@@ -2048,7 +2050,7 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3301,
-      "retranslationAttempts": 28,
+      "retranslationAttempts": 29,
       "firstSeenAt": "2026-07-22T11:17:20.458Z",
       "crawledAt": "2026-11-15T09:18:44.912Z",
       "streetAddressSource": "to-enrich",
@@ -3071,7 +3073,7 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3264,
-      "retranslationAttempts": 81,
+      "retranslationAttempts": 82,
       "firstSeenAt": "2026-08-21T21:26:37.240Z",
       "crawledAt": "2026-11-15T09:18:44.912Z",
       "streetAddressSource": "to-enrich",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-15T15:19:54.175Z",
+  "generatedAt": "2026-11-15T17:01:00.429Z",
   "totalEvents": 17280,
   "events": [
     {
@@ -435064,7 +435064,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il Convento delle agostiniane presenta una rassegna collettiva con opere di artiste accomunate dall’interesse per la pittura. Le opere mettono in evidenza sensibilità e percorsi differenti, sviluppati attraverso colori, forme ed emozioni.",
+      "descriptionByLocale": {
+        "it": "Il Convento delle agostiniane presenta una rassegna collettiva con opere di artiste accomunate dall’interesse per la pittura. Le opere mettono in evidenza sensibilità e percorsi differenti, sviluppati attraverso colori, forme ed emozioni.",
+        "en": "The Convento delle agostiniane hosts a group exhibition of paintings by women artists. The works bring together different sensibilities and artistic paths, expressed through colour, form and emotion.",
+        "de": "Im Convento delle agostiniane werden Gemälde von Künstlerinnen in einer gemeinsamen Ausstellung gezeigt. Die Arbeiten stehen für unterschiedliche Sensibilitäten und künstlerische Wege, die durch Farben, Formen und Emotionen sichtbar werden.",
+        "fr": "Le Convento delle agostiniane accueille une exposition collective consacrée aux œuvres de plusieurs femmes artistes. Les réalisations présentent des sensibilités et des parcours artistiques différents, exprimés par les couleurs, les formes et les émotions."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64828",
@@ -471574,7 +471582,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questo evento ricorrente propone un percorso dedicato alla grafica e al design nella vita quotidiana. Si svolge al Landesmuseum Zürich, a Zürich.",
+      "descriptionByLocale": {
+        "it": "Questo evento ricorrente propone un percorso dedicato alla grafica e al design nella vita quotidiana. Si svolge al Landesmuseum Zürich, a Zürich.",
+        "en": "This recurring event offers a tour focused on graphic design in everyday life. It takes place at Landesmuseum Zürich in Zürich.",
+        "de": "Die wiederkehrende Veranstaltung bietet einen Rundgang zu Grafik und visueller Gestaltung im Alltag. Sie findet im Landesmuseum Zürich in Zürich statt.",
+        "fr": "Cet événement récurrent propose une visite consacrée au graphisme et à la conception visuelle dans la vie quotidienne. Il se déroule au Landesmuseum Zürich, à Zürich."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:17ea7fb067a1424694fe1a868273a5a6",
@@ -528068,7 +528084,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il laboratorio offre indicazioni pratiche sulla redazione di un mandato in caso di incapacità. L’appuntamento si svolge a Ginevra.",
+      "descriptionByLocale": {
+        "it": "Il laboratorio offre indicazioni pratiche sulla redazione di un mandato in caso di incapacità. L’appuntamento si svolge a Ginevra.",
+        "en": "This workshop offers practical guidance on drafting a mandate for situations of incapacity. It takes place in Geneva.",
+        "de": "Der Workshop befasst sich praxisnah mit dem Verfassen eines Mandats für den Fall der Urteilsunfähigkeit. Die Veranstaltung findet in Genf statt.",
+        "fr": "La rencontre présente des repères concrets pour préparer un mandat en cas d’inaptitude. Elle se tient à Genève."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "tio-agenda:64985",
@@ -533683,7 +533707,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Questa serie ricorrente di quiz si svolge presso Story Thusis, a Thusis, nel cantone dei Grigioni. Le domande possono riguardare lo sport, la società, la geografia, la musica, la politica e il cinema, mentre i partecipanti si sfidano in squadre.",
+      "descriptionByLocale": {
+        "it": "Questa serie ricorrente di quiz si svolge presso Story Thusis, a Thusis, nel cantone dei Grigioni. Le domande possono riguardare lo sport, la società, la geografia, la musica, la politica e il cinema, mentre i partecipanti si sfidano in squadre.",
+        "en": "This recurring quiz event is held at Story Thusis in Thusis, in the canton of Graubünden. The questions can cover topics including film, politics, music, geography, society and sport, with participants taking part in teams.",
+        "de": "Die wiederkehrende Quizveranstaltung findet im Story Thusis in Thusis im Kanton Graubünden statt. Die Fragen können unter anderem Film, Politik, Musik, Geografie, Gesellschaft und Sport behandeln; die Teilnehmenden treten in Teams an.",
+        "fr": "Ce quiz récurrent se tient au Story Thusis, à Thusis, dans le canton des Grisons. Les questions peuvent porter sur le cinéma, la politique, la musique, la géographie, la société et le sport, et les participants jouent en équipes."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:45d61d75337c4177b66cff029a1a6447",
@@ -541408,7 +541440,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’evento propone un’esperienza serale a tema medievale incentrata sulla difesa di Sion durante una battaglia storica. L’iniziativa ricorrente è organizzata da NOC EVENT e dal VR Center in Sion.",
+      "descriptionByLocale": {
+        "it": "L’evento propone un’esperienza serale a tema medievale incentrata sulla difesa di Sion durante una battaglia storica. L’iniziativa ricorrente è organizzata da NOC EVENT e dal VR Center in Sion.",
+        "en": "This evening event offers an immersive medieval setting centred on the defence of Sion in a historic battle. It is a recurring event organised by NOC EVENT and the VR Center in Sion.",
+        "de": "Die Veranstaltung bietet einen immersiven mittelalterlichen Abend, der die Verteidigung von Sion in einer historischen Schlacht thematisiert. Sie wird regelmässig von NOC EVENT und dem VR Center in Sion organisiert.",
+        "fr": "Cette soirée propose une expérience médiévale immersive centrée sur la défense de Sion lors d’une bataille historique. L’événement récurrent est organisé par NOC EVENT et le VR Center in Sion."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "ow-agenda:85786",
@@ -546397,7 +546437,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il Buffet Bellavista di Capolago, nel Mendrisiotto, propone una serata dedicata alla fondue chinoise. Il menù comprende insalata, fondue chinoise con salse e contorni, sorbetto al limone, un viaggio ferroviario di andata e ritorno a bordo del trenino a cremagliera e il parcheggio; la prenotazione è obbligatoria e l’evento richiede un numero minimo di partecipanti.",
+      "descriptionByLocale": {
+        "it": "Il Buffet Bellavista di Capolago, nel Mendrisiotto, propone una serata dedicata alla fondue chinoise. Il menù comprende insalata, fondue chinoise con salse e contorni, sorbetto al limone, un viaggio ferroviario di andata e ritorno a bordo del trenino a cremagliera e il parcheggio; la prenotazione è obbligatoria e l’evento richiede un numero minimo di partecipanti.",
+        "en": "The Buffet Bellavista in Capolago, in the Mendrisiotto region, hosts an evening centered on fondue chinoise. The offering includes salad, fondue chinoise with sauces and side dishes, lemon sorbet, a return journey on the rack railway and parking; reservations are required, and the event is confirmed only when the minimum number of participants is reached.",
+        "de": "Im Buffet Bellavista in Capolago im Mendrisiotto findet ein Anlass rund um Fondue chinoise statt. Zum Angebot gehören Salat, Fondue chinoise mit Saucen und Beilagen, Zitronensorbet, die Hin- und Rückfahrt mit der Zahnradbahn sowie Parkmöglichkeiten; eine Reservation ist erforderlich, und die Durchführung setzt eine Mindestzahl an Teilnehmenden voraus.",
+        "fr": "Le Buffet Bellavista de Capolago, dans le Mendrisiotto, accueille une soirée consacrée à la fondue chinoise. La formule comprend une salade, la fondue chinoise avec sauces et accompagnements, un sorbet au citron, le trajet aller-retour en train à crémaillère et le parking; la réservation est obligatoire et la tenue de l’événement dépend d’un nombre minimal de participants."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:d391be66b70d4c5e88c37498c6652e64",
@@ -554643,7 +554691,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Al LATENIUM, l’evento propone una visita guidata dedicata a una forma di abitazione del passato. L’attività è gratuita, dura circa mezz’ora e viene riproposta ogni mese.",
+      "descriptionByLocale": {
+        "it": "Al LATENIUM, l’evento propone una visita guidata dedicata a una forma di abitazione del passato. L’attività è gratuita, dura circa mezz’ora e viene riproposta ogni mese.",
+        "en": "At LATENIUM, the event offers a guided visit focusing on a type of dwelling from the past. The free activity lasts about half an hour and takes place every month.",
+        "de": "Im LATENIUM widmet sich die Veranstaltung einer Wohnform aus der Vergangenheit. Die kostenlose Führung dauert etwa eine halbe Stunde und findet jeden Monat statt.",
+        "fr": "Au LATENIUM, la visite guidée porte sur une forme d’habitat du passé. L’activité est gratuite, dure environ une demi-heure et revient chaque mois."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:996cbbd4776a438eaa04af25062bc83e",
@@ -556646,7 +556702,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone uno scambio di informazioni e un confronto sul tema del clima. Alla DenkBar, persone interessate cercano insieme risposte a domande come quella sul futuro della neve e su come parlarne con i bambini.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone uno scambio di informazioni e un confronto sul tema del clima. Alla DenkBar, persone interessate cercano insieme risposte a domande come quella sul futuro della neve e su come parlarne con i bambini.",
+        "en": "This gathering provides space to exchange information and discuss questions related to the climate. At DenkBar, participants look for answers to issues such as how to respond when a child asks about the future of snow.",
+        "de": "Bei diesem Stammtisch geht es um den Austausch von Informationen und um Gespräche über das Klima. In der DenkBar suchen Menschen gemeinsam nach Antworten auf Fragen, etwa wie man mit einem Kind über die Zukunft des Schnees sprechen kann.",
+        "fr": "Cette rencontre est consacrée à l’échange d’informations et à la discussion autour du climat. Au DenkBar, des personnes cherchent ensemble des réponses à des questions telles que la manière de répondre à un enfant qui s’interroge sur l’avenir de la neige."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AXmHMxN",
@@ -557965,7 +558029,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento propone un pranzo ecumenico rivolto alle persone anziane. L’incontro offre l’occasione di mangiare insieme e favorire la socialità a Oberengstringen.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento propone un pranzo ecumenico rivolto alle persone anziane. L’incontro offre l’occasione di mangiare insieme e favorire la socialità a Oberengstringen.",
+        "en": "This event is an ecumenical lunch intended for senior citizens. It combines a shared meal with opportunities for social interaction in Oberengstringen.",
+        "de": "Die Veranstaltung ist ein ökumenischer Mittagstisch für ältere Menschen. In Oberengstringen stehen gemeinsames Essen und geselliges Beisammensein im Mittelpunkt.",
+        "fr": "Ce rendez-vous propose un déjeuner œcuménique destiné aux seniors. À Oberengstringen, il associe un repas partagé et des échanges conviviaux."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:37da4940167c4f388beb108e81b68a93",
@@ -563798,7 +563870,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Gemeindebibliothek Naters; comune: Naters; cantone: VS; categoria: Altri eventi; data: 2026-12-10; ora: 18:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Gemeindebibliothek Naters; comune: Naters; cantone: VS; categoria: Altri eventi; data: 2026-12-10; ora: 18:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Gemeindebibliothek Naters; municipality: Naters; canton: VS; category: Altri eventi; date: 2026-12-10; time: 18:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Gemeindebibliothek Naters; gemeinde: Naters; kanton: VS; kategorie: Altri eventi; datum: 2026-12-10; uhrzeit: 18:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Gemeindebibliothek Naters; commune: Naters; canton: VS; catégorie: Altri eventi; date: 2026-12-10; heure: 18:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e78540952c3046deb6d7d0cca9fd2a9c",
@@ -564454,7 +564534,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Restaurant Landhaus; comune: Jenaz; cantone: GR; categoria: Comunione; partecipante: Pfr; data: 2026-12-10; ora: 11:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Restaurant Landhaus; comune: Jenaz; cantone: GR; categoria: Comunione; partecipante: Pfr; data: 2026-12-10; ora: 11:30. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Restaurant Landhaus; municipality: Jenaz; canton: GR; category: Comunione; participant: Pfr; date: 2026-12-10; time: 11:30. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Restaurant Landhaus; gemeinde: Jenaz; kanton: GR; kategorie: Comunione; mitwirkender: Pfr; datum: 2026-12-10; uhrzeit: 11:30. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Restaurant Landhaus; commune: Jenaz; canton: GR; catégorie: Comunione; participant: Pfr; date: 2026-12-10; heure: 11:30. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:e3a57976c485444fa0efa0789c108e51",
@@ -571856,7 +571944,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kirchner Museum Davos; comune: Davos; cantone: GR; categoria: Altri eventi; partecipante: Kirchners Werken; data: 2026-12-12; ora: 16:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Kirchner Museum Davos; comune: Davos; cantone: GR; categoria: Altri eventi; partecipante: Kirchners Werken; data: 2026-12-12; ora: 16:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Kirchner Museum Davos; municipality: Davos; canton: GR; category: Altri eventi; participant: Kirchners Werken; date: 2026-12-12; time: 16:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Kirchner Museum Davos; gemeinde: Davos; kanton: GR; kategorie: Altri eventi; mitwirkender: Kirchners Werken; datum: 2026-12-12; uhrzeit: 16:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Kirchner Museum Davos; commune: Davos; canton: GR; catégorie: Altri eventi; participant: Kirchners Werken; date: 2026-12-12; heure: 16:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:52c20316b453458094a8f83e160077c0",
@@ -576096,7 +576192,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’appuntamento a Pfungen unisce il tango a elementi di musica classica, jazz e colonne sonore cinematografiche. TangoTronics propone la musica dal vivo, con tango tradizionale prima e dopo la performance per ballare.",
+      "descriptionByLocale": {
+        "it": "L’appuntamento a Pfungen unisce il tango a elementi di musica classica, jazz e colonne sonore cinematografiche. TangoTronics propone la musica dal vivo, con tango tradizionale prima e dopo la performance per ballare.",
+        "en": "The event in Pfungen combines tango with elements of classical music, jazz and film music. TangoTronics provides the live music, with traditional tango played before and after the performance for dancing.",
+        "de": "Die Veranstaltung in Pfungen verbindet Tango mit Elementen aus klassischer Musik, Jazz und Filmmusik. TangoTronics gestaltet die Live-Musik; davor und danach erklingt traditioneller Tango zum Tanzen.",
+        "fr": "L’événement à Pfungen associe le tango à des éléments de musique classique, de jazz et de musique de film. TangoTronics assure la musique en direct, tandis que du tango traditionnel est joué avant et après la prestation pour danser."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:d7f6e1a5eda24f2e81a7b044e60601b7",
@@ -594196,7 +594300,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Sion / Sitten; comune: Sion; cantone: VS; categoria: Event; data: 2026-12-20. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Sion / Sitten; comune: Sion; cantone: VS; categoria: Event; data: 2026-12-20. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Sion / Sitten; municipality: Sion; canton: VS; category: Event; date: 2026-12-20. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Sion / Sitten; gemeinde: Sion; kanton: VS; kategorie: Event; datum: 2026-12-20. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Sion / Sitten; commune: Sion; canton: VS; catégorie: Event; date: 2026-12-20. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:AnQNHJL",
@@ -646398,7 +646510,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Sion / Sitten; comune: Sion; cantone: VS; categoria: Event; data: 2027-02-07. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Sion / Sitten; comune: Sion; cantone: VS; categoria: Event; data: 2027-02-07. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Sion / Sitten; municipality: Sion; canton: VS; category: Event; date: 2027-02-07. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Sion / Sitten; gemeinde: Sion; kanton: VS; kategorie: Event; datum: 2027-02-07. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Sion / Sitten; commune: Sion; canton: VS; catégorie: Event; date: 2027-02-07. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "guidle:A8qFcnt",
@@ -652614,7 +652734,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Adelboden; cantone: BE; categoria: Event; partecipante: Raclette Delight; data: 2027-02-14. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Adelboden; cantone: BE; categoria: Event; partecipante: Raclette Delight; data: 2027-02-14. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Adelboden; canton: BE; category: Event; participant: Raclette Delight; date: 2027-02-14. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Adelboden; kanton: BE; kategorie: Event; mitwirkender: Raclette Delight; datum: 2027-02-14. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Adelboden; canton: BE; catégorie: Event; participant: Raclette Delight; date: 2027-02-14. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:2d5b8363cf3740af92460865e6797912",
@@ -654954,7 +655082,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Crans-Montana; cantone: VS; categoria: Event; partecipante: Generation; data: 2027-02-18. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Crans-Montana; cantone: VS; categoria: Event; partecipante: Generation; data: 2027-02-18. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Crans-Montana; canton: VS; category: Event; participant: Generation; date: 2027-02-18. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Crans-Montana; kanton: VS; kategorie: Event; mitwirkender: Generation; datum: 2027-02-18. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Crans-Montana; canton: VS; catégorie: Event; participant: Generation; date: 2027-02-18. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:150de3b76b414d2785bfc1fb2d87c0fe",
