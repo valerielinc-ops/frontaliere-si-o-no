@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-15T20:26:51.479Z",
+  "generatedAt": "2026-11-15T21:24:53.899Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -178954,6 +178954,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-18T00:15:31.372Z"
     },
+    "myswitzerland:fedc1dfb30da4686b450dd275c909265::a66eb3c75ce94b2b40e38b88bc95e8c71ae0528f9d0d028aaa29628138b42703": {
+      "id": "myswitzerland:fedc1dfb30da4686b450dd275c909265",
+      "sourceDescriptionHash": "a66eb3c75ce94b2b40e38b88bc95e8c71ae0528f9d0d028aaa29628138b42703",
+      "description": "Lo spettacolo di marionette è presentato da Cécile Duffey a Estavayer-le-Lac. L’appuntamento si rivolge alle famiglie e si svolge durante il periodo invernale.",
+      "descriptionByLocale": {
+        "it": "Lo spettacolo di marionette è presentato da Cécile Duffey a Estavayer-le-Lac. L’appuntamento si rivolge alle famiglie e si svolge durante il periodo invernale.",
+        "en": "Cécile Duffey presents this puppet show in Estavayer-le-Lac. The event is intended for families and takes place during the winter season.",
+        "de": "Cécile Duffey präsentiert das Puppentheater in Estavayer-le-Lac. Die Veranstaltung richtet sich an Familien und findet in der Wintersaison statt.",
+        "fr": "Cécile Duffey présente ce spectacle de marionnettes à Estavayer-le-Lac. Le rendez-vous s’adresse aux familles et a lieu pendant la saison hivernale."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-15T21:17:08.293Z"
+    },
     "myswitzerland:fedc221075e64db4b447bec0ee64d1ba::6e9eefc7656b0f0f3db0a72dc74c0c9932b8aa8f1a9b31e6bf0586543e4143c5": {
       "id": "myswitzerland:fedc221075e64db4b447bec0ee64d1ba",
       "sourceDescriptionHash": "6e9eefc7656b0f0f3db0a72dc74c0c9932b8aa8f1a9b31e6bf0586543e4143c5",
@@ -191414,6 +191428,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-15T20:17:16.972Z"
     },
+    "tio-agenda:65031::4872cfee03c35c8d6c0ff8454cf7b8eecefcd0876f3c442263d92682c4e383f8": {
+      "id": "tio-agenda:65031",
+      "sourceDescriptionHash": "4872cfee03c35c8d6c0ff8454cf7b8eecefcd0876f3c442263d92682c4e383f8",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Chiesa San Eusebio; comune: Castel San Pietro; cantone: TI; categoria: musica; data: 2026-11-22; ora: 17:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Chiesa San Eusebio; comune: Castel San Pietro; cantone: TI; categoria: musica; data: 2026-11-22; ora: 17:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Chiesa San Eusebio; municipality: Castel San Pietro; canton: TI; category: musica; date: 2026-11-22; time: 17:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Chiesa San Eusebio; gemeinde: Castel San Pietro; kanton: TI; kategorie: musica; datum: 2026-11-22; uhrzeit: 17:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Chiesa San Eusebio; commune: Castel San Pietro; canton: TI; catégorie: musica; date: 2026-11-22; heure: 17:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-15T21:17:06.489Z"
+    },
     "tio-agenda:65034::9a098e6eb8ce75b8106a87dd649720e949a1595a0ec62e6265db321bd9590b77": {
       "id": "tio-agenda:65034",
       "sourceDescriptionHash": "9a098e6eb8ce75b8106a87dd649720e949a1595a0ec62e6265db321bd9590b77",
@@ -191637,6 +191665,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-15T16:23:05.575Z"
+    },
+    "tio-agenda:65057::cf2a37879617d007c6c2191d3eab75e6cc1e0d0bdba180a1f7815e4f820bb354": {
+      "id": "tio-agenda:65057",
+      "sourceDescriptionHash": "cf2a37879617d007c6c2191d3eab75e6cc1e0d0bdba180a1f7815e4f820bb354",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Ec Convento Agostiniane; comune: Bellinzona; cantone: TI; categoria: conferenze; data: 2026-11-20; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Ec Convento Agostiniane; comune: Bellinzona; cantone: TI; categoria: conferenze; data: 2026-11-20; ora: 20:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Ec Convento Agostiniane; municipality: Bellinzona; canton: TI; category: conferenze; date: 2026-11-20; time: 20:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Ec Convento Agostiniane; gemeinde: Bellinzona; kanton: TI; kategorie: conferenze; datum: 2026-11-20; uhrzeit: 20:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Ec Convento Agostiniane; commune: Bellinzona; canton: TI; catégorie: conferenze; date: 2026-11-20; heure: 20:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-15T21:17:06.449Z"
     },
     "tio-agenda:65058::fcb03c1fae7e586fca6b53255b986f78b0f8930ef788b1106159919ba8f0e70d": {
       "id": "tio-agenda:65058",
@@ -192874,8 +192916,8 @@
       "id": "guidle:AbPgWWi",
       "sourceDescriptionHash": "ae3c54041747bbe8bea8400f542c2589b9119c40644c1eba82b34d1d8ea081ac",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-15T18:20:05.131Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-15T21:19:58.179Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -199371,18 +199413,9 @@
     "myswitzerland:fe76ca12d617499c9ac301a36532411d::3195fd5808c1f3051a22a9940c003336f73c91715508b9b7a717eca715aa14cc": {
       "id": "myswitzerland:fe76ca12d617499c9ac301a36532411d",
       "sourceDescriptionHash": "3195fd5808c1f3051a22a9940c003336f73c91715508b9b7a717eca715aa14cc",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-15T18:19:01.786Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:fedc1dfb30da4686b450dd275c909265::a66eb3c75ce94b2b40e38b88bc95e8c71ae0528f9d0d028aaa29628138b42703": {
-      "id": "myswitzerland:fedc1dfb30da4686b450dd275c909265",
-      "sourceDescriptionHash": "a66eb3c75ce94b2b40e38b88bc95e8c71ae0528f9d0d028aaa29628138b42703",
-      "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-15T18:20:07.130Z",
+      "code": "new-date-or-price",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-15T21:18:43.964Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -200308,8 +200341,8 @@
       "id": "tio-agenda:64732",
       "sourceDescriptionHash": "435033b4d87b7d36dcfdce32ef14de385ad33ffe7217fabc9b186535c2059d43",
       "code": "new-name",
-      "rejectedRuns": 2,
-      "lastAttemptAt": "2026-11-15T18:21:12.272Z",
+      "rejectedRuns": 3,
+      "lastAttemptAt": "2026-11-15T21:20:58.975Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -200328,24 +200361,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-11-13T21:44:27.489Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:65031::4872cfee03c35c8d6c0ff8454cf7b8eecefcd0876f3c442263d92682c4e383f8": {
-      "id": "tio-agenda:65031",
-      "sourceDescriptionHash": "4872cfee03c35c8d6c0ff8454cf7b8eecefcd0876f3c442263d92682c4e383f8",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-15T20:21:20.519Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:65057::cf2a37879617d007c6c2191d3eab75e6cc1e0d0bdba180a1f7815e4f820bb354": {
-      "id": "tio-agenda:65057",
-      "sourceDescriptionHash": "cf2a37879617d007c6c2191d3eab75e6cc1e0d0bdba180a1f7815e4f820bb354",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-11-15T20:22:27.279Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }
