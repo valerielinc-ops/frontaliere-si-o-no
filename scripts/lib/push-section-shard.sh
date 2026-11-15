@@ -511,8 +511,12 @@ push_section_shard() {
          && [ -d "$stage/.git" ]; then
         if git -C "$stage" rev-parse -q --verify HEAD >/dev/null 2>&1; then
           remote_base_sha="$(git -C "$stage" rev-parse HEAD)"
-          remote_layout_entry_type="$(git -C "$stage" cat-file -t "HEAD:$sub/_tree" 2>/dev/null || true)"
-          if [ "$remote_layout_entry_type" = tree ]; then remote_layout_fanned=1; fi
+          remote_layout_probe_rc=0
+          shard_probe_remote_layout "$stage" "$sub" || remote_layout_probe_rc=$?
+          case "$remote_layout_probe_rc" in
+            1) remote_layout_fanned=1 ;;
+            2) echo "::warning::$section-$loc shard: remote layout probe unreadable — keeping the full overlay" >&2 ;;
+          esac
           if [ "$remote_layout_fanned" -ge 1 ] \
              && [ "$source_path_layout" != canonical ] \
              && [ "$SHARD_PUSH_MODE" = delta ]; then
