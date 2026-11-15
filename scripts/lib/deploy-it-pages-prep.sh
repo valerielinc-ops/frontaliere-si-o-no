@@ -1600,10 +1600,19 @@ step_pack_new_sitemaps() {
     echo 'dist/ missing — skipping new-sitemap-urls.json'
     return 0
   fi
+  # Stays NON-FATAL (the Pages deploy must still go out) but the cause is now an
+  # error annotation on the run: without new-sitemap-urls.json the publisher's
+  # fail-closed gate cannot pass and the post-deploy publish job is skipped, and
+  # the old bare warning hid why (publish 43692928043: "Invalid string length").
+  local _pack_log _pack_cause
+  _pack_log="$(mktemp 2>/dev/null || echo "${RUNNER_TEMP:-/tmp}/pack-new-sitemaps.$$.log")"
   if ! SOURCE=local LOCAL_ROOT=dist OUTPUT=/tmp/new-sitemap-urls.json \
-    node scripts/capture-deployed-sitemaps.mjs; then
+    node scripts/capture-deployed-sitemaps.mjs 2>&1 | tee "$_pack_log"; then
+    _pack_cause="$(grep -m1 'Sitemap snapshot failed' "$_pack_log" 2>/dev/null | tr -d '\r' | cut -c1-300)"
+    echo "::error title=Sitemap snapshot::${_pack_cause:-new-sitemap-urls.json was not produced (see the capture log above)}; the publisher gate will fail closed and the post-deploy publish job will not run"
     echo '⚠️ new sitemap graph packing failed — post-deploy IndexNow will use its safe local fallback'
   fi
+  rm -f "$_pack_log"
 }
 
 # ── 8. Stage sitemaps bundle (pre-deploy + new + build-id) ────────────────────

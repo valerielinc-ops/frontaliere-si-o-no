@@ -11,6 +11,7 @@ import {
   sectionBatch,
 } from '../../scripts/ci/shard-content-manifest.mjs';
 import { validatePublisherFastGate } from '../../scripts/ci/publisher-fast-gate.mjs';
+import { writeSnapshotFile } from '../../scripts/lib/sitemap-snapshot.mjs';
 
 const SOURCE_RUN_ID = '101';
 const PUBLISHER_RUN_ID = '202';
@@ -284,6 +285,46 @@ describe('publisher fast provenance gate', () => {
 
   it('accepts complete sitemap, path, digest, and Ticino shard evidence', () => {
     expect(fixture().result).toMatchObject({ passed: true, errorCount: 0, sampleRate: 1 });
+  });
+
+  it('reports ONE root-cause error, not one per page, when the current sitemap snapshot is missing', () => {
+    const f = fixture();
+    fs.rmSync(path.join(f.sitemapDir, 'new-sitemap-urls.json'));
+    const result = f.validate();
+    expect(result.passed).toBe(false);
+    expect(result.errorCount).toBe(1);
+    expect(result.errors[0]).toContain('current sitemap snapshot is missing or invalid');
+    expect(result.errors[0]).toContain('ENOENT');
+    expect(result.errors.join('\n')).not.toContain('absent from the source sitemap bundle');
+  });
+
+  it('reports ONE root-cause error when the current snapshot file is truncated', () => {
+    const f = fixture();
+    const file = path.join(f.sitemapDir, 'new-sitemap-urls.json');
+    fs.writeFileSync(file, '{"version":4,"sitemapFiles":["a.xml","b.xml"]}\n{"sitemap":"a.xml","urls":["https://frontaliereticino.ch/x/"],"digest":"d","lastmod":{}}\n');
+    const result = f.validate();
+    expect(result.passed).toBe(false);
+    expect(result.errorCount).toBe(1);
+    expect(result.errors[0]).toMatch(/current sitemap snapshot is missing or invalid .*incomplete/);
+  });
+
+  it('accepts a v4 NDJSON current snapshot written by the streaming writer', async () => {
+    const f = fixture();
+    const file = path.join(f.sitemapDir, 'new-sitemap-urls.json');
+    await writeSnapshotFile(file, f.currentSitemapSnapshot);
+    expect(fs.readFileSync(file, 'utf8').split('\n')[0]).toContain('"version":4');
+    expect(f.validate()).toMatchObject({ passed: true, errorCount: 0 });
+  });
+
+  it('keeps comparing URL-by-URL when a readable snapshot is merely incomplete', async () => {
+    const f = fixture();
+    const file = path.join(f.sitemapDir, 'new-sitemap-urls.json');
+    const incomplete = structuredClone(f.currentSitemapSnapshot);
+    incomplete.perSitemap['sitemap-job-market.xml'].pop();
+    await writeSnapshotFile(file, incomplete);
+    const result = f.validate();
+    expect(result.passed).toBe(false);
+    expect(result.errors.join('\n')).toContain('page manifest URL is absent from the source sitemap bundle');
   });
 
   it('unions URLs across the legacy IT sitemap and per-locale canton shards', () => {

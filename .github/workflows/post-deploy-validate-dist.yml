@@ -66,6 +66,7 @@ jobs:
             scripts/lib/flat-string.mjs
             scripts/lib/is-invoked-directly.mjs
             scripts/lib/sitemap-family-coverage.mjs
+            scripts/lib/sitemap-snapshot.mjs
             scripts/lib/section-shard-slugs.json
             data/sitemap-family-coverage-declarations.json
             infra/cloudflare-worker/locale-router.js

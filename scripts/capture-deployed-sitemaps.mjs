@@ -8,13 +8,16 @@
  * worse than no snapshot because it would make the post-deploy diff look
  * complete while silently excluding a whole URL family.
  *
- * Output defaults to /tmp/pre-deploy-sitemap-urls.json and uses snapshot v3:
- * per-sitemap URL sets plus XML digests and per-URL lastmod values. The latter
- * let IndexNow submit existing URLs whose content changed, not only additions.
+ * Output defaults to /tmp/pre-deploy-sitemap-urls.json and uses snapshot v4
+ * (NDJSON, one line per sitemap): per-sitemap URL sets plus XML digests and
+ * per-URL lastmod values. The latter let IndexNow submit existing URLs whose
+ * content changed, not only additions. The file is streamed one sitemap at a
+ * time, so its size can never hit V8's maximum string length no matter how
+ * large the sitemap graph grows; read it back with `readSitemapSnapshot`.
  */
 
-import { writeFileSync } from 'node:fs';
-import { crawlSitemaps, snapshotFromCrawl } from './lib/sitemap-crawl.mjs';
+import { rmSync } from 'node:fs';
+import { crawlSitemaps, writeSnapshotFile } from './lib/sitemap-crawl.mjs';
 
 const HOST = process.env.HOST || 'frontaliereticino.ch';
 const SOURCE = process.env.SOURCE || 'live';
@@ -32,16 +35,18 @@ async function main() {
     // scoped to files present in this build. Live snapshots remain strict.
     strict: SOURCE !== 'local',
   });
-  const snapshot = snapshotFromCrawl(crawl);
-  writeFileSync(OUTPUT, JSON.stringify(snapshot), 'utf8');
+  const stats = await writeSnapshotFile(OUTPUT, crawl);
   console.log(
-    `📸 Captured ${snapshot._allUrls.length} URLs across ${snapshot.sitemapFiles.length} sitemap files ` +
-    `(${SOURCE}) → ${OUTPUT}`,
+    `📸 Captured ${stats.urls} URL entries across ${stats.sitemaps} sitemap files ` +
+    `(${SOURCE}, ${stats.bytes} bytes, largest chunk ${stats.maxChunkChars} chars) → ${OUTPUT}`,
   );
 }
 
 main().catch((err) => {
   console.error(`❌ Sitemap snapshot failed: ${err.message}`);
+  // Never leave an earlier file at OUTPUT that a consumer could mistake for the
+  // snapshot of this run (the writer already removes its own partial output).
+  try { rmSync(OUTPUT, { force: true }); } catch { /* best effort */ }
   // The deploy prep keeps this section non-fatal for compatibility. The
   // submitter sees the missing snapshot and safely falls back to all current
   // URLs rather than trusting a truncated baseline.
