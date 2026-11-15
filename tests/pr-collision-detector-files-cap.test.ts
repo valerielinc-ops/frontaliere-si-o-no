@@ -28,7 +28,7 @@
  */
 import { describe, it, expect } from 'vitest';
 import { fetchPrFiles, GRAPHQL_FILES_CAP, REST_FILES_HARD_CAP, decideCollisionLabel } from '../scripts/ci/pr-collision-detector.mjs';
-import { COMMIT_FALLBACK_MAX_COMMITS } from '../scripts/ci/lib/fetchPrFiles.mjs';
+import { COMMIT_FALLBACK_MAX_COMMITS, createGitMergeRefReader } from '../scripts/ci/lib/fetchPrFiles.mjs';
 
 const REST_PAGE = 30; // quanti file rende l'endpoint REST senza `--paginate`
 
@@ -439,6 +439,7 @@ describe('fetchPrFiles — HTTP 422 «diff is taking too long» (PR #18860)', ()
       rest: tooLong,
       commits: `${sha(1)}\n${sha(2)}\n`,
       commitFiles: { [sha(1)]: 'a.ts\nb.ts\n', [sha(2)]: 'b.ts\nc/d.ts\n' },
+      pull: '3\n',
     });
     const result = fetchPrFiles(18860, fn as never, 'o/r');
     expect(result.files.sort()).toEqual(['a.ts', 'b.ts', 'c/d.ts']);
@@ -446,18 +447,6 @@ describe('fetchPrFiles — HTTP 422 «diff is taking too long» (PR #18860)', ()
     expect(result.reason).toBe('complete');
     const commitCalls = calls.filter((a) => a[1]?.includes('/commits'));
     expect(commitCalls.every((a) => a.includes('--paginate'))).toBe(true);
-  });
-
-  it('un commit con file vuoti (commit vuoto) non rende l elenco incompleto', () => {
-    const { fn } = fakeGh({
-      view: { changedFiles: 0, files: [] },
-      rest: tooLong,
-      commits: `${sha(1)}\n${sha(2)}\n`,
-      commitFiles: { [sha(1)]: 'a.ts\n', [sha(2)]: '' },
-    });
-    const result = fetchPrFiles(1, fn as never, 'o/r');
-    expect(result.files).toEqual(['a.ts']);
-    expect(result.complete).toBe(true);
   });
 
   it('fail-closed: un commit illeggibile, o troppi commit, lasciano l elenco incompleto', () => {
@@ -525,5 +514,162 @@ describe('fetchPrFiles — HTTP 422 «diff is taking too long» (PR #18860)', ()
   it('vista GraphQL in errore ma REST consegnata e confermata dal contatore: completa', () => {
     const { fn } = fakeGh({ view: new Error('gh: HTTP 502'), rest: `${listOf(5).join('\n')}\n`, pull: '5' });
     expect(fetchPrFiles(1, fn as never, 'o/r').complete).toBe(true);
+  });
+
+  // Difetto fail-open trovato sulla #18860: `commits/{sha}` rende `files: []` e
+  // `stats.total: 0` sia per un commit vuoto sia per un diff omesso perche'
+  // troppo grande. Un'unione che li ignora e' un SOTTOINSIEME dichiarato completo.
+  it('un commit senza file (vuoto o con diff omesso) rende il fallback per commit sconosciuto', () => {
+    const { fn } = fakeGh({
+      view: { changedFiles: 0, files: [] }, rest: tooLong,
+      commits: `${sha(1)}\n`, commitFiles: { [sha(1)]: '' }, pull: '17\n',
+    });
+    const result = fetchPrFiles(18860, fn as never, 'o/r');
+    expect(result.files).toEqual([]);
+    expect(result.complete).toBe(false);
+    expect(result.reason).toBe('list-fetch-failed');
+  });
+
+  it('REGRESSIONE fail-open: due commit di cui uno vuoto-omesso NON danno un elenco completo', () => {
+    const { fn } = fakeGh({
+      view: { changedFiles: 0, files: [] }, rest: tooLong,
+      commits: `${sha(1)}\n${sha(2)}\n`,
+      commitFiles: { [sha(1)]: 'a.ts\nb.ts\nc.ts\n', [sha(2)]: '' },
+      pull: '17\n',
+    });
+    const result = fetchPrFiles(1, fn as never, 'o/r');
+    expect(result.complete).toBe(false);
+  });
+
+  it('oracolo REST 17 e unione per commit di 3 file: incompleto; oracolo assente: incompleto', () => {
+    const base = { view: { changedFiles: 0, files: [] }, rest: tooLong, commits: `${sha(1)}\n`, commitFiles: { [sha(1)]: 'a.ts\nb.ts\nc.ts\n' } };
+    expect(fetchPrFiles(1, fakeGh({ ...base, pull: '17\n' }).fn as never, 'o/r').complete).toBe(false);
+    expect(fetchPrFiles(1, fakeGh(base).fn as never, 'o/r').complete).toBe(false);
+    expect(fetchPrFiles(1, fakeGh({ ...base, pull: '3\n' }).fn as never, 'o/r').complete).toBe(true);
+  });
+
+  describe('ultima fonte: gitFn sul merge ref', () => {
+    const head = sha(0xabc);
+    const pullFacts = (changed: number, headSha = head) => `${changed} ${headSha}\n`;
+    const files17 = listOf(17);
+
+    it('senza gitFn il comportamento delle sole API non cambia', () => {
+      const { fn } = fakeGh({ view: { changedFiles: 0, files: [] }, rest: tooLong, commits: '', pull: pullFacts(17) });
+      expect(fetchPrFiles(1, fn as never, 'o/r').complete).toBe(false);
+    });
+
+    it('API tutte mute + merge ref valido: elenco completo (diff netto) confrontato con l oracolo', () => {
+      const requests: unknown[] = [];
+      const gitFn = (request: unknown) => { requests.push(request); return files17; };
+      const { fn } = fakeGh({ view: { changedFiles: 0, files: [] }, rest: tooLong, commits: `${sha(1)}\n`, commitFiles: { [sha(1)]: '' }, pull: pullFacts(17) });
+      const result = fetchPrFiles(18860, fn as never, 'o/r', { gitFn });
+      expect(result.files).toEqual(files17);
+      expect(result.complete).toBe(true);
+      expect(result.expected).toBe(17);
+      expect(requests).toEqual([{ number: 18860, repo: 'o/r', headSha: head }]);
+    });
+
+    it('PR a piu commit con un commit grande vuoto-omesso: il merge ref sana l elenco', () => {
+      const { fn } = fakeGh({
+        view: { changedFiles: 0, files: [] }, rest: tooLong,
+        commits: `${sha(1)}\n${sha(2)}\n`, commitFiles: { [sha(1)]: 'a.ts\n', [sha(2)]: 'b.ts\nc.ts\n' },
+        pull: pullFacts(17),
+      });
+      // unione 3 < oracolo 17: il fallback per commit non basta, parte git
+      const result = fetchPrFiles(1, fn as never, 'o/r', { gitFn: () => files17 });
+      expect(result.files).toEqual(files17);
+      expect(result.complete).toBe(true);
+    });
+
+    it('merge ref non valido o stantio (gitFn null): incompleto', () => {
+      const { fn } = fakeGh({ view: { changedFiles: 0, files: [] }, rest: tooLong, commits: '', pull: pullFacts(17) });
+      const result = fetchPrFiles(1, fn as never, 'o/r', { gitFn: () => null });
+      expect(result.complete).toBe(false);
+      expect(result.files).toEqual([]);
+    });
+
+    it('un gitFn che lancia non rende l elenco completo', () => {
+      const { fn } = fakeGh({ view: { changedFiles: 0, files: [] }, rest: tooLong, commits: '', pull: pullFacts(17) });
+      const result = fetchPrFiles(1, fn as never, 'o/r', { gitFn: () => { throw new Error('git rotto'); } });
+      expect(result.complete).toBe(false);
+    });
+
+    it('merge ref con meno file dell oracolo REST: incompleto', () => {
+      const { fn } = fakeGh({ view: { changedFiles: 0, files: [] }, rest: tooLong, commits: '', pull: pullFacts(17) });
+      expect(fetchPrFiles(1, fn as never, 'o/r', { gitFn: () => listOf(5) }).complete).toBe(false);
+    });
+
+    it('senza la HEAD della PR (pulls/{n} muto) il merge ref non e verificabile: gitFn non parte', () => {
+      let called = false;
+      const { fn } = fakeGh({ view: { changedFiles: 0, files: [] }, rest: tooLong, commits: '' });
+      const result = fetchPrFiles(1, fn as never, 'o/r', { gitFn: () => { called = true; return files17; } });
+      expect(called).toBe(false);
+      expect(result.complete).toBe(false);
+    });
+
+    it('il merge ref non e usato quando la REST files ha risposto', () => {
+      let called = false;
+      const { fn } = fakeGh({ view: { changedFiles: 0, files: [] }, rest: '' });
+      const result = fetchPrFiles(1, fn as never, 'o/r', { gitFn: () => { called = true; return files17; } });
+      expect(called).toBe(false);
+      expect(result.complete).toBe(true); // rebase-only vera
+    });
+  });
+});
+
+describe('createGitMergeRefReader — merge ref con HEAD verificata', () => {
+  const head = 'a'.repeat(40);
+  const base = 'b'.repeat(40);
+  const merge = 'c'.repeat(40);
+  const request = { number: 18860, repo: 'o/r', headSha: head };
+
+  function fakeGit(parents: string) {
+    const calls: Array<{ args: string[]; env: Record<string, string | undefined> }> = [];
+    const git = (args: string[], options: { env: Record<string, string | undefined> }) => {
+      calls.push({ args, env: options.env });
+      if (args[0] === 'rev-list') return `${parents}\n`;
+      if (args[0] === 'diff') return 'a.ts\0b/c.ts\0';
+      return '';
+    };
+    return { git, calls };
+  }
+
+  it('esige due genitori con il secondo uguale alla HEAD valutata e rende il diff netto', () => {
+    const { git, calls } = fakeGit(`${merge} ${base} ${head}`);
+    const read = createGitMergeRefReader({ token: 'tok', git: git as never });
+    expect(read(request)).toEqual(['a.ts', 'b/c.ts']);
+    const fetchCall = calls.find((call) => call.args[0] === 'fetch')!;
+    expect(fetchCall.args).toEqual(expect.arrayContaining(['--no-tags', '--depth=2', '--filter=blob:none']));
+    expect(fetchCall.args.join(' ')).toContain('+refs/pull/18860/merge:');
+    const diff = calls.find((call) => call.args[0] === 'diff')!;
+    expect(diff.args).toEqual(['diff', '--name-only', '--no-renames', '-z', base, merge]);
+    // il token e' nell'ambiente del figlio, mai negli argomenti
+    expect(calls.every((call) => !call.args.join(' ').includes('tok'))).toBe(true);
+    expect(fetchCall.env.GIT_CONFIG_VALUE_0).toContain(Buffer.from('x-access-token:tok').toString('base64'));
+  });
+
+  it('secondo genitore diverso dalla HEAD (merge ref stantio): null', () => {
+    const { git } = fakeGit(`${merge} ${base} ${'d'.repeat(40)}`);
+    expect(createGitMergeRefReader({ token: 't', git: git as never })(request)).toBeNull();
+  });
+
+  it('un solo genitore (fast-forward o ref anomalo): null', () => {
+    const { git } = fakeGit(`${merge} ${base}`);
+    expect(createGitMergeRefReader({ token: 't', git: git as never })(request)).toBeNull();
+  });
+
+  it('fetch fallito (merge ref assente per conflitto): null', () => {
+    const git = () => { throw new Error('fatal: couldn\'t find remote ref'); };
+    expect(createGitMergeRefReader({ token: 't', git: git as never })(request)).toBeNull();
+  });
+
+  it('richiesta malformata: null senza lanciare git', () => {
+    let called = false;
+    const git = () => { called = true; return ''; };
+    const read = createGitMergeRefReader({ token: 't', git: git as never });
+    expect(read({ ...request, headSha: 'nope' })).toBeNull();
+    expect(read({ ...request, repo: 'no-slash' })).toBeNull();
+    expect(read({ ...request, number: 0 })).toBeNull();
+    expect(called).toBe(false);
   });
 });
