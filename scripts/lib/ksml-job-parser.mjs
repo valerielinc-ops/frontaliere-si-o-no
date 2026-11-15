@@ -300,7 +300,10 @@ export async function fetchAllKsmlJobs() {
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
       slugDisambiguator: String(stelleId),
-      company: KSML_COMPANY_NAME,
+      // The school/authority is the actual hiring organisation. Keep the
+      // portal identity in `companyKey`/`source`, but expose the source
+      // organisation to SERP metadata and JobPosting structured data.
+      company: organisation,
       companyKey: KSML_KEY,
       companyDomain: KSML_COMPANY_DOMAIN,
       title,
