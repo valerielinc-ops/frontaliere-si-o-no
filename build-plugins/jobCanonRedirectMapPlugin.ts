@@ -428,6 +428,13 @@ export function restoreJobCanonOrderingHandoffFromEnv(): void {
   }
 }
 
+function isNoJobsBuild(rootDir: string): boolean {
+  const dataDir = path.resolve(rootDir, 'data');
+  return fs.existsSync(dataDir)
+    && fs.statSync(dataDir).isDirectory()
+    && !fs.existsSync(path.join(dataDir, 'jobs.json'));
+}
+
 export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
   return {
     name: 'job-canon-redirect-map',
@@ -437,11 +444,10 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
     // fields written by localeJobsSplitPlugin in the first process before any SSG work.
     buildStart() {
       if (process.env.BUILD_STAGE !== 'ssg' || process.env.BUILD_LOCALE !== 'it') return;
-      // The bundle stage intentionally does not create an ordering handoff
-      // when data/jobs.json is absent. Keep the existing no-jobs safe default
-      // across the staged boundary instead of requiring artifacts that cannot
-      // exist for this input.
-      if (!fs.existsSync(path.resolve(rootDir, 'data', 'jobs.json'))) {
+      // An initialized data directory with no jobs.json is the no-jobs input.
+      // A fixture root without data/ has no dataset signal, so keep requiring
+      // the staged handoff instead of silently classifying it as no jobs.
+      if (isNoJobsBuild(rootDir)) {
         clearJobCanonOrderingFields();
         return;
       }
@@ -452,8 +458,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
       const ownsWorkerMap = buildLocale === '' || buildLocale === 'it';
       const buildStage = process.env.BUILD_STAGE || 'single';
       const distDir = path.resolve(rootDir, 'dist');
-      const jobsPath = path.resolve(rootDir, 'data', 'jobs.json');
-      if (ownsWorkerMap && !fs.existsSync(jobsPath)) {
+      if (ownsWorkerMap && isNoJobsBuild(rootDir)) {
         console.log(
           '[job-canon-redirect-map] data/jobs.json missing; skipping Worker map generation',
         );
