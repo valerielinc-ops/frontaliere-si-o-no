@@ -105,8 +105,8 @@ function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function isRetryableStatus(status) {
-  return status >= 500 && status < 600;
+function isRetryableStatus(status, { retryNotFound = false } = {}) {
+  return (status >= 500 && status < 600) || (retryNotFound && status === 404);
 }
 
 async function fetchWithRetry(
@@ -117,6 +117,7 @@ async function fetchWithRetry(
     sleepImpl = sleep,
     retryAttempts = RETRY_ATTEMPTS,
     retryBackoffMs = RETRY_BACKOFF_MS,
+    retryNotFound = false,
   } = {},
 ) {
   const attempts = Math.max(1, retryAttempts);
@@ -125,7 +126,7 @@ async function fetchWithRetry(
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
       const res = await fetchWithTimeout(url, init, fetchImpl);
-      if (!isRetryableStatus(res.status) || attempt === attempts) return res;
+      if (!isRetryableStatus(res.status, { retryNotFound }) || attempt === attempts) return res;
       // Release an intermediate error response before opening the next attempt.
       if (res.body) await res.body.cancel().catch(() => {});
     } catch (err) {
@@ -139,7 +140,15 @@ async function fetchWithRetry(
 }
 
 async function loadArticleUrls({ fetchImpl = fetch, sleepImpl = sleep } = {}) {
-  const res = await fetchWithRetry(SITEMAP_URL, {}, { fetchImpl, sleepImpl });
+  // This sitemap is served through the pushable-origin edge path with a
+  // passthrough fallback. During a corpus publish, either layer can briefly
+  // answer 404 while the replacement is becoming available. Keep the retry
+  // opt-in here: a 404 for a sampled article is still a hard content failure.
+  const res = await fetchWithRetry(SITEMAP_URL, {}, {
+    fetchImpl,
+    sleepImpl,
+    retryNotFound: true,
+  });
   if (!res.ok) throw new Error(`sitemap fetch ${res.status}`);
   const xml = await res.text();
   const urls = [];
