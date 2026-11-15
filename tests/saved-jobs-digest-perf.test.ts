@@ -14,6 +14,7 @@ import {
   emitSavedJobsMetrics,
   resolveApplicationIntentJob,
   resolveApplicationIntentJobLinear,
+  invalidateApplicationIntentIdentityIndex,
   savedJobsMetrics,
   sendDigestBatch,
 } from '../scripts/send-saved-jobs-digest.mjs';
@@ -84,6 +85,20 @@ describe('D3: resolveApplicationIntentJob con indice == scansione lineare', () =
     expect(resolveApplicationIntentJob({ jobSlug: 'beta' }, 'x', small)).toBeNull();
     small.set('b', { id: 'b', slug: 'beta' });
     expect(resolveApplicationIntentJob({ jobSlug: 'beta' }, 'x', small)).toBe(small.get('b'));
+  });
+
+  it('la cache e per identita del Map: due Map distinti non si contaminano; una sostituzione in place richiede l invalidazione', () => {
+    const one = new Map([['a', { id: 'a', slug: 'alpha' }]]);
+    const two = new Map([['a', { id: 'a', slug: 'beta' }]]);
+    expect(resolveApplicationIntentJob({ jobSlug: 'alpha' }, 'x', one)).toBe(one.get('a'));
+    expect(resolveApplicationIntentJob({ jobSlug: 'alpha' }, 'x', two)).toBeNull();
+    // Same Map, same size, entry replaced in place: the contract says the Map is not
+    // mutated after loading; the explicit invalidation is the documented way to do it.
+    one.set('a', { id: 'a', slug: 'gamma' });
+    invalidateApplicationIntentIdentityIndex(one);
+    expect(resolveApplicationIntentJob({ jobSlug: 'gamma' }, 'x', one)).toBe(one.get('a'));
+    expect(resolveApplicationIntentJob({ jobSlug: 'alpha' }, 'x', one)).toBeNull();
+    expect(resolveApplicationIntentJobLinear({ jobSlug: 'gamma' }, 'x', one)).toBe(one.get('a'));
   });
 
   it('non scansiona piu l inventario per candidato: il costo non cresce con inventario x intent', () => {

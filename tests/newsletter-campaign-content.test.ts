@@ -139,6 +139,13 @@ describe('fatti e riferimenti temporali', () => {
     expect(timeBoundMentions('Mercredi le taux').day).toBe(true);
     expect(timeBoundMentions('On Tuesday the rate rose').day).toBe(true);
     expect(timeBoundMentions('Scadenza il 15 novembre').day).toBe(true);
+    for (const dated of ['Scade il 15/11', 'Valido dal 15.11.2026', 'Aggiornato 2026-11-15', 'Entro il 15-11', 'Il 15.11 sale', 'Dal 5/11/26']) {
+      expect(timeBoundMentions(dated).day, dated).toBe(true);
+    }
+    // Numbers that are not dates stay time-free: rates, percentages, counts, prices.
+    for (const plain of ['Il cambio e a 0.9400', 'Sale del +1.2% in settimana', 'Circa 79.000 frontalieri', 'Fino a 7.258 CHF', 'Il 2.3% di disoccupati', 'Rate 0.94 vs 0.93']) {
+      expect(timeBoundMentions(plain).day, plain).toBe(false);
+    }
     expect(timeBoundMentions('Il cambio a novembre').month).toBe(true);
     expect(timeBoundMentions('Il cambio a novembre').day).toBe(false);
     expect(timeBoundMentions('Questa settimana il franco e stabile a 0.9400')).toEqual({ day: false, month: false });
@@ -329,47 +336,61 @@ describe('sonda del workflow: serve ancora un LLM?', () => {
   const stored = (locales: string[], now = DAY1) => Object.fromEntries(
     locales.map((l) => [`${CAMPAIGN_CONTENT_COLLECTION}/${CAMPAIGN}__${l}`, frozenDoc(l, { campaignLocales: locales, now })]),
   );
-  const withRate = (docs: Record<string, any>, rate = 0.94) => ({
-    ...docs,
-    'config/exchange_rate': { rate, previousRate: 0.935 },
-  });
-  const probe = (db: any, extra: Record<string, unknown> = {}) =>
-    probeFrozenContent({ db, campaignId: CAMPAIGN, variants: VARIANTS, thresholdPct: 0.5, promptVersion: VERSION, now: () => DAY3, ...extra });
+  // I fatti che il sender ha usato per congelare (ctxFor) e quelli «di oggi» che la sonda ricalcola.
+  const factsFor = (over: Record<string, unknown> = {}) => async (locale: string) => {
+    const { exchangeRate, exchangeInsight, weeklyFact, featuredTool } = ctxFor(locale, over) as any;
+    return { exchangeRate, exchangeInsight, weeklyFact, featuredTool };
+  };
+  const probe = (db: any, over: Record<string, unknown> = {}, extra: Record<string, unknown> = {}) =>
+    probeFrozenContent({ db, campaignId: CAMPAIGN, variants: VARIANTS, thresholdPct: 0.5, promptVersion: VERSION, now: () => DAY3, factsFor: factsFor(over), ...extra });
 
-  it('tutte le lingue necessarie congelate e valide: nessun LLM', async () => {
-    const db = fakeDb(withRate(stored(['it', 'en'])));
+  it('tutte le lingue necessarie congelate e valide con gli stessi fatti: nessun LLM, solo letture', async () => {
+    const db = fakeDb(stored(['it', 'en']));
     await expect(probe(db)).resolves.toMatchObject({ needsLlm: false });
-    // Solo letture: 4 documenti congelati + il cambio.
     expect(db.writes).toEqual([]);
-    expect(db.reads.length).toBeLessThanOrEqual(5);
+    expect(db.reads.length).toBeLessThanOrEqual(4);
   });
 
-  it('nessun congelato (prima run): serve LLM', async () => {
-    await expect(probe(fakeDb(withRate({})))).resolves.toMatchObject({ needsLlm: true, reason: 'no-frozen-content' });
+  it('cambiando solo il fatto della settimana, la sonda chiede un LLM (stesso verdetto del sender)', async () => {
+    const db = fakeDb(stored(['it']));
+    await expect(probe(db, { weeklyFact: { text: 'Altro fatto', source: 'SECO' } })).resolves.toMatchObject({ needsLlm: true, reason: 'it:facts-changed' });
   });
 
-  it('una lingua dichiarata ma assente: serve LLM', async () => {
-    const docs = stored(['it', 'en']);
-    delete docs[`${CAMPAIGN_CONTENT_COLLECTION}/${CAMPAIGN}__en`];
-    // `it` dichiara ancora ['it','en']: la lingua en deve esserci.
-    await expect(probe(fakeDb(withRate(docs)))).resolves.toMatchObject({ needsLlm: true, reason: 'missing:en' });
+  it('cambiando solo il tool in evidenza, la sonda chiede un LLM', async () => {
+    const db = fakeDb(stored(['it']));
+    await expect(probe(db, { featuredTool: { title: 'Altro tool', description: 'x', toolUrl: '/x/' } })).resolves.toMatchObject({ needsLlm: true, reason: 'it:facts-changed' });
   });
 
-  it('cambio mosso oltre meta soglia, versione diversa o testo legato al giorno: serve LLM', async () => {
-    const moved = fakeDb(withRate(stored(['it']), 0.9425)); // +0,27%: oltre 0,25 (meta soglia)
-    await expect(probe(moved)).resolves.toMatchObject({ needsLlm: true });
-    await expect(probe(fakeDb(withRate(stored(['it']))), { promptVersion: 's1:other' })).resolves.toMatchObject({ needsLlm: true });
-    const dayBound = withRate({
+  it('cambiando solo la raccomandazione sul cambio (insight), la sonda chiede un LLM', async () => {
+    const db = fakeDb(stored(['it']));
+    await expect(probe(db, { exchangeInsight: { summary: 'Scenario debole: considera cambio a tranche.' } })).resolves.toMatchObject({ needsLlm: true });
+  });
+
+  it('sonda e sender concordano: stessi fatti e soglia piena, stesso verdetto di evaluateFrozenContent', async () => {
+    const db = fakeDb(stored(['it']));
+    const moved = { exchangeRate: { rate: 0.9425, previousRate: 0.9350 } }; // +0,27%: entro la soglia piena
+    await expect(probe(db, moved)).resolves.toMatchObject({ needsLlm: false });
+    await expect(probe(db, { exchangeRate: { rate: 0.9460, previousRate: 0.9350 } })).resolves.toMatchObject({ needsLlm: true, reason: 'it:rate-moved' });
+  });
+
+  it('nessun congelato, versione diversa o testo legato al giorno: serve LLM', async () => {
+    await expect(probe(fakeDb({}))).resolves.toMatchObject({ needsLlm: true, reason: 'no-frozen-content' });
+    await expect(probe(fakeDb(stored(['it'])), {}, { promptVersion: 's1:other' })).resolves.toMatchObject({ needsLlm: true });
+    const dayBound = {
       [`${CAMPAIGN_CONTENT_COLLECTION}/${CAMPAIGN}__it`]: frozenDoc('it', { content: { ...GENERATED, briefing: '<p>Oggi il cambio sale.</p>' }, campaignLocales: ['it'] }),
-    });
+    };
     await expect(probe(fakeDb(dayBound))).resolves.toMatchObject({ needsLlm: true });
   });
 
-  it('cambio non leggibile, errore di lettura o input mancanti: serve LLM (fail-safe)', async () => {
-    await expect(probe(fakeDb(stored(['it'])))).resolves.toMatchObject({ needsLlm: true });
+  it('un input non riproducibile (fatti assenti, cambio mancante, errore) e fail-closed: serve LLM', async () => {
+    const db = fakeDb(stored(['it']));
+    await expect(probe(db, {}, { factsFor: async () => null })).resolves.toMatchObject({ needsLlm: true, reason: 'facts-unavailable:it' });
+    await expect(probe(db, {}, { factsFor: async () => ({ ...(await factsFor()('it')), exchangeRate: null }) })).resolves.toMatchObject({ needsLlm: true });
+    await expect(probe(db, {}, { factsFor: async () => { throw new Error('boom'); } })).resolves.toMatchObject({ needsLlm: true });
     await expect(probe(fakeDb({}, { failRead: true }))).resolves.toMatchObject({ needsLlm: true });
     await expect(probe(null)).resolves.toMatchObject({ needsLlm: true, reason: 'inputs' });
-    await expect(probe(fakeDb(), { promptVersion: null })).resolves.toMatchObject({ needsLlm: true });
+    await expect(probe(fakeDb(), {}, { promptVersion: null })).resolves.toMatchObject({ needsLlm: true });
+    await expect(probe(fakeDb(stored(['it'])), {}, { factsFor: undefined })).resolves.toMatchObject({ needsLlm: true, reason: 'inputs' });
   });
 });
 

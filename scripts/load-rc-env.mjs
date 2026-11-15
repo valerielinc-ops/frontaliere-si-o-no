@@ -200,8 +200,9 @@ export const RC_TO_ENV = {
   NEWSLETTER_CONTENT_FREEZE_RATE_THRESHOLD_PCT: ['NEWSLETTER_CONTENT_FREEZE_RATE_THRESHOLD_PCT'],
   NEWSLETTER_RESUME_RECEIPT_SCAN: ['NEWSLETTER_RESUME_RECEIPT_SCAN'],
   // Pending-article scope of scripts/notify-journalist-article-live.mjs (perf-plan email
-  // senders, F3): `pending` (default) reads only `liveVerifiedAt == null`; `all` restores
-  // the read-everything-and-filter scan (kill switch).
+  // senders, F3): `all` (default) reads every published article and filters in memory, so it
+  // also sees an article without `liveVerifiedAt`; `pending` opts in to the narrowed
+  // `liveVerifiedAt == null` query.
   JOURNALIST_PENDING_SCOPE: ['JOURNALIST_PENDING_SCOPE'],
   // `ac` autologin credential policy (#5685). The MINTING half of the switch —
   // the verifier reads the same three parameters through

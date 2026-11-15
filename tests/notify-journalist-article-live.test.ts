@@ -10,6 +10,17 @@ vi.mock('../scripts/lib/journalist-article-identity.mjs', () => ({
   slugify: (input: string) => input,
 }));
 
+const cascade = vi.hoisted(() => ({
+  impl: null as null | ((items: any[], opts: any) => Promise<any>),
+  calls: 0,
+}));
+vi.mock('../scripts/lib/email-cascade.mjs', () => ({
+  sendEmailCascade: async (items: any[], opts: any) => {
+    cascade.calls += 1;
+    return cascade.impl ? cascade.impl(items, opts) : { sent: items.map((i) => ({ ...i })), failed: [] };
+  },
+}));
+
 import { checkAllLocalesLive, processDoc } from '../scripts/notify-journalist-article-live.mjs';
 import { checkArticleIdExists } from '../scripts/lib/journalist-article-identity.mjs';
 
@@ -47,6 +58,8 @@ describe('checkAllLocalesLive', () => {
 
 describe('processDoc', () => {
   beforeEach(() => {
+    cascade.impl = null;
+    cascade.calls = 0;
     vi.stubEnv('RESEND_API_KEY', '');
     // mockReturnValueOnce queues leak across tests if a prior test never
     // actually calls the mock (e.g. the grace-window test short-circuits
@@ -146,7 +159,7 @@ describe('processDoc', () => {
 // ── F3 (perf-plan email senders): narrowed query and claim before the email ──────
 import { readFileSync } from 'node:fs';
 import path from 'node:path';
-import { claimLiveNotification, loadPendingArticles } from '../scripts/notify-journalist-article-live.mjs';
+import { claimLiveNotification, loadPendingArticles, releaseLiveNotificationClaim } from '../scripts/notify-journalist-article-live.mjs';
 
 const SERVER_TS = 'SERVER_TIMESTAMP';
 const FV = { serverTimestamp: () => SERVER_TS, delete: () => 'FIELD_DELETE' };
@@ -154,13 +167,20 @@ const FV = { serverTimestamp: () => SERVER_TS, delete: () => 'FIELD_DELETE' };
 function claimRef(initial: Record<string, unknown> | null) {
   let data = initial ? { ...initial } : null;
   const updates: Array<Record<string, unknown>> = [];
+  const apply = (patch: Record<string, unknown>) => {
+    const next: Record<string, unknown> = { ...(data || {}) };
+    for (const [key, value] of Object.entries(patch)) {
+      if (value === 'FIELD_DELETE') delete next[key]; else next[key] = value;
+    }
+    data = next;
+  };
   const ref: any = {
-    update: vi.fn(async (patch: Record<string, unknown>) => { data = { ...(data || {}), ...patch }; updates.push(patch); }),
+    update: vi.fn(async (patch: Record<string, unknown>) => { apply(patch); updates.push(patch); }),
   };
   ref.firestore = {
     runTransaction: async (fn: (tx: any) => Promise<unknown>) => fn({
       get: async () => ({ exists: data !== null, data: () => data }),
-      update: (_r: unknown, patch: Record<string, unknown>) => { data = { ...(data || {}), ...patch }; updates.push(patch); },
+      update: (_r: unknown, patch: Record<string, unknown>) => { apply(patch); updates.push(patch); },
     }),
   };
   return { ref, updates, read: () => data };
@@ -197,33 +217,66 @@ describe('claim before the email', () => {
     expect(updates).toEqual([]);
   });
 
-  it('the email goes out AFTER the claim and BEFORE the stamp; a failed stamp cannot cause a second email', async () => {
+  it('ambiguous outcome (timeout): the claim stays, the article is stamped, nothing is re-sent', async () => {
     vi.stubGlobal('fetch', vi.fn(() => Promise.resolve({ ok: true })));
-    const order: string[] = [];
-    const { ref } = claimRef({ status: 'published', liveVerifiedAt: null });
-    const realUpdate = ref.update;
-    ref.update = vi.fn(async (patch: any) => {
-      order.push(`update:${Object.keys(patch)[0]}`);
-      // The stamp fails (Firestore unavailable) after the email left.
-      if ('liveVerifiedAt' in patch) throw new Error('UNAVAILABLE');
-      return realUpdate(patch);
-    });
-    const docSnap: any = {
-      id: 'doc-a', ref,
-      data: () => ({ authorEmail: 'journalist@example.com', publishedUrls: PUBLISHED_URLS, liveVerifiedAt: null }),
-    };
-    await expect(processDoc(FV as any, docSnap)).rejects.toThrow('UNAVAILABLE');
-    expect(order[0]).toBe('update:liveVerifiedAt'); // (the transactional claim bypasses ref.update)
+    cascade.calls = 0;
+    cascade.impl = async () => { throw new Error('The operation was aborted due to timeout'); };
+    const first = claimRef({ status: 'published', liveVerifiedAt: null });
+    const docSnap: any = { id: 'doc-a', ref: first.ref, data: () => ({ authorEmail: 'journalist@example.com', publishedUrls: PUBLISHED_URLS, liveVerifiedAt: null }) };
+    await processDoc(FV as any, docSnap, { claimId: 'run-1' });
+    expect(cascade.calls).toBe(1);
+    expect(first.read()).toMatchObject({ liveNotifyClaimId: 'run-1', liveVerifiedAt: SERVER_TS });
 
-    // Next run: the claim is present, so the notification is NOT sent again and the article is stamped.
-    const next = claimRef({ status: 'published', liveVerifiedAt: null, liveNotifyClaimedAt: SERVER_TS });
-    const sendSpy = vi.fn();
-    vi.stubGlobal('fetch', vi.fn((...args: unknown[]) => { sendSpy(...args); return Promise.resolve({ ok: true }); }));
-    const docNext: any = { id: 'doc-a', ref: next.ref, data: () => ({ authorEmail: 'journalist@example.com', publishedUrls: PUBLISHED_URLS, liveVerifiedAt: null, liveNotifyClaimedAt: SERVER_TS }) };
-    await processDoc(FV as any, docNext);
+    // Next run on a doc that kept the claim but was never stamped: no second email.
+    const next = claimRef({ status: 'published', liveVerifiedAt: null, liveNotifyClaimedAt: SERVER_TS, liveNotifyClaimId: 'run-1' });
+    const docNext: any = { id: 'doc-a', ref: next.ref, data: () => ({ authorEmail: 'journalist@example.com', publishedUrls: PUBLISHED_URLS, liveVerifiedAt: null }) };
+    await processDoc(FV as any, docNext, { claimId: 'run-2' });
+    expect(cascade.calls).toBe(1);
     expect(next.read()).toMatchObject({ liveVerifiedAt: SERVER_TS });
-    // Only the four live-checks hit the network: no provider call.
-    expect(sendSpy.mock.calls.every(([url]) => String(url).startsWith('https://frontaliereticino.ch'))).toBe(true);
+  });
+
+  it('an ambiguousDelivery failure flagged by the cascade also keeps the claim', async () => {
+    vi.stubGlobal('fetch', vi.fn(() => Promise.resolve({ ok: true })));
+    cascade.calls = 0;
+    cascade.impl = async () => ({ sent: [], failed: [{ error: 'response lost', ambiguousDelivery: true }] });
+    const { ref, read } = claimRef({ status: 'published', liveVerifiedAt: null });
+    await processDoc(FV as any, { id: 'd', ref, data: () => ({ authorEmail: 'j@example.com', publishedUrls: PUBLISHED_URLS }) } as any, { claimId: 'run-1' });
+    expect(read()).toMatchObject({ liveNotifyClaimId: 'run-1', liveVerifiedAt: SERVER_TS });
+  });
+
+  it('definite failure: the claim is released, the article is NOT stamped, the next run retries and stamps once sent', async () => {
+    vi.stubGlobal('fetch', vi.fn(() => Promise.resolve({ ok: true })));
+    cascade.calls = 0;
+    cascade.impl = async () => ({ sent: [], failed: [{ error: 'provider rejected', ambiguousDelivery: false }] });
+    const { ref, read } = claimRef({ status: 'published', liveVerifiedAt: null });
+    const docSnap: any = { id: 'd', ref, data: () => ({ authorEmail: 'j@example.com', publishedUrls: PUBLISHED_URLS }) };
+    await processDoc(FV as any, docSnap, { claimId: 'run-1' });
+    expect(read().liveNotifyClaimedAt).toBeUndefined();
+    expect(read().liveNotifyClaimId).toBeUndefined();
+    expect(read().liveVerifiedAt).toBeNull();
+    expect(cascade.calls).toBe(1);
+
+    // Next run: the provider still refuses -> retried (not stamped).
+    await processDoc(FV as any, docSnap, { claimId: 'run-2' });
+    expect(cascade.calls).toBe(2);
+    expect(read().liveVerifiedAt).toBeNull();
+
+    // Next run: a send succeeds -> stamped, after exactly one more attempt.
+    cascade.impl = null;
+    await processDoc(FV as any, docSnap, { claimId: 'run-3' });
+    expect(cascade.calls).toBe(3);
+    expect(read()).toMatchObject({ liveNotifyClaimId: 'run-3', liveVerifiedAt: SERVER_TS });
+  });
+
+  it('the release only touches OUR claim and never an already stamped article', async () => {
+    const mine = claimRef({ liveNotifyClaimedAt: SERVER_TS, liveNotifyClaimId: 'run-1', liveVerifiedAt: null });
+    await expect(releaseLiveNotificationClaim(mine.ref, FV as any, 'run-1')).resolves.toBe('released');
+    const theirs = claimRef({ liveNotifyClaimedAt: SERVER_TS, liveNotifyClaimId: 'run-9', liveVerifiedAt: null });
+    await expect(releaseLiveNotificationClaim(theirs.ref, FV as any, 'run-1')).resolves.toBe('not-owner');
+    expect(theirs.read()).toMatchObject({ liveNotifyClaimId: 'run-9' });
+    const done = claimRef({ liveNotifyClaimId: 'run-1', liveVerifiedAt: 'ts' });
+    await expect(releaseLiveNotificationClaim(done.ref, FV as any, 'run-1')).resolves.toBe('already-verified');
+    await expect(releaseLiveNotificationClaim(claimRef(null).ref, FV as any, 'run-1')).resolves.toBe('missing');
   });
 
   it('dry-run reads and checks but claims, sends, stamps and requeues nothing', async () => {
@@ -246,22 +299,22 @@ describe('narrowed pending query', () => {
     return { db: { collection: (name: string) => { expect(name).toBe('journalist_articles'); return make([]); } }, filters };
   }
 
-  it('the default query is status == published AND liveVerifiedAt == null (two equalities, no new index)', async () => {
-    const { db, filters } = queryDb([{ id: 'a', data: () => ({ liveVerifiedAt: null }) }]);
-    const pending = await loadPendingArticles(db as any);
-    expect(filters).toEqual([['status', '==', 'published'], ['liveVerifiedAt', '==', null]]);
-    expect(pending).toHaveLength(1);
-  });
-
-  it('the kill switch scope=all reads every published article and filters in memory', async () => {
+  it('the DEFAULT scope reads every published article and filters in memory: an article WITHOUT liveVerifiedAt is returned', async () => {
     const { db, filters } = queryDb([
-      { id: 'pending', data: () => ({}) },
+      { id: 'absent', data: () => ({}) },
       { id: 'null', data: () => ({ liveVerifiedAt: null }) },
       { id: 'done', data: () => ({ liveVerifiedAt: 'ts' }) },
     ]);
-    const pending = await loadPendingArticles(db as any, { scope: 'all' });
+    const pending = await loadPendingArticles(db as any);
     expect(filters).toEqual([['status', '==', 'published']]);
-    expect(pending.map((d: any) => d.id)).toEqual(['pending', 'null']);
+    expect(pending.map((d: any) => d.id)).toEqual(['absent', 'null']);
+  });
+
+  it('scope=pending is an explicit opt-in: status == published AND liveVerifiedAt == null (no new index)', async () => {
+    const { db, filters } = queryDb([{ id: 'a', data: () => ({ liveVerifiedAt: null }) }]);
+    const pending = await loadPendingArticles(db as any, { scope: 'pending' });
+    expect(filters).toEqual([['status', '==', 'published'], ['liveVerifiedAt', '==', null]]);
+    expect(pending).toHaveLength(1);
   });
 
   it('PRECONDITION: the publisher is the only writer of published and always stamps liveVerifiedAt: null', () => {

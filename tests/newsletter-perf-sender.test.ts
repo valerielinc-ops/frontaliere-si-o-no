@@ -277,3 +277,26 @@ describe('C8: telemetria della newsletter', () => {
     expect(JSON.parse(lines[0].replace('📊 NEWSLETTER_METRICS ', '')).counters.aiContentFrozenReused).toBe(4);
   });
 });
+
+describe('fatti settimanali condivisi tra sender e sonda (review round 1)', () => {
+  it('il sender e la sonda importano le stesse funzioni da newsletter-weekly-facts.mjs', () => {
+    const probe = readFileSync(path.join(ROOT, 'scripts/newsletter-content-probe.mjs'), 'utf8');
+    expect(senderSource).toContain("from './lib/newsletter-weekly-facts.mjs'");
+    for (const fn of ['getWeeklyFact', 'loadExchangeFacts']) {
+      expect(senderSource).toContain(fn);
+      expect(probe).toContain(fn);
+    }
+    expect(senderSource).not.toMatch(/^function getWeeklyFact|^function computeExchangeInsight|^async function fetchExchangeHistory/m);
+  });
+
+  it('loadExchangeFacts senza HTTP e senza storico risponde null (la sonda chiede un LLM)', async () => {
+    const { loadExchangeFacts, getWeeklyFact } = await import('../scripts/lib/newsletter-weekly-facts.mjs');
+    const db: any = {
+      collection: () => ({ doc: () => ({ get: async () => ({ exists: false, data: () => undefined }) }) }),
+    };
+    await expect(loadExchangeFacts(db, { allowHttp: false })).resolves.toBeNull();
+    // Deterministic in the clock: same week -> same fact.
+    const monday = Date.UTC(2026, 10, 9, 3, 0, 0);
+    expect(getWeeklyFact('it', monday)).toEqual(getWeeklyFact('it', monday + 3 * 24 * 3600 * 1000));
+  });
+});

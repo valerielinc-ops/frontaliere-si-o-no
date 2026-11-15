@@ -483,10 +483,17 @@ function jobIdentityStrings(job) {
   return out;
 }
 
-// One identity index per jobs Map, rebuilt if the Map changes size (tests swap the
-// inventory). Built once: `resolveApplicationIntentJob` used to scan the WHOLE
-// inventory for every candidate of every intent (perf-plan email senders, D3).
+// One identity index per jobs Map, cached by the Map's IDENTITY (a WeakMap: it dies with the
+// Map). CONTRACT: the Map built by `loadJobsById` is never mutated after loading, so the
+// index is built once per run (perf-plan email senders, D3). As a cheap guard against the
+// common mutations a size change also rebuilds it; replacing an entry in place keeps the
+// size and is NOT detected, so a caller that does that must call
+// `invalidateApplicationIntentIdentityIndex(jobsById)` (the tests swap inventories that way).
 const identityIndexCache = new WeakMap();
+
+export function invalidateApplicationIntentIdentityIndex(jobsById) {
+  identityIndexCache.delete(jobsById);
+}
 
 /**
  * `identity string → first job (in Map insertion order) whose identity set contains it`:

@@ -178,6 +178,16 @@ const RELATIVE_RX = wordRx(RELATIVE_DAY);
 const MONTH_RX = wordRx(MONTHS);
 const DAY_MONTH_RX = new RegExp(`(?<![\\d])\\d{1,2}(?:\\.|º|°|er|st|nd|rd|th)?\\s+(?:de\\s+|of\\s+)?(?:${MONTHS.map(escapeRx).join('|')})(?![\\p{L}])`, 'iu');
 
+// Numeric dates: ISO (2026-11-15), day.month.year / day/month/year, and day/month,
+// day-month or day.month with a two-digit month (15/11, 15-11, 15.11). A one-digit month
+// after a dot ("1.2%") is a decimal, not a date, and a number followed by % or more
+// digits is never one.
+const NUMERIC_DATE_RXS = [
+  /(?<![\d.,/-])\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\d|3[01])(?!\d)/,
+  /(?<![\d.,/-])(?:0?[1-9]|[12]\d|3[01])[/.-](?:0?[1-9]|1[0-2])[/.-](?:\d{4}|\d{2})(?![\d%])/,
+  /(?<![\d.,/-])(?:0?[1-9]|[12]\d|3[01])(?:[/-](?:0?[1-9]|1[0-2])|\.(?:0[1-9]|1[0-2]))(?![\d%]|[.,/-]\d)/,
+];
+
 const stripMarkup = (text) => String(text ?? '').replace(/<[^>]+>/g, ' ');
 
 /**
@@ -188,7 +198,8 @@ const stripMarkup = (text) => String(text ?? '').replace(/<[^>]+>/g, ' ');
  */
 export function timeBoundMentions(texts) {
   const text = stripMarkup(Array.isArray(texts) ? texts.filter(Boolean).join(' \n ') : texts);
-  const day = WEEKDAY_RX.test(text) || RELATIVE_RX.test(text) || DAY_MONTH_RX.test(text);
+  const day = WEEKDAY_RX.test(text) || RELATIVE_RX.test(text) || DAY_MONTH_RX.test(text)
+    || NUMERIC_DATE_RXS.some((rx) => rx.test(text));
   const month = MONTH_RX.test(text);
   return { day, month };
 }
@@ -362,22 +373,25 @@ export function createCampaignContentProvider({
 
 /**
  * Sonda economica del workflow: serve ancora un LLM per questa campagna? Legge solo
- * i documenti congelati della campagna corrente (al piu' 4) e il cambio memorizzato
- * (1 lettura). Risponde `needsLlm: false` solo se OGNI lingua necessaria ha un
- * contenuto congelato valido; ogni dubbio o errore e' `needsLlm: true`.
+ * i documenti congelati della campagna corrente (al piu' 4) e, tramite `factsFor`, gli
+ * stessi fatti che legge il sender. Risponde `needsLlm: false` solo se OGNI lingua
+ * necessaria ha un contenuto congelato che `evaluateFrozenContent` giudica valido con
+ * la STESSA fingerprint, la stessa soglia e la stessa data del sender (nessun hash
+ * sostituito, nessuna soglia piu' larga o piu' stretta): sonda e sender non possono
+ * divergere. Ogni dubbio o errore, e ogni input non riproducibile, e' `needsLlm: true`.
  *
- * La soglia della sonda e' la META' di quella del sender: la sonda decide se saltare
- * il setup dei provider, il sender decide poi sul serio. Una sonda piu' stretta fa
- * si' che i due non divergano (e se divergono il sender genera comunque, con la
- * catena gratuita, senza i due setup).
+ * @param {object} deps
+ * @param {(locale: string) => Promise<{exchangeRate: object|null, exchangeInsight: object|null, weeklyFact: object|null, featuredTool: object|null}|null>} deps.factsFor
+ *        i fatti del prompt di una lingua, calcolati con le funzioni del sender
+ *        (scripts/lib/newsletter-weekly-facts.mjs); `null` = non riproducibili.
  */
 export async function probeFrozenContent({
   db, campaignId, variants, thresholdPct = DEFAULT_RATE_THRESHOLD_PCT, locales = FREEZE_LOCALES,
-  promptVersion: version = promptVersion(), now = () => new Date(),
+  promptVersion: version = promptVersion(), now = () => new Date(), factsFor,
 }) {
   const fail = (reason) => ({ needsLlm: true, reason });
   try {
-    if (!db || !campaignId || !version || !variants?.length) return fail('inputs');
+    if (!db || !campaignId || !version || !variants?.length || typeof factsFor !== 'function') return fail('inputs');
     const docs = await Promise.all(locales.map((locale) => loadFrozenContent(db, campaignId, locale).then((doc) => [locale, doc])));
     const present = docs.filter(([, doc]) => doc);
     if (present.length === 0) return fail('no-frozen-content');
@@ -387,19 +401,16 @@ export async function probeFrozenContent({
       for (const locale of Array.isArray(doc.campaign_locales) ? doc.campaign_locales : []) declared.add(locale);
     }
     const needed = declared.size > 0 ? locales.filter((locale) => declared.has(locale)) : [...locales];
-    const exchangeRate = await fetchStoredExchangeRate(db, { warn: () => {} });
-    const stricter = thresholdPct / 2;
+    const at = now();
     for (const locale of needed) {
       const doc = docs.find(([l]) => l === locale)?.[1];
       if (!doc) return fail(`missing:${locale}`);
-      // Il probe non conosce il fatto della settimana ne' il tool: li lascia al sender
-      // (stesso hash dei fatti testuali nel documento) e controlla le tre cose che
-      // cambiano nel corso di una campagna: versione, cambio e giorno.
-      const current = buildFactsFingerprint({ locale, variants, exchangeRate, now: now() });
-      const verdict = evaluateFrozenContent(
-        { ...doc, facts: { ...doc.facts, inputsHash: current.inputsHash } },
-        { campaignId, locale, variants, facts: { ...current, weeklyPct: doc.facts?.weeklyPct ?? 0 }, promptVersion: version, thresholdPct: stricter },
-      );
+      const inputs = await factsFor(locale);
+      if (!inputs || !inputs.exchangeRate || !inputs.exchangeInsight || !inputs.weeklyFact || !inputs.featuredTool) {
+        return fail(`facts-unavailable:${locale}`);
+      }
+      const facts = buildFactsFingerprint({ locale, variants, ...inputs, now: at });
+      const verdict = evaluateFrozenContent(doc, { campaignId, locale, variants, facts, promptVersion: version, thresholdPct });
       if (!verdict.usable) return fail(`${locale}:${verdict.reason}`);
     }
     return { needsLlm: false, reason: 'all-frozen' };
