@@ -876,4 +876,3 @@ export function classifyBridgePaths(
   }
   return { removable, keepBridge };
 }
-
