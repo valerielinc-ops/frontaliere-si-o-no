@@ -1,7 +1,7 @@
 {
   "key": "bb-trading-werbeartikel-ag",
   "label": "bb trading werbeartikel ag",
-  "generatedAt": "2026-11-14T21:38:13.931Z",
+  "generatedAt": "2026-11-15T00:38:54.524Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -36,10 +36,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5751,
-  "avgDurationMs": 5751,
+  "durationMs": 6816,
+  "avgDurationMs": 6816,
   "durationHistory": [
-    5751
+    6816
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -57,7 +57,7 @@
       "url": "https://link.ostendis.com/publication/spezialist-in-sonderanfertigungen-textiles/aaxqrt3i8wz2kyidnxy5ehwtkdxyiqdtkixw7qo7jl1osyqi7o9omytp252x5rmc",
       "source": "bb trading werbeartikel ag Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-14T21:37:22.183Z",
+      "crawledAt": "2026-11-15T00:38:04.486Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:37:22.183Z",
+      "validThrough": "2027-01-26T00:38:04.486Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -91,5 +91,5 @@
       }
     }
   ],
-  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
+  "codeCommit": "270d6369e95753d967bf3c60693d6e505ecd270f"
 }

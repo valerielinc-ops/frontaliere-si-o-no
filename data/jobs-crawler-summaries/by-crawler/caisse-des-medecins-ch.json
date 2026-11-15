@@ -1,7 +1,7 @@
 {
   "key": "caisse-des-medecins-ch",
   "label": "Caisse des médecins",
-  "generatedAt": "2026-11-14T21:39:24.797Z",
+  "generatedAt": "2026-11-15T00:40:03.783Z",
   "total": 5,
   "discovered": 6,
   "parsed": 5,
@@ -80,10 +80,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 26467,
-  "avgDurationMs": 26467,
+  "durationMs": 26233,
+  "avgDurationMs": 26233,
   "durationHistory": [
-    26467
+    26233
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -101,7 +101,7 @@
       "url": "https://caisse-des-medecins.ch/job/test-automation-engineer-m-f/",
       "source": "Caisse des médecins Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:38:36.014Z",
+      "crawledAt": "2026-11-15T00:39:12.118Z",
       "addressLocality": "Urdorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -124,7 +124,7 @@
       "postalCode": "8902",
       "streetAddress": "Urdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:38:36.014Z",
+      "validThrough": "2027-02-03T00:39:12.118Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -146,7 +146,7 @@
       "url": "https://caisse-des-medecins.ch/job/senior-software-engineer-m-w-100/",
       "source": "Caisse des médecins Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-14T21:38:36.013Z",
+      "crawledAt": "2026-11-15T00:39:12.117Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -169,7 +169,7 @@
       "postalCode": "1226",
       "streetAddress": "Thônex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:38:36.013Z",
+      "validThrough": "2027-02-03T00:39:12.117Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -191,7 +191,7 @@
       "url": "https://caisse-des-medecins.ch/job/it-operations-support-h-f-a-100/",
       "source": "Caisse des médecins Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:38:36.012Z",
+      "crawledAt": "2026-11-15T00:39:12.116Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -214,7 +214,7 @@
       "postalCode": "1226",
       "streetAddress": "Thônex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:38:36.012Z",
+      "validThrough": "2027-02-04T00:39:12.116Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -236,7 +236,7 @@
       "url": "https://caisse-des-medecins.ch/job/dba-sybase-ms-sql-h-f-a-100/",
       "source": "Caisse des médecins Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:38:35.990Z",
+      "crawledAt": "2026-11-15T00:39:12.105Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -259,7 +259,7 @@
       "postalCode": "1226",
       "streetAddress": "Thônex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:38:35.990Z",
+      "validThrough": "2027-02-03T00:39:12.105Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -281,7 +281,7 @@
       "url": "https://caisse-des-medecins.ch/job/dba-postgresql-exploitation-h-f-100/",
       "source": "Caisse des médecins Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-14T21:38:35.988Z",
+      "crawledAt": "2026-11-15T00:39:12.099Z",
       "addressLocality": "Thônex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -304,7 +304,7 @@
       "postalCode": "1226",
       "streetAddress": "Thônex",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:38:35.988Z",
+      "validThrough": "2027-02-03T00:39:12.099Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -315,5 +315,5 @@
       }
     }
   ],
-  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
+  "codeCommit": "270d6369e95753d967bf3c60693d6e505ecd270f"
 }

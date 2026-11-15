@@ -1,36 +1,158 @@
 {
   "key": "creditx-ch",
   "label": "CreditX Sàrl",
-  "generatedAt": "2026-11-14T21:39:25.525Z",
-  "total": 0,
-  "discovered": null,
-  "parsed": 0,
-  "lastFetchOutcome": "selector_miss",
+  "generatedAt": "2026-11-15T00:41:09.777Z",
+  "total": 2,
+  "discovered": 2,
+  "parsed": 2,
+  "lastFetchOutcome": null,
   "fetchReceipt": {
     "specKey": "creditx-ch",
     "seedUrls": [
-      "https://creditx.ch/fr/careers/"
+      "https://www.creditx.ch/fr/careers/"
     ],
-    "phase": "listing",
-    "pages": 1,
-    "httpStatuses": [],
+    "phase": "detail",
+    "pages": 5,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://www.creditx.ch/fr/careers"
+      },
+      {
+        "status": 200,
+        "url": "https://www.creditx.ch/it"
+      },
+      {
+        "status": 200,
+        "url": "https://www.creditx.ch/it/contact"
+      },
+      {
+        "status": 200,
+        "url": "https://www.creditx.ch/it/careers/relationship-manager-junior-sion"
+      },
+      {
+        "status": 200,
+        "url": "https://www.creditx.ch/it/careers/relationship-manager-senior-sion"
+      }
+    ],
     "proxiedBy": [],
     "fetchOutcome": null,
-    "fetchDetail": "Prospector fetch failed for https://creditx.ch/fr/careers/: prospector URL origin not allowed: https://www.creditx.ch"
+    "fetchDetail": null
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "abortKind": "source-extraction-failed",
-  "written": 0,
-  "newCount": 0,
+  "written": 2,
+  "detailCandidates": 2,
+  "detailGone": 0,
+  "detailRejected": 0,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
+  "authoritativeEmptySnapshot": false,
+  "newCount": 2,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "newJobs": [],
+  "durationMs": 19666,
+  "avgDurationMs": 19666,
+  "durationHistory": [
+    19666
+  ],
+  "newJobs": [
+    {
+      "id": "creditx-ch-52825786a669",
+      "slug": "relationship-manager-senior-sion-vs-creditx-ch-ch",
+      "company": "CreditX Sàrl",
+      "companyKey": "creditx-ch",
+      "companyDomain": "creditx.ch",
+      "title": "Relationship Manager Senior",
+      "location": "Sion, VS",
+      "canton": "VS",
+      "url": "https://www.creditx.ch/careers/relationship-manager-senior-sion",
+      "source": "CreditX Sàrl Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-15T00:40:21.003Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-08-29",
+      "postedDate": "2026-08-29",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.creditx.ch/careers/relationship-manager-senior-sion",
+      "needsRetranslation": true,
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "salarySource": "estimated",
+      "postalCode": "1950",
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-15T00:40:21.003Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-04T21:49:23.619Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "creditx-ch-ae7f54d22ec9",
+      "slug": "relationship-manager-junior-sion-vs-creditx-ch-ch",
+      "company": "CreditX Sàrl",
+      "companyKey": "creditx-ch",
+      "companyDomain": "creditx.ch",
+      "title": "Relationship Manager Junior",
+      "location": "Sion, VS",
+      "canton": "VS",
+      "url": "https://www.creditx.ch/careers/relationship-manager-junior-sion",
+      "source": "CreditX Sàrl Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-15T00:40:20.998Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "junior",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-30",
+      "postedDate": "2026-10-30",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.creditx.ch/careers/relationship-manager-junior-sion",
+      "needsRetranslation": true,
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "salarySource": "estimated",
+      "postalCode": "1950",
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-28T00:40:20.998Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-04T21:49:23.617Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 25
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0,
-  "codeCommit": "ab1340d468f8644fb268680e290ab3d86c3e72cf"
+  "codeCommit": "270d6369e95753d967bf3c60693d6e505ecd270f"
 }
