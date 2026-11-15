@@ -118,6 +118,27 @@ describe('previousSlugs Git recovery plan', () => {
     expect(item).toMatchObject({ decision: 'restore', targetJobId: 'renamed-current', locale: 'it' });
   });
 
+  it('rejects case-distinct source references when the source URL also changed', () => {
+    const [item] = plan({
+      currentJobs: [{
+        id: 'current',
+        url: 'https://jobs.example.test/vacancies/current',
+        sourceReference: 'abc',
+      }],
+      revisions: [{
+        commit: 'c'.repeat(40),
+        jobs: [{
+          id: 'old',
+          url: 'https://jobs.example.test/vacancies/old',
+          sourceReference: 'ABC',
+          previousSlugsByLocale: { it: [RITTMEYER_SLUG] },
+        }],
+      }],
+    });
+
+    expect(item).toMatchObject({ decision: 'reject', reason: 'historical_posting_not_current' });
+  });
+
   it('rejects a slug observed as active in more than one locale', () => {
     const current = { id: 'current', url: RITTMEYER_URL };
     const [item] = plan({

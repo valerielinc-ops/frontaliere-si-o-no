@@ -267,7 +267,12 @@ export function recoverySourceIdentityKeys(job = {}, { includeHistory = false } 
 
   let host = '';
   try { host = new URL(String(job?.url || '')).hostname.toLowerCase(); } catch { /* no URL-backed reference */ }
-  const sourceReference = normalizedIdentityValue(job?.sourceReference);
+  // Source references are opaque provider identifiers: whitespace is cosmetic,
+  // but case is part of the identity. Treating `ABC` and `abc` as equal could
+  // attach historical evidence to a different posting on the same host.
+  const sourceReference = typeof job?.sourceReference === 'string'
+    ? job.sourceReference.replace(/\s+/g, ' ').trim()
+    : '';
   if (host && sourceReference) keys.add(`reference:${host}:${sourceReference}`);
 
   if (includeHistory) {
