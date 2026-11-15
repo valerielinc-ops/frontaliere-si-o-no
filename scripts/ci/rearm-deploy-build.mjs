@@ -66,10 +66,6 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
  * pipeline is moving on its own.
  */
 
-import { execFileSync } from 'node:child_process';
-import { mkdtempSync, writeFileSync } from 'node:fs';
-import { tmpdir } from 'node:os';
-import { join } from 'node:path';
 import { intFromEnv } from '../lib/int-from-env.mjs';
 import { createdSinceQuery } from './lib/run-listing-window.mjs';
 import { readDeployRearmStatuses, resolveDeployRearmRequest } from './deploy-rearm-request.mjs';
@@ -85,6 +81,18 @@ import {
   failedStepKeys,
   failureKey,
 } from './deploy-failure-classifier.mjs';
+import {
+  gh,
+  ghJson,
+  readFailedJobAnnotations,
+  readJobAnnotations,
+  readRunJobs,
+} from './lib/deploy-run-evidence.mjs';
+import {
+  BUILD_BLOCKED_ISSUE_PREFIX,
+  resolveBlockedIssues,
+  upsertBlockedIssue,
+} from './lib/deploy-blocked-issue.mjs';
 
 /** Statuses GitHub uses for a run that has not reached a conclusion yet. */
 const LIVE_STATUSES = new Set(['queued', 'in_progress', 'waiting', 'requested', 'pending', 'action_required']);
@@ -622,29 +630,6 @@ export function decideTargetedRerunFallback({
 
 const REARM_LISTING_WINDOW_DAYS = 7;
 
-// execFileSync stops reading at `maxBuffer`, 1 MiB when it is not given, and
-// throws ENOBUFS: that is how the request queue next door went blind (issue
-// 12308). The listing here is already projected; the buffer is the second line.
-const GH_MAX_BUFFER_BYTES = 32 * 1024 * 1024;
-
-function gh(args) {
-  return execFileSync('gh', args, {
-    encoding: 'utf8',
-    stdio: ['ignore', 'pipe', 'pipe'],
-    maxBuffer: GH_MAX_BUFFER_BYTES,
-  }).trim();
-}
-
-function ghJson(args) {
-  const raw = gh(args);
-  if (!raw) throw new Error(`empty GitHub API response for ${args.join(' ')}`);
-  try {
-    return JSON.parse(raw);
-  } catch {
-    throw new Error(`invalid JSON from GitHub API for ${args.join(' ')}`);
-  }
-}
-
 function githubHttpStatus(error) {
   const text = [error?.stderr, error?.stdout, error?.message]
     .filter((value) => value != null)
@@ -694,19 +679,6 @@ function mergeRuns(...collections) {
     }
   }
   return [...byId.values()];
-}
-
-function readJobAnnotations(job) {
-  if (!job?.check_run_url) throw new Error(`job ${job?.id || '?'} has no check-run URL`);
-  const raw = gh([
-    'api',
-    `${job.check_run_url}/annotations`,
-    '--paginate',
-    '--slurp',
-  ]);
-  const parsed = JSON.parse(raw);
-  if (Array.isArray(parsed) && parsed.every((page) => Array.isArray(page))) return parsed.flat();
-  throw new Error(`unreadable annotations for job ${job.id || '?'}`);
 }
 
 function settleWaitMs(job, nowMs) {
@@ -777,11 +749,6 @@ function readCompletedBuildRuns({ repo, workflow, branch }) {
   return Array.isArray(parsed) ? parsed : [];
 }
 
-function readRunJobs(repo, runId) {
-  const payload = ghJson(['api', `repos/${repo}/actions/runs/${runId}/jobs?filter=latest&per_page=100`]);
-  return Array.isArray(payload?.jobs) ? payload.jobs : [];
-}
-
 /**
  * Classify the last concluded run and measure how many consecutive runs failed
  * with the same `job::step`. API budget: one run listing, one jobs read for the
@@ -805,14 +772,7 @@ function inspectFailureStreak({ repo, workflow, branch, runs, selfRunId, selfCon
     if (!latest || !latest.failed) return { failure: null, rearmFailuresInWindow: 0 };
 
     const jobs = readRunJobs(repo, latest.id);
-    const annotationsByJob = {};
-    for (const job of jobs.filter((j) => j?.status === 'completed' && ['failure', 'timed_out', 'cancelled'].includes(String(j?.conclusion))).slice(0, 4)) {
-      try {
-        annotationsByJob[String(job.id)] = readJobAnnotations(job);
-      } catch {
-        annotationsByJob[String(job.id)] = [];
-      }
-    }
+    const annotationsByJob = readFailedJobAnnotations(jobs);
     const classified = classifyDeployFailure({ jobs, annotationsByJob });
     const rearmFailuresInWindow = countRearmFailuresInWindow({ runs: known, selfRunId, selfConclusion, nowMs });
     if (classified.classification === 'infra') {
@@ -875,65 +835,44 @@ function applyFailureBreaker({ verdict, repo, workflow, branch, headSha, runs, s
   return { verdict, breaker };
 }
 
-const BLOCKED_ISSUE_PREFIX = 'Deploy build blocked:';
-
-function blockedIssueTitle(failure) {
-  const short = `${failure.job || 'deploy'} / ${failure.step || 'unknown step'}`.replace(/\s+/g, ' ').slice(0, 100);
-  return `${BLOCKED_ISSUE_PREFIX} ${short}`;
-}
+const REARM_ISSUE_FLAG = 'REARM_ISSUE_UPDATE';
 
 /**
- * One issue per failure key. github-issue-creator dedups on the stable title and
- * comments on the open canonical issue instead of opening a second one. Never
- * throws: visibility must not cost a deploy.
+ * One issue per failure key. The shared helper de-duplicates on the stable
+ * title and comments on the open canonical issue instead of opening a second
+ * one. Never throws: visibility must not cost a deploy.
  */
-function upsertBlockedIssue({ failure, decision, runUrl }) {
-  try {
-    const body = [
-      `The deploy re-arm is holding back new builds (${decision.reason}).`,
-      '',
-      `- classification: ${failure.classification}`,
-      `- consecutive failures with this job/step: ${failure.streak}`,
-      `- signature: \`${String(failure.signature).slice(0, 300)}\``,
-      `- first error: ${String(failure.firstError || '(none)').slice(0, 300)}`,
-      `- detail: ${decision.detail}`,
-      runUrl ? `- observed from: ${runUrl}` : '',
-      '',
-      'The re-arm releases the hold by itself when the backoff elapses, when a commit touches the failing code or the build tooling, and closes this issue at the first green build.',
-    ].filter((line) => line !== '').join('\n');
-    const dir = mkdtempSync(join(tmpdir(), 'rearm-blocked-'));
-    const file = join(dir, 'body.md');
-    writeFileSync(file, body);
-    execFileSync('node', [
-      'scripts/lib/github-issue-creator.mjs',
-      '--title', blockedIssueTitle(failure),
-      '--description-file', file,
-      '--workflow', DEPLOY_WORKFLOW_NAME,
-      ...(runUrl ? ['--run-url', runUrl] : []),
-    ], { stdio: ['ignore', 'pipe', 'pipe'], timeout: 120_000 });
-  } catch (err) {
-    console.warn(`::warning::could not update the blocked-build issue: ${String(err?.message || err).split('\n')[0]}`);
-  }
+function reportBlockedBuild({ failure, decision, runUrl }) {
+  const body = [
+    `The deploy re-arm is holding back new builds (${decision.reason}).`,
+    '',
+    `- classification: ${failure.classification}`,
+    `- consecutive failures with this job/step: ${failure.streak}`,
+    `- signature: \`${String(failure.signature).slice(0, 300)}\``,
+    `- first error: ${String(failure.firstError || '(none)').slice(0, 300)}`,
+    `- detail: ${decision.detail}`,
+    runUrl ? `- observed from: ${runUrl}` : '',
+    '',
+    'The re-arm releases the hold by itself when the backoff elapses, when a commit touches the failing code or the build tooling, and closes this issue at the first green build.',
+  ].filter((line) => line !== '').join('\n');
+  upsertBlockedIssue({
+    prefix: BUILD_BLOCKED_ISSUE_PREFIX,
+    flag: REARM_ISSUE_FLAG,
+    workflowName: DEPLOY_WORKFLOW_NAME,
+    failure,
+    body,
+    runUrl,
+  });
 }
 
 /** First green build: close every open `Deploy build blocked:` issue. Never throws. */
-function resolveBlockedIssues({ runUrl }) {
-  try {
-    const listed = JSON.parse(gh([
-      'issue', 'list', '--state', 'open', '--search', `in:title "${BLOCKED_ISSUE_PREFIX}"`,
-      '--json', 'number,title', '--limit', '30',
-    ]));
-    for (const issue of Array.isArray(listed) ? listed : []) {
-      if (!String(issue?.title || '').startsWith(BLOCKED_ISSUE_PREFIX)) continue;
-      execFileSync('node', [
-        'scripts/lib/github-issue-creator.mjs', '--resolve',
-        '--title', issue.title, '--workflow', DEPLOY_WORKFLOW_NAME,
-        ...(runUrl ? ['--run-url', runUrl] : []),
-      ], { stdio: ['ignore', 'pipe', 'pipe'], timeout: 120_000 });
-    }
-  } catch (err) {
-    console.warn(`::warning::could not resolve blocked-build issues: ${String(err?.message || err).split('\n')[0]}`);
-  }
+function resolveBlockedBuilds({ runUrl }) {
+  resolveBlockedIssues({
+    prefix: BUILD_BLOCKED_ISSUE_PREFIX,
+    flag: REARM_ISSUE_FLAG,
+    workflowName: DEPLOY_WORKFLOW_NAME,
+    runUrl,
+  });
 }
 
 async function inspectBuildLocaleRecovery({
@@ -1139,7 +1078,7 @@ async function main() {
     : '';
   // First green build of the caller: the blocked-build issue is stale.
   if (issueUpdates && String(process.env.REARM_SELF_CONCLUSION).toLowerCase() === 'success') {
-    resolveBlockedIssues({ runUrl });
+    resolveBlockedBuilds({ runUrl });
   }
   // The failure circuit breaker only ever turns a `pipeline-stopped` dispatch
   // into a skip; infra failures and every other reason pass through untouched.
@@ -1156,7 +1095,7 @@ async function main() {
     nowMs: Date.now(),
   });
   if (breaker?.decision.action === 'skip' && issueUpdates) {
-    upsertBlockedIssue({ failure: breaker.failure, decision: breaker.decision, runUrl });
+    reportBlockedBuild({ failure: breaker.failure, decision: breaker.decision, runUrl });
   }
   console.log(`[rearm] head=${headSha} runs=${runs.length} → ${verdict.action} (${verdict.reason}): ${verdict.detail}`);
 
