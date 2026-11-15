@@ -3,8 +3,17 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
-import { assertMaxShardGrowthWithinPercent, jobCanonRedirectMapPlugin } from '../build-plugins/jobCanonRedirectMapPlugin';
-import { writeAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
+import {
+  assertJobCanonV2ShardWithinLimit,
+  assertMaxShardGrowthWithinPercent,
+  jobCanonRedirectMapPlugin,
+} from '../build-plugins/jobCanonRedirectMapPlugin';
+import {
+  knownSlugsLegacyFile,
+  knownSlugsShardFile,
+  knownSlugsShardIndex,
+  writeAllKnownJobSlugs,
+} from '../scripts/lib/all-known-job-slugs-store.mjs';
 import {
   buildActiveJobBridgePathPlan,
   classifyBridgePaths,
@@ -15,6 +24,10 @@ import {
 } from '../build-plugins/shared/jobCanonBridgePaths';
 import { buildCanonicalJobDetailPath } from '../build-plugins/shared/jobDetailPath';
 import { setJobCanonOrderingFields } from '../build-plugins/shared/jobCanonInputs';
+import {
+  jobCanonV2ShardKey,
+  jobSlugShardKey,
+} from '../services/jobSlugShards';
 
 const daysAgo = (days: number): string => new Date(Date.now() - days * 86_400_000).toISOString();
 
@@ -74,14 +87,17 @@ describe('jobCanonRedirectMapPlugin', () => {
 
   beforeAll(async () => {
     previousBuildLocale = process.env.BUILD_LOCALE;
-    delete process.env.BUILD_LOCALE;
+    process.env.BUILD_LOCALE = 'it';
     tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'job-canon-'));
     fs.mkdirSync(path.join(tmp, 'data'), { recursive: true });
     fs.mkdirSync(path.join(tmp, 'dist'), { recursive: true });
+    fs.mkdirSync(path.join(tmp, 'dist', 'data'), { recursive: true });
+    fs.writeFileSync(path.join(tmp, 'dist', 'data', 'jobs-slug-map.json'), '[]');
+    setJobCanonOrderingFields([]);
     writeAllKnownJobSlugs(tracking, tmp);
     const plugin = jobCanonRedirectMapPlugin(tmp);
     await (plugin.closeBundle as () => Promise<void>).call(plugin);
-  });
+  }, 60_000);
 
   afterAll(() => {
     fs.rmSync(tmp, { recursive: true, force: true });
@@ -94,9 +110,40 @@ describe('jobCanonRedirectMapPlugin', () => {
     return JSON.parse(fs.readFileSync(path.join(tmp, 'dist', 'job-canon', `${sk}.json`), 'utf-8'));
   };
 
+  const readV2Shard = (slug: string): Record<string, Record<string, string>> =>
+    JSON.parse(fs.readFileSync(path.join(tmp, 'dist', 'job-canon', 'v2', `${jobCanonV2ShardKey(slug)}.json`), 'utf-8'));
+
   it('maps the IT localized slug to its canonical section prefix', () => {
     const shard = readShard('capo-ottimizzazione-portafoglio-ffs-zollikofen');
     expect(shard['capo-ottimizzazione-portafoglio-ffs-zollikofen'].it).toBe('/cerca-lavoro-berna');
+  });
+
+  it('writes the same entry shape to the matching v1 and v2 shards', () => {
+    const slug = 'capo-ottimizzazione-portafoglio-ffs-zollikofen';
+    expect(readV2Shard(slug)[slug]).toEqual(readShard(slug)[slug]);
+    const v2Files = fs.readdirSync(path.join(tmp, 'dist', 'job-canon', 'v2'));
+    expect(v2Files.length).toBeGreaterThan(0);
+    expect(v2Files.every((file) => /^[0-9a-f]{3}\.json$/.test(file))).toBe(true);
+  });
+
+  it('uses the shared djb2-xor hash for v2 and preserves the v1 hash modulo', () => {
+    for (const slug of [
+      'servizio-clienti-transport-specialista-cippa-trasporti-sa-chiasso',
+      'verkaufer-in-kassen-services-coop-genossenschaft-sins',
+      'verkäufer-élève-東京',
+    ]) {
+      expect(Number.parseInt(jobCanonV2ShardKey(slug), 16) % 256)
+        .toBe(Number.parseInt(jobSlugShardKey(slug), 16));
+    }
+  });
+
+  it('keeps the v2 hash in parity with the Worker implementation', () => {
+    // Expected keys are taken from the Worker implementation in PR #18442.
+    // The branch base can predate that change, so these vectors keep the parity
+    // test independent of which Worker blob a local sparse checkout materializes.
+    expect(jobCanonV2ShardKey('servizio-clienti-transport-specialista-cippa-trasporti-sa-chiasso')).toBe('c63');
+    expect(jobCanonV2ShardKey('verkaufer-in-kassen-services-coop-genossenschaft-sins')).toBe('675');
+    expect(jobCanonV2ShardKey('verkäufer-élève-東京')).toBe('b6c');
   });
 
   it('keeps the DE prefix under its own locale (no cross-locale collapse to IT)', () => {
@@ -153,6 +200,7 @@ describe('jobCanonRedirectMapPlugin', () => {
 describe('active job aliases in the IT /job-canon publishing leg', () => {
   let tmp: string;
   let previousBuildLocale: string | undefined;
+  let activePluginLogs: string[] = [];
 
   const job = (
     id: string,
@@ -197,6 +245,18 @@ describe('active job aliases in the IT /job-canon publishing leg', () => {
         it: ['servizio-clienti-transport-specialista-cippa-trasporti-sa-chiasso'],
       },
     }),
+    job('sins-active-prefix', 'AG', {
+      it: 'sins-it-current', en: 'sins-en-current',
+      de: 'verkaufer-in-kassen-services-coop-genossenschaft-sins', fr: 'sins-fr-current',
+    }),
+    job('prefix-conflict-ag', 'AG', {
+      it: 'prefix-conflict-ag-it', en: 'prefix-conflict-ag-en',
+      de: 'shared-active-prefix-conflict', fr: 'prefix-conflict-ag-fr',
+    }),
+    job('prefix-conflict-zh', 'ZH', {
+      it: 'prefix-conflict-zh-it', en: 'prefix-conflict-zh-en',
+      de: 'shared-active-prefix-conflict', fr: 'prefix-conflict-zh-fr',
+    }),
     job('locale-prefix-owner', 'ZH', {
       it: 'locale-prefix-legacy-v1', en: 'locale-prefix-current-en',
       de: 'locale-prefix-legacy-v1', fr: 'locale-prefix-legacy-v1',
@@ -222,6 +282,27 @@ describe('active job aliases in the IT /job-canon publishing leg', () => {
     { ...job('cross-z-newer', 'ZH', {
       it: 'cross-z-it', en: 'cross-foreign', de: 'cross-z-de', fr: 'cross-z-fr',
     }), datePosted: daysAgo(12) },
+    job('worker-override-claim', 'ZH', {
+      it: 'worker-override-claim-it', en: 'worker-override-claim-en',
+      de: 'worker-override-claim-de', fr: 'worker-override-claim-fr',
+    }, {
+      previousSlugsByLocale: {
+        it: [
+          'worker-override-omitted-en',
+          'worker-effective-direct-en',
+          'worker-native-recovery-en',
+          'worker-duplicate-entry-en',
+        ],
+      },
+    }),
+    job('worker-reset-route', 'ZH', {
+      it: 'worker-reset-route-it', en: 'worker-reset-route-en',
+      de: 'worker-reset-candidate', fr: 'worker-reset-route-fr',
+    }),
+    job('worker-reset-target-route', 'ZH', {
+      it: 'worker-reset-target-it', en: 'worker-reset-target-en',
+      de: 'worker-reset-target-de', fr: 'worker-reset-native-target',
+    }),
   ];
 
   beforeAll(async () => {
@@ -263,10 +344,83 @@ describe('active job aliases in the IT /job-canon publishing leg', () => {
         en: '/en/find-jobs-thurgau/registry-canonical-v1',
       },
       'cross-foreign': { en: '/en/find-jobs-geneva/cross-foreign' },
+      'verkaufer-in-kassen-services-coop-genossenschaft-sins': {
+        de: '/de/jobs-im-zurich/verkaufer-in-kassen-services-coop-genossenschaft-sins',
+      },
+      'shared-active-prefix-conflict': {
+        de: '/de/jobs-in-zurich/shared-active-prefix-conflict',
+      },
+      'worker-override-omitted-en': { de: '/de/jobs-im-tessin/worker-override-omitted-en' },
+      'worker-effective-direct-en': { en: '/en/find-jobs-geneva/worker-effective-direct-en' },
+      'worker-native-recovery-en': { de: '/de/jobs-im-tessin/worker-native-recovery-en' },
+      'worker-override-claim-en': { en: '/en/find-jobs-zurich/worker-native-recovery-en' },
+      'worker-duplicate-entry-en': { de: '/de/jobs-im-tessin/worker-duplicate-entry-en' },
+      'worker-reset-candidate': { en: '/en/find-jobs-zurich/worker-reset-candidate' },
     }, tmp);
+    const duplicateSlug = 'worker-duplicate-entry-en';
+    const duplicateShardFile = knownSlugsShardFile(knownSlugsShardIndex(duplicateSlug), tmp);
+    const duplicateShard = JSON.parse(fs.readFileSync(duplicateShardFile, 'utf-8')) as {
+      slugs: Record<string, Record<string, string>>;
+    };
+    delete duplicateShard.slugs[duplicateSlug];
+    const duplicateShardEntries = Object.entries(duplicateShard.slugs).map(([slug, paths]) =>
+      `    ${JSON.stringify(slug)}: ${JSON.stringify(paths)}`);
+    duplicateShardEntries.push(
+      `    ${JSON.stringify(duplicateSlug)}: ${JSON.stringify({ en: `/en/find-jobs-geneva/${duplicateSlug}` })}`,
+      `    ${JSON.stringify(duplicateSlug)}: ${JSON.stringify({ de: `/de/jobs-im-tessin/${duplicateSlug}` })}`,
+    );
+    fs.writeFileSync(
+      duplicateShardFile,
+      `{
+  "slugs": {
+${duplicateShardEntries.join(',\n')}
+  }
+}
+`,
+    );
+    fs.writeFileSync(knownSlugsLegacyFile(tmp), JSON.stringify({
+      'worker-override-omitted-en': { en: '/en/find-jobs-geneva/worker-override-omitted-en' },
+      'worker-effective-direct-en': { en: '/en/find-jobs-geneva/worker-effective-direct-en' },
+      'worker-native-recovery-en': { en: '/en/find-jobs-geneva/worker-native-recovery-en' },
+      'worker-reset-candidate': { en: '/en/find-jobs-zurich/worker-reset-candidate' },
+    }));
+    const resetSlug = 'worker-reset-candidate';
+    const resetShardFile = knownSlugsShardFile(knownSlugsShardIndex(resetSlug), tmp);
+    const resetShard = JSON.parse(fs.readFileSync(resetShardFile, 'utf-8')) as {
+      slugs: Record<string, Record<string, string>>;
+    };
+    delete resetShard.slugs[resetSlug];
+    const resetShardEntries = Object.entries(resetShard.slugs).map(([slug, paths]) =>
+      '    ' + JSON.stringify(slug) + ': ' + JSON.stringify(paths));
+    resetShardEntries.push(
+      '    ' + JSON.stringify(resetSlug) + ': ' + JSON.stringify({
+        en: '/en/find-jobs-ticino/worker-reset-candidate',
+        de: '/de/jobs-im-tessin/worker-reset-candidate',
+        fr: '/fr/trouver-emploi-tessin/worker-reset-candidate',
+      }),
+      '    ' + JSON.stringify(resetSlug) + ': ' + JSON.stringify({
+        en: '/en/find-jobs-ticino/worker-reset-candidate',
+        de: '/de/jobs-in-zurich/worker-reset-native-target',
+        fr: '/fr/trouver-emploi-zurich/worker-reset-candidate',
+      }),
+    );
+    fs.writeFileSync(resetShardFile, [
+      '{',
+      '  "slugs": {',
+      resetShardEntries.join(',\n'),
+      '  }',
+      '}',
+      '',
+    ].join('\n'));
     const plugin = jobCanonRedirectMapPlugin(tmp);
-    await (plugin.closeBundle as () => Promise<void>).call(plugin);
-  });
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => undefined);
+    try {
+      await (plugin.closeBundle as () => Promise<void>).call(plugin);
+      activePluginLogs = logSpy.mock.calls.map((call) => String(call[0]));
+    } finally {
+      logSpy.mockRestore();
+    }
+  }, 60_000);
 
   afterAll(() => {
     fs.rmSync(tmp, { recursive: true, force: true });
@@ -282,6 +436,12 @@ describe('active job aliases in the IT /job-canon publishing leg', () => {
   const readEntry = (slug: string): JobCanonEntryLike | undefined => {
     const sk = slug.slice(0, 2).toLowerCase().replace(/[^a-z0-9]/g, '_');
     const file = path.join(tmp, 'dist', 'job-canon', `${sk}.json`);
+    if (!fs.existsSync(file)) return undefined;
+    return JSON.parse(fs.readFileSync(file, 'utf-8'))[slug] as JobCanonEntryLike | undefined;
+  };
+
+  const readV2Entry = (slug: string): JobCanonEntryLike | undefined => {
+    const file = path.join(tmp, 'dist', 'job-canon', 'v2', `${jobCanonV2ShardKey(slug)}.json`);
     if (!fs.existsSync(file)) return undefined;
     return JSON.parse(fs.readFileSync(file, 'utf-8'))[slug] as JobCanonEntryLike | undefined;
   };
@@ -319,6 +479,25 @@ describe('active job aliases in the IT /job-canon publishing leg', () => {
       .toBe('/en/find-jobs-thurgau/registry-canonical-v1');
   });
 
+  it('uses the effective registry locale map and preserves separate native recovery evidence', () => {
+    expect(readEntry('worker-override-omitted-en')?.alias?.en)
+      .toBe('/en/find-jobs-zurich/worker-override-claim-en');
+    expect(readEntry('worker-duplicate-entry-en')?.alias?.en)
+      .toBe('/en/find-jobs-zurich/worker-override-claim-en');
+    expect(readEntry('worker-effective-direct-en')?.alias?.en).toBeUndefined();
+    expect(readEntry('worker-native-recovery-en')?.alias?.en).toBeUndefined();
+  });
+
+  it('clears stale native recovery when a later store part replaces a candidate map', () => {
+    expect(readEntry('worker-reset-candidate')?.alias?.en)
+      .toBe('/en/find-jobs-zurich/worker-reset-route-en');
+    // The candidate and active-route identity bits survive both replacements:
+    // the final FR self-path remains direct recovery, and its DE target remains
+    // native recovery for the other active route.
+    expect(readEntry('worker-reset-candidate')?.alias?.fr).toBeUndefined();
+    expect(readEntry('worker-reset-native-target')?.alias?.de).toBeUndefined();
+  });
+
   it('uses the stable SEO job order when a cross-locale bridge path has multiple claimants', () => {
     expect(readEntry('cross-foreign')?.alias?.it).toBe('/cerca-lavoro-zurigo/cross-z-it');
   });
@@ -328,7 +507,26 @@ describe('active job aliases in the IT /job-canon publishing leg', () => {
     expect(readEntry('real-old-v1')?.alias?.it).toBeUndefined();
     expect(readEntry('ambiguous-old-v1')?.alias?.it).toBeUndefined();
     expect(readEntry('same-real-slug')?.alias).toBeUndefined();
-    expect(readEntry('same-real-slug')?.it).toBeUndefined();
+    expect(readEntry('same-real-slug')?.it).toBe('/cerca-lavoro-ticino');
+  });
+
+  it('reports ambiguous canton destinations with concrete examples', () => {
+    const line = activePluginLogs.find((item) => item.includes('active aliases: '));
+    const payload = line?.match(/active aliases: (\{.*\}), heap=/)?.[1];
+    expect(payload).toBeDefined();
+    const stats = JSON.parse(payload!) as {
+      ambiguousCantonGroups: number;
+      ambiguousExamples: Array<{ locale: string; slug: string; targets: string[] }>;
+    };
+    expect(stats.ambiguousCantonGroups).toBeGreaterThan(0);
+    expect(stats.ambiguousExamples).toContainEqual(expect.objectContaining({
+      locale: 'it',
+      slug: 'ambiguous-old-v1',
+      targets: [
+        '/cerca-lavoro-vaud/ambiguous-vd-it',
+        '/cerca-lavoro-zurigo/ambiguous-zh-it',
+      ],
+    }));
   });
 
   it('maps the cippa previous IT slug to its current IT URL and removes the historical prefix', () => {
@@ -338,6 +536,7 @@ describe('active job aliases in the IT /job-canon publishing leg', () => {
     expect(entry?.alias?.it).toBe(
       '/cerca-lavoro-ticino/customer-service-transport-specialist-cippa-trasporti-sa-chiasso',
     );
+    expect(readV2Entry(oldSlug)).toEqual(entry);
   });
 
   it('lets a current active slug win over a historical prefix', () => {
@@ -350,9 +549,39 @@ describe('active job aliases in the IT /job-canon publishing leg', () => {
     const entry = readEntry('locale-prefix-legacy-v1');
     expect(entry?.alias?.en).toBe('/en/find-jobs-zurich/locale-prefix-current-en');
     expect(entry?.en).toBeUndefined();
-    expect(entry?.it).toBe('/cerca-lavoro-ticino');
-    expect(entry?.de).toBe('/de/jobs-im-genf');
-    expect(entry?.fr).toBe('/fr/trouver-emploi-geneve');
+    expect(entry?.it).toBe('/cerca-lavoro-zurigo');
+    expect(entry?.de).toBe('/de/jobs-in-zurich');
+    expect(entry?.fr).toBe('/fr/trouver-emploi-zurich');
+  });
+
+  it('overwrites the Sins historical DE prefix with the active Aargau section', () => {
+    const slug = 'verkaufer-in-kassen-services-coop-genossenschaft-sins';
+    expect(readEntry(slug)?.de).toBe('/de/jobs-im-aargau');
+    expect(readV2Entry(slug)?.de).toBe('/de/jobs-im-aargau');
+  });
+
+  it('leaves the active prefix unchanged when two current jobs disagree', () => {
+    expect(readEntry('shared-active-prefix-conflict')?.de).toBe('/de/jobs-in-zurich');
+    const line = activePluginLogs.find((item) => item.includes('active prefixes='));
+    const payload = line?.match(/active prefixes=(\{.*\})/)?.[1];
+    expect(payload).toBeDefined();
+    const stats = JSON.parse(payload!) as {
+      changedByLocale: Record<string, number>;
+      addedByLocale: Record<string, number>;
+      nonRoutableGermanChanged: number;
+      activeSlugPrefixConflict: number;
+      conflictExamples: Array<{ locale: string; slug: string; prefixes: string[] }>;
+    };
+    expect(stats.changedByLocale).toEqual({ it: expect.any(Number), en: expect.any(Number), de: expect.any(Number), fr: expect.any(Number) });
+    expect(stats.addedByLocale).toEqual({ it: expect.any(Number), en: expect.any(Number), de: expect.any(Number), fr: expect.any(Number) });
+    expect(stats.changedByLocale.de).toBeGreaterThan(0);
+    expect(stats.nonRoutableGermanChanged).toBeGreaterThan(0);
+    expect(stats.activeSlugPrefixConflict).toBe(2);
+    expect(stats.conflictExamples).toContainEqual({
+      locale: 'de',
+      slug: 'shared-active-prefix-conflict',
+      prefixes: ['/de/jobs-im-aargau', '/de/jobs-in-zurich'],
+    });
   });
 
   it('keeps the two-character shard key and the canonical path builder matches the SEO path', () => {
@@ -393,6 +622,23 @@ describe('job canon bridge path planning and PR-B classification', () => {
     expect(plan.bridgePaths.some((bridge) => bridge.kind === 'crossLocale' && bridge.slug === 'worker-owned')).toBe(false);
     expect(plan.bridgePaths.some((bridge) => bridge.kind === 'crossLocale' && bridge.locale === 'it' && bridge.slug === 'azienda-acme')).toBe(false);
     expect(plan.bridgePaths.some((bridge) => bridge.kind === 'crossLocale' && bridge.slug === 'flat-old')).toBe(false);
+  });
+
+  it('treats a flat slug duplicated in a locale list as locale-aware, not legacy flat', () => {
+    const overlap = {
+      ...active,
+      previousSlugs: ['flat-overlap'],
+      previousSlugsByLocale: { en: ['flat-overlap'] },
+    } satisfies ActiveJobSlugMapRow;
+    const plan = buildActiveJobBridgePathPlan([overlap], { winners: {}, reservedHubSlugs: new Set() });
+    expect(plan.bridgePaths
+      .filter((bridge) => bridge.kind === 'previousSlug' && bridge.slug === 'flat-overlap')
+      .map((bridge) => bridge.locale)
+      .sort()).toEqual(['en']);
+    expect(plan.bridgePaths
+      .filter((bridge) => bridge.kind === 'legacyTiMirror' && bridge.slug === 'flat-overlap')
+      .map((bridge) => bridge.locale)
+      .sort()).toEqual(['en']);
   });
 
   it('streams the same alias destinations as the bridge-path reference planner', () => {
@@ -470,6 +716,12 @@ describe('job canon bridge path planning and PR-B classification', () => {
     expect(assertMaxShardGrowthWithinPercent([100, 900], [100, 945], 5)).toBe(5);
     expect(() => assertMaxShardGrowthWithinPercent([100, 900], [100, 946], 5))
       .toThrow('maximum job-canon shard grew 5.11%, above 5%');
+  });
+
+  it('rejects a v2 shard larger than 256 KiB', () => {
+    expect(() => assertJobCanonV2ShardWithinLimit(256 * 1024)).not.toThrow();
+    expect(() => assertJobCanonV2ShardWithinLimit((256 * 1024) + 1))
+      .toThrow('job-canon v2 shard is 262145 bytes, above 262144 bytes');
   });
 
   it('keeps ambiguous paths, exact-prefix paths, missing entries, and alias chains for PR-B', () => {

@@ -12,6 +12,10 @@ import {
   type CandidateInput,
   type WinnersFile,
 } from '../../services/previousSlugWinners';
+import {
+  JOB_CANON_V2_SHARD_COUNT,
+  jobSlugShardIndexForCount,
+} from '../../services/jobSlugShards';
 import { jobCanonTarget } from '../../infra/cloudflare-worker/locale-router.js';
 
 export const JOB_CANON_LOCALES = ACTIVE_JOB_PAGE_LOCALES;
@@ -506,8 +510,11 @@ export function emitActiveJobCanonAliases(
   jobs: readonly ActiveJobSlugMapRow[],
   options: {
     winners: WinnersFile;
+    /** Restrict alias planning to the v2 bucket currently being emitted. */
+    bucketIndex?: number;
     reservedHubSlugs: ReadonlySet<string>;
     entryForSlug: (slug: string) => JobCanonEntryLike | undefined;
+    hasRegistryAlias?: (slug: string, locale: JobCanonLocale) => boolean;
     workerWouldRecover?: (locale: JobCanonLocale, slug: string, path: string) => boolean;
     canWriteCrossLocalePath?: (path: string) => boolean;
     emitAlias: (slug: string, locale: JobCanonLocale, targetPath: string) => void;
@@ -516,6 +523,8 @@ export function emitActiveJobCanonAliases(
 ): ActiveJobAliasStats {
   const workerWouldRecover = options.workerWouldRecover ?? (() => false);
   const canWriteCrossLocalePath = options.canWriteCrossLocalePath ?? (() => true);
+  const isInBucket = (slug: string): boolean => options.bucketIndex === undefined
+    || jobSlugShardIndexForCount(slug, JOB_CANON_V2_SHARD_COUNT) === options.bucketIndex;
   const activeRouteSlugs = new Map<JobCanonLocale, Set<string>>(
     JOB_CANON_LOCALES.map((locale) => [locale, new Set<string>()]),
   );
@@ -566,13 +575,13 @@ export function emitActiveJobCanonAliases(
     for (const locale of JOB_CANON_LOCALES) {
       const currentSlug = localizedActiveJobSlug(job, locale);
       currentByLocale[locale] = currentSlug;
-      if (!currentSlug) continue;
+      if (!currentSlug || !isInBucket(currentSlug)) continue;
       activeRouteSlugs.get(locale)!.add(currentSlug);
       if (canton === 'TI') activeTiSlugs.get(locale)!.add(currentSlug);
     }
 
     const italianSlug = typeof job.slug === 'string' ? job.slug : '';
-    if (italianSlug && canton !== 'TI') {
+    if (italianSlug && isInBucket(italianSlug) && canton !== 'TI') {
       for (const locale of JOB_CANON_LOCALES) {
         if (!isCompanyHubNamespaceSlug(italianSlug, locale)) {
           legacyTiCurrentSlugs.get(locale)!.add(italianSlug);
@@ -581,7 +590,7 @@ export function emitActiveJobCanonAliases(
     }
     // jobsSeoPagesPlugin writes this localized current-slug bridge before the
     // cross-locale reconciliation phase when the job itself belongs to TI.
-    if (italianSlug && canton === 'TI') {
+    if (italianSlug && isInBucket(italianSlug) && canton === 'TI') {
       for (const locale of JOB_CANON_LOCALES) {
         if (locale !== 'it' && currentByLocale[locale] !== italianSlug) {
           claimedTiBridgeSlugs.get(locale)!.add(italianSlug);
@@ -593,7 +602,7 @@ export function emitActiveJobCanonAliases(
       const currentSlug = currentByLocale[locale];
       if (!currentSlug) continue;
       for (const oldSlug of previousSlugsFor(job, locale)) {
-        if (oldSlug === currentSlug || options.reservedHubSlugs.has(oldSlug)) continue;
+        if (!isInBucket(oldSlug) || oldSlug === currentSlug || options.reservedHubSlugs.has(oldSlug)) continue;
         recordClaim(canton, locale, oldSlug, {
           jobIdentifier: identifier || currentSlug,
           canonicalSlug: currentSlug,
@@ -633,6 +642,11 @@ export function emitActiveJobCanonAliases(
   const targetIdByLocaleSlug = new Map<JobCanonLocale, Map<string, number>>(
     JOB_CANON_LOCALES.map((locale) => [locale, new Map<string, number>()]),
   );
+  const ambiguousTargetsByLocaleSlug = new Map<string, {
+    locale: JobCanonLocale;
+    slug: string;
+    targets: Set<string>;
+  }>();
   const internTarget = (canonicalPath: string): number => {
     const targetPath = canonicalPath.replace(/\/+$/, '');
     const existing = targetPathIds.get(targetPath);
@@ -647,7 +661,19 @@ export function emitActiveJobCanonAliases(
     const targetId = internTarget(canonicalPath);
     const prior = bySlug.get(slug);
     if (prior === undefined) bySlug.set(slug, targetId);
-    else if (prior !== AMBIGUOUS_TARGET && prior !== targetId) bySlug.set(slug, AMBIGUOUS_TARGET);
+    else if (prior !== AMBIGUOUS_TARGET && prior !== targetId) {
+      bySlug.set(slug, AMBIGUOUS_TARGET);
+      if (ambiguousTargetsByLocaleSlug.size < 3) {
+        ambiguousTargetsByLocaleSlug.set(localeSlugKey(locale, slug), {
+          locale,
+          slug,
+          targets: new Set([targetPaths[prior], targetPaths[targetId]]),
+        });
+      }
+    } else if (prior === AMBIGUOUS_TARGET) {
+      const example = ambiguousTargetsByLocaleSlug.get(localeSlugKey(locale, slug));
+      if (example && example.targets.size < 5) example.targets.add(targetPaths[targetId]);
+    }
   };
   const tiBridgeTargetIds = new Map<JobCanonLocale, Map<string, number>>(
     JOB_CANON_LOCALES.map((locale) => [locale, new Map<string, number>()]),
@@ -661,7 +687,7 @@ export function emitActiveJobCanonAliases(
       const currentSlug = localizedActiveJobSlug(job, locale);
       if (!currentSlug) continue;
       for (const oldSlug of previousSlugsFor(job, locale)) {
-        if (oldSlug === currentSlug || options.reservedHubSlugs.has(oldSlug)) continue;
+        if (!isInBucket(oldSlug) || oldSlug === currentSlug || options.reservedHubSlugs.has(oldSlug)) continue;
         const winnerId = winnerByCanton.get(canton)?.get(locale)?.get(oldSlug);
         if (winnerId && winnerId !== (identifier || currentSlug)) {
           continue;
@@ -718,7 +744,7 @@ export function emitActiveJobCanonAliases(
         }
       }
       for (const foreignSlug of foreignSlugs) {
-        if (options.reservedHubSlugs.has(foreignSlug)) continue;
+        if (!isInBucket(foreignSlug) || options.reservedHubSlugs.has(foreignSlug)) continue;
         if (isCompanyHubNamespaceSlug(foreignSlug, baseLocale)) continue;
         if (activeTiSlugs.get(baseLocale)!.has(foreignSlug)) continue;
         const bridgePath = buildCanonicalJobDetailPath(baseLocale, 'TI', foreignSlug);
@@ -744,7 +770,11 @@ export function emitActiveJobCanonAliases(
     chainGroups: 0,
     emittedAliases: 0,
     aliasesByLocale: { it: 0, en: 0, de: 0, fr: 0 },
-    ambiguousExamples: [],
+    ambiguousExamples: [...ambiguousTargetsByLocaleSlug.values()].map((example) => ({
+      locale: example.locale,
+      slug: example.slug,
+      targets: [...example.targets].sort(),
+    })),
   };
   for (const locale of JOB_CANON_LOCALES) {
     const bySlug = targetIdByLocaleSlug.get(locale)!;
@@ -765,8 +795,10 @@ export function emitActiveJobCanonAliases(
         stats.autoAliasGroups++;
         continue;
       }
-      const entry = options.entryForSlug(slug);
-      const alias = entry?.alias?.[locale];
+      const entry = options.hasRegistryAlias ? undefined : options.entryForSlug(slug);
+      const alias = options.hasRegistryAlias
+        ? (options.hasRegistryAlias(slug, locale) ? '/registry-alias-present' : undefined)
+        : entry?.alias?.[locale];
       if (typeof alias === 'string' && alias) {
         stats.existingRegistryAliasGroups++;
         continue;
@@ -781,6 +813,7 @@ export function emitActiveJobCanonAliases(
   targetPaths.length = 0;
   winnerByCanton.clear();
   resolvedWinners = {};
+  ambiguousTargetsByLocaleSlug.clear();
   activeRouteSlugs.clear();
   activeTiSlugs.clear();
   legacyTiCurrentSlugs.clear();

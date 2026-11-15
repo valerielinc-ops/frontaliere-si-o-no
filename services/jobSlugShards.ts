@@ -24,6 +24,9 @@
  * the ~16k dist/data/job-detail/*.json files. */
 export const JOB_SLUG_SHARD_COUNT = 256;
 
+/** Hash fanout used by the /job-canon v2 consumer in the edge Worker. */
+export const JOB_CANON_V2_SHARD_COUNT = 4096;
+
 /** Directory (under dist/) holding the shard files. The legacy monolith stays
  * at /data/jobs-slug-map.json — the directory name intentionally shares the
  * prefix so the two travel together through the CDN offload. */
@@ -54,12 +57,29 @@ export interface SlugMapJobEntry {
 /** djb2-xor hash → shard key as two lowercase hex chars ("00".."ff").
  * Deterministic and dependency-free; MUST NOT change without re-emitting all
  * shards (build emit + runtime lookup share it by construction). */
-export function jobSlugShardKey(slug: string): string {
+export function jobSlugShardIndexForCount(slug: string, shardCount: number): number {
+  if (!Number.isSafeInteger(shardCount) || shardCount < 1) {
+    throw new RangeError(`Invalid job slug shard count: ${shardCount}`);
+  }
   let h = 5381;
   for (let i = 0; i < slug.length; i++) {
     h = ((h * 33) ^ slug.charCodeAt(i)) >>> 0;
   }
-  return (h % JOB_SLUG_SHARD_COUNT).toString(16).padStart(2, '0');
+  return h % shardCount;
+}
+
+export function jobSlugShardKeyForCount(slug: string, shardCount: number): string {
+  const digits = Math.max(1, Math.ceil(Math.log2(shardCount) / 4));
+  return jobSlugShardIndexForCount(slug, shardCount).toString(16).padStart(digits, '0');
+}
+
+export function jobSlugShardKey(slug: string): string {
+  return jobSlugShardKeyForCount(slug, JOB_SLUG_SHARD_COUNT);
+}
+
+/** 3-hex key matching the edge Worker's 4096-way /job-canon v2 fanout. */
+export function jobCanonV2ShardKey(slug: string): string {
+  return jobSlugShardKeyForCount(slug, JOB_CANON_V2_SHARD_COUNT);
 }
 
 /** Path (same-origin, pre-cdnDataUrl) of the shard file for a shard key. */
