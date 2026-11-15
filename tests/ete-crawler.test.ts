@@ -22,7 +22,7 @@ function richDetail({
   title = 'Mitarbeiter/in Maschinenumzüge',
   location = 'Bassersdorf',
   locationLabel = 'Standort',
-  body = 'Du führst schweizweite Transporte aus und bewegst industrielle Anlagen. Du arbeitest selbstständig, betreust Kunden vor Ort und sorgst für sichere Abläufe. Wir bieten moderne Arbeitsmittel, abwechslungsreiche Einsätze und ein kollegiales Team mit langfristiger Perspektive.',
+  body = 'Du führst schweizweite Transporte aus und bewegst industrielle Anlagen. Du arbeitest selbstständig, betreust Kunden vor Ort und sorgst für sichere Abläufe. Wir bieten moderne Arbeitsmittel, abwechslungsreiche Einsätze und ein kollegiales Team mit langfristiger Perspektive. Die Aufgaben umfassen sorgfältige Planung, Abstimmung mit Kunden und Partnern, sichere Vorbereitung der Transporte sowie die Dokumentation jedes Einsatzes. Eine gründliche Einarbeitung, interne Weiterbildung und verlässliche Arbeitszeiten unterstützen dich im abwechslungsreichen Arbeitsalltag.',
 } = {}) {
   return `<!doctype html><html><body>
     <main>

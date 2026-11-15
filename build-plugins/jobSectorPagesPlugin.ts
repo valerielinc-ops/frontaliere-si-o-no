@@ -286,11 +286,34 @@ function renderJourneyCompanies(
 export const SECTOR_PAGE_CARD_CAP = 30;
 export const SECTOR_OVERFLOW_LINKS_PER_PAGE = 200;
 export const SECTOR_PAGE_HARD_BUDGET_BYTES = 260 * 1024;
+// Kept as the public observability name used by the page-weight checks. It is
+// also the fail-closed hard limit now that every emitted page is bounded.
+export const SECTOR_PAGE_WEIGHT_WARN_BYTES = SECTOR_PAGE_HARD_BUDGET_BYTES;
+export const SECTOR_PAGE_WEIGHT_TOP_N = 5;
 const SECTOR_PAGE_NAV_LINK_CAP = 120;
+
+export interface SectorPageWeight {
+  readonly path: string;
+  readonly bytes: number;
+}
 
 export function sectorHubPageCount(totalJobs: number): number {
   const overflowCount = Math.max(0, Math.floor(totalJobs) - SECTOR_PAGE_CARD_CAP);
   return Math.max(1, Math.ceil(overflowCount / SECTOR_OVERFLOW_LINKS_PER_PAGE));
+}
+
+/** Summarise emitted page weights without weakening the hard page guard. */
+export function summarizeSectorPageWeights(
+  weights: ReadonlyArray<SectorPageWeight>,
+  warnBytes: number = SECTOR_PAGE_WEIGHT_WARN_BYTES,
+  topN: number = SECTOR_PAGE_WEIGHT_TOP_N,
+): { overCount: number; total: number; top: SectorPageWeight[] } {
+  const sorted = [...weights].sort((a, b) => b.bytes - a.bytes || a.path.localeCompare(b.path));
+  return {
+    overCount: sorted.filter((w) => w.bytes > warnBytes).length,
+    total: sorted.length,
+    top: sorted.slice(0, Math.max(0, topN)),
+  };
 }
 
 function sectorPageNavigationTargets(page: number, pageCount: number): number[] {
@@ -1025,6 +1048,7 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
         ? LOCALES
         : LOCALES.filter(shouldEmitLocale);
 
+      const pageWeights: SectorPageWeight[] = [];
       const ensuredDirs = new Set<string>();
       const ensureDir = (dir: string): void => {
         if (ensuredDirs.has(dir)) return;
@@ -1100,13 +1124,13 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
               pageCount,
             });
 
-            // Keep the existing 260 KiB gate on every base and continuation
-            // document; inventory growth is absorbed by the page ladder.
+            // Keep an observability record in addition to the fail-closed gate.
             const htmlBytes = Buffer.byteLength(html, 'utf-8');
-            if (htmlBytes > SECTOR_PAGE_HARD_BUDGET_BYTES) {
+            pageWeights.push({ path: canonicalPath, bytes: htmlBytes });
+            if (htmlBytes > SECTOR_PAGE_WEIGHT_WARN_BYTES) {
               throw new Error(
                 `[job-sector-pages] HTML for ${canonicalPath} is ${(htmlBytes / 1024).toFixed(1)} KB, ` +
-                  `exceeds hard budget of ${SECTOR_PAGE_HARD_BUDGET_BYTES / 1024} KB. ` +
+                  `exceeds hard budget of ${SECTOR_PAGE_WEIGHT_WARN_BYTES / 1024} KB. ` +
                   `Compress card markup or split the listing before changing the page-weight budget.`,
               );
             }
@@ -1165,6 +1189,17 @@ ${sitemapEntries.join('\n')}
         `\x1b[36m[job-sector-pages]\x1b[0m Generated ${totalPages} sector pages (${jobs.length} candidate jobs)`,
       );
 
+      const weightSummary = summarizeSectorPageWeights(pageWeights);
+      if (weightSummary.total > 0) {
+        const heaviest = weightSummary.top
+          .map((w) => `${w.path} ${(w.bytes / 1024).toFixed(1)} KB`)
+          .join('; ');
+        console.log(
+          `[job-sector-pages] page weight: ${weightSummary.overCount}/${weightSummary.total} hubs above ` +
+            `${SECTOR_PAGE_WEIGHT_WARN_BYTES / 1024} KB hard limit; heaviest ${weightSummary.top.length}: ${heaviest}`,
+        );
+      }
+
       // Always-run: patch sitemap.xml index lastmod entry. Other plugins
       // regenerate sitemap.xml every build, so our entry's <lastmod> would
       // otherwise drop out. Runs whether the cache hit or miss, but only
@@ -1196,7 +1231,7 @@ ${sitemapEntries.join('\n')}
       // hub landing is on disk, so the injector can safely add anchors to them
       // from the 4 job-board root hubs. Same fail-fast contract as
       // resolveJobsSeoPagesFlushed: closeBundle has no early return, so this is
-      // reached on every normal exit. A thrown budget-error above propagates to
+      // reached on every normal exit. A thrown budget error above propagates to
       // Vite and fails the build (consumer terminates — not a deadlock).
       resolveSectorPagesFlushed();
     },

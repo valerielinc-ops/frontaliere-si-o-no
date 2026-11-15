@@ -1,8 +1,4 @@
-/**
- * Regression coverage for the sector-hub page ladder. Rich cards and compact
- * overflow links have fixed per-page caps; the complete inventory stays linked
- * across the base page and every emitted continuation.
- */
+/** Regression coverage for bounded sector-hub pages and page-weight telemetry. */
 
 import { describe, it, expect } from 'vitest';
 import {
@@ -11,6 +7,9 @@ import {
   SECTOR_PAGE_CARD_CAP,
   SECTOR_PAGE_HARD_BUDGET_BYTES,
   SECTOR_OVERFLOW_LINKS_PER_PAGE,
+  summarizeSectorPageWeights,
+  SECTOR_PAGE_WEIGHT_TOP_N,
+  SECTOR_PAGE_WEIGHT_WARN_BYTES,
 } from '../../build-plugins/jobSectorPagesPlugin';
 import {
   buildSectorHubPath,
@@ -20,6 +19,7 @@ import {
 } from '../../build-plugins/jobSectorLanding';
 import type { JobBoardLocale } from '../../build-plugins/jobBoardSeo';
 import { parsePath } from '../../services/router';
+import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const LOCALES: ReadonlyArray<JobBoardLocale> = ['it', 'en', 'de', 'fr'];
@@ -256,5 +256,71 @@ describe('SEO — job-sector landing page weight gate', () => {
     expect(html).toContain('>+13<');
     expect(html).toContain('href="/cerca-lavoro-ticino/infermieri/"');
     expect(html).toContain('href="/cerca-lavoro-ticino/operatori-socio-sanitari/"');
+  });
+  it('keeps a larger inventory bounded by continuation pages', () => {
+    const manyJobs: SectorCountableJob[] = Array.from(
+      { length: 500 },
+      (_, i) => makeHeavyJob(i + 1),
+    );
+    const largePageCount = sectorHubPageCount(manyJobs.length);
+    expect(largePageCount).toBe(3);
+    for (let page = 1; page <= largePageCount; page += 1) {
+      const html = buildSectorLandingHtml({
+        sector: 'case-anziani',
+        locale: 'en',
+        matchingJobs: manyJobs,
+        count: manyJobs.length,
+        year: 2026,
+        dateStamp: '2026-04-28',
+        sectorProseData,
+        entryJs: 'index-DEADBEEF.js',
+        entryCss: 'index-DEADBEEF.css',
+        page,
+        pageCount: largePageCount,
+      });
+      expect(Buffer.byteLength(html, 'utf-8')).toBeLessThan(HARD_BUDGET_BYTES);
+      expect((html.match(/<article class="jc-card/g) || []).length)
+        .toBe(page === 1 ? SECTOR_PAGE_CARD_CAP : 0);
+      const visibleItems = page === 1
+        ? SECTOR_PAGE_CARD_CAP + SECTOR_OVERFLOW_LINKS_PER_PAGE
+        : Math.min(SECTOR_OVERFLOW_LINKS_PER_PAGE, manyJobs.length - SECTOR_PAGE_CARD_CAP - (page - 1) * SECTOR_OVERFLOW_LINKS_PER_PAGE);
+      expect(html).toContain(`"numberOfItems":${visibleItems}`);
+    }
+  });
+
+  it('summarises page weights: top N heaviest and the count over the threshold, without throwing', () => {
+    const kb = 1024;
+    const weights = [
+      { path: '/a/', bytes: 100 * kb },
+      { path: '/b/', bytes: 300 * kb },
+      { path: '/c/', bytes: 261 * kb },
+      { path: '/d/', bytes: 260 * kb },
+      { path: '/e/', bytes: 270 * kb },
+      { path: '/f/', bytes: 10 * kb },
+      { path: '/g/', bytes: 280 * kb },
+    ];
+    const summary = summarizeSectorPageWeights(weights);
+    expect(summary.total).toBe(7);
+    // Strictly above 260 KB: /d/ sits exactly on the threshold and is not over.
+    expect(summary.overCount).toBe(4);
+    expect(summary.top.map((w) => w.path)).toEqual(['/b/', '/g/', '/e/', '/c/', '/d/']);
+    expect(summary.top).toHaveLength(SECTOR_PAGE_WEIGHT_TOP_N);
+    expect(summarizeSectorPageWeights([])).toEqual({ overCount: 0, total: 0, top: [] });
+  });
+
+  it('keeps the byte-size guards fail-closed in both plugins', () => {
+    const sectorSource = readFileSync(
+      resolve(ROOT_DIR, 'build-plugins/jobSectorPagesPlugin.ts'),
+      'utf8',
+    );
+    expect(sectorSource).toContain('SECTOR_PAGE_WEIGHT_WARN_BYTES');
+    expect(sectorSource).toMatch(/if\s*\(htmlBytes\s*>\s*SECTOR_PAGE_WEIGHT_WARN_BYTES\)[\s\S]{0,300}throw new Error/);
+
+    const relatedSource = readFileSync(
+      resolve(ROOT_DIR, 'build-plugins/relatedSearchClustersPlugin.ts'),
+      'utf8',
+    );
+    expect(relatedSource).toContain('JOB_BOARD_LANDING_GUARD_BYTES');
+    expect(relatedSource).toMatch(/if\s*\(patchedBytes\s*>\s*JOB_BOARD_LANDING_GUARD_BYTES\)[\s\S]{0,300}throw new Error/);
   });
 });

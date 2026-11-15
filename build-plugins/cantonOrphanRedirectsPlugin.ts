@@ -52,6 +52,7 @@ import {
 } from './jobEditorialLanding';
 import { BASE_URL, buildCanonicalBridgePage } from './constants';
 import { getSafeDistPageTargets } from './shared/distPathSafety';
+import { shouldEmitLocale } from './shared/localeEmitFilter';
 
 type Locale = CantonLocale;
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'];
@@ -89,12 +90,25 @@ export interface OrphanRedirect {
 /**
  * Enumerate every orphan combination. Pure function — extracted so unit
  * tests can verify expected output without running the full emit pipeline.
+ *
+ * Only the locales the build emits are enumerated (`emitsLocale`, default
+ * `shouldEmitLocale`, i.e. BUILD_LOCALE). A bridge is a file at a path of its
+ * locale: for en/fr the legacy short-form slugs (`nurses`, `educators`,
+ * `healthcare-assistants`, `infirmiers`, `educateurs`, `maisons-retraite`)
+ * coincide with the per-canton sector-hub slugs, so a bridge written by the IT
+ * build at `/en/find-jobs-<canton>/nurses/` stood where only the en build's real
+ * hub exists. The IT sitemap reconcile then read that noindex bridge and dropped
+ * a URL the en/fr sitemap keeps (publisher fast gate, class 3). The files of a
+ * non-emitted locale are deleted by the shard prune anyway.
  */
-export function enumerateCantonOrphanRedirects(): OrphanRedirect[] {
+export function enumerateCantonOrphanRedirects(
+ emitsLocale: (locale: string) => boolean = shouldEmitLocale,
+): OrphanRedirect[] {
  const out: OrphanRedirect[] = [];
  const cantons = ALL_CANTON_CODES.filter((c) => c !== AGGREGATE_KEY);
  for (const canton of cantons) {
  for (const locale of LOCALES) {
+ if (!emitsLocale(locale)) continue;
  const section = resolveCantonSection(locale, canton);
  const prefix = LOCALE_PREFIX[locale];
  for (const slot of SLOT_KEYS) {
