@@ -26,7 +26,7 @@ export function createHouseAdCreative(options: {
       de: { title: 'Ohne Werbung surfen', body: 'Unterstützen Sie Frontaliereticino.ch und nutzen Sie die Website werbefrei.', price: 'CHF 2.99 pro Monat', cta: 'Abo entdecken', shortCta: 'Entdecken' },
       fr: { title: 'Naviguez sans publicité', body: 'Soutenez Frontaliereticino.ch et consultez le site sans bannières.', price: 'CHF 2.99 par mois', cta: 'Découvrir l’abonnement', shortCta: 'Découvrir' },
     }[locale];
-    const compact = format === 'mobile_banner' || format === 'mobile_large';
+    const compact = format === 'mobile_banner' || format === 'mobile_large' || format === 'skyscraper';
     const anchor = document.createElement('a');
     anchor.className = 'ft-house-creative ft-reader-subscription';
     anchor.dataset.houseFormat = format;
@@ -252,7 +252,7 @@ a.ft-house-creative[data-house-format][data-house-creative]{color:var(--_heading
 .ft-house-creative:focus-visible{outline:3px solid var(--_accent,#533afd);outline-offset:2px}
 .ft-reader-subscription{display:flex!important;align-items:center;justify-content:center;background:var(--_surface-inverted,#0a2540)!important;color:var(--_on-accent,#fff)!important;border-color:color-mix(in srgb,var(--_accent,#533afd) 48%,transparent)!important}
 .ft-reader-subscription .ft-house-copy{display:flex;flex-direction:row;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:18px}
-.ft-reader-subscription .ft-house-title{flex:1 1 auto;color:#fff;font-size:25px;line-height:1.05}
+.ft-reader-subscription .ft-house-title{flex:1 1 auto;color:#fff;font-size:25px;line-height:1.05;overflow-wrap:normal;word-break:normal;hyphens:none}
 .ft-reader-subscription .ft-house-body{flex:1 1 24ch;max-width:34ch;color:color-mix(in srgb,var(--_on-accent,#fff) 88%,transparent);font-size:13px;line-height:1.35}
 .ft-reader-price{flex:0 0 auto;color:#fff;font-size:14px;font-weight:700;line-height:1.25;white-space:nowrap}
 .ft-reader-subscription .ft-house-cta{flex:0 0 auto;min-height:42px;background:var(--_accent,#533afd);color:var(--_on-accent,#fff)}
@@ -276,10 +276,10 @@ a.ft-house-creative[data-house-format][data-house-creative]{color:var(--_heading
 .ft-reader-subscription[data-house-format=billboard] .ft-house-copy{padding:22px 28px}
 .ft-reader-subscription[data-house-format=billboard] .ft-house-title{font-size:31px}
 .ft-reader-subscription[data-house-format=billboard] .ft-house-body{font-size:14px}
-.ft-reader-subscription[data-house-format=skyscraper] .ft-house-copy{flex-direction:column;align-items:flex-start;justify-content:space-between;gap:12px;padding:24px 20px}
-.ft-reader-subscription[data-house-format=skyscraper] .ft-house-title{font-size:28px}
+.ft-reader-subscription[data-house-format=skyscraper] .ft-house-copy{flex-direction:column;align-items:flex-start;justify-content:center;gap:14px;padding:24px 20px}
+.ft-reader-subscription[data-house-format=skyscraper] .ft-house-title{font-size:19px;line-height:1.1}
 .ft-reader-subscription[data-house-format=skyscraper] .ft-house-body{flex:none;font-size:14px}
-.ft-reader-subscription[data-house-format=skyscraper] .ft-reader-price{font-size:19px;white-space:normal}
+.ft-reader-subscription[data-house-format=skyscraper] .ft-reader-price{font-size:15px;line-height:1.25;white-space:normal}
 .ft-reader-subscription[data-house-format=skyscraper] .ft-house-cta{width:100%}
 @container (max-height:230px) and (min-width:260px){
   .ft-reader-subscription[data-house-format=rectangle] .ft-house-copy,.ft-reader-subscription[data-house-format=billboard] .ft-house-copy{gap:8px;padding:12px 16px}
