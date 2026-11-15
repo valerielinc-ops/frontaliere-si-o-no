@@ -3909,6 +3909,37 @@ export function stripStaleAssetIntegrity(request, response) {
 
 let publicConfigFetchPromise = null;
 
+async function fetchPublicConfigSnapshot() {
+  const upstream = await fetch(PUBLIC_CONFIG_FUNCTION_ENDPOINT, {
+    method: 'GET',
+    headers: { Accept: 'application/json' },
+    // Cloudflare caches this JSON subrequest according to the function's
+    // Cache-Control directives, including no-store on its fail-open response.
+    // The URL is constant, so incoming query strings cannot fragment the key.
+    cf: { cacheEverything: true },
+  });
+
+  // A public-config response is deliberately small. Read it before returning
+  // from the Worker so a connection that dies after the headers cannot turn
+  // into an uncaught streaming exception and an edge-generated 5xx.
+  const body = upstream.status >= 500 ? null : await upstream.arrayBuffer();
+  return {
+    body,
+    headers: new Headers(upstream.headers),
+    status: upstream.status,
+    statusText: upstream.statusText,
+  };
+}
+
+function publicConfigResponseFromSnapshot(snapshot) {
+  if (snapshot.status >= 500) return null;
+  return new Response(snapshot.body?.slice(0) ?? null, {
+    status: snapshot.status,
+    statusText: snapshot.statusText,
+    headers: snapshot.headers,
+  });
+}
+
 function publicConfigFailOpenResponse() {
   return new Response('{}', {
     status: 200,
@@ -3936,33 +3967,27 @@ export async function servePublicConfig(request) {
 
   if (publicConfigFetchPromise) {
     try {
-      const response = await publicConfigFetchPromise;
-      logUpstreamFailure('public-config', url, response);
-      if (response.status >= 500) return publicConfigFailOpenResponse();
-      return response.clone();
+      const snapshot = await publicConfigFetchPromise;
+      if (snapshot.status >= 500) {
+        logEdgeFailure('public-config', url, { status: snapshot.status });
+        return publicConfigFailOpenResponse();
+      }
+      return publicConfigResponseFromSnapshot(snapshot) || publicConfigFailOpenResponse();
     } catch {
       return publicConfigUnavailableResponse(url);
     }
   }
 
-  const pending = (async () => {
-    const upstream = await fetch(PUBLIC_CONFIG_FUNCTION_ENDPOINT, {
-      method: 'GET',
-      headers: { Accept: 'application/json' },
-      // Cloudflare caches this JSON subrequest according to the function's
-      // Cache-Control directives, including no-store on its fail-open response.
-      // The URL is constant, so incoming query strings cannot fragment the key.
-      cf: { cacheEverything: true },
-    });
-    return upstream;
-  })();
+  const pending = fetchPublicConfigSnapshot();
 
   publicConfigFetchPromise = pending;
   try {
-    const response = await pending;
-    logUpstreamFailure('public-config', url, response);
-    if (response.status >= 500) return publicConfigFailOpenResponse();
-    return response.clone();
+    const snapshot = await pending;
+    if (snapshot.status >= 500) {
+      logEdgeFailure('public-config', url, { status: snapshot.status });
+      return publicConfigFailOpenResponse();
+    }
+    return publicConfigResponseFromSnapshot(snapshot) || publicConfigFailOpenResponse();
   } catch {
     return publicConfigUnavailableResponse(url);
   } finally {
@@ -4199,14 +4224,23 @@ const router = {
 
 export default {
   async fetch(request, env, ctx) {
-    const response = await upgradeLegacyStub(
-      request,
-      await router.fetch(request, env, ctx),
-      () => router.fetch(new Request(request, { method: 'GET' }), env, ctx),
-    );
-    const served = await serveUnknownSearchCluster(request, response, (boardRequest) =>
-      router.fetch(boardRequest, env, ctx),
-    );
-    return stripStaleAssetIntegrity(request, served);
+    const url = new URL(request.url);
+    try {
+      const response = await upgradeLegacyStub(
+        request,
+        await router.fetch(request, env, ctx),
+        () => router.fetch(new Request(request, { method: 'GET' }), env, ctx),
+      );
+      const served = await serveUnknownSearchCluster(request, response, (boardRequest) =>
+        router.fetch(boardRequest, env, ctx),
+      );
+      return stripStaleAssetIntegrity(request, served);
+    } catch (error) {
+      if (request.method === 'GET' && url.pathname === PUBLIC_CONFIG_PATH) {
+        logEdgeFailure('public-config', url, { stage: 'router' });
+        return publicConfigFailOpenResponse();
+      }
+      throw error;
+    }
   },
 };
