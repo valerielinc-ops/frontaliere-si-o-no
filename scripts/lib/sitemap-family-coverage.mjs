@@ -39,9 +39,11 @@ export function filterExternallyServedUrlsFromSitemapCoverage(snapshot) {
  * population is intentionally much larger than the active page manifests, so
  * the publisher gate must not treat those URLs as active-page omissions.
  */
+export const EXPIRED_JOB_SITEMAP_FILE_RX = /^sitemap-jobs-expired(?:-\d+)?\.xml$/u;
+
 export function isExpiredJobSitemapKey(key) {
   const name = String(key || '').split('/').pop().toLowerCase();
-  return /^sitemap-jobs-expired(?:-\d+)?\.xml$/u.test(name);
+  return EXPIRED_JOB_SITEMAP_FILE_RX.test(name);
 }
 
 export function sitemapCoverageFamilyForKey(key) {

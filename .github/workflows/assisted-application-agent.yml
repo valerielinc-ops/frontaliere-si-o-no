@@ -49,7 +49,11 @@ permissions:
 
 jobs:
   agent:
-    runs-on: ubuntu-latest
+    # The application runner is opt-in. Only the dedicated label is accepted;
+    # an unset, mistyped, or undocumented repository variable stays on the
+    # GitHub-hosted safety path instead of routing candidate data elsewhere.
+    # The selector is independent of crawler proxy settings.
+    runs-on: ${{ vars.ASSISTED_APPLICATION_RUNNER == 'assisted-application' && fromJSON('["self-hosted","assisted-application"]') || 'ubuntu-latest' }}
     # Draft at Codex effort max: 4 calls, measured 6-15 min on 2026-09-30,
     # but one call of round 2 of the trial ran past 10 min. Each call may now
     # take up to 30 min (broker_max_timeout_ms): three calls in a row, plus

@@ -55,6 +55,29 @@ GitHub-hosted `ubuntu-latest`. Nothing breaks if the VM is offline *unless*
 `ARTICLE_RUNNER=self-hosted` is set with no runner online (jobs would queue) — so
 remove the variable if you tear the VM down.
 
+## Assisted application workflow runner (opt-in)
+
+The assisted-application workflow keeps `ubuntu-latest` as its default. Its
+`agent` job accepts only the dedicated self-hosted label
+`assisted-application`, guarded by the repository variable below:
+
+```text
+ASSISTED_APPLICATION_RUNNER=assisted-application
+```
+
+To opt in, register a trusted self-hosted Actions runner with the
+`assisted-application` label, then set that repository variable under
+**Settings → Secrets and variables → Actions → Variables**. The workflow
+resolves the job to `[self-hosted, assisted-application]`; an unset, mistyped,
+or undocumented value falls back to `ubuntu-latest`. This section defines the
+label contract only; it does not create a runner, invent credentials, or
+configure a proxy.
+
+`STEALTH_BROWSER_PROXY` is a separate proxy setting for crawler browser
+traffic: it is not a runner selector and is never a fallback for the assisted
+application job. Orders explicitly marked for the Swiss local runner continue
+through the queue described in `scripts/assisted-application/README.md`.
+
 ## Local open-source LLM fallback ($0, no quota)
 
 The model cascade in `scripts/lib/ai-models.mjs` ends with a **local** model
