@@ -25,6 +25,7 @@ import {
   manifestCoverage,
   resolveLiveLinkManifestConfig,
 } from '../scripts/lib/job-pages-manifest-client.mjs';
+import { inspectLiveJobs as inspectPublishedJobs } from '../scripts/lib/job-pages-live-checker.mjs';
 import {
   createLiveLinkChecker,
   inspectLiveJobs,
@@ -435,6 +436,31 @@ describe('manifest + inspectLiveJobs: il contratto { known, live } dà known/liv
     const httpLike = await inspectLiveJobs(JOBS, 'it', new Map(), { check: checker.check, failOpen: true });
     expect(httpLike.failOpen).toBe(true);
     expect(failOpenCount()).toBe(before + 1);
+  });
+
+  it('(b2) un fallback board senza URL resta inviabile ma non entra nel fail-open denominator', async () => {
+    const boardFallback = { id: 'board-fallback', url: null };
+    const detailJobs = JOBS.slice(0, 3).map((entry, index) => ({ ...entry, id: `dead-${index}` }));
+    const checkedUrls: string[] = [];
+    const result = await inspectPublishedJobs(
+      [boardFallback, ...detailJobs],
+      'it',
+      new Map(),
+      {
+        check: async (url) => {
+          checkedUrls.push(url);
+          return false;
+        },
+        failOpen: true,
+        urlFor: (entry) => entry.url || jobPageUrl(entry, 'it') || null,
+      },
+    );
+
+    expect(checkedUrls).toHaveLength(3);
+    expect(result.jobs).toEqual([boardFallback]);
+    expect(result.knownLiveJobs).toEqual([boardFallback]);
+    expect(result.unknownJobs).toEqual([]);
+    expect(result.failOpen).toBe(false);
   });
 
   it('(c) un alert con almeno un annuncio pubblicato resta inviabile; con tutti non pubblicati la lista e\' vuota (= «link pagina non più vivi»)', async () => {
