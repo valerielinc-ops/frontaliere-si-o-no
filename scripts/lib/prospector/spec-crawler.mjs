@@ -3384,7 +3384,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
     // geography drops remain fail-closed without reinterpretation.
     if (publishedRows.length === 0 && rows.length > 0
       && emptyOutcome && detailAntiBotFailures === rows.length) {
-      copySpecFetchMetadata(publishedRows, {
+      copySpecFetchMetadata(outputRows, {
         fetchOutcome: emptyOutcome,
         discoveredCount: rows.length,
         fetchDetail: `${rows.length} detail page(s) exhausted anti-bot rescue`,
