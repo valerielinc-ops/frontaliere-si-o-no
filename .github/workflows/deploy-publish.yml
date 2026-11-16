@@ -805,6 +805,7 @@ jobs:
       - name: "Retry Upload durable R2 OG manifest artifact"
         id: upload-r2-og-manifest-retry
         if: (steps.cdn-ready.outcome == 'success' && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both')) && steps.upload-r2-og-manifest.outcome == 'failure'
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: r2-og-manifest-it-${{ inputs.source_run_id }}
@@ -1301,6 +1302,7 @@ jobs:
       - name: "Retry Upload shard batch 1 dist for post-deploy validation"
         id: upload-it-shard-batch-1-retry
         if: steps.upload-it-shard-batch-1.outcome == 'failure'
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: shard-batch-1-dist-it-${{ github.run_id }}
@@ -1322,6 +1324,7 @@ jobs:
       - name: "Retry Upload shard batch 2 dist for post-deploy validation"
         id: upload-it-shard-batch-2-retry
         if: steps.upload-it-shard-batch-2.outcome == 'failure'
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: shard-batch-2-dist-it-${{ github.run_id }}
@@ -1343,6 +1346,7 @@ jobs:
       - name: "Retry Upload shard batch 3 dist for post-deploy validation"
         id: upload-it-shard-batch-3-retry
         if: steps.upload-it-shard-batch-3.outcome == 'failure'
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: shard-batch-3-dist-it-${{ github.run_id }}
@@ -1364,6 +1368,7 @@ jobs:
       - name: "Retry Upload shard batch 4 dist for post-deploy validation"
         id: upload-it-shard-batch-4-retry
         if: steps.upload-it-shard-batch-4.outcome == 'failure'
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: shard-batch-4-dist-it-${{ github.run_id }}
@@ -1385,6 +1390,7 @@ jobs:
       - name: "Retry Upload shard batch 5 dist for post-deploy validation"
         id: upload-it-shard-batch-5-retry
         if: steps.upload-it-shard-batch-5.outcome == 'failure'
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: shard-batch-5-dist-it-${{ github.run_id }}
@@ -1406,6 +1412,7 @@ jobs:
       - name: "Retry Upload shard batch 6 dist for post-deploy validation"
         id: upload-it-shard-batch-6-retry
         if: steps.upload-it-shard-batch-6.outcome == 'failure'
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: shard-batch-6-dist-it-${{ github.run_id }}
@@ -1608,6 +1615,7 @@ jobs:
       - name: "Retry Upload dist-size-history + url-first-seen for the history commit"
         id: upload-dist-history-retry
         if: (always()) && steps.upload-dist-history.outcome == 'failure'
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: dist-history-${{ inputs.source_run_id }}
@@ -1719,6 +1727,7 @@ jobs:
       - name: "Retry Upload IT publish provenance"
         id: upload-it-provenance-retry
         if: (always()) && steps.upload-it-provenance.outcome == 'failure'
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: tail-publish-provenance-it-${{ inputs.source_run_id }}
@@ -2548,6 +2557,7 @@ jobs:
       - name: "Retry Upload shard batch 1 dist for post-deploy validation"
         if: (matrix.locale != 'it') && steps.upload-shard-batch-1.outcome == 'failure'
         id: upload-shard-batch-1-retry
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: shard-batch-1-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -2582,6 +2592,7 @@ jobs:
       - name: "Retry Upload shard batch 2 dist for post-deploy validation"
         if: (matrix.locale != 'it') && steps.upload-shard-batch-2.outcome == 'failure'
         id: upload-shard-batch-2-retry
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: shard-batch-2-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -2614,6 +2625,7 @@ jobs:
       - name: "Retry Upload shard batch 3 dist for post-deploy validation"
         if: (matrix.locale != 'it') && steps.upload-shard-batch-3.outcome == 'failure'
         id: upload-shard-batch-3-retry
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: shard-batch-3-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -2646,6 +2658,7 @@ jobs:
       - name: "Retry Upload shard batch 4 dist for post-deploy validation"
         if: (matrix.locale != 'it') && steps.upload-shard-batch-4.outcome == 'failure'
         id: upload-shard-batch-4-retry
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: shard-batch-4-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -2678,6 +2691,7 @@ jobs:
       - name: "Retry Upload shard batch 5 dist for post-deploy validation"
         if: (matrix.locale != 'it') && steps.upload-shard-batch-5.outcome == 'failure'
         id: upload-shard-batch-5-retry
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: shard-batch-5-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -2707,6 +2721,7 @@ jobs:
       - name: "Retry Upload shard batch 6 dist for post-deploy validation"
         if: (matrix.locale != 'it') && steps.upload-shard-batch-6.outcome == 'failure'
         id: upload-shard-batch-6-retry
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: shard-batch-6-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -2953,6 +2968,7 @@ jobs:
         # degrade gracefully: validate-dist's git-clone fallback then rehydrates
         # the locale (the documented resilience path). Mirrors the adjacent
         # `Push locale shard` step, which is continue-on-error for the same reason.
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: locale-dist-${{ matrix.locale }}-${{ github.run_id }}
@@ -3463,6 +3479,7 @@ jobs:
       - name: "Retry Upload non-IT locale publish provenance"
         id: upload-nonit-provenance-retry
         if: (always()) && steps.upload-nonit-provenance.outcome == 'failure'
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: tail-publish-provenance-${{ matrix.locale }}-${{ inputs.source_run_id }}

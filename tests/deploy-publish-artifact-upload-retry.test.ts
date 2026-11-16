@@ -42,7 +42,39 @@ const originalFirstAttemptNames = [
   'Upload advisory shard push verification report',
   'Upload non-IT locale publish provenance',
 ];
+const originallyNonBlockingUploadNames = [
+  'Upload durable R2 OG manifest artifact',
+  'Upload shard batch 1 dist for post-deploy validation',
+  'Upload shard batch 2 dist for post-deploy validation',
+  'Upload shard batch 3 dist for post-deploy validation',
+  'Upload shard batch 4 dist for post-deploy validation',
+  'Upload shard batch 5 dist for post-deploy validation',
+  'Upload shard batch 6 dist for post-deploy validation',
+  'Upload dist-size-history + url-first-seen for the history commit',
+  'Upload IT publish provenance',
+  'Upload shard batch 1 dist for post-deploy validation',
+  'Upload shard batch 2 dist for post-deploy validation',
+  'Upload shard batch 3 dist for post-deploy validation',
+  'Upload shard batch 4 dist for post-deploy validation',
+  'Upload shard batch 5 dist for post-deploy validation',
+  'Upload shard batch 6 dist for post-deploy validation',
+  'Upload locale shard dist for post-deploy validation',
+  'Upload advisory shard push verification report',
+  'Upload non-IT locale publish provenance',
+];
+const originallyBlockingUploadNames = [
+  'Upload IT section group results and ok-markers',
+  'Upload IT section content manifest',
+  'Upload Pages artifact (compression-level 9)',
+  'Upload sitemaps bundle artifact',
+  'Upload pre-deploy snapshot for post-deploy validation',
+  'Upload sitemap page manifest for publisher gate',
+  'Upload non-IT section content manifest',
+];
+const originallyNonBlockingUploadNameSet = new Set(originallyNonBlockingUploadNames);
+const originallyBlockingUploadNameSet = new Set(originallyBlockingUploadNames);
 const expectedRetryNames = new Set(originalFirstAttemptNames.map((name) => `Retry ${name}`));
+const sortNames = (names: string[]) => [...names].sort();
 
 describe('deploy-publish.yml artifact upload retry contract', () => {
   it('retries all 25 original uploads without exceptions or stale first-attempt references', () => {
@@ -62,6 +94,25 @@ describe('deploy-publish.yml artifact upload retry contract', () => {
     expect(firstAttempts).toHaveLength(25);
     expect(retries).toHaveLength(25);
     expect(firstAttempts.map((step) => step.name)).toEqual(originalFirstAttemptNames);
+
+    const retryUploadNames = retries.map((step) => String(step.name).replace(/^Retry /, ''));
+    const expectedOriginalNames = [
+      ...originallyNonBlockingUploadNames,
+      ...originallyBlockingUploadNames,
+    ];
+    expect(sortNames(expectedOriginalNames)).toEqual(sortNames(originalFirstAttemptNames));
+    expect(sortNames(retryUploadNames)).toEqual(sortNames(expectedOriginalNames));
+
+    const nonBlockingRetries = retries.filter((step) =>
+      originallyNonBlockingUploadNameSet.has(String(step.name).replace(/^Retry /, '')));
+    const blockingRetries = retries.filter((step) =>
+      originallyBlockingUploadNameSet.has(String(step.name).replace(/^Retry /, '')));
+    expect(nonBlockingRetries).toHaveLength(18);
+    expect(nonBlockingRetries.every((step) => step['continue-on-error'] === true)).toBe(true);
+    expect(blockingRetries).toHaveLength(7);
+    for (const retry of blockingRetries) {
+      expect(retry).not.toHaveProperty('continue-on-error');
+    }
   });
 
   it('keeps retry IDs unique per job and retry steps as upload-artifact actions without run blocks', () => {
@@ -97,9 +148,11 @@ describe('deploy-publish.yml artifact upload retry contract', () => {
         expect(String(retry.uses)).toMatch(/^actions\/upload-artifact@/);
         expect(retry).not.toHaveProperty('run');
 
-        if (retry.name === 'Retry Upload advisory shard push verification report') {
+        const originalName = String(retry.name).replace(/^Retry /, '');
+        if (originallyNonBlockingUploadNameSet.has(originalName)) {
           expect(retry['continue-on-error']).toBe(true);
         } else {
+          expect(originallyBlockingUploadNameSet.has(originalName)).toBe(true);
           expect(retry).not.toHaveProperty('continue-on-error');
         }
       }
