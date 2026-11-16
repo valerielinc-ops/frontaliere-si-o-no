@@ -88,7 +88,7 @@ export const WAVE1_CHANNELS = new Set([
 const MAX_AUTH_STEPS = AGENT_ROUNDS;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
 const FORGOT_PASSWORD_RE = /(?:forgot(?:ten)?\s+(?:your\s+)?password|password\s+forgotten|passwort\s+vergessen|kennwort\s+vergessen|mot de passe\s+oublié|mot de passe\s+oublie|oubli[ée]\s+(?:(?:votre|le|mon)\s+)?mot de passe|password\s+dimenticat[oa]|hai dimenticato la password|password dimenticata)/i;
-const PASSWORD_RESET_REQUEST_RE = /^(?:send(?:\s+(?:a\s+)?(?:reset\s+)?(?:link|instructions))?|reset\s+password|request\s+(?:a\s+)?password\s+reset|continue|submit|passwort\s+zurücksetzen|kennwort\s+zurücksetzen|réinitialiser le mot de passe|reinitialiser le mot de passe|invia|continua|reimposta password)$/i;
+const PASSWORD_RESET_REQUEST_RE = /^(?:send(?:\s+(?:a\s+)?(?:reset\s+)?(?:link|instructions))?|reset\s+password|request\s+(?:a\s+)?password\s+reset|continue|submit|passwort\s+zurücksetzen|kennwort\s+zurücksetzen|réinitialiser le mot de passe|reinitialiser le mot de passe|envoyer(?:\s+(?:les\s+instructions|(?:un\s+|le\s+)?lien))?|continuer|soumettre|invia|continua|reimposta password)$/i;
 const PASSWORD_RESET_CONFIRM_RE = /(?:reset|change|update|save|submit|continue|zurücksetzen|zuruecksetzen|speichern|ändern|aendern|modifier|enregistrer|réinitialiser|reinitialiser|salva|aggiorna|reimposta)/i;
 const PASSWORD_RESET_REFUSED_RE = /(?:expired|invalid|not valid|cannot be used|could not be reset|abgelaufen|ungültig|nicht gültig|expiré|invalide|scadut[oa]|non valido|rifiutat[oa])/i;
 const ALREADY_APPLIED_RE = /(?:already applied|application already (?:exists|submitted|received)|you have already applied|déjà postulé|déjà candidaté|bereits beworben|bereits eine bewerbung|già candid(?:at[oa]|at[oa])|hai già inviato la candidatura|già presentata la candidatura)/iu;
@@ -1917,18 +1917,50 @@ function samePortalRoute(one, other, base = '') {
 
 const BRASSRING_HOME_WITH_PRELOAD_RE = /^\/tgnewui\/search\/home\/homewithpreload\/?$/i;
 
-/** BrassRing may canonicalize only the case of its fieldless detail route. */
+/** BrassRing may canonicalize siteid, param case, and query order on its detail route. */
+function brassRingQueryParams(url) {
+  const params = new Map();
+  const duplicateIdentityKeys = new Set();
+  for (const [key, value] of url.searchParams.entries()) {
+    const normalizedKey = String(key || '').toLowerCase();
+    if (params.has(normalizedKey)) {
+      if (normalizedKey === 'jobid' || normalizedKey === 'partnerid') duplicateIdentityKeys.add(normalizedKey);
+      continue;
+    }
+    const normalizedValue = String(value || '').trim();
+    params.set(normalizedKey, normalizedKey === 'jobid' || normalizedKey === 'partnerid'
+      ? normalizedValue
+      : normalizedValue.toLowerCase());
+  }
+  return { params, duplicateIdentityKeys };
+}
+
 function sameBrassRingPostingAddress(firstUrl, secondUrl) {
   try {
     const first = new URL(String(firstUrl || ''));
     const second = new URL(String(secondUrl || ''));
-    return first.protocol === 'https:' && second.protocol === 'https:'
-      && first.origin === 'https://jobs.ubs.com' && second.origin === first.origin
-      && !first.username && !first.password && !second.username && !second.password
-      && BRASSRING_HOME_WITH_PRELOAD_RE.test(first.pathname)
-      && BRASSRING_HOME_WITH_PRELOAD_RE.test(second.pathname)
-      && first.pathname.replace(/\/+$/u, '').toLowerCase() === second.pathname.replace(/\/+$/u, '').toLowerCase()
-      && first.search === second.search;
+    if (first.protocol !== 'https:' || second.protocol !== 'https:'
+      || first.origin !== 'https://jobs.ubs.com' || second.origin !== first.origin
+      || first.username || first.password || second.username || second.password
+      || !BRASSRING_HOME_WITH_PRELOAD_RE.test(first.pathname)
+      || !BRASSRING_HOME_WITH_PRELOAD_RE.test(second.pathname)
+      || first.pathname.replace(/\/+$/u, '').toLowerCase() !== second.pathname.replace(/\/+$/u, '').toLowerCase()) {
+      return false;
+    }
+    const firstQuery = brassRingQueryParams(first);
+    const secondQuery = brassRingQueryParams(second);
+    if (firstQuery.duplicateIdentityKeys.size || secondQuery.duplicateIdentityKeys.size) return false;
+    const firstParams = firstQuery.params;
+    const secondParams = secondQuery.params;
+    const firstJobId = firstParams.get('jobid') || '';
+    const secondJobId = secondParams.get('jobid') || '';
+    if (!firstJobId || firstJobId !== secondJobId) return false;
+    const firstPartner = firstParams.get('partnerid') || '';
+    const secondPartner = secondParams.get('partnerid') || '';
+    if ((firstPartner || secondPartner) && firstPartner !== secondPartner) return false;
+    const firstType = firstParams.get('pagetype') || 'jobdetails';
+    const secondType = secondParams.get('pagetype') || 'jobdetails';
+    return firstType === 'jobdetails' && secondType === 'jobdetails';
   } catch {
     return false;
   }
@@ -3821,6 +3853,15 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     }
     const cookies = await resolveCookieConsent(page, snapshot, { agent: stageContext?.cookieAgent || null });
     snapshot = cookies.snapshot || snapshot;
+    if (cookies.status === 'dismissed'
+      && !snapshot?.fields?.length && !snapshot?.buttons?.length && !snapshot?.links?.length
+      && typeof page?.waitForTimeout === 'function') {
+      for (let waited = 0; waited < 10_000
+        && !snapshot?.fields?.length && !snapshot?.buttons?.length && !snapshot?.links?.length; waited += 1000) {
+        await page.waitForTimeout(1000);
+        snapshot = await extractFields(page, NAVIGATION);
+      }
+    }
     const publicRecovery = await recoverStadtZurichPublicJobSearch(page, snapshot, stageContext, {
       searched: publicSearchSearched,
     });
@@ -11071,7 +11112,8 @@ export async function submitViaPortal(ctx) {
       // their final snapshot may expose only native controls. Preserve the
       // posting proof established on that exact route; a route change still
       // requires the normal application-entry binding below.
-      const sameSelectedPosting = postingVacancyMatched && samePostingAddress(pageUrl, postingUrl);
+      const sameSelectedPosting = postingVacancyMatched
+        && (samePostingAddress(pageUrl, postingUrl) || sameBrassRingPostingAddress(pageUrl, postingUrl));
       const result = formPostingMatch(seen, portalJob, {
         postingMatched: enteredFromMatchingPosting || sameSelectedPosting,
         postingEntry: enteredFromMatchingPosting,
