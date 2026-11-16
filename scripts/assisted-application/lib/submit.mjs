@@ -756,6 +756,7 @@ export async function submitApplication(ctx) {
         postingTitle: draft.job?.postingTitle || draft.job?.sourceTitle || '',
         titleByLocale: draft.job?.titleByLocale || draft.job?.titles || {},
         company: order.companyName || '',
+        location: draft.job?.location || order.location || '',
         organization: liveness.organization || '',
       };
       let { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
