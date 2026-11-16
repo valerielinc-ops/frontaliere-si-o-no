@@ -241,7 +241,7 @@ export async function buildDraft(ctx) {
   const personal = edited.personal;
 
   const locale = candidateLocale(order);
-  const language = resolveLetterLanguage(requirements.postingLanguage, order.locale);
+  const language = resolveLetterLanguage(requirements.postingLanguage, order.locale, flow?.feedback);
   const title = String(posting.titles?.[language] || requirements.roleTitle || order.jobTitle || '').slice(0, 300);
   // Apprentice, first job or qualified, and the sector: the CV's sections and the letter's plan follow it.
   const kind = candidateType({ profile, postingTitle: title || order.jobTitle, postingText });
