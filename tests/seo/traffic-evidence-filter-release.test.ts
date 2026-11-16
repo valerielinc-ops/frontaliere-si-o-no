@@ -70,7 +70,9 @@ describe('traffic evidence filter release', () => {
     const readers = [
       'build-plugins/jobsSeoPagesPlugin.ts',
       'build-plugins/eventsSeoPagesPlugin.ts',
+      'build-plugins/orphanQueryLandingPlugin.ts',
       'build-plugins/plateAuctionsPagesPlugin.ts',
+      'build-plugins/professionCityLandings.ts',
       'build-plugins/relatedSearchClustersPlugin.ts',
     ];
     // Readers run as plain (parallel) closeBundle hooks: none may release the

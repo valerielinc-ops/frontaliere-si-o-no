@@ -20,10 +20,13 @@ import { CROSS_BORDER_TAX_FACTS, CROSS_BORDER_TAX_SOURCE } from '../services/cro
  *     present in the clusters file.
  *
  * Anti-doorway mitigations:
- *   - Clusters with <3 matching jobs at build time emit
- *     <meta name="robots" content="noindex,follow"> and are NOT added to
- *     the sitemap. Ticino queries report Ticino and outside-Ticino counts and
- *     label wider results when the local count is below three.
+ *   - Clusters with <3 matching jobs normally emit
+ *     <meta name="robots" content="noindex,follow"> and stay out of the
+ *     sitemap. Active 90-day Search Console impressions can override only this
+ *     job-count floor when at least one matching job exists; regional
+ *     relevance and the minimum word-count gate still apply. Ticino queries
+ *     report local and wider counts and label wider results when local matches
+ *     are below three.
  *   - Role-aware editorial (tech / healthcare / retail / hospitality /
  *     office / logistics / generic) ensures pages are NOT templated copies.
  *
@@ -96,13 +99,16 @@ import {
   resolveNursingOrphanQueryTarget,
   type NursingOrphanQueryTarget,
 } from './nursingLandingsData';
+import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 
 const MIN_MATCHING_JOBS = 3;
 /**
  * Sanity ceiling above the current demand-qualified input (3,780 clusters).
  * A ranking cap removed previously published URLs when their row moved past
  * the cap. Default builds must retain the whole input or fail before replacing
- * a live shard. Per-page job and word-count gates still decide indexability.
+ * a live shard. Per-page job-count, 90-day GSC demand, regional relevance,
+ * and word-count gates decide indexability; demand never replaces the latter
+ * two quality checks or the one-job minimum.
  *
  * Previous measured baseline: 1,000 clusters took 48.88s on the IT/base shard.
  * The first deploy of the full cohort must be checked against that baseline.
@@ -585,6 +591,8 @@ interface RenderedPageResult {
   regionCoverageResultScope?: OrphanLandingRegionCoverage['resultScope'];
   /** Whether this page should be indexed. */
   indexable: boolean;
+  /** True when the 90-day GSC demand signal alone bypassed the job-count floor. */
+  demandProtectedOnly: boolean;
 }
 
 function renderPage(opts: {
@@ -592,13 +600,24 @@ function renderPage(opts: {
   matchingJobs: OrphanCountableJob[];
   /** False when the selected result set cannot clear the minimum-size gate. */
   regionRelevant?: boolean;
+  /** Active 90-day GSC impression on this canonical page; defaults to false. */
+  demandProtected?: boolean;
   regionCoverage?: OrphanLandingRegionCoverage;
   strings: Record<string, string>;
   knownSlugsByLocale: Map<OrphanLandingLocale, Set<string>>;
   /** dist directory for entry-asset resolution. Omit in tests. */
   distDir?: string;
 }): RenderedPageResult {
-  const { cluster, matchingJobs, regionRelevant = true, regionCoverage, strings, knownSlugsByLocale, distDir } = opts;
+  const {
+    cluster,
+    matchingJobs,
+    regionRelevant = true,
+    demandProtected = false,
+    regionCoverage,
+    strings,
+    knownSlugsByLocale,
+    distDir,
+  } = opts;
   const locale = cluster.locale;
   const urlPath = buildOrphanLandingPath(locale, cluster.canonicalSlug);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
@@ -722,7 +741,7 @@ function renderPage(opts: {
   // The selector keeps the requested region when it clears its local floor;
   // otherwise an explicit wider-region summary keeps the displayed scope
   // honest, while the total-match floor excludes empty/thin landings.
-  const indexable = matchingJobs.length >= MIN_MATCHING_JOBS && regionRelevant;
+  const indexable = (matchingJobs.length >= MIN_MATCHING_JOBS || (demandProtected && matchingJobs.length >= 1)) && regionRelevant;
   const regionCoverageHtml = regionCoverage
     ? `<p data-orphan-region-coverage="ticino" class="s-WzYXnb">${esc(regionCoverageText(regionCoverage, locale))}</p>`
     : '';
@@ -887,6 +906,7 @@ function renderPage(opts: {
     regionCoverageWordCount: regionCoverage ? countHtmlBodyWords(regionCoverageText(regionCoverage, locale)) : 0,
     regionCoverageResultScope: regionCoverage?.resultScope,
     indexable: indexable && wordCount >= MIN_INDEXABLE_WORDS,
+    demandProtectedOnly: demandProtected && matchingJobs.length < MIN_MATCHING_JOBS && indexable && wordCount >= MIN_INDEXABLE_WORDS,
   };
 }
 
@@ -937,6 +957,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
 
       const jobs = loadAllJobs(rootDir);
       console.log(`\x1b[36m[orphan-query-landings]\x1b[0m loaded ${jobs.length} jobs, ${parsed.clusters.length} clusters (cap ${maxLandings})`);
+      const demand = getTrafficEvidenceFilter(rootDir).gscDemand();
 
       const clusters = parsed.clusters.slice(0, maxLandings);
 
@@ -961,6 +982,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
       const routes: OrphanLandingRoute[] = [];
       let pagesGenerated = 0;
       let pagesIndexable = 0;
+      let pagesDemandProtected = 0;
       let pagesIndexableWithWiderTicinoCoverage = 0;
       let widerTicinoCoverageWords = 0;
       let canonicalBridges = 0;
@@ -983,10 +1005,14 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
       // helper makes that drift impossible by construction.
       const renderClusterPage = (cluster: OrphanQueryCluster): RenderedPageResult => {
         const selected = selectOrphanLandingJobs(jobs, cluster, 15, MIN_MATCHING_JOBS);
+        const demandProtected = demand.active && demand.hasImpressions([
+          buildOrphanLandingPath(cluster.locale, cluster.canonicalSlug),
+        ]);
         return renderPage({
           cluster,
           matchingJobs: selected.jobs,
           regionRelevant: selected.regionRelevant,
+          demandProtected,
           regionCoverage: selected.regionCoverage,
           strings: localeStrings[cluster.locale] || {},
           knownSlugsByLocale,
@@ -999,8 +1025,9 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
         // ONLY its own locale's orphan landings. The it/main shard (EMIT_LOCALES
         // has 'it') keeps rendering ALL locales because it owns the root
         // sitemap-orphan-landings.xml, whose per-page inclusion depends on the
-        // rendered indexability (matchingJobs>=3 && wordCount>=MIN) — not
-        // derivable without rendering. No-op in the default all-locale build.
+        // rendered indexability (job floor or active 90-day GSC demand, region
+        // relevance, and minimum words) — not derivable without rendering.
+        // No-op in the default all-locale build.
         if (!shouldEmitLocale(cluster.locale) && !EMIT_LOCALES.has('it')) continue;
 
         const nursingTarget = resolveNursingOrphanQueryTarget(cluster.canonicalQuery, cluster.canonicalSlug);
@@ -1038,6 +1065,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
 
         if (render.indexable) {
           pagesIndexable++;
+          if (render.demandProtectedOnly) pagesDemandProtected++;
           if (render.regionCoverageResultScope === 'broader') {
             pagesIndexableWithWiderTicinoCoverage++;
             widerTicinoCoverageWords += render.regionCoverageWordCount;
@@ -1065,8 +1093,9 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
       //
       // The predicate MUST mirror the hub-EMISSION gate below (`if
       // (indexableByLocale[loc].length === 0) continue;`), which keys on
-      // `render.indexable = matchingJobs>=MIN_MATCHING_JOBS && wordCount>=
-      // MIN_INDEXABLE_WORDS` — i.e. BOTH gates. A jobs-only test
+      // `render.indexable = (jobs>=MIN_MATCHING_JOBS || (active GSC demand
+      // && jobs>=1)) && regionRelevant && wordCount>=MIN_INDEXABLE_WORDS`
+      // — every gate, with demand bypassing only the job-count floor. A jobs-only test
       // (`filterMatchingJobs(...).length >= MIN_MATCHING_JOBS`) is a strict
       // superset: a locale whose jobs-passing clusters all fall under
       // MIN_INDEXABLE_WORDS would be flagged available here yet never get a hub
@@ -1286,7 +1315,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
       collector.add(path.join(distDir, 'orphan-query-aliases.json'), JSON.stringify({ schema: 1, aliases: buildOrphanQueryAliases(clusters) }));
       const written = await collector.flush();
       console.log(
-        `\x1b[36m[orphan-query-landings]\x1b[0m Generated ${pagesGenerated} pages (${pagesIndexable} indexable, ${pagesGenerated - pagesIndexable} noindex, ${canonicalBridges} canonical nursing bridges); ${pagesIndexableWithWiderTicinoCoverage} indexable Ticino pages use wider matches with ${(pagesIndexableWithWiderTicinoCoverage ? widerTicinoCoverageWords / pagesIndexableWithWiderTicinoCoverage : 0).toFixed(1)} added coverage words/page — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
+        `\x1b[36m[orphan-query-landings]\x1b[0m Generated ${pagesGenerated} pages (${pagesIndexable} indexable, ${pagesGenerated - pagesIndexable} noindex, ${pagesDemandProtected} demand-protected by GSC 90d, ${canonicalBridges} canonical nursing bridges); ${pagesIndexableWithWiderTicinoCoverage} indexable Ticino pages use wider matches with ${(pagesIndexableWithWiderTicinoCoverage ? widerTicinoCoverageWords / pagesIndexableWithWiderTicinoCoverage : 0).toFixed(1)} added coverage words/page — flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`,
       );
     },
   };
