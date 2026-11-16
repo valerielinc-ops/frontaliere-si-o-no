@@ -28,7 +28,7 @@ import { createSign } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 import { validateMandatoryJobPostingFields } from './lib/jobposting-mandatory-fields.mjs';
-import { isJobDetailPath } from './lib/seo-health-contract.mjs';
+import { extractRobots, isJobDetailPath } from './lib/seo-health-contract.mjs';
 
 const SITE_URL = 'https://frontaliereticino.ch';
 const LISTING_PATH = '/cerca-lavoro-ticino/';
@@ -189,9 +189,11 @@ export function inspectLiveJobPostingHtml(html) {
   const isListingPage = records.length === 0
     && !malformedJobPosting
     && ['CollectionPage', 'ItemList', 'SearchResultsPage'].some(type => schemaTypes.has(type));
+  const robots = extractRobots(html);
   return {
     isJobPage: records.length > 0 || malformedJobPosting,
     isListingPage,
+    noindex: robots.noindex,
     records,
     errors,
   };
@@ -313,6 +315,15 @@ export function classifyLiveJobCandidate(pageUrl, live, sitemapSignals = null) {
   }
   if (live?.isJobPage === true) {
     return { detailPageSignal, shouldInspect: true, issue: null, skipped: false };
+  }
+  // A matched legacy-job bridge may be generated before the canonical detail
+  // file is available in this shard. It is intentionally noindex and carries
+  // only navigation/breadcrumb JSON-LD; do not mistake that bridge for an
+  // active detail whose JobPosting disappeared. An authoritative active
+  // sitemap signal still wins, so an accidental noindex on a real detail is
+  // reported by the branch below.
+  if (live?.noindex === true && !authoritativeSitemapDetailSignal) {
+    return { detailPageSignal, shouldInspect: false, issue: null, skipped: true };
   }
   // A semantic listing is stronger than the conservative path fallback. Keep
   // it observable as a missing JobPosting only when the live sitemap explicitly

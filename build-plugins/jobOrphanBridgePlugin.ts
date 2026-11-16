@@ -45,8 +45,10 @@
  *     locale-router Worker 301s the URL: to the job's canton page when
  *     /job-canon knows the slug, otherwise to the section root.
  *
- * `matched` pages emit `robots: 'index,follow'` (per the
- * `never_noindex_without_approval` policy).
+ * `matched` pages that can reuse the emitted canonical detail stay
+ * `index,follow`. If the canonical file is absent in this shard, the fallback
+ * is a navigable `noindex,follow` bridge: it has no JobPosting payload and
+ * must never become an indexable job-detail substitute.
  *
  * Plugin contract (CLAUDE.md non-negotiable #14)
  * ----------------------------------------------
@@ -308,8 +310,11 @@ function renderMatchedPage(entry: OrphanEntry, distDir: string): string {
     locale,
     title: copy.matchedTitle,
     description: copy.matchedDescription,
-    canonicalUrl,
-    robots: 'index,follow',
+    // This branch has no complete JobPosting to index. Keep the bridge
+    // self-canonical so the fallback cannot point a crawler at a detail file
+    // that was not emitted in this shard.
+    canonicalUrl: orphanAbsoluteUrl,
+    robots: 'noindex,follow',
     ogType: 'website',
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: '',

@@ -55,6 +55,29 @@ describe('post-deploy SEO verification', () => {
     expect(result.errors).toEqual([]);
   });
 
+  it('skips a noindex bridge without hiding an authoritative detail signal', () => {
+    const pageUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/purchasing-logistica-specialista-mendrisio-site-ticino-sintetica-sa-mendrisio/';
+    const live = inspectLiveJobPostingHtml(`<meta name="robots" content="noindex,follow">${jsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [],
+    })}`);
+
+    expect(live.noindex).toBe(true);
+    expect(classifyLiveJobCandidate(pageUrl, live, new Map())).toMatchObject({
+      detailPageSignal: true,
+      shouldInspect: false,
+      issue: null,
+      skipped: true,
+    });
+    expect(classifyLiveJobCandidate(pageUrl, live, new Map([[pageUrl, true]]))).toMatchObject({
+      detailPageSignal: true,
+      shouldInspect: true,
+      issue: 'missing-jobposting',
+      skipped: false,
+    });
+  });
+
   it('classifies CollectionPage and ItemList JSON-LD as a listing landing', () => {
     const result = inspectLiveJobPostingHtml(jsonLd([
       {

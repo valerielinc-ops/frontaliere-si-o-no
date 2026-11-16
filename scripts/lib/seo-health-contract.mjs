@@ -161,7 +161,7 @@ function extractCanonical(html, pageUrl) {
   return null;
 }
 
-function extractRobots(html) {
+export function extractRobots(html) {
   const directives = [];
   for (const { raw } of scanMarkupStartTags(String(html ?? ''), 'meta')) {
     const name = readAttr(raw, 'name');
