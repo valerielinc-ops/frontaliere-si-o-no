@@ -99,6 +99,9 @@ function runWorkflowHarness(options: {
     '    printf "%s\\n" "$CRAWLER_KEYS" > "data/jobs/expired/by-crawler/$CRAWLER_KEYS.json"',
     '    printf "%s\\n" "crawler:$CRAWLER_KEYS:complete" >> "$EVENT_LOG"',
     '    ;;',
+    '  scripts/ci/validate-backfill-checkpoint.mjs)',
+    '    printf "%s\\n" validate >> "$EVENT_LOG"',
+    '    ;;',
     '  scripts/assemble-jobs-dataset.mjs)',
     '    printf "%s\\n" assemble >> "$EVENT_LOG"',
     '    ;;',
@@ -211,30 +214,39 @@ function runWorkflowHarness(options: {
   }
 }
 
-function expectGatesBeforeEveryPush(events: string[]) {
+function expectCheckpointGates(events: string[]) {
   const pushIndexes = events.map((event, index) => event.startsWith('push:') ? index : -1)
     .filter((index) => index >= 0);
   expect(pushIndexes.length).toBeGreaterThan(0);
   let previousPush = -1;
   for (const pushIndex of pushIndexes) {
     const beforePush = events.slice(previousPush + 1, pushIndex);
-    const assembleIndex = beforePush.indexOf('assemble');
-    const testIndex = beforePush.indexOf('test:run test:backfill');
+    const validateIndex = beforePush.indexOf('validate');
     const auditIndex = beforePush.indexOf('audit');
-    expect(assembleIndex).toBeGreaterThanOrEqual(0);
-    expect(testIndex).toBeGreaterThan(assembleIndex);
-    expect(auditIndex).toBeGreaterThan(testIndex);
+    expect(validateIndex).toBeGreaterThanOrEqual(0);
+    const state = events[pushIndex].split(':')[1];
+    if (state === 'complete') {
+      const assembleIndex = beforePush.indexOf('assemble');
+      const testIndex = beforePush.indexOf('test:run test:backfill');
+      expect(auditIndex).toBeGreaterThan(testIndex);
+      expect(assembleIndex).toBeGreaterThan(validateIndex);
+      expect(testIndex).toBeGreaterThan(assembleIndex);
+    } else {
+      expect(auditIndex).toBe(-1);
+      expect(beforePush).not.toContain('assemble');
+      expect(beforePush).not.toContain('test:run test:backfill');
+    }
     previousPush = pushIndex;
   }
 }
 
-function hashWorkset(keys: string[]) {
+function hashText(input: string) {
   const hashDir = mkdtempSync(join(tmpdir(), 'backfill-workset-hash-'));
   try {
     const result = runCommand('git', ['hash-object', '--stdin'], {
       cwd: hashDir,
       env: isolatedEnv(hashDir),
-      input: keys.join('\n') + '\n',
+      input,
     });
     expect(result.status, result.stderr).toBe(0);
     return result.stdout.trim();
@@ -243,11 +255,49 @@ function hashWorkset(keys: string[]) {
   }
 }
 
-function progressLine(keys: string[], cursor: string, status: 'active' | 'complete') {
-  return hashWorkset(keys) + '\t' + cursor + '\t' + status + '\n';
+function hashWorkset(
+  keys: string[],
+  {
+    maxCommits = '0',
+    historySince = 'all',
+    resolvedHistorySince = historySince,
+  }: { maxCommits?: string; historySince?: string; resolvedHistorySince?: string } = {},
+) {
+  return hashText([
+    'history-backfill-scope-v3',
+    `max_commits=${maxCommits}`,
+    `history_since_input=${historySince}`,
+    `history_since_resolved=${resolvedHistorySince}`,
+    'keys:',
+    keys.join('\n'),
+    '',
+  ].join('\n'));
 }
 
-function resolveResumeState(progress: string, currentKeys: string[]) {
+function progressLine(
+  keys: string[],
+  cursor: string,
+  status: 'active' | 'complete',
+  scope: { maxCommits?: string; historySince?: string; resolvedHistorySince?: string } = {},
+) {
+  const requestScopeHash = hashText([
+    'history-backfill-scope-v3',
+    `max_commits=${scope.maxCommits ?? '0'}`,
+    `history_since_input=${scope.historySince ?? 'all'}`,
+    'keys:',
+    keys.join('\n'),
+    '',
+  ].join('\n'));
+  return hashWorkset(keys, scope) + '\t' + cursor + '\t' + status + '\t'
+    + requestScopeHash + '\t' + (scope.resolvedHistorySince ?? scope.historySince ?? 'all') + '\n';
+}
+
+function resolveResumeState(
+  progress: string,
+  currentKeys: string[],
+  { historySince = 'all', resolvedHistorySince = historySince }:
+  { historySince?: string; resolvedHistorySince?: string } = {},
+) {
   const progressDir = mkdtempSync(join(tmpdir(), 'backfill-resume-'));
   const progressPath = join(progressDir, 'progress.tsv');
   const keys = currentKeys.join('\n');
@@ -264,6 +314,10 @@ function resolveResumeState(progress: string, currentKeys: string[]) {
       'progress_path="$1"',
       'workset_hash="$2"',
       'keys="$3"',
+      'request_scope_hash="$4"',
+      'backfill_scope_version="history-backfill-scope-v3"',
+      'backfill_max_commits="0"',
+      `backfill_history_input=${JSON.stringify(historySince)}`,
       resumeBlock,
       'printf "__STATUS__=%s\\n" "$saved_status"',
       'printf "__CURSOR__=%s\\n" "$last_completed_key"',
@@ -274,8 +328,16 @@ function resolveResumeState(progress: string, currentKeys: string[]) {
       script,
       'backfill-resume-fixture',
       progressPath,
-      hashWorkset(currentKeys),
+      hashWorkset(currentKeys, { historySince, resolvedHistorySince }),
       keys,
+      hashText([
+        'history-backfill-scope-v3',
+        'max_commits=0',
+        `history_since_input=${historySince}`,
+        'keys:',
+        keys,
+        '',
+      ].join('\n')),
     ], { env: isolatedEnv(progressDir) });
     expect(result.status, result.stderr).toBe(0);
 
@@ -328,11 +390,11 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
 
   it('processes one crawler at a time and checkpoints partial batches', () => {
     const backfillStart = workflow.indexOf('- name: Recover dropped jobs and repair active firstSeenAt metadata (checkpointed batches)');
-    const reassembleStart = workflow.indexOf('- name: Reassemble dataset');
-    const block = workflow.slice(backfillStart, reassembleStart);
+    const handoffStart = workflow.indexOf('- name: Record self-driven deploy handoff after validated backfill');
+    const block = workflow.slice(backfillStart, handoffStart);
 
     expect(backfillStart).toBeGreaterThanOrEqual(0);
-    expect(reassembleStart).toBeGreaterThan(backfillStart);
+    expect(handoffStart).toBeGreaterThan(backfillStart);
     expect(block).toContain("if: inputs.dry_run != true && inputs.dry_run != 'true'");
     expect(block).toContain('BACKFILL_CHECKPOINT_BATCH_SIZE');
     expect(block).toContain("BACKFILL_CHECKPOINT_BATCH_SIZE: '8'");
@@ -356,6 +418,10 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(block).toContain('backfill-expired-from-history-progress.tsv');
     expect(block).toContain('last_completed_key');
     expect(block).toContain('workset_hash');
+    expect(block).toContain("backfill_scope_version='history-backfill-scope-v3'");
+    expect(block).toContain('backfill_max_commits="${MAX_COMMITS:-0}"');
+    expect(block).toContain('backfill_history_input="${HISTORY_SINCE:-45 days ago}"');
+    expect(block).toContain('history_since_resolved');
     expect(block.split('[ "$checkpoint_count" -gt 0 ] || has_dirty_checkpoint').length - 1).toBe(2);
     expect(block).toContain('checkpoint_cursor="${last_completed_key:--}"');
     expect(block).toContain('"$saved_last" != \'-\'');
@@ -369,9 +435,11 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(block).toContain('data/jobs/by-crawler data/jobs/expired/by-crawler');
     expect(block).toContain('grep . >/dev/null');
     expect(block).not.toContain('rg -q');
+    expect(block).toContain('node scripts/ci/validate-backfill-checkpoint.mjs');
+    expect(block).toContain('node scripts/audit-expired-at-parsable.mjs');
     expect(block).toContain('node scripts/assemble-jobs-dataset.mjs');
     expect(block).toContain('npm run test:backfill');
-    expect(block).toContain('node scripts/audit-expired-at-parsable.mjs');
+    expect(block).toContain('checkpoint_status=\'complete\'');
     expect(block).toContain('GITHUB_OUTPUT="$checkpoint_output"');
     expect(block).toContain('git-commit-data.sh --slice-only');
     expect(block).toContain("^has_changes=true$");
@@ -382,6 +450,8 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(block).toContain('CRAWLER_KEYS="$batch_crawler_keys" node scripts/ci/prefetch-history-blobs.mjs');
     expect(block).toContain('batch_size="${#batch_keys[@]}"');
     expect(block).toContain('checkpoint history backfill slices');
+    expect(block.indexOf('node scripts/ci/validate-backfill-checkpoint.mjs'))
+      .toBeLessThan(block.indexOf('git-commit-data.sh --slice-only'));
     expect(block.indexOf('npm run test:backfill')).toBeLessThan(block.indexOf('git-commit-data.sh --slice-only'));
   });
 
@@ -405,38 +475,78 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(changed.status).toBe('active');
     expect(changed.cursor).toBe('');
     expect(changed.remainingKeys).toEqual(changedKeys);
-    expect(changed.output).toContain('Crawler workset changed; starting a fresh cursor.');
+    expect(changed.output).toContain('Backfill scope/workset changed; starting a fresh cursor.');
     expect(changed.output).not.toContain('Resuming after durable crawler checkpoint');
+
+    const changedScope = resolveResumeState(
+      progressLine(originalKeys, 'assura-ch', 'active', { historySince: '45 days ago' }),
+      originalKeys,
+    );
+    expect(changedScope.status).toBe('active');
+    expect(changedScope.cursor).toBe('');
+    expect(changedScope.remainingKeys).toEqual(originalKeys);
+    expect(changedScope.output).toContain('Backfill scope/workset changed; starting a fresh cursor.');
+    expect(changedScope.output).not.toContain('Resuming after durable crawler checkpoint');
+
+    const stableRelativeScope = resolveResumeState(
+      progressLine(originalKeys, 'assura-ch', 'active', {
+        historySince: '45 days ago',
+        resolvedHistorySince: '2026-10-01T00:00:00Z',
+      }),
+      originalKeys,
+      {
+        historySince: '45 days ago',
+        resolvedHistorySince: '2026-11-16T00:00:00Z',
+      },
+    );
+    expect(stableRelativeScope.status).toBe('active');
+    expect(stableRelativeScope.cursor).toBe('assura-ch');
+    expect(stableRelativeScope.remainingKeys).toEqual(['atec-personal', 'atena']);
+    expect(stableRelativeScope.output).toContain('Resuming after durable crawler checkpoint: assura-ch');
   });
 
-  it('keeps a failed test gate non-zero and does not push a checkpoint', () => {
+  it('keeps a failed final test gate non-zero while retaining the raw checkpoint', () => {
     const result = runWorkflowHarness({ testGateExit: 17 });
 
     expect(result.status).not.toBe(0);
     expect(result.events, 'status=' + result.status + '\n' + result.stdout + result.stderr).toContain('crawler:alpha:complete');
     expect(result.events).toContain('assemble');
     expect(result.events).toContain('test:run test:backfill');
-    expect(result.events).not.toContain('audit');
-    expect(result.events.some((event) => event.startsWith('push:'))).toBe(false);
-    expect(result.progress.split('\t')).toHaveLength(3);
+    expect(result.events).toContain('validate');
+    expectCheckpointGates(result.events);
+    expect(result.events.filter((event) => event.startsWith('push:'))).toEqual(['push:active:alpha']);
+    expect(result.progress.split('\t')).toHaveLength(5);
     expect(result.progress.split('\t')[1]).toBe('alpha');
     expect(result.progress.split('\t')[2]).toBe('active');
   });
 
-  it('runs gates before checkpoint pushes and advances the cursor for one completed crawler', () => {
+  it('runs the raw gate before each checkpoint and the full gate only before completion', () => {
     const result = runWorkflowHarness();
 
     expect(result.status).toBe(0);
     expect(result.events).toContain('crawler:alpha:complete');
     expect(result.events.indexOf('crawler:alpha:complete')).toBeLessThan(result.events.indexOf('push:active:alpha'));
-    expectGatesBeforeEveryPush(result.events);
+    expectCheckpointGates(result.events);
     expect(result.events.filter((event) => event.startsWith('push:'))).toEqual([
       'push:active:alpha',
       'push:complete:alpha',
     ]);
     expect(new Set(result.events.filter((event) => event.startsWith('push:')).map((event) => event.split(':')[2])))
       .toEqual(new Set(['alpha']));
-    expect(result.progress.split('\t')).toEqual([hashWorkset(['alpha']), 'alpha', 'complete']);
+    expect(result.progress.split('\t')).toEqual([
+      hashWorkset(['alpha']),
+      'alpha',
+      'complete',
+      hashText([
+        'history-backfill-scope-v3',
+        'max_commits=0',
+        'history_since_input=all',
+        'keys:',
+        'alpha',
+        '',
+      ].join('\n')),
+      'all',
+    ]);
   });
 
   it('queues the remaining workset after a bounded run budget', () => {
@@ -452,7 +562,7 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(result.events).not.toContain('crawler:beta:complete');
     expect(result.events).toContain('push:active:alpha');
     expect(result.events.some((event) => event.startsWith('dispatch:'))).toBe(true);
-    expect(result.progress.split('\t')).toEqual([hashWorkset(['alpha', 'beta']), 'alpha', 'active']);
+    expect(result.progress.split('\t')).toEqual(progressLine(['alpha', 'beta'], 'alpha', 'active').trim().split('\t'));
     expect(result.stdout).toContain('queueing the remaining crawler workset');
     expect(result.outputs).toEqual(['continuation_required=true']);
   });
@@ -472,14 +582,13 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(completed.outputs).toEqual(['continuation_required=false']);
 
     const steps = parseYaml(workflow).jobs.backfill.steps as Array<{ name?: string; if?: string }>;
-    for (const name of [
-      'Reassemble dataset (so the test gate has data/jobs.json; not committed)',
-      'Test gate (bot-direct-to-main — validate before deploy)',
-      'Record self-driven deploy handoff after validated backfill',
-    ]) {
-      const step = steps.find((candidate) => candidate.name === name);
-      expect(step?.if, name).toContain("steps.backfill.outputs.continuation_required == 'false'");
-    }
+    expect(steps.some((step) => step.name === 'Reassemble dataset (so the test gate has data/jobs.json; not committed)'))
+      .toBe(false);
+    expect(steps.some((step) => step.name === 'Test gate (bot-direct-to-main — validate before deploy)'))
+      .toBe(false);
+    const handoff = steps.find((step) => step.name === 'Record self-driven deploy handoff after validated backfill');
+    expect(handoff?.if).toContain("steps.backfill.outputs.continuation_required == 'false'");
+    expect(handoff?.if).not.toContain('backfill_tests');
   });
 
   it('checkpoints prior crawler output after a later crawler errors and keeps the run failed', () => {
@@ -487,9 +596,10 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
 
     expect(result.status).not.toBe(0);
     expect(result.events.indexOf('crawler:beta:failed')).toBeLessThan(result.events.indexOf('push:active:alpha'));
-    expectGatesBeforeEveryPush(result.events);
+    expectCheckpointGates(result.events);
     expect(result.events.filter((event) => event.startsWith('push:'))).toEqual(['push:active:alpha']);
-    expect(result.progress.split('\t')).toEqual([hashWorkset(['alpha', 'beta']), 'alpha', 'active']);
+    expect(result.progress.split('\t')).toHaveLength(5);
+    expect(result.progress.split('\t').slice(0, 3)).toEqual([hashWorkset(['alpha', 'beta']), 'alpha', 'active']);
   });
 
   it('attempts one active checkpoint on SIGTERM during a crawler batch and exits non-zero', () => {
@@ -497,9 +607,10 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
 
     expect(result.status).not.toBe(0);
     expect(result.events).toContain('crawler:alpha:interrupted');
-    expectGatesBeforeEveryPush(result.events);
+    expectCheckpointGates(result.events);
     expect(result.events.filter((event) => event.startsWith('push:'))).toEqual(['push:active:-']);
-    expect(result.progress.split('\t')).toEqual([hashWorkset(['alpha']), '-', 'active']);
+    expect(result.progress.split('\t')).toHaveLength(5);
+    expect(result.progress.split('\t').slice(0, 3)).toEqual([hashWorkset(['alpha']), '-', 'active']);
   });
 
   it('riavvia automaticamente solo la run fallita/cancellata e con un tetto di tentativi', () => {
@@ -516,7 +627,7 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
 
     expect(deployStart).toBeGreaterThanOrEqual(0);
     expect(deployBlock).toContain("steps.backfill.outcome == 'success'");
-    expect(deployBlock).toContain("steps.backfill_tests.outcome == 'success'");
+    expect(deployBlock).not.toContain('backfill_tests');
     const deployCondition = deployBlock.split('\n').find((line) => line.trimStart().startsWith('if:')) ?? '';
     expect(deployCondition).not.toContain('has_changes');
   });
