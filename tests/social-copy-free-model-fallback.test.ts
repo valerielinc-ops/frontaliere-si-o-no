@@ -10,8 +10,10 @@ import {
   classifySocialCopyFallbackFailure,
   fallbackPackEditorialParity,
   FREE_SOCIAL_COPY_MODEL_CANDIDATES,
+  isTransientSocialCopyFallbackFailureSet,
   run,
   selectAvailableFreeModels,
+  socialCopyFallbackMaxTokens,
 } from '../scripts/social-copy/generate-free-model-fallback.mjs';
 import { normalizeSocialCopyPack } from '../scripts/lib/social-copy-pack.mjs';
 
@@ -79,12 +81,42 @@ describe('social copy free-model fallback', () => {
     [new Error('[model] HTTP 401: credential detail'), 'provider-auth-failed'],
     [new Error('[model] HTTP 403: access denied'), 'provider-access-denied'],
     [new Error('[model] HTTP 429: quota exceeded'), 'provider-quota-or-rate-limit'],
+    [new Error('[model] HTTP 413: {"code":"rate_limit_exceeded","message":"tokens per minute limit reached"}'), 'provider-quota-or-rate-limit'],
     [new Error('[model] HTTP 404: model not found'), 'model-unavailable'],
     [new Error('[model] HTTP 503: unavailable'), 'provider-temporary-failure'],
+    [new Error('[model] Empty response after 1 attempts'), 'provider-temporary-failure'],
+    [new Error('[model] No endpoints available for this model'), 'provider-temporary-failure'],
     [new Error('[model] HTTP 400: request rejected'), 'provider-request-rejected'],
     [new Error('fetch failed: ECONNRESET'), 'provider-temporary-failure'],
   ])('classifies provider failures safely as %s', (error, category) => {
     expect(classifySocialCopyFallbackFailure(error)).toBe(category);
+  });
+
+  it('keeps persistent status classifications ahead of transient provider wording', () => {
+    expect(classifySocialCopyFallbackFailure({ message: 'upstream model not found' }))
+      .toBe('model-unavailable');
+    expect(classifySocialCopyFallbackFailure({ status: 404, message: 'upstream model not found' }))
+      .toBe('model-unavailable');
+    expect(classifySocialCopyFallbackFailure({ status: 401, message: 'upstream service unavailable' }))
+      .toBe('provider-auth-failed');
+    expect(classifySocialCopyFallbackFailure({ status: 400, message: 'upstream service unavailable' }))
+      .toBe('provider-request-rejected');
+    expect(classifySocialCopyFallbackFailure({ status: 413, message: 'rate_limit_exceeded: tokens per minute limit reached' }))
+      .toBe('provider-quota-or-rate-limit');
+  });
+
+  it('defers only a no-pack result made entirely of transient request failures', () => {
+    expect(isTransientSocialCopyFallbackFailureSet([
+      { provider: 'gemini', phase: 'request', category: 'provider-quota-or-rate-limit' },
+      { provider: 'openrouter', phase: 'request', category: 'provider-temporary-failure' },
+    ])).toBe(true);
+    expect(isTransientSocialCopyFallbackFailureSet([
+      { provider: 'gemini', phase: 'request', category: 'provider-quota-or-rate-limit' },
+      { provider: 'groq', phase: 'request', category: 'provider-request-rejected' },
+    ])).toBe(false);
+    expect(isTransientSocialCopyFallbackFailureSet([
+      { provider: 'gemini', phase: 'validation', category: 'response-invalid' },
+    ])).toBe(false);
   });
 
   it('reports request and response failures separately without logging provider error text', async () => {
@@ -205,6 +237,12 @@ describe('social copy free-model fallback', () => {
     expect(stdout.value).toContain('editorial_parity=match');
     expect(stdout.value).toContain('editorial_parity_provider=gemini');
     expect(result.editorialParity).toMatchObject({ provider: 'gemini', status: 'match' });
+  });
+
+  it('keeps the Groq completion under its free-route TPM ceiling', () => {
+    expect(socialCopyFallbackMaxTokens({ provider: 'groq', context: 'compact' })).toBe(5000);
+    expect(socialCopyFallbackMaxTokens({ provider: 'gemini', context: 'compact' })).toBe(6000);
+    expect(socialCopyFallbackMaxTokens({ provider: 'gemini', context: 'full' })).toBe(7500);
   });
 
   it('observes stable Italian editorial parity per generation provider', () => {

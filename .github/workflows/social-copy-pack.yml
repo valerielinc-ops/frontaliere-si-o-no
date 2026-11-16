@@ -259,6 +259,7 @@ jobs:
           FALLBACK_GENERATED: ${{ steps.free_fallback.outputs.pack_generated }}
           FALLBACK_PROVIDER: ${{ steps.free_fallback.outputs.provider }}
           FALLBACK_REASON: ${{ steps.free_fallback.outputs.reason }}
+          FALLBACK_DEFERRED: ${{ steps.free_fallback.outputs.deferred }}
           FALLBACK_FAILURES: ${{ steps.free_fallback.outputs.attempt_failures }}
           FALLBACK_EDITORIAL_PARITY: ${{ steps.free_fallback.outputs.editorial_parity }}
           FALLBACK_EDITORIAL_PARITY_PROVIDER: ${{ steps.free_fallback.outputs.editorial_parity_provider }}
@@ -292,9 +293,13 @@ jobs:
           # Exhausted rolling provider budgets are an expected scheduling defer:
           # keep the last deterministic publisher copy active and wait for the
           # next eligible window. Other no-pack outcomes remain failures.
-          if [ "$generated" != true ] && [ "${FALLBACK_REASON:-}" = free-fallback-weekly-budget-exhausted ]; then
+          if [ "$generated" != true ] && [ "${FALLBACK_DEFERRED:-}" = true ]; then
             deferred=true
-            echo "::notice::Social copy generation deferred until the free-provider budget window reopens ($reason)."
+            if [ "${FALLBACK_REASON:-}" = free-fallback-weekly-budget-exhausted ]; then
+              echo "::notice::Social copy generation deferred until the free-provider budget window reopens ($reason)."
+            else
+              echo "::notice::Social copy generation deferred because all free providers were transiently unavailable; the existing deterministic copy remains active ($reason)."
+            fi
           fi
           {
             printf 'pack_generated=%s\n' "$generated"
