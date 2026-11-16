@@ -3295,12 +3295,20 @@ export async function runSpecInProduction(spec, runtime = {}) {
       && !isDetailFailureWithinGrace(detailDrop.dropped, detailDrop.candidates);
     const expectedAllDetailAntiBotFailure = Boolean(emptyOutcome)
       && detailAntiBotFailures === rows.length;
+    // A reviewed source-empty marker may coexist with stale detail anchors.
+    // Only let it prove a zero after every candidate was fetched and rejected;
+    // one publishable detail row keeps the ordinary partial-snapshot contract.
+    const authoritativeEmptyFromStaleListing = listingAuthoritativeEmpty
+      && rows.length > 0
+      && publishedRows.length === 0
+      && detailDrop.gone === 0
+      && detailDrop.dropped === rows.length;
     // The production crawler may carry a typed anti-bot outcome so the shared
     // merge preserves the previous slice. VALIDATE still records that read as
     // incomplete, which revokes any earlier promotion readiness.
     const snapshotAccepted = !listingOutcome.failed
       && !listingOutcome.unverifiedEmpty
-      && !exceedsDropGrace
+      && (!exceedsDropGrace || authoritativeEmptyFromStaleListing)
       && !expectedAllDetailAntiBotFailure;
     // A fully observed source can legitimately have no indexable rows when
     // every detail body is real but below the shared 50-word publication
@@ -3321,14 +3329,6 @@ export async function runSpecInProduction(spec, runtime = {}) {
     const allUnexpectedDropsNoOutput = rows.length > 0
       && publishedRows.length === 0
       && detailDrop.dropped > 0;
-    // A reviewed source-empty marker may coexist with stale detail anchors.
-    // Only let it prove a zero after every candidate was fetched and rejected;
-    // one publishable detail row keeps the ordinary partial-snapshot contract.
-    const authoritativeEmptyFromStaleListing = listingAuthoritativeEmpty
-      && rows.length > 0
-      && publishedRows.length === 0
-      && detailDrop.gone === 0
-      && detailDrop.dropped === rows.length;
     const complete = snapshotAccepted
       && (!allUnexpectedDropsNoOutput || authoritativeEmptyFromStaleListing);
     const dropCounts = {
