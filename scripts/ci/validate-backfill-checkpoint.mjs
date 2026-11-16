@@ -14,10 +14,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import process from 'node:process';
-import { jobsArrayFromParsed, readJsonFile } from '../lib/read-large-json.mjs';
+import { readJsonFile } from '../lib/read-large-json.mjs';
 import { listSliceFileNames } from '../lib/crawler-slice-files.mjs';
 import { parseExpiredSliceFileName } from '../lib/expired-slice-names.mjs';
 import { EXPIRED_SLICE_SIZE_LIMIT_BYTES } from '../lib/related-search-output-limit.mjs';
+import { hasPublishedRouteIdentity } from '../lib/job-identity.mjs';
 
 const ROOT = process.cwd();
 const ACTIVE_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
@@ -35,6 +36,7 @@ const isParsableExpiredAt = (value) =>
 const failures = [];
 let activeRows = 0;
 let expiredRows = 0;
+const UNREADABLE = Symbol('unreadable');
 
 function fail(message) {
   failures.push(message);
@@ -45,8 +47,24 @@ function readFile(filePath, label) {
     return readJsonFile(filePath);
   } catch (error) {
     fail(`${label}: unreadable JSON (${error.message})`);
-    return null;
+    return UNREADABLE;
   }
+}
+
+function hasValidLocaleRoutes(entry, label) {
+  if (entry.slugByLocale === undefined) return true;
+  if (!entry.slugByLocale || typeof entry.slugByLocale !== 'object' || Array.isArray(entry.slugByLocale)) {
+    fail(`${label}: slugByLocale must be an object of locale route strings`);
+    return false;
+  }
+  let valid = true;
+  for (const [locale, slug] of Object.entries(entry.slugByLocale)) {
+    if (typeof slug !== 'string') {
+      fail(`${label}: slugByLocale.${locale} must be a string`);
+      valid = false;
+    }
+  }
+  return valid;
 }
 
 if (!fs.existsSync(ACTIVE_DIR)) {
@@ -57,11 +75,23 @@ if (!fs.existsSync(ACTIVE_DIR)) {
     if (requestedKeys.size > 0 && !requestedKeys.has(key)) continue;
     const filePath = path.join(ACTIVE_DIR, name);
     const parsed = readFile(filePath, `active/${name}`);
-    if (parsed === null) continue;
-    try {
-      activeRows += jobsArrayFromParsed(parsed).length;
-    } catch (error) {
-      fail(`active/${name}: ${error.message}`);
+    if (parsed === UNREADABLE) continue;
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed) || !Array.isArray(parsed.jobs)) {
+      fail(`active/${name}: expected an object with a jobs array`);
+      continue;
+    }
+    if (typeof parsed.crawlerKey !== 'string' || parsed.crawlerKey.trim() !== key) {
+      fail(`active/${name}: crawlerKey must equal '${key}'`);
+    }
+    parsed.jobs.forEach((job, index) => {
+      if (!job || typeof job !== 'object' || Array.isArray(job)) {
+        fail(`active/${name}.jobs[${index}]: expected an object`);
+      } else if (!hasPublishedRouteIdentity(job)) {
+        fail(`active/${name}.jobs[${index}]: missing published job identity`);
+      }
+    });
+    if (parsed.crawlerKey === key) {
+      activeRows += parsed.jobs.length;
     }
   }
   if (requestedKeys.size > 0) {
@@ -100,7 +130,7 @@ if (!fs.existsSync(EXPIRED_DIR)) {
     }
 
     const parsed = readFile(filePath, `expired/${name}`);
-    if (parsed === null) continue;
+    if (parsed === UNREADABLE) continue;
     if (!Array.isArray(parsed)) {
       fail(`expired/${name}: expected a top-level JSON array`);
       continue;
@@ -108,10 +138,17 @@ if (!fs.existsSync(EXPIRED_DIR)) {
 
     expiredRows += parsed.length;
     parsed.forEach((entry, index) => {
+      const label = `expired/${name}[${index}]`;
       if (!entry || typeof entry !== 'object' || Array.isArray(entry)) {
-        fail(`expired/${name}[${index}]: expected an object`);
-      } else if (!isParsableExpiredAt(entry.expiredAt)) {
-        fail(`expired/${name}[${index}]: expiredAt is not parsable`);
+        fail(`${label}: expected an object`);
+        return;
+      }
+      if (typeof entry.slug !== 'string' || entry.slug.trim() === '') {
+        fail(`${label}: requires a non-empty slug route identity`);
+      }
+      hasValidLocaleRoutes(entry, label);
+      if (!isParsableExpiredAt(entry.expiredAt)) {
+        fail(`${label}: expiredAt is not parsable`);
       }
     });
   }

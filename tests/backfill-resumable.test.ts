@@ -220,13 +220,24 @@ function expectCheckpointGates(events: string[]) {
   }
 }
 
-function hashWorkset(keys: string[]) {
+function hashWorkset(
+  keys: string[],
+  { maxCommits = '0', historySince = 'all' }: { maxCommits?: string; historySince?: string } = {},
+) {
   const hashDir = mkdtempSync(join(tmpdir(), 'backfill-workset-hash-'));
   try {
+    const descriptor = [
+      'history-backfill-scope-v2',
+      `max_commits=${maxCommits}`,
+      `history_since=${historySince}`,
+      'keys:',
+      keys.join('\n'),
+      '',
+    ].join('\n');
     const result = runCommand('git', ['hash-object', '--stdin'], {
       cwd: hashDir,
       env: isolatedEnv(hashDir),
-      input: keys.join('\n') + '\n',
+      input: descriptor,
     });
     expect(result.status, result.stderr).toBe(0);
     return result.stdout.trim();
@@ -235,8 +246,13 @@ function hashWorkset(keys: string[]) {
   }
 }
 
-function progressLine(keys: string[], cursor: string, status: 'active' | 'complete') {
-  return hashWorkset(keys) + '\t' + cursor + '\t' + status + '\n';
+function progressLine(
+  keys: string[],
+  cursor: string,
+  status: 'active' | 'complete',
+  scope: { maxCommits?: string; historySince?: string } = {},
+) {
+  return hashWorkset(keys, scope) + '\t' + cursor + '\t' + status + '\n';
 }
 
 function resolveResumeState(progress: string, currentKeys: string[]) {
@@ -340,6 +356,9 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(block).toContain('backfill-expired-from-history-progress.tsv');
     expect(block).toContain('last_completed_key');
     expect(block).toContain('workset_hash');
+    expect(block).toContain("backfill_scope_version='history-backfill-scope-v2'");
+    expect(block).toContain('backfill_max_commits="${MAX_COMMITS:-0}"');
+    expect(block).toContain('backfill_history_since="${HISTORY_SINCE:-45 days ago}"');
     expect(block.split('[ "$checkpoint_count" -gt 0 ] || has_dirty_checkpoint').length - 1).toBe(2);
     expect(block).toContain('checkpoint_cursor="${last_completed_key:--}"');
     expect(block).toContain('"$saved_last" != \'-\'');
@@ -393,8 +412,18 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(changed.status).toBe('active');
     expect(changed.cursor).toBe('');
     expect(changed.remainingKeys).toEqual(changedKeys);
-    expect(changed.output).toContain('Crawler workset changed; starting a fresh cursor.');
+    expect(changed.output).toContain('Backfill scope/workset changed; starting a fresh cursor.');
     expect(changed.output).not.toContain('Resuming after durable crawler checkpoint');
+
+    const changedScope = resolveResumeState(
+      progressLine(originalKeys, 'assura-ch', 'active', { historySince: '45 days ago' }),
+      originalKeys,
+    );
+    expect(changedScope.status).toBe('active');
+    expect(changedScope.cursor).toBe('');
+    expect(changedScope.remainingKeys).toEqual(originalKeys);
+    expect(changedScope.output).toContain('Backfill scope/workset changed; starting a fresh cursor.');
+    expect(changedScope.output).not.toContain('Resuming after durable crawler checkpoint');
   });
 
   it('keeps a failed final test gate non-zero while retaining the raw checkpoint', () => {

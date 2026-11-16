@@ -151,7 +151,22 @@ jobs:
           fi
 
           progress_path="${BACKFILL_PROGRESS_PATH:-.github/backfill-expired-from-history-progress.tsv}"
-          workset_hash="$(printf '%s\n' "$keys" | git hash-object --stdin)"
+          # The durable cursor is valid only for the exact history scope that
+          # produced it. A crawler-only hash would incorrectly resume a pass
+          # started with (for example) 45 days ago after a later run requested
+          # all history, permanently skipping the older records. Keep the
+          # algorithm version in the descriptor so a future cursor semantics
+          # change also starts fail-closed from a fresh scope.
+          backfill_scope_version='history-backfill-scope-v2'
+          backfill_max_commits="${MAX_COMMITS:-0}"
+          backfill_history_since="${HISTORY_SINCE:-45 days ago}"
+          workset_hash="$({
+            printf '%s\n' "$backfill_scope_version"
+            printf 'max_commits=%s\n' "$backfill_max_commits"
+            printf 'history_since=%s\n' "$backfill_history_since"
+            printf 'keys:\n%s\n' "$keys"
+          } | git hash-object --stdin)"
+          echo "Backfill scope: version=$backfill_scope_version max_commits=$backfill_max_commits history_since=$backfill_history_since workset_hash=$workset_hash"
           last_completed_key=''
           saved_workset=''
           saved_last=''
@@ -185,7 +200,7 @@ jobs:
             keys="$(awk -v marker="$saved_last" '$0 == marker { found=1; next } found' <<< "$keys")"
             echo "♻️ Resuming after durable crawler checkpoint: $saved_last"
           elif [ "$saved_status" = 'active' ] && [ -n "$saved_workset" ] && [ "$saved_workset" != "$workset_hash" ]; then
-            echo 'ℹ️ Crawler workset changed; starting a fresh cursor.'
+            echo 'ℹ️ Backfill scope/workset changed; starting a fresh cursor.'
           elif [ "$saved_status" = 'complete' ]; then
             echo 'ℹ️ Previous crawler workset completed; starting a fresh pass.'
           fi
