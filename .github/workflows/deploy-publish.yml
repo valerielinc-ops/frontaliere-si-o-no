@@ -1501,6 +1501,24 @@ jobs:
           DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
           OFFLOAD_CDN_WORKERS: '4'
         run: bash scripts/lib/deploy-it-pages-prep.sh
+      - name: Require closed job-canon handshake before Pages artifact
+        id: job-canon-publish-gate
+        if: steps.deploy-prep-it.outcome == 'success'
+        env:
+          EXPECTED_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
+        run: |
+          set -euo pipefail
+          receipt="$RUNNER_TEMP/job-canon-publish.ok"
+          test -s "$receipt" || {
+            echo "::error::job-canon publication receipt is missing; refusing to upload a Pages artifact with bridge removals"
+            exit 1
+          }
+          actual="$(tr -d '[:space:]' < "$receipt")"
+          test "$actual" = "$EXPECTED_BUILD_ID" || {
+            echo "::error::job-canon publication receipt names build $actual, expected $EXPECTED_BUILD_ID"
+            exit 1
+          }
+          echo "job-canon handshake closed for build $EXPECTED_BUILD_ID"
       - name: Save final R2 OG manifest cache
         if: ${{ always() && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && hashFiles('.cache/r2-og-published-manifest.json') != '' }}
         uses: actions/cache/save@v6
@@ -3268,7 +3286,7 @@ jobs:
           **Dove guardare — il leg IT di questo run, non lo shard \`${LOCALE}\`:**
           1. il leg \`build-locale (it)\` è fallito o è stato lento? Se il suo Build fallisce, il marker non viene mai scritto e tutti e tre i leg non-IT scadono (successo esatto: run 31062047677).
           2. lo step \`Push generated assets to CDN (early …)\` del leg IT ha pubblicato? Se ha loggato \`CDN_BASE unset\` la push è fallita.
-          3. \`curl -s https://cdn.frontaliereticino.ch/cdn-build-id.txt\` corrisponde a \`${CDN_EXPECTED}\`?
+          3. \`curl -s "https://cdn.frontaliereticino.ch/cdn-build-id.txt?nocache=$(date +%s)"\` corrisponde a \`${CDN_EXPECTED}\`?
 
           Il deploy resta verde per design: un solo shard indietro non deve abortire gli altri 26." \
             --priority 1 \
