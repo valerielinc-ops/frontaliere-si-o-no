@@ -28,8 +28,9 @@ import { realpathSync } from 'node:fs';
  *   https://www.login.org/it/panoramica-dei-posti-di-tirocinio-disponibili-nel
  *     ?f[0]=canton:296&f[1]=facet_apprentice_partner:SBB CFF FFS
  *
- * Detail page URL pattern:
- *   https://jobs.sbb.ch/v2/offene-stellen/{slug}/{viewkey-uuid}
+ * Detail page URL patterns:
+ *   legacy:  https://jobs.sbb.ch/v2/offene-stellen/{slug}/{viewkey-uuid}
+ *   current: https://careers.sbb.ch/job/{title-and-location}/{job-id}/
  *
  * The detail pages are fully SSR with schema.org/JobPosting JSON-LD,
  * so the base crawler's extractJsonLdBlocks() parses them correctly.
@@ -127,6 +128,34 @@ function normalizeKey(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
+/**
+ * Return the stable identity for a canonical SBB vacancy URL.
+ *
+ * SBB migrated the public postings from the legacy Prospective host to the
+ * SAP SuccessFactors careers host. Keep both URL contracts explicit: accepting
+ * any SBB URL would let navigation, search, or company pages become job seeds.
+ */
+function getSbbDetailIdentity(rawUrl = '') {
+  try {
+    const parsed = new URL(rawUrl);
+    if (parsed.protocol !== 'https:' || parsed.search || parsed.hash) return '';
+
+    const pathname = parsed.pathname.replace(/\/+$/, '');
+    if (parsed.hostname === 'jobs.sbb.ch') {
+      const legacy = pathname.match(/^\/v2\/offene-stellen\/[^/]+\/([0-9a-f-]{20,})$/i);
+      return legacy ? `jobs:${legacy[1].toLowerCase()}` : '';
+    }
+
+    if (parsed.hostname === 'careers.sbb.ch') {
+      const current = pathname.match(/^\/job\/[^/]+\/(\d{7,})$/i);
+      return current ? `careers:${current[1]}` : '';
+    }
+  } catch {
+    return '';
+  }
+  return '';
+}
+
 function detectLang(text = '') {
   return detectLanguage(text, 'it');
 }
@@ -150,6 +179,7 @@ function isSbbJob(job) {
     key.includes('ffs-officine') ||
     key.includes('ferrovie-federali') ||
     host.includes('jobs.sbb.ch') ||
+    host === 'careers.sbb.ch' ||
     host.includes('company.sbb.ch') ||
     host.includes('login.org') ||
     (company.includes('sbb') && !company.includes('subsidiary')) ||
@@ -387,8 +417,8 @@ function extractSbbListingDetailJobs(html = '') {
     } catch {
       continue;
     }
-    const identity = url.pathname.match(/^\/v2\/offene-stellen\/[^/]+\/([0-9a-f-]{20,})$/i);
-    if (url.protocol !== 'https:' || url.hostname !== 'jobs.sbb.ch' || !identity || url.search || url.hash) continue;
+    const identity = getSbbDetailIdentity(url.toString());
+    if (!identity) continue;
     const detailUrl = normalizeDetailUrl(url.toString());
     if (!jobs.has(detailUrl)) {
       jobs.set(detailUrl, {
@@ -467,7 +497,7 @@ async function fetchSbbListingPageBody(pageUrl, { fetchPageImpl, fetchJinaImpl, 
  * AEM JSON endpoint is blocked for both the Actions egress and Jina. The page
  * is a source-backed listing, not a generic search result: every page must
  * identify the SBB vacancies component, declare its result count, and expose
- * canonical jobs.sbb.ch detail URLs. A count mismatch fails closed rather than
+ * canonical SBB detail URLs. A count mismatch fails closed rather than
  * publishing a partial snapshot.
  */
 async function fetchSbbListingDetailUrls({ fetchPageImpl, fetchJinaImpl, timeoutMs }) {
@@ -924,14 +954,7 @@ export async function fetchSbbJobDetailUrls(options = {}) {
     const directLink = job?.links?.directlink;
     if (directLink && directLink.startsWith('http')) {
       const normalizedUrl = normalizeDetailUrl(directLink);
-      let identity = '';
-      try {
-        const parsed = new URL(normalizedUrl);
-        const match = parsed.pathname.match(/^\/v2\/offene-stellen\/[^/]+\/([0-9a-f-]{20,})$/i);
-        if (parsed.protocol === 'https:' && parsed.hostname === 'jobs.sbb.ch' && match && !parsed.search) {
-          identity = match[1].toLowerCase();
-        }
-      } catch {}
+      const identity = getSbbDetailIdentity(normalizedUrl);
       if (!identity) {
         throw new Error(`SBB AEM discovery invariant failed: non-canonical target detail URL ${directLink}.`);
       }
