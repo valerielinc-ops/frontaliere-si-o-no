@@ -586,6 +586,55 @@ describe('rehydrate-trunk-guard.sh — structural invariants', () => {
       .filter((line) => !/^\s*#/.test(line))
       .join('\n');
 
+  it('fails closed when the lost-path inventory and fatal marker cannot be written', () => {
+    const root = mkdtempSync(join(tmpdir(), 'trunk-guard-inventory-'));
+    const lib = join(root, 'scripts', 'lib');
+    mkdirSync(lib, { recursive: true });
+    copyFileSync(resolve('scripts/lib/rehydrate-trunk-guard.sh'), join(lib, 'rehydrate-trunk-guard.sh'));
+    write(join(root, 'dist', 'lost', 'index.html'), INDEXABLE_PAGE);
+    writeFileSync(
+      join(root, 'harness.sh'),
+      [
+        'set -uo pipefail',
+        '. scripts/lib/rehydrate-trunk-guard.sh',
+        'trunk_guard_init direct',
+        'trunk_replace_begin broken "lost"',
+        // A directory at the inventory path makes both its create and append
+        // fail without changing the guard's source or relying on root-only
+        // permission tricks.
+        'mkdir -p "$TRUNK_GUARD_STATE/broken.lost"',
+        // A directory at the per-label fatal marker path makes the normal
+        // cross-process verdict write fail too; the guard must retain a
+        // fail-closed state instead of returning clean.
+        'mkdir -p "$TRUNK_GUARD_STATE/fatal/broken"',
+        'trunk_replace_end broken',
+        'if ! trunk_guard_verdict "inventory write failure"; then exit 1; fi',
+      ].join('\n'),
+      'utf8',
+    );
+
+    let status = 0;
+    let output = '';
+    try {
+      output = execFileSync('bash', ['harness.sh'], {
+        cwd: root,
+        encoding: 'utf8',
+        stdio: ['pipe', 'pipe', 'pipe'],
+        env: { ...process.env, RUNNER_TEMP: join(root, 'runner-temp') },
+      });
+    } catch (e) {
+      const err = e as { status?: number; stdout?: string; stderr?: string };
+      status = err.status ?? 1;
+      output = `${err.stdout ?? ''}${err.stderr ?? ''}`;
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+
+    expect(status).toBe(1);
+    expect(output).toContain('could not classify lost paths');
+    expect(output).toContain('could not persist fatal verdict marker');
+  });
+
   it('is sourced by BOTH rehydrate scripts (the locale one has the same replace semantics)', () => {
     for (const s of [section, locale]) {
       expect(s).toContain('rehydrate-trunk-guard.sh');
@@ -622,6 +671,13 @@ describe('rehydrate-trunk-guard.sh — structural invariants', () => {
     const begin = guard.slice(beginIdx, endIdx);
     expect(begin).toMatch(/grep -rLiE/);
     expect(begin.indexOf('grep -rLiE')).toBeLessThan(begin.lastIndexOf('rm -rf'));
+  });
+
+  it('classifies lost paths in one batch lookup instead of spawning grep per path', () => {
+    const end = guard.slice(guard.indexOf('trunk_replace_end()'), guard.indexOf('trunk_guard_verdict()'));
+    expect(end).toContain('comm -12 "$lost_file" "$idx"');
+    expect(end).toContain('comm -23 "$lost_file" "$idx"');
+    expect(end).not.toMatch(/grep -qxF -- "\$rel" "\$idx"/);
   });
 
   it('matches a robots noindex meta in either attribute order', () => {

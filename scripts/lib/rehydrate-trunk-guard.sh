@@ -122,6 +122,7 @@ trunk_guard_init() {
   TRUNK_GUARD_NS="${1:-guard}"
   TRUNK_GUARD_DIST="${2:-dist}"
   TRUNK_GUARD_STATE="${RUNNER_TEMP:-/tmp}/trunk-guard-$TRUNK_GUARD_NS"
+  TRUNK_GUARD_FATAL_MARKER_WRITE_FAILED=0
   rm -rf "$TRUNK_GUARD_STATE" 2>/dev/null || true
   mkdir -p "$TRUNK_GUARD_STATE/fatal" 2>/dev/null || true
   return 0
@@ -178,15 +179,25 @@ trunk_replace_end() {
   local state="${TRUNK_GUARD_STATE:-${RUNNER_TEMP:-/tmp}/trunk-guard}"
   local all="$state/$label.all"
   local idx="$state/$label.idx"
+  local lost_file="$state/$label.lost"
+  local fatal_file="$state/$label.fatal"
+  local benign_file="$state/$label.benign"
   if [ ! -f "$all" ]; then return 0; fi
 
-  local rel twin lost=0 fatal=0 benign=0 respelled=0
+  local rel twin lost=0 fatal=0 benign=0 respelled=0 classification_ok=1
   local fatal_s="" benign_s="" respelled_s=""
+  # A lost path is counted before it is written so the final verdict can stay
+  # fail-closed even when the inventory itself becomes unwritable (for
+  # example, a full runner filesystem or a broken state path). Do not let that
+  # write failure turn a real loss into an empty `comm` input.
+  if ! : > "$lost_file"; then classification_ok=0; fi
   while IFS= read -r rel; do
     if [ -z "$rel" ]; then continue; fi
     if [ -e "$dist/$rel" ]; then continue; fi
     # Same url, other spelling. Counted and named — never silently dropped —
-    # but it is not a loss: the url still answers from `$dist/$twin`.
+    # but it is not a loss: the url still answers from `$dist/$twin`. The
+    # structural contract is that the shard can answer the same url from the
+    # shard's other spelling, and that fact must remain visible to the guard.
     twin="$(trunk_url_twin "$rel")"
     if [ -n "$twin" ] && [ -e "$dist/$twin" ]; then
       respelled=$((respelled + 1))
@@ -200,19 +211,56 @@ trunk_replace_end() {
       continue
     fi
     lost=$((lost + 1))
-    if grep -qxF -- "$rel" "$idx" 2>/dev/null; then
-      fatal=$((fatal + 1))
-      if [ "$fatal" -le "${TRUNK_GUARD_SAMPLE_CAP:-12}" ]; then
-        fatal_s="$fatal_s $dist/$rel"
-      fi
-    else
-      benign=$((benign + 1))
-      if [ "$benign" -le "${TRUNK_GUARD_SAMPLE_CAP:-12}" ]; then
-        benign_s="$benign_s $dist/$rel"
-      fi
+    if ! printf '%s\n' "$rel" >> "$lost_file"; then
+      classification_ok=0
     fi
   done < "$all"
-  rm -f "$all" "$idx" 2>/dev/null || true
+
+  # `$idx` contains every path whose HTML was classified as indexable while
+  # it still existed. The old lookup ran `grep -qxF` once per lost path; on a
+  # multi-million-file Ticino subtree that spawned millions of processes and
+  # made the validator host-kill before it could report a verdict (#7421).
+  # Sort once and classify the complete lost set with two linear `comm` passes:
+  # same exact path semantics, one bounded set of external processes.
+  if [ "$lost" -gt 0 ]; then
+    if [ "$classification_ok" -eq 1 ] \
+        && ! LC_ALL=C sort -u "$lost_file" -o "$lost_file"; then classification_ok=0; fi
+    if [ "$classification_ok" -eq 1 ] \
+        && ! LC_ALL=C sort -u "$idx" -o "$idx"; then classification_ok=0; fi
+    if [ "$classification_ok" -eq 1 ] \
+        && ! LC_ALL=C comm -12 "$lost_file" "$idx" > "$fatal_file"; then
+      classification_ok=0
+    fi
+    if [ "$classification_ok" -eq 1 ] \
+        && ! LC_ALL=C comm -23 "$lost_file" "$idx" > "$benign_file"; then
+      classification_ok=0
+    fi
+    if [ "$classification_ok" -eq 0 ]; then
+      # An unreadable classification is unsafe to treat as benign. Preserve
+      # the guard's fail-closed correctness contract and name the paths as
+      # indexable rather than letting an accounting failure hide a 404.
+      echo "::error::[trunk-guard] $label: could not classify lost paths; treating all $lost as indexable"
+      fatal_file="$lost_file"
+      benign_file="$state/$label.benign-empty"
+      : > "$benign_file" 2>/dev/null || true
+      # `lost` is authoritative here: the inventory may be partial or
+      # unreadable, so deriving `fatal` from `wc -l` could erase the only
+      # evidence that a page was lost and suppress the final trunk-guard verdict.
+      fatal="$lost"
+      benign=0
+    else
+      lost="$(wc -l < "$lost_file" 2>/dev/null || printf '0')"
+      fatal="$(wc -l < "$fatal_file" 2>/dev/null || printf '0')"
+      benign="$(wc -l < "$benign_file" 2>/dev/null || printf '0')"
+    fi
+    while IFS= read -r rel; do
+      if [ -n "$rel" ]; then fatal_s="$fatal_s $dist/$rel"; fi
+    done < <(head -n "${TRUNK_GUARD_SAMPLE_CAP:-12}" "$fatal_file" 2>/dev/null)
+    while IFS= read -r rel; do
+      if [ -n "$rel" ]; then benign_s="$benign_s $dist/$rel"; fi
+    done < <(head -n "${TRUNK_GUARD_SAMPLE_CAP:-12}" "$benign_file" 2>/dev/null)
+  fi
+  rm -f "$all" "$idx" "$lost_file" "$fatal_file" "$benign_file" "$state/$label.benign-empty" 2>/dev/null || true
 
   # Report the re-spellings even on an otherwise clean replace: they are the
   # evidence the url-level comparison is doing something, and the line a future
@@ -233,7 +281,20 @@ trunk_replace_end() {
   fi
 
   if [ "$fatal" -gt 0 ]; then
-    : > "$state/fatal/$label" 2>/dev/null || true
+    # The per-label marker is the normal cross-process verdict channel. If
+    # that path is unavailable after a fail-closed classification, preserve
+    # the failure in a state-level sentinel so trunk_guard_verdict cannot
+    # mistake a persistence error for a clean rehydrate.
+    if ! : > "$state/fatal/$label" 2>/dev/null; then
+      TRUNK_GUARD_FATAL_MARKER_WRITE_FAILED=1
+      if ! : > "$state/.fatal-marker-write-failed" 2>/dev/null; then
+        # Keep direct callers fail-closed even if the state directory itself
+        # is unavailable. Background workers still report through the
+        # state-level sentinel whenever that parent remains writable.
+        TRUNK_GUARD_FATAL_MARKER_WRITE_FAILED=1
+      fi
+      echo "::error::[trunk-guard] $label: could not persist fatal verdict marker; preserving a fail-closed verdict"
+    fi
     echo "::error::[trunk-guard] $label: $fatal indexable page(s) were built under a prefix this build does not ship to the shard, and the rehydrate discarded them —$fatal_s. Either gate the emitter on <SECTION>_BUILD_EMIT_SKIP (as #5290 did for topicClusterHubsPlugin.ts) or ship the pages to the shard; they are 404 in production today."
   else
     echo "::warning::[trunk-guard] $label: $lost trunk file(s) discarded by the shard rehydrate, all noindex or non-HTML (bridge pages from legacyRedirectsPlugin.ts and friends) — no indexable content lost, not failing the step."
@@ -250,12 +311,22 @@ trunk_guard_verdict() {
   local what="${1:-rehydrate}"
   local state="${TRUNK_GUARD_STATE:-${RUNNER_TEMP:-/tmp}/trunk-guard}"
   local n=0
+  local marker_write_failed=0
   if [ -d "$state/fatal" ]; then
     n="$(find "$state/fatal" -type f 2>/dev/null | wc -l | tr -d ' ')"
   fi
   case "${n:-0}" in ''|*[!0-9]*) n=0 ;; esac
-  if [ "$n" -eq 0 ]; then return 0; fi
-  echo "::error::[trunk-guard] $what: $n subtree(s) lost indexable pages to the shard replace — see the [trunk-guard] lines above for the exact files. This is the #5327 class: a build-time emitter writing under a prefix served by a shard that never receives it."
+  if [ "${TRUNK_GUARD_FATAL_MARKER_WRITE_FAILED:-0}" = "1" ] \
+    || [ -f "$state/.fatal-marker-write-failed" ]; then
+    marker_write_failed=1
+  fi
+  if [ "$n" -eq 0 ] && [ "$marker_write_failed" -eq 0 ]; then return 0; fi
+  if [ "$marker_write_failed" -eq 1 ]; then
+    echo "::error::[trunk-guard] $what: a fatal verdict marker could not be persisted; failing closed because the rehydrate result is not trustworthy."
+  fi
+  if [ "$n" -gt 0 ]; then
+    echo "::error::[trunk-guard] $what: $n subtree(s) lost indexable pages to the shard replace — see the [trunk-guard] lines above for the exact files. This is the #5327 class: a build-time emitter writing under a prefix served by a shard that never receives it."
+  fi
   if [ "${REHYDRATE_TRUNK_ORPHANS_FATAL:-true}" = "false" ]; then
     echo "[trunk-guard] REHYDRATE_TRUNK_ORPHANS_FATAL=false — downgraded to a warning, NOT failing this step."
     return 0
