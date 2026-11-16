@@ -185,7 +185,11 @@ trunk_replace_end() {
 
   local rel twin lost=0 fatal=0 benign=0 respelled=0 classification_ok=1
   local fatal_s="" benign_s="" respelled_s=""
-  : > "$lost_file"
+  # A lost path is counted before it is written so the final verdict can stay
+  # fail-closed even when the inventory itself becomes unwritable (for
+  # example, a full runner filesystem or a broken state path). Do not let that
+  # write failure turn a real loss into an empty `comm` input.
+  if ! : > "$lost_file"; then classification_ok=0; fi
   while IFS= read -r rel; do
     if [ -z "$rel" ]; then continue; fi
     if [ -e "$dist/$rel" ]; then continue; fi
@@ -204,7 +208,9 @@ trunk_replace_end() {
       continue
     fi
     lost=$((lost + 1))
-    printf '%s\n' "$rel" >> "$lost_file"
+    if ! printf '%s\n' "$rel" >> "$lost_file"; then
+      classification_ok=0
+    fi
   done < "$all"
 
   # `$idx` contains every path whose HTML was classified as indexable while
@@ -214,8 +220,10 @@ trunk_replace_end() {
   # Sort once and classify the complete lost set with two linear `comm` passes:
   # same exact path semantics, one bounded set of external processes.
   if [ "$lost" -gt 0 ]; then
-    if ! LC_ALL=C sort -u "$lost_file" -o "$lost_file"; then classification_ok=0; fi
-    if ! LC_ALL=C sort -u "$idx" -o "$idx"; then classification_ok=0; fi
+    if [ "$classification_ok" -eq 1 ] \
+        && ! LC_ALL=C sort -u "$lost_file" -o "$lost_file"; then classification_ok=0; fi
+    if [ "$classification_ok" -eq 1 ] \
+        && ! LC_ALL=C sort -u "$idx" -o "$idx"; then classification_ok=0; fi
     if [ "$classification_ok" -eq 1 ] \
         && ! LC_ALL=C comm -12 "$lost_file" "$idx" > "$fatal_file"; then
       classification_ok=0
@@ -231,11 +239,17 @@ trunk_replace_end() {
       echo "::error::[trunk-guard] $label: could not classify lost paths; treating all $lost as indexable"
       fatal_file="$lost_file"
       benign_file="$state/$label.benign-empty"
-      : > "$benign_file"
+      : > "$benign_file" 2>/dev/null || true
+      # `lost` is authoritative here: the inventory may be partial or
+      # unreadable, so deriving `fatal` from `wc -l` could erase the only
+      # evidence that a page was lost and suppress trunk_guard_verdict().
+      fatal="$lost"
+      benign=0
+    else
+      lost="$(wc -l < "$lost_file" 2>/dev/null || printf '0')"
+      fatal="$(wc -l < "$fatal_file" 2>/dev/null || printf '0')"
+      benign="$(wc -l < "$benign_file" 2>/dev/null || printf '0')"
     fi
-    lost="$(wc -l < "$lost_file" 2>/dev/null || printf '0')"
-    fatal="$(wc -l < "$fatal_file" 2>/dev/null || printf '0')"
-    benign="$(wc -l < "$benign_file" 2>/dev/null || printf '0')"
     while IFS= read -r rel; do
       if [ -n "$rel" ]; then fatal_s="$fatal_s $dist/$rel"; fi
     done < <(head -n "${TRUNK_GUARD_SAMPLE_CAP:-12}" "$fatal_file" 2>/dev/null)
