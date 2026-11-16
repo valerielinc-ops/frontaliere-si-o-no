@@ -73,6 +73,11 @@ export const THIRD_PARTY_STACK_ORIGINS: readonly RegExp[] = [
   // The library is third-party and can throw errors entirely inside its own
   // securepubads.g.doubleclick.net frames; no first-party fix is possible.
   /^https:\/\/securepubads\.g\.doubleclick\.net\//i,
+  // Google reCAPTCHA Enterprise — #19025.
+  // The live PostHog sample was `reCAPTCHA Timeout (b)` with every resolved
+  // frame in Google's gstatic reCAPTCHA release; the timeout is inside the
+  // vendor client and cannot be fixed by this application.
+  /^https:\/\/www\.gstatic\.com\/recaptcha\//i,
 ];
 
 /**
