@@ -518,6 +518,22 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     })).toBe('mismatch');
   });
 
+  it('carries a followed Workday posting through the authenticated form route', () => {
+    const job = { company: 'Acme Retail Switzerland', organization: 'Acme Retail Germany GmbH', title: 'Verkaufsberater/in' };
+    const postingUrl = 'https://workday.example/wd/job?jobid=fixture';
+    const formUrl = 'https://workday.example/wd/form?jobid=fixture';
+
+    expect(formPostingMatch('Create Account\nAcme Careers\nVerkaufsberater/in', job, {
+      postingMatched: true,
+      applicationEntry: true,
+      applicationEntryUrl: formUrl,
+      pageUrl: formUrl,
+      postingUrl,
+      pageHeading: 'Verkaufsberater/in',
+      pageHeadings: ['Verkaufsberater/in'],
+    })).toBe('match');
+  });
+
   it('keeps the ambiguous “About You” heading unknown until a posting link is proved', () => {
     const job = { company: 'Acme AG', title: 'Senior Engineer' };
     const formText = 'About You\nSenior Engineer';
@@ -759,6 +775,35 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(isVerifiedPostingEntry({
       applyUrl: 'https://h/careers/jobs/a/apply',
       postingUrl: 'https://h/jobs/a/',
+    })).toBe(false);
+  });
+
+  it('keeps vendor URL binding available for HTTP localhost portal fixtures only', () => {
+    const umantisApplyUrl = 'http://recruitingapp-0000.umantis.localhost:4173/Vacancies/717/Application/New/2';
+    const umantisPostingUrl = 'http://recruitingapp-0000.umantis.localhost:4173/Vacancies/717/Description/2';
+    expect(isVerifiedPostingEntry({ applyUrl: umantisApplyUrl, postingUrl: umantisPostingUrl })).toBe(true);
+
+    const successFactorsApplyUrl = 'http://career2.successfactors.localhost:4173/career?company=tenant1000103&career_ns=job_application&career_job_req_id=170044';
+    const successFactorsPostingUrl = 'http://job.fictional-employer.localhost:4173/job/baker/170044';
+    const postingRouteProof = {
+      via: 'successfactors',
+      applyUrl: successFactorsApplyUrl,
+      postingUrl: successFactorsPostingUrl,
+    };
+    expect(isVerifiedPostingEntry({
+      applyUrl: successFactorsApplyUrl,
+      postingUrl: successFactorsPostingUrl,
+      postingRouteProof,
+    })).toBe(true);
+
+    expect(isVerifiedPostingEntry({
+      applyUrl: umantisApplyUrl.replace('.localhost', '.localhost.attacker.example'),
+      postingUrl: umantisPostingUrl.replace('.localhost', '.localhost.attacker.example'),
+    })).toBe(false);
+    expect(isVerifiedPostingEntry({
+      applyUrl: successFactorsApplyUrl.replace('.localhost', '.localhost.attacker.example'),
+      postingUrl: successFactorsPostingUrl,
+      postingRouteProof,
     })).toBe(false);
   });
 

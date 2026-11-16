@@ -57,6 +57,7 @@ const PORTAL_TEST_DATA_RETENTION_KEEP_OPTION = 'I consent to my data being store
 const PORTAL_TEST_DATA_RETENTION_ANSWER = 'I would like my data to be deleted once the present application process is complete.';
 const PORTAL_TEST_DATA_RETENTION_CONTEXT = `Data release * · ${PORTAL_TEST_DATA_RETENTION_KEEP_OPTION} · ${PORTAL_TEST_DATA_RETENTION_ANSWER}`;
 const PORTAL_TEST_PRIVACY_CONTEXT = 'Concierge Host';
+const PORTAL_E2E_CV_FILENAME = 'candidate-cv.pdf';
 const fakeLocalizationUnknowns = [];
 const safeFixtureLabel = (value) => String(value || '').replace(/[^\p{L}\p{N} _.,?*'’()-]/gu, '').slice(0, 140);
 // Synthetic candidate facts keep the fake planner's identity, contact, birth
@@ -249,6 +250,11 @@ function fakePortal() {
   };
   const receiptQuery = (value) => {
     const url = new URL(value, 'http://127.0.0.1');
+    // Some deterministic cases intentionally exercise an ATS whose form route
+    // carries no published requisition id. Do not manufacture an empty query
+    // key (or reuse a key from a previous case) for those routes: the real
+    // receipt matcher correctly rejects empty posting identities.
+    if (!receiptJobId) return `${url.pathname}${url.search}${url.hash}`;
     if (![...url.searchParams.keys()].some((key) => receiptJobKeys.test(key))) {
       url.searchParams.set(receiptJobParam, receiptJobId);
     }
@@ -635,7 +641,7 @@ function fakePortal() {
     }
     if (route === 'POST /sf/custom-domain-submit' && requestHost === 'career55.successfactors.localhost') {
       const raw = await readBody(req);
-      successFactorsCustom.applications.push({ hasCv: /name="cv"; filename="candidate-cv\.pdf"/i.test(raw) });
+      successFactorsCustom.applications.push({ hasCv: new RegExp(`name="cv"; filename="${PORTAL_E2E_CV_FILENAME}"`, 'i').test(raw) });
       return send(page('Application received', '<h1>Thank you for your application for Customer Success Manager</h1>'));
     }
     const tenantWorkdayRequest = /(?:^|\.)wd\d+\.myworkdayjobs\.com(?::\d+)?$/i.test(String(req.headers.host || ''));
@@ -735,14 +741,14 @@ function fakePortal() {
     if (route === 'POST /six/submit') {
       const body = await readBody(req);
       state.sixApplications.push({ workload: body.match(/name="workload"\r\n\r\n([^\r\n]*)/)?.[1] || '' });
-      state.sixApplications.at(-1).hasCv = /name="cv"; filename="CV_Luca_Bianchi\.pdf"/.test(body);
+      state.sixApplications.at(-1).hasCv = new RegExp(`name="cv"; filename="${PORTAL_E2E_CV_FILENAME}"`).test(body);
       return send(page('Application received', '<h1>Thank you for your application</h1>'));
     }
     // Talentsoft/RhB's final button has no application noun, just «Senden».
     if (route === 'GET /rhb-form') return send(page('Pflegefachperson', `<h1>Pflegefachperson 80%</h1>${form('/rhb-submit', '<label for="mail">E-Mail *</label><input id="mail" type="email" name="email" required><label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required><button type="submit">Senden</button>', true)}`));
     if (route === 'POST /rhb-submit') {
       const body = await readBody(req);
-      state.rhbApplications.push({ hasCv: /filename="CV_/.test(body) });
+      state.rhbApplications.push({ hasCv: new RegExp(`filename="${PORTAL_E2E_CV_FILENAME}"`).test(body) });
       return redirect(receiptQuery('/rhb-offer'));
     }
     if (route === 'GET /rhb-offer') return send(page('Pflegefachperson', '<p role="status">Ihre persönlichen Angaben wurden gespeichert. Ihre Bewerbung auf das Stellenangebot TEST-42 – Pflegefachperson (80%) wurde erfolgreich gesendet.</p><h1>Pflegefachperson 80%</h1><a href="/rhb-form">Auf diese Stelle bewerben</a>'));
@@ -845,7 +851,7 @@ function fakePortal() {
     }
     if (route === 'POST /sf/upload') {
       const raw = await readBody(req);
-      if (/filename="CV_/.test(raw)) coop.cvUploads += 1;
+      if (new RegExp(`filename="${PORTAL_E2E_CV_FILENAME}"`).test(raw)) coop.cvUploads += 1;
       res.writeHead(200, { 'content-type': 'application/json' });
       return res.end('{"ok":true}');
     }
@@ -1135,7 +1141,8 @@ function fakePortal() {
       const part = (name) => new RegExp(`name="${name}"\\r\\n\\r\\n([^\\r]*)`).exec(raw)?.[1] || '';
       const many = (name) => [...raw.matchAll(new RegExp(`name="${name}"\\r\\n\\r\\n([^\\r]*)`, 'g'))].map((match) => match[1]);
       workday.forms.push({ first: part('first'), country: part('country'), street: part('street'), postcode: part('postcode'), address1: part('address1'), phoneCode: part('phoneCode'), kept: part('kept'), experience: many('experience'), education: many('education') });
-      state.applications.push({ hasCv: /name="cv"; filename="/i.test(raw), cvFiles: (raw.match(/name="cv"; filename="/gi) || []).length, first: part('first') });
+      const submittedCvFiles = raw.match(/name="(?:cv|additionalCv)"; filename="/gi) || [];
+      state.applications.push({ hasCv: submittedCvFiles.length > 0, cvFiles: submittedCvFiles.length, first: part('first') });
       if (workday.recoveryUsed) workday.alreadyApplied = true;
       return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
     }
@@ -1251,7 +1258,7 @@ function fakePortal() {
     }
     if (route === 'POST /apply') {
       const raw = await readBody(req);
-      state.applications.push({ hasCv: /filename="CV_/.test(raw), first: /name="first"\r\n\r\n([^\r]*)/.exec(raw)?.[1] || '' });
+      state.applications.push({ hasCv: new RegExp(`filename="${PORTAL_E2E_CV_FILENAME}"`).test(raw), first: /name="first"\r\n\r\n([^\r]*)/.exec(raw)?.[1] || '' });
       return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
     }
     if (route === 'GET /gravity-modal-job') {
@@ -1343,7 +1350,7 @@ function fakePortal() {
     if (route === 'POST /gravity-submit') {
       const raw = await readBody(req);
       state.gravityApplication.submissions += 1;
-      state.gravityApplication.hasCv = /filename="CV_/.test(raw);
+      state.gravityApplication.hasCv = new RegExp(`filename="${PORTAL_E2E_CV_FILENAME}"`).test(raw);
       res.writeHead(204); return res.end();
     }
     // A form with a custom calendar the filler cannot read (JOIN's "Quando sei
@@ -1404,7 +1411,7 @@ function fakePortal() {
     }
     if (route === 'POST /summary-cv') {
       const raw = await readBody(req);
-      state.summaryCv.push({ hasCv: /filename="CV_/.test(raw) });
+      state.summaryCv.push({ hasCv: new RegExp(`filename="${PORTAL_E2E_CV_FILENAME}"`).test(raw) });
       return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
     }
     if (route === 'GET /dead-end') return send(page('Bewerbung', '<h1>Bewerbung</h1><p>Diese Seite ist leer.</p>'));
@@ -1449,7 +1456,7 @@ function fakePortal() {
     if (route === 'GET /refused-moved/error') return send(page('Errore', '<p role="alert">Non siamo riusciti a inviare la tua candidatura. Riprova.</p>'));
     if (route === 'POST /widget') {
       const raw = await readBody(req);
-      state.widgetApplications.push({ hasCv: /filename="CV_/.test(raw), dob: /name="dob"\r\n\r\n([^\r]*)/.exec(raw)?.[1] || '' });
+      state.widgetApplications.push({ hasCv: new RegExp(`filename="${PORTAL_E2E_CV_FILENAME}"`).test(raw), dob: /name="dob"\r\n\r\n([^\r]*)/.exec(raw)?.[1] || '' });
       return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
     }
     // A hotel's own career page: «Apply» opens umantis, on another host, in a new tab.
@@ -1501,7 +1508,7 @@ function fakePortal() {
       umantis.accounts.set(value('mail'), password);
       umantis.applications.push({
         first: value('first'), title: value('title'), hear: value('hear'), release: value('release'), employee: Boolean(value('employee')),
-        cv: /name="cv"; filename="CV_/.test(raw), letter: sent('letter'), photo: sent('photo'), other: sent('other'),
+        cv: new RegExp(`name="cv"; filename="${PORTAL_E2E_CV_FILENAME}"`).test(raw), letter: sent('letter'), photo: sent('photo'), other: sent('other'),
       });
       return redirect(`/thank-you${url.search}`);
     }
@@ -1511,7 +1518,11 @@ function fakePortal() {
   const hasCurrentReceiptKey = (value) => {
     try { return new URL(value).searchParams.get(receiptJobParam) === receiptJobId; } catch { return false; }
   };
-  return { server, state, coop, successFactorsCustom, umantis, workday, bindReceiptJobId, hasCurrentReceiptKey };
+  const resetReceiptJobBinding = () => {
+    receiptJobId = '';
+    receiptJobParam = 'jobid';
+  };
+  return { server, state, coop, successFactorsCustom, umantis, workday, bindReceiptJobId, resetReceiptJobBinding, hasCurrentReceiptKey };
 }
 
 /**
@@ -2491,7 +2502,7 @@ async function agentNavigationChecks({ base, state, executablePath, run, check, 
 }
 
 async function main() {
-  const { server, state, coop, successFactorsCustom, umantis, workday, bindReceiptJobId, hasCurrentReceiptKey } = fakePortal();
+  const { server, state, coop, successFactorsCustom, umantis, workday, bindReceiptJobId, resetReceiptJobBinding, hasCurrentReceiptKey } = fakePortal();
   const dir = await mkdtemp(path.join(tmpdir(), 'aa-portal-e2e-'));
   const tlsFixture = await createWorkdayTlsFixture(dir);
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
@@ -2513,13 +2524,14 @@ async function main() {
     // The e-mail the portal would send to the alias, as the inbound handler stores it.
     async waitForVerification() { return state.pending ? { url: `${base}/activate?t=${state.pending.token}`, code: '' } : null; },
   };
-  const files = { cv: path.join(dir, 'candidate-cv.pdf'), cover_letter: path.join(dir, 'candidate-cover-letter.pdf') };
+  const files = { cv: path.join(dir, PORTAL_E2E_CV_FILENAME), cover_letter: path.join(dir, 'candidate-cover-letter.pdf') };
   await writeFile(files.cv, '%PDF-1.4\n%%EOF\n');
   await writeFile(files.cover_letter, '%PDF-1.4\n%%EOF\n');
   const executablePath = process.env.PLAYWRIGHT_CHROMIUM_PATH || undefined;
   const run = async (extra = {}) => {
     const { capturePortalNavigationDiagnostics = false, skipReceiptJobBinding = false, ...runOptions } = extra;
     const portalNavigationDiagnostics = [];
+    if (skipReceiptJobBinding) resetReceiptJobBinding();
     const applyUrl = skipReceiptJobBinding ? runOptions.applyUrl : bindReceiptJobId(runOptions.applyUrl || `${base}/job`);
     const fixturePath = new URL(applyUrl).pathname;
     // These posting pages are verified only when the test supplies the selected
@@ -2605,15 +2617,15 @@ async function main() {
     };
     const hotelJob = { company: 'Grand Hotel Esempio', title: 'Concierge Host (m/w/d)', location: 'Pontresina' };
     const hotelHost = new URL(umantisOrigin(server)).hostname;
-    const noHeading = await run({ applyUrl: `${base}${HOTEL_NO_H1_PATH}`, job: hotelJob, accounts: hotelAccounts, dryRun: true, capturePortalNavigationDiagnostics: true });
+    const noHeading = await run({ applyUrl: `${base}${HOTEL_NO_H1_PATH}`, job: hotelJob, accounts: hotelAccounts, dryRun: true, skipReceiptJobBinding: true, capturePortalNavigationDiagnostics: true });
     check('umantis: an exact posting route with navigation first, no h1 and «Applica ora» reaches the matching form', noHeading.event.type === 'dry_run_ready'
       && noHeading.evidence.finalButton?.label === 'Submit final application' && noHeading.evidence.postingMatch === 'match'
       && noHeading.evidence.steps.some((step) => step.auth?.kind === 'inline' && step.auth.outcome === 'dry_run')
       && umantis.applications.length === 0, stopContext(noHeading));
-    const noHeadingOtherTitle = await run({ applyUrl: `${base}${HOTEL_NO_H1_OTHER_TITLE_PATH}`, job: hotelJob, accounts: hotelAccounts });
+    const noHeadingOtherTitle = await run({ applyUrl: `${base}${HOTEL_NO_H1_OTHER_TITLE_PATH}`, job: hotelJob, accounts: hotelAccounts, skipReceiptJobBinding: true });
     check('umantis: a no-h1 posting whose document title names another role stops before its form', noHeadingOtherTitle.event.type === 'submit_handoff'
       && noHeadingOtherTitle.event.reason === 'posting_mismatch' && umantis.applications.length === 0, stopContext(noHeadingOtherTitle));
-    const hotelDry = await run({ applyUrl: `${base}/hotel-job`, job: hotelJob, accounts: hotelAccounts, dryRun: true });
+    const hotelDry = await run({ applyUrl: `${base}/hotel-job`, job: hotelJob, accounts: hotelAccounts, dryRun: true, skipReceiptJobBinding: true });
     check('umantis: a dry run fills the form that asks for its own password up to the send button, and keeps no account', hotelDry.event.type === 'dry_run_ready'
       && !hotelDry.event.stage && hotelDry.evidence.finalButton?.label === 'Submit final application' && hotelSaved.size === 0 && umantis.applications.length === 0
       && hotelDry.evidence.steps.some((step) => step.auth?.kind === 'inline' && step.auth.outcome === 'dry_run')
@@ -2621,7 +2633,7 @@ async function main() {
       && plannerSawPrivacyCheckboxJa, stopContext(hotelDry));
     check('umantis: the company is read on the posting, the role on the form it opened', hotelDry.evidence.postingMatch === 'match' && hotelDry.evidence.postingMatchVia === 'posting_page');
     let guardCalls = 0;
-    const hotel = await run({ applyUrl: `${base}/hotel-job`, job: hotelJob, accounts: hotelAccounts, onBeforeSubmit: async () => { guardCalls += 1; } });
+    const hotel = await run({ applyUrl: `${base}/hotel-job`, job: hotelJob, accounts: hotelAccounts, skipReceiptJobBinding: true, onBeforeSubmit: async () => { guardCalls += 1; } });
     const sentToHotel = umantis.applications[0] || {};
     const hotelPassword = hotelSaved.get(hotelHost)?.password || '';
     check('umantis: the form is sent once behind the submission guard, with the CV and the letter stored one after the other in their own fields, and no photo', hotel.event.type === 'submit_succeeded'
@@ -2633,11 +2645,11 @@ async function main() {
     { ...stopContext(hotel), accountCreated: hotelSaved.get(hotelHost)?.status === 'created', accountPasswordPresent: Boolean(hotelPassword) });
     check('the password is in no evidence, and no password field ever reached the planner', Boolean(hotelPassword)
       && !JSON.stringify(hotel.evidence).includes(hotelPassword) && !plannerSawPassword);
-    const otherRole = await run({ applyUrl: `${base}/hotel-job-other-role`, job: { company: 'Grand Hotel Esempio', title: 'Chef de Rang' }, accounts: hotelAccounts });
+    const otherRole = await run({ applyUrl: `${base}/hotel-job-other-role`, job: { company: 'Grand Hotel Esempio', title: 'Chef de Rang' }, accounts: hotelAccounts, skipReceiptJobBinding: true });
     check('umantis: the form of another role of the same employer is never filled', otherRole.event.type === 'submit_handoff'
       && otherRole.event.reason === 'posting_mismatch' && umantis.applications.length === 1, stopContext(otherRole));
     // Review of #11033: a password and «Submit final application» in sight, the CV field in a section still closed.
-    const closedSections = await run({ applyUrl: `${base}/hotel-job-closed`, job: hotelJob, accounts: hotelAccounts, dryRun: true });
+    const closedSections = await run({ applyUrl: `${base}/hotel-job-closed`, job: hotelJob, accounts: hotelAccounts, dryRun: true, skipReceiptJobBinding: true });
     const closedAuth = closedSections.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind);
     check('umantis: a password page whose CV field sits in a closed section is opened first, then filled as the form (never taken for a login)', closedSections.event.type === 'dry_run_ready'
       && !closedSections.event.stage && closedSections.evidence.finalButton?.label === 'Submit final application' && closedAuth.length > 0 && closedAuth.every(kind => kind === 'inline')

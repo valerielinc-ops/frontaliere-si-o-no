@@ -130,9 +130,8 @@ function verifiedUmantisApplicantContext(stageContext, currentUrl) {
     const application = new URL(String(applicationUrl));
     const posting = new URL(String(stageContext.postingUrl));
     const current = new URL(String(currentUrl || ''));
-    if (application.protocol !== 'https:' || posting.protocol !== 'https:' || current.protocol !== 'https:'
+    if (!isUmantisUrl(application.href) || !isUmantisUrl(posting.href) || !isUmantisUrl(current.href)
       || application.username || application.password || posting.username || posting.password || current.username || current.password
-      || !/(?:^|\.)umantis\.com$/i.test(application.hostname)
       || !isUmantisPostingEntry({ applyUrl: application.href, postingUrl: posting.href })
       || current.origin !== application.origin
       || current.pathname.replace(/\/+$/, '').toLowerCase() !== application.pathname.replace(/\/+$/, '').toLowerCase()
@@ -576,6 +575,18 @@ function accountHandoff(handoff, code, stage) {
   return { handoff, accountFailure: accountFailure(code, stage) };
 }
 
+// The fake portal used by the deterministic E2E suite is HTTP-only and lives
+// on vendor-specific *.localhost hosts. Keep this exception local to the
+// loopback fixture: production ATS hosts still require HTTPS.
+function isSecureOrLocalhostUrl(url) {
+  return url?.protocol === 'https:'
+    || (url?.protocol === 'http:' && /(?:^|\.)localhost$/iu.test(url.hostname));
+}
+
+function isSuccessFactorsPortalUrl(url) {
+  return isSecureOrLocalhostUrl(url) && SUCCESS_FACTORS_HOST_RE.test(url.hostname);
+}
+
 function accountStageFor(snapshot) {
   const kind = authPageKind(snapshot);
   return kind === 'create' ? 'registration' : kind === 'sign_in' ? 'login' : 'unknown';
@@ -588,8 +599,7 @@ function hasResendVerificationControl(snapshot = {}) {
 }
 
 function successFactorsModuleIdentity(url) {
-  if (!url || url.protocol !== 'https:' || url.username || url.password || url.hash
-    || !SUCCESS_FACTORS_HOST_RE.test(url.hostname)
+  if (!url || !isSuccessFactorsPortalUrl(url) || url.username || url.password || url.hash
     || url.pathname.replace(/\/+$/, '') !== '/career') return null;
   const valuesFor = (key) => [...url.searchParams.entries()]
     .filter(([name]) => name.toLowerCase() === key)
@@ -620,8 +630,7 @@ function isSuccessFactorsModuleRoute(url) {
 function isSuccessFactorsCareerPath(value) {
   try {
     const url = new URL(String(value || ''));
-    return url.protocol === 'https:' && !url.username && !url.password && !url.hash
-      && SUCCESS_FACTORS_HOST_RE.test(url.hostname)
+    return isSuccessFactorsPortalUrl(url) && !url.username && !url.password && !url.hash
       && ['/career', '/portalcareer'].includes(url.pathname.replace(/\/+$/, ''));
   } catch {
     return false;
@@ -874,7 +883,8 @@ function workdayManualApplicationTarget(currentUrl, expectedUrl, control = {}) {
 
 function isUmantisUrl(value) {
   try {
-    return /(?:^|\.)umantis\.com$/i.test(new URL(String(value || '')).hostname);
+    const url = new URL(String(value || ''));
+    return isSecureOrLocalhostUrl(url) && /(?:^|\.)umantis\.(?:com|localhost)$/iu.test(url.hostname);
   } catch {
     return false;
   }
@@ -886,8 +896,7 @@ function umantisApplicationNewRoute(value) {
   try {
     const url = new URL(String(value || ''));
     const match = UMANTIS_APPLICATION_NEW_ROUTE_RE.exec(url.pathname);
-    if (url.protocol !== 'https:' || url.username || url.password || url.hash
-      || !isUmantisUrl(url.href) || !match) return null;
+    if (url.username || url.password || url.hash || !isUmantisUrl(url.href) || !match) return null;
     return { origin: url.origin, vacancyId: match[1], stepId: match[2] };
   } catch {
     return null;
@@ -962,8 +971,7 @@ function umantisApplicationEntryUrl({ applyUrl, postingUrl } = {}) {
   try {
     const apply = new URL(String(applyUrl || ''));
     const posting = new URL(String(postingUrl || ''));
-    if (apply.protocol !== 'https:' || posting.protocol !== 'https:'
-      || !/(?:^|\.)umantis\.com$/i.test(apply.hostname)
+    if (!isUmantisUrl(apply.href) || !isUmantisUrl(posting.href)
       || apply.origin !== posting.origin
       || apply.pathname.replace(/\/+$/, '') !== posting.pathname.replace(/\/+$/, '')) return '';
     const match = /^\/vacancies\/(\d+)\/description\/(\d+)\/?$/i.exec(posting.pathname);
@@ -5316,6 +5324,13 @@ function hasExplicitFormRoleHeading(formText, job = {}) {
       continue;
     }
     if (formSurfaceStarted) continue;
+    // Umantis may expose only its generic application chrome before the
+    // native labels. Mark that chrome as the first heading so a field label
+    // such as "Foto" cannot become a false role heading.
+    if (isGenericFormChromeSegment(line)) {
+      firstHeadingSeen = true;
+      continue;
+    }
     const heading = normalizeFormRoleTitle(line);
     if (!heading) continue;
     const isFirstHeading = !firstHeadingSeen;
@@ -5578,9 +5593,12 @@ export function formPostingMatch(formText, job = {}, {
   // The verified same-origin vacancy id binds the form even when the heading is
   // generic; keep mismatch guards on that heading, not native field labels
   // that describe the application itself. A bound route cannot make an
-  // explicitly different role belong to the selected vacancy.
+  // explicitly different role belong to the selected vacancy. The bounded
+  // heading and role checks above already preserve concrete role conflicts;
+  // generic application chrome and native question labels must not be
+  // reinterpreted as a role heading here.
   if (boundUmantisApplication) {
-    if (umantisHeadingConflict || roleHeading === 'mismatch') return 'mismatch';
+    if (umantisHeadingConflict || roleHeading === 'mismatch' || explicitRoleConflict) return 'mismatch';
     return 'match';
   }
   // Some snapshots carry the Umantis Application/New URL only in the extracted
@@ -5760,8 +5778,7 @@ const UMANTIS_PROFILE_CREATED_ON_SUBMIT_RE = new RegExp([
 function isUmantisApplicationRoute(url) {
   try {
     const parsed = new URL(String(url || ''));
-    return parsed.protocol === 'https:'
-      && /(?:^|\.)umantis\.com$/i.test(parsed.hostname)
+    return isUmantisUrl(parsed.href)
       && UMANTIS_APPLICATION_NEW_ROUTE_RE.test(parsed.pathname);
   } catch {
     return false;
@@ -11282,10 +11299,16 @@ export async function submitViaPortal(ctx) {
       // requires the normal application-entry binding below.
       const sameSelectedPosting = postingVacancyMatched
         && (samePostingAddress(pageUrl, postingUrl) || sameBrassRingPostingAddress(pageUrl, postingUrl));
+      const applicationEntry = postingVacancyMatched && enteredThroughApplicationEntry;
+      // Carry the source-page proof across the selected application-entry
+      // click. Without this, the matcher receives `applicationEntry: true`
+      // alongside `postingMatched: false` and conservatively returns
+      // `unknown` even though the form is the entry's exact destination.
+      const formPostingMatched = applicationEntry || enteredFromMatchingPosting || sameSelectedPosting;
       const result = formPostingMatch(seen, portalJob, {
-        postingMatched: enteredFromMatchingPosting || sameSelectedPosting,
+        postingMatched: formPostingMatched,
         postingEntry: enteredFromMatchingPosting,
-        applicationEntry: postingVacancyMatched && enteredThroughApplicationEntry,
+        applicationEntry,
         applicationEntryUrl,
         pageUrl,
         postingUrl,
@@ -11303,16 +11326,77 @@ export async function submitViaPortal(ctx) {
       return result;
     };
     const refreshApplicationEntryAfterTransition = async (sourceUrl, current = snapshot, { requireSignedInForm = false } = {}) => {
+      const preSettleUrl = page.url();
+      if (!applicationEntryUrl || !preSettleUrl) return;
+      let transitionSnapshot = current;
+      if (requireSignedInForm && !signedInApplicationSurface(transitionSnapshot)) {
+        await settle(page);
+        transitionSnapshot = await extractFields(page, NAVIGATION).catch(() => current);
+      }
+      // Authentication may settle through one or more redirects. The URL
+      // captured before settling is only the intermediate auth route; pair
+      // the settled snapshot with the final browser URL.
       const targetUrl = page.url();
-      if (!applicationEntryUrl || sourceUrl !== applicationEntryUrl || !targetUrl || targetUrl === sourceUrl) return;
-      if (requireSignedInForm && !signedInApplicationSurface(current)) return;
+      if (!targetUrl || targetUrl === sourceUrl) return;
+      // Workday may navigate from the followed Apply account page to its
+      // sign-in route before the successful sign-in lands on the application
+      // form. The auth page is an intermediate runner-owned route, so the
+      // source URL is no longer the original application entry by the time
+      // the signed-in form arrives. Carry the proof only across this same-
+      // origin, authenticated application transition; unrelated redirects
+      // still require the exact source URL below.
+      let sameOriginAuthTransition = false;
+      const authenticatedApplicationSurface = signedInApplicationSurface(transitionSnapshot)
+        || (enteredThroughApplicationEntry
+          && authPageKind(transitionSnapshot) === 'none'
+          && !codeField(transitionSnapshot)
+          && !transitionSnapshot.passwordVisible
+          && (hasApplicationForm(transitionSnapshot) || sendsApplication(transitionSnapshot)));
+      if (requireSignedInForm && !authenticatedApplicationSurface) return;
+      if (requireSignedInForm && enteredThroughApplicationEntry && authenticatedApplicationSurface) {
+        try {
+          const entryOrigin = new URL(applicationEntryUrl).origin;
+          sameOriginAuthTransition = entryOrigin === new URL(sourceUrl).origin
+            && entryOrigin === new URL(targetUrl).origin;
+        } catch {
+          sameOriginAuthTransition = false;
+        }
+      }
+      if (sourceUrl !== applicationEntryUrl && !sameOriginAuthTransition) return;
+      if (sameOriginAuthTransition) {
+        // Same-origin auth is not vacancy proof by itself. Workday exposes the
+        // selected requisition in its job route, while other ATSes may retain
+        // a query-bound job/requisition id. Reject a different identity before
+        // carrying the application-entry proof into formPostingMatch.
+        const workdaySelectedUrl = [ctx.applyUrl, applicationEntryUrl, postingUrl, ctx.postingUrl]
+          .find(value => workdayJobRoute(value));
+        const targetMatchesSelectedVacancy = workdaySelectedUrl
+          ? workdayPostingRouteMatchesCurrent(targetUrl, workdaySelectedUrl, postingUrl || ctx.postingUrl)
+          : (() => {
+            const selectedKeys = [applicationEntryUrl, ctx.applyUrl]
+              .map(value => portalJobKey(value, sourceProtocol))
+              .filter(Boolean);
+            const targetKey = portalJobKey(targetUrl, sourceProtocol);
+            // Unknown same-origin routes do not carry application-entry proof;
+            // only an explicitly equal vacancy key can survive this branch.
+            return Boolean(targetKey && selectedKeys.length && selectedKeys.includes(targetKey));
+          })();
+        if (!targetMatchesSelectedVacancy) {
+          enteredThroughApplicationEntry = false;
+          applicationEntryUrl = '';
+          return;
+        }
+      }
       const title = await page.title().catch(() => '');
       const text = await pageText(page).catch(() => '');
       const diversionHint = applicationDestinationDiversionHint({
-        ...current, title, url: targetUrl, pageHeadings: await postingMainHeadings(page), text,
+        ...transitionSnapshot, title, url: targetUrl, pageHeadings: await postingMainHeadings(page), text,
       });
       applicationEntryUrl = applicationEntryUrlAfterTransition({
-        applicationEntryUrl, sourceUrl, targetUrl, diversionHint,
+        applicationEntryUrl,
+        sourceUrl: sameOriginAuthTransition ? applicationEntryUrl : sourceUrl,
+        targetUrl,
+        diversionHint,
       });
     };
     const pendingOtpAccount = async (current) => {
@@ -11382,6 +11466,7 @@ export async function submitViaPortal(ctx) {
       return null;
     };
     const match = await formMatch();
+    const explicitInitialPostingMismatch = match === 'mismatch';
     evidence.postingMatch = match;
     const initialOtpAccount = await pendingOtpAccount(snapshot);
     // A generic careers landing page can mention the employer and therefore
@@ -11412,10 +11497,16 @@ export async function submitViaPortal(ctx) {
     // A sign-in page often names neither the company nor the role
     // (SuccessFactors, Coop 2026-10-02): the check waits for the form behind it.
     // An application form with its own password field is the form: checked now.
-    let postingCheckPending = Boolean(startupNavigationHint) || match === 'mismatch'
-      && (snapshot.passwordVisible || initialOtpAccount)
-      && !ownAccountForm(snapshot, channelType)
-      && !ctx.skipPostingCheck;
+    // An explicit form mismatch must be checked before an inline password is
+    // typed. Treating that page as an account surface first can persist a new
+    // portal credential for the wrong vacancy, then only discover the mismatch
+    // during the final binding pass.
+    let postingCheckPending = Boolean(startupNavigationHint)
+      || (match === 'mismatch' && !ctx.skipPostingCheck)
+      || (match !== 'match'
+        && (snapshot.passwordVisible || initialOtpAccount)
+        && !ownAccountForm(snapshot, channelType)
+        && !ctx.skipPostingCheck);
     if (match === 'mismatch' && !postingCheckPending && !ctx.skipPostingCheck) startupNavigationHint ||= 'posting_mismatch';
     let validationRetries = 0;
     let reviewAdvances = 0;
@@ -12036,7 +12127,7 @@ export async function submitViaPortal(ctx) {
           postingCheckPending = false;
           evidence.postingMatch = await formMatch();
           if (evidence.postingMatch === 'mismatch') {
-            if (!autonomousNavigation) return await handoff('posting_mismatch');
+            if (explicitInitialPostingMismatch || !autonomousNavigation) return await handoff('posting_mismatch');
             const recovery = await runNavigationRecovery(snapshot, 'posting_mismatch');
             if (recovery.result) return recovery.result;
             snapshot = recovery.snapshot;
@@ -12199,7 +12290,7 @@ export async function submitViaPortal(ctx) {
         postingCheckPending = false;
         evidence.postingMatch = await formMatch();
         if (evidence.postingMatch === 'mismatch') {
-          if (!autonomousNavigation) return await handoff('posting_mismatch');
+          if (explicitInitialPostingMismatch || !autonomousNavigation) return await handoff('posting_mismatch');
           const recovery = await runNavigationRecovery(snapshot, 'posting_mismatch');
           if (recovery.result) return recovery.result;
           snapshot = recovery.snapshot;
