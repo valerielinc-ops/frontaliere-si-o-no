@@ -34,9 +34,9 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
     expect(click).not.toHaveBeenCalled();
   });
   const click = vi.fn(async () => { expect(guard).toHaveBeenCalledTimes(1); state.snapshot = options.receiptSnapshot || receipt; });
-  const openClick = vi.fn(async () => { expect(guard).not.toHaveBeenCalled(); state.snapshot = initial; });
+  const openClick = vi.fn(async () => { expect(guard).not.toHaveBeenCalled(); state.snapshot = initial; options.onOpenClick?.(); });
   const page: any = {
-    url: () => state.snapshot.url, title: async () => state.snapshot.title || title, frames: () => [page], mainFrame: () => page,
+    url: () => options.pageUrl?.() || state.snapshot.url, title: async () => state.snapshot.title || title, frames: () => [page], mainFrame: () => page,
     goto: vi.fn(async (url: string) => {
       if (url === options.applyUrl && options.applySnapshot) state.snapshot = options.applySnapshot;
       if (url === options.embeddedApplyUrl && options.applySnapshot) state.snapshot = options.applySnapshot;
@@ -95,6 +95,7 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
     postingRouteProof: options.postingRouteProof,
     job: options.job || { title }, language: 'en', candidate: { identity: {}, profile: {} }, files: {},
     codex, launch: async () => browser, onBeforeSubmit: guard,
+    onPortalNavigationDiagnostic: options.onPortalNavigationDiagnostic,
     ...(options.portalReplay === true ? {
       portalReplay: true,
       portalReplayFenceInstalled: options.portalReplayFenceInstalled === true,
@@ -266,6 +267,41 @@ describe('runner final guard across three application stages', () => {
 
     expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
     expect(polledUnboundSnapshots).toEqual([]);
+    expect(f.codex).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('rejects an already-unbound Workday URL before adopting the empty apply snapshot', async () => {
+    const postingUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033';
+    const applyUrl = `${postingUrl}/apply`;
+    const unboundUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals';
+    const blankApply = {
+      ...snapshot(applyUrl, '', []),
+      title: 'Rituals Careers',
+      heading: '',
+      text: '',
+    };
+    const posting = snapshot(postingUrl, 'Store Assistant Rituals Apply', [{ id: 'entry', text: 'Apply', frame: 0, disabled: false }]);
+    const navigationDiagnostics: any[] = [];
+    let currentUrl = postingUrl;
+    let applicationStarted = false;
+    const f = fixture(blankApply, posting, review, null, {
+      applyUrl,
+      postingUrl,
+      channelType: 'workday',
+      job: { company: 'Rituals Cosmetics Switzerland', title: 'Store Assistant' },
+      pageUrl: () => currentUrl,
+      onPortalNavigationDiagnostic: (diagnostic: any) => {
+        if (applicationStarted) navigationDiagnostics.push(diagnostic);
+      },
+      onOpenClick: () => { applicationStarted = true; currentUrl = unboundUrl; },
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(navigationDiagnostics).toEqual([]);
     expect(f.codex).not.toHaveBeenCalled();
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
