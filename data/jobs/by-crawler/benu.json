@@ -1,7 +1,7 @@
 {
   "crawlerKey": "benu",
-  "assembledAt": "2026-11-16T09:16:09.042Z",
-  "runId": "43837412401",
+  "assembledAt": "2026-11-16T21:24:37.858Z",
+  "runId": "43957348156",
   "jobs": [
     {
       "id": "benu-3bbaab4e3b94",
@@ -34,7 +34,7 @@
       "url": "https://job.benu.ch/de/jobs/7820959-pharma-assistent-in-w-m-bis-zu-40-im-stundenlohn-benu-rheineck",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:16:04.534Z",
+      "crawledAt": "2026-11-16T21:24:31.648Z",
       "addressLocality": "Rheineck",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -84,9 +84,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T09:16:04.534Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.benu.ch/de/jobs/7820959-pharma-assistent-in-w-m-bis-zu-40-im-stundenlohn-benu-rheineck"
+      "validThrough": "2026-12-16T21:24:31.648Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "benu-3d9a49208e5e",
@@ -119,7 +118,7 @@
       "url": "https://job.benu.ch/de/jobs/8044173-verantwortlicher-apotheker-w-m-80-100-benu-schwerzenbach",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:16:04.533Z",
+      "crawledAt": "2026-11-16T21:24:31.647Z",
       "addressLocality": "Schwerzenbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -169,9 +168,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T09:16:04.533Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.benu.ch/de/jobs/8044173-verantwortlicher-apotheker-w-m-80-100-benu-schwerzenbach"
+      "validThrough": "2026-12-16T21:24:31.647Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "benu-ce3eda355b41",
@@ -204,7 +202,7 @@
       "url": "https://job.benu.ch/de/jobs/8505815-pharma-assistent-springer-w-m-60-80-benu-deutschschweiz",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:16:04.530Z",
+      "crawledAt": "2026-11-16T21:24:31.645Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -253,9 +251,8 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:16:04.530Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.benu.ch/de/jobs/8505815-pharma-assistent-springer-w-m-60-80-benu-deutschschweiz"
+      "validThrough": "2027-01-04T21:24:31.645Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "benu-7e2f7e526fac",
@@ -288,7 +285,7 @@
       "url": "https://job.benu.ch/de/jobs/8673824-pharma-assistent-w-m-60-benu-schwerzenbach",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:16:04.527Z",
+      "crawledAt": "2026-11-16T21:24:31.642Z",
       "addressLocality": "Schwerzenbach",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -337,9 +334,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:16:04.527Z",
-      "validThroughSource": "last-observed-window",
-      "sourceIdentity": "url:https://job.benu.ch/de/jobs/8673824-pharma-assistent-w-m-60-benu-schwerzenbach"
+      "validThrough": "2027-02-03T21:24:31.642Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }
