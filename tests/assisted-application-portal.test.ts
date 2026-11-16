@@ -6,7 +6,7 @@ import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFile
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { applicationStage } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { navigationInfrastructureFailure } from '../functions/src/assistedApplicationTransportRetryPolicy.js';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, formPostingMatch, handleAuth, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, postingMatch, PREREAD_CHANNELS, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, formPostingMatch, handleAuth, hasApplicationSurface, isOtpVerificationPage, isWorkdayBareLocaleSearchShell, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, postingMatch, PREREAD_CHANNELS, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
@@ -4050,5 +4050,9 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
       pageHeadings: ['Personalberater/in HR-Funktionen'],
       applyUrl: endesoUrl,
     })).toBe('match');
+
+    const deWorkdayUrl = 'https://roche.wd3.myworkdayjobs.com/de/roche-ext/job/Rotkreuz/Role_202611-128370-1';
+    expect(isWorkdayBareLocaleSearchShell({ url: deWorkdayUrl, fields: [], buttons: [] }, 'Stellen suchen')).toBe(true);
+    expect(isWorkdayBareLocaleSearchShell({ url: deWorkdayUrl, fields: [], buttons: [{ text: 'Bewerben' }] }, 'Stellen suchen')).toBe(false);
   });
 });

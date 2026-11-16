@@ -67,6 +67,17 @@ function workdayPostingRouteMismatch(pageUrl, applyUrl, workdayApplicationEntryP
   return !isWorkdayJobRouteBound(pageUrl, applyUrl);
 }
 
+const WORKDAY_SEARCH_SHELL_TITLE_RE = /\b(?:search for jobs|stellen suchen|rechercher des emplois|cerca lavoro|ricerca lavoro|offres d'emploi|jobsuche)\b/i;
+
+export function isWorkdayBareLocaleSearchShell(snapshot, title = '') {
+  if (!workdayBareLocaleFallbackUrl(snapshot?.url)) return false;
+  if (hasApplicationForm(snapshot)) return false;
+  if ((snapshot?.buttons || []).some((button) => !button?.disabled && !button?.chrome && startsApplication(button.text || button.label))) {
+    return false;
+  }
+  return WORKDAY_SEARCH_SHELL_TITLE_RE.test(String(title || '')) || isNonApplicationJobSearchSurface(snapshot);
+}
+
 export const WAVE1_CHANNELS = new Set([
   'employer_site', 'lever', 'greenhouse', 'smartrecruiters', 'personio', 'softgarden', 'umantis', 'refline', 'jobs_ch', 'manatal',
   // Workday and SuccessFactors: a guest application where the tenant allows
@@ -8608,11 +8619,13 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
     const explicitSignInLabel = isExplicitSignInNavigationLabel(
       liveControl?.text, liveControl?.ariaLabel, liveControl?.title, liveControl?.labelledBy,
     );
-    const sameFormAuthButton = Boolean(candidate.formId)
+    const sameFormAuthButton = Boolean(liveControl)
+      && Boolean(candidate.formId)
       && candidate.formId === liveControl.formId
       && Boolean(loginFields({ fields: liveControl.formIdentityFields || [] }).email)
       && liveControl.formHasPassword === true;
-    const pageLevelCreateAuthButton = !candidate.formId
+    const pageLevelCreateAuthButton = Boolean(liveControl)
+      && !candidate.formId
       && !liveControl.formId
       && Array.isArray(currentSnapshot?.fields)
       && authPageKind(currentSnapshot) === 'create'
@@ -10859,9 +10872,7 @@ export async function submitViaPortal(ctx) {
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
     const bareLocaleFallback = workdayBareLocaleFallbackUrl(page.url());
-    if (bareLocaleFallback && !hasApplicationForm(snapshot)
-      && !snapshot.buttons.some((button) => !button.disabled && !button.chrome && startsApplication(button.text || button.label))
-      && /\bsearch for jobs\b/i.test(await page.title().catch(() => ''))) {
+    if (bareLocaleFallback && isWorkdayBareLocaleSearchShell(snapshot, await page.title().catch(() => ''))) {
       response = await page.goto(bareLocaleFallback, { waitUntil: 'domcontentloaded', timeout: 60_000 });
       await settle(page);
       snapshot = await extractFields(page, NAVIGATION);

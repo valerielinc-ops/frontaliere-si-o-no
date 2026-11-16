@@ -184,6 +184,18 @@ describe('verified sign-in navigation from an existing-account registration page
     };
     await expect(openVerifiedSignInNavigation(workday.page as any, snapshot as any)).resolves.toBe(true);
     expect(workday.locator.click).toHaveBeenCalledOnce();
+
+    const detached = pageWithLink({
+      label: 'Sign In', currentUrl, tagName: 'BUTTON', dataAutomationId: 'signInLink', formId: 'f1',
+    });
+    detached.locator.evaluate.mockResolvedValueOnce(null as any);
+    await expect(openVerifiedSignInNavigation(detached.page as any, {
+      dialogs: [],
+      fields: snapshot.fields,
+      buttons: [{ id: 'auth-link', frame: 0, text: 'Sign In', formId: 'f1', dataAutomationId: 'signInLink' }],
+      links: [],
+    } as any)).resolves.toBe(false);
+    expect(detached.locator.click).not.toHaveBeenCalled();
   });
 
   it('opens forgot-password only from the same live email and password form', async () => {
