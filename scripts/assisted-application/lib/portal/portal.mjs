@@ -3989,6 +3989,15 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     if (stageContext && workdayPostingRouteMismatch(page.url(), stageContext.applyUrl, workdayApplicationEntryProven)) {
       return result({ handoff: 'posting_mismatch' });
     }
+    const hasEntryOrFields = (snap) => Boolean(snap?.fields?.length)
+      || [...(snap?.buttons || []), ...(snap?.links || [])].some((control) =>
+        !control?.disabled && !control?.chrome && startsApplication(control?.text || control?.label));
+    if (hop === 0 && !hasEntryOrFields(snapshot) && typeof page?.waitForTimeout === 'function') {
+      for (let waited = 0; waited < 6_000 && !hasEntryOrFields(snapshot); waited += 1000) {
+        await page.waitForTimeout(1000);
+        snapshot = await extractFields(page, NAVIGATION);
+      }
+    }
     const cookies = await resolveCookieConsent(page, snapshot, { agent: stageContext?.cookieAgent || null });
     snapshot = cookies.snapshot || snapshot;
     if (cookies.status === 'dismissed'
@@ -12017,10 +12026,13 @@ export async function submitViaPortal(ctx) {
             page, host: otpAccount.host, sinceMs: otpAccount.account.createdAt || 0, ctx, snapshot: authSnapshot,
           })
           : await handleAuth({ page, snapshot: authSnapshot, ctx, diagnostics, typedSecrets: authSecrets, registrationRestarts, recoveryAttempts });
-        if (!auth.handoff) await refreshApplicationEntryAfterTransition(authSourceUrl, auth.snapshot, { requireSignedInForm: true });
+        const nextAuthSnapshot = auth.handoff
+          ? auth.snapshot
+          : auth.snapshot || await extractFields(page, NAVIGATION);
+        if (!auth.handoff) await refreshApplicationEntryAfterTransition(authSourceUrl, nextAuthSnapshot, { requireSignedInForm: true });
         evidence.steps.at(-1).auth = { kind: otpAccount ? 'otp_verification' : authPageKind(authSnapshot), outcome: auth.handoff || 'ok' };
         if (auth.handoff) return { result: await handoff(auth.handoff, { accountFailure: auth.accountFailure, valueShapes: auth.valueShapes }) };
-        snapshot = auth.snapshot;
+        snapshot = nextAuthSnapshot;
         if (page !== sourcePage || page.url() !== sourceUrl) pageEpoch += 1;
         return { status: 'ACCOUNT_STEP', snapshot, moved: true };
       }
