@@ -2289,6 +2289,9 @@ jobs:
           # timings row" in fondo al job.
           trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
           loc="${{ matrix.locale }}"
+          heartbeat_status_file="$RUNNER_TEMP/articolisvizzera-heartbeat-$loc.ok"
+          rm -f "$heartbeat_status_file"
+          export HEARTBEAT_STATUS_FILE="$heartbeat_status_file"
           # Each section pushes to its OWN shard repo — one section's push
           # failure (e.g. a corrupted remote clone) must never skip the
           # others. bp_run_bounded records each failing section instead of
@@ -2327,10 +2330,15 @@ jobs:
             if [ "${!skip_var:-}" = "true" ]; then
               echo "$section-$loc: BUILD_EMIT_SKIP=true — excluded from full-replace push (served by fast-publish only)"
               if [ "$section" = articolisvizzera ]; then
-                node scripts/ci/with-shard-writer-lock.mjs \
-                  --section "$section" --locale "$loc" --policy wait --timeout-ms 3600000 -- \
-                  bash scripts/lib/heartbeat-section-shard.sh "$section" "$loc"
-                return $?
+                if node scripts/ci/with-shard-writer-lock.mjs \
+                    --section "$section" --locale "$loc" --policy wait --timeout-ms 3600000 -- \
+                    bash scripts/lib/heartbeat-section-shard.sh "$section" "$loc"; then
+                  : > "$HEARTBEAT_STATUS_FILE"
+                  return 0
+                else
+                  rc=$?
+                  return "$rc"
+                fi
               fi
               return 0
             fi
@@ -2373,12 +2381,34 @@ jobs:
           fail=0
           mapfile -t ordered_sections <<< "$order"
           bp_run_bounded 4 push_one "${ordered_sections[@]}" || fail=1
+          if [ -f "$heartbeat_status_file" ]; then
+            echo 'articolisvizzera_heartbeat_succeeded=true' >> "$GITHUB_OUTPUT"
+          else
+            echo 'articolisvizzera_heartbeat_succeeded=false' >> "$GITHUB_OUTPUT"
+          fi
           # Same visibility contract as the IT leg above — see that comment.
           if [ -s "$BP_FAILED_FILE" ]; then
             node "$PUBLISHER_ROOT/scripts/ci/report-shard-push-failure.mjs" \
               --locale "$loc" --shards "$(paste -sd, "$BP_FAILED_FILE")" || true
           fi
           exit "$fail"
+
+      # Section pushes are normally resilient: a failed remote keeps serving
+      # its last-known-good payload. The build-skipped articolisvizzera shard is
+      # different because this heartbeat is its only generation write. Promote
+      # that one failure out of the continue-on-error step so the matrix job is
+      # red, no locale receipt is admitted, and deploy remains skipped.
+      - name: Require excluded articolisvizzera heartbeat
+        if: always() && matrix.locale != 'it' && env.DURABLE_LOCALE_PUBLISHED != 'true'
+        env:
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+          HEARTBEAT_SUCCEEDED: ${{ steps.push-section-shards-nonit.outputs.articolisvizzera_heartbeat_succeeded || 'false' }}
+        run: |
+          set -euo pipefail
+          if [ "$ARTICOLISVIZZERA_BUILD_EMIT_SKIP" = true ] && [ "$HEARTBEAT_SUCCEEDED" != true ]; then
+            echo "::error::articolisvizzera-${{ matrix.locale }} heartbeat did not update .shard-source; refusing a green non-IT tail"
+            exit 1
+          fi
 
       # ── Purge the sections just pushed (apex AND origin), batched (#5513) ──
       # Same gap and same fix as the IT leg above — see that step's comment
