@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksa",
-  "assembledAt": "2026-11-16T09:22:28.183Z",
+  "assembledAt": "2026-11-16T13:23:48.179Z",
   "runId": "43836475743",
   "jobs": [
     {
@@ -55,13 +55,12 @@
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
+        "expert-expert-care-kantonsspital-aarau-ksa-aarau-9zu87s",
         "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
         "fachexpertin-fachexperte-pflege-ksa-ch",
         "expert-expert-care-kantonsspital-aarau-ksa-aarau-2a8ca7",
         "soins-d-experts-kantonsspital-aarau-ksa-aarau",
-        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau",
-        "expert-expert-care-kantonsspital-aarau-ksa-aarau-9zu87s",
-        "expert-care-kantonsspital-aarau-ksa-aarau"
+        "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -891,6 +890,8 @@
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-ksa-ch-9zti75",
+        "fachfrau-fachmann-gesundheit-ksa-ch-9zti7t",
         "fachfrau-fachmann-gesundheit-ksa-ch",
         "fachfrau-fachmann-gesundheit-ksa-ch-9zti7s",
         "salute-professionale-kantonsspital-aarau-ksa-aarau-430337",
@@ -916,9 +917,7 @@
         "sante-professionnelle-kantonsspital-aarau-ksa-aarau-d76b02",
         "salute-professionale-kantonsspital-aarau-ksa-aarau-656d6a",
         "health-professional-kantonsspital-aarau-ksa-aarau-656d6a",
-        "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau-656d6a",
-        "fachfrau-fachmann-gesundheit-ksa-ch-9zti7t",
-        "fachfrau-fachmann-gesundheit-ksa-ch-9zti75"
+        "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau-656d6a"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -947,11 +946,10 @@
           "health-professional-kantonsspital-aarau-ksa-aarau-656d6a"
         ],
         "de": [
-          "fachfrau-mann-gesundheit-ksa-ch",
-          "fachfrau-fachmann-gesundheit-ksa-ch-9zti7s",
-          "fachfrau-fachmann-gesundheit-ksa-ch-9zti7t",
           "fachfrau-fachmann-gesundheit-ksa-ch-9zti75",
-          "fachfrau-fachmann-gesundheit-ksa-ch"
+          "fachfrau-fachmann-gesundheit-ksa-ch-9zti7t",
+          "fachfrau-mann-gesundheit-ksa-ch",
+          "fachfrau-fachmann-gesundheit-ksa-ch-9zti7s"
         ],
         "fr": [
           "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau",
@@ -7744,14 +7742,12 @@
           "med-praxisassistent-in-ksa-ch"
         ],
         "fr": [
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
         ]
       },
       "previousSlugs": [
         "med-praxisassistent-in-ksa-ch",
-        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
-        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
