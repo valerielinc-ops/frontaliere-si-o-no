@@ -8797,7 +8797,7 @@ export async function openVerifiedPasswordResetNavigation(page, snapshot) {
         || live.dataAutomationId === 'forgotPasswordLink'
         || FORGOT_PASSWORD_RE.test(label));
     if (!sameFormReset && !workdayPageReset) continue;
-    if (live.tagName === 'BUTTON') {
+    if (liveButton) {
       if (candidate.dataAutomationId !== 'forgotPasswordLink'
         && live.dataAutomationId !== 'forgotPasswordLink' && !FORGOT_PASSWORD_RE.test(label)) continue;
       return locator.click({ timeout: 6_000 }).then(() => true, () => false);
