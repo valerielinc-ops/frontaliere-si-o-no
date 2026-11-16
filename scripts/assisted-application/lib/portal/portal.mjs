@@ -469,7 +469,7 @@ export function profileEntriesForSection(candidate, kind) {
 export function profileEntryAnswer(entry, kind, field) {
   const label = String(field?.label || '').trim();
   const mappings = kind === 'experience'
-    ? [[/^(?:job title|position|role)\s*[＊*]?$/i, 'role'], [/^employer\s*[＊*]?$/i, 'employer'], [/^start date\s*[＊*]?$/i, 'start'], [/^end date\s*[＊*]?$/i, 'end']]
+    ? [[/^(?:job title|position|role)\s*[＊*]?$/i, 'role'], [/^(?:employer|company)\s*[＊*]?$/i, 'employer'], [/^start date\s*[＊*]?$/i, 'start'], [/^end date\s*[＊*]?$/i, 'end']]
     : kind === 'education'
       ? [[/^(?:degree|qualification)\s*[＊*]?$/i, 'degree'], [/^(?:institution|school)\s*[＊*]?$/i, 'institution'], [/^start date\s*[＊*]?$/i, 'start'], [/^end date\s*[＊*]?$/i, 'end']]
       : [];
