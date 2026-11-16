@@ -51,6 +51,9 @@ function runWorkflowHarness(options: {
   failCrawler?: string;
   interruptCrawler?: string;
   testGateExit?: number;
+  checkpointBatchSize?: number;
+  runBudgetSeconds?: number;
+  crawlerDelaySeconds?: number;
 } = {}) {
   const crawlerKeys = options.crawlerKeys ?? ['alpha'];
   const root = mkdtempSync(join(tmpdir(), 'backfill-workflow-harness-'));
@@ -85,6 +88,7 @@ function runWorkflowHarness(options: {
     '      kill -TERM "$PPID"',
     '      exit 0',
     '    fi',
+    '    if [ -n "${CRAWLER_DELAY_SECONDS:-}" ]; then sleep "$CRAWLER_DELAY_SECONDS"; fi',
     '    if [ "$CRAWLER_KEYS" = "$FAIL_CRAWLER" ]; then',
     '      printf "%s\\n" "crawler:$CRAWLER_KEYS:failed" >> "$EVENT_LOG"',
     '      exit 23',
@@ -104,6 +108,12 @@ function runWorkflowHarness(options: {
     '    exit 97',
     '    ;;',
     'esac',
+    '',
+  ].join('\n');
+  const ghShim = [
+    '#!/bin/bash',
+    'set -euo pipefail',
+    'printf "dispatch:%s\\n" "$*" >> "$EVENT_LOG"',
     '',
   ].join('\n');
   const npmShim = [
@@ -145,6 +155,7 @@ function runWorkflowHarness(options: {
     writeExecutable(join(repo, 'scripts/lib/git-commit-data.sh'), commitShim);
     writeExecutable(join(bin, 'node'), nodeShim);
     writeExecutable(join(bin, 'npm'), npmShim);
+    writeExecutable(join(bin, 'gh'), ghShim);
     requireCommandSuccess('git', ['add', '--all'], repo, setupEnv);
     requireCommandSuccess('git', ['commit', '-m', 'test: initialize isolated backfill fixture'], repo, setupEnv);
     requireCommandSuccess('git', ['remote', 'add', 'origin', remote], repo, setupEnv);
@@ -164,6 +175,11 @@ function runWorkflowHarness(options: {
       FAIL_CRAWLER: options.failCrawler ?? '',
       INTERRUPT_CRAWLER: options.interruptCrawler ?? '',
       TEST_GATE_EXIT: String(options.testGateExit ?? 0),
+      BACKFILL_CHECKPOINT_BATCH_SIZE: String(options.checkpointBatchSize ?? 8),
+      BACKFILL_RUN_BUDGET_SECONDS: String(options.runBudgetSeconds ?? 3600),
+      CRAWLER_DELAY_SECONDS: String(options.crawlerDelaySeconds ?? 0),
+      GITHUB_PAT: 'test-pat',
+      GITHUB_REPOSITORY: 'owner/repository',
     });
     // GitHub's Ubuntu runner has Bash 5, while macOS /bin/bash 3.2 lacks
     // mapfile. This equivalent array read keeps the extracted workflow block
@@ -318,6 +334,14 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(block).toContain('BACKFILL_CHECKPOINT_BATCH_SIZE');
     expect(block).toContain("BACKFILL_CHECKPOINT_BATCH_SIZE: '8'");
     expect(block).toContain('checkpoint_batch_size="${BACKFILL_CHECKPOINT_BATCH_SIZE:-8}"');
+    expect(block).toContain("BACKFILL_RUN_BUDGET_SECONDS: '3600'");
+    expect(block).toContain('run_budget_seconds="${BACKFILL_RUN_BUDGET_SECONDS:-3600}"');
+    expect(block).toContain('continuation_required=0');
+    expect(block).toContain('GITHUB_PAT');
+    expect(block).toContain('actions/workflows/backfill-expired-from-history.yml/dispatches');
+    expect(block).toContain('inputs[max_commits]');
+    expect(block).toContain('inputs[crawler_keys]');
+    expect(block).toContain('inputs[history_since]');
     expect(block).toContain('elapsed_seconds=');
     expect(block).toContain('crawlers=${checkpoint_count}');
     expect(workflow).not.toContain('human_approval:');
@@ -410,6 +434,23 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(new Set(result.events.filter((event) => event.startsWith('push:')).map((event) => event.split(':')[2])))
       .toEqual(new Set(['alpha']));
     expect(result.progress.split('\t')).toEqual([hashWorkset(['alpha']), 'alpha', 'complete']);
+  });
+
+  it('queues the remaining workset after a bounded run budget', () => {
+    const result = runWorkflowHarness({
+      crawlerKeys: ['alpha', 'beta'],
+      checkpointBatchSize: 1,
+      runBudgetSeconds: 1,
+      crawlerDelaySeconds: 2,
+    });
+
+    expect(result.status).toBe(0);
+    expect(result.events).toContain('crawler:alpha:complete');
+    expect(result.events).not.toContain('crawler:beta:complete');
+    expect(result.events).toContain('push:active:alpha');
+    expect(result.events.some((event) => event.startsWith('dispatch:'))).toBe(true);
+    expect(result.progress.split('\t')).toEqual([hashWorkset(['alpha', 'beta']), 'alpha', 'active']);
+    expect(result.stdout).toContain('queueing the remaining crawler workset');
   });
 
   it('checkpoints prior crawler output after a later crawler errors and keeps the run failed', () => {

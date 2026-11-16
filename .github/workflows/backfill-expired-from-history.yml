@@ -118,6 +118,11 @@ jobs:
           # elapsed_seconds metric measures each batch from prefetch through
           # gates and push; total-job duration still requires a completed run.
           BACKFILL_CHECKPOINT_BATCH_SIZE: '8'
+          # The crawler workset is larger than one Actions job. Leave enough
+          # headroom for the final checkpoint, push, and runner teardown, then
+          # queue the next serial run with the durable cursor instead of
+          # letting GitHub cancel the job at its two-hour ceiling.
+          BACKFILL_RUN_BUDGET_SECONDS: '3600'
           BACKFILL_PROGRESS_PATH: .github/backfill-expired-from-history-progress.tsv
         # The history walk writes each expired slice atomically, but the old
         # one-shot invocation only committed after the whole walk and the test
@@ -133,6 +138,14 @@ jobs:
           case "$checkpoint_batch_size" in
             ''|*[!0-9]*|0)
               echo "::error::BACKFILL_CHECKPOINT_BATCH_SIZE must be a positive integer"
+              exit 2
+              ;;
+          esac
+
+          run_budget_seconds="${BACKFILL_RUN_BUDGET_SECONDS:-3600}"
+          case "$run_budget_seconds" in
+            ''|*[!0-9]*|0)
+              echo "::error::BACKFILL_RUN_BUDGET_SECONDS must be a positive integer"
               exit 2
               ;;
           esac
@@ -346,7 +359,13 @@ jobs:
 
           mapfile -t key_list <<< "$keys"
           key_total="${#key_list[@]}"
+          continuation_required=0
           for ((batch_start=0; batch_start<key_total; batch_start+=checkpoint_batch_size)); do
+            if [ "$batch_start" -gt 0 ] && [ "$SECONDS" -ge "$run_budget_seconds" ]; then
+              echo "⏭️ Backfill run budget reached after the last durable checkpoint; queueing the remaining crawler workset."
+              continuation_required=1
+              break
+            fi
             batch_keys=("${key_list[@]:batch_start:checkpoint_batch_size}")
             batch_size="${#batch_keys[@]}"
             checkpoint_batch_number=$((checkpoint_batch_number + 1))
@@ -367,6 +386,22 @@ jobs:
             done
             checkpoint
           done
+
+          if [ "$continuation_required" -eq 1 ]; then
+            if [ -z "${GITHUB_PAT:-}" ]; then
+              echo '::error::GITHUB_PAT is empty; cannot dispatch the next durable backfill run.'
+              exit 1
+            fi
+            GH_TOKEN="$GITHUB_PAT" gh api --method POST \
+              "repos/$GITHUB_REPOSITORY/actions/workflows/backfill-expired-from-history.yml/dispatches" \
+              -f ref=main \
+              -f 'inputs[dry_run]=false' \
+              -f "inputs[max_commits]=$MAX_COMMITS" \
+              -f "inputs[crawler_keys]=$CRAWLER_KEYS" \
+              -f "inputs[history_since]=$HISTORY_SINCE"
+            echo '✅ Remaining history backfill queued from the durable cursor.'
+            exit 0
+          fi
 
           checkpoint 1
           echo '✅ History backfill completed with durable checkpoints.'
