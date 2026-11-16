@@ -1587,8 +1587,9 @@ function inlineWorkplaceLabelValue(html = '') {
         break;
       }
     }
+    const lineBoundary = /<br\b/i.exec(remainder);
     const blockBoundary = /<\/(?:p|div|li)\b/i.exec(remainder);
-    const boundaryIndex = [nextLabel?.index, blockBoundary?.index]
+    const boundaryIndex = [nextLabel?.index, lineBoundary?.index, blockBoundary?.index]
       .filter((index) => Number.isInteger(index))
       .sort((left, right) => left - right)[0];
     const rawValue = remainder.slice(0, boundaryIndex ?? remainder.length);
