@@ -99,6 +99,38 @@ describe('verified posting script entry (#17253)', () => {
     expect(applicationEntryControls({ ...snapshot, buttons: [apply, { text: 'Apply for another job', frame: 0 }] }, context)).toEqual([]);
   });
 
+  it('does not equate BrassRing identity values that differ only by case', () => {
+    const postingUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=PartnerA&jobid=JobA';
+    const apply = { text: 'Apply now', frame: 0 };
+
+    expect(applicationEntryControls({
+      url: postingUrl.replace('PartnerA', 'partnera').replace('JobA', 'joba'),
+      fields: [],
+      buttons: [apply],
+    }, {
+      applyUrl: postingUrl,
+      postingUrl,
+      selectedPostingIsApplicationUrl: true,
+      allowSingleExternalApplicationEntry: true,
+    })).toEqual([]);
+  });
+
+  it('rejects BrassRing routes with duplicate identity parameters', () => {
+    const postingUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&jobid=348358';
+    const apply = { text: 'Apply now', frame: 0 };
+
+    expect(applicationEntryControls({
+      url: `${postingUrl}&jobid=348358`,
+      fields: [],
+      buttons: [apply],
+    }, {
+      applyUrl: postingUrl,
+      postingUrl,
+      selectedPostingIsApplicationUrl: true,
+      allowSingleExternalApplicationEntry: true,
+    })).toEqual([]);
+  });
+
   it('opens the sole BrassRing Apply now control when section/context omits the employer name', () => {
     const ubsUrl = 'https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=353466&PageType=jobdetails';
     const apply = {
