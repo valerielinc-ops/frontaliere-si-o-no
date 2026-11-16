@@ -8730,12 +8730,12 @@ export async function openVerifiedPasswordResetNavigation(page, snapshot) {
   if (snapshot?.dialogs?.length || authPageKind(snapshot) !== 'sign_in') return false;
   const candidates = [...(snapshot?.links || []), ...(snapshot?.buttons || [])]
     .filter((control) => !control.dialog
-      && (FORGOT_PASSWORD_RE.test([control.text, control.label, control.title, control.ariaLabel].join(' '))
+      && (FORGOT_PASSWORD_RE.test([control.text, control.label, control.title, control.ariaLabel, control.labelledBy].join(' '))
         || control.dataAutomationId === 'forgotPasswordLink'));
   for (const candidate of candidates) {
     const id = String(candidate.id || '');
     if (!/^[\w-]{1,80}$/.test(id)) continue;
-    const candidateLabel = [candidate.text, candidate.label, candidate.title, candidate.ariaLabel].join(' ');
+    const candidateLabel = [candidate.text, candidate.label, candidate.title, candidate.ariaLabel, candidate.labelledBy].join(' ');
     const pageLevelResetCandidate = !candidate.formId
       && (candidate.dataAutomationId === 'forgotPasswordLink' || FORGOT_PASSWORD_RE.test(candidateLabel));
     if (!candidate.formId && !pageLevelResetCandidate) continue;

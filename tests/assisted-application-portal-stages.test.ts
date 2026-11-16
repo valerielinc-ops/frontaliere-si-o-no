@@ -882,7 +882,7 @@ describe('Workday account route stages', () => {
         { id: 'introduce', frame: 0, text: 'Présentez-vous', chrome: true },
         { id: 'back', frame: 0, text: "Retour à l'offre d'emploi", chrome: true },
         { id: 'create', frame: 0, text: 'Créer un compte' },
-        { id: 'forgot', frame: 0, text: 'Vous avez oublié votre mot de passe ?' },
+        { id: 'forgot', frame: 0, text: '', labelledBy: 'Vous avez oublié votre mot de passe ?' },
       ],
       errors: ["L'adresse e-mail ou le mot de passe saisi est erroné ou votre compte est verrouillé."],
     };
