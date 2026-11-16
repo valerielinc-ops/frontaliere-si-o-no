@@ -333,9 +333,14 @@ function isLinkedInCallbackContext(page: URL): boolean {
   } catch {
     return false;
   }
-  return decodedState.startsWith('/')
-    && !decodedState.startsWith('//')
-    && !decodedState.startsWith('/\\');
+  // Keep this in lockstep with sanitizeAuthReturnPath() without importing
+  // authService: this module intentionally has no imports to avoid cycles.
+  const value = decodedState.trim();
+  return value.startsWith('/')
+    && !value.startsWith('//')
+    && !value.startsWith('/\\')
+    && value.length <= 512
+    && !/[\u0000-\u001f\u007f\\]/u.test(value);
 }
 
 /**

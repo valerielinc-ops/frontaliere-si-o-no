@@ -271,6 +271,7 @@ describe('Google vignette opaque exception filtering (#18592)', () => {
     expect(isGoogleVignetteInjectedOpaqueError('Na', VIGNETTE_STACK, VIGNETTE_PAGE.replace('frontaliereticino.ch', 'evil.example'))).toBe(false);
     expect(isGoogleVignetteInjectedOpaqueError('Na', LINKEDIN_CALLBACK_STACK, 'https://frontaliereticino.ch/?code=oauth-code')).toBe(false);
     expect(isGoogleVignetteInjectedOpaqueError('Na', LINKEDIN_CALLBACK_STACK, 'https://frontaliereticino.ch/?code=oauth-code&state=not-a-path')).toBe(false);
+    expect(isGoogleVignetteInjectedOpaqueError('Na', LINKEDIN_CALLBACK_STACK, 'https://frontaliereticino.ch/?code=oauth-code&state=%252Fcerca%255Cevil')).toBe(false);
     expect(isGoogleVignetteInjectedOpaqueError('Na', VIGNETTE_STACK, LINKEDIN_CALLBACK_PAGE)).toBe(false);
   });
 
