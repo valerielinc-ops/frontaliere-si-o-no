@@ -15,6 +15,7 @@ import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
+import { listExpiredSliceFiles } from '../lib/expired-slice-store.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(path.dirname(__filename), '..', '..');
@@ -22,6 +23,7 @@ const HISTORY_PATHS = [
   'data/jobs/by-crawler',
   'data/jobs/expired/by-crawler',
 ];
+const EXPIRED_SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'expired', 'by-crawler');
 export const HISTORY_TREE_OBJECT_BATCH_SIZE = 100;
 export const HISTORY_BACKFILL_MIN_BATCH_SIZE = 8192;
 const SLICE_PATH_RE = /^data\/jobs\/(?:by-crawler|expired\/by-crawler)\/[^/]+\.json$/u;
@@ -72,14 +74,28 @@ export function historyCrawlerKeys(value = process.env.CRAWLER_KEYS) {
   return keys;
 }
 
-/** Select either the two full slice families or only one bounded crawler batch. */
-export function historySlicePaths(keys = historyCrawlerKeys()) {
-  const selectedKeys = Array.isArray(keys) ? keys : historyCrawlerKeys(keys);
+/** Select either the two full slice families or every current expired shard in a bounded batch. */
+export function historySlicePaths(keys = historyCrawlerKeys(), expiredFileNamesByKey = null) {
+  const selectedKeys = historyCrawlerKeys(Array.isArray(keys) ? keys.join('\n') : keys);
   if (selectedKeys.length === 0) return [...HISTORY_PATHS];
-  return selectedKeys.flatMap((key) => [
-    `data/jobs/by-crawler/${key}.json`,
-    `data/jobs/expired/by-crawler/${key}.json`,
-  ]);
+  return selectedKeys.flatMap((key) => {
+    const configuredNames = expiredFileNamesByKey?.[key];
+    const currentNames = configuredNames ?? listExpiredSliceFiles(key, { dir: EXPIRED_SLICES_DIR }).map(({ name }) => name);
+    const expectedMonolith = `${key}.json`;
+    const shardPrefix = `${key}.shard-`;
+    for (const name of currentNames) {
+      const isExpectedShard = name.startsWith(shardPrefix) && /^\d+\.json$/u.test(name.slice(shardPrefix.length));
+      if (name !== expectedMonolith && !isExpectedShard) {
+        throw new Error(`Invalid expired slice filename for history prefetch: ${name}`);
+      }
+    }
+    const shardNames = currentNames.filter((name) => name !== expectedMonolith);
+    return [
+      `data/jobs/by-crawler/${key}.json`,
+      `data/jobs/expired/by-crawler/${expectedMonolith}`,
+      ...shardNames.map((name) => `data/jobs/expired/by-crawler/${name}`),
+    ];
+  });
 }
 
 /** Diff only the selected slice paths for the already date-bounded commit list. */
