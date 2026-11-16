@@ -2406,6 +2406,12 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && !socialApplicationEntry(control));
   const sameSelectedPostingAddress = (firstUrl, secondUrl) => samePostingAddress(firstUrl, secondUrl)
     || sameBrassRingPostingAddress(firstUrl, secondUrl);
+  const isMainFrameControl = (control) => {
+    const frame = control?.frame;
+    if (frame === undefined || frame === null) return true;
+    if (typeof frame === 'number') return Number.isSafeInteger(frame) && frame === 0;
+    return typeof frame === 'string' && /^\s*0\s*$/u.test(frame);
+  };
   // BrassRing's HomeWithPreLoad surface can expose a generic Apply now button
   // in an application section whose extracted context is empty or names only
   // the wizard. On this ATS the query-bound jobid is the stronger vacancy
@@ -2413,7 +2419,7 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   // a fieldless surface, and one (and only one) Apply now control. Do not use
   // this for a listing, another ATS, or an ambiguous pair of CTAs.
   const brassRingRouteApplyNowEntries = allEntries.filter((control) => !control?.href
-    && !control?.formId && (Number(control?.frame) || 0) === 0
+    && !control?.formId && isMainFrameControl(control)
     && /^apply now$/iu.test(String(control?.text || control?.label || control?.ariaLabel || '')
       .normalize('NFKC').trim())
     && !control?.menuItem && !control?.popup && !socialApplicationEntry(control));
@@ -4114,7 +4120,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       const stage = workdayStage || applicationStage({ ...snapshot, text: await pageText(page) }, {
         ...stageContext,
         workdayApplicationEntryProven,
-        brassRingApplicationEntryProven: brassRingApplicationEntryProven || enteredThroughApplicationEntry,
+        brassRingApplicationEntryProven,
         url: page.url(),
       });
       // A resumed account/review page is already inside the application. Its
