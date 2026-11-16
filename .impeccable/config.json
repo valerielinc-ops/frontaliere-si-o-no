@@ -134,6 +134,15 @@
         "value": "space grotesk",
         "createdAt": "2026-11-14T12:26:16.198Z",
         "reason": "Project design system documents Space Grotesk for headings and preloads the self-hosted font in index.html; this is an intentional brand/performance choice."
+      },
+      {
+        "rule": "broken-image",
+        "value": "*",
+        "files": [
+          "tests/seo/job-description-embedded-media.test.ts"
+        ],
+        "createdAt": "2026-11-15T21:14:21.285Z",
+        "reason": "Agent: test fixture documents untrusted ATS markup removed by the sanitizer"
       }
     ]
   },

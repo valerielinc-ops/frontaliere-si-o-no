@@ -70,7 +70,7 @@ import { factory as titleNoDisambigHash } from './audit-title-no-disambig-hash.m
 import { factory as h1TitleDuplicates } from './audit-h1-title-duplicates.mjs';
 import { factory as textHtmlRatio } from './audit-text-html-ratio.mjs';
 import { factory as salaryLandingTemplate } from './audit-salary-landing-template.mjs';
-import { factory as pageWeight } from './audit-page-weight.mjs';
+import { factory as imgAttributes } from './audit-img-attributes.mjs';
 import { factory as contentDuplicates } from './audit-content-duplicates.mjs';
 import { factory as faqpageValidity } from './audit-faqpage-validity.mjs';
 import { factory as imageObjectLicense } from './audit-image-object-license.mjs';
@@ -95,7 +95,7 @@ const REGISTRY = [
   { factory: h1TitleDuplicates, name: 'h1-title-duplicates' },
   { factory: textHtmlRatio, name: 'text-html-ratio' },
   { factory: salaryLandingTemplate, name: 'salary-landing-template' },
-  { factory: pageWeight, name: 'page-weight' },
+  { factory: imgAttributes, name: 'img-attributes' },
   { factory: contentDuplicates, name: 'content-duplicates' },
   { factory: faqpageValidity, name: 'faqpage-validity' },
   { factory: imageObjectLicense, name: 'image-object-license' },

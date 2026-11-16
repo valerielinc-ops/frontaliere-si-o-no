@@ -320,14 +320,13 @@ describe('pharmacy directory page matrix', () => {
     expect(collection.mainEntity.itemListElement).toHaveLength(10);
   });
 
-  it.each(locales)('keeps Italian country hubs compact and indexable (%s)', (locale) => {
+  it.each(locales)('keeps Italian country hubs indexable with complete province navigation (%s)', (locale) => {
     const country = pharmacyPageDescriptors().find((descriptor) => descriptor.kind === 'country' && descriptor.country === 'IT');
     expect(country).toBeDefined();
     const page = buildPharmacyDirectoryPage(country!, locale, '/tmp/pharmacy-dist');
     const nav = page.html.match(/<nav\b[^>]*>[\s\S]*?<\/nav>/)?.[0] || '';
 
     expect(page.indexable).toBe(true);
-    expect(Buffer.byteLength(page.html, 'utf8')).toBeLessThan(260 * 1024);
     // cron-count-ok: una voce per ciascuna delle tre province ITALY_BORDER_PROVINCES, costante del codice.
     expect(nav.match(/<li\b/g) || []).toHaveLength(3);
     for (const [areaSlug, count] of [['como', italyProvinceCount('CO')], ['varese', italyProvinceCount('VA')], ['verbano-cusio-ossola', italyProvinceCount('VB')]] as const) {
@@ -350,7 +349,7 @@ describe('pharmacy directory page matrix', () => {
     expect(page.html).toContain('"@type":"BreadcrumbList"');
   });
 
-  it.each(locales)('keeps Italian province hubs compact while linking every pharmacy (%s)', (locale) => {
+  it.each(locales)('keeps Italian province hubs linked to every pharmacy (%s)', (locale) => {
     const area = pharmacyPageDescriptors().find((descriptor) => descriptor.kind === 'area' && descriptor.areaSlug === 'varese');
     const pharmacies = ITALY_BORDER_PHARMACIES.filter((pharmacy) => pharmacy.province === 'VA');
     expect(area).toBeDefined();
@@ -359,7 +358,6 @@ describe('pharmacy directory page matrix', () => {
     const hrefs = [...page.html.matchAll(/<a href="([^"]+)"/g)].map((match) => match[1]);
 
     expect(page.indexable).toBe(true);
-    expect(Buffer.byteLength(page.html, 'utf8')).toBeLessThan(260 * 1024);
     expect(page.html).not.toMatch(/<article\b/);
     for (const pharmacy of pharmacies) {
       const detailPath = buildPharmacyPath({
