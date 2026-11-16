@@ -190,15 +190,17 @@ describe('runner final guard across three application stages', () => {
     const posting = {
       ...snapshot(postingUrl, `${title}. UBS. Share Apply now Save`, [
         { id: 'share', text: 'Share', frame: 0, disabled: false },
-        { id: 'posting-entry', text: 'Apply now', section: title, frame: 0, disabled: false },
+        { id: 'posting-entry', text: 'Apply now', section: 'Job details', frame: 0, disabled: false },
         { id: 'save', text: 'Save', frame: 0, disabled: false },
       ]),
       title: `${title} | UBS`,
     };
     const fieldlessApplication = {
-      ...snapshot(`${postingUrl}#apply`, 'Application. Share Apply now Save', [
+      ...snapshot(`${postingUrl}#apply`, 'Application wizard. Share Apply now Save', [
         { id: 'share', text: 'Share', frame: 0, disabled: false },
-        { id: 'application-entry', text: 'Apply now', section: title, frame: 0, disabled: false },
+        // The live UBS surface supplies no vacancy context on the CTA; the
+        // exact query-bound HomeWithPreLoad route is the proof used here.
+        { id: 'application-entry', text: 'Apply now', section: 'Application wizard', frame: 0, disabled: false },
         { id: 'save', text: 'Save', frame: 0, disabled: false },
       ]),
       title: `${title} | UBS`,
