@@ -325,11 +325,17 @@ describe('runner final guard across three application stages', () => {
       ],
     };
     const posting = snapshot(postingUrl, 'Store Assistant Rituals Apply', [{ id: 'entry', text: 'Apply', frame: 0, disabled: false }]);
+    const navigationDiagnostics: any[] = [];
+    let applicationStarted = false;
     const f = fixture(blankApply, posting, review, null, {
       applyUrl,
       postingUrl,
       channelType: 'workday',
       job: { company: 'Rituals Cosmetics Switzerland', title: 'Store Assistant' },
+      onPortalNavigationDiagnostic: (diagnostic: any) => {
+        if (applicationStarted) navigationDiagnostics.push(diagnostic);
+      },
+      onOpenClick: () => { applicationStarted = true; },
       onWait: (ms: number) => {
         if (ms === 1200 && state.snapshot.url === applyUrl) state.snapshot = unboundSurface;
       },
@@ -338,6 +344,7 @@ describe('runner final guard across three application stages', () => {
     const result = await f.run();
 
     expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(navigationDiagnostics).toEqual([]);
     expect(f.codex).not.toHaveBeenCalled();
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
