@@ -686,6 +686,7 @@ describe('materializzazioni sparse dichiarate nel workflow', () => {
     expect(String(checkout?.with?.['sparse-checkout'] ?? '').trim()).toBe('scripts');
     expect(checkout?.with?.['sparse-checkout-cone-mode']).toBe(true);
     expect([...materialized].sort()).toEqual([
+      '.github/backfill-expired-from-history-progress.tsv',
       'build-plugins/shared/cantonResolvers.mjs',
       'data/canton-municipalities.json',
       'data/canton-url-slugs.json',
