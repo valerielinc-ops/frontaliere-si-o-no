@@ -112,7 +112,7 @@ describe('border-comuni hub links every comune the plugin emits (#5434)', () => 
     expect(html).toContain('>VA ');
   });
 
-  it('stays in the compact list form — cards for 320 comuni would blow the page-weight budget', () => {
+  it('keeps the compact list form instead of rendering a card for every comune', () => {
     // MARGINAL cost, not average: the section's fixed chrome (headings, intro
     // copy, the 16 shortlist cards) dwarfs a 7-comune fixture and would make an
     // average-based assertion meaningless. What matters at 320 comuni is what
@@ -282,9 +282,8 @@ describe('the home shell carries the two depth-1 entry points the audit needs (#
  *
  * Both reachability auditors must follow `noindex,follow` pages and stop only
  * at an explicit `nofollow` barrier. A noindex ladder therefore does not
- * re-orphan every row it was built to carry. Nothing else in the repo watches
- * this: the auditors need a full build, and the byte-budget test in
- * `tests/events-page-weight-bound.test.ts` measures only weight.
+ * re-orphan every row it was built to carry. These structural assertions keep
+ * the page ladder covered independently of the full-build audits.
  */
 describe('the overflow ladder keeps the rows it carries reachable (#7329)', () => {
   /**

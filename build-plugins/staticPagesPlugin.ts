@@ -2358,7 +2358,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  //    relatedSearchClustersPlugin uses to emit the pages). We pick the entries
  //    that have a `city` field set — those are the canton-specific bridges
  //    most likely to be deep-orphan from the TI hub. Cap at 30 per locale
- //    to stay within the page-weight budget.
+ //    to keep the shortcut list focused.
  const tiSearchClusters: Record<TiNavLocale, Array<{ slug: string; label: string }>> = {
    it: [], en: [], de: [], fr: [],
  };
@@ -2418,20 +2418,13 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
   * cantons' leaves. Since the TI hub is at depth 1 from `/` and is always
   * `index,follow`, every leaf lifts to BFS depth 2.
   *
-  * Sector cap rationale: this exact anchor pattern was the page-weight gate
-  * breaker behind issue #1887 (`/cerca-lavoro-ticino/` measured 208,874 B
-  * against the 215 KB `audit-page-weight.mjs` cap — ~6 KB headroom). Linking
-  * all 49 SECTOR_HUB_KEYS unconditionally here (vs. the old ≥3-job filter,
-  * which self-limited to a data-dependent subset) would add ~900+ guaranteed
-  * anchors and risk blowing that budget for zero reachability gain — every
-  * sector hub is already deep-linked unconditionally from the canton's own
-  * `/settori/` hub (`seoHubsPlugin.ts` via `hasCantonSectorPage`), so this
-  * widget is a depth-2 shortcut, not the only path. Capped at the first 10
-  * of `SECTOR_HUB_KEYS` (deterministic, no job-count check — selection here
-  * has no bearing on which pages exist).
-  * Page weight per canton: ≤7 editorial + ≤10 sector + ≤6 company + ≤8 city
-  * ≈ 31 anchors × 23 cantons ≈ 720 anchors total, all inside a collapsed
-  * `<details>` so mobile fold stays clean (CLAUDE.md #15/#16).
+  * Sector cap rationale: all 49 SECTOR_HUB_KEYS have real pages, and every
+  * sector hub is already linked unconditionally from its canton `/settori/`
+  * hub (`seoHubsPlugin.ts` via `hasCantonSectorPage`). This widget is a depth-2
+  * shortcut, not the only path, so it links the first 10 deterministic slugs
+  * without a job-count check. The other per-canton link groups are also kept
+  * as focused lists inside a collapsed `<details>` for mobile (CLAUDE.md
+  * #15/#16).
   */
  type NonTiNavLocale = 'it' | 'en' | 'de' | 'fr';
  type NonTiCantonNavEntry = {
@@ -2441,7 +2434,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
    labels: Record<NonTiNavLocale, string>;
    /** Editorial slot slugs per locale (oggi/infermieri/lavoro-part-time/cliniche/case-anziani/oss/educatori). */
    editorialSlots: Record<NonTiNavLocale, Array<{ slug: string; label: string }>>;
-   /** Sector hub slugs per locale (ingegneri, autisti, …) — first 10 of SECTOR_HUB_KEYS, deterministic page-weight cap; the rest are still real pages, reachable via the canton's own /settori/ hub. */
+   /** Sector hub slugs per locale (ingegneri, autisti, …) — first 10 of SECTOR_HUB_KEYS; the rest remain reachable via the canton's own /settori/ hub. */
    sectorSlugs: Record<NonTiNavLocale, Array<{ slug: string; label: string }>>;
    /** Top company hubs (≥3 jobs, top 6) — slug is `azienda-{cSlug}` per locale prefix. */
    companyHubs: Record<NonTiNavLocale, Array<{ slug: string; label: string }>>;
@@ -2483,8 +2476,8 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
        //    job-count gate (owner decision 2026-07-16, PR #4254 + follow-up,
        //    removed the floor at jobsSeoPagesPlugin.ts Phase 3.2, so every
        //    (canton, sector) combo has a real page regardless of match
-       //    count). Capped here purely for page-weight (see docstring above,
-       //    issue #1887) — the remaining sectors are still real pages,
+       //    count). Limited here to the first ten shortcuts (see docstring
+       //    above); the remaining sectors are still real pages,
        //    reachable via the canton's own /settori/ hub either way.
        const sectorSlugsPerLocale: Record<NonTiNavLocale, Array<{ slug: string; label: string }>> = { it: [], en: [], de: [], fr: [] };
        for (const sector of SECTOR_HUB_KEYS.slice(0, 10)) {
@@ -3199,11 +3192,9 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  }
  }
  parsed = normalizeArticleStructuredData(normalizeStructuredData(parsed));
- // Cap oversized ItemList payloads. The auto-generated blog ItemList
+ // Cap oversized ItemLists. The auto-generated blog ItemList
  // (services/seo/seo-pages.ts:blog) grows by ~1 entry per published
- // article and now exceeds 900 items — that single inline JSON-LD
- // weighs ~170 KB and pushes the section index page over the
- // 200 KB Semrush page-weight budget. Google only needs the first
+ // article and now exceeds 900 items. Google only needs the first
  // ~100 items for ItemList signal; truncate to that and keep
  // `numberOfItems` accurate (reflects total list size).
  const ITEM_LIST_CAP = 100;
@@ -4587,9 +4578,8 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  italianUrls
  .filter(u => u.path.startsWith(prefix) && u.path !== prefix.replace(/\/+$/, ''))
  .map(u => withTrailingSlash(u.path));
- // Cap per-group anchor count to keep /mappa-del-sito/ HTML under the 200KB
- // page-weight gate. The long-tail of e.g. salary-hub scenarios (~1732
- // entries) and per-blog detail pages already has dedicated paginated
+ // Cap per-group anchor count to keep the /mappa-del-sito/ lists focused.
+ // Long-tail salary-hub scenarios and per-blog detail pages already have dedicated paginated
  // archives reachable via their hubs (T1 scenari, T9 articoli/tutti).
  const MAX_ITEMS_PER_GROUP = 30;
  const renderList = (heading: string, hrefs: string[], seeAllHref?: string, seeAllLabel?: string): string => {
@@ -5104,10 +5094,8 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  if (nonTiCantonNavEntries.length > 0) {
  const navLocale = locale as NonTiNavLocale;
  const localePref = navLocale === 'it' ? '' : `${navLocale}/`;
- // Pill styling lives in public/assets/seo-static.css (.jbx-*): these were
- // per-anchor inline style attrs — 621 anchors × ~190 B ≈ 119 KB on
- // /cerca-lavoro-ticino/ alone (54% of the page), the page-weight gate
- // breaker behind issue #1887.
+ // Pill styling lives in public/assets/seo-static.css (.jbx-*), avoiding
+ // repeated inline style attributes on each canton link.
  const outerNavLabel = navLocale === 'it' ? 'Esplora i cantoni in dettaglio'
    : navLocale === 'en' ? 'Explore cantons in detail'
    : navLocale === 'de' ? 'Kantone im Detail erkunden'
@@ -5226,12 +5214,9 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
        : navLocale === 'de' ? 'Listings nach Seite durchsuchen'
        : navLocale === 'fr' ? 'Parcourir les annonces page par page'
        : 'Sfoglia gli annunci pagina per pagina';
-     // Bare page number (was a `<word>&nbsp;<n>` label). Same page-weight
-     // byte-shave as the canton hub flat ladders (CLAUDE.md #6): the full
-     // page-N link set is kept intact but the repeated per-anchor word prefix
-     // is dropped so a growing TI archive can't drift the injected navigator
-     // over the audit:page-weight budget. `<summary>`/`<nav aria-label>` supply
-     // the "page by page" context.
+     // Bare page number (was a `<word>&nbsp;<n>` label). The full page-N link
+     // set is kept intact while `<summary>`/`<nav aria-label>` provide the
+     // "page by page" context without repeating it in every link.
      const paginationAnchors: string[] = [];
      for (let p = 2; p <= tiPaginationPages; p++) {
        const href = `${tiBase}${TI_PAGINATION_SLUG[navLocale]}-${p}/`;
@@ -5404,9 +5389,8 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
    : locale === 'de' ? 'Vollständiges Artikelarchiv nach Seite durchsuchen'
    : 'Parcourir toutes les archives par page';
  if (articlesTotalPages > 1) {
- // Bare page number (was a `<word>&nbsp;<n>` label). Same BFS-safe page-weight
- // byte-shave as the canton hub ladders (CLAUDE.md #6): every page-N anchor
- // preserved, only the repeated word prefix dropped; `<nav aria-label>` context.
+ // Bare page number (was a `<word>&nbsp;<n>` label); every page-N anchor is
+ // preserved, with the repeated context supplied by `<nav aria-label>`.
  const pageAnchors: string[] = [];
  for (let p = 1; p <= articlesTotalPages; p++) {
  const href = paginatedPath(articlesArchiveBase, p);
@@ -6146,7 +6130,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  rootHtml = isBlogDetailPage
  ? `<div class="s-wWmcGm">${heroImg}<article><h1 class="s-lHdmvf">${esc(h1Text)}</h1><p class="s-zvDmuv">${esc(seoData.desc)}</p><div class="s-6z0aHu ft-blog-body">${blogArticleHtml}${blogSourcesHtml}${blogDetailCreditHtml}</div>${adPlaceholderInline}${relatedHtml}</article>${adPlaceholderEnd}<div class="s-WR7RLD">${`<div style="${sp};height:12rem"></div>`.repeat(3)}</div><nav class="s-eazYqN">${navHtml}</nav></div>`
  : (() => {
- // FRO-330: SSG article cards — render the shared page-weight budget with real titles for crawlers
+ // FRO-330: SSG article cards — render real titles for crawlers
  const blogListSlug = firstSeg;
  const localePrefix = localePrefixes.includes(urlSegs[0] ?? '') ? urlSegs[0] : '';
  const cardLocale = (localePrefix || 'it') as 'it' | 'en' | 'de' | 'fr';
@@ -6167,8 +6151,7 @@ function buildStaticPagesPlugin(rootDir: string): Plugin {
  return artSeo ? { title: artSeo.ogT, desc: artSeo.desc } : null;
  },
  });
- // Extracted per-card inline styles into CSS classes to keep the
- // articles-hub HTML under its page-weight budget. The card count is owned by
+ // Extracted per-card inline styles into CSS classes. The card count is owned by
  // the shared renderer; the .ssg-* rules now live in
  // public/assets/seo-static.css (already linked on these pages)
  // instead of a per-page inline <style> block. Visual output unchanged.

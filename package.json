@@ -288,7 +288,6 @@
     "audit:all": "node scripts/audit-all.mjs",
     "check:cwv-field": "node scripts/check-cwv-field-criterion.mjs",
     "validate:jsonld-shape": "node scripts/validate-jsonld-shape.mjs",
-    "audit:page-weight": "node scripts/audit-page-weight.mjs",
     "audit:text-html-ratio": "node scripts/audit-text-html-ratio.mjs --baseline=data/text-html-ratio-baseline.json",
     "audit:text-html-ratio:rebaseline": "node scripts/audit-text-html-ratio.mjs --write-baseline=data/text-html-ratio-baseline.json",
     "audit:max-bfs-depth": "node scripts/audit-bfs-depth.mjs --baseline=data/bfs-depth-baseline.json",

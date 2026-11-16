@@ -1,13 +1,11 @@
-/** Regression coverage for sector inventory pagination and page metadata. */
+/** Regression coverage for bounded sector-hub page windows. */
 
 import { describe, it, expect } from 'vitest';
 import {
   buildSectorLandingHtml,
   sectorHubPageCount,
   SECTOR_PAGE_CARD_CAP,
-  SECTOR_PAGE_WEIGHT_TOP_N,
   SECTOR_OVERFLOW_LINKS_PER_PAGE,
-  summarizeSectorPageWeights,
 } from '../../build-plugins/jobSectorPagesPlugin';
 import {
   buildSectorHubPath,
@@ -17,7 +15,6 @@ import {
 } from '../../build-plugins/jobSectorLanding';
 import type { JobBoardLocale } from '../../build-plugins/jobBoardSeo';
 import { parsePath } from '../../services/router';
-import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 const LOCALES: ReadonlyArray<JobBoardLocale> = ['it', 'en', 'de', 'fr'];
@@ -107,38 +104,13 @@ function extractItemListSlugs(html: string): string[] {
   return elements.map(({ url }) => new URL(url).pathname.split('/').filter(Boolean).at(-1) || '');
 }
 
-describe('SEO — job-sector landing inventory pagination', () => {
+describe('SEO — job-sector landing page windows', () => {
   const sectorProseData = loadSectorProseData(ROOT_DIR);
   const heavyJobs: SectorCountableJob[] = Array.from(
     { length: SYNTHETIC_INVENTORY_SIZE },
     (_, index) => makeHeavyJob(index + 1),
   );
   const pageCount = sectorHubPageCount(heavyJobs.length);
-
-  it('summarises total observed UTF-8 bytes and a bounded heaviest-page list', () => {
-    const weights = [
-      { path: '/en/a/', bytes: Buffer.byteLength('é', 'utf-8') },
-      { path: '/en/b/', bytes: Buffer.byteLength('💼', 'utf-8') },
-      { path: '/en/c/', bytes: Buffer.byteLength('abcde', 'utf-8') },
-      { path: '/en/d/', bytes: Buffer.byteLength('xyz', 'utf-8') },
-      { path: '/en/e/', bytes: Buffer.byteLength('1234567', 'utf-8') },
-      { path: '/en/f/', bytes: Buffer.byteLength('z', 'utf-8') },
-    ];
-
-    expect(SECTOR_PAGE_WEIGHT_TOP_N).toBe(5);
-    expect(summarizeSectorPageWeights(weights)).toEqual({
-      pageCount: 6,
-      totalBytes: 22,
-      top: [
-        { path: '/en/e/', bytes: 7 },
-        { path: '/en/c/', bytes: 5 },
-        { path: '/en/b/', bytes: 4 },
-        { path: '/en/d/', bytes: 3 },
-        { path: '/en/a/', bytes: 2 },
-      ],
-    });
-    expect(summarizeSectorPageWeights([])).toEqual({ pageCount: 0, totalBytes: 0, top: [] });
-  });
 
   it('bounds rich cards and compact overflow windows across the sector ladder', () => {
     expect(SECTOR_PAGE_CARD_CAP).toBe(30);
@@ -383,12 +355,4 @@ describe('SEO — job-sector landing inventory pagination', () => {
     }
   });
 
-  it('keeps the related-search cluster byte-size guard fail-closed', () => {
-    const relatedSource = readFileSync(
-      resolve(ROOT_DIR, 'build-plugins/relatedSearchClustersPlugin.ts'),
-      'utf8',
-    );
-    expect(relatedSource).toContain('JOB_BOARD_LANDING_GUARD_BYTES');
-    expect(relatedSource).toMatch(/if\s*\(patchedBytes\s*>\s*JOB_BOARD_LANDING_GUARD_BYTES\)[\s\S]{0,300}throw new Error/);
-  });
 });

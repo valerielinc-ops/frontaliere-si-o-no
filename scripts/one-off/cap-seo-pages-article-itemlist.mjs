@@ -4,10 +4,9 @@
  * first 100 entries — the only ones that ever reach a page.
  *
  * `staticPagesPlugin.ts` already caps this list at emission
- * (`ITEM_LIST_CAP = 100`), with a comment that spells out why: the list "grows
- * by ~1 entry per published article and now exceeds 900 items — that single
- * inline JSON-LD weighs ~170 KB and pushes the section index page over the
- * 200 KB Semrush page-weight budget. Google only needs the first ~100 items."
+ * (`ITEM_LIST_CAP = 100`), with a comment that spells out why: the list grows
+ * by ~1 entry per published article and now exceeds 900 items. Google only
+ * needs the first ~100 items for the ItemList signal.
  *
  * It is now 3619 entries. Everything past the hundredth is parsed, bundled and
  * shipped to clients — `assets/seo-pages.js` is 1.13 MB — and then discarded at
