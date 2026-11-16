@@ -307,6 +307,37 @@ function extractStackUrls(stack: string): string[] {
     .filter(Boolean);
 }
 
+const LINKEDIN_AUTH_CALLBACK_PATH = '/auth/linkedin/callback';
+
+function normalizedRoutePath(pathname: string): string {
+  return pathname.replace(/\/+$/u, '') || '/';
+}
+
+/**
+ * The OAuth redirect can land on `/` when callback-page sessionStorage
+ * restoration fails. The `#google_vignette` marker is then absent, but the
+ * pair of callback parameters and our encoded same-origin return path still
+ * identify the exact document surface.
+ */
+function isLinkedInCallbackContext(page: URL): boolean {
+  const pagePath = normalizedRoutePath(page.pathname);
+  if (pagePath !== '/' && pagePath !== LINKEDIN_AUTH_CALLBACK_PATH) return false;
+
+  const code = page.searchParams.get('code');
+  const state = page.searchParams.get('state');
+  if (!code || !state) return false;
+
+  let decodedState: string;
+  try {
+    decodedState = decodeURIComponent(state);
+  } catch {
+    return false;
+  }
+  return decodedState.startsWith('/')
+    && !decodedState.startsWith('//')
+    && !decodedState.startsWith('/\\');
+}
+
 /**
  * True only for the opaque `Na` exception attributed to the document while a
  * Google vignette is active (#18592). WebKit can report injected ad code with
@@ -314,9 +345,10 @@ function extractStackUrls(stack: string): string[] {
  * first-party even though no application chunk is involved.
  *
  * The classifier is deliberately fail-open: it requires the exact message,
- * the production first-party page and exact vignette hash, at least one
- * parseable stack URL, every frame to point at that same document, and no
- * first-party asset frame. Missing or malformed context stays observable.
+ * the production first-party page and either the exact vignette hash or the
+ * verified LinkedIn callback fallback context, at least one parseable stack
+ * URL, every frame to point at that same document surface, and no first-party
+ * asset frame. Missing or malformed context stays observable.
  * This filters telemetry only; it does not alter ad loading or rendering.
  */
 export function isGoogleVignetteInjectedOpaqueError(
@@ -333,16 +365,24 @@ export function isGoogleVignetteInjectedOpaqueError(
   } catch {
     return false;
   }
-  if (page.protocol !== 'https:' || !isFirstPartySiteHost(page.hostname) || page.hash !== '#google_vignette') {
+  const linkedinCallback = isLinkedInCallbackContext(page);
+  if (
+    page.protocol !== 'https:'
+    || !isFirstPartySiteHost(page.hostname)
+    || (page.hash !== '#google_vignette' && !linkedinCallback)
+  ) {
     return false;
   }
 
   const frameUrls = extractStackUrls(stack);
   if (frameUrls.length === 0) return false;
+  const expectedPath = linkedinCallback && normalizedRoutePath(page.pathname) === '/'
+    ? LINKEDIN_AUTH_CALLBACK_PATH
+    : normalizedRoutePath(page.pathname);
   return frameUrls.every((frame) => {
     try {
       const frameUrl = new URL(frame);
-      return frameUrl.origin === page.origin && frameUrl.pathname === page.pathname;
+      return frameUrl.origin === page.origin && normalizedRoutePath(frameUrl.pathname) === expectedPath;
     } catch {
       return false;
     }

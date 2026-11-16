@@ -268,6 +268,23 @@ describe('reportCaughtError', () => {
       }
     });
 
+    it('drops exact `Na` from the LinkedIn callback fallback document stack', async () => {
+      vi.stubGlobal('window', {
+        location: {
+          href: 'https://frontaliereticino.ch/?code=oauth-code&state=%252Fcerca-lavoro-ticino%252Fexample%252F',
+        },
+      });
+      try {
+        const error = new Error('Na');
+        error.stack = '@https://frontaliereticino.ch/auth/linkedin/callback/:190:70\n@https://frontaliereticino.ch/auth/linkedin/callback/:197:363';
+        reportCaughtError(error, 'app.linkedInCallback');
+        await settleAnalyticsImport();
+        expect(Analytics.trackAppError).not.toHaveBeenCalled();
+      } finally {
+        vi.unstubAllGlobals();
+      }
+    });
+
     it('drops permanent Firebase Installations configuration failures', async () => {
       reportCaughtError(
         new Error('Installations: Create Installation request failed with error "400 INVALID_ARGUMENT: invalid client configuration"'),
