@@ -279,7 +279,7 @@ describe('technical operations output audit', () => {
     ]);
   });
 
-  it('follows inline object maps passed to env.GITHUB_OUTPUT writers', () => {
+  it('follows shorthand keys in inline object maps while missing keys stay fail-closed', () => {
     const scriptPath = path.resolve('scripts/social-copy/generate-free-model-fallback.mjs');
     const delegatedSource = [
       "import { appendFileSync } from 'node:fs';",
@@ -287,7 +287,9 @@ describe('technical operations output audit', () => {
       "  const lines = Object.entries(values).map(([key, value]) => `${key}=${value}`).join('\\n');",
       '  if (env.GITHUB_OUTPUT) appendFileSync(env.GITHUB_OUTPUT, `${lines}\\n`);',
       '}',
-      "writeWorkflowOutput(env, { pack_generated: false, provider: 'none', reason: 'failed', attempt_failures: 'none' });",
+      "const deferred = true;",
+      "const not_produced = true;",
+      "writeWorkflowOutput(env, { pack_generated: false, provider: 'none', reason: 'failed', deferred, attempt_failures: 'none' });",
     ].join('\n');
     const source = [
       'name: social fallback output',
@@ -298,7 +300,7 @@ describe('technical operations output audit', () => {
       '    steps:',
       '      - id: free_fallback',
       '        run: node scripts/social-copy/generate-free-model-fallback.mjs',
-      '      - run: echo "${{ steps.free_fallback.outputs.pack_generated }} ${{ steps.free_fallback.outputs.provider }} ${{ steps.free_fallback.outputs.reason }} ${{ steps.free_fallback.outputs.attempt_failures }}"',
+      '      - run: echo "${{ steps.free_fallback.outputs.pack_generated }} ${{ steps.free_fallback.outputs.provider }} ${{ steps.free_fallback.outputs.reason }} ${{ steps.free_fallback.outputs.deferred }} ${{ steps.free_fallback.outputs.attempt_failures }} ${{ steps.free_fallback.outputs.not_produced }}"',
     ].join('\n');
     const findings = auditWorkflowText('.github/workflows/social-copy-pack.yml', source, {
       root: process.cwd(),
@@ -309,7 +311,9 @@ describe('technical operations output audit', () => {
       },
     });
 
-    expect(findings.filter((finding: any) => finding.rule === 'workflow.output-not-produced')).toEqual([]);
+    expect(findings.filter((finding: any) => finding.rule === 'workflow.output-not-produced')).toEqual([
+      expect.objectContaining({ evidence: 'steps.free_fallback.outputs.not_produced' }),
+    ]);
   });
 
   it('follows async writeFile targets derived from a --github-output flag', () => {

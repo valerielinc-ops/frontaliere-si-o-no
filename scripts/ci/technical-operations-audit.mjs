@@ -1548,6 +1548,17 @@ function matchingBrace(source, openingIndex) {
   return -1;
 }
 
+function staticObjectLiteralEntryKey(entry) {
+  const raw = String(entry || '').trim();
+  const explicit = /^(?:["']?)([A-Za-z_][A-Za-z0-9_-]*)(?:["']?)\s*:/u.exec(raw);
+  if (explicit) return explicit[1];
+
+  // Only a bare identifier is a statically provable shorthand property.
+  // Spreads, computed properties, methods and expressions remain unknown so
+  // references that are not demonstrably written still fail closed.
+  return /^([A-Za-z_][A-Za-z0-9_]*)$/u.exec(raw)?.[1] || null;
+}
+
 function objectEntryOutputKeys(source, sinkRanges = outputSinkRanges(source)) {
   const raw = String(source || '');
   const keys = new Set();
@@ -1584,7 +1595,10 @@ function objectEntryOutputKeys(source, sinkRanges = outputSinkRanges(source)) {
     });
     if (!reachesOutputSink) continue;
     const body = raw.slice(openingIndex + 1, closingIndex);
-    for (const entry of body.matchAll(/(?:^|,)\s*([A-Za-z_][A-Za-z0-9_-]*)\s*:/gm)) keys.add(entry[1]);
+    for (const entry of splitTopLevelArguments(body)) {
+      const key = staticObjectLiteralEntryKey(entry.text);
+      if (key) keys.add(key);
+    }
   }
   return keys;
 }
@@ -1596,8 +1610,8 @@ function objectLiteralEntryKeys(expression) {
   if (closingIndex < 0) return new Set();
   const keys = new Set();
   for (const entry of splitTopLevelArguments(raw.slice(1, closingIndex))) {
-    const key = /^\s*(?:["']?)([A-Za-z_][A-Za-z0-9_-]*)(?:["']?)\s*:/u.exec(entry.text);
-    if (key) keys.add(key[1]);
+    const key = staticObjectLiteralEntryKey(entry.text);
+    if (key) keys.add(key);
   }
   return keys;
 }
