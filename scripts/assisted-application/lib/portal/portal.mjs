@@ -5497,11 +5497,11 @@ export function formPostingMatch(formText, job = {}, {
   // The verified same-origin vacancy id binds the form even when the heading is
   // generic; keep mismatch guards on that heading, not native field labels
   // that describe the application itself. A bound route cannot make an
-  // explicitly different role belong to the selected vacancy. When the ATS
-  // title detector is language-uncertain, `explicitRoleConflict` preserves a
-  // concrete role conflict before the route shortcut below can accept it.
+  // explicitly different role belong to the selected vacancy. The bounded
+  // heading and role checks above already preserve concrete role conflicts;
+  // native question labels must not be reinterpreted as a role heading here.
   if (boundUmantisApplication) {
-    if (umantisHeadingConflict || roleHeading === 'mismatch' || explicitRoleConflict) return 'mismatch';
+    if (umantisHeadingConflict || roleHeading === 'mismatch') return 'mismatch';
     return 'match';
   }
   // Some snapshots carry the Umantis Application/New URL only in the extracted
