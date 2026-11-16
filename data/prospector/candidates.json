@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-16T14:59:35.268Z",
+  "updatedAt": "2026-11-16T15:01:41.787Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -15604,12 +15604,12 @@
     },
     "absolutliv@olten": {
       "key": "absolutliv@olten",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-22T04:04:53.422Z",
-      "updatedAt": "2026-11-15T14:57:13.833Z",
+      "updatedAt": "2026-11-16T15:01:41.668Z",
       "name": "absolutLIV AG",
       "city": "Olten",
       "zip": "4600",
@@ -16133,7 +16133,13 @@
         }
       ],
       "promotionPr": "18909",
-      "promotionBranch": "prospector/promote-2026-11-15"
+      "promotionBranch": "prospector/promote-2026-11-15",
+      "promotedAt": "2026-11-15T18:48:15Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-15T22:00:27.975Z",
+      "firstCrawlerJobCount": 1
     },
     "absolutliv@regensdorf": {
       "key": "absolutliv@regensdorf",
@@ -338818,13 +338824,13 @@
     },
     "cnvo@yverdon-les-bains": {
       "key": "cnvo@yverdon-les-bains",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco",
         "osm"
       ],
       "firstSeenAt": "2026-10-15T08:33:29.859Z",
-      "updatedAt": "2026-11-15T14:57:13.833Z",
+      "updatedAt": "2026-11-16T15:01:41.668Z",
       "name": "CNVO",
       "city": "Yverdon-les-Bains",
       "zip": "1400",
@@ -339385,7 +339391,13 @@
       "secoStaffingMatchConfidence": "curated-registry-and-signal-residual",
       "emailDomainHints": [],
       "promotionPr": "18909",
-      "promotionBranch": "prospector/promote-2026-11-15"
+      "promotionBranch": "prospector/promote-2026-11-15",
+      "promotedAt": "2026-11-15T18:48:15Z",
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputReason": null,
+      "firstCrawlerOutputAt": "2026-11-15T21:40:05.433Z",
+      "firstCrawlerJobCount": 1
     },
     "co-bo.ch": {
       "key": "co-bo.ch",
@@ -677055,7 +677067,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-10-01T17:42:57.929Z",
-      "updatedAt": "2026-11-14T13:56:39.134Z",
+      "updatedAt": "2026-11-16T15:01:41.669Z",
       "name": "Heini Conditorei AG",
       "city": "Luzern",
       "zip": "6004",
@@ -677342,10 +677354,11 @@
       "promotionBranch": "prospector/promote-2026-11-13",
       "promotedAt": "2026-11-13T17:56:43Z",
       "firstCrawlerOutputStatus": "missing",
-      "firstCrawlerOutputAttention": false,
+      "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
       "firstCrawlerOutputAt": null,
-      "firstCrawlerJobCount": 0
+      "firstCrawlerJobCount": 0,
+      "firstCrawlerOutputAttentionAt": "2026-11-16T15:01:41.632Z"
     },
     "heini.ch": {
       "key": "heini.ch",
@@ -1367763,7 +1367776,7 @@
         "web"
       ],
       "firstSeenAt": "2026-10-19T21:46:32.730Z",
-      "updatedAt": "2026-11-15T14:54:11.136Z",
+      "updatedAt": "2026-11-16T15:01:41.669Z",
       "name": "sintio",
       "domain": "sintio.ch",
       "careersUrl": "https://join.com/companies/sintio/16868238-technische-r-verkaufsberater-in-und-projektleiter-in-e-mobility",
@@ -1367984,7 +1367997,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-15T09:41:33.966Z",
+      "firstCrawlerOutputAt": "2026-11-16T09:42:25.466Z",
       "firstCrawlerJobCount": 0,
       "firstCrawlerOutputAttentionAt": "2026-11-04T13:55:58.168Z"
     },
@@ -1370191,7 +1370204,7 @@
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:26:26.774Z",
-      "updatedAt": "2026-11-15T14:54:11.136Z",
+      "updatedAt": "2026-11-16T15:01:41.669Z",
       "name": "Skan AG",
       "city": "",
       "zip": "",
@@ -1370791,7 +1370804,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-15T09:43:48.686Z",
+      "firstCrawlerOutputAt": "2026-11-16T09:43:19.264Z",
       "firstCrawlerJobCount": 0,
       "firstCrawlerOutputAttentionAt": "2026-11-08T13:25:07.327Z"
     },
