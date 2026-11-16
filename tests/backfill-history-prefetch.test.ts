@@ -1,15 +1,19 @@
 import { describe, expect, it } from 'vitest';
 import {
   HISTORY_BACKFILL_MIN_BATCH_SIZE,
+  historyBlobOidsFromBatchCheck,
   historyBlobOidsFromTreeBatch,
   historyBlobPrefetchInput,
   historyBackfillArgs,
   historyCommitOidsFromDiffTree,
   historyCommitWalkArgs,
   historyDiffTreeArgs,
+  historyCrawlerKeys,
   historyMetadataEnv,
   historySafeGitErrorMessage,
   historySinceArgs,
+  historySliceFileRefInput,
+  historySlicePaths,
   historySliceTreeRefInput,
   historyTreeOidsFromBatchCheck,
 } from '../scripts/ci/prefetch-history-blobs.mjs';
@@ -59,6 +63,42 @@ describe('prefetch-history-blobs', () => {
     ]);
   });
 
+  it('scopes discovery and promisor backfill to a bounded crawler batch', () => {
+    const paths = historySlicePaths(['acme', 'foo-bar'], {
+      acme: ['acme.json', 'acme.shard-001.json'],
+      'foo-bar': ['foo-bar.json'],
+    });
+    expect(historyCrawlerKeys('acme,foo-bar\nacme')).toEqual(['acme', 'foo-bar']);
+    expect(paths).toEqual([
+      'data/jobs/by-crawler/acme.json',
+      'data/jobs/expired/by-crawler/acme.json',
+      'data/jobs/expired/by-crawler/acme.shard-001.json',
+      'data/jobs/by-crawler/foo-bar.json',
+      'data/jobs/expired/by-crawler/foo-bar.json',
+    ]);
+    expect(historyDiffTreeArgs(paths).at(-(paths.length + 1))).toBe('--');
+    expect(historyDiffTreeArgs(paths).slice(-(paths.length + 1))).toEqual(['--', ...paths]);
+    const commit = 'a'.repeat(40);
+    expect(historySliceFileRefInput([commit], paths)).toBe(
+      `${paths.map((slicePath) => `${commit}:${slicePath}`).join('\n')}\n`,
+    );
+    expect(historyBackfillArgs({ since: '2026-09-20', paths }).slice(-paths.length)).toEqual(paths);
+  });
+
+  it('rejects crawler keys and expired filenames that could escape the slice directories', () => {
+    expect(() => historyCrawlerKeys('../outside')).toThrow('Invalid crawler key');
+    expect(() => historyCrawlerKeys('nested/key')).toThrow('Invalid crawler key');
+    expect(() => historyCrawlerKeys('*')).toThrow('Invalid crawler key');
+    expect(() => historyCrawlerKeys('-leading-dash')).toThrow('Invalid crawler key');
+    expect(() => historySlicePaths(['safe', '*'])).toThrow('Invalid crawler key');
+    expect(() => historySlicePaths(['safe'], { safe: ['safe.other.json'] })).toThrow(
+      'Invalid expired slice filename',
+    );
+    expect(() => historySlicePaths(['safe'], { safe: ['../safe.shard-001.json'] })).toThrow(
+      'Invalid expired slice filename',
+    );
+  });
+
   it('selects only commits that changed direct JSON slices in either family', () => {
     const activeCommit = 'a'.repeat(40);
     const expiredCommit = 'b'.repeat(40);
@@ -93,6 +133,17 @@ describe('prefetch-history-blobs', () => {
     expect(historyTreeOidsFromBatchCheck(checks)).toEqual([sha1Tree, sha256Tree]);
     expect(() => historyTreeOidsFromBatchCheck('unexpected cat-file output')).toThrow(
       'Could not resolve a historical job-slice directory tree.',
+    );
+  });
+
+  it('extracts resolved file blobs and ignores absent historical files', () => {
+    const blob = '1'.repeat(40);
+    expect(historyBlobOidsFromBatchCheck([
+      `${blob} blob 123`,
+      'deadbeef:data/jobs/by-crawler/missing.json missing',
+    ].join('\n'))).toEqual([blob]);
+    expect(() => historyBlobOidsFromBatchCheck('abc tree 123')).toThrow(
+      'did not resolve to a blob',
     );
   });
 
