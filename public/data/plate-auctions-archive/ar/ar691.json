@@ -12,20 +12,20 @@
       "listingType": "auction",
       "vehicleType": "car",
       "auctionStatus": "closed",
-      "currentBidChf": 2900,
+      "currentBidChf": 3000,
       "startingPriceChf": 2500,
-      "bidCount": 4,
+      "bidCount": 5,
       "minimumIncrementChf": 100,
       "endsAt": "2026-09-20T16:00:00.000Z",
       "closedAt": "2026-09-20T16:00:00.000Z",
       "officialAuctionUrl": "https://eauktion.ar.ch/ecari-auction/ui/app/init",
       "officialDetailUrl": "https://eauktion.ar.ch/ecari-auction/ui/app/details/app?id=1768",
-      "sourceFetchedAt": "2026-09-20T11:27:58.647Z",
-      "lastVerifiedAt": "2026-09-20T11:27:58.647Z",
+      "sourceFetchedAt": "2026-09-20T14:13:05.479Z",
+      "lastVerifiedAt": "2026-09-20T14:13:05.479Z",
       "firstSeenAt": "2026-09-15T04:53:45.577Z",
-      "lastSeenAt": "2026-09-20T11:27:58.647Z",
+      "lastSeenAt": "2026-09-20T14:13:05.479Z",
       "dataConfidence": "partial",
-      "rawSnapshotHash": "13763c78c9e6"
+      "rawSnapshotHash": "3b347d019b19"
     }
   ]
 }
