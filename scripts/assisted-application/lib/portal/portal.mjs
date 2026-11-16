@@ -2354,8 +2354,10 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   const workdayRouteBound = workdayPostingRouteMatchesCurrent(
     snapshot.url, context.applyUrl, context.postingUrl,
   );
+  const WORKDAY_CONTINUE_RE = /^(?:continue(?:\s+(?:your|my|this))?\s+application|reprendre\s+(?:la|ma|votre)\s+candidature|continuer\s+(?:la|ma|votre)\s+candidature|bewerbung\s+fortsetzen|continua(?:\s+la)?\s+candidatura)$/i;
   const workdayEntries = controls.filter((control) => !control?.disabled && !control?.chrome
-    && startsApplication(control?.text || control?.label));
+    && (startsApplication(control?.text || control?.label)
+      || (workdayRouteBound && WORKDAY_CONTINUE_RE.test(String(control?.text || control?.label || '').trim()))));
   const workdayScriptEntries = workdayEntries.filter((control) => !control?.href && !control?.formId
     && (control.frame || 0) === 0);
   // Workday's posting can keep its Apply opener on the exact same requisition
@@ -11532,6 +11534,10 @@ export async function submitViaPortal(ctx) {
         }
       }
       if (workdayJobRoute(page.url())?.suffix !== 'manual') {
+        if (workdayJobRoute(page.url())?.suffix === 'apply' && !snapshot?.fields?.length && !snapshot?.buttons?.length) {
+          await settle(page).catch(() => {});
+          snapshot = await awaitFields(page, snapshot);
+        }
         const reopened = await openApplicationForm(context, page, snapshot, {
           applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
           postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: portalJob,
@@ -11961,7 +11967,14 @@ export async function submitViaPortal(ctx) {
       const sourcePage = page;
       const sourceUrl = page.url();
       const agent = existingAgent || await runAgent(current, hint);
-      const currentSnapshot = await extractFields(page, NAVIGATION).catch(() => current);
+      let currentSnapshot = await extractFields(page, NAVIGATION).catch(() => current);
+      if (page.url() !== sourceUrl) {
+        const cookies = await resolveCookieConsent(page, currentSnapshot, { agent: cookieAgent });
+        currentSnapshot = cookies.snapshot || currentSnapshot;
+        if (!currentSnapshot?.fields?.length && !currentSnapshot?.buttons?.length) {
+          currentSnapshot = await awaitFields(page, currentSnapshot);
+        }
+      }
       const receipt = await confirmedReceipt(currentSnapshot);
       if (receipt) return { result: receipt };
       if (currentSnapshot.captcha) return { result: await handoff('captcha') };
@@ -12012,6 +12025,12 @@ export async function submitViaPortal(ctx) {
         return { status: 'ACCOUNT_STEP', snapshot, moved: true };
       }
       if (agent.status === 'PARKED') {
+        const destinationBound = isWorkdayJobRouteBound(page.url(), ctx.applyUrl) || await formMatch() === 'match';
+        if (page.url() !== sourceUrl && destinationBound && (hasApplicationForm(currentSnapshot) || authPageKind(currentSnapshot) !== 'none')) {
+          pageEpoch += 1;
+          snapshot = currentSnapshot;
+          return { status: 'REACHED_FORM', snapshot: currentSnapshot, moved: true };
+        }
         evidence.steps.at(-1).agentParked = String(agent.reason || 'PARKED: unable_to_continue').slice(0, 160);
         return { result: await handoff(hint) };
       }
