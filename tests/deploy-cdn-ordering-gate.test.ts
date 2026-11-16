@@ -1273,6 +1273,30 @@ describe('job-canon CDN releases keep the build marker after the complete payloa
     expect(prep).toContain('_pages_build_publish_acknowledged()');
   });
 
+  it('publishes both to R2 only after Pages push and the same-build acknowledgement', () => {
+    const pushStart = prep.indexOf('step_push_cdn()');
+    const pushEnd = prep.indexOf('\n}', pushStart);
+    const push = prep.slice(pushStart, pushEnd);
+    const r2OnlyAt = push.indexOf('if [ "$cdn_target" = "r2" ]; then');
+    const firstR2PublishAt = push.indexOf('_publish_cdn_r2 "$stage" "$r2_og_changed_files" "$r2_og_candidate"');
+    const pagesPushAt = push.indexOf('if shard_push_with_retry "$stage"');
+    const pagesAckAt = push.indexOf('export CDN_PAGES_BUILD_ID="$DEPLOY_BUILD_ID"');
+    const bothGateAt = push.lastIndexOf('if [ "$cdn_target" = "both" ]');
+    const bothPublishAt = push.indexOf('_publish_cdn_r2 "$stage" "$r2_og_changed_files" "$r2_og_candidate"', firstR2PublishAt + 1);
+
+    expect(r2OnlyAt).toBeGreaterThanOrEqual(0);
+    expect(firstR2PublishAt).toBeGreaterThan(r2OnlyAt);
+    expect(firstR2PublishAt).toBeLessThan(pagesPushAt);
+    expect(push.slice(r2OnlyAt, pagesPushAt)).toContain('return 0');
+    expect(pagesPushAt).toBeGreaterThan(0);
+    expect(pagesAckAt).toBeGreaterThan(pagesPushAt);
+    expect(bothGateAt).toBeGreaterThan(pagesAckAt);
+    expect(push.slice(bothGateAt, bothPublishAt)).toContain('[ "$_push_ok" = 1 ]');
+    expect(push.slice(bothGateAt, bothPublishAt)).toContain('_pages_build_publish_acknowledged');
+    expect(bothPublishAt).toBeGreaterThan(bothGateAt);
+    expect(push.match(/_publish_cdn_r2 \"\$stage\"/g)).toHaveLength(2);
+  });
+
   it('carries the full Pages job-canon namespace additively and keeps current release bytes', () => {
     const pushStart = prep.indexOf('step_push_cdn()');
     const pushEnd = prep.indexOf('\n}', pushStart);
@@ -1301,7 +1325,7 @@ describe('job-canon CDN releases keep the build marker after the complete payloa
     expect(helper).not.toMatch(/\brm\b|\bsync\b|prun/i);
   });
 
-  it('rejects missing or unusable current Pages maps even after the R2 half of both succeeds', () => {
+  it('rejects missing or unusable current Pages maps before publishing R2', () => {
     for (const fixture of [
       { label: 'missing root', kind: 'missing' as const, target: 'pages' as const },
       { label: 'empty v2 map only', kind: 'empty' as const, target: 'both' as const },
@@ -1314,12 +1338,87 @@ describe('job-canon CDN releases keep the build marker after the complete payloa
         expect(r.events, fixture.label).not.toContain('publisher-ack=1001');
         expect(r.envFile, fixture.label).not.toContain('CDN_PAGES_BUILD_ID=1001');
         if (fixture.target === 'both') {
-          expect(r.events, 'the R2 half did finish in this case').toContain('r2-success');
+          expect(r.events, 'R2 must not be called before Pages validates').not.toContain('r2-call');
+          expect(r.markers['cdn-build-id.txt']).toBe('999');
+          expect(r.markers['cdn-publish-complete-id.txt']).toBe('complete-998');
           expect(r.stdout).toMatch(/Pages CDN publish for build 1001 was not acknowledged/);
         }
       } finally {
         rmSync(r.workspace, { recursive: true, force: true });
       }
+    }
+  });
+
+  it('keeps last-known-good R2 markers when Pages credentials, clone, or carry-forward fail', () => {
+    for (const fixture of [
+      { label: 'missing Pages credentials', options: { missingPagesCredentials: true } },
+      { label: 'Pages clone failure', options: { cloneFailure: true } },
+      { label: 'Pages carry-forward failure', options: { carryForwardFailure: true } },
+    ]) {
+      const r = runPagesPublisher('valid', 'both', fixture.options);
+      try {
+        expect(r.code, fixture.label).toBe(1);
+        expect(r.events, fixture.label).not.toContain('r2-call');
+        expect(r.events, fixture.label).not.toContain('r2-current-marker-write');
+        expect(r.markers, fixture.label).toEqual({
+          'cdn-build-id.txt': '999',
+          'cdn-publish-complete-id.txt': 'complete-998',
+        });
+        expect(r.events, fixture.label).not.toContain('publisher-ack=1001');
+      } finally {
+        rmSync(r.workspace, { recursive: true, force: true });
+      }
+    }
+  });
+
+  it('does not publish R2 after a failed Pages push', () => {
+    const r = runPagesPublisher('valid', 'both', { pagesPushFailure: true });
+    try {
+      expect(r.code).toBe(1);
+      expect(r.events).toContain('pages-push');
+      expect(r.events).not.toContain('publisher-ack=1001');
+      expect(r.events).not.toContain('r2-call');
+      expect(r.markers).toEqual({
+        'cdn-build-id.txt': '999',
+        'cdn-publish-complete-id.txt': 'complete-998',
+      });
+    } finally {
+      rmSync(r.workspace, { recursive: true, force: true });
+    }
+  });
+
+  it('writes the R2 current marker only after Pages push and same-build acknowledgement', () => {
+    const r = runPagesPublisher('valid', 'both');
+    try {
+      expect(r.code, r.stdout).toBe(0);
+      const pagesPushAt = r.events.indexOf('pages-push');
+      const markerWriteAt = r.events.indexOf('r2-current-marker-write build=1001 ack=1001');
+      expect(pagesPushAt).toBeGreaterThanOrEqual(0);
+      expect(markerWriteAt).toBeGreaterThan(pagesPushAt);
+      expect(r.events).toContain('publisher-ack=1001 status=0');
+      expect(r.markers).toEqual({
+        'cdn-build-id.txt': '1001',
+        'cdn-publish-complete-id.txt': 'complete-1001',
+      });
+    } finally {
+      rmSync(r.workspace, { recursive: true, force: true });
+    }
+  });
+
+  it('withholds R2 completion markers after Pages succeeds and R2 marker closure fails', () => {
+    const r = runPagesPublisher('valid', 'both', { r2MarkerFailure: true });
+    try {
+      expect(r.code, r.stdout).toBe(0);
+      expect(r.events).toContain('pages-push');
+      expect(r.events).toContain('publisher-ack=1001 status=0');
+      expect(r.events).toContain('r2-marker-withheld');
+      expect(r.events).not.toContain('r2-current-marker-write');
+      expect(r.markers).toEqual({
+        'cdn-build-id.txt': '999',
+        'cdn-publish-complete-id.txt': 'complete-998',
+      });
+    } finally {
+      rmSync(r.workspace, { recursive: true, force: true });
     }
   });
 
@@ -1436,7 +1535,21 @@ function runPrep(env: Record<string, string>, workspace = mkdtempSync(join(tmpdi
 function runPagesPublisher(
   jobCanonFixture: 'missing' | 'empty' | 'valid',
   cdnTarget: 'pages' | 'both',
-): { code: number; stdout: string; events: string; envFile: string; workspace: string } {
+  options: {
+    missingPagesCredentials?: boolean;
+    cloneFailure?: boolean;
+    carryForwardFailure?: boolean;
+    pagesPushFailure?: boolean;
+    r2MarkerFailure?: boolean;
+  } = {},
+): {
+  code: number;
+  stdout: string;
+  events: string;
+  envFile: string;
+  markers: Record<string, string>;
+  workspace: string;
+} {
   const workspace = mkdtempSync(join(tmpdir(), 'pages-job-canon-publisher-'));
   const dist = join(workspace, 'dist');
   const assets = join(dist, 'assets');
@@ -1478,10 +1591,21 @@ function runPagesPublisher(
 
   const eventsPath = join(workspace, 'events.log');
   const envPath = join(workspace, 'github-env.txt');
+  const markersDir = join(workspace, 'r2-markers');
+  mkdirSync(markersDir, { recursive: true });
+  writeFileSync(join(markersDir, 'cdn-build-id.txt'), '999');
+  writeFileSync(join(markersDir, 'cdn-publish-complete-id.txt'), 'complete-998');
   const harness = [
     'source "$PREP_SCRIPT"',
     '_publish_cdn_r2() {',
-    '  printf "r2-success\\n" >> "$TEST_EVENTS"',
+    '  printf "r2-call ack=%s\\n" "${CDN_PAGES_BUILD_ID:-}" >> "$TEST_EVENTS"',
+    '  if [ "${TEST_R2_MARKER_FAILURE:-}" = 1 ]; then',
+    '    printf "r2-marker-withheld\\n" >> "$TEST_EVENTS"',
+    '    return 0',
+    '  fi',
+    '  printf "%s" "$DEPLOY_BUILD_ID" > "$TEST_MARKERS/cdn-build-id.txt"',
+    '  printf "complete-%s" "$DEPLOY_BUILD_ID" > "$TEST_MARKERS/cdn-publish-complete-id.txt"',
+    '  printf "r2-current-marker-write build=%s ack=%s\\n" "$(cat "$TEST_MARKERS/cdn-build-id.txt")" "${CDN_PAGES_BUILD_ID:-}" >> "$TEST_EVENTS"',
     '  export_env CDN_BASE "https://cdn.frontaliereticino.ch"',
     '  return 0',
     '}',
@@ -1490,6 +1614,7 @@ function runPagesPublisher(
     '    clone)',
     '      local previous="${!#}"',
     '      printf "git clone\\n" >> "$TEST_EVENTS"',
+    '      [ "${TEST_CLONE_FAILURE:-}" != 1 ] || return 1',
     '      mkdir -p "$previous/job-canon/releases/1000" "$previous/job-canon/releases/1001"',
     '      printf "legacy-v1" > "$previous/job-canon/ne.json"',
     '      printf "rollback-v1" > "$previous/job-canon/releases/1000/xy.json"',
@@ -1505,10 +1630,15 @@ function runPagesPublisher(
     '    *) return 0 ;;',
     '  esac',
     '}',
+    'cp() {',
+    '  if [ "${TEST_CARRY_FAILURE:-}" = 1 ] && [[ "$*" == *"/cdn-prev/job-canon/"* ]]; then return 1; fi',
+    '  command cp "$@"',
+    '}',
     'du() { if [ "$1" = "-sb" ]; then printf "1\\n"; else printf "1.0M\\t%s\\n" "$2"; fi; }',
     'shard_push_with_retry() {',
     '  local stage="$1" release="$1/job-canon/releases/1001"',
     '  printf "pages-push marker=%s legacy=%s old-release=%s current-v1=%s current-v2=%s\\n" "$(cat "$stage/cdn-build-id.txt")" "$(cat "$stage/job-canon/ne.json")" "$(cat "$stage/job-canon/releases/1000/xy.json")" "$(cat "$release/ab.json")" "$(cat "$release/v2/abc.json")" >> "$TEST_EVENTS"',
+    '  [ "${TEST_PAGES_PUSH_FAILURE:-}" != 1 ] || return 1',
     '  return 0',
     '}',
     'DEPLOY_CDN_PUSH_ONLY=1 main',
@@ -1526,13 +1656,18 @@ function runPagesPublisher(
         RUNNER_TEMP: workspace,
         CDN_STAGE_DIR: join(workspace, 'cdn-stage'),
         CDN_TARGET: cdnTarget,
-        CDN_DEPLOY_KEY: 'test-deploy-key',
+        ...(options.missingPagesCredentials ? {} : { CDN_DEPLOY_KEY: 'test-deploy-key' }),
         DEPLOY_BUILD_ID: buildId,
         CDN_PAGES_BUILD_ID: buildId,
         GITHUB_SHA: 'testsha',
         GITHUB_RUN_ID: '1',
         GITHUB_ENV: envPath,
         TEST_EVENTS: eventsPath,
+        TEST_MARKERS: markersDir,
+        ...(options.cloneFailure ? { TEST_CLONE_FAILURE: '1' } : {}),
+        ...(options.carryForwardFailure ? { TEST_CARRY_FAILURE: '1' } : {}),
+        ...(options.pagesPushFailure ? { TEST_PAGES_PUSH_FAILURE: '1' } : {}),
+        ...(options.r2MarkerFailure ? { TEST_R2_MARKER_FAILURE: '1' } : {}),
       },
       encoding: 'utf8',
       timeout: 60000,
@@ -1543,6 +1678,10 @@ function runPagesPublisher(
       stdout,
       events: existsSync(eventsPath) ? readFileSync(eventsPath, 'utf8') : '',
       envFile: existsSync(envPath) ? readFileSync(envPath, 'utf8') : '',
+      markers: {
+        'cdn-build-id.txt': readFileSync(join(markersDir, 'cdn-build-id.txt'), 'utf8'),
+        'cdn-publish-complete-id.txt': readFileSync(join(markersDir, 'cdn-publish-complete-id.txt'), 'utf8'),
+      },
       workspace,
     };
   } catch (e: unknown) {
@@ -1555,6 +1694,10 @@ function runPagesPublisher(
         .join(''),
       events: existsSync(eventsPath) ? readFileSync(eventsPath, 'utf8') : '',
       envFile: existsSync(envPath) ? readFileSync(envPath, 'utf8') : '',
+      markers: {
+        'cdn-build-id.txt': readFileSync(join(markersDir, 'cdn-build-id.txt'), 'utf8'),
+        'cdn-publish-complete-id.txt': readFileSync(join(markersDir, 'cdn-publish-complete-id.txt'), 'utf8'),
+      },
       workspace,
     };
   }

@@ -1546,18 +1546,14 @@ step_push_cdn() {
   fi
   printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch CDN</title>frontaliereticino.ch asset CDN' > "$stage/index.html"
 
-  # ── Publish: r2 (instant) | both (dual-publish for cutover) | pages (legacy) ─
-  # 'both' writes R2 AND Pages so the live domain (still → Pages until the R2
-  # custom-domain flip) keeps serving while R2 is populated+validated in
-  # parallel — zero-downtime cutover. 'r2' is R2-only (post-flip). 'pages'
-  # (default) is the legacy git force-push, byte-identical to before.
-  if [ "$cdn_target" = "r2" ] || [ "$cdn_target" = "both" ]; then
+  # ── Publish: r2 (instant) | both (Pages, then R2) | pages (legacy) ─
+  # 'r2' is R2-only (post-flip). 'pages' (default) is the legacy git
+  # force-push, byte-identical to before. 'both' publishes Pages first and
+  # only advances R2 after Pages acknowledges the same production build.
+  if [ "$cdn_target" = "r2" ]; then
     _publish_cdn_r2 "$stage" "$r2_og_changed_files" "$r2_og_candidate"
-    if [ "$cdn_target" = "r2" ]; then
-      cd "$PREP_CWD"
-      return 0
-    fi
-    # 'both': fall through to ALSO publish to Pages (live domain unchanged).
+    cd "$PREP_CWD"
+    return 0
   fi
   # Legacy Pages path below (CDN_TARGET=pages or both).
   if [ -z "${CDN_DEPLOY_KEY:-}" ]; then
@@ -1676,6 +1672,14 @@ step_push_cdn() {
   # Return to the prep cwd (the IT shard dist root) for the steps that follow,
   # since the monolith ran each YAML step from the workspace root regardless.
   cd "$PREP_CWD"
+  if [ "$cdn_target" = "both" ] \
+    && [ "$_push_ok" = 1 ] \
+    && _pages_build_publish_acknowledged; then
+    # Pages can serve this build while R2 stays last-known-good if its publish
+    # fails; the Pages acknowledgement never stands in for the R2 marker.
+    _publish_cdn_r2 "$stage" "$r2_og_changed_files" "$r2_og_candidate"
+    cd "$PREP_CWD"
+  fi
 }
 
 # ── 3. Offload og refs + data base into dist ──────────────────────────────────
