@@ -79,7 +79,8 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-06T21:43:11.888Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.assura.ch/fr/carriere/postes-a-pourvoir/business-anali-lausanne"
     },
     {
       "id": "assura-ch-61a711846da3",
@@ -162,7 +163,8 @@
       "streetAddress": "Le Mont-sur-Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-06T21:43:11.884Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.assura.ch/fr/carriere/postes-a-pourvoir/infirmier-conseil-psy-ma"
     },
     {
       "id": "assura-ch-730a949ff3a7",
@@ -247,7 +249,8 @@
       "streetAddress": "Pully",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-06T21:43:11.881Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://www.assura.ch/fr/carriere/postes-a-pourvoir/gestionnaire-admin-pu-de-fr"
     }
   ]
 }
