@@ -94,6 +94,20 @@ const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|v
 const FORGOT_PASSWORD_RE = /(?:forgot(?:ten)?\s+(?:your\s+)?password|password\s+forgotten|passwort\s+vergessen|kennwort\s+vergessen|mot de passe\s+oublié|mot de passe\s+oublie|oubli[ée]\s+(?:(?:votre|le|mon)\s+)?mot de passe|password\s+dimenticat[oa]|hai dimenticato la password|password dimenticata)/i;
 const PASSWORD_RESET_REQUEST_RE = /^(?:send(?:\s+(?:a\s+)?(?:reset\s+)?(?:link|instructions))?|reset\s+password|request\s+(?:a\s+)?password\s+reset|continue|submit|passwort\s+zurücksetzen|kennwort\s+zurücksetzen|réinitialiser le mot de passe|reinitialiser le mot de passe|envoyer(?:\s+(?:les\s+instructions|(?:un\s+|le\s+)?lien))?|continuer|soumettre|invia|continua|reimposta password)$/i;
 const PASSWORD_RESET_REQUEST_CONTEXT_RE = /(?:reset|forgot(?:ten)?|request).{0,30}(?:password|passcode)|(?:password|passcode).{0,30}(?:reset|forgot(?:ten)?|request)|(?:passwort|kennwort).{0,30}(?:vergessen|zurücksetzen)|(?:vergessen|zurücksetzen).{0,30}(?:passwort|kennwort)|mot de passe.{0,30}(?:oubli|réinitial|reinitial)|(?:oubli|réinitial|reinitial).{0,30}mot de passe|password.{0,30}(?:dimenticat|reimpost)|(?:dimenticat|reimpost).{0,30}password/i;
+function normalizePasswordResetText(value) {
+  return String(value || '').normalize('NFKC').replace(/\p{Cf}/gu, '').replace(/\s+/gu, ' ').trim();
+}
+
+// Prefer the fields that form the control's accessible name. Falling back to
+// visible text/title keeps snapshots from adapters that do not expose the
+// computed name while still accepting icon-only buttons with aria-label or
+// aria-labelledby.
+function passwordResetAccessibleName(control) {
+  return [control?.ariaLabel, control?.labelledBy, control?.label, control?.text, control?.title]
+    .map(normalizePasswordResetText)
+    .find(Boolean) || '';
+}
+
 const PASSWORD_RESET_CONFIRM_RE = /(?:reset|change|update|save|submit|continue|zurücksetzen|zuruecksetzen|speichern|ändern|aendern|modifier|enregistrer|réinitialiser|reinitialiser|salva|aggiorna|reimposta)/i;
 const PASSWORD_RESET_REFUSED_RE = /(?:expired|invalid|not valid|cannot be used|could not be reset|abgelaufen|ungültig|nicht gültig|expiré|invalide|scadut[oa]|non valido|rifiutat[oa])/i;
 const ALREADY_APPLIED_RE = /(?:already applied|application already (?:exists|submitted|received)|you have already applied|déjà postulé|déjà candidaté|bereits beworben|bereits eine bewerbung|già candid(?:at[oa]|at[oa])|hai già inviato la candidatura|già presentata la candidatura)/iu;
@@ -8971,10 +8985,10 @@ export function passwordResetRequestSurface(snapshot) {
   const context = [snapshot.title, snapshot.heading, snapshot.text,
     ...(snapshot.headings || []).map((heading) => typeof heading === 'string' ? heading : heading?.text || heading?.label || ''),
     ...(snapshot.buttons || []).flatMap((button) => [button.text, button.label, button.title, button.ariaLabel, button.labelledBy]),
-  ].filter(Boolean).join(' ');
+  ].map(normalizePasswordResetText).filter(Boolean).join(' ');
   if (!FORGOT_PASSWORD_RE.test(context) && !PASSWORD_RESET_REQUEST_CONTEXT_RE.test(context)) return null;
   const requests = (snapshot.buttons || []).filter((button) => !button.dialog && !button.chrome && button.disabled !== true
-    && PASSWORD_RESET_REQUEST_RE.test(String(button.text || button.label || ''))
+    && PASSWORD_RESET_REQUEST_RE.test(passwordResetAccessibleName(button))
     && String(button.formId || '') === String(email.formId || ''));
   return requests.length === 1 ? { email, request: requests[0] } : null;
 }

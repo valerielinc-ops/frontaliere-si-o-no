@@ -23,7 +23,7 @@ vi.mock('../scripts/assisted-application/lib/portal/fill.mjs', async importOrigi
   }),
 }));
 
-import { handleAuth } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { handleAuth, passwordResetRequestSurface } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const host = 'swarovski.wd3.myworkdayjobs.com';
 const url = `https://${host}/fr-FR/swarovski/job/Mendrisio-Outlet/Seasonal-Sales-Consultant_R-12345-1/apply/applyManually`;
@@ -67,6 +67,22 @@ const resetRequest = () => ({
   ],
   links: [], dialogs: [], errors: [], captcha: false, passwordVisible: false,
 });
+
+const accessibleNameResetRequest = () => {
+  const snapshot = resetRequest();
+  return {
+    ...snapshot,
+    title: 'Reset\npassword',
+    heading: '',
+    text: '',
+    buttons: [{
+      ...snapshot.buttons[0],
+      text: '',
+      label: '',
+      ariaLabel: 'Send reset link',
+    }],
+  };
+};
 
 const unrelatedEmailSurface = () => ({
   url,
@@ -133,6 +149,15 @@ function harness(afterForgot: any) {
 beforeEach(() => vi.clearAllMocks());
 
 describe('bounded Workday password-reset request surface', () => {
+  it('uses the normalized accessible name for a multiline reset surface', () => {
+    const surface = passwordResetRequestSurface(accessibleNameResetRequest());
+
+    expect(surface).toMatchObject({
+      email: { id: 'reset-email', formId: 'reset-form' },
+      request: { id: 'reset-send', ariaLabel: 'Send reset link', formId: 'reset-form' },
+    });
+  });
+
   it('recognizes the Swarovski reset surface before recovery begins', async () => {
     const fixture = harness(resetRequest());
 
