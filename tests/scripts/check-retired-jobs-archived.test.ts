@@ -318,7 +318,7 @@ function git(...args: string[]) {
 }
 
 function copyRouteResolverData() {
-  for (const rel of ['data/canton-url-slugs.json', 'data/canton-municipalities.json']) {
+  for (const rel of ['data/canton-url-slugs.json', 'data/canton-municipalities.json', 'data/swiss-locality-postal-codes.json']) {
     const destination = path.join(repo, rel);
     fs.mkdirSync(path.dirname(destination), { recursive: true });
     fs.copyFileSync(path.join(REPO_ROOT, rel), destination);
