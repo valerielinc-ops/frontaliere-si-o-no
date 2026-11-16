@@ -60,7 +60,6 @@
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-ymndk8",
         "infermiere-diplomato-infermiera-diplomata-hf-fh-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-e5b5e0ff63",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch-f53e665bc3",
-        "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-fd02209b93",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "previousSlugsByLocale": {
@@ -69,7 +68,6 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-ymndk8",
           "infermiere-diplomato-infermiera-diplomata-hf-fh-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-e5b5e0ff63",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch-f53e665bc3",
-          "infermiera-diplomata-infermiere-diplomato-sss-sup-clinica-di-psichiatria-forense-psychiatrische-dienste-aargau-pdag-windisch-fd02209b93",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-klinik-per-forensische-psychiatrie-psychiatrische-dienste-aargau-pdag-windisch"
         ]
       },
@@ -3127,7 +3125,7 @@
       "slugByLocale": {
         "it": "principale-medico-principal-medico-psychiatrische-dienste-aargau-pdag-windisch-2ddfbd",
         "en": "principal-physician-principal-physician-psychiatrische-dienste-aargau-pdag-windisch",
-        "de": "leitende-arztin-leitender-arzt-pdag-windisch",
+        "de": "leitende-arztin-leitender-arzt-pdag-windisch-am09io",
         "fr": "medecin-principal-medecin-principal-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
@@ -3189,6 +3187,9 @@
         ],
         "fr": [
           "medecin-principal-medecin-principal-psychiatrische-dienste-aargau-pdag-windisch-caa559",
+          "leitende-arztin-leitender-arzt-pdag-windisch"
+        ],
+        "de": [
           "leitende-arztin-leitender-arzt-pdag-windisch"
         ]
       },
@@ -5616,8 +5617,8 @@
       "slug": "terapeuta-del-lavoro-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "ergotherapeutin-ergotherapeut-pdag-windisch",
-        "en": "ergotherapeutin-ergotherapeut-pdag-windisch-2",
-        "fr": "ergotherapeutin-ergotherapeut-pdag-windisch-2",
+        "en": "ergotherapeutin-ergotherapeut-pdag-windisch-2-2sk7oa",
+        "fr": "ergotherapeutin-ergotherapeut-pdag-windisch-2-2sk7oa",
         "it": "terapeuta-del-lavoro-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
@@ -5667,10 +5668,17 @@
       "previousSlugsByLocale": {
         "it": [
           "ergotherapeutin-ergotherapeut-pdag-windisch"
+        ],
+        "en": [
+          "ergotherapeutin-ergotherapeut-pdag-windisch-2"
+        ],
+        "fr": [
+          "ergotherapeutin-ergotherapeut-pdag-windisch-2"
         ]
       },
       "previousSlugs": [
-        "ergotherapeutin-ergotherapeut-pdag-windisch"
+        "ergotherapeutin-ergotherapeut-pdag-windisch",
+        "ergotherapeutin-ergotherapeut-pdag-windisch-2"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

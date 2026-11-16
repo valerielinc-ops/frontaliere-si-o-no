@@ -193,7 +193,6 @@
         "fr": "Employé·e de caisse 60%"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-c2c982b76449",
       "salaryMin": 49800,
       "salaryMax": 76500,
@@ -2127,7 +2126,7 @@
         "it": "panificio-100-manor-ag-monthey",
         "en": "baker-100-manor-ag-monthey",
         "de": "backer-100-manor-ag-monthey-3a0121",
-        "fr": "manor-boulanger-ere-100-monthey"
+        "fr": "manor-boulanger-ere-100-monthey-1r2nnf"
       },
       "titleByLocale": {
         "it": "Panificio 100%",
@@ -2161,6 +2160,9 @@
           "manor-boulanger-ere-100-monthey",
           "backer-100-manor-ag-monthey",
           "boulanger-ere-100-manor-ag-monthey"
+        ],
+        "fr": [
+          "manor-boulanger-ere-100-monthey"
         ]
       },
       "firstSeenAt": "2026-10-12T09:31:50.711Z",
@@ -2518,9 +2520,9 @@
       "slug": "gestione-del-pavimento-100-manor-ag-lausanne-ae5341",
       "slugByLocale": {
         "it": "gestione-del-pavimento-100-manor-ag-lausanne-ae5341",
-        "en": "manor-floor-manager-100-lausanne",
+        "en": "manor-floor-manager-100-lausanne-g8q5ix",
         "de": "bodenmanager-100-manor-ag-lausanne-ae5341",
-        "fr": "manor-floor-manager-100-lausanne"
+        "fr": "manor-floor-manager-100-lausanne-g8q5ix"
       },
       "titleByLocale": {
         "it": "Gestione del pavimento 100%",
@@ -2547,6 +2549,12 @@
         "de": [
           "manor-floor-manager-100-lausanne",
           "bodenmanager-100-manor-ag-lausanne"
+        ],
+        "en": [
+          "manor-floor-manager-100-lausanne"
+        ],
+        "fr": [
+          "manor-floor-manager-100-lausanne"
         ]
       },
       "firstSeenAt": "2026-10-15T21:35:15.519Z",
@@ -2609,7 +2617,6 @@
         "fr": "Floor Manager 100%"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "manor-floor-manager-100-lausanne-2"
@@ -2834,7 +2841,6 @@
         "fr": "Collaborateur*rice à la caisse 30%"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-8be94ca1881a",
       "salaryMin": 24900,
       "salaryMax": 38300,
@@ -3695,9 +3701,9 @@
       "slug": "collaboratore-trice-vendita-profumeria-50-manor-ag-lugano-58f43c4819",
       "slugByLocale": {
         "it": "collaboratore-trice-vendita-profumeria-50-manor-ag-lugano-58f43c4819",
-        "en": "manor-collaboratore-trice-vendita-profumeria-50-lugano",
-        "de": "manor-collaboratore-trice-vendita-profumeria-50-lugano",
-        "fr": "manor-collaboratore-trice-vendita-profumeria-50-lugano"
+        "en": "manor-collaboratore-trice-vendita-profumeria-50-lugano-1jvzre",
+        "de": "manor-collaboratore-trice-vendita-profumeria-50-lugano-1jvzre",
+        "fr": "manor-collaboratore-trice-vendita-profumeria-50-lugano-1jvzre"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice vendita (Profumeria) 50%",
@@ -3717,6 +3723,15 @@
           "manor-collaboratore-trice-vendita-profumeria-50-lugano-2",
           "manor-collaboratore-trice-vendita-profumeria-50-lugano",
           "collaboratore-trice-vendita-profumeria-50-manor-ag-lugano-5d16a7a178"
+        ],
+        "en": [
+          "manor-collaboratore-trice-vendita-profumeria-50-lugano"
+        ],
+        "de": [
+          "manor-collaboratore-trice-vendita-profumeria-50-lugano"
+        ],
+        "fr": [
+          "manor-collaboratore-trice-vendita-profumeria-50-lugano"
         ]
       },
       "firstSeenAt": "2026-11-11T09:37:42.055Z",
@@ -6768,7 +6783,7 @@
         "it": "collaboratore-logistico-50-manor-ag-geneve",
         "en": "logistics-collaborator-50-manor-ag-geneve",
         "de": "logistik-mitarbeiter-50-manor-ag-geneve",
-        "fr": "manor-collaborateur-trice-logistique-50-geneve"
+        "fr": "manor-collaborateur-trice-logistique-50-geneve-d3fyo7"
       },
       "titleByLocale": {
         "it": "Collaboratore logistico 50%",
@@ -6814,6 +6829,9 @@
           "logistikbeitrag-50-manor-ag-geneve-73a02c",
           "manor-collaborateur-trice-logistique-50-geneve",
           "logistikbeitrag-50-manor-ag-geneve"
+        ],
+        "fr": [
+          "manor-collaborateur-trice-logistique-50-geneve"
         ]
       },
       "firstSeenAt": "2026-10-08T21:38:55.472Z",
@@ -10263,7 +10281,6 @@
         "fr": "Collaborateur/trice caisse (Food) 50%"
       },
       "sourceLang": "fr",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-caisse-food-50-geneve-2"
@@ -16133,7 +16150,6 @@
         "fr": "Employé·e de caisse 60%"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-kasse-60-luzern-2"
@@ -20013,7 +20029,6 @@
         "fr": "Employé·e de caisse en parfumerie 40%"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-cc9bf772bbb6",
       "salaryMin": 27400,
       "salaryMax": 42000,
@@ -21926,7 +21941,6 @@
         "fr": "Employé·e de supermarché 20%"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
       "id": "manor-22fd056ddfdb",
       "salaryMin": 13700,
       "salaryMax": 21000,
@@ -23036,7 +23050,7 @@
       "slugByLocale": {
         "it": "addetto-a-al-servizio-50-manor-ag-emmen",
         "en": "service-employee-50-manor-ag-emmen",
-        "de": "manor-mitarbeiter-in-service-50-emmen",
+        "de": "manor-mitarbeiter-in-service-50-emmen-cpi3k5",
         "fr": "collaborateur-rice-au-service-50-manor-ag-emmen"
       },
       "titleByLocale": {
@@ -23067,6 +23081,9 @@
         "fr": [
           "manor-mitarbeiter-in-service-50-emmen",
           "employe-e-service-50-manor-ag-emmen"
+        ],
+        "de": [
+          "manor-mitarbeiter-in-service-50-emmen"
         ]
       },
       "firstSeenAt": "2026-11-03T21:44:51.217Z",
