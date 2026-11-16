@@ -11834,7 +11834,12 @@ export async function submitViaPortal(ctx) {
       else loopAttemptStarted = true;
       const loopChallenge = await passAssistedPortalChallenge(page, browser, log);
       if (!loopChallenge.passed) return await handoff('captcha');
-      if (snapshot.url && snapshot.url !== page.url()) {
+      if (loopChallenge.challenged) {
+        // A managed same-URL challenge can redraw the form without navigation.
+        // Re-read the DOM before planning the next application action.
+        snapshot = await extractFields(page, NAVIGATION).catch(() => snapshot);
+        pageEpoch += 1;
+      } else if (snapshot.url && snapshot.url !== page.url()) {
         snapshot = await extractFields(page, NAVIGATION).catch(() => snapshot);
         pageEpoch += 1;
       }

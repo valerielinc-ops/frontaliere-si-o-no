@@ -79,6 +79,7 @@ describe('assisted application agent workflow dependencies', () => {
     expect(portalSource).toContain('challengeState');
     expect(portalSource).toContain('passChallenge');
     expect(portalSource).toContain('onPortalChallenge');
+    expect(portalSource).toContain('if (loopChallenge.challenged)');
     expect(portalSource).not.toContain('chromeUserAgent');
     expect(verifySource).not.toContain('realisticUserAgent');
     expect(verifySource).not.toContain('userAgent:');
