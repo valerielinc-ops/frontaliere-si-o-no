@@ -15,7 +15,10 @@ import { execFileSync } from 'node:child_process';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
-import { listExpiredSliceFiles } from '../lib/expired-slice-store.mjs';
+import {
+  listExpiredSliceFiles,
+  parseExpiredSliceFileName,
+} from '../lib/expired-slice-store.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const ROOT = path.resolve(path.dirname(__filename), '..', '..');
@@ -82,9 +85,11 @@ export function historySlicePaths(keys = historyCrawlerKeys(), expiredFileNamesB
     const configuredNames = expiredFileNamesByKey?.[key];
     const currentNames = configuredNames ?? listExpiredSliceFiles(key, { dir: EXPIRED_SLICES_DIR }).map(({ name }) => name);
     const expectedMonolith = `${key}.json`;
-    const shardPrefix = `${key}.shard-`;
     for (const name of currentNames) {
-      const isExpectedShard = name.startsWith(shardPrefix) && /^\d+\.json$/u.test(name.slice(shardPrefix.length));
+      const parsed = typeof name === 'string' && path.basename(name) === name
+        ? parseExpiredSliceFileName(name)
+        : null;
+      const isExpectedShard = parsed?.key === key && parsed.index > 0;
       if (name !== expectedMonolith && !isExpectedShard) {
         throw new Error(`Invalid expired slice filename for history prefetch: ${name}`);
       }
