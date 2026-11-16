@@ -7,7 +7,7 @@ vi.mock('../services/readerEntitlement', () => ({
   hasActiveReaderNoAdsEntitlement: () => state.active,
   onReaderEntitlementChange: (callback: () => void) => { state.callback = callback; state.subscribe(); return () => {}; },
 }));
-vi.mock('../services/botPatterns', () => ({ isLikelyBot: () => false }));
+vi.mock('../services/botPatterns', () => ({ isLikelyBot: () => false, isLikelySearchCrawler: () => false }));
 vi.mock('../services/thirdPartyDocumentPrivacy.js', () => ({ isSensitiveThirdPartyDocument: () => false }));
 vi.mock('../services/houseAdRuntime', () => ({ installHouseAds: (_render: unknown, _css: string, _emit: unknown, allowed: () => boolean, config: unknown) => { state.allowed = allowed; state.houseConfig = config; return { refresh: state.houseRefresh }; } }));
 vi.mock('../services/adRecovery', () => ({ installAdRecovery: (_probe: unknown, _loader: unknown, _emit: unknown, _allowed: unknown, config: unknown) => { state.recoveryConfig = config; return { refresh: state.recoveryRefresh }; } }));
