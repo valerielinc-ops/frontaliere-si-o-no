@@ -170,7 +170,6 @@ function runWorkflowHarness(options: {
       MAX_COMMITS: '0',
       CRAWLER_KEYS: crawlerKeys.join(','),
       HISTORY_SINCE: 'all',
-      BACKFILL_CHECKPOINT_BATCH_SIZE: '8',
       BACKFILL_PROGRESS_PATH: progressRelativePath,
       FAIL_CRAWLER: options.failCrawler ?? '',
       INTERRUPT_CRAWLER: options.interruptCrawler ?? '',
