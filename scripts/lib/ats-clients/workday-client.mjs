@@ -27,7 +27,7 @@ import {
   fetchWithRetry,
   RETRYABLE_STATUS,
   isConnectionLevelFetchError,
-  isRetryBudgetExhaustedError,
+  isRetryBudgetExhausted as isRetryBudgetExhaustedError,
   isTransientFetchError,
 } from '../transient-fetch.mjs';
 import { assertJsonListShape } from '../assert-json-list-shape.mjs';
