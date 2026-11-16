@@ -1,6 +1,7 @@
 // @vitest-environment jsdom
 // @vitest-environment-options { "url": "https://frontaliereticino.ch/articoli-frontaliere/esempio/" }
 import { describe, expect, it, vi } from 'vitest';
+import { readFileSync } from 'node:fs';
 
 const state = vi.hoisted(() => ({ active: false, callback: undefined as undefined | (() => void), houseRefresh: vi.fn(), recoveryRefresh: vi.fn(), allowed: undefined as undefined | (() => boolean), houseConfig: undefined as unknown, recoveryConfig: undefined as unknown, subscribe: vi.fn() }));
 vi.mock('../services/readerEntitlement', () => ({
@@ -13,6 +14,23 @@ vi.mock('../services/houseAdRuntime', () => ({ installHouseAds: (_render: unknow
 vi.mock('../services/adRecovery', () => ({ installAdRecovery: (_probe: unknown, _loader: unknown, _emit: unknown, _allowed: unknown, config: unknown) => { state.recoveryConfig = config; return { refresh: state.recoveryRefresh }; } }));
 
 describe('house campaign bootstrap entitlement updates', () => {
+  it('starts ad recovery from the SPA entrypoint after stale-chunk recovery is registered', () => {
+    const entry = readFileSync(new URL('../index.tsx', import.meta.url), 'utf8');
+    const retryHandler = entry.indexOf("window.addEventListener('vite:preloadError'");
+    const recoveryImport = entry.indexOf("void import('./services/startAdRecovery')");
+    const appAuthorityImport = entry.indexOf("const { captureStaticHead }");
+
+    expect(retryHandler).toBeGreaterThanOrEqual(0);
+    expect(recoveryImport).toBeGreaterThan(retryHandler);
+    expect(recoveryImport).toBeLessThan(appAuthorityImport);
+    expect(entry.slice(recoveryImport, appAuthorityImport)).toContain(
+      '.then(({ startAdRecovery }) => startAdRecovery())',
+    );
+    expect(entry.slice(recoveryImport, appAuthorityImport)).toContain(
+      "reportCaughtError(error, 'adRecovery.bootstrap')",
+    );
+  });
+
   it('refreshes the static/shared singleton on same-tab entitlement changes and subscribes only once', async () => {
     const { startAdRecovery } = await import('../services/startAdRecovery');
     startAdRecovery(); startAdRecovery();
