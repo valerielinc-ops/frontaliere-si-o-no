@@ -394,7 +394,12 @@ import { normalizeCantonCode, inferAnyCanton } from '../scripts/lib/target-swiss
 import { formatJobLocation, splitJobLocation } from '../scripts/lib/job-location-display.mjs';
 import { buildJobListEntry } from './shared/jobListEntry';
 import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
-import { employerProfilesFlushed, resolveJobsSeoPagesFlushed } from './shared/buildSignals';
+import {
+ employerProfilesFlushed,
+ localeJobsSplitFlushed,
+ resolveJobsSeoPagesFlushed,
+ shouldAwaitLocaleJobsSplitFlushed,
+} from './shared/buildSignals';
 import { registerJobsSeoPagesProducer } from './shared/buildSignals';
 import { getTiHubLatestJobsBlocks, setActiveJobSitemapLocs, setJobSitemapAllowlist, setTiHubLatestJobsBlocks } from './shared/buildSignals';
 import { renderTiHubLatestJobsBlock, summarizeTiHubInventory, TI_HUB_LATEST_JOBS_LIMIT } from './shared/tiHubLatestJobs';
@@ -433,6 +438,7 @@ import {
  getOutputShapeDirCount,
  getPathHistory,
  hasClaimedPath,
+ hasClaimedOrReservedPath,
  reserveJobAliasRedirectDir,
  isJobAliasRedirectPath,
  getJobAliasRedirectDirs,
@@ -1890,6 +1896,8 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
   registerJobsSeoPagesProducer();
  },
  async closeBundle() {
+ let expiredSliceOverflow: ExpiredSliceOverflow<any> | undefined;
+ try {
  if (options.fastLane && (
   options.activeJobIds === undefined
   || !options.fastLaneVisibleJobIdsByLocale
@@ -1898,8 +1906,6 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  )) {
   throw new Error('[jobs-seo-pages] fastLane requires activeJobIds, fastLaneVisibleJobIdsByLocale, fastLaneDistDir and fastLaneResultFile');
  }
- let expiredSliceOverflow: ExpiredSliceOverflow<any> | undefined;
- try {
  // JOBS_SEO_SECTOR_MEMO=1: one memo per closeBundle over the immutable job
  // corpus — same booleans, without re-running the sector regexes for every
  // repeated (job, sector, locale) question (see createJobSectorMatchMemo).
@@ -2277,6 +2283,8 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // existing 4-worker pool — tracked as a follow-up.
  const __SKIP_MINIFY = process.env.JOBS_SEO_SKIP_MINIFY === '1';
  const pathWasClaimed = (filePath: string): boolean => hasClaimedPath(filePath);
+ const pathIsClaimedOrReserved = (filePath: string): boolean => hasClaimedOrReservedPath(filePath);
+ const pathWasEmitted = (filePath: string): boolean => pathWasClaimed(filePath) || fs.existsSync(filePath);
  function _qw(filePath: string, content: string) {
  collector.add(filePath, filePath.endsWith('.html') && !__SKIP_MINIFY ? minifyHtml(content) : content);
  }
@@ -6727,12 +6735,12 @@ ${companyFollowHtml}
  const rawRelPath = `${localePrefix[locale]}/${sectionSlug}/${rawFullSlug}`.replace(/\/+/g, '/').replace(/^\//, '');
  const rawDir = np.join(distDir, rawRelPath);
  const rawDirIndex = np.join(rawDir, 'index.html');
- if (!pathWasClaimed(rawDirIndex) && !fs.existsSync(rawDirIndex)) {
+ if (!pathIsClaimedOrReserved(rawDirIndex) && !fs.existsSync(rawDirIndex)) {
  _md(rawDir);
  _qw(rawDirIndex, companyHtml);
  }
  const rawFlat = np.join(distDir, rawRelPath + '.html');
- if (!pathWasClaimed(rawFlat) && !fs.existsSync(rawFlat)) {
+ if (!pathIsClaimedOrReserved(rawFlat) && !fs.existsSync(rawFlat)) {
  _md(np.dirname(rawFlat));
  _qwFlat(rawFlat, companyHtml);
  }
@@ -6780,12 +6788,12 @@ ${companyFollowHtml}
  });
  const aliasDir = np.join(distDir, aliasRelPath);
  const aliasDirIndex = np.join(aliasDir, 'index.html');
- if (!pathWasClaimed(aliasDirIndex) && !fs.existsSync(aliasDirIndex)) {
+ if (!pathIsClaimedOrReserved(aliasDirIndex) && !fs.existsSync(aliasDirIndex)) {
  _md(aliasDir);
  _qw(aliasDirIndex, aliasHtml);
  }
  const aliasFlat = np.join(distDir, aliasRelPath + '.html');
- if (!pathWasClaimed(aliasFlat) && !fs.existsSync(aliasFlat)) {
+ if (!pathIsClaimedOrReserved(aliasFlat) && !fs.existsSync(aliasFlat)) {
  _md(np.dirname(aliasFlat));
  _qwFlat(aliasFlat, aliasHtml);
  }
@@ -7281,12 +7289,12 @@ ${companyFollowHtml}
  const relPath = canonicalPath.slice(1).replace(/\/$/, '');
  const dir = np.join(distDir, relPath);
  const dirIndex = np.join(dir, 'index.html');
- if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) {
+ if (!pathIsClaimedOrReserved(dirIndex) && !fs.existsSync(dirIndex)) {
  _md(dir);
  _qw(dirIndex, html);
  }
  const flatFile = np.join(distDir, relPath + '.html');
- if (!pathWasClaimed(flatFile) && !fs.existsSync(flatFile)) {
+ if (!pathIsClaimedOrReserved(flatFile) && !fs.existsSync(flatFile)) {
  _md(np.dirname(flatFile));
  _qwFlat(flatFile, html);
  }
@@ -8291,12 +8299,12 @@ ${staticAnalyticsHtml}
  const relPath = canonicalPath.slice(1).replace(/\/$/, '');
  const dir = np.join(distDir, relPath);
  const dirIndex = np.join(dir, 'index.html');
- if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) {
+ if (!pathIsClaimedOrReserved(dirIndex) && !fs.existsSync(dirIndex)) {
  _md(dir);
  _qw(dirIndex, html);
  }
  const flatFile = np.join(distDir, relPath + '.html');
- if (!pathWasClaimed(flatFile) && !fs.existsSync(flatFile)) {
+ if (!pathIsClaimedOrReserved(flatFile) && !fs.existsSync(flatFile)) {
  _md(np.dirname(flatFile));
  _qwFlat(flatFile, html);
  }
@@ -10393,12 +10401,12 @@ ${staticAnalyticsHtml}
  const relPath = canonicalPath.slice(1).replace(/\/$/, '');
  const dir = np.join(distDir, relPath);
  const dirIndex = np.join(dir, 'index.html');
- if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) {
+ if (!pathIsClaimedOrReserved(dirIndex) && !fs.existsSync(dirIndex)) {
  _md(dir);
  _qw(dirIndex, html);
  }
  const flatFile = np.join(distDir, relPath + '.html');
- if (!pathWasClaimed(flatFile) && !fs.existsSync(flatFile)) {
+ if (!pathIsClaimedOrReserved(flatFile) && !fs.existsSync(flatFile)) {
  _md(np.dirname(flatFile));
  _qwFlat(flatFile, html);
  }
@@ -10717,12 +10725,12 @@ ${staticAnalyticsHtml}
  const relPath = canonicalPath.slice(1).replace(/\/$/, '');
  const dir = np.join(distDir, relPath);
  const dirIndex = np.join(dir, 'index.html');
- if (!pathWasClaimed(dirIndex) && !fs.existsSync(dirIndex)) {
+ if (!pathIsClaimedOrReserved(dirIndex) && !fs.existsSync(dirIndex)) {
  _md(dir);
  _qw(dirIndex, html);
  }
  const flatFile = np.join(distDir, relPath + '.html');
- if (!pathWasClaimed(flatFile) && !fs.existsSync(flatFile)) {
+ if (!pathIsClaimedOrReserved(flatFile) && !fs.existsSync(flatFile)) {
  _md(np.dirname(flatFile));
  _qwFlat(flatFile, html);
  }
@@ -14694,8 +14702,13 @@ ${staticAnalyticsHtml}
  const targetFile = safeTargets.indexPath;
  const canonicalPath = `/${normPath}/`;
  const intentionallyEdgeSkipped = skipForExpiredJobEdge || expiredJobEdgeStaticSkipPaths.has(canonicalPath);
- if ((locale && pagePathClaims.has(locale, canonicalPath)) || pathWasClaimed(targetFile) || activeJobDirs.has(normPath)) {
-  if (intentionallyEdgeSkipped) {
+ const flatTargetFile = safeTargets.flatPath;
+ const existingOutput = pathWasEmitted(targetFile)
+  || Boolean(flatTargetFile && pathWasEmitted(flatTargetFile));
+ const pageAlreadyClaimed = (locale && pagePathClaims.has(locale, canonicalPath))
+  || activeJobDirs.has(normPath);
+ if (pageAlreadyClaimed || pathIsClaimedOrReserved(targetFile) || existingOutput) {
+  if (intentionallyEdgeSkipped && (pageAlreadyClaimed || existingOutput)) {
    throw new Error(`Expired-job edge rollout cannot remove a path already claimed by another page: ${distPath}`);
   }
   return false;
@@ -14727,7 +14740,7 @@ ${staticAnalyticsHtml}
     || bridgeClaimedPaths.has(canonicalPath)
     || bridgeClaimedPaths.has('/' + relPathKey)
     || activeJobDirs.has(relPathKey)
-    || pathWasClaimed(safeTargets.indexPath)
+    || pathIsClaimedOrReserved(safeTargets.indexPath)
     || fs.existsSync(safeTargets.indexPath)
     || Boolean(safeTargets.flatPath && fs.existsSync(safeTargets.flatPath));
   },
@@ -14808,6 +14821,10 @@ ${staticAnalyticsHtml}
  // that exact file now, before PR-B classification; jobCanonRedirectMapPlugin
  // consumes it later in this same build. Rows that cannot be matched uniquely
  // stay ineligible for bridge removal.
+ if (shouldAwaitLocaleJobsSplitFlushed()) {
+  const localeJobsSplitOutcome = await localeJobsSplitFlushed;
+  if (localeJobsSplitOutcome.ok === false) throw localeJobsSplitOutcome.error;
+ }
  const workerSlugMapPath = np.resolve(distDir, 'data', 'jobs-slug-map.json');
  if (!fs.existsSync(workerSlugMapPath)) {
   throw new Error('[job-alias-redirect-gate] final Worker slug map is missing before bridge classification');
@@ -14873,7 +14890,7 @@ ${staticAnalyticsHtml}
    onHeapSample: sampleBridgePlanHeap,
    canWriteCrossLocalePath: (bridgePath) => {
     const safeTargets = getSafeDistPageTargets(distDir, bridgePath);
-    return Boolean(safeTargets && !pathWasClaimed(safeTargets.indexPath));
+    return Boolean(safeTargets && !pathIsClaimedOrReserved(safeTargets.indexPath));
    },
   });
   const bridgeSlugs = new Set(bridgePlan.bridgePaths.map((bridge) => bridge.slug));
@@ -15753,7 +15770,12 @@ ${staticAnalyticsHtml}
  if (skipStaticForExpiredJobEdge && !expiredCacheKeys.has(expiredJobEdgeCacheKey)) {
   const targets = getSafeDistPageTargets(distDir, canonicalEdgePathForSkip);
   const normalizedRelPath = relPath.replace(/^\/+|\/+$/g, '');
-  if (targets && (pathWasClaimed(targets.indexPath) || activeJobDirs.has(normalizedRelPath))) {
+  const flatTarget = targets?.flatPath;
+  if (targets && (
+   pathWasEmitted(targets.indexPath)
+   || Boolean(flatTarget && pathWasEmitted(flatTarget))
+   || activeJobDirs.has(normalizedRelPath)
+  )) {
    throw new Error(`Expired-job edge rollout cannot remove a path already claimed by another page: ${canonicalEdgePathForSkip}`);
   }
   // This noindex page is already represented in the edge dataset. It cannot
@@ -16456,7 +16478,7 @@ ${staticAnalyticsHtml}
  const outDir = safeTargets.directoryPath;
  const indexFile = safeTargets.indexPath;
  // Skip if any earlier phase (active, bridge, soft-landing) already wrote here.
- if (pathWasClaimed(indexFile)) continue;
+ if (pathIsClaimedOrReserved(indexFile)) continue;
  const __tCrossLocaleExpired = startTimer();
  const crossLocaleExpiredReuseInput = incrementalManifests
   ? {
@@ -17185,7 +17207,7 @@ ${staticAnalyticsHtml}
  const indexFile = safeTargets.indexPath;
  // Skip if a previousSlugs bridge already covered this path for
  // this job (same content would be written again).
- if (pathWasClaimed(indexFile)) continue;
+ if (pathIsClaimedOrReserved(indexFile)) continue;
  if (!isRetainedActiveBridgePath(baseLocale, relPath)) continue;
  const __tCrossLocaleActive = startTimer();
  const crossLocaleActiveReuseInput = incrementalManifests
@@ -17553,7 +17575,7 @@ ${staticAnalyticsHtml}
  // all-locale build (the it/main shard still heals every locale).
  if (!shouldEmitLocale(locale)) continue;
  const absFile = np.join(distDir, relPath.replace(/^\//, ''), 'index.html');
- if (pathWasClaimed(absFile)) continue;
+ if (pathIsClaimedOrReserved(absFile)) continue;
  // Backpressure, as in the other bulk-emit loops: this loop queues ~68k
  // historical pages × 2 files synchronously, so without a yield the
  // WriteCollector's flushes cannot progress and every page's HTML stays in
@@ -17678,7 +17700,11 @@ ${staticAnalyticsHtml}
    }
    for (const canonicalPath of skippedPaths) {
     const targets = getSafeDistPageTargets(distDir, canonicalPath);
-    if (targets && pathWasClaimed(targets.indexPath)) {
+    const flatTarget = targets?.flatPath;
+    if (targets && (
+     pathWasEmitted(targets.indexPath)
+     || Boolean(flatTarget && pathWasEmitted(flatTarget))
+    )) {
      throw new Error(`Expired-job edge path was emitted statically after suppression: ${canonicalPath}`);
     }
    }
@@ -17856,8 +17882,14 @@ ${staticAnalyticsHtml}
   resolveJobsSeoPagesFlushed();
  }
  } finally {
-  // Also release the private spill if parsing, rendering or queued IO fails.
-  expiredSliceOverflow?.close();
+  try {
+   // Also release the private spill if parsing, rendering or queued IO fails.
+   expiredSliceOverflow?.close();
+  } finally {
+   // Keep every downstream wait finite, including failures before the final
+   // manifest/reuse block. The producer's thrown error still propagates.
+   resolveJobsSeoPagesFlushed();
+  }
  }
  },
  };

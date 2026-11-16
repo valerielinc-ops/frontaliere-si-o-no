@@ -21,6 +21,7 @@ import {
  hasJobAliasRedirectReservations,
  isJobAliasRedirectPath,
  hasClaimedPath,
+ hasClaimedOrReservedPath,
  WriteCollisionError,
  DistPathCollisionError,
 } from '@/build-plugins/sharedWriteRegistry';
@@ -55,11 +56,17 @@ describe('sharedWriteRegistry', () => {
  expect(isJobAliasRedirectPath(
   `${path.dirname(pageDir)}${path.sep}unused${path.sep}..${path.sep}${path.basename(pageDir)}${path.sep}index.html`,
  )).toBe(true);
- expect(hasClaimedPath(indexPath)).toBe(true);
+ expect(hasClaimedPath(indexPath)).toBe(false);
+ expect(hasClaimedOrReservedPath(indexPath)).toBe(true);
  expect(getPathHistory().has(indexPath)).toBe(false);
  expect(claim(indexPath, 'compat-page-writer', '<html>fallback</html>')).toBe('skip-write');
  expect(claim(flatPath, 'compat-page-writer', '<html>fallback</html>')).toBe('skip-write');
  expect(getPathHistory().has(flatPath)).toBe(false);
+
+ const genuinelyClaimedPath = path.join(pageDir, 'current-route', 'index.html');
+ expect(claim(genuinelyClaimedPath, 'current-page-writer', '<html>current</html>')).toBe('allow-write');
+ expect(hasClaimedPath(genuinelyClaimedPath)).toBe(true);
+ expect(hasClaimedOrReservedPath(genuinelyClaimedPath)).toBe(true);
 
  reset();
  expect(hasJobAliasRedirectReservations()).toBe(false);

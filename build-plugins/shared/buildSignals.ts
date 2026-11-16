@@ -66,6 +66,10 @@ function makeValueSignal<T>(): { promise: Promise<T>; resolve: (v: T) => void } 
   };
 }
 
+export type BuildProducerOutcome =
+  | { readonly ok: true }
+  | { readonly ok: false; readonly error: unknown };
+
 const staticPagesSignal = makeSignal();
 let professionLandingsSignal = makeValueSignal<readonly string[]>();
 let professionLandingsProducerRegistered = false;
@@ -73,6 +77,8 @@ const salaryHubSignal = makeSignal();
 const fuelDailyPagesSignal = makeSignal();
 let jobsSeoPagesSignal = makeSignal();
 let jobsSeoPagesProducerRegistered = false;
+let localeJobsSplitSignal = makeValueSignal<BuildProducerOutcome>();
+let localeJobsSplitProducerRegistered = false;
 let activeJobSitemapLocs: ReadonlySet<string> | null = null;
 let jobSitemapAllowlist: ReadonlySet<string> | null = null;
 let tiHubLatestJobsBlocks: Readonly<Record<string, string>> | null = null;
@@ -220,6 +226,35 @@ export function _resetJobsSeoPagesSignalForTests(): void {
   jobsSeoPagesSignal = makeSignal();
   jobsSeoPagesFlushed = jobsSeoPagesSignal.promise;
   jobsSeoPagesProducerRegistered = false;
+}
+
+/** Resolves after localeJobsSplitPlugin has finished writing the Worker map. */
+export let localeJobsSplitFlushed: Promise<BuildProducerOutcome> = localeJobsSplitSignal.promise;
+
+/** Register/reset the locale split completion signal for a new build. */
+export function registerLocaleJobsSplitProducer(): void {
+  localeJobsSplitSignal = makeValueSignal<BuildProducerOutcome>();
+  localeJobsSplitFlushed = localeJobsSplitSignal.promise;
+  localeJobsSplitProducerRegistered = true;
+}
+
+/** Settle the completion outcome without rejecting and risking an unhandled error. */
+export function resolveLocaleJobsSplitFlushed(outcome: BuildProducerOutcome = { ok: true }): void {
+  localeJobsSplitSignal.resolve(outcome);
+}
+
+/** FAST_BUILD and isolated tests may omit the locale split producer entirely. */
+export function shouldAwaitLocaleJobsSplitFlushed(
+  fastBuild = Boolean(process.env.FAST_BUILD),
+): boolean {
+  return localeJobsSplitProducerRegistered && !fastBuild;
+}
+
+/** Test-only cleanup for isolated locale split signal consumers. */
+export function _resetLocaleJobsSplitSignalForTests(): void {
+  localeJobsSplitSignal = makeValueSignal<BuildProducerOutcome>();
+  localeJobsSplitFlushed = localeJobsSplitSignal.promise;
+  localeJobsSplitProducerRegistered = false;
 }
 
 /**

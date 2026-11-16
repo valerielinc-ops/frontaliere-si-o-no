@@ -211,6 +211,7 @@ describe('build plugin ordering', () => {
     // registered AFTER it: under sequential closeBundle that await can never
     // settle, and the build exits 0 with the rest of the chain unrun.
     expectPluginAfter(names, 'jobs-seo-pages', 'employer-profile-pages');
+    expectPluginAfter(names, 'jobs-seo-pages', 'locale-jobs-split');
   });
 
   it('derives every buildSignals edge from source and keeps each consumer after its producer', () => {

@@ -694,8 +694,13 @@ export function getPathHistory(): ReadonlyMap<string, readonly ClaimVersion[]> {
   return pathHistoryView;
 }
 
-/** Check whether a path has already been claimed without materializing history. */
+/** Check whether a path has an actual claim in this build's write history. */
 export function hasClaimedPath(filePath: string): boolean {
+  return pathHistory.has(filePath);
+}
+
+/** Check whether a path is claimed or reserved against a future write. */
+export function hasClaimedOrReservedPath(filePath: string): boolean {
   return pathHistory.has(filePath) || isJobAliasRedirectPath(filePath);
 }
 

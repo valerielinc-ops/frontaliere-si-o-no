@@ -7,6 +7,7 @@ import { resolve } from 'node:path';
 import { WriteCollector } from '../../build-plugins/batchWrite';
 import {
   hasClaimedPath,
+  hasClaimedOrReservedPath,
   reserveJobAliasRedirectDir,
   reset as resetWriteRegistry,
 } from '../../build-plugins/sharedWriteRegistry';
@@ -69,7 +70,7 @@ describe('self-heal tracking retention', () => {
     });
   });
 
-  it('treats a reserved alias as claimed so self-heal cannot enqueue a tombstone', async () => {
+  it('keeps a reservation out of emitted history while suppressing the self-heal tombstone', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'self-heal-alias-reserved-'));
     const distDir = path.join(root, 'dist');
     const pageDir = path.join(distDir, 'de', 'jobs-in-zurich', 'old-route');
@@ -78,11 +79,11 @@ describe('self-heal tracking retention', () => {
     try {
       reserveJobAliasRedirectDir(pageDir);
       const relativePath = '/de/jobs-in-zurich/old-route';
-      const selfHealTrackingPathClaimed = hasClaimedPath(
-        path.join(distDir, relativePath.replace(/^\/+/, ''), 'index.html'),
-      );
-      expect(selfHealTrackingPathClaimed).toBe(true);
-      if (!selfHealTrackingPathClaimed) collector.add(indexPath, '<html>noindex tombstone</html>');
+      const outputPath = path.join(distDir, relativePath.replace(/^\/+/, ''), 'index.html');
+      expect(hasClaimedPath(outputPath)).toBe(false);
+      const selfHealWriteSuppressed = hasClaimedOrReservedPath(outputPath);
+      expect(selfHealWriteSuppressed).toBe(true);
+      if (!selfHealWriteSuppressed) collector.add(indexPath, '<html>noindex tombstone</html>');
       await collector.flush();
       expect(fs.existsSync(indexPath)).toBe(false);
     } finally {
@@ -120,7 +121,7 @@ describe('self-heal tracking retention', () => {
     expect(prune).toBeGreaterThan(lastExpiredPathRead);
     expect(previousSlugPhase).toBeGreaterThan(prune);
     expect(pluginSource).toContain('const isSelfHealTrackingPathClaimed = (relativePath: string): boolean => pathWasClaimed(');
-    expect(pluginSource).toContain('if (pathWasClaimed(absFile)) continue;');
+    expect(pluginSource).toContain('if (pathIsClaimedOrReserved(absFile)) continue;');
   });
 
   it('releases expired-sweep rows on every sweep exit and preserves cross-locale rows', () => {

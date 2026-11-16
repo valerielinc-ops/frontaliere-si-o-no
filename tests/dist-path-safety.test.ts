@@ -209,6 +209,7 @@ describe('raw URL-to-dist writers apply the guard before filesystem joins', () =
     expect(DIST_SAFETY_SOURCE).toContain('isJobAliasRedirectPath(indexPath)');
     expect(DIST_SAFETY_SOURCE).toContain('isJobAliasRedirectPath(flatPath)');
     expect(JOBS_SOURCE).toContain('const pathWasClaimed = (filePath: string): boolean => hasClaimedPath(filePath);');
+    expect(JOBS_SOURCE).toContain('const pathIsClaimedOrReserved = (filePath: string): boolean => hasClaimedOrReservedPath(filePath);');
     expect(JOBS_SOURCE).toContain('const isSelfHealTrackingPathClaimed = (relativePath: string): boolean => pathWasClaimed(');
   });
 });

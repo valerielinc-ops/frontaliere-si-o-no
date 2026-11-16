@@ -16,6 +16,11 @@ import { ACTIVE_JOB_IDS_FILE_NAME, buildActiveJobIdIndex } from '../functions/sr
 import { isListingInventoryJob, normalizeListingIdentity } from '../services/jobBoardInventory';
 import { serializeJobCanonOrderingFields, setJobCanonOrderingFields } from './shared/jobCanonInputs';
 import {
+ registerLocaleJobsSplitProducer,
+ resolveLocaleJobsSplitFlushed,
+ type BuildProducerOutcome,
+} from './shared/buildSignals';
+import {
  buildCantonShards,
  cantonShardFileName,
  CANTON_SHARD_KEYS,
@@ -178,6 +183,7 @@ const DETAIL_FIELDS = new Set([
  * Locale files are emitted into dist/data/ during the build.
  */
 export function localeJobsSplitPlugin(rootDir: string): Plugin {
+ registerLocaleJobsSplitProducer();
  const dataJobsPath = path.resolve(rootDir, 'data', 'jobs.json');
 
  function generateFiles(outDir: string): number {
@@ -380,11 +386,24 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
  return {
  name: 'locale-jobs-split',
  apply: 'build',
+  buildStart() {
+   registerLocaleJobsSplitProducer();
+  },
  closeBundle() {
- const distDir = path.resolve(rootDir, 'dist');
- const count = generateFiles(distDir);
- if (count > 0) {
- console.log(`[locale-jobs-split] Generated 4 slim index files + 4 first-page slim files + ${CANTON_SHARD_KEYS.length * LOCALES.length} canton shards + slug map (+ sharded slug map) + ${count} detail files (${count} jobs)`);
+  let outcome: BuildProducerOutcome = { ok: true };
+  try {
+   const distDir = path.resolve(rootDir, 'dist');
+   const count = generateFiles(distDir);
+   if (count > 0) {
+    console.log(`[locale-jobs-split] Generated 4 slim index files + 4 first-page slim files + ${CANTON_SHARD_KEYS.length * LOCALES.length} canton shards + slug map (+ sharded slug map) + ${count} detail files (${count} jobs)`);
+   }
+  } catch (error) {
+   outcome = { ok: false, error };
+   throw error;
+  } finally {
+   // Consumers must not read a stale map after a failed producer run. The
+   // non-rejecting outcome carries the original error across the barrier.
+   resolveLocaleJobsSplitFlushed(outcome);
  }
  },
  // Locale files are generated only during build (closeBundle).
