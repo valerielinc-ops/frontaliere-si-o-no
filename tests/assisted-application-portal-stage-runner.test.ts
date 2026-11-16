@@ -307,6 +307,42 @@ describe('runner final guard across three application stages', () => {
     expect(f.click).not.toHaveBeenCalled();
   });
 
+  it('rejects a Workday surface that becomes unbound during the pre-poll wait', async () => {
+    const postingUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033/';
+    const applyUrl = `${postingUrl}apply/`;
+    const blankApply = {
+      ...snapshot(applyUrl, '', []),
+      title: 'Rituals Careers',
+      heading: '',
+      text: '',
+    };
+    const unboundSurface = {
+      ...snapshot('https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/', 'Search for jobs', [
+        { id: 'search', text: 'Search', formId: 'search', frame: 0, disabled: false },
+      ]),
+      fields: [
+        { id: 'keywords', label: 'Search jobs', kind: 'text', inputType: 'text', formId: 'search', frame: 0 },
+      ],
+    };
+    const posting = snapshot(postingUrl, 'Store Assistant Rituals Apply', [{ id: 'entry', text: 'Apply', frame: 0, disabled: false }]);
+    const f = fixture(blankApply, posting, review, null, {
+      applyUrl,
+      postingUrl,
+      channelType: 'workday',
+      job: { company: 'Rituals Cosmetics Switzerland', title: 'Store Assistant' },
+      onWait: (ms: number) => {
+        if (ms === 1200 && state.snapshot.url === applyUrl) state.snapshot = unboundSurface;
+      },
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(f.codex).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
   it('opens a source-proven SuccessFactors module from a language-only posting shell', async () => {
     const postingUrl = 'https://careers.helsana.ch/job/it-management-assistenz/1426391333/';
     const moduleUrl = 'https://career5.successfactors.eu/career?company=Helsana&career_job_req_id=34525&lang=de_DE&career_ns=job_application';
