@@ -328,6 +328,10 @@ describe('runner final guard across three application stages', () => {
       heading: '',
       text: '',
     };
+    const staleChooser = {
+      ...chooser,
+      buttons: [{ id: 'entry', text: 'Apply', frame: 0, disabled: false }],
+    };
     const mountedApplication = {
       ...snapshot(manualUrl, 'Application', [{ id: 'apply', text: 'Apply', formId: 'application', frame: 0, disabled: false }]),
       title: 'Store Assistant | Rituals Careers',
@@ -355,6 +359,9 @@ describe('runner final guard across three application stages', () => {
       receiptSnapshot: received,
       onWait: (ms: number) => {
         if (ms === 1000 && state.snapshot.url === jobUrl && !state.snapshot.fields.length && !state.snapshot.buttons.length) {
+          state.snapshot = staleChooser;
+        } else if (ms === 1000 && state.snapshot.url === jobUrl
+          && state.snapshot.buttons.some((button: any) => button.id === 'entry') && !state.snapshot.fields.length) {
           state.snapshot = mountedApplication;
         }
       },

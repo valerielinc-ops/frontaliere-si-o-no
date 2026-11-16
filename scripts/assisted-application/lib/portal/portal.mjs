@@ -3895,6 +3895,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
   let publicSearchTarget = false;
   let publicSearchSearched = false;
   let customSuccessFactorsEntryClicked = false;
+  let workdayEntryControlSignature = '';
   const result = (extra = {}) => ({
     page,
     snapshot,
@@ -3906,11 +3907,31 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     ...(publicSearchTarget ? { publicSearchTarget: true } : {}),
     ...extra,
   });
-  const workdayApplicationSurfaceReady = (current) => Boolean(
-    current?.fields?.length
-      || current?.buttons?.some((button) => !button?.chrome)
-      || current?.links?.some((link) => !link?.chrome),
-  );
+  const portalControlSignature = (control = {}) => JSON.stringify([
+    String(control?.id || ''),
+    String(control?.text || control?.label || ''),
+    String(control?.href || ''),
+    String(control?.formId || ''),
+    Number(control?.frame) || 0,
+    control?.dialog === true,
+    control?.menuItem === true,
+    control?.popup === true,
+  ]);
+  const workdayChooserEntries = (current) => {
+    if (!stageContext || !isWorkdayTenantUrl(stageContext.applyUrl)) return [];
+    const entries = applicationEntryControls(current, stageContext);
+    return workdayEntryControlSignature
+      ? entries.filter((control) => portalControlSignature(control) !== workdayEntryControlSignature)
+      : entries;
+  };
+  const workdayApplicationSurfaceReady = (current) => {
+    if (current?.fields?.length) return true;
+    if (!workdayEntryControlSignature) {
+      return Boolean(current?.buttons?.some((button) => !button?.chrome)
+        || current?.links?.some((link) => !link?.chrome));
+    }
+    return workdayChooserEntries(current).length > 0;
+  };
   const waitForWorkdayApplicationSurface = async () => {
     // Workday keeps the requisition URL while its application SPA mounts. The
     // fixed modal-animation wait below is not enough for every tenant; wait
@@ -4118,6 +4139,10 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       && (manual || apply || linkEntry)?.popup !== true
       && (manual || apply || linkEntry)?.menuItem !== true;
     const sourceUrl = page.url();
+    if (stageContext && isWorkdayTenantUrl(stageContext.applyUrl)) {
+      const selectedWorkdayControl = manual || apply || linkEntry;
+      if (selectedWorkdayControl) workdayEntryControlSignature = portalControlSignature(selectedWorkdayControl);
+    }
     reportNavigation({
       hop: hop + 1, phase: 'entry_selection', cookieStatus, controls: applicationControls, ownedEntries,
       entryResolution,
