@@ -25,7 +25,7 @@
       "fr": "inspecteur-des-aliments-pour-animaux-agroscope-posieux-schweiz"
     },
     "sector": "Pubblica amministrazione",
-    "expiredAt": "2026-11-16T07:33:34.426Z",
+    "expiredAt": "2026-11-16T09:31:56.479Z",
     "previousSlugs": [
       "futtermittelinspektor-in-agroscope-posieux"
     ],
@@ -73,7 +73,7 @@
       "fr": "postdoc-mikroplastik-quantifizierung-in-obst-und-gemuse-methodenentwicklung-und-erstanwendung-confederazione-svizzera"
     },
     "sector": "Pubblica amministrazione",
-    "expiredAt": "2026-11-16T07:33:34.426Z",
+    "expiredAt": "2026-11-16T09:31:56.479Z",
     "previousSlugs": [
       "postdoc-mikroplastik-quantifizierung-in-obst-e-gemuse-methodenentwicklung-e-erstanwendung-agroscope-zurich",
       "postdoc-mikroplastik-quantifizierung-in-obst-und-gemuse-methodenentwicklung-und-erstanwendung-confederazione-zurich",
@@ -130,7 +130,7 @@
       "fr": "paturage-en-bordure-des-forets-80-100-agroscope-zurich"
     },
     "sector": "Pubblica amministrazione",
-    "expiredAt": "2026-11-16T07:33:34.426Z",
+    "expiredAt": "2026-11-16T09:31:56.479Z",
     "previousSlugs": [
       "praktikum-waldrandbeweidung-80-100-confederazione-zurich",
       "praktikum-waldrandbeweidung-80-100-agroscope-zurich"
@@ -185,7 +185,7 @@
       "fr": "jurist-in-agroscope-posieux"
     },
     "sector": "Pubblica amministrazione",
-    "expiredAt": "2026-11-16T07:33:34.425Z",
+    "expiredAt": "2026-11-16T09:31:56.479Z",
     "previousSlugs": [
       "avvocato-agroscope-posieux-schweiz",
       "lawyer-agroscope-posieux-schweiz",
@@ -217,6 +217,16 @@
       {
         "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/jurist-in/8273841a-9747-4441-919d-29a9b01d68aa",
         "firstSeenAt": "2026-09-10T23:06:37.551Z",
+        "title": "Jurist/in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/jurist-in/53bb437b-1d0e-46ed-85ea-a25db033b513",
+        "firstSeenAt": "2026-07-29T11:41:11.171Z",
+        "title": "Jurist/in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/jurist-in/8273841a-9747-4441-919d-29a9b01d68aa",
+        "firstSeenAt": "2026-07-29T11:41:11.171Z",
         "title": "Jurist/in"
       }
     ]
@@ -352,16 +362,20 @@
     "expiredAt": "2026-10-13T22:00:00Z",
     "previousSlugsByLocale": {
       "it": [
-        "hr-business-partner-in-agroscope-posieux-a302ebbd"
+        "hr-business-partner-in-agroscope-posieux-a302ebbd",
+        "hr-business-partner-in-agroscope-posieux-ddb0da05"
       ],
       "en": [
-        "hr-business-partner-in-agroscope-posieux-a302ebbd"
+        "hr-business-partner-in-agroscope-posieux-a302ebbd",
+        "hr-business-partner-in-agroscope-posieux-ddb0da05"
       ],
       "de": [
-        "hr-business-partner-in-agroscope-posieux-a302ebbd"
+        "hr-business-partner-in-agroscope-posieux-a302ebbd",
+        "hr-business-partner-in-agroscope-posieux-ddb0da05"
       ],
       "fr": [
-        "hr-business-partner-in-agroscope-posieux-a302ebbd"
+        "hr-business-partner-in-agroscope-posieux-a302ebbd",
+        "hr-business-partner-in-agroscope-posieux-5d4727d5"
       ]
     },
     "postalCode": "1725",
@@ -371,7 +385,24 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hr-business-partner-in/e46d6b7f-f1da-49f8-8610-018df854ad47",
-    "firstSeenAt": "2026-10-14T21:11:06.908Z"
+    "firstSeenAt": "2026-09-09T13:44:14.822Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hr-business-partner-in/ab7460ad-9b24-4543-a241-614ba5d10867",
+        "firstSeenAt": "2026-09-09T13:44:14.822Z",
+        "title": "HR Business Partner/-in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hr-business-partner-in/e46d6b7f-f1da-49f8-8610-018df854ad47",
+        "firstSeenAt": "2026-09-09T13:44:14.822Z",
+        "title": "HR Business Partner/-in"
+      }
+    ],
+    "previousSlugs": [
+      "hr-business-partner-in-agroscope-posieux-a302ebbd",
+      "hr-business-partner-in-agroscope-posieux-ddb0da05",
+      "hr-business-partner-in-agroscope-posieux-5d4727d5"
+    ]
   },
   {
     "slug": "postdottorando-a-nella-ricerca-agronomica-agroscope-nyon",
@@ -3299,6 +3330,35 @@
     "streetAddress": "Via Ramon Bentina 16",
     "salaryMin": 58000,
     "salaryMax": 78000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR"
+  },
+  {
+    "slug": "collaboratore-trice-tecnico-agricolo-a-agroscope-ettenhausen-bd560d6c",
+    "title": "Collaboratore/trice tecnico-agricolo/a",
+    "titleByLocale": {
+      "it": "Collaboratore/trice tecnico-agricolo/a",
+      "en": "Collaboratore/trice Technician-agricolo/a",
+      "de": "Collaboratore/trice Techniker-agricolo/a",
+      "fr": "Collaboratore/trice Technicien-agricolo/a"
+    },
+    "company": "Agroscope",
+    "companyKey": "agroscope",
+    "location": "8356 Ettenhausen",
+    "addressLocality": "Ettenhausen",
+    "descriptionByLocale": {
+      "it": "• Condurre esperimenti sul campo e di altro tipo nell'ambito dello Smart Farming a Tänikon e in altre aziende agricole\n• Installare strumenti di misura ed effettuare un'ampia gamma di misurazioni\n• Preparare campioni di raccolto ed eseguire semplici analisi di laboratorio\n• Pianificare esperimenti preliminari, in collaborazione con il gruppo Produzione digitale\n• Eseguire lavori di meccanica ed elettronica\n• Effettuare la manutenzione delle attrezzature sperimentali e dell'infrastruttura di ricerca\n• Apprendistato concluso o qualifica superiore nei settori della meccanica, dell'elettronica o dell'agricoltura\n• L'esperienza in settore agricolo costituisce titolo preferenziale\n• Interesse per il lavoro con sensori, sistemi digitali e droni\n• Dimestichezza con valutazioni dei dati semplici\n• Licenza di condurre della categoria B\n• Conoscenza di due lingue ufficiali",
+      "en": "• Condurre esperimenti sul campo e di altro tipo nell'ambito dello Smart Farming a Tänikon e in altre aziende agricole\n• Installare strumenti di misura ed effettuare un'ampia gamma di misurazioni\n• Preparare campioni di raccolto ed eseguire semplici analisi di laboratorio\n• Pianificare esperimenti preliminari, in collaborazione con il gruppo Produzione digitale\n• Eseguire lavori di meccanica ed elettronica\n• Effettuare la manutenzione delle attrezzature sperimentali e dell'infrastruttura di ricerca\n• Apprendistato concluso o qualifica superiore nei settori della meccanica, dell'elettronica o dell'agricoltura\n• L'esperienza in settore agricolo costituisce titolo preferenziale\n• Interesse per il lavoro con sensori, sistemi digitali e droni\n• Dimestichezza con valutazioni dei dati semplici\n• Licenza di condurre della categoria B\n• Conoscenza di due lingue ufficiali",
+      "de": "• Condurre esperimenti sul campo e di altro tipo nell'ambito dello Smart Farming a Tänikon e in altre aziende agricole\n• Installare strumenti di misura ed effettuare un'ampia gamma di misurazioni\n• Preparare campioni di raccolto ed eseguire semplici analisi di laboratorio\n• Pianificare esperimenti preliminari, in collaborazione con il gruppo Produzione digitale\n• Eseguire lavori di meccanica ed elettronica\n• Effettuare la manutenzione delle attrezzature sperimentali e dell'infrastruttura di ricerca\n• Apprendistato concluso o qualifica superiore nei settori della meccanica, dell'elettronica o dell'agricoltura\n• L'esperienza in settore agricolo costituisce titolo preferenziale\n• Interesse per il lavoro con sensori, sistemi digitali e droni\n• Dimestichezza con valutazioni dei dati semplici\n• Licenza di condurre della categoria B\n• Conoscenza di due lingue ufficiali",
+      "fr": "• Condurre esperimenti sul campo e di altro tipo nell'ambito dello Smart Farming a Tänikon e in altre aziende agricole\n• Installare strumenti di misura ed effettuare un'ampia gamma di misurazioni\n• Preparare campioni di raccolto ed eseguire semplici analisi di laboratorio\n• Pianificare esperimenti preliminari, in collaborazione con il gruppo Produzione digitale\n• Eseguire lavori di meccanica ed elettronica\n• Effettuare la manutenzione delle attrezzature sperimentali e dell'infrastruttura di ricerca\n• Apprendistato concluso o qualifica superiore nei settori della meccanica, dell'elettronica o dell'agricoltura\n• L'esperienza in settore agricolo costituisce titolo preferenziale\n• Interesse per il lavoro con sensori, sistemi digitali e droni\n• Dimestichezza con valutazioni dei dati semplici\n• Licenza di condurre della categoria B\n• Conoscenza di due lingue ufficiali"
+    },
+    "slugByLocale": {},
+    "sector": "Pubblica amministrazione",
+    "expiredAt": "2026-06-16T04:59:54.026Z",
+    "postalCode": "6593",
+    "streetAddress": "Via Ramon Bentina 16",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR"
   }
