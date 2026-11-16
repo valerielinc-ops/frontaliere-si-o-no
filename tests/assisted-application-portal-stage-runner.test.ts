@@ -321,7 +321,7 @@ describe('runner final guard across three application stages', () => {
 
   it('keeps a Workday chooser on the bare requisition route bound while it mounts', async () => {
     const jobUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033';
-    const manualUrl = `${jobUrl}/applyManually`;
+    const manualUrl = `${jobUrl}/apply/applyManually`;
     const chooser = {
       ...snapshot(jobUrl, '', []),
       title: 'Rituals Careers',
