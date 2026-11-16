@@ -8,7 +8,7 @@ vi.mock('../scripts/assisted-application/lib/portal/plan.mjs', async importOrigi
 }));
 vi.mock('../scripts/assisted-application/lib/portal/diagnostics.mjs', async importOriginal => ({
   ...await importOriginal<any>(), startPortalDiagnostics: () => ({ data: {}, currentAttempt: () => 1, installFetchObserver: async () => {},
-    beginAttempt: async () => {}, beforeSubmit: async () => {}, finalClick: () => {}, afterSubmit: async () => {}, finish: async () => {} }),
+    beginAttempt: async () => {}, beforeSubmit: async () => {}, finalClick: () => {}, challengeAfterClick: () => false, afterSubmit: async () => {}, finish: async () => {} }),
 }));
 import { advancedToFinalReview, embeddedEngelvoelkersApplyUrlFromHtml, submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { portalProtocolFromHtml } from '../scripts/assisted-application/lib/portal/protocol.mjs';
@@ -197,7 +197,7 @@ describe('runner final guard across three application stages', () => {
       ],
     };
     const received = {
-      ...snapshot(applyUrl, 'Thank you for your application.', []),
+      ...snapshot(`${applyUrl}/applyManually`, 'Thank you for your application.', []),
       fields: [],
       buttons: [],
     };
