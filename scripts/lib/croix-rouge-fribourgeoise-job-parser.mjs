@@ -483,21 +483,51 @@ function extractJobupLocation(posting) {
   return [postalCode, city].filter(Boolean).join(', ');
 }
 
+/**
+ * Read Jobup's current, server-rendered vacancy body. The data-cy attribute
+ * is the publisher's semantic boundary for the visible vacancy description;
+ * unlike a broad `main`/`article` fallback, it cannot admit page chrome or
+ * recommended jobs. More than one matching boundary is ambiguous, so no body
+ * is returned and the shared source floor keeps the row unpublished.
+ */
+export function extractVisibleJobupDescription(html = '') {
+  const dom = new JSDOM(String(html));
+  try {
+    const containers = [...dom.window.document.querySelectorAll('[data-cy="vacancy-description"]')]
+      .filter((container) => (
+        !container.closest('[hidden], [aria-hidden="true"]')
+      ));
+
+    if (containers.length !== 1) return '';
+
+    const container = containers[0].cloneNode(true);
+    for (const excluded of container.querySelectorAll('script, style, template, [hidden], [aria-hidden="true"]')) {
+      excluded.remove();
+    }
+    return normalizeSpace(container.textContent || '');
+  } finally {
+    dom.window.close();
+  }
+}
+
 function extractJobupDescription(html, posting) {
   const jsonLdDescription = posting?.description;
   const jsonLdText = jsonLdDescription
     ? normalizeSpace(stripHtml(decodeNumericEntities(jsonLdDescription)))
     : '';
 
-  const bodyMatch = html.match(/<[^>]+class=["'][^"']*\bC_PBODYHTML\b[^"']*["'][^>]*>([\s\S]*?)(?:<h2\b[^>]*>\s*Autres recherches|<\/main>|$)/i);
-  const bodyText = bodyMatch ? normalizeSpace(stripHtml(bodyMatch[1])) : '';
+  const legacyBodyMatch = html.match(/<[^>]+class=["'][^"']*\bC_PBODYHTML\b[^"']*["'][^>]*>([\s\S]*?)(?:<h2\b[^>]*>\s*Autres recherches|<\/main>|$)/i);
+  const legacyBodyText = legacyBodyMatch ? normalizeSpace(stripHtml(legacyBodyMatch[1])) : '';
+  const visibleBodyText = extractVisibleJobupDescription(html);
 
   // Jobup sometimes exposes only a short teaser in JSON-LD while the
-  // employer's full source text remains in C_PBODYHTML. Prefer that visible
-  // body when the JSON-LD value cannot clear the shared source floor; never
+  // employer's full source text remains in its visible vacancy container.
+  // Keep the legacy marker for old pages, but only accept the current marker
+  // when it names one unhidden body: ambiguity remains fail-closed. Never
   // pass a sub-floor source body on to an indexable job page.
   if (meetsSourceBodyFloor(jsonLdText)) return jsonLdText;
-  return meetsSourceBodyFloor(bodyText) ? bodyText : '';
+  if (meetsSourceBodyFloor(visibleBodyText)) return visibleBodyText;
+  return meetsSourceBodyFloor(legacyBodyText) ? legacyBodyText : '';
 }
 
 function normalizePostedDate(rawDate = '') {
