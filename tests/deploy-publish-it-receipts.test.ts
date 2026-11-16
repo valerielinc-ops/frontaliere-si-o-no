@@ -773,15 +773,22 @@ describe('durable R2 OG manifest behind the IT CDN receipt', () => {
     expect(cdnSteps.indexOf(receiptStep)).toBeGreaterThan(cdnSteps.indexOf(upload));
     // The receipt condition: CDN ready AND (no R2 target OR the upload succeeded).
     const expression = String(receiptStep.if);
-    const evaluate = (target: string, uploadOutcome: string, ready_ = 'success') => evaluateExpression(
+    const evaluate = (
+      target: string,
+      uploadOutcome: string,
+      ready_ = 'success',
+      retryOutcome = 'skipped',
+    ) => evaluateExpression(
       expression.replace(/vars\.CDN_TARGET/g, JSON.stringify(target).replace(/"/g, "'"))
         .replace(/steps\.cdn-ready\.outcome/g, `'${ready_}'`)
+        .replace(/steps\.upload-r2-og-manifest-retry\.outcome/g, `'${retryOutcome}'`)
         .replace(/steps\.upload-r2-og-manifest\.outcome/g, `'${uploadOutcome}'`),
       publishedState,
     );
     expect(evaluate('r2', 'success')).toBe(true);
     expect(evaluate('both', 'success')).toBe(true);
     expect(evaluate('r2', 'failure')).toBe(false);
+    expect(evaluate('r2', 'failure', 'success', 'success')).toBe(true);
     expect(evaluate('both', 'skipped')).toBe(false);
     expect(evaluate('pages', 'skipped')).toBe(true);
     expect(evaluate('r2', 'success', 'failure')).toBe(false);
