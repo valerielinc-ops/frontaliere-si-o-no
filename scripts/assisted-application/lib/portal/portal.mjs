@@ -3840,6 +3840,24 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     ...(publicSearchTarget ? { publicSearchTarget: true } : {}),
     ...extra,
   });
+  const workdayApplicationSurfaceReady = (current) => Boolean(
+    current?.fields?.length
+      || current?.buttons?.some((button) => !button?.chrome)
+      || current?.links?.some((link) => !link?.chrome),
+  );
+  const waitForWorkdayApplicationSurface = async () => {
+    // Workday keeps the requisition URL while its application SPA mounts. The
+    // fixed modal-animation wait below is not enough for every tenant; wait
+    // only on the already-bound application route, never on an unverified
+    // page whose empty surface could be a navigation mismatch.
+    if (!stageContext || !isWorkdayTenantUrl(stageContext.applyUrl)
+      || !isWorkdayApplicationRouteBound(page.url(), stageContext.applyUrl)
+      || workdayApplicationSurfaceReady(snapshot)) return;
+    for (let waited = 0; waited < 10_000 && !workdayApplicationSurfaceReady(snapshot); waited += 1000) {
+      await page.waitForTimeout(1000);
+      snapshot = await extractFields(page, NAVIGATION);
+    }
+  };
   const currentApplicationDiversion = async (current = snapshot) => applicationDestinationDiversionHint({
     ...current,
     title: await page.title().catch(() => ''),
@@ -3888,6 +3906,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         snapshot = await extractFields(page, NAVIGATION);
       }
     }
+    await waitForWorkdayApplicationSurface();
     const publicRecovery = await recoverStadtZurichPublicJobSearch(page, snapshot, stageContext, {
       searched: publicSearchSearched,
     });
@@ -4038,6 +4057,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
           await settle(page);
           await page.waitForTimeout(1200);
           snapshot = await extractFields(page, NAVIGATION);
+          await waitForWorkdayApplicationSurface();
           reportNavigation({ hop: hop + 1, phase: 'direct_route', cookieStatus, controls: applicationControls, ownedEntries });
           if (!isSuccessFactorsPostingEntry({
             applyUrl: page.url(),
@@ -4061,6 +4081,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         await settle(page);
         await page.waitForTimeout(1200);
         snapshot = await extractFields(page, NAVIGATION);
+        await waitForWorkdayApplicationSurface();
         if (!await currentApplicationDiversion(snapshot)) {
           enteredThroughApplicationEntry = true;
           applicationEntryUrl = page.url();
@@ -4097,6 +4118,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     await settle(page);
     await page.waitForTimeout(1200); // a modal (Workday's apply dialog) finishes its animation
     snapshot = await extractFields(page, NAVIGATION);
+    await waitForWorkdayApplicationSurface();
     if (followedApplicationEntryThisHop && !await currentApplicationDiversion(snapshot)) applicationEntryUrl = page.url();
     if (customSuccessFactorsEntry
       && !successFactorsCustomPostingDestinationMatches(page.url(), sourceUrl, stageContext)) {

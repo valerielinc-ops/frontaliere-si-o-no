@@ -52,7 +52,7 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
       return source.includes('document.body') ? state.snapshot.text : false;
     },
     ...(options.agentSnapshot ? { ariaSnapshot: async () => options.agentSnapshot(state.snapshot) } : {}),
-    waitForLoadState: async () => {}, waitForTimeout: async () => {}, screenshot: async () => Buffer.from('fixture'),
+    waitForLoadState: async () => {}, waitForTimeout: async (ms: number) => { options.onWait?.(ms); }, screenshot: async () => Buffer.from('fixture'),
     getByRole: () => ({
       count: async () => 0,
       filter: () => ({ first: () => ({ waitFor: async () => { throw new Error('not visible'); } }) }),
@@ -88,7 +88,7 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
   };
   const browser = { newContext: async () => ({ route: async () => {}, waitForEvent: async () => null, newPage: async () => page, close: async () => {} }), close: async () => {}, version: () => '151' };
   const codex = vi.fn();
-  const run = () => submitViaPortal({ applyUrl: source?.url || options.applyUrl || applyUrl, postingUrl: options.postingUrl, channelType: options.channelType,
+  const run = () => submitViaPortal({ applyUrl: options.applyUrl || source?.url || applyUrl, postingUrl: options.postingUrl, channelType: options.channelType,
     postingRouteProof: options.postingRouteProof,
     job: options.job || { title }, language: 'en', candidate: { identity: {}, profile: {} }, files: {},
     codex, launch: async () => browser, onBeforeSubmit: guard,
@@ -176,6 +176,50 @@ describe('runner final guard across three application stages', () => {
     expect(result.event).toMatchObject({ type: 'submit_handoff' });
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('waits for a blank Rituals Workday apply route to mount before handing it to the agent', async () => {
+    const postingUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033';
+    const applyUrl = `${postingUrl}/apply`;
+    const blankApply = {
+      ...snapshot(applyUrl, '', []),
+      title: 'Rituals Careers',
+      heading: '',
+      text: '',
+    };
+    const mountedApply = {
+      ...snapshot(applyUrl, 'Application', [{ id: 'apply', text: 'Apply', formId: 'application', frame: 0, disabled: false }]),
+      fields: [
+        { id: 'first', label: 'First Name', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { id: 'last', label: 'Last Name', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { id: 'email', label: 'Email', kind: 'text', inputType: 'email', formId: 'application', frame: 0 },
+        { id: 'cv', label: 'Resume / CV', kind: 'file', inputType: 'file', formId: 'application', frame: 0 },
+      ],
+    };
+    const received = {
+      ...snapshot(applyUrl, 'Thank you for your application.', []),
+      fields: [],
+      buttons: [],
+    };
+    const posting = snapshot(postingUrl, 'Store Assistant Rituals Apply', [{ id: 'entry', text: 'Apply', frame: 0, disabled: false }]);
+    const f = fixture(blankApply, posting, review, null, {
+      applyUrl,
+      postingUrl,
+      channelType: 'workday',
+      job: { company: 'Rituals Cosmetics Switzerland', title: 'Store Assistant' },
+      guardUrl: applyUrl,
+      receiptSnapshot: received,
+      onWait: (ms: number) => {
+        if (ms === 1000 && state.snapshot.url === applyUrl && !state.snapshot.fields.length && !state.snapshot.buttons.length) state.snapshot = mountedApply;
+      },
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
+    expect(f.openClick).toHaveBeenCalledOnce();
+    expect(f.guard).toHaveBeenCalledOnce();
+    expect(f.click).toHaveBeenCalledOnce();
   });
 
   it('opens a source-proven SuccessFactors module from a language-only posting shell', async () => {
