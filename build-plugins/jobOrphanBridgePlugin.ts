@@ -45,8 +45,10 @@
  *     locale-router Worker 301s the URL: to the job's canton page when
  *     /job-canon knows the slug, otherwise to the section root.
  *
- * `matched` pages emit `robots: 'index,follow'` (per the
- * `never_noindex_without_approval` policy).
+ * `matched` pages that can reuse the emitted canonical detail stay
+ * `index,follow`. If the canonical file is absent in this shard, the fallback
+ * is a navigable `noindex,follow` bridge: it has no JobPosting payload and
+ * must never become an indexable job-detail substitute.
  *
  * Plugin contract (CLAUDE.md non-negotiable #14)
  * ----------------------------------------------
@@ -71,6 +73,7 @@ import { getCantonForSlug } from './shared/slugCantonIndex';
 import { buildBridgeBreadcrumbLd, JOBS_SECTION_LABEL } from './shared/bridgeBreadcrumb';
 import { renderBridgePageProse } from './shared/bridgePageProse';
 import { getSafeDistPageTargets, isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
+import { JOB_ORPHAN_NOINDEX_BRIDGE_MARKER } from './shared/jobOrphanNoindexBridgeMarker.mjs';
 import type { Locale } from '../services/i18n';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 
@@ -207,10 +210,6 @@ function buildCurrentPathForMatched(locale: Locale, currentSlug: string): string
   return `${LOCALE_PREFIX[locale]}/${section}/${currentSlug}/`.replace(/\/+/g, '/');
 }
 
-function buildCanonicalForMatched(locale: Locale, currentSlug: string): string {
-  return `${BASE_URL}${buildCurrentPathForMatched(locale, currentSlug)}`.replace(/(?<!:)\/+/g, '/');
-}
-
 /**
  * Section landing canonical. `slugHint` (when present) lets us pick the
  * canton-aware section for the orphan's known job. When absent, fall back
@@ -267,7 +266,6 @@ function renderMatchedPage(entry: OrphanEntry, distDir: string): string {
   const copy = COPY[locale];
   const orphanPath = buildOrphanPath(entry);
   const currentPath = buildCurrentPathForMatched(locale, entry.currentSlug!);
-  const canonicalUrl = buildCanonicalForMatched(locale, entry.currentSlug!);
   const orphanAbsoluteUrl = `${BASE_URL}${orphanPath}`;
 
   // Reuse the real detail, including semantic content and SEO metadata, when
@@ -293,8 +291,9 @@ function renderMatchedPage(entry: OrphanEntry, distDir: string): string {
     ${bridgeProse}
   </main>`;
 
-  // Breadcrumb describes the orphan URL the visitor actually landed on
-  // (canonical points to the live job, but the bridge is what's served).
+  // Breadcrumb describes the orphan URL the visitor actually landed on. The
+  // fallback is self-canonical because the live detail may not be present in
+  // this shard; the rewrite/CTA still points users to the current route.
   const breadcrumbLd = buildBridgeBreadcrumbLd({
     locale,
     baseUrl: BASE_URL,
@@ -308,13 +307,16 @@ function renderMatchedPage(entry: OrphanEntry, distDir: string): string {
     locale,
     title: copy.matchedTitle,
     description: copy.matchedDescription,
-    canonicalUrl,
-    robots: 'index,follow',
+    // This branch has no complete JobPosting to index. Keep the bridge
+    // self-canonical so the fallback cannot point a crawler at a detail file
+    // that was not emitted in this shard.
+    canonicalUrl: orphanAbsoluteUrl,
+    robots: 'noindex,follow',
     ogType: 'website',
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: '',
     jsonLdScripts: [breadcrumbLd],
-    extraHeadHtml: buildMatchedRewriteScript(orphanPath, currentPath),
+    extraHeadHtml: `${JOB_ORPHAN_NOINDEX_BRIDGE_MARKER}${buildMatchedRewriteScript(orphanPath, currentPath)}`,
     bodyHtml,
     distDir,
     seoMainClass: 'cluster-seo-prose',
