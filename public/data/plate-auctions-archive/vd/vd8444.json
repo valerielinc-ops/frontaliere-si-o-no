@@ -2,9 +2,9 @@
   "schema": 1,
   "rows": [
     {
-      "id": "vd-120545",
+      "id": "vd-120747",
       "sourceKey": "VD",
-      "sourceRecordId": "120545",
+      "sourceRecordId": "120747",
       "canton": "Vaud",
       "platePrefix": "VD",
       "plateNumber": "8444",
@@ -14,15 +14,16 @@
       "auctionStatus": "closed",
       "currentBidChf": 2000,
       "bidCount": 0,
-      "closedAt": "2026-10-25T20:53:23.307Z",
+      "endsAt": "2026-11-15T21:00:00.000Z",
+      "closedAt": "2026-11-15T21:00:00.000Z",
       "officialAuctionUrl": "https://www.encheres-vd.ch/fr/",
-      "officialDetailUrl": "https://www.encheres-vd.ch/fr/auction/120545",
-      "sourceFetchedAt": "2026-10-25T20:53:23.307Z",
-      "lastVerifiedAt": "2026-10-25T20:53:23.307Z",
-      "firstSeenAt": "2026-10-19T04:41:05.856Z",
-      "lastSeenAt": "2026-10-25T20:53:23.307Z",
+      "officialDetailUrl": "https://www.encheres-vd.ch/fr/auction/120747",
+      "sourceFetchedAt": "2026-11-15T18:53:03.601Z",
+      "lastVerifiedAt": "2026-11-15T18:53:03.601Z",
+      "firstSeenAt": "2026-11-09T06:24:46.695Z",
+      "lastSeenAt": "2026-11-15T18:53:03.601Z",
       "dataConfidence": "partial",
-      "rawSnapshotHash": "146236a75136"
+      "rawSnapshotHash": "1a0391ffa47f"
     }
   ]
 }

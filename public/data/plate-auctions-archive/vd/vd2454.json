@@ -2,9 +2,9 @@
   "schema": 1,
   "rows": [
     {
-      "id": "vd-120490",
+      "id": "vd-120737",
       "sourceKey": "VD",
-      "sourceRecordId": "120490",
+      "sourceRecordId": "120737",
       "canton": "Vaud",
       "platePrefix": "VD",
       "plateNumber": "2454",
@@ -13,17 +13,17 @@
       "vehicleType": "car",
       "auctionStatus": "closed",
       "currentBidChf": 2000,
-      "bidCount": 0,
-      "endsAt": "2026-10-18T20:00:00.000Z",
-      "closedAt": "2026-10-18T20:00:00.000Z",
-      "officialAuctionUrl": "https://www.encheres-vd.ch/de/",
-      "officialDetailUrl": "https://www.encheres-vd.ch/de/auction/120490",
-      "sourceFetchedAt": "2026-10-18T18:46:58.039Z",
-      "lastVerifiedAt": "2026-10-18T18:46:58.039Z",
-      "firstSeenAt": "2026-10-11T22:02:38.024Z",
-      "lastSeenAt": "2026-10-18T18:46:58.039Z",
+      "bidCount": 1,
+      "endsAt": "2026-11-15T21:00:00.000Z",
+      "closedAt": "2026-11-15T21:00:00.000Z",
+      "officialAuctionUrl": "https://www.encheres-vd.ch/fr/",
+      "officialDetailUrl": "https://www.encheres-vd.ch/fr/auction/120737",
+      "sourceFetchedAt": "2026-11-15T18:53:03.601Z",
+      "lastVerifiedAt": "2026-11-15T18:53:03.601Z",
+      "firstSeenAt": "2026-11-09T06:24:46.695Z",
+      "lastSeenAt": "2026-11-15T18:53:03.601Z",
       "dataConfidence": "partial",
-      "rawSnapshotHash": "aeee5d9a1eb1"
+      "rawSnapshotHash": "546c7ee656f9"
     }
   ]
 }
