@@ -122,6 +122,7 @@ trunk_guard_init() {
   TRUNK_GUARD_NS="${1:-guard}"
   TRUNK_GUARD_DIST="${2:-dist}"
   TRUNK_GUARD_STATE="${RUNNER_TEMP:-/tmp}/trunk-guard-$TRUNK_GUARD_NS"
+  TRUNK_GUARD_FATAL_MARKER_WRITE_FAILED=0
   rm -rf "$TRUNK_GUARD_STATE" 2>/dev/null || true
   mkdir -p "$TRUNK_GUARD_STATE/fatal" 2>/dev/null || true
   return 0
@@ -280,7 +281,20 @@ trunk_replace_end() {
   fi
 
   if [ "$fatal" -gt 0 ]; then
-    : > "$state/fatal/$label" 2>/dev/null || true
+    # The per-label marker is the normal cross-process verdict channel. If
+    # that path is unavailable after a fail-closed classification, preserve
+    # the failure in a state-level sentinel so trunk_guard_verdict cannot
+    # mistake a persistence error for a clean rehydrate.
+    if ! : > "$state/fatal/$label" 2>/dev/null; then
+      TRUNK_GUARD_FATAL_MARKER_WRITE_FAILED=1
+      if ! : > "$state/.fatal-marker-write-failed" 2>/dev/null; then
+        # Keep direct callers fail-closed even if the state directory itself
+        # is unavailable. Background workers still report through the
+        # state-level sentinel whenever that parent remains writable.
+        TRUNK_GUARD_FATAL_MARKER_WRITE_FAILED=1
+      fi
+      echo "::error::[trunk-guard] $label: could not persist fatal verdict marker; preserving a fail-closed verdict"
+    fi
     echo "::error::[trunk-guard] $label: $fatal indexable page(s) were built under a prefix this build does not ship to the shard, and the rehydrate discarded them —$fatal_s. Either gate the emitter on <SECTION>_BUILD_EMIT_SKIP (as #5290 did for topicClusterHubsPlugin.ts) or ship the pages to the shard; they are 404 in production today."
   else
     echo "::warning::[trunk-guard] $label: $lost trunk file(s) discarded by the shard rehydrate, all noindex or non-HTML (bridge pages from legacyRedirectsPlugin.ts and friends) — no indexable content lost, not failing the step."
@@ -297,12 +311,22 @@ trunk_guard_verdict() {
   local what="${1:-rehydrate}"
   local state="${TRUNK_GUARD_STATE:-${RUNNER_TEMP:-/tmp}/trunk-guard}"
   local n=0
+  local marker_write_failed=0
   if [ -d "$state/fatal" ]; then
     n="$(find "$state/fatal" -type f 2>/dev/null | wc -l | tr -d ' ')"
   fi
   case "${n:-0}" in ''|*[!0-9]*) n=0 ;; esac
-  if [ "$n" -eq 0 ]; then return 0; fi
-  echo "::error::[trunk-guard] $what: $n subtree(s) lost indexable pages to the shard replace — see the [trunk-guard] lines above for the exact files. This is the #5327 class: a build-time emitter writing under a prefix served by a shard that never receives it."
+  if [ "${TRUNK_GUARD_FATAL_MARKER_WRITE_FAILED:-0}" = "1" ] \
+    || [ -f "$state/.fatal-marker-write-failed" ]; then
+    marker_write_failed=1
+  fi
+  if [ "$n" -eq 0 ] && [ "$marker_write_failed" -eq 0 ]; then return 0; fi
+  if [ "$marker_write_failed" -eq 1 ]; then
+    echo "::error::[trunk-guard] $what: a fatal verdict marker could not be persisted; failing closed because the rehydrate result is not trustworthy."
+  fi
+  if [ "$n" -gt 0 ]; then
+    echo "::error::[trunk-guard] $what: $n subtree(s) lost indexable pages to the shard replace — see the [trunk-guard] lines above for the exact files. This is the #5327 class: a build-time emitter writing under a prefix served by a shard that never receives it."
+  fi
   if [ "${REHYDRATE_TRUNK_ORPHANS_FATAL:-true}" = "false" ]; then
     echo "[trunk-guard] REHYDRATE_TRUNK_ORPHANS_FATAL=false — downgraded to a warning, NOT failing this step."
     return 0

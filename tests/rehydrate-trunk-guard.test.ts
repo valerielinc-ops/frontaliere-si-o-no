@@ -603,6 +603,10 @@ describe('rehydrate-trunk-guard.sh — structural invariants', () => {
         // fail without changing the guard's source or relying on root-only
         // permission tricks.
         'mkdir -p "$TRUNK_GUARD_STATE/broken.lost"',
+        // A directory at the per-label fatal marker path makes the normal
+        // cross-process verdict write fail too; the guard must retain a
+        // fail-closed state instead of returning clean.
+        'mkdir -p "$TRUNK_GUARD_STATE/fatal/broken"',
         'trunk_replace_end broken',
         'if ! trunk_guard_verdict "inventory write failure"; then exit 1; fi',
       ].join('\n'),
@@ -628,6 +632,7 @@ describe('rehydrate-trunk-guard.sh — structural invariants', () => {
 
     expect(status).toBe(1);
     expect(output).toContain('could not classify lost paths');
+    expect(output).toContain('could not persist fatal verdict marker');
   });
 
   it('is sourced by BOTH rehydrate scripts (the locale one has the same replace semantics)', () => {
