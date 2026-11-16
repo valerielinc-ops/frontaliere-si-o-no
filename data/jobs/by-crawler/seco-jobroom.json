@@ -10361,7 +10361,7 @@
         "it": "junior-controller-80-100-univativ-schweiz-ag-chur-284aee0b",
         "en": "junior-controller-80-100-univativ-schweiz-ag-chur-284aee0b",
         "de": "junior-controller-80-100-univativ-schweiz-ag-chur-284aee0b",
-        "fr": "junior-controller-80-100-univativ-schweiz-ag-chur-284aee0b"
+        "fr": "controleur-de-gestion-junior-80-100-univativ-schweiz-ag-chur-284aee0b"
       },
       "slugDisambiguator": "284aee0b",
       "company": "univativ Schweiz AG",
@@ -10978,11 +10978,11 @@
     },
     {
       "id": "seco-jobroom-3a6f89a6-4005-4857-a780-19485aabe52a",
-      "slug": "directeur-de-travaux-80-100-cdi-h-f-d-adecco-sion-3a6f89a6",
+      "slug": "direttore-dei-lavori-80-100-a-tempo-indeterminato-m-f-d-adecco-sion-3a6f89a6",
       "slugByLocale": {
         "de": "directeur-de-travaux-80-100-cdi-h-f-d-adecco-sion-3a6f89a6",
-        "it": "directeur-de-travaux-80-100-cdi-h-f-d-adecco-sion-3a6f89a6",
-        "en": "directeur-de-travaux-80-100-cdi-h-f-d-adecco-sion-3a6f89a6",
+        "it": "direttore-dei-lavori-80-100-a-tempo-indeterminato-m-f-d-adecco-sion-3a6f89a6",
+        "en": "construction-manager-80-100-permanent-contract-m-f-d-adecco-sion-3a6f89a6",
         "fr": "directeur-de-travaux-80-100-cdi-h-f-d-adecco-sion-3a6f89a6"
       },
       "slugDisambiguator": "3a6f89a6",
@@ -11050,7 +11050,18 @@
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-16T09:42:11.541Z",
       "translationHoldSince": "2026-11-16T09:45:44.694Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "directeur-de-travaux-80-100-cdi-h-f-d-adecco-sion-3a6f89a6"
+        ],
+        "en": [
+          "directeur-de-travaux-80-100-cdi-h-f-d-adecco-sion-3a6f89a6"
+        ]
+      },
+      "previousSlugs": [
+        "directeur-de-travaux-80-100-cdi-h-f-d-adecco-sion-3a6f89a6"
+      ]
     },
     {
       "id": "seco-jobroom-4019e536-04cc-4d1c-8dc6-07ef3c4043a9",
@@ -12567,10 +12578,10 @@
     },
     {
       "id": "seco-jobroom-6d588fe3-eef4-473d-9532-e76266d4e254",
-      "slug": "charpentier-cfc-100-cdi-h-f-d-adecco-sion-6d588fe3",
+      "slug": "carpentiere-afc-100-a-tempo-indeterminato-m-f-d-adecco-sion-6d588fe3",
       "slugByLocale": {
-        "it": "charpentier-cfc-100-cdi-h-f-d-adecco-sion-6d588fe3",
-        "en": "charpentier-cfc-100-cdi-h-f-d-adecco-sion-6d588fe3",
+        "it": "carpentiere-afc-100-a-tempo-indeterminato-m-f-d-adecco-sion-6d588fe3",
+        "en": "qualified-carpenter-cfc-100-permanent-m-f-d-adecco-sion-6d588fe3",
         "de": "charpentier-cfc-100-cdi-h-f-d-adecco-sion-6d588fe3",
         "fr": "charpentier-cfc-100-cdi-h-f-d-adecco-sion-6d588fe3"
       },
@@ -12637,7 +12648,18 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "translationHoldSince": "2026-11-15T09:44:32.192Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "charpentier-cfc-100-cdi-h-f-d-adecco-sion-6d588fe3"
+        ],
+        "en": [
+          "charpentier-cfc-100-cdi-h-f-d-adecco-sion-6d588fe3"
+        ]
+      },
+      "previousSlugs": [
+        "charpentier-cfc-100-cdi-h-f-d-adecco-sion-6d588fe3"
+      ]
     },
     {
       "id": "seco-jobroom-6ead31f6-427e-4c21-8657-b75108eab971",
