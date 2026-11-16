@@ -515,10 +515,10 @@ export function extractVisibleJobupDescription(html = '') {
 
     if (containers.length !== 1) return '';
     const container = containers[0].cloneNode(true);
-    for (const excluded of container.querySelectorAll('script, style, template, noscript, [hidden], [aria-hidden="true"]')) {
+    for (const excluded of container.querySelectorAll('script, style, template, noscript')) {
       excluded.remove();
     }
-    for (const excluded of [...container.querySelectorAll('[class], [style]')].filter((element) => isHiddenJobupElement(element))) {
+    for (const excluded of [...container.querySelectorAll('*')].filter((element) => isHiddenJobupElement(element))) {
       excluded.remove();
     }
     for (const lineBreak of container.querySelectorAll('br')) {
