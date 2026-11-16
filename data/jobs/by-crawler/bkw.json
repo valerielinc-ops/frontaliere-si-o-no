@@ -9753,10 +9753,7 @@
       "applyUrl": "https://job.bkw.com/offene-stellen/spezialist-in-engineering-alle/c249e145-25e0-46ff-8a32-7e8e21f2e0c3",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "spezialist-in-engineering-alle-bkw-ch",
-        "ingegneria-specialistica-tutti-bkw-oberkirch"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "spezialist-in-engineering-alle-bkw-ch",
@@ -9766,8 +9763,10 @@
           "spezialist-in-engineering-alle-bkw-ch"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-08-28T05:20:33.571Z",
+      "previousSlugs": [
+        "spezialist-in-engineering-alle-bkw-ch",
+        "ingegneria-specialistica-tutti-bkw-oberkirch"
+      ],
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -9783,7 +9782,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-16T09:18:18.935Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-08-28T05:20:33.571Z"
     },
     {
       "id": "bkw-84ef449dfcdb",
