@@ -40,6 +40,12 @@
       "issue": 18778,
       "homeGroup": 20,
       "reason": "Il crawler duplicato condivide il dominio lipsuisse.ch con il crawler canonico lipsuisse-ch, che ora pubblica gli annunci correnti; il suo seed di dettaglio storico fallisce no-jobs-parsed e la slice residua resta storica per continuita' di route e dati."
+    },
+    "internezzo-ag": {
+      "retiredAt": "2026-11-16T08:49:10Z",
+      "issue": 17537,
+      "homeGroup": 24,
+      "reason": "La spec ha un solo seed Ostendis. Il seed risponde HTTP 200 ma il corpo dichiara che la pubblicazione e' stata ritirata; non esiste una listing URL alternativa verificata. Il ritiro evita di trattare il no-jobs-parsed come un crawler rotto e conserva la slice storica."
     }
   }
 }
