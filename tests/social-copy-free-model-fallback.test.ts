@@ -92,6 +92,17 @@ describe('social copy free-model fallback', () => {
     expect(classifySocialCopyFallbackFailure(error)).toBe(category);
   });
 
+  it('keeps persistent status classifications ahead of transient provider wording', () => {
+    expect(classifySocialCopyFallbackFailure({ status: 404, message: 'upstream model not found' }))
+      .toBe('model-unavailable');
+    expect(classifySocialCopyFallbackFailure({ status: 401, message: 'upstream service unavailable' }))
+      .toBe('provider-auth-failed');
+    expect(classifySocialCopyFallbackFailure({ status: 400, message: 'upstream service unavailable' }))
+      .toBe('provider-request-rejected');
+    expect(classifySocialCopyFallbackFailure({ status: 413, message: 'rate_limit_exceeded: tokens per minute limit reached' }))
+      .toBe('provider-quota-or-rate-limit');
+  });
+
   it('defers only a no-pack result made entirely of transient request failures', () => {
     expect(isTransientSocialCopyFallbackFailureSet([
       { provider: 'gemini', phase: 'request', category: 'provider-quota-or-rate-limit' },

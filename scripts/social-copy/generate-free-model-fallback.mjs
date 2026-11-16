@@ -264,16 +264,14 @@ export function classifySocialCopyFallbackFailure(error, phase = 'request') {
 
   const message = String(error?.message || error || '').slice(0, 1000).toLowerCase();
   const status = statusFromError(error);
+  const hasRateLimitMessage = /rate[_ -]?limit(?:[_ -]?exceeded)?|tokens?\s+per\s+minute|tokens?_remaining_day|quota|too many requests|resource exhausted/.test(message);
+  const hasTransientMessage = /empty response|no endpoints? available|temporarily unavailable|service unavailable|upstream/.test(message);
   // Groq reports its free-tier TPM exhaustion as HTTP 413 with a
   // `rate_limit_exceeded` body. That is capacity exhaustion, not a bad pack or
   // a revoked credential, so it must be classified before the generic 4xx
   // branch below. OpenRouter can also return an empty response while its free
   // route has no healthy upstream; the next scheduled run can retry that case.
-  if (/rate[_ -]?limit[_ -]?exceeded|tokens?\s+per\s+minute|tokens?_remaining_day|empty response|no endpoints? available|temporarily unavailable|service unavailable|upstream/.test(message)) {
-    return /rate|token|quota|limit/.test(message)
-      ? 'provider-quota-or-rate-limit'
-      : 'provider-temporary-failure';
-  }
+  if (status === 413 && hasRateLimitMessage) return 'provider-quota-or-rate-limit';
   if (status === 401 || /api key not set|missing api key|invalid api key|unauthorized/.test(message)) {
     return 'provider-auth-failed';
   }
@@ -284,13 +282,14 @@ export function classifySocialCopyFallbackFailure(error, phase = 'request') {
   if (status === 404) {
     return 'model-unavailable';
   }
+  const isKnownTransientStatus = status === null || status === 408 || status >= 500;
+  if (isKnownTransientStatus && hasRateLimitMessage) return 'provider-quota-or-rate-limit';
+  if (isKnownTransientStatus && hasTransientMessage) return 'provider-temporary-failure';
   if (status !== null && (status === 408 || status >= 500)) {
     return 'provider-temporary-failure';
   }
   if (status !== null && status >= 400) return 'provider-request-rejected';
-  if (/quota|rate.?limit|too many requests|resource exhausted/.test(message)) {
-    return 'provider-quota-or-rate-limit';
-  }
+  if (hasRateLimitMessage) return 'provider-quota-or-rate-limit';
   if (/model[^\n]{0,60}(not found|unavailable|does not exist)/.test(message)) return 'model-unavailable';
   if (/timeout|timed out|aborted|econnreset|econnrefused|enotfound|eai_again|fetch failed/.test(message)) {
     return 'provider-temporary-failure';
