@@ -227,7 +227,9 @@ describe('Croix-Rouge fribourgeoise crawler parser', () => {
     it('rejects inline-hidden content, excludes noscript text, and separates adjacent blocks', () => {
       const fiftyWords = Array.from({ length: 50 }, () => 'word').join(' ');
       expect(extractVisibleJobupDescription(`<div data-cy="vacancy-description" style="display:none">${fiftyWords}</div>`)).toBe('');
+      expect(extractVisibleJobupDescription(`<div data-cy="vacancy-description" ARIA-HIDDEN="TrUe">${fiftyWords}</div>`)).toBe('');
       expect(extractVisibleJobupDescription(`<div data-cy="vacancy-description"><noscript>${fiftyWords}</noscript></div>`)).toBe('');
+      expect(extractVisibleJobupDescription('<div data-cy="vacancy-description"><p aria-hidden="TRUE">hidden copy</p><p>visible copy</p></div>')).toBe('visible copy');
       expect(extractVisibleJobupDescription('<div data-cy="vacancy-description"><p>first block</p><p>second block</p></div>')).toBe('first block second block');
     });
   });
