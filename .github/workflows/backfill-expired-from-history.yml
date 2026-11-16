@@ -236,7 +236,7 @@ jobs:
               return 1
             fi
             if ! node scripts/audit-expired-at-parsable.mjs; then
-              report_checkpoint_timing 'failed-audit'
+              report_checkpoint_timing 'audit-gate-failure'
               checkpoint_failed=1
               checkpoint_active=0
               return 1
