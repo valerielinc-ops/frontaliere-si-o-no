@@ -231,7 +231,9 @@ describe('post-deploy-validate-dist.yml — deploy-ref skew guard observer', () 
   it('keeps full source validators out of the fast publisher gate', () => {
     const gateJob = workflow.jobs?.['fast-gate'];
     const calls = (gateJob?.steps ?? []).flatMap((step) => directCalls('fast-gate', step));
+    // Bridge evidence is a fast-gate input producer, not a full source validator.
     expect(calls.map((call) => `${call.kind}:${call.target}`)).toEqual([
+      'node:scripts/ci/build-sitemap-family-bridge-evidence.mjs',
       'node:scripts/ci/publisher-fast-gate.mjs',
       'node:scripts/ci/publisher-fast-gate.mjs',
     ]);
