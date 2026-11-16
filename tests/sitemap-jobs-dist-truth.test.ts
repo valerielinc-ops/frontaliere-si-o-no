@@ -469,6 +469,43 @@ describe('reconcileSitemapJobsWithDist — dist truth, not enumeration', () => {
     }
   });
 
+  it('treats numbered legacy continuations as authoritative cache-hit source files', async () => {
+    const itDetail = `${BASE}/cerca-lavoro-zurigo/continued-detail/`;
+    const deDetail = `${BASE}/de/jobs-in-zurich/continued-detail/`;
+    const continuationPath = path.join(dist, 'sitemap-jobs-legacy-001.xml');
+    const shardPath = path.join(dist, 'sitemap-jobs-zurigo.xml');
+    fs.writeFileSync(
+      continuationPath,
+      `<?xml version="1.0" encoding="UTF-8"?>\n` +
+        `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n` +
+        `  <url><loc>${itDetail}</loc><xhtml:link rel="alternate" hreflang="de" href="${deDetail}" /><priority>0.6</priority></url>\n` +
+        `</urlset>\n`,
+      'utf-8',
+    );
+    fs.writeFileSync(shardPath, wrapJobUrls([itDetail, deDetail]), 'utf-8');
+    writePage(itDetail, selfCanonical(itDetail));
+    writePage(deDetail, selfCanonical(deDetail));
+
+    const previousBuildLocale = process.env.BUILD_LOCALE;
+    process.env.BUILD_LOCALE = 'it';
+    try {
+      vi.resetModules();
+      const shard = await import('../build-plugins/relatedSearchClustersPlugin');
+      const signals = await import('../build-plugins/shared/buildSignals');
+      signals.setActiveJobSitemapLocs(null);
+      signals.setJobSitemapAllowlist(null);
+      await shard.reconcileSitemapJobsWithDist(dist, []);
+      expect(shard.extractSitemapLocs(fs.readFileSync(continuationPath, 'utf-8'))).toEqual([itDetail]);
+      expect(shard.extractSitemapLocs(fs.readFileSync(shardPath, 'utf-8'))).toEqual([deDetail]);
+    } finally {
+      if (previousBuildLocale === undefined) delete process.env.BUILD_LOCALE;
+      else process.env.BUILD_LOCALE = previousBuildLocale;
+      const signals = await import('../build-plugins/shared/buildSignals');
+      signals.setActiveJobSitemapLocs(null);
+      signals.setJobSitemapAllowlist(null);
+    }
+  });
+
   it('keeps EN/DE/FR variants that the IT-only link registry does not know (BUILD_LOCALE=it)', async () => {
     const itDetail = `${BASE}/cerca-lavoro-zurigo/variant-detail/`;
     const deDetail = `${BASE}/de/jobs-in-zurich/variant-detail/`;

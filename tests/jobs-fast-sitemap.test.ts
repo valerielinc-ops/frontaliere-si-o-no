@@ -4,9 +4,11 @@ import {
   mergeFastJobSitemapIndex,
   mergeFastJobVariantShard,
   mergeFastJobsSitemap,
+  JOBS_FAST_SITEMAP_DEFAULTS,
   nextJobVariantShardFilename,
   selectJobVariantShardFilename,
 } from "../scripts/lib/jobs-fast-sitemap.mjs";
+import { SITEMAP_SHARD_CAP } from "../scripts/lib/sitemap-limits.mjs";
 
 const rootXml = (rows) =>
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${rows.join("\n")}\n</urlset>\n`;
@@ -16,6 +18,10 @@ const indexXml = (files) =>
   `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${files.map((file) => `<sitemap><loc>https://frontaliereticino.ch/${file}</loc></sitemap>`).join("")}</sitemapindex>`;
 
 describe("jobs-fast sitemap merge", () => {
+  it("uses the shared full-build cap by default", () => {
+    expect(JOBS_FAST_SITEMAP_DEFAULTS.maxUrls).toBe(SITEMAP_SHARD_CAP);
+  });
+
   it("replaces a matching active URL while preserving unrelated entries", () => {
     const target = "https://frontaliereticino.ch/cerca-lavoro-ticino/offer/";
     const unrelated = "https://frontaliereticino.ch/cerca-lavoro-ticino/other/";
