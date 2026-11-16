@@ -170,11 +170,9 @@ describe('Swiss canton pharmacy calendar parser', () => {
       calendarYear: 2026,
     });
 
-    expect(parsed.rows.filter((row) => row.startsAt.startsWith('2026-11-15'))).toEqual(
-      expect.arrayContaining([
-        expect.objectContaining({ status: 'expired' }),
-      ]),
-    );
+    const currentWeekRows = parsed.rows.filter((row) => row.startsAt.startsWith('2026-11-15'));
+    expect(currentWeekRows).toHaveLength(3);
+    expect(currentWeekRows.every((row) => row.status === 'expired')).toBe(true);
   });
 
   it('rejects a Delémont row whose pharmacy is not allowlisted', () => {
