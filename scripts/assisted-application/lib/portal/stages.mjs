@@ -584,6 +584,8 @@ export function applicationStage(snapshot, {
   // form so the runner can open its sections; a bare Apply without the
   // explicit section control remains unknown.
   const closedSectionApplication = apply.length === 1 && !apply[0].href
+    && Boolean(apply[0].formId)
+    && (titleBound(text, job.title) || Boolean(apply[0].applicationScopeId))
     && buttons.some(button => CLOSED_APPLICATION_EXPAND_RE.test(String(button.text || button.label || '')))
     && buttons.some(button => SUBMIT_RE.test(String(button.text || button.label || '')));
   const applicationForm = (apply.length === 1 && !apply[0].href && Boolean(apply[0].formId)

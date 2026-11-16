@@ -11199,13 +11199,18 @@ export async function submitViaPortal(ctx) {
       return result;
     };
     const refreshApplicationEntryAfterTransition = async (sourceUrl, current = snapshot, { requireSignedInForm = false } = {}) => {
-      const targetUrl = page.url();
-      if (!applicationEntryUrl || !targetUrl || targetUrl === sourceUrl) return;
+      const preSettleUrl = page.url();
+      if (!applicationEntryUrl || !preSettleUrl) return;
       let transitionSnapshot = current;
       if (requireSignedInForm && !signedInApplicationSurface(transitionSnapshot)) {
         await settle(page);
         transitionSnapshot = await extractFields(page, NAVIGATION).catch(() => current);
       }
+      // Authentication may settle through one or more redirects. The URL
+      // captured before settling is only the intermediate auth route; pair
+      // the settled snapshot with the final browser URL.
+      const targetUrl = page.url();
+      if (!targetUrl || targetUrl === sourceUrl) return;
       // Workday may navigate from the followed Apply account page to its
       // sign-in route before the successful sign-in lands on the application
       // form. The auth page is an intermediate runner-owned route, so the
@@ -11231,6 +11236,28 @@ export async function submitViaPortal(ctx) {
         }
       }
       if (sourceUrl !== applicationEntryUrl && !sameOriginAuthTransition) return;
+      if (sameOriginAuthTransition) {
+        // Same-origin auth is not vacancy proof by itself. Workday exposes the
+        // selected requisition in its job route, while other ATSes may retain
+        // a query-bound job/requisition id. Reject a different identity before
+        // carrying the application-entry proof into formPostingMatch.
+        const workdaySelectedUrl = [ctx.applyUrl, applicationEntryUrl, postingUrl, ctx.postingUrl]
+          .find(value => workdayJobRoute(value));
+        const targetMatchesSelectedVacancy = workdaySelectedUrl
+          ? workdayPostingRouteMatchesCurrent(targetUrl, workdaySelectedUrl, postingUrl || ctx.postingUrl)
+          : (() => {
+            const selectedKeys = [applicationEntryUrl, ctx.applyUrl]
+              .map(value => portalJobKey(value, sourceProtocol))
+              .filter(Boolean);
+            const targetKey = portalJobKey(targetUrl, sourceProtocol);
+            return !(selectedKeys.length && targetKey && !selectedKeys.includes(targetKey));
+          })();
+        if (!targetMatchesSelectedVacancy) {
+          enteredThroughApplicationEntry = false;
+          applicationEntryUrl = '';
+          return;
+        }
+      }
       const title = await page.title().catch(() => '');
       const text = await pageText(page).catch(() => '');
       const diversionHint = applicationDestinationDiversionHint({

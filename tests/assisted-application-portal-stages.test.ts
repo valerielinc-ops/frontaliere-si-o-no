@@ -580,6 +580,14 @@ describe('application stage ownership', () => {
       applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42',
       job: { title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)' },
     })).toMatchObject({ kind: 'unknown_apply' });
+    expect(applicationStage({
+      ...snapshot,
+      text: 'Bewerbung',
+      buttons: snapshot.buttons.map(button => ({ ...button, applicationScopeId: undefined })),
+    }, {
+      applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42',
+      job: { title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)' },
+    })).toMatchObject({ kind: 'unknown_apply' });
   });
 
   it('does not join unrelated same-frame sign-in and salary forms to the Apply action', () => {
