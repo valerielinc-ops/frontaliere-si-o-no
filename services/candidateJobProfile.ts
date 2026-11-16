@@ -93,6 +93,17 @@ export async function uploadCandidateProfileCv(uid: string, file: File): Promise
   }
 }
 
+export async function reuseCandidateProfileCvForAssistedApplication(
+  uid: string,
+  orderId: string,
+): Promise<{ status: 'reused' | 'already_uploaded'; cvStorageKey: string; cvFileName: string }> {
+  return callProfileFunction<{ status: 'reused' | 'already_uploaded'; cvStorageKey: string; cvFileName: string }>(
+    uid,
+    'reuseCandidateProfileCvForAssistedApplication',
+    { orderId },
+  );
+}
+
 export async function setCandidateCvJobAlertPersonalization(uid: string, enabled: boolean): Promise<void> {
   await callProfileFunction<{ enabled: boolean }>(uid, 'setCandidateCvJobAlertPersonalization', { enabled });
 }

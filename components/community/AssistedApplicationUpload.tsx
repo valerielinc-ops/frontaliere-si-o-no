@@ -12,6 +12,8 @@ import { hasAssistedApplicationConsent } from '@/functions/src/assistedApplicati
 import { AssistedApplicationCandidateFacts, candidateFactsComplete as factsComplete, cleanCandidateFacts, type CandidateFacts } from '@/components/community/AssistedApplicationCandidateFacts';
 import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import { getAssistedPaymentResponseShape } from '@/services/assistedApplicationResponseShape';
+import { loadUserCvProfile } from '@/services/profileFirestore';
+import { reuseCandidateProfileCvForAssistedApplication } from '@/services/candidateJobProfile';
 import {
   getAssistedApplicationPaymentRecoveryErrorCode,
   resumeAssistedApplicationPayment,
@@ -44,6 +46,8 @@ interface AssistedApplicationOrder {
   paymentStatus?: 'pending' | 'paid' | 'failed' | 'refunded' | string;
   submissionStatus?: string;
   automationState?: string;
+  retentionPurgingAt?: unknown;
+  retentionPurgedAt?: unknown;
   jobUrl?: string;
   employerResponse?: unknown;
   employerResponseTimeline?: unknown;
@@ -131,7 +135,8 @@ function closePaymentWindow(checkoutWindow: Window | null): void {
 function canCompleteIntake(order: AssistedApplicationOrder): boolean {
   // A workflow starts at drafting and can retain awaiting_upload in the
   // order mirror. Its presence means intake has already completed.
-  return order.submissionStatus === 'awaiting_upload' && !order.automationState;
+  return order.submissionStatus === 'awaiting_upload' && !order.automationState
+    && order.retentionPurgingAt == null && order.retentionPurgedAt == null;
 }
 
 function safeJobUrl(value: unknown): string | null {
@@ -188,6 +193,9 @@ export default function AssistedApplicationUpload({
   const [consentSaving, setConsentSaving] = useState(false);
   const [detailsSaved, setDetailsSaved] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [profileCvFileName, setProfileCvFileName] = useState<string | null>(null);
+  const [profileCvLoading, setProfileCvLoading] = useState(false);
+  const [reusingProfileCv, setReusingProfileCv] = useState(false);
   const [openingCv, setOpeningCv] = useState(false);
   const [cvStorageKey, setCvStorageKey] = useState<string | null>(null);
   const [cvFileName, setCvFileName] = useState<string | null>(null);
@@ -318,6 +326,36 @@ export default function AssistedApplicationUpload({
     if (userEmail) setEmail((value) => value || userEmail);
     if (displayName) setName((value) => value || displayName);
   }, [authUser]);
+
+  const profileCvOrderReady = status === 'paid'
+    && Boolean(order && canCompleteIntake(order) && !cvStorageKey);
+
+  useEffect(() => {
+    const uid = String(authUser?.uid || '').trim();
+    if (!uid || !profileCvOrderReady) {
+      setProfileCvFileName(null);
+      setProfileCvLoading(false);
+      return;
+    }
+
+    let cancelled = false;
+    setProfileCvFileName(null);
+    setProfileCvLoading(true);
+    void loadUserCvProfile(uid)
+      .then((profile) => {
+        if (cancelled || profile?.userId !== uid
+          || !['ready', 'needs_review'].includes(profile.status)
+          || !['candidate_profile', 'assisted_application', 'application_concierge'].includes(String(profile.cvDocument?.sourceType || ''))
+          || !profile.cvDocument?.fileName) return;
+        setProfileCvFileName(profile.cvDocument.fileName);
+      })
+      .catch(() => undefined)
+      .finally(() => {
+        if (!cancelled) setProfileCvLoading(false);
+      });
+
+    return () => { cancelled = true; };
+  }, [authUser?.uid, orderId, profileCvOrderReady]);
 
   const updateOrder = useCallback(async (data: Record<string, unknown>) => {
     const [{ getApp }, firestoreModule] = await Promise.all([
@@ -548,7 +586,7 @@ export default function AssistedApplicationUpload({
   };
 
   const handleFileChange = async (file: File | undefined) => {
-    if (!file || !consentPersisted || order?.paymentStatus !== 'paid' || cvStorageKey) return;
+    if (!file || !consentPersisted || order?.paymentStatus !== 'paid' || cvStorageKey || reusingProfileCv) return;
 
     if (!candidateFactsComplete) {
 
@@ -598,6 +636,47 @@ export default function AssistedApplicationUpload({
     }
   };
 
+  const handleReuseProfileCv = async () => {
+    if (!profileCvFileName || !consentPersisted || order?.paymentStatus !== 'paid'
+      || !order || !canCompleteIntake(order) || cvStorageKey || reusingProfileCv || uploading) return;
+    if (!candidateFactsComplete) {
+      setError(t('jobBoard.assisted.candidateFactsRequired'));
+      return;
+    }
+    const uid = String(authUser?.uid || '').trim();
+    if (!uid) {
+      onRequireAuth?.();
+      setError(t('jobBoard.assisted.profileCvReuseError'));
+      return;
+    }
+
+    setReusingProfileCv(true);
+    setError(null);
+    try {
+      const firestoreModule = await import('firebase/firestore');
+      await updateOrder({
+        candidateFacts: candidateFacts(),
+        updatedAt: firestoreModule.serverTimestamp(),
+      });
+      const result = await reuseCandidateProfileCvForAssistedApplication(uid, orderId);
+      if (!result.cvStorageKey || !result.cvFileName) throw new Error('assisted_application_cv_reuse_unavailable');
+      setCvStorageKey(result.cvStorageKey);
+      setCvFileName(result.cvFileName);
+      setOrder((current) => current ? {
+        ...current,
+        candidateFacts: candidateFacts(),
+        cvStorageKey: result.cvStorageKey,
+        cvFileName: result.cvFileName,
+        cvUploadedAt: new Date().toISOString(),
+      } : current);
+      setProfileCvFileName(null);
+    } catch {
+      setError(t('jobBoard.assisted.profileCvReuseError'));
+    } finally {
+      setReusingProfileCv(false);
+    }
+  };
+
   const handleOpenCv = async () => {
     if (!cvStorageKey || openingCv) return;
     const previewWindow = window.open('about:blank', '_blank');
@@ -631,7 +710,7 @@ export default function AssistedApplicationUpload({
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
     if (!order || order.paymentStatus !== 'paid' || !canCompleteIntake(order)
-      || submitBusy || !consentPersisted || !cvStorageKey) return;
+      || submitBusy || reusingProfileCv || !consentPersisted || !cvStorageKey) return;
     if (!name.trim() || !isValidEmail(email)) {
       setError(t('jobBoard.assisted.formError'));
       return;
@@ -839,7 +918,7 @@ export default function AssistedApplicationUpload({
                       <AssistedApplicationCandidateFacts value={facts} onChange={(value) => { setFacts(value); setDetailsSaved(false); }} locale={locale} />
 
                       <div className="flex flex-wrap items-center gap-3">
-                        <button type="button" onClick={() => { void handleSaveDetails(); }} disabled={!consentPersisted || consentSaving || uploading || submitBusy} className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-lg border border-edge px-4 py-2 text-sm font-semibold text-body hover:border-accent disabled:cursor-not-allowed disabled:opacity-50">
+                        <button type="button" onClick={() => { void handleSaveDetails(); }} disabled={!consentPersisted || consentSaving || uploading || reusingProfileCv || submitBusy} className="inline-flex min-h-[42px] items-center justify-center gap-2 rounded-lg border border-edge px-4 py-2 text-sm font-semibold text-body hover:border-accent disabled:cursor-not-allowed disabled:opacity-50">
                           {consentSaving && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
                           {t('jobBoard.assisted.saveData')}
                         </button>
@@ -849,10 +928,36 @@ export default function AssistedApplicationUpload({
                       {cvStorageKey ? uploadedCvCard : (
                         <div className="rounded-xl border border-dashed border-accent-border p-4">
                           <>
+                            {profileCvFileName && (
+                              <div className="mb-3 rounded-lg border border-edge bg-surface-raised p-3">
+                                <p className="break-all text-sm font-medium text-body">
+                                  {t('jobBoard.assisted.profileCvAvailable', { fileName: profileCvFileName })}
+                                </p>
+                                <button
+                                  type="button"
+                                  onClick={() => { void handleReuseProfileCv(); }}
+                                  disabled={!consentPersisted || !candidateFactsComplete || consentSaving || uploading || reusingProfileCv || submitBusy}
+                                  className="mt-2 inline-flex min-h-[42px] items-center gap-2 rounded-lg border border-edge bg-surface px-3 py-2 text-sm font-semibold text-accent hover:border-accent disabled:cursor-not-allowed disabled:opacity-50"
+                                >
+                                  {reusingProfileCv
+                                    ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />
+                                    : <FileText className="h-4 w-4" aria-hidden="true" />}
+                                  {t(reusingProfileCv ? 'jobBoard.assisted.profileCvReusing' : 'jobBoard.assisted.useProfileCv')}
+                                </button>
+                                <p className="mt-2 text-xs leading-relaxed text-subtle">
+                                  {t('jobBoard.assisted.profileCvNewHint')}
+                                </p>
+                              </div>
+                            )}
+                            {profileCvLoading && (
+                              <p role="status" className="mb-2 text-xs text-subtle">
+                                {t('jobBoard.assisted.profileCvLoading')}
+                              </p>
+                            )}
                             <button
                               type="button"
                               onClick={() => cvInputRef.current?.click()}
-                              disabled={!consentPersisted || Boolean(cvStorageKey) || consentSaving || uploading || submitBusy}
+                              disabled={!consentPersisted || Boolean(cvStorageKey) || consentSaving || uploading || reusingProfileCv || submitBusy}
                               aria-controls="assisted-application-cv-input"
                               aria-describedby="assisted-application-cv-hint"
                               className="flex min-h-[44px] w-full items-center gap-3 text-left text-sm font-semibold text-accent disabled:cursor-not-allowed disabled:text-muted"
@@ -865,7 +970,7 @@ export default function AssistedApplicationUpload({
                               id="assisted-application-cv-input"
                               type="file"
                               accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                              disabled={!consentPersisted || Boolean(cvStorageKey) || consentSaving || uploading || submitBusy}
+                              disabled={!consentPersisted || Boolean(cvStorageKey) || consentSaving || uploading || reusingProfileCv || submitBusy}
                               aria-hidden="true"
                               tabIndex={-1}
                               onChange={(event) => {
@@ -889,7 +994,7 @@ export default function AssistedApplicationUpload({
 
                       <button
                         type="submit"
-                        disabled={!consentPersisted || !cvStorageKey || consentSaving || uploading || submitBusy}
+                        disabled={!consentPersisted || !cvStorageKey || consentSaving || uploading || reusingProfileCv || submitBusy}
                         className="w-full min-h-[48px] inline-flex items-center justify-center gap-2 rounded-lg bg-accent px-4 py-3 text-sm font-semibold text-on-accent hover:bg-accent-hover disabled:cursor-not-allowed disabled:opacity-50"
                       >
                         {submitBusy && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
