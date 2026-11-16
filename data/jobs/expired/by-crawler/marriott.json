@@ -5265,7 +5265,7 @@
     },
     "slugByLocale": {
       "it": "welcome-agent-receptionist-day-night-winter-26-27-w-verbier-marriott-international-verbier",
-      "en": "welcome-agent-receptionist-day-night-winter-26-27-w-verbier-marriott-verbier",
+      "en": "welcome-agent-receptionist-day-night-winter-26-27-w-verbier-marriott-verbier-ef1b3223",
       "de": "willkommensagent-empfangsdame-tag-und-nacht-winter-26-27-marriott-international-verbier",
       "fr": "agent-de-bienvenue-receptionniste-jour-et-nuit-hiver-26-27-marriott-international-verbier"
     },
@@ -5273,25 +5273,31 @@
     "expiredAt": "2026-08-01T11:14:22.731Z",
     "previousSlugs": [
       "welcome-agent-receptionnist-day-night-winter-26-27-marriott-verbier",
-      "welcome-agent-receptionist-day-night-winter-26-27-w-verbier-marriott-verbier",
       "welcome-agent-rezeptionist-tag-nacht-winter-26-27-marriott-international-verbier",
       "agent-as-agent-receptionist-fromy-night-inter-inter-26-27-ver-marriott-international-verbier",
       "willkommensagent-rezeptionist-tag-und-nacht-winter-26-27-w-verbier-marriott-international-verbier",
       "agent-d-accueil-receptionniste-jour-et-nuit-hiver-26-27-w-verbier-marriott-international-verbier",
       "welcome-agent-empfanger-tag-nacht-winter-26-27-w-verbier-marriott-international-verbier",
-      "benvenuto-agente-receptionnist-day-night-inverno-26-27-marriott-international-verbier"
+      "benvenuto-agente-receptionnist-day-night-inverno-26-27-marriott-international-verbier",
+      "welcome-agent-receptionist-day-night-winter-26-27-w-verbier-marriott-verbier"
     ],
     "previousSlugsByLocale": {
       "it": [
         "welcome-agent-receptionnist-day-night-winter-26-27-marriott-verbier",
-        "welcome-agent-receptionist-day-night-winter-26-27-w-verbier-marriott-verbier",
-        "benvenuto-agente-receptionnist-day-night-inverno-26-27-marriott-international-verbier"
+        "welcome-agent-receptionist-day-night-winter-26-27-w-verbier-marriott-verbier-ef1b3223",
+        "benvenuto-agente-receptionnist-day-night-inverno-26-27-marriott-international-verbier",
+        "welcome-agent-receptionist-day-night-winter-26-27-w-verbier-marriott-verbier"
       ],
       "en": [
-        "welcome-agent-receptionnist-day-night-winter-26-27-marriott-verbier"
+        "welcome-agent-receptionnist-day-night-winter-26-27-marriott-verbier",
+        "welcome-agent-receptionist-day-night-winter-26-27-w-verbier-marriott-verbier-ef1b3223"
       ],
       "de": [
-        "welcome-agent-rezeptionist-tag-nacht-winter-26-27-marriott-international-verbier"
+        "welcome-agent-rezeptionist-tag-nacht-winter-26-27-marriott-international-verbier",
+        "welcome-agent-receptionist-day-night-winter-26-27-w-verbier-marriott-verbier"
+      ],
+      "fr": [
+        "welcome-agent-receptionist-day-night-winter-26-27-w-verbier-marriott-verbier"
       ]
     },
     "postalCode": "1936",

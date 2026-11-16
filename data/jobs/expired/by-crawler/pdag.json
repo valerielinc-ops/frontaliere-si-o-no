@@ -4577,23 +4577,23 @@
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-06-24T22:39:02.358Z",
-    "previousSlugs": [
-      "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-vorwiegend-spatdienst",
-      "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-maladies-liees-a-la-dependance-essentiellement-en"
-    ],
     "previousSlugsByLocale": {
       "it": [
         "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-vorwiegend-spatdienst-0ff766de",
+        "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-maladies-liees-a-la-dependance-essentiellement-en",
         "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-vorwiegend-spatdienst"
       ],
       "en": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-vorwiegend-spatdienst"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-vorwiegend-spatdienst",
+        "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-maladies-liees-a-la-dependance-essentiellement-en"
       ],
       "de": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-vorwiegend-spatdienst-0ff766de"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-vorwiegend-spatdienst-0ff766de",
+        "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-maladies-liees-a-la-dependance-essentiellement-en"
       ],
       "fr": [
         "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-vorwiegend-spatdienst",
+        "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-maladies-liees-a-la-dependance-7d2c47ae",
         "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-maladies-liees-a-la-dependance-essentiellement-en"
       ]
     },
@@ -4601,7 +4601,11 @@
     "salaryMin": 62000,
     "salaryMax": 94000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugs": [
+      "dipl-pflegefachfrau-dipl-pflegefachmann-abhangigkeitserkrankungen-vorwiegend-spatdienst",
+      "dipl-professionnels-des-soins-infirmiers-dipl-specialiste-des-soins-maladies-liees-a-la-dependance-essentiellement-en"
+    ]
   },
   {
     "slug": "salute-specialistica-malattie-di-dipendenza-sanitaria-specialistica-principalmente-servizio-tardivo-psychiatrische",
