@@ -13,8 +13,8 @@
  *      304 pages had no inbound link at all.
  *   2. `eventsSeoPagesPlugin` capped its comune hubs at 80 event CARDS and
  *      dropped the tail. In the two buckets over the cap that orphaned 689
- *      event pages — the cap was doing double duty as a page-weight measure
- *      and, unintentionally, as a reachability cliff.
+ *      event pages — the cap was doing double duty as a display-density
+ *      measure and, unintentionally, as a reachability cliff.
  *   3. The home shell (`index.html`) is the BFS root. `/eventi/` was not on it,
  *      so the whole events family entered one hop lower than it needed to and
  *      130 pages sat past `maxDepth`; the border-comuni hub had exactly ONE
@@ -191,7 +191,7 @@ describe('events hubs link their whole event list past the card cap (#5434)', ()
   /**
    * The sentinel bucket carries its own, lower `OTHER_EVENTS_CARD_CAP` (24)
    * because 80 cards on the largest page in the corpus were ~111 KB of markup
-   * on their own (issue #7331). The cut is a page-WEIGHT decision, so it is
+   * on their own (issue #7331). The cut is a presentation decision, so it is
    * only legitimate while reachability is untouched: fewer cards must mean
    * MORE overflow rows, never fewer linked events. That is the #5434 invariant
    * again, and it is precisely what stops "make the page lighter" from being
@@ -274,8 +274,8 @@ describe('the home shell carries the two depth-1 entry points the audit needs (#
 // ── 4. the overflow ladder ──────────────────────────────────────────────────
 
 /**
- * The overflow ladder (issue #7329) caps page WEIGHT by moving rows past
- * `OVERFLOW_ROWS_PER_PAGE` onto `<bucket>/page-N/`. That trade is only
+ * The overflow ladder (issue #7329) keeps each page navigable by moving rows
+ * past `OVERFLOW_ROWS_PER_PAGE` onto `<bucket>/page-N/`. That trade is only
  * legitimate while reachability is untouched — the same bargain the sentinel's
  * lower card cap makes above — and here it is sharper: a ladder page is the
  * ONLY inbound of every row it carries.

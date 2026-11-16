@@ -20,8 +20,8 @@
  * ── Second injection target: the HTML sitemap page (issue #5434) ───────────
  *
  * The "near you" block above is a CURATED shortlist and it is capped
- * ({@link MAX_FACILITY_LINKS} = 24 per landing). That cap was a page-weight
- * decision, but because the three landings were the family's ONLY inbound
+ * ({@link MAX_FACILITY_LINKS} = 24 per landing). That cap is an editorial
+ * shortlist decision, but because the three landings were the family's ONLY inbound
  * links it silently doubled as a reachability threshold, and the union of
  * `pickFacilities()` over the three landing ids is at most the first 48
  * entries of the ranked list (`nurses` = even indices, `oss` = odd indices,
@@ -120,7 +120,7 @@ const INDEX_MARKER = 'data-health-facility-index';
  * at 2 × MAX_FACILITY_LINKS no matter how the slices are drawn, while the
  * emitted family keeps growing with the job corpus. Reachability is now the
  * sitemap-page index's job (see the file header), which has no cap; this
- * number is free to move on page-weight grounds alone.
+ * number is free to move with the editorial ranking alone.
  */
 const MAX_FACILITY_LINKS = 24;
 

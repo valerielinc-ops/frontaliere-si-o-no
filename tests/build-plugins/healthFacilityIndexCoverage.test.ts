@@ -33,7 +33,7 @@
  *         inside the budget, which is why the aggregate count hid the split.
  *
  * Every unit involved was locally correct — the cap is a legitimate
- * page-weight decision, the parity slices are a legitimate de-duplication —
+ * editorial shortlist decision, the parity slices are a legitimate de-duplication —
  * and the defect exists only in the link graph, which does not come into being
  * until the build has finished. So the guard is written against the two
  * properties that are checkable from source:
@@ -181,7 +181,7 @@ describe('health-facilities complete index — the shortlist cannot stand in for
 
   it('each nursing landing still gets a shortlist capped at 24', () => {
     // Guards the other direction: the fix must not have turned the curated
-    // block into the uncapped one by accident (page weight on a landing).
+    // block into the uncapped one by accident (the landing shortlist is curated).
     const facilities = fixtureFacilities(130);
     for (const id of NURSING_LANDING_IDS) {
       expect(pickFacilities(id, facilities).length, id).toBe(NEAR_YOU_CAP);

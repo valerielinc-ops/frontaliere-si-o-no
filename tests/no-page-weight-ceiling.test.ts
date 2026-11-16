@@ -48,9 +48,12 @@ describe('page-weight ceiling stays removed', () => {
       '.github/workflows/audit-dist-from-run.yml',
       '.github/workflows/audit-published-dist-full.yml',
       '.github/workflows/audit-published-dist.yml',
+      'docs/SEO-GATES.md',
     ];
     for (const relativePath of sources) {
-      expect(readFileSync(join(ROOT, relativePath), 'utf8'), relativePath).not.toContain('page-weight');
+      const source = readFileSync(join(ROOT, relativePath), 'utf8');
+      expect(source, relativePath).not.toContain('page-weight');
+      expect(source, relativePath).not.toMatch(/\b260\s*KB\b/i);
     }
   });
 
