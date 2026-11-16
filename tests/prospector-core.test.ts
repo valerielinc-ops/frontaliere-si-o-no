@@ -706,6 +706,7 @@ describe('vacancy extraction', () => {
       [`<main><p>Lieu de travail : 1201 Genève</p></main>`, ['1201 Genève']],
       [`<main><h1>Postdoc</h1><p><strong>Place of work</strong>: Brig<br><strong>Start date</strong>: Immediately</p></main>`, ['Brig']],
       [`<main><h1>Chargé de cours</h1><p><strong>Lieu de travail</strong> : Brigue<br><strong>Date d’entrée</strong> : février</p></main>`, ['Brigue']],
+      [`<main><div><strong>Place of work</strong>: <span><b>Zurich</b></span><br><strong>Contract</strong>: full-time</div></main>`, ['Zurich']],
       [`<main><dl><dt>Luogo di lavoro</dt><dd>6900 Lugano</dd></dl></main>`, ['6900 Lugano']],
       // Etichetta nuda: non è un luogo, e non deve diventare una prova.
       [`<main><label>Arbeitsort:</label><span></span></main>`, []],

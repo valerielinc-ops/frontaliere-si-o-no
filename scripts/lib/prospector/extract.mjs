@@ -1574,8 +1574,21 @@ function inlineWorkplaceLabelValue(html = '') {
     const label = textOf(marker[2]).replace(/\s+/g, ' ').trim();
     if (!WORKPLACE_LABEL_RX.test(`${label}:`)) continue;
     const remainder = String(html || '').slice(marker.index + marker[0].length);
-    const boundary = /<br\b|<(?:strong|b)\b|<\/(?:p|div|li)\b/i.exec(remainder);
-    const rawValue = remainder.slice(0, boundary ? boundary.index : remainder.length);
+    const nextMarkerRx = /<(strong|b)\b[^>]*>([\s\S]*?)<\/\1>/gi;
+    let nextLabel;
+    let candidate;
+    while ((candidate = nextMarkerRx.exec(remainder))) {
+      const candidateLabel = textOf(candidate[2]).replace(/\s+/g, ' ').trim();
+      if (WORKPLACE_LABEL_RX.test(`${candidateLabel}:`)) {
+        nextLabel = candidate;
+        break;
+      }
+    }
+    const blockBoundary = /<\/(?:p|div|li)\b/i.exec(remainder);
+    const boundaryIndex = [nextLabel?.index, blockBoundary?.index]
+      .filter((index) => Number.isInteger(index))
+      .sort((left, right) => left - right)[0];
+    const rawValue = remainder.slice(0, boundaryIndex ?? remainder.length);
     return {
       matched: true,
       value: rawValue.replace(/^\s*:\s*/u, '').trim(),
