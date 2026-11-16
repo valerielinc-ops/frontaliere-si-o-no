@@ -246,6 +246,11 @@
     },
     "sector": "Chimica / Specialty Chemicals",
     "expiredAt": "2026-09-11T23:21:19.585Z",
+    "previousSlugs": [
+      "operatore-arxada-visp-8e04073d",
+      "operator-arxada-ch-6992c213",
+      "operateur-arxada-visp-419a3ec5"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "operatore-arxada-visp-8e04073d",
@@ -254,6 +259,12 @@
       "fr": [
         "operator-arxada-ch",
         "operateur-arxada-visp-419a3ec5"
+      ],
+      "de": [
+        "operator-arxada-ch-6992c213"
+      ],
+      "en": [
+        "operator-arxada-ch"
       ]
     },
     "salaryMin": 68000,
@@ -261,12 +272,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://lsi.wd3.myworkdayjobs.com/en/arxada_careers/job/ch---visp/operator_r53897-1",
-    "firstSeenAt": "2026-08-13T10:26:04.099Z",
-    "previousSlugs": [
-      "operatore-arxada-visp-8e04073d",
-      "operator-arxada-ch-6992c213",
-      "operateur-arxada-visp-419a3ec5"
-    ]
+    "firstSeenAt": "2026-08-13T10:26:04.099Z"
   },
   {
     "slug": "operatore-arxada-visp-c77f7765",
