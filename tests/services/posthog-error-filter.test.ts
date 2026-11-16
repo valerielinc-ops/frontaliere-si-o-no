@@ -274,6 +274,50 @@ describe('createExceptionFilter()', () => {
     expect(filter(event)).toBe(event);
   });
 
+  it('drops reCAPTCHA timeouts whose entire stack is Google reCAPTCHA (#19025)', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'Error', value: 'reCAPTCHA Timeout (b)' }],
+        $exception_list: [
+          {
+            type: 'Error',
+            value: 'reCAPTCHA Timeout (b)',
+            stacktrace: {
+              frames: [
+                { filename: 'https://www.gstatic.com/recaptcha/releases/4i3aN5wAweL7i3ADI7BSX4B-/recaptcha__it.js', lineno: 1, colno: 1 },
+                { filename: 'https://www.gstatic.com/recaptcha/releases/4i3aN5wAweL7i3ADI7BSX4B-/recaptcha__it.js', lineno: 2, colno: 1 },
+              ],
+            },
+          },
+        ],
+      },
+    };
+    expect(filter(event)).toBeNull();
+  });
+
+  it('keeps reCAPTCHA timeouts with a mixed first-party + third-party stack (#19025)', () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'Error', value: 'reCAPTCHA Timeout (b)' }],
+        $exception_list: [
+          {
+            type: 'Error',
+            value: 'reCAPTCHA Timeout (b)',
+            stacktrace: {
+              frames: [
+                { filename: 'https://www.gstatic.com/recaptcha/releases/4i3aN5wAweL7i3ADI7BSX4B-/recaptcha__it.js', lineno: 1, colno: 1 },
+                { filename: 'https://cdn.frontaliereticino.ch/assets/index-entry.js', lineno: 12, colno: 4 },
+              ],
+            },
+          },
+        ],
+      },
+    };
+    expect(filter(event)).toBe(event);
+  });
+
   it('supports junk_drawer.raw_frame.filename fallback for unresolved frames', () => {
     const event = {
       event: '$exception',
