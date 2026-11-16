@@ -68,9 +68,12 @@ import path from 'node:path';
 import { EVENT_SOURCES, EVENTS_SLICE_DIR, mirrorEventImage, isEventImageSourceAllowed } from './events-utils.mjs';
 import { fillEventPeopleDefaults } from './event-metadata.mjs';
 import { mergeEventsIntoSlice } from './crawl-checkpoint.mjs';
+import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
 const DEFAULT_USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch)';
 const DEFAULT_FETCH_TIMEOUT_MS = 20000;
+const DEFAULT_FETCH_RETRIES = 1;
+const DEFAULT_FETCH_RETRY_BASE_MS = 1000;
 const DEFAULT_POLITE_DELAY_MS = 600;
 const DEFAULT_IMAGE_MIRROR_DELAY_MS = 150;
 const DEFAULT_ITERATIONS = 21;
@@ -89,6 +92,8 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * @property {boolean} [stopOnEmptyPage] - stop after 2 consecutive empty-but-ok pages (once >=1 event seen).
  * @property {string} [userAgent]
  * @property {number} [fetchTimeoutMs]
+ * @property {number} [fetchRetries] - max transient retries per URL.
+ * @property {number} [fetchRetryBaseMs] - base delay for transient retries.
  * @property {number} [politeDelayMs]
  * @property {number} [imageMirrorDelayMs]
  * @property {boolean} [mirrorImages] - default true (no-hotlink policy).
@@ -113,6 +118,8 @@ export function createAgendaCrawler(config) {
     stopOnEmptyPage = false,
     userAgent = DEFAULT_USER_AGENT,
     fetchTimeoutMs = DEFAULT_FETCH_TIMEOUT_MS,
+    fetchRetries = DEFAULT_FETCH_RETRIES,
+    fetchRetryBaseMs = DEFAULT_FETCH_RETRY_BASE_MS,
     politeDelayMs = DEFAULT_POLITE_DELAY_MS,
     imageMirrorDelayMs = DEFAULT_IMAGE_MIRROR_DELAY_MS,
     mirrorImages = true,
@@ -136,16 +143,27 @@ export function createAgendaCrawler(config) {
   }
 
   async function fetchHtml(url) {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), fetchTimeoutMs);
     try {
-      const res = await fetchImpl(url, { headers: { 'User-Agent': userAgent }, signal: controller.signal });
-      if (!res.ok) return null;
-      return await res.text();
+      return await fetchWithRetry(async () => {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), fetchTimeoutMs);
+        try {
+          const res = await fetchImpl(url, { headers: { 'User-Agent': userAgent }, signal: controller.signal });
+          if (RETRYABLE_STATUS.has(res.status)) {
+            const error = new Error(`HTTP ${res.status} for ${url}`);
+            error.status = res.status;
+            error.retryable = true;
+            error.response = res;
+            throw error;
+          }
+          if (!res.ok) return null;
+          return await res.text();
+        } finally {
+          clearTimeout(timer);
+        }
+      }, { retries: fetchRetries, retryBaseMs: fetchRetryBaseMs });
     } catch {
       return null;
-    } finally {
-      clearTimeout(timer);
     }
   }
 
