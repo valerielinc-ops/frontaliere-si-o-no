@@ -9,6 +9,7 @@ import { createPortal } from 'react-dom';
 import { ArrowRight, X } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
+import { emitAdDiagnostic } from '@/services/adDiagnostics';
 import { isLikelyBot, isLikelySearchCrawler } from '@/services/botPatterns';
 import { detectAdBlockDetailed } from '@/services/adBlockDetection';
 import { getApplicationConciergePath, isApplicationConciergePath } from '@/services/router';
@@ -31,58 +32,93 @@ const COPY: Record<GateLocale, {
   priceNote: string;
   disclaimer: string;
   cta: string;
+  allowlistTitle: string;
+  allowlistIntro: string;
+  allowlistInstructions: string;
+  allowlistStepOne: string;
+  allowlistStepTwo: string;
+  allowlistNote: string;
+  allowlistReload: string;
   dismiss: string;
   close: string;
 }> = {
   it: {
     label: 'Promozione',
-    title: 'Candidature su misura per il tuo prossimo lavoro in Svizzera',
-    description: 'Per 30 giorni cerchiamo posizioni compatibili con il tuo profilo e prepariamo CV, lettere e risposte personalizzate.',
+    title: 'Lavoro in Svizzera? Lo cerchiamo noi per te.',
+    description: 'Per 30 giorni troviamo offerte adatte al tuo mestiere e prepariamo le candidature per te.',
     duration: '30 giorni',
     limit: 'Fino a 10 posizioni che accetti',
     price: '39,99 €',
     priceNote: 'Pagamento unico · senza rinnovo',
     disclaimer: 'Le risposte delle aziende e l’assunzione non sono garantite.',
     cta: 'Scopri il servizio',
+    allowlistTitle: 'Vuoi continuare a leggere con gli annunci?',
+    allowlistIntro: 'Apri il menu del blocco pubblicità o le protezioni del browser per questa pagina. Solo tu puoi consentire il sito nelle impostazioni.',
+    allowlistInstructions: 'Come consentire gli annunci',
+    allowlistStepOne: 'Apri l’icona del blocco pubblicità vicino alla barra degli indirizzi. In Chrome, se non la vedi, controlla il menu delle estensioni.',
+    allowlistStepTwo: 'Scegli “Consenti gli annunci”, “Metti in pausa su questo sito” o l’opzione equivalente, poi torna qui.',
+    allowlistNote: 'Le etichette cambiano in base al browser e all’estensione.',
+    allowlistReload: 'Ho consentito gli annunci — ricarica',
     dismiss: 'Continua a leggere',
     close: 'Chiudi promozione',
   },
   en: {
     label: 'Promotion',
-    title: 'Tailored applications for your next job in Switzerland',
-    description: 'For 30 days, we look for roles that fit your profile and prepare tailored CVs, cover letters, and answers.',
+    title: 'Want to work in Switzerland? We’ll look for you.',
+    description: 'For 30 days, we find openings that fit your profession and prepare the applications for you.',
     duration: '30 days',
     limit: 'Up to 10 positions you accept',
     price: '€39.99',
     priceNote: 'One-off payment · no renewal',
     disclaimer: 'Employer replies and hiring are not guaranteed.',
     cta: 'See how it works',
+    allowlistTitle: 'Want to keep reading with ads?',
+    allowlistIntro: 'Open your ad blocker or browser protection settings for this page. Only you can allow this site in those settings.',
+    allowlistInstructions: 'How to allow ads',
+    allowlistStepOne: 'Open the ad-blocker icon near the address bar. In Chrome, check the extensions menu if you do not see it.',
+    allowlistStepTwo: 'Choose “Allow ads”, “Pause on this site”, or the equivalent option, then return here.',
+    allowlistNote: 'Labels vary by browser and extension.',
+    allowlistReload: 'I allowed ads — reload',
     dismiss: 'Continue reading',
     close: 'Close promotion',
   },
   de: {
     label: 'Anzeige',
-    title: 'Passende Bewerbungen für deinen nächsten Job in der Schweiz',
-    description: '30 Tage lang suchen wir Stellen, die zu deinem Profil passen, und erstellen passende Lebensläufe, Anschreiben und Antworten.',
+    title: 'Arbeit in der Schweiz? Wir suchen für dich.',
+    description: '30 Tage lang finden wir passende Stellen für deinen Beruf und bereiten deine Bewerbungen vor.',
     duration: '30 Tage',
     limit: 'Bis zu 10 Stellen, die du annimmst',
     price: '39,99 €',
     priceNote: 'Einmalige Zahlung · keine Verlängerung',
     disclaimer: 'Antworten der Unternehmen und eine Anstellung sind nicht garantiert.',
     cta: 'Service ansehen',
+    allowlistTitle: 'Möchtest du mit Werbung weiterlesen?',
+    allowlistIntro: 'Öffne für diese Seite das Menü deines Werbeblockers oder den Browserschutz. Nur du kannst die Website dort freigeben.',
+    allowlistInstructions: 'So erlaubst du Werbung',
+    allowlistStepOne: 'Öffne das Symbol des Werbeblockers neben der Adressleiste. In Chrome findest du es gegebenenfalls im Erweiterungsmenü.',
+    allowlistStepTwo: 'Wähle „Werbung erlauben“, „Auf dieser Website pausieren“ oder eine ähnliche Option und kehre hierher zurück.',
+    allowlistNote: 'Die Bezeichnungen hängen vom Browser und der Erweiterung ab.',
+    allowlistReload: 'Werbung erlaubt — neu laden',
     dismiss: 'Weiterlesen',
     close: 'Anzeige schließen',
   },
   fr: {
     label: 'Promotion',
-    title: 'Des candidatures sur mesure pour votre prochain emploi en Suisse',
-    description: 'Pendant 30 jours, nous recherchons des postes compatibles avec votre profil et préparons CV, lettres de motivation et réponses personnalisés.',
+    title: 'Un emploi en Suisse ? Nous le cherchons pour vous.',
+    description: 'Pendant 30 jours, nous trouvons des offres adaptées à votre métier et préparons vos candidatures.',
     duration: '30 jours',
     limit: 'Jusqu’à 10 postes que vous acceptez',
     price: '39,99 €',
     priceNote: 'Paiement unique · sans renouvellement',
     disclaimer: 'Les réponses des entreprises et l’embauche ne sont pas garanties.',
     cta: 'Découvrir le service',
+    allowlistTitle: 'Vous souhaitez continuer avec les annonces ?',
+    allowlistIntro: 'Ouvrez le menu de votre bloqueur de publicités ou les protections du navigateur pour cette page. Vous seul pouvez autoriser le site dans ces réglages.',
+    allowlistInstructions: 'Comment autoriser les annonces',
+    allowlistStepOne: 'Ouvrez l’icône du bloqueur près de la barre d’adresse. Dans Chrome, regardez dans le menu des extensions si elle n’apparaît pas.',
+    allowlistStepTwo: 'Choisissez « Autoriser les annonces », « Suspendre sur ce site » ou l’option équivalente, puis revenez ici.',
+    allowlistNote: 'Les intitulés varient selon le navigateur et l’extension.',
+    allowlistReload: 'J’ai autorisé les annonces — recharger',
     dismiss: 'Continuer la lecture',
     close: 'Fermer la promotion',
   },
@@ -179,6 +215,11 @@ const AdBlockGate: React.FC = () => {
   });
   const offerHref = `${getApplicationConciergePath(normalizeLocale(locale))}?${offerQuery.toString()}`;
 
+  const reloadAfterAllowlist = useCallback(() => {
+    emitAdDiagnostic('ad_recovery_action', { action: 'allowlist_recheck', reason: 'adblock_detected' });
+    window.location.reload();
+  }, []);
+
   const closeOffer = useCallback((reason: CloseReason) => {
     dismissedRef.current = true;
     rememberDismissal();
@@ -240,7 +281,7 @@ const AdBlockGate: React.FC = () => {
       }
       if (event.key !== 'Tab') return;
       const focusable = dialogRef.current?.querySelectorAll<HTMLElement>(
-        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+        'a[href], button:not([disabled]), summary, [tabindex]:not([tabindex="-1"])',
       );
       if (!focusable?.length) {
         event.preventDefault();
@@ -319,6 +360,33 @@ const AdBlockGate: React.FC = () => {
             {copy.description}
           </p>
 
+          <section className="mt-5 rounded-xl border border-edge bg-surface-raised p-4 sm:p-5" aria-labelledby="native-application-allowlist-title">
+            <h3 id="native-application-allowlist-title" className="font-semibold text-heading">{copy.allowlistTitle}</h3>
+            <p className="mt-2 text-sm leading-6 text-body">{copy.allowlistIntro}</p>
+            <details
+              className="mt-3 rounded-lg border border-edge bg-surface px-3 py-2 text-sm text-body"
+              onToggle={(event) => {
+                if (event.currentTarget.open) {
+                  emitAdDiagnostic('ad_recovery_action', { action: 'allowlist_help_open', reason: 'adblock_detected' });
+                }
+              }}
+            >
+              <summary className="cursor-pointer py-1 font-medium text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent">{copy.allowlistInstructions}</summary>
+              <ol className="mt-2 list-decimal space-y-2 pl-5 leading-5">
+                <li>{copy.allowlistStepOne}</li>
+                <li>{copy.allowlistStepTwo}</li>
+              </ol>
+              <p className="mt-2 text-xs leading-5 text-subtle">{copy.allowlistNote}</p>
+            </details>
+            <button
+              type="button"
+              onClick={reloadAfterAllowlist}
+              className="mt-3 inline-flex min-h-11 w-full items-center justify-center rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            >
+              {copy.allowlistReload}
+            </button>
+          </section>
+
           <div className="mt-5 flex flex-wrap items-end justify-between gap-x-4 gap-y-3 border-t border-edge pt-4">
             <div className="space-y-1 text-sm text-subtle">
               <p className="font-semibold text-heading">{copy.duration}</p>
@@ -333,7 +401,7 @@ const AdBlockGate: React.FC = () => {
           <a
             href={offerHref}
             onClick={() => closeOffer('cta_click')}
-            className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg bg-accent px-5 py-3 text-sm font-semibold text-on-accent transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+            className="mt-5 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-lg border border-accent bg-surface px-5 py-3 text-sm font-semibold text-accent transition-colors hover:bg-accent-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
           >
             {copy.cta}
             <ArrowRight size={18} aria-hidden="true" />
