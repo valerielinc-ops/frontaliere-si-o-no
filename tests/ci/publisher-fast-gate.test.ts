@@ -24,6 +24,29 @@ function coverageUrls(family: string, count: number) {
     `https://coverage-fixture.invalid/${family}/${String(index).padStart(4, '0')}/`);
 }
 
+function bridgeEvidenceForSnapshots(
+  previous: { perSitemap: Record<string, string[]> },
+  current: { perSitemap: Record<string, string[]> },
+  family: string,
+) {
+  const previousUrls = new Set(Object.values(previous.perSitemap).flat());
+  const currentUrls = new Set(Object.values(current.perSitemap).flat());
+  return {
+    schemaVersion: 1,
+    kind: 'sitemap-family-bridge-evidence',
+    complete: true,
+    entries: [...previousUrls]
+      .filter((url) => !currentUrls.has(url))
+      .map((url) => ({
+        family,
+        url,
+        path: `${new URL(url).pathname.replace(/^\/+|\/+$/gu, '')}/index.html`,
+        sha256: 'a'.repeat(64),
+        robots: 'noindex,follow',
+      })),
+  };
+}
+
 function tempRoot(): string {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'publisher-fast-gate-'));
   roots.push(root);
@@ -158,7 +181,7 @@ function fixture() {
     });
     publisherArtifacts.push(artifact(name, digest));
   }
-  const validate = () => validatePublisherFastGate({
+  const validate = (options: Record<string, unknown> = {}) => validatePublisherFastGate({
     sourceRunId: SOURCE_RUN_ID,
     sourceSha: SOURCE_SHA,
     publisherRunId: PUBLISHER_RUN_ID,
@@ -173,6 +196,7 @@ function fixture() {
       ...pageManifests.map((manifest) => manifest.manifestArtifactName),
       ...sectionManifests.map((manifest) => manifest.manifestArtifactName),
     ],
+    ...options,
   });
   const result = validate();
   return {
@@ -735,10 +759,16 @@ describe('publisher fast provenance gate', () => {
       JSON.stringify(base.currentSitemapSnapshot),
     );
 
-    const result = base.validate();
+    const result = base.validate({
+      sitemapFamilyBridgeEvidence: bridgeEvidenceForSnapshots(
+        base.previousSitemapSnapshot,
+        base.currentSitemapSnapshot,
+        'orphan-landings',
+      ),
+    });
 
     expect(result.passed).toBe(true);
-    expect(result.validatorVersion).toBe('publisher-fast-gate-v6');
+    expect(result.validatorVersion).toBe('publisher-fast-gate-v7');
     expect(result.errors.join('\n')).not.toContain('sitemap family coverage decreased for orphan-landings');
     expect(result.sitemapFamilyChurn).toEqual([{
       family: 'orphan-landings',

@@ -14,6 +14,24 @@ const snapshot = (perSitemap: Record<string, string[]>) => ({ version: 3, perSit
 const familyUrls = (family: string, count: number, origin = 'https://frontaliereticino.ch') =>
   Array.from({ length: count }, (_, index) => `${origin}/${family}/${String(index).padStart(4, '0')}/`);
 
+function bridgeEvidence(previous: { perSitemap: Record<string, string[]> }, current: { perSitemap: Record<string, string[]> }, family: string) {
+  const previousUrls = new Set(Object.values(previous.perSitemap).flat());
+  const currentUrls = new Set(Object.values(current.perSitemap).flat());
+  const removed = [...previousUrls].filter((url) => !currentUrls.has(url));
+  return {
+    schemaVersion: 1,
+    kind: 'sitemap-family-bridge-evidence',
+    complete: true,
+    entries: removed.map((url) => ({
+      family,
+      url,
+      path: `${new URL(url).pathname.replace(/^\/+|\/+$/gu, '')}/index.html`,
+      sha256: 'a'.repeat(64),
+      robots: 'noindex,follow',
+    })),
+  };
+}
+
 describe('sitemap family URL coverage ratchet', () => {
   it('counts unique URLs across topic shards and the separate event archives', () => {
     const counts = countSitemapFamilyUrls(snapshot({
@@ -116,6 +134,11 @@ describe('sitemap family URL coverage ratchet', () => {
       snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1913) }),
       snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1906) }),
       NO_DECLARATIONS,
+      bridgeEvidence(
+        snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1913) }),
+        snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1906) }),
+        'orphan-landings',
+      ),
     );
 
     expect(result.regressions).toEqual([]);
@@ -125,11 +148,26 @@ describe('sitemap family URL coverage ratchet', () => {
     });
   });
 
+  it('fails a data-driven decrease closed when bridge evidence is absent', () => {
+    const previous = snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 100) });
+    const current = snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 93) });
+    const result = evaluateSitemapFamilyCoverage(previous, current, NO_DECLARATIONS);
+
+    expect(result.churn).toEqual([]);
+    expect(result.regressions).toEqual([{ family: 'orphan-landings', previousCount: 100, currentCount: 93, delta: -7 }]);
+    expect(result.bridgeEvidenceErrors.join('\n')).toContain('missing or has an unsupported schema');
+  });
+
   it('admits exactly the 10% collapse bound and rejects a decrease beyond it', () => {
     const atBound = evaluateSitemapFamilyCoverage(
       snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1000) }),
       snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 900) }),
       NO_DECLARATIONS,
+      bridgeEvidence(
+        snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1000) }),
+        snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 900) }),
+        'orphan-landings',
+      ),
     );
     const beyondBound = evaluateSitemapFamilyCoverage(
       snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1000) }),
@@ -155,6 +193,11 @@ describe('sitemap family URL coverage ratchet', () => {
       snapshot({ 'sitemap-profession-cities.xml': familyUrls('profession-cities', 252) }),
       snapshot({ 'sitemap-profession-cities.xml': familyUrls('profession-cities', 248) }),
       NO_DECLARATIONS,
+      bridgeEvidence(
+        snapshot({ 'sitemap-profession-cities.xml': familyUrls('profession-cities', 252) }),
+        snapshot({ 'sitemap-profession-cities.xml': familyUrls('profession-cities', 248) }),
+        'profession-cities',
+      ),
     );
 
     expect(collapsed.regressions).toEqual([

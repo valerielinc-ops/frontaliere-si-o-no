@@ -14,7 +14,7 @@ import {
 import { ownsSitemapUrl, sectionForUrl } from '../validate-sitemap-links.mjs';
 import { SHARD_VALIDATOR_VERSION } from './shard-content-manifest.mjs';
 
-export const FAST_GATE_VALIDATOR_VERSION = 'publisher-fast-gate-v6';
+export const FAST_GATE_VALIDATOR_VERSION = 'publisher-fast-gate-v7';
 export const SITE_ORIGIN = 'https://frontaliereticino.ch';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const SHA_RE = /^[0-9a-f]{64}$/u;
@@ -116,7 +116,7 @@ function isSupportedSnapshot(snapshot) {
 // snapshot, every page would otherwise be reported as "absent from the source
 // sitemap bundle" (200 345 cascading errors on publish 43692928043), burying
 // the single root cause reported here.
-function parseSitemapSnapshot(root, previousSnapshot, declarations, errors) {
+function parseSitemapSnapshot(root, previousSnapshot, declarations, bridgeEvidence, errors) {
   const urlSet = new Map();
   const familyChurn = [];
   // Expired-archive sitemap URLs (url -> locale), kept ONLY to be counted and
@@ -176,6 +176,7 @@ function parseSitemapSnapshot(root, previousSnapshot, declarations, errors) {
       filteredPreviousSnapshot,
       filteredCurrentSnapshot,
       declarations,
+      bridgeEvidence,
     );
     for (const entry of coverage.churn) {
       familyChurn.push({
@@ -189,6 +190,7 @@ function parseSitemapSnapshot(root, previousSnapshot, declarations, errors) {
     for (const stale of coverage.staleDeclarations) {
       errors.push(`sitemap coverage declaration is stale for ${stale.family}`);
     }
+    errors.push(...coverage.bridgeEvidenceErrors);
     for (const regression of coverage.regressions) {
       errors.push(
         `sitemap family coverage decreased for ${regression.family}: ${regression.previousCount} -> ${regression.currentCount}`,
@@ -270,6 +272,7 @@ export function validatePublisherFastGate({
   pageManifests,
   sectionManifests,
   archiveEvidenceManifests = null,
+  sitemapFamilyBridgeEvidence = null,
   sourceArtifacts,
   publisherArtifacts,
   manifestArtifactNames = [],
@@ -481,6 +484,7 @@ export function validatePublisherFastGate({
     sitemapDir,
     previousSitemapSnapshot,
     sitemapCoverageDeclarations,
+    sitemapFamilyBridgeEvidence,
     errors,
   );
   for (const [url, source] of urlSet) {
@@ -575,6 +579,14 @@ function parseArgs(argv) {
 
 function readJson(file) { return JSON.parse(fs.readFileSync(file, 'utf8')); }
 
+function readOptionalJson(file) {
+  if (!file || !fs.existsSync(file)) return null;
+  try { return readJson(file); } catch (error) {
+    console.error(`[publisher-fast-gate] optional bridge evidence unreadable: ${error.message}`);
+    return null;
+  }
+}
+
 function formatByLocale(byLocale) {
   return LOCALES.map((locale) => `${locale}=${byLocale?.[locale] ?? 0}`).join(' ');
 }
@@ -607,6 +619,9 @@ function main() {
     sitemapDir: args['sitemaps-dir'],
     previousSitemapSnapshot: readPreviousSitemapSnapshot(path.join(args['sitemaps-dir'], 'pre-deploy-sitemap-urls.json')),
     sitemapCoverageDeclarations: readJson('data/sitemap-family-coverage-declarations.json'),
+    sitemapFamilyBridgeEvidence: readOptionalJson(
+      path.join(args['sitemaps-dir'], 'sitemap-family-bridge-evidence.json'),
+    ),
     pageManifests,
     sectionManifests,
     archiveEvidenceManifests,
