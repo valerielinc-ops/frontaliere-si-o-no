@@ -51,6 +51,12 @@ const detectAdBlockMock = vi.mocked(detectAdBlockDetailed);
 const trackUIInteractionMock = vi.mocked(Analytics.trackUIInteraction);
 const emitAdDiagnosticMock = vi.mocked(emitAdDiagnostic);
 
+function setSlotSize(slot: HTMLElement, width: number, height: number): void {
+  slot.getBoundingClientRect = () => ({
+    x: 0, y: 0, width, height, top: 0, right: width, bottom: height, left: 0, toJSON: () => ({}),
+  }) as DOMRect;
+}
+
 describe('AdBlockGate native application offer', () => {
   beforeEach(() => {
     isLikelyBotMock.mockReturnValue(false);
@@ -67,6 +73,7 @@ describe('AdBlockGate native application offer', () => {
     delete (window as Window & { __ftNativeApplicationOfferShown?: boolean }).__ftNativeApplicationOfferShown;
     localStorage.clear();
     sessionStorage.clear();
+    document.body.querySelectorAll('[data-house]').forEach((slot) => slot.remove());
   });
 
   it('does not detect blockers or show the offer to automation bots', async () => {
@@ -109,13 +116,62 @@ describe('AdBlockGate native application offer', () => {
     );
   });
 
+  it('lets a usable inline ad slot own the fallback instead of opening the global promotion', async () => {
+    detectAdBlockMock.mockResolvedValue(BLOCKED);
+    const slot = document.createElement('div');
+    slot.dataset.house = 'article-inline';
+    slot.innerHTML = '<div data-ft-house-google></div>';
+    setSlotSize(slot, 320, 90);
+    document.body.append(slot);
+
+    render(<AdBlockGate />);
+    await act(async () => {});
+
+    expect(screen.queryByRole('dialog')).toBeNull();
+    expect(trackUIInteractionMock).not.toHaveBeenCalled();
+  });
+
+  it('keeps the global promotion when a blocker-only slot has width but zero rendered height', async () => {
+    detectAdBlockMock.mockResolvedValue(BLOCKED);
+    const slot = document.createElement('div');
+    slot.dataset.house = 'article-atf';
+    slot.dataset.ftHouseBlockerOnly = 'true';
+    slot.innerHTML = '<div data-ft-house-google></div>';
+    setSlotSize(slot, 320, 0);
+    document.body.append(slot);
+
+    render(<AdBlockGate />);
+
+    expect(await screen.findByRole('dialog')).toBeInTheDocument();
+  });
+
+  it('keeps the global promotion when every inline slot is hidden or too narrow', async () => {
+    detectAdBlockMock.mockResolvedValue(BLOCKED);
+    const narrow = document.createElement('div');
+    narrow.dataset.house = 'mobile-banner';
+    narrow.innerHTML = '<div data-ft-house-google></div>';
+    setSlotSize(narrow, 120, 50);
+    const hidden = document.createElement('div');
+    hidden.dataset.house = 'desktop-rail';
+    hidden.style.display = 'none';
+    hidden.innerHTML = '<div data-ft-house-google></div>';
+    setSlotSize(hidden, 320, 250);
+    document.body.append(narrow, hidden);
+
+    render(<AdBlockGate />);
+
+    expect(await screen.findByRole('dialog')).toBeInTheDocument();
+  });
+
   it('opens the localized allowlist steps and reports the action through ad diagnostics', async () => {
     detectAdBlockMock.mockResolvedValue(BLOCKED);
     render(<AdBlockGate />);
     await screen.findByRole('dialog');
 
-    fireEvent.click(screen.getByText('Come consentire gli annunci'));
-    await act(async () => {});
+    const instructions = screen.getByText('Come consentire gli annunci').closest('details');
+    expect(instructions).not.toBeNull();
+    instructions!.open = true;
+    fireEvent(instructions!, new Event('toggle'));
 
     expect(screen.getByText(/Apri l’icona del blocco pubblicità/)).toBeInTheDocument();
     expect(screen.getByText(/Metti in pausa su questo sito/)).toBeInTheDocument();

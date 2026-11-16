@@ -19,6 +19,32 @@ const receipt = { url: receiptUrl, fields: [], text: `Thank you for your applica
 const controls = (snapshot: any) => pageControls(snapshot.buttons, known, snapshot.url, { snapshot, applyUrl, job });
 
 describe('application stage ownership', () => {
+  it('does not accept a malformed frame as the UBS main-frame application entry', () => {
+    const applyUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=42';
+    const button = { id: 'application-entry', text: 'Apply now', section: job.title, frame: 0, disabled: false };
+    const context = {
+      applyUrl,
+      brassRingApplicationEntryProven: true,
+      job: { company: 'UBS', title: job.title },
+    };
+    const fieldless = {
+      url: `${applyUrl}#apply`,
+      text: 'Application. Share Apply now Save',
+      fields: [],
+      buttons: [
+        { text: 'Share', frame: 0, disabled: false },
+        button,
+        { text: 'Save', frame: 0, disabled: false },
+      ],
+    };
+
+    expect(applicationStage(fieldless, context).kind).toBe('application_start');
+    expect(applicationStage({
+      ...fieldless,
+      buttons: fieldless.buttons.map((control) => control === button ? { ...control, frame: 'unknown' } : control),
+    }, context).kind).not.toBe('application_start');
+  });
+
   it.each([
     'Introduce yourself',
     'Initiativbewerbung',
@@ -559,6 +585,35 @@ describe('application stage ownership', () => {
       ...form,
       fields: form.fields.map(field => field.formId === 'profile' ? { ...field, applicationScopeId: 'other-main' } : field),
     }, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42', job }).kind).toBe('unknown_apply');
+  });
+
+  it('keeps a closed application form actionable until its sections are expanded', () => {
+    const snapshot = {
+      url: 'https://career5.successfactors.eu/portalcareer',
+      text: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei) Bewerbung',
+      fields: [],
+      buttons: [
+        { text: 'Alle Abschnitte einblenden', frame: 0 },
+        { text: 'Bewerben', formId: 'application', frame: 0 },
+      ],
+    };
+
+    expect(applicationStage(snapshot, {
+      applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42',
+      job: { title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)' },
+    })).toMatchObject({ kind: 'form' });
+    expect(applicationStage({ ...snapshot, buttons: [{ text: 'Bewerben', formId: 'application', frame: 0 }] }, {
+      applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42',
+      job: { title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)' },
+    })).toMatchObject({ kind: 'unknown_apply' });
+    expect(applicationStage({
+      ...snapshot,
+      text: 'Bewerbung',
+      buttons: snapshot.buttons.map(button => ({ ...button, applicationScopeId: undefined })),
+    }, {
+      applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42',
+      job: { title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)' },
+    })).toMatchObject({ kind: 'unknown_apply' });
   });
 
   it('does not join unrelated same-frame sign-in and salary forms to the Apply action', () => {

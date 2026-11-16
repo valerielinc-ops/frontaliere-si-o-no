@@ -147,6 +147,22 @@ function isApplicationConciergeSurface(): boolean {
     || params.has('application_concierge_service_id');
 }
 
+/** Inline fallback slots own recovery when the page has room to render them. */
+function hasUsableInlineHouseSlot(): boolean {
+  if (typeof document === 'undefined' || typeof window === 'undefined') return false;
+  return Array.from(document.querySelectorAll<HTMLElement>('[data-house]')).some((frame) => {
+    if (!frame.hasAttribute('data-ft-house-blocker-only') && !frame.querySelector('[data-ft-house-google],ins[data-ad-slot]')) return false;
+    for (let node: HTMLElement | null = frame; node; node = node.parentElement) {
+      const style = window.getComputedStyle(node);
+      if (style.display === 'none' || style.visibility === 'hidden' || style.visibility === 'collapse' || Number.parseFloat(style.opacity) === 0) {
+        return false;
+      }
+    }
+    const bounds = frame.getBoundingClientRect();
+    return bounds.width >= 160 && bounds.height > 0;
+  });
+}
+
 function wasDismissedThisSession(): boolean {
   try {
     return sessionStorage.getItem(SESSION_DISMISSAL_KEY) === '1';
@@ -236,6 +252,7 @@ const AdBlockGate: React.FC = () => {
       || isLikelySearchCrawler()
       || isEngagedVisitor()
       || isApplicationConciergeSurface()
+      || hasUsableInlineHouseSlot()
       || wasDismissedThisSession()
       || wasShownThisSession()
     ) return;
@@ -250,6 +267,7 @@ const AdBlockGate: React.FC = () => {
         || isLikelySearchCrawler()
         || isEngagedVisitor()
         || isApplicationConciergeSurface()
+        || hasUsableInlineHouseSlot()
         || dismissedRef.current
         || wasDismissedThisSession()
         || wasShownThisSession()

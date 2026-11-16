@@ -39,6 +39,7 @@ const APPLICATION_ANAPHORIC_BRIDGE_RE = new RegExp([
 const REVIEW_INSTRUCTIONS_RE = /(?:please )?review (?:the |your )?information.{0,600}(?:select|click|press).{0,50}(?:submit|apply).{0,80}(?:finali[sz]e|send|submit|complete).{0,40}(?:application|candidature)/i;
 const BEFORE_SEND_RE = /(?:review|check).{0,160}(?:before (?:you )?(?:submit|send|apply)|next (?:step|page))/i;
 const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?: ora)?|applica|postuler)\W*$/i;
+const CLOSED_APPLICATION_EXPAND_RE = /^(?:expand all(?: sections)?|show all(?: sections)?|alle abschnitte einblenden|alle einblenden|mostra tutte(?: le sezioni)?|espandi tutte(?: le sezioni)?|afficher toutes les sections|tout afficher|développer tout)\W*$/iu;
 const WORKDAY_APPLICATION_START_RE = /^(?:start(?:\s+application)?|get\s+started|begin(?:\s+application)?|d[ée]marrer|commencer|comenzar|inizia(?:re)?|jetzt\s+starten)\W*$/iu;
 const WORKDAY_PROFILE_INTRO_RE = /\b(?:introduce\s+yourself|présentez[- ]vous|stellen\s+sie\s+sich\s+vor|presentati)\b/iu;
 const APPLICATION_DIVERSION_TITLE_RE = /^(?:talent\s*pool|talentpool|introduce\s+yourself|spontaneous\s+application|unsolicited\s+application|general\s+application|initiativbewerbung|initiativ\s+bewerbung|initiativbewerbungen|create\s+(?:a\s+)?job\s*alerts?|job\s*alerts?|job[- ]?abo\s+(?:erstellen|anlegen|cr[eé]er)|stellenalarm|jobbenachrichtigung|présentez[- ]?vous|candidature\s+(?:spontanée|spontanee|libre)|alerte\s+(?:emploi|offre)|cr[eé]er\s+une\s+alerte(?:\s+(?:emploi|offre))?|creer\s+une\s+alerte(?:\s+(?:emploi|offre))?|presentati|candidatura\s+(?:spontanea|libera)|autocandidatura|avviso\s+(?:di\s+)?lavoro|crea\s+(?:un['’]?\s+)?avviso)\W*$/iu;
@@ -191,6 +192,25 @@ function workdayApplicationStartControl(snapshot, { url = snapshot?.url, applyUr
     && !['hidden', 'submit', 'button', 'reset', 'image'].includes(String(field?.inputType || '').toLowerCase()));
   if (applyButtons.length === 0 || starts.length !== 1 || fields.length > 0) return null;
   return starts[0];
+}
+
+function brassRingApplicationStartControl(snapshot, applicationEntryProven = false) {
+  if (applicationEntryProven !== true) return null;
+  const fields = (snapshot?.fields || []).filter(field => !field?.chrome && !field?.disabled
+    && !['hidden', 'submit', 'button', 'reset', 'image'].includes(String(field?.inputType || '').toLowerCase()));
+  if (fields.length > 0) return null;
+  const controls = (snapshot?.buttons || []).filter(button => !button?.chrome && !button?.disabled);
+  const applyNow = controls.filter((button) => !button?.href && !button?.formId
+    && validFrameIndex(button?.frame) === 0 && !button?.leavesDocument
+    && /^apply now$/iu.test(String(button?.text || button?.label || button?.ariaLabel || '').normalize('NFKC').trim()));
+  return applyNow.length === 1 ? applyNow[0] : null;
+}
+
+function validFrameIndex(value) {
+  if (typeof value === 'number') return Number.isSafeInteger(value) && value >= 0 ? value : null;
+  if (typeof value !== 'string' || !/^\d+$/u.test(value)) return null;
+  const parsed = Number(value);
+  return Number.isSafeInteger(parsed) ? parsed : null;
 }
 
 // A SuccessFactors profile/application page may keep the CV in «Meine
@@ -499,6 +519,7 @@ export function applicationStage(snapshot, {
   sourceProtocol = null,
   postingEntry = false,
   workdayApplicationEntryProven = false,
+  brassRingApplicationEntryProven = false,
   job = {},
 } = {}) {
   if (invalidPostingKey(url) || invalidPostingKey(applyUrl, sourceProtocol)) return { kind: 'posting_mismatch' };
@@ -526,7 +547,8 @@ export function applicationStage(snapshot, {
   if (finalReview) return { kind: 'final_review' };
   const pending = NOT_SUBMITTED_APPLICATION_RE.test(text) || PROFILE_CONTINUATION_RE.test(text)
     || incompleteApplication(text) || BEFORE_SEND_RE.test(text);
-  const applicationStart = workdayApplicationStartControl(snapshot, { url, applyUrl });
+  const applicationStart = workdayApplicationStartControl(snapshot, { url, applyUrl })
+    || brassRingApplicationStartControl(snapshot, brassRingApplicationEntryProven);
   if (!pending && applicationStart) return { kind: 'application_start', control: applicationStart };
   const links = buttons.filter(button => GENERIC_APPLY_RE.test(button.text || '') && button.href
     && boundRoute(url, applyUrl, sourceProtocol) && reviewNavigationRoute(button.href, applyUrl, sourceProtocol)
@@ -577,9 +599,19 @@ export function applicationStage(snapshot, {
     && titleBound(text, job.title)
     && profileIdentity
     && associatedJobQuestion;
+  // Some ATSes keep every candidate field hidden until their explicit
+  // "expand all" control is pressed. The native extractor therefore exposes
+  // the final Apply button but no fields yet. Treat that bounded surface as a
+  // form so the runner can open its sections; a bare Apply without the
+  // explicit section control remains unknown.
+  const closedSectionApplication = apply.length === 1 && !apply[0].href
+    && Boolean(apply[0].formId)
+    && (titleBound(text, job.title) || Boolean(apply[0].applicationScopeId))
+    && buttons.some(button => CLOSED_APPLICATION_EXPAND_RE.test(String(button.text || button.label || '')))
+    && buttons.some(button => SUBMIT_RE.test(String(button.text || button.label || '')));
   const applicationForm = (apply.length === 1 && !apply[0].href && Boolean(apply[0].formId)
     && hasApplicationIdentity && (hasCv || hasApplicationQuestion))
-    || splitFormApplication;
+    || splitFormApplication || closedSectionApplication;
   if (apply.length && (!applicationForm || pending)) return { kind: 'unknown_apply', prefinal: pending };
   return { kind: 'form' };
 }

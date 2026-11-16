@@ -1,5 +1,5 @@
 /** Protected inspection: existing-account sign-in, GET reads, no application actions. */
-import { launchChromium } from '../../../lib/ensure-chromium.mjs';
+import { isStealthBrowser, launchStealthOrChromium } from '../../../lib/stealth-browser.mjs';
 import { COOKIE_REJECT_RE, headedBrowser } from './portal.mjs';
 import { extractFields } from './fields.mjs';
 import { SIGN_IN_RE, authPageKind, loginFields } from './account.mjs';
@@ -13,6 +13,18 @@ const portalDirectory = url => routeDirectory(url.pathname);
 // primary protocol metadata can lift a JobDetail/slug directory to its
 // portal namespace; suffix regexes must never relax this boundary.
 const sourceDirectory = (url, protocol) => avaturePortalDirectory(url.href, protocol) || portalDirectory(url);
+
+const launchAssistedVerificationBrowser = ({ headless = !headedBrowser() } = {}) => {
+  const args = ['--window-size=1366,900'];
+  return launchStealthOrChromium({
+    purpose: 'assisted',
+    headless,
+    locale: 'en-GB',
+    timezone: 'Europe/Zurich',
+    args,
+    fallbackOptions: { headless, args },
+  });
+};
 
 export function verificationTarget({ applyUrl, evidence, sourceProtocol = null }) {
   try {
@@ -79,14 +91,18 @@ export function applicationHistoryLinksInPage() {
  * This result is evidence for human review. A review page being accessible does
  * not prove that the earlier application was unsent, and never releases a claim.
  */
-export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrls = [], sourceProtocol = null, job, accounts, launch = launchChromium,
+export async function verifyPortalApplication({ applyUrl, targetUrl, observedUrls = [], sourceProtocol = null, job, accounts, launch = launchAssistedVerificationBrowser,
   allowCrossOriginNavigation = false, isPublicHost = resolvesToPublicHost }) {
   if (verificationTarget({ applyUrl, evidence: { finalUrl: targetUrl }, sourceProtocol }) !== targetUrl) throw new Error('unsafe_verification_target');
   const browser = await launch({ headless: !headedBrowser() });
   let context;
   const proof = { ...(sourceProtocol ? { sourceProtocol } : {}), kind: 'portal_verification', version: 1, observedAt: Date.now(), pages: [], blockedRequests: 0, conclusion: 'unknown' };
   try {
-    context = await browser.newContext({ serviceWorkers: 'block', viewport: { width: 1366, height: 900 }, locale: 'en-GB' });
+    context = await browser.newContext({
+      serviceWorkers: 'block',
+      viewport: isStealthBrowser(browser) ? null : { width: 1366, height: 900 },
+      ...(isStealthBrowser(browser) ? {} : { locale: 'en-GB' }),
+    });
     // No alternate application transport may bypass the HTTP route fence.
     await context.routeWebSocket('**/*', socket => socket.close());
     await context.addInitScript(() => {
