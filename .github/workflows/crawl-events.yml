@@ -292,6 +292,7 @@ jobs:
             data/events-image-manifest.json \
             data/events/by-source/ \
             data/events/checkpoints/
+          node scripts/ci/validate-event-publication-data.mjs
 
       - name: Validate targeted source inputs
         env:
@@ -661,6 +662,7 @@ jobs:
               paths+=(--path "data/events/by-source/${source}.json")
             fi
           done
+          node scripts/ci/validate-event-publication-data.mjs
           bash scripts/lib/open-data-refresh-pr.sh \
             --reconcile-main \
             --resolve-symlinks \

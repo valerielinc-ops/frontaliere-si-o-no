@@ -159,7 +159,7 @@ describe('technical operations output audit', () => {
       '    steps:',
       '      - id: receipts',
       '        run: node scripts/ci/publish-receipts.mjs --resolve --github-output "$GITHUB_OUTPUT"',
-      '      - run: echo "${{ steps.receipts.outputs.pages_deployed }} ${{ steps.receipts.outputs.pending_locales }}"',
+      '      - run: echo "${{ steps.receipts.outputs.pages_deployed }} ${{ steps.receipts.outputs.pending_locales }} ${{ steps.receipts.outputs.it_cdn_published }} ${{ steps.receipts.outputs.it_cdn_publisher_run_id }} ${{ steps.receipts.outputs.pending_it_groups }} ${{ steps.receipts.outputs.receipt_it_groups }}"',
     ].join('\n');
     const findings = auditWorkflowText('.github/workflows/output-flag.yml', source, {
       root: process.cwd(),
@@ -168,6 +168,56 @@ describe('technical operations output audit', () => {
     });
 
     expect(findings.filter((finding: any) => finding.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
+  it('follows a proven GITHUB_OUTPUT writer through a defaulted callback', () => {
+    const scriptPath = path.resolve('scripts/ci/assemble-test-snapshot.mjs');
+    const source = [
+      'name: snapshot restore output',
+      'on: [push]',
+      'jobs:',
+      '  restore:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - id: snapshot',
+      '        run: node scripts/ci/assemble-test-snapshot.mjs restore',
+      '      - run: echo "${{ steps.snapshot.outputs.restored }} ${{ steps.snapshot.outputs.reason }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/snapshot-output.yml', source, {
+      root: process.cwd(),
+      exists: (candidate: string) => candidate === scriptPath,
+      readFile: (candidate: string) => fs.readFileSync(candidate, 'utf8'),
+    });
+
+    expect(findings.filter((finding: any) => finding.rule === 'workflow.output-not-produced')).toEqual([]);
+  });
+
+  it('does not trust a defaulted callback whose writer targets a report file', () => {
+    const scriptPath = path.resolve('scripts/ci/report-callback.mjs');
+    const delegatedSource = [
+      "function writeReport(name, value) { fs.appendFileSync('/tmp/report', `${name}=${value}\\n`); }",
+      "function run({ output = writeReport } = {}) { output('fake', 'yes'); }",
+      'run();',
+    ].join('\n');
+    const source = [
+      'name: report callback',
+      'on: [push]',
+      'jobs:',
+      '  report:',
+      '    runs-on: ubuntu-latest',
+      '    steps:',
+      '      - id: report',
+      '        run: node scripts/ci/report-callback.mjs',
+      '      - run: echo "${{ steps.report.outputs.fake }}"',
+    ].join('\n');
+    const findings = auditWorkflowText('.github/workflows/report-callback.yml', source, {
+      root: process.cwd(),
+      exists: (candidate: string) => candidate === scriptPath,
+      readFile: () => delegatedSource,
+    });
+
+    expect(findings.filter((finding: any) => finding.rule === 'workflow.output-not-produced'))
+      .toEqual([expect.objectContaining({ evidence: 'steps.report.outputs.fake' })]);
   });
 
   it('follows object-entry output maps inside delegated writers', () => {

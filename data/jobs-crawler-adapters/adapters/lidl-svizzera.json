@@ -259,7 +259,7 @@
     "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-riazzino-738062"
   ],
   "notes": "Dedicated Lidl crawler seeds from team.lidl.ch LiCa search API (/it/api/v1/search), drained through count-bound language partitions whose totals equal the national CH-wide feed; per-job canton inferred from source-backed city/postal signals, with unresolved CH locations failing closed.",
-  "updatedAt": "2026-11-15T09:49:25.050Z",
+  "updatedAt": "2026-11-15T22:00:29.558Z",
   "seedMetaByUrl": {
     "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-1-sierre-707576": {
       "location": "Sierre",
@@ -2241,7 +2241,7 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/fr/jobs/agent-agente-de-nettoyage-h-f-d-40-morges-759283": {
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-80-morges-759303": {
       "location": "Morges",
       "addressLocality": "Morges",
       "canton": "VD",
@@ -2259,7 +2259,7 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-80-morges-759303": {
+    "https://team.lidl.ch/fr/jobs/agent-agente-de-nettoyage-h-f-d-40-morges-759283": {
       "location": "Morges",
       "addressLocality": "Morges",
       "canton": "VD",
@@ -2286,7 +2286,7 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-80-mont-sur-lausanne-759716": {
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-mont-sur-lausanne-759446": {
       "location": "Mont-sur-Lausanne",
       "addressLocality": "Mont-sur-Lausanne",
       "canton": "VD",
@@ -2295,7 +2295,7 @@
       "companyDomain": "lidl.ch",
       "contract": "Part-time"
     },
-    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-h-f-d-60-mont-sur-lausanne-759446": {
+    "https://team.lidl.ch/fr/jobs/vendeur-vendeuse-responsable-d-equipe-h-f-d-80-mont-sur-lausanne-759716": {
       "location": "Mont-sur-Lausanne",
       "addressLocality": "Mont-sur-Lausanne",
       "canton": "VD",

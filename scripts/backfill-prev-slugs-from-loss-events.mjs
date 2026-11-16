@@ -15,25 +15,24 @@
  *        artifact from the audit). Pass via --input <path>; defaults to
  *        /tmp/recoverable-slugs.json.
  *
- * Per slug we determine the original locale by replaying git history of the
- * slice file: for each commit before the loss, look up the job by id and
- * inspect previousSlugsByLocale + slugByLocale to attribute the lost slug
- * to its source locale. If the slug never appeared with a locale attribution
- * (legacy flat-only entries), fall back to language detection on the slug
- * tokens.
+ * Per slug we replay Git revisions and require one historical locale plus one
+ * unambiguous current posting owner joined through source identity. Legacy
+ * flat-only, identity-less, conflicting, denylisted, and cross-owner evidence
+ * is reported but never written.
  *
  * Usage:
- *   node scripts/backfill-prev-slugs-from-loss-events.mjs [--input /tmp/recoverable-slugs.json] [--dry-run]
+ *   node scripts/backfill-prev-slugs-from-loss-events.mjs [--input /tmp/recoverable-slugs.json] [--report /tmp/recovery-plan.json] [--dry-run]
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { LOCALES, stableSlugHash } from './lib/dedicated-crawler-common.mjs';
 import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { createCatFileBatch } from './lib/git-cat-file-batch.mjs';
+import { sourcePostingUrlHref } from './lib/job-identity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -131,34 +130,6 @@ export function filterDenylistedSlugs(recoverList, denylist) {
     if (kept.length > 0) entries.push({ ...e, slugs: kept });
   }
   return { entries, skipped };
-}
-
-/** Detect language of a slug by counting known per-locale tokens. */
-const LANG_TOKENS = {
-  it: new Set(['responsabile', 'tecnico', 'tecnica', 'ingegnere', 'manutenzione', 'magazzino', 'produzione', 'logistica', 'vendita', 'pulizia', 'operaio', 'addetto', 'addetta', 'apprendista', 'collaboratore', 'specialista', 'tornitore', 'fresatore', 'verniciatore', 'falegname', 'muratore', 'idraulico', 'autista', 'magazziniere', 'cuoco', 'cameriere', 'infermiere', 'fisioterapista', 'caporeparto', 'ricercatore', 'architetto', 'meccanico', 'elettricista', 'segretario', 'amministrazione', 'gestione', 'direttore', 'capo', 'reparto', 'qualita', 'controllo']),
-  de: new Set(['mitarbeiter', 'mitarbeitende', 'fachfrau', 'fachmann', 'pflegefach', 'pflegefachfrau', 'pflegefachmann', 'systemgastronomie', 'diatkoch', 'lernender', 'lehrjahr', 'detailhandel', 'filiale', 'leiter', 'leiterin', 'schichtleiter', 'dreher', 'schleifer', 'qualifikationsverfahren', 'lebensmittel']),
-  fr: new Set(['responsable', 'candidature', 'auxiliaire', 'gestionnaire', 'collaborateur', 'collaboratrice', 'tourneur', 'meulage', 'polissage', 'chef', 'equipe', 'soignant', 'soignante', 'infirmier', 'infirmiere', 'aide']),
-  en: new Set(['manager', 'engineer', 'specialist', 'developer', 'analyst', 'consultant', 'assistant', 'coordinator', 'supervisor', 'leader', 'turner', 'lathe', 'operator', 'grinding', 'polishing', 'shift', 'shifts', 'thesis', 'orthopedics', 'orthopaedics', 'designer', 'designers', 'measuring', 'instruments', 'audit', 'banking', 'finance', 'planner', 'demand', 'maintenance']),
-};
-
-function detectLocaleFromSlug(slug) {
-  const tokens = String(slug || '').toLowerCase().split('-').filter(t => t.length > 3);
-  const scores = { it: 0, de: 0, fr: 0, en: 0 };
-  for (const t of tokens) {
-    for (const [lang, set] of Object.entries(LANG_TOKENS)) {
-      if (set.has(t)) scores[lang]++;
-    }
-  }
-  // Pick highest score; tie → 'it' (Italian is the default canonical locale).
-  let best = 'it';
-  let bestScore = scores.it;
-  for (const lang of ['en', 'de', 'fr']) {
-    if (scores[lang] > bestScore) {
-      best = lang;
-      bestScore = scores[lang];
-    }
-  }
-  return best;
 }
 
 const HASH_TAIL_RE = /-([a-z0-9]{6})$/;
@@ -267,6 +238,299 @@ export function resolveForeignRecoveryOwnerFile(file, slug, uniqueOwnerFiles) {
   if (!match) return null;
   const ownerFile = uniqueOwnerFiles.get(match[1]);
   return ownerFile && ownerFile !== file ? ownerFile : null;
+}
+
+function addSourceIdentityKey(keys, value) {
+  const identity = String(value || '').replace(/\s+/g, ' ').trim();
+  if (identity) keys.add(identity);
+}
+
+/**
+ * Strong source-posting identities usable by historical recovery.
+ *
+ * A generated crawler id, title/company tuple, slug hash, or translated text
+ * is deliberately not identity proof. Historical rows contribute only their
+ * own URL/explicit source identity/reference. Current rows may additionally
+ * declare sourceIdentityHistory aliases, because those aliases are the
+ * repository's persisted statement that a prior source URL became this
+ * posting.
+ *
+ * @param {object} job
+ * @param {{includeHistory?: boolean}} [options]
+ * @returns {string[]}
+ */
+export function recoverySourceIdentityKeys(job = {}, { includeHistory = false } = {}) {
+  const keys = new Set();
+  const href = sourcePostingUrlHref(job?.url);
+  if (href) keys.add(`url:${href}`);
+  addSourceIdentityKey(keys, job?.sourceIdentity);
+
+  let host = '';
+  try { host = new URL(String(job?.url || '')).hostname.toLowerCase(); } catch { /* no URL-backed reference */ }
+  // Source references are opaque provider identifiers: whitespace is cosmetic,
+  // but case is part of the identity. Treating `ABC` and `abc` as equal could
+  // attach historical evidence to a different posting on the same host.
+  const sourceReference = typeof job?.sourceReference === 'string'
+    ? job.sourceReference.replace(/\s+/g, ' ').trim()
+    : '';
+  if (host && sourceReference) keys.add(`reference:${host}:${sourceReference}`);
+
+  if (includeHistory) {
+    for (const entry of Array.isArray(job?.sourceIdentityHistory) ? job.sourceIdentityHistory : []) {
+      addSourceIdentityKey(keys, entry?.sourceIdentity);
+    }
+  }
+  return [...keys].sort();
+}
+
+function addHistoricalRouteEvidence(index, { commit, job, locale, slug, kind }) {
+  if (!LOCALES.includes(locale) || !slug) return;
+  if (!index.has(slug)) index.set(slug, []);
+  const candidate = {
+    commit,
+    jobKey: resolveJobDiffKey(job),
+    kind,
+    locale,
+    sourceIdentities: recoverySourceIdentityKeys(job),
+    revisionCount: 1,
+  };
+  mergeHistoricalEvidence(index.get(slug), candidate);
+}
+
+function historicalEvidenceSignature(evidence) {
+  return [
+    evidence.kind,
+    evidence.locale,
+    evidence.jobKey || '',
+    ...evidence.sourceIdentities,
+  ].join('\u0000');
+}
+
+function mergeHistoricalEvidence(evidenceList, candidate) {
+  const signature = historicalEvidenceSignature(candidate);
+  const existing = evidenceList.find((item) => historicalEvidenceSignature(item) === signature);
+  if (!existing) {
+    evidenceList.push(candidate);
+    return;
+  }
+  // One canonical revision is enough to prove this exact observation shape;
+  // count repeats without retaining up to 400 duplicate objects per slug.
+  existing.revisionCount += candidate.revisionCount || 1;
+  if (candidate.commit < existing.commit) existing.commit = candidate.commit;
+}
+
+/**
+ * Index locale-bearing routes observed in explicit Git revisions.
+ * Active slugByLocale observations outrank previousSlugsByLocale during plan
+ * construction: a later contaminated history bucket cannot override the
+ * locale in which the source posting actually served the route.
+ *
+ * @param {Array<{commit:string,jobs:object[]}>} revisions
+ * @returns {Map<string, Array<{commit:string,jobKey:string|null,kind:'active'|'previous',locale:string,sourceIdentities:string[],revisionCount:number}>>}
+ */
+export function buildRecoveryEvidenceIndex(revisions) {
+  const index = new Map();
+  for (const revision of Array.isArray(revisions) ? revisions : []) {
+    const commit = String(revision?.commit || '').trim();
+    if (!commit) continue;
+    for (const job of Array.isArray(revision?.jobs) ? revision.jobs : []) {
+      for (const [locale, slug] of Object.entries(job?.slugByLocale || {})) {
+        addHistoricalRouteEvidence(index, { commit, job, locale, slug, kind: 'active' });
+      }
+      for (const [locale, slugs] of Object.entries(job?.previousSlugsByLocale || {})) {
+        for (const slug of Array.isArray(slugs) ? slugs : []) {
+          addHistoricalRouteEvidence(index, { commit, job, locale, slug, kind: 'previous' });
+        }
+      }
+    }
+  }
+  return index;
+}
+
+function buildCurrentSourceIdentityOwners(jobs) {
+  const owners = new Map();
+  for (const job of Array.isArray(jobs) ? jobs : []) {
+    for (const identity of recoverySourceIdentityKeys(job, { includeHistory: true })) {
+      if (!owners.has(identity)) owners.set(identity, new Set());
+      owners.get(identity).add(job);
+    }
+  }
+  return owners;
+}
+
+function localeAlreadyServesRoute(job, locale, slug) {
+  if (job?.slugByLocale?.[locale] === slug) return true;
+  return Array.isArray(job?.previousSlugsByLocale?.[locale])
+    && job.previousSlugsByLocale[locale].includes(slug);
+}
+
+function rejectedPlanItem(file, inputJobId, slug, reason, extra = {}) {
+  return {
+    file,
+    inputJobId,
+    slug,
+    decision: 'reject',
+    reason,
+    ...extra,
+  };
+}
+
+/**
+ * Produce a fail-closed recovery plan for one crawler slice.
+ *
+ * Every accepted slug must have one historical locale and one current source
+ * posting owner across all relevant revisions. Input jobId is provenance only:
+ * it may be stale, so it never selects the write target. Ambiguous or missing
+ * proof remains visible in the report and causes no mutation.
+ */
+export function planSliceSlugRecovery({
+  file,
+  entries,
+  currentJobs,
+  evidenceBySlug,
+  denylist = new Set(),
+  uniqueOwnerFiles = new Map(),
+  cap = CAP,
+}) {
+  const identityOwners = buildCurrentSourceIdentityOwners(currentJobs);
+  const suffixOwners = buildUniqueSuffixOwnerMap(currentJobs);
+  const requests = [];
+  for (const entry of Array.isArray(entries) ? entries : []) {
+    for (const slug of Array.isArray(entry?.slugs) ? entry.slugs : []) {
+      requests.push({ inputJobId: String(entry?.jobId || ''), slug: String(slug || '') });
+    }
+  }
+  requests.sort((left, right) => (
+    left.inputJobId.localeCompare(right.inputJobId) || left.slug.localeCompare(right.slug)
+  ));
+
+  const planned = [];
+  for (const { inputJobId, slug } of requests) {
+    if (!slug) {
+      planned.push(rejectedPlanItem(file, inputJobId, slug, 'invalid_slug'));
+      continue;
+    }
+    if (denylist.has(denylistKey(file, slug))) {
+      planned.push(rejectedPlanItem(file, inputJobId, slug, 'denylisted'));
+      continue;
+    }
+    const foreignOwnerFile = resolveForeignRecoveryOwnerFile(file, slug, uniqueOwnerFiles);
+    if (foreignOwnerFile) {
+      planned.push(rejectedPlanItem(file, inputJobId, slug, 'foreign_current_owner', { foreignOwnerFile }));
+      continue;
+    }
+
+    const allEvidence = evidenceBySlug.get(slug) || [];
+    const activeEvidence = allEvidence.filter((item) => item.kind === 'active');
+    const selectedEvidence = activeEvidence.length > 0
+      ? activeEvidence
+      : allEvidence.filter((item) => item.kind === 'previous');
+    if (selectedEvidence.length === 0) {
+      planned.push(rejectedPlanItem(file, inputJobId, slug, 'no_localized_history'));
+      continue;
+    }
+
+    const evidenceWithIdentity = selectedEvidence.filter((item) => item.sourceIdentities.length > 0);
+    if (evidenceWithIdentity.length === 0) {
+      planned.push(rejectedPlanItem(file, inputJobId, slug, 'no_historical_source_identity'));
+      continue;
+    }
+
+    const evidenceOwners = new Set();
+    const matchedIdentities = new Set();
+    let identityFailure = null;
+    for (const evidence of evidenceWithIdentity) {
+      const ownersForEvidence = new Set();
+      for (const identity of evidence.sourceIdentities) {
+        const owners = identityOwners.get(identity);
+        if (!owners) continue;
+        for (const owner of owners) ownersForEvidence.add(owner);
+        matchedIdentities.add(identity);
+      }
+      if (ownersForEvidence.size === 0) {
+        identityFailure = 'historical_posting_not_current';
+        break;
+      }
+      if (ownersForEvidence.size !== 1) {
+        identityFailure = 'ambiguous_current_source_owner';
+        break;
+      }
+      evidenceOwners.add([...ownersForEvidence][0]);
+    }
+    if (identityFailure) {
+      planned.push(rejectedPlanItem(file, inputJobId, slug, identityFailure));
+      continue;
+    }
+    if (evidenceOwners.size !== 1) {
+      planned.push(rejectedPlanItem(file, inputJobId, slug, 'ambiguous_historical_posting'));
+      continue;
+    }
+
+    const locales = new Set(evidenceWithIdentity.map((item) => item.locale));
+    if (locales.size !== 1) {
+      planned.push(rejectedPlanItem(file, inputJobId, slug, 'ambiguous_historical_locale', {
+        locales: [...locales].sort(),
+      }));
+      continue;
+    }
+
+    const targetJob = [...evidenceOwners][0];
+    const locale = [...locales][0];
+    const hashMatch = HASH_TAIL_RE.exec(slug);
+    const hashOwner = hashMatch ? suffixOwners.get(hashMatch[1]) : null;
+    if (hashOwner && hashOwner !== targetJob) {
+      planned.push(rejectedPlanItem(file, inputJobId, slug, 'hash_owner_conflicts_with_source_identity', {
+        sourceTargetJobId: resolveJobDiffKey(targetJob),
+        hashTargetJobId: resolveJobDiffKey(hashOwner),
+      }));
+      continue;
+    }
+
+    const common = {
+      file,
+      inputJobId,
+      slug,
+      targetJobId: resolveJobDiffKey(targetJob),
+      locale,
+      evidenceKind: activeEvidence.length > 0 ? 'active' : 'previous',
+      sourceIdentities: [...matchedIdentities].sort(),
+      revisions: [...new Set(evidenceWithIdentity.map((item) => item.commit))].sort(),
+      targetJob,
+    };
+    if (localeAlreadyServesRoute(targetJob, locale, slug)) {
+      planned.push({ ...common, decision: 'noop', reason: 'already_present' });
+      continue;
+    }
+    const localeBucket = Array.isArray(targetJob?.previousSlugsByLocale?.[locale])
+      ? targetJob.previousSlugsByLocale[locale]
+      : [];
+    if (localeBucket.length >= cap * RECOVERY_OVERFLOW_MULTIPLIER) {
+      planned.push({ ...common, decision: 'reject', reason: 'locale_bucket_full' });
+      continue;
+    }
+    planned.push({ ...common, decision: 'restore', reason: 'unique_historical_proof' });
+  }
+  return planned;
+}
+
+/** Deterministic, mutation-free JSON payload for artifacts and review. */
+export function createRecoveryPlanReport(items) {
+  const serializable = (Array.isArray(items) ? items : []).map(({ targetJob: _targetJob, ...item }) => item);
+  serializable.sort((left, right) => (
+    left.file.localeCompare(right.file)
+      || left.inputJobId.localeCompare(right.inputJobId)
+      || left.slug.localeCompare(right.slug)
+  ));
+  return {
+    version: 1,
+    summary: {
+      requested: serializable.length,
+      restore: serializable.filter((item) => item.decision === 'restore').length,
+      noop: serializable.filter((item) => item.decision === 'noop').length,
+      rejected: serializable.filter((item) => item.decision === 'reject').length,
+    },
+    items: serializable,
+  };
 }
 
 /**
@@ -378,11 +642,9 @@ export function applyRecoveredSlug(targetJob, locale, slug, cap = CAP) {
   return { restored, skippedAtCap };
 }
 
-// One-shot cache of (file → jobId → Map<slug, locale>) built lazily
-// when the first job in a file is processed. Subsequent jobs in the
-// same file reuse the cached index → 1 git-log + N git-show per FILE
-// instead of per JOB, which collapses 10–100× of git invocations.
-const _fileLocaleCache = new Map();
+// One-shot cache of file → slug evidence built lazily. Subsequent recovery
+// requests in the same file reuse one bounded history walk.
+const _fileRecoveryEvidenceCache = new Map();
 
 /**
  * Build an index for ALL jobs in one slice file in a single pass over
@@ -402,51 +664,38 @@ const _fileLocaleCache = new Map();
  * @param {string} file absolute path to the slice file
  * @param {ReturnType<typeof createCatFileBatch>} catFile shared batch process
  * @param {number} [maxCommits=400] cap on history walked (newest first)
- * @returns {Promise<Map<string, Map<string, string>>>} jobId → slug → locale
+ * @returns {Promise<Map<string, Array<object>>>} slug → historical proof
  */
-async function buildFileLocaleIndex(file, catFile, maxCommits = 400) {
-  if (_fileLocaleCache.has(file)) return _fileLocaleCache.get(file);
+async function buildFileRecoveryEvidence(file, catFile, maxCommits = 400) {
+  if (_fileRecoveryEvidenceCache.has(file)) return _fileRecoveryEvidenceCache.get(file);
   const rel = path.relative(ROOT, file);
   let commits;
   try {
-    commits = execSync(
-      `git log --pretty=format:%H -n ${maxCommits} -- ${rel}`,
+    commits = execFileSync(
+      'git',
+      ['log', '--pretty=format:%H', '-n', String(maxCommits), '--', rel],
       { encoding: 'utf8', maxBuffer: 50 * 1024 * 1024, cwd: ROOT },
     ).trim().split('\n').filter(Boolean);
   } catch {
     const empty = new Map();
-    _fileLocaleCache.set(file, empty);
+    _fileRecoveryEvidenceCache.set(file, empty);
     return empty;
   }
-  /** @type {Map<string, Map<string,string>>} */
-  const byJob = new Map();
+  const evidenceBySlug = new Map();
   for (const commit of commits) {
     const content = await catFile.get(`${commit}:${rel}`);
     if (content == null) continue;
     let parsed;
     try { parsed = JSON.parse(content); } catch { continue; }
     if (!Array.isArray(parsed?.jobs)) continue;
-    for (const job of parsed.jobs) {
-      const jobKey = resolveJobDiffKey(job);
-      if (!jobKey) continue;
-      let m = byJob.get(jobKey);
-      if (!m) { m = new Map(); byJob.set(jobKey, m); }
-      if (job.previousSlugsByLocale && typeof job.previousSlugsByLocale === 'object') {
-        for (const [loc, arr] of Object.entries(job.previousSlugsByLocale)) {
-          for (const s of (arr || [])) {
-            if (s && !m.has(s)) m.set(s, loc);
-          }
-        }
-      }
-      if (job.slugByLocale && typeof job.slugByLocale === 'object') {
-        for (const [loc, s] of Object.entries(job.slugByLocale)) {
-          if (s && !m.has(s)) m.set(s, loc);
-        }
-      }
+    const revisionEvidence = buildRecoveryEvidenceIndex([{ commit, jobs: parsed.jobs }]);
+    for (const [slug, evidence] of revisionEvidence) {
+      if (!evidenceBySlug.has(slug)) evidenceBySlug.set(slug, []);
+      for (const candidate of evidence) mergeHistoricalEvidence(evidenceBySlug.get(slug), candidate);
     }
   }
-  _fileLocaleCache.set(file, byJob);
-  return byJob;
+  _fileRecoveryEvidenceCache.set(file, evidenceBySlug);
+  return evidenceBySlug;
 }
 
 async function main() {
@@ -454,6 +703,16 @@ async function main() {
   const DRY_RUN = args.includes('--dry-run');
   const inputIdx = args.indexOf('--input');
   const INPUT = inputIdx !== -1 ? args[inputIdx + 1] : '/tmp/recoverable-slugs.json';
+  const reportIdx = args.indexOf('--report');
+  const inputParts = path.parse(INPUT);
+  const REPORT = reportIdx !== -1
+    ? args[reportIdx + 1]
+    : path.join(inputParts.dir, `${inputParts.name}.recovery-plan.json`);
+
+  if (!INPUT || !REPORT) {
+    console.error('❌ --input and --report require a path value');
+    process.exit(2);
+  }
 
   if (!fs.existsSync(INPUT)) {
     console.error(`❌ Input not found: ${INPUT}`);
@@ -462,28 +721,22 @@ async function main() {
   }
 
   const rawRecoverList = JSON.parse(fs.readFileSync(INPUT, 'utf8'));
+  if (!Array.isArray(rawRecoverList)) {
+    throw new Error(`Recovery input must be an array: ${INPUT}`);
+  }
   console.log(`📥 Loaded ${rawRecoverList.length} jobs with recoverable slugs from ${INPUT}`);
 
-  // Guard: never restore slugs that a decontamination pass removed on purpose
-  // (see DENYLIST_PATH docstring — this is what re-poisoned main in run
-  // 29106416912).
+  // The denylist is evaluated inside the plan so every refusal remains in the
+  // deterministic report instead of disappearing before attribution.
   const denylist = loadRestoreDenylist();
-  const { entries: recoverList, skipped: denylistSkipped } = filterDenylistedSlugs(rawRecoverList, denylist);
-  console.log(`⛔ skipped ${denylistSkipped} denylisted (intentional decontamination)\n`);
 
   const stats = {
     filesUpdated: 0,
     jobsUpdated: 0,
-    slugsRestoredByLocale: 0,
-    slugsRestoredFromHistory: 0,
-    slugsRestoredFromDetection: 0,
-    slugsSkippedAtCap: 0,
-    slugsRedirected: 0,
-    slugsSkippedForeignOwner: 0,
-    jobsMissing: 0,
+    slugsRestored: 0,
   };
   const filesByName = new Map();
-  for (const entry of recoverList) {
+  for (const entry of rawRecoverList) {
     if (!filesByName.has(entry.file)) filesByName.set(entry.file, []);
     filesByName.get(entry.file).push(entry);
   }
@@ -506,86 +759,72 @@ async function main() {
   // scripts/lib/git-cat-file-batch.mjs) — ONE process serves every historical
   // blob lookup across every file below instead of one subprocess per commit.
   const catFile = createCatFileBatch(ROOT);
+  const planItems = [];
 
   let fileCount = 0;
-  for (const [file, entries] of filesByName) {
-    fileCount++;
-    const filePath = path.join(BY_CRAWLER_DIR, file);
-    if (!fs.existsSync(filePath)) {
-      console.warn(`  ⚠️  Skip ${file} (not in slices dir)`);
-      continue;
-    }
-    process.stderr.write(`  [${fileCount}/${filesByName.size}] ${file} (${entries.length} jobs)\n`);
-    const slice = JSON.parse(fs.readFileSync(filePath, 'utf8'));
-    const byId = new Map(slice.jobs.map(j => [resolveJobDiffKey(j), j]).filter(([k]) => k));
-
-    // Build the per-file locale index ONCE; per-job lookup is O(1) below.
-    const fileIndex = await buildFileLocaleIndex(filePath, catFile);
-
-    // Map every current job's own content-hash disambiguator to itself, so a
-    // recovered slug carrying a MISMATCHED tail can be redirected to its real
-    // owner (or skipped) instead of misattributed to whatever job the loss
-    // event's stale historical id happens to resolve to today.
-    const bySuffixHash = buildUniqueSuffixOwnerMap(slice.jobs);
-
-    const changedJobIds = new Set();
-    for (const { jobId, slugs } of entries) {
-      const job = byId.get(jobId);
-      if (!job) { stats.jobsMissing++; continue; }
-      const slugLocaleIndex = fileIndex.get(jobId) || new Map();
-      for (const slug of slugs) {
-        const foreignOwnerFile = resolveForeignRecoveryOwnerFile(file, slug, uniqueOwnerFiles);
-        if (foreignOwnerFile) {
-          stats.slugsSkippedForeignOwner++;
-          console.warn(`  ↪️  Skip "${slug}" for ${jobId}: unique current owner is in ${foreignOwnerFile}`);
-          continue;
+  try {
+    for (const file of [...filesByName.keys()].sort()) {
+      const entries = filesByName.get(file);
+      fileCount++;
+      const filePath = path.join(BY_CRAWLER_DIR, file);
+      if (path.basename(file) !== file || !file.endsWith('.json') || !fs.existsSync(filePath)) {
+        console.warn(`  ⚠️  Skip ${file} (not a valid slice basename)`);
+        for (const entry of entries) {
+          for (const slug of Array.isArray(entry?.slugs) ? entry.slugs : []) {
+            planItems.push(rejectedPlanItem(file, String(entry?.jobId || ''), String(slug || ''), 'slice_missing'));
+          }
         }
-        const { targetJob, redirected } = resolveRecoveryTarget(job, slug, bySuffixHash);
-        if (redirected) {
-          stats.slugsRedirected++;
-          console.warn(`  ↪️  Redirect "${slug}" from ${jobId} to ${resolveJobDiffKey(targetJob)} (disambiguator tail matches that job instead)`);
-        }
-        let locale = slugLocaleIndex.get(slug);
-        if (locale) {
-          stats.slugsRestoredFromHistory++;
-        } else {
-          locale = detectLocaleFromSlug(slug);
-          stats.slugsRestoredFromDetection++;
-        }
-        // Write the recovered slug with bounded overflow (see
-        // applyRecoveredSlug for why this never evicts currently-live entries).
-        const { restored, skippedAtCap } = applyRecoveredSlug(targetJob, locale, slug, CAP);
+        continue;
+      }
+      process.stderr.write(`  [${fileCount}/${filesByName.size}] ${file} (${entries.length} jobs)\n`);
+      const slice = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+      if (!Array.isArray(slice?.jobs)) {
+        throw new Error(`Invalid active slice shape: ${file}`);
+      }
+
+      const evidenceBySlug = await buildFileRecoveryEvidence(filePath, catFile);
+      const filePlan = planSliceSlugRecovery({
+        file,
+        entries,
+        currentJobs: slice.jobs,
+        evidenceBySlug,
+        denylist,
+        uniqueOwnerFiles,
+      });
+      planItems.push(...filePlan);
+
+      const changedJobIds = new Set();
+      for (const item of filePlan) {
+        if (item.decision !== 'restore') continue;
+        const { restored } = applyRecoveredSlug(item.targetJob, item.locale, item.slug, CAP);
         if (restored) {
-          changedJobIds.add(resolveJobDiffKey(targetJob));
-          stats.slugsRestoredByLocale++;
-        }
-        if (skippedAtCap) {
-          stats.slugsSkippedAtCap++;
+          changedJobIds.add(item.targetJobId);
+          stats.slugsRestored++;
         }
       }
-    }
-    stats.jobsUpdated += changedJobIds.size;
+      stats.jobsUpdated += changedJobIds.size;
 
-    if (changedJobIds.size > 0) {
-      if (!DRY_RUN) {
-        writeJsonAtomic(filePath, slice);
+      if (changedJobIds.size > 0) {
+        if (!DRY_RUN) writeJsonAtomic(filePath, slice);
+        stats.filesUpdated++;
       }
-      stats.filesUpdated++;
     }
+  } finally {
+    catFile.close();
   }
-  catFile.close();
+
+  const report = createRecoveryPlanReport(planItems);
+  writeJsonAtomic(REPORT, report);
+  const denylistSkipped = report.items.filter((item) => item.reason === 'denylisted').length;
 
   console.log('\n📊 Backfill complete:');
   console.log(`  files updated:               ${stats.filesUpdated}${DRY_RUN ? ' (dry-run, no writes)' : ''}`);
   console.log(`  jobs updated:                ${stats.jobsUpdated}`);
-  console.log(`  slugs restored (byLocale):   ${stats.slugsRestoredByLocale}`);
-  console.log(`  ├─ from git history:        ${stats.slugsRestoredFromHistory}`);
-  console.log(`  └─ from language detection: ${stats.slugsRestoredFromDetection}`);
-  console.log(`  slugs redirected (mismatch): ${stats.slugsRedirected}`);
+  console.log(`  slugs restored (proven):     ${stats.slugsRestored}`);
+  console.log(`  slugs already present:       ${report.summary.noop}`);
+  console.log(`  slugs rejected (no proof):   ${report.summary.rejected}`);
   console.log(`  slugs skipped (denylisted):  ${denylistSkipped}`);
-  console.log(`  slugs skipped (bucket full): ${stats.slugsSkippedAtCap}`);
-  console.log(`  slugs skipped (foreign owner): ${stats.slugsSkippedForeignOwner}`);
-  console.log(`  jobs missing in current:     ${stats.jobsMissing}`);
+  console.log(`  recovery plan:               ${REPORT}`);
 }
 
 if (isInvokedDirectly(import.meta.url)) {

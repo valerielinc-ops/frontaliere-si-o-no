@@ -41,7 +41,7 @@ const PATH_HISTORY_PATTERNS = [
 // voce che non serve piu' fa fallire il test (niente allowlist stantie).
 const CLI_ONLY_HISTORY: Record<string, string> = {
   'scripts/backfill-prev-slugs-from-loss-events.mjs':
-    '`buildFileLocaleIndex` (git log -- <slice>) non e` esportata e la chiama solo il main della CLI; ' +
+    '`buildFileRecoveryEvidence` (git log -- <slice>) non e` esportata e la chiama solo il main della CLI; ' +
     'slug-preservation-guard importa gli helper puri (denylist, recovery target).',
 };
 
