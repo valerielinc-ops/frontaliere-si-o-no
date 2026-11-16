@@ -1,4 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import {
   changedUrlTiers,
   changedUrls,
@@ -9,10 +12,23 @@ import {
 import { isExpiredJobSitemapKey } from '../scripts/lib/sitemap-family-coverage.mjs';
 
 const BASE = 'https://frontaliereticino.ch';
+const temporaryDirectories = new Set<string>();
+
+function makeTemporaryDirectory(prefix: string) {
+  const root = process.env.CODEX_SNPTOL_TMP_DIR || tmpdir();
+  const directory = mkdtempSync(join(root, prefix));
+  temporaryDirectories.add(directory);
+  return directory;
+}
 
 afterEach(() => {
   vi.unstubAllGlobals();
+  vi.useRealTimers();
   vi.restoreAllMocks();
+  for (const directory of temporaryDirectories) {
+    rmSync(directory, { recursive: true, force: true });
+  }
+  temporaryDirectories.clear();
 });
 
 describe('sitemap graph parser', () => {
@@ -411,6 +427,43 @@ describe('sitemap change snapshots', () => {
     expect(Object.values(tiers.digestBySitemap).flat()).not.toContain(url);
   });
 
+  it('does not mark a URL added when the old snapshot missed one archive shard but lists it elsewhere', () => {
+    const sharedUrl = `${BASE}/annunci/shared/`;
+    const current = {
+      version: 3,
+      perSitemap: {
+        'sitemap-jobs-active.xml': [sharedUrl],
+        'sitemap-jobs-expired-043.xml': [sharedUrl],
+        'sitemap-jobs-expired-044.xml': [sharedUrl],
+      },
+      perSitemapDigests: {
+        'sitemap-jobs-active.xml': 'active-current',
+        'sitemap-jobs-expired-043.xml': 'archive-043-current',
+        'sitemap-jobs-expired-044.xml': 'archive-044-current',
+      },
+    };
+    const previous = {
+      version: 3,
+      perSitemap: {
+        'sitemap-jobs-active.xml': [sharedUrl],
+        'sitemap-jobs-expired-043.xml': [sharedUrl],
+      },
+      perSitemapDigests: {
+        'sitemap-jobs-active.xml': 'active-previous',
+        'sitemap-jobs-expired-043.xml': 'archive-043-previous',
+      },
+    };
+
+    const tiers = changedUrlTiers(current, previous, {
+      includeRemoved: true,
+      includeRemovedFromMissingSitemaps: false,
+      digestIgnoredSitemap: isExpiredJobSitemapKey,
+    });
+
+    expect(tiers.added).toEqual([]);
+    expect(tiers.added).not.toContain(sharedUrl);
+  });
+
   it('does not infer archive movement from a legacy baseline without sitemap membership', () => {
     const url = `${BASE}/annunci/legacy/`;
     const current = {
@@ -584,5 +637,234 @@ describe('sitemap graph availability policy', () => {
 
     expect(childAttempts).toBe(2);
     expect(crawl.missing).toEqual([]);
+  });
+
+  it('tolerates an unreachable expired-archive child after cache-busting retries and keeps its parent', async () => {
+    const calls: string[] = [];
+    vi.stubGlobal('fetch', vi.fn().mockImplementation((input: string) => {
+      const url = String(input);
+      calls.push(url);
+      if (url.endsWith('/robots.txt')) {
+        return Promise.resolve(new Response(`Sitemap: ${BASE}/sitemap.xml`, { status: 200 }));
+      }
+      if (url.endsWith('/sitemap.xml')) {
+        return Promise.resolve(new Response(
+          `<sitemapindex><sitemap><loc>${BASE}/sitemap-jobs-expired-044.xml</loc></sitemap>` +
+          `<sitemap><loc>${BASE}/sitemap-pages.xml</loc></sitemap></sitemapindex>`,
+          { status: 200 },
+        ));
+      }
+      if (url.includes('/sitemap-jobs-expired-044.xml')) {
+        return Promise.resolve(new Response('missing', {
+          status: 404,
+          headers: { 'cf-cache-status': 'MISS', age: '19' },
+        }));
+      }
+      if (url.endsWith('/sitemap-pages.xml')) {
+        return Promise.resolve(new Response(
+          `<urlset><url><loc>${BASE}/pagina-corrente/</loc></url></urlset>`,
+          { status: 200 },
+        ));
+      }
+      return Promise.resolve(new Response('missing', { status: 404 }));
+    }));
+
+    const crawl = await crawlSitemaps({
+      baseUrl: BASE,
+      seeds: ['sitemap.xml'],
+      strict: true,
+      fetchAttempts: 1,
+      fetchDelayMs: 0,
+      tolerateMissing: isExpiredJobSitemapKey,
+      unreachableRetry: { attempts: 2, delaysMs: [0, 0], cacheBust: 'run-123' },
+      logger: { warn: vi.fn() },
+    });
+    const expiredRequests = calls.filter((url) => new URL(url).pathname.endsWith('/sitemap-jobs-expired-044.xml'));
+
+    expect(crawl.toleratedMissing).toEqual([{
+      key: 'sitemap-jobs-expired-044.xml',
+      parent: 'sitemap.xml',
+      status: 404,
+      cfCacheStatus: 'MISS',
+      age: '19',
+    }]);
+    expect(crawl.records.get('sitemap-pages.xml')?.urls).toEqual([`${BASE}/pagina-corrente/`]);
+    expect(crawl.missing).toEqual([]);
+    expect(crawl.missingRequired).toEqual([]);
+    expect(expiredRequests).toHaveLength(3);
+    expect(expiredRequests.slice(1).every((url) => new URL(url).searchParams.get('cb') === 'run-123')).toBe(true);
+    expect(crawl.toleratedMissing[0].key).not.toContain('?cb=');
+  });
+
+  it('uses an expired-archive child recovered on cache-busting retry without tolerating it', async () => {
+    const calls: string[] = [];
+    vi.stubGlobal('fetch', vi.fn().mockImplementation((input: string) => {
+      const url = String(input);
+      calls.push(url);
+      if (url.endsWith('/robots.txt')) {
+        return Promise.resolve(new Response(`Sitemap: ${BASE}/sitemap.xml`, { status: 200 }));
+      }
+      if (url.endsWith('/sitemap.xml')) {
+        return Promise.resolve(new Response(
+          `<sitemapindex><sitemap><loc>${BASE}/sitemap-jobs-expired-044.xml</loc></sitemap></sitemapindex>`,
+          { status: 200 },
+        ));
+      }
+      if (url.includes('/sitemap-jobs-expired-044.xml')) {
+        if (!new URL(url).searchParams.has('cb')) {
+          return Promise.resolve(new Response('not propagated', { status: 404 }));
+        }
+        return Promise.resolve(new Response(
+          `<urlset><url><loc>${BASE}/annunci/recuperato/</loc></url></urlset>`,
+          { status: 200 },
+        ));
+      }
+      return Promise.resolve(new Response('missing', { status: 404 }));
+    }));
+
+    const crawl = await crawlSitemaps({
+      baseUrl: BASE,
+      seeds: ['sitemap.xml'],
+      strict: true,
+      fetchAttempts: 1,
+      fetchDelayMs: 0,
+      tolerateMissing: isExpiredJobSitemapKey,
+      unreachableRetry: { attempts: 2, delaysMs: [0, 0], cacheBust: 'run-456' },
+      logger: { warn: vi.fn() },
+    });
+
+    expect(calls.filter((url) => new URL(url).pathname.endsWith('/sitemap-jobs-expired-044.xml'))).toHaveLength(2);
+    expect(crawl.records.get('sitemap-jobs-expired-044.xml')?.urls).toEqual([`${BASE}/annunci/recuperato/`]);
+    expect(crawl.toleratedMissing).toEqual([]);
+    expect(crawl.missing).toEqual([]);
+  });
+
+  it('does not retry an unreachable non-archive sitemap', async () => {
+    const calls: string[] = [];
+    vi.stubGlobal('fetch', vi.fn().mockImplementation((input: string) => {
+      const url = String(input);
+      calls.push(url);
+      if (url.endsWith('/robots.txt')) {
+        return Promise.resolve(new Response(`Sitemap: ${BASE}/sitemap.xml`, { status: 200 }));
+      }
+      if (url.endsWith('/sitemap.xml')) {
+        return Promise.resolve(new Response(
+          `<sitemapindex><sitemap><loc>${BASE}/sitemap-news.xml</loc></sitemap></sitemapindex>`,
+          { status: 200 },
+        ));
+      }
+      return Promise.resolve(new Response('missing', { status: 404 }));
+    }));
+
+    const error = await crawlSitemaps({
+      baseUrl: BASE,
+      seeds: ['sitemap.xml'],
+      strict: true,
+      fetchAttempts: 1,
+      fetchDelayMs: 0,
+      tolerateMissing: isExpiredJobSitemapKey,
+      unreachableRetry: { attempts: 2, delaysMs: [0, 0], cacheBust: 'run-789' },
+    }).catch((caught: unknown) => caught);
+
+    expect(error).toBeInstanceOf(Error);
+    expect((error as Error).message).toBe('Sitemap crawl incomplete: 1 unreachable sitemap(s): sitemap-news.xml');
+    const newsRequests = calls.filter((url) => new URL(url).pathname.endsWith('/sitemap-news.xml'));
+    expect(newsRequests).toHaveLength(1);
+    expect(new URL(newsRequests[0]).searchParams.has('cb')).toBe(false);
+  });
+
+  it('lists only the non-archive sitemap when another missing child is tolerated', async () => {
+    const calls: string[] = [];
+    vi.stubGlobal('fetch', vi.fn().mockImplementation((input: string) => {
+      const url = String(input);
+      calls.push(url);
+      if (url.endsWith('/robots.txt')) {
+        return Promise.resolve(new Response(`Sitemap: ${BASE}/sitemap.xml`, { status: 200 }));
+      }
+      if (url.endsWith('/sitemap.xml')) {
+        return Promise.resolve(new Response(
+          `<sitemapindex><sitemap><loc>${BASE}/sitemap-jobs-expired-044.xml</loc></sitemap>` +
+          `<sitemap><loc>${BASE}/sitemap-news.xml</loc></sitemap></sitemapindex>`,
+          { status: 200 },
+        ));
+      }
+      return Promise.resolve(new Response('missing', {
+        status: 404,
+        headers: { 'cf-cache-status': 'MISS', age: '21' },
+      }));
+    }));
+
+    const error = await crawlSitemaps({
+      baseUrl: BASE,
+      seeds: ['sitemap.xml'],
+      strict: true,
+      fetchAttempts: 1,
+      fetchDelayMs: 0,
+      tolerateMissing: isExpiredJobSitemapKey,
+      unreachableRetry: { attempts: 2, delaysMs: [0, 0], cacheBust: 'run-abc' },
+      logger: { warn: vi.fn() },
+    }).catch((caught: unknown) => caught);
+
+    expect(error).toBeInstanceOf(Error);
+    expect((error as Error).message).toBe('Sitemap crawl incomplete: 1 unreachable sitemap(s): sitemap-news.xml');
+    expect(calls.filter((url) => new URL(url).pathname.endsWith('/sitemap-jobs-expired-044.xml'))).toHaveLength(3);
+    expect(calls.filter((url) => new URL(url).pathname.endsWith('/sitemap-news.xml'))).toHaveLength(1);
+  });
+
+  it('keeps the default fail-closed archive behavior without tolerance or retries', async () => {
+    const calls: string[] = [];
+    vi.stubGlobal('fetch', vi.fn().mockImplementation((input: string) => {
+      const url = String(input);
+      calls.push(url);
+      if (url.endsWith('/robots.txt')) {
+        return Promise.resolve(new Response(`Sitemap: ${BASE}/sitemap.xml`, { status: 200 }));
+      }
+      if (url.endsWith('/sitemap.xml')) {
+        return Promise.resolve(new Response(
+          `<sitemapindex><sitemap><loc>${BASE}/sitemap-jobs-expired-044.xml</loc></sitemap></sitemapindex>`,
+          { status: 200 },
+        ));
+      }
+      return Promise.resolve(new Response('missing', { status: 404 }));
+    }));
+
+    const error = await crawlSitemaps({
+      baseUrl: BASE,
+      seeds: ['sitemap.xml'],
+      strict: true,
+      fetchAttempts: 1,
+      fetchDelayMs: 0,
+      unreachableRetry: { attempts: 2, delaysMs: [0, 0], cacheBust: 'run-default' },
+    }).catch((caught: unknown) => caught);
+
+    expect(error).toBeInstanceOf(Error);
+    expect((error as Error).message).toBe('Sitemap crawl incomplete: 1 unreachable sitemap(s): sitemap-jobs-expired-044.xml');
+    const archiveRequests = calls.filter((url) => new URL(url).pathname.endsWith('/sitemap-jobs-expired-044.xml'));
+    expect(archiveRequests).toHaveLength(1);
+    expect(new URL(archiveRequests[0]).searchParams.has('cb')).toBe(false);
+  });
+
+  it('keeps local non-strict crawling unchanged when tolerance and retry options are supplied', async () => {
+    const rootDir = makeTemporaryDirectory('local-crawl-');
+    writeFileSync(join(rootDir, 'sitemap.xml'),
+      `<sitemapindex><sitemap><loc>${BASE}/sitemap-jobs-expired-044.xml</loc></sitemap></sitemapindex>`,
+      'utf8');
+    const fetchMock = vi.fn();
+    vi.stubGlobal('fetch', fetchMock);
+
+    const crawl = await crawlSitemaps({
+      baseUrl: BASE,
+      source: 'local',
+      rootDir,
+      seeds: ['sitemap.xml'],
+      strict: false,
+      tolerateMissing: isExpiredJobSitemapKey,
+      unreachableRetry: { attempts: 2, delaysMs: [0, 0], cacheBust: 'local' },
+      logger: { warn: vi.fn() },
+    });
+
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(crawl.missing).toEqual(['sitemap-jobs-expired-044.xml']);
+    expect(crawl.toleratedMissing).toEqual([]);
   });
 });

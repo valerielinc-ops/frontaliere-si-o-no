@@ -16,14 +16,37 @@
  * large the sitemap graph grows; read it back with `readSitemapSnapshot`.
  */
 
-import { rmSync } from 'node:fs';
+import { appendFileSync, rmSync } from 'node:fs';
 import { crawlSitemaps, writeSnapshotFile } from './lib/sitemap-crawl.mjs';
+import { isExpiredJobSitemapKey } from './lib/sitemap-family-coverage.mjs';
 
 const HOST = process.env.HOST || 'frontaliereticino.ch';
 const SOURCE = process.env.SOURCE || 'live';
 const OUTPUT = process.env.OUTPUT || '/tmp/pre-deploy-sitemap-urls.json';
 const ROOT_DIR = process.env.LOCAL_ROOT || 'dist';
 const BASE_URL = (process.env.SITEMAP_BASE || `https://${HOST}`).replace(/\/+$/, '');
+
+function formatMissingDetail({ key, parent, status, cfCacheStatus, age }) {
+  return `${key}; parent=${parent ?? 'unknown'}; status=${status ?? 'unknown'}; `
+    + `cf-cache-status=${cfCacheStatus ?? 'unknown'}; age=${age ?? 'unknown'}`;
+}
+
+function writeToleratedMissingSummary(entries) {
+  const summaryPath = process.env.GITHUB_STEP_SUMMARY;
+  if (!summaryPath || entries.length === 0) return;
+  const lines = [
+    '',
+    '### Tolerated expired-archive sitemap fetches',
+    '',
+    ...entries.map((entry) => `- ${formatMissingDetail(entry)}`),
+    '',
+  ];
+  try {
+    appendFileSync(summaryPath, `${lines.join('\n')}\n`, 'utf8');
+  } catch (error) {
+    console.warn(`⚠️ Could not append tolerated sitemap details to step summary: ${error.message}`);
+  }
+}
 
 async function main() {
   const crawl = await crawlSitemaps({
@@ -34,7 +57,18 @@ async function main() {
     // Edge-owned files are not materialized in dist/; local snapshots are
     // scoped to files present in this build. Live snapshots remain strict.
     strict: SOURCE !== 'local',
+    tolerateMissing: isExpiredJobSitemapKey,
+    unreachableRetry: {
+      cacheBust: process.env.GITHUB_RUN_ID || String(Date.now()),
+    },
   });
+  if (crawl.toleratedMissing.length > 0) {
+    console.warn(`⚠️ Tolerated ${crawl.toleratedMissing.length} unreachable expired-archive sitemap(s):`);
+    for (const entry of crawl.toleratedMissing) {
+      console.warn(`  - ${formatMissingDetail(entry)}`);
+    }
+    writeToleratedMissingSummary(crawl.toleratedMissing);
+  }
   const stats = await writeSnapshotFile(OUTPUT, crawl, {
     includeDerivedIndexes: SOURCE !== 'local',
   });
