@@ -45,7 +45,7 @@ impossibile → fail-closed.
 |---|---|
 | 🔴 Important | Rovescia o riscrive una decisione di `DECISIONS.md` senza nuova riga datata (AGENTS.md #10). Rompe funnel/monetizzazione/traffico. Bug che blocca rendering, regressione SEO/AdSense, structured data invalido, scope critico mancante. **Scope-feature dovuto lasciato in `## Non implementato` come deferral senza essere fatto né avere un next-step/piano-di-completamento (post-#8)** |
 | 🟡 Nit | Migliora ma non blocca. Semplificazione, leggibilità, refactor anti-duplicazione, **code-smell che crea maintenance debt** (hardcoded values che invecchiano, comment grossly oversized). **Cap 3/review**; oltre → `+N similar nits` in summary |
-| 🟣 Pre-existing | Bug già pre-PR. Solo se rilevante al diff |
+| 🟣 Pre-existing | Bug già pre-PR o in file fuori da `Changed code-file list` (mai 🔴; non impedisce `## LGTM`). Solo se rilevante al diff |
 | ❓ q | Domanda genuina quando incerto (no speculazione) |
 
 ### Disposizione 🟡 al review-time (anti-treadmill follow-up)
@@ -134,10 +134,10 @@ baseline finché nella riga; se rimosso, stale.
    - `per scelta` senza motivo o in contrasto col motivo è `out of scope` travestito. Scope-feature in deferral senza piano/implementazione → **🔴 Important**: il task non è chiuso finché `## Non implementato` non legge «Nessuno»; completa con `PR concatenata` o `blocked:<causa>`. PR può mergiare con sezione non vuota se ogni voce ha next-step, ma non scrivere `## LGTM` per il TASK. `blocked:` esterno lascia il task aperto; `Nessuno` lo completa.
    - **Forme esatte:** `per scelta` e `by construction` sono stati autonomi, non `blocked: ...`; quindi `blocked: by construction` e `deferred, non funnel-critical` non chiudono `## Non implementato` (il suffisso `deferred` vale solo per 🟡/❓ di review).
 3. **Diff fa cose non dichiarate** → 🟡 scope drift: "diff fa X non in scope. PR separata o aggiungi a Implementato."
-   - **Inverso — body dichiara X ma diff non lo mostra** → 🟡 Nit: "`## Implementato` afferma X ma il diff non lo riflette — aggiornare il body." (`pr-body-contract.yml` valida gli header, non la precisione del contenuto.)
+   - **Inverso** → 🟡 Nit: "`## Implementato` afferma X ma il diff non lo riflette — aggiornare il body." (`pr-body-contract.yml` valida gli header, non la precisione del contenuto.)
 4. **Sezioni mancanti** → 🔴 process: "manca Implementato/Non implementato nel PR body. Aggiungere prima review sostanziale."
    - **Tier normal**: termina qui, no altri finding (path basso rischio, review sostanziale rimandata al re-push conforme).
-   - **Tier high (vedi tabella "Tier review"): NON terminare.** Posta il 🔴 process e prosegui nello stesso pass con review sostanziale + `## Adversarial check` completi. Il 🔴 blocca solo l'auto-merge; non deferire mai il probing.
+   - **Tier high: NON terminare.** Posta il 🔴 process e prosegui nello stesso pass con review sostanziale + `## Adversarial check` completi. Il 🔴 blocca solo l'auto-merge.
    - **`Closes #a #b` multi-issue su una riga** → 🔴 process: GitHub chiude SOLO la prima issue dopo una keyword (`Closes`/`Fixes`/`Resolves`); `Closes #a #b #c` chiude solo `#a`. Chiedi una keyword per issue, una per riga (`Closes #a` / `Closes #b`). Il gate `pr-body-contract.yml` lo flagga a ogni edit; non ripeterlo se il bot ha già commentato lo stesso 🔴.
 5. **Cross-file pattern repetition** → se il diff fissa un pattern in 1 file, usa `rg`/`grep` sul pattern equivalente nel resto repo, solo CODE: `rg <pattern> scripts build-plugins components services functions server hooks tests` (o `rg <pattern> -g '!data/**' -g '!public/**' -g '!reports/**'`). Stesso anti-pattern non toccato → 🔴 in file funnel-critico (crawler/build-plugin/test gate), 🟡 altrove.
 6. **Test plan compliance** → nel PR body `## Test plan`/`- [ ]`, distingui verifiche pre-merge da live. Verifica live senza edit è verifica-live-only: **NON sollevare 🟡 né chiedere issue follow-up**; batchala in `post-merge-followup` (eventualmente marca `(post-merge, live)` in `## Non implementato`). Se è verificabile pre-merge, non spuntata e non confermabile dal diff → 🟡 chiedi conferma o issue follow-up.
