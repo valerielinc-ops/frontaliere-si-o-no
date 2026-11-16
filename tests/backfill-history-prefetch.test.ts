@@ -10,6 +10,7 @@ import {
   historyDiffTreeArgs,
   historyMetadataEnv,
   historyCrawlerKeys,
+  main,
   historySafeGitErrorMessage,
   historySinceArgs,
   historySliceFileRefInput,
@@ -215,5 +216,109 @@ describe('prefetch-history-blobs', () => {
     expect(historySafeGitErrorMessage(
       new Error('Command failed: git fetch https://x-access-token:sample%20value@github.com/owner/repo.git'),
     )).toBe('Command failed: git fetch https://github.com/owner/repo.git');
+  });
+
+  it('no-ops for a valid crawler batch with no slice-changing commits without fetching', () => {
+    const commit = 'a'.repeat(40);
+    const commands: string[][] = [];
+    const backfillCalls: unknown[] = [];
+    const verifyCalls: unknown[] = [];
+    const runGit = (args: string[]) => {
+      commands.push(args);
+      if (args[0] === 'rev-list') return `${commit}\n`;
+      if (args[0] === 'diff-tree') return '';
+      throw new Error(`Unexpected Git command: ${args[0]}`);
+    };
+
+    expect(() => main({
+      env: { CRAWLER_KEYS: 'prefetch-noop-test-key', HISTORY_SINCE: '45 days ago' },
+      runGit,
+      backfill: (options: unknown) => {
+        backfillCalls.push(options);
+        throw new Error('Unexpected remote backfill');
+      },
+      verify: (oids: unknown) => verifyCalls.push(oids),
+    })).not.toThrow();
+    expect(commands.map(([command]) => command)).toEqual(['rev-list', 'diff-tree']);
+    expect(backfillCalls).toEqual([]);
+    expect(verifyCalls).toEqual([]);
+  });
+
+  it('no-ops when a valid crawler batch resolves no blobs without fetching', () => {
+    const commit = 'a'.repeat(40);
+    const crawlerKey = 'prefetch-noop-test-key';
+    const commands: string[][] = [];
+    const backfillCalls: unknown[] = [];
+    const verifyCalls: unknown[] = [];
+    const runGit = (args: string[], options: { input?: string } = {}) => {
+      commands.push(args);
+      if (args[0] === 'rev-list') return `${commit}\n`;
+      if (args[0] === 'diff-tree') {
+        return `${commit}\0M\0data/jobs/by-crawler/${crawlerKey}.json\0`;
+      }
+      if (args[0] === 'cat-file' && args[1] === '--batch-check') {
+        return String(options.input || '')
+          .trim()
+          .split('\n')
+          .filter(Boolean)
+          .map((ref) => `${ref} missing`)
+          .join('\n');
+      }
+      throw new Error(`Unexpected Git command: ${args[0]}`);
+    };
+
+    expect(() => main({
+      env: { CRAWLER_KEYS: crawlerKey, HISTORY_SINCE: '45 days ago' },
+      runGit,
+      backfill: (options: unknown) => {
+        backfillCalls.push(options);
+        throw new Error('Unexpected remote backfill');
+      },
+      verify: (oids: unknown) => verifyCalls.push(oids),
+    })).not.toThrow();
+    expect(commands.map(([command]) => command)).toEqual(['rev-list', 'diff-tree', 'cat-file']);
+    expect(backfillCalls).toEqual([]);
+    expect(verifyCalls).toEqual([]);
+  });
+
+  it('no-ops for an empty HISTORY_SINCE window only when global history exists', () => {
+    const commit = 'a'.repeat(40);
+    const commands: string[][] = [];
+    const runGit = (args: string[]) => {
+      commands.push(args);
+      return args.some((argument) => argument.startsWith('--since=')) ? '' : `${commit}\n`;
+    };
+    const backfillCalls: unknown[] = [];
+
+    expect(() => main({
+      env: { CRAWLER_KEYS: 'prefetch-noop-test-key', HISTORY_SINCE: '45 days ago' },
+      runGit,
+      backfill: (options: unknown) => backfillCalls.push(options),
+      verify: () => undefined,
+    })).not.toThrow();
+    expect(commands).toEqual([
+      ['rev-list', '--all', '--since=45 days ago'],
+      ['rev-list', '--all'],
+    ]);
+    expect(backfillCalls).toEqual([]);
+  });
+
+  it('fails when the global history has no initial commits', () => {
+    const commands: string[][] = [];
+    const runGit = (args: string[]) => {
+      commands.push(args);
+      return '';
+    };
+
+    expect(() => main({
+      env: { CRAWLER_KEYS: 'prefetch-noop-test-key', HISTORY_SINCE: '45 days ago' },
+      runGit,
+      backfill: () => undefined,
+      verify: () => undefined,
+    })).toThrow('No historical job-slice blobs found');
+    expect(commands).toEqual([
+      ['rev-list', '--all', '--since=45 days ago'],
+      ['rev-list', '--all'],
+    ]);
   });
 });

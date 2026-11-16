@@ -308,25 +308,38 @@ function returnForEmptySelectedScope(crawlerKeys, selectedScope, reason) {
   return true;
 }
 
-export function main() {
-  const env = historyMetadataEnv();
-  const crawlerKeys = historyCrawlerKeys();
+export function main({
+  env = process.env,
+  runGit: runGitCommand = runGit,
+  backfill: backfillHistoryBlobsCommand = backfillHistoryBlobs,
+  verify: verifyPrefetchedBlobsCommand = verifyPrefetchedBlobs,
+} = {}) {
+  const metadataEnv = historyMetadataEnv(env);
+  const historySince = env.HISTORY_SINCE ?? '';
+  const crawlerKeys = historyCrawlerKeys(env.CRAWLER_KEYS);
   const slicePaths = historySlicePaths(crawlerKeys);
   const selectedScope = crawlerKeys.length > 0
     ? `${crawlerKeys.length} crawler key(s)`
     : 'both complete slice families';
   console.log('🔎 Listing commits in the HISTORY_SINCE window.');
-  const commitOutput = runGit(historyCommitWalkArgs(), { env });
+  const commitOutput = runGitCommand(historyCommitWalkArgs(historySince), { env: metadataEnv });
   const commitOids = commitOutput.trim().split('\n').filter((oid) => OID_RE.test(oid));
   if (commitOids.length === 0) {
-    if (returnForEmptySelectedScope(crawlerKeys, selectedScope, 'No commits in the history window')) return;
+    const globalCommitOids = historySinceArgs(historySince).length === 0
+      ? commitOids
+      : runGitCommand(historyCommitWalkArgs('all'), { env: metadataEnv })
+        .trim()
+        .split('\n')
+        .filter((oid) => OID_RE.test(oid));
+    if (globalCommitOids.length > 0
+      && returnForEmptySelectedScope(crawlerKeys, selectedScope, 'No commits in the HISTORY_SINCE window')) return;
     throw new Error(`No historical job-slice blobs found for ${HISTORY_PATHS.join(' and ')}.`);
   }
 
   console.log(`🔎 Finding slice-changing commits across ${commitOids.length} history commit(s).`);
-  const diffTreeOutput = runGit(historyDiffTreeArgs(slicePaths), {
+  const diffTreeOutput = runGitCommand(historyDiffTreeArgs(slicePaths), {
     input: historyBlobPrefetchInput(commitOids),
-    env,
+    env: metadataEnv,
   });
   const relevantCommits = historyCommitOidsFromDiffTree(diffTreeOutput);
   if (relevantCommits.length === 0) {
@@ -337,15 +350,15 @@ export function main() {
   console.log(`🔎 Resolving ${selectedScope} at ${relevantCommits.length} relevant commit(s).`);
   const blobOids = new Set();
   if (crawlerKeys.length > 0) {
-    const fileCheckOutput = runGit(['cat-file', '--batch-check'], {
+    const fileCheckOutput = runGitCommand(['cat-file', '--batch-check'], {
       input: historySliceFileRefInput(relevantCommits, slicePaths),
-      env,
+      env: metadataEnv,
     });
     for (const oid of historyBlobOidsFromBatchCheck(fileCheckOutput)) blobOids.add(oid);
   } else {
-    const treeCheckOutput = runGit(['cat-file', '--batch-check'], {
+    const treeCheckOutput = runGitCommand(['cat-file', '--batch-check'], {
       input: historySliceTreeRefInput(relevantCommits),
-      env,
+      env: metadataEnv,
     });
     const treeOids = historyTreeOidsFromBatchCheck(treeCheckOutput);
     if (treeOids.length === 0) {
@@ -355,10 +368,10 @@ export function main() {
     for (let index = 0; index < treeBatches.length; index += 1) {
       const batch = treeBatches[index];
       console.log(`  ↳ Reading slice tree batch ${index + 1}/${treeBatches.length} (${batch.length} trees).`);
-      const treeOutput = runGit(['cat-file', '--batch'], {
+      const treeOutput = runGitCommand(['cat-file', '--batch'], {
         input: historyBlobPrefetchInput(batch),
         encoding: null,
-        env,
+        env: metadataEnv,
       });
       for (const oid of historyBlobOidsFromTreeBatch(treeOutput)) blobOids.add(oid);
     }
@@ -371,8 +384,8 @@ export function main() {
   }
 
   console.log(`📦 Backfilling ${oids.length} historical job-slice blobs through Git's promisor batches.`);
-  backfillHistoryBlobs({ since: process.env.HISTORY_SINCE, paths: slicePaths });
-  verifyPrefetchedBlobs(oids);
+  backfillHistoryBlobsCommand({ since: historySince, paths: slicePaths });
+  verifyPrefetchedBlobsCommand(oids);
   console.log('✅ All historical job-slice blobs are available locally.');
 }
 
