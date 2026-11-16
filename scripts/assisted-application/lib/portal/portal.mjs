@@ -93,6 +93,7 @@ const MAX_AUTH_STEPS = AGENT_ROUNDS;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
 const FORGOT_PASSWORD_RE = /(?:forgot(?:ten)?\s+(?:your\s+)?password|password\s+forgotten|passwort\s+vergessen|kennwort\s+vergessen|mot de passe\s+oublié|mot de passe\s+oublie|oubli[ée]\s+(?:(?:votre|le|mon)\s+)?mot de passe|password\s+dimenticat[oa]|hai dimenticato la password|password dimenticata)/i;
 const PASSWORD_RESET_REQUEST_RE = /^(?:send(?:\s+(?:a\s+)?(?:reset\s+)?(?:link|instructions))?|reset\s+password|request\s+(?:a\s+)?password\s+reset|continue|submit|passwort\s+zurücksetzen|kennwort\s+zurücksetzen|réinitialiser le mot de passe|reinitialiser le mot de passe|envoyer(?:\s+(?:les\s+instructions|(?:un\s+|le\s+)?lien))?|continuer|soumettre|invia|continua|reimposta password)$/i;
+const PASSWORD_RESET_REQUEST_CONTEXT_RE = /(?:reset|forgot(?:ten)?|request).{0,30}(?:password|passcode)|(?:password|passcode).{0,30}(?:reset|forgot(?:ten)?|request)|(?:passwort|kennwort).{0,30}(?:vergessen|zurücksetzen)|(?:vergessen|zurücksetzen).{0,30}(?:passwort|kennwort)|mot de passe.{0,30}(?:oubli|réinitial|reinitial)|(?:oubli|réinitial|reinitial).{0,30}mot de passe|password.{0,30}(?:dimenticat|reimpost)|(?:dimenticat|reimpost).{0,30}password/i;
 const PASSWORD_RESET_CONFIRM_RE = /(?:reset|change|update|save|submit|continue|zurücksetzen|zuruecksetzen|speichern|ändern|aendern|modifier|enregistrer|réinitialiser|reinitialiser|salva|aggiorna|reimposta)/i;
 const PASSWORD_RESET_REFUSED_RE = /(?:expired|invalid|not valid|cannot be used|could not be reset|abgelaufen|ungültig|nicht gültig|expiré|invalide|scadut[oa]|non valido|rifiutat[oa])/i;
 const ALREADY_APPLIED_RE = /(?:already applied|application already (?:exists|submitted|received)|you have already applied|déjà postulé|déjà candidaté|bereits beworben|bereits eine bewerbung|già candid(?:at[oa]|at[oa])|hai già inviato la candidatura|già presentata la candidatura)/iu;
@@ -8962,6 +8963,47 @@ function passwordResetEmailField(snapshot) {
   return candidates.length === 1 ? candidates[0] : null;
 }
 
+/** A reset request is not merely an e-mail field reached after the reset click. */
+export function passwordResetRequestSurface(snapshot) {
+  if (!snapshot || snapshot.captcha || snapshot.dialogs?.length || authPageKind(snapshot) !== 'none') return null;
+  const email = passwordResetEmailField(snapshot);
+  if (!email || (snapshot.fields || []).some((field) => field.inputType === 'password')) return null;
+  const context = [snapshot.title, snapshot.heading, snapshot.text,
+    ...(snapshot.headings || []).map((heading) => typeof heading === 'string' ? heading : heading?.text || heading?.label || ''),
+    ...(snapshot.buttons || []).flatMap((button) => [button.text, button.label, button.title, button.ariaLabel, button.labelledBy]),
+  ].filter(Boolean).join(' ');
+  if (!FORGOT_PASSWORD_RE.test(context) && !PASSWORD_RESET_REQUEST_CONTEXT_RE.test(context)) return null;
+  const requests = (snapshot.buttons || []).filter((button) => !button.dialog && !button.chrome && button.disabled !== true
+    && PASSWORD_RESET_REQUEST_RE.test(String(button.text || button.label || ''))
+    && String(button.formId || '') === String(email.formId || ''));
+  return requests.length === 1 ? { email, request: requests[0] } : null;
+}
+
+/** Wait for the reset request page itself, not just any changed authentication view. */
+async function awaitPasswordResetRequestSurface(page, before) {
+  await settle(page);
+  const beforeSignature = authViewSignature(before);
+  const observations = Math.ceil(AUTH_VIEW_TIMEOUT_MS / AUTH_OUTCOME_POLL_MS) + 1;
+  let previousReadySignature = '';
+  let snapshot = null;
+  for (let observation = 0; observation < observations; observation += 1) {
+    snapshot = await extractFields(page, NAVIGATION).catch(() => null);
+    const surface = passwordResetRequestSurface(snapshot);
+    const signature = snapshot ? authViewSignature(snapshot) : '';
+    if (surface && signature !== beforeSignature && signature === previousReadySignature) {
+      return { snapshot, surface };
+    }
+    previousReadySignature = surface && signature !== beforeSignature ? signature : '';
+    if (observation + 1 < observations) await page.waitForTimeout(AUTH_OUTCOME_POLL_MS);
+  }
+  return { snapshot, surface: null };
+}
+
+function passwordResetRequestFailure(snapshot) {
+  const refused = PASSWORD_RESET_REFUSED_RE.test([snapshot?.text, ...(snapshot?.errors || [])].filter(Boolean).join(' '));
+  return refused ? 'account_recovery_rejected' : 'account_recovery_timeout';
+}
+
 function resetPasswordFields(snapshot) {
   const fields = (snapshot?.fields || []).filter((field) => field.inputType === 'password');
   if (fields.length !== 2 || !fields[0].formId || fields.some((field) => String(field.formId) !== String(fields[0].formId))) return null;
@@ -9027,15 +9069,23 @@ async function recoverAccountPassword({ page, snapshot, ctx, host, account, diag
     if (authPageKind(snapshot) !== 'sign_in' || !await openVerifiedPasswordResetNavigation(page, snapshot)) {
       return accountHandoff('account_recovery_rejected', 'account_recovery_rejected', 'login');
     }
-    const requestForm = await awaitAuthView(page, snapshot);
-    const emailField = passwordResetEmailField(requestForm);
-    if (!emailField) return accountHandoff('account_recovery_rejected', 'account_recovery_rejected', 'login');
-    await applyActions(page, requestForm.fields, [{ fieldId: emailField.id, action: 'fill', value: email }], {});
-    const ready = await extractFields(page, NAVIGATION);
-    const readyEmail = passwordResetEmailField(ready);
-    if (!readyEmail || String(readyEmail.value || '').trim().toLowerCase() !== email) {
-      return accountHandoff('account_recovery_rejected', 'account_recovery_rejected', 'login');
+    const resetRequest = await awaitPasswordResetRequestSurface(page, snapshot);
+    const requestForm = resetRequest.snapshot;
+    if (!resetRequest.surface) {
+      const failure = passwordResetRequestFailure(requestForm);
+      return accountHandoff(failure, failure, 'login');
     }
+    const emailField = resetRequest.surface.email;
+    await applyActions(page, requestForm.fields, [{ fieldId: emailField.id, action: 'fill', value: email }], {});
+    await page.waitForTimeout(AUTH_TYPED_WAIT_MS);
+    const ready = await extractFields(page, NAVIGATION);
+    const readySurface = passwordResetRequestSurface(ready);
+    const readyEmail = readySurface?.email;
+    if (!readyEmail || String(readyEmail.value || '').trim().toLowerCase() !== email) {
+      const failure = passwordResetRequestFailure(ready);
+      return accountHandoff(failure, failure, 'login');
+    }
+    const sendRequest = readySurface.request;
     const password = newPortalPassword({ portal: host });
     typedSecrets?.add(password);
     const begun = await ctx.accounts.beginRecovery(host, { email, password });
@@ -9045,11 +9095,6 @@ async function recoverAccountPassword({ page, snapshot, ctx, host, account, diag
       return accountHandoff(failure, failure, 'login');
     }
     requestAt = Number(begun.requestedAt) || Date.now();
-    const sendRequest = findButton(ready.buttons || [], PASSWORD_RESET_REQUEST_RE);
-    if (!sendRequest || String(sendRequest.formId || '') !== String(readyEmail.formId || '')) {
-      await ctx.accounts.abortRecovery(host, { requestSubmitted: false });
-      return accountHandoff('account_recovery_rejected', 'account_recovery_rejected', 'login');
-    }
     try {
       diagnostics?.beforeClick('account');
       if (!await clickButton(page, sendRequest)) {
