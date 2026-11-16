@@ -3850,9 +3850,9 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     // fixed modal-animation wait below is not enough for every tenant; wait
     // only on the already-bound application route, never on an unverified
     // page whose empty surface could be a navigation mismatch.
-    if (!stageContext || !isWorkdayTenantUrl(stageContext.applyUrl)
-      || !isWorkdayApplicationRouteBound(page.url(), stageContext.applyUrl)
-      || workdayApplicationSurfaceReady(snapshot)) return true;
+    if (!stageContext || !isWorkdayTenantUrl(stageContext.applyUrl)) return true;
+    if (!isWorkdayApplicationRouteBound(page.url(), stageContext.applyUrl)) return false;
+    if (workdayApplicationSurfaceReady(snapshot)) return true;
     for (let waited = 0; waited < 10_000 && !workdayApplicationSurfaceReady(snapshot); waited += 1000) {
       await page.waitForTimeout(1000);
       if (!isWorkdayApplicationRouteBound(page.url(), stageContext.applyUrl)) return false;
