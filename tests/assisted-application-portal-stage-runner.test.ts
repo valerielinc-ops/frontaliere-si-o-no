@@ -752,7 +752,7 @@ describe('runner final guard across three application stages', () => {
 
     const result = await f.run();
 
-    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
     expect(result.evidence.postingMatch).toBe('mismatch');
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
@@ -778,7 +778,7 @@ describe('runner final guard across three application stages', () => {
 
     const result = await f.run();
 
-    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
     expect(result.evidence.postingMatch).toBe('mismatch');
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
