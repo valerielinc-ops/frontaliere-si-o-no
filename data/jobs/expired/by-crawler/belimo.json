@@ -99,7 +99,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-montagemitarbeiterin-f%c3%bcr-verl%c3%a4ngerte-wochenendschichten%2c-tag-oder-nachtschicht-%2812-stunden-pr%c3%a4senz%29-z%c3%bcri-8340/1165654355",
-    "firstSeenAt": "2026-07-12T22:18:19.192Z"
+    "firstSeenAt": "2026-07-12T22:18:19.192Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-montagemitarbeiterin-f%c3%bcr-verl%c3%a4ngerte-wochenendschichten%2c-tag-oder-nachtschicht-%2812-stunden-pr%c3%a4senz%29-z%c3%bcri-8340/1165654355",
+        "firstSeenAt": "2026-07-12T22:18:19.192Z",
+        "title": "Montagemitarbeiter:in für verlängerte Wochenendschichten, Tag-oder Nachtschicht (12 Stunden Präsenz)"
+      },
+      {
+        "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-montagemitarbeiterin-f%c3%bcr-verl%c3%a4ngerte-wochenendschichten-%28tag-oder-nachtschicht-12-stunden-pr%c3%a4senz%29-z%c3%bcri-8340/1163258255",
+        "firstSeenAt": "2026-07-12T22:18:19.192Z",
+        "title": "Montagemitarbeiter:in für verlängerte Wochenendschichten (Tag- oder Nachtschicht 12 Stunden Präsenz)"
+      }
+    ]
   },
   {
     "slug": "mechaniker-in-versuchswerkstatt-stv-responsabile-werkstatt-100-belimo-hinwil",
@@ -328,7 +340,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-lehrstelle-als-konstrukteurin-efz-z%c3%bcri-8340/1165049555",
-    "firstSeenAt": "2026-07-31T22:31:22.108Z",
+    "firstSeenAt": "2026-07-31T22:31:20.970Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-lehrstelle-als-automatikerin-efz-z%c3%bcri-8340/1165049955",
@@ -337,7 +349,7 @@
       },
       {
         "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-lehrstelle-als-konstrukteurin-efz-z%c3%bcri-8340/1165049555",
-        "firstSeenAt": "2026-07-31T22:31:22.108Z",
+        "firstSeenAt": "2026-07-31T22:31:20.970Z",
         "title": "Lehrstelle als Konstrukteur:in EFZ"
       }
     ]
@@ -371,24 +383,30 @@
       "gestionnaire-principal-de-projet-80-100-belimo-hinwil",
       "it-project-manager-80-100-belimo-hinwil",
       "gestionnaire-de-projet-de-ti-80-100-belimo-hinwil",
-      "senior-project-manager-80-100-belimo-hinwil-2"
+      "senior-project-manager-80-100-belimo-hinwil-2",
+      "senior-project-manager-80-100-belimo-hinwil"
     ],
     "previousSlugsByLocale": {
       "it": [
         "responsabile-di-progetto-senior-80-100-belimo-hinwil",
         "gestionnaire-principal-de-projet-80-100-belimo-hinwil",
         "it-project-manager-80-100-belimo-hinwil",
-        "senior-project-manager-80-100-belimo-hinwil-2"
+        "senior-project-manager-80-100-belimo-hinwil-2",
+        "senior-project-manager-80-100-belimo-hinwil"
       ],
       "en": [
-        "it-project-manager-80-100-belimo-hinwil"
+        "it-project-manager-80-100-belimo-hinwil",
+        "senior-project-manager-80-100-belimo-hinwil"
       ],
       "de": [
-        "it-project-manager-80-100-belimo-hinwil"
+        "it-project-manager-80-100-belimo-hinwil",
+        "senior-project-manager-80-100-belimo-hinwil",
+        "senior-project-manager-80-100-belimo-hinwil-2"
       ],
       "fr": [
         "gestionnaire-principal-de-projet-80-100-belimo-hinwil",
-        "gestionnaire-de-projet-de-ti-80-100-belimo-hinwil"
+        "gestionnaire-de-projet-de-ti-80-100-belimo-hinwil",
+        "senior-project-manager-80-100-belimo-hinwil-2"
       ]
     },
     "postalCode": "8340",
@@ -449,11 +467,11 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-project-enabler-&-business-analyst-%2880-100%29-zuri-8340/1165370955",
-    "firstSeenAt": "2026-09-25T14:39:06.864Z",
+    "firstSeenAt": "2026-09-01T14:09:19.286Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-project-enabler-&-business-analyst-%2880-100%29-zuri-8340/1165370955",
-        "firstSeenAt": "2026-09-25T14:39:06.864Z",
+        "firstSeenAt": "2026-09-01T14:09:19.286Z",
         "title": "Project Enabler & Business Analyst (80-100%)"
       },
       {
@@ -461,6 +479,17 @@
         "firstSeenAt": "2026-09-01T14:09:19.286Z",
         "title": "Project Management Officer & Business Analyst (80-100%)"
       }
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "project-management-officer-business-analyst-80-100-belimo-hinwil"
+      ],
+      "fr": [
+        "project-management-officer-business-analyst-80-100-belimo-hinwil"
+      ]
+    },
+    "previousSlugs": [
+      "project-management-officer-business-analyst-80-100-belimo-hinwil"
     ]
   },
   {
@@ -852,7 +881,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-team-leader-export-z%c3%bcri-8340/1165663555",
-    "firstSeenAt": "2026-10-23T09:16:37.329Z"
+    "firstSeenAt": "2026-10-22T21:15:30.859Z"
   },
   {
     "slug": "gestione-team-elaborazione-ordini-100-belimo-hinwil-ec31bb28",
@@ -1545,7 +1574,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-montagemitarbeiterin-f%c3%bcr-verl%c3%a4ngerte-wochenendschichten-%28tag-oder-nachtschicht-12-stunden-pr%c3%a4senz%29-z%c3%bcri-8340/1163258255",
-    "firstSeenAt": "2026-07-12T22:18:19.192Z",
+    "firstSeenAt": "2026-07-12T22:18:15.051Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-montagemitarbeiterin-%28tempor%c3%a4r%29-z%c3%bcri-8340/1163094055",
@@ -1554,7 +1583,7 @@
       },
       {
         "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-montagemitarbeiterin-f%c3%bcr-verl%c3%a4ngerte-wochenendschichten-%28tag-oder-nachtschicht-12-stunden-pr%c3%a4senz%29-z%c3%bcri-8340/1163258255",
-        "firstSeenAt": "2026-07-12T22:18:19.192Z",
+        "firstSeenAt": "2026-07-12T22:18:15.051Z",
         "title": "Montagemitarbeiter:in für verlängerte Wochenendschichten (Tag- oder Nachtschicht 12 Stunden Präsenz)"
       },
       {
@@ -1573,6 +1602,58 @@
         "title": "Operator Manufacturing Production, Processing & Assembly"
       }
     ]
+  },
+  {
+    "slug": "personale-di-montaggio-in-temporaneo-belimo-hinwil",
+    "title": "Montagemitarbeiter:in (temporär)",
+    "titleByLocale": {
+      "it": "Dipendenti di assemblaggio (temporaneo)",
+      "en": "Assembly employees (temporary)",
+      "de": "Montagemitarbeiter:in (temporär)",
+      "fr": "Employés de l'Assemblée (temporaire)"
+    },
+    "company": "Belimo",
+    "companyKey": "belimo",
+    "location": "Hinwil",
+    "addressLocality": "Hinwil",
+    "descriptionByLocale": {
+      "it": "Introduzione\n\nTi piace lavorare con le mani e avere un occhio per i dettagli? In questo ruolo si assemblano strumenti Belimo campo e contribuiscono ai più alti standard di qualità dei nostri prodotti e sono in uso in tutto il mondo.\n\nPrincipali responsabilità\n\n• Montaggio e collaudo di prodotti finiti e assemblaggi secondo l'ordine di produzione\n\n• Imballaggio dei prodotti a basso costo\n\n• Aderenza ai processi di assemblaggio e processo\n\nCapacità richieste\n\n• Resistenza fisica e artigianato\n\n• Lavorare in proprio e con metodi di lavoro attenti alla qualità\n\n• Esperienza nella produzione/assemblaggio di vantaggi\n\n• Buona conoscenza lingue tedesco\n\nQuesto invito a presentare proposte è destinato a creare un pool di talenti e non costituisce un posto vacante immediato.\n\nPer favore, caricate un permesso di lavoro valido per la Svizzera in Ulteriori documenti.\n\nPersone a Belimo\n\nGli edifici intelligenti sono creati da persone impegnate. Riuniamo persone di talento e creiamo un ambiente in cui possano avere successo. A Belimo, il rispetto, la fiducia e il sostegno reciproco attraverso i confini dei dipartimenti contribuiscono a rendere le idee rapidamente soluzioni pratiche. Perché insieme otteniamo più di quanto potremmo mai ottenere da soli.\n\nRiguardo Belimo\n\nBelimo è leader mondiale nello sviluppo, produzione e distribuzione di attrezzature da campo per il controllo efficiente dell'efficienza energetica dei sistemi di riscaldamento, ventilazione e condizionamento dell'aria. Le valvole, le valvole di controllo, i sensori e i contatori costituiscono il nostro core business. Fondata nel 1975, Belimo è quotata alla Borsa Svizzera (SIX) dal 1995.\n\nCompensazioni e servizi aggiuntivi\n\nNoi di Belimo crediamo in una remunerazione equa, giusta e competitiva. Offriamo uno stipendio che corrisponda alle tue competenze, esperienza, formazione e posizione. Oltre alla remunerazione, profitti di benefici completi che supportano il tuo benessere mentale, fisico, finanziario e sociale. Belimo è orgoglioso di essere un datore di lavoro che promuove le pari opportunità.",
+      "en": "Introduction\n\nYou like to work with your hands and have an eye for detail? In this role you assemble Belimo field tools and contribute to the highest quality standards of our products and are in use worldwide.\n\nMain responsibilities\n\n• Mounting and testing of finished products and assemblies according to production order\n\n• Transport-friendly packaging of the products\n\n• Adherence to assembly and process processes\n\nSkills required\n\n• Physical resilience and craftsmanship\n\n• Self-employed and quality-conscious working methods\n\n• Experience in manufacturing/assembly of advantage\n\n• Good knowledge of German\n\nThis call for proposals is designed to build a talent pool and does not constitute an immediate vacancy.\n\nPlease upload a valid working permit for Switzerland under Further documents.\n\nPeople at Belimo\n\nIntelligent buildings are created by committed people. We bring together talented people and create an environment in which they can be successful. At Belimo, respect, trust and mutual support across departmental boundaries help make ideas quickly practical solutions. Because together we achieve more than we could ever achieve on our own.\n\nAbout Belimo\n\nBelimo is the world leader in the development, production and distribution of field equipment for energy-efficient control of heating, ventilation and air conditioning systems. Valve drives, control valves, sensors and counters form our core business. Founded in 1975, Belimo has been listed on the Swiss Stock Exchange (SIX) since 1995.\n\nCompensation and additional services\n\nWe at Belimo believe in fair, just and competitive remuneration. We offer a salary that matches your skills, experience, training and location. In addition to the remuneration, you profit from comprehensive benefits that support your mental, physical, financial and social well-being. Belimo is proud to be an employer that promotes equal opportunities.",
+      "de": "Einführung\n\nDu arbeitest gerne mit den Händen und hast ein Auge fürs Detail? In dieser Rolle montierst du Belimo Feldgeräte und trägst dazu bei, dass unsere Produkte höchsten Qualitätsansprüchen gerecht werden und weltweit im Einsatz sind.\n\nHauptverantwortlichkeiten\n\n• Montieren und Prüfen von Fertigprodukten und Baugruppen nach Fertigungsauftrag\n\n• Transportgerechtes Verpacken der Produkte\n\n• Einhalten von Montage- und Prozessabläufen\n\nErforderliche Fachkenntnisse\n\n• Körperliche Belastbarkeit und handwerkliches Geschick\n\n• Selbstständige und qualitätsbewusste Arbeitsweise\n\n• Erfahrung in der Fertigung/Montage von Vorteil\n\n• Gute Deutschkenntnisse\n\nDiese Ausschreibung dient dem Aufbau eines Talentpools und stellt keine sofort zu besetzende Vakanz dar.\n\nBitte eine gültige Arbeitsbewilligung für die Schweiz unter Weitere Dokumente hochladen.\n\nMenschen bei Belimo\n\nIntelligente Gebäude entstehen durch engagierte Menschen. Wir bringen talentierte Menschen zusammen und schaffen ein Umfeld, in dem sie erfolgreich sein können. Bei Belimo tragen Respekt, Vertrauen und gegenseitige Unterstützung über Abteilungsgrenzen hinweg dazu bei, dass aus Ideen rasch praktische Lösungen werden. Denn gemeinsam erreichen wir mehr, als wir alleine je erreichen könnten.\n\nÜber Belimo\n\nBelimo ist Weltmarktführer in Entwicklung, Herstellung und Vertrieb von Feldgeräten zur energieeffizienten Regelung von Heizungs-, Lüftungs- und Klimaanlagen. Klappenantriebe, Regelventile, Sensoren und Zähler bilden dabei unser Kerngeschäft. Das 1975 gegründete Unternehmen ist seit 1995 an der Schweizer Börse (SIX) kotiert.\n\nVergütung und Zusatzleistungen\n\nWir bei Belimo glauben an eine faire, gerechte und wettbewerbsfähige Vergütung. Wir bieten ein Gehalt, das deinen Fähigkeiten, deiner Erfahrung, deiner Ausbildung und deinem Einsatzort entspricht. Neben der Vergütung profitierst du von umfassenden Zusatzleistungen, die dein mentales, körperliches, finanzielles und soziales Wohlbefinden unterstützen. Belimo ist stolz darauf, eine Arbeitgeberin zu sein, die Chancengleichheit fördert.",
+      "fr": "Présentation\n\nVous aimez travailler avec vos mains et avoir un oeil pour le détail? Dans ce rôle, vous assemblez des outils de terrain Belimo et contribuez aux normes de qualité les plus élevées de nos produits et sont en usage dans le monde entier.\n\nPrincipales responsabilités\n\n• Montage et essai des produits finis et des assemblages selon l'ordre de production\n\n• Emballages respectueux des transports des produits\n\n• Respect des processus de montage et de traitement\n\nCompétences requises\n\n• La résilience physique et l'artisanat\n\n• Les travailleurs indépendants et les méthodes de travail soucieuses de la qualité\n\n• Expérience dans la fabrication/assemblage d'avantages\n\n• Bonne connaissance de l'allemand\n\nCet appel à propositions vise à constituer un bassin de talents et ne constitue pas un poste vacant immédiat.\n\nVeuillez télécharger un permis de travail valide pour la Suisse sous D'autres documents.\n\nLes gens de Belimo\n\nNous réunissons des gens talentueux et créons un environnement dans lequel ils peuvent réussir. Chez Belimo, le respect, la confiance et le soutien mutuel au-delà des frontières ministérielles contribuent à faire des idées rapidement des solutions pratiques.\n\nÀ propos de Belimo\n\nBelimo est le leader mondial dans le développement, la production et la distribution d'équipements de terrain pour le contrôle énergétique des systèmes de chauffage, de ventilation et de climatisation. Les entraînements de vannes, les vannes de commande, les capteurs et les compteurs forment notre activité principale.\n\nRémunération et services supplémentaires\n\nNous croyons en une rémunération équitable, juste et compétitive. Nous offrons un salaire qui correspond à vos compétences, expérience, formation et emplacement. En plus de la rémunération, vous bénéficiez d'avantages globaux qui soutiennent votre bien-être mental, physique, financier et social. Belimo est fier d'être un employeur qui favorise l'égalité des chances."
+    },
+    "slugByLocale": {
+      "it": "personale-di-montaggio-in-temporaneo-belimo-hinwil",
+      "en": "assembly-staff-in-temporary-belimo-hinwil",
+      "de": "montagemitarbeiter-in-temporar-belimo-hinwil",
+      "fr": "personnel-de-l-assemblee-a-temporaire-belimo-hinwil"
+    },
+    "sector": "Industria / Automazione edifici",
+    "expiredAt": "2026-10-20T21:15:14.811Z",
+    "previousSlugs": [
+      "operator-manufacturing-production-processing-assembly-belimo-hinwil",
+      "operateur-manufacturing-production-processing-assembly-belimo-hinwil",
+      "operatore-manufacturing-production-processing-assembly-belimo-hinwil",
+      "montagemitarbeiter-in-temporar-belimo-hinwil"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "operator-manufacturing-production-processing-assembly-belimo-hinwil",
+        "operatore-manufacturing-production-processing-assembly-belimo-hinwil",
+        "montagemitarbeiter-in-temporar-belimo-hinwil"
+      ],
+      "fr": [
+        "operateur-manufacturing-production-processing-assembly-belimo-hinwil"
+      ]
+    },
+    "postalCode": "8340",
+    "streetAddress": "Brunnenbachstrasse 1",
+    "salaryMin": 76000,
+    "salaryMax": 102500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-montagemitarbeiterin-%28tempor%c3%a4r%29-z%c3%bcri-8340/1163094055",
+    "firstSeenAt": "2026-07-12T22:18:15.051Z"
   },
   {
     "slug": "esperto-di-proprieta-intellettuale-80-100-belimo-hinwil",
@@ -1725,6 +1806,108 @@
     "firstSeenAt": "2026-09-19T22:49:55.996Z"
   },
   {
+    "slug": "montagemitarbeiter-in-per-verlangerte-wochenendschichten-12-stunden-prasenz-tag-o-nacht-belimo-hinwil-fbc7db7f",
+    "title": "Montagemitarbeiter:in für verlängerte Wochenendschichten (Tagschicht / 12 Stunden Präsenz)",
+    "titleByLocale": {
+      "it": "Personale di assemblaggio per turni prolungati (cambio giornaliero / 12 ore di presenza)",
+      "en": "Assembly staff for extended weekend shifts (day shift / 12 hours of presence)",
+      "de": "Montagemitarbeiter:in für verlängerte Wochenendschichten (Tagschicht / 12 Stunden Präsenz)",
+      "fr": "Personnel d'assemblée pour les quarts de fin de semaine prolongés (nombre de jours / 12 heures de présence)"
+    },
+    "company": "Belimo",
+    "companyKey": "belimo",
+    "location": "Hinwil",
+    "addressLocality": "Hinwil",
+    "descriptionByLocale": {
+      "it": "Introduzione\n\nI nostri turni di fine settimana prolungati hanno un turno di giorno dalle 6.00 alle 18.00 e un turno di notte dalle 18.00 alle 18.00. Non sono previsti cambiamenti di turno e si lavora in modo permanente durante il giorno o turno di notte il sabato e la domenica. I fine settimana senza uso sono predefiniti annualmente da Belimo\n\nPrincipali responsabilità\n\n• Montaggio e collaudo di prodotti finiti e assemblaggi secondo l'ordine di produzione\n\n• Imballaggio dei prodotti a basso costo\n\n• Aderenza ai processi di assemblaggio e processo\n\nCapacità richieste\n\n• Resistenza fisica e artigianato\n\n• Lavorare in proprio e con metodi di lavoro attenti alla qualità\n\n• Esperienza nella produzione/assemblaggio di vantaggi\n\n• Buona conoscenza lingue tedesco\n\nPer favore, caricate un permesso di lavoro valido per la Svizzera in Ulteriori documenti.\n\nPersone a Belimo\n\nGli edifici intelligenti sono creati da persone impegnate. Riuniamo persone di talento e creiamo un ambiente in cui possano avere successo. A Belimo, il rispetto, la fiducia e il sostegno reciproco attraverso i confini dei dipartimenti contribuiscono a rendere le idee rapidamente soluzioni pratiche. Perché insieme otteniamo più di quanto potremmo mai ottenere da soli.\n\nRiguardo Belimo\n\nBelimo è leader mondiale nello sviluppo, produzione e distribuzione di attrezzature da campo per il controllo efficiente dell'efficienza energetica dei sistemi di riscaldamento, ventilazione e condizionamento dell'aria. Le valvole, le valvole di controllo, i sensori e i contatori costituiscono il nostro core business. Fondata nel 1975, Belimo è quotata alla Borsa Svizzera (SIX) dal 1995.\n\nCompensazioni e servizi aggiuntivi\n\nNoi di Belimo crediamo in una remunerazione equa, giusta e competitiva. Offriamo uno stipendio che corrisponda alle tue competenze, esperienza, formazione e posizione. Oltre alla remunerazione, profitti di benefici completi che supportano il tuo benessere mentale, fisico, finanziario e sociale. Belimo è orgoglioso di essere un datore di lavoro che promuove le pari opportunità.",
+      "en": "Introduction\n\nOur extended weekend shifts have a day shift from 6.00 to 6.00 p.m. and a night shift from 6.00 to 6.00 p.m.. No shift changes are planned and you work either permanently in the day or night shift on Saturdays and Sundays. The use-free weekends are pre-defined annually by Belimo\n\nMain responsibilities\n\n• Mounting and testing of finished products and assemblies according to production order\n\n• Transport-friendly packaging of the products\n\n• Adherence to assembly and process processes\n\nSkills required\n\n• Physical resilience and craftsmanship\n\n• Self-employed and quality-conscious working methods\n\n• Experience in manufacturing/assembly of advantage\n\n• Good knowledge of German\n\nPlease upload a valid working permit for Switzerland under Further documents.\n\nPeople at Belimo\n\nIntelligent buildings are created by committed people. We bring together talented people and create an environment in which they can be successful. At Belimo, respect, trust and mutual support across departmental boundaries help make ideas quickly practical solutions. Because together we achieve more than we could ever achieve on our own.\n\nAbout Belimo\n\nBelimo is the world leader in the development, production and distribution of field equipment for energy-efficient control of heating, ventilation and air conditioning systems. Valve drives, control valves, sensors and counters form our core business. Founded in 1975, Belimo has been listed on the Swiss Stock Exchange (SIX) since 1995.\n\nCompensation and additional services\n\nWe at Belimo believe in fair, just and competitive remuneration. We offer a salary that matches your skills, experience, training and location. In addition to the remuneration, you profit from comprehensive benefits that support your mental, physical, financial and social well-being. Belimo is proud to be an employer that promotes equal opportunities.",
+      "de": "Einführung\n\nUnsere verlängerten Wochenendschichten haben eine Tagschicht von 06.00 bis 18.00 Uhr und eine Nachtschicht von 18.00 bis 06.00 Uhr. Es sind keine Schichtwechsel vorgesehen und du arbeitest entweder dauerhaft in der Tages-/ oder Nachtschicht jeweils samstags und sonntags. Die einsatzfreien Wochenenden werden durch Belimo jährlich vordefiniert\n\nHauptverantwortlichkeiten\n\n• Montieren und Prüfen von Fertigprodukten und Baugruppen nach Fertigungsauftrag\n\n• Transportgerechtes Verpacken der Produkte\n\n• Einhalten von Montage- und Prozessabläufen\n\nErforderliche Fachkenntnisse\n\n• Körperliche Belastbarkeit und handwerkliches Geschick\n\n• Selbstständige und qualitätsbewusste Arbeitsweise\n\n• Erfahrung in der Fertigung/Montage von Vorteil\n\n• Gute Deutschkenntnisse\n\nBitte eine gültige Arbeitsbewilligung für die Schweiz unter Weitere Dokumente hochladen.\n\nMenschen bei Belimo\n\nIntelligente Gebäude entstehen durch engagierte Menschen. Wir bringen talentierte Menschen zusammen und schaffen ein Umfeld, in dem sie erfolgreich sein können. Bei Belimo tragen Respekt, Vertrauen und gegenseitige Unterstützung über Abteilungsgrenzen hinweg dazu bei, dass aus Ideen rasch praktische Lösungen werden. Denn gemeinsam erreichen wir mehr, als wir alleine je erreichen könnten.\n\nÜber Belimo\n\nBelimo ist Weltmarktführer in Entwicklung, Herstellung und Vertrieb von Feldgeräten zur energieeffizienten Regelung von Heizungs-, Lüftungs- und Klimaanlagen. Klappenantriebe, Regelventile, Sensoren und Zähler bilden dabei unser Kerngeschäft. Das 1975 gegründete Unternehmen ist seit 1995 an der Schweizer Börse (SIX) kotiert.\n\nVergütung und Zusatzleistungen\n\nWir bei Belimo glauben an eine faire, gerechte und wettbewerbsfähige Vergütung. Wir bieten ein Gehalt, das deinen Fähigkeiten, deiner Erfahrung, deiner Ausbildung und deinem Einsatzort entspricht. Neben der Vergütung profitierst du von umfassenden Zusatzleistungen, die dein mentales, körperliches, finanzielles und soziales Wohlbefinden unterstützen. Belimo ist stolz darauf, eine Arbeitgeberin zu sein, die Chancengleichheit fördert.",
+      "fr": "Présentation\n\nNos quarts prolongés de fin de semaine ont un quart de jour de 18h00 à 18h00 et un quart de nuit de 18h00 à 18h00. Aucun changement de quart n'est prévu et vous travaillez de façon permanente dans le travail de jour ou de nuit les samedis et dimanches.\n\nPrincipales responsabilités\n\n• Montage et essai des produits finis et des assemblages selon l'ordre de production\n\n• Emballages respectueux des transports des produits\n\n• Respect des processus de montage et de traitement\n\nCompétences requises\n\n• La résilience physique et l'artisanat\n\n• Les travailleurs indépendants et les méthodes de travail soucieuses de la qualité\n\n• Expérience dans la fabrication/assemblage d'avantages\n\n• Bonne connaissance de l'allemand\n\nVeuillez télécharger un permis de travail valide pour la Suisse sous D'autres documents.\n\nLes gens de Belimo\n\nNous réunissons des gens talentueux et créons un environnement dans lequel ils peuvent réussir. Chez Belimo, le respect, la confiance et le soutien mutuel au-delà des frontières ministérielles contribuent à faire des idées rapidement des solutions pratiques.\n\nÀ propos de Belimo\n\nBelimo est le leader mondial dans le développement, la production et la distribution d'équipements de terrain pour le contrôle énergétique des systèmes de chauffage, de ventilation et de climatisation. Les entraînements de vannes, les vannes de commande, les capteurs et les compteurs forment notre activité principale.\n\nRémunération et services supplémentaires\n\nNous croyons en une rémunération équitable, juste et compétitive. Nous offrons un salaire qui correspond à vos compétences, expérience, formation et emplacement. En plus de la rémunération, vous bénéficiez d'avantages globaux qui soutiennent votre bien-être mental, physique, financier et social. Belimo est fier d'être un employeur qui favorise l'égalité des chances."
+    },
+    "slugByLocale": {
+      "it": "montagemitarbeiter-in-per-verlangerte-wochenendschichten-12-stunden-prasenz-tag-o-nacht-belimo-hinwil-fbc7db7f",
+      "en": "assembly-staff-in-for-extended-weekend-shifts-12-hours-of-presence-day-or-night-belimo-hinwil-9c6f5dcf",
+      "de": "montagemitarbeiter-in-fur-verlangerte-wochenendschichten-12-stunden-prasenz-tag-oder-nacht-7cd169f5",
+      "fr": "personnel-d-assemblage-pour-les-quarts-de-fin-de-semaine-prolonges-12-heures-de-presence-jour-ou-nuit-belimo-1d57d8e6"
+    },
+    "sector": "Industria / Automazione edifici",
+    "expiredAt": "2026-10-12T21:15:30.653Z",
+    "previousSlugs": [
+      "montagemitarbeiter-in-fur-verlangerte-wochenendschichten-12-stunden-prasenz-tag-oder-nacht-7cd169f5",
+      "personnel-d-assemblee-pour-les-quarts-de-fin-de-semaine-prolonges-12-heures-de-presence-jour-ou-nuit-belimo-37188c69",
+      "operator-manufacturing-production-processing-assembly-belimo-hinwil",
+      "operatore-manufacturing-production-processing-assembly-belimo-hinwil",
+      "montagemitarbeiter-in-temporar-belimo-hinwil",
+      "personale-di-montaggio-in-temporaneo-belimo-hinwil",
+      "assembly-staff-in-temporary-belimo-hinwil",
+      "personnel-de-l-assemblee-a-temporaire-belimo-hinwil",
+      "operateur-manufacturing-production-processing-assembly-belimo-hinwil",
+      "montagemitarbeiter-in-fur-verlangerte-wochenendschichten-tagschicht-12-stunden-prasenz-1fff92d5",
+      "montagemitarbeiter-in-fur-verlangerte-wochenendschichten-tagschicht-12-stunden-prasenz-belimo-hinwil-5f512119"
+    ],
+    "previousSlugsByLocale": {
+      "de": [
+        "operator-manufacturing-production-processing-assembly-belimo-hinwil",
+        "montagemitarbeiter-in-fur-verlangerte-wochenendschichten-tagschicht-12-stunden-prasenz-1fff92d5",
+        "montagemitarbeiter-in-temporar-belimo-hinwil"
+      ],
+      "it": [
+        "montagemitarbeiter-in-fur-verlangerte-wochenendschichten-12-stunden-prasenz-tag-oder-nacht-7cd169f5",
+        "operator-manufacturing-production-processing-assembly-belimo-hinwil",
+        "operatore-manufacturing-production-processing-assembly-belimo-hinwil",
+        "montagemitarbeiter-in-temporar-belimo-hinwil",
+        "personale-di-montaggio-in-temporaneo-belimo-hinwil",
+        "assembly-staff-in-temporary-belimo-hinwil",
+        "personnel-de-l-assemblee-a-temporaire-belimo-hinwil",
+        "montagemitarbeiter-in-fur-verlangerte-wochenendschichten-tagschicht-12-stunden-prasenz-1fff92d5"
+      ],
+      "en": [
+        "montagemitarbeiter-in-fur-verlangerte-wochenendschichten-12-stunden-prasenz-tag-oder-nacht-7cd169f5",
+        "montagemitarbeiter-in-fur-verlangerte-wochenendschichten-tagschicht-12-stunden-prasenz-belimo-hinwil-5f512119",
+        "assembly-staff-in-temporary-belimo-hinwil",
+        "montagemitarbeiter-in-temporar-belimo-hinwil"
+      ],
+      "fr": [
+        "montagemitarbeiter-in-fur-verlangerte-wochenendschichten-12-stunden-prasenz-tag-oder-nacht-7cd169f5",
+        "personnel-d-assemblee-pour-les-quarts-de-fin-de-semaine-prolonges-12-heures-de-presence-jour-ou-nuit-belimo-37188c69",
+        "operateur-manufacturing-production-processing-assembly-belimo-hinwil",
+        "montagemitarbeiter-in-fur-verlangerte-wochenendschichten-tagschicht-12-stunden-prasenz-belimo-hinwil-5f512119",
+        "personnel-de-l-assemblee-a-temporaire-belimo-hinwil",
+        "montagemitarbeiter-in-temporar-belimo-hinwil"
+      ]
+    },
+    "postalCode": "8340",
+    "streetAddress": "Brunnenbachstrasse 1",
+    "salaryMin": 76000,
+    "salaryMax": 102500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-montagemitarbeiterin-f%c3%bcr-verl%c3%a4ngerte-wochenendschichten-%28tagschicht-12-stunden-pr%c3%a4senz%29-z%c3%bcri-8340/1163258255",
+    "firstSeenAt": "2026-07-12T22:18:15.051Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-montagemitarbeiterin-%28tempor%c3%a4r%29-z%c3%bcri-8340/1163094055",
+        "firstSeenAt": "2026-07-12T22:18:15.051Z",
+        "title": "Montagemitarbeiter:in (temporär)"
+      },
+      {
+        "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-montagemitarbeiterin-f%c3%bcr-verl%c3%a4ngerte-wochenendschichten-%28tagschicht-12-stunden-pr%c3%a4senz%29-z%c3%bcri-8340/1163258255",
+        "firstSeenAt": "2026-07-12T22:18:15.051Z",
+        "title": "Montagemitarbeiter:in für verlängerte Wochenendschichten (Tagschicht / 12 Stunden Präsenz)"
+      },
+      {
+        "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-operator-manufacturing-production%2c-processing-&-assembly-z%c3%bcri-8340/1163094055",
+        "firstSeenAt": "2026-07-12T22:18:15.051Z",
+        "title": "Operator Manufacturing Production, Processing & Assembly"
+      },
+      {
+        "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-operator-manufacturing-production%2c-processing-&-assembly-z%c3%bcri-8340/1163258255",
+        "firstSeenAt": "2026-07-12T22:18:19.192Z",
+        "title": "Operator Manufacturing Production, Processing & Assembly"
+      }
+    ]
+  },
+  {
     "slug": "apprendistato-come-ingegnere-elettronico-efz-belimo-hinwil",
     "title": "Lehrstelle als Elektroniker:in EFZ",
     "titleByLocale": {
@@ -1829,7 +2012,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-ferienaushilfe-in-der-fertigung-z%c3%bcri-8340/940422774",
-    "firstSeenAt": "2026-09-01T14:09:19.838Z",
+    "firstSeenAt": "2026-07-12T22:18:18.133Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-allgemein-z%c3%bcri-8340/940422774",
@@ -1848,7 +2031,7 @@
       },
       {
         "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-ferienaushilfe-in-der-fertigung-z%c3%bcri-8340/940422774",
-        "firstSeenAt": "2026-09-01T14:09:19.838Z",
+        "firstSeenAt": "2026-07-12T22:18:18.133Z",
         "title": "Ferienaushilfe in der Fertigung"
       }
     ]
@@ -1933,6 +2116,56 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-senior-hr-manager-%2880-100%29-z%c3%bcri-8340/1165341355",
     "firstSeenAt": "2026-09-08T23:17:44.746Z"
+  },
+  {
+    "slug": "architetto-di-soluzioni-sap-ewm-80-100-belimo-hinwil-e34f9665",
+    "title": "SAP Solution Architect EWM (80-100%)",
+    "titleByLocale": {
+      "it": "Architetto di soluzioni SAP EWM (80-100%)",
+      "en": "SAP Solution Architect EWM (80-100%)",
+      "de": "SAP Solution Architect EWM (80-100%)",
+      "fr": "SAP Solution Architecte EWM (80-100%)"
+    },
+    "company": "Belimo",
+    "companyKey": "belimo",
+    "location": "Hinwil",
+    "addressLocality": "Hinwil",
+    "descriptionByLocale": {
+      "it": "Introduzione\n\nCome Solution Architect SAP EWM, si assume la responsabilità tecnica e tecnica per il nostro\n\nHOLHOLHOLHOLHOLHOLHOLHOHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHO\n\nPrincipali responsabilità\n\n• Responsabilità per l'architettura, l'ulteriore sviluppo e la progettazione sostenibile del nostro paesaggio di soluzioni SAP EWM (EWM decentralizzato, SAP S/4HANA)\n\n• Analisi delle esigenze aziendali nei settori della logistica, della logistica di magazzino, della produzione e della gestione della catena di approvvigionamento nonché traduzione in soluzioni di scalabilità.\n\n• Analisi, concezione e implementazione di soluzioni in un sistema SAP landscape altamente sviluppato. con lavoro attivo nella personalizzazione e sviluppo SAP in ABAP.\n\n• Definizione e garanzia degli standard architettonici, di integrazione e di sviluppo, nonché rilascio di progetti di soluzioni e specifiche tecniche.\n\n• Gestione e gestione professionale dei partner esterni di consulenza, implementazione e sviluppo.\n\n• Identificazione e implementazione di ottimizzazioni di processo, potenziali di automazione e supporto nel supporto di 2° e 3° livello.\n\n• Cooperazione attiva in progetti internazionali, formazione di utenti chiave e stretta cooperazione con esperti interni del sistema e del SAP.\n\nCapacità richieste\n\n• Studi completati in informatica aziendale, informatica, amministrazione aziendale o qualifiche analoghe.\n\n• Un'esperienza pratica fondata nell'ambiente SAP EWM, idealmente con EWM decentralizzato su SAP S/4HANA.\n\n• Forte esperienza in architettura, design, configurazione di soluzioni EWM complesse.\n\n• Diversi anni di esperienza pratica nello sviluppo ABAP, idealmente con l'aiuto dell'architettura software dello sviluppatore/software ABAP.\n\n• Comprendere processi logistici SAP adiacenti ed esperienza con paesaggi di sistema SAP sviluppati e sviluppati.\n\n• Espressa mentalità pratica e disponibilità ad implementare soluzioni in SAP Personalizzazione e ABAP stesso.\n\n• Autolavoratori, metodi di lavoro analitici e ottime competenze in inglese. Ottime competenze tedesche sono un plus.\n\nPersone a Belimo\n\nGli edifici intelligenti sono creati da persone impegnate. Riuniamo persone di talento e creiamo un ambiente in cui possano avere successo. A Belimo, il rispetto, la fiducia e il sostegno reciproco attraverso i confini dei dipartimenti contribuiscono a rendere le idee rapidamente soluzioni pratiche. Perché insieme otteniamo più di quanto potremmo mai ottenere da soli.\n\nRiguardo Belimo\n\nBelimo è leader mondiale nello sviluppo, produzione e distribuzione di attrezzature da campo per il controllo efficiente dell'efficienza energetica dei sistemi di riscaldamento, ventilazione e condizionamento dell'aria. Le valvole, le valvole di controllo, i sensori e i contatori costituiscono il nostro core business. Fondata nel 1975, Belimo è quotata alla Borsa Svizzera (SIX) dal 1995.\n\nCompensazioni e servizi aggiuntivi\n\nNoi di Belimo crediamo in una remunerazione equa, giusta e competitiva. Offriamo uno stipendio che corrisponda alle tue competenze, esperienza, formazione e posizione. Oltre alla remunerazione, profitti di benefici completi che supportano il tuo benessere mentale, fisico, finanziario e sociale. Belimo è orgoglioso di essere un datore di lavoro che promuove le pari opportunità.",
+      "en": "Introduction\n\nAs an SAP Solution Architect EWM, you take on technical and technical responsibility for our SAPLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLBOLHOLHOLBOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLBOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHO\n\nMain responsibilities\n\n• Responsibility for the architecture, further development and sustainable design of our SAP EWM solution landscape (Decentralised EWM, SAP S/4HANA)\n\n• Analysis of business requirements in the areas of logistics, warehouse logistics, production and supply chain management as well as translation into scalable solutions.\n\n• Hands-on Analysis, conception and implementation of solutions in a highly developed SAP system landscape – with active work in SAP customization and development in ABAP.\n\n• Definition and assurance of architectural, integration and development standards, as well as the release of solution designs and technical specifications.\n\n• Management and professional management of external consulting, implementation and development partners.\n\n• Identification and implementation of process optimizations, automation potentials and support in 2nd and 3rd level support.\n\n• Active cooperation in international projects, training of key users and close cooperation with internal SAP and system experts.\n\nSkills required\n\n• Completed studies in business computer science, computer science, business administration or comparable qualifications.\n\n• Well-founded practical experience in the SAP EWM environment, ideally with decentralized EWM on SAP S/4HANA.\n\n• Strong experience in architecture, design, configuration of complex EWM solutions.\n\n• Several years of practical experience in ABAP development, ideally with the help of the software architecture of the ABAP developer/software.\n\n• Understanding adjacent SAP logistics processes and experience with grown, highly developed SAP system landscapes.\n\n• Expressed hands-on mentality and willingness to implement solutions in SAP Customizing and ABAP itself.\n\n• Self-employed, analytical working methods and very good English skills. Very good German skills are a plus.\n\nPeople at Belimo\n\nIntelligent buildings are created by committed people. We bring together talented people and create an environment in which they can be successful. At Belimo, respect, trust and mutual support across departmental boundaries help make ideas quickly practical solutions. Because together we achieve more than we could ever achieve on our own.\n\nAbout Belimo\n\nBelimo is the world leader in the development, production and distribution of field equipment for energy-efficient control of heating, ventilation and air conditioning systems. Valve drives, control valves, sensors and counters form our core business. Founded in 1975, Belimo has been listed on the Swiss Stock Exchange (SIX) since 1995.\n\nCompensation and additional services\n\nWe at Belimo believe in fair, just and competitive remuneration. We offer a salary that matches your skills, experience, training and location. In addition to the remuneration, you profit from comprehensive benefits that support your mental, physical, financial and social well-being. Belimo is proud to be an employer that promotes equal opportunities.",
+      "de": "Einführung\n\nAls SAP Solution Architect EWM übernimmst du die technische und fachliche Verantwortung für unsere SAP Extended Warehouse Management Landschaft. In enger Zusammenarbeit mit unseren Fachbereichen, SAP-Experten und externen Partnern entwickelst du zukunftsfähige Lösungen entlang der gesamten Logistik- und Supply-Chain-Prozesse. Dabei verbindest du Architektur, Beratung und Umsetzung und trägst massgeblich dazu bei, unsere Lager- und Logistikprozesse nachhaltig weiterzuentwickeln.\n\nHauptverantwortlichkeiten\n\n• Verantwortung für die Architektur, Weiterentwicklung und nachhaltige Ausgestaltung unserer SAP EWM-Lösungslandschaft (Dezentrales EWM, SAP S/4HANA)\n\n• Analyse von Business-Anforderungen aus den Bereichen Logistik, Lagerlogistik, Produktion und Supply Chain Management sowie Übersetzung in skalierbare Lösungen.\n\n• Hands-on Analyse, Konzeption und Implementierung von Lösungen in einer stark weiterentwickelten SAP-Systemlandschaft – mit aktiver Arbeit im SAP Customizing und Entwicklung in ABAP.\n\n• Definition und Sicherstellung von Architektur-, Integrations- und Entwicklungsstandards sowie Freigabe von Lösungsdesigns und technischen Spezifikationen.\n\n• Steuerung und fachliche Führung externer Beratungs-, Implementierungs- und Entwicklungspartner.\n\n• Identifikation und Umsetzung von Prozessoptimierungen, Automatisierungspotenzialen sowie Unterstützung im 2nd- und 3rd-Level-Support.\n\n• Aktive Mitarbeit in internationalen Projekten, Schulung von Key Usern sowie enge Zusammenarbeit mit internen SAP- und Systemexperten.\n\nErforderliche Fachkenntnisse\n\n• Abgeschlossenes Studium in Wirtschaftsinformatik, Informatik, Betriebswirtschaft oder vergleichbare Qualifikation.\n\n• Fundierte praktische Erfahrung im SAP EWM-Umfeld, idealerweise mit dezentralem EWM auf SAP S/4HANA.\n\n• Starke Erfahrung in Architektur, Design, Konfiguration komplexer EWM-Lösungen.\n\n• Mehrjährige praktische Erfahrung in der ABAP-Entwicklung, idealerweise mit Background als ABAP-Entwickler/Software-Architekt.\n\n• Verständnis angrenzender SAP-Logistikprozesse sowie Erfahrung mit gewachsenen, stark weiterentwickelten SAP-Systemlandschaften.\n\n• Ausgeprägte Hands-on-Mentalität und Bereitschaft, Lösungen im SAP Customizing und in ABAP selbst umzusetzen.\n\n• Selbständige, analytische Arbeitsweise sowie sehr gute Englischkenntnisse. Sehr gute deutsch Kenntnisse sind ein Plus.\n\nMenschen bei Belimo\n\nIntelligente Gebäude entstehen durch engagierte Menschen. Wir bringen talentierte Menschen zusammen und schaffen ein Umfeld, in dem sie erfolgreich sein können. Bei Belimo tragen Respekt, Vertrauen und gegenseitige Unterstützung über Abteilungsgrenzen hinweg dazu bei, dass aus Ideen rasch praktische Lösungen werden. Denn gemeinsam erreichen wir mehr, als wir alleine je erreichen könnten.\n\nÜber Belimo\n\nBelimo ist Weltmarktführer in Entwicklung, Herstellung und Vertrieb von Feldgeräten zur energieeffizienten Regelung von Heizungs-, Lüftungs- und Klimaanlagen. Klappenantriebe, Regelventile, Sensoren und Zähler bilden dabei unser Kerngeschäft. Das 1975 gegründete Unternehmen ist seit 1995 an der Schweizer Börse (SIX) kotiert.\n\nVergütung und Zusatzleistungen\n\nWir bei Belimo glauben an eine faire, gerechte und wettbewerbsfähige Vergütung. Wir bieten ein Gehalt, das deinen Fähigkeiten, deiner Erfahrung, deiner Ausbildung und deinem Einsatzort entspricht. Neben der Vergütung profitierst du von umfassenden Zusatzleistungen, die dein mentales, körperliches, finanzielles und soziales Wohlbefinden unterstützen. Belimo ist stolz darauf, eine Arbeitgeberin zu sein, die Chancengleichheit fördert.",
+      "fr": "Présentation\n\nEn tant qu'architecte SAP Solution EWM, vous assumez la responsabilité technique et technique de notre\n\nL'HOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLLLLLLLLLLLLLLLLLLLLLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHOLHO\n\nPrincipales responsabilités\n\n• Responsabilité de l'architecture, du développement et de la conception durable de notre paysage SAP EWM solution (Décentralisation EWM, SAP S/4HANA)\n\n• Analyse des besoins opérationnels dans les domaines de la logistique, de la logistique des entrepôts, de la gestion de la production et de la chaîne d'approvisionnement, ainsi que de la traduction en solutions évolutives.\n\n• Analyse pratique, conception et mise en œuvre de solutions dans un paysage système SAP très développé – avec un travail actif dans la personnalisation SAP et le développement de l'ABAP.\n\n• Définition et assurance des normes architecturales, d'intégration et de développement, ainsi que la publication des conceptions de solutions et des spécifications techniques.\n\n• Gestion et gestion professionnelle des services de consultation externe, de mise en œuvre et de développement.\n\n• Identification et mise en œuvre des optimisations de processus, des potentiels d'automatisation et de l'assistance dans le support de 2ème et 3ème niveaux.\n\n• Coopération active dans les projets internationaux, formation des utilisateurs clés et coopération étroite avec les experts internes du SAP et du système.\n\nCompétences requises\n\n• Études en informatique des entreprises, informatique, administration des entreprises ou qualifications comparables.\n\n• Expérience pratique bien fondée dans l'environnement SAP EWM, idéalement avec EWM décentralisé sur SAP S/4HANA.\n\n• Forte expérience en architecture, conception, configuration de solutions complexes EWM.\n\n• Plusieurs années d'expérience pratique dans le développement d'ABAP, idéalement avec l'aide de l'architecture logicielle du développeur/logiciel ABAP.\n\n• Comprendre les processus logistiques SAP adjacents et l'expérience avec des paysages SAP développés et hautement développés.\n\n• Exprimé la mentalité et la volonté de mettre en œuvre des solutions dans SAP Customizing et ABAP lui-même.\n\n• Travail indépendant, méthodes de travail analytiques et très bonnes compétences en anglais.\n\nLes gens de Belimo\n\nNous réunissons des gens talentueux et créons un environnement dans lequel ils peuvent réussir. Chez Belimo, le respect, la confiance et le soutien mutuel au-delà des frontières ministérielles contribuent à faire des idées rapidement des solutions pratiques.\n\nÀ propos de Belimo\n\nBelimo est le leader mondial dans le développement, la production et la distribution d'équipements de terrain pour le contrôle énergétique des systèmes de chauffage, de ventilation et de climatisation. Les entraînements de vannes, les vannes de commande, les capteurs et les compteurs forment notre activité principale.\n\nRémunération et services supplémentaires\n\nNous croyons en une rémunération équitable, juste et compétitive. Nous offrons un salaire qui correspond à vos compétences, expérience, formation et emplacement. En plus de la rémunération, vous bénéficiez d'avantages globaux qui soutiennent votre bien-être mental, physique, financier et social. Belimo est fier d'être un employeur qui favorise l'égalité des chances."
+    },
+    "slugByLocale": {
+      "it": "architetto-di-soluzioni-sap-ewm-80-100-belimo-hinwil-e34f9665",
+      "en": "sap-solution-architect-ewm-80-100-belimo-hinwil-4ae6fe31",
+      "de": "sap-solution-architect-ewm-80-100-belimo-hinwil-4ae6fe31",
+      "fr": "architecte-de-solutions-sap-ewm-80-100-belimo-hinwil-6ceb2d5a"
+    },
+    "sector": "Industria / Automazione edifici",
+    "expiredAt": "2026-10-06T21:14:15.360Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "sap-solution-architect-ewm-80-100-belimo-hinwil-4ae6fe31"
+      ],
+      "fr": [
+        "sap-solution-architect-ewm-80-100-belimo-hinwil-4ae6fe31"
+      ],
+      "en": [
+        "sap-solution-architect-ewm-80-100-belimo-hinwil-4ae6fe31"
+      ],
+      "de": [
+        "sap-solution-architect-ewm-80-100-belimo-hinwil-4ae6fe31"
+      ]
+    },
+    "postalCode": "8340",
+    "streetAddress": "Brunnenbachstrasse 1",
+    "salaryMin": 83000,
+    "salaryMax": 126000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-sap-solution-architect-ewm-%2880-100%29-z%c3%bcri-8340/1165476355",
+    "firstSeenAt": "2026-09-21T15:55:28.487Z"
   },
   {
     "slug": "architetto-di-soluzioni-sap-ewm-80-100-belimo-hinwil-fe32f8e6",
@@ -2405,6 +2638,37 @@
     ]
   },
   {
+    "slug": "head-of-group-treasury-belimo-hinwil-f3470ae7",
+    "title": "Head of Group Treasury",
+    "titleByLocale": {
+      "en": "Head of Group Treasury",
+      "it": "Responsabile Group Treasury",
+      "de": "Leiter Group Treasury",
+      "fr": "Responsable Group Treasury"
+    },
+    "company": "Belimo",
+    "companyKey": "belimo",
+    "location": "Hinwil",
+    "addressLocality": "Hinwil",
+    "descriptionByLocale": {
+      "en": "Introduction\n\nAs Head of Group Treasury , you will shape and further develop Belimo’s global Treasury function at an important stage of its growth. You will take ownership of liquidity planning, cash management, financing, banking relationships, and financial risk management across the Group. This is a hands-on leadership role for a treasury professional who combines strong technical expertise with the ability to understand complex cash flows, build trusted internal relationships, and establish structures that create resilience for Belimo worldwide.\n\nKey Responsibilities\n\n• Lead and continuously develop the Group Treasury function in alignment with BELIMO’s values and leadership principles.\n\n• Establish reliable global liquidity planning and create transparency across the Group’s cash flows.\n\n• Further develop cash management, cash pooling, and intercompany financing structures across key markets and currencies.\n\n• Define and implement treasury policies, governance frameworks, standards, and internal controls.\n\n• Lead financing activities and manage relationships with banks, investors, rating agencies, and other financing partners.\n\n• Define and oversee hedging strategies for foreign exchange, interest rate, and other treasury-related risks.\n\n• Drive treasury digitalization, automation, process improvements, and high-quality treasury reporting.\n\n• Advise Executive Management and Group Finance on strategic initiatives, including M&A, investments, and financing projects.\n\nRequired Expertise\n\n• You hold a university degree in Finance, Economics, Business Administration, or a related discipline. A professional treasury qualification and/or MBA is an advantage.\n\n• You bring substantial, relevant experience in corporate treasury, ideally gained in a multinational organization with complex international cash flows and group structures.\n\n• You have practical expertise in liquidity planning, cash management, cash pooling, intercompany financing, and financial risk management.\n\n• You have experience managing complex stakeholder relationships across an international organization, including finance teams, business leaders, subsidiaries, external partners, and financial institutions.\n\n• You are familiar with Treasury Management Systems, banking platforms, treasury digitalization, and the treasury-related implications of IFRS.\n\n• You communicate confidently in English, both verbally and in writing. German is a strong plus and will help you build meaningful connections across Belimo.\n\n• You are reliable, accountable, and pragmatic, with strong analytical skills and the confidence to make well-founded decisions.\n\n• You are a credible and collaborative leader who builds trust, communicates complex topics clearly, and enjoys developing both people and structures.\n\nPeople at Belimo\n\nSmart buildings start with dedicated people. We bring talented people together and foster an environment to succeed. At Belimo, respect, trust, and support across departments help ideas move quickly into real-world solutions, because we achieve more together than we ever could alone.\n\nAbout Belimo\n\nBelimo is the global market leader in the development, production, and sales of field devices for the energy-efficient control of heating, ventilation and air-conditioning systems. The focus of our core business is on damper actuators, control valves, sensors and meters. Founded in 1975, the company has been listed on the Swiss Exchange (SIX) since 1995.\n\nCompensation & Benefits\n\nAt Belimo, we believe in fair, equitable, and competitive compensation. We offer pay that reflects your skills, experience, education, and location. Beyond compensation, you'll benefit from a comprehensive rewards package designed to support your health, financial wellbeing, and long-term success. Belimo is proud to be an Equal Opportunity Employer.\n\nReady for your next step? We look forward to hearing from you.",
+      "it": "Introduzione\n\nCome Capo del Tesoro del Gruppo, si forma e svilupperà ulteriormente la funzione del Tesoro globale di Belimo in una fase importante della sua crescita. Prenderai la proprietà della pianificazione della liquidità, della gestione dei contanti, del finanziamento, delle relazioni bancarie e della gestione dei rischi finanziari in tutto il Gruppo. Questo è un ruolo di leadership pratico per un professionista del tesoro che combina una forte competenza tecnica con la capacità di comprendere flussi di cassa complessi, costruire relazioni interne affidabili e stabilire strutture che creano resilienza per Belimo in tutto il mondo.\n\nPrincipali responsabilità\n\n• Guidare e sviluppare continuamente la funzione del Tesoro del Gruppo in allineamento con i valori e i principi di leadership di BELIMO.\n\n• Stabilire una pianificazione di liquidità globale affidabile e creare trasparenza sui flussi di cassa del Gruppo.\n\n• Sviluppare ulteriormente cash management, cash pooling e strutture di finanziamento intercompany su mercati chiave e valute.\n\n• Definire e implementare politiche di tesoreria, quadri di governance, standard e controlli interni.\n\n• Leader attività di finanziamento e gestire le relazioni con banche, investitori, agenzie di rating e altri partner di finanziamento.\n\n• Definire e supervisionare le strategie di copertura per cambio, tasso di interesse e altri rischi legati al tesoro.\n\n• Digitalizzazione del tesoro di trasmissione, automazione, miglioramenti del processo e report del tesoro di alta qualità.\n\n• Consigliamo Executive Management e Group Finance a iniziative strategiche, tra cui M&A, investimenti e progetti di finanziamento.\n\nCompetenza richiesta\n\n• Hai una laurea in Finanza, Economia, Business Administration, o una disciplina relativa. Una qualifica professionale di tesoreria e/o MBA è un vantaggio.\n\n• Porti esperienza sostanziale e rilevante nel tesoro aziendale, idealmente acquisita in un'organizzazione multinazionale con flussi di cassa internazionali complessi e strutture di gruppo.\n\n• Hai competenze pratiche nella pianificazione della liquidità, gestione dei contanti, cash pooling, finanziamento intercompany e gestione dei rischi finanziari.\n\n• Hai esperienza nella gestione di complesse relazioni con gli stakeholder in un'organizzazione internazionale, tra cui team finanziari, leader aziendali, filiali, partner esterni e istituzioni finanziarie.\n\n• Conoscete i Sistemi di Gestione del Tesoro, le piattaforme bancarie, la digitalizzazione del tesoro e le implicazioni relative al tesoro di IFRS.\n\n• Si comunica con fiducia in inglese, sia verbalmente che per iscritto. Il tedesco è un vantaggio forte e vi aiuterà a costruire connessioni significative attraverso Belimo.\n\n• Sei affidabile, responsabile e pragmatico, con forti capacità analitiche e la fiducia di prendere decisioni ben fondate.\n\n• Sei un leader credibile e collaborativo che costruisce fiducia, comunica con chiarezza argomenti complessi, e gode di sviluppare sia persone che strutture.\n\nPersone a Belimo\n\nGli edifici intelligenti iniziano con persone dedicate. Portiamo insieme persone di talento e adottiamo un ambiente per avere successo. A Belimo, il rispetto, la fiducia e il supporto nei dipartimenti aiutano le idee a muoversi rapidamente in soluzioni del mondo reale, perché raggiungiamo più insieme di quanto mai potremmo soli.\n\nAbout Belimo\n\nBelimo è leader del mercato globale nello sviluppo, produzione e vendita di dispositivi di campo per il controllo efficiente dell'energia dei sistemi di riscaldamento, ventilazione e climatizzazione. Il focus del nostro core business è sugli attuatori ammortizzatori, valvole di controllo, sensori e metri. Fondata nel 1975, la società è quotata sulla Borsa Svizzera (SIX) dal 1995.\n\nCompensazioni e vantaggi\n\nA Belimo, crediamo in una compensazione equa, equa e competitiva. Offriamo la paga che riflette le vostre abilità, esperienza, istruzione e la posizione. Oltre alla compensazione, potrete beneficiare di un pacchetto completo di ricompense progettato per sostenere la vostra salute, benessere finanziario e successo a lungo termine. Belimo è orgogliosa di essere un Equal Opportunity Employer.\n\nPronti per il prossimo passo? Non vediamo l'ora di sentirti.",
+      "de": "Einleitung\n\nAls Head of Group Treasury werden Sie die globale Treasury-Funktion von Belimo in einer wichtigen Wachstumsphase gestalten und weiterentwickeln. Sie übernehmen die Verantwortung für Liquiditätsplanung, Cash Management, Finanzierung, Bankbeziehungen und Finanzrisikomanagement im gesamten Konzern. Dies ist eine praktische Führungsrolle für einen Treasury-Experten, der starkes technisches Know-how mit der Fähigkeit verbindet, komplexe Cashflows zu verstehen, vertrauenswürdige interne Beziehungen aufzubauen und Strukturen aufzubauen, die weltweit Widerstandsfähigkeit für Belimo schaffen.\n\nHauptzuständigkeiten\n\n• Leitung und kontinuierliche Weiterentwicklung der Konzern-Treasury-Funktion im Einklang mit den Werten und Führungsprinzipien von BELIMO.\n\n• Etablieren Sie eine zuverlässige globale Liquiditätsplanung und schaffen Sie Transparenz über die Cashflows der Gruppe.\n\n• Weitere Entwicklung von Cash Management, Cash Pooling und unternehmensübergreifenden Finanzierungsstrukturen in wichtigen Märkten und Währungen.\n\n• Definieren und implementieren Sie Treasury-Richtlinien, Governance-Rahmenbedingungen, Standards und interne Kontrollen.\n\n• Leiten Sie die Finanzierungsaktivitäten und verwalten Sie die Beziehungen zu Banken, Investoren, Ratingagenturen und anderen Finanzierungspartnern.\n\n• Definieren und beaufsichtigen Sie Sicherungsstrategien für Devisen-, Zins- und andere Treasury-bezogene Risiken.\n\n• Fördern Sie die Treasury-Digitalisierung, Automatisierung, Prozessverbesserungen und ein hochwertiges Treasury-Reporting.\n\n• Beratung von Executive Management und Group Finance bei strategischen Initiativen, einschließlich M&A, Investitionen und Finanzierungsprojekten.\n\nErforderliches Fachwissen\n\n• Sie haben einen Hochschulabschluss in Finanzen, Wirtschaft, Betriebswirtschaft oder einer verwandten Disziplin. Eine professionelle Treasury-Qualifikation und / oder MBA ist von Vorteil.\n\n• Sie bringen substanzielle, relevante Erfahrung im Corporate Treasury mit, idealerweise in einer multinationalen Organisation mit komplexen internationalen Cashflows und Gruppenstrukturen.\n\n• Sie verfügen über praktisches Fachwissen in den Bereichen Liquiditätsplanung, Cash Management, Cash Pooling, Unternehmensfinanzierung und Finanzrisikomanagement.\n\n• Sie haben Erfahrung in der Verwaltung komplexer Stakeholder-Beziehungen in einer internationalen Organisation, einschließlich Finanzteams, Führungskräften, Tochtergesellschaften, externen Partnern und Finanzinstituten.\n\n• Sie kennen Treasury Management Systeme, Bankenplattformen, Treasury Digitalisierung und die Treasury-bezogenen Implikationen der IFRS.\n\n• Sie kommunizieren selbstbewusst auf Englisch, sowohl mündlich als auch schriftlich. Deutsch ist ein starkes Plus und wird Ihnen helfen, sinnvolle Verbindungen in Belimo aufzubauen.\n\n• Sie sind zuverlässig, rechenschaftspflichtig und pragmatisch, mit starken analytischen Fähigkeiten und dem Vertrauen, fundierte Entscheidungen zu treffen.\n\n• Sie sind eine glaubwürdige und kooperative Führungskraft, die Vertrauen schafft, komplexe Themen klar kommuniziert und Spaß daran hat, Menschen und Strukturen zu entwickeln.\n\nMenschen in Belimo\n\nIntelligente Gebäude beginnen mit engagierten Menschen. Wir bringen talentierte Menschen zusammen und fördern ein Umfeld, um erfolgreich zu sein. Bei Belimo helfen Respekt, Vertrauen und Unterstützung abteilungsübergreifend, Ideen schnell in reale Lösungen zu bringen, weil wir gemeinsam mehr erreichen, als wir es jemals alleine könnten.\n\nÜber Belimo\n\nBelimo ist Weltmarktführer in der Entwicklung, Produktion und dem Vertrieb von Feldgeräten zur energieeffizienten Steuerung von Heizungs-, Lüftungs- und Klimaanlagen. Der Fokus unseres Kerngeschäfts liegt auf Dämpferaktoren, Regelventilen, Sensoren und Messgeräten. Das 1975 gegründete Unternehmen ist seit 1995 an der Swiss Exchange (SIX) notiert.\n\nEntschädigung und Vorteile\n\nBei Belimo glauben wir an eine faire, gerechte und wettbewerbsfähige Vergütung. Wir bieten eine Bezahlung an, die Ihre Fähigkeiten, Erfahrung, Ausbildung und Ihren Standort widerspiegelt. Über die Entschädigung hinaus profitieren Sie von einem umfassenden Belohnungspaket, das Ihre Gesundheit, Ihr finanzielles Wohlbefinden und Ihren langfristigen Erfolg unterstützt. Belimo ist stolz darauf, ein Arbeitgeber für Chancengleichheit zu sein.\n\nBereit für Ihren nächsten Schritt? Wir freuen uns darauf, von Ihnen zu hören.",
+      "fr": "Présentation\n\nEn tant que chef du groupe Trésorerie, vous façonnerez et développerez la fonction de Trésorerie mondiale de Belimo à un stade important de sa croissance. Vous serez propriétaire de la planification des liquidités, de la gestion de la trésorerie, du financement, des relations bancaires et de la gestion des risques financiers dans l'ensemble du Groupe. C'est un rôle de leadership pratique pour un professionnel de la trésorerie qui combine une solide expertise technique avec la capacité de comprendre les flux de trésorerie complexes, de construire des relations internes de confiance et d'établir des structures qui créent une résilience pour Belimo dans le monde entier.\n\nPrincipales responsabilités\n\n• Diriger et développer en permanence la fonction de Trésorerie du Groupe conformément aux valeurs et principes de leadership de BELIMO.\n\n• Établir une planification fiable de la liquidité mondiale et créer la transparence des flux de trésorerie du Groupe.\n\n• Développer davantage la gestion de la trésorerie, la mise en commun des liquidités et les structures de financement interentreprises sur les principaux marchés et monnaies.\n\n• Définir et mettre en oeuvre des politiques de trésorerie, des cadres de gouvernance, des normes et des contrôles internes.\n\n• Diriger les activités de financement et gérer les relations avec les banques, les investisseurs, les agences de notation et les autres partenaires financiers.\n\n• Définir et superviser les stratégies de couverture des risques de change, de taux d'intérêt et d'autres risques liés à la trésorerie.\n\n• Favoriser la numérisation, l'automatisation, l'amélioration des processus et l'établissement de rapports de trésorerie de haute qualité.\n\n• Conseiller la direction et les finances de groupe sur les initiatives stratégiques, y compris les fusions-acquisitions, les investissements et le financement de projets.\n\nExpertise requise\n\n• Vous êtes titulaire d'un diplôme universitaire en finance, économie, administration des affaires ou une discipline connexe. Une qualification professionnelle de trésorerie et/ou de MBA est un avantage.\n\n• Vous apportez une expérience importante et pertinente dans la trésorerie des entreprises, idéalement acquise dans une organisation multinationale avec des flux de trésorerie internationaux complexes et des structures de groupe.\n\n• Vous avez une expertise pratique en planification des liquidités, gestion de la trésorerie, gestion de la trésorerie commune, financement interentreprises et gestion des risques financiers.\n\n• Vous avez de l'expérience dans la gestion de relations complexes entre les parties prenantes d'une organisation internationale, y compris les équipes financières, les chefs d'entreprise, les filiales, les partenaires externes et les institutions financières.\n\n• Vous connaissez les systèmes de gestion de la trésorerie, les plateformes bancaires, la numérisation de la trésorerie et les implications d'IFRS liées à la trésorerie.\n\n• Vous communiquez avec confiance en anglais, verbalement et par écrit. L'allemand est un plus fort et vous aidera à créer des connexions significatives à travers Belimo.\n\n• Vous êtes fiable, responsable et pragmatique, avec de solides compétences analytiques et la confiance nécessaire pour prendre des décisions fondées.\n\n• Vous êtes un leader crédible et collaboratif qui renforce la confiance, communique clairement des sujets complexes et apprécie le développement des personnes et des structures.\n\nLes gens de Belimo\n\nLes bâtiments intelligents commencent par des personnes dédiées. Nous réunissons des gens talentueux et favorisons un environnement propice au succès. Chez Belimo, le respect, la confiance et le soutien à travers les ministères aident les idées à passer rapidement à des solutions concrètes, parce que nous obtenons plus ensemble que nous ne le pouvions jamais.\n\nÀ propos de Belimo\n\nBelimo est le leader mondial dans le développement, la production et la vente de dispositifs de terrain pour le contrôle énergétique des systèmes de chauffage, de ventilation et de climatisation. Nos activités principales sont les actionneurs d'amortisseurs, les vannes de commande, les capteurs et les compteurs. Fondée en 1975, la société est cotée à la Bourse suisse (SIX) depuis 1995.\n\nRémunération et avantages sociaux\n\nChez Belimo, nous croyons en une rémunération juste, équitable et concurrentielle. Nous offrons une rémunération qui reflète vos compétences, votre expérience, vos études et votre emplacement. Au-delà de la rémunération, vous bénéficierez d'un ensemble complet de récompenses conçu pour soutenir votre santé, votre bien-être financier et votre succès à long terme. Belimo est fier d'être un employeur pour l'égalité des chances.\n\nPrêt pour votre prochaine étape ? Nous avons hâte de vous entendre."
+    },
+    "slugByLocale": {},
+    "sector": "Industria / Automazione edifici",
+    "expiredAt": "2026-09-26T13:55:39.326Z",
+    "postalCode": "8340",
+    "streetAddress": "Brunnenbachstrasse 1",
+    "salaryMin": 101500,
+    "salaryMax": 154000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-head-of-group-treasury-zuri-8340/1165511855",
+    "firstSeenAt": "2026-09-25T14:39:12.341Z"
+  },
+  {
     "slug": "head-of-group-treasury-belimo-hinwil-f693697d",
     "title": "Head of Group Treasury",
     "titleByLocale": {
@@ -2434,6 +2698,118 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-head-of-group-treasury-zuri-8340/1165511855",
     "firstSeenAt": "2026-09-25T14:39:12.341Z"
+  },
+  {
+    "slug": "impiegata-impiegato-in-logistica-temporar-belimo-hinwil-47ce4a45",
+    "title": "Operator Warehouse & Distribution",
+    "titleByLocale": {
+      "it": "Magazzino e distribuzione dell'operatore",
+      "en": "Warehouse & Distribution Operator",
+      "de": "Operator Warehouse & Distribution",
+      "fr": "Opérateur Warehouse & Distribution"
+    },
+    "company": "Belimo",
+    "companyKey": "belimo",
+    "location": "Hinwil",
+    "addressLocality": "Hinwil",
+    "descriptionByLocale": {
+      "it": ".\n\nVuoi muoversi invece di stare fermo? Allora hai ragione con noi. Per la nostra posizione a Hinwil, siamo alla ricerca di logistici dedicati: donne che possono aiutare – sia nel magazzino che nella produzione. Porti l'esperienza, hai il carrello elevatore omologato SUVA in tasca e sei pronto per l'uso immediatamente? Perfetto!\n\nCosa farai\n\n• Acquisto, imballaggio, entrata e rimozione delle merci\n\n• Caricamento e scarico di camion\n\n• Fornitura dei materiali alle linee di produzione\n\n• Lavori del magazzino generale\n\n• Rispetto degli standard di sicurezza e qualità\n\nChi sei\n\n• Esperienza come logistica:\n\n• Passante per carrelli elevatori riconosciuto SUVA\n\n• Metodi di lavoro affidabili e indipendenti\n\n• Spirito di squadra, flessibilità e fitness\n\n• Buona conoscenza del tedesco\n\nChi siamo\n\nA Belimo, siamo orgogliosi di rendere la nostra azienda un luogo gratificante per lavorare. I nostri leader sono orientati al valore e promuovono nuove idee nelle loro squadre in tutto il mondo. Attraverso la nostra passione, i nostri dipendenti non solo creano prodotti sorprendenti, ma anche rivoluzionano l'industria HVAC. Investire nei nostri dipendenti è al centro di Belimo quando si tratta di coinvolgere diversi talenti creativi per costruire una società leader del settore. Il successo del nostro marchio aziendale si basa sulla competenza e l'impegno di ogni individuo.",
+      "en": ".\n\nWant to move instead of standstill? Then you are exactly right with us. For our location in Hinwil, we are looking for dedicated logisticians: women who can help – whether in the warehouse or in production. You bring experience, have the SUVA-approved forklift in your pocket and are ready for use immediately? Perfect!\n\nWhat will you do\n\n• Order picking, packaging, entry and removal of goods\n\n• Loading and unloading of trucks\n\n• Material supply to production lines\n\n• General warehouse work\n\n• Compliance with safety and quality standards\n\nWho you are\n\n• Experience as a logistician:\n\n• SUVA-recognised forklift pass\n\n• Reliable and independent working methods\n\n• Team spirit, flexibility and physical fitness\n\n• Good knowledge of German\n\nWho we are\n\nAt Belimo, we are proud to make our company a rewarding place to work. Our leaders are value-driven and promote new ideas in their teams around the world. Through our passion, our employees not only create amazing products, but also revolutionize the HVAC industry. Investing in our employees is at the heart of Belimo when it comes to engaging diverse creative talents to build an industry-leading company. The success of our corporate brand is based on the competence and commitment of each individual.",
+      "de": "Einführung\n\nLust auf Bewegung statt Stillstand? Dann bist du bei uns genau richtig. Für unseren Standort Hinwil suchen wir engagierte Logistiker:innen, die mit anpacken – ob im Lager oder in der Fertigung. Du bringst Erfahrung mit, hast den SUVA-anerkannten Staplerausweis in der Tasche und bist sofort einsatzbereit? Perfekt!\n\nHauptverantwortlichkeiten\n\n• Kommissionieren, verpacken, ein- und auslagern von Waren\n\n• Be- und Entladen von Lastwagen\n\n• Materialversorgung der Produktionslinien\n\n• Allgemeine Lagerarbeiten\n\n• Einhalten von Sicherheits- und Qualitätsstandards\n\nErforderliche Fachkenntnisse\n\n• Erfahrung als Logistiker:in\n\n• SUVA-anerkannter Staplerausweis\n\n• Zuverlässige und elbstständige Arbeitsweise\n\n• Teamgeist, Flexibilität und körperliche Fitness\n\n• Gute Deutschkenntnisse\n\nMenschen bei Belimo\n\nIntelligente Gebäude entstehen durch engagierte Menschen. Wir bringen talentierte Menschen zusammen und schaffen ein Umfeld, in dem sie erfolgreich sein können. Bei Belimo tragen Respekt, Vertrauen und gegenseitige Unterstützung über Abteilungsgrenzen hinweg dazu bei, dass aus Ideen rasch praktische Lösungen werden. Denn gemeinsam erreichen wir mehr, als wir alleine je erreichen könnten.\n\nÜber Belimo\n\nBelimo ist Weltmarktführer in Entwicklung, Herstellung und Vertrieb von Feldgeräten zur energieeffizienten Regelung von Heizungs-, Lüftungs- und Klimaanlagen. Klappenantriebe, Regelventile, Sensoren und Zähler bilden dabei unser Kerngeschäft. Das 1975 gegründete Unternehmen ist seit 1995 an der Schweizer Börse (SIX) kotiert.\n\nVergütung und Zusatzleistungen\n\nWir bei Belimo glauben an eine faire, gerechte und wettbewerbsfähige Vergütung. Wir bieten ein Gehalt, das deinen Fähigkeiten, deiner Erfahrung, deiner Ausbildung und deinem Einsatzort entspricht. Neben der Vergütung profitierst du von umfassenden Zusatzleistungen, die dein mentales, körperliches, finanzielles und soziales Wohlbefinden unterstützen. Belimo ist stolz darauf, eine Arbeitgeberin zu sein, die Chancengleichheit fördert.",
+      "fr": ".\n\nVous voulez bouger au lieu d'arrêter ? Alors vous avez raison avec nous. Pour notre emplacement à Hinwil, nous recherchons des logisticiens dévoués : des femmes qui peuvent aider – que ce soit dans l'entrepôt ou en production. Vous apportez de l'expérience, avez le chariot élévateur homologué VUSA dans votre poche et sont prêts à être utilisés immédiatement? Parfait !\n\nQue ferez-vous ?\n\n• Cueillette, emballage, entrée et retrait des marchandises\n\n• Chargement et déchargement des camions\n\n• Fourniture de matériaux aux lignes de production\n\n• Travaux généraux d'entreposage\n\n• Respect des normes de sécurité et de qualité\n\nQui vous êtes\n\n• Expérience en tant que logisticien :\n\n• Passage de chariot élévateur reconnu VUSA\n\n• Méthodes de travail fiables et indépendantes\n\n• Esprit d'équipe, flexibilité et forme physique\n\n• Bonne connaissance de l'allemand\n\nQui nous sommes\n\nChez Belimo, nous sommes fiers de faire de notre entreprise un lieu de travail enrichissant. Nos dirigeants sont motivés par la valeur et font la promotion de nouvelles idées dans leurs équipes à travers le monde. Grâce à notre passion, nos employés non seulement créent des produits étonnants, mais révolutionnent également l'industrie du CVC. Investir dans nos employés est au cœur de Belimo quand il s'agit de mobiliser divers talents créatifs pour construire une entreprise leader de l'industrie. Le succès de notre marque est basé sur la compétence et l'engagement de chaque individu."
+    },
+    "slugByLocale": {
+      "it": "impiegata-impiegato-in-logistica-temporar-belimo-hinwil-47ce4a45",
+      "en": "logistician-in-temporary-belimo-hinwil-01afdbd6",
+      "de": "logistiker-in-temporar-belimo-hinwil-073ff01a",
+      "fr": "logisticien-in-temporaire-belimo-hinwil-d48dbb2a"
+    },
+    "sector": "Industria / Automazione edifici",
+    "expiredAt": "2026-09-23T23:37:10.286Z",
+    "previousSlugsByLocale": {
+      "de": [
+        "logistiker-in-nachtschicht-100-belimo-hinwil-a8d482d3",
+        "operator-warehouse-distribution-belimo-hinwil-9f7c8f36",
+        "logistiker-in-temporar-belimo-hinwil-073ff01a",
+        "impiegata-impiegato-in-logistica-nachtschicht-100-belimo-hinwil",
+        "logistician-in-night-shift-100-belimo-hinwil",
+        "logisticien-en-service-de-nuit-100-belimo-hinwil",
+        "logisticien-en-equipe-de-nuit-100-belimo-hinwil",
+        "warehouse-distribution-operator-belimo-hinwil",
+        "operateur-warehouse-distribution-belimo-hinwil"
+      ],
+      "it": [
+        "logistiker-in-temporar-belimo-hinwil-073ff01a",
+        "impiegata-impiegato-in-logistica-nachtschicht-100-belimo-hinwil-d4a122b2",
+        "logistician-in-night-shift-100-belimo-hinwil-02d6b76d",
+        "logistiker-in-nachtschicht-100-belimo-hinwil-a8d482d3",
+        "logisticien-en-service-de-nuit-100-belimo-hinwil-85447590",
+        "logisticien-en-equipe-de-nuit-100-belimo-hinwil-2a3520e3",
+        "operator-warehouse-distribution-belimo-hinwil-9f7c8f36",
+        "warehouse-distribution-operator-belimo-hinwil",
+        "operateur-warehouse-distribution-belimo-hinwil"
+      ],
+      "en": [
+        "logistiker-in-temporar-belimo-hinwil-073ff01a",
+        "logistician-in-night-shift-100-belimo-hinwil-02d6b76d",
+        "operator-warehouse-distribution-belimo-hinwil-9f7c8f36",
+        "warehouse-distribution-operator-belimo-hinwil-b4767aba",
+        "impiegata-impiegato-in-logistica-nachtschicht-100-belimo-hinwil",
+        "logistiker-in-nachtschicht-100-belimo-hinwil",
+        "logisticien-en-service-de-nuit-100-belimo-hinwil",
+        "logisticien-en-equipe-de-nuit-100-belimo-hinwil",
+        "operateur-warehouse-distribution-belimo-hinwil"
+      ],
+      "fr": [
+        "logistiker-in-temporar-belimo-hinwil-073ff01a",
+        "logisticien-en-service-de-nuit-100-belimo-hinwil-85447590",
+        "operateur-warehouse-distribution-belimo-hinwil-485bd84c",
+        "impiegata-impiegato-in-logistica-nachtschicht-100-belimo-hinwil",
+        "logistician-in-night-shift-100-belimo-hinwil",
+        "logistiker-in-nachtschicht-100-belimo-hinwil",
+        "logisticien-en-equipe-de-nuit-100-belimo-hinwil",
+        "operator-warehouse-distribution-belimo-hinwil",
+        "warehouse-distribution-operator-belimo-hinwil"
+      ]
+    },
+    "postalCode": "8340",
+    "streetAddress": "Brunnenbachstrasse 1",
+    "salaryMin": 73500,
+    "salaryMax": 111500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-operator-warehouse-&-distribution-z%c3%bcri-8340/1165121155",
+    "firstSeenAt": "2026-07-12T22:18:16.120Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-logistikerin-nachtschicht-%28100%29-z%c3%bcri-8340/1164974855",
+        "firstSeenAt": "2026-07-12T22:18:16.120Z",
+        "title": "Logistiker:in Nachtschicht (100%)"
+      },
+      {
+        "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-operator-warehouse-&-distribution-z%c3%bcri-8340/1165121155",
+        "firstSeenAt": "2026-07-12T22:18:16.120Z",
+        "title": "Operator Warehouse & Distribution"
+      }
+    ],
+    "previousSlugs": [
+      "logistiker-in-nachtschicht-100-belimo-hinwil-a8d482d3",
+      "operator-warehouse-distribution-belimo-hinwil-9f7c8f36",
+      "impiegata-impiegato-in-logistica-nachtschicht-100-belimo-hinwil",
+      "logistician-in-night-shift-100-belimo-hinwil",
+      "logisticien-en-service-de-nuit-100-belimo-hinwil",
+      "logisticien-en-equipe-de-nuit-100-belimo-hinwil",
+      "warehouse-distribution-operator-belimo-hinwil",
+      "operateur-warehouse-distribution-belimo-hinwil",
+      "impiegata-impiegato-in-logistica-nachtschicht-100-belimo-hinwil-d4a122b2",
+      "logistician-in-night-shift-100-belimo-hinwil-02d6b76d",
+      "logisticien-en-service-de-nuit-100-belimo-hinwil-85447590",
+      "logisticien-en-equipe-de-nuit-100-belimo-hinwil-2a3520e3",
+      "warehouse-distribution-operator-belimo-hinwil-b4767aba",
+      "logistiker-in-nachtschicht-100-belimo-hinwil",
+      "operateur-warehouse-distribution-belimo-hinwil-485bd84c",
+      "operator-warehouse-distribution-belimo-hinwil"
+    ]
   },
   {
     "slug": "impiegata-impiegato-in-logistica-temporar-belimo-hinwil-29660438",
@@ -2807,6 +3183,65 @@
     "firstSeenAt": "2026-07-31T22:31:19.256Z"
   },
   {
+    "slug": "apprendistato-come-donna-d-affari-uomo-efz-belimo-hinwil-9e798d94",
+    "title": "Lehrstelle als Kauffrau/-mann EFZ",
+    "titleByLocale": {
+      "it": "Apprendistato come donna d'affari / uomo EFZ",
+      "en": "Apprenticeship as a businesswoman/man EFZ",
+      "de": "Lehrstelle als Kauffrau/-mann EFZ",
+      "fr": "Apprentissage en tant que femme d'affaires/homme EFZ"
+    },
+    "company": "Belimo",
+    "companyKey": "belimo",
+    "location": "Hinwil",
+    "addressLocality": "Hinwil",
+    "descriptionByLocale": {
+      "it": "Inizio dell'insegnamento 2027\n\nVuoi un'educazione che non è altro che noiosa? A Belimo, sei al centro di esso invece che solo lì: impari cose nuove ogni giorno, partecipi attivamente al mondo digitale del lavoro e acquisisci esperienza preziosa per la vita.\n\nLa tua formazione si concentra sulle competenze pratiche – professionali, metodologiche e sociali. Come commerciante / assistente commerciale EFZ a Belimo si ottiene una formazione solida e versatile e ottenere un assaggio di diversi dipartimenti. E' cosi' che scopri di cosa ti importa davvero.\n\nCosa farai\n\n• Ottieni informazioni su diversi reparti (ad esempio acquisto, marketing, risorse umane, contabilità finanziaria, vendita Svizzera, assistenza delle rispettive divisioni di Gruppo, ecc.)\n\n• Cambia reparto ogni 3-6 mesi e ottieni un'esperienza versatile\n\n• Elabori richieste di clienti e fornitori e sei in contatto con partner interni ed esterni\n\n• Scrivi lettere, e-mail, protocolli e contratti\n\n• Organizza incontri, eventi e viaggi d'affari\n\n• Esegui i compiti contabili e crea tabelle e presentazioni\n\n• Supporti l'organizzazione del post in arrivo e in uscita\n\n• Si comunica sia in tedesco che in lingue straniere (a seconda del campo di applicazione)\n\n• Nel 3 ° anno vi sarà data l'opportunità di scegliere un focus: comunicazione in tedesco, comunicazione in una lingua straniera, finanza\n\nChi sei\n\n• Livello di laurea secondaria A con buone prestazioni in materie principali\n\n• Abilità sicura nella scrittura della tastiera a 10 finger (deve essere disponibile prima di iniziare la lezione)\n\n• Utilizzo esperto di software di ufficio come Microsoft Office (ad esempio Excel, Word, PowerPoint), comprensione digitale e affinità di numero\n\n• Forte capacità organizzative e di problem solving e metodi di lavoro indipendenti\n\n• Forte capacità di comunicazione orale e scritta e godimento delle lingue straniere\n\n• Comprensione rapida\n\n• Alto senso di responsabilità e affidabilità\n\n• Gioia nel trattare con persone e disponibilità – qualità che modellano la nostra cultura Belimo\n\nChi siamo\n\nA Belimo, siamo orgogliosi di rendere la nostra azienda un luogo gratificante per lavorare. I nostri leader sono orientati al valore e promuovono nuove idee nelle loro squadre in tutto il mondo. Attraverso la nostra passione, i nostri dipendenti non solo creano prodotti sorprendenti, ma anche rivoluzionano l'industria HVAC. Investire nei nostri dipendenti è al centro di Belimo quando si tratta di coinvolgere diversi talenti creativi per costruire una società leader del settore. Il successo del nostro marchio aziendale si basa sulla competenza e l'impegno di ogni individuo.",
+      "en": "Start of teaching 2027\n\nDo you want an education that is anything but boring? At Belimo, you are in the middle of it instead of just there: you learn new things every day, actively participate in the digital world of work and gain valuable experience for life.\n\nYour training focuses on practical skills – professional, methodological and social. As a merchant / business assistant EFZ at Belimo you get a solid and versatile education and get a taste of different departments. This is how you find out what you really care about.\n\nWhat will you do\n\n• You get insight into different departments (e.g. purchasing, marketing, human resources, financial accounting, sales Switzerland, assistance of the respective Group divisions, etc.)\n\n• You change department every 3-6 months and gain versatile experience\n\n• You process customer and supplier inquiries and are in contact with internal and external partners\n\n• You write letters, emails, protocols and contracts\n\n• You organize meetings, events and business trips\n\n• You perform accounting tasks and create tables and presentations\n\n• You support the organization of the incoming and outgoing post\n\n• You communicate both in German and in foreign languages (depending on the field of application)\n\n• In the 3rd year you will be given the opportunity to choose a focus: communication in German, communication in a foreign language, finance\n\nWho you are\n\n• Secondary school degree level A with good performance in major subjects\n\n• Secure skill in 10-finger keyboard writing (must be available before starting the lesson)\n\n• Experienced use of office software such as Microsoft Office (e.g. Excel, Word, PowerPoint), digital understanding and number affinity\n\n• Strong organisational and problem-solving skills as well as independent working methods\n\n• Strong oral and written communication skills and enjoyment of foreign languages\n\n• Quick understanding\n\n• High sense of responsibility and reliability\n\n• Joy in dealing with people and helpfulness – qualities that shape our Belimo culture\n\nWho we are\n\nAt Belimo, we are proud to make our company a rewarding place to work. Our leaders are value-driven and promote new ideas in their teams around the world. Through our passion, our employees not only create amazing products, but also revolutionize the HVAC industry. Investing in our employees is at the heart of Belimo when it comes to engaging diverse creative talents to build an industry-leading company. The success of our corporate brand is based on the competence and commitment of each individual.",
+      "de": "Lehrbeginn 2027\n\nDu willst eine Ausbildung, die alles andere als langweilig ist? Bei Belimo bist du mittendrin statt nur dabei: Du lernst jeden Tag Neues, bringst dich aktiv in die digitale Arbeitswelt ein und sammelst wertvolle Erfahrungen fürs Leben.\n\nIn deiner Ausbildung stehen praxisnahe Skills im Fokus – fachlich, methodisch und sozial. Als Kaufmann/Kauffrau EFZ bei Belimo bekommst du eine solide und vielseitige Ausbildung und schnupperst in verschiedene Abteilungen rein. So findest du heraus, was dir wirklich liegt.\n\nWas wirst du tun\n\n• Du erhältst Einblick in unterschiedliche Abteilungen (z. B. Einkauf, Marketing, Personalwesen, Finanzbuchhaltung, Verkauf Schweiz, Assistenz der jeweiligen Konzernbereiche usw.)\n\n• Du wechselst alle 3–6 Monate die Abteilung und sammelst vielseitige Erfahrungen\n\n• Du bearbeitest du Kunden- und Lieferantenanfragen und stehst in Kontakt mit internen und externen Partnern\n\n• Du verfasst Briefe, E-Mails, Protokolle und Verträge\n\n• Du organisierst Meetings, Veranstaltungen und Geschäftsreisen\n\n• Du führst Buchhaltungsaufgaben aus und erstellst Tabellen und Präsentationen\n\n• Du unterstützt die Organisation der ein- und ausgehenden Post\n\n• Du kommunizierst sowohl auf Deutsch als auch in Fremdsprachen (je nach Einsatzgebiet)\n\n• Du erhältst im 3. Lehrjahr die Möglichkeit, einen Schwerpunkt zu wählen: Kommunikation in Deutsch, Kommunikation in einer Fremdsprache, Finanzen\n\nWer du bist\n\n• Sekundarschulabschluss Niveau A mit guten Leistungen in den Hauptfächern\n\n• Sichere Fertigkeit im 10-Finger-Tastaturschreiben (muss vor Lehrbeginn vorhanden sein)\n\n• Versierter Umgang mit Bürosoftware wie Microsoft Office (z. B. Excel, Word, PowerPoint), digitales Verständnis und Zahlenaffinität\n\n• Ausgeprägte Organisations- und Problemlösungsfähigkeiten sowie selbstständige Arbeitsweise\n\n• Starke mündliche und schriftliche Kommunikationsfähigkeit sowie Freude an Fremdsprachen\n\n• Schnelle Auffassungsgabe\n\n• Hohes Verantwortungsbewusstsein und Zuverlässigkeit\n\n• Freude am Umgang mit Menschen und Hilfsbereitschaft – Eigenschaften, die unsere Belimo-Kultur prägen\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen.",
+      "fr": "Début de l'enseignement 2027\n\nVoulez-vous une éducation qui n'est rien d'autre que ennuyeux ? Chez Belimo, vous êtes au milieu d'elle au lieu de juste là: vous apprenez de nouvelles choses chaque jour, participez activement au monde du travail numérique et gagnez une expérience précieuse pour la vie.\n\nVotre formation est axée sur les compétences pratiques – professionnelles, méthodologiques et sociales. En tant qu'assistant commercial/commercial EFZ chez Belimo, vous obtenez une éducation solide et polyvalente et obtenez un aperçu de différents départements. C'est ainsi que tu découvres ce qui t'intéresse vraiment.\n\nQue ferez-vous?\n\n• Vous obtenez un aperçu des différents services (par exemple achats, marketing, ressources humaines, comptabilité financière, ventes Suisse, assistance des divisions du Groupe, etc.)\n\n• Vous changez de département tous les 3-6 mois et gagnez une expérience polyvalente\n\n• Vous traitez les demandes des clients et des fournisseurs et êtes en contact avec des partenaires internes et externes\n\n• Vous écrivez des lettres, des courriels, des protocoles et des contrats\n\n• Vous organisez des réunions, des événements et des voyages d'affaires\n\n• Vous effectuez des tâches comptables et créez des tableaux et des présentations\n\n• Vous soutenez l'organisation du poste entrant et sortant\n\n• Vous communiquez à la fois en allemand et en langues étrangères (selon le domaine d'application)\n\n• Dans la 3ème année vous aurez la possibilité de choisir un focus: communication en allemand, communication dans une langue étrangère, finance\n\nQui vous êtes\n\n• Diplôme d'études secondaires de niveau A avec de bonnes performances dans les matières principales\n\n• Sécurise les compétences en écriture de clavier à 10 doigts (doit être disponible avant de commencer la leçon)\n\n• Utilisation expérimentée de logiciels de bureau tels que Microsoft Office (ex. Excel, Word, PowerPoint), compréhension numérique et affinité de nombre\n\n• Compétences solides en matière d'organisation et de résolution de problèmes ainsi que méthodes de travail indépendantes\n\n• Forte capacité de communication orale et écrite et jouissance des langues étrangères\n\n• Compréhension rapide\n\n• Un haut sentiment de responsabilité et de fiabilité\n\n• La joie de traiter avec les gens et l'utilité – qualités qui façonnent notre culture Belimo\n\nQui nous sommes\n\nChez Belimo, nous sommes fiers de faire de notre entreprise un lieu de travail enrichissant. Nos dirigeants sont motivés par la valeur et font la promotion de nouvelles idées dans leurs équipes à travers le monde. Par notre passion, nos employés non seulement créent des produits étonnants, mais révolutionnent également l'industrie du CVC. Investir dans nos employés est au cœur de Belimo quand il s'agit de mobiliser divers talents créatifs pour construire une entreprise leader dans l'industrie. Le succès de notre marque est basé sur la compétence et l'engagement de chaque individu."
+    },
+    "slugByLocale": {
+      "it": "apprendistato-come-donna-d-affari-uomo-efz-belimo-hinwil-9e798d94",
+      "en": "apprenticeship-as-a-businesswoman-man-efz-belimo-hinwil-02bb7f5c",
+      "de": "lehrstelle-als-kauffrau-mann-efz-belimo-hinwil-cdaf9e3c",
+      "fr": "apprentissage-en-tant-que-femme-d-affaires-homme-efz-belimo-hinwil-38744434"
+    },
+    "sector": "Industria / Automazione edifici",
+    "expiredAt": "2026-09-11T23:04:41.886Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "lehrstelle-als-kauffrau-mann-efz-belimo-hinwil-cdaf9e3c",
+        "apprendistato-come-kauffrau-mann-cfc-belimo-hinwil-9a47d04c"
+      ],
+      "en": [
+        "lehrstelle-als-kauffrau-mann-efz-belimo-hinwil",
+        "apprendistato-come-kauffrau-mann-cfc-belimo-hinwil"
+      ],
+      "fr": [
+        "lehrstelle-als-kauffrau-mann-efz-belimo-hinwil",
+        "apprendistato-come-kauffrau-mann-cfc-belimo-hinwil"
+      ],
+      "de": [
+        "lehrstelle-als-kauffrau-mann-efz-belimo-hinwil-cdaf9e3c",
+        "apprendistato-come-kauffrau-mann-cfc-belimo-hinwil"
+      ]
+    },
+    "postalCode": "8340",
+    "streetAddress": "Brunnenbachstrasse 1",
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-lehrstelle-als-kauffrau-mann-efz-z%c3%bcri-8340/1165039955",
+    "firstSeenAt": "2026-07-31T22:31:19.256Z",
+    "previousSlugs": [
+      "apprendistato-come-kauffrau-mann-cfc-belimo-hinwil-9a47d04c",
+      "lehrstelle-als-kauffrau-mann-efz-belimo-hinwil",
+      "apprendistato-come-kauffrau-mann-cfc-belimo-hinwil"
+    ]
+  },
+  {
     "slug": "hvac-building-automation-expert-80-100-belimo-hinwil-2",
     "title": "HVAC Building Automation Expert (80-100%)",
     "titleByLocale": {
@@ -3059,6 +3494,59 @@
     ]
   },
   {
+    "slug": "apprendistato-come-ict-fachfrau-mann-belimo-hinwil-1022569a",
+    "title": "Lehrstelle als ICT-Fachfrau/-mann",
+    "titleByLocale": {
+      "it": "Apprendistato come ICT-Fachfrau/-mann",
+      "en": "Apprenticeship as ICT specialist",
+      "de": "Lehrstelle als ICT-Fachfrau/-mann",
+      "fr": "Apprentissage en tant que spécialiste des TIC"
+    },
+    "company": "Belimo",
+    "companyKey": "belimo",
+    "location": "Hinwil",
+    "addressLocality": "Hinwil",
+    "descriptionByLocale": {
+      "it": "Inizio della formazione 2027\n\nI professionisti delle TIC sono richiesti con il loro alto livello di competenza nella tecnologia dell'informazione. Dopo l'insegnamento, ci sono molte opportunità per lo sviluppo e l'ulteriore istruzione.\n\nCosa farai\n\n• Installazione, manutenzione e manutenzione di vari dispositivi utente come notebook e stampanti\n\n• Risolvere i problemi tecnici\n\n• Supporto per utenti ICT: all'interno\n\n• Responsabile dell'infrastruttura tecnica negli eventi\n\n• Partecipazione a progetti\n\n• Manutenzione e aggiornamento della documentazione dell'utente e del sistema\n\nChi sei\n\n• Scuola secondaria Livello B\n\n• Buoni voti in tedesco, inglese e materie matematiche\n\n• Abilità tecnica e apertura a nuove cose\n\n• Lavoro di squadra\n\n• Personalità indipendente e affidabile\n\n• Sensibilizzazione del servizio e piacere nel trattare con le persone\n\nChi siamo\n\nA Belimo, siamo orgogliosi di rendere la nostra azienda un luogo gratificante per lavorare. I nostri leader sono orientati al valore e promuovono nuove idee nelle loro squadre in tutto il mondo. Attraverso la nostra passione, i nostri dipendenti non solo creano prodotti sorprendenti, ma anche rivoluzionano l'industria HVAC. Investire nei nostri dipendenti è al centro di Belimo quando si tratta di coinvolgere diversi talenti creativi per costruire una società leader del settore. Il successo del nostro marchio aziendale si basa sulla competenza e l'impegno di ogni individuo.",
+      "en": "Start of training 2027\n\nICT professionals are in demand with their high level of expertise in information technology. After teaching, there are many opportunities for development and further education.\n\nWhat will you do\n\n• Installation, maintenance and maintenance of various user devices such as notebooks and printers\n\n• Solving technical problems\n\n• Support for ICT users: inside\n\n• Responsible for technical infrastructure at events\n\n• Participation in projects\n\n• Maintenance and updating of user and system documentation\n\nWho you are\n\n• Secondary School Level B\n\n• Good grades in German, English and the mathematical subjects\n\n• Technical skill and openness to new things\n\n• Teamwork\n\n• Independent and reliable personality\n\n• Service awareness and pleasure in dealing with people\n\nWho we are\n\nAt Belimo, we are proud to make our company a rewarding place to work. Our leaders are value-driven and promote new ideas in their teams around the world. Through our passion, our employees not only create amazing products, but also revolutionize the HVAC industry. Investing in our employees is at the heart of Belimo when it comes to engaging diverse creative talents to build an industry-leading company. The success of our corporate brand is based on the competence and commitment of each individual.",
+      "de": "Lehrbeginn 2027\n\nICT-Fachleute sind mit ihrem hohen Fachwissen in der Informationstechnologie gefragte Berufsleute. Es bieten sich nach der Lehre vielfältige Entfaltungs- und Weiterbildungsmöglichkeiten.\n\nWas wirst du tun\n\n• Installation, Wartung und Unterhalt verschiedener Benutzergeräte wie Notebooks und Drucker\n\n• Lösung technischer Probleme\n\n• Unterstützung von ICT-Nutzer:innen\n\n• Technische Infrastruktur bei Anlässen verantworten\n\n• Mitwirkung an Projekten\n\n• Pflege und Aktualisierung von Benutzer- und Systemdokumentationen\n\nWer du bist\n\n• Sekundarschule Stufe B\n\n• Gute Noten in Deutsch, Englisch und den mathematischen Fächern\n\n• Technisches Geschick und Offenheit an Neuem\n\n• Teamfähigkeit\n\n• Selbständige und zuverlässige Persönlichkeit\n\n• Dienstleistungsbewusstsein und Freude am Umgang mit Menschen\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen.",
+      "fr": "Début de la formation 2027\n\nLes professionnels des technologies de l'information et de la communication sont très sollicités par leurs compétences en matière de technologie de l'information. Après l'enseignement, il existe de nombreuses possibilités de développement et d'éducation.\n\nQue ferez-vous ?\n\n• Installation, maintenance et maintenance de divers appareils d'utilisateur tels que les ordinateurs portables et les imprimantes\n\n• Résolution des problèmes techniques\n\n• Soutien aux utilisateurs des TIC:\n\n• Responsable de l'infrastructure technique lors des manifestations\n\n• Participation à des projets\n\n• Maintenance et mise à jour de la documentation des utilisateurs et des systèmes\n\nQui vous êtes\n\n• Niveau B de l ' enseignement secondaire\n\n• Bonnes notes en allemand, anglais et les sujets mathématiques\n\n• Compétence technique et ouverture aux nouvelles choses\n\n• Travail d'équipe\n\n• Personnalité indépendante et fiable\n\n• Sensibilisation au service et plaisir à traiter avec les gens\n\nQui nous sommes\n\nChez Belimo, nous sommes fiers de faire de notre entreprise un lieu de travail enrichissant. Nos dirigeants sont motivés par la valeur et font la promotion de nouvelles idées dans leurs équipes à travers le monde. Grâce à notre passion, nos employés non seulement créent des produits étonnants, mais révolutionnent également l'industrie du CVC. Investir dans nos employés est au cœur de Belimo quand il s'agit de mobiliser divers talents créatifs pour construire une entreprise leader de l'industrie. Le succès de notre marque est basé sur la compétence et l'engagement de chaque individu."
+    },
+    "slugByLocale": {
+      "it": "apprendistato-come-ict-fachfrau-mann-belimo-hinwil-1022569a",
+      "en": "apprenticeship-as-ict-specialist-belimo-hinwil-854b7c54",
+      "de": "lehrstelle-als-ict-fachfrau-mann-belimo-hinwil-bfd7ea78",
+      "fr": "apprentissage-en-tant-que-specialiste-des-tic-belimo-hinwil-c7744334"
+    },
+    "sector": "Industria / Automazione edifici",
+    "expiredAt": "2026-09-01T07:45:46.927Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "lehrstelle-als-ict-fachfrau-mann-belimo-hinwil-bfd7ea78"
+      ],
+      "en": [
+        "lehrstelle-als-ict-fachfrau-mann-belimo-hinwil"
+      ],
+      "fr": [
+        "lehrstelle-als-ict-fachfrau-mann-belimo-hinwil"
+      ],
+      "de": [
+        "lehrstelle-als-ict-fachfrau-mann-belimo-hinwil-bfd7ea78"
+      ]
+    },
+    "postalCode": "8340",
+    "streetAddress": "Brunnenbachstrasse 1",
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-lehrstelle-als-ict-fachfrau-mann-z%c3%bcri-8340/1165049855",
+    "firstSeenAt": "2026-07-31T22:31:19.824Z",
+    "previousSlugs": [
+      "lehrstelle-als-ict-fachfrau-mann-belimo-hinwil"
+    ]
+  },
+  {
     "slug": "apprendistato-come-ict-fachfrau-mann-belimo-hinwil-b9dc416e",
     "title": "Lehrstelle als ICT-Fachfrau/-mann",
     "titleByLocale": {
@@ -3157,6 +3645,59 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-lehrstelle-als-informatikerin-efz-z%c3%bcri-8340/1165049755",
     "firstSeenAt": "2026-07-31T22:31:22.676Z"
+  },
+  {
+    "slug": "apprendistato-come-informatiker-in-cfc-belimo-hinwil-39af9b35",
+    "title": "Lehrstelle als Informatiker:in EFZ",
+    "titleByLocale": {
+      "it": "Apprendistato come Informatiker:in CFC",
+      "en": "Apprenticeship as computer scientist: in EFZ",
+      "de": "Lehrstelle als Informatiker:in EFZ",
+      "fr": "Apprentissage en informatique: en EFZ"
+    },
+    "company": "Belimo",
+    "companyKey": "belimo",
+    "location": "Hinwil",
+    "addressLocality": "Hinwil",
+    "descriptionByLocale": {
+      "it": "Inizio dell'insegnamento 2027\n\nIn qualità di specialista IT: nel settore dello sviluppo della piattaforma, sei responsabile della manutenzione e manutenzione di vari sistemi server e soluzioni di storage. Si lavora in modo indipendente e in team, motivo per cui si dovrebbe essere in grado di integrare e pensare in rete.\n\nCosa farai\n\n• Gestione utente e attività amministrative su piattaforme\n\n• Estensione e riparazione di hardware\n\n• Installazione di computer, distribuzione di software, creazione di pacchetti software\n\n• Lavorare al primo e secondo livello\n\n• Formazione utente\n\n• Partecipazione al team di rete\n\n• Lavorare nel Cloud Team\n\nChi sei\n\n• Livello di scuola secondaria A\n\n• Gradi molto buoni in tedesco, inglese e materie matematiche\n\n• Buone capacità di pensiero spaziale e comprensione delle relazioni astratte\n\n• Competenze tecniche\n\n• Lavoro di squadra\n\n• Personalità indipendente e affidabile\n\n• Sensibilizzazione del servizio e piacere nel trattare con le persone\n\nChi siamo\n\nA Belimo, siamo orgogliosi di rendere la nostra azienda un luogo gratificante per lavorare. I nostri leader sono orientati al valore e promuovono nuove idee nelle loro squadre in tutto il mondo. Attraverso la nostra passione, i nostri dipendenti non solo creano prodotti sorprendenti, ma anche rivoluzionano l'industria HVAC. Investire nei nostri dipendenti è al centro di Belimo quando si tratta di coinvolgere diversi talenti creativi per costruire una società leader del settore. Il successo del nostro marchio aziendale si basa sulla competenza e l'impegno di ogni individuo.",
+      "en": "Start of teaching 2027\n\nAs an IT specialist: in the area of platform development, you are responsible for the maintenance and maintenance of various server systems and storage solutions. You work independently and in teams, which is why you should be able to integrate and think networked.\n\nWhat will you do\n\n• User management and administrative activities on platforms\n\n• Extension and repair of hardware\n\n• Installing computers, distributing software, creating software packages\n\n• Working at the 1st & 2nd Level\n\n• User training\n\n• Participation in the network team\n\n• Working in the Cloud Team\n\nWho you are\n\n• Secondary School Level A\n\n• Very good grades in German, English and the mathematical subjects\n\n• Good spatial thinking skills and understanding of abstract relationships\n\n• Technical understanding\n\n• Teamwork\n\n• Independent and reliable personality\n\n• Service awareness and pleasure in dealing with people\n\nWho we are\n\nAt Belimo, we are proud to make our company a rewarding place to work. Our leaders are value-driven and promote new ideas in their teams around the world. Through our passion, our employees not only create amazing products, but also revolutionize the HVAC industry. Investing in our employees is at the heart of Belimo when it comes to engaging diverse creative talents to build an industry-leading company. The success of our corporate brand is based on the competence and commitment of each individual.",
+      "de": "Lehrbeginn 2027\n\nAls IT-Spezialist:in im Bereich Plattformentwicklung bist du für die Wartung und den Unterhalt verschiedener Serversysteme und Speicherlösungen verantwortlich. Du arbeitest selbstständig und in Teams, weshalb du in der Lage sein solltest, dich zu integrieren und vernetzt zu denken.\n\nWas wirst du tun\n\n• Benutzerverwaltung und administrative Tätigkeiten auf Plattformen\n\n• Erweitern und Reparatur von Hardware\n\n• Instalieren von Rechnern, Verteilen von Software, Erstellen von Softwarepaketen\n\n• Arbeiten im 1st & 2nd Level\n\n• Benutzerschulungen\n\n• Mitarbeit im Netzwerkteam\n\n• Mitarbeit im Cloud Team\n\nWer du bist\n\n• Sekundarschule Stufe A\n\n• Sehr gute Noten in Deutsch, Englisch und den mathematischen Fächer\n\n• Gutes räumliches Denkvermögen sowie Verständnis für abstrakte Zusammenhänge\n\n• Technisches Verständnis\n\n• Teamfähigkeit\n\n• Selbständige und zuverlässige Persönlichkeit\n\n• Dienstleistungsbewusstsein und Freude am Umgang mit Menschen\n\nWer wir sind\n\nBei Belimo sind wir stolz darauf, unser Unternehmen zu einem lohnenden Arbeitsplatz zu machen. Unsere Führungskräfte sind werteorientiert und fördern neue Ideen in ihren Teams auf der ganzen Welt. Durch unsere Leidenschaft schaffen unsere Mitarbeiter nicht nur erstaunliche Produkte, sondern revolutionieren auch die HLK-Branche. Die Investition in unsere Mitarbeitenden ist das Herzstück von Belimo, wenn es darum geht, verschiedene kreative Talente zu engagieren, um ein branchenführendes Unternehmen aufzubauen. Der Erfolg unserer Unternehmensmarke basiert auf der Kompetenz und dem Engagement jedes Einzelnen.",
+      "fr": "Début de l'enseignement 2027\n\nEn tant que spécialiste de l'informatique : dans le domaine du développement des plateformes, vous êtes responsable de la maintenance et de la maintenance de différents systèmes serveur et solutions de stockage. Vous travaillez de manière indépendante et en équipe, c'est pourquoi vous devriez être en mesure de vous intégrer et de penser en réseau.\n\nQue ferez-vous?\n\n• Gestion des utilisateurs et activités administratives sur les plateformes\n\n• Extension et réparation du matériel\n\n• Installation d'ordinateurs, distribution de logiciels, création de progiciels\n\n• Travailler aux 1er et 2ème niveaux\n\n• Formation des utilisateurs\n\n• Participation à l'équipe du réseau\n\n• Travailler dans l'équipe Cloud\n\nQui vous êtes\n\n• Niveau A de l ' enseignement secondaire\n\n• Très bonnes notes en allemand, anglais et mathématiques\n\n• Bonnes compétences de pensée spatiale et compréhension des relations abstraites\n\n• Compréhension technique\n\n• Travail d'équipe\n\n• Personnalité indépendante et fiable\n\n• Sensibilisation au service et plaisir à traiter avec les gens\n\nQui nous sommes\n\nChez Belimo, nous sommes fiers de faire de notre entreprise un lieu de travail enrichissant. Nos dirigeants sont motivés par la valeur et font la promotion de nouvelles idées dans leurs équipes à travers le monde. Par notre passion, nos employés non seulement créent des produits étonnants, mais révolutionnent également l'industrie du CVC. Investir dans nos employés est au cœur de Belimo quand il s'agit de mobiliser divers talents créatifs pour construire une entreprise leader dans l'industrie. Le succès de notre marque est basé sur la compétence et l'engagement de chaque individu."
+    },
+    "slugByLocale": {
+      "it": "apprendistato-come-informatiker-in-cfc-belimo-hinwil-39af9b35",
+      "en": "apprenticeship-as-computer-scientist-in-efz-belimo-hinwil-1e246718",
+      "de": "lehrstelle-als-informatiker-in-efz-belimo-hinwil-e72125d8",
+      "fr": "apprentissage-en-informatique-en-efz-belimo-hinwil-85aceed4"
+    },
+    "sector": "Industria / Automazione edifici",
+    "expiredAt": "2026-09-01T07:45:46.927Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "lehrstelle-als-informatiker-in-efz-belimo-hinwil-e72125d8"
+      ],
+      "en": [
+        "lehrstelle-als-informatiker-in-efz-belimo-hinwil"
+      ],
+      "fr": [
+        "lehrstelle-als-informatiker-in-efz-belimo-hinwil"
+      ],
+      "de": [
+        "lehrstelle-als-informatiker-in-efz-belimo-hinwil-e72125d8"
+      ]
+    },
+    "postalCode": "8340",
+    "streetAddress": "Brunnenbachstrasse 1",
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-lehrstelle-als-informatikerin-efz-z%c3%bcri-8340/1165049755",
+    "firstSeenAt": "2026-07-31T22:31:22.676Z",
+    "previousSlugs": [
+      "lehrstelle-als-informatiker-in-efz-belimo-hinwil"
+    ]
   },
   {
     "slug": "specialista-di-sistemi-di-lavoro-100-belimo-hinwil",

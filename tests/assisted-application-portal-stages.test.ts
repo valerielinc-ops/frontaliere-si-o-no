@@ -1,6 +1,6 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, isApplicationRegionUnsupported, portalJobKey } from '../scripts/assisted-application/lib/portal/stages.mjs';
-import { applicationEntryControls, isVerifiedPostingEntry, pageControls, urlConfirms } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { applicationEntryControls, isVerifiedPostingEntry, openVerifiedPasswordResetNavigation, pageControls, urlConfirms } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const origin = 'https://careers.example';
 const applyUrl = `${origin}/Careers/ApplicationMethods?jobId=42`;
@@ -860,5 +860,56 @@ describe('Workday account route stages', () => {
       job,
     });
     expect(result).toMatchObject({ stage: { kind: 'account' }, submit: null, next: null });
+  });
+
+  it('opens Swarovski’s French page-level reset button without a machine id', async () => {
+    const currentUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet/Seasonal-Sales-Consultant_R-12345-1/apply/applyManually';
+    let url = currentUrl;
+    const click = vi.fn(async () => {});
+    const goto = vi.fn(async (target: string) => { url = target; });
+    const locator = {
+      first() { return this; },
+      isVisible: vi.fn(async () => true),
+      click,
+      evaluate: vi.fn(async () => ({
+        tagName: 'BUTTON', role: '', href: null,
+        text: 'Vous avez oublié votre mot de passe ?', ariaLabel: '', title: '', labelledBy: '',
+        dataAutomationId: '', formId: '', formIdentityFields: [], formHasPassword: false,
+      })),
+    };
+    const frame = {
+      url: () => url,
+      locator: vi.fn(() => locator),
+      goto,
+    };
+    const page = {
+      frames: () => [frame],
+      mainFrame: () => frame,
+    };
+    const snapshot = {
+      url: currentUrl,
+      dialogs: [],
+      fields: [
+        { id: 'email', kind: 'text', inputType: 'text', label: 'Adresse e-mail*', required: true, frame: 0 },
+        { id: 'password', kind: 'text', inputType: 'password', label: 'Mot de passe*', required: true, frame: 0 },
+      ],
+      buttons: [
+        { id: 'privacy', frame: 0, text: 'Lire tout le message sur la confidentialité', chrome: true },
+        { id: 'reject', frame: 0, text: 'Refuser', chrome: true },
+        { id: 'accept', frame: 0, text: 'Accepter les cookies', chrome: true },
+        { id: 'sign-in', frame: 0, text: 'Connexion', chrome: true },
+        { id: 'visit', frame: 0, text: 'Visite Swarovski.com', chrome: true },
+        { id: 'jobs', frame: 0, text: 'Rechercher des emplois', chrome: true },
+        { id: 'introduce', frame: 0, text: 'Présentez-vous', chrome: true },
+        { id: 'back', frame: 0, text: "Retour à l'offre d'emploi", chrome: true },
+        { id: 'create', frame: 0, text: 'Créer un compte' },
+        { id: 'forgot', frame: 0, text: '', labelledBy: 'Vous avez oublié votre mot de passe ?' },
+      ],
+      errors: ["L'adresse e-mail ou le mot de passe saisi est erroné ou votre compte est verrouillé."],
+    };
+
+    await expect(openVerifiedPasswordResetNavigation(page as any, snapshot as any)).resolves.toBe(true);
+    expect(click).toHaveBeenCalledOnce();
+    expect(goto).not.toHaveBeenCalled();
   });
 });

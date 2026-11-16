@@ -67,7 +67,8 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "crawledAt": "2026-11-15T21:39:21.677Z",
-      "crawledAtSource": "slice-writer"
+      "crawledAtSource": "slice-writer",
+      "sourceIdentity": "url:https://boardinternationalsa.applytojob.com/apply/ip3ojxtnya/senior-genai-engineer"
     },
     {
       "title": "Senior Software Engineer",
@@ -133,7 +134,8 @@
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-02T21:49:51.090Z",
       "crawledAt": "2026-11-15T21:39:21.677Z",
-      "crawledAtSource": "slice-writer"
+      "crawledAtSource": "slice-writer",
+      "sourceIdentity": "url:https://boardinternationalsa.applytojob.com/apply/agso9lcexd/senior-software-engineer"
     },
     {
       "title": "Software Engineer",
@@ -297,7 +299,8 @@
       },
       "previousSlugs": [
         "solution-developer-board-international-chiasso-switzerland"
-      ]
+      ],
+      "sourceIdentity": "url:https://boardinternationalsa.applytojob.com/apply/900twkeik9/solution-developer"
     }
   ]
 }

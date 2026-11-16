@@ -301,6 +301,14 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     const full = YAML.parse(AUDIT_FULL_YML) as any;
     const published = YAML.parse(AUDIT_PUBLISHED_YML) as any;
     const steps = workflow.jobs.audit.steps;
+    const sparseCheckout = steps.find((step: any) => (
+      step.name === 'Checkout weekly full audit source without source-only images'
+    ));
+    const fullCheckout = steps.find((step: any) => step.name === 'Checkout repo (for audit scripts only)');
+    const sparseCheckoutIndex = steps.findIndex((step: any) => (
+      step.name === 'Checkout weekly full audit source without source-only images'
+    ));
+    const fullCheckoutIndex = steps.findIndex((step: any) => step.name === 'Checkout repo (for audit scripts only)');
     const pruneIndex = steps.findIndex((step: any) => (
       step.name === 'Prune source-only images before full dist rehydrate'
     ));
@@ -324,6 +332,17 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
       default: false,
       type: 'boolean',
     });
+    expect(sparseCheckout?.if).toBe('${{ inputs.prune_source_images }}');
+    expect(sparseCheckout?.with?.filter).toBe('blob:none');
+    expect(sparseCheckout?.with?.['sparse-checkout']).toContain('!/public/images/');
+    expect(sparseCheckout?.with?.['sparse-checkout-cone-mode']).toBe(false);
+    expect(fullCheckout?.if).toBe('${{ !inputs.prune_source_images }}');
+    expect(fullCheckout?.with?.filter).toBeUndefined();
+    expect(fullCheckout?.with?.['sparse-checkout']).toBeUndefined();
+    expect(sparseCheckoutIndex).toBeGreaterThanOrEqual(0);
+    expect(fullCheckoutIndex).toBeGreaterThanOrEqual(0);
+    expect(sparseCheckoutIndex).toBeLessThan(pruneIndex);
+    expect(fullCheckoutIndex).toBeLessThan(pruneIndex);
     expect(prune?.if).toBe('${{ inputs.prune_source_images }}');
     expect(prune?.run).toContain('rm -rf -- public/images');
     expect(prune?.run).toContain('df -i /');

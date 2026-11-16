@@ -20,10 +20,12 @@ import fs from 'fs';
 import os from 'os';
 import path from 'path';
 import { validateDedicatedLocaleCoverage } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { isolateCrawlerHistoricalData } from './helpers/isolate-crawler-historical-data.mjs';
 
 const STRICT_ENV = 'JOBS_PER_ITEM_GATE_TEST_STRICT';
 const NO_BOILERPLATE_COMPANY = 'Zqx Ephemeral Source Sarl';
 const BAD_HOST = 'https://evil-untrusted.example';
+isolateCrawlerHistoricalData();
 
 // Fake-but-present key: isAnyModelAvailable() only checks presence (no network
 // call), keeping the infra-down defer branch of isTranslationInfraDown() out

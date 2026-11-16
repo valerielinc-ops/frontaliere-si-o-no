@@ -1,0 +1,25 @@
+{
+  "companyKey": "bluecliffcollege",
+  "companyName": "Blue Cliff College",
+  "companyHost": "bluecliffcollege.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://bluecliffcollege.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 21,
+  "sampleTitles": [
+    "Anatomy & Physiology - Adjunct Faculty (on campus position)",
+    "Clinical Medical Assisting Instructor",
+    "Clinical Nursing Instructor",
+    "College Algebra Instructor",
+    "Cosmetology Instructor"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-16T14:10:14.094Z",
+  "candidateKey": "bluecliffcollege@applytojob.com"
+}

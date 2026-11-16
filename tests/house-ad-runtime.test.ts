@@ -69,6 +69,14 @@ describe('per-slot first-party creative delivery', () => {
     expect(el.style.getPropertyValue('--ft-house-height')).toBe('220px');
     expect(el.querySelector('a').href).toContain('1234567890');
   });
+  it('renders the fallback when the browser lacks Node.replaceChildren', async () => {
+    Object.defineProperty(w.HTMLElement.prototype, 'replaceChildren', { configurable: true, value: undefined });
+    const empty = frame('unfilled');
+
+    await start();
+
+    expect(empty.host.querySelector('a')).not.toBeNull();
+  });
   it('fills a static slot when the visitor explicitly denies Google ads consent', async () => {
     const el = w.document.createElement('div'); el.dataset.house = 'article-atf'; el.dataset.ftHouseHeight = '220'; el.dataset.width = '452';
     const ins = w.document.createElement('ins'); ins.dataset.adSlot = '1982411173'; ins.dataset.ftStaticAd = 'true'; ins.dataset.ftStaticAdPending = ''; ins.dataset.ftAdRequestPending = '';
@@ -365,7 +373,7 @@ describe('per-slot first-party creative delivery', () => {
     expect(paid.host.childElementCount).toBe(0);
     expect(emit.mock.calls.filter(([name]) => name === 'reader_subscription_ad_impression')).toHaveLength(1);
     expect(emit.mock.calls.filter(([name]) => name === 'reader_subscription_experiment_exposure')).toHaveLength(1);
-    expect(emit.mock.calls.filter(([name]) => name === 'reader_subscription_experiment_impression')).toHaveLength(1);
+    expect(emit.mock.calls.filter(([name]) => name === 'reader_sub_experiment_impression')).toHaveLength(1);
     expect(JSON.parse(w.sessionStorage.getItem('ft_reader_subscription_attribution_v1'))).toMatchObject({
       campaign: 'reader_subscription', experimentId: 'reader_subscription_house_v1',
       variant: 'subscription', touchpoint: 'exposure', enrolled: true,
@@ -424,11 +432,13 @@ describe('per-slot first-party creative delivery', () => {
     expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
     expect(second.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
     expect(emit.mock.calls.filter(([name]) => name === 'reader_subscription_experiment_exposure')).toHaveLength(1);
-    expect(emit.mock.calls.filter(([name]) => name === 'reader_subscription_experiment_impression')).toHaveLength(1);
+    expect(emit.mock.calls.filter(([name]) => name === 'reader_sub_experiment_impression')).toHaveLength(1);
     first.host.querySelector('a').click();
     second.host.querySelector('a').click();
     expect(emit.mock.calls.filter(([name]) => name === 'reader_subscription_experiment_click')).toHaveLength(1);
-    expect(emit.mock.calls.find(([name]) => name === 'reader_subscription_experiment_impression')?.[1]).toMatchObject({
+    const impressionEvent = emit.mock.calls.find(([name]) => name === 'reader_sub_experiment_impression');
+    expect(impressionEvent?.[0].length).toBeLessThanOrEqual(40);
+    expect(impressionEvent?.[1]).toMatchObject({
       experiment_id: 'reader_subscription_house_v1', experiment_variant: 'control',
     });
   });

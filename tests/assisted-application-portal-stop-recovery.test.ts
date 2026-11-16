@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
-import { portalPassFrom, portalPassRecord } from '../scripts/assisted-application/lib/portal/stop-report.mjs';
+import { portalPassFrom, portalPassRecord, redactStopReport, stopIssue } from '../scripts/assisted-application/lib/portal/stop-report.mjs';
 import { readPortalPass, reportPortalOutcome } from '../scripts/assisted-application/report-portal-stop.mjs';
 
 const tempDirs: string[] = [];
@@ -49,6 +49,69 @@ function stop(host: string) {
 const runUrl = 'https://github.com/example/repo/actions/runs/123';
 
 describe('recupero delle issue portal-stop', () => {
+  it('serializza una sola receipt candidate-free per posting_mismatch', () => {
+    const candidate = 'Maria-Rossi';
+    const raw = {
+      host: 'jobs.example',
+      path: `/de/job/${candidate}`,
+      reason: 'posting_mismatch',
+      channel: 'employer_site',
+      step: 1,
+      buttons: ['Jetzt bewerben'],
+      fields: [],
+      errors: [],
+      agent: [],
+      receipt: {
+        url: `https://jobs.example/de/job/${candidate}?candidate=${candidate}#apply`,
+        cta: {
+          label: `Jetzt bewerben — ${candidate} https://jobs.example/private/${candidate}`,
+          fingerprint: `sha256:${'a'.repeat(64)}`,
+          candidate,
+        },
+        binding: { status: 'bound', via: 'posting_route', candidate, url: `https://jobs.example/${candidate}` },
+        decision: { result: 'mismatch', via: 'form_posting_match', candidate },
+      },
+    };
+
+    const clean = redactStopReport(raw, [candidate]);
+    expect([clean.receipt].filter(Boolean)).toHaveLength(1);
+    expect(clean.receipt).toEqual({
+      path: '/de/job/*',
+      cta: {
+        label: 'Jetzt bewerben — [dato del candidato] [url]',
+        fingerprint: `sha256:${'a'.repeat(64)}`,
+      },
+      binding: { status: 'bound', via: 'posting_route' },
+      decision: { result: 'mismatch', via: 'form_posting_match' },
+    });
+    expect(redactStopReport(clean)).toEqual(clean);
+
+    const serialized = JSON.stringify(clean);
+    expect(serialized).not.toContain(candidate);
+    expect(serialized).not.toContain('https://');
+    expect(serialized).not.toContain('candidate=');
+    const issue = stopIssue(clean);
+    expect(issue.description).toContain('### Receipt candidate-free');
+    expect(issue.description).toContain('`/de/job/*`');
+    expect(issue.description).not.toContain(candidate);
+    expect(issue.description).not.toContain('https://jobs.example');
+  });
+
+  it('non inventa una decisione di mismatch da una receipt incompleta o incoerente', () => {
+    const base = {
+      host: 'jobs.example', path: '/de/job/*', reason: 'posting_mismatch', channel: 'employer_site', step: 1,
+      buttons: [], fields: [], errors: [], agent: [],
+      receipt: {
+        path: '/de/job/*',
+        cta: { label: 'Jetzt bewerben', fingerprint: 'b'.repeat(64) },
+        binding: { status: 'bound', via: 'posting_route' },
+        decision: { result: 'match', via: 'form_posting_match' },
+      },
+    };
+    expect(redactStopReport(base)).not.toHaveProperty('receipt');
+    expect(redactStopReport({ ...base, receipt: { ...base.receipt, decision: undefined } })).not.toHaveProperty('receipt');
+  });
+
   it('emette il pass solo dopo il segnale del runner e lo scrive senza dati personali', () => {
     const submitted = portalPassFrom({
       applyUrl: 'https://career5.successfactors.eu/career/apply/123',

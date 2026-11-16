@@ -1635,6 +1635,7 @@ step_build_sitemap_family_bridge_evidence() {
     return 0
   fi
   node scripts/ci/build-sitemap-family-bridge-evidence.mjs \
+    --locale it \
     --previous /tmp/pre-deploy-sitemap-urls.json \
     --current /tmp/new-sitemap-urls.json \
     --dist dist \

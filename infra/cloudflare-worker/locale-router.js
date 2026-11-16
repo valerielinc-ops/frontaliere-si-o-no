@@ -3629,6 +3629,7 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     });
     if (verified.kind === 'hit') return verified.response;
     const status = verified.kind === 'unavailable' ? 503 : 404;
+    if (status === 503) logEdgeFailure('expired-job-edge-verification', url);
     return new Response('Expired-job edge verification failed', {
       status,
       headers: {
@@ -3687,18 +3688,26 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     && (resp.status === 404 || resp.status === 410)) {
     expiredJobEdge = await lookupExpiredJobEdgePage(request, url, sectionRoute);
     if (expiredJobEdge.kind === 'hit') return expiredJobEdge.response;
-    // Once an active section has removed a page, a transient R2 failure must
-    // not let the old 301-to-section-root recovery turn that URL into a
-    // soft-404. Retry after recovery; the static shard will still answer if
-    // the removal has not landed yet.
+    // Once an active section has removed a page, a transient edge-dataset
+    // failure must not let the old 301-to-section-root recovery turn that URL
+    // into a soft-404. Prefer the last-good page for a reader, then preserve
+    // the origin's definitive absence. Returning a synthetic 503 here made a
+    // best-effort expired-job surface turn a burst of dead URLs into a burst
+    // of router errors.
     if (expiredJobEdge.kind === 'unavailable') {
-      return new Response('Expired job archive temporarily unavailable', {
-        status: 503,
+      if (request.method === 'GET') {
+        const stale = await serveStaleOnError(url, 'expired-job-edge');
+        if (stale) return stale;
+      } else {
+        logEdgeFailure('expired-job-edge', url);
+      }
+      const page = renderNotFoundPage(url.pathname, recoveryLocale, sectionRoute);
+      return new Response(request.method === 'HEAD' ? null : page, {
+        status: resp.status,
         headers: {
-          'Content-Type': 'text/plain; charset=utf-8',
+          'Content-Type': 'text/html; charset=utf-8',
           'Content-Language': recoveryLocale,
-          'Retry-After': '60',
-          'Cache-Control': 'no-store',
+          'Cache-Control': NOT_FOUND_CACHE_CONTROL,
         },
       });
     }
@@ -3912,7 +3921,13 @@ let publicConfigFetchPromise = null;
 async function fetchPublicConfigSnapshot() {
   const upstream = await fetch(PUBLIC_CONFIG_FUNCTION_ENDPOINT, {
     method: 'GET',
-    headers: { Accept: 'application/json' },
+    // The body is buffered below before it is handed back to the visitor.
+    // Request identity bytes so the Workers runtime does not have to decode a
+    // gzip stream while arrayBuffer() is reading it; a truncated compressed
+    // response would otherwise throw outside the upstream HTTP status path and
+    // become an edge-generated 5xx (the same failure class guarded in
+    // fetchOriginOnce()).
+    headers: { Accept: 'application/json', 'Accept-Encoding': 'identity' },
     // Cloudflare caches this JSON subrequest according to the function's
     // Cache-Control directives, including no-store on its fail-open response.
     // The URL is constant, so incoming query strings cannot fragment the key.

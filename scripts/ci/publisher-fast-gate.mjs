@@ -10,11 +10,12 @@ import {
   evaluateSitemapFamilyCoverage,
   filterExternallyServedUrlsFromSitemapCoverage,
   isExpiredJobSitemapKey,
+  SITEMAP_FAMILY_BRIDGE_EVIDENCE_VERSION,
 } from '../lib/sitemap-family-coverage.mjs';
 import { ownsSitemapUrl, sectionForUrl } from '../validate-sitemap-links.mjs';
 import { SHARD_VALIDATOR_VERSION } from './shard-content-manifest.mjs';
 
-export const FAST_GATE_VALIDATOR_VERSION = 'publisher-fast-gate-v7';
+export const FAST_GATE_VALIDATOR_VERSION = 'publisher-fast-gate-v8';
 export const SITE_ORIGIN = 'https://frontaliereticino.ch';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const SHA_RE = /^[0-9a-f]{64}$/u;
@@ -273,6 +274,7 @@ export function validatePublisherFastGate({
   sectionManifests,
   archiveEvidenceManifests = null,
   sitemapFamilyBridgeEvidence = null,
+  sitemapFamilyBridgeEvidenceFiles = [],
   sourceArtifacts,
   publisherArtifacts,
   manifestArtifactNames = [],
@@ -555,6 +557,7 @@ export function validatePublisherFastGate({
     expiredArchiveCanaryEntriesByLocale: archive.canaryEntriesByLocale,
     expiredArchiveCanaryVerifiedByLocale: archive.canaryVerifiedByLocale,
     sitemapFamilyChurn,
+    sitemapFamilyBridgeEvidenceFiles,
     sampleRate: 1,
     sampledPages: urlSet.size,
     offendersTotal: errors.length,
@@ -587,6 +590,56 @@ function readOptionalJson(file) {
   }
 }
 
+function mergeSitemapFamilyBridgeEvidence(evidenceFiles) {
+  if (evidenceFiles.length === 0) return null;
+
+  const entries = new Map();
+  const missing = new Map();
+  for (const { evidence } of evidenceFiles) {
+    for (const entry of Array.isArray(evidence?.entries) ? evidence.entries : []) {
+      const family = String(entry?.family ?? '');
+      const url = String(entry?.url ?? '');
+      const key = family && url ? `${family}\0${url}` : `invalid:${JSON.stringify(entry)}`;
+      if (!entries.has(key)) entries.set(key, entry);
+    }
+    for (const item of Array.isArray(evidence?.missing) ? evidence.missing : []) {
+      const key = JSON.stringify(item);
+      if (!missing.has(key)) missing.set(key, item);
+    }
+  }
+
+  return {
+    schemaVersion: SITEMAP_FAMILY_BRIDGE_EVIDENCE_VERSION,
+    kind: 'sitemap-family-bridge-evidence',
+    complete: evidenceFiles.every(({ evidence }) =>
+      evidence?.schemaVersion === SITEMAP_FAMILY_BRIDGE_EVIDENCE_VERSION
+      && evidence?.kind === 'sitemap-family-bridge-evidence'
+      && evidence?.complete === true),
+    entries: [...entries.values()].sort((a, b) =>
+      `${a?.family ?? ''}\0${a?.url ?? ''}`.localeCompare(`${b?.family ?? ''}\0${b?.url ?? ''}`)),
+    missing: [...missing.values()].sort((a, b) =>
+      `${a?.family ?? ''}\0${a?.url ?? ''}\0${a?.reason ?? ''}`
+        .localeCompare(`${b?.family ?? ''}\0${b?.url ?? ''}\0${b?.reason ?? ''}`)),
+  };
+}
+
+export function readSitemapFamilyBridgeEvidence(sitemapsDir) {
+  const names = [
+    'sitemap-family-bridge-evidence.json',
+    'sitemap-family-bridge-evidence-en.json',
+    'sitemap-family-bridge-evidence-de.json',
+    'sitemap-family-bridge-evidence-fr.json',
+  ];
+  const files = names
+    .map((name) => ({ name, file: path.join(sitemapsDir, name) }))
+    .filter(({ file }) => fs.existsSync(file))
+    .map(({ name, file }) => ({ name, evidence: readOptionalJson(file) }));
+  return {
+    evidence: mergeSitemapFamilyBridgeEvidence(files),
+    files: files.map(({ name }) => name),
+  };
+}
+
 function formatByLocale(byLocale) {
   return LOCALES.map((locale) => `${locale}=${byLocale?.[locale] ?? 0}`).join(' ');
 }
@@ -608,6 +661,7 @@ function main() {
   const pageManifests = jsonFiles(args['page-manifests-dir']);
   const sectionManifests = jsonFiles(args['section-manifests-dir']);
   const archiveEvidenceManifests = jsonFiles(args['archive-evidence-dir']);
+  const bridgeEvidence = readSitemapFamilyBridgeEvidence(args['sitemaps-dir']);
   const manifestArtifactNames = [
     ...pageManifests.map((manifest) => manifest.manifestArtifactName),
     ...sectionManifests.map((manifest) => manifest.manifestArtifactName),
@@ -619,9 +673,8 @@ function main() {
     sitemapDir: args['sitemaps-dir'],
     previousSitemapSnapshot: readPreviousSitemapSnapshot(path.join(args['sitemaps-dir'], 'pre-deploy-sitemap-urls.json')),
     sitemapCoverageDeclarations: readJson('data/sitemap-family-coverage-declarations.json'),
-    sitemapFamilyBridgeEvidence: readOptionalJson(
-      path.join(args['sitemaps-dir'], 'sitemap-family-bridge-evidence.json'),
-    ),
+    sitemapFamilyBridgeEvidence: bridgeEvidence.evidence,
+    sitemapFamilyBridgeEvidenceFiles: bridgeEvidence.files,
     pageManifests,
     sectionManifests,
     archiveEvidenceManifests,
@@ -633,7 +686,7 @@ function main() {
     fs.mkdirSync(path.dirname(args.out), { recursive: true });
     fs.writeFileSync(args.out, `${JSON.stringify(result, null, 2)}\n`);
   }
-  console.log(`[publisher-fast-gate] ${result.passed ? 'PASS' : 'FAIL'} source=${result.sourceRunId}@${result.sourceSha.slice(0, 12)} URLs=${result.sitemapUrlPopulation} pages=${result.pageManifestPopulation} shardPages=${result.sectionManifestPopulation} errors=${result.errorCount}`);
+  console.log(`[publisher-fast-gate] ${result.passed ? 'PASS' : 'FAIL'} source=${result.sourceRunId}@${result.sourceSha.slice(0, 12)} URLs=${result.sitemapUrlPopulation} pages=${result.pageManifestPopulation} shardPages=${result.sectionManifestPopulation} errors=${result.errorCount} sitemapFamilyBridgeEvidenceFiles=${result.sitemapFamilyBridgeEvidenceFiles.join(',') || 'none'}`);
   console.log(
     `[publisher-fast-gate] expired-archive family: ${result.expiredArchiveSitemapExcluded} sitemap URL(s) excluded from the page-by-page comparison (${formatByLocale(result.expiredArchiveSitemapExcludedByLocale)}); `
     + `${result.expiredArchiveSitemapCoveredByCanary} covered by a locale canary set (${formatByLocale(result.expiredArchiveSitemapCoveredByCanaryByLocale)}); `

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksa",
-  "assembledAt": "2026-11-16T09:22:28.183Z",
+  "assembledAt": "2026-11-16T13:23:48.179Z",
   "runId": "43836475743",
   "jobs": [
     {
@@ -10,7 +10,7 @@
         "it": "expert-expert-care-kantonsspital-aarau-ksa-aarau",
         "en": "specialist-care-expert-kantonsspital-aarau-ksa-aarau",
         "de": "fachexpertin-fachexperte-pflege-ksa-ch",
-        "fr": "expert-care-kantonsspital-aarau-ksa-aarau"
+        "fr": "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -55,12 +55,12 @@
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugs": [
+        "expert-expert-care-kantonsspital-aarau-ksa-aarau-9zu87s",
         "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
         "fachexpertin-fachexperte-pflege-ksa-ch",
         "expert-expert-care-kantonsspital-aarau-ksa-aarau-2a8ca7",
         "soins-d-experts-kantonsspital-aarau-ksa-aarau",
         "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau",
-        "expert-expert-care-kantonsspital-aarau-ksa-aarau-9zu87s",
         "expert-care-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
@@ -72,7 +72,7 @@
         "fr": [
           "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
           "soins-d-experts-kantonsspital-aarau-ksa-aarau",
-          "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau"
+          "expert-care-kantonsspital-aarau-ksa-aarau"
         ],
         "en": [
           "expert-expert-care-kantonsspital-aarau-ksa-aarau-9zu87s"
@@ -891,6 +891,8 @@
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-ksa-ch-9zti75",
+        "fachfrau-fachmann-gesundheit-ksa-ch-9zti7t",
         "fachfrau-fachmann-gesundheit-ksa-ch",
         "fachfrau-fachmann-gesundheit-ksa-ch-9zti7s",
         "salute-professionale-kantonsspital-aarau-ksa-aarau-430337",
@@ -916,9 +918,7 @@
         "sante-professionnelle-kantonsspital-aarau-ksa-aarau-d76b02",
         "salute-professionale-kantonsspital-aarau-ksa-aarau-656d6a",
         "health-professional-kantonsspital-aarau-ksa-aarau-656d6a",
-        "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau-656d6a",
-        "fachfrau-fachmann-gesundheit-ksa-ch-9zti7t",
-        "fachfrau-fachmann-gesundheit-ksa-ch-9zti75"
+        "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau-656d6a"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -947,11 +947,10 @@
           "health-professional-kantonsspital-aarau-ksa-aarau-656d6a"
         ],
         "de": [
-          "fachfrau-mann-gesundheit-ksa-ch",
-          "fachfrau-fachmann-gesundheit-ksa-ch-9zti7s",
-          "fachfrau-fachmann-gesundheit-ksa-ch-9zti7t",
           "fachfrau-fachmann-gesundheit-ksa-ch-9zti75",
-          "fachfrau-fachmann-gesundheit-ksa-ch"
+          "fachfrau-fachmann-gesundheit-ksa-ch-9zti7t",
+          "fachfrau-mann-gesundheit-ksa-ch",
+          "fachfrau-fachmann-gesundheit-ksa-ch-9zti7s"
         ],
         "fr": [
           "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau",
@@ -1154,7 +1153,7 @@
         "it": "paramedico-fa-kantonsspital-aarau-ksa-aarau",
         "en": "paramedic-fa-kantonsspital-aarau-ksa-aarau",
         "de": "transportsanitater-in-fa-ksa-ch",
-        "fr": "paramedic-fa-kantonsspital-aarau-ksa-aarau"
+        "fr": "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -1200,7 +1199,8 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau",
-        "transportsanitater-in-fa-ksa-ch"
+        "transportsanitater-in-fa-ksa-ch",
+        "paramedic-fa-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1211,7 +1211,7 @@
           "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "transportsanitater-in-fa-kantonsspital-aarau-ksa-aarau"
+          "paramedic-fa-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-07T15:03:33.541Z",
@@ -1393,8 +1393,7 @@
         "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau-c78174",
         "dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-kantonsspital-aarau-ksa-aarau-c78174",
         "dipl-infermieristica-professionale-infermieristica-kantonsspital-aarau-ksa-aarau-971f25",
-        "dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-kantonsspital-aarau-ksa-aarau-971f25",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+        "dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-kantonsspital-aarau-ksa-aarau-971f25"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1448,8 +1447,7 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8",
           "dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-kantonsspital-aarau-ksa-aarau-c78174",
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch-4",
-          "dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-kantonsspital-aarau-ksa-aarau-971f25",
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+          "dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-kantonsspital-aarau-ksa-aarau-971f25"
         ]
       },
       "firstSeenAt": "2026-09-01T10:13:55.101Z",
@@ -2060,7 +2058,7 @@
       "id": "ksa-0b6c3dd0024c",
       "slug": "terapeuta-del-lavoro-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "terapeuta-del-lavoro-kantonsspital-aarau-ksa-aarau",
+        "it": "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau",
         "en": "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
         "de": "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
         "fr": "ergotherapeut-in-ksa-ch"
@@ -2113,14 +2111,12 @@
         ],
         "it": [
           "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
-          "ergotherapeut-in-ksa-ch",
-          "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau"
+          "ergotherapeut-in-ksa-ch"
         ]
       },
       "previousSlugs": [
         "ergotherapeut-in-kantonsspital-aarau-ksa-aarau",
-        "ergotherapeut-in-ksa-ch",
-        "terapista-occupazionale-in-kantonsspital-aarau-ksa-aarau"
+        "ergotherapeut-in-ksa-ch"
       ],
       "firstSeenAt": "2026-09-03T23:15:12.099Z",
       "salaryMin": 88000,
@@ -3955,7 +3951,7 @@
       "id": "ksa-6cf6025271ef",
       "slug": "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
       "slugByLocale": {
-        "it": "salute-professionale-kantonsspital-aarau-ksa-aarau-99b4914284",
+        "it": "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
         "en": "healthcare-professional-kantonsspital-aarau-ksa-aarau",
         "de": "fachfrau-fachmann-gesundheit-ksa-ch",
         "fr": "specialiste-de-la-sante-kantonsspital-aarau-ksa-aarau"
@@ -4006,14 +4002,12 @@
         "fachfrau-fachmann-gesundheit-ksa-ch",
         "fachfrau-fachmann-gesundheit-ksa-ch-9zti70",
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
-        "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
         "salute-professionale-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-ksa-ch",
           "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
-          "specialista-sanitaria-efz-2009-kantonsspital-aarau-ksa-aarau",
           "salute-professionale-kantonsspital-aarau-ksa-aarau"
         ],
         "de": [
@@ -4505,7 +4499,7 @@
       "id": "ksa-55d25c285595",
       "slug": "salute-professionale-kantonsspital-aarau-ksa-aarau-ddaed1bec4",
       "slugByLocale": {
-        "it": "salute-professionale-kantonsspital-aarau-ksa-aarau-ddaed1bec4",
+        "it": "salute-professionale-kantonsspital-aarau-ksa-aarau",
         "en": "professional-health-kantonsspital-aarau-ksa-aarau",
         "de": "fachfrau-fachmann-gesundheit-ksa-ch",
         "fr": "sante-professionnelle-kantonsspital-aarau-ksa-aarau"
@@ -4554,8 +4548,7 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-gesundheit-ksa-ch",
-          "salute-professionale-kantonsspital-aarau-ksa-aarau"
+          "fachfrau-fachmann-gesundheit-ksa-ch"
         ],
         "en": [
           "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
@@ -4573,8 +4566,7 @@
         "fachfrau-fachmann-gesundheit-ksa-ch",
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau-9zti67",
-        "fachfrau-fachmann-gesundheit-ksa-ch-9zti67",
-        "salute-professionale-kantonsspital-aarau-ksa-aarau"
+        "fachfrau-fachmann-gesundheit-ksa-ch-9zti67"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -6522,7 +6514,7 @@
         "it": "medizinische-r-disponent-in-kantonsspital-aarau-ksa-aarau",
         "en": "medical-r-dispatch-kantonsspital-aarau-ksa-aarau",
         "de": "medizinische-r-disponent-in-ksa-ch",
-        "fr": "repartiteur-trice-medical-e-kantonsspital-aarau-ksa-aarau"
+        "fr": "expedition-medicale-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -6568,14 +6560,14 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugs": [
         "medizinische-r-disponent-in-ksa-ch",
-        "expedition-medicale-kantonsspital-aarau-ksa-aarau"
+        "repartiteur-trice-medical-e-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-r-disponent-in-ksa-ch"
         ],
         "fr": [
-          "expedition-medicale-kantonsspital-aarau-ksa-aarau"
+          "repartiteur-trice-medical-e-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-09-09T13:42:13.467Z",
@@ -7694,10 +7686,10 @@
       "id": "ksa-7c0bbde0f88d",
       "slug": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
-        "en": "med-practical-assistant-kantonsspital-aarau-ksa-aarau",
         "de": "med-praxisassistent-in-ksa-ch",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+        "it": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
+        "en": "med-practical-assistant-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -7746,14 +7738,12 @@
           "med-praxisassistent-in-ksa-ch"
         ],
         "fr": [
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
         ]
       },
       "previousSlugs": [
         "med-praxisassistent-in-ksa-ch",
-        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
-        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -7778,10 +7768,10 @@
       "id": "ksa-6bed510181d9",
       "slug": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
       "slugByLocale": {
+        "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
-        "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -7825,10 +7815,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Pilot ohne Motivationsbrief",
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
@@ -7837,10 +7823,13 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
         ]
       },
-      "firstSeenAt": "2026-09-01T10:13:55.101Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -7857,7 +7846,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T09:21:20.941Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-09-01T10:13:55.101Z"
     },
     {
       "id": "ksa-9867f9571ac9",
@@ -8205,7 +8195,7 @@
         "it": "expert-expert-care-kantonsspital-aarau-ksa-aarau-2a8ca7",
         "en": "expert-expert-care-kantonsspital-aarau-ksa-aarau-9zu87s",
         "de": "fachexpertin-fachexperte-pflege-ksa-ch",
-        "fr": "expert-care-kantonsspital-aarau-ksa-aarau"
+        "fr": "soins-d-experts-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -8252,7 +8242,7 @@
       "previousSlugs": [
         "fachexpertin-fachexperte-pflege-ksa-ch",
         "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
-        "soins-d-experts-kantonsspital-aarau-ksa-aarau"
+        "expert-care-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8260,7 +8250,7 @@
         ],
         "fr": [
           "fachexpertin-fachexperte-pflege-kantonsspital-aarau-ksa-aarau",
-          "soins-d-experts-kantonsspital-aarau-ksa-aarau"
+          "expert-care-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "firstSeenAt": "2026-08-11T22:32:44.726Z",
@@ -8696,7 +8686,7 @@
       "id": "ksa-89883f785c0b",
       "slug": "infermieristica-professionale-in-formazione-modulo-aggiuntivo-b-o-c-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "it": "infermieristica-professionale-in-formazione-modulo-aggiuntivo-b-o-c-kantonsspital-aarau-ksa-aarau",
+        "it": "valutatore-immobiliare-graubundner-kantonalbank-chur",
         "en": "nursing-professional-in-training-additional-module-b-or-c-kantonsspital-aarau-ksa-aarau",
         "de": "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch",
         "fr": "professionnel-infirmier-en-formation-module-supplementaire-b-ou-c-kantonsspital-aarau-ksa-aarau"
@@ -8746,14 +8736,12 @@
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-kantonsspital-aarau-ksa-aarau",
         "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-o-c-kantonsspital-aarau-ksa-aarau",
-        "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch",
-        "valutatore-immobiliare-graubundner-kantonalbank-chur"
+        "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-o-c-kantonsspital-aarau-ksa-aarau",
-          "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch",
-          "valutatore-immobiliare-graubundner-kantonalbank-chur"
+          "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-ksa-ch"
         ],
         "en": [
           "pflegefachfrau-pflegefachmann-in-ausbildung-zusatzmodul-b-oder-c-kantonsspital-aarau-ksa-aarau"
@@ -8783,12 +8771,12 @@
     },
     {
       "id": "ksa-ea937b681293",
-      "slug": "sozialarbeiter-in-ksa-ch",
+      "slug": "assistente-sociale-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "sozialarbeiter-in-ksa-ch",
-        "it": "sozialarbeiter-in-ksa-ch",
-        "en": "sozialarbeiter-in-ksa-ch",
-        "fr": "sozialarbeiter-in-ksa-ch"
+        "it": "assistente-sociale-kantonsspital-aarau-ksa-aarau",
+        "en": "social-worker-kantonsspital-aarau-ksa-aarau",
+        "fr": "travailleur-social-travailleuse-sociale-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -8796,16 +8784,16 @@
       "title": "Sozialarbeiter/in",
       "titleByLocale": {
         "de": "Sozialarbeiter/in",
-        "it": "Sozialarbeiter/in",
-        "en": "Sozialarbeiter/in",
-        "fr": "Sozialarbeiter/in"
+        "it": "Assistente sociale",
+        "en": "Social Worker",
+        "fr": "Travailleur social/Travailleuse sociale"
       },
       "description": "Befristet\n\nStellenantritt: Per 01. Dezember 2026 oder nach Vereinbarung\n\nAufgaben:\n• Sie beraten Patientinnen und Patienten sowie deren Bezugspersonen während der Spitalbehandlung in persönlichen, sozialen, rechtlichen und finanziellen Fragen\n\n• Gemeinsam mit Patientinnen und Patienten erarbeiten Sie situationsadäquate Lösungen. Dazu klären Sie die sozialen Verhältnisse ab, vermitteln Sachhilfe und planen einen effizienten Spitalaustritt\n\n• Sie arbeiten im interdisziplinären Kontext und nutzen vielfältige Kontakte zu externen Stellen wie Sozialversicherungen, Behörden und Leistungserbringern des Gesundheitswesens\n\nAnforderungen:\n• Bachelor-Abschluss in Sozialer Arbeit oder vergleichbarem Diplom\n\n• Berufserfahrung, von Vorteil im Gesundheitswesen\n\n• Lösungsorientierte und selbstständige Arbeitsweise und Freude am dynamischen Spitalalltag\n\n• Fähigkeit zur klaren Kommunikation\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
       "descriptionByLocale": {
         "de": "Befristet\n\nStellenantritt: Per 01. Dezember 2026 oder nach Vereinbarung\n\nAufgaben:\n• Sie beraten Patientinnen und Patienten sowie deren Bezugspersonen während der Spitalbehandlung in persönlichen, sozialen, rechtlichen und finanziellen Fragen\n\n• Gemeinsam mit Patientinnen und Patienten erarbeiten Sie situationsadäquate Lösungen. Dazu klären Sie die sozialen Verhältnisse ab, vermitteln Sachhilfe und planen einen effizienten Spitalaustritt\n\n• Sie arbeiten im interdisziplinären Kontext und nutzen vielfältige Kontakte zu externen Stellen wie Sozialversicherungen, Behörden und Leistungserbringern des Gesundheitswesens\n\nAnforderungen:\n• Bachelor-Abschluss in Sozialer Arbeit oder vergleichbarem Diplom\n\n• Berufserfahrung, von Vorteil im Gesundheitswesen\n\n• Lösungsorientierte und selbstständige Arbeitsweise und Freude am dynamischen Spitalalltag\n\n• Fähigkeit zur klaren Kommunikation\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "it": "Befristet\n\nStellenantritt: Per 01. Dezember 2026 oder nach Vereinbarung\n\nAufgaben:\n• Sie beraten Patientinnen und Patienten sowie deren Bezugspersonen während der Spitalbehandlung in persönlichen, sozialen, rechtlichen und finanziellen Fragen\n\n• Gemeinsam mit Patientinnen und Patienten erarbeiten Sie situationsadäquate Lösungen. Dazu klären Sie die sozialen Verhältnisse ab, vermitteln Sachhilfe und planen einen effizienten Spitalaustritt\n\n• Sie arbeiten im interdisziplinären Kontext und nutzen vielfältige Kontakte zu externen Stellen wie Sozialversicherungen, Behörden und Leistungserbringern des Gesundheitswesens\n\nAnforderungen:\n• Bachelor-Abschluss in Sozialer Arbeit oder vergleichbarem Diplom\n\n• Berufserfahrung, von Vorteil im Gesundheitswesen\n\n• Lösungsorientierte und selbstständige Arbeitsweise und Freude am dynamischen Spitalalltag\n\n• Fähigkeit zur klaren Kommunikation\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "en": "Befristet\n\nStellenantritt: Per 01. Dezember 2026 oder nach Vereinbarung\n\nAufgaben:\n• Sie beraten Patientinnen und Patienten sowie deren Bezugspersonen während der Spitalbehandlung in persönlichen, sozialen, rechtlichen und finanziellen Fragen\n\n• Gemeinsam mit Patientinnen und Patienten erarbeiten Sie situationsadäquate Lösungen. Dazu klären Sie die sozialen Verhältnisse ab, vermitteln Sachhilfe und planen einen effizienten Spitalaustritt\n\n• Sie arbeiten im interdisziplinären Kontext und nutzen vielfältige Kontakte zu externen Stellen wie Sozialversicherungen, Behörden und Leistungserbringern des Gesundheitswesens\n\nAnforderungen:\n• Bachelor-Abschluss in Sozialer Arbeit oder vergleichbarem Diplom\n\n• Berufserfahrung, von Vorteil im Gesundheitswesen\n\n• Lösungsorientierte und selbstständige Arbeitsweise und Freude am dynamischen Spitalalltag\n\n• Fähigkeit zur klaren Kommunikation\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite.",
-        "fr": "Befristet\n\nStellenantritt: Per 01. Dezember 2026 oder nach Vereinbarung\n\nAufgaben:\n• Sie beraten Patientinnen und Patienten sowie deren Bezugspersonen während der Spitalbehandlung in persönlichen, sozialen, rechtlichen und finanziellen Fragen\n\n• Gemeinsam mit Patientinnen und Patienten erarbeiten Sie situationsadäquate Lösungen. Dazu klären Sie die sozialen Verhältnisse ab, vermitteln Sachhilfe und planen einen effizienten Spitalaustritt\n\n• Sie arbeiten im interdisziplinären Kontext und nutzen vielfältige Kontakte zu externen Stellen wie Sozialversicherungen, Behörden und Leistungserbringern des Gesundheitswesens\n\nAnforderungen:\n• Bachelor-Abschluss in Sozialer Arbeit oder vergleichbarem Diplom\n\n• Berufserfahrung, von Vorteil im Gesundheitswesen\n\n• Lösungsorientierte und selbstständige Arbeitsweise und Freude am dynamischen Spitalalltag\n\n• Fähigkeit zur klaren Kommunikation\n\nHerzlich willkommen im Kantonsspital Aarau (KSA).\nOb im Kantonsspital Aarau, an den Standorten KSA Bahnhof Aarau, KSA Lenzburg oder KSA Frick – wir sind rund um die Uhr für Sie da. Mit unserem breiten Angebot, von der Grundversorgung bis hin zur hochspezialisierten Medizin, stehen wir Ihnen an allen Standorten kompetent und zuverlässig zur Seite."
+        "it": "Temporaneo\n\nApertura del lavoro: A partire dal 01. Dicembre 2026 o accordo\n\nCompiti:\n• Essi consigliano i pazienti e i loro assistenti durante il trattamento ospedaliero in questioni personali, sociali, legali e finanziarie\n\n• Insieme ai pazienti, si sviluppano soluzioni appropriate alla situazione. A tal fine, si chiarisce le condizioni sociali, fornire assistenza e pianificare un'uscita ospedaliera efficiente\n\n• Lavorano in un contesto interdisciplinare e utilizzano diversi contatti con enti esterni come assicurazioni sociali, autorità pubbliche e fornitori di assistenza sanitaria.\n\nRequisiti\n• Laurea in lavoro sociale o diploma comparabile\n\n• Esperienza professionale, benefica nell'assistenza sanitaria\n\n• Metodo di lavoro orientato alla soluzione e indipendente e godimento della vita quotidiana ospedaliera dinamica\n\n• Capacità di comunicare chiaramente\n\nBenvenuti all'Ospedale cantonale Aarau (KSA).\nSia nell'Ospedale cantonale Aarau, nelle località KSA Bahnhof Aarau, KSA Lenzburg o KSA Frick – siamo lì per voi tutto il giorno. Con la nostra vasta gamma di servizi, dalla cura di base alla medicina altamente specializzata, siamo competenti e affidabili in tutte le posizioni.",
+        "en": "Temporary\n\nJob opening: As of 01. December 2026 or by agreement\n\nTasks:\n• They advise patients and their caregivers during hospital treatment in personal, social, legal and financial matters\n\n• Together with patients, you develop situation-appropriate solutions. For this purpose, you clarify the social conditions, provide assistance and plan an efficient hospital exit\n\n• They work in an interdisciplinary context and use diverse contacts with external bodies such as social insurance, public authorities and healthcare providers.\n\nRequirements\n• Bachelor’s degree in social work or comparable diploma\n\n• Professional experience, beneficial in health care\n\n• Solution-oriented and independent working method and enjoyment of dynamic hospital everyday life\n\n• Ability to communicate clearly\n\nWelcome to the Cantonal Hospital Aarau (KSA).\nWhether in the Cantonal Hospital Aarau, at the locations KSA Bahnhof Aarau, KSA Lenzburg or KSA Frick – we are there for you around the clock. With our wide range of services, from basic care to highly specialized medicine, we are competent and reliable at all locations.",
+        "fr": "Temporaire\n\nOuverture de l'emploi: à partir de 01. Décembre 2026 ou par accord\n\nTâches :\n• Ils conseillent les patients et leurs soignants pendant le traitement hospitalier en matière personnelle, sociale, juridique et financière\n\n• Avec les patients, vous développez des solutions adaptées à la situation. À cette fin, vous clarifiez les conditions sociales, aidez et planifiez une sortie efficace de l'hôpital\n\n• Ils travaillent dans un contexte interdisciplinaire et utilisent divers contacts avec des organismes externes tels que l'assurance sociale, les pouvoirs publics et les prestataires de soins de santé.\n\nExigences\n• Baccalauréat en travail social ou diplôme comparable\n\n• Expérience professionnelle, bénéfique dans les soins de santé\n\n• Méthode de travail indépendante et orientée vers la solution et jouissance d'une vie quotidienne d'hôpital dynamique\n\n• Capacité de communiquer clairement\n\nBienvenue à l'hôpital cantonal Aarau (KSA).\nQue ce soit à l'hôpital cantonal Aarau, aux emplacements KSA Bahnhof Aarau, KSA Lenzburg ou KSA Frick – nous sommes là pour vous 24h/24. Avec notre large gamme de services, des soins de base à la médecine hautement spécialisée, nous sommes compétents et fiables à tous les endroits."
       },
       "location": "Aarau",
       "canton": "AG",
@@ -8834,7 +8822,6 @@
         "de": []
       },
       "department": "Kantonsspital Aarau AG",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -8852,7 +8839,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:21:20.939Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-10T23:04:00.678Z"
+      "firstSeenAt": "2026-09-10T23:04:00.678Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-ksa-ch"
+        ],
+        "en": [
+          "sozialarbeiter-in-ksa-ch"
+        ],
+        "fr": [
+          "sozialarbeiter-in-ksa-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-ksa-ch"
+      ]
     },
     {
       "id": "ksa-72a4561aee04",

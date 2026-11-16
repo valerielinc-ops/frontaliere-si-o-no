@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { LIST_PROMPT_RE, extractFields, extractFieldsInPage, registerPortalChannelType, unresolvedTurnstileFrame } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
-import { guardPlan } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { guardPlan, planUserText } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { COOKIE_ACCEPT_RE, COOKIE_CUSTOMIZE_RE, COOKIE_MANAGE_CONSENT_RE, COOKIE_REJECT_RE, dismissCookieBanner, openFormSections, portalRequirementsFromMissingRequired, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { operationalDefaultAnswer, operationalQuestionTopic } from '../functions/src/assistedApplicationOperationalAnswers.js';
 import { mergeLivePortalQuestions } from '../scripts/assisted-application/lib/portal/merge-live-requirements.mjs';
@@ -37,6 +37,29 @@ afterEach(() => {
 });
 
 describe('portal field extraction', () => {
+  it('keeps repeated Workday profile names out of planner field identity', () => {
+    const rows = Array.from({ length: 5 }, (_, index) => `<fieldset><legend>Work Experience ${index + 1}</legend>
+      <label for="job-${index}">Job Title*</label><input id="job-${index}" name="name" required>
+      <label for="company-${index}">Company*</label><input id="company-${index}" name="name" required>
+      <label for="location-${index}">Location</label><input id="location-${index}" name="location">
+      <label><input type="checkbox" name="current-${index}">I currently work here</label>
+      <label for="description-${index}">Role Description</label><textarea id="description-${index}" name="description"></textarea>
+    </fieldset>`).join('');
+    const snapshot = extract(`<form><button type="button">Add Another</button><button type="button">Add</button>${rows}
+      <label for="skills">Type to Add Skills</label><input id="skills" name="skills">
+      <label for="cv">Resume/CV</label><input id="cv" type="file" name="cv">
+      <button type="button">Back</button><button type="submit">Save and Continue</button></form>`);
+
+    expect(snapshot.buttons.map((button: any) => button.text)).toEqual(expect.arrayContaining(['Add Another', 'Add', 'Back', 'Save and Continue']));
+    expect(snapshot.fields.filter((field: any) => field.label === 'Job Title*')).toHaveLength(5);
+    expect(snapshot.fields.filter((field: any) => field.label === 'Company*')).toHaveLength(5);
+    expect(snapshot.fields.filter((field: any) => field.name === 'name')).toHaveLength(10);
+
+    const plannerFields = JSON.parse(planUserText({ snapshot, candidate: { profile: {} } })).form.fields;
+    expect(plannerFields.filter((field: any) => field.label === 'Job Title*').every((field: any) => !('name' in field))).toBe(true);
+    expect(plannerFields.find((field: any) => field.label === 'Type to Add Skills')).toMatchObject({ name: 'skills' });
+  });
+
   it.each(['CV', 'Resume/CV', 'Lebenslauf', 'Curriculum'])('uses a Workday section title for a hidden unlabelled upload input: %s', (title) => {
     const snapshot = extract(`<form><section><h2>${title}</h2>
       <input id="file-upload-input-ref" data-automation-id="file-upload-input-ref" type="file" style="display:none">

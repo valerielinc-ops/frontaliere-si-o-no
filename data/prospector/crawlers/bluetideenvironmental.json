@@ -1,0 +1,22 @@
+{
+  "companyKey": "bluetideenvironmental",
+  "companyName": "Blue Tide",
+  "companyHost": "bluetideenvironmental.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://bluetideenvironmental.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Mechanical Engineer",
+    "Senior Mechanical Technician"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-16T14:10:16.888Z",
+  "candidateKey": "bluetideenvironmental@applytojob.com"
+}

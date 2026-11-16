@@ -1,0 +1,23 @@
+{
+  "companyKey": "boldintegratedpayments",
+  "companyName": "VersiTech / Bold Integrated Payments / Tonic",
+  "companyHost": "boldintegratedpayments.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://boldintegratedpayments.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Business Analyst III (Senior)",
+    "Director of Business Development",
+    "Software Engineer III (Senior)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-16T14:10:18.291Z",
+  "candidateKey": "boldintegratedpayments@applytojob.com"
+}

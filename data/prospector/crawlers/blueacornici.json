@@ -1,0 +1,25 @@
+{
+  "companyKey": "blueacornici",
+  "companyName": "Blue Acorn iCi",
+  "companyHost": "blueacornici.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://blueacornici.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 30,
+  "sampleTitles": [
+    "AEM Enterprise Architect (Remote)",
+    "AEM Product Lead / Digital Experience Lead (Remote/Hybrid, Dallas)",
+    "AEM Technical Architect (Remote, Contract)",
+    "AEM Technical Architect (Remote)",
+    "AEP Data Architect Consultant"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-16T14:10:12.704Z",
+  "candidateKey": "blueacornici@applytojob.com"
+}

@@ -1,0 +1,23 @@
+{
+  "companyKey": "weiss-appetito-ag",
+  "companyName": "Weiss + Appetito AG",
+  "companyHost": "app.jobportal.abaservices.ch",
+  "verifiedEmployerDomain": "weissappetito.com",
+  "platform": "abaservices.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://app.jobportal.abaservices.ch/application-process/7cd36cda-b168-434e-9add-1a16d27ace29/2ff568ae-7e4b-f2d3-79f5-ffe6fd7e0dfe?jp=ABACUS"
+  ],
+  "detailTemplate": "/application-process/7cd36cda-b168-434e-9add-1a16d27ace29/2ff568ae-7e4b-f2d3-79f5-ffe6fd7e0dfe",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Initiativbewerber W+A"
+  ],
+  "canton": "FR",
+  "sourceLang": "it",
+  "learnedAt": "2026-11-16T14:23:38.142Z",
+  "candidateKey": "weiss-appetito@agriswil"
+}

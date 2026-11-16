@@ -4,7 +4,8 @@
  *
  * Emits `/lavoro-{city}-{role}/` (+ /en/jobs-, /de/arbeit-, /fr/travail-) for
  * each (city, profession) pair with at least MIN_JOBS real active jobs in
- * the corpus, across the 5 legacy TI hubs plus the 6 major non-TI cities
+ * the corpus, unless active 90-day GSC demand protects a pair with at least
+ * one real job, across the 5 legacy TI hubs plus the 6 major non-TI cities
  * (Zürich, Basel, Bern, Luzern, Genève, Lausanne — PROFESSION_CITY_DEFS).
  * Mined evidence for the TI gap: data/search-location-gaps.json
  * (scripts/mine-search-location-gaps.mjs) — real on-site search terms like
@@ -12,8 +13,9 @@
  * (e.g. "ergoterapista zurigo") is visible in
  * data/profession-keyword-opportunities.json.
  *
- * Modeled directly on professionCantonLandings.ts: same MIN_JOBS floor gate,
- * same all-or-nothing 4-locale word-count guard, same below-floor bridge
+ * Modeled directly on professionCantonLandings.ts: same MIN_JOBS floor gate
+ * with a 90-day GSC demand exception limited to the 1–2-job band, same
+ * all-or-nothing 4-locale word-count guard, same below-floor bridge
  * pattern — except the bridge target here is the always-live city hub
  * (cityHubTarget → TI legacy `/cerca-lavoro-ticino/{city}/` or canton-aware
  * `/cerca-lavoro-{canton}/{city}/`), which jobsSeoPagesPlugin.ts emits
@@ -74,6 +76,7 @@ import { resolveProfessionCitiesFlushed } from './shared/buildSignals';
 import { renderProfessionCityInsights, type ProfessionCitySnapshots } from './professionCityInsights';
 import { composePlaceTitle, TITLE_MAX_CHARS } from './shared/titleSuffix';
 import { getJobBoardSlugForCanton } from '../services/jobBoardSlugs';
+import { getTrafficEvidenceFilter } from './shared/trafficEvidenceFilter';
 import {
   buildProfessionJourneyAlertHref,
   buildProfessionJourneyNetHrefForLocale,
@@ -474,6 +477,8 @@ export interface ProfessionCityEmitResult {
   pagesWritten: number;
   pagesSkippedForJobs: number;
   pagesSkippedForWordCount: number;
+  /** Pairs published only because an active 90-day GSC impression bypassed the job floor. */
+  pagesDemandProtected: number;
   /** Below-floor pairs bridged to the city hub instead of left to 404. */
   bridgesWritten: number;
   emittedPaths: string[];
@@ -523,7 +528,8 @@ function removeSitemapFromIndex(distDir: string): void {
 }
 
 export async function emitProfessionCityPages(opts: { rootDir: string; distDir: string }): Promise<ProfessionCityEmitResult> {
-  const result: ProfessionCityEmitResult = { pagesWritten: 0, pagesSkippedForJobs: 0, pagesSkippedForWordCount: 0, bridgesWritten: 0, emittedPaths: [] };
+  const result: ProfessionCityEmitResult = { pagesWritten: 0, pagesSkippedForJobs: 0, pagesSkippedForWordCount: 0, pagesDemandProtected: 0, bridgesWritten: 0, emittedPaths: [] };
+  const demand = getTrafficEvidenceFilter(opts.rootDir).gscDemand();
   const byCity = aggregateProfessionJobsByCity(opts.rootDir);
   const collector = new WriteCollector({ distDir: opts.distDir, pluginName: 'professionCityLandings' });
 
@@ -560,9 +566,21 @@ export async function emitProfessionCityPages(opts: { rootDir: string; distDir: 
         continue;
       }
       const emittableLocales = PROFESSION_LOCALES.filter((locale) => !reservedLocales.has(locale));
+      const groupPaths = emittableLocales.map((locale) => buildProfessionCityPath(locale, cityKey, id));
+      const demandProtected = demand.active && demand.hasImpressions(groupPaths);
 
       const snapshot = perProfession?.[id];
-      if (!snapshot || snapshot.liveCount < MIN_JOBS) {
+      if (!snapshot || snapshot.liveCount < 1) {
+        result.pagesSkippedForJobs++;
+        for (const locale of emittableLocales) {
+          const canonicalPath = buildProfessionCityPath(locale, cityKey, id);
+          const outDir = np.join(opts.distDir, canonicalPath.replace(/^\/+/, ''));
+          collector.add(np.join(outDir, 'index.html'), renderBelowFloorBridge(locale, cityKey, id));
+          result.bridgesWritten++;
+        }
+        continue;
+      }
+      if (snapshot.liveCount < MIN_JOBS && !demandProtected) {
         result.pagesSkippedForJobs++;
         for (const locale of emittableLocales) {
           const canonicalPath = buildProfessionCityPath(locale, cityKey, id);
@@ -598,6 +616,7 @@ export async function emitProfessionCityPages(opts: { rootDir: string; distDir: 
         }
         continue;
       }
+      if (snapshot.liveCount < MIN_JOBS && demandProtected) result.pagesDemandProtected++;
       for (const r of rendered) {
         if (reservedLocales.has(r.locale)) continue;
         const canonicalPath = buildProfessionCityPath(r.locale, cityKey, id);
@@ -635,7 +654,7 @@ export function professionCityLandings(rootDir: string): Plugin {
       const distDir = np.resolve(rootDir, 'dist');
       const res = await emitProfessionCityPages({ rootDir, distDir });
       // eslint-disable-next-line no-console
-      console.log(`[profession-cities] emitted ${res.pagesWritten} pages, ${res.bridgesWritten} below-floor bridges (${res.pagesSkippedForJobs} pairs below job floor, ${res.pagesSkippedForWordCount} below word gate)`);
+      console.log(`[profession-cities] emitted ${res.pagesWritten} pages, ${res.bridgesWritten} below-floor bridges (${res.pagesSkippedForJobs} pairs below job floor, ${res.pagesSkippedForWordCount} below word gate, ${res.pagesDemandProtected} demand-protected pairs by GSC 90d)`);
       // Hand emitted canonical paths to professionCityLinksPlugin so it can
       // de-orphan exactly the pages shipped (CLAUDE.md regola #5: close
       // orphans with real internal links, not by relaxing the gate).

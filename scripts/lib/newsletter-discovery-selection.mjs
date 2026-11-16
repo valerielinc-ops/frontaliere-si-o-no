@@ -571,14 +571,15 @@ export async function checkDiscoveryArticleRoute(article, locale, {
 }
 
 /**
- * Keep a new newsletter selection on the same corpus release the site pulled.
+ * Keep a new newsletter selection on a corpus release the site has pulled.
  * The local discovery index is paired with its manifest snapshot by the pull
- * workflow; matching only IDs would allow a newer HTTP release to introduce a
- * link whose localized copy has not reached the site yet.
+ * workflow. When HTTP has advanced to a later generated release, use that
+ * verified local pair instead of freezing an empty slot or introducing a link
+ * whose localized copy has not reached the site yet.
  *
  * @param {object|null} index Valid live or manifest-pinned HTTP index.
  * @param {{manifestFilePath?:string,indexFilePath?:string,now?:Date|number}} options
- * @returns {object|null} The localized intersection, or null when releases disagree.
+ * @returns {object|null} A site-pulled index, or null when alignment cannot be verified.
  */
 export function alignDiscoveryIndexWithSitePull(index, {
   manifestFilePath = DEFAULT_LAST_KNOWN_GOOD_MANIFEST_PATH,
@@ -587,7 +588,17 @@ export function alignDiscoveryIndexWithSitePull(index, {
 } = {}) {
   if (!isRecord(index) || typeof index.commit !== 'string' || !Array.isArray(index.articles)) return null;
   const pulled = readLocalLastKnownGood({ manifestFilePath, indexFilePath, now });
-  if (!pulled || pulled.commit !== index.commit) return null;
+  if (!pulled) return null;
+
+  if (pulled.commit !== index.commit) {
+    const httpGeneratedAt = Date.parse(index.generatedAt);
+    const pulledGeneratedAt = Date.parse(pulled.generatedAt);
+    return Number.isFinite(httpGeneratedAt)
+      && Number.isFinite(pulledGeneratedAt)
+      && httpGeneratedAt > pulledGeneratedAt
+      ? pulled
+      : null;
+  }
 
   const pulledById = new Map(pulled.articles.map((article) => [article.id, article]));
   const articles = index.articles.filter((article) => {

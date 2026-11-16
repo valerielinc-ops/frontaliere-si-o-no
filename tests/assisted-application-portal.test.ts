@@ -6,7 +6,7 @@ import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFile
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { applicationStage } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { navigationInfrastructureFailure } from '../functions/src/assistedApplicationTransportRetryPolicy.js';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, formPostingMatch, handleAuth, hasApplicationSurface, isOtpVerificationPage, isWorkdayBareLocaleSearchShell, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, postingMatch, PREREAD_CHANNELS, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, formPostingMatch, handleAuth, hasApplicationSurface, isOtpVerificationPage, isWorkdayBareLocaleSearchShell, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, postingMatch, PREREAD_CHANNELS, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, waitForNonBlankPage, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
@@ -420,6 +420,12 @@ describe('assisted application profile history and file replacement', () => {
     expect(profileEntryAnswer(entry, 'education', { label: 'Do you have a degree?' })).toBeNull();
   });
 
+  it('maps Workday experience rows that call the employer field Company', () => {
+    const entry = { role: 'Retail Assistant', employer: 'Mendrisio Market', start: '2020-03', end: '2022-04' };
+    expect(profileEntryAnswer(entry, 'experience', { label: 'Job Title*' })).toEqual({ value: 'Retail Assistant', source: 'profile' });
+    expect(profileEntryAnswer(entry, 'experience', { label: 'Company*' })).toEqual({ value: 'Mendrisio Market', source: 'profile' });
+  });
+
   it('does not mistake a selected Workday filename for a successful upload receipt', async () => {
     const locator = { evaluate: vi.fn(async () => ['CV.pdf']) };
     const page = {
@@ -723,6 +729,32 @@ describe('portal link clicks', () => {
       expect(await clickPortalLink(page, link, { context: { waitForEvent: vi.fn(async () => popup) } })).toBe(popup);
       expect(page.goto).not.toHaveBeenCalled();
     });
+  });
+});
+
+describe('portal popup navigation', () => {
+  it('waits for a newly opened application tab to leave about:blank', async () => {
+    let current = 'about:blank';
+    const page = {
+      url: () => current,
+      waitForURL: vi.fn(async (predicate: (url: URL) => boolean, options: any) => {
+        expect(options).toEqual({ waitUntil: 'domcontentloaded', timeout: 60_000 });
+        const destination = new URL('https://ats.example/apply/');
+        expect(predicate(destination)).toBe(true);
+        current = destination.href;
+      }),
+    };
+
+    await expect(waitForNonBlankPage(page as any)).resolves.toBe(true);
+    expect(page.url()).toBe('https://ats.example/apply/');
+    expect(page.waitForURL).toHaveBeenCalledOnce();
+  });
+
+  it('does not wait when the application page already has a destination', async () => {
+    const page = { url: () => 'https://ats.example/apply/', waitForURL: vi.fn() };
+
+    await expect(waitForNonBlankPage(page as any)).resolves.toBe(true);
+    expect(page.waitForURL).not.toHaveBeenCalled();
   });
 });
 

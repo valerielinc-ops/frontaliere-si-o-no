@@ -246,18 +246,25 @@
     },
     "sector": "Chimica / Specialty Chemicals",
     "expiredAt": "2026-09-11T23:21:19.585Z",
+    "previousSlugs": [
+      "operatore-arxada-visp-8e04073d",
+      "operator-arxada-ch-6992c213",
+      "operateur-arxada-visp-419a3ec5"
+    ],
     "previousSlugsByLocale": {
       "it": [
+        "operatore-arxada-visp-8e04073d",
         "operator-arxada-ch-6992c213"
       ],
       "fr": [
-        "operator-arxada-ch"
-      ],
-      "en": [
-        "operator-arxada-ch"
+        "operator-arxada-ch",
+        "operateur-arxada-visp-419a3ec5"
       ],
       "de": [
         "operator-arxada-ch-6992c213"
+      ],
+      "en": [
+        "operator-arxada-ch"
       ]
     },
     "salaryMin": 68000,
@@ -850,8 +857,8 @@
         "lehrstelle-electrical-installer-efz-arxada-visp-ded910aa",
         "lehrstelle-electrical-installer-efz-arxada-visp-0648edc0",
         "lehrstelle-electrical-installer-efz-arxada-visp-f575654a",
-        "lehrstelle-electrical-installer-efz-arxada-visp-e881d753",
-        "lehrstelle-electrical-installer-efz-arxada-visp"
+        "lehrstelle-electrical-installer-efz-arxada-visp",
+        "lehrstelle-electrical-installer-efz-arxada-visp-e881d753"
       ],
       "fr": [
         "lehrstelle-elektroinstallateur-in-efz-arxada-ch-e06c09e5",
@@ -968,8 +975,8 @@
         "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-0f156f78",
         "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-33ab4abf",
         "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-91f6a018",
-        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-0b5cf790",
-        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp"
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp",
+        "lehrstelle-installateur-trice-electricien-ne-efz-arxada-visp-0b5cf790"
       ],
       "de": [
         "lehrstelle-electrical-installer-efz-arxada-visp",
