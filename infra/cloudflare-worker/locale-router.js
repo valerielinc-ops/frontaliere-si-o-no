@@ -890,8 +890,20 @@ const SEARCH_CLUSTER_WORD_BY_LOCALE = { it: 'ricerca', en: 'search', de: 'suche'
 const SEARCH_CLUSTER_PATH_RE = /^(?:\/(en|de|fr))?\/[a-z0-9-]+\/(ricerca|search|suche|recherche)-[a-z0-9]+(?:-[a-z0-9]+)*\/$/u;
 const SEARCH_CLUSTER_PATH_MAX_LENGTH = 120;
 const SEARCH_CLUSTER_FALLBACK_CACHE_CONTROL = 'public, max-age=300, s-maxage=3600';
+const JOB_CANON_MARKER_UNAVAILABLE_HEADER = 'x-frontaliere-job-canon-marker-unavailable';
 
 export async function serveUnknownSearchCluster(request, response, dispatch) {
+  if (response.headers.get(JOB_CANON_MARKER_UNAVAILABLE_HEADER) === '1') {
+    // Do not turn an unverified job-detail 404 into a board page. The marker is
+    // only an internal handoff signal and must never reach the public response.
+    const headers = new Headers(response.headers);
+    headers.delete(JOB_CANON_MARKER_UNAVAILABLE_HEADER);
+    return new Response(request.method === 'HEAD' ? null : response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    });
+  }
   if (response.status !== 404 || (request.method !== 'GET' && request.method !== 'HEAD')) return response;
   const { pathname } = new URL(request.url);
   const match = pathname.length <= SEARCH_CLUSTER_PATH_MAX_LENGTH && pathname.match(SEARCH_CLUSTER_PATH_RE);
@@ -1003,13 +1015,6 @@ function aliasVerificationUnavailable(url) {
   );
 }
 
-const JOB_CANON_MARKER_UNAVAILABLE_COPY = {
-  it: 'Il recupero di questo annuncio non è temporaneamente disponibile. Riprova tra poco.',
-  en: 'Job recovery is temporarily unavailable. Please try again shortly.',
-  de: 'Die Wiederherstellung dieser Stellenanzeige ist vorübergehend nicht verfügbar. Bitte versuchen Sie es später erneut.',
-  fr: 'La récupération de cette offre est temporairement indisponible. Veuillez réessayer bientôt.',
-};
-
 // Log only a bounded reason and optional HTTP status. The public URL can
 // contain employer or job details, so marker failures deliberately omit it.
 function logJobCanonMarkerUnavailable(outcome) {
@@ -1023,18 +1028,6 @@ function logJobCanonMarkerUnavailable(outcome) {
   } catch {
     // Diagnostics must not alter the recovery response.
   }
-}
-
-function jobCanonMarkerUnavailableResponse(locale, method) {
-  return new Response(method === 'HEAD' ? null : JOB_CANON_MARKER_UNAVAILABLE_COPY[locale], {
-    status: 503,
-    headers: {
-      'Content-Type': 'text/plain; charset=utf-8',
-      'Content-Language': locale,
-      'Cache-Control': 'no-store',
-      'Retry-After': '60',
-    },
-  });
 }
 
 const MAP_FETCH_TIMEOUT_MS = 2000;
@@ -3876,6 +3869,7 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
   // Unknown slugs still fall through to the soft 404 below.
   let negativeAliasCacheCandidate = false;
   let jobAliasCacheKey = null;
+  let jobCanonMarkerUnavailable = false;
   if ((request.method === 'GET' || request.method === 'HEAD') && resp.status === 404) {
     const queryRedirect = await recoverOrphanQueryAlias(url, origin);
     if (queryRedirect) return queryRedirect;
@@ -3885,13 +3879,16 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     if (fuelStationRedirect) return fuelStationRedirect;
     // Read the uncached release marker before the internal alias cache. The
     // build id namespaces cached redirects and both map shards. An unavailable
-    // marker is distinct from a valid map miss: it must not become a cacheable
-    // 404, but deterministic recoveries later in this chain may still succeed.
+    // marker is distinct from a valid map miss: skip job-alias cache/map and
+    // registry heuristics, then keep the localized 404 uncacheable.
     const jobCanonMarker = JOB_DETAIL_RE.test(url.pathname)
       ? await fetchJobCanonBuildId()
       : null;
     const jobCanonBuildId = jobCanonMarker?.kind === 'available' ? jobCanonMarker.buildId : null;
-    if (jobCanonMarker?.kind === 'unavailable') logJobCanonMarkerUnavailable(jobCanonMarker);
+    if (jobCanonMarker?.kind === 'unavailable') {
+      jobCanonMarkerUnavailable = true;
+      logJobCanonMarkerUnavailable(jobCanonMarker);
+    }
     if (jobCanonMarker?.kind === 'available') {
       jobAliasCacheKey = jobAliasCacheKeyForUrl(url, recoveryLocale, jobCanonBuildId);
       const cachedJobAliasResponse = await readJobAliasCacheResult(
@@ -3932,32 +3929,37 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
       ? await recoverExpiredJobToCantonRoot(url, origin, jobCanonBuildId)
       : null;
     if (expiredJobRedirect) return expiredJobRedirect;
-    if (jobCanonMarker?.kind === 'unavailable') {
-      return jobCanonMarkerUnavailableResponse(recoveryLocale, request.method);
-    }
   }
 
   // Stamp Cache-Control on 404s too so crawler re-fetches of dead URLs are
   // absorbed by the edge instead of re-invoking the Worker.
   if ((request.method === 'GET' || request.method === 'HEAD') && resp.status === 404) {
-    if (negativeAliasCacheCandidate) {
+    if (negativeAliasCacheCandidate && !jobCanonMarkerUnavailable) {
       storeJobAliasCacheResult(ctx, jobAliasCacheKey, { kind: 'not-found' }, JOB_ALIAS_NEGATIVE_CACHE_TTL);
     }
     // Localized body (see renderNotFoundPage). Fresh headers: the origin's
     // Content-Length/ETag describe the Italian 404.html, not this document.
     const page = renderNotFoundPage(url.pathname, recoveryLocale, sectionRoute);
     if (page !== null) {
+      const headers = new Headers({
+        'Content-Type': 'text/html; charset=utf-8',
+        'Content-Language': recoveryLocale,
+        'Cache-Control': jobCanonMarkerUnavailable ? 'no-store' : NOT_FOUND_CACHE_CONTROL,
+      });
+      if (jobCanonMarkerUnavailable) headers.set(JOB_CANON_MARKER_UNAVAILABLE_HEADER, '1');
       return new Response(request.method === 'HEAD' ? null : page, {
         status: 404,
-        headers: {
-          'Content-Type': 'text/html; charset=utf-8',
-          'Content-Language': recoveryLocale,
-          'Cache-Control': NOT_FOUND_CACHE_CONTROL,
-        },
+        headers,
       });
     }
     const headers = new Headers(resp.headers);
-    headers.set('Cache-Control', NOT_FOUND_CACHE_CONTROL);
+    headers.set('Cache-Control', jobCanonMarkerUnavailable ? 'no-store' : NOT_FOUND_CACHE_CONTROL);
+    if (jobCanonMarkerUnavailable) {
+      headers.delete('Location');
+      headers.delete('Retry-After');
+      headers.delete(JOB_ALIAS_CACHE_DIAGNOSTIC_HEADER);
+      headers.set(JOB_CANON_MARKER_UNAVAILABLE_HEADER, '1');
+    }
     return new Response(resp.body, { status: 404, statusText: resp.statusText, headers });
   }
 

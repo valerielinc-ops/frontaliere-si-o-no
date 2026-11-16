@@ -278,7 +278,7 @@ describe('locale-router canton-drift 301', () => {
     { marker: '', status: 200, reason: 'empty' },
     { marker: 'not-a-build-id', status: 200, reason: 'invalid' },
     { marker: '1'.repeat(21), status: 200, reason: 'invalid' },
-  ])('returns a no-store 503 and ignores stale alias cache when marker is unavailable (%#)', async ({ marker, status, reason, loggedStatus }) => {
+  ])('returns localized no-store 404 and ignores stale alias cache when marker is unavailable (%#)', async ({ marker, status, reason, loggedStatus }) => {
     const slug = 'some-job-xyz';
     const source = `${APEX}/en/jobs-in-zurich/${slug}/`;
     const log = vi.spyOn(console, 'error').mockImplementation(() => {});
@@ -300,12 +300,14 @@ describe('locale-router canton-drift 301', () => {
 
     const response = await worker.fetch(new Request(source), {}, ctx);
 
-    expect(response.status).toBe(503);
+    expect(response.status).toBe(404);
     expect(response.headers.get('Location')).toBeNull();
     expect(response.headers.get('Cache-Control')).toBe('no-store');
-    expect(response.headers.get('Retry-After')).toBe('60');
+    expect(response.headers.get('Retry-After')).toBeNull();
     expect(response.headers.get('Content-Language')).toBe('en');
-    expect(await response.text()).toBe('Job recovery is temporarily unavailable. Please try again shortly.');
+    expect(await response.text()).toContain('<html lang="en">');
+    expect(response.headers.get('x-frontaliere-job-canon-marker-unavailable')).toBeNull();
+    expect(response.headers.get('x-frontaliere-canon-cache')).toBeNull();
     expect(cacheMatchCount).toBe(0);
     expect(cachePutCount).toBe(0);
     expect(mapRequests).toEqual([]);
@@ -324,7 +326,7 @@ describe('locale-router canton-drift 301', () => {
     expect(markerOptions[0]?.signal).toBeInstanceOf(AbortSignal);
   });
 
-  it('returns a localized no-store 503 on marker network failure without alias cache access', async () => {
+  it('returns a localized no-store 404 on marker network failure without alias cache access', async () => {
     const slug = 'network-unavailable-job';
     const source = `${APEX}/fr/trouver-emploi-zurich/${slug}/`;
     const log = vi.spyOn(console, 'error').mockImplementation(() => {});
@@ -339,11 +341,11 @@ describe('locale-router canton-drift 301', () => {
 
     const response = await worker.fetch(new Request(source), {}, ctx);
 
-    expect(response.status).toBe(503);
+    expect(response.status).toBe(404);
     expect(response.headers.get('Cache-Control')).toBe('no-store');
-    expect(response.headers.get('Retry-After')).toBe('60');
+    expect(response.headers.get('Retry-After')).toBeNull();
     expect(response.headers.get('Content-Language')).toBe('fr');
-    expect(await response.text()).toBe('La récupération de cette offre est temporairement indisponible. Veuillez réessayer bientôt.');
+    expect(await response.text()).toContain('<html lang="fr">');
     expect(cacheMatchCount).toBe(0);
     expect(cachePutCount).toBe(0);
     expect(mapRequests).toEqual([]);
@@ -354,7 +356,7 @@ describe('locale-router canton-drift 301', () => {
     expect(JSON.stringify(log.mock.calls)).not.toContain(slug);
   });
 
-  it('uses the Italian language on marker failure for an Italian job URL', async () => {
+  it('uses the Italian localized 404 on marker failure for an Italian job URL', async () => {
     const slug = 'marker-temporarily-unavailable';
     vi.spyOn(console, 'error').mockImplementation(() => {});
     vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
@@ -369,14 +371,14 @@ describe('locale-router canton-drift 301', () => {
       ctx,
     );
 
-    expect(response.status).toBe(503);
+    expect(response.status).toBe(404);
     expect(response.headers.get('Content-Language')).toBe('it');
-    expect(await response.text()).toBe('Il recupero di questo annuncio non è temporaneamente disponibile. Riprova tra poco.');
-    expect(response.headers.get('Retry-After')).toBe('60');
+    expect(await response.text()).toContain('<html lang="it">');
+    expect(response.headers.get('Retry-After')).toBeNull();
     expect(response.headers.get('Cache-Control')).toBe('no-store');
   });
 
-  it('returns a no-store 503 after the marker request times out', async () => {
+  it('returns a localized no-store 404 after the marker request times out', async () => {
     vi.useFakeTimers();
     const slug = 'timed-out-marker-job';
     const source = `${APEX}/de/jobs-in-zurich/${slug}/`;
@@ -401,10 +403,11 @@ describe('locale-router canton-drift 301', () => {
     await vi.advanceTimersByTimeAsync(2000);
     const response = await pending;
 
-    expect(response.status).toBe(503);
+    expect(response.status).toBe(404);
     expect(response.headers.get('Cache-Control')).toBe('no-store');
-    expect(response.headers.get('Retry-After')).toBe('60');
+    expect(response.headers.get('Retry-After')).toBeNull();
     expect(response.headers.get('Content-Language')).toBe('de');
+    expect(await response.text()).toContain('<html lang="de">');
     expect(cacheMatchCount).toBe(0);
     expect(cachePutCount).toBe(0);
     expect(mapRequests).toEqual([]);
@@ -436,7 +439,7 @@ describe('locale-router canton-drift 301', () => {
     const log = vi.spyOn(console, 'error').mockImplementation(() => {});
 
     const unavailable = await worker.fetch(new Request(source), {}, ctx);
-    expect(unavailable.status).toBe(503);
+    expect(unavailable.status).toBe(404);
     expect(cacheMatchCount).toBe(0);
     expect(cachePutCount).toBe(0);
     expect(mapRequests).toEqual([]);
@@ -471,10 +474,10 @@ describe('locale-router canton-drift 301', () => {
 
     const response = await worker.fetch(new Request(source), {}, ctx);
 
-    expect(response.status).toBe(503);
+    expect(response.status).toBe(404);
     expect(response.headers.get('Location')).toBeNull();
     expect(response.headers.get('Cache-Control')).toBe('no-store');
-    expect(response.headers.get('Retry-After')).toBe('60');
+    expect(response.headers.get('Retry-After')).toBeNull();
     expect(response.headers.get('Content-Language')).toBe('fr');
     expect(mapRequests).toEqual([]);
     expect(cacheMatchCount).toBe(0);
@@ -485,6 +488,43 @@ describe('locale-router canton-drift 301', () => {
       status: 500,
     }));
     expect(JSON.stringify(log.mock.calls)).not.toContain('azienda-denner-sa');
+  });
+
+  it.each(['GET', 'HEAD'])('keeps unknown, expired, company- and search-shaped URLs on localized no-store 404s (%s)', async (method) => {
+    const cases = [
+      { locale: 'en', path: '/en/jobs-in-zurich/typo-never-seen/', slug: 'typo-never-seen' },
+      { locale: 'de', path: '/de/jobs-in-zurich/expired-old-job/', slug: 'expired-old-job' },
+      { locale: 'fr', path: '/fr/trouver-emploi-tessin/company-real-job/', slug: 'company-real-job' },
+      { locale: 'en', path: '/en/jobs-in-zurich/search-real-role/', slug: 'search-real-role' },
+    ];
+    const log = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const mapRequests: string[] = [];
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const url = new URL(fetchUrl(input));
+      if (url.pathname === '/cdn-build-id.txt') return new Response('temporarily unavailable', { status: 500 });
+      if (url.pathname.includes('/job-canon/')) mapRequests.push(url.toString());
+      return new Response('origin missing', { status: 404 });
+    });
+
+    for (const { locale, path, slug } of cases) {
+      const response = await worker.fetch(new Request(`${APEX}${path}`, { method }), {}, ctx);
+      expect(response.status, path).toBe(404);
+      expect(response.headers.get('Content-Language'), path).toBe(locale);
+      expect(response.headers.get('Cache-Control'), path).toBe('no-store');
+      expect(response.headers.get('Location'), path).toBeNull();
+      expect(response.headers.get('Retry-After'), path).toBeNull();
+      expect(response.headers.get('x-frontaliere-canon-cache'), path).toBeNull();
+      expect(response.headers.get('x-frontaliere-job-canon-marker-unavailable'), path).toBeNull();
+      const body = await response.text();
+      if (method === 'GET') expect(body, path).toContain(`<html lang="${locale}">`);
+      else expect(body, path).toBe('');
+      expect(JSON.stringify(log.mock.calls), path).not.toContain(slug);
+    }
+
+    expect(mapRequests).toEqual([]);
+    expect(cacheMatchCount).toBe(0);
+    expect(cachePutCount).toBe(0);
+    expect(log).toHaveBeenCalledTimes(cases.length);
   });
 
   it('builds the same versioned v2 then v1 shard URLs as public/404.html', async () => {
@@ -506,7 +546,7 @@ describe('locale-router canton-drift 301', () => {
       return browserRequests.length === 1
         ? new Response('v2 missing', { status: 404 })
         : Response.json({ [slug]: { en: '/en/find-jobs-zurich' } });
-    }) as typeof fetch)).resolves.toEqual({ [slug]: { en: '/en/find-jobs-zurich' } });
+    }) as typeof fetch)).resolves.toEqual({ kind: 'map', value: { [slug]: { en: '/en/find-jobs-zurich' } } });
 
     expect(browserRequests.map((request) => {
       const url = new URL(request);
