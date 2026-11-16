@@ -1579,7 +1579,10 @@ function inlineWorkplaceLabelValue(html = '') {
     let candidate;
     while ((candidate = nextMarkerRx.exec(remainder))) {
       const candidateLabel = textOf(candidate[2]).replace(/\s+/g, ' ').trim();
-      if (WORKPLACE_LABEL_RX.test(`${candidateLabel}:`)) {
+      const candidateTail = remainder.slice(candidate.index + candidate[0].length);
+      const isFieldLabel = /^\s*:/u.test(candidateTail)
+        || WORKPLACE_LABEL_RX.test(`${candidateLabel}:`);
+      if (isFieldLabel) {
         nextLabel = candidate;
         break;
       }
