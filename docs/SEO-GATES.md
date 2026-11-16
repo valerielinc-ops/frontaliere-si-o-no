@@ -193,6 +193,20 @@ imageObjectLd({
 })
 ```
 
+## 3b. Image attributes (CLS)
+
+**Why.** Every rendered `<img>` must reserve its dimensions before the image
+loads. Missing `width` or `height` can shift surrounding content, while
+missing `loading`/`fetchpriority="high"` leaves the loading contract implicit.
+
+**Where.**
+- Local audit: `npm run audit:img-attributes`
+- Unified/replay audit: `img-attributes` inside `audit:all` and `audit-dist-multi`
+- CI: asynchronous published-dist audits and the post-build matrix
+
+The audit has no HTML-size threshold. It reports the offending page, the
+missing attributes, and the first offending image tag, then exits non-zero.
+
 ---
 
 ## 4. BFS depth from `/` (MAX_DEPTH=4)
