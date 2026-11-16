@@ -1781,3 +1781,54 @@ describe('git-commit-data.sh locale translation protection', () => {
     }
   });
 });
+
+describe('git-commit-data.sh job identity merge guard', () => {
+  it('does not attach previousSlugs to the wrong claimant when URLs collide', () => {
+    const makeJob = (id: string, url: string, previousSlugs: string[] = []) => ({
+      id,
+      url,
+      slug: `current-${id}`,
+      previousSlugs,
+    });
+    const fillerJobs = Array.from({ length: 18 }, (_, index) =>
+      makeJob(`filler-${index}`, `https://example.ch/jobs/filler-${index}`),
+    );
+    const base = [
+      makeJob('job-a', 'https://example.ch/jobs/shared-listing'),
+      makeJob('job-b', 'https://example.ch/jobs/shared-listing'),
+      ...fillerJobs,
+    ];
+    const remote = [
+      makeJob('job-b', 'https://example.ch/jobs/shared-listing'),
+      makeJob('job-a', 'https://example.ch/jobs/shared-listing', ['old-a']),
+      ...fillerJobs,
+    ];
+    const local = [
+      makeJob('job-a', 'https://example.ch/jobs/shared-listing'),
+      makeJob('job-b', 'https://example.ch/jobs/shared-listing', ['old-b']),
+      ...fillerJobs,
+    ];
+
+    const merged = runEmbeddedMerge(base, remote, local) as Array<{
+      id: string;
+      previousSlugs: string[];
+    }>;
+    const byId = new Map(merged.map((record) => [record.id, record]));
+
+    expect(merged).toHaveLength(20);
+    expect(byId.get('job-a')?.previousSlugs).toEqual(['old-a']);
+    expect(byId.get('job-b')?.previousSlugs).toEqual(['old-b']);
+    expect(byId.get('job-a')?.previousSlugs).not.toContain('old-b');
+    expect(byId.get('job-b')?.previousSlugs).not.toContain('old-a');
+
+    const reordered = runEmbeddedMerge(base, local, remote) as Array<{
+      id: string;
+      previousSlugs: string[];
+    }>;
+    const project = (records: typeof merged) =>
+      records
+        .sort((left, right) => left.id.localeCompare(right.id))
+        .map(({ id, previousSlugs }) => ({ id, previousSlugs }));
+    expect(project(reordered)).toEqual(project(merged));
+  });
+});

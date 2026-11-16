@@ -1193,6 +1193,15 @@ function detectArrayKey(arrays, forcedKey = '') {
   if (!hasAnyObjectItem) return '';
 
   for (const candidate of candidates) {
+    // Per-posting identity fields must be globally unique within each input.
+    // A mostly-unique URL/slug is still unsafe: arrayToMap() uses Map#set and
+    // silently makes the last duplicate claimant own the merged history. The
+    // old 0.85 ratchet let one duplicate in a 20-job slice through, making
+    // previousSlugs follow array order across concurrent writers. Generic
+    // metadata arrays keep their existing coverage/uniqueness tolerance.
+    const minimumUniqueness = new Set(['url', 'id', 'key', 'slug']).has(candidate)
+      ? 1
+      : 0.85;
     let allPass = true;
     for (const arr of nonEmptyArrays) {
       const objectItems = arr.filter((item) => isPlainObject(item));
@@ -1209,7 +1218,7 @@ function detectArrayKey(arrays, forcedKey = '') {
       }
       const coverage = present / objectItems.length;
       const uniqueness = present > 0 ? (present - duplicate) / present : 0;
-      if (coverage < 0.6 || uniqueness < 0.85) { allPass = false; break; }
+      if (coverage < 0.6 || uniqueness < minimumUniqueness) { allPass = false; break; }
     }
     if (allPass) return candidate;
   }
