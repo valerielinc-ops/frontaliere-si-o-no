@@ -139,7 +139,7 @@ describe('locale job split completion barrier', () => {
       'utf8',
     );
     const awaitIndex = source.indexOf('await localeJobsSplitFlushed;');
-    const mapReadIndex = source.indexOf("const workerSlugMapPath = np.resolve(distDir, 'data', 'jobs-slug-map.json');");
+    const mapReadIndex = source.indexOf('const serializedWorkerJobs = readFinalWorkerSlugMap(distDir);');
 
     expect(source).toContain('if (shouldAwaitLocaleJobsSplitFlushed()) {');
     expect(source).toContain('if (localeJobsSplitOutcome.ok === false) throw localeJobsSplitOutcome.error;');

@@ -1884,6 +1884,23 @@ export interface JobsSeoPagesPluginOptions {
  fastLane?: boolean;
 }
 
+export function readFinalWorkerSlugMap(distDir: string): ActiveJobSlugMapRow[] {
+ const workerSlugMapPath = np.resolve(distDir, 'data', 'jobs-slug-map.json');
+ if (!fs.existsSync(workerSlugMapPath)) {
+  throw new Error('[job-alias-redirect-gate] final Worker slug map is missing before bridge classification');
+ }
+ let serializedWorkerJobs: unknown;
+ try {
+  serializedWorkerJobs = JSON.parse(fs.readFileSync(workerSlugMapPath, 'utf8'));
+ } catch {
+  throw new Error('[job-alias-redirect-gate] final Worker slug map is not valid JSON');
+ }
+ if (!Array.isArray(serializedWorkerJobs)) {
+  throw new Error('[job-alias-redirect-gate] final Worker slug map is not an array');
+ }
+ return serializedWorkerJobs as ActiveJobSlugMapRow[];
+}
+
 export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginOptions = {}): Plugin {
  registerJobsSeoPagesProducer();
  return {
@@ -5617,7 +5634,7 @@ ${staticAnalyticsHtml}
  // Activejob guard: if another job's canonical in this locale already
  // claimed this exact path (cross-job IT-slug = locale-slug collision —
  // rare, but possible for short generic slugs), leave it alone.
- if (locale !== 'it' && perLocaleSlug[locale] !== job.slug) {
+ if (!options.fastLane && locale !== 'it' && perLocaleSlug[locale] !== job.slug) {
  const __tLegacyBridge = startTimer();
  const legacyRel = `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/${job.slug}`.replace(/\/+/g, '/').replace(/^\//, '');
  if (!activeJobDirs.has(legacyRel.replace(/\/+$/, ''))) {
@@ -5679,7 +5696,7 @@ ${staticAnalyticsHtml}
  // Slug is `job.slug` (master/IT slug) because pre-cathedral
  // `all-known-job-slugs.json` keyed every locale path to the master
  // slug under the TI section.
- if (jobCanton !== 'TI' && !isCompanyHubNamespaceSlug(job.slug, locale)) {
+ if (!options.fastLane && jobCanton !== 'TI' && !isCompanyHubNamespaceSlug(job.slug, locale)) {
  const __tCrossCantonLegacy = startTimer();
  const legacyTIRel = `${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}/${job.slug}`.replace(/\/+/g, '/').replace(/^\//, '');
  const legacyTIKey = legacyTIRel.replace(/\/+$/, '');
@@ -14826,20 +14843,9 @@ ${staticAnalyticsHtml}
   if (localeJobsSplitOutcome.ok === false) throw localeJobsSplitOutcome.error;
  }
  const workerSlugMapPath = np.resolve(distDir, 'data', 'jobs-slug-map.json');
- if (!fs.existsSync(workerSlugMapPath)) {
-  throw new Error('[job-alias-redirect-gate] final Worker slug map is missing before bridge classification');
- }
- let serializedWorkerJobs: unknown;
- try {
-  serializedWorkerJobs = JSON.parse(fs.readFileSync(workerSlugMapPath, 'utf8'));
- } catch {
-  throw new Error('[job-alias-redirect-gate] final Worker slug map is not valid JSON');
- }
- if (!Array.isArray(serializedWorkerJobs)) {
-  throw new Error('[job-alias-redirect-gate] final Worker slug map is not an array');
- }
+ const serializedWorkerJobs = readFinalWorkerSlugMap(distDir);
  const workerSlugMapReconciliation = reconcileFinalWorkerSlugMapRows(
-  serializedWorkerJobs as ActiveJobSlugMapRow[],
+  serializedWorkerJobs,
   activeBridgeJobs,
  );
  if (workerSlugMapReconciliation.updatedJobCount > 0) {
@@ -14856,7 +14862,7 @@ ${staticAnalyticsHtml}
   + `matched=${workerSlugMapReconciliation.matchedJobIdentifiers.size} `
   + `unmatched=${workerSlugMapReconciliation.unmatchedJobIdentifiers.size}`,
  );
- (serializedWorkerJobs as unknown[]).length = 0;
+ serializedWorkerJobs.length = 0;
 
  // Resolve the same active bridge inventory consumed by PR-A before expired
  // soft-landings and self-heal run. Only exact Worker destinations may lose

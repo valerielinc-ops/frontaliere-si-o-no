@@ -434,7 +434,7 @@ describe("jobs fast-publish HTML asset contract", () => {
     expect(fastPublisher).toContain("fastLaneDistDir: distDir,");
   });
 
-  it('matches the full build active path and exits before expired-page emission', () => {
+  it('matches the full build active path and exits before full-build-only bridge work', () => {
     const job = { id: 'active-zurich-fast-parity', slug: 'active-zurich-fast-parity', canton: 'ZH' };
     const resolveJobCanton = (candidate: { canton: string }) => candidate.canton;
     const pathOwners = buildActiveJobPathOwners(
@@ -458,8 +458,24 @@ describe("jobs fast-publish HTML asset contract", () => {
     );
     const fastLaneExit = renderer.indexOf('if (options.fastLane) {');
     const expiredPhase = renderer.indexOf('/* ── Expired-job soft-landing pages');
+    const workerSlugMapGate = renderer.indexOf(
+      "const workerSlugMapPath = np.resolve(distDir, 'data', 'jobs-slug-map.json');",
+      fastLaneExit,
+    );
+    const fastReceiptWrite = renderer.indexOf(
+      'fs.writeFileSync(options.fastLaneResultFile, JSON.stringify({',
+    );
     expect(fastLaneExit).toBeGreaterThanOrEqual(0);
+    expect(fastReceiptWrite).toBeGreaterThanOrEqual(0);
+    expect(fastLaneExit).toBeGreaterThan(fastReceiptWrite);
+    expect(workerSlugMapGate).toBeGreaterThan(fastLaneExit);
     expect(expiredPhase).toBeGreaterThan(fastLaneExit);
     expect(renderer.slice(fastLaneExit, expiredPhase)).toMatch(/resolveJobsSeoPagesFlushed\(\);\s*return;/);
+    expect(renderer).toContain(
+      "if (!options.fastLane && locale !== 'it' && perLocaleSlug[locale] !== job.slug)",
+    );
+    expect(renderer).toContain(
+      "if (!options.fastLane && jobCanton !== 'TI' && !isCompanyHubNamespaceSlug(job.slug, locale))",
+    );
   });
 });
