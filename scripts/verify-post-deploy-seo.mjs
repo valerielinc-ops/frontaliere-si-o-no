@@ -29,6 +29,7 @@ import { pathToFileURL } from 'node:url';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 import { validateMandatoryJobPostingFields } from './lib/jobposting-mandatory-fields.mjs';
 import { extractRobots, isJobDetailPath } from './lib/seo-health-contract.mjs';
+import { JOB_ORPHAN_NOINDEX_BRIDGE_MARKER } from '../build-plugins/shared/jobOrphanNoindexBridgeMarker.mjs';
 
 const SITE_URL = 'https://frontaliereticino.ch';
 const LISTING_PATH = '/cerca-lavoro-ticino/';
@@ -194,6 +195,7 @@ export function inspectLiveJobPostingHtml(html) {
     isJobPage: records.length > 0 || malformedJobPosting,
     isListingPage,
     noindex: robots.noindex,
+    isJobOrphanNoindexBridge: html.includes(JOB_ORPHAN_NOINDEX_BRIDGE_MARKER),
     records,
     errors,
   };
@@ -322,7 +324,11 @@ export function classifyLiveJobCandidate(pageUrl, live, sitemapSignals = null) {
   // active detail whose JobPosting disappeared. An authoritative active
   // sitemap signal still wins, so an accidental noindex on a real detail is
   // reported by the branch below.
-  if (live?.noindex === true && !authoritativeSitemapDetailSignal) {
+  if (
+    live?.isJobOrphanNoindexBridge === true
+    && live?.noindex === true
+    && !authoritativeSitemapDetailSignal
+  ) {
     return { detailPageSignal, shouldInspect: false, issue: null, skipped: true };
   }
   // A semantic listing is stronger than the conservative path fallback. Keep

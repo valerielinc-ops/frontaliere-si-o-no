@@ -73,6 +73,7 @@ import { getCantonForSlug } from './shared/slugCantonIndex';
 import { buildBridgeBreadcrumbLd, JOBS_SECTION_LABEL } from './shared/bridgeBreadcrumb';
 import { renderBridgePageProse } from './shared/bridgePageProse';
 import { getSafeDistPageTargets, isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
+import { JOB_ORPHAN_NOINDEX_BRIDGE_MARKER } from './shared/jobOrphanNoindexBridgeMarker.mjs';
 import type { Locale } from '../services/i18n';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 
@@ -315,7 +316,7 @@ function renderMatchedPage(entry: OrphanEntry, distDir: string): string {
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: '',
     jsonLdScripts: [breadcrumbLd],
-    extraHeadHtml: buildMatchedRewriteScript(orphanPath, currentPath),
+    extraHeadHtml: `${JOB_ORPHAN_NOINDEX_BRIDGE_MARKER}${buildMatchedRewriteScript(orphanPath, currentPath)}`,
     bodyHtml,
     distDir,
     seoMainClass: 'cluster-seo-prose',

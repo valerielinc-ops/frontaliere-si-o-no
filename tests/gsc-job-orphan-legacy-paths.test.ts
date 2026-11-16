@@ -327,6 +327,7 @@ describe('jobOrphanBridgePlugin — incomplete matched fallbacks are noindex', (
         'utf8',
       );
       expect(html).toContain('<meta name="robots" content="noindex,follow">');
+      expect(html).toContain('<!--JOB_ORPHAN_NOINDEX_BRIDGE-->');
       expect(html).toContain(`<link rel="canonical" href="${orphanUrl}">`);
       expect(html).not.toMatch(/"@type":"JobPosting"/);
     } finally {

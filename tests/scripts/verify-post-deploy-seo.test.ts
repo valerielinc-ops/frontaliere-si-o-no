@@ -7,6 +7,7 @@ import {
   inspectLiveJobPostingHtml,
   parseLiveJobSitemapSignals,
 } from '../../scripts/verify-post-deploy-seo.mjs';
+import { JOB_ORPHAN_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/jobOrphanNoindexBridgeMarker.mjs';
 
 const completeJobPosting = {
   '@context': 'https://schema.org',
@@ -57,13 +58,14 @@ describe('post-deploy SEO verification', () => {
 
   it('skips a noindex bridge without hiding an authoritative detail signal', () => {
     const pageUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/purchasing-logistica-specialista-mendrisio-site-ticino-sintetica-sa-mendrisio/';
-    const live = inspectLiveJobPostingHtml(`<meta name="robots" content="noindex,follow">${jsonLd({
+    const live = inspectLiveJobPostingHtml(`<meta name="robots" content="noindex,follow">${JOB_ORPHAN_NOINDEX_BRIDGE_MARKER}${jsonLd({
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [],
     })}`);
 
     expect(live.noindex).toBe(true);
+    expect(live.isJobOrphanNoindexBridge).toBe(true);
     expect(classifyLiveJobCandidate(pageUrl, live, new Map())).toMatchObject({
       detailPageSignal: true,
       shouldInspect: false,
@@ -71,6 +73,22 @@ describe('post-deploy SEO verification', () => {
       skipped: true,
     });
     expect(classifyLiveJobCandidate(pageUrl, live, new Map([[pageUrl, true]]))).toMatchObject({
+      detailPageSignal: true,
+      shouldInspect: true,
+      issue: 'missing-jobposting',
+      skipped: false,
+    });
+  });
+
+  it('does not exempt an unowned noindex detail-shaped response', () => {
+    const pageUrl = 'https://frontaliereticino.ch/cerca-lavoro-ticino/unowned-bridge/';
+    const live = inspectLiveJobPostingHtml(`<meta name="robots" content="noindex,follow">${jsonLd({
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [],
+    })}`);
+
+    expect(classifyLiveJobCandidate(pageUrl, live, new Map())).toMatchObject({
       detailPageSignal: true,
       shouldInspect: true,
       issue: 'missing-jobposting',
