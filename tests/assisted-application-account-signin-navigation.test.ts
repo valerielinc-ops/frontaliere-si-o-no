@@ -244,6 +244,24 @@ describe('verified sign-in navigation from an existing-account registration page
       links: [],
     } as any)).resolves.toBe(true);
     expect(pageLevelForgot.locator.click).toHaveBeenCalledOnce();
+
+    const frenchFormForgot = pageWithLink({
+      label: 'Vous avez oublié votre mot de passe ?', currentUrl, tagName: 'BUTTON', dataAutomationId: '',
+      formId: 'auth-form', formIdentityFields: [
+        { inputType: 'text', kind: 'text', label: 'Adresse e-mail', name: '', autocomplete: '' },
+        { inputType: 'password', kind: 'password', label: '', name: '', autocomplete: '' },
+      ], formHasPassword: true,
+    });
+    await expect(openVerifiedPasswordResetNavigation(frenchFormForgot.page as any, {
+      dialogs: [],
+      fields: [
+        { id: 'email', inputType: 'email', frame: 0, formId: 'auth-form' },
+        { id: 'password', inputType: 'password', frame: 0, formId: 'auth-form' },
+      ],
+      buttons: [{ id: 'auth-link', frame: 0, text: 'Vous avez oublié votre mot de passe ?', formId: 'auth-form', dataAutomationId: '' }],
+      links: [],
+    } as any)).resolves.toBe(true);
+    expect(frenchFormForgot.locator.click).toHaveBeenCalledOnce();
   });
 
   it('rejects an insecure HTTP destination even when it uses the same host', async () => {
