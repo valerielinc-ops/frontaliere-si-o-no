@@ -260,12 +260,16 @@ function swissFetchWeek(fetchedAt) {
   return { startMs, endMs: localDate.getTime(), startDate: new Date(startMs).toISOString().slice(0, 10) };
 }
 
-function hasVerifiedDutyInFetchWeek(rows, fetchedAt) {
+function hasDutyInFetchWeek(rows, fetchedAt) {
   const week = swissFetchWeek(fetchedAt);
   if (!week) throw new Error(`Invalid Solothurn fetch timestamp: ${fetchedAt}`);
   return {
     week,
-    covered: rows.some((row) => row.status === 'verified'
+    // A fetch after the current Sunday's interval has ended correctly marks
+    // that source row as expired. It still proves that the official calendar
+    // covered the fetch week; operational consumers keep filtering to
+    // `verified` rows when they publish a currently active duty.
+    covered: rows.some((row) => (row.status === 'verified' || row.status === 'expired')
       && Date.parse(row.endsAt) > week.startMs
       && Date.parse(row.startsAt) < week.endMs),
   };
@@ -533,9 +537,9 @@ export function parseSolothurnDutyPage({ html, sourceUrl, fetchedAt, calendarYea
     throw new Error(`Solothurn calendar does not expose all three regions: ${[...regions].sort().join(', ') || 'none'}`);
   }
   if (rows.length === 0) throw new Error(`Solothurn calendar contains no ${calendarYear} duty rows`);
-  const fetchWeek = hasVerifiedDutyInFetchWeek(rows, fetchedAt);
+  const fetchWeek = hasDutyInFetchWeek(rows, fetchedAt);
   if (!fetchWeek.covered) {
-    throw new Error(`Solothurn calendar has no verified duty in fetch week ${fetchWeek.week.startDate}`);
+    throw new Error(`Solothurn calendar has no duty in fetch week ${fetchWeek.week.startDate}`);
   }
   rows.sort((a, b) => Date.parse(a.startsAt) - Date.parse(b.startsAt) || a.id.localeCompare(b.id));
   return {
