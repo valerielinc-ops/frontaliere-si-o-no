@@ -23,6 +23,9 @@ import path from 'node:path';
 import { hardenJobLocaleFields } from '../scripts/lib/dedicated-crawler-common.mjs';
 import { repairShortDescriptions } from '../scripts/lib/job-locale-slot-repair.mjs';
 import { collectBlockingIssues, LOCALES } from '../scripts/validate-translation-completeness.mjs';
+import { isolateCrawlerHistoricalData } from './helpers/isolate-crawler-historical-data.mjs';
+
+isolateCrawlerHistoricalData();
 
 type Job = Record<string, any>;
 

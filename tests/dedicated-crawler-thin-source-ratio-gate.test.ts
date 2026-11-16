@@ -25,8 +25,10 @@ import fs from 'fs';
 import os from 'os';
 import path from 'path';
 import { validateDedicatedLocaleCoverage } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { isolateCrawlerHistoricalData } from './helpers/isolate-crawler-historical-data.mjs';
 
 const STRICT_ENV = 'JOBS_THIN_RATIO_TEST_STRICT';
+isolateCrawlerHistoricalData();
 
 /** A "good" job: rich IT base description well above the hard-validation floor. */
 function richDescription(): string {
