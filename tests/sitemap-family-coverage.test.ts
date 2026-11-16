@@ -333,6 +333,83 @@ describe('sitemap family URL coverage ratchet', () => {
     expect(invalid.invalidDeclarations).toHaveLength(1);
   });
 
+  it('does not mark a data-driven declaration stale during a smaller evidenced churn', () => {
+    const previous = snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1900) });
+    const current = snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1850) });
+    const result = evaluateSitemapFamilyCoverage(previous, current, {
+      version: 1,
+      decreases: [{
+        family: 'orphan-landings',
+        previousCount: 1913,
+        currentCount: 1906,
+        reason: 'Exact deployed counts retained while URL bridge evidence covers the current smaller decrease.',
+      }],
+    }, bridgeEvidence(previous, current, 'orphan-landings'));
+
+    expect(result.regressions).toEqual([]);
+    expect(result.churn).toMatchObject([
+      { family: 'orphan-landings', previousCount: 1900, currentCount: 1850, delta: -50 },
+    ]);
+    expect(result.staleDeclarations).toEqual([]);
+  });
+
+  it('does not mark the measured exact data-driven declaration stale when bridge evidence accepts it', () => {
+    const previous = snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1913) });
+    const current = snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1906) });
+    const result = evaluateSitemapFamilyCoverage(previous, current, {
+      version: 1,
+      decreases: [{
+        family: 'orphan-landings',
+        previousCount: 1913,
+        currentCount: 1906,
+        reason: 'Exact deployed counts retained while URL bridge evidence covers the measured decrease.',
+      }],
+    }, bridgeEvidence(previous, current, 'orphan-landings'));
+
+    expect(result.regressions).toEqual([]);
+    expect(result.churn).toMatchObject([
+      { family: 'orphan-landings', previousCount: 1913, currentCount: 1906, delta: -7 },
+    ]);
+    expect(result.staleDeclarations).toEqual([]);
+  });
+
+  it('continues to report stale declarations for structural families', () => {
+    const unchangedEvents = snapshot({ 'sitemap-eventi.xml': familyUrls('events', 10) });
+    const result = evaluateSitemapFamilyCoverage(unchangedEvents, unchangedEvents, {
+      version: 1,
+      decreases: [{
+        family: 'events',
+        previousCount: 2,
+        currentCount: 1,
+        reason: 'A deliberately stale structural family declaration for this test case.',
+      }],
+    });
+
+    expect(result.invalidDeclarations).toEqual([]);
+    expect(result.staleDeclarations).toMatchObject([{ family: 'events' }]);
+  });
+
+  it('continues to allow an exact declaration beyond the data-driven churn bound', () => {
+    const previous = snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1000) });
+    const current = snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 899) });
+    const result = evaluateSitemapFamilyCoverage(previous, current, {
+      version: 1,
+      decreases: [{
+        family: 'orphan-landings',
+        previousCount: 1000,
+        currentCount: 899,
+        reason: 'Exact declared decrease beyond the data-driven churn bound remains explicitly permitted.',
+      }],
+    });
+
+    expect(result.regressions).toEqual([]);
+    expect(result.allowedDecreases).toMatchObject([
+      { family: 'orphan-landings', previousCount: 1000, currentCount: 899, delta: -101 },
+    ]);
+    expect(result.churn).toEqual([]);
+    expect(result.staleDeclarations).toEqual([]);
+  });
+
   it('runs as a blocking post-deploy validator', () => {
     const workflow = readFileSync(resolve(import.meta.dirname, '../.github/workflows/post-deploy-validate-dist.yml'), 'utf8');
     const fastGate = readFileSync(resolve(import.meta.dirname, '../scripts/ci/publisher-fast-gate.mjs'), 'utf8');
