@@ -490,19 +490,37 @@ function extractJobupLocation(posting) {
  * recommended jobs. More than one matching boundary is ambiguous, so no body
  * is returned and the shared source floor keeps the row unpublished.
  */
+function isHiddenJobupElement(element) {
+  for (let ancestor = element; ancestor; ancestor = ancestor.parentElement) {
+    if (ancestor.hasAttribute('hidden') || ancestor.getAttribute('aria-hidden')?.trim().toLowerCase() === 'true') {
+      return true;
+    }
+    const inlineStyle = ancestor.getAttribute('style') || '';
+    if (/\bdisplay\s*:\s*none\b/i.test(inlineStyle)) return true;
+  }
+  return false;
+}
+
 export function extractVisibleJobupDescription(html = '') {
   const dom = new JSDOM(String(html));
   try {
     const containers = [...dom.window.document.querySelectorAll('[data-cy="vacancy-description"]')]
-      .filter((container) => (
-        !container.closest('[hidden], [aria-hidden="true"]')
-      ));
+      .filter((container) => !isHiddenJobupElement(container));
 
     if (containers.length !== 1) return '';
 
     const container = containers[0].cloneNode(true);
-    for (const excluded of container.querySelectorAll('script, style, template, [hidden], [aria-hidden="true"]')) {
+    for (const excluded of container.querySelectorAll('script, style, template, noscript, [hidden], [aria-hidden="true"]')) {
       excluded.remove();
+    }
+    for (const excluded of [...container.querySelectorAll('[style]')].filter((element) => isHiddenJobupElement(element))) {
+      excluded.remove();
+    }
+    for (const lineBreak of container.querySelectorAll('br')) {
+      lineBreak.replaceWith(' ');
+    }
+    for (const block of container.querySelectorAll('address, article, aside, blockquote, div, dl, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hr, li, main, nav, ol, p, pre, section, table, ul')) {
+      block.append(' ');
     }
     return normalizeSpace(container.textContent || '');
   } finally {

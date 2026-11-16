@@ -221,6 +221,13 @@ describe('Croix-Rouge fribourgeoise crawler parser', () => {
       expect(extractVisibleJobupDescription(`<div hidden data-cy="vacancy-description">${currentFixture}</div>`)).toBe('');
       expect(extractVisibleJobupDescription(`${currentFixture}${currentFixture}`)).toBe('');
     });
+
+    it('rejects inline-hidden content, excludes noscript text, and separates adjacent blocks', () => {
+      const fiftyWords = Array.from({ length: 50 }, () => 'word').join(' ');
+      expect(extractVisibleJobupDescription(`<div data-cy="vacancy-description" style="display:none">${fiftyWords}</div>`)).toBe('');
+      expect(extractVisibleJobupDescription(`<div data-cy="vacancy-description"><noscript>${fiftyWords}</noscript></div>`)).toBe('');
+      expect(extractVisibleJobupDescription('<div data-cy="vacancy-description"><p>first block</p><p>second block</p></div>')).toBe('first block second block');
+    });
   });
 
   // ── slugify (imported from crawler-template) ──
