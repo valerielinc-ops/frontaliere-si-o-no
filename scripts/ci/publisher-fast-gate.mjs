@@ -6,6 +6,7 @@ import { isExternallyServedUrl } from '../lib/externally-served-paths.mjs';
 import { readSitemapSnapshot } from '../lib/sitemap-snapshot.mjs';
 import { sectionTreeLayout, sectionTreeLayoutAllowed } from '../../infra/cloudflare-worker/ticino-tree-bucket.js';
 import {
+  diffSitemapFamilyUrls,
   evaluateSitemapFamilyCoverage,
   filterExternallyServedUrlsFromSitemapCoverage,
   isExpiredJobSitemapKey,
@@ -13,7 +14,7 @@ import {
 import { ownsSitemapUrl, sectionForUrl } from '../validate-sitemap-links.mjs';
 import { SHARD_VALIDATOR_VERSION } from './shard-content-manifest.mjs';
 
-export const FAST_GATE_VALIDATOR_VERSION = 'publisher-fast-gate-v5';
+export const FAST_GATE_VALIDATOR_VERSION = 'publisher-fast-gate-v6';
 export const SITE_ORIGIN = 'https://frontaliereticino.ch';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const SHA_RE = /^[0-9a-f]{64}$/u;
@@ -117,6 +118,7 @@ function isSupportedSnapshot(snapshot) {
 // the single root cause reported here.
 function parseSitemapSnapshot(root, previousSnapshot, declarations, errors) {
   const urlSet = new Map();
+  const familyChurn = [];
   // Expired-archive sitemap URLs (url -> locale), kept ONLY to be counted and
   // tied to the archive canaries; they never enter the page-by-page comparison.
   const archiveUrls = new Map();
@@ -126,17 +128,17 @@ function parseSitemapSnapshot(root, previousSnapshot, declarations, errors) {
     currentSnapshot = readSitemapSnapshot(snapshotPath);
   } catch (error) {
     errors.push(`current sitemap snapshot is missing or invalid (${error.message}); skipping the URL-by-URL comparison against page manifests`);
-    return { urlSet, archiveUrls, files: [], usable: false };
+    return { urlSet, archiveUrls, files: [], usable: false, familyChurn: [] };
   }
   if (!isSupportedSnapshot(currentSnapshot)) {
     errors.push('current sitemap snapshot must use schema version 3 or 4 with perSitemap URL sets; skipping the URL-by-URL comparison against page manifests');
-    return { urlSet, archiveUrls, files: [], usable: false };
+    return { urlSet, archiveUrls, files: [], usable: false, familyChurn: [] };
   }
 
   const files = Object.keys(currentSnapshot.perSitemap).sort();
   if (!files.length) {
     errors.push(`current sitemap snapshot has no URL sets under ${root}; skipping the URL-by-URL comparison against page manifests`);
-    return { urlSet, archiveUrls, files, usable: false };
+    return { urlSet, archiveUrls, files, usable: false, familyChurn: [] };
   }
   for (const [sitemap, urls] of Object.entries(currentSnapshot.perSitemap)) {
     if (!Array.isArray(urls)) {
@@ -168,11 +170,19 @@ function parseSitemapSnapshot(root, previousSnapshot, declarations, errors) {
   if (!isSupportedSnapshot(previousSnapshot)) {
     errors.push('pre-deploy sitemap snapshot is missing or is not schema version 3 or 4');
   } else {
+    const filteredPreviousSnapshot = filterExternallyServedUrlsFromSitemapCoverage(previousSnapshot);
+    const filteredCurrentSnapshot = filterExternallyServedUrlsFromSitemapCoverage(currentSnapshot);
     const coverage = evaluateSitemapFamilyCoverage(
-      filterExternallyServedUrlsFromSitemapCoverage(previousSnapshot),
-      filterExternallyServedUrlsFromSitemapCoverage(currentSnapshot),
+      filteredPreviousSnapshot,
+      filteredCurrentSnapshot,
       declarations,
     );
+    for (const entry of coverage.churn) {
+      familyChurn.push({
+        ...entry,
+        ...diffSitemapFamilyUrls(filteredPreviousSnapshot, filteredCurrentSnapshot, entry.family),
+      });
+    }
     for (const invalid of coverage.invalidDeclarations) {
       errors.push(`sitemap coverage declaration ${invalid.index} is invalid: ${invalid.family}`);
     }
@@ -185,7 +195,7 @@ function parseSitemapSnapshot(root, previousSnapshot, declarations, errors) {
       );
     }
   }
-  return { urlSet, archiveUrls, files, usable: true };
+  return { urlSet, archiveUrls, files, usable: true, familyChurn };
 }
 
 function assertManifestHeader(manifest, expected, errors, label) {
@@ -461,7 +471,13 @@ export function validatePublisherFastGate({
     }
   }
 
-  const { urlSet, archiveUrls, files: sitemapFiles, usable: sitemapSnapshotUsable } = parseSitemapSnapshot(
+  const {
+    urlSet,
+    archiveUrls,
+    files: sitemapFiles,
+    usable: sitemapSnapshotUsable,
+    familyChurn: sitemapFamilyChurn,
+  } = parseSitemapSnapshot(
     sitemapDir,
     previousSitemapSnapshot,
     sitemapCoverageDeclarations,
@@ -534,6 +550,7 @@ export function validatePublisherFastGate({
     expiredArchiveSitemapCoveredByCanaryByLocale: archive.coveredByCanaryByLocale,
     expiredArchiveCanaryEntriesByLocale: archive.canaryEntriesByLocale,
     expiredArchiveCanaryVerifiedByLocale: archive.canaryVerifiedByLocale,
+    sitemapFamilyChurn,
     sampleRate: 1,
     sampledPages: urlSet.size,
     offendersTotal: errors.length,
@@ -607,6 +624,14 @@ function main() {
     + `${result.expiredArchiveSitemapCoveredByCanary} covered by a locale canary set (${formatByLocale(result.expiredArchiveSitemapCoveredByCanaryByLocale)}); `
     + `canary entries ${formatByLocale(result.expiredArchiveCanaryEntriesByLocale)}, verified in a required shard ${formatByLocale(result.expiredArchiveCanaryVerifiedByLocale)}`,
   );
+  for (const entry of result.sitemapFamilyChurn) {
+    const pct = ((entry.previousCount - entry.currentCount) / entry.previousCount * 100).toFixed(1);
+    console.log(
+      `[publisher-fast-gate] sitemap family churn (data-driven, within collapse bound): ${entry.family} `
+      + `${entry.previousCount} -> ${entry.currentCount} (${entry.delta}, -${pct}% of ${entry.tolerance * 100}% bound; `
+      + `removed=${entry.removed} added=${entry.added})`,
+    );
+  }
   for (const error of result.errors.slice(0, 100)) console.error(`  - ${error}`);
   if (result.errors.length > 100) console.error(`  - … ${result.errors.length - 100} additional errors`);
   if (!result.passed) process.exitCode = 1;
