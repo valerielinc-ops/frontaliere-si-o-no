@@ -10207,7 +10207,15 @@
       "employmentType": "FULL_TIME",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T21:41:36.164Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugs": [
+        "lernende-r-elektroniker-in-efz-confederazione-payerne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lernende-r-elektroniker-in-efz-confederazione-payerne"
+        ]
+      }
     },
     {
       "id": "company-r2ylxp",

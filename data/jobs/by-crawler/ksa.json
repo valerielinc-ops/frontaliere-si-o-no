@@ -60,7 +60,8 @@
         "expert-expert-care-kantonsspital-aarau-ksa-aarau-2a8ca7",
         "soins-d-experts-kantonsspital-aarau-ksa-aarau",
         "specialiste-soins-specialises-kantonsspital-aarau-ksa-aarau",
-        "expert-expert-care-kantonsspital-aarau-ksa-aarau-9zu87s"
+        "expert-expert-care-kantonsspital-aarau-ksa-aarau-9zu87s",
+        "expert-care-kantonsspital-aarau-ksa-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -947,7 +948,8 @@
           "fachfrau-mann-gesundheit-ksa-ch",
           "fachfrau-fachmann-gesundheit-ksa-ch-9zti7s",
           "fachfrau-fachmann-gesundheit-ksa-ch-9zti7t",
-          "fachfrau-fachmann-gesundheit-ksa-ch-9zti75"
+          "fachfrau-fachmann-gesundheit-ksa-ch-9zti75",
+          "fachfrau-fachmann-gesundheit-ksa-ch"
         ],
         "fr": [
           "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau",
@@ -3161,10 +3163,10 @@
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
       "previousSlugsByLocale": {
-        "de": [
+        "it": [
           "fachfrau-fachmann-gesundheit-ksa-ch"
         ],
-        "it": [
+        "de": [
           "fachfrau-fachmann-gesundheit-ksa-ch"
         ],
         "en": [
@@ -3181,7 +3183,6 @@
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
         "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau-9zti9m"
       ],
-      "firstSeenAt": "2026-09-23T23:38:56.488Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -3198,7 +3199,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:21:20.945Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-09-23T23:38:56.488Z"
     },
     {
       "id": "ksa-5a02d18570a8",
@@ -4546,13 +4548,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
-      "previousSlugs": [
-        "fachfrau-fachmann-gesundheit-ksa-ch",
-        "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
-        "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau-9zti67",
-        "fachfrau-fachmann-gesundheit-ksa-ch-9zti67",
-        "salute-professionale-kantonsspital-aarau-ksa-aarau"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-fachmann-gesundheit-ksa-ch",
@@ -4562,15 +4557,21 @@
           "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
           "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau-9zti67"
         ],
-        "de": [
-          "fachfrau-fachmann-gesundheit-ksa-ch-9zti67"
-        ],
         "fr": [
           "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
           "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau-9zti67"
+        ],
+        "de": [
+          "fachfrau-fachmann-gesundheit-ksa-ch-9zti67"
         ]
       },
-      "firstSeenAt": "2026-09-23T23:38:56.488Z",
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-ksa-ch",
+        "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
+        "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau-9zti67",
+        "fachfrau-fachmann-gesundheit-ksa-ch-9zti67",
+        "salute-professionale-kantonsspital-aarau-ksa-aarau"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -4587,7 +4588,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-12T09:21:20.944Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-09-23T23:38:56.488Z"
     },
     {
       "id": "ksa-196da50b930d",
@@ -7735,19 +7737,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Kantonsspital Aarau AG",
-      "previousSlugs": [
-        "med-praxisassistent-in-ksa-ch",
-        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistent-in-ksa-ch"
         ],
         "fr": [
-          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty"
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
-      "firstSeenAt": "2026-08-07T01:20:17.707Z",
+      "previousSlugs": [
+        "med-praxisassistent-in-ksa-ch",
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
+      ],
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -7764,7 +7767,8 @@
       "streetAddress": "Aarau",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-02T09:21:20.941Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-08-07T01:20:17.707Z"
     },
     {
       "id": "ksa-6bed510181d9",

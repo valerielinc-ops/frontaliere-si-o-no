@@ -1137,16 +1137,14 @@
     "slugByLocale": {
       "it": "cucinare-cucinare-100-center-da-sanadad-engiadina-bassa-scuol",
       "en": "cook-cook-100-center-da-sanadad-engiadina-bassa-scuol",
-      "de": "koch-kochin-100-cseb-ch",
+      "de": "koch-kochin-100-cseb-ch-5c949d22",
       "fr": "cuisiniere-cuisiniere-100-center-da-sanadad-engiadina-bassa-scuol"
     },
     "sector": "Sanità / Assistenza",
     "expiredAt": "2026-08-25T22:03:24.338Z",
-    "previousSlugs": [
-      "koch-kochin-100-cseb-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "koch-kochin-100-cseb-ch-5c949d22",
         "koch-kochin-100-cseb-ch"
       ],
       "en": [
@@ -1154,6 +1152,9 @@
       ],
       "fr": [
         "koch-kochin-100-cseb-ch"
+      ],
+      "de": [
+        "koch-kochin-100-cseb-ch-5c949d22"
       ]
     },
     "postalCode": "7550",
@@ -1163,7 +1164,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/417b8035-d0bc-b9db-d0e2-c6fb48c94eea",
-    "firstSeenAt": "2026-07-10T22:41:03.087Z"
+    "firstSeenAt": "2026-07-10T22:41:03.087Z",
+    "previousSlugs": [
+      "koch-kochin-100-cseb-ch"
+    ]
   },
   {
     "slug": "collaboratore-trice-in-hauswirtschaft-reinigung-lingerie-70-center-da-sanadad-engiadina-bassa-scuol",

@@ -17482,24 +17482,30 @@
       "it": "venditore-seller-in-tempo-denner-martigny",
       "en": "seller-seller-on-time-denner-martigny",
       "de": "verkaufer-verkaufer-punktlich-denner-martigny",
-      "fr": "vendeur-vendeuse-a-l-heure-denner"
+      "fr": "vendeur-vendeuse-a-l-heure-denner-33d934fa"
     },
     "sector": "",
     "expiredAt": "2026-10-28T21:24:40.396Z",
-    "previousSlugs": [
-      "vendeur-vendeuse-a-l-heure-denner",
-      "vendeur-vendeuse-a-l-heure-denner-martigny"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "vendeur-vendeuse-a-l-heure-denner-33d934fa",
+        "vendeur-vendeuse-a-l-heure-denner-martigny-9f59eb5a",
         "vendeur-vendeuse-a-l-heure-denner",
         "vendeur-vendeuse-a-l-heure-denner-martigny"
       ],
       "en": [
+        "vendeur-vendeuse-a-l-heure-denner-33d934fa",
+        "vendeur-vendeuse-a-l-heure-denner-martigny",
         "vendeur-vendeuse-a-l-heure-denner"
       ],
       "de": [
+        "vendeur-vendeuse-a-l-heure-denner-33d934fa",
+        "vendeur-vendeuse-a-l-heure-denner-martigny",
         "vendeur-vendeuse-a-l-heure-denner"
+      ],
+      "fr": [
+        "vendeur-vendeuse-a-l-heure-denner-33d934fa",
+        "vendeur-vendeuse-a-l-heure-denner-martigny"
       ]
     },
     "postalCode": "1920",
@@ -17509,7 +17515,12 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.migros.ch/fr/nos-entreprises/job/denner-sa/vendeur-vendeuse-lheure/ba781ef8-d48d-472a-b588-dcf0fbd8d4de",
-    "firstSeenAt": "2026-10-26T21:20:14.555Z"
+    "firstSeenAt": "2026-10-26T21:20:14.555Z",
+    "previousSlugs": [
+      "vendeur-vendeuse-a-l-heure-denner",
+      "vendeur-vendeuse-a-l-heure-denner-martigny",
+      "vendeur-vendeuse-a-l-heure-denner-martigny-9f59eb5a"
+    ]
   },
   {
     "slug": "venditore-venditrice-denner-wetzikon",

@@ -544,7 +544,7 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 5188,
-      "retranslationAttempts": 84,
+      "retranslationAttempts": 85,
       "firstSeenAt": "2026-10-01T09:13:13.433Z",
       "crawledAt": "2026-11-15T21:38:40.480Z",
       "streetAddressSource": "to-enrich",
@@ -966,7 +966,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 4,
+      "retranslationAttempts": 5,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 4768,
       "needsRetranslation": true
@@ -1590,7 +1590,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 5,
+      "retranslationAttempts": 6,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 6146,
       "needsRetranslation": true
@@ -2054,7 +2054,7 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3301,
-      "retranslationAttempts": 31,
+      "retranslationAttempts": 32,
       "firstSeenAt": "2026-07-22T11:17:20.458Z",
       "crawledAt": "2026-11-15T21:38:40.480Z",
       "streetAddressSource": "to-enrich",
@@ -3077,7 +3077,7 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3264,
-      "retranslationAttempts": 84,
+      "retranslationAttempts": 85,
       "firstSeenAt": "2026-08-21T21:26:37.240Z",
       "crawledAt": "2026-11-15T21:38:40.480Z",
       "streetAddressSource": "to-enrich",
@@ -4626,7 +4626,9 @@
       "slug": "remote-access-engineer-citrix-netscaler-zscaler-private-access-100-f-m-d-julius-baer",
       "slugByLocale": {
         "en": "remote-access-engineer-citrix-netscaler-zscaler-private-access-100-f-m-d-julius-baer",
-        "it": "ingegnere-di-accesso-remoto-citrix-netscaler-zscaler-accesso-privato-100-m-f-d-julius-baer-zurich"
+        "it": "ingegnere-di-accesso-remoto-citrix-netscaler-zscaler-accesso-privato-100-m-f-d-julius-baer-zurich",
+        "de": "remote-access-engineer-citrix-netscaler-zscaler-private-access-100-f-m-d-julius-baer",
+        "fr": "remote-access-engineer-citrix-netscaler-zscaler-private-access-100-f-m-d-julius-baer"
       },
       "category": "technology",
       "datePosted": "2026-10-30",
