@@ -27,6 +27,7 @@ import {
   fetchWithRetry,
   RETRYABLE_STATUS,
   isConnectionLevelFetchError,
+  isRetryBudgetExhaustedError,
   isTransientFetchError,
 } from '../transient-fetch.mjs';
 import { assertJsonListShape } from '../assert-json-list-shape.mjs';
@@ -368,7 +369,15 @@ async function fetchJsonWithRetry(url, options = {}) {
     const connectionLevelFailure = err instanceof WorkdayApiError
       ? err.statusCode === 0 && isTransientFetchError(err)
       : isConnectionLevelFetchError(err);
-    if (browserFallback && connectionLevelFailure) {
+    // A retryable HTTP response can still be an edge/WAF failure for the
+    // datacenter request. Workday's same-origin browser transport is the
+    // available alternate egress/request stack for JSON POSTs; use it once
+    // after the direct retry budget is exhausted, just like the connection
+    // failure path. Jina Reader is intentionally not used here because it
+    // cannot preserve Workday's POST JSON contract.
+    const retryBudgetExhausted = err instanceof WorkdayApiError
+      && isRetryBudgetExhaustedError(err);
+    if (browserFallback && (connectionLevelFailure || retryBudgetExhausted)) {
       try {
         return await browserFallback({ url, method, body, userAgent, timeoutMs });
       } catch (fallbackErr) {
@@ -377,6 +386,9 @@ async function fetchJsonWithRetry(url, options = {}) {
         // transport also cannot connect, keep the original connection-level
         // error so the crawler's soft-exit and health receipt remain intact.
         if (fallbackErr instanceof WorkdayApiError && fallbackErr.statusCode !== 0) {
+          const fallbackWasRetryable = fallbackErr.retryable === true
+            || RETRYABLE_STATUS.has(fallbackErr.statusCode);
+          if (retryBudgetExhausted && fallbackWasRetryable) throw err;
           throw fallbackErr;
         }
         console.warn(`⚠️ Workday browser transport fallback failed for ${url}: ${fallbackErr?.message || fallbackErr}`);
