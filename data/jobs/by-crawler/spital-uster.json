@@ -2836,12 +2836,12 @@
     },
     {
       "id": "spital-uster-3303c744f311",
-      "slug": "chefarzt-chefarztin-o-bereichsleiter-in-urologie-80-100-spital-uster",
+      "slug": "primario-primaria-o-responsabile-di-reparto-di-urologia-80-100-spital-uster-uster",
       "slugByLocale": {
         "de": "chefarzt-chefarztin-oder-bereichsleiter-in-urologie-80-100-spital-uster-ch",
-        "it": "chefarzt-chefarztin-o-bereichsleiter-in-urologie-80-100-spital-uster",
-        "en": "chefarzt-chefarztin-oder-bereichsleiter-in-urologie-80-100-spital-uster-ch",
-        "fr": "chefarzt-chefarztin-oder-bereichsleiter-in-urologie-80-100-spital-uster-ch"
+        "it": "primario-primaria-o-responsabile-di-reparto-di-urologia-80-100-spital-uster-uster",
+        "en": "chief-physician-or-head-of-urology-80-100-spital-uster-uster",
+        "fr": "medecin-chef-medecin-cheffe-ou-responsable-du-secteur-d-urologie-80-100-spital-uster-uster"
       },
       "company": "Spital Uster",
       "companyKey": "spital-uster",
@@ -2889,11 +2889,19 @@
       "department": "Ärztliches Personal",
       "previousSlugsByLocale": {
         "it": [
+          "chefarzt-chefarztin-oder-bereichsleiter-in-urologie-80-100-spital-uster-ch",
+          "chefarzt-chefarztin-o-bereichsleiter-in-urologie-80-100-spital-uster"
+        ],
+        "en": [
+          "chefarzt-chefarztin-oder-bereichsleiter-in-urologie-80-100-spital-uster-ch"
+        ],
+        "fr": [
           "chefarzt-chefarztin-oder-bereichsleiter-in-urologie-80-100-spital-uster-ch"
         ]
       },
       "previousSlugs": [
-        "chefarzt-chefarztin-oder-bereichsleiter-in-urologie-80-100-spital-uster-ch"
+        "chefarzt-chefarztin-oder-bereichsleiter-in-urologie-80-100-spital-uster-ch",
+        "chefarzt-chefarztin-o-bereichsleiter-in-urologie-80-100-spital-uster"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "cnvo-ch-331408950081",
-      "slug": "offres-d-8217-emploi-yverdon-les-bains-vd-taux-d-activite-40-entree-en-fonction-1er-mars",
+      "slug": "offerte-di-lavoro-cnvo-sa-vaud",
       "slugByLocale": {
         "fr": "offres-d-8217-emploi-yverdon-les-bains-vd-taux-d-activite-40-entree-en-fonction-1er-mars",
-        "it": "offres-d-8217-emploi-yverdon-les-bains-vd-taux-d-activite-40-entree-en-fonction-1er-mars",
-        "en": "offres-d-8217-emploi-yverdon-les-bains-vd-taux-d-activite-40-entree-en-fonction-1er-mars",
-        "de": "offres-d-8217-emploi-yverdon-les-bains-vd-taux-d-activite-40-entree-en-fonction-1er-mars"
+        "it": "offerte-di-lavoro-cnvo-sa-vaud",
+        "en": "job-offers-cnvo-sa-vaud",
+        "de": "stellenangebote-cnvo-sa-vaud"
       },
       "company": "CNVO SA",
       "companyKey": "cnvo-ch",
@@ -72,7 +72,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-13T21:39:58.788Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-15T21:39:58.788Z"
+      "firstSeenAt": "2026-11-15T21:39:58.788Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "offres-d-8217-emploi-yverdon-les-bains-vd-taux-d-activite-40-entree-en-fonction-1er-mars"
+        ],
+        "en": [
+          "offres-d-8217-emploi-yverdon-les-bains-vd-taux-d-activite-40-entree-en-fonction-1er-mars"
+        ],
+        "de": [
+          "offres-d-8217-emploi-yverdon-les-bains-vd-taux-d-activite-40-entree-en-fonction-1er-mars"
+        ]
+      },
+      "previousSlugs": [
+        "offres-d-8217-emploi-yverdon-les-bains-vd-taux-d-activite-40-entree-en-fonction-1er-mars"
+      ]
     }
   ]
 }
