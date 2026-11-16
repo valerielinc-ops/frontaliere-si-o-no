@@ -105,4 +105,33 @@ describe('deploy-publish.yml artifact upload retry contract', () => {
       }
     }
   });
+
+  it('keeps every upload retry condition free of mixed expression delimiters', () => {
+    const retrySteps = Object.values(workflow.jobs).flatMap((job) => job.steps ?? [])
+      .filter((step) => String(step.name ?? '').startsWith('Retry Upload '));
+    for (const retry of retrySteps) {
+      const retryIf = String(retry.if ?? '');
+      expect(retryIf, retry.name + ' must not mix ${{ }} with surrounding if text')
+        .not.toContain('${{');
+    }
+  });
+
+  it('keeps every upload retry condition free of its own step ID', () => {
+    const retrySteps = Object.values(workflow.jobs).flatMap((job) => job.steps ?? [])
+      .filter((step) => String(step.name ?? '').startsWith('Retry Upload '));
+    for (const retry of retrySteps) {
+      const retryIf = String(retry.if ?? '');
+      if (typeof retry.id === 'string') {
+        expect(retryIf, retry.name + ' must not refer to its own step id')
+          .not.toContain(`steps.${retry.id}.`);
+      }
+    }
+  });
+
+  it('keeps upload artifact IDs unique across all jobs', () => {
+    const allSteps = Object.values(workflow.jobs).flatMap((job) => job.steps ?? []);
+    const uploadIds = allSteps.filter(isUpload).map((step) => step.id);
+    expect(uploadIds.every((id) => typeof id === 'string' && id.trim().length > 0)).toBe(true);
+    expect(new Set(uploadIds).size).toBe(uploadIds.length);
+  });
 });
