@@ -1156,7 +1156,19 @@ function primitiveKey(value) {
   return '';
 }
 
-function detectArrayKey(arrays, forcedKey = '') {
+const STRICT_ARRAY_KEY_FIELDS = new Set(['url', 'id', 'key', 'slug']);
+const POSTING_IDENTITY_FIELDS = ['id', 'key', 'url', 'slug'];
+
+function postingIdentity(item) {
+  for (const field of POSTING_IDENTITY_FIELDS) {
+    const value = primitiveKey(item[field]);
+    if (value) return `${field}:${value}`;
+  }
+  return '';
+}
+
+function detectArrayKey(arrays, forcedKey = '', analysis = undefined) {
+  if (analysis) analysis.strictIdentityAmbiguous = false;
   const candidates = [];
   if (forcedKey) candidates.push(forcedKey);
   for (const key of ['url', 'id', 'key', 'slug', 'companyKey', 'website', 'name', 'title']) {
@@ -1192,8 +1204,34 @@ function detectArrayKey(arrays, forcedKey = '') {
   const hasAnyObjectItem = nonEmptyArrays.some((arr) => arr.some((item) => isPlainObject(item)));
   if (!hasAnyObjectItem) return '';
 
-  for (const candidate of candidates) {
+  // Posting identities are stronger than generic metadata fields. Check them
+  // first even when the caller supplied a generic forced key, so an ambiguous
+  // posting identity cannot be hidden by a company/name/title fallback.
+  const orderedCandidates = [
+    ...candidates.filter((candidate) => STRICT_ARRAY_KEY_FIELDS.has(candidate)),
+    ...candidates.filter((candidate) => !STRICT_ARRAY_KEY_FIELDS.has(candidate)),
+  ];
+  let strictIdentityAmbiguous = false;
+
+  for (const candidate of orderedCandidates) {
+    const isStrictCandidate = STRICT_ARRAY_KEY_FIELDS.has(candidate);
+    // Once any strict posting field is demonstrably ambiguous, no generic
+    // field is safe: it is not a posting identity and Map#set would still
+    // discard one claimant. Fall through to the value-based delta merge.
+    if (!isStrictCandidate && strictIdentityAmbiguous) break;
+
+    // Per-posting identity fields must be globally unique within each input.
+    // A mostly-unique URL/slug is still unsafe: arrayToMap() uses Map#set and
+    // silently makes the last duplicate claimant own the merged history. The
+    // old 0.85 ratchet let one duplicate in a 20-job slice through, making
+    // previousSlugs follow array order across concurrent writers. Generic
+    // metadata arrays keep their existing coverage/uniqueness tolerance.
+    const minimumUniqueness = isStrictCandidate
+      ? 1
+      : 0.85;
     let allPass = true;
+    let candidateIdentityConflict = false;
+    const identitiesByKey = new Map();
     for (const arr of nonEmptyArrays) {
       const objectItems = arr.filter((item) => isPlainObject(item));
       if (objectItems.length === 0) continue;
@@ -1206,12 +1244,35 @@ function detectArrayKey(arrays, forcedKey = '') {
         present += 1;
         if (seen.has(key)) duplicate += 1;
         seen.add(key);
+        if (isStrictCandidate) {
+          const identity = postingIdentity(item);
+          const previousIdentity = identitiesByKey.get(key);
+          if (previousIdentity !== undefined && previousIdentity !== identity) {
+            // The same candidate value names different postings in the merge
+            // inputs (for example one URL with two stable ids). It is not a
+            // safe Map key even when each input is unique in isolation.
+            candidateIdentityConflict = true;
+          } else if (previousIdentity === undefined) {
+            identitiesByKey.set(key, identity);
+          }
+        }
       }
       const coverage = present / objectItems.length;
       const uniqueness = present > 0 ? (present - duplicate) / present : 0;
-      if (coverage < 0.6 || uniqueness < 0.85) { allPass = false; break; }
+      if (coverage < 0.6 || uniqueness < minimumUniqueness) {
+        if (isStrictCandidate && duplicate > 0) {
+          strictIdentityAmbiguous = true;
+          if (analysis) analysis.strictIdentityAmbiguous = true;
+        }
+        allPass = false;
+        break;
+      }
     }
-    if (allPass) return candidate;
+    if (isStrictCandidate && candidateIdentityConflict) {
+      strictIdentityAmbiguous = true;
+      if (analysis) analysis.strictIdentityAmbiguous = true;
+    }
+    if (allPass && !candidateIdentityConflict) return candidate;
   }
 
   return '';
@@ -1557,7 +1618,12 @@ function mergeArrayByDelta(baseArr, remoteArr, localArr) {
 }
 
 function mergeArray(baseArr, remoteArr, localArr, warnings, pathLabel, forcedKey = '') {
-  const keyHint = detectArrayKey([baseArr, remoteArr, localArr], forcedKey);
+  const keyAnalysis = {};
+  const keyHint = detectArrayKey(
+    [baseArr, remoteArr, localArr],
+    forcedKey,
+    keyAnalysis,
+  );
   if (!keyHint) return mergeArrayByDelta(baseArr, remoteArr, localArr);
 
   const baseData = arrayToMap(baseArr, keyHint);
@@ -1570,8 +1636,20 @@ function mergeArray(baseArr, remoteArr, localArr, warnings, pathLabel, forcedKey
   }
 
   const mergedMap = new Map(remoteData.map);
+  if (keyAnalysis.strictIdentityAmbiguous) {
+    // A strict field proved unable to distinguish claimants across the
+    // inputs. Keep base-only records instead of interpreting their absence
+    // from the local snapshot as a deletion; otherwise a safer key (for
+    // example id) would still lose the claimant whose history we are fixing.
+    for (const key of baseData.order) {
+      if (!remoteData.map.has(key) && !localData.map.has(key)) {
+        mergedMap.set(key, baseData.map.get(key));
+      }
+    }
+  }
   for (const key of touched) {
     if (!localData.map.has(key)) {
+      if (keyAnalysis.strictIdentityAmbiguous) continue;
       // Local deleted this key relative to base — respect the deletion.
       mergedMap.delete(key);
       continue;
@@ -1626,6 +1704,9 @@ function mergeArray(baseArr, remoteArr, localArr, warnings, pathLabel, forcedKey
   }
   for (const key of localData.order) {
     if (!remoteKeys.has(key) && mergedMap.has(key)) mergedKeys.push(key);
+  }
+  for (const key of baseData.order) {
+    if (!remoteKeys.has(key) && !localData.map.has(key) && mergedMap.has(key)) mergedKeys.push(key);
   }
 
   const merged = mergedKeys.map((key) => clone(mergedMap.get(key)));

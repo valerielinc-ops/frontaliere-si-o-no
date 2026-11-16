@@ -1781,3 +1781,98 @@ describe('git-commit-data.sh locale translation protection', () => {
     }
   });
 });
+
+describe('git-commit-data.sh job identity merge guard', () => {
+  it('keeps cross-input URL claimants separate when their ids differ', () => {
+    const base = [{ url: 'u', id: 'a', previousSlugs: ['old-a'] }];
+    const remote = [{ url: 'u', id: 'b', previousSlugs: ['old-b'] }];
+    const local: unknown[] = [];
+
+    const merged = runEmbeddedMerge(base, remote, local) as Array<{
+      id: string;
+      previousSlugs: string[];
+    }>;
+    const byId = new Map(merged.map((record) => [record.id, record]));
+
+    expect(merged).toHaveLength(2);
+    expect(byId.get('a')?.previousSlugs).toEqual(['old-a']);
+    expect(byId.get('b')?.previousSlugs).toEqual(['old-b']);
+  });
+
+  it('falls back to delta merge when every strict posting key is ambiguous', () => {
+    const makeRecord = (index: number, marker = `record-${index}`) => ({
+      url: index < 2 ? 'shared-url' : `url-${index}`,
+      id: index < 2 ? 'shared-id' : `id-${index}`,
+      key: index < 2 ? 'shared-key' : `key-${index}`,
+      slug: index < 2 ? 'shared-slug' : `slug-${index}`,
+      companyKey: index === 19 ? 'company-18' : `company-${index}`,
+      marker,
+      previousSlugs: [`old-${index}`],
+    });
+    const base = Array.from({ length: 20 }, (_, index) => makeRecord(index));
+    const remote = base.map((record, index) =>
+      index === 0 ? { ...record, marker: 'remote-0' } : record,
+    );
+    const local = base.map((record, index) =>
+      index === 1 ? { ...record, marker: 'local-1' } : record,
+    );
+
+    const merged = runEmbeddedMerge(base, remote, local) as Array<{
+      previousSlugs: string[];
+    }>;
+
+    expect(merged).toHaveLength(20);
+    expect(new Set(merged.map((record) => record.previousSlugs[0]))).toEqual(
+      new Set(Array.from({ length: 20 }, (_, index) => `old-${index}`)),
+    );
+  });
+
+  it('does not attach previousSlugs to the wrong claimant when URLs collide', () => {
+    const makeJob = (id: string, url: string, previousSlugs: string[] = []) => ({
+      id,
+      url,
+      slug: `current-${id}`,
+      previousSlugs,
+    });
+    const fillerJobs = Array.from({ length: 18 }, (_, index) =>
+      makeJob(`filler-${index}`, `https://example.ch/jobs/filler-${index}`),
+    );
+    const base = [
+      makeJob('job-a', 'https://example.ch/jobs/shared-listing'),
+      makeJob('job-b', 'https://example.ch/jobs/shared-listing'),
+      ...fillerJobs,
+    ];
+    const remote = [
+      makeJob('job-b', 'https://example.ch/jobs/shared-listing'),
+      makeJob('job-a', 'https://example.ch/jobs/shared-listing', ['old-a']),
+      ...fillerJobs,
+    ];
+    const local = [
+      makeJob('job-a', 'https://example.ch/jobs/shared-listing'),
+      makeJob('job-b', 'https://example.ch/jobs/shared-listing', ['old-b']),
+      ...fillerJobs,
+    ];
+
+    const merged = runEmbeddedMerge(base, remote, local) as Array<{
+      id: string;
+      previousSlugs: string[];
+    }>;
+    const byId = new Map(merged.map((record) => [record.id, record]));
+
+    expect(merged).toHaveLength(20);
+    expect(byId.get('job-a')?.previousSlugs).toEqual(['old-a']);
+    expect(byId.get('job-b')?.previousSlugs).toEqual(['old-b']);
+    expect(byId.get('job-a')?.previousSlugs).not.toContain('old-b');
+    expect(byId.get('job-b')?.previousSlugs).not.toContain('old-a');
+
+    const reordered = runEmbeddedMerge(base, local, remote) as Array<{
+      id: string;
+      previousSlugs: string[];
+    }>;
+    const project = (records: typeof merged) =>
+      records
+        .sort((left, right) => left.id.localeCompare(right.id))
+        .map(({ id, previousSlugs }) => ({ id, previousSlugs }));
+    expect(project(reordered)).toEqual(project(merged));
+  });
+});
