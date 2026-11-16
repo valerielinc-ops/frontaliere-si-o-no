@@ -2395,8 +2395,14 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     || (posting?.origin === 'https://jobs.ubs.com'
       && BRASSRING_HOME_WITH_PRELOAD_RE.test(posting.pathname || '')
       && Boolean(portalJobKey(context.postingUrl, context.sourceProtocol)));
+  const isMainFrameControl = (control) => {
+    const frame = control?.frame;
+    if (frame === undefined || frame === null) return true;
+    if (typeof frame === 'number') return Number.isSafeInteger(frame) && frame === 0;
+    return typeof frame === 'string' && /^\s*0\s*$/u.test(frame);
+  };
   const scriptEntries = controls.filter(control => !control?.disabled && !control?.chrome
-    && !control?.href && !control?.formId && (control.frame || 0) === 0
+    && !control?.href && !control?.formId && isMainFrameControl(control)
     && startsApplication(stadtZurichAccessibleControlName(control) || control?.text || control?.label)
     && controlPostingIdentity(control) === ''
     && fieldlessApplicationEntryContextMatchesPosting(control, context));
@@ -2406,12 +2412,6 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && !socialApplicationEntry(control));
   const sameSelectedPostingAddress = (firstUrl, secondUrl) => samePostingAddress(firstUrl, secondUrl)
     || sameBrassRingPostingAddress(firstUrl, secondUrl);
-  const isMainFrameControl = (control) => {
-    const frame = control?.frame;
-    if (frame === undefined || frame === null) return true;
-    if (typeof frame === 'number') return Number.isSafeInteger(frame) && frame === 0;
-    return typeof frame === 'string' && /^\s*0\s*$/u.test(frame);
-  };
   // BrassRing's HomeWithPreLoad surface can expose a generic Apply now button
   // in an application section whose extracted context is empty or names only
   // the wizard. On this ATS the query-bound jobid is the stronger vacancy
