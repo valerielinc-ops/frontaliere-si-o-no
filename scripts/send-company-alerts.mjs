@@ -12,10 +12,10 @@ import { realpathSync } from 'node:fs';
  * CompanyAlert riding it arrives up to 24h late and buried among unrelated
  * matches.
  *
- * This runner is event-driven instead: .github/workflows/send-company-alerts.yml
- * fires when the deploy that PUBLISHES the pages completes (`workflow_run` of
- * "Publish to GitHub Pages (deploy + validate)", only on `success`), plus an
- * hourly safety-net cron. It used to fire on every push that touched
+ * This runner is event-driven instead: .github/workflows/post-deploy-publish.yml
+ * dispatches .github/workflows/send-company-alerts.yml after the deploy that
+ * PUBLISHES the pages has passed its live-identity check, plus an hourly
+ * safety-net cron. It used to fire on every push that touched
  * `data/jobs/by-crawler/**` — the commit the crawlers make when a new ad lands —
  * but that happens BEFORE the deploy, so an email could link a page that was not
  * online yet (perf-plan email senders, point 1).
@@ -95,7 +95,7 @@ import { realpathSync } from 'node:fs';
  *                                    1..168). Legacy alias: COMPANY_ALERT_WINDOW_HOURS.
  *   COMPANY_ALERT_LIVE_LINK_FILTER — on (default) | off: defer jobs whose page is not
  *                                    published yet (off = no filter, as before)
- *   COMPANY_ALERT_TRIGGER          — workflow_run | schedule | dispatch, for the
+ *   COMPANY_ALERT_TRIGGER          — dispatch | schedule, for the
  *                                    telemetry (defaults to GITHUB_EVENT_NAME)
  *
  * Usage: node scripts/send-company-alerts.mjs [--dry-run]
@@ -1824,7 +1824,7 @@ async function main() {
     // The deploy has just finished and the manifest that describes it cannot be
     // read: nothing is sent. The hourly cron retries (with the HTTP fallback).
     companyAlertMetrics.set('liveFilterDeferred', newJobs.length);
-    console.warn(`   ⏳ workflow_run with an unusable job-pages manifest — ${newJobs.length} fresh job(s) deferred to the next run, nothing sent.`);
+    console.warn(`   ⏳ post-publish dispatch with an unusable job-pages manifest — ${newJobs.length} fresh job(s) deferred to the next run, nothing sent.`);
     return;
   }
 

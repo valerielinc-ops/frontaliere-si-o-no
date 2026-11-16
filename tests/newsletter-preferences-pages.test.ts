@@ -4,6 +4,7 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { newsletterPreferencesPagesPlugin } from '../build-plugins/newsletterPreferencesPagesPlugin';
+import { NEWSLETTER_PREFERENCES_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/newsletterPreferencesNoindexTargetMarker.mjs';
 import { SLUG_TABLES } from '../services/routeSlugs.data';
 
 describe('newsletter preference cold-entry shells', () => {
@@ -18,6 +19,7 @@ describe('newsletter preference cold-entry shells', () => {
         const document = new JSDOM(html).window.document;
         expect(document.documentElement.lang).toBe(locale);
         expect(document.querySelector('meta[name=robots]')?.getAttribute('content')).toBe('noindex,follow');
+        expect(html).toContain(NEWSLETTER_PREFERENCES_NOINDEX_TARGET_MARKER);
         expect(html).toContain(`https://frontaliereticino.ch${route}`);
         expect(html).toContain('/assets/index-entry.js');
         expect(html).not.toMatch(/http-equiv="refresh"|location\.(?:replace|assign)|location\.href\s*=/);

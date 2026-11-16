@@ -2,10 +2,10 @@ name: Send CompanyAlert Emails (immediate)
 
 # CompanyAlert immediate cadence — issue #5012 phase 2.
 #
-# Trigger: the deploy that PUBLISHES the pages (`workflow_run` of "Publish to
-# GitHub Pages (deploy + validate)", only when it concludes `success`), plus an
-# hourly safety-net cron. The daily digest (send-job-alerts.yml, 00:33 UTC)
-# cannot deliver "immediato (email per ogni nuovo job)".
+# Trigger: explicit dispatch from the post-publish workflow after the live
+# identity is verified, plus an hourly safety-net cron. The daily digest
+# (send-job-alerts.yml, 00:33 UTC) cannot deliver "immediato (email per ogni
+# nuovo job)".
 #
 # WHY NOT `push` ANY MORE (perf-plan email senders, point 1). The old trigger was a
 # push filter on data/jobs/by-crawler/**: the commit the crawlers make when a new
@@ -13,9 +13,9 @@ name: Send CompanyAlert Emails (immediate)
 # could link a page that was not online yet, and the filter fired ~34 times a day
 # (another ~35 runs cancelled). The workflow that carries the build is
 # `Deploy to GitHub Pages` (deploy.yml), but it only BUILDS: the pages go online in
-# `Publish to GitHub Pages (deploy + validate)` (deploy-publish.yml), whose final
-# conclusion `success` means deployed and validated. That is the event used here.
-# This workflow does not dispatch or modify either deploy workflow.
+# `Publish to GitHub Pages (deploy + validate)` (deploy-publish.yml). Its
+# post-publish job dispatches this workflow only after the live identity matches
+# the published source SHA.
 #
 # Before claiming anything, the sender defers every job whose page is not in the
 # build's manifest of published pages (scripts/lib/company-alert-publication-gate.mjs):
@@ -24,25 +24,16 @@ name: Send CompanyAlert Emails (immediate)
 # job fall out of it unsent.
 #
 # The hourly cron stays: a deploy can publish and still end red (a post-publish
-# check), or the `workflow_run` can be skipped when Actions is congested. The
+# check), or an explicit dispatch can be skipped when Actions is congested. The
 # sender is idempotent by construction (per-alert sentJobIds), so an extra run is
 # free; on the cron path the per-page HTTP check answers when the manifest is not
 # usable.
 #
 # REVERT (kill switch of the trigger, which cannot be a Remote Config flag because
-# it lives in this YAML): restore the block
-#   push:
-#     branches: [main]
-#     paths:
-#       - 'data/jobs/by-crawler/**'
-# under `on:`. The filter itself switches off with COMPANY_ALERT_LIVE_LINK_FILTER=off.
+# it lives in this YAML): restore the hourly schedule under `on:`. The filter
+# itself switches off with COMPANY_ALERT_LIVE_LINK_FILTER=off.
 
 on:
-  workflow_run:
-    workflows:
-      - "Publish to GitHub Pages (deploy + validate)"
-    types: [completed]
-    branches: [main]
   schedule:
     # Hourly safety net at :41 — off the :00/:15/:30/:45 marks GitHub Actions
     # deprioritizes under load (same reasoning as send-job-alerts.yml's :33),
@@ -60,22 +51,24 @@ on:
         required: false
         default: true
         type: boolean
+      source_sha:
+        description: 'Published source SHA to use for the dataset checkout.'
+        required: false
+        default: ''
+        type: string
+      source_run_id:
+        description: 'Published source run ID for trigger evidence.'
+        required: false
+        default: ''
+        type: string
 permissions:
   contents: read
   issues: write # github-issue-creator on failure
 
-# GATE (same shape as send-newsletter.yml). A `workflow_run` fires for EVERY
-# completed "Publish to GitHub Pages" run, failed ones included. A light `gate` job
-# (no checkout, no Node) lets through only `success` on main; the others never
-# reach the concurrency group below, where GitHub keeps ONE pending run: an inert
-# trigger could otherwise replace a legitimate pending one. Cron and manual runs
-# always proceed.
+# GATE: explicit post-publish dispatches are admitted only after the caller's
+# live-identity check; cron and manual runs proceed independently.
 jobs:
   gate:
-    if: >-
-      github.event_name != 'workflow_run'
-      || (github.event.workflow_run.conclusion == 'success'
-          && github.event.workflow_run.head_branch == 'main')
     runs-on: ubuntu-latest
     timeout-minutes: 5
     outputs:
@@ -85,8 +78,8 @@ jobs:
         id: decide
         env:
           EVENT_NAME: ${{ github.event_name }}
-          SOURCE_RUN_ID: ${{ github.event.workflow_run.id || '' }}
-          SOURCE_SHA: ${{ github.event.workflow_run.head_sha || '' }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id || '' }}
+          SOURCE_SHA: ${{ inputs.source_sha || '' }}
         run: |
           echo "proceed=true" >> "$GITHUB_OUTPUT"
           echo "CompanyAlert trigger: $EVENT_NAME source_run=${SOURCE_RUN_ID:-none} source_sha=${SOURCE_SHA:-none}"
@@ -108,10 +101,10 @@ jobs:
         uses: actions/checkout@v7
         with:
           fetch-depth: 1
-          # workflow_run: the commit the publish workflow ran from, so the assemble
-          # cache and the dataset match what the deploy shipped. Cron and manual
-          # runs keep the default ref (the tip of main).
-          ref: ${{ github.event.workflow_run.head_sha || github.sha }}
+          # Post-publish dispatches pin the checkout to the source that was
+          # verified live. Cron and manual runs keep the default ref (the tip of
+          # main).
+          ref: ${{ inputs.source_sha || github.sha }}
 
       # node_modules in cache (perf-plan email senders, A3/B4): chiave sul lockfile
       # e sulla major di Node, `npm ci` solo su miss. Il sender gira fino a ~37
