@@ -1,4 +1,7 @@
-import { readFileSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 const workflow = readFileSync(
@@ -9,6 +12,49 @@ const recoveryWorkflow = readFileSync(
   new URL('../.github/workflows/backfill-expired-from-history-recovery.yml', import.meta.url),
   'utf8',
 );
+
+function resolveResumeState(progressLine: string, worksetHash: string, keys: string) {
+  const progressDir = mkdtempSync(join(tmpdir(), 'backfill-resume-'));
+  const progressPath = join(progressDir, 'progress.tsv');
+  writeFileSync(progressPath, progressLine);
+
+  try {
+    const resumeStart = workflow.indexOf("          last_completed_key=''");
+    const resumeEnd = workflow.indexOf('          checkpoint_count=0', resumeStart);
+    expect(resumeStart).toBeGreaterThanOrEqual(0);
+    expect(resumeEnd).toBeGreaterThan(resumeStart);
+    const resumeBlock = workflow.slice(resumeStart, resumeEnd);
+    const script = [
+      'set -euo pipefail',
+      'progress_path="$1"',
+      'workset_hash="$2"',
+      'keys="$3"',
+      resumeBlock,
+      'printf "__STATUS__=%s\\n" "$saved_status"',
+      'printf "__CURSOR__=%s\\n" "$last_completed_key"',
+      'printf "__KEYS__\\n%s\\n" "$keys"',
+    ].join('\n');
+    const result = spawnSync('bash', ['-c', script, 'backfill-resume-fixture', progressPath, worksetHash, keys], {
+      encoding: 'utf8',
+    });
+    if (result.error) throw result.error;
+    expect(result.status, result.stderr).toBe(0);
+
+    const keysMarker = '__KEYS__\n';
+    const keysAt = result.stdout.indexOf(keysMarker);
+    expect(keysAt).toBeGreaterThanOrEqual(0);
+    const metadata = result.stdout.slice(0, keysAt);
+    const remainingKeys = result.stdout.slice(keysAt + keysMarker.length).trimEnd().split('\n').filter(Boolean);
+    return {
+      status: metadata.match(/^__STATUS__=(.*)$/m)?.[1],
+      cursor: metadata.match(/^__CURSOR__=(.*)$/m)?.[1],
+      remainingKeys,
+      output: result.stdout,
+    };
+  } finally {
+    rmSync(progressDir, { recursive: true, force: true });
+  }
+}
 
 describe('backfill-expired-from-history.yml — durable checkpoints', () => {
   it('keeps full commit/tree history and prefetches each bounded crawler batch before its walk', () => {
@@ -50,7 +96,10 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(reassembleStart).toBeGreaterThan(backfillStart);
     expect(block).toContain("if: inputs.dry_run != true && inputs.dry_run != 'true'");
     expect(block).toContain('BACKFILL_CHECKPOINT_BATCH_SIZE');
-    expect(block).toContain("BACKFILL_CHECKPOINT_BATCH_SIZE: '16'");
+    expect(block).toContain("BACKFILL_CHECKPOINT_BATCH_SIZE: '8'");
+    expect(block).toContain('checkpoint_batch_size="${BACKFILL_CHECKPOINT_BATCH_SIZE:-8}"');
+    expect(block).toContain('elapsed_seconds=');
+    expect(block).toContain('crawlers=${checkpoint_count}');
     expect(workflow).not.toContain('human_approval:');
     expect(workflow).not.toContain('human-side-effect-gate.mjs');
     expect(block).toContain('CRAWLER_KEYS="$key" node scripts/backfill-expired-from-history.mjs');
@@ -60,6 +109,7 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(block).toContain('backfill-expired-from-history-progress.tsv');
     expect(block).toContain('last_completed_key');
     expect(block).toContain('workset_hash');
+    expect(block.split('[ "$checkpoint_count" -gt 0 ] || has_dirty_checkpoint').length - 1).toBe(2);
     expect(block).toContain('checkpoint_cursor="${last_completed_key:--}"');
     expect(block).toContain('"$saved_last" != \'-\'');
     expect(block).toContain('checkpoint 1');
@@ -86,6 +136,23 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(block).toContain('batch_size="${#batch_keys[@]}"');
     expect(block).toContain('checkpoint history backfill slices');
     expect(block.indexOf('npm run test:backfill')).toBeLessThan(block.indexOf('git-commit-data.sh --slice-only'));
+  });
+
+  it('resumes an active cursor after assura-ch without skipping the next key, but restarts a complete workset', () => {
+    const worksetHash = '496dd3a1288ab71f778b780504338f34d3508526';
+    const keys = ['assura-ch', 'atec-personal', 'atena'].join('\n');
+    const active = resolveResumeState(`${worksetHash}\tassura-ch\tactive\n`, worksetHash, keys);
+    const complete = resolveResumeState(`${worksetHash}\tassura-ch\tcomplete\n`, worksetHash, keys);
+
+    expect(active.status).toBe('active');
+    expect(active.cursor).toBe('assura-ch');
+    expect(active.remainingKeys).toEqual(['atec-personal', 'atena']);
+    expect(active.output).toContain('Resuming after durable crawler checkpoint: assura-ch');
+
+    expect(complete.status).toBe('complete');
+    expect(complete.cursor).toBe('');
+    expect(complete.remainingKeys).toEqual(['assura-ch', 'atec-personal', 'atena']);
+    expect(complete.output).toContain('Previous crawler workset completed; starting a fresh pass.');
   });
 
   it('riavvia automaticamente solo la run fallita/cancellata e con un tetto di tentativi', () => {
