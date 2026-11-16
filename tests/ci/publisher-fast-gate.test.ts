@@ -10,7 +10,10 @@ import {
   finalizeSectionManifestSet,
   sectionBatch,
 } from '../../scripts/ci/shard-content-manifest.mjs';
-import { validatePublisherFastGate } from '../../scripts/ci/publisher-fast-gate.mjs';
+import {
+  readSitemapFamilyBridgeEvidence,
+  validatePublisherFastGate,
+} from '../../scripts/ci/publisher-fast-gate.mjs';
 import { writeSnapshotFile } from '../../scripts/lib/sitemap-snapshot.mjs';
 import { EXPIRED_JOB_SITEMAP_FILE_RX, isExpiredJobSitemapKey } from '../../scripts/lib/sitemap-family-coverage.mjs';
 
@@ -202,6 +205,43 @@ function fixture() {
   return {
     result, pageManifests, sectionPage, sectionManifests, sourceArtifacts, publisherArtifacts,
     sitemapDir, currentSitemapSnapshot, previousSitemapSnapshot, validate,
+  };
+}
+
+function addOrphanFamilyDecrease(base: ReturnType<typeof fixture>, removedUrls: string[]): string[] {
+  const retainedUrls = Array.from({ length: 18 }, (_, index) =>
+    `https://coverage-fixture.invalid/orphan-retained/${String(index).padStart(2, '0')}/`);
+  base.previousSitemapSnapshot.perSitemap['sitemap-orphan-landings.xml'] = [...retainedUrls, ...removedUrls];
+  base.currentSitemapSnapshot.perSitemap['sitemap-orphan-landings.xml'] = retainedUrls;
+  fs.writeFileSync(
+    path.join(base.sitemapDir, 'pre-deploy-sitemap-urls.json'),
+    JSON.stringify(base.previousSitemapSnapshot),
+  );
+  fs.writeFileSync(
+    path.join(base.sitemapDir, 'new-sitemap-urls.json'),
+    JSON.stringify(base.currentSitemapSnapshot),
+  );
+  return retainedUrls;
+}
+
+function evidenceEntry(url: string) {
+  return {
+    family: 'orphan-landings',
+    url,
+    path: `${new URL(url).pathname.replace(/^\/+|\/+$/gu, '')}/index.html`,
+    sha256: 'a'.repeat(64),
+    robots: 'noindex,follow',
+  };
+}
+
+function validateWithBridgeEvidenceFiles(base: ReturnType<typeof fixture>) {
+  const bridgeEvidence = readSitemapFamilyBridgeEvidence(base.sitemapDir);
+  return {
+    ...bridgeEvidence,
+    result: base.validate({
+      sitemapFamilyBridgeEvidence: bridgeEvidence.evidence,
+      sitemapFamilyBridgeEvidenceFiles: bridgeEvidence.files,
+    }),
   };
 }
 
@@ -768,7 +808,7 @@ describe('publisher fast provenance gate', () => {
     });
 
     expect(result.passed).toBe(true);
-    expect(result.validatorVersion).toBe('publisher-fast-gate-v7');
+    expect(result.validatorVersion).toBe('publisher-fast-gate-v8');
     expect(result.errors.join('\n')).not.toContain('sitemap family coverage decreased for orphan-landings');
     expect(result.sitemapFamilyChurn).toEqual([{
       family: 'orphan-landings',
@@ -797,6 +837,88 @@ describe('publisher fast provenance gate', () => {
     expect(result.passed).toBe(false);
     expect(result.errors.join('\n')).toContain('sitemap family coverage decreased for events: 100 -> 99');
     expect(result.sitemapFamilyChurn).toEqual([]);
+  });
+
+  describe('sitemap family bridge evidence artifacts', () => {
+    const itUrl = 'https://frontaliereticino.ch/ricerca/bridge-it/';
+    const deUrl = 'https://frontaliereticino.ch/de/suche/bridge-de/';
+
+    it('unions IT and DE evidence files before checking removed URLs', () => {
+      const base = fixture();
+      addOrphanFamilyDecrease(base, [itUrl, deUrl]);
+      fs.writeFileSync(path.join(base.sitemapDir, 'sitemap-family-bridge-evidence.json'), JSON.stringify({
+        schemaVersion: 1,
+        kind: 'sitemap-family-bridge-evidence',
+        complete: true,
+        entries: [evidenceEntry(itUrl)],
+        missing: [],
+      }));
+      fs.writeFileSync(path.join(base.sitemapDir, 'sitemap-family-bridge-evidence-de.json'), JSON.stringify({
+        schemaVersion: 1,
+        kind: 'sitemap-family-bridge-evidence',
+        complete: true,
+        locale: 'de',
+        entries: [evidenceEntry(deUrl)],
+        missing: [],
+      }));
+
+      const execution = validateWithBridgeEvidenceFiles(base);
+
+      expect(execution.result.passed).toBe(true);
+      expect(execution.files).toEqual([
+        'sitemap-family-bridge-evidence.json',
+        'sitemap-family-bridge-evidence-de.json',
+      ]);
+      expect(execution.result.sitemapFamilyBridgeEvidenceFiles).toEqual(execution.files);
+      expect(execution.result.sitemapFamilyChurn).toMatchObject([{
+        family: 'orphan-landings', previousCount: 20, currentCount: 18, delta: -2,
+      }]);
+    });
+
+    it('fails closed when a removed DE URL has no evidence in any file', () => {
+      const base = fixture();
+      addOrphanFamilyDecrease(base, [itUrl, deUrl]);
+      fs.writeFileSync(path.join(base.sitemapDir, 'sitemap-family-bridge-evidence.json'), JSON.stringify({
+        schemaVersion: 1,
+        kind: 'sitemap-family-bridge-evidence',
+        complete: true,
+        entries: [evidenceEntry(itUrl)],
+        missing: [],
+      }));
+
+      const execution = validateWithBridgeEvidenceFiles(base);
+
+      expect(execution.result.passed).toBe(false);
+      expect(execution.result.errors.join('\n')).toContain(`missing bridge evidence for removed URL ${deUrl}`);
+      expect(execution.result.errors.join('\n')).toContain('sitemap family coverage decreased for orphan-landings: 20 -> 18');
+    });
+
+    it('keeps the existing fail-closed behavior when no evidence files are present', () => {
+      const base = fixture();
+      addOrphanFamilyDecrease(base, [itUrl, deUrl]);
+
+      const execution = validateWithBridgeEvidenceFiles(base);
+
+      expect(execution.result.sitemapFamilyBridgeEvidenceFiles).toEqual([]);
+      expect(execution.result.errors.join('\n')).toContain('sitemap family coverage decreased for orphan-landings: 20 -> 18');
+    });
+
+    it('rejects a present evidence file whose complete flag is false', () => {
+      const base = fixture();
+      addOrphanFamilyDecrease(base, [itUrl, deUrl]);
+      fs.writeFileSync(path.join(base.sitemapDir, 'sitemap-family-bridge-evidence.json'), JSON.stringify({
+        schemaVersion: 1,
+        kind: 'sitemap-family-bridge-evidence',
+        complete: false,
+        entries: [evidenceEntry(itUrl)],
+        missing: [],
+      }));
+
+      const execution = validateWithBridgeEvidenceFiles(base);
+
+      expect(execution.result.errors.join('\n')).toContain('orphan-landings: bridge evidence is missing or has an unsupported schema');
+      expect(execution.result.errors.join('\n')).toContain('sitemap family coverage decreased for orphan-landings: 20 -> 18');
+    });
   });
 
   it('does not compare corpus-owned article sitemap coverage against this site deploy', () => {

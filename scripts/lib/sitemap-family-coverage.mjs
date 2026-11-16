@@ -265,7 +265,10 @@ export function evaluateSitemapFamilyCoverage(previous, current, declarations, b
     )
     .map(([family]) => ({ family, reason: 'declared decrease is now the previous deployment baseline' }));
   const consumedFamilies = new Set(consumedDeclarations.map(({ family }) => family));
+  // Data-driven families use the collapse bound; their declarations are exact
+  // fallbacks beyond it, not baselines that can become stale during evidenced churn.
   const staleDeclarations = [...byFamily.keys()]
+    .filter((family) => SITEMAP_FAMILY_CHURN_TOLERANCE[family] === undefined)
     .filter((family) => !usedDeclarations.has(family) && !consumedFamilies.has(family))
     .map((family) => ({ family, reason: 'declaration does not match a current decrease or deployed baseline' }));
 
