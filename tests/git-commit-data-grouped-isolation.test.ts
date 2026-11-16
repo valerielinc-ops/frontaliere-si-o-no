@@ -1783,6 +1783,50 @@ describe('git-commit-data.sh locale translation protection', () => {
 });
 
 describe('git-commit-data.sh job identity merge guard', () => {
+  it('keeps cross-input URL claimants separate when their ids differ', () => {
+    const base = [{ url: 'u', id: 'a', previousSlugs: ['old-a'] }];
+    const remote = [{ url: 'u', id: 'b', previousSlugs: ['old-b'] }];
+    const local: unknown[] = [];
+
+    const merged = runEmbeddedMerge(base, remote, local) as Array<{
+      id: string;
+      previousSlugs: string[];
+    }>;
+    const byId = new Map(merged.map((record) => [record.id, record]));
+
+    expect(merged).toHaveLength(2);
+    expect(byId.get('a')?.previousSlugs).toEqual(['old-a']);
+    expect(byId.get('b')?.previousSlugs).toEqual(['old-b']);
+  });
+
+  it('falls back to delta merge when every strict posting key is ambiguous', () => {
+    const makeRecord = (index: number, marker = `record-${index}`) => ({
+      url: index < 2 ? 'shared-url' : `url-${index}`,
+      id: index < 2 ? 'shared-id' : `id-${index}`,
+      key: index < 2 ? 'shared-key' : `key-${index}`,
+      slug: index < 2 ? 'shared-slug' : `slug-${index}`,
+      companyKey: index === 19 ? 'company-18' : `company-${index}`,
+      marker,
+      previousSlugs: [`old-${index}`],
+    });
+    const base = Array.from({ length: 20 }, (_, index) => makeRecord(index));
+    const remote = base.map((record, index) =>
+      index === 0 ? { ...record, marker: 'remote-0' } : record,
+    );
+    const local = base.map((record, index) =>
+      index === 1 ? { ...record, marker: 'local-1' } : record,
+    );
+
+    const merged = runEmbeddedMerge(base, remote, local) as Array<{
+      previousSlugs: string[];
+    }>;
+
+    expect(merged).toHaveLength(20);
+    expect(new Set(merged.map((record) => record.previousSlugs[0]))).toEqual(
+      new Set(Array.from({ length: 20 }, (_, index) => `old-${index}`)),
+    );
+  });
+
   it('does not attach previousSlugs to the wrong claimant when URLs collide', () => {
     const makeJob = (id: string, url: string, previousSlugs: string[] = []) => ({
       id,
