@@ -155,6 +155,9 @@ step_spa_fallback() {
 _publish_cdn_r2() {
   local stage="$1"
   local og_changed_files="${2:-}" og_manifest_candidate="${3:-}"
+  local job_canon_affected_file="${4:-${RUNNER_TEMP}/job-canon-affected.txt}"
+  local job_canon_log="${RUNNER_TEMP}/r2-job-canon-${DEPLOY_BUILD_ID:-local}.jsonl"
+  rm -f "$job_canon_log" "$job_canon_affected_file"
   if [ -z "${R2_ACCESS_KEY_ID:-}" ] || [ -z "${R2_SECRET_ACCESS_KEY:-}" ] \
      || [ -z "${R2_S3_ENDPOINT:-}" ] || [ -z "${R2_BUCKET:-}" ]; then
     echo "::warning::CDN_TARGET=r2 but R2_* creds missing — skipping CDN publish (assets stay in dist)"
@@ -308,18 +311,20 @@ _publish_cdn_r2() {
     # loses the owned lease context under `set -u` and can skip its release.
     _r2_image_namespace_lease_exit_cleanup "$exit_status"
   }
-  _r2_sync() { # <limit-s> <src-dir> <dst-prefix> <cache-control> [json-log] [copy-option] — COPY (additive, no delete)
+  _r2_sync() { # <limit-s> <src-dir> <dst-prefix> <cache-control> [json-log] [copy-option]
     [ -d "$2" ] || return 0
     local attempts=2 attempt=1 sync_status=0 attempt_log=""
+    local copy_mode=copy
     local -a copy_flags=()
     local -a stats_flags=(--stats=60s --stats-one-line --stats-log-level=NOTICE)
-    local -a copy_args=(copy "$2" "$bkt/$3")
     case "${6:-}" in
       no-traverse) copy_flags+=(--no-traverse) ;;
       force-no-traverse) copy_flags+=(--no-traverse --ignore-times) ;;
+      exact) copy_mode=sync ;;
       "") ;;
       *) echo "::error::[r2] unsupported copy option for $3/: ${6}"; return 1 ;;
     esac
+    local -a copy_args=("$copy_mode" "$2" "$bkt/$3")
     if [ "$3" = images/job-search-campaign ]; then
       # Every manifest asset is WebP. Do not rely on the runner's mime.types,
       # and leave provenance JSON sidecars to the ordinary images batch.
@@ -347,6 +352,10 @@ _publish_cdn_r2() {
     }
     # `copy` is additive and checksum-diffed, so repeating a prefix resumes
     # objects left behind by a timed-out attempt without deleting live keys.
+    # The job-canon map is the one deliberate exception: `exact` uses sync so a
+    # shard removed from the build cannot survive forever as a stale 301 source
+    # in R2. Its JSON log is retained as the affected-key inventory for the
+    # deploy-side purge handshake.
     # Keep each attempt's upload log separately and append it to the aggregate:
     # the asset purge must see keys uploaded before a timeout as well as keys
     # moved by the successful retry.
@@ -804,7 +813,19 @@ _publish_cdn_r2() {
   # Data is additive; avoid listing the full existing prefix and check each
   # current source key directly instead.
   _r2_sync 1800 "$stage/data"     data      "public,max-age=600" "" no-traverse
-  _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600"
+  _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600" "$job_canon_log" exact
+  if [ -d "$stage/job-canon" ]; then
+    if ! node scripts/ci/job-canon-affected-files.mjs \
+      --current-dir "$stage/job-canon" \
+      --rclone-log "$job_canon_log" \
+      --output "$job_canon_affected_file"; then
+      echo "::error::[r2] could not derive the affected job-canon shard inventory"
+      ok=0
+    fi
+  else
+    echo "::error::[r2] job-canon stage is missing; refusing to close the CDN generation"
+    ok=0
+  fi
   timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \
     --header-upload "Content-Type: text/html; charset=utf-8" --header-upload "Cache-Control: public,max-age=600" || ok=0
   # A purge is safe only inside the publish window owned by this invocation.
@@ -953,6 +974,12 @@ _publish_cdn_r2() {
     _janitor_cdn_r2 "$stage" "dry-run"
     return 0
   fi
+  if ! node scripts/ci/job-canon-publish-handshake.mjs \
+    --map-dir "$stage/job-canon" \
+    --affected-file "$job_canon_affected_file"; then
+    echo "::error::[r2] job-canon publication handshake failed — withholding completion marker"
+    return 1
+  fi
   # Generation marker last (atomicity #2569): only now is this build's full
   # payload on R2 AND its changed executable assets have passed the targeted
   # edge purge. Then close the publish window with the exact token written
@@ -963,6 +990,11 @@ _publish_cdn_r2() {
        --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
     if timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_publish_marker_file" "$bkt/cdn-publish-complete-id.txt" \
          --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
+      if [ -n "${DEPLOY_BUILD_ID:-}" ] && ! node scripts/ci/cdn-build-marker-handshake.mjs \
+        --build-id "$DEPLOY_BUILD_ID"; then
+        echo "::error::[r2] CDN marker purge/live validation failed — withholding CDN completion"
+        return 1
+      fi
       export_env CDN_BASE "https://cdn.frontaliereticino.ch"
       echo "✅ synced CDN payload to R2 ($R2_BUCKET); marker=${DEPLOY_BUILD_ID:-<empty>}; publish-window=$_publish_token"
     else
@@ -1200,6 +1232,8 @@ step_push_cdn() {
   # CDN_DEPLOY_KEY.
   local cdn_target="${CDN_TARGET:-pages}"
   local stage="${CDN_STAGE_DIR:-${RUNNER_TEMP}/cdn-stage}"
+  local job_canon_affected_file="${RUNNER_TEMP}/job-canon-affected.txt"
+  rm -f "${RUNNER_TEMP}/job-canon-publish.ok" "$job_canon_affected_file"
   # Same leaked-staging-dir class fixed for push-locale-shard.sh /
   # push-section-shard.sh (issue #4734): $stage holds up to ~950 MB
   # (og+data+assets+images) and is never read again after this function
@@ -1394,8 +1428,14 @@ step_push_cdn() {
   # parallel — zero-downtime cutover. 'r2' is R2-only (post-flip). 'pages'
   # (default) is the legacy git force-push, byte-identical to before.
   if [ "$cdn_target" = "r2" ] || [ "$cdn_target" = "both" ]; then
-    _publish_cdn_r2 "$stage" "$r2_og_changed_files" "$r2_og_candidate"
+    if ! _publish_cdn_r2 "$stage" "$r2_og_changed_files" "$r2_og_candidate" "$job_canon_affected_file" \
+      || [ -z "${CDN_BASE:-}" ]; then
+      echo "::error::CDN R2 publish did not close the job-canon handshake"
+      cd "$PREP_CWD"
+      return 1
+    fi
     if [ "$cdn_target" = "r2" ]; then
+      printf '%s\n' "${DEPLOY_BUILD_ID:-local}" > "${RUNNER_TEMP}/job-canon-publish.ok"
       cd "$PREP_CWD"
       return 0
     fi
@@ -1424,11 +1464,39 @@ step_push_cdn() {
   # the current build above (overwrite is correct for them).
   # prune-cdn-assets.mjs GCs the carried-forward legacy hashes post-grace.
   # Sparse + blob:none keeps the clone to the small assets/ tree only.
-  if [ -d "$stage/assets" ]; then
-    prev="$RUNNER_TEMP/cdn-prev"; rm -rf "$prev"
-    if git clone --depth 1 --filter=blob:none --sparse \
+  local prev=""
+  if [ -d "$stage/job-canon" ] && [ -n "${DEPLOY_BUILD_ID:-}" ]; then
+    prev="$RUNNER_TEMP/cdn-prev"
+    rm -rf "$prev"
+    if ! git clone --depth 1 --filter=blob:none --sparse \
          git@github.com:valerielinc-ops/frontaliere-cdn.git "$prev" 2>/dev/null; then
-      git -C "$prev" sparse-checkout set assets 2>/dev/null || true
+      echo "::error::cannot inventory the previous CDN job-canon tree — refusing to publish bridge-removed Pages"
+      cd "$PREP_CWD"
+      return 1
+    fi
+    if ! git -C "$prev" sparse-checkout set assets job-canon 2>/dev/null; then
+      echo "::error::cannot materialize the previous CDN job-canon tree — refusing to publish bridge-removed Pages"
+      cd "$PREP_CWD"
+      return 1
+    fi
+    if ! node scripts/ci/job-canon-affected-files.mjs \
+      --current-dir "$stage/job-canon" \
+      --previous-dir "$prev/job-canon" \
+      --output "$job_canon_affected_file"; then
+      echo "::error::could not derive the affected Pages job-canon shard inventory"
+      cd "$PREP_CWD"
+      return 1
+    fi
+  fi
+  if [ -d "$stage/assets" ]; then
+    if [ -z "$prev" ]; then
+      prev="$RUNNER_TEMP/cdn-prev"
+      rm -rf "$prev"
+      git clone --depth 1 --filter=blob:none --sparse \
+        git@github.com:valerielinc-ops/frontaliere-cdn.git "$prev" 2>/dev/null || true
+    fi
+    if [ -d "$prev/.git" ]; then
+      git -C "$prev" sparse-checkout set assets job-canon 2>/dev/null || true
       if [ -d "$prev/assets" ]; then
         cp -rn "$prev/assets/." "$stage/assets/" 2>/dev/null || true
         echo "additive CDN: carried forward prior assets/ (now $(ls -1 "$stage/assets" | wc -l) files)"
@@ -1436,8 +1504,8 @@ step_push_cdn() {
     else
       echo "additive CDN: no prior CDN clone (first push / transient) — proceeding with new assets only"
     fi
-    rm -rf "$prev"
   fi
+  [ -n "$prev" ] && rm -rf "$prev"
   echo "CDN payload: $(du -sh "$stage" | cut -f1)"
   # Flag if the CDN repo nears the GitHub Pages ~1 GB published-site soft limit.
   # With additive assets/ the payload grows slowly across deploys (only NEW
@@ -1448,14 +1516,15 @@ step_push_cdn() {
   if [ "$payload_bytes" -gt 950000000 ]; then
     echo "::warning::CDN payload ${payload_bytes} bytes (>950 MB) — approaching GitHub Pages ~1 GB soft limit; run the CDN assets/ janitor or split (e.g. keep blog heroes on jsDelivr)"
   fi
-  # Cross-shard atomicity marker (#2569): stamp THIS build's DEPLOY_BUILD_ID
-  # into the CDN payload so it is published in the SAME force-push as the
-  # assets/data. The non-IT shards (en/de/fr) poll cdn.frontaliereticino.ch/
-  # cdn-build-id.txt for this exact id BEFORE publishing → they never go live
-  # referencing a CDN that does not yet hold this build's /data + /assets.
-  # When DEPLOY_BUILD_ID is unset (local run / monolith path) the marker is
-  # written empty — harmless, the shard gate only enforces on a non-empty id.
-  printf '%s' "${DEPLOY_BUILD_ID:-}" > "$stage/cdn-build-id.txt"
+  # Cross-shard atomicity marker (#2569). For a production build the first
+  # Pages force-push deliberately omits the marker: non-IT shards must not see
+  # this generation until the job-canon purge/live-byte handshake below has
+  # closed. Local/legacy invocations retain the old empty marker behaviour.
+  if [ -z "${DEPLOY_BUILD_ID:-}" ]; then
+    printf '%s' "" > "$stage/cdn-build-id.txt"
+  else
+    rm -f "$stage/cdn-build-id.txt"
+  fi
   cd "$stage"
   git init -q
   git checkout -q -b main
@@ -1476,9 +1545,32 @@ step_push_cdn() {
   if shard_push_with_retry "$stage" "git@github.com:valerielinc-ops/frontaliere-cdn.git" main "CDN"; then
     _push_ok=1
   fi
+  if [ "$_push_ok" = 1 ] && [ -n "${DEPLOY_BUILD_ID:-}" ]; then
+    if ! node scripts/ci/job-canon-publish-handshake.mjs \
+      --map-dir "$stage/job-canon" \
+      --affected-file "$job_canon_affected_file"; then
+      echo "::error::Pages job-canon publication handshake failed — leaving the previous Pages artifact live"
+      rm -f "$keyfile"
+      cd "$PREP_CWD"
+      return 1
+    fi
+    printf '%s' "$DEPLOY_BUILD_ID" > "$stage/cdn-build-id.txt"
+    git add cdn-build-id.txt
+    git commit -qm "close CDN marker after job-canon handshake (run ${GITHUB_RUN_ID})"
+    _push_ok=0
+    if shard_push_with_retry "$stage" "git@github.com:valerielinc-ops/frontaliere-cdn.git" main "CDN marker"; then
+      _push_ok=1
+    fi
+    if [ "$_push_ok" = 1 ] && ! node scripts/ci/cdn-build-marker-handshake.mjs \
+      --build-id "$DEPLOY_BUILD_ID"; then
+      echo "::error::Pages CDN marker purge/live validation failed — withholding CDN completion"
+      _push_ok=0
+    fi
+  fi
   if [ "$_push_ok" = 1 ]; then
     export_env CDN_BASE "https://cdn.frontaliereticino.ch"
-    echo "✅ pushed assets to frontaliere-cdn"
+    printf '%s\n' "${DEPLOY_BUILD_ID:-local}" > "${RUNNER_TEMP}/job-canon-publish.ok"
+    echo "✅ pushed assets to frontaliere-cdn with a closed job-canon handshake"
   else
     echo "⚠️ CDN push failed after 3 attempts — offload skipped, og/data stay in dist"
   fi
