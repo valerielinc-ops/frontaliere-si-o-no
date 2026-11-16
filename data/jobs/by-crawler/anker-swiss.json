@@ -1278,8 +1278,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-100-anker-swiss-ticino-ag-bern-0ad6b1d0",
         "it": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-bern-5d5855a2ee",
-        "en": "elektroinstallateur-100-anker-swiss-ticino-ag-bern-0ad6b1d0",
-        "fr": "elektroinstallateur-100-anker-swiss-ticino-ag-bern-0ad6b1d0"
+        "en": "electrical-installer-100-anker-swiss-ticino-ag-bern-0ad6b1d0",
+        "fr": "installateur-electrique-100-anker-swiss-ticino-ag-bern-0ad6b1d0"
       },
       "slugDisambiguator": "0ad6b1d0",
       "company": "Anker Swiss Ticino AG",
@@ -1344,11 +1344,13 @@
         ],
         "en": [
           "elektroinstallateur-100-anker-swiss-ticino-ag-bern-a72b5794",
-          "electrical-installer-100-anker-swiss-ticino-ag-bern-a72b5794"
+          "electrical-installer-100-anker-swiss-ticino-ag-bern-a72b5794",
+          "elektroinstallateur-100-anker-swiss-ticino-ag-bern-0ad6b1d0"
         ],
         "fr": [
           "elektroinstallateur-100-anker-swiss-ticino-ag-bern-a72b5794",
-          "installateur-electrique-100-anker-swiss-ticino-ag-bern-a72b5794"
+          "installateur-electrique-100-anker-swiss-ticino-ag-bern-a72b5794",
+          "elektroinstallateur-100-anker-swiss-ticino-ag-bern-0ad6b1d0"
         ]
       },
       "previousSlugs": [
@@ -4411,12 +4413,12 @@
     },
     {
       "id": "anker-swiss-c8eb8e2bdfd4",
-      "slug": "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-c8eb8e2b",
+      "slug": "operatore-di-gru-100-anker-swiss-ticino-ag-wadenswil-c8eb8e2b",
       "slugByLocale": {
         "de": "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-c8eb8e2b",
-        "it": "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-c8eb8e2b",
-        "en": "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-c8eb8e2b",
-        "fr": "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-c8eb8e2b"
+        "it": "operatore-di-gru-100-anker-swiss-ticino-ag-wadenswil-c8eb8e2b",
+        "en": "crane-operator-100-anker-swiss-ticino-ag-wadenswil-c8eb8e2b",
+        "fr": "operateur-de-grue-100-anker-swiss-ticino-ag-wadenswil-c8eb8e2b"
       },
       "slugDisambiguator": "c8eb8e2b",
       "company": "Anker Swiss Ticino AG",
@@ -4467,7 +4469,8 @@
         "it": [
           "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-9bc3ff50",
           "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-667cd309",
-          "operatore-di-gru-100-anker-swiss-ticino-ag-wadenswil-667cd309"
+          "operatore-di-gru-100-anker-swiss-ticino-ag-wadenswil-667cd309",
+          "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-c8eb8e2b"
         ],
         "de": [
           "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-9bc3ff50",
@@ -4475,11 +4478,13 @@
         ],
         "en": [
           "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-667cd309",
-          "crane-operator-100-anker-swiss-ticino-ag-wadenswil-667cd309"
+          "crane-operator-100-anker-swiss-ticino-ag-wadenswil-667cd309",
+          "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-c8eb8e2b"
         ],
         "fr": [
           "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-667cd309",
-          "operateur-de-grue-100-anker-swiss-ticino-ag-wadenswil-667cd309"
+          "operateur-de-grue-100-anker-swiss-ticino-ag-wadenswil-667cd309",
+          "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-c8eb8e2b"
         ]
       },
       "previousSlugs": [
@@ -4487,7 +4492,8 @@
         "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-667cd309",
         "operatore-di-gru-100-anker-swiss-ticino-ag-wadenswil-667cd309",
         "crane-operator-100-anker-swiss-ticino-ag-wadenswil-667cd309",
-        "operateur-de-grue-100-anker-swiss-ticino-ag-wadenswil-667cd309"
+        "operateur-de-grue-100-anker-swiss-ticino-ag-wadenswil-667cd309",
+        "kranfuhrer-100-anker-swiss-ticino-ag-wadenswil-c8eb8e2b"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -10442,9 +10448,9 @@
       "slug": "lavoratore-edile-edilizia-principale-100-anker-swiss-ticino-ag-rancate-72ea179a",
       "slugByLocale": {
         "it": "lavoratore-edile-edilizia-principale-100-anker-swiss-ticino-ag-rancate-72ea179a",
-        "en": "lavoratore-edile-edilizia-principale-100-anker-swiss-ticino-ag-rancate-72ea179a",
-        "de": "lavoratore-edile-edilizia-principale-100-anker-swiss-ticino-ag-rancate-72ea179a",
-        "fr": "lavoratore-edile-edilizia-principale-100-anker-swiss-ticino-ag-rancate-72ea179a"
+        "en": "construction-worker-100-main-building-anker-swiss-ticino-ag-rancate-72ea179a",
+        "de": "bauarbeiter-100-hauptgebaude-anker-swiss-ticino-ag-rancate-72ea179a",
+        "fr": "travailleurs-de-la-construction-batiment-principal-a-100-anker-swiss-ticino-ag-rancate-72ea179a"
       },
       "slugDisambiguator": "72ea179a",
       "company": "Anker Swiss Ticino AG",
@@ -12223,12 +12229,12 @@
     },
     {
       "id": "anker-swiss-736323ae148d",
-      "slug": "asbestsanierer-100-anker-swiss-ticino-ag-bern-736323ae",
+      "slug": "pulitori-di-amianto-100-anker-swiss-ticino-ag-bern-736323ae",
       "slugByLocale": {
         "de": "asbestsanierer-100-anker-swiss-ticino-ag-bern-736323ae",
-        "it": "asbestsanierer-100-anker-swiss-ticino-ag-bern-736323ae",
-        "en": "asbestsanierer-100-anker-swiss-ticino-ag-bern-736323ae",
-        "fr": "asbestsanierer-100-anker-swiss-ticino-ag-bern-736323ae"
+        "it": "pulitori-di-amianto-100-anker-swiss-ticino-ag-bern-736323ae",
+        "en": "asbestos-cleaners-100-anker-swiss-ticino-ag-bern-736323ae",
+        "fr": "nettoyeurs-d-amiante-100-anker-swiss-ticino-ag-bern-736323ae"
       },
       "slugDisambiguator": "736323ae",
       "company": "Anker Swiss Ticino AG",
@@ -12276,30 +12282,28 @@
         "de": []
       },
       "previousSlugs": [
-        "pulitori-di-amianto-100-anker-swiss-ticino-ag-bern-736323ae",
-        "asbestos-cleaners-100-anker-swiss-ticino-ag-bern-736323ae",
-        "nettoyeurs-d-amiante-100-anker-swiss-ticino-ag-bern-736323ae",
         "asbestsanierer-100-anker-swiss-ticino-ag-bern-5bc0937c",
         "pulitori-di-amianto-100-anker-swiss-ticino-ag-bern-5bc0937c",
         "asbestos-cleaners-100-anker-swiss-ticino-ag-bern-5bc0937c",
-        "nettoyeurs-d-amiante-100-anker-swiss-ticino-ag-bern-5bc0937c"
+        "nettoyeurs-d-amiante-100-anker-swiss-ticino-ag-bern-5bc0937c",
+        "asbestsanierer-100-anker-swiss-ticino-ag-bern-736323ae"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pulitori-di-amianto-100-anker-swiss-ticino-ag-bern-736323ae",
           "asbestsanierer-100-anker-swiss-ticino-ag-bern-5bc0937c",
-          "pulitori-di-amianto-100-anker-swiss-ticino-ag-bern-5bc0937c"
+          "pulitori-di-amianto-100-anker-swiss-ticino-ag-bern-5bc0937c",
+          "asbestsanierer-100-anker-swiss-ticino-ag-bern-736323ae"
         ],
         "en": [
-          "asbestos-cleaners-100-anker-swiss-ticino-ag-bern-736323ae",
-          "asbestos-cleaners-100-anker-swiss-ticino-ag-bern-5bc0937c"
+          "asbestos-cleaners-100-anker-swiss-ticino-ag-bern-5bc0937c",
+          "asbestsanierer-100-anker-swiss-ticino-ag-bern-736323ae"
         ],
         "de": [
           "asbestsanierer-100-anker-swiss-ticino-ag-bern-5bc0937c"
         ],
         "fr": [
-          "nettoyeurs-d-amiante-100-anker-swiss-ticino-ag-bern-736323ae",
-          "nettoyeurs-d-amiante-100-anker-swiss-ticino-ag-bern-5bc0937c"
+          "nettoyeurs-d-amiante-100-anker-swiss-ticino-ag-bern-5bc0937c",
+          "asbestsanierer-100-anker-swiss-ticino-ag-bern-736323ae"
         ]
       },
       "salaryMin": 68500,
@@ -19948,8 +19952,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-100-anker-swiss-ticino-ag-solothurn-d68ad6a6",
         "it": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-solothurn",
-        "en": "elektroinstallateur-100-anker-swiss-ticino-ag-solothurn-d68ad6a6",
-        "fr": "elektroinstallateur-100-anker-swiss-ticino-ag-solothurn-d68ad6a6"
+        "en": "electrical-installer-100-anker-swiss-ticino-ag-solothurn-d68ad6a6",
+        "fr": "installateur-electrique-100-anker-swiss-ticino-ag-solothurn-d68ad6a6"
       },
       "slugDisambiguator": "d68ad6a6",
       "company": "Anker Swiss Ticino AG",
@@ -20008,10 +20012,12 @@
           "elektroinstallateur-100-anker-swiss-ticino-ag-solothurn-f7282b54"
         ],
         "en": [
-          "electrical-installer-100-anker-swiss-ag-anker-swiss-ticino-ag-solothurn-f7282b54"
+          "electrical-installer-100-anker-swiss-ag-anker-swiss-ticino-ag-solothurn-f7282b54",
+          "elektroinstallateur-100-anker-swiss-ticino-ag-solothurn-d68ad6a6"
         ],
         "fr": [
-          "installation-electrique-100-anker-swiss-ag-anker-swiss-ticino-ag-solothurn-f7282b54"
+          "installation-electrique-100-anker-swiss-ag-anker-swiss-ticino-ag-solothurn-f7282b54",
+          "elektroinstallateur-100-anker-swiss-ticino-ag-solothurn-d68ad6a6"
         ]
       },
       "previousSlugs": [
@@ -21050,12 +21056,12 @@
     },
     {
       "id": "anker-swiss-2e7d5eacc266",
-      "slug": "zimmermann-100-anker-swiss-ticino-ag-luzern-2e7d5eac",
+      "slug": "carpenter-100-anker-swiss-ticino-ag-luzern-2e7d5eac",
       "slugByLocale": {
         "de": "zimmermann-100-anker-swiss-ticino-ag-luzern-2e7d5eac",
-        "it": "zimmermann-100-anker-swiss-ticino-ag-luzern-2e7d5eac",
+        "it": "carpenter-100-anker-swiss-ticino-ag-luzern-2e7d5eac",
         "en": "zimmermann-100-anker-swiss-ticino-ag-luzern-2e7d5eac",
-        "fr": "zimmermann-100-anker-swiss-ticino-ag-luzern-2e7d5eac"
+        "fr": "charpentier-100-anker-swiss-ticino-ag-luzern-2e7d5eac"
       },
       "slugDisambiguator": "2e7d5eac",
       "company": "Anker Swiss Ticino AG",
@@ -21120,7 +21126,8 @@
       "previousSlugsByLocale": {
         "it": [
           "zimmermann-100-anker-swiss-ticino-ag-luzern-67cb3053",
-          "carpenter-100-anker-swiss-ticino-ag-luzern-67cb3053"
+          "carpenter-100-anker-swiss-ticino-ag-luzern-67cb3053",
+          "zimmermann-100-anker-swiss-ticino-ag-luzern-2e7d5eac"
         ],
         "en": [
           "zimmermann-100-anker-swiss-ticino-ag-luzern-67cb3053"
@@ -21130,13 +21137,15 @@
         ],
         "fr": [
           "zimmermann-100-anker-swiss-ticino-ag-luzern-67cb3053",
-          "charpentier-100-anker-swiss-ticino-ag-luzern-67cb3053"
+          "charpentier-100-anker-swiss-ticino-ag-luzern-67cb3053",
+          "zimmermann-100-anker-swiss-ticino-ag-luzern-2e7d5eac"
         ]
       },
       "previousSlugs": [
         "zimmermann-100-anker-swiss-ticino-ag-luzern-67cb3053",
         "carpenter-100-anker-swiss-ticino-ag-luzern-67cb3053",
-        "charpentier-100-anker-swiss-ticino-ag-luzern-67cb3053"
+        "charpentier-100-anker-swiss-ticino-ag-luzern-67cb3053",
+        "zimmermann-100-anker-swiss-ticino-ag-luzern-2e7d5eac"
       ]
     },
     {
@@ -21807,10 +21816,10 @@
     },
     {
       "id": "anker-swiss-16ab3d21151b",
-      "slug": "maurer-100-anker-swiss-ticino-ag-zurich-16ab3d21",
+      "slug": "mason-100-anker-swiss-ticino-ag-zurich-16ab3d21",
       "slugByLocale": {
         "de": "maurer-100-anker-swiss-ticino-ag-zurich-16ab3d21",
-        "it": "maurer-100-anker-swiss-ticino-ag-zurich-16ab3d21",
+        "it": "mason-100-anker-swiss-ticino-ag-zurich-16ab3d21",
         "en": "maurer-100-anker-swiss-ticino-ag-zurich-16ab3d21",
         "fr": "maurer-100-anker-swiss-ticino-ag-zurich-16ab3d21"
       },
@@ -21877,7 +21886,8 @@
       "previousSlugsByLocale": {
         "it": [
           "maurer-100-anker-swiss-ticino-ag-zurich-95121aee",
-          "mason-100-anker-swiss-ticino-ag-zurich-95121aee"
+          "mason-100-anker-swiss-ticino-ag-zurich-95121aee",
+          "maurer-100-anker-swiss-ticino-ag-zurich-16ab3d21"
         ],
         "en": [
           "maurer-100-anker-swiss-ticino-ag-zurich-95121aee"
@@ -21891,7 +21901,8 @@
       },
       "previousSlugs": [
         "maurer-100-anker-swiss-ticino-ag-zurich-95121aee",
-        "mason-100-anker-swiss-ticino-ag-zurich-95121aee"
+        "mason-100-anker-swiss-ticino-ag-zurich-95121aee",
+        "maurer-100-anker-swiss-ticino-ag-zurich-16ab3d21"
       ]
     },
     {
@@ -21984,8 +21995,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-100-anker-swiss-ticino-ag-belp-a51483fd",
         "it": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-belp-1667576a9d",
-        "en": "elektroinstallateur-100-anker-swiss-ticino-ag-belp-a51483fd",
-        "fr": "elektroinstallateur-100-anker-swiss-ticino-ag-belp-a51483fd"
+        "en": "electrical-installer-100-anker-swiss-ticino-ag-belp-a51483fd",
+        "fr": "installateur-electrique-100-anker-swiss-ticino-ag-belp-a51483fd"
       },
       "slugDisambiguator": "a51483fd",
       "company": "Anker Swiss Ticino AG",
@@ -22046,11 +22057,13 @@
         ],
         "en": [
           "elektroinstallateur-100-anker-swiss-ticino-ag-belp-d1d2aa8f",
-          "electrical-installer-100-anker-swiss-ticino-ag-belp-d1d2aa8f"
+          "electrical-installer-100-anker-swiss-ticino-ag-belp-d1d2aa8f",
+          "elektroinstallateur-100-anker-swiss-ticino-ag-belp-a51483fd"
         ],
         "fr": [
           "elektroinstallateur-100-anker-swiss-ticino-ag-belp-d1d2aa8f",
-          "installateur-electrique-100-anker-swiss-ticino-ag-belp-d1d2aa8f"
+          "installateur-electrique-100-anker-swiss-ticino-ag-belp-d1d2aa8f",
+          "elektroinstallateur-100-anker-swiss-ticino-ag-belp-a51483fd"
         ]
       },
       "previousSlugs": [
@@ -22082,12 +22095,12 @@
     },
     {
       "id": "anker-swiss-6e82091c9ae3",
-      "slug": "gipser-trockenbauer-100-anker-swiss-ticino-ag-flumenthal-6e82091c",
+      "slug": "asciugamani-100-anker-swiss-ticino-ag-flumenthal-6e82091c",
       "slugByLocale": {
         "de": "gipser-trockenbauer-100-anker-swiss-ticino-ag-flumenthal-6e82091c",
-        "it": "gipser-trockenbauer-100-anker-swiss-ticino-ag-flumenthal-6e82091c",
-        "en": "gipser-trockenbauer-100-anker-swiss-ticino-ag-flumenthal-6e82091c",
-        "fr": "gipser-trockenbauer-100-anker-swiss-ticino-ag-flumenthal-6e82091c"
+        "it": "asciugamani-100-anker-swiss-ticino-ag-flumenthal-6e82091c",
+        "en": "plaster-dryers-100-anker-swiss-ticino-ag-flumenthal-6e82091c",
+        "fr": "sechoirs-a-plaques-100-anker-swiss-ticino-ag-flumenthal-6e82091c"
       },
       "slugDisambiguator": "6e82091c",
       "company": "Anker Swiss Ticino AG",
@@ -22135,32 +22148,30 @@
         "de": []
       },
       "previousSlugs": [
-        "asciugamani-100-anker-swiss-ticino-ag-flumenthal-6e82091c",
-        "plaster-dryers-100-anker-swiss-ticino-ag-flumenthal-6e82091c",
-        "sechoirs-a-plaques-100-anker-swiss-ticino-ag-flumenthal-6e82091c",
         "gipser-trockenbauer-100-anker-swiss-ticino-ag-flumenthal-3727794c",
         "asciugamani-100-anker-swiss-ticino-ag-flumenthal-3727794c",
         "plaster-dryers-100-anker-swiss-ticino-ag-flumenthal-3727794c",
-        "sechoirs-a-plat-100-anker-swiss-ticino-ag-flumenthal-3727794c"
+        "sechoirs-a-plat-100-anker-swiss-ticino-ag-flumenthal-3727794c",
+        "gipser-trockenbauer-100-anker-swiss-ticino-ag-flumenthal-6e82091c"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "asciugamani-100-anker-swiss-ticino-ag-flumenthal-6e82091c",
           "gipser-trockenbauer-100-anker-swiss-ticino-ag-flumenthal-3727794c",
-          "asciugamani-100-anker-swiss-ticino-ag-flumenthal-3727794c"
+          "asciugamani-100-anker-swiss-ticino-ag-flumenthal-3727794c",
+          "gipser-trockenbauer-100-anker-swiss-ticino-ag-flumenthal-6e82091c"
         ],
         "en": [
-          "plaster-dryers-100-anker-swiss-ticino-ag-flumenthal-6e82091c",
           "gipser-trockenbauer-100-anker-swiss-ticino-ag-flumenthal-3727794c",
-          "plaster-dryers-100-anker-swiss-ticino-ag-flumenthal-3727794c"
+          "plaster-dryers-100-anker-swiss-ticino-ag-flumenthal-3727794c",
+          "gipser-trockenbauer-100-anker-swiss-ticino-ag-flumenthal-6e82091c"
         ],
         "de": [
           "gipser-trockenbauer-100-anker-swiss-ticino-ag-flumenthal-3727794c"
         ],
         "fr": [
-          "sechoirs-a-plaques-100-anker-swiss-ticino-ag-flumenthal-6e82091c",
           "gipser-trockenbauer-100-anker-swiss-ticino-ag-flumenthal-3727794c",
-          "sechoirs-a-plat-100-anker-swiss-ticino-ag-flumenthal-3727794c"
+          "sechoirs-a-plat-100-anker-swiss-ticino-ag-flumenthal-3727794c",
+          "gipser-trockenbauer-100-anker-swiss-ticino-ag-flumenthal-6e82091c"
         ]
       },
       "salaryMin": 68500,
@@ -22353,7 +22364,7 @@
       "id": "anker-swiss-d1d2aa8fdb9a",
       "slug": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-belp-d0395d6051",
       "slugByLocale": {
-        "it": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-belp-d0395d6051",
+        "it": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-belp",
         "en": "electrical-installer-100-anker-swiss-ticino-ag-belp-d1d2aa8f",
         "de": "elektroinstallateur-100-anker-swiss-ticino-ag-belp-d1d2aa8f",
         "fr": "installateur-electrique-100-anker-swiss-ticino-ag-belp-d1d2aa8f"
@@ -22404,15 +22415,13 @@
       "previousSlugs": [
         "elektroinstallateur-100-anker-swiss-ticino-ag-belp-a51483fd",
         "elektroinstallateur-100-anker-swiss-ticino-ag-belp-f74f679b",
-        "elektroinstallateur-100-anker-swiss-ticino-ag-belp-d1d2aa8f",
-        "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-belp"
+        "elektroinstallateur-100-anker-swiss-ticino-ag-belp-d1d2aa8f"
       ],
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-100-anker-swiss-ticino-ag-belp-a51483fd",
           "elektroinstallateur-100-anker-swiss-ticino-ag-belp-f74f679b",
-          "elektroinstallateur-100-anker-swiss-ticino-ag-belp-d1d2aa8f",
-          "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-belp"
+          "elektroinstallateur-100-anker-swiss-ticino-ag-belp-d1d2aa8f"
         ],
         "de": [
           "elektroinstallateur-100-anker-swiss-ticino-ag-belp-a51483fd",
@@ -22448,7 +22457,7 @@
       "id": "anker-swiss-a72b57941fa7",
       "slug": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-bern-468fc3bd5d",
       "slugByLocale": {
-        "it": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-bern-468fc3bd5d",
+        "it": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-bern",
         "en": "electrical-installer-100-anker-swiss-ticino-ag-bern-a72b5794",
         "de": "elektroinstallateur-100-anker-swiss-ticino-ag-bern-a72b5794",
         "fr": "installateur-electrique-100-anker-swiss-ticino-ag-bern-a72b5794"
@@ -22501,8 +22510,7 @@
         "elektroinstallateur-100-anker-swiss-ticino-ag-bern-60bb30df",
         "elektroinstallateur-100-anker-swiss-ticino-ag-bern-cbf11aa0",
         "elektroinstallateur-100-anker-swiss-ticino-ag-bern-3ef84ffb",
-        "elektroinstallateur-100-anker-swiss-ticino-ag-bern-a72b5794",
-        "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-bern"
+        "elektroinstallateur-100-anker-swiss-ticino-ag-bern-a72b5794"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -22510,8 +22518,7 @@
           "elektroinstallateur-100-anker-swiss-ticino-ag-bern-60bb30df",
           "elektroinstallateur-100-anker-swiss-ticino-ag-bern-cbf11aa0",
           "elektroinstallateur-100-anker-swiss-ticino-ag-bern-3ef84ffb",
-          "elektroinstallateur-100-anker-swiss-ticino-ag-bern-a72b5794",
-          "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-bern"
+          "elektroinstallateur-100-anker-swiss-ticino-ag-bern-a72b5794"
         ],
         "de": [
           "elektroinstallateur-100-anker-swiss-ticino-ag-bern-0ad6b1d0",

@@ -179,12 +179,12 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-kasse-60-zurich",
+      "slug": "addetto-a-alla-cassa-60-manor-ag-zurich",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-kasse-60-zurich",
-        "en": "manor-mitarbeiter-in-kasse-60-zurich",
+        "it": "addetto-a-alla-cassa-60-manor-ag-zurich",
+        "en": "cashier-60-manor-ag-zurich",
         "de": "manor-mitarbeiter-in-kasse-60-zurich",
-        "fr": "manor-mitarbeiter-in-kasse-60-zurich"
+        "fr": "employe-e-de-caisse-60-manor-ag-zurich"
       },
       "titleByLocale": {
         "it": "Addetto/a alla cassa 60%",
@@ -212,7 +212,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-05T21:53:22.054Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T22:13:29.971Z"
+      "firstSeenAt": "2026-11-06T22:13:29.971Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-kasse-60-zurich"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-kasse-60-zurich"
+        ],
+        "fr": [
+          "manor-mitarbeiter-in-kasse-60-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "manor-mitarbeiter-in-kasse-60-zurich"
+      ]
     },
     {
       "title": "Visual Merchandising Manager 100%",
@@ -684,7 +698,7 @@
       "source": "company-website",
       "slug": "head-of-retail-media-100-manor-ag-basel-1a8dd4ab6a",
       "slugByLocale": {
-        "it": "head-of-retail-media-100-manor-ag-basel-1a8dd4ab6a",
+        "it": "manor-head-of-retail-media-100-basel",
         "en": "manor-head-of-retail-media-100-basel",
         "de": "manor-head-of-retail-media-100-basel",
         "fr": "manor-head-of-retail-media-100-basel"
@@ -715,15 +729,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-23T21:53:22.054Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:53:59.307Z",
-      "previousSlugs": [
-        "manor-head-of-retail-media-100-basel"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manor-head-of-retail-media-100-basel"
-        ]
-      }
+      "firstSeenAt": "2026-09-23T23:53:59.307Z"
     },
     {
       "title": "Mitarbeiter*in Verkauf (Damenkonfektion) 30%",
@@ -1828,8 +1834,8 @@
       "slug": "manor-collaborateur-trice-logistique-50-geneve",
       "slugByLocale": {
         "it": "manor-collaborateur-trice-logistique-50-geneve",
-        "en": "manor-collaborateur-trice-logistique-50-geneve",
-        "de": "manor-collaborateur-trice-logistique-50-geneve",
+        "en": "logistics-contributor-50-manor-ag-geneve",
+        "de": "logistikbeitrag-50-manor-ag-geneve",
         "fr": "manor-collaborateur-trice-logistique-50-geneve"
       },
       "titleByLocale": {
@@ -2603,11 +2609,11 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "manor-floor-manager-100-lausanne",
+      "slug": "gestione-del-pavimento-100-manor-ag-lausanne",
       "slugByLocale": {
-        "it": "manor-floor-manager-100-lausanne",
+        "it": "gestione-del-pavimento-100-manor-ag-lausanne",
         "en": "manor-floor-manager-100-lausanne",
-        "de": "manor-floor-manager-100-lausanne",
+        "de": "bodenmanager-100-manor-ag-lausanne",
         "fr": "manor-floor-manager-100-lausanne"
       },
       "titleByLocale": {
@@ -2619,11 +2625,16 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "manor-floor-manager-100-lausanne-2"
+          "manor-floor-manager-100-lausanne-2",
+          "manor-floor-manager-100-lausanne"
+        ],
+        "de": [
+          "manor-floor-manager-100-lausanne"
         ]
       },
       "previousSlugs": [
-        "manor-floor-manager-100-lausanne-2"
+        "manor-floor-manager-100-lausanne-2",
+        "manor-floor-manager-100-lausanne"
       ],
       "id": "manor-d92a35ed28e9",
       "salaryMin": 83500,
@@ -2827,12 +2838,12 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-kasse-30-winterthur",
+      "slug": "addetto-a-alla-cassa-30-manor-ag-winterthur",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-kasse-30-winterthur",
-        "en": "manor-mitarbeiter-in-kasse-30-winterthur",
+        "it": "addetto-a-alla-cassa-30-manor-ag-winterthur",
+        "en": "cashier-30-manor-ag-winterthur",
         "de": "manor-mitarbeiter-in-kasse-30-winterthur",
-        "fr": "manor-mitarbeiter-in-kasse-30-winterthur"
+        "fr": "collaborateur-rice-a-la-caisse-30-manor-ag-winterthur"
       },
       "titleByLocale": {
         "it": "Addetto/a alla cassa 30%",
@@ -2860,7 +2871,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-28T21:53:22.054Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-29T09:28:01.383Z"
+      "firstSeenAt": "2026-09-29T09:28:01.383Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-kasse-30-winterthur"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-kasse-30-winterthur"
+        ],
+        "fr": [
+          "manor-mitarbeiter-in-kasse-30-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "manor-mitarbeiter-in-kasse-30-winterthur"
+      ]
     },
     {
       "title": "Mitarbeiter*in Kasse 60%",
@@ -4069,7 +4094,7 @@
       "source": "company-website",
       "slug": "addetto-a-alla-logistica-aiuto-per-il-lunedi-emanor-20-manor-ag-hochdorf",
       "slugByLocale": {
-        "it": "addetto-a-alla-logistica-aiuto-per-il-lunedi-emanor-20-manor-ag-hochdorf",
+        "it": "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
         "en": "logistics-assistant-monday-support-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
         "de": "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
         "fr": "assistant-e-logistique-support-lundi-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
@@ -4093,8 +4118,7 @@
         "logistics-employee-monday-temporary-help-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
         "employe-e-logistique-support-du-lundi-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
         "collaboratore-trice-in-logistik-montagsaushilfe-emanor-20-manor-ag-hochdorf",
-        "addetto-a-alla-logistica-aiuto-per-il-lunedi-emanor-20-manor-ag-hochdorf-da5d771ef9",
-        "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
+        "addetto-a-alla-logistica-aiuto-per-il-lunedi-emanor-20-manor-ag-hochdorf-da5d771ef9"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4108,8 +4132,7 @@
           "logistics-employee-monday-temporary-help-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
           "employe-e-logistique-support-du-lundi-emanor-20-manor-ag-hochdorf-mitarbeiterin-logistik-montagsaushilfe",
           "collaboratore-trice-in-logistik-montagsaushilfe-emanor-20-manor-ag-hochdorf",
-          "addetto-a-alla-logistica-aiuto-per-il-lunedi-emanor-20-manor-ag-hochdorf-da5d771ef9",
-          "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe"
+          "addetto-a-alla-logistica-aiuto-per-il-lunedi-emanor-20-manor-ag-hochdorf-da5d771ef9"
         ],
         "de": [
           "manor-mitarbeiter-in-logistik-montagsaushilfe-emanor-20-hochdorf-mitarbeiterin-logistik-montagsaushilfe-fu0bzn"
@@ -4818,9 +4841,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "collaborateur-trice-supermarche-boulangerie-50-manor-ag-geneve-6c71644608",
+      "slug": "collaboratore-del-supermercato-boulangerie-50-manor-ag-geneve-b3613f",
       "slugByLocale": {
-        "it": "collaborateur-trice-supermarche-boulangerie-50-manor-ag-geneve-6c71644608",
+        "it": "collaboratore-del-supermercato-boulangerie-50-manor-ag-geneve-b3613f",
         "en": "manor-collaborateur-trice-supermarche-boulangerie-50-geneve",
         "de": "manor-collaborateur-trice-supermarche-boulangerie-50-geneve",
         "fr": "manor-collaborateur-trice-supermarche-boulangerie-50-geneve"
@@ -4853,11 +4876,13 @@
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-09-23T23:53:59.307Z",
       "previousSlugs": [
-        "manor-collaborateur-trice-supermarche-boulangerie-50-geneve"
+        "manor-collaborateur-trice-supermarche-boulangerie-50-geneve",
+        "collaborateur-trice-supermarche-boulangerie-50-manor-ag-geneve-6c71644608"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-collaborateur-trice-supermarche-boulangerie-50-geneve"
+          "manor-collaborateur-trice-supermarche-boulangerie-50-geneve",
+          "collaborateur-trice-supermarche-boulangerie-50-manor-ag-geneve-6c71644608"
         ]
       }
     },
@@ -5731,12 +5756,12 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "manor-pain-patisserie-marin-epagnier",
+      "slug": "dolore-patisserie-manor-ag-marin-epagnier-d5a579",
       "slugByLocale": {
-        "it": "manor-pain-patisserie-marin-epagnier",
-        "en": "manor-pain-patisserie-marin-epagnier",
+        "it": "dolore-patisserie-manor-ag-marin-epagnier-d5a579",
+        "en": "pain-patisser-manor-ag-marin-epagnier-d5a579",
         "de": "manor-pain-patisserie-marin-epagnier",
-        "fr": "manor-pain-patisserie-marin-epagnier"
+        "fr": "douleur-patisserie-manor-ag-marin-epagnier"
       },
       "titleByLocale": {
         "it": "Dolore/Patisserie",
@@ -5747,11 +5772,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "manor-pain-patisserie-marin-epagnier-2"
+          "manor-pain-patisserie-marin-epagnier-2",
+          "manor-pain-patisserie-marin-epagnier"
+        ],
+        "en": [
+          "manor-pain-patisserie-marin-epagnier"
+        ],
+        "fr": [
+          "manor-pain-patisserie-marin-epagnier"
         ]
       },
       "previousSlugs": [
-        "manor-pain-patisserie-marin-epagnier-2"
+        "manor-pain-patisserie-marin-epagnier-2",
+        "manor-pain-patisserie-marin-epagnier"
       ],
       "id": "manor-a6dec7a5e129",
       "salaryMin": 72000,
@@ -6882,7 +6915,7 @@
       "source": "company-website",
       "slug": "dipendenti-in-merchandising-60-70-manor-ag-emmen",
       "slugByLocale": {
-        "it": "dipendenti-in-merchandising-60-70-manor-ag-emmen",
+        "it": "manor-mitarbeiter-in-merchandising-60-70-emmen-mitarbeiterin-merchandising-60",
         "en": "employee-merchandising-60-70-manor-ag-emmen",
         "de": "manor-mitarbeiter-in-merchandising-60-70-emmen-mitarbeiterin-merchandising-60",
         "fr": "mitarbeiter-en-marchand-60-70-manor-ag-emmen"
@@ -6897,14 +6930,12 @@
       "id": "manor-b8928da0861f",
       "previousSlugs": [
         "manor-mitarbeiter-in-merchandising-60-70-emmen",
-        "collaboratore-trice-in-merchandising-60-70-manor-ag-emmen",
-        "manor-mitarbeiter-in-merchandising-60-70-emmen-mitarbeiterin-merchandising-60"
+        "collaboratore-trice-in-merchandising-60-70-manor-ag-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-merchandising-60-70-emmen",
-          "collaboratore-trice-in-merchandising-60-70-manor-ag-emmen",
-          "manor-mitarbeiter-in-merchandising-60-70-emmen-mitarbeiterin-merchandising-60"
+          "collaboratore-trice-in-merchandising-60-70-manor-ag-emmen"
         ]
       },
       "firstSeenAt": "2026-09-04T13:38:05.738Z",
@@ -7102,7 +7133,7 @@
       "source": "company-website",
       "slug": "dipendente-di-vendita-30-manor-ag-thun",
       "slugByLocale": {
-        "it": "dipendente-di-vendita-30-manor-ag-thun",
+        "it": "manor-mitarbeiter-in-verkauf-30-thun-mitarbeiterin-verkauf-30",
         "en": "mitarbeiter-in-sales-30-manor-ag-thun",
         "de": "manor-mitarbeiter-in-verkauf-30-thun-mitarbeiterin-verkauf-30",
         "fr": "mitarbeiter-in-vente-30-manor-ag-thun"
@@ -7118,15 +7149,13 @@
       "previousSlugs": [
         "manor-mitarbeiter-in-verkauf-bijouterie-60-thun-mitarbeiterin-verkauf-bijouterie",
         "manor-mitarbeiter-in-verkauf-30-thun",
-        "collaboratore-trice-in-vendita-30-manor-ag-thun",
-        "manor-mitarbeiter-in-verkauf-30-thun-mitarbeiterin-verkauf-30"
+        "collaboratore-trice-in-vendita-30-manor-ag-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-verkauf-bijouterie-60-thun-mitarbeiterin-verkauf-bijouterie",
           "manor-mitarbeiter-in-verkauf-30-thun",
-          "collaboratore-trice-in-vendita-30-manor-ag-thun",
-          "manor-mitarbeiter-in-verkauf-30-thun-mitarbeiterin-verkauf-30"
+          "collaboratore-trice-in-vendita-30-manor-ag-thun"
         ],
         "de": [
           "manor-mitarbeiter-in-verkauf-bijouterie-60-thun-mitarbeiterin-verkauf-bijouterie"
@@ -7930,12 +7959,12 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-verkauf-30-basel",
+      "slug": "collaboratore-trice-in-vendita-30-manor-ag-basel",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-verkauf-30-basel",
-        "en": "manor-mitarbeiter-in-verkauf-30-basel",
+        "it": "collaboratore-trice-in-vendita-30-manor-ag-basel",
+        "en": "sales-assistant-30-manor-ag-basel",
         "de": "manor-mitarbeiter-in-verkauf-30-basel",
-        "fr": "manor-mitarbeiter-in-verkauf-30-basel"
+        "fr": "employe-e-de-vente-30-manor-ag-basel"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita 30%",
@@ -7964,7 +7993,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T21:53:22.054Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-09T13:59:04.738Z"
+      "firstSeenAt": "2026-09-09T13:59:04.738Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-verkauf-30-basel"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-verkauf-30-basel"
+        ],
+        "fr": [
+          "manor-mitarbeiter-in-verkauf-30-basel"
+        ]
+      },
+      "previousSlugs": [
+        "manor-mitarbeiter-in-verkauf-30-basel"
+      ]
     },
     {
       "title": "Mitarbeiter*in Verkauf 25%",
@@ -8458,9 +8501,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "manor-floor-manager-hardgoods-jouets-papeterie-100-geneve",
+      "slug": "loor-manager-hardgoods-100-manor-ag-geneve",
       "slugByLocale": {
-        "it": "manor-floor-manager-hardgoods-jouets-papeterie-100-geneve",
+        "it": "loor-manager-hardgoods-100-manor-ag-geneve",
         "en": "floor-manager-hardgoods-100-manor-ag-geneve",
         "de": "manor-loor-manager-hardgoods-jouets-papeterie-100-geneve",
         "fr": "manor-loor-manager-hardgoods-jouets-papeterie-100-geneve"
@@ -8476,12 +8519,12 @@
       "previousSlugsByLocale": {
         "it": [
           "manor-loor-manager-hardgoods-jouets-papeterie-100-geneve",
-          "loor-manager-hardgoods-100-manor-ag-geneve"
+          "manor-floor-manager-hardgoods-jouets-papeterie-100-geneve"
         ]
       },
       "previousSlugs": [
         "manor-loor-manager-hardgoods-jouets-papeterie-100-geneve",
-        "loor-manager-hardgoods-100-manor-ag-geneve"
+        "manor-floor-manager-hardgoods-jouets-papeterie-100-geneve"
       ],
       "firstSeenAt": "2026-10-07T09:31:48.413Z",
       "salaryMin": 83500,
@@ -10267,11 +10310,11 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "manor-collaborateur-trice-caisse-food-50-geneve",
+      "slug": "collaboratore-trice-alla-cassa-food-50-manor-ag-geneve",
       "slugByLocale": {
-        "it": "manor-collaborateur-trice-caisse-food-50-geneve",
-        "en": "manor-collaborateur-trice-caisse-food-50-geneve",
-        "de": "manor-collaborateur-trice-caisse-food-50-geneve",
+        "it": "collaboratore-trice-alla-cassa-food-50-manor-ag-geneve",
+        "en": "cashier-food-50-manor-ag-geneve",
+        "de": "mitarbeiter-in-kasse-food-50-manor-ag-geneve",
         "fr": "manor-collaborateur-trice-caisse-food-50-geneve"
       },
       "titleByLocale": {
@@ -10283,11 +10326,19 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "manor-collaborateur-trice-caisse-food-50-geneve-2"
+          "manor-collaborateur-trice-caisse-food-50-geneve-2",
+          "manor-collaborateur-trice-caisse-food-50-geneve"
+        ],
+        "en": [
+          "manor-collaborateur-trice-caisse-food-50-geneve"
+        ],
+        "de": [
+          "manor-collaborateur-trice-caisse-food-50-geneve"
         ]
       },
       "previousSlugs": [
-        "manor-collaborateur-trice-caisse-food-50-geneve-2"
+        "manor-collaborateur-trice-caisse-food-50-geneve-2",
+        "manor-collaborateur-trice-caisse-food-50-geneve"
       ],
       "id": "manor-4950c958f61a",
       "salaryMin": 36000,
@@ -11448,9 +11499,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "collaborateur-trice-supermarche-boulangerie-50-manor-ag-geneve-4aabfd766d",
+      "slug": "collaboratore-del-supermercato-boulangerie-50-manor-ag-geneve-48252a",
       "slugByLocale": {
-        "it": "collaborateur-trice-supermarche-boulangerie-50-manor-ag-geneve-4aabfd766d",
+        "it": "collaboratore-del-supermercato-boulangerie-50-manor-ag-geneve-48252a",
         "en": "manor-collaborateur-trice-supermarche-boulangerie-50-geneve",
         "de": "manor-collaborateur-trice-supermarche-boulangerie-50-geneve",
         "fr": "manor-collaborateur-trice-supermarche-boulangerie-50-geneve"
@@ -11465,12 +11516,14 @@
       "previousSlugsByLocale": {
         "it": [
           "manor-collaborateur-trice-supermarche-boulangerie-50-geneve-3",
-          "manor-collaborateur-trice-supermarche-boulangerie-50-geneve"
+          "manor-collaborateur-trice-supermarche-boulangerie-50-geneve",
+          "collaborateur-trice-supermarche-boulangerie-50-manor-ag-geneve-4aabfd766d"
         ]
       },
       "previousSlugs": [
         "manor-collaborateur-trice-supermarche-boulangerie-50-geneve-3",
-        "manor-collaborateur-trice-supermarche-boulangerie-50-geneve"
+        "manor-collaborateur-trice-supermarche-boulangerie-50-geneve",
+        "collaborateur-trice-supermarche-boulangerie-50-manor-ag-geneve-4aabfd766d"
       ],
       "id": "manor-bfcec2907e92",
       "salaryMin": 32800,
@@ -11590,7 +11643,7 @@
       "source": "company-website",
       "slug": "dipendenti-in-merchandising-60-manor-ag-baden",
       "slugByLocale": {
-        "it": "dipendenti-in-merchandising-60-manor-ag-baden",
+        "it": "manor-mitarbeiter-in-merchandising-60-baden-mitarbeiterin-merchandising-60",
         "en": "merchandising-associate-60-manor-ag-baden-mitarbeiterin-merchandising-60",
         "de": "manor-mitarbeiter-in-merchandising-60-baden-mitarbeiterin-merchandising-60",
         "fr": "collaborateur-rice-merchandising-60-manor-ag-baden-mitarbeiterin-merchandising-60"
@@ -11605,14 +11658,12 @@
       "id": "manor-776fb202ad55",
       "previousSlugs": [
         "manor-mitarbeiter-in-merchandising-60-baden",
-        "collaboratore-trice-in-merchandising-60-manor-ag-baden",
-        "manor-mitarbeiter-in-merchandising-60-baden-mitarbeiterin-merchandising-60"
+        "collaboratore-trice-in-merchandising-60-manor-ag-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-mitarbeiter-in-merchandising-60-baden",
-          "collaboratore-trice-in-merchandising-60-manor-ag-baden",
-          "manor-mitarbeiter-in-merchandising-60-baden-mitarbeiterin-merchandising-60"
+          "collaboratore-trice-in-merchandising-60-manor-ag-baden"
         ]
       },
       "firstSeenAt": "2026-08-28T05:29:15.749Z",
@@ -13555,9 +13606,9 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "manor-collaborateur-trice-supermarche-epicerie-40-geneve",
+      "slug": "collaboratore-del-supermercato-epicerie-50-manor-ag-geneve",
       "slugByLocale": {
-        "it": "manor-collaborateur-trice-supermarche-epicerie-40-geneve",
+        "it": "collaboratore-del-supermercato-epicerie-50-manor-ag-geneve",
         "en": "supermarket-employee-grocery-store-50-manor-ag-geneve-784bcf",
         "de": "mitarbeiter-in-supermarkt-lebensmittelgeschaft-50-manor-ag-geneve-784bcf",
         "fr": "manor-collaborateur-trice-supermarche-epicerie-50-geneve"
@@ -13579,7 +13630,7 @@
           "collaborateur-trice-supermarche-epicerie-50-manor-ag-geneve-d3b38e4b52",
           "collaboratore-del-supermercato-epicerie-50-manor-ag-geneve-784bcf",
           "collaborateur-trice-supermarche-epicerie-40-manor-ag-geneve",
-          "collaboratore-del-supermercato-epicerie-50-manor-ag-geneve"
+          "manor-collaborateur-trice-supermarche-epicerie-40-geneve"
         ],
         "en": [
           "manor-collaborateur-trice-supermarche-epicerie-50-geneve"
@@ -13596,7 +13647,7 @@
         "collaborateur-trice-supermarche-epicerie-50-manor-ag-geneve-d3b38e4b52",
         "collaboratore-del-supermercato-epicerie-50-manor-ag-geneve-784bcf",
         "collaborateur-trice-supermarche-epicerie-40-manor-ag-geneve",
-        "collaboratore-del-supermercato-epicerie-50-manor-ag-geneve"
+        "manor-collaborateur-trice-supermarche-epicerie-40-geneve"
       ],
       "firstSeenAt": "2026-09-19T23:05:15.844Z",
       "salaryMin": 36000,
@@ -14396,7 +14447,7 @@
       "source": "company-website",
       "slug": "addetto-a-alle-vendite-cartoleria-accessori-60-manor-ag-thun",
       "slugByLocale": {
-        "it": "addetto-a-alle-vendite-cartoleria-accessori-60-manor-ag-thun",
+        "it": "manor-mitarbeiter-in-verkauf-papeterie-accesoires-60-thun-mitarbeiterin-verkauf-papeterie",
         "en": "mitarbeiter-in-sales-papeterie-accesoires-60-manor-ag-thun",
         "de": "manor-mitarbeiter-in-verkauf-papeterie-accesoires-60-thun-mitarbeiterin-verkauf-papeterie",
         "fr": "mitarbeiter-in-vente-papeterie-accesoires-60-manor-ag-thun"
@@ -14410,13 +14461,11 @@
       "sourceLang": "de",
       "id": "manor-e829b05dd529",
       "previousSlugs": [
-        "manor-mitarbeiter-in-verkauf-papeterie-accesoires-60-thun",
-        "manor-mitarbeiter-in-verkauf-papeterie-accesoires-60-thun-mitarbeiterin-verkauf-papeterie"
+        "manor-mitarbeiter-in-verkauf-papeterie-accesoires-60-thun"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-verkauf-papeterie-accesoires-60-thun",
-          "manor-mitarbeiter-in-verkauf-papeterie-accesoires-60-thun-mitarbeiterin-verkauf-papeterie"
+          "manor-mitarbeiter-in-verkauf-papeterie-accesoires-60-thun"
         ]
       },
       "firstSeenAt": "2026-11-02T10:03:17.758Z",
@@ -15021,12 +15070,12 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-service-50-emmen",
+      "slug": "collaboratore-trice-in-service-50-manor-ag-emmen",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-service-50-emmen",
-        "en": "manor-mitarbeiter-in-service-50-emmen",
+        "it": "collaboratore-trice-in-service-50-manor-ag-emmen",
+        "en": "service-employee-50-manor-ag-emmen-dfa63e",
         "de": "manor-mitarbeiter-in-service-50-emmen",
-        "fr": "manor-mitarbeiter-in-service-50-emmen"
+        "fr": "employe-e-de-service-50-manor-ag-emmen"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Service 50%",
@@ -15055,7 +15104,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:53:22.054Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-03T21:44:51.217Z"
+      "firstSeenAt": "2026-11-03T21:44:51.217Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-service-50-emmen"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-service-50-emmen"
+        ],
+        "fr": [
+          "manor-mitarbeiter-in-service-50-emmen"
+        ]
+      },
+      "previousSlugs": [
+        "manor-mitarbeiter-in-service-50-emmen"
+      ]
     },
     {
       "title": "Mitarbeiter*in Service 80%",
@@ -15244,7 +15307,7 @@
       "source": "company-website",
       "slug": "collaboratore-i-al-supermercato-epicerie-50-manor-ag-st-gallen",
       "slugByLocale": {
-        "it": "collaboratore-i-al-supermercato-epicerie-50-manor-ag-st-gallen",
+        "it": "manor-mitarbeiter-in-supermarkt-epicerie-50-st-gallen-mitarbeiterin-supermarkt",
         "en": "employee-supermarket-epicerie-50-manor-ag-st-gallen-mitarbeiterin-supermarkt",
         "de": "manor-mitarbeiter-in-supermarkt-epicerie-50-st-gallen-mitarbeiterin-supermarkt",
         "fr": "mitarbeiter-dans-supermarkt-epicerie-50-manor-ag-st-gallen"
@@ -15260,15 +15323,13 @@
       "previousSlugs": [
         "collaboratore-trice-in-supermarkt-epicerie-50-manor-ag-st-gallen-mitarbeiterin-supermarkt",
         "manor-mitarbeiter-in-supermarkt-epicerie-50-st-gallen",
-        "collaboratore-trice-in-supermarkt-epicerie-50-manor-ag-st-gallen",
-        "manor-mitarbeiter-in-supermarkt-epicerie-50-st-gallen-mitarbeiterin-supermarkt"
+        "collaboratore-trice-in-supermarkt-epicerie-50-manor-ag-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "collaboratore-trice-in-supermarkt-epicerie-50-manor-ag-st-gallen-mitarbeiterin-supermarkt",
           "manor-mitarbeiter-in-supermarkt-epicerie-50-st-gallen",
-          "collaboratore-trice-in-supermarkt-epicerie-50-manor-ag-st-gallen",
-          "manor-mitarbeiter-in-supermarkt-epicerie-50-st-gallen-mitarbeiterin-supermarkt"
+          "collaboratore-trice-in-supermarkt-epicerie-50-manor-ag-st-gallen"
         ]
       },
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
@@ -16136,12 +16197,12 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-kasse-60-luzern",
+      "slug": "addetto-a-alla-cassa-60-manor-ag-luzern-108872",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-kasse-60-luzern",
-        "en": "manor-mitarbeiter-in-kasse-60-luzern",
+        "it": "addetto-a-alla-cassa-60-manor-ag-luzern-108872",
+        "en": "cashier-60-manor-ag-luzern-108872",
         "de": "manor-mitarbeiter-in-kasse-60-luzern",
-        "fr": "manor-mitarbeiter-in-kasse-60-luzern"
+        "fr": "employe-e-de-caisse-60-manor-ag-luzern-108872"
       },
       "titleByLocale": {
         "it": "Addetto/a alla cassa 60%",
@@ -16152,11 +16213,19 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "manor-mitarbeiter-in-kasse-60-luzern-2"
+          "manor-mitarbeiter-in-kasse-60-luzern-2",
+          "manor-mitarbeiter-in-kasse-60-luzern"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-kasse-60-luzern"
+        ],
+        "fr": [
+          "manor-mitarbeiter-in-kasse-60-luzern"
         ]
       },
       "previousSlugs": [
-        "manor-mitarbeiter-in-kasse-60-luzern-2"
+        "manor-mitarbeiter-in-kasse-60-luzern-2",
+        "manor-mitarbeiter-in-kasse-60-luzern"
       ],
       "id": "manor-bedfa8688659",
       "salaryMin": 47400,
@@ -17946,7 +18015,7 @@
       "slug": "collaboratore-trice-vente-accessori-dames-60-manor-ag-vevey-collaborateurtrice-vente-accessoires",
       "slugByLocale": {
         "it": "collaboratore-trice-vente-accessori-dames-60-manor-ag-vevey-collaborateurtrice-vente-accessoires",
-        "en": "collaborator-wind-machine-accessori-dames-60-manor-ag-vevey",
+        "en": "manor-collaborateur-trice-vente-accessoires-dames-60-vevey-collaborateurtrice-vente-accessoires",
         "de": "kollaborator-windmaschine-accessori-dames-60-manor-ag-vevey",
         "fr": "manor-collaborateur-trice-vente-accessoires-dames-60-vevey-collaborateurtrice-vente-accessoires"
       },
@@ -17960,7 +18029,8 @@
       "id": "manor-a5c54e88cac8",
       "previousSlugs": [
         "manor-collaborateur-trice-vente-accessoires-dames-60-vevey-collaborateurtrice-vente-accessoires",
-        "manor-collaborateur-trice-vente-accessoires-dames-60-vevey"
+        "manor-collaborateur-trice-vente-accessoires-dames-60-vevey",
+        "collaborator-wind-machine-accessori-dames-60-manor-ag-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17968,7 +18038,7 @@
           "manor-collaborateur-trice-vente-accessoires-dames-60-vevey"
         ],
         "en": [
-          "manor-collaborateur-trice-vente-accessoires-dames-60-vevey-collaborateurtrice-vente-accessoires"
+          "collaborator-wind-machine-accessori-dames-60-manor-ag-vevey"
         ],
         "de": [
           "manor-collaborateur-trice-vente-accessoires-dames-60-vevey-collaborateurtrice-vente-accessoires"
@@ -19535,7 +19605,7 @@
       "source": "company-website",
       "slug": "operatore-trice-del-commercio-al-dettaglio-afc-100-manor-ag-emmen",
       "slugByLocale": {
-        "it": "operatore-trice-del-commercio-al-dettaglio-afc-100-manor-ag-emmen",
+        "it": "manor-detailhandelsfachmann-frau-efz-100-emmen-detailhandelsfachmannfrau-efz-100",
         "en": "detailshandelsfachmann-frau-efz-100-manor-ag-emmen-detailhandelsfachmannfrau-efz-100",
         "de": "manor-detailhandelsfachmann-frau-efz-100-emmen-detailhandelsfachmannfrau-efz-100",
         "fr": "detailshandelsfachmann-frau-efz-100-manor-ag-emmen"
@@ -19550,14 +19620,12 @@
       "id": "manor-c853697e3e8e",
       "previousSlugs": [
         "manor-detailhandelsfachmann-frau-efz-100-emmen",
-        "detailhandelsfachmann-frau-cfc-100-manor-ag-emmen",
-        "manor-detailhandelsfachmann-frau-efz-100-emmen-detailhandelsfachmannfrau-efz-100"
+        "detailhandelsfachmann-frau-cfc-100-manor-ag-emmen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-detailhandelsfachmann-frau-efz-100-emmen",
-          "detailhandelsfachmann-frau-cfc-100-manor-ag-emmen",
-          "manor-detailhandelsfachmann-frau-efz-100-emmen-detailhandelsfachmannfrau-efz-100"
+          "detailhandelsfachmann-frau-cfc-100-manor-ag-emmen"
         ]
       },
       "firstSeenAt": "2026-09-04T13:38:05.738Z",
@@ -20015,12 +20083,12 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen",
+      "slug": "addetto-a-alla-cassa-in-profumeria-40-manor-ag-schaffhausen",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen",
-        "en": "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen",
+        "it": "addetto-a-alla-cassa-in-profumeria-40-manor-ag-schaffhausen",
+        "en": "cashier-perfumery-40-manor-ag-schaffhausen-ffed92",
         "de": "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen",
-        "fr": "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen"
+        "fr": "employe-e-de-caisse-en-parfumerie-40-manor-ag-schaffhausen"
       },
       "titleByLocale": {
         "it": "Addetto/a alla cassa in profumeria 40%",
@@ -20048,7 +20116,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-25T21:53:22.054Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-27T21:32:57.064Z"
+      "firstSeenAt": "2026-10-27T21:32:57.064Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen"
+        ],
+        "fr": [
+          "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen"
+        ]
+      },
+      "previousSlugs": [
+        "manor-mitarbeiter-in-kasse-parfumerie-40-schaffhausen"
+      ]
     },
     {
       "title": "Mitarbeiter*in Logistik 10-100%",
@@ -20154,7 +20236,7 @@
       "source": "company-website",
       "slug": "dipendente-vendite-40-manor-ag-zurich",
       "slugByLocale": {
-        "it": "dipendente-vendite-40-manor-ag-zurich",
+        "it": "manor-mitarbeiter-in-verkauf-40-zurich",
         "en": "mitarbeiter-in-sales-40-manor-ag-zurich",
         "de": "manor-mitarbeiter-in-verkauf-40-zurich",
         "fr": "mitarbeiter-in-vente-40-manor-ag-zurich"
@@ -20168,13 +20250,11 @@
       "sourceLang": "de",
       "id": "manor-14565c6a4999",
       "previousSlugs": [
-        "collaboratore-trice-in-vendita-40-manor-ag-zurich",
-        "manor-mitarbeiter-in-verkauf-40-zurich"
+        "collaboratore-trice-in-vendita-40-manor-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaboratore-trice-in-vendita-40-manor-ag-zurich",
-          "manor-mitarbeiter-in-verkauf-40-zurich"
+          "collaboratore-trice-in-vendita-40-manor-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-09-11T13:43:49.840Z",
@@ -21927,12 +22007,12 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "manor-mitarbeiter-in-supermarkt-20-chur",
+      "slug": "collaboratore-trice-in-supermercato-20-manor-ag-chur",
       "slugByLocale": {
-        "it": "manor-mitarbeiter-in-supermarkt-20-chur",
-        "en": "manor-mitarbeiter-in-supermarkt-20-chur",
+        "it": "collaboratore-trice-in-supermercato-20-manor-ag-chur",
+        "en": "supermarket-assistant-20-manor-ag-chur",
         "de": "manor-mitarbeiter-in-supermarkt-20-chur",
-        "fr": "manor-mitarbeiter-in-supermarkt-20-chur"
+        "fr": "employe-e-de-supermarche-20-manor-ag-chur"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice in supermercato 20%",
@@ -21960,7 +22040,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T21:53:22.054Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-09T13:59:04.738Z"
+      "firstSeenAt": "2026-09-09T13:59:04.738Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manor-mitarbeiter-in-supermarkt-20-chur"
+        ],
+        "en": [
+          "manor-mitarbeiter-in-supermarkt-20-chur"
+        ],
+        "fr": [
+          "manor-mitarbeiter-in-supermarkt-20-chur"
+        ]
+      },
+      "previousSlugs": [
+        "manor-mitarbeiter-in-supermarkt-20-chur"
+      ]
     },
     {
       "title": "Collaborateur/trice vente (parfumerie) -Catch The Color 80%",
@@ -22294,11 +22388,11 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "source": "company-website",
-      "slug": "manor-boulanger-ere-100-monthey",
+      "slug": "panificio-100-manor-ag-monthey-7f03f0",
       "slugByLocale": {
-        "it": "manor-boulanger-ere-100-monthey",
-        "en": "manor-boulanger-ere-100-monthey",
-        "de": "manor-boulanger-ere-100-monthey",
+        "it": "panificio-100-manor-ag-monthey-7f03f0",
+        "en": "baker-100-manor-ag-monthey-7f03f0",
+        "de": "backer-100-manor-ag-monthey",
         "fr": "manor-boulanger-ere-100-monthey"
       },
       "titleByLocale": {
@@ -22310,11 +22404,19 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "manor-boulanger-ere-100-monthey-2"
+          "manor-boulanger-ere-100-monthey-2",
+          "manor-boulanger-ere-100-monthey"
+        ],
+        "en": [
+          "manor-boulanger-ere-100-monthey"
+        ],
+        "de": [
+          "manor-boulanger-ere-100-monthey"
         ]
       },
       "previousSlugs": [
-        "manor-boulanger-ere-100-monthey-2"
+        "manor-boulanger-ere-100-monthey-2",
+        "manor-boulanger-ere-100-monthey"
       ],
       "id": "manor-0c1cba5abfb7",
       "salaryMin": 65500,
@@ -24352,7 +24454,7 @@
       "source": "company-website",
       "slug": "operatore-logistico-afc-cfp-100-manor-ag-hochdorf",
       "slugByLocale": {
-        "it": "operatore-logistico-afc-cfp-100-manor-ag-hochdorf",
+        "it": "manor-logistiker-in-efz-eba-100-hochdorf-logistikerin-efzeba-100",
         "en": "logistician-efz-eba-100-manor-ag-hochdorf",
         "de": "manor-logistiker-in-efz-eba-100-hochdorf-logistikerin-efzeba-100",
         "fr": "logistiker-dans-efz-eba-100-manor-ag-hochdorf"
@@ -24367,14 +24469,12 @@
       "id": "manor-c9b56440ac8e",
       "previousSlugs": [
         "manor-logistiker-in-efz-eba-100-hochdorf",
-        "logistiker-in-cfc-afp-100-manor-ag-hochdorf",
-        "manor-logistiker-in-efz-eba-100-hochdorf-logistikerin-efzeba-100"
+        "logistiker-in-cfc-afp-100-manor-ag-hochdorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manor-logistiker-in-efz-eba-100-hochdorf",
-          "logistiker-in-cfc-afp-100-manor-ag-hochdorf",
-          "manor-logistiker-in-efz-eba-100-hochdorf-logistikerin-efzeba-100"
+          "logistiker-in-cfc-afp-100-manor-ag-hochdorf"
         ]
       },
       "firstSeenAt": "2026-08-24T22:01:54.783Z",

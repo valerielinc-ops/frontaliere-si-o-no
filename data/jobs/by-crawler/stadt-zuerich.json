@@ -1767,9 +1767,9 @@
       "slug": "vorarbeiter-in-stadt-zurich-zurich-f48effc3eb",
       "slugByLocale": {
         "de": "vorarbeiter-in-stadt-zuerich-zurigo-51721",
-        "it": "vorarbeiter-in-stadt-zurich-zurich-f48effc3eb",
-        "en": "vorarbeiter-in-stadt-zurich",
-        "fr": "vorarbeiter-in-stadt-zurich"
+        "it": "caposquadra-stadt-zurich-zurich",
+        "en": "foreman-stadt-zurich-zurich",
+        "fr": "contremaitre-fe-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -1821,21 +1821,17 @@
       "previousSlugsByLocale": {
         "it": [
           "vorarbeiter-in-stadt-zuerich-zurigo-51721",
-          "caposquadra-stadt-zurich-zurich",
           "vorarbeiter-in-stadt-zurich"
         ],
         "en": [
-          "foreman-stadt-zurich-zurich"
+          "vorarbeiter-in-stadt-zurich"
         ],
         "fr": [
-          "contremaitre-fe-stadt-zurich-zurich"
+          "vorarbeiter-in-stadt-zurich"
         ]
       },
       "previousSlugs": [
         "vorarbeiter-in-stadt-zuerich-zurigo-51721",
-        "caposquadra-stadt-zurich-zurich",
-        "foreman-stadt-zurich-zurich",
-        "contremaitre-fe-stadt-zurich-zurich",
         "vorarbeiter-in-stadt-zurich"
       ],
       "salaryMin": 83000,
@@ -2310,9 +2306,9 @@
       "slug": "automatico-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "automatico-stadt-zurich-zurich",
-        "en": "automation-technician-stadt-zurich",
+        "en": "automatics-stadt-zurich-zurich",
         "de": "automatiker-in-stadt-zuerich-zurigo-5782",
-        "fr": "automaticien-ne-stadt-zurich"
+        "fr": "automatique-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -2362,8 +2358,8 @@
       "previousSlugs": [
         "automatiker-in-stadt-zuerich-zurigo-5782",
         "automatiker-in-stadt-zurich",
-        "automatics-stadt-zurich-zurich",
-        "automatique-stadt-zurich-zurich"
+        "automation-technician-stadt-zurich",
+        "automaticien-ne-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2371,11 +2367,11 @@
         ],
         "en": [
           "automatiker-in-stadt-zurich",
-          "automatics-stadt-zurich-zurich"
+          "automation-technician-stadt-zurich"
         ],
         "fr": [
           "automatiker-in-stadt-zurich",
-          "automatique-stadt-zurich-zurich"
+          "automaticien-ne-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-10-20T09:44:27.697Z",
@@ -2403,7 +2399,7 @@
         "it": "elettromeccanica-stadt-zurich-zurich",
         "en": "electromechanic-stadt-zurich-zurich",
         "de": "elektromechaniker-in-stadt-zuerich-zurigo-5800",
-        "fr": "electromecanicien-ne-stadt-zurich"
+        "fr": "electromecanique-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -2453,7 +2449,7 @@
       "previousSlugs": [
         "elektromechaniker-in-stadt-zuerich-zurigo-5800",
         "elektromechaniker-in-stadt-zurich",
-        "electromecanique-stadt-zurich-zurich"
+        "electromecanicien-ne-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2464,7 +2460,7 @@
         ],
         "fr": [
           "elektromechaniker-in-stadt-zurich",
-          "electromecanique-stadt-zurich-zurich"
+          "electromecanicien-ne-stadt-zurich"
         ]
       },
       "firstSeenAt": "2026-10-20T09:44:27.697Z",
@@ -2578,7 +2574,7 @@
       "slug": "assemblaggio-automatico-stadt-zurich-zurich",
       "slugByLocale": {
         "it": "assemblaggio-automatico-stadt-zurich-zurich",
-        "en": "automation-fitter-stadt-zurich",
+        "en": "automatic-assembler-stadt-zurich-zurich",
         "de": "automatikmonteur-in-stadt-zuerich-zurigo-5465",
         "fr": "monteur-automatique-stadt-zurich-zurich"
       },
@@ -2630,7 +2626,7 @@
       "previousSlugs": [
         "automatikmonteur-in-stadt-zuerich-zurigo-5465",
         "automatikmonteur-in-stadt-zurich",
-        "automatic-assembler-stadt-zurich-zurich"
+        "automation-fitter-stadt-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2638,7 +2634,7 @@
         ],
         "en": [
           "automatikmonteur-in-stadt-zurich",
-          "automatic-assembler-stadt-zurich-zurich"
+          "automation-fitter-stadt-zurich"
         ],
         "fr": [
           "automatikmonteur-in-stadt-zurich"
@@ -2667,9 +2663,9 @@
       "slug": "gartner-in-stadt-zurich",
       "slugByLocale": {
         "de": "gartner-in-stadt-zuerich-zurigo-51726",
-        "it": "gartner-in-stadt-zurich",
-        "en": "gartner-in-stadt-zurich",
-        "fr": "gartner-in-stadt-zurich"
+        "it": "giardiniere-stadt-zurich-zurich-5bc8ab",
+        "en": "gardener-stadt-zurich-zurich-5bc8ab",
+        "fr": "jardinier-stadt-zurich-zurich-5bc8ab"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -2720,21 +2716,11 @@
       "referenceNumber": "51726",
       "previousSlugsByLocale": {
         "it": [
-          "gartner-in-stadt-zuerich-zurigo-51726",
-          "giardiniere-stadt-zurich-zurich-5bc8ab"
-        ],
-        "en": [
-          "gardener-stadt-zurich-zurich-5bc8ab"
-        ],
-        "fr": [
-          "jardinier-stadt-zurich-zurich-5bc8ab"
+          "gartner-in-stadt-zuerich-zurigo-51726"
         ]
       },
       "previousSlugs": [
-        "gartner-in-stadt-zuerich-zurigo-51726",
-        "giardiniere-stadt-zurich-zurich-5bc8ab",
-        "gardener-stadt-zurich-zurich-5bc8ab",
-        "jardinier-stadt-zurich-zurich-5bc8ab"
+        "gartner-in-stadt-zuerich-zurigo-51726"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -3957,8 +3943,8 @@
       "slugByLocale": {
         "de": "hortleiter-in-stadt-zuerich-zurigo-52044",
         "it": "responsabile-del-doposcuola-stadt-zurich-zurich-8afecf3484",
-        "en": "hortleiter-in-stadt-zurich",
-        "fr": "hortleiter-in-stadt-zurich"
+        "en": "after-school-care-manager-stadt-zurich-zurich",
+        "fr": "responsable-de-structure-parascolaire-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -4012,16 +3998,15 @@
           "hortleiter-in-stadt-zuerich-zurigo-52044"
         ],
         "en": [
-          "after-school-care-manager-stadt-zurich-zurich"
+          "hortleiter-in-stadt-zurich"
         ],
         "fr": [
-          "responsable-de-structure-parascolaire-stadt-zurich-zurich"
+          "hortleiter-in-stadt-zurich"
         ]
       },
       "previousSlugs": [
         "hortleiter-in-stadt-zuerich-zurigo-52044",
-        "after-school-care-manager-stadt-zurich-zurich",
-        "responsable-de-structure-parascolaire-stadt-zurich-zurich"
+        "hortleiter-in-stadt-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -4217,7 +4202,7 @@
       "id": "stadt-zuerich-7b6cd3f09bf0",
       "slug": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
       "slugByLocale": {
-        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-19dadedf49",
+        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich",
         "en": "apprenticeship-2027-logistician-logistician-efz-lager-stadt-zurich-zurich",
         "de": "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-51056",
         "fr": "apprentissage-2027-logisticien-logisticien-efz-lager-stadt-zurich-zurich"
@@ -6666,9 +6651,9 @@
       "slug": "kindheitspadagog-in-hf-stadt-zurich-zurich-3448df0ee3",
       "slugByLocale": {
         "de": "kindheitspadagog-in-hf-stadt-zurich-zurich",
-        "it": "kindheitspadagog-in-hf-stadt-zurich-zurich-3448df0ee3",
-        "en": "kindheitspadagog-in-hf-stadt-zurich",
-        "fr": "kindheitspadagog-in-hf-stadt-zurich"
+        "it": "educazione-dell-infanzia-hf-stadt-zurich-zurich",
+        "en": "childhood-education-hf-stadt-zurich-zurich",
+        "fr": "professeur-d-enfance-en-hf-stadt-zurich-zurich-efd09d"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -6720,24 +6705,20 @@
       "previousSlugsByLocale": {
         "it": [
           "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457",
-          "educazione-dell-infanzia-hf-stadt-zurich-zurich",
           "kindheitspadagog-in-hf-stadt-zurich"
         ],
         "de": [
           "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457"
         ],
         "en": [
-          "childhood-education-hf-stadt-zurich-zurich"
+          "kindheitspadagog-in-hf-stadt-zurich"
         ],
         "fr": [
-          "professeur-d-enfance-en-hf-stadt-zurich-zurich-efd09d"
+          "kindheitspadagog-in-hf-stadt-zurich"
         ]
       },
       "previousSlugs": [
         "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51457",
-        "educazione-dell-infanzia-hf-stadt-zurich-zurich",
-        "childhood-education-hf-stadt-zurich-zurich",
-        "professeur-d-enfance-en-hf-stadt-zurich-zurich-efd09d",
         "kindheitspadagog-in-hf-stadt-zurich"
       ],
       "salaryMin": 73500,
@@ -8096,7 +8077,7 @@
       "slug": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-a7917a9e84",
       "slugByLocale": {
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
-        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-a7917a9e84",
+        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-c7fa8a",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-c7fa8a"
       },
@@ -8150,13 +8131,11 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
-          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+          "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123"
         ]
       },
       "previousSlugs": [
-        "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+        "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51123"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -8183,7 +8162,7 @@
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
         "en": "specialist-child-care-efz-stadt-zurich-zurich-f06c10",
         "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-f06c10",
-        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich-26fbce9507"
+        "it": "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -8235,13 +8214,11 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
-          "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+          "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137"
         ]
       },
       "previousSlugs": [
-        "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137",
-        "fachperson-betreuung-kinder-cfc-stadt-zurich-zurich"
+        "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-51137"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -8266,8 +8243,8 @@
       "slug": "kindheitspadagog-in-hf-stadt-zurich-zurich-1463313409",
       "slugByLocale": {
         "de": "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136",
-        "it": "kindheitspadagog-in-hf-stadt-zurich-zurich-1463313409",
-        "en": "kindheitspadagog-in-hf-stadt-zurich",
+        "it": "educazione-dell-infanzia-hf-stadt-zurich-zurich-e49b8a",
+        "en": "childhood-education-hf-stadt-zurich-zurich-e49b8a",
         "fr": "kindheitspadagog-in-hf-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -8320,17 +8297,14 @@
       "previousSlugsByLocale": {
         "it": [
           "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136",
-          "educazione-dell-infanzia-hf-stadt-zurich-zurich-e49b8a",
           "kindheitspadagog-in-hf-stadt-zurich"
         ],
         "en": [
-          "childhood-education-hf-stadt-zurich-zurich-e49b8a"
+          "kindheitspadagog-in-hf-stadt-zurich"
         ]
       },
       "previousSlugs": [
         "kindheitspadagog-in-hf-stadt-zuerich-zurigo-51136",
-        "educazione-dell-infanzia-hf-stadt-zurich-zurich-e49b8a",
-        "childhood-education-hf-stadt-zurich-zurich-e49b8a",
         "kindheitspadagog-in-hf-stadt-zurich"
       ],
       "salaryMin": 73500,
@@ -10015,7 +9989,7 @@
       "slug": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
       "slugByLocale": {
         "de": "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zurich-zurich",
-        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich-zurich-8a21202701",
+        "it": "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich",
         "en": "apprenticeship-2027-logistics-specialist-efz-warehouse-stadt-zurich-zurich",
         "fr": "place-d-apprentissage-2027-logisticienne-logisticien-cfc-stockage-stadt-zurich-zurich"
       },
@@ -10068,16 +10042,14 @@
       "referenceNumber": "50043",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043",
-          "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
+          "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043"
         ],
         "de": [
           "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043",
-        "apprendistato-2027-logistikerin-logistiker-cfc-magazzino-stadt-zurich"
+        "lehrstelle-2027-logistikerin-logistiker-efz-lager-stadt-zuerich-zurigo-50043"
       ],
       "salaryMin": 53500,
       "salaryMax": 98500,
@@ -12407,8 +12379,8 @@
       "slug": "vorarbeiter-in-stadt-zurich-zurich-37241ebdc3",
       "slugByLocale": {
         "de": "vorarbeiter-in-stadt-zuerich-zurigo-51522",
-        "fr": "vorarbeiter-in-stadt-zurich",
-        "it": "vorarbeiter-in-stadt-zurich-zurich-37241ebdc3",
+        "fr": "contremaitre-stadt-zurich-zurich",
+        "it": "caposquadra-stadt-zurich-zurich-68a444",
         "en": "foreman-stadt-zurich-zurich-68a444"
       },
       "company": "Stadt Zürich",
@@ -12461,17 +12433,14 @@
       "previousSlugsByLocale": {
         "it": [
           "vorarbeiter-in-stadt-zuerich-zurigo-51522",
-          "caposquadra-stadt-zurich-zurich-68a444",
           "vorarbeiter-in-stadt-zurich"
         ],
         "fr": [
-          "contremaitre-stadt-zurich-zurich"
+          "vorarbeiter-in-stadt-zurich"
         ]
       },
       "previousSlugs": [
         "vorarbeiter-in-stadt-zuerich-zurigo-51522",
-        "caposquadra-stadt-zurich-zurich-68a444",
-        "contremaitre-stadt-zurich-zurich",
         "vorarbeiter-in-stadt-zurich"
       ],
       "salaryMin": 83000,
@@ -16542,12 +16511,12 @@
     },
     {
       "id": "stadt-zuerich-8fc405b9d080",
-      "slug": "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich",
+      "slug": "assistente-sociale-assistenza-sociale-protezione-degli-adulti-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-52139",
-        "it": "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich",
-        "en": "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich",
-        "fr": "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich"
+        "it": "assistente-sociale-assistenza-sociale-protezione-degli-adulti-stadt-zurich-zurich",
+        "en": "social-worker-social-assistance-adult-protection-stadt-zurich-zurich-7ddedc",
+        "fr": "assistant-e-social-e-en-aide-sociale-protection-de-l-adulte-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -16598,11 +16567,19 @@
       "referenceNumber": "52139",
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-52139"
+          "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-52139",
+          "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich"
+        ],
+        "en": [
+          "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-52139"
+        "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-52139",
+        "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -16716,12 +16693,12 @@
     },
     {
       "id": "stadt-zuerich-905f85fb86d4",
-      "slug": "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-baa4cff2b6",
+      "slug": "giardiniere-a-paesaggista-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151",
-        "it": "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-baa4cff2b6",
-        "en": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151",
-        "fr": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151"
+        "it": "giardiniere-a-paesaggista-stadt-zurich-zurich",
+        "en": "gardener-horticulture-and-landscaping-stadt-zurich-zurich",
+        "fr": "jardinier-ere-en-amenagement-paysager-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -16773,12 +16750,20 @@
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151",
-          "gartner-in-garten-e-landschaftsbau-stadt-zurich"
+          "gartner-in-garten-e-landschaftsbau-stadt-zurich",
+          "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-baa4cff2b6"
+        ],
+        "en": [
+          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151"
+        ],
+        "fr": [
+          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151"
         ]
       },
       "previousSlugs": [
         "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-52151",
-        "gartner-in-garten-e-landschaftsbau-stadt-zurich"
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich",
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-baa4cff2b6"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -18144,9 +18129,9 @@
       "slug": "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-61f6c3a74a",
       "slugByLocale": {
         "de": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51868",
-        "it": "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-61f6c3a74a",
-        "en": "gartner-in-garten-und-landschaftsbau-stadt-zurich",
-        "fr": "gartner-in-garten-und-landschaftsbau-stadt-zurich"
+        "it": "giardiniere-a-nel-settore-del-giardinaggio-e-della-paesaggistica-stadt-zurich-zurich",
+        "en": "gardener-in-gardening-and-landscaping-stadt-zurich-zurich",
+        "fr": "jardinier-iere-en-horticulture-et-amenagement-paysager-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -18198,22 +18183,19 @@
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51868",
-          "giardiniere-a-nel-settore-del-giardinaggio-e-della-paesaggistica-stadt-zurich-zurich",
           "gartner-in-garten-e-landschaftsbau-stadt-zurich"
         ],
         "en": [
-          "gardener-in-gardening-and-landscaping-stadt-zurich-zurich"
+          "gartner-in-garten-und-landschaftsbau-stadt-zurich"
         ],
         "fr": [
-          "jardinier-iere-en-horticulture-et-amenagement-paysager-stadt-zurich-zurich"
+          "gartner-in-garten-und-landschaftsbau-stadt-zurich"
         ]
       },
       "previousSlugs": [
         "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51868",
-        "giardiniere-a-nel-settore-del-giardinaggio-e-della-paesaggistica-stadt-zurich-zurich",
-        "gardener-in-gardening-and-landscaping-stadt-zurich-zurich",
-        "jardinier-iere-en-horticulture-et-amenagement-paysager-stadt-zurich-zurich",
-        "gartner-in-garten-e-landschaftsbau-stadt-zurich"
+        "gartner-in-garten-e-landschaftsbau-stadt-zurich",
+        "gartner-in-garten-und-landschaftsbau-stadt-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -19456,9 +19438,9 @@
       "slug": "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-4e6db35ff3",
       "slugByLocale": {
         "de": "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886",
-        "it": "gartner-in-garten-e-landschaftsbau-stadt-zurich-zurich-4e6db35ff3",
-        "en": "gartner-in-garten-und-landschaftsbau-stadt-zurich",
-        "fr": "gartner-in-garten-und-landschaftsbau-stadt-zurich"
+        "it": "gartner-in-garten-e-landschaftsbau-stadt-zurich",
+        "en": "gardener-garden-and-landscape-construction-stadt-zurich-zurich",
+        "fr": "jardinier-ere-en-horticulture-et-amenagement-paysager-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -19509,21 +19491,18 @@
       "referenceNumber": "51886",
       "previousSlugsByLocale": {
         "it": [
-          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886",
-          "gartner-in-garten-e-landschaftsbau-stadt-zurich"
+          "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886"
         ],
         "en": [
-          "gardener-garden-and-landscape-construction-stadt-zurich-zurich"
+          "gartner-in-garten-und-landschaftsbau-stadt-zurich"
         ],
         "fr": [
-          "jardinier-ere-en-horticulture-et-amenagement-paysager-stadt-zurich-zurich"
+          "gartner-in-garten-und-landschaftsbau-stadt-zurich"
         ]
       },
       "previousSlugs": [
         "gartner-in-garten-und-landschaftsbau-stadt-zuerich-zurigo-51886",
-        "gardener-garden-and-landscape-construction-stadt-zurich-zurich",
-        "jardinier-ere-en-horticulture-et-amenagement-paysager-stadt-zurich-zurich",
-        "gartner-in-garten-e-landschaftsbau-stadt-zurich"
+        "gartner-in-garten-und-landschaftsbau-stadt-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -19721,9 +19700,9 @@
       "slug": "sozialpadagog-in-o-fachperson-betreuung-stadt-zurich",
       "slugByLocale": {
         "it": "sozialpadagog-in-o-fachperson-betreuung-stadt-zurich",
-        "en": "guidance-or-expert-support-stadt-zurich",
+        "en": "social-pedagogue-or-specialist-care-stadt-zurich-zurich",
         "de": "sozialpadagog-in-oder-fachperson-betreuung-stadt-zuerich-zurigo-50376",
-        "fr": "orientation-ou-appui-d-experts-stadt-zurich"
+        "fr": "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -19779,18 +19758,18 @@
         ],
         "en": [
           "hortleitung-oder-fachperson-betreuung-stadt-zurich",
-          "social-pedagogue-or-specialist-care-stadt-zurich-zurich"
+          "guidance-or-expert-support-stadt-zurich"
         ],
         "fr": [
           "hortleitung-oder-fachperson-betreuung-stadt-zurich",
-          "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich"
+          "orientation-ou-appui-d-experts-stadt-zurich"
         ]
       },
       "previousSlugs": [
         "hortleitung-oder-fachperson-betreuung-stadt-zuerich-zurigo-50376",
         "hortleitung-oder-fachperson-betreuung-stadt-zurich",
-        "social-pedagogue-or-specialist-care-stadt-zurich-zurich",
-        "pedagogue-sociale-ou-soins-specialises-stadt-zurich-zurich"
+        "guidance-or-expert-support-stadt-zurich",
+        "orientation-ou-appui-d-experts-stadt-zurich"
       ],
       "firstSeenAt": "2026-11-09T10:08:37.401Z",
       "salaryMin": 63000,
@@ -24746,12 +24725,12 @@
     },
     {
       "id": "stadt-zuerich-376dc51a71dd",
-      "slug": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-52231",
+      "slug": "professionista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-52231",
-        "it": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-52231",
-        "en": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-52231",
-        "fr": "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-52231"
+        "it": "professionista-dell-assistenza-all-infanzia-efz-stadt-zurich-zurich",
+        "en": "specialist-child-care-efz-stadt-zurich-zurich-981a07",
+        "fr": "soins-specialises-pour-enfants-efz-stadt-zurich-zurich-981a07"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -24817,7 +24796,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-23T22:06:10.361Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-25T21:50:53.928Z"
+      "firstSeenAt": "2026-10-25T21:50:53.928Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-52231"
+        ],
+        "en": [
+          "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-52231"
+        ],
+        "fr": [
+          "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-52231"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-betreuung-kinder-efz-stadt-zuerich-zurigo-52231"
+      ]
     },
     {
       "id": "stadt-zuerich-6b0af213fe10",
@@ -26052,8 +26045,8 @@
       "slugByLocale": {
         "de": "jurist-in-stadt-zuerich-zurigo-51605",
         "it": "avvocato-stadt-zurich-zurich",
-        "en": "jurist-in-stadt-zurich",
-        "fr": "jurist-in-stadt-zurich"
+        "en": "lawyer-stadt-zurich-zurich",
+        "fr": "avocat-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -26107,16 +26100,15 @@
           "jurist-in-stadt-zuerich-zurigo-51605"
         ],
         "en": [
-          "lawyer-stadt-zurich-zurich"
+          "jurist-in-stadt-zurich"
         ],
         "fr": [
-          "avocat-stadt-zurich-zurich"
+          "jurist-in-stadt-zurich"
         ]
       },
       "previousSlugs": [
         "jurist-in-stadt-zuerich-zurigo-51605",
-        "lawyer-stadt-zurich-zurich",
-        "avocat-stadt-zurich-zurich"
+        "jurist-in-stadt-zurich"
       ],
       "salaryMin": 85000,
       "salaryMax": 145000,
@@ -27126,12 +27118,12 @@
     },
     {
       "id": "stadt-zuerich-22710f587dd7",
-      "slug": "jurist-in-stadt-zuerich-zurigo-52243",
+      "slug": "giurista-stadt-zurich-zurich-080b18",
       "slugByLocale": {
         "de": "jurist-in-stadt-zuerich-zurigo-52243",
-        "it": "jurist-in-stadt-zuerich-zurigo-52243",
-        "en": "jurist-in-stadt-zuerich-zurigo-52243",
-        "fr": "jurist-in-stadt-zuerich-zurigo-52243"
+        "it": "giurista-stadt-zurich-zurich-080b18",
+        "en": "lawyer-stadt-zurich-zurich-080b18",
+        "fr": "juriste-stadt-zurich-zurich-080b18"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -27196,7 +27188,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-24T22:06:10.360Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-26T21:53:48.302Z"
+      "firstSeenAt": "2026-10-26T21:53:48.302Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "jurist-in-stadt-zuerich-zurigo-52243"
+        ],
+        "en": [
+          "jurist-in-stadt-zuerich-zurigo-52243"
+        ],
+        "fr": [
+          "jurist-in-stadt-zuerich-zurigo-52243"
+        ]
+      },
+      "previousSlugs": [
+        "jurist-in-stadt-zuerich-zurigo-52243"
+      ]
     },
     {
       "id": "stadt-zuerich-1da04506cd9c",
@@ -31318,7 +31324,7 @@
       "id": "stadt-zuerich-40e99d7f88af",
       "slug": "tirocinante-della-scuola-universitaria-professionale-presso-un-dormitorio-d-emergenza-stadt-zurich",
       "slugByLocale": {
-        "it": "tirocinante-della-scuola-universitaria-professionale-presso-un-dormitorio-d-emergenza-stadt-zurich",
+        "it": "university-of-applied-sciences-practitioner-emergency-sleeping-point-stadt-zurich-zurich",
         "en": "university-of-applied-sciences-practitioner-in-emergency-sleeping-area-stadt-zurich-zurich",
         "de": "fachhochschulpraktikant-in-notschlafstelle-stadt-zurich-zurich",
         "fr": "professeur-a-l-universite-des-sciences-appliquees-en-zone-de-couchage-d-urgence-stadt-zurich-zurich"
@@ -31371,8 +31377,7 @@
       "previousSlugsByLocale": {
         "it": [
           "fachhochschulpraktikant-in-notschlafstelle-stadt-zurich",
-          "fachhochschulpraktikant-in-notschlafstelle-stadt-zuerich-zurigo-51487",
-          "university-of-applied-sciences-practitioner-emergency-sleeping-point-stadt-zurich-zurich"
+          "fachhochschulpraktikant-in-notschlafstelle-stadt-zuerich-zurigo-51487"
         ],
         "de": [
           "fachhochschulpraktikant-in-notschlafstelle-stadt-zuerich-zurigo-51487"
@@ -31380,8 +31385,7 @@
       },
       "previousSlugs": [
         "fachhochschulpraktikant-in-notschlafstelle-stadt-zurich",
-        "fachhochschulpraktikant-in-notschlafstelle-stadt-zuerich-zurigo-51487",
-        "university-of-applied-sciences-practitioner-emergency-sleeping-point-stadt-zurich-zurich"
+        "fachhochschulpraktikant-in-notschlafstelle-stadt-zuerich-zurigo-51487"
       ],
       "firstSeenAt": "2026-09-01T14:26:21.613Z",
       "salaryMin": 62000,
