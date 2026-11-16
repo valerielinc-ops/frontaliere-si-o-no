@@ -242,7 +242,7 @@ trunk_replace_end() {
       : > "$benign_file" 2>/dev/null || true
       # `lost` is authoritative here: the inventory may be partial or
       # unreadable, so deriving `fatal` from `wc -l` could erase the only
-      # evidence that a page was lost and suppress trunk_guard_verdict().
+      # evidence that a page was lost and suppress the final trunk-guard verdict.
       fatal="$lost"
       benign=0
     else
