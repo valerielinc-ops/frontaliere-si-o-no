@@ -199,11 +199,17 @@ function appendIndexNowStepSummary(summary) {
     ['Digest', summary.digest],
     ['Digest archivio ignorato', `${summary.suppressedArchiveDigest.sitemaps} sitemap, ${summary.suppressedArchiveDigest.urls} URL`],
     ['Accepted', summary.accepted],
+    ['Failed', summary.failed],
+    ['Not attempted', summary.notAttempted],
     ['Remaining', summary.remaining],
     ['Elapsed ms', summary.elapsedMs],
     ['Stopped by deadline', summary.stoppedByDeadline],
   ];
-  appendFileSync(file, `\n### IndexNow\n\n| Metrica | Valore |\n| --- | ---: |\n${rows.map(([name, value]) => `| ${name} | ${value} |`).join('\n')}\n`);
+  try {
+    appendFileSync(file, `\n### IndexNow\n\n| Metrica | Valore |\n| --- | ---: |\n${rows.map(([name, value]) => `| ${name} | ${value} |`).join('\n')}\n`);
+  } catch (error) {
+    console.warn(`⚠️ IndexNow step summary not written: ${error?.message || String(error)}`);
+  }
 }
 
 function logIndexNowSummary(summary) {
@@ -264,6 +270,8 @@ export async function submitToIndexNow(overrides = {}) {
     digest: digestUrls.length,
     suppressedArchiveDigest: tiers.suppressedDigest,
     accepted: 0,
+    failed: 0,
+    notAttempted: 0,
     remaining: total,
     elapsedMs: 0,
     stoppedByDeadline: false,
@@ -281,17 +289,21 @@ export async function submitToIndexNow(overrides = {}) {
       console.log('✅ Nessun URL cambiato — nessuna submission necessaria');
     } else if (Date.now() >= deadlineMs) {
       summary.stoppedByDeadline = true;
+      summary.notAttempted = total;
       throw new Error('IndexNow budget expired before any URL was attempted');
     } else {
       const key = await verifyIndexNowKey({ attempts: 5, delayMs: 1500 });
       if (!key.ok) {
+        summary.notAttempted = total;
         throw new Error(`IndexNow key verification failed after ${key.attempts} attempts: ${key.reason}`);
       }
       console.log(`✅ Key file verificato: ${KEY_LOCATION}`);
 
       let attempted = 0;
-      const failed = [];
-      for (const [level, levelUrls] of sendTiers) {
+      const failedBatches = [];
+      let globalBatch = 0;
+      for (let levelIndex = 0; levelIndex < sendTiers.length; levelIndex += 1) {
+        const [level, levelUrls] = sendTiers[levelIndex];
         if (levelUrls.length === 0) continue;
         let levelAccepted = 0;
         const result = await submitIndexNowUrlsStreaming(levelUrls, {
@@ -299,30 +311,41 @@ export async function submitToIndexNow(overrides = {}) {
           batchSize: BATCH_SIZE,
           delayMs: 500,
           deadlineMs,
-          onBatch: ({ index, accepted, acceptedUrls }) => {
+          onBatch: ({ accepted, acceptedUrls }) => {
+            globalBatch += 1;
             if (accepted) levelAccepted += acceptedUrls.length;
-            if (index % 10 === 0) {
+            if (globalBatch % 10 === 0) {
               const elapsedSeconds = ((Date.now() - startedAt) / 1_000).toFixed(1);
               console.log(`⏳ IndexNow ${level}: ${levelAccepted}/${levelUrls.length} URL, ${elapsedSeconds}s`);
             }
           },
         });
+        const elapsedSeconds = ((Date.now() - startedAt) / 1_000).toFixed(1);
+        console.log(`⏳ IndexNow ${level}: ${levelAccepted}/${levelUrls.length} URL, ${elapsedSeconds}s (fine livello)`);
         attempted += result.attempted;
         summary.accepted += result.accepted;
-        failed.push(...result.results.filter((item) => !item.ok));
+        summary.failed += result.failed.length;
+        summary.notAttempted += result.notAttempted.length;
+        failedBatches.push(...result.results.filter((item) => !item.ok));
         if (result.stoppedByDeadline) {
           summary.stoppedByDeadline = true;
+          summary.notAttempted += sendTiers
+            .slice(levelIndex + 1)
+            .reduce((count, [, urlsForLevel]) => count + urlsForLevel.length, 0);
           break;
         }
       }
       summary.remaining = total - summary.accepted;
-      if (failed.length > 0) {
-        const details = failed.slice(0, 3).map((result) => `${result.engine || 'endpoint'}:${result.status || result.error || 'failed'}`).join(', ');
-        throw new Error(`${failed.length} IndexNow batch(es) were not accepted (${details})`);
+      if (summary.stoppedByDeadline) {
+        throw new Error('IndexNow budget expired before all URLs were accepted');
+      }
+      if (failedBatches.length > 0) {
+        const details = failedBatches.slice(0, 3).map((result) => `${result.engine || 'endpoint'}:${result.status || result.error || 'failed'}`).join(', ');
+        throw new Error(`${failedBatches.length} IndexNow batch(es) were not accepted (${details})`);
       }
       if (summary.stoppedByDeadline || (attempted < total && Date.now() >= deadlineMs)) {
         summary.stoppedByDeadline = true;
-        throw new Error('IndexNow budget expired before all URLs were attempted');
+        throw new Error('IndexNow budget expired before all URLs were accepted');
       }
       await submitToBingContentApi();
     }

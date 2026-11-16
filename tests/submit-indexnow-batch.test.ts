@@ -24,7 +24,11 @@ import {
   INDEXNOW_SITEMAPS,
   runSubmitToIndexNow,
 } from '../scripts/submit-indexnow.js';
-import { INDEXNOW_KEY, KEY_LOCATION } from '../scripts/lib/indexnow-submit.mjs';
+import {
+  INDEXNOW_KEY,
+  KEY_LOCATION,
+  submitIndexNowUrlsStreaming,
+} from '../scripts/lib/indexnow-submit.mjs';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const BASE = 'https://frontaliereticino.ch/';
@@ -53,6 +57,16 @@ function parseSummaryLog(logs: ReturnType<typeof vi.spyOn>) {
     .find((value) => value.startsWith('[indexnow-summary] '));
   expect(line).toBeTruthy();
   return JSON.parse(line!.slice('[indexnow-summary] '.length));
+}
+
+function fetchPendingUntilAbort(_input: RequestInfo | URL, init?: RequestInit): Promise<Response> {
+  const signal = init?.signal;
+  if (!signal) return Promise.reject(new Error('expected an AbortSignal'));
+  return new Promise((_, reject) => {
+    const rejectOnAbort = () => reject(signal.reason || new DOMException('Aborted', 'AbortError'));
+    if (signal.aborted) rejectOnAbort();
+    else signal.addEventListener('abort', rejectOnAbort, { once: true });
+  });
 }
 
 afterEach(() => {
@@ -295,6 +309,8 @@ describe('tiered post-deploy IndexNow submission', () => {
       digest: 1,
       suppressedArchiveDigest: { sitemaps: 0, urls: 0 },
       accepted: 21,
+      failed: 0,
+      notAttempted: 0,
       remaining: 0,
       stoppedByDeadline: false,
     });
@@ -305,6 +321,8 @@ describe('tiered post-deploy IndexNow submission', () => {
     expect(stepSummary).toContain('| Moved into archive | 0 |');
     expect(stepSummary).toContain('| Moved out of archive | 0 |');
     expect(stepSummary).toContain('| Accepted | 21 |');
+    expect(stepSummary).toContain('| Failed | 0 |');
+    expect(stepSummary).toContain('| Not attempted | 0 |');
     expect(stepSummary).toContain('| Remaining | 0 |');
     expect(logs.mock.calls.some(([value]) => String(value).includes('movedIn=0 movedOut=0'))).toBe(true);
   });
@@ -403,9 +421,173 @@ describe('tiered post-deploy IndexNow submission', () => {
       graph: 1,
       added: 1,
       accepted: 0,
+      failed: 0,
+      notAttempted: 1,
       remaining: 1,
       stoppedByDeadline: true,
     });
     expect(fs.readFileSync(summaryFile, 'utf8')).toContain('| Stopped by deadline | true |');
   });
+
+  it('stops a pending single batch at its deadline and reports the attempted URL as failed', async () => {
+    const url = `${BASE}ricerca/pendente/`;
+    const startedAt = Date.now();
+    vi.stubGlobal('fetch', vi.fn().mockImplementation(fetchPendingUntilAbort));
+
+    const result = await submitIndexNowUrlsStreaming([url], {
+      endpoints: ['https://indexnow.test/indexnow'],
+      delayMs: 0,
+      deadlineMs: startedAt + 100,
+    });
+
+    expect(Date.now() - startedAt).toBeLessThan(2_000);
+    expect(result).toMatchObject({
+      accepted: 0,
+      attempted: 1,
+      remaining: 1,
+      failed: [url],
+      notAttempted: [],
+      stoppedByDeadline: true,
+    });
+  });
+
+  it('does not try later endpoints after the first endpoint reaches the deadline', async () => {
+    const fetchMock = vi.fn().mockImplementation(fetchPendingUntilAbort);
+    vi.stubGlobal('fetch', fetchMock);
+    const startedAt = Date.now();
+
+    const result = await submitIndexNowUrlsStreaming([`${BASE}ricerca/pendente/`], {
+      endpoints: [
+        'https://first.indexnow.test/indexnow',
+        'https://second.indexnow.test/indexnow',
+        'https://third.indexnow.test/indexnow',
+      ],
+      delayMs: 0,
+      deadlineMs: startedAt + 100,
+    });
+
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(result.stoppedByDeadline).toBe(true);
+  });
+
+  it('does not start a retry when a 429 backoff would reach the deadline', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(new Response(null, { status: 429 }));
+    vi.stubGlobal('fetch', fetchMock);
+    const startedAt = Date.now();
+
+    const result = await submitIndexNowUrlsStreaming([`${BASE}ricerca/429/`], {
+      endpoints: ['https://indexnow.test/indexnow'],
+      delayMs: 0,
+      deadlineMs: startedAt + 100,
+    });
+
+    expect(Date.now() - startedAt).toBeLessThan(2_000);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(result.stoppedByDeadline).toBe(true);
+  });
+
+  it('keeps retrying without a deadline', async () => {
+    const fetchMock = vi.fn()
+      .mockResolvedValueOnce(new Response(null, { status: 429 }))
+      .mockResolvedValueOnce(new Response(null, { status: 202 }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const result = await submitIndexNowUrlsStreaming([`${BASE}ricerca/retry/`], {
+      endpoints: ['https://indexnow.test/indexnow'],
+      delayMs: 0,
+    });
+
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(result).toMatchObject({ accepted: 1, remaining: 0, stoppedByDeadline: false });
+  });
+
+  it('returns exit code 1 and prints a stopped summary for a pending final batch', async () => {
+    const url = `${BASE}settore/pendente/`;
+    const current = snapshot({ 'sitemap-sector.xml': [url] }, { 'sitemap-sector.xml': 'new' });
+    const previous = snapshot({ 'sitemap-sector.xml': [] }, { 'sitemap-sector.xml': 'old' });
+    const summaryFile = createSummaryFile();
+    vi.stubEnv('GITHUB_STEP_SUMMARY', summaryFile);
+    vi.stubEnv('INDEXNOW_BUDGET_MS', '100');
+    vi.stubEnv('BING_API_KEY', '');
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input) === KEY_LOCATION) return new Response(INDEXNOW_KEY, { status: 200 });
+      return fetchPendingUntilAbort(input, init);
+    });
+    vi.stubGlobal('fetch', fetchMock);
+    const logs = vi.spyOn(console, 'log').mockImplementation(() => {});
+    const errors = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    const exitCode = await runSubmitToIndexNow({ current, previous });
+
+    expect(exitCode).toBe(1);
+    expect(fetchMock.mock.calls.filter(([input]) => String(input) !== KEY_LOCATION)).toHaveLength(1);
+    expect(errors).toHaveBeenCalledWith('❌ IndexNow submission failed: IndexNow budget expired before all URLs were accepted');
+    expect(parseSummaryLog(logs)).toMatchObject({
+      accepted: 0,
+      failed: 1,
+      notAttempted: 0,
+      remaining: 1,
+      stoppedByDeadline: true,
+    });
+  });
+
+  it('keeps an accepted submission successful when the step summary cannot be written', async () => {
+    const url = `${BASE}settore/accettato/`;
+    const current = snapshot({ 'sitemap-sector.xml': [url] }, { 'sitemap-sector.xml': 'new' });
+    const previous = snapshot({ 'sitemap-sector.xml': [] }, { 'sitemap-sector.xml': 'old' });
+    const summaryDirectory = fs.mkdtempSync(path.join(os.tmpdir(), 'indexnow-tiered-summary-dir-'));
+    temporaryDirectories.push(summaryDirectory);
+    vi.stubEnv('GITHUB_STEP_SUMMARY', path.join(summaryDirectory, 'missing-parent', 'step-summary.md'));
+    vi.stubEnv('INDEXNOW_BUDGET_MS', '60000');
+    vi.stubEnv('BING_API_KEY', '');
+    vi.stubGlobal('fetch', vi.fn(async (input: RequestInfo | URL) => {
+      if (String(input) === KEY_LOCATION) return new Response(INDEXNOW_KEY, { status: 200 });
+      return new Response(null, { status: 202 });
+    }));
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    const exitCode = await runSubmitToIndexNow({ current, previous });
+
+    expect(exitCode).toBe(0);
+    expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('⚠️ IndexNow step summary not written:'));
+  });
+
+  it('reports global batch ten and the end of each non-empty tier', async () => {
+    const added = Array.from({ length: 2_000 }, (_, index) => `${BASE}added/${index}/`);
+    const removed = Array.from({ length: 2_000 }, (_, index) => `${BASE}removed/${index}/`);
+    const digest = Array.from({ length: 2_000 }, (_, index) => `${BASE}digest/${index}/`);
+    const current = snapshot(
+      { 'sitemap-added.xml': added, 'sitemap-removed.xml': [], 'sitemap-topics-it.xml': digest },
+      { 'sitemap-added.xml': 'added-new', 'sitemap-removed.xml': 'removed-unchanged', 'sitemap-topics-it.xml': 'topics-new' },
+    );
+    const previous = snapshot(
+      { 'sitemap-added.xml': [], 'sitemap-removed.xml': removed, 'sitemap-topics-it.xml': digest },
+      { 'sitemap-added.xml': 'added-old', 'sitemap-removed.xml': 'removed-unchanged', 'sitemap-topics-it.xml': 'topics-old' },
+    );
+    vi.stubEnv('INDEXNOW_BUDGET_MS', '60000');
+    vi.stubEnv('BING_API_KEY', '');
+    const fetchMock = vi.fn(async (input: RequestInfo | URL) => {
+      if (String(input) === KEY_LOCATION) return new Response(INDEXNOW_KEY, { status: 200 });
+      return new Response(null, { status: 202 });
+    });
+    vi.stubGlobal('fetch', fetchMock);
+    const logs = vi.spyOn(console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    const exitCode = await runSubmitToIndexNow({ current, previous });
+
+    const progress = logs.mock.calls.map(([value]) => String(value))
+      .filter((value) => value.startsWith('⏳ IndexNow '));
+    expect(exitCode).toBe(0);
+    expect(fetchMock.mock.calls.filter(([, init]) => init?.method === 'POST')).toHaveLength(12);
+    expect(progress).toHaveLength(4);
+    expect(progress.some((line) => /^⏳ IndexNow digest: 1000\/2000 URL, .*s$/.test(line))).toBe(true);
+    expect(progress.filter((line) => line.endsWith('(fine livello)'))).toEqual(expect.arrayContaining([
+      expect.stringContaining('⏳ IndexNow added: 2000/2000 URL'),
+      expect.stringContaining('⏳ IndexNow removed: 2000/2000 URL'),
+      expect.stringContaining('⏳ IndexNow digest: 2000/2000 URL'),
+    ]));
+  }, 15_000);
 });
