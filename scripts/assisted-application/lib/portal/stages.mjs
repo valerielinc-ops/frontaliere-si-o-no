@@ -200,9 +200,16 @@ function brassRingApplicationStartControl(snapshot, applicationEntryProven = fal
   if (fields.length > 0) return null;
   const controls = (snapshot?.buttons || []).filter(button => !button?.chrome && !button?.disabled);
   const applyNow = controls.filter((button) => !button?.href && !button?.formId
-    && (Number(button?.frame) || 0) === 0 && !button?.leavesDocument
+    && validFrameIndex(button?.frame) === 0 && !button?.leavesDocument
     && /^apply now$/iu.test(String(button?.text || button?.label || button?.ariaLabel || '').normalize('NFKC').trim()));
   return applyNow.length === 1 ? applyNow[0] : null;
+}
+
+function validFrameIndex(value) {
+  if (typeof value === 'number') return Number.isSafeInteger(value) && value >= 0 ? value : null;
+  if (typeof value !== 'string' || !/^\d+$/u.test(value)) return null;
+  const parsed = Number(value);
+  return Number.isSafeInteger(parsed) ? parsed : null;
 }
 
 // A SuccessFactors profile/application page may keep the CV in «Meine
