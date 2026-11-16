@@ -517,6 +517,7 @@ describe('locale publish workflow wiring', () => {
         const steps = {
           'pack-locale-source': { outcome: packOutcome },
           'upload-locale-source': { outcome: uploadOutcome },
+          'upload-locale-source-retry': { outcome: uploadOutcome === 'failure' ? 'failure' : 'skipped' },
         };
         const admitted = packOutcome === 'success' && uploadOutcome === 'success';
         const sourceArtifact = evaluate({ locale }, steps);
@@ -525,13 +526,21 @@ describe('locale publish workflow wiring', () => {
           ...steps,
           'package-it-publish-source': { outcome: packOutcome },
           'upload-it-publish-root': { outcome: packOutcome },
+          'upload-it-publish-root-retry': { outcome: packOutcome === 'failure' ? 'failure' : 'skipped' },
           'upload-it-shard-source-plan': { outcome: uploadOutcome },
+          'upload-it-shard-source-plan-retry': { outcome: uploadOutcome === 'failure' ? 'failure' : 'skipped' },
           'upload-it-shard-source-zurigo': { outcome: uploadOutcome },
+          'upload-it-shard-source-zurigo-retry': { outcome: uploadOutcome === 'failure' ? 'failure' : 'skipped' },
           'upload-it-shard-source-svizzera': { outcome: uploadOutcome },
+          'upload-it-shard-source-svizzera-retry': { outcome: uploadOutcome === 'failure' ? 'failure' : 'skipped' },
           'upload-it-shard-source-small-1': { outcome: uploadOutcome },
+          'upload-it-shard-source-small-1-retry': { outcome: uploadOutcome === 'failure' ? 'failure' : 'skipped' },
           'upload-it-shard-source-small-2': { outcome: uploadOutcome },
+          'upload-it-shard-source-small-2-retry': { outcome: uploadOutcome === 'failure' ? 'failure' : 'skipped' },
           'upload-it-shard-source-small-3': { outcome: uploadOutcome },
+          'upload-it-shard-source-small-3-retry': { outcome: uploadOutcome === 'failure' ? 'failure' : 'skipped' },
           'upload-it-shard-source-small-4': { outcome: uploadOutcome },
+          'upload-it-shard-source-small-4-retry': { outcome: uploadOutcome === 'failure' ? 'failure' : 'skipped' },
         });
         expect(itSourceOutcome).toBe(packOutcome === 'success' && uploadOutcome === 'success' ? 'success' : 'failure');
         const source = createLocalePublishProvenance({
@@ -564,6 +573,37 @@ describe('locale publish workflow wiring', () => {
         expect(plan.tailLocales.includes('it')).toBe(packOutcome === 'success' && uploadOutcome === 'success');
       }
     }
+  });
+
+  it('admits source artifacts when a failed first upload succeeds on retry', () => {
+    const write = localeSteps.find((step) => step.name === 'Write locale publish provenance');
+    const expression = String(write?.env.PROVENANCE_SOURCE_ARTIFACT_OUTCOME)
+      .replace(/^\$\{\{\s*|\s*\}\}$/g, '')
+      .replace(/steps\.([\w-]+)\.outcome/g, 'steps["$1"].outcome');
+    const evaluate = new Function('matrix', 'steps', `return (${expression});`);
+    expect(evaluate({ locale: 'en' }, {
+      'pack-locale-source': { outcome: 'success' },
+      'upload-locale-source': { outcome: 'failure' },
+      'upload-locale-source-retry': { outcome: 'success' },
+    })).toBe('success');
+
+    const itSteps: Record<string, { outcome: string }> = {
+      'package-it-publish-source': { outcome: 'success' },
+    };
+    for (const uploadId of [
+      'upload-it-publish-root',
+      'upload-it-shard-source-plan',
+      'upload-it-shard-source-zurigo',
+      'upload-it-shard-source-svizzera',
+      'upload-it-shard-source-small-1',
+      'upload-it-shard-source-small-2',
+      'upload-it-shard-source-small-3',
+      'upload-it-shard-source-small-4',
+    ]) {
+      itSteps[uploadId] = { outcome: 'failure' };
+      itSteps[`${uploadId}-retry`] = { outcome: 'success' };
+    }
+    expect(evaluate({ locale: 'it' }, itSteps)).toBe('success');
   });
 
   it('routes publish through the plan and keeps missing IT provenance fail-closed', () => {

@@ -204,6 +204,64 @@ describe('createAgendaCrawler — crawl()', () => {
     process.exitCode = previousExitCode;
   });
 
+  it('retries a transient network failure once and recovers the page', async () => {
+    const event = { id: 'src:retry', title: 'Recovered event', startDate: '2026-08-01' };
+    let attempts = 0;
+    const fetchImpl = async () => {
+      attempts += 1;
+      if (attempts === 1) throw Object.assign(new Error('socket hang up'), { code: 'ECONNRESET' });
+      return okResponse('<html></html>');
+    };
+    const crawler = createAgendaCrawler(makeConfig({
+      fetchImpl,
+      parseDayHtml: () => [event],
+      iterations: 1,
+      fetchRetryBaseMs: 0,
+    }));
+
+    const result = await crawler.crawl({ dryRun: true });
+
+    expect(attempts).toBe(2);
+    expect(result.pagesOk).toBe(1);
+    expect(result.pagesFail).toBe(0);
+    expect(result.events).toEqual([expect.objectContaining(event)]);
+  });
+
+  it('retries a transient HTTP response but remains fail-closed after exhaustion', async () => {
+    const fetchImpl = vi.fn(async () => ({
+      ok: false,
+      status: 503,
+      text: async () => '',
+    }));
+    const crawler = createAgendaCrawler(makeConfig({
+      fetchImpl,
+      iterations: 1,
+      fetchRetryBaseMs: 0,
+    }));
+
+    const result = await crawler.crawl({ dryRun: true });
+
+    expect(fetchImpl).toHaveBeenCalledTimes(2);
+    expect(result.pagesOk).toBe(0);
+    expect(result.pagesFail).toBe(1);
+    expect(result.written).toBe(false);
+  });
+
+  it('does not retry a persistent HTTP client error', async () => {
+    const fetchImpl = vi.fn(async () => ({
+      ok: false,
+      status: 404,
+      text: async () => '',
+    }));
+    const crawler = createAgendaCrawler(makeConfig({ fetchImpl, iterations: 1, fetchRetryBaseMs: 0 }));
+
+    const result = await crawler.crawl({ dryRun: true });
+
+    expect(fetchImpl).toHaveBeenCalledTimes(1);
+    expect(result.pagesOk).toBe(0);
+    expect(result.pagesFail).toBe(1);
+  });
+
   it('a fetchImpl that throws (e.g. abort) counts as a failed page, not a crash', async () => {
     const fetchImpl = async () => {
       throw new Error('aborted');

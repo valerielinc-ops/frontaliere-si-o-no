@@ -19,6 +19,32 @@ const receipt = { url: receiptUrl, fields: [], text: `Thank you for your applica
 const controls = (snapshot: any) => pageControls(snapshot.buttons, known, snapshot.url, { snapshot, applyUrl, job });
 
 describe('application stage ownership', () => {
+  it('does not accept a malformed frame as the UBS main-frame application entry', () => {
+    const applyUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=42';
+    const button = { id: 'application-entry', text: 'Apply now', section: job.title, frame: 0, disabled: false };
+    const context = {
+      applyUrl,
+      brassRingApplicationEntryProven: true,
+      job: { company: 'UBS', title: job.title },
+    };
+    const fieldless = {
+      url: `${applyUrl}#apply`,
+      text: 'Application. Share Apply now Save',
+      fields: [],
+      buttons: [
+        { text: 'Share', frame: 0, disabled: false },
+        button,
+        { text: 'Save', frame: 0, disabled: false },
+      ],
+    };
+
+    expect(applicationStage(fieldless, context).kind).toBe('application_start');
+    expect(applicationStage({
+      ...fieldless,
+      buttons: fieldless.buttons.map((control) => control === button ? { ...control, frame: 'unknown' } : control),
+    }, context).kind).not.toBe('application_start');
+  });
+
   it.each([
     'Introduce yourself',
     'Initiativbewerbung',

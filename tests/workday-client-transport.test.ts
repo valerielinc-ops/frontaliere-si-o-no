@@ -75,6 +75,34 @@ describe('Workday JSON transport', () => {
     expect(launchStealthOrChromiumMock).not.toHaveBeenCalled();
   });
 
+  it('recovers a retry-exhausted HTTP failure through the browser origin', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    const directFetch = vi.fn().mockResolvedValue(new Response('', { status: 503 }));
+    vi.stubGlobal('fetch', directFetch);
+    const { page, browser } = browserTransport({
+      total: 1,
+      jobPostings: [{ title: 'Swiss role', externalPath: '/job/Zurich/Swiss_R1', locationsText: 'Zurich' }],
+    });
+
+    const jobs = [];
+    for await (const posting of fetchWorkdayJobs(API_BASE, { minDelayMs: 0 })) jobs.push(posting);
+
+    expect(jobs).toHaveLength(1);
+    expect(directFetch).toHaveBeenCalledTimes(2);
+    expect(page.evaluate).toHaveBeenCalledOnce();
+    expect(browser.close).toHaveBeenCalledOnce();
+  });
+
+  it('keeps a retry-exhausted status when the browser fallback is also transient', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('', { status: 503 })));
+    const { page } = browserTransport({});
+    page.evaluate.mockResolvedValue({ status: 503, body: '' });
+
+    const iterator = fetchWorkdayJobs(API_BASE, { minDelayMs: 0 });
+    await expect(iterator.next()).rejects.toMatchObject({ statusCode: 503, retryExhausted: true });
+  });
+
   it('derives a public career page from a tenant-only CXS base', async () => {
     vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
     vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('fetch failed')));

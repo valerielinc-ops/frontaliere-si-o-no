@@ -10798,6 +10798,19 @@ export async function submitViaPortal(ctx) {
   let activeFinalFormGuard = null;
   let enteredFromMatchingPosting = verifiedPostingEntryFor(ctx) || jobRoomApiEntryProven(ctx);
   let workdayApplicationEntryProven = false;
+  let enteredThroughApplicationEntry = false;
+  let applicationEntryUrl = '';
+  const stageEntryProvenance = (url = page?.url?.() || '') => ({
+    workdayApplicationEntryProven,
+    // UBS BrassRing keeps the selected vacancy and its application wizard on
+    // HomeWithPreLoad. Carry the clicked entry only while all three addresses
+    // still prove the same query-bound requisition; any missing or conflicting
+    // posting/entry/current route falls back to unknown_apply.
+    brassRingApplicationEntryProven: enteredThroughApplicationEntry
+      && sameBrassRingPostingAddress(applicationEntryUrl, url)
+      && sameBrassRingPostingAddress(ctx.applyUrl, applicationEntryUrl)
+      && sameBrassRingPostingAddress(ctx.postingUrl, applicationEntryUrl),
+  });
   const clearActiveFinalFormGuard = async () => {
     if (!activeFinalFormGuard?.token) return;
     if (activeFinalFormGuard.frame?.evaluate) {
@@ -10984,7 +10997,7 @@ export async function submitViaPortal(ctx) {
     const snapshot = { ...current, text: await pageText(page), uploadedCv };
     const controls = pageControls(current.buttons, known, page.url(), {
       snapshot, applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
-      workdayApplicationEntryProven, job: ctx.job,
+      ...stageEntryProvenance(page.url()), job: ctx.job,
     });
     if (controls.stage) {
       const stageEvidence = { kind: controls.stage.kind, ...(controls.stage.destination ? { destination: controls.stage.destination } : {}) };
@@ -10998,7 +11011,7 @@ export async function submitViaPortal(ctx) {
     const snapshot = { ...current, text: await pageText(page) };
     const stage = applicationStage(snapshot, {
       applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
-      workdayApplicationEntryProven, job: ctx.job, url: page.url(),
+      ...stageEntryProvenance(page.url()), job: ctx.job, url: page.url(),
     });
     if (stage.kind !== 'receipt') return null;
     const lastStep = evidence.steps.at(-1);
@@ -11246,8 +11259,8 @@ export async function submitViaPortal(ctx) {
       postingVacancyMatched = true;
       startupNavigationHint = '';
     }
-    let enteredThroughApplicationEntry = opened.enteredThroughApplicationEntry === true;
-    let applicationEntryUrl = opened.applicationEntryUrl || '';
+    enteredThroughApplicationEntry = opened.enteredThroughApplicationEntry === true;
+    applicationEntryUrl = opened.applicationEntryUrl || '';
     if (opened.handoff === 'captcha') return await handoff('captcha');
     if (opened.handoff) startupNavigationHint = opened.handoff;
     const initialReceipt = await confirmedReceipt(snapshot);
@@ -11596,7 +11609,8 @@ export async function submitViaPortal(ctx) {
           const targetEntryBound = selectedEntryMatches
             && (samePostingAddress(targetUrl, postingUrl) || targetMatchesPosting);
           const targetStage = applicationStage({ ...targetSnapshot, text: targetText }, {
-            applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job, url: targetUrl,
+            applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
+            ...stageEntryProvenance(targetUrl), job: ctx.job, url: targetUrl,
           });
           const targetHasApplicationFields = (targetSnapshot.fields || []).some(field => !field.disabled
             && !['hidden', 'submit', 'button'].includes(String(field.inputType || '').toLowerCase())
@@ -11847,7 +11861,7 @@ export async function submitViaPortal(ctx) {
       if (existingReceipt) return existingReceipt;
       let currentStage = applicationStage({ ...snapshot, text: await pageText(page) }, {
         applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
-        workdayApplicationEntryProven, job: ctx.job, url: page.url(),
+        ...stageEntryProvenance(page.url()), job: ctx.job, url: page.url(),
       });
       evidence.steps.push({ step, url: page.url(), fields: snapshot.fields.length, errors: snapshot.errors || [] });
       log(`portal step ${step}: ${snapshot.fields.length} fields`);
@@ -11884,7 +11898,8 @@ export async function submitViaPortal(ctx) {
           continue;
         }
         currentStage = applicationStage({ ...snapshot, text: await pageText(page) }, {
-          applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job, url: page.url(),
+          applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
+          ...stageEntryProvenance(page.url()), job: ctx.job, url: page.url(),
         });
       }
       // The portal's own «refresh the page and try again»: loaded again, as it asks.
@@ -11960,7 +11975,7 @@ export async function submitViaPortal(ctx) {
       const openSections = async () => {
         const stage = applicationStage({ ...snapshot, text: await pageText(page) }, {
           applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
-          workdayApplicationEntryProven, job: ctx.job, url: page.url(),
+          ...stageEntryProvenance(page.url()), job: ctx.job, url: page.url(),
         });
         if (stage.kind === 'posting_mismatch') {
           if (!autonomousNavigation) return await handoff('posting_mismatch');
@@ -12830,7 +12845,8 @@ export async function submitViaPortal(ctx) {
       if (duplicateBeforeFinal) return duplicateBeforeFinal;
       const finalText = `${await page.title().catch(() => '')}\n${await pageText(page)}\n${page.url()}`;
       const finalStage = applicationStage({ ...after, text: finalText }, {
-        applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting, job: ctx.job, url: page.url(),
+        applyUrl: ctx.applyUrl, sourceProtocol, postingEntry: enteredFromMatchingPosting,
+        ...stageEntryProvenance(page.url()), job: ctx.job, url: page.url(),
       });
       const finalMatch = await formMatch();
       const expectedJobKey = portalJobKey(ctx.applyUrl, sourceProtocol);

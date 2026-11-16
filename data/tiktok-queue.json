@@ -286,6 +286,56 @@
       ],
       "createdAt": "2026-11-15T15:48:41.761Z",
       "expiresAt": "2026-11-17T03:48:41.761Z"
+    },
+    {
+      "id": "border-2026-11-09",
+      "channel": "tiktok",
+      "kind": "border",
+      "day": "2026-11-09",
+      "caption": "Redditi esteri: un punto da capire in breve\n\nLa classifica delle dogane più veloci del Ticino nella settimana 2026-11-09 – 2026-11-15.\n\n1) Dumenza Cassinone — 0 min\n2) Piaggio Valmara (Cannobio-Brissago) — 0 min\n3) Zenna Dirinella — 0 min\n4) Drezzo Pedrinate — 0 min\n5) Lanzo d'Intelvi Arogno — 0 min\n\nGuarda il video dal link in bio.\n\n#frontalieri #ticino #dogane #confine #svizzera #traffico",
+      "imageUrls": [
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-11-09-0.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-11-09-1.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-11-09-2.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-11-09-3.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-11-09-4.jpg",
+        "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-11-09-5.jpg"
+      ],
+      "video": {
+        "url": "https://cdn.frontaliereticino.ch/images/social/tiktok/border-2026-11-09.mp4",
+        "bytes": 325992,
+        "sha256": "a3b9895df22afd33bc8f2ca98526f73837cab18eb266cc916f1e7af03fd4a82d",
+        "durationMs": 22767,
+        "width": 1080,
+        "height": 1920,
+        "creativeVariant": "carousel-crossfade-v1"
+      },
+      "ledgerEntries": [
+        {
+          "id": "2026-11-09",
+          "kind": "border",
+          "url": "/traffico-dogane/dumenza-cassinone/oggi/",
+          "day": "2026-11-09",
+          "copyMode": "codex",
+          "copySlot": "video",
+          "copyPromptVersion": "frontaliere-social-copy-v5",
+          "copyPackId": "e1e656e043e06845",
+          "copyTemplateId": "tt-video-practical",
+          "copyAssignmentMode": "deterministic",
+          "copyAngleId": "passo-pratico",
+          "copyPillarId": "opportunita-concrete",
+          "copyAngleIntent": "both",
+          "copyHook": "Redditi esteri: un punto da capire in breve",
+          "copyCta": "Guarda il video dal link in bio.",
+          "creativeBaseId": "tiktok-video",
+          "creativeVariant": "carousel-crossfade-v1",
+          "creativeLabel": "Slide con dissolvenza",
+          "creativeFormat": "video",
+          "creativeObjective": "attention-retention"
+        }
+      ],
+      "createdAt": "2026-11-16T17:02:04.706Z",
+      "expiresAt": "2026-11-23T17:02:04.706Z"
     }
   ]
 }

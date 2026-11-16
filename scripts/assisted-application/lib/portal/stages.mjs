@@ -193,6 +193,25 @@ function workdayApplicationStartControl(snapshot, { url = snapshot?.url, applyUr
   return starts[0];
 }
 
+function brassRingApplicationStartControl(snapshot, applicationEntryProven = false) {
+  if (applicationEntryProven !== true) return null;
+  const fields = (snapshot?.fields || []).filter(field => !field?.chrome && !field?.disabled
+    && !['hidden', 'submit', 'button', 'reset', 'image'].includes(String(field?.inputType || '').toLowerCase()));
+  if (fields.length > 0) return null;
+  const controls = (snapshot?.buttons || []).filter(button => !button?.chrome && !button?.disabled);
+  const applyNow = controls.filter((button) => !button?.href && !button?.formId
+    && validFrameIndex(button?.frame) === 0 && !button?.leavesDocument
+    && /^apply now$/iu.test(String(button?.text || button?.label || button?.ariaLabel || '').normalize('NFKC').trim()));
+  return applyNow.length === 1 ? applyNow[0] : null;
+}
+
+function validFrameIndex(value) {
+  if (typeof value === 'number') return Number.isSafeInteger(value) && value >= 0 ? value : null;
+  if (typeof value !== 'string' || !/^\d+$/u.test(value)) return null;
+  const parsed = Number(value);
+  return Number.isSafeInteger(parsed) ? parsed : null;
+}
+
 // A SuccessFactors profile/application page may keep the CV in «Meine
 // Dokumente» and expose no file input in the current snapshot. Only a
 // question-specific label/name may prove the same form; section headings,
@@ -499,6 +518,7 @@ export function applicationStage(snapshot, {
   sourceProtocol = null,
   postingEntry = false,
   workdayApplicationEntryProven = false,
+  brassRingApplicationEntryProven = false,
   job = {},
 } = {}) {
   if (invalidPostingKey(url) || invalidPostingKey(applyUrl, sourceProtocol)) return { kind: 'posting_mismatch' };
@@ -526,7 +546,8 @@ export function applicationStage(snapshot, {
   if (finalReview) return { kind: 'final_review' };
   const pending = NOT_SUBMITTED_APPLICATION_RE.test(text) || PROFILE_CONTINUATION_RE.test(text)
     || incompleteApplication(text) || BEFORE_SEND_RE.test(text);
-  const applicationStart = workdayApplicationStartControl(snapshot, { url, applyUrl });
+  const applicationStart = workdayApplicationStartControl(snapshot, { url, applyUrl })
+    || brassRingApplicationStartControl(snapshot, brassRingApplicationEntryProven);
   if (!pending && applicationStart) return { kind: 'application_start', control: applicationStart };
   const links = buttons.filter(button => GENERIC_APPLY_RE.test(button.text || '') && button.href
     && boundRoute(url, applyUrl, sourceProtocol) && reviewNavigationRoute(button.href, applyUrl, sourceProtocol)

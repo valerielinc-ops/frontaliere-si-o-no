@@ -185,6 +185,96 @@ describe('runner final guard across three application stages', () => {
     expect(f.click).not.toHaveBeenCalled();
   });
 
+  it('continues after a fieldless UBS Apply now click', async () => {
+    const postingUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=42';
+    const posting = {
+      ...snapshot(postingUrl, `${title}. UBS. Share Apply now Save`, [
+        { id: 'share', text: 'Share', frame: 0, disabled: false },
+        { id: 'posting-entry', text: 'Apply now', section: title, frame: 0, disabled: false },
+        { id: 'save', text: 'Save', frame: 0, disabled: false },
+      ]),
+      title: `${title} | UBS`,
+    };
+    const fieldlessApplication = {
+      ...snapshot(`${postingUrl}#apply`, 'Application. Share Apply now Save', [
+        { id: 'share', text: 'Share', frame: 0, disabled: false },
+        { id: 'application-entry', text: 'Apply now', section: title, frame: 0, disabled: false },
+        { id: 'save', text: 'Save', frame: 0, disabled: false },
+      ]),
+      title: `${title} | UBS`,
+    };
+    const applicationForm = {
+      ...snapshot(`${postingUrl}#form`, 'Application details', [
+        { id: 'application-next', text: 'Next', formId: 'application', frame: 0, disabled: false },
+      ]),
+      title: `${title} | UBS`,
+      fields: [
+        { id: 'first', label: 'First Name', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { id: 'last', label: 'Last Name', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+      ],
+    };
+    const finalReview = {
+      ...snapshot(`${postingUrl}#review`, 'Please review the information below. Once you have reviewed, please select Submit to finalise your application.', [
+        { id: 'commit', text: 'Apply', formId: 'application', frame: 0, disabled: false },
+      ]),
+      title: `${title} | UBS`,
+    };
+    const received = {
+      ...snapshot(`${postingUrl}#confirmation`, `Thank you for your application for ${title}.`, []),
+      title: `${title} | UBS`,
+    };
+    let fieldlessEntryClicks = 0;
+    const f = fixture(fieldlessApplication, posting, finalReview, null, {
+      applyUrl: postingUrl,
+      postingUrl,
+      channelType: 'employer_site',
+      job: { company: 'UBS', title },
+      guardUrl: finalReview.url,
+      receiptSnapshot: received,
+      buttonTransitions: {
+        '[data-aa-id="application-entry"]': async () => {
+          fieldlessEntryClicks += 1;
+          if (fieldlessEntryClicks === 3) state.snapshot = applicationForm;
+        },
+        '[data-aa-id="application-next"]': async () => { state.snapshot = finalReview; },
+      },
+    });
+
+    const result = await f.run();
+
+    expect(f.openClick).toHaveBeenCalledOnce();
+    expect(fieldlessEntryClicks).toBe(3);
+    expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
+    expect(f.guard).toHaveBeenCalledOnce();
+    expect(f.click).toHaveBeenCalledOnce();
+
+    const otherPostingUrl = postingUrl.replace('jobid=42', 'jobid=43');
+    const routeConflict = fixture({ ...fieldlessApplication, url: `${otherPostingUrl}#apply` }, posting, finalReview, null, {
+      applyUrl: postingUrl,
+      postingUrl,
+      channelType: 'employer_site',
+      job: { company: 'UBS', title },
+    });
+    const routeConflictResult = await routeConflict.run();
+    expect(routeConflictResult.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(routeConflict.guard).not.toHaveBeenCalled();
+    expect(routeConflict.click).not.toHaveBeenCalled();
+
+    const provenanceConflict = fixture(fieldlessApplication, posting, finalReview, null, {
+      applyUrl: postingUrl,
+      postingUrl: otherPostingUrl,
+      channelType: 'employer_site',
+      job: { company: 'UBS', title },
+      buttonTransitions: {
+        '[data-aa-id="application-entry"]': async () => {},
+      },
+    });
+    const provenanceConflictResult = await provenanceConflict.run();
+    expect(provenanceConflictResult.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
+    expect(provenanceConflict.guard).not.toHaveBeenCalled();
+    expect(provenanceConflict.click).not.toHaveBeenCalled();
+  });
+
   it('waits for a blank Rituals Workday apply route to mount before handing it to the agent', async () => {
     const postingUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033';
     const applyUrl = `${postingUrl}/apply`;
