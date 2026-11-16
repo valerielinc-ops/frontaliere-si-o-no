@@ -1,0 +1,27 @@
+{
+  "companyKey": "beaumier",
+  "companyName": "Grand Hotel Belvedere",
+  "companyHost": "beaumier.flatchr.io",
+  "verifiedEmployerDomain": "beaumier.com",
+  "platform": "flatchr.io",
+  "mode": "template",
+  "seedUrls": [
+    "https://beaumier.flatchr.io/fr/company/beaumier/"
+  ],
+  "detailTemplate": "/fr/company/beaumier/vacancy/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 42,
+  "sampleTitles": [
+    "STAGE : Commis de Salle H/F – Durée : 8 semaines min.",
+    "Attaché(e) Commercial(e) Les Roches Rouges 5★ — Saint-Raphaël, Côte d’Azur",
+    "Voiturier / Bagagiste (H/F) - CDD saison hiver 26/27- poste logé",
+    "Responsable Revenue Management & Réservations (H/F)",
+    "Responsable Opérationnel People & Culture – Alpes (H/F)"
+  ],
+  "canton": "BE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-16T14:23:31.400Z",
+  "candidateKey": "grand-hotel-belvedere@wengen"
+}

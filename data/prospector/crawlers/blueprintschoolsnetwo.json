@@ -1,0 +1,25 @@
+{
+  "companyKey": "blueprintschoolsnetwo",
+  "companyName": "Blueprint Schools Network",
+  "companyHost": "blueprintschoolsnetwo.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://blueprintschoolsnetwo.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Math Tutor - Small Group Instruction - AmeriCorps Paid Fellowship",
+    "Math Tutor - Small Group Instruction - AmeriCorps Paid Fellowship",
+    "Math Tutor - Small Group Instruction - AmeriCorps Service",
+    "Math Tutor - Small Group Instruction - AmeriCorps Service",
+    "Math Tutor - Small Group Instruction - AmeriCorps Service"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-16T14:10:15.502Z",
+  "candidateKey": "blueprintschoolsnetwo@applytojob.com"
+}

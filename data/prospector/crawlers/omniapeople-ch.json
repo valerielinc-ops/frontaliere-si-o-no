@@ -1,0 +1,27 @@
+{
+  "companyKey": "omniapeople-ch",
+  "companyName": "OMNIA PEOPLE AG",
+  "companyHost": "omniapeople.ch",
+  "verifiedEmployerDomain": "omniapeople.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://omniapeople.ch/"
+  ],
+  "detailTemplate": "/stellen/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 27,
+  "sampleTitles": [
+    "Sachbearbeiter Gemeinderatskanzlei",
+    "Kalkulator/in Sanitärtechnik",
+    "Carrosseriespengler/in",
+    "Buchhalter/in mit qualifizierter Berufserfahrung",
+    "Sanitärinstallateur/in"
+  ],
+  "canton": "BS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-16T14:22:28.165Z",
+  "candidateKey": "omnia-people@wallisellen"
+}

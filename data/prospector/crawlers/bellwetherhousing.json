@@ -1,0 +1,24 @@
+{
+  "companyKey": "bellwetherhousing",
+  "companyName": "Bellwether Housing",
+  "companyHost": "bellwetherhousing.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://bellwetherhousing.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Leasing Associate - The Aries at Bitter Lake",
+    "Maintenance Technician I - Graham/Terry & Eagles",
+    "Regional Manager",
+    "Chief Financial Officer"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-16T14:10:04.237Z",
+  "candidateKey": "bellwetherhousing@applytojob.com"
+}

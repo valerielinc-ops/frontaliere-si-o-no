@@ -1,0 +1,27 @@
+{
+  "companyKey": "careers-swissport",
+  "companyName": "Swissport International AG",
+  "companyHost": "careers-swissport.icims.com",
+  "verifiedEmployerDomain": "swissport.com",
+  "platform": "icims.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://careers-swissport.icims.com/jobs/search?ss=1&hashed=-625920382"
+  ],
+  "detailTemplate": "/jobs/*/*/job",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 19,
+  "sampleTitles": [
+    "Job Title Airside Ramp Agent - Manchester airport - PART TIME - UK 9118 - Airside Ramp Agent - Manchester airport - PART TIME - UK",
+    "Job Title Food Prep Agent- Aspire Executive Lounge - Manchester Airport 9117 - Food Prep Agent- Aspire Executive Lounge - Manchester Airport",
+    "Job Title Airside Ramp Agent T4 - FULL TIME - Heathrow Airport 9116 - Airside Ramp Agent T4 - FULL TIME - Heathrow Airport",
+    "Job Title Airside Ramp Agent - FULL TIME - Heathrow Airport 9115 - Airside Ramp Agent - FULL TIME - Heathrow Airport",
+    "Job Title Aircraft Cleaning Agent T2- FULL TIME - Heathrow Airport 9113 - Aircraft Cleaning Agent T2- FULL TIME - Heathrow Airport"
+  ],
+  "canton": "BS",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-16T14:19:48.035Z",
+  "candidateKey": "swissport-international@basel"
+}

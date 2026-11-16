@@ -1,0 +1,25 @@
+{
+  "companyKey": "bitovi",
+  "companyName": "Bitovi",
+  "companyHost": "bitovi.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://bitovi.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Atlassian Practice Lead",
+    "Non-US - Technical Product Owner",
+    "US - Technical Product Owner",
+    "2026 AI Enablement Trainer",
+    "AI Enablement Practice Owner"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-16T14:10:07.037Z",
+  "candidateKey": "bitovi@applytojob.com"
+}
