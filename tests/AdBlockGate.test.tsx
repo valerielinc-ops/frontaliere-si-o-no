@@ -6,6 +6,7 @@ import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 
 import AdBlockGate from '@/components/community/AdBlockGate';
 import { Analytics } from '@/services/analytics';
+import { emitAdDiagnostic } from '@/services/adDiagnostics';
 import { isLikelyBot, isLikelySearchCrawler } from '@/services/botPatterns';
 import { detectAdBlockDetailed } from '@/services/adBlockDetection';
 
@@ -16,6 +17,8 @@ vi.mock('@/services/i18n', () => ({
 vi.mock('@/services/analytics', () => ({
   Analytics: { trackUIInteraction: vi.fn() },
 }));
+
+vi.mock('@/services/adDiagnostics', () => ({ emitAdDiagnostic: vi.fn() }));
 
 vi.mock('@/services/botPatterns', () => ({
   isLikelyBot: vi.fn(() => false),
@@ -46,6 +49,7 @@ const isLikelyBotMock = vi.mocked(isLikelyBot);
 const isLikelySearchCrawlerMock = vi.mocked(isLikelySearchCrawler);
 const detectAdBlockMock = vi.mocked(detectAdBlockDetailed);
 const trackUIInteractionMock = vi.mocked(Analytics.trackUIInteraction);
+const emitAdDiagnosticMock = vi.mocked(emitAdDiagnostic);
 
 describe('AdBlockGate native application offer', () => {
   beforeEach(() => {
@@ -53,6 +57,7 @@ describe('AdBlockGate native application offer', () => {
     isLikelySearchCrawlerMock.mockReturnValue(false);
     detectAdBlockMock.mockResolvedValue(CLEAN);
     trackUIInteractionMock.mockClear();
+    emitAdDiagnosticMock.mockClear();
     delete (window as Window & { __ftNativeApplicationOfferShown?: boolean }).__ftNativeApplicationOfferShown;
     localStorage.clear();
     sessionStorage.clear();
@@ -86,11 +91,14 @@ describe('AdBlockGate native application offer', () => {
 
     const dialog = await screen.findByRole('dialog');
     expect(dialog).toBeInTheDocument();
-    expect(screen.getByRole('heading', { name: /candidature su misura/i })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: /lavoro in svizzera\? lo cerchiamo noi per te/i })).toBeInTheDocument();
     expect(screen.getByText('39,99 €')).toBeInTheDocument();
     expect(screen.getByText(/pagamento unico · senza rinnovo/i)).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Chiudi promozione' })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: 'Continua a leggere' })).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Vuoi continuare a leggere con gli annunci?' })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Ho consentito gli annunci — ricarica' })).toBeInTheDocument();
+    expect(screen.getByText(/Solo tu puoi consentire il sito nelle impostazioni/)).toBeInTheDocument();
     expect(trackUIInteractionMock).toHaveBeenCalledWith(
       'application_concierge',
       'adblock_native_offer',
@@ -99,6 +107,22 @@ describe('AdBlockGate native application offer', () => {
       'adblock_detected',
       'application_concierge.adblock_native_offer.impression',
     );
+  });
+
+  it('opens the localized allowlist steps and reports the action through ad diagnostics', async () => {
+    detectAdBlockMock.mockResolvedValue(BLOCKED);
+    render(<AdBlockGate />);
+    await screen.findByRole('dialog');
+
+    fireEvent.click(screen.getByText('Come consentire gli annunci'));
+    await act(async () => {});
+
+    expect(screen.getByText(/Apri l’icona del blocco pubblicità/)).toBeInTheDocument();
+    expect(screen.getByText(/Metti in pausa su questo sito/)).toBeInTheDocument();
+    expect(emitAdDiagnosticMock).toHaveBeenCalledWith('ad_recovery_action', {
+      action: 'allowlist_help_open',
+      reason: 'adblock_detected',
+    });
   });
 
   it('links to the localized service page with native-ad attribution', async () => {
