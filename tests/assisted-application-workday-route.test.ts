@@ -77,4 +77,20 @@ describe('Workday tenant account routes', () => {
     )).toBe('https://roche.wd3.myworkdayjobs.com/roche-ext/job/Rotkreuz/Associate-Business-Product-Owner_202611-128370-1');
     expect(workdayBareLocaleFallbackUrl(applyUrl)).toBe('');
   });
+
+  it('recognizes Continue Application on a bound Workday requisition route', async () => {
+    const { applicationEntryControls } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
+    const url = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Conseiller-de-Vente--h-f-_R2420';
+    const cont = { text: 'Continue Application', frame: 0 };
+    expect(applicationEntryControls({
+      url,
+      fields: [],
+      buttons: [cont, { text: 'Candidate Home', frame: 0 }],
+    }, { applyUrl: url, postingUrl: url, allowSingleExternalApplicationEntry: true })).toEqual([cont]);
+    expect(applicationEntryControls({
+      url: 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Other/Role_R9999',
+      fields: [],
+      buttons: [cont],
+    }, { applyUrl: url, postingUrl: url, allowSingleExternalApplicationEntry: true })).toEqual([]);
+  });
 });
