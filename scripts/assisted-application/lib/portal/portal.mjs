@@ -4398,21 +4398,25 @@ function workdayEmployerBrandMatches(pageText, job = {}, pageUrl = '') {
  * «Clinica Holistica Engiadina»). Require >= 2 distinctive host words matching
  * the start of `job.company`, present verbatim in `pageText`, plus the job title.
  */
+const SECOND_LEVEL_PUBLIC_SUFFIX_LABELS = new Set(['co', 'com', 'org', 'net', 'edu', 'gov', 'ac']);
+
 function employerHostPrefixMatches(pageText, job = {}, pageUrl = '') {
   let labels = [];
   try {
     const parsed = new URL(String(pageUrl || ''));
-    if (parsed.protocol !== 'https:' && parsed.protocol !== 'http:') return false;
+    if (parsed.protocol !== 'https:') return false;
     labels = parsed.hostname.toLowerCase().split('.').filter(Boolean);
   } catch {
     return false;
   }
   if (labels.length < 2) return false;
-  const domainLabel = labels[labels.length - 2];
-  const hostWords = nameWords(domainLabel);
-  const companyWords = nameWords(job.company);
+  const multiLabelSuffix = labels.length >= 3
+    && labels[labels.length - 1].length === 2
+    && SECOND_LEVEL_PUBLIC_SUFFIX_LABELS.has(labels[labels.length - 2]);
+  const domainLabel = multiLabelSuffix ? labels[labels.length - 3] : labels[labels.length - 2];
+  const hostWords = nameWords(domainLabel).filter((word) => word.length >= 4 && !BRANCH_WORDS.has(word));
+  const companyWords = nameWords(job.company).filter((word) => word.length >= 4 && !BRANCH_WORDS.has(word));
   if (hostWords.length < 2 || companyWords.length <= hostWords.length) return false;
-  if (hostWords.some((word) => word.length < 4 || BRANCH_WORDS.has(word))) return false;
   if (!hostWords.every((word, index) => companyWords[index] === word)) return false;
   const named = ` ${nameWords(pageText).join(' ')} `;
   return named.includes(` ${hostWords.join(' ')} `) && titleMatchesJob(pageText, job);

@@ -4098,6 +4098,16 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
       company: 'Clinica Holistica Engiadina',
       url: clinicaUrl,
     }, clinicaUrl)).toBe('mismatch');
+    expect(postingMatch('Clinica Holistica Hilfskoch', {
+      title: 'Hilfskoch',
+      company: 'Clinica Holistica Foo Engiadina',
+      url: 'https://clinica-holistica-foo.ch/',
+    }, 'https://clinica-holistica-foo.ch/')).toBe('match');
+    expect(postingMatch('Clinica Holistica Hilfskoch', {
+      title: 'Hilfskoch',
+      company: 'Clinica Holistica Engiadina',
+      url: 'https://clinica-holistica.co.uk/',
+    }, 'https://clinica-holistica.co.uk/')).toBe('match');
   });
 
   it('answers unambiguous single-entry Education Degree* and Institution* fields from profile.education', () => {
