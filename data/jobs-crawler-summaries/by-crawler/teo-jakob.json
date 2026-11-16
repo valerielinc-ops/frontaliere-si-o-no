@@ -1,7 +1,7 @@
 {
   "key": "teo-jakob",
   "label": "Einrichtung & Innenarchitektur – Designberatung | teo jakob",
-  "generatedAt": "2026-11-15T21:39:57.648Z",
+  "generatedAt": "2026-11-16T09:22:24.959Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -36,10 +36,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 2644,
-  "avgDurationMs": 2644,
+  "durationMs": 4524,
+  "avgDurationMs": 4524,
   "durationHistory": [
-    2644
+    4524
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -57,7 +57,7 @@
       "url": "https://my.jobalino.ch/job/607e9bf886583eaee25ea4db60baad92/mitarbeiter-fuer-auslieferung-und-montage-80-100",
       "source": "Einrichtung & Innenarchitektur – Designberatung | teo jakob Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:39:47.574Z",
+      "crawledAt": "2026-11-16T09:22:03.121Z",
       "addressLocality": "Liebefeld",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T21:39:47.574Z",
+      "validThrough": "2026-12-16T09:22:03.121Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -91,5 +91,5 @@
       }
     }
   ],
-  "codeCommit": "b0e0a209c23d72cde28658756e39fb5de3eaaca5"
+  "codeCommit": "71e06c4f557e81be4e8743feaa696210bf683ef0"
 }
