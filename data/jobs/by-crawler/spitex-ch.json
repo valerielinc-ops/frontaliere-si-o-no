@@ -1428,12 +1428,12 @@
     },
     {
       "id": "spitex-ch-70572dde7e2f",
-      "slug": "i-love-my-job-fallfuhrende-dipl-pflegefachperson-hf-fh-spitex-nahe-winterthur-80-100-kein",
+      "slug": "adoro-il-mio-lavoro-dipl-infermiera-hf-fh-spitex-vicino-winterthur-80-100-nessun-servizio-notturno-spitex-regioseuzach",
       "slugByLocale": {
         "de": "i-love-my-job-fallfuhrende-dipl-pflegefachperson-hf-fh-spitex-nahe-winterthur-80-100-kein",
-        "it": "i-love-my-job-fallfuhrende-dipl-pflegefachperson-hf-fh-spitex-nahe-winterthur-80-100-kein",
-        "en": "i-love-my-job-fallfuhrende-dipl-pflegefachperson-hf-fh-spitex-nahe-winterthur-80-100-kein",
-        "fr": "i-love-my-job-fallfuhrende-dipl-pflegefachperson-hf-fh-spitex-nahe-winterthur-80-100-kein"
+        "it": "adoro-il-mio-lavoro-dipl-infermiera-hf-fh-spitex-vicino-winterthur-80-100-nessun-servizio-notturno-spitex-regioseuzach",
+        "en": "i-love-my-job-dipl-nurse-hf-fh-spitex-near-winterthur-80-100-no-night-service-spitex-regioseuzach-seuzach",
+        "fr": "j-adore-mon-travail-dipl-infirmiere-hf-fh-spitex-pres-de-winterthur-80-100-pas-de-service-de-nuit-spitex-regioseuzach"
       },
       "company": "Spitex RegioSeuzach",
       "companyKey": "spitex-ch",
@@ -1495,7 +1495,21 @@
       "streetAddress": "Seuzach",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-10-16T21:16:18.499Z"
+      "firstSeenAt": "2026-10-16T21:16:18.499Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "i-love-my-job-fallfuhrende-dipl-pflegefachperson-hf-fh-spitex-nahe-winterthur-80-100-kein"
+        ],
+        "en": [
+          "i-love-my-job-fallfuhrende-dipl-pflegefachperson-hf-fh-spitex-nahe-winterthur-80-100-kein"
+        ],
+        "fr": [
+          "i-love-my-job-fallfuhrende-dipl-pflegefachperson-hf-fh-spitex-nahe-winterthur-80-100-kein"
+        ]
+      },
+      "previousSlugs": [
+        "i-love-my-job-fallfuhrende-dipl-pflegefachperson-hf-fh-spitex-nahe-winterthur-80-100-kein"
+      ]
     },
     {
       "id": "spitex-ch-476c550fac0d",

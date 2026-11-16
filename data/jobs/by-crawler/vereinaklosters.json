@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "vereinaklosters-ba2cf05935e8",
-      "slug": "zimmer-reinigungskraft-m-w-vereina-klosters",
+      "slug": "pulitore-camera-m-f-vereina-klosters",
       "slugByLocale": {
         "de": "zimmer-reinigungskraft-m-w-klosters-vereinaklosters-ch",
-        "it": "zimmer-reinigungskraft-m-w-vereina-klosters",
-        "en": "zimmer-reinigungskraft-m-w-vereina-klosters",
-        "fr": "zimmer-reinigungskraft-m-w-vereina-klosters"
+        "it": "pulitore-camera-m-f-vereina-klosters",
+        "en": "room-cleaner-m-f-vereina-klosters",
+        "fr": "nettoyeur-de-chambre-h-f-vereina-klosters"
       },
       "company": "Vereina",
       "companyKey": "vereinaklosters",
@@ -56,11 +56,19 @@
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "it": [
-          "zimmer-reinigungskraft-m-w-klosters-vereinaklosters-ch"
+          "zimmer-reinigungskraft-m-w-klosters-vereinaklosters-ch",
+          "zimmer-reinigungskraft-m-w-vereina-klosters"
+        ],
+        "en": [
+          "zimmer-reinigungskraft-m-w-vereina-klosters"
+        ],
+        "fr": [
+          "zimmer-reinigungskraft-m-w-vereina-klosters"
         ]
       },
       "previousSlugs": [
-        "zimmer-reinigungskraft-m-w-klosters-vereinaklosters-ch"
+        "zimmer-reinigungskraft-m-w-klosters-vereinaklosters-ch",
+        "zimmer-reinigungskraft-m-w-vereina-klosters"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

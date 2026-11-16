@@ -682,10 +682,10 @@
     },
     {
       "id": "svar-spitalverbund-ar-2033b26f6300",
-      "slug": "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau",
+      "slug": "dipl-carriera-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau",
-        "it": "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau",
+        "it": "dipl-carriera-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "en": "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau",
         "fr": "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau"
       },
@@ -750,14 +750,22 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-16T09:21:22.539Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-11T13:33:11.167Z"
+      "firstSeenAt": "2026-09-11T13:33:11.167Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-5dac55f9c1fa",
-      "slug": "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau",
+      "slug": "dipl-specialista-di-cura-hf-unita-di-cura-acuta-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau",
-        "it": "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau",
+        "it": "dipl-specialista-di-cura-hf-unita-di-cura-acuta-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "en": "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau",
         "fr": "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau"
       },
@@ -822,7 +830,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-16T09:21:21.657Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-11T13:33:10.399Z"
+      "firstSeenAt": "2026-09-11T13:33:10.399Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-300a8f84cab8",

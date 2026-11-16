@@ -16884,7 +16884,7 @@
         "it": "assistente-di-studio-medico-80-luzerner-kantonsspital-luks-luzern",
         "en": "medical-practice-assistant-80-luzerner-kantonsspital-luks-luzern",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
-        "fr": "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
+        "fr": "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -16931,7 +16931,7 @@
       "previousSlugs": [
         "medizinische-praxisassistentin-medizinischer-praxisassistent-80-luks-luzern",
         "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern",
-        "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+        "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16939,7 +16939,7 @@
           "assistente-di-studio-medico-assistente-di-studio-medico-40-60-luzerner-kantonsspital-luks-luzern"
         ],
         "fr": [
-          "assistant-e-en-cabinet-medical-80-luzerner-kantonsspital-luks-luzern"
+          "assistante-medicale-chirurgicale-luzerner-kantonsspital-luks-luzern"
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:36.406Z",
@@ -17950,12 +17950,12 @@
     },
     {
       "id": "luks-5095d38c918c",
-      "slug": "medizinische-fachperson-gesundheitsleitstelle-50-luks-luzern",
+      "slug": "medical-specialista-centro-sanitario-50-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "medizinische-fachperson-gesundheitsleitstelle-50-luks-luzern",
-        "it": "medizinische-fachperson-gesundheitsleitstelle-50-luks-luzern",
-        "en": "medizinische-fachperson-gesundheitsleitstelle-50-luks-luzern",
-        "fr": "medizinische-fachperson-gesundheitsleitstelle-50-luks-luzern"
+        "it": "medical-specialista-centro-sanitario-50-luzerner-kantonsspital-luks-luzern",
+        "en": "medical-specialist-health-center-50-luzerner-kantonsspital-luks-luzern",
+        "fr": "centre-medical-specialise-50-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -18017,7 +18017,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T09:18:36.605Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T09:18:36.605Z"
+      "firstSeenAt": "2026-11-16T09:18:36.605Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-fachperson-gesundheitsleitstelle-50-luks-luzern"
+        ],
+        "en": [
+          "medizinische-fachperson-gesundheitsleitstelle-50-luks-luzern"
+        ],
+        "fr": [
+          "medizinische-fachperson-gesundheitsleitstelle-50-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-fachperson-gesundheitsleitstelle-50-luks-luzern"
+      ]
     },
     {
       "id": "luks-208fdce2b748",

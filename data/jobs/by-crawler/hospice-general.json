@@ -173,12 +173,12 @@
     },
     {
       "id": "hospice-general-96ba4d3d5ce0",
-      "slug": "annonce-test-merci-de-ne-pas-postuler-hospice-general-geneve-switzerland",
+      "slug": "prova-di-annuncio-grazie-per-non-aver-applicato-hospice-general-geneve-switzerland",
       "slugByLocale": {
         "fr": "annonce-test-merci-de-ne-pas-postuler-hospice-general-geneve-switzerland",
-        "it": "annonce-test-merci-de-ne-pas-postuler-hospice-general-geneve-switzerland",
-        "en": "annonce-test-merci-de-ne-pas-postuler-hospice-general-geneve-switzerland",
-        "de": "annonce-test-merci-de-ne-pas-postuler-hospice-general-geneve-switzerland"
+        "it": "prova-di-annuncio-grazie-per-non-aver-applicato-hospice-general-geneve-switzerland",
+        "en": "announcement-test-thank-you-for-not-applying-hospice-general-geneve-switzerland",
+        "de": "ansagetest-vielen-dank-dass-sie-sich-nicht-bewerben-hospice-general-geneve-switzerland"
       },
       "company": "Hospice général",
       "companyKey": "hospice-general",
@@ -241,7 +241,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:16:53.230Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T09:16:53.230Z"
+      "firstSeenAt": "2026-11-16T09:16:53.230Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "annonce-test-merci-de-ne-pas-postuler-hospice-general-geneve-switzerland"
+        ],
+        "en": [
+          "annonce-test-merci-de-ne-pas-postuler-hospice-general-geneve-switzerland"
+        ],
+        "de": [
+          "annonce-test-merci-de-ne-pas-postuler-hospice-general-geneve-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "annonce-test-merci-de-ne-pas-postuler-hospice-general-geneve-switzerland"
+      ]
     },
     {
       "id": "hospice-general-dbc0ccd46f80",

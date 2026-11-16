@@ -527,9 +527,9 @@
       "slug": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
       "slugByLocale": {
         "de": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-        "it": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
-        "en": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
-        "fr": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig"
+        "it": "elettricista-m-f-d-matterhorn-gotthard-bahn-brig",
+        "en": "catenary-fitter-network-electrician-m-f-d-matterhorn-gotthard-bahn-brig",
+        "fr": "electricien-du-reseau-installateur-catenaire-m-f-d-matterhorn-gotthard-bahn-brig"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -594,21 +594,11 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-          "elettricista-m-f-d-matterhorn-gotthard-bahn-brig"
-        ],
-        "en": [
-          "catenary-fitter-network-electrician-m-f-d-matterhorn-gotthard-bahn-brig"
-        ],
-        "fr": [
-          "electricien-du-reseau-installateur-catenaire-m-f-d-matterhorn-gotthard-bahn-brig"
+          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch"
         ]
       },
       "previousSlugs": [
-        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-        "elettricista-m-f-d-matterhorn-gotthard-bahn-brig",
-        "catenary-fitter-network-electrician-m-f-d-matterhorn-gotthard-bahn-brig",
-        "electricien-du-reseau-installateur-catenaire-m-f-d-matterhorn-gotthard-bahn-brig"
+        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch"
       ],
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -630,12 +620,12 @@
     },
     {
       "id": "matterhorn-gotthard-bahn-5a2182b0d5c7",
-      "slug": "installatore-trice-elettrico-a-fachspezialist-elektro-e-sicherungsanlagen-m-w-d-matterhorn-gotthard-bahn-brig",
+      "slug": "installatore-elettrico-specialista-in-impianti-elettrici-e-di-sicurezza-m-f-d-matterhorn-gotthard-bahn-brig",
       "slugByLocale": {
         "de": "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard",
-        "it": "installatore-trice-elettrico-a-fachspezialist-elektro-e-sicherungsanlagen-m-w-d-matterhorn-gotthard-bahn-brig",
-        "en": "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard",
-        "fr": "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard"
+        "it": "installatore-elettrico-specialista-in-impianti-elettrici-e-di-sicurezza-m-f-d-matterhorn-gotthard-bahn-brig",
+        "en": "electrical-installer-specialist-electrical-and-safety-systems-m-f-d-matterhorn-gotthard-bahn-brig",
+        "fr": "installation-electrique-systemes-electriques-et-de-securite-specialises-h-f-d-matterhorn-gotthard-bahn-brig"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -702,11 +692,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard",
+          "installatore-trice-elettrico-a-fachspezialist-elektro-e-sicherungsanlagen-m-w-d-matterhorn-gotthard-bahn-brig"
+        ],
+        "en": [
+          "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard"
+        ],
+        "fr": [
           "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard"
+        "elektroinstallateur-fachspezialist-elektro-und-sicherungsanlagen-m-w-d-matterhorn-gotthard",
+        "installatore-trice-elettrico-a-fachspezialist-elektro-e-sicherungsanlagen-m-w-d-matterhorn-gotthard-bahn-brig"
       ],
       "salaryMin": 71000,
       "salaryMax": 107500,

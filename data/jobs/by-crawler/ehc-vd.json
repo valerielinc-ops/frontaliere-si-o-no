@@ -580,7 +580,7 @@
       "slug": "offerta-di-lavoro-fisioterapia-ergoterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "it": "offerta-di-lavoro-fisioterapia-ergoterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "en": "unsolicited-offer-physiotherapy-ergotherapy-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "offre-spontanee-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges",
         "de": "freiwillige-stellenanzeige-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "offre-spontanee-physiotherapie-ergotherapie-ehc-vd-morges"
       },
@@ -648,7 +648,7 @@
         "spontaneous-job-offer-physiotherapy-occupational-therapy-ensemble-hospitalier-de-la-cote-ehc-morges",
         "spontaneous-offer-physiotherapy-occupational-therapy-ensemble-hospitalier-de-la-cote-ehc-morges",
         "offre-spontanee-physiotherapie-ergotherapie-ehc-vd-morges",
-        "offre-spontanee-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "unsolicited-offer-physiotherapy-ergotherapy-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -657,7 +657,7 @@
         "en": [
           "spontaneous-job-offer-physiotherapy-occupational-therapy-ensemble-hospitalier-de-la-cote-ehc-morges",
           "spontaneous-offer-physiotherapy-occupational-therapy-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "offre-spontanee-physiotherapie-ergotherapie-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "unsolicited-offer-physiotherapy-ergotherapy-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.978Z",
@@ -1278,7 +1278,7 @@
       "slugByLocale": {
         "it": "medico-generico-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "general-practitioner-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "allgemeiner-arzt-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "medecin-generaliste-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "medecin-generaliste-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -1349,7 +1349,7 @@
         "allgemeinmediziner-in-ensemble-hospitalier-de-la-cote-ehc-morges",
         "praktische-arztin-ensemble-hospitalier-de-la-cote-ehc-morges",
         "medecin-generaliste-ehc-vd-morges",
-        "medecin-generaliste-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "allgemeiner-arzt-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1358,7 +1358,7 @@
         "de": [
           "allgemeinmediziner-in-ensemble-hospitalier-de-la-cote-ehc-morges",
           "praktische-arztin-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "medecin-generaliste-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "allgemeiner-arzt-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.972Z",
@@ -5210,12 +5210,12 @@
     },
     {
       "id": "ehc-vd-29c458e97c84",
-      "slug": "ergotherapeute-ctr-f-h-ehc-vd-aubonne",
+      "slug": "ergoterapisti-ctr-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
       "slugByLocale": {
         "fr": "ergotherapeute-ctr-f-h-ehc-vd-aubonne",
-        "it": "ergotherapeute-ctr-f-h-ehc-vd-aubonne",
-        "en": "ergotherapeute-ctr-f-h-ehc-vd-aubonne",
-        "de": "ergotherapeute-ctr-f-h-ehc-vd-aubonne"
+        "it": "ergoterapisti-ctr-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "en": "ergotherapist-ctr-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "de": "ergotherapeutische-ctr-m-w-ensemble-hospitalier-de-la-cote-ehc-aubonne"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -5277,7 +5277,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:16:09.332Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T09:16:09.332Z"
+      "firstSeenAt": "2026-11-16T09:16:09.332Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ergotherapeute-ctr-f-h-ehc-vd-aubonne"
+        ],
+        "en": [
+          "ergotherapeute-ctr-f-h-ehc-vd-aubonne"
+        ],
+        "de": [
+          "ergotherapeute-ctr-f-h-ehc-vd-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "ergotherapeute-ctr-f-h-ehc-vd-aubonne"
+      ]
     },
     {
       "id": "ehc-vd-f185fbdab1d9",
@@ -5709,12 +5723,12 @@
     },
     {
       "id": "ehc-vd-141a7d99a9e9",
-      "slug": "durabilite-et-projets-environnementaux-dans-le-secteur-hospitalier-ehc-vd-morges",
+      "slug": "sostenibilita-e-progetti-ambientali-nel-settore-ospedaliero-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "fr": "durabilite-et-projets-environnementaux-dans-le-secteur-hospitalier-ehc-vd-morges",
-        "it": "durabilite-et-projets-environnementaux-dans-le-secteur-hospitalier-ehc-vd-morges",
-        "en": "durabilite-et-projets-environnementaux-dans-le-secteur-hospitalier-ehc-vd-morges",
-        "de": "durabilite-et-projets-environnementaux-dans-le-secteur-hospitalier-ehc-vd-morges"
+        "it": "sostenibilita-e-progetti-ambientali-nel-settore-ospedaliero-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "sustainability-and-environmental-projects-in-the-hospital-sector-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "nachhaltigkeits-und-umweltprojekte-im-krankenhausbereich-ensemble-hospitalier-de-la-cote-ehc-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -5776,14 +5790,28 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:16:09.303Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T09:16:09.303Z"
+      "firstSeenAt": "2026-11-16T09:16:09.303Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "durabilite-et-projets-environnementaux-dans-le-secteur-hospitalier-ehc-vd-morges"
+        ],
+        "en": [
+          "durabilite-et-projets-environnementaux-dans-le-secteur-hospitalier-ehc-vd-morges"
+        ],
+        "de": [
+          "durabilite-et-projets-environnementaux-dans-le-secteur-hospitalier-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "durabilite-et-projets-environnementaux-dans-le-secteur-hospitalier-ehc-vd-morges"
+      ]
     },
     {
       "id": "ehc-vd-3e11ddc8c005",
-      "slug": "fellowship-en-antalgie-f-h-ehc-vd-morges",
+      "slug": "fellowship-in-antalgia-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "fr": "fellowship-en-antalgie-f-h-ehc-vd-morges",
-        "it": "fellowship-en-antalgie-f-h-ehc-vd-morges",
+        "it": "fellowship-in-antalgia-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "fellowship-en-antalgie-f-h-ehc-vd-morges",
         "de": "fellowship-en-antalgie-f-h-ehc-vd-morges"
       },
@@ -5847,7 +5875,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:16:09.299Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T09:16:09.299Z"
+      "firstSeenAt": "2026-11-16T09:16:09.299Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fellowship-en-antalgie-f-h-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "fellowship-en-antalgie-f-h-ehc-vd-morges"
+      ]
     },
     {
       "id": "ehc-vd-d2d64455dd11",

@@ -3703,12 +3703,12 @@
     },
     {
       "id": "spital-maennedorf-84cea8ca01db",
-      "slug": "teamleiter-op-bettendisposition-100-m-w-d-spital-mannedorf-mannedorf",
+      "slug": "team-leader-op-bed-disposition-100-m-f-d-spital-mannedorf-mannedorf",
       "slugByLocale": {
         "de": "teamleiter-op-bettendisposition-100-m-w-d-spital-maennedorf-ch",
-        "it": "teamleiter-op-bettendisposition-100-m-w-d-spital-mannedorf-mannedorf",
+        "it": "team-leader-op-bed-disposition-100-m-f-d-spital-mannedorf-mannedorf",
         "en": "teamleiter-op-bettendisposition-100-m-w-d-spital-mannedorf-mannedorf",
-        "fr": "teamleiter-op-bettendisposition-100-m-w-d-spital-mannedorf-mannedorf"
+        "fr": "chef-d-equipe-op-bed-disposition-100-h-f-d-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
       "companyKey": "spital-maennedorf",
@@ -3758,11 +3758,16 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-op-bettendisposition-100-m-w-d-spital-maennedorf-ch"
+          "teamleiter-op-bettendisposition-100-m-w-d-spital-maennedorf-ch",
+          "teamleiter-op-bettendisposition-100-m-w-d-spital-mannedorf-mannedorf"
+        ],
+        "fr": [
+          "teamleiter-op-bettendisposition-100-m-w-d-spital-mannedorf-mannedorf"
         ]
       },
       "previousSlugs": [
-        "teamleiter-op-bettendisposition-100-m-w-d-spital-maennedorf-ch"
+        "teamleiter-op-bettendisposition-100-m-w-d-spital-maennedorf-ch",
+        "teamleiter-op-bettendisposition-100-m-w-d-spital-mannedorf-mannedorf"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

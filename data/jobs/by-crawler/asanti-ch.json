@@ -615,8 +615,8 @@
       "slugByLocale": {
         "de": "service-spezialist-technischer-mitarbeiter-automobil-100-5400-region-baden-asanti-ch-ch",
         "it": "service-spezialist-technischer-collaboratore-trice-automobil-100-asanti-ag-baden",
-        "en": "service-spezialist-technischer-mitarbeiter-automobil-100-5400-region-baden-asanti-ch-ch",
-        "fr": "service-spezialist-technischer-mitarbeiter-automobil-100-5400-region-baden-asanti-ch-ch"
+        "en": "service-specialist-technical-employee-automotive-100-asanti-ag-5400-region-baden",
+        "fr": "specialiste-du-service-employe-technique-automobile-100-asanti-ag-5400-region-baden"
       },
       "company": "Asanti AG",
       "companyKey": "asanti-ch",
@@ -662,6 +662,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "service-spezialist-technischer-mitarbeiter-automobil-100-5400-region-baden-asanti-ch-ch"
+        ],
+        "en": [
+          "service-spezialist-technischer-mitarbeiter-automobil-100-5400-region-baden-asanti-ch-ch"
+        ],
+        "fr": [
           "service-spezialist-technischer-mitarbeiter-automobil-100-5400-region-baden-asanti-ch-ch"
         ]
       },
