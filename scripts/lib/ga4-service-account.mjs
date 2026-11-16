@@ -11,14 +11,14 @@ export function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
-export async function fetchRetry(url, options = {}, retries = 2, timeoutMs = 0) {
+export async function fetchRetry(url, options = {}, retries = 2, timeoutMs = 0, fetchImpl = fetch) {
   for (let attempt = 1; attempt <= retries + 1; attempt++) {
     try {
       const fetchOptions = { ...options };
       if (timeoutMs > 0) {
         fetchOptions.signal = AbortSignal.timeout(timeoutMs);
       }
-      const res = await fetch(url, fetchOptions);
+      const res = await fetchImpl(url, fetchOptions);
       if (res.ok) return res;
       if ((res.status === 429 || res.status >= 500) && attempt <= retries) {
         const delay = res.status === 429 ? 10000 * attempt : 2000 * attempt;
@@ -84,11 +84,12 @@ export async function runGa4Report({
   if (!token) throw new Error('no service-account token');
   const raw = propertyId || process.env.GA4_PROPERTY_ID || DEFAULT_GA4_PROPERTY_ID;
   const property = raw.startsWith('properties/') ? raw : `properties/${raw}`;
-  const res = await fetchImpl(`https://analyticsdata.googleapis.com/v1beta/${property}:runReport`, {
+  const url = `https://analyticsdata.googleapis.com/v1beta/${property}:runReport`;
+  const res = await fetchRetry(url, {
     method: 'POST',
     headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
-  });
+  }, 2, 0, fetchImpl);
   if (!res.ok) throw new Error(`GA4 ${res.status}: ${(await res.text()).slice(0, 300)}`);
   const data = await res.json();
   if (data.error) throw new Error(`GA4: ${JSON.stringify(data.error).slice(0, 300)}`);
