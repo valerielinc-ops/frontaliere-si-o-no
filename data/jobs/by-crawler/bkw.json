@@ -9709,7 +9709,7 @@
         "de": "spezialist-in-engineering-alle-bkw-ch-06j0xi",
         "it": "spezialist-in-engineering-alle-bkw-oberkirch",
         "en": "specialist-engineering-all-bkw-oberkirch",
-        "fr": "spezialist-in-engineering-alle-bkw-oberkirch"
+        "fr": "specialiste-en-ingenierie-tous-bkw-oberkirch"
       },
       "company": "BKW",
       "companyKey": "bkw",
@@ -9763,15 +9763,11 @@
         ],
         "de": [
           "spezialist-in-engineering-alle-bkw-ch"
-        ],
-        "fr": [
-          "specialiste-en-ingenierie-tous-bkw-oberkirch"
         ]
       },
       "previousSlugs": [
         "spezialist-in-engineering-alle-bkw-ch",
-        "ingegneria-specialistica-tutti-bkw-oberkirch",
-        "specialiste-en-ingenierie-tous-bkw-oberkirch"
+        "ingegneria-specialistica-tutti-bkw-oberkirch"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -15461,7 +15457,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-efz-alle-bkw-ch"
@@ -24258,7 +24253,6 @@
           "business-process-manager-governance-alle-bkw-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-11-09T09:25:30.922Z",
       "salaryMin": 94500,
       "salaryMax": 143000,

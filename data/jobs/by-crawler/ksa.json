@@ -245,7 +245,7 @@
       "slugByLocale": {
         "it": "salute-professionale-kantonsspital-aarau-ksa-aarau-917953",
         "en": "professional-health-kantonsspital-aarau-ksa-aarau-917953",
-        "de": "fachfrau-fachmann-gesundheit-ksa-ch",
+        "de": "fachfrau-fachmann-gesundheit-ksa-ch-9zti7s",
         "fr": "sante-professionnelle-kantonsspital-aarau-ksa-aarau-917953"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -348,6 +348,7 @@
         ],
         "de": [
           "fachfrau-mann-gesundheit-ksa-ch",
+          "fachfrau-fachmann-gesundheit-ksa-ch",
           "fachfrau-fachmann-gesundheit-ksa-ch-9zti7t",
           "fachfrau-fachmann-gesundheit-ksa-ch-9zti75"
         ],
@@ -715,7 +716,7 @@
       "slugByLocale": {
         "it": "dipl-infermiera-nurse-professionale-kantonsspital-aarau-ksa-aarau",
         "en": "dipl-nurse-nurse-professional-kantonsspital-aarau-ksa-aarau",
-        "de": "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "de": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9zu4cg",
         "fr": "dipl-infirmiere-infirmiere-professionnelle-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -829,9 +830,9 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch-4"
         ],
         "de": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9zu4cg",
           "dipl-pflegefachfrau-pflegefachmann-onkologie-hamatologie-ksa-ch",
-          "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau"
+          "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
           "dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-kantonsspital-aarau-ksa-aarau",
@@ -2221,7 +2222,7 @@
       "slugByLocale": {
         "it": "cura-della-leadership-del-team-kantonsspital-aarau-ksa-aarau",
         "en": "team-leadership-care-kantonsspital-aarau-ksa-aarau",
-        "de": "teamleitung-pflege-ksa-ch",
+        "de": "teamleitung-pflege-ksa-ch-9zti73",
         "fr": "soins-de-direction-de-l-equipe-kantonsspital-aarau-ksa-aarau"
       },
       "company": "Kantonsspital Aarau (KSA)",
@@ -2291,7 +2292,8 @@
         ],
         "de": [
           "teamleitung-onkologie-hamatologie-ksa-ch",
-          "teamleitung-pflege-kantonsspital-aarau-ksa-aarau"
+          "teamleitung-pflege-kantonsspital-aarau-ksa-aarau",
+          "teamleitung-pflege-ksa-ch"
         ],
         "fr": [
           "teamleitung-pflege-kantonsspital-aarau-ksa-aarau",
@@ -2325,8 +2327,8 @@
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-ksa-ch",
         "it": "salute-professionale-kantonsspital-aarau-ksa-aarau-430337",
-        "en": "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
-        "fr": "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau"
+        "en": "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau-9zti9m",
+        "fr": "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau-9zti9m"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -2380,16 +2382,19 @@
           "fachfrau-fachmann-gesundheit-ksa-ch"
         ],
         "en": [
-          "health-professional-kantonsspital-aarau-ksa-aarau"
+          "health-professional-kantonsspital-aarau-ksa-aarau",
+          "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau"
+          "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau",
+          "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-ksa-ch",
         "health-professional-kantonsspital-aarau-ksa-aarau",
-        "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau"
+        "professionnels-de-la-sante-kantonsspital-aarau-ksa-aarau",
+        "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -2780,7 +2785,6 @@
         "de": []
       },
       "department": "Kantonsspital Aarau AG",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistent-in-ksa-ch",
@@ -4201,7 +4205,7 @@
       "id": "ksa-6cf6025271ef",
       "slug": "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "de": "fachfrau-fachmann-gesundheit-ksa-ch",
+        "de": "fachfrau-fachmann-gesundheit-ksa-ch-9zti70",
         "it": "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
         "en": "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
         "fr": "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau"
@@ -4260,6 +4264,9 @@
         ],
         "fr": [
           "specialiste-de-la-sante-kantonsspital-aarau-ksa-aarau"
+        ],
+        "de": [
+          "fachfrau-fachmann-gesundheit-ksa-ch"
         ]
       },
       "previousSlugs": [
@@ -4291,7 +4298,7 @@
       "id": "ksa-f360db5a8dff",
       "slug": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "de": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9ztmiv",
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2",
         "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2"
@@ -4357,7 +4364,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T21:20:23.780Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-01T10:13:55.101Z"
+      "firstSeenAt": "2026-09-01T10:13:55.101Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        ]
+      }
     },
     {
       "id": "ksa-d29a39d12c6a",
@@ -4725,10 +4740,10 @@
       "id": "ksa-55d25c285595",
       "slug": "salute-professionale-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
-        "de": "fachfrau-fachmann-gesundheit-ksa-ch",
+        "de": "fachfrau-fachmann-gesundheit-ksa-ch-9zti67",
         "it": "salute-professionale-kantonsspital-aarau-ksa-aarau",
-        "en": "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau",
-        "fr": "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau"
+        "en": "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau-9zti67",
+        "fr": "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau-9zti67"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -4779,16 +4794,22 @@
           "fachfrau-fachmann-gesundheit-ksa-ch"
         ],
         "en": [
-          "professional-health-kantonsspital-aarau-ksa-aarau"
+          "professional-health-kantonsspital-aarau-ksa-aarau",
+          "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau"
         ],
         "fr": [
-          "sante-professionnelle-kantonsspital-aarau-ksa-aarau"
+          "sante-professionnelle-kantonsspital-aarau-ksa-aarau",
+          "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau"
+        ],
+        "de": [
+          "fachfrau-fachmann-gesundheit-ksa-ch"
         ]
       },
       "previousSlugs": [
         "fachfrau-fachmann-gesundheit-ksa-ch",
         "professional-health-kantonsspital-aarau-ksa-aarau",
-        "sante-professionnelle-kantonsspital-aarau-ksa-aarau"
+        "sante-professionnelle-kantonsspital-aarau-ksa-aarau",
+        "fachfrau-fachmann-gesundheit-kantonsspital-aarau-ksa-aarau"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -6645,7 +6666,7 @@
       "slug": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
       "slugByLocale": {
         "de": "med-praxisassistent-in-ksa-ch",
-        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau",
+        "fr": "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau-9ztlty",
         "it": "med-assistente-pratico-kantonsspital-aarau-ksa-aarau",
         "en": "med-practical-assistant-kantonsspital-aarau-ksa-aarau"
       },
@@ -6693,14 +6714,17 @@
         "de": []
       },
       "department": "Kantonsspital Aarau AG",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "med-praxisassistent-in-ksa-ch"
+        ],
+        "fr": [
+          "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
         ]
       },
       "previousSlugs": [
-        "med-praxisassistent-in-ksa-ch"
+        "med-praxisassistent-in-ksa-ch",
+        "med-praxisassistent-in-kantonsspital-aarau-ksa-aarau"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -6728,7 +6752,7 @@
         "de": "dipl-pflegefachfrau-pflegefachmann-kantonsspital-aarau-ksa-aarau",
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
       },
       "company": "Kantonsspital Aarau (KSA)",
       "companyKey": "ksa",
@@ -6782,12 +6806,12 @@
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ],
         "fr": [
-          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
         ]
       },
       "previousSlugs": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8-9zu4ig"
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch-8"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -6894,7 +6918,7 @@
       "id": "ksa-4a3dfe29c57c",
       "slug": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "de": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9zthjn",
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3",
         "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3"
@@ -6960,7 +6984,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-31T21:20:23.779Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-01T10:13:55.101Z"
+      "firstSeenAt": "2026-09-01T10:13:55.101Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        ]
+      }
     },
     {
       "id": "ksa-2edaf3a20cf4",
@@ -7141,7 +7173,7 @@
       "id": "ksa-27efb3fff7aa",
       "slug": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-4",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "de": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9zthep",
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-4",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-4",
         "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-4"
@@ -7207,7 +7239,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T21:20:23.779Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-01T10:13:55.101Z"
+      "firstSeenAt": "2026-09-01T10:13:55.101Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        ]
+      }
     },
     {
       "id": "ksa-9867f9571ac9",
@@ -8038,7 +8078,7 @@
       "id": "ksa-ca1b2cd14571",
       "slug": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "de": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9zthdo",
         "it": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5",
         "en": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5",
         "fr": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-5"
@@ -8104,7 +8144,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-07T21:20:23.778Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-01T10:13:55.101Z"
+      "firstSeenAt": "2026-09-01T10:13:55.101Z",
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        ]
+      }
     },
     {
       "id": "ksa-968b793c93c3",
@@ -8201,7 +8249,7 @@
       "id": "ksa-45485fa256ef",
       "slug": "salute-professionale-kantonsspital-aarau-ksa-aarau-d76b02",
       "slugByLocale": {
-        "de": "fachfrau-fachmann-gesundheit-ksa-ch",
+        "de": "fachfrau-fachmann-gesundheit-ksa-ch-9zti72",
         "it": "salute-professionale-kantonsspital-aarau-ksa-aarau-d76b02",
         "en": "professional-health-kantonsspital-aarau-ksa-aarau-d76b02",
         "fr": "sante-professionnelle-kantonsspital-aarau-ksa-aarau-d76b02"
@@ -8252,6 +8300,9 @@
       "department": "Kantonsspital Aarau AG",
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-fachmann-gesundheit-ksa-ch"
+        ],
+        "de": [
           "fachfrau-fachmann-gesundheit-ksa-ch"
         ]
       },
@@ -8362,7 +8413,7 @@
       "id": "ksa-ed9eb4d484f7",
       "slug": "dipl-infermieristica-professionale-infermieristica-kantonsspital-aarau-ksa-aarau-971f25",
       "slugByLocale": {
-        "de": "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+        "de": "dipl-pflegefachfrau-pflegefachmann-ksa-ch-9zti74",
         "it": "dipl-infermieristica-professionale-infermieristica-kantonsspital-aarau-ksa-aarau-971f25",
         "en": "dipl-nursing-professional-nursing-professional-kantonsspital-aarau-ksa-aarau",
         "fr": "dipl-professionnels-des-soins-infirmiers-professionnels-des-soins-infirmiers-kantonsspital-aarau-ksa-aarau-971f25"
@@ -8413,6 +8464,9 @@
       "department": "Pilot ohne Motivationsbrief",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
+        ],
+        "de": [
           "dipl-pflegefachfrau-pflegefachmann-ksa-ch"
         ]
       },
