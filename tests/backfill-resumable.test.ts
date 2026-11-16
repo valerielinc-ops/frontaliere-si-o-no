@@ -562,7 +562,7 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(result.events).not.toContain('crawler:beta:complete');
     expect(result.events).toContain('push:active:alpha');
     expect(result.events.some((event) => event.startsWith('dispatch:'))).toBe(true);
-    expect(result.progress.split('\t')).toEqual([hashWorkset(['alpha', 'beta']), 'alpha', 'active']);
+    expect(result.progress.split('\t')).toEqual(progressLine(['alpha', 'beta'], 'alpha', 'active').trim().split('\t'));
     expect(result.stdout).toContain('queueing the remaining crawler workset');
     expect(result.outputs).toEqual(['continuation_required=true']);
   });
@@ -582,14 +582,13 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(completed.outputs).toEqual(['continuation_required=false']);
 
     const steps = parseYaml(workflow).jobs.backfill.steps as Array<{ name?: string; if?: string }>;
-    for (const name of [
-      'Reassemble dataset (so the test gate has data/jobs.json; not committed)',
-      'Test gate (bot-direct-to-main — validate before deploy)',
-      'Record self-driven deploy handoff after validated backfill',
-    ]) {
-      const step = steps.find((candidate) => candidate.name === name);
-      expect(step?.if, name).toContain("steps.backfill.outputs.continuation_required == 'false'");
-    }
+    expect(steps.some((step) => step.name === 'Reassemble dataset (so the test gate has data/jobs.json; not committed)'))
+      .toBe(false);
+    expect(steps.some((step) => step.name === 'Test gate (bot-direct-to-main — validate before deploy)'))
+      .toBe(false);
+    const handoff = steps.find((step) => step.name === 'Record self-driven deploy handoff after validated backfill');
+    expect(handoff?.if).toContain("steps.backfill.outputs.continuation_required == 'false'");
+    expect(handoff?.if).not.toContain('backfill_tests');
   });
 
   it('checkpoints prior crawler output after a later crawler errors and keeps the run failed', () => {
