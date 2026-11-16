@@ -702,7 +702,7 @@ describe('rehydrate-trunk-guard.sh — structural invariants', () => {
     const end = guard.slice(guard.indexOf('trunk_replace_end()'), guard.indexOf('trunk_guard_verdict()'));
     expect(end.indexOf('trunk_url_twin')).toBeLessThan(end.indexOf('lost=$((lost + 1))'));
     // The re-spelling is reported, not swallowed.
-    expect(end).toContain('answer the same url from the shard');
+    expect(end).toContain('Same url, other spelling');
   });
 
   it('refuses to derive an empty subtree from a missing slug (an empty $sub means rm -rf dist/)', () => {
