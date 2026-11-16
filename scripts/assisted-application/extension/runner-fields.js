@@ -469,7 +469,10 @@ function nativeQuestionText(value, counter = null) {
       if (legendText) return legendText;
     }
     const accessibleDescription = accessibleDescriptionFor(element);
-    if (!accessibleDescription.ambiguous && accessibleDescription.text) return accessibleDescription.text;
+    // An unresolved accessible reference is not evidence for a nearby name or
+    // generated id. Keep the question unknown until the live form can be read.
+    if (accessibleDescription.ambiguous) return '';
+    if (accessibleDescription.text) return accessibleDescription.text;
     const placeholder = element.getAttribute('placeholder');
     if (placeholder) return clean(placeholder);
     const ownContext = hasSingleQuestionContext(element, group);
