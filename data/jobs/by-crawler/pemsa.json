@@ -9108,15 +9108,7 @@
       },
       "postalCode": "6900",
       "firstSeenAt": "2026-09-08T13:41:50.002Z",
-      "streetAddress": "Lugano",
-      "streetAddressSource": "to-enrich",
-      "validThroughSource": "source",
-      "crawledAt": "2026-11-16T09:27:28.152Z",
-      "crawledAtSource": "slice-writer",
       "previousSlugsByLocale": {
-        "it": [
-          "saldatore-tubista-pemsa-lugano"
-        ],
         "en": [
           "saldatore-tubista-pemsa-lugano-uq96lw"
         ],
@@ -9125,12 +9117,20 @@
         ],
         "fr": [
           "saldatore-tubista-pemsa-lugano-uq96lw"
+        ],
+        "it": [
+          "saldatore-tubista-pemsa-lugano"
         ]
       },
       "previousSlugs": [
         "saldatore-tubista-pemsa-lugano",
         "saldatore-tubista-pemsa-lugano-uq96lw"
-      ]
+      ],
+      "streetAddress": "Lugano",
+      "streetAddressSource": "to-enrich",
+      "validThroughSource": "source",
+      "crawledAt": "2026-11-16T09:27:28.152Z",
+      "crawledAtSource": "slice-writer"
     },
     {
       "title": "Installatore impianti ventilazione",
