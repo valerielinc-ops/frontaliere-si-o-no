@@ -172,7 +172,23 @@ jobs:
     # publish even when a quality walk is slow.
     timeout-minutes: 350
     steps:
+      # The weekly full replay does not audit the source-image tree. A sparse
+      # checkout also keeps those blobs out of the local object store; deleting
+      # public/images after a full checkout would free the worktree but retain
+      # the same disk pressure in .git. Keep arbitrary replays unrestricted
+      # because they may explicitly audit source images.
+      - name: Checkout weekly full audit source without source-only images
+        if: ${{ inputs.prune_source_images }}
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.deploy_ref }}
+          sparse-checkout: |
+            /*
+            !/public/images/
+          sparse-checkout-cone-mode: false
+
       - name: Checkout repo (for audit scripts only)
+        if: ${{ !inputs.prune_source_images }}
         uses: actions/checkout@v7
         with:
           ref: ${{ inputs.deploy_ref }}
