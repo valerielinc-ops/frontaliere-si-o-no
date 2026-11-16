@@ -1246,6 +1246,40 @@ describe('deploy-publish.yml — il #5331 abort e il budget del gate sono colleg
   });
 });
 
+describe('job-canon CDN releases keep the build marker after the complete payload', () => {
+  const prep = readFileSync(PREP_SH, 'utf8');
+
+  it('stages production maps under a validated build-scoped directory before the Pages marker', () => {
+    const pushStart = prep.indexOf('step_push_cdn()');
+    const pushEnd = prep.indexOf('\n}', pushStart);
+    expect(pushStart).toBeGreaterThanOrEqual(0);
+    expect(pushEnd).toBeGreaterThan(pushStart);
+    const push = prep.slice(pushStart, pushEnd);
+    const validationAt = push.indexOf('_is_valid_deploy_build_id "$DEPLOY_BUILD_ID"');
+    const mapStageAt = push.indexOf('cp -r dist/job-canon/. "$job_canon_release_stage/"');
+    const markerStageAt = push.indexOf(' > "$stage/cdn-build-id.txt"');
+
+    expect(prep).toContain(`case "$value" in ''|*[!0123456789]*) return 1 ;; esac`);
+    expect(push).toContain('"$stage/job-canon/releases/$DEPLOY_BUILD_ID"');
+    expect(validationAt).toBeGreaterThanOrEqual(0);
+    expect(mapStageAt).toBeGreaterThan(validationAt);
+    expect(markerStageAt).toBeGreaterThan(mapStageAt);
+  });
+
+  it('uploads immutable R2 release maps before the asset purge and last build marker', () => {
+    const mapUploadAt = prep.indexOf('_r2_sync 120 "$job_canon_release_dir" "job-canon/releases/$DEPLOY_BUILD_ID" "public,max-age=31536000,immutable"');
+    const purgeAt = prep.indexOf('if ! _purge_r2_changed_assets; then', mapUploadAt);
+    const buildMarkerAt = prep.indexOf('copyto "$stage/cdn-build-id.txt" "$bkt/cdn-build-id.txt"', purgeAt);
+    const completeMarkerAt = prep.indexOf('copyto "$_publish_marker_file" "$bkt/cdn-publish-complete-id.txt"', buildMarkerAt);
+
+    expect(mapUploadAt).toBeGreaterThanOrEqual(0);
+    expect(purgeAt).toBeGreaterThan(mapUploadAt);
+    expect(buildMarkerAt).toBeGreaterThan(purgeAt);
+    expect(completeMarkerAt).toBeGreaterThan(buildMarkerAt);
+    expect(prep.slice(mapUploadAt, purgeAt)).not.toMatch(/\brclone\s+sync\b/);
+  });
+});
+
 // ── scripts/lib/deploy-it-pages-prep.sh — the two phases ─────────────────────
 function runPrep(env: Record<string, string>, workspace = mkdtempSync(join(tmpdir(), 'prep-'))): { code: number; stdout: string } {
   const dir = workspace;

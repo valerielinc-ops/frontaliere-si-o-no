@@ -139,11 +139,10 @@ describe('public/404.html job-canon alias locale validation', () => {
     };
     await expect(canonHelpers.fetchMap('legacy-en-v1', fallbackFetch as typeof fetch))
       .resolves.toEqual({ kind: 'map', value: { v1: true } });
-    const buildId = '1234567890123';
     expect(calls).toEqual([
       'https://cdn.example.test/cdn-build-id.txt',
-      `https://cdn.example.test/job-canon/v2/${sharedV2ShardKey('legacy-en-v1')}.json?build_id=${buildId}`,
-      `https://cdn.example.test/job-canon/${canonHelpers.v1ShardKey('legacy-en-v1')}.json?build_id=${buildId}`,
+      `https://cdn.example.test/job-canon/releases/1234567890123/v2/${sharedV2ShardKey('legacy-en-v1')}.json`,
+      `https://cdn.example.test/job-canon/releases/1234567890123/${canonHelpers.v1ShardKey('legacy-en-v1')}.json`,
     ]);
 
     for (const status of [404, 410]) {
@@ -156,8 +155,8 @@ describe('public/404.html job-canon alias locale validation', () => {
           : Response.json({ v1: true });
       }) as typeof fetch);
       expect(retryCalls).toHaveLength(3);
-      expect(new URL(retryCalls[1]).searchParams.get('build_id')).toBe('1234567890123');
-      expect(new URL(retryCalls[2]).searchParams.get('build_id')).toBe('1234567890123');
+      expect(new URL(retryCalls[1]).pathname).toContain('/job-canon/releases/1234567890123/v2/');
+      expect(new URL(retryCalls[2]).pathname).toContain('/job-canon/releases/1234567890123/');
     }
 
     const errorCalls: string[] = [];
@@ -168,7 +167,7 @@ describe('public/404.html job-canon alias locale validation', () => {
         : new Response('upstream unavailable', { status: 500 });
     }) as typeof fetch)).resolves.toMatchObject({ kind: 'unavailable', reason: 'http-status' });
     expect(errorCalls).toHaveLength(2);
-    expect(errorCalls[1]).toContain('/job-canon/v2/');
+    expect(new URL(errorCalls[1]).pathname).toContain('/job-canon/releases/1234567890123/v2/');
   });
 
   it('does not request v1 when v2 contains the shard', async () => {
@@ -182,8 +181,7 @@ describe('public/404.html job-canon alias locale validation', () => {
     expect(result).toEqual({ kind: 'map', value: { v2: true } });
     expect(calls).toHaveLength(2);
     expect(calls[0]).toContain('/cdn-build-id.txt');
-    expect(calls[1]).toContain('/job-canon/v2/');
-    expect(new URL(calls[1]).searchParams.get('build_id')).toBe('7654321');
+    expect(new URL(calls[1]).pathname).toContain('/job-canon/releases/7654321/v2/');
   });
 
   it('uses a new map URL for each release, including a rollback release', async () => {
@@ -196,11 +194,12 @@ describe('public/404.html job-canon alias locale validation', () => {
         return new Response(markers.shift() ?? '', { status: 200 });
       }
       mapUrls.push(url);
-      const cached = mapCache.get(url);
+      const mapPath = new URL(url).pathname;
+      const cached = mapCache.get(mapPath);
       if (cached) return Response.json(cached);
-      const buildId = new URL(url).searchParams.get('build_id');
+      const buildId = mapPath.match(/\/job-canon\/releases\/([0-9]{1,20})\//)?.[1] ?? null;
       const body = { release: buildId };
-      mapCache.set(url, body);
+      mapCache.set(mapPath, body);
       return Response.json(body);
     }) as typeof fetch;
 
@@ -208,7 +207,8 @@ describe('public/404.html job-canon alias locale validation', () => {
     await expect(canonHelpers.fetchMap('rollback-job', fetcher)).resolves.toEqual({ kind: 'map', value: { release: '1002' } });
     await expect(canonHelpers.fetchMap('rollback-job', fetcher)).resolves.toEqual({ kind: 'map', value: { release: '1003' } });
     expect(mapUrls).toHaveLength(3);
-    expect(mapUrls.map((url) => new URL(url).searchParams.get('build_id'))).toEqual(['1001', '1002', '1003']);
+    expect(mapUrls.map((url) => new URL(url).pathname.match(/\/releases\/([0-9]{1,20})\//)?.[1]))
+      .toEqual(['1001', '1002', '1003']);
     expect(new Set(mapUrls).size).toBe(3);
   });
 
@@ -252,14 +252,14 @@ describe('public/404.html job-canon alias locale validation', () => {
     expect(missing).toEqual({ kind: 'missing' });
     expect(calls.map((url) => new URL(url).pathname)).toEqual([
       '/cdn-build-id.txt',
-      expect.stringMatching(/^\/job-canon\/v2\/[0-9a-f]{3}\.json$/),
-      '/job-canon/ne.json',
+      expect.stringMatching(/^\/job-canon\/releases\/1001\/v2\/[0-9a-f]{3}\.json$/),
+      '/job-canon/releases/1001/ne.json',
     ]);
 
     const v1Failure = await canonHelpers.fetchMap('uncertain-job', (async (input: string | URL) => {
       const url = String(input);
       if (url.endsWith('/cdn-build-id.txt')) return new Response('1001');
-      return new Response('upstream', { status: url.includes('/job-canon/v2/') ? 404 : 500 });
+      return new Response('upstream', { status: new URL(url).pathname.includes('/v2/') ? 404 : 500 });
     }) as typeof fetch);
     expect(v1Failure).toEqual({ kind: 'unavailable', reason: 'http-status' });
   });
@@ -333,7 +333,7 @@ describe('public/404.html job-canon alias locale validation', () => {
     expect(options[0]?.signal).toBeInstanceOf(AbortSignal);
     expect(options[1]).toMatchObject({ cache: 'force-cache', mode: 'cors', credentials: 'omit' });
     expect(canonHelpers.mapUrl('/job-canon/v2/abc.json', '8123'))
-      .toBe('https://cdn.example.test/job-canon/v2/abc.json?build_id=8123');
+      .toBe('https://cdn.example.test/job-canon/releases/8123/v2/abc.json');
     expect(canonHelpers.mapUrl('/job-canon/v2/abc.json', 'invalid')).toBeNull();
   });
 });

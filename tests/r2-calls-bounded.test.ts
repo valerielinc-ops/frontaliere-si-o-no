@@ -485,6 +485,12 @@ esac
   writeFileSync(join(stage, 'index.html'), '<!doctype html>');
   mkdirSync(join(stage, 'data'), { recursive: true });
   writeFileSync(join(stage, 'data', 'x.json'), '{}');
+  if (env.STUB_JOB_CANON === '1') {
+    const releaseId = env.DEPLOY_BUILD_ID ?? '1001';
+    mkdirSync(join(stage, 'job-canon', 'releases', releaseId, 'v2'), { recursive: true });
+    writeFileSync(join(stage, 'job-canon', 'releases', releaseId, 'v2', 'abc.json'), '{}');
+    writeFileSync(join(stage, 'job-canon', 'releases', releaseId, 'ab.json'), '{}');
+  }
   stageCampaignImages(stage, env.STUB_CAMPAIGN_IMAGES);
   if (env.STUB_BLOG_IMAGES === '1') {
     mkdirSync(join(stage, 'images', 'blog'), { recursive: true });
@@ -813,6 +819,12 @@ const COPIED_A = JSON.stringify({ level: 'info', msg: 'Copied (replaced existing
 function completionMarkerPuts(calls: string[]): string[] {
   return calls.filter((call) => (
     /^rclone copyto (?!:s3:)\S+ :s3:bkt\/cdn-publish-complete-id\.txt(?:\s|$)/.test(call)
+  ));
+}
+
+function buildMarkerPuts(calls: string[]): string[] {
+  return calls.filter((call) => (
+    /^rclone copyto (?!:s3:)\S+ :s3:bkt\/cdn-build-id\.txt(?:\s|$)/.test(call)
   ));
 }
 
@@ -1250,6 +1262,45 @@ describe('behaviour: the ledger path end to end (stubbed R2, no network)', () =>
     expect(r.ledger).toEqual(expect.objectContaining({ version: 1 }));
     expect(r.calls.some((c) => /:s3:bkt\/cdn-build-id\.txt/.test(c))).toBe(true);
     expect(completionMarkerPuts(r.calls)).toHaveLength(1);
+  });
+
+  it('publishes release-scoped job-canon maps immutably before the build marker', () => {
+    const r = runPublish('job-canon-release-before-marker', {
+      DEPLOY_BUILD_ID: '1001',
+      STUB_JOB_CANON: '1',
+      STUB_NO_ASSETS_DIR: '1',
+      STUB_LEDGER: 'absent',
+      STUB_ASSETS_LOG: '',
+    });
+    expect(r.code).toBe(0);
+
+    const mapCopyAt = r.calls.findIndex((call) => (
+      /^rclone copy \S+\/stage\/job-canon\/releases\/1001 :s3:bkt\/job-canon\/releases\/1001(?:\s|$)/.test(call)
+    ));
+    const buildMarkerAt = r.calls.findIndex((call) => /:s3:bkt\/cdn-build-id\.txt(?:\s|$)/.test(call)
+      && /rclone copyto (?!:s3:)\S+ /.test(call));
+    const completeMarkerAt = r.calls.findIndex((call) => /:s3:bkt\/cdn-publish-complete-id\.txt(?:\s|$)/.test(call)
+      && /rclone copyto (?!:s3:)\S+ /.test(call));
+
+    expect(mapCopyAt).toBeGreaterThanOrEqual(0);
+    expect(r.calls[mapCopyAt]).toContain('Cache-Control: public,max-age=31536000,immutable');
+    expect(buildMarkerAt).toBeGreaterThan(mapCopyAt);
+    expect(completeMarkerAt).toBeGreaterThan(buildMarkerAt);
+    expect(buildMarkerPuts(r.calls)).toHaveLength(1);
+  });
+
+  it('rejects a path-like build id before constructing or publishing a release key', () => {
+    const r = runPublish('job-canon-invalid-release-id', {
+      DEPLOY_BUILD_ID: '../1001',
+      STUB_JOB_CANON: '1',
+      STUB_NO_ASSETS_DIR: '1',
+      STUB_LEDGER: 'absent',
+    });
+
+    expect(r.calls.some((call) => /job-canon\/releases\/\.\.\/1001/.test(call))).toBe(false);
+    expect(r.calls.some((call) => /:s3:bkt\/job-canon\//.test(call))).toBe(false);
+    expect(buildMarkerPuts(r.calls)).toHaveLength(0);
+    expect(completionMarkerPuts(r.calls)).toHaveLength(0);
   });
 });
 

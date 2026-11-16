@@ -98,6 +98,15 @@ _r2_timeout_s() {
   printf '%s\n' "$fallback"
 }
 
+# Worker/browser map lookups accept only the same numeric build-id shape as the
+# marker parser. The length bound also keeps the identifier within one path
+# segment before it is used below as a release directory.
+_is_valid_deploy_build_id() {
+  local value="${1:-}"
+  case "$value" in ''|*[!0123456789]*) return 1 ;; esac
+  [ "${#value}" -le 20 ]
+}
+
 # Export a key=value INTO THE CURRENT PROCESS (so later sections of THIS script
 # see it) AND to $GITHUB_ENV (so later YAML steps see it) AND echo it. The
 # in-process export is essential: the monolith propagated CDN_BASE/TAR_BYTES
@@ -804,7 +813,27 @@ _publish_cdn_r2() {
   # Data is additive; avoid listing the full existing prefix and check each
   # current source key directly instead.
   _r2_sync 1800 "$stage/data"     data      "public,max-age=600" "" no-traverse
-  _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600"
+  if [ -d "$stage/job-canon" ]; then
+    if [ -n "${DEPLOY_BUILD_ID:-}" ]; then
+      if ! _is_valid_deploy_build_id "$DEPLOY_BUILD_ID"; then
+        echo "::error::[r2] DEPLOY_BUILD_ID must contain 1–20 digits before publishing job-canon releases" >&2
+        ok=0
+      else
+        local job_canon_release_dir="$stage/job-canon/releases/$DEPLOY_BUILD_ID"
+        if [ ! -d "$job_canon_release_dir" ]; then
+          echo "::error::[r2] job-canon release payload is missing at $job_canon_release_dir" >&2
+          ok=0
+        else
+          # The release id is part of the R2 key, so each marker resolves to the
+          # exact bytes produced for that build even when a cache ignores query.
+          _r2_sync 120 "$job_canon_release_dir" "job-canon/releases/$DEPLOY_BUILD_ID" "public,max-age=31536000,immutable"
+        fi
+      fi
+    else
+      # Local/legacy invocations have no marker-selected generation.
+      _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600"
+    fi
+  fi
   timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \
     --header-upload "Content-Type: text/html; charset=utf-8" --header-upload "Cache-Control: public,max-age=600" || ok=0
   # A purge is safe only inside the publish window owned by this invocation.
@@ -1310,12 +1339,10 @@ step_push_cdn() {
   # ordinary developer path. The missing-credential return above stays first so
   # the legacy Pages diagnostic remains compatible when no publish can occur.
   if [ -n "${DEPLOY_BUILD_ID:-}" ]; then
-    case "$DEPLOY_BUILD_ID" in
-      ''|*[!0-9]*)
-        echo "::error::DEPLOY_BUILD_ID must contain digits only for a production CDN release" >&2
-        return 1
-        ;;
-    esac
+    if ! _is_valid_deploy_build_id "$DEPLOY_BUILD_ID"; then
+      echo "::error::DEPLOY_BUILD_ID must contain 1–20 digits for a production CDN release" >&2
+      return 1
+    fi
     local versioned_release_entry="$stage/assets/releases/$DEPLOY_BUILD_ID/index-entry.js"
     if [ ! -s "$versioned_release_entry" ] || ! grep -q 'FRONTALIERE_VERSIONED_CDN_BOOTSTRAP' "$stage/assets/index-entry.js"; then
       echo "::error::CDN asset stage is missing the build-scoped executable release for DEPLOY_BUILD_ID=$DEPLOY_BUILD_ID" >&2
@@ -1323,11 +1350,25 @@ step_push_cdn() {
       return 1
     fi
   fi
-  # Canton-drift 404-recovery shard map (jobCanonRedirectMapPlugin, ~29 MB /
-  # 400 shards): runtime-fetch only (public/404.html + the Worker), no static
-  # HTML ref to rewrite, so the offload script just deletes dist/job-canon
-  # once this push succeeds (see its job-canon phase).
-  [ -d dist/job-canon ]    && cp -r dist/job-canon    "$stage/job-canon"
+  # Canton-drift 404-recovery maps are runtime-fetch only (public/404.html +
+  # the Worker). Production keys include the validated build id in the
+  # pathname; the legacy fixed keys remain only for local invocations without
+  # DEPLOY_BUILD_ID. The CDN build marker is staged later, after this payload.
+  if [ -d dist/job-canon ]; then
+    if [ -n "${DEPLOY_BUILD_ID:-}" ]; then
+      local job_canon_release_stage="$stage/job-canon/releases/$DEPLOY_BUILD_ID"
+      mkdir -p "$job_canon_release_stage"
+      cp -r dist/job-canon/. "$job_canon_release_stage/" || {
+        echo "::error::could not stage build-scoped job-canon maps for DEPLOY_BUILD_ID=$DEPLOY_BUILD_ID" >&2
+        return 1
+      }
+    else
+      cp -r dist/job-canon "$stage/job-canon" || {
+        echo "::error::could not stage legacy job-canon maps" >&2
+        return 1
+      }
+    fi
+  fi
   [ -d public/images/blog ] && mkdir -p "$stage/images" && cp -r public/images/blog "$stage/images/blog"
   # Self-hosted brand/logo/author images (#1360): push from the git-tracked
   # public/images/<dir> source to ${CDN}/images/<dir>, so the offload script

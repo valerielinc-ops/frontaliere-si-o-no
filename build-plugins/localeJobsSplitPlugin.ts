@@ -183,7 +183,6 @@ const DETAIL_FIELDS = new Set([
  * Locale files are emitted into dist/data/ during the build.
  */
 export function localeJobsSplitPlugin(rootDir: string): Plugin {
- registerLocaleJobsSplitProducer();
  const dataJobsPath = path.resolve(rootDir, 'data', 'jobs.json');
 
  function generateFiles(outDir: string): number {

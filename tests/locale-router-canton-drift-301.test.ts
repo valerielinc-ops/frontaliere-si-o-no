@@ -5,7 +5,8 @@
  * crawls, orphaning the previously-indexed URL → 404. public/404.html recovers
  * these with a soft-404 + JS `location.replace`; the Worker upgrades the en/de/fr
  * shard traffic it already sees to a REAL HTTP 301 (full link-equity transfer)
- * when the slug is in /job-canon/<shard>.json. Unknown slugs keep the soft 404.
+ * when the slug is in the marker-selected /job-canon/releases/<build-id>/ map.
+ * Unknown slugs keep the soft 404.
  *
  * The Worker fetches the shard origin (404 here) and then the map JSON from the
  * public apex; the mock dispatches on URL so each gets the right response.
@@ -94,7 +95,8 @@ afterEach(() => {
 
 /**
  * Mock fetch: the shard origin (origin-{loc}.…) returns `originStatus`; a
- * /job-canon/<sk>.json request returns `map` (or 404 when map is null). The map
+ * /job-canon/releases/<build-id>/<sk>.json request returns `map` (or 404 when
+ * map is null). The map
  * value is the real per-locale object the plugin emits ({ it, en, de, fr }).
  */
 function mockFetch(
@@ -137,7 +139,7 @@ function mockVersionedFetch(options: {
     if (new URL(u).pathname === '/cdn-build-id.txt') return new Response(marker, { status: markerStatus });
     if (u.includes('/job-canon/')) {
       canonRequests.push(u);
-      const isV2 = u.includes('/job-canon/v2/');
+      const isV2 = new URL(u).pathname.includes('/v2/');
       const status = isV2 ? v2Status : v1Status;
       const map = isV2 ? v2Map : v1Map;
       return new Response(map === null ? 'not found' : JSON.stringify(map), {
@@ -163,7 +165,7 @@ describe('locale-router canton-drift 301', () => {
     expect(res.headers.get('Location')).toBe(`/en/find-jobs-zurich/${slug}/`);
     expect(res.headers.get('x-frontaliere-canon-cache')).toBe('miss');
     expect(canonRequests).toHaveLength(1);
-    expect(canonRequests[0]).toContain(`/job-canon/v2/${jobCanonV2ShardKey(slug)}.json`);
+    expect(canonRequests[0]).toContain(`/job-canon/releases/1001/v2/${jobCanonV2ShardKey(slug)}.json`);
   });
 
   it('does not fall back to v1 when a successful v2 shard lacks the slug', async () => {
@@ -179,7 +181,7 @@ describe('locale-router canton-drift 301', () => {
 
     expect(res.status).toBe(404);
     expect(canonRequests.length).toBeGreaterThan(0);
-    expect(canonRequests.every((request) => request.includes('/job-canon/v2/'))).toBe(true);
+    expect(canonRequests.every((request) => request.includes('/job-canon/releases/1001/v2/'))).toBe(true);
     expect(log).not.toHaveBeenCalled();
   });
 
@@ -199,8 +201,8 @@ describe('locale-router canton-drift 301', () => {
       expect(res.status).toBe(301);
       expect(res.headers.get('Location')).toBe(`/en/find-jobs-zurich/${slug}/`);
       expect(canonRequests).toHaveLength(2);
-      expect(canonRequests[0]).toContain(`/job-canon/v2/${jobCanonV2ShardKey(slug)}.json`);
-      expect(canonRequests[1]).toContain('/job-canon/so.json');
+      expect(canonRequests[0]).toContain(`/job-canon/releases/1001/v2/${jobCanonV2ShardKey(slug)}.json`);
+      expect(canonRequests[1]).toContain('/job-canon/releases/1001/so.json');
       expect(log).toHaveBeenCalledTimes(1);
       expect(log).toHaveBeenCalledWith(JSON.stringify({ event: 'job_canon_v1_fallback' }));
     },
@@ -219,10 +221,10 @@ describe('locale-router canton-drift 301', () => {
     expect(res.status).toBe(503);
     expect(res.headers.get('x-frontaliere-canon-cache')).toBeNull();
     expect(canonRequests).toHaveLength(1);
-    expect(canonRequests[0]).toContain('/job-canon/v2/');
+    expect(canonRequests[0]).toContain('/job-canon/releases/1001/v2/');
   });
 
-  it('uses each release marker for map URLs and Worker alias-cache entries, including rollback', async () => {
+  it('uses the release pathname as the map identity when the origin ignores query parameters', async () => {
     const slug = 'release-versioned-job';
     const mapsByRelease: Record<string, Record<string, unknown>> = {
       '1001': { [slug]: { alias: { en: '/en/find-jobs-zurich/old-target' } } },
@@ -237,11 +239,13 @@ describe('locale-router canton-drift 301', () => {
       if (url.pathname === '/cdn-build-id.txt') return new Response(marker);
       if (url.pathname.includes('/job-canon/')) {
         mapRequests.push(url.toString());
-        const cached = edgeMapCache.get(url.toString());
+        const releaseId = url.pathname.match(/^\/job-canon\/releases\/([0-9]{1,20})\//)?.[1];
+        const cached = edgeMapCache.get(url.pathname);
         if (cached) return Response.json(cached);
-        const releaseMap = mapsByRelease[url.searchParams.get('build_id') ?? ''];
+        // Deliberately select origin bytes only from the immutable pathname.
+        const releaseMap = releaseId ? mapsByRelease[releaseId] : undefined;
         if (!releaseMap) return new Response('missing release', { status: 404 });
-        edgeMapCache.set(url.toString(), releaseMap);
+        edgeMapCache.set(url.pathname, releaseMap);
         return Response.json(releaseMap);
       }
       if (url.hostname.startsWith('origin-')) {
@@ -265,8 +269,9 @@ describe('locale-router canton-drift 301', () => {
     }
 
     expect(mapRequests).toHaveLength(3);
-    expect(mapRequests.map((request) => new URL(request).searchParams.get('build_id')))
+    expect(mapRequests.map((request) => new URL(request).pathname.match(/\/releases\/([0-9]{1,20})\//)?.[1]))
       .toEqual(['1001', '1002', '1003']);
+    expect(mapRequests.every((request) => new URL(request).search === '')).toBe(true);
     expect(new Set(mapRequests).size).toBe(3);
     expect([...cacheEntries.keys()].map((key) => new URL(key).searchParams.get('build_id')))
       .toEqual(['1001', '1002', '1003']);
@@ -451,7 +456,7 @@ describe('locale-router canton-drift 301', () => {
     expect(recovered.status).toBe(301);
     expect(recovered.headers.get('Location')).toBe(`/en/find-jobs-bern/${slug}/`);
     expect(mapRequests).toHaveLength(1);
-    expect(new URL(mapRequests[0]).searchParams.get('build_id')).toBe('1002');
+    expect(new URL(mapRequests[0]).pathname).toContain('/job-canon/releases/1002/');
     expect(cacheMatchCount).toBe(1);
     expect(log).toHaveBeenCalledWith(JSON.stringify({
       event: 'job_canon_marker_unavailable',
@@ -550,12 +555,12 @@ describe('locale-router canton-drift 301', () => {
 
     expect(browserRequests.map((request) => {
       const url = new URL(request);
-      return `${url.pathname}?build_id=${url.searchParams.get('build_id')}`;
+      return url.pathname;
     })).toEqual(workerRequests.map((request) => {
       const url = new URL(request);
-      return `${url.pathname}?build_id=${url.searchParams.get('build_id')}`;
+      return url.pathname;
     }));
-    expect(browserRequests.map((request) => new URL(request).searchParams.get('build_id')))
+    expect(browserRequests.map((request) => new URL(request).pathname.match(/\/releases\/([0-9]{1,20})\//)?.[1]))
       .toEqual(['1001', '1001']);
   });
 

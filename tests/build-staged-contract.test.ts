@@ -280,6 +280,7 @@ describe('class closure: module state shared by the bundle and ssg stages', () =
   const AUDIT: Record<string, string> = {
     'build-plugins/shared/jobCanonInputs.ts': 'handoff: localeJobsSplitPlugin (bundle, serializeJobCanonOrderingFields) -> jobCanonRedirectMapPlugin (ssg, restoreJobCanonOrderingFields in buildStart), file job-canon-ordering-fields.json via BUILD_JOB_CANON_ORDERING_HANDOFF_PATH',
     'build-plugins/shared/modulePreloads.ts': 'handoff: preloadLocalePlugin (bundle) registers it-core/it-calculator/App, versionedCdnAssetsPlugin (ssg) builds the allowlist; file route-chunks.json',
+    'build-plugins/shared/buildSignals.ts': 'same-stage: plugin completion signals are process-local; localeJobsSplitProducerRegistered is set in buildStart only when locale-jobs-split is selected, and the ssg stage omits that plugin so jobs-seo-pages does not await a producer from another process',
     'build-plugins/shared/assetIntegrity.ts': 'same-stage: SRI is disabled (STABLE_ASSET_SRI_ENABLED=false, nothing registered) and postWalkCoordinatorPlugin re-registers from dist/assets itself (registerDistAssets)',
     'build-plugins/shared/postWalkDerivedDigest.ts': 'same-stage: written and read only by postWalkCoordinatorPlugin / batchWrite in the ssg process',
     'build-plugins/sharedWriteRegistry.ts': 'diagnostic: per-process claim registry; a cross-stage path collision is not detected, no output depends on it',

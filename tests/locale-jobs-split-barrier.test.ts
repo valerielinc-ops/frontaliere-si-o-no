@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
+import { resolveConfig } from 'vite';
 
 import { localeJobsSplitPlugin } from '../build-plugins/localeJobsSplitPlugin';
 import { clearJobCanonOrderingFields } from '../build-plugins/shared/jobCanonInputs';
@@ -45,9 +46,39 @@ describe('locale job split completion barrier', () => {
     expect(shouldAwaitLocaleJobsSplitFlushed(false)).toBe(false);
 
     const plugin = localeJobsSplitPlugin(makeRoot());
+    expect(shouldAwaitLocaleJobsSplitFlushed(false)).toBe(false);
+    (plugin.buildStart as () => void)();
     expect(shouldAwaitLocaleJobsSplitFlushed(false)).toBe(true);
     expect(shouldAwaitLocaleJobsSplitFlushed(true)).toBe(false);
     expect(plugin.name).toBe('locale-jobs-split');
+  });
+
+  it('resolves the SSG config without registering an omitted locale-split producer', async () => {
+    const envNames = ['BUILD_STAGE', 'FAST_BUILD'] as const;
+    const previousEnv = Object.fromEntries(envNames.map((name) => [name, process.env[name]]));
+    _resetLocaleJobsSplitSignalForTests();
+    process.env.BUILD_STAGE = 'ssg';
+    delete process.env.FAST_BUILD;
+
+    try {
+      const resolved = await resolveConfig(
+        { configFile: path.resolve(process.cwd(), 'vite.config.ts'), mode: 'production' },
+        'build',
+        'production',
+      );
+      const pluginNames = resolved.plugins.map((plugin) => plugin.name);
+
+      expect(pluginNames).toContain('jobs-seo-pages');
+      expect(pluginNames).not.toContain('locale-jobs-split');
+      expect(shouldAwaitLocaleJobsSplitFlushed(false)).toBe(false);
+    } finally {
+      _resetLocaleJobsSplitSignalForTests();
+      for (const name of envNames) {
+        const value = previousEnv[name];
+        if (value === undefined) delete process.env[name];
+        else process.env[name] = value;
+      }
+    }
   });
 
   it('prevents a consumer-first parallel closeBundle from reading the stale Worker map', async () => {
@@ -55,6 +86,7 @@ describe('locale job split completion barrier', () => {
     const mapPath = path.join(root, 'dist', 'data', 'jobs-slug-map.json');
     fs.writeFileSync(mapPath, '[{"slug":"stale"}]');
     const plugin = localeJobsSplitPlugin(root);
+    (plugin.buildStart as () => void)();
     const completion = localeJobsSplitFlushed;
     const staleReadWithoutBarrier = JSON.parse(fs.readFileSync(mapPath, 'utf8'));
     expect(staleReadWithoutBarrier).toEqual([{ slug: 'stale' }]);
@@ -80,6 +112,7 @@ describe('locale job split completion barrier', () => {
     fs.writeFileSync(staleMapPath, '[{"slug":"stale"}]');
     fs.writeFileSync(path.join(root, 'data', 'ats-application-forms.json'), '{invalid');
     const plugin = localeJobsSplitPlugin(root);
+    (plugin.buildStart as () => void)();
     const completion = localeJobsSplitFlushed;
     const consumer = (async () => {
       const outcome = await completion;

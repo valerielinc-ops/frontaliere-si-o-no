@@ -42,7 +42,7 @@ afterEach(() => {
  * single `originStatus`, this one differentiates the guard's section-root
  * check from the original request path — the whole point of this feature is
  * that they can disagree):
- *   - /job-canon/<sk>.json           -> `map` (200) or a miss (404)
+ *   - /job-canon/releases/<id>/<sk>.json -> `map` (200) or a miss (404)
  *   - exactly `guardedPath`           -> `guardStatus` (the section-root check)
  *   - anything else (the original request path) -> always 404 (gh-pages 404,
  *     since every test here exercises the 404-recovery branch)
@@ -170,7 +170,7 @@ describe('locale-router canton-root-validity guard — expired job-detail slug (
         const u = typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
         const { pathname } = new URL(u);
         if (pathname === '/cdn-build-id.txt') return new Response('1001');
-        if (pathname.startsWith('/job-canon/v2/')) return new Response('not found', { status: 404 });
+        if (/^\/job-canon\/releases\/[0-9]{1,20}\/v2\//.test(pathname)) return new Response('not found', { status: 404 });
         if (pathname.startsWith('/job-canon/')) {
           return new Response(JSON.stringify(map), {
             status: 200,
@@ -195,10 +195,10 @@ describe('locale-router canton-root-validity guard — expired job-detail slug (
       return new URL(requestUrl).pathname;
     }).filter((pathname) => pathname.startsWith('/job-canon/'));
     expect(canonPaths).toHaveLength(4);
-    expect(canonPaths[0]).toMatch(/^\/job-canon\/v2\/[0-9a-f]{3}\.json$/);
-    expect(canonPaths[1]).toBe('/job-canon/ex.json');
+    expect(canonPaths[0]).toMatch(/^\/job-canon\/releases\/1001\/v2\/[0-9a-f]{3}\.json$/);
+    expect(canonPaths[1]).toBe('/job-canon/releases/1001/ex.json');
     expect(canonPaths[2]).toBe(canonPaths[0]);
-    expect(canonPaths[3]).toBe('/job-canon/ex.json');
+    expect(canonPaths[3]).toBe('/job-canon/releases/1001/ex.json');
     expect(log).toHaveBeenCalledTimes(2);
     expect(log).toHaveBeenCalledWith(JSON.stringify({ event: 'job_canon_v1_fallback' }));
   });

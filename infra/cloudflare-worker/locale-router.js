@@ -1328,10 +1328,15 @@ export function jobCanonV2ShardKey(slug) {
 }
 
 function jobCanonMapUrl(path, buildId) {
-  if (!isValidJobCanonBuildId(buildId)) return null;
-  const mapUrl = new URL(path, CDN_BASE);
-  mapUrl.searchParams.set('build_id', buildId);
-  return mapUrl;
+  if (!isValidJobCanonBuildId(buildId) || typeof path !== 'string') return null;
+  const prefix = '/job-canon/';
+  if (!path.startsWith(prefix)) return null;
+  const relativePath = path.slice(prefix.length);
+  if (!/^(?:v2\/[0-9a-f]{3}|[a-z0-9_]{2})\.json$/.test(relativePath)) return null;
+  // The marker selects immutable origin bytes through the pathname itself.
+  // Query strings are not part of the generation contract because R2 may
+  // ignore them when resolving an object key.
+  return new URL(`/job-canon/releases/${buildId}/${relativePath}`, CDN_BASE);
 }
 
 // Read both Worker consumers from the same release-versioned registry path.

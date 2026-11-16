@@ -122,10 +122,15 @@
           });
         }
         function jobCanonMapUrl(path, buildId) {
-          if (!isValidJobCanonBuildId(buildId)) return null;
-          var url = new URL(path, JOB_CANON_CDN);
-          url.searchParams.set('build_id', buildId);
-          return url.toString();
+          if (!isValidJobCanonBuildId(buildId) || typeof path !== 'string') return null;
+          var prefix = '/job-canon/';
+          if (path.indexOf(prefix) !== 0) return null;
+          var relativePath = path.slice(prefix.length);
+          if (!/^(?:v2\/[0-9a-f]{3}|[a-z0-9_]{2})\.json$/.test(relativePath)) return null;
+          // The marker selects immutable origin bytes through the pathname.
+          // Query strings are not part of the generation contract: R2 may
+          // ignore them when resolving an object key.
+          return new URL('/job-canon/releases/' + buildId + '/' + relativePath, JOB_CANON_CDN).toString();
         }
         function fetchJobCanonMap(value, fetcher) {
           var request = fetcher || fetch;
