@@ -12,17 +12,18 @@
  * The sitemap parser consumes `<loc>` plus `<xhtml:link hreflang>` entries.
  */
 
-import { existsSync, readFileSync, readdirSync, realpathSync } from 'node:fs';
+import { appendFileSync, existsSync, readFileSync, readdirSync, realpathSync } from 'node:fs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { CORE_SITEMAPS } from './lib/sitemap-files.mjs';
 import {
-  changedUrls,
+  changedUrlTiers,
   crawlSitemaps,
   readSitemapSnapshot,
   snapshotFromCrawl,
   snapshotUrls,
 } from './lib/sitemap-crawl.mjs';
+import { isExpiredJobSitemapKey } from './lib/sitemap-family-coverage.mjs';
 import {
   HOST,
   INDEXNOW_ENDPOINTS,
@@ -44,6 +45,7 @@ const CURRENT_SNAPSHOT_FILES = [
   '/tmp/sitemaps-bundle/new-sitemap-urls.json',
   '/tmp/new-sitemap-urls.json',
 ];
+const DEFAULT_INDEXNOW_BUDGET_MS = 780_000;
 
 function toBase64Utf8(value) {
   return Buffer.from(String(value || ''), 'utf8').toString('base64');
@@ -132,19 +134,6 @@ async function currentSnapshot() {
   return snapshotFromCrawl(crawl);
 }
 
-function changedOrAllUrls(current, previous) {
-  if (!previous) {
-    return [...snapshotUrls(current)].sort();
-  }
-  // Reconcile removals within a sitemap that this build actually owns, but do
-  // not treat an edge-owned sitemap absent from dist/ as deleted. The live
-  // daily graph is authoritative for those external surfaces.
-  return changedUrls(current, previous, {
-    includeRemoved: true,
-    includeRemovedFromMissingSitemaps: false,
-  });
-}
-
 async function submitToBingContentApi() {
   const apiKey = process.env.BING_API_KEY;
   if (!apiKey) {
@@ -193,44 +182,191 @@ async function submitToBingContentApi() {
   }
 }
 
-async function submitToIndexNow() {
-  const current = await currentSnapshot();
-  const previous = parseSnapshotFile(PRE_DEPLOY_SNAPSHOT);
-  const urls = new Set(changedOrAllUrls(current, previous));
+function digestUrlsByPriority(digestBySitemap) {
+  return [...new Set(Object.keys(digestBySitemap).sort().flatMap((key) => digestBySitemap[key]))].sort();
+}
+
+function appendIndexNowStepSummary(summary) {
+  const file = process.env.GITHUB_STEP_SUMMARY;
+  if (!file) return;
+  const rows = [
+    ['Grafo', summary.graph],
+    ['Added', summary.added],
+    ['Removed', summary.removed],
+    ['Moved into archive', summary.movedIntoArchive],
+    ['Moved out of archive', summary.movedOutOfArchive],
+    ['Lastmod', summary.lastmod],
+    ['Digest', summary.digest],
+    ['Digest archivio ignorato', `${summary.suppressedArchiveDigest.sitemaps} sitemap, ${summary.suppressedArchiveDigest.urls} URL`],
+    ['Accepted', summary.accepted],
+    ['Failed', summary.failed],
+    ['Not attempted', summary.notAttempted],
+    ['Remaining', summary.remaining],
+    ['Elapsed ms', summary.elapsedMs],
+    ['Stopped by deadline', summary.stoppedByDeadline],
+  ];
+  try {
+    appendFileSync(file, `\n### IndexNow\n\n| Metrica | Valore |\n| --- | ---: |\n${rows.map(([name, value]) => `| ${name} | ${value} |`).join('\n')}\n`);
+  } catch (error) {
+    console.warn(`⚠️ IndexNow step summary not written: ${error?.message || String(error)}`);
+  }
+}
+
+function logIndexNowSummary(summary) {
+  console.log(`📨 IndexNow: accepted ${summary.accepted} di ${summary.accepted + summary.remaining}; residuo ${summary.remaining}`);
+  console.log(`[indexnow-summary] ${JSON.stringify(summary)}`);
+  appendIndexNowStepSummary(summary);
+}
+
+export async function submitToIndexNow(overrides = {}) {
+  const startedAt = Date.now();
+  const budgetValue = process.env.INDEXNOW_BUDGET_MS;
+  const budgetMs = budgetValue === undefined ? DEFAULT_INDEXNOW_BUDGET_MS : Number(budgetValue);
+  if (!Number.isFinite(budgetMs) || budgetMs < 0) {
+    throw new Error('INDEXNOW_BUDGET_MS must be a non-negative finite number');
+  }
+  const deadlineMs = startedAt + budgetMs;
+  const hasCurrentOverride = Object.prototype.hasOwnProperty.call(overrides, 'current');
+  const hasPreviousOverride = Object.prototype.hasOwnProperty.call(overrides, 'previous');
+  const current = hasCurrentOverride ? overrides.current : await currentSnapshot();
+  const previous = hasPreviousOverride ? overrides.previous : parseSnapshotFile(PRE_DEPLOY_SNAPSHOT);
+  const tiers = changedUrlTiers(current, previous, {
+    includeRemoved: true,
+    includeRemovedFromMissingSitemaps: false,
+    digestIgnoredSitemap: isExpiredJobSitemapKey,
+  });
+  const graph = snapshotUrls(current).size;
+  const digestUrls = digestUrlsByPriority(tiers.digestBySitemap);
+  const urls = new Set([
+    ...tiers.added,
+    ...tiers.removed,
+    ...tiers.movedIntoArchive,
+    ...tiers.movedOutOfArchive,
+    ...tiers.lastmod,
+    ...digestUrls,
+  ]);
+  const classifiedUrls = new Set(urls);
   const alternateCount = publicRegistryAlternates(urls);
+  const alternateUrls = [...urls].filter((url) => !classifiedUrls.has(url)).sort();
   if (alternateCount > 0) console.log(`🌍 ${alternateCount} hreflang alternate aggiunti dal registry public/`);
 
-  const currentCount = snapshotUrls(current).size;
-  console.log(`📊 ${currentCount} URLs nel grafo sitemap; ${urls.size} URLs cambiati da inviare`);
+  const sendTiers = [
+    ['added', tiers.added],
+    ['removed', tiers.removed],
+    ['moved into archive', tiers.movedIntoArchive],
+    ['moved out of archive', tiers.movedOutOfArchive],
+    ['lastmod', tiers.lastmod],
+    ['digest', digestUrls],
+    ['alternate', alternateUrls],
+  ];
+  const total = urls.size;
+  const summary = {
+    graph,
+    added: tiers.added.length,
+    removed: tiers.removed.length,
+    movedIntoArchive: tiers.movedIntoArchive.length,
+    movedOutOfArchive: tiers.movedOutOfArchive.length,
+    lastmod: tiers.lastmod.length,
+    digest: digestUrls.length,
+    suppressedArchiveDigest: tiers.suppressedDigest,
+    accepted: 0,
+    failed: 0,
+    notAttempted: 0,
+    remaining: total,
+    elapsedMs: 0,
+    stoppedByDeadline: false,
+  };
+
+  console.log(`📊 ${graph} URL nel grafo; added=${summary.added} removed=${summary.removed} movedIn=${summary.movedIntoArchive} movedOut=${summary.movedOutOfArchive} lastmod=${summary.lastmod} digest=${summary.digest} (digest archivio ignorato: ${tiers.suppressedDigest.sitemaps} sitemap, ${tiers.suppressedDigest.urls} URL)`);
   if (previous) {
     console.log(`📸 Baseline pre-deploy presente: ${PRE_DEPLOY_SNAPSHOT}`);
   } else {
     console.log('⚠️ Baseline pre-deploy assente o non valida — invio l’intero snapshot corrente');
   }
 
-  if (urls.size === 0) {
-    console.log('✅ Nessun URL cambiato — nessuna submission necessaria');
-    return;
+  try {
+    if (total === 0) {
+      console.log('✅ Nessun URL cambiato — nessuna submission necessaria');
+    } else if (Date.now() >= deadlineMs) {
+      summary.stoppedByDeadline = true;
+      summary.notAttempted = total;
+      throw new Error('IndexNow budget expired before any URL was attempted');
+    } else {
+      const key = await verifyIndexNowKey({ attempts: 5, delayMs: 1500 });
+      if (!key.ok) {
+        summary.notAttempted = total;
+        throw new Error(`IndexNow key verification failed after ${key.attempts} attempts: ${key.reason}`);
+      }
+      console.log(`✅ Key file verificato: ${KEY_LOCATION}`);
+
+      let attempted = 0;
+      const failedBatches = [];
+      let globalBatch = 0;
+      for (let levelIndex = 0; levelIndex < sendTiers.length; levelIndex += 1) {
+        const [level, levelUrls] = sendTiers[levelIndex];
+        if (levelUrls.length === 0) continue;
+        let levelAccepted = 0;
+        const result = await submitIndexNowUrlsStreaming(levelUrls, {
+          endpoints: INDEXNOW_ENDPOINTS,
+          batchSize: BATCH_SIZE,
+          delayMs: 500,
+          deadlineMs,
+          onBatch: ({ accepted, acceptedUrls }) => {
+            globalBatch += 1;
+            if (accepted) levelAccepted += acceptedUrls.length;
+            if (globalBatch % 10 === 0) {
+              const elapsedSeconds = ((Date.now() - startedAt) / 1_000).toFixed(1);
+              console.log(`⏳ IndexNow ${level}: ${levelAccepted}/${levelUrls.length} URL, ${elapsedSeconds}s`);
+            }
+          },
+        });
+        const elapsedSeconds = ((Date.now() - startedAt) / 1_000).toFixed(1);
+        console.log(`⏳ IndexNow ${level}: ${levelAccepted}/${levelUrls.length} URL, ${elapsedSeconds}s (fine livello)`);
+        attempted += result.attempted;
+        summary.accepted += result.accepted;
+        summary.failed += result.failed.length;
+        summary.notAttempted += result.notAttempted.length;
+        failedBatches.push(...result.results.filter((item) => !item.ok));
+        if (result.stoppedByDeadline) {
+          summary.stoppedByDeadline = true;
+          summary.notAttempted += sendTiers
+            .slice(levelIndex + 1)
+            .reduce((count, [, urlsForLevel]) => count + urlsForLevel.length, 0);
+          break;
+        }
+      }
+      summary.remaining = total - summary.accepted;
+      if (summary.stoppedByDeadline) {
+        throw new Error('IndexNow budget expired before all URLs were accepted');
+      }
+      if (failedBatches.length > 0) {
+        const details = failedBatches.slice(0, 3).map((result) => `${result.engine || 'endpoint'}:${result.status || result.error || 'failed'}`).join(', ');
+        throw new Error(`${failedBatches.length} IndexNow batch(es) were not accepted (${details})`);
+      }
+      if (summary.stoppedByDeadline || (attempted < total && Date.now() >= deadlineMs)) {
+        summary.stoppedByDeadline = true;
+        throw new Error('IndexNow budget expired before all URLs were accepted');
+      }
+      await submitToBingContentApi();
+    }
+  } finally {
+    summary.elapsedMs = Date.now() - startedAt;
+    summary.remaining = total - summary.accepted;
+    if (summary.remaining > 0 && Date.now() >= deadlineMs) summary.stoppedByDeadline = true;
+    logIndexNowSummary(summary);
   }
 
-  const key = await verifyIndexNowKey({ attempts: 5, delayMs: 1500 });
-  if (!key.ok) {
-    throw new Error(`IndexNow key verification failed after ${key.attempts} attempts: ${key.reason}`);
-  }
-  console.log(`✅ Key file verificato: ${KEY_LOCATION}`);
+  return summary;
+}
 
-  const summary = await submitIndexNowUrlsStreaming([...urls], {
-    endpoints: INDEXNOW_ENDPOINTS,
-    batchSize: BATCH_SIZE,
-    delayMs: 500,
-  });
-  const failed = summary.results.filter((result) => !result.ok);
-  console.log(`📨 IndexNow: ${summary.submitted} URL in ${summary.batches} batch`);
-  if (failed.length > 0) {
-    const details = failed.slice(0, 3).map((result) => `${result.engine || 'endpoint'}:${result.status || result.error || 'failed'}`).join(', ');
-    throw new Error(`${failed.length} IndexNow batch(es) were not accepted (${details})`);
+export async function runSubmitToIndexNow(overrides = {}) {
+  try {
+    await submitToIndexNow(overrides);
+    return 0;
+  } catch (error) {
+    console.error(`❌ IndexNow submission failed: ${error.message}`);
+    return 1;
   }
-  await submitToBingContentApi();
 }
 
 const invokedDirectly = (() => {
@@ -239,8 +375,7 @@ const invokedDirectly = (() => {
 })();
 
 if (invokedDirectly) {
-  submitToIndexNow().catch((error) => {
-    console.error(`❌ IndexNow submission failed: ${error.message}`);
-    process.exitCode = 1;
+  runSubmitToIndexNow().then((exitCode) => {
+    if (exitCode !== 0) process.exitCode = exitCode;
   });
 }
