@@ -142,7 +142,9 @@ export function installHouseAds(
   const recordReaderExperimentImpression = (frame: HTMLElement, data: Record<string, string | number>, action: string) => {
     if (readerSubscriptionExperimentImpressions.has(frame)) return;
     readerSubscriptionExperimentImpressions.add(frame);
-    report('reader_subscription_experiment_impression', { ...data, action });
+    // GA4 ignores event names longer than 40 characters. Keep this experiment
+    // impression name short enough for client-side collection.
+    report('reader_sub_experiment_impression', { ...data, action });
     recordReaderExperimentExposure(data, action);
   };
   const recordReaderSubscriptionCardImpression = (frame: HTMLElement, data: Record<string, string | number>, action: string) => {
