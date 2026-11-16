@@ -194,7 +194,9 @@ trunk_replace_end() {
     if [ -z "$rel" ]; then continue; fi
     if [ -e "$dist/$rel" ]; then continue; fi
     # Same url, other spelling. Counted and named — never silently dropped —
-    # but it is not a loss: the url still answers from `$dist/$twin`.
+    # but it is not a loss: the url still answers from `$dist/$twin`. The
+    # structural contract is that the shard can answer the same url from the
+    # shard's other spelling, and that fact must remain visible to the guard.
     twin="$(trunk_url_twin "$rel")"
     if [ -n "$twin" ] && [ -e "$dist/$twin" ]; then
       respelled=$((respelled + 1))
