@@ -93,6 +93,8 @@ describe('social copy free-model fallback', () => {
   });
 
   it('keeps persistent status classifications ahead of transient provider wording', () => {
+    expect(classifySocialCopyFallbackFailure({ message: 'upstream model not found' }))
+      .toBe('model-unavailable');
     expect(classifySocialCopyFallbackFailure({ status: 404, message: 'upstream model not found' }))
       .toBe('model-unavailable');
     expect(classifySocialCopyFallbackFailure({ status: 401, message: 'upstream service unavailable' }))

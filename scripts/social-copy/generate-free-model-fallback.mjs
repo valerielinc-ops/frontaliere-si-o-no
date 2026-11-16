@@ -266,6 +266,7 @@ export function classifySocialCopyFallbackFailure(error, phase = 'request') {
   const status = statusFromError(error);
   const hasRateLimitMessage = /rate[_ -]?limit(?:[_ -]?exceeded)?|tokens?\s+per\s+minute|tokens?_remaining_day|quota|too many requests|resource exhausted/.test(message);
   const hasTransientMessage = /empty response|no endpoints? available|temporarily unavailable|service unavailable|upstream/.test(message);
+  const hasModelUnavailableMessage = /model[^\n]{0,60}(not found|unavailable|does not exist)/.test(message);
   // Groq reports its free-tier TPM exhaustion as HTTP 413 with a
   // `rate_limit_exceeded` body. That is capacity exhaustion, not a bad pack or
   // a revoked credential, so it must be classified before the generic 4xx
@@ -282,6 +283,7 @@ export function classifySocialCopyFallbackFailure(error, phase = 'request') {
   if (status === 404) {
     return 'model-unavailable';
   }
+  if (status === null && hasModelUnavailableMessage) return 'model-unavailable';
   const isKnownTransientStatus = status === null || status === 408 || status >= 500;
   if (isKnownTransientStatus && hasRateLimitMessage) return 'provider-quota-or-rate-limit';
   if (isKnownTransientStatus && hasTransientMessage) return 'provider-temporary-failure';
@@ -290,7 +292,7 @@ export function classifySocialCopyFallbackFailure(error, phase = 'request') {
   }
   if (status !== null && status >= 400) return 'provider-request-rejected';
   if (hasRateLimitMessage) return 'provider-quota-or-rate-limit';
-  if (/model[^\n]{0,60}(not found|unavailable|does not exist)/.test(message)) return 'model-unavailable';
+  if (hasModelUnavailableMessage) return 'model-unavailable';
   if (/timeout|timed out|aborted|econnreset|econnrefused|enotfound|eai_again|fetch failed/.test(message)) {
     return 'provider-temporary-failure';
   }
