@@ -2,19 +2,20 @@
 /**
  * audit-dist-multi.mjs
  *
- * Consolidated dist/ walker that runs EIGHT audits in a single pipeline,
+ * Consolidated dist/ walker that runs NINE audits in a single pipeline,
  * reading every dist/**\/*.html exactly once:
  *
  *   1. audit-text-html-ratio              (Semrush low-text/HTML ratio gate)
  *   2. audit-title-length                 (SERP title length ratchet)
  *   3. audit-h1-title-duplicates          (duplicate H1/title ratchet)
  *   4. audit-content-duplicates           (per-locale duplicate body clusters)
- *   5. audit-hreflang                     (hreflang completeness/host/target)
- *   6. audit-title-uniqueness             (within-locale unique <title>s)
- *   7. validate-jobposting-schema         (complete mandatory JobPosting fields)
- *   8. validate-structured-data-completeness (Dataset/JobPosting/Event/Product)
+ *   5. audit-img-attributes               (image dimensions and loading attributes)
+ *   6. audit-hreflang                     (hreflang completeness/host/target)
+ *   7. audit-title-uniqueness             (within-locale unique <title>s)
+ *   8. validate-jobposting-schema         (complete mandatory JobPosting fields)
+ *   9. validate-structured-data-completeness (Dataset/JobPosting/Event/Product)
  *
- * The eight original scripts remain unchanged and continue to be the source of
+ * The original scripts remain unchanged and continue to be the source of
  * truth for `--feature=…`, `--json`, `--csv`, `--write-baseline`,
  * `--include-noindex`, etc. THIS script only reproduces the CI deploy
  * invocation each of them uses (`npm run audit:<name>` / `npm run validate:*`)
@@ -22,7 +23,7 @@
  * exit semantics — pipelined through one walk + one file read per HTML page.
  *
  * Exit code:
- *   0 — all eight audits passed
+ *   0 — all nine audits passed
  *   1 — at least one audit failed (regression vs baseline, or hard threshold)
  *   2 — dist/ missing or fatal IO error
  *
@@ -45,6 +46,7 @@ import { extractHreflangAlternates as extractAlternates } from './lib/hreflang-a
 import { isHistoricalMissingTarget, isNoindexPage } from './audit-hreflang.mjs';
 import { classifyFeature as classifyFeatureRatioOriginal } from './audit-text-html-ratio.mjs';
 import { classifyFeature as classifyFeatureTitleOriginal } from './audit-title-length.mjs';
+import { findImgIssues } from './audit-img-attributes.mjs';
 import { evaluateMixAdjustedTotalRegression, extrapolateSampledCount, formatRegressedFeature } from './lib/mixAdjustedRateGate.mjs';
 import {
   isNonEmptyString,
@@ -410,6 +412,18 @@ export class H1Audit {
     const locale = inferRootLocale(relFromRoot);
     // flatString: same boundary as audit-h1-title-duplicates.mjs.
     this.offenders.push({ file: relFromRoot, feature, locale, title: flatString(title), h1: flatString(h1) });
+  }
+}
+
+class ImgAttributesAudit {
+  constructor() {
+    this.scanned = 0;
+    this.imgMissingAttrs = [];
+  }
+  ingest(file, html, relFromRoot) {
+    this.scanned++;
+    const issues = findImgIssues(html);
+    if (issues.length > 0) this.imgMissingAttrs.push({ file: relFromRoot, issues });
   }
 }
 
@@ -1598,6 +1612,28 @@ function runHreflang(audit) {
   return { passed: false };
 }
 
+function runImgAttributes(audit) {
+  console.log(`\n──── audit:img-attributes ────`);
+  console.log(`audit-img-attributes: scanned ${audit.scanned} HTML files in dist/`);
+
+  if (audit.imgMissingAttrs.length > 0) {
+    console.error(`\nFAIL: ${audit.imgMissingAttrs.length} page(s) have <img> tags missing required attributes:`);
+    for (const offender of audit.imgMissingAttrs.slice(0, 5)) {
+      console.error(`  - ${offender.file} (${offender.issues.length} tag(s))`);
+      for (const issue of offender.issues.slice(0, 2)) {
+        console.error(`      missing=[${issue.missing.join(',')}]  ${issue.tag}`);
+      }
+    }
+    if (audit.imgMissingAttrs.length > 5) {
+      console.error(`  ... and ${audit.imgMissingAttrs.length - 5} more`);
+    }
+    return { passed: false };
+  }
+
+  console.log(`\nOK: all ${audit.scanned} pages have valid <img> attributes.`);
+  return { passed: true };
+}
+
 function runTitleUniqueness(audit) {
   console.log(`\n──── audit:title-uniqueness ────`);
 
@@ -1752,7 +1788,7 @@ async function main() {
   // PERF EXPERIMENT: optional split into N walkers via AUDIT_DIST_MULTI_GROUP.
   //   ratio  — only text-html-ratio (the slowest single check)
   //   heavy  — h1 + dup + jobposting (medium-heavy checks)
-  //   light  — title + hreflang + titleuniq + sd (lighter checks)
+  //   light  — title + img-attributes + hreflang + titleuniq + sd (lighter checks)
   //   unset/all — all JobPosting checks (default)
   const group = process.env.AUDIT_DIST_MULTI_GROUP || 'all';
   const want = (name) => {
@@ -1761,7 +1797,7 @@ async function main() {
     // T5 winner config: heavy = h1+dup+jobposting (188s), light = rest (~150s).
     // Measured 222s wall vs T6 rebalance (231s) and baseline 1-walker (230s).
     if (group === 'heavy') return ['h1', 'dup', 'jobposting'].includes(name);
-    if (group === 'light') return ['title', 'hreflang', 'titleuniq', 'sd'].includes(name);
+    if (group === 'light') return ['title', 'img-attributes', 'hreflang', 'titleuniq', 'sd'].includes(name);
     return true;
   };
 
@@ -1769,6 +1805,7 @@ async function main() {
   const titleA = want('title') ? new TitleAudit() : null;
   const h1A = want('h1') ? new H1Audit() : null;
   const dupA = want('dup') ? new DupAudit() : null;
+  const imgAttributesA = want('img-attributes') ? new ImgAttributesAudit() : null;
   const hreflangA = want('hreflang') ? new HreflangAudit(distFileSet) : null;
   const titleUniqA = want('titleuniq') ? new TitleUniqAudit() : null;
   const jobPostingA = want('jobposting') ? new JobPostingAudit() : null;
@@ -1794,6 +1831,7 @@ async function main() {
     if (titleA) titleA.ingest(file, html, relFromRoot);
     if (h1A) h1A.ingest(file, html, relFromRoot);
     if (dupA) dupA.ingest(file, html, distRel);
+    if (imgAttributesA) imgAttributesA.ingest(file, html, relFromRoot);
     if (hreflangA) hreflangA.ingest(file, html, distRel);
     if (titleUniqA) titleUniqA.ingest(file, html, distRel);
 
@@ -1816,6 +1854,7 @@ async function main() {
   const titleRes = titleA ? await runTitle(titleA) : { passed: true, skipped: true };
   const h1Res = h1A ? await runH1(h1A) : { passed: true, skipped: true };
   const dupRes = dupA ? runDup(dupA) : { passed: true, skipped: true };
+  const imgAttributesRes = imgAttributesA ? runImgAttributes(imgAttributesA) : { passed: true, skipped: true };
   const hreflangRes = hreflangA ? runHreflang(hreflangA) : { passed: true, skipped: true };
   const titleUniqRes = titleUniqA ? runTitleUniqueness(titleUniqA) : { passed: true, skipped: true };
   const jobPostingRes = jobPostingA ? runJobPosting(jobPostingA) : { passed: true, skipped: true };
@@ -1831,13 +1870,14 @@ async function main() {
   console.log(`title-length:                   ${fmt(titleRes)}`);
   console.log(`h1-title-duplicates:            ${fmt(h1Res)}`);
   console.log(`content-duplicates:             ${fmt(dupRes)}`);
+  console.log(`img-attributes:                 ${fmt(imgAttributesRes)}`);
   console.log(`hreflang:                       ${fmt(hreflangRes)}`);
   console.log(`title-uniqueness:               ${fmt(titleUniqRes)}`);
   console.log(`jobposting-schema:              ${fmt(jobPostingRes)}`);
   console.log(`structured-data-completeness:   ${fmt(sdRes)}`);
 
   const allPassed =
-    ratioRes.passed && titleRes.passed && h1Res.passed && dupRes.passed &&
+    ratioRes.passed && titleRes.passed && h1Res.passed && dupRes.passed && imgAttributesRes.passed &&
     hreflangRes.passed && titleUniqRes.passed &&
     jobPostingRes.passed && sdRes.passed;
   process.exit(allPassed ? 0 : 1);

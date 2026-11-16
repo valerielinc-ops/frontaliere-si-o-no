@@ -1885,23 +1885,15 @@ const EVENT_CARD_CAP = 80;
 const HISTORICAL_ARCHIVE_PAGE_SIZE = 100;
 
 /**
- * The same budget for the comune-less `altri-eventi` sentinel bucket, which is
- * the LARGEST page in the dataset (1235 upcoming events measured 2026-09-04)
- * and therefore the one where 80 cards cost the most: a full card is ~1.4 KB of
- * markup (480x270 `<img>`, category chip, meta line, excerpt up to
- * `CARD_EXCERPT_CHARS`, comune), so the card block alone weighed ~111 KB of the
- * 311.8 KB `fr` page — over `MAX_HTML_BYTES`.
+ * Number of full cards on the comune-less `altri-eventi` sentinel. It is the
+ * largest, heterogeneous event list, so the first cards provide the main
+ * discovery surface while the rest continue in linked `<bucket>/page-N/`
+ * windows as text rows. No event is discarded; only its presentation changes.
+ * Comune hubs keep the larger `EVENT_CARD_CAP` because their cards introduce a
+ * short, coherent local list.
  *
- * Why the sentinel gets its own number instead of lowering `EVENT_CARD_CAP` for
- * everyone: on a comune hub the cards ARE the discovery surface for a short,
- * coherent list, while this bucket is a heterogeneous nationwide dump where the
- * cards past the first couple dozen add no discovery value proportional to
- * their bytes. Nothing is dropped — `renderOverflowIndex()` still links every
- * event past the cap as a text row (~150 B each), so trading 56 cards for 56
- * rows is about -70 KB with the #5434 reachability invariant untouched.
- *
- * Same contract as `EVENT_CARD_CAP`: the card slice and `renderOverflowIndex()`
- * MUST be handed this very constant, never a different number.
+ * The card slice and `renderOverflowIndex()` MUST use this same value so every
+ * event appears exactly once across the card list and overflow pages.
  */
 const OTHER_EVENTS_CARD_CAP = 24;
 

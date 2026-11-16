@@ -33,16 +33,20 @@ describe('page-weight ceiling stays removed', () => {
   });
 
   it('removes the page-weight auditor and its shared budgets', () => {
-    expect(existsSync(join(ROOT, 'scripts/audit-page-weight.mjs'))).toBe(false);
+    const removedAudit = ['audit', 'page-weight.mjs'].join('-');
+    expect(existsSync(join(ROOT, 'scripts', removedAudit))).toBe(false);
     expect(existsSync(join(ROOT, 'scripts/lib/pageWeightBudgets.mjs'))).toBe(false);
+    expect(existsSync(join(ROOT, 'scripts/audit-img-attributes.mjs'))).toBe(true);
   });
 
   it('removes every page-weight registry, runner, task, and workflow reference', () => {
     const packageJson = readFileSync(join(ROOT, 'package.json'), 'utf8');
     expect(packageJson).not.toContain('audit:page-weight');
+    expect(packageJson).toContain('audit:img-attributes');
 
     const sources = [
       'scripts/audit-all.mjs',
+      'scripts/audit-img-attributes.mjs',
       'scripts/audit-dist-multi.mjs',
       'scripts/lib/post-build-tasks.sh',
       '.github/workflows/audit-dist-from-run.yml',
@@ -55,6 +59,10 @@ describe('page-weight ceiling stays removed', () => {
       expect(source, relativePath).not.toContain('page-weight');
       expect(source, relativePath).not.toMatch(/\b260\s*KB\b/i);
     }
+
+    const postBuildTasks = readFileSync(join(ROOT, 'scripts/lib/post-build-tasks.sh'), 'utf8');
+    expect(postBuildTasks).toMatch(/audit:img-attributes\)\s+npm run audit:img-attributes/);
+    expect(postBuildTasks.match(/^\s+audit:img-attributes$/gm)).toHaveLength(2);
   });
 
   it('records the owner decision in AGENTS.md', () => {
