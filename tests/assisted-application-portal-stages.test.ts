@@ -587,6 +587,35 @@ describe('application stage ownership', () => {
     }, { applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42', job }).kind).toBe('unknown_apply');
   });
 
+  it('keeps a closed application form actionable until its sections are expanded', () => {
+    const snapshot = {
+      url: 'https://career5.successfactors.eu/portalcareer',
+      text: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei) Bewerbung',
+      fields: [],
+      buttons: [
+        { text: 'Alle Abschnitte einblenden', frame: 0 },
+        { text: 'Bewerben', formId: 'application', frame: 0 },
+      ],
+    };
+
+    expect(applicationStage(snapshot, {
+      applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42',
+      job: { title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)' },
+    })).toMatchObject({ kind: 'form' });
+    expect(applicationStage({ ...snapshot, buttons: [{ text: 'Bewerben', formId: 'application', frame: 0 }] }, {
+      applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42',
+      job: { title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)' },
+    })).toMatchObject({ kind: 'unknown_apply' });
+    expect(applicationStage({
+      ...snapshot,
+      text: 'Bewerbung',
+      buttons: snapshot.buttons.map(button => ({ ...button, applicationScopeId: undefined })),
+    }, {
+      applyUrl: 'https://career5.successfactors.eu/career?career_job_req_id=42',
+      job: { title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)' },
+    })).toMatchObject({ kind: 'unknown_apply' });
+  });
+
   it('does not join unrelated same-frame sign-in and salary forms to the Apply action', () => {
     const submit = { text: 'Apply', formId: 'apply', frame: 1 };
     const snapshot = {

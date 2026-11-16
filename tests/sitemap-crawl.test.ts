@@ -1,10 +1,12 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
+  changedUrlTiers,
   changedUrls,
   crawlSitemaps,
   parseSitemapXml,
   snapshotFromCrawl,
 } from '../scripts/lib/sitemap-crawl.mjs';
+import { isExpiredJobSitemapKey } from '../scripts/lib/sitemap-family-coverage.mjs';
 
 const BASE = 'https://frontaliereticino.ch';
 
@@ -144,6 +146,287 @@ describe('sitemap change snapshots', () => {
       includeRemoved: true,
       includeRemovedFromMissingSitemaps: false,
     })).toEqual([`${BASE}/articolo`, `${BASE}/ritirato`]);
+  });
+
+  it('does not infer lastmod changes when either sitemap lastmod map is empty', () => {
+    const url = `${BASE}/articolo`;
+    const previous = {
+      version: 3,
+      perSitemap: { 'sitemap-blog.xml': [url] },
+      perSitemapDigests: { 'sitemap-blog.xml': 'same' },
+      perSitemapLastmod: { 'sitemap-blog.xml': { [url]: '2026-10-21' } },
+    };
+    const current = {
+      version: 3,
+      perSitemap: { 'sitemap-blog.xml': [url] },
+      perSitemapDigests: { 'sitemap-blog.xml': 'same' },
+      perSitemapLastmod: { 'sitemap-blog.xml': {} },
+    };
+
+    expect(changedUrls(current, previous)).toEqual([]);
+    expect(changedUrlTiers(current, previous).lastmod).toEqual([]);
+  });
+
+  it('places a real per-URL lastmod change in the lastmod tier', () => {
+    const url = `${BASE}/articolo`;
+    const previous = {
+      version: 3,
+      perSitemap: { 'sitemap-blog.xml': [url] },
+      perSitemapDigests: { 'sitemap-blog.xml': 'same' },
+      perSitemapLastmod: { 'sitemap-blog.xml': { [url]: '2026-10-21' } },
+    };
+    const current = {
+      version: 3,
+      perSitemap: { 'sitemap-blog.xml': [url] },
+      perSitemapDigests: { 'sitemap-blog.xml': 'same' },
+      perSitemapLastmod: { 'sitemap-blog.xml': { [url]: '2026-10-22' } },
+    };
+
+    expect(changedUrls(current, previous)).toEqual([url]);
+    expect(changedUrlTiers(current, previous).lastmod).toEqual([url]);
+  });
+
+  it('keeps changedUrlTiers equivalent to changedUrls across snapshot change classes', () => {
+    const known = `${BASE}/known/`;
+    const added = `${BASE}/added/`;
+    const removed = `${BASE}/removed/`;
+    const moved = `${BASE}/moved/`;
+    const stayedOne = `${BASE}/stayed-one/`;
+    const stayedTwo = `${BASE}/stayed-two/`;
+    const digestUrl = `${BASE}/digest/`;
+    const lastmodUrl = `${BASE}/lastmod/`;
+    const legacyOnly = `${BASE}/legacy-only/`;
+    const opts = { includeRemoved: true, includeRemovedFromMissingSitemaps: false };
+    const snapshot = (perSitemap: Record<string, string[]>, digests: Record<string, string>, lastmods: Record<string, Record<string, string>> = {}) => ({
+      version: 3,
+      perSitemap,
+      perSitemapDigests: digests,
+      perSitemapLastmod: lastmods,
+    });
+    const fixtures = [
+      {
+        name: 'addition',
+        current: snapshot({ 'sitemap-a.xml': [known, added] }, { 'sitemap-a.xml': 'same' }),
+        previous: snapshot({ 'sitemap-a.xml': [known] }, { 'sitemap-a.xml': 'same' }),
+      },
+      {
+        name: 'removal',
+        current: snapshot({ 'sitemap-a.xml': [known] }, { 'sitemap-a.xml': 'same' }),
+        previous: snapshot({ 'sitemap-a.xml': [known, removed] }, { 'sitemap-a.xml': 'same' }),
+      },
+      {
+        name: 'URL moved between shards with changed digests',
+        current: snapshot({
+          'sitemap-expired-001.xml': [stayedOne],
+          'sitemap-expired-002.xml': [moved, stayedTwo],
+        }, { 'sitemap-expired-001.xml': 'new-a', 'sitemap-expired-002.xml': 'new-b' }),
+        previous: snapshot({
+          'sitemap-expired-001.xml': [moved, stayedOne],
+          'sitemap-expired-002.xml': [stayedTwo],
+        }, { 'sitemap-expired-001.xml': 'old-a', 'sitemap-expired-002.xml': 'old-b' }),
+      },
+      {
+        name: 'new sitemap',
+        current: snapshot({ 'sitemap-a.xml': [known], 'sitemap-new.xml': [added] }, { 'sitemap-a.xml': 'same', 'sitemap-new.xml': 'new' }),
+        previous: snapshot({ 'sitemap-a.xml': [known] }, { 'sitemap-a.xml': 'same' }),
+      },
+      {
+        name: 'missing sitemap with missing-sitemap removals excluded',
+        current: snapshot({ 'sitemap-a.xml': [known] }, { 'sitemap-a.xml': 'same' }),
+        previous: snapshot({ 'sitemap-a.xml': [known], 'sitemap-retired.xml': [removed] }, { 'sitemap-a.xml': 'same', 'sitemap-retired.xml': 'old' }),
+      },
+      {
+        name: 'digest change',
+        current: snapshot({ 'sitemap-a.xml': [digestUrl] }, { 'sitemap-a.xml': 'new' }),
+        previous: snapshot({ 'sitemap-a.xml': [digestUrl] }, { 'sitemap-a.xml': 'old' }),
+      },
+      {
+        name: 'lastmod change',
+        current: snapshot({ 'sitemap-a.xml': [lastmodUrl] }, { 'sitemap-a.xml': 'same' }, { 'sitemap-a.xml': { [lastmodUrl]: '2026-10-22' } }),
+        previous: snapshot({ 'sitemap-a.xml': [lastmodUrl] }, { 'sitemap-a.xml': 'same' }, { 'sitemap-a.xml': { [lastmodUrl]: '2026-10-21' } }),
+      },
+      {
+        name: 'lastmod omitted on one side',
+        current: snapshot({ 'sitemap-a.xml': [known] }, { 'sitemap-a.xml': 'same' }, { 'sitemap-a.xml': {} }),
+        previous: snapshot({ 'sitemap-a.xml': [known] }, { 'sitemap-a.xml': 'same' }, { 'sitemap-a.xml': { [known]: '2026-10-21' } }),
+      },
+      {
+        name: 'version-two legacy baseline',
+        current: snapshot({ 'sitemap-a.xml': [known, added] }, { 'sitemap-a.xml': 'new' }),
+        previous: { version: 2, perSitemap: { 'sitemap-a.xml': [known] } },
+      },
+      {
+        name: 'flat legacy baseline',
+        current: snapshot({ 'sitemap-a.xml': [known, added] }, { 'sitemap-a.xml': 'new' }),
+        previous: [known, legacyOnly],
+      },
+    ];
+
+    for (const fixture of fixtures) {
+      const tiers = changedUrlTiers(fixture.current, fixture.previous, opts);
+      const grouped = [
+        ...tiers.added,
+        ...tiers.removed,
+        ...tiers.movedIntoArchive,
+        ...tiers.movedOutOfArchive,
+        ...tiers.lastmod,
+        ...Object.values(tiers.digestBySitemap).flat(),
+      ];
+      expect(new Set(grouped).size, fixture.name).toBe(grouped.length);
+      expect([...new Set(grouped)].sort(), fixture.name).toEqual(changedUrls(fixture.current, fixture.previous, opts));
+    }
+  });
+
+  it('suppresses only changed expired-archive digests and counts their URLs', () => {
+    const urls = Array.from({ length: 10 }, (_, index) => `${BASE}/expired/${index}/`);
+    const previousPer: Record<string, string[]> = {};
+    const currentPer: Record<string, string[]> = {};
+    const previousDigests: Record<string, string> = {};
+    const currentDigests: Record<string, string> = {};
+    const previousLastmods: Record<string, Record<string, string>> = {};
+    const currentLastmods: Record<string, Record<string, string>> = {};
+    for (let shard = 0; shard < 5; shard += 1) {
+      const key = `sitemap-jobs-expired-${String(shard + 1).padStart(3, '0')}.xml`;
+      previousPer[key] = urls.slice(shard * 2, shard * 2 + 2);
+      currentPer[key] = [urls[(shard * 2 + 1) % urls.length], urls[(shard * 2 + 2) % urls.length]];
+      previousDigests[key] = `old-${shard}`;
+      currentDigests[key] = `new-${shard}`;
+      previousLastmods[key] = {};
+      currentLastmods[key] = {};
+    }
+    const tiers = changedUrlTiers(
+      { version: 3, perSitemap: currentPer, perSitemapDigests: currentDigests, perSitemapLastmod: currentLastmods },
+      { version: 3, perSitemap: previousPer, perSitemapDigests: previousDigests, perSitemapLastmod: previousLastmods },
+      { includeRemoved: true, includeRemovedFromMissingSitemaps: false, digestIgnoredSitemap: isExpiredJobSitemapKey },
+    );
+
+    expect(tiers.added).toEqual([]);
+    expect(tiers.removed).toEqual([]);
+    expect(tiers.movedIntoArchive).toEqual([]);
+    expect(tiers.movedOutOfArchive).toEqual([]);
+    expect(tiers.lastmod).toEqual([]);
+    expect(tiers.digestBySitemap).toEqual({});
+    expect(tiers.suppressedDigest).toEqual({ sitemaps: 5, urls: 10 });
+    expect(tiers.added).not.toContain(urls[0]);
+    expect(tiers.removed).not.toContain(urls[0]);
+  });
+
+  it('prioritizes a graph URL that moves from an active sitemap into the expired archive', () => {
+    const url = `${BASE}/annunci/expired/`;
+    const previous = {
+      version: 3,
+      perSitemap: { 'sitemap-jobs-active.xml': [url] },
+      perSitemapDigests: { 'sitemap-jobs-active.xml': 'active' },
+    };
+    const current = {
+      version: 3,
+      perSitemap: { 'sitemap-jobs-expired-004.xml': [url] },
+      perSitemapDigests: { 'sitemap-jobs-expired-004.xml': 'expired' },
+    };
+    const tiers = changedUrlTiers(current, previous, {
+      includeRemoved: true,
+      includeRemovedFromMissingSitemaps: false,
+      digestIgnoredSitemap: isExpiredJobSitemapKey,
+    });
+
+    expect(tiers.movedIntoArchive).toEqual([url]);
+    expect(tiers.movedOutOfArchive).toEqual([]);
+    expect(tiers.lastmod).toEqual([]);
+    expect(Object.values(tiers.digestBySitemap).flat()).not.toContain(url);
+  });
+
+  it('ignores a URL that moves only between expired archive shards', () => {
+    const url = `${BASE}/annunci/expired/`;
+    const previous = {
+      version: 3,
+      perSitemap: { 'sitemap-jobs-expired-004.xml': [url] },
+      perSitemapDigests: { 'sitemap-jobs-expired-004.xml': 'shard-004-before' },
+    };
+    const current = {
+      version: 3,
+      perSitemap: { 'sitemap-jobs-expired-005.xml': [url] },
+      perSitemapDigests: { 'sitemap-jobs-expired-005.xml': 'shard-005-after' },
+    };
+    const tiers = changedUrlTiers(current, previous, {
+      includeRemoved: true,
+      includeRemovedFromMissingSitemaps: false,
+      digestIgnoredSitemap: isExpiredJobSitemapKey,
+    });
+
+    expect(tiers).toMatchObject({
+      added: [],
+      removed: [],
+      movedIntoArchive: [],
+      movedOutOfArchive: [],
+      lastmod: [],
+      digestBySitemap: {},
+      suppressedDigest: { sitemaps: 1, urls: 1 },
+    });
+  });
+
+  it('prioritizes a graph URL that moves out of the expired archive into an active sitemap', () => {
+    const url = `${BASE}/annunci/reactivated/`;
+    const previous = {
+      version: 3,
+      perSitemap: { 'sitemap-jobs-expired-004.xml': [url] },
+      perSitemapDigests: { 'sitemap-jobs-expired-004.xml': 'expired' },
+    };
+    const current = {
+      version: 3,
+      perSitemap: { 'sitemap-jobs-active.xml': [url] },
+      perSitemapDigests: { 'sitemap-jobs-active.xml': 'active' },
+    };
+    const tiers = changedUrlTiers(current, previous, {
+      includeRemoved: true,
+      includeRemovedFromMissingSitemaps: false,
+      digestIgnoredSitemap: isExpiredJobSitemapKey,
+    });
+
+    expect(tiers.movedIntoArchive).toEqual([]);
+    expect(tiers.movedOutOfArchive).toEqual([url]);
+    expect(Object.values(tiers.digestBySitemap).flat()).not.toContain(url);
+  });
+
+  it('keeps a URL first appearing in the expired archive in the added tier', () => {
+    const url = `${BASE}/annunci/new-expired/`;
+    const current = {
+      version: 3,
+      perSitemap: { 'sitemap-jobs-expired-004.xml': [url] },
+      perSitemapDigests: { 'sitemap-jobs-expired-004.xml': 'expired' },
+    };
+    const previous = {
+      version: 3,
+      perSitemap: { 'sitemap-jobs-active.xml': [] },
+      perSitemapDigests: { 'sitemap-jobs-active.xml': 'active' },
+    };
+    const tiers = changedUrlTiers(current, previous, {
+      includeRemoved: true,
+      includeRemovedFromMissingSitemaps: false,
+      digestIgnoredSitemap: isExpiredJobSitemapKey,
+    });
+
+    expect(tiers.added).toEqual([url]);
+    expect(tiers.movedIntoArchive).toEqual([]);
+    expect(tiers.movedOutOfArchive).toEqual([]);
+    expect(Object.values(tiers.digestBySitemap).flat()).not.toContain(url);
+  });
+
+  it('does not infer archive movement from a legacy baseline without sitemap membership', () => {
+    const url = `${BASE}/annunci/legacy/`;
+    const current = {
+      version: 3,
+      perSitemap: { 'sitemap-jobs-expired-004.xml': [url] },
+      perSitemapDigests: { 'sitemap-jobs-expired-004.xml': 'expired' },
+    };
+    const tiers = changedUrlTiers(current, [url], {
+      includeRemoved: true,
+      includeRemovedFromMissingSitemaps: false,
+      digestIgnoredSitemap: isExpiredJobSitemapKey,
+    });
+
+    expect(tiers.legacy).toBe(true);
+    expect(tiers.movedIntoArchive).toEqual([]);
+    expect(tiers.movedOutOfArchive).toEqual([]);
   });
 });
 

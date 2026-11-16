@@ -406,7 +406,6 @@ export function changedUrls(
   const previousDigests = previous?.perSitemapDigests || {};
   const currentLastmods = current?.perSitemapLastmod || {};
   const previousLastmods = previous?.perSitemapLastmod || {};
-  const comparePerUrlLastmod = Boolean(current?.perSitemapLastmod && previous?.perSitemapLastmod);
   const legacyPrevious = Array.isArray(previous) || previous?.version !== 3 || Object.keys(previousDigests).length === 0;
   const changed = new Set();
 
@@ -445,7 +444,7 @@ export function changedUrls(
       // Large publisher snapshots can omit the URL-indexed lastmod map. When
       // it is present on both sides, retain the finer-grained comparison; when
       // absent, the sitemap digest remains authoritative for embedded XML data.
-      if (comparePerUrlLastmod) {
+      if (Object.keys(nowLastmod).length > 0 && Object.keys(beforeLastmod).length > 0) {
         for (const url of now) {
           if ((nowLastmod[url] || '') !== (beforeLastmod[url] || '')) changed.add(url);
         }
@@ -467,6 +466,122 @@ export function changedUrls(
   }
 
   return [...changed].sort();
+}
+
+/** Return changed URLs grouped by graph-level priority without double-counting. */
+export function changedUrlTiers(
+  current,
+  previous,
+  {
+    includeRemoved = false,
+    includeRemovedFromMissingSitemaps = true,
+    digestIgnoredSitemap,
+  } = {},
+) {
+  const currentPer = snapshotPerSitemap(current);
+  const previousPer = snapshotPerSitemap(previous);
+  const currentDigests = current?.perSitemapDigests || {};
+  const previousDigests = previous?.perSitemapDigests || {};
+  const currentLastmods = current?.perSitemapLastmod || {};
+  const previousLastmods = previous?.perSitemapLastmod || {};
+  const legacy = Array.isArray(previous) || previous?.version !== 3 || Object.keys(previousDigests).length === 0;
+  const currentUrls = snapshotUrls(current);
+  const previousUrls = snapshotUrls(previous);
+  const added = [...currentUrls].filter((url) => !previousUrls.has(url)).sort();
+
+  const removedSet = new Set();
+  if (includeRemoved) {
+    if (Array.isArray(previous)) {
+      if (includeRemovedFromMissingSitemaps) {
+        for (const url of previous) if (!currentUrls.has(url)) removedSet.add(url);
+      }
+    } else {
+      for (const key of Object.keys(previousPer)) {
+        if (!includeRemovedFromMissingSitemaps && !Object.prototype.hasOwnProperty.call(currentPer, key)) continue;
+        for (const url of asSet(previousPer[key])) {
+          if (!currentUrls.has(url)) removedSet.add(url);
+        }
+      }
+    }
+  }
+  const removed = [...removedSet].sort();
+
+  const alreadyClassified = new Set([...added, ...removed]);
+  const currentArchiveUrls = new Set();
+  const previousArchiveUrls = new Set();
+  const hasCurrentSitemapMembership = !Array.isArray(current)
+    && current?.perSitemap
+    && typeof current.perSitemap === 'object'
+    && !Array.isArray(current.perSitemap);
+  const hasPreviousSitemapMembership = !Array.isArray(previous)
+    && previous?.perSitemap
+    && typeof previous.perSitemap === 'object'
+    && !Array.isArray(previous.perSitemap);
+  if (typeof digestIgnoredSitemap === 'function' && hasCurrentSitemapMembership && hasPreviousSitemapMembership) {
+    for (const [key, urls] of Object.entries(currentPer)) {
+      if (!digestIgnoredSitemap(key)) continue;
+      for (const url of asSet(urls)) currentArchiveUrls.add(url);
+    }
+    for (const [key, urls] of Object.entries(previousPer)) {
+      if (!digestIgnoredSitemap(key)) continue;
+      for (const url of asSet(urls)) previousArchiveUrls.add(url);
+    }
+  }
+  const movedIntoArchive = [...currentArchiveUrls]
+    .filter((url) => previousUrls.has(url) && !previousArchiveUrls.has(url))
+    .sort();
+  const movedOutOfArchive = [...previousArchiveUrls]
+    .filter((url) => currentUrls.has(url) && !currentArchiveUrls.has(url))
+    .sort();
+  for (const url of movedIntoArchive) alreadyClassified.add(url);
+  for (const url of movedOutOfArchive) alreadyClassified.add(url);
+
+  const lastmodSet = new Set();
+  for (const key of Object.keys(currentPer)) {
+    if (!Object.prototype.hasOwnProperty.call(previousPer, key)) continue;
+    const nowLastmod = currentLastmods[key] || {};
+    const beforeLastmod = previousLastmods[key] || {};
+    if (Object.keys(nowLastmod).length === 0 || Object.keys(beforeLastmod).length === 0) continue;
+    for (const url of asSet(currentPer[key])) {
+      if (alreadyClassified.has(url)) continue;
+      if ((nowLastmod[url] || '') !== (beforeLastmod[url] || '')) lastmodSet.add(url);
+    }
+  }
+  const lastmod = [...lastmodSet].sort();
+  for (const url of lastmod) alreadyClassified.add(url);
+
+  const digestBySitemap = {};
+  const suppressedSitemaps = new Set();
+  const suppressedUrls = new Set();
+  for (const key of Object.keys(currentPer).sort()) {
+    const digestChanged = legacy
+      || !Object.prototype.hasOwnProperty.call(previousPer, key)
+      || currentDigests[key] !== previousDigests[key];
+    if (!digestChanged) continue;
+
+    const urls = [...asSet(currentPer[key])].sort();
+    if (digestIgnoredSitemap?.(key)) {
+      suppressedSitemaps.add(key);
+      for (const url of urls) {
+        if (!alreadyClassified.has(url)) suppressedUrls.add(url);
+      }
+      continue;
+    }
+
+    const affected = urls.filter((url) => !alreadyClassified.has(url));
+    digestBySitemap[key] = affected;
+  }
+
+  return {
+    added,
+    removed,
+    movedIntoArchive,
+    movedOutOfArchive,
+    lastmod,
+    digestBySitemap,
+    suppressedDigest: { sitemaps: suppressedSitemaps.size, urls: suppressedUrls.size },
+    legacy,
+  };
 }
 
 export function filterSnapshot(snapshot, filters = []) {

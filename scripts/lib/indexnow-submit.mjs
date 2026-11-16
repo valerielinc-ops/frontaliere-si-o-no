@@ -73,11 +73,29 @@ export async function verifyIndexNowKey({ attempts = 4, delayMs = 2000 } = {}) {
  * POST one batch of URLs to one endpoint, with bounded retry.
  * Never throws — returns a result object so a caller can keep going.
  */
-export async function submitIndexNowBatch(endpoint, urlBatch, attempt = 1) {
+export async function submitIndexNowBatch(endpoint, urlBatch, attempt = 1, { deadlineMs } = {}) {
   const engineName = new URL(endpoint).hostname;
   const payload = { host: HOST, key: INDEXNOW_KEY, keyLocation: KEY_LOCATION, urlList: urlBatch };
+  const deadlineResult = () => ({
+    ok: false,
+    engine: engineName,
+    error: 'deadline exceeded',
+    deadlineExceeded: true,
+    count: urlBatch.length,
+  });
+  const retry = async () => {
+    if (attempt > MAX_RETRIES) return null;
+    const waitMs = Number.isFinite(deadlineMs)
+      ? Math.min(1000 * attempt, Math.max(0, deadlineMs - Date.now()))
+      : 1000 * attempt;
+    if (waitMs > 0) await sleep(waitMs);
+    if (Number.isFinite(deadlineMs) && Date.now() >= deadlineMs) return deadlineResult();
+    return submitIndexNowBatch(endpoint, urlBatch, attempt + 1, { deadlineMs });
+  };
 
   try {
+    const remainingMs = Number.isFinite(deadlineMs) ? deadlineMs - Date.now() : 30_000;
+    if (Number.isFinite(deadlineMs) && remainingMs <= 0) return deadlineResult();
     const response = await fetch(endpoint, {
       method: 'POST',
       headers: {
@@ -85,7 +103,7 @@ export async function submitIndexNowBatch(endpoint, urlBatch, attempt = 1) {
         'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT,
       },
       body: JSON.stringify(payload),
-      signal: AbortSignal.timeout(30_000),
+      signal: AbortSignal.timeout(Math.max(1, Math.min(30_000, remainingMs))),
     });
 
     if (response.ok || response.status === 202) {
@@ -94,16 +112,16 @@ export async function submitIndexNowBatch(endpoint, urlBatch, attempt = 1) {
 
     // 429/5xx are worth another attempt; 4xx (bad key, bad host) never is.
     const retryable = response.status === 429 || response.status >= 500;
-    if (retryable && attempt <= MAX_RETRIES) {
-      await sleep(1000 * attempt);
-      return submitIndexNowBatch(endpoint, urlBatch, attempt + 1);
+    if (retryable) {
+      const retried = await retry();
+      if (retried) return retried;
+      return { ok: false, engine: engineName, status: response.status, count: urlBatch.length };
     }
     return { ok: false, engine: engineName, status: response.status, count: urlBatch.length };
   } catch (err) {
-    if (attempt <= MAX_RETRIES) {
-      await sleep(1000 * attempt);
-      return submitIndexNowBatch(endpoint, urlBatch, attempt + 1);
-    }
+    if (Number.isFinite(deadlineMs) && Date.now() >= deadlineMs) return deadlineResult();
+    const retried = await retry();
+    if (retried) return retried;
     return { ok: false, engine: engineName, error: err?.message || String(err), count: urlBatch.length };
   }
 }
@@ -138,10 +156,22 @@ export async function submitIndexNowUrls(urls, { endpoints = INDEXNOW_ENDPOINTS 
  */
 export async function submitIndexNowUrlsStreaming(
   urls,
-  { endpoints = INDEXNOW_ENDPOINTS, batchSize = 1, delayMs = 750 } = {},
+  { endpoints = INDEXNOW_ENDPOINTS, batchSize = 1, delayMs = 750, deadlineMs, onBatch } = {},
 ) {
   const clean = [...new Set((urls || []).map((u) => String(u || '').trim()).filter(Boolean))];
-  if (clean.length === 0) return { submitted: 0, batches: 0, results: [] };
+  if (clean.length === 0) {
+    return {
+      submitted: 0,
+      batches: 0,
+      accepted: 0,
+      attempted: 0,
+      remaining: 0,
+      failed: [],
+      notAttempted: [],
+      stoppedByDeadline: false,
+      results: [],
+    };
+  }
   if (!Number.isInteger(batchSize) || batchSize < 1) {
     throw new TypeError('batchSize deve essere un intero positivo');
   }
@@ -156,20 +186,70 @@ export async function submitIndexNowUrlsStreaming(
   }
 
   const results = [];
+  let accepted = 0;
+  let attempted = 0;
+  let attemptedBatches = 0;
+  const failed = [];
+  let stoppedByDeadline = false;
   for (let index = 0; index < batches.length; index += 1) {
+    if (Number.isFinite(deadlineMs) && Date.now() >= deadlineMs) {
+      stoppedByDeadline = true;
+      break;
+    }
+
     const batch = batches[index];
     const attempts = [];
     let batchResult;
 
     for (const endpoint of endpoints) {
-      const attempt = await submitIndexNowBatch(endpoint, batch);
+      if (Number.isFinite(deadlineMs) && Date.now() >= deadlineMs) {
+        stoppedByDeadline = true;
+        break;
+      }
+      const attempt = await submitIndexNowBatch(endpoint, batch, 1, { deadlineMs });
       attempts.push(attempt);
       batchResult = attempt;
       if (attempt.ok) break;
+      if (attempt.deadlineExceeded) {
+        stoppedByDeadline = true;
+        break;
+      }
     }
 
+    if (!batchResult) break;
     results.push({ ...batchResult, attempts });
-    if (index < batches.length - 1 && delayMs > 0) await sleep(delayMs);
+    attempted += batch.length;
+    attemptedBatches += 1;
+    const acceptedUrls = batchResult.ok ? batch : [];
+    if (batchResult.ok) accepted += batch.length;
+    else failed.push(...batch);
+    await onBatch?.({
+      index: index + 1,
+      total: batches.length,
+      accepted: Boolean(batchResult.ok),
+      attemptedUrls: batch,
+      acceptedUrls,
+    });
+
+    if (stoppedByDeadline) break;
+    if (index < batches.length - 1 && delayMs > 0) {
+      const waitMs = Number.isFinite(deadlineMs)
+        ? Math.min(delayMs, Math.max(0, deadlineMs - Date.now()))
+        : delayMs;
+      if (waitMs > 0) await sleep(waitMs);
+    }
   }
-  return { submitted: clean.length, batches: batches.length, results };
+  const hasDeadline = Number.isFinite(deadlineMs);
+  const notAttempted = clean.slice(attempted);
+  return {
+    submitted: hasDeadline ? attempted : clean.length,
+    batches: hasDeadline ? attemptedBatches : batches.length,
+    accepted,
+    attempted,
+    remaining: failed.length + notAttempted.length,
+    failed,
+    notAttempted,
+    stoppedByDeadline,
+    results,
+  };
 }

@@ -98,10 +98,88 @@ describe('Bing SEO live contract', () => {
       'https://api.indexnow.org/indexnow',
       'https://api.indexnow.org/indexnow',
     ]);
+    expect(result).toMatchObject({
+      submitted: 2,
+      batches: 2,
+      accepted: 2,
+      attempted: 2,
+      remaining: 0,
+      stoppedByDeadline: false,
+    });
     expect(result.results).toHaveLength(2);
     expect(result.results.every((item) => item.ok)).toBe(true);
     expect(result.results.map((item) => item.attempts.map((attempt) => attempt.engine)))
       .toEqual([['api.indexnow.org'], ['api.indexnow.org']]);
+  });
+
+  it('stops before the first batch when the absolute deadline has expired', async () => {
+    const fetchMock = vi.fn();
+    const onBatch = vi.fn();
+    vi.stubGlobal('fetch', fetchMock);
+
+    const result = await submitIndexNowUrlsStreaming(
+      [`${URL}first/`, `${URL}second/`],
+      { endpoints: ['https://api.indexnow.org/indexnow'], batchSize: 1, delayMs: 0, deadlineMs: Date.now() - 1, onBatch },
+    );
+
+    expect(result).toMatchObject({
+      submitted: 0,
+      batches: 0,
+      accepted: 0,
+      attempted: 0,
+      remaining: 2,
+      stoppedByDeadline: true,
+      results: [],
+    });
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(onBatch).not.toHaveBeenCalled();
+  });
+
+  it('reports accepted batches and leaves the unattempted URLs when the deadline arrives mid-stream', async () => {
+    vi.useFakeTimers();
+    const startedAt = new Date('2026-11-16T12:00:00.000Z').getTime();
+    vi.setSystemTime(startedAt);
+    const fetchMock = vi.fn(async () => new Response(null, { status: 200 }));
+    const onBatch = vi.fn();
+    vi.stubGlobal('fetch', fetchMock);
+
+    const promise = submitIndexNowUrlsStreaming(
+      [`${URL}first/`, `${URL}second/`, `${URL}third/`],
+      {
+        endpoints: ['https://api.indexnow.org/indexnow'],
+        batchSize: 1,
+        delayMs: 100,
+        deadlineMs: startedAt + 150,
+        onBatch,
+      },
+    );
+    await vi.runAllTimersAsync();
+    const result = await promise;
+
+    expect(result).toMatchObject({
+      submitted: 2,
+      batches: 2,
+      accepted: 2,
+      attempted: 2,
+      remaining: 1,
+      stoppedByDeadline: true,
+    });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(onBatch).toHaveBeenCalledTimes(2);
+    expect(onBatch).toHaveBeenNthCalledWith(1, {
+      index: 1,
+      total: 3,
+      accepted: true,
+      attemptedUrls: [`${URL}first/`],
+      acceptedUrls: [`${URL}first/`],
+    });
+    expect(onBatch).toHaveBeenNthCalledWith(2, {
+      index: 2,
+      total: 3,
+      accepted: true,
+      attemptedUrls: [`${URL}second/`],
+      acceptedUrls: [`${URL}second/`],
+    });
   });
 
   it('uses the next endpoint after retries and keeps an unaccepted batch failed', async () => {
