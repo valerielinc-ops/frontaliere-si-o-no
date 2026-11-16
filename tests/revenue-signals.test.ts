@@ -18,7 +18,7 @@ import { tmpdir } from 'node:os';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 import { TITLE_RE } from '../scripts/ci/close-recovered-failure-issues.mjs';
 import {
@@ -33,6 +33,7 @@ import {
   windowKeys,
 } from '../scripts/lib/revenue-signals.mjs';
 import { buildTargetMarketCountryFilter } from '../scripts/lib/ga4-target-market.mjs';
+import { runGa4Report } from '../scripts/lib/ga4-service-account.mjs';
 import { earliestHourNeeded, fetchHourlyCounts, runMonitor } from '../scripts/monitor-revenue-signals.mjs';
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -237,6 +238,28 @@ describe('issue lifecycle', () => {
 
 describe('fetchHourlyCounts', () => {
   const report = (rows: unknown[], rowCount = rows.length) => ({ ok: true, json: async () => ({ rows, rowCount }) });
+
+  it('retries a transient GA4 transport failure before giving up', async () => {
+    vi.useFakeTimers();
+    try {
+      let attempts = 0;
+      const request = runGa4Report({
+        token: 't',
+        body: { dimensions: [] },
+        fetchImpl: async () => {
+          attempts += 1;
+          if (attempts === 1) throw new TypeError('fetch failed');
+          return { ok: true, json: async () => ({ rows: [] }) };
+        },
+      });
+
+      await vi.advanceTimersByTimeAsync(2_000);
+      await expect(request).resolves.toEqual({ rows: [] });
+      expect(attempts).toBe(2);
+    } finally {
+      vi.useRealTimers();
+    }
+  });
 
   it('merges the metrics and the ad events per hour', async () => {
     const calls: string[] = [];
