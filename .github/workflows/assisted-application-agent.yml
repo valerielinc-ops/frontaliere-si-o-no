@@ -145,9 +145,10 @@ jobs:
 
       # The assisted runner uses CloakBrowser only when the assisted flag and
       # key are both valid; otherwise it uses stock Chromium. CloakBrowser is
-      # not a CAPTCHA solver: CAPTCHA and anti-bot challenges are handed to
-      # Valerie for the owner extension flow. Keep the headed session on a
-      # virtual screen so the owner-controlled handoff remains usable.
+      # not a CAPTCHA solver: the runner gets one bounded managed Turnstile
+      # checkbox attempt; if the check remains, or is reCAPTCHA/hCaptcha, the
+      # challenge is handed to Valerie for the owner extension flow. Keep the
+      # headed session on a virtual screen so that handoff remains usable.
       - name: Run agent
         env:
           ORDER_ID: ${{ inputs.order_id }}
@@ -163,8 +164,9 @@ jobs:
           ASSISTED_APPLICATION_STOP_REPORT: ${{ runner.temp }}/portal-stop.json
           # Candidate-free proof used to close stale portal-stop issues after a pass.
           ASSISTED_APPLICATION_PORTAL_PASS: ${{ runner.temp }}/portal-pass.json
-        # Keep browser selection explicit and opt-in. Anti-bot challenges are
-        # handed off instead of being solved by the runner. If CloakBrowser is
+        # Keep browser selection explicit and opt-in. The runner may click one
+        # managed Turnstile checkbox; an unsuccessful check is handed off,
+        # never solved with a token or extension. If CloakBrowser is
         # unavailable, launchStealthOrChromium records the fallback and keeps
         # the stock Chromium execution path; the virtual screen remains
         # required for the owner handoff.

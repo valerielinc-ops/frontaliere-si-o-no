@@ -60,7 +60,7 @@ describe('assisted application agent workflow dependencies', () => {
     expect(installRun).toContain('npx playwright install chromium || npx playwright install --with-deps chromium');
   });
 
-  it('uses opt-in assisted browser transport and hands every CAPTCHA to Valerie', () => {
+  it('uses opt-in assisted transport, bounded challenge pass, and Valerie handoff', () => {
     const runScript = steps.find(step => step.name === 'Run agent')?.run || '';
     expect(workflowSource).not.toContain('NOPECHA_EXTENSION_PATH');
     expect(steps.some(step => /NopeCHA|install-nopecha/iu.test(`${step.name || ''} ${step.run || ''}`))).toBe(false);
@@ -73,7 +73,10 @@ describe('assisted application agent workflow dependencies', () => {
     expect(portalSource).not.toContain('awaitCaptcha');
     expect(portalSource).toContain('launchStealthOrChromium');
     expect(portalSource).toContain("purpose: 'assisted'");
-    expect(portalSource).not.toContain('passPortalChallenge');
+    expect(portalSource).toContain('passAssistedPortalChallenge');
+    expect(portalSource).toContain('challengeState');
+    expect(portalSource).toContain('passChallenge');
+    expect(portalSource).toContain('onPortalChallenge');
     expect(portalSource).not.toContain('chromeUserAgent');
     expect(verifySource).not.toContain('realisticUserAgent');
     expect(verifySource).not.toContain('userAgent:');
