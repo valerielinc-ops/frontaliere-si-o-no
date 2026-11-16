@@ -17588,7 +17588,6 @@ ${staticAnalyticsHtml}
  // Reconcile the sharded expired family after any cache-hit patching. The
  // helper is idempotent and also removes a stale monolith reference.
  patchExpiredSitemapIndex(cacheDateStamp);
- }
 
  // Tiered emission summary (artifact-shrink Fase 1). 'full' = today's
  // behavior (cached canonical HTML reused). 'thin' = bridge body
