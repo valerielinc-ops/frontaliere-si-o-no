@@ -8094,7 +8094,6 @@
       "applyUrl": "https://anker-swiss.ch/stellen/maler-1534517/",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -8112,7 +8111,30 @@
       "validThrough": "2027-01-25T09:34:52.145Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-06T21:52:19.860Z",
-      "sourceIdentity": "url:https://anker-swiss.ch/stellen/maler-1534517"
+      "sourceIdentity": "url:https://anker-swiss.ch/stellen/maler-1534517",
+      "previousSlugsByLocale": {
+        "it": [
+          "maler-100-anker-swiss-ticino-ag-wabern-da773fd5",
+          "pittura-100-anker-swiss-ticino-ag-wabern-da773fd5"
+        ],
+        "en": [
+          "maler-100-anker-swiss-ticino-ag-wabern-da773fd5",
+          "painter-100-anker-swiss-ticino-ag-wabern-da773fd5"
+        ],
+        "de": [
+          "maler-100-anker-swiss-ticino-ag-wabern-da773fd5"
+        ],
+        "fr": [
+          "maler-100-anker-swiss-ticino-ag-wabern-da773fd5",
+          "peintre-100-anker-swiss-ticino-ag-wabern-da773fd5"
+        ]
+      },
+      "previousSlugs": [
+        "maler-100-anker-swiss-ticino-ag-wabern-da773fd5",
+        "pittura-100-anker-swiss-ticino-ag-wabern-da773fd5",
+        "painter-100-anker-swiss-ticino-ag-wabern-da773fd5",
+        "peintre-100-anker-swiss-ticino-ag-wabern-da773fd5"
+      ]
     },
     {
       "id": "anker-swiss-33e34b70f5f1",

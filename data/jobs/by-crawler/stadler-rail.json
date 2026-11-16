@@ -1846,8 +1846,8 @@
       "slug": "system-test-ingegnere-stadler-rail-olten",
       "slugByLocale": {
         "it": "system-test-ingegnere-stadler-rail-olten",
-        "en": "system-test-engineer-stadler-rail-ch",
-        "de": "system-test-engineer-stadler-rail-ch",
+        "en": "system-test-engineer-stadler-rail-ch-ganef6",
+        "de": "system-test-engineer-stadler-rail-ch-ganef6",
         "fr": "system-test-ingenieur-stadler-rail-olten"
       },
       "company": "Stadler Rail",
@@ -1910,11 +1910,13 @@
         ],
         "en": [
           "systems-test-engineer-stadler-rail-olten",
-          "system-test-engineer-stadler-rail-ch-2"
+          "system-test-engineer-stadler-rail-ch-2",
+          "system-test-engineer-stadler-rail-ch"
         ],
         "de": [
           "system-test-ingenieur-stadler-rail-olten",
-          "system-test-engineer-stadler-rail-ch-2"
+          "system-test-engineer-stadler-rail-ch-2",
+          "system-test-engineer-stadler-rail-ch"
         ],
         "fr": [
           "system-test-engineer-stadler-rail-ch"
@@ -11830,7 +11832,7 @@
       "slug": "system-ingegnere-cbtc-vehicle-integration-stadler-rail-wallisellen-cef87ce417",
       "slugByLocale": {
         "it": "system-ingegnere-cbtc-vehicle-integration-stadler-rail-wallisellen-cef87ce417",
-        "en": "system-engineer-cbtc-vehicle-integration-stadler-rail-ch",
+        "en": "system-engineer-cbtc-vehicle-integration-stadler-rail-ch-rxe6wu",
         "de": "system-ingenieur-cbtc-vehicle-integration-stadler-rail-wallisellen",
         "fr": "system-ingenieur-cbtc-vehicle-integration-stadler-rail-wallisellen"
       },
@@ -11895,6 +11897,9 @@
         "fr": [
           "system-engineer-cbtc-vehicle-integration-stadler-rail-ch",
           "system-engineer-cbtc-vehicle-integration-stadler-rail-ch-2"
+        ],
+        "en": [
+          "system-engineer-cbtc-vehicle-integration-stadler-rail-ch"
         ]
       },
       "firstSeenAt": "2026-11-11T21:44:09.988Z",
@@ -12818,7 +12823,6 @@
       "requirementsByLocale": {
         "fr": []
       },
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -12842,7 +12846,7 @@
       "id": "stadler-rail-a1970ed7f795",
       "slug": "system-test-engineer-stadler-rail-ch-2",
       "slugByLocale": {
-        "de": "system-test-engineer-stadler-rail-ch",
+        "de": "system-test-engineer-stadler-rail-ch-re65kw",
         "it": "system-test-engineer-stadler-rail-ch-2",
         "en": "system-test-engineer-stadler-rail-ch-2",
         "fr": "system-test-engineer-stadler-rail-ch-2"
@@ -12908,7 +12912,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:49:27.696Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-06-30T23:29:48.086Z"
+      "firstSeenAt": "2026-06-30T23:29:48.086Z",
+      "previousSlugs": [
+        "system-test-engineer-stadler-rail-ch"
+      ],
+      "previousSlugsByLocale": {
+        "de": [
+          "system-test-engineer-stadler-rail-ch"
+        ]
+      }
     },
     {
       "id": "stadler-rail-28f65a2ded04",
@@ -14794,7 +14806,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
