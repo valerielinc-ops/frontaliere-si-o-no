@@ -490,32 +490,44 @@ function extractJobupLocation(posting) {
  * recommended jobs. More than one matching boundary is ambiguous, so no body
  * is returned and the shared source floor keeps the row unpublished.
  */
+function isHiddenJobupElement(element) {
+  if (!element || element.closest('script, style, noscript, template')) return true;
+  for (let ancestor = element; ancestor; ancestor = ancestor.parentElement) {
+    if (ancestor.hasAttribute('hidden') || ancestor.getAttribute('aria-hidden')?.trim().toLowerCase() === 'true') {
+      return true;
+    }
+    if (/(?:^|\s)(?:hidden|d-none|is-hidden|invisible)(?:\s|$)/i.test(ancestor.getAttribute('class') || '')) {
+      return true;
+    }
+    const inlineStyle = (ancestor.getAttribute('style') || '').replace(/\s+/g, '').toLowerCase();
+    if (/(?:^|;)display:none(?:!important)?(?:;|$)/.test(inlineStyle)
+      || /(?:^|;)visibility:hidden(?:!important)?(?:;|$)/.test(inlineStyle)
+      || /(?:^|;)content-visibility:hidden(?:!important)?(?:;|$)/.test(inlineStyle)) return true;
+  }
+  return false;
+}
+
 export function extractVisibleJobupDescription(html = '') {
   const dom = new JSDOM(String(html));
   try {
-    const containers = [...dom.window.document.querySelectorAll('[data-cy="vacancy-description"]')];
-
-    const isHidden = (element) => {
-      if (!element || element.closest('script, style, noscript, template')) return true;
-      for (let ancestor = element; ancestor; ancestor = ancestor.parentElement) {
-        if (ancestor.hasAttribute('hidden') || ancestor.getAttribute('aria-hidden') === 'true') return true;
-        if (/(?:^|\s)(?:hidden|d-none|is-hidden|invisible)(?:\s|$)/i.test(ancestor.getAttribute('class') || '')) return true;
-        const style = (ancestor.getAttribute('style') || '').replace(/\s+/g, '').toLowerCase();
-        if (/(?:^|;)display:none(?:!important)?(?:;|$)/.test(style)
-          || /(?:^|;)visibility:hidden(?:!important)?(?:;|$)/.test(style)
-          || /(?:^|;)content-visibility:hidden(?:!important)?(?:;|$)/.test(style)) return true;
-      }
-      return false;
-    };
+    const containers = [...dom.window.document.querySelectorAll('[data-cy="vacancy-description"]')]
+      .filter((container) => !isHiddenJobupElement(container));
 
     if (containers.length !== 1) return '';
-    if (isHidden(containers[0])) return '';
-
     const container = containers[0].cloneNode(true);
-    for (const excluded of container.querySelectorAll('script, style, noscript, template, [hidden], [aria-hidden="true"]')) {
+    for (const excluded of container.querySelectorAll('script, style, template, noscript, [hidden], [aria-hidden="true"]')) {
       excluded.remove();
     }
-    return normalizeSpace(stripHtml(container.innerHTML || ''));
+    for (const excluded of [...container.querySelectorAll('[class], [style]')].filter((element) => isHiddenJobupElement(element))) {
+      excluded.remove();
+    }
+    for (const lineBreak of container.querySelectorAll('br')) {
+      lineBreak.replaceWith(' ');
+    }
+    for (const block of container.querySelectorAll('address, article, aside, blockquote, div, dl, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hr, li, main, nav, ol, p, pre, section, table, ul')) {
+      block.append(' ');
+    }
+    return normalizeSpace(container.textContent || '');
   } finally {
     dom.window.close();
   }
