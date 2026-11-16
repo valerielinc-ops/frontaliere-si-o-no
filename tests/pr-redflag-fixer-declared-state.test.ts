@@ -24,11 +24,9 @@ import { isCandidateItem } from '../scripts/ci/followup-has-candidates.mjs';
  *  1. the taxonomy module must be resolved from `main`. These jobs are
  *     checked out on the branch UNDER FIX, which can predate #5916 — importing
  *     it from the checkout dies `SyntaxError`/`ERR_MODULE_NOT_FOUND` mid-round;
- *  2. the prompts must name `sectionBullets`/`stripNonContent` and
- *     `NON_IMPL_ANCORA_RE`, not just `extractSection`/`bulletState`: without the
- *     stripping, the taxonomy EXAMPLES inside a fenced block of the body read as
- *     declared states, and `extractSection` cannot even be called without the
- *     header regex;
+ *  2. the code that computes declared states must use `sectionBullets` and
+ *     `NON_IMPL_ANCORA_RE`, not a second parser: `sectionBullets` removes fenced
+ *     examples with `stripNonContent`, and `extractSection` needs the header regex;
  *  3. `blocked:` is not monolithic — `blocked-owner` closes the item and
  *     `blocked-technical` does not, and the two fixers must decide the same way
  *     `followup-has-candidates.mjs` does;
@@ -82,6 +80,15 @@ function prompt(file: string): string {
   return prompts.join('\n');
 }
 
+/** Read the shell script from one named workflow step. */
+function workflowCommand(file: string, stepName: string): string {
+  const doc: any = YAML.parse(readFileSync(join(ROOT, '.github/workflows', file), 'utf8'));
+  const step = Object.values<any>(doc?.jobs ?? {})
+    .flatMap((job) => job?.steps ?? [])
+    .find((candidate) => candidate?.name === stepName);
+  return typeof step?.run === 'string' ? step.run : '';
+}
+
 describe('the autonomous fixers read declared states before contradicting them (#5917)', () => {
   it.each(BODY_CONTRACT_FIXERS)('%s requires auditable decision deferrals in the PR body', (file) => {
     const p = prompt(file);
@@ -110,8 +117,15 @@ describe('the autonomous fixers read declared states before contradicting them (
       `${file}: the prompt no longer instructs the agent to read the CURRENT ` +
         '`## Non implementato (ancora)` before applying a fix (#5917).',
     ).toMatch(/Non implementato \(ancora\)/);
-    expect(p, `${file}: the prompt does not load a PR body with \`gh pr view … --json body\`.`)
-      .toMatch(/gh pr view[^\n]*--json[^\n]*body/);
+    if (file === 'pr-redflag-fixer.yml') {
+      expect(p, `${file}: the prompt does not load the prefetched PR body and declared states.`)
+        .toMatch(/redflag-bundle\.md[^\n]*PR metadata \(title\/body\/headRefName\)/);
+      expect(p, `${file}: the bundle is not required as the first read.`)
+        .toMatch(/Leggilo con `Read` come prima cosa/);
+    } else {
+      expect(p, `${file}: the prompt does not load a PR body with \`gh pr view … --json body\`.`)
+        .toMatch(/gh pr view[^\n]*--json[^\n]*body/);
+    }
   });
 
   it.each(FIXERS)('%s resolves the taxonomy module from main, not from the checkout', (file) => {
@@ -120,14 +134,22 @@ describe('the autonomous fixers read declared states before contradicting them (
     // with `resume=true` checks out a branch left by an earlier run. Either can
     // predate #5916, where `bulletState` is not exported — the import then dies
     // after the diagnosis turns are already spent.
-    expect(
-      p,
-      `${file}: the prompt no longer fetches ${HELPER_MODULE} from main. Resolved from ` +
-        'the checkout, a pre-#5916 branch has no `bulletState` export (SyntaxError) ' +
-        'or no file at all (ERR_MODULE_NOT_FOUND).',
-    ).toMatch(/git show FETCH_HEAD:scripts\/lib\/pr-body-sections-check\.mjs/);
-    expect(p, `${file}: the prompt no longer fetches origin/main before reading the module.`)
-      .toMatch(/git fetch[^\n]*origin main/);
+    if (file === 'pr-redflag-fixer.yml') {
+      const commands = workflowCommand(file, 'Collect PR + review context (zero-Claude)');
+      expect(commands, `${file}: the zero-Claude prefetch does not fetch main.`)
+        .toMatch(/git fetch --no-tags origin main:refs\/remotes\/origin\/main/);
+      expect(commands, `${file}: the taxonomy module is not read from origin/main.`)
+        .toMatch(/git show origin\/main:scripts\/lib\/pr-body-sections-check\.mjs/);
+    } else {
+      expect(
+        p,
+        `${file}: the prompt no longer fetches ${HELPER_MODULE} from main. Resolved from ` +
+          'the checkout, a pre-#5916 branch has no `bulletState` export (SyntaxError) ' +
+          'or no file at all (ERR_MODULE_NOT_FOUND).',
+      ).toMatch(/git show FETCH_HEAD:scripts\/lib\/pr-body-sections-check\.mjs/);
+      expect(p, `${file}: the prompt no longer fetches origin/main before reading the module.`)
+        .toMatch(/git fetch[^\n]*origin main/);
+    }
     // And it must not tell the agent to import the checkout's own copy.
     expect(
       p,
@@ -146,21 +168,44 @@ describe('the autonomous fixers read declared states before contradicting them (
 
   it.each(FIXERS)('%s reuses the four helpers by name instead of a second parser', (file) => {
     const p = prompt(file);
-    expect(p, `${file}: the prompt no longer points at ${HELPER_MODULE}.`).toContain(HELPER_MODULE);
+    const implementation = file === 'pr-redflag-fixer.yml'
+      ? workflowCommand(file, 'Collect PR + review context (zero-Claude)')
+      : p;
+    expect(implementation, `${file}: the state reader no longer points at ${HELPER_MODULE}.`)
+      .toContain(HELPER_MODULE);
     for (const fn of ['extractSection', 'sectionBullets', 'bulletState', 'NON_IMPL_ANCORA_RE']) {
       expect(
-        p,
-        `${file}: \`${fn}\` is not named in the prompt. Without \`sectionBullets\` (which ` +
-          'applies `stripNonContent`) the taxonomy EXAMPLES inside a fenced block of the ' +
-          'body are read as declared states; without `NON_IMPL_ANCORA_RE` the agent has to ' +
-          'hand-write the header regex `extractSection` requires.',
+        implementation,
+        `${file}: \`${fn}\` is not named in the state reader. Without \`sectionBullets\` ` +
+          '(which applies `stripNonContent`) the taxonomy EXAMPLES inside a fenced block ' +
+          'are read as declared states; without `NON_IMPL_ANCORA_RE` the header regex ' +
+          '`extractSection` requires would need to be hand-written.',
       ).toMatch(new RegExp(`\\b${fn}\\b`));
     }
-    expect(p, `${file}: \`stripNonContent\` is no longer explained as the reason for the reuse.`)
-      .toMatch(/stripNonContent/);
-    expect(p, `${file}: the prompt no longer forbids writing a second parser.`).toMatch(
-      /NON scrivere un secondo parser/i,
-    );
+    if (file === 'pr-redflag-fixer.yml') {
+      expect(implementation).toContain(
+        'const { extractSection, sectionBullets, bulletState, NON_IMPL_ANCORA_RE } = await import("file://" + modPath);',
+      );
+      expect(implementation).toContain('const sec = extractSection(body, NON_IMPL_ANCORA_RE) ?? "";');
+      expect(implementation).toContain(
+        'const states = sectionBullets(sec).map((b) => ({ state: bulletState(b), bullet: b }));',
+      );
+      expect((sections as any).sectionBullets.toString())
+        .toMatch(/stripNonContent/);
+    } else {
+      expect(p, `${file}: \`stripNonContent\` is no longer explained as the reason for the reuse.`)
+        .toMatch(/stripNonContent/);
+    }
+    if (file === 'pr-redflag-fixer.yml') {
+      expect(p, `${file}: the prompt no longer trusts the precomputed states.`)
+        .toMatch(/non ricalcolarli con parser o regex tuoi/i);
+      expect(p, `${file}: a missing prefetch no longer falls back to the canonical helpers.`)
+        .toMatch(/usa le stesse quattro funzioni canoniche[\s\S]*non riscrivere la tassonomia/i);
+    } else {
+      expect(p, `${file}: the prompt no longer forbids writing a second parser.`).toMatch(
+        /NON scrivere un secondo parser/i,
+      );
+    }
   });
 
   it.each(FIXERS)('%s distinguishes blocked-owner (closing) from blocked-technical (open)', (file) => {

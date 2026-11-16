@@ -2738,7 +2738,7 @@ function translatePendingQueueGuardJob() {
         GITHUB_REPOSITORY: '${{ github.repository }}',
         GITHUB_RUN_ID: '${{ github.run_id }}',
         GITHUB_EVENT_NAME: '${{ github.event_name }}',
-        TRANSLATION_MANUAL_OVERRIDE: "${{ github.event_name == 'workflow_dispatch' && (inputs.skip_translate == true || inputs.dry_run == true || inputs.collect_company_served == true || inputs.company_key != '' || inputs.max_jobs != '900' || inputs.mopup_max_jobs != '6000') && 'true' || 'false' }}",
+        TRANSLATION_MANUAL_OVERRIDE: '${{ env.TRANSLATION_MANUAL_OVERRIDE }}',
       },
       run: [
         'set -euo pipefail',
