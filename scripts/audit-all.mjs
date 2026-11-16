@@ -85,6 +85,7 @@ import { factory as duplicateStructuredData } from './audit-duplicate-structured
 import { factory as linkAnchorText } from './audit-link-anchor-text.mjs';
 import { factory as duplicateMetaDescription } from './audit-duplicate-meta-description.mjs';
 import { factory as informationGain } from './audit-information-gain.mjs';
+import { factory as imageLayout } from './audit-image-layout.mjs';
 
 const REGISTRY = [
   { factory: footerRootPresence, name: 'footer-root-presence' },
@@ -104,6 +105,7 @@ const REGISTRY = [
   { factory: linkAnchorText, name: 'link-anchor-text' },
   { factory: duplicateMetaDescription, name: 'duplicate-meta-description' },
   { factory: informationGain, name: 'information-gain' },
+  { factory: imageLayout, name: 'image-layout' },
 ];
 
 // ─── CLI parsing ─────────────────────────────────────────────────────────────

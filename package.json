@@ -53,6 +53,7 @@
     "seo:families": "node scripts/seo-families-tighten.mjs --list",
     "seo:families:tighten": "node scripts/seo-families-tighten.mjs",
     "audit:information-gain": "node scripts/audit-information-gain.mjs",
+    "audit:image-layout": "node scripts/audit-image-layout.mjs",
     "audit:title-uniqueness": "node --expose-gc scripts/audit-title-uniqueness.mjs",
     "audit:job-content-plausibility": "node scripts/audit-job-content-plausibility.mjs",
     "audit:expired-at-parsable": "node scripts/audit-expired-at-parsable.mjs",

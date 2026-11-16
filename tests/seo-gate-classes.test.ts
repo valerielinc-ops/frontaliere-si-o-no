@@ -57,6 +57,7 @@ describe('classe e modalità di ogni gate (cambiarle è una decisione da review)
       'audit:orphan-sitemap-pages': 'B/issue-on-regression',
       'audit:hreflang': 'B/issue-on-regression',
       'audit:all/information-gain': 'B/issue-on-regression',
+      'audit:all/image-layout': 'B/issue-on-regression',
       'validate:sitemap-family-coverage': 'B/issue-on-regression',
       // C — advisory (faqpage-validity declassato da A il 2026-10-02)
       'audit:all/faqpage-validity': 'C/advisory',
@@ -89,7 +90,7 @@ describe('classe e modalità di ogni gate (cambiarle è una decisione da review)
   it('decisione del proprietario: nessun gate classificato blocca, nemmeno tutti insieme', () => {
     // B e C dal 2026-10-02, A dal 2026-10-03.
     const all = Object.keys(SEO_GATE_CLASSES);
-    expect(all.length).toBe(32);
+    expect(all.length).toBe(33);
     const v = evaluateIntegrity(all);
     expect(v.integrityOk).toBe(true);
     expect(v.blocking).toEqual([]);

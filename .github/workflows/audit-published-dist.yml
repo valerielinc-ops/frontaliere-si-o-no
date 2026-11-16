@@ -62,6 +62,7 @@ jobs:
         text-html-ratio,title-length,title-no-disambig-hash,
         h1-title-duplicates,content-duplicates,faqpage-validity,
         image-object-license,
+        image-layout,
         no-literal-markdown,breadcrumb-coverage,single-h1-per-page,
         duplicate-structured-data,link-anchor-text,duplicate-meta-description,
         information-gain,salary-landing-template

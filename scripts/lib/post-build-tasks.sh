@@ -17,6 +17,7 @@ run_post_build_task() {
   local name="$1"
   case "$name" in
     audit:text-html-ratio)        npm run audit:text-html-ratio ;;
+    audit:image-layout)           npm run audit:image-layout ;;
     audit:h1-title-duplicates)    npm run audit:h1-title-duplicates ;;
     audit:title-length)           npm run audit:title-length ;;
     audit:title-no-disambig-hash) npm run audit:title-no-disambig-hash ;;
@@ -44,6 +45,7 @@ run_post_build_task() {
 # All 18 task names (order matches LPT bucket assignments below).
 ALL_POST_BUILD_TASKS=(
   audit:text-html-ratio
+  audit:image-layout
   validate:spa-render
   test:e2e:smoke
   validate:jobs-quality
@@ -72,6 +74,7 @@ ALL_POST_BUILD_TASKS=(
 # ubuntu-latest), so per-shard wall ≈ shard_sum / 2.
 POST_BUILD_SHARD_1=(
   audit:text-html-ratio
+  audit:image-layout
   audit:content-duplicates
   audit:title-uniqueness
   validate:soft-404
