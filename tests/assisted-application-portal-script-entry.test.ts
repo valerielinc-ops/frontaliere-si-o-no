@@ -166,4 +166,44 @@ describe('verified posting script entry (#17253)', () => {
       job: { title: 'Current Role' },
     })).toEqual([]);
   });
+
+  it('matches BrassRing fieldless Apply CTA after siteid and query canonicalization', () => {
+    const postingUrl = 'https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=353466&PageType=jobdetails';
+    const canonicalUrl = 'https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5155&PageType=JobDetails&jobid=353466#jobDetails=353466_5155';
+    const apply = { text: 'Apply now', frame: 0, section: 'Head Sales Office - Marketing, Design & Digital Sales, 100%' };
+    expect(applicationEntryControls({
+      url: canonicalUrl,
+      fields: [],
+      buttons: [apply],
+    }, {
+      applyUrl: postingUrl,
+      postingUrl,
+      pageTitle: 'Head Sales Office - Marketing, Design & Digital Sales, 100% | UBS - Experienced professionals - job boards',
+      selectedPostingIsApplicationUrl: true,
+      allowSingleExternalApplicationEntry: true,
+      job: {
+        company: 'UBS',
+        title: 'Sede di vendita - Marketing, Design & Digital Sales, 100%',
+        observedPostingTitle: 'Head Sales Office - Marketing, Design & Digital Sales, 100%',
+      },
+    })).toEqual([apply]);
+
+    const otherJobUrl = 'https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5155&PageType=JobDetails&jobid=999999';
+    expect(applicationEntryControls({
+      url: otherJobUrl,
+      fields: [],
+      buttons: [apply],
+    }, {
+      applyUrl: postingUrl,
+      postingUrl,
+      pageTitle: 'Head Sales Office - Marketing, Design & Digital Sales, 100% | UBS - Experienced professionals - job boards',
+      selectedPostingIsApplicationUrl: true,
+      allowSingleExternalApplicationEntry: true,
+      job: {
+        company: 'UBS',
+        title: 'Sede di vendita - Marketing, Design & Digital Sales, 100%',
+        observedPostingTitle: 'Head Sales Office - Marketing, Design & Digital Sales, 100%',
+      },
+    })).toEqual([]);
+  });
 });
