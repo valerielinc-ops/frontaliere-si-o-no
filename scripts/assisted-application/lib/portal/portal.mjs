@@ -2080,10 +2080,17 @@ function fieldlessApplicationEntryContextMatchesPosting(control, context = {}) {
   const job = context.job || {};
   if (controlPostingIdentity(control) !== '') return false;
   if (!localContext || !jobTitleCandidates(job).length) return true;
-  if (namesAnotherEmployer(localContext, job)) return false;
-  if (!titleMatchesJob(localContext, job)) return false;
-  if (postingMatch(localContext, job, context.postingUrl) === 'match') return true;
-  return Boolean(context.pageTitle && postingMatch(context.pageTitle, job, context.postingUrl) === 'match')
+  const pageTitleMatchesLocal = Boolean(context.pageTitle
+    && titleMatches(context.pageTitle, localContext)
+    && (postingMatch(context.pageTitle, job, context.postingUrl) === 'match'
+      || sameBrassRingPostingAddress(context.postingUrl, context.applyUrl)));
+  const jobForContext = pageTitleMatchesLocal && !job.observedPostingTitle
+    ? { ...job, observedPostingTitle: localContext }
+    : job;
+  if (namesAnotherEmployer(localContext, jobForContext)) return false;
+  if (!titleMatchesJob(localContext, jobForContext)) return false;
+  if (postingMatch(localContext, jobForContext, context.postingUrl) === 'match') return true;
+  return Boolean(context.pageTitle && postingMatch(context.pageTitle, jobForContext, context.postingUrl) === 'match')
     || sameBrassRingPostingAddress(context.postingUrl, context.applyUrl);
 }
 
@@ -11109,7 +11116,7 @@ export async function submitViaPortal(ctx) {
     const opened = await openApplicationForm(context, page, snapshot, {
       applyUrl: ctx.applyUrl, postingUrl, sourceProtocol,
       pageTitle: postingTitle,
-      postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
+      postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: portalJob,
       workdayApplicationEntryProven,
       allowSingleExternalApplicationEntry: postingVacancyMatched || selectedPostingIsApplicationUrl,
       selectedPostingIsApplicationUrl,
@@ -11226,7 +11233,7 @@ export async function submitViaPortal(ctx) {
       if (workdayJobRoute(page.url())?.suffix !== 'manual') {
         const reopened = await openApplicationForm(context, page, snapshot, {
           applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
-          postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: ctx.job,
+          postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: portalJob,
           workdayApplicationEntryProven,
           allowSingleExternalApplicationEntry: postingVacancyMatched,
           ...documentHostContext,

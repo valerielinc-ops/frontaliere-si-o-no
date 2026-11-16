@@ -237,5 +237,22 @@ describe('verified posting script entry (#17253)', () => {
         observedPostingTitle: 'Head Sales Office - Marketing, Design & Digital Sales, 100%',
       },
     })).toEqual([]);
+
+    // Also matches when observedPostingTitle is absent (multi-h1 BrassRing page) via pageTitle
+    expect(applicationEntryControls({
+      url: canonicalUrl,
+      fields: [],
+      buttons: [apply],
+    }, {
+      applyUrl: postingUrl,
+      postingUrl,
+      pageTitle: 'Head Sales Office - Marketing, Design & Digital Sales, 100% | UBS - Experienced professionals - job boards',
+      selectedPostingIsApplicationUrl: true,
+      allowSingleExternalApplicationEntry: true,
+      job: {
+        company: 'UBS',
+        title: 'Sede di vendita - Marketing, Design & Digital Sales, 100%',
+      },
+    })).toEqual([apply]);
   });
 });
