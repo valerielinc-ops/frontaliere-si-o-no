@@ -318,6 +318,21 @@ describe('IAB detection and independent recovery surface', () => {
     expect(w.document.querySelector('dialog,.ft-recovery-promo')).toBeNull();
     expect(emit.mock.calls.some(([name]) => name === 'ad_recovery_prompt')).toBe(false);
   });
+  it('waits for an eligible inline creative instead of opening a recovery modal', async () => {
+    w.__ftAdBlock = { blocked: true, adsAllowed: false };
+    const houseSlot = w.document.createElement('div');
+    houseSlot.setAttribute('data-house', 'article-inline');
+    houseSlot.setAttribute('data-ft-house-eligible', '');
+    houseSlot.innerHTML = '<div data-ft-house-google data-ft-ad-state="waiting_response"></div><div data-ft-house-host></div>';
+    w.document.body.append(houseSlot);
+
+    recovery('blocked', 'loaded', true);
+    w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+
+    expect(w.document.querySelector('dialog,.ft-recovery-promo')).toBeNull();
+    expect(emit.mock.calls.some(([name]) => name === 'ad_recovery_prompt')).toBe(false);
+  });
   it('keeps publisher recovery when inline mode has no rendered creative', async () => {
     w.__ftAdBlock = { blocked: true, adsAllowed: false };
     const houseSlot = w.document.createElement('div');
