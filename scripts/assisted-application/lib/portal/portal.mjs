@@ -11250,7 +11250,13 @@ export async function submitViaPortal(ctx) {
               .map(value => portalJobKey(value, sourceProtocol))
               .filter(Boolean);
             const targetKey = portalJobKey(targetUrl, sourceProtocol);
-            return !(selectedKeys.length && targetKey && !selectedKeys.includes(targetKey));
+            if (targetKey && selectedKeys.length) return selectedKeys.includes(targetKey);
+            return samePostingAddress(targetUrl, applicationEntryUrl)
+              || isVerifiedPostingEntry({
+                applyUrl: targetUrl,
+                postingUrl: postingUrl || ctx.postingUrl,
+                postingRouteProof: ctx.postingRouteProof,
+              });
           })();
         if (!targetMatchesSelectedVacancy) {
           enteredThroughApplicationEntry = false;
