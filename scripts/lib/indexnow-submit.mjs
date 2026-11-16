@@ -138,10 +138,20 @@ export async function submitIndexNowUrls(urls, { endpoints = INDEXNOW_ENDPOINTS 
  */
 export async function submitIndexNowUrlsStreaming(
   urls,
-  { endpoints = INDEXNOW_ENDPOINTS, batchSize = 1, delayMs = 750 } = {},
+  { endpoints = INDEXNOW_ENDPOINTS, batchSize = 1, delayMs = 750, deadlineMs, onBatch } = {},
 ) {
   const clean = [...new Set((urls || []).map((u) => String(u || '').trim()).filter(Boolean))];
-  if (clean.length === 0) return { submitted: 0, batches: 0, results: [] };
+  if (clean.length === 0) {
+    return {
+      submitted: 0,
+      batches: 0,
+      accepted: 0,
+      attempted: 0,
+      remaining: 0,
+      stoppedByDeadline: false,
+      results: [],
+    };
+  }
   if (!Number.isInteger(batchSize) || batchSize < 1) {
     throw new TypeError('batchSize deve essere un intero positivo');
   }
@@ -156,7 +166,16 @@ export async function submitIndexNowUrlsStreaming(
   }
 
   const results = [];
+  let accepted = 0;
+  let attempted = 0;
+  let attemptedBatches = 0;
+  let stoppedByDeadline = false;
   for (let index = 0; index < batches.length; index += 1) {
+    if (Number.isFinite(deadlineMs) && Date.now() >= deadlineMs) {
+      stoppedByDeadline = true;
+      break;
+    }
+
     const batch = batches[index];
     const attempts = [];
     let batchResult;
@@ -169,7 +188,33 @@ export async function submitIndexNowUrlsStreaming(
     }
 
     results.push({ ...batchResult, attempts });
-    if (index < batches.length - 1 && delayMs > 0) await sleep(delayMs);
+    attempted += batch.length;
+    attemptedBatches += 1;
+    const acceptedUrls = batchResult.ok ? batch : [];
+    if (batchResult.ok) accepted += batch.length;
+    await onBatch?.({
+      index: index + 1,
+      total: batches.length,
+      accepted: Boolean(batchResult.ok),
+      attemptedUrls: batch,
+      acceptedUrls,
+    });
+
+    if (index < batches.length - 1 && delayMs > 0) {
+      const waitMs = Number.isFinite(deadlineMs)
+        ? Math.min(delayMs, Math.max(0, deadlineMs - Date.now()))
+        : delayMs;
+      if (waitMs > 0) await sleep(waitMs);
+    }
   }
-  return { submitted: clean.length, batches: batches.length, results };
+  const hasDeadline = Number.isFinite(deadlineMs);
+  return {
+    submitted: hasDeadline ? attempted : clean.length,
+    batches: hasDeadline ? attemptedBatches : batches.length,
+    accepted,
+    attempted,
+    remaining: clean.length - accepted,
+    stoppedByDeadline,
+    results,
+  };
 }
