@@ -884,23 +884,19 @@
     "previousSlugs": [
       "fachverantwortliche-r-iam-bls-ch",
       "specialista-responsabile-bls-ag-bern",
-      "fachverantwortliche-r-iam-bls-ag-bern",
       "specialist-responsible-r-iam-bls-ag-bern",
       "specialiste-responsable-bls-ag-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
         "fachverantwortliche-r-iam-bls-ch",
-        "specialista-responsabile-bls-ag-bern",
-        "fachverantwortliche-r-iam-bls-ag-bern"
+        "specialista-responsabile-bls-ag-bern"
       ],
       "en": [
-        "specialist-responsible-r-iam-bls-ag-bern",
-        "fachverantwortliche-r-iam-bls-ag-bern"
+        "specialist-responsible-r-iam-bls-ag-bern"
       ],
       "fr": [
-        "specialiste-responsable-bls-ag-bern",
-        "fachverantwortliche-r-iam-bls-ag-bern"
+        "specialiste-responsable-bls-ag-bern"
       ]
     },
     "postalCode": "3004",
@@ -973,10 +969,7 @@
       "costruzione-in-ingegneria-ferroviaria-bls-ag-bern",
       "construction-in-railway-engineering-bls-ag-bern",
       "construction-en-genie-ferroviaire-bls-ag-bern",
-      "direttore-trice-dei-lavori-in-tecnica-ferroviaria-bls-ag-bern-100a4c64",
-      "baufuhrer-in-bahntechnik-bls-ch-77499efd",
-      "construction-manager-railway-technology-bls-ag-bern-edb66fcb",
-      "conducteur-rice-de-travaux-en-technique-ferroviaire-bls-ag-bern-dea8ee6a"
+      "baufuhrer-in-bahntechnik-bls-ch-77499efd"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -994,7 +987,6 @@
         "baufuhrer-in-bahntechnik-bls-ch-394c05f0",
         "baufuhrer-in-bahntechnik-bls-ch-0353e506",
         "baufuhrer-in-bahntechnik-bls-ch-4e8e4336",
-        "direttore-trice-dei-lavori-in-tecnica-ferroviaria-bls-ag-bern-100a4c64",
         "baufuhrer-in-bahntechnik-bls-ch-77499efd"
       ],
       "en": [
@@ -1012,7 +1004,6 @@
         "baufuhrer-in-bahntechnik-bls-ch-394c05f0",
         "baufuhrer-in-bahntechnik-bls-ch-0353e506",
         "baufuhrer-in-bahntechnik-bls-ch-4e8e4336",
-        "construction-manager-railway-technology-bls-ag-bern-edb66fcb",
         "baufuhrer-in-bahntechnik-bls-ch-77499efd"
       ],
       "fr": [
@@ -1030,12 +1021,10 @@
         "baufuhrer-in-bahntechnik-bls-ch-394c05f0",
         "baufuhrer-in-bahntechnik-bls-ch-0353e506",
         "baufuhrer-in-bahntechnik-bls-ch-4e8e4336",
-        "conducteur-rice-de-travaux-en-technique-ferroviaire-bls-ag-bern-dea8ee6a",
         "baufuhrer-in-bahntechnik-bls-ch-77499efd"
       ],
       "de": [
         "baufuhrer-in-bahnbau-bls-ch",
-        "baufuhrer-in-bahntechnik-bls-ch-2507d039",
         "baufuhrer-in-bahntechnik-bls-ch-6e84f4e0",
         "baufuhrer-in-bahntechnik-bls-ch-0375dcd2",
         "baufuhrer-in-bahntechnik-bls-ch-78dffd58",
@@ -4125,27 +4114,18 @@
     "sector": "Trasporti / Ferrovia",
     "expiredAt": "2026-08-31T15:08:00.747Z",
     "previousSlugs": [
-      "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf-a1abb2b3",
       "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch-aa34aab7",
-      "electrical-installer-in-installer-in-signaltechnik-bls-ag-hasle-bei-burgdorf-97f3638a",
-      "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf-b6b99806",
       "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf-a1abb2b3",
         "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch-aa34aab7"
       ],
       "en": [
-        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
-        "electrical-installer-in-installer-in-signaltechnik-bls-ag-hasle-bei-burgdorf-97f3638a"
+        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch"
       ],
       "fr": [
-        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
-        "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf-b6b99806"
-      ],
-      "de": [
-        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch-aa34aab7"
+        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch"
       ]
     },
     "postalCode": "3415",
@@ -5366,7 +5346,6 @@
         "construction-en-genie-ferroviaire-bls-ag-bern-3ddce043"
       ],
       "de": [
-        "baufuhrer-in-bahnbau-bls-ch-aedf0f4b",
         "costruzione-in-ingegneria-ferroviaria-bls-ag-bern-8887350d",
         "construction-in-railway-engineering-bls-ag-bern-87984bdf",
         "baufuhrer-in-bahntechnik-bls-ch-7f4ffb90",
@@ -5436,7 +5415,6 @@
         "construction-en-genie-ferroviaire-bls-ag-bern-5ef9f4e3"
       ],
       "de": [
-        "baufuhrer-in-bahnbau-bls-ch-af6fc91d",
         "costruzione-in-ingegneria-ferroviaria-bls-ag-bern-3d715ee0",
         "construction-in-railway-engineering-bls-ag-bern-ba8e0092",
         "baufuhrer-in-bahntechnik-bls-ch-471b3a93",
@@ -5506,7 +5484,6 @@
         "construction-en-genie-ferroviaire-bls-ag-bern-c4e8768e"
       ],
       "de": [
-        "baufuhrer-in-bahnbau-bls-ch-303a5f5c",
         "costruzione-in-ingegneria-ferroviaria-bls-ag-bern-b7f539b7",
         "construction-in-railway-engineering-bls-ag-bern-a87b3674",
         "baufuhrer-in-bahntechnik-bls-ch-c26ea3a5",
