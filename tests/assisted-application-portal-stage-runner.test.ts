@@ -342,6 +342,7 @@ describe('runner final guard across three application stages', () => {
       postingUrl: jobUrl,
       channelType: 'workday',
       job: { company: 'Rituals Cosmetics Switzerland', title: 'Store Assistant' },
+      guardUrl: jobUrl,
       onWait: (ms: number) => {
         if (ms === 1000 && state.snapshot.url === jobUrl && !state.snapshot.fields.length && !state.snapshot.buttons.length) {
           state.snapshot = mountedApplication;

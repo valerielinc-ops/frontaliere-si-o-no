@@ -11976,6 +11976,10 @@ export async function submitViaPortal(ctx) {
         text: currentText,
       });
       const currentAccountSurface = authPageKind(snapshot) !== 'none' || snapshot.passwordVisible === true || Boolean(codeField(snapshot));
+      // A form mismatch is already a binding verdict. Do not let the generic
+      // navigation fallback relabel it as an unknown stage before the pending
+      // posting check can report the mismatch.
+      if (explicitInitialPostingMismatch && !currentAccountSurface) return await handoff('posting_mismatch');
       const needsAutonomousNavigation = Boolean(destinationDiversionHint) || (!currentAccountSurface && (Boolean(startupNavigationHint)
         || ['posting_mismatch', 'unknown_apply'].includes(currentStage.kind)
         || (!hasApplicationSurface(snapshot, { pageUrl: page.url(), postingUrl, postingMatch: evidence.postingMatch }) && !ctx.skipPostingCheck)));
