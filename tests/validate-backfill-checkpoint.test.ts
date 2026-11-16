@@ -76,6 +76,21 @@ describe('validate-backfill-checkpoint', () => {
     }
   });
 
+  it('rejects malformed active and expired rows', () => {
+    const root = fixture({
+      active: JSON.stringify({ crawlerKey: 'alpha', assembledAt: '2026-11-16T08:00:00.000Z', jobs: [null] }) + '\n',
+      expired: JSON.stringify([null]) + '\n',
+    });
+    try {
+      const result = run(root);
+      expect(result.status).not.toBe(0);
+      expect(result.stderr).toContain('active/alpha.json.jobs[0]: expected an object');
+      expect(result.stderr).toContain('expired/alpha.json[0]: expected an object');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('rejects an unrecognised JSON file in the expired slice directory', () => {
     const root = fixture();
     fs.writeFileSync(
