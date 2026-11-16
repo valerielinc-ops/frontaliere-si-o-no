@@ -25,6 +25,7 @@ const HISTORY_PATHS = [
 export const HISTORY_TREE_OBJECT_BATCH_SIZE = 100;
 export const HISTORY_BACKFILL_MIN_BATCH_SIZE = 8192;
 const SLICE_PATH_RE = /^data\/jobs\/(?:by-crawler|expired\/by-crawler)\/[^/]+\.json$/u;
+const SLICE_KEY_RE = /^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$/u;
 const OID_RE = /^[0-9a-f]{40}(?:[0-9a-f]{24})?$/u;
 const DIFF_STATUS_RE = /^(?:[ACDMRTUXB])\d*$/u;
 const JSON_SUFFIX_BYTES = Buffer.from('.json');
@@ -56,8 +57,33 @@ export function historyCommitWalkArgs(value = process.env.HISTORY_SINCE) {
   return ['rev-list', '--all', ...historySinceArgs(value)];
 }
 
-/** Diff only the two slice families for the already date-bounded commit list. */
-export function historyDiffTreeArgs() {
+/** Parse the optional workflow crawler batch without allowing path traversal. */
+export function historyCrawlerKeys(value = process.env.CRAWLER_KEYS) {
+  const rawKeys = String(value || '')
+    .split(/[\n,]/u)
+    .map((key) => key.trim())
+    .filter(Boolean);
+  const keys = [...new Set(rawKeys)];
+  for (const key of keys) {
+    if (!SLICE_KEY_RE.test(key)) {
+      throw new Error(`Invalid crawler key for history prefetch: ${key}`);
+    }
+  }
+  return keys;
+}
+
+/** Select either the two full slice families or only one bounded crawler batch. */
+export function historySlicePaths(keys = historyCrawlerKeys()) {
+  const selectedKeys = Array.isArray(keys) ? keys : historyCrawlerKeys(keys);
+  if (selectedKeys.length === 0) return [...HISTORY_PATHS];
+  return selectedKeys.flatMap((key) => [
+    `data/jobs/by-crawler/${key}.json`,
+    `data/jobs/expired/by-crawler/${key}.json`,
+  ]);
+}
+
+/** Diff only the selected slice paths for the already date-bounded commit list. */
+export function historyDiffTreeArgs(paths = historySlicePaths()) {
   return [
     'diff-tree',
     '--stdin',
@@ -68,7 +94,7 @@ export function historyDiffTreeArgs() {
     '-z',
     '--no-renames',
     '--',
-    ...HISTORY_PATHS,
+    ...paths,
   ];
 }
 
@@ -106,6 +132,13 @@ export function historySliceTreeRefInput(commitOids) {
   return commitOids.length === 0
     ? ''
     : `${commitOids.flatMap((oid) => HISTORY_PATHS.map((treePath) => `${oid}:${treePath}`)).join('\n')}\n`;
+}
+
+/** Resolve selected crawler files directly when a bounded batch is active. */
+export function historySliceFileRefInput(commitOids, paths) {
+  return commitOids.length === 0 || paths.length === 0
+    ? ''
+    : `${commitOids.flatMap((oid) => paths.map((slicePath) => `${oid}:${slicePath}`)).join('\n')}\n`;
 }
 
 /** Extract distinct directory tree OIDs, allowing a path to be absent at older commits. */
@@ -184,6 +217,22 @@ export function historyBlobOidsFromTreeBatch(output) {
   return blobOids;
 }
 
+/** Read blob OIDs returned by `git cat-file --batch-check` for direct file refs. */
+export function historyBlobOidsFromBatchCheck(output) {
+  const blobOids = new Set();
+  for (const line of String(output).split('\n')) {
+    if (!line) continue;
+    const parts = line.split(/\s+/u);
+    if (parts.at(-1) === 'missing') continue;
+    const [oid, type] = parts;
+    if (!OID_RE.test(oid) || type !== 'blob') {
+      throw new Error('A historical crawler slice did not resolve to a blob.');
+    }
+    blobOids.add(oid);
+  }
+  return [...blobOids];
+}
+
 export function historyBlobPrefetchInput(oids) {
   return oids.length > 0 ? `${oids.join('\n')}\n` : '';
 }
@@ -217,7 +266,7 @@ export function historySinceArgs(value = process.env.HISTORY_SINCE) {
  * required because the observer checkout deliberately contains only scripts;
  * the pathspec keeps the backfill scoped to the two job-slice families.
  */
-export function historyBackfillArgs({ revisionRange = '', since } = {}) {
+export function historyBackfillArgs({ revisionRange = '', since, paths = historySlicePaths() } = {}) {
   const range = String(revisionRange || '').trim();
   return [
     'backfill',
@@ -226,7 +275,7 @@ export function historyBackfillArgs({ revisionRange = '', since } = {}) {
     '--include-edges',
     ...(range ? [range] : ['--all', ...historySinceArgs(since)]),
     '--',
-    ...HISTORY_PATHS,
+    ...paths,
   ];
 }
 
@@ -239,6 +288,11 @@ export function backfillHistoryBlobs(options = {}) {
 
 export function main() {
   const env = historyMetadataEnv();
+  const crawlerKeys = historyCrawlerKeys();
+  const slicePaths = historySlicePaths(crawlerKeys);
+  const selectedScope = crawlerKeys.length > 0
+    ? `${crawlerKeys.length} crawler key(s)`
+    : 'both complete slice families';
   console.log('🔎 Listing commits in the HISTORY_SINCE window.');
   const commitOutput = runGit(historyCommitWalkArgs(), { env });
   const commitOids = commitOutput.trim().split('\n').filter((oid) => OID_RE.test(oid));
@@ -247,7 +301,7 @@ export function main() {
   }
 
   console.log(`🔎 Finding slice-changing commits across ${commitOids.length} history commit(s).`);
-  const diffTreeOutput = runGit(historyDiffTreeArgs(), {
+  const diffTreeOutput = runGit(historyDiffTreeArgs(slicePaths), {
     input: historyBlobPrefetchInput(commitOids),
     env,
   });
@@ -256,36 +310,43 @@ export function main() {
     throw new Error(`No historical job-slice blobs found for ${HISTORY_PATHS.join(' and ')}.`);
   }
 
-  console.log(`🔎 Resolving both slice-family trees at ${relevantCommits.length} relevant commit(s).`);
-  const treeCheckOutput = runGit(['cat-file', '--batch-check'], {
-    input: historySliceTreeRefInput(relevantCommits),
-    env,
-  });
-  const treeOids = historyTreeOidsFromBatchCheck(treeCheckOutput);
-  if (treeOids.length === 0) {
-    throw new Error(`No historical job-slice trees found for ${HISTORY_PATHS.join(' and ')}.`);
-  }
-
+  console.log(`🔎 Resolving ${selectedScope} at ${relevantCommits.length} relevant commit(s).`);
   const blobOids = new Set();
-  const treeBatches = historyTreeOidBatches(treeOids);
-  for (let index = 0; index < treeBatches.length; index += 1) {
-    const batch = treeBatches[index];
-    console.log(`  ↳ Reading slice tree batch ${index + 1}/${treeBatches.length} (${batch.length} trees).`);
-    const treeOutput = runGit(['cat-file', '--batch'], {
-      input: historyBlobPrefetchInput(batch),
-      encoding: null,
+  if (crawlerKeys.length > 0) {
+    const fileCheckOutput = runGit(['cat-file', '--batch-check'], {
+      input: historySliceFileRefInput(relevantCommits, slicePaths),
       env,
     });
-    for (const oid of historyBlobOidsFromTreeBatch(treeOutput)) blobOids.add(oid);
+    for (const oid of historyBlobOidsFromBatchCheck(fileCheckOutput)) blobOids.add(oid);
+  } else {
+    const treeCheckOutput = runGit(['cat-file', '--batch-check'], {
+      input: historySliceTreeRefInput(relevantCommits),
+      env,
+    });
+    const treeOids = historyTreeOidsFromBatchCheck(treeCheckOutput);
+    if (treeOids.length === 0) {
+      throw new Error(`No historical job-slice trees found for ${HISTORY_PATHS.join(' and ')}.`);
+    }
+    const treeBatches = historyTreeOidBatches(treeOids);
+    for (let index = 0; index < treeBatches.length; index += 1) {
+      const batch = treeBatches[index];
+      console.log(`  ↳ Reading slice tree batch ${index + 1}/${treeBatches.length} (${batch.length} trees).`);
+      const treeOutput = runGit(['cat-file', '--batch'], {
+        input: historyBlobPrefetchInput(batch),
+        encoding: null,
+        env,
+      });
+      for (const oid of historyBlobOidsFromTreeBatch(treeOutput)) blobOids.add(oid);
+    }
   }
 
   const oids = [...blobOids];
   if (oids.length === 0) {
-    throw new Error(`No historical job-slice blobs found for ${HISTORY_PATHS.join(' and ')}.`);
+    throw new Error(`No historical job-slice blobs found for ${selectedScope}.`);
   }
 
   console.log(`📦 Backfilling ${oids.length} historical job-slice blobs through Git's promisor batches.`);
-  backfillHistoryBlobs({ since: process.env.HISTORY_SINCE });
+  backfillHistoryBlobs({ since: process.env.HISTORY_SINCE, paths: slicePaths });
   verifyPrefetchedBlobs(oids);
   console.log('✅ All historical job-slice blobs are available locally.');
 }

@@ -2,14 +2,18 @@ import { describe, expect, it } from 'vitest';
 import {
   HISTORY_BACKFILL_MIN_BATCH_SIZE,
   historyBlobOidsFromTreeBatch,
+  historyBlobOidsFromBatchCheck,
   historyBlobPrefetchInput,
   historyBackfillArgs,
   historyCommitOidsFromDiffTree,
   historyCommitWalkArgs,
   historyDiffTreeArgs,
   historyMetadataEnv,
+  historyCrawlerKeys,
   historySafeGitErrorMessage,
   historySinceArgs,
+  historySliceFileRefInput,
+  historySlicePaths,
   historySliceTreeRefInput,
   historyTreeOidsFromBatchCheck,
 } from '../scripts/ci/prefetch-history-blobs.mjs';
@@ -57,6 +61,31 @@ describe('prefetch-history-blobs', () => {
       'data/jobs/by-crawler',
       'data/jobs/expired/by-crawler',
     ]);
+  });
+
+  it('scopes discovery and promisor backfill to a bounded crawler batch', () => {
+    const paths = historySlicePaths(['acme', 'foo-bar']);
+    expect(historyCrawlerKeys('acme,foo-bar\nacme')).toEqual(['acme', 'foo-bar']);
+    expect(paths).toEqual([
+      'data/jobs/by-crawler/acme.json',
+      'data/jobs/expired/by-crawler/acme.json',
+      'data/jobs/by-crawler/foo-bar.json',
+      'data/jobs/expired/by-crawler/foo-bar.json',
+    ]);
+    expect(historyDiffTreeArgs(paths).at(-(paths.length + 1))).toBe('--');
+    expect(historyDiffTreeArgs(paths).slice(-(paths.length + 1))).toEqual(['--', ...paths]);
+    const commit = 'a'.repeat(40);
+    expect(historySliceFileRefInput([commit], paths)).toBe(
+      `${commit}:${paths[0]}\n${commit}:${paths[1]}\n${commit}:${paths[2]}\n${commit}:${paths[3]}\n`,
+    );
+    expect(historyBackfillArgs({ since: '2026-09-20', paths }).slice(-4)).toEqual(paths);
+  });
+
+  it('rejects crawler keys that could escape the two slice directories', () => {
+    expect(() => historyCrawlerKeys('../outside')).toThrow('Invalid crawler key');
+    expect(() => historyCrawlerKeys('nested/key')).toThrow('Invalid crawler key');
+    expect(() => historyCrawlerKeys('*')).toThrow('Invalid crawler key');
+    expect(() => historyCrawlerKeys('-leading-dash')).toThrow('Invalid crawler key');
   });
 
   it('selects only commits that changed direct JSON slices in either family', () => {
@@ -112,6 +141,17 @@ describe('prefetch-history-blobs', () => {
       activeBlob,
       expiredBlob,
     ]);
+  });
+
+  it('extracts resolved file blobs and ignores absent historical files', () => {
+    const blob = '1'.repeat(40);
+    expect(historyBlobOidsFromBatchCheck([
+      `${blob} blob 123`,
+      'deadbeef:data/jobs/by-crawler/missing.json missing',
+    ].join('\n'))).toEqual([blob]);
+    expect(() => historyBlobOidsFromBatchCheck('abc tree 123')).toThrow(
+      'did not resolve to a blob',
+    );
   });
 
   it('includes an unchanged expired-family blob from a commit selected by an active slice change', () => {
