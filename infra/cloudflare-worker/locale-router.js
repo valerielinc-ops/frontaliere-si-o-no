@@ -3912,7 +3912,13 @@ let publicConfigFetchPromise = null;
 async function fetchPublicConfigSnapshot() {
   const upstream = await fetch(PUBLIC_CONFIG_FUNCTION_ENDPOINT, {
     method: 'GET',
-    headers: { Accept: 'application/json' },
+    // The body is buffered below before it is handed back to the visitor.
+    // Request identity bytes so the Workers runtime does not have to decode a
+    // gzip stream while arrayBuffer() is reading it; a truncated compressed
+    // response would otherwise throw outside the upstream HTTP status path and
+    // become an edge-generated 5xx (the same failure class guarded in
+    // fetchOriginOnce()).
+    headers: { Accept: 'application/json', 'Accept-Encoding': 'identity' },
     // Cloudflare caches this JSON subrequest according to the function's
     // Cache-Control directives, including no-store on its fail-open response.
     // The URL is constant, so incoming query strings cannot fragment the key.

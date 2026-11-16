@@ -15,19 +15,26 @@ vi.mock('../services/houseAdRuntime', () => ({ installHouseAds: (_render: unknow
 vi.mock('../services/adRecovery', () => ({ installAdRecovery: (_probe: unknown, _loader: unknown, _emit: unknown, _allowed: unknown, config: unknown) => { state.recoveryConfig = config; return { refresh: state.recoveryRefresh }; } }));
 
 describe('house campaign bootstrap entitlement updates', () => {
-  it('starts ad recovery from the SPA entrypoint after stale-chunk recovery is registered', () => {
+  it('starts ad recovery from the SPA entrypoint after the first React paint', () => {
     const entry = readFileSync(resolve(process.cwd(), 'index.tsx'), 'utf8');
     const retryHandler = entry.indexOf("window.addEventListener('vite:preloadError'");
     const recoveryImport = entry.indexOf("void import('./services/startAdRecovery')");
     const appAuthorityImport = entry.indexOf("const { captureStaticHead }");
+    const rootRender = entry.indexOf('root.render(');
+    const appFirstPaint = entry.indexOf('await waitForFirstPaint();', rootRender);
+    const loadingShellRemoval = entry.indexOf("document.getElementById('loading-shell')?.remove()");
 
     expect(retryHandler).toBeGreaterThanOrEqual(0);
     expect(recoveryImport).toBeGreaterThan(retryHandler);
-    expect(recoveryImport).toBeLessThan(appAuthorityImport);
-    expect(entry.slice(recoveryImport, appAuthorityImport)).toContain(
+    expect(recoveryImport).toBeGreaterThan(appAuthorityImport);
+    expect(rootRender).toBeGreaterThan(appAuthorityImport);
+    expect(appFirstPaint).toBeGreaterThan(rootRender);
+    expect(recoveryImport).toBeGreaterThan(appFirstPaint);
+    expect(recoveryImport).toBeLessThan(loadingShellRemoval);
+    expect(entry.slice(recoveryImport, loadingShellRemoval)).toContain(
       '.then(({ startAdRecovery }) => startAdRecovery())',
     );
-    expect(entry.slice(recoveryImport, appAuthorityImport)).toContain(
+    expect(entry.slice(recoveryImport, loadingShellRemoval)).toContain(
       "reportCaughtError(error, 'adRecovery.bootstrap')",
     );
   });
