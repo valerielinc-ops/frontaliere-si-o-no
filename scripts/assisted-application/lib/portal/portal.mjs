@@ -11250,13 +11250,9 @@ export async function submitViaPortal(ctx) {
               .map(value => portalJobKey(value, sourceProtocol))
               .filter(Boolean);
             const targetKey = portalJobKey(targetUrl, sourceProtocol);
-            if (targetKey && selectedKeys.length) return selectedKeys.includes(targetKey);
-            return samePostingAddress(targetUrl, applicationEntryUrl)
-              || isVerifiedPostingEntry({
-                applyUrl: targetUrl,
-                postingUrl: postingUrl || ctx.postingUrl,
-                postingRouteProof: ctx.postingRouteProof,
-              });
+            // Unknown same-origin routes do not carry application-entry proof;
+            // only an explicitly equal vacancy key can survive this branch.
+            return Boolean(targetKey && selectedKeys.length && selectedKeys.includes(targetKey));
           })();
         if (!targetMatchesSelectedVacancy) {
           enteredThroughApplicationEntry = false;
