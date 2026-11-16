@@ -178,10 +178,14 @@ trunk_replace_end() {
   local state="${TRUNK_GUARD_STATE:-${RUNNER_TEMP:-/tmp}/trunk-guard}"
   local all="$state/$label.all"
   local idx="$state/$label.idx"
+  local lost_file="$state/$label.lost"
+  local fatal_file="$state/$label.fatal"
+  local benign_file="$state/$label.benign"
   if [ ! -f "$all" ]; then return 0; fi
 
-  local rel twin lost=0 fatal=0 benign=0 respelled=0
+  local rel twin lost=0 fatal=0 benign=0 respelled=0 classification_ok=1
   local fatal_s="" benign_s="" respelled_s=""
+  : > "$lost_file"
   while IFS= read -r rel; do
     if [ -z "$rel" ]; then continue; fi
     if [ -e "$dist/$rel" ]; then continue; fi
@@ -200,19 +204,46 @@ trunk_replace_end() {
       continue
     fi
     lost=$((lost + 1))
-    if grep -qxF -- "$rel" "$idx" 2>/dev/null; then
-      fatal=$((fatal + 1))
-      if [ "$fatal" -le "${TRUNK_GUARD_SAMPLE_CAP:-12}" ]; then
-        fatal_s="$fatal_s $dist/$rel"
-      fi
-    else
-      benign=$((benign + 1))
-      if [ "$benign" -le "${TRUNK_GUARD_SAMPLE_CAP:-12}" ]; then
-        benign_s="$benign_s $dist/$rel"
-      fi
-    fi
+    printf '%s\n' "$rel" >> "$lost_file"
   done < "$all"
-  rm -f "$all" "$idx" 2>/dev/null || true
+
+  # `$idx` contains every path whose HTML was classified as indexable while
+  # it still existed. The old lookup ran `grep -qxF` once per lost path; on a
+  # multi-million-file Ticino subtree that spawned millions of processes and
+  # made the validator host-kill before it could report a verdict (#7421).
+  # Sort once and classify the complete lost set with two linear `comm` passes:
+  # same exact path semantics, one bounded set of external processes.
+  if [ "$lost" -gt 0 ]; then
+    if ! LC_ALL=C sort -u "$lost_file" -o "$lost_file"; then classification_ok=0; fi
+    if ! LC_ALL=C sort -u "$idx" -o "$idx"; then classification_ok=0; fi
+    if [ "$classification_ok" -eq 1 ] \
+        && ! LC_ALL=C comm -12 "$lost_file" "$idx" > "$fatal_file"; then
+      classification_ok=0
+    fi
+    if [ "$classification_ok" -eq 1 ] \
+        && ! LC_ALL=C comm -23 "$lost_file" "$idx" > "$benign_file"; then
+      classification_ok=0
+    fi
+    if [ "$classification_ok" -eq 0 ]; then
+      # An unreadable classification is unsafe to treat as benign. Preserve
+      # the guard's fail-closed correctness contract and name the paths as
+      # indexable rather than letting an accounting failure hide a 404.
+      echo "::error::[trunk-guard] $label: could not classify lost paths; treating all $lost as indexable"
+      fatal_file="$lost_file"
+      benign_file="$state/$label.benign-empty"
+      : > "$benign_file"
+    fi
+    lost="$(wc -l < "$lost_file" 2>/dev/null || printf '0')"
+    fatal="$(wc -l < "$fatal_file" 2>/dev/null || printf '0')"
+    benign="$(wc -l < "$benign_file" 2>/dev/null || printf '0')"
+    while IFS= read -r rel; do
+      if [ -n "$rel" ]; then fatal_s="$fatal_s $dist/$rel"; fi
+    done < <(head -n "${TRUNK_GUARD_SAMPLE_CAP:-12}" "$fatal_file" 2>/dev/null)
+    while IFS= read -r rel; do
+      if [ -n "$rel" ]; then benign_s="$benign_s $dist/$rel"; fi
+    done < <(head -n "${TRUNK_GUARD_SAMPLE_CAP:-12}" "$benign_file" 2>/dev/null)
+  fi
+  rm -f "$all" "$idx" "$lost_file" "$fatal_file" "$benign_file" "$state/$label.benign-empty" 2>/dev/null || true
 
   # Report the re-spellings even on an otherwise clean replace: they are the
   # evidence the url-level comparison is doing something, and the line a future

@@ -624,6 +624,13 @@ describe('rehydrate-trunk-guard.sh — structural invariants', () => {
     expect(begin.indexOf('grep -rLiE')).toBeLessThan(begin.lastIndexOf('rm -rf'));
   });
 
+  it('classifies lost paths in one batch lookup instead of spawning grep per path', () => {
+    const end = guard.slice(guard.indexOf('trunk_replace_end()'), guard.indexOf('trunk_guard_verdict()'));
+    expect(end).toContain('comm -12 "$lost_file" "$idx"');
+    expect(end).toContain('comm -23 "$lost_file" "$idx"');
+    expect(end).not.toMatch(/grep -qxF -- "\$rel" "\$idx"/);
+  });
+
   it('matches a robots noindex meta in either attribute order', () => {
     const re = /'<meta\[\^>\]\*\(robots\[\^>\]\*noindex\|noindex\[\^>\]\*robots\)'/;
     expect(guard).toMatch(re);
