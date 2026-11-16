@@ -1549,13 +1549,40 @@ export function extractDetailFields(html = '', pageUrl = '', opts = {}) {
 }
 
 /**
- * Rendered field labels that introduce the vacancy's workplace, in the three
- * national languages. This is a LABEL vocabulary, not the CSS-class one of
+ * Rendered field labels that introduce the vacancy's workplace, in the four
+ * languages used by the reviewed source pages. This is a LABEL vocabulary, not the CSS-class one of
  * {@link ADDRESS_BLOCK_CLASS_RX}: `jobs.admin.ch` writes the workplace as
  * `<label>Arbeitsort:</label><span>Reckenholzstrasse 191, 8046 Zürich</span>`,
  * a node pair no class name marks and no structured record carries.
  */
-const WORKPLACE_LABEL_RX = /^(?:arbeitsorte?|einsatzorte?|lieux? de travail|luog(?:o|hi) di lavoro)\s*:?\s*/i;
+const WORKPLACE_LABEL_RX = /^(?:arbeitsorte?|einsatzorte?|place of work|lieux? de travail|luog(?:o|hi) di lavoro)(?=\s*(?::|$))\s*:?\s*/iu;
+
+/**
+ * Read the value of an inline `<strong>`/`<b>` workplace label without
+ * swallowing the next field in the same paragraph. UniDistance renders its
+ * English/French detail metadata as `label: value<br><strong>next label</strong>`.
+ * The caller has already reduced the input to the vacancy content region and
+ * excluded page chrome, so this remains source-scoped and fail-closed.
+ *
+ * @param {string} html
+ * @returns {{ matched: boolean, value: string }}
+ */
+function inlineWorkplaceLabelValue(html = '') {
+  const markerRx = /<(strong|b)\b[^>]*>([\s\S]*?)<\/\1>/gi;
+  let marker;
+  while ((marker = markerRx.exec(String(html || '')))) {
+    const label = textOf(marker[2]).replace(/\s+/g, ' ').trim();
+    if (!WORKPLACE_LABEL_RX.test(`${label}:`)) continue;
+    const remainder = String(html || '').slice(marker.index + marker[0].length);
+    const boundary = /<br\b|<(?:strong|b)\b|<\/(?:p|div|li)\b/i.exec(remainder);
+    const rawValue = remainder.slice(0, boundary ? boundary.index : remainder.length);
+    return {
+      matched: true,
+      value: rawValue.replace(/^\s*:\s*/u, '').trim(),
+    };
+  }
+  return { matched: false, value: '' };
+}
 
 /**
  * Rendered, vacancy-scoped location fields that can be more precise than a
@@ -1696,7 +1723,10 @@ export function renderedWorkplaceLabelValues(html = '', title = '') {
     const labelText = bodyTextOf(source.slice(opening.end, bounds.contentEnd)).trim();
     if (!WORKPLACE_LABEL_RX.test(labelText)) continue;
     structuredLabelFound = true;
-    const inline = labelText.replace(WORKPLACE_LABEL_RX, '').trim();
+    const inlineMarkup = inlineWorkplaceLabelValue(source.slice(opening.end, bounds.contentEnd));
+    const inline = inlineMarkup.matched
+      ? inlineMarkup.value
+      : labelText.replace(WORKPLACE_LABEL_RX, '').trim();
     if (inline) {
       add(inline);
       continue;

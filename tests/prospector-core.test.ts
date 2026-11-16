@@ -704,12 +704,16 @@ describe('vacancy extraction', () => {
         ['Reckenholzstrasse 191, 8046 Zürich']],
       [`<main><p>Einsatzort: Bäretswil und Umgebung</p></main>`, ['Bäretswil und Umgebung']],
       [`<main><p>Lieu de travail : 1201 Genève</p></main>`, ['1201 Genève']],
+      [`<main><h1>Postdoc</h1><p><strong>Place of work</strong>: Brig<br><strong>Start date</strong>: Immediately</p></main>`, ['Brig']],
+      [`<main><h1>Chargé de cours</h1><p><strong>Lieu de travail</strong> : Brigue<br><strong>Date d’entrée</strong> : février</p></main>`, ['Brigue']],
       [`<main><dl><dt>Luogo di lavoro</dt><dd>6900 Lugano</dd></dl></main>`, ['6900 Lugano']],
       // Etichetta nuda: non è un luogo, e non deve diventare una prova.
       [`<main><label>Arbeitsort:</label><span></span></main>`, []],
       [`<main><label>Arbeitsort:</label><label>Pensum:</label><span>80-100%</span></main>`, []],
       // La sede dell'azienda nel chrome della pagina resta fuori scope.
       [`<main><h1>Praktikum</h1></main><footer><p>Arbeitsort: 3003 Bern</p></footer>`, []],
+      [`<main><h1>Postdoc</h1><p>The place of workplace policy is Zürich.</p></main>`, []],
+      [`<main><h1>Postdoc</h1><p><strong>Place of work policy</strong>: Zürich</p></main>`, []],
     ];
     for (const [html, expected] of cases) {
       expect(renderedWorkplaceLabelValues(html), html).toEqual(expected);
