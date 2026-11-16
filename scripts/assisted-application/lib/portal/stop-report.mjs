@@ -23,7 +23,73 @@ import { publicValueShape } from './value-shape.mjs';
 const STRUCK = '[dato del candidato]';
 const EMAIL_RE = /[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/gi;
 const PHONE_RE = /\+?\d[\d ()./-]{7,}\d/g;
+const URL_RE = /\bhttps?:\/\/[^\s<>'"`]+/giu;
+const NAMED_PATH_SEGMENT_AFTER = /^(companies|company|jobs|job|careers|career|positions|position|stellen|stelle|offerte|offres|vacancies|postings|o|j)$/i;
+const RECEIPT_FINGERPRINT_RE = /^(?:sha256:)?[a-f0-9]{64}$/i;
+const RECEIPT_BINDING = new Set(['bound', 'unbound', 'unknown']);
+const RECEIPT_EVIDENCE = new Set([
+  'application_entry',
+  'form_content',
+  'form_posting_match',
+  'job_identity',
+  'posting_data',
+  'posting_page',
+  'posting_route',
+  'posting_url',
+  'route_binding',
+  'successfactors_requisition',
+]);
 const escape = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+const allowlisted = (value, allowed) => {
+  const normalized = String(value || '').trim().toLowerCase();
+  return allowed.has(normalized) ? normalized : '';
+};
+
+/** Keep only the anonymous path; never serialize an origin, query or hash. */
+function receiptPath(value, strike) {
+  let path = String(value || '').trim();
+  if (!path) return '';
+  try {
+    path = new URL(path).pathname;
+  } catch {
+    if (!path.startsWith('/')) return '';
+    path = path.split(/[?#]/u, 1)[0];
+  }
+  try { path = decodeURIComponent(path); } catch { /* redact the encoded path below */ }
+  const segments = strike(path).split('/').filter(Boolean);
+  return `/${segments.map((segment, index) => {
+    const named = index > 0 && NAMED_PATH_SEGMENT_AFTER.test(segments[index - 1]);
+    const unsafe = named || segment.includes(STRUCK) || segment.includes('[email]') || segment.includes('[telefono]')
+      || /\d/u.test(segment) || segment.length > 24 || !/^[\p{L}._~*-]+$/u.test(segment);
+    return unsafe ? '*' : segment;
+  }).join('/')}`;
+}
+
+/**
+ * Durable, candidate-free proof for a posting mismatch. Every factual field
+ * must be supplied by the runner; this serializer never derives a match from
+ * the stop reason.
+ */
+function postingMismatchReceipt(report, strike) {
+  if (report?.reason !== 'posting_mismatch' || !report?.receipt || typeof report.receipt !== 'object') return null;
+  const raw = report.receipt;
+  const path = receiptPath(raw.path || raw.url || report.path, strike);
+  const label = strike(String(raw.cta?.label || '').replace(URL_RE, '[url]')).slice(0, 120);
+  const fingerprint = String(raw.cta?.fingerprint || '').trim().toLowerCase();
+  const binding = allowlisted(raw.binding?.status, RECEIPT_BINDING);
+  const bindingVia = allowlisted(raw.binding?.via, RECEIPT_EVIDENCE);
+  const decision = String(raw.decision?.result || '').trim().toLowerCase() === 'mismatch' ? 'mismatch' : '';
+  const decisionVia = allowlisted(raw.decision?.via, RECEIPT_EVIDENCE);
+  if (!path || !label || !RECEIPT_FINGERPRINT_RE.test(fingerprint)
+    || !binding || !bindingVia || !decision || !decisionVia) return null;
+  return {
+    path,
+    cta: { label, fingerprint },
+    binding: { status: binding, via: bindingVia },
+    decision: { result: decision, via: decisionVia },
+  };
+}
 
 /** The values to strike: each one, a name's words, a birth date's other formats. */
 export function candidateValues(values = []) {
@@ -53,9 +119,10 @@ export function redactStopReport(report, values = []) {
     for (const value of values) out = out.replace(new RegExp(escape(value), 'gi'), STRUCK);
     return out.replace(EMAIL_RE, '[email]').replace(PHONE_RE, '[telefono]');
   };
+  const receipt = postingMismatchReceipt(report, strike);
   return {
     host: String(report.host || ''),
-    path: String(report.path || ''),
+    path: receiptPath(report.path || report.receipt?.url || '', strike),
     reason: String(report.reason || ''),
     channel: String(report.channel || ''),
     step: Number(report.step) || 0,
@@ -66,6 +133,7 @@ export function redactStopReport(report, values = []) {
     }),
     errors: (report.errors || []).map(strike).slice(0, 8),
     agent: (report.agent || []).map((item) => ({ hint: String(item.hint || ''), status: String(item.status || '') })),
+    ...(receipt ? { receipt } : {}),
   };
 }
 
@@ -148,6 +216,15 @@ export function stopIssue(report, runUrl = '') {
     ...(report.fields.length ? report.fields.map((field) => `- ${code(field.label || '(senza etichetta)')} — ${field.kind}${field.required ? ', obbligatorio' : ''}${valueShapeText(field.valueShape)}`) : ['- —']),
     '',
     `**Messaggi del modulo:** ${report.errors.length ? report.errors.map(code).join(', ') : '—'}`,
+    ...(report.receipt ? [
+      '',
+      '### Receipt candidate-free',
+      '',
+      `- **Path:** ${code(report.receipt.path)}`,
+      `- **CTA:** ${code(report.receipt.cta.label)} (${code(report.receipt.cta.fingerprint)})`,
+      `- **Job binding:** ${code(report.receipt.binding.status)} via ${code(report.receipt.binding.via)}`,
+      `- **Decisione match:** ${code(report.receipt.decision.result)} via ${code(report.receipt.decision.via)}`,
+    ] : []),
     '',
     '### Cosa fare',
     '',
