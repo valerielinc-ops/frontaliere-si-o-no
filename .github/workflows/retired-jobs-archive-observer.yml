@@ -56,11 +56,12 @@ jobs:
           git show "HEAD:build-plugins/shared/cantonResolvers.mjs" > build-plugins/shared/cantonResolvers.mjs
           git show "HEAD:data/canton-url-slugs.json" > data/canton-url-slugs.json
           git show "HEAD:data/canton-municipalities.json" > data/canton-municipalities.json
+          git show "HEAD:data/swiss-locality-postal-codes.json" > data/swiss-locality-postal-codes.json
 
       - name: Validate observer file dependencies
         run: |
           set -euo pipefail
-          for file in data/canton-url-slugs.json data/canton-municipalities.json; do
+          for file in data/canton-url-slugs.json data/canton-municipalities.json data/swiss-locality-postal-codes.json; do
             test -s "$file"
           done
           node --input-type=module <<'NODE'
