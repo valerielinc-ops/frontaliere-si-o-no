@@ -333,9 +333,11 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
       type: 'boolean',
     });
     expect(sparseCheckout?.if).toBe('${{ inputs.prune_source_images }}');
+    expect(sparseCheckout?.with?.filter).toBe('blob:none');
     expect(sparseCheckout?.with?.['sparse-checkout']).toContain('!/public/images/');
     expect(sparseCheckout?.with?.['sparse-checkout-cone-mode']).toBe(false);
     expect(fullCheckout?.if).toBe('${{ !inputs.prune_source_images }}');
+    expect(fullCheckout?.with?.filter).toBeUndefined();
     expect(fullCheckout?.with?.['sparse-checkout']).toBeUndefined();
     expect(sparseCheckoutIndex).toBeGreaterThanOrEqual(0);
     expect(fullCheckoutIndex).toBeGreaterThanOrEqual(0);
