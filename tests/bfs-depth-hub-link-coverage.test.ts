@@ -13,8 +13,8 @@
  *      304 pages had no inbound link at all.
  *   2. `eventsSeoPagesPlugin` capped its comune hubs at 80 event CARDS and
  *      dropped the tail. In the two buckets over the cap that orphaned 689
- *      event pages — the cap was doing double duty as a page-weight measure
- *      and, unintentionally, as a reachability cliff.
+ *      event pages — the cap was doing double duty as a display-density
+ *      measure and, unintentionally, as a reachability cliff.
  *   3. The home shell (`index.html`) is the BFS root. `/eventi/` was not on it,
  *      so the whole events family entered one hop lower than it needed to and
  *      130 pages sat past `maxDepth`; the border-comuni hub had exactly ONE
@@ -112,7 +112,7 @@ describe('border-comuni hub links every comune the plugin emits (#5434)', () => 
     expect(html).toContain('>VA ');
   });
 
-  it('stays in the compact list form — cards for 320 comuni would blow the page-weight budget', () => {
+  it('keeps the compact list form instead of rendering a card for every comune', () => {
     // MARGINAL cost, not average: the section's fixed chrome (headings, intro
     // copy, the 16 shortlist cards) dwarfs a 7-comune fixture and would make an
     // average-based assertion meaningless. What matters at 320 comuni is what
@@ -191,7 +191,7 @@ describe('events hubs link their whole event list past the card cap (#5434)', ()
   /**
    * The sentinel bucket carries its own, lower `OTHER_EVENTS_CARD_CAP` (24)
    * because 80 cards on the largest page in the corpus were ~111 KB of markup
-   * on their own (issue #7331). The cut is a page-WEIGHT decision, so it is
+   * on their own (issue #7331). The cut is a presentation decision, so it is
    * only legitimate while reachability is untouched: fewer cards must mean
    * MORE overflow rows, never fewer linked events. That is the #5434 invariant
    * again, and it is precisely what stops "make the page lighter" from being
@@ -274,17 +274,16 @@ describe('the home shell carries the two depth-1 entry points the audit needs (#
 // ── 4. the overflow ladder ──────────────────────────────────────────────────
 
 /**
- * The overflow ladder (issue #7329) caps page WEIGHT by moving rows past
- * `OVERFLOW_ROWS_PER_PAGE` onto `<bucket>/page-N/`. That trade is only
+ * The overflow ladder (issue #7329) keeps each page navigable by moving rows
+ * past `OVERFLOW_ROWS_PER_PAGE` onto `<bucket>/page-N/`. That trade is only
  * legitimate while reachability is untouched — the same bargain the sentinel's
  * lower card cap makes above — and here it is sharper: a ladder page is the
  * ONLY inbound of every row it carries.
  *
  * Both reachability auditors must follow `noindex,follow` pages and stop only
  * at an explicit `nofollow` barrier. A noindex ladder therefore does not
- * re-orphan every row it was built to carry. Nothing else in the repo watches
- * this: the auditors need a full build, and the byte-budget test in
- * `tests/events-page-weight-bound.test.ts` measures only weight.
+ * re-orphan every row it was built to carry. These structural assertions keep
+ * the page ladder covered independently of the full-build audits.
  */
 describe('the overflow ladder keeps the rows it carries reachable (#7329)', () => {
   /**

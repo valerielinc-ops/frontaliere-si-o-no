@@ -2,8 +2,7 @@
  * Guard for the health-facilities section matcher
  * (scripts/lib/healthFacilitiesSections.mjs) and the audit feature
  * classifiers that consume it (scripts/audit-title-length.mjs,
- * scripts/audit-text-html-ratio.mjs, scripts/audit-page-weight.mjs,
- * scripts/audit-dist-multi.mjs).
+ * scripts/audit-text-html-ratio.mjs and scripts/audit-dist-multi.mjs).
  *
  * Regression context (2026-07-22 post-deploy validate-dist failure): the
  * health-facilities hub (epic #4455/#4457, build-plugins/healthFacilitiesPlugin.ts)
