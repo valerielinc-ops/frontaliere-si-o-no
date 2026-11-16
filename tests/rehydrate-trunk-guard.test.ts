@@ -586,7 +586,7 @@ describe('rehydrate-trunk-guard.sh — structural invariants', () => {
       .filter((line) => !/^\s*#/.test(line))
       .join('\n');
 
-  it('fails closed when the lost-path inventory cannot be written', () => {
+  it('fails closed when the lost-path inventory and fatal marker cannot be written', () => {
     const root = mkdtempSync(join(tmpdir(), 'trunk-guard-inventory-'));
     const lib = join(root, 'scripts', 'lib');
     mkdirSync(lib, { recursive: true });
