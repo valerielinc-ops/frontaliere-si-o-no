@@ -5235,6 +5235,13 @@ function hasExplicitFormRoleHeading(formText, job = {}) {
       continue;
     }
     if (formSurfaceStarted) continue;
+    // Umantis may expose only its generic application chrome before the
+    // native labels. Mark that chrome as the first heading so a field label
+    // such as "Foto" cannot become a false role heading.
+    if (isGenericFormChromeSegment(line)) {
+      firstHeadingSeen = true;
+      continue;
+    }
     const heading = normalizeFormRoleTitle(line);
     if (!heading) continue;
     const isFirstHeading = !firstHeadingSeen;
@@ -5499,9 +5506,10 @@ export function formPostingMatch(formText, job = {}, {
   // that describe the application itself. A bound route cannot make an
   // explicitly different role belong to the selected vacancy. The bounded
   // heading and role checks above already preserve concrete role conflicts;
-  // native question labels must not be reinterpreted as a role heading here.
+  // generic application chrome and native question labels must not be
+  // reinterpreted as a role heading here.
   if (boundUmantisApplication) {
-    if (umantisHeadingConflict || roleHeading === 'mismatch') return 'mismatch';
+    if (umantisHeadingConflict || roleHeading === 'mismatch' || explicitRoleConflict) return 'mismatch';
     return 'match';
   }
   // Some snapshots carry the Umantis Application/New URL only in the extracted
