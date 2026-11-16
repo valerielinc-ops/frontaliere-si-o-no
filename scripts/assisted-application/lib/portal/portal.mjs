@@ -11976,13 +11976,19 @@ export async function submitViaPortal(ctx) {
         text: currentText,
       });
       const currentAccountSurface = authPageKind(snapshot) !== 'none' || snapshot.passwordVisible === true || Boolean(codeField(snapshot));
+      const currentApplicationSurface = hasApplicationSurface(snapshot, {
+        pageUrl: page.url(), postingUrl, postingMatch: evidence.postingMatch,
+      });
       // A form mismatch is already a binding verdict. Do not let the generic
       // navigation fallback relabel it as an unknown stage before the pending
-      // posting check can report the mismatch.
-      if (explicitInitialPostingMismatch && !currentAccountSurface) return await handoff('posting_mismatch');
+      // posting check can report the mismatch. A shell without an application
+      // surface still needs the agentic recovery lane, as does a known
+      // diversion such as a talent pool.
+      if (explicitInitialPostingMismatch && !currentAccountSurface
+        && !destinationDiversionHint && currentApplicationSurface) return await handoff('posting_mismatch');
       const needsAutonomousNavigation = Boolean(destinationDiversionHint) || (!currentAccountSurface && (Boolean(startupNavigationHint)
         || ['posting_mismatch', 'unknown_apply'].includes(currentStage.kind)
-        || (!hasApplicationSurface(snapshot, { pageUrl: page.url(), postingUrl, postingMatch: evidence.postingMatch }) && !ctx.skipPostingCheck)));
+        || (!currentApplicationSurface && !ctx.skipPostingCheck)));
       if (needsAutonomousNavigation) {
         const navigationHint = startupNavigationHint || (destinationDiversionHint ? 'posting_mismatch'
           : diversionHint ? 'application_stage_unknown'

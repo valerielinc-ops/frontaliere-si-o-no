@@ -336,6 +336,11 @@ describe('runner final guard across three application stages', () => {
         { id: 'cv', label: 'Resume / CV', kind: 'file', inputType: 'file', formId: 'application', frame: 0 },
       ],
     };
+    const received = {
+      ...snapshot(`${jobUrl}/applyManually`, 'Thank you for your application.', []),
+      fields: [],
+      buttons: [],
+    };
     const posting = snapshot(jobUrl, 'Store Assistant Rituals Apply', [{ id: 'entry', text: 'Apply', frame: 0, disabled: false }]);
     const f = fixture(chooser, posting, review, null, {
       applyUrl: jobUrl,
@@ -343,6 +348,7 @@ describe('runner final guard across three application stages', () => {
       channelType: 'workday',
       job: { company: 'Rituals Cosmetics Switzerland', title: 'Store Assistant' },
       guardUrl: jobUrl,
+      receiptSnapshot: received,
       onWait: (ms: number) => {
         if (ms === 1000 && state.snapshot.url === jobUrl && !state.snapshot.fields.length && !state.snapshot.buttons.length) {
           state.snapshot = mountedApplication;
