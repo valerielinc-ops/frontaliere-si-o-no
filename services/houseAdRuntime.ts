@@ -430,7 +430,10 @@ export function installHouseAds(
         } else if (analyticsAllowed()) try { sessionStorage.setItem('ft_house_ad_click_v1', JSON.stringify({ campaign: 'job_search_automation', experimentId: assignment.experimentId, assignmentSource: assignment.assignmentSource, variant: assignment.variant, creativeId: `${assignment.variant}_v1`, format, locale, placement, device: data.device, enrolled: assignment.enrolled, contextSource: frameContext.source, contextSector: frameContext.sector, clickedAt: Date.now() })); } catch { /* navigation still works */ }
       } });
       creative.lang = locale;
-      host.replaceChildren(creative);
+      // Keep the fallback compatible with browsers that do not implement
+      // Node.replaceChildren yet.
+      host.textContent = '';
+      host.appendChild(creative);
       frame.style.setProperty('--ft-house-height', `${height}px`);
       frame.setAttribute('data-ft-house-active', '');
       const impressionKey = `${path}:${data.creative_id}:${format}:${data.context_source || 'generic'}:${data.context_sector || 'generic'}`;
