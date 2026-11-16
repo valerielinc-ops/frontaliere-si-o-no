@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-16T14:42:56.674Z",
+  "generatedAt": "2026-11-16T15:25:38.311Z",
   "totalEvents": 17373,
   "events": [
     {
@@ -135503,7 +135503,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Mediathek Wallis - Brig Claudine Studer; cantone: VS; categoria: Theater; data: 2026-10-03; ora: 10:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Mediathek Wallis - Brig Claudine Studer; cantone: VS; categoria: Theater; data: 2026-10-03; ora: 10:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Mediathek Wallis - Brig Claudine Studer; canton: VS; category: Theater; date: 2026-10-03; time: 10:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Mediathek Wallis - Brig Claudine Studer; kanton: VS; kategorie: Theater; datum: 2026-10-03; uhrzeit: 10:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Mediathek Wallis - Brig Claudine Studer; canton: VS; catégorie: Theater; date: 2026-10-03; heure: 10:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:fa895f0c9e594e49b51591cf7104e59b",
@@ -442454,11 +442462,6 @@
         {
           "canton": "TI",
           "comune": "Bellinzona",
-          "slug": "uomo-e-ambiente-il-distruttore-2026-11-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Bellinzona",
           "slug": "uomo-e-ambiente-il-distruttore-2026-09-25"
         },
         {
@@ -442470,6 +442473,11 @@
           "canton": "TI",
           "comune": "bellinzona",
           "slug": "uomo-e-ambiente-il-distruttore-2026-09-16"
+        },
+        {
+          "canton": "TI",
+          "comune": "Bellinzona",
+          "slug": "uomo-e-ambiente-il-distruttore-2026-11-15"
         },
         {
           "canton": "TI",
@@ -443420,11 +443428,6 @@
         {
           "canton": "TI",
           "comune": "Mendrisio",
-          "slug": "bertille-bak-voci-dalla-terra-2026-11-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Mendrisio",
           "slug": "bertille-bak-voci-dalla-terra-2026-07-07"
         },
         {
@@ -443441,6 +443444,11 @@
           "canton": "TI",
           "comune": "Mendrisio",
           "slug": "bertille-bak-voci-dalla-terra-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Mendrisio",
+          "slug": "bertille-bak-voci-dalla-terra-2026-11-15"
         },
         {
           "canton": "TI",
@@ -445130,11 +445138,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "jannis-kounellis-io-sono-un-pittore-2026-11-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "jannis-kounellis-io-sono-un-pittore-2026-09-20"
         },
         {
@@ -445151,6 +445154,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "jannis-kounellis-io-sono-un-pittore-2026-09-25-2"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "jannis-kounellis-io-sono-un-pittore-2026-11-15"
         },
         {
           "canton": "TI",
@@ -447105,11 +447113,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "sentimento-e-osservazione-2026-11-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "sentimento-e-osservazione-2026-09-16"
         },
         {
@@ -447136,6 +447139,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "sentimento-e-osservazione-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "sentimento-e-osservazione-2026-11-15"
         },
         {
           "canton": "TI",
@@ -447863,11 +447871,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "umberto-boccioni-2026-11-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "umberto-boccioni-2026-09-15"
         },
         {
@@ -447879,6 +447882,11 @@
           "canton": "TI",
           "comune": "lugano",
           "slug": "umberto-boccioni-2026-08-15"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "umberto-boccioni-2026-11-15"
         },
         {
           "canton": "TI",
@@ -449008,11 +449016,6 @@
         {
           "canton": "TI",
           "comune": "Riva San Vitale",
-          "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-11-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Riva San Vitale",
           "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-09-26"
         },
         {
@@ -449024,6 +449027,11 @@
           "canton": "TI",
           "comune": "Riva San Vitale",
           "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-09-25"
+        },
+        {
+          "canton": "TI",
+          "comune": "Riva San Vitale",
+          "slug": "ceramiche-dellantico-peru-dal-pacifico-alle-ande-2026-11-15"
         },
         {
           "canton": "TI",
@@ -464712,11 +464720,6 @@
         {
           "canton": "TI",
           "comune": "Minusio",
-          "slug": "lepistoliere-2026-11-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Minusio",
           "slug": "lepistoliere-2026-10-17"
         },
         {
@@ -464758,6 +464761,11 @@
           "canton": "TI",
           "comune": "Minusio",
           "slug": "lepistoliere-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Minusio",
+          "slug": "lepistoliere-2026-11-15"
         },
         {
           "canton": "TI",
@@ -477786,11 +477794,6 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "planetario-2026-11-15"
-        },
-        {
-          "canton": "TI",
-          "comune": "Lugano",
           "slug": "planetario-2026-10-17"
         },
         {
@@ -477817,6 +477820,11 @@
           "canton": "TI",
           "comune": "Lugano",
           "slug": "planetario-2026-09-26"
+        },
+        {
+          "canton": "TI",
+          "comune": "Lugano",
+          "slug": "planetario-2026-11-15"
         },
         {
           "canton": "TI",
@@ -478358,12 +478366,12 @@
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "robot-esposizione-interattiva-2026-11-15"
+          "slug": "robot-esposizione-interattiva-2026-09-19"
         },
         {
           "canton": "TI",
           "comune": "Lugano",
-          "slug": "robot-esposizione-interattiva-2026-09-19"
+          "slug": "robot-esposizione-interattiva-2026-11-15"
         },
         {
           "canton": "TI",
@@ -540620,6 +540628,13 @@
         "url": "https://billetterie.locg.ch/selection/event/date?productId=10229790114015"
       },
       "sourceDescriptionHash": "5703c6400408a656ac5c25a3cbe592723e5a1e0aafec949d05458eeae812a5aa",
+      "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "pop-concert-de-noel-de-lorchestre-de-chambre-de-2026-12-03-2"
+        }
+      ],
       "imageUrl": "/images/events/library/event-musica-svizzera-urbana-autunno-inverno-v02.webp",
       "imageAssetId": "event-musica-svizzera-urbana-autunno-inverno-v02",
       "imageLicense": "Pixabay Content License",
@@ -541267,6 +541282,11 @@
       },
       "sourceDescriptionHash": "826a1af6cbbf111194e039cc3dc2eea53676d3e5c4791c5d75079e5286971fb8",
       "previousRoutes": [
+        {
+          "canton": "GE",
+          "comune": "Genève",
+          "slug": "spectacle-dimprovisation-en-anglais-renegade-2026-12-03-2"
+        },
         {
           "canton": "GE",
           "comune": "Genève",
