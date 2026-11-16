@@ -52,6 +52,7 @@ const DEFAULT_CAP_PER_SHARD = SITEMAP_SHARD_CAP;
 const FILENAME_PREFIX = 'sitemap-jobs';
 const JOB_SITEMAP_FILE_RE = /^sitemap-jobs(?:-[a-z0-9][a-z0-9-]*)?\.xml$/i;
 const JOB_SITEMAP_SHARD_RE = /^sitemap-jobs-[a-z0-9][a-z0-9-]*\.xml$/i;
+const AUTHORITATIVE_JOB_SITEMAP_CONTINUATION_RE = /^sitemap-jobs-legacy-\d+\.xml$/i;
 
 /**
  * Shared filename predicates for the job sitemap family. Keeping these in
@@ -71,6 +72,43 @@ export function isJobSitemapFilename(filename) {
  */
 export function isJobSitemapShardFilename(filename) {
   return typeof filename === 'string' && JOB_SITEMAP_SHARD_RE.test(filename);
+}
+
+/**
+ * The full-build producer may continue the legacy urlset into numbered files
+ * when its primary file reaches the shared cap. These files are authoritative
+ * source output, unlike the canton/locale shards that reconciliation validates
+ * against the producer allowlist.
+ *
+ * @param {unknown} filename
+ * @returns {boolean}
+ */
+export function isAuthoritativeJobSitemapShardFilename(filename) {
+  return typeof filename === 'string' && AUTHORITATIVE_JOB_SITEMAP_CONTINUATION_RE.test(filename);
+}
+
+/**
+ * Partition a legacy urlset's already-rendered `<url>` blocks into the
+ * bounded primary file and its continuation payload. The continuation is
+ * intentionally returned as one flat list; the streaming writer applies the
+ * same cap again while emitting numbered files.
+ *
+ * @param {Array<string>} blocks
+ * @param {{capPerShard?: number}} [options]
+ * @returns {{primary: Array<string>, overflow: Array<string>}}
+ */
+export function partitionSitemapUrlBlocks(blocks, options = {}) {
+  if (!Array.isArray(blocks) || blocks.length === 0) {
+    return { primary: [], overflow: [] };
+  }
+  const capPerShard = options.capPerShard ?? DEFAULT_CAP_PER_SHARD;
+  if (capPerShard <= 0 || !Number.isFinite(capPerShard)) {
+    throw new Error(`capPerShard must be a positive finite number, got ${capPerShard}`);
+  }
+  return {
+    primary: blocks.slice(0, capPerShard),
+    overflow: blocks.slice(capPerShard),
+  };
 }
 
 /**
@@ -286,9 +324,9 @@ export function emitSitemapIndex(shardFilenames, baseUrl) {
  * in dist/; leaving one behind therefore republishes URLs that are no longer
  * emitted by the current build.
  *
- * The deliberately narrow filename predicate excludes sitemap-jobs.xml and
- * every non-job sitemap. The caller writes the current sitemap-index.xml
- * after this cleanup.
+ * The deliberately narrow filename predicate excludes sitemap-jobs.xml,
+ * authoritative legacy continuations, and every non-job sitemap. The caller
+ * writes the current sitemap-index.xml after this cleanup.
  *
  * @param {string} distDir
  * @returns {Promise<string[]>} absolute paths removed
@@ -307,6 +345,7 @@ export async function removeStaleJobSitemapShards(distDir) {
 
   const stale = entries
     .filter((entry) => entry.isFile() && isJobSitemapShardFilename(entry.name))
+    .filter((entry) => !isAuthoritativeJobSitemapShardFilename(entry.name))
     .map((entry) => path.join(distDir, entry.name));
   await Promise.all(stale.map((file) => unlink(file)));
   return stale;

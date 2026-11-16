@@ -3,6 +3,10 @@ import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import { iterateJsonArrayFile } from '../scripts/lib/read-large-json.mjs';
 import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
 import { createStreamingSitemapWriter } from '../scripts/lib/streaming-sitemap-writer.mjs';
+import {
+  isAuthoritativeJobSitemapShardFilename,
+  partitionSitemapUrlBlocks,
+} from '../scripts/lib/sitemap-shard.mjs';
 import { buildArchivedJobPosting } from './shared/archivedJobPosting';
 import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
 import { resolveReportedPostingDate, type JobPostingDateProvenance } from '../scripts/lib/job-posting-date.mjs';
@@ -12236,7 +12240,8 @@ ${staticAnalyticsHtml}
  const keywordSitemap = keywordSitemapEntries.length > 0 ? '\n' + keywordSitemapEntries.join('\n') : '';
  // #3516: independent segments (search clusters, keyword pages, …) can emit
  // the same <loc> twice within this one file — dedupe keep-first at assembly.
- const sitemapJobsXml = dedupeUrlsetXmlByLoc(`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${landingEntry}\n${companyEntries}\n${searchEntries}\n${jobEntries}${prevSlugSitemap}${paginationSitemap}${categorySitemap}${keywordSitemap}\n</urlset>\n`);
+ const sitemapUrlsetHeader = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n xmlns:xhtml="http://www.w3.org/1999/xhtml">\n';
+ const sitemapJobsXml = dedupeUrlsetXmlByLoc(`${sitemapUrlsetHeader}${landingEntry}\n${companyEntries}\n${searchEntries}\n${jobEntries}${prevSlugSitemap}${paginationSitemap}${categorySitemap}${keywordSitemap}\n</urlset>\n`);
  type CantonLocaleLandingShardEntry = {
   loc: string;
   lastmod?: string;
@@ -12257,12 +12262,13 @@ ${staticAnalyticsHtml}
    cantonLocaleSectionOwners.set(`/${locale}/${section}/`, { canton, locale });
   }
  }
- // Keep the IT entries in the legacy sitemap, which is the cache-hit source
- // for active-job URLs. Only non-IT canton city hubs move to the existing
- // canton/locale shards: adding the restored city-hub population to
- // sitemap-jobs.xml would exceed the 50k URL ceiling before the shard writer
- // sees them. Other canton-scoped page families keep their existing owner.
- const sitemapJobs = sitemapJobsXml.replace(/<url>[\s\S]*?<\/url>/g, (block) => {
+ // Keep the IT entries in the legacy sitemap family, which is the cache-hit
+ // source for active URLs. Only non-IT canton city hubs move to the existing
+ // canton/locale shards: adding the restored city-hub population to the
+ // legacy family would consume its bounded capacity before the continuation
+ // writer sees it. Other canton-scoped page families keep their existing
+ // owner.
+ const sitemapJobsSource = sitemapJobsXml.replace(/<url>[\s\S]*?<\/url>/g, (block) => {
   const loc = /<loc>([^<]+)<\/loc>/.exec(block)?.[1];
   if (!loc) return block;
   let pathname: string;
@@ -12272,7 +12278,7 @@ ${staticAnalyticsHtml}
    return block;
   }
   // Only the restored city-hub population needs its own per-locale shard to
-  // keep sitemap-jobs.xml below the 50k URL ceiling. Other canton-scoped
+  // keep sitemap-jobs.xml below the shared 39k URL cap. Other canton-scoped
   // families, especially company hubs, retain their existing ownership in
   // the legacy sitemap.
   if (!cityHubSiblingSitemapLocs.has(loc)) return block;
@@ -12306,16 +12312,45 @@ ${staticAnalyticsHtml}
   });
   return '';
  });
+ const sitemapUrlBlocks = sitemapJobsSource.match(/<url>[\s\S]*?<\/url>/g) ?? [];
+ const legacyJobSitemapLocs = new Set<string>();
+ for (const block of sitemapUrlBlocks) {
+  const loc = /<loc>([^<]+)<\/loc>/.exec(block)?.[1];
+  if (loc) legacyJobSitemapLocs.add(loc);
+ }
+
+ // Keep the primary legacy file below the shared 39k protocol cap. The
+ // continuation files are part of the same authoritative legacy family, so
+ // no URL is dropped and cache-hit reconciliation can recover the complete
+ // producer allowlist from all of them.
+ const { primary: primarySitemapBlocks, overflow: continuationSitemapBlocks } = partitionSitemapUrlBlocks(
+  sitemapUrlBlocks,
+  { capPerShard: SITEMAP_SHARD_CAP },
+ );
+ const sitemapJobs = `${sitemapUrlsetHeader}${primarySitemapBlocks.join('\n')}${primarySitemapBlocks.length > 0 ? '\n' : ''}</urlset>\n`;
  const sitemapJobsPath = np.join(distDir, 'sitemap-jobs.xml');
  fs.writeFileSync(sitemapJobsPath, sitemapJobs, 'utf-8');
- // Every <loc> of sitemap-jobs.xml. The canton shards below must not repeat
- // any of them: 22,384 of the 22,480 shard URLs were the same IT job details
- // already listed here (measured live 2026-10-24). sitemap-jobs.xml keeps
- // them because relatedSearchClustersPlugin rebuilds the active-job allowlist
- // from this file on a cache-hit path; shards keep only URLs this file omits:
- // canton roots, non-IT canton city hubs, and qualifying job variants.
- const legacyJobSitemapLocs = new Set<string>();
- for (const m of sitemapJobs.matchAll(/<loc>([^<]+)<\/loc>/g)) legacyJobSitemapLocs.add(m[1]);
+
+ const existingLegacyContinuations = fs.readdirSync(distDir)
+  .filter((file) => isAuthoritativeJobSitemapShardFilename(file));
+ const legacyContinuationWriter = createStreamingSitemapWriter({
+  distDir,
+  filePrefix: 'sitemap-jobs-legacy',
+  cap: SITEMAP_SHARD_CAP,
+  padIndex: padShardIndex,
+  header: sitemapUrlsetHeader,
+ });
+ for (const block of continuationSitemapBlocks) legacyContinuationWriter.push(block);
+ const legacyContinuationResult = legacyContinuationWriter.finish();
+ const emittedLegacyContinuations = new Set(legacyContinuationResult.files);
+ for (const file of existingLegacyContinuations) {
+  if (emittedLegacyContinuations.has(file)) continue;
+  try {
+   fs.unlinkSync(np.join(distDir, file));
+  } catch (error: any) {
+   if (error?.code !== 'ENOENT') throw error;
+  }
+ }
 
  const sitemapIndexPath = np.join(distDir, 'sitemap.xml');
  if (fs.existsSync(sitemapIndexPath)) {
@@ -12335,7 +12370,7 @@ ${staticAnalyticsHtml}
  fs.writeFileSync(sitemapIndexPath, idx, 'utf-8');
  }
 
- console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${validJobs.length * 4} localized job pages and sitemap-jobs.xml (${prevSlugEntries.length} previousSlug entries)`);
+ console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${validJobs.length * 4} localized job pages and sitemap-jobs.xml (${prevSlugEntries.length} previousSlug entries; ${primarySitemapBlocks.length} primary URLs, ${legacyContinuationResult.entries} continuation URLs)`);
  jobsSeoMemContext.sitemap.eligibleJobs = sitemapEligibleJobCount;
  jobsSeoMemContext.sitemap.previousSlugEntries = prevSlugEntries.length;
  jobsSeoMemContext.sitemap.entries = sitemapEligibleJobCount + prevSlugEntries.length;
@@ -12367,9 +12402,10 @@ ${staticAnalyticsHtml}
   *   The TI ones are NOT re-emitted — staticPagesPlugin already owns those.
   *
   * Sibling agents (jobMarketSnapshot, weeklyEmployers) are not touched.
-  * sitemap-jobs.xml above keeps every IT job detail (relatedSearchClustersPlugin
-  * rebuilds the cache-hit allowlist from it); the shards hold only what it does
-  * not list. Both are discovered through the sitemap.xml index.
+  * sitemap-jobs.xml and sitemap-jobs-legacy-* above keep every legacy URL
+  * (relatedSearchClustersPlugin rebuilds the cache-hit allowlist from the
+  * whole authoritative family); canton/locale shards hold only what that
+  * family does not list. All are discovered through the sitemap.xml index.
   */
  try {
    // Resolve absolute paths to the .mjs helpers — relative imports from a Vite
@@ -12389,12 +12425,12 @@ ${staticAnalyticsHtml}
    let cantonIndexIndexable = 0;
 
    // Sharded job sitemap: the EN/DE/FR variants of every job detail listed in
-   // sitemap-jobs.xml (the IT detail itself stays there only — one sitemap
-   // per URL). Each variant carries the same hreflang group as its IT entry,
+   // the legacy sitemap family (the IT detail itself stays there only — one
+   // sitemap per URL). Each variant carries the same hreflang group as its IT entry,
    // so the reciprocity sanitizer keeps both sides, and the same real
    // <lastmod>. Shards are keyed by canton AND locale
-   // (sitemap-jobs-zurigo-de.xml): ~67k variants would not fit the 50,000-URL
-   // cap of a per-canton file, and splitToShards still caps every key at
+   // (sitemap-jobs-zurigo-de.xml): ~67k variants would not fit a single
+   // bounded per-canton file, and splitToShards still caps every key at
    // SITEMAP_SHARD_CAP. Canton roots (below) keep the plain canton shard.
    type ShardUrl = { loc: string; lastmod?: string; changefreq?: string; priority?: number; _canton: string; _locale?: string; alternates?: Array<{ hreflang: string; href: string }> };
    const shardUrls: ShardUrl[] = [...cantonLocaleLandingShardEntries];

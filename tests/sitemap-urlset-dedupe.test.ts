@@ -13,7 +13,13 @@
 import { describe, it, expect } from 'vitest';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore — plain ESM helper without type declarations
-import { emitSitemapXml, splitToShards, writeShardsToDist } from '../scripts/lib/sitemap-shard.mjs';
+import {
+  emitSitemapXml,
+  isAuthoritativeJobSitemapShardFilename,
+  partitionSitemapUrlBlocks,
+  splitToShards,
+  writeShardsToDist,
+} from '../scripts/lib/sitemap-shard.mjs';
 import { dedupeUrlsetXmlByLoc } from '../build-plugins/shared/sitemapUrlsetDedupe';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -23,6 +29,20 @@ const countLoc = (xml: string, loc: string): number =>
   xml.split(`<loc>${loc}</loc>`).length - 1;
 
 describe('emitSitemapXml — per-file <loc> dedup (#3516)', () => {
+  it('recognizes only numbered authoritative legacy continuations', () => {
+    expect(isAuthoritativeJobSitemapShardFilename('sitemap-jobs-legacy-001.xml')).toBe(true);
+    expect(isAuthoritativeJobSitemapShardFilename('sitemap-jobs-legacy-12.xml')).toBe(true);
+    expect(isAuthoritativeJobSitemapShardFilename('sitemap-jobs-zurigo.xml')).toBe(false);
+    expect(isAuthoritativeJobSitemapShardFilename('sitemap-jobs-expired-001.xml')).toBe(false);
+  });
+
+  it('partitions the primary legacy urlset at the shared cap without dropping blocks', () => {
+    expect(partitionSitemapUrlBlocks(['a', 'b', 'c'], { capPerShard: 2 })).toEqual({
+      primary: ['a', 'b'],
+      overflow: ['c'],
+    });
+  });
+
   it('preserves two-decimal priorities when routing entries into canton shards', () => {
     const xml = emitSitemapXml([
       { loc: 'https://frontaliereticino.ch/de/jobs-im-aargau/baden/', priority: 0.85 },
@@ -69,6 +89,7 @@ describe('writeShardsToDist — stale shard cleanup', () => {
     try {
       fs.writeFileSync(path.join(dist, 'sitemap-jobs-argovia.xml'), '<stale/>');
       fs.writeFileSync(path.join(dist, 'sitemap-jobs-expired.xml'), '<stale/>');
+      fs.writeFileSync(path.join(dist, 'sitemap-jobs-legacy-001.xml'), '<authoritative/>');
       fs.writeFileSync(path.join(dist, 'sitemap-pages.xml'), '<keep/>');
 
       await writeShardsToDist(
@@ -79,6 +100,7 @@ describe('writeShardsToDist — stale shard cleanup', () => {
 
       expect(fs.existsSync(path.join(dist, 'sitemap-jobs-argovia.xml'))).toBe(false);
       expect(fs.existsSync(path.join(dist, 'sitemap-jobs-expired.xml'))).toBe(false);
+      expect(fs.existsSync(path.join(dist, 'sitemap-jobs-legacy-001.xml'))).toBe(true);
       expect(fs.existsSync(path.join(dist, 'sitemap-pages.xml'))).toBe(true);
       expect(fs.existsSync(path.join(dist, 'sitemap-jobs-zurigo.xml'))).toBe(true);
       expect(fs.readFileSync(path.join(dist, 'sitemap-index.xml'), 'utf8'))
