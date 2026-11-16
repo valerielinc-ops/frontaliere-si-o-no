@@ -19,6 +19,27 @@
       "copyExperimentId": "social-copy-balanced-v1",
       "copyHook": "Un aggiornamento da leggere prima di organizzare lo spostamento.",
       "copyCta": "Consulta la guida."
+    },
+    {
+      "id": "border-ranking:2026-11-09",
+      "ts": "2026-11-16T16:44:43.431Z",
+      "weekStart": "2026-11-09",
+      "weekEnd": "2026-11-15",
+      "socialReservationType": "border-digest",
+      "socialReservationId": "2026-11-09",
+      "telegramDeliveryId": "002dd773-58d6-4e55-8535-b72f16119cf5",
+      "telegramMessageId": 143,
+      "copyMode": "codex",
+      "copySlot": "border",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "e1e656e043e06845",
+      "copyTemplateId": "tg-border-question",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "domanda-comune",
+      "copyPillarId": "strumenti-utili",
+      "copyAngleIntent": "both",
+      "copyHook": "Controlli al confine: una domanda pratica da chiarire.",
+      "copyCta": "Approfondisci il tema."
     }
   ]
 }
