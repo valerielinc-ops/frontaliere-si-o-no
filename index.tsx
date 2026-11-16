@@ -185,17 +185,6 @@ const bootstrapApp = async () => {
    }
  });
 
- // Static article and job pages can already contain AdSense slots before React
- // mounts. Start recovery as soon as the stale-chunk handler is ready so it can
- // observe those slots even when the app's own chunks are still loading.
- void import('./services/startAdRecovery')
-   .then(({ startAdRecovery }) => startAdRecovery())
-   .catch((error: unknown) => {
-     void import('./services/errorReporter')
-       .then(({ reportCaughtError }) => reportCaughtError(error, 'adRecovery.bootstrap'))
-       .catch(() => console.error('[ad-recovery] startup failed', error));
-   });
-
  // The served head must be captured before importing the app, whose lazy
  // consumers can write metadata, but its guard is not itself LCP content.
  // Keep the shared authority chunk and its DOM scan off the initial paint
@@ -395,6 +384,18 @@ const bootstrapApp = async () => {
  }
 
  await waitForFirstPaint();
+
+ // Static pages load the shared first-party recovery before the SPA module.
+ // Keep the SPA fallback off the initial-paint path: if the static loader was
+ // blocked, or a SPA-only surface still needs it, start it after React has
+ // painted so its module evaluation and DOM scan cannot delay the LCP handoff.
+ void import('./services/startAdRecovery')
+   .then(({ startAdRecovery }) => startAdRecovery())
+   .catch((error: unknown) => {
+     void import('./services/errorReporter')
+       .then(({ reportCaughtError }) => reportCaughtError(error, 'adRecovery.bootstrap'))
+       .catch(() => console.error('[ad-recovery] startup failed', error));
+   });
 
  // The fixed homepage shell is the stable first-paint surface. Keep it in
  // front until the real calculator heading has committed, because the App
