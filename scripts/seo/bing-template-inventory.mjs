@@ -182,7 +182,12 @@ function isJobBoardTemplatePath(pathname) {
   // Canton snapshot pages sit below a job-board section but are emitted by
   // jobMarketSnapshotChCantonPages, not jobsSeoPagesPlugin. Exclude the
   // exact snapshot form before assigning the generic job-board owner.
-  return isJobBoardSectionPathname(pathname) && !isJobMarketSnapshotPath(pathname);
+  // Legacy bridge stubs use a job-board-looking French path but belong to the
+  // dedicated redirect emitter; exclude them here so the inventory cannot
+  // report an ambiguous owner.
+  return isJobBoardSectionPathname(pathname)
+    && !isJobMarketSnapshotPath(pathname)
+    && !exactRouteFamilyPath('legacyRedirectStub', pathname);
 }
 
 const WEATHER_CITY_ROOTS = Object.freeze([
