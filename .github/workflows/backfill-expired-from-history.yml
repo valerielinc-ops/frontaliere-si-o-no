@@ -113,8 +113,8 @@ jobs:
           # Run 43822512261 durably checkpointed 16 crawlers every 33:55 and
           # 32:43 (07:54→08:27→09:00 UTC), reaching cursor assura-ch at key 48
           # before the 120-minute job limit. Half that measured batch gives an
-          # estimated 16:22–16:58 checkpoint interval at the same throughput;
-          # the runtime log below records actual time including all gates/pushes.
+          # linear scaling gives 16:22–16:58 for eight; fixed gate overhead may
+          # change that, so the runtime log records elapsed time through push.
           BACKFILL_CHECKPOINT_BATCH_SIZE: '8'
           BACKFILL_PROGRESS_PATH: .github/backfill-expired-from-history-progress.tsv
         # The history walk writes each expired slice atomically, but the old
@@ -323,7 +323,11 @@ jobs:
                 echo '::error::Unable to persist the interrupted backfill checkpoint.'
               fi
             elif [ "$checkpoint_batch_timing_active" -eq 1 ]; then
-              report_checkpoint_timing 'interrupted-before-crawler-checkpoint'
+              if [ "$checkpoint_active" -eq 1 ]; then
+                report_checkpoint_timing 'interrupted-during-checkpoint'
+              else
+                report_checkpoint_timing 'interrupted-before-crawler-checkpoint'
+              fi
             fi
             exit "$signal_status"
           }
