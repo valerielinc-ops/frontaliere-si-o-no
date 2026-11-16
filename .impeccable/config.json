@@ -143,6 +143,24 @@
         ],
         "createdAt": "2026-11-15T21:14:21.285Z",
         "reason": "Agent: test fixture documents untrusted ATS markup removed by the sanitizer"
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-16T17:38:37.606Z",
+        "reason": "Agent: index.html declares self-hosted Inter as the established body font; project design context calls for custom expressive typography."
+      },
+      {
+        "rule": "overused-font",
+        "value": "space grotesk",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-16T17:38:42.064Z",
+        "reason": "Agent: index.html declares self-hosted Space Grotesk for headings as the established display font; project design context calls for custom expressive typography."
       }
     ]
   },

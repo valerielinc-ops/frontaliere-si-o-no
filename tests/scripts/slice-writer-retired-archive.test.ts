@@ -154,7 +154,7 @@ describe('writeJobsCrawlerSlice archives the rows it retires', () => {
     // One bando of six closes at the source: 6 -> 5 is below the shrink
     // guard, so before the fix nothing archived it.
     const log = runWriter(all.filter((job) => job.id !== `${KEY}-3`));
-    expect(log).toContain('Retired 1 row(s)');
+    expect(log).toContain('Retired archive guard: archived 1 removed job(s)');
 
     const archived = expiredSlice();
     expect(archived.map((entry) => entry.slug)).toEqual([posting(3).slug]);

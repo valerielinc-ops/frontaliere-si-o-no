@@ -43,11 +43,13 @@ describe('stealthConfig', () => {
     expect(stealthConfig('crawler', { STEALTH_BROWSER_CRAWLER: '1', CLOAKBROWSER_LICENSE_KEY_CRAWLER: KEY })).toMatchObject({ enabled: true, licenseKey: KEY });
   });
 
-  it('allows stealth only for the crawler purpose', () => {
-    const env = { STEALTH_BROWSER_CRAWLER: '1', CLOAKBROWSER_LICENSE_KEY_CRAWLER: KEY };
-    expect(stealthConfig('crawler', env).enabled).toBe(true);
-    expect(() => stealthConfig('assisted' as never, env)).toThrow(/unknown purpose/);
-    expect(() => stealthConfig('other' as never, env)).toThrow(/unknown purpose/);
+  it('keeps crawler and assisted purposes on separate flags and keys', () => {
+    const crawlerEnv = { STEALTH_BROWSER_CRAWLER: '1', CLOAKBROWSER_LICENSE_KEY_CRAWLER: KEY };
+    const assistedEnv = { STEALTH_BROWSER_ASSISTED: '1', CLOAKBROWSER_LICENSE_KEY_ASSISTED: KEY };
+    expect(stealthConfig('crawler', crawlerEnv).enabled).toBe(true);
+    expect(stealthConfig('assisted', assistedEnv)).toMatchObject({ enabled: true, licenseKey: KEY });
+    expect(stealthConfig('assisted', crawlerEnv).reason).toBe('disabled');
+    expect(() => stealthConfig('other' as never, crawlerEnv)).toThrow(/unknown purpose/);
   });
 });
 
@@ -85,6 +87,15 @@ describe('launchStealthOrChromium', () => {
     expect(isStealthBrowser(browser)).toBe(true);
     expect(d.cloak.launch).toHaveBeenCalledWith({ licenseKey: KEY, headless: false, locale: 'de-CH', timezone: 'Europe/Zurich' });
     expect(lines.join('\n')).not.toContain(KEY);
+  });
+
+  it('launches the assisted purpose with its separately scoped key', async () => {
+    const cloak = fakeBrowser('assisted-cloak');
+    const { deps: d } = deps({ launch: async () => cloak });
+    const assistedEnv = { STEALTH_BROWSER_ASSISTED: '1', CLOAKBROWSER_LICENSE_KEY_ASSISTED: KEY };
+    const browser = await launchStealthOrChromium({ purpose: 'assisted', headless: false, locale: 'fr-CH', env: assistedEnv, deps: d, log: () => {} });
+    expect(browser).toBe(cloak);
+    expect(d.cloak.launch).toHaveBeenCalledWith({ licenseKey: KEY, headless: false, locale: 'fr-CH', timezone: 'Europe/Zurich' });
   });
 
   it('passes the optional stealth proxy through', async () => {

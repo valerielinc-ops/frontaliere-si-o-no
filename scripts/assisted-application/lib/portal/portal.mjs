@@ -11,7 +11,10 @@ import '../../extension/apply-control.js';
  *   Codex plan, deterministic fill, next → submit → confirmation.
  *
  * CAPTCHA challenges are detected and handed off to Valerie for the owner
- * fill extension; the live application runner never loads a solver.
+ * fill extension. CloakBrowser gets one bounded challenge pass: a Cloudflare
+ * interstitial may settle by itself and a managed Turnstile checkbox may be
+ * clicked once. A challenge that remains, or reCAPTCHA/hCaptcha, is still a
+ * Valerie handoff; the live application runner never loads a solver.
  * A login page is handled by account.mjs: an
  * account on the order's alias, created by the runner and verified through
  * the order's inbox. An application form that asks for the account's password
@@ -27,7 +30,8 @@ import '../../extension/apply-control.js';
  */
 
 import path from 'node:path';
-import { launchChromium } from '../../../lib/ensure-chromium.mjs';
+import { browserEngine, isStealthBrowser, launchStealthOrChromium } from '../../../lib/stealth-browser.mjs';
+import { challengeState, passChallenge } from '../../../lib/challenge-pass.mjs';
 import { applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, gravityFormsSubmissionOutcome, inPageApplicationOpeners, isApplicationRegionUnsupported, portalJobKey } from './stages.mjs';
 import { COVER_LETTER_DOCUMENT_CONTEXT_RE, COVER_LETTER_DOCUMENT_TERMS, CV_DOCUMENT_CONTEXT_RE, CV_DOCUMENT_TERMS } from './document-labels.mjs';
 import { advancedToFinalReview } from './final-review.mjs';
@@ -126,9 +130,8 @@ function verifiedUmantisApplicantContext(stageContext, currentUrl) {
     const application = new URL(String(applicationUrl));
     const posting = new URL(String(stageContext.postingUrl));
     const current = new URL(String(currentUrl || ''));
-    if (application.protocol !== 'https:' || posting.protocol !== 'https:' || current.protocol !== 'https:'
+    if (!isUmantisUrl(application.href) || !isUmantisUrl(posting.href) || !isUmantisUrl(current.href)
       || application.username || application.password || posting.username || posting.password || current.username || current.password
-      || !/(?:^|\.)umantis\.com$/i.test(application.hostname)
       || !isUmantisPostingEntry({ applyUrl: application.href, postingUrl: posting.href })
       || current.origin !== application.origin
       || current.pathname.replace(/\/+$/, '').toLowerCase() !== application.pathname.replace(/\/+$/, '').toLowerCase()
@@ -210,6 +213,47 @@ async function extractFields(page, options) {
   const snapshot = await extractFieldsRaw(page, options);
   const context = verifiedUmantisApplicantPages.get(page);
   return context ? verifiedUmantisApplicantAddressSnapshot(snapshot, page.url(), context) : snapshot;
+}
+
+const portalChallengePresent = (state) => Boolean(
+  state?.interstitial || state?.turnstile || state?.recaptcha || state?.hcaptcha,
+);
+
+/**
+ * Give CloakBrowser one bounded attempt at a managed Cloudflare challenge.
+ * This is deliberately not a solver: reCAPTCHA/hCaptcha and any challenge
+ * left after the attempt go to Valerie through the existing CAPTCHA handoff.
+ */
+async function passAssistedPortalChallenge(page, browser, log = () => {}) {
+  if (!isStealthBrowser(browser)) return { passed: true, challenged: false, clicked: false };
+
+  let initial;
+  try {
+    initial = await challengeState(page);
+  } catch {
+    log('[challenge-pass] check unavailable; handing off to Valerie');
+    return { passed: false, challenged: true, clicked: false, state: null };
+  }
+  if (!portalChallengePresent(initial)) return { passed: true, challenged: false, clicked: false, state: initial };
+  if (initial.recaptcha || initial.hcaptcha) {
+    log('[challenge-pass] unsupported CAPTCHA; handing off to Valerie');
+    return { passed: false, challenged: true, clicked: false, state: initial };
+  }
+
+  try {
+    const result = await passChallenge(page, { timeoutMs: 30_000, pollMs: 1_000, log });
+    const state = result?.state || await challengeState(page);
+    const passed = result?.passed === true && !portalChallengePresent(state);
+    return {
+      passed,
+      challenged: true,
+      clicked: result?.clicked === true,
+      state,
+    };
+  } catch {
+    log('[challenge-pass] bounded attempt failed; handing off to Valerie');
+    return { passed: false, challenged: true, clicked: false, state: initial };
+  }
 }
 
 const OUTCOME_TIMEOUT_MS = 60_000;
@@ -531,6 +575,18 @@ function accountHandoff(handoff, code, stage) {
   return { handoff, accountFailure: accountFailure(code, stage) };
 }
 
+// The fake portal used by the deterministic E2E suite is HTTP-only and lives
+// on vendor-specific *.localhost hosts. Keep this exception local to the
+// loopback fixture: production ATS hosts still require HTTPS.
+function isSecureOrLocalhostUrl(url) {
+  return url?.protocol === 'https:'
+    || (url?.protocol === 'http:' && /(?:^|\.)localhost$/iu.test(url.hostname));
+}
+
+function isSuccessFactorsPortalUrl(url) {
+  return isSecureOrLocalhostUrl(url) && SUCCESS_FACTORS_HOST_RE.test(url.hostname);
+}
+
 function accountStageFor(snapshot) {
   const kind = authPageKind(snapshot);
   return kind === 'create' ? 'registration' : kind === 'sign_in' ? 'login' : 'unknown';
@@ -543,8 +599,7 @@ function hasResendVerificationControl(snapshot = {}) {
 }
 
 function successFactorsModuleIdentity(url) {
-  if (!url || url.protocol !== 'https:' || url.username || url.password || url.hash
-    || !SUCCESS_FACTORS_HOST_RE.test(url.hostname)
+  if (!url || !isSuccessFactorsPortalUrl(url) || url.username || url.password || url.hash
     || url.pathname.replace(/\/+$/, '') !== '/career') return null;
   const valuesFor = (key) => [...url.searchParams.entries()]
     .filter(([name]) => name.toLowerCase() === key)
@@ -575,8 +630,7 @@ function isSuccessFactorsModuleRoute(url) {
 function isSuccessFactorsCareerPath(value) {
   try {
     const url = new URL(String(value || ''));
-    return url.protocol === 'https:' && !url.username && !url.password && !url.hash
-      && SUCCESS_FACTORS_HOST_RE.test(url.hostname)
+    return isSuccessFactorsPortalUrl(url) && !url.username && !url.password && !url.hash
       && ['/career', '/portalcareer'].includes(url.pathname.replace(/\/+$/, ''));
   } catch {
     return false;
@@ -829,7 +883,8 @@ function workdayManualApplicationTarget(currentUrl, expectedUrl, control = {}) {
 
 function isUmantisUrl(value) {
   try {
-    return /(?:^|\.)umantis\.com$/i.test(new URL(String(value || '')).hostname);
+    const url = new URL(String(value || ''));
+    return isSecureOrLocalhostUrl(url) && /(?:^|\.)umantis\.(?:com|localhost)$/iu.test(url.hostname);
   } catch {
     return false;
   }
@@ -841,8 +896,7 @@ function umantisApplicationNewRoute(value) {
   try {
     const url = new URL(String(value || ''));
     const match = UMANTIS_APPLICATION_NEW_ROUTE_RE.exec(url.pathname);
-    if (url.protocol !== 'https:' || url.username || url.password || url.hash
-      || !isUmantisUrl(url.href) || !match) return null;
+    if (url.username || url.password || url.hash || !isUmantisUrl(url.href) || !match) return null;
     return { origin: url.origin, vacancyId: match[1], stepId: match[2] };
   } catch {
     return null;
@@ -917,8 +971,7 @@ function umantisApplicationEntryUrl({ applyUrl, postingUrl } = {}) {
   try {
     const apply = new URL(String(applyUrl || ''));
     const posting = new URL(String(postingUrl || ''));
-    if (apply.protocol !== 'https:' || posting.protocol !== 'https:'
-      || !/(?:^|\.)umantis\.com$/i.test(apply.hostname)
+    if (!isUmantisUrl(apply.href) || !isUmantisUrl(posting.href)
       || apply.origin !== posting.origin
       || apply.pathname.replace(/\/+$/, '') !== posting.pathname.replace(/\/+$/, '')) return '';
     const match = /^\/vacancies\/(\d+)\/description\/(\d+)\/?$/i.exec(posting.pathname);
@@ -1185,21 +1238,27 @@ function portalChannelType(ctx = {}) {
   return ctx.channelType || '';
 }
 
-/** Launch stock Playwright Chromium; Valerie handles challenges later in her own Chrome extension session. */
-export function launchPortalBrowser() {
-  return launchChromium({
-    headless: !headedBrowser(),
-    // Match the deterministic form viewport configured for this portal.
-    args: ['--window-size=1366,900'],
+/** Launch the opt-in assisted browser; fall back to stock Chromium if needed. */
+export function launchPortalBrowser(ctx = {}) {
+  const headless = typeof ctx.headless === 'boolean' ? ctx.headless : !headedBrowser();
+  const args = ['--window-size=1366,900'];
+  return launchStealthOrChromium({
+    purpose: 'assisted',
+    headless,
+    locale: INTL[ctx.language] || 'de-CH',
+    timezone: 'Europe/Zurich',
+    args,
+    fallbackOptions: { headless, args },
+    ...(typeof ctx.log === 'function' ? { log: ctx.log } : {}),
   });
 }
 
-/** Set form locale and geometry without overriding the browser's identity. */
-export function portalContextOptions(ctx = {}) {
+/** Set form geometry without re-emulating locale, timezone or viewport in CloakBrowser. */
+export function portalContextOptions(ctx = {}, browser = null) {
+  const stealth = isStealthBrowser(browser);
   return {
-    locale: INTL[ctx.language] || 'de-CH',
-    timezoneId: 'Europe/Zurich',
-    viewport: { width: 1366, height: 900 },
+    ...(stealth ? {} : { locale: INTL[ctx.language] || 'de-CH', timezoneId: 'Europe/Zurich' }),
+    viewport: stealth ? null : { width: 1366, height: 900 },
     acceptDownloads: false,
     ...(ctx.portalReplay === true ? { serviceWorkers: 'block' } : {}),
   };
@@ -3875,6 +3934,13 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     pageHeadings: await postingMainHeadings(page),
     text: await pageText(page).catch(() => String(current?.text || '')),
   });
+  const ensurePortalChallenge = async () => {
+    if (typeof stageContext?.onPortalChallenge !== 'function') return true;
+    const challenge = await stageContext.onPortalChallenge(page);
+    if (challenge?.passed === false) return false;
+    if (challenge?.challenged) snapshot = await extractFields(page, NAVIGATION).catch(() => snapshot);
+    return true;
+  };
   const reportNavigation = ({ hop, phase, cookieStatus, controls = [], ownedEntries = [], entryResolution = null, selectedControlKind = 'none', linkVisible = false }) => {
     if (typeof stageContext?.onPortalNavigationDiagnostic !== 'function') return;
     let location = null;
@@ -3902,6 +3968,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     }
   };
   for (let hop = 0; hop < 3; hop += 1) {
+    if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
     if (stageContext && workdayPostingRouteMismatch(page.url(), stageContext.applyUrl, workdayApplicationEntryProven)) {
       return result({ handoff: 'posting_mismatch' });
     }
@@ -3916,6 +3983,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         snapshot = await extractFields(page, NAVIGATION);
       }
     }
+    if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
     if (!await waitForWorkdayApplicationSurface()) return result({ handoff: 'posting_mismatch' });
     const publicRecovery = await recoverStadtZurichPublicJobSearch(page, snapshot, stageContext, {
       searched: publicSearchSearched,
@@ -3998,6 +4066,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         stageContext = { ...stageContext, applyUrl: embeddedApplicationUrl, postingEntry: true };
         await page.goto(embeddedApplicationUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
         await settle(page);
+        if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
         await page.waitForTimeout(1200);
         snapshot = await extractFields(page, NAVIGATION);
         reportNavigation({ hop: hop + 1, phase: 'direct_route', cookieStatus, controls: applicationControls, ownedEntries });
@@ -4065,6 +4134,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         if (applicationUrl !== page.url()) {
           await page.goto(applicationUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
+          if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
           await page.waitForTimeout(1200);
           snapshot = await extractFields(page, NAVIGATION);
           if (!await waitForWorkdayApplicationSurface()) return result({ handoff: 'posting_mismatch' });
@@ -4089,6 +4159,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
           || workdayApplicationEntryProven;
         await page.goto(directApplicationUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
         await settle(page);
+        if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
         await page.waitForTimeout(1200);
         snapshot = await extractFields(page, NAVIGATION);
         if (!await waitForWorkdayApplicationSurface()) return result({ handoff: 'posting_mismatch' });
@@ -4126,6 +4197,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       page = (await clickPortalLink(page, link, { context })) || page;
     }
     await settle(page);
+    if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
     await page.waitForTimeout(1200); // a modal (Workday's apply dialog) finishes its animation
     snapshot = await extractFields(page, NAVIGATION);
     if (!await waitForWorkdayApplicationSurface()) return result({ handoff: 'posting_mismatch' });
@@ -5252,6 +5324,13 @@ function hasExplicitFormRoleHeading(formText, job = {}) {
       continue;
     }
     if (formSurfaceStarted) continue;
+    // Umantis may expose only its generic application chrome before the
+    // native labels. Mark that chrome as the first heading so a field label
+    // such as "Foto" cannot become a false role heading.
+    if (isGenericFormChromeSegment(line)) {
+      firstHeadingSeen = true;
+      continue;
+    }
     const heading = normalizeFormRoleTitle(line);
     if (!heading) continue;
     const isFirstHeading = !firstHeadingSeen;
@@ -5514,9 +5593,12 @@ export function formPostingMatch(formText, job = {}, {
   // The verified same-origin vacancy id binds the form even when the heading is
   // generic; keep mismatch guards on that heading, not native field labels
   // that describe the application itself. A bound route cannot make an
-  // explicitly different role belong to the selected vacancy.
+  // explicitly different role belong to the selected vacancy. The bounded
+  // heading and role checks above already preserve concrete role conflicts;
+  // generic application chrome and native question labels must not be
+  // reinterpreted as a role heading here.
   if (boundUmantisApplication) {
-    if (umantisHeadingConflict || roleHeading === 'mismatch') return 'mismatch';
+    if (umantisHeadingConflict || roleHeading === 'mismatch' || explicitRoleConflict) return 'mismatch';
     return 'match';
   }
   // Some snapshots carry the Umantis Application/New URL only in the extracted
@@ -5696,8 +5778,7 @@ const UMANTIS_PROFILE_CREATED_ON_SUBMIT_RE = new RegExp([
 function isUmantisApplicationRoute(url) {
   try {
     const parsed = new URL(String(url || ''));
-    return parsed.protocol === 'https:'
-      && /(?:^|\.)umantis\.com$/i.test(parsed.hostname)
+    return isUmantisUrl(parsed.href)
       && UMANTIS_APPLICATION_NEW_ROUTE_RE.test(parsed.pathname);
   } catch {
     return false;
@@ -9803,6 +9884,13 @@ async function waitForOutcome(page, context = {}) {
   let lastSnapshot = null;
   while (Date.now() < deadline) {
     await page.waitForTimeout(1000);
+    if (typeof context.onPortalChallenge === 'function') {
+      const challenge = await context.onPortalChallenge(page);
+      if (challenge?.passed === false) {
+        const snapshot = await extractFields(page, NAVIGATION).catch(() => null);
+        return { outcome: 'captcha', snapshot: snapshot || lastSnapshot };
+      }
+    }
     const text = await page.evaluate(() => document.body?.innerText || '').catch(() => '');
     let snapshot = await extractFields(page, NAVIGATION).catch(() => null);
     if (snapshot) {
@@ -10386,7 +10474,7 @@ export async function readPortalRequirements(ctx) {
   };
   try {
     browser = await launch();
-    const context = await browser.newContext(portalContextOptions(ctx));
+    const context = await browser.newContext(portalContextOptions(ctx, browser));
     registerPortalChannelType(context, portalChannelType(ctx));
     if (ctx.portalReplay !== true) await registerCookieSessionRecovery(context, { log: ctx.log });
     if (genericPublicRoute && typeof context.route === 'function') {
@@ -10423,6 +10511,10 @@ export async function readPortalRequirements(ctx) {
     page = await context.newPage();
     await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
+    const initialChallenge = await passAssistedPortalChallenge(page, browser, ctx.log || (() => {}));
+    if (!initialChallenge.passed) {
+      return await finish({ questions: [], documents: [], handoff: 'captcha_present' });
+    }
     let snapshot = await extractFields(page, NAVIGATION);
     let jobRoomExternalAdFollowed = false;
     const jobRoomExternalAd = await followJobRoomExternalAd(page, snapshot, { resolvePublicHost });
@@ -10479,6 +10571,7 @@ export async function readPortalRequirements(ctx) {
       postingRouteProof: ctx.postingRouteProof,
       allowSingleExternalApplicationEntry: sourcePostingMatched,
       ...(sourceDocumentHost ? { postingDocumentHost: true, postingDocumentHostUrl: sourcePageUrl } : {}),
+      onPortalChallenge: targetPage => passAssistedPortalChallenge(targetPage, browser, ctx.log || (() => {})),
     });
     ({ page, snapshot } = opened);
     if (opened.resolvedApplicationUrl) ctx.applyUrl = opened.resolvedApplicationUrl;
@@ -10496,6 +10589,13 @@ export async function readPortalRequirements(ctx) {
     snapshot = await awaitFields(page, await extractFields(page, readAhead
       ? { ...NAVIGATION, includeHidden: true, listboxOptions: false }
       : NAVIGATION));
+    const postReadChallenge = await passAssistedPortalChallenge(page, browser, ctx.log || (() => {}));
+    if (!postReadChallenge.passed) {
+      return await finish({ questions: [], documents: [], handoff: 'captcha_present' });
+    }
+    if (postReadChallenge.challenged) snapshot = await extractFields(page, readAhead
+      ? { ...NAVIGATION, includeHidden: true, listboxOptions: false }
+      : NAVIGATION);
     contractSnapshot = snapshot;
     const readableApplication = hasApplicationForm(snapshot)
       && (!snapshot.passwordVisible || snapshot.fields.some((field) => field.kind === 'file') || sendsApplication(snapshot));
@@ -10979,7 +11079,7 @@ export async function submitViaPortal(ctx) {
     return { status: agent.status, acted };
   } : null;
   try {
-    context = await browser.newContext(portalContextOptions(ctx));
+    context = await browser.newContext(portalContextOptions(ctx, browser));
     if (ctx.portalReplay === true && ctx.portalReplayFenceInstalled !== true) {
       const metrics = await installPortalReplayFence(context);
       if (ctx.portalReplayMetrics && typeof ctx.portalReplayMetrics === 'object') Object.assign(ctx.portalReplayMetrics, metrics);
@@ -10997,17 +11097,21 @@ export async function submitViaPortal(ctx) {
     page = await context.newPage();
     // Which browser the portal saw (the run's logs are deleted): headed on the
     // virtual screen or headless, and the user agent it sent.
-    evidence.browser = { headed: headedBrowser(), engine: 'chromium', userAgent: await page.evaluate(() => navigator.userAgent).catch(() => '') };
+    evidence.browser = { headed: headedBrowser(), engine: browserEngine(browser).engine, userAgent: await page.evaluate(() => navigator.userAgent).catch(() => '') };
     let entryUrl = portalEntryUrl(ctx);
     await diagnostics.beginAttempt();
     let response = await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     workdayApplicationEntryProven = isWorkdayApplicationRouteBound(entryUrl, ctx.applyUrl);
     await settle(page);
+    const initialChallenge = await passAssistedPortalChallenge(page, browser, log);
+    if (!initialChallenge.passed) return await handoff('captcha');
     let snapshot = await extractFields(page, NAVIGATION);
     const bareLocaleFallback = workdayBareLocaleFallbackUrl(page.url());
     if (bareLocaleFallback && isWorkdayBareLocaleSearchShell(snapshot, await page.title().catch(() => ''))) {
       response = await page.goto(bareLocaleFallback, { waitUntil: 'domcontentloaded', timeout: 60_000 });
       await settle(page);
+      const fallbackChallenge = await passAssistedPortalChallenge(page, browser, log);
+      if (!fallbackChallenge.passed) return await handoff('captcha');
       snapshot = await extractFields(page, NAVIGATION);
     }
     sourceProtocol = snapshot.protocol || null;
@@ -11161,6 +11265,7 @@ export async function submitViaPortal(ctx) {
       ...documentHostContext,
       onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
       cookieAgent,
+      onPortalChallenge: targetPage => passAssistedPortalChallenge(targetPage, browser, log),
     });
     ({ page, snapshot } = opened);
     if (opened.resolvedApplicationUrl) ctx.applyUrl = opened.resolvedApplicationUrl;
@@ -11173,6 +11278,7 @@ export async function submitViaPortal(ctx) {
     }
     enteredThroughApplicationEntry = opened.enteredThroughApplicationEntry === true;
     applicationEntryUrl = opened.applicationEntryUrl || '';
+    if (opened.handoff === 'captcha') return await handoff('captcha');
     if (opened.handoff) startupNavigationHint = opened.handoff;
     const initialReceipt = await confirmedReceipt(snapshot);
     if (initialReceipt) return initialReceipt;
@@ -11193,10 +11299,16 @@ export async function submitViaPortal(ctx) {
       // requires the normal application-entry binding below.
       const sameSelectedPosting = postingVacancyMatched
         && (samePostingAddress(pageUrl, postingUrl) || sameBrassRingPostingAddress(pageUrl, postingUrl));
+      const applicationEntry = postingVacancyMatched && enteredThroughApplicationEntry;
+      // Carry the source-page proof across the selected application-entry
+      // click. Without this, the matcher receives `applicationEntry: true`
+      // alongside `postingMatched: false` and conservatively returns
+      // `unknown` even though the form is the entry's exact destination.
+      const formPostingMatched = applicationEntry || enteredFromMatchingPosting || sameSelectedPosting;
       const result = formPostingMatch(seen, portalJob, {
-        postingMatched: enteredFromMatchingPosting || sameSelectedPosting,
+        postingMatched: formPostingMatched,
         postingEntry: enteredFromMatchingPosting,
-        applicationEntry: postingVacancyMatched && enteredThroughApplicationEntry,
+        applicationEntry,
         applicationEntryUrl,
         pageUrl,
         postingUrl,
@@ -11214,16 +11326,77 @@ export async function submitViaPortal(ctx) {
       return result;
     };
     const refreshApplicationEntryAfterTransition = async (sourceUrl, current = snapshot, { requireSignedInForm = false } = {}) => {
+      const preSettleUrl = page.url();
+      if (!applicationEntryUrl || !preSettleUrl) return;
+      let transitionSnapshot = current;
+      if (requireSignedInForm && !signedInApplicationSurface(transitionSnapshot)) {
+        await settle(page);
+        transitionSnapshot = await extractFields(page, NAVIGATION).catch(() => current);
+      }
+      // Authentication may settle through one or more redirects. The URL
+      // captured before settling is only the intermediate auth route; pair
+      // the settled snapshot with the final browser URL.
       const targetUrl = page.url();
-      if (!applicationEntryUrl || sourceUrl !== applicationEntryUrl || !targetUrl || targetUrl === sourceUrl) return;
-      if (requireSignedInForm && !signedInApplicationSurface(current)) return;
+      if (!targetUrl || targetUrl === sourceUrl) return;
+      // Workday may navigate from the followed Apply account page to its
+      // sign-in route before the successful sign-in lands on the application
+      // form. The auth page is an intermediate runner-owned route, so the
+      // source URL is no longer the original application entry by the time
+      // the signed-in form arrives. Carry the proof only across this same-
+      // origin, authenticated application transition; unrelated redirects
+      // still require the exact source URL below.
+      let sameOriginAuthTransition = false;
+      const authenticatedApplicationSurface = signedInApplicationSurface(transitionSnapshot)
+        || (enteredThroughApplicationEntry
+          && authPageKind(transitionSnapshot) === 'none'
+          && !codeField(transitionSnapshot)
+          && !transitionSnapshot.passwordVisible
+          && (hasApplicationForm(transitionSnapshot) || sendsApplication(transitionSnapshot)));
+      if (requireSignedInForm && !authenticatedApplicationSurface) return;
+      if (requireSignedInForm && enteredThroughApplicationEntry && authenticatedApplicationSurface) {
+        try {
+          const entryOrigin = new URL(applicationEntryUrl).origin;
+          sameOriginAuthTransition = entryOrigin === new URL(sourceUrl).origin
+            && entryOrigin === new URL(targetUrl).origin;
+        } catch {
+          sameOriginAuthTransition = false;
+        }
+      }
+      if (sourceUrl !== applicationEntryUrl && !sameOriginAuthTransition) return;
+      if (sameOriginAuthTransition) {
+        // Same-origin auth is not vacancy proof by itself. Workday exposes the
+        // selected requisition in its job route, while other ATSes may retain
+        // a query-bound job/requisition id. Reject a different identity before
+        // carrying the application-entry proof into formPostingMatch.
+        const workdaySelectedUrl = [ctx.applyUrl, applicationEntryUrl, postingUrl, ctx.postingUrl]
+          .find(value => workdayJobRoute(value));
+        const targetMatchesSelectedVacancy = workdaySelectedUrl
+          ? workdayPostingRouteMatchesCurrent(targetUrl, workdaySelectedUrl, postingUrl || ctx.postingUrl)
+          : (() => {
+            const selectedKeys = [applicationEntryUrl, ctx.applyUrl]
+              .map(value => portalJobKey(value, sourceProtocol))
+              .filter(Boolean);
+            const targetKey = portalJobKey(targetUrl, sourceProtocol);
+            // Unknown same-origin routes do not carry application-entry proof;
+            // only an explicitly equal vacancy key can survive this branch.
+            return Boolean(targetKey && selectedKeys.length && selectedKeys.includes(targetKey));
+          })();
+        if (!targetMatchesSelectedVacancy) {
+          enteredThroughApplicationEntry = false;
+          applicationEntryUrl = '';
+          return;
+        }
+      }
       const title = await page.title().catch(() => '');
       const text = await pageText(page).catch(() => '');
       const diversionHint = applicationDestinationDiversionHint({
-        ...current, title, url: targetUrl, pageHeadings: await postingMainHeadings(page), text,
+        ...transitionSnapshot, title, url: targetUrl, pageHeadings: await postingMainHeadings(page), text,
       });
       applicationEntryUrl = applicationEntryUrlAfterTransition({
-        applicationEntryUrl, sourceUrl, targetUrl, diversionHint,
+        applicationEntryUrl,
+        sourceUrl: sameOriginAuthTransition ? applicationEntryUrl : sourceUrl,
+        targetUrl,
+        diversionHint,
       });
     };
     const pendingOtpAccount = async (current) => {
@@ -11277,6 +11450,7 @@ export async function submitViaPortal(ctx) {
           ...documentHostContext,
           onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
           cookieAgent,
+          onPortalChallenge: targetPage => passAssistedPortalChallenge(targetPage, browser, log),
         });
         ({ page, snapshot } = reopened);
         workdayApplicationEntryProven = workdayApplicationEntryProven || reopened.workdayApplicationEntryProven === true;
@@ -11292,6 +11466,7 @@ export async function submitViaPortal(ctx) {
       return null;
     };
     const match = await formMatch();
+    const explicitInitialPostingMismatch = match === 'mismatch';
     evidence.postingMatch = match;
     const initialOtpAccount = await pendingOtpAccount(snapshot);
     // A generic careers landing page can mention the employer and therefore
@@ -11322,10 +11497,16 @@ export async function submitViaPortal(ctx) {
     // A sign-in page often names neither the company nor the role
     // (SuccessFactors, Coop 2026-10-02): the check waits for the form behind it.
     // An application form with its own password field is the form: checked now.
-    let postingCheckPending = Boolean(startupNavigationHint) || match === 'mismatch'
-      && (snapshot.passwordVisible || initialOtpAccount)
-      && !ownAccountForm(snapshot, channelType)
-      && !ctx.skipPostingCheck;
+    // An explicit form mismatch must be checked before an inline password is
+    // typed. Treating that page as an account surface first can persist a new
+    // portal credential for the wrong vacancy, then only discover the mismatch
+    // during the final binding pass.
+    let postingCheckPending = Boolean(startupNavigationHint)
+      || (match === 'mismatch' && !ctx.skipPostingCheck)
+      || (match !== 'match'
+        && (snapshot.passwordVisible || initialOtpAccount)
+        && !ownAccountForm(snapshot, channelType)
+        && !ctx.skipPostingCheck);
     if (match === 'mismatch' && !postingCheckPending && !ctx.skipPostingCheck) startupNavigationHint ||= 'posting_mismatch';
     let validationRetries = 0;
     let reviewAdvances = 0;
@@ -11756,7 +11937,14 @@ export async function submitViaPortal(ctx) {
     for (let step = 1; step <= maxSteps; step += 1) {
       if (loopAttemptStarted) await diagnostics?.beginAttempt();
       else loopAttemptStarted = true;
-      if (snapshot.url && snapshot.url !== page.url()) {
+      const loopChallenge = await passAssistedPortalChallenge(page, browser, log);
+      if (!loopChallenge.passed) return await handoff('captcha');
+      if (loopChallenge.challenged) {
+        // A managed same-URL challenge can redraw the form without navigation.
+        // Re-read the DOM before planning the next application action.
+        snapshot = await extractFields(page, NAVIGATION).catch(() => snapshot);
+        pageEpoch += 1;
+      } else if (snapshot.url && snapshot.url !== page.url()) {
         snapshot = await extractFields(page, NAVIGATION).catch(() => snapshot);
         pageEpoch += 1;
       }
@@ -11850,6 +12038,7 @@ export async function submitViaPortal(ctx) {
             ...documentHostContext,
             onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
             cookieAgent,
+            onPortalChallenge: targetPage => passAssistedPortalChallenge(targetPage, browser, log),
           });
           ({ page, snapshot } = reopened);
           workdayApplicationEntryProven = workdayApplicationEntryProven || reopened.workdayApplicationEntryProven === true;
@@ -11938,7 +12127,7 @@ export async function submitViaPortal(ctx) {
           postingCheckPending = false;
           evidence.postingMatch = await formMatch();
           if (evidence.postingMatch === 'mismatch') {
-            if (!autonomousNavigation) return await handoff('posting_mismatch');
+            if (explicitInitialPostingMismatch || !autonomousNavigation) return await handoff('posting_mismatch');
             const recovery = await runNavigationRecovery(snapshot, 'posting_mismatch');
             if (recovery.result) return recovery.result;
             snapshot = recovery.snapshot;
@@ -12057,6 +12246,7 @@ export async function submitViaPortal(ctx) {
             ...documentHostContext,
             onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
             cookieAgent,
+            onPortalChallenge: targetPage => passAssistedPortalChallenge(targetPage, browser, log),
           });
           ({ page, snapshot } = reopened);
           workdayApplicationEntryProven = workdayApplicationEntryProven || reopened.workdayApplicationEntryProven === true;
@@ -12100,7 +12290,7 @@ export async function submitViaPortal(ctx) {
         postingCheckPending = false;
         evidence.postingMatch = await formMatch();
         if (evidence.postingMatch === 'mismatch') {
-          if (!autonomousNavigation) return await handoff('posting_mismatch');
+          if (explicitInitialPostingMismatch || !autonomousNavigation) return await handoff('posting_mismatch');
           const recovery = await runNavigationRecovery(snapshot, 'posting_mismatch');
           if (recovery.result) return recovery.result;
           snapshot = recovery.snapshot;
@@ -12907,7 +13097,14 @@ export async function submitViaPortal(ctx) {
         frame: final.frame || page.mainFrame(),
         frameIndex,
       };
-      const observed = await waitForOutcome(page, { applyUrl: ctx.applyUrl, submissionUrl: finalUrl, sourceProtocol, job: ctx.job, finalSubmission });
+      const observed = await waitForOutcome(page, {
+        applyUrl: ctx.applyUrl,
+        submissionUrl: finalUrl,
+        sourceProtocol,
+        job: ctx.job,
+        finalSubmission,
+        onPortalChallenge: targetPage => passAssistedPortalChallenge(targetPage, browser, log),
+      });
       const outcome = observed.outcome;
       (evidence.finalOutcomes ||= []).push(outcome);
       if (outcome === 'confirmed' && ctx.onReceipt) await ctx.onReceipt({ finalUrl: page.url() });
