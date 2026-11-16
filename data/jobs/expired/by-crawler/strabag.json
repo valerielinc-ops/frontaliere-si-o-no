@@ -983,16 +983,14 @@
     "slugByLocale": {
       "it": "meccanico-a-di-macchine-da-costruzione-efz-strabag-ag-lindau",
       "en": "construction-machinery-mechanic-efz-strabag-ag-lindau",
-      "de": "baumaschinenmechaniker-in-efz-strabag-lindau",
+      "de": "baumaschinenmechaniker-in-efz-strabag-lindau-cf805aa4",
       "fr": "mecanicien-ne-de-machines-de-chantier-cfc-strabag-ag-lindau"
     },
     "sector": "Edilizia / Costruzioni",
     "expiredAt": "2026-11-05T21:47:43.247Z",
-    "previousSlugs": [
-      "baumaschinenmechaniker-in-efz-strabag-lindau"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "baumaschinenmechaniker-in-efz-strabag-lindau-cf805aa4",
         "baumaschinenmechaniker-in-efz-strabag-lindau"
       ],
       "en": [
@@ -1000,6 +998,9 @@
       ],
       "fr": [
         "baumaschinenmechaniker-in-efz-strabag-lindau"
+      ],
+      "de": [
+        "baumaschinenmechaniker-in-efz-strabag-lindau-cf805aa4"
       ]
     },
     "postalCode": "8315",
@@ -1009,7 +1010,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.jobs.ch/de/stellenangebote/detail/00b842c3-5a86-495f-ab35-67d0bf978e57",
-    "firstSeenAt": "2026-09-19T23:05:40.047Z"
+    "firstSeenAt": "2026-09-19T23:05:40.047Z",
+    "previousSlugs": [
+      "baumaschinenmechaniker-in-efz-strabag-lindau"
+    ]
   },
   {
     "slug": "responsabile-di-cantiere-per-lavori-di-genio-civile-e-costruzione-stradale-strabag-ag-bern",

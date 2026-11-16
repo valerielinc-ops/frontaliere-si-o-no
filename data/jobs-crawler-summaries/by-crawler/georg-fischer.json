@@ -1,10 +1,10 @@
 {
   "key": "georg-fischer",
   "label": "Georg Fischer",
-  "generatedAt": "2026-11-15T21:58:32.878Z",
+  "generatedAt": "2026-11-16T21:31:30.662Z",
   "total": 13,
   "discovered": null,
-  "parsed": 13,
+  "parsed": 1,
   "lastFetchOutcome": null,
   "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
@@ -17,15 +17,61 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 13,
-  "durationMs": 12619,
-  "avgDurationMs": 12619,
+  "durationMs": 139083,
+  "avgDurationMs": 139083,
   "durationHistory": [
-    12619
+    139083
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "id": "georg-fischer-0e543d38cc53",
+      "slug": "convertitore-mulino-da-colata-m-f-d-georg-fischer-sissach",
+      "company": "Georg Fischer",
+      "companyKey": "georg-fischer",
+      "companyDomain": "georgfischer.com",
+      "title": "EinrichterIn Gussputzerei (m/w/d)",
+      "needsRetranslation": false,
+      "location": "Sissach",
+      "canton": "BL",
+      "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/EinrichterIn-Gussputzerei--m-w-d-_JR11347",
+      "source": "Georg Fischer Dedicated Parser (Workday)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-16T21:30:55.272Z",
+      "addressLocality": "Sissach",
+      "addressRegion": "BL",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Manifattura",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-07",
+      "postedDate": "2026-10-07",
+      "postingDateSource": "reported",
+      "applyUrl": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/EinrichterIn-Gussputzerei--m-w-d-_JR11347",
+      "jobReqId": "JR11347",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "postalCode": "4450",
+      "streetAddress": "Sissach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-05T21:30:55.272Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
     {
       "id": "georg-fischer-12b2871e8228",
       "slug": "stagista-qm-georg-fischer-sissach",
@@ -64,52 +110,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-28T21:58:17.459Z",
       "validThroughSource": "last-observed-window",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "georg-fischer-0e543d38cc53",
-      "slug": "convertitore-mulino-da-colata-m-f-d-georg-fischer-sissach",
-      "company": "Georg Fischer",
-      "companyKey": "georg-fischer",
-      "companyDomain": "georgfischer.com",
-      "title": "EinrichterIn Gussputzerei (m/w/d)",
-      "needsRetranslation": false,
-      "location": "Sissach",
-      "canton": "BL",
-      "url": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/EinrichterIn-Gussputzerei--m-w-d-_JR11347",
-      "source": "Georg Fischer Dedicated Parser (Workday)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:58:16.815Z",
-      "addressLocality": "Sissach",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Manifattura",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-07",
-      "postedDate": "2026-10-07",
-      "postingDateSource": "reported",
-      "applyUrl": "https://georgfischer.wd103.myworkdayjobs.com/en-US/GeorgFischer_Careers/job/Sissach-Basel-Country/EinrichterIn-Gussputzerei--m-w-d-_JR11347",
-      "jobReqId": "JR11347",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "postalCode": "4450",
-      "streetAddress": "Sissach",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:58:16.815Z",
-      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -167,6 +168,7 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-07T21:58:16.161Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -214,6 +216,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-14T21:58:15.529Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -261,6 +264,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-20T21:58:14.814Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -308,6 +312,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-24T21:58:14.131Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -366,6 +371,7 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-02T21:58:13.366Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -424,6 +430,7 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-01-14T21:58:12.739Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -471,6 +478,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:58:12.111Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -518,6 +526,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T21:58:11.473Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -564,6 +573,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T21:58:10.836Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -622,6 +632,7 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-11T21:58:10.210Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -679,6 +690,7 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-11T21:58:09.586Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -688,5 +700,5 @@
       }
     }
   ],
-  "codeCommit": "b0e0a209c23d72cde28658756e39fb5de3eaaca5"
+  "codeCommit": "003c4e440c1461e3ea15f62e2d687026ad8479d5"
 }
