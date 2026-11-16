@@ -64,7 +64,8 @@ jobs:
     # The full assembly keeps the active dataset and the uncapped expired
     # slices in memory together. Node's default heap (about 4 GiB) is not
     # enough for the current archive; keep the validation fail-closed while
-    # giving every checkpoint and final reassemble an explicit CI ceiling; success and peak RSS remain post-merge measurements.
+    # giving the final derived-data gate an explicit CI ceiling; success and
+    # peak RSS remain post-merge measurements.
     env:
       NODE_OPTIONS: '--max-old-space-size=8192'
 
@@ -109,7 +110,8 @@ jobs:
           MAX_COMMITS: ${{ inputs.max_commits || '0' }}
           CRAWLER_KEYS: ${{ inputs.crawler_keys || '' }}
           HISTORY_SINCE: ${{ inputs.history_since || '45 days ago' }}
-          # Each checkpoint reruns the focused data gate before publishing.
+          # Each checkpoint runs the cheap raw-slice gate before publishing;
+          # the full assembly + focused test gate runs only at final completion.
           # Run 43822512261 published 16-crawler checkpoints 33:55 and 32:43
           # apart (07:54→08:27→09:00 UTC), reaching cursor assura-ch at key 48.
           # Eight is a conservative checkpoint granularity chosen to reduce
@@ -169,13 +171,30 @@ jobs:
           fi
 
           progress_path="${BACKFILL_PROGRESS_PATH:-.github/backfill-expired-from-history-progress.tsv}"
-          workset_hash="$(printf '%s\n' "$keys" | git hash-object --stdin)"
+          # The durable cursor is valid only for the exact history snapshot
+          # that produced it. A crawler-only hash would incorrectly resume a
+          # pass started with (for example) 45 days ago after a later run
+          # requested all history, permanently skipping older records. Keep
+          # both the requested expression and its resolved immutable cutoff in
+          # the descriptor; recovery reuses the persisted cutoff instead of
+          # evaluating a relative date against a newer wall clock.
+          backfill_scope_version='history-backfill-scope-v3'
+          backfill_max_commits="${MAX_COMMITS:-0}"
+          backfill_history_input="${HISTORY_SINCE:-45 days ago}"
+          request_scope_hash="$({
+            printf '%s\n' "$backfill_scope_version"
+            printf 'max_commits=%s\n' "$backfill_max_commits"
+            printf 'history_since_input=%s\n' "$backfill_history_input"
+            printf 'keys:\n%s\n' "$keys"
+          } | git hash-object --stdin)"
           last_completed_key=''
           saved_workset=''
           saved_last=''
           saved_status=''
+          saved_request_scope=''
+          saved_history_since=''
           if [ -f "$progress_path" ]; then
-            if ! IFS=$'\t' read -r saved_workset saved_last saved_status < "$progress_path"; then
+            if ! IFS=$'\t' read -r saved_workset saved_last saved_status saved_request_scope saved_history_since < "$progress_path"; then
               echo "::error::Invalid backfill progress file: $progress_path"
               exit 2
             fi
@@ -188,12 +207,47 @@ jobs:
             esac
           fi
 
+          # Resolve the input once. A recovery of the same active scope must
+          # use the persisted cutoff, not re-evaluate e.g. "45 days ago".
+          if [ "$saved_status" = 'active' ] && [ "$saved_request_scope" = "$request_scope_hash" ]; then
+            case "$saved_history_since" in
+              all|????-??-??T??:??:??Z)
+                backfill_history_since="$saved_history_since"
+                ;;
+              *)
+                echo "::error::Active backfill progress has no valid immutable history cutoff: $progress_path"
+                exit 2
+                ;;
+            esac
+          else
+            case "$backfill_history_input" in
+              ''|all)
+                backfill_history_since='all'
+                ;;
+              *)
+                if ! backfill_history_since="$(date -u -d "$backfill_history_input" '+%Y-%m-%dT%H:%M:%SZ')"; then
+                  echo "::error::Unable to resolve HISTORY_SINCE='$backfill_history_input' to an immutable UTC cutoff"
+                  exit 2
+                fi
+                ;;
+            esac
+          fi
+          export HISTORY_SINCE="$backfill_history_since"
+          workset_hash="$({
+            printf '%s\n' "$backfill_scope_version"
+            printf 'max_commits=%s\n' "$backfill_max_commits"
+            printf 'history_since_input=%s\n' "$backfill_history_input"
+            printf 'history_since_resolved=%s\n' "$backfill_history_since"
+            printf 'keys:\n%s\n' "$keys"
+          } | git hash-object --stdin)"
+          echo "Backfill scope: version=$backfill_scope_version max_commits=$backfill_max_commits history_since_input=$backfill_history_input history_since_resolved=$backfill_history_since workset_hash=$workset_hash"
+
           # A completed workset starts a new monthly/manual pass. An active
           # workset is the durable cursor left by a failed or cancelled run;
           # skip only the keys confirmed by a pushed checkpoint.
           # Bash treats tab as IFS whitespace and collapses an empty middle
           # field. Persist '-' for an empty cursor so a progress line always
-          # round-trips as exactly three fields.
+          # round-trips as exactly five fields.
           if [ "$saved_status" = 'active' ] && [ "$saved_workset" = "$workset_hash" ] && [ "$saved_last" != '-' ]; then
             if ! printf '%s\n' "$keys" | grep -Fx "$saved_last" >/dev/null; then
               echo "::error::Backfill progress cursor '$saved_last' is not in the current crawler workset."
@@ -203,7 +257,7 @@ jobs:
             keys="$(awk -v marker="$saved_last" '$0 == marker { found=1; next } found' <<< "$keys")"
             echo "♻️ Resuming after durable crawler checkpoint: $saved_last"
           elif [ "$saved_status" = 'active' ] && [ -n "$saved_workset" ] && [ "$saved_workset" != "$workset_hash" ]; then
-            echo 'ℹ️ Crawler workset changed; starting a fresh cursor.'
+            echo 'ℹ️ Backfill scope/workset changed; starting a fresh cursor.'
           elif [ "$saved_status" = 'complete' ]; then
             echo 'ℹ️ Previous crawler workset completed; starting a fresh pass.'
           fi
@@ -234,34 +288,65 @@ jobs:
               return 0
             fi
             checkpoint_active=1
-            echo "🧷 Validating and checkpointing recovered slices (crawler keys: $checkpoint_count)"
+            echo "🧷 Validating and checkpointing recovered slices (crawler keys: $checkpoint_count; final=$checkpoint_final)"
             checkpoint_status='active'
-            if [ "$checkpoint_final" = '1' ]; then
-              checkpoint_status='complete'
-            fi
             mkdir -p "$(dirname "$progress_path")"
             checkpoint_cursor="${last_completed_key:--}"
-            printf '%s\t%s\t%s\n' "$workset_hash" "$checkpoint_cursor" "$checkpoint_status" > "$progress_path"
-            # A durable checkpoint is also a complete data gate. This keeps a
-            # bad assembled artifact or invariant failure off main even when a
-            # later batch would otherwise make the overall run red.
-            if ! node scripts/assemble-jobs-dataset.mjs; then
-              report_checkpoint_timing 'failed-assemble'
+            printf '%s\t%s\t%s\t%s\t%s\n' \
+              "$workset_hash" "$checkpoint_cursor" "$checkpoint_status" \
+              "$request_scope_hash" "$backfill_history_since" > "$progress_path"
+            # Intermediate checkpoints only need the raw slice contract. The
+            # assembled artifacts are deploy-derived and rebuilding them here
+            # was the dominant cost of run 43874484314: every eight-crawler
+            # batch repeated the full expired archive reconciliation, then the
+            # focused test gate, before pushing the same small slice delta.
+            # Keeping this gate fail-closed preserves safe recovery without
+            # making the 120-minute run budget proportional to the number of
+            # checkpoints.
+            checkpoint_keys="${batch_crawler_keys:-${CRAWLER_KEYS:-}}"
+            if ! CRAWLER_KEYS="$checkpoint_keys" node scripts/ci/validate-backfill-checkpoint.mjs; then
+              report_checkpoint_timing 'failed-raw-slice-validation'
               checkpoint_failed=1
               checkpoint_active=0
               return 1
             fi
-            if ! npm run test:backfill; then
-              report_checkpoint_timing 'failed-test'
-              checkpoint_failed=1
-              checkpoint_active=0
-              return 1
-            fi
-            if ! node scripts/audit-expired-at-parsable.mjs; then
-              report_checkpoint_timing 'audit-gate-failure'
-              checkpoint_failed=1
-              checkpoint_active=0
-              return 1
+            if [ "$checkpoint_final" = '1' ]; then
+              # The final checkpoint is the only promotion to `complete`.
+              # Keep the cursor `active` while the expensive derived-data gate
+              # runs, so a failure or timeout resumes the same workset instead
+              # of falsely starting a fresh pass.
+              echo '🔒 Final backfill gate: assembling derived artifacts and running test:backfill once.'
+              if ! node scripts/assemble-jobs-dataset.mjs; then
+                report_checkpoint_timing 'failed-assemble'
+                checkpoint_failed=1
+                checkpoint_active=0
+                return 1
+              fi
+              if ! npm run test:backfill; then
+                report_checkpoint_timing 'failed-test'
+                checkpoint_failed=1
+                checkpoint_active=0
+                return 1
+              fi
+              # Assembly can repair an expired route in-place. Re-run the raw
+              # gate after it so the completion commit covers exactly the tree
+              # that passed the derived-data test.
+              if ! CRAWLER_KEYS='' node scripts/ci/validate-backfill-checkpoint.mjs; then
+                report_checkpoint_timing 'failed-final-raw-slice-validation'
+                checkpoint_failed=1
+                checkpoint_active=0
+                return 1
+              fi
+              if ! node scripts/audit-expired-at-parsable.mjs; then
+                report_checkpoint_timing 'failed-final-audit-gate'
+                checkpoint_failed=1
+                checkpoint_active=0
+                return 1
+              fi
+              checkpoint_status='complete'
+              printf '%s\t%s\t%s\t%s\t%s\n' \
+                "$workset_hash" "$checkpoint_cursor" "$checkpoint_status" \
+                "$request_scope_hash" "$backfill_history_since" > "$progress_path"
             fi
             checkpoint_tmp_dir="${RUNNER_TEMP:-/tmp}"
             if ! checkpoint_output="$(mktemp "$checkpoint_tmp_dir/backfill-checkpoint-output.XXXXXX")"; then
@@ -271,8 +356,12 @@ jobs:
               checkpoint_active=0
               return 1
             fi
+            checkpoint_message='chore(data): checkpoint history backfill slices for resumable recovery'
+            if [ "$checkpoint_status" = 'complete' ]; then
+              checkpoint_message='chore(data): complete history backfill after final data gate'
+            fi
             if ! GITHUB_OUTPUT="$checkpoint_output" SKIP_AI_TRANSLATION=1 bash scripts/lib/git-commit-data.sh --slice-only \
-              "chore(data): checkpoint history backfill slices for resumable recovery" \
+              "$checkpoint_message" \
               "$progress_path"; then
               rm -f "$checkpoint_output"
               report_checkpoint_timing 'failed-push'
@@ -415,37 +504,12 @@ jobs:
           write_continuation_output false
           echo '✅ History backfill completed with durable checkpoints.'
 
-      - name: Reassemble dataset (so the test gate has data/jobs.json; not committed)
-        if: steps.backfill.outputs.continuation_required == 'false' && inputs.dry_run != true && inputs.dry_run != 'true'
-        # Regenerates the assembled artifacts (data/jobs.json, expired-jobs.json)
-        # that the vitest gate reads. These are deploy-assembled, not committed by
-        # the --slice-only checkpoint commits above. We deliberately do NOT run
-        # reconcile-job-slugs.mjs here: it mutates the funnel-critical tracked
-        # registry (data/orphan-indexed-job-slugs.json) which --slice-only would
-        # write-then-discard, and reconciliation is the sync-gsc-orphans pipeline's
-        # job — this workflow only recovers expired slice content.
-        run: node scripts/assemble-jobs-dataset.mjs
-
-      - name: Test gate (bot-direct-to-main — validate before deploy)
-        id: backfill_tests
-        if: steps.backfill.outputs.continuation_required == 'false' && inputs.dry_run != true && inputs.dry_run != 'true'
-        # A workflow that pushes data straight to main is held to the same
-        # relevant-test policy as a PR (AGENTS.md). The full suite is not the
-        # gate here: its unrelated corpus/environment tests can fail after the
-        # backfill is already correct and would turn a persisted checkpoint
-        # into a red run while blocking its deploy. This focused gate covers the
-        # recovered archive/assembly invariants and the no-repeat alert ledger.
-        # Measurement on 2026-09-24 with the 11-file gate: the concurrent
-        # invocation hit 3 x 15s subprocess timeouts; --maxWorkers=1 passed
-        # all 312 tests in 71.73s. Keep the serial setting until a new run
-        # demonstrates that parallelism is safe for these subprocess tests.
-        run: npm run test:backfill
-
       - name: Record self-driven deploy handoff after validated backfill
-        if: steps.backfill.outcome == 'success' && steps.backfill.outputs.continuation_required == 'false' && steps.backfill_tests.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: steps.backfill.outcome == 'success' && steps.backfill.outputs.continuation_required == 'false' && inputs.dry_run != true && inputs.dry_run != 'true'
         # Do not gate this on has_changes: a previous attempt may have pushed
-        # its checkpoint and failed only in the test/deploy tail. A clean rerun
-        # must still leave the data for deploy.yml's self-driven schedule.
+        # its raw checkpoint and failed only in the final derived-data gate. A
+        # clean rerun must still leave the completed data for deploy.yml's
+        # self-driven schedule.
         run: echo '✅ Backfill committato; la coda deploy self-driven lo prenderà al prossimo tick.'
 
       # ─── Perche' questo step esiste ────────────────────────────────────────

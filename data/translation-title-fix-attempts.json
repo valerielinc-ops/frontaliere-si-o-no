@@ -209611,8 +209611,8 @@
       "source": "0e2aeac8c4a8"
     },
     "yellowshark-4f65e07bbf8e|de|en": {
-      "attempts": 5,
-      "lastAttemptAt": "2026-10-31T22:17:53.379Z",
+      "attempts": 6,
+      "lastAttemptAt": "2026-11-16T22:47:33.387Z",
       "source": "43569d681768",
       "rung": "codex"
     },
@@ -209627,40 +209627,40 @@
       "source": "0e2aeac8c4a8"
     },
     "yellowshark-0b7251a1c9bb|de|en": {
-      "attempts": 5,
-      "lastAttemptAt": "2026-10-31T22:17:59.330Z",
+      "attempts": 6,
+      "lastAttemptAt": "2026-11-16T22:47:17.378Z",
       "source": "fa69db58f8eb",
-      "rung": "unserved"
+      "rung": "myMemory"
     },
     "yellowshark-a2c5c44ceb50|de|en": {
-      "attempts": 5,
-      "lastAttemptAt": "2026-10-31T22:17:56.149Z",
+      "attempts": 6,
+      "lastAttemptAt": "2026-11-16T22:47:34.351Z",
       "source": "2e6d2f76909e",
-      "rung": "mozhiDdg"
+      "rung": "myMemory"
     },
     "yellowshark-335192573fe1|de|en": {
-      "attempts": 5,
-      "lastAttemptAt": "2026-10-31T22:17:58.708Z",
+      "attempts": 6,
+      "lastAttemptAt": "2026-11-16T22:47:19.173Z",
       "source": "d8165064ba33",
-      "rung": "mozhiYandex"
+      "rung": "myMemory"
     },
     "yellowshark-52350be2fee6|de|en": {
-      "attempts": 5,
-      "lastAttemptAt": "2026-10-31T22:18:00.653Z",
+      "attempts": 6,
+      "lastAttemptAt": "2026-11-16T22:47:18.159Z",
       "source": "6e4e5e3de1d6",
-      "rung": "unserved"
+      "rung": "myMemory"
     },
     "yellowshark-00f87286d6b7|de|en": {
-      "attempts": 5,
-      "lastAttemptAt": "2026-10-31T22:18:00.658Z",
+      "attempts": 6,
+      "lastAttemptAt": "2026-11-16T22:47:24.810Z",
       "source": "7a93c8566403",
-      "rung": "unserved"
+      "rung": "myMemory"
     },
     "yellowshark-52a1cc02bd4d|de|en": {
-      "attempts": 5,
-      "lastAttemptAt": "2026-10-31T22:17:58.709Z",
+      "attempts": 6,
+      "lastAttemptAt": "2026-11-16T22:47:23.746Z",
       "source": "2657152d8648",
-      "rung": "unserved"
+      "rung": "myMemory"
     },
     "yellowshark-4a70c9aa3025|de|it": {
       "attempts": 1,
@@ -394972,6 +394972,252 @@
       "lastAttemptAt": "2026-11-16T17:37:48.744Z",
       "source": "babe2fd02174",
       "rung": "myMemory"
+    },
+    "denner-2be46d364f85|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:46:47.626Z",
+      "source": "3da2f939cc93",
+      "rung": "codex"
+    },
+    "denner-f35d6dcd3dea|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:46:47.630Z",
+      "source": "ed705cbf67ea",
+      "rung": "codex"
+    },
+    "uzh-1417c330a3f6|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:46:47.632Z",
+      "source": "bf4effb1384e",
+      "rung": "codex"
+    },
+    "szb-chb-38f40190b463|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:46:47.633Z",
+      "source": "5cfcad976199",
+      "rung": "codex"
+    },
+    "hopital-du-valais-dc0529896434|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:46:47.634Z",
+      "source": "64910ee33831",
+      "rung": "codex"
+    },
+    "caritas-schweiz-9ddec5edc18c|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:46:47.635Z",
+      "source": "f1d2492affdc",
+      "rung": "codex"
+    },
+    "hoval-053de42c00d9|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:46:47.636Z",
+      "source": "9fad3152fb71",
+      "rung": "codex"
+    },
+    "denner-2be46d364f85|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:46:59.337Z",
+      "source": "3da2f939cc93",
+      "rung": "codex"
+    },
+    "denner-f35d6dcd3dea|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:46:59.337Z",
+      "source": "ed705cbf67ea",
+      "rung": "codex"
+    },
+    "uzh-1417c330a3f6|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:46:59.338Z",
+      "source": "bf4effb1384e",
+      "rung": "codex"
+    },
+    "szb-chb-38f40190b463|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:46:59.338Z",
+      "source": "5cfcad976199",
+      "rung": "codex"
+    },
+    "hes-so-valais-7b4d1a0026cc|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:46:59.338Z",
+      "source": "b2d251b49a17",
+      "rung": "codex"
+    },
+    "denner-2be46d364f85|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:02.695Z",
+      "source": "3da2f939cc93",
+      "rung": "codex"
+    },
+    "denner-f35d6dcd3dea|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:02.695Z",
+      "source": "ed705cbf67ea",
+      "rung": "codex"
+    },
+    "uzh-1417c330a3f6|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:02.695Z",
+      "source": "bf4effb1384e",
+      "rung": "codex"
+    },
+    "szb-chb-38f40190b463|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:02.695Z",
+      "source": "5cfcad976199",
+      "rung": "codex"
+    },
+    "hopital-du-valais-dc0529896434|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:02.696Z",
+      "source": "64910ee33831",
+      "rung": "codex"
+    },
+    "caritas-schweiz-9ddec5edc18c|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:02.696Z",
+      "source": "f1d2492affdc",
+      "rung": "codex"
+    },
+    "hoval-053de42c00d9|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:02.698Z",
+      "source": "9fad3152fb71",
+      "rung": "codex"
+    },
+    "siemens-3ceec12b3ef0|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:05.188Z",
+      "source": "6708993eadc6",
+      "rung": "myMemory"
+    },
+    "victorinox-e059972b8d15|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:05.816Z",
+      "source": "f23e5ede3ed9",
+      "rung": "myMemory"
+    },
+    "transgourmet-10eb4370-73f|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:06.754Z",
+      "source": "6be4741f11b2",
+      "rung": "myMemory"
+    },
+    "volg-fenaco-5a13c910920c|fr|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:07.897Z",
+      "source": "ce979a4aa5b5",
+      "rung": "codex"
+    },
+    "hopital-du-valais-dc0529896434|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:11.468Z",
+      "source": "64910ee33831",
+      "rung": "codex"
+    },
+    "hopital-du-valais-a615af442888|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:11.468Z",
+      "source": "eaba55d9f223",
+      "rung": "codex"
+    },
+    "caritas-schweiz-9ddec5edc18c|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:11.468Z",
+      "source": "f1d2492affdc",
+      "rung": "codex"
+    },
+    "caritas-schweiz-0e067aefd94b|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:13.367Z",
+      "source": "82e48214713f",
+      "rung": "codex"
+    },
+    "hoval-053de42c00d9|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:13.368Z",
+      "source": "9fad3152fb71",
+      "rung": "codex"
+    },
+    "volg-fenaco-7ca38d196cd7|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:13.368Z",
+      "source": "acde88a70a29",
+      "rung": "codex"
+    },
+    "interdiscount-643de92b-e2b|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:13.368Z",
+      "source": "83341a427cee",
+      "rung": "codex"
+    },
+    "interdiscount-643de92b-e2b|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:16.527Z",
+      "source": "83341a427cee",
+      "rung": "codex"
+    },
+    "interdiscount-f2b3f32a-c79|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:16.527Z",
+      "source": "4599638f726f",
+      "rung": "codex"
+    },
+    "interdiscount-d4ffb42f-0c5|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:16.527Z",
+      "source": "4599638f726f",
+      "rung": "codex"
+    },
+    "interdiscount-643de92b-e2b|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:19.451Z",
+      "source": "83341a427cee",
+      "rung": "codex"
+    },
+    "interdiscount-f2b3f32a-c79|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:19.452Z",
+      "source": "4599638f726f",
+      "rung": "codex"
+    },
+    "interdiscount-d4ffb42f-0c5|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:19.452Z",
+      "source": "4599638f726f",
+      "rung": "codex"
+    },
+    "interdiscount-f2b3f32a-c79|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:20.450Z",
+      "source": "4599638f726f",
+      "rung": "codex"
+    },
+    "interdiscount-d4ffb42f-0c5|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:20.450Z",
+      "source": "4599638f726f",
+      "rung": "codex"
+    },
+    "mobiliar-1ba3bf0f522b|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:20.450Z",
+      "source": "d63caeedc17a",
+      "rung": "codex"
+    },
+    "mobiliar-903ceaa947ac|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:20.451Z",
+      "source": "ff9484e0969c",
+      "rung": "codex"
+    },
+    "mobiliar-2526375cae6a|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-16T22:47:23.308Z",
+      "source": "d5a0ba895087",
+      "rung": "codex"
     }
   }
 }

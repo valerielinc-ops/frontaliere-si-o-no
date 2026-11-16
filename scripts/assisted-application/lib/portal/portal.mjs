@@ -3912,6 +3912,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
   let publicSearchTarget = false;
   let publicSearchSearched = false;
   let customSuccessFactorsEntryClicked = false;
+  let workdayEntryControlSignature = '';
   const result = (extra = {}) => ({
     page,
     snapshot,
@@ -3923,23 +3924,48 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     ...(publicSearchTarget ? { publicSearchTarget: true } : {}),
     ...extra,
   });
-  const workdayApplicationSurfaceReady = (current) => Boolean(
-    current?.fields?.length
-      || current?.buttons?.some((button) => !button?.chrome)
-      || current?.links?.some((link) => !link?.chrome),
-  );
+  const portalControlSignature = (control = {}) => JSON.stringify([
+    String(control?.id || ''),
+    String(control?.text || control?.label || ''),
+    String(control?.href || ''),
+    String(control?.formId || ''),
+    Number(control?.frame) || 0,
+    control?.dialog === true,
+    control?.menuItem === true,
+    control?.popup === true,
+  ]);
+  const workdayChooserEntries = (current) => {
+    if (!stageContext || !isWorkdayTenantUrl(stageContext.applyUrl)) return [];
+    const entries = applicationEntryControls(current, stageContext);
+    return workdayEntryControlSignature
+      ? entries.filter((control) => portalControlSignature(control) !== workdayEntryControlSignature)
+      : entries;
+  };
+  const workdayApplicationSurfaceReady = (current) => {
+    if (current?.fields?.length) return true;
+    if (!workdayEntryControlSignature) {
+      return Boolean(current?.buttons?.some((button) => !button?.chrome)
+        || current?.links?.some((link) => !link?.chrome));
+    }
+    return workdayChooserEntries(current).length > 0;
+  };
   const waitForWorkdayApplicationSurface = async () => {
     // Workday keeps the requisition URL while its application SPA mounts. The
     // fixed modal-animation wait below is not enough for every tenant; wait
-    // only on the already-bound application route, never on an unverified
-    // page whose empty surface could be a navigation mismatch.
+    // only on the selected job/application route (or its bound account route),
+    // never on an unverified page whose empty surface could be a navigation
+    // mismatch.
     if (!stageContext || !isWorkdayTenantUrl(stageContext.applyUrl)) return true;
     if (!enteredThroughApplicationEntry && !workdayApplicationEntryProven) return true;
-    if (!isWorkdayApplicationRouteBound(page.url(), stageContext.applyUrl)) return false;
+    // The initial Workday CTA can open its application chooser in place on
+    // the bare requisition route. It is still bound to the selected vacancy;
+    // requiring `/apply` here rejects that legitimate pre-entry surface before
+    // the chooser can expose `applyManually`.
+    if (!isWorkdayJobRouteBound(page.url(), stageContext.applyUrl)) return false;
     if (workdayApplicationSurfaceReady(snapshot)) return true;
     for (let waited = 0; waited < 10_000 && !workdayApplicationSurfaceReady(snapshot); waited += 1000) {
       await page.waitForTimeout(1000);
-      if (!isWorkdayApplicationRouteBound(page.url(), stageContext.applyUrl)) return false;
+      if (!isWorkdayJobRouteBound(page.url(), stageContext.applyUrl)) return false;
       snapshot = await extractFields(page, NAVIGATION);
     }
     return true;
@@ -4139,6 +4165,10 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       && (manual || apply || linkEntry)?.popup !== true
       && (manual || apply || linkEntry)?.menuItem !== true;
     const sourceUrl = page.url();
+    if (stageContext && isWorkdayTenantUrl(stageContext.applyUrl)) {
+      const selectedWorkdayControl = manual || apply || linkEntry;
+      if (selectedWorkdayControl) workdayEntryControlSignature = portalControlSignature(selectedWorkdayControl);
+    }
     reportNavigation({
       hop: hop + 1, phase: 'entry_selection', cookieStatus, controls: applicationControls, ownedEntries,
       entryResolution,
@@ -12092,9 +12122,19 @@ export async function submitViaPortal(ctx) {
         text: currentText,
       });
       const currentAccountSurface = authPageKind(snapshot) !== 'none' || snapshot.passwordVisible === true || Boolean(codeField(snapshot));
+      const currentApplicationSurface = hasApplicationSurface(snapshot, {
+        pageUrl: page.url(), postingUrl, postingMatch: evidence.postingMatch,
+      });
+      // A form mismatch is already a binding verdict. Do not let the generic
+      // navigation fallback relabel it as an unknown stage before the pending
+      // posting check can report the mismatch. A shell without an application
+      // surface still needs the agentic recovery lane, as does a known
+      // diversion such as a talent pool.
+      if (explicitInitialPostingMismatch && !currentAccountSurface
+        && !destinationDiversionHint && currentApplicationSurface) return await handoff('posting_mismatch');
       const needsAutonomousNavigation = Boolean(destinationDiversionHint) || (!currentAccountSurface && (Boolean(startupNavigationHint)
         || ['posting_mismatch', 'unknown_apply'].includes(currentStage.kind)
-        || (!hasApplicationSurface(snapshot, { pageUrl: page.url(), postingUrl, postingMatch: evidence.postingMatch }) && !ctx.skipPostingCheck)));
+        || (!currentApplicationSurface && !ctx.skipPostingCheck)));
       if (needsAutonomousNavigation) {
         const navigationHint = startupNavigationHint || (destinationDiversionHint ? 'posting_mismatch'
           : diversionHint ? 'application_stage_unknown'

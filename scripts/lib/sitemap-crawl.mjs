@@ -176,11 +176,12 @@ function retryAfterMs(response) {
   return Math.min(Math.max(timestamp - Date.now(), 0), MAX_RETRY_AFTER_MS);
 }
 
-async function fetchLiveText(url, {
+async function fetchLiveTextResult(url, {
   attempts = DEFAULT_LIVE_FETCH_ATTEMPTS,
   timeoutMs = 15_000,
   retryDelayMs = DEFAULT_LIVE_FETCH_RETRY_DELAY_MS,
 } = {}) {
+  let lastResponse = { status: null, cfCacheStatus: null, age: null };
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     let providerDelay = 0;
     try {
@@ -191,20 +192,35 @@ async function fetchLiveText(url, {
         },
         signal: AbortSignal.timeout(timeoutMs),
       });
-      if (response.ok) return await response.text();
+      lastResponse = {
+        status: response.status,
+        cfCacheStatus: response.headers.get('cf-cache-status'),
+        age: response.headers.get('age'),
+      };
+      if (response.ok) return { text: await response.text(), ...lastResponse };
       // A sitemap can be referenced by an index before the edge has finished
       // propagating the child object. Treat 404 like the other transient
       // delivery failures here; the caller still fails closed after all
       // attempts, so a genuinely retired sitemap is never silently omitted.
       const retryableStatus = response.status === 404 || response.status === 429 || response.status >= 500;
-      if (!retryableStatus || attempt === attempts) return null;
+      if (!retryableStatus || attempt === attempts) return { text: null, ...lastResponse };
       providerDelay = retryAfterMs(response);
     } catch {
-      if (attempt === attempts) return null;
+      if (attempt === attempts) return { text: null, ...lastResponse };
     }
     await new Promise((resolveSleep) => setTimeout(resolveSleep, Math.max(retryDelayMs * attempt, providerDelay)));
   }
-  return null;
+  return { text: null, ...lastResponse };
+}
+
+async function fetchLiveText(url, options) {
+  return (await fetchLiveTextResult(url, options)).text;
+}
+
+function withCacheBust(url, cacheBust) {
+  const retryUrl = new URL(url);
+  retryUrl.searchParams.set('cb', String(cacheBust));
+  return retryUrl.href;
 }
 
 function localRelativePath(value, { baseUrl, host }) {
@@ -268,6 +284,8 @@ export async function crawlSitemaps({
   strict = source === 'live',
   fetchAttempts = DEFAULT_LIVE_FETCH_ATTEMPTS,
   fetchDelayMs = DEFAULT_LIVE_FETCH_RETRY_DELAY_MS,
+  tolerateMissing,
+  unreachableRetry,
   logger = console,
 } = {}) {
   if (source === 'local' && !rootDir) {
@@ -276,7 +294,13 @@ export async function crawlSitemaps({
   const options = { baseUrl, host };
   const loader = source === 'local'
     ? makeLocalLoader(rootDir, options)
-    : (url) => fetchLiveText(url, { attempts: fetchAttempts, retryDelayMs: fetchDelayMs });
+    : (url, { retry = false, cacheBust = '' } = {}) => fetchLiveTextResult(
+      retry ? withCacheBust(url, cacheBust) : url,
+      {
+        attempts: retry ? 1 : fetchAttempts,
+        retryDelayMs: retry ? 0 : fetchDelayMs,
+      },
+    );
   let seedValues;
   if (source === 'local') {
     seedValues = seeds || localSitemapSeeds(rootDir, options);
@@ -296,28 +320,71 @@ export async function crawlSitemaps({
   );
   const visited = new Set();
   const records = new Map();
+  const parentByChild = new Map();
   const missing = [];
   const missingRequired = [];
+  const toleratedByKey = new Map();
+  const retryConfig = unreachableRetry && typeof unreachableRetry === 'object'
+    ? { attempts: 2, delaysMs: [30_000, 90_000], cacheBust: '', ...unreachableRetry }
+    : null;
 
   while (queue.length > 0) {
     const url = queue.shift();
     if (visited.has(url)) continue;
     visited.add(url);
-    const xml = await loader(url);
+    const loaded = await loader(url);
+    let fetchResult = typeof loaded === 'string'
+      ? { text: loaded, status: null, cfCacheStatus: null, age: null }
+      : loaded || { text: null, status: null, cfCacheStatus: null, age: null };
+    const key = sitemapKey(url, options);
+    const isRequired = required.has(url);
+    const mayTolerate = strict && isRequired
+      && typeof tolerateMissing === 'function'
+      && tolerateMissing(key);
+    if (fetchResult.text == null && mayTolerate && retryConfig) {
+      let recovered = false;
+      let lastHttpResponse = fetchResult;
+      const attempts = Math.max(0, Math.floor(Number(retryConfig.attempts) || 0));
+      for (let attempt = 0; attempt < attempts; attempt += 1) {
+        const delayMs = Math.max(0, Number(retryConfig.delaysMs?.[attempt]) || 0);
+        if (delayMs > 0) await new Promise((resolveSleep) => setTimeout(resolveSleep, delayMs));
+        const retryResult = await loader(url, { retry: true, cacheBust: retryConfig.cacheBust });
+        if (retryResult.status !== null) lastHttpResponse = retryResult;
+        if (retryResult.text != null) {
+          fetchResult = retryResult;
+          recovered = true;
+          logger.warn?.(`⚠️ recovered on retry: ${key}`);
+          break;
+        }
+      }
+      if (!recovered) {
+        const parent = parentByChild.get(url) ?? null;
+        if (!toleratedByKey.has(key)) {
+          toleratedByKey.set(key, {
+            key,
+            parent,
+            status: lastHttpResponse.status,
+            cfCacheStatus: lastHttpResponse.cfCacheStatus,
+            age: lastHttpResponse.age,
+          });
+        }
+      }
+    }
+    const xml = fetchResult.text;
     if (xml == null) {
-      const key = sitemapKey(url, options);
+      if (toleratedByKey.has(key)) continue;
       missing.push(key);
-      if (required.has(url)) missingRequired.push(key);
+      if (isRequired) missingRequired.push(key);
       continue;
     }
     const parsed = parseSitemapXml(xml, options);
-    const key = sitemapKey(url, options);
     // The raw XML is deliberately NOT retained: no consumer reads it after the
     // parse, and on the full local graph it doubled the crawl's resident set
     // (about 480 MB of strings beside the parsed URL lists).
     records.set(key, { ...parsed, key, url });
     for (const child of parsed.referencedSitemaps) {
       required.add(child);
+      if (!parentByChild.has(child)) parentByChild.set(child, key);
       if (!queued.has(child) && !visited.has(child)) {
         queued.add(child);
         queue.push(child);
@@ -325,12 +392,21 @@ export async function crawlSitemaps({
     }
   }
 
-  if (missingRequired.length > 0 && strict) {
+  const toleratedMissing = [...toleratedByKey.values()].sort((a, b) => a.key.localeCompare(b.key));
+  if (toleratedMissing.length > 0) {
+    const details = toleratedMissing.map(({ key, parent, status }) =>
+      `${key} (parent: ${parent ?? 'unknown'}, status: ${status ?? 'unknown'})`).join('; ');
+    logger.warn?.(`⚠️ Sitemap crawl tolerated ${toleratedMissing.length} unreachable expired-archive sitemap(s): ${details}`);
+  }
+  const nonToleratedMissingRequired = [...new Set(missingRequired)]
+    .filter((key) => !toleratedByKey.has(key))
+    .sort();
+  if (nonToleratedMissingRequired.length > 0 && strict) {
     throw new Error(
-      `Sitemap crawl incomplete: ${missingRequired.length} unreachable sitemap(s): ${[...new Set(missingRequired)].sort().join(', ')}`,
+      `Sitemap crawl incomplete: ${nonToleratedMissingRequired.length} unreachable sitemap(s): ${nonToleratedMissingRequired.join(', ')}`,
     );
   }
-  if (missing.length > 0) {
+  if (missing.length > 0 && !strict) {
     logger.warn?.(`⚠️ Sitemap crawl skipped ${missing.length} unavailable local/edge sitemap(s): ${[...new Set(missing)].sort().join(', ')}`);
   }
 
@@ -342,6 +418,7 @@ export async function crawlSitemaps({
     records,
     missing: [...new Set(missing)].sort(),
     missingRequired: [...new Set(missingRequired)].sort(),
+    toleratedMissing,
   };
 }
 
