@@ -1,0 +1,792 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-11-15T20:46:44.815Z",
+  "snapshots": {
+    "teamtailor:mks-pamp-74eaacf6a62f:773e8366508c": {
+      "provider": "teamtailor",
+      "jobId": "mks-pamp-74eaacf6a62f",
+      "jobSlug": "gestione-delle-operazioni-metalliche-mks-pamp-castel-san-pietro",
+      "jobUrl": "https://careers.mkspamp.com/jobs/8493471-metal-operations-manager",
+      "snapshot": {
+        "provider": "teamtailor",
+        "sourceUrl": "https://careers.mkspamp.com/jobs/8493471-metal-operations-manager/applications/new",
+        "jobUrl": "https://careers.mkspamp.com/jobs/8493471-metal-operations-manager",
+        "checkedAt": "2026-11-15T20:46:37.253Z",
+        "stage": "This website uses cookies to ensure you get the best experience.",
+        "fields": [
+          {
+            "label": "Please describe yourself in one minute",
+            "type": "file",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "How many years of experience do you have in an operational role within the base metals or precious metals industry?",
+            "type": "number",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Have you been responsible for defining business requirements and coordinating user acceptance testing (UAT) for operational platforms?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "Are you experienced in managing daily trade processing and settlement procedures for financial transactions?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "How many people have you managed directly in previous roles?",
+            "type": "number",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Do you have a swiss or UE nationality, or are holder of a swiss work permit?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "Are you proficient in English (both written and spoken)? Are you proficient in English (both written and spoken)?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "First name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Last name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Email",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Phone",
+            "type": "tel",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Address",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Work history",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Education history",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Cover letter",
+            "type": "textarea",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "By submitting this application, I agree that I have read the Privacy Policy and confirm that MKS PAMP store my personal details to be able to process my job application.",
+            "type": "checkbox",
+            "required": true,
+            "kind": "consent"
+          },
+          {
+            "label": "Yes, MKS PAMP can contact me directly about specific future job opportunities.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "consent"
+          },
+          {
+            "label": "MKS PAMP can use my phone number for recruiting-related communication via SMS.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "consent"
+          }
+        ]
+      }
+    },
+    "teamtailor:mks-pamp-01db383769ae:7b741572fcae": {
+      "provider": "teamtailor",
+      "jobId": "mks-pamp-01db383769ae",
+      "jobSlug": "vault-operations-specialist-mks-pamp-castel-san-pietro",
+      "jobUrl": "https://careers.mkspamp.com/jobs/8516199-vault-operations-specialist",
+      "snapshot": {
+        "provider": "teamtailor",
+        "sourceUrl": "https://careers.mkspamp.com/jobs/8516199-vault-operations-specialist/applications/new",
+        "jobUrl": "https://careers.mkspamp.com/jobs/8516199-vault-operations-specialist",
+        "checkedAt": "2026-11-15T20:46:37.176Z",
+        "stage": "This website uses cookies to ensure you get the best experience.",
+        "fields": [
+          {
+            "label": "Descriviti in un minuto",
+            "type": "file",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Sei svizzero/a o dell'UE o titolare di un permesso di lavoro svizzero valido?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "Have you experience working with Oracle?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "Are you familiar with conducting physical inventory counts and reconciliations in an industrial setting?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "First name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Last name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Email",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Phone",
+            "type": "tel",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Work history",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Education history",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "By submitting this application, I agree that I have read the Privacy Policy and confirm that MKS PAMP store my personal details to be able to process my job application.",
+            "type": "checkbox",
+            "required": true,
+            "kind": "consent"
+          },
+          {
+            "label": "Yes, MKS PAMP can contact me directly about specific future job opportunities.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "consent"
+          },
+          {
+            "label": "MKS PAMP can use my phone number for recruiting-related communication via SMS.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "consent"
+          }
+        ]
+      }
+    },
+    "teamtailor:mks-pamp-94c930306b63:6e9b8bb0fb74": {
+      "provider": "teamtailor",
+      "jobId": "mks-pamp-94c930306b63",
+      "jobSlug": "tecnico-controllo-qualita-q-team-mks-pamp-castel-san-pietro",
+      "jobUrl": "https://careers.mkspamp.com/jobs/8474301-tecnico-controllo-qualita-q-team",
+      "snapshot": {
+        "provider": "teamtailor",
+        "sourceUrl": "https://careers.mkspamp.com/jobs/8474301-tecnico-controllo-qualita-q-team/applications/new",
+        "jobUrl": "https://careers.mkspamp.com/jobs/8474301-tecnico-controllo-qualita-q-team",
+        "checkedAt": "2026-11-15T20:46:40.842Z",
+        "stage": "This website uses cookies to ensure you get the best experience.",
+        "fields": [
+          {
+            "label": "Sei disponibile a lavorare su 3 turni?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "Hai esperienza nell'utilizzo di strumenti di misura come calibro, micrometro o comparatore?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "Descriviti in un minuto",
+            "type": "file",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Sei in possesso di un permesso attivo di lavoro svizzero o hai lavorato in passato in Svizzera?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "First name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Last name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Email",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Phone",
+            "type": "tel",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Work history",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Education history",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Cover letter",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "By submitting this application, I agree that I have read the Privacy Policy and confirm that MKS PAMP store my personal details to be able to process my job application.",
+            "type": "checkbox",
+            "required": true,
+            "kind": "consent"
+          },
+          {
+            "label": "Yes, MKS PAMP can contact me directly about specific future job opportunities.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "consent"
+          },
+          {
+            "label": "MKS PAMP can use my phone number for recruiting-related communication via SMS.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "consent"
+          }
+        ]
+      }
+    },
+    "teamtailor:mks-pamp-9aa99d99b95f:4f2141b1b197": {
+      "provider": "teamtailor",
+      "jobId": "mks-pamp-9aa99d99b95f",
+      "jobSlug": "specialista-tecnico-chimico-responsabile-conduzione-impianto-mks-pamp-castel-san-pietro",
+      "jobUrl": "https://careers.mkspamp.com/jobs/7129880-specialista-tecnico-chimico-responsabile-conduzione-impianto",
+      "snapshot": {
+        "provider": "teamtailor",
+        "sourceUrl": "https://careers.mkspamp.com/jobs/7129880-specialista-tecnico-chimico-responsabile-conduzione-impianto/applications/new",
+        "jobUrl": "https://careers.mkspamp.com/jobs/7129880-specialista-tecnico-chimico-responsabile-conduzione-impianto",
+        "checkedAt": "2026-11-15T20:46:41.711Z",
+        "stage": "This website uses cookies to ensure you get the best experience.",
+        "fields": [
+          {
+            "label": "Descriviti in un minuto",
+            "type": "file",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Hai una nazionalità svizzera o dell'UE?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "Sei in possesso di un permesso attivo di lavoro svizzero o hai lavorato in passato in Svizzera?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "Sei un perito cimico o hai una formazione equivalente?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "First name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Last name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Email",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Phone",
+            "type": "tel",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Work history",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Education history",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Cover letter",
+            "type": "textarea",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "By submitting this application, I agree that I have read the Privacy Policy and confirm that MKS PAMP store my personal details to be able to process my job application.",
+            "type": "checkbox",
+            "required": true,
+            "kind": "consent"
+          },
+          {
+            "label": "Yes, MKS PAMP can contact me directly about specific future job opportunities.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "consent"
+          },
+          {
+            "label": "MKS PAMP can use my phone number for recruiting-related communication via SMS.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "consent"
+          }
+        ]
+      }
+    },
+    "teamtailor:mks-pamp-a1552294ce80:55703829be09": {
+      "provider": "teamtailor",
+      "jobId": "mks-pamp-a1552294ce80",
+      "jobSlug": "prezioso-responsabile-del-controllo-del-metallo-mks-pamp-castel-san-pietro",
+      "jobUrl": "https://careers.mkspamp.com/jobs/8241072-precious-metal-control-manager",
+      "snapshot": {
+        "provider": "teamtailor",
+        "sourceUrl": "https://careers.mkspamp.com/jobs/8241072-precious-metal-control-manager/applications/new",
+        "jobUrl": "https://careers.mkspamp.com/jobs/8241072-precious-metal-control-manager",
+        "checkedAt": "2026-11-15T20:46:42.506Z",
+        "stage": "This website uses cookies to ensure you get the best experience.",
+        "fields": [
+          {
+            "label": "Do you hold a Bachelor’s or Master’s degree in a technical field such as Engineering or Chemistry?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "Do you have a background in the precious metals industry and/or metallurgy?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "Do you have 10 years professional experience in a similar function?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "Have you implemented or improved operational processes or procedures in previous roles?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "How many years of experience do you have in inventory control or material management within a manufacturing environment?",
+            "type": "number",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Please describe yourself in one minute",
+            "type": "file",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Swiss, EU citizen or holder of a swiss valid work permit",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "First name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Last name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Email",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Phone",
+            "type": "tel",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Address",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Work history",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Education history",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Cover letter",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "By submitting this application, I agree that I have read the Privacy Policy and confirm that MKS PAMP store my personal details to be able to process my job application.",
+            "type": "checkbox",
+            "required": true,
+            "kind": "consent"
+          },
+          {
+            "label": "Yes, MKS PAMP can contact me directly about specific future job opportunities.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "consent"
+          },
+          {
+            "label": "MKS PAMP can use my phone number for recruiting-related communication via SMS.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "consent"
+          }
+        ]
+      }
+    },
+    "teamtailor:mks-pamp-ed6ee216a826:4a897a74477a": {
+      "provider": "teamtailor",
+      "jobId": "mks-pamp-ed6ee216a826",
+      "jobSlug": "project-engineer-mks-pamp-castel-san-pietro",
+      "jobUrl": "https://careers.mkspamp.com/jobs/8684207-project-engineer",
+      "snapshot": {
+        "provider": "teamtailor",
+        "sourceUrl": "https://careers.mkspamp.com/jobs/8684207-project-engineer/applications/new",
+        "jobUrl": "https://careers.mkspamp.com/jobs/8684207-project-engineer",
+        "checkedAt": "2026-11-15T20:46:43.127Z",
+        "stage": "This website uses cookies to ensure you get the best experience.",
+        "fields": [
+          {
+            "label": "Descriviti in un minuto",
+            "type": "file",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Sei svizzero/a o dell'UE o titolare di un permesso di lavoro svizzero valido?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "Are you experienced in coordinating projects from design through to delivery in a manufacturing or production environment?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "Are you familiar with Health, Safety and Environmental (HSE) requirements and compliance in an industrial setting?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "Do you hold a Master’s degree in Engineering?",
+            "type": "radio",
+            "required": true,
+            "kind": "question",
+            "options": [
+              "Yes",
+              "No"
+            ]
+          },
+          {
+            "label": "First name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Last name",
+            "type": "text",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Email",
+            "type": "email",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Phone",
+            "type": "tel",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "Address",
+            "type": "text",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Work history",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Education history",
+            "type": "textarea",
+            "required": false,
+            "kind": "question"
+          },
+          {
+            "label": "Cover letter",
+            "type": "textarea",
+            "required": true,
+            "kind": "question"
+          },
+          {
+            "label": "By submitting this application, I agree that I have read the Privacy Policy and confirm that MKS PAMP store my personal details to be able to process my job application.",
+            "type": "checkbox",
+            "required": true,
+            "kind": "consent"
+          },
+          {
+            "label": "Yes, MKS PAMP can contact me directly about specific future job opportunities.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "consent"
+          },
+          {
+            "label": "MKS PAMP can use my phone number for recruiting-related communication via SMS.",
+            "type": "checkbox",
+            "required": false,
+            "kind": "consent"
+          }
+        ]
+      }
+    }
+  },
+  "attempts": {
+    "teamtailor:mks-pamp-74eaacf6a62f:773e8366508c": {
+      "provider": "teamtailor",
+      "jobUrl": "https://careers.mkspamp.com/jobs/8493471-metal-operations-manager",
+      "attemptedAt": "2026-11-15T20:46:37.253Z",
+      "nextAttemptAt": "2026-12-15T20:46:41.710Z",
+      "attemptCount": 2,
+      "outcome": "captured"
+    },
+    "teamtailor:mks-pamp-01db383769ae:7b741572fcae": {
+      "provider": "teamtailor",
+      "jobUrl": "https://careers.mkspamp.com/jobs/8516199-vault-operations-specialist",
+      "attemptedAt": "2026-11-15T20:46:37.176Z",
+      "nextAttemptAt": "2026-12-15T20:46:40.842Z",
+      "attemptCount": 2,
+      "outcome": "captured"
+    },
+    "teamtailor:mks-pamp-94c930306b63:6e9b8bb0fb74": {
+      "provider": "teamtailor",
+      "jobUrl": "https://careers.mkspamp.com/jobs/8474301-tecnico-controllo-qualita-q-team",
+      "attemptedAt": "2026-11-15T20:46:40.842Z",
+      "nextAttemptAt": "2026-12-15T20:46:42.506Z",
+      "attemptCount": 2,
+      "outcome": "captured"
+    },
+    "teamtailor:mks-pamp-9aa99d99b95f:4f2141b1b197": {
+      "provider": "teamtailor",
+      "jobUrl": "https://careers.mkspamp.com/jobs/7129880-specialista-tecnico-chimico-responsabile-conduzione-impianto",
+      "attemptedAt": "2026-11-15T20:46:41.711Z",
+      "nextAttemptAt": "2026-12-15T20:46:43.127Z",
+      "attemptCount": 2,
+      "outcome": "captured"
+    },
+    "teamtailor:mks-pamp-a1552294ce80:55703829be09": {
+      "provider": "teamtailor",
+      "jobUrl": "https://careers.mkspamp.com/jobs/8241072-precious-metal-control-manager",
+      "attemptedAt": "2026-11-15T20:46:42.506Z",
+      "nextAttemptAt": "2026-12-15T20:46:43.931Z",
+      "attemptCount": 2,
+      "outcome": "captured"
+    },
+    "teamtailor:mks-pamp-ed6ee216a826:4a897a74477a": {
+      "provider": "teamtailor",
+      "jobUrl": "https://careers.mkspamp.com/jobs/8684207-project-engineer",
+      "attemptedAt": "2026-11-15T20:46:43.127Z",
+      "nextAttemptAt": "2026-12-15T20:46:44.815Z",
+      "attemptCount": 2,
+      "outcome": "captured"
+    }
+  }
+}
