@@ -20,17 +20,15 @@
     },
     "slugByLocale": {
       "it": "junior-distributed-storage-ingegnere-it-sd-pds-2026-246-grae-cern-geneva",
-      "en": "junior-distributed-storage-engineer-it-sd-pds-2026-246-grae-cern-geneva-geneva-switzerland",
+      "en": "junior-distributed-storage-engineer-it-sd-pds-2026-246-grae-cern-geneva-geneva-switzerland-272bbf5f",
       "de": "junior-distributed-storage-ingenieur-it-sd-pds-2026-246-grae-cern-geneva",
       "fr": "junior-distributed-storage-ingenieur-it-sd-pds-2026-246-grae-cern-geneva"
     },
     "sector": "Ricerca / Scienza",
     "expiredAt": "2026-11-16T09:19:48.577Z",
-    "previousSlugs": [
-      "junior-distributed-storage-engineer-it-sd-pds-2026-246-grae-cern-geneva-geneva-switzerland"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "junior-distributed-storage-engineer-it-sd-pds-2026-246-grae-cern-geneva-geneva-switzerland-272bbf5f",
         "junior-distributed-storage-engineer-it-sd-pds-2026-246-grae-cern-geneva-geneva-switzerland"
       ],
       "de": [
@@ -38,6 +36,9 @@
       ],
       "fr": [
         "junior-distributed-storage-engineer-it-sd-pds-2026-246-grae-cern-geneva-geneva-switzerland"
+      ],
+      "en": [
+        "junior-distributed-storage-engineer-it-sd-pds-2026-246-grae-cern-geneva-geneva-switzerland-272bbf5f"
       ]
     },
     "postalCode": "1211",
@@ -47,7 +48,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/cern/744000160887379-junior-distributed-storage-engineer-it-sd-pds-2026-246-grae-?oga=true",
-    "firstSeenAt": "2026-10-16T21:19:59.545Z"
+    "firstSeenAt": "2026-10-16T21:19:59.545Z",
+    "previousSlugs": [
+      "junior-distributed-storage-engineer-it-sd-pds-2026-246-grae-cern-geneva-geneva-switzerland"
+    ]
   },
   {
     "slug": "medico-di-ricostruzione-di-evento-ep-fcc-2026-166-grap-cern-geneva-geneva-switzerland",
@@ -97,7 +101,7 @@
     "firstSeenAt": "2026-10-23T09:20:15.964Z"
   },
   {
-    "slug": "software-engineer-in-physics-simulation-it-ce-pse-2026-167-grap-cern-geneva-geneva",
+    "slug": "software-engineer-in-physics-simulation-it-ce-pse-2026-167-grap-cern-geneva-geneva-c91c7ce4",
     "title": "Software Engineer in Physics Simulation (IT-CE-PSE-2026-167-GRAP)",
     "titleByLocale": {
       "it": "Software Ingegnere in Physics Simulation (IT-CE-PSE-2026-167-GRAP)",
