@@ -439,6 +439,7 @@ describe('retired jobs archive observer workflow checkout', () => {
       ['build-plugins/shared/cantonResolvers.mjs', 'build-plugins/shared/cantonResolvers.mjs'],
       ['data/canton-url-slugs.json', 'data/canton-url-slugs.json'],
       ['data/canton-municipalities.json', 'data/canton-municipalities.json'],
+      ['data/swiss-locality-postal-codes.json', 'data/swiss-locality-postal-codes.json'],
     ]);
 
     const prepareDescription = steps.find((step) => step.id === 'issue-description');
