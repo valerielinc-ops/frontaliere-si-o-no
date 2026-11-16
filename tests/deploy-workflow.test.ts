@@ -391,8 +391,10 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     const itPublisherSteps = (YAML.parse(DEPLOY_PUBLISH_YML) as any).jobs['finalize-it-publish'].steps;
     const publisherSteps = (YAML.parse(DEPLOY_PUBLISH_YML) as any).jobs['publish-nonit-shards'].steps;
     const upload = (steps: any[], name: string) => {
-      const matches = steps.filter((step) => step?.uses === 'actions/upload-artifact@v7' && step?.with?.name === name);
-      expect(matches, `missing unique upload step for ${name}`).toHaveLength(1);
+      const matches = steps.filter((step) => step?.uses === 'actions/upload-artifact@v7'
+        && !String(step?.name ?? '').startsWith('Retry ')
+        && step?.with?.name === name);
+      expect(matches, `missing unique initial upload step for ${name}`).toHaveLength(1);
       return matches[0];
     };
     const assertRetention = (steps: any[], names: string[]) => {
