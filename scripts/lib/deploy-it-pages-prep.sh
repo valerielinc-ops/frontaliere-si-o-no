@@ -816,9 +816,9 @@ _publish_cdn_r2() {
   _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600" "$job_canon_log" exact
   if [ -d "$stage/job-canon" ]; then
     if ! node scripts/ci/job-canon-affected-files.mjs \
-      --current-dir "$stage/job-canon" \
-      --rclone-log "$job_canon_log" \
-      --output "$job_canon_affected_file"; then
+      --current-dir="$stage/job-canon" \
+      --rclone-log="$job_canon_log" \
+      --output="$job_canon_affected_file"; then
       echo "::error::[r2] could not derive the affected job-canon shard inventory"
       ok=0
     fi
@@ -975,8 +975,8 @@ _publish_cdn_r2() {
     return 0
   fi
   if ! node scripts/ci/job-canon-publish-handshake.mjs \
-    --map-dir "$stage/job-canon" \
-    --affected-file "$job_canon_affected_file"; then
+    --map-dir="$stage/job-canon" \
+    --affected-file="$job_canon_affected_file"; then
     echo "::error::[r2] job-canon publication handshake failed — withholding completion marker"
     return 1
   fi
@@ -991,7 +991,7 @@ _publish_cdn_r2() {
     if timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_publish_marker_file" "$bkt/cdn-publish-complete-id.txt" \
          --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
       if [ -n "${DEPLOY_BUILD_ID:-}" ] && ! node scripts/ci/cdn-build-marker-handshake.mjs \
-        --build-id "$DEPLOY_BUILD_ID"; then
+        --build-id="$DEPLOY_BUILD_ID"; then
         echo "::error::[r2] CDN marker purge/live validation failed — withholding CDN completion"
         return 1
       fi
@@ -1480,9 +1480,9 @@ step_push_cdn() {
       return 1
     fi
     if ! node scripts/ci/job-canon-affected-files.mjs \
-      --current-dir "$stage/job-canon" \
-      --previous-dir "$prev/job-canon" \
-      --output "$job_canon_affected_file"; then
+      --current-dir="$stage/job-canon" \
+      --previous-dir="$prev/job-canon" \
+      --output="$job_canon_affected_file"; then
       echo "::error::could not derive the affected Pages job-canon shard inventory"
       cd "$PREP_CWD"
       return 1
@@ -1547,8 +1547,8 @@ step_push_cdn() {
   fi
   if [ "$_push_ok" = 1 ] && [ -n "${DEPLOY_BUILD_ID:-}" ]; then
     if ! node scripts/ci/job-canon-publish-handshake.mjs \
-      --map-dir "$stage/job-canon" \
-      --affected-file "$job_canon_affected_file"; then
+      --map-dir="$stage/job-canon" \
+      --affected-file="$job_canon_affected_file"; then
       echo "::error::Pages job-canon publication handshake failed — leaving the previous Pages artifact live"
       rm -f "$keyfile"
       cd "$PREP_CWD"
@@ -1562,7 +1562,7 @@ step_push_cdn() {
       _push_ok=1
     fi
     if [ "$_push_ok" = 1 ] && ! node scripts/ci/cdn-build-marker-handshake.mjs \
-      --build-id "$DEPLOY_BUILD_ID"; then
+      --build-id="$DEPLOY_BUILD_ID"; then
       echo "::error::Pages CDN marker purge/live validation failed — withholding CDN completion"
       _push_ok=0
     fi

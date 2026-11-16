@@ -295,6 +295,12 @@ case "\${1:-}" in scripts/lib/r2-image-namespace-lock.mjs|*/scripts/lib/r2-image
   ;;
 scripts/cf-purge-cache.mjs|*/scripts/cf-purge-cache.mjs)
   exit "\${STUB_PURGE_STATUS:-0}" ;;
+scripts/ci/job-canon-publish-handshake.mjs|*/scripts/ci/job-canon-publish-handshake.mjs|scripts/ci/cdn-build-marker-handshake.mjs|*/scripts/ci/cdn-build-marker-handshake.mjs)
+  # This suite isolates the bounded R2 upload and marker ordering. The
+  # handshake modules have their byte-validation contract covered directly in
+  # tests/job-canon-publish-handshake.test.ts, so the subprocess stub prevents
+  # this fixture from making a real CDN request.
+  exit "\${STUB_HANDSHAKE_STATUS:-0}" ;;
 esac
 exec "$STUB_REAL_NODE" "$@"
 `,
@@ -485,6 +491,11 @@ esac
   writeFileSync(join(stage, 'index.html'), '<!doctype html>');
   mkdirSync(join(stage, 'data'), { recursive: true });
   writeFileSync(join(stage, 'data', 'x.json'), '{}');
+  // `_publish_cdn_r2` now requires the production job-canon stage before it
+  // can close the generation. Keep this fixture representative without
+  // changing the R2 call assertions above.
+  mkdirSync(join(stage, 'job-canon'), { recursive: true });
+  writeFileSync(join(stage, 'job-canon', '00.json'), '{"fixture":true}\n');
   stageCampaignImages(stage, env.STUB_CAMPAIGN_IMAGES);
   if (env.STUB_BLOG_IMAGES === '1') {
     mkdirSync(join(stage, 'images', 'blog'), { recursive: true });
