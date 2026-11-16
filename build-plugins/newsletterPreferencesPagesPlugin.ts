@@ -5,6 +5,7 @@ import { SLUG_TABLES } from '../services/routeSlugs.data';
 import { BASE_URL } from './constants';
 import { EMIT_LOCALES } from './shared/localeEmitFilter';
 import { buildSeoPageHtml } from './shared/seoPageShell';
+import { NEWSLETTER_PREFERENCES_NOINDEX_TARGET_MARKER } from './shared/newsletterPreferencesNoindexTargetMarker.mjs';
 
 const COPY = {
   it: ['Preferenze newsletter', 'Per gestire le tue preferenze, apri il link personale presente nelle email ricevute.'],
@@ -29,7 +30,7 @@ export function newsletterPreferencesPagesPlugin(rootDir: string): Plugin {
           robots: 'noindex,follow', distDir,
           // React replaces this public explanation with the token-gated UI.
           seoContentOutsideRoot: false,
-          bodyHtml: `<main class="max-w-2xl mx-auto px-4 py-8"><h1>${title}</h1><p>${description}</p></main>`,
+          bodyHtml: `${NEWSLETTER_PREFERENCES_NOINDEX_TARGET_MARKER}<main class="max-w-2xl mx-auto px-4 py-8"><h1>${title}</h1><p>${description}</p></main>`,
         });
         const destination = path.join(distDir, route, 'index.html');
         fs.mkdirSync(path.dirname(destination), { recursive: true });

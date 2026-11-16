@@ -101,6 +101,7 @@ import {
 } from '../services/resilientImport';
 import { adSlotHtml, STATIC_AD_UNIQUE_PLACEMENTS } from './lib/adSlotHtml';
 import { REDIRECT_STUB_MARKER } from './shared/redirectStubMarker';
+import { STANDALONE_REDIRECT_STUB_MARKER } from './shared/standaloneRedirectStubMarker.mjs';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { ROBOTS_INDEX_ENHANCED_CONTENT } from './shared/robotsDirective';
 import { JOB_BOARD_SECTION_PATHNAME_RX } from '../scripts/lib/jobBoardSections.mjs';
@@ -439,7 +440,7 @@ export function buildCanonicalBridgePage(options: {
 
  return `<!DOCTYPE html>
 <html lang="${lang}">
- <head>${REDIRECT_STUB_MARKER}
+ <head>${REDIRECT_STUB_MARKER}${crossPageSignals ? '' : STANDALONE_REDIRECT_STUB_MARKER}
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <title>${title}</title>

@@ -2,9 +2,9 @@
  * CompanyAlert a deploy avvenuto (perf-plan email senders, punto 1).
  *
  * Quattro cose da provare:
- *  1. il CONTRATTO del workflow: niente `push`, `workflow_run` del deploy che
- *     pubblica con `conclusion == 'success'`, cron di sicurezza, `gate` leggero
- *     senza checkout, `concurrency` sul job vero, checkout al `head_sha` del deploy;
+ *  1. il CONTRATTO del workflow: niente `push` o `workflow_run` morto, dispatch
+ *     esplicito dal post-publish, cron di sicurezza, `gate` leggero senza
+ *     checkout, `concurrency` sul job vero, checkout allo SHA pubblicato;
  *  2. il FILTRO: un annuncio la cui pagina non e' nel manifest si RIMANDA, non si
  *     marca come inviato, e a manifest aggiornato parte una volta sola;
  *  3. la FINESTRA di novita' allargata non rimanda mai un annuncio gia' inviato e
@@ -134,7 +134,6 @@ function serializedDb(initial: Record<string, Record<string, unknown>>) {
 describe('workflow send-company-alerts.yml: a deploy avvenuto', () => {
   const text = fs.readFileSync(path.join(WF_DIR, 'send-company-alerts.yml'), 'utf8');
   const doc: any = YAML.parse(text, { logLevel: 'silent' });
-  const publishDoc: any = YAML.parse(fs.readFileSync(path.join(WF_DIR, 'deploy-publish.yml'), 'utf8'), { logLevel: 'silent' });
 
   it('non parte piu\' su push: niente push, niente filtro su data/jobs/by-crawler', () => {
     expect(Object.keys(doc.on)).not.toContain('push');
@@ -143,13 +142,10 @@ describe('workflow send-company-alerts.yml: a deploy avvenuto', () => {
     expect(withoutComments).not.toMatch(/by-crawler\/\*\*/);
   });
 
-  it('parte al completamento del workflow che PUBBLICA le pagine, non di quello che costruisce', () => {
-    const wr = doc.on.workflow_run;
-    expect(wr.types).toEqual(['completed']);
-    expect(wr.workflows).toEqual([publishDoc.name]);
-    expect(wr.workflows).toEqual(['Publish to GitHub Pages (deploy + validate)']);
-    expect(wr.workflows).not.toContain('Deploy to GitHub Pages');
-    expect(wr.branches).toEqual(['main']);
+  it('usa il dispatch esplicito post-publish e non il workflow_run morto', () => {
+    expect(doc.on.workflow_run).toBeUndefined();
+    expect(doc.on.workflow_dispatch.inputs.source_sha.type).toBe('string');
+    expect(doc.on.workflow_dispatch.inputs.source_run_id.type).toBe('string');
   });
 
   it('il cron orario di sicurezza e il dispatch manuale restano', () => {
@@ -157,11 +153,9 @@ describe('workflow send-company-alerts.yml: a deploy avvenuto', () => {
     expect(doc.on.workflow_dispatch.inputs.dry_run.default).toBe(true);
   });
 
-  it('il gate procede solo su conclusion == success (e main), senza checkout ne Node', () => {
+  it('il gate dispatch procede senza checkout ne Node', () => {
     const gate = doc.jobs.gate;
-    expect(gate.if.replace(/\s+/g, ' ')).toContain("github.event.workflow_run.conclusion == 'success'");
-    expect(gate.if).toContain("github.event_name != 'workflow_run'");
-    expect(gate.if).toContain("github.event.workflow_run.head_branch == 'main'");
+    expect(gate.if).toBeUndefined();
     const uses = (gate.steps as any[]).map((step) => String(step.uses ?? ''));
     expect(uses.some((u) => u.startsWith('actions/checkout'))).toBe(false);
     expect(uses.some((u) => u.includes('setup-node') || u.includes('npm-ci-cached'))).toBe(false);
@@ -176,9 +170,9 @@ describe('workflow send-company-alerts.yml: a deploy avvenuto', () => {
     expect(doc.jobs['send-company-alerts'].if).toContain("needs.gate.outputs.proceed == 'true'");
   });
 
-  it('il checkout usa il head_sha del deploy, con ripiego sul ref di default', () => {
+  it('il checkout usa lo SHA pubblicato, con ripiego sul ref di default', () => {
     const checkout = (doc.jobs['send-company-alerts'].steps as any[]).find((s) => String(s.uses ?? '').startsWith('actions/checkout'));
-    expect(checkout.with.ref).toBe('${{ github.event.workflow_run.head_sha || github.sha }}');
+    expect(checkout.with.ref).toBe('${{ inputs.source_sha || github.sha }}');
   });
 
   it('il workflow non dispatcha ne modifica i workflow di deploy', () => {
