@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, afterEach, beforeEach } from 'vitest';
+import { readFileSync } from 'node:fs';
 import {
   CROIX_ROUGE_FRIBOURGEOISE_KEY,
   CROIX_ROUGE_FRIBOURGEOISE_COMPANY_NAME,
@@ -8,6 +9,7 @@ import {
   resolveAddress,
   extractListingLinks,
   extractJobupListingLinks,
+  extractVisibleJobupDescription,
   fetchAllCroixRougeFribourgeoiseJobs,
 } from '../scripts/lib/croix-rouge-fribourgeoise-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
@@ -201,6 +203,23 @@ describe('Croix-Rouge fribourgeoise crawler parser', () => {
         <div data-cy="company-jobs-list"><a href="${ownJob}">Own job</a></div>
       `;
       expect(extractJobupListingLinks(html)).toEqual([`https://www.jobup.ch${ownJob}`]);
+    });
+  });
+
+  describe('extractVisibleJobupDescription', () => {
+    const currentFixture = readFileSync(
+      new URL('./fixtures/croix-rouge-fribourgeoise/jobup-current-visible-body.html', import.meta.url),
+      'utf8',
+    ).trim();
+
+    it('extracts the current publisher-owned visible vacancy body', () => {
+      expect(extractVisibleJobupDescription(currentFixture)).toMatch(/coordination des rendez-vous/i);
+    });
+
+    it('fails closed when the current body marker is absent, hidden, or ambiguous', () => {
+      expect(extractVisibleJobupDescription('<main>unrelated page chrome</main>')).toBe('');
+      expect(extractVisibleJobupDescription(`<div hidden data-cy="vacancy-description">${currentFixture}</div>`)).toBe('');
+      expect(extractVisibleJobupDescription(`${currentFixture}${currentFixture}`)).toBe('');
     });
   });
 
@@ -624,5 +643,55 @@ describe('fetchAllCroixRougeFribourgeoiseJobs (JobCloud Company Page listing + d
     expect(jobs).toHaveLength(1);
     expect(jobs[0].description).toBe(visibleBody);
     expect(jobs[0].description).not.toBe('Short');
+  });
+
+  it('recovers two publishable Jobup rows from the current structural body when JSON-LD and C_PBODYHTML are thin', async () => {
+    const currentBody = readFileSync(
+      new URL('./fixtures/croix-rouge-fribourgeoise/jobup-current-visible-body.html', import.meta.url),
+      'utf8',
+    ).trim();
+    const uuids = [
+      'c9da42d5-05a4-44ff-8547-d00e84070851',
+      '4142c534-a158-4e5e-9a02-94a8350c546c',
+    ];
+    const detailUrls = uuids.map((uuid) => `https://www.jobup.ch/fr/emplois/detail/${uuid}/`);
+    const datePosted = new Date().toISOString().slice(0, 10);
+
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (url: unknown) => {
+      const target = String(url);
+      if (target.includes('/job-list/')) {
+        return { ok: true, status: 200, text: async () => '<html><body>JobCloud cards unavailable</body></html>' } as unknown as Response;
+      }
+      if (target.includes('/societes/26216-croix-rouge-fribourgeoise/emplois/')) {
+        return {
+          ok: true,
+          status: 200,
+          text: async () => `<html><body><section data-cy="company-job-list">${detailUrls.map((url) => `<a href="${url}">job</a>`).join('')}</section></body></html>`,
+        } as unknown as Response;
+      }
+      if (detailUrls.includes(target)) {
+        const title = target.includes(uuids[0]) ? 'Collaborateur administratif' : 'Coordinateur de projet';
+        const posting = {
+          '@context': 'https://schema.org',
+          '@type': 'JobPosting',
+          title,
+          description: 'Teaser',
+          datePosted,
+          employmentType: 'PART_TIME',
+          jobLocation: { address: { postalCode: '1700', addressLocality: 'Fribourg', addressCountry: 'CH' } },
+        };
+        return {
+          ok: true,
+          status: 200,
+          text: async () => `<html><body><h1>${title}</h1><script type="application/ld+json">${JSON.stringify(posting)}</script><div class="C_PBODYHTML">Teaser</div>${currentBody}</body></html>`,
+        } as unknown as Response;
+      }
+      throw new Error(`unexpected URL ${target}`);
+    });
+
+    const jobs = await fetchAllCroixRougeFribourgeoiseJobs();
+    expect(jobs).toHaveLength(2);
+    expect(jobs.every((job) => job.description.split(/\s+/).length >= 50)).toBe(true);
+    expect(jobs.map((job) => job.url)).toEqual(detailUrls);
   });
 });
