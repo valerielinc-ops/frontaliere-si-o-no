@@ -16,6 +16,7 @@ const UPLOAD_ARTIFACT_V7_SHA = '043fb46d1a93c77aae656e7c1c64a875d1fc6a0a';
 const RUN_WIDE_TRANSLATION_DEADLINE_MS = 12_600_000;
 const PHASE_2C_DEADLINE_MS = 10_200_000;
 const RECOVERY_READY = "(github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')";
+const AUTOMATIC_TRANSLATION_RUN = "(github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && env.TRANSLATION_MANUAL_OVERRIDE != 'true'))";
 
 type YamlMapping = Record<string, unknown>;
 
@@ -194,18 +195,18 @@ describe('translation observability workflow', () => {
         env: { LOCAL_MT_MOPUP_DEADLINE_MS: String(PHASE_2C_DEADLINE_MS) },
       });
       expect(titleFix, `${label}: Phase 2d missing`).toMatchObject({
-        if: expectedIf(label, "always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'"),
+        if: expectedIf(label, `always() && !cancelled() && steps.checkout.outcome == 'success' && ${AUTOMATIC_TRANSLATION_RUN} && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'`),
         env: { UNTRANSLATED_TITLE_FIX_DEADLINE_MS: String(RUN_WIDE_TRANSLATION_DEADLINE_MS) },
       });
       expect(titleCommit, `${label}: title commit missing`).toMatchObject({
-        if: expectedIf(label, "always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'"),
+        if: expectedIf(label, `always() && !cancelled() && steps.checkout.outcome == 'success' && ${AUTOMATIC_TRANSLATION_RUN} && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'`),
       });
       expect(descriptionFix, `${label}: Phase 2e missing`).toMatchObject({
-        if: expectedIf(label, "always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'"),
+        if: expectedIf(label, `always() && !cancelled() && steps.checkout.outcome == 'success' && ${AUTOMATIC_TRANSLATION_RUN} && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'`),
         env: { UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: String(RUN_WIDE_TRANSLATION_DEADLINE_MS) },
       });
       expect(descriptionCommit, `${label}: description commit missing`).toMatchObject({
-        if: expectedIf(label, "always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'"),
+        if: expectedIf(label, `always() && !cancelled() && steps.checkout.outcome == 'success' && ${AUTOMATIC_TRANSLATION_RUN} && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'`),
       });
     }
 

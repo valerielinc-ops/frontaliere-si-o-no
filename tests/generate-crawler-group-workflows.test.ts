@@ -3823,7 +3823,8 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(guardStep.run).toContain('sort -k1,1 -k2,2n');
     expect(guardStep.run).toContain('TRANSLATION_MANUAL_OVERRIDE');
     expect(guardStep.run).toContain('workflow_dispatch');
-    expect(guardStep.env.TRANSLATION_MANUAL_OVERRIDE).toContain('inputs.skip_translate');
+    expect(guardStep.env.TRANSLATION_MANUAL_OVERRIDE).toBe('${{ env.TRANSLATION_MANUAL_OVERRIDE }}');
+    expect(translation.env.TRANSLATION_MANUAL_OVERRIDE).toContain('inputs.skip_translate');
     expect(guardStep.run).toContain('run=false');
     expect(guardStep.run).toContain('current_run_path');
     expect(guardStep.run).toContain('skipping the heavy run to keep the queue bounded');
