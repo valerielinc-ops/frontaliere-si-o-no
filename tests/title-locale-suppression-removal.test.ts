@@ -38,8 +38,10 @@ import {
   hardenJobLocaleFields,
   validateDedicatedLocaleCoverage,
 } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { isolateCrawlerHistoricalData } from './helpers/isolate-crawler-historical-data.mjs';
 
 const ORIGINAL_ENV = { ...process.env };
+isolateCrawlerHistoricalData();
 
 const SOURCE_TITLE_DE = 'Projektleiter Lüftung 80 - 100%';
 

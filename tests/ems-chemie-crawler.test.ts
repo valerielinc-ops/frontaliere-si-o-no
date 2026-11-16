@@ -33,6 +33,9 @@ import {
   isForeignPortalListing,
   isForeignPortalDetail,
 } from '@/scripts/lib/ems-chemie-job-parser.mjs';
+import { isolateCrawlerHistoricalData } from './helpers/isolate-crawler-historical-data.mjs';
+
+isolateCrawlerHistoricalData();
 
 const OBSERVED_AT = new Date('2026-10-04T12:00:00.000Z');
 const buildJob = (raw: any) => raw && typeof raw === 'object'

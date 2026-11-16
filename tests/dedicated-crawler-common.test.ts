@@ -7,6 +7,9 @@ import { getCompanyBoilerplateIT, hardenJobLocaleFields, mergeAndDeduplicate, me
 const daysAgoIso = (days: number) => new Date(Date.now() - days * 86_400_000).toISOString();
 import { canonicalizeCompanyDefinition, legacyTruncatedCompanyKey, normalizeCompanyKey } from '../scripts/lib/company-key.mjs';
 import { getEvents, clear as clearSlugHistoryJournal } from '../scripts/lib/slug-history-journal.mjs';
+import { isolateCrawlerHistoricalData } from './helpers/isolate-crawler-historical-data.mjs';
+
+isolateCrawlerHistoricalData();
 
 describe('normalizeCompanyKey', () => {
   it('keeps short normalized keys stable', async () => {
