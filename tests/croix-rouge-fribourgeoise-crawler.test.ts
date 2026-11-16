@@ -230,6 +230,7 @@ describe('Croix-Rouge fribourgeoise crawler parser', () => {
       expect(extractVisibleJobupDescription(`<div data-cy="vacancy-description" ARIA-HIDDEN="TrUe">${fiftyWords}</div>`)).toBe('');
       expect(extractVisibleJobupDescription(`<div data-cy="vacancy-description"><noscript>${fiftyWords}</noscript></div>`)).toBe('');
       expect(extractVisibleJobupDescription('<div data-cy="vacancy-description"><p aria-hidden="TRUE">hidden copy</p><p>visible copy</p></div>')).toBe('visible copy');
+      expect(extractVisibleJobupDescription(`<div data-cy="vacancy-description"><p aria-hidden=" TRUE ">${fiftyWords}</p></div>`)).toBe('');
       expect(extractVisibleJobupDescription('<div data-cy="vacancy-description"><p>first block</p><p>second block</p></div>')).toBe('first block second block');
     });
   });
