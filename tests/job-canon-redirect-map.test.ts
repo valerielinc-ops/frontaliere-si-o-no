@@ -1,4 +1,5 @@
 import { describe, it, expect, beforeAll, afterAll, beforeEach, afterEach, vi } from 'vitest';
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -116,6 +117,8 @@ describe('jobCanonRedirectMapPlugin', () => {
     fs.mkdirSync(path.join(tmp, 'dist'), { recursive: true });
     fs.mkdirSync(path.join(tmp, 'dist', 'data'), { recursive: true });
     fs.writeFileSync(path.join(tmp, 'dist', 'data', 'jobs-slug-map.json'), '[]');
+    fs.mkdirSync(path.join(tmp, 'dist', 'job-canon'), { recursive: true });
+    fs.writeFileSync(path.join(tmp, 'dist', 'job-canon', 'manifest.json'), '{"stale":true}');
     setJobCanonOrderingFields([]);
     writeAllKnownJobSlugs(tracking, tmp);
     const plugin = jobCanonRedirectMapPlugin(tmp);
@@ -147,6 +150,86 @@ describe('jobCanonRedirectMapPlugin', () => {
     const v2Files = fs.readdirSync(path.join(tmp, 'dist', 'job-canon', 'v2'));
     expect(v2Files.length).toBeGreaterThan(0);
     expect(v2Files.every((file) => /^[0-9a-f]{3}\.json$/.test(file))).toBe(true);
+  });
+
+  it('emits a schema 1 release manifest with raw and canonical digests from the shard pass', () => {
+    const outputDir = path.join(tmp, 'dist', 'job-canon');
+    const manifest = JSON.parse(fs.readFileSync(path.join(outputDir, 'manifest.json'), 'utf8')) as {
+      schemaVersion: number;
+      logical: { entries: number; aliases: number; canonicalEntriesSha256: string };
+      v1: { files: Record<string, { bytes: number; sha256: string; entries: number; aliases: number; canonicalEntriesSha256: string }> };
+      v2: { files: Record<string, { bytes: number; sha256: string; entries: number; aliases: number; canonicalEntriesSha256: string }> };
+    };
+    const canonicalEntry = (entry: Record<string, unknown>) => {
+      const result: Record<string, unknown> = {};
+      for (const locale of ['it', 'en', 'de', 'fr']) {
+        if (typeof entry[locale] === 'string') result[locale] = entry[locale];
+      }
+      if (entry.alias && typeof entry.alias === 'object') {
+        const aliases: Record<string, unknown> = {};
+        for (const locale of ['it', 'en', 'de', 'fr']) {
+          const value = (entry.alias as Record<string, unknown>)[locale];
+          if (typeof value === 'string') aliases[locale] = value;
+        }
+        if (Object.keys(aliases).length > 0) result.alias = aliases;
+      }
+      return result;
+    };
+    const digestEntries = (map: Record<string, Record<string, unknown>>) => {
+      const digest = createHash('sha256');
+      for (const slug of Object.keys(map).sort()) {
+        digest.update(JSON.stringify(slug));
+        digest.update(':');
+        digest.update(JSON.stringify(canonicalEntry(map[slug])));
+        digest.update('\n');
+      }
+      return digest.digest('hex');
+    };
+    const readFiles = (directory: string, files: typeof manifest.v1.files) => {
+      const maps = new Map<string, Record<string, unknown>>();
+      let entries = 0;
+      let aliases = 0;
+      for (const [filename, spec] of Object.entries(files)) {
+        const raw = fs.readFileSync(path.join(directory, filename));
+        expect(raw.length).toBe(spec.bytes);
+        expect(createHash('sha256').update(raw).digest('hex')).toBe(spec.sha256);
+        const map = JSON.parse(raw.toString('utf8')) as Record<string, Record<string, unknown>>;
+        expect(Object.keys(map).length).toBe(spec.entries);
+        const aliasCount = Object.values(map).reduce((total, entry) =>
+          total + (entry.alias && typeof entry.alias === 'object' ? Object.keys(entry.alias).length : 0), 0);
+        expect(aliasCount).toBe(spec.aliases);
+        expect(digestEntries(map)).toBe(spec.canonicalEntriesSha256);
+        entries += spec.entries;
+        aliases += spec.aliases;
+        for (const [slug, entry] of Object.entries(map)) maps.set(slug, entry);
+      }
+      return { maps, entries, aliases };
+    };
+
+    expect(manifest.schemaVersion).toBe(1);
+    expect(Object.keys(manifest.logical).sort()).toEqual(['aliases', 'canonicalEntriesSha256', 'entries']);
+    expect(manifest.logical.canonicalEntriesSha256).toMatch(/^[0-9a-f]{64}$/);
+    expect(fs.readFileSync(path.join(outputDir, 'manifest.json'), 'utf8')).not.toContain('stale');
+
+    const v1 = readFiles(outputDir, manifest.v1.files);
+    const v2 = readFiles(path.join(outputDir, 'v2'), manifest.v2.files);
+    expect(v1.maps).toEqual(v2.maps);
+    expect(v1.entries).toBe(manifest.logical.entries);
+    expect(v2.entries).toBe(manifest.logical.entries);
+    expect(v1.aliases).toBe(manifest.logical.aliases);
+    expect(v2.aliases).toBe(manifest.logical.aliases);
+
+    const logicalDigest = createHash('sha256');
+    for (const filename of Object.keys(manifest.v2.files).sort()) {
+      const map = JSON.parse(fs.readFileSync(path.join(outputDir, 'v2', filename), 'utf8')) as Record<string, Record<string, unknown>>;
+      for (const slug of Object.keys(map).sort()) {
+        logicalDigest.update(JSON.stringify(slug));
+        logicalDigest.update(':');
+        logicalDigest.update(JSON.stringify(canonicalEntry(map[slug])));
+        logicalDigest.update('\n');
+      }
+    }
+    expect(logicalDigest.digest('hex')).toBe(manifest.logical.canonicalEntriesSha256);
   });
 
   it('reconstructs the same Worker targets as PR-A registry output for bridge candidates', () => {

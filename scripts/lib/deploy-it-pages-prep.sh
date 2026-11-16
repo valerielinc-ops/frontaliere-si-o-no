@@ -1270,57 +1270,388 @@ _validate_pages_job_canon_release() {
   if ! node - "$release_dir" <<'NODE'
 const fs = require('node:fs');
 const path = require('node:path');
+const { createHash } = require('node:crypto');
 
 const releaseDir = process.argv[2];
 const failures = [];
-function validateShards(directory, pattern, label) {
-  let entries;
-  try {
-    entries = fs.readdirSync(directory, { withFileTypes: true });
-  } catch (error) {
-    failures.push(`${label} directory is missing or unreadable`);
-    return 0;
-  }
-  const files = entries.filter((entry) => entry.isFile() && pattern.test(entry.name));
-  if (files.length === 0) failures.push(`${label} has no Worker-consumable map JSON files`);
-  let mapsWithEntries = 0;
-  for (const file of files) {
-    const filePath = path.join(directory, file.name);
-    let contents;
-    try {
-      contents = fs.readFileSync(filePath, 'utf8');
-    } catch (error) {
-      failures.push(`${label} map ${file.name} is unreadable`);
-      continue;
-    }
-    if (contents.trim().length === 0) {
-      failures.push(`${label} map ${file.name} is empty`);
-      continue;
-    }
-    let map;
-    try {
-      map = JSON.parse(contents);
-    } catch (error) {
-      failures.push(`${label} map ${file.name} is not valid JSON`);
-      continue;
-    }
-    if (!map || typeof map !== 'object' || Array.isArray(map)) {
-      failures.push(`${label} map ${file.name} is not a Worker-consumable object`);
-    } else if (Object.keys(map).length > 0) {
-      mapsWithEntries += 1;
-    }
-  }
-  if (mapsWithEntries === 0) failures.push(`${label} has no map JSON with usable entries`);
-  return files.length;
+const LOCALES = ['it', 'en', 'de', 'fr'];
+const SHA256 = /^[0-9a-f]{64}$/;
+
+function fail(message) {
+  failures.push(message);
 }
 
-const v1Count = validateShards(releaseDir, /^[a-z0-9_]{2}\.json$/, 'v1');
-const v2Count = validateShards(path.join(releaseDir, 'v2'), /^[0-9a-f]{3}\.json$/, 'v2');
+function isRecord(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function hasExactKeys(value, expected) {
+  return isRecord(value)
+    && Object.keys(value).length === expected.length
+    && expected.every((key) => Object.prototype.hasOwnProperty.call(value, key));
+}
+
+function assertNoDuplicateJsonKeys(source) {
+  let offset = 0;
+  const skipWhitespace = () => {
+    while (offset < source.length && /[\u0009\u000a\u000d\u0020]/.test(source[offset])) offset += 1;
+  };
+  const readString = () => {
+    const start = offset;
+    offset += 1;
+    while (offset < source.length) {
+      const character = source[offset];
+      if (character === '"') {
+        offset += 1;
+        return source.slice(start, offset);
+      }
+      if (character === '\\') offset += 1;
+      offset += 1;
+    }
+    throw new Error('unterminated JSON string');
+  };
+  const parseValue = (depth) => {
+    if (depth > 128) throw new Error('JSON nesting is too deep');
+    skipWhitespace();
+    const character = source[offset];
+    if (character === '"') {
+      readString();
+      return;
+    }
+    if (character === '{') {
+      offset += 1;
+      skipWhitespace();
+      if (source[offset] === '}') {
+        offset += 1;
+        return;
+      }
+      const keys = new Set();
+      while (offset < source.length) {
+        skipWhitespace();
+        if (source[offset] !== '"') throw new Error('object key is not a string');
+        const key = JSON.parse(readString());
+        if (keys.has(key)) throw new Error(`duplicate JSON object key ${JSON.stringify(key)}`);
+        keys.add(key);
+        skipWhitespace();
+        if (source[offset] !== ':') throw new Error('object key has no value');
+        offset += 1;
+        parseValue(depth + 1);
+        skipWhitespace();
+        if (source[offset] === '}') {
+          offset += 1;
+          return;
+        }
+        if (source[offset] !== ',') throw new Error('object member separator is invalid');
+        offset += 1;
+      }
+      throw new Error('unterminated JSON object');
+    }
+    if (character === '[') {
+      offset += 1;
+      skipWhitespace();
+      if (source[offset] === ']') {
+        offset += 1;
+        return;
+      }
+      while (offset < source.length) {
+        parseValue(depth + 1);
+        skipWhitespace();
+        if (source[offset] === ']') {
+          offset += 1;
+          return;
+        }
+        if (source[offset] !== ',') throw new Error('array item separator is invalid');
+        offset += 1;
+      }
+      throw new Error('unterminated JSON array');
+    }
+    const rest = source.slice(offset);
+    const literal = /^(?:true|false|null)/.exec(rest);
+    if (literal) {
+      offset += literal[0].length;
+      return;
+    }
+    const number = /^-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?(?:[eE][+-]?[0-9]+)?/.exec(rest);
+    if (number) {
+      offset += number[0].length;
+      return;
+    }
+    throw new Error('invalid JSON value');
+  };
+
+  parseValue(0);
+  skipWhitespace();
+  if (offset !== source.length) throw new Error('trailing JSON content');
+}
+
+function parseJsonNoDuplicates(source, label) {
+  try {
+    assertNoDuplicateJsonKeys(source);
+    return JSON.parse(source);
+  } catch (error) {
+    throw new Error(`${label} is invalid JSON: ${error instanceof Error ? error.message : String(error)}`);
+  }
+}
+
+function canonicalEntry(value, slug, label) {
+  if (!isRecord(value)) throw new Error(`${label} entry ${JSON.stringify(slug)} is not an object`);
+  const allowedKeys = new Set([...LOCALES, 'alias']);
+  for (const key of Object.keys(value)) {
+    if (!allowedKeys.has(key)) throw new Error(`${label} entry ${JSON.stringify(slug)} has an unknown field`);
+  }
+  const result = {};
+  let fieldCount = 0;
+  for (const locale of LOCALES) {
+    if (!Object.prototype.hasOwnProperty.call(value, locale)) continue;
+    if (typeof value[locale] !== 'string' || value[locale].length === 0) {
+      throw new Error(`${label} entry ${JSON.stringify(slug)} has an invalid ${locale} target`);
+    }
+    result[locale] = value[locale];
+    fieldCount += 1;
+  }
+  if (Object.prototype.hasOwnProperty.call(value, 'alias')) {
+    if (!isRecord(value.alias) || Object.keys(value.alias).length === 0) {
+      throw new Error(`${label} entry ${JSON.stringify(slug)} has an empty or invalid alias object`);
+    }
+    const aliases = {};
+    for (const locale of Object.keys(value.alias)) {
+      if (!LOCALES.includes(locale)) throw new Error(`${label} entry ${JSON.stringify(slug)} has an unknown alias locale`);
+    }
+    for (const locale of LOCALES) {
+      if (!Object.prototype.hasOwnProperty.call(value.alias, locale)) continue;
+      if (typeof value.alias[locale] !== 'string' || value.alias[locale].length === 0) {
+        throw new Error(`${label} entry ${JSON.stringify(slug)} has an invalid ${locale} alias target`);
+      }
+      aliases[locale] = value.alias[locale];
+    }
+    result.alias = aliases;
+    fieldCount += 1;
+  }
+  if (fieldCount === 0) throw new Error(`${label} entry ${JSON.stringify(slug)} has no locale targets`);
+  return result;
+}
+
+function hashCanonicalEntry(hash, slug, entry) {
+  hash.update(JSON.stringify(slug));
+  hash.update(':');
+  hash.update(JSON.stringify(entry));
+  hash.update('\n');
+}
+
+function aliasCount(entry) {
+  return entry.alias ? Object.keys(entry.alias).length : 0;
+}
+
+function v1ShardKey(slug) {
+  const value = slug.slice(0, 2).toLowerCase().replace(/[^a-z0-9]/g, '_');
+  return value.length === 2 ? value : (value + '__').slice(0, 2);
+}
+
+function v2ShardKey(slug) {
+  let hash = 5381;
+  for (let index = 0; index < slug.length; index += 1) hash = ((hash * 33) ^ slug.charCodeAt(index)) >>> 0;
+  return (hash % 4096).toString(16).padStart(3, '0');
+}
+
+function validateFileManifest(files, pattern, label) {
+  if (!isRecord(files) || Object.keys(files).length === 0) {
+    fail(`manifest ${label}.files is missing or empty`);
+    return false;
+  }
+  for (const [filename, spec] of Object.entries(files)) {
+    if (!pattern.test(filename)) fail(`manifest ${label}.files contains an invalid filename`);
+    if (!hasExactKeys(spec, ['bytes', 'sha256', 'entries', 'aliases', 'canonicalEntriesSha256'])) {
+      fail(`manifest ${label}.files entry ${filename} has missing or unknown fields`);
+      continue;
+    }
+    if (!Number.isSafeInteger(spec.bytes) || spec.bytes <= 0) fail(`manifest ${label}.files entry ${filename} has an invalid byte count`);
+    if (!Number.isSafeInteger(spec.entries) || spec.entries <= 0) fail(`manifest ${label}.files entry ${filename} has an invalid entry count`);
+    if (!Number.isSafeInteger(spec.aliases) || spec.aliases < 0) fail(`manifest ${label}.files entry ${filename} has an invalid alias count`);
+    if (!SHA256.test(spec.sha256)) fail(`manifest ${label}.files entry ${filename} has an invalid raw SHA-256`);
+    if (!SHA256.test(spec.canonicalEntriesSha256)) fail(`manifest ${label}.files entry ${filename} has an invalid canonical SHA-256`);
+  }
+  return true;
+}
+
+function readDeclaredMap(directory, filename, spec, label) {
+  const filePath = path.join(directory, filename);
+  let raw;
+  try {
+    raw = fs.readFileSync(filePath);
+  } catch {
+    fail(`${label} map ${filename} is missing or unreadable`);
+    return null;
+  }
+  if (raw.length === 0) fail(`${label} map ${filename} is empty`);
+  if (raw.length !== spec.bytes) fail(`${label} map ${filename} byte count does not match manifest`);
+  if (createHash('sha256').update(raw).digest('hex') !== spec.sha256) fail(`${label} map ${filename} raw SHA-256 does not match manifest`);
+  const contents = raw.toString('utf8');
+  if (!Buffer.from(contents, 'utf8').equals(raw)) fail(`${label} map ${filename} is not valid UTF-8`);
+  let map;
+  try {
+    map = parseJsonNoDuplicates(contents, `${label} map ${filename}`);
+  } catch (error) {
+    fail(error instanceof Error ? error.message : String(error));
+    return null;
+  }
+  if (!isRecord(map)) {
+    fail(`${label} map ${filename} is not a Worker-consumable object`);
+    return null;
+  }
+  if (Object.keys(map).length === 0) fail(`${label} map ${filename} has no entries`);
+  return map;
+}
+
+function reportFailures() {
+  if (failures.length > 0) {
+    console.error(`[pages] production job-canon payload is incomplete: ${failures.join('; ')}`);
+    process.exitCode = 1;
+  }
+}
+
+let manifest;
+try {
+  const manifestPath = path.join(releaseDir, 'manifest.json');
+  const stat = fs.lstatSync(manifestPath);
+  if (!stat.isFile()) throw new Error('manifest.json is not a regular file');
+  const contents = fs.readFileSync(manifestPath, 'utf8');
+  if (contents.trim().length === 0) throw new Error('manifest.json is empty');
+  manifest = parseJsonNoDuplicates(contents, 'manifest.json');
+} catch (error) {
+  fail(`manifest.json is missing, malformed, or unreadable: ${error instanceof Error ? error.message : String(error)}`);
+}
+
+if (!manifest || !isRecord(manifest)) {
+  fail('manifest.json is not an object');
+  reportFailures();
+  process.exit(1);
+}
+if (!hasExactKeys(manifest, ['schemaVersion', 'logical', 'v1', 'v2'])) fail('manifest has missing or unknown top-level fields');
+if (manifest.schemaVersion !== 1) fail('manifest schemaVersion is unknown');
+if (!hasExactKeys(manifest.logical, ['entries', 'aliases', 'canonicalEntriesSha256'])) fail('manifest logical section has missing or unknown fields');
+if (!hasExactKeys(manifest.v1, ['files'])) fail('manifest v1 section has missing or unknown fields');
+if (!hasExactKeys(manifest.v2, ['files'])) fail('manifest v2 section has missing or unknown fields');
+if (!Number.isSafeInteger(manifest.logical?.entries) || manifest.logical.entries <= 0) fail('manifest logical.entries is invalid');
+if (!Number.isSafeInteger(manifest.logical?.aliases) || manifest.logical.aliases < 0) fail('manifest logical.aliases is invalid');
+if (!SHA256.test(manifest.logical?.canonicalEntriesSha256 ?? '')) fail('manifest logical canonical SHA-256 is invalid');
+
+const v1Files = manifest.v1?.files;
+const v2Files = manifest.v2?.files;
+validateFileManifest(v1Files, /^[a-z0-9_]{2}\.json$/, 'v1');
+validateFileManifest(v2Files, /^[0-9a-f]{3}\.json$/, 'v2');
 if (failures.length > 0) {
-  console.error(`[pages] production job-canon payload is incomplete: ${failures.join('; ')}`);
-  process.exitCode = 1;
+  reportFailures();
+  process.exit(1);
+}
+
+const v1Names = Object.keys(v1Files).sort();
+const v2Names = Object.keys(v2Files).sort();
+try {
+  const rootEntries = fs.readdirSync(releaseDir, { withFileTypes: true });
+  const expectedRootNames = new Set(['manifest.json', 'v2', ...v1Names]);
+  for (const entry of rootEntries) {
+    if (!expectedRootNames.has(entry.name)) fail(`unexpected job-canon root payload ${entry.name}`);
+    if (entry.name === 'manifest.json' && !entry.isFile()) fail('manifest.json is not a regular file');
+    if (entry.name === 'v2' && !entry.isDirectory()) fail('v2 payload is not a directory');
+    if (v1Names.includes(entry.name) && !entry.isFile()) fail(`v1 map ${entry.name} is not a regular file`);
+  }
+  for (const name of expectedRootNames) {
+    if (!rootEntries.some((entry) => entry.name === name)) fail(`declared job-canon root payload ${name} is missing`);
+  }
+  const v2Entries = fs.readdirSync(path.join(releaseDir, 'v2'), { withFileTypes: true });
+  const expectedV2Names = new Set(v2Names);
+  for (const entry of v2Entries) {
+    if (!expectedV2Names.has(entry.name)) fail(`unexpected v2 payload ${entry.name}`);
+    if (expectedV2Names.has(entry.name) && !entry.isFile()) fail(`v2 map ${entry.name} is not a regular file`);
+  }
+  for (const name of expectedV2Names) {
+    if (!v2Entries.some((entry) => entry.name === name)) fail(`declared v2 map ${name} is missing`);
+  }
+} catch (error) {
+  fail(`job-canon payload directory is missing or unreadable: ${error instanceof Error ? error.message : String(error)}`);
+}
+
+const v1BySlug = new Map();
+for (const filename of v1Names) {
+  const spec = v1Files[filename];
+  const map = readDeclaredMap(releaseDir, filename, spec, 'v1');
+  if (!map) continue;
+  const slugs = Object.keys(map).sort();
+  const canonicalDigest = createHash('sha256');
+  let aliases = 0;
+  for (const slug of slugs) {
+    if (!slug) {
+      fail(`v1 map ${filename} contains an empty slug`);
+      continue;
+    }
+    if (`${v1ShardKey(slug)}.json` !== filename) fail(`v1 slug ${JSON.stringify(slug)} is in the wrong shard`);
+    let entry;
+    try {
+      entry = canonicalEntry(map[slug], slug, `v1 map ${filename}`);
+    } catch (error) {
+      fail(error instanceof Error ? error.message : String(error));
+      continue;
+    }
+    aliases += aliasCount(entry);
+    hashCanonicalEntry(canonicalDigest, slug, entry);
+    if (v1BySlug.has(slug)) fail(`v1 slug ${JSON.stringify(slug)} is duplicated across shards`);
+    else v1BySlug.set(slug, JSON.stringify(entry));
+  }
+  if (slugs.length !== spec.entries) fail(`v1 map ${filename} entry count does not match manifest`);
+  if (aliases !== spec.aliases) fail(`v1 map ${filename} alias count does not match manifest`);
+  if (canonicalDigest.digest('hex') !== spec.canonicalEntriesSha256) fail(`v1 map ${filename} canonical digest does not match manifest`);
+}
+
+const logicalDigest = createHash('sha256');
+const seenV2 = new Set();
+let logicalEntries = 0;
+let logicalAliases = 0;
+for (const filename of v2Names) {
+  const spec = v2Files[filename];
+  const map = readDeclaredMap(path.join(releaseDir, 'v2'), filename, spec, 'v2');
+  if (!map) continue;
+  const slugs = Object.keys(map).sort();
+  const canonicalDigest = createHash('sha256');
+  let aliases = 0;
+  for (const slug of slugs) {
+    if (!slug) {
+      fail(`v2 map ${filename} contains an empty slug`);
+      continue;
+    }
+    if (`${v2ShardKey(slug)}.json` !== filename) fail(`v2 slug ${JSON.stringify(slug)} is in the wrong shard`);
+    let entry;
+    try {
+      entry = canonicalEntry(map[slug], slug, `v2 map ${filename}`);
+    } catch (error) {
+      fail(error instanceof Error ? error.message : String(error));
+      continue;
+    }
+    if (seenV2.has(slug)) fail(`v2 slug ${JSON.stringify(slug)} is duplicated across shards`);
+    seenV2.add(slug);
+    const serializedEntry = JSON.stringify(entry);
+    const v1Entry = v1BySlug.get(slug);
+    if (v1Entry === undefined) fail(`v2 slug ${JSON.stringify(slug)} is absent from v1`);
+    else if (v1Entry !== serializedEntry) fail(`v1/v2 entry mismatch for slug ${JSON.stringify(slug)}`);
+    else v1BySlug.delete(slug);
+    aliases += aliasCount(entry);
+    logicalAliases += aliasCount(entry);
+    logicalEntries += 1;
+    hashCanonicalEntry(canonicalDigest, slug, entry);
+    hashCanonicalEntry(logicalDigest, slug, entry);
+  }
+  if (slugs.length !== spec.entries) fail(`v2 map ${filename} entry count does not match manifest`);
+  if (aliases !== spec.aliases) fail(`v2 map ${filename} alias count does not match manifest`);
+  if (canonicalDigest.digest('hex') !== spec.canonicalEntriesSha256) fail(`v2 map ${filename} canonical digest does not match manifest`);
+}
+if (v1BySlug.size > 0) fail(`v1 contains ${v1BySlug.size} slug(s) missing from v2`);
+if (logicalEntries !== manifest.logical.entries) fail('manifest logical entry count does not match v2');
+if (logicalAliases !== manifest.logical.aliases) fail('manifest logical alias count does not match v2');
+if (logicalDigest.digest('hex') !== manifest.logical.canonicalEntriesSha256) fail('manifest logical digest does not match v2');
+
+if (failures.length > 0) {
+  reportFailures();
 } else {
-  console.log(`[pages] validated current job-canon maps: v1=${v1Count}, v2=${v2Count}`);
+  console.log(`[pages] validated current job-canon release: v1=${v1Names.length}, v2=${v2Names.length}, entries=${logicalEntries}, aliases=${logicalAliases}`);
 }
 NODE
   then

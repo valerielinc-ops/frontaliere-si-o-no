@@ -25,6 +25,7 @@
 // timeout test has a matched counterpart, and the "early CDN push only runs
 // section 2" test has an unflagged counterpart that must reach further.
 import { describe, it, expect, beforeAll } from 'vitest';
+import { createHash } from 'node:crypto';
 import { execFile, execFileSync } from 'node:child_process';
 import { resolve, join } from 'node:path';
 import { existsSync, mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync, symlinkSync } from 'node:fs';
@@ -32,6 +33,7 @@ import { tmpdir } from 'node:os';
 import YAML from 'yaml';
 import { IT_SHARD_GROUP_IDS } from '../scripts/ci/it-shard-group-plan.mjs';
 import { evaluateExpression } from './helpers/workflowNeedsSimulator';
+import { jobCanonV2ShardKey } from '../services/jobSlugShards';
 
 const DEPLOY_YML = readFileSync(resolve('.github/workflows/deploy.yml'), 'utf8');
 const DEPLOY_REQUEST_YML = readFileSync(resolve('.github/workflows/deploy-request.yml'), 'utf8');
@@ -1349,6 +1351,41 @@ describe('job-canon CDN releases keep the build marker after the complete payloa
     }
   });
 
+  it('rejects an incomplete or inconsistent release manifest before any Pages marker or push', () => {
+    for (const mutation of [
+      'missing-manifest',
+      'malformed-manifest',
+      'unknown-schema',
+      'missing-v1',
+      'missing-v2',
+      'raw-digest-mismatch',
+      'raw-count-mismatch',
+      'partial-v2',
+      'foreign-v2',
+      'key-mismatch',
+      'entry-mismatch',
+      'duplicate-v2-key',
+      'non-object-v2',
+      'extra-v2',
+    ] as const) {
+      const r = runPagesPublisher('valid', 'both', { jobCanonMutation: mutation });
+      try {
+        expect(r.code, mutation).toBe(1);
+        expect(r.stdout, mutation).toMatch(/production job-canon payload is incomplete/);
+        expect(r.events, mutation).not.toMatch(/git clone|git add|pages-push/);
+        expect(r.events, mutation).not.toContain('publisher-ack=1001');
+        expect(r.events, mutation).not.toContain('r2-call');
+        expect(r.envFile, mutation).not.toContain('CDN_PAGES_BUILD_ID=1001');
+        expect(r.markers, mutation).toEqual({
+          'cdn-build-id.txt': '999',
+          'cdn-publish-complete-id.txt': 'complete-998',
+        });
+      } finally {
+        rmSync(r.workspace, { recursive: true, force: true });
+      }
+    }
+  });
+
   it('keeps last-known-good R2 markers when Pages credentials, clone, or carry-forward fail', () => {
     for (const fixture of [
       { label: 'missing Pages credentials', options: { missingPagesCredentials: true } },
@@ -1430,10 +1467,25 @@ describe('job-canon CDN releases keep the build marker after the complete payloa
       const pushAt = r.events.indexOf('pages-push');
       expect(addAt).toBeGreaterThanOrEqual(0);
       expect(pushAt).toBeGreaterThan(addAt);
-      const maps = 'current-v1={"current-v1":{"it":"/cerca-lavoro"}} current-v2={"current-v2":{"it":"/cerca-lavoro"}}';
+      const maps = 'current-v1={"current-shared":{"it":"/cerca-lavoro"}} current-v2={"current-shared":{"it":"/cerca-lavoro"}} manifest=present';
       expect(r.events).toContain(`git-add marker=1001 legacy=legacy-v1 old-release=rollback-v1 ${maps}`);
       expect(r.events).toContain(`pages-push marker=1001 legacy=legacy-v1 old-release=rollback-v1 ${maps}`);
       expect(r.events).toContain('publisher-ack=1001 status=0');
+    } finally {
+      rmSync(r.workspace, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps the standalone R2 target independent of the Pages manifest gate and push', () => {
+    const r = runPagesPublisher('valid', 'r2');
+    try {
+      expect(r.code, r.stdout).toBe(0);
+      expect(r.events).toContain('r2-call ack=1001');
+      expect(r.events).not.toMatch(/git clone|git add|pages-push/);
+      expect(r.markers).toEqual({
+        'cdn-build-id.txt': '1001',
+        'cdn-publish-complete-id.txt': 'complete-1001',
+      });
     } finally {
       rmSync(r.workspace, { recursive: true, force: true });
     }
@@ -1532,6 +1584,130 @@ function runPrep(env: Record<string, string>, workspace = mkdtempSync(join(tmpdi
   }
 }
 
+type PagesJobCanonEntry = Record<string, unknown>;
+type PagesJobCanonMap = Record<string, PagesJobCanonEntry>;
+type PagesJobCanonMutation =
+  | 'missing-manifest'
+  | 'malformed-manifest'
+  | 'unknown-schema'
+  | 'missing-v1'
+  | 'missing-v2'
+  | 'raw-digest-mismatch'
+  | 'raw-count-mismatch'
+  | 'partial-v2'
+  | 'foreign-v2'
+  | 'key-mismatch'
+  | 'entry-mismatch'
+  | 'duplicate-v2-key'
+  | 'non-object-v2'
+  | 'extra-v2';
+
+function canonicalPagesJobCanonEntry(entry: PagesJobCanonEntry): PagesJobCanonEntry {
+  const canonical: PagesJobCanonEntry = {};
+  for (const locale of ['it', 'en', 'de', 'fr']) {
+    if (typeof entry[locale] === 'string') canonical[locale] = entry[locale];
+  }
+  if (entry.alias && typeof entry.alias === 'object') {
+    const aliases: PagesJobCanonEntry = {};
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      const value = (entry.alias as PagesJobCanonEntry)[locale];
+      if (typeof value === 'string') aliases[locale] = value;
+    }
+    if (Object.keys(aliases).length > 0) canonical.alias = aliases;
+  }
+  return canonical;
+}
+
+function pagesJobCanonDigest(entries: PagesJobCanonMap): string {
+  const digest = createHash('sha256');
+  for (const slug of Object.keys(entries).sort()) {
+    digest.update(JSON.stringify(slug));
+    digest.update(':');
+    digest.update(JSON.stringify(canonicalPagesJobCanonEntry(entries[slug])));
+    digest.update('\n');
+  }
+  return digest.digest('hex');
+}
+
+function pagesJobCanonV1ShardKey(slug: string): string {
+  const value = slug.slice(0, 2).toLowerCase().replace(/[^a-z0-9]/g, '_');
+  return value.length === 2 ? value : (value + '__').slice(0, 2);
+}
+
+function groupPagesJobCanonEntries(
+  entries: PagesJobCanonMap,
+  shardKey: (slug: string) => string,
+): Map<string, PagesJobCanonMap> {
+  const grouped = new Map<string, PagesJobCanonMap>();
+  for (const slug of Object.keys(entries).sort()) {
+    const filename = `${shardKey(slug)}.json`;
+    const shard = grouped.get(filename) ?? Object.create(null) as PagesJobCanonMap;
+    shard[slug] = canonicalPagesJobCanonEntry(entries[slug]);
+    grouped.set(filename, shard);
+  }
+  return grouped;
+}
+
+function writePagesJobCanonRelease(
+  directory: string,
+  v1Entries: PagesJobCanonMap,
+  v2Entries: PagesJobCanonMap,
+): Record<string, any> {
+  const v2Dir = join(directory, 'v2');
+  mkdirSync(v2Dir, { recursive: true });
+  const v1Files: Record<string, any> = {};
+  const v2Files: Record<string, any> = {};
+  const writeFiles = (
+    files: Map<string, PagesJobCanonMap>,
+    targetDir: string,
+    manifestFiles: Record<string, any>,
+  ) => {
+    for (const [filename, entries] of [...files].sort(([left], [right]) => left.localeCompare(right))) {
+      const raw = Buffer.from(JSON.stringify(entries), 'utf8');
+      writeFileSync(join(targetDir, filename), raw);
+      const aliases = Object.values(entries).reduce((total, entry) =>
+        total + (entry.alias && typeof entry.alias === 'object' ? Object.keys(entry.alias).length : 0), 0);
+      manifestFiles[filename] = {
+        bytes: raw.length,
+        sha256: createHash('sha256').update(raw).digest('hex'),
+        entries: Object.keys(entries).length,
+        aliases,
+        canonicalEntriesSha256: pagesJobCanonDigest(entries),
+      };
+    }
+  };
+  writeFiles(groupPagesJobCanonEntries(v1Entries, pagesJobCanonV1ShardKey), directory, v1Files);
+  const v2Shards = groupPagesJobCanonEntries(v2Entries, jobCanonV2ShardKey);
+  writeFiles(v2Shards, v2Dir, v2Files);
+
+  const logicalDigest = createHash('sha256');
+  let logicalEntries = 0;
+  let logicalAliases = 0;
+  for (const [, entries] of [...v2Shards].sort(([left], [right]) => left.localeCompare(right))) {
+    for (const slug of Object.keys(entries).sort()) {
+      const entry = canonicalPagesJobCanonEntry(entries[slug]);
+      logicalDigest.update(JSON.stringify(slug));
+      logicalDigest.update(':');
+      logicalDigest.update(JSON.stringify(entry));
+      logicalDigest.update('\n');
+      logicalEntries += 1;
+      logicalAliases += entry.alias && typeof entry.alias === 'object' ? Object.keys(entry.alias).length : 0;
+    }
+  }
+  const manifest = {
+    schemaVersion: 1,
+    logical: {
+      entries: logicalEntries,
+      aliases: logicalAliases,
+      canonicalEntriesSha256: logicalDigest.digest('hex'),
+    },
+    v1: { files: v1Files },
+    v2: { files: v2Files },
+  };
+  writeFileSync(join(directory, 'manifest.json'), `${JSON.stringify(manifest)}\n`, 'utf8');
+  return manifest;
+}
+
 function runPagesPublisher(
   jobCanonFixture: 'missing' | 'empty' | 'valid',
   cdnTarget: 'pages' | 'both',
@@ -1541,6 +1717,7 @@ function runPagesPublisher(
     carryForwardFailure?: boolean;
     pagesPushFailure?: boolean;
     r2MarkerFailure?: boolean;
+    jobCanonMutation?: PagesJobCanonMutation;
   } = {},
 ): {
   code: number;
@@ -1554,6 +1731,9 @@ function runPagesPublisher(
   const dist = join(workspace, 'dist');
   const assets = join(dist, 'assets');
   const buildId = '1001';
+  const currentSlug = 'current-shared';
+  const currentV1Filename = `${pagesJobCanonV1ShardKey(currentSlug)}.json`;
+  const currentV2Filename = `${jobCanonV2ShardKey(currentSlug)}.json`;
   mkdirSync(assets, { recursive: true });
   writeFileSync(
     join(dist, 'index.html'),
@@ -1578,9 +1758,84 @@ function runPagesPublisher(
       mkdirSync(join(jobCanon, 'v2'), { recursive: true });
       writeFileSync(join(jobCanon, 'v2', 'abc.json'), '');
     } else {
-      mkdirSync(join(jobCanon, 'v2'), { recursive: true });
-      writeFileSync(join(jobCanon, 'ab.json'), JSON.stringify({ 'current-v1': { it: '/cerca-lavoro' } }));
-      writeFileSync(join(jobCanon, 'v2', 'abc.json'), JSON.stringify({ 'current-v2': { it: '/cerca-lavoro' } }));
+      let v1Entries: PagesJobCanonMap = { [currentSlug]: { it: '/cerca-lavoro' } };
+      let v2Entries: PagesJobCanonMap = { [currentSlug]: { it: '/cerca-lavoro' } };
+      switch (options.jobCanonMutation) {
+        case 'partial-v2':
+          v1Entries = {
+            [currentSlug]: { it: '/cerca-lavoro' },
+            'current-extra': { en: '/en/find-jobs' },
+          };
+          break;
+        case 'foreign-v2':
+          v2Entries = {
+            [currentSlug]: { it: '/cerca-lavoro' },
+            'foreign-shared': { en: '/en/foreign-jobs' },
+          };
+          break;
+        case 'key-mismatch':
+          v2Entries = { 'foreign-shared': { it: '/cerca-lavoro' } };
+          break;
+        case 'entry-mismatch':
+          v2Entries = { [currentSlug]: { it: '/foreign-section' } };
+          break;
+      }
+      const manifest = writePagesJobCanonRelease(jobCanon, v1Entries, v2Entries);
+      const firstV1Filename = Object.keys(manifest.v1.files)[0];
+      const firstV2Filename = Object.keys(manifest.v2.files)[0];
+      const manifestPath = join(jobCanon, 'manifest.json');
+      const rewriteManifest = () => writeFileSync(manifestPath, `${JSON.stringify(manifest)}\n`, 'utf8');
+      switch (options.jobCanonMutation) {
+        case 'missing-manifest':
+          rmSync(manifestPath, { force: true });
+          break;
+        case 'malformed-manifest':
+          writeFileSync(manifestPath, '{"schemaVersion":', 'utf8');
+          break;
+        case 'unknown-schema':
+          manifest.schemaVersion = 2;
+          rewriteManifest();
+          break;
+        case 'missing-v1':
+          rmSync(join(jobCanon, firstV1Filename), { force: true });
+          break;
+        case 'missing-v2':
+          rmSync(join(jobCanon, 'v2', firstV2Filename), { force: true });
+          break;
+        case 'raw-digest-mismatch':
+          manifest.v1.files[firstV1Filename].sha256 = '0'.repeat(64);
+          rewriteManifest();
+          break;
+        case 'raw-count-mismatch':
+          manifest.v1.files[firstV1Filename].bytes += 1;
+          rewriteManifest();
+          break;
+        case 'duplicate-v2-key': {
+          const v2Path = join(jobCanon, 'v2', firstV2Filename);
+          const raw = readFileSync(v2Path, 'utf8');
+          const parsed = JSON.parse(raw) as PagesJobCanonMap;
+          const [slug] = Object.keys(parsed);
+          const duplicate = `${raw.slice(0, -1)},${JSON.stringify(slug)}:${JSON.stringify(parsed[slug])}}`;
+          writeFileSync(v2Path, duplicate, 'utf8');
+          const bytes = Buffer.from(duplicate, 'utf8');
+          manifest.v2.files[firstV2Filename].bytes = bytes.length;
+          manifest.v2.files[firstV2Filename].sha256 = createHash('sha256').update(bytes).digest('hex');
+          rewriteManifest();
+          break;
+        }
+        case 'non-object-v2': {
+          const v2Path = join(jobCanon, 'v2', firstV2Filename);
+          writeFileSync(v2Path, '[]', 'utf8');
+          const bytes = Buffer.from('[]', 'utf8');
+          manifest.v2.files[firstV2Filename].bytes = bytes.length;
+          manifest.v2.files[firstV2Filename].sha256 = createHash('sha256').update(bytes).digest('hex');
+          rewriteManifest();
+          break;
+        }
+        case 'extra-v2':
+          writeFileSync(join(jobCanon, 'v2', 'unlisted.json'), '{}', 'utf8');
+          break;
+      }
     }
   }
 
@@ -1624,7 +1879,7 @@ function runPagesPublisher(
     '    -C) return 0 ;;',
     '    add)',
     '      local stage="$PWD" release="$PWD/job-canon/releases/1001"',
-    '      printf "git-add marker=%s legacy=%s old-release=%s current-v1=%s current-v2=%s\\n" "$(cat "$stage/cdn-build-id.txt")" "$(cat "$stage/job-canon/ne.json")" "$(cat "$stage/job-canon/releases/1000/xy.json")" "$(cat "$release/ab.json")" "$(cat "$release/v2/abc.json")" >> "$TEST_EVENTS"',
+    `      printf "git-add marker=%s legacy=%s old-release=%s current-v1=%s current-v2=%s manifest=%s\\n" "$(cat "$stage/cdn-build-id.txt")" "$(cat "$stage/job-canon/ne.json")" "$(cat "$stage/job-canon/releases/1000/xy.json")" "$(cat "$release/${currentV1Filename}")" "$(cat "$release/v2/${currentV2Filename}")" "$(test -f "$release/manifest.json" && echo present)" >> "$TEST_EVENTS"`,
     '      return 0',
     '      ;;',
     '    *) return 0 ;;',
@@ -1637,7 +1892,7 @@ function runPagesPublisher(
     'du() { if [ "$1" = "-sb" ]; then printf "1\\n"; else printf "1.0M\\t%s\\n" "$2"; fi; }',
     'shard_push_with_retry() {',
     '  local stage="$1" release="$1/job-canon/releases/1001"',
-    '  printf "pages-push marker=%s legacy=%s old-release=%s current-v1=%s current-v2=%s\\n" "$(cat "$stage/cdn-build-id.txt")" "$(cat "$stage/job-canon/ne.json")" "$(cat "$stage/job-canon/releases/1000/xy.json")" "$(cat "$release/ab.json")" "$(cat "$release/v2/abc.json")" >> "$TEST_EVENTS"',
+    `  printf "pages-push marker=%s legacy=%s old-release=%s current-v1=%s current-v2=%s manifest=%s\\n" "$(cat "$stage/cdn-build-id.txt")" "$(cat "$stage/job-canon/ne.json")" "$(cat "$stage/job-canon/releases/1000/xy.json")" "$(cat "$release/${currentV1Filename}")" "$(cat "$release/v2/${currentV2Filename}")" "$(test -f "$release/manifest.json" && echo present)" >> "$TEST_EVENTS"`,
     '  [ "${TEST_PAGES_PUSH_FAILURE:-}" != 1 ] || return 1',
     '  return 0',
     '}',
