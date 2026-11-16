@@ -21,6 +21,14 @@ import { assertSocialCopyPackProductionRef, socialCopyInvocationId } from './res
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 // GitHub Models has been retired; only configured providers with an active free route belong here.
 const ALLOWED_FREE_PROVIDERS = new Set(['gemini', 'groq', 'openrouter']);
+// Groq's free route has an 8,000-token TPM request ceiling. The compact social
+// prompt consumes part of it, so keep the completion request below the cap
+// instead of reproducing the observed 8,277-token rejection.
+const GROQ_SOCIAL_COPY_MAX_TOKENS = 5_000;
+const TRANSIENT_FAILURE_CATEGORIES = new Set([
+  'provider-quota-or-rate-limit',
+  'provider-temporary-failure',
+]);
 
 // Only established no-cost tiers are eligible. Keep Cloudflare, Cohere trials,
 // and paid or retired providers out of this recovery path.
@@ -256,6 +264,16 @@ export function classifySocialCopyFallbackFailure(error, phase = 'request') {
 
   const message = String(error?.message || error || '').slice(0, 1000).toLowerCase();
   const status = statusFromError(error);
+  // Groq reports its free-tier TPM exhaustion as HTTP 413 with a
+  // `rate_limit_exceeded` body. That is capacity exhaustion, not a bad pack or
+  // a revoked credential, so it must be classified before the generic 4xx
+  // branch below. OpenRouter can also return an empty response while its free
+  // route has no healthy upstream; the next scheduled run can retry that case.
+  if (/rate[_ -]?limit[_ -]?exceeded|tokens?\s+per\s+minute|tokens?_remaining_day|empty response|no endpoints? available|temporarily unavailable|service unavailable|upstream/.test(message)) {
+    return /rate|token|quota|limit/.test(message)
+      ? 'provider-quota-or-rate-limit'
+      : 'provider-temporary-failure';
+  }
   if (status === 401 || /api key not set|missing api key|invalid api key|unauthorized/.test(message)) {
     return 'provider-auth-failed';
   }
@@ -280,6 +298,20 @@ export function classifySocialCopyFallbackFailure(error, phase = 'request') {
   return 'provider-request-failed';
 }
 
+/**
+ * A no-pack result is safe to defer only when every attempted request failed
+ * for a transient provider-capacity reason. Validation, auth, model and output
+ * failures must continue to fail the job so the deterministic pack is not used
+ * to hide a persistent defect.
+ */
+export function isTransientSocialCopyFallbackFailureSet(failures) {
+  return Array.isArray(failures)
+    && failures.length > 0
+    && failures.every(({ phase, category }) => (
+      phase === 'request' && TRANSIENT_FAILURE_CATEGORIES.has(category)
+    ));
+}
+
 function writeWorkflowOutput(env, values) {
   const lines = Object.entries(values).map(([key, value]) => `${key}=${String(value)}`).join('\n') + '\n';
   if (env.GITHUB_OUTPUT) appendFileSync(env.GITHUB_OUTPUT, lines, { mode: 0o600 });
@@ -293,14 +325,17 @@ function failureSummary(failures) {
 
 function markNoPack({ env, stdout, reason, attempted = [], failures = [] }) {
   const summary = failureSummary(failures);
+  const deferred = reason === 'free-fallback-weekly-budget-exhausted'
+    || (reason === 'all-free-models-failed' && isTransientSocialCopyFallbackFailureSet(failures));
   writeWorkflowOutput(env, {
     pack_generated: 'false', provider: 'none', reason,
+    deferred,
     attempt_failures: summary,
     editorial_parity: 'not-evaluated',
     editorial_parity_provider: 'none',
   });
-  stdout.write(`pack_generated=false\nprovider=none\nreason=${reason}\nattempted=${attempted.join(',')}\nattempt_failures=${summary}\neditorial_parity=not-evaluated\neditorial_parity_provider=none\n`);
-  return { packGenerated: false, provider: null, reason, attempted, failures };
+  stdout.write(`pack_generated=false\nprovider=none\nreason=${reason}\ndeferred=${deferred}\nattempted=${attempted.join(',')}\nattempt_failures=${summary}\neditorial_parity=not-evaluated\neditorial_parity_provider=none\n`);
+  return { packGenerated: false, provider: null, reason, deferred, attempted, failures };
 }
 
 export async function run({
@@ -364,10 +399,13 @@ export async function run({
     });
     let response;
     try {
+      const maxTokens = candidate.provider === 'groq'
+        ? GROQ_SOCIAL_COPY_MAX_TOKENS
+        : candidate.context === 'compact' ? 6000 : 7500;
       response = await callModel(messages, {
         model: candidate.model,
         temperature: 0.3,
-        maxTokens: candidate.context === 'compact' ? 6000 : 7500,
+        maxTokens,
         jsonMode: true,
         timeout: 90_000,
         maxRetriesPerModel: 1,

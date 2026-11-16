@@ -10,6 +10,7 @@ import {
   classifySocialCopyFallbackFailure,
   fallbackPackEditorialParity,
   FREE_SOCIAL_COPY_MODEL_CANDIDATES,
+  isTransientSocialCopyFallbackFailureSet,
   run,
   selectAvailableFreeModels,
 } from '../scripts/social-copy/generate-free-model-fallback.mjs';
@@ -79,12 +80,29 @@ describe('social copy free-model fallback', () => {
     [new Error('[model] HTTP 401: credential detail'), 'provider-auth-failed'],
     [new Error('[model] HTTP 403: access denied'), 'provider-access-denied'],
     [new Error('[model] HTTP 429: quota exceeded'), 'provider-quota-or-rate-limit'],
+    [new Error('[model] HTTP 413: {"code":"rate_limit_exceeded","message":"tokens per minute limit reached"}'), 'provider-quota-or-rate-limit'],
     [new Error('[model] HTTP 404: model not found'), 'model-unavailable'],
     [new Error('[model] HTTP 503: unavailable'), 'provider-temporary-failure'],
+    [new Error('[model] Empty response after 1 attempts'), 'provider-temporary-failure'],
+    [new Error('[model] No endpoints available for this model'), 'provider-temporary-failure'],
     [new Error('[model] HTTP 400: request rejected'), 'provider-request-rejected'],
     [new Error('fetch failed: ECONNRESET'), 'provider-temporary-failure'],
   ])('classifies provider failures safely as %s', (error, category) => {
     expect(classifySocialCopyFallbackFailure(error)).toBe(category);
+  });
+
+  it('defers only a no-pack result made entirely of transient request failures', () => {
+    expect(isTransientSocialCopyFallbackFailureSet([
+      { provider: 'gemini', phase: 'request', category: 'provider-quota-or-rate-limit' },
+      { provider: 'openrouter', phase: 'request', category: 'provider-temporary-failure' },
+    ])).toBe(true);
+    expect(isTransientSocialCopyFallbackFailureSet([
+      { provider: 'gemini', phase: 'request', category: 'provider-quota-or-rate-limit' },
+      { provider: 'groq', phase: 'request', category: 'provider-request-rejected' },
+    ])).toBe(false);
+    expect(isTransientSocialCopyFallbackFailureSet([
+      { provider: 'gemini', phase: 'validation', category: 'response-invalid' },
+    ])).toBe(false);
   });
 
   it('reports request and response failures separately without logging provider error text', async () => {
@@ -205,6 +223,34 @@ describe('social copy free-model fallback', () => {
     expect(stdout.value).toContain('editorial_parity=match');
     expect(stdout.value).toContain('editorial_parity_provider=gemini');
     expect(result.editorialParity).toMatchObject({ provider: 'gemini', status: 'match' });
+  });
+
+  it('keeps the Groq completion under its free-route TPM ceiling', async () => {
+    const directory = temporaryDirectory();
+    let callOptions: Record<string, unknown> | undefined;
+
+    const result = await run({
+      env: {
+        GITHUB_REF: 'refs/heads/main',
+        GITHUB_REPOSITORY: 'example/social',
+        GITHUB_RUN_ID: '127',
+        GITHUB_RUN_ATTEMPT: '1',
+      },
+      modelCandidates: [{ provider: 'groq', model: 'groq-test', context: 'compact' }],
+      available: () => true,
+      providerOf: () => 'groq',
+      db: {} as any,
+      callModel: async (_messages: unknown, options: Record<string, unknown>) => {
+        callOptions = options;
+        throw new Error('[model] HTTP 413: rate_limit_exceeded tokens per minute');
+      },
+      reserve: async () => ({ allowed: true } as any),
+      stdout: { write() {} } as any,
+      outputPath: path.join(directory, 'response.json'),
+    });
+
+    expect(result).toMatchObject({ packGenerated: false, reason: 'all-free-models-failed', deferred: true });
+    expect(callOptions).toMatchObject({ maxTokens: 5000 });
   });
 
   it('observes stable Italian editorial parity per generation provider', () => {
