@@ -1,7 +1,7 @@
 {
   "key": "fixit-ch",
   "label": "Fixit AG",
-  "generatedAt": "2026-11-15T21:45:18.342Z",
+  "generatedAt": "2026-11-16T09:23:54.772Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -36,10 +36,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3683,
-  "avgDurationMs": 3683,
+  "durationMs": 3485,
+  "avgDurationMs": 3485,
   "durationHistory": [
-    3683
+    3485
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -57,7 +57,7 @@
       "url": "https://www.fixit.ch/karriere/jobs/position/verkaufsberatung-im-aussendienst-mw",
       "source": "Fixit AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:45:06.409Z",
+      "crawledAt": "2026-11-16T09:23:40.462Z",
       "addressLocality": "Untervaz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "salaryMax": 105000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-09T21:45:06.409Z",
+      "validThrough": "2027-02-09T09:23:40.462Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -91,5 +91,5 @@
       }
     }
   ],
-  "codeCommit": "b0e0a209c23d72cde28658756e39fb5de3eaaca5"
+  "codeCommit": "71e06c4f557e81be4e8743feaa696210bf683ef0"
 }
