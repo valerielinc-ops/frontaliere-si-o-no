@@ -140,7 +140,8 @@ export function installAdRecovery(
   const hasPendingInlineHouseSlot = () => Array.from(document.querySelectorAll<HTMLElement>('[data-house][data-ft-house-eligible]')).some((frame) => {
     const google = frame.querySelector<HTMLElement>('[data-ft-house-google],ins[data-ad-slot]');
     if ((!google && !frame.hasAttribute('data-ft-house-blocker-only')) || occupied(frame) || !onScreen(frame)) return false;
-    return frame.getBoundingClientRect().width >= 160;
+    const bounds = frame.getBoundingClientRect();
+    return bounds.width >= 160 && bounds.height > 0;
   });
   const hasRenderedInlineHouseCreative = () => Array.from(document.querySelectorAll<HTMLElement>('[data-house][data-ft-house-active]')).some((frame) => {
     const creative = frame.querySelector<HTMLElement>('[data-ft-house-host] .ft-house-creative');
