@@ -232,6 +232,20 @@
       "decidedAt": "2026-11-15T12:59:58Z",
       "ref": "#17979, #17892, #17814",
       "reason": "Marker owner/monitor dopo una PR già mergiata, già coperto da `recovery-pending`; non è un abort del fixer né una capability mancante, quindi aggiungerlo confonderebbe la telemetria senza prevenire un comportamento dell'agente."
+    },
+    {
+      "key": "fix-outcome/fix-outcome:analysis-deferred",
+      "outcome": "added",
+      "decidedAt": "2026-11-16T13:56:28Z",
+      "ref": "#18841, #18718, #18051, #17602",
+      "reason": "ISSUES.md chiarisce che `analysis-deferred` è un motivo runtime, non un FIX_OUTCOME: diagnosi non convergente → `no-root-cause` + defer tecnico; capability mancante → `blocked-*`."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-scripts-funnel-new",
+      "outcome": "declined",
+      "decidedAt": "2026-11-16T13:56:28Z",
+      "ref": "#19001, #18569, #17130",
+      "reason": "Già coperto da AGENTS.md #6: ogni nuovo ramo funnel-critical deve dimostrare dominio/ownership e non può classificare su shape, status o match parziale; una nuova regola duplicherà il contratto."
     }
   ]
 }
