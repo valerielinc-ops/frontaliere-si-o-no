@@ -92,7 +92,7 @@ export function summarizeReaderSubscriptionTraffic(response) {
     const [event, component, surface, device] = row.dimensionValues.map(v => v.value);
     const match = /^reader_subscription_house_v1\.(control|subscription)\.test\.(it|en|de|fr)$/.exec(component);
     if (!match || ![
-      'reader_subscription_experiment_exposure', 'reader_subscription_experiment_impression',
+      'reader_subscription_experiment_exposure', 'reader_sub_experiment_impression',
       'reader_subscription_experiment_click', 'reader_subscription_ad_impression',
       'reader_subscription_ad_click', 'reader_subscription_ad_landing',
     ].includes(event)) continue;
@@ -109,7 +109,7 @@ export function summarizeReaderSubscriptionTraffic(response) {
     const metric = Number(row.metricValues[0]?.value || 0);
     const users = Number(row.metricValues[1]?.value || 0);
     if (event === 'reader_subscription_experiment_exposure') { group.exposures += metric; group.uniqueExposureUsers += users; }
-    else if (event === 'reader_subscription_experiment_impression') { group.impressions += metric; group.uniqueImpressionUsers += users; }
+    else if (event === 'reader_sub_experiment_impression') { group.impressions += metric; group.uniqueImpressionUsers += users; }
     else if (event === 'reader_subscription_experiment_click') { group.clicks += metric; group.uniqueClickUsers += users; }
     else if (event === 'reader_subscription_ad_impression') { group.subscriptionCardImpressions += metric; group.uniqueSubscriptionCardImpressionUsers += users; }
     else if (event === 'reader_subscription_ad_click') { group.subscriptionCardClicks += metric; group.uniqueSubscriptionCardClickUsers += users; }
@@ -183,7 +183,7 @@ export async function runHouseAdReadout(argv = process.argv.slice(2)) {
     metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
     dimensionFilter: { filter: { fieldName: 'eventName', inListFilter: { values: [
       'house_ad_impression', 'house_ad_click', 'house_ad_landing',
-      'reader_subscription_experiment_exposure', 'reader_subscription_experiment_impression',
+      'reader_subscription_experiment_exposure', 'reader_sub_experiment_impression',
       'reader_subscription_experiment_click', 'reader_subscription_ad_impression',
       'reader_subscription_ad_click', 'reader_subscription_ad_landing',
     ] } } },
@@ -195,7 +195,7 @@ export async function runHouseAdReadout(argv = process.argv.slice(2)) {
     metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
     dimensionFilter: { filter: { fieldName: 'eventName', inListFilter: { values: [
       'house_ad_impression', 'house_ad_click', 'house_ad_landing',
-      'reader_subscription_experiment_exposure', 'reader_subscription_experiment_impression',
+      'reader_subscription_experiment_exposure', 'reader_sub_experiment_impression',
       'reader_subscription_experiment_click', 'reader_subscription_ad_impression',
       'reader_subscription_ad_click', 'reader_subscription_ad_landing',
     ] } } },
