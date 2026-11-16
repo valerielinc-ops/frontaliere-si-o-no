@@ -726,6 +726,7 @@ describe('materializzazioni sparse dichiarate nel workflow', () => {
       'build-plugins/shared/cantonResolvers.mjs',
       'data/canton-municipalities.json',
       'data/canton-url-slugs.json',
+      'data/swiss-locality-postal-codes.json',
     ]);
   });
 
