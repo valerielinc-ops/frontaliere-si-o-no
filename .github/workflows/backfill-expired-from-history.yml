@@ -134,6 +134,12 @@ jobs:
         run: |
           set -euo pipefail
 
+          write_continuation_output() {
+            if [ -n "${GITHUB_OUTPUT:-}" ]; then
+              printf 'continuation_required=%s\n' "$1" >> "$GITHUB_OUTPUT"
+            fi
+          }
+
           checkpoint_batch_size="${BACKFILL_CHECKPOINT_BATCH_SIZE:-8}"
           case "$checkpoint_batch_size" in
             ''|*[!0-9]*|0)
@@ -158,6 +164,7 @@ jobs:
 
           if [ -z "$keys" ]; then
             echo 'ℹ️ No crawler slices matched; nothing to backfill.'
+            write_continuation_output false
             exit 0
           fi
 
@@ -399,15 +406,17 @@ jobs:
               -f "inputs[max_commits]=$MAX_COMMITS" \
               -f "inputs[crawler_keys]=$CRAWLER_KEYS" \
               -f "inputs[history_since]=$HISTORY_SINCE"
+            write_continuation_output true
             echo '✅ Remaining history backfill queued from the durable cursor.'
             exit 0
           fi
 
           checkpoint 1
+          write_continuation_output false
           echo '✅ History backfill completed with durable checkpoints.'
 
       - name: Reassemble dataset (so the test gate has data/jobs.json; not committed)
-        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        if: steps.backfill.outputs.continuation_required == 'false' && inputs.dry_run != true && inputs.dry_run != 'true'
         # Regenerates the assembled artifacts (data/jobs.json, expired-jobs.json)
         # that the vitest gate reads. These are deploy-assembled, not committed by
         # the --slice-only checkpoint commits above. We deliberately do NOT run
@@ -419,7 +428,7 @@ jobs:
 
       - name: Test gate (bot-direct-to-main — validate before deploy)
         id: backfill_tests
-        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        if: steps.backfill.outputs.continuation_required == 'false' && inputs.dry_run != true && inputs.dry_run != 'true'
         # A workflow that pushes data straight to main is held to the same
         # relevant-test policy as a PR (AGENTS.md). The full suite is not the
         # gate here: its unrelated corpus/environment tests can fail after the
@@ -433,7 +442,7 @@ jobs:
         run: npm run test:backfill
 
       - name: Record self-driven deploy handoff after validated backfill
-        if: steps.backfill.outcome == 'success' && steps.backfill_tests.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: steps.backfill.outcome == 'success' && steps.backfill.outputs.continuation_required == 'false' && steps.backfill_tests.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
         # Do not gate this on has_changes: a previous attempt may have pushed
         # its checkpoint and failed only in the test/deploy tail. A clean rerun
         # must still leave the data for deploy.yml's self-driven schedule.

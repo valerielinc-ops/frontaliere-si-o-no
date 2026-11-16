@@ -62,10 +62,12 @@ function runWorkflowHarness(options: {
   const bin = join(root, 'bin');
   const home = join(root, 'home');
   const eventsPath = join(root, 'events.log');
+  const githubOutputPath = join(root, 'github-output');
   mkdirSync(bin, { recursive: true });
   mkdirSync(home, { recursive: true });
   mkdirSync(repo, { recursive: true });
   writeFileSync(eventsPath, '');
+  writeFileSync(githubOutputPath, '');
 
   const setupEnv = isolatedEnv(home);
   const writeExecutable = (path: string, contents: string) => {
@@ -179,6 +181,7 @@ function runWorkflowHarness(options: {
       CRAWLER_DELAY_SECONDS: String(options.crawlerDelaySeconds ?? 0),
       GITHUB_PAT: 'test-pat',
       GITHUB_REPOSITORY: 'owner/repository',
+      GITHUB_OUTPUT: githubOutputPath,
     });
     // GitHub's Ubuntu runner has Bash 5, while macOS /bin/bash 3.2 lacks
     // mapfile. This equivalent array read keeps the extracted workflow block
@@ -198,6 +201,7 @@ function runWorkflowHarness(options: {
       stdout: result.stdout,
       stderr: result.stderr,
       events: readFileSync(eventsPath, 'utf8').trim().split('\n').filter(Boolean),
+      outputs: readFileSync(githubOutputPath, 'utf8').trim().split('\n').filter(Boolean),
       progress: existsSync(join(repo, progressRelativePath))
         ? readFileSync(join(repo, progressRelativePath), 'utf8').trimEnd()
         : '',
@@ -450,6 +454,32 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(result.events.some((event) => event.startsWith('dispatch:'))).toBe(true);
     expect(result.progress.split('\t')).toEqual([hashWorkset(['alpha', 'beta']), 'alpha', 'active']);
     expect(result.stdout).toContain('queueing the remaining crawler workset');
+    expect(result.outputs).toEqual(['continuation_required=true']);
+  });
+
+  it('gates final assembly, tests, and deploy handoff on a completed backfill', () => {
+    const continued = runWorkflowHarness({
+      crawlerKeys: ['alpha', 'beta'],
+      checkpointBatchSize: 1,
+      runBudgetSeconds: 1,
+      crawlerDelaySeconds: 2,
+    });
+    expect(continued.status).toBe(0);
+    expect(continued.stdout).toContain('queueing the remaining crawler workset');
+    expect(continued.outputs).toEqual(['continuation_required=true']);
+
+    const completed = runWorkflowHarness();
+    expect(completed.outputs).toEqual(['continuation_required=false']);
+
+    const steps = parseYaml(workflow).jobs.backfill.steps as Array<{ name?: string; if?: string }>;
+    for (const name of [
+      'Reassemble dataset (so the test gate has data/jobs.json; not committed)',
+      'Test gate (bot-direct-to-main — validate before deploy)',
+      'Record self-driven deploy handoff after validated backfill',
+    ]) {
+      const step = steps.find((candidate) => candidate.name === name);
+      expect(step?.if, name).toContain("steps.backfill.outputs.continuation_required == 'false'");
+    }
   });
 
   it('checkpoints prior crawler output after a later crawler errors and keeps the run failed', () => {
