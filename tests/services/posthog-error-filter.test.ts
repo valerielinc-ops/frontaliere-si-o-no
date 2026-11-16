@@ -230,6 +230,28 @@ describe('createExceptionFilter()', () => {
     expect(filter(event)).toBeNull();
   });
 
+  it("drops Microsoft Clarity runtime 'apply' errors from scripts.clarity.ms (#19026)", () => {
+    const event = {
+      event: '$exception',
+      properties: {
+        $exception_values: [{ type: 'TypeError', value: "Cannot read properties of undefined (reading 'apply')" }],
+        $exception_list: [
+          {
+            type: 'TypeError',
+            value: "Cannot read properties of undefined (reading 'apply')",
+            stacktrace: {
+              frames: [
+                { filename: 'https://scripts.clarity.ms/0.8.77/clarity.js', lineno: 1, colno: 1 },
+                { filename: 'https://scripts.clarity.ms/0.8.77/clarity.js', lineno: 2, colno: 100 },
+              ],
+            },
+          },
+        ],
+      },
+    };
+    expect(filter(event)).toBeNull();
+  });
+
   it('drops GPT errors whose entire stack is from securepubads.g.doubleclick.net', () => {
     const event = {
       event: '$exception',
