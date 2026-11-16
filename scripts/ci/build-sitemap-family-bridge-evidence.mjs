@@ -2,6 +2,7 @@
 import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
+import { spawnSync } from 'node:child_process';
 import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 import { readSitemapSnapshot } from '../lib/sitemap-snapshot.mjs';
 import {
@@ -11,6 +12,15 @@ import {
 } from '../lib/sitemap-family-coverage.mjs';
 
 export const BRIDGE_EVIDENCE_KIND = 'sitemap-family-bridge-evidence';
+const LOCALES = new Set(['it', 'en', 'de', 'fr']);
+
+export function urlLocale(url) {
+  const pathname = new URL(url).pathname;
+  for (const locale of ['en', 'de', 'fr']) {
+    if (pathname.startsWith(`/${locale}/`)) return locale;
+  }
+  return 'it';
+}
 
 function routeCandidates(url) {
   let parsed;
@@ -25,14 +35,25 @@ function routeCandidates(url) {
   return [`${relative}/index.html`, `${relative}.html`];
 }
 
-function hasNoindexFollow(html) {
+function metaAttributes(tag) {
+  const attributes = new Map();
+  const source = tag.replace(/^<meta\b/iu, '').replace(/\/?>$/u, '');
+  const attributePattern = /\s+([^\s"'<>/=]+)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s"'=<>`]+)))?/gu;
+  for (const match of source.matchAll(attributePattern)) {
+    const name = match[1].toLowerCase();
+    if ((name === 'name' || name === 'content') && attributes.has(name)) return null;
+    if (!attributes.has(name)) attributes.set(name, match[2] ?? match[3] ?? match[4] ?? '');
+  }
+  return attributes;
+}
+
+export function hasNoindexFollow(html) {
   const tags = html.match(/<meta\b[^>]*>/giu) ?? [];
   return tags.some((tag) => {
-    const nameFirst = /\bname\s*=\s*["']?robots["']?/iu.test(tag)
-      && /\bcontent\s*=\s*["'][^"']*\bnoindex\b[^"']*\bfollow\b/iu.test(tag);
-    const contentFirst = /\bcontent\s*=\s*["'][^"']*\bnoindex\b[^"']*\bfollow\b/iu.test(tag)
-      && /\bname\s*=\s*["']?robots["']?/iu.test(tag);
-    return nameFirst || contentFirst;
+    const attributes = metaAttributes(tag);
+    if (attributes?.get('name')?.toLowerCase() !== 'robots') return false;
+    const directives = (attributes.get('content') ?? '').toLowerCase().split(/[\s,]+/u);
+    return directives.includes('noindex') && directives.includes('follow');
   });
 }
 
@@ -40,18 +61,69 @@ function familyRemovedUrls(previousSnapshot, currentSnapshot, family) {
   return sitemapFamilyUrlDifferences(previousSnapshot, currentSnapshot, family).removedUrls;
 }
 
-export function buildSitemapFamilyBridgeEvidence({ previousSnapshot, currentSnapshot, distDir }) {
+export function createTarDistReader(tarFile) {
+  const listing = spawnSync('tar', ['-tf', tarFile], {
+    maxBuffer: 256 * 1024 * 1024,
+    encoding: 'utf8',
+  });
+  if (listing.status !== 0) {
+    const stderr = String(listing.stderr ?? '').trim();
+    throw new Error(stderr || listing.error?.message || `tar -tf exited with status ${listing.status}`);
+  }
+
+  const members = new Set();
+  const originalNames = new Map();
+  for (const originalName of listing.stdout.split(/\r?\n/u)) {
+    if (!originalName) continue;
+    const normalizedName = originalName.replace(/^\.\//u, '');
+    members.add(normalizedName);
+    originalNames.set(normalizedName, originalName);
+  }
+
+  return {
+    exists(relative) {
+      return members.has(relative);
+    },
+    read(relative) {
+      const originalName = originalNames.get(relative);
+      if (originalName === undefined) throw new Error(`tar member is absent: ${relative}`);
+      const output = spawnSync('tar', ['-xOf', tarFile, originalName], {
+        maxBuffer: 64 * 1024 * 1024,
+      });
+      if (output.status !== 0) {
+        const stderr = String(output.stderr ?? '').trim();
+        throw new Error(stderr || output.error?.message || `tar -xOf exited with status ${output.status}`);
+      }
+      return output.stdout.toString('utf8');
+    },
+  };
+}
+
+function createDirectoryDistReader(distDir) {
+  return {
+    exists(relative) {
+      const file = path.join(distDir, relative);
+      return fs.existsSync(file) && fs.statSync(file).isFile();
+    },
+    read(relative) {
+      return fs.readFileSync(path.join(distDir, relative), 'utf8');
+    },
+  };
+}
+
+export function buildSitemapFamilyBridgeEvidence({ previousSnapshot, currentSnapshot, distDir, distReader, locale }) {
+  const reader = distReader ?? createDirectoryDistReader(distDir);
   const entries = [];
   const missing = [];
   for (const family of Object.keys(SITEMAP_FAMILY_CHURN_TOLERANCE)) {
     for (const url of familyRemovedUrls(previousSnapshot, currentSnapshot, family)) {
-      const candidate = routeCandidates(url).map((relative) => path.join(distDir, relative))
-        .find((file) => fs.existsSync(file) && fs.statSync(file).isFile());
+      if (locale && urlLocale(url) !== locale) continue;
+      const candidate = routeCandidates(url).find((relative) => reader.exists(relative));
       if (!candidate) {
         missing.push({ family, url, reason: 'bridge file is absent from dist' });
         continue;
       }
-      const html = fs.readFileSync(candidate, 'utf8');
+      const html = reader.read(candidate);
       if (!hasNoindexFollow(html)) {
         missing.push({ family, url, reason: 'bridge file is not noindex,follow' });
         continue;
@@ -59,7 +131,7 @@ export function buildSitemapFamilyBridgeEvidence({ previousSnapshot, currentSnap
       entries.push({
         family,
         url,
-        path: path.relative(distDir, candidate).split(path.sep).join('/'),
+        path: candidate,
         sha256: crypto.createHash('sha256').update(html).digest('hex'),
         robots: 'noindex,follow',
       });
@@ -71,6 +143,7 @@ export function buildSitemapFamilyBridgeEvidence({ previousSnapshot, currentSnap
     schemaVersion: SITEMAP_FAMILY_BRIDGE_EVIDENCE_VERSION,
     kind: BRIDGE_EVIDENCE_KIND,
     complete: missing.length === 0,
+    ...(locale ? { locale } : {}),
     entries,
     missing,
   };
@@ -97,23 +170,32 @@ function main() {
   if (!out) throw new Error('--out is required');
   let result;
   try {
+    if (args.locale !== undefined && !LOCALES.has(args.locale)) {
+      throw new Error(`--locale must be one of ${[...LOCALES].join(', ')}`);
+    }
+    if (args.dist !== undefined && args['dist-tar'] !== undefined) {
+      throw new Error('--dist and --dist-tar are mutually exclusive');
+    }
     result = buildSitemapFamilyBridgeEvidence({
       previousSnapshot: readSitemapSnapshot(args.previous),
       currentSnapshot: readSitemapSnapshot(args.current),
       distDir: args.dist,
+      ...(args['dist-tar'] !== undefined ? { distReader: createTarDistReader(args['dist-tar']) } : {}),
+      ...(args.locale !== undefined ? { locale: args.locale } : {}),
     });
   } catch (error) {
     result = {
       schemaVersion: SITEMAP_FAMILY_BRIDGE_EVIDENCE_VERSION,
       kind: BRIDGE_EVIDENCE_KIND,
       complete: false,
+      ...(LOCALES.has(args.locale) ? { locale: args.locale } : {}),
       entries: [],
       missing: [{ reason: `cannot build bridge evidence: ${error.message}` }],
     };
   }
   fs.mkdirSync(path.dirname(out), { recursive: true });
   fs.writeFileSync(out, `${JSON.stringify(result)}\n`);
-  console.log(`[bridge-evidence] ${result.complete ? 'complete' : 'incomplete'} entries=${result.entries.length} missing=${result.missing.length}`);
+  console.log(`[bridge-evidence] ${args.locale ?? 'all'} ${result.complete ? 'complete' : 'incomplete'} entries=${result.entries.length} missing=${result.missing.length}`);
 }
 
 if (isInvokedDirectly(import.meta.url)) main();
