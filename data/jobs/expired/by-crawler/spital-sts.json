@@ -121,16 +121,23 @@
     "slugByLocale": {
       "it": "dipl-specialista-hf-fh-flex-personal-care-spital-sts-thun",
       "en": "dipl-care-specialist-hf-fh-flex-personal-care-spital-sts-thun",
-      "de": "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun",
+      "de": "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun-ab177da0",
       "fr": "dipl-specialiste-des-soins-hf-fh-flex-personal-care-spital-sts-thun"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-14T21:19:05.979Z",
-    "previousSlugs": [
-      "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun-ab177da0",
+        "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun"
+      ],
+      "en": [
+        "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun"
+      ],
+      "de": [
+        "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun-ab177da0"
+      ],
+      "fr": [
         "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun"
       ]
     },
@@ -141,7 +148,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/redirect/9d7c5690-b2bb-45ab-bc45-892b3e7ab107/ats",
-    "firstSeenAt": "2026-11-06T21:30:46.384Z"
+    "firstSeenAt": "2026-11-06T21:30:46.384Z",
+    "previousSlugs": [
+      "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun"
+    ]
   },
   {
     "slug": "infermiere-a-diplomato-a-in-gastroenterologia-spital-sts-thun",

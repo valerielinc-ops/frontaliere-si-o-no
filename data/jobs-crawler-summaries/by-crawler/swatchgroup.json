@@ -9,60 +9,18 @@
     "eta-sa-swatch-group",
     "swiss-timing-swatch-group"
   ],
-  "generatedAt": "2026-11-15T21:46:34.745Z",
+  "generatedAt": "2026-11-16T09:28:36.543Z",
   "total": 27,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
-  "unchangedCount": 25,
-  "durationMs": 389483,
-  "avgDurationMs": 389483,
+  "removedCount": 0,
+  "unchangedCount": 26,
+  "durationMs": 408786,
+  "avgDurationMs": 408786,
   "durationHistory": [
-    389483
+    408786
   ],
-  "newJobs": [
-    {
-      "id": "company-7ucnor",
-      "slug": "manutenzione-tecnica-m-f-comadur-sa-la-chaux-de-fonds",
-      "company": "Comadur SA",
-      "title": "Technicien de maintenance H/F",
-      "location": "La Chaux-de-Fonds",
-      "canton": "NE",
-      "category": "other",
-      "contract": "internship",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://www.swatchgroup.com/fr/job/34201",
-      "applyUrl": "https://www.swatchgroup.com/fr/job/34201",
-      "source": "Company Careers Crawler",
-      "companyKey": "comadur-swatch-group",
-      "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-11-15T21:45:38.722Z",
-      "firstSeenAt": "2026-11-13T21:26:05.084Z",
-      "sourceLang": "fr",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "employmentType": "FULL_TIME",
-      "postalCode": "2300",
-      "addressLocality": "La Chaux-de-Fonds",
-      "addressRegion": "NE",
-      "streetAddress": "La Chaux-de-Fonds",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-28T21:45:38.722Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "company-esyu5",
@@ -107,7 +65,8 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-7ucnor",
       "slug": "manutenzione-tecnica-m-f-comadur-sa-la-chaux-de-fonds",
@@ -122,12 +81,12 @@
       "datePosted": "",
       "postedDate": "",
       "postingDateSource": "unknown",
-      "url": "https://swatchgroup.com/fr/job/34201",
-      "applyUrl": "https://swatchgroup.com/fr/job/34201",
+      "url": "https://www.swatchgroup.com/fr/job/34201",
+      "applyUrl": "https://www.swatchgroup.com/fr/job/34201",
       "source": "Company Careers Crawler",
       "companyKey": "comadur-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-11-15T09:26:18.969Z",
+      "crawledAt": "2026-11-15T21:45:38.722Z",
       "firstSeenAt": "2026-11-13T21:26:05.084Z",
       "sourceLang": "fr",
       "salaryMin": 60500,
@@ -139,8 +98,9 @@
       "addressRegion": "NE",
       "streetAddress": "La Chaux-de-Fonds",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:26:18.969Z",
+      "validThrough": "2026-12-28T21:45:38.722Z",
       "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -148,9 +108,7 @@
         "translation": 25,
         "completeness": 23
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "id": "company-esyu8",
       "slug": "responsabile-della-superficie-orario-flessibile-manufacture-horlogere-suisse-eta-sa-eta-sa-swatch-group-2540-grenchen",
@@ -1178,5 +1136,5 @@
       }
     }
   ],
-  "codeCommit": "b0e0a209c23d72cde28658756e39fb5de3eaaca5"
+  "codeCommit": "71e06c4f557e81be4e8743feaa696210bf683ef0"
 }

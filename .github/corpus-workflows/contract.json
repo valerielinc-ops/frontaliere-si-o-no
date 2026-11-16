@@ -4,27 +4,27 @@
   "generatorSha256": "340371d083e0836e23b2f39df8dea876d32c7a1ec690a1afeb2dffbf7761c79c",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "465f54268ca383f20f1e2c6a9b6446045195a1da",
+  "sourceCommit": "b639a62f95f16b83164ffe76b21fd2efee3444a1",
   "sourceCommitVerified": true,
   "artifactObservation": {
     "generatorSha256": "340371d083e0836e23b2f39df8dea876d32c7a1ec690a1afeb2dffbf7761c79c",
     "sourceRef": "main",
-    "sourceCommit": "465f54268ca383f20f1e2c6a9b6446045195a1da"
+    "sourceCommit": "b639a62f95f16b83164ffe76b21fd2efee3444a1"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 707,
+  "crawlerCount": 706,
   "crawlerRosterCardinality": {
-    "sourceCommit": "465f54268ca383f20f1e2c6a9b6446045195a1da",
+    "sourceCommit": "b639a62f95f16b83164ffe76b21fd2efee3444a1",
     "groupCount": 25,
     "artifactCount": 26,
-    "crawlerCount": 707
+    "crawlerCount": 706
   },
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:e51c4a53a7f9154cb29c99b0c9c9c1e6c4aa34f7db3ca6a21336ed5ef81b5360",
+    "rosterDigest": "sha256:acc4e12c5f26d2960a73cbc5baa57e5355478f9bde66aa0ba4f01597b1a28a30",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -336,7 +336,6 @@
     "scripts/update-institution-lavigny-jobs.mjs",
     "scripts/update-integra-biosciences-jobs.mjs",
     "scripts/update-interdiscount-jobs.mjs",
-    "scripts/update-internezzo-ag-jobs.mjs",
     "scripts/update-invias-swiss-jobs.mjs",
     "scripts/update-ipersonal-jobs.mjs",
     "scripts/update-ipw-jobs.mjs",
@@ -1620,8 +1619,8 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "6819529f1ffd73d30b1a5dabd41350b8fd667918e5c7b1c389005cba3f0d9340",
-      "artifactSha256": "f9f18d01ce48d3a257f5c5c0352575f01f40d54bde1b5ac1773ad2e698425ddd",
+      "sourceSha256": "0048ad526e12f42c98b524fb69dfa05bb28f11180a2693ef24c0a4296e82b340",
+      "artifactSha256": "29d08cb121ba976d5f4b1103f211ee3ea1d070b271047167c022192290817d4e",
       "generatorSha256": "340371d083e0836e23b2f39df8dea876d32c7a1ec690a1afeb2dffbf7761c79c",
       "members": [
         "seco-jobroom",
@@ -1634,7 +1633,6 @@
         "sintio-ch",
         "az-systems-ch",
         "eqe-ch",
-        "internezzo-ag",
         "invias-swiss",
         "jobdoor-ch",
         "lemco-precision-com",

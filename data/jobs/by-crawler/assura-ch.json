@@ -1,7 +1,7 @@
 {
   "crawlerKey": "assura-ch",
-  "assembledAt": "2026-11-15T21:43:25.051Z",
-  "runId": "43763808902",
+  "assembledAt": "2026-11-16T09:44:24.559Z",
+  "runId": "43839824064",
   "jobs": [
     {
       "id": "assura-ch-3bbdf9f3a33f",
@@ -34,7 +34,7 @@
       "url": "https://www.assura.ch/fr/carriere/postes-a-pourvoir/business-anali-lausanne",
       "source": "Assura, l’assicurazione malattie al suo fianco Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:43:11.888Z",
+      "crawledAt": "2026-11-16T09:44:13.809Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T21:43:11.888Z",
+      "validThrough": "2027-02-06T09:44:13.809Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.assura.ch/fr/carriere/postes-a-pourvoir/business-anali-lausanne"
     },
@@ -113,7 +113,7 @@
       "url": "https://www.assura.ch/fr/carriere/postes-a-pourvoir/infirmier-conseil-psy-ma",
       "source": "Assura, l’assicurazione malattie al suo fianco Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:43:11.884Z",
+      "crawledAt": "2026-11-16T09:44:13.806Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -162,7 +162,7 @@
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T21:43:11.884Z",
+      "validThrough": "2027-02-06T09:44:13.806Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.assura.ch/fr/carriere/postes-a-pourvoir/infirmier-conseil-psy-ma"
     },
@@ -197,7 +197,7 @@
       "url": "https://www.assura.ch/fr/carriere/postes-a-pourvoir/gestionnaire-admin-pu-de-fr",
       "source": "Assura, l’assicurazione malattie al suo fianco Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:43:11.881Z",
+      "crawledAt": "2026-11-16T09:44:13.802Z",
       "addressLocality": "Pully",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -248,7 +248,7 @@
       "postalCode": "1009",
       "streetAddress": "Pully",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T21:43:11.881Z",
+      "validThrough": "2027-02-06T09:44:13.802Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.assura.ch/fr/carriere/postes-a-pourvoir/gestionnaire-admin-pu-de-fr"
     }

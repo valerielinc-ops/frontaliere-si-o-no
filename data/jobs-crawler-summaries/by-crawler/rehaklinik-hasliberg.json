@@ -1,7 +1,7 @@
 {
   "key": "rehaklinik-hasliberg",
   "label": "Rehaklinik Hasliberg",
-  "generatedAt": "2026-11-15T09:26:16.111Z",
+  "generatedAt": "2026-11-16T09:21:31.534Z",
   "total": 7,
   "discovered": null,
   "parsed": 7,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 6554,
-  "avgDurationMs": 6554,
+  "durationMs": 6881,
+  "avgDurationMs": 6881,
   "durationHistory": [
-    6554
+    6881
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://my.jobalino.ch/job/ebe80785fa10d7addc9333b0c48d75fa/leitende-psychologin-leitender-psychologe_7363",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:57.155Z",
+      "crawledAt": "2026-11-16T09:21:18.492Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -64,7 +64,7 @@
       "salarySource": "estimated",
       "streetAddress": "Hasliberg Hohfluh",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:57.155Z",
+      "validThrough": "2026-12-16T09:21:18.492Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -86,7 +86,7 @@
       "url": "https://my.jobalino.ch/job/53ff50726a1e24bc7c44745ab07a30a4/assistenzaerztin-assistenzarzt-psychosomatische-medizin-muskuloskelettale-rehabilitation-oder-innere-medizin",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:56.670Z",
+      "crawledAt": "2026-11-16T09:21:17.954Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "salarySource": "estimated",
       "streetAddress": "Hasliberg Hohfluh",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:56.670Z",
+      "validThrough": "2026-12-16T09:21:17.954Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -135,7 +135,7 @@
       "url": "https://my.jobalino.ch/job/0798fc0f23c3efe03549d0b768bf7c59/fachaerztin-facharzt-allgemeine-innere-medizin-mit-schwerpunkt-psychosomatische-und-psychosoziale-medizin-fuer-das-zentr",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:56.275Z",
+      "crawledAt": "2026-11-16T09:21:17.554Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -161,7 +161,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:56.275Z",
+      "validThrough": "2026-12-16T09:21:17.554Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -184,7 +184,7 @@
       "url": "https://my.jobalino.ch/job/94c876ec822c2a7b70de4943e26ad1c0/fachaerztin-facharzt-psychiatrie-und-psychotherapie-mit-schwerpunkt-psychosomatische-und-psychosoziale-medizin-fuer-das-",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:55.785Z",
+      "crawledAt": "2026-11-16T09:21:17.022Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -210,7 +210,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:55.785Z",
+      "validThrough": "2026-12-16T09:21:17.022Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -232,7 +232,7 @@
       "url": "https://my.jobalino.ch/job/b4246b1d94ae1e13a94f401315f8d94c/craniosacraltherapeut-in",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:55.295Z",
+      "crawledAt": "2026-11-16T09:21:16.479Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -258,7 +258,7 @@
       "salarySource": "estimated",
       "streetAddress": "Hasliberg Hohfluh",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:55.295Z",
+      "validThrough": "2026-12-16T09:21:16.479Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -280,7 +280,7 @@
       "url": "https://my.jobalino.ch/job/ed48f951d00e4632c942a146cff54532/sommer-2027-lehrstelle-fachperson-gesundheit-efz-versorgungsbereich-rehabilitation",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:54.901Z",
+      "crawledAt": "2026-11-16T09:21:16.067Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -305,7 +305,7 @@
       "salarySource": "estimated",
       "streetAddress": "Hasliberg Hohfluh",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:25:54.901Z",
+      "validThrough": "2026-12-16T09:21:16.067Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -327,7 +327,7 @@
       "url": "https://my.jobalino.ch/job/611a40b073396ed9ea3b6db4e77091d5/physiotherapeut-in",
       "source": "Rehaklinik Hasliberg Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:25:54.493Z",
+      "crawledAt": "2026-11-16T09:21:15.658Z",
       "addressLocality": "Hasliberg Hohfluh",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -353,7 +353,7 @@
       "salarySource": "estimated",
       "streetAddress": "Hasliberg Hohfluh",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:25:54.493Z",
+      "validThrough": "2026-12-30T09:21:15.658Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -364,5 +364,5 @@
       }
     }
   ],
-  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
+  "codeCommit": "71e06c4f557e81be4e8743feaa696210bf683ef0"
 }
