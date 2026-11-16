@@ -33,23 +33,13 @@ const requestedKeys = new Set(
 const isParsableExpiredAt = (value) =>
   typeof value === 'string' && value !== '' && Number.isFinite(Date.parse(value));
 
-// The assembler keeps a narrow class of non-publishable rows in a crawler
-// slice as quarantine bookkeeping. They have no route identity by design,
-// but are still attributable to a company/source and must not be rejected by
-// a checkpoint gate that is otherwise meant to mirror the assembler envelope.
-const METADATA_ONLY_KEYS = new Set([
-  'companyKey',
-  'company',
-  'source',
-  'sourceUrl',
-]);
-
+// The assembler's metadata-only checkpoint row is deliberately explicit. A
+// company/source field on an otherwise malformed job is not proof that the
+// row was quarantined; the source marker and owner key are the contract.
 function hasQuarantineMetadata(job) {
-  return Object.entries(job).some(([key, value]) => (
-    METADATA_ONLY_KEYS.has(key)
-    && typeof value === 'string'
-    && value.trim() !== ''
-  ));
+  return job?.source === 'thin-source-quarantine'
+    && typeof job?.companyKey === 'string'
+    && job.companyKey.trim() !== '';
 }
 
 const failures = [];

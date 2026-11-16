@@ -65,6 +65,28 @@ describe('validate-backfill-checkpoint', () => {
     }
   });
 
+  it.each([
+    ['company only', { company: 'Acme' }],
+    ['source URL only', { sourceUrl: 'https://jobs.example.test/42' }],
+    ['arbitrary source', { companyKey: 'alpha', source: 'jobs.example.test' }],
+    ['quarantine marker without owner', { source: 'thin-source-quarantine' }],
+  ])('rejects %s as undocumented quarantine metadata', (_name, job) => {
+    const root = fixture({
+      active: JSON.stringify({
+        crawlerKey: 'alpha',
+        assembledAt: '2026-11-16T08:00:00.000Z',
+        jobs: [job],
+      }) + '\n',
+    });
+    try {
+      const result = run(root);
+      expect(result.status).not.toBe(0);
+      expect(result.stderr).toContain('missing published job identity or documented quarantine metadata');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('rejects a malformed active slice and an unorderable expired entry', () => {
     const root = fixture({
       active: JSON.stringify([{ id: 'a', slug: 'alpha' }]) + '\n',
