@@ -3327,6 +3327,7 @@ export async function runSpecInProduction(spec, runtime = {}) {
     const authoritativeEmptyFromStaleListing = listingAuthoritativeEmpty
       && rows.length > 0
       && publishedRows.length === 0
+      && detailDrop.gone === 0
       && detailDrop.dropped === rows.length;
     const complete = snapshotAccepted
       && (!allUnexpectedDropsNoOutput || authoritativeEmptyFromStaleListing);

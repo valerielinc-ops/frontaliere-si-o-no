@@ -179,6 +179,39 @@ describe('prospector source-backed empty listing contract', () => {
     expect(rows.observation).toMatchObject({ complete: true, listingCount: 2, publishableCount: 1 });
   });
 
+  it('keeps the marker fail-closed when detail responses fail', async () => {
+    const detailUrls = [1, 2].map((index) => (
+      `https://eqe.example/unternehmen-2/offene-stellen/${index}`
+    ));
+    const listing = `<html><body><p>${EMPTY_MARKER}</p>${detailUrls
+      .map((url, index) => `<a href="${url}">Role ${index + 1}</a>`)
+      .join('')}</body></html>`;
+    const fetchImpl = async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.endsWith('/robots.txt')) return new Response('User-agent: *\nAllow: /');
+      if (url === SEED_URL) return new Response(listing);
+      if (detailUrls.includes(url)) return new Response('temporarily unavailable', { status: 503 });
+      throw new Error(`unexpected fixture URL ${url}`);
+    };
+
+    const rows = await runSpecInProduction({
+      ...spec(),
+      detailEnrichment: true,
+    } as any, {
+      ...runtime(),
+      fetchImpl,
+      returnObservation: true,
+    });
+
+    expect(rows.vacancies).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(rows.vacancies)).toBe(false);
+    expect(rows.vacancies).toMatchObject({
+      fetchOutcome: 'ok',
+      detailDrop: { candidates: 2, gone: 2, dropped: 2 },
+    });
+    expect(rows.observation.complete).toBe(false);
+  });
+
   it('keeps an unmarked zero fail-closed', async () => {
     const rows = await runSpecInProduction(spec('A different reviewed source sentence.'), runtime());
 
