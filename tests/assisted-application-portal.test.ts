@@ -420,6 +420,12 @@ describe('assisted application profile history and file replacement', () => {
     expect(profileEntryAnswer(entry, 'education', { label: 'Do you have a degree?' })).toBeNull();
   });
 
+  it('maps Workday experience rows that call the employer field Company', () => {
+    const entry = { role: 'Retail Assistant', employer: 'Mendrisio Market', start: '2020-03', end: '2022-04' };
+    expect(profileEntryAnswer(entry, 'experience', { label: 'Job Title*' })).toEqual({ value: 'Retail Assistant', source: 'profile' });
+    expect(profileEntryAnswer(entry, 'experience', { label: 'Company*' })).toEqual({ value: 'Mendrisio Market', source: 'profile' });
+  });
+
   it('does not mistake a selected Workday filename for a successful upload receipt', async () => {
     const locator = { evaluate: vi.fn(async () => ['CV.pdf']) };
     const page = {
