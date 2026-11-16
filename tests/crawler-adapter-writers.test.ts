@@ -41,6 +41,7 @@ import {
   ensureAdapterSeedUrls as ensureSbb,
   fetchLoginSbbDetailUrls,
   fetchSbbJobDetailUrls,
+  getSbbDetailIdentity,
 } from '../scripts/update-sbb-jobs.mjs';
 import {
   assertLisAdapterParity,
@@ -124,6 +125,30 @@ describe.each(writerCases)('$name adapter writer', ({ name, urls, ensure, assert
     } finally {
       fs.rmSync(dir, { recursive: true, force: true });
     }
+  });
+});
+
+describe('SBB current SuccessFactors discovery', () => {
+  it('accepts six-digit IDs in the identity and official listing fallback', async () => {
+    const detailUrl = 'https://careers.sbb.ch/job/example/123456/';
+    expect(getSbbDetailIdentity(detailUrl)).toBe('careers:123456');
+
+    const listingHtml = [
+      '<main>Posti liberi — Jobfinder</main>',
+      '<p>1 posti di lavoro trovati</p>',
+      '<p>Dettagli della posizione e informazioni sul posto di lavoro disponibili per i candidati interessati.</p>',
+      `<a href="${detailUrl}">Vacancy</a>`,
+    ].join('');
+    const result = await fetchSbbJobDetailUrls({
+      fetchPageImpl: async (input: string | URL | Request) => (
+        String(input).includes('/jobfilter.results.json') ? null : listingHtml
+      ),
+      fetchJinaImpl: async () => ({ ok: false, status: 503 }),
+      timeoutMs: 1000,
+    });
+
+    expect(result.source).toBe('sbb-vacancies-listing');
+    expect(result.urls).toEqual(['https://careers.sbb.ch/job/example/123456']);
   });
 });
 

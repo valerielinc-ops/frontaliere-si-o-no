@@ -135,7 +135,7 @@ function normalizeKey(value = '') {
  * SAP SuccessFactors careers host. Keep both URL contracts explicit: accepting
  * any SBB URL would let navigation, search, or company pages become job seeds.
  */
-function getSbbDetailIdentity(rawUrl = '') {
+export function getSbbDetailIdentity(rawUrl = '') {
   try {
     const parsed = new URL(rawUrl);
     if (parsed.protocol !== 'https:' || parsed.search || parsed.hash) return '';
@@ -147,7 +147,7 @@ function getSbbDetailIdentity(rawUrl = '') {
     }
 
     if (parsed.hostname === 'careers.sbb.ch') {
-      const current = pathname.match(/^\/job\/[^/]+\/(\d{7,})$/i);
+      const current = pathname.match(/^\/job\/[^/]+\/(\d+)$/i);
       return current ? `careers:${current[1]}` : '';
     }
   } catch {
