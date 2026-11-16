@@ -302,6 +302,12 @@ export function backfillHistoryBlobs(options = {}) {
   });
 }
 
+function returnForEmptySelectedScope(crawlerKeys, selectedScope, reason) {
+  if (crawlerKeys.length === 0) return false;
+  console.log(`ℹ️ ${reason} for ${selectedScope}; nothing to prefetch.`);
+  return true;
+}
+
 export function main() {
   const env = historyMetadataEnv();
   const crawlerKeys = historyCrawlerKeys();
@@ -313,6 +319,7 @@ export function main() {
   const commitOutput = runGit(historyCommitWalkArgs(), { env });
   const commitOids = commitOutput.trim().split('\n').filter((oid) => OID_RE.test(oid));
   if (commitOids.length === 0) {
+    if (returnForEmptySelectedScope(crawlerKeys, selectedScope, 'No commits in the history window')) return;
     throw new Error(`No historical job-slice blobs found for ${HISTORY_PATHS.join(' and ')}.`);
   }
 
@@ -323,6 +330,7 @@ export function main() {
   });
   const relevantCommits = historyCommitOidsFromDiffTree(diffTreeOutput);
   if (relevantCommits.length === 0) {
+    if (returnForEmptySelectedScope(crawlerKeys, selectedScope, 'No slice-changing commits')) return;
     throw new Error(`No historical job-slice blobs found for ${HISTORY_PATHS.join(' and ')}.`);
   }
 
@@ -358,6 +366,7 @@ export function main() {
 
   const oids = [...blobOids];
   if (oids.length === 0) {
+    if (returnForEmptySelectedScope(crawlerKeys, selectedScope, 'No historical job-slice blobs')) return;
     throw new Error(`No historical job-slice blobs found for ${selectedScope}.`);
   }
 
