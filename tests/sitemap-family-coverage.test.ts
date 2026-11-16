@@ -229,13 +229,18 @@ describe('sitemap family URL coverage ratchet', () => {
   });
 
   it('keeps the existing exact fuel-stations declaration valid', () => {
-    // Solo la dichiarazione di fuel: le altre famiglie nel file vivo (es. #18999) non sono parte di questo scenario.
-    const allDeclarations = JSON.parse(readFileSync(resolve(import.meta.dirname, '../data/sitemap-family-coverage-declarations.json'), 'utf8'));
-    const declarations = { ...allDeclarations, decreases: allDeclarations.decreases.filter((entry: { family: string }) => entry.family === 'fuel-italian-stations') };
     const result = evaluateSitemapFamilyCoverage(
       snapshot({ 'sitemap-fuel-italian-stations.xml': familyUrls('fuel-stations', 4116) }),
       snapshot({ 'sitemap-fuel-italian-stations.xml': familyUrls('fuel-stations', 4112) }),
-      declarations,
+      {
+        version: 1,
+        decreases: [{
+          family: 'fuel-italian-stations',
+          previousCount: 4116,
+          currentCount: 4112,
+          reason: 'Exact fuel-station decline declaration remains valid as an inline fixture.',
+        }],
+      },
     );
 
     expect(result.regressions).toEqual([]);
