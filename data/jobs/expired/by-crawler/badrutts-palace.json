@@ -265,9 +265,6 @@
     ],
     "previousSlugsByLocale": {
       "it": [
-        "applicazione-spontanea-badrutt-s-palace-hotel-st-moritz",
-        "chef-de-rang-m-w-d-badrutts-palace-ch",
-        "chef-de-rang-m-p-j-badrutt-s-palace-hotel-st-moritz",
         "chef-de-partie-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "chef-esecutivo-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "executive-chef-m-w-d-badrutt-s-palace-hotel-st-moritz",
@@ -284,7 +281,10 @@
         "chef-de-partie-m-w-d-badrutts-palace-ch",
         "chef-de-partie-m-f-d-badrutts-palace-ch",
         "pittura-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "painter-m-f-d-badrutts-palace-ch"
+        "painter-m-f-d-badrutts-palace-ch",
+        "applicazione-spontanea-badrutt-s-palace-hotel-st-moritz",
+        "chef-de-rang-m-w-d-badrutts-palace-ch",
+        "chef-de-rang-m-p-j-badrutt-s-palace-hotel-st-moritz"
       ],
       "de": [
         "maler-m-w-d-badrutt-s-palace-hotel-st-moritz",
@@ -293,9 +293,9 @@
         "kosmetiker-in-badrutt-s-palace-hotel-st-moritz",
         "indischer-spezialitatenkoch-m-w-d-badrutts-palace-ch",
         "schneider-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "chef-de-rang-m-w-d-badrutts-palace-ch",
         "chef-de-partie-m-w-d-badrutts-palace-ch",
-        "painter-m-f-d-badrutts-palace-ch"
+        "painter-m-f-d-badrutts-palace-ch",
+        "chef-de-rang-m-w-d-badrutts-palace-ch"
       ],
       "en": [
         "spontaneous-application-badrutt-s-palace-hotel-st-moritz",
@@ -307,8 +307,8 @@
         "ironer-guest-laundry-m-f-d-badrutts-palace-ch",
         "executive-chef-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "executive-chef-m-w-d-badrutts-palace-ch",
-        "chef-de-rang-m-w-d-badrutts-palace-ch",
-        "painter-m-f-d-badrutts-palace-ch"
+        "painter-m-f-d-badrutts-palace-ch",
+        "chef-de-rang-m-w-d-badrutts-palace-ch"
       ],
       "fr": [
         "peintre-h-f-d-badrutt-s-palace-hotel-st-moritz",
@@ -320,9 +320,9 @@
         "adaptateur-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "spontaneous-application-badrutts-palace-ch",
         "ironer-guest-laundry-m-f-d-badrutts-palace-ch",
-        "chef-de-rang-m-p-j-badrutt-s-palace-hotel-st-moritz",
         "chef-de-cuisine-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "painter-m-f-d-badrutts-palace-ch"
+        "painter-m-f-d-badrutts-palace-ch",
+        "chef-de-rang-m-p-j-badrutt-s-palace-hotel-st-moritz"
       ]
     },
     "postalCode": "7500",
@@ -1311,15 +1311,25 @@
     },
     "sector": "Ospitalità / Hotellerie",
     "expiredAt": "2026-07-31T12:10:44.004Z",
+    "previousSlugs": [
+      "pr-marketing-coordinatore-m-f-d-badrutt-s-palace-hotel-st-moritz-7c1efad1",
+      "pr-amp-marketing-coordinator-m-f-d-badrutts-palace-ch-6cbc19b0",
+      "pr-marketing-koordinator-m-f-d-badrutt-s-palace-hotel-st-moritz-ff079792",
+      "pr-marketing-coordinateur-m-f-d-badrutt-s-palace-hotel-st-moritz-8a50caab",
+      "pr-amp-marketing-coordinator-m-f-d-badrutts-palace-ch"
+    ],
     "previousSlugsByLocale": {
       "it": [
+        "pr-marketing-coordinatore-m-f-d-badrutt-s-palace-hotel-st-moritz-7c1efad1",
         "pr-amp-marketing-coordinator-m-f-d-badrutts-palace-ch-6cbc19b0"
       ],
       "de": [
-        "pr-amp-marketing-coordinator-m-f-d-badrutts-palace-ch"
+        "pr-amp-marketing-coordinator-m-f-d-badrutts-palace-ch",
+        "pr-marketing-koordinator-m-f-d-badrutt-s-palace-hotel-st-moritz-ff079792"
       ],
       "fr": [
-        "pr-amp-marketing-coordinator-m-f-d-badrutts-palace-ch"
+        "pr-amp-marketing-coordinator-m-f-d-badrutts-palace-ch",
+        "pr-marketing-coordinateur-m-f-d-badrutt-s-palace-hotel-st-moritz-8a50caab"
       ],
       "en": [
         "pr-amp-marketing-coordinator-m-f-d-badrutts-palace-ch-6cbc19b0"
@@ -1331,10 +1341,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.badruttscareers.com/en-gb/jobs/8137898-pr-marketing-coordinator-m-f-d",
-    "firstSeenAt": "2026-07-29T11:46:05.632Z",
-    "previousSlugs": [
-      "pr-amp-marketing-coordinator-m-f-d-badrutts-palace-ch"
-    ]
+    "firstSeenAt": "2026-07-29T11:46:05.632Z"
   },
   {
     "slug": "pr-marketing-coordinatore-m-f-d-badrutt-s-palace-hotel-st-moritz-7f20f54c",
