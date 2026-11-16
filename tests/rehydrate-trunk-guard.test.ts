@@ -673,11 +673,15 @@ describe('rehydrate-trunk-guard.sh — structural invariants', () => {
     expect(begin.indexOf('grep -rLiE')).toBeLessThan(begin.lastIndexOf('rm -rf'));
   });
 
-  it('classifies lost paths in one batch lookup instead of spawning grep per path', () => {
+  it('classifies the whole replaced subtree with batch inventories, not shell calls per path', () => {
     const end = guard.slice(guard.indexOf('trunk_replace_end()'), guard.indexOf('trunk_guard_verdict()'));
+    expect(end).toContain('find "$dist/$p" -type f -print');
+    expect(end).toContain('comm -23 "$all" "$current_file"');
+    expect(end).toContain('join -t $\'\\t\' -1 1 -2 1 -o 1.2,1.1');
     expect(end).toContain('comm -12 "$lost_file" "$idx"');
     expect(end).toContain('comm -23 "$lost_file" "$idx"');
     expect(end).not.toMatch(/grep -qxF -- "\$rel" "\$idx"/);
+    expect(end).not.toMatch(/\[ -e "\$dist\/\$rel" \]/);
   });
 
   it('matches a robots noindex meta in either attribute order', () => {
@@ -705,7 +709,10 @@ describe('rehydrate-trunk-guard.sh — structural invariants', () => {
 
   it('checks the twin BEFORE classifying a path as lost, never after the verdict', () => {
     const end = guard.slice(guard.indexOf('trunk_replace_end()'), guard.indexOf('trunk_guard_verdict()'));
-    expect(end.indexOf('trunk_url_twin')).toBeLessThan(end.indexOf('lost=$((lost + 1))'));
+    // The batch set comparison derives the twin inventory first; the shell
+    // helper is retained only for the capped human-readable sample.
+    expect(end).toContain('trunk_url_twin "$rel"');
+    expect(end.indexOf('twin_candidates_file')).toBeLessThan(end.indexOf('respelled_file'));
     // The re-spelling is reported, not swallowed.
     expect(end).toContain('answer the same url from the shard');
   });
