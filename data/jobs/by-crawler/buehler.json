@@ -1243,12 +1243,12 @@
     },
     {
       "id": "buehler-d26522851e7d",
-      "slug": "senior-channel-partner-manager-buehler-uzwil",
+      "slug": "responsabile-senior-dei-partner-di-canale-buhler-group-uzwil",
       "slugByLocale": {
         "en": "senior-channel-partner-manager-buehler-uzwil",
-        "it": "senior-channel-partner-manager-buehler-uzwil",
-        "de": "senior-channel-partner-manager-buehler-uzwil",
-        "fr": "senior-channel-partner-manager-buehler-uzwil"
+        "it": "responsabile-senior-dei-partner-di-canale-buhler-group-uzwil",
+        "de": "senior-manager-fur-vertriebspartner-buhler-group-uzwil",
+        "fr": "gestionnaire-principal-des-partenaires-de-la-chaine-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -1310,16 +1310,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T09:22:53.791Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T09:22:53.791Z"
+      "firstSeenAt": "2026-11-16T09:22:53.791Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-channel-partner-manager-buehler-uzwil"
+        ],
+        "de": [
+          "senior-channel-partner-manager-buehler-uzwil"
+        ],
+        "fr": [
+          "senior-channel-partner-manager-buehler-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "senior-channel-partner-manager-buehler-uzwil"
+      ]
     },
     {
       "id": "buehler-844b1ae41417",
-      "slug": "internship-crm-transformation-program-facilitator-buehler-uzwil",
+      "slug": "internship-crm-trasformazione-programma-facilitatore-buhler-group-uzwil",
       "slugByLocale": {
         "en": "internship-crm-transformation-program-facilitator-buehler-uzwil",
-        "it": "internship-crm-transformation-program-facilitator-buehler-uzwil",
-        "de": "internship-crm-transformation-program-facilitator-buehler-uzwil",
-        "fr": "internship-crm-transformation-program-facilitator-buehler-uzwil"
+        "it": "internship-crm-trasformazione-programma-facilitatore-buhler-group-uzwil",
+        "de": "praktikum-crm-transformation-programm-facilitator-buhler-group-uzwil",
+        "fr": "animateur-de-programme-transformation-du-crm-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -1381,7 +1395,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T09:22:53.781Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T09:22:53.781Z"
+      "firstSeenAt": "2026-11-16T09:22:53.781Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "internship-crm-transformation-program-facilitator-buehler-uzwil"
+        ],
+        "de": [
+          "internship-crm-transformation-program-facilitator-buehler-uzwil"
+        ],
+        "fr": [
+          "internship-crm-transformation-program-facilitator-buehler-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "internship-crm-transformation-program-facilitator-buehler-uzwil"
+      ]
     }
   ]
 }

@@ -5063,12 +5063,12 @@
     },
     {
       "id": "spital-emmental-0a33e130b2a2",
-      "slug": "diatkochin-diatkoch-o-kochin-koch-a-spital-emmental-burgdorf",
+      "slug": "cuoca-cuoco-dietista-o-cuoca-cuoco-a-spital-emmental-burgdorf-langnau",
       "slugByLocale": {
         "de": "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-burgdorf",
-        "it": "diatkochin-diatkoch-o-kochin-koch-a-spital-emmental-burgdorf",
-        "en": "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-burgdorf",
-        "fr": "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-burgdorf"
+        "it": "cuoca-cuoco-dietista-o-cuoca-cuoco-a-spital-emmental-burgdorf-langnau",
+        "en": "dietetic-cook-or-cook-a-spital-emmental-burgdorf-langnau",
+        "fr": "cuisiniere-dietetique-a-spital-emmental-burgdorf-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -5121,11 +5121,19 @@
       "contractDuration": "temporary",
       "previousSlugsByLocale": {
         "it": [
+          "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-burgdorf",
+          "diatkochin-diatkoch-o-kochin-koch-a-spital-emmental-burgdorf"
+        ],
+        "en": [
+          "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-burgdorf"
+        ],
+        "fr": [
           "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-burgdorf"
         ]
       },
       "previousSlugs": [
-        "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-burgdorf"
+        "diatkochin-diatkoch-oder-kochin-koch-a-spital-emmental-burgdorf",
+        "diatkochin-diatkoch-o-kochin-koch-a-spital-emmental-burgdorf"
       ],
       "salaryMin": 67500,
       "salaryMax": 84500,

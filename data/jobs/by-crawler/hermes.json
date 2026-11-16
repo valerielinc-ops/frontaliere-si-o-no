@@ -259,12 +259,12 @@
     },
     {
       "id": "hermes-e6ef73b9a7bf",
-      "slug": "cdi-controleur-de-gestion-matieres-precieuses-inventaires-h-f-hermes-ch",
+      "slug": "cdi-controllore-di-gestione-materiali-preziosi-inventory-m-f-hermes-le-noirmont-jura-switzerland",
       "slugByLocale": {
         "fr": "cdi-controleur-de-gestion-matieres-precieuses-inventaires-h-f-hermes-ch",
-        "it": "cdi-controleur-de-gestion-matieres-precieuses-inventaires-h-f-hermes-ch",
-        "en": "cdi-controleur-de-gestion-matieres-precieuses-inventaires-h-f-hermes-ch",
-        "de": "cdi-controleur-de-gestion-matieres-precieuses-inventaires-h-f-hermes-ch"
+        "it": "cdi-controllore-di-gestione-materiali-preziosi-inventory-m-f-hermes-le-noirmont-jura-switzerland",
+        "en": "cdi-management-controller-precious-materials-inventory-m-f-hermes-le-noirmont-jura-switzerland",
+        "de": "cdi-management-controller-edelmaterialien-inventar-m-w-hermes-le-noirmont-jura-switzerland"
       },
       "company": "Hermès",
       "companyKey": "hermes",
@@ -326,16 +326,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:18:16.481Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T09:18:16.481Z"
+      "firstSeenAt": "2026-11-16T09:18:16.481Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cdi-controleur-de-gestion-matieres-precieuses-inventaires-h-f-hermes-ch"
+        ],
+        "en": [
+          "cdi-controleur-de-gestion-matieres-precieuses-inventaires-h-f-hermes-ch"
+        ],
+        "de": [
+          "cdi-controleur-de-gestion-matieres-precieuses-inventaires-h-f-hermes-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cdi-controleur-de-gestion-matieres-precieuses-inventaires-h-f-hermes-ch"
+      ]
     },
     {
       "id": "hermes-fbd6d61750c5",
-      "slug": "cdi-controleur-qualite-h-f-hermes-ch",
+      "slug": "cdi-controllore-di-qualita-m-f-hermes-brugg-be-bern-switzerland",
       "slugByLocale": {
         "fr": "cdi-controleur-qualite-h-f-hermes-ch",
-        "it": "cdi-controleur-qualite-h-f-hermes-ch",
-        "en": "cdi-controleur-qualite-h-f-hermes-ch",
-        "de": "cdi-controleur-qualite-h-f-hermes-ch"
+        "it": "cdi-controllore-di-qualita-m-f-hermes-brugg-be-bern-switzerland",
+        "en": "cdi-quality-controller-m-f-hermes-brugg-be-bern-switzerland",
+        "de": "cdi-qualitatskontroller-m-w-hermes-brugg-be-bern-switzerland"
       },
       "company": "Hermès",
       "companyKey": "hermes",
@@ -398,7 +412,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:18:15.884Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T09:18:15.884Z"
+      "firstSeenAt": "2026-11-16T09:18:15.884Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cdi-controleur-qualite-h-f-hermes-ch"
+        ],
+        "en": [
+          "cdi-controleur-qualite-h-f-hermes-ch"
+        ],
+        "de": [
+          "cdi-controleur-qualite-h-f-hermes-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cdi-controleur-qualite-h-f-hermes-ch"
+      ]
     },
     {
       "id": "hermes-f47d4eec61bc",

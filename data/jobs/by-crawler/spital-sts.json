@@ -4504,10 +4504,10 @@
     },
     {
       "id": "spital-sts-42a0d868a603",
-      "slug": "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun",
+      "slug": "dipl-specialista-hf-fh-flex-personal-care-spital-sts-thun",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun",
-        "it": "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun",
+        "it": "dipl-specialista-hf-fh-flex-personal-care-spital-sts-thun",
         "en": "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun",
         "fr": "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun"
       },
@@ -4585,7 +4585,15 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-05T09:16:09.192Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-06T21:30:46.384Z"
+      "firstSeenAt": "2026-11-06T21:30:46.384Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun"
+      ]
     }
   ]
 }

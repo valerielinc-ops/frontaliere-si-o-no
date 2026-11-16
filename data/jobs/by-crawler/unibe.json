@@ -3659,12 +3659,12 @@
     },
     {
       "id": "unibe-fd8cb47093d5",
-      "slug": "collaboratore-trice-in-eventumsetzung-60-universitat-bern",
+      "slug": "collaboratore-trice-per-la-realizzazione-di-eventi-60-universitat-bern-bern",
       "slugByLocale": {
         "de": "mitarbeiter-in-eventumsetzung-60-unibe-bern",
-        "it": "collaboratore-trice-in-eventumsetzung-60-universitat-bern",
-        "en": "mitarbeiter-in-eventumsetzung-60-universitat-bern-bern",
-        "fr": "mitarbeiter-in-eventumsetzung-60-universitat-bern-bern"
+        "it": "collaboratore-trice-per-la-realizzazione-di-eventi-60-universitat-bern-bern",
+        "en": "event-implementation-staff-member-60-universitat-bern-bern",
+        "fr": "collaborateur-rice-en-mise-en-uvre-d-evenements-60-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3712,11 +3712,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-eventumsetzung-60-unibe-bern"
+          "mitarbeiter-in-eventumsetzung-60-unibe-bern",
+          "collaboratore-trice-in-eventumsetzung-60-universitat-bern"
+        ],
+        "en": [
+          "mitarbeiter-in-eventumsetzung-60-universitat-bern-bern"
+        ],
+        "fr": [
+          "mitarbeiter-in-eventumsetzung-60-universitat-bern-bern"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-eventumsetzung-60-unibe-bern"
+        "mitarbeiter-in-eventumsetzung-60-unibe-bern",
+        "collaboratore-trice-in-eventumsetzung-60-universitat-bern",
+        "mitarbeiter-in-eventumsetzung-60-universitat-bern-bern"
       ],
       "salaryMin": 51000,
       "salaryMax": 71400,
@@ -3915,7 +3924,7 @@
       "slug": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
       "slugByLocale": {
         "it": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
-        "en": "research-assistant-universitat-bern",
+        "en": "scientific-scientific-staff-member-universitat-bern-bern",
         "de": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "fr": "membre-du-personnel-scientifique-universitat-bern-bern"
       },
@@ -3965,7 +3974,7 @@
       "previousSlugs": [
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern",
-        "scientific-scientific-staff-member-universitat-bern-bern"
+        "research-assistant-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3974,7 +3983,7 @@
         ],
         "en": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
-          "scientific-scientific-staff-member-universitat-bern-bern"
+          "research-assistant-universitat-bern"
         ],
         "fr": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern"

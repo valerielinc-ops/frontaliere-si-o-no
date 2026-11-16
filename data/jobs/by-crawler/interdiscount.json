@@ -24539,10 +24539,10 @@
     },
     {
       "id": "interdiscount-f4e53bcb-96c",
-      "slug": "chauffeur-in-interdiscount-jegenstorf",
+      "slug": "autista-interdiscount-jegenstorf",
       "slugByLocale": {
         "de": "chauffeur-in-interdiscount-jegenstorf",
-        "it": "chauffeur-in-interdiscount-jegenstorf",
+        "it": "autista-interdiscount-jegenstorf",
         "en": "chauffeur-in-interdiscount-jegenstorf",
         "fr": "chauffeur-in-interdiscount-jegenstorf"
       },
@@ -24622,14 +24622,22 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-14T09:17:14.734Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-15T09:17:35.674Z"
+      "firstSeenAt": "2026-10-15T09:17:35.674Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chauffeur-in-interdiscount-jegenstorf"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-in-interdiscount-jegenstorf"
+      ]
     },
     {
       "id": "interdiscount-6f3524db-e9a",
-      "slug": "conseiller-ere-de-vente-interdiscount-geneve",
+      "slug": "consigliere-era-delle-vendite-interdiscount-geneve",
       "slugByLocale": {
         "fr": "conseiller-ere-de-vente-interdiscount-geneve",
-        "it": "conseiller-ere-de-vente-interdiscount-geneve",
+        "it": "consigliere-era-delle-vendite-interdiscount-geneve",
         "en": "conseiller-ere-de-vente-interdiscount-geneve",
         "de": "conseiller-ere-de-vente-interdiscount-geneve"
       },
@@ -24707,7 +24715,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-04T09:17:14.726Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-05T21:15:29.792Z"
+      "firstSeenAt": "2026-11-05T21:15:29.792Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-de-vente-interdiscount-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-de-vente-interdiscount-geneve"
+      ]
     }
   ]
 }

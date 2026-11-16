@@ -247,12 +247,12 @@
     },
     {
       "id": "sulzer-65fe6fb60c97",
-      "slug": "safety-officer-sulzer-ch",
+      "slug": "responsabile-della-sicurezza-sulzer-port-harcourt",
       "slugByLocale": {
         "en": "safety-officer-sulzer-ch",
-        "it": "safety-officer-sulzer-ch",
-        "de": "safety-officer-sulzer-ch",
-        "fr": "safety-officer-sulzer-ch"
+        "it": "responsabile-della-sicurezza-sulzer-port-harcourt",
+        "de": "sicherheitsbeauftragter-sulzer-port-harcourt",
+        "fr": "specialiste-de-la-securite-sulzer-port-harcourt"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -315,16 +315,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-13T09:52:11.044Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T09:52:11.044Z"
+      "firstSeenAt": "2026-11-16T09:52:11.044Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "safety-officer-sulzer-ch"
+        ],
+        "de": [
+          "safety-officer-sulzer-ch"
+        ],
+        "fr": [
+          "safety-officer-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "safety-officer-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-2365f8404f97",
-      "slug": "area-sales-manager-west-africa-sulzer-ch",
+      "slug": "responsabile-vendite-di-area-africa-occidentale-sulzer-port-harcourt",
       "slugByLocale": {
         "en": "area-sales-manager-west-africa-sulzer-ch",
-        "it": "area-sales-manager-west-africa-sulzer-ch",
+        "it": "responsabile-vendite-di-area-africa-occidentale-sulzer-port-harcourt",
         "de": "area-sales-manager-west-africa-sulzer-ch",
-        "fr": "area-sales-manager-west-africa-sulzer-ch"
+        "fr": "directeur-des-ventes-afrique-de-l-ouest-sulzer-port-harcourt"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -387,7 +401,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-08T09:37:47.989Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T09:37:47.989Z"
+      "firstSeenAt": "2026-11-16T09:37:47.989Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "area-sales-manager-west-africa-sulzer-ch"
+        ],
+        "fr": [
+          "area-sales-manager-west-africa-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "area-sales-manager-west-africa-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-439259fe9786",

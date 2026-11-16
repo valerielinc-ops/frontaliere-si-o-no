@@ -8044,12 +8044,12 @@
     },
     {
       "id": "anker-swiss-77118abfa147",
-      "slug": "maler-100-anker-swiss-ticino-ag-wabern-77118abf",
+      "slug": "pittura-100-anker-swiss-ticino-ag-wabern-77118abf",
       "slugByLocale": {
         "de": "maler-100-anker-swiss-ticino-ag-wabern-77118abf",
-        "it": "maler-100-anker-swiss-ticino-ag-wabern-77118abf",
-        "en": "maler-100-anker-swiss-ticino-ag-wabern-77118abf",
-        "fr": "maler-100-anker-swiss-ticino-ag-wabern-77118abf"
+        "it": "pittura-100-anker-swiss-ticino-ag-wabern-77118abf",
+        "en": "painter-100-anker-swiss-ticino-ag-wabern-77118abf",
+        "fr": "peintre-100-anker-swiss-ticino-ag-wabern-77118abf"
       },
       "slugDisambiguator": "77118abf",
       "company": "Anker Swiss Ticino AG",
@@ -8115,25 +8115,29 @@
       "previousSlugsByLocale": {
         "it": [
           "maler-100-anker-swiss-ticino-ag-wabern-da773fd5",
-          "pittura-100-anker-swiss-ticino-ag-wabern-da773fd5"
+          "pittura-100-anker-swiss-ticino-ag-wabern-da773fd5",
+          "maler-100-anker-swiss-ticino-ag-wabern-77118abf"
         ],
         "en": [
           "maler-100-anker-swiss-ticino-ag-wabern-da773fd5",
-          "painter-100-anker-swiss-ticino-ag-wabern-da773fd5"
+          "painter-100-anker-swiss-ticino-ag-wabern-da773fd5",
+          "maler-100-anker-swiss-ticino-ag-wabern-77118abf"
         ],
         "de": [
           "maler-100-anker-swiss-ticino-ag-wabern-da773fd5"
         ],
         "fr": [
           "maler-100-anker-swiss-ticino-ag-wabern-da773fd5",
-          "peintre-100-anker-swiss-ticino-ag-wabern-da773fd5"
+          "peintre-100-anker-swiss-ticino-ag-wabern-da773fd5",
+          "maler-100-anker-swiss-ticino-ag-wabern-77118abf"
         ]
       },
       "previousSlugs": [
         "maler-100-anker-swiss-ticino-ag-wabern-da773fd5",
         "pittura-100-anker-swiss-ticino-ag-wabern-da773fd5",
         "painter-100-anker-swiss-ticino-ag-wabern-da773fd5",
-        "peintre-100-anker-swiss-ticino-ag-wabern-da773fd5"
+        "peintre-100-anker-swiss-ticino-ag-wabern-da773fd5",
+        "maler-100-anker-swiss-ticino-ag-wabern-77118abf"
       ]
     },
     {
@@ -22537,8 +22541,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-100-anker-swiss-ticino-ag-liebefeld-aa9f1e4e",
         "it": "installatore-trice-elettrico-a-100-anker-swiss-ticino-ag-liebefeld",
-        "en": "elektroinstallateur-100-anker-swiss-ticino-ag-liebefeld-aa9f1e4e",
-        "fr": "elektroinstallateur-100-anker-swiss-ticino-ag-liebefeld-aa9f1e4e"
+        "en": "electrical-installer-100-anker-swiss-ticino-ag-liebefeld-aa9f1e4e",
+        "fr": "installateur-electrique-100-anker-swiss-ticino-ag-liebefeld-aa9f1e4e"
       },
       "slugDisambiguator": "aa9f1e4e",
       "company": "Anker Swiss Ticino AG",
@@ -22587,6 +22591,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-100-anker-swiss-ticino-ag-liebefeld-aa9f1e4e"
+        ],
+        "en": [
+          "elektroinstallateur-100-anker-swiss-ticino-ag-liebefeld-aa9f1e4e"
+        ],
+        "fr": [
           "elektroinstallateur-100-anker-swiss-ticino-ag-liebefeld-aa9f1e4e"
         ]
       },
@@ -22702,9 +22712,9 @@
       "slug": "installatore-di-impianti-sanitari-installatore-di-riscaldamenti-100-anker-swiss-ticino-ag-mendrisio-d0a43cf0",
       "slugByLocale": {
         "it": "installatore-di-impianti-sanitari-installatore-di-riscaldamenti-100-anker-swiss-ticino-ag-mendrisio-d0a43cf0",
-        "en": "installatore-di-impianti-sanitari-installatore-di-riscaldamenti-100-anker-swiss-ticino-ag-mendrisio-d0a43cf0",
-        "de": "installatore-di-impianti-sanitari-installatore-di-riscaldamenti-100-anker-swiss-ticino-ag-mendrisio-d0a43cf0",
-        "fr": "installatore-di-impianti-sanitari-installatore-di-riscaldamenti-100-anker-swiss-ticino-ag-mendrisio-d0a43cf0"
+        "en": "sanitary-plant-installer-heat-installer-100-anker-swiss-ticino-ag-mendrisio-d0a43cf0",
+        "de": "sanitarpflanze-installateur-hitze-installateur-100-anker-swiss-ticino-ag-mendrisio-d0a43cf0",
+        "fr": "installation-d-installations-sanitaires-installateur-de-chauffage-100-anker-swiss-ticino-ag-mendrisio-d0a43cf0"
       },
       "slugDisambiguator": "d0a43cf0",
       "company": "Anker Swiss Ticino AG",
@@ -22786,9 +22796,9 @@
       "slug": "metalcostruttore-100-anker-swiss-ticino-ag-mendrisio-ed1ef9a6",
       "slugByLocale": {
         "it": "metalcostruttore-100-anker-swiss-ticino-ag-mendrisio-ed1ef9a6",
-        "en": "metalcostruttore-100-anker-swiss-ticino-ag-mendrisio-ed1ef9a6",
-        "de": "metalcostruttore-100-anker-swiss-ticino-ag-mendrisio-ed1ef9a6",
-        "fr": "metalcostruttore-100-anker-swiss-ticino-ag-mendrisio-ed1ef9a6"
+        "en": "metalconstructor-100-anker-swiss-ticino-ag-mendrisio-ed1ef9a6",
+        "de": "metallkonstruktor-100-anker-swiss-ticino-ag-mendrisio-ed1ef9a6",
+        "fr": "constructeur-metallique-100-anker-swiss-ticino-ag-mendrisio-ed1ef9a6"
       },
       "slugDisambiguator": "ed1ef9a6",
       "company": "Anker Swiss Ticino AG",
@@ -22870,9 +22880,9 @@
       "slug": "disegnatore-metalcostruttore-100-anker-swiss-ticino-ag-mendrisio-951fdb8c",
       "slugByLocale": {
         "it": "disegnatore-metalcostruttore-100-anker-swiss-ticino-ag-mendrisio-951fdb8c",
-        "en": "disegnatore-metalcostruttore-100-anker-swiss-ticino-ag-mendrisio-951fdb8c",
-        "de": "disegnatore-metalcostruttore-100-anker-swiss-ticino-ag-mendrisio-951fdb8c",
-        "fr": "disegnatore-metalcostruttore-100-anker-swiss-ticino-ag-mendrisio-951fdb8c"
+        "en": "disegnator-metalconstructor-100-anker-swiss-ticino-ag-mendrisio-951fdb8c",
+        "de": "disegnator-metallkonstrukteur-100-anker-swiss-ticino-ag-mendrisio-951fdb8c",
+        "fr": "disegnator-metalconstructeur-100-anker-swiss-ticino-ag-mendrisio-951fdb8c"
       },
       "slugDisambiguator": "951fdb8c",
       "company": "Anker Swiss Ticino AG",
@@ -22951,12 +22961,12 @@
     },
     {
       "id": "anker-swiss-93413a5f4d19",
-      "slug": "plattenleger-100-anker-swiss-ticino-ag-bern-93413a5f",
+      "slug": "piastre-100-anker-swiss-ticino-ag-bern-93413a5f",
       "slugByLocale": {
         "de": "plattenleger-100-anker-swiss-ticino-ag-bern-93413a5f",
-        "it": "plattenleger-100-anker-swiss-ticino-ag-bern-93413a5f",
-        "en": "plattenleger-100-anker-swiss-ticino-ag-bern-93413a5f",
-        "fr": "plattenleger-100-anker-swiss-ticino-ag-bern-93413a5f"
+        "it": "piastre-100-anker-swiss-ticino-ag-bern-93413a5f",
+        "en": "plates-100-anker-swiss-ticino-ag-bern-93413a5f",
+        "fr": "plaques-100-anker-swiss-ticino-ag-bern-93413a5f"
       },
       "slugDisambiguator": "93413a5f",
       "company": "Anker Swiss Ticino AG",
@@ -23020,16 +23030,30 @@
       "validThrough": "2027-02-14T09:34:52.084Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-16T09:34:52.084Z",
-      "sourceIdentity": "url:https://anker-swiss.ch/stellen/plattenleger-1614505"
+      "sourceIdentity": "url:https://anker-swiss.ch/stellen/plattenleger-1614505",
+      "previousSlugsByLocale": {
+        "it": [
+          "plattenleger-100-anker-swiss-ticino-ag-bern-93413a5f"
+        ],
+        "en": [
+          "plattenleger-100-anker-swiss-ticino-ag-bern-93413a5f"
+        ],
+        "fr": [
+          "plattenleger-100-anker-swiss-ticino-ag-bern-93413a5f"
+        ]
+      },
+      "previousSlugs": [
+        "plattenleger-100-anker-swiss-ticino-ag-bern-93413a5f"
+      ]
     },
     {
       "id": "anker-swiss-b1a502e11668",
       "slug": "montatore-settore-elettrico-100-anker-swiss-ticino-ag-bellinzona-b1a502e1",
       "slugByLocale": {
         "it": "montatore-settore-elettrico-100-anker-swiss-ticino-ag-bellinzona-b1a502e1",
-        "en": "montatore-settore-elettrico-100-anker-swiss-ticino-ag-bellinzona-b1a502e1",
-        "de": "montatore-settore-elettrico-100-anker-swiss-ticino-ag-bellinzona-b1a502e1",
-        "fr": "montatore-settore-elettrico-100-anker-swiss-ticino-ag-bellinzona-b1a502e1"
+        "en": "mounter-electrical-sector-100-anker-swiss-ticino-ag-bellinzona-b1a502e1",
+        "de": "montage-elektrischer-sektor-100-anker-swiss-ticino-ag-bellinzona-b1a502e1",
+        "fr": "monteur-secteur-electrique-100-anker-swiss-ticino-ag-bellinzona-b1a502e1"
       },
       "slugDisambiguator": "b1a502e1",
       "company": "Anker Swiss Ticino AG",
@@ -23097,12 +23121,12 @@
     },
     {
       "id": "anker-swiss-cbe1c0fc9bac",
-      "slug": "plattenleger-100-anker-swiss-ticino-ag-recherswil-cbe1c0fc",
+      "slug": "piastre-100-anker-swiss-ticino-ag-recherswil-cbe1c0fc",
       "slugByLocale": {
         "de": "plattenleger-100-anker-swiss-ticino-ag-recherswil-cbe1c0fc",
-        "it": "plattenleger-100-anker-swiss-ticino-ag-recherswil-cbe1c0fc",
-        "en": "plattenleger-100-anker-swiss-ticino-ag-recherswil-cbe1c0fc",
-        "fr": "plattenleger-100-anker-swiss-ticino-ag-recherswil-cbe1c0fc"
+        "it": "piastre-100-anker-swiss-ticino-ag-recherswil-cbe1c0fc",
+        "en": "plates-100-anker-swiss-ticino-ag-recherswil-cbe1c0fc",
+        "fr": "plaques-100-anker-swiss-ticino-ag-recherswil-cbe1c0fc"
       },
       "slugDisambiguator": "cbe1c0fc",
       "company": "Anker Swiss Ticino AG",
@@ -23166,16 +23190,30 @@
       "validThrough": "2027-02-14T09:34:52.083Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-16T09:34:52.083Z",
-      "sourceIdentity": "url:https://anker-swiss.ch/stellen/plattenleger-1614547"
+      "sourceIdentity": "url:https://anker-swiss.ch/stellen/plattenleger-1614547",
+      "previousSlugsByLocale": {
+        "it": [
+          "plattenleger-100-anker-swiss-ticino-ag-recherswil-cbe1c0fc"
+        ],
+        "en": [
+          "plattenleger-100-anker-swiss-ticino-ag-recherswil-cbe1c0fc"
+        ],
+        "fr": [
+          "plattenleger-100-anker-swiss-ticino-ag-recherswil-cbe1c0fc"
+        ]
+      },
+      "previousSlugs": [
+        "plattenleger-100-anker-swiss-ticino-ag-recherswil-cbe1c0fc"
+      ]
     },
     {
       "id": "anker-swiss-c573b93c0de7",
       "slug": "impiegato-d-8217-amministrazione-100-anker-swiss-ticino-ag-bellinzona-c573b93c",
       "slugByLocale": {
         "it": "impiegato-d-8217-amministrazione-100-anker-swiss-ticino-ag-bellinzona-c573b93c",
-        "en": "impiegato-d-8217-amministrazione-100-anker-swiss-ticino-ag-bellinzona-c573b93c",
-        "de": "impiegato-d-8217-amministrazione-100-anker-swiss-ticino-ag-bellinzona-c573b93c",
-        "fr": "impiegato-d-8217-amministrazione-100-anker-swiss-ticino-ag-bellinzona-c573b93c"
+        "en": "employee-d-amministrazione-100-anker-swiss-ticino-ag-bellinzona-c573b93c",
+        "de": "angestellter-d-amministrazione-100-anker-swiss-ticino-ag-bellinzona-c573b93c",
+        "fr": "employe-d-amministrazione-100-anker-swiss-ticino-ag-bellinzona-c573b93c"
       },
       "slugDisambiguator": "c573b93c",
       "company": "Anker Swiss Ticino AG",
