@@ -51,7 +51,7 @@ describe('Offerwall controlled messaging — held until "Candidati"', () => {
     expect(CONTROLLED_MESSAGING_BLOCK).toContain("state: 'off_board'");
     expect(CONTROLLED_MESSAGING_BLOCK).not.toContain('cerca-lavoro-ticino');
     expect(CONTROLLED_MESSAGING_BLOCK).toContain('__ftOfferwallGate');
-    expect(CONTROLLED_MESSAGING_BLOCK).toContain('w.release = function()');
+    expect(CONTROLLED_MESSAGING_BLOCK).toMatch(/w\.release\s*=\s*function\s*\(showOfferwall\)/);
     // Before a consent decision only the Offerwall is suppressed, so the CMP shows.
     expect(CONTROLLED_MESSAGING_BLOCK).toContain('types: [E.OFFERWALL]');
     expect(CONTROLLED_MESSAGING_BLOCK).toContain('message.proceed(true)');
