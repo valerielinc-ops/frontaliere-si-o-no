@@ -14,6 +14,8 @@ import { MYSWITZERLAND_DETAIL_BROWSER_UA } from '../scripts/lib/myswitzerland-de
 const ROOT = path.resolve(__dirname, '..');
 const MODULE = 'scripts/lib/myswitzerland-detail-transport.mjs';
 const CRAWLER = 'scripts/crawl-myswitzerland-events.mjs';
+const RELATED_TEST_RUNNER = 'scripts/ci/run-related-tests.mjs';
+const RELATED_TEST_SELECTOR = "['tests/myswitzerland-browser-ua-confinement.test.ts', pathAndSourceMatch(/^scripts\\//, /MYSWITZERLAND_DETAIL_BROWSER_UA|myswitzerland-detail-transport|MySwitzerland/)]";
 const ALLOWED = new Set([MODULE, CRAWLER]);
 const EXT = /\.(?:[cm]?[jt]s|tsx?)$/;
 
@@ -46,13 +48,25 @@ describe('MySwitzerland browser User-Agent stays inside its crawler', () => {
     return MARKERS.some((marker) => text.includes(marker));
   });
 
+  // The related-test runner repeats these markers only in this selector so
+  // changes to the crawler exception rerun this contract; that metadata is
+  // not a transport consumer. Any other marker occurrence in the runner is
+  // still treated as an out-of-scope use.
+  const hasOnlyRelatedTestSelector = (file: string): boolean => {
+    if (file !== RELATED_TEST_RUNNER) return false;
+    const source = readFileSync(path.join(ROOT, file), 'utf8');
+    if (!source.includes(RELATED_TEST_SELECTOR)) return false;
+    const outsideSelector = source.replace(RELATED_TEST_SELECTOR, '');
+    return MARKERS.every((marker) => !outsideSelector.includes(marker));
+  };
+
   it('scans a non-empty scripts/ tree', () => {
     expect(files).toContain(CRAWLER);
     expect(files).toContain(MODULE);
   });
 
   it('no file outside the crawler and its transport module uses the exception', () => {
-    expect(users.filter((file) => !ALLOWED.has(file))).toEqual([]);
+    expect(users.filter((file) => !ALLOWED.has(file) && !hasOnlyRelatedTestSelector(file))).toEqual([]);
   });
 
   it('the crawler imports the transport module (the guard is not vacuous)', () => {
