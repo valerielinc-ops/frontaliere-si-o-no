@@ -2146,7 +2146,7 @@
     "slugByLocale": {
       "it": "lavoratori-sociali-kantonsspital-aarau-ksa-aarau",
       "en": "social-workers-kantonsspital-aarau-ksa-aarau",
-      "de": "sozialarbeiter-in-ksa-ch",
+      "de": "sozialarbeiter-in-ksa-ch-c4098d5f",
       "fr": "travailleurs-sociaux-kantonsspital-aarau-ksa-aarau-5d7b98"
     },
     "sector": "Sanità / Ospedali",
@@ -2166,13 +2166,19 @@
         "travailleurs-sociaux-kantonsspital-aarau-ksa-aarau",
         "sozialarbeiter-in-kantonsspital-aarau-ksa-aarau",
         "sozialarbeiter-in-ksa-ch-9ztjk3",
+        "sozialarbeiter-in-ksa-ch-c4098d5f",
         "sozialarbeiter-in-ksa-ch"
       ],
       "en": [
-        "social-worker-kantonsspital-aarau-ksa-aarau"
+        "social-worker-kantonsspital-aarau-ksa-aarau",
+        "sozialarbeiter-in-ksa-ch"
       ],
       "fr": [
-        "travailleurs-sociaux-kantonsspital-aarau-ksa-aarau"
+        "travailleurs-sociaux-kantonsspital-aarau-ksa-aarau",
+        "sozialarbeiter-in-ksa-ch"
+      ],
+      "de": [
+        "sozialarbeiter-in-ksa-ch-c4098d5f"
       ]
     },
     "postalCode": "5000",
