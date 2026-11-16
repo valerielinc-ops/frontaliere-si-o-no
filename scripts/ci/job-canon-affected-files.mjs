@@ -74,24 +74,50 @@ export function compareMapTrees(currentDir, previousDir) {
 
 /**
  * Parse an rclone --use-json-log file for map copies and deletions.
- * Metadata updates and stats are intentionally ignored.
+ * Metadata updates, skips, and stats are intentionally ignored. Unlike the
+ * ordinary asset purge log, this inventory is a safety gate: a malformed or
+ * unrecognized record must not become an empty change set before the
+ * job-canon marker is released.
  */
 export function parseRcloneChangedKeys(logText) {
   const keys = new Set();
-  for (const line of String(logText || '').split('\n')) {
+  for (const [index, line] of String(logText || '').split(/\r?\n/).entries()) {
     const trimmed = line.trim();
-    if (!trimmed.startsWith('{')) continue;
+    if (!trimmed) continue;
     let entry;
     try {
       entry = JSON.parse(trimmed);
-    } catch {
+    } catch (error) {
+      throw new Error(`invalid rclone JSON log record at line ${index + 1}: ${error instanceof Error ? error.message : String(error)}`);
+    }
+    if (!entry || typeof entry !== 'object' || Array.isArray(entry)) {
+      throw new Error(`invalid rclone JSON log record at line ${index + 1}: expected an object`);
+    }
+    const message = typeof entry.msg === 'string' ? entry.msg : '';
+    if (!message) {
+      throw new Error(`invalid rclone JSON log record at line ${index + 1}: missing msg`);
+    }
+    const object = entry.object === undefined ? '' : entry.object;
+    if (typeof object !== 'string') {
+      throw new Error(`invalid rclone JSON log record at line ${index + 1}: object is not a string`);
+    }
+    const changed = /\b(?:Copied|Deleted|Removed)\b/.test(message);
+    if (changed) {
+      if (!object) {
+        throw new Error(`unrecognized rclone change record at line ${index + 1}: missing object`);
+      }
+      const relativePath = normalizeMapRelative(object);
+      if (!relativePath) {
+        throw new Error(`unrecognized job-canon object at line ${index + 1}: ${object}`);
+      }
+      keys.add(mapKey(relativePath));
       continue;
     }
-    const message = typeof entry?.msg === 'string' ? entry.msg : '';
-    const object = typeof entry?.object === 'string' ? entry.object : '';
-    if (!object || !/\b(?:Copied|Deleted|Removed)\b/.test(message)) continue;
-    const relativePath = normalizeMapRelative(object);
-    if (relativePath) keys.add(mapKey(relativePath));
+    // Stats and other global messages normally have no object. An object
+    // attached to an unknown operation is not safe to discard: it may be a
+    // shard that the exact sync changed without the inventory understanding it.
+    if (!object || /^(?:Unchanged skipping|Updated modification time)$/.test(message)) continue;
+    throw new Error(`unrecognized rclone object record at line ${index + 1}: ${message}`);
   }
   return [...keys].sort();
 }
@@ -115,9 +141,12 @@ function main() {
   if (Boolean(previousDir) === Boolean(rcloneLog)) {
     throw new Error('provide exactly one of --previous-dir or --rclone-log');
   }
+  if (rcloneLog && !existsSync(rcloneLog)) {
+    throw new Error(`rclone JSON log is missing: ${rcloneLog}`);
+  }
   const keys = previousDir
     ? compareMapTrees(currentDir, previousDir)
-    : parseRcloneChangedKeys(rcloneLog && existsSync(rcloneLog) ? readFileSync(rcloneLog, 'utf8') : '');
+    : parseRcloneChangedKeys(readFileSync(rcloneLog, 'utf8'));
   mkdirSync(dirname(output), { recursive: true });
   writeFileSync(output, keys.length ? `${keys.join('\n')}\n` : '', 'utf8');
   console.log(`job-canon affected objects: ${keys.length}`);

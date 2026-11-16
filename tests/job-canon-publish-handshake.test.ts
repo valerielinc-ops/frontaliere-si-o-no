@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import { existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
 import {
@@ -43,15 +44,38 @@ describe('job-canon publication handshake', () => {
     }
   });
 
-  it('accepts rclone copies and deletions but ignores unchanged/stat events', () => {
+  it('accepts rclone copies and deletions but rejects untrusted records', () => {
     const log = [
       JSON.stringify({ msg: 'Copied (new)', object: 'job-canon/01.json' }),
-      JSON.stringify({ msg: 'Deleted', object: 'job-canon/v2/abc.json' }),
+      JSON.stringify({ msg: 'Deleted', object: 'v2/abc.json' }),
       JSON.stringify({ msg: 'Unchanged skipping', object: 'job-canon/02.json' }),
-      JSON.stringify({ msg: 'Copied (new)', object: 'assets/nope.js' }),
-      'partial json',
+      JSON.stringify({ msg: 'Updated modification time', object: 'job-canon/03.json' }),
     ].join('\n');
     expect(parseRcloneChangedKeys(log)).toEqual(['job-canon/01.json', 'job-canon/v2/abc.json']);
+    expect(() => parseRcloneChangedKeys(`${log}\npartial json`)).toThrow(/invalid rclone JSON log record/);
+    expect(() => parseRcloneChangedKeys(JSON.stringify({ msg: 'Copied (new)', object: 'assets/nope.js' })))
+      .toThrow(/unrecognized job-canon object/);
+    expect(() => parseRcloneChangedKeys(JSON.stringify({ msg: 'Unknown operation', object: 'job-canon/01.json' })))
+      .toThrow(/unrecognized rclone object record/);
+  });
+
+  it('fails closed when the R2 log file is missing', () => {
+    const root = mkdtempSync(join(tmpdir(), 'job-canon-inventory-'));
+    try {
+      const current = join(root, 'current');
+      const output = join(root, 'affected.txt');
+      mkdirSync(current, { recursive: true });
+      writeFileSync(join(current, '00.json'), '{"changed":true}\n');
+      expect(() => execFileSync(process.execPath, [
+        resolve('scripts/ci/job-canon-affected-files.mjs'),
+        `--current-dir=${current}`,
+        `--rclone-log=${join(root, 'missing.jsonl')}`,
+        `--output=${output}`,
+      ], { encoding: 'utf8' })).toThrow(/rclone JSON log is missing/);
+      expect(existsSync(output)).toBe(false);
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('requires live bytes to match the staged shard and accepts a deleted shard only as 404/410', async () => {
