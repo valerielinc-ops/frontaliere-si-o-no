@@ -264,6 +264,38 @@ describe('verified sign-in navigation from an existing-account registration page
     expect(frenchFormForgot.locator.click).toHaveBeenCalledOnce();
   });
 
+  it('uses Swarovski’s page-level French reset button without relying on a machine id', async () => {
+    const currentUrl = 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio-Outlet/Seasonal-Sales-Consultant_R-12345-1/apply/applyManually';
+    const pageLevelForgot = pageWithLink({
+      label: 'Vous avez oublié votre mot de passe ?', currentUrl, tagName: 'BUTTON',
+      formId: '', formIdentityFields: [], formHasPassword: false,
+    });
+    const snapshot = {
+      dialogs: [],
+      fields: [
+        { id: 'email', kind: 'text', inputType: 'text', label: 'Adresse e-mail*', required: true, frame: 0 },
+        { id: 'password', kind: 'text', inputType: 'password', label: 'Mot de passe*', required: true, frame: 0 },
+      ],
+      buttons: [
+        { id: 'privacy', frame: 0, text: 'Lire tout le message sur la confidentialité', chrome: true },
+        { id: 'reject', frame: 0, text: 'Refuser', chrome: true },
+        { id: 'accept', frame: 0, text: 'Accepter les cookies', chrome: true },
+        { id: 'sign-in', frame: 0, text: 'Connexion', chrome: true },
+        { id: 'visit', frame: 0, text: 'Visite Swarovski.com', chrome: true },
+        { id: 'jobs', frame: 0, text: 'Rechercher des emplois', chrome: true },
+        { id: 'introduce', frame: 0, text: 'Présentez-vous', chrome: true },
+        { id: 'back', frame: 0, text: "Retour à l'offre d'emploi", chrome: true },
+        { id: 'create', frame: 0, text: 'Créer un compte' },
+        { id: 'forgot', frame: 0, text: 'Vous avez oublié votre mot de passe ?' },
+      ],
+      errors: ["L'adresse e-mail ou le mot de passe saisi est erroné ou votre compte est verrouillé."],
+    };
+
+    await expect(openVerifiedPasswordResetNavigation(pageLevelForgot.page as any, snapshot as any)).resolves.toBe(true);
+    expect(pageLevelForgot.locator.click).toHaveBeenCalledOnce();
+    expect(pageLevelForgot.frame.goto).not.toHaveBeenCalled();
+  });
+
   it('rejects an insecure HTTP destination even when it uses the same host', async () => {
     const insecure = pageWithLink({ label: 'Sign in', href: `http://${HOST}/de/login` });
     await expect(openVerifiedSignInNavigation(insecure.page as any, {

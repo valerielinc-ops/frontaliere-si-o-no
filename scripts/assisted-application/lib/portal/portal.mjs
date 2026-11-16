@@ -8735,8 +8735,10 @@ export async function openVerifiedPasswordResetNavigation(page, snapshot) {
   for (const candidate of candidates) {
     const id = String(candidate.id || '');
     if (!/^[\w-]{1,80}$/.test(id)) continue;
-    const workdayPageLevelReset = !candidate.formId && candidate.dataAutomationId === 'forgotPasswordLink';
-    if (!candidate.formId && !workdayPageLevelReset) continue;
+    const candidateLabel = [candidate.text, candidate.label, candidate.title, candidate.ariaLabel].join(' ');
+    const pageLevelResetCandidate = !candidate.formId
+      && (candidate.dataAutomationId === 'forgotPasswordLink' || FORGOT_PASSWORD_RE.test(candidateLabel));
+    if (!candidate.formId && !pageLevelResetCandidate) continue;
     const frame = page.frames()[Number(candidate.frame) || 0] || page.mainFrame();
     const locator = frame.locator(`[data-aa-id="${id}"]`).first();
     if (typeof locator?.isVisible !== 'function' || typeof locator?.evaluate !== 'function'
@@ -8748,6 +8750,7 @@ export async function openVerifiedPasswordResetNavigation(page, snapshot) {
         .map((labelId) => element.ownerDocument.getElementById(labelId)?.innerText || '').join(' ');
       return {
         tagName: String(element.tagName || '').toUpperCase(),
+        role: element.getAttribute('role') || '',
         href: element.getAttribute('href'),
         text: element.innerText || element.textContent || '',
         ariaLabel: element.getAttribute('aria-label') || '',
@@ -8781,13 +8784,18 @@ export async function openVerifiedPasswordResetNavigation(page, snapshot) {
       && Boolean(loginFields({ fields: live.formIdentityFields || [] }).email)
       && live.formHasPassword === true;
     const pageLogin = Array.isArray(snapshot?.fields) ? loginFields(snapshot) : { email: null, password: null };
+    const pageLevelLogin = Boolean(pageLogin.email && pageLogin.password
+      && !pageLogin.email.formId && !pageLogin.password.formId);
+    const liveButton = live.tagName === 'BUTTON' || live.role === 'button';
     const workdayPageReset = !candidate.formId
       && !live.formId
       && isWorkdayTenantUrl(current.href)
-      && live.tagName === 'BUTTON'
-      && candidate.dataAutomationId === 'forgotPasswordLink'
-      && live.dataAutomationId === 'forgotPasswordLink'
-      && Boolean(pageLogin.email && !pageLogin.email.formId && pageLogin.password && !pageLogin.password.formId);
+      && liveButton
+      && candidate.chrome !== true
+      && pageLevelLogin
+      && (candidate.dataAutomationId === 'forgotPasswordLink'
+        || live.dataAutomationId === 'forgotPasswordLink'
+        || FORGOT_PASSWORD_RE.test(label));
     if (!sameFormReset && !workdayPageReset) continue;
     if (live.tagName === 'BUTTON') {
       if (candidate.dataAutomationId !== 'forgotPasswordLink'
