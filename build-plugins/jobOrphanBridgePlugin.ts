@@ -209,10 +209,6 @@ function buildCurrentPathForMatched(locale: Locale, currentSlug: string): string
   return `${LOCALE_PREFIX[locale]}/${section}/${currentSlug}/`.replace(/\/+/g, '/');
 }
 
-function buildCanonicalForMatched(locale: Locale, currentSlug: string): string {
-  return `${BASE_URL}${buildCurrentPathForMatched(locale, currentSlug)}`.replace(/(?<!:)\/+/g, '/');
-}
-
 /**
  * Section landing canonical. `slugHint` (when present) lets us pick the
  * canton-aware section for the orphan's known job. When absent, fall back
@@ -269,7 +265,6 @@ function renderMatchedPage(entry: OrphanEntry, distDir: string): string {
   const copy = COPY[locale];
   const orphanPath = buildOrphanPath(entry);
   const currentPath = buildCurrentPathForMatched(locale, entry.currentSlug!);
-  const canonicalUrl = buildCanonicalForMatched(locale, entry.currentSlug!);
   const orphanAbsoluteUrl = `${BASE_URL}${orphanPath}`;
 
   // Reuse the real detail, including semantic content and SEO metadata, when
@@ -295,8 +290,9 @@ function renderMatchedPage(entry: OrphanEntry, distDir: string): string {
     ${bridgeProse}
   </main>`;
 
-  // Breadcrumb describes the orphan URL the visitor actually landed on
-  // (canonical points to the live job, but the bridge is what's served).
+  // Breadcrumb describes the orphan URL the visitor actually landed on. The
+  // fallback is self-canonical because the live detail may not be present in
+  // this shard; the rewrite/CTA still points users to the current route.
   const breadcrumbLd = buildBridgeBreadcrumbLd({
     locale,
     baseUrl: BASE_URL,
