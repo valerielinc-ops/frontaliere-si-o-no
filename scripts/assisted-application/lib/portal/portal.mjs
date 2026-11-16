@@ -2406,6 +2406,27 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && !socialApplicationEntry(control));
   const sameSelectedPostingAddress = (firstUrl, secondUrl) => samePostingAddress(firstUrl, secondUrl)
     || sameBrassRingPostingAddress(firstUrl, secondUrl);
+  // BrassRing's HomeWithPreLoad surface can expose a generic Apply now button
+  // in an application section whose extracted context is empty or names only
+  // the wizard. On this ATS the query-bound jobid is the stronger vacancy
+  // proof: require all three selected addresses to be the same UBS job route,
+  // a fieldless surface, and one (and only one) Apply now control. Do not use
+  // this for a listing, another ATS, or an ambiguous pair of CTAs.
+  const brassRingRouteApplyNowEntries = allEntries.filter((control) => !control?.href
+    && !control?.formId && (Number(control?.frame) || 0) === 0
+    && /^apply now$/iu.test(String(control?.text || control?.label || control?.ariaLabel || '')
+      .normalize('NFKC').trim())
+    && !control?.menuItem && !control?.popup && !socialApplicationEntry(control));
+  const brassRingSelectedPostingSurface = context.allowSingleExternalApplicationEntry === true
+    && posting?.origin === 'https://jobs.ubs.com'
+    && apply?.origin === posting.origin
+    && current?.origin === posting.origin
+    && BRASSRING_HOME_WITH_PRELOAD_RE.test(posting.pathname || '')
+    && sameSelectedPostingAddress(context.applyUrl, context.postingUrl)
+    && sameSelectedPostingAddress(snapshot.url, context.postingUrl)
+    && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
+    && brassRingRouteApplyNowEntries.length === 1 && allEntries.length === 1;
+  if (brassRingSelectedPostingSurface) return brassRingRouteApplyNowEntries;
   const selectedPostingApplyPage = context.selectedPostingIsApplicationUrl === true
     && context.allowSingleExternalApplicationEntry === true
     && sameSelectedPostingAddress(context.applyUrl, context.postingUrl)
@@ -3903,6 +3924,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
   // the generic form; it is not a blanket fallback for a direct apply URL.
   let enteredThroughApplicationEntry = false;
   let applicationEntryUrl = '';
+  let brassRingApplicationEntryProven = stageContext?.brassRingApplicationEntryProven === true;
   let workdayApplicationEntryProven = stageContext?.workdayApplicationEntryProven === true
     || isWorkdayApplicationRouteBound(page.url(), stageContext?.applyUrl);
   let resolvedPostingUrl = '';
@@ -4090,7 +4112,10 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     }
     if (stageContext) {
       const stage = workdayStage || applicationStage({ ...snapshot, text: await pageText(page) }, {
-        ...stageContext, workdayApplicationEntryProven, url: page.url(),
+        ...stageContext,
+        workdayApplicationEntryProven,
+        brassRingApplicationEntryProven: brassRingApplicationEntryProven || enteredThroughApplicationEntry,
+        url: page.url(),
       });
       // A resumed account/review page is already inside the application. Its
       // Apply belongs to the stage classifier and final guard below.
@@ -4163,6 +4188,9 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
           }
           if (!await currentApplicationDiversion(snapshot)) {
             enteredThroughApplicationEntry = true;
+            brassRingApplicationEntryProven = brassRingApplicationEntryProven
+              || (sameBrassRingPostingAddress(stageContext?.applyUrl, page.url())
+                && sameBrassRingPostingAddress(stageContext?.postingUrl, page.url()));
             applicationEntryUrl = page.url();
           }
           continue;
@@ -4180,6 +4208,9 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         if (!await waitForWorkdayApplicationSurface()) return result({ handoff: 'posting_mismatch' });
         if (!await currentApplicationDiversion(snapshot)) {
           enteredThroughApplicationEntry = true;
+          brassRingApplicationEntryProven = brassRingApplicationEntryProven
+            || (sameBrassRingPostingAddress(stageContext?.applyUrl, page.url())
+              && sameBrassRingPostingAddress(stageContext?.postingUrl, page.url()));
           applicationEntryUrl = page.url();
         }
         reportNavigation({ hop: hop + 1, phase: 'direct_route', cookieStatus, controls: applicationControls, ownedEntries });
@@ -4189,6 +4220,9 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     }
     if (manual || apply) {
       enteredThroughApplicationEntry = true;
+      brassRingApplicationEntryProven = brassRingApplicationEntryProven
+        || (sameBrassRingPostingAddress(stageContext?.applyUrl, sourceUrl)
+          && sameBrassRingPostingAddress(stageContext?.postingUrl, sourceUrl));
       followedApplicationEntryThisHop = true;
       customSuccessFactorsEntryClicked = customSuccessFactorsEntryClicked || customSuccessFactorsEntry;
       const workdayManualTarget = manual
@@ -4207,6 +4241,9 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       }
     } else {
       enteredThroughApplicationEntry = true;
+      brassRingApplicationEntryProven = brassRingApplicationEntryProven
+        || (sameBrassRingPostingAddress(stageContext?.applyUrl, sourceUrl)
+          && sameBrassRingPostingAddress(stageContext?.postingUrl, sourceUrl));
       followedApplicationEntryThisHop = true;
       customSuccessFactorsEntryClicked = customSuccessFactorsEntryClicked || customSuccessFactorsEntry;
       page = (await clickPortalLink(page, link, { context })) || page;
@@ -11319,6 +11356,9 @@ export async function submitViaPortal(ctx) {
       pageTitle: postingTitle,
       postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: portalJob,
       workdayApplicationEntryProven,
+      brassRingApplicationEntryProven: initialApplicationEntryProven
+        && sameBrassRingPostingAddress(ctx.applyUrl, postingUrl)
+        && sameBrassRingPostingAddress(ctx.postingUrl, postingUrl),
       allowSingleExternalApplicationEntry: postingVacancyMatched || selectedPostingIsApplicationUrl,
       selectedPostingIsApplicationUrl,
       ...documentHostContext,
