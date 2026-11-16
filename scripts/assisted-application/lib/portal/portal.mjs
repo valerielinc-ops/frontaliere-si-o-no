@@ -11994,7 +11994,8 @@ export async function submitViaPortal(ctx) {
         return { status: 'ACCOUNT_STEP', snapshot, moved: true };
       }
       if (agent.status === 'PARKED') {
-        if (page.url() !== sourceUrl && (currentSnapshot?.fields?.length || authPageKind(currentSnapshot) !== 'none')) {
+        const destinationBound = isWorkdayJobRouteBound(page.url(), ctx.applyUrl) || await formMatch() === 'match';
+        if (page.url() !== sourceUrl && destinationBound && (hasApplicationForm(currentSnapshot) || authPageKind(currentSnapshot) !== 'none')) {
           pageEpoch += 1;
           snapshot = currentSnapshot;
           return { status: 'REACHED_FORM', snapshot: currentSnapshot, moved: true };
