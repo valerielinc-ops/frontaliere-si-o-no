@@ -33,6 +33,25 @@ const requestedKeys = new Set(
 const isParsableExpiredAt = (value) =>
   typeof value === 'string' && value !== '' && Number.isFinite(Date.parse(value));
 
+// The assembler keeps a narrow class of non-publishable rows in a crawler
+// slice as quarantine bookkeeping. They have no route identity by design,
+// but are still attributable to a company/source and must not be rejected by
+// a checkpoint gate that is otherwise meant to mirror the assembler envelope.
+const METADATA_ONLY_KEYS = new Set([
+  'companyKey',
+  'company',
+  'source',
+  'sourceUrl',
+]);
+
+function hasQuarantineMetadata(job) {
+  return Object.entries(job).some(([key, value]) => (
+    METADATA_ONLY_KEYS.has(key)
+    && typeof value === 'string'
+    && value.trim() !== ''
+  ));
+}
+
 const failures = [];
 let activeRows = 0;
 let expiredRows = 0;
@@ -86,8 +105,11 @@ if (!fs.existsSync(ACTIVE_DIR)) {
     parsed.jobs.forEach((job, index) => {
       if (!job || typeof job !== 'object' || Array.isArray(job)) {
         fail(`active/${name}.jobs[${index}]: expected an object`);
-      } else if (!hasPublishedRouteIdentity(job)) {
-        fail(`active/${name}.jobs[${index}]: missing published job identity`);
+      } else if (!hasPublishedRouteIdentity(job) && !hasQuarantineMetadata(job)) {
+        fail(
+          `active/${name}.jobs[${index}]: missing published job identity or `
+          + 'documented quarantine metadata',
+        );
       }
     });
     if (parsed.crawlerKey === key) {

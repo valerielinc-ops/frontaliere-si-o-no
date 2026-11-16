@@ -220,24 +220,13 @@ function expectCheckpointGates(events: string[]) {
   }
 }
 
-function hashWorkset(
-  keys: string[],
-  { maxCommits = '0', historySince = 'all' }: { maxCommits?: string; historySince?: string } = {},
-) {
+function hashText(input: string) {
   const hashDir = mkdtempSync(join(tmpdir(), 'backfill-workset-hash-'));
   try {
-    const descriptor = [
-      'history-backfill-scope-v2',
-      `max_commits=${maxCommits}`,
-      `history_since=${historySince}`,
-      'keys:',
-      keys.join('\n'),
-      '',
-    ].join('\n');
     const result = runCommand('git', ['hash-object', '--stdin'], {
       cwd: hashDir,
       env: isolatedEnv(hashDir),
-      input: descriptor,
+      input,
     });
     expect(result.status, result.stderr).toBe(0);
     return result.stdout.trim();
@@ -246,16 +235,49 @@ function hashWorkset(
   }
 }
 
+function hashWorkset(
+  keys: string[],
+  {
+    maxCommits = '0',
+    historySince = 'all',
+    resolvedHistorySince = historySince,
+  }: { maxCommits?: string; historySince?: string; resolvedHistorySince?: string } = {},
+) {
+  return hashText([
+    'history-backfill-scope-v3',
+    `max_commits=${maxCommits}`,
+    `history_since_input=${historySince}`,
+    `history_since_resolved=${resolvedHistorySince}`,
+    'keys:',
+    keys.join('\n'),
+    '',
+  ].join('\n'));
+}
+
 function progressLine(
   keys: string[],
   cursor: string,
   status: 'active' | 'complete',
-  scope: { maxCommits?: string; historySince?: string } = {},
+  scope: { maxCommits?: string; historySince?: string; resolvedHistorySince?: string } = {},
 ) {
-  return hashWorkset(keys, scope) + '\t' + cursor + '\t' + status + '\n';
+  const requestScopeHash = hashText([
+    'history-backfill-scope-v3',
+    `max_commits=${scope.maxCommits ?? '0'}`,
+    `history_since_input=${scope.historySince ?? 'all'}`,
+    'keys:',
+    keys.join('\n'),
+    '',
+  ].join('\n'));
+  return hashWorkset(keys, scope) + '\t' + cursor + '\t' + status + '\t'
+    + requestScopeHash + '\t' + (scope.resolvedHistorySince ?? scope.historySince ?? 'all') + '\n';
 }
 
-function resolveResumeState(progress: string, currentKeys: string[]) {
+function resolveResumeState(
+  progress: string,
+  currentKeys: string[],
+  { historySince = 'all', resolvedHistorySince = historySince }:
+  { historySince?: string; resolvedHistorySince?: string } = {},
+) {
   const progressDir = mkdtempSync(join(tmpdir(), 'backfill-resume-'));
   const progressPath = join(progressDir, 'progress.tsv');
   const keys = currentKeys.join('\n');
@@ -272,6 +294,10 @@ function resolveResumeState(progress: string, currentKeys: string[]) {
       'progress_path="$1"',
       'workset_hash="$2"',
       'keys="$3"',
+      'request_scope_hash="$4"',
+      'backfill_scope_version="history-backfill-scope-v3"',
+      'backfill_max_commits="0"',
+      `backfill_history_input=${JSON.stringify(historySince)}`,
       resumeBlock,
       'printf "__STATUS__=%s\\n" "$saved_status"',
       'printf "__CURSOR__=%s\\n" "$last_completed_key"',
@@ -282,8 +308,16 @@ function resolveResumeState(progress: string, currentKeys: string[]) {
       script,
       'backfill-resume-fixture',
       progressPath,
-      hashWorkset(currentKeys),
+      hashWorkset(currentKeys, { historySince, resolvedHistorySince }),
       keys,
+      hashText([
+        'history-backfill-scope-v3',
+        'max_commits=0',
+        `history_since_input=${historySince}`,
+        'keys:',
+        keys,
+        '',
+      ].join('\n')),
     ], { env: isolatedEnv(progressDir) });
     expect(result.status, result.stderr).toBe(0);
 
@@ -356,9 +390,10 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(block).toContain('backfill-expired-from-history-progress.tsv');
     expect(block).toContain('last_completed_key');
     expect(block).toContain('workset_hash');
-    expect(block).toContain("backfill_scope_version='history-backfill-scope-v2'");
+    expect(block).toContain("backfill_scope_version='history-backfill-scope-v3'");
     expect(block).toContain('backfill_max_commits="${MAX_COMMITS:-0}"');
-    expect(block).toContain('backfill_history_since="${HISTORY_SINCE:-45 days ago}"');
+    expect(block).toContain('backfill_history_input="${HISTORY_SINCE:-45 days ago}"');
+    expect(block).toContain('history_since_resolved');
     expect(block.split('[ "$checkpoint_count" -gt 0 ] || has_dirty_checkpoint').length - 1).toBe(2);
     expect(block).toContain('checkpoint_cursor="${last_completed_key:--}"');
     expect(block).toContain('"$saved_last" != \'-\'');
@@ -424,6 +459,22 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(changedScope.remainingKeys).toEqual(originalKeys);
     expect(changedScope.output).toContain('Backfill scope/workset changed; starting a fresh cursor.');
     expect(changedScope.output).not.toContain('Resuming after durable crawler checkpoint');
+
+    const stableRelativeScope = resolveResumeState(
+      progressLine(originalKeys, 'assura-ch', 'active', {
+        historySince: '45 days ago',
+        resolvedHistorySince: '2026-10-01T00:00:00Z',
+      }),
+      originalKeys,
+      {
+        historySince: '45 days ago',
+        resolvedHistorySince: '2026-11-16T00:00:00Z',
+      },
+    );
+    expect(stableRelativeScope.status).toBe('active');
+    expect(stableRelativeScope.cursor).toBe('assura-ch');
+    expect(stableRelativeScope.remainingKeys).toEqual(['atec-personal', 'atena']);
+    expect(stableRelativeScope.output).toContain('Resuming after durable crawler checkpoint: assura-ch');
   });
 
   it('keeps a failed final test gate non-zero while retaining the raw checkpoint', () => {
@@ -437,7 +488,7 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(result.events).toContain('audit');
     expectCheckpointGates(result.events);
     expect(result.events.filter((event) => event.startsWith('push:'))).toEqual(['push:active:alpha']);
-    expect(result.progress.split('\t')).toHaveLength(3);
+    expect(result.progress.split('\t')).toHaveLength(5);
     expect(result.progress.split('\t')[1]).toBe('alpha');
     expect(result.progress.split('\t')[2]).toBe('active');
   });
@@ -455,7 +506,20 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     ]);
     expect(new Set(result.events.filter((event) => event.startsWith('push:')).map((event) => event.split(':')[2])))
       .toEqual(new Set(['alpha']));
-    expect(result.progress.split('\t')).toEqual([hashWorkset(['alpha']), 'alpha', 'complete']);
+    expect(result.progress.split('\t')).toEqual([
+      hashWorkset(['alpha']),
+      'alpha',
+      'complete',
+      hashText([
+        'history-backfill-scope-v3',
+        'max_commits=0',
+        'history_since_input=all',
+        'keys:',
+        'alpha',
+        '',
+      ].join('\n')),
+      'all',
+    ]);
   });
 
   it('checkpoints prior crawler output after a later crawler errors and keeps the run failed', () => {
@@ -465,7 +529,8 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(result.events.indexOf('crawler:beta:failed')).toBeLessThan(result.events.indexOf('push:active:alpha'));
     expectCheckpointGates(result.events);
     expect(result.events.filter((event) => event.startsWith('push:'))).toEqual(['push:active:alpha']);
-    expect(result.progress.split('\t')).toEqual([hashWorkset(['alpha', 'beta']), 'alpha', 'active']);
+    expect(result.progress.split('\t')).toHaveLength(5);
+    expect(result.progress.split('\t').slice(0, 3)).toEqual([hashWorkset(['alpha', 'beta']), 'alpha', 'active']);
   });
 
   it('attempts one active checkpoint on SIGTERM during a crawler batch and exits non-zero', () => {
@@ -475,7 +540,8 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(result.events).toContain('crawler:alpha:interrupted');
     expectCheckpointGates(result.events);
     expect(result.events.filter((event) => event.startsWith('push:'))).toEqual(['push:active:-']);
-    expect(result.progress.split('\t')).toEqual([hashWorkset(['alpha']), '-', 'active']);
+    expect(result.progress.split('\t')).toHaveLength(5);
+    expect(result.progress.split('\t').slice(0, 3)).toEqual([hashWorkset(['alpha']), '-', 'active']);
   });
 
   it('riavvia automaticamente solo la run fallita/cancellata e con un tetto di tentativi', () => {

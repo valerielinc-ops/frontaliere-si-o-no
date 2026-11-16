@@ -48,6 +48,23 @@ describe('validate-backfill-checkpoint', () => {
     }
   });
 
+  it('accepts documented metadata-only quarantine rows', () => {
+    const root = fixture({
+      active: JSON.stringify({
+        crawlerKey: 'alpha',
+        assembledAt: '2026-11-16T08:00:00.000Z',
+        jobs: [{ companyKey: 'alpha', source: 'thin-source-quarantine' }],
+      }) + '\n',
+    });
+    try {
+      const result = run(root);
+      expect(result.status, result.stderr).toBe(0);
+      expect(result.stdout).toContain('1 active rows');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('rejects a malformed active slice and an unorderable expired entry', () => {
     const root = fixture({
       active: JSON.stringify([{ id: 'a', slug: 'alpha' }]) + '\n',
