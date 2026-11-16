@@ -49,6 +49,9 @@ describe('page-weight ceiling stays removed', () => {
       '.github/workflows/audit-published-dist-full.yml',
       '.github/workflows/audit-published-dist.yml',
       'docs/SEO-GATES.md',
+      'tests/build-plugins/healthFacilitiesJobInventory.test.ts',
+      'tests/build-plugins/pharmacyDirectoryPagesPlugin.test.ts',
+      'tests/plate-auction-pages.test.ts',
     ];
     for (const relativePath of sources) {
       const source = readFileSync(join(ROOT, relativePath), 'utf8');
