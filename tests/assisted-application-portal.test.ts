@@ -4086,6 +4086,18 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     const deWorkdayUrl = 'https://roche.wd3.myworkdayjobs.com/de/roche-ext/job/Rotkreuz/Role_202611-128370-1';
     expect(isWorkdayBareLocaleSearchShell({ url: deWorkdayUrl, fields: [], buttons: [] }, 'Stellen suchen')).toBe(true);
     expect(isWorkdayBareLocaleSearchShell({ url: deWorkdayUrl, fields: [], buttons: [{ text: 'Bewerben' }] }, 'Stellen suchen')).toBe(false);
+
+    const clinicaUrl = 'https://www.clinica-holistica.ch/de/job/hilfskoch-kuechenhilfe-mwd';
+    expect(postingMatch('Hilfskoch / Küchenhilfe (m/w/d) | Clinica Holistica\nHilfskoch / Küchenhilfe (m/w/d)', {
+      title: 'Hilfskoch / Küchenhilfe (m/w/d)',
+      company: 'Clinica Holistica Engiadina',
+      url: clinicaUrl,
+    }, clinicaUrl)).toBe('match');
+    expect(postingMatch('Other page | Clinica Holistica', {
+      title: 'Hilfskoch / Küchenhilfe (m/w/d)',
+      company: 'Clinica Holistica Engiadina',
+      url: clinicaUrl,
+    }, clinicaUrl)).toBe('mismatch');
   });
 
   it('answers unambiguous single-entry Education Degree* and Institution* fields from profile.education', () => {

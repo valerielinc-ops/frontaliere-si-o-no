@@ -4384,6 +4384,32 @@ function workdayEmployerBrandMatches(pageText, job = {}, pageUrl = '') {
     || Boolean(job.url && isWorkdayTenantUrl(job.url) && sameWorkdayJobRoute(workdayJobRoute(pageUrl), workdayJobRoute(job.url)));
 }
 
+/**
+ * Employer websites can omit a trailing regional qualifier from the order's
+ * company name (e.g. `clinica-holistica.ch` says «Clinica Holistica» for
+ * «Clinica Holistica Engiadina»). Require >= 2 distinctive host words matching
+ * the start of `job.company`, present verbatim in `pageText`, plus the job title.
+ */
+function employerHostPrefixMatches(pageText, job = {}, pageUrl = '') {
+  let labels = [];
+  try {
+    const parsed = new URL(String(pageUrl || ''));
+    if (parsed.protocol !== 'https:' && parsed.protocol !== 'http:') return false;
+    labels = parsed.hostname.toLowerCase().split('.').filter(Boolean);
+  } catch {
+    return false;
+  }
+  if (labels.length < 2) return false;
+  const domainLabel = labels[labels.length - 2];
+  const hostWords = nameWords(domainLabel);
+  const companyWords = nameWords(job.company);
+  if (hostWords.length < 2 || companyWords.length <= hostWords.length) return false;
+  if (hostWords.some((word) => word.length < 4 || BRANCH_WORDS.has(word))) return false;
+  if (!hostWords.every((word, index) => companyWords[index] === word)) return false;
+  const named = ` ${nameWords(pageText).join(' ')} `;
+  return named.includes(` ${hostWords.join(' ')} `) && titleMatchesJob(pageText, job);
+}
+
 export function postingMatch(pageText, job = {}, pageUrl = '') {
   const company = nameWords(job.company);
   const titles = jobTitleCandidates(job);
@@ -4399,7 +4425,8 @@ export function postingMatch(pageText, job = {}, pageUrl = '') {
     return named.includes(` ${company.join(' ')} `)
       || (longForm.length > 0 && named.includes(` ${longForm.join(' ')} `))
       || talentSoftEmployerAliasMatches(pageText, job, pageUrl)
-      || workdayEmployerBrandMatches(pageText, job, pageUrl) ? 'match' : 'mismatch';
+      || workdayEmployerBrandMatches(pageText, job, pageUrl)
+      || employerHostPrefixMatches(pageText, job, pageUrl) ? 'match' : 'mismatch';
   }
   return titleMatchesJob(pageText, job) ? 'match' : 'mismatch';
 }
