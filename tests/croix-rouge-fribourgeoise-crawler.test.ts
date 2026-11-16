@@ -219,7 +219,16 @@ describe('Croix-Rouge fribourgeoise crawler parser', () => {
     it('fails closed when the current body marker is absent, hidden, or ambiguous', () => {
       expect(extractVisibleJobupDescription('<main>unrelated page chrome</main>')).toBe('');
       expect(extractVisibleJobupDescription(`<div hidden data-cy="vacancy-description">${currentFixture}</div>`)).toBe('');
+      expect(extractVisibleJobupDescription(`<div data-cy="vacancy-description" style="display:none">${currentFixture}</div>`)).toBe('');
       expect(extractVisibleJobupDescription(`${currentFixture}${currentFixture}`)).toBe('');
+    });
+
+    it('excludes noscript content and separates adjacent block text', () => {
+      const firstBlock = Array.from({ length: 25 }, (_, index) => `first${index}`).join(' ');
+      const secondBlock = Array.from({ length: 25 }, (_, index) => `second${index}`).join(' ');
+      const html = `<div data-cy="vacancy-description"><noscript>${firstBlock}</noscript><p>${firstBlock}</p><p>${secondBlock}</p></div>`;
+
+      expect(extractVisibleJobupDescription(html)).toBe(`${firstBlock} ${secondBlock}`);
     });
   });
 

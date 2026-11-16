@@ -490,21 +490,67 @@ function extractJobupLocation(posting) {
  * recommended jobs. More than one matching boundary is ambiguous, so no body
  * is returned and the shared source floor keeps the row unpublished.
  */
+const JOBUP_BLOCK_TAGS = new Set([
+  'address', 'article', 'aside', 'blockquote', 'dd', 'div', 'dl', 'dt', 'fieldset',
+  'figcaption', 'figure', 'footer', 'form', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+  'header', 'hr', 'li', 'main', 'nav', 'ol', 'p', 'pre', 'section', 'table', 'tbody',
+  'td', 'tfoot', 'th', 'thead', 'tr', 'ul',
+]);
+
+function hasJobupHiddenState(element) {
+  if (element.hasAttribute('hidden')) return true;
+  if (element.getAttribute('aria-hidden')?.trim().toLowerCase() === 'true') return true;
+  return element.style?.display?.trim().toLowerCase() === 'none';
+}
+
+function hasJobupHiddenAncestor(element) {
+  for (let current = element; current; current = current.parentElement) {
+    if (hasJobupHiddenState(current)) return true;
+  }
+  return false;
+}
+
+function collectJobupVisibleText(node) {
+  let text = '';
+  for (const child of node.childNodes) {
+    if (child.nodeType === 3) {
+      text += child.nodeValue || '';
+      continue;
+    }
+    if (child.nodeType !== 1) continue;
+
+    const tagName = child.tagName.toLowerCase();
+    if (tagName === 'br') {
+      text += ' ';
+      continue;
+    }
+
+    const isBlock = JOBUP_BLOCK_TAGS.has(tagName);
+    if (isBlock) text += ' ';
+    text += collectJobupVisibleText(child);
+    if (isBlock) text += ' ';
+  }
+  return text;
+}
+
 export function extractVisibleJobupDescription(html = '') {
   const dom = new JSDOM(String(html));
   try {
     const containers = [...dom.window.document.querySelectorAll('[data-cy="vacancy-description"]')]
-      .filter((container) => (
-        !container.closest('[hidden], [aria-hidden="true"]')
-      ));
+      .filter((container) => !hasJobupHiddenAncestor(container));
 
     if (containers.length !== 1) return '';
 
     const container = containers[0].cloneNode(true);
-    for (const excluded of container.querySelectorAll('script, style, template, [hidden], [aria-hidden="true"]')) {
-      excluded.remove();
+    for (const excluded of container.querySelectorAll('script, style, template, noscript, [hidden], [aria-hidden], [style]')) {
+      if (
+        ['SCRIPT', 'STYLE', 'TEMPLATE', 'NOSCRIPT'].includes(excluded.tagName)
+        || hasJobupHiddenState(excluded)
+      ) {
+        excluded.remove();
+      }
     }
-    return normalizeSpace(container.textContent || '');
+    return normalizeSpace(collectJobupVisibleText(container));
   } finally {
     dom.window.close();
   }
