@@ -527,7 +527,22 @@ function leverFormUrl(jobUrl) {
 
 const ASHBY_QUERY = `query ApiJobPosting($organizationHostedJobsPageName: String!, $jobPostingId: String!) {
   jobPosting(organizationHostedJobsPageName: $organizationHostedJobsPageName, jobPostingId: $jobPostingId) {
-    applicationForm { sections { title isHidden fieldEntries { id isRequired isHidden field } } }
+    applicationForm {
+      sections {
+        title
+        isHidden
+        fieldEntries {
+          id
+          isRequired
+          isHidden
+          field {
+            title
+            type
+            selectableValues { label }
+          }
+        }
+      }
+    }
   }
 }`;
 
