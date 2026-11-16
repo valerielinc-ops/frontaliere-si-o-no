@@ -84,13 +84,16 @@ describe('prefetch-history-blobs', () => {
     expect(historyBackfillArgs({ since: '2026-09-20', paths }).slice(-paths.length)).toEqual(paths);
   });
 
-  it('rejects crawler keys that could escape the two slice directories', () => {
+  it('rejects crawler keys and expired filenames that could escape the slice directories', () => {
     expect(() => historyCrawlerKeys('../outside')).toThrow('Invalid crawler key');
     expect(() => historyCrawlerKeys('nested/key')).toThrow('Invalid crawler key');
     expect(() => historyCrawlerKeys('*')).toThrow('Invalid crawler key');
     expect(() => historyCrawlerKeys('-leading-dash')).toThrow('Invalid crawler key');
     expect(() => historySlicePaths(['safe', '*'])).toThrow('Invalid crawler key');
     expect(() => historySlicePaths(['safe'], { safe: ['safe.other.json'] })).toThrow('Invalid expired slice filename');
+    expect(() => historySlicePaths(['safe'], { safe: ['../safe.shard-001.json'] })).toThrow(
+      'Invalid expired slice filename',
+    );
   });
 
   it('selects only commits that changed direct JSON slices in either family', () => {
