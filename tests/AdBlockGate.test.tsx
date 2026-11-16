@@ -131,6 +131,20 @@ describe('AdBlockGate native application offer', () => {
     expect(trackUIInteractionMock).not.toHaveBeenCalled();
   });
 
+  it('keeps the global promotion when a blocker-only slot has width but zero rendered height', async () => {
+    detectAdBlockMock.mockResolvedValue(BLOCKED);
+    const slot = document.createElement('div');
+    slot.dataset.house = 'article-atf';
+    slot.dataset.ftHouseBlockerOnly = 'true';
+    slot.innerHTML = '<div data-ft-house-google></div>';
+    setSlotSize(slot, 320, 0);
+    document.body.append(slot);
+
+    render(<AdBlockGate />);
+
+    expect(await screen.findByRole('dialog')).toBeInTheDocument();
+  });
+
   it('keeps the global promotion when every inline slot is hidden or too narrow', async () => {
     detectAdBlockMock.mockResolvedValue(BLOCKED);
     const narrow = document.createElement('div');

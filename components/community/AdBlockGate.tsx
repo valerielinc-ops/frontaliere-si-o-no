@@ -158,7 +158,8 @@ function hasUsableInlineHouseSlot(): boolean {
         return false;
       }
     }
-    return frame.getBoundingClientRect().width >= 160;
+    const bounds = frame.getBoundingClientRect();
+    return bounds.width >= 160 && bounds.height > 0;
   });
 }
 
