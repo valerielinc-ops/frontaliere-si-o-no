@@ -11,24 +11,17 @@ const recoveryWorkflow = readFileSync(
 );
 
 describe('backfill-expired-from-history.yml — durable checkpoints', () => {
-  it('keeps full commit/tree history and verifies bounded slice-blob prefetch before the backfill walk', () => {
-    const checkoutStart = workflow.indexOf('- name: Checkout (full commit/tree history — slice blobs prefetched below)');
-    const prefetchStart = workflow.indexOf('- name: Prefetch historical job-slice blobs in bounded packs');
+  it('keeps full commit/tree history and prefetches only each bounded crawler batch', () => {
+    const checkoutStart = workflow.indexOf('- name: Checkout (full commit/tree history — slice blobs prefetched per batch below)');
     const setupStart = workflow.indexOf('- name: Setup Node.js');
     const walkStart = workflow.indexOf('- name: Recover dropped jobs and repair active firstSeenAt metadata (checkpointed batches)');
-    const checkoutBlock = workflow.slice(checkoutStart, prefetchStart);
-    const prefetchBlock = workflow.slice(prefetchStart, setupStart);
+    const checkoutBlock = workflow.slice(checkoutStart, setupStart);
 
     expect(checkoutStart).toBeGreaterThanOrEqual(0);
-    expect(prefetchStart).toBeGreaterThan(checkoutStart);
-    expect(setupStart).toBeGreaterThan(prefetchStart);
     expect(walkStart).toBeGreaterThan(setupStart);
     expect(checkoutBlock).toContain('fetch-depth: 0');
     expect(checkoutBlock).toContain('filter: blob:none');
-    expect(prefetchBlock).toContain('scripts/ci/prefetch-history-blobs.mjs');
-    expect(prefetchBlock).toContain('CHECKOUT_TOKEN: ${{ secrets.GITHUB_TOKEN }}');
-    expect(prefetchBlock).toContain('REPOSITORY: ${{ github.repository }}');
-    expect(prefetchBlock).toContain("HISTORY_SINCE: ${{ inputs.history_since || '45 days ago' }}");
+    expect(workflow).not.toContain('- name: Prefetch historical job-slice blobs in bounded packs');
   });
 
   it('gives the full active-plus-expired assembly an explicit heap ceiling', () => {
@@ -81,7 +74,10 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(block).toContain("^has_changes=false$");
     expect(block).toContain('git reset --hard origin/main');
     expect(block).toContain('mapfile -t key_list <<< "$keys"');
-    expect(block).toContain('for key in "${key_list[@]}"; do');
+    expect(block).toContain('for ((batch_start=0; batch_start<key_total; batch_start+=checkpoint_batch_size)); do');
+    expect(block).toContain('batch_keys=("${key_list[@]:batch_start:checkpoint_batch_size}")');
+    expect(block).toContain('CRAWLER_KEYS="$batch_crawler_keys" node scripts/ci/prefetch-history-blobs.mjs');
+    expect(block).toContain('for key in "${batch_keys[@]}"; do');
     expect(block).toContain('checkpoint history backfill slices');
     expect(block.indexOf('npm run test:backfill')).toBeLessThan(block.indexOf('git-commit-data.sh --slice-only'));
   });
