@@ -18,8 +18,10 @@ import {
   isAuthoritativeJobSitemapShardFilename,
   partitionSitemapUrlBlocks,
   splitToShards,
+  syncAuthoritativeJobSitemapIndex,
   writeShardsToDist,
 } from '../scripts/lib/sitemap-shard.mjs';
+import { SITEMAP_SHARD_CAP } from '../scripts/lib/sitemap-limits.mjs';
 import { dedupeUrlsetXmlByLoc } from '../build-plugins/shared/sitemapUrlsetDedupe';
 import fs from 'node:fs';
 import os from 'node:os';
@@ -120,6 +122,51 @@ describe('writeShardsToDist — stale shard cleanup', () => {
 
       expect(fs.existsSync(path.join(dist, 'sitemap-jobs-argovia.xml'))).toBe(false);
       expect(fs.existsSync(path.join(dist, 'sitemap-index.xml'))).toBe(false);
+    } finally {
+      fs.rmSync(dist, { recursive: true, force: true });
+    }
+  });
+});
+
+describe('syncAuthoritativeJobSitemapIndex — root discovery', () => {
+  it('indexes the overflow file and removes its stale entry on a 39,000-URL rerun', async () => {
+    const dist = fs.mkdtempSync(path.join(os.tmpdir(), 'sitemap-root-index-'));
+    const base = 'https://frontaliereticino.ch';
+    const header = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset>\n';
+    const urlBlock = (index: number) => ` <url><loc>${base}/job-${index}/</loc></url>`;
+    try {
+      fs.writeFileSync(
+        path.join(dist, 'sitemap-jobs.xml'),
+        `${header}${Array.from({ length: SITEMAP_SHARD_CAP }, (_, index) => urlBlock(index)).join('\n')}\n</urlset>\n`,
+        'utf8',
+      );
+      fs.writeFileSync(
+        path.join(dist, 'sitemap-jobs-legacy-001.xml'),
+        `${header}${urlBlock(SITEMAP_SHARD_CAP)}\n</urlset>\n`,
+        'utf8',
+      );
+      fs.writeFileSync(
+        path.join(dist, 'sitemap.xml'),
+        `<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex>\n`
+          + ` <sitemap><loc>${base}/sitemap-jobs.xml</loc><lastmod>2026-11-15</lastmod></sitemap>\n`
+          + ` <sitemap><loc>${base}/sitemap-jobs-legacy-001.xml</loc><lastmod>2026-11-15</lastmod></sitemap>\n`
+          + ` <sitemap><loc>${base}/sitemap-jobs-legacy-099.xml</loc><lastmod>2026-11-15</lastmod></sitemap>\n`
+          + `</sitemapindex>\n`,
+        'utf8',
+      );
+
+      await syncAuthoritativeJobSitemapIndex(dist, base, '2026-11-16');
+
+      let indexXml = fs.readFileSync(path.join(dist, 'sitemap.xml'), 'utf8');
+      expect(indexXml.split(`${base}/sitemap-jobs.xml`).length - 1).toBe(1);
+      expect(indexXml.split(`${base}/sitemap-jobs-legacy-001.xml`).length - 1).toBe(1);
+      expect(indexXml).not.toContain('sitemap-jobs-legacy-099.xml');
+
+      fs.rmSync(path.join(dist, 'sitemap-jobs-legacy-001.xml'));
+      await syncAuthoritativeJobSitemapIndex(dist, base, '2026-11-16');
+      indexXml = fs.readFileSync(path.join(dist, 'sitemap.xml'), 'utf8');
+      expect(indexXml).not.toContain('sitemap-jobs-legacy-001.xml');
+      expect(indexXml).toContain(`${base}/sitemap-jobs.xml`);
     } finally {
       fs.rmSync(dist, { recursive: true, force: true });
     }

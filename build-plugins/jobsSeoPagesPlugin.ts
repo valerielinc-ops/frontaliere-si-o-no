@@ -6,6 +6,7 @@ import { createStreamingSitemapWriter } from '../scripts/lib/streaming-sitemap-w
 import {
   isAuthoritativeJobSitemapShardFilename,
   partitionSitemapUrlBlocks,
+  syncAuthoritativeJobSitemapIndex,
 } from '../scripts/lib/sitemap-shard.mjs';
 import { buildArchivedJobPosting } from './shared/archivedJobPosting';
 import { buildTwitterCardMetaTags } from './shared/twitterCardMeta';
@@ -12352,23 +12353,7 @@ ${staticAnalyticsHtml}
   }
  }
 
- const sitemapIndexPath = np.join(distDir, 'sitemap.xml');
- if (fs.existsSync(sitemapIndexPath)) {
- let idx = fs.readFileSync(sitemapIndexPath, 'utf-8');
- if (!idx.includes('sitemap-jobs.xml')) {
- idx = idx.replace(
- '</sitemapindex>',
- ` <sitemap>\n <loc>${BASE_URL}/sitemap-jobs.xml</loc>\n <lastmod>${dateStamp}</lastmod>\n </sitemap>\n</sitemapindex>`
- );
- } else {
- // Update existing lastmod for sitemap-jobs.xml
- idx = idx.replace(
- /(<loc>https:\/\/frontaliereticino\.ch\/sitemap-jobs\.xml<\/loc>\s*<lastmod>)\d{4}-\d{2}-\d{2}(<\/lastmod>)/,
- `$1${dateStamp}$2`
- );
- }
- fs.writeFileSync(sitemapIndexPath, idx, 'utf-8');
- }
+ await syncAuthoritativeJobSitemapIndex(distDir, BASE_URL, dateStamp);
 
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${validJobs.length * 4} localized job pages and sitemap-jobs.xml (${prevSlugEntries.length} previousSlug entries; ${primarySitemapBlocks.length} primary URLs, ${legacyContinuationResult.entries} continuation URLs)`);
  jobsSeoMemContext.sitemap.eligibleJobs = sitemapEligibleJobCount;
@@ -17599,24 +17584,7 @@ ${staticAnalyticsHtml}
  // so our entries' <lastmod> would otherwise drop out (or fail to
  // register on a clean build). Idempotent: adds the entry if missing,
  // otherwise refreshes lastmod.
- const sitemapIndexFile = np.join(distDir, 'sitemap.xml');
- if (fs.existsSync(sitemapIndexFile)) {
- let idx = fs.readFileSync(sitemapIndexFile, 'utf-8');
- const sitemapJobsExists = fs.existsSync(np.join(distDir, 'sitemap-jobs.xml'));
- if (sitemapJobsExists) {
- if (!idx.includes('sitemap-jobs.xml')) {
- idx = idx.replace(
- '</sitemapindex>',
- ` <sitemap>\n <loc>${BASE_URL}/sitemap-jobs.xml</loc>\n <lastmod>${cacheDateStamp}</lastmod>\n </sitemap>\n</sitemapindex>`
- );
- } else {
- idx = idx.replace(
- /(<loc>https:\/\/frontaliereticino\.ch\/sitemap-jobs\.xml<\/loc>\s*<lastmod>)\d{4}-\d{2}-\d{2}(<\/lastmod>)/,
- `$1${cacheDateStamp}$2`
- );
- }
- }
- fs.writeFileSync(sitemapIndexFile, idx, 'utf-8');
+ await syncAuthoritativeJobSitemapIndex(distDir, BASE_URL, cacheDateStamp);
  // Reconcile the sharded expired family after any cache-hit patching. The
  // helper is idempotent and also removes a stale monolith reference.
  patchExpiredSitemapIndex(cacheDateStamp);

@@ -24,7 +24,7 @@
  * @module scripts/lib/sitemap-shard
  */
 
-import { readdir, unlink, writeFile, mkdir } from 'node:fs/promises';
+import { readdir, unlink, writeFile, mkdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { SITEMAP_SHARD_CAP, padShardIndex } from './sitemap-limits.mjs';
 
@@ -85,6 +85,102 @@ export function isJobSitemapShardFilename(filename) {
  */
 export function isAuthoritativeJobSitemapShardFilename(filename) {
   return typeof filename === 'string' && AUTHORITATIVE_JOB_SITEMAP_CONTINUATION_RE.test(filename);
+}
+
+function sitemapIndexEntryXml(loc, lastmod) {
+  return ` <sitemap>\n <loc>${loc}</loc>\n <lastmod>${lastmod}</lastmod>\n </sitemap>`;
+}
+
+function isAuthoritativeJobSitemapLoc(loc, baseUrl) {
+  try {
+    const parsed = new URL(loc);
+    return parsed.origin === baseUrl
+      && parsed.search === ''
+      && parsed.hash === ''
+      && isAuthoritativeJobSitemapShardFilename(parsed.pathname.slice(1));
+  } catch {
+    return false;
+  }
+}
+
+function refreshSitemapIndexLastmod(entry, lastmod) {
+  const rendered = `<lastmod>${lastmod}</lastmod>`;
+  if (/<lastmod>[^<]*<\/lastmod>/u.test(entry)) {
+    return entry.replace(/<lastmod>[^<]*<\/lastmod>/u, rendered);
+  }
+  return entry.replace(/(<loc>[^<]*<\/loc>)/u, `$1\n${rendered}`);
+}
+
+/**
+ * Synchronize the authoritative legacy job sitemap family in the root index.
+ *
+ * The primary file is bounded at the shared cap, so overflow is emitted as
+ * numbered continuation files. The index must be rebuilt from the files that
+ * exist now: removing every old continuation entry first makes a lower-volume
+ * rerun drop stale discovery URLs instead of leaving dead references behind.
+ *
+ * @param {string} distDir
+ * @param {string} baseUrl
+ * @param {string} lastmod
+ * @returns {Promise<{files: string[]}>}
+ */
+export async function syncAuthoritativeJobSitemapIndex(distDir, baseUrl, lastmod) {
+  if (typeof distDir !== 'string' || distDir.length === 0) {
+    throw new Error('syncAuthoritativeJobSitemapIndex: distDir is required');
+  }
+  if (typeof baseUrl !== 'string' || baseUrl.length === 0) {
+    throw new Error('syncAuthoritativeJobSitemapIndex: baseUrl is required');
+  }
+
+  const parsedBaseUrl = new URL(baseUrl);
+  if (parsedBaseUrl.pathname !== '/' || parsedBaseUrl.search || parsedBaseUrl.hash) {
+    throw new Error(`syncAuthoritativeJobSitemapIndex: baseUrl must be an origin, got ${baseUrl}`);
+  }
+  const canonicalBaseUrl = parsedBaseUrl.origin;
+  const entries = await readdir(distDir, { withFileTypes: true });
+  const sitemapIndexEntry = entries.find((entry) => entry.isFile() && entry.name === 'sitemap.xml');
+  if (!sitemapIndexEntry) return { files: [] };
+
+  const continuationFiles = entries
+    .filter((entry) => entry.isFile() && isAuthoritativeJobSitemapShardFilename(entry.name))
+    .map((entry) => entry.name)
+    .sort((left, right) => {
+      const leftIndex = Number(/-(\d+)\.xml$/iu.exec(left)?.[1] ?? 0);
+      const rightIndex = Number(/-(\d+)\.xml$/iu.exec(right)?.[1] ?? 0);
+      return leftIndex - rightIndex || left.localeCompare(right);
+    });
+  const primaryExists = entries.some((entry) => entry.isFile() && entry.name === 'sitemap-jobs.xml');
+  const primaryLoc = `${canonicalBaseUrl}/sitemap-jobs.xml`;
+  let primaryEntrySeen = false;
+  const sitemapIndexPath = path.join(distDir, 'sitemap.xml');
+  let indexXml = await readFile(sitemapIndexPath, 'utf8');
+
+  indexXml = indexXml.replace(
+    /<sitemap\b[^>]*>[\s\S]*?<\/sitemap>/gu,
+    (entry) => {
+      const loc = /<loc>\s*([^<]+?)\s*<\/loc>/u.exec(entry)?.[1]?.trim();
+      if (loc && isAuthoritativeJobSitemapLoc(loc, canonicalBaseUrl)) return '';
+      if (primaryExists && loc === primaryLoc) {
+        primaryEntrySeen = true;
+        return refreshSitemapIndexLastmod(entry, lastmod);
+      }
+      return entry;
+    },
+  );
+
+  const newEntries = [];
+  if (primaryExists && !primaryEntrySeen) {
+    newEntries.push(sitemapIndexEntryXml(primaryLoc, lastmod));
+  }
+  for (const filename of continuationFiles) {
+    newEntries.push(sitemapIndexEntryXml(`${canonicalBaseUrl}/${filename}`, lastmod));
+  }
+  if (newEntries.length > 0) {
+    indexXml = indexXml.replace('</sitemapindex>', `${newEntries.join('\n')}\n</sitemapindex>`);
+  }
+
+  await writeFile(sitemapIndexPath, indexXml, 'utf8');
+  return { files: continuationFiles };
 }
 
 /**
