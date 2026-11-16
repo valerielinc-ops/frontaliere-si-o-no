@@ -1255,6 +1255,86 @@ _carry_forward_pages_job_canon() { # <previous-pages-clone> <new-stage>
   echo "additive CDN: carried forward prior job-canon/ compatibility paths and releases"
 }
 
+# _validate_pages_job_canon_release <release-dir> <build-id>
+# The Worker and browser 404 consumer accept v1 root shards named
+# [a-z0-9_]{2}.json and v2 shards under v2/[0-9a-f]{3}.json. The plugin emits
+# both layouts from the same current entries. Check the staged release itself
+# (after copying dist/job-canon) so a previous release carried forward from
+# Pages can never make the current build marker appear complete.
+_validate_pages_job_canon_release() {
+  local release_dir="$1" build_id="$2"
+  if [ ! -d "$release_dir" ]; then
+    echo "::error::[pages] production job-canon payload is incomplete: release directory is missing for DEPLOY_BUILD_ID=$build_id at $release_dir" >&2
+    return 1
+  fi
+  if ! node - "$release_dir" <<'NODE'
+const fs = require('node:fs');
+const path = require('node:path');
+
+const releaseDir = process.argv[2];
+const failures = [];
+function validateShards(directory, pattern, label) {
+  let entries;
+  try {
+    entries = fs.readdirSync(directory, { withFileTypes: true });
+  } catch (error) {
+    failures.push(`${label} directory is missing or unreadable`);
+    return 0;
+  }
+  const files = entries.filter((entry) => entry.isFile() && pattern.test(entry.name));
+  if (files.length === 0) failures.push(`${label} has no Worker-consumable map JSON files`);
+  let mapsWithEntries = 0;
+  for (const file of files) {
+    const filePath = path.join(directory, file.name);
+    let contents;
+    try {
+      contents = fs.readFileSync(filePath, 'utf8');
+    } catch (error) {
+      failures.push(`${label} map ${file.name} is unreadable`);
+      continue;
+    }
+    if (contents.trim().length === 0) {
+      failures.push(`${label} map ${file.name} is empty`);
+      continue;
+    }
+    let map;
+    try {
+      map = JSON.parse(contents);
+    } catch (error) {
+      failures.push(`${label} map ${file.name} is not valid JSON`);
+      continue;
+    }
+    if (!map || typeof map !== 'object' || Array.isArray(map)) {
+      failures.push(`${label} map ${file.name} is not a Worker-consumable object`);
+    } else if (Object.keys(map).length > 0) {
+      mapsWithEntries += 1;
+    }
+  }
+  if (mapsWithEntries === 0) failures.push(`${label} has no map JSON with usable entries`);
+  return files.length;
+}
+
+const v1Count = validateShards(releaseDir, /^[a-z0-9_]{2}\.json$/, 'v1');
+const v2Count = validateShards(path.join(releaseDir, 'v2'), /^[0-9a-f]{3}\.json$/, 'v2');
+if (failures.length > 0) {
+  console.error(`[pages] production job-canon payload is incomplete: ${failures.join('; ')}`);
+  process.exitCode = 1;
+} else {
+  console.log(`[pages] validated current job-canon maps: v1=${v1Count}, v2=${v2Count}`);
+}
+NODE
+  then
+    echo "::error::[pages] refusing to publish DEPLOY_BUILD_ID=$build_id without usable current job-canon maps" >&2
+    return 1
+  fi
+}
+
+_pages_build_publish_acknowledged() {
+  [ -n "${DEPLOY_BUILD_ID:-}" ] || return 0
+  [ "${CDN_TARGET:-pages}" = "r2" ] && return 0
+  [ "${CDN_PAGES_BUILD_ID:-}" = "$DEPLOY_BUILD_ID" ]
+}
+
 step_push_cdn() {
   set -uo pipefail
   # CDN_TARGET selects the publish path; default 'pages' keeps the legacy
@@ -1263,6 +1343,9 @@ step_push_cdn() {
   # CDN_DEPLOY_KEY.
   local cdn_target="${CDN_TARGET:-pages}"
   local stage="${CDN_STAGE_DIR:-${RUNNER_TEMP}/cdn-stage}"
+  if [ -n "${DEPLOY_BUILD_ID:-}" ] && [ "$cdn_target" != "r2" ]; then
+    unset CDN_PAGES_BUILD_ID
+  fi
   # Same leaked-staging-dir class fixed for push-locale-shard.sh /
   # push-section-shard.sh (issue #4734): $stage holds up to ~950 MB
   # (og+data+assets+images) and is never read again after this function
@@ -1482,6 +1565,13 @@ step_push_cdn() {
     cd "${PREP_CWD:-$PWD}"
     return 0
   fi
+  local pages_production_release=0
+  [ -n "${DEPLOY_BUILD_ID:-}" ] && pages_production_release=1
+  if [ "$pages_production_release" = 1 ] \
+    && ! _validate_pages_job_canon_release "$stage/job-canon/releases/$DEPLOY_BUILD_ID" "$DEPLOY_BUILD_ID"; then
+    cd "${PREP_CWD:-$PWD}"
+    return 1
+  fi
   keyfile="$RUNNER_TEMP/cdn_deploy_key"
   printf '%s\n' "$CDN_DEPLOY_KEY" > "$keyfile" && chmod 600 "$keyfile"
   export GIT_SSH_COMMAND="ssh -i $keyfile -o IdentitiesOnly=yes -o StrictHostKeyChecking=accept-new -o ServerAliveInterval=30 -o ServerAliveCountMax=6 -o TCPKeepAlive=yes"
@@ -1500,8 +1590,6 @@ step_push_cdn() {
   # prune-cdn-assets.mjs GCs the carried-forward legacy hashes post-grace.
   # Sparse + blob:none keeps the clone small; production also checks out the
   # complete job-canon/ namespace because rollback and older consumers need it.
-  local pages_production_release=0
-  [ -n "${DEPLOY_BUILD_ID:-}" ] && pages_production_release=1
   if [ -d "$stage/assets" ] || [ "$pages_production_release" = 1 ]; then
     prev="$RUNNER_TEMP/cdn-prev"; rm -rf "$prev"
     if git clone --depth 1 --filter=blob:none --sparse \
@@ -1574,6 +1662,12 @@ step_push_cdn() {
   fi
   if [ "$_push_ok" = 1 ]; then
     export_env CDN_BASE "https://cdn.frontaliereticino.ch"
+    if [ "$pages_production_release" = 1 ]; then
+      # Keep a Pages-specific acknowledgement in this publisher invocation so
+      # a successful R2 half of CDN_TARGET=both cannot certify a failed Pages
+      # marker/map publication.
+      export CDN_PAGES_BUILD_ID="$DEPLOY_BUILD_ID"
+    fi
     echo "✅ pushed assets to frontaliere-cdn"
   else
     echo "⚠️ CDN push failed after 3 attempts — offload skipped, og/data stay in dist"
@@ -1840,6 +1934,10 @@ main() {
   # original order, from the normal (unflagged) invocation below.
   if [ "${DEPLOY_CDN_PUSH_ONLY:-}" = "1" ]; then
     run_nonfatal "Push generated assets to CDN repo (early phase)" step_push_cdn
+    if ! _pages_build_publish_acknowledged; then
+      echo "::error::[deploy-it-pages-prep] Pages CDN publish for build ${DEPLOY_BUILD_ID} was not acknowledged with the current job-canon payload and marker — failing the IT leg"
+      return 1
+    fi
     if [ -n "${CDN_BASE:-}" ]; then
       echo "✅ early CDN push complete — CDN_BASE exported, the full prep will skip its own push"
     else
@@ -1856,9 +1954,11 @@ main() {
   # Skipped iff the early phase above already published THIS build's payload
   # (it exported CDN_BASE into $GITHUB_ENV, which GitHub injects into this
   # step's env). Unset → push here, i.e. the pre-hoist behaviour verbatim.
+  local cdn_push_attempted=0
   if [ -n "${CDN_BASE:-}" ]; then
     echo "CDN_BASE=$CDN_BASE already set by the early CDN push phase — skipping the CDN push (payload for this build is live)"
   else
+    cdn_push_attempted=1
     run_nonfatal "Push generated assets to CDN repo" step_push_cdn   # non-fatal
   fi
   # A matrix build carries a shared id because the non-IT shards must wait for
@@ -1869,6 +1969,10 @@ main() {
   # observer can then stop its wait early while keeping the shard unpublished.
   if [ -n "${DEPLOY_BUILD_ID:-}" ] && [ -z "${CDN_BASE:-}" ]; then
     echo "::error::[deploy-it-pages-prep] CDN publish for build ${DEPLOY_BUILD_ID} was not acknowledged (CDN_BASE unset) — failing the IT leg so non-IT shards do not spend the full #2569 wait"
+    return 1
+  fi
+  if [ "$cdn_push_attempted" = 1 ] && ! _pages_build_publish_acknowledged; then
+    echo "::error::[deploy-it-pages-prep] Pages CDN publish for build ${DEPLOY_BUILD_ID} was not acknowledged with the current job-canon payload and marker — failing the IT leg"
     return 1
   fi
   run_nonfatal "Offload og refs + data base into dist" step_offload  # non-fatal

@@ -27,7 +27,7 @@
 import { describe, it, expect, beforeAll } from 'vitest';
 import { execFile, execFileSync } from 'node:child_process';
 import { resolve, join } from 'node:path';
-import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync, symlinkSync } from 'node:fs';
+import { existsSync, mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync, symlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import YAML from 'yaml';
 import { IT_SHARD_GROUP_IDS } from '../scripts/ci/it-shard-group-plan.mjs';
@@ -1257,13 +1257,20 @@ describe('job-canon CDN releases keep the build marker after the complete payloa
     const push = prep.slice(pushStart, pushEnd);
     const validationAt = push.indexOf('_is_valid_deploy_build_id "$DEPLOY_BUILD_ID"');
     const mapStageAt = push.indexOf('cp -r dist/job-canon/. "$job_canon_release_stage/"');
+    const pagesMapGateAt = push.indexOf('_validate_pages_job_canon_release "$stage/job-canon/releases/$DEPLOY_BUILD_ID" "$DEPLOY_BUILD_ID"');
+    const cloneAt = push.indexOf('git clone --depth 1 --filter=blob:none --sparse');
     const markerStageAt = push.indexOf(' > "$stage/cdn-build-id.txt"');
 
     expect(prep).toContain(`case "$value" in ''|*[!0123456789]*) return 1 ;; esac`);
     expect(push).toContain('"$stage/job-canon/releases/$DEPLOY_BUILD_ID"');
     expect(validationAt).toBeGreaterThanOrEqual(0);
     expect(mapStageAt).toBeGreaterThan(validationAt);
-    expect(markerStageAt).toBeGreaterThan(mapStageAt);
+    expect(push).toContain('could not stage build-scoped job-canon maps for DEPLOY_BUILD_ID=$DEPLOY_BUILD_ID');
+    expect(pagesMapGateAt).toBeGreaterThan(mapStageAt);
+    expect(pagesMapGateAt).toBeLessThan(cloneAt);
+    expect(markerStageAt).toBeGreaterThan(pagesMapGateAt);
+    expect(push).toContain('export CDN_PAGES_BUILD_ID="$DEPLOY_BUILD_ID"');
+    expect(prep).toContain('_pages_build_publish_acknowledged()');
   });
 
   it('carries the full Pages job-canon namespace additively and keeps current release bytes', () => {
@@ -1292,6 +1299,45 @@ describe('job-canon CDN releases keep the build marker after the complete payloa
     expect(helper).toContain('cached old Worker/browser');
     expect(helper).toContain('rollback');
     expect(helper).not.toMatch(/\brm\b|\bsync\b|prun/i);
+  });
+
+  it('rejects missing or unusable current Pages maps even after the R2 half of both succeeds', () => {
+    for (const fixture of [
+      { label: 'missing root', kind: 'missing' as const, target: 'pages' as const },
+      { label: 'empty v2 map only', kind: 'empty' as const, target: 'both' as const },
+    ]) {
+      const r = runPagesPublisher(fixture.kind, fixture.target);
+      try {
+        expect(r.code, fixture.label).toBe(1);
+        expect(r.stdout, fixture.label).toMatch(/production job-canon payload is incomplete/);
+        expect(r.events, fixture.label).not.toMatch(/git clone|git add|pages-push/);
+        expect(r.events, fixture.label).not.toContain('publisher-ack=1001');
+        expect(r.envFile, fixture.label).not.toContain('CDN_PAGES_BUILD_ID=1001');
+        if (fixture.target === 'both') {
+          expect(r.events, 'the R2 half did finish in this case').toContain('r2-success');
+          expect(r.stdout).toMatch(/Pages CDN publish for build 1001 was not acknowledged/);
+        }
+      } finally {
+        rmSync(r.workspace, { recursive: true, force: true });
+      }
+    }
+  });
+
+  it('publishes the current v1/v2 maps and marker after additive Pages carry-forward', () => {
+    const r = runPagesPublisher('valid', 'pages');
+    try {
+      expect(r.code, r.stdout).toBe(0);
+      const addAt = r.events.indexOf('git-add');
+      const pushAt = r.events.indexOf('pages-push');
+      expect(addAt).toBeGreaterThanOrEqual(0);
+      expect(pushAt).toBeGreaterThan(addAt);
+      const maps = 'current-v1={"current-v1":{"it":"/cerca-lavoro"}} current-v2={"current-v2":{"it":"/cerca-lavoro"}}';
+      expect(r.events).toContain(`git-add marker=1001 legacy=legacy-v1 old-release=rollback-v1 ${maps}`);
+      expect(r.events).toContain(`pages-push marker=1001 legacy=legacy-v1 old-release=rollback-v1 ${maps}`);
+      expect(r.events).toContain('publisher-ack=1001 status=0');
+    } finally {
+      rmSync(r.workspace, { recursive: true, force: true });
+    }
   });
 
   it('stages fixed legacy paths and old releases without overwriting the current release', () => {
@@ -1387,6 +1433,133 @@ function runPrep(env: Record<string, string>, workspace = mkdtempSync(join(tmpdi
   }
 }
 
+function runPagesPublisher(
+  jobCanonFixture: 'missing' | 'empty' | 'valid',
+  cdnTarget: 'pages' | 'both',
+): { code: number; stdout: string; events: string; envFile: string; workspace: string } {
+  const workspace = mkdtempSync(join(tmpdir(), 'pages-job-canon-publisher-'));
+  const dist = join(workspace, 'dist');
+  const assets = join(dist, 'assets');
+  const buildId = '1001';
+  mkdirSync(assets, { recursive: true });
+  writeFileSync(
+    join(dist, 'index.html'),
+    [
+      '<!doctype html><title>t</title>',
+      ...['gtag-init', 'site-support', 'adsense-loader', 'partnerize-tag', 'meta-pixel-base-code']
+        .map((name) => `<script src="/assets/${name}.js"></script>`),
+    ].join(''),
+  );
+  for (const name of ['gtag-init', 'site-support', 'adsense-loader', 'partnerize-tag', 'meta-pixel-base-code']) {
+    writeFileSync(join(assets, `${name}.js`), `${name} bytes`);
+    writeFileSync(join(assets, `${name}-0a1b2c3d4e5f.js`), `${name} bytes`);
+  }
+  writeFileSync(join(assets, 'index-entry.js'), 'FRONTALIERE_VERSIONED_CDN_BOOTSTRAP');
+  mkdirSync(join(assets, 'releases', buildId), { recursive: true });
+  writeFileSync(join(assets, 'releases', buildId, 'index-entry.js'), 'current executable release');
+
+  if (jobCanonFixture !== 'missing') {
+    const jobCanon = join(dist, 'job-canon');
+    mkdirSync(jobCanon, { recursive: true });
+    if (jobCanonFixture === 'empty') {
+      mkdirSync(join(jobCanon, 'v2'), { recursive: true });
+      writeFileSync(join(jobCanon, 'v2', 'abc.json'), '');
+    } else {
+      mkdirSync(join(jobCanon, 'v2'), { recursive: true });
+      writeFileSync(join(jobCanon, 'ab.json'), JSON.stringify({ 'current-v1': { it: '/cerca-lavoro' } }));
+      writeFileSync(join(jobCanon, 'v2', 'abc.json'), JSON.stringify({ 'current-v2': { it: '/cerca-lavoro' } }));
+    }
+  }
+
+  symlinkSync(resolve('scripts'), join(workspace, 'scripts'), 'dir');
+  symlinkSync(resolve('docs'), join(workspace, 'docs'), 'dir');
+  mkdirSync(join(workspace, 'public', 'images'), { recursive: true });
+  symlinkSync(resolve('public/images/job-search-campaign'), join(workspace, 'public/images/job-search-campaign'), 'dir');
+
+  const eventsPath = join(workspace, 'events.log');
+  const envPath = join(workspace, 'github-env.txt');
+  const harness = [
+    'source "$PREP_SCRIPT"',
+    '_publish_cdn_r2() {',
+    '  printf "r2-success\\n" >> "$TEST_EVENTS"',
+    '  export_env CDN_BASE "https://cdn.frontaliereticino.ch"',
+    '  return 0',
+    '}',
+    'git() {',
+    '  case "$1" in',
+    '    clone)',
+    '      local previous="${!#}"',
+    '      printf "git clone\\n" >> "$TEST_EVENTS"',
+    '      mkdir -p "$previous/job-canon/releases/1000" "$previous/job-canon/releases/1001"',
+    '      printf "legacy-v1" > "$previous/job-canon/ne.json"',
+    '      printf "rollback-v1" > "$previous/job-canon/releases/1000/xy.json"',
+    '      printf "stale-current-v1" > "$previous/job-canon/releases/1001/ab.json"',
+    '      return 0',
+    '      ;;',
+    '    -C) return 0 ;;',
+    '    add)',
+    '      local stage="$PWD" release="$PWD/job-canon/releases/1001"',
+    '      printf "git-add marker=%s legacy=%s old-release=%s current-v1=%s current-v2=%s\\n" "$(cat "$stage/cdn-build-id.txt")" "$(cat "$stage/job-canon/ne.json")" "$(cat "$stage/job-canon/releases/1000/xy.json")" "$(cat "$release/ab.json")" "$(cat "$release/v2/abc.json")" >> "$TEST_EVENTS"',
+    '      return 0',
+    '      ;;',
+    '    *) return 0 ;;',
+    '  esac',
+    '}',
+    'du() { if [ "$1" = "-sb" ]; then printf "1\\n"; else printf "1.0M\\t%s\\n" "$2"; fi; }',
+    'shard_push_with_retry() {',
+    '  local stage="$1" release="$1/job-canon/releases/1001"',
+    '  printf "pages-push marker=%s legacy=%s old-release=%s current-v1=%s current-v2=%s\\n" "$(cat "$stage/cdn-build-id.txt")" "$(cat "$stage/job-canon/ne.json")" "$(cat "$stage/job-canon/releases/1000/xy.json")" "$(cat "$release/ab.json")" "$(cat "$release/v2/abc.json")" >> "$TEST_EVENTS"',
+    '  return 0',
+    '}',
+    'DEPLOY_CDN_PUSH_ONLY=1 main',
+    'main_status=$?',
+    'printf "publisher-ack=%s status=%s\\n" "${CDN_PAGES_BUILD_ID:-}" "$main_status" >> "$TEST_EVENTS"',
+    'exit "$main_status"',
+  ].join('\n');
+
+  try {
+    const stdout = execFileSync('bash', ['-c', harness], {
+      cwd: workspace,
+      env: {
+        PATH: process.env.PATH ?? '',
+        PREP_SCRIPT: PREP_SH,
+        RUNNER_TEMP: workspace,
+        CDN_STAGE_DIR: join(workspace, 'cdn-stage'),
+        CDN_TARGET: cdnTarget,
+        CDN_DEPLOY_KEY: 'test-deploy-key',
+        DEPLOY_BUILD_ID: buildId,
+        CDN_PAGES_BUILD_ID: buildId,
+        GITHUB_SHA: 'testsha',
+        GITHUB_RUN_ID: '1',
+        GITHUB_ENV: envPath,
+        TEST_EVENTS: eventsPath,
+      },
+      encoding: 'utf8',
+      timeout: 60000,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    return {
+      code: 0,
+      stdout,
+      events: existsSync(eventsPath) ? readFileSync(eventsPath, 'utf8') : '',
+      envFile: existsSync(envPath) ? readFileSync(envPath, 'utf8') : '',
+      workspace,
+    };
+  } catch (e: unknown) {
+    const err = e as { status?: number; stdout?: Buffer | string; stderr?: Buffer | string };
+    return {
+      code: err.status ?? 1,
+      stdout: [err.stdout, err.stderr]
+        .filter((part) => part !== undefined)
+        .map((part) => part!.toString())
+        .join(''),
+      events: existsSync(eventsPath) ? readFileSync(eventsPath, 'utf8') : '',
+      envFile: existsSync(envPath) ? readFileSync(envPath, 'utf8') : '',
+      workspace,
+    };
+  }
+}
+
 describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and nothing else', () => {
   it('with the flag: a missing early CDN payload is a failed handshake, without touching the rest of the prep', () => {
     const r = runPrep({ DEPLOY_CDN_PUSH_ONLY: '1', CDN_TARGET: 'pages' });
@@ -1412,7 +1585,11 @@ describe('deploy-it-pages-prep.sh — DEPLOY_CDN_PUSH_ONLY runs the CDN push and
 
   it('a CDN_BASE already exported by the early phase makes the full prep SKIP its own push', () => {
     // This is the handshake that keeps the payload published exactly once.
-    const r = runPrep({ CDN_BASE: 'https://cdn.frontaliereticino.ch', CDN_TARGET: 'pages' });
+    const r = runPrep({
+      CDN_BASE: 'https://cdn.frontaliereticino.ch',
+      CDN_TARGET: 'pages',
+      DEPLOY_BUILD_ID: '1792663641575',
+    });
     expect(r.stdout).toMatch(/already set by the early CDN push phase — skipping the CDN push/);
   });
 
