@@ -137,6 +137,12 @@ export function installAdRecovery(
     if (!google) return false;
     return !occupied(frame);
   });
+  const hasPendingInlineHouseSlot = () => Array.from(document.querySelectorAll<HTMLElement>('[data-house][data-ft-house-eligible]')).some((frame) => {
+    const google = frame.querySelector<HTMLElement>('[data-ft-house-google],ins[data-ad-slot]');
+    if ((!google && !frame.hasAttribute('data-ft-house-blocker-only')) || occupied(frame) || !onScreen(frame)) return false;
+    const bounds = frame.getBoundingClientRect();
+    return bounds.width >= 160 && bounds.height > 0;
+  });
   const hasRenderedInlineHouseCreative = () => Array.from(document.querySelectorAll<HTMLElement>('[data-house][data-ft-house-active]')).some((frame) => {
     const creative = frame.querySelector<HTMLElement>('[data-ft-house-host] .ft-house-creative');
     return !!creative && onScreen(creative);
@@ -333,11 +339,12 @@ export function installAdRecovery(
       emit('ad_recovery_prompt', { source: 'funding_choices_native', reason: 'adblock_detected', prompt_action: 'shown' });
     }
     if (googleMessage()) { removePromo(); closePopup(); return; }
-    const inlineSlotPending = config.inlineHouseAds === true && hasUnfilledHouseSlot();
+    const inlineSlotPending = config.inlineHouseAds === true && hasPendingInlineHouseSlot();
     const inlineCreativeRendered = config.inlineHouseAds === true && hasRenderedInlineHouseCreative();
-    // A rendered inline creative replaces the publisher modal. If the creative
-    // renderer has no usable slot, keep the recovery surface available.
-    if (config.inlineHouseAds && (inlineCreativeRendered || nativeRecoveryWasShown())) closePopup();
+    // An eligible inline slot gets the first chance to render its creative.
+    // Avoid racing it with a dismissible publisher modal while assignment or
+    // the creative renderer is still in flight.
+    if (config.inlineHouseAds && (inlineSlotPending || inlineCreativeRendered || nativeRecoveryWasShown())) closePopup();
     if (hasOccupiedAd() && !(config.inlineHouseAds && inlineSlotPending)) {
       removePromo(); closePopup();
       const pending = Number(storageRead('ft_ad_recovery_reload'));
@@ -363,10 +370,15 @@ export function installAdRecovery(
       reportedState = why;
       emit('ad_reliability_state', { reason: why, cmp_state: state, probe: probeResult, decision: hasDecision() ? 'present' : 'none', elapsed_ms: Math.min(600000, Date.now() - started) });
     }
-    // Inline creatives replace the publisher modal only when one actually
-    // rendered. If no creative is available, keep the recovery offer as fallback.
+    // Inline creatives replace the publisher modal while an eligible slot is
+    // being populated, and after it renders. Keep recovery available only when
+    // the page has no usable inline slot.
     if (config.inlineHouseAds) {
       if (hasRenderedInlineHouseCreative() || nativeRecoveryWasShown()) {
+        closePopup();
+        removePromo(); return;
+      }
+      if (inlineSlotPending) {
         closePopup();
         removePromo(); return;
       }

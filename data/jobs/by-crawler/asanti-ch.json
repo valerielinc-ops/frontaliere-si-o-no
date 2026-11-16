@@ -1,7 +1,7 @@
 {
   "crawlerKey": "asanti-ch",
-  "assembledAt": "2026-11-15T21:40:28.468Z",
-  "runId": "43763808902",
+  "assembledAt": "2026-11-16T09:42:39.814Z",
+  "runId": "43839824064",
   "jobs": [
     {
       "id": "asanti-ch-6e3c4be8dffa",
@@ -88,7 +88,8 @@
       "previousSlugs": [
         "sachbearbeiter-in-2-3-saule-80-100-region-zurich-asanti-ch-ch"
       ],
-      "sourceIdentity": "url:https://asanti.ch/job/sachbearbeiterin-2-3-saeule-80-100-2-2"
+      "sourceIdentity": "url:https://asanti.ch/job/sachbearbeiterin-2-3-saeule-80-100-2-2",
+      "crawlerMissStreak": 1
     },
     {
       "id": "asanti-ch-53ce39cf25e0",
@@ -121,7 +122,7 @@
       "url": "https://asanti.ch/job/verkaufsberaterin-schuhmode-80-100-stadt-zuerich/",
       "source": "Asanti AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:40:08.715Z",
+      "crawledAt": "2026-11-16T09:42:22.707Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -170,7 +171,7 @@
       "postalCode": "8001",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T21:40:08.715Z",
+      "validThrough": "2027-01-28T09:42:22.707Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://asanti.ch/job/verkaufsberaterin-schuhmode-80-100-stadt-zuerich"
     },
@@ -205,7 +206,7 @@
       "url": "https://asanti.ch/job/verkaufsleiter-automobil-m-w-d-100/",
       "source": "Asanti AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:40:08.714Z",
+      "crawledAt": "2026-11-16T09:42:22.705Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -254,7 +255,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:40:08.714Z",
+      "validThrough": "2027-02-11T09:42:22.705Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://asanti.ch/job/verkaufsleiter-automobil-m-w-d-100"
     },
@@ -289,7 +290,7 @@
       "url": "https://asanti.ch/job/logistiker-efz-m-w-d-100/",
       "source": "Asanti AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:40:08.712Z",
+      "crawledAt": "2026-11-16T09:42:22.702Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -338,7 +339,7 @@
       "postalCode": "8302",
       "streetAddress": "Kloten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:40:08.712Z",
+      "validThrough": "2027-01-26T09:42:22.702Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://asanti.ch/job/logistiker-efz-m-w-d-100"
     },
@@ -373,7 +374,7 @@
       "url": "https://asanti.ch/job/logistiker-efz-m-w-d-2/",
       "source": "Asanti AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:40:08.707Z",
+      "crawledAt": "2026-11-16T09:42:22.706Z",
       "addressLocality": "Frenkendorf",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -422,7 +423,7 @@
       "postalCode": "4402",
       "streetAddress": "Frenkendorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T21:40:08.707Z",
+      "validThrough": "2027-01-26T09:42:22.706Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://asanti.ch/job/logistiker-efz-m-w-d-2"
     },
@@ -514,7 +515,7 @@
         "technical-housekeeper-100-m-f-d-asanti-ag-kloten",
         "menageuse-technique-100-h-f-d-asanti-ag-kloten"
       ],
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "sourceIdentity": "url:https://asanti.ch/job/technischer-hauswart-100-m-w-d"
     },
     {
@@ -605,8 +606,168 @@
         "accountant-80-100-asanti-ag-zurich",
         "comptable-80-100-asanti-ag-zurich"
       ],
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "sourceIdentity": "url:https://asanti.ch/job/buchhalterin-80-100"
+    },
+    {
+      "id": "asanti-ch-1577526f70d6",
+      "slug": "service-spezialist-technischer-collaboratore-trice-automobil-100-asanti-ag-baden",
+      "slugByLocale": {
+        "de": "service-spezialist-technischer-mitarbeiter-automobil-100-5400-region-baden-asanti-ch-ch",
+        "it": "service-spezialist-technischer-collaboratore-trice-automobil-100-asanti-ag-baden",
+        "en": "service-spezialist-technischer-mitarbeiter-automobil-100-5400-region-baden-asanti-ch-ch",
+        "fr": "service-spezialist-technischer-mitarbeiter-automobil-100-5400-region-baden-asanti-ch-ch"
+      },
+      "company": "Asanti AG",
+      "companyKey": "asanti-ch",
+      "companyDomain": "asanti.ch",
+      "title": "Service Spezialist / Technischer Mitarbeiter Automobil 100 %.",
+      "titleByLocale": {
+        "de": "Service Spezialist / Technischer Mitarbeiter Automobil 100 %.",
+        "it": "Service Spezialist / Technischer Collaboratore/trice Automobil 100 %.",
+        "en": "Service Spezialist / Technischer Mitarbeiter Automobil 100 %.",
+        "fr": "Service Spezialist / Technischer Mitarbeiter Automobil 100 %."
+      },
+      "description": "J e t z t b e w e r b e n\nService Spezialist / Technischer Mitarbeiter Automobil 100 %.\nDu bist technisch versiert, hast Freude am Kundenkontakt und findest für jedes Problem eine passende Lösung? Du möchtest nicht den ganzen Tag am Schreibtisch sitzen, sondern dein technisches Know-how aus der Automobilbranche auch praktisch einsetzen? Dann könnte diese Stelle genau dein nächster Schritt sein!\nFür unseren Kunden suchen wir eine vielseitige Persönlichkeit, die technische Beratung, Verkauf und Service miteinander verbindet.\nDeine Aufgaben – vielseitig statt eintönig\nKundenberatung & Verkauf\n- Du berätst Kunden telefonisch, per E-Mail und über den Webshop zu Produkten, Anwendungen und technischen Lösungen.\n- Du bearbeitest Bestellungen, erstellst Offerten und bleibst bei deinen Angeboten aktiv am Ball.\n- Du unterstützt das Verkaufsteam mit deinem technischen Fachwissen.\n- Du pflegst Kundenbeziehungen und sorgst dafür, dass sich die Kunden gut aufgehoben fühlen.\n- Du hältst Kunden- und Auftragsdaten in den entsprechenden Systemen aktuell.\nWerkstatt, Retouren & Reparaturen\n- Du prüfst retournierte Produkte und beurteilst Reparaturfähigkeit, Garantieansprüche sowie mögliche Ersatzlieferungen.\n- Du führst Fehleranalysen, Wartungen und Reparaturen durch.\n- Du kümmerst dich um eine saubere Dokumentation und eine reibungslose Abwicklung von Retouren.\n- Du stellst sicher, dass reparierte Produkte einwandfrei funktionieren und den Qualitätsanforderungen entsprechen.\n- Du erkennst wiederkehrende Produktprobleme und bringst Verbesserungsvorschläge ein.\nDas bringst du mit\n- Eine abgeschlossene technische Berufsausbildung im Automobilgewerbe sowie eine kaufmännische Weiterbildung.\n- Erfahrung im Kundenservice, im technischen Verkauf oder in einer vergleichbaren Funktion.\n- Freude daran, technische Fragen zu lösen und Kunden kompetent zu beraten.\n- Gute Kenntnisse in MS Office und idealerweise Erfahrung mit CRM- und ERP-Systemen.\n- Eine strukturierte, selbstständige und zuverlässige Arbeitsweise.\n- Kommunikationsgeschick, Organisationstalent und Teamgeist.\n- Die Bereitschaft, dich laufend in neue Produkte und Technologien einzuarbeiten.\nDas erwartet dich\n- Eine abwechslungsreiche Tätigkeit mit einer ausgewogenen Mischung aus Kundenberatung und Werkstattarbeit.\n- Ein vielseitiger Arbeitsalltag, bei dem du dein technisches und kaufmännisches Wissen kombinieren kannst.\n- Direkter Kundenkontakt und die Möglichkeit, eigenständig Lösungen zu erarbeiten.\n- Fachliche Weiterbildungen und Produktschulungen.\n- Ein kollegiales Team, das sich gegenseitig unterstützt.\n- Geregelte Arbeitszeiten von Montag bis Freitag bei einem Pensum von 100 %.\nKlingt nach deinem Ding?\nDann freue ich mich, dich kennenzulernen! Sende mir deine Bewerbungsunterlagen oder melde dich unkompliziert für ein erstes Gespräch. Gerne erzähle ich dir mehr über die Stelle und unseren Kunden.\nWichtig: Gesucht wird eine Fachperson mit technischer Ausbildung und entsprechender Berufserfahrung. Quereinsteiger sind für diese Position nicht vorgesehen.\nHinweis: Berücksichtigt werden Bewerbungen von Kandidaten mit Wohnsitz in der Schweiz und relevanter Berufserfahrung in der Schweiz , damit fachlich und persönlich alles passt.\nInteressiert?\nGerne beantworte ich Ihre Fragen zu dieser Stelle:\nMICHEL CELLAI\nPersonalberater\nAutomobil/ Technik\nTel. 043 317 85 85\ncellai@asanti.ch\nLinkedin",
+      "descriptionByLocale": {
+        "de": "J e t z t b e w e r b e n\nService Spezialist / Technischer Mitarbeiter Automobil 100 %.\nDu bist technisch versiert, hast Freude am Kundenkontakt und findest für jedes Problem eine passende Lösung? Du möchtest nicht den ganzen Tag am Schreibtisch sitzen, sondern dein technisches Know-how aus der Automobilbranche auch praktisch einsetzen? Dann könnte diese Stelle genau dein nächster Schritt sein!\nFür unseren Kunden suchen wir eine vielseitige Persönlichkeit, die technische Beratung, Verkauf und Service miteinander verbindet.\nDeine Aufgaben – vielseitig statt eintönig\nKundenberatung & Verkauf\n- Du berätst Kunden telefonisch, per E-Mail und über den Webshop zu Produkten, Anwendungen und technischen Lösungen.\n- Du bearbeitest Bestellungen, erstellst Offerten und bleibst bei deinen Angeboten aktiv am Ball.\n- Du unterstützt das Verkaufsteam mit deinem technischen Fachwissen.\n- Du pflegst Kundenbeziehungen und sorgst dafür, dass sich die Kunden gut aufgehoben fühlen.\n- Du hältst Kunden- und Auftragsdaten in den entsprechenden Systemen aktuell.\nWerkstatt, Retouren & Reparaturen\n- Du prüfst retournierte Produkte und beurteilst Reparaturfähigkeit, Garantieansprüche sowie mögliche Ersatzlieferungen.\n- Du führst Fehleranalysen, Wartungen und Reparaturen durch.\n- Du kümmerst dich um eine saubere Dokumentation und eine reibungslose Abwicklung von Retouren.\n- Du stellst sicher, dass reparierte Produkte einwandfrei funktionieren und den Qualitätsanforderungen entsprechen.\n- Du erkennst wiederkehrende Produktprobleme und bringst Verbesserungsvorschläge ein.\nDas bringst du mit\n- Eine abgeschlossene technische Berufsausbildung im Automobilgewerbe sowie eine kaufmännische Weiterbildung.\n- Erfahrung im Kundenservice, im technischen Verkauf oder in einer vergleichbaren Funktion.\n- Freude daran, technische Fragen zu lösen und Kunden kompetent zu beraten.\n- Gute Kenntnisse in MS Office und idealerweise Erfahrung mit CRM- und ERP-Systemen.\n- Eine strukturierte, selbstständige und zuverlässige Arbeitsweise.\n- Kommunikationsgeschick, Organisationstalent und Teamgeist.\n- Die Bereitschaft, dich laufend in neue Produkte und Technologien einzuarbeiten.\nDas erwartet dich\n- Eine abwechslungsreiche Tätigkeit mit einer ausgewogenen Mischung aus Kundenberatung und Werkstattarbeit.\n- Ein vielseitiger Arbeitsalltag, bei dem du dein technisches und kaufmännisches Wissen kombinieren kannst.\n- Direkter Kundenkontakt und die Möglichkeit, eigenständig Lösungen zu erarbeiten.\n- Fachliche Weiterbildungen und Produktschulungen.\n- Ein kollegiales Team, das sich gegenseitig unterstützt.\n- Geregelte Arbeitszeiten von Montag bis Freitag bei einem Pensum von 100 %.\nKlingt nach deinem Ding?\nDann freue ich mich, dich kennenzulernen! Sende mir deine Bewerbungsunterlagen oder melde dich unkompliziert für ein erstes Gespräch. Gerne erzähle ich dir mehr über die Stelle und unseren Kunden.\nWichtig: Gesucht wird eine Fachperson mit technischer Ausbildung und entsprechender Berufserfahrung. Quereinsteiger sind für diese Position nicht vorgesehen.\nHinweis: Berücksichtigt werden Bewerbungen von Kandidaten mit Wohnsitz in der Schweiz und relevanter Berufserfahrung in der Schweiz , damit fachlich und persönlich alles passt.\nInteressiert?\nGerne beantworte ich Ihre Fragen zu dieser Stelle:\nMICHEL CELLAI\nPersonalberater\nAutomobil/ Technik\nTel. 043 317 85 85\ncellai@asanti.ch\nLinkedin",
+        "it": "J e t z t b e w e r b e n\nService Spezialist / Technischer Mitarbeiter Automobil 100 %.\nDu bist technisch versiert, hast Freude am Kundenkontakt und findest für jedes Problem eine passende Lösung? Du möchtest nicht den ganzen Tag am Schreibtisch sitzen, sondern dein technisches Know-how aus der Automobilbranche auch praktisch einsetzen? Dann könnte diese Stelle genau dein nächster Schritt sein!\nFür unseren Kunden suchen wir eine vielseitige Persönlichkeit, die technische Beratung, Verkauf und Service miteinander verbindet.\nDeine Aufgaben – vielseitig statt eintönig\nKundenberatung & Verkauf\n- Du berätst Kunden telefonisch, per E-Mail und über den Webshop zu Produkten, Anwendungen und technischen Lösungen.\n- Du bearbeitest Bestellungen, erstellst Offerten und bleibst bei deinen Angeboten aktiv am Ball.\n- Du unterstützt das Verkaufsteam mit deinem technischen Fachwissen.\n- Du pflegst Kundenbeziehungen und sorgst dafür, dass sich die Kunden gut aufgehoben fühlen.\n- Du hältst Kunden- und Auftragsdaten in den entsprechenden Systemen aktuell.\nWerkstatt, Retouren & Reparaturen\n- Du prüfst retournierte Produkte und beurteilst Reparaturfähigkeit, Garantieansprüche sowie mögliche Ersatzlieferungen.\n- Du führst Fehleranalysen, Wartungen und Reparaturen durch.\n- Du kümmerst dich um eine saubere Dokumentation und eine reibungslose Abwicklung von Retouren.\n- Du stellst sicher, dass reparierte Produkte einwandfrei funktionieren und den Qualitätsanforderungen entsprechen.\n- Du erkennst wiederkehrende Produktprobleme und bringst Verbesserungsvorschläge ein.\nDas bringst du mit\n- Eine abgeschlossene technische Berufsausbildung im Automobilgewerbe sowie eine kaufmännische Weiterbildung.\n- Erfahrung im Kundenservice, im technischen Verkauf oder in einer vergleichbaren Funktion.\n- Freude daran, technische Fragen zu lösen und Kunden kompetent zu beraten.\n- Gute Kenntnisse in MS Office und idealerweise Erfahrung mit CRM- und ERP-Systemen.\n- Eine strukturierte, selbstständige und zuverlässige Arbeitsweise.\n- Kommunikationsgeschick, Organisationstalent und Teamgeist.\n- Die Bereitschaft, dich laufend in neue Produkte und Technologien einzuarbeiten.\nDas erwartet dich\n- Eine abwechslungsreiche Tätigkeit mit einer ausgewogenen Mischung aus Kundenberatung und Werkstattarbeit.\n- Ein vielseitiger Arbeitsalltag, bei dem du dein technisches und kaufmännisches Wissen kombinieren kannst.\n- Direkter Kundenkontakt und die Möglichkeit, eigenständig Lösungen zu erarbeiten.\n- Fachliche Weiterbildungen und Produktschulungen.\n- Ein kollegiales Team, das sich gegenseitig unterstützt.\n- Geregelte Arbeitszeiten von Montag bis Freitag bei einem Pensum von 100 %.\nKlingt nach deinem Ding?\nDann freue ich mich, dich kennenzulernen! Sende mir deine Bewerbungsunterlagen oder melde dich unkompliziert für ein erstes Gespräch. Gerne erzähle ich dir mehr über die Stelle und unseren Kunden.\nWichtig: Gesucht wird eine Fachperson mit technischer Ausbildung und entsprechender Berufserfahrung. Quereinsteiger sind für diese Position nicht vorgesehen.\nHinweis: Berücksichtigt werden Bewerbungen von Kandidaten mit Wohnsitz in der Schweiz und relevanter Berufserfahrung in der Schweiz , damit fachlich und persönlich alles passt.\nInteressiert?\nGerne beantworte ich Ihre Fragen zu dieser Stelle:\nMICHEL CELLAI\nPersonalberater\nAutomobil/ Technik\nTel. 043 317 85 85\ncellai@asanti.ch\nLinkedin",
+        "en": "J e t z t b e w e r b e n\nService Spezialist / Technischer Mitarbeiter Automobil 100 %.\nDu bist technisch versiert, hast Freude am Kundenkontakt und findest für jedes Problem eine passende Lösung? Du möchtest nicht den ganzen Tag am Schreibtisch sitzen, sondern dein technisches Know-how aus der Automobilbranche auch praktisch einsetzen? Dann könnte diese Stelle genau dein nächster Schritt sein!\nFür unseren Kunden suchen wir eine vielseitige Persönlichkeit, die technische Beratung, Verkauf und Service miteinander verbindet.\nDeine Aufgaben – vielseitig statt eintönig\nKundenberatung & Verkauf\n- Du berätst Kunden telefonisch, per E-Mail und über den Webshop zu Produkten, Anwendungen und technischen Lösungen.\n- Du bearbeitest Bestellungen, erstellst Offerten und bleibst bei deinen Angeboten aktiv am Ball.\n- Du unterstützt das Verkaufsteam mit deinem technischen Fachwissen.\n- Du pflegst Kundenbeziehungen und sorgst dafür, dass sich die Kunden gut aufgehoben fühlen.\n- Du hältst Kunden- und Auftragsdaten in den entsprechenden Systemen aktuell.\nWerkstatt, Retouren & Reparaturen\n- Du prüfst retournierte Produkte und beurteilst Reparaturfähigkeit, Garantieansprüche sowie mögliche Ersatzlieferungen.\n- Du führst Fehleranalysen, Wartungen und Reparaturen durch.\n- Du kümmerst dich um eine saubere Dokumentation und eine reibungslose Abwicklung von Retouren.\n- Du stellst sicher, dass reparierte Produkte einwandfrei funktionieren und den Qualitätsanforderungen entsprechen.\n- Du erkennst wiederkehrende Produktprobleme und bringst Verbesserungsvorschläge ein.\nDas bringst du mit\n- Eine abgeschlossene technische Berufsausbildung im Automobilgewerbe sowie eine kaufmännische Weiterbildung.\n- Erfahrung im Kundenservice, im technischen Verkauf oder in einer vergleichbaren Funktion.\n- Freude daran, technische Fragen zu lösen und Kunden kompetent zu beraten.\n- Gute Kenntnisse in MS Office und idealerweise Erfahrung mit CRM- und ERP-Systemen.\n- Eine strukturierte, selbstständige und zuverlässige Arbeitsweise.\n- Kommunikationsgeschick, Organisationstalent und Teamgeist.\n- Die Bereitschaft, dich laufend in neue Produkte und Technologien einzuarbeiten.\nDas erwartet dich\n- Eine abwechslungsreiche Tätigkeit mit einer ausgewogenen Mischung aus Kundenberatung und Werkstattarbeit.\n- Ein vielseitiger Arbeitsalltag, bei dem du dein technisches und kaufmännisches Wissen kombinieren kannst.\n- Direkter Kundenkontakt und die Möglichkeit, eigenständig Lösungen zu erarbeiten.\n- Fachliche Weiterbildungen und Produktschulungen.\n- Ein kollegiales Team, das sich gegenseitig unterstützt.\n- Geregelte Arbeitszeiten von Montag bis Freitag bei einem Pensum von 100 %.\nKlingt nach deinem Ding?\nDann freue ich mich, dich kennenzulernen! Sende mir deine Bewerbungsunterlagen oder melde dich unkompliziert für ein erstes Gespräch. Gerne erzähle ich dir mehr über die Stelle und unseren Kunden.\nWichtig: Gesucht wird eine Fachperson mit technischer Ausbildung und entsprechender Berufserfahrung. Quereinsteiger sind für diese Position nicht vorgesehen.\nHinweis: Berücksichtigt werden Bewerbungen von Kandidaten mit Wohnsitz in der Schweiz und relevanter Berufserfahrung in der Schweiz , damit fachlich und persönlich alles passt.\nInteressiert?\nGerne beantworte ich Ihre Fragen zu dieser Stelle:\nMICHEL CELLAI\nPersonalberater\nAutomobil/ Technik\nTel. 043 317 85 85\ncellai@asanti.ch\nLinkedin",
+        "fr": "J e t z t b e w e r b e n\nService Spezialist / Technischer Mitarbeiter Automobil 100 %.\nDu bist technisch versiert, hast Freude am Kundenkontakt und findest für jedes Problem eine passende Lösung? Du möchtest nicht den ganzen Tag am Schreibtisch sitzen, sondern dein technisches Know-how aus der Automobilbranche auch praktisch einsetzen? Dann könnte diese Stelle genau dein nächster Schritt sein!\nFür unseren Kunden suchen wir eine vielseitige Persönlichkeit, die technische Beratung, Verkauf und Service miteinander verbindet.\nDeine Aufgaben – vielseitig statt eintönig\nKundenberatung & Verkauf\n- Du berätst Kunden telefonisch, per E-Mail und über den Webshop zu Produkten, Anwendungen und technischen Lösungen.\n- Du bearbeitest Bestellungen, erstellst Offerten und bleibst bei deinen Angeboten aktiv am Ball.\n- Du unterstützt das Verkaufsteam mit deinem technischen Fachwissen.\n- Du pflegst Kundenbeziehungen und sorgst dafür, dass sich die Kunden gut aufgehoben fühlen.\n- Du hältst Kunden- und Auftragsdaten in den entsprechenden Systemen aktuell.\nWerkstatt, Retouren & Reparaturen\n- Du prüfst retournierte Produkte und beurteilst Reparaturfähigkeit, Garantieansprüche sowie mögliche Ersatzlieferungen.\n- Du führst Fehleranalysen, Wartungen und Reparaturen durch.\n- Du kümmerst dich um eine saubere Dokumentation und eine reibungslose Abwicklung von Retouren.\n- Du stellst sicher, dass reparierte Produkte einwandfrei funktionieren und den Qualitätsanforderungen entsprechen.\n- Du erkennst wiederkehrende Produktprobleme und bringst Verbesserungsvorschläge ein.\nDas bringst du mit\n- Eine abgeschlossene technische Berufsausbildung im Automobilgewerbe sowie eine kaufmännische Weiterbildung.\n- Erfahrung im Kundenservice, im technischen Verkauf oder in einer vergleichbaren Funktion.\n- Freude daran, technische Fragen zu lösen und Kunden kompetent zu beraten.\n- Gute Kenntnisse in MS Office und idealerweise Erfahrung mit CRM- und ERP-Systemen.\n- Eine strukturierte, selbstständige und zuverlässige Arbeitsweise.\n- Kommunikationsgeschick, Organisationstalent und Teamgeist.\n- Die Bereitschaft, dich laufend in neue Produkte und Technologien einzuarbeiten.\nDas erwartet dich\n- Eine abwechslungsreiche Tätigkeit mit einer ausgewogenen Mischung aus Kundenberatung und Werkstattarbeit.\n- Ein vielseitiger Arbeitsalltag, bei dem du dein technisches und kaufmännisches Wissen kombinieren kannst.\n- Direkter Kundenkontakt und die Möglichkeit, eigenständig Lösungen zu erarbeiten.\n- Fachliche Weiterbildungen und Produktschulungen.\n- Ein kollegiales Team, das sich gegenseitig unterstützt.\n- Geregelte Arbeitszeiten von Montag bis Freitag bei einem Pensum von 100 %.\nKlingt nach deinem Ding?\nDann freue ich mich, dich kennenzulernen! Sende mir deine Bewerbungsunterlagen oder melde dich unkompliziert für ein erstes Gespräch. Gerne erzähle ich dir mehr über die Stelle und unseren Kunden.\nWichtig: Gesucht wird eine Fachperson mit technischer Ausbildung und entsprechender Berufserfahrung. Quereinsteiger sind für diese Position nicht vorgesehen.\nHinweis: Berücksichtigt werden Bewerbungen von Kandidaten mit Wohnsitz in der Schweiz und relevanter Berufserfahrung in der Schweiz , damit fachlich und persönlich alles passt.\nInteressiert?\nGerne beantworte ich Ihre Fragen zu dieser Stelle:\nMICHEL CELLAI\nPersonalberater\nAutomobil/ Technik\nTel. 043 317 85 85\ncellai@asanti.ch\nLinkedin"
+      },
+      "location": "5400 Region Baden",
+      "canton": "AG",
+      "url": "https://asanti.ch/job/service-spezialist-technischer-mitarbeiter-automobil-100/",
+      "source": "Asanti AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-16T09:42:22.710Z",
+      "addressLocality": "Baden",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-11T14:32:42+01:00",
+      "postedDate": "2026-11-11T14:32:42+01:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://asanti.ch/job/service-spezialist-technischer-mitarbeiter-automobil-100/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "service-spezialist-technischer-mitarbeiter-automobil-100-5400-region-baden-asanti-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "service-spezialist-technischer-mitarbeiter-automobil-100-5400-region-baden-asanti-ch-ch"
+      ],
+      "salaryMin": 72500,
+      "salaryMax": 110500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72500,
+          "maxValue": 110500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "5400",
+      "streetAddress": "Baden",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-10T09:42:22.710Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-16T09:42:22.710Z"
+    },
+    {
+      "id": "asanti-ch-cf4417c24f0f",
+      "slug": "logistiker-cfc-m-w-d-100-asanti-ag-bulach",
+      "slugByLocale": {
+        "de": "logistiker-efz-m-w-d-100-bulach-8180-asanti-ch-ch",
+        "it": "logistiker-cfc-m-w-d-100-asanti-ag-bulach",
+        "en": "logistiker-efz-m-w-d-100-bulach-8180-asanti-ch-ch",
+        "fr": "logistiker-efz-m-w-d-100-bulach-8180-asanti-ch-ch"
+      },
+      "company": "Asanti AG",
+      "companyKey": "asanti-ch",
+      "companyDomain": "asanti.ch",
+      "title": "Logistiker EFZ (m/w/d) 100%",
+      "titleByLocale": {
+        "de": "Logistiker EFZ (m/w/d) 100%",
+        "it": "Logistiker CFC (m/w/d) 100%",
+        "en": "Logistiker EFZ (m/w/d) 100%",
+        "fr": "Logistiker EFZ (m/w/d) 100%"
+      },
+      "description": "J e t z t b e w e r b e n\nLogistiker EFZ (m/w/d) 100%\nFür einen spannenden Logistikeinsatz suchen wir eine engagierte und pflichtbewusste Persönlichkeit als Logistiker EFZ (m/w/d) im Vollzeitpensum . Wenn Sie gerne anpacken, den Überblick behalten und zuverlässig arbeiten, freuen wir uns auf Ihre Bewerbung.\nIhre Tätigkeiten\n- Fachgerechtes Bewirtschaften des Warenlagers\n- Kontrolle und Verbuchung eingehender Lieferungen\n- Kommissionieren anhand von Aufträgen und Lieferscheinen\n- Durchführung von Bestandskontrollen und Inventurarbeiten\n- Unterstützung bei der Optimierung interner Logistikprozesse\nDas bringen Sie mit\n- Abgeschlossene Berufsausbildung als Logistiker EFZ\n- Gute Kenntnisse in den Bereichen Lagerhaltung und Warenbewirtschaftung\n- Erfahrung im Umgang mit Lagerverwaltungssystemen von Vorteil\n- Verantwortungsbewusste und strukturierte Arbeitsweise\n- Körperliche Belastbarkeit und Freude an praktischer Arbeit\n- Gute Deutschkenntnisse\n- Das erwartet Sie\n- Ein abwechslungsreiches Aufgabengebiet\n- Ein modernes und gut organisiertes Arbeitsumfeld\n- Ein kollegiales Team und eine sorgfältige Einarbeitung\n- Faire und zeitgemässe Anstellungsbedingungen\n- Ein Arbeitspensum von 100% mit Start ab sofort\nJetzt bewerben!\nSie möchten Ihre Logistikkenntnisse einbringen und suchen eine neue berufliche Herausforderung? Dann freuen wir uns darauf, Sie kennenzulernen. Senden Sie uns Ihre Bewerbungsunterlagen noch heute!\nInteressiert?\nGerne beantworte ich Ihre Fragen zu dieser Stelle:\nCEM YILDIRIM\nPersonalberater\nLogistik/ Transport/ Handwerk\nTel. 043 317 85 85\nyildirim@asanti.ch\nLinkedin",
+      "descriptionByLocale": {
+        "de": "J e t z t b e w e r b e n\nLogistiker EFZ (m/w/d) 100%\nFür einen spannenden Logistikeinsatz suchen wir eine engagierte und pflichtbewusste Persönlichkeit als Logistiker EFZ (m/w/d) im Vollzeitpensum . Wenn Sie gerne anpacken, den Überblick behalten und zuverlässig arbeiten, freuen wir uns auf Ihre Bewerbung.\nIhre Tätigkeiten\n- Fachgerechtes Bewirtschaften des Warenlagers\n- Kontrolle und Verbuchung eingehender Lieferungen\n- Kommissionieren anhand von Aufträgen und Lieferscheinen\n- Durchführung von Bestandskontrollen und Inventurarbeiten\n- Unterstützung bei der Optimierung interner Logistikprozesse\nDas bringen Sie mit\n- Abgeschlossene Berufsausbildung als Logistiker EFZ\n- Gute Kenntnisse in den Bereichen Lagerhaltung und Warenbewirtschaftung\n- Erfahrung im Umgang mit Lagerverwaltungssystemen von Vorteil\n- Verantwortungsbewusste und strukturierte Arbeitsweise\n- Körperliche Belastbarkeit und Freude an praktischer Arbeit\n- Gute Deutschkenntnisse\n- Das erwartet Sie\n- Ein abwechslungsreiches Aufgabengebiet\n- Ein modernes und gut organisiertes Arbeitsumfeld\n- Ein kollegiales Team und eine sorgfältige Einarbeitung\n- Faire und zeitgemässe Anstellungsbedingungen\n- Ein Arbeitspensum von 100% mit Start ab sofort\nJetzt bewerben!\nSie möchten Ihre Logistikkenntnisse einbringen und suchen eine neue berufliche Herausforderung? Dann freuen wir uns darauf, Sie kennenzulernen. Senden Sie uns Ihre Bewerbungsunterlagen noch heute!\nInteressiert?\nGerne beantworte ich Ihre Fragen zu dieser Stelle:\nCEM YILDIRIM\nPersonalberater\nLogistik/ Transport/ Handwerk\nTel. 043 317 85 85\nyildirim@asanti.ch\nLinkedin",
+        "it": "J e t z t b e w e r b e n\nLogistiker EFZ (m/w/d) 100%\nFür einen spannenden Logistikeinsatz suchen wir eine engagierte und pflichtbewusste Persönlichkeit als Logistiker EFZ (m/w/d) im Vollzeitpensum . Wenn Sie gerne anpacken, den Überblick behalten und zuverlässig arbeiten, freuen wir uns auf Ihre Bewerbung.\nIhre Tätigkeiten\n- Fachgerechtes Bewirtschaften des Warenlagers\n- Kontrolle und Verbuchung eingehender Lieferungen\n- Kommissionieren anhand von Aufträgen und Lieferscheinen\n- Durchführung von Bestandskontrollen und Inventurarbeiten\n- Unterstützung bei der Optimierung interner Logistikprozesse\nDas bringen Sie mit\n- Abgeschlossene Berufsausbildung als Logistiker EFZ\n- Gute Kenntnisse in den Bereichen Lagerhaltung und Warenbewirtschaftung\n- Erfahrung im Umgang mit Lagerverwaltungssystemen von Vorteil\n- Verantwortungsbewusste und strukturierte Arbeitsweise\n- Körperliche Belastbarkeit und Freude an praktischer Arbeit\n- Gute Deutschkenntnisse\n- Das erwartet Sie\n- Ein abwechslungsreiches Aufgabengebiet\n- Ein modernes und gut organisiertes Arbeitsumfeld\n- Ein kollegiales Team und eine sorgfältige Einarbeitung\n- Faire und zeitgemässe Anstellungsbedingungen\n- Ein Arbeitspensum von 100% mit Start ab sofort\nJetzt bewerben!\nSie möchten Ihre Logistikkenntnisse einbringen und suchen eine neue berufliche Herausforderung? Dann freuen wir uns darauf, Sie kennenzulernen. Senden Sie uns Ihre Bewerbungsunterlagen noch heute!\nInteressiert?\nGerne beantworte ich Ihre Fragen zu dieser Stelle:\nCEM YILDIRIM\nPersonalberater\nLogistik/ Transport/ Handwerk\nTel. 043 317 85 85\nyildirim@asanti.ch\nLinkedin",
+        "en": "J e t z t b e w e r b e n\nLogistiker EFZ (m/w/d) 100%\nFür einen spannenden Logistikeinsatz suchen wir eine engagierte und pflichtbewusste Persönlichkeit als Logistiker EFZ (m/w/d) im Vollzeitpensum . Wenn Sie gerne anpacken, den Überblick behalten und zuverlässig arbeiten, freuen wir uns auf Ihre Bewerbung.\nIhre Tätigkeiten\n- Fachgerechtes Bewirtschaften des Warenlagers\n- Kontrolle und Verbuchung eingehender Lieferungen\n- Kommissionieren anhand von Aufträgen und Lieferscheinen\n- Durchführung von Bestandskontrollen und Inventurarbeiten\n- Unterstützung bei der Optimierung interner Logistikprozesse\nDas bringen Sie mit\n- Abgeschlossene Berufsausbildung als Logistiker EFZ\n- Gute Kenntnisse in den Bereichen Lagerhaltung und Warenbewirtschaftung\n- Erfahrung im Umgang mit Lagerverwaltungssystemen von Vorteil\n- Verantwortungsbewusste und strukturierte Arbeitsweise\n- Körperliche Belastbarkeit und Freude an praktischer Arbeit\n- Gute Deutschkenntnisse\n- Das erwartet Sie\n- Ein abwechslungsreiches Aufgabengebiet\n- Ein modernes und gut organisiertes Arbeitsumfeld\n- Ein kollegiales Team und eine sorgfältige Einarbeitung\n- Faire und zeitgemässe Anstellungsbedingungen\n- Ein Arbeitspensum von 100% mit Start ab sofort\nJetzt bewerben!\nSie möchten Ihre Logistikkenntnisse einbringen und suchen eine neue berufliche Herausforderung? Dann freuen wir uns darauf, Sie kennenzulernen. Senden Sie uns Ihre Bewerbungsunterlagen noch heute!\nInteressiert?\nGerne beantworte ich Ihre Fragen zu dieser Stelle:\nCEM YILDIRIM\nPersonalberater\nLogistik/ Transport/ Handwerk\nTel. 043 317 85 85\nyildirim@asanti.ch\nLinkedin",
+        "fr": "J e t z t b e w e r b e n\nLogistiker EFZ (m/w/d) 100%\nFür einen spannenden Logistikeinsatz suchen wir eine engagierte und pflichtbewusste Persönlichkeit als Logistiker EFZ (m/w/d) im Vollzeitpensum . Wenn Sie gerne anpacken, den Überblick behalten und zuverlässig arbeiten, freuen wir uns auf Ihre Bewerbung.\nIhre Tätigkeiten\n- Fachgerechtes Bewirtschaften des Warenlagers\n- Kontrolle und Verbuchung eingehender Lieferungen\n- Kommissionieren anhand von Aufträgen und Lieferscheinen\n- Durchführung von Bestandskontrollen und Inventurarbeiten\n- Unterstützung bei der Optimierung interner Logistikprozesse\nDas bringen Sie mit\n- Abgeschlossene Berufsausbildung als Logistiker EFZ\n- Gute Kenntnisse in den Bereichen Lagerhaltung und Warenbewirtschaftung\n- Erfahrung im Umgang mit Lagerverwaltungssystemen von Vorteil\n- Verantwortungsbewusste und strukturierte Arbeitsweise\n- Körperliche Belastbarkeit und Freude an praktischer Arbeit\n- Gute Deutschkenntnisse\n- Das erwartet Sie\n- Ein abwechslungsreiches Aufgabengebiet\n- Ein modernes und gut organisiertes Arbeitsumfeld\n- Ein kollegiales Team und eine sorgfältige Einarbeitung\n- Faire und zeitgemässe Anstellungsbedingungen\n- Ein Arbeitspensum von 100% mit Start ab sofort\nJetzt bewerben!\nSie möchten Ihre Logistikkenntnisse einbringen und suchen eine neue berufliche Herausforderung? Dann freuen wir uns darauf, Sie kennenzulernen. Senden Sie uns Ihre Bewerbungsunterlagen noch heute!\nInteressiert?\nGerne beantworte ich Ihre Fragen zu dieser Stelle:\nCEM YILDIRIM\nPersonalberater\nLogistik/ Transport/ Handwerk\nTel. 043 317 85 85\nyildirim@asanti.ch\nLinkedin"
+      },
+      "location": "Bülach 8180",
+      "canton": "ZH",
+      "url": "https://asanti.ch/job/logistiker-efz-m-w-d-100-2/",
+      "source": "Asanti AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-16T09:42:22.708Z",
+      "addressLocality": "Bülach",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-27T15:40:34+01:00",
+      "postedDate": "2026-10-27T15:40:34+01:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://asanti.ch/job/logistiker-efz-m-w-d-100-2/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "logistiker-efz-m-w-d-100-bulach-8180-asanti-ch-ch"
+        ]
+      },
+      "previousSlugs": [
+        "logistiker-efz-m-w-d-100-bulach-8180-asanti-ch-ch"
+      ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8180",
+      "streetAddress": "Bülach",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-26T09:42:22.708Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-16T09:42:22.708Z"
     }
   ]
 }

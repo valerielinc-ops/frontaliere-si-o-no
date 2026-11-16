@@ -318,6 +318,38 @@ describe('IAB detection and independent recovery surface', () => {
     expect(w.document.querySelector('dialog,.ft-recovery-promo')).toBeNull();
     expect(emit.mock.calls.some(([name]) => name === 'ad_recovery_prompt')).toBe(false);
   });
+  it('waits for an eligible inline creative instead of opening a recovery modal', async () => {
+    w.__ftAdBlock = { blocked: true, adsAllowed: false };
+    const houseSlot = w.document.createElement('div');
+    houseSlot.setAttribute('data-house', 'article-inline');
+    houseSlot.setAttribute('data-ft-house-eligible', '');
+    houseSlot.innerHTML = '<div data-ft-house-google data-ft-ad-state="waiting_response"></div><div data-ft-house-host></div>';
+    w.document.body.append(houseSlot);
+
+    recovery('blocked', 'loaded', true);
+    w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+
+    expect(w.document.querySelector('dialog,.ft-recovery-promo')).toBeNull();
+    expect(emit.mock.calls.some(([name]) => name === 'ad_recovery_prompt')).toBe(false);
+  });
+  it('keeps recovery available when a blocker-only inline slot has no renderable height', async () => {
+    w.__ftAdBlock = { blocked: true, adsAllowed: false };
+    const houseSlot = w.document.createElement('div');
+    houseSlot.setAttribute('data-house', 'article-inline');
+    houseSlot.setAttribute('data-ft-house-eligible', '');
+    houseSlot.setAttribute('data-ft-house-blocker-only', '');
+    houseSlot.innerHTML = '<div data-ft-house-host></div>';
+    houseSlot.getBoundingClientRect = () => ({ width: 320, height: 0, top: 0, left: 0, bottom: 0, right: 320 });
+    w.document.body.append(houseSlot);
+
+    recovery('blocked', 'loaded', true);
+    w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(13000);
+
+    expect(w.document.querySelector('dialog[open]')?.textContent).toContain('Candidature su misura per il tuo prossimo lavoro in Svizzera');
+    expect(emit.mock.calls.some(([name]) => name === 'ad_recovery_prompt')).toBe(true);
+  });
   it('keeps publisher recovery when inline mode has no rendered creative', async () => {
     w.__ftAdBlock = { blocked: true, adsAllowed: false };
     const houseSlot = w.document.createElement('div');

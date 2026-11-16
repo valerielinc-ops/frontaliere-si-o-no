@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 707,
+  "crawlerCount": 706,
   "groups": {
     "10": [
       "atec-personal",
@@ -480,7 +480,6 @@
       "eqe-ch",
       "favresa-ch",
       "freestarinformatik",
-      "internezzo-ag",
       "invias-swiss",
       "jobdoor-ch",
       "lemco-precision-com",
@@ -1086,7 +1085,6 @@
     "integra-biosciences": "data/jobs/by-crawler/integra-biosciences.json",
     "interdiscount": "data/jobs/by-crawler/interdiscount.json",
     "international-school-of-ticino": "data/jobs/by-crawler/international-school-of-ticino.json",
-    "internezzo-ag": "data/jobs/by-crawler/internezzo-ag.json",
     "interroll": "data/jobs/by-crawler/interroll.json",
     "invias-swiss": "data/jobs/by-crawler/invias-swiss.json",
     "ipersonal": "data/jobs/by-crawler/ipersonal.json",
@@ -1470,5 +1468,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:e51c4a53a7f9154cb29c99b0c9c9c1e6c4aa34f7db3ca6a21336ed5ef81b5360"
+  "digest": "sha256:acc4e12c5f26d2960a73cbc5baa57e5355478f9bde66aa0ba4f01597b1a28a30"
 }
