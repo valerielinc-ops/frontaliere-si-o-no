@@ -321,6 +321,7 @@ describe('runner final guard across three application stages', () => {
 
   it('keeps a Workday chooser on the bare requisition route bound while it mounts', async () => {
     const jobUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033';
+    const manualUrl = `${jobUrl}/applyManually`;
     const chooser = {
       ...snapshot(jobUrl, '', []),
       title: 'Rituals Careers',
@@ -328,7 +329,7 @@ describe('runner final guard across three application stages', () => {
       text: '',
     };
     const mountedApplication = {
-      ...snapshot(jobUrl, 'Application', [{ id: 'apply', text: 'Apply', formId: 'application', frame: 0, disabled: false }]),
+      ...snapshot(manualUrl, 'Application', [{ id: 'apply', text: 'Apply', formId: 'application', frame: 0, disabled: false }]),
       fields: [
         { id: 'first', label: 'First Name', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
         { id: 'last', label: 'Last Name', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
@@ -337,7 +338,7 @@ describe('runner final guard across three application stages', () => {
       ],
     };
     const received = {
-      ...snapshot(`${jobUrl}/applyManually`, 'Thank you for your application.', []),
+      ...snapshot(manualUrl, 'Thank you for your application.', []),
       fields: [],
       buttons: [],
     };
@@ -347,7 +348,7 @@ describe('runner final guard across three application stages', () => {
       postingUrl: jobUrl,
       channelType: 'workday',
       job: { company: 'Rituals Cosmetics Switzerland', title: 'Store Assistant' },
-      guardUrl: jobUrl,
+      guardUrl: manualUrl,
       receiptSnapshot: received,
       onWait: (ms: number) => {
         if (ms === 1000 && state.snapshot.url === jobUrl && !state.snapshot.fields.length && !state.snapshot.buttons.length) {
