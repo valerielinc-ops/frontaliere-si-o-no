@@ -312,6 +312,12 @@ export function isTransientSocialCopyFallbackFailureSet(failures) {
     ));
 }
 
+export function socialCopyFallbackMaxTokens(candidate) {
+  return candidate?.provider === 'groq'
+    ? GROQ_SOCIAL_COPY_MAX_TOKENS
+    : candidate?.context === 'compact' ? 6000 : 7500;
+}
+
 function writeWorkflowOutput(env, values) {
   const lines = Object.entries(values).map(([key, value]) => `${key}=${String(value)}`).join('\n') + '\n';
   if (env.GITHUB_OUTPUT) appendFileSync(env.GITHUB_OUTPUT, lines, { mode: 0o600 });
@@ -399,13 +405,10 @@ export async function run({
     });
     let response;
     try {
-      const maxTokens = candidate.provider === 'groq'
-        ? GROQ_SOCIAL_COPY_MAX_TOKENS
-        : candidate.context === 'compact' ? 6000 : 7500;
       response = await callModel(messages, {
         model: candidate.model,
         temperature: 0.3,
-        maxTokens,
+        maxTokens: socialCopyFallbackMaxTokens(candidate),
         jsonMode: true,
         timeout: 90_000,
         maxRetriesPerModel: 1,

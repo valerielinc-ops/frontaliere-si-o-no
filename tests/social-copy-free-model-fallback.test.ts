@@ -13,6 +13,7 @@ import {
   isTransientSocialCopyFallbackFailureSet,
   run,
   selectAvailableFreeModels,
+  socialCopyFallbackMaxTokens,
 } from '../scripts/social-copy/generate-free-model-fallback.mjs';
 import { normalizeSocialCopyPack } from '../scripts/lib/social-copy-pack.mjs';
 
@@ -225,32 +226,10 @@ describe('social copy free-model fallback', () => {
     expect(result.editorialParity).toMatchObject({ provider: 'gemini', status: 'match' });
   });
 
-  it('keeps the Groq completion under its free-route TPM ceiling', async () => {
-    const directory = temporaryDirectory();
-    let callOptions: Record<string, unknown> | undefined;
-
-    const result = await run({
-      env: {
-        GITHUB_REF: 'refs/heads/main',
-        GITHUB_REPOSITORY: 'example/social',
-        GITHUB_RUN_ID: '127',
-        GITHUB_RUN_ATTEMPT: '1',
-      },
-      modelCandidates: [{ provider: 'groq', model: 'groq-test', context: 'compact' }],
-      available: () => true,
-      providerOf: () => 'groq',
-      db: {} as any,
-      callModel: async (_messages: unknown, options: Record<string, unknown>) => {
-        callOptions = options;
-        throw new Error('[model] HTTP 413: rate_limit_exceeded tokens per minute');
-      },
-      reserve: async () => ({ allowed: true } as any),
-      stdout: { write() {} } as any,
-      outputPath: path.join(directory, 'response.json'),
-    });
-
-    expect(result).toMatchObject({ packGenerated: false, reason: 'all-free-models-failed', deferred: true });
-    expect(callOptions).toMatchObject({ maxTokens: 5000 });
+  it('keeps the Groq completion under its free-route TPM ceiling', () => {
+    expect(socialCopyFallbackMaxTokens({ provider: 'groq', context: 'compact' })).toBe(5000);
+    expect(socialCopyFallbackMaxTokens({ provider: 'gemini', context: 'compact' })).toBe(6000);
+    expect(socialCopyFallbackMaxTokens({ provider: 'gemini', context: 'full' })).toBe(7500);
   });
 
   it('observes stable Italian editorial parity per generation provider', () => {
