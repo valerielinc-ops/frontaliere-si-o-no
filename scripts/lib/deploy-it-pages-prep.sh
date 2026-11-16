@@ -267,7 +267,7 @@ _publish_cdn_r2() {
   # mostly-static prefix enough time to finish on a slow R2 listing.
   _t_og="$(_r2_timeout_s R2_TIMEOUT_OG_S 900)"
   _t_purge="$(_r2_timeout_s R2_TIMEOUT_PURGE_S 300)"
-  local bkt=":s3:$R2_BUCKET" ok=1
+  local bkt=":s3:$R2_BUCKET" ok=1 job_canon_inventory_ok=1
   echo "CDN→R2 (rclone --checksum): payload $(du -sh "$stage" | cut -f1) → $bkt"
   _r2_release_owned_image_namespace_lease() {
     [ "${_image_lease_owned:-0}" = 1 ] || return 0
@@ -813,7 +813,11 @@ _publish_cdn_r2() {
   # Data is additive; avoid listing the full existing prefix and check each
   # current source key directly instead.
   _r2_sync 1800 "$stage/data"     data      "public,max-age=600" "" no-traverse
-  _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600" "$job_canon_log" exact
+  if ! _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600" "$job_canon_log" exact; then
+    echo "::error::[r2] job-canon sync failed; refusing to close the CDN generation"
+    ok=0
+    job_canon_inventory_ok=0
+  fi
   if [ -d "$stage/job-canon" ]; then
     if ! node scripts/ci/job-canon-affected-files.mjs \
       --current-dir="$stage/job-canon" \
@@ -821,10 +825,12 @@ _publish_cdn_r2() {
       --output="$job_canon_affected_file"; then
       echo "::error::[r2] could not derive the affected job-canon shard inventory"
       ok=0
+      job_canon_inventory_ok=0
     fi
   else
     echo "::error::[r2] job-canon stage is missing; refusing to close the CDN generation"
     ok=0
+    job_canon_inventory_ok=0
   fi
   timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \
     --header-upload "Content-Type: text/html; charset=utf-8" --header-upload "Cache-Control: public,max-age=600" || ok=0
@@ -962,6 +968,7 @@ _publish_cdn_r2() {
     # URLs. Purge those changed assets before returning, but keep the marker
     # withheld so other shards continue to gate on the last complete payload.
     _purge_r2_changed_assets || true
+    [ "$job_canon_inventory_ok" = 1 ] || return 1
     return 0
   fi
   # Invalidate the edge for EXACTLY the assets/ keys whose bytes changed since

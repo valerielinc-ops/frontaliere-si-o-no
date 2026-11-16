@@ -401,6 +401,16 @@ case "\${args[0]}" in
     esac
     case "$dst" in */"\${STUB_FAIL_PREFIX:-none}") exit 1 ;; esac
     exit 0 ;;
+  sync)
+    dst="\${args[2]}"
+    case "$dst" in
+      */job-canon)
+        if [ "\${STUB_MISSING_JOB_CANON_LOG:-0}" != 1 ]; then
+          printf '%s\\n' '{"level":"info","msg":"Copied (new)","object":"job-canon/00.json"}'
+        fi ;;
+    esac
+    case "$dst" in */"\${STUB_FAIL_PREFIX:-none}") exit 1 ;; esac
+    exit 0 ;;
 esac
 exit 0
 `,
@@ -1047,6 +1057,15 @@ describe('behaviour: campaign photographs precede executable assets', () => {
     expect(r.calls.some(c => /^rclone copy \S+ :s3:bkt\/assets(?:\s|\/|$)/.test(c))).toBe(false);
     expect(completionMarkerPuts(r.calls)).toEqual([]);
     expect(r.stdout).toContain('campaign images not published — withholding executable assets');
+  });
+});
+
+describe('behaviour: job-canon inventory is fail-closed', () => {
+  it('withholds the R2 completion marker when the exact-sync log is missing', () => {
+    const r = runPublish('job-canon-log-missing', { STUB_MISSING_JOB_CANON_LOG: '1' });
+    expect(r.code).toBe(1);
+    expect(r.stdout).toContain('could not derive the affected job-canon shard inventory');
+    expect(completionMarkerPuts(r.calls)).toEqual([]);
   });
 });
 
