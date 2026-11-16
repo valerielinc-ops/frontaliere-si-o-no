@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { urlToOrphan } from '../scripts/lib/gsc-job-orphans.mjs';
+import { extractRobots } from '../scripts/lib/seo-health-contract.mjs';
 import {
   assertGscLegacyAliasSnapshot,
   assertGscOrphanSnapshot,
@@ -326,7 +327,9 @@ describe('jobOrphanBridgePlugin — incomplete matched fallbacks are noindex', (
         path.join(rootDir, 'dist', 'cerca-lavoro-ticino', slug, 'index.html'),
         'utf8',
       );
-      expect(html).toContain('<meta name="robots" content="noindex,follow">');
+      // buildSeoPageHtml finishes with minifyHtml, which removes safe
+      // attribute quotes; assert the exact robots directive semantically.
+      expect(extractRobots(html)).toEqual({ value: 'noindex,follow', noindex: true });
       expect(html).toContain('<!--JOB_ORPHAN_NOINDEX_BRIDGE-->');
       expect(html).toContain(`<link rel="canonical" href="${orphanUrl}">`);
       expect(html).not.toMatch(/"@type":"JobPosting"/);
