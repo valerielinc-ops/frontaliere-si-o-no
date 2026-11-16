@@ -60,22 +60,25 @@ describe('assisted application agent workflow dependencies', () => {
     expect(installRun).toContain('npx playwright install chromium || npx playwright install --with-deps chromium');
   });
 
-  it('hands every CAPTCHA to Valerie without stealth or challenge automation', () => {
+  it('uses opt-in assisted browser transport and hands every CAPTCHA to Valerie', () => {
     const runScript = steps.find(step => step.name === 'Run agent')?.run || '';
     expect(workflowSource).not.toContain('NOPECHA_EXTENSION_PATH');
     expect(steps.some(step => /NopeCHA|install-nopecha/iu.test(`${step.name || ''} ${step.run || ''}`))).toBe(false);
-    expect(workflowSource).not.toContain('STEALTH_BROWSER_ASSISTED');
-    expect(workflowSource).not.toContain('CLOAKBROWSER_LICENSE_KEY_ASSISTED');
+    expect(workflowSource).toContain('STEALTH_BROWSER_ASSISTED');
+    expect(workflowSource).toContain('CLOAKBROWSER_LICENSE_KEY_ASSISTED');
     expect(runScript).toMatch(/xvfb-run/u);
     expect(runScript).toContain('export ASSISTED_APPLICATION_HEADED=1');
     expect(portalSource).not.toContain('NOPECHA_EXTENSION_PATH');
     expect(portalSource).not.toContain('launchNopechaContext');
     expect(portalSource).not.toContain('awaitCaptcha');
-    expect(portalSource).not.toContain('launchStealthOrChromium');
+    expect(portalSource).toContain('launchStealthOrChromium');
+    expect(portalSource).toContain("purpose: 'assisted'");
     expect(portalSource).not.toContain('passPortalChallenge');
     expect(portalSource).not.toContain('chromeUserAgent');
     expect(verifySource).not.toContain('realisticUserAgent');
     expect(verifySource).not.toContain('userAgent:');
+    expect(verifySource).toContain('launchStealthOrChromium');
+    expect(verifySource).toContain("purpose: 'assisted'");
     expect(portalSource).toContain("if (snapshot.captcha) return await handoff('captcha');");
     expect(portalSource).toContain("if (after.captcha) return await handoff('captcha');");
     expect(portalSource).toContain("if (outcome === 'captcha') return await handoff('captcha');");

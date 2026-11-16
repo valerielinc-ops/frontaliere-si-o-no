@@ -27,7 +27,7 @@ import '../../extension/apply-control.js';
  */
 
 import path from 'node:path';
-import { launchChromium } from '../../../lib/ensure-chromium.mjs';
+import { browserEngine, isStealthBrowser, launchStealthOrChromium } from '../../../lib/stealth-browser.mjs';
 import { applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, gravityFormsSubmissionOutcome, inPageApplicationOpeners, isApplicationRegionUnsupported, portalJobKey } from './stages.mjs';
 import { COVER_LETTER_DOCUMENT_CONTEXT_RE, COVER_LETTER_DOCUMENT_TERMS, CV_DOCUMENT_CONTEXT_RE, CV_DOCUMENT_TERMS } from './document-labels.mjs';
 import { advancedToFinalReview } from './final-review.mjs';
@@ -1185,21 +1185,27 @@ function portalChannelType(ctx = {}) {
   return ctx.channelType || '';
 }
 
-/** Launch stock Playwright Chromium; Valerie handles challenges later in her own Chrome extension session. */
-export function launchPortalBrowser() {
-  return launchChromium({
-    headless: !headedBrowser(),
-    // Match the deterministic form viewport configured for this portal.
-    args: ['--window-size=1366,900'],
+/** Launch the opt-in assisted browser; fall back to stock Chromium if needed. */
+export function launchPortalBrowser(ctx = {}) {
+  const headless = typeof ctx.headless === 'boolean' ? ctx.headless : !headedBrowser();
+  const args = ['--window-size=1366,900'];
+  return launchStealthOrChromium({
+    purpose: 'assisted',
+    headless,
+    locale: INTL[ctx.language] || 'de-CH',
+    timezone: 'Europe/Zurich',
+    args,
+    fallbackOptions: { headless, args },
+    ...(typeof ctx.log === 'function' ? { log: ctx.log } : {}),
   });
 }
 
-/** Set form locale and geometry without overriding the browser's identity. */
-export function portalContextOptions(ctx = {}) {
+/** Set form geometry without re-emulating locale, timezone or viewport in CloakBrowser. */
+export function portalContextOptions(ctx = {}, browser = null) {
+  const stealth = isStealthBrowser(browser);
   return {
-    locale: INTL[ctx.language] || 'de-CH',
-    timezoneId: 'Europe/Zurich',
-    viewport: { width: 1366, height: 900 },
+    ...(stealth ? {} : { locale: INTL[ctx.language] || 'de-CH', timezoneId: 'Europe/Zurich' }),
+    viewport: stealth ? null : { width: 1366, height: 900 },
     acceptDownloads: false,
     ...(ctx.portalReplay === true ? { serviceWorkers: 'block' } : {}),
   };
@@ -10361,7 +10367,7 @@ export async function readPortalRequirements(ctx) {
   };
   try {
     browser = await launch();
-    const context = await browser.newContext(portalContextOptions(ctx));
+    const context = await browser.newContext(portalContextOptions(ctx, browser));
     registerPortalChannelType(context, portalChannelType(ctx));
     if (ctx.portalReplay !== true) await registerCookieSessionRecovery(context, { log: ctx.log });
     if (genericPublicRoute && typeof context.route === 'function') {
@@ -10941,7 +10947,7 @@ export async function submitViaPortal(ctx) {
     return { status: agent.status, acted };
   } : null;
   try {
-    context = await browser.newContext(portalContextOptions(ctx));
+    context = await browser.newContext(portalContextOptions(ctx, browser));
     if (ctx.portalReplay === true && ctx.portalReplayFenceInstalled !== true) {
       const metrics = await installPortalReplayFence(context);
       if (ctx.portalReplayMetrics && typeof ctx.portalReplayMetrics === 'object') Object.assign(ctx.portalReplayMetrics, metrics);
@@ -10959,7 +10965,7 @@ export async function submitViaPortal(ctx) {
     page = await context.newPage();
     // Which browser the portal saw (the run's logs are deleted): headed on the
     // virtual screen or headless, and the user agent it sent.
-    evidence.browser = { headed: headedBrowser(), engine: 'chromium', userAgent: await page.evaluate(() => navigator.userAgent).catch(() => '') };
+    evidence.browser = { headed: headedBrowser(), engine: browserEngine(browser).engine, userAgent: await page.evaluate(() => navigator.userAgent).catch(() => '') };
     let entryUrl = portalEntryUrl(ctx);
     await diagnostics.beginAttempt();
     let response = await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });

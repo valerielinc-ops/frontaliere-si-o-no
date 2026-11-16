@@ -1,13 +1,15 @@
 /**
- * stealth-browser.mjs — crawler-only CloakBrowser support. The assisted
- * application runner uses stock Playwright Chromium and hands CAPTCHA and
- * anti-bot challenges to Valerie instead of masking automation.
+ * stealth-browser.mjs — per-purpose CloakBrowser support. The crawler and the
+ * assisted application runner may opt in with separate Remote Config flags
+ * and license keys. CAPTCHA and anti-bot challenges are still handed to
+ * Valerie; CloakBrowser is a browser transport, not a challenge solver.
  *
- * The crawler is the only caller and uses its own CloakBrowser license key
- * (one concurrent session, Remote Config):
+ * Each caller uses its own CloakBrowser license key (one concurrent session,
+ * Remote Config):
  *
  *   purpose    flag (RC → env)           key (RC → env)
  *   crawler    STEALTH_BROWSER_CRAWLER   CLOAKBROWSER_LICENSE_KEY_CRAWLER
+ *   assisted   STEALTH_BROWSER_ASSISTED  CLOAKBROWSER_LICENSE_KEY_ASSISTED
  *
  * The flag's safe local default is off ('0'): without Remote Config nothing
  * changes. Activation is per run: the workflow's `node scripts/load-rc-env.mjs`
@@ -23,6 +25,7 @@ import { ensureChromiumInstalled, launchChromium, __test as chromiumTest } from 
 
 export const STEALTH_PURPOSES = Object.freeze({
   crawler: Object.freeze({ flag: 'STEALTH_BROWSER_CRAWLER', key: 'CLOAKBROWSER_LICENSE_KEY_CRAWLER' }),
+  assisted: Object.freeze({ flag: 'STEALTH_BROWSER_ASSISTED', key: 'CLOAKBROWSER_LICENSE_KEY_ASSISTED' }),
 });
 
 // Optional upstream proxy for the stealth browser only (http://, socks5://).
@@ -101,7 +104,7 @@ async function lateDenial(cloak, browser, waitMs) {
  * a tell), and should pass viewport: null so the page follows the window.
  *
  * @param {object} options
- * @param {'crawler'} options.purpose
+ * @param {'crawler'|'assisted'} options.purpose
  * @param {boolean} [options.headless=true]
  * @param {string} [options.locale] e.g. 'de-CH'
  * @param {string} [options.timezone='Europe/Zurich']

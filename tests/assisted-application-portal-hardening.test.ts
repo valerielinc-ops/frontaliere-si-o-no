@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { launchStealthOrChromium } from '../scripts/lib/stealth-browser.mjs';
 import { fitToLength } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { birthDatePartOption, candidateAnswerForField, guardPlan, PLAN_SCHEMA } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { applicationReceipt, applicationStage, gravityFormsSubmissionOutcome, inPageApplicationOpeners } from '../scripts/assisted-application/lib/portal/stages.mjs';
@@ -1902,6 +1903,19 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       acceptDownloads: false,
     });
     expect(options).not.toHaveProperty('userAgent');
+  });
+
+  it('leaves locale, timezone and viewport to CloakBrowser binary flags', async () => {
+    const browser = { isConnected: () => true, close: async () => {} };
+    const marked = await launchStealthOrChromium({
+      purpose: 'assisted',
+      headless: false,
+      locale: 'fr-CH',
+      env: { STEALTH_BROWSER_ASSISTED: '1', CLOAKBROWSER_LICENSE_KEY_ASSISTED: 'cb_0123456789abcdef0123456789abcdef' },
+      deps: { cloak: { launch: async () => browser, licenseDenial: () => null }, denialWaitMs: 0 },
+      log: () => {},
+    });
+    expect(portalContextOptions({ language: 'fr' }, marked)).toEqual({ viewport: null, acceptDownloads: false });
   });
 
   it('answers a knock-out question only with a quote of the candidate data', () => {
