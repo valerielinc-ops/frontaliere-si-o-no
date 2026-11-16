@@ -1088,5 +1088,6 @@ describe('application e-mail subject', () => {
     expect(resolveLetterLanguage('en', 'it', [{ round: 2, text: 'Cambia il saluto iniziale e finale da inglese a italiano.' }])).toBe('it');
     expect(resolveLetterLanguage('it', 'it', [{ round: 1, text: 'Translate the cover letter into English' }])).toBe('en');
     expect(resolveLetterLanguage('de', 'it', [{ round: 1, text: 'Accorcia il secondo paragrafo' }])).toBe('de');
+    expect(resolveLetterLanguage('de', 'it', [{ round: 1, text: 'Non scrivere in inglese' }])).toBe('de');
   });
 });

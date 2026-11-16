@@ -424,6 +424,8 @@ function feedbackLanguageCode(token) {
   return FEEDBACK_LANGUAGE_TARGETS.find(({ token: pattern }) => new RegExp(`^(?:${pattern})$`, 'iu').test(normalized))?.code || '';
 }
 
+const FEEDBACK_NEGATION_RE = /\b(?:non|not|no|don['’]t|do\s+not|never|avoid|evita(?:re)?|ne\s+(?:\w+\s+)?pas|nicht|kein(?:e|en|em|er)?|senza|without|ohne|sans)\b/iu;
+
 export function feedbackRequestedLanguage(feedback = []) {
   const items = Array.isArray(feedback) ? feedback : [feedback];
   for (let index = items.length - 1; index >= 0; index -= 1) {
@@ -432,7 +434,11 @@ export function feedbackRequestedLanguage(feedback = []) {
     if (!text) continue;
     const matches = [...text.matchAll(FEEDBACK_LANGUAGE_TARGET_RE)];
     for (let matchIndex = matches.length - 1; matchIndex >= 0; matchIndex -= 1) {
-      const code = feedbackLanguageCode(matches[matchIndex][1]);
+      const match = matches[matchIndex];
+      const prefix = text.slice(0, match.index);
+      const clause = prefix.split(/[,.;!?\n]+/).pop() || '';
+      if (FEEDBACK_NEGATION_RE.test(clause)) continue;
+      const code = feedbackLanguageCode(match[1]);
       if (code) return code;
     }
   }
