@@ -2758,7 +2758,33 @@ async function pageText(page) {
   return texts.join('\n').slice(0, 60_000);
 }
 
+/**
+ * Chromium announces a newly opened application tab before its navigation
+ * leaves the initial about:blank document. Load-state checks on that document
+ * are already complete, so wait for the real destination before extracting
+ * portal controls from the popup.
+ */
+export async function waitForNonBlankPage(page) {
+  let current = '';
+  try {
+    current = page?.url?.() || '';
+  } catch {
+    return false;
+  }
+  if (current !== 'about:blank') return true;
+  if (typeof page?.waitForURL !== 'function') return false;
+  await page.waitForURL(url => url.href !== 'about:blank', {
+    waitUntil: 'domcontentloaded', timeout: POPUP_WAIT_TIMEOUT_MS,
+  }).catch(() => {});
+  try {
+    return page.url() !== 'about:blank';
+  } catch {
+    return false;
+  }
+}
+
 async function settle(page) {
+  await waitForNonBlankPage(page);
   await page.waitForLoadState('domcontentloaded').catch(() => {});
   await page.waitForLoadState('networkidle', { timeout: 8000 }).catch(() => {});
 }
