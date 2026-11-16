@@ -99,6 +99,32 @@ describe('verified posting script entry (#17253)', () => {
     expect(applicationEntryControls({ ...snapshot, buttons: [apply, { text: 'Apply for another job', frame: 0 }] }, context)).toEqual([]);
   });
 
+  it('opens the sole BrassRing Apply now control when section/context omits the employer name', () => {
+    const ubsUrl = 'https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=353466&PageType=jobdetails';
+    const apply = {
+      text: 'Apply now',
+      frame: 0,
+      section: 'Head Sales Office - Marketing, Design & Digital Sales, 100%',
+      context: 'Job Details · Head Sales Office - Marketing, Design & Digital Sales, 100%',
+    };
+    expect(applicationEntryControls({
+      url: `${ubsUrl}#jobDetails=353466_5012`,
+      fields: [],
+      buttons: [apply, { text: 'Save', frame: 0 }],
+    }, {
+      applyUrl: ubsUrl,
+      postingUrl: ubsUrl,
+      pageTitle: 'Head Sales Office - Marketing, Design & Digital Sales, 100% | UBS',
+      selectedPostingIsApplicationUrl: true,
+      allowSingleExternalApplicationEntry: true,
+      job: {
+        title: 'Sede di vendita - Marketing, Design & Digital Sales, 100%',
+        observedPostingTitle: 'Head Sales Office - Marketing, Design & Digital Sales, 100%',
+        company: 'UBS',
+      },
+    })).toEqual([apply]);
+  });
+
   it.each([
     ['unverified posting', snapshot, { ...context, allowSingleExternalApplicationEntry: false }],
     ['different job', { ...snapshot, url: url.replace('123', '456') }, context],

@@ -4,6 +4,7 @@ import {
   isWorkdayJobRouteBound,
   isWorkdayTenantAccountRoute,
   sameWorkdayJobRoute,
+  workdayBareLocaleFallbackUrl,
   workdayJobRoute,
   workdayManualApplicationUrl,
 } from '../scripts/assisted-application/lib/portal/workday-route.mjs';
@@ -68,5 +69,12 @@ describe('Workday tenant account routes', () => {
     const jobRoute = 'https://roche.wd3.myworkdayjobs.com/en-US/roche-ext/job/Basel/Technical-Product-Owner_202606-116471-2';
     const detailsRoute = 'https://roche.wd3.myworkdayjobs.com/en-US/roche-ext/details/Technical-Product-Owner_202606-116471-2';
     expect(sameWorkdayJobRoute(workdayJobRoute(jobRoute), workdayJobRoute(detailsRoute))).toBe(true);
+  });
+
+  it('strips a bare two-letter Workday locale segment as fallback', () => {
+    expect(workdayBareLocaleFallbackUrl(
+      'https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Rotkreuz/Associate-Business-Product-Owner_202611-128370-1',
+    )).toBe('https://roche.wd3.myworkdayjobs.com/roche-ext/job/Rotkreuz/Associate-Business-Product-Owner_202611-128370-1');
+    expect(workdayBareLocaleFallbackUrl(applyUrl)).toBe('');
   });
 });
