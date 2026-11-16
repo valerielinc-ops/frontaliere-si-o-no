@@ -493,18 +493,29 @@ function extractJobupLocation(posting) {
 export function extractVisibleJobupDescription(html = '') {
   const dom = new JSDOM(String(html));
   try {
-    const containers = [...dom.window.document.querySelectorAll('[data-cy="vacancy-description"]')]
-      .filter((container) => (
-        !container.closest('[hidden], [aria-hidden="true"]')
-      ));
+    const containers = [...dom.window.document.querySelectorAll('[data-cy="vacancy-description"]')];
+
+    const isHidden = (element) => {
+      if (!element || element.closest('script, style, noscript, template')) return true;
+      for (let ancestor = element; ancestor; ancestor = ancestor.parentElement) {
+        if (ancestor.hasAttribute('hidden') || ancestor.getAttribute('aria-hidden') === 'true') return true;
+        if (/(?:^|\s)(?:hidden|d-none|is-hidden|invisible)(?:\s|$)/i.test(ancestor.getAttribute('class') || '')) return true;
+        const style = (ancestor.getAttribute('style') || '').replace(/\s+/g, '').toLowerCase();
+        if (/(?:^|;)display:none(?:!important)?(?:;|$)/.test(style)
+          || /(?:^|;)visibility:hidden(?:!important)?(?:;|$)/.test(style)
+          || /(?:^|;)content-visibility:hidden(?:!important)?(?:;|$)/.test(style)) return true;
+      }
+      return false;
+    };
 
     if (containers.length !== 1) return '';
+    if (isHidden(containers[0])) return '';
 
     const container = containers[0].cloneNode(true);
-    for (const excluded of container.querySelectorAll('script, style, template, [hidden], [aria-hidden="true"]')) {
+    for (const excluded of container.querySelectorAll('script, style, noscript, template, [hidden], [aria-hidden="true"]')) {
       excluded.remove();
     }
-    return normalizeSpace(container.textContent || '');
+    return normalizeSpace(stripHtml(container.innerHTML || ''));
   } finally {
     dom.window.close();
   }
