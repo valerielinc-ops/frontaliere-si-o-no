@@ -1885,12 +1885,12 @@ const EVENT_CARD_CAP = 80;
 const HISTORICAL_ARCHIVE_PAGE_SIZE = 100;
 
 /**
- * The same budget for the comune-less `altri-eventi` sentinel bucket, which is
+ * The same card cap for the comune-less `altri-eventi` sentinel bucket, which is
  * the LARGEST page in the dataset (1235 upcoming events measured 2026-09-04)
  * and therefore the one where 80 cards cost the most: a full card is ~1.4 KB of
  * markup (480x270 `<img>`, category chip, meta line, excerpt up to
- * `CARD_EXCERPT_CHARS`, comune), so the card block alone weighed ~111 KB of the
- * 311.8 KB `fr` page — over `MAX_HTML_BYTES`.
+ * `CARD_EXCERPT_CHARS`, comune). The cap keeps the heterogeneous nationwide
+ * bucket useful without imposing an overall HTML-size ceiling.
  *
  * Why the sentinel gets its own number instead of lowering `EVENT_CARD_CAP` for
  * everyone: on a comune hub the cards ARE the discovery surface for a short,

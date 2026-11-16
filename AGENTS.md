@@ -9,7 +9,7 @@ Iniettato in ogni sessione agent. Detail durevole nei docs, carica on-demand.
    - Se due gate misurano lo stesso invariante ma uno misura male (regex, popolazione o campione non rappresentativi), correggi la misura: non alzare né abbassare la soglia per assorbire il falso positivo.
    - **Seconda eccezione proprietaria (2026-08-25, VISION.md D9/#5983):** un gate SEO nice-to-have resta advisory quando il valore migliora la baseline; non eseguire `npm run audit:*:rebaseline` solo per un miglioramento. Dati/markup richiesti da Google e ogni regressione (`current > baseline`) restano root-cause-first (vedi VISION.md D9/#6462).
 2. Mai downgrade error → warning per sbloccare deploy.
-   - **Nessun tetto di peso pagina (2026-11-15):** peso byte libero; vietati budget/soglia/warning/throw/guard, `audit:page-weight`, `pageWeightBudgets`; cap numerici.
+   - **Nessun tetto di peso pagina (2026-11-15):** byte liberi; vietati budget/soglia/warning/throw/guard byte, `audit:page-weight`, `pageWeightBudgets`; cap solo editoria/nav.
 3. Job page structured data DEVE includere in ogni locale: `baseSalary`, `postalCode`, `streetAddress`, `title`, `description`, `datePosted`, `hiringOrganization.name`, `jobLocation`, `employmentType`. Source mancante → safe default, non rimozione check. Parser/runner crawler: gate a ratchet `scripts/ci/check-parser-contract.mjs` (eccezione `// parser-contract-ok R<n>: <motivo>`).
 4. Mai accettare thin content indicizzato <50 parole.
 5. Test fail → trattare test come right finché non provato contrario.
