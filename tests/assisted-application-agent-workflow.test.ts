@@ -68,6 +68,8 @@ describe('assisted application agent workflow dependencies', () => {
     expect(workflowSource).toContain('CLOAKBROWSER_LICENSE_KEY_ASSISTED');
     expect(runScript).toMatch(/xvfb-run/u);
     expect(runScript).toContain('export ASSISTED_APPLICATION_HEADED=1');
+    // Solver/extension bans remain; the managed Turnstile pass is bounded and
+    // allowed separately below, with unresolved challenges still handed off.
     expect(portalSource).not.toContain('NOPECHA_EXTENSION_PATH');
     expect(portalSource).not.toContain('launchNopechaContext');
     expect(portalSource).not.toContain('awaitCaptcha');
