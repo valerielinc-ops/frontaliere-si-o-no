@@ -175,6 +175,23 @@ describe('this-repo main writers have a ruleset-bypass credential path before th
     expect(missing, missing.join('\n')).toEqual([]);
   });
 
+  it('capture-ats loads only the approved PAT before its commit-back helper', () => {
+    const src = readFileSync(
+      resolve(WORKFLOWS_DIR, 'capture-ats-application-forms.yml'),
+      'utf8',
+    );
+    const pushLine = src.split('\n').findIndex((line) => line.includes('git-commit-data.sh'));
+
+    expect(pushLine).toBeGreaterThan(0);
+    expect(codeBefore(src, pushLine)).toContain('FIREBASE_SERVICE_ACCOUNT_JSON');
+    expect(codeBefore(src, pushLine)).toContain(
+      'node scripts/load-rc-env.mjs --only-env=GITHUB_PAT',
+    );
+    expect(src).toContain('persist-credentials: false');
+    expect(src).not.toContain('secrets.GITHUB_TOKEN');
+    expect(missingAuthBeforePushes(src)).toEqual([]);
+  });
+
   it('does not treat a sparse-checkout helper path as a push before auth setup (#13622)', () => {
     const yml = `
       sparse-checkout: |

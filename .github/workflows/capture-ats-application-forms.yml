@@ -21,6 +21,7 @@ jobs:
         uses: actions/checkout@v7
         with:
           fetch-depth: 1
+          persist-credentials: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -38,10 +39,23 @@ jobs:
           ATS_FORM_CAPTURE_TIMEOUT_MS: 20000
         run: npm run jobs:capture-ats-application-forms
 
-      - name: Commit updated form snapshots and retry state
+      - name: Prepare Firebase credentials for main push
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -z "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            echo '::error::FIREBASE_SERVICE_ACCOUNT_JSON is required to load the main-push credential.'
+            exit 1
+          fi
+          umask 077
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load main-push credential from Remote Config
+        run: node scripts/load-rc-env.mjs --only-env=GITHUB_PAT
+
+      - name: Commit updated form snapshots and retry state
         run: >-
           bash scripts/lib/git-commit-data.sh
           --extra-only

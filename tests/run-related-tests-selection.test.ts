@@ -518,6 +518,19 @@ describe('run-related-tests selection contract', () => {
     expect(result.output).toContain('required=false');
   });
 
+  it('runs the main-push auth observer for every workflow YAML change', () => {
+    const root = fixture({
+      '.github/workflows/capture-ats-application-forms.yml': 'name: capture ATS forms\n',
+      'tests/main-push-auth-wiring.test.ts': 'export const authWiringObserver = true;\n',
+      'tests/unrelated.test.ts': 'export const unrelated = true;\n',
+    });
+    const result = select(root, ['.github/workflows/capture-ats-application-forms.yml']);
+
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    expect(result.stdout).toContain('tests/main-push-auth-wiring.test.ts');
+    expect(result.stdout).not.toContain('tests/unrelated.test.ts');
+  });
+
   it('scopes workflow directory readers to the workflow family they inspect', () => {
     const directoryReader = [
       "import { readdirSync } from 'node:fs';",
