@@ -626,12 +626,12 @@ while :; do
     got=""
     gate_timeout " because the hard job deadline (including the post-gate reserve) was reached before the marker poll"
   fi
-  # On R2 the marker is published with `no-store`, but append a unique cache-bust
-  # query per poll so the Cloudflare edge can NEVER serve a stale id: R2 is
-  # read-after-write strong at origin, and a fresh query key forces an origin
-  # fetch. Harmless on Pages (static server ignores the query, Fastly keys on it).
-  poll_url="$url"
-  if [ "${CDN_TARGET:-pages}" = "r2" ]; then poll_url="${url}?nocache=${attempt}-${elapsed}"; fi
+  # The marker is a stable URL on both R2 and the legacy Pages path. R2 also
+  # sends no-store, but Pages has no deploy-controlled response header, so a
+  # cache-buster is required on BOTH targets. The deploy-side job-canon
+  # handshake purges the map before releasing this marker; this query prevents
+  # a Pages edge copy of an older marker from reopening the race.
+  poll_url="${url}?nocache=${attempt}-${elapsed}"
   # `|| true` (and a literal fallback): under a caller's `set -e`/pipefail a
   # curl miss (404 / not-yet-published) must NOT abort — it is the expected
   # transient state we are polling through.
