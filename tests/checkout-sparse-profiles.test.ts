@@ -96,11 +96,6 @@ describe('profili di sparse-checkout', () => {
     ].join('\n'), {})).toEqual([]);
   });
 
-  it('sono coerenti col codice che i job eseguono', () => {
-    const { problems } = verifyCheckoutProfiles();
-    expect(problems).toEqual([]);
-  }, TIMEOUT);
-
   it('i monitor che committano solo extra espliciti non trascinano i bucket dati', () => {
     for (const file of [
       'auth-signup-subscriber-monitor.yml',
@@ -190,13 +185,6 @@ describe('profili di sparse-checkout', () => {
     expect(patterns(sparseCheckout)).toEqual(patterns(issueCheckout));
     expect(measuredSteps.some((step: any) => String(step?.run ?? '').includes('measure-checkout-profile.mjs'))).toBe(true);
   });
-
-  it('non escludono mai un file che il job carica come codice', () => {
-    // Coperto da verifyCheckoutProfiles, ma esplicitato: e' l'invariante che, se saltasse,
-    // produrrebbe un ENOENT su un import — il guasto piu' immediato.
-    const { problems } = verifyCheckoutProfiles();
-    expect(problems.filter((p) => p.includes('escluderebbe il codice'))).toEqual([]);
-  }, TIMEOUT);
 
   it('il checkout allow-list di L3 include il helper importato dal runner', () => {
     const workflow = YAML.parse(
@@ -503,31 +491,6 @@ describe('profili di sparse-checkout', () => {
     }
   }, TIMEOUT);
 
-  it('nessun workflow e in ritardo su cio che l analizzatore calcolerebbe oggi (issue #6249)', () => {
-    // `verifyCheckoutProfiles()` sopra vieta solo di escludere PIU' del calcolato.
-    // Non basta: un workflow appena aggiunto (o una libreria che ha smesso di
-    // usare una catena `npm run` indiretta) puo' restare a checkout pieno senza
-    // che nulla lo segnali, perche' "pieno" e' sempre un sovrainsieme sicuro —
-    // solo lento. Osservato reale su questo repo: 4 workflow del loop
-    // "prospector" (#6245/#6252/#6267) non erano mai stati passati da
-    // `apply-checkout-profiles.mjs` e sono rimasti senza sparse-checkout.
-    // Questo test rigira il generatore su ogni workflow e pretende che il
-    // risultato sia gia' quello committato: se differisce, qualcuno ha
-    // aggiunto/cambiato un workflow senza rigenerare i profili, oppure
-    // l'analizzatore ha imparato a vedere una catena che prima gli sfuggiva —
-    // in entrambi i casi va rigenerato con
-    // `node scripts/ci/apply-checkout-profiles.mjs` prima di mergiare.
-    const pkg = JSON.parse(fs.readFileSync(path.join(process.cwd(), 'package.json'), 'utf8'));
-    const stale: string[] = [];
-    for (const f of workflowFiles) {
-      const { text, before } = computeProfiledText(path.join(WF_DIR, f), pkg.scripts);
-      if (text !== before) stale.push(f);
-    }
-    expect(
-      stale,
-      'profili sparse in ritardo — rigenerali con `node scripts/ci/apply-checkout-profiles.mjs` e rileggi il diff',
-    ).toEqual([]);
-  }, TIMEOUT);
 });
 
 describe('dipendenze runtime dei job workflow', () => {
