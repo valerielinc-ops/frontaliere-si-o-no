@@ -461,6 +461,18 @@ jobs:
             tar -I "$GZ" -cf /tmp/prepared-snapshot.tgz data public/data
           ls -lh /tmp/prepared-snapshot.tgz
       - name: Upload prepared snapshot
+        id: upload-prepared-snapshot
+        uses: actions/upload-artifact@v7
+        continue-on-error: true
+        with:
+          name: prepared-snapshot
+          path: /tmp/prepared-snapshot.tgz
+          retention-days: 1
+          # Already gzip: a second deflate pass only costs upload time.
+          compression-level: 0
+
+      - name: Retry upload prepared snapshot
+        if: steps.upload-prepared-snapshot.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
           name: prepared-snapshot
@@ -468,6 +480,7 @@ jobs:
           retention-days: 1
           # Already gzip: a second deflate pass only costs upload time.
           compression-level: 0
+          overwrite: true
 
   # ── Matrix build: one runner per locale. IT serves Pages + uploads the same
   # artifacts as the monolith; en/de/fr push to their frontaliere-<loc> shards.
@@ -1279,13 +1292,25 @@ jobs:
           node -e 'const fs=require("fs");const v=JSON.parse(fs.readFileSync(process.argv[1],"utf8"));if(!Array.isArray(v)||v.some(s=>typeof s!=="string"||!s||s.includes("/")||s.includes("\\")))process.exit(1)' "$RUNNER_TEMP/job-og-deferred/fallbacks.json"
 
       - name: Upload deferred job OG fallback handoff
+        id: upload-deferred-job-og-fallback-handoff
         if: matrix.locale == 'it' && steps.build_step.outcome == 'success'
+        uses: actions/upload-artifact@v7
+        continue-on-error: true
+        with:
+          name: job-og-deferred-fallbacks-${{ github.run_id }}
+          path: ${{ runner.temp }}/job-og-deferred/fallbacks.json
+          retention-days: 8
+          if-no-files-found: error
+
+      - name: Retry upload deferred job og fallback handoff
+        if: ( matrix.locale == 'it' && steps.build_step.outcome == 'success' ) && steps.upload-deferred-job-og-fallback-handoff.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
           name: job-og-deferred-fallbacks-${{ github.run_id }}
           path: ${{ runner.temp }}/job-og-deferred/fallbacks.json
           retention-days: 8
           if-no-files-found: error
+          overwrite: true
 
       - name: Build profile summary
         if: always()
@@ -1444,13 +1469,25 @@ jobs:
           exit "$status"
 
       - name: Upload full-corpus jobs SEO markers
+        id: upload-full-corpus-jobs-seo-markers
         if: always() && matrix.locale == 'it'
+        uses: actions/upload-artifact@v7
+        continue-on-error: true
+        with:
+          name: jobs-seo-full-corpus-markers-${{ github.run_id }}
+          path: ${{ runner.temp }}/jobs-seo-markers.txt
+          retention-days: 14
+          if-no-files-found: warn
+
+      - name: Retry upload full-corpus jobs seo markers
+        if: ( always() && matrix.locale == 'it' ) && steps.upload-full-corpus-jobs-seo-markers.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
           name: jobs-seo-full-corpus-markers-${{ github.run_id }}
           path: ${{ runner.temp }}/jobs-seo-markers.txt
           retention-days: 14
           if-no-files-found: warn
+          overwrite: true
 
       - name: Validate owned sitemap pages before locale prune
         id: validate-owned-sitemap-pages
@@ -1498,13 +1535,25 @@ jobs:
           test -s "$LOCALE_SITEMAP_MANIFEST_OUT"
 
       - name: Upload expired archive publication evidence
+        id: upload-expired-archive-publication-evidence
         if: success()
+        uses: actions/upload-artifact@v7
+        continue-on-error: true
+        with:
+          name: expired-archive-evidence-${{ matrix.locale }}-${{ github.run_id }}
+          path: dist/assets/expired-archive-evidence-${{ matrix.locale }}.json
+          retention-days: 8
+          if-no-files-found: error
+
+      - name: Retry upload expired archive publication evidence
+        if: ( success() ) && steps.upload-expired-archive-publication-evidence.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
           name: expired-archive-evidence-${{ matrix.locale }}-${{ github.run_id }}
           path: dist/assets/expired-archive-evidence-${{ matrix.locale }}.json
           retention-days: 8
           if-no-files-found: error
+          overwrite: true
 
       # The in-build BUILD_LOCALE filter only gates WriteCollector writes;
       # direct-fs.writeFileSync emitters (redirect/bridge/weather/alias) still
@@ -1667,6 +1716,18 @@ jobs:
             --out "$SECTION_TREE_METRICS_OUT"
 
       - name: Upload section tree layout metrics
+        id: upload-section-tree-layout-metrics
+        uses: actions/upload-artifact@v7
+        continue-on-error: true
+        with:
+          name: section-tree-layout-metrics-${{ matrix.locale }}-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/section-tree-layout-metrics/${{ matrix.locale }}.json
+          compression-level: 0
+          retention-days: 2
+          if-no-files-found: error
+
+      - name: Retry upload section tree layout metrics
+        if: steps.upload-section-tree-layout-metrics.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
           name: section-tree-layout-metrics-${{ matrix.locale }}-${{ github.run_id }}-${{ github.run_attempt }}
@@ -1674,6 +1735,7 @@ jobs:
           compression-level: 0
           retention-days: 2
           if-no-files-found: error
+          overwrite: true
 
       # The build runner hands the non-IT tail to deploy-publish.yml as one
       # compact, immutable source artifact. It contains the already validated
@@ -1747,6 +1809,17 @@ jobs:
           compression-level: ${{ steps.pack-locale-source.outputs.compression_level || '1' }}
           retention-days: 2
           if-no-files-found: error
+
+      - name: Retry upload non-it locale shard source artifact
+        if: ( matrix.locale != 'it' ) && steps.upload-locale-source.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: locale-shard-source-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/locale-shard-source-${{ matrix.locale }}/
+          compression-level: ${{ steps.pack-locale-source.outputs.compression_level || '1' }}
+          retention-days: 2
+          if-no-files-found: error
+          overwrite: true
 
       # IT publishing starts in deploy-publish.yml after the source build and
       # build-time validation finish. This job packages the immutable source
@@ -1939,6 +2012,7 @@ jobs:
         if: matrix.locale == 'it'
         id: upload-it-publish-root
         uses: actions/upload-artifact@v7
+        continue-on-error: true
         with:
           name: it-publish-root-${{ github.run_id }}
           path: ${{ runner.temp }}/it-publish-source/root/it-publish-root*.tar.zst
@@ -1946,10 +2020,22 @@ jobs:
           retention-days: 2
           if-no-files-found: error
 
+      - name: Retry upload it root publication source
+        if: ( matrix.locale == 'it' ) && steps.upload-it-publish-root.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: it-publish-root-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-publish-source/root/it-publish-root*.tar.zst
+          compression-level: 0
+          retention-days: 2
+          if-no-files-found: error
+          overwrite: true
+
       - name: Upload IT shard publication plan and support files
         if: matrix.locale == 'it'
         id: upload-it-shard-source-plan
         uses: actions/upload-artifact@v7
+        continue-on-error: true
         with:
           name: it-shard-source-plan-${{ github.run_id }}
           path: ${{ runner.temp }}/it-publish-source/plan/
@@ -1957,10 +2043,22 @@ jobs:
           retention-days: 2
           if-no-files-found: error
 
+      - name: Retry upload it shard publication plan and support files
+        if: ( matrix.locale == 'it' ) && steps.upload-it-shard-source-plan.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: it-shard-source-plan-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-publish-source/plan/
+          compression-level: 0
+          retention-days: 2
+          if-no-files-found: error
+          overwrite: true
+
       - name: Upload IT shard source group zurigo
         if: matrix.locale == 'it'
         id: upload-it-shard-source-zurigo
         uses: actions/upload-artifact@v7
+        continue-on-error: true
         with:
           name: it-shard-source-group-zurigo-${{ github.run_id }}
           path: ${{ runner.temp }}/it-publish-source/groups/zurigo/*.tar.zst
@@ -1968,10 +2066,22 @@ jobs:
           retention-days: 2
           if-no-files-found: error
 
+      - name: Retry upload it shard source group zurigo
+        if: ( matrix.locale == 'it' ) && steps.upload-it-shard-source-zurigo.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: it-shard-source-group-zurigo-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-publish-source/groups/zurigo/*.tar.zst
+          compression-level: 0
+          retention-days: 2
+          if-no-files-found: error
+          overwrite: true
+
       - name: Upload IT shard source group svizzera
         if: matrix.locale == 'it'
         id: upload-it-shard-source-svizzera
         uses: actions/upload-artifact@v7
+        continue-on-error: true
         with:
           name: it-shard-source-group-svizzera-${{ github.run_id }}
           path: ${{ runner.temp }}/it-publish-source/groups/svizzera/*.tar.zst
@@ -1979,10 +2089,22 @@ jobs:
           retention-days: 2
           if-no-files-found: error
 
+      - name: Retry upload it shard source group svizzera
+        if: ( matrix.locale == 'it' ) && steps.upload-it-shard-source-svizzera.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: it-shard-source-group-svizzera-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-publish-source/groups/svizzera/*.tar.zst
+          compression-level: 0
+          retention-days: 2
+          if-no-files-found: error
+          overwrite: true
+
       - name: Upload IT shard source group small-1
         if: matrix.locale == 'it'
         id: upload-it-shard-source-small-1
         uses: actions/upload-artifact@v7
+        continue-on-error: true
         with:
           name: it-shard-source-group-small-1-${{ github.run_id }}
           path: ${{ runner.temp }}/it-publish-source/groups/small-1/*.tar.zst
@@ -1990,10 +2112,22 @@ jobs:
           retention-days: 2
           if-no-files-found: error
 
+      - name: Retry upload it shard source group small-1
+        if: ( matrix.locale == 'it' ) && steps.upload-it-shard-source-small-1.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: it-shard-source-group-small-1-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-publish-source/groups/small-1/*.tar.zst
+          compression-level: 0
+          retention-days: 2
+          if-no-files-found: error
+          overwrite: true
+
       - name: Upload IT shard source group small-2
         if: matrix.locale == 'it'
         id: upload-it-shard-source-small-2
         uses: actions/upload-artifact@v7
+        continue-on-error: true
         with:
           name: it-shard-source-group-small-2-${{ github.run_id }}
           path: ${{ runner.temp }}/it-publish-source/groups/small-2/*.tar.zst
@@ -2001,10 +2135,22 @@ jobs:
           retention-days: 2
           if-no-files-found: error
 
+      - name: Retry upload it shard source group small-2
+        if: ( matrix.locale == 'it' ) && steps.upload-it-shard-source-small-2.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: it-shard-source-group-small-2-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-publish-source/groups/small-2/*.tar.zst
+          compression-level: 0
+          retention-days: 2
+          if-no-files-found: error
+          overwrite: true
+
       - name: Upload IT shard source group small-3
         if: matrix.locale == 'it'
         id: upload-it-shard-source-small-3
         uses: actions/upload-artifact@v7
+        continue-on-error: true
         with:
           name: it-shard-source-group-small-3-${{ github.run_id }}
           path: ${{ runner.temp }}/it-publish-source/groups/small-3/*.tar.zst
@@ -2012,9 +2158,31 @@ jobs:
           retention-days: 2
           if-no-files-found: error
 
+      - name: Retry upload it shard source group small-3
+        if: ( matrix.locale == 'it' ) && steps.upload-it-shard-source-small-3.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: it-shard-source-group-small-3-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-publish-source/groups/small-3/*.tar.zst
+          compression-level: 0
+          retention-days: 2
+          if-no-files-found: error
+          overwrite: true
+
       - name: Upload IT shard source group small-4
         if: matrix.locale == 'it'
         id: upload-it-shard-source-small-4
+        uses: actions/upload-artifact@v7
+        continue-on-error: true
+        with:
+          name: it-shard-source-group-small-4-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-publish-source/groups/small-4/*.tar.zst
+          compression-level: 0
+          retention-days: 2
+          if-no-files-found: error
+
+      - name: Retry upload it shard source group small-4
+        if: ( matrix.locale == 'it' ) && steps.upload-it-shard-source-small-4.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
           name: it-shard-source-group-small-4-${{ github.run_id }}
@@ -2022,6 +2190,7 @@ jobs:
           compression-level: 0
           retention-days: 2
           if-no-files-found: error
+          overwrite: true
 
       - name: Append build memory history row
         if: always()
@@ -2161,7 +2330,21 @@ jobs:
       # section, ticino; svizzera/zurigo reuse it via
       # scripts/lib/section-shard-slugs.json).
       - name: Upload master source data for post-deploy validators
+        id: upload-master-source-data-for-post-deploy-validators
         if: matrix.locale == 'it'
+        uses: actions/upload-artifact@v7
+        continue-on-error: true
+        with:
+          name: jobs-master-${{ github.run_id }}
+          path: |
+            data/jobs.json
+            data/jobs-crawler-summaries.json
+          # The weekly full audit selects this source artifact by run id.
+          retention-days: 8
+          if-no-files-found: error
+
+      - name: Retry upload master source data for post-deploy validators
+        if: ( matrix.locale == 'it' ) && steps.upload-master-source-data-for-post-deploy-validators.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
           name: jobs-master-${{ github.run_id }}
@@ -2171,6 +2354,7 @@ jobs:
           # The weekly full audit selects this source artifact by run id.
           retention-days: 8
           if-no-files-found: error
+          overwrite: true
 
       - name: Upload write-collisions analysis
         id: write_collisions_analysis
@@ -2210,13 +2394,25 @@ jobs:
           fi
 
       - name: Upload previous-slug winners for post-deploy validation
+        id: upload-previous-slug-winners-for-post-deploy-validation
         if: matrix.locale == 'it' && steps.winners_changed.outputs.changed == 'true'
+        uses: actions/upload-artifact@v7
+        continue-on-error: true
+        with:
+          name: winners-${{ github.run_id }}
+          path: data/previous-slug-winners.json
+          retention-days: 7
+          if-no-files-found: ignore
+
+      - name: Retry upload previous-slug winners for post-deploy validation
+        if: ( matrix.locale == 'it' && steps.winners_changed.outputs.changed == 'true' ) && steps.upload-previous-slug-winners-for-post-deploy-validation.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
           name: winners-${{ github.run_id }}
           path: data/previous-slug-winners.json
           retention-days: 7
           if-no-files-found: ignore
+          overwrite: true
 
       # The two accumulators go to the build-history-commit job as an
       # artifact; its commit + push to main (5 attempts with rebase, ~6 min on
@@ -2535,6 +2731,7 @@ jobs:
       # con l'artifact del tentativo precedente, e le righe gia' committate
       # le scarta il dedup del job di commit.
       - name: Upload build-history rows
+        id: upload-build-history-rows
         if: always()
         continue-on-error: true
         uses: actions/upload-artifact@v7
@@ -2543,6 +2740,16 @@ jobs:
           path: ${{ runner.temp }}/build-history-rows/
           if-no-files-found: ignore
           retention-days: 3
+
+      - name: Retry upload build-history rows
+        if: ( always() ) && steps.upload-build-history-rows.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: build-history-rows-${{ matrix.locale }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/build-history-rows/
+          if-no-files-found: ignore
+          retention-days: 3
+          overwrite: true
 
       # Non-IT page manifests bind to their source shard artifact here. The IT
       # page manifest is bound in deploy-publish after the Pages, sitemap, and
@@ -2578,13 +2785,25 @@ jobs:
             --manifest-artifact-name "sitemap-page-manifest-${BUILD_LOCALE}-${SOURCE_RUN_ID}"
 
       - name: Upload sitemap page manifest for publisher gate
+        id: upload-sitemap-page-manifest-for-publisher-gate
         if: always() && steps.bind-sitemap-page-manifest.outcome == 'success'
+        uses: actions/upload-artifact@v7
+        continue-on-error: true
+        with:
+          name: sitemap-page-manifest-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/sitemap-page-manifest-${{ matrix.locale }}.json
+          retention-days: 8
+          if-no-files-found: error
+
+      - name: Retry upload sitemap page manifest for publisher gate
+        if: ( always() && steps.bind-sitemap-page-manifest.outcome == 'success' ) && steps.upload-sitemap-page-manifest-for-publisher-gate.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
           name: sitemap-page-manifest-${{ matrix.locale }}-${{ github.run_id }}
           path: ${{ runner.temp }}/sitemap-page-manifest-${{ matrix.locale }}.json
           retention-days: 8
           if-no-files-found: error
+          overwrite: true
 
       - name: Write locale publish provenance
         if: always()
@@ -2617,6 +2836,7 @@ jobs:
       # This source receipt is only a source-ready handoff. The publisher
       # writes a second complete receipt after all IT side effects succeed.
       - name: Upload locale publish provenance
+        id: upload-locale-publish-provenance
         if: always()
         continue-on-error: true
         uses: actions/upload-artifact@v7
@@ -2625,6 +2845,16 @@ jobs:
           path: ${{ runner.temp }}/locale-publish-provenance/${{ matrix.locale }}.json
           retention-days: 8
           if-no-files-found: error
+
+      - name: Retry upload locale publish provenance
+        if: ( always() ) && steps.upload-locale-publish-provenance.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: locale-publish-provenance-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/locale-publish-provenance/${{ matrix.locale }}.json
+          retention-days: 8
+          if-no-files-found: error
+          overwrite: true
 
       # Telemetry only. It sits just BEFORE the incremental-manifest save, which must
       # stay the final step of the job (tests/deploy-workflow.test.ts), so the figure
