@@ -5438,7 +5438,11 @@ export async function reconcileSitemapJobsWithDist(
   // artifact or may have become empty after the dist-truth filter. Leaving it
   // on disk lets sitemapAliasPlugin rediscover and publish the stale filename.
   for (const { file, xml } of sitemapFiles) {
-    if (!isJobSitemapShardFilename(file) || extractSitemapLocs(xml).length > 0) continue;
+    if (
+      !isJobSitemapShardFilename(file) ||
+      isAuthoritativeJobSitemapShardFilename(file) ||
+      extractSitemapLocs(xml).length > 0
+    ) continue;
     try {
       await fs.promises.unlink(path.join(distDir, file));
     } catch (error: any) {
@@ -5494,12 +5498,14 @@ export async function reconcileSitemapJobsWithDist(
   let dropped = 0;
   const changedFiles: string[] = [];
   for (const { file, xml } of sitemapFiles) {
-    const fileDropLocs = isJobSitemapShardFilename(file) && legacyDuplicates.length > 0
+    const isCantonLocaleShard =
+      isJobSitemapShardFilename(file) && !isAuthoritativeJobSitemapShardFilename(file);
+    const fileDropLocs = isCantonLocaleShard && legacyDuplicates.length > 0
       ? [...dropLocs, ...legacyDuplicates]
       : dropLocs;
     const result = dropUrlBlocksByLoc(xml, fileDropLocs);
     if (result.xml === xml || result.dropped === 0) continue;
-    if (isJobSitemapShardFilename(file) && extractSitemapLocs(result.xml).length === 0) {
+    if (isCantonLocaleShard && extractSitemapLocs(result.xml).length === 0) {
       try {
         await fs.promises.unlink(path.join(distDir, file));
       } catch (error: any) {
