@@ -69,6 +69,14 @@ describe('per-slot first-party creative delivery', () => {
     expect(el.style.getPropertyValue('--ft-house-height')).toBe('220px');
     expect(el.querySelector('a').href).toContain('1234567890');
   });
+  it('renders the fallback when the browser lacks Node.replaceChildren', async () => {
+    Object.defineProperty(w.HTMLElement.prototype, 'replaceChildren', { configurable: true, value: undefined });
+    const empty = frame('unfilled');
+
+    await start();
+
+    expect(empty.host.querySelector('a')).not.toBeNull();
+  });
   it('fills a static slot when the visitor explicitly denies Google ads consent', async () => {
     const el = w.document.createElement('div'); el.dataset.house = 'article-atf'; el.dataset.ftHouseHeight = '220'; el.dataset.width = '452';
     const ins = w.document.createElement('ins'); ins.dataset.adSlot = '1982411173'; ins.dataset.ftStaticAd = 'true'; ins.dataset.ftStaticAdPending = ''; ins.dataset.ftAdRequestPending = '';
