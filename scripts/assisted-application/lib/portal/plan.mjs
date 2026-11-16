@@ -1974,6 +1974,21 @@ function rawCandidateAnswerForField(candidate, field, { includeProfileWorkPermit
   }
   const language = languageAnswerForField(candidate, field);
   if (language) return language;
+  if (Array.isArray(candidate?.profile?.education) && candidate.profile.education.length === 1) {
+    const entry = candidate.profile.education[0];
+    const inEducationContext = EDUCATION_QUESTION_RE.test([field?.context, field?.section].filter(Boolean).join(' '));
+    const trimmedLabel = label.trim();
+    if (/^(?:degree|qualification|titolo di studio|abschluss|dipl[oô]me)\s*[＊*]?$/iu.test(trimmedLabel) && entry?.degree) {
+      const degree = String(entry.degree).trim();
+      const value = field?.options?.length ? optionForAnswer(field, degree) : degree;
+      if (value) return { value, source: 'profile' };
+    }
+    if (inEducationContext && /^(?:institution|school|school or university|scuola|universit[àa]|schule|hochschule|[ée]cole|universit[ée])\s*[＊*]?$/iu.test(trimmedLabel) && entry?.institution) {
+      const institution = String(entry.institution).trim();
+      const value = field?.options?.length ? optionForAnswer(field, institution) : institution;
+      if (value) return { value, source: 'profile' };
+    }
+  }
   if (topic === 'permit') {
     const swissStatus = permitStatusOf(candidate?.swissStatus?.code);
     const status = permitStatusFromCandidate(candidate, { includeProfileWorkPermit });

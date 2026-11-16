@@ -4055,4 +4055,22 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     expect(isWorkdayBareLocaleSearchShell({ url: deWorkdayUrl, fields: [], buttons: [] }, 'Stellen suchen')).toBe(true);
     expect(isWorkdayBareLocaleSearchShell({ url: deWorkdayUrl, fields: [], buttons: [{ text: 'Bewerben' }] }, 'Stellen suchen')).toBe(false);
   });
+
+  it('answers unambiguous single-entry Education Degree* and Institution* fields from profile.education', () => {
+    const cand = candidateForForm({
+      identity,
+      profile: {
+        education: [{ degree: 'Diploma di Maturità Scientifica', institution: 'Liceo Scientifico Como', start: '', end: '' }],
+      },
+      answers: {},
+      language: 'it',
+    });
+    expect(candidateAnswerForField(cand, { label: 'Degree*', context: 'Education', kind: 'text', options: [] }))
+      .toEqual({ value: 'Diploma di Maturità Scientifica', source: 'profile' });
+    expect(candidateAnswerForField(cand, { label: 'School or University*', context: 'Education', kind: 'text', options: [] }))
+      .toEqual({ value: 'Liceo Scientifico Como', source: 'profile' });
+    // Does not force a free-text degree into an incompatible fixed dropdown.
+    expect(candidateAnswerForField(cand, { label: 'Degree*', context: 'Education', kind: 'select', options: [{ label: 'Bachelor' }, { label: 'Master' }] }))
+      .toBeNull();
+  });
 });
