@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ur-5577",
+      "sourceKey": "UR",
+      "sourceRecordId": "5577",
+      "canton": "Uri",
+      "platePrefix": "UR",
+      "plateNumber": "5577",
+      "normalizedPlate": "UR5577",
+      "listingType": "fixed-price",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "startingPriceChf": 500,
+      "closedAt": "2026-11-16T05:47:07.356Z",
+      "officialAuctionUrl": "https://www.ur.ch/dienstleistungen/4046",
+      "officialDetailUrl": "https://www.ur.ch/_rtr/publikation_4932",
+      "sourceFetchedAt": "2026-11-16T05:47:07.356Z",
+      "lastVerifiedAt": "2026-11-16T05:47:07.356Z",
+      "firstSeenAt": "2026-10-28T22:36:38.892Z",
+      "lastSeenAt": "2026-11-16T05:47:07.356Z",
+      "sourceCategory": "fixed-price-list",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "f9a6dd63dfe3"
+    }
+  ]
+}

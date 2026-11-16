@@ -9645,16 +9645,23 @@
     "slugByLocale": {
       "it": "dettagliante-di-ricambi-magazzino-emil-frey-ebikon",
       "en": "parts-warehouse-specialist-emil-frey-ebikon",
-      "de": "detailhandelsfachmann-frau-ersatzteillager-emil-frey-ebikon",
+      "de": "detailhandelsfachmann-frau-ersatzteillager-emil-frey-ebikon-73a3d803",
       "fr": "specialiste-de-la-gestion-des-pieces-de-rechange-du-magasin-emil-frey-ebikon"
     },
     "sector": "Automotive retail / dealership group",
     "expiredAt": "2026-07-13T22:32:25.956Z",
-    "previousSlugs": [
-      "detailhandelsfachmann-frau-ersatzteillager-emil-frey-ebikon"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "detailhandelsfachmann-frau-ersatzteillager-emil-frey-ebikon-73a3d803",
+        "detailhandelsfachmann-frau-ersatzteillager-emil-frey-ebikon"
+      ],
+      "en": [
+        "detailhandelsfachmann-frau-ersatzteillager-emil-frey-ebikon"
+      ],
+      "de": [
+        "detailhandelsfachmann-frau-ersatzteillager-emil-frey-ebikon-73a3d803"
+      ],
+      "fr": [
         "detailhandelsfachmann-frau-ersatzteillager-emil-frey-ebikon"
       ]
     },
@@ -9665,7 +9672,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.emilfrey.ch/detailhandelsfachmann-frau-ersatzteillager-de-j2046.html",
-    "firstSeenAt": "2026-06-10T07:52:28.384Z"
+    "firstSeenAt": "2026-06-10T07:52:28.384Z",
+    "previousSlugs": [
+      "detailhandelsfachmann-frau-ersatzteillager-emil-frey-ebikon"
+    ]
   },
   {
     "slug": "specialista-cassa-pensione-60-emil-frey-zurich",

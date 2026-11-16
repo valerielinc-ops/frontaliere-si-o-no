@@ -3927,7 +3927,7 @@
     "slugByLocale": {
       "it": "stage-m-f-d-asilo-nido-bal4kids-helvetia-versicherungen-basel",
       "en": "trainee-m-f-d-kindergarten-bal4kids-helvetia-versicherungen-basel",
-      "de": "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel",
+      "de": "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel-657f8ec7",
       "fr": "stagiaire-f-m-d-pepiniere-bal4kids-helvetia-versicherungen-basel"
     },
     "sector": "Sanità / Ospedali",
@@ -3940,10 +3940,18 @@
     "previousSlugsByLocale": {
       "it": [
         "interno-f-m-d-vivaio-bal4kids-helvetia-versicherungen-basel",
+        "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel-657f8ec7",
         "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel"
       ],
       "en": [
-        "intern-f-m-d-nursery-bal4kids-helvetia-versicherungen-basel"
+        "intern-f-m-d-nursery-bal4kids-helvetia-versicherungen-basel",
+        "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel"
+      ],
+      "de": [
+        "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel-657f8ec7"
+      ],
+      "fr": [
+        "praktikant-w-m-d-kinderkrippe-bal4kids-helvetia-basel"
       ]
     },
     "postalCode": "4001",

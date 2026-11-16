@@ -2354,8 +2354,10 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   const workdayRouteBound = workdayPostingRouteMatchesCurrent(
     snapshot.url, context.applyUrl, context.postingUrl,
   );
+  const WORKDAY_CONTINUE_RE = /^(?:continue(?:\s+(?:your|my|this))?\s+application|reprendre\s+(?:la|ma|votre)\s+candidature|continuer\s+(?:la|ma|votre)\s+candidature|bewerbung\s+fortsetzen|continua(?:\s+la)?\s+candidatura)$/i;
   const workdayEntries = controls.filter((control) => !control?.disabled && !control?.chrome
-    && startsApplication(control?.text || control?.label));
+    && (startsApplication(control?.text || control?.label)
+      || (workdayRouteBound && WORKDAY_CONTINUE_RE.test(String(control?.text || control?.label || '').trim()))));
   const workdayScriptEntries = workdayEntries.filter((control) => !control?.href && !control?.formId
     && (control.frame || 0) === 0);
   // Workday's posting can keep its Apply opener on the exact same requisition
@@ -4407,6 +4409,36 @@ function workdayEmployerBrandMatches(pageText, job = {}, pageUrl = '') {
     || Boolean(job.url && isWorkdayTenantUrl(job.url) && sameWorkdayJobRoute(workdayJobRoute(pageUrl), workdayJobRoute(job.url)));
 }
 
+/**
+ * Employer websites can omit a trailing regional qualifier from the order's
+ * company name (e.g. `clinica-holistica.ch` says «Clinica Holistica» for
+ * «Clinica Holistica Engiadina»). Require >= 2 distinctive host words matching
+ * the start of `job.company`, present verbatim in `pageText`, plus the job title.
+ */
+const SECOND_LEVEL_PUBLIC_SUFFIX_LABELS = new Set(['co', 'com', 'org', 'net', 'edu', 'gov', 'ac']);
+
+function employerHostPrefixMatches(pageText, job = {}, pageUrl = '') {
+  let labels = [];
+  try {
+    const parsed = new URL(String(pageUrl || ''));
+    if (parsed.protocol !== 'https:') return false;
+    labels = parsed.hostname.toLowerCase().split('.').filter(Boolean);
+  } catch {
+    return false;
+  }
+  if (labels.length < 2) return false;
+  const multiLabelSuffix = labels.length >= 3
+    && labels[labels.length - 1].length === 2
+    && SECOND_LEVEL_PUBLIC_SUFFIX_LABELS.has(labels[labels.length - 2]);
+  const domainLabel = multiLabelSuffix ? labels[labels.length - 3] : labels[labels.length - 2];
+  const hostWords = nameWords(domainLabel).filter((word) => word.length >= 4 && !BRANCH_WORDS.has(word));
+  const companyWords = nameWords(job.company).filter((word) => word.length >= 4 && !BRANCH_WORDS.has(word));
+  if (hostWords.length < 2 || companyWords.length <= hostWords.length) return false;
+  if (!hostWords.every((word, index) => companyWords[index] === word)) return false;
+  const named = ` ${nameWords(pageText).join(' ')} `;
+  return named.includes(` ${hostWords.join(' ')} `) && titleMatchesJob(pageText, job);
+}
+
 export function postingMatch(pageText, job = {}, pageUrl = '') {
   const company = nameWords(job.company);
   const titles = jobTitleCandidates(job);
@@ -4422,7 +4454,8 @@ export function postingMatch(pageText, job = {}, pageUrl = '') {
     return named.includes(` ${company.join(' ')} `)
       || (longForm.length > 0 && named.includes(` ${longForm.join(' ')} `))
       || talentSoftEmployerAliasMatches(pageText, job, pageUrl)
-      || workdayEmployerBrandMatches(pageText, job, pageUrl) ? 'match' : 'mismatch';
+      || workdayEmployerBrandMatches(pageText, job, pageUrl)
+      || employerHostPrefixMatches(pageText, job, pageUrl) ? 'match' : 'mismatch';
   }
   return titleMatchesJob(pageText, job) ? 'match' : 'mismatch';
 }
@@ -11501,6 +11534,10 @@ export async function submitViaPortal(ctx) {
         }
       }
       if (workdayJobRoute(page.url())?.suffix !== 'manual') {
+        if (workdayJobRoute(page.url())?.suffix === 'apply' && !snapshot?.fields?.length && !snapshot?.buttons?.length) {
+          await settle(page).catch(() => {});
+          snapshot = await awaitFields(page, snapshot);
+        }
         const reopened = await openApplicationForm(context, page, snapshot, {
           applyUrl: ctx.applyUrl, postingUrl: ctx.postingUrl || postingUrl, sourceProtocol,
           postingEntry: enteredFromMatchingPosting, postingRouteProof: ctx.postingRouteProof, job: portalJob,
@@ -11930,7 +11967,14 @@ export async function submitViaPortal(ctx) {
       const sourcePage = page;
       const sourceUrl = page.url();
       const agent = existingAgent || await runAgent(current, hint);
-      const currentSnapshot = await extractFields(page, NAVIGATION).catch(() => current);
+      let currentSnapshot = await extractFields(page, NAVIGATION).catch(() => current);
+      if (page.url() !== sourceUrl) {
+        const cookies = await resolveCookieConsent(page, currentSnapshot, { agent: cookieAgent });
+        currentSnapshot = cookies.snapshot || currentSnapshot;
+        if (!currentSnapshot?.fields?.length && !currentSnapshot?.buttons?.length) {
+          currentSnapshot = await awaitFields(page, currentSnapshot);
+        }
+      }
       const receipt = await confirmedReceipt(currentSnapshot);
       if (receipt) return { result: receipt };
       if (currentSnapshot.captcha) return { result: await handoff('captcha') };
@@ -11981,6 +12025,12 @@ export async function submitViaPortal(ctx) {
         return { status: 'ACCOUNT_STEP', snapshot, moved: true };
       }
       if (agent.status === 'PARKED') {
+        const destinationBound = isWorkdayJobRouteBound(page.url(), ctx.applyUrl) || await formMatch() === 'match';
+        if (page.url() !== sourceUrl && destinationBound && (hasApplicationForm(currentSnapshot) || authPageKind(currentSnapshot) !== 'none')) {
+          pageEpoch += 1;
+          snapshot = currentSnapshot;
+          return { status: 'REACHED_FORM', snapshot: currentSnapshot, moved: true };
+        }
         evidence.steps.at(-1).agentParked = String(agent.reason || 'PARKED: unable_to_continue').slice(0, 160);
         return { result: await handoff(hint) };
       }

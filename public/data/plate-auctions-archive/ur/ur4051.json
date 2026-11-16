@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ur-4051",
+      "sourceKey": "UR",
+      "sourceRecordId": "4051",
+      "canton": "Uri",
+      "platePrefix": "UR",
+      "plateNumber": "4051",
+      "normalizedPlate": "UR4051",
+      "listingType": "fixed-price",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "startingPriceChf": 700,
+      "closedAt": "2026-11-16T05:47:07.356Z",
+      "officialAuctionUrl": "https://www.ur.ch/dienstleistungen/4046",
+      "officialDetailUrl": "https://www.ur.ch/_rtr/publikation_4932",
+      "sourceFetchedAt": "2026-11-16T05:47:07.356Z",
+      "lastVerifiedAt": "2026-11-16T05:47:07.356Z",
+      "firstSeenAt": "2026-09-15T06:51:17.132Z",
+      "lastSeenAt": "2026-11-16T05:47:07.356Z",
+      "sourceCategory": "fixed-price-list",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "56f425894670"
+    }
+  ]
+}

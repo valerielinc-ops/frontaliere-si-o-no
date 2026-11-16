@@ -1,7 +1,7 @@
 {
   "key": "schweizerhof-flims",
   "label": "Schweizerhof",
-  "generatedAt": "2026-11-16T09:17:10.028Z",
+  "generatedAt": "2026-11-16T21:19:03.339Z",
   "total": 1,
   "discovered": 28,
   "parsed": 1,
@@ -17,6 +17,10 @@
       {
         "status": 200,
         "url": "https://romantikhotels.hcm4all.de/list/?l=de"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/7296"
       },
       {
         "status": 200,
@@ -57,10 +61,6 @@
       {
         "status": 200,
         "url": "https://romantikhotels.hcm4all.de/list/19217"
-      },
-      {
-        "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/7296"
       },
       {
         "status": 200,
@@ -112,23 +112,23 @@
       },
       {
         "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/2083"
-      },
-      {
-        "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/2087"
-      },
-      {
-        "status": 200,
         "url": "https://romantikhotels.hcm4all.de/list/2085"
       },
       {
         "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/2086"
+        "url": "https://romantikhotels.hcm4all.de/list/4543"
       },
       {
         "status": 200,
-        "url": "https://romantikhotels.hcm4all.de/list/4543"
+        "url": "https://romantikhotels.hcm4all.de/list/2050"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/2083"
+      },
+      {
+        "status": 200,
+        "url": "https://romantikhotels.hcm4all.de/list/2086"
       }
     ],
     "proxiedBy": [],
@@ -148,10 +148,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 35164,
-  "avgDurationMs": 35164,
+  "durationMs": 33713,
+  "avgDurationMs": 33713,
   "durationHistory": [
-    35164
+    33713
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -169,7 +169,7 @@
       "url": "https://romantikhotels.hcm4all.de/list/18877",
       "source": "Schweizerhof Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:16:53.030Z",
+      "crawledAt": "2026-11-16T21:18:54.218Z",
       "addressLocality": "Flims",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -192,7 +192,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T09:16:53.030Z",
+      "validThrough": "2026-12-16T21:18:54.218Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -203,5 +203,5 @@
       }
     }
   ],
-  "codeCommit": "71e06c4f557e81be4e8743feaa696210bf683ef0"
+  "codeCommit": "003c4e440c1461e3ea15f62e2d687026ad8479d5"
 }

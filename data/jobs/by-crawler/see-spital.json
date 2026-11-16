@@ -1,13 +1,13 @@
 {
   "crawlerKey": "see-spital",
-  "assembledAt": "2026-11-16T09:24:40.735Z",
-  "runId": "43837723728",
+  "assembledAt": "2026-11-16T21:18:01.273Z",
+  "runId": "43957724308",
   "jobs": [
     {
       "id": "see-spital-5c7a070a875d",
       "slug": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
       "slugByLocale": {
-        "it": "assistente-pj-laureato-in-chirurgia-see-spital-horgen",
+        "it": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "en": "sub-assistant-pj-graduate-surgery-see-spital-horgen",
         "de": "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "fr": "sous-assistant-e-diplome-e-pj-en-chirurgie-see-spital-horgen"
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/301/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:24:31.117Z",
+      "crawledAt": "2026-11-16T21:17:55.143Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -57,11 +57,13 @@
       "previousSlugs": [
         "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
         "pj-absolvens-in-chirurgie-see-spital-horgen",
-        "pj-absolvent-in-chirurgies-see-spital-horgen"
+        "pj-absolvent-in-chirurgies-see-spital-horgen",
+        "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch"
+          "unterassistent-in-pj-absolvent-in-chirurgie-see-spital-ch",
+          "assistente-pj-laureato-in-chirurgia-see-spital-horgen"
         ],
         "en": [
           "pj-absolvent-in-chirurgies-see-spital-horgen"
@@ -101,7 +103,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:31.117Z",
+      "validThrough": "2026-12-16T21:17:55.143Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -136,7 +138,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:24:30.092Z",
+      "crawledAt": "2026-11-16T21:17:54.072Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -207,7 +209,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:30.092Z",
+      "validThrough": "2026-12-16T21:17:54.072Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -242,7 +244,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:24:29.107Z",
+      "crawledAt": "2026-11-16T21:17:53.013Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -304,7 +306,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:29.107Z",
+      "validThrough": "2026-12-16T21:17:53.013Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -338,7 +340,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/688/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:24:28.102Z",
+      "crawledAt": "2026-11-16T21:17:51.941Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -463,7 +465,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:28.102Z",
+      "validThrough": "2026-12-16T21:17:51.941Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -497,7 +499,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/851/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:24:27.101Z",
+      "crawledAt": "2026-11-16T21:17:50.635Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -615,7 +617,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:27.101Z",
+      "validThrough": "2026-12-16T21:17:50.635Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -650,7 +652,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:24:26.076Z",
+      "crawledAt": "2026-11-16T21:17:49.595Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -731,7 +733,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:26.076Z",
+      "validThrough": "2026-12-16T21:17:49.595Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -766,7 +768,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:24:25.091Z",
+      "crawledAt": "2026-11-16T21:17:48.511Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -860,7 +862,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:25.091Z",
+      "validThrough": "2026-12-16T21:17:48.511Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -868,9 +870,9 @@
       "slug": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
       "slugByLocale": {
         "it": "sanitario-di-emergenza-in-formazione-see-spital-horgen",
-        "en": "emergency-medical-technician-in-training-see-spital-horgen",
+        "en": "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
         "de": "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "fr": "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
+        "fr": "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -895,7 +897,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:24:24.075Z",
+      "crawledAt": "2026-11-16T21:17:47.436Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -948,18 +950,18 @@
       "contractDuration": "temporary",
       "previousSlugs": [
         "rettungssanitater-in-in-ausbildung-see-spital-ch",
-        "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen",
-        "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
+        "emergency-medical-technician-in-training-see-spital-horgen",
+        "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "rettungssanitater-in-in-ausbildung-see-spital-ch"
         ],
         "en": [
-          "senior-physician-pediatric-rehabilitation-and-intervention-80-100-see-spital-horgen"
+          "emergency-medical-technician-in-training-see-spital-horgen"
         ],
         "fr": [
-          "medecin-chef-reeducation-pediatrique-et-intervention-80-100-see-spital-horgen"
+          "technicien-en-soins-d-urgence-en-formation-see-spital-horgen"
         ]
       },
       "firstSeenAt": "2026-05-26T14:56:01.176Z",
@@ -993,7 +995,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:24.075Z",
+      "validThrough": "2026-12-16T21:17:47.436Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1028,7 +1030,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:24:23.066Z",
+      "crawledAt": "2026-11-16T21:17:46.368Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1115,7 +1117,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:23.066Z",
+      "validThrough": "2026-12-16T21:17:46.368Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1150,7 +1152,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:24:22.021Z",
+      "crawledAt": "2026-11-16T21:17:45.320Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1233,7 +1235,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:22.021Z",
+      "validThrough": "2026-12-16T21:17:45.320Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1268,7 +1270,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:24:20.995Z",
+      "crawledAt": "2026-11-16T21:17:44.273Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1358,7 +1360,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:20.995Z",
+      "validThrough": "2026-12-16T21:17:44.273Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1393,7 +1395,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:24:19.997Z",
+      "crawledAt": "2026-11-16T21:17:43.216Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1486,7 +1488,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:19.997Z",
+      "validThrough": "2026-12-16T21:17:43.216Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1520,7 +1522,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/717/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:24:18.997Z",
+      "crawledAt": "2026-11-16T21:17:42.166Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1613,7 +1615,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:18.997Z",
+      "validThrough": "2026-12-16T21:17:42.166Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1647,7 +1649,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1137/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:24:17.973Z",
+      "crawledAt": "2026-11-16T21:17:41.135Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1728,7 +1730,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:17.973Z",
+      "validThrough": "2026-12-16T21:17:41.135Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1762,7 +1764,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1129/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:24:16.977Z",
+      "crawledAt": "2026-11-16T21:17:40.092Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1856,7 +1858,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:16.977Z",
+      "validThrough": "2026-12-16T21:17:40.092Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1891,7 +1893,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:24:15.990Z",
+      "crawledAt": "2026-11-16T21:17:39.051Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -1980,7 +1982,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:15.990Z",
+      "validThrough": "2026-12-16T21:17:39.051Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2014,7 +2016,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1198/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:24:14.979Z",
+      "crawledAt": "2026-11-16T21:17:37.980Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2104,7 +2106,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:14.979Z",
+      "validThrough": "2026-12-16T21:17:37.980Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2139,7 +2141,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:24:13.986Z",
+      "crawledAt": "2026-11-16T21:17:36.986Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2227,7 +2229,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:13.986Z",
+      "validThrough": "2026-12-16T21:17:36.986Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2262,7 +2264,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:24:12.982Z",
+      "crawledAt": "2026-11-16T21:17:35.942Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2366,7 +2368,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:12.982Z",
+      "validThrough": "2026-12-16T21:17:35.942Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2400,7 +2402,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1256/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:24:11.951Z",
+      "crawledAt": "2026-11-16T21:17:34.944Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2492,7 +2494,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:11.951Z",
+      "validThrough": "2026-12-16T21:17:34.944Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2526,7 +2528,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1278/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:24:10.941Z",
+      "crawledAt": "2026-11-16T21:17:33.875Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2591,7 +2593,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:10.941Z",
+      "validThrough": "2026-12-16T21:17:33.875Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2626,7 +2628,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:24:09.949Z",
+      "crawledAt": "2026-11-16T21:17:32.838Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2691,7 +2693,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:09.949Z",
+      "validThrough": "2026-12-16T21:17:32.838Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2726,7 +2728,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:24:08.929Z",
+      "crawledAt": "2026-11-16T21:17:31.794Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2791,7 +2793,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:08.929Z",
+      "validThrough": "2026-12-16T21:17:31.794Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2825,7 +2827,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1262/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:24:07.942Z",
+      "crawledAt": "2026-11-16T21:17:30.755Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2890,7 +2892,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:07.942Z",
+      "validThrough": "2026-12-16T21:17:30.755Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2898,7 +2900,7 @@
       "slug": "esperto-di-cura-see-spital-horgen",
       "slugByLocale": {
         "it": "esperto-di-cura-see-spital-horgen",
-        "en": "nursing-expert-see-spital-horgen",
+        "en": "nursingexpert-see-spital-horgen",
         "de": "pflegeexpert-in-see-spital-ch",
         "fr": "specialiste-des-soins-see-spital-horgen"
       },
@@ -2925,7 +2927,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:24:06.913Z",
+      "crawledAt": "2026-11-16T21:17:29.691Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -2949,7 +2951,7 @@
         "pflegeexpert-in-see-spital-ch",
         "care-expert-see-spital-horgen",
         "pflegeexpert-in-see-spital-horgen",
-        "nursingexpert-see-spital-horgen"
+        "nursing-expert-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2958,7 +2960,7 @@
         "en": [
           "care-expert-see-spital-horgen",
           "pflegeexpert-in-see-spital-horgen",
-          "nursingexpert-see-spital-horgen"
+          "nursing-expert-see-spital-horgen"
         ],
         "fr": [
           "pflegeexpert-in-see-spital-ch"
@@ -2995,7 +2997,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:06.913Z",
+      "validThrough": "2026-12-16T21:17:29.691Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3030,7 +3032,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:24:05.893Z",
+      "crawledAt": "2026-11-16T21:17:28.654Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3097,7 +3099,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:05.893Z",
+      "validThrough": "2026-12-16T21:17:28.654Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3131,7 +3133,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1290/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:24:04.875Z",
+      "crawledAt": "2026-11-16T21:17:27.613Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3211,7 +3213,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:04.875Z",
+      "validThrough": "2026-12-16T21:17:27.613Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3246,7 +3248,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:24:03.859Z",
+      "crawledAt": "2026-11-16T21:17:26.612Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3311,7 +3313,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-16T09:24:03.859Z",
+      "validThrough": "2026-12-16T21:17:26.612Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3346,7 +3348,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:24:02.827Z",
+      "crawledAt": "2026-11-16T21:17:25.586Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3411,7 +3413,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-19T09:24:02.827Z",
+      "validThrough": "2026-12-19T21:17:25.586Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3445,7 +3447,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1311/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:24:01.819Z",
+      "crawledAt": "2026-11-16T21:17:24.544Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3512,7 +3514,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-08T09:24:01.819Z",
+      "validThrough": "2027-01-08T21:17:24.544Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3547,7 +3549,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:24:00.754Z",
+      "crawledAt": "2026-11-16T21:17:23.521Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3617,7 +3619,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-12T09:24:00.754Z",
+      "validThrough": "2027-01-12T21:17:23.521Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3651,7 +3653,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1312/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:23:59.727Z",
+      "crawledAt": "2026-11-16T21:17:22.508Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3718,7 +3720,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-12T09:23:59.727Z",
+      "validThrough": "2027-01-12T21:17:22.508Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3752,7 +3754,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1284/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:23:58.713Z",
+      "crawledAt": "2026-11-16T21:17:21.435Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3817,7 +3819,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-21T09:23:58.713Z",
+      "validThrough": "2027-01-21T21:17:21.435Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3852,7 +3854,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:23:57.648Z",
+      "crawledAt": "2026-11-16T21:17:20.420Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -3916,7 +3918,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-14T09:23:57.648Z",
+      "validThrough": "2027-02-14T21:17:20.420Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3951,7 +3953,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:23:56.652Z",
+      "crawledAt": "2026-11-16T21:17:19.341Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4016,7 +4018,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-26T09:23:56.652Z",
+      "validThrough": "2027-01-26T21:17:19.341Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4051,7 +4053,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:23:55.632Z",
+      "crawledAt": "2026-11-16T21:17:18.265Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4116,7 +4118,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-26T09:23:55.632Z",
+      "validThrough": "2027-01-26T21:17:18.265Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4150,7 +4152,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1310/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:23:54.627Z",
+      "crawledAt": "2026-11-16T21:17:17.190Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4215,7 +4217,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-28T09:23:54.627Z",
+      "validThrough": "2027-01-28T21:17:17.190Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4250,7 +4252,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:23:53.575Z",
+      "crawledAt": "2026-11-16T21:17:16.126Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4319,7 +4321,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-29T09:23:53.575Z",
+      "validThrough": "2027-01-29T21:17:16.126Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4353,7 +4355,7 @@
       "url": "https://recruitingapp-2939.umantis.com/Vacancies/1318/Description/1",
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:23:52.562Z",
+      "crawledAt": "2026-11-16T21:17:15.080Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4420,7 +4422,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T09:23:52.562Z",
+      "validThrough": "2027-02-03T21:17:15.080Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4455,7 +4457,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:23:51.510Z",
+      "crawledAt": "2026-11-16T21:17:14.050Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4520,7 +4522,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T09:23:51.510Z",
+      "validThrough": "2027-02-11T21:17:14.050Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -4555,7 +4557,7 @@
       "source": "See-Spital Dedicated Parser (Umantis tenant 2939)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-11-16T09:23:50.481Z",
+      "crawledAt": "2026-11-16T21:17:13.004Z",
       "addressLocality": "Horgen",
       "postalCode": "8810",
       "addressCountry": "CH",
@@ -4622,7 +4624,7 @@
       },
       "streetAddress": "Asylstrasse 19",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-11T09:23:50.481Z",
+      "validThrough": "2027-02-11T21:17:13.004Z",
       "validThroughSource": "last-observed-window"
     }
   ]

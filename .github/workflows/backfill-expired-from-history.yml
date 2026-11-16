@@ -120,6 +120,11 @@ jobs:
           # elapsed_seconds metric measures each batch from prefetch through
           # gates and push; total-job duration still requires a completed run.
           BACKFILL_CHECKPOINT_BATCH_SIZE: '8'
+          # The crawler workset is larger than one Actions job. Leave enough
+          # headroom for the final checkpoint, push, and runner teardown, then
+          # queue the next serial run with the durable cursor instead of
+          # letting GitHub cancel the job at its two-hour ceiling.
+          BACKFILL_RUN_BUDGET_SECONDS: '3600'
           BACKFILL_PROGRESS_PATH: .github/backfill-expired-from-history-progress.tsv
         # The history walk writes each expired slice atomically, but the old
         # one-shot invocation only committed after the whole walk and the test
@@ -131,10 +136,24 @@ jobs:
         run: |
           set -euo pipefail
 
+          write_continuation_output() {
+            if [ -n "${GITHUB_OUTPUT:-}" ]; then
+              printf 'continuation_required=%s\n' "$1" >> "$GITHUB_OUTPUT"
+            fi
+          }
+
           checkpoint_batch_size="${BACKFILL_CHECKPOINT_BATCH_SIZE:-8}"
           case "$checkpoint_batch_size" in
             ''|*[!0-9]*|0)
               echo "::error::BACKFILL_CHECKPOINT_BATCH_SIZE must be a positive integer"
+              exit 2
+              ;;
+          esac
+
+          run_budget_seconds="${BACKFILL_RUN_BUDGET_SECONDS:-3600}"
+          case "$run_budget_seconds" in
+            ''|*[!0-9]*|0)
+              echo "::error::BACKFILL_RUN_BUDGET_SECONDS must be a positive integer"
               exit 2
               ;;
           esac
@@ -147,6 +166,7 @@ jobs:
 
           if [ -z "$keys" ]; then
             echo 'ℹ️ No crawler slices matched; nothing to backfill.'
+            write_continuation_output false
             exit 0
           fi
 
@@ -435,7 +455,13 @@ jobs:
 
           mapfile -t key_list <<< "$keys"
           key_total="${#key_list[@]}"
+          continuation_required=0
           for ((batch_start=0; batch_start<key_total; batch_start+=checkpoint_batch_size)); do
+            if [ "$batch_start" -gt 0 ] && [ "$SECONDS" -ge "$run_budget_seconds" ]; then
+              echo "⏭️ Backfill run budget reached after the last durable checkpoint; queueing the remaining crawler workset."
+              continuation_required=1
+              break
+            fi
             batch_keys=("${key_list[@]:batch_start:checkpoint_batch_size}")
             batch_size="${#batch_keys[@]}"
             checkpoint_batch_number=$((checkpoint_batch_number + 1))
@@ -457,11 +483,55 @@ jobs:
             checkpoint
           done
 
+          if [ "$continuation_required" -eq 1 ]; then
+            if [ -z "${GITHUB_PAT:-}" ]; then
+              echo '::error::GITHUB_PAT is empty; cannot dispatch the next durable backfill run.'
+              exit 1
+            fi
+            GH_TOKEN="$GITHUB_PAT" gh api --method POST \
+              "repos/$GITHUB_REPOSITORY/actions/workflows/backfill-expired-from-history.yml/dispatches" \
+              -f ref=main \
+              -f 'inputs[dry_run]=false' \
+              -f "inputs[max_commits]=$MAX_COMMITS" \
+              -f "inputs[crawler_keys]=$CRAWLER_KEYS" \
+              -f "inputs[history_since]=$HISTORY_SINCE"
+            write_continuation_output true
+            echo '✅ Remaining history backfill queued from the durable cursor.'
+            exit 0
+          fi
+
           checkpoint 1
+          write_continuation_output false
           echo '✅ History backfill completed with durable checkpoints.'
 
+      - name: Reassemble dataset (so the test gate has data/jobs.json; not committed)
+        if: steps.backfill.outputs.continuation_required == 'false' && inputs.dry_run != true && inputs.dry_run != 'true'
+        # Regenerates the assembled artifacts (data/jobs.json, expired-jobs.json)
+        # that the vitest gate reads. These are deploy-assembled, not committed by
+        # the --slice-only checkpoint commits above. We deliberately do NOT run
+        # reconcile-job-slugs.mjs here: it mutates the funnel-critical tracked
+        # registry (data/orphan-indexed-job-slugs.json) which --slice-only would
+        # write-then-discard, and reconciliation is the sync-gsc-orphans pipeline's
+        # job — this workflow only recovers expired slice content.
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      - name: Test gate (bot-direct-to-main — validate before deploy)
+        id: backfill_tests
+        if: steps.backfill.outputs.continuation_required == 'false' && inputs.dry_run != true && inputs.dry_run != 'true'
+        # A workflow that pushes data straight to main is held to the same
+        # relevant-test policy as a PR (AGENTS.md). The full suite is not the
+        # gate here: its unrelated corpus/environment tests can fail after the
+        # backfill is already correct and would turn a persisted checkpoint
+        # into a red run while blocking its deploy. This focused gate covers the
+        # recovered archive/assembly invariants and the no-repeat alert ledger.
+        # Measurement on 2026-09-24 with the 11-file gate: the concurrent
+        # invocation hit 3 x 15s subprocess timeouts; --maxWorkers=1 passed
+        # all 312 tests in 71.73s. Keep the serial setting until a new run
+        # demonstrates that parallelism is safe for these subprocess tests.
+        run: npm run test:backfill
+
       - name: Record self-driven deploy handoff after validated backfill
-        if: steps.backfill.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: steps.backfill.outcome == 'success' && steps.backfill.outputs.continuation_required == 'false' && steps.backfill_tests.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
         # Do not gate this on has_changes: a previous attempt may have pushed
         # its raw checkpoint and failed only in the final derived-data gate. A
         # clean rerun must still leave the completed data for deploy.yml's

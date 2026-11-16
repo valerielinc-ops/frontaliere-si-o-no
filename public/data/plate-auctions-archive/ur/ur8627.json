@@ -1,0 +1,28 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ur-8627",
+      "sourceKey": "UR",
+      "sourceRecordId": "8627",
+      "canton": "Uri",
+      "platePrefix": "UR",
+      "plateNumber": "8627",
+      "normalizedPlate": "UR8627",
+      "listingType": "fixed-price",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "startingPriceChf": 500,
+      "closedAt": "2026-11-16T05:47:07.356Z",
+      "officialAuctionUrl": "https://www.ur.ch/dienstleistungen/4046",
+      "officialDetailUrl": "https://www.ur.ch/_rtr/publikation_4932",
+      "sourceFetchedAt": "2026-11-16T05:47:07.356Z",
+      "lastVerifiedAt": "2026-11-16T05:47:07.356Z",
+      "firstSeenAt": "2026-10-28T22:36:38.892Z",
+      "lastSeenAt": "2026-11-16T05:47:07.356Z",
+      "sourceCategory": "fixed-price-list",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "c6228498aa1b"
+    }
+  ]
+}
