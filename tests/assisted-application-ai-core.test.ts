@@ -1081,4 +1081,12 @@ describe('application e-mail subject', () => {
     expect(applicationEmailSubject('de', 'Koch', 'Anna Keller', 'Bewerbung mit Referenzen')).toBe('Bewerbung als Koch – Anna Keller');
     expect(applicationEmailSubject('en', 'Nurse', '', '')).toBe('Application for the position of Nurse');
   });
+
+  it('overrides posting language when candidate feedback explicitly requests a language', async () => {
+    const { resolveLetterLanguage } = await import('../functions/src/assistedApplicationAiPrompts.js');
+    expect(resolveLetterLanguage('en', 'it', [{ round: 1, text: 'Scrivi la lettera in italiano' }])).toBe('it');
+    expect(resolveLetterLanguage('en', 'it', [{ round: 2, text: 'Cambia il saluto iniziale e finale da inglese a italiano.' }])).toBe('it');
+    expect(resolveLetterLanguage('it', 'it', [{ round: 1, text: 'Translate the cover letter into English' }])).toBe('en');
+    expect(resolveLetterLanguage('de', 'it', [{ round: 1, text: 'Accorcia il secondo paragrafo' }])).toBe('de');
+  });
 });

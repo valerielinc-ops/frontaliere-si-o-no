@@ -407,7 +407,41 @@ export function codexPrompt(systemPrompt, userText) {
 }
 
 /** The letter follows the posting; the customer's site locale is the fallback. */
-export function resolveLetterLanguage(postingLanguage, orderLocale) {
+const FEEDBACK_LANGUAGE_TARGETS = [
+  { code: 'it', token: 'italiano|italian|italienisch|italien' },
+  { code: 'de', token: 'tedesco|german|deutsch|allemand' },
+  { code: 'fr', token: 'francese|french|franz(?:ö|oe|o)sisch|fran[cç]ais' },
+  { code: 'en', token: 'inglese|english|englisch|anglais' },
+];
+
+const FEEDBACK_LANGUAGE_TARGET_RE = new RegExp(
+  `(?:^|[^\\p{L}])(?:in|a|to|into|auf|en)\\s+(${FEEDBACK_LANGUAGE_TARGETS.map((entry) => entry.token).join('|')})(?=$|[^\\p{L}])`,
+  'giu',
+);
+
+function feedbackLanguageCode(token) {
+  const normalized = String(token || '').trim().toLowerCase();
+  return FEEDBACK_LANGUAGE_TARGETS.find(({ token: pattern }) => new RegExp(`^(?:${pattern})$`, 'iu').test(normalized))?.code || '';
+}
+
+export function feedbackRequestedLanguage(feedback = []) {
+  const items = Array.isArray(feedback) ? feedback : [feedback];
+  for (let index = items.length - 1; index >= 0; index -= 1) {
+    const raw = typeof items[index] === 'string' ? items[index] : items[index]?.text;
+    const text = String(raw || '').normalize('NFKC').trim();
+    if (!text) continue;
+    const matches = [...text.matchAll(FEEDBACK_LANGUAGE_TARGET_RE)];
+    for (let matchIndex = matches.length - 1; matchIndex >= 0; matchIndex -= 1) {
+      const code = feedbackLanguageCode(matches[matchIndex][1]);
+      if (code) return code;
+    }
+  }
+  return '';
+}
+
+export function resolveLetterLanguage(postingLanguage, orderLocale, feedback = []) {
+  const requested = feedbackRequestedLanguage(feedback);
+  if (SUPPORTED_LETTER_LANGUAGES.includes(requested)) return requested;
   const posting = String(postingLanguage || '').toLowerCase().slice(0, 2);
   if (SUPPORTED_LETTER_LANGUAGES.includes(posting)) return posting;
   const locale = String(orderLocale || '').toLowerCase().slice(0, 2);
