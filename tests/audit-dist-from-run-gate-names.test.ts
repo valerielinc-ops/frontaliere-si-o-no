@@ -106,7 +106,7 @@ function npmScripts(): Record<string, string> {
  * Names quoted in the input description, minus what is not a script name.
  *
  * The examples are written the way a dispatcher types them, i.e. comma-joined
- * (`all,page-weight,max-bfs-depth`), so each quoted token is split the same way
+ * (`all,max-bfs-depth`), so each quoted token is split the same way
  * the step splits `INPUT_AUDITS`.
  */
 function advertisedNames(description: string): string[] {
@@ -153,7 +153,7 @@ describe('audit-dist-from-run replays namespaced gates, not just audit:* (#5918)
     expect(sh(block, 'resolve_script audit:max-bfs-depth')).toBe('audit:max-bfs-depth');
     expect(sh(block, 'resolve_script report:meta-description')).toBe('report:meta-description');
     // A bare name must still be prefixed — the fix must not break the old form.
-    expect(sh(block, 'resolve_script page-weight')).toBe('audit:page-weight');
+    expect(sh(block, 'resolve_script max-bfs-depth')).toBe('audit:max-bfs-depth');
     expect(sh(block, 'resolve_script all')).toBe('audit:all');
   });
 
@@ -182,8 +182,8 @@ describe('audit-dist-from-run replays namespaced gates, not just audit:* (#5918)
     // `IFS=',' read -ra <<<` read only the FIRST line: a multi-line dispatch
     // input silently lost everything after it and the job went green having
     // audited half the list.
-    const out = sh(block, `parse_names 'all, gate:dist-quality ,\npage-weight,,  '`);
-    expect(out.split('\n')).toEqual(['all', 'gate:dist-quality', 'page-weight']);
+    const out = sh(block, `parse_names 'all, gate:dist-quality ,\nmax-bfs-depth,,  '`);
+    expect(out.split('\n')).toEqual(['all', 'gate:dist-quality', 'max-bfs-depth']);
     // `echo | xargs` ate a name starting with a dash as an option, and blew up
     // on an unpaired quote returning the empty string.
     expect(sh(block, `parse_names ' -e '`)).toBe('-e');

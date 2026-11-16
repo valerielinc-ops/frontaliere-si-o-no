@@ -84,8 +84,8 @@ const HUB_LANDINGS_FETCH_TIMEOUT_MS = (() => {
 })();
 /**
  * The landing producer and refresher share ARTICLE_HUB_CARD_LIMIT. The
- * watchdog uses that same budget as its default floor so a page-weight cap
- * cannot look like a missing or partial grid. MIN_CARDS remains an explicit
+ * watchdog uses that same count as its default floor so the card cap cannot
+ * look like a missing or partial grid. MIN_CARDS remains an explicit
  * override for targeted probes.
  */
 const MIN_CARDS = Number(process.env.MIN_CARDS ?? ARTICLE_HUB_CARD_LIMIT);

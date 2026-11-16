@@ -2283,9 +2283,9 @@ export function buildThinCantonHubHtml(args: {
   // the canton landing in jobsSeoPagesPlugin). Emit a CollectionPage wrapping
   // an ItemList of the page's items (job links for `tutti`, sector/company
   // links for `settori`/`aziende`). The ItemList is CAPPED at 25 elements
-  // (numberOfItems still reports the real total) to bound bytes: `tutti/page-N`
-  // carries 100 items × ~2.8k pages, and the full list would breach the
-  // ~200 KB page-weight cap + add build-memory pressure on the OOM-prone SSG.
+  // (numberOfItems still reports the real total); `tutti/page-N` carries
+  // 100 items × ~2.8k pages, and the full list would add build-memory pressure
+  // on the OOM-prone SSG.
   // Items are ListItem→url (not nested JobPosting): a partial JobPosting would
      // violate NON-NEGOTIABLE #3 (the complete mandatory JobPosting contract).
      // Empty pages emit no

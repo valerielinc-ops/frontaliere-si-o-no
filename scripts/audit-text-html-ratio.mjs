@@ -136,8 +136,8 @@ export function createAuditor(opts = {}) {
   // Bounded top-N previews (worst/lowest-ratio N), plus incremental scalar
   // counters — NOT a full per-page `samples` array. dist/ scans ~2.8M pages;
   // retaining one object per page just to filter/sort/slice at report() time
-  // is what threw `JSON.stringify`'s "Invalid string length" (same class of
-  // bug as audit-page-weight.mjs's `rawSamples`, see scripts/lib/boundedTopN.mjs).
+  // is what threw `JSON.stringify`'s "Invalid string length" (see
+  // scripts/lib/boundedTopN.mjs).
   // `offenders` itself stays a plain array (not bounded): real offender counts
   // are a few thousand at most, several orders of magnitude below the
   // millions-scale scan, so pushing every match during collect() is cheap.

@@ -370,7 +370,7 @@ export const EARLY_BOOT_SCRIPT = `<script src="/assets/${EARLY_BOOT_FILENAME}"><
  * Range-selector wiring for the fuel history chart, shared by every page under
  * /prezzi-benzina/ + /prezzi-diesel/ (4 locales × 2 fuels). Previously a ~600 B
  * inline IIFE repeated on every chart page; externalising it to one cached
- * `/assets/fuel-chart.js` strips that per-page weight across the whole fuel
+ * `/assets/fuel-chart.js` strips that per-page inline payload across the whole fuel
  * corpus and lets the browser cache it once.
  *
  * Self-wires ALL `[data-fuel-history-chart]` blocks on the page (no

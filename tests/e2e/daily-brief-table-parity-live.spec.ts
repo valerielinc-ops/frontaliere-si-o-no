@@ -4,6 +4,11 @@ import {
   hasRawTableSeparator,
   visibleTextFromHtml,
 } from '../helpers/dailyBriefTableParity';
+import {
+  dailyBriefEditionId,
+  dailyBriefPublicationState,
+  shouldSkipUnpublishedDailyBrief,
+} from '../helpers/dailyBriefLive';
 
 /**
  * Live parity guard for the daily brief's pipe tables (issue #5415 §6, criterio 1).
@@ -39,9 +44,10 @@ import {
  * ON TODAY'S EDITION, NOT A PINNED DATE. A spec pinned to one date guards the
  * day it was written and nothing after. The edition id is
  * `bollettino-frontaliere-<YYYY-MM-DD>`; when this runs before the morning's
- * generation the URL 404s and the test SKIPS with the reason, the same way
- * post-deploy-rendering-live.spec.ts skips an expired job rather than failing
- * on a separate concern.
+ * generation, the publisher registry is authoritative. The URL can be a 404
+ * or a transient 503 while the edition is absent, and only that confirmed
+ * absence is skippable. A readable registry that contains the edition, or an
+ * unreadable registry, remains a failing live response.
  *
  * ON THE PLAIN URL, NOT A CACHE-BUSTED ONE. What the edge serves IS what the
  * reader gets: measured 2026-08-08, the origin had already been fixed while
@@ -80,11 +86,15 @@ test.describe('daily brief — pipe tables survive both renders', () => {
       });
 
       const response = await page.goto(url, { waitUntil: 'domcontentloaded' });
+      const status = response?.status();
+      const publicationState = status === 200
+        ? 'published'
+        : await dailyBriefPublicationState(dailyBriefEditionId(editionDate()));
       test.skip(
-        response?.status() === 404,
-        `edition for ${editionDate()} not published yet in ${locale} — generation runs at 05:05 UTC`,
+        shouldSkipUnpublishedDailyBrief(status, publicationState),
+        `edition for ${editionDate()} not published yet in ${locale} — publisher registry has no entry; generation runs at 05:05 UTC`,
       );
-      expect(response?.status(), `${url} must serve 200`).toBe(200);
+      expect(status, `${url} must serve 200`).toBe(200);
       if (!staticHtml) staticHtml = await response!.text();
 
       // ── static surface ──

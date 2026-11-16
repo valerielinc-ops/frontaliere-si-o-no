@@ -86,7 +86,6 @@ const PAGES_ARTIFACT_EXTRACTION_WORKFLOWS = [
 const AUDIT_SCRIPTS_IN_VALIDATION_SURFACE = [
   'audit:hreflang',
   'audit:content-duplicates',
-  'audit:page-weight',
   'audit:text-html-ratio',
   'audit:h1-title-duplicates',
   'audit:title-length',

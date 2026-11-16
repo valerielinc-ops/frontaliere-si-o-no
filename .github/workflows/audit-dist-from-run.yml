@@ -9,7 +9,7 @@ on:
       audits:
         description: >-
           Comma-sep npm script names (newlines count as separators too). A BARE
-          name is prefixed with `audit:` (`page-weight` → `audit:page-weight`);
+          name is prefixed with `audit:` (for example, `max-bfs-depth` → `audit:max-bfs-depth`);
           `all` invokes the unified runner (6 dist-walking audits in 1 Node
           process). A name that ALREADY carries a canonical gate namespace —
           `audit:`, `validate:`, `lint:`, `gate:`, `check:`, i.e. the same set as
@@ -26,10 +26,11 @@ on:
           (breadcrumb, FAQPage, ImageObject) assert the verdict audit:all
           writes for this dist, and the step runs those auditors first when
           nothing requested before it has.
-          Examples: `all` / `all,page-weight,max-bfs-depth` /
+          The img-attributes audit checks dimensions and loading or high-priority attributes.
+          Examples: `all` / `all,img-attributes,max-bfs-depth` /
           `gate:dist-quality,gate:seo-source`.
         required: false
-        default: 'all,page-weight,max-bfs-depth'
+        default: 'all,img-attributes,max-bfs-depth'
         type: string
       audit_sample_rate:
         description: 'Optional AUDIT_SAMPLE_RATE override for the unified runner and sampled audits.'

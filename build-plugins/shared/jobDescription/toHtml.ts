@@ -125,11 +125,8 @@ export function demoteEmbeddedH1(html: string): string {
  *
  * Both passthrough branches below (`computeJobDescriptionTextToHtml` and
  * `inlineTextToHtml`) return the employer's HTML almost verbatim, so whatever
- * the ATS ships beyond text formatting lands in `<main>` too. Measured on
- * validate-dist run 36922718485 (build f64b396c, 2026-10-01): the only
- * `audit:all/page-weight` offender was
- * `/en/find-jobs-ticino/data-ingenieur-microsoft-fabric-w-m-80-100-de-benu-koniz/`,
- * whose Teamtailor description carries two
+ * the ATS ships beyond text formatting lands in `<main>` too. A Teamtailor
+ * description carried two
  * `<figure …><img src="https://images.teamtailor-cdn.com/…/gallery picture-v6/image uploads/…">`
  * — no width/height (layout shift, web.dev "optimize CLS"), no `loading`, a
  * `src` with literal spaces, and a hotlink that hands every visitor's IP to the

@@ -17,7 +17,7 @@ run_post_build_task() {
   local name="$1"
   case "$name" in
     audit:text-html-ratio)        npm run audit:text-html-ratio ;;
-    audit:page-weight)            npm run audit:page-weight ;;
+    audit:img-attributes)         npm run audit:img-attributes ;;
     audit:h1-title-duplicates)    npm run audit:h1-title-duplicates ;;
     audit:title-length)           npm run audit:title-length ;;
     audit:title-no-disambig-hash) npm run audit:title-no-disambig-hash ;;
@@ -45,11 +45,11 @@ run_post_build_task() {
 # All 18 task names (order matches LPT bucket assignments below).
 ALL_POST_BUILD_TASKS=(
   audit:text-html-ratio
+  audit:img-attributes
   validate:spa-render
   test:e2e:smoke
   validate:jobs-quality
   validate:jobposting-schema
-  audit:page-weight
   audit:h1-title-duplicates
   audit:content-duplicates
   audit:title-length
@@ -89,7 +89,7 @@ POST_BUILD_SHARD_2=(
 )
 POST_BUILD_SHARD_3=(
   test:e2e:smoke
-  audit:page-weight
+  audit:img-attributes
   audit:title-length
   audit:title-no-disambig-hash
   validate:content-quality
