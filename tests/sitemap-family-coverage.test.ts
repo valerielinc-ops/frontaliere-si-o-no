@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import {
   countSitemapFamilyUrls,
+  diffSitemapFamilyUrls,
   evaluateSitemapFamilyCoverage,
   filterExternallyServedUrlsFromSitemapCoverage,
 } from '../scripts/lib/sitemap-family-coverage.mjs';
@@ -10,6 +11,8 @@ import {
 const NO_DECLARATIONS = { version: 1, decreases: [] };
 
 const snapshot = (perSitemap: Record<string, string[]>) => ({ version: 3, perSitemap });
+const familyUrls = (family: string, count: number, origin = 'https://frontaliereticino.ch') =>
+  Array.from({ length: count }, (_, index) => `${origin}/${family}/${String(index).padStart(4, '0')}/`);
 
 describe('sitemap family URL coverage ratchet', () => {
   it('counts unique URLs across topic shards and the separate event archives', () => {
@@ -93,6 +96,137 @@ describe('sitemap family URL coverage ratchet', () => {
     expect(declared.regressions).toEqual([]);
     expect(declared.allowedDecreases).toHaveLength(1);
     expect(declared.staleDeclarations).toEqual([]);
+  });
+
+  it('keeps the structural events family ratchet strict', () => {
+    const result = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-eventi.xml': familyUrls('events', 100) }),
+      snapshot({ 'sitemap-eventi.xml': familyUrls('events', 99) }),
+      NO_DECLARATIONS,
+    );
+
+    expect(result.regressions).toEqual([
+      { family: 'events', previousCount: 100, currentCount: 99, delta: -1 },
+    ]);
+    expect(result.churn).toEqual([]);
+  });
+
+  it('reports the measured orphan-landings decrease as data-driven churn', () => {
+    const result = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1913) }),
+      snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1906) }),
+      NO_DECLARATIONS,
+    );
+
+    expect(result.regressions).toEqual([]);
+    expect(result.churn).toHaveLength(1);
+    expect(result.churn[0]).toMatchObject({
+      family: 'orphan-landings', previousCount: 1913, currentCount: 1906, delta: -7, tolerance: 0.1,
+    });
+  });
+
+  it('admits exactly the 10% collapse bound and rejects a decrease beyond it', () => {
+    const atBound = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1000) }),
+      snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 900) }),
+      NO_DECLARATIONS,
+    );
+    const beyondBound = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1000) }),
+      snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 899) }),
+      NO_DECLARATIONS,
+    );
+
+    expect(atBound.regressions).toEqual([]);
+    expect(atBound.churn).toMatchObject([{ previousCount: 1000, currentCount: 900, delta: -100, tolerance: 0.1 }]);
+    expect(beyondBound.regressions).toEqual([
+      { family: 'orphan-landings', previousCount: 1000, currentCount: 899, delta: -101 },
+    ]);
+    expect(beyondBound.churn).toEqual([]);
+  });
+
+  it('treats a profession-cities collapse as a regression and the observed decrease as churn', () => {
+    const collapsed = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-profession-cities.xml': familyUrls('profession-cities', 252) }),
+      snapshot({ 'sitemap-profession-cities.xml': [] }),
+      NO_DECLARATIONS,
+    );
+    const churn = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-profession-cities.xml': familyUrls('profession-cities', 252) }),
+      snapshot({ 'sitemap-profession-cities.xml': familyUrls('profession-cities', 248) }),
+      NO_DECLARATIONS,
+    );
+
+    expect(collapsed.regressions).toEqual([
+      { family: 'profession-cities', previousCount: 252, currentCount: 0, delta: -252 },
+    ]);
+    expect(collapsed.churn).toEqual([]);
+    expect(churn.regressions).toEqual([]);
+    expect(churn.churn).toMatchObject([
+      { family: 'profession-cities', previousCount: 252, currentCount: 248, delta: -4, tolerance: 0.1 },
+    ]);
+  });
+
+  it('keeps churn empty when family coverage is unchanged or increases', () => {
+    const unchanged = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 2) }),
+      snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 2) }),
+      NO_DECLARATIONS,
+    );
+    const increased = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 2) }),
+      snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 3) }),
+      NO_DECLARATIONS,
+    );
+
+    expect(unchanged.families.find(({ family }) => family === 'orphan-landings')?.delta).toBe(0);
+    expect(unchanged.churn).toEqual([]);
+    expect(increased.families.find(({ family }) => family === 'orphan-landings')?.delta).toBe(1);
+    expect(increased.churn).toEqual([]);
+  });
+
+  it('keeps the existing exact fuel-stations declaration valid', () => {
+    // Solo la dichiarazione di fuel: le altre famiglie nel file vivo (es. #18999) non sono parte di questo scenario.
+    const allDeclarations = JSON.parse(readFileSync(resolve(import.meta.dirname, '../data/sitemap-family-coverage-declarations.json'), 'utf8'));
+    const declarations = { ...allDeclarations, decreases: allDeclarations.decreases.filter((entry: { family: string }) => entry.family === 'fuel-italian-stations') };
+    const result = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-fuel-italian-stations.xml': familyUrls('fuel-stations', 4116) }),
+      snapshot({ 'sitemap-fuel-italian-stations.xml': familyUrls('fuel-stations', 4112) }),
+      declarations,
+    );
+
+    expect(result.regressions).toEqual([]);
+    expect(result.allowedDecreases).toMatchObject([
+      { family: 'fuel-italian-stations', previousCount: 4116, currentCount: 4112, delta: -4 },
+    ]);
+    expect(result.invalidDeclarations).toEqual([]);
+    expect(result.staleDeclarations).toEqual([]);
+    expect(result.churn).toEqual([]);
+  });
+
+  it('diffs unique family URLs with sorted five-item samples without mutating snapshots', () => {
+    const removedUrls = familyUrls('removed', 7);
+    const addedUrls = familyUrls('added', 7);
+    const sharedUrl = 'https://frontaliereticino.ch/shared/';
+    const previous = snapshot({
+      'sitemap-orphan-landings.xml': [...removedUrls, sharedUrl, removedUrls[0]],
+      'archive/sitemap-orphan-landings.xml': [sharedUrl],
+    });
+    const current = snapshot({
+      'sitemap-orphan-landings.xml': [...addedUrls, sharedUrl, addedUrls[0]],
+      'archive/sitemap-orphan-landings.xml': [sharedUrl],
+    });
+    const previousBefore = structuredClone(previous);
+    const currentBefore = structuredClone(current);
+
+    expect(diffSitemapFamilyUrls(previous, current, 'orphan-landings')).toEqual({
+      removed: 7,
+      added: 7,
+      removedSample: removedUrls.sort().slice(0, 5),
+      addedSample: addedUrls.sort().slice(0, 5),
+    });
+    expect(previous).toEqual(previousBefore);
+    expect(current).toEqual(currentBefore);
   });
 
   it('consumes an exact decrease declaration after its count becomes the live baseline', () => {

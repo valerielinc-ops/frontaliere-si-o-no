@@ -16,6 +16,21 @@ export const SITEMAP_FAMILY_COVERAGE_KEYS = Object.freeze([
 ]);
 
 /**
+ * These families have membership driven by live data: rendered indexability
+ * (matchingJobs >= 3 and wordCount >= MIN) for orphan-landings, and the ad
+ * floor for profession-cities. Below the floor, the build emits a noindex,follow
+ * bridge at the same URL and removes that page from the sitemap (AGENTS.md).
+ * 0.1 is a COLLAPSE bound (loss of the mechanism), not a churn allowance.
+ * Never add a structural family here without an explicit decision.
+ * Evidence: publisher 43795558997 (orphan-landings 1913→1906 = -0.4%,
+ * profession-cities 252→248 = -1.6%).
+ */
+export const SITEMAP_FAMILY_CHURN_TOLERANCE = Object.freeze({
+  'orphan-landings': 0.1,
+  'profession-cities': 0.1,
+});
+
+/**
  * Keep the family-count ratchet inside the same ownership boundary as the
  * publisher sitemap validator. Article URLs are refreshed and served by the
  * corpus repo, so their local copies cannot prove this site's coverage.
@@ -58,8 +73,7 @@ export function sitemapCoverageFamilyForKey(key) {
   return null;
 }
 
-/** Count unique URLs across each restored family, merging its sitemap shards. */
-export function countSitemapFamilyUrls(snapshot) {
+function sitemapFamilyUrlSets(snapshot) {
   if (!snapshot || Array.isArray(snapshot) || !snapshot.perSitemap || typeof snapshot.perSitemap !== 'object') {
     throw new Error('A per-sitemap snapshot is required for family coverage comparison');
   }
@@ -75,7 +89,27 @@ export function countSitemapFamilyUrls(snapshot) {
       familyUrls.add(url);
     }
   }
+  return urlsByFamily;
+}
+
+/** Count unique URLs across each restored family, merging its sitemap shards. */
+export function countSitemapFamilyUrls(snapshot) {
+  const urlsByFamily = sitemapFamilyUrlSets(snapshot);
   return Object.fromEntries([...urlsByFamily].map(([family, urls]) => [family, urls.size]));
+}
+
+/** Compare unique URLs within one family and return sorted bounded samples. */
+export function diffSitemapFamilyUrls(previousSnapshot, currentSnapshot, family) {
+  const previousUrls = sitemapFamilyUrlSets(previousSnapshot).get(family) ?? new Set();
+  const currentUrls = sitemapFamilyUrlSets(currentSnapshot).get(family) ?? new Set();
+  const removedUrls = [...previousUrls].filter((url) => !currentUrls.has(url)).sort();
+  const addedUrls = [...currentUrls].filter((url) => !previousUrls.has(url)).sort();
+  return {
+    removed: removedUrls.length,
+    added: addedUrls.length,
+    removedSample: removedUrls.slice(0, 5),
+    addedSample: addedUrls.slice(0, 5),
+  };
 }
 
 function declarationsByFamily(declarations) {
@@ -117,9 +151,17 @@ export function evaluateSitemapFamilyCoverage(previous, current, declarations) {
   }));
   const regressions = [];
   const allowedDecreases = [];
+  const churn = [];
 
   for (const entry of families) {
     if (entry.delta >= 0) continue;
+    const tolerance = SITEMAP_FAMILY_CHURN_TOLERANCE[entry.family];
+    if (tolerance !== undefined
+      && entry.currentCount > 0
+      && entry.previousCount - entry.currentCount <= Math.floor(entry.previousCount * tolerance)) {
+      churn.push({ ...entry, tolerance });
+      continue;
+    }
     const declaration = byFamily.get(entry.family);
     if (!declaration
       || declaration.previousCount !== entry.previousCount
@@ -149,6 +191,7 @@ export function evaluateSitemapFamilyCoverage(previous, current, declarations) {
     families,
     regressions,
     allowedDecreases,
+    churn,
     consumedDeclarations,
     invalidDeclarations: invalid,
     staleDeclarations,
