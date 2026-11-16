@@ -404,6 +404,8 @@ const SPEC_FETCH_METADATA_KEYS = [
   'expectedFilters',
   'authoritativeEmptyState',
   'authoritativeEmptyEvidence',
+  'listingAuthoritativeEmptyState',
+  'listingAuthoritativeEmptyEvidence',
   'observedDetailsByUrl',
   'titleEvidenceByUrl',
   'freeTextApplications',
@@ -2492,8 +2494,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       }
     }
     observedListingPageCount += 1;
-    if (!candidates.length
-      && !looksLikeAntiBotChallenge(html)
+    if (!looksLikeAntiBotChallenge(html)
       && matchesConfiguredAuthoritativeEmptyText(spec, html)) {
       authoritativeEmptySources.push(effectiveSeedUrl);
     }
@@ -2802,22 +2803,34 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
     || existingOutcome === null
     || existingOutcome === 'ok'
     || existingOutcome === 'filtered_empty';
-  if (rows.length === 0
-    && !listingEndpoint
+  const sourceAuthoritativeEmpty = !listingEndpoint
     && !spec.pagination
     && seedCount > 0
     && observedListingPageCount === seedCount
     && authoritativeEmptySources.length === seedCount
-    && safeExistingOutcome) {
+    && safeExistingOutcome;
+  if (sourceAuthoritativeEmpty) {
     const configuredEmptyMarkers = [
       spec.authoritativeEmptyText,
       ...(Array.isArray(spec.authoritativeEmptyTexts) ? spec.authoritativeEmptyTexts : []),
     ].map((value) => String(value || '').replace(/\s+/g, ' ').trim()).filter(Boolean);
+    const evidence = `${spec.companyName || spec.companyKey} listing page(s) matched one of the configured source-empty marker(s) "${configuredEmptyMarkers.join(' | ')}" at ${authoritativeEmptySources.join(', ')}`;
     copySpecFetchMetadata(rows, {
       fetchOutcome: 'ok',
-      discoveredCount: 0,
-      authoritativeEmptyState: 'authoritative-source-zero',
-      authoritativeEmptyEvidence: `${spec.companyName || spec.companyKey} listing page(s) matched one of the configured source-empty marker(s) "${configuredEmptyMarkers.join(' | ')}" at ${authoritativeEmptySources.join(', ')}`,
+      ...(rows.length === 0
+        ? {
+          discoveredCount: 0,
+          authoritativeEmptyState: 'authoritative-source-zero',
+          authoritativeEmptyEvidence: evidence,
+        }
+        : {
+          // Keep the candidate links long enough to fetch their detail pages.
+          // Some WordPress sources leave stale anchors beside their explicit
+          // empty marker. The detail phase must prove that every such link is
+          // non-publishable before the marker can authorize a zero.
+          listingAuthoritativeEmptyState: 'authoritative-source-zero',
+          listingAuthoritativeEmptyEvidence: evidence,
+        }),
     });
   }
   return rows;
@@ -2892,6 +2905,9 @@ export async function runSpecInProduction(spec, runtime = {}) {
         || await fetchOfficialEmployerSiteLocation(spec, runtime))
       : null;
     const listingOutcome = listingFetchOutcomeState(rows);
+    const listingAuthoritativeEmpty = rows.length > 0
+      && rows.listingAuthoritativeEmptyState === 'authoritative-source-zero'
+      && typeof rows.listingAuthoritativeEmptyEvidence === 'string';
     const configuredEmptyOutcome = spec.rescueOnEmptyListing === true
       && runtime.disableWafProxy !== true
       ? configuredEmptyListingOutcome(spec)
@@ -3305,7 +3321,15 @@ export async function runSpecInProduction(spec, runtime = {}) {
     const allUnexpectedDropsNoOutput = rows.length > 0
       && publishedRows.length === 0
       && detailDrop.dropped > 0;
-    const complete = snapshotAccepted && !allUnexpectedDropsNoOutput;
+    // A reviewed source-empty marker may coexist with stale detail anchors.
+    // Only let it prove a zero after every candidate was fetched and rejected;
+    // one publishable detail row keeps the ordinary partial-snapshot contract.
+    const authoritativeEmptyFromStaleListing = listingAuthoritativeEmpty
+      && rows.length > 0
+      && publishedRows.length === 0
+      && detailDrop.dropped === rows.length;
+    const complete = snapshotAccepted
+      && (!allUnexpectedDropsNoOutput || authoritativeEmptyFromStaleListing);
     const dropCounts = {
       detail_fetch_or_extraction: detailCandidateDrops + unexpectedNotFound,
       ...(expectedNotFoundFilters ? { detail_not_found_expected: expectedNotFoundFilters } : {}),
@@ -3407,10 +3431,17 @@ export async function runSpecInProduction(spec, runtime = {}) {
       ...(titleEvidenceByUrl ? { titleEvidenceByUrl } : {}),
     });
     const stampedOutput = output.length === 0
-      && listingOutcome.authoritativeEmpty
-      && rows.authoritativeEmptyState === 'authoritative-source-zero'
-      && typeof rows.authoritativeEmptyEvidence === 'string'
-      ? markAuthoritativeEmptySnapshot(output, rows.authoritativeEmptyEvidence)
+      && (listingOutcome.authoritativeEmpty || authoritativeEmptyFromStaleListing)
+      && (listingOutcome.authoritativeEmpty
+        ? rows.authoritativeEmptyState === 'authoritative-source-zero'
+          && typeof rows.authoritativeEmptyEvidence === 'string'
+        : listingAuthoritativeEmpty)
+      ? markAuthoritativeEmptySnapshot(
+        output,
+        authoritativeEmptyFromStaleListing
+          ? `${rows.listingAuthoritativeEmptyEvidence}; all ${detailDrop.candidates} detail candidate(s) were fetched and rejected, with no publishable vacancy; fetch receipt recorded ${completedReceipt.pages} page(s)`
+          : rows.authoritativeEmptyEvidence,
+      )
       : output;
     return runtime.returnObservation === true
       ? { vacancies: stampedOutput, observation, detailPagesByUrl, titleEvidenceByUrl }
