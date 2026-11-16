@@ -92,6 +92,34 @@ function diskReadDataFiles(): Set<string> {
   return files;
 }
 
+/**
+ * Directory reads: a test (or a store helper it calls on the real tree) that
+ * enumerates `data/<dir>` opens every file below it, but never writes a
+ * `.json` path, so `diskReadDataFiles` cannot see it. This is the shape of the
+ * first-seen ledger once it is sharded (`data/url-first-seen/<h>.json`): a
+ * `readdirSync` over the directory. Returns the directories (`data/<dir>/`)
+ * that the given source text enumerates from the repository tree.
+ */
+export function dataDirReadsIn(text: string): Set<string> {
+  const dirs = new Set<string>();
+  const pattern = /(?:readdirSync|readdir|opendirSync|opendir|globSync)\([^)]*?data\/([A-Za-z0-9_-]+)(?=[/'"`),*])/gu;
+  for (const match of text.matchAll(pattern)) dirs.add(`data/${match[1]}/`);
+  // Segment form: path.join(root, 'data', 'url-first-seen') handed to a directory reader.
+  const segments = /(?:readdirSync|readdir|opendirSync|opendir)\([^)]*?['"`]data['"`]\s*,\s*['"`]([A-Za-z0-9_-]+)['"`]/gu;
+  for (const match of text.matchAll(segments)) dirs.add(`data/${match[1]}/`);
+  return dirs;
+}
+
+function diskReadDataDirs(): Set<string> {
+  const dirs = new Set<string>();
+  // This file is excluded: its detector self-checks quote the very patterns it looks for.
+  const self = ':(exclude)tests/tests-push-main-data-filter.test.ts';
+  for (const line of grep(['-hE', '(readdirSync|readdir|opendirSync|opendir|globSync)\\(', '--', 'tests/', self])) {
+    for (const dir of dataDirReadsIn(line)) dirs.add(dir);
+  }
+  return dirs;
+}
+
 function grep(args: string[]): string[] {
   try {
     return execFileSync('git', ['grep', ...args], { cwd: ROOT, encoding: 'utf8' })
@@ -152,6 +180,39 @@ describe('tests.yml — filtro di path sui push a main', () => {
       .flatMap(trackedMatching)
       .filter((file) => read.has(file));
     expect(swallowed).toEqual([]);
+  });
+
+  it('nessun file ignorato sta sotto una cartella di dati che un test enumera dal disco', () => {
+    const dirs = diskReadDataDirs();
+    const swallowed = IGNORED
+      .flatMap(trackedMatching)
+      .filter((file) => [...dirs].some((dir) => file.startsWith(dir)));
+    expect(swallowed).toEqual([]);
+  });
+
+  // The detector above must SEE the read it exists for: a `readdirSync` over
+  // the sharded first-seen directory. Without these cases a blind detector
+  // would keep passing after the shards (which tests.yml ignores) were read.
+  it('il rilevatore delle letture di cartella vede readdirSync sulla cartella degli shard', () => {
+    expect([...dataDirReadsIn("const names = readdirSync(path.join(ROOT, 'data/url-first-seen'));")])
+      .toEqual(['data/url-first-seen/']);
+    expect([...dataDirReadsIn("fs.readdirSync(resolve(__dirname, '../data/url-first-seen/'))")])
+      .toEqual(['data/url-first-seen/']);
+    expect([...dataDirReadsIn("readdirSync(path.join(ROOT, 'data', 'url-first-seen'))")])
+      .toEqual(['data/url-first-seen/']);
+    expect([...dataDirReadsIn("globSync(`data/url-first-seen/*.json`)")]).toEqual(['data/url-first-seen/']);
+  });
+
+  it('il rilevatore delle letture di cartella non scatta su cio\' che non e\' una lettura', () => {
+    expect([...dataDirReadsIn("const p = 'data/url-first-seen/a.json';")]).toEqual([]);
+    expect([...dataDirReadsIn("readdirSync(tmpDir)")]).toEqual([]);
+  });
+
+  it('la cartella degli shard first-seen e\' nei pattern ignorati, e il rilevatore le dà un senso', () => {
+    expect(IGNORED).toContain('data/url-first-seen/*.json');
+    // Nessun test legge oggi quella cartella dal disco reale: se qualcuno lo fa,
+    // il test sopra diventa rosso e il pattern va tolto dall'elenco.
+    expect([...diskReadDataDirs()]).not.toContain('data/url-first-seen/');
   });
 
   it('nessun file di codice tracciato finisce dentro un pattern ignorato', () => {

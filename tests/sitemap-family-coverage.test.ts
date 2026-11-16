@@ -1,8 +1,10 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import YAML from 'yaml';
 import {
   countSitemapFamilyUrls,
+  diffSitemapFamilyUrls,
   evaluateSitemapFamilyCoverage,
   filterExternallyServedUrlsFromSitemapCoverage,
 } from '../scripts/lib/sitemap-family-coverage.mjs';
@@ -10,6 +12,26 @@ import {
 const NO_DECLARATIONS = { version: 1, decreases: [] };
 
 const snapshot = (perSitemap: Record<string, string[]>) => ({ version: 3, perSitemap });
+const familyUrls = (family: string, count: number, origin = 'https://frontaliereticino.ch') =>
+  Array.from({ length: count }, (_, index) => `${origin}/${family}/${String(index).padStart(4, '0')}/`);
+
+function bridgeEvidence(previous: { perSitemap: Record<string, string[]> }, current: { perSitemap: Record<string, string[]> }, family: string) {
+  const previousUrls = new Set(Object.values(previous.perSitemap).flat());
+  const currentUrls = new Set(Object.values(current.perSitemap).flat());
+  const removed = [...previousUrls].filter((url) => !currentUrls.has(url));
+  return {
+    schemaVersion: 1,
+    kind: 'sitemap-family-bridge-evidence',
+    complete: true,
+    entries: removed.map((url) => ({
+      family,
+      url,
+      path: `${new URL(url).pathname.replace(/^\/+|\/+$/gu, '')}/index.html`,
+      sha256: 'a'.repeat(64),
+      robots: 'noindex,follow',
+    })),
+  };
+}
 
 describe('sitemap family URL coverage ratchet', () => {
   it('counts unique URLs across topic shards and the separate event archives', () => {
@@ -95,6 +117,167 @@ describe('sitemap family URL coverage ratchet', () => {
     expect(declared.staleDeclarations).toEqual([]);
   });
 
+  it('keeps the structural events family ratchet strict', () => {
+    const result = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-eventi.xml': familyUrls('events', 100) }),
+      snapshot({ 'sitemap-eventi.xml': familyUrls('events', 99) }),
+      NO_DECLARATIONS,
+    );
+
+    expect(result.regressions).toEqual([
+      { family: 'events', previousCount: 100, currentCount: 99, delta: -1 },
+    ]);
+    expect(result.churn).toEqual([]);
+  });
+
+  it('reports the measured orphan-landings decrease as data-driven churn', () => {
+    const result = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1913) }),
+      snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1906) }),
+      NO_DECLARATIONS,
+      bridgeEvidence(
+        snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1913) }),
+        snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1906) }),
+        'orphan-landings',
+      ),
+    );
+
+    expect(result.regressions).toEqual([]);
+    expect(result.churn).toHaveLength(1);
+    expect(result.churn[0]).toMatchObject({
+      family: 'orphan-landings', previousCount: 1913, currentCount: 1906, delta: -7, tolerance: 0.1,
+    });
+  });
+
+  it('fails a data-driven decrease closed when bridge evidence is absent', () => {
+    const previous = snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 100) });
+    const current = snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 93) });
+    const result = evaluateSitemapFamilyCoverage(previous, current, NO_DECLARATIONS);
+
+    expect(result.churn).toEqual([]);
+    expect(result.regressions).toEqual([{ family: 'orphan-landings', previousCount: 100, currentCount: 93, delta: -7 }]);
+    expect(result.bridgeEvidenceErrors.join('\n')).toContain('missing or has an unsupported schema');
+  });
+
+  it('admits exactly the 10% collapse bound and rejects a decrease beyond it', () => {
+    const atBound = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1000) }),
+      snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 900) }),
+      NO_DECLARATIONS,
+      bridgeEvidence(
+        snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1000) }),
+        snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 900) }),
+        'orphan-landings',
+      ),
+    );
+    const beyondBound = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1000) }),
+      snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 899) }),
+      NO_DECLARATIONS,
+    );
+
+    expect(atBound.regressions).toEqual([]);
+    expect(atBound.churn).toMatchObject([{ previousCount: 1000, currentCount: 900, delta: -100, tolerance: 0.1 }]);
+    expect(beyondBound.regressions).toEqual([
+      { family: 'orphan-landings', previousCount: 1000, currentCount: 899, delta: -101 },
+    ]);
+    expect(beyondBound.churn).toEqual([]);
+  });
+
+  it('treats a profession-cities collapse as a regression and the observed decrease as churn', () => {
+    const collapsed = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-profession-cities.xml': familyUrls('profession-cities', 252) }),
+      snapshot({ 'sitemap-profession-cities.xml': [] }),
+      NO_DECLARATIONS,
+    );
+    const churn = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-profession-cities.xml': familyUrls('profession-cities', 252) }),
+      snapshot({ 'sitemap-profession-cities.xml': familyUrls('profession-cities', 248) }),
+      NO_DECLARATIONS,
+      bridgeEvidence(
+        snapshot({ 'sitemap-profession-cities.xml': familyUrls('profession-cities', 252) }),
+        snapshot({ 'sitemap-profession-cities.xml': familyUrls('profession-cities', 248) }),
+        'profession-cities',
+      ),
+    );
+
+    expect(collapsed.regressions).toEqual([
+      { family: 'profession-cities', previousCount: 252, currentCount: 0, delta: -252 },
+    ]);
+    expect(collapsed.churn).toEqual([]);
+    expect(churn.regressions).toEqual([]);
+    expect(churn.churn).toMatchObject([
+      { family: 'profession-cities', previousCount: 252, currentCount: 248, delta: -4, tolerance: 0.1 },
+    ]);
+  });
+
+  it('keeps churn empty when family coverage is unchanged or increases', () => {
+    const unchanged = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 2) }),
+      snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 2) }),
+      NO_DECLARATIONS,
+    );
+    const increased = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 2) }),
+      snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 3) }),
+      NO_DECLARATIONS,
+    );
+
+    expect(unchanged.families.find(({ family }) => family === 'orphan-landings')?.delta).toBe(0);
+    expect(unchanged.churn).toEqual([]);
+    expect(increased.families.find(({ family }) => family === 'orphan-landings')?.delta).toBe(1);
+    expect(increased.churn).toEqual([]);
+  });
+
+  it('keeps the existing exact fuel-stations declaration valid', () => {
+    const result = evaluateSitemapFamilyCoverage(
+      snapshot({ 'sitemap-fuel-italian-stations.xml': familyUrls('fuel-stations', 4116) }),
+      snapshot({ 'sitemap-fuel-italian-stations.xml': familyUrls('fuel-stations', 4112) }),
+      {
+        version: 1,
+        decreases: [{
+          family: 'fuel-italian-stations',
+          previousCount: 4116,
+          currentCount: 4112,
+          reason: 'Exact fuel-station decline declaration remains valid as an inline fixture.',
+        }],
+      },
+    );
+
+    expect(result.regressions).toEqual([]);
+    expect(result.allowedDecreases).toMatchObject([
+      { family: 'fuel-italian-stations', previousCount: 4116, currentCount: 4112, delta: -4 },
+    ]);
+    expect(result.invalidDeclarations).toEqual([]);
+    expect(result.staleDeclarations).toEqual([]);
+    expect(result.churn).toEqual([]);
+  });
+
+  it('diffs unique family URLs with sorted five-item samples without mutating snapshots', () => {
+    const removedUrls = familyUrls('removed', 7);
+    const addedUrls = familyUrls('added', 7);
+    const sharedUrl = 'https://frontaliereticino.ch/shared/';
+    const previous = snapshot({
+      'sitemap-orphan-landings.xml': [...removedUrls, sharedUrl, removedUrls[0]],
+      'archive/sitemap-orphan-landings.xml': [sharedUrl],
+    });
+    const current = snapshot({
+      'sitemap-orphan-landings.xml': [...addedUrls, sharedUrl, addedUrls[0]],
+      'archive/sitemap-orphan-landings.xml': [sharedUrl],
+    });
+    const previousBefore = structuredClone(previous);
+    const currentBefore = structuredClone(current);
+
+    expect(diffSitemapFamilyUrls(previous, current, 'orphan-landings')).toEqual({
+      removed: 7,
+      added: 7,
+      removedSample: removedUrls.sort().slice(0, 5),
+      addedSample: addedUrls.sort().slice(0, 5),
+    });
+    expect(previous).toEqual(previousBefore);
+    expect(current).toEqual(currentBefore);
+  });
+
   it('consumes an exact decrease declaration after its count becomes the live baseline', () => {
     const declaration = {
       version: 1,
@@ -155,6 +338,83 @@ describe('sitemap family URL coverage ratchet', () => {
     expect(invalid.invalidDeclarations).toHaveLength(1);
   });
 
+  it('does not mark a data-driven declaration stale during a smaller evidenced churn', () => {
+    const previous = snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1900) });
+    const current = snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1850) });
+    const result = evaluateSitemapFamilyCoverage(previous, current, {
+      version: 1,
+      decreases: [{
+        family: 'orphan-landings',
+        previousCount: 1913,
+        currentCount: 1906,
+        reason: 'Exact deployed counts retained while URL bridge evidence covers the current smaller decrease.',
+      }],
+    }, bridgeEvidence(previous, current, 'orphan-landings'));
+
+    expect(result.regressions).toEqual([]);
+    expect(result.churn).toMatchObject([
+      { family: 'orphan-landings', previousCount: 1900, currentCount: 1850, delta: -50 },
+    ]);
+    expect(result.staleDeclarations).toEqual([]);
+  });
+
+  it('does not mark the measured exact data-driven declaration stale when bridge evidence accepts it', () => {
+    const previous = snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1913) });
+    const current = snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1906) });
+    const result = evaluateSitemapFamilyCoverage(previous, current, {
+      version: 1,
+      decreases: [{
+        family: 'orphan-landings',
+        previousCount: 1913,
+        currentCount: 1906,
+        reason: 'Exact deployed counts retained while URL bridge evidence covers the measured decrease.',
+      }],
+    }, bridgeEvidence(previous, current, 'orphan-landings'));
+
+    expect(result.regressions).toEqual([]);
+    expect(result.churn).toMatchObject([
+      { family: 'orphan-landings', previousCount: 1913, currentCount: 1906, delta: -7 },
+    ]);
+    expect(result.staleDeclarations).toEqual([]);
+  });
+
+  it('continues to report stale declarations for structural families', () => {
+    const unchangedEvents = snapshot({ 'sitemap-eventi.xml': familyUrls('events', 10) });
+    const result = evaluateSitemapFamilyCoverage(unchangedEvents, unchangedEvents, {
+      version: 1,
+      decreases: [{
+        family: 'events',
+        previousCount: 2,
+        currentCount: 1,
+        reason: 'A deliberately stale structural family declaration for this test case.',
+      }],
+    });
+
+    expect(result.invalidDeclarations).toEqual([]);
+    expect(result.staleDeclarations).toMatchObject([{ family: 'events' }]);
+  });
+
+  it('continues to allow an exact declaration beyond the data-driven churn bound', () => {
+    const previous = snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 1000) });
+    const current = snapshot({ 'sitemap-orphan-landings.xml': familyUrls('orphan-landings', 899) });
+    const result = evaluateSitemapFamilyCoverage(previous, current, {
+      version: 1,
+      decreases: [{
+        family: 'orphan-landings',
+        previousCount: 1000,
+        currentCount: 899,
+        reason: 'Exact declared decrease beyond the data-driven churn bound remains explicitly permitted.',
+      }],
+    });
+
+    expect(result.regressions).toEqual([]);
+    expect(result.allowedDecreases).toMatchObject([
+      { family: 'orphan-landings', previousCount: 1000, currentCount: 899, delta: -101 },
+    ]);
+    expect(result.churn).toEqual([]);
+    expect(result.staleDeclarations).toEqual([]);
+  });
+
   it('runs as a blocking post-deploy validator', () => {
     const workflow = readFileSync(resolve(import.meta.dirname, '../.github/workflows/post-deploy-validate-dist.yml'), 'utf8');
     const fastGate = readFileSync(resolve(import.meta.dirname, '../scripts/ci/publisher-fast-gate.mjs'), 'utf8');
@@ -164,5 +424,36 @@ describe('sitemap family URL coverage ratchet', () => {
     expect(sitemapDiff).toContain('filterExternallyServedUrlsFromSitemapCoverage');
     expect(fastGate).toContain('pre-deploy-sitemap-urls.json');
     expect(fastGate).toContain('data/sitemap-family-coverage-declarations.json');
+  });
+
+  it('downloads locale dists and builds bridge evidence before the fail-closed gate', () => {
+    const workflowPath = resolve(import.meta.dirname, '../.github/workflows/post-deploy-validate-dist.yml');
+    const source = readFileSync(workflowPath, 'utf8');
+    const workflow = YAML.parse(source, { logLevel: 'silent' }) as any;
+    const steps = workflow.jobs?.['fast-gate']?.steps ?? [];
+    const download = steps.find((step: any) => step.name === 'Download non-IT locale dists for bridge evidence');
+    const build = steps.find((step: any) => step.name === 'Build non-IT sitemap family bridge evidence');
+    const gate = steps.find((step: any) => step.name === 'Run fail-closed publisher fast gate');
+    const checkout = steps.find((step: any) => String(step.uses ?? '').startsWith('actions/checkout@'));
+    const sparsePaths = String(checkout?.with?.['sparse-checkout'] ?? '')
+      .split('\n')
+      .map((entry: string) => entry.trim());
+
+    expect(download?.uses).toBe('actions/download-artifact@v8');
+    expect(download?.with?.pattern).toBe('locale-dist-*-${{ inputs.shard_artifact_run_id || github.run_id }}');
+    expect(download?.with?.path).toBe('${{ runner.temp }}/publisher-fast-gate/locale-dist');
+    expect(download?.with?.['merge-multiple']).toBeUndefined();
+    expect(download?.with?.['run-id']).toBe('${{ inputs.shard_artifact_run_id || github.run_id }}');
+    expect(download?.with?.['github-token']).toBe('${{ github.token }}');
+    expect(download?.with?.repository).toBe('${{ github.repository }}');
+    expect(download?.['continue-on-error']).toBe(true);
+    expect(build?.['continue-on-error']).toBe(true);
+    expect(build?.env?.PUBLISHER_RUN_ID).toBe('${{ inputs.shard_artifact_run_id || github.run_id }}');
+    expect(String(build?.run ?? '')).not.toContain('${{');
+    expect(String(build?.run ?? '')).toContain('for locale in en de fr');
+    expect(String(build?.run ?? '')).toContain('rm -f "$tar_file"');
+    expect(sparsePaths).toContain('scripts/ci/build-sitemap-family-bridge-evidence.mjs');
+    expect(steps.indexOf(download)).toBeLessThan(steps.indexOf(build));
+    expect(steps.indexOf(build)).toBeLessThan(steps.indexOf(gate));
   });
 });

@@ -343,30 +343,41 @@
     },
     "slugByLocale": {
       "it": "tirocinante-data-science-huntsman-corporation-basel",
-      "en": "intern-data-science-huntsman-ch",
+      "en": "intern-data-science-huntsman-ch-488f409f",
       "de": "praktikant-data-science-huntsman-corporation-basel",
-      "fr": "stagiaire-data-science-huntsman-corporation-basel"
+      "fr": "stagiaire-data-science-huntsman-corporation-basel-c1966854"
     },
     "sector": "Chimica",
     "expiredAt": "2026-07-21T12:19:54.201Z",
-    "previousSlugs": [
-      "intern-data-science-huntsman-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "intern-data-science-huntsman-ch-488f409f",
+        "stagiaire-data-science-huntsman-corporation-basel",
         "intern-data-science-huntsman-ch"
       ],
       "de": [
+        "intern-data-science-huntsman-ch-488f409f",
+        "stagiaire-data-science-huntsman-corporation-basel",
         "intern-data-science-huntsman-ch"
       ],
       "fr": [
-        "intern-data-science-huntsman-ch"
+        "intern-data-science-huntsman-ch-488f409f",
+        "intern-data-science-huntsman-ch",
+        "stagiaire-data-science-huntsman-corporation-basel",
+        "stagiaire-data-science-huntsman-corporation-basel-c1966854"
+      ],
+      "en": [
+        "stagiaire-data-science-huntsman-corporation-basel"
       ]
     },
     "salaryMin": 52000,
     "salaryMax": 78500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugs": [
+      "intern-data-science-huntsman-ch",
+      "stagiaire-data-science-huntsman-corporation-basel"
+    ]
   },
   {
     "slug": "operatore-di-confezionamento-in-equipe-diurna-huntsman-corporation-monthey",

@@ -40,7 +40,6 @@
     "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-caisse-%28Food%29-50/1371276755/",
     "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-supermarch%C3%A9-%28Food-Zone-Chocolat%29-50/1371277255/",
     "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-caisse-%28Food%29-60/1371277555/",
-    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Accessoire-Dames%29-80/1376396955/",
     "https://positions.manor.ch/job/Lausanne-Collaborateurtrice-vente-%28parfumerie%29-Catch-The-Color-80/1376397855/",
     "https://positions.manor.ch/job/Chur-Mitarbeiterin-Supermarkt-20/1376399855/",
     "https://positions.manor.ch/job/Chur-Mitarbeiterin-Supermarkt-50/1376400155/",
@@ -330,10 +329,11 @@
     "https://positions.manor.ch/job/Gen%C3%A8ve-1-Promoteur-%28Coffrets-cadeaux-Smartbox-&-Wonderbox%29-50/1376468155/",
     "https://positions.manor.ch/job/Basel-Visual-Merchandising-Manager-100/1376287655/",
     "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-Kasse-60/1376252355/",
-    "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-Kasse-80/1376251955/"
+    "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-Kasse-80/1376251955/",
+    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Accessoire-Dames%29-80/1376396955/"
   ],
   "notes": "Sitemap-based crawler — positions.manor.ch (SAP SuccessFactors / jobs2web). Manor AG national department-store chain (HQ Basel) — collects CH-wide across all target cantons.",
-  "updatedAt": "2026-11-15T09:37:35.475Z",
+  "updatedAt": "2026-11-15T21:53:05.265Z",
   "seedMetaByUrl": {
     "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-supermarch%C3%A9-%28%C3%89picerie%29-80/1373452855/": {
       "company": "Manor AG",
@@ -460,10 +460,6 @@
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Chavannes-de-Bogis-Collaborateurtrice-caisse-%28Food%29-60/1371277555/": {
-      "company": "Manor AG",
-      "companyDomain": "manor.ch"
-    },
-    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Accessoire-Dames%29-80/1376396955/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     },
@@ -1624,6 +1620,10 @@
       "companyDomain": "manor.ch"
     },
     "https://positions.manor.ch/job/Z%C3%BCrich-Mitarbeiterin-Kasse-80/1376251955/": {
+      "company": "Manor AG",
+      "companyDomain": "manor.ch"
+    },
+    "https://positions.manor.ch/job/Gen%C3%A8ve-1-Collaborateurtrice-vente-%28Accessoire-Dames%29-80/1376396955/": {
       "company": "Manor AG",
       "companyDomain": "manor.ch"
     }

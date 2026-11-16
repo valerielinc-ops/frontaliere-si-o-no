@@ -244,7 +244,7 @@ export type FuelIndexKind = keyof typeof FUEL_INDEX_SLUG;
 /**
  * Maximum number of Italian-station cards per HTML page. The complete leaf
  * set remains linkable through the generated page ladder, while each page
- * stays below the shared 260 KB audit budget with room for upstream growth.
+ * keeps a focused list for visitors.
  */
 export const ITALIAN_STATIONS_INDEX_PAGE_SIZE = 100;
 
@@ -1356,11 +1356,9 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   // of every station/city the page links to. Position is global (1..N)
   // across all groups so the list reads top-to-bottom on the rendered page.
   //
-  // Cap at 50 to keep the inline JSON-LD ≤ ~10 KB. With 400+ Italian stations
-  // the un-capped list inflates the inline payload past the shared
-  // `audit:page-weight` budget. Mirrors the PR #183 cap on the master jobs
-  // hub. The visible anchors below ARE the full set — only the structured
-  // ItemList is sampled.
+  // Cap the structured ItemList at 50 entries, matching the concise summary
+  // used by other job and location hubs. The visible anchors below ARE the
+  // full set — only the structured ItemList is sampled.
   const ITEM_LIST_CAP = 50;
   const flatListItems: Array<{ name: string; href?: string | null }> = [];
   for (const g of groups) {

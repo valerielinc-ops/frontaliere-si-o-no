@@ -26,7 +26,8 @@
 import { describe, it, expect } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
-import { parseMergeTreeConflicts, decideConflictLabel } from '@/scripts/ci/pr-autorebase.mjs';
+import { parseMergeTreeConflicts, decideConflictLabel, renderMainConflictGuidance } from '@/scripts/ci/pr-autorebase.mjs';
+import { GENERATED_FILE_REGISTRY } from '../scripts/ci/generated-files-registry.mjs';
 
 const SRC = fs.readFileSync(
   path.join(path.resolve(__dirname, '..'), 'scripts/ci/pr-autorebase.mjs'),
@@ -34,6 +35,32 @@ const SRC = fs.readFileSync(
 );
 
 const oid = (seed: string) => seed.padEnd(40, '0');
+
+describe('renderMainConflictGuidance', () => {
+  it('mantiene la guida generica per i conflitti non generati', () => {
+    const guidance = renderMainConflictGuidance(['src/a.ts']);
+
+    expect(guidance).toContain('git add -A && git commit && git push');
+    expect(guidance).not.toContain('File generati');
+  });
+
+  it('indirizza i conflitti generati al comando del registro', () => {
+    const guidance = renderMainConflictGuidance(['.github/corpus-workflows/contract.json']);
+    const crawlerRule = GENERATED_FILE_REGISTRY.find((rule) => rule.id === 'crawler-group-workflows');
+
+    expect(crawlerRule).toBeDefined();
+    expect(guidance).toContain('NON risolverli a mano');
+    expect(guidance).toContain(crawlerRule!.generator.display);
+    expect(guidance).not.toContain('git add -A');
+  });
+
+  it('separa i file generati da quelli da risolvere a mano', () => {
+    const guidance = renderMainConflictGuidance(['.github/corpus-workflows/contract.json', 'src/a.ts']);
+
+    expect(guidance).toContain('File generati — NON risolverli a mano');
+    expect(guidance).toContain('File non generati (risolvi a mano):');
+  });
+});
 
 // I path del fixture sono inventati di proposito. Quelli veri dell'incidente
 // stavano sotto una radice di dati vivi, e `live-data-test-guard` rifiuta —

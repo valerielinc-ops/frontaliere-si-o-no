@@ -121,16 +121,25 @@
     "slugByLocale": {
       "it": "dipl-specialista-hf-fh-flex-personal-care-spital-sts-thun",
       "en": "dipl-care-specialist-hf-fh-flex-personal-care-spital-sts-thun",
-      "de": "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun",
+      "de": "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun-ab177da0",
       "fr": "dipl-specialiste-des-soins-hf-fh-flex-personal-care-spital-sts-thun"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-14T21:19:05.979Z",
-    "previousSlugs": [
-      "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun-ab177da0",
+        "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun"
+      ],
+      "en": [
+        "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun-ab177da0",
+        "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun"
+      ],
+      "de": [
+        "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun-ab177da0"
+      ],
+      "fr": [
+        "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun-ab177da0",
         "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun"
       ]
     },
@@ -141,7 +150,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/redirect/9d7c5690-b2bb-45ab-bc45-892b3e7ab107/ats",
-    "firstSeenAt": "2026-11-06T21:30:46.384Z"
+    "firstSeenAt": "2026-11-06T21:30:46.384Z",
+    "previousSlugs": [
+      "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun"
+    ]
   },
   {
     "slug": "infermiere-a-diplomato-a-in-gastroenterologia-spital-sts-thun",
@@ -645,14 +657,14 @@
       "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun-4311b208",
       "specialist-health-medicine-orthopaedics-spital-sts-thun-f1c38f57",
       "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun-7a11aa8a",
-      "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun",
-      "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun",
-      "specialist-health-medicine-orthopaedics-spital-sts-thun",
-      "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun",
       "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun-07f7a554",
       "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun-87383c1d",
       "specialist-health-medicine-orthopaedics-spital-sts-thun-690c14aa",
-      "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun-7111c586"
+      "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun-7111c586",
+      "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun",
+      "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun",
+      "specialist-health-medicine-orthopaedics-spital-sts-thun",
+      "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -880,7 +892,8 @@
         "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun-af62e022",
         "specialist-health-medicine-orthopaedics-spital-sts-thun-690c14aa",
         "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun",
-        "specialist-health-medicine-orthopaedics-spital-sts-thun"
+        "specialist-health-medicine-orthopaedics-spital-sts-thun",
+        "specialist-health-medicine-orthopaedics-spital-sts-thun-05034669"
       ],
       "fr": [
         "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun-843ce027",
@@ -988,7 +1001,8 @@
         "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun-af62e022",
         "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun-7111c586",
         "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun",
-        "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun"
+        "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun",
+        "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun-65219218"
       ],
       "de": [
         "fachfrau-mann-gesundheit-medizin-orthopala-spital-sts-thun",
@@ -2472,39 +2486,44 @@
     "previousSlugs": [
       "dipl-infermieristica-professionale-gastroenterologia-spital-sts-thun",
       "dipl-nursing-professional-gastroenterology-spital-sts-thun",
-      "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun",
       "dipl-gastroenterologie-professionnelle-des-soins-infirmiers-spital-sts-thun",
       "dipl-chirurgia-specialistica-infermieristica-spital-sts-thun",
       "dipl-nursing-specialist-surgery-spital-sts-thun",
       "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun",
       "dipl-chirurgie-specialisee-en-soins-infirmiers-spital-sts-thun",
-      "dipl-pflegefachfrau-mann-psychiatrie-tagesklinik-spital-sts-thun"
+      "dipl-pflegefachfrau-mann-psychiatrie-tagesklinik-spital-sts-thun",
+      "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun-ec8d4be6",
+      "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun"
     ],
     "previousSlugsByLocale": {
       "it": [
         "dipl-infermieristica-professionale-gastroenterologia-spital-sts-thun",
         "dipl-nursing-professional-gastroenterology-spital-sts-thun",
-        "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun",
+        "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun-ec8d4be6",
         "dipl-gastroenterologie-professionnelle-des-soins-infirmiers-spital-sts-thun",
         "dipl-chirurgia-specialistica-infermieristica-spital-sts-thun",
         "dipl-nursing-specialist-surgery-spital-sts-thun",
         "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun",
         "dipl-chirurgie-specialisee-en-soins-infirmiers-spital-sts-thun",
-        "dipl-pflegefachfrau-mann-psychiatrie-tagesklinik-spital-sts-thun"
+        "dipl-pflegefachfrau-mann-psychiatrie-tagesklinik-spital-sts-thun",
+        "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun"
       ],
       "en": [
         "dipl-nursing-professional-gastroenterology-spital-sts-thun",
         "dipl-pflegefachfrau-mann-psychiatrie-tagesklinik-spital-sts-thun",
-        "dipl-nursing-specialist-surgery-spital-sts-thun"
+        "dipl-nursing-specialist-surgery-spital-sts-thun",
+        "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun"
       ],
       "de": [
-        "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun",
-        "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun"
+        "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun-ec8d4be6",
+        "dipl-pflegefachfrau-mann-chirurgie-spital-sts-thun",
+        "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun"
       ],
       "fr": [
         "dipl-gastroenterologie-professionnelle-des-soins-infirmiers-spital-sts-thun",
         "dipl-pflegefachfrau-mann-psychiatrie-tagesklinik-spital-sts-thun",
-        "dipl-chirurgie-specialisee-en-soins-infirmiers-spital-sts-thun"
+        "dipl-chirurgie-specialisee-en-soins-infirmiers-spital-sts-thun",
+        "dipl-pflegefachfrau-mann-gastroenterologie-spital-sts-thun"
       ]
     },
     "postalCode": "3600",

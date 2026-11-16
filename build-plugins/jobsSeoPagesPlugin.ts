@@ -23,7 +23,6 @@ import { pruneSelfHealTracking, pruneSelfHealTrackingRow } from './shared/pruneS
 import { resolveExpiredEmitPath } from './shared/expiredEmitPath';
 import { CompactLocalePathClaims } from './shared/compactLocalePathClaims';
 import { CompactStringHashSet } from './shared/compactStringHashSet';
-import { createPageWeightReporter } from './shared/pageWeightReport';
 /**
  * Generate localized static landing pages for every job in data/jobs.json.
  *
@@ -1891,8 +1890,6 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
   registerJobsSeoPagesProducer();
  },
  async closeBundle() {
- const pageWeight = createPageWeightReporter();
- pageWeight.reset();
  if (options.fastLane && (
   options.activeJobIds === undefined
   || !options.fastLaneVisibleJobIdsByLocale
@@ -4867,8 +4864,7 @@ export function jobsSeoPagesPlugin(rootDir: string, options: JobsSeoPagesPluginO
  // always picking the same freshest jobs (which would leave deeper
  // listings orphaned). Cap held at 6 (1.5× the original 4) — high
  // enough to keep the orphan pool reachable at ~8.2k edges
- // (6 × 1370 reachable details), low enough to keep detail-page byte
- // weight under the audit:page-weight budget.
+ // (6 × 1370 reachable details), while keeping the related list focused.
  const related = perJob_related.flatMap((relatedJob: any) => {
   const href = activeCanonicalJobHref(relatedJob, locale);
   return href ? [{ job: relatedJob, href }] : [];
@@ -6534,7 +6530,7 @@ ${curatedBodyHtml ? curatedBodyHtml + '\n' : `<h1>${esc(copy.heading(companyName
  const parts: string[] = [];
 
  // Job list first — most relevant content for landing visitors. The live
- // total is explicit even though cards are capped for page weight.
+ // total stays explicit while the rendered card list remains a curated subset.
  const openPositionsLabel = locale === 'it' ? 'Posizioni aperte' : locale === 'en' ? 'Open positions' : locale === 'de' ? 'Offene Stellen' : 'Postes ouverts';
  parts.push(`<section class="s-7uP4UM"><h2>${openPositionsLabel} (${companyJobs.length})</h2>`);
  parts.push(`<ul class="s-0WjlyL">${jobListHtml}</ul>`);
@@ -8084,8 +8080,6 @@ ${staticAnalyticsHtml}
  <div id="footer-root"></div>${hasSpaBundle ? `\n <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
  </body>
 </html>`;
- const intentHtmlBytes = Buffer.byteLength(intentHtml, 'utf-8');
- pageWeight.observe('intent-landing', canonicalPath, intentHtmlBytes);
  const outDir = np.join(distDir, canonicalPath.slice(1));
  _md(outDir);
  _qw(np.join(outDir, 'index.html'), intentHtml);
@@ -8501,10 +8495,6 @@ ${staticAnalyticsHtml}
  _qwFlat(flatFile, body);
  }
  };
- // Page weight is observed, never enforced (owner decision, run 43712804687):
- // the page is emitted whole and the heaviest ones are reported at the end.
- const htmlBytes = Buffer.byteLength(html, 'utf-8');
- pageWeight.observe('city-editorial-landing', canonicalPath, htmlBytes);
  writeCityOrLegacy(canonicalPath, html);
  // Geo-hub cities: keep the legacy /<section>/ricerca-<city>/ path live
  // (backward-compat + external links). Strip hreflang on the legacy
@@ -9163,8 +9153,6 @@ ${staticAnalyticsHtml}
  // inventory and the commuter context, so they are not thin rescue pages.
  robots: cityHubIndexable ? 'index,follow' : 'noindex,follow',
  });
- const htmlBytes = Buffer.byteLength(html, 'utf-8');
- pageWeight.observe('city-hub', canonicalPath, htmlBytes);
  const outDir = np.join(distDir, canonicalPath.slice(1));
  activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
  _md(outDir);
@@ -10063,8 +10051,6 @@ ${staticAnalyticsHtml}
  bodyHtml,
  distDir,
  });
- const htmlBytes = Buffer.byteLength(html, 'utf-8');
- pageWeight.observe('sector-canton-hub', canonicalPath, htmlBytes);
  const outDir = np.join(distDir, canonicalPath.slice(1));
  activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
  _md(outDir);
@@ -10896,8 +10882,6 @@ ${staticAnalyticsHtml}
  bodyHtml,
  distDir,
  });
- const htmlBytes = Buffer.byteLength(html, 'utf-8');
- pageWeight.observe('company-city-hub', canonicalPath, htmlBytes);
  const outDir = np.join(distDir, canonicalPath.slice(1));
  activeJobDirs.add(canonicalPath.slice(1).replace(/\/+$/, ''));
  _md(outDir);
@@ -17756,10 +17740,6 @@ ${staticAnalyticsHtml}
  const skipped = collector.skippedByHash;
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s` +
  (skipped > 0 ? ` (${skipped} skipped by content hash)` : ''));
- if (pageWeight.summary().total > 0) {
-  const pageWeightLog = pageWeight.summary().overCount > 0 ? console.warn : console.log;
-  pageWeightLog(pageWeight.formatSummary());
- }
  // Print profiler summary in normal profiled CI builds; local opt-out:
  // JOBS_SEO_PROFILE=0.
  printJobsSeoProfile();

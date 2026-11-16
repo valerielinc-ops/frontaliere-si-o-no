@@ -190,7 +190,8 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(queueGuard?.run).toContain('run=false');
     expect(queueGuard?.run).not.toContain('fail_open');
     expect(queueGuard?.run).toContain('workflow_dispatch');
-    expect(queueGuard?.env?.TRANSLATION_MANUAL_OVERRIDE).toContain('inputs.skip_translate');
+    expect(queueGuard?.env?.TRANSLATION_MANUAL_OVERRIDE).toBe('${{ env.TRANSLATION_MANUAL_OVERRIDE }}');
+    expect(portableCurrent.env?.TRANSLATION_MANUAL_OVERRIDE).toContain('inputs.skip_translate');
     const sourceTranslate = YAML.parse(fs.readFileSync(
       '.github/workflows/translate-pending-logic.yml',
       'utf8',

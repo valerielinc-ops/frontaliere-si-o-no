@@ -49,6 +49,9 @@ const VIGNETTE_PATH = '/en/aziende/example/';
 const VIGNETTE_PAGE = `https://frontaliereticino.ch${VIGNETTE_PATH}?utm_source=company_alert#google_vignette`;
 const VIGNETTE_DOCUMENT = `https://frontaliereticino.ch${VIGNETTE_PATH}`;
 const VIGNETTE_STACK = `@${VIGNETTE_DOCUMENT}:190:70\n@${VIGNETTE_DOCUMENT}:197:363`;
+const LINKEDIN_CALLBACK_PAGE = 'https://frontaliereticino.ch/?code=oauth-code&state=%252Fcerca-lavoro-ticino%252Fexample%252F';
+const LINKEDIN_CALLBACK_DOCUMENT = 'https://frontaliereticino.ch/auth/linkedin/callback/';
+const LINKEDIN_CALLBACK_STACK = `@${LINKEDIN_CALLBACK_DOCUMENT}:190:70\n@${LINKEDIN_CALLBACK_DOCUMENT}:197:363`;
 
 const UA = {
   chromeIos: 'Mozilla/5.0 (iPhone; CPU iPhone OS 26_6_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) CriOS/153.0.8010.24 Mobile/15E148 Safari/604.1',
@@ -171,6 +174,20 @@ describe('GA4 global error tracking drops the injected stack overflow (#8773)', 
       Object.defineProperty(window, 'location', { configurable: true, value: original });
     }
   });
+
+  it('does not report exact `Na` from the LinkedIn callback fallback document (#18592)', () => {
+    const original = window.location;
+    Object.defineProperty(window, 'location', {
+      configurable: true,
+      value: { href: LINKEDIN_CALLBACK_PAGE, pathname: '/', search: new URL(LINKEDIN_CALLBACK_PAGE).search },
+    });
+    try {
+      throwOnPage('', LINKEDIN_CALLBACK_STACK, LINKEDIN_CALLBACK_DOCUMENT);
+      expect(appErrors()).toEqual([]);
+    } finally {
+      Object.defineProperty(window, 'location', { configurable: true, value: original });
+    }
+  });
 });
 
 describe('PostHog $exception before_send drops the injected stack overflow (#8773)', () => {
@@ -238,6 +255,11 @@ describe('Google vignette opaque exception filtering (#18592)', () => {
     expect(isGoogleVignetteInjectedOpaqueError('Error: Na', VIGNETTE_STACK, VIGNETTE_PAGE)).toBe(true);
   });
 
+  it('recognises the callback fallback after OAuth loses the vignette hash', () => {
+    expect(isGoogleVignetteInjectedOpaqueError('Na', LINKEDIN_CALLBACK_STACK, LINKEDIN_CALLBACK_PAGE)).toBe(true);
+    expect(isGoogleVignetteInjectedOpaqueError('Error: Na', LINKEDIN_CALLBACK_STACK, LINKEDIN_CALLBACK_PAGE)).toBe(true);
+  });
+
   it('keeps missing, mixed, malformed, and non-vignette context observable', () => {
     const assetStack = `${VIGNETTE_STACK}\n@https://cdn.frontaliereticino.ch/assets/App.js:1:1`;
     const otherFrameStack = `${VIGNETTE_STACK}\n@https://frontaliereticino.ch/en/altro/:1:1`;
@@ -247,6 +269,10 @@ describe('Google vignette opaque exception filtering (#18592)', () => {
     expect(isGoogleVignetteInjectedOpaqueError('Na', assetStack, VIGNETTE_PAGE)).toBe(false);
     expect(isGoogleVignetteInjectedOpaqueError('Na', otherFrameStack, VIGNETTE_PAGE)).toBe(false);
     expect(isGoogleVignetteInjectedOpaqueError('Na', VIGNETTE_STACK, VIGNETTE_PAGE.replace('frontaliereticino.ch', 'evil.example'))).toBe(false);
+    expect(isGoogleVignetteInjectedOpaqueError('Na', LINKEDIN_CALLBACK_STACK, 'https://frontaliereticino.ch/?code=oauth-code')).toBe(false);
+    expect(isGoogleVignetteInjectedOpaqueError('Na', LINKEDIN_CALLBACK_STACK, 'https://frontaliereticino.ch/?code=oauth-code&state=not-a-path')).toBe(false);
+    expect(isGoogleVignetteInjectedOpaqueError('Na', LINKEDIN_CALLBACK_STACK, 'https://frontaliereticino.ch/?code=oauth-code&state=%252Fcerca%255Cevil')).toBe(false);
+    expect(isGoogleVignetteInjectedOpaqueError('Na', VIGNETTE_STACK, LINKEDIN_CALLBACK_PAGE)).toBe(false);
   });
 
   it('filters the PostHog shape but keeps the same event without the vignette marker', () => {
@@ -268,6 +294,28 @@ describe('Google vignette opaque exception filtering (#18592)', () => {
     };
     expect(filter(event)).toBeNull();
     event.properties.$current_url = VIGNETTE_DOCUMENT;
+    expect(filter(event)).toBe(event);
+  });
+
+  it('filters the callback fallback shape without filtering an invalid OAuth context', () => {
+    const filter = createExceptionFilter();
+    const event = {
+      event: '$exception',
+      properties: {
+        $current_url: LINKEDIN_CALLBACK_PAGE,
+        $exception_values: [{ type: 'Error', value: 'Na' }],
+        $exception_list: [{
+          type: 'Error',
+          value: 'Na',
+          stacktrace: { frames: [
+            { filename: LINKEDIN_CALLBACK_DOCUMENT, lineno: 190, colno: 70 },
+            { filename: LINKEDIN_CALLBACK_DOCUMENT, lineno: 197, colno: 363 },
+          ] },
+        }],
+      },
+    };
+    expect(filter(event)).toBeNull();
+    event.properties.$current_url = 'https://frontaliereticino.ch/?code=oauth-code';
     expect(filter(event)).toBe(event);
   });
 });

@@ -1,16 +1,16 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-11-15T09:15:05.356Z",
+  "generatedAt": "2026-11-15T21:23:45.992Z",
   "total": 15,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 15,
-  "durationMs": 7394,
-  "avgDurationMs": 7394,
+  "durationMs": 9439,
+  "avgDurationMs": 9439,
   "durationHistory": [
-    7394
+    9439
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -50,7 +50,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-10-14T21:11:06.908Z",
-      "crawledAt": "2026-11-15T09:14:51.524Z",
+      "crawledAt": "2026-11-15T21:23:29.921Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -90,7 +90,7 @@
       "salaryMax": 124500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-15T09:14:51.524Z",
+      "crawledAt": "2026-11-15T21:23:29.921Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Posieux",
       "streetAddressSource": "to-enrich",
@@ -138,7 +138,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-10T09:20:45.752Z",
-      "crawledAt": "2026-11-15T09:14:51.524Z",
+      "crawledAt": "2026-11-15T21:23:29.921Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -182,7 +182,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-10T09:20:45.752Z",
-      "crawledAt": "2026-11-15T09:14:51.524Z",
+      "crawledAt": "2026-11-15T21:23:29.921Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -214,7 +214,7 @@
       "datePosted": "2026-11-05T10:32:54Z",
       "postedDate": "2026-11-05T10:32:54Z",
       "postingDateSource": "reported",
-      "validThrough": "2027-02-04T09:14:51.524Z",
+      "validThrough": "2027-02-03T21:23:29.921Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "agroscope-9d9432e7be92",
@@ -226,7 +226,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-06T21:23:53.113Z",
-      "crawledAt": "2026-11-15T09:14:51.524Z",
+      "crawledAt": "2026-11-15T21:23:29.921Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -266,7 +266,7 @@
       "salaryMax": 67500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-15T09:14:51.524Z",
+      "crawledAt": "2026-11-15T21:23:29.921Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Conthey",
       "streetAddressSource": "to-enrich",
@@ -310,7 +310,7 @@
       "salaryMax": 159000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawledAt": "2026-11-15T09:14:51.524Z",
+      "crawledAt": "2026-11-15T21:23:29.921Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Wädenswil",
       "streetAddressSource": "to-enrich",
@@ -358,7 +358,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-05T09:17:40.441Z",
-      "crawledAt": "2026-11-15T09:14:51.524Z",
+      "crawledAt": "2026-11-15T21:23:29.921Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -402,7 +402,7 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
       "firstSeenAt": "2026-11-05T09:17:40.441Z",
-      "crawledAt": "2026-11-15T09:14:51.524Z",
+      "crawledAt": "2026-11-15T21:23:29.921Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -446,7 +446,7 @@
       "streetAddress": "Posieux",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T09:14:51.524Z",
+      "crawledAt": "2026-11-15T21:23:29.921Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -478,7 +478,7 @@
       "datePosted": "2026-10-15T12:38:34Z",
       "postedDate": "2026-10-15T12:38:34Z",
       "postingDateSource": "reported",
-      "validThrough": "2027-01-14T09:14:51.524Z",
+      "validThrough": "2027-01-13T21:23:29.921Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "agroscope-b61c00ff0525",
@@ -490,7 +490,7 @@
       "streetAddress": "Avenches",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-15T09:14:51.524Z",
+      "crawledAt": "2026-11-15T21:23:29.921Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -522,7 +522,7 @@
       "datePosted": "2026-10-15T12:46:19Z",
       "postedDate": "2026-10-15T12:46:19Z",
       "postingDateSource": "reported",
-      "validThrough": "2027-01-14T09:14:51.524Z",
+      "validThrough": "2027-01-13T21:23:29.921Z",
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "agroscope-ec30730dbde1",
@@ -534,7 +534,7 @@
       "streetAddress": "Posieux",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-15T09:14:51.524Z",
+      "crawledAt": "2026-11-15T21:23:29.921Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -578,7 +578,7 @@
       "streetAddress": "Posieux",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T09:14:51.524Z",
+      "crawledAt": "2026-11-15T21:23:29.921Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -622,7 +622,7 @@
       "streetAddress": "Ettenhausen",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T09:14:51.524Z",
+      "crawledAt": "2026-11-15T21:23:29.921Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -666,7 +666,7 @@
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T09:14:51.524Z",
+      "crawledAt": "2026-11-15T21:23:29.921Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -677,5 +677,5 @@
       }
     }
   ],
-  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
+  "codeCommit": "b0e0a209c23d72cde28658756e39fb5de3eaaca5"
 }

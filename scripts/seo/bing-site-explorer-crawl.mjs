@@ -35,8 +35,12 @@ import { PAGINATION_NOINDEX_TARGET_MARKER } from '../../packages/articles/engine
 import { PLATE_AUCTION_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/plateAuctionNoindexTargetMarker.mjs';
 import { JOB_BOARD_EDITORIAL_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/jobBoardEditorialBridgeMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
+import { STANDALONE_REDIRECT_STUB_MARKER } from '../../build-plugins/shared/standaloneRedirectStubMarker.mjs';
 import { RELATED_SEARCH_MIRROR_MARKER } from '../../build-plugins/shared/relatedSearchMirrorMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
+import { NEWSLETTER_PREFERENCES_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/newsletterPreferencesNoindexTargetMarker.mjs';
+import { CURRENCY_WIDGET_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/currencyWidgetNoindexTargetMarker.mjs';
+import { JOB_MARKET_SNAPSHOT_NOINDEX_MARKER } from '../../build-plugins/shared/jobMarketSnapshotNoindexMarker.mjs';
 import { SECTION_LEGACY_TI } from '../../build-plugins/shared/cantonResolvers.mjs';
 import { PLATE_AUCTION_BASE_BY_LOCALE } from '../lib/plateAuctionSections.mjs';
 import {
@@ -96,6 +100,14 @@ const WEEKLY_EMPLOYERS_ARCHIVE_ROUTES = WEEKLY_EMPLOYERS_ROUTE_CONFIG;
 const WEEKLY_EMPLOYERS_ARCHIVE_SLUG_RE = /^(0[1-9]|[1-4]\d|5[0-3])-(\d{4})$/;
 const PAGINATION_NOINDEX_FROM_PAGE = 11;
 const PAGINATION_TARGET_PATH_RE = /^(?:\/[^/]+)+\/(?:page|pagina|seite)-(\d+)\/$/;
+const JOB_MARKET_WEEKLY_ARCHIVE_PATH_RE = /^\/(?:mercato-lavoro-ticino\/settimana|en\/ticino-job-market\/week|de\/tessiner-arbeitsmarkt\/woche|fr\/marche-travail-tessin\/semaine)-\d{1,2}-\d{4}\/$/;
+const NEWSLETTER_PREFERENCES_PATHS = new Set([
+  '/preferenze-newsletter/',
+  '/en/newsletter-preferences/',
+  '/de/newsletter-einstellungen/',
+  '/fr/preferences-newsletter/',
+]);
+const CURRENCY_WIDGET_PATH = '/embed/currency-widget.html';
 const DETAIL_SLUG_RE = /^[a-z0-9][a-z0-9-]*$/;
 const HEALTH_FACILITY_SLUG_SET = new Set(
   (Array.isArray(healthFacilitiesRegistry?.facilities) ? healthFacilitiesRegistry.facilities : [])
@@ -133,6 +145,14 @@ function pathnameAndOrigin(value) {
       origin: parsed.origin,
       pathname: pathname.length > 1 && !pathname.endsWith('/') ? `${pathname}/` : pathname,
     };
+  } catch {
+    return null;
+  }
+}
+
+function explicitPathname(value) {
+  try {
+    return new URL(String(value ?? ''), DEFAULT_BASE_URL).pathname.replace(/\/+/g, '/') || '/';
   } catch {
     return null;
   }
@@ -977,6 +997,68 @@ function findMetaRobots(html) {
   return values;
 }
 
+function findMetaRefreshTarget(html, pageUrl) {
+  for (const match of String(html || '').matchAll(/<meta\b([^>]*)>/gi)) {
+    if (attr(match[1], 'http-equiv').toLowerCase() !== 'refresh') continue;
+    const content = attr(match[1], 'content');
+    const targetMatch = content.match(/^\s*\d+(?:\.\d+)?\s*;\s*url\s*=\s*(.*?)\s*$/i);
+    if (!targetMatch) continue;
+    const rawTarget = targetMatch[1].trim().replace(/^(['"])([\s\S]*)\1$/, '$2');
+    const target = normalizeUrl(rawTarget, pageUrl);
+    if (target) return target;
+  }
+  return '';
+}
+
+/**
+ * Recognise a static redirect stub only when the standalone emitter declares
+ * it and the document contains a same-origin meta-refresh destination. The
+ * destination must remain an HTML route on the configured site origin; assets,
+ * Cloudflare internals, and external URLs remain actionable. The caller
+ * additionally requires noindex/follow and frontier scope.
+ */
+export function isDeclaredStandaloneRedirectStub({ url, html }) {
+  if (!String(html || '').includes(REDIRECT_STUB_MARKER)
+    || !String(html || '').includes(STANDALONE_REDIRECT_STUB_MARKER)) return false;
+  const robots = findMetaRobots(html).join(',');
+  if (!/\bnoindex\b/i.test(robots) || /\bnofollow\b/i.test(robots)) return false;
+  const source = normalizeUrl(url);
+  const target = findMetaRefreshTarget(html, url);
+  if (!source || !target || !isSameOrigin(source, DEFAULT_BASE_URL)
+    || !isSameOrigin(target, DEFAULT_BASE_URL) || target === source) return false;
+
+  const targetPath = explicitPathname(target)?.replace(/\/+$/, '') || '/';
+  const targetLeaf = targetPath.split('/').at(-1) || '';
+  if (targetPath.startsWith('/assets/') || targetPath.startsWith('/cdn-cgi/')) return false;
+  if (targetLeaf.includes('.') && !/\.html?$/i.test(targetLeaf)) return false;
+  return true;
+}
+
+export function isNewsletterPreferencesPath(value) {
+  const source = pathnameAndOrigin(value);
+  return Boolean(source
+    && source.origin === new URL(DEFAULT_BASE_URL).origin
+    && NEWSLETTER_PREFERENCES_PATHS.has(source.pathname));
+}
+
+export function isDeclaredNewsletterPreferencesTarget({ url, html }) {
+  return String(html || '').includes(NEWSLETTER_PREFERENCES_NOINDEX_TARGET_MARKER)
+    && isNewsletterPreferencesPath(url);
+}
+
+export function isDeclaredCurrencyWidgetTarget({ url, html }) {
+  const source = pathnameAndOrigin(url);
+  const explicitPath = explicitPathname(url);
+  return String(html || '').includes(CURRENCY_WIDGET_NOINDEX_TARGET_MARKER)
+    && Boolean(source && source.origin === new URL(DEFAULT_BASE_URL).origin && explicitPath === CURRENCY_WIDGET_PATH);
+}
+
+export function isDeclaredJobMarketSnapshotTarget({ url, html }) {
+  const source = pathnameAndOrigin(url);
+  return String(html || '').includes(JOB_MARKET_SNAPSHOT_NOINDEX_MARKER)
+    && Boolean(source && source.origin === new URL(DEFAULT_BASE_URL).origin && JOB_MARKET_WEEKLY_ARCHIVE_PATH_RE.test(source.pathname));
+}
+
 function findCanonical(html, pageUrl) {
   for (const match of String(html || '').matchAll(/<link\b([^>]*)>/gi)) {
     if (!attr(match[1], 'rel').toLowerCase().split(/\s+/).includes('canonical')) continue;
@@ -1168,7 +1250,18 @@ export function classifyDocument({
     && isDeclaredHealthFacilityBridge({ url: finalUrl || url, canonical, html })
     ? 'health-facility-bridge'
     : null;
-  const declaredNoindexTarget = isFrontier
+  // `buildCanonicalBridgePage({ crossPageSignals: false })` deliberately
+  // emits no canonical.  The marker alone is not enough: only a same-origin
+  // meta-refresh with noindex/follow can authorize this standalone redirect
+  // contract.  Canonical drift remains actionable on malformed variants.
+  const standaloneRedirectStub = isFrontier
+    && noindex
+    && followableNoindex
+    && isDeclaredStandaloneRedirectStub({ url: finalUrl || url, html })
+    ? 'redirect-stub-target'
+    : null;
+  const declaredNoindexTarget = standaloneRedirectStub
+    || (isFrontier
     && noindex
     && followableNoindex
     && isDeclaredPaginationTarget({ url: finalUrl || url, html })
@@ -1198,7 +1291,29 @@ export function classifyDocument({
               && followableNoindex
               && isDeclaredPlateAuctionTarget({ url: finalUrl || url, html })
               ? 'plate-auction-target'
-        : null;
+        : null);
+  const newsletterPreferencesTarget = isFrontier
+    && noindex
+    && followableNoindex
+    && isDeclaredNewsletterPreferencesTarget({ url: finalUrl || url, html })
+    ? 'newsletter-preferences-target'
+    : null;
+  const currencyWidgetTarget = isFrontier
+    && noindex
+    && followableNoindex
+    && isDeclaredCurrencyWidgetTarget({ url: finalUrl || url, html })
+    ? 'currency-widget-target'
+    : null;
+  const jobMarketSnapshotTarget = isFrontier
+    && noindex
+    && followableNoindex
+    && isDeclaredJobMarketSnapshotTarget({ url: finalUrl || url, html })
+    ? 'job-market-snapshot-target'
+    : null;
+  const declaredTarget = declaredNoindexTarget
+    || newsletterPreferencesTarget
+    || currencyWidgetTarget
+    || jobMarketSnapshotTarget;
   const weeklyEmployersArchiveExemption = isFrontier
     && noindex
     && followableNoindex
@@ -1227,22 +1342,22 @@ export function classifyDocument({
     || editorialBridgeExemption
     || eventMigrationBridgeExemption;
   if (noindex) {
-    const isDeclaredBridge = isFrontier && followableNoindex && (canonicalExemption || declaredNoindexTarget);
+    const isDeclaredBridge = isFrontier && followableNoindex && (canonicalExemption || declaredTarget);
     const noindexCode = isDeclaredBridge ? BING_FRONTIER_NOINDEX_BRIDGE : (isFrontier ? BING_FRONTIER_NOINDEX : 'noindex-in-sitemap');
     const detail = isDeclaredBridge
-      ? declaredNoindexTarget && !canonicalExemption
-        ? declaredNoindexTarget === 'pagination-target'
+      ? declaredTarget && !canonicalExemption
+        ? declaredTarget === 'pagination-target'
           ? `Pagina nella frontiera interna dichiarata paginazione profonda: noindex/follow (${canonical || 'canonical assente'}).`
-          : declaredNoindexTarget === 'job-board-target'
+          : declaredTarget === 'job-board-target'
             ? `Pagina nella frontiera interna dichiarata target job board: noindex/follow sulla route job-detail (${canonical || 'canonical assente'}).`
-            : `Pagina nella frontiera interna dichiarata noindex dal suo plugin (${declaredNoindexTarget}): noindex/follow (${canonical || 'canonical assente'}).`
+            : `Pagina nella frontiera interna dichiarata noindex dal suo plugin (${declaredTarget}): noindex/follow (${canonical || 'canonical assente'}).`
         : `Pagina nella frontiera interna dichiarata bridge: noindex/follow e canonical ${canonical} consolidato (${canonicalExemption}).`
       : isFrontier
         ? 'La pagina raggiunta da un link interno dichiara noindex senza un bridge canonical riconosciuto.'
         : 'La pagina pubblicata in sitemap dichiara noindex.';
     findings.push(finding(noindexCode, url, detail));
   }
-  if (!canonical) findings.push(finding('canonical-missing', url, 'Manca il canonical nella risposta HTML.'));
+  if (!canonical && !standaloneRedirectStub) findings.push(finding('canonical-missing', url, 'Manca il canonical nella risposta HTML.'));
   else if (canonicalMismatch) {
     if (canonicalExemption) {
       findings.push(finding(

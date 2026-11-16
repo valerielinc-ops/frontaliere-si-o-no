@@ -32,6 +32,7 @@ const THIN_PROMOTION_LEGACY_SPARSE_PATHS = [
   '!/data/dist-size-history.jsonl',
   '!/data/jobs-stats-history.json',
   '!/data/url-first-seen.json',
+  '!/data/url-first-seen/',
   '!/data/jobs-snapshots-history/',
   '!/data/slug-registry.json',
   '!/data/evidence-index.json',

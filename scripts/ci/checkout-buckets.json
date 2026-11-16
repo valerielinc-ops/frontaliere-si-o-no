@@ -3,8 +3,8 @@
   "ref": "origin/main",
   "measuredAt": "2026-08-19",
   "minMb": 15,
-  "treeMb": 6829,
-  "treeFiles": 41707,
+  "treeMb": 7043,
+  "treeFiles": 41723,
   "baselineMb": 198,
   "buckets": [
     {
@@ -16,6 +16,12 @@
       "id": "data/jobs/",
       "mb": 702,
       "files": 1101
+    },
+    {
+      "id": "data/url-first-seen/",
+      "mb": 214,
+      "files": 16,
+      "forward": true
     },
     {
       "id": "data/seo-404-compat/",

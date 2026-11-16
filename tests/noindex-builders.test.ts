@@ -5,6 +5,7 @@ import { describe, expect, it } from 'vitest';
 
 import { buildCanonicalBridgePage, buildFlatRedirect, ROBOTS_INDEX_ENHANCED_CONTENT } from '@/build-plugins/constants';
 import { META_DESCRIPTION_MAX_CHARS } from '@/build-plugins/shared/titleSuffix';
+import { STANDALONE_REDIRECT_STUB_MARKER } from '@/build-plugins/shared/standaloneRedirectStubMarker.mjs';
 
 // A 240-char description well past the SERP snippet budget.
 const OVER_BUDGET_DESC =
@@ -54,6 +55,22 @@ describe('SEO builder noindex guards', () => {
         noindex: false,
       });
       expect(html).toContain(`content="${ROBOTS_INDEX_ENHANCED_CONTENT}"`);
+    });
+
+    it('declares canonical-less bridges separately from generic redirect stubs', () => {
+      const standalone = buildCanonicalBridgePage({
+        canonicalUrl: 'https://frontaliereticino.ch/test-target/',
+        pathLabel: '/test-target/',
+        noindex: true,
+        crossPageSignals: false,
+      });
+      const canonical = buildCanonicalBridgePage({
+        canonicalUrl: 'https://frontaliereticino.ch/test-target/',
+        pathLabel: '/test-target/',
+        noindex: true,
+      });
+      expect(standalone).toContain(STANDALONE_REDIRECT_STUB_MARKER);
+      expect(canonical).not.toContain(STANDALONE_REDIRECT_STUB_MARKER);
     });
   });
 

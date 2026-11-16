@@ -1,0 +1,292 @@
+{
+  "key": "absolut-liv-ch",
+  "label": "absolutLIV AG",
+  "generatedAt": "2026-11-15T22:00:36.745Z",
+  "total": 1,
+  "discovered": 97,
+  "parsed": 8,
+  "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "absolut-liv-ch",
+    "seedUrls": [
+      "https://absolut-liv.ch/jobs"
+    ],
+    "phase": "detail",
+    "pages": 101,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/kontakt"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/impressum"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100023-38-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100014-43-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100038-47-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100038-48-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100185-3-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100038-40-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100038-44-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100038-43-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100038-42-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100002-56-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100038-39-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100014-42-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100038-41-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100054-9-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100185-2-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100082-6-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100184-2-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100122-2-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100055-8-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100055-7-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100005-112-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100200-1-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100021-41-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100021-40-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100021-39-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100202-1-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100034-37-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100045-24-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100150-2-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100201-1-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100045-23-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100181-5-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100150-1-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100198-1-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100104-5-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100196-1-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100023-36-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100005-111-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100002-55-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100023-35-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100002-54-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100013-19-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100045-21-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100014-41-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100157-2-1"
+      },
+      {
+        "status": 200,
+        "url": "https://absolut-liv.ch/jobs/2240-100013-20-1"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
+  "written": 1,
+  "detailCandidates": 97,
+  "detailGone": 0,
+  "detailRejected": 10,
+  "resurrectedJobs": 0,
+  "resurrectedWindowDays": 7,
+  "authoritativeEmptySnapshot": false,
+  "newCount": 1,
+  "updatedCount": 0,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 121643,
+  "avgDurationMs": 121643,
+  "durationHistory": [
+    121643
+  ],
+  "newJobs": [
+    {
+      "id": "absolut-liv-ch-5c213c0361b0",
+      "slug": "polymechaniker-in-efz-start-region-olten-ab-2027-region-bubikon-zh-region-bubikon-zh",
+      "company": "absolutLIV AG",
+      "companyKey": "absolut-liv-ch",
+      "companyDomain": "absolut-liv.ch",
+      "title": "Polymechaniker*in EFZ -Start Region Olten, ab 2027 Region Bubikon (ZH)",
+      "location": "Region Bubikon ZH",
+      "canton": "ZH",
+      "url": "https://absolut-liv.ch/jobs/2240-100075-15-1",
+      "source": "absolutLIV AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-15T22:00:22.799Z",
+      "addressLocality": "Bubikon",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8608",
+      "streetAddress": "Bubikon",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-20",
+      "postedDate": "2026-10-20",
+      "postingDateSource": "reported",
+      "applyUrl": "https://absolut-liv.ch/jobs/2240-100075-15-1",
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-18T22:00:22.799Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-15T22:00:22.799Z",
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 19,
+        "completeness": 25
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "b0e0a209c23d72cde28658756e39fb5de3eaaca5"
+}

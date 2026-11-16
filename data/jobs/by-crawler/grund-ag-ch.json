@@ -1,7 +1,7 @@
 {
   "crawlerKey": "grund-ag-ch",
-  "assembledAt": "2026-11-15T09:13:36.482Z",
-  "runId": "43697859884",
+  "assembledAt": "2026-11-16T09:15:34.822Z",
+  "runId": "43837250061",
   "jobs": [
     {
       "id": "grund-ag-ch-d07ce0e95f63",
@@ -34,7 +34,7 @@
       "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/8804713-automobil-mechatroniker-in-efz-nutzfahrzeuge-triengen-lu-grund-ag-fahrzeuge",
       "source": "Grund AG Fahrzeuge Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:13:32.435Z",
+      "crawledAt": "2026-11-16T09:15:28.971Z",
       "addressLocality": "Triengen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -90,7 +90,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T09:13:32.435Z",
+      "validThrough": "2026-12-16T09:15:28.971Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -124,7 +124,7 @@
       "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/8804712-automobil-fachmann-frau-efz-nutzfahrzeuge-triengen-lu-grund-ag-fahrzeuge",
       "source": "Grund AG Fahrzeuge Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:13:32.434Z",
+      "crawledAt": "2026-11-16T09:15:28.968Z",
       "addressLocality": "Triengen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T09:13:32.434Z",
+      "validThrough": "2026-12-16T09:15:28.968Z",
       "validThroughSource": "last-observed-window"
     }
   ]

@@ -24,6 +24,10 @@
 //       JS-enabled client in the last 30 days (refreshed hourly by
 //       .github/workflows/refresh-thin-promotions.yml).
 //
+//   data/url-first-seen/<h>.json (+ legacy data/url-first-seen.json while both exist)
+//     - { path: ISO-date }, earliest date per path across all of them; drives the
+//       minAgeDays grace window. Fail-open, an unreadable shard is named in the log.
+//
 //   data/url-pruning-approved-patterns.json
 //     - { patterns: [ { urlClass, action, minAgeDays?, ... } ] }
 //     - Empty array = filter is dormant (every emit is 'full'). User-curated.
@@ -52,6 +56,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { readOrphanEnriched } from '../../scripts/lib/orphan-enriched-store.mjs';
+import {
+  describeFirstSeenLoad,
+  loadFirstSeen,
+  urlFirstSeenStorePaths,
+} from '../../scripts/lib/url-first-seen-store.mjs';
 
 export type UrlClass =
   | 'previousSlug'
@@ -92,7 +101,7 @@ interface ApprovedPattern {
   urlClass: UrlClass;
   action: Exclude<FilterAction, 'full'>;
   /**
-   * Grace window in days from `data/url-first-seen.json[path]`. When set
+   * Grace window in days from the first-seen ledger (`data/url-first-seen/`). When set
    * and the URL's first-seen timestamp is within `minAgeDays` of now,
    * decideMulti returns `full` with reason `grace`. Protects freshly-
    * emitted URLs from being indexed thin before evidence has had time
@@ -101,7 +110,7 @@ interface ApprovedPattern {
   minAgeDays?: number;
   /**
    * Age gate for the *inert band* (issue #5168). When set, a URL that has no
-   * traffic evidence in any source AND whose `data/url-first-seen.json`
+   * traffic evidence in any source AND whose first-seen date
    * timestamp is at least this many days old is additionally reported as
    * `noindex` by {@link TrafficEvidenceFilter.decideMulti}.
    *
@@ -125,7 +134,7 @@ interface ApprovedPattern {
    * cheap to get wrong. This one protects a fresh URL from being dropped
    * out of the index on the strength of a 90-day impressions window it has
    * not been alive long enough to have taken part in -- which is the
-   * expensive mistake. A URL missing from `url-first-seen.json` is never
+   * expensive mistake. A URL missing from the first-seen ledger is never
    * noindexed: the band requires positive proof of age, not absence of
    * proof of youth.
    */
@@ -295,7 +304,9 @@ export class TrafficEvidenceFilter {
     const indexedClusterPath = path.join(rootDir, 'data', 'indexed-cluster-urls.json');
     const gscJobUrlsPath = path.join(rootDir, 'data', 'gsc-job-urls.json');
     const gscOrphanSlugsPath = path.join(rootDir, 'data', 'gsc-orphan-job-slugs.json');
-    const firstSeenPath = path.join(rootDir, 'data', 'url-first-seen.json');
+    // Sharded ledger (scripts/lib/url-first-seen-store.mjs); the legacy single
+    // file is still read while both exist during the migration.
+    const firstSeenStore = urlFirstSeenStorePaths(rootDir);
 
     // Build a single normalized "has traffic" set from every signal source.
     const trafficSet = new Set<string>();
@@ -391,21 +402,44 @@ export class TrafficEvidenceFilter {
     );
 
     // Reviewer HIGH #3: minAgeDays grace window for freshly-emitted
-    // URLs. `data/url-first-seen.json` is a flat `{ path: ISO-date }`
-    // map populated by `scripts/refresh-url-first-seen.mjs` (run from
-    // the deploy workflow after build). When a URL first appears in
+    // URLs. The first-seen ledger is a flat `{ path: ISO-date }` map, stored as
+    // `data/url-first-seen/<h>.json` shards (the single file outgrew GitHub's
+    // 100 MB limit) and populated by `scripts/refresh-url-first-seen.mjs` (run
+    // from the deploy workflow after build). When a URL first appears in
     // sitemap-jobs.xml or sitemap-search-clusters-*.xml the script
     // stamps it with today's date. Each pattern's `minAgeDays` is
     // checked against this map: URL's age < minAgeDays → return `full`
-    // with reason `grace`. Missing file → grace check is a no-op
+    // with reason `grace`. Missing ledger → grace check is a no-op
     // (filter behaves as before — safe default until the workflow runs).
-    const firstSeenRaw = tryRead<Record<string, string>>(firstSeenPath) || {};
+    //
+    // Migration: directory and legacy file are both read when both exist and
+    // merged keeping the EARLIEST timestamp per path (the meaning of "first
+    // seen", independent of read order).
+    //
+    // Fail-open, but never silent: an unreadable shard leaves its URLs without
+    // a first-seen date (they leave the noindex band, the safe side), and is
+    // named in the build log together with a one-line summary of what was read.
+    const { entries: firstSeenRaw, report: firstSeenReport } = loadFirstSeen({
+      dir: firstSeenStore.dir,
+      legacyFile: firstSeenStore.legacyFile,
+    });
     const firstSeen = new Map<string, number>();
-    for (const [k, v] of Object.entries(firstSeenRaw)) {
+    for (const [k, v] of firstSeenRaw) {
       const ts = Date.parse(v);
-      if (Number.isFinite(ts)) firstSeen.set(normalizePath(k), ts);
+      if (!Number.isFinite(ts)) continue;
+      const key = normalizePath(k);
+      const prev = firstSeen.get(key);
+      if (prev === undefined || ts < prev) firstSeen.set(key, ts);
     }
     this.firstSeen = firstSeen;
+    for (const { file, error } of firstSeenReport.shardsUnreadable) {
+      console.warn(
+        `[traffic-evidence-filter] first-seen shard ${file} is unreadable (${error}); ` +
+        `its URLs have no first-seen date and fail open (outside the noindex band)`,
+      );
+    }
+    const firstSeenSummary = describeFirstSeenLoad(firstSeenReport);
+    console[firstSeenSummary.level](`[traffic-evidence-filter] ${firstSeenSummary.message}`);
 
     const approved = tryRead<ApprovedConfig>(approvedPath);
     this.patternsByClass = new Map();
@@ -499,7 +533,7 @@ export class TrafficEvidenceFilter {
       const cutoffMs = Date.now() - minAgeDays * 86_400_000;
       for (const p of urlPaths) {
         const seenAt = this.firstSeen.get(normalizePath(p));
-        // URL absent from url-first-seen.json → behave as `cutoff − ε`
+        // URL absent from the first-seen ledger → behave as `cutoff − ε`
         // (no grace). The refresh script adds entries lazily; without
         // it the file may be empty and grace is a no-op. Safer than
         // assuming brand-new URLs (which would over-protect everything
@@ -531,7 +565,7 @@ export class TrafficEvidenceFilter {
       // category error in the one direction we cannot afford.
       const primary = normalizePath(opts?.primaryPath ?? urlPaths[0] ?? '');
       const seenAt = primary ? this.firstSeen.get(primary) : undefined;
-      // Positive proof of age only. A URL absent from url-first-seen.json is
+      // Positive proof of age only. A URL absent from the first-seen ledger is
       // of UNKNOWN age, and unknown must not read as old: the file is
       // populated lazily by scripts/refresh-url-first-seen.mjs, so "absent"
       // is far more likely to mean "the stamper has not caught up" than "this

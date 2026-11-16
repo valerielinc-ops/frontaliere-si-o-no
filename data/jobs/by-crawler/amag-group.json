@@ -1,7 +1,7 @@
 {
   "crawlerKey": "amag-group",
-  "assembledAt": "2026-11-15T09:33:23.958Z",
-  "runId": "43698123537",
+  "assembledAt": "2026-11-16T09:21:59.739Z",
+  "runId": "43837723728",
   "jobs": [
     {
       "title": "Consulente vendita veicoli commerciali (m/f) - 100%",
@@ -66,8 +66,9 @@
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T09:33:20.625Z",
-      "crawledAtSource": "slice-writer"
+      "crawledAt": "2026-11-16T09:21:56.309Z",
+      "crawledAtSource": "slice-writer",
+      "sourceIdentity": "url:https://jobs.amag-group.ch/consulente-vendita-veicoli-commerciali-mf-100-it-j23843.html"
     },
     {
       "title": "Apprendista Impiegato/a in logistica AFC 2027",
@@ -132,8 +133,9 @@
       "firstSeenAt": "2026-10-09T21:30:03.052Z",
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T09:33:20.625Z",
-      "crawledAtSource": "slice-writer"
+      "crawledAt": "2026-11-16T09:21:56.309Z",
+      "crawledAtSource": "slice-writer",
+      "sourceIdentity": "url:https://jobs.amag-group.ch/apprendista-impiegatoa-in-logistica-afc-2027-it-j23749.html"
     },
     {
       "title": "Apprendista carrozziere/a verniciatore/-trice AFC (m/f) estate 2027 - AMAG Lugano",
@@ -194,12 +196,13 @@
         }
       },
       "postalCode": "6900",
-      "firstSeenAt": "2026-10-09T09:22:42.256Z",
+      "firstSeenAt": "2026-09-19T22:54:42.473Z",
       "streetAddress": "Lugano",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T09:33:20.625Z",
-      "crawledAtSource": "slice-writer"
+      "crawledAt": "2026-11-16T09:21:56.309Z",
+      "crawledAtSource": "slice-writer",
+      "sourceIdentity": "url:https://jobs.amag-group.ch/apprendista-carrozzierea-verniciatore-trice-afc-mf-estate--it-j20676.html"
     },
     {
       "title": "Meccatronico/a di automobili - 100%",
@@ -282,7 +285,7 @@
       "streetAddress": "Gordola",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T09:33:20.625Z",
+      "crawledAt": "2026-11-16T09:21:56.309Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -348,7 +351,7 @@
       "streetAddress": "Tutti",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T09:33:20.625Z",
+      "crawledAt": "2026-11-16T09:21:56.309Z",
       "crawledAtSource": "slice-writer"
     },
     {
@@ -415,7 +418,7 @@
       "streetAddress": "Breganzona",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "crawledAt": "2026-11-15T09:33:20.625Z",
+      "crawledAt": "2026-11-16T09:21:56.309Z",
       "crawledAtSource": "slice-writer"
     }
   ]

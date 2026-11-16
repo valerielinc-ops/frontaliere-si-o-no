@@ -185,6 +185,17 @@ const bootstrapApp = async () => {
    }
  });
 
+ // Static article and job pages can already contain AdSense slots before React
+ // mounts. Start recovery as soon as the stale-chunk handler is ready so it can
+ // observe those slots even when the app's own chunks are still loading.
+ void import('./services/startAdRecovery')
+   .then(({ startAdRecovery }) => startAdRecovery())
+   .catch((error: unknown) => {
+     void import('./services/errorReporter')
+       .then(({ reportCaughtError }) => reportCaughtError(error, 'adRecovery.bootstrap'))
+       .catch(() => console.error('[ad-recovery] startup failed', error));
+   });
+
  // The served head must be captured before importing the app, whose lazy
  // consumers can write metadata, but its guard is not itself LCP content.
  // Keep the shared authority chunk and its DOM scan off the initial paint

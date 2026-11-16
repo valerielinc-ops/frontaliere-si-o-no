@@ -34,7 +34,7 @@ function retentionAnchor(order) {
   if (order?.submissionStatus === 'ready_for_manual_submission' && order.submittedAt != null) {
     return order.submittedAt;
   }
-  return order?.cvUploadedAt ?? null;
+  return order?.cvUploadedAt ?? order?.cvReuseOrphanAt ?? null;
 }
 
 /**
@@ -151,10 +151,11 @@ export async function purgeExpiredAssistedApplicationFiles(
   const cutoffMillis = nowMs - retentionDays * 86400000;
   const cutoff = Timestamp.fromMillis(cutoffMillis);
   const collection = firestore.collection(ASSISTED_APPLICATIONS_COLLECTION);
-  const [submittedDocs, refundedDocs, uploadedDocs] = await Promise.all([
+  const [submittedDocs, refundedDocs, uploadedDocs, orphanedDocs] = await Promise.all([
     candidateDocs(collection, 'submittedAt', cutoff),
     candidateDocs(collection, 'refundedAt', cutoff),
     candidateDocs(collection, 'cvUploadedAt', cutoff),
+    candidateDocs(collection, 'cvReuseOrphanAt', cutoff),
   ]);
 
   const candidates = new Map();
@@ -162,6 +163,7 @@ export async function purgeExpiredAssistedApplicationFiles(
     ...submittedDocs,
     ...refundedDocs,
     ...uploadedDocs,
+    ...orphanedDocs,
   ]) {
     candidates.set(snapshot.id, snapshot);
   }
@@ -204,6 +206,7 @@ export async function purgeExpiredAssistedApplicationFiles(
       await snapshot.ref.set({
         cvStorageKey: null,
         cvUploadedAt: null,
+        cvReuseOrphanAt: null,
         coverLetterStorageKey: null,
         automationDueAt: null,
         followupDueAt: null,

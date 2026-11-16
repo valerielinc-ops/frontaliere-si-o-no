@@ -1972,10 +1972,8 @@ describe('events schema data quality (#3508)', () => {
     expect(page.html).toContain('Evento futuro in coda');
   });
 
-  // Regression guard: validate-dist run 29794187475 found the Bern canton hub
-  // (the most-crawled canton, closest to the 100-event visible-card cap) ~1 KB
-  // over the 260 KB audit:page-weight budget — the ItemList JSON-LD mirrored
-  // all 100 visible cards' worth of nested Event entries. The fix caps
+  // Regression guard: the Bern canton hub's ItemList JSON-LD mirrored all 100
+  // visible cards' worth of nested Event entries. The fix caps
   // JSON-LD entries independently of the visible card list (EVENT_JSONLD_ITEM_CAP
   // in eventsSeoPagesPlugin.ts), so every event still gets a real crawlable
   // <a href> card (audit:max-bfs-depth reachability untouched) while the

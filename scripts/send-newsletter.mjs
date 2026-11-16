@@ -56,6 +56,14 @@ import {
 } from './lib/newsletterJobAlertCooldown.mjs';
 import { createResumeWriter, fetchAlreadySent as fetchCampaignAlreadySent, resumeChunkState } from './lib/campaignResumeLog.mjs';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
+import { createNewsletterBookkeeper, resolveBatchBookkeepingMode } from './lib/newsletter-batch-bookkeeping.mjs';
+import {
+  compareAudiences,
+  loadFrozenAudience,
+  resolveAudienceScanMode,
+  resolveFrozenAudienceDocs,
+  saveFrozenAudience,
+} from './lib/newsletter-audience-freeze.mjs';
 import { buildDeliveryDocId } from '../functions/src/lib/deliveryDocId.js';
 import {
   assignJobRankingVariant,
@@ -272,6 +280,30 @@ let firestoreFieldValue;
 /** Test seam: inject a fake Firestore for the exported claim/persist helpers. */
 export function __setNewsletterDbForTest(fakeDb) {
   db = fakeDb;
+}
+
+// Batch bookkeeping of the send phase (perf-plan email senders, point 3): installed by
+// main() in `send` mode when NEWSLETTER_BATCH_BOOKKEEPING is `on`, `null` otherwise
+// (every path then keeps the per-email transactions). Snapshots of the subscriber
+// documents come from the audience scan: they are the state the batch precondition
+// protects when it writes the send counter and the derived engagement score.
+let activeBookkeeper = null;
+const subscriberSnapshots = new Map();
+
+/** Test seam: the FieldValue sentinels (increment, serverTimestamp) of the injected fake Firestore. */
+export function __setNewsletterFieldValueForTest(fieldValue) {
+  firestoreFieldValue = fieldValue;
+}
+
+/** Test seam: install (or clear with `null`) the bookkeeper used by persistDelivery. */
+export function __setNewsletterBookkeeperForTest(bookkeeper) {
+  activeBookkeeper = bookkeeper;
+}
+
+/** Test seam: snapshots of subscriber documents, as the audience scan records them. */
+export function __setSubscriberSnapshotsForTest(entries) {
+  subscriberSnapshots.clear();
+  for (const [id, snapshot] of entries) subscriberSnapshots.set(id, snapshot);
 }
 
 async function initFirebase() {
@@ -1564,8 +1596,15 @@ async function fetchTargetSubscriber(email) {
   return { subscriber: subscriberFromFirestoreRow(rowForSend), refusal: null };
 }
 
-async function fetchSubscribers() {
+async function fetchSubscribers({ docs: providedDocs = null, computeGlobalHour = true, label = 'full scan', recordSnapshots = true } = {}) {
   const subscribers = new Map();
+  // Document ids behind the audience, in document-id order: what a campaign freezes.
+  const eligibleIdBySubscriberEmail = new Map();
+  if (recordSnapshots) subscriberSnapshots.clear();
+  // Taken BEFORE the read: a document written while the scan runs is covered by the
+  // delta of a later resume (which also looks a little before this instant).
+  const scanStartedAt = new Date();
+  let scanComplete = false;
   // Raw rows feed the site-wide preferred-hour fallback (#3798) — the
   // projected subscriber objects still carry preferredSendHourUtc/
   // preferredSendSampleCount, but computeGlobalPreferredHour reads the
@@ -1583,8 +1622,12 @@ async function fetchSubscribers() {
     // and rows without a confirmation proof. The delivery stops are the
     // newsletter opt-out/status, cross-channel hard stop, malformed address
     // and a row with no subscription basis at all (hasSubscriptionBasis).
-    const snap = await db.collection('newsletter_subscribers').get();
-    snap.docs.forEach((d) => {
+    // `docs` (frozen audience + delta, scripts/lib/newsletter-audience-freeze.mjs) goes
+    // through the very same predicate below: consent and suppression are judged by one
+    // piece of code on every route.
+    const sourceDocs = providedDocs ?? (await db.collection('newsletter_subscribers').get()).docs;
+    scanComplete = sourceDocs.length > 0;
+    sourceDocs.forEach((d) => {
       if (d.id === '_meta_') return;
       scannedRows++;
       const row = d.data() || {};
@@ -1611,17 +1654,24 @@ async function fetchSubscribers() {
       // #8754 policy (terms, no proof) is unchanged for every other row.
       if (!hasSubscriptionBasis(rowForSend)) { excludedNoBasis++; return; }
       rawRows.push(rowForSend);
+      // The state this scan saw, for the send phase's batch precondition (see
+      // scripts/lib/newsletter-batch-bookkeeping.mjs): the score is derived from it
+      // and the write only lands if the document has not changed since.
+      if (recordSnapshots && d.updateTime) subscriberSnapshots.set(d.id, { data: rowForSend, updateTime: d.updateTime });
       // Pass the RAW row.email so subscriberFromFirestoreRow can harvest a
       // "Name <addr>" display name; it strips the wrapper internally and
       // returns the bare address on subscriber.email.
       const subscriber = subscriberFromFirestoreRow(rowForSend);
-      if (subscriber) subscribers.set(subscriber.email, subscriber);
+      if (subscriber) {
+        subscribers.set(subscriber.email, subscriber);
+        eligibleIdBySubscriberEmail.set(subscriber.email, d.id);
+      }
     });
   } catch (e) {
     console.warn('\u26a0\ufe0f Subscriber fetch failed:', e.message);
   }
 
-  console.log(`\ud83d\udc65 Subscribers eligible: ${subscribers.size}/${scannedRows} (excludedStatus ${excludedStatus}, statusBy ${JSON.stringify(excludedStatusBy)}, crossChannelStop ${excludedCrossChannel}, newsletterOptOut ${excludedNewsletterOptOut}, excludedNoBasis ${excludedNoBasis}, malformed ${excludedMalformed})`);
+  console.log(`\ud83d\udc65 Subscribers eligible (${label}): ${subscribers.size}/${scannedRows} (excludedStatus ${excludedStatus}, statusBy ${JSON.stringify(excludedStatusBy)}, crossChannelStop ${excludedCrossChannel}, newsletterOptOut ${excludedNewsletterOptOut}, excludedNoBasis ${excludedNoBasis}, malformed ${excludedMalformed})`);
 
   // user_profiles collection removed — all subscriber data is in newsletter_subscribers
 
@@ -1629,10 +1679,124 @@ async function fetchSubscribers() {
   // Attach the site-wide preferred-hour aggregate as a property on the array
   // (same idiom as pickFeaturedArticle's getArticle.articleId/persistRotation)
   // so callers that only care about the subscriber list are unaffected.
-  prioritized.globalPreferredHour = computeGlobalPreferredHour(rawRows);
+  prioritized.globalPreferredHour = computeGlobalHour
+    ? computeGlobalPreferredHour(rawRows)
+    : { hourUtc: null, sampleUsers: 0 };
+  // What a first run freezes (and only a scan that actually read documents may).
+  prioritized.eligibleDocIds = [...eligibleIdBySubscriberEmail.values()];
+  prioritized.scanStartedAt = scanStartedAt;
+  prioritized.scanComplete = scanComplete;
   return prioritized;
 }
 
+
+/**
+ * The send audience of this run (perf-plan email senders, point 2). `full` is the
+ * scan of every run as before; `shadow` (default) lets the full scan decide and
+ * compares it with the frozen audience plus delta on resumes; `frozen` lets the
+ * frozen audience decide, falling back to the full scan on any error. See
+ * scripts/lib/newsletter-audience-freeze.mjs.
+ *
+ * @param {string} campaignId
+ * @param {Set<string>} attempted normalized addresses that already have a send or a receipt
+ */
+export async function resolveSendAudience(campaignId, attempted, {
+  mode = resolveAudienceScanMode(process.env.NEWSLETTER_AUDIENCE_SCAN_MODE),
+  metrics = newsletterMetrics,
+  log = (line) => console.log(line),
+  warn = (line) => console.warn(line),
+} = {}) {
+  metrics.set('audienceScanMode', mode);
+  if (mode === 'full' || !db) {
+    metrics.set('audienceSource', 'full');
+    return fetchSubscribers();
+  }
+
+  let frozen = null;
+  try {
+    frozen = await loadFrozenAudience(db, campaignId, { warn });
+  } catch (error) {
+    metrics.count('audienceFrozenLoadError');
+    warn(`   ⚠️  frozen audience unreadable (${String(error?.message || error).slice(0, 120)}) — full scan decides`);
+  }
+
+  if (!frozen) {
+    // First run of the campaign (or nothing usable): the full scan decides and its
+    // result is frozen for the resumes. A failed freeze costs only the saving.
+    metrics.set('audienceSource', 'full-first-run');
+    const audience = await fetchSubscribers();
+    if (audience.scanComplete && audience.eligibleDocIds.length > 0) {
+      try {
+        const saved = await saveFrozenAudience(db, campaignId, {
+          docIds: audience.eligibleDocIds,
+          snapshotAt: audience.scanStartedAt,
+          globalPreferredHour: audience.globalPreferredHour,
+        });
+        metrics.set('audienceFrozenSize', saved.total);
+        metrics.count(saved.saved ? 'audienceFrozenSaved' : 'audienceFrozenAlreadyThere');
+        log(`🧊 Frozen audience for ${campaignId}: ${saved.total} subscriber(s) in ${saved.pages} page(s)${saved.saved ? '' : ' (already present, kept)'}`);
+      } catch (error) {
+        metrics.count('audienceFrozenSaveError');
+        warn(`   ⚠️  frozen audience not saved (${String(error?.message || error).slice(0, 120)}) — resumes will rescan`);
+      }
+    }
+    return audience;
+  }
+
+  const fromFrozen = async ({ recordSnapshots }) => {
+    const isAttempted = (docId) => attempted.has(normalizeEmail(docId));
+    const resolved = await resolveFrozenAudienceDocs({ db, frozen, isAttempted });
+    metrics.set('audienceFrozenSize', frozen.total);
+    metrics.set('audienceResidualReads', resolved.readCount);
+    metrics.set('audienceDeltaDocs', resolved.deltaCount);
+    const audience = await fetchSubscribers({
+      docs: resolved.docs,
+      computeGlobalHour: false,
+      label: 'frozen audience + delta',
+      recordSnapshots,
+    });
+    audience.globalPreferredHour = frozen.globalPreferredHour;
+    return { audience, resolved };
+  };
+
+  if (mode === 'frozen') {
+    try {
+      const { audience, resolved } = await fromFrozen({ recordSnapshots: true });
+      metrics.set('audienceSource', 'frozen');
+      audience.audienceSource = 'frozen';
+      log(`🧊 Audience from the frozen set: ${resolved.residualCount} residual(s) re-read, ${resolved.deltaCount} new/changed since the snapshot, ${audience.length} eligible`);
+      return audience;
+    } catch (error) {
+      metrics.count('audienceFrozenFallback');
+      warn(`   ⚠️  frozen audience unusable (${String(error?.message || error).slice(0, 120)}) — falling back to the full scan`);
+      metrics.set('audienceSource', 'full-fallback');
+      return fetchSubscribers();
+    }
+  }
+
+  // shadow: the full scan decides; the frozen path is computed and compared.
+  metrics.set('audienceSource', 'full-shadow');
+  const full = await fetchSubscribers();
+  try {
+    // A scan that read nothing (a failed fetch) is not a baseline to compare against.
+    if (!full.scanComplete) throw new Error('the full scan returned no documents');
+    const fullUnattempted = filterUnsentSubscribers(full, attempted);
+    const idOf = (subscriber) => normalizeEmail(subscriber.email);
+    const { audience: shadow, resolved } = await fromFrozen({ recordSnapshots: false });
+    const comparison = compareAudiences(fullUnattempted.map(idOf), shadow.map(idOf));
+    metrics.set('audienceShadowMismatch', comparison.mismatch);
+    metrics.set('audienceShadowOnlyFull', comparison.onlyFull);
+    metrics.set('audienceShadowOnlyFrozen', comparison.onlyFrozen);
+    log(`🧊 Audience shadow: full ${comparison.fullSize} vs frozen+delta ${comparison.frozenSize} unattempted (${resolved.residualCount} residual re-read, ${resolved.deltaCount} delta) — mismatch ${comparison.mismatch} (onlyFull ${comparison.onlyFull}, onlyFrozen ${comparison.onlyFrozen}); hashes ${comparison.fullHash.slice(0, 12)}/${comparison.frozenHash.slice(0, 12)}`);
+    if (comparison.mismatch > 0) {
+      warn(`   ⚠️  audience shadow mismatch ${comparison.mismatch}: id hashes only in full [${comparison.sampleOnlyFull.join(',')}], only in frozen [${comparison.sampleOnlyFrozen.join(',')}]`);
+    }
+  } catch (error) {
+    metrics.count('audienceShadowError');
+    warn(`   ⚠️  audience shadow comparison failed (${String(error?.message || error).slice(0, 120)}) — the full scan decides`);
+  }
+  return full;
+}
 
 // ─── Email headers ──────────────────────────────────────────
 
@@ -1907,6 +2071,43 @@ async function resolveWinnersForCampaign(database, campaignId, { persist = false
 
 // ─── Resend API ─────────────────────────────────────────────
 
+/**
+ * The `in_flight` intent written BEFORE the provider call. Pure: the per-email
+ * transaction below and the batch bookkeeper (scripts/lib/newsletter-batch-bookkeeping.mjs)
+ * write exactly the same document, so the two paths cannot drift.
+ */
+function buildDeliveryIntentFields(item, provider, attemptId, at = new Date()) {
+  const email = normalizeEmail(item?.recipient?.email);
+  const campaignId = item?.meta?.campaignId;
+  return {
+    email,
+    campaign_id: campaignId,
+    locale: nlNormLocale(item.recipient.locale),
+    source_channel: item.recipient.sourceChannel || null,
+    provider,
+    attempted_provider: provider,
+    delivery_status: 'in_flight',
+    delivery_attempt_id: attemptId,
+    discovery_article_id: item.meta.discoveryArticleId || null,
+    discovery_provider: item.meta.discoveryProvider || null,
+    discovery_commit: item.meta.discoveryCommit || null,
+    is_operator_verification: item.meta.isOperatorVerification ?? false,
+    attempted_at: at,
+    updated_at: at,
+  };
+}
+
+/** Receipt document of one recipient and campaign; throws when the identity is unstable. */
+function deliveryReceiptRef(database, item) {
+  const email = normalizeEmail(item?.recipient?.email);
+  const campaignId = item?.meta?.campaignId;
+  if (!email || typeof campaignId !== 'string' || !campaignId) {
+    throw new Error('Newsletter delivery intent is missing its stable recipient or campaign id.');
+  }
+  return database.collection('newsletter_subscribers').doc(email)
+    .collection('campaign_deliveries').doc(buildDeliveryDocId(campaignId, email));
+}
+
 export async function claimNewsletterDeliveryIntent(item, provider, attemptId) {
   if (!db) throw new Error('Firestore is required to claim a newsletter delivery.');
   const email = normalizeEmail(item?.recipient?.email);
@@ -1936,22 +2137,7 @@ export async function claimNewsletterDeliveryIntent(item, provider, attemptId) {
         }
         return false;
       }
-      transaction.set(deliveryRef, {
-        email,
-        campaign_id: campaignId,
-        locale: nlNormLocale(item.recipient.locale),
-        source_channel: item.recipient.sourceChannel || null,
-        provider,
-        attempted_provider: provider,
-        delivery_status: 'in_flight',
-        delivery_attempt_id: attemptId,
-        discovery_article_id: item.meta.discoveryArticleId || null,
-        discovery_provider: item.meta.discoveryProvider || null,
-        discovery_commit: item.meta.discoveryCommit || null,
-        is_operator_verification: item.meta.isOperatorVerification ?? false,
-        attempted_at: new Date(),
-        updated_at: new Date(),
-      }, { merge: true });
+      transaction.set(deliveryRef, buildDeliveryIntentFields(item, provider, attemptId), { merge: true });
       return true;
     });
   } catch (error) {
@@ -1959,26 +2145,22 @@ export async function claimNewsletterDeliveryIntent(item, provider, attemptId) {
   }
 }
 
-async function persistDelivery(recipient, messageId, meta) {
-  if (!db) return;
-  const FieldValue = firestoreFieldValue;
+/**
+ * Fields of the per-recipient receipt after the provider accepted the message.
+ * Pure over `previous` (the stored document): the per-email transaction feeds it
+ * the document it just read, the batch bookkeeper the intent it wrote and whose
+ * `lastUpdateTime` precondition still holds. Same function, same document.
+ */
+function buildDeliveryReceiptFields(previous, recipient, messageId, meta, at = new Date()) {
   const email = normalizeEmail(recipient.email);
   const locale = nlNormLocale(recipient.locale);
-  const subRef = db.collection('newsletter_subscribers').doc(email);
-  const deliveryDocId = buildDeliveryDocId(meta.campaignId, email);
-  const deliveryRef = subRef.collection('campaign_deliveries').doc(deliveryDocId);
-  // This is the per-recipient receipt and dedupe authority. Failure must bubble
-  // to the cascade; the preceding in_flight intent remains a retry blocker.
-  await db.runTransaction(async (transaction) => {
-    const snapshot = await transaction.get(deliveryRef);
-    const previous = snapshot.data() || {};
-    transaction.set(deliveryRef, {
+  return {
       email,
       campaign_id: meta.campaignId,
       message_id: messageId || previous.message_id || null,
       delivery_status: previous.delivery_status === 'delivered' ? 'delivered' : 'accepted',
       delivery_attempt_id: meta.deliveryAttemptId || previous.delivery_attempt_id || null,
-      accepted_at: new Date(),
+      accepted_at: at,
       locale,
       source_channel: recipient.sourceChannel || null,
       location_interest: recipient.locationInterest || null,
@@ -2011,46 +2193,101 @@ async function persistDelivery(recipient, messageId, meta) {
       // Lean manifest only: the full job objects stay in memory on
       // meta.rankingJobs for recordJobEmailImpressions.
       ranking_jobs: buildRankingJobsManifest(meta.rankingJobs),
-      sent_at: new Date(),
-    }, { merge: true });
-  });
+      sent_at: at,
+  };
+}
+
+export async function persistDelivery(recipient, messageId, meta, item = null) {
+  if (!db) return;
+  // Batch bookkeeping (perf-plan email senders, point 3): only for an item that went
+  // through the cascade with the bookkeeper's intent; every other caller, and every
+  // fallback, keeps the per-email transactions below.
+  const bookkeeper = item ? activeBookkeeper : null;
+  // This is the per-recipient receipt and dedupe authority. Failure must bubble
+  // to the cascade; the preceding in_flight intent remains a retry blocker.
+  if (bookkeeper) await bookkeeper.persistReceipt(item, recipient, messageId, meta);
+  else await persistDeliveryReceiptTransaction(recipient, messageId, meta);
   try {
-    // The Maileroo lookup record (`maileroo_refs/{messageId}`) is NOT written
-    // here any more (perf-plan email senders, C1): sendEmailCascade's wrapper
-    // (scripts/lib/email-cascade.mjs, makeMailerooRefOnSent) already writes it,
-    // with the same document id and equivalent fields (`email`, `campaign_id`
-    // from the campaign_id tag, `is_job_alert: false`), right before this
-    // `onSent` runs. A second write was a pure duplicate on ~11k sends.
-    // Update subscriber-level counters
-    const subUpdate = {
-      last_sent_at: new Date(),
-      send_count: FieldValue ? FieldValue.increment(1) : 1,
-      updated_at: new Date(),
-    };
-    // Persist a freshly-resolved first name (display-name harvest / dataset
-    // email guess) so future sends read it from firstName instead of
-    // re-deriving. Only set when the doc had none (subscriberFromFirestoreRow
-    // leaves firstNameToPersist null otherwise) → never clobbers a stored name.
-    if (recipient.firstNameToPersist) subUpdate.firstName = recipient.firstNameToPersist;
-    if (FieldValue) {
-      // Keep the send counter and its derived score in the same parent write.
-      // This sender is also a recovery path if an ESP webhook is lost.
-      await db.runTransaction(async (transaction) => {
-        const snapshot = await transaction.get(subRef);
-        const current = snapshot.exists ? (snapshot.data() || {}) : {};
-        const scoreUpdate = buildEngagementScoreUpdate(current, FieldValue, {
-          subscriberUpdate: subUpdate,
-        });
-        transaction.set(subRef, { ...subUpdate, ...scoreUpdate }, { merge: true });
-      });
-    } else {
-      await subRef.set(subUpdate, { merge: true });
-    }
+    if (bookkeeper && firestoreFieldValue) await bookkeeper.persistSubscriber(recipient);
+    else await persistSubscriberSendTransaction(recipient);
   } catch (e) {
     // These secondary analytics/ref writes do not determine whether a delivery
     // was accepted. The durable receipt above already protects resume and keeps
     // article attribution available.
     console.warn('\u26a0\ufe0f Secondary delivery bookkeeping failed:', e?.message);
+  }
+}
+
+/** The per-email receipt transaction: the batch bookkeeper's fallback. */
+async function persistDeliveryReceiptTransaction(recipient, messageId, meta) {
+  const email = normalizeEmail(recipient.email);
+  const subRef = db.collection('newsletter_subscribers').doc(email);
+  const deliveryDocId = buildDeliveryDocId(meta.campaignId, email);
+  const deliveryRef = subRef.collection('campaign_deliveries').doc(deliveryDocId);
+  await db.runTransaction(async (transaction) => {
+    const snapshot = await transaction.get(deliveryRef);
+    const previous = snapshot.data() || {};
+    transaction.set(deliveryRef, buildDeliveryReceiptFields(previous, recipient, messageId, meta), { merge: true });
+  });
+}
+
+/**
+ * Subscriber-level counters of one accepted send: `send_count`, `last_sent_at`
+ * and, when this run owns a freshly-resolved first name, `firstName` (only set
+ * when the doc had none — subscriberFromFirestoreRow leaves firstNameToPersist
+ * null otherwise — so it never clobbers a stored name).
+ */
+function buildSubscriberSendUpdate(recipient, at = new Date()) {
+  const FieldValue = firestoreFieldValue;
+  const subUpdate = {
+    last_sent_at: at,
+    send_count: FieldValue ? FieldValue.increment(1) : 1,
+    updated_at: at,
+  };
+  if (recipient.firstNameToPersist) subUpdate.firstName = recipient.firstNameToPersist;
+  return subUpdate;
+}
+
+/** Fields to write for a subscriber, computed on `current` (a snapshot the caller guarantees). */
+function buildSubscriberSendFields(current, recipient, at = new Date()) {
+  const FieldValue = firestoreFieldValue;
+  if (!FieldValue) return null;
+  const subUpdate = buildSubscriberSendUpdate(recipient, at);
+  const scoreUpdate = buildEngagementScoreUpdate(current, FieldValue, {
+    subscriberUpdate: subUpdate,
+  });
+  return { ...subUpdate, ...scoreUpdate };
+}
+
+/**
+ * Subscriber-level counters (secondary write; the caller wraps it in try/catch).
+ * The per-email transaction, and the batch bookkeeper's fallback.
+ */
+async function persistSubscriberSendTransaction(recipient) {
+  const FieldValue = firestoreFieldValue;
+  const email = normalizeEmail(recipient.email);
+  const subRef = db.collection('newsletter_subscribers').doc(email);
+  // The Maileroo lookup record (`maileroo_refs/{messageId}`) is NOT written
+  // here any more (perf-plan email senders, C1): sendEmailCascade's wrapper
+  // (scripts/lib/email-cascade.mjs, makeMailerooRefOnSent) already writes it,
+  // with the same document id and equivalent fields (`email`, `campaign_id`
+  // from the campaign_id tag, `is_job_alert: false`), right before this
+  // `onSent` runs. A second write was a pure duplicate on ~11k sends.
+  // Update subscriber-level counters
+  const subUpdate = buildSubscriberSendUpdate(recipient);
+  if (FieldValue) {
+    // Keep the send counter and its derived score in the same parent write.
+    // This sender is also a recovery path if an ESP webhook is lost.
+    await db.runTransaction(async (transaction) => {
+      const snapshot = await transaction.get(subRef);
+      const current = snapshot.exists ? (snapshot.data() || {}) : {};
+      const scoreUpdate = buildEngagementScoreUpdate(current, FieldValue, {
+        subscriberUpdate: subUpdate,
+      });
+      transaction.set(subRef, { ...subUpdate, ...scoreUpdate }, { merge: true });
+    });
+  } else {
+    await subRef.set(subUpdate, { merge: true });
   }
 }
 
@@ -2123,6 +2360,27 @@ async function runNewsletterCascade(send, attemptId) {
   return result;
 }
 
+/**
+ * The batch bookkeeper wired to this sender's documents and its per-email
+ * transactions (the fallback). Exported for tests.
+ */
+export function buildNewsletterBookkeeper({ warn = (line) => console.warn(line), metrics = newsletterMetrics } = {}) {
+  return createNewsletterBookkeeper({
+    getDb: async () => db,
+    deliveryRefFor: (database, item) => deliveryReceiptRef(database, item),
+    buildIntentFields: buildDeliveryIntentFields,
+    claimTransaction: claimNewsletterDeliveryIntent,
+    buildReceiptFields: buildDeliveryReceiptFields,
+    receiptTransaction: persistDeliveryReceiptTransaction,
+    subscriberRefFor: (database, recipient) => database.collection('newsletter_subscribers').doc(normalizeEmail(recipient.email)),
+    subscriberSnapshotOf: (recipient) => subscriberSnapshots.get(normalizeEmail(recipient.email)) ?? null,
+    buildSubscriberFields: buildSubscriberSendFields,
+    subscriberTransaction: persistSubscriberSendTransaction,
+    metrics,
+    warn,
+  });
+}
+
 const NEWSLETTER_SEND_THROTTLE = Object.freeze({
   delayMs: 100,
   adaptiveThrottle: Object.freeze({ stepMs: 100, maxDelayMs: 1000 }),
@@ -2156,7 +2414,7 @@ async function sendEmailBatch(emails, finalizeForProvider, onDelivered, onQuaran
       variant,
       subject,
       scheduledFor: res.scheduledFor ?? null,
-    });
+    }, item);
     // Resume marking happens HERE, per confirmed send, not after the loop: a
     // crash partway through a multi-thousand-email run used to leave the whole
     // run unrecorded (#5415 §3.6).
@@ -2689,7 +2947,10 @@ async function main() {
     subscribers = [subscriber];
     console.log(`🧪 Dry-run target: ${subscriber.email}`);
   } else {
-    subscribers = await fetchSubscribers();
+    // Audience: the full scan, or (resumes, NEWSLETTER_AUDIENCE_SCAN_MODE) the frozen
+    // audience of the campaign plus its delta. Everyone still passes the consent and
+    // suppression predicate on every run, before the claim.
+    subscribers = await resolveSendAudience(campaignId, attemptedForCampaign);
     console.log(`\ud83d\udce8 Send mode: ${subscribers.length} active subscribers`);
 
     // Per-user send-time (#3798): fetchSubscribers() (only reached in the real
@@ -2699,7 +2960,9 @@ async function main() {
     // global fallback for its own recipients -- real sends only, guarded
     // explicitly even though this branch is currently the only caller.
     globalPreferredHour = subscribers.globalPreferredHour || { hourUtc: null, sampleUsers: 0 };
-    if (mode === 'send' && db) {
+    // The frozen audience carries the hour its first scan computed from every row: a
+    // resume has not read the rest of the collection, so it neither recomputes nor rewrites it.
+    if (mode === 'send' && db && subscribers.audienceSource !== 'frozen') {
       try {
         // Written only when it changes (perf-plan email senders, C5): every write to
         // newsletter_subscribers/_meta_ fires three Cloud Functions, and the hour is
@@ -3290,6 +3553,12 @@ async function main() {
   const resume = mode === 'send' && db
     ? createResumeWriter(db, resumeLogOpts(campaignId), resumeChunkState(resumeState.chunkSizes || []))
     : null;
+  // Batch bookkeeping (perf-plan email senders, point 3). `NEWSLETTER_BATCH_BOOKKEEPING`
+  // = `on` (default) | `off`: `off` is the kill switch back to the per-email
+  // transactions. A failed batch always falls back to them, never to a send without intent.
+  const bookkeepingMode = resolveBatchBookkeepingMode(process.env.NEWSLETTER_BATCH_BOOKKEEPING);
+  activeBookkeeper = mode === 'send' && db && bookkeepingMode === 'on' ? buildNewsletterBookkeeper() : null;
+  newsletterMetrics.set('bookkeepingMode', activeBookkeeper ? 'batch' : 'transactions');
   let sendResult;
   try {
     sendResult = await sendEmailBatch(
@@ -3303,11 +3572,14 @@ async function main() {
         await resume.recordAmbiguous(email);
       } : null,
       mode === 'send' && db
-        ? (item, provider) => claimNewsletterDeliveryIntent(item, provider, deliveryAttemptId)
+        ? (item, provider) => (activeBookkeeper
+          ? activeBookkeeper.requestIntent(item, provider, deliveryAttemptId)
+          : claimNewsletterDeliveryIntent(item, provider, deliveryAttemptId))
         : null,
       deliveryAttemptId,
     );
   } finally {
+    if (activeBookkeeper) activeBookkeeper.flush();
     // Preserve checkpoints from confirmed in-flight sends even if a quarantine
     // write causes the cascade to fail after it settles the active workers.
     if (resume) await resume.flush();

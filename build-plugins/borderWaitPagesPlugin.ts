@@ -2585,8 +2585,8 @@ interface HubInputs {
  * Render the all-crossings root hub as compact cards rather than repeating the
  * mobile table utility classes and column labels 143 times. Regional hubs keep
  * the accessible table because their smaller scopes benefit from the explicit
- * column layout; the root hub needs the card layout to stay within the shared
- * page-weight budget as the crossing registry grows.
+ * column layout; the root hub uses cards to keep the complete crossing list
+ * easy to scan as the registry grows.
  */
 function renderRootCrossingList(inp: {
   locale: BorderWaitLocale;
@@ -2659,8 +2659,7 @@ function renderHubPage(inp: HubInputs): string {
   const introTagline = taglineByLocale[locale];
 
   // Build the live crossing surface. Regional hubs use a table; the root hub
-  // uses compact cards because repeating the responsive table classes and
-  // mobile labels for all 160 crossings exceeded the page-weight budget. Each
+  // uses compact cards to keep the full list easy to scan on mobile. Each
   // item carries data-bw-crossing so the shared hydration asset can swap the
   // pre-rendered minute count, date and source at runtime. The source→label
   // map is locale-invariant → build once here, not per item. Live sources only

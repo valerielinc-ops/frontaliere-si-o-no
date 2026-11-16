@@ -32,7 +32,7 @@ disponibile.
 | C | nessuna evidenza di impatto | rosso + issue P3, `publish` procede | rosso, issue P3 |
 
 B: `audit:max-bfs-depth`, `audit:orphan-sitemap-pages`, `audit:hreflang`,
-`audit:all/information-gain`, `audit:all/page-weight`.
+`audit:all/information-gain`.
 `audit:all/faqpage-validity` è passato da A a C (rich result FAQ solo per siti
 governativi/sanitari dal 2023-09-14).
 
@@ -99,7 +99,6 @@ default-deny to blocking:
 | jsonld-no-nested-scripts | **hard** | breaks JSON-LD parsing entirely — Google cannot read the structured data at all |
 | h1-title-duplicates | nice-to-have | Semrush "duplicate H1/title" style rule; already `QUALITY_GATES` |
 | salary-landing-template | nice-to-have | UI/UX template drift, not a Google signal; already `QUALITY_GATES` |
-| page-weight | nice-to-have | byte-size heuristic, not a literal Google requirement; already `QUALITY_GATES` |
 | content-duplicates | nice-to-have | exact-duplicate body heuristic within locale; already `QUALITY_GATES` |
 | faqpage-validity | **hard** | FAQPage structured-data validity — invalid markup, not eligible for rich results |
 | no-literal-markdown | nice-to-have | leaked markdown syntax is a rendering blemish, page still serves; already `QUALITY_GATES` |
@@ -193,6 +192,20 @@ imageObjectLd({
   copyrightNotice: `© ${webcam.sourceName}`,
 })
 ```
+
+## 3b. Image attributes (CLS)
+
+**Why.** Every rendered `<img>` must reserve its dimensions before the image
+loads. Missing `width` or `height` can shift surrounding content, while
+missing `loading`/`fetchpriority="high"` leaves the loading contract implicit.
+
+**Where.**
+- Local audit: `npm run audit:img-attributes`
+- Unified/replay audit: `img-attributes` inside `audit:all` and `audit-dist-multi`
+- CI: asynchronous published-dist audits and the post-build matrix
+
+The audit has no HTML-size threshold. It reports the offending page, the
+missing attributes, and the first offending image tag, then exits non-zero.
 
 ---
 

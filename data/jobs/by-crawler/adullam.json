@@ -1,7 +1,7 @@
 {
   "crawlerKey": "adullam",
-  "assembledAt": "2026-11-15T09:26:30.457Z",
-  "runId": "43698565663",
+  "assembledAt": "2026-11-16T09:23:32.397Z",
+  "runId": "43838527664",
   "jobs": [
     {
       "id": "adullam-17c8725593e5",
@@ -34,7 +34,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4009855",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:26:23.779Z",
+      "crawledAt": "2026-11-16T09:23:26.847Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -85,8 +85,9 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:26:23.779Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-16T09:23:26.847Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://live.solique.ch/adullam/job/details/4009855"
     },
     {
       "id": "adullam-c87d7de18805",
@@ -120,7 +121,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4029980",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:26:23.198Z",
+      "crawledAt": "2026-11-16T09:23:26.076Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -152,7 +153,7 @@
           "dipl-pflegefachperson-hf-fh-adullam-basel"
         ]
       },
-      "firstSeenAt": "2026-11-04T09:33:00.764Z",
+      "firstSeenAt": "2026-06-30T10:48:22.165Z",
       "salaryMin": 88000,
       "salaryMax": 123000,
       "salarySource": "estimated",
@@ -168,8 +169,9 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:26:23.198Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-16T09:23:26.076Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://live.solique.ch/adullam/job/details/4029980"
     },
     {
       "id": "adullam-cc3f32ef6ed8",
@@ -203,7 +205,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4019248",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:26:22.655Z",
+      "crawledAt": "2026-11-16T09:23:25.410Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -253,8 +255,9 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:26:22.655Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-16T09:23:25.410Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://live.solique.ch/adullam/job/details/4019248"
     },
     {
       "id": "adullam-62db41a27a1e",
@@ -288,7 +291,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4052086",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:26:22.092Z",
+      "crawledAt": "2026-11-16T09:23:24.820Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -342,8 +345,9 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:26:22.092Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-16T09:23:24.820Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://live.solique.ch/adullam/job/details/4052086"
     },
     {
       "id": "adullam-c0f247f28ec9",
@@ -377,7 +381,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4028198",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:26:21.546Z",
+      "crawledAt": "2026-11-16T09:23:24.200Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -475,8 +479,9 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:26:21.546Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-16T09:23:24.200Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://live.solique.ch/adullam/job/details/4028198"
     },
     {
       "id": "adullam-52a46b27f39c",
@@ -510,7 +515,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4044685",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:26:20.997Z",
+      "crawledAt": "2026-11-16T09:23:23.611Z",
       "addressLocality": "Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -566,8 +571,9 @@
       },
       "streetAddress": "Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:26:20.997Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-16T09:23:23.611Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://live.solique.ch/adullam/job/details/4044685"
     },
     {
       "id": "adullam-35e9f8c11f46",
@@ -601,7 +607,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4044764",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:26:20.441Z",
+      "crawledAt": "2026-11-16T09:23:23.013Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -661,8 +667,94 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:26:20.441Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-16T09:23:23.013Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://live.solique.ch/adullam/job/details/4044764"
+    },
+    {
+      "id": "adullam-374981c1eec2",
+      "slug": "dipl-infermiera-infermiera-specialista-hf-adullam-stiftung-basel-e579f7",
+      "slugByLocale": {
+        "de": "dipl-pflegefachfrau-pflegefachmann-hf-adullam-basel",
+        "it": "dipl-infermiera-infermiera-specialista-hf-adullam-stiftung-basel-e579f7",
+        "en": "dipl-nurse-nurse-specialist-hf-adullam-stiftung-basel-e579f7",
+        "fr": "dipl-infirmiere-infirmiere-specialiste-hf-adullam-stiftung-basel-e579f7"
+      },
+      "company": "Adullam-Stiftung",
+      "companyKey": "adullam",
+      "companyDomain": "adullam.ch",
+      "title": "Dipl. Pflegefachfrau / Pflegefachmann HF",
+      "titleByLocale": {
+        "de": "Dipl. Pflegefachfrau / Pflegefachmann HF",
+        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF",
+        "en": "Dipl. Pflegefachfrau / Pflegefachmann HF",
+        "fr": "Dipl. Pflegefachfrau / Pflegefachmann HF"
+      },
+      "description": "Manchmal braucht es einen Ort, an dem nicht alles schneller werden muss - sondern bewusster. Bei uns steht der Mensch im Mittelpunkt: Unsere Patientinnen und Patienten genauso wie unsere Mitarbeitenden. Wir glauben daran, dass gute Pflege dort entsteht, wo Fachkompetenz, Verantwortung und Menschlichkeit zusammenwirken.\n\nFür unsere Spital in Basel, suchen wir per sofort eine Persönlichkeit, die genau diesen Weg mit uns gehen möchte: Dipl. Pflegefachfrau / Pflegefachmann HF 80 - 100% | Standort Basel Dein Beitrag\n• Du bringst Pflegequalität und individuelle Bedürfnisse unserer Patientinnen und Patienten in Einklang\n• Du verantwortest den pflegediagnostischen Prozess (nach NANDA) und stellst eine strukturierte, fachlich fundierte Pflege sicher\n• Du begleitest und förderst Auszubildende FaGe sowie Studierende HF in ihrem Lernprozess\n• Du vertrittst den Pflegedienst aktiv im interprofessionellen Team Was dich auszeichnet\n• Abschluss als dipl. Pflegefachfrau/-mann HF/FH oder gleichwertige Ausbildung mit SRK-Anerkennung\n• Erfahrung im Akutspital oder in der Rehabilitation\n• Eine offene, lösungsorientierte und initiative Arbeitsweise\n• Hohe Sozialkompetenz, Zuverlässigkeit und Verantwortungsbewusstsein\n• Sehr gute Deutschkenntnisse sowie sichere IT-Anwenderkenntnisse Darauf kannst Du Dich freuen Dich erwartet eine abwechslungsreiche und verantwortungsvolle Aufgabe in einer renommierten Basler Institution. Bei uns arbeitest Du in einem engagierten Team, das Menschlichkeit, gegenseitige Wertschätzung und eine hohe Pflegequalität täglich lebt. Wenn Du den Kontakt mit älteren Menschen schätzt und deine Erfahrungen in einem spezialisierten geriatrischen Umfeld einbringen möchtest, freuen wir uns auf Deine Online-Bewerbung mit vollstän-digem Bewerbungsdossier. Für Fragen steht Dir Madeleine Schulz, Stationsleiterin, unter +41 61 266 82 60 gerne zur Verfügung. Unser Angebot Job-Ticket TNW zum Jugendtarif Personalrestaurant mit vergünstigtem Essen Bezahlte Pause mit Gratis-Znüni Grosszügige Unterstützung bei externen Weiterbildungen Faire Sozialleistungen und attraktive Ferienregelung Vorsorgeleistung, auch bei tiefen Teilzeitpensen Attraktive Teilzeitmodelle und Jahresarbeitszeit Externe betriebliche Sozialberatung für Mitarbeitende Herzliche Willkommenskultur und wertschätzendes Arbeitsumfeld Keine Nachtdienste Boni für spontanes Einspringen\n\nDie Adullam-Stiftung ist eine führende Institution für Altersmedizin, Therapie und Pflege in der Nordwestschweiz. Sie betreibt in Basel und Riehen je ein Spital und ein angegliedertes Pflegezentrum. Die rund 800 Mitarbeitenden bieten betagten Menschen eine regional einzigartige Rundumversorgung von der Akutmedizin über die Rehabilitation bis zur Übergangs- und Langzeitpflege. Zur ganzheitlichen Betreuung im Adullam zählen ein hoher Qualitätsanspruch, gelebte Menschlichkeit und grosser Respekt vor dem Alter.\n\nAnstellung: Unbefristet\n\nPensum: 80-100%",
+      "descriptionByLocale": {
+        "de": "Manchmal braucht es einen Ort, an dem nicht alles schneller werden muss - sondern bewusster. Bei uns steht der Mensch im Mittelpunkt: Unsere Patientinnen und Patienten genauso wie unsere Mitarbeitenden. Wir glauben daran, dass gute Pflege dort entsteht, wo Fachkompetenz, Verantwortung und Menschlichkeit zusammenwirken.\n\nFür unsere Spital in Basel, suchen wir per sofort eine Persönlichkeit, die genau diesen Weg mit uns gehen möchte: Dipl. Pflegefachfrau / Pflegefachmann HF 80 - 100% | Standort Basel Dein Beitrag\n• Du bringst Pflegequalität und individuelle Bedürfnisse unserer Patientinnen und Patienten in Einklang\n• Du verantwortest den pflegediagnostischen Prozess (nach NANDA) und stellst eine strukturierte, fachlich fundierte Pflege sicher\n• Du begleitest und förderst Auszubildende FaGe sowie Studierende HF in ihrem Lernprozess\n• Du vertrittst den Pflegedienst aktiv im interprofessionellen Team Was dich auszeichnet\n• Abschluss als dipl. Pflegefachfrau/-mann HF/FH oder gleichwertige Ausbildung mit SRK-Anerkennung\n• Erfahrung im Akutspital oder in der Rehabilitation\n• Eine offene, lösungsorientierte und initiative Arbeitsweise\n• Hohe Sozialkompetenz, Zuverlässigkeit und Verantwortungsbewusstsein\n• Sehr gute Deutschkenntnisse sowie sichere IT-Anwenderkenntnisse Darauf kannst Du Dich freuen Dich erwartet eine abwechslungsreiche und verantwortungsvolle Aufgabe in einer renommierten Basler Institution. Bei uns arbeitest Du in einem engagierten Team, das Menschlichkeit, gegenseitige Wertschätzung und eine hohe Pflegequalität täglich lebt. Wenn Du den Kontakt mit älteren Menschen schätzt und deine Erfahrungen in einem spezialisierten geriatrischen Umfeld einbringen möchtest, freuen wir uns auf Deine Online-Bewerbung mit vollstän-digem Bewerbungsdossier. Für Fragen steht Dir Madeleine Schulz, Stationsleiterin, unter +41 61 266 82 60 gerne zur Verfügung. Unser Angebot Job-Ticket TNW zum Jugendtarif Personalrestaurant mit vergünstigtem Essen Bezahlte Pause mit Gratis-Znüni Grosszügige Unterstützung bei externen Weiterbildungen Faire Sozialleistungen und attraktive Ferienregelung Vorsorgeleistung, auch bei tiefen Teilzeitpensen Attraktive Teilzeitmodelle und Jahresarbeitszeit Externe betriebliche Sozialberatung für Mitarbeitende Herzliche Willkommenskultur und wertschätzendes Arbeitsumfeld Keine Nachtdienste Boni für spontanes Einspringen\n\nDie Adullam-Stiftung ist eine führende Institution für Altersmedizin, Therapie und Pflege in der Nordwestschweiz. Sie betreibt in Basel und Riehen je ein Spital und ein angegliedertes Pflegezentrum. Die rund 800 Mitarbeitenden bieten betagten Menschen eine regional einzigartige Rundumversorgung von der Akutmedizin über die Rehabilitation bis zur Übergangs- und Langzeitpflege. Zur ganzheitlichen Betreuung im Adullam zählen ein hoher Qualitätsanspruch, gelebte Menschlichkeit und grosser Respekt vor dem Alter.\n\nAnstellung: Unbefristet\n\nPensum: 80-100%",
+        "it": "Manchmal braucht es einen Ort, an dem nicht alles schneller werden muss - sondern bewusster. Bei uns steht der Mensch im Mittelpunkt: Unsere Patientinnen und Patienten genauso wie unsere Mitarbeitenden. Wir glauben daran, dass gute Pflege dort entsteht, wo Fachkompetenz, Verantwortung und Menschlichkeit zusammenwirken.\n\nFür unsere Spital in Basel, suchen wir per sofort eine Persönlichkeit, die genau diesen Weg mit uns gehen möchte: Dipl. Pflegefachfrau / Pflegefachmann HF 80 - 100% | Standort Basel Dein Beitrag\n• Du bringst Pflegequalität und individuelle Bedürfnisse unserer Patientinnen und Patienten in Einklang\n• Du verantwortest den pflegediagnostischen Prozess (nach NANDA) und stellst eine strukturierte, fachlich fundierte Pflege sicher\n• Du begleitest und förderst Auszubildende FaGe sowie Studierende HF in ihrem Lernprozess\n• Du vertrittst den Pflegedienst aktiv im interprofessionellen Team Was dich auszeichnet\n• Abschluss als dipl. Pflegefachfrau/-mann HF/FH oder gleichwertige Ausbildung mit SRK-Anerkennung\n• Erfahrung im Akutspital oder in der Rehabilitation\n• Eine offene, lösungsorientierte und initiative Arbeitsweise\n• Hohe Sozialkompetenz, Zuverlässigkeit und Verantwortungsbewusstsein\n• Sehr gute Deutschkenntnisse sowie sichere IT-Anwenderkenntnisse Darauf kannst Du Dich freuen Dich erwartet eine abwechslungsreiche und verantwortungsvolle Aufgabe in einer renommierten Basler Institution. Bei uns arbeitest Du in einem engagierten Team, das Menschlichkeit, gegenseitige Wertschätzung und eine hohe Pflegequalität täglich lebt. Wenn Du den Kontakt mit älteren Menschen schätzt und deine Erfahrungen in einem spezialisierten geriatrischen Umfeld einbringen möchtest, freuen wir uns auf Deine Online-Bewerbung mit vollstän-digem Bewerbungsdossier. Für Fragen steht Dir Madeleine Schulz, Stationsleiterin, unter +41 61 266 82 60 gerne zur Verfügung. Unser Angebot Job-Ticket TNW zum Jugendtarif Personalrestaurant mit vergünstigtem Essen Bezahlte Pause mit Gratis-Znüni Grosszügige Unterstützung bei externen Weiterbildungen Faire Sozialleistungen und attraktive Ferienregelung Vorsorgeleistung, auch bei tiefen Teilzeitpensen Attraktive Teilzeitmodelle und Jahresarbeitszeit Externe betriebliche Sozialberatung für Mitarbeitende Herzliche Willkommenskultur und wertschätzendes Arbeitsumfeld Keine Nachtdienste Boni für spontanes Einspringen\n\nDie Adullam-Stiftung ist eine führende Institution für Altersmedizin, Therapie und Pflege in der Nordwestschweiz. Sie betreibt in Basel und Riehen je ein Spital und ein angegliedertes Pflegezentrum. Die rund 800 Mitarbeitenden bieten betagten Menschen eine regional einzigartige Rundumversorgung von der Akutmedizin über die Rehabilitation bis zur Übergangs- und Langzeitpflege. Zur ganzheitlichen Betreuung im Adullam zählen ein hoher Qualitätsanspruch, gelebte Menschlichkeit und grosser Respekt vor dem Alter.\n\nAnstellung: Unbefristet\n\nPensum: 80-100%",
+        "en": "Manchmal braucht es einen Ort, an dem nicht alles schneller werden muss - sondern bewusster. Bei uns steht der Mensch im Mittelpunkt: Unsere Patientinnen und Patienten genauso wie unsere Mitarbeitenden. Wir glauben daran, dass gute Pflege dort entsteht, wo Fachkompetenz, Verantwortung und Menschlichkeit zusammenwirken.\n\nFür unsere Spital in Basel, suchen wir per sofort eine Persönlichkeit, die genau diesen Weg mit uns gehen möchte: Dipl. Pflegefachfrau / Pflegefachmann HF 80 - 100% | Standort Basel Dein Beitrag\n• Du bringst Pflegequalität und individuelle Bedürfnisse unserer Patientinnen und Patienten in Einklang\n• Du verantwortest den pflegediagnostischen Prozess (nach NANDA) und stellst eine strukturierte, fachlich fundierte Pflege sicher\n• Du begleitest und förderst Auszubildende FaGe sowie Studierende HF in ihrem Lernprozess\n• Du vertrittst den Pflegedienst aktiv im interprofessionellen Team Was dich auszeichnet\n• Abschluss als dipl. Pflegefachfrau/-mann HF/FH oder gleichwertige Ausbildung mit SRK-Anerkennung\n• Erfahrung im Akutspital oder in der Rehabilitation\n• Eine offene, lösungsorientierte und initiative Arbeitsweise\n• Hohe Sozialkompetenz, Zuverlässigkeit und Verantwortungsbewusstsein\n• Sehr gute Deutschkenntnisse sowie sichere IT-Anwenderkenntnisse Darauf kannst Du Dich freuen Dich erwartet eine abwechslungsreiche und verantwortungsvolle Aufgabe in einer renommierten Basler Institution. Bei uns arbeitest Du in einem engagierten Team, das Menschlichkeit, gegenseitige Wertschätzung und eine hohe Pflegequalität täglich lebt. Wenn Du den Kontakt mit älteren Menschen schätzt und deine Erfahrungen in einem spezialisierten geriatrischen Umfeld einbringen möchtest, freuen wir uns auf Deine Online-Bewerbung mit vollstän-digem Bewerbungsdossier. Für Fragen steht Dir Madeleine Schulz, Stationsleiterin, unter +41 61 266 82 60 gerne zur Verfügung. Unser Angebot Job-Ticket TNW zum Jugendtarif Personalrestaurant mit vergünstigtem Essen Bezahlte Pause mit Gratis-Znüni Grosszügige Unterstützung bei externen Weiterbildungen Faire Sozialleistungen und attraktive Ferienregelung Vorsorgeleistung, auch bei tiefen Teilzeitpensen Attraktive Teilzeitmodelle und Jahresarbeitszeit Externe betriebliche Sozialberatung für Mitarbeitende Herzliche Willkommenskultur und wertschätzendes Arbeitsumfeld Keine Nachtdienste Boni für spontanes Einspringen\n\nDie Adullam-Stiftung ist eine führende Institution für Altersmedizin, Therapie und Pflege in der Nordwestschweiz. Sie betreibt in Basel und Riehen je ein Spital und ein angegliedertes Pflegezentrum. Die rund 800 Mitarbeitenden bieten betagten Menschen eine regional einzigartige Rundumversorgung von der Akutmedizin über die Rehabilitation bis zur Übergangs- und Langzeitpflege. Zur ganzheitlichen Betreuung im Adullam zählen ein hoher Qualitätsanspruch, gelebte Menschlichkeit und grosser Respekt vor dem Alter.\n\nAnstellung: Unbefristet\n\nPensum: 80-100%",
+        "fr": "Manchmal braucht es einen Ort, an dem nicht alles schneller werden muss - sondern bewusster. Bei uns steht der Mensch im Mittelpunkt: Unsere Patientinnen und Patienten genauso wie unsere Mitarbeitenden. Wir glauben daran, dass gute Pflege dort entsteht, wo Fachkompetenz, Verantwortung und Menschlichkeit zusammenwirken.\n\nFür unsere Spital in Basel, suchen wir per sofort eine Persönlichkeit, die genau diesen Weg mit uns gehen möchte: Dipl. Pflegefachfrau / Pflegefachmann HF 80 - 100% | Standort Basel Dein Beitrag\n• Du bringst Pflegequalität und individuelle Bedürfnisse unserer Patientinnen und Patienten in Einklang\n• Du verantwortest den pflegediagnostischen Prozess (nach NANDA) und stellst eine strukturierte, fachlich fundierte Pflege sicher\n• Du begleitest und förderst Auszubildende FaGe sowie Studierende HF in ihrem Lernprozess\n• Du vertrittst den Pflegedienst aktiv im interprofessionellen Team Was dich auszeichnet\n• Abschluss als dipl. Pflegefachfrau/-mann HF/FH oder gleichwertige Ausbildung mit SRK-Anerkennung\n• Erfahrung im Akutspital oder in der Rehabilitation\n• Eine offene, lösungsorientierte und initiative Arbeitsweise\n• Hohe Sozialkompetenz, Zuverlässigkeit und Verantwortungsbewusstsein\n• Sehr gute Deutschkenntnisse sowie sichere IT-Anwenderkenntnisse Darauf kannst Du Dich freuen Dich erwartet eine abwechslungsreiche und verantwortungsvolle Aufgabe in einer renommierten Basler Institution. Bei uns arbeitest Du in einem engagierten Team, das Menschlichkeit, gegenseitige Wertschätzung und eine hohe Pflegequalität täglich lebt. Wenn Du den Kontakt mit älteren Menschen schätzt und deine Erfahrungen in einem spezialisierten geriatrischen Umfeld einbringen möchtest, freuen wir uns auf Deine Online-Bewerbung mit vollstän-digem Bewerbungsdossier. Für Fragen steht Dir Madeleine Schulz, Stationsleiterin, unter +41 61 266 82 60 gerne zur Verfügung. Unser Angebot Job-Ticket TNW zum Jugendtarif Personalrestaurant mit vergünstigtem Essen Bezahlte Pause mit Gratis-Znüni Grosszügige Unterstützung bei externen Weiterbildungen Faire Sozialleistungen und attraktive Ferienregelung Vorsorgeleistung, auch bei tiefen Teilzeitpensen Attraktive Teilzeitmodelle und Jahresarbeitszeit Externe betriebliche Sozialberatung für Mitarbeitende Herzliche Willkommenskultur und wertschätzendes Arbeitsumfeld Keine Nachtdienste Boni für spontanes Einspringen\n\nDie Adullam-Stiftung ist eine führende Institution für Altersmedizin, Therapie und Pflege in der Nordwestschweiz. Sie betreibt in Basel und Riehen je ein Spital und ein angegliedertes Pflegezentrum. Die rund 800 Mitarbeitenden bieten betagten Menschen eine regional einzigartige Rundumversorgung von der Akutmedizin über die Rehabilitation bis zur Übergangs- und Langzeitpflege. Zur ganzheitlichen Betreuung im Adullam zählen ein hoher Qualitätsanspruch, gelebte Menschlichkeit und grosser Respekt vor dem Alter.\n\nAnstellung: Unbefristet\n\nPensum: 80-100%"
+      },
+      "needsRetranslation": true,
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://live.solique.ch/adullam/job/details/4049813",
+      "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-16T09:23:22.424Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4001",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://live.solique.ch/adullam/job/details/4049813",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "4049813",
+      "pensumMin": 80,
+      "pensumMax": 100,
+      "pensum": "80 - 100%",
+      "contractDuration": "permanent",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-adullam-basel"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-adullam-basel"
+      ],
+      "salaryMin": 88000,
+      "salaryMax": 123000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 88000,
+          "maxValue": 123000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-16T09:23:22.424Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-07-27T13:01:14.308Z"
     },
     {
       "id": "adullam-a8ad282b351a",
@@ -696,7 +788,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4064701",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:26:19.338Z",
+      "crawledAt": "2026-11-16T09:23:21.812Z",
       "addressLocality": "Basel und Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -755,8 +847,9 @@
       },
       "streetAddress": "Basel und Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:26:19.338Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-16T09:23:21.812Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://live.solique.ch/adullam/job/details/4064701"
     },
     {
       "id": "adullam-2d11d6f049fd",
@@ -790,7 +883,7 @@
       "url": "https://live.solique.ch/adullam/job/details/4087150",
       "source": "Adullam-Stiftung Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:26:18.726Z",
+      "crawledAt": "2026-11-16T09:23:21.181Z",
       "addressLocality": "Basel und Riehen",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -844,8 +937,9 @@
       },
       "streetAddress": "Basel und Riehen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:26:18.726Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-16T09:23:21.181Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://live.solique.ch/adullam/job/details/4087150"
     }
   ]
 }

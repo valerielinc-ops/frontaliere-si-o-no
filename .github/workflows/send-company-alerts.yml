@@ -2,25 +2,38 @@ name: Send CompanyAlert Emails (immediate)
 
 # CompanyAlert immediate cadence — issue #5012 phase 2.
 #
-# Trigger, not a cron: the issue asks for "immediato (email per ogni nuovo
-# job)", and the daily digest (send-job-alerts.yml, 00:33 UTC) cannot deliver
-# that. The crawlers and publisher-jobs-sync COMMIT the new listings to
-# data/jobs/by-crawler/*.json (scripts/lib/git-commit-data.sh --slice-only), so
-# a push filter on that path is literally "a new job was published" — no
-# polling, no 30-min cron burning CI minutes 48× a day.
+# Trigger: explicit dispatch from the post-publish workflow after the live
+# identity is verified, plus an hourly safety-net cron. The daily digest
+# (send-job-alerts.yml, 00:33 UTC) cannot deliver "immediato (email per ogni
+# nuovo job)".
 #
-# The hourly cron is a safety net only: a push run can be skipped when Actions
-# is congested or when a crawler group commits while another run is in flight
-# (concurrency below is cancel-in-progress: false, so runs queue rather than
-# cancel — but GitHub keeps at most one pending run per group and drops the
-# rest). The sender is idempotent by construction (per-alert sentJobIds), so an
-# extra run is free.
+# WHY NOT `push` ANY MORE (perf-plan email senders, point 1). The old trigger was a
+# push filter on data/jobs/by-crawler/**: the commit the crawlers make when a new
+# listing lands. That happens BEFORE the deploy publishes the pages, so an email
+# could link a page that was not online yet, and the filter fired ~34 times a day
+# (another ~35 runs cancelled). The workflow that carries the build is
+# `Deploy to GitHub Pages` (deploy.yml), but it only BUILDS: the pages go online in
+# `Publish to GitHub Pages (deploy + validate)` (deploy-publish.yml). Its
+# post-publish job dispatches this workflow only after the live identity matches
+# the published source SHA.
+#
+# Before claiming anything, the sender defers every job whose page is not in the
+# build's manifest of published pages (scripts/lib/company-alert-publication-gate.mjs):
+# not sent, not marked in sentJobIds, retried by the next run. The novelty window
+# is 48 h (COMPANY_ALERT_IMMEDIATE_WINDOW_HOURS) so a delayed deploy cannot make a
+# job fall out of it unsent.
+#
+# The hourly cron stays: a deploy can publish and still end red (a post-publish
+# check), or an explicit dispatch can be skipped when Actions is congested. The
+# sender is idempotent by construction (per-alert sentJobIds), so an extra run is
+# free; on the cron path the per-page HTTP check answers when the manifest is not
+# usable.
+#
+# REVERT (kill switch of the trigger, which cannot be a Remote Config flag because
+# it lives in this YAML): restore the hourly schedule under `on:`. The filter
+# itself switches off with COMPANY_ALERT_LIVE_LINK_FILTER=off.
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'data/jobs/by-crawler/**'
   schedule:
     # Hourly safety net at :41 — off the :00/:15/:30/:45 marks GitHub Actions
     # deprioritizes under load (same reasoning as send-job-alerts.yml's :33),
@@ -38,26 +51,60 @@ on:
         required: false
         default: true
         type: boolean
-concurrency:
-  # Never two concurrent runs: both would read the same pre-send sentJobIds and
-  # could mail the same job twice before either persists the dedup map.
-  group: company-alerts
-  cancel-in-progress: false
-
+      source_sha:
+        description: 'Published source SHA to use for the dataset checkout.'
+        required: false
+        default: ''
+        type: string
+      source_run_id:
+        description: 'Published source run ID for trigger evidence.'
+        required: false
+        default: ''
+        type: string
 permissions:
   contents: read
   issues: write # github-issue-creator on failure
 
+# GATE: explicit post-publish dispatches are admitted only after the caller's
+# live-identity check; cron and manual runs proceed independently.
 jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      proceed: ${{ steps.decide.outputs.proceed }}
+    steps:
+      - name: Decide
+        id: decide
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          SOURCE_RUN_ID: ${{ inputs.source_run_id || '' }}
+          SOURCE_SHA: ${{ inputs.source_sha || '' }}
+        run: |
+          echo "proceed=true" >> "$GITHUB_OUTPUT"
+          echo "CompanyAlert trigger: $EVENT_NAME source_run=${SOURCE_RUN_ID:-none} source_sha=${SOURCE_SHA:-none}"
+
   send-company-alerts:
+    needs: gate
+    if: needs.gate.outputs.proceed == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    # Never two concurrent runs: both would read the same pre-send sentJobIds and
+    # could mail the same job twice before either persists the dedup map. On the
+    # real job, not the workflow, so an inert trigger never occupies the group.
+    concurrency:
+      group: company-alerts
+      cancel-in-progress: false
 
     steps:
       - name: Checkout
         uses: actions/checkout@v7
         with:
           fetch-depth: 1
+          # Post-publish dispatches pin the checkout to the source that was
+          # verified live. Cron and manual runs keep the default ref (the tip of
+          # main).
+          ref: ${{ inputs.source_sha || github.sha }}
 
       # node_modules in cache (perf-plan email senders, A3/B4): chiave sul lockfile
       # e sulla major di Node, `npm ci` solo su miss. Il sender gira fino a ~37
@@ -84,7 +131,7 @@ jobs:
       # tests/email-senders-workflow-perimeter.test.ts: una chiave nuova letta dal
       # codice e non elencata qui fa fallire la CI, non il job in produzione.
       - name: Load secrets from Remote Config
-        run: node scripts/load-rc-env.mjs --only-env=CF_ACCOUNT_ID,CF_API_TOKEN,CLOUDFLARE_EMAIL_API_TOKEN,ENABLE_JOB_ALERTS,MAILEROO_ACCOUNT_API_KEY,MAILEROO_API_KEY,MAILEROO_NEWSLETTER_API_KEY,MAILEROO_TRANSACTIONAL_API_KEY,MAILGUN_API_KEY,MAILGUN_DOMAIN,MAILJET_API_KEY,MAILJET_SECRET_KEY,MAILTRAP_API_TOKEN,NEWSLETTER_SECRET,RESEND_API_KEY
+        run: node scripts/load-rc-env.mjs --only-env=CF_ACCOUNT_ID,CF_API_TOKEN,CLOUDFLARE_EMAIL_API_TOKEN,COMPANY_ALERT_IMMEDIATE_WINDOW_HOURS,COMPANY_ALERT_LIVE_LINK_FILTER,ENABLE_JOB_ALERTS,JOB_ALERT_LIVE_LINK_MANIFEST,JOB_ALERT_LIVE_LINK_MANIFEST_MAX_AGE_HOURS,MAILEROO_ACCOUNT_API_KEY,MAILEROO_API_KEY,MAILEROO_NEWSLETTER_API_KEY,MAILEROO_TRANSACTIONAL_API_KEY,MAILGUN_API_KEY,MAILGUN_DOMAIN,MAILJET_API_KEY,MAILJET_SECRET_KEY,MAILTRAP_API_TOKEN,NEWSLETTER_SECRET,RESEND_API_KEY
 
       # data/jobs.json is gitignored — it is assembled from the committed
       # by-crawler slices. The sender reads firstSeenAt off it.

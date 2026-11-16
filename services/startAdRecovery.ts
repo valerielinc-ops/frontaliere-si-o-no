@@ -4,7 +4,7 @@ import { installAdRecovery } from './adRecovery';
 import { probeIabAdBlock } from './iabAdBlockProbe';
 import { createAdScriptLoader } from './adScriptLoader';
 import { emitAdDiagnostic } from './adDiagnostics';
-import { isLikelyBot } from './botPatterns';
+import { isLikelyBot, isLikelySearchCrawler } from './botPatterns';
 import { hasActiveReaderNoAdsEntitlement, onReaderEntitlementChange } from './readerEntitlement';
 import { sanitizeTelemetryProperties } from './analyticsUrlPrivacy.js';
 import { isSensitiveThirdPartyDocument } from './thirdPartyDocumentPrivacy.js';
@@ -16,7 +16,7 @@ import { READER_SUBSCRIPTION_PATHS } from './readerSubscriptionPath';
 let entitlementSubscribed = false;
 
 export function startAdRecovery() {
-  if (typeof window === 'undefined' || window.location.hostname !== 'frontaliereticino.ch' || isLikelyBot()) return;
+  if (typeof window === 'undefined' || window.location.hostname !== 'frontaliereticino.ch' || isLikelyBot() || isLikelySearchCrawler()) return;
   const allowed = () => !hasActiveReaderNoAdsEntitlement() && !isSensitiveThirdPartyDocument(sanitizeTelemetryProperties, window, document, wasNewsletterAutologinAttempted());
   const houseAds = installHouseAds(createHouseAdCreative, HOUSE_AD_CREATIVE_CSS, emitAdDiagnostic, allowed, {
     assignmentUrl: 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/getHouseAdCreativeAssignment',

@@ -1,7 +1,7 @@
 {
   "crawlerKey": "buehler",
-  "assembledAt": "2026-11-15T09:23:33.086Z",
-  "runId": "43698298963",
+  "assembledAt": "2026-11-16T09:23:00.085Z",
+  "runId": "43838038290",
   "jobs": [
     {
       "id": "buehler-a037706e7c7b",
@@ -34,7 +34,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-industrielackierer-in-efz/55cb4bc5-649a-4f85-b5f0-aa3372f6245e",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:23:25.098Z",
+      "crawledAt": "2026-11-16T09:22:54.075Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T09:23:25.098Z",
+      "validThrough": "2026-12-16T09:22:54.075Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lehre-als-entwickler-in-digitales-business-efz/16552bec-00c5-40ef-b104-93d212a0490e",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:23:25.097Z",
+      "crawledAt": "2026-11-16T09:22:54.073Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -161,7 +161,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T09:23:25.097Z",
+      "validThrough": "2026-12-16T09:22:54.073Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -196,7 +196,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/solution-architect-sap-c4c-v2/f4d0350e-0c77-48e8-9d25-9af7c77e60fd",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T09:23:25.088Z",
+      "crawledAt": "2026-11-16T09:22:54.064Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -239,7 +239,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T09:23:25.088Z",
+      "validThrough": "2026-12-16T09:22:54.064Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -273,7 +273,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/solution-architect-customer-service-systems/791d330b-f138-4919-9369-8e3d2d68dfb0",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T09:23:24.934Z",
+      "crawledAt": "2026-11-16T09:22:53.926Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -316,7 +316,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T09:23:24.934Z",
+      "validThrough": "2026-12-16T09:22:53.926Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -351,7 +351,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/sap-logistics-application-business-process-manager/f62e87ca-0eaa-486e-8c9f-582d3542bce8",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T09:23:24.917Z",
+      "crawledAt": "2026-11-16T09:22:53.905Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -372,15 +372,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
+        "en": [
+          "sap-logistics-application-business-process-manager-buehler-uzwil"
+        ],
         "it": [
           "sap-application-amp-business-process-manager-le-tm-buehler-uzwil",
           "sap-logistics-application-business-process-manager-buehler-uzwil"
         ],
         "de": [
           "sap-application-amp-business-process-manager-le-tm-buehler-uzwil"
-        ],
-        "en": [
-          "sap-logistics-application-business-process-manager-buehler-uzwil"
         ]
       },
       "previousSlugs": [
@@ -402,7 +402,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T09:23:24.917Z",
+      "validThrough": "2026-12-16T09:22:53.905Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -437,7 +437,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/senior-process-engineer-die-casting/e9a28721-0d61-4772-88ec-99c4f8f018df",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:23:24.892Z",
+      "crawledAt": "2026-11-16T09:22:53.885Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -487,7 +487,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T09:23:24.892Z",
+      "validThrough": "2027-01-21T09:22:53.885Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -521,7 +521,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/project-manager-grinding-dispersing/23044bc3-2bc0-4e58-a952-a4b1f3e97776",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:23:24.881Z",
+      "crawledAt": "2026-11-16T09:22:53.874Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -571,7 +571,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-25T09:23:24.881Z",
+      "validThrough": "2027-01-25T09:22:53.874Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -606,7 +606,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/trainee-electrical-safety/4f27aaad-a2fa-47e1-aa86-5663fbf1e749",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:23:24.865Z",
+      "crawledAt": "2026-11-16T09:22:53.860Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -659,7 +659,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T09:23:24.865Z",
+      "validThrough": "2027-01-27T09:22:53.860Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -693,7 +693,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/senior-software-developer-architect-net-c/ff5ff197-81cc-493b-a48c-ae405f7859d6",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T09:23:24.859Z",
+      "crawledAt": "2026-11-16T09:22:53.853Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -746,7 +746,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-29T09:23:24.859Z",
+      "validThrough": "2027-01-29T09:22:53.853Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -780,7 +780,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/global-services-process-excellence-manager-fixed-term-contract-12-months/8d4a2181-01da-4ae6-b3b5-2a1a83699e8e",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T09:23:24.853Z",
+      "crawledAt": "2026-11-16T09:22:53.848Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -829,7 +829,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:23:24.853Z",
+      "validThrough": "2027-02-01T09:22:53.848Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -864,7 +864,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/senior-installation-supervisor/36829a75-7df6-4111-9bef-19ba3f6076d8",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T09:23:24.851Z",
+      "crawledAt": "2026-11-16T09:22:53.846Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -913,7 +913,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:23:24.851Z",
+      "validThrough": "2027-02-01T09:22:53.846Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -948,7 +948,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/internship-marketing-events-die-casting/08119cc7-0172-4d09-b711-db7b4e92e23f",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:23:24.849Z",
+      "crawledAt": "2026-11-16T09:22:53.844Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -994,7 +994,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-18T09:23:24.849Z",
+      "validThrough": "2027-01-18T09:22:53.844Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1029,7 +1029,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/lead-plc-engineer-r-d/03f2d69f-24ea-4c4c-882c-882f6f7426a9",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:23:24.846Z",
+      "crawledAt": "2026-11-16T09:22:53.842Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1075,7 +1075,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-01T09:23:24.846Z",
+      "validThrough": "2027-02-01T09:22:53.842Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1110,7 +1110,7 @@
       "url": "https://jobs.buhlergroup.com/offene-stellen/complaint-officer-spezialist-in-beschwerdemanagement/4d026bb7-a22d-4f8a-a56d-371088f8cd5a",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:23:24.828Z",
+      "crawledAt": "2026-11-16T09:22:53.830Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1161,7 +1161,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:23:24.828Z",
+      "validThrough": "2027-02-03T09:22:53.830Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1195,7 +1195,7 @@
       "url": "https://jobs.buhlergroup.com/job-vacancies/team-lead-for-project-directors/b3888007-cb11-4e91-a503-25b37bddfae8",
       "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T09:23:24.799Z",
+      "crawledAt": "2026-11-16T09:22:53.809Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1238,8 +1238,152 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:23:24.799Z",
+      "validThrough": "2027-02-10T09:22:53.809Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "buehler-d26522851e7d",
+      "slug": "senior-channel-partner-manager-buehler-uzwil",
+      "slugByLocale": {
+        "en": "senior-channel-partner-manager-buehler-uzwil",
+        "it": "senior-channel-partner-manager-buehler-uzwil",
+        "de": "senior-channel-partner-manager-buehler-uzwil",
+        "fr": "senior-channel-partner-manager-buehler-uzwil"
+      },
+      "company": "Bühler Group",
+      "companyKey": "buehler",
+      "companyDomain": "buhlergroup.com",
+      "title": "Senior Channel Partner Manager",
+      "titleByLocale": {
+        "en": "Senior Channel Partner Manager",
+        "it": "Senior Channel Partner Manager",
+        "de": "Senior Channel Partner Manager",
+        "fr": "Senior Channel Partner Manager"
+      },
+      "description": "As a Senior Channel Partner Manager, you will proactively contribute to and lead work packages that build, drive, and grow an effective network of agents, resellers and lead finders as well as a global channel partner program. By doing so, you will help increase market reach, accelerate market penetration, generate additional revenue and profit for the Group, and ultimately enhance customer satisfaction.\n\nAufgaben:\n• You define, together with the team, the missing elements of a next-level Channel Partner program framework\n\n• You devise, deploy, and maintain a structured, coherent, Group-wide end-to-end process for Channel Partner Management, outlining the methodologies, detailed steps, procedures, and measurements needed to recruit, onboard, develop, review, measure, manage, and offboard channel partners at Bühler\n\n• You engage and interact regularly with cross-regional, cross-Business Area, and cross-departmental stakeholders\n\n• You act as Deputy Head of Group Channel Partner Management\n\nAnforderungen:\n• Bachelor's or Master's degree, or equivalent qualifications, in business administration, management, or a similar field\n\n• 5-10 years of experience in managing channel partners such as agents and resellers in a B2B environment, preferably in mechanical engineering or the plant-building industry\n\n• Experience in leading a team or department, preferably in an international work environment\n\n• Knowledge of devising go-to-market and route-to-market strategies, with a particular focus on indirect sales channels\n\n• Entrepreneurial spirit, strong networking ability, and very good communication skills in English; other languages are a plus\n\nWir bieten:\nVIVA Restaurant\nWe offer our employees a daily fitness menu from 9, 00 CHF.\n\nAttractive mobility concept\nWe offer an OSTWIND ZVV / Z-Pass + half-fare travelcard for CHF 365 + CHF 400 public transport credit as well as an attractive first-class travelcard or free parking.\n\nAttractive vacation entitlement\nEnough time for relaxation and personal interests - we offer from 25 to 30 days of vacation per year depending on age.\n\nEmployer-funded pension plan\nThe Bühler Pension Fund offers Bühler employees an independent pension fund that ensures reliable financial security in retirement: www.pk-buhler.ch\n\nHealth-Port\nWe are committed to preventive health care through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor.\n\nMobile phone subscriptions\nWe offer special conditions for cell phone subscriptions via Mobilezone with Sunrise and Swisscom.\n\nTwo billion people eat food every day that was produced with Bühler equipment. One billion people drive vehicles whose parts were manufactured with our machines.\nBühler aims to balance humanity, nature, and the economy in every decision as it develops solutions that unlock sustainable business opportunities in the global food, feed, and mobility industries.\nWe strive to create innovations for a better world, with a special focus on healthy, safe, and sustainable solutions. Therefore, we team up with customers, start-ups, multinationals, and academia to accelerate impact together.",
+      "descriptionByLocale": {
+        "en": "As a Senior Channel Partner Manager, you will proactively contribute to and lead work packages that build, drive, and grow an effective network of agents, resellers and lead finders as well as a global channel partner program. By doing so, you will help increase market reach, accelerate market penetration, generate additional revenue and profit for the Group, and ultimately enhance customer satisfaction.\n\nAufgaben:\n• You define, together with the team, the missing elements of a next-level Channel Partner program framework\n\n• You devise, deploy, and maintain a structured, coherent, Group-wide end-to-end process for Channel Partner Management, outlining the methodologies, detailed steps, procedures, and measurements needed to recruit, onboard, develop, review, measure, manage, and offboard channel partners at Bühler\n\n• You engage and interact regularly with cross-regional, cross-Business Area, and cross-departmental stakeholders\n\n• You act as Deputy Head of Group Channel Partner Management\n\nAnforderungen:\n• Bachelor's or Master's degree, or equivalent qualifications, in business administration, management, or a similar field\n\n• 5-10 years of experience in managing channel partners such as agents and resellers in a B2B environment, preferably in mechanical engineering or the plant-building industry\n\n• Experience in leading a team or department, preferably in an international work environment\n\n• Knowledge of devising go-to-market and route-to-market strategies, with a particular focus on indirect sales channels\n\n• Entrepreneurial spirit, strong networking ability, and very good communication skills in English; other languages are a plus\n\nWir bieten:\nVIVA Restaurant\nWe offer our employees a daily fitness menu from 9, 00 CHF.\n\nAttractive mobility concept\nWe offer an OSTWIND ZVV / Z-Pass + half-fare travelcard for CHF 365 + CHF 400 public transport credit as well as an attractive first-class travelcard or free parking.\n\nAttractive vacation entitlement\nEnough time for relaxation and personal interests - we offer from 25 to 30 days of vacation per year depending on age.\n\nEmployer-funded pension plan\nThe Bühler Pension Fund offers Bühler employees an independent pension fund that ensures reliable financial security in retirement: www.pk-buhler.ch\n\nHealth-Port\nWe are committed to preventive health care through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor.\n\nMobile phone subscriptions\nWe offer special conditions for cell phone subscriptions via Mobilezone with Sunrise and Swisscom.\n\nTwo billion people eat food every day that was produced with Bühler equipment. One billion people drive vehicles whose parts were manufactured with our machines.\nBühler aims to balance humanity, nature, and the economy in every decision as it develops solutions that unlock sustainable business opportunities in the global food, feed, and mobility industries.\nWe strive to create innovations for a better world, with a special focus on healthy, safe, and sustainable solutions. Therefore, we team up with customers, start-ups, multinationals, and academia to accelerate impact together.",
+        "it": "As a Senior Channel Partner Manager, you will proactively contribute to and lead work packages that build, drive, and grow an effective network of agents, resellers and lead finders as well as a global channel partner program. By doing so, you will help increase market reach, accelerate market penetration, generate additional revenue and profit for the Group, and ultimately enhance customer satisfaction.\n\nAufgaben:\n• You define, together with the team, the missing elements of a next-level Channel Partner program framework\n\n• You devise, deploy, and maintain a structured, coherent, Group-wide end-to-end process for Channel Partner Management, outlining the methodologies, detailed steps, procedures, and measurements needed to recruit, onboard, develop, review, measure, manage, and offboard channel partners at Bühler\n\n• You engage and interact regularly with cross-regional, cross-Business Area, and cross-departmental stakeholders\n\n• You act as Deputy Head of Group Channel Partner Management\n\nAnforderungen:\n• Bachelor's or Master's degree, or equivalent qualifications, in business administration, management, or a similar field\n\n• 5-10 years of experience in managing channel partners such as agents and resellers in a B2B environment, preferably in mechanical engineering or the plant-building industry\n\n• Experience in leading a team or department, preferably in an international work environment\n\n• Knowledge of devising go-to-market and route-to-market strategies, with a particular focus on indirect sales channels\n\n• Entrepreneurial spirit, strong networking ability, and very good communication skills in English; other languages are a plus\n\nWir bieten:\nVIVA Restaurant\nWe offer our employees a daily fitness menu from 9, 00 CHF.\n\nAttractive mobility concept\nWe offer an OSTWIND ZVV / Z-Pass + half-fare travelcard for CHF 365 + CHF 400 public transport credit as well as an attractive first-class travelcard or free parking.\n\nAttractive vacation entitlement\nEnough time for relaxation and personal interests - we offer from 25 to 30 days of vacation per year depending on age.\n\nEmployer-funded pension plan\nThe Bühler Pension Fund offers Bühler employees an independent pension fund that ensures reliable financial security in retirement: www.pk-buhler.ch\n\nHealth-Port\nWe are committed to preventive health care through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor.\n\nMobile phone subscriptions\nWe offer special conditions for cell phone subscriptions via Mobilezone with Sunrise and Swisscom.\n\nTwo billion people eat food every day that was produced with Bühler equipment. One billion people drive vehicles whose parts were manufactured with our machines.\nBühler aims to balance humanity, nature, and the economy in every decision as it develops solutions that unlock sustainable business opportunities in the global food, feed, and mobility industries.\nWe strive to create innovations for a better world, with a special focus on healthy, safe, and sustainable solutions. Therefore, we team up with customers, start-ups, multinationals, and academia to accelerate impact together.",
+        "de": "As a Senior Channel Partner Manager, you will proactively contribute to and lead work packages that build, drive, and grow an effective network of agents, resellers and lead finders as well as a global channel partner program. By doing so, you will help increase market reach, accelerate market penetration, generate additional revenue and profit for the Group, and ultimately enhance customer satisfaction.\n\nAufgaben:\n• You define, together with the team, the missing elements of a next-level Channel Partner program framework\n\n• You devise, deploy, and maintain a structured, coherent, Group-wide end-to-end process for Channel Partner Management, outlining the methodologies, detailed steps, procedures, and measurements needed to recruit, onboard, develop, review, measure, manage, and offboard channel partners at Bühler\n\n• You engage and interact regularly with cross-regional, cross-Business Area, and cross-departmental stakeholders\n\n• You act as Deputy Head of Group Channel Partner Management\n\nAnforderungen:\n• Bachelor's or Master's degree, or equivalent qualifications, in business administration, management, or a similar field\n\n• 5-10 years of experience in managing channel partners such as agents and resellers in a B2B environment, preferably in mechanical engineering or the plant-building industry\n\n• Experience in leading a team or department, preferably in an international work environment\n\n• Knowledge of devising go-to-market and route-to-market strategies, with a particular focus on indirect sales channels\n\n• Entrepreneurial spirit, strong networking ability, and very good communication skills in English; other languages are a plus\n\nWir bieten:\nVIVA Restaurant\nWe offer our employees a daily fitness menu from 9, 00 CHF.\n\nAttractive mobility concept\nWe offer an OSTWIND ZVV / Z-Pass + half-fare travelcard for CHF 365 + CHF 400 public transport credit as well as an attractive first-class travelcard or free parking.\n\nAttractive vacation entitlement\nEnough time for relaxation and personal interests - we offer from 25 to 30 days of vacation per year depending on age.\n\nEmployer-funded pension plan\nThe Bühler Pension Fund offers Bühler employees an independent pension fund that ensures reliable financial security in retirement: www.pk-buhler.ch\n\nHealth-Port\nWe are committed to preventive health care through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor.\n\nMobile phone subscriptions\nWe offer special conditions for cell phone subscriptions via Mobilezone with Sunrise and Swisscom.\n\nTwo billion people eat food every day that was produced with Bühler equipment. One billion people drive vehicles whose parts were manufactured with our machines.\nBühler aims to balance humanity, nature, and the economy in every decision as it develops solutions that unlock sustainable business opportunities in the global food, feed, and mobility industries.\nWe strive to create innovations for a better world, with a special focus on healthy, safe, and sustainable solutions. Therefore, we team up with customers, start-ups, multinationals, and academia to accelerate impact together.",
+        "fr": "As a Senior Channel Partner Manager, you will proactively contribute to and lead work packages that build, drive, and grow an effective network of agents, resellers and lead finders as well as a global channel partner program. By doing so, you will help increase market reach, accelerate market penetration, generate additional revenue and profit for the Group, and ultimately enhance customer satisfaction.\n\nAufgaben:\n• You define, together with the team, the missing elements of a next-level Channel Partner program framework\n\n• You devise, deploy, and maintain a structured, coherent, Group-wide end-to-end process for Channel Partner Management, outlining the methodologies, detailed steps, procedures, and measurements needed to recruit, onboard, develop, review, measure, manage, and offboard channel partners at Bühler\n\n• You engage and interact regularly with cross-regional, cross-Business Area, and cross-departmental stakeholders\n\n• You act as Deputy Head of Group Channel Partner Management\n\nAnforderungen:\n• Bachelor's or Master's degree, or equivalent qualifications, in business administration, management, or a similar field\n\n• 5-10 years of experience in managing channel partners such as agents and resellers in a B2B environment, preferably in mechanical engineering or the plant-building industry\n\n• Experience in leading a team or department, preferably in an international work environment\n\n• Knowledge of devising go-to-market and route-to-market strategies, with a particular focus on indirect sales channels\n\n• Entrepreneurial spirit, strong networking ability, and very good communication skills in English; other languages are a plus\n\nWir bieten:\nVIVA Restaurant\nWe offer our employees a daily fitness menu from 9, 00 CHF.\n\nAttractive mobility concept\nWe offer an OSTWIND ZVV / Z-Pass + half-fare travelcard for CHF 365 + CHF 400 public transport credit as well as an attractive first-class travelcard or free parking.\n\nAttractive vacation entitlement\nEnough time for relaxation and personal interests - we offer from 25 to 30 days of vacation per year depending on age.\n\nEmployer-funded pension plan\nThe Bühler Pension Fund offers Bühler employees an independent pension fund that ensures reliable financial security in retirement: www.pk-buhler.ch\n\nHealth-Port\nWe are committed to preventive health care through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor.\n\nMobile phone subscriptions\nWe offer special conditions for cell phone subscriptions via Mobilezone with Sunrise and Swisscom.\n\nTwo billion people eat food every day that was produced with Bühler equipment. One billion people drive vehicles whose parts were manufactured with our machines.\nBühler aims to balance humanity, nature, and the economy in every decision as it develops solutions that unlock sustainable business opportunities in the global food, feed, and mobility industries.\nWe strive to create innovations for a better world, with a special focus on healthy, safe, and sustainable solutions. Therefore, we team up with customers, start-ups, multinationals, and academia to accelerate impact together."
+      },
+      "needsRetranslation": true,
+      "location": "Uzwil",
+      "canton": "SG",
+      "url": "https://jobs.buhlergroup.com/job-vacancies/senior-channel-partner-manager/dc3135d0-03f1-4925-8325-0b4fa1ce7802",
+      "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-16T09:22:53.791Z",
+      "addressLocality": "Uzwil",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3456",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "salaryMin": 110500,
+      "salaryMax": 154000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 110500,
+          "maxValue": 154000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-14T09:22:53.791Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-16T09:22:53.791Z"
+    },
+    {
+      "id": "buehler-844b1ae41417",
+      "slug": "internship-crm-transformation-program-facilitator-buehler-uzwil",
+      "slugByLocale": {
+        "en": "internship-crm-transformation-program-facilitator-buehler-uzwil",
+        "it": "internship-crm-transformation-program-facilitator-buehler-uzwil",
+        "de": "internship-crm-transformation-program-facilitator-buehler-uzwil",
+        "fr": "internship-crm-transformation-program-facilitator-buehler-uzwil"
+      },
+      "company": "Bühler Group",
+      "companyKey": "buehler",
+      "companyDomain": "buhlergroup.com",
+      "title": "Internship CRM Transformation / Program Facilitator",
+      "titleByLocale": {
+        "en": "Internship CRM Transformation / Program Facilitator",
+        "it": "Internship CRM Transformation / Program Facilitator",
+        "de": "Internship CRM Transformation / Program Facilitator",
+        "fr": "Internship CRM Transformation / Program Facilitator"
+      },
+      "description": "As an Intern CRM Transformation / Program Facilitator, you will work at the intersection of business, technology, data and change management. You will gain insight into an international, company-wide transformation and support the program with both conceptual and analytical tasks as well as operational and administrative project work.\n\nAufgaben:\n• You support the planning and implementation of change management, communication and user enablement activities\n\n• You organize workshops, project meetings and other program activities and help with their content preparation and follow-up\n\n• You take part in testing the new CRM solution and help document results and identified improvement opportunities in a structured way\n\n• You contribute to general project tasks and gradually take on responsibility for your own work packages\n\n• Depending on your interests and the current program status, you can dive deeper into topics such as sales and service processes, analytics, change management, rollout or project steering\n\nAnforderungen:\n• Ongoing or recently completed studies in Business Administration, Business Informatics, General Management, Data Science, Industrial Engineering or a comparable field\n\n• Fluent English, both spoken and written, as English is the main project language\n\n• Conceptual and analytical thinking, a proactive, pragmatic and self-driven working style, and the ability to present complex content in a clear and audience-appropriate way\n\n• Willingness to reliably handle both challenging content-related tasks and necessary operational and administrative project work\n\n• Interest in digital transformation, CRM, data, sales and service processes, and change management\n\nWir bieten:\nVIVA Restaurant\nWe offer our employees a daily fitness menu from 9, 00 CHF.\n\nAttractive mobility concept\nWe offer an OSTWIND ZVV / Z-Pass + half-fare travelcard for CHF 365 + CHF 400 public transport credit as well as an attractive first-class travelcard or free parking.\n\nHealth-Port\nWe are committed to preventive health care through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor.\n\nMobile phone subscriptions\nWe offer special conditions for cell phone subscriptions via Mobilezone with Sunrise and Swisscom.\n\nSports activities\nWe promote physical activity through self-organized circuit training and running groups as well as vouchers for Update and Activ Fitness.\n\nAttractive vacation entitlement\nEnough time for relaxation and personal interests - we offer from 25 to 30 days of vacation per year depending on age.\n\nTwo billion people eat food every day that was produced with Bühler equipment. One billion people drive vehicles whose parts were manufactured with our machines.\nBühler aims to balance humanity, nature, and the economy in every decision as it develops solutions that unlock sustainable business opportunities in the global food, feed, and mobility industries.\nWe strive to create innovations for a better world, with a special focus on healthy, safe, and sustainable solutions. Therefore, we team up with customers, start-ups, multinationals, and academia to accelerate impact together.",
+      "descriptionByLocale": {
+        "en": "As an Intern CRM Transformation / Program Facilitator, you will work at the intersection of business, technology, data and change management. You will gain insight into an international, company-wide transformation and support the program with both conceptual and analytical tasks as well as operational and administrative project work.\n\nAufgaben:\n• You support the planning and implementation of change management, communication and user enablement activities\n\n• You organize workshops, project meetings and other program activities and help with their content preparation and follow-up\n\n• You take part in testing the new CRM solution and help document results and identified improvement opportunities in a structured way\n\n• You contribute to general project tasks and gradually take on responsibility for your own work packages\n\n• Depending on your interests and the current program status, you can dive deeper into topics such as sales and service processes, analytics, change management, rollout or project steering\n\nAnforderungen:\n• Ongoing or recently completed studies in Business Administration, Business Informatics, General Management, Data Science, Industrial Engineering or a comparable field\n\n• Fluent English, both spoken and written, as English is the main project language\n\n• Conceptual and analytical thinking, a proactive, pragmatic and self-driven working style, and the ability to present complex content in a clear and audience-appropriate way\n\n• Willingness to reliably handle both challenging content-related tasks and necessary operational and administrative project work\n\n• Interest in digital transformation, CRM, data, sales and service processes, and change management\n\nWir bieten:\nVIVA Restaurant\nWe offer our employees a daily fitness menu from 9, 00 CHF.\n\nAttractive mobility concept\nWe offer an OSTWIND ZVV / Z-Pass + half-fare travelcard for CHF 365 + CHF 400 public transport credit as well as an attractive first-class travelcard or free parking.\n\nHealth-Port\nWe are committed to preventive health care through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor.\n\nMobile phone subscriptions\nWe offer special conditions for cell phone subscriptions via Mobilezone with Sunrise and Swisscom.\n\nSports activities\nWe promote physical activity through self-organized circuit training and running groups as well as vouchers for Update and Activ Fitness.\n\nAttractive vacation entitlement\nEnough time for relaxation and personal interests - we offer from 25 to 30 days of vacation per year depending on age.\n\nTwo billion people eat food every day that was produced with Bühler equipment. One billion people drive vehicles whose parts were manufactured with our machines.\nBühler aims to balance humanity, nature, and the economy in every decision as it develops solutions that unlock sustainable business opportunities in the global food, feed, and mobility industries.\nWe strive to create innovations for a better world, with a special focus on healthy, safe, and sustainable solutions. Therefore, we team up with customers, start-ups, multinationals, and academia to accelerate impact together.",
+        "it": "As an Intern CRM Transformation / Program Facilitator, you will work at the intersection of business, technology, data and change management. You will gain insight into an international, company-wide transformation and support the program with both conceptual and analytical tasks as well as operational and administrative project work.\n\nAufgaben:\n• You support the planning and implementation of change management, communication and user enablement activities\n\n• You organize workshops, project meetings and other program activities and help with their content preparation and follow-up\n\n• You take part in testing the new CRM solution and help document results and identified improvement opportunities in a structured way\n\n• You contribute to general project tasks and gradually take on responsibility for your own work packages\n\n• Depending on your interests and the current program status, you can dive deeper into topics such as sales and service processes, analytics, change management, rollout or project steering\n\nAnforderungen:\n• Ongoing or recently completed studies in Business Administration, Business Informatics, General Management, Data Science, Industrial Engineering or a comparable field\n\n• Fluent English, both spoken and written, as English is the main project language\n\n• Conceptual and analytical thinking, a proactive, pragmatic and self-driven working style, and the ability to present complex content in a clear and audience-appropriate way\n\n• Willingness to reliably handle both challenging content-related tasks and necessary operational and administrative project work\n\n• Interest in digital transformation, CRM, data, sales and service processes, and change management\n\nWir bieten:\nVIVA Restaurant\nWe offer our employees a daily fitness menu from 9, 00 CHF.\n\nAttractive mobility concept\nWe offer an OSTWIND ZVV / Z-Pass + half-fare travelcard for CHF 365 + CHF 400 public transport credit as well as an attractive first-class travelcard or free parking.\n\nHealth-Port\nWe are committed to preventive health care through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor.\n\nMobile phone subscriptions\nWe offer special conditions for cell phone subscriptions via Mobilezone with Sunrise and Swisscom.\n\nSports activities\nWe promote physical activity through self-organized circuit training and running groups as well as vouchers for Update and Activ Fitness.\n\nAttractive vacation entitlement\nEnough time for relaxation and personal interests - we offer from 25 to 30 days of vacation per year depending on age.\n\nTwo billion people eat food every day that was produced with Bühler equipment. One billion people drive vehicles whose parts were manufactured with our machines.\nBühler aims to balance humanity, nature, and the economy in every decision as it develops solutions that unlock sustainable business opportunities in the global food, feed, and mobility industries.\nWe strive to create innovations for a better world, with a special focus on healthy, safe, and sustainable solutions. Therefore, we team up with customers, start-ups, multinationals, and academia to accelerate impact together.",
+        "de": "As an Intern CRM Transformation / Program Facilitator, you will work at the intersection of business, technology, data and change management. You will gain insight into an international, company-wide transformation and support the program with both conceptual and analytical tasks as well as operational and administrative project work.\n\nAufgaben:\n• You support the planning and implementation of change management, communication and user enablement activities\n\n• You organize workshops, project meetings and other program activities and help with their content preparation and follow-up\n\n• You take part in testing the new CRM solution and help document results and identified improvement opportunities in a structured way\n\n• You contribute to general project tasks and gradually take on responsibility for your own work packages\n\n• Depending on your interests and the current program status, you can dive deeper into topics such as sales and service processes, analytics, change management, rollout or project steering\n\nAnforderungen:\n• Ongoing or recently completed studies in Business Administration, Business Informatics, General Management, Data Science, Industrial Engineering or a comparable field\n\n• Fluent English, both spoken and written, as English is the main project language\n\n• Conceptual and analytical thinking, a proactive, pragmatic and self-driven working style, and the ability to present complex content in a clear and audience-appropriate way\n\n• Willingness to reliably handle both challenging content-related tasks and necessary operational and administrative project work\n\n• Interest in digital transformation, CRM, data, sales and service processes, and change management\n\nWir bieten:\nVIVA Restaurant\nWe offer our employees a daily fitness menu from 9, 00 CHF.\n\nAttractive mobility concept\nWe offer an OSTWIND ZVV / Z-Pass + half-fare travelcard for CHF 365 + CHF 400 public transport credit as well as an attractive first-class travelcard or free parking.\n\nHealth-Port\nWe are committed to preventive health care through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor.\n\nMobile phone subscriptions\nWe offer special conditions for cell phone subscriptions via Mobilezone with Sunrise and Swisscom.\n\nSports activities\nWe promote physical activity through self-organized circuit training and running groups as well as vouchers for Update and Activ Fitness.\n\nAttractive vacation entitlement\nEnough time for relaxation and personal interests - we offer from 25 to 30 days of vacation per year depending on age.\n\nTwo billion people eat food every day that was produced with Bühler equipment. One billion people drive vehicles whose parts were manufactured with our machines.\nBühler aims to balance humanity, nature, and the economy in every decision as it develops solutions that unlock sustainable business opportunities in the global food, feed, and mobility industries.\nWe strive to create innovations for a better world, with a special focus on healthy, safe, and sustainable solutions. Therefore, we team up with customers, start-ups, multinationals, and academia to accelerate impact together.",
+        "fr": "As an Intern CRM Transformation / Program Facilitator, you will work at the intersection of business, technology, data and change management. You will gain insight into an international, company-wide transformation and support the program with both conceptual and analytical tasks as well as operational and administrative project work.\n\nAufgaben:\n• You support the planning and implementation of change management, communication and user enablement activities\n\n• You organize workshops, project meetings and other program activities and help with their content preparation and follow-up\n\n• You take part in testing the new CRM solution and help document results and identified improvement opportunities in a structured way\n\n• You contribute to general project tasks and gradually take on responsibility for your own work packages\n\n• Depending on your interests and the current program status, you can dive deeper into topics such as sales and service processes, analytics, change management, rollout or project steering\n\nAnforderungen:\n• Ongoing or recently completed studies in Business Administration, Business Informatics, General Management, Data Science, Industrial Engineering or a comparable field\n\n• Fluent English, both spoken and written, as English is the main project language\n\n• Conceptual and analytical thinking, a proactive, pragmatic and self-driven working style, and the ability to present complex content in a clear and audience-appropriate way\n\n• Willingness to reliably handle both challenging content-related tasks and necessary operational and administrative project work\n\n• Interest in digital transformation, CRM, data, sales and service processes, and change management\n\nWir bieten:\nVIVA Restaurant\nWe offer our employees a daily fitness menu from 9, 00 CHF.\n\nAttractive mobility concept\nWe offer an OSTWIND ZVV / Z-Pass + half-fare travelcard for CHF 365 + CHF 400 public transport credit as well as an attractive first-class travelcard or free parking.\n\nHealth-Port\nWe are committed to preventive health care through laboratory analyses, massages, nutritional advice, physiotherapy, group courses and a company doctor.\n\nMobile phone subscriptions\nWe offer special conditions for cell phone subscriptions via Mobilezone with Sunrise and Swisscom.\n\nSports activities\nWe promote physical activity through self-organized circuit training and running groups as well as vouchers for Update and Activ Fitness.\n\nAttractive vacation entitlement\nEnough time for relaxation and personal interests - we offer from 25 to 30 days of vacation per year depending on age.\n\nTwo billion people eat food every day that was produced with Bühler equipment. One billion people drive vehicles whose parts were manufactured with our machines.\nBühler aims to balance humanity, nature, and the economy in every decision as it develops solutions that unlock sustainable business opportunities in the global food, feed, and mobility industries.\nWe strive to create innovations for a better world, with a special focus on healthy, safe, and sustainable solutions. Therefore, we team up with customers, start-ups, multinationals, and academia to accelerate impact together."
+      },
+      "needsRetranslation": true,
+      "location": "Uzwil",
+      "canton": "SG",
+      "url": "https://jobs.buhlergroup.com/job-vacancies/internship-crm-transformation-program-facilitator/7388521a-04ff-4040-8fc5-821655dc6add",
+      "source": "Bühler Group Dedicated Parser (Prospective medium 1008005)",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-16T09:22:53.781Z",
+      "addressLocality": "Uzwil",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9240",
+      "streetAddress": "Gupfenstrasse 5",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://jobs.buhlergroup.com/successfactors/DC74_PROD/buhlergroup/en/apply?id=3821",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-14T09:22:53.781Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-16T09:22:53.781Z"
     }
   ]
 }

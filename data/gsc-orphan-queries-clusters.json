@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-09T12:00:51.419Z",
+  "generatedAt": "2026-11-16T11:57:27.897Z",
   "sourceFile": "data/gsc-orphan-queries.json",
-  "totalClusters": 3862,
+  "totalClusters": 3868,
   "gates": {
     "minClusterImpressions": 5
   },
@@ -84,13 +84,13 @@
       "regionTokens": [
         "ticino"
       ],
-      "totalImpressions": 7688,
+      "totalImpressions": 7691,
       "totalClicks": 491,
       "queries": [
         {
           "query": "lavoro ticino",
           "clicks": 415,
-          "impressions": 6126
+          "impressions": 6129
         },
         {
           "query": "lavoro in ticino",
@@ -156,13 +156,13 @@
       "regionTokens": [
         "lugano"
       ],
-      "totalImpressions": 2947,
+      "totalImpressions": 2952,
       "totalClicks": 237,
       "queries": [
         {
           "query": "offerte di lavoro lugano",
           "clicks": 176,
-          "impressions": 2148
+          "impressions": 2149
         },
         {
           "query": "offerte lavoro lugano",
@@ -172,7 +172,7 @@
         {
           "query": "offerte di lavoro a lugano",
           "clicks": 1,
-          "impressions": 10
+          "impressions": 14
         },
         {
           "query": "lugano offerte di lavoro",
@@ -225,18 +225,18 @@
       "regionTokens": [
         "svizzera"
       ],
-      "totalImpressions": 2794,
-      "totalClicks": 233,
+      "totalImpressions": 2849,
+      "totalClicks": 235,
       "queries": [
         {
           "query": "offerte di lavoro casa di riposo svizzera",
-          "clicks": 120,
-          "impressions": 1472
+          "clicks": 122,
+          "impressions": 1510
         },
         {
           "query": "offerte lavoro casa di riposo svizzera",
           "clicks": 113,
-          "impressions": 1322
+          "impressions": 1339
         }
       ]
     },
@@ -254,23 +254,23 @@
       "regionTokens": [
         "ticino"
       ],
-      "totalImpressions": 2702,
-      "totalClicks": 195,
+      "totalImpressions": 2748,
+      "totalClicks": 197,
       "queries": [
         {
           "query": "case anziani ticino offerte di lavoro",
-          "clicks": 129,
-          "impressions": 1961
+          "clicks": 130,
+          "impressions": 1996
         },
         {
           "query": "offerte di lavoro casa anziani ticino",
           "clicks": 35,
-          "impressions": 431
+          "impressions": 434
         },
         {
           "query": "offerte lavoro casa anziani ticino",
-          "clicks": 31,
-          "impressions": 310
+          "clicks": 32,
+          "impressions": 318
         }
       ]
     },
@@ -360,7 +360,7 @@
       "regionTokens": [
         "lugano"
       ],
-      "totalImpressions": 2181,
+      "totalImpressions": 2182,
       "totalClicks": 196,
       "queries": [
         {
@@ -371,7 +371,7 @@
         {
           "query": "lugano lavoro",
           "clicks": 18,
-          "impressions": 259
+          "impressions": 260
         },
         {
           "query": "lavoro a lugano",
@@ -524,13 +524,13 @@
         "nurs"
       ],
       "regionTokens": [],
-      "totalImpressions": 1311,
+      "totalImpressions": 1315,
       "totalClicks": 0,
       "queries": [
         {
           "query": "nursing jobs",
           "clicks": 0,
-          "impressions": 1299
+          "impressions": 1303
         },
         {
           "query": "nurse jobs",
@@ -1246,6 +1246,30 @@
       ]
     },
     {
+      "clusterId": "it-case-anziani-lugano-posti-di-lavoro",
+      "locale": "it",
+      "canonicalQuery": "case anziani lugano posti di lavoro",
+      "canonicalSlug": "case-anziani-lugano-posti-di-lavoro",
+      "roleTokens": [
+        "anzian",
+        "cas",
+        "lavor",
+        "post"
+      ],
+      "regionTokens": [
+        "lugano"
+      ],
+      "totalImpressions": 579,
+      "totalClicks": 43,
+      "queries": [
+        {
+          "query": "case anziani lugano posti di lavoro",
+          "clicks": 43,
+          "impressions": 579
+        }
+      ]
+    },
+    {
       "clusterId": "de-jobs-tessin",
       "locale": "de",
       "canonicalQuery": "jobs tessin",
@@ -1314,30 +1338,6 @@
           "query": "lavoro a mendrisio",
           "clicks": 2,
           "impressions": 10
-        }
-      ]
-    },
-    {
-      "clusterId": "it-case-anziani-lugano-posti-di-lavoro",
-      "locale": "it",
-      "canonicalQuery": "case anziani lugano posti di lavoro",
-      "canonicalSlug": "case-anziani-lugano-posti-di-lavoro",
-      "roleTokens": [
-        "anzian",
-        "cas",
-        "lavor",
-        "post"
-      ],
-      "regionTokens": [
-        "lugano"
-      ],
-      "totalImpressions": 560,
-      "totalClicks": 42,
-      "queries": [
-        {
-          "query": "case anziani lugano posti di lavoro",
-          "clicks": 42,
-          "impressions": 560
         }
       ]
     },
@@ -1543,6 +1543,32 @@
       ]
     },
     {
+      "clusterId": "it-lavori-ticino",
+      "locale": "it",
+      "canonicalQuery": "lavori ticino",
+      "canonicalSlug": "lavori-ticino",
+      "roleTokens": [
+        "lav"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 481,
+      "totalClicks": 43,
+      "queries": [
+        {
+          "query": "lavori ticino",
+          "clicks": 41,
+          "impressions": 458
+        },
+        {
+          "query": "lavori in ticino",
+          "clicks": 2,
+          "impressions": 23
+        }
+      ]
+    },
+    {
       "clusterId": "it-offerte-di-lavoro-canton-ticino",
       "locale": "it",
       "canonicalQuery": "offerte di lavoro canton ticino",
@@ -1555,13 +1581,13 @@
       "regionTokens": [
         "ticino"
       ],
-      "totalImpressions": 485,
+      "totalImpressions": 480,
       "totalClicks": 31,
       "queries": [
         {
           "query": "offerte di lavoro canton ticino",
           "clicks": 22,
-          "impressions": 290
+          "impressions": 285
         },
         {
           "query": "offerte lavoro canton ticino",
@@ -1592,32 +1618,6 @@
           "query": "canton ticino offerte lavoro",
           "clicks": 0,
           "impressions": 1
-        }
-      ]
-    },
-    {
-      "clusterId": "it-lavori-ticino",
-      "locale": "it",
-      "canonicalQuery": "lavori ticino",
-      "canonicalSlug": "lavori-ticino",
-      "roleTokens": [
-        "lav"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 481,
-      "totalClicks": 43,
-      "queries": [
-        {
-          "query": "lavori ticino",
-          "clicks": 41,
-          "impressions": 458
-        },
-        {
-          "query": "lavori in ticino",
-          "clicks": 2,
-          "impressions": 23
         }
       ]
     },
@@ -1942,6 +1942,29 @@
       ]
     },
     {
+      "clusterId": "it-frontaliere-ticino-offerte-di-lavoro",
+      "locale": "it",
+      "canonicalQuery": "frontaliere ticino offerte di lavoro",
+      "canonicalSlug": "frontaliere-ticino-offerte-di-lavoro",
+      "roleTokens": [
+        "frontal",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 410,
+      "totalClicks": 8,
+      "queries": [
+        {
+          "query": "frontaliere ticino offerte di lavoro",
+          "clicks": 8,
+          "impressions": 410
+        }
+      ]
+    },
+    {
       "clusterId": "it-usi-lavora-con-noi",
       "locale": "it",
       "canonicalQuery": "usi lavora con noi",
@@ -1991,29 +2014,6 @@
           "query": "lavoro ticino vendita",
           "clicks": 0,
           "impressions": 39
-        }
-      ]
-    },
-    {
-      "clusterId": "it-frontaliere-ticino-offerte-di-lavoro",
-      "locale": "it",
-      "canonicalQuery": "frontaliere ticino offerte di lavoro",
-      "canonicalSlug": "frontaliere-ticino-offerte-di-lavoro",
-      "roleTokens": [
-        "frontal",
-        "lavor",
-        "offert"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 401,
-      "totalClicks": 8,
-      "queries": [
-        {
-          "query": "frontaliere ticino offerte di lavoro",
-          "clicks": 8,
-          "impressions": 401
         }
       ]
     },
@@ -2072,23 +2072,23 @@
       "regionTokens": [
         "chiasso"
       ],
-      "totalImpressions": 394,
+      "totalImpressions": 392,
       "totalClicks": 6,
       "queries": [
         {
           "query": "lavoro chiasso",
           "clicks": 4,
-          "impressions": 281
+          "impressions": 279
         },
         {
           "query": "chiasso lavoro",
           "clicks": 1,
-          "impressions": 77
+          "impressions": 75
         },
         {
           "query": "lavoro a chiasso",
           "clicks": 1,
-          "impressions": 36
+          "impressions": 38
         }
       ]
     },
@@ -2394,7 +2394,7 @@
       "regionTokens": [
         "ticino"
       ],
-      "totalImpressions": 330,
+      "totalImpressions": 332,
       "totalClicks": 31,
       "queries": [
         {
@@ -2405,7 +2405,7 @@
         {
           "query": "offerte di lavoro educatore ticino",
           "clicks": 16,
-          "impressions": 106
+          "impressions": 108
         }
       ]
     },
@@ -2541,6 +2541,42 @@
       ]
     },
     {
+      "clusterId": "it-lavoro-zurigo",
+      "locale": "it",
+      "canonicalQuery": "lavoro zurigo",
+      "canonicalSlug": "lavoro-zurigo",
+      "roleTokens": [
+        "lavor"
+      ],
+      "regionTokens": [
+        "zurigo"
+      ],
+      "totalImpressions": 322,
+      "totalClicks": 9,
+      "queries": [
+        {
+          "query": "lavoro zurigo",
+          "clicks": 4,
+          "impressions": 222
+        },
+        {
+          "query": "lavoro a zurigo",
+          "clicks": 0,
+          "impressions": 72
+        },
+        {
+          "query": "zurigo lavoro",
+          "clicks": 5,
+          "impressions": 27
+        },
+        {
+          "query": "lavoro in zurigo",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
       "clusterId": "en-jobs-ticino",
       "locale": "en",
       "canonicalQuery": "jobs ticino",
@@ -2586,42 +2622,6 @@
         },
         {
           "query": "job ticino sa",
-          "clicks": 0,
-          "impressions": 1
-        }
-      ]
-    },
-    {
-      "clusterId": "it-lavoro-zurigo",
-      "locale": "it",
-      "canonicalQuery": "lavoro zurigo",
-      "canonicalSlug": "lavoro-zurigo",
-      "roleTokens": [
-        "lavor"
-      ],
-      "regionTokens": [
-        "zurigo"
-      ],
-      "totalImpressions": 320,
-      "totalClicks": 9,
-      "queries": [
-        {
-          "query": "lavoro zurigo",
-          "clicks": 4,
-          "impressions": 221
-        },
-        {
-          "query": "lavoro a zurigo",
-          "clicks": 0,
-          "impressions": 71
-        },
-        {
-          "query": "zurigo lavoro",
-          "clicks": 5,
-          "impressions": 27
-        },
-        {
-          "query": "lavoro in zurigo",
           "clicks": 0,
           "impressions": 1
         }
@@ -2734,6 +2734,38 @@
       ]
     },
     {
+      "clusterId": "it-posti-apprendistato-ticino",
+      "locale": "it",
+      "canonicalQuery": "posti apprendistato ticino",
+      "canonicalSlug": "posti-apprendistato-ticino",
+      "roleTokens": [
+        "apprendistat",
+        "post"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 316,
+      "totalClicks": 14,
+      "queries": [
+        {
+          "query": "posti apprendistato ticino",
+          "clicks": 8,
+          "impressions": 194
+        },
+        {
+          "query": "posti di apprendistato in ticino",
+          "clicks": 3,
+          "impressions": 109
+        },
+        {
+          "query": "posti di apprendistato ticino",
+          "clicks": 3,
+          "impressions": 13
+        }
+      ]
+    },
+    {
       "clusterId": "it-eoc-lugano-offerte-di-lavoro",
       "locale": "it",
       "canonicalQuery": "eoc lugano offerte di lavoro",
@@ -2753,38 +2785,6 @@
           "query": "eoc lugano offerte di lavoro",
           "clicks": 8,
           "impressions": 316
-        }
-      ]
-    },
-    {
-      "clusterId": "it-posti-apprendistato-ticino",
-      "locale": "it",
-      "canonicalQuery": "posti apprendistato ticino",
-      "canonicalSlug": "posti-apprendistato-ticino",
-      "roleTokens": [
-        "apprendistat",
-        "post"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 315,
-      "totalClicks": 14,
-      "queries": [
-        {
-          "query": "posti apprendistato ticino",
-          "clicks": 8,
-          "impressions": 193
-        },
-        {
-          "query": "posti di apprendistato in ticino",
-          "clicks": 3,
-          "impressions": 109
-        },
-        {
-          "query": "posti di apprendistato ticino",
-          "clicks": 3,
-          "impressions": 13
         }
       ]
     },
@@ -2893,6 +2893,56 @@
           "query": "offerte di lavoro presso città di lugano",
           "clicks": 19,
           "impressions": 300
+        }
+      ]
+    },
+    {
+      "clusterId": "it-casa-anziani-comunale-bellinzona-offerte-di-lavoro",
+      "locale": "it",
+      "canonicalQuery": "casa anziani comunale bellinzona offerte di lavoro",
+      "canonicalSlug": "casa-anziani-comunale-bellinzona-offerte-di-lavoro",
+      "roleTokens": [
+        "anzian",
+        "cas",
+        "comunal",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "bellinzona"
+      ],
+      "totalImpressions": 299,
+      "totalClicks": 23,
+      "queries": [
+        {
+          "query": "casa anziani comunale bellinzona offerte di lavoro",
+          "clicks": 23,
+          "impressions": 299
+        }
+      ]
+    },
+    {
+      "clusterId": "en-i-am-searching-for-caregiver-jobs-in-ticino-for-elderly-support",
+      "locale": "en",
+      "canonicalQuery": "i am searching for caregiver jobs in ticino for elderly support.",
+      "canonicalSlug": "i-am-searching-for-caregiver-jobs-in-ticino-for-elderly-support",
+      "roleTokens": [
+        "caregiver",
+        "elderly",
+        "job",
+        "search",
+        "support"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 299,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "i am searching for caregiver jobs in ticino for elderly support.",
+          "clicks": 0,
+          "impressions": 299
         }
       ]
     },
@@ -3070,52 +3120,23 @@
       ]
     },
     {
-      "clusterId": "en-i-am-searching-for-caregiver-jobs-in-ticino-for-elderly-support",
-      "locale": "en",
-      "canonicalQuery": "i am searching for caregiver jobs in ticino for elderly support.",
-      "canonicalSlug": "i-am-searching-for-caregiver-jobs-in-ticino-for-elderly-support",
+      "clusterId": "de-praktikum-tessin",
+      "locale": "de",
+      "canonicalQuery": "praktikum tessin",
+      "canonicalSlug": "praktikum-tessin",
       "roleTokens": [
-        "caregiver",
-        "elderly",
-        "job",
-        "search",
-        "support"
+        "praktikum"
       ],
       "regionTokens": [
         "ticino"
       ],
-      "totalImpressions": 290,
-      "totalClicks": 0,
+      "totalImpressions": 287,
+      "totalClicks": 4,
       "queries": [
         {
-          "query": "i am searching for caregiver jobs in ticino for elderly support.",
-          "clicks": 0,
-          "impressions": 290
-        }
-      ]
-    },
-    {
-      "clusterId": "it-casa-anziani-comunale-bellinzona-offerte-di-lavoro",
-      "locale": "it",
-      "canonicalQuery": "casa anziani comunale bellinzona offerte di lavoro",
-      "canonicalSlug": "casa-anziani-comunale-bellinzona-offerte-di-lavoro",
-      "roleTokens": [
-        "anzian",
-        "cas",
-        "comunal",
-        "lavor",
-        "offert"
-      ],
-      "regionTokens": [
-        "bellinzona"
-      ],
-      "totalImpressions": 289,
-      "totalClicks": 22,
-      "queries": [
-        {
-          "query": "casa anziani comunale bellinzona offerte di lavoro",
-          "clicks": 22,
-          "impressions": 289
+          "query": "praktikum tessin",
+          "clicks": 4,
+          "impressions": 287
         }
       ]
     },
@@ -3171,27 +3192,6 @@
           "query": "lavoro lugano negli ultimi 3 giorni",
           "clicks": 8,
           "impressions": 285
-        }
-      ]
-    },
-    {
-      "clusterId": "de-praktikum-tessin",
-      "locale": "de",
-      "canonicalQuery": "praktikum tessin",
-      "canonicalSlug": "praktikum-tessin",
-      "roleTokens": [
-        "praktikum"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 283,
-      "totalClicks": 4,
-      "queries": [
-        {
-          "query": "praktikum tessin",
-          "clicks": 4,
-          "impressions": 283
         }
       ]
     },
@@ -3960,6 +3960,39 @@
       ]
     },
     {
+      "clusterId": "en-help-me-find-ticino-caregiver-jobs-for-elderly-care-with-live-in-option-and-clea",
+      "locale": "en",
+      "canonicalQuery": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
+      "canonicalSlug": "help-me-find-ticino-caregiver-jobs-for-elderly-care-with-live-in-option-and-clea",
+      "roleTokens": [
+        "car",
+        "caregiver",
+        "clear",
+        "contract",
+        "elderly",
+        "find",
+        "help",
+        "job",
+        "legal",
+        "liv",
+        "me",
+        "option",
+        "term"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 225,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
+          "clicks": 0,
+          "impressions": 225
+        }
+      ]
+    },
+    {
       "clusterId": "it-offerte-di-lavoro-agno",
       "locale": "it",
       "canonicalQuery": "offerte di lavoro agno",
@@ -4048,39 +4081,6 @@
           "query": "job läderach",
           "clicks": 0,
           "impressions": 7
-        }
-      ]
-    },
-    {
-      "clusterId": "en-help-me-find-ticino-caregiver-jobs-for-elderly-care-with-live-in-option-and-clea",
-      "locale": "en",
-      "canonicalQuery": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
-      "canonicalSlug": "help-me-find-ticino-caregiver-jobs-for-elderly-care-with-live-in-option-and-clea",
-      "roleTokens": [
-        "car",
-        "caregiver",
-        "clear",
-        "contract",
-        "elderly",
-        "find",
-        "help",
-        "job",
-        "legal",
-        "liv",
-        "me",
-        "option",
-        "term"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 221,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "help me find ticino caregiver jobs for elderly care with live in option and clear legal contract terms.",
-          "clicks": 0,
-          "impressions": 221
         }
       ]
     },
@@ -4218,13 +4218,51 @@
       "regionTokens": [
         "ticino"
       ],
-      "totalImpressions": 212,
+      "totalImpressions": 214,
       "totalClicks": 13,
       "queries": [
         {
           "query": "apprendistato ticino posti liberi",
           "clicks": 13,
-          "impressions": 212
+          "impressions": 214
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-lavoro-ristorazione-ticino",
+      "locale": "it",
+      "canonicalQuery": "offerte lavoro ristorazione ticino",
+      "canonicalSlug": "offerte-lavoro-ristorazione-ticino",
+      "roleTokens": [
+        "lavor",
+        "offert",
+        "ristorazion"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 212,
+      "totalClicks": 17,
+      "queries": [
+        {
+          "query": "offerte lavoro ristorazione ticino",
+          "clicks": 8,
+          "impressions": 82
+        },
+        {
+          "query": "offerte di lavoro ticino ristorazione",
+          "clicks": 3,
+          "impressions": 61
+        },
+        {
+          "query": "offerte di lavoro ristorazione ticino",
+          "clicks": 4,
+          "impressions": 56
+        },
+        {
+          "query": "offerte lavoro ticino ristorazione",
+          "clicks": 2,
+          "impressions": 13
         }
       ]
     },
@@ -4292,40 +4330,25 @@
       ]
     },
     {
-      "clusterId": "it-offerte-lavoro-ristorazione-ticino",
+      "clusterId": "it-casa-anziani-chiasso-lavoro",
       "locale": "it",
-      "canonicalQuery": "offerte lavoro ristorazione ticino",
-      "canonicalSlug": "offerte-lavoro-ristorazione-ticino",
+      "canonicalQuery": "casa anziani chiasso lavoro",
+      "canonicalSlug": "casa-anziani-chiasso-lavoro",
       "roleTokens": [
-        "lavor",
-        "offert",
-        "ristorazion"
+        "anzian",
+        "cas",
+        "lavor"
       ],
       "regionTokens": [
-        "ticino"
+        "chiasso"
       ],
-      "totalImpressions": 208,
-      "totalClicks": 16,
+      "totalImpressions": 202,
+      "totalClicks": 27,
       "queries": [
         {
-          "query": "offerte lavoro ristorazione ticino",
-          "clicks": 8,
-          "impressions": 80
-        },
-        {
-          "query": "offerte di lavoro ticino ristorazione",
-          "clicks": 3,
-          "impressions": 60
-        },
-        {
-          "query": "offerte di lavoro ristorazione ticino",
-          "clicks": 3,
-          "impressions": 55
-        },
-        {
-          "query": "offerte lavoro ticino ristorazione",
-          "clicks": 2,
-          "impressions": 13
+          "query": "casa anziani chiasso lavoro",
+          "clicks": 27,
+          "impressions": 202
         }
       ]
     },
@@ -4421,29 +4444,6 @@
           "query": "offerte lavoro hr ticino",
           "clicks": 7,
           "impressions": 44
-        }
-      ]
-    },
-    {
-      "clusterId": "it-casa-anziani-chiasso-lavoro",
-      "locale": "it",
-      "canonicalQuery": "casa anziani chiasso lavoro",
-      "canonicalSlug": "casa-anziani-chiasso-lavoro",
-      "roleTokens": [
-        "anzian",
-        "cas",
-        "lavor"
-      ],
-      "regionTokens": [
-        "chiasso"
-      ],
-      "totalImpressions": 200,
-      "totalClicks": 27,
-      "queries": [
-        {
-          "query": "casa anziani chiasso lavoro",
-          "clicks": 27,
-          "impressions": 200
         }
       ]
     },
@@ -5029,6 +5029,30 @@
       ]
     },
     {
+      "clusterId": "it-case-di-riposo-ticino-lavora-con-noi",
+      "locale": "it",
+      "canonicalQuery": "case di riposo ticino lavora con noi",
+      "canonicalSlug": "case-di-riposo-ticino-lavora-con-noi",
+      "roleTokens": [
+        "cas",
+        "lavor",
+        "noi",
+        "ripos"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 173,
+      "totalClicks": 22,
+      "queries": [
+        {
+          "query": "case di riposo ticino lavora con noi",
+          "clicks": 22,
+          "impressions": 173
+        }
+      ]
+    },
+    {
       "clusterId": "fr-emploi-suisse-frontalier",
       "locale": "fr",
       "canonicalQuery": "emploi suisse frontalier",
@@ -5105,30 +5129,6 @@
           "query": "denner offerte di lavoro ticino",
           "clicks": 8,
           "impressions": 172
-        }
-      ]
-    },
-    {
-      "clusterId": "it-case-di-riposo-ticino-lavora-con-noi",
-      "locale": "it",
-      "canonicalQuery": "case di riposo ticino lavora con noi",
-      "canonicalSlug": "case-di-riposo-ticino-lavora-con-noi",
-      "roleTokens": [
-        "cas",
-        "lavor",
-        "noi",
-        "ripos"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 171,
-      "totalClicks": 22,
-      "queries": [
-        {
-          "query": "case di riposo ticino lavora con noi",
-          "clicks": 22,
-          "impressions": 171
         }
       ]
     },
@@ -5471,6 +5471,30 @@
       ]
     },
     {
+      "clusterId": "it-offerte-di-lavoro-educatrice-svizzera-italiana",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro educatrice svizzera italiana",
+      "canonicalSlug": "offerte-di-lavoro-educatrice-svizzera-italiana",
+      "roleTokens": [
+        "educatr",
+        "italian",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 161,
+      "totalClicks": 31,
+      "queries": [
+        {
+          "query": "offerte di lavoro educatrice svizzera italiana",
+          "clicks": 31,
+          "impressions": 161
+        }
+      ]
+    },
+    {
       "clusterId": "it-marketing-lavoro-ticino",
       "locale": "it",
       "canonicalQuery": "marketing lavoro ticino",
@@ -5543,30 +5567,6 @@
           "query": "medecin assistant en suisse",
           "clicks": 0,
           "impressions": 1
-        }
-      ]
-    },
-    {
-      "clusterId": "it-offerte-di-lavoro-educatrice-svizzera-italiana",
-      "locale": "it",
-      "canonicalQuery": "offerte di lavoro educatrice svizzera italiana",
-      "canonicalSlug": "offerte-di-lavoro-educatrice-svizzera-italiana",
-      "roleTokens": [
-        "educatr",
-        "italian",
-        "lavor",
-        "offert"
-      ],
-      "regionTokens": [
-        "svizzera"
-      ],
-      "totalImpressions": 158,
-      "totalClicks": 30,
-      "queries": [
-        {
-          "query": "offerte di lavoro educatrice svizzera italiana",
-          "clicks": 30,
-          "impressions": 158
         }
       ]
     },
@@ -5810,6 +5810,29 @@
       ]
     },
     {
+      "clusterId": "it-oss-ticino-offerte-lavoro",
+      "locale": "it",
+      "canonicalQuery": "oss ticino offerte lavoro",
+      "canonicalSlug": "oss-ticino-offerte-lavoro",
+      "roleTokens": [
+        "lavor",
+        "offert",
+        "oss"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 153,
+      "totalClicks": 5,
+      "queries": [
+        {
+          "query": "oss ticino offerte lavoro",
+          "clicks": 5,
+          "impressions": 153
+        }
+      ]
+    },
+    {
       "clusterId": "it-lavoro-poschiavo",
       "locale": "it",
       "canonicalQuery": "lavoro poschiavo",
@@ -5972,29 +5995,6 @@
           "query": "siegfried evionnaz emploi",
           "clicks": 0,
           "impressions": 151
-        }
-      ]
-    },
-    {
-      "clusterId": "it-oss-ticino-offerte-lavoro",
-      "locale": "it",
-      "canonicalQuery": "oss ticino offerte lavoro",
-      "canonicalSlug": "oss-ticino-offerte-lavoro",
-      "roleTokens": [
-        "lavor",
-        "offert",
-        "oss"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 149,
-      "totalClicks": 5,
-      "queries": [
-        {
-          "query": "oss ticino offerte lavoro",
-          "clicks": 5,
-          "impressions": 149
         }
       ]
     },
@@ -6278,6 +6278,28 @@
       ]
     },
     {
+      "clusterId": "it-casa-anziani-offerte-di-lavoro",
+      "locale": "it",
+      "canonicalQuery": "casa anziani offerte di lavoro",
+      "canonicalSlug": "casa-anziani-offerte-di-lavoro",
+      "roleTokens": [
+        "anzian",
+        "cas",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 139,
+      "totalClicks": 10,
+      "queries": [
+        {
+          "query": "casa anziani offerte di lavoro",
+          "clicks": 10,
+          "impressions": 139
+        }
+      ]
+    },
+    {
       "clusterId": "it-posti-vacanti-ticino",
       "locale": "it",
       "canonicalQuery": "posti vacanti ticino",
@@ -6453,6 +6475,49 @@
       ]
     },
     {
+      "clusterId": "it-oss-svizzera-offerte-lavoro",
+      "locale": "it",
+      "canonicalQuery": "oss svizzera offerte lavoro",
+      "canonicalSlug": "oss-svizzera-offerte-lavoro",
+      "roleTokens": [
+        "lavor",
+        "offert",
+        "oss"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 137,
+      "totalClicks": 6,
+      "queries": [
+        {
+          "query": "oss svizzera offerte lavoro",
+          "clicks": 3,
+          "impressions": 82
+        },
+        {
+          "query": "offerte di lavoro oss svizzera",
+          "clicks": 1,
+          "impressions": 26
+        },
+        {
+          "query": "offerte lavoro oss svizzera",
+          "clicks": 0,
+          "impressions": 13
+        },
+        {
+          "query": "offerte di lavoro oss in svizzera",
+          "clicks": 1,
+          "impressions": 8
+        },
+        {
+          "query": "offerte di lavoro come oss in svizzera",
+          "clicks": 1,
+          "impressions": 8
+        }
+      ]
+    },
+    {
       "clusterId": "de-sunrise-jobs",
       "locale": "de",
       "canonicalQuery": "sunrise jobs",
@@ -6515,49 +6580,6 @@
       ]
     },
     {
-      "clusterId": "it-oss-svizzera-offerte-lavoro",
-      "locale": "it",
-      "canonicalQuery": "oss svizzera offerte lavoro",
-      "canonicalSlug": "oss-svizzera-offerte-lavoro",
-      "roleTokens": [
-        "lavor",
-        "offert",
-        "oss"
-      ],
-      "regionTokens": [
-        "svizzera"
-      ],
-      "totalImpressions": 136,
-      "totalClicks": 6,
-      "queries": [
-        {
-          "query": "oss svizzera offerte lavoro",
-          "clicks": 3,
-          "impressions": 81
-        },
-        {
-          "query": "offerte di lavoro oss svizzera",
-          "clicks": 1,
-          "impressions": 26
-        },
-        {
-          "query": "offerte lavoro oss svizzera",
-          "clicks": 0,
-          "impressions": 13
-        },
-        {
-          "query": "offerte di lavoro oss in svizzera",
-          "clicks": 1,
-          "impressions": 8
-        },
-        {
-          "query": "offerte di lavoro come oss in svizzera",
-          "clicks": 1,
-          "impressions": 8
-        }
-      ]
-    },
-    {
       "clusterId": "it-venditrice-lavoro-ticino",
       "locale": "it",
       "canonicalQuery": "venditrice lavoro ticino",
@@ -6576,28 +6598,6 @@
           "query": "venditrice lavoro ticino",
           "clicks": 11,
           "impressions": 136
-        }
-      ]
-    },
-    {
-      "clusterId": "it-casa-anziani-offerte-di-lavoro",
-      "locale": "it",
-      "canonicalQuery": "casa anziani offerte di lavoro",
-      "canonicalSlug": "casa-anziani-offerte-di-lavoro",
-      "roleTokens": [
-        "anzian",
-        "cas",
-        "lavor",
-        "offert"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 135,
-      "totalClicks": 10,
-      "queries": [
-        {
-          "query": "casa anziani offerte di lavoro",
-          "clicks": 10,
-          "impressions": 135
         }
       ]
     },
@@ -6830,6 +6830,37 @@
       ]
     },
     {
+      "clusterId": "it-jobs-bellinzona",
+      "locale": "it",
+      "canonicalQuery": "jobs bellinzona",
+      "canonicalSlug": "jobs-bellinzona",
+      "roleTokens": [
+        "job"
+      ],
+      "regionTokens": [
+        "bellinzona"
+      ],
+      "totalImpressions": 130,
+      "totalClicks": 2,
+      "queries": [
+        {
+          "query": "jobs bellinzona",
+          "clicks": 1,
+          "impressions": 101
+        },
+        {
+          "query": "bellinzona jobs",
+          "clicks": 0,
+          "impressions": 19
+        },
+        {
+          "query": "job bellinzona",
+          "clicks": 1,
+          "impressions": 10
+        }
+      ]
+    },
+    {
       "clusterId": "it-mc-donalds-lamone",
       "locale": "it",
       "canonicalQuery": "mc donalds lamone",
@@ -6862,37 +6893,6 @@
           "query": "lamone mc donald",
           "clicks": 0,
           "impressions": 1
-        }
-      ]
-    },
-    {
-      "clusterId": "it-jobs-bellinzona",
-      "locale": "it",
-      "canonicalQuery": "jobs bellinzona",
-      "canonicalSlug": "jobs-bellinzona",
-      "roleTokens": [
-        "job"
-      ],
-      "regionTokens": [
-        "bellinzona"
-      ],
-      "totalImpressions": 129,
-      "totalClicks": 2,
-      "queries": [
-        {
-          "query": "jobs bellinzona",
-          "clicks": 1,
-          "impressions": 100
-        },
-        {
-          "query": "bellinzona jobs",
-          "clicks": 0,
-          "impressions": 19
-        },
-        {
-          "query": "job bellinzona",
-          "clicks": 1,
-          "impressions": 10
         }
       ]
     },
@@ -6966,6 +6966,29 @@
           "query": "offerte di lavoro presso canton ticino",
           "clicks": 4,
           "impressions": 63
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-osa-ticino",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro osa ticino",
+      "canonicalSlug": "offerte-di-lavoro-osa-ticino",
+      "roleTokens": [
+        "lavor",
+        "offert",
+        "osa"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 127,
+      "totalClicks": 14,
+      "queries": [
+        {
+          "query": "offerte di lavoro osa ticino",
+          "clicks": 14,
+          "impressions": 127
         }
       ]
     },
@@ -7258,13 +7281,13 @@
       "regionTokens": [
         "ticino"
       ],
-      "totalImpressions": 121,
+      "totalImpressions": 123,
       "totalClicks": 14,
       "queries": [
         {
           "query": "lavoro educatrice ticino",
           "clicks": 12,
-          "impressions": 72
+          "impressions": 74
         },
         {
           "query": "educatrice ticino lavoro",
@@ -7460,29 +7483,6 @@
       ]
     },
     {
-      "clusterId": "it-offerte-di-lavoro-osa-ticino",
-      "locale": "it",
-      "canonicalQuery": "offerte di lavoro osa ticino",
-      "canonicalSlug": "offerte-di-lavoro-osa-ticino",
-      "roleTokens": [
-        "lavor",
-        "offert",
-        "osa"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 119,
-      "totalClicks": 12,
-      "queries": [
-        {
-          "query": "offerte di lavoro osa ticino",
-          "clicks": 12,
-          "impressions": 119
-        }
-      ]
-    },
-    {
       "clusterId": "it-cliniche-private-ticino-offerte-lavoro-oss",
       "locale": "it",
       "canonicalQuery": "cliniche private ticino offerte lavoro oss",
@@ -7559,6 +7559,38 @@
           "query": "ail lavoro",
           "clicks": 3,
           "impressions": 119
+        }
+      ]
+    },
+    {
+      "clusterId": "it-logistica-ticino-lavoro",
+      "locale": "it",
+      "canonicalQuery": "logistica ticino lavoro",
+      "canonicalSlug": "logistica-ticino-lavoro",
+      "roleTokens": [
+        "lavor",
+        "logistic"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 118,
+      "totalClicks": 12,
+      "queries": [
+        {
+          "query": "logistica ticino lavoro",
+          "clicks": 5,
+          "impressions": 64
+        },
+        {
+          "query": "lavoro logistica ticino",
+          "clicks": 7,
+          "impressions": 46
+        },
+        {
+          "query": "lavoro ticino logistica",
+          "clicks": 0,
+          "impressions": 8
         }
       ]
     },
@@ -7763,38 +7795,6 @@
       ]
     },
     {
-      "clusterId": "it-logistica-ticino-lavoro",
-      "locale": "it",
-      "canonicalQuery": "logistica ticino lavoro",
-      "canonicalSlug": "logistica-ticino-lavoro",
-      "roleTokens": [
-        "lavor",
-        "logistic"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 115,
-      "totalClicks": 12,
-      "queries": [
-        {
-          "query": "logistica ticino lavoro",
-          "clicks": 5,
-          "impressions": 62
-        },
-        {
-          "query": "lavoro logistica ticino",
-          "clicks": 7,
-          "impressions": 45
-        },
-        {
-          "query": "lavoro ticino logistica",
-          "clicks": 0,
-          "impressions": 8
-        }
-      ]
-    },
-    {
       "clusterId": "it-cerco-lavoro-ticino-negli-ultimi-3-giorni",
       "locale": "it",
       "canonicalQuery": "cerco lavoro ticino negli ultimi 3 giorni",
@@ -7916,6 +7916,32 @@
       ]
     },
     {
+      "clusterId": "it-osa-offerte-di-lavoro",
+      "locale": "it",
+      "canonicalQuery": "osa offerte di lavoro",
+      "canonicalSlug": "osa-offerte-di-lavoro",
+      "roleTokens": [
+        "lavor",
+        "offert",
+        "osa"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 113,
+      "totalClicks": 3,
+      "queries": [
+        {
+          "query": "osa offerte di lavoro",
+          "clicks": 2,
+          "impressions": 73
+        },
+        {
+          "query": "offerte di lavoro osa",
+          "clicks": 1,
+          "impressions": 40
+        }
+      ]
+    },
+    {
       "clusterId": "de-spital-burgdorf-jobs",
       "locale": "de",
       "canonicalQuery": "spital burgdorf jobs",
@@ -7991,34 +8017,6 @@
       ]
     },
     {
-      "clusterId": "it-offerte-lavoro-educatore-svizzera",
-      "locale": "it",
-      "canonicalQuery": "offerte lavoro educatore svizzera",
-      "canonicalSlug": "offerte-lavoro-educatore-svizzera",
-      "roleTokens": [
-        "educat",
-        "lavor",
-        "offert"
-      ],
-      "regionTokens": [
-        "svizzera"
-      ],
-      "totalImpressions": 111,
-      "totalClicks": 27,
-      "queries": [
-        {
-          "query": "offerte lavoro educatore svizzera",
-          "clicks": 27,
-          "impressions": 92
-        },
-        {
-          "query": "offerte di lavoro educatore svizzera",
-          "clicks": 0,
-          "impressions": 19
-        }
-      ]
-    },
-    {
       "clusterId": "it-je-cherche-un-travail-de-cuisinier-a-lugano",
       "locale": "it",
       "canonicalQuery": "je cherche un travail de cuisinier à lugano",
@@ -8062,6 +8060,27 @@
         {
           "query": "offerte lavoro educatore canton ticino",
           "clicks": 11,
+          "impressions": 109
+        }
+      ]
+    },
+    {
+      "clusterId": "it-fahrer-locarno",
+      "locale": "it",
+      "canonicalQuery": "fahrer locarno",
+      "canonicalSlug": "fahrer-locarno",
+      "roleTokens": [
+        "fahrer"
+      ],
+      "regionTokens": [
+        "locarno"
+      ],
+      "totalImpressions": 109,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "fahrer locarno",
+          "clicks": 0,
           "impressions": 109
         }
       ]
@@ -8155,6 +8174,48 @@
       ]
     },
     {
+      "clusterId": "it-ingegnere-svizzera-lavoro",
+      "locale": "it",
+      "canonicalQuery": "ingegnere svizzera lavoro",
+      "canonicalSlug": "ingegnere-svizzera-lavoro",
+      "roleTokens": [
+        "ingegner",
+        "lavor"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 108,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "ingegnere svizzera lavoro",
+          "clicks": 1,
+          "impressions": 37
+        },
+        {
+          "query": "lavoro ingegneri svizzera",
+          "clicks": 0,
+          "impressions": 34
+        },
+        {
+          "query": "svizzera lavoro ingegnere",
+          "clicks": 0,
+          "impressions": 27
+        },
+        {
+          "query": "lavoro ingegnere svizzera",
+          "clicks": 0,
+          "impressions": 9
+        },
+        {
+          "query": "lavoro per ingegneri in svizzera",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
       "clusterId": "it-offerte-di-lavoro-infermiera",
       "locale": "it",
       "canonicalQuery": "offerte di lavoro infermiera",
@@ -8220,27 +8281,6 @@
           "query": "citta di lugano offerte di lavoro",
           "clicks": 1,
           "impressions": 107
-        }
-      ]
-    },
-    {
-      "clusterId": "it-fahrer-locarno",
-      "locale": "it",
-      "canonicalQuery": "fahrer locarno",
-      "canonicalSlug": "fahrer-locarno",
-      "roleTokens": [
-        "fahrer"
-      ],
-      "regionTokens": [
-        "locarno"
-      ],
-      "totalImpressions": 106,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "fahrer locarno",
-          "clicks": 0,
-          "impressions": 106
         }
       ]
     },
@@ -8318,32 +8358,6 @@
           "query": "internship ticino",
           "clicks": 2,
           "impressions": 105
-        }
-      ]
-    },
-    {
-      "clusterId": "it-osa-offerte-di-lavoro",
-      "locale": "it",
-      "canonicalQuery": "osa offerte di lavoro",
-      "canonicalSlug": "osa-offerte-di-lavoro",
-      "roleTokens": [
-        "lavor",
-        "offert",
-        "osa"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 104,
-      "totalClicks": 2,
-      "queries": [
-        {
-          "query": "osa offerte di lavoro",
-          "clicks": 2,
-          "impressions": 68
-        },
-        {
-          "query": "offerte di lavoro osa",
-          "clicks": 0,
-          "impressions": 36
         }
       ]
     },
@@ -8496,6 +8510,33 @@
           "query": "swatch svizzera lavora con noi",
           "clicks": 1,
           "impressions": 103
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavoro-ticino-ristorazione",
+      "locale": "it",
+      "canonicalQuery": "lavoro ticino ristorazione",
+      "canonicalSlug": "lavoro-ticino-ristorazione",
+      "roleTokens": [
+        "lavor",
+        "ristorazion"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 102,
+      "totalClicks": 4,
+      "queries": [
+        {
+          "query": "lavoro ticino ristorazione",
+          "clicks": 4,
+          "impressions": 58
+        },
+        {
+          "query": "lavoro ristorazione ticino",
+          "clicks": 0,
+          "impressions": 44
         }
       ]
     },
@@ -8802,33 +8843,6 @@
       ]
     },
     {
-      "clusterId": "it-lavoro-ticino-ristorazione",
-      "locale": "it",
-      "canonicalQuery": "lavoro ticino ristorazione",
-      "canonicalSlug": "lavoro-ticino-ristorazione",
-      "roleTokens": [
-        "lavor",
-        "ristorazion"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 99,
-      "totalClicks": 4,
-      "queries": [
-        {
-          "query": "lavoro ticino ristorazione",
-          "clicks": 4,
-          "impressions": 56
-        },
-        {
-          "query": "lavoro ristorazione ticino",
-          "clicks": 0,
-          "impressions": 43
-        }
-      ]
-    },
-    {
       "clusterId": "it-pwc-praktikum",
       "locale": "it",
       "canonicalQuery": "pwc praktikum",
@@ -8944,6 +8958,44 @@
       ]
     },
     {
+      "clusterId": "it-offerte-di-lavoro-chiasso-svizzera",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro chiasso svizzera",
+      "canonicalSlug": "offerte-di-lavoro-chiasso-svizzera",
+      "roleTokens": [
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "chiasso",
+        "svizzera"
+      ],
+      "totalImpressions": 97,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "offerte di lavoro chiasso svizzera",
+          "clicks": 1,
+          "impressions": 56
+        },
+        {
+          "query": "offerte di lavoro a chiasso svizzera",
+          "clicks": 0,
+          "impressions": 27
+        },
+        {
+          "query": "offerte lavoro chiasso svizzera",
+          "clicks": 0,
+          "impressions": 13
+        },
+        {
+          "query": "offerte lavoro a chiasso svizzera",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
       "clusterId": "it-lavoro-part-time-locarno",
       "locale": "it",
       "canonicalQuery": "lavoro part time locarno",
@@ -8990,48 +9042,6 @@
           "query": "lavoro educatore ticino",
           "clicks": 15,
           "impressions": 96
-        }
-      ]
-    },
-    {
-      "clusterId": "it-ingegnere-svizzera-lavoro",
-      "locale": "it",
-      "canonicalQuery": "ingegnere svizzera lavoro",
-      "canonicalSlug": "ingegnere-svizzera-lavoro",
-      "roleTokens": [
-        "ingegner",
-        "lavor"
-      ],
-      "regionTokens": [
-        "svizzera"
-      ],
-      "totalImpressions": 96,
-      "totalClicks": 1,
-      "queries": [
-        {
-          "query": "ingegnere svizzera lavoro",
-          "clicks": 1,
-          "impressions": 35
-        },
-        {
-          "query": "lavoro ingegneri svizzera",
-          "clicks": 0,
-          "impressions": 28
-        },
-        {
-          "query": "svizzera lavoro ingegnere",
-          "clicks": 0,
-          "impressions": 26
-        },
-        {
-          "query": "lavoro ingegnere svizzera",
-          "clicks": 0,
-          "impressions": 6
-        },
-        {
-          "query": "lavoro per ingegneri in svizzera",
-          "clicks": 0,
-          "impressions": 1
         }
       ]
     },
@@ -9236,40 +9246,30 @@
       ]
     },
     {
-      "clusterId": "it-offerte-di-lavoro-chiasso-svizzera",
+      "clusterId": "it-offerte-lavoro-educatore-svizzera",
       "locale": "it",
-      "canonicalQuery": "offerte di lavoro chiasso svizzera",
-      "canonicalSlug": "offerte-di-lavoro-chiasso-svizzera",
+      "canonicalQuery": "offerte lavoro educatore svizzera",
+      "canonicalSlug": "offerte-lavoro-educatore-svizzera",
       "roleTokens": [
+        "educat",
         "lavor",
         "offert"
       ],
       "regionTokens": [
-        "chiasso",
         "svizzera"
       ],
       "totalImpressions": 93,
-      "totalClicks": 1,
+      "totalClicks": 27,
       "queries": [
         {
-          "query": "offerte di lavoro chiasso svizzera",
-          "clicks": 1,
-          "impressions": 52
+          "query": "offerte lavoro educatore svizzera",
+          "clicks": 27,
+          "impressions": 92
         },
         {
-          "query": "offerte di lavoro a chiasso svizzera",
+          "query": "offerte di lavoro educatore svizzera",
           "clicks": 0,
-          "impressions": 26
-        },
-        {
-          "query": "offerte lavoro chiasso svizzera",
-          "clicks": 0,
-          "impressions": 13
-        },
-        {
-          "query": "offerte lavoro a chiasso svizzera",
-          "clicks": 0,
-          "impressions": 2
+          "impressions": 1
         }
       ]
     },
@@ -9289,6 +9289,28 @@
       "queries": [
         {
           "query": "kantonsspital aarau ksa",
+          "clicks": 0,
+          "impressions": 92
+        }
+      ]
+    },
+    {
+      "clusterId": "it-altenpfleger-jobs-lugano",
+      "locale": "it",
+      "canonicalQuery": "altenpfleger jobs lugano",
+      "canonicalSlug": "altenpfleger-jobs-lugano",
+      "roleTokens": [
+        "altenpfleger",
+        "job"
+      ],
+      "regionTokens": [
+        "lugano"
+      ],
+      "totalImpressions": 92,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "altenpfleger jobs lugano",
           "clicks": 0,
           "impressions": 92
         }
@@ -9442,6 +9464,59 @@
       ]
     },
     {
+      "clusterId": "it-cerco-lavoro-zurigo",
+      "locale": "it",
+      "canonicalQuery": "cerco lavoro zurigo",
+      "canonicalSlug": "cerco-lavoro-zurigo",
+      "roleTokens": [
+        "cerc",
+        "lavor"
+      ],
+      "regionTokens": [
+        "zurigo"
+      ],
+      "totalImpressions": 91,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "cerco lavoro zurigo",
+          "clicks": 0,
+          "impressions": 50
+        },
+        {
+          "query": "cerco lavoro a zurigo",
+          "clicks": 0,
+          "impressions": 38
+        },
+        {
+          "query": "cerca lavoro zurigo",
+          "clicks": 0,
+          "impressions": 3
+        }
+      ]
+    },
+    {
+      "clusterId": "it-tirocinio-ticino",
+      "locale": "it",
+      "canonicalQuery": "tirocinio ticino",
+      "canonicalSlug": "tirocinio-ticino",
+      "roleTokens": [
+        "tirocini"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 91,
+      "totalClicks": 2,
+      "queries": [
+        {
+          "query": "tirocinio ticino",
+          "clicks": 2,
+          "impressions": 91
+        }
+      ]
+    },
+    {
       "clusterId": "de-gf-biel-jobs",
       "locale": "de",
       "canonicalQuery": "gf biel jobs",
@@ -9580,59 +9655,6 @@
           "query": "lidl lavora con noi ticino",
           "clicks": 1,
           "impressions": 10
-        }
-      ]
-    },
-    {
-      "clusterId": "it-cerco-lavoro-zurigo",
-      "locale": "it",
-      "canonicalQuery": "cerco lavoro zurigo",
-      "canonicalSlug": "cerco-lavoro-zurigo",
-      "roleTokens": [
-        "cerc",
-        "lavor"
-      ],
-      "regionTokens": [
-        "zurigo"
-      ],
-      "totalImpressions": 90,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "cerco lavoro zurigo",
-          "clicks": 0,
-          "impressions": 50
-        },
-        {
-          "query": "cerco lavoro a zurigo",
-          "clicks": 0,
-          "impressions": 37
-        },
-        {
-          "query": "cerca lavoro zurigo",
-          "clicks": 0,
-          "impressions": 3
-        }
-      ]
-    },
-    {
-      "clusterId": "it-tirocinio-ticino",
-      "locale": "it",
-      "canonicalQuery": "tirocinio ticino",
-      "canonicalSlug": "tirocinio-ticino",
-      "roleTokens": [
-        "tirocini"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 90,
-      "totalClicks": 2,
-      "queries": [
-        {
-          "query": "tirocinio ticino",
-          "clicks": 2,
-          "impressions": 90
         }
       ]
     },
@@ -9866,28 +9888,6 @@
           "query": "sales positions in the canton of vaud",
           "clicks": 0,
           "impressions": 89
-        }
-      ]
-    },
-    {
-      "clusterId": "it-altenpfleger-jobs-lugano",
-      "locale": "it",
-      "canonicalQuery": "altenpfleger jobs lugano",
-      "canonicalSlug": "altenpfleger-jobs-lugano",
-      "roleTokens": [
-        "altenpfleger",
-        "job"
-      ],
-      "regionTokens": [
-        "lugano"
-      ],
-      "totalImpressions": 88,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "altenpfleger jobs lugano",
-          "clicks": 0,
-          "impressions": 88
         }
       ]
     },
@@ -10969,6 +10969,34 @@
       ]
     },
     {
+      "clusterId": "de-part-time-jobs-near-me",
+      "locale": "de",
+      "canonicalQuery": "part time jobs near me",
+      "canonicalSlug": "part-time-jobs-near-me",
+      "roleTokens": [
+        "job",
+        "me",
+        "near",
+        "part",
+        "tim"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 78,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "part time jobs near me",
+          "clicks": 0,
+          "impressions": 77
+        },
+        {
+          "query": "jobs near me part time",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
       "clusterId": "it-frontaliere-ticino-ch",
       "locale": "it",
       "canonicalQuery": "frontaliere ticino.ch",
@@ -11123,29 +11151,62 @@
       ]
     },
     {
-      "clusterId": "it-offerte-di-lavoro-basilea",
+      "clusterId": "it-offerte-lavoro-logistica-ticino",
       "locale": "it",
-      "canonicalQuery": "offerte di lavoro basilea",
-      "canonicalSlug": "offerte-di-lavoro-basilea",
+      "canonicalQuery": "offerte lavoro logistica ticino",
+      "canonicalSlug": "offerte-lavoro-logistica-ticino",
       "roleTokens": [
         "lavor",
+        "logistic",
         "offert"
       ],
       "regionTokens": [
-        "basilea"
+        "ticino"
       ],
       "totalImpressions": 76,
-      "totalClicks": 1,
+      "totalClicks": 5,
       "queries": [
         {
-          "query": "offerte di lavoro basilea",
-          "clicks": 1,
-          "impressions": 63
+          "query": "offerte lavoro logistica ticino",
+          "clicks": 4,
+          "impressions": 73
         },
         {
-          "query": "offerte di lavoro a basilea",
+          "query": "offerte di lavoro logistica ticino",
+          "clicks": 1,
+          "impressions": 3
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavoro-svizzera-frontalieri",
+      "locale": "it",
+      "canonicalQuery": "lavoro svizzera frontalieri",
+      "canonicalSlug": "lavoro-svizzera-frontalieri",
+      "roleTokens": [
+        "frontalier",
+        "lavor"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 76,
+      "totalClicks": 3,
+      "queries": [
+        {
+          "query": "lavoro svizzera frontalieri",
+          "clicks": 2,
+          "impressions": 59
+        },
+        {
+          "query": "lavoro frontalieri svizzera",
+          "clicks": 1,
+          "impressions": 9
+        },
+        {
+          "query": "lavoro per frontalieri in svizzera",
           "clicks": 0,
-          "impressions": 13
+          "impressions": 8
         }
       ]
     },
@@ -11239,6 +11300,33 @@
       ]
     },
     {
+      "clusterId": "it-offerte-di-lavoro-basilea",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro basilea",
+      "canonicalSlug": "offerte-di-lavoro-basilea",
+      "roleTokens": [
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "basilea"
+      ],
+      "totalImpressions": 76,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "offerte di lavoro basilea",
+          "clicks": 1,
+          "impressions": 63
+        },
+        {
+          "query": "offerte di lavoro a basilea",
+          "clicks": 0,
+          "impressions": 13
+        }
+      ]
+    },
+    {
       "clusterId": "fr-landi-emploi",
       "locale": "fr",
       "canonicalQuery": "landi emploi",
@@ -11307,66 +11395,6 @@
           "query": "spitex ticino offerte di lavoro",
           "clicks": 0,
           "impressions": 19
-        }
-      ]
-    },
-    {
-      "clusterId": "it-offerte-lavoro-logistica-ticino",
-      "locale": "it",
-      "canonicalQuery": "offerte lavoro logistica ticino",
-      "canonicalSlug": "offerte-lavoro-logistica-ticino",
-      "roleTokens": [
-        "lavor",
-        "logistic",
-        "offert"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 75,
-      "totalClicks": 5,
-      "queries": [
-        {
-          "query": "offerte lavoro logistica ticino",
-          "clicks": 4,
-          "impressions": 72
-        },
-        {
-          "query": "offerte di lavoro logistica ticino",
-          "clicks": 1,
-          "impressions": 3
-        }
-      ]
-    },
-    {
-      "clusterId": "it-lavoro-svizzera-frontalieri",
-      "locale": "it",
-      "canonicalQuery": "lavoro svizzera frontalieri",
-      "canonicalSlug": "lavoro-svizzera-frontalieri",
-      "roleTokens": [
-        "frontalier",
-        "lavor"
-      ],
-      "regionTokens": [
-        "svizzera"
-      ],
-      "totalImpressions": 75,
-      "totalClicks": 3,
-      "queries": [
-        {
-          "query": "lavoro svizzera frontalieri",
-          "clicks": 2,
-          "impressions": 58
-        },
-        {
-          "query": "lavoro frontalieri svizzera",
-          "clicks": 1,
-          "impressions": 9
-        },
-        {
-          "query": "lavoro per frontalieri in svizzera",
-          "clicks": 0,
-          "impressions": 8
         }
       ]
     },
@@ -11479,6 +11507,35 @@
       ]
     },
     {
+      "clusterId": "it-offerte-di-lavoro-impiegato-in-logistica-ticino",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro impiegato in logistica ticino",
+      "canonicalSlug": "offerte-di-lavoro-impiegato-in-logistica-ticino",
+      "roleTokens": [
+        "impiegat",
+        "lavor",
+        "logistic",
+        "offert"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 74,
+      "totalClicks": 4,
+      "queries": [
+        {
+          "query": "offerte di lavoro impiegato in logistica ticino",
+          "clicks": 4,
+          "impressions": 38
+        },
+        {
+          "query": "impiegato in logistica offerte di lavoro ticino",
+          "clicks": 0,
+          "impressions": 36
+        }
+      ]
+    },
+    {
       "clusterId": "it-software-house-ticino",
       "locale": "it",
       "canonicalQuery": "software house ticino",
@@ -11497,34 +11554,6 @@
           "query": "software house ticino",
           "clicks": 0,
           "impressions": 74
-        }
-      ]
-    },
-    {
-      "clusterId": "de-part-time-jobs-near-me",
-      "locale": "de",
-      "canonicalQuery": "part time jobs near me",
-      "canonicalSlug": "part-time-jobs-near-me",
-      "roleTokens": [
-        "job",
-        "me",
-        "near",
-        "part",
-        "tim"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 74,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "part time jobs near me",
-          "clicks": 0,
-          "impressions": 73
-        },
-        {
-          "query": "jobs near me part time",
-          "clicks": 0,
-          "impressions": 1
         }
       ]
     },
@@ -11670,35 +11699,6 @@
           "query": "leiter reinigung jobs",
           "clicks": 7,
           "impressions": 74
-        }
-      ]
-    },
-    {
-      "clusterId": "it-offerte-di-lavoro-impiegato-in-logistica-ticino",
-      "locale": "it",
-      "canonicalQuery": "offerte di lavoro impiegato in logistica ticino",
-      "canonicalSlug": "offerte-di-lavoro-impiegato-in-logistica-ticino",
-      "roleTokens": [
-        "impiegat",
-        "lavor",
-        "logistic",
-        "offert"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 73,
-      "totalClicks": 4,
-      "queries": [
-        {
-          "query": "offerte di lavoro impiegato in logistica ticino",
-          "clicks": 4,
-          "impressions": 38
-        },
-        {
-          "query": "impiegato in logistica offerte di lavoro ticino",
-          "clicks": 0,
-          "impressions": 35
         }
       ]
     },
@@ -12494,46 +12494,6 @@
       ]
     },
     {
-      "clusterId": "de-cartier-jobs",
-      "locale": "de",
-      "canonicalQuery": "cartier jobs",
-      "canonicalSlug": "cartier-jobs",
-      "roleTokens": [
-        "cartier",
-        "job"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 66,
-      "totalClicks": 2,
-      "queries": [
-        {
-          "query": "cartier jobs",
-          "clicks": 1,
-          "impressions": 25
-        },
-        {
-          "query": "cartier job",
-          "clicks": 0,
-          "impressions": 19
-        },
-        {
-          "query": "job cartier",
-          "clicks": 1,
-          "impressions": 15
-        },
-        {
-          "query": "jobs cartier",
-          "clicks": 0,
-          "impressions": 6
-        },
-        {
-          "query": "jobs at cartier",
-          "clicks": 0,
-          "impressions": 1
-        }
-      ]
-    },
-    {
       "clusterId": "de-nottwil-paraplegikerzentrum-jobs",
       "locale": "de",
       "canonicalQuery": "nottwil paraplegikerzentrum jobs",
@@ -12620,6 +12580,46 @@
         },
         {
           "query": "jobs sulzer",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "de-cartier-jobs",
+      "locale": "de",
+      "canonicalQuery": "cartier jobs",
+      "canonicalSlug": "cartier-jobs",
+      "roleTokens": [
+        "cartier",
+        "job"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 66,
+      "totalClicks": 2,
+      "queries": [
+        {
+          "query": "cartier jobs",
+          "clicks": 1,
+          "impressions": 25
+        },
+        {
+          "query": "cartier job",
+          "clicks": 0,
+          "impressions": 19
+        },
+        {
+          "query": "job cartier",
+          "clicks": 1,
+          "impressions": 15
+        },
+        {
+          "query": "jobs cartier",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
+          "query": "jobs at cartier",
           "clicks": 0,
           "impressions": 1
         }
@@ -12755,6 +12755,31 @@
           "query": "axa manno",
           "clicks": 0,
           "impressions": 65
+        }
+      ]
+    },
+    {
+      "clusterId": "fr-rfsm-emploi",
+      "locale": "fr",
+      "canonicalQuery": "rfsm emploi",
+      "canonicalSlug": "rfsm-emploi",
+      "roleTokens": [
+        "emplo",
+        "rfsm"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 65,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "rfsm emploi",
+          "clicks": 1,
+          "impressions": 57
+        },
+        {
+          "query": "emploi rfsm",
+          "clicks": 0,
+          "impressions": 8
         }
       ]
     },
@@ -13067,31 +13092,6 @@
       ]
     },
     {
-      "clusterId": "fr-rfsm-emploi",
-      "locale": "fr",
-      "canonicalQuery": "rfsm emploi",
-      "canonicalSlug": "rfsm-emploi",
-      "roleTokens": [
-        "emplo",
-        "rfsm"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 63,
-      "totalClicks": 1,
-      "queries": [
-        {
-          "query": "rfsm emploi",
-          "clicks": 1,
-          "impressions": 55
-        },
-        {
-          "query": "emploi rfsm",
-          "clicks": 0,
-          "impressions": 8
-        }
-      ]
-    },
-    {
       "clusterId": "fr-groupe-mutuel-emploi-valais",
       "locale": "fr",
       "canonicalQuery": "groupe mutuel emploi valais",
@@ -13301,28 +13301,6 @@
       ]
     },
     {
-      "clusterId": "it-lavoro-briga-svizzera",
-      "locale": "it",
-      "canonicalQuery": "lavoro briga svizzera",
-      "canonicalSlug": "lavoro-briga-svizzera",
-      "roleTokens": [
-        "brig",
-        "lavor"
-      ],
-      "regionTokens": [
-        "svizzera"
-      ],
-      "totalImpressions": 61,
-      "totalClicks": 3,
-      "queries": [
-        {
-          "query": "lavoro briga svizzera",
-          "clicks": 3,
-          "impressions": 61
-        }
-      ]
-    },
-    {
       "clusterId": "fr-emploi-neuchatel",
       "locale": "fr",
       "canonicalQuery": "emploi neuchatel",
@@ -13350,6 +13328,28 @@
           "query": "emploi a neuchatel",
           "clicks": 0,
           "impressions": 2
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavoro-briga-svizzera",
+      "locale": "it",
+      "canonicalQuery": "lavoro briga svizzera",
+      "canonicalSlug": "lavoro-briga-svizzera",
+      "roleTokens": [
+        "brig",
+        "lavor"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 61,
+      "totalClicks": 3,
+      "queries": [
+        {
+          "query": "lavoro briga svizzera",
+          "clicks": 3,
+          "impressions": 61
         }
       ]
     },
@@ -13741,6 +13741,50 @@
       ]
     },
     {
+      "clusterId": "it-offerte-di-lavoro-centri-diurni-ticino",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro centri diurni ticino",
+      "canonicalSlug": "offerte-di-lavoro-centri-diurni-ticino",
+      "roleTokens": [
+        "centr",
+        "diurn",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 59,
+      "totalClicks": 2,
+      "queries": [
+        {
+          "query": "offerte di lavoro centri diurni ticino",
+          "clicks": 2,
+          "impressions": 59
+        }
+      ]
+    },
+    {
+      "clusterId": "it-autista-moritz",
+      "locale": "it",
+      "canonicalQuery": "autista moritz",
+      "canonicalSlug": "autista-moritz",
+      "roleTokens": [
+        "autist",
+        "moritz"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 59,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "autista moritz",
+          "clicks": 0,
+          "impressions": 59
+        }
+      ]
+    },
+    {
       "clusterId": "fr-emploi-uri",
       "locale": "fr",
       "canonicalQuery": "emploi uri",
@@ -13830,26 +13874,6 @@
           "query": "offene stellen schulassistenz",
           "clicks": 1,
           "impressions": 13
-        }
-      ]
-    },
-    {
-      "clusterId": "it-autista-moritz",
-      "locale": "it",
-      "canonicalQuery": "autista moritz",
-      "canonicalSlug": "autista-moritz",
-      "roleTokens": [
-        "autist",
-        "moritz"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 58,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "autista moritz",
-          "clicks": 0,
-          "impressions": 58
         }
       ]
     },
@@ -14779,6 +14803,27 @@
       ]
     },
     {
+      "clusterId": "it-arbeiten-ausland-pflege",
+      "locale": "it",
+      "canonicalQuery": "arbeiten ausland pflege",
+      "canonicalSlug": "arbeiten-ausland-pflege",
+      "roleTokens": [
+        "arbeiten",
+        "ausland",
+        "pfleg"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 54,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "arbeiten ausland pflege",
+          "clicks": 0,
+          "impressions": 54
+        }
+      ]
+    },
+    {
       "clusterId": "it-venditore-ticino",
       "locale": "it",
       "canonicalQuery": "venditore ticino",
@@ -15073,6 +15118,28 @@
       ]
     },
     {
+      "clusterId": "it-ingenieur-jobs-lugano",
+      "locale": "it",
+      "canonicalQuery": "ingenieur jobs lugano",
+      "canonicalSlug": "ingenieur-jobs-lugano",
+      "roleTokens": [
+        "ingeni",
+        "job"
+      ],
+      "regionTokens": [
+        "lugano"
+      ],
+      "totalImpressions": 53,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "ingenieur jobs lugano",
+          "clicks": 0,
+          "impressions": 53
+        }
+      ]
+    },
+    {
       "clusterId": "it-lavoro-svizzera-negli-ultimi-3-giorni",
       "locale": "it",
       "canonicalQuery": "lavoro svizzera negli ultimi 3 giorni",
@@ -15225,6 +15292,30 @@
       "queries": [
         {
           "query": "sviluppatore ugello",
+          "clicks": 0,
+          "impressions": 52
+        }
+      ]
+    },
+    {
+      "clusterId": "it-ditte-di-trasporti-in-svizzera-che-cercano-autisti",
+      "locale": "it",
+      "canonicalQuery": "ditte di trasporti in svizzera che cercano autisti",
+      "canonicalSlug": "ditte-di-trasporti-in-svizzera-che-cercano-autisti",
+      "roleTokens": [
+        "autist",
+        "cercan",
+        "ditt",
+        "trasport"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 52,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "ditte di trasporti in svizzera che cercano autisti",
           "clicks": 0,
           "impressions": 52
         }
@@ -15501,6 +15592,53 @@
       ]
     },
     {
+      "clusterId": "it-concorso-casa-anziani-bellinzona",
+      "locale": "it",
+      "canonicalQuery": "concorso casa anziani bellinzona",
+      "canonicalSlug": "concorso-casa-anziani-bellinzona",
+      "roleTokens": [
+        "anzian",
+        "cas",
+        "concors"
+      ],
+      "regionTokens": [
+        "bellinzona"
+      ],
+      "totalImpressions": 51,
+      "totalClicks": 6,
+      "queries": [
+        {
+          "query": "concorso casa anziani bellinzona",
+          "clicks": 6,
+          "impressions": 51
+        }
+      ]
+    },
+    {
+      "clusterId": "it-ristoranti-italiani-a-zurigo-che-cercano-personale",
+      "locale": "it",
+      "canonicalQuery": "ristoranti italiani a zurigo che cercano personale",
+      "canonicalSlug": "ristoranti-italiani-a-zurigo-che-cercano-personale",
+      "roleTokens": [
+        "cercan",
+        "italian",
+        "personal",
+        "ristorant"
+      ],
+      "regionTokens": [
+        "zurigo"
+      ],
+      "totalImpressions": 51,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "ristoranti italiani a zurigo che cercano personale",
+          "clicks": 1,
+          "impressions": 51
+        }
+      ]
+    },
+    {
       "clusterId": "de-stellen-roche-basel",
       "locale": "de",
       "canonicalQuery": "stellen roche basel",
@@ -15687,28 +15825,6 @@
       ]
     },
     {
-      "clusterId": "it-ingenieur-jobs-lugano",
-      "locale": "it",
-      "canonicalQuery": "ingenieur jobs lugano",
-      "canonicalSlug": "ingenieur-jobs-lugano",
-      "roleTokens": [
-        "ingeni",
-        "job"
-      ],
-      "regionTokens": [
-        "lugano"
-      ],
-      "totalImpressions": 50,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "ingenieur jobs lugano",
-          "clicks": 0,
-          "impressions": 50
-        }
-      ]
-    },
-    {
       "clusterId": "de-bell-offene-stellen",
       "locale": "de",
       "canonicalQuery": "bell offene stellen",
@@ -15858,51 +15974,6 @@
           "query": "can you show retail jobs in lucerne that do not require perfect german?",
           "clicks": 0,
           "impressions": 50
-        }
-      ]
-    },
-    {
-      "clusterId": "it-ristoranti-italiani-a-zurigo-che-cercano-personale",
-      "locale": "it",
-      "canonicalQuery": "ristoranti italiani a zurigo che cercano personale",
-      "canonicalSlug": "ristoranti-italiani-a-zurigo-che-cercano-personale",
-      "roleTokens": [
-        "cercan",
-        "italian",
-        "personal",
-        "ristorant"
-      ],
-      "regionTokens": [
-        "zurigo"
-      ],
-      "totalImpressions": 49,
-      "totalClicks": 1,
-      "queries": [
-        {
-          "query": "ristoranti italiani a zurigo che cercano personale",
-          "clicks": 1,
-          "impressions": 49
-        }
-      ]
-    },
-    {
-      "clusterId": "it-arbeiten-ausland-pflege",
-      "locale": "it",
-      "canonicalQuery": "arbeiten ausland pflege",
-      "canonicalSlug": "arbeiten-ausland-pflege",
-      "roleTokens": [
-        "arbeiten",
-        "ausland",
-        "pfleg"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 49,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "arbeiten ausland pflege",
-          "clicks": 0,
-          "impressions": 49
         }
       ]
     },
@@ -16122,29 +16193,6 @@
           "query": "teilzeit jobs st gallen",
           "clicks": 0,
           "impressions": 4
-        }
-      ]
-    },
-    {
-      "clusterId": "it-concorso-casa-anziani-bellinzona",
-      "locale": "it",
-      "canonicalQuery": "concorso casa anziani bellinzona",
-      "canonicalSlug": "concorso-casa-anziani-bellinzona",
-      "roleTokens": [
-        "anzian",
-        "cas",
-        "concors"
-      ],
-      "regionTokens": [
-        "bellinzona"
-      ],
-      "totalImpressions": 48,
-      "totalClicks": 6,
-      "queries": [
-        {
-          "query": "concorso casa anziani bellinzona",
-          "clicks": 6,
-          "impressions": 48
         }
       ]
     },
@@ -16703,24 +16751,22 @@
       ]
     },
     {
-      "clusterId": "it-ditte-di-trasporti-in-svizzera-che-cercano-autisti",
+      "clusterId": "it-softwareentwickler-jobs-lugano",
       "locale": "it",
-      "canonicalQuery": "ditte di trasporti in svizzera che cercano autisti",
-      "canonicalSlug": "ditte-di-trasporti-in-svizzera-che-cercano-autisti",
+      "canonicalQuery": "softwareentwickler jobs lugano",
+      "canonicalSlug": "softwareentwickler-jobs-lugano",
       "roleTokens": [
-        "autist",
-        "cercan",
-        "ditt",
-        "trasport"
+        "job",
+        "softwareentwickler"
       ],
       "regionTokens": [
-        "svizzera"
+        "lugano"
       ],
       "totalImpressions": 46,
       "totalClicks": 0,
       "queries": [
         {
-          "query": "ditte di trasporti in svizzera che cercano autisti",
+          "query": "softwareentwickler jobs lugano",
           "clicks": 0,
           "impressions": 46
         }
@@ -17445,24 +17491,32 @@
       ]
     },
     {
-      "clusterId": "it-softwareentwickler-jobs-lugano",
-      "locale": "it",
-      "canonicalQuery": "softwareentwickler jobs lugano",
-      "canonicalSlug": "softwareentwickler-jobs-lugano",
+      "clusterId": "fr-emploi-sion",
+      "locale": "fr",
+      "canonicalQuery": "emploi sion",
+      "canonicalSlug": "emploi-sion",
       "roleTokens": [
-        "job",
-        "softwareentwickler"
+        "emplo",
+        "sion"
       ],
-      "regionTokens": [
-        "lugano"
-      ],
+      "regionTokens": [],
       "totalImpressions": 44,
       "totalClicks": 0,
       "queries": [
         {
-          "query": "softwareentwickler jobs lugano",
+          "query": "emploi sion",
           "clicks": 0,
-          "impressions": 44
+          "impressions": 38
+        },
+        {
+          "query": "sion emploi",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "emploi a sion",
+          "clicks": 0,
+          "impressions": 3
         }
       ]
     },
@@ -17730,36 +17784,6 @@
           "query": "offerte di lavoro mendrisio part time",
           "clicks": 0,
           "impressions": 1
-        }
-      ]
-    },
-    {
-      "clusterId": "fr-emploi-sion",
-      "locale": "fr",
-      "canonicalQuery": "emploi sion",
-      "canonicalSlug": "emploi-sion",
-      "roleTokens": [
-        "emplo",
-        "sion"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 43,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "emploi sion",
-          "clicks": 0,
-          "impressions": 37
-        },
-        {
-          "query": "sion emploi",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
-          "query": "emploi a sion",
-          "clicks": 0,
-          "impressions": 3
         }
       ]
     },
@@ -18061,52 +18085,6 @@
       ]
     },
     {
-      "clusterId": "de-jobs-in-zurich",
-      "locale": "de",
-      "canonicalQuery": "jobs in zurich",
-      "canonicalSlug": "jobs-in-zurich",
-      "roleTokens": [
-        "job"
-      ],
-      "regionTokens": [
-        "zurigo"
-      ],
-      "totalImpressions": 42,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "jobs in zurich",
-          "clicks": 0,
-          "impressions": 23
-        },
-        {
-          "query": "zurich jobs",
-          "clicks": 0,
-          "impressions": 6
-        },
-        {
-          "query": "zurich job",
-          "clicks": 0,
-          "impressions": 5
-        },
-        {
-          "query": "job zurich",
-          "clicks": 0,
-          "impressions": 4
-        },
-        {
-          "query": "jobs zürich",
-          "clicks": 0,
-          "impressions": 2
-        },
-        {
-          "query": "job in zurich",
-          "clicks": 0,
-          "impressions": 2
-        }
-      ]
-    },
-    {
       "clusterId": "fr-emploi-anniviers",
       "locale": "fr",
       "canonicalQuery": "emploi anniviers",
@@ -18186,6 +18164,52 @@
           "query": "stage vacance",
           "clicks": 0,
           "impressions": 42
+        }
+      ]
+    },
+    {
+      "clusterId": "de-jobs-in-zurich",
+      "locale": "de",
+      "canonicalQuery": "jobs in zurich",
+      "canonicalSlug": "jobs-in-zurich",
+      "roleTokens": [
+        "job"
+      ],
+      "regionTokens": [
+        "zurigo"
+      ],
+      "totalImpressions": 42,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "jobs in zurich",
+          "clicks": 0,
+          "impressions": 23
+        },
+        {
+          "query": "zurich jobs",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
+          "query": "zurich job",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "job zurich",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "jobs zürich",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "job in zurich",
+          "clicks": 0,
+          "impressions": 2
         }
       ]
     },
@@ -18399,6 +18423,96 @@
           "query": "reinigung solothurn jobs",
           "clicks": 0,
           "impressions": 3
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavoro-chiasso-svizzera",
+      "locale": "it",
+      "canonicalQuery": "lavoro chiasso svizzera",
+      "canonicalSlug": "lavoro-chiasso-svizzera",
+      "roleTokens": [
+        "lavor"
+      ],
+      "regionTokens": [
+        "chiasso",
+        "svizzera"
+      ],
+      "totalImpressions": 41,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "lavoro chiasso svizzera",
+          "clicks": 0,
+          "impressions": 18
+        },
+        {
+          "query": "lavoro in svizzera chiasso",
+          "clicks": 0,
+          "impressions": 13
+        },
+        {
+          "query": "lavoro a chiasso svizzera",
+          "clicks": 0,
+          "impressions": 8
+        },
+        {
+          "query": "lavoro svizzera chiasso",
+          "clicks": 0,
+          "impressions": 1
+        },
+        {
+          "query": "chiasso svizzera lavoro",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "it-erzieher-jobs-lugano",
+      "locale": "it",
+      "canonicalQuery": "erzieher jobs lugano",
+      "canonicalSlug": "erzieher-jobs-lugano",
+      "roleTokens": [
+        "erzieher",
+        "job"
+      ],
+      "regionTokens": [
+        "lugano"
+      ],
+      "totalImpressions": 41,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "erzieher jobs lugano",
+          "clicks": 0,
+          "impressions": 41
+        }
+      ]
+    },
+    {
+      "clusterId": "it-apprendistato-ticino",
+      "locale": "it",
+      "canonicalQuery": "apprendistato ticino",
+      "canonicalSlug": "apprendistato-ticino",
+      "roleTokens": [
+        "apprendistat"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 41,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "apprendistato ticino",
+          "clicks": 0,
+          "impressions": 39
+        },
+        {
+          "query": "apprendistati ticino",
+          "clicks": 0,
+          "impressions": 2
         }
       ]
     },
@@ -18696,37 +18810,13 @@
       ]
     },
     {
-      "clusterId": "it-offerte-di-lavoro-centri-diurni-ticino",
+      "clusterId": "it-softwareentwicklung-jobs-lugano",
       "locale": "it",
-      "canonicalQuery": "offerte di lavoro centri diurni ticino",
-      "canonicalSlug": "offerte-di-lavoro-centri-diurni-ticino",
+      "canonicalQuery": "softwareentwicklung jobs lugano",
+      "canonicalSlug": "softwareentwicklung-jobs-lugano",
       "roleTokens": [
-        "centr",
-        "diurn",
-        "lavor",
-        "offert"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 40,
-      "totalClicks": 1,
-      "queries": [
-        {
-          "query": "offerte di lavoro centri diurni ticino",
-          "clicks": 1,
-          "impressions": 40
-        }
-      ]
-    },
-    {
-      "clusterId": "it-erzieher-jobs-lugano",
-      "locale": "it",
-      "canonicalQuery": "erzieher jobs lugano",
-      "canonicalSlug": "erzieher-jobs-lugano",
-      "roleTokens": [
-        "erzieher",
-        "job"
+        "job",
+        "softwareentwicklung"
       ],
       "regionTokens": [
         "lugano"
@@ -18735,7 +18825,7 @@
       "totalClicks": 0,
       "queries": [
         {
-          "query": "erzieher jobs lugano",
+          "query": "softwareentwicklung jobs lugano",
           "clicks": 0,
           "impressions": 40
         }
@@ -19123,6 +19213,30 @@
       ]
     },
     {
+      "clusterId": "it-offerte-lavoro-ristorazione-svizzera-per-italiani",
+      "locale": "it",
+      "canonicalQuery": "offerte lavoro ristorazione svizzera per italiani",
+      "canonicalSlug": "offerte-lavoro-ristorazione-svizzera-per-italiani",
+      "roleTokens": [
+        "italian",
+        "lavor",
+        "offert",
+        "ristorazion"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 39,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "offerte lavoro ristorazione svizzera per italiani",
+          "clicks": 1,
+          "impressions": 39
+        }
+      ]
+    },
+    {
       "clusterId": "en-web-developer-ticino",
       "locale": "en",
       "canonicalQuery": "web developer ticino",
@@ -19160,28 +19274,6 @@
       "queries": [
         {
           "query": "altenpfleger bern",
-          "clicks": 0,
-          "impressions": 39
-        }
-      ]
-    },
-    {
-      "clusterId": "it-softwareentwicklung-jobs-lugano",
-      "locale": "it",
-      "canonicalQuery": "softwareentwicklung jobs lugano",
-      "canonicalSlug": "softwareentwicklung-jobs-lugano",
-      "roleTokens": [
-        "job",
-        "softwareentwicklung"
-      ],
-      "regionTokens": [
-        "lugano"
-      ],
-      "totalImpressions": 39,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "softwareentwicklung jobs lugano",
           "clicks": 0,
           "impressions": 39
         }
@@ -19306,48 +19398,6 @@
           "query": "job fribourg",
           "clicks": 0,
           "impressions": 2
-        }
-      ]
-    },
-    {
-      "clusterId": "it-lavoro-chiasso-svizzera",
-      "locale": "it",
-      "canonicalQuery": "lavoro chiasso svizzera",
-      "canonicalSlug": "lavoro-chiasso-svizzera",
-      "roleTokens": [
-        "lavor"
-      ],
-      "regionTokens": [
-        "chiasso",
-        "svizzera"
-      ],
-      "totalImpressions": 39,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "lavoro chiasso svizzera",
-          "clicks": 0,
-          "impressions": 18
-        },
-        {
-          "query": "lavoro in svizzera chiasso",
-          "clicks": 0,
-          "impressions": 13
-        },
-        {
-          "query": "lavoro a chiasso svizzera",
-          "clicks": 0,
-          "impressions": 6
-        },
-        {
-          "query": "lavoro svizzera chiasso",
-          "clicks": 0,
-          "impressions": 1
-        },
-        {
-          "query": "chiasso svizzera lavoro",
-          "clicks": 0,
-          "impressions": 1
         }
       ]
     },
@@ -19663,30 +19713,6 @@
         {
           "query": "educatore svizzera canton ticino",
           "clicks": 5,
-          "impressions": 38
-        }
-      ]
-    },
-    {
-      "clusterId": "it-offerte-lavoro-ristorazione-svizzera-per-italiani",
-      "locale": "it",
-      "canonicalQuery": "offerte lavoro ristorazione svizzera per italiani",
-      "canonicalSlug": "offerte-lavoro-ristorazione-svizzera-per-italiani",
-      "roleTokens": [
-        "italian",
-        "lavor",
-        "offert",
-        "ristorazion"
-      ],
-      "regionTokens": [
-        "svizzera"
-      ],
-      "totalImpressions": 38,
-      "totalClicks": 1,
-      "queries": [
-        {
-          "query": "offerte lavoro ristorazione svizzera per italiani",
-          "clicks": 1,
           "impressions": 38
         }
       ]
@@ -20152,6 +20178,53 @@
           "query": "jobs werkstudent",
           "clicks": 0,
           "impressions": 4
+        }
+      ]
+    },
+    {
+      "clusterId": "it-software-house-canton-ticino",
+      "locale": "it",
+      "canonicalQuery": "software house canton ticino",
+      "canonicalSlug": "software-house-canton-ticino",
+      "roleTokens": [
+        "canton",
+        "hous",
+        "softwar"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 37,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "software house canton ticino",
+          "clicks": 0,
+          "impressions": 37
+        }
+      ]
+    },
+    {
+      "clusterId": "it-trovare-lavoro-in-svizzera-a-50-anni",
+      "locale": "it",
+      "canonicalQuery": "trovare lavoro in svizzera a 50 anni",
+      "canonicalSlug": "trovare-lavoro-in-svizzera-a-50-anni",
+      "roleTokens": [
+        "50",
+        "ann",
+        "lavor",
+        "trovar"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 37,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "trovare lavoro in svizzera a 50 anni",
+          "clicks": 0,
+          "impressions": 37
         }
       ]
     },
@@ -20652,32 +20725,6 @@
       ]
     },
     {
-      "clusterId": "it-apprendistato-ticino",
-      "locale": "it",
-      "canonicalQuery": "apprendistato ticino",
-      "canonicalSlug": "apprendistato-ticino",
-      "roleTokens": [
-        "apprendistat"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 36,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "apprendistato ticino",
-          "clicks": 0,
-          "impressions": 34
-        },
-        {
-          "query": "apprendistati ticino",
-          "clicks": 0,
-          "impressions": 2
-        }
-      ]
-    },
-    {
       "clusterId": "de-bell-stellen",
       "locale": "de",
       "canonicalQuery": "bell stellen",
@@ -20692,30 +20739,6 @@
       "queries": [
         {
           "query": "bell stellen",
-          "clicks": 0,
-          "impressions": 36
-        }
-      ]
-    },
-    {
-      "clusterId": "it-trovare-lavoro-in-svizzera-a-50-anni",
-      "locale": "it",
-      "canonicalQuery": "trovare lavoro in svizzera a 50 anni",
-      "canonicalSlug": "trovare-lavoro-in-svizzera-a-50-anni",
-      "roleTokens": [
-        "50",
-        "ann",
-        "lavor",
-        "trovar"
-      ],
-      "regionTokens": [
-        "svizzera"
-      ],
-      "totalImpressions": 36,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "trovare lavoro in svizzera a 50 anni",
           "clicks": 0,
           "impressions": 36
         }
@@ -21165,6 +21188,43 @@
       ]
     },
     {
+      "clusterId": "en-nursing-jobs-in-switzerland",
+      "locale": "en",
+      "canonicalQuery": "nursing jobs in switzerland",
+      "canonicalSlug": "nursing-jobs-in-switzerland",
+      "roleTokens": [
+        "job",
+        "nurs"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 35,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "nursing jobs in switzerland",
+          "clicks": 0,
+          "impressions": 14
+        },
+        {
+          "query": "swiss nursing jobs",
+          "clicks": 0,
+          "impressions": 7
+        },
+        {
+          "query": "switzerland nurse jobs",
+          "clicks": 0,
+          "impressions": 7
+        },
+        {
+          "query": "switzerland nursing jobs",
+          "clicks": 0,
+          "impressions": 7
+        }
+      ]
+    },
+    {
       "clusterId": "de-afry-jobs",
       "locale": "de",
       "canonicalQuery": "afry jobs",
@@ -21526,29 +21586,6 @@
           "query": "dr. med. affolter-baumberger barbara",
           "clicks": 0,
           "impressions": 35
-        }
-      ]
-    },
-    {
-      "clusterId": "it-software-house-canton-ticino",
-      "locale": "it",
-      "canonicalQuery": "software house canton ticino",
-      "canonicalSlug": "software-house-canton-ticino",
-      "roleTokens": [
-        "canton",
-        "hous",
-        "softwar"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 34,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "software house canton ticino",
-          "clicks": 0,
-          "impressions": 34
         }
       ]
     },
@@ -21946,39 +21983,25 @@
       ]
     },
     {
-      "clusterId": "en-nursing-jobs-in-switzerland",
-      "locale": "en",
-      "canonicalQuery": "nursing jobs in switzerland",
-      "canonicalSlug": "nursing-jobs-in-switzerland",
+      "clusterId": "it-tutti-ch-lavoro-ristorazione",
+      "locale": "it",
+      "canonicalQuery": "tutti ch lavoro ristorazione",
+      "canonicalSlug": "tutti-ch-lavoro-ristorazione",
       "roleTokens": [
-        "job",
-        "nurs"
+        "lavor",
+        "ristorazion",
+        "tutt"
       ],
       "regionTokens": [
-        "svizzera"
+        "ch"
       ],
       "totalImpressions": 33,
       "totalClicks": 0,
       "queries": [
         {
-          "query": "nursing jobs in switzerland",
+          "query": "tutti ch lavoro ristorazione",
           "clicks": 0,
-          "impressions": 13
-        },
-        {
-          "query": "swiss nursing jobs",
-          "clicks": 0,
-          "impressions": 7
-        },
-        {
-          "query": "switzerland nurse jobs",
-          "clicks": 0,
-          "impressions": 7
-        },
-        {
-          "query": "switzerland nursing jobs",
-          "clicks": 0,
-          "impressions": 6
+          "impressions": 33
         }
       ]
     },
@@ -23139,24 +23162,44 @@
       ]
     },
     {
-      "clusterId": "it-tutti-ch-lavoro-ristorazione",
+      "clusterId": "it-casa-anziani-giornico-lavoro",
       "locale": "it",
-      "canonicalQuery": "tutti ch lavoro ristorazione",
-      "canonicalSlug": "tutti-ch-lavoro-ristorazione",
+      "canonicalQuery": "casa anziani giornico lavoro",
+      "canonicalSlug": "casa-anziani-giornico-lavoro",
       "roleTokens": [
-        "lavor",
-        "ristorazion",
-        "tutt"
+        "anzian",
+        "cas",
+        "giornic",
+        "lavor"
       ],
-      "regionTokens": [
-        "ch"
-      ],
+      "regionTokens": [],
       "totalImpressions": 31,
-      "totalClicks": 0,
+      "totalClicks": 4,
       "queries": [
         {
-          "query": "tutti ch lavoro ristorazione",
-          "clicks": 0,
+          "query": "casa anziani giornico lavoro",
+          "clicks": 4,
+          "impressions": 31
+        }
+      ]
+    },
+    {
+      "clusterId": "it-rvcs-ticino",
+      "locale": "it",
+      "canonicalQuery": "rvcs ticino",
+      "canonicalSlug": "rvcs-ticino",
+      "roleTokens": [
+        "rvc"
+      ],
+      "regionTokens": [
+        "ticino"
+      ],
+      "totalImpressions": 31,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "rvcs ticino",
+          "clicks": 1,
           "impressions": 31
         }
       ]
@@ -23183,6 +23226,28 @@
       "queries": [
         {
           "query": "where can i find jobs for a truck driver in the swiss german region",
+          "clicks": 0,
+          "impressions": 31
+        }
+      ]
+    },
+    {
+      "clusterId": "it-corporate-driver-in-zurich",
+      "locale": "it",
+      "canonicalQuery": "corporate driver in zurich",
+      "canonicalSlug": "corporate-driver-in-zurich",
+      "roleTokens": [
+        "corporat",
+        "driver"
+      ],
+      "regionTokens": [
+        "zurigo"
+      ],
+      "totalImpressions": 31,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "corporate driver in zurich",
           "clicks": 0,
           "impressions": 31
         }
@@ -23804,23 +23869,29 @@
       ]
     },
     {
-      "clusterId": "it-rvcs-ticino",
+      "clusterId": "it-lavorare-in-svizzera-ingegnere",
       "locale": "it",
-      "canonicalQuery": "rvcs ticino",
-      "canonicalSlug": "rvcs-ticino",
+      "canonicalQuery": "lavorare in svizzera ingegnere",
+      "canonicalSlug": "lavorare-in-svizzera-ingegnere",
       "roleTokens": [
-        "rvc"
+        "ingegner",
+        "lavorar"
       ],
       "regionTokens": [
-        "ticino"
+        "svizzera"
       ],
       "totalImpressions": 30,
-      "totalClicks": 1,
+      "totalClicks": 0,
       "queries": [
         {
-          "query": "rvcs ticino",
-          "clicks": 1,
-          "impressions": 30
+          "query": "lavorare in svizzera ingegnere",
+          "clicks": 0,
+          "impressions": 25
+        },
+        {
+          "query": "lavorare come ingegnere in svizzera",
+          "clicks": 0,
+          "impressions": 5
         }
       ]
     },
@@ -23854,6 +23925,28 @@
           "query": "offerte di lavoro autista svizzera",
           "clicks": 0,
           "impressions": 2
+        }
+      ]
+    },
+    {
+      "clusterId": "en-corporate-driver-in-switzerland",
+      "locale": "en",
+      "canonicalQuery": "corporate driver in switzerland",
+      "canonicalSlug": "corporate-driver-in-switzerland",
+      "roleTokens": [
+        "corporat",
+        "driver"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 30,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "corporate driver in switzerland",
+          "clicks": 0,
+          "impressions": 30
         }
       ]
     },
@@ -24411,28 +24504,6 @@
       ]
     },
     {
-      "clusterId": "it-casa-anziani-giornico-lavoro",
-      "locale": "it",
-      "canonicalQuery": "casa anziani giornico lavoro",
-      "canonicalSlug": "casa-anziani-giornico-lavoro",
-      "roleTokens": [
-        "anzian",
-        "cas",
-        "giornic",
-        "lavor"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 29,
-      "totalClicks": 4,
-      "queries": [
-        {
-          "query": "casa anziani giornico lavoro",
-          "clicks": 4,
-          "impressions": 29
-        }
-      ]
-    },
-    {
       "clusterId": "it-pflegejobs-in-waadt",
       "locale": "it",
       "canonicalQuery": "pflegejobs in waadt",
@@ -24469,6 +24540,28 @@
       "queries": [
         {
           "query": "hire developers in switzerland",
+          "clicks": 0,
+          "impressions": 29
+        }
+      ]
+    },
+    {
+      "clusterId": "it-gastronom-jobs-lugano",
+      "locale": "it",
+      "canonicalQuery": "gastronom jobs lugano",
+      "canonicalSlug": "gastronom-jobs-lugano",
+      "roleTokens": [
+        "gastronom",
+        "job"
+      ],
+      "regionTokens": [
+        "lugano"
+      ],
+      "totalImpressions": 29,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "gastronom jobs lugano",
           "clicks": 0,
           "impressions": 29
         }
@@ -25017,29 +25110,28 @@
       ]
     },
     {
-      "clusterId": "it-lavorare-in-svizzera-ingegnere",
+      "clusterId": "it-jobs-chiasso",
       "locale": "it",
-      "canonicalQuery": "lavorare in svizzera ingegnere",
-      "canonicalSlug": "lavorare-in-svizzera-ingegnere",
+      "canonicalQuery": "jobs chiasso",
+      "canonicalSlug": "jobs-chiasso",
       "roleTokens": [
-        "ingegner",
-        "lavorar"
+        "job"
       ],
       "regionTokens": [
-        "svizzera"
+        "chiasso"
       ],
       "totalImpressions": 28,
-      "totalClicks": 0,
+      "totalClicks": 1,
       "queries": [
         {
-          "query": "lavorare in svizzera ingegnere",
+          "query": "jobs chiasso",
           "clicks": 0,
-          "impressions": 23
+          "impressions": 18
         },
         {
-          "query": "lavorare come ingegnere in svizzera",
-          "clicks": 0,
-          "impressions": 5
+          "query": "job chiasso",
+          "clicks": 1,
+          "impressions": 10
         }
       ]
     },
@@ -25077,28 +25169,6 @@
           "query": "lavoro mendrisio svizzera",
           "clicks": 0,
           "impressions": 1
-        }
-      ]
-    },
-    {
-      "clusterId": "it-gastronom-jobs-lugano",
-      "locale": "it",
-      "canonicalQuery": "gastronom jobs lugano",
-      "canonicalSlug": "gastronom-jobs-lugano",
-      "roleTokens": [
-        "gastronom",
-        "job"
-      ],
-      "regionTokens": [
-        "lugano"
-      ],
-      "totalImpressions": 28,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "gastronom jobs lugano",
-          "clicks": 0,
-          "impressions": 28
         }
       ]
     },
@@ -25865,28 +25935,22 @@
       ]
     },
     {
-      "clusterId": "it-jobs-chiasso",
+      "clusterId": "it-alterspflegekrafte-baselland",
       "locale": "it",
-      "canonicalQuery": "jobs chiasso",
-      "canonicalSlug": "jobs-chiasso",
+      "canonicalQuery": "alterspflegekräfte baselland",
+      "canonicalSlug": "alterspflegekrafte-baselland",
       "roleTokens": [
-        "job"
+        "alterspflegekraft",
+        "baselland"
       ],
-      "regionTokens": [
-        "chiasso"
-      ],
+      "regionTokens": [],
       "totalImpressions": 27,
-      "totalClicks": 1,
+      "totalClicks": 0,
       "queries": [
         {
-          "query": "jobs chiasso",
+          "query": "alterspflegekräfte baselland",
           "clicks": 0,
-          "impressions": 19
-        },
-        {
-          "query": "job chiasso",
-          "clicks": 1,
-          "impressions": 8
+          "impressions": 27
         }
       ]
     },
@@ -27655,6 +27719,25 @@
       ]
     },
     {
+      "clusterId": "it-disegnatore",
+      "locale": "it",
+      "canonicalQuery": "disegnatore",
+      "canonicalSlug": "disegnatore",
+      "roleTokens": [
+        "disegnat"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 25,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "disegnatore",
+          "clicks": 0,
+          "impressions": 25
+        }
+      ]
+    },
+    {
       "clusterId": "it-consulente-software-ticino",
       "locale": "it",
       "canonicalQuery": "consulente software ticino",
@@ -27671,25 +27754,6 @@
       "queries": [
         {
           "query": "consulente software ticino",
-          "clicks": 0,
-          "impressions": 25
-        }
-      ]
-    },
-    {
-      "clusterId": "it-disegnatore",
-      "locale": "it",
-      "canonicalQuery": "disegnatore",
-      "canonicalSlug": "disegnatore",
-      "roleTokens": [
-        "disegnat"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 25,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "disegnatore",
           "clicks": 0,
           "impressions": 25
         }
@@ -27718,6 +27782,50 @@
       ]
     },
     {
+      "clusterId": "it-bauingenieur-jobs-lugano",
+      "locale": "it",
+      "canonicalQuery": "bauingenieur jobs lugano",
+      "canonicalSlug": "bauingenieur-jobs-lugano",
+      "roleTokens": [
+        "bauingeni",
+        "job"
+      ],
+      "regionTokens": [
+        "lugano"
+      ],
+      "totalImpressions": 25,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "bauingenieur jobs lugano",
+          "clicks": 0,
+          "impressions": 25
+        }
+      ]
+    },
+    {
+      "clusterId": "it-padagoge-jobs-lugano",
+      "locale": "it",
+      "canonicalQuery": "pädagoge jobs lugano",
+      "canonicalSlug": "padagoge-jobs-lugano",
+      "roleTokens": [
+        "job",
+        "padagog"
+      ],
+      "regionTokens": [
+        "lugano"
+      ],
+      "totalImpressions": 25,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "pädagoge jobs lugano",
+          "clicks": 0,
+          "impressions": 25
+        }
+      ]
+    },
+    {
       "clusterId": "fr-entreprise-suisse-qui-recrute-frontaliers",
       "locale": "fr",
       "canonicalQuery": "entreprise suisse qui recrute frontaliers",
@@ -27737,6 +27845,27 @@
         {
           "query": "entreprise suisse qui recrute frontaliers",
           "clicks": 1,
+          "impressions": 25
+        }
+      ]
+    },
+    {
+      "clusterId": "de-stellen-neuenburg",
+      "locale": "de",
+      "canonicalQuery": "stellen neuenburg",
+      "canonicalSlug": "stellen-neuenburg",
+      "roleTokens": [
+        "stellen"
+      ],
+      "regionTokens": [
+        "neuenburg"
+      ],
+      "totalImpressions": 25,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "stellen neuenburg",
+          "clicks": 0,
           "impressions": 25
         }
       ]
@@ -28452,22 +28581,22 @@
       ]
     },
     {
-      "clusterId": "it-corporate-driver-in-zurich",
+      "clusterId": "it-tutti-ch-ristorazione",
       "locale": "it",
-      "canonicalQuery": "corporate driver in zurich",
-      "canonicalSlug": "corporate-driver-in-zurich",
+      "canonicalQuery": "tutti ch ristorazione",
+      "canonicalSlug": "tutti-ch-ristorazione",
       "roleTokens": [
-        "corporat",
-        "driver"
+        "ristorazion",
+        "tutt"
       ],
       "regionTokens": [
-        "zurigo"
+        "ch"
       ],
       "totalImpressions": 24,
       "totalClicks": 0,
       "queries": [
         {
-          "query": "corporate driver in zurich",
+          "query": "tutti ch ristorazione",
           "clicks": 0,
           "impressions": 24
         }
@@ -29707,70 +29836,6 @@
       ]
     },
     {
-      "clusterId": "it-tutti-ch-ristorazione",
-      "locale": "it",
-      "canonicalQuery": "tutti ch ristorazione",
-      "canonicalSlug": "tutti-ch-ristorazione",
-      "roleTokens": [
-        "ristorazion",
-        "tutt"
-      ],
-      "regionTokens": [
-        "ch"
-      ],
-      "totalImpressions": 23,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "tutti ch ristorazione",
-          "clicks": 0,
-          "impressions": 23
-        }
-      ]
-    },
-    {
-      "clusterId": "it-alterspflegekrafte-baselland",
-      "locale": "it",
-      "canonicalQuery": "alterspflegekräfte baselland",
-      "canonicalSlug": "alterspflegekrafte-baselland",
-      "roleTokens": [
-        "alterspflegekraft",
-        "baselland"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 23,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "alterspflegekräfte baselland",
-          "clicks": 0,
-          "impressions": 23
-        }
-      ]
-    },
-    {
-      "clusterId": "it-bauingenieur-jobs-lugano",
-      "locale": "it",
-      "canonicalQuery": "bauingenieur jobs lugano",
-      "canonicalSlug": "bauingenieur-jobs-lugano",
-      "roleTokens": [
-        "bauingeni",
-        "job"
-      ],
-      "regionTokens": [
-        "lugano"
-      ],
-      "totalImpressions": 23,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "bauingenieur jobs lugano",
-          "clicks": 0,
-          "impressions": 23
-        }
-      ]
-    },
-    {
       "clusterId": "fr-maison-de-retraite-suisse-recrutement",
       "locale": "fr",
       "canonicalQuery": "maison de retraite suisse recrutement",
@@ -29788,28 +29853,6 @@
       "queries": [
         {
           "query": "maison de retraite suisse recrutement",
-          "clicks": 0,
-          "impressions": 23
-        }
-      ]
-    },
-    {
-      "clusterId": "it-posti-di-lavoro-zurigo",
-      "locale": "it",
-      "canonicalQuery": "posti di lavoro zurigo",
-      "canonicalSlug": "posti-di-lavoro-zurigo",
-      "roleTokens": [
-        "lavor",
-        "post"
-      ],
-      "regionTokens": [
-        "zurigo"
-      ],
-      "totalImpressions": 23,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "posti di lavoro zurigo",
           "clicks": 0,
           "impressions": 23
         }
@@ -29976,6 +30019,28 @@
       ]
     },
     {
+      "clusterId": "it-posti-di-lavoro-zurigo",
+      "locale": "it",
+      "canonicalQuery": "posti di lavoro zurigo",
+      "canonicalSlug": "posti-di-lavoro-zurigo",
+      "roleTokens": [
+        "lavor",
+        "post"
+      ],
+      "regionTokens": [
+        "zurigo"
+      ],
+      "totalImpressions": 23,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "posti di lavoro zurigo",
+          "clicks": 0,
+          "impressions": 23
+        }
+      ]
+    },
+    {
       "clusterId": "de-siegfried-jobs",
       "locale": "de",
       "canonicalQuery": "siegfried jobs",
@@ -30080,27 +30145,6 @@
       "queries": [
         {
           "query": "offre d'emploi industrie agroalimentaire berne",
-          "clicks": 0,
-          "impressions": 23
-        }
-      ]
-    },
-    {
-      "clusterId": "de-stellen-neuenburg",
-      "locale": "de",
-      "canonicalQuery": "stellen neuenburg",
-      "canonicalSlug": "stellen-neuenburg",
-      "roleTokens": [
-        "stellen"
-      ],
-      "regionTokens": [
-        "neuenburg"
-      ],
-      "totalImpressions": 23,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "stellen neuenburg",
           "clicks": 0,
           "impressions": 23
         }
@@ -31025,28 +31069,6 @@
       ]
     },
     {
-      "clusterId": "en-corporate-driver-in-switzerland",
-      "locale": "en",
-      "canonicalQuery": "corporate driver in switzerland",
-      "canonicalSlug": "corporate-driver-in-switzerland",
-      "roleTokens": [
-        "corporat",
-        "driver"
-      ],
-      "regionTokens": [
-        "svizzera"
-      ],
-      "totalImpressions": 22,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "corporate driver in switzerland",
-          "clicks": 0,
-          "impressions": 22
-        }
-      ]
-    },
-    {
       "clusterId": "it-cerco-lavoro-locarno",
       "locale": "it",
       "canonicalQuery": "cerco lavoro locarno",
@@ -31070,6 +31092,29 @@
           "query": "cerco lavoro a locarno",
           "clicks": 0,
           "impressions": 4
+        }
+      ]
+    },
+    {
+      "clusterId": "it-ricerca-lavoro-fisioterapia-chiasso",
+      "locale": "it",
+      "canonicalQuery": "ricerca lavoro fisioterapia chiasso",
+      "canonicalSlug": "ricerca-lavoro-fisioterapia-chiasso",
+      "roleTokens": [
+        "fisioterapi",
+        "lavor",
+        "ricerc"
+      ],
+      "regionTokens": [
+        "chiasso"
+      ],
+      "totalImpressions": 22,
+      "totalClicks": 2,
+      "queries": [
+        {
+          "query": "ricerca lavoro fisioterapia chiasso",
+          "clicks": 2,
+          "impressions": 22
         }
       ]
     },
@@ -32132,6 +32177,28 @@
       ]
     },
     {
+      "clusterId": "it-pflegejobs-kantonsspital-uri",
+      "locale": "it",
+      "canonicalQuery": "pflegejobs kantonsspital uri",
+      "canonicalSlug": "pflegejobs-kantonsspital-uri",
+      "roleTokens": [
+        "kantonsspital",
+        "pflegejob"
+      ],
+      "regionTokens": [
+        "uri"
+      ],
+      "totalImpressions": 21,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "pflegejobs kantonsspital uri",
+          "clicks": 0,
+          "impressions": 21
+        }
+      ]
+    },
+    {
       "clusterId": "it-softwareentwickler",
       "locale": "it",
       "canonicalQuery": "softwareentwickler",
@@ -32145,28 +32212,6 @@
       "queries": [
         {
           "query": "softwareentwickler",
-          "clicks": 0,
-          "impressions": 21
-        }
-      ]
-    },
-    {
-      "clusterId": "it-padagoge-jobs-lugano",
-      "locale": "it",
-      "canonicalQuery": "pädagoge jobs lugano",
-      "canonicalSlug": "padagoge-jobs-lugano",
-      "roleTokens": [
-        "job",
-        "padagog"
-      ],
-      "regionTokens": [
-        "lugano"
-      ],
-      "totalImpressions": 21,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "pädagoge jobs lugano",
           "clicks": 0,
           "impressions": 21
         }
@@ -32924,29 +32969,6 @@
       ]
     },
     {
-      "clusterId": "it-ricerca-lavoro-fisioterapia-chiasso",
-      "locale": "it",
-      "canonicalQuery": "ricerca lavoro fisioterapia chiasso",
-      "canonicalSlug": "ricerca-lavoro-fisioterapia-chiasso",
-      "roleTokens": [
-        "fisioterapi",
-        "lavor",
-        "ricerc"
-      ],
-      "regionTokens": [
-        "chiasso"
-      ],
-      "totalImpressions": 21,
-      "totalClicks": 2,
-      "queries": [
-        {
-          "query": "ricerca lavoro fisioterapia chiasso",
-          "clicks": 2,
-          "impressions": 21
-        }
-      ]
-    },
-    {
       "clusterId": "it-agie-charmilles-lavora-con-noi",
       "locale": "it",
       "canonicalQuery": "agie charmilles lavora con noi",
@@ -33225,6 +33247,29 @@
       ]
     },
     {
+      "clusterId": "it-casa-anziani-sementina-offerte-di-lavoro",
+      "locale": "it",
+      "canonicalQuery": "casa anziani sementina offerte di lavoro",
+      "canonicalSlug": "casa-anziani-sementina-offerte-di-lavoro",
+      "roleTokens": [
+        "anzian",
+        "cas",
+        "lavor",
+        "offert",
+        "sementin"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 20,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "casa anziani sementina offerte di lavoro",
+          "clicks": 1,
+          "impressions": 20
+        }
+      ]
+    },
+    {
       "clusterId": "it-educatore-mendrisio-lavoro",
       "locale": "it",
       "canonicalQuery": "educatore mendrisio lavoro",
@@ -33247,27 +33292,22 @@
       ]
     },
     {
-      "clusterId": "fr-juriste-emploi",
-      "locale": "fr",
-      "canonicalQuery": "juriste emploi",
-      "canonicalSlug": "juriste-emploi",
+      "clusterId": "it-altenpflegerin-nach-mailand",
+      "locale": "it",
+      "canonicalQuery": "altenpflegerin nach mailand",
+      "canonicalSlug": "altenpflegerin-nach-mailand",
       "roleTokens": [
-        "emplo",
-        "jurist"
+        "altenpflegerin",
+        "mailand"
       ],
       "regionTokens": [],
       "totalImpressions": 20,
       "totalClicks": 0,
       "queries": [
         {
-          "query": "juriste emploi",
+          "query": "altenpflegerin nach mailand",
           "clicks": 0,
-          "impressions": 15
-        },
-        {
-          "query": "emploi juriste",
-          "clicks": 0,
-          "impressions": 5
+          "impressions": 20
         }
       ]
     },
@@ -34490,6 +34530,31 @@
       ]
     },
     {
+      "clusterId": "fr-juriste-emploi",
+      "locale": "fr",
+      "canonicalQuery": "juriste emploi",
+      "canonicalSlug": "juriste-emploi",
+      "roleTokens": [
+        "emplo",
+        "jurist"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 20,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "juriste emploi",
+          "clicks": 0,
+          "impressions": 15
+        },
+        {
+          "query": "emploi juriste",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ]
+    },
+    {
       "clusterId": "de-job-ohne-lehre",
       "locale": "de",
       "canonicalQuery": "job ohne lehre",
@@ -34714,50 +34779,6 @@
       ]
     },
     {
-      "clusterId": "it-posti-liberi-in-casa-anziani-ticino",
-      "locale": "it",
-      "canonicalQuery": "posti liberi in casa anziani ticino",
-      "canonicalSlug": "posti-liberi-in-casa-anziani-ticino",
-      "roleTokens": [
-        "anzian",
-        "cas",
-        "liber",
-        "post"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 19,
-      "totalClicks": 2,
-      "queries": [
-        {
-          "query": "posti liberi in casa anziani ticino",
-          "clicks": 2,
-          "impressions": 19
-        }
-      ]
-    },
-    {
-      "clusterId": "it-altenpflegerin-nach-mailand",
-      "locale": "it",
-      "canonicalQuery": "altenpflegerin nach mailand",
-      "canonicalSlug": "altenpflegerin-nach-mailand",
-      "roleTokens": [
-        "altenpflegerin",
-        "mailand"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 19,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "altenpflegerin nach mailand",
-          "clicks": 0,
-          "impressions": 19
-        }
-      ]
-    },
-    {
       "clusterId": "de-ich-suche-jobs-in-der-italienischen-schweiz-im-service-oder-an-der-bar",
       "locale": "de",
       "canonicalQuery": "ich suche jobs in der italienischen schweiz im service oder an der bar",
@@ -34779,28 +34800,6 @@
         {
           "query": "ich suche jobs in der italienischen schweiz im service oder an der bar",
           "clicks": 0,
-          "impressions": 19
-        }
-      ]
-    },
-    {
-      "clusterId": "fr-emploi-banque-geneve",
-      "locale": "fr",
-      "canonicalQuery": "emploi banque genève",
-      "canonicalSlug": "emploi-banque-geneve",
-      "roleTokens": [
-        "banqu",
-        "emplo"
-      ],
-      "regionTokens": [
-        "ginevra"
-      ],
-      "totalImpressions": 19,
-      "totalClicks": 1,
-      "queries": [
-        {
-          "query": "emploi banque genève",
-          "clicks": 1,
           "impressions": 19
         }
       ]
@@ -35542,6 +35541,28 @@
         {
           "query": "exkasso",
           "clicks": 0,
+          "impressions": 19
+        }
+      ]
+    },
+    {
+      "clusterId": "fr-emploi-banque-geneve",
+      "locale": "fr",
+      "canonicalQuery": "emploi banque genève",
+      "canonicalSlug": "emploi-banque-geneve",
+      "roleTokens": [
+        "banqu",
+        "emplo"
+      ],
+      "regionTokens": [
+        "ginevra"
+      ],
+      "totalImpressions": 19,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "emploi banque genève",
+          "clicks": 1,
           "impressions": 19
         }
       ]
@@ -37635,6 +37656,27 @@
       ]
     },
     {
+      "clusterId": "it-logistica-svizzera",
+      "locale": "it",
+      "canonicalQuery": "logistica svizzera",
+      "canonicalSlug": "logistica-svizzera",
+      "roleTokens": [
+        "logistic"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 17,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "logistica svizzera",
+          "clicks": 0,
+          "impressions": 17
+        }
+      ]
+    },
+    {
       "clusterId": "it-addetto-alle-vendite-lugano",
       "locale": "it",
       "canonicalQuery": "addetto alle vendite lugano",
@@ -37694,6 +37736,28 @@
       "queries": [
         {
           "query": "pflege jobs spital schwyz",
+          "clicks": 0,
+          "impressions": 17
+        }
+      ]
+    },
+    {
+      "clusterId": "it-maschineningenieur-jobs-lugano",
+      "locale": "it",
+      "canonicalQuery": "maschineningenieur jobs lugano",
+      "canonicalSlug": "maschineningenieur-jobs-lugano",
+      "roleTokens": [
+        "job",
+        "maschineningeni"
+      ],
+      "regionTokens": [
+        "lugano"
+      ],
+      "totalImpressions": 17,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "maschineningenieur jobs lugano",
           "clicks": 0,
           "impressions": 17
         }
@@ -39583,28 +39647,6 @@
       ]
     },
     {
-      "clusterId": "it-maschineningenieur-jobs-lugano",
-      "locale": "it",
-      "canonicalQuery": "maschineningenieur jobs lugano",
-      "canonicalSlug": "maschineningenieur-jobs-lugano",
-      "roleTokens": [
-        "job",
-        "maschineningeni"
-      ],
-      "regionTokens": [
-        "lugano"
-      ],
-      "totalImpressions": 16,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "maschineningenieur jobs lugano",
-          "clicks": 0,
-          "impressions": 16
-        }
-      ]
-    },
-    {
       "clusterId": "fr-offres-d-emploi-chez-hopital-du-valais",
       "locale": "fr",
       "canonicalQuery": "offres d'emploi chez hôpital du valais",
@@ -40900,6 +40942,38 @@
       ]
     },
     {
+      "clusterId": "de-kanton-solothurn-jobs",
+      "locale": "de",
+      "canonicalQuery": "kanton solothurn jobs",
+      "canonicalSlug": "kanton-solothurn-jobs",
+      "roleTokens": [
+        "job",
+        "kanton"
+      ],
+      "regionTokens": [
+        "solothurn"
+      ],
+      "totalImpressions": 16,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "kanton solothurn jobs",
+          "clicks": 0,
+          "impressions": 9
+        },
+        {
+          "query": "jobs kanton solothurn",
+          "clicks": 0,
+          "impressions": 6
+        },
+        {
+          "query": "jobs solothurn kanton",
+          "clicks": 0,
+          "impressions": 1
+        }
+      ]
+    },
+    {
       "clusterId": "de-victorinox-jobs-schwyz",
       "locale": "de",
       "canonicalQuery": "victorinox jobs schwyz",
@@ -41269,6 +41343,27 @@
       ]
     },
     {
+      "clusterId": "de-offene-stellen-sensebezirk",
+      "locale": "de",
+      "canonicalQuery": "offene stellen sensebezirk",
+      "canonicalSlug": "offene-stellen-sensebezirk",
+      "roleTokens": [
+        "offen",
+        "sensebezirk",
+        "stellen"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 16,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offene stellen sensebezirk",
+          "clicks": 0,
+          "impressions": 16
+        }
+      ]
+    },
+    {
       "clusterId": "de-vertriebsleiter-jobs-genf",
       "locale": "de",
       "canonicalQuery": "vertriebsleiter jobs genf",
@@ -41312,6 +41407,28 @@
       ]
     },
     {
+      "clusterId": "it-alltagsbegleiter-jobs-lugano",
+      "locale": "it",
+      "canonicalQuery": "alltagsbegleiter jobs lugano",
+      "canonicalSlug": "alltagsbegleiter-jobs-lugano",
+      "roleTokens": [
+        "alltagsbegleiter",
+        "job"
+      ],
+      "regionTokens": [
+        "lugano"
+      ],
+      "totalImpressions": 15,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "alltagsbegleiter jobs lugano",
+          "clicks": 0,
+          "impressions": 15
+        }
+      ]
+    },
+    {
       "clusterId": "de-pflege-jobs-spital-thusis",
       "locale": "de",
       "canonicalQuery": "pflege jobs spital thusis",
@@ -41328,28 +41445,6 @@
       "queries": [
         {
           "query": "pflege jobs spital thusis",
-          "clicks": 0,
-          "impressions": 15
-        }
-      ]
-    },
-    {
-      "clusterId": "it-pflegejobs-kantonsspital-uri",
-      "locale": "it",
-      "canonicalQuery": "pflegejobs kantonsspital uri",
-      "canonicalSlug": "pflegejobs-kantonsspital-uri",
-      "roleTokens": [
-        "kantonsspital",
-        "pflegejob"
-      ],
-      "regionTokens": [
-        "uri"
-      ],
-      "totalImpressions": 15,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "pflegejobs kantonsspital uri",
           "clicks": 0,
           "impressions": 15
         }
@@ -41484,27 +41579,6 @@
         {
           "query": "psychologue italien en ligne kriens",
           "clicks": 0,
-          "impressions": 15
-        }
-      ]
-    },
-    {
-      "clusterId": "it-ubs-lavora-con-noi",
-      "locale": "it",
-      "canonicalQuery": "ubs lavora con noi",
-      "canonicalSlug": "ubs-lavora-con-noi",
-      "roleTokens": [
-        "lavor",
-        "noi",
-        "ubs"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 15,
-      "totalClicks": 1,
-      "queries": [
-        {
-          "query": "ubs lavora con noi",
-          "clicks": 1,
           "impressions": 15
         }
       ]
@@ -42541,6 +42615,27 @@
       ]
     },
     {
+      "clusterId": "it-ubs-lavora-con-noi",
+      "locale": "it",
+      "canonicalQuery": "ubs lavora con noi",
+      "canonicalSlug": "ubs-lavora-con-noi",
+      "roleTokens": [
+        "lavor",
+        "noi",
+        "ubs"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 15,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "ubs lavora con noi",
+          "clicks": 1,
+          "impressions": 15
+        }
+      ]
+    },
+    {
       "clusterId": "it-raiffeisen-jobs-lugano",
       "locale": "it",
       "canonicalQuery": "raiffeisen jobs lugano",
@@ -42923,38 +43018,6 @@
         },
         {
           "query": "emploi galenica",
-          "clicks": 0,
-          "impressions": 1
-        }
-      ]
-    },
-    {
-      "clusterId": "de-kanton-solothurn-jobs",
-      "locale": "de",
-      "canonicalQuery": "kanton solothurn jobs",
-      "canonicalSlug": "kanton-solothurn-jobs",
-      "roleTokens": [
-        "job",
-        "kanton"
-      ],
-      "regionTokens": [
-        "solothurn"
-      ],
-      "totalImpressions": 15,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "kanton solothurn jobs",
-          "clicks": 0,
-          "impressions": 9
-        },
-        {
-          "query": "jobs kanton solothurn",
-          "clicks": 0,
-          "impressions": 5
-        },
-        {
-          "query": "jobs solothurn kanton",
           "clicks": 0,
           "impressions": 1
         }
@@ -43547,23 +43610,49 @@
       ]
     },
     {
-      "clusterId": "de-offene-stellen-sensebezirk",
-      "locale": "de",
-      "canonicalQuery": "offene stellen sensebezirk",
-      "canonicalSlug": "offene-stellen-sensebezirk",
+      "clusterId": "it-sviluppo-software-lugano",
+      "locale": "it",
+      "canonicalQuery": "sviluppo software lugano",
+      "canonicalSlug": "sviluppo-software-lugano",
       "roleTokens": [
-        "offen",
-        "sensebezirk",
-        "stellen"
+        "softwar",
+        "svilupp"
       ],
-      "regionTokens": [],
-      "totalImpressions": 15,
+      "regionTokens": [
+        "lugano"
+      ],
+      "totalImpressions": 14,
       "totalClicks": 0,
       "queries": [
         {
-          "query": "offene stellen sensebezirk",
+          "query": "sviluppo software lugano",
           "clicks": 0,
-          "impressions": 15
+          "impressions": 14
+        }
+      ]
+    },
+    {
+      "clusterId": "it-sviluppatore-di-software",
+      "locale": "it",
+      "canonicalQuery": "sviluppatore di software",
+      "canonicalSlug": "sviluppatore-di-software",
+      "roleTokens": [
+        "softwar",
+        "sviluppat"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 14,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "sviluppatore di software",
+          "clicks": 0,
+          "impressions": 8
+        },
+        {
+          "query": "sviluppatore software",
+          "clicks": 0,
+          "impressions": 6
         }
       ]
     },
@@ -45878,6 +45967,25 @@
       ]
     },
     {
+      "clusterId": "it-ristorazione",
+      "locale": "it",
+      "canonicalQuery": "ristorazione",
+      "canonicalSlug": "ristorazione",
+      "roleTokens": [
+        "ristorazion"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 13,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "ristorazione",
+          "clicks": 1,
+          "impressions": 13
+        }
+      ]
+    },
+    {
       "clusterId": "it-politica-sanitaria-canton-ticino-anziani",
       "locale": "it",
       "canonicalQuery": "politica sanitaria canton ticino anziani",
@@ -45902,27 +46010,23 @@
       ]
     },
     {
-      "clusterId": "it-sviluppatore-di-software",
+      "clusterId": "it-logistica-ticino",
       "locale": "it",
-      "canonicalQuery": "sviluppatore di software",
-      "canonicalSlug": "sviluppatore-di-software",
+      "canonicalQuery": "logistica ticino",
+      "canonicalSlug": "logistica-ticino",
       "roleTokens": [
-        "softwar",
-        "sviluppat"
+        "logistic"
       ],
-      "regionTokens": [],
+      "regionTokens": [
+        "ticino"
+      ],
       "totalImpressions": 13,
       "totalClicks": 0,
       "queries": [
         {
-          "query": "sviluppatore di software",
+          "query": "logistica ticino",
           "clicks": 0,
-          "impressions": 7
-        },
-        {
-          "query": "sviluppatore software",
-          "clicks": 0,
-          "impressions": 6
+          "impressions": 13
         }
       ]
     },
@@ -46007,56 +46111,44 @@
       ]
     },
     {
-      "clusterId": "de-ubs-jobs-zurich",
-      "locale": "de",
-      "canonicalQuery": "ubs jobs zurich",
-      "canonicalSlug": "ubs-jobs-zurich",
+      "clusterId": "fr-emploi-physiotherapeute",
+      "locale": "fr",
+      "canonicalQuery": "emploi physiothérapeute",
+      "canonicalSlug": "emploi-physiotherapeute",
       "roleTokens": [
-        "job",
-        "ubs"
+        "emplo",
+        "physiotherapeut"
       ],
-      "regionTokens": [
-        "zurigo"
-      ],
+      "regionTokens": [],
       "totalImpressions": 13,
-      "totalClicks": 0,
+      "totalClicks": 1,
       "queries": [
         {
-          "query": "ubs jobs zurich",
-          "clicks": 0,
-          "impressions": 8
-        },
-        {
-          "query": "ubs zurich jobs",
-          "clicks": 0,
-          "impressions": 5
+          "query": "emploi physiothérapeute",
+          "clicks": 1,
+          "impressions": 13
         }
       ]
     },
     {
-      "clusterId": "fr-etat-du-valais-emploi",
-      "locale": "fr",
-      "canonicalQuery": "etat du valais emploi",
-      "canonicalSlug": "etat-du-valais-emploi",
+      "clusterId": "it-lavoro-biologo-svizzera",
+      "locale": "it",
+      "canonicalQuery": "lavoro biologo svizzera",
+      "canonicalSlug": "lavoro-biologo-svizzera",
       "roleTokens": [
-        "emplo",
-        "etat"
+        "biolog",
+        "lavor"
       ],
       "regionTokens": [
-        "vallese"
+        "svizzera"
       ],
       "totalImpressions": 13,
-      "totalClicks": 0,
+      "totalClicks": 3,
       "queries": [
         {
-          "query": "etat du valais emploi",
-          "clicks": 0,
-          "impressions": 7
-        },
-        {
-          "query": "emploi état du valais",
-          "clicks": 0,
-          "impressions": 6
+          "query": "lavoro biologo svizzera",
+          "clicks": 3,
+          "impressions": 13
         }
       ]
     },
@@ -47175,6 +47267,33 @@
       ]
     },
     {
+      "clusterId": "de-ubs-jobs-zurich",
+      "locale": "de",
+      "canonicalQuery": "ubs jobs zurich",
+      "canonicalSlug": "ubs-jobs-zurich",
+      "roleTokens": [
+        "job",
+        "ubs"
+      ],
+      "regionTokens": [
+        "zurigo"
+      ],
+      "totalImpressions": 13,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "ubs jobs zurich",
+          "clicks": 0,
+          "impressions": 8
+        },
+        {
+          "query": "ubs zurich jobs",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ]
+    },
+    {
       "clusterId": "de-job-ville-de-bienne",
       "locale": "de",
       "canonicalQuery": "job ville de bienne",
@@ -47653,6 +47772,33 @@
           "query": "emploi sainte croix",
           "clicks": 0,
           "impressions": 13
+        }
+      ]
+    },
+    {
+      "clusterId": "fr-etat-du-valais-emploi",
+      "locale": "fr",
+      "canonicalQuery": "etat du valais emploi",
+      "canonicalSlug": "etat-du-valais-emploi",
+      "roleTokens": [
+        "emplo",
+        "etat"
+      ],
+      "regionTokens": [
+        "vallese"
+      ],
+      "totalImpressions": 13,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "etat du valais emploi",
+          "clicks": 0,
+          "impressions": 7
+        },
+        {
+          "query": "emploi état du valais",
+          "clicks": 0,
+          "impressions": 6
         }
       ]
     },
@@ -48496,52 +48642,13 @@
       ]
     },
     {
-      "clusterId": "it-ristorazione",
+      "clusterId": "it-lavoro-autista-ticino",
       "locale": "it",
-      "canonicalQuery": "ristorazione",
-      "canonicalSlug": "ristorazione",
+      "canonicalQuery": "lavoro autista ticino",
+      "canonicalSlug": "lavoro-autista-ticino",
       "roleTokens": [
-        "ristorazion"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 12,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "ristorazione",
-          "clicks": 0,
-          "impressions": 12
-        }
-      ]
-    },
-    {
-      "clusterId": "it-logistica-svizzera",
-      "locale": "it",
-      "canonicalQuery": "logistica svizzera",
-      "canonicalSlug": "logistica-svizzera",
-      "roleTokens": [
-        "logistic"
-      ],
-      "regionTokens": [
-        "svizzera"
-      ],
-      "totalImpressions": 12,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "logistica svizzera",
-          "clicks": 0,
-          "impressions": 12
-        }
-      ]
-    },
-    {
-      "clusterId": "it-logistica-ticino",
-      "locale": "it",
-      "canonicalQuery": "logistica ticino",
-      "canonicalSlug": "logistica-ticino",
-      "roleTokens": [
-        "logistic"
+        "autist",
+        "lavor"
       ],
       "regionTokens": [
         "ticino"
@@ -48550,7 +48657,38 @@
       "totalClicks": 0,
       "queries": [
         {
-          "query": "logistica ticino",
+          "query": "lavoro autista ticino",
+          "clicks": 0,
+          "impressions": 7
+        },
+        {
+          "query": "autista lavoro ticino",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "lavoro ticino autista",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ]
+    },
+    {
+      "clusterId": "de-altenpfleger-jobs-genf",
+      "locale": "de",
+      "canonicalQuery": "altenpfleger jobs genf",
+      "canonicalSlug": "altenpfleger-jobs-genf",
+      "roleTokens": [
+        "altenpfleger",
+        "genf",
+        "job"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 12,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "altenpfleger jobs genf",
           "clicks": 0,
           "impressions": 12
         }
@@ -48619,42 +48757,28 @@
       ]
     },
     {
-      "clusterId": "de-ubs-stellen",
-      "locale": "de",
-      "canonicalQuery": "ubs stellen",
-      "canonicalSlug": "ubs-stellen",
+      "clusterId": "it-lavorare-in-svizzera",
+      "locale": "it",
+      "canonicalQuery": "lavorare in svizzera",
+      "canonicalSlug": "lavorare-in-svizzera",
       "roleTokens": [
-        "stellen",
-        "ubs"
+        "lavorar"
       ],
-      "regionTokens": [],
+      "regionTokens": [
+        "svizzera"
+      ],
       "totalImpressions": 12,
       "totalClicks": 0,
       "queries": [
         {
-          "query": "ubs stellen",
+          "query": "lavorare in svizzera",
           "clicks": 0,
-          "impressions": 12
-        }
-      ]
-    },
-    {
-      "clusterId": "fr-cartier-carriere",
-      "locale": "fr",
-      "canonicalQuery": "cartier carrière",
-      "canonicalSlug": "cartier-carriere",
-      "roleTokens": [
-        "carr",
-        "cartier"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 12,
-      "totalClicks": 0,
-      "queries": [
+          "impressions": 11
+        },
         {
-          "query": "cartier carrière",
+          "query": "svizzera lavorare",
           "clicks": 0,
-          "impressions": 12
+          "impressions": 1
         }
       ]
     },
@@ -49388,6 +49512,26 @@
       ]
     },
     {
+      "clusterId": "fr-cartier-carriere",
+      "locale": "fr",
+      "canonicalQuery": "cartier carrière",
+      "canonicalSlug": "cartier-carriere",
+      "roleTokens": [
+        "carr",
+        "cartier"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 12,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "cartier carrière",
+          "clicks": 0,
+          "impressions": 12
+        }
+      ]
+    },
+    {
       "clusterId": "it-lavoro-psicologo-svizzera",
       "locale": "it",
       "canonicalQuery": "lavoro psicologo svizzera",
@@ -49445,6 +49589,26 @@
       "queries": [
         {
           "query": "pwc suisse",
+          "clicks": 0,
+          "impressions": 12
+        }
+      ]
+    },
+    {
+      "clusterId": "de-ubs-stellen",
+      "locale": "de",
+      "canonicalQuery": "ubs stellen",
+      "canonicalSlug": "ubs-stellen",
+      "roleTokens": [
+        "stellen",
+        "ubs"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 12,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "ubs stellen",
           "clicks": 0,
           "impressions": 12
         }
@@ -49637,28 +49801,6 @@
           "query": "davos offene stellen",
           "clicks": 0,
           "impressions": 3
-        }
-      ]
-    },
-    {
-      "clusterId": "it-lavoro-biologo-svizzera",
-      "locale": "it",
-      "canonicalQuery": "lavoro biologo svizzera",
-      "canonicalSlug": "lavoro-biologo-svizzera",
-      "roleTokens": [
-        "biolog",
-        "lavor"
-      ],
-      "regionTokens": [
-        "svizzera"
-      ],
-      "totalImpressions": 12,
-      "totalClicks": 3,
-      "queries": [
-        {
-          "query": "lavoro biologo svizzera",
-          "clicks": 3,
-          "impressions": 12
         }
       ]
     },
@@ -51505,43 +51647,64 @@
       ]
     },
     {
-      "clusterId": "it-alltagsbegleiter-jobs-lugano",
-      "locale": "it",
-      "canonicalQuery": "alltagsbegleiter jobs lugano",
-      "canonicalSlug": "alltagsbegleiter-jobs-lugano",
+      "clusterId": "en-security-drivers-switzerland",
+      "locale": "en",
+      "canonicalQuery": "security drivers switzerland",
+      "canonicalSlug": "security-drivers-switzerland",
       "roleTokens": [
-        "alltagsbegleiter",
-        "job"
+        "driver",
+        "security"
       ],
       "regionTokens": [
-        "lugano"
+        "svizzera"
       ],
       "totalImpressions": 11,
       "totalClicks": 0,
       "queries": [
         {
-          "query": "alltagsbegleiter jobs lugano",
+          "query": "security drivers switzerland",
           "clicks": 0,
           "impressions": 11
         }
       ]
     },
     {
-      "clusterId": "de-altenpfleger-jobs-genf",
-      "locale": "de",
-      "canonicalQuery": "altenpfleger jobs genf",
-      "canonicalSlug": "altenpfleger-jobs-genf",
+      "clusterId": "it-assistente-di-cura",
+      "locale": "it",
+      "canonicalQuery": "assistente di cura",
+      "canonicalSlug": "assistente-di-cura",
       "roleTokens": [
-        "altenpfleger",
-        "genf",
-        "job"
+        "assistent",
+        "cur"
       ],
       "regionTokens": [],
       "totalImpressions": 11,
       "totalClicks": 0,
       "queries": [
         {
-          "query": "altenpfleger jobs genf",
+          "query": "assistente di cura",
+          "clicks": 0,
+          "impressions": 11
+        }
+      ]
+    },
+    {
+      "clusterId": "de-pflegeassistentin-stellen-zurich",
+      "locale": "de",
+      "canonicalQuery": "pflegeassistentin stellen zürich",
+      "canonicalSlug": "pflegeassistentin-stellen-zurich",
+      "roleTokens": [
+        "pflegeassistentin",
+        "stellen"
+      ],
+      "regionTokens": [
+        "zurigo"
+      ],
+      "totalImpressions": 11,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "pflegeassistentin stellen zürich",
           "clicks": 0,
           "impressions": 11
         }
@@ -51565,6 +51728,32 @@
           "query": "erzieher jobs genf",
           "clicks": 0,
           "impressions": 11
+        }
+      ]
+    },
+    {
+      "clusterId": "it-macellaio-in-svizzera",
+      "locale": "it",
+      "canonicalQuery": "macellaio in svizzera",
+      "canonicalSlug": "macellaio-in-svizzera",
+      "roleTokens": [
+        "macellai"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 11,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "macellaio in svizzera",
+          "clicks": 0,
+          "impressions": 10
+        },
+        {
+          "query": "macellaio svizzera",
+          "clicks": 0,
+          "impressions": 1
         }
       ]
     },
@@ -52874,6 +53063,28 @@
       ]
     },
     {
+      "clusterId": "it-clinica-moncucco-offerte-lavoro",
+      "locale": "it",
+      "canonicalQuery": "clinica moncucco offerte lavoro",
+      "canonicalSlug": "clinica-moncucco-offerte-lavoro",
+      "roleTokens": [
+        "clinic",
+        "lavor",
+        "moncucc",
+        "offert"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 11,
+      "totalClicks": 1,
+      "queries": [
+        {
+          "query": "clinica moncucco offerte lavoro",
+          "clicks": 1,
+          "impressions": 11
+        }
+      ]
+    },
+    {
       "clusterId": "fr-offres-d-emploi-chez-manor-ag",
       "locale": "fr",
       "canonicalQuery": "offres d'emploi chez manor ag",
@@ -53522,27 +53733,6 @@
           "query": "interlaken new yorker",
           "clicks": 0,
           "impressions": 1
-        }
-      ]
-    },
-    {
-      "clusterId": "it-lavorare-in-svizzera",
-      "locale": "it",
-      "canonicalQuery": "lavorare in svizzera",
-      "canonicalSlug": "lavorare-in-svizzera",
-      "roleTokens": [
-        "lavorar"
-      ],
-      "regionTokens": [
-        "svizzera"
-      ],
-      "totalImpressions": 11,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "lavorare in svizzera",
-          "clicks": 0,
-          "impressions": 11
         }
       ]
     },
@@ -54311,26 +54501,6 @@
       ]
     },
     {
-      "clusterId": "fr-emploi-physiotherapeute",
-      "locale": "fr",
-      "canonicalQuery": "emploi physiothérapeute",
-      "canonicalSlug": "emploi-physiotherapeute",
-      "roleTokens": [
-        "emplo",
-        "physiotherapeut"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 11,
-      "totalClicks": 1,
-      "queries": [
-        {
-          "query": "emploi physiothérapeute",
-          "clicks": 1,
-          "impressions": 11
-        }
-      ]
-    },
-    {
       "clusterId": "it-lavoro-pizzaiolo",
       "locale": "it",
       "canonicalQuery": "lavoro pizzaiolo",
@@ -54796,22 +54966,45 @@
       ]
     },
     {
-      "clusterId": "de-pflege-jobs-aargau",
-      "locale": "de",
-      "canonicalQuery": "pflege jobs aargau",
-      "canonicalSlug": "pflege-jobs-aargau",
+      "clusterId": "it-lavoro-autista-svizzera-canton-ticino",
+      "locale": "it",
+      "canonicalQuery": "lavoro autista svizzera canton ticino",
+      "canonicalSlug": "lavoro-autista-svizzera-canton-ticino",
       "roleTokens": [
-        "job",
-        "pfleg"
+        "autist",
+        "canton",
+        "lavor"
       ],
       "regionTokens": [
-        "aargau"
+        "svizzera",
+        "ticino"
       ],
       "totalImpressions": 10,
       "totalClicks": 0,
       "queries": [
         {
-          "query": "pflege jobs aargau",
+          "query": "lavoro autista svizzera canton ticino",
+          "clicks": 0,
+          "impressions": 10
+        }
+      ]
+    },
+    {
+      "clusterId": "it-pflegejobs-in-uri",
+      "locale": "it",
+      "canonicalQuery": "pflegejobs in uri",
+      "canonicalSlug": "pflegejobs-in-uri",
+      "roleTokens": [
+        "pflegejob"
+      ],
+      "regionTokens": [
+        "uri"
+      ],
+      "totalImpressions": 10,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "pflegejobs in uri",
           "clicks": 0,
           "impressions": 10
         }
@@ -54840,6 +55033,28 @@
       ]
     },
     {
+      "clusterId": "de-pflege-jobs-aargau",
+      "locale": "de",
+      "canonicalQuery": "pflege jobs aargau",
+      "canonicalSlug": "pflege-jobs-aargau",
+      "roleTokens": [
+        "job",
+        "pfleg"
+      ],
+      "regionTokens": [
+        "aargau"
+      ],
+      "totalImpressions": 10,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "pflege jobs aargau",
+          "clicks": 0,
+          "impressions": 10
+        }
+      ]
+    },
+    {
       "clusterId": "it-avaloq",
       "locale": "it",
       "canonicalQuery": "avaloq",
@@ -54853,48 +55068,6 @@
       "queries": [
         {
           "query": "avaloq",
-          "clicks": 0,
-          "impressions": 10
-        }
-      ]
-    },
-    {
-      "clusterId": "de-pflegeassistentin-stellen-zurich",
-      "locale": "de",
-      "canonicalQuery": "pflegeassistentin stellen zürich",
-      "canonicalSlug": "pflegeassistentin-stellen-zurich",
-      "roleTokens": [
-        "pflegeassistentin",
-        "stellen"
-      ],
-      "regionTokens": [
-        "zurigo"
-      ],
-      "totalImpressions": 10,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "pflegeassistentin stellen zürich",
-          "clicks": 0,
-          "impressions": 10
-        }
-      ]
-    },
-    {
-      "clusterId": "it-recrutement-schaffhouse",
-      "locale": "it",
-      "canonicalQuery": "recrutement schaffhouse",
-      "canonicalSlug": "recrutement-schaffhouse",
-      "roleTokens": [
-        "recrutement",
-        "schaffhous"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 10,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "recrutement schaffhouse",
           "clicks": 0,
           "impressions": 10
         }
@@ -54927,6 +55100,26 @@
           "query": "manpower schweiz stundenlohn logistik 25 chf",
           "clicks": 0,
           "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "it-recrutement-schaffhouse",
+      "locale": "it",
+      "canonicalQuery": "recrutement schaffhouse",
+      "canonicalSlug": "recrutement-schaffhouse",
+      "roleTokens": [
+        "recrutement",
+        "schaffhous"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 10,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "recrutement schaffhouse",
+          "clicks": 0,
+          "impressions": 10
         }
       ]
     },
@@ -55445,26 +55638,6 @@
           "query": "emplois denner",
           "clicks": 0,
           "impressions": 4
-        }
-      ]
-    },
-    {
-      "clusterId": "it-assistente-di-cura",
-      "locale": "it",
-      "canonicalQuery": "assistente di cura",
-      "canonicalSlug": "assistente-di-cura",
-      "roleTokens": [
-        "assistent",
-        "cur"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 10,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "assistente di cura",
-          "clicks": 0,
-          "impressions": 10
         }
       ]
     },
@@ -56598,28 +56771,6 @@
         {
           "query": "spital wolhusen jobs",
           "clicks": 0,
-          "impressions": 10
-        }
-      ]
-    },
-    {
-      "clusterId": "it-clinica-moncucco-offerte-lavoro",
-      "locale": "it",
-      "canonicalQuery": "clinica moncucco offerte lavoro",
-      "canonicalSlug": "clinica-moncucco-offerte-lavoro",
-      "roleTokens": [
-        "clinic",
-        "lavor",
-        "moncucc",
-        "offert"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 10,
-      "totalClicks": 1,
-      "queries": [
-        {
-          "query": "clinica moncucco offerte lavoro",
-          "clicks": 1,
           "impressions": 10
         }
       ]
@@ -58805,30 +58956,6 @@
       ]
     },
     {
-      "clusterId": "it-lavoro-autista-svizzera-canton-ticino",
-      "locale": "it",
-      "canonicalQuery": "lavoro autista svizzera canton ticino",
-      "canonicalSlug": "lavoro-autista-svizzera-canton-ticino",
-      "roleTokens": [
-        "autist",
-        "canton",
-        "lavor"
-      ],
-      "regionTokens": [
-        "svizzera",
-        "ticino"
-      ],
-      "totalImpressions": 9,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "lavoro autista svizzera canton ticino",
-          "clicks": 0,
-          "impressions": 9
-        }
-      ]
-    },
-    {
       "clusterId": "it-autista",
       "locale": "it",
       "canonicalQuery": "autista",
@@ -60614,6 +60741,26 @@
       ]
     },
     {
+      "clusterId": "it-opus-brig",
+      "locale": "it",
+      "canonicalQuery": "opus brig",
+      "canonicalSlug": "opus-brig",
+      "roleTokens": [
+        "brig",
+        "opu"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 9,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "opus brig",
+          "clicks": 0,
+          "impressions": 9
+        }
+      ]
+    },
+    {
       "clusterId": "it-lavorare-in-svizzera-come-fisioterapista",
       "locale": "it",
       "canonicalQuery": "lavorare in svizzera come fisioterapista",
@@ -62182,32 +62329,6 @@
       ]
     },
     {
-      "clusterId": "it-macellaio-in-svizzera",
-      "locale": "it",
-      "canonicalQuery": "macellaio in svizzera",
-      "canonicalSlug": "macellaio-in-svizzera",
-      "roleTokens": [
-        "macellai"
-      ],
-      "regionTokens": [
-        "svizzera"
-      ],
-      "totalImpressions": 9,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "macellaio in svizzera",
-          "clicks": 0,
-          "impressions": 8
-        },
-        {
-          "query": "macellaio svizzera",
-          "clicks": 0,
-          "impressions": 1
-        }
-      ]
-    },
-    {
       "clusterId": "it-aida-marketing-svizzera",
       "locale": "it",
       "canonicalQuery": "aida marketing svizzera",
@@ -63225,25 +63346,6 @@
       ]
     },
     {
-      "clusterId": "it-ja",
-      "locale": "it",
-      "canonicalQuery": "ja",
-      "canonicalSlug": "ja",
-      "roleTokens": [
-        "ja"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 8,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "ja",
-          "clicks": 0,
-          "impressions": 8
-        }
-      ]
-    },
-    {
       "clusterId": "it-impiegato-in-logistica-ticino",
       "locale": "it",
       "canonicalQuery": "impiegato in logistica ticino",
@@ -63261,28 +63363,6 @@
         {
           "query": "impiegato in logistica ticino",
           "clicks": 1,
-          "impressions": 8
-        }
-      ]
-    },
-    {
-      "clusterId": "it-sviluppo-software-lugano",
-      "locale": "it",
-      "canonicalQuery": "sviluppo software lugano",
-      "canonicalSlug": "sviluppo-software-lugano",
-      "roleTokens": [
-        "softwar",
-        "svilupp"
-      ],
-      "regionTokens": [
-        "lugano"
-      ],
-      "totalImpressions": 8,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "sviluppo software lugano",
-          "clicks": 0,
           "impressions": 8
         }
       ]
@@ -63366,6 +63446,28 @@
       "queries": [
         {
           "query": "lehrstellen stabio",
+          "clicks": 0,
+          "impressions": 8
+        }
+      ]
+    },
+    {
+      "clusterId": "it-schulbegleiter-jobs-lugano",
+      "locale": "it",
+      "canonicalQuery": "schulbegleiter jobs lugano",
+      "canonicalSlug": "schulbegleiter-jobs-lugano",
+      "roleTokens": [
+        "job",
+        "schulbegleiter"
+      ],
+      "regionTokens": [
+        "lugano"
+      ],
+      "totalImpressions": 8,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "schulbegleiter jobs lugano",
           "clicks": 0,
           "impressions": 8
         }
@@ -63464,6 +63566,38 @@
           "query": "where can i apply for logistics coordinator jobs near basel with german required",
           "clicks": 0,
           "impressions": 8
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavoro-in-svizzera-zurigo",
+      "locale": "it",
+      "canonicalQuery": "lavoro in svizzera zurigo",
+      "canonicalSlug": "lavoro-in-svizzera-zurigo",
+      "roleTokens": [
+        "lavor"
+      ],
+      "regionTokens": [
+        "svizzera",
+        "zurigo"
+      ],
+      "totalImpressions": 8,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "lavoro in svizzera zurigo",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "lavoro svizzera zurigo",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "lavoro zurigo svizzera",
+          "clicks": 0,
+          "impressions": 2
         }
       ]
     },
@@ -65074,38 +65208,6 @@
       ]
     },
     {
-      "clusterId": "it-autista-lavoro-ticino",
-      "locale": "it",
-      "canonicalQuery": "autista lavoro ticino",
-      "canonicalSlug": "autista-lavoro-ticino",
-      "roleTokens": [
-        "autist",
-        "lavor"
-      ],
-      "regionTokens": [
-        "ticino"
-      ],
-      "totalImpressions": 8,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "autista lavoro ticino",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
-          "query": "lavoro autista ticino",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
-          "query": "lavoro ticino autista",
-          "clicks": 0,
-          "impressions": 2
-        }
-      ]
-    },
-    {
       "clusterId": "de-agroscope-stellenangebote",
       "locale": "de",
       "canonicalQuery": "agroscope stellenangebote",
@@ -65524,26 +65626,6 @@
       "queries": [
         {
           "query": "hopital emploi",
-          "clicks": 0,
-          "impressions": 8
-        }
-      ]
-    },
-    {
-      "clusterId": "it-opus-brig",
-      "locale": "it",
-      "canonicalQuery": "opus brig",
-      "canonicalSlug": "opus-brig",
-      "roleTokens": [
-        "brig",
-        "opu"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 8,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "opus brig",
           "clicks": 0,
           "impressions": 8
         }
@@ -68924,23 +69006,42 @@
       ]
     },
     {
-      "clusterId": "it-operatrice-socio-assistenziale-offerte-di-lavoro",
+      "clusterId": "it-ja",
       "locale": "it",
-      "canonicalQuery": "operatrice socio assistenziale offerte di lavoro",
-      "canonicalSlug": "operatrice-socio-assistenziale-offerte-di-lavoro",
+      "canonicalQuery": "ja",
+      "canonicalSlug": "ja",
       "roleTokens": [
-        "assistenzial",
-        "lavor",
-        "offert",
-        "operatr",
-        "soci"
+        "ja"
       ],
       "regionTokens": [],
       "totalImpressions": 7,
       "totalClicks": 0,
       "queries": [
         {
-          "query": "operatrice socio assistenziale offerte di lavoro",
+          "query": "ja",
+          "clicks": 0,
+          "impressions": 7
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-di-lavoro-ingegnere-svizzera",
+      "locale": "it",
+      "canonicalQuery": "offerte di lavoro ingegnere svizzera",
+      "canonicalSlug": "offerte-di-lavoro-ingegnere-svizzera",
+      "roleTokens": [
+        "ingegner",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 7,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte di lavoro ingegnere svizzera",
           "clicks": 0,
           "impressions": 7
         }
@@ -68990,29 +69091,6 @@
       ]
     },
     {
-      "clusterId": "it-offerte-di-lavoro-ingegnere-svizzera",
-      "locale": "it",
-      "canonicalQuery": "offerte di lavoro ingegnere svizzera",
-      "canonicalSlug": "offerte-di-lavoro-ingegnere-svizzera",
-      "roleTokens": [
-        "ingegner",
-        "lavor",
-        "offert"
-      ],
-      "regionTokens": [
-        "svizzera"
-      ],
-      "totalImpressions": 7,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "offerte di lavoro ingegnere svizzera",
-          "clicks": 0,
-          "impressions": 7
-        }
-      ]
-    },
-    {
       "clusterId": "it-autista-ticino",
       "locale": "it",
       "canonicalQuery": "autista ticino",
@@ -69055,28 +69133,6 @@
       ]
     },
     {
-      "clusterId": "it-short-list-avvocati-2026",
-      "locale": "it",
-      "canonicalQuery": "short list avvocati 2026",
-      "canonicalSlug": "short-list-avvocati-2026",
-      "roleTokens": [
-        "2026",
-        "avvocat",
-        "list",
-        "short"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 7,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "short list avvocati 2026",
-          "clicks": 0,
-          "impressions": 7
-        }
-      ]
-    },
-    {
       "clusterId": "it-alternative-altenpflege",
       "locale": "it",
       "canonicalQuery": "alternative altenpflege",
@@ -69091,6 +69147,65 @@
       "queries": [
         {
           "query": "alternative altenpflege",
+          "clicks": 0,
+          "impressions": 7
+        }
+      ]
+    },
+    {
+      "clusterId": "en-i-am-looking-for-forklift-operator-jobs-in-switzerland-near-logistics-hubs-with-",
+      "locale": "en",
+      "canonicalQuery": "i am looking for forklift operator jobs in switzerland near logistics hubs with valid swiss permit or training offered and shift premiums and long term assignment.",
+      "canonicalSlug": "i-am-looking-for-forklift-operator-jobs-in-switzerland-near-logistics-hubs-with-",
+      "roleTokens": [
+        "assignment",
+        "forklift",
+        "hub",
+        "job",
+        "logistic",
+        "long",
+        "look",
+        "near",
+        "offered",
+        "operator",
+        "permit",
+        "premium",
+        "shift",
+        "term",
+        "train",
+        "valid"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 7,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "i am looking for forklift operator jobs in switzerland near logistics hubs with valid swiss permit or training offered and shift premiums and long term assignment.",
+          "clicks": 0,
+          "impressions": 7
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lkw-fahrer-jobs-lugano",
+      "locale": "it",
+      "canonicalQuery": "lkw fahrer jobs lugano",
+      "canonicalSlug": "lkw-fahrer-jobs-lugano",
+      "roleTokens": [
+        "fahrer",
+        "job",
+        "lkw"
+      ],
+      "regionTokens": [
+        "lugano"
+      ],
+      "totalImpressions": 7,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "lkw fahrer jobs lugano",
           "clicks": 0,
           "impressions": 7
         }
@@ -69164,36 +69279,33 @@
       ]
     },
     {
-      "clusterId": "en-security-drivers-switzerland",
-      "locale": "en",
-      "canonicalQuery": "security drivers switzerland",
-      "canonicalSlug": "security-drivers-switzerland",
+      "clusterId": "it-entwicklungsingenieur-echallens",
+      "locale": "it",
+      "canonicalQuery": "entwicklungsingenieur echallens",
+      "canonicalSlug": "entwicklungsingenieur-echallens",
       "roleTokens": [
-        "driver",
-        "security"
+        "echallen",
+        "entwicklungsingeni"
       ],
-      "regionTokens": [
-        "svizzera"
-      ],
+      "regionTokens": [],
       "totalImpressions": 7,
       "totalClicks": 0,
       "queries": [
         {
-          "query": "security drivers switzerland",
+          "query": "entwicklungsingenieur echallens",
           "clicks": 0,
           "impressions": 7
         }
       ]
     },
     {
-      "clusterId": "it-lkw-fahrer-jobs-lugano",
+      "clusterId": "it-wirtschaftsingenieur-jobs-lugano",
       "locale": "it",
-      "canonicalQuery": "lkw fahrer jobs lugano",
-      "canonicalSlug": "lkw-fahrer-jobs-lugano",
+      "canonicalQuery": "wirtschaftsingenieur jobs lugano",
+      "canonicalSlug": "wirtschaftsingenieur-jobs-lugano",
       "roleTokens": [
-        "fahrer",
         "job",
-        "lkw"
+        "wirtschaftsingeni"
       ],
       "regionTokens": [
         "lugano"
@@ -69202,7 +69314,74 @@
       "totalClicks": 0,
       "queries": [
         {
-          "query": "lkw fahrer jobs lugano",
+          "query": "wirtschaftsingenieur jobs lugano",
+          "clicks": 0,
+          "impressions": 7
+        }
+      ]
+    },
+    {
+      "clusterId": "it-pflegeassistenten",
+      "locale": "it",
+      "canonicalQuery": "pflegeassistenten",
+      "canonicalSlug": "pflegeassistenten",
+      "roleTokens": [
+        "pflegeassistenten"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 7,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "pflegeassistenten",
+          "clicks": 0,
+          "impressions": 7
+        }
+      ]
+    },
+    {
+      "clusterId": "de-offene-stellen-pflegeassistent",
+      "locale": "de",
+      "canonicalQuery": "offene stellen pflegeassistent",
+      "canonicalSlug": "offene-stellen-pflegeassistent",
+      "roleTokens": [
+        "offen",
+        "pflegeassistent",
+        "stellen"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 7,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offene stellen pflegeassistent",
+          "clicks": 0,
+          "impressions": 5
+        },
+        {
+          "query": "pflegeassistent offene stellen",
+          "clicks": 0,
+          "impressions": 2
+        }
+      ]
+    },
+    {
+      "clusterId": "it-sozialarbeiter-jobs-lugano",
+      "locale": "it",
+      "canonicalQuery": "sozialarbeiter jobs lugano",
+      "canonicalSlug": "sozialarbeiter-jobs-lugano",
+      "roleTokens": [
+        "job",
+        "sozialarbeiter"
+      ],
+      "regionTokens": [
+        "lugano"
+      ],
+      "totalImpressions": 7,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "sozialarbeiter jobs lugano",
           "clicks": 0,
           "impressions": 7
         }
@@ -69263,51 +69442,6 @@
       ]
     },
     {
-      "clusterId": "it-pflegeassistenten",
-      "locale": "it",
-      "canonicalQuery": "pflegeassistenten",
-      "canonicalSlug": "pflegeassistenten",
-      "roleTokens": [
-        "pflegeassistenten"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 7,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "pflegeassistenten",
-          "clicks": 0,
-          "impressions": 7
-        }
-      ]
-    },
-    {
-      "clusterId": "de-offene-stellen-pflegeassistent",
-      "locale": "de",
-      "canonicalQuery": "offene stellen pflegeassistent",
-      "canonicalSlug": "offene-stellen-pflegeassistent",
-      "roleTokens": [
-        "offen",
-        "pflegeassistent",
-        "stellen"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 7,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "offene stellen pflegeassistent",
-          "clicks": 0,
-          "impressions": 5
-        },
-        {
-          "query": "pflegeassistent offene stellen",
-          "clicks": 0,
-          "impressions": 2
-        }
-      ]
-    },
-    {
       "clusterId": "de-erzieher-jobs-basel",
       "locale": "de",
       "canonicalQuery": "erzieher jobs basel",
@@ -69330,28 +69464,6 @@
       ]
     },
     {
-      "clusterId": "it-schulbegleiter-jobs-lugano",
-      "locale": "it",
-      "canonicalQuery": "schulbegleiter jobs lugano",
-      "canonicalSlug": "schulbegleiter-jobs-lugano",
-      "roleTokens": [
-        "job",
-        "schulbegleiter"
-      ],
-      "regionTokens": [
-        "lugano"
-      ],
-      "totalImpressions": 7,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "schulbegleiter jobs lugano",
-          "clicks": 0,
-          "impressions": 7
-        }
-      ]
-    },
-    {
       "clusterId": "it-logistique-jura",
       "locale": "it",
       "canonicalQuery": "logistique jura",
@@ -69367,25 +69479,6 @@
       "queries": [
         {
           "query": "logistique jura",
-          "clicks": 0,
-          "impressions": 7
-        }
-      ]
-    },
-    {
-      "clusterId": "it-physioswiss",
-      "locale": "it",
-      "canonicalQuery": "physioswiss",
-      "canonicalSlug": "physioswiss",
-      "roleTokens": [
-        "physioswis"
-      ],
-      "regionTokens": [],
-      "totalImpressions": 7,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "physioswiss",
           "clicks": 0,
           "impressions": 7
         }
@@ -74283,6 +74376,25 @@
       ]
     },
     {
+      "clusterId": "it-physioswiss",
+      "locale": "it",
+      "canonicalQuery": "physioswiss",
+      "canonicalSlug": "physioswiss",
+      "roleTokens": [
+        "physioswis"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 7,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "physioswiss",
+          "clicks": 0,
+          "impressions": 7
+        }
+      ]
+    },
+    {
       "clusterId": "it-call-center-svizzera",
       "locale": "it",
       "canonicalQuery": "call center svizzera",
@@ -74504,6 +74616,31 @@
           "query": "marketing svizzera",
           "clicks": 0,
           "impressions": 7
+        }
+      ]
+    },
+    {
+      "clusterId": "it-stage-business",
+      "locale": "it",
+      "canonicalQuery": "stage business",
+      "canonicalSlug": "stage-business",
+      "roleTokens": [
+        "busines",
+        "stag"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 7,
+      "totalClicks": 2,
+      "queries": [
+        {
+          "query": "stage business",
+          "clicks": 1,
+          "impressions": 4
+        },
+        {
+          "query": "business stage",
+          "clicks": 1,
+          "impressions": 3
         }
       ]
     },
@@ -75932,6 +76069,31 @@
       ]
     },
     {
+      "clusterId": "en-are-there-truck-driver-jobs-in-eastern-switzerland",
+      "locale": "en",
+      "canonicalQuery": "are there truck driver jobs in eastern switzerland?",
+      "canonicalSlug": "are-there-truck-driver-jobs-in-eastern-switzerland",
+      "roleTokens": [
+        "driver",
+        "eastern",
+        "job",
+        "ther",
+        "truck"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 6,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "are there truck driver jobs in eastern switzerland?",
+          "clicks": 0,
+          "impressions": 6
+        }
+      ]
+    },
+    {
       "clusterId": "it-pflegejobs-im-wallis",
       "locale": "it",
       "canonicalQuery": "pflegejobs im wallis",
@@ -75987,28 +76149,6 @@
       ]
     },
     {
-      "clusterId": "it-app-development-geneva",
-      "locale": "it",
-      "canonicalQuery": "app development geneva",
-      "canonicalSlug": "app-development-geneva",
-      "roleTokens": [
-        "app",
-        "development"
-      ],
-      "regionTokens": [
-        "ginevra"
-      ],
-      "totalImpressions": 6,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "app development geneva",
-          "clicks": 0,
-          "impressions": 6
-        }
-      ]
-    },
-    {
       "clusterId": "it-ingenieur-zurich",
       "locale": "it",
       "canonicalQuery": "ingenieur zürich",
@@ -76030,22 +76170,22 @@
       ]
     },
     {
-      "clusterId": "it-wirtschaftsingenieur-jobs-lugano",
+      "clusterId": "it-app-development-geneva",
       "locale": "it",
-      "canonicalQuery": "wirtschaftsingenieur jobs lugano",
-      "canonicalSlug": "wirtschaftsingenieur-jobs-lugano",
+      "canonicalQuery": "app development geneva",
+      "canonicalSlug": "app-development-geneva",
       "roleTokens": [
-        "job",
-        "wirtschaftsingeni"
+        "app",
+        "development"
       ],
       "regionTokens": [
-        "lugano"
+        "ginevra"
       ],
       "totalImpressions": 6,
       "totalClicks": 0,
       "queries": [
         {
-          "query": "wirtschaftsingenieur jobs lugano",
+          "query": "app development geneva",
           "clicks": 0,
           "impressions": 6
         }
@@ -76191,27 +76331,40 @@
       ]
     },
     {
-      "clusterId": "de-arztsekretarin-jobs",
-      "locale": "de",
-      "canonicalQuery": "arztsekretärin jobs",
-      "canonicalSlug": "arztsekretarin-jobs",
+      "clusterId": "it-i-am-looking-for-coop-positions-in-geneva-for-store-associate-cashier-or-bakery-",
+      "locale": "it",
+      "canonicalQuery": "i am looking for coop positions in geneva for store associate cashier or bakery helper and i want part time 60 to 80 percent and a contract that can convert to permanent",
+      "canonicalSlug": "i-am-looking-for-coop-positions-in-geneva-for-store-associate-cashier-or-bakery-",
       "roleTokens": [
-        "arztsekretarin",
-        "job"
+        "60",
+        "80",
+        "associat",
+        "bakery",
+        "cashier",
+        "contract",
+        "convert",
+        "coop",
+        "helper",
+        "look",
+        "part",
+        "percent",
+        "permanent",
+        "position",
+        "stor",
+        "that",
+        "tim",
+        "want"
       ],
-      "regionTokens": [],
+      "regionTokens": [
+        "ginevra"
+      ],
       "totalImpressions": 6,
       "totalClicks": 0,
       "queries": [
         {
-          "query": "arztsekretärin jobs",
+          "query": "i am looking for coop positions in geneva for store associate cashier or bakery helper and i want part time 60 to 80 percent and a contract that can convert to permanent",
           "clicks": 0,
-          "impressions": 4
-        },
-        {
-          "query": "jobs arztsekretärin",
-          "clicks": 0,
-          "impressions": 2
+          "impressions": 6
         }
       ]
     },
@@ -77519,6 +77672,31 @@
           "query": "beste arbeitgeber zürich architektur",
           "clicks": 0,
           "impressions": 6
+        }
+      ]
+    },
+    {
+      "clusterId": "de-arztsekretarin-jobs",
+      "locale": "de",
+      "canonicalQuery": "arztsekretärin jobs",
+      "canonicalSlug": "arztsekretarin-jobs",
+      "roleTokens": [
+        "arztsekretarin",
+        "job"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 6,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "arztsekretärin jobs",
+          "clicks": 0,
+          "impressions": 4
+        },
+        {
+          "query": "jobs arztsekretärin",
+          "clicks": 0,
+          "impressions": 2
         }
       ]
     },
@@ -84389,12 +84567,12 @@
       ]
     },
     {
-      "clusterId": "en-switzerland-nurses-vacancy",
+      "clusterId": "en-nurse-vacancy-in-switzerland",
       "locale": "en",
-      "canonicalQuery": "switzerland nurses vacancy",
-      "canonicalSlug": "switzerland-nurses-vacancy",
+      "canonicalQuery": "nurse vacancy in switzerland",
+      "canonicalSlug": "nurse-vacancy-in-switzerland",
       "roleTokens": [
-        "nurse",
+        "nurs",
         "vacancy"
       ],
       "regionTokens": [
@@ -84404,28 +84582,7 @@
       "totalClicks": 0,
       "queries": [
         {
-          "query": "switzerland nurses vacancy",
-          "clicks": 0,
-          "impressions": 5
-        }
-      ]
-    },
-    {
-      "clusterId": "it-lehrstellen-chiasso",
-      "locale": "it",
-      "canonicalQuery": "lehrstellen chiasso",
-      "canonicalSlug": "lehrstellen-chiasso",
-      "roleTokens": [
-        "lehrstellen"
-      ],
-      "regionTokens": [
-        "chiasso"
-      ],
-      "totalImpressions": 5,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "lehrstellen chiasso",
+          "query": "nurse vacancy in switzerland",
           "clicks": 0,
           "impressions": 5
         }
@@ -84565,21 +84722,113 @@
       ]
     },
     {
-      "clusterId": "it-pflegejobs-in-uri",
-      "locale": "it",
-      "canonicalQuery": "pflegejobs in uri",
-      "canonicalSlug": "pflegejobs-in-uri",
+      "clusterId": "en-i-have-an-eu-driving-license-and-i-am-searching-for-truck-driver-jobs-in-switzer",
+      "locale": "en",
+      "canonicalQuery": "i have an eu driving license and i am searching for truck driver jobs in switzerland with ce license and tachograph experience and routes that start from basel or zurich.",
+      "canonicalSlug": "i-have-an-eu-driving-license-and-i-am-searching-for-truck-driver-jobs-in-switzer",
       "roleTokens": [
-        "pflegejob"
+        "driv",
+        "driver",
+        "eu",
+        "experienc",
+        "job",
+        "licens",
+        "route",
+        "search",
+        "start",
+        "tachograph",
+        "that",
+        "truck"
       ],
       "regionTokens": [
-        "uri"
+        "basilea",
+        "svizzera",
+        "zurigo"
       ],
       "totalImpressions": 5,
       "totalClicks": 0,
       "queries": [
         {
-          "query": "pflegejobs in uri",
+          "query": "i have an eu driving license and i am searching for truck driver jobs in switzerland with ce license and tachograph experience and routes that start from basel or zurich.",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ]
+    },
+    {
+      "clusterId": "en-i-have-experience-as-a-forklift-driver-and-i-am-looking-for-full-time-logistics-",
+      "locale": "en",
+      "canonicalQuery": "i have experience as a forklift driver and i am looking for full time logistics jobs near zurich airport with day shifts and i want to know which agencies and portals are best in switzerland.",
+      "canonicalSlug": "i-have-experience-as-a-forklift-driver-and-i-am-looking-for-full-time-logistics-",
+      "roleTokens": [
+        "agencie",
+        "airport",
+        "best",
+        "day",
+        "driver",
+        "experienc",
+        "forklift",
+        "full",
+        "job",
+        "know",
+        "logistic",
+        "look",
+        "near",
+        "portal",
+        "shift",
+        "tim",
+        "want",
+        "which"
+      ],
+      "regionTokens": [
+        "svizzera",
+        "zurigo"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "i have experience as a forklift driver and i am looking for full time logistics jobs near zurich airport with day shifts and i want to know which agencies and portals are best in switzerland.",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ]
+    },
+    {
+      "clusterId": "en-i-have-experience-in-courier-work-and-i-want-dhl-switzerland-driver-jobs-around-",
+      "locale": "en",
+      "canonicalQuery": "i have experience in courier work and i want dhl switzerland driver jobs around zurich with clear shift times and i also want to know if they hire without perfect german",
+      "canonicalSlug": "i-have-experience-in-courier-work-and-i-want-dhl-switzerland-driver-jobs-around-",
+      "roleTokens": [
+        "als",
+        "around",
+        "clear",
+        "courier",
+        "dhl",
+        "driver",
+        "experienc",
+        "german",
+        "hir",
+        "if",
+        "job",
+        "know",
+        "perfect",
+        "shift",
+        "they",
+        "time",
+        "want",
+        "without",
+        "work"
+      ],
+      "regionTokens": [
+        "svizzera",
+        "zurigo"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "i have experience in courier work and i want dhl switzerland driver jobs around zurich with clear shift times and i also want to know if they hire without perfect german",
           "clicks": 0,
           "impressions": 5
         }
@@ -84663,28 +84912,6 @@
       "queries": [
         {
           "query": "lehrstellen bellinzona",
-          "clicks": 0,
-          "impressions": 5
-        }
-      ]
-    },
-    {
-      "clusterId": "it-sozialarbeiter-jobs-lugano",
-      "locale": "it",
-      "canonicalQuery": "sozialarbeiter jobs lugano",
-      "canonicalSlug": "sozialarbeiter-jobs-lugano",
-      "roleTokens": [
-        "job",
-        "sozialarbeiter"
-      ],
-      "regionTokens": [
-        "lugano"
-      ],
-      "totalImpressions": 5,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "sozialarbeiter jobs lugano",
           "clicks": 0,
           "impressions": 5
         }
@@ -84791,77 +85018,32 @@
       ]
     },
     {
-      "clusterId": "it-lavorazioni-in-lamiera-bellinzona",
-      "locale": "it",
-      "canonicalQuery": "lavorazioni in lamiera bellinzona",
-      "canonicalSlug": "lavorazioni-in-lamiera-bellinzona",
-      "roleTokens": [
-        "lamier",
-        "lavorazion"
-      ],
-      "regionTokens": [
-        "bellinzona"
-      ],
-      "totalImpressions": 5,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "lavorazioni in lamiera bellinzona",
-          "clicks": 0,
-          "impressions": 5
-        }
-      ]
-    },
-    {
-      "clusterId": "it-offerte-lavoro-fisioterapista-svizzera",
-      "locale": "it",
-      "canonicalQuery": "offerte lavoro fisioterapista svizzera",
-      "canonicalSlug": "offerte-lavoro-fisioterapista-svizzera",
-      "roleTokens": [
-        "fisioterapist",
-        "lavor",
-        "offert"
-      ],
-      "regionTokens": [
-        "svizzera"
-      ],
-      "totalImpressions": 5,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "offerte lavoro fisioterapista svizzera",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
-          "query": "offerta lavoro fisioterapista svizzera",
-          "clicks": 0,
-          "impressions": 2
-        }
-      ]
-    },
-    {
-      "clusterId": "de-jobs-glattfelden",
+      "clusterId": "de-jobs-steckborn",
       "locale": "de",
-      "canonicalQuery": "jobs glattfelden",
-      "canonicalSlug": "jobs-glattfelden",
+      "canonicalQuery": "jobs steckborn",
+      "canonicalSlug": "jobs-steckborn",
       "roleTokens": [
-        "glattfelden",
-        "job"
+        "job",
+        "steckborn"
       ],
       "regionTokens": [],
       "totalImpressions": 5,
       "totalClicks": 0,
       "queries": [
         {
-          "query": "jobs glattfelden",
-          "clicks": 0,
-          "impressions": 3
-        },
-        {
-          "query": "glattfelden jobs",
+          "query": "jobs steckborn",
           "clicks": 0,
           "impressions": 2
+        },
+        {
+          "query": "job steckborn",
+          "clicks": 0,
+          "impressions": 2
+        },
+        {
+          "query": "steckborn jobs",
+          "clicks": 0,
+          "impressions": 1
         }
       ]
     },
@@ -85479,44 +85661,6 @@
       "queries": [
         {
           "query": "si grazie",
-          "clicks": 0,
-          "impressions": 5
-        }
-      ]
-    },
-    {
-      "clusterId": "it-i-am-looking-for-coop-positions-in-geneva-for-store-associate-cashier-or-bakery-",
-      "locale": "it",
-      "canonicalQuery": "i am looking for coop positions in geneva for store associate cashier or bakery helper and i want part time 60 to 80 percent and a contract that can convert to permanent",
-      "canonicalSlug": "i-am-looking-for-coop-positions-in-geneva-for-store-associate-cashier-or-bakery-",
-      "roleTokens": [
-        "60",
-        "80",
-        "associat",
-        "bakery",
-        "cashier",
-        "contract",
-        "convert",
-        "coop",
-        "helper",
-        "look",
-        "part",
-        "percent",
-        "permanent",
-        "position",
-        "stor",
-        "that",
-        "tim",
-        "want"
-      ],
-      "regionTokens": [
-        "ginevra"
-      ],
-      "totalImpressions": 5,
-      "totalClicks": 0,
-      "queries": [
-        {
-          "query": "i am looking for coop positions in geneva for store associate cashier or bakery helper and i want part time 60 to 80 percent and a contract that can convert to permanent",
           "clicks": 0,
           "impressions": 5
         }
@@ -86373,6 +86517,31 @@
           "query": "jysk pratteln",
           "clicks": 0,
           "impressions": 5
+        }
+      ]
+    },
+    {
+      "clusterId": "de-jobs-glattfelden",
+      "locale": "de",
+      "canonicalQuery": "jobs glattfelden",
+      "canonicalSlug": "jobs-glattfelden",
+      "roleTokens": [
+        "glattfelden",
+        "job"
+      ],
+      "regionTokens": [],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "jobs glattfelden",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "glattfelden jobs",
+          "clicks": 0,
+          "impressions": 2
         }
       ]
     },
@@ -87955,6 +88124,28 @@
       "queries": [
         {
           "query": "pwc switzerland jobs",
+          "clicks": 0,
+          "impressions": 5
+        }
+      ]
+    },
+    {
+      "clusterId": "it-lavorazioni-in-lamiera-bellinzona",
+      "locale": "it",
+      "canonicalQuery": "lavorazioni in lamiera bellinzona",
+      "canonicalSlug": "lavorazioni-in-lamiera-bellinzona",
+      "roleTokens": [
+        "lamier",
+        "lavorazion"
+      ],
+      "regionTokens": [
+        "bellinzona"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "lavorazioni in lamiera bellinzona",
           "clicks": 0,
           "impressions": 5
         }
@@ -90273,6 +90464,34 @@
           "query": "farmacia merloni chiasso",
           "clicks": 0,
           "impressions": 1
+        }
+      ]
+    },
+    {
+      "clusterId": "it-offerte-lavoro-fisioterapista-svizzera",
+      "locale": "it",
+      "canonicalQuery": "offerte lavoro fisioterapista svizzera",
+      "canonicalSlug": "offerte-lavoro-fisioterapista-svizzera",
+      "roleTokens": [
+        "fisioterapist",
+        "lavor",
+        "offert"
+      ],
+      "regionTokens": [
+        "svizzera"
+      ],
+      "totalImpressions": 5,
+      "totalClicks": 0,
+      "queries": [
+        {
+          "query": "offerte lavoro fisioterapista svizzera",
+          "clicks": 0,
+          "impressions": 3
+        },
+        {
+          "query": "offerta lavoro fisioterapista svizzera",
+          "clicks": 0,
+          "impressions": 2
         }
       ]
     },

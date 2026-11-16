@@ -10,7 +10,7 @@
  *
  *   - candidates passing the floor
  *   - clusters surviving the per-page MIN_MATCHING_JOBS=3 quality gate
- *   - estimated total HTML emission size (avg page weight × N pages)
+ *   - estimated total HTML emission size (average HTML payload × N pages)
  *   - matching-phase wall time + RSS peak
  *
  * Why a standalone script:
@@ -309,7 +309,7 @@ if (JSON_OUT) {
   }
   console.log('\nNotes:');
   console.log('  surviving  = clusters with ≥3 matching jobs (AND-tier + OR-fill)');
-  console.log('  est-dist   = surviving × 140 KB (avg HTML page weight from prior builds)');
+  console.log('  est-dist   = surviving × 140 KB (average HTML payload from prior builds)');
   console.log('  est-emit   = surviving × 0.7 ms (observed plugin emit rate)');
   console.log('  these estimate the cluster plugin\'s ISOLATED footprint — full-build OOM');
   console.log('  came from cumulative pressure with downstream plugins, not this plugin alone.');

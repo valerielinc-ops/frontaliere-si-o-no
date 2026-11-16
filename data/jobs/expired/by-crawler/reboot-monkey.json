@@ -23,10 +23,10 @@
       "data-center-technician-schweiz-zurich-vor-ort-reboot-monkey-zurich",
       "technicien-en-informatique-suisse-zurich-sur-place-reboot-monkey-zurich",
       "data-center-technician-switzerland-zurich-on-site-reboot-monkey-zurich-d0c802b4",
-      "data-center-technician-svizzera-zurigo-in-loco-reboot-monkey-zurich",
-      "data-center-technician-switzerland-zurich-on-site-reboot-monkey-zurich",
       "data-center-technician-svizzera-zurigo-in-loco-reboot-monkey-zurich-589b316b",
-      "data-center-technician-switzerland-zurich-on-site-reboot-monkey-zurich-e04e1242"
+      "data-center-technician-switzerland-zurich-on-site-reboot-monkey-zurich-e04e1242",
+      "data-center-technician-svizzera-zurigo-in-loco-reboot-monkey-zurich",
+      "data-center-technician-switzerland-zurich-on-site-reboot-monkey-zurich"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -35,13 +35,15 @@
         "data-center-technician-switzerland-zurich-on-site-reboot-monkey-zurich-4vhbfr",
         "data-center-technician-switzerland-zurich-on-site-reboot-monkey-zurich-d0c802b4",
         "data-center-technician-switzerland-zurich-on-site-reboot-monkey-zurich-e04e1242",
+        "data-center-technician-switzerland-zurich-on-site-reboot-monkey-zurich",
         "data-center-technician-svizzera-zurigo-in-loco-reboot-monkey-zurich"
       ],
       "en": [
         "data-center-technician-switzerland-zurich-on-site-reboot-monkey-zurich-4vhbfr",
         "data-center-technician-switzerland-zurich-on-site-reboot-monkey-zurich-d0c802b4",
         "data-center-technician-svizzera-zurigo-in-loco-reboot-monkey-zurich",
-        "data-center-technician-switzerland-zurich-on-site-reboot-monkey-zurich-e04e1242"
+        "data-center-technician-switzerland-zurich-on-site-reboot-monkey-zurich-e04e1242",
+        "data-center-technician-switzerland-zurich-on-site-reboot-monkey-zurich"
       ],
       "de": [
         "data-center-technician-switzerland-zurich-on-site-reboot-monkey-zurich-4vhbfr",
@@ -117,17 +119,26 @@
     "previousSlugsByLocale": {
       "it": [
         "data-center-technician-neuchatel-on-site-reboot-monkey-neuchatel-d5003cc3",
+        "data-center-technician-neuchatel-vor-ort-reboot-monkey-neuchatel",
+        "technicien-de-centre-de-donnees-neuchatel-sur-place-reboot-monkey-neuchatel",
         "data-center-technician-neuchatel-in-sede-reboot-monkey-neuchatel"
       ],
       "en": [
-        "data-center-technician-neuchatel-on-site-reboot-monkey-neuchatel-d5003cc3"
+        "data-center-technician-neuchatel-on-site-reboot-monkey-neuchatel-d5003cc3",
+        "data-center-technician-neuchatel-in-sede-reboot-monkey-neuchatel",
+        "data-center-technician-neuchatel-vor-ort-reboot-monkey-neuchatel",
+        "technicien-de-centre-de-donnees-neuchatel-sur-place-reboot-monkey-neuchatel"
       ],
       "de": [
         "data-center-technician-neuchatel-on-site-reboot-monkey-neuchatel",
+        "data-center-technician-neuchatel-in-sede-reboot-monkey-neuchatel",
+        "technicien-de-centre-de-donnees-neuchatel-sur-place-reboot-monkey-neuchatel",
         "data-center-technician-neuchatel-vor-ort-reboot-monkey-neuchatel"
       ],
       "fr": [
         "data-center-technician-neuchatel-on-site-reboot-monkey-neuchatel",
+        "data-center-technician-neuchatel-in-sede-reboot-monkey-neuchatel",
+        "data-center-technician-neuchatel-vor-ort-reboot-monkey-neuchatel",
         "technicien-de-centre-de-donnees-neuchatel-sur-place-reboot-monkey-neuchatel"
       ]
     }

@@ -512,6 +512,35 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v7
 
+      # Review-only Rollup fan-out comparison. Both reserved variants start
+      # from this exact checkout; only the transient config value differs.
+      # This edit is confined to the runner workspace and is never committed.
+      - name: Set Rollup file-op benchmark variant
+        if: matrix.variant == 'rollup-file-ops-64' || matrix.variant == 'rollup-file-ops-16'
+        env:
+          FILE_OPS_VARIANT: ${{ matrix.variant }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          case "$FILE_OPS_VARIANT" in
+            rollup-file-ops-64) target=64 ;;
+            rollup-file-ops-16) target=16 ;;
+            *) echo "::error::unexpected file-op variant: $FILE_OPS_VARIANT"; exit 1 ;;
+          esac
+          FILE_OPS_TARGET="$target" node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const path = 'vite.config.ts';
+          const source = fs.readFileSync(path, 'utf8');
+          const matches = [...source.matchAll(/maxParallelFileOps:\s*(\d+),/g)];
+          if (matches.length !== 1 || Number(matches[0][1]) !== 16) {
+            throw new Error(`Expected one production maxParallelFileOps: 16 setting; found ${matches.length}`);
+          }
+          const target = process.env.FILE_OPS_TARGET;
+          if (!['16', '64'].includes(target)) throw new Error(`Invalid benchmark target ${target}`);
+          fs.writeFileSync(path, source.replace(matches[0][0], `maxParallelFileOps: ${target},`));
+          console.log(`[rollup-file-ops-benchmark] variant=${target} source_head=${process.env.GITHUB_SHA}`);
+          NODE
+
       # Lockstep con deploy.yml's build-locale job: stesso script, stessi
       # numeri, un posto solo (scripts/ci/grow-build-swap.sh). Senza,
       # l'esperimento misurerebbe un runtime diverso da quello di produzione.
@@ -954,6 +983,9 @@ jobs:
       - name: Report dist size + timing
         if: always()
         env:
+          ROLLUP_FILE_OPS_CAP: ${{ matrix.variant == 'rollup-file-ops-64' && '64' || matrix.variant == 'rollup-file-ops-16' && '16' || '' }}
+          ROLLUP_FILE_OPS_REVERT_THRESHOLD: ${{ (matrix.variant == 'rollup-file-ops-64' || matrix.variant == 'rollup-file-ops-16') && 'ROLLUP_FILE_OPS_16_REVERT_THRESHOLD — revert cap 16 if its build fails or if it saves less than 512 MiB peak RSS while taking over 25% longer than cap 64.' || '' }}
+          BENCH_HEAD_SHA: ${{ github.sha }}
           PEAK_RSS_MB: ${{ steps.memguard.outputs.peak_rss_mb }}
           PEAK_ANON_MB: ${{ steps.memguard.outputs.peak_anon_mb }}
           MIN_HOST_AVAIL_MB: ${{ steps.memguard.outputs.min_host_avail_mb }}
@@ -991,6 +1023,9 @@ jobs:
             echo
             echo '| metric | value |'
             echo '|---|---|'
+            echo "| maxParallelFileOps | ${ROLLUP_FILE_OPS_CAP:-not-varied} |"
+            echo "| measured HEAD | ${BENCH_HEAD_SHA} |"
+            echo "| revert threshold | ${ROLLUP_FILE_OPS_REVERT_THRESHOLD:-not-applicable} |"
             echo "| wall-time | ${wall_time} |"
             echo "| dist bytes (du -sb) | ${dist_bytes} |"
             echo "| dist files | ${dist_files} |"
@@ -1362,6 +1397,7 @@ jobs:
             /*
             !/public/images/
             !/data/jobs/
+            !/data/url-first-seen/
             !/data/seo-404-compat/
             !/data/translation-cache/
             !/packages/articles/content/

@@ -10,14 +10,19 @@ import {
   collectSitemapInventory,
   crawlPartition,
   extractInternalLinks,
+  isDeclaredCurrencyWidgetTarget,
   isDeclaredEventMigrationBridge,
   folderFor,
   isDeclaredHealthFacilityBridge,
   isDeclaredEventDetailTarget,
+  isDeclaredJobMarketSnapshotTarget,
+  isDeclaredNewsletterPreferencesTarget,
   isDeclaredPaginationTarget,
   isDeclaredPlateAuctionTarget,
   isDeclaredPharmacyTarget,
   isDeclaredJobBoardTarget,
+  isDeclaredStandaloneRedirectStub,
+  isNewsletterPreferencesPath,
   isEventDetailPath,
   isHealthFacilityDetailPath,
   isJobBoardDetailPath,
@@ -50,6 +55,10 @@ import { EVENT_DETAIL_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/e
 import { PAGINATION_NOINDEX_TARGET_MARKER } from '../../packages/articles/engine/shared/paginationNoindexMarker.mjs';
 import { PLATE_AUCTION_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/plateAuctionNoindexTargetMarker.mjs';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
+import { STANDALONE_REDIRECT_STUB_MARKER } from '../../build-plugins/shared/standaloneRedirectStubMarker.mjs';
+import { NEWSLETTER_PREFERENCES_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/newsletterPreferencesNoindexTargetMarker.mjs';
+import { CURRENCY_WIDGET_NOINDEX_TARGET_MARKER } from '../../build-plugins/shared/currencyWidgetNoindexTargetMarker.mjs';
+import { JOB_MARKET_SNAPSHOT_NOINDEX_MARKER } from '../../build-plugins/shared/jobMarketSnapshotNoindexMarker.mjs';
 import { EVENT_SLUG_MIGRATION_BRIDGE_MARKER } from '../../build-plugins/shared/eventSlugMigrationMarker.mjs';
 import { RELATED_SEARCH_MIRROR_MARKER } from '../../build-plugins/shared/relatedSearchMirrorMarker.mjs';
 import { WEEKLY_EMPLOYERS_ARCHIVE_NOINDEX_MARKER } from '../../build-plugins/shared/weeklyEmployersArchiveMarker.mjs';
@@ -341,6 +350,84 @@ describe('Bing-compatible full-tree crawler', () => {
       expect(sitemap.findings[0].code).toBe(status === 301 ? 'redirect' : 'http-error');
       expect(frontier.findings[0].code).toBe(status === 301 ? BING_FRONTIER_REDIRECT : BING_FRONTIER_HTTP_ERROR);
     }
+  });
+
+  it('recognizes only real standalone redirect stubs without hiding malformed pages', () => {
+    const url = `${BASE}/calcola-stipendio/quiz-stipendio/`;
+    const target = `${BASE}/calcola-stipendio/`;
+    const html = `${REDIRECT_STUB_MARKER}${STANDALONE_REDIRECT_STUB_MARKER}<title>Pagina archiviata</title><meta name="robots" content="noindex,follow"><meta http-equiv="refresh" content="0; url=${target}">`;
+
+    expect(isDeclaredStandaloneRedirectStub({ url, html })).toBe(true);
+    const declaredCodes = classifyDocument({ url, status: 200, scope: 'discovered-frontier', html })
+      .findings.map((item) => item.code);
+    expect(declaredCodes).toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+    expect(declaredCodes).not.toContain(BING_FRONTIER_NOINDEX);
+    expect(declaredCodes).not.toContain('canonical-missing');
+
+    const invalidCases = [
+      html.replace(/<meta http-equiv="refresh"[^>]+>/, ''),
+      html.replace(`url=${target}`, 'url=https://example.test/outside/'),
+      html.replace(`url=${target}`, `url=${BASE}/assets/app.js`),
+      html.replace('noindex,follow', 'noindex,nofollow'),
+      html.replace(REDIRECT_STUB_MARKER, ''),
+      html.replace(STANDALONE_REDIRECT_STUB_MARKER, ''),
+      html.replace(`url=${target}`, `url=${url}`),
+    ];
+    for (const invalidHtml of invalidCases) {
+      expect(isDeclaredStandaloneRedirectStub({ url, html: invalidHtml })).toBe(false);
+      const codes = classifyDocument({ url, status: 200, scope: 'discovered-frontier', html: invalidHtml })
+        .findings.map((item) => item.code);
+      expect(codes).toContain(BING_FRONTIER_NOINDEX);
+      expect(codes).toContain('canonical-missing');
+      expect(codes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+    }
+
+    expect(isDeclaredStandaloneRedirectStub({
+      url: 'https://example.test/legacy/',
+      html,
+    })).toBe(false);
+  });
+
+  it('recognizes the explicit noindex contracts for linked utility pages', () => {
+    const cases = [
+      {
+        url: `${BASE}/de/newsletter-einstellungen/`,
+        marker: NEWSLETTER_PREFERENCES_NOINDEX_TARGET_MARKER,
+        helper: isDeclaredNewsletterPreferencesTarget,
+      },
+      {
+        url: `${BASE}/embed/currency-widget.html`,
+        marker: CURRENCY_WIDGET_NOINDEX_TARGET_MARKER,
+        helper: isDeclaredCurrencyWidgetTarget,
+      },
+      {
+        url: `${BASE}/mercato-lavoro-ticino/settimana-13-2026/`,
+        marker: JOB_MARKET_SNAPSHOT_NOINDEX_MARKER,
+        helper: isDeclaredJobMarketSnapshotTarget,
+      },
+    ];
+
+    for (const { url, marker, helper } of cases) {
+      const html = `${marker}<title>Pagina</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="${url}">`;
+      expect(helper({ url, html })).toBe(true);
+      const codes = classifyDocument({ url, status: 200, scope: 'discovered-frontier', html })
+        .findings.map((item) => item.code);
+      expect(codes).toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+      expect(codes).not.toContain(BING_FRONTIER_NOINDEX);
+      expect(codes).not.toContain('canonical-missing');
+
+      const unmarkedCodes = classifyDocument({
+        url,
+        status: 200,
+        scope: 'discovered-frontier',
+        html: html.replace(marker, ''),
+      }).findings.map((item) => item.code);
+      expect(unmarkedCodes).toContain(BING_FRONTIER_NOINDEX);
+      expect(unmarkedCodes).not.toContain(BING_FRONTIER_NOINDEX_BRIDGE);
+    }
+
+    expect(isNewsletterPreferencesPath(`${BASE}/de/newsletter-einstellungen/`)).toBe(true);
+    expect(isNewsletterPreferencesPath(`${BASE}/de/newsletter-einstellungen/token/`)).toBe(false);
   });
 
   it('recognizes localized below-floor search bridges only in the frontier scope', () => {

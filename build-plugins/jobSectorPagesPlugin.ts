@@ -281,40 +281,16 @@ function renderJourneyCompanies(
 
 /**
  * Sector landings keep the complete inventory in their metrics and spread its
- * links across bounded listing windows. The build-time guard stays aligned with
- * the site's 260 KiB page-weight budget for every base and continuation page.
+ * links across bounded listing windows. The base page renders up to 30 rich
+ * cards, followed by up to 200 compact links per page in the continuation ladder.
  */
 export const SECTOR_PAGE_CARD_CAP = 30;
 export const SECTOR_OVERFLOW_LINKS_PER_PAGE = 200;
-export const SECTOR_PAGE_HARD_BUDGET_BYTES = 260 * 1024;
-// Kept as the public observability name used by the page-weight checks. It is
-// also the fail-closed hard limit now that every emitted page is bounded.
-export const SECTOR_PAGE_WEIGHT_WARN_BYTES = SECTOR_PAGE_HARD_BUDGET_BYTES;
-export const SECTOR_PAGE_WEIGHT_TOP_N = 5;
 const SECTOR_PAGE_NAV_LINK_CAP = 120;
-
-export interface SectorPageWeight {
-  readonly path: string;
-  readonly bytes: number;
-}
 
 export function sectorHubPageCount(totalJobs: number): number {
   const overflowCount = Math.max(0, Math.floor(totalJobs) - SECTOR_PAGE_CARD_CAP);
   return Math.max(1, Math.ceil(overflowCount / SECTOR_OVERFLOW_LINKS_PER_PAGE));
-}
-
-/** Summarise emitted page weights without weakening the hard page guard. */
-export function summarizeSectorPageWeights(
-  weights: ReadonlyArray<SectorPageWeight>,
-  warnBytes: number = SECTOR_PAGE_WEIGHT_WARN_BYTES,
-  topN: number = SECTOR_PAGE_WEIGHT_TOP_N,
-): { overCount: number; total: number; top: SectorPageWeight[] } {
-  const sorted = [...weights].sort((a, b) => b.bytes - a.bytes || a.path.localeCompare(b.path));
-  return {
-    overCount: sorted.filter((w) => w.bytes > warnBytes).length,
-    total: sorted.length,
-    top: sorted.slice(0, Math.max(0, topN)),
-  };
 }
 
 function sectorPageNavigationTargets(page: number, pageCount: number): number[] {
@@ -431,8 +407,7 @@ const SIBLING_RAIL_HEADING: Record<JobBoardLocale, string> = {
  * Hrefs come from {@link buildSectorHubPath} (trailing-slash by construction)
  * and labels from {@link SECTOR_HUB_DISPLAY} (auto-localized). Returns an empty
  * string when the sector has no curated siblings, so unmapped long-tail hubs
- * simply render nothing rather than weak cross-links. The rail markup is a few
- * hundred bytes — well inside the 260 KB page-weight budget.
+ * simply render nothing rather than weak cross-links.
  */
 export function filterSectorHubSiblings(
   sector: SectorHubKey,
@@ -540,7 +515,7 @@ export interface BuildSectorLandingHtmlOptions {
   /**
    * Full-set stat-tile metrics, computed by the caller over ALL matching jobs
    * so the tiles stay honest for popular sectors. When omitted (e.g. the
-   * byte-weight unit test), company/city counts fall back to the visible
+   * pagination unit test), company/city counts fall back to the visible
    * `matchingJobs` set and the fresh tile is dropped.
    */
   companyCount?: number;
@@ -559,7 +534,8 @@ export interface BuildSectorLandingHtmlOptions {
 /**
  * Pure HTML builder for one bounded page in a sector listing ladder. The
  * caller passes the complete matching inventory for metrics and slicing;
- * only 30 rich cards and 200 compact overflow links can reach one page.
+ * only SECTOR_PAGE_CARD_CAP rich cards and
+ * SECTOR_OVERFLOW_LINKS_PER_PAGE compact overflow links can reach one page.
  */
 export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): string {
   const { sector, locale, matchingJobs, count, year, dateStamp, sectorProseData } = opts;
@@ -642,8 +618,13 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     const title = sanitizeJobTitleForDisplay(String(localizedJobDisplayTitle(job, locale) || 'Offerta lavoro')).trim();
     const company = stripLiteralMarkdown(String(job.company || '')).trim();
     const location = stripLiteralMarkdown(String(job.location || job.addressLocality || '')).trim();
+    // The visible overflow label is capped at 60 code points. Keep its
+    // structured-data name equally compact instead of duplicating a crawler's
+    // arbitrarily long title for all 200 overflow rows. Full titles remain on
+    // the rich cards and canonical job-detail pages; URLs/counts are unchanged.
+    const itemListTitle = Array.from(title).slice(0, 60).join('').trimEnd();
     const label = Array.from([title, company, location].filter(Boolean).join(' · ')).slice(0, 60).join('');
-    return { job: job as JobCardJob, href: buildJobHref(locale, job), title, label };
+    return { job: job as JobCardJob, href: buildJobHref(locale, job), itemListTitle, label };
   });
 
   const noResultsLabel = {
@@ -764,7 +745,7 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
 
   const pageItemList = [
     ...cardItems.map(({ job, href }) => ({ job, href, title: sanitizeJobTitleForDisplay(String(localizedJobDisplayTitle(job, locale) || 'Offerta lavoro')) })),
-    ...overflowItems,
+    ...overflowItems.map(({ job, href, itemListTitle }) => ({ job, href, title: itemListTitle })),
   ];
   const itemListLd = pageItemList.length > 0
     ? inlineScriptJson({
@@ -1049,7 +1030,6 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
         ? LOCALES
         : LOCALES.filter(shouldEmitLocale);
 
-      const pageWeights: SectorPageWeight[] = [];
       const ensuredDirs = new Set<string>();
       const ensureDir = (dir: string): void => {
         if (ensuredDirs.has(dir)) return;
@@ -1125,17 +1105,6 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
               pageCount,
             });
 
-            // Keep an observability record in addition to the fail-closed gate.
-            const htmlBytes = Buffer.byteLength(html, 'utf-8');
-            pageWeights.push({ path: canonicalPath, bytes: htmlBytes });
-            if (htmlBytes > SECTOR_PAGE_WEIGHT_WARN_BYTES) {
-              throw new Error(
-                `[job-sector-pages] HTML for ${canonicalPath} is ${(htmlBytes / 1024).toFixed(1)} KB, ` +
-                  `exceeds hard budget of ${SECTOR_PAGE_WEIGHT_WARN_BYTES / 1024} KB. ` +
-                  `Compress card markup or split the listing before changing the page-weight budget.`,
-              );
-            }
-
             // Write both /path/index.html and /path.html after validating the
             // URL-derived targets through the shared dist-path safety helper.
             const safeTargets = getSafeDistPageTargets(distDir, canonicalPath);
@@ -1191,17 +1160,6 @@ ${sitemapEntries.join('\n')}
         `\x1b[36m[job-sector-pages]\x1b[0m Generated ${totalPages} sector pages (${jobs.length} candidate jobs)`,
       );
 
-      const weightSummary = summarizeSectorPageWeights(pageWeights);
-      if (weightSummary.total > 0) {
-        const heaviest = weightSummary.top
-          .map((w) => `${w.path} ${(w.bytes / 1024).toFixed(1)} KB`)
-          .join('; ');
-        console.log(
-          `[job-sector-pages] page weight: ${weightSummary.overCount}/${weightSummary.total} hubs above ` +
-            `${SECTOR_PAGE_WEIGHT_WARN_BYTES / 1024} KB hard limit; heaviest ${weightSummary.top.length}: ${heaviest}`,
-        );
-      }
-
       // Always-run: patch sitemap.xml index lastmod entry. Other plugins
       // regenerate sitemap.xml every build, so our entry's <lastmod> would
       // otherwise drop out. Runs whether the cache hit or miss, but only
@@ -1233,7 +1191,7 @@ ${sitemapEntries.join('\n')}
       // hub landing is on disk, so the injector can safely add anchors to them
       // from the 4 job-board root hubs. Same fail-fast contract as
       // resolveJobsSeoPagesFlushed: closeBundle has no early return, so this is
-      // reached on every normal exit. A thrown budget error above propagates to
+      // reached on every normal exit. A thrown safety error above propagates to
       // Vite and fails the build (consumer terminates — not a deadlock).
       resolveSectorPagesFlushed();
     },

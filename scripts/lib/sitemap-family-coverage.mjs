@@ -16,6 +16,23 @@ export const SITEMAP_FAMILY_COVERAGE_KEYS = Object.freeze([
 ]);
 
 /**
+ * These families have membership driven by live data: rendered indexability
+ * (matchingJobs >= 3 and wordCount >= MIN) for orphan-landings, and the ad
+ * floor for profession-cities. Below the floor, the build emits a noindex,follow
+ * bridge at the same URL and removes that page from the sitemap (AGENTS.md).
+ * 0.1 is a COLLAPSE bound (loss of the mechanism), not a churn allowance.
+ * Never add a structural family here without an explicit decision.
+ * Evidence: publisher 43795558997 (orphan-landings 1913→1906 = -0.4%,
+ * profession-cities 252→248 = -1.6%).
+ */
+export const SITEMAP_FAMILY_CHURN_TOLERANCE = Object.freeze({
+  'orphan-landings': 0.1,
+  'profession-cities': 0.1,
+});
+
+export const SITEMAP_FAMILY_BRIDGE_EVIDENCE_VERSION = 1;
+
+/**
  * Keep the family-count ratchet inside the same ownership boundary as the
  * publisher sitemap validator. Article URLs are refreshed and served by the
  * corpus repo, so their local copies cannot prove this site's coverage.
@@ -58,8 +75,7 @@ export function sitemapCoverageFamilyForKey(key) {
   return null;
 }
 
-/** Count unique URLs across each restored family, merging its sitemap shards. */
-export function countSitemapFamilyUrls(snapshot) {
+function sitemapFamilyUrlSets(snapshot) {
   if (!snapshot || Array.isArray(snapshot) || !snapshot.perSitemap || typeof snapshot.perSitemap !== 'object') {
     throw new Error('A per-sitemap snapshot is required for family coverage comparison');
   }
@@ -75,7 +91,102 @@ export function countSitemapFamilyUrls(snapshot) {
       familyUrls.add(url);
     }
   }
+  return urlsByFamily;
+}
+
+/** Count unique URLs across each restored family, merging its sitemap shards. */
+export function countSitemapFamilyUrls(snapshot) {
+  const urlsByFamily = sitemapFamilyUrlSets(snapshot);
   return Object.fromEntries([...urlsByFamily].map(([family, urls]) => [family, urls.size]));
+}
+
+/** Return the complete unique URL difference within one family. */
+export function sitemapFamilyUrlDifferences(previousSnapshot, currentSnapshot, family) {
+  const previousUrls = sitemapFamilyUrlSets(previousSnapshot).get(family) ?? new Set();
+  const currentUrls = sitemapFamilyUrlSets(currentSnapshot).get(family) ?? new Set();
+  return {
+    removedUrls: [...previousUrls].filter((url) => !currentUrls.has(url)).sort(),
+    addedUrls: [...currentUrls].filter((url) => !previousUrls.has(url)).sort(),
+  };
+}
+
+/** Compare unique URLs within one family and return sorted bounded samples. */
+export function diffSitemapFamilyUrls(previousSnapshot, currentSnapshot, family) {
+  const { removedUrls, addedUrls } = sitemapFamilyUrlDifferences(previousSnapshot, currentSnapshot, family);
+  return {
+    removed: removedUrls.length,
+    added: addedUrls.length,
+    removedSample: removedUrls.slice(0, 5),
+    addedSample: addedUrls.slice(0, 5),
+  };
+}
+
+function bridgeEvidenceEntriesForFamily(bridgeEvidence, family) {
+  if (!bridgeEvidence || bridgeEvidence.schemaVersion !== SITEMAP_FAMILY_BRIDGE_EVIDENCE_VERSION
+    || bridgeEvidence.kind !== 'sitemap-family-bridge-evidence'
+    || bridgeEvidence.complete !== true
+    || !Array.isArray(bridgeEvidence.entries)) {
+    return { entries: [], validShape: false };
+  }
+  return {
+    entries: bridgeEvidence.entries.filter((entry) => entry?.family === family),
+    validShape: true,
+  };
+}
+
+/**
+ * Validate the lightweight build receipt for URLs removed from a data-driven
+ * sitemap family. The receipt is generated from the same dist tree that
+ * produced the new sitemap, so the gate can verify bridge coverage without
+ * downloading the full published site.
+ */
+export function validateSitemapFamilyBridgeEvidence(
+  previousSnapshot,
+  currentSnapshot,
+  bridgeEvidence,
+  family,
+) {
+  const previousUrls = sitemapFamilyUrlSets(previousSnapshot).get(family) ?? new Set();
+  const currentUrls = sitemapFamilyUrlSets(currentSnapshot).get(family) ?? new Set();
+  const removedUrls = [...previousUrls].filter((url) => !currentUrls.has(url)).sort();
+  if (removedUrls.length === 0) return { valid: true, errors: [], entries: [] };
+
+  const { entries, validShape } = bridgeEvidenceEntriesForFamily(bridgeEvidence, family);
+  const errors = [];
+  if (!validShape) {
+    return {
+      valid: false,
+      errors: [`${family}: bridge evidence is missing or has an unsupported schema`],
+      entries: [],
+    };
+  }
+
+  const byUrl = new Map();
+  for (const entry of entries) {
+    const url = String(entry?.url ?? '');
+    if (!url || byUrl.has(url)) {
+      errors.push(`${family}: bridge evidence has a missing or duplicate URL ${JSON.stringify(url)}`);
+      continue;
+    }
+    byUrl.set(url, entry);
+    if (typeof entry.path !== 'string' || !entry.path || entry.path.startsWith('/') || entry.path.split('/').includes('..')) {
+      errors.push(`${family}: bridge evidence path is invalid for ${url}`);
+    }
+    if (!/^[0-9a-f]{64}$/u.test(String(entry.sha256 ?? '').toLowerCase())) {
+      errors.push(`${family}: bridge evidence hash is invalid for ${url}`);
+    }
+    if (entry.robots !== 'noindex,follow') {
+      errors.push(`${family}: bridge evidence is not noindex,follow for ${url}`);
+    }
+    if (!removedUrls.includes(url)) {
+      errors.push(`${family}: bridge evidence URL is not a removed sitemap URL: ${url}`);
+    }
+  }
+  for (const url of removedUrls) {
+    if (!byUrl.has(url)) errors.push(`${family}: missing bridge evidence for removed URL ${url}`);
+  }
+
+  return { valid: errors.length === 0, errors, entries };
 }
 
 function declarationsByFamily(declarations) {
@@ -104,7 +215,7 @@ function declarationsByFamily(declarations) {
 }
 
 /** Compare current family counts with the pre-deploy snapshot. */
-export function evaluateSitemapFamilyCoverage(previous, current, declarations) {
+export function evaluateSitemapFamilyCoverage(previous, current, declarations, bridgeEvidence = null) {
   const before = countSitemapFamilyUrls(previous);
   const after = countSitemapFamilyUrls(current);
   const { byFamily, invalid } = declarationsByFamily(declarations);
@@ -117,9 +228,22 @@ export function evaluateSitemapFamilyCoverage(previous, current, declarations) {
   }));
   const regressions = [];
   const allowedDecreases = [];
+  const churn = [];
+  const bridgeEvidenceErrors = [];
 
   for (const entry of families) {
     if (entry.delta >= 0) continue;
+    const tolerance = SITEMAP_FAMILY_CHURN_TOLERANCE[entry.family];
+    if (tolerance !== undefined
+      && entry.currentCount > 0
+      && entry.previousCount - entry.currentCount <= Math.floor(entry.previousCount * tolerance)) {
+      const bridge = validateSitemapFamilyBridgeEvidence(previous, current, bridgeEvidence, entry.family);
+      if (bridge.valid) {
+        churn.push({ ...entry, tolerance });
+        continue;
+      }
+      bridgeEvidenceErrors.push(...bridge.errors);
+    }
     const declaration = byFamily.get(entry.family);
     if (!declaration
       || declaration.previousCount !== entry.previousCount
@@ -141,7 +265,10 @@ export function evaluateSitemapFamilyCoverage(previous, current, declarations) {
     )
     .map(([family]) => ({ family, reason: 'declared decrease is now the previous deployment baseline' }));
   const consumedFamilies = new Set(consumedDeclarations.map(({ family }) => family));
+  // Data-driven families use the collapse bound; their declarations are exact
+  // fallbacks beyond it, not baselines that can become stale during evidenced churn.
   const staleDeclarations = [...byFamily.keys()]
+    .filter((family) => SITEMAP_FAMILY_CHURN_TOLERANCE[family] === undefined)
     .filter((family) => !usedDeclarations.has(family) && !consumedFamilies.has(family))
     .map((family) => ({ family, reason: 'declaration does not match a current decrease or deployed baseline' }));
 
@@ -149,6 +276,8 @@ export function evaluateSitemapFamilyCoverage(previous, current, declarations) {
     families,
     regressions,
     allowedDecreases,
+    churn,
+    bridgeEvidenceErrors,
     consumedDeclarations,
     invalidDeclarations: invalid,
     staleDeclarations,

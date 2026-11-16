@@ -83,6 +83,58 @@ function isCalculatorLegacyAliasPath(pathname) {
   return CALCULATOR_LEGACY_ALIAS_PATHS.has(pathname);
 }
 
+const EXACT_ROUTE_FAMILY_PATHS = Object.freeze({
+  orphanLandingHub: new Set([
+    '/ricerca/',
+    '/en/search/',
+    '/de/suche/',
+    '/fr/recherche/',
+  ]),
+  salaryQuiz: new Set([
+    '/calcola-stipendio/quanto-guadagneresti-in-svizzera/',
+  ]),
+  salaryComparison: new Set([
+    '/fr/calculer-salaire/comparaison-net-2025-2026-moins-20km/',
+    '/fr/calculer-salaire/comparaison-net-2025-2026-plus-20km/',
+    '/fr/calculer-salaire/comparaison-permis-g-vs-b-moins-20km/',
+    '/fr/calculer-salaire/comparaison-permis-g-vs-b-plus-20km/',
+  ]),
+  legacyRedirectStub: new Set([
+    '/calcola-stipendio/quiz-stipendio/',
+    '/fr/calculer-salaire/et-si/',
+    '/fr/entreprises-recrutent/ticino/semaine-actuelle/',
+  ]),
+  exchangeRate: new Set([
+    '/cambio-franco-euro/',
+    '/en/chf-eur-exchange/',
+    '/de/franken-euro-kurs/',
+    '/fr/change-franc-euro/',
+  ]),
+  communications: new Set([
+    '/comunicazioni/',
+    '/en/communications/',
+    '/de/mitteilungen/',
+    '/fr/communications/',
+  ]),
+  newsletterPreferences: new Set([
+    '/preferenze-newsletter/',
+    '/en/newsletter-preferences/',
+    '/de/newsletter-einstellungen/',
+    '/fr/preferences-newsletter/',
+  ]),
+  siteMap: new Set([
+    '/mappa-del-sito/',
+    '/en/site-map/',
+    '/de/seitenplan/',
+    '/fr/plan-du-site/',
+  ]),
+  currencyWidget: new Set(['/embed/currency-widget.html']),
+});
+
+function exactRouteFamilyPath(key, pathname) {
+  return EXACT_ROUTE_FAMILY_PATHS[key]?.has(pathname) ?? false;
+}
+
 const WEEKLY_EMPLOYERS_ARCHIVE_RE = /^(?:settimana|week|woche|semaine)-(?:0[1-9]|[1-4]\d|5[0-3])-\d{4}$/;
 const WEEKLY_EMPLOYERS_COMPANY_RE = /^[a-z0-9][a-z0-9-]*$/;
 const WEEKLY_EMPLOYERS_ALL_HUB_PATHS = Object.freeze(new Set([
@@ -130,7 +182,12 @@ function isJobBoardTemplatePath(pathname) {
   // Canton snapshot pages sit below a job-board section but are emitted by
   // jobMarketSnapshotChCantonPages, not jobsSeoPagesPlugin. Exclude the
   // exact snapshot form before assigning the generic job-board owner.
-  return isJobBoardSectionPathname(pathname) && !isJobMarketSnapshotPath(pathname);
+  // Legacy bridge stubs use a job-board-looking French path but belong to the
+  // dedicated redirect emitter; exclude them here so the inventory cannot
+  // report an ambiguous owner.
+  return isJobBoardSectionPathname(pathname)
+    && !isJobMarketSnapshotPath(pathname)
+    && !exactRouteFamilyPath('legacyRedirectStub', pathname);
 }
 
 const WEATHER_CITY_ROOTS = Object.freeze([
@@ -321,6 +378,87 @@ const ADDITIONAL_FAMILY_DEFINITIONS = Object.freeze([
     ]),
     matches: isSalaryProfessionCantonPath,
   },
+  {
+    id: 'salary-comparison-pages',
+    label: 'Confronti salariali localizzati',
+    sourcePaths: Object.freeze([
+      'build-plugins/staticPagesPlugin.ts',
+      'build-plugins/shared/salaryLandingShell.ts',
+    ]),
+    matches: (pathname) => exactRouteFamilyPath('salaryComparison', pathname),
+  },
+  {
+    id: 'legacy-redirect-stub-pages',
+    label: 'Bridge legacy senza canonical',
+    sourcePaths: Object.freeze([
+      'build-plugins/legacyRedirectsPlugin.ts',
+      'build-plugins/searchConsoleCompat.ts',
+      'scripts/lib/compat-paths-store.mjs',
+    ]),
+    matches: (pathname) => exactRouteFamilyPath('legacyRedirectStub', pathname),
+  },
+  {
+    id: 'orphan-landing-hub-pages',
+    label: 'Hub delle ricerche correlate',
+    sourcePaths: Object.freeze([
+      'build-plugins/orphanQueryLandingPlugin.ts',
+      'scripts/lib/orphan-landing-path.mjs',
+    ]),
+    matches: (pathname) => exactRouteFamilyPath('orphanLandingHub', pathname),
+  },
+  {
+    id: 'salary-quiz-pages',
+    label: 'Landing quiz stipendio',
+    sourcePaths: Object.freeze([
+      'build-plugins/staticPagesPlugin.ts',
+      'services/seo/seo-pages.ts',
+    ]),
+    matches: (pathname) => exactRouteFamilyPath('salaryQuiz', pathname),
+  },
+  {
+    id: 'exchange-rate-pages',
+    label: 'Pagine cambio CHF/EUR',
+    sourcePaths: Object.freeze([
+      'build-plugins/exchangeRatePagesPlugin.ts',
+      'services/exchangeSsgPaths.ts',
+    ]),
+    matches: (pathname) => exactRouteFamilyPath('exchangeRate', pathname),
+  },
+  {
+    id: 'communications-pages',
+    label: 'Pagina delle comunicazioni',
+    sourcePaths: Object.freeze([
+      'build-plugins/communicationsPagePlugin.ts',
+      'services/communicationChannels.ts',
+    ]),
+    matches: (pathname) => exactRouteFamilyPath('communications', pathname),
+  },
+  {
+    id: 'newsletter-preferences-pages',
+    label: 'Shell preferenze newsletter',
+    sourcePaths: Object.freeze([
+      'build-plugins/newsletterPreferencesPagesPlugin.ts',
+      'services/routeSlugs.data.ts',
+    ]),
+    matches: (pathname) => exactRouteFamilyPath('newsletterPreferences', pathname),
+  },
+  {
+    id: 'site-map-pages',
+    label: 'Mappe del sito',
+    sourcePaths: Object.freeze([
+      'build-plugins/staticPagesPlugin.ts',
+      'components/pages/SiteMapPage.tsx',
+    ]),
+    matches: (pathname) => exactRouteFamilyPath('siteMap', pathname),
+  },
+  {
+    id: 'currency-widget-pages',
+    label: 'Widget cambio incorporabile',
+    sourcePaths: Object.freeze([
+      'public/embed/currency-widget.html',
+    ]),
+    matches: (pathname) => exactRouteFamilyPath('currencyWidget', pathname),
+  },
 ]);
 
 const FAMILY_DEFINITIONS = Object.freeze([
@@ -411,7 +549,8 @@ function pathnameFor(value) {
   try {
     const parsed = new URL(String(value || ''), 'https://frontaliereticino.ch');
     const pathname = parsed.pathname.replace(/\/+/g, '/') || '/';
-    return pathname.length > 1 && !pathname.endsWith('/') ? `${pathname}/` : pathname;
+    const last = pathname.split('/').filter(Boolean).at(-1) || '';
+    return pathname.length > 1 && !pathname.endsWith('/') && !last.includes('.') ? `${pathname}/` : pathname;
   } catch {
     return null;
   }

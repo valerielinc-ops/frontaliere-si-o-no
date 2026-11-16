@@ -69,26 +69,12 @@ jobs:
       NODE_OPTIONS: '--max-old-space-size=8192'
 
     steps:
-      - name: Checkout (full commit/tree history — slice blobs prefetched below)
+      - name: Checkout (full commit/tree history — slice blobs prefetched per batch below)
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
           filter: blob:none
         timeout-minutes: 40
-
-      - name: Prefetch historical job-slice blobs in bounded packs
-        timeout-minutes: 40
-        env:
-          CHECKOUT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPOSITORY: ${{ github.repository }}
-          # Run 43462137893 (2026-11-13) hit the 40-minute cap with the
-          # requested 2026-09-20 window. Split the fetch into bounded packs;
-          # HISTORY_SINCE still matches the walk below.
-          HISTORY_SINCE: ${{ inputs.history_since || '45 days ago' }}
-        # The prefetch uses the same commit-date window as the backfill and
-        # reads only the two slice-family trees. It verifies all fetched blob
-        # OIDs before the history walk can trigger any per-blob lazy fetch.
-        run: node scripts/ci/prefetch-history-blobs.mjs
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -124,10 +110,14 @@ jobs:
           CRAWLER_KEYS: ${{ inputs.crawler_keys || '' }}
           HISTORY_SINCE: ${{ inputs.history_since || '45 days ago' }}
           # Each checkpoint reruns the focused data gate before publishing.
-          # A 64-key batch reached the 90-minute cap before its next commit in
-          # run 36073258478. Sixteen bounds the uncommitted loss while keeping
-          # the validation/push overhead below the job budget.
-          BACKFILL_CHECKPOINT_BATCH_SIZE: '16'
+          # Run 43822512261 published 16-crawler checkpoints 33:55 and 32:43
+          # apart (07:54→08:27→09:00 UTC), reaching cursor assura-ch at key 48.
+          # Eight is a conservative checkpoint granularity chosen to reduce
+          # work between durable boundaries, not a linear runtime estimate or
+          # proof that the full workset fits the 120-minute job budget. The
+          # elapsed_seconds metric measures each batch from prefetch through
+          # gates and push; total-job duration still requires a completed run.
+          BACKFILL_CHECKPOINT_BATCH_SIZE: '8'
           BACKFILL_PROGRESS_PATH: .github/backfill-expired-from-history-progress.tsv
         # The history walk writes each expired slice atomically, but the old
         # one-shot invocation only committed after the whole walk and the test
@@ -139,7 +129,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          checkpoint_batch_size="${BACKFILL_CHECKPOINT_BATCH_SIZE:-64}"
+          checkpoint_batch_size="${BACKFILL_CHECKPOINT_BATCH_SIZE:-8}"
           case "$checkpoint_batch_size" in
             ''|*[!0-9]*|0)
               echo "::error::BACKFILL_CHECKPOINT_BATCH_SIZE must be a positive integer"
@@ -201,6 +191,18 @@ jobs:
           checkpoint_count=0
           checkpoint_active=0
           checkpoint_failed=0
+          checkpoint_batch_number=0
+          checkpoint_batch_started_at=0
+          checkpoint_batch_timing_active=0
+
+          report_checkpoint_timing() {
+            timing_outcome="$1"
+            if [ "$checkpoint_batch_timing_active" -eq 1 ]; then
+              checkpoint_elapsed_seconds=$((SECONDS - checkpoint_batch_started_at))
+              echo "⏱️ Backfill checkpoint batch ${checkpoint_batch_number}: crawlers=${checkpoint_count} elapsed_seconds=${checkpoint_elapsed_seconds} outcome=${timing_outcome}"
+              checkpoint_batch_timing_active=0
+            fi
+          }
 
           has_dirty_checkpoint() {
             git status --porcelain -- data/jobs/by-crawler data/jobs/expired/by-crawler "$progress_path" | grep . >/dev/null
@@ -224,16 +226,19 @@ jobs:
             # bad assembled artifact or invariant failure off main even when a
             # later batch would otherwise make the overall run red.
             if ! node scripts/assemble-jobs-dataset.mjs; then
+              report_checkpoint_timing 'failed-assemble'
               checkpoint_failed=1
               checkpoint_active=0
               return 1
             fi
             if ! npm run test:backfill; then
+              report_checkpoint_timing 'failed-test'
               checkpoint_failed=1
               checkpoint_active=0
               return 1
             fi
             if ! node scripts/audit-expired-at-parsable.mjs; then
+              report_checkpoint_timing 'audit-gate-failure'
               checkpoint_failed=1
               checkpoint_active=0
               return 1
@@ -241,6 +246,7 @@ jobs:
             checkpoint_tmp_dir="${RUNNER_TEMP:-/tmp}"
             if ! checkpoint_output="$(mktemp "$checkpoint_tmp_dir/backfill-checkpoint-output.XXXXXX")"; then
               echo '::error::Unable to allocate the checkpoint outcome file.'
+              report_checkpoint_timing 'failed-checkpoint-output'
               checkpoint_failed=1
               checkpoint_active=0
               return 1
@@ -249,6 +255,7 @@ jobs:
               "chore(data): checkpoint history backfill slices for resumable recovery" \
               "$progress_path"; then
               rm -f "$checkpoint_output"
+              report_checkpoint_timing 'failed-push'
               checkpoint_failed=1
               checkpoint_active=0
               return 1
@@ -266,6 +273,7 @@ jobs:
               if ! git fetch --no-tags origin main || ! git reset --hard origin/main; then
                 rm -f "$checkpoint_output"
                 echo '::error::Checkpoint was reported as persisted but the workspace could not be aligned to origin/main.'
+                report_checkpoint_timing 'failed-align-main'
                 checkpoint_failed=1
                 checkpoint_active=0
                 return 1
@@ -275,11 +283,13 @@ jobs:
             else
               rm -f "$checkpoint_output"
               echo '::error::Checkpoint did not prove that the dirty batch was persisted.'
+              report_checkpoint_timing 'failed-persistence-proof'
               checkpoint_failed=1
               checkpoint_active=0
               return 1
             fi
             rm -f "$checkpoint_output"
+            report_checkpoint_timing "$checkpoint_status"
             checkpoint_count=0
             checkpoint_active=0
           }
@@ -291,11 +301,13 @@ jobs:
             # completed atomic slice still dirty in the workspace before the
             # runner disappears. A failed push remains a real failure; the next
             # invocation retries the same bounded batch.
-            if [ "$status" -ne 0 ] && [ "$checkpoint_failed" -eq 0 ] && has_dirty_checkpoint; then
+            if [ "$status" -ne 0 ] && [ "$checkpoint_failed" -eq 0 ] && { [ "$checkpoint_count" -gt 0 ] || has_dirty_checkpoint; }; then
               echo '⚠️ Backfill failed; attempting one last durable slice checkpoint.'
               if ! checkpoint; then
                 echo '::error::Unable to persist the partial backfill checkpoint.'
               fi
+            elif [ "$status" -ne 0 ] && [ "$checkpoint_batch_timing_active" -eq 1 ]; then
+              report_checkpoint_timing 'failed-before-crawler-checkpoint'
             fi
             exit "$status"
           }
@@ -307,10 +319,16 @@ jobs:
             # GitHub timeout/cancel sends SIGTERM while the crawler process is
             # running. Bash may execute this trap after that child exits, which
             # is the last reliable chance to publish completed atomic slices.
-            if [ "$checkpoint_active" -eq 0 ] && [ "$checkpoint_failed" -eq 0 ] && has_dirty_checkpoint; then
+            if [ "$checkpoint_active" -eq 0 ] && [ "$checkpoint_failed" -eq 0 ] && { [ "$checkpoint_count" -gt 0 ] || has_dirty_checkpoint; }; then
               echo '⚠️ Backfill interrupted; attempting a durable checkpoint before exit.'
               if ! checkpoint; then
                 echo '::error::Unable to persist the interrupted backfill checkpoint.'
+              fi
+            elif [ "$checkpoint_batch_timing_active" -eq 1 ]; then
+              if [ "$checkpoint_active" -eq 1 ]; then
+                report_checkpoint_timing 'interrupted-during-checkpoint'
+              else
+                report_checkpoint_timing 'interrupted-before-crawler-checkpoint'
               fi
             fi
             exit "$signal_status"
@@ -327,15 +345,27 @@ jobs:
           fi
 
           mapfile -t key_list <<< "$keys"
-          for key in "${key_list[@]}"; do
-            [ -n "$key" ] || continue
-            echo "──── Backfilling crawler: $key ────"
-            CRAWLER_KEYS="$key" node scripts/backfill-expired-from-history.mjs
-            last_completed_key="$key"
-            checkpoint_count=$((checkpoint_count + 1))
-            if [ "$checkpoint_count" -ge "$checkpoint_batch_size" ]; then
-              checkpoint
-            fi
+          key_total="${#key_list[@]}"
+          for ((batch_start=0; batch_start<key_total; batch_start+=checkpoint_batch_size)); do
+            batch_keys=("${key_list[@]:batch_start:checkpoint_batch_size}")
+            batch_size="${#batch_keys[@]}"
+            checkpoint_batch_number=$((checkpoint_batch_number + 1))
+            checkpoint_batch_started_at=$SECONDS
+            checkpoint_batch_timing_active=1
+            batch_crawler_keys=''
+            printf -v batch_crawler_keys '%s,' "${batch_keys[@]}"
+            batch_crawler_keys="${batch_crawler_keys%,}"
+            echo "📦 Prefetching history for crawler batch $((batch_start + 1))-$((batch_start + batch_size))/$key_total"
+            CRAWLER_KEYS="$batch_crawler_keys" node scripts/ci/prefetch-history-blobs.mjs
+
+            for key in "${batch_keys[@]}"; do
+              [ -n "$key" ] || continue
+              echo "──── Backfilling crawler: $key ────"
+              CRAWLER_KEYS="$key" node scripts/backfill-expired-from-history.mjs
+              last_completed_key="$key"
+              checkpoint_count=$((checkpoint_count + 1))
+            done
+            checkpoint
           done
 
           checkpoint 1

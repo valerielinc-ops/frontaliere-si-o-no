@@ -64,15 +64,21 @@ export const THIRD_PARTY_STACK_ORIGINS: readonly RegExp[] = [
   // They run in page context but are entirely third-party; no fix possible.
   // Anchored wrapper around the shared literal in benignErrorPatterns.ts.
   new RegExp(`^${BROWSER_EXTENSION_ORIGIN_PATTERN.source}`, 'i'),
-  // Microsoft Clarity session recording — #3760.
-  // Injected lazily by services/clarity.ts; all frames from clarity.ms are
+  // Microsoft Clarity session recording — #3760, #19026.
+  // The tag bootstrap is served from www.clarity.ms, while the runtime that
+  // throws is served from scripts.clarity.ms. Both are Clarity-owned and
   // third-party. Companion to the `standardSelectors` message pattern added
   // to UNIVERSAL_BENIGN_PATTERNS (covers cross-origin, no-frame case).
-  /^https:\/\/www\.clarity\.ms\//i,
+  /^https:\/\/(?:www|scripts)\.clarity\.ms\//i,
   // Google Publisher Tags (GPT) — third-party stack audit.
   // The library is third-party and can throw errors entirely inside its own
   // securepubads.g.doubleclick.net frames; no first-party fix is possible.
   /^https:\/\/securepubads\.g\.doubleclick\.net\//i,
+  // Google reCAPTCHA Enterprise — #19025.
+  // The live PostHog sample was `reCAPTCHA Timeout (b)` with every resolved
+  // frame in Google's gstatic reCAPTCHA release; the timeout is inside the
+  // vendor client and cannot be fixed by this application.
+  /^https:\/\/www\.gstatic\.com\/recaptcha\//i,
 ];
 
 /**

@@ -1285,9 +1285,8 @@ export async function geocodeVenue(query, cache, fetchImpl = fetch) {
 // plain non-municipal toponyms ("Gondelbahn Rothorn 1"). Measured on
 // data/events.json (2026-09-04): 1235 future events had neither comune nor
 // canton — and 1234 of them carried perfectly good `geo.lat/lng`. They all
-// land in the UNRESOLVED_CANTON_KEY bucket, whose page is today the heaviest
-// of the whole site (`audit:page-weight` top offender), instead of on the
-// cantonal/comunal hub they belong to.
+// land in the UNRESOLVED_CANTON_KEY bucket instead of on the cantonal/comunal
+// hub they belong to.
 //
 // So: when text-matching finds nothing, ASK THE COORDINATES. The free
 // OpenStreetMap Nominatim REVERSE endpoint at `zoom=10` answers at exactly

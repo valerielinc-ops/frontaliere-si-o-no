@@ -47,6 +47,10 @@ import {
   buildApplicationIntentReminderEmailText,
   getApplicationIntentReminderStrings,
 } from './lib/applicationIntentReminderEmail.mjs';
+import {
+  createPublishedJobPageChecker,
+  inspectLiveJobs,
+} from './lib/job-pages-live-checker.mjs';
 import { getFirestoreDb } from './lib/firestore-admin.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -77,6 +81,14 @@ function jobPageUrl(job, locale = 'it') {
     : `${BASE_URL}${localePathPrefix(locale)}/${resolveCantonSection(locale, 'TI')}/`;
 }
 
+// A missing slug intentionally falls back to the canton board in the email.
+// It is not a job detail page, so it must not count against manifest coverage
+// or be treated as a dead detail URL by the liveness preflight.
+function liveJobPageUrl(job, locale = 'it') {
+  const slug = job?.slugByLocale?.[locale] || job?.slugByLocale?.it || job?.slug || '';
+  return slug ? jobPageUrl(job, locale) : null;
+}
+
 function profileUrl(locale = 'it') {
   const slug = SLUG_TABLES[locale]?.profile || SLUG_TABLES.it.profile;
   return `${BASE_URL}${localePathPrefix(locale)}/${slug}/`;
@@ -94,6 +106,20 @@ function makeUnsubscribeUrl(uid, email, locale = 'it') {
 let _jobsForTest = null;
 export function __setJobsForTest(jobs) {
   _jobsForTest = jobs;
+}
+
+let _liveLinkCheckerForTest = null;
+export function __setLiveLinkCheckerForTest(checker) {
+  _liveLinkCheckerForTest = checker;
+}
+
+async function loadLiveLinkChecker(allJobs, datasetAtMs) {
+  if (_liveLinkCheckerForTest) return _liveLinkCheckerForTest;
+  return createPublishedJobPageChecker({
+    inventory: allJobs,
+    datasetAtMs,
+    urlFor: liveJobPageUrl,
+  });
 }
 
 function loadJobsById() {
@@ -406,6 +432,8 @@ export async function main() {
   const now = new Date();
   const nowMs = now.getTime();
   const campaignId = `application-intent-reminder-${now.toISOString().slice(0, 10)}`;
+  const liveLink = await loadLiveLinkChecker(allJobs, nowMs);
+  const jobLiveCheckCache = new Map();
 
   console.log('📝 Application-intent reminders — querying intents…');
   const intentCandidates = await loadApplicationIntentReminderCandidates(db, { now });
@@ -493,6 +521,18 @@ export async function main() {
       continue;
     }
 
+    const liveEligible = await inspectLiveJobs(eligible, locale, jobLiveCheckCache, {
+      check: liveLink.check,
+      failOpen: liveLink.failOpen,
+      urlFor: (entry, selectedLocale) => liveJobPageUrl(entry.sourceJob, selectedLocale),
+      log: (line) => console.log(line),
+    });
+    eligible.splice(0, eligible.length, ...liveEligible.jobs);
+    if (eligible.length === 0) {
+      skip('job_not_live');
+      continue;
+    }
+
     let completedKeys = new Set();
     try {
       completedKeys = await loadCompletedInternalApplicationKeys(db, uid, eligible);
@@ -547,7 +587,13 @@ export async function main() {
       excludedJobIds,
       featureCache: recommendationFeatureCache,
     });
-    const recommendations = recommendedJobs.map((job) => recommendationEntry(job, locale));
+    const liveRecommendations = await inspectLiveJobs(recommendedJobs, locale, jobLiveCheckCache, {
+      check: liveLink.check,
+      failOpen: liveLink.failOpen,
+      urlFor: liveJobPageUrl,
+      log: (line) => console.log(line),
+    });
+    const recommendations = liveRecommendations.jobs.map((job) => recommendationEntry(job, locale));
 
     // An address with no central row, or a legacy row with no relationship,
     // gets the address record the saved-jobs digest creates

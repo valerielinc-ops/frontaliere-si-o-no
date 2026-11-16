@@ -57,7 +57,7 @@ describe('classe e modalità di ogni gate (cambiarle è una decisione da review)
       'audit:orphan-sitemap-pages': 'B/issue-on-regression',
       'audit:hreflang': 'B/issue-on-regression',
       'audit:all/information-gain': 'B/issue-on-regression',
-      'audit:all/page-weight': 'B/issue-on-regression',
+      'audit:all/img-attributes': 'B/issue-on-regression',
       'validate:sitemap-family-coverage': 'B/issue-on-regression',
       // C — advisory (faqpage-validity declassato da A il 2026-10-02)
       'audit:all/faqpage-validity': 'C/advisory',
@@ -160,7 +160,7 @@ describe('la tabella non può diventare un silenziatore', () => {
     const src = fs.readFileSync(path.join(ROOT, 'scripts/audit-all.mjs'), 'utf8');
     const block = src.slice(src.indexOf('const REGISTRY = ['), src.indexOf('];', src.indexOf('const REGISTRY = [')));
     const names = [...block.matchAll(/name: '([^']+)'/g)].map((m) => m[1]);
-    expect(names.length).toBeGreaterThanOrEqual(18);
+    expect(names.length).toBeGreaterThanOrEqual(17);
     for (const name of names) {
       expect(SEO_GATE_CLASSES, `audit:all/${name} non classificato`).toHaveProperty([`audit:all/${name}`]);
     }

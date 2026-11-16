@@ -1,7 +1,7 @@
 {
   "key": "visionapartments",
   "label": "VISIONAPARTMENTS",
-  "generatedAt": "2026-11-15T09:32:10.396Z",
+  "generatedAt": "2026-11-15T21:57:43.841Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5831,
-  "avgDurationMs": 5831,
+  "durationMs": 4684,
+  "avgDurationMs": 4684,
   "durationHistory": [
-    5831
+    4684
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/d14022be-0fb5-48ab-b907-196c83d223a0/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:31:52.353Z",
+      "crawledAt": "2026-11-15T21:57:29.607Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -62,7 +62,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-14T09:31:52.353Z",
+      "validThrough": "2027-01-13T21:57:29.607Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -85,7 +85,7 @@
       "url": "https://www.jobs.ch/fr/offres-emplois/detail/56071e0e-15da-4919-beea-4424c39f31ef/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:31:51.563Z",
+      "crawledAt": "2026-11-15T21:57:28.809Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "salaryMax": 92400,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T09:31:51.563Z",
+      "validThrough": "2027-01-17T21:57:28.809Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -119,5 +119,5 @@
       }
     }
   ],
-  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
+  "codeCommit": "b0e0a209c23d72cde28658756e39fb5de3eaaca5"
 }

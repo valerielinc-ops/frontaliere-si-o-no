@@ -5,6 +5,11 @@ import {
   type HandoffProbeOptions,
   type HandoffRecord,
 } from '../helpers/staticHandoffProbe';
+import {
+  dailyBriefEditionId,
+  dailyBriefPublicationState,
+  shouldSkipUnpublishedDailyBrief,
+} from '../helpers/dailyBriefLive';
 
 /**
  * Live guard for issue 12421: an article page, and a canton topic hub, went
@@ -92,16 +97,25 @@ function expectCleanHandoff(
 test.describe('static article → SPA handoff', () => {
   for (const { locale, hub, slug } of BRIEFS) {
     test(`${locale}: the daily brief is on screen from first paint to hydration`, async ({ page }) => {
-      // Before the morning's generation today's edition is a 404: yesterday's
-      // is the same handoff (by then it may be in the bundle, which is the
-      // other class this guards), so the check still has a subject at any hour.
+      // Before the morning's generation today's edition may be a 404 or 503:
+      // the publisher registry, not the edge status alone, decides whether
+      // yesterday's edition is the available handoff subject.
       let url = `${BASE}${hub}${slug}-${editionDate(0)}/`;
       let status = await openWithProbe(page, url, ARTICLE_PROBE);
-      if (status === 404) {
+      let publicationState = status === 200
+        ? 'published'
+        : await dailyBriefPublicationState(dailyBriefEditionId(editionDate(0)));
+      if (shouldSkipUnpublishedDailyBrief(status, publicationState)) {
         url = `${BASE}${hub}${slug}-${editionDate(1)}/`;
         status = (await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 25_000 }))?.status();
+        publicationState = status === 200
+          ? 'published'
+          : await dailyBriefPublicationState(dailyBriefEditionId(editionDate(1)));
       }
-      test.skip(status === 404, `no edition published for ${editionDate(0)} or ${editionDate(1)} in ${locale}`);
+      test.skip(
+        shouldSkipUnpublishedDailyBrief(status, publicationState),
+        `no edition published for ${editionDate(0)} or ${editionDate(1)} in ${locale} — publisher registry has no entry`,
+      );
       expect(status, `${url} must serve 200`).toBe(200);
 
       expectCleanHandoff(`brief-${locale}`, url, await readHandoff(page, ARTICLE_PROBE));

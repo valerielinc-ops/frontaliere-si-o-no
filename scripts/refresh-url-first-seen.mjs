@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 // refresh-url-first-seen.mjs
 //
-// Scan dist/sitemap-*.xml for every emitted URL, merge into
-// data/url-first-seen.json. New URLs get today's date; existing entries
-// are preserved (monotonic — never overwrite an earlier first-seen).
+// Scan dist/sitemap-*.xml for every emitted URL, merge into the sharded
+// first-seen ledger data/url-first-seen/<h>.json (scripts/lib/url-first-seen-store.mjs;
+// the legacy single file data/url-first-seen.json is still read and merged until
+// it is retired). New URLs get today's date; existing entries are preserved
+// (monotonic — never overwrite an earlier first-seen).
 //
 // Consumed by build-plugins/shared/trafficEvidenceFilter.ts to apply
 // the `minAgeDays` grace window per approved-patterns entry:
@@ -16,18 +18,27 @@
 //
 // Usage:
 //   node scripts/refresh-url-first-seen.mjs [--dist=dist]
-//                                           [--out=data/url-first-seen.json]
+//                                           [--out=data/url-first-seen]
+//                                           [--legacy=data/url-first-seen.json]
 //                                           [--dry-run]
 //
 // Exit codes:
-//   0  ok (file unchanged OR updated)
-//   2  dist dir missing / unreadable
+//   0  ok (shards unchanged OR updated)
+//   2  dist dir missing / unreadable, or an existing shard / legacy ledger that
+//      cannot be read (rewriting from a partial read would destroy history)
 
-import { readFile, writeFile } from 'node:fs/promises';
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { dirname, join, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { flatString } from './lib/flat-string.mjs';
+import {
+  URL_FIRST_SEEN_DIR,
+  URL_FIRST_SEEN_LEGACY_FILE,
+  describeFirstSeenLoad,
+  loadFirstSeen,
+  normalizeFirstSeenPath,
+  writeFirstSeenShards,
+} from './lib/url-first-seen-store.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -49,7 +60,8 @@ const DEFAULT_INITIAL_SEED_DATE = '2026-04-01';
 function parseArgs(argv) {
   const out = {
     dist: 'dist',
-    out: 'data/url-first-seen.json',
+    out: URL_FIRST_SEEN_DIR,
+    legacy: URL_FIRST_SEEN_LEGACY_FILE,
     dryRun: false,
     initialSeedDate: DEFAULT_INITIAL_SEED_DATE,
   };
@@ -57,24 +69,14 @@ function parseArgs(argv) {
     if (a === '--dry-run') out.dryRun = true;
     else if (a.startsWith('--dist=')) out.dist = a.slice(7);
     else if (a.startsWith('--out=')) out.out = a.slice(6);
+    else if (a.startsWith('--legacy=')) out.legacy = a.slice(9);
     else if (a.startsWith('--initial-seed-date=')) out.initialSeedDate = a.slice(20);
   }
   return out;
 }
 
-function normalizePath(p) {
-  if (!p) return '';
-  let s = p;
-  if (s.startsWith('http://') || s.startsWith('https://')) {
-    try { s = new URL(s).pathname; } catch { return ''; }
-  }
-  const q = s.indexOf('?'); if (q >= 0) s = s.slice(0, q);
-  const h = s.indexOf('#'); if (h >= 0) s = s.slice(0, h);
-  s = s.replace(/\/index\.html$/, '/');
-  if (s.length > 1 && s.endsWith('/')) s = s.slice(0, -1);
-  if (!s.startsWith('/')) s = '/' + s;
-  return s;
-}
+// One normalisation for the whole ledger: the store owns it.
+const normalizePath = normalizeFirstSeenPath;
 
 // Extract `<loc>...</loc>` URLs from a sitemap XML string. Regex is
 // safer than an XML parser here — sitemaps are very regular and we
@@ -121,21 +123,17 @@ async function main() {
   }
   console.log(`[url-first-seen] discovered ${allUrls.size} unique URLs across all sitemaps`);
 
-  // Load existing url-first-seen.json (monotonic — never overwrite an
-  // earlier first-seen date).
-  const outPath = isAbsolute(args.out) ? args.out : join(ROOT, args.out);
-  let existing = {};
-  if (existsSync(outPath)) {
-    try {
-      const raw = await readFile(outPath, 'utf8');
-      const parsed = JSON.parse(raw);
-      if (parsed && typeof parsed === 'object' && !Array.isArray(parsed)) {
-        existing = parsed;
-      }
-    } catch (err) {
-      console.warn(`[url-first-seen] could not parse existing ${outPath}: ${err.message}`);
-    }
-  }
+  // Load the existing ledger: shard directory and/or legacy file, earliest date
+  // per path (monotonic — never overwrite an earlier first-seen date). STRICT:
+  // this run rewrites the shards, and rewriting from a partial read would
+  // silently drop the history of every shard that could not be read.
+  const outDir = isAbsolute(args.out) ? args.out : join(ROOT, args.out);
+  const legacyPath = args.legacy
+    ? (isAbsolute(args.legacy) ? args.legacy : join(ROOT, args.legacy))
+    : null;
+  const { entries: existing, report } = loadFirstSeen({ dir: outDir, legacyFile: legacyPath, strict: true });
+  const loadSummary = describeFirstSeenLoad(report);
+  console[loadSummary.level](loadSummary.message);
 
   // Initial seed = empty file. Without special-casing, every URL would
   // get stamped with today's date, putting the entire emit set inside
@@ -144,7 +142,7 @@ async function main() {
   // approved pattern's `minAgeDays`) so existing URLs behave as
   // "already old" and only URLs added in FUTURE runs receive today's
   // stamp + real 15-day protection.
-  const isInitialSeed = Object.keys(existing).length === 0;
+  const isInitialSeed = existing.size === 0;
   const today = new Date().toISOString().slice(0, 10);
   const stampDate = isInitialSeed ? args.initialSeedDate : today;
   console.log(
@@ -153,26 +151,35 @@ async function main() {
   );
   let added = 0;
   for (const u of allUrls) {
-    if (!existing[u]) {
-      existing[u] = stampDate;
+    if (!existing.has(u)) {
+      existing.set(u, stampDate);
       added++;
     }
   }
-  console.log(`[url-first-seen] ${added} new URLs stamped with ${stampDate}; ${Object.keys(existing).length} total entries`);
+  console.log(`[url-first-seen] ${added} new URLs stamped with ${stampDate}; ${existing.size} total entries`);
 
   if (args.dryRun) {
     console.log(`[url-first-seen] dry-run — file not written`);
     return;
   }
-  if (added === 0) {
-    console.log(`[url-first-seen] no new URLs — file unchanged`);
+  // Write when something is new, or when the on-disk layout is not the sharded
+  // one yet (migration from the legacy file) or the legacy file still holds an
+  // entry the shards lack / have later (a half-migrated checkout).
+  const needsWrite = added > 0
+    || report.source === 'legacy'
+    || report.shardsMissing.length > 0
+    || report.legacyContributed > 0;
+  if (!needsWrite) {
+    console.log(`[url-first-seen] no new URLs — shards unchanged`);
     return;
   }
-  // Sort keys so the file diff is predictable in git.
-  const sorted = {};
-  for (const k of Object.keys(existing).sort()) sorted[k] = existing[k];
-  await writeFile(outPath, JSON.stringify(sorted, null, 2) + '\n');
-  console.log(`[url-first-seen] wrote ${outPath}`);
+  const result = writeFirstSeenShards(outDir, existing);
+  const sizes = Object.values(result.bytes);
+  console.log(
+    `[url-first-seen] wrote ${outDir}: ${result.written.length} shards written, ` +
+    `${result.unchanged.length} unchanged, ${existing.size} entries, ` +
+    `shard bytes min=${Math.min(...sizes)} max=${Math.max(...sizes)}`,
+  );
 }
 
 main().catch(err => {

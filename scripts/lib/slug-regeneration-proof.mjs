@@ -29,6 +29,7 @@ function publicSnapshot(snapshot) {
     fileCount: snapshot.fileCount,
     jobCount: snapshot.jobCount,
     activeSlugCount: snapshot.activeSlugCount,
+    activeRouteCount: snapshot.activeRouteCount,
     bridgeCount: snapshot.bridgeCount,
     selfBridgeCount: snapshot.selfBridgeCount,
     missingCanonicalCount: snapshot.missingCanonicalCount,
@@ -47,10 +48,12 @@ export function snapshotSlugCorpus(filePaths, { root = process.cwd(), read = rea
   const activeByLocale = new Map(LOCALES.map((locale) => [locale, new Set()]));
   const bridgeByLocale = new Map(LOCALES.map((locale) => [locale, new Set()]));
   const flatHistory = new Set();
+  const activeRouteRefs = [];
   const bridgeRefs = [];
   const files = [];
   let jobCount = 0;
   let activeSlugCount = 0;
+  let activeRouteCount = 0;
   let bridgeCount = 0;
   let selfBridgeCount = 0;
   let missingCanonicalCount = 0;
@@ -73,18 +76,19 @@ export function snapshotSlugCorpus(filePaths, { root = process.cwd(), read = rea
       const masterSlug = normalizedSlug(job.slug);
       const activeForJob = new Set();
       for (const locale of LOCALES) {
-        const activeSlug = normalizedSlug(slugByLocale[locale]);
+        const explicitSlug = normalizedSlug(slugByLocale[locale]);
+        const activeSlug = explicitSlug || masterSlug;
         if (!activeSlug) continue;
         activeForJob.add(activeSlug);
         if (ensureSet(activeByLocale, locale).has(activeSlug) === false) {
           activeSlugCount++;
         }
         ensureSet(activeByLocale, locale).add(activeSlug);
+        activeRouteCount++;
+        activeRouteRefs.push({ kind: 'locale', locale, slug: activeSlug });
       }
-      if (masterSlug) {
+      if (masterSlug && !normalizedSlug(slugByLocale.it)) {
         activeForJob.add(masterSlug);
-        if (!ensureSet(activeByLocale, 'it').has(masterSlug)) activeSlugCount++;
-        ensureSet(activeByLocale, 'it').add(masterSlug);
       }
 
       let jobBridgeCount = 0;
@@ -134,6 +138,7 @@ export function snapshotSlugCorpus(filePaths, { root = process.cwd(), read = rea
       fileCount: files.length,
       jobCount,
       activeSlugCount,
+      activeRouteCount,
       bridgeCount,
       selfBridgeCount,
       missingCanonicalCount,
@@ -142,6 +147,7 @@ export function snapshotSlugCorpus(filePaths, { root = process.cwd(), read = rea
     activeByLocale,
     bridgeByLocale,
     flatHistory,
+    activeRouteRefs,
     bridgeRefs,
   };
 }
@@ -166,8 +172,18 @@ export function compareSlugBridgeCoverage(before, after) {
   };
 }
 
+export function compareActiveRouteCoverage(before, after) {
+  const missing = before.activeRouteRefs.filter((reference) => !bridgeIsCovered(reference, after));
+  return {
+    beforeActiveRouteRefs: before.activeRouteRefs.length,
+    missingActiveRouteCount: missing.length,
+    missingActiveRouteSamples: missing.slice(0, 10),
+  };
+}
+
 export function assertSlugRegenerationPostRun({ before, after, ownership }) {
   const bridgeCoverage = compareSlugBridgeCoverage(before, after);
+  const activeRouteCoverage = compareActiveRouteCoverage(before, after);
   const ownershipResiduals = {
     moved: Number(ownership?.moved || 0),
     emptyLocaleBucketsPruned: Number(ownership?.emptyLocaleBucketsPruned || 0),
@@ -177,6 +193,9 @@ export function assertSlugRegenerationPostRun({ before, after, ownership }) {
   if (after.missingCanonicalCount > 0) failures.push(`missing_canonical_count=${after.missingCanonicalCount}`);
   if (bridgeCoverage.missingBridgeCount > 0) {
     failures.push(`missing_bridge_count=${bridgeCoverage.missingBridgeCount}`);
+  }
+  if (activeRouteCoverage.missingActiveRouteCount > 0) {
+    failures.push(`missing_active_route_count=${activeRouteCoverage.missingActiveRouteCount}`);
   }
   if (ownershipResiduals.moved > 0) failures.push(`ownership_moved=${ownershipResiduals.moved}`);
   if (ownershipResiduals.emptyLocaleBucketsPruned > 0) {
@@ -190,6 +209,7 @@ export function assertSlugRegenerationPostRun({ before, after, ownership }) {
     selfBridgeCount: after.selfBridgeCount,
     missingCanonicalCount: after.missingCanonicalCount,
     ...bridgeCoverage,
+    ...activeRouteCoverage,
     ownershipResiduals,
   };
 }

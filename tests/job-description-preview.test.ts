@@ -53,6 +53,7 @@ describe('anonymous job description budget', () => {
     expect(source).toContain('renderJobDescriptionContent(description, locale, archive?.requirements || [])');
     expect(source).not.toContain("'#job-auth-gate'");
     expect(source).not.toContain('buildBridgeThinHtml(');
-    expect(source).toContain("hasRealTitle ? 'full' : __slDecision.action");
+    expect(source).toContain("const __slAction: 'full' = 'full';");
+    expect(source).toContain('href="${referralUrl(job.applyUrl || job.url || canonicalUrl, job)}"');
   });
 });

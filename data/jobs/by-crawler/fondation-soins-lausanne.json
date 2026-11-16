@@ -1,7 +1,7 @@
 {
   "crawlerKey": "fondation-soins-lausanne",
-  "assembledAt": "2026-11-15T09:29:52.723Z",
-  "runId": "43698391200",
+  "assembledAt": "2026-11-15T21:37:27.380Z",
+  "runId": "43762814121",
   "jobs": [
     {
       "id": "fondation-soins-lausanne-80a034d907e0",
@@ -34,7 +34,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/a867a3c2-d16c-4864-8451-e441de83c5eb/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:29:45.670Z",
+      "crawledAt": "2026-11-15T21:37:20.392Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -84,7 +84,7 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:29:45.670Z",
+      "validThrough": "2027-01-31T21:37:20.392Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/5b73cc7d-fd92-44e5-b7f2-73fdede0c30a/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:29:45.067Z",
+      "crawledAt": "2026-11-15T21:37:19.635Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -168,7 +168,7 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:29:45.067Z",
+      "validThrough": "2027-01-31T21:37:19.635Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -203,7 +203,7 @@
       "url": "https://www.jobup.ch/fr/emplois/detail/9ba5d5f4-77e8-4484-bda3-c5e523e56f55/",
       "source": "Fondation Soins Lausanne Dedicated Parser (jobup.ch search SERP + strict employer filter)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:29:44.504Z",
+      "crawledAt": "2026-11-15T21:37:18.910Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -253,7 +253,7 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:29:44.504Z",
+      "validThrough": "2027-01-31T21:37:18.910Z",
       "validThroughSource": "last-observed-window"
     }
   ]

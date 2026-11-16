@@ -1,7 +1,7 @@
 {
   "key": "microsoft",
   "label": "Microsoft",
-  "generatedAt": "2026-11-15T09:17:02.844Z",
+  "generatedAt": "2026-11-16T09:15:42.972Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 9708,
-  "avgDurationMs": 9708,
+  "durationMs": 9463,
+  "avgDurationMs": 9463,
   "durationHistory": [
-    9708
+    9463
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556999278",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T09:16:47.027Z",
+      "crawledAt": "2026-11-16T09:15:25.937Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "streetAddress": "The Circle 02",
       "postalCode": "8001",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:16:47.027Z",
+      "validThrough": "2027-02-10T09:15:25.937Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -83,7 +83,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393557043273",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T09:16:47.025Z",
+      "crawledAt": "2026-11-16T09:15:25.936Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "streetAddress": "The Circle 02",
       "postalCode": "8001",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-23T09:16:47.025Z",
+      "validThrough": "2027-01-23T09:15:25.936Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -129,7 +129,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393557021004",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T09:16:47.023Z",
+      "crawledAt": "2026-11-16T09:15:25.934Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -152,7 +152,7 @@
       "streetAddress": "The Circle 02",
       "postalCode": "8001",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-08T09:16:47.023Z",
+      "validThrough": "2027-01-08T09:15:25.934Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -174,7 +174,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393557047481",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T09:16:47.021Z",
+      "crawledAt": "2026-11-16T09:15:25.932Z",
       "addressLocality": "Switzerland",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -196,7 +196,7 @@
       "salarySource": "reported",
       "streetAddress": "Switzerland",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T09:16:47.021Z",
+      "validThrough": "2027-02-05T09:15:25.932Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -207,5 +207,5 @@
       }
     }
   ],
-  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
+  "codeCommit": "71e06c4f557e81be4e8743feaa696210bf683ef0"
 }

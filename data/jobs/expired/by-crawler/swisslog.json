@@ -129,23 +129,26 @@
     "slugByLocale": {
       "it": "tecnico-di-manutenzione-m-f-d-swisslog-buchs-switzerland",
       "en": "maintenance-technician-m-f-d-swisslog-buchs-switzerland",
-      "de": "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland",
+      "de": "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland-d8eef433",
       "fr": "technicien-d-entretien-m-f-d-swisslog-buchs-switzerland"
     },
     "sector": "Logistica / Automazione",
     "expiredAt": "2026-10-21T09:17:38.754Z",
-    "previousSlugs": [
-      "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland-d8eef433",
         "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland"
       ],
       "en": [
+        "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland-d8eef433",
         "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland"
       ],
       "fr": [
+        "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland-d8eef433",
         "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland"
+      ],
+      "de": [
+        "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland-d8eef433"
       ]
     },
     "postalCode": "5033",
@@ -155,7 +158,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.swisslog.com/de-de/karriere/offene-stellen/instandhaltungstechniker-mwd-4384",
-    "firstSeenAt": "2026-07-28T22:07:43.772Z"
+    "firstSeenAt": "2026-07-28T22:07:43.772Z",
+    "previousSlugs": [
+      "instandhaltungs-techniker-m-w-d-swisslog-buchs-switzerland"
+    ]
   },
   {
     "slug": "qualita-degli-studenti-di-lavoro-60-m-f-d-swisslog-buchs-switzerland",

@@ -1,0 +1,29 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "vd-120742",
+      "sourceKey": "VD",
+      "sourceRecordId": "120742",
+      "canton": "Vaud",
+      "platePrefix": "VD",
+      "plateNumber": "4190",
+      "normalizedPlate": "VD4190",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 2000,
+      "bidCount": 1,
+      "endsAt": "2026-11-15T21:00:00.000Z",
+      "closedAt": "2026-11-15T21:00:00.000Z",
+      "officialAuctionUrl": "https://www.encheres-vd.ch/fr/",
+      "officialDetailUrl": "https://www.encheres-vd.ch/fr/auction/120742",
+      "sourceFetchedAt": "2026-11-15T18:53:03.601Z",
+      "lastVerifiedAt": "2026-11-15T18:53:03.601Z",
+      "firstSeenAt": "2026-11-09T06:24:46.695Z",
+      "lastSeenAt": "2026-11-15T18:53:03.601Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "f1940c77ee4f"
+    }
+  ]
+}

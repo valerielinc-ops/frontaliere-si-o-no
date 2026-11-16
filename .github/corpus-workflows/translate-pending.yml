@@ -22,6 +22,10 @@ on:
         description: Max jobs for the local-MT (Argos) mop-up — free + unlimited, drain the whole backlog
         type: string
         default: "6000"
+      repair_lane:
+        description: Repair lane for a manual run (descriptions or titles); scheduled runs keep their cron-selected lane
+        type: string
+        default: descriptions
       company_key:
         description: Single company key to translate (e.g. a-group). Leave empty for all.
         type: string
@@ -49,6 +53,7 @@ permissions:
 env:
   NODE_OPTIONS: --disable-warning=DEP0040 --disable-warning=DEP0169 --max-old-space-size=12288
   TRANSLATE_RUN_CLOCK_REQUIRED: "1"
+  TRANSLATION_MANUAL_OVERRIDE: ${{ github.event_name == 'workflow_dispatch' && (inputs.skip_translate == true || inputs.dry_run == true || inputs.collect_company_served == true || inputs.company_key != '' || (inputs.max_jobs || '900') != '900' || (inputs.mopup_max_jobs || '6000') != '6000') && 'true' || 'false' }}
   TRANSLATION_DETECTOR_MEMO: ${{ vars.TRANSLATION_DETECTOR_MEMO || '1' }}
   TRANSLATION_THINKING_AB: ${{ inputs.collect_company_served == true && '1' || '' }}
   JOBS_INCLUDE_TRANSLATION_HELD: "1"
@@ -70,7 +75,7 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_RUN_ID: ${{ github.run_id }}
           GITHUB_EVENT_NAME: ${{ github.event_name }}
-          TRANSLATION_MANUAL_OVERRIDE: ${{ github.event_name == 'workflow_dispatch' && (inputs.skip_translate == true || inputs.dry_run == true || inputs.collect_company_served == true || inputs.company_key != '' || inputs.max_jobs != '900' || inputs.mopup_max_jobs != '6000') && 'true' || 'false' }}
+          TRANSLATION_MANUAL_OVERRIDE: ${{ env.TRANSLATION_MANUAL_OVERRIDE }}
         run: |-
           set -euo pipefail
           fail_closed() {
@@ -769,13 +774,13 @@ jobs:
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
       - name: Gate Phase 2d/2e repair lanes on remaining run budget
         id: repair_lane_budget
-        if: always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && inputs.skip_translate != true && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        if: always() && !cancelled() && steps.checkout.outcome == 'success' && (github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && env.TRANSLATION_MANUAL_OVERRIDE != 'true')) && inputs.skip_translate != true && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         env:
           REPAIR_LANE_DEADLINE_MS: "12600000"
           REPAIR_LANE_MIN_REMAINING_MS: "5400000"
         run: node scripts/translate-repair-lane-gate.mjs
       - name: "Phase 2d: Fix untranslated titles (free cascade)"
-        if: always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        if: always() && !cancelled() && steps.checkout.outcome == 'success' && ((github.event_name == 'schedule' && github.event.schedule == '0 7 * * *') || (github.event_name == 'workflow_dispatch' && env.TRANSLATION_MANUAL_OVERRIDE != 'true' && inputs.repair_lane == 'titles')) && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         env:
           UNTRANSLATED_TITLE_FIX_DEADLINE_MS: "12600000"
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
@@ -788,7 +793,7 @@ jobs:
         run: node scripts/fix-untranslated-titles.mjs
       - name: Commit title fixes
         id: commit_title_fixes
-        if: always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        if: always() && !cancelled() && steps.checkout.outcome == 'success' && ((github.event_name == 'schedule' && github.event.schedule == '0 7 * * *') || (github.event_name == 'workflow_dispatch' && env.TRANSLATION_MANUAL_OVERRIDE != 'true' && inputs.repair_lane == 'titles')) && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         env:
           SKIP_AI_TRANSLATION: "1"
         run: |
@@ -797,7 +802,7 @@ jobs:
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
       - name: "Phase 2e: Fix untranslated descriptions (free cascade)"
-        if: always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        if: always() && !cancelled() && steps.checkout.outcome == 'success' && ((github.event_name == 'schedule' && github.event.schedule != '0 7 * * *') || (github.event_name == 'workflow_dispatch' && env.TRANSLATION_MANUAL_OVERRIDE != 'true' && inputs.repair_lane == 'descriptions')) && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         env:
           UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: "12600000"
           UNTRANSLATED_DESCRIPTION_FIX_MAX: ${{ vars.UNTRANSLATED_DESCRIPTION_FIX_MAX || '2000' }}
@@ -813,7 +818,7 @@ jobs:
         run: node scripts/fix-untranslated-descriptions.mjs --max "$UNTRANSLATED_DESCRIPTION_FIX_MAX"
       - name: Commit description fixes
         id: commit_description_fixes
-        if: always() && !cancelled() && steps.checkout.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        if: always() && !cancelled() && steps.checkout.outcome == 'success' && ((github.event_name == 'schedule' && github.event.schedule != '0 7 * * *') || (github.event_name == 'workflow_dispatch' && env.TRANSLATION_MANUAL_OVERRIDE != 'true' && inputs.repair_lane == 'descriptions')) && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true' && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         env:
           SKIP_AI_TRANSLATION: "1"
         run: |

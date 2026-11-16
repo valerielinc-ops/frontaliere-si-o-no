@@ -20,6 +20,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { execFileSync, spawn } from 'node:child_process';
+import { contractContentEquals } from '../scripts/lib/crawler-contract-compare.mjs';
 import { memberCrawlStateDir, readMemberCrawlOutcomes } from '../scripts/crawler-group-generation-finalizer.mjs';
 import { fileURLToPath } from 'node:url';
 import YAML from 'yaml';
@@ -2790,8 +2791,10 @@ describe('cross-repo crawler execution artifacts', () => {
       expect(fs.readFileSync(path.join(portableDir, artifact.file), 'utf8'))
         .toBe(fs.readFileSync(path.join(outDir, artifact.file), 'utf8'));
     }
-    expect(fs.readFileSync(path.join(portableDir, 'contract.json'), 'utf8'))
-      .toBe(fs.readFileSync(contractPath, 'utf8'));
+    expect(contractContentEquals(
+      JSON.parse(fs.readFileSync(path.join(portableDir, 'contract.json'), 'utf8')),
+      JSON.parse(fs.readFileSync(contractPath, 'utf8')),
+    )).toBe(true);
     expect(contract.generatorSha256).toMatch(/^[a-f0-9]{64}$/);
     expect(contract.sourceCommit).toMatch(/^[a-f0-9]{40}$/);
     expect(contract.sourceRef).toBeTruthy();
@@ -3820,7 +3823,8 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(guardStep.run).toContain('sort -k1,1 -k2,2n');
     expect(guardStep.run).toContain('TRANSLATION_MANUAL_OVERRIDE');
     expect(guardStep.run).toContain('workflow_dispatch');
-    expect(guardStep.env.TRANSLATION_MANUAL_OVERRIDE).toContain('inputs.skip_translate');
+    expect(guardStep.env.TRANSLATION_MANUAL_OVERRIDE).toBe('${{ env.TRANSLATION_MANUAL_OVERRIDE }}');
+    expect(translation.env.TRANSLATION_MANUAL_OVERRIDE).toContain('inputs.skip_translate');
     expect(guardStep.run).toContain('run=false');
     expect(guardStep.run).toContain('current_run_path');
     expect(guardStep.run).toContain('skipping the heavy run to keep the queue bounded');

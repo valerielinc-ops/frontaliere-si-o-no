@@ -3,8 +3,8 @@
  * `limit`. O(limit) per insert instead of retaining every scanned item just
  * to sort-and-slice once at the end.
  *
- * Shared by audit-page-weight.mjs and audit-text-html-ratio.mjs, which both
- * used to keep an unbounded `samples`/`rawSamples` array across the full
+ * Shared by audit-text-html-ratio.mjs, which used to keep an unbounded
+ * `rawSamples` array across the full
  * dist/ walk (millions of pages) purely to derive a top-N view at report
  * time — the anti-pattern behind the `JSON.stringify` "Invalid string
  * length" crash once dist/ passed ~2.8M pages. To keep the SMALLEST N by

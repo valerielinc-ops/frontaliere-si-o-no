@@ -11,10 +11,9 @@ import {
  * The "Articoli Frontaliere" ItemList must not grow past what a page shows.
  *
  * `staticPagesPlugin.ts` truncates the emitted JSON-LD to `ITEM_LIST_CAP = 100`
- * — its own comment explains why: the list "grows by ~1 entry per published
- * article and now exceeds 900 items — that single inline JSON-LD weighs ~170 KB
- * and pushes the section index page over the 200 KB Semrush page-weight budget.
- * Google only needs the first ~100 items."
+ * — its own comment explains why: the list grows by about one entry per
+ * published article and Google only needs the first ~100 items for the
+ * ItemList signal.
  *
  * It had reached 3619. Everything past the hundredth was parsed, bundled and
  * shipped in `assets/seo-pages.js` (1.13 MB), then discarded at render time.

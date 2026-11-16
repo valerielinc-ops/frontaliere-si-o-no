@@ -119,7 +119,7 @@ jobs:
           # the canonical issue, which is what makes the persistence visible.
           DATE=$(date -u +%Y-%m-%d)
           TITLE="[GSC] Brand dilution alert on tracked frontaliere queries"
-          BODY_FILE=$(mktemp)
+          BODY_FILE="$RUNNER_TEMP/gsc-frontaliere-monitor-issue.md"
           {
             echo "Weekly GSC frontaliere brand monitor detected at least one tracked query slipping ≥3 positions in average rank."
             echo

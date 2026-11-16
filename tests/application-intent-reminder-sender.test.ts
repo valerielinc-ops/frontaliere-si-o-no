@@ -40,6 +40,7 @@ import { buildApplicationIntentJobKey } from '../services/applicationIntentRanki
 import { hasSubscriptionBasis, isSavedJobsDigestAnchorOnly } from '../services/subscriberConsent.mjs';
 import {
   __setFirestoreAdminForTest,
+  __setLiveLinkCheckerForTest,
   __setJobsForTest,
   main,
 } from '../scripts/send-application-intent-reminders.mjs';
@@ -204,9 +205,15 @@ describe('application-intent reminder sender — main()', () => {
   beforeEach(() => {
     cascade.calls.length = 0;
     process.env.NEWSLETTER_SECRET = 'test-newsletter-secret';
+    __setLiveLinkCheckerForTest({
+      source: 'test',
+      failOpen: false,
+      check: async () => ({ known: true, live: true }),
+    });
   });
 
   afterEach(() => {
+    __setLiveLinkCheckerForTest(null);
     if (previousSecret === undefined) delete process.env.NEWSLETTER_SECRET;
     else process.env.NEWSLETTER_SECRET = previousSecret;
   });
@@ -305,6 +312,43 @@ describe('application-intent reminder sender — main()', () => {
     expect(output).toContain('job_not_live=1');
     expect(cascade.calls).toHaveLength(0);
     expect(docs.has(`${LEDGER}/${intent.intentId}`)).toBe(false);
+  });
+
+  it('does not remind a job whose detail page is absent from the published-page manifest', async () => {
+    const listing = job(1);
+    __setJobsForTest([listing]);
+    __setLiveLinkCheckerForTest({
+      source: 'manifest',
+      failOpen: false,
+      check: async () => ({ known: true, live: false }),
+    });
+    const { db, docs } = memoryDb();
+    const intent = producerRecord('uid-1', listing, 3);
+    docs.set(`application_intents/${intent.intentId}`, intent.data);
+
+    const output = await runSender(db);
+    expect(output).toContain('sent 0, skipped 1');
+    expect(output).toContain('job_not_live=1');
+    expect(cascade.calls).toHaveLength(0);
+    expect(docs.has(`${LEDGER}/${intent.intentId}`)).toBe(false);
+  });
+
+  it('filters recommendations whose detail page is absent from the published-page manifest', async () => {
+    const source = job(1);
+    const recommendation = job(2);
+    __setJobsForTest([source, recommendation]);
+    __setLiveLinkCheckerForTest({
+      source: 'manifest',
+      failOpen: false,
+      check: async (url: string) => ({ known: true, live: !url.endsWith('/software-engineer-2/') }),
+    });
+    const { db, docs } = memoryDb();
+    const intent = producerRecord('uid-1', source, 3);
+    docs.set(`application_intents/${intent.intentId}`, intent.data);
+
+    await runSender(db);
+    expect(cascade.calls).toHaveLength(1);
+    expect(cascade.calls[0][0].payload.html).not.toContain('/software-engineer-2/');
   });
 
   it('sends the whole backlog with no age cap, each intent once even with two runs at the same time', async () => {

@@ -312,8 +312,8 @@
       "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch-d6eba103",
       "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch-f18c4bdd",
       "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch-ba8511a9",
-      "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch",
-      "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch-46d070de"
+      "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch-46d070de",
+      "dipl-pflegefachfrau-pflegefachmann-hf-ksa-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -924,7 +924,8 @@
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3b7d1472",
         "dipl-pflegefachfrau-pflegefachmann-chirurgie-ksa-ch-5a418863",
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-        "dipl-pflegefachfrau-pflegefachmann-chirurgie-ksa-ch"
+        "dipl-pflegefachfrau-pflegefachmann-chirurgie-ksa-ch",
+        "dipl-pflegefachfrau-pflegefachmann-chirurgie-ksa-ch-f1eaf6b8"
       ],
       "en": [
         "dipl-pflegefachfrau-pflegefachmann-ksa-ch-2fa6adb9",
@@ -1079,10 +1080,10 @@
       "dipl-pflegefachfrau-pflegefachmann-chirurgie-ksa-ch-fff6be06",
       "dipl-pflegefachfrau-pflegefachmann-ksa-ch-fe39d235",
       "dipl-pflegefachfrau-pflegefachmann-chirurgie-ksa-ch-b6c72b6f",
-      "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
-      "dipl-pflegefachfrau-pflegefachmann-chirurgie-ksa-ch",
       "dipl-pflegefachfrau-pflegefachmann-ksa-ch-3b7d1472",
-      "dipl-pflegefachfrau-pflegefachmann-chirurgie-ksa-ch-5a418863"
+      "dipl-pflegefachfrau-pflegefachmann-chirurgie-ksa-ch-5a418863",
+      "dipl-pflegefachfrau-pflegefachmann-ksa-ch",
+      "dipl-pflegefachfrau-pflegefachmann-chirurgie-ksa-ch"
     ]
   },
   {
@@ -2145,7 +2146,7 @@
     "slugByLocale": {
       "it": "lavoratori-sociali-kantonsspital-aarau-ksa-aarau",
       "en": "social-workers-kantonsspital-aarau-ksa-aarau",
-      "de": "sozialarbeiter-in-ksa-ch",
+      "de": "sozialarbeiter-in-ksa-ch-c4098d5f",
       "fr": "travailleurs-sociaux-kantonsspital-aarau-ksa-aarau-5d7b98"
     },
     "sector": "Sanità / Ospedali",
@@ -2165,13 +2166,21 @@
         "travailleurs-sociaux-kantonsspital-aarau-ksa-aarau",
         "sozialarbeiter-in-kantonsspital-aarau-ksa-aarau",
         "sozialarbeiter-in-ksa-ch-9ztjk3",
+        "sozialarbeiter-in-ksa-ch-c4098d5f",
         "sozialarbeiter-in-ksa-ch"
       ],
       "en": [
-        "social-worker-kantonsspital-aarau-ksa-aarau"
+        "social-worker-kantonsspital-aarau-ksa-aarau",
+        "sozialarbeiter-in-ksa-ch-c4098d5f",
+        "sozialarbeiter-in-ksa-ch"
       ],
       "fr": [
-        "travailleurs-sociaux-kantonsspital-aarau-ksa-aarau"
+        "travailleurs-sociaux-kantonsspital-aarau-ksa-aarau",
+        "sozialarbeiter-in-ksa-ch-c4098d5f",
+        "sozialarbeiter-in-ksa-ch"
+      ],
+      "de": [
+        "sozialarbeiter-in-ksa-ch-c4098d5f"
       ]
     },
     "postalCode": "5000",
@@ -2449,10 +2458,10 @@
       "pharmaassistent-in-ksa-ch-1f0bfc67",
       "pharmaassistent-in-kantonsspital-aarau-ksa-aarau-6960863c",
       "pharmaassistent-in-ksa-ch-f59145bf",
-      "pharmaassistent-in-kantonsspital-aarau-ksa-aarau",
-      "pharmaassistent-in-ksa-ch",
       "pharmaassistent-in-kantonsspital-aarau-ksa-aarau-6aedba52",
-      "pharmaassistent-in-ksa-ch-4b737573"
+      "pharmaassistent-in-ksa-ch-4b737573",
+      "pharmaassistent-in-kantonsspital-aarau-ksa-aarau",
+      "pharmaassistent-in-ksa-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -3210,12 +3219,12 @@
       "collaboratore-trice-sicherheitsdienst-kantonsspital-aarau-ksa-aarau-649b6988",
       "mitarbeiter-in-sicherheitsdienst-ksa-ch-da1cdacf",
       "mitarbeiter-in-sicherheitsdienst-kantonsspital-aarau-ksa-aarau-eac214d2",
-      "collaboratore-trice-sicherheitsdienst-kantonsspital-aarau-ksa-aarau",
-      "mitarbeiter-in-sicherheitsdienst-kantonsspital-aarau-ksa-aarau",
-      "mitarbeiter-in-sicherheitsdienst-ksa-ch",
       "collaboratore-trice-sicherheitsdienst-kantonsspital-aarau-ksa-aarau-e53852da",
       "mitarbeiter-in-sicherheitsdienst-ksa-ch-508db635",
-      "mitarbeiter-in-sicherheitsdienst-kantonsspital-aarau-ksa-aarau-dc928eb5"
+      "mitarbeiter-in-sicherheitsdienst-kantonsspital-aarau-ksa-aarau-dc928eb5",
+      "collaboratore-trice-sicherheitsdienst-kantonsspital-aarau-ksa-aarau",
+      "mitarbeiter-in-sicherheitsdienst-kantonsspital-aarau-ksa-aarau",
+      "mitarbeiter-in-sicherheitsdienst-ksa-ch"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -4159,10 +4168,10 @@
       "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau-0dd657e3",
       "assistenzarztin-assistenzarzt-ksa-ch-0b219588",
       "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau-0d15ff87",
-      "assistenzarztin-assistenzarzt-ksa-ch",
-      "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau",
       "assistenzarztin-assistenzarzt-ksa-ch-f9b5daa4",
-      "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau-e9e2bb4e"
+      "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau-e9e2bb4e",
+      "assistenzarztin-assistenzarzt-ksa-ch",
+      "assistenzarztin-assistenzarzt-kantonsspital-aarau-ksa-aarau"
     ],
     "previousSlugsByLocale": {
       "de": [

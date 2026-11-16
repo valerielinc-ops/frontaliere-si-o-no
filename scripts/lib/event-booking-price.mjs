@@ -5,7 +5,7 @@ import { parseJsonLdText } from './json-ld-text.mjs';
 import { eventJsonLdCandidates, isSchemaEventJsonLdType } from './schema-event-jsonld.mjs';
 
 const BOOKING_HOSTS = new Set(['infomaniak.events', 'tickets.club-bellevue.ch', 'ticketing-nodabcvs.mapado.com', 'www.ticketino.com', 'eventfrog.ch', 'www.petzi.ch']);
-const MAX_HTML_BYTES = 2 * 1024 * 1024;
+const BOOKING_RESPONSE_SIZE_LIMIT = 2 * 1024 * 1024;
 
 export function supportedEventBookingUrl(value) {
   try {
@@ -169,7 +169,7 @@ export async function fetchEventBookingPrice(event, bookingUrl, { fetchImpl = fe
           const { done, value } = await reader.read();
           if (done) break;
           size += value.byteLength;
-          if (size > MAX_HTML_BYTES) throw new Error('event_booking_response_too_large');
+          if (size > BOOKING_RESPONSE_SIZE_LIMIT) throw new Error('event_booking_response_too_large');
           // A copy, never a view: over a bare ArrayBuffer `Buffer.from(value)`
           // shares the producer's memory, which a reader may reuse (#7483).
           chunks.push(Buffer.from(value instanceof ArrayBuffer

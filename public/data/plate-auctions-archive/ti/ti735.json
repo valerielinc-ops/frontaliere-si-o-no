@@ -1,0 +1,31 @@
+{
+  "schema": 1,
+  "rows": [
+    {
+      "id": "ti-1543",
+      "sourceKey": "TI",
+      "sourceRecordId": "1543",
+      "canton": "Ticino",
+      "platePrefix": "TI",
+      "plateNumber": "735",
+      "normalizedPlate": "TI735",
+      "listingType": "auction",
+      "vehicleType": "car",
+      "auctionStatus": "closed",
+      "currentBidChf": 16500,
+      "startingPriceChf": 3000,
+      "bidCount": 10,
+      "minimumIncrementChf": 100,
+      "endsAt": "2026-11-15T19:00:00.000Z",
+      "closedAt": "2026-11-15T19:00:00.000Z",
+      "officialAuctionUrl": "https://www.carieauktion.ti.ch/ecari-auktion/",
+      "officialDetailUrl": "https://www.carieauktion.ti.ch/ecari-auktion/ui/app/details/app?id=1543",
+      "sourceFetchedAt": "2026-11-15T17:47:06.047Z",
+      "lastVerifiedAt": "2026-11-15T17:47:06.047Z",
+      "firstSeenAt": "2026-11-04T23:41:10.697Z",
+      "lastSeenAt": "2026-11-15T17:47:06.047Z",
+      "dataConfidence": "partial",
+      "rawSnapshotHash": "affd822c0edd"
+    }
+  ]
+}

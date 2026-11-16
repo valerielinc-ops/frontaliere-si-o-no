@@ -318,7 +318,7 @@ function git(...args: string[]) {
 }
 
 function copyRouteResolverData() {
-  for (const rel of ['data/canton-url-slugs.json', 'data/canton-municipalities.json']) {
+  for (const rel of ['data/canton-url-slugs.json', 'data/canton-municipalities.json', 'data/swiss-locality-postal-codes.json']) {
     const destination = path.join(repo, rel);
     fs.mkdirSync(path.dirname(destination), { recursive: true });
     fs.copyFileSync(path.join(REPO_ROOT, rel), destination);
@@ -439,6 +439,7 @@ describe('retired jobs archive observer workflow checkout', () => {
       ['build-plugins/shared/cantonResolvers.mjs', 'build-plugins/shared/cantonResolvers.mjs'],
       ['data/canton-url-slugs.json', 'data/canton-url-slugs.json'],
       ['data/canton-municipalities.json', 'data/canton-municipalities.json'],
+      ['data/swiss-locality-postal-codes.json', 'data/swiss-locality-postal-codes.json'],
     ]);
 
     const prepareDescription = steps.find((step) => step.id === 'issue-description');

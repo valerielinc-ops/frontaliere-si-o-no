@@ -224,6 +224,7 @@ jobs:
             /*
             !/public/images/
             !/data/jobs/
+            !/data/url-first-seen/
             !/data/seo-404-compat/
             !/data/translation-cache/
             !/packages/articles/content/
@@ -883,6 +884,7 @@ jobs:
             /*
             !/public/images/
             !/data/jobs/
+            !/data/url-first-seen/
             !/data/seo-404-compat/
             !/data/translation-cache/
             !/packages/articles/content/
@@ -1454,9 +1456,13 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: dist-history-${{ inputs.source_run_id }}
+          # url-first-seen is sharded (data/url-first-seen/<h>.json, see
+          # scripts/lib/url-first-seen-store.mjs): the single file crossed
+          # GitHub's 100 MB limit. The legacy data/url-first-seen.json is not
+          # uploaded: the writer reads it and folds it into the shards.
           path: |
             data/dist-size-history.jsonl
-            data/url-first-seen.json
+            data/url-first-seen/
           retention-days: 2
           if-no-files-found: ignore
       - name: Bind sitemap page manifest to publisher artifact digests
@@ -3152,9 +3158,10 @@ jobs:
           sparse-checkout: |
             /.gitattributes
             /data/dist-size-history.jsonl
-            /data/url-first-seen.json
+            /data/url-first-seen/
             /scripts/lib/
             /scripts/ci/assert-accumulator-write.mjs
+            /scripts/ci/dist-history-accumulators.mjs
             /scripts/ci/merge-json-first-seen.mjs
             /scripts/load-rc-env.mjs
             /scripts/lib/remote-config-template-url.mjs
@@ -3188,36 +3195,104 @@ jobs:
           SOURCE_RUN_ID: ${{ inputs.source_run_id }}
           SOURCE_SHA: ${{ inputs.source_sha }}
         run: |
-          for f in dist-size-history.jsonl url-first-seen.json; do
-            if [ -f "$DIST_HISTORY_DIR/$f" ]; then cp "$DIST_HISTORY_DIR/$f" "data/$f"; fi
+          # An accumulator that cannot be committed must be loud, but must not
+          # take the others down with it: run 43692928043 lost the
+          # dist-size-history row because the 213.54 MB first-seen ledger next to
+          # it was refused by GitHub (GH001) five times. `skipped` is raised for
+          # every accumulator left out and turns the step red AFTER the rest has
+          # been committed and pushed.
+          skipped=0
+
+          # Artifact layout: dist-size-history.jsonl and url-first-seen/<h>.json
+          # (found with find: no assumption about the common ancestor the
+          # upload action picks).
+          dist_row="$(find "$DIST_HISTORY_DIR" -type f -name dist-size-history.jsonl -print -quit)"
+          if [ -n "$dist_row" ]; then cp "$dist_row" data/dist-size-history.jsonl; fi
+          mkdir -p data/url-first-seen
+          # Arrays, not `while read … done <`: nothing in the body can consume
+          # the list (scripts/lib/stdin-sharing-loop-scan.mjs).
+          mapfile -t artifact_shards < <(find "$DIST_HISTORY_DIR" -type f -path '*/url-first-seen/*.json' | sort)
+          for artifact_shard in "${artifact_shards[@]}"; do
+            target="data/url-first-seen/$(basename "$artifact_shard")"
+            if [ -f "$target" ]; then
+              # Union, earliest date per URL, through the same fail-closed
+              # driver git uses on a rebase: an artifact built from an older
+              # base cannot drop entries main already has, and an unreadable
+              # side stops the step instead of being replaced.
+              node scripts/ci/merge-json-first-seen.mjs /dev/null "$target" "$artifact_shard"
+            else
+              cp "$artifact_shard" "$target"
+            fi
           done
-          if git diff --quiet -- data/dist-size-history.jsonl data/url-first-seen.json; then
-            echo "[dist-history] no diff to commit"
-            exit 0
-          fi
+
           git config user.name "dist-history-bot"
           git config user.email "dist-history-bot@frontaliereticino.ch"
           git config merge.json-first-seen.driver 'node scripts/ci/merge-json-first-seen.mjs %O %A %B'
-          for accumulator in data/dist-size-history.jsonl data/url-first-seen.json; do
-            node scripts/ci/assert-accumulator-write.mjs "$accumulator"
-          done
-          git add -- data/dist-size-history.jsonl data/url-first-seen.json
-          unexpected_paths="$(git diff --cached --name-only | while IFS= read -r path; do
-            case "$path" in
-              data/dist-size-history.jsonl|data/url-first-seen.json) ;;
-              *) printf '%s\n' "$path" ;;
-            esac
-          done)"
-          if [ -n "$unexpected_paths" ]; then
-            echo "::error::dist-history refusing to commit staged paths outside its accumulator allowlist"
-            printf '%s\n' "$unexpected_paths" | sed 's/^/  unexpected: /'
+
+          # Size guard BEFORE staging: GitHub rejects any blob over 100 MiB, and
+          # a rebase cannot change that verdict.
+          candidates=(data/dist-size-history.jsonl)
+          shopt -s nullglob
+          for shard in data/url-first-seen/*.json; do candidates+=("$shard"); done
+          shopt -u nullglob
+          selected_file="$RUNNER_TEMP/dist-history-selected.txt"
+          guard_status=0
+          node scripts/ci/dist-history-accumulators.mjs guard --selected "$selected_file" "${candidates[@]}" || guard_status=$?
+          if [ "$guard_status" -eq 3 ]; then
+            skipped=1
+          elif [ "$guard_status" -ne 0 ]; then
+            echo "::error::dist-history guard failed (status $guard_status); nothing committed"
             exit 1
           fi
-          git commit --only \
-            -m "chore(dist-history): append source run ${SOURCE_RUN_ID} (${SOURCE_SHA::8})" \
-            -- data/dist-size-history.jsonl data/url-first-seen.json
-          bash scripts/lib/configure-main-push-auth.sh
-          bash scripts/lib/git-push-with-retry.sh --max-attempts 5 --stash-dirty
+          history_paths=()
+          shard_paths=()
+          mapfile -t selected_paths < "$selected_file"
+          for selected_path in "${selected_paths[@]}"; do
+            case "$selected_path" in
+              data/url-first-seen/*) shard_paths+=("$selected_path") ;;
+              ?*) history_paths+=("$selected_path") ;;
+            esac
+          done
+
+          # Anti-shrink floor, per accumulator group (the shard directory is
+          # checked shard by shard, a shard missing from the tree counts as 0 B).
+          if [ "${#history_paths[@]}" -gt 0 ] && ! node scripts/ci/assert-accumulator-write.mjs "${history_paths[@]}"; then
+            echo "::error title=dist-history accumulator shrink refused::${history_paths[*]} not committed"
+            history_paths=()
+            skipped=1
+          fi
+          if [ "${#shard_paths[@]}" -gt 0 ] && ! node scripts/ci/assert-accumulator-write.mjs data/url-first-seen/; then
+            echo "::error title=dist-history accumulator shrink refused::data/url-first-seen/ not committed"
+            shard_paths=()
+            skipped=1
+          fi
+          stage_paths=("${history_paths[@]}" "${shard_paths[@]}")
+
+          if [ "${#stage_paths[@]}" -gt 0 ]; then
+            # `git diff` does not see untracked files, so stage first and look at
+            # the index: the very first sharded publish adds files.
+            git add -- "${stage_paths[@]}"
+          fi
+          if git diff --cached --quiet; then
+            echo "[dist-history] no diff to commit"
+          else
+            unexpected_paths="$(git diff --cached --name-only | node scripts/ci/dist-history-accumulators.mjs unexpected || true)"
+            if [ -n "$unexpected_paths" ]; then
+              echo "::error::dist-history refusing to commit staged paths outside its accumulator allowlist"
+              printf '%s\n' "$unexpected_paths" | sed 's/^/  unexpected: /'
+              exit 1
+            fi
+            git commit --only \
+              -m "chore(dist-history): append source run ${SOURCE_RUN_ID} (${SOURCE_SHA::8})" \
+              -- "${stage_paths[@]}"
+            bash scripts/lib/configure-main-push-auth.sh
+            bash scripts/lib/git-push-with-retry.sh --max-attempts 5 --stash-dirty
+          fi
+
+          if [ "$skipped" -ne 0 ]; then
+            echo "::error title=dist-history incomplete::at least one accumulator was NOT committed (see the annotations above); the others were"
+            exit 1
+          fi
 
   # Resolve the post-build handoff. IT is mandatory for Pages; non-IT failures
   # retain their last-known-good shard and remain explicitly stale.
@@ -3408,6 +3483,7 @@ jobs:
             /*
             !/public/images/
             !/data/jobs/
+            !/data/url-first-seen/
             !/data/seo-404-compat/
             !/data/translation-cache/
             !/packages/articles/content/

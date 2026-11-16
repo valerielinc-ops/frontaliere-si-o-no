@@ -816,10 +816,11 @@ export default defineConfig(({ mode }) => {
  // sequential SSG closeBundle chain. This changes memory retention only; the
  // transformed modules and emitted chunks remain the same.
  cache: false,
- // Rollup defaults to 1000 concurrent file operations. The deploy's 16 GiB
- // runners approach 13 GiB RSS while Vite loads this graph; cap the transient
- // file-operation fan-out to preserve memory headroom without changing output.
- maxParallelFileOps: 64,
+ // Rollup defaults to 1000 concurrent file operations. Even the previous
+ // cap of 64 let the 16 GiB deploy runner approach 13 GiB RSS while Vite
+ // loaded this graph, leaving too little physical headroom for the host. Keep
+ // the transient fan-out smaller; this changes scheduling only, not output.
+ maxParallelFileOps: 16,
  output: {
  // Keep CROSS-CHUNK EXPORT NAMES stable across builds (root-cause fix for the
  // version-skew TypeError class, e.g. "ls(...).then is not a function" on

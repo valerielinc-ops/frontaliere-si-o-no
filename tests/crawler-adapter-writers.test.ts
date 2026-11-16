@@ -41,6 +41,7 @@ import {
   ensureAdapterSeedUrls as ensureSbb,
   fetchLoginSbbDetailUrls,
   fetchSbbJobDetailUrls,
+  getSbbDetailIdentity,
 } from '../scripts/update-sbb-jobs.mjs';
 import {
   assertLisAdapterParity,
@@ -124,6 +125,30 @@ describe.each(writerCases)('$name adapter writer', ({ name, urls, ensure, assert
     } finally {
       fs.rmSync(dir, { recursive: true, force: true });
     }
+  });
+});
+
+describe('SBB current SuccessFactors discovery', () => {
+  it('accepts six-digit IDs in the identity and official listing fallback', async () => {
+    const detailUrl = 'https://careers.sbb.ch/job/example/123456/';
+    expect(getSbbDetailIdentity(detailUrl)).toBe('careers:123456');
+
+    const listingHtml = [
+      '<main>Posti liberi — Jobfinder</main>',
+      '<p>1 posti di lavoro trovati</p>',
+      '<p>Dettagli della posizione e informazioni sul posto di lavoro disponibili per i candidati interessati.</p>',
+      `<a href="${detailUrl}">Vacancy</a>`,
+    ].join('');
+    const result = await fetchSbbJobDetailUrls({
+      fetchPageImpl: async (input: string | URL | Request) => (
+        String(input).includes('/jobfilter.results.json') ? null : listingHtml
+      ),
+      fetchJinaImpl: async () => ({ ok: false, status: 503 }),
+      timeoutMs: 1000,
+    });
+
+    expect(result.source).toBe('sbb-vacancies-listing');
+    expect(result.urls).toEqual(['https://careers.sbb.ch/job/example/123456']);
   });
 });
 
@@ -483,6 +508,27 @@ describe('SBB two-source discovery invariants', () => {
     expect(requests[1].init.headers).not.toHaveProperty('X-Requested-With');
   });
 
+  it('accepts current SAP SuccessFactors careers URLs from the official listing', async () => {
+    const currentCareerUrl = 'https://careers.sbb.ch/job/Z%C3%BCrich-Fachspezialistin-f%C3%BCr-Material-und-Equipment-Stammdaten-Pers/1457236233/';
+    const listingHtml = `<html><body><h1>Posti liberi.</h1><div>1 Posti di lavoro trovati per il tuo profilo.</div>
+      <p>Jobfinder e informazioni sulle candidature disponibili presso le FFS.</p><a href="${currentCareerUrl}">Vai alla descrizione del lavoro</a></body></html>`;
+    vi.stubGlobal('fetch', vi.fn(async (url: string | URL | Request) => {
+      if (String(url).includes('jobfilter.results.json')) return new Response('', { status: 403 });
+      return new Response(listingHtml, { status: 200 });
+    }));
+    try {
+      await expect(fetchSbbJobDetailUrls({
+        fetchJinaImpl: async () => ({ ok: false, status: 502, text: async () => '' }),
+        timeoutMs: 1000,
+      })).resolves.toMatchObject({
+        urls: [currentCareerUrl.replace(/\/$/, '')],
+        source: 'sbb-vacancies-listing',
+      });
+    } finally {
+      vi.unstubAllGlobals();
+    }
+  });
+
   it('rejects the generic uncounted no-results shell instead of publishing source-zero', async () => {
     const listingHtml = `<html><body><h1>Posti liberi.</h1><div>Posti di lavoro trovati per il tuo profilo.</div>
       <p>Non ha prodotto risultati.</p><p>Jobfinder e informazioni sulle candidature disponibili.</p></body></html>`;
@@ -531,6 +577,26 @@ describe('SBB two-source discovery invariants', () => {
     const fetchLogin = async () => '<link rel="canonical" href="https://www.login.org/it/panoramica-dei-posti-di-tirocinio-disponibili-nel"><a href="/it/123-macchinista">job</a>';
     await expect(fetchLoginSbbDetailUrls({ fetchPageImpl: fetchLogin, timeoutMs: 1000 })).resolves.toMatchObject({
       urls: ['https://www.login.org/it/123-macchinista'], pagesFetched: 1, duplicateIdentity: 0, sourceZero: false,
+    });
+  });
+
+  it('accepts current SAP SuccessFactors careers detail URLs from AEM', async () => {
+    const currentCareerUrl = 'https://careers.sbb.ch/job/Z%C3%BCrich-Fachspezialistin-f%C3%BCr-Material-und-Equipment-Stammdaten-Pers/1457236233/';
+    const aemJob = {
+      id: '1457236233',
+      title: 'Fachspezialistin für Material- und Equipment Stammdaten',
+      links: { directlink: currentCareerUrl },
+      attributes: { '100': ['Zürich'], '110': ['Zürich (ZH)'], '160': ['60-100%'] },
+    };
+
+    await expect(fetchSbbJobDetailUrls({
+      fetchPageImpl: async () => JSON.stringify([aemJob]),
+      timeoutMs: 1000,
+    })).resolves.toMatchObject({
+      urls: [currentCareerUrl.replace(/\/$/, '')],
+      targetJobs: 1,
+      duplicateIdentity: 0,
+      sourceZero: false,
     });
   });
 

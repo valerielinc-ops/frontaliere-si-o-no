@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 /**
- * Refine fallback dates in `data/url-first-seen.json` by querying GSC
- * Search Analytics for the first impression date per URL.
+ * Refine fallback dates in the first-seen ledger (`data/url-first-seen/<h>.json`,
+ * scripts/lib/url-first-seen-store.mjs) by querying GSC Search Analytics for the
+ * first impression date per URL.
  *
  * Strategy (day-by-day, oldest first):
  *   For each day in the 16-month window, fetch all URLs with
  *   impressions via dimensions=['page']. For each URL still mapped to
- *   the fallback date in url-first-seen.json, the first day it
+ *   the fallback date in the ledger, the first day it
  *   appears becomes its `firstSeenAt`.
  *
  * URLs without any GSC impression in the window keep the fallback
@@ -21,21 +22,27 @@
  *     node scripts/refine-url-first-seen-via-gsc.mjs [--dry-run]
  *
  * Flags:
- *   --in=PATH               input file (default data/url-first-seen.json)
- *   --out=PATH              output file (default in-place)
+ *   --dir=PATH              shard directory, read and rewritten in place (default data/url-first-seen)
+ *   --legacy=PATH           legacy single file, merged in while it exists (default data/url-first-seen.json)
  *   --fallback-date=YYYY-MM-DD  date that marks "still at fallback" (default 2026-04-01)
  *   --site=sc-domain:DOMAIN GSC property (default sc-domain:frontaliereticino.ch)
  *   --window-days=N         lookback window (default 480 = 16 months)
  *   --dry-run               compute + log stats, don't write file
  */
-import { readFileSync, writeFileSync } from 'node:fs';
 import { getServiceAccountToken } from './lib/ga4-service-account.mjs';
+import {
+  URL_FIRST_SEEN_DIR,
+  URL_FIRST_SEEN_LEGACY_FILE,
+  describeFirstSeenLoad,
+  loadFirstSeen,
+  writeFirstSeenShards,
+} from './lib/url-first-seen-store.mjs';
 
 const GSC_READONLY_SCOPE = 'https://www.googleapis.com/auth/webmasters.readonly';
 
 const DEFAULTS = {
-  in: 'data/url-first-seen.json',
-  out: null, // → same as --in
+  dir: URL_FIRST_SEEN_DIR,
+  legacy: URL_FIRST_SEEN_LEGACY_FILE,
   fallbackDate: '2026-04-01',
   site: 'sc-domain:frontaliereticino.ch',
   windowDays: 480,
@@ -46,13 +53,12 @@ function parseArgs(argv) {
   const out = { ...DEFAULTS };
   for (const a of argv) {
     if (a === '--dry-run') out.dryRun = true;
-    else if (a.startsWith('--in=')) out.in = a.slice(5);
-    else if (a.startsWith('--out=')) out.out = a.slice(6);
+    else if (a.startsWith('--dir=')) out.dir = a.slice(6);
+    else if (a.startsWith('--legacy=')) out.legacy = a.slice(9);
     else if (a.startsWith('--fallback-date=')) out.fallbackDate = a.slice(16);
     else if (a.startsWith('--site=')) out.site = a.slice(7);
     else if (a.startsWith('--window-days=')) out.windowDays = Number(a.slice(14));
   }
-  if (!out.out) out.out = out.in;
   return out;
 }
 
@@ -112,10 +118,14 @@ async function main() {
   const args = parseArgs(process.argv.slice(2));
   console.log(`[refine] config: ${JSON.stringify(args)}`);
 
-  const data = JSON.parse(readFileSync(args.in, 'utf8'));
-  const totalEntries = Object.keys(data).length;
+  // STRICT: the result is written back, so a shard that cannot be read must stop
+  // the run, not be rewritten from a partial map.
+  const { entries: data, report } = loadFirstSeen({ dir: args.dir, legacyFile: args.legacy, strict: true });
+  const loadSummary = describeFirstSeenLoad(report);
+  console[loadSummary.level](loadSummary.message);
+  const totalEntries = data.size;
   const fallback = new Set();
-  for (const [u, d] of Object.entries(data)) {
+  for (const [u, d] of data) {
     if (d === args.fallbackDate) fallback.add(u);
   }
   console.log(`[refine] total: ${totalEntries} · fallback to refine: ${fallback.size}`);
@@ -167,17 +177,15 @@ async function main() {
   console.log(`  still at fallback:      ${fallback.size - firstSeen.size}`);
 
   // Apply
-  for (const [u, d] of firstSeen) data[u] = d;
+  for (const [u, d] of firstSeen) data.set(u, d);
 
   if (args.dryRun) {
     console.log(`[refine] dry-run — file not written`);
     return;
   }
 
-  const sorted = {};
-  for (const k of Object.keys(data).sort()) sorted[k] = data[k];
-  writeFileSync(args.out, JSON.stringify(sorted, null, 2) + '\n');
-  console.log(`[refine] wrote ${args.out}`);
+  const result = writeFirstSeenShards(args.dir, data);
+  console.log(`[refine] wrote ${args.dir}: ${result.written.length} shards changed, ${result.unchanged.length} unchanged`);
 }
 
 main().catch(err => {

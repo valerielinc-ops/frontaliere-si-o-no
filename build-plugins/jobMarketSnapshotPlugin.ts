@@ -54,6 +54,7 @@ import {
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderGuideHubBridge } from './shared/guideHubBridge';
 import { renderHreflangTags } from './shared/hreflang';
+import { JOB_MARKET_SNAPSHOT_NOINDEX_MARKER } from './shared/jobMarketSnapshotNoindexMarker.mjs';
 import { WriteCollector } from './batchWrite';
 import {
   JOB_MARKET_HUB_NAME,
@@ -1764,7 +1765,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
 
   const robots = noindex ? 'noindex,follow' : 'index,follow';
 
-  const bodyHtml = `<article class="s-xzWvwM">
+  const bodyHtml = `${noindex ? JOB_MARKET_SNAPSHOT_NOINDEX_MARKER : ''}<article class="s-xzWvwM">
     <nav class="s-bcr">
       <a href="/" class="s-bcl">${esc(copy.breadcrumbHome)}</a>
       <span> / </span>

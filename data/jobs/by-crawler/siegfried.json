@@ -1,7 +1,7 @@
 {
   "crawlerKey": "siegfried",
-  "assembledAt": "2026-11-15T09:23:34.414Z",
-  "runId": "43697691342",
+  "assembledAt": "2026-11-15T21:40:30.723Z",
+  "runId": "43762008330",
   "jobs": [
     {
       "id": "siegfried-b2e1fb16eb0f",
@@ -34,7 +34,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_173",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:23:28.299Z",
+      "crawledAt": "2026-11-15T21:40:25.298Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -66,9 +66,6 @@
           "operateur-de-production-4-8-siegfried-ch",
           "operatore-di-produzione-4-8-siegfried-evionnaz-2f4325"
         ],
-        "fr": [
-          "operateur-de-production-4-8-siegfried-evionnaz"
-        ],
         "en": [
           "production-operator-4-8-siegfried-evionnaz",
           "operateur-de-production-4-8-siegfried-ch"
@@ -76,6 +73,9 @@
         "de": [
           "produktionsbetrieb-4-8-siegfried-evionnaz",
           "operateur-de-production-4-8-siegfried-ch"
+        ],
+        "fr": [
+          "operateur-de-production-4-8-siegfried-evionnaz"
         ]
       },
       "firstSeenAt": "2026-04-13T11:14:42.687Z",
@@ -96,7 +96,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:23:28.299Z",
+      "validThrough": "2026-12-15T21:40:25.298Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -130,7 +130,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-AD_R26_315",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:23:27.593Z",
+      "crawledAt": "2026-11-15T21:40:24.713Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -209,7 +209,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:23:27.593Z",
+      "validThrough": "2026-12-15T21:40:24.713Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -243,7 +243,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Maintenance-Technician-III_R26_278",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:23:26.949Z",
+      "crawledAt": "2026-11-15T21:40:24.136Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -296,7 +296,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:23:26.949Z",
+      "validThrough": "2026-12-15T21:40:24.136Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -330,7 +330,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Intern-Commercial-Excellence_R26_511",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T09:23:26.316Z",
+      "crawledAt": "2026-11-15T21:40:23.562Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -395,7 +395,7 @@
       },
       "streetAddress": "Untere Brühlstrasse 4",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-15T09:23:26.316Z",
+      "validThrough": "2026-12-15T21:40:23.562Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -429,7 +429,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/CAD-Designer_R26_592",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:23:25.581Z",
+      "crawledAt": "2026-11-15T21:40:22.997Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -477,7 +477,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:23:25.581Z",
+      "validThrough": "2026-12-15T21:40:22.997Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -511,7 +511,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stage---Digitalisation-des-Processus-en-Environnement-Pharma_R26_661",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:23:24.955Z",
+      "crawledAt": "2026-11-15T21:40:22.425Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -562,7 +562,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:23:24.955Z",
+      "validThrough": "2026-12-15T21:40:22.425Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -596,7 +596,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Asset-Reliability-Engineer--a-_R26_713",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:23:24.292Z",
+      "crawledAt": "2026-11-15T21:40:21.862Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -659,7 +659,7 @@
       },
       "streetAddress": "Untere Brühlstrasse 4",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-15T09:23:24.292Z",
+      "validThrough": "2026-12-15T21:40:21.862Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -693,7 +693,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/CAD-Konstrukteur--m-w-d-_R26_621",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:23:23.651Z",
+      "crawledAt": "2026-11-15T21:40:21.276Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -757,7 +757,7 @@
       },
       "streetAddress": "Untere Brühlstrasse 4",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-15T09:23:23.651Z",
+      "validThrough": "2026-12-15T21:40:21.276Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -791,7 +791,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Senior-Maintenance-Manager_R26_795",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:23:23.014Z",
+      "crawledAt": "2026-11-15T21:40:20.679Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -842,7 +842,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:23:23.014Z",
+      "validThrough": "2027-01-18T21:40:20.679Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -876,7 +876,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stagiaire-HSE_R26_804",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:23:22.233Z",
+      "crawledAt": "2026-11-15T21:40:20.104Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -927,7 +927,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T09:23:22.233Z",
+      "validThrough": "2027-01-24T21:40:20.104Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -961,7 +961,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Chemielaborant-in-analytische-Entwicklung_R26_805",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:23:21.532Z",
+      "crawledAt": "2026-11-15T21:40:19.530Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1026,7 +1026,7 @@
       },
       "streetAddress": "Untere Brühlstrasse 4",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-01-26T09:23:21.532Z",
+      "validThrough": "2027-01-26T21:40:19.530Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1060,7 +1060,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Head-of-Engineering---Maintenance_R26_818",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T09:23:20.831Z",
+      "crawledAt": "2026-11-15T21:40:18.951Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1111,7 +1111,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-31T09:23:20.831Z",
+      "validThrough": "2027-01-31T21:40:18.951Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1145,7 +1145,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Stage---Engineering---Maintenance_R26_827",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:23:20.132Z",
+      "crawledAt": "2026-11-15T21:40:18.363Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1196,7 +1196,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:23:20.132Z",
+      "validThrough": "2027-02-02T21:40:18.363Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1230,7 +1230,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Senior-Manager-Business-Development-DP_R26_830",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T09:23:19.434Z",
+      "crawledAt": "2026-11-15T21:40:17.788Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1295,7 +1295,7 @@
       },
       "streetAddress": "Untere Brühlstrasse 4",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-03T09:23:19.434Z",
+      "validThrough": "2027-02-03T21:40:17.788Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1329,7 +1329,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Supervisor-Stability_R26_813",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:23:18.799Z",
+      "crawledAt": "2026-11-15T21:40:17.211Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1381,7 +1381,7 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T09:23:18.799Z",
+      "validThrough": "2027-01-27T21:40:17.211Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1415,7 +1415,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Lab-Technician-Stability_R26_835",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:23:18.072Z",
+      "crawledAt": "2026-11-15T21:40:16.637Z",
       "addressLocality": "Evionnaz",
       "addressCountry": "CH",
       "country": "CH",
@@ -1466,8 +1466,93 @@
       "addressRegion": "VS",
       "streetAddress": "Evionnaz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:23:18.072Z",
+      "validThrough": "2027-02-04T21:40:16.637Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "siegfried-4f989ed68b26",
+      "slug": "operatore-di-produzione-4-8-siegfried-evionnaz-2f4325",
+      "slugByLocale": {
+        "fr": "operateur-de-production-4-8-siegfried-ch",
+        "it": "operatore-di-produzione-4-8-siegfried-evionnaz-2f4325",
+        "en": "production-operator-4-8-siegfried-evionnaz",
+        "de": "produktionsbetrieb-4-8-siegfried-evionnaz"
+      },
+      "company": "Siegfried",
+      "companyKey": "siegfried",
+      "companyDomain": "siegfried.ch",
+      "title": "Opérateur de production 4*8",
+      "titleByLocale": {
+        "fr": "Opérateur de production 4*8",
+        "it": "Operatore di produzione 4*8",
+        "en": "Production operator 4*8",
+        "de": "Produktionsbetrieb 4*8"
+      },
+      "description": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n\nYour Role:\nRéaliser les opérations de fabrication sous la supervision du chef d’équipe, dans le respect des ordres unitaires de fabrication.\n\nPréparer les équipements et effectuer le chargement des matières premières.\n\nAssurer le suivi des opérations de production selon les consignes établies.\n\nEffectuer la vidange et le nettoyage des installations et du matériel.\n\nAppliquer les exigences de qualité, les règles de sécurité et les mesures de protection de l’environnement.\n\nMaintenir votre poste de travail propre et transmettre les informations nécessaires lors des changements d’équipe.\n Your Profile:\n\n• Vous êtes titulaire d’un premier CFC dans un métier manuel.\n\n• Vous appréciez le travail en équipe et contribuez à une bonne collaboration.\n\n• Vous êtes disposé à travailler en horaires d’équipes alternantes en 4×8 .\n\n• Vous êtes à l’aise avec le travail physique.\n\n• Vous faites preuve de rigueur dans le suivi des ordres unitaires de fabrication et l’application des règles de sécurité.\n\nYour Benefits:\n Poste temporaire à pourvoir pour le 1er décembre, possibilité de passage en fixe\n\nFondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+      "descriptionByLocale": {
+        "fr": "\"Expect to grow\", personnellement et professionnellement : Chez Siegfried, nous offrons des défis passionnants et de nombreuses opportunités de mettre en valeur vos talents. En tant que partenaire de confiance et respecté de l'industrie pharmaceutique, nous respectons les normes les plus élevées en matière de sécurité, de qualité et de durabilité, tout en cultivant une culture qui vous permet de vous épanouir. Rejoignez une entreprise mondiale en pleine expansion, où des perspectives et des expériences diverses se rassemblent dans un environnement collaboratif. Ici, vous trouverez un lieu de travail qui valorise autant le succès collectif que vos contributions individuelles—offrant des opportunités à long terme pour évoluer et avoir un impact.\n\nYour Role:\nRéaliser les opérations de fabrication sous la supervision du chef d’équipe, dans le respect des ordres unitaires de fabrication.\n\nPréparer les équipements et effectuer le chargement des matières premières.\n\nAssurer le suivi des opérations de production selon les consignes établies.\n\nEffectuer la vidange et le nettoyage des installations et du matériel.\n\nAppliquer les exigences de qualité, les règles de sécurité et les mesures de protection de l’environnement.\n\nMaintenir votre poste de travail propre et transmettre les informations nécessaires lors des changements d’équipe.\n Your Profile:\n\n• Vous êtes titulaire d’un premier CFC dans un métier manuel.\n\n• Vous appréciez le travail en équipe et contribuez à une bonne collaboration.\n\n• Vous êtes disposé à travailler en horaires d’équipes alternantes en 4×8 .\n\n• Vous êtes à l’aise avec le travail physique.\n\n• Vous faites preuve de rigueur dans le suivi des ordres unitaires de fabrication et l’application des règles de sécurité.\n\nYour Benefits:\n Poste temporaire à pourvoir pour le 1er décembre, possibilité de passage en fixe\n\nFondée en 1873 à Zofingue, en Suisse, Siegfried est devenue un réseau mondial de 16 sites répartis sur trois continents. Avec une équipe de plus de 4 200 professionnels hautement qualifiés, nous portons les innovations de nos clients pharmaceutiques à l’échelle industrielle et fabriquons des médicaments sûrs pour les patients du monde entier. En tant que CDMO entièrement intégrée, Siegfried est l’une des rares organisations capables aujourd’hui d’assurer le développement et la production de principes actifs (APIs) et de formes galéniques finies sous un même toit. Cette combinaison unique de savoir-faire et d’expérience fait de nous le partenaire le plus fiable de l’industrie pharmaceutique.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operates manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "it": "\"Aspetta di crescere\", personalmente e professionalmente: A Siegfried, offriamo interessanti sfide e molte opportunità per mostrare i vostri talenti. Come partner affidabile e rispettato nel settore farmaceutico, incontriamo i più elevati standard di sicurezza, qualità e sostenibilità, coltivando una cultura che ti permette di prosperare. Unisciti a una crescente azienda globale in cui diverse prospettive ed esperienze si uniscono in un ambiente collaborativo. Qui troverete un posto di lavoro che valorizza il successo collettivo tanto quanto i vostri contributi individuali, offrendo opportunità a lungo termine per evolversi e avere un impatto.\n\nIl tuo ruolo:\nCondurre operazioni di produzione sotto la supervisione del team leader, nel rispetto degli ordini di produzione unitaria.\n\nPreparare attrezzature e caricare materie prime.\n\nMonitorare le operazioni di produzione secondo le istruzioni stabilite.\n\nDiscaricare e pulire le attrezzature e le attrezzature.\n\nApplicare requisiti di qualità, regole di sicurezza e misure di protezione ambientale.\n\nMantenere la postazione di lavoro pulita e fornire le informazioni necessarie quando si cambia team.\n Il tuo profilo:\n\n• Hai un primo CFC in un commercio manuale.\n\n• Apprezzi il lavoro di squadra e contribuisce alla buona collaborazione.\n\n• Siete disposti a lavorare turni alternativi in 4×8.\n\n• Sei a tuo agio con il lavoro fisico.\n\n• Siete rigorosi nel seguire gli ordini di produzione delle unità e nell'applicazione delle regole di sicurezza.\n\nI vostri vantaggi:\n Posto temporaneo da riempire per il 1 dicembre, possibilità di passaggio fisso\n\nFondata nel 1873 a Zofingue, in Svizzera, Siegfried è diventata una rete globale di 16 siti sparsi su tre continenti. Con un team di oltre 4.200 professionisti altamente qualificati, portiamo le innovazioni dei nostri clienti farmaceutici a livello industriale e produciamo farmaci sicuri per i pazienti di tutto il mondo. Come CDMO completamente integrato, Siegfried è una delle poche organizzazioni in grado oggi di garantire lo sviluppo e la produzione di principi attivi (API) e forme galeniche finite sotto un unico tetto. Questa combinazione unica di know-how ed esperienza ci rende il partner più affidabile nel settore farmaceutico.\n\nSiegfried è un CDMO leader (Contract Development & Manufacturing Organization) con sede a Zofingen, in Svizzera. Gli operatori dell'azienda si trovano a Evionnaz (Valais), Zofingen (Aargau), e Schlieren (Zurich).",
+        "en": "\"Expect to grow\", personally and professionally: At Siegfried, we offer exciting challenges and many opportunities to showcase your talents. As a trusted and respected partner in the pharmaceutical industry, we meet the highest standards of safety, quality and sustainability, while cultivating a culture that allows you to thrive. Join a growing global company where diverse perspectives and experiences come together in a collaborative environment. Here you will find a workplace that values collective success as much as your individual contributions—offering long-term opportunities to evolve and have an impact.\n\nYour Role:\nConduct manufacturing operations under the supervision of the team leader, in compliance with unit manufacturing orders.\n\nPrepare equipment and load raw materials.\n\nMonitor production operations according to established instructions.\n\nDischarge and clean facilities and equipment.\n\nApply quality requirements, safety rules and environmental protection measures.\n\nKeep your workstation clean and provide the necessary information when changing teams.\n Your Profile:\n\n• You have a first CFC in a manual trade.\n\n• You appreciate teamwork and contribute to good collaboration.\n\n• You are willing to work alternate shifts in 4×8.\n\n• You're comfortable with physical work.\n\n• You are rigorous in following up unit manufacturing orders and applying safety rules.\n\nYour Benefits:\n Temporary post to be filled for 1 December, possibility of fixed passage\n\nFounded in 1873 in Zofingue, Switzerland, Siegfried has become a global network of 16 sites spread over three continents. With a team of more than 4,200 highly qualified professionals, we bring the innovations of our pharmaceutical customers to the industrial scale and manufacture safe medicines for patients around the world. As a fully integrated CDMO, Siegfried is one of the few organizations able today to ensure the development and production of active ingredients (APIs) and finished galenic forms under one roof. This unique combination of know-how and experience makes us the most reliable partner in the pharmaceutical industry.\n\nSiegfried is a leading CDMO (Contract Development & Manufacturing Organization) headquartered in Zofingen, Switzerland. The company operators manufacturing sites in Evionnaz (Valais), Zofingen (Aargau), and Schlieren (Zurich).",
+        "de": "\"Erwarten zu wachsen\", persönlich und beruflich: Bei Siegfried bieten wir spannende Herausforderungen und viele Möglichkeiten, Ihre Talente zu präsentieren. Als vertrauenswürdiger und angesehener Partner in der Pharmaindustrie erfüllen wir die höchsten Standards in Bezug auf Sicherheit, Qualität und Nachhaltigkeit und pflegen eine Kultur, die es Ihnen ermöglicht, zu gedeihen. Treten Sie einem wachsenden globalen Unternehmen bei, in dem vielfältige Perspektiven und Erfahrungen in einem kollaborativen Umfeld zusammenkommen. Hier finden Sie einen Arbeitsplatz, der den gemeinsamen Erfolg ebenso schätzt wie Ihre individuellen Beiträge - und langfristige Möglichkeiten bietet, sich zu entwickeln und Einfluss zu nehmen.\n\nIhre Rolle:\nFühren Sie Fertigungsvorgänge unter der Aufsicht des Teamleiters in Übereinstimmung mit Fertigungsaufträgen durch.\n\nAusrüstung vorbereiten und Rohstoffe laden.\n\nÜberwachung der Produktionsvorgänge gemäß festgelegten Anweisungen.\n\nEinrichtungen und Ausrüstungen entladen und reinigen.\n\nAnwendung von Qualitätsanforderungen, Sicherheitsvorschriften und Umweltschutzmaßnahmen.\n\nHalten Sie Ihren Arbeitsplatz sauber und geben Sie die notwendigen Informationen, wenn Sie Teams wechseln.\n Ihr Profil:\n\n• Sie haben einen ersten CFC in einem manuellen Handel.\n\n• Sie schätzen Teamwork und tragen zu einer guten Zusammenarbeit bei.\n\n• Sie sind bereit, alternative Schichten in 4 × 8 zu arbeiten.\n\n• Sie fühlen sich wohl mit körperlicher Arbeit.\n\n• Sie sind rigoros bei der Überwachung von Fertigungsaufträgen und der Anwendung von Sicherheitsregeln.\n\nIhre Vorteile:\n Vorübergehende Stelle für den 1. Dezember auszufüllen, Möglichkeit einer festen Passage\n\n1873 in Zofingue, Schweiz, gegründet, hat sich Siegfried zu einem globalen Netzwerk von 16 Standorten auf drei Kontinenten entwickelt. Mit einem Team von mehr als 4.200 hochqualifizierten Fachkräften bringen wir die Innovationen unserer pharmazeutischen Kunden in den industriellen Maßstab und stellen sichere Medikamente für Patienten auf der ganzen Welt her. Als voll integriertes CDMO ist Siegfried eine der wenigen Organisationen, die heute die Entwicklung und Produktion von Wirkstoffen (APIs) und fertigen Galenikformen unter einem Dach sicherstellen können. Diese einzigartige Kombination aus Know-how und Erfahrung macht uns zum zuverlässigsten Partner in der Pharmaindustrie.\n\nSiegfried ist eine führende CDMO (Contract Development & Manufacturing Organization) mit Sitz in Zofingen, Schweiz. Das Unternehmen betreibt Produktionsstätten in Evionnaz (Valais), Zofingen (Aargau) und Schlieren (Zürich)."
+      },
+      "location": "Evionnaz",
+      "canton": "VS",
+      "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_839",
+      "source": "Siegfried Dedicated Parser (Workday)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-15T21:40:16.058Z",
+      "addressLocality": "Evionnaz",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Biotecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-10",
+      "postedDate": "2026-11-10",
+      "postingDateSource": "reported",
+      "applyUrl": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Evionnaz/Oprateur-de-production-4-8_R26_839",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "jobReqId": "R26_839",
+      "hiringOrganization": "Siegfried Evionnaz SA",
+      "previousSlugsByLocale": {
+        "it": [
+          "operateur-de-production-4-8-siegfried-ch"
+        ],
+        "de": [
+          "operateur-de-production-4-8-siegfried-evionnaz"
+        ]
+      },
+      "previousSlugs": [
+        "operateur-de-production-4-8-siegfried-ch",
+        "operateur-de-production-4-8-siegfried-evionnaz"
+      ],
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1902",
+      "addressRegion": "VS",
+      "streetAddress": "Evionnaz",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-08T21:40:16.058Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-04-13T11:14:42.687Z"
     },
     {
       "id": "siegfried-3ed8e4d54221",
@@ -1500,7 +1585,7 @@
       "url": "https://siegfried.wd103.myworkdayjobs.com/en/external/job/Zofingen/Executive-Assistant_R26_833",
       "source": "Siegfried Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T09:23:16.617Z",
+      "crawledAt": "2026-11-15T21:40:15.462Z",
       "addressLocality": "Zofingen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1564,7 +1649,7 @@
       },
       "streetAddress": "Untere Brühlstrasse 4",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-04T09:23:16.617Z",
+      "validThrough": "2027-02-04T21:40:15.462Z",
       "validThroughSource": "last-observed-window"
     }
   ]

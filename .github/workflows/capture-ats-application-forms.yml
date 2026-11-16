@@ -1,0 +1,49 @@
+name: Capture public ATS application forms
+
+on:
+  schedule:
+    - cron: '43 5 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: capture-ats-application-forms
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --no-audit --no-fund --ignore-scripts
+
+      - name: Capture a bounded batch of public application forms
+        env:
+          ATS_FORM_CAPTURE_MAX: 350
+          ATS_FORM_CAPTURE_CONCURRENCY: 4
+          ATS_FORM_CAPTURE_TIMEOUT_MS: 20000
+        run: npm run jobs:capture-ats-application-forms
+
+      - name: Commit updated form snapshots and retry state
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: >-
+          bash scripts/lib/git-commit-data.sh
+          --extra-only
+          "Capture public ATS application forms"
+          data/ats-application-forms.json

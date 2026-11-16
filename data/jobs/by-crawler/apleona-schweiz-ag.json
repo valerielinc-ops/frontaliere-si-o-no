@@ -1,7 +1,7 @@
 {
   "crawlerKey": "apleona-schweiz-ag",
-  "assembledAt": "2026-11-15T09:35:56.026Z",
-  "runId": "43698741360",
+  "assembledAt": "2026-11-15T21:39:04.616Z",
+  "runId": "43763225608",
   "jobs": [
     {
       "id": "apleona-schweiz-ag-1caccc08a8d1",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2589/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:35:44.562Z",
+      "crawledAt": "2026-11-15T21:38:50.397Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -69,8 +69,9 @@
       "postalCode": "8304",
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:35:44.562Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-17T21:38:50.397Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2589/description/1"
     },
     {
       "id": "apleona-schweiz-ag-34837a7a8196",
@@ -103,7 +104,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2591/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:35:44.260Z",
+      "crawledAt": "2026-11-15T21:38:50.095Z",
       "addressLocality": "Zürich Oerlikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -138,8 +139,9 @@
       "postalCode": "8001",
       "streetAddress": "Zürich Oerlikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:35:44.260Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-17T21:38:50.095Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2591/description/1"
     },
     {
       "id": "apleona-schweiz-ag-44aee1dfb999",
@@ -172,7 +174,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2595/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:35:43.958Z",
+      "crawledAt": "2026-11-15T21:38:49.793Z",
       "addressLocality": "Zürich Oerlikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -221,8 +223,9 @@
       "postalCode": "8001",
       "streetAddress": "Zürich Oerlikon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:35:43.958Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-03T21:38:49.793Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2595/description/1"
     },
     {
       "id": "apleona-schweiz-ag-7f30491be288",
@@ -255,7 +258,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2594/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:35:43.657Z",
+      "crawledAt": "2026-11-15T21:38:49.491Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -304,8 +307,9 @@
       "postalCode": "8304",
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T09:35:43.657Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-04T21:38:49.491Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2594/description/1"
     },
     {
       "id": "apleona-schweiz-ag-c11256aaf7ed",
@@ -338,7 +342,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2596/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:35:43.355Z",
+      "crawledAt": "2026-11-15T21:38:49.190Z",
       "addressLocality": "Zürich - Wollishofen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -387,8 +391,9 @@
       "postalCode": "8001",
       "streetAddress": "Zürich - Wollishofen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T09:35:43.355Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-05T21:38:49.190Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2596/description/1"
     },
     {
       "id": "apleona-schweiz-ag-bc2c3f392dcf",
@@ -421,7 +426,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2445/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:35:43.053Z",
+      "crawledAt": "2026-11-15T21:38:48.888Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -470,8 +475,9 @@
       "postalCode": "6037",
       "streetAddress": "Root",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:35:43.053Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-09T21:38:48.888Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2445/description/1"
     },
     {
       "id": "apleona-schweiz-ag-29480b8a16ad",
@@ -504,7 +510,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2560/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:35:42.752Z",
+      "crawledAt": "2026-11-15T21:38:48.587Z",
       "addressLocality": "Root",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -553,8 +559,9 @@
       "postalCode": "6037",
       "streetAddress": "Root",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T09:35:42.752Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2026-12-15T21:38:48.587Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2560/description/1"
     },
     {
       "id": "apleona-schweiz-ag-991111f86970",
@@ -587,7 +594,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2598/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:35:42.450Z",
+      "crawledAt": "2026-11-15T21:38:48.286Z",
       "addressLocality": "St. Gallen (Neumarkt 4)",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -636,8 +643,9 @@
       "postalCode": "9000",
       "streetAddress": "St. Gallen (Neumarkt 4)",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:35:42.450Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-09T21:38:48.286Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2598/description/1"
     },
     {
       "id": "apleona-schweiz-ag-6282558849e2",
@@ -670,7 +678,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2600/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:35:42.147Z",
+      "crawledAt": "2026-11-15T21:38:47.983Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -732,8 +740,9 @@
       },
       "streetAddress": "Ebnatstrasse 91a",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-10T09:35:42.147Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-02-09T21:38:47.983Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2600/description/1"
     },
     {
       "id": "apleona-schweiz-ag-56e325e47013",
@@ -766,7 +775,7 @@
       "url": "https://recruitingapp-2765.umantis.com/Vacancies/2582/Description/1",
       "source": "Apleona Schweiz AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T09:35:41.845Z",
+      "crawledAt": "2026-11-15T21:38:47.681Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -812,8 +821,9 @@
       "postalCode": "8304",
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:35:41.845Z",
-      "validThroughSource": "last-observed-window"
+      "validThrough": "2027-01-06T21:38:47.681Z",
+      "validThroughSource": "last-observed-window",
+      "sourceIdentity": "url:https://recruitingapp-2765.umantis.com/vacancies/2582/description/1"
     }
   ]
 }

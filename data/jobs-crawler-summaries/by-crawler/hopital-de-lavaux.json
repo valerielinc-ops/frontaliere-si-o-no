@@ -1,7 +1,7 @@
 {
   "key": "hopital-de-lavaux",
   "label": "Hôpital de Lavaux",
-  "generatedAt": "2026-11-15T09:25:39.458Z",
+  "generatedAt": "2026-11-16T09:19:43.236Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 3852,
-  "avgDurationMs": 3852,
+  "durationMs": 6115,
+  "avgDurationMs": 6115,
   "durationHistory": [
-    3852
+    6115
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://app.beehire.com/invite/GFUnCnSo4",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:25:21.837Z",
+      "crawledAt": "2026-11-16T09:19:13.446Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -62,7 +62,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-07T09:25:21.837Z",
+      "validThrough": "2027-01-07T09:19:13.446Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -85,7 +85,7 @@
       "url": "https://app.beehire.com/invite/mrL3gPPlO",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:25:21.836Z",
+      "crawledAt": "2026-11-16T09:19:13.445Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-13T09:25:21.836Z",
+      "validThrough": "2027-02-14T09:19:13.445Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -134,7 +134,7 @@
       "url": "https://app.beehire.com/invite/SQHUP0Mz6",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:25:21.835Z",
+      "crawledAt": "2026-11-16T09:19:13.442Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -158,7 +158,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:25:21.835Z",
+      "validThrough": "2027-01-12T09:19:13.442Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -180,7 +180,7 @@
       "url": "https://app.beehire.com/invite/A7b1Yo_iU",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:25:21.834Z",
+      "crawledAt": "2026-11-16T09:19:13.436Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -204,7 +204,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:25:21.834Z",
+      "validThrough": "2027-02-03T09:19:13.436Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -227,7 +227,7 @@
       "url": "https://app.beehire.com/invite/kINZiCm0y",
       "source": "Hôpital de Lavaux Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:25:21.832Z",
+      "crawledAt": "2026-11-16T09:19:13.422Z",
       "addressLocality": "Bourg-en-Lavaux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
       "salarySource": "estimated",
       "streetAddress": "Bourg-en-Lavaux",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:25:21.832Z",
+      "validThrough": "2026-12-29T09:19:13.422Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -262,5 +262,5 @@
       }
     }
   ],
-  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
+  "codeCommit": "71e06c4f557e81be4e8743feaa696210bf683ef0"
 }

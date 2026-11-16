@@ -12,10 +12,20 @@ import { realpathSync } from 'node:fs';
  * CompanyAlert riding it arrives up to 24h late and buried among unrelated
  * matches.
  *
- * This runner is event-driven instead: .github/workflows/send-company-alerts.yml
- * fires on every push that touches `data/jobs/by-crawler/**` — the commit the
- * crawlers and publisher-jobs-sync make when a new ad lands — plus an hourly
- * safety-net cron.
+ * This runner is event-driven instead: .github/workflows/post-deploy-publish.yml
+ * dispatches .github/workflows/send-company-alerts.yml after the deploy that
+ * PUBLISHES the pages has passed its live-identity check, plus an hourly
+ * safety-net cron. It used to fire on every push that touched
+ * `data/jobs/by-crawler/**` — the commit the crawlers make when a new ad lands —
+ * but that happens BEFORE the deploy, so an email could link a page that was not
+ * online yet (perf-plan email senders, point 1).
+ *
+ * Before claiming anything, a job whose page is not published is DEFERRED: not
+ * sent, not marked in `sentJobIds`, not written to the ledger. It stays in the
+ * novelty window of the next run. The answer comes from the build's manifest of
+ * published job pages (scripts/lib/company-alert-publication-gate.mjs), with the
+ * per-page HTTP check as the cron/manual fallback. Kill switch:
+ * COMPANY_ALERT_LIVE_LINK_FILTER=off (Remote Config) restores the old behaviour.
  *
  * ── THE FIRESTORE QUERY, AND WHY IT NOW NARROWS SERVER-SIDE ───────────────
  * The alert load used to be byte-for-byte the digest's —
@@ -81,7 +91,12 @@ import { realpathSync } from 'node:fs';
  *   GOOGLE_APPLICATION_CREDENTIALS — Firebase service account
  *   NEWSLETTER_SECRET              — HMAC for unsubscribe/preferences links
  *   TARGET_EMAIL                   — limit to one recipient (test mode)
- *   COMPANY_ALERT_WINDOW_HOURS     — override the novelty window (default 6)
+ *   COMPANY_ALERT_IMMEDIATE_WINDOW_HOURS — override the novelty window (default 48,
+ *                                    1..168). Legacy alias: COMPANY_ALERT_WINDOW_HOURS.
+ *   COMPANY_ALERT_LIVE_LINK_FILTER — on (default) | off: defer jobs whose page is not
+ *                                    published yet (off = no filter, as before)
+ *   COMPANY_ALERT_TRIGGER          — dispatch | schedule, for the
+ *                                    telemetry (defaults to GITHUB_EVENT_NAME)
  *
  * Usage: node scripts/send-company-alerts.mjs [--dry-run]
  */
@@ -128,6 +143,14 @@ import { companyFollowGroupKey } from '../build-plugins/shared/companyFollowGrou
 import { translationHoldReleasedMs } from './lib/translation-publication-hold.mjs';
 import { createSenderMetrics, emitSenderMetrics } from './lib/sender-metrics.mjs';
 import { installFirestoreOpCounterOnAdminSdk } from './lib/firestore-op-counter.mjs';
+import {
+  createCompanyAlertPublicationGate,
+  resolveCompanyAlertTrigger,
+  resolveImmediateWindowHours,
+  resolveLiveFilterMode,
+} from './lib/company-alert-publication-gate.mjs';
+import { createJobPageUrlResolver } from './lib/job-page-url.mjs';
+import { jobInventoryTimestampMs } from './lib/job-alert-newness.mjs';
 /**
  * `/aziende-seguite/` per locale — ONE literal segment for every language, like
  * `/aziende/` in services/companyAlertEmail.mjs.
@@ -158,6 +181,7 @@ const DRY_RUN = process.argv.includes('--dry-run');
  */
 export const COMPANY_ALERT_PHASES = Object.freeze([
   'load_jobs',
+  'publication_gate',
   'load_alerts',
   'planning',
   'consent',
@@ -175,11 +199,15 @@ const COMPANY_ALERT_DEFERRED_INDEX_FIELD = 'hasDeferredCompanyAlertWork';
 export const NEWSLETTER_CONSENT_STATUS_UNKNOWN = 'newsletter-consent-status-unknown';
 
 /**
- * Novelty window. Wider than the workflow's own cadence on purpose: a push-run
- * that fails, a queued Actions runner or a crawler group that commits late must
- * not silently drop a job. Over-inclusion is harmless — `sentJobIds` dedups.
+ * Novelty window. Wider than the workflow's own cadence on purpose: a deploy
+ * that fails and is retried, a queued Actions runner or a crawler group that
+ * commits late must not silently drop a job. It is counted from `firstSeenAt`,
+ * and the run now starts AFTER the deploy (hours after the crawl), so the default
+ * is 48 h (was 6 h with the push trigger): see resolveImmediateWindowHours for the
+ * measured crawl→online latency. Over-inclusion is harmless — `sentJobIds` dedups
+ * (30 days) and a job already sent never re-enters.
  */
-const IMMEDIATE_WINDOW_MS = Math.max(1, Number(process.env.COMPANY_ALERT_WINDOW_HOURS) || 6) * 60 * 60 * 1000;
+const IMMEDIATE_WINDOW_MS = resolveImmediateWindowHours(process.env) * 60 * 60 * 1000;
 
 const CLOSED_JOB_STATUSES = new Set([
   'archived',
@@ -236,6 +264,20 @@ let _db = null;
 /** Test seam: inject a fake Firestore (mirrors send-job-alerts.mjs). */
 export function __setFirestoreAdminForTest(fakeDb) {
   _db = fakeDb;
+}
+
+/**
+ * Publication gate of this run (scripts/lib/company-alert-publication-gate.mjs).
+ * `null` = no filter: library callers and tests that do not opt in see the same
+ * planning as before. `main()` installs the real one before planning, so every
+ * path that builds sections (planning, consent deferral) applies the same answer.
+ */
+let _publicationGate = null;
+const ALWAYS_LIVE_GATE = Object.freeze({ isLive: () => true });
+
+/** Test seam / main(): install (or clear with `null`) the publication gate. */
+export function __setPublicationGateForTest(gate) {
+  _publicationGate = gate;
 }
 
 async function getFirestoreAdmin() {
@@ -610,7 +652,8 @@ export function companyAlertJobQuarantines(alert, jobs) {
  * @param {number} nowMs
  * @param {number} [dedupWindowMs]
  * @param {object[]} [allJobs=newJobs] Full dataset used to recover durable cap backlog.
- * @param {{recoverConsentDeferrals?: boolean}} [options]
+ * @param {{recoverConsentDeferrals?: boolean, publicationGate?: {isLive: (job: object) => boolean}}} [options]
+ *   `publicationGate` defaults to the one `main()` installed (none = every job is live).
  * @returns {Array<{alert: object, locale: string, sentMap: object, jobs: object[], companyName: string, freshestMs: number}>}
  */
 export function buildRecipientSections(
@@ -622,6 +665,7 @@ export function buildRecipientSections(
   options = {},
 ) {
   const recoverConsentDeferrals = options?.recoverConsentDeferrals === true;
+  const publicationGate = options?.publicationGate ?? _publicationGate ?? ALWAYS_LIVE_GATE;
   const sections = [];
   const followGroupOf = (alert) => companyFollowGroupKey(canonicalCompanyAlertKey(alert?.specificCompanyKey));
   // Delivery history shared by every alert of one follow group, so the window
@@ -664,7 +708,12 @@ export function buildRecipientSections(
     const matched = candidateJobsForAlert(alert, newJobs, allJobs, recoverConsentDeferrals)
       .filter((job) => isOpenCompanyAlertJob(job, nowMs))
       .filter((job) => !jobCompanyIdentityQuarantineReason(job, profile))
-      .filter((job) => scoreJobForAlert(job, profile, locale) > 0);
+      .filter((job) => scoreJobForAlert(job, profile, locale) > 0)
+      // Publication gate, last on purpose (it is the only step that can touch the
+      // network-derived answer, so it runs on the few jobs that already matched).
+      // A job whose page is not online is DEFERRED here: it is neither sent nor
+      // marked, so it stays a candidate for the next run (see the gate's header).
+      .filter((job) => publicationGate.isLive(job));
     if (matched.length === 0) continue;
 
     const sentMap = normalizeSentMap(alert.sentJobIds);
@@ -692,6 +741,25 @@ export function buildRecipientSections(
   }
   sections.sort((a, b) => (b.freshestMs - a.freshestMs) || a.companyName.localeCompare(b.companyName));
   return sections;
+}
+
+/**
+ * Raccoglie gli annunci che la pianificazione puo' considerare, inclusi il
+ * backlog durevole e il recupero delle deferral di consenso.
+ *
+ * `buildRecipientSections` resta pura: il collector registra i candidati e li
+ * lascia passare solo per costruire il pool che il gate HTTP verifichera'.
+ */
+export function collectGateCandidatePool({ alerts, newJobs, now, allJobs = newJobs }) {
+  const pool = new Set();
+  const collector = { isLive: (job) => { pool.add(job); return true; } };
+  for (const alert of alerts || []) {
+    for (const recoverConsentDeferrals of [false, true]) {
+      buildRecipientSections([alert], newJobs, now, DEDUP_WINDOW_MS, allJobs,
+        { recoverConsentDeferrals, publicationGate: collector });
+    }
+  }
+  return pool;
 }
 
 /**
@@ -1412,6 +1480,24 @@ function loadJobs() {
   return Array.isArray(jobs) ? jobs : [];
 }
 
+/**
+ * The page URL the build emits for a job, from the same canton tables the job-alert
+ * sender reads (data/canton-url-slugs.json + data/canton-municipalities.json).
+ * `localePathPrefix` is inlined for the reason `followedCompaniesPath` is: the
+ * canonical helper lives in scripts/lib/articleContent.mjs, which imports TypeScript
+ * (services/routeSlugs.data.ts) and so cannot be loaded here under plain `node`.
+ * tests/company-alert-publication-gate.test.ts asserts it agrees with the job-alert one.
+ */
+function loadJobPageUrlResolver() {
+  const readJson = (name) => JSON.parse(fs.readFileSync(path.join(ROOT, 'data', name), 'utf8'));
+  return createJobPageUrlResolver({
+    cantonSlugFile: readJson('canton-url-slugs.json'),
+    municipalitiesFile: readJson('canton-municipalities.json'),
+    baseUrl: BASE_URL,
+    localePathPrefix: (locale) => (locale === 'it' ? '' : `/${locale}`),
+  });
+}
+
 function loadNewJobs(nowMs, allJobs = loadJobs()) {
   return selectNewlyPublishedJobs(allJobs, nowMs);
 }
@@ -1715,6 +1801,33 @@ async function main() {
   console.log(`   Newly published jobs in the last ${IMMEDIATE_WINDOW_MS / 3600000}h: ${newJobs.length}`);
   if (newJobs.length === 0) console.log('   No fresh jobs — checking durable deferred backlog.');
 
+  // Publication gate (perf-plan email senders, point 1): before any alert is read
+  // or planned, decide how «is this job's page online?» will be answered in this
+  // run. A job whose page is not published is deferred, never claimed.
+  companyAlertMetrics.enter('publication_gate');
+  const trigger = resolveCompanyAlertTrigger(process.env);
+  const liveFilterMode = resolveLiveFilterMode(process.env);
+  companyAlertMetrics.set('trigger', trigger);
+  const publicationGate = await createCompanyAlertPublicationGate({
+    trigger,
+    mode: liveFilterMode,
+    inventory: allJobs.filter((job) => isOpenCompanyAlertJob(job, now)),
+    datasetAtMs: allJobs.reduce((max, job) => Math.max(max, jobInventoryTimestampMs(job)), 0) || now,
+    jobPageUrl: loadJobPageUrlResolver(),
+    metrics: companyAlertMetrics,
+    log: (line) => console.log(line),
+    warn: (line) => console.warn(line),
+  });
+  _publicationGate = publicationGate;
+  console.log(`   Publication gate: trigger=${trigger}, filter=${liveFilterMode}, source=${publicationGate.source}${publicationGate.reason ? ` (${publicationGate.reason})` : ''}`);
+  if (publicationGate.deferAll) {
+    // The deploy has just finished and the manifest that describes it cannot be
+    // read: nothing is sent. The hourly cron retries (with the HTTP fallback).
+    companyAlertMetrics.set('liveFilterDeferred', newJobs.length);
+    console.warn(`   ⏳ post-publish dispatch with an unusable job-pages manifest — ${newJobs.length} fresh job(s) deferred to the next run, nothing sent.`);
+    return;
+  }
+
   companyAlertMetrics.enter('load_alerts');
   const db = await getFirestoreAdmin();
 
@@ -1772,6 +1885,15 @@ async function main() {
   console.log(`   Immediate CompanyAlerts: ${alerts.length}`);
   companyAlertMetrics.set('alertsImmediate', alerts.length);
   if (alerts.length === 0) return;
+
+  // HTTP fallback only: verify the actual candidate pool up front, including
+  // durable backlog and consent recovery (one pooled pass).
+  companyAlertMetrics.enter('publication_gate');
+  if (publicationGate.source === 'http') {
+    const pool = collectGateCandidatePool({ alerts, newJobs, now, allJobs });
+    companyAlertMetrics.set('liveFilterCandidatePool', pool.size);
+    await publicationGate.prepare([...pool]);
+  }
 
   // Plan first, verify consent second (perf-plan email senders, B3). The
   // registration/suppression lookup used to cover EVERY recipient in scope —

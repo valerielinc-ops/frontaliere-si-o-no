@@ -1,8 +1,8 @@
 /**
  * Le description ATS non portano media incorporati nelle pagine job statiche.
  *
- * Caso reale: validate-dist run 36922718485 (build f64b396c, 2026-10-01),
- * unico offender di `audit:all/page-weight` (classe B dal 2026-10-02):
+ * Caso reale: validate-dist run 36922718485 (build f64b396c, 2026-10-01):
+ * markup Teamtailor con immagini remote e attributi mancanti:
  * `/en/find-jobs-ticino/data-ingenieur-microsoft-fabric-w-m-80-100-de-benu-koniz/`,
  * con due `<figure><img>` Teamtailor senza width/height/loading e con spazi
  * letterali nel `src`. Il testo dell'annuncio deve restare identico.

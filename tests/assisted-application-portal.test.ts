@@ -6,7 +6,7 @@ import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFile
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { applicationStage } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { navigationInfrastructureFailure } from '../functions/src/assistedApplicationTransportRetryPolicy.js';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, formPostingMatch, handleAuth, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, PREREAD_CHANNELS, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, formPostingMatch, handleAuth, hasApplicationSurface, isOtpVerificationPage, isWorkdayBareLocaleSearchShell, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, postingMatch, PREREAD_CHANNELS, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, waitForNonBlankPage, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
@@ -420,6 +420,12 @@ describe('assisted application profile history and file replacement', () => {
     expect(profileEntryAnswer(entry, 'education', { label: 'Do you have a degree?' })).toBeNull();
   });
 
+  it('maps Workday experience rows that call the employer field Company', () => {
+    const entry = { role: 'Retail Assistant', employer: 'Mendrisio Market', start: '2020-03', end: '2022-04' };
+    expect(profileEntryAnswer(entry, 'experience', { label: 'Job Title*' })).toEqual({ value: 'Retail Assistant', source: 'profile' });
+    expect(profileEntryAnswer(entry, 'experience', { label: 'Company*' })).toEqual({ value: 'Mendrisio Market', source: 'profile' });
+  });
+
   it('does not mistake a selected Workday filename for a successful upload receipt', async () => {
     const locator = { evaluate: vi.fn(async () => ['CV.pdf']) };
     const page = {
@@ -723,6 +729,32 @@ describe('portal link clicks', () => {
       expect(await clickPortalLink(page, link, { context: { waitForEvent: vi.fn(async () => popup) } })).toBe(popup);
       expect(page.goto).not.toHaveBeenCalled();
     });
+  });
+});
+
+describe('portal popup navigation', () => {
+  it('waits for a newly opened application tab to leave about:blank', async () => {
+    let current = 'about:blank';
+    const page = {
+      url: () => current,
+      waitForURL: vi.fn(async (predicate: (url: URL) => boolean, options: any) => {
+        expect(options).toEqual({ waitUntil: 'domcontentloaded', timeout: 60_000 });
+        const destination = new URL('https://ats.example/apply/');
+        expect(predicate(destination)).toBe(true);
+        current = destination.href;
+      }),
+    };
+
+    await expect(waitForNonBlankPage(page as any)).resolves.toBe(true);
+    expect(page.url()).toBe('https://ats.example/apply/');
+    expect(page.waitForURL).toHaveBeenCalledOnce();
+  });
+
+  it('does not wait when the application page already has a destination', async () => {
+    const page = { url: () => 'https://ats.example/apply/', waitForURL: vi.fn() };
+
+    await expect(waitForNonBlankPage(page as any)).resolves.toBe(true);
+    expect(page.waitForURL).not.toHaveBeenCalled();
   });
 });
 
@@ -4022,5 +4054,55 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     const answered = candidateForForm({ identity, profile: { permitStatus: 'pending' }, answers: { work_permit: 'permit_b' }, language: 'it' });
     expect(answered.swissStatus?.code).toBe('permit_b');
     expect(answered.answers).not.toHaveProperty('work_permit');
+  });
+
+  it('matches a Workday tenant brand in postingMatch and translated observedPostingTitle in comma-separated titles', () => {
+    const ritualsUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Conseiller-de-Vente--h-f-_R2420';
+    expect(postingMatch('Conseiller de Vente (h/f)\nRituals Careers\nApply', {
+      title: 'Consulente commerciale (h/f)',
+      observedPostingTitle: 'Conseiller de Vente (h/f)',
+      company: 'Rituals Cosmetics Switzerland',
+      url: ritualsUrl,
+    }, ritualsUrl)).toBe('match');
+
+    const endesoUrl = 'https://endeso.ch/jobs/job-28136-personalberater-in-hr-funktionen/';
+    expect(formPostingMatch('Personalberater/in HR-Funktionen, Frauenfeld | endeso\nPersonalberater/in HR-Funktionen\nFrauenfeld\nendeso', {
+      title: 'Consulente del personale per funzioni HR',
+      observedPostingTitle: 'Personalberater/in HR-Funktionen',
+      company: 'endeso GmbH',
+      location: 'Frauenfeld',
+      url: endesoUrl,
+    }, {
+      postingMatched: true,
+      postingEntry: true,
+      pageUrl: endesoUrl,
+      postingUrl: endesoUrl,
+      paidPostingUrl: endesoUrl,
+      pageHeading: 'Personalberater/in HR-Funktionen',
+      pageHeadings: ['Personalberater/in HR-Funktionen'],
+      applyUrl: endesoUrl,
+    })).toBe('match');
+
+    const deWorkdayUrl = 'https://roche.wd3.myworkdayjobs.com/de/roche-ext/job/Rotkreuz/Role_202611-128370-1';
+    expect(isWorkdayBareLocaleSearchShell({ url: deWorkdayUrl, fields: [], buttons: [] }, 'Stellen suchen')).toBe(true);
+    expect(isWorkdayBareLocaleSearchShell({ url: deWorkdayUrl, fields: [], buttons: [{ text: 'Bewerben' }] }, 'Stellen suchen')).toBe(false);
+  });
+
+  it('answers unambiguous single-entry Education Degree* and Institution* fields from profile.education', () => {
+    const cand = candidateForForm({
+      identity,
+      profile: {
+        education: [{ degree: 'Diploma di Maturità Scientifica', institution: 'Liceo Scientifico Como', start: '', end: '' }],
+      },
+      answers: {},
+      language: 'it',
+    });
+    expect(candidateAnswerForField(cand, { label: 'Degree*', context: 'Education', kind: 'text', options: [] }))
+      .toEqual({ value: 'Diploma di Maturità Scientifica', source: 'profile' });
+    expect(candidateAnswerForField(cand, { label: 'School or University*', context: 'Education', kind: 'text', options: [] }))
+      .toEqual({ value: 'Liceo Scientifico Como', source: 'profile' });
+    // Does not force a free-text degree into an incompatible fixed dropdown.
+    expect(candidateAnswerForField(cand, { label: 'Degree*', context: 'Education', kind: 'select', options: [{ label: 'Bachelor' }, { label: 'Master' }] }))
+      .toBeNull();
   });
 });

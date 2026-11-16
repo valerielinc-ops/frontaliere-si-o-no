@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ricola",
-  "assembledAt": "2026-11-15T09:31:35.755Z",
-  "runId": "43699011375",
+  "assembledAt": "2026-11-15T21:36:10.315Z",
+  "runId": "43763521893",
   "jobs": [
     {
       "id": "ricola-6e3762cab55f",
@@ -34,7 +34,7 @@
       "url": "https://career.ricola.com/Vacancies/1062/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T09:31:30.211Z",
+      "crawledAt": "2026-11-15T21:36:04.236Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -83,7 +83,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-15T09:31:30.211Z",
+      "validThrough": "2026-12-15T21:36:04.236Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -118,7 +118,7 @@
       "url": "https://career.ricola.com/Vacancies/1065/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T09:31:29.787Z",
+      "crawledAt": "2026-11-15T21:36:03.804Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -167,7 +167,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T09:31:29.787Z",
+      "validThrough": "2027-01-05T21:36:03.804Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -202,7 +202,7 @@
       "url": "https://career.ricola.com/Vacancies/1068/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T09:31:29.356Z",
+      "crawledAt": "2026-11-15T21:36:03.373Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -253,7 +253,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T09:31:29.356Z",
+      "validThrough": "2027-01-28T21:36:03.373Z",
       "validThroughSource": "last-observed-window"
     }
   ]

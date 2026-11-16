@@ -2,14 +2,19 @@ import { describe, expect, it } from 'vitest';
 import {
   HISTORY_BACKFILL_MIN_BATCH_SIZE,
   historyBlobOidsFromTreeBatch,
+  historyBlobOidsFromBatchCheck,
   historyBlobPrefetchInput,
   historyBackfillArgs,
   historyCommitOidsFromDiffTree,
   historyCommitWalkArgs,
   historyDiffTreeArgs,
   historyMetadataEnv,
+  historyCrawlerKeys,
+  main,
   historySafeGitErrorMessage,
   historySinceArgs,
+  historySliceFileRefInput,
+  historySlicePaths,
   historySliceTreeRefInput,
   historyTreeOidsFromBatchCheck,
 } from '../scripts/ci/prefetch-history-blobs.mjs';
@@ -57,6 +62,38 @@ describe('prefetch-history-blobs', () => {
       'data/jobs/by-crawler',
       'data/jobs/expired/by-crawler',
     ]);
+  });
+
+  it('scopes discovery and promisor backfill to a bounded crawler batch', () => {
+    const paths = historySlicePaths(['acme', 'foo-bar'], {
+      acme: ['acme.json', 'acme.shard-001.json'],
+      'foo-bar': ['foo-bar.json'],
+    });
+    expect(historyCrawlerKeys('acme,foo-bar\nacme')).toEqual(['acme', 'foo-bar']);
+    expect(paths).toEqual([
+      'data/jobs/by-crawler/acme.json',
+      'data/jobs/expired/by-crawler/acme.json',
+      'data/jobs/expired/by-crawler/acme.shard-001.json',
+      'data/jobs/by-crawler/foo-bar.json',
+      'data/jobs/expired/by-crawler/foo-bar.json',
+    ]);
+    expect(historyDiffTreeArgs(paths).at(-(paths.length + 1))).toBe('--');
+    expect(historyDiffTreeArgs(paths).slice(-(paths.length + 1))).toEqual(['--', ...paths]);
+    const commit = 'a'.repeat(40);
+    expect(historySliceFileRefInput([commit], paths)).toBe(`${paths.map((slicePath) => `${commit}:${slicePath}`).join('\n')}\n`);
+    expect(historyBackfillArgs({ since: '2026-09-20', paths }).slice(-paths.length)).toEqual(paths);
+  });
+
+  it('rejects crawler keys and expired filenames that could escape the slice directories', () => {
+    expect(() => historyCrawlerKeys('../outside')).toThrow('Invalid crawler key');
+    expect(() => historyCrawlerKeys('nested/key')).toThrow('Invalid crawler key');
+    expect(() => historyCrawlerKeys('*')).toThrow('Invalid crawler key');
+    expect(() => historyCrawlerKeys('-leading-dash')).toThrow('Invalid crawler key');
+    expect(() => historySlicePaths(['safe', '*'])).toThrow('Invalid crawler key');
+    expect(() => historySlicePaths(['safe'], { safe: ['safe.other.json'] })).toThrow('Invalid expired slice filename');
+    expect(() => historySlicePaths(['safe'], { safe: ['../safe.shard-001.json'] })).toThrow(
+      'Invalid expired slice filename',
+    );
   });
 
   it('selects only commits that changed direct JSON slices in either family', () => {
@@ -112,6 +149,17 @@ describe('prefetch-history-blobs', () => {
       activeBlob,
       expiredBlob,
     ]);
+  });
+
+  it('extracts resolved file blobs and ignores absent historical files', () => {
+    const blob = '1'.repeat(40);
+    expect(historyBlobOidsFromBatchCheck([
+      `${blob} blob 123`,
+      'deadbeef:data/jobs/by-crawler/missing.json missing',
+    ].join('\n'))).toEqual([blob]);
+    expect(() => historyBlobOidsFromBatchCheck('abc tree 123')).toThrow(
+      'did not resolve to a blob',
+    );
   });
 
   it('includes an unchanged expired-family blob from a commit selected by an active slice change', () => {
@@ -171,5 +219,109 @@ describe('prefetch-history-blobs', () => {
     expect(historySafeGitErrorMessage(
       new Error('Command failed: git fetch https://x-access-token:sample%20value@github.com/owner/repo.git'),
     )).toBe('Command failed: git fetch https://github.com/owner/repo.git');
+  });
+
+  it('no-ops for a valid crawler batch with no slice-changing commits without fetching', () => {
+    const commit = 'a'.repeat(40);
+    const commands: string[][] = [];
+    const backfillCalls: unknown[] = [];
+    const verifyCalls: unknown[] = [];
+    const runGit = (args: string[]) => {
+      commands.push(args);
+      if (args[0] === 'rev-list') return `${commit}\n`;
+      if (args[0] === 'diff-tree') return '';
+      throw new Error(`Unexpected Git command: ${args[0]}`);
+    };
+
+    expect(() => main({
+      env: { CRAWLER_KEYS: 'prefetch-noop-test-key', HISTORY_SINCE: '45 days ago' },
+      runGit,
+      backfill: (options: unknown) => {
+        backfillCalls.push(options);
+        throw new Error('Unexpected remote backfill');
+      },
+      verify: (oids: unknown) => verifyCalls.push(oids),
+    })).not.toThrow();
+    expect(commands.map(([command]) => command)).toEqual(['rev-list', 'diff-tree']);
+    expect(backfillCalls).toEqual([]);
+    expect(verifyCalls).toEqual([]);
+  });
+
+  it('no-ops when a valid crawler batch resolves no blobs without fetching', () => {
+    const commit = 'a'.repeat(40);
+    const crawlerKey = 'prefetch-noop-test-key';
+    const commands: string[][] = [];
+    const backfillCalls: unknown[] = [];
+    const verifyCalls: unknown[] = [];
+    const runGit = (args: string[], options: { input?: string } = {}) => {
+      commands.push(args);
+      if (args[0] === 'rev-list') return `${commit}\n`;
+      if (args[0] === 'diff-tree') {
+        return `${commit}\0M\0data/jobs/by-crawler/${crawlerKey}.json\0`;
+      }
+      if (args[0] === 'cat-file' && args[1] === '--batch-check') {
+        return String(options.input || '')
+          .trim()
+          .split('\n')
+          .filter(Boolean)
+          .map((ref) => `${ref} missing`)
+          .join('\n');
+      }
+      throw new Error(`Unexpected Git command: ${args[0]}`);
+    };
+
+    expect(() => main({
+      env: { CRAWLER_KEYS: crawlerKey, HISTORY_SINCE: '45 days ago' },
+      runGit,
+      backfill: (options: unknown) => {
+        backfillCalls.push(options);
+        throw new Error('Unexpected remote backfill');
+      },
+      verify: (oids: unknown) => verifyCalls.push(oids),
+    })).not.toThrow();
+    expect(commands.map(([command]) => command)).toEqual(['rev-list', 'diff-tree', 'cat-file']);
+    expect(backfillCalls).toEqual([]);
+    expect(verifyCalls).toEqual([]);
+  });
+
+  it('no-ops for an empty HISTORY_SINCE window only when global history exists', () => {
+    const commit = 'a'.repeat(40);
+    const commands: string[][] = [];
+    const runGit = (args: string[]) => {
+      commands.push(args);
+      return args.some((argument) => argument.startsWith('--since=')) ? '' : `${commit}\n`;
+    };
+    const backfillCalls: unknown[] = [];
+
+    expect(() => main({
+      env: { CRAWLER_KEYS: 'prefetch-noop-test-key', HISTORY_SINCE: '45 days ago' },
+      runGit,
+      backfill: (options: unknown) => backfillCalls.push(options),
+      verify: () => undefined,
+    })).not.toThrow();
+    expect(commands).toEqual([
+      ['rev-list', '--all', '--since=45 days ago'],
+      ['rev-list', '--all'],
+    ]);
+    expect(backfillCalls).toEqual([]);
+  });
+
+  it('fails when the global history has no initial commits', () => {
+    const commands: string[][] = [];
+    const runGit = (args: string[]) => {
+      commands.push(args);
+      return '';
+    };
+
+    expect(() => main({
+      env: { CRAWLER_KEYS: 'prefetch-noop-test-key', HISTORY_SINCE: '45 days ago' },
+      runGit,
+      backfill: () => undefined,
+      verify: () => undefined,
+    })).toThrow('No historical job-slice blobs found');
+    expect(commands).toEqual([
+      ['rev-list', '--all', '--since=45 days ago'],
+      ['rev-list', '--all'],
+    ]);
   });
 });

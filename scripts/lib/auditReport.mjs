@@ -18,19 +18,19 @@
 // Schema (one file per audit, paired with its npm-script name):
 //
 //   {
-//     "audit":         "page-weight",
+//     "audit":         "max-bfs-depth",
 //     "ranAt":         "2026-05-12T18:42:00.000Z",
 //     "passed":        false,
-//     "threshold":     { "metric": "bytes", "value": 204800, "comparator": "<=" } | null,
-//     "baselineFile":  "data/page-weight-baseline.json" | null,
+//     "threshold":     { "metric": "depth", "value": 4, "comparator": "<=" } | null,
+//     "baselineFile":  "data/bfs-depth-baseline.json" | null,
 //     "baselineDelta": { "before": 0, "after": 12, "regression": 12 } | null,
 //     "offendersTotal": 12,
 //     "byFeature":     { "job-board": 7, "spa-locale": 5 },
 //     "topOffenders":  [ { "path": "...", "feature": "...", "metric": 200157, "ratio": null }, ... ]
 //   }
 //
-//   - `metric` carries whatever the audit measures (bytes for page-weight,
-//     ratio for text-html-ratio, depth for bfs-depth, count for orphans).
+//   - `metric` carries whatever the audit measures (ratio for text-html-ratio,
+//     depth for bfs-depth, count for orphans).
 //   - `byFeature` keys are OPAQUE LABELS chosen by the audit, never a path
 //     contract: some are path-shaped (`spa-bundle-injection` uses the first two
 //     dist/ segments), others are sitemap names, issue codes or angle-bracket
@@ -110,7 +110,7 @@ export function auditReportPath(audit) {
  * report writer.
  *
  * @param {object} params
- * @param {string} params.audit                          npm-script name, e.g. "page-weight"
+ * @param {string} params.audit                          npm-script name, e.g. "max-bfs-depth"
  * @param {boolean} params.passed                        gate verdict from the caller
  * @param {{ metric: string, value: number|string, comparator: string }|null} [params.threshold]
  * @param {string|null} [params.baselineFile]            repo-relative baseline path

@@ -11,6 +11,7 @@
  * live source dataset, and that the static widget files are self-contained.
  */
 import { describe, expect, it } from 'vitest';
+import { CURRENCY_WIDGET_NOINDEX_TARGET_MARKER } from '../build-plugins/shared/currencyWidgetNoindexTargetMarker.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import {
@@ -114,6 +115,7 @@ describe('static embed widget files', () => {
       /href=["']https:\/\/frontaliereticino\.ch\/embed\/currency-widget\.html["']/i,
     );
     expect(html).toContain('<meta name="robots" content="noindex,follow">');
+    expect(html).toContain(CURRENCY_WIDGET_NOINDEX_TARGET_MARKER);
   });
 
   it('embed gallery index documents all three widgets', () => {

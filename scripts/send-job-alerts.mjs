@@ -76,6 +76,7 @@ import {
   getMatcherHealthMonitorAction,
 } from './lib/job-alert-matcher-health.mjs';
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
+import { createJobPageUrlResolver } from './lib/job-page-url.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
 import {
@@ -120,10 +121,13 @@ import { createRegistrationGeoLookup, isSameIpGeo } from './lib/job-alert-ip-geo
 import { extractSlugFromSourcePage } from './backfill-newsletter-job-context.mjs';
 import { runWithConcurrency, checkPageBodyLive } from './lib/live-link-check.mjs';
 import {
-  loadJobPagesManifest,
-  manifestCoverage,
-  resolveLiveLinkManifestConfig,
-} from './lib/job-pages-manifest-client.mjs';
+  cachedLiveLinkResult,
+  createPublishedJobPageChecker,
+  inspectLiveJobs as inspectPublishedJobs,
+  isCachedDeadLiveLink,
+  JOB_LIVE_CHECK_CONCURRENCY,
+  normalizeLiveLinkResult,
+} from './lib/job-pages-live-checker.mjs';
 import { computeScheduledSendAt, resolveEffectivePreferredHour, perUserSendTimeEnabled, logScheduleDistribution } from './lib/send-schedule.mjs';
 import { JOB_ALERT_ENGAGEMENT_TIERS } from './lib/jobAlertEngagementTier.mjs';
 import {
@@ -396,35 +400,13 @@ const { resolveCantonSection, resolveJobCanton } = createCantonResolvers({ canto
 // check-journalist-article-links.mjs) is the real liveness signal: GET + look
 // for the `window.__EXPIRED_JOB_DATA__` marker buildSoftLandingHtml alone
 // seeds.
-// 16, not the 5 it was: with the checks now prefetched by ONE pool across
-// alerts (createJobLivenessPrefetcher), this cap is the throughput of the
-// step: run 35422626497 spent ~262 s awaiting per-alert checks with 5 slots
-// (first alert: 403 pages in ~11 s, ~37/s). 16 same-origin GETs in flight on our own
-// Cloudflare-cached pages; a burst that did make checks fail is still caught
-// per alert by the fail-open guard below, never an emptied email.
-const JOB_LIVE_CHECK_CONCURRENCY = 16;
-// Fail-open guard: check-journalist-article-links.mjs is a monitoring/report
-// tool (a failed check just marks one outlink broken in a report — never
-// empties anything), so it has no analogous "distrust the batch" step. Here
-// the check GATES what gets emailed, so a transient blip on OUR OWN outbound
-// fetch (e.g. GH Actions runner network hiccup) that makes every URL look
-// dead must not silently zero out a whole alert. Below this live-fraction, on
-// a large-enough sample, treat the batch as untrustworthy and send unfiltered
-// instead of empty.
-const JOB_LIVE_CHECK_FAIL_OPEN_MIN_SAMPLE = 4;
-const JOB_LIVE_CHECK_FAIL_OPEN_LIVE_RATIO = 0.34;
-
 // The exact frontaliereticino.ch job-page URL that will be embedded in the
 // alert email for this locale (mirrors the `rawJobUrl` built inside
 // buildAlertEmail, minus the alert-specific utm query string — irrelevant to
 // liveness and would otherwise fragment the cache key per alertId).
-function jobPageUrl(job, locale) {
-  const cantonCode = resolveJobCanton({ canton: job.canton, location: job.location });
-  const jobBoardPath = resolveCantonSection(locale, cantonCode);
-  const localizedJobBoardPath = `${localePathPrefix(locale)}/${jobBoardPath}`;
-  const slug = job.slugByLocale?.[locale] || job.slugByLocale?.it || job.slug || '';
-  return slug ? `${BASE_URL}${localizedJobBoardPath}/${slug}` : null;
-}
+// The one implementation lives in scripts/lib/job-page-url.mjs: the CompanyAlert sender
+// asks the same question («is this job's page online?») and must build the same URL.
+const jobPageUrl = createJobPageUrlResolver({ cantonSlugFile, municipalitiesFile, baseUrl: BASE_URL, localePathPrefix });
 
 // Delegates to the shared checkPageBodyLive (scripts/lib/live-link-check.mjs)
 // — kept as its own export/name here since it's the job-alerts-specific
@@ -432,79 +414,21 @@ function jobPageUrl(job, locale) {
 export const checkJobPageLive = checkPageBodyLive;
 
 /**
- * Filters `jobs` down to those whose live page resolves OK AND is not the
- * expired-job soft-landing bridge, checking each distinct URL at most once
- * per run via `cache` (shared across alerts/locales so overlapping job pools
- * aren't re-checked). Jobs with no resolvable slug fall back to the site root
- * in the email (always live) and are never filtered. Exported for tests.
+ * Job-alerts keeps its historical URL and metrics contract while the actual
+ * manifest/HTTP policy is shared with the other job-email senders.
  */
-/**
- * Live-link checks share a small result contract so the manifest checker can
- * distinguish a known published/dead URL from an unavailable answer. HTTP
- * checks still return booleans; they are normalized here at the cache boundary.
- */
-function normalizeLiveLinkResult(value) {
-  if (typeof value === 'boolean') return { known: true, live: value };
-  if (!value || typeof value !== 'object') return { known: false, live: false };
-  return { known: value.known === true, live: value.live === true };
-}
-
-function cachedLiveLinkResult(cache, url) {
-  if (!url || !cache.has(url)) return null;
-  const result = normalizeLiveLinkResult(cache.get(url));
-  return result.known ? result : null;
-}
-
-function isCachedDeadLiveLink(cache, url) {
-  return cachedLiveLinkResult(cache, url)?.live === false;
-}
-
 export async function inspectLiveJobs(
   jobs,
   locale,
   cache,
-  { check = checkJobPageLive, maxNewChecks = Number.POSITIVE_INFINITY, failOpen = true } = {},
+  options = {},
 ) {
-  const withUrls = jobs.map((job) => ({ job, url: jobPageUrl(job, locale) }));
-  // Dedupe by URL both across calls (via the shared `cache`) AND within this
-  // single call (two jobs — e.g. two locale variants — can resolve to the
-  // same page); otherwise a duplicate URL in the same batch would be
-  // checked once per occurrence before either result lands in `cache`.
-  const uniqueToCheck = [...new Set(withUrls.map(({ url }) => url).filter((url) => url && !cachedLiveLinkResult(cache, url)))];
-  const checkBudget = Number.isFinite(maxNewChecks)
-    ? Math.max(0, Math.trunc(maxNewChecks))
-    : uniqueToCheck.length;
-  const urlsToCheck = uniqueToCheck.slice(0, checkBudget);
-  if (urlsToCheck.length > 0) {
-    await runWithConcurrency(urlsToCheck, JOB_LIVE_CHECK_CONCURRENCY, async (url) => {
-      const result = normalizeLiveLinkResult(await check(url));
-      if (result.known) cache.set(url, result);
-    });
-  }
-  const results = withUrls.map(({ job, url }) => {
-    const cached = cachedLiveLinkResult(cache, url);
-    const known = !url || cached !== null;
-    return { job, url, known, live: known && (!url || cached.live) };
+  return inspectPublishedJobs(jobs, locale, cache, {
+    ...options,
+    urlFor: options.urlFor || ((job, selectedLocale) => jobPageUrl(job, selectedLocale)),
+    onFailOpen: options.onFailOpen || (() => jobAlertMetrics.count('liveLinkFailOpen')),
+    log: options.log || logDetail,
   });
-  const knownResults = results.filter((result) => result.known);
-  const knownLiveJobs = knownResults.filter((result) => result.live).map((result) => result.job);
-  const unknownJobs = results.filter((result) => !result.known).map((result) => result.job);
-  const checked = knownResults.length;
-  const liveCount = knownLiveJobs.length;
-  // `failOpen: false` e' il caso del manifest delle pagine pubblicate (perf-plan PR 5):
-  // la risposta non dipende dalla rete, quindi un tasso basso di pagine vive
-  // non e' un guasto transitorio da assorbire spedendo link non verificati, ma
-  // annunci scaduti o non ancora pubblicati, che non vanno spediti.
-  if (failOpen && checked >= JOB_LIVE_CHECK_FAIL_OPEN_MIN_SAMPLE && liveCount / checked < JOB_LIVE_CHECK_FAIL_OPEN_LIVE_RATIO) {
-    jobAlertMetrics.count('liveLinkFailOpen');
-    console.warn(`   ⚠️  Live-link check: only ${liveCount}/${checked} job page(s) resolved live — suspected transient network issue, failing open (sending unfiltered) rather than emptying the alert`);
-    return { jobs, knownLiveJobs, unknownJobs, failOpen: true };
-  }
-  const deadCount = checked - liveCount;
-  if (deadCount > 0) {
-    logDetail(`   🔗 Live-link check: ${deadCount}/${checked} job(s) filtered out (dead link — pulled/expired or not yet deployed)`);
-  }
-  return { jobs: knownLiveJobs, knownLiveJobs, unknownJobs, failOpen: false };
 }
 
 /**
@@ -522,64 +446,12 @@ export async function inspectLiveJobs(
  *
  * Esportata per i test.
  */
-export async function createLiveLinkChecker({
-  config = resolveLiveLinkManifestConfig(),
-  inventory = [],
-  datasetAtMs,
-  fetchImpl = globalThis.fetch,
-  metrics = jobAlertMetrics,
-  log = console.log,
-  warn = console.warn,
-} = {}) {
-  const httpCheck = async (url) => {
-    metrics.count('liveLinkHttpRequests');
-    return checkJobPageLive(url);
-  };
-  const http = (reason) => {
-    metrics.set('liveLinkSource', `http:${reason}`);
-    return { source: 'http', reason, check: httpCheck, failOpen: true };
-  };
-  if (config.mode === 'off') return http('disabled');
-
-  const loaded = await loadJobPagesManifest({
-    url: config.url,
-    fetchImpl,
-    datasetAtMs,
-    maxAgeHours: config.maxAgeHours,
-    onRequest: () => metrics.count('liveLinkHttpRequests'),
+export async function createLiveLinkChecker(options = {}) {
+  return createPublishedJobPageChecker({
+    ...options,
+    metrics: options.metrics || jobAlertMetrics,
+    urlFor: options.urlFor || ((job, locale) => jobPageUrl(job, locale)),
   });
-  if (!loaded.usable) {
-    warn(`   ⚠️  Job-pages manifest unusable (${loaded.reason}${loaded.detail ? ` ${loaded.detail}` : ''}) — falling back to the per-page HTTP live-link check`);
-    return http(loaded.reason);
-  }
-  const coverage = manifestCoverage(loaded.lookup, inventory, (job) => jobPageUrl(job, 'it'));
-  if (coverage.ratio < config.minCoverage) {
-    warn(`   ⚠️  Job-pages manifest covers only ${(coverage.ratio * 100).toFixed(1)}% of ${coverage.checked} sampled open listings (< ${(config.minCoverage * 100).toFixed(0)}%) — falling back to the per-page HTTP live-link check`);
-    return http('low-coverage');
-  }
-  log(`   📇 Live-link via job-pages manifest: ${loaded.lookup.pageCount} active pages in ${loaded.lookup.sectionCount} sections, ${loaded.ageHours.toFixed(1)} h old, covers ${(coverage.ratio * 100).toFixed(1)}% of ${coverage.checked} sampled open listings`);
-  metrics.set('liveLinkSource', 'manifest');
-  metrics.set('liveLinkManifestPages', loaded.lookup.pageCount);
-  return {
-    source: 'manifest',
-    reason: 'ok',
-    // Risposta locale: nessuna rete, nessun fail-open.
-    //
-    // Risposta locale: la forma condivisa { known, live } permette a
-    // inspectLiveJobs, al ranking e al prefetch di distinguere liveness nota
-    // da un risultato non disponibile, senza riaprire la rete.
-    check: async (url) => {
-      metrics.count('liveLinkManifestResolved');
-      return { known: true, live: loaded.lookup.has(url) };
-    },
-    failOpen: false,
-    // Nessun budget di verifiche: i lookup nel manifest sono locali e gratuiti. Il budget
-    // (`limit` per alert) serve solo a limitare le GET HTTP (anti fan-out pre-#9314); col
-    // manifest lascerebbe `rankLiveJobsForEmail` uscire con la rosa corrente, anche vuota,
-    // senza guardare gli annunci pubblicati piu' in basso. La decisione sta qui, nel
-    // checker: il ramo HTTP non dichiara `checkBudget` e vale il default (`limit`).
-    checkBudget: Number.POSITIVE_INFINITY,
-  };
 }
 
 async function filterLiveJobs(jobs, locale, cache) {

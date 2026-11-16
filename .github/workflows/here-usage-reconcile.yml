@@ -49,6 +49,7 @@ jobs:
             /*
             !/public/images/
             !/data/jobs/
+            !/data/url-first-seen/
             !/data/seo-404-compat/
             !/data/translation-cache/
             !/packages/articles/content/
@@ -147,6 +148,7 @@ jobs:
             !/data/dist-size-history.jsonl
             !/data/jobs-stats-history.json
             !/data/url-first-seen.json
+            !/data/url-first-seen/
             !/data/jobs-snapshots-history/
             !/data/slug-registry.json
             !/data/evidence-index.json

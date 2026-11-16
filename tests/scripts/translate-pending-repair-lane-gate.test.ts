@@ -32,10 +32,13 @@ const TARGETS = [
 ];
 const GATE_OUTPUT = "steps.repair_lane_budget.outputs.run == 'true'";
 const RECOVERY_READY = "(github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')";
+const AUTOMATIC_TRANSLATION_RUN = "(github.event_name == 'schedule' || (github.event_name == 'workflow_dispatch' && env.TRANSLATION_MANUAL_OVERRIDE != 'true'))";
+const TITLE_REPAIR_LANE = "((github.event_name == 'schedule' && github.event.schedule == '0 7 * * *') || (github.event_name == 'workflow_dispatch' && env.TRANSLATION_MANUAL_OVERRIDE != 'true' && inputs.repair_lane == 'titles'))";
+const DESCRIPTION_REPAIR_LANE = "((github.event_name == 'schedule' && github.event.schedule != '0 7 * * *') || (github.event_name == 'workflow_dispatch' && env.TRANSLATION_MANUAL_OVERRIDE != 'true' && inputs.repair_lane == 'descriptions'))";
 const REPAIR_LANE_CONDITIONS = {
-  gate: "github.event_name == 'schedule' && inputs.skip_translate != true && inputs.dry_run != true",
-  title: "github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'",
-  description: "github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'",
+  gate: `${AUTOMATIC_TRANSLATION_RUN} && inputs.skip_translate != true && inputs.dry_run != true`,
+  title: `${TITLE_REPAIR_LANE} && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'`,
+  description: `${DESCRIPTION_REPAIR_LANE} && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'`,
 } as const;
 const GATED = [
   (step: Step) => step.name === 'Phase 2d: Fix untranslated titles (free cascade)',

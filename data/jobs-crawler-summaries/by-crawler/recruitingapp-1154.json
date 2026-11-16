@@ -1,12 +1,12 @@
 {
-  "detailCandidates": 20,
+  "detailCandidates": 21,
   "detailGone": 0,
-  "detailRejected": 4,
+  "detailRejected": 5,
   "key": "recruitingapp-1154",
   "label": "SGKB Bewerbermanagement Stellen",
-  "generatedAt": "2026-11-15T09:31:15.080Z",
+  "generatedAt": "2026-11-16T09:23:27.148Z",
   "total": 0,
-  "discovered": 20,
+  "discovered": 21,
   "parsed": 0,
   "lastFetchOutcome": "selector_miss",
   "fetchReceipt": {
@@ -15,11 +15,15 @@
       "https://recruitingapp-1154.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
     ],
     "phase": "detail",
-    "pages": 21,
+    "pages": 22,
     "httpStatuses": [
       {
         "status": 200,
         "url": "https://recruitingapp-1154.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+      },
+      {
+        "status": 200,
+        "url": "https://recruitingapp-1154.umantis.com/Vacancies/3840/Description/1/Default?"
       },
       {
         "status": 200,
@@ -104,7 +108,7 @@
     ],
     "proxiedBy": [],
     "fetchOutcome": null,
-    "fetchDetail": "[prospector:recruitingapp-1154] detail snapshot incompleto: 4/20 detail page(s) dropped (20% > 15%); refusing partial publication"
+    "fetchDetail": "[prospector:recruitingapp-1154] detail snapshot incompleto: 5/21 detail page(s) dropped (24% > 15%); refusing partial publication"
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -120,5 +124,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
+  "codeCommit": "71e06c4f557e81be4e8743feaa696210bf683ef0"
 }

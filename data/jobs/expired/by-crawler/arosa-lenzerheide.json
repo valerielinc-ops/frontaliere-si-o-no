@@ -250,8 +250,8 @@
       "patrouilleur-in-arosa-lenzerheide-lenzerheide-36e05554",
       "patrouilleur-in-arosa-lenzerheide-lenzerheide-757e0e4a",
       "patrouilleur-in-arosa-lenzerheide-lenzerheide-edd64061",
-      "patrouilleur-in-arosa-lenzerheide-lenzerheide",
-      "patrouilleur-in-arosa-lenzerheide-lenzerheide-c791e1ab"
+      "patrouilleur-in-arosa-lenzerheide-lenzerheide-c791e1ab",
+      "patrouilleur-in-arosa-lenzerheide-lenzerheide"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -527,7 +527,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://app.reflinejobs.io/3316/0036/pub/23/index.html",
-    "firstSeenAt": "2026-07-21T11:44:58.522Z"
+    "firstSeenAt": "2026-07-21T11:44:58.522Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://app.reflinejobs.io/3316/0036/pub/23/index.html",
+        "firstSeenAt": "2026-07-21T11:44:58.522Z",
+        "title": "Patrouilleur:in"
+      },
+      {
+        "sourceIdentity": "url:https://app.reflinejobs.io/3316/0048/pub/33/index.html",
+        "firstSeenAt": "2026-11-05T09:19:14.421Z",
+        "title": "Patrouilleur:in"
+      }
+    ]
   },
   {
     "slug": "collaboratore-trice-kasse-e-vendita-arosa-lenzerheide",

@@ -30,6 +30,17 @@ const FIXTURE_SLUG_RE = /^fixture-|-fixture-corp-|-fixture-canonical-/i;
 const FIXTURE_ID_RE = /^fixture-/i;
 const FIXTURE_COMPANY_KEY_RE = /^fixture(?:-|$)/i;
 const FIXTURE_COMPANY_NAMES = new Set(['fixture corp sa', 'fixture corp']);
+const ATS_FORM_SNAPSHOTS_FILE = 'ats-application-forms.json';
+const ATS_FORM_MAX_AGE_MS = 45 * 24 * 60 * 60 * 1000;
+
+interface StoredATSFormSnapshot {
+ provider: string;
+ jobId?: string;
+ jobSlug?: string;
+ jobUrl?: string;
+ snapshot: Record<string, unknown>;
+}
+
 function isFixtureJobEntry(j: Record<string, unknown>): boolean {
  if (!j || typeof j !== 'object') return false;
  const id = j.id;
@@ -47,6 +58,81 @@ function isFixtureJobEntry(j: Record<string, unknown>): boolean {
  }
  }
  return false;
+}
+
+function atsUrlKey(raw: unknown): string {
+ if (typeof raw !== 'string' || !raw.trim()) return '';
+ try {
+  const url = new URL(raw.trim());
+  if (url.protocol !== 'https:' || url.port || url.username || url.password) return '';
+  url.hostname = url.hostname.toLowerCase();
+  url.search = '';
+  url.hash = '';
+  url.pathname = url.pathname.replace(/\/+$/, '') || '/';
+  return url.toString();
+ } catch {
+  return '';
+ }
+}
+
+function readATSFormSnapshotIndex(rootDir: string): {
+ byId: Map<string, StoredATSFormSnapshot>;
+ byUrl: Map<string, StoredATSFormSnapshot>;
+} {
+ const statePath = path.resolve(rootDir, 'data', ATS_FORM_SNAPSHOTS_FILE);
+ if (!fs.existsSync(statePath)) return { byId: new Map(), byUrl: new Map() };
+
+ let state: unknown;
+ try {
+  state = JSON.parse(fs.readFileSync(statePath, 'utf-8'));
+ } catch (error) {
+  throw new Error(`[locale-jobs-split] Cannot read ${ATS_FORM_SNAPSHOTS_FILE}: ${error instanceof Error ? error.message : String(error)}`);
+ }
+ if (!state || typeof state !== 'object' || (state as { schemaVersion?: unknown }).schemaVersion !== 1) {
+  throw new Error(`[locale-jobs-split] Unsupported ${ATS_FORM_SNAPSHOTS_FILE} schema`);
+ }
+
+ const snapshots = (state as { snapshots?: unknown }).snapshots;
+ if (!snapshots || typeof snapshots !== 'object' || Array.isArray(snapshots)) {
+  throw new Error(`[locale-jobs-split] ${ATS_FORM_SNAPSHOTS_FILE} must contain a snapshots object`);
+ }
+ const byId = new Map<string, StoredATSFormSnapshot>();
+ const byUrl = new Map<string, StoredATSFormSnapshot>();
+ const now = Date.now();
+ for (const rawEntry of Object.values(snapshots as Record<string, unknown>)) {
+  if (!rawEntry || typeof rawEntry !== 'object') continue;
+  const entry = rawEntry as Partial<StoredATSFormSnapshot>;
+  const form = entry.snapshot as Record<string, unknown> | undefined;
+  const fields = form?.fields;
+  if (!form || !Array.isArray(fields) || fields.length === 0) continue;
+  if (typeof entry.provider !== 'string' || form.provider !== entry.provider) continue;
+  const checkedAt = Date.parse(String(form.checkedAt || ''));
+  if (!Number.isFinite(checkedAt) || now - checkedAt > ATS_FORM_MAX_AGE_MS || checkedAt > now + 5 * 60 * 1000) continue;
+  const normalized: StoredATSFormSnapshot = {
+   provider: entry.provider,
+   ...(typeof entry.jobId === 'string' ? { jobId: entry.jobId } : {}),
+   ...(typeof entry.jobSlug === 'string' ? { jobSlug: entry.jobSlug } : {}),
+   ...(typeof entry.jobUrl === 'string' ? { jobUrl: entry.jobUrl } : {}),
+   snapshot: form,
+  };
+  if (normalized.jobId) byId.set(normalized.jobId, normalized);
+  const urlKey = atsUrlKey(normalized.jobUrl);
+  if (urlKey) byUrl.set(urlKey, normalized);
+ }
+ return { byId, byUrl };
+}
+
+function applyATSFormSnapshot(job: Record<string, unknown>, index: ReturnType<typeof readATSFormSnapshotIndex>): void {
+ const urlKey = atsUrlKey(job.applyUrl || job.url);
+ if (!urlKey) return;
+ const byId = typeof job.id === 'string' ? index.byId.get(job.id) : undefined;
+ const stored = byId && atsUrlKey(byId.jobUrl) === urlKey ? byId : index.byUrl.get(urlKey);
+ if (!stored || stored.provider !== (stored.snapshot as { provider?: unknown }).provider) return;
+ if (atsUrlKey(stored.jobUrl) !== urlKey) return;
+ const current = job.atsApplicationForm as { checkedAt?: unknown } | undefined;
+ const currentAt = Date.parse(String(current?.checkedAt || ''));
+ const storedAt = Date.parse(String((stored.snapshot as { checkedAt?: unknown }).checkedAt || ''));
+ if (!Number.isFinite(currentAt) || storedAt > currentAt) job.atsApplicationForm = stored.snapshot;
 }
 
 // SLIM_INDEX_FIELDS / JobEntry / buildLocaleJob / buildLocaleJobSlim now live in
@@ -72,7 +158,7 @@ const DETAIL_FIELDS = new Set([
  'pensum', 'pensumMin', 'pensumMax',
  'workModel', 'remote',
  'applicationDeadline',
- // Public ATS form fields verified by the employer crawler.
+ // Public ATS form fields captured from the verified application-form source.
  'atsApplicationForm',
  // Publisher-ad fields (logo, markdown description, in-house apply wiring).
  'companyLogo', 'companyLogoKey', 'descriptionMd', 'tier', 'applyMode', 'publisherUid', 'publisherJobId',
@@ -96,6 +182,7 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
 
  function generateFiles(outDir: string): number {
  if (!fs.existsSync(dataJobsPath)) return 0;
+ const atsFormSnapshots = readATSFormSnapshotIndex(rootDir);
 
  // Strip fixture-data records (e.g. "Fixture Corp SA" seed) so they cannot
  // leak into dist/data/jobs-*.json or dist/data/job-detail/*.json.
@@ -113,6 +200,7 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
      dropped += 1;
      continue;
    }
+   applyATSFormSnapshot(job as Record<string, unknown>, atsFormSnapshots);
    jobs.push(normalizeListingIdentity(job));
  }
  // Keep only the stable sort fields job-canon needs; they stay out of the

@@ -1,7 +1,7 @@
 {
   "key": "csvp-poschiavo",
   "label": "Centro Sanitario Valposchiavo (CSVP)",
-  "generatedAt": "2026-11-15T09:23:36.268Z",
+  "generatedAt": "2026-11-16T09:21:37.516Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -15,63 +15,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5232,
-  "avgDurationMs": 5232,
+  "durationMs": 3923,
+  "avgDurationMs": 3923,
   "durationHistory": [
-    5232
+    3923
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "csvp-poschiavo-797cd807e50d",
-      "slug": "tecnico-di-radiologia-medica-sss-csvp-poschiavo-poschiavo",
-      "company": "Centro Sanitario Valposchiavo (CSVP)",
-      "companyKey": "csvp-poschiavo",
-      "companyDomain": "csvp.ch",
-      "title": "Tecnico di radiologia medica SSS",
-      "location": "Poschiavo",
-      "canton": "GR",
-      "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/945-tecnico-di-radiologia-medica-sss",
-      "source": "CSVP Dedicated Parser (Joomla HTML)",
-      "sourceLang": "it",
-      "crawledAt": "2026-11-13T21:20:05.404Z",
-      "addressLocality": "Poschiavo",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7742",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/945-tecnico-di-radiologia-medica-sss",
-      "firstSeenAt": "2026-10-28T09:50:32.762Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "streetAddress": "Poschiavo",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:20:05.404Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 23
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "id": "csvp-poschiavo-44a8dc95f025",
@@ -86,7 +39,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/941-medico-di-famiglia-specialista-fmh-in-medicina-interna-generale",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-15T09:23:18.786Z",
+      "crawledAt": "2026-11-16T09:21:18.979Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -109,7 +62,7 @@
       "salarySource": "estimated",
       "streetAddress": "Poschiavo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:23:18.786Z",
+      "validThrough": "2027-01-06T09:21:18.979Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -131,7 +84,7 @@
       "url": "https://www.csvp.ch/it/lavora-con-noi/cerchiamo/948-addetto-alle-cure-sociosanitarie-o-collaboratore-sanitario-crs",
       "source": "CSVP Dedicated Parser (Joomla HTML)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-15T09:23:18.421Z",
+      "crawledAt": "2026-11-16T09:21:18.788Z",
       "addressLocality": "Poschiavo",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -153,7 +106,7 @@
       "salarySource": "estimated",
       "streetAddress": "Poschiavo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-13T09:23:18.421Z",
+      "validThrough": "2027-02-14T09:21:18.788Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -164,5 +117,5 @@
       }
     }
   ],
-  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
+  "codeCommit": "71e06c4f557e81be4e8743feaa696210bf683ef0"
 }

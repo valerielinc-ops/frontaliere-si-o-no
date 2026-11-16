@@ -58,13 +58,24 @@ import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions
 import { detectLanguageWithConfidence } from '../../../lib/detect-language.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
 import { armFinalFormClickGuardInPage, clearFinalFormGuardInPage, installFinalFormGuardCaptureInPage, readFinalFormGuardStatusInPage } from './form-contract.mjs';
-import { isWorkdayApplicationRouteBound, isWorkdayJobRouteBound, isWorkdayTenantAccountRoute, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayJobRoute, workdayManualApplicationUrl } from './workday-route.mjs';
+import { isWorkdayApplicationRouteBound, isWorkdayJobRouteBound, isWorkdayTenantAccountRoute, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayBareLocaleFallbackUrl, workdayJobRoute, workdayManualApplicationUrl } from './workday-route.mjs';
 import { installPortalReplayFence } from './replay-fence.mjs';
 
 function workdayPostingRouteMismatch(pageUrl, applyUrl, workdayApplicationEntryProven = false) {
   if (!isWorkdayTenantUrl(applyUrl)) return false;
   if (isWorkdayTenantAccountRoute(pageUrl, applyUrl)) return workdayApplicationEntryProven !== true;
   return !isWorkdayJobRouteBound(pageUrl, applyUrl);
+}
+
+const WORKDAY_SEARCH_SHELL_TITLE_RE = /\b(?:search for jobs|stellen suchen|rechercher des emplois|cerca lavoro|ricerca lavoro|offres d'emploi|jobsuche)\b/i;
+
+export function isWorkdayBareLocaleSearchShell(snapshot, title = '') {
+  if (!workdayBareLocaleFallbackUrl(snapshot?.url)) return false;
+  if (hasApplicationForm(snapshot)) return false;
+  if ((snapshot?.buttons || []).some((button) => !button?.disabled && !button?.chrome && startsApplication(button.text || button.label))) {
+    return false;
+  }
+  return WORKDAY_SEARCH_SHELL_TITLE_RE.test(String(title || '')) || isNonApplicationJobSearchSurface(snapshot);
 }
 
 export const WAVE1_CHANNELS = new Set([
@@ -76,8 +87,8 @@ export const WAVE1_CHANNELS = new Set([
 // Login pages in one run: create, verify, sign in, and one retry.
 const MAX_AUTH_STEPS = AGENT_ROUNDS;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
-const FORGOT_PASSWORD_RE = /(?:forgot(?:ten)?\s+(?:your\s+)?password|password\s+forgotten|passwort\s+vergessen|kennwort\s+vergessen|mot de passe\s+oublié|mot de passe\s+oublie|password\s+dimenticat[oa]|hai dimenticato la password|password dimenticata)/i;
-const PASSWORD_RESET_REQUEST_RE = /^(?:send(?:\s+(?:a\s+)?(?:reset\s+)?(?:link|instructions))?|reset\s+password|request\s+(?:a\s+)?password\s+reset|continue|submit|passwort\s+zurücksetzen|kennwort\s+zurücksetzen|réinitialiser le mot de passe|reinitialiser le mot de passe|invia|continua|reimposta password)$/i;
+const FORGOT_PASSWORD_RE = /(?:forgot(?:ten)?\s+(?:your\s+)?password|password\s+forgotten|passwort\s+vergessen|kennwort\s+vergessen|mot de passe\s+oublié|mot de passe\s+oublie|oubli[ée]\s+(?:(?:votre|le|mon)\s+)?mot de passe|password\s+dimenticat[oa]|hai dimenticato la password|password dimenticata)/i;
+const PASSWORD_RESET_REQUEST_RE = /^(?:send(?:\s+(?:a\s+)?(?:reset\s+)?(?:link|instructions))?|reset\s+password|request\s+(?:a\s+)?password\s+reset|continue|submit|passwort\s+zurücksetzen|kennwort\s+zurücksetzen|réinitialiser le mot de passe|reinitialiser le mot de passe|envoyer(?:\s+(?:les\s+instructions|(?:un\s+|le\s+)?lien))?|continuer|soumettre|invia|continua|reimposta password)$/i;
 const PASSWORD_RESET_CONFIRM_RE = /(?:reset|change|update|save|submit|continue|zurücksetzen|zuruecksetzen|speichern|ändern|aendern|modifier|enregistrer|réinitialiser|reinitialiser|salva|aggiorna|reimposta)/i;
 const PASSWORD_RESET_REFUSED_RE = /(?:expired|invalid|not valid|cannot be used|could not be reset|abgelaufen|ungültig|nicht gültig|expiré|invalide|scadut[oa]|non valido|rifiutat[oa])/i;
 const ALREADY_APPLIED_RE = /(?:already applied|application already (?:exists|submitted|received)|you have already applied|déjà postulé|déjà candidaté|bereits beworben|bereits eine bewerbung|già candid(?:at[oa]|at[oa])|hai già inviato la candidatura|già presentata la candidatura)/iu;
@@ -458,7 +469,7 @@ export function profileEntriesForSection(candidate, kind) {
 export function profileEntryAnswer(entry, kind, field) {
   const label = String(field?.label || '').trim();
   const mappings = kind === 'experience'
-    ? [[/^(?:job title|position|role)\s*[＊*]?$/i, 'role'], [/^employer\s*[＊*]?$/i, 'employer'], [/^start date\s*[＊*]?$/i, 'start'], [/^end date\s*[＊*]?$/i, 'end']]
+    ? [[/^(?:job title|position|role)\s*[＊*]?$/i, 'role'], [/^(?:employer|company)\s*[＊*]?$/i, 'employer'], [/^start date\s*[＊*]?$/i, 'start'], [/^end date\s*[＊*]?$/i, 'end']]
     : kind === 'education'
       ? [[/^(?:degree|qualification)\s*[＊*]?$/i, 'degree'], [/^(?:institution|school)\s*[＊*]?$/i, 'institution'], [/^start date\s*[＊*]?$/i, 'start'], [/^end date\s*[＊*]?$/i, 'end']]
       : [];
@@ -1906,18 +1917,50 @@ function samePortalRoute(one, other, base = '') {
 
 const BRASSRING_HOME_WITH_PRELOAD_RE = /^\/tgnewui\/search\/home\/homewithpreload\/?$/i;
 
-/** BrassRing may canonicalize only the case of its fieldless detail route. */
+/** BrassRing may canonicalize siteid, param case, and query order on its detail route. */
+function brassRingQueryParams(url) {
+  const params = new Map();
+  const duplicateIdentityKeys = new Set();
+  for (const [key, value] of url.searchParams.entries()) {
+    const normalizedKey = String(key || '').toLowerCase();
+    if (params.has(normalizedKey)) {
+      if (normalizedKey === 'jobid' || normalizedKey === 'partnerid') duplicateIdentityKeys.add(normalizedKey);
+      continue;
+    }
+    const normalizedValue = String(value || '').trim();
+    params.set(normalizedKey, normalizedKey === 'jobid' || normalizedKey === 'partnerid'
+      ? normalizedValue
+      : normalizedValue.toLowerCase());
+  }
+  return { params, duplicateIdentityKeys };
+}
+
 function sameBrassRingPostingAddress(firstUrl, secondUrl) {
   try {
     const first = new URL(String(firstUrl || ''));
     const second = new URL(String(secondUrl || ''));
-    return first.protocol === 'https:' && second.protocol === 'https:'
-      && first.origin === 'https://jobs.ubs.com' && second.origin === first.origin
-      && !first.username && !first.password && !second.username && !second.password
-      && BRASSRING_HOME_WITH_PRELOAD_RE.test(first.pathname)
-      && BRASSRING_HOME_WITH_PRELOAD_RE.test(second.pathname)
-      && first.pathname.replace(/\/+$/u, '').toLowerCase() === second.pathname.replace(/\/+$/u, '').toLowerCase()
-      && first.search === second.search;
+    if (first.protocol !== 'https:' || second.protocol !== 'https:'
+      || first.origin !== 'https://jobs.ubs.com' || second.origin !== first.origin
+      || first.username || first.password || second.username || second.password
+      || !BRASSRING_HOME_WITH_PRELOAD_RE.test(first.pathname)
+      || !BRASSRING_HOME_WITH_PRELOAD_RE.test(second.pathname)
+      || first.pathname.replace(/\/+$/u, '').toLowerCase() !== second.pathname.replace(/\/+$/u, '').toLowerCase()) {
+      return false;
+    }
+    const firstQuery = brassRingQueryParams(first);
+    const secondQuery = brassRingQueryParams(second);
+    if (firstQuery.duplicateIdentityKeys.size || secondQuery.duplicateIdentityKeys.size) return false;
+    const firstParams = firstQuery.params;
+    const secondParams = secondQuery.params;
+    const firstJobId = firstParams.get('jobid') || '';
+    const secondJobId = secondParams.get('jobid') || '';
+    if (!firstJobId || firstJobId !== secondJobId) return false;
+    const firstPartner = firstParams.get('partnerid') || '';
+    const secondPartner = secondParams.get('partnerid') || '';
+    if ((firstPartner || secondPartner) && firstPartner !== secondPartner) return false;
+    const firstType = firstParams.get('pagetype') || 'jobdetails';
+    const secondType = secondParams.get('pagetype') || 'jobdetails';
+    return firstType === 'jobdetails' && secondType === 'jobdetails';
   } catch {
     return false;
   }
@@ -2037,9 +2080,11 @@ function fieldlessApplicationEntryContextMatchesPosting(control, context = {}) {
   const job = context.job || {};
   if (controlPostingIdentity(control) !== '') return false;
   if (!localContext || !jobTitleCandidates(job).length) return true;
-  if (postingMatch(localContext, job, context.postingUrl) !== 'match') return false;
   if (namesAnotherEmployer(localContext, job)) return false;
-  return titleMatchesJob(localContext, job);
+  if (!titleMatchesJob(localContext, job)) return false;
+  if (postingMatch(localContext, job, context.postingUrl) === 'match') return true;
+  return Boolean(context.pageTitle && postingMatch(context.pageTitle, job, context.postingUrl) === 'match')
+    || sameBrassRingPostingAddress(context.postingUrl, context.applyUrl);
 }
 
 // An Apply dropdown on the verified posting route sits under the vacancy's
@@ -2713,7 +2758,33 @@ async function pageText(page) {
   return texts.join('\n').slice(0, 60_000);
 }
 
+/**
+ * Chromium announces a newly opened application tab before its navigation
+ * leaves the initial about:blank document. Load-state checks on that document
+ * are already complete, so wait for the real destination before extracting
+ * portal controls from the popup.
+ */
+export async function waitForNonBlankPage(page) {
+  let current = '';
+  try {
+    current = page?.url?.() || '';
+  } catch {
+    return false;
+  }
+  if (current !== 'about:blank') return true;
+  if (typeof page?.waitForURL !== 'function') return false;
+  await page.waitForURL(url => url.href !== 'about:blank', {
+    waitUntil: 'domcontentloaded', timeout: POPUP_WAIT_TIMEOUT_MS,
+  }).catch(() => {});
+  try {
+    return page.url() !== 'about:blank';
+  } catch {
+    return false;
+  }
+}
+
 async function settle(page) {
+  await waitForNonBlankPage(page);
   await page.waitForLoadState('domcontentloaded').catch(() => {});
   await page.waitForLoadState('networkidle', { timeout: 8000 }).catch(() => {});
 }
@@ -3808,6 +3879,15 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     }
     const cookies = await resolveCookieConsent(page, snapshot, { agent: stageContext?.cookieAgent || null });
     snapshot = cookies.snapshot || snapshot;
+    if (cookies.status === 'dismissed'
+      && !snapshot?.fields?.length && !snapshot?.buttons?.length && !snapshot?.links?.length
+      && typeof page?.waitForTimeout === 'function') {
+      for (let waited = 0; waited < 10_000
+        && !snapshot?.fields?.length && !snapshot?.buttons?.length && !snapshot?.links?.length; waited += 1000) {
+        await page.waitForTimeout(1000);
+        snapshot = await extractFields(page, NAVIGATION);
+      }
+    }
     const publicRecovery = await recoverStadtZurichPublicJobSearch(page, snapshot, stageContext, {
       searched: publicSearchSearched,
     });
@@ -4191,6 +4271,23 @@ function hasEquivalentEmployerNameHeading(formText, job = {}, pageHeadings = [])
  * ("Infermiere/a" = "Infermiera": same word but the last two letters).
  * 'unknown' when the order names neither.
  */
+function workdayEmployerBrandMatches(pageText, job = {}, pageUrl = '') {
+  if (!isWorkdayTenantUrl(pageUrl)) return false;
+  let subdomain = '';
+  try {
+    subdomain = new URL(String(pageUrl || '')).hostname.split('.')[0].toLowerCase();
+  } catch {
+    return false;
+  }
+  if (!subdomain || subdomain.length < 4 || BRANCH_WORDS.has(subdomain) || NOT_A_NAME.has(subdomain)) return false;
+  const companyWords = nameWords(job.company);
+  if (!companyWords.length || companyWords[0] !== subdomain) return false;
+  const named = ` ${nameWords(pageText).join(' ')} `;
+  if (!named.includes(` ${subdomain} `)) return false;
+  return titleMatchesJob(pageText, job)
+    || Boolean(job.url && isWorkdayTenantUrl(job.url) && sameWorkdayJobRoute(workdayJobRoute(pageUrl), workdayJobRoute(job.url)));
+}
+
 export function postingMatch(pageText, job = {}, pageUrl = '') {
   const company = nameWords(job.company);
   const titles = jobTitleCandidates(job);
@@ -4205,7 +4302,8 @@ export function postingMatch(pageText, job = {}, pageUrl = '') {
     const longForm = companyLongFormWords(job.company);
     return named.includes(` ${company.join(' ')} `)
       || (longForm.length > 0 && named.includes(` ${longForm.join(' ')} `))
-      || talentSoftEmployerAliasMatches(pageText, job, pageUrl) ? 'match' : 'mismatch';
+      || talentSoftEmployerAliasMatches(pageText, job, pageUrl)
+      || workdayEmployerBrandMatches(pageText, job, pageUrl) ? 'match' : 'mismatch';
   }
   return titleMatchesJob(pageText, job) ? 'match' : 'mismatch';
 }
@@ -4219,7 +4317,7 @@ const FORM_VOCABULARY = new Set([
   'vorname', 'nachname', 'email', 'adresse', 'weiter',
   'mein', 'meine', 'meiner', 'meines', 'mon', 'ma', 'mes', 'mio', 'mia', 'miei', 'mie',
   'absenden', 'abschicken', 'einreichen', 'submit', 'submitted', 'send', 'sent', 'envoyer', 'envoyez', 'soumettre', 'soumettez', 'invia', 'inviare', 'invio',
-  'job', 'jobs', 'career', 'careers', 'karriere', 'carriera', 'carriere', 'stelle', 'stellen', 'offerta', 'offre', 'vacancy', 'vacancies',
+  'job', 'jobs', 'detail', 'details', 'career', 'careers', 'karriere', 'carriera', 'carriere', 'stelle', 'stellen', 'offerta', 'offre', 'vacancy', 'vacancies',
   'portal', 'portale', 'portail', 'online', 'form', 'formular', 'formulaire', 'modulo', 'login', 'home', 'tracking', 'system',
   'team', 'bereich', 'welcome', 'willkommen', 'benvenuti', 'bienvenue',
   'number', 'numero', 'nummer',
@@ -4581,6 +4679,7 @@ function hasUnexplainedEmployerCommaHeading(value, job = {}) {
     const words = new Set(nameWords(before));
     return employerTokens.some((word) => words.has(word));
   };
+  const titleWords = new Set(jobTitleCandidates(job).flatMap(nameWords));
   for (let index = 1; index < segments.length; index += 1) {
     const left = segments.slice(0, index).join(' ');
     const selectedEmployerBefore = containsSelectedEmployer(left);
@@ -4588,7 +4687,7 @@ function hasUnexplainedEmployerCommaHeading(value, job = {}) {
     if (!selectedEmployerBefore) {
       const leftWords = nameWords(left);
       const unrelatedLeftIdentity = leftWords.some((word) => !FORM_VOCABULARY.has(word)
-        && !FILLER_WORDS.has(word) && !nameWords(job.title).includes(word));
+        && !FILLER_WORDS.has(word) && !titleWords.has(word));
       if (selectedEmployerAfter && unrelatedLeftIdentity) return true;
       continue;
     }
@@ -4596,7 +4695,6 @@ function hasUnexplainedEmployerCommaHeading(value, job = {}) {
     const normalized = normalizeWords(segment);
     const words = normalized.split(' ').filter(Boolean);
     if (!words.length || EMPLOYER_HEADING_DESCRIPTION_PATTERNS.some((pattern) => pattern.test(normalized))) continue;
-    const titleWords = new Set(nameWords(job.title));
     const relevant = words.filter((word) => !FORM_VOCABULARY.has(word)
       && !FILLER_WORDS.has(word) && !titleWords.has(word));
     if (relevant.length) return true;
@@ -8588,6 +8686,17 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
     const explicitSignInLabel = isExplicitSignInNavigationLabel(
       liveControl?.text, liveControl?.ariaLabel, liveControl?.title, liveControl?.labelledBy,
     );
+    const sameFormAuthButton = Boolean(liveControl)
+      && Boolean(candidate.formId)
+      && candidate.formId === liveControl.formId
+      && Boolean(loginFields({ fields: liveControl.formIdentityFields || [] }).email)
+      && liveControl.formHasPassword === true;
+    const pageLevelCreateAuthButton = Boolean(liveControl)
+      && !candidate.formId
+      && !liveControl.formId
+      && Array.isArray(currentSnapshot?.fields)
+      && authPageKind(currentSnapshot) === 'create'
+      && Boolean(loginFields(currentSnapshot).email);
     const workdayFormButton = liveControl?.tagName === 'BUTTON'
       && isWorkdayTenantUrl(currentUrl)
       && portalProtocol === 'https:'
@@ -8595,10 +8704,7 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
       && liveControl.disabled !== true
       && candidate.dataAutomationId === 'signInLink'
       && liveControl.dataAutomationId === 'signInLink'
-      && Boolean(candidate.formId)
-      && candidate.formId === liveControl.formId
-      && Boolean(loginFields({ fields: liveControl.formIdentityFields || [] }).email)
-      && liveControl.formHasPassword === true
+      && (sameFormAuthButton || pageLevelCreateAuthButton)
       && explicitSignInLabel;
     if (workdayFormButton) {
       return locator.click({ timeout: 6_000 }).then(() => true, () => false);
@@ -8650,11 +8756,15 @@ export async function openVerifiedPasswordResetNavigation(page, snapshot) {
   if (snapshot?.dialogs?.length || authPageKind(snapshot) !== 'sign_in') return false;
   const candidates = [...(snapshot?.links || []), ...(snapshot?.buttons || [])]
     .filter((control) => !control.dialog
-      && (FORGOT_PASSWORD_RE.test([control.text, control.label, control.title, control.ariaLabel].join(' '))
+      && (FORGOT_PASSWORD_RE.test([control.text, control.label, control.title, control.ariaLabel, control.labelledBy].join(' '))
         || control.dataAutomationId === 'forgotPasswordLink'));
   for (const candidate of candidates) {
     const id = String(candidate.id || '');
-    if (!/^[\w-]{1,80}$/.test(id) || !candidate.formId) continue;
+    if (!/^[\w-]{1,80}$/.test(id)) continue;
+    const candidateLabel = [candidate.text, candidate.label, candidate.title, candidate.ariaLabel, candidate.labelledBy].join(' ');
+    const pageLevelResetCandidate = !candidate.formId
+      && (candidate.dataAutomationId === 'forgotPasswordLink' || FORGOT_PASSWORD_RE.test(candidateLabel));
+    if (!candidate.formId && !pageLevelResetCandidate) continue;
     const frame = page.frames()[Number(candidate.frame) || 0] || page.mainFrame();
     const locator = frame.locator(`[data-aa-id="${id}"]`).first();
     if (typeof locator?.isVisible !== 'function' || typeof locator?.evaluate !== 'function'
@@ -8666,6 +8776,7 @@ export async function openVerifiedPasswordResetNavigation(page, snapshot) {
         .map((labelId) => element.ownerDocument.getElementById(labelId)?.innerText || '').join(' ');
       return {
         tagName: String(element.tagName || '').toUpperCase(),
+        role: element.getAttribute('role') || '',
         href: element.getAttribute('href'),
         text: element.innerText || element.textContent || '',
         ariaLabel: element.getAttribute('aria-label') || '',
@@ -8690,13 +8801,29 @@ export async function openVerifiedPasswordResetNavigation(page, snapshot) {
     }).catch(() => null);
     const label = [live?.text, live?.ariaLabel, live?.title, live?.labelledBy].join(' ');
     const explicit = FORGOT_PASSWORD_RE.test(label) || live?.dataAutomationId === 'forgotPasswordLink';
-    if (!explicit || live?.disabled || candidate.disabled === true
-      || live.formId !== String(candidate.formId)
-      || !loginFields({ fields: live.formIdentityFields || [] }).email || live.formHasPassword !== true) continue;
+    if (!live || !explicit || live.disabled || candidate.disabled === true) continue;
     let current;
     try { current = new URL(frame.url()); } catch { continue; }
     if (current.protocol !== 'https:' || current.username || current.password) continue;
-    if (live.tagName === 'BUTTON') {
+    const sameFormReset = Boolean(candidate.formId)
+      && live.formId === String(candidate.formId)
+      && Boolean(loginFields({ fields: live.formIdentityFields || [] }).email)
+      && live.formHasPassword === true;
+    const pageLogin = Array.isArray(snapshot?.fields) ? loginFields(snapshot) : { email: null, password: null };
+    const pageLevelLogin = Boolean(pageLogin.email && pageLogin.password
+      && !pageLogin.email.formId && !pageLogin.password.formId);
+    const liveButton = live.tagName === 'BUTTON' || live.role === 'button';
+    const workdayPageReset = !candidate.formId
+      && !live.formId
+      && isWorkdayTenantUrl(current.href)
+      && liveButton
+      && candidate.chrome !== true
+      && pageLevelLogin
+      && (candidate.dataAutomationId === 'forgotPasswordLink'
+        || live.dataAutomationId === 'forgotPasswordLink'
+        || FORGOT_PASSWORD_RE.test(label));
+    if (!sameFormReset && !workdayPageReset) continue;
+    if (liveButton) {
       if (candidate.dataAutomationId !== 'forgotPasswordLink'
         && live.dataAutomationId !== 'forgotPasswordLink' && !FORGOT_PASSWORD_RE.test(label)) continue;
       return locator.click({ timeout: 6_000 }).then(() => true, () => false);
@@ -10832,6 +10959,12 @@ export async function submitViaPortal(ctx) {
     workdayApplicationEntryProven = isWorkdayApplicationRouteBound(entryUrl, ctx.applyUrl);
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
+    const bareLocaleFallback = workdayBareLocaleFallbackUrl(page.url());
+    if (bareLocaleFallback && isWorkdayBareLocaleSearchShell(snapshot, await page.title().catch(() => ''))) {
+      response = await page.goto(bareLocaleFallback, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      await settle(page);
+      snapshot = await extractFields(page, NAVIGATION);
+    }
     sourceProtocol = snapshot.protocol || null;
     // Consent dialogs can put their own heading before a vacancy in the
     // rendered text. Resolve the explicit cookie choice before checking that
@@ -10882,7 +11015,9 @@ export async function submitViaPortal(ctx) {
       && isNonApplicationJobSearchSurface(snapshot);
     const postingTitle = typeof page.title === 'function' ? await page.title().catch(() => '') : '';
     const postingHeading = await postingMainHeading(page);
-    const postingTitleBound = jobRoomExternalAdFollowed || samePostingAddress(page.url(), ctx.postingUrl);
+    const postingTitleBound = jobRoomExternalAdFollowed
+      || samePostingAddress(page.url(), ctx.postingUrl)
+      || sameBrassRingPostingAddress(page.url(), ctx.postingUrl);
     const portalJob = postingTitleBound && postingHeading
       ? { ...ctx.job, observedPostingTitle: postingHeading }
       : ctx.job;
@@ -10946,8 +11081,8 @@ export async function submitViaPortal(ctx) {
     // selected page must be allowed to expose its own application entry before
     // a form exists; the entry and the form are still checked below.
     const selectedPostingIsApplicationUrl = Boolean(ctx.applyUrl && ctx.postingUrl
-      && samePostingAddress(ctx.applyUrl, ctx.postingUrl)
-      && samePostingAddress(postingUrl, ctx.postingUrl));
+      && (samePostingAddress(ctx.applyUrl, ctx.postingUrl) || sameBrassRingPostingAddress(ctx.applyUrl, ctx.postingUrl))
+      && (samePostingAddress(postingUrl, ctx.postingUrl) || sameBrassRingPostingAddress(postingUrl, ctx.postingUrl)));
     // When the selected posting URL is the page currently open, a failed
     // vacancy-identity check is terminal. Do not let a company-only match on
     // the same page turn a stale role into an application form.
@@ -11011,7 +11146,8 @@ export async function submitViaPortal(ctx) {
       // their final snapshot may expose only native controls. Preserve the
       // posting proof established on that exact route; a route change still
       // requires the normal application-entry binding below.
-      const sameSelectedPosting = postingVacancyMatched && samePostingAddress(pageUrl, postingUrl);
+      const sameSelectedPosting = postingVacancyMatched
+        && (samePostingAddress(pageUrl, postingUrl) || sameBrassRingPostingAddress(pageUrl, postingUrl));
       const result = formPostingMatch(seen, portalJob, {
         postingMatched: enteredFromMatchingPosting || sameSelectedPosting,
         postingEntry: enteredFromMatchingPosting,

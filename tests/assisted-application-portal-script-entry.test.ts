@@ -99,6 +99,64 @@ describe('verified posting script entry (#17253)', () => {
     expect(applicationEntryControls({ ...snapshot, buttons: [apply, { text: 'Apply for another job', frame: 0 }] }, context)).toEqual([]);
   });
 
+  it('does not equate BrassRing identity values that differ only by case', () => {
+    const postingUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=PartnerA&jobid=JobA';
+    const apply = { text: 'Apply now', frame: 0 };
+
+    expect(applicationEntryControls({
+      url: postingUrl.replace('PartnerA', 'partnera').replace('JobA', 'joba'),
+      fields: [],
+      buttons: [apply],
+    }, {
+      applyUrl: postingUrl,
+      postingUrl,
+      selectedPostingIsApplicationUrl: true,
+      allowSingleExternalApplicationEntry: true,
+    })).toEqual([]);
+  });
+
+  it('rejects BrassRing routes with duplicate identity parameters', () => {
+    const postingUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&jobid=348358';
+    const apply = { text: 'Apply now', frame: 0 };
+
+    expect(applicationEntryControls({
+      url: `${postingUrl}&jobid=348358`,
+      fields: [],
+      buttons: [apply],
+    }, {
+      applyUrl: postingUrl,
+      postingUrl,
+      selectedPostingIsApplicationUrl: true,
+      allowSingleExternalApplicationEntry: true,
+    })).toEqual([]);
+  });
+
+  it('opens the sole BrassRing Apply now control when section/context omits the employer name', () => {
+    const ubsUrl = 'https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=353466&PageType=jobdetails';
+    const apply = {
+      text: 'Apply now',
+      frame: 0,
+      section: 'Head Sales Office - Marketing, Design & Digital Sales, 100%',
+      context: 'Job Details · Head Sales Office - Marketing, Design & Digital Sales, 100%',
+    };
+    expect(applicationEntryControls({
+      url: `${ubsUrl}#jobDetails=353466_5012`,
+      fields: [],
+      buttons: [apply, { text: 'Save', frame: 0 }],
+    }, {
+      applyUrl: ubsUrl,
+      postingUrl: ubsUrl,
+      pageTitle: 'Head Sales Office - Marketing, Design & Digital Sales, 100% | UBS',
+      selectedPostingIsApplicationUrl: true,
+      allowSingleExternalApplicationEntry: true,
+      job: {
+        title: 'Sede di vendita - Marketing, Design & Digital Sales, 100%',
+        observedPostingTitle: 'Head Sales Office - Marketing, Design & Digital Sales, 100%',
+        company: 'UBS',
+      },
+    })).toEqual([apply]);
+  });
+
   it.each([
     ['unverified posting', snapshot, { ...context, allowSingleExternalApplicationEntry: false }],
     ['different job', { ...snapshot, url: url.replace('123', '456') }, context],
@@ -138,6 +196,46 @@ describe('verified posting script entry (#17253)', () => {
       postingUrl,
       allowSingleExternalApplicationEntry: true,
       job: { title: 'Current Role' },
+    })).toEqual([]);
+  });
+
+  it('matches BrassRing fieldless Apply CTA after siteid and query canonicalization', () => {
+    const postingUrl = 'https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=353466&PageType=jobdetails';
+    const canonicalUrl = 'https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5155&PageType=JobDetails&jobid=353466#jobDetails=353466_5155';
+    const apply = { text: 'Apply now', frame: 0, section: 'Head Sales Office - Marketing, Design & Digital Sales, 100%' };
+    expect(applicationEntryControls({
+      url: canonicalUrl,
+      fields: [],
+      buttons: [apply],
+    }, {
+      applyUrl: postingUrl,
+      postingUrl,
+      pageTitle: 'Head Sales Office - Marketing, Design & Digital Sales, 100% | UBS - Experienced professionals - job boards',
+      selectedPostingIsApplicationUrl: true,
+      allowSingleExternalApplicationEntry: true,
+      job: {
+        company: 'UBS',
+        title: 'Sede di vendita - Marketing, Design & Digital Sales, 100%',
+        observedPostingTitle: 'Head Sales Office - Marketing, Design & Digital Sales, 100%',
+      },
+    })).toEqual([apply]);
+
+    const otherJobUrl = 'https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5155&PageType=JobDetails&jobid=999999';
+    expect(applicationEntryControls({
+      url: otherJobUrl,
+      fields: [],
+      buttons: [apply],
+    }, {
+      applyUrl: postingUrl,
+      postingUrl,
+      pageTitle: 'Head Sales Office - Marketing, Design & Digital Sales, 100% | UBS - Experienced professionals - job boards',
+      selectedPostingIsApplicationUrl: true,
+      allowSingleExternalApplicationEntry: true,
+      job: {
+        company: 'UBS',
+        title: 'Sede di vendita - Marketing, Design & Digital Sales, 100%',
+        observedPostingTitle: 'Head Sales Office - Marketing, Design & Digital Sales, 100%',
+      },
     })).toEqual([]);
   });
 });

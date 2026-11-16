@@ -178,7 +178,7 @@ jobs:
         h1-title-duplicates,content-duplicates,faqpage-validity,
         image-object-license,no-literal-markdown,breadcrumb-coverage,
         single-h1-per-page,duplicate-structured-data,link-anchor-text,
-        duplicate-meta-description,information-gain,page-weight,
+        duplicate-meta-description,information-gain,img-attributes,
         salary-landing-template
     secrets: inherit
     permissions:

@@ -1,16 +1,16 @@
 {
   "key": "lombardi-group",
   "label": "Lombardi Group",
-  "generatedAt": "2026-11-15T09:26:53.572Z",
+  "generatedAt": "2026-11-16T09:20:33.988Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 18011,
-  "avgDurationMs": 18011,
+  "durationMs": 17106,
+  "avgDurationMs": 17106,
   "durationHistory": [
-    18011
+    17106
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "2026-12-15T09:26:41.260Z",
+      "validThrough": "2026-12-16T09:20:16.231Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -48,7 +48,7 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-15T09:26:41.260Z",
+      "crawledAt": "2026-11-16T09:20:16.231Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -79,7 +79,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "2026-12-15T09:26:41.260Z",
+      "validThrough": "2026-12-16T09:20:16.231Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -92,7 +92,7 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-15T09:26:41.260Z",
+      "crawledAt": "2026-11-16T09:20:16.231Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -128,14 +128,14 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "2027-02-10T09:26:41.260Z",
+      "validThrough": "2027-02-10T09:20:16.231Z",
       "id": "lombardi-group-79181364bd1b",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "reported",
       "postalCode": "6512",
-      "crawledAt": "2026-11-15T09:26:41.260Z",
+      "crawledAt": "2026-11-16T09:20:16.231Z",
       "crawledAtSource": "slice-writer",
       "streetAddress": "Giubiasco",
       "streetAddressSource": "to-enrich",
@@ -170,7 +170,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "2026-12-15T09:26:41.260Z",
+      "validThrough": "2026-12-16T09:20:16.231Z",
       "id": "lombardi-group-b671bc890ee8",
       "salaryMin": 79500,
       "salaryMax": 120500,
@@ -183,7 +183,7 @@
       "streetAddress": "Giubiasco",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-15T09:26:41.260Z",
+      "crawledAt": "2026-11-16T09:20:16.231Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -214,7 +214,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "2026-12-15T09:26:41.260Z",
+      "validThrough": "2026-12-16T09:20:16.231Z",
       "id": "lombardi-group-1a1731602394",
       "salaryMin": 79500,
       "salaryMax": 120500,
@@ -227,7 +227,7 @@
       "streetAddress": "Giubiasco",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-15T09:26:41.260Z",
+      "crawledAt": "2026-11-16T09:20:16.231Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -258,7 +258,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "2026-12-15T09:26:41.260Z",
+      "validThrough": "2026-12-16T09:20:16.231Z",
       "id": "lombardi-group-28c819852acb",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -271,7 +271,7 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-15T09:26:41.260Z",
+      "crawledAt": "2026-11-16T09:20:16.231Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -302,7 +302,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "2026-12-15T09:26:41.260Z",
+      "validThrough": "2026-12-16T09:20:16.231Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -315,7 +315,7 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-15T09:26:41.260Z",
+      "crawledAt": "2026-11-16T09:20:16.231Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -346,7 +346,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "permanent",
-      "validThrough": "2026-12-15T09:26:41.260Z",
+      "validThrough": "2026-12-16T09:20:16.231Z",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -359,7 +359,7 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-15T09:26:41.260Z",
+      "crawledAt": "2026-11-16T09:20:16.231Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -370,5 +370,5 @@
       }
     }
   ],
-  "codeCommit": "bbdc78117e7affcfeb7c2cdfcb40f2f959955c8e"
+  "codeCommit": "71e06c4f557e81be4e8743feaa696210bf683ef0"
 }

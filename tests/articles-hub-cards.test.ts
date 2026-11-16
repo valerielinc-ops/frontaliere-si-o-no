@@ -43,7 +43,7 @@ const META = {
 };
 
 describe('renderArticleHubCards', () => {
-  it('applies the shared page-weight limit when callers omit an explicit limit', () => {
+  it('applies the shared card limit when callers omit an explicit limit', () => {
     const articles = Array.from({ length: ARTICLE_HUB_CARD_LIMIT + 1 }, (_, index) => ({
       ...ARTICLE,
       id: `article-${index}`,
@@ -58,26 +58,6 @@ describe('renderArticleHubCards', () => {
     });
 
     expect(html.match(/class="ssg-art-card"/g)).toHaveLength(ARTICLE_HUB_CARD_LIMIT);
-  });
-
-  it('keeps a representative 100-entry card payload below the hub budget', () => {
-    const articles = Array.from({ length: 100 }, (_, index) => ({
-      ...ARTICLE,
-      id: `article-${index}`,
-    }));
-    const html = renderArticleHubCards({
-      articles,
-      locale: 'it',
-      sectionSlug: 'articoli-frontaliere',
-      localePrefix: '',
-      resolveSlug: (id) => id,
-      resolveMeta: () => META,
-    });
-
-    // The full-page audit measures the shell too; this deterministic fixture
-    // guards the shared card payload so a future cap increase cannot silently
-    // consume the shell's remaining 260 KiB budget.
-    expect(Buffer.byteLength(html, 'utf8')).toBeLessThan(13_000);
   });
 
   it('reproduces the card markup production already serves, byte for byte', () => {

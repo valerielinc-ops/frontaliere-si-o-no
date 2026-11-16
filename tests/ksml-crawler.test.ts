@@ -217,6 +217,7 @@ describe('KSML (Kanton Bern) crawler parser', () => {
       expect(jobs).toHaveLength(1);
       expect(jobs[0]).toMatchObject({
         companyKey: 'ksml',
+        company: 'Schule Bern',
         canton: 'BE',
         country: 'CH',
         sourceLang: 'de',

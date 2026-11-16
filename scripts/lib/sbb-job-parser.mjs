@@ -276,7 +276,7 @@ function canonicalSbbLocality(value = '') {
 // ─── Main parser ───────────────────────────────────────────────────────────────
 
 /**
- * Parse a jobs.sbb.ch detail page HTML into a structured job record fragment.
+ * Parse an SBB detail page HTML into a structured job record fragment.
  *
  * Combines JSON-LD (for metadata) with HTML section extraction (for full body).
  * The HTML sections are preferred over JSON-LD description when they yield

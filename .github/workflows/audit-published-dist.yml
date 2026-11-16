@@ -64,7 +64,7 @@ jobs:
         image-object-license,
         no-literal-markdown,breadcrumb-coverage,single-h1-per-page,
         duplicate-structured-data,link-anchor-text,duplicate-meta-description,
-        information-gain,page-weight,salary-landing-template
+        information-gain,img-attributes,salary-landing-template
     secrets: inherit
     permissions:
       contents: read

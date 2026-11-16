@@ -179,6 +179,56 @@ export const CONFLICT_RESOLUTION_LOCK_MAX_AGE_MS = 60 * 60 * 1000;
 // riparazione resta near-merge-only.
 const MAIN_CONFLICT_MARKER = '<!-- MAIN_CONFLICT -->';
 const MAIN_CONFLICT_LABEL = 'has-conflicts';
+export function renderMainConflictGuidance(files, registry = GENERATED_FILE_REGISTRY) {
+  const generated = [];
+  const manual = [];
+  const rules = [];
+
+  for (const file of files) {
+    const plan = generatedConflictPlan([file], registry);
+    if (plan.eligible) {
+      generated.push(file);
+      for (const rule of plan.rules) {
+        if (!rules.includes(rule)) rules.push(rule);
+      }
+    } else {
+      manual.push(file);
+    }
+  }
+
+  const genericGuidance = `\`\`\`bash
+git fetch origin main && git merge origin/main
+# risolvi, poi:
+git add -A && git commit && git push
+\`\`\``;
+  if (generated.length === 0) return genericGuidance;
+
+  const formatPath = (file) => `\`${file.replaceAll('`', '\\`')}\``;
+  const shellQuote = (value) => `'${value.replaceAll("'", "'\\''")}'`;
+  const commands = [
+    'git fetch origin main && git merge origin/main',
+    ...rules.map((rule) => rule.display ?? rule.generator?.display),
+    ...(rules.some((rule) => rule.id === 'crawler-group-workflows')
+      ? ['node scripts/generate-crawler-group-workflows.mjs --check']
+      : []),
+    `git add -- ${generated.map(shellQuote).join(' ')}`,
+    'git commit && git push',
+  ];
+  const sections = [
+    `🤖 **File generati — NON risolverli a mano (né --ours né --theirs, né copiandoli da main):** ${generated.map(formatPath).join(', ')}`,
+    'Il ciclo li rigenera da solo con il commit `Merge origin/main (regenerate generated files)`. Se devi farlo tu, dopo il fetch e il merge esegui per ogni regola coinvolta il comando indicato dal registro (uno per riga nel blocco bash), poi il controllo previsto per il generatore e aggiungi al commit solo i file generati elencati.',
+    `\`\`\`bash\n${commands.join('\n')}\n\`\`\``,
+  ];
+
+  if (manual.length > 0) {
+    sections.push(
+      `File non generati (risolvi a mano): ${manual.map(formatPath).join(', ')}`,
+      genericGuidance,
+    );
+  }
+
+  return sections.join('\n\n');
+}
 // One-shot per PR: `vitestFailureIsNotAttributableToPr` è pura e ri-risponderebbe
 // `true` a ogni tick finché l'head resta rosso. Il marker rende il rescue
 // irripetibile: una PR ri-testata contro main verde che torna ROSSA è rotta per
@@ -1901,11 +1951,7 @@ File in conflitto (\`git merge-tree --write-tree origin/main ${head.slice(0, 8)}
 
 ${list}${more}
 
-\`\`\`bash
-git fetch origin main && git merge origin/main
-# risolvi, poi:
-git add -A && git commit && git push
-\`\`\`
+${renderMainConflictGuidance(verdict.files)}
 
 Nota per chi automatizza: \`gh pr view --json mergeable\` **non** è l'oracolo — è una cache asincrona che risponde \`UNKNOWN\` proprio subito dopo un push su main, cioè quando i conflitti nascono. Quello sopra lo è.
 

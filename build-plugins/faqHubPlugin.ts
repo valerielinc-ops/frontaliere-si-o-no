@@ -633,8 +633,8 @@ function renderPage(
 
   // FAQ hub body CSS (.fh-* classes) now lives in public/assets/seo-static.css
   // (already linked on this page) instead of a per-page inline <style> block.
-  // The classes keep the rendered HTML under the 200 KB page-weight gate; the
-  // shared sheet drops the ~2 KB block from every FAQ hub page.
+  // The shared sheet avoids repeating the same presentation rules in every
+  // FAQ hub page.
   const wordCount = countHtmlBodyWords(body);
 
   const html = buildSeoPageHtml({

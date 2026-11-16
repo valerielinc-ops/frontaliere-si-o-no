@@ -40,9 +40,8 @@ import { decode } from 'html-entities';
  * output therefore contains no attribute and no tag the code did not write,
  * whatever the browser would have made of the input.
  *
- * Also covered: the Teamtailor `<figure><img>` that was the only
- * `audit:all/page-weight` offender of validate-dist run 36922718485 (images
- * without width/height hotlinked from the ATS CDN).
+ * This also removes Teamtailor `<figure><img>` markup hotlinked from the ATS
+ * CDN, including images without width/height.
  */
 
 /** Tags rebuilt as-is (no attributes, except `a[href]`). */

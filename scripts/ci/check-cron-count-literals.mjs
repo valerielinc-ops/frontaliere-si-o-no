@@ -96,6 +96,7 @@ export const EXTRA_CRON_PATHS = Object.freeze([
   'data/translation-title-fix-attempts.json',
   'data/dist-size-history.jsonl',
   'data/url-first-seen.json',
+  'data/url-first-seen/',
   'data/cascade-company-skip.json',
   'data/jobs-ai-cache.json',
   'data/previous-slug-winners.json',
