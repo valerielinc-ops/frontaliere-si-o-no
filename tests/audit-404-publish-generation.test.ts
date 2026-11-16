@@ -32,6 +32,8 @@ import {
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT = readFileSync(resolve(ROOT, 'scripts/audit-404-risk.mjs'), 'utf-8');
+const PUBLISH_WORKFLOW = readFileSync(resolve(ROOT, '.github/workflows/deploy-publish.yml'), 'utf-8');
+const HEARTBEAT_SCRIPT = readFileSync(resolve(ROOT, 'scripts/lib/heartbeat-section-shard.sh'), 'utf-8');
 
 /**
  * The module runs `main()` on import, so the pure helpers are exercised through
@@ -459,6 +461,23 @@ describe('generationSummary — the deferral is bounded, not open-ended', () => 
       NOW,
     );
     expect(s.staleShards).toEqual([]);
+  });
+});
+
+describe('publish generation heartbeat for build-skipped article shards', () => {
+  it('advances all four articolisvizzera generations without re-enabling a full payload push', () => {
+    expect(PUBLISH_WORKFLOW).toContain('Heartbeat excluded articolisvizzera IT shard');
+    expect(PUBLISH_WORKFLOW).toContain('bash scripts/lib/heartbeat-section-shard.sh articolisvizzera it');
+    expect(PUBLISH_WORKFLOW).toContain('bash scripts/lib/heartbeat-section-shard.sh "$section" "$loc"');
+    expect(PUBLISH_WORKFLOW).toContain('if [ "$section" = articolisvizzera ]; then');
+    expect(PUBLISH_WORKFLOW).toContain('BUILD_EMIT_SKIP=true — excluded from full-replace push');
+  });
+
+  it('keeps the heartbeat fail-closed and marker-only', () => {
+    expect(HEARTBEAT_SCRIPT).toContain("if [ \"$changed_paths\" != '.shard-source' ]; then");
+    expect(HEARTBEAT_SCRIPT).toContain('exit 1');
+    expect(HEARTBEAT_SCRIPT).toContain('shard_pat_push "$stage" "$shard_repo" "$refspec" "$label" 0');
+    expect(HEARTBEAT_SCRIPT).not.toMatch(/git[^\n]*push[^\n]*(?:\s-f\b|--force)/);
   });
 });
 

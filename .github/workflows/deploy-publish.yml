@@ -1193,6 +1193,17 @@ jobs:
           fi
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
+      - name: Heartbeat excluded articolisvizzera IT shard
+        if: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP != 'false' }}
+        env:
+          DEPLOY_HEAD_SHA: ${{ inputs.source_sha }}
+          SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY }}
+        run: |
+          set -euo pipefail
+          export GITHUB_SHA="$DEPLOY_HEAD_SHA"
+          node scripts/ci/with-shard-writer-lock.mjs \
+            --section articolisvizzera --locale it --policy wait --timeout-ms 3600000 -- \
+            bash scripts/lib/heartbeat-section-shard.sh articolisvizzera it
       - name: Download IT root source artifact
         uses: actions/download-artifact@v8
         with:
@@ -2315,6 +2326,12 @@ jobs:
             skip_var="$(echo "$section" | LC_ALL=C tr '[:lower:]' '[:upper:]')_BUILD_EMIT_SKIP"
             if [ "${!skip_var:-}" = "true" ]; then
               echo "$section-$loc: BUILD_EMIT_SKIP=true — excluded from full-replace push (served by fast-publish only)"
+              if [ "$section" = articolisvizzera ]; then
+                node scripts/ci/with-shard-writer-lock.mjs \
+                  --section "$section" --locale "$loc" --policy wait --timeout-ms 3600000 -- \
+                  bash scripts/lib/heartbeat-section-shard.sh "$section" "$loc"
+                return $?
+              fi
               return 0
             fi
             # A full-overlay ticino-fr push of 9.9 GB / 558,573 files completed
