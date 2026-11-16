@@ -93,18 +93,56 @@
           }
           return (hash % 4096).toString(16).padStart(3, '0');
         }
+        var JOB_CANON_MARKER_TIMEOUT_MS = 1000;
+        function isValidJobCanonBuildId(value) {
+          return typeof value === 'string' && value.length > 0 && value.length <= 20
+            && /^[0-9]+$/.test(value);
+        }
+        // Bridge removal depends on the CDN publishing this marker after the
+        // complete map payload. The marker URL is excluded from CDN caching;
+        // no-store also bypasses the browser cache. Do not add request headers
+        // here: a non-safelisted header would force a cross-origin preflight.
+        function fetchJobCanonBuildId(request) {
+          var controller = new AbortController();
+          var timeout = setTimeout(function() { controller.abort(); }, JOB_CANON_MARKER_TIMEOUT_MS);
+          return Promise.resolve().then(function() {
+            return request(JOB_CANON_CDN + '/cdn-build-id.txt', {
+              cache: 'no-store', mode: 'cors', credentials: 'omit', signal: controller.signal
+            });
+          }).then(function(response) {
+            if (!response.ok) return null;
+            return response.text().then(function(body) {
+              var buildId = body.trim();
+              return isValidJobCanonBuildId(buildId) ? buildId : null;
+            });
+          }).catch(function() {
+            return null;
+          }).then(function(buildId) {
+            clearTimeout(timeout);
+            return buildId;
+          });
+        }
+        function jobCanonMapUrl(path, buildId) {
+          if (!isValidJobCanonBuildId(buildId)) return null;
+          var url = new URL(path, JOB_CANON_CDN);
+          url.searchParams.set('build_id', buildId);
+          return url.toString();
+        }
         function fetchJobCanonMap(value, fetcher) {
           var request = fetcher || fetch;
-          var options = { cache: 'force-cache' };
-          var v2Url = JOB_CANON_CDN + '/job-canon/v2/' + jobCanonV2ShardKey(value) + '.json';
-          var v1Url = JOB_CANON_CDN + '/job-canon/' + jobCanonV1ShardKey(value) + '.json';
-          return request(v2Url, options).then(function(r) {
-            if (r.status === 404 || r.status === 410) {
-              return request(v1Url, options).then(function(fallback) {
-                return fallback.ok ? fallback.json() : null;
-              });
-            }
-            return r.ok ? r.json() : null;
+          return fetchJobCanonBuildId(request).then(function(buildId) {
+            if (!buildId) return null;
+            var options = { cache: 'force-cache', mode: 'cors', credentials: 'omit' };
+            var v2Url = jobCanonMapUrl('/job-canon/v2/' + jobCanonV2ShardKey(value) + '.json', buildId);
+            var v1Url = jobCanonMapUrl('/job-canon/' + jobCanonV1ShardKey(value) + '.json', buildId);
+            return request(v2Url, options).then(function(r) {
+              if (r.status === 404 || r.status === 410) {
+                return request(v1Url, options).then(function(fallback) {
+                  return fallback.ok ? fallback.json() : null;
+                });
+              }
+              return r.ok ? r.json() : null;
+            });
           });
         }
         // Request locale (en|de|fr, else it). The map value is per-locale because
@@ -254,15 +292,18 @@
       .links span { font-size: 20px; }
       .home-btn { display: inline-block; margin-top: 24px; padding: 12px 32px; background: #4f46e5; color: white; border-radius: 10px; text-decoration: none; font-weight: 600; transition: background .2s; }
       .home-btn:hover { background: #4338ca; }
-      .footer { text-align: center; padding: 16px; color: #94a3b8; font-size: 13px; }
-      .footer a { color: #6366f1; text-decoration: none; }
+      .footer { text-align: center; padding: 16px; color: #475569; font-size: 13px; }
+      .footer a { color: #4f46e5; text-decoration: none; }
       .footer a:hover { text-decoration: underline; }
       @media (prefers-color-scheme: dark) {
         body { background: #020617; color: #f1f5f9; }
         .card { background: #1e293b; box-shadow: 0 4px 6px rgba(0,0,0,.3); }
+        .code { color: #a5b4fc; }
         p { color: #94a3b8; }
         .links a { background: #334155; color: #f1f5f9; }
         .links a:hover { background: #475569; }
+        .footer { color: #94a3b8; }
+        .footer a { color: #a5b4fc; }
       }
     </style>
   </head>
