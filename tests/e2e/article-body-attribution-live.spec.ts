@@ -1,4 +1,9 @@
 import { test, expect, type Page } from 'playwright/test';
+import {
+  dailyBriefEditionId,
+  dailyBriefPublicationState,
+  shouldSkipUnpublishedDailyBrief,
+} from '../helpers/dailyBriefLive';
 
 /**
  * Live guard: the body a reader sees belongs to the article they opened.
@@ -54,7 +59,15 @@ test('un articolo aperto dopo il bollettino non ne eredita il corpo', async ({ p
   const today = new Date().toISOString().slice(0, 10);
   const briefUrl = `${BASE}/articoli-frontaliere/bollettino-frontaliere-${today}/`;
   const landing = await page.goto(briefUrl, { waitUntil: 'domcontentloaded' });
-  test.skip(!landing || landing.status() === 404, `nessuna edizione per ${today} — niente da osservare`);
+  const status = landing?.status();
+  const publicationState = status === 200
+    ? 'published'
+    : await dailyBriefPublicationState(dailyBriefEditionId(today));
+  test.skip(
+    shouldSkipUnpublishedDailyBrief(status, publicationState),
+    `nessuna edizione per ${today} — publisher registry has no entry`,
+  );
+  expect(status, `${briefUrl} must serve 200`).toBe(200);
 
   await page.waitForTimeout(4000);
   await dismissConsent(page);
@@ -104,7 +117,15 @@ test('nessuno degli articoli aperti nella stessa visita eredita il bollettino', 
   const landing = await page.goto(`${BASE}/articoli-frontaliere/bollettino-frontaliere-${today}/`, {
     waitUntil: 'domcontentloaded',
   });
-  test.skip(!landing || landing.status() === 404, `nessuna edizione per ${today} — niente da osservare`);
+  const status = landing?.status();
+  const publicationState = status === 200
+    ? 'published'
+    : await dailyBriefPublicationState(dailyBriefEditionId(today));
+  test.skip(
+    shouldSkipUnpublishedDailyBrief(status, publicationState),
+    `nessuna edizione per ${today} — publisher registry has no entry`,
+  );
+  expect(status, `${BASE}/articoli-frontaliere/bollettino-frontaliere-${today}/ must serve 200`).toBe(200);
   await page.waitForTimeout(4000);
   await dismissConsent(page);
   test.skip(!isBrief(await articleText(page)), 'la pagina di atterraggio non è il bollettino');
