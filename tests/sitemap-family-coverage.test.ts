@@ -228,23 +228,10 @@ describe('sitemap family URL coverage ratchet', () => {
     expect(increased.churn).toEqual([]);
   });
 
-  it('keeps the existing exact fuel-stations declaration valid', () => {
-    // Solo la dichiarazione di fuel: le altre famiglie nel file vivo (es. #18999) non sono parte di questo scenario.
-    const allDeclarations = JSON.parse(readFileSync(resolve(import.meta.dirname, '../data/sitemap-family-coverage-declarations.json'), 'utf8'));
-    const declarations = { ...allDeclarations, decreases: allDeclarations.decreases.filter((entry: { family: string }) => entry.family === 'fuel-italian-stations') };
-    const result = evaluateSitemapFamilyCoverage(
-      snapshot({ 'sitemap-fuel-italian-stations.xml': familyUrls('fuel-stations', 4116) }),
-      snapshot({ 'sitemap-fuel-italian-stations.xml': familyUrls('fuel-stations', 4112) }),
-      declarations,
-    );
+  it('guards the live sitemap coverage declarations file after retiring exact exceptions', () => {
+    const declarations = JSON.parse(readFileSync(resolve(import.meta.dirname, '../data/sitemap-family-coverage-declarations.json'), 'utf8'));
 
-    expect(result.regressions).toEqual([]);
-    expect(result.allowedDecreases).toMatchObject([
-      { family: 'fuel-italian-stations', previousCount: 4116, currentCount: 4112, delta: -4 },
-    ]);
-    expect(result.invalidDeclarations).toEqual([]);
-    expect(result.staleDeclarations).toEqual([]);
-    expect(result.churn).toEqual([]);
+    expect(declarations).toEqual(NO_DECLARATIONS);
   });
 
   it('diffs unique family URLs with sorted five-item samples without mutating snapshots', () => {
