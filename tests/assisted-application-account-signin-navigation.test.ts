@@ -163,6 +163,29 @@ describe('verified sign-in navigation from an existing-account registration page
     expect(header.frame.goto).not.toHaveBeenCalled();
   });
 
+  it('uses the Workday signInLink button outside a form on a create-account page while still rejecting utilityButtonSignIn', async () => {
+    const currentUrl = `https://${HOST}/fr-FR/Sunrise/job/Role_R-123/apply/applyManually`;
+    const workday = pageWithLink({
+      label: 'Connexion', currentUrl, tagName: 'BUTTON', dataAutomationId: 'signInLink',
+      formId: '', formIdentityFields: [], formHasPassword: false,
+    });
+    const snapshot = {
+      dialogs: [],
+      fields: [
+        { id: 'email', inputType: 'text', kind: 'text', label: 'Adresse e-mail*', frame: 0 },
+        { id: 'password', inputType: 'password', label: 'Mot de passe*', frame: 0 },
+        { id: 'password-repeat', inputType: 'password', label: 'Confirmer le nouveau mot de passe*', frame: 0 },
+      ],
+      buttons: [
+        { id: 'hdr-signin', frame: 0, text: 'Connexion', formId: '', dataAutomationId: 'utilityButtonSignIn' },
+        { id: 'auth-link', frame: 0, text: 'Connexion', formId: '', dataAutomationId: 'signInLink' },
+      ],
+      links: [],
+    };
+    await expect(openVerifiedSignInNavigation(workday.page as any, snapshot as any)).resolves.toBe(true);
+    expect(workday.locator.click).toHaveBeenCalledOnce();
+  });
+
   it('opens forgot-password only from the same live email and password form', async () => {
     const currentUrl = `https://${HOST}/en-US/AcmeCareers/job/Switzerland/Consultant_R-12345-1/apply/applyManually`;
     const forgot = pageWithLink({

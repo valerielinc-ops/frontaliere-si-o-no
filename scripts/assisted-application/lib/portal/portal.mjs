@@ -58,7 +58,7 @@ import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions
 import { detectLanguageWithConfidence } from '../../../lib/detect-language.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
 import { armFinalFormClickGuardInPage, clearFinalFormGuardInPage, installFinalFormGuardCaptureInPage, readFinalFormGuardStatusInPage } from './form-contract.mjs';
-import { isWorkdayApplicationRouteBound, isWorkdayJobRouteBound, isWorkdayTenantAccountRoute, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayJobRoute, workdayManualApplicationUrl } from './workday-route.mjs';
+import { isWorkdayApplicationRouteBound, isWorkdayJobRouteBound, isWorkdayTenantAccountRoute, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayBareLocaleFallbackUrl, workdayJobRoute, workdayManualApplicationUrl } from './workday-route.mjs';
 import { installPortalReplayFence } from './replay-fence.mjs';
 
 function workdayPostingRouteMismatch(pageUrl, applyUrl, workdayApplicationEntryProven = false) {
@@ -2037,9 +2037,11 @@ function fieldlessApplicationEntryContextMatchesPosting(control, context = {}) {
   const job = context.job || {};
   if (controlPostingIdentity(control) !== '') return false;
   if (!localContext || !jobTitleCandidates(job).length) return true;
-  if (postingMatch(localContext, job, context.postingUrl) !== 'match') return false;
   if (namesAnotherEmployer(localContext, job)) return false;
-  return titleMatchesJob(localContext, job);
+  if (!titleMatchesJob(localContext, job)) return false;
+  if (postingMatch(localContext, job, context.postingUrl) === 'match') return true;
+  return Boolean(context.pageTitle && postingMatch(context.pageTitle, job, context.postingUrl) === 'match')
+    || sameBrassRingPostingAddress(context.postingUrl, context.applyUrl);
 }
 
 // An Apply dropdown on the verified posting route sits under the vacancy's
@@ -4191,6 +4193,23 @@ function hasEquivalentEmployerNameHeading(formText, job = {}, pageHeadings = [])
  * ("Infermiere/a" = "Infermiera": same word but the last two letters).
  * 'unknown' when the order names neither.
  */
+function workdayEmployerBrandMatches(pageText, job = {}, pageUrl = '') {
+  if (!isWorkdayTenantUrl(pageUrl)) return false;
+  let subdomain = '';
+  try {
+    subdomain = new URL(String(pageUrl || '')).hostname.split('.')[0].toLowerCase();
+  } catch {
+    return false;
+  }
+  if (!subdomain || subdomain.length < 4 || BRANCH_WORDS.has(subdomain) || NOT_A_NAME.has(subdomain)) return false;
+  const companyWords = nameWords(job.company);
+  if (!companyWords.length || companyWords[0] !== subdomain) return false;
+  const named = ` ${nameWords(pageText).join(' ')} `;
+  if (!named.includes(` ${subdomain} `)) return false;
+  return titleMatchesJob(pageText, job)
+    || Boolean(job.url && isWorkdayTenantUrl(job.url) && sameWorkdayJobRoute(workdayJobRoute(pageUrl), workdayJobRoute(job.url)));
+}
+
 export function postingMatch(pageText, job = {}, pageUrl = '') {
   const company = nameWords(job.company);
   const titles = jobTitleCandidates(job);
@@ -4205,7 +4224,8 @@ export function postingMatch(pageText, job = {}, pageUrl = '') {
     const longForm = companyLongFormWords(job.company);
     return named.includes(` ${company.join(' ')} `)
       || (longForm.length > 0 && named.includes(` ${longForm.join(' ')} `))
-      || talentSoftEmployerAliasMatches(pageText, job, pageUrl) ? 'match' : 'mismatch';
+      || talentSoftEmployerAliasMatches(pageText, job, pageUrl)
+      || workdayEmployerBrandMatches(pageText, job, pageUrl) ? 'match' : 'mismatch';
   }
   return titleMatchesJob(pageText, job) ? 'match' : 'mismatch';
 }
@@ -4219,7 +4239,7 @@ const FORM_VOCABULARY = new Set([
   'vorname', 'nachname', 'email', 'adresse', 'weiter',
   'mein', 'meine', 'meiner', 'meines', 'mon', 'ma', 'mes', 'mio', 'mia', 'miei', 'mie',
   'absenden', 'abschicken', 'einreichen', 'submit', 'submitted', 'send', 'sent', 'envoyer', 'envoyez', 'soumettre', 'soumettez', 'invia', 'inviare', 'invio',
-  'job', 'jobs', 'career', 'careers', 'karriere', 'carriera', 'carriere', 'stelle', 'stellen', 'offerta', 'offre', 'vacancy', 'vacancies',
+  'job', 'jobs', 'detail', 'details', 'career', 'careers', 'karriere', 'carriera', 'carriere', 'stelle', 'stellen', 'offerta', 'offre', 'vacancy', 'vacancies',
   'portal', 'portale', 'portail', 'online', 'form', 'formular', 'formulaire', 'modulo', 'login', 'home', 'tracking', 'system',
   'team', 'bereich', 'welcome', 'willkommen', 'benvenuti', 'bienvenue',
   'number', 'numero', 'nummer',
@@ -4581,6 +4601,7 @@ function hasUnexplainedEmployerCommaHeading(value, job = {}) {
     const words = new Set(nameWords(before));
     return employerTokens.some((word) => words.has(word));
   };
+  const titleWords = new Set(jobTitleCandidates(job).flatMap(nameWords));
   for (let index = 1; index < segments.length; index += 1) {
     const left = segments.slice(0, index).join(' ');
     const selectedEmployerBefore = containsSelectedEmployer(left);
@@ -4588,7 +4609,7 @@ function hasUnexplainedEmployerCommaHeading(value, job = {}) {
     if (!selectedEmployerBefore) {
       const leftWords = nameWords(left);
       const unrelatedLeftIdentity = leftWords.some((word) => !FORM_VOCABULARY.has(word)
-        && !FILLER_WORDS.has(word) && !nameWords(job.title).includes(word));
+        && !FILLER_WORDS.has(word) && !titleWords.has(word));
       if (selectedEmployerAfter && unrelatedLeftIdentity) return true;
       continue;
     }
@@ -4596,7 +4617,6 @@ function hasUnexplainedEmployerCommaHeading(value, job = {}) {
     const normalized = normalizeWords(segment);
     const words = normalized.split(' ').filter(Boolean);
     if (!words.length || EMPLOYER_HEADING_DESCRIPTION_PATTERNS.some((pattern) => pattern.test(normalized))) continue;
-    const titleWords = new Set(nameWords(job.title));
     const relevant = words.filter((word) => !FORM_VOCABULARY.has(word)
       && !FILLER_WORDS.has(word) && !titleWords.has(word));
     if (relevant.length) return true;
@@ -8588,6 +8608,15 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
     const explicitSignInLabel = isExplicitSignInNavigationLabel(
       liveControl?.text, liveControl?.ariaLabel, liveControl?.title, liveControl?.labelledBy,
     );
+    const sameFormAuthButton = Boolean(candidate.formId)
+      && candidate.formId === liveControl.formId
+      && Boolean(loginFields({ fields: liveControl.formIdentityFields || [] }).email)
+      && liveControl.formHasPassword === true;
+    const pageLevelCreateAuthButton = !candidate.formId
+      && !liveControl.formId
+      && Array.isArray(currentSnapshot?.fields)
+      && authPageKind(currentSnapshot) === 'create'
+      && Boolean(loginFields(currentSnapshot).email);
     const workdayFormButton = liveControl?.tagName === 'BUTTON'
       && isWorkdayTenantUrl(currentUrl)
       && portalProtocol === 'https:'
@@ -8595,10 +8624,7 @@ export async function openVerifiedSignInNavigation(page, snapshot) {
       && liveControl.disabled !== true
       && candidate.dataAutomationId === 'signInLink'
       && liveControl.dataAutomationId === 'signInLink'
-      && Boolean(candidate.formId)
-      && candidate.formId === liveControl.formId
-      && Boolean(loginFields({ fields: liveControl.formIdentityFields || [] }).email)
-      && liveControl.formHasPassword === true
+      && (sameFormAuthButton || pageLevelCreateAuthButton)
       && explicitSignInLabel;
     if (workdayFormButton) {
       return locator.click({ timeout: 6_000 }).then(() => true, () => false);
@@ -10832,6 +10858,14 @@ export async function submitViaPortal(ctx) {
     workdayApplicationEntryProven = isWorkdayApplicationRouteBound(entryUrl, ctx.applyUrl);
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
+    const bareLocaleFallback = workdayBareLocaleFallbackUrl(page.url());
+    if (bareLocaleFallback && !hasApplicationForm(snapshot)
+      && !snapshot.buttons.some((button) => !button.disabled && !button.chrome && startsApplication(button.text || button.label))
+      && /\bsearch for jobs\b/i.test(await page.title().catch(() => ''))) {
+      response = await page.goto(bareLocaleFallback, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+      await settle(page);
+      snapshot = await extractFields(page, NAVIGATION);
+    }
     sourceProtocol = snapshot.protocol || null;
     // Consent dialogs can put their own heading before a vacancy in the
     // rendered text. Resolve the explicit cookie choice before checking that

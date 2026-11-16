@@ -167,6 +167,22 @@ export function workdayManualApplicationUrl(value) {
   return route ? `${route.origin}${route.basePath}/apply/applyManually${route.search}` : '';
 }
 
+/**
+ * Strip a bare 2-letter Workday locale prefix (e.g. `/en/`) when a tenant SPA
+ * fails to resolve it and falls back to the generic Search for Jobs shell.
+ */
+export function workdayBareLocaleFallbackUrl(value) {
+  if (!workdayJobRoute(value)) return '';
+  try {
+    const url = new URL(String(value || ''));
+    const segments = url.pathname.split('/').slice(1);
+    if (segments.length < 2 || !/^[a-z]{2}$/i.test(segments[0] || '')) return '';
+    return `${url.origin}/${segments.slice(1).join('/')}${url.search}${url.hash}`;
+  } catch {
+    return '';
+  }
+}
+
 /** Workday application pages stay on the selected requisition or its bound login route. */
 export function isWorkdayJobRouteBound(pageUrl, applyUrl) {
   if (!isWorkdayTenantUrl(applyUrl)) return true;

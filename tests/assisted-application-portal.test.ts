@@ -6,7 +6,7 @@ import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFile
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { applicationStage } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { navigationInfrastructureFailure } from '../functions/src/assistedApplicationTransportRetryPolicy.js';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, formPostingMatch, handleAuth, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, PREREAD_CHANNELS, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, formPostingMatch, handleAuth, hasApplicationSurface, isOtpVerificationPage, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, postingMatch, PREREAD_CHANNELS, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
@@ -4022,5 +4022,33 @@ describe('portal: the candidate’s Swiss status and nationality', () => {
     const answered = candidateForForm({ identity, profile: { permitStatus: 'pending' }, answers: { work_permit: 'permit_b' }, language: 'it' });
     expect(answered.swissStatus?.code).toBe('permit_b');
     expect(answered.answers).not.toHaveProperty('work_permit');
+  });
+
+  it('matches a Workday tenant brand in postingMatch and translated observedPostingTitle in comma-separated titles', () => {
+    const ritualsUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Conseiller-de-Vente--h-f-_R2420';
+    expect(postingMatch('Conseiller de Vente (h/f)\nRituals Careers\nApply', {
+      title: 'Consulente commerciale (h/f)',
+      observedPostingTitle: 'Conseiller de Vente (h/f)',
+      company: 'Rituals Cosmetics Switzerland',
+      url: ritualsUrl,
+    }, ritualsUrl)).toBe('match');
+
+    const endesoUrl = 'https://endeso.ch/jobs/job-28136-personalberater-in-hr-funktionen/';
+    expect(formPostingMatch('Personalberater/in HR-Funktionen, Frauenfeld | endeso\nPersonalberater/in HR-Funktionen\nFrauenfeld\nendeso', {
+      title: 'Consulente del personale per funzioni HR',
+      observedPostingTitle: 'Personalberater/in HR-Funktionen',
+      company: 'endeso GmbH',
+      location: 'Frauenfeld',
+      url: endesoUrl,
+    }, {
+      postingMatched: true,
+      postingEntry: true,
+      pageUrl: endesoUrl,
+      postingUrl: endesoUrl,
+      paidPostingUrl: endesoUrl,
+      pageHeading: 'Personalberater/in HR-Funktionen',
+      pageHeadings: ['Personalberater/in HR-Funktionen'],
+      applyUrl: endesoUrl,
+    })).toBe('match');
   });
 });
