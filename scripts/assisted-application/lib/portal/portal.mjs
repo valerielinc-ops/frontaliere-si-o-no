@@ -3852,11 +3852,13 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     // page whose empty surface could be a navigation mismatch.
     if (!stageContext || !isWorkdayTenantUrl(stageContext.applyUrl)
       || !isWorkdayApplicationRouteBound(page.url(), stageContext.applyUrl)
-      || workdayApplicationSurfaceReady(snapshot)) return;
+      || workdayApplicationSurfaceReady(snapshot)) return true;
     for (let waited = 0; waited < 10_000 && !workdayApplicationSurfaceReady(snapshot); waited += 1000) {
       await page.waitForTimeout(1000);
+      if (!isWorkdayApplicationRouteBound(page.url(), stageContext.applyUrl)) return false;
       snapshot = await extractFields(page, NAVIGATION);
     }
+    return true;
   };
   const currentApplicationDiversion = async (current = snapshot) => applicationDestinationDiversionHint({
     ...current,
@@ -3906,7 +3908,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         snapshot = await extractFields(page, NAVIGATION);
       }
     }
-    await waitForWorkdayApplicationSurface();
+    if (!await waitForWorkdayApplicationSurface()) return result({ handoff: 'posting_mismatch' });
     const publicRecovery = await recoverStadtZurichPublicJobSearch(page, snapshot, stageContext, {
       searched: publicSearchSearched,
     });
@@ -4057,7 +4059,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
           await settle(page);
           await page.waitForTimeout(1200);
           snapshot = await extractFields(page, NAVIGATION);
-          await waitForWorkdayApplicationSurface();
+          if (!await waitForWorkdayApplicationSurface()) return result({ handoff: 'posting_mismatch' });
           reportNavigation({ hop: hop + 1, phase: 'direct_route', cookieStatus, controls: applicationControls, ownedEntries });
           if (!isSuccessFactorsPostingEntry({
             applyUrl: page.url(),
@@ -4081,7 +4083,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         await settle(page);
         await page.waitForTimeout(1200);
         snapshot = await extractFields(page, NAVIGATION);
-        await waitForWorkdayApplicationSurface();
+        if (!await waitForWorkdayApplicationSurface()) return result({ handoff: 'posting_mismatch' });
         if (!await currentApplicationDiversion(snapshot)) {
           enteredThroughApplicationEntry = true;
           applicationEntryUrl = page.url();
@@ -4118,7 +4120,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     await settle(page);
     await page.waitForTimeout(1200); // a modal (Workday's apply dialog) finishes its animation
     snapshot = await extractFields(page, NAVIGATION);
-    await waitForWorkdayApplicationSurface();
+    if (!await waitForWorkdayApplicationSurface()) return result({ handoff: 'posting_mismatch' });
     if (followedApplicationEntryThisHop && !await currentApplicationDiversion(snapshot)) applicationEntryUrl = page.url();
     if (customSuccessFactorsEntry
       && !successFactorsCustomPostingDestinationMatches(page.url(), sourceUrl, stageContext)) {

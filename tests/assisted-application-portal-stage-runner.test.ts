@@ -1,7 +1,10 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-const state = vi.hoisted(() => ({ snapshot: null as any }));
+const state = vi.hoisted(() => ({ snapshot: null as any, onExtract: null as ((snapshot: any, stack: string) => void) | null }));
 vi.mock('../scripts/assisted-application/lib/portal/fields.mjs', async importOriginal => ({
-  ...await importOriginal<any>(), extractFields: vi.fn(async () => state.snapshot), registerPortalChannelType: vi.fn(),
+  ...await importOriginal<any>(), extractFields: vi.fn(async () => {
+    state.onExtract?.(state.snapshot, new Error().stack || '');
+    return state.snapshot;
+  }), registerPortalChannelType: vi.fn(),
 }));
 vi.mock('../scripts/assisted-application/lib/portal/plan.mjs', async importOriginal => ({
   ...await importOriginal<any>(), planPage: vi.fn(async () => ({ actions: [], missingRequired: [] })),
@@ -101,7 +104,10 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
   return { run, guard, click, openClick, page, codex };
 }
 
-beforeEach(() => vi.clearAllMocks());
+beforeEach(() => {
+  state.onExtract = null;
+  vi.clearAllMocks();
+});
 describe('runner final guard across three application stages', () => {
   it('navigates profile → review without a click claim, guards the final Apply once, then confirms this job receipt', async () => {
     const f = fixture();
@@ -220,6 +226,49 @@ describe('runner final guard across three application stages', () => {
     expect(f.openClick).toHaveBeenCalledOnce();
     expect(f.guard).toHaveBeenCalledOnce();
     expect(f.click).toHaveBeenCalledOnce();
+  });
+
+  it('rejects a Workday surface that appears after the polled apply route becomes unbound', async () => {
+    const postingUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033';
+    const applyUrl = `${postingUrl}/apply`;
+    const blankApply = {
+      ...snapshot(applyUrl, '', []),
+      title: 'Rituals Careers',
+      heading: '',
+      text: '',
+    };
+    const unboundSurface = {
+      ...snapshot('https://rituals.wd3.myworkdayjobs.com/en-US/Rituals', 'Search for jobs', [
+        { id: 'search', text: 'Search', formId: 'search', frame: 0, disabled: false },
+      ]),
+      fields: [
+        { id: 'keywords', label: 'Search jobs', kind: 'text', inputType: 'text', formId: 'search', frame: 0 },
+      ],
+    };
+    const posting = snapshot(postingUrl, 'Store Assistant Rituals Apply', [{ id: 'entry', text: 'Apply', frame: 0, disabled: false }]);
+    const polledUnboundSnapshots: string[] = [];
+    state.onExtract = (current, stack) => {
+      if (current.url === unboundSurface.url && stack.includes('waitForWorkdayApplicationSurface')) {
+        polledUnboundSnapshots.push(current.url);
+      }
+    };
+    const f = fixture(blankApply, posting, review, null, {
+      applyUrl,
+      postingUrl,
+      channelType: 'workday',
+      job: { company: 'Rituals Cosmetics Switzerland', title: 'Store Assistant' },
+      onWait: (ms: number) => {
+        if (ms === 1000 && state.snapshot.url === applyUrl) state.snapshot = unboundSurface;
+      },
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(polledUnboundSnapshots).toEqual([]);
+    expect(f.codex).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
   });
 
   it('opens a source-proven SuccessFactors module from a language-only posting shell', async () => {
