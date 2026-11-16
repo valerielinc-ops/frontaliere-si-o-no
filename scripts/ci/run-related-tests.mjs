@@ -545,6 +545,7 @@ const socialWorkflowScope = [
 ];
 const workflowAssetGlobalTests = [
   'tests/cancel-superseded-reporter-contract.test.ts',
+  'tests/main-push-auth-wiring.test.ts',
   'tests/technical-operations-audit.test.ts',
   'tests/validate-modified-workflows.test.ts',
   'tests/workflow-background-wait-schema.test.ts',
