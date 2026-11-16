@@ -329,7 +329,11 @@ case "\${args[0]}" in
         esac ;;
       :s3:*cdn-build-id.txt)
         [ "\${STUB_MISSING_MARKERS:-0}" = 1 ] && exit "\${STUB_MISSING_MARKERS_STATUS:-0}"
-        build="\${STUB_BUILD_MARKER:-b-test}"
+        if [ -n "\${STUB_REMOTE_DIR:-}" ] && [ -s "$STUB_REMOTE_DIR/cdn-build-id.txt" ]; then
+          cp "$STUB_REMOTE_DIR/cdn-build-id.txt" "$dst"
+          exit 0
+        fi
+        build="\${STUB_BUILD_MARKER:-1001}"
         if [ "\${STUB_PUBLISH_INCOMPLETE:-0}" = 1 ] && [ -z "\${STUB_BUILD_MARKER+x}" ]; then build=previous-build; fi
         printf '%s' "$build" > "$dst"
         exit 0 ;;
@@ -344,6 +348,10 @@ case "\${args[0]}" in
         exit 0 ;;
       :s3:*cdn-publish-complete-id.txt)
         [ "\${STUB_MISSING_MARKERS:-0}" = 1 ] && exit "\${STUB_MISSING_MARKERS_STATUS:-0}"
+        if [ -n "\${STUB_REMOTE_DIR:-}" ] && [ -s "$STUB_REMOTE_DIR/cdn-publish-complete-id.txt" ]; then
+          cp "$STUB_REMOTE_DIR/cdn-publish-complete-id.txt" "$dst"
+          exit 0
+        fi
         if [ -s "$STUB_DIR/publish-start-written.txt" ]; then
           start="$(cat "$STUB_DIR/publish-start-written.txt")"
         else
@@ -357,8 +365,13 @@ case "\${args[0]}" in
     case "$dst" in
       *cdn-publish-start-id.txt)
         [ "\${STUB_FAIL_START:-0}" = 1 ] && exit 1
-        cat "$src" > "$STUB_DIR/publish-start-written.txt" ;;
-      *cdn-publish-complete-id.txt) [ "\${STUB_FAIL_COMPLETE:-0}" = 1 ] && exit 1 ;;
+        cat "$src" > "$STUB_DIR/publish-start-written.txt"
+        if [ -n "\${STUB_REMOTE_DIR:-}" ]; then cp "$src" "$STUB_REMOTE_DIR/cdn-publish-start-id.txt"; fi ;;
+      *cdn-build-id.txt)
+        if [ -n "\${STUB_REMOTE_DIR:-}" ]; then cp "$src" "$STUB_REMOTE_DIR/cdn-build-id.txt"; fi ;;
+      *cdn-publish-complete-id.txt)
+        [ "\${STUB_FAIL_COMPLETE:-0}" = 1 ] && exit 1
+        if [ -n "\${STUB_REMOTE_DIR:-}" ]; then cp "$src" "$STUB_REMOTE_DIR/cdn-publish-complete-id.txt"; fi ;;
     esac
     case "$dst" in *purge-ledger/assets.json) cp "$src" "$STUB_DIR/ledger-written.json" ;; esac
     exit 0 ;;
@@ -458,6 +471,7 @@ function runPublish(name: string, env: Record<string, string>) {
   const dir = join(SCRATCH, name);
   const bin = join(dir, 'bin');
   const stage = join(dir, 'stage');
+  const remote = join(dir, 'remote');
   writeStubs(bin);
   if (env.STUB_DATE_MS) {
     writeFileSync(
@@ -473,6 +487,13 @@ esac
     chmodSync(join(bin, 'date'), 0o755);
   }
   mkdirSync(stage, { recursive: true });
+  mkdirSync(remote, { recursive: true });
+  if (env.STUB_LAST_KNOWN_BUILD_MARKER) {
+    writeFileSync(join(remote, 'cdn-build-id.txt'), env.STUB_LAST_KNOWN_BUILD_MARKER);
+  }
+  if (env.STUB_LAST_KNOWN_COMPLETE_MARKER) {
+    writeFileSync(join(remote, 'cdn-publish-complete-id.txt'), env.STUB_LAST_KNOWN_COMPLETE_MARKER);
+  }
   if (env.STUB_NO_ASSETS_DIR !== '1') {
     mkdirSync(join(stage, 'assets'), { recursive: true });
     writeFileSync(join(stage, 'assets', 'a.js'), 'export const a = 2;\n');
@@ -485,8 +506,17 @@ esac
   writeFileSync(join(stage, 'index.html'), '<!doctype html>');
   mkdirSync(join(stage, 'data'), { recursive: true });
   writeFileSync(join(stage, 'data', 'x.json'), '{}');
-  if (env.STUB_JOB_CANON === '1') {
-    const releaseId = env.DEPLOY_BUILD_ID ?? '1001';
+  const releaseId = env.DEPLOY_BUILD_ID ?? '1001';
+  const validProductionRelease = /^\d{1,20}$/.test(releaseId) && releaseId !== '';
+  const jobCanonMode = env.STUB_JOB_CANON;
+  const stageJobCanonRoot = jobCanonMode === '1' || jobCanonMode === 'root-only'
+    || (jobCanonMode !== 'missing' && validProductionRelease);
+  const stageJobCanonRelease = jobCanonMode === '1'
+    || (jobCanonMode === undefined && validProductionRelease);
+  if (stageJobCanonRoot) {
+    mkdirSync(join(stage, 'job-canon'), { recursive: true });
+  }
+  if (stageJobCanonRelease) {
     mkdirSync(join(stage, 'job-canon', 'releases', releaseId, 'v2'), { recursive: true });
     writeFileSync(join(stage, 'job-canon', 'releases', releaseId, 'v2', 'abc.json'), '{}');
     writeFileSync(join(stage, 'job-canon', 'releases', releaseId, 'ab.json'), '{}');
@@ -510,7 +540,7 @@ esac
   let stdout = '';
   let code = 0;
   try {
-    stdout = execFileSync('bash', ['-c', 'source scripts/lib/deploy-it-pages-prep.sh && _publish_cdn_r2 "$1"', '_', stage], {
+    stdout = execFileSync('bash', ['-c', 'source scripts/lib/deploy-it-pages-prep.sh && _publish_cdn_r2 "$1" 2>&1', '_', stage], {
       cwd: ROOT,
       encoding: 'utf8',
       timeout: 60_000,
@@ -524,7 +554,7 @@ esac
         R2_SECRET_ACCESS_KEY: 's',
         R2_S3_ENDPOINT: 'https://r2.invalid',
         R2_BUCKET: 'bkt',
-        DEPLOY_BUILD_ID: 'b-test',
+        DEPLOY_BUILD_ID: '1001',
         R2_TIMEOUT_OBJECT_S: '2',
         R2_TIMEOUT_PURGE_S: '30',
         STUB_CALLS: calls,
@@ -532,6 +562,7 @@ esac
         STUB_LEASE_CALLS: leaseCalls,
         STUB_REAL_NODE: process.execPath,
         STUB_DIR: dir,
+        STUB_REMOTE_DIR: remote,
         ...env,
       },
     });
@@ -553,6 +584,11 @@ esac
     publishStart: existsSync(join(dir, 'publish-start-written.txt'))
       ? readFileSync(join(dir, 'publish-start-written.txt'), 'utf8').trim()
       : null,
+    remoteMarkers: Object.fromEntries(
+      ['cdn-build-id.txt', 'cdn-publish-start-id.txt', 'cdn-publish-complete-id.txt']
+        .filter((marker) => existsSync(join(remote, marker)))
+        .map((marker) => [marker, readFileSync(join(remote, marker), 'utf8').trim()]),
+    ),
   };
 }
 
@@ -590,7 +626,7 @@ async function runPublishInterrupted(name: string, env: Record<string, string>) 
       R2_SECRET_ACCESS_KEY: 's',
       R2_S3_ENDPOINT: 'https://r2.invalid',
       R2_BUCKET: 'bkt',
-      DEPLOY_BUILD_ID: 'b-test',
+      DEPLOY_BUILD_ID: '1001',
       R2_TIMEOUT_OBJECT_S: '120',
       R2_TIMEOUT_PURGE_S: '30',
       STUB_CALLS: calls,
@@ -1287,6 +1323,48 @@ describe('behaviour: the ledger path end to end (stubbed R2, no network)', () =>
     expect(buildMarkerAt).toBeGreaterThan(mapCopyAt);
     expect(completeMarkerAt).toBeGreaterThan(buildMarkerAt);
     expect(buildMarkerPuts(r.calls)).toHaveLength(1);
+  });
+
+  it.each([
+    ['release upload fails after retries', { STUB_JOB_CANON: '1', STUB_FAIL_PREFIX: 'job-canon/releases/1001' }],
+    ['production stage has no job-canon root', { STUB_JOB_CANON: 'missing' }],
+    ['production stage has no current release directory', { STUB_JOB_CANON: 'root-only' }],
+  ])('withholds both markers and preserves the live build marker when %s', (_caseName, fixture) => {
+    const r = runPublish(`job-canon-incomplete-${_caseName.replaceAll(' ', '-')}`, {
+      DEPLOY_BUILD_ID: '1001',
+      STUB_NO_ASSETS_DIR: '1',
+      STUB_LEDGER: 'absent',
+      STUB_LAST_KNOWN_BUILD_MARKER: '999',
+      STUB_LAST_KNOWN_COMPLETE_MARKER: '1700000000000',
+      ...fixture,
+    });
+
+    expect(r.code).toBe(0);
+    expect(r.stdout).toMatch(/job-canon payload is incomplete/);
+    const releaseCopies = r.calls.filter((call) => /^rclone copy \S+\/stage\/job-canon\/releases\/1001 :s3:bkt\/job-canon\/releases\/1001(?:\s|$)/.test(call));
+    expect(releaseCopies).toHaveLength(_caseName === 'release upload fails after retries' ? 2 : 0);
+    expect(buildMarkerPuts(r.calls)).toHaveLength(0);
+    expect(completionMarkerPuts(r.calls)).toHaveLength(0);
+    expect(r.remoteMarkers['cdn-build-id.txt']).toBe('999');
+    expect(r.remoteMarkers['cdn-publish-complete-id.txt']).toBe('1700000000000');
+    expect(r.remoteMarkers['cdn-publish-start-id.txt']).toBe(r.publishStart);
+  });
+
+  it('checks a present legacy job-canon directory upload and withholds markers on failure', () => {
+    const r = runPublish('job-canon-legacy-upload-fails', {
+      DEPLOY_BUILD_ID: '',
+      STUB_JOB_CANON: 'root-only',
+      STUB_FAIL_PREFIX: 'job-canon',
+      STUB_NO_ASSETS_DIR: '1',
+      STUB_LEDGER: 'absent',
+      STUB_LAST_KNOWN_BUILD_MARKER: '999',
+      STUB_LAST_KNOWN_COMPLETE_MARKER: '1700000000000',
+    });
+
+    expect(r.stdout).toMatch(/legacy job-canon payload upload failed/);
+    expect(buildMarkerPuts(r.calls)).toHaveLength(0);
+    expect(completionMarkerPuts(r.calls)).toHaveLength(0);
+    expect(r.remoteMarkers['cdn-build-id.txt']).toBe('999');
   });
 
   it('rejects a path-like build id before constructing or publishing a release key', () => {

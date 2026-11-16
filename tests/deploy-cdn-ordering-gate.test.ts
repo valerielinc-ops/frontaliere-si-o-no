@@ -1266,6 +1266,74 @@ describe('job-canon CDN releases keep the build marker after the complete payloa
     expect(markerStageAt).toBeGreaterThan(mapStageAt);
   });
 
+  it('carries the full Pages job-canon namespace additively and keeps current release bytes', () => {
+    const pushStart = prep.indexOf('step_push_cdn()');
+    const pushEnd = prep.indexOf('\n}', pushStart);
+    const push = prep.slice(pushStart, pushEnd);
+    const cloneAt = push.indexOf('git clone --depth 1 --filter=blob:none --sparse');
+    const sparseAt = push.indexOf('git -C "$prev" sparse-checkout set assets job-canon', cloneAt);
+    const carryForwardAt = push.indexOf('_carry_forward_pages_job_canon "$prev" "$stage"', sparseAt);
+    const markerAt = push.indexOf(' > "$stage/cdn-build-id.txt"', carryForwardAt);
+    const gitAddAt = push.indexOf('git add -A', markerAt);
+
+    expect(cloneAt).toBeGreaterThanOrEqual(0);
+    expect(sparseAt).toBeGreaterThan(cloneAt);
+    expect(carryForwardAt).toBeGreaterThan(sparseAt);
+    expect(markerAt).toBeGreaterThan(carryForwardAt);
+    expect(gitAddAt).toBeGreaterThan(markerAt);
+    expect(push).toContain('refusing production publish without job-canon compatibility carry-forward');
+
+    const helperStart = prep.indexOf('_carry_forward_pages_job_canon()');
+    const helperEnd = prep.indexOf('\n}', helperStart);
+    const helper = prep.slice(helperStart, helperEnd);
+    expect(helper).toContain('find "$previous/job-canon" -type f -print0');
+    expect(helper).toContain('if [ -e "$destination" ] || [ -L "$destination" ]; then');
+    expect(helper).toContain('cp -p "$source_file" "$destination"');
+    expect(helper).toContain('cached old Worker/browser');
+    expect(helper).toContain('rollback');
+    expect(helper).not.toMatch(/\brm\b|\bsync\b|prun/i);
+  });
+
+  it('stages fixed legacy paths and old releases without overwriting the current release', () => {
+    const fixture = mkdtempSync(join(tmpdir(), 'job-canon-pages-carry-forward-'));
+    const previous = join(fixture, 'previous');
+    const stage = join(fixture, 'stage');
+    const put = (root: string, relative: string, contents: string) => {
+      const file = join(root, relative);
+      mkdirSync(join(file, '..'), { recursive: true });
+      writeFileSync(file, contents);
+    };
+
+    mkdirSync(previous, { recursive: true });
+    mkdirSync(stage, { recursive: true });
+    put(previous, 'job-canon/v1-shard.json', 'legacy fixed path');
+    put(previous, 'job-canon/another-root-map.json', 'other fixed root path');
+    put(previous, 'job-canon/releases/1001/v1-shard.json', 'rollback release 1001');
+    put(previous, 'job-canon/releases/1002/v1-shard.json', 'stale bytes for 1002');
+    put(stage, 'job-canon/releases/1002/v1-shard.json', 'current release 1002');
+
+    try {
+      execFileSync(
+        'bash',
+        [
+          '-c',
+          'source scripts/lib/deploy-it-pages-prep.sh && _carry_forward_pages_job_canon "$1" "$2"',
+          '_',
+          previous,
+          stage,
+        ],
+        { cwd: resolve('.'), encoding: 'utf8', timeout: 10_000 },
+      );
+
+      expect(readFileSync(join(stage, 'job-canon/v1-shard.json'), 'utf8')).toBe('legacy fixed path');
+      expect(readFileSync(join(stage, 'job-canon/another-root-map.json'), 'utf8')).toBe('other fixed root path');
+      expect(readFileSync(join(stage, 'job-canon/releases/1001/v1-shard.json'), 'utf8')).toBe('rollback release 1001');
+      expect(readFileSync(join(stage, 'job-canon/releases/1002/v1-shard.json'), 'utf8')).toBe('current release 1002');
+    } finally {
+      rmSync(fixture, { recursive: true, force: true });
+    }
+  });
+
   it('uploads immutable R2 release maps before the asset purge and last build marker', () => {
     const mapUploadAt = prep.indexOf('_r2_sync 120 "$job_canon_release_dir" "job-canon/releases/$DEPLOY_BUILD_ID" "public,max-age=31536000,immutable"');
     const purgeAt = prep.indexOf('if ! _purge_r2_changed_assets; then', mapUploadAt);

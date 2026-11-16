@@ -813,25 +813,29 @@ _publish_cdn_r2() {
   # Data is additive; avoid listing the full existing prefix and check each
   # current source key directly instead.
   _r2_sync 1800 "$stage/data"     data      "public,max-age=600" "" no-traverse
-  if [ -d "$stage/job-canon" ]; then
-    if [ -n "${DEPLOY_BUILD_ID:-}" ]; then
-      if ! _is_valid_deploy_build_id "$DEPLOY_BUILD_ID"; then
-        echo "::error::[r2] DEPLOY_BUILD_ID must contain 1–20 digits before publishing job-canon releases" >&2
-        ok=0
-      else
-        local job_canon_release_dir="$stage/job-canon/releases/$DEPLOY_BUILD_ID"
-        if [ ! -d "$job_canon_release_dir" ]; then
-          echo "::error::[r2] job-canon release payload is missing at $job_canon_release_dir" >&2
-          ok=0
-        else
-          # The release id is part of the R2 key, so each marker resolves to the
-          # exact bytes produced for that build even when a cache ignores query.
-          _r2_sync 120 "$job_canon_release_dir" "job-canon/releases/$DEPLOY_BUILD_ID" "public,max-age=31536000,immutable"
-        fi
-      fi
+  if [ -n "${DEPLOY_BUILD_ID:-}" ]; then
+    if ! _is_valid_deploy_build_id "$DEPLOY_BUILD_ID"; then
+      echo "::error::[r2] DEPLOY_BUILD_ID must contain 1–20 digits before publishing job-canon releases" >&2
+      ok=0
     else
-      # Local/legacy invocations have no marker-selected generation.
-      _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600"
+      local job_canon_release_dir="$stage/job-canon/releases/$DEPLOY_BUILD_ID"
+      if [ ! -d "$stage/job-canon" ]; then
+        echo "::error::[r2] job-canon payload is incomplete: required stage directory is missing at $stage/job-canon" >&2
+        ok=0
+      elif [ ! -d "$job_canon_release_dir" ]; then
+        echo "::error::[r2] job-canon payload is incomplete: release directory is missing at $job_canon_release_dir" >&2
+        ok=0
+      elif ! _r2_sync 120 "$job_canon_release_dir" "job-canon/releases/$DEPLOY_BUILD_ID" "public,max-age=31536000,immutable"; then
+        echo "::error::[r2] job-canon payload is incomplete: release upload failed for $job_canon_release_dir; withholding CDN markers" >&2
+        ok=0
+      fi
+    fi
+  elif [ -d "$stage/job-canon" ]; then
+    # Local/legacy invocations have no marker-selected generation. The
+    # directory is optional, but once present its additive upload must succeed.
+    if ! _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600"; then
+      echo "::error::[r2] legacy job-canon payload upload failed; withholding CDN markers" >&2
+      ok=0
     fi
   fi
   timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$stage/index.html" "$bkt/index.html" \
@@ -1221,6 +1225,36 @@ _validate_stable_shell_asset_pair() {
   fi
 }
 
+_carry_forward_pages_job_canon() { # <previous-pages-clone> <new-stage>
+  local previous="$1" stage="$2" source_file relative_path destination
+  [ -d "$previous/job-canon" ] || return 0
+  mkdir -p "$stage/job-canon" || {
+    echo "::error::could not create Pages job-canon compatibility namespace" >&2
+    return 1
+  }
+  # There is no age cutoff: a cached old Worker/browser can still request a
+  # fixed legacy path, and rollback can still select any earlier release id.
+  # The stage already contains this production build's release directory.
+  # Copy only missing files. BSD cp -n can return failure for a normal
+  # same-path collision, so per-file checks keep current bytes authoritative
+  # while still surfacing an actual mkdir/copy failure.
+  if ! find "$previous/job-canon" -type f -print0 | while IFS= read -r -d '' source_file; do
+    relative_path="${source_file#"$previous/job-canon/"}"
+    destination="$stage/job-canon/$relative_path"
+    if [ -e "$destination" ] || [ -L "$destination" ]; then
+      continue
+    fi
+    if ! mkdir -p "$(dirname "$destination")" || ! cp -p "$source_file" "$destination"; then
+      echo "::error::could not carry forward Pages job-canon file $relative_path" >&2
+      exit 1
+    fi
+  done; then
+    echo "::error::could not carry forward the previous Pages job-canon namespace" >&2
+    return 1
+  fi
+  echo "additive CDN: carried forward prior job-canon/ compatibility paths and releases"
+}
+
 step_push_cdn() {
   set -uo pipefail
   # CDN_TARGET selects the publish path; default 'pages' keeps the legacy
@@ -1464,17 +1498,38 @@ step_push_cdn() {
   # JS → SPA dead (prod outage 2026-06-04). og/data/images are refreshed from
   # the current build above (overwrite is correct for them).
   # prune-cdn-assets.mjs GCs the carried-forward legacy hashes post-grace.
-  # Sparse + blob:none keeps the clone to the small assets/ tree only.
-  if [ -d "$stage/assets" ]; then
+  # Sparse + blob:none keeps the clone small; production also checks out the
+  # complete job-canon/ namespace because rollback and older consumers need it.
+  local pages_production_release=0
+  [ -n "${DEPLOY_BUILD_ID:-}" ] && pages_production_release=1
+  if [ -d "$stage/assets" ] || [ "$pages_production_release" = 1 ]; then
     prev="$RUNNER_TEMP/cdn-prev"; rm -rf "$prev"
     if git clone --depth 1 --filter=blob:none --sparse \
          git@github.com:valerielinc-ops/frontaliere-cdn.git "$prev" 2>/dev/null; then
-      git -C "$prev" sparse-checkout set assets 2>/dev/null || true
+      if [ "$pages_production_release" = 1 ]; then
+        if ! git -C "$prev" sparse-checkout set assets job-canon 2>/dev/null; then
+          echo "::error::could not load the previous Pages job-canon namespace required for production compatibility" >&2
+          rm -rf "$prev"
+          return 1
+        fi
+      else
+        git -C "$prev" sparse-checkout set assets 2>/dev/null || true
+      fi
       if [ -d "$prev/assets" ]; then
         cp -rn "$prev/assets/." "$stage/assets/" 2>/dev/null || true
         echo "additive CDN: carried forward prior assets/ (now $(ls -1 "$stage/assets" | wc -l) files)"
       fi
+      if [ "$pages_production_release" = 1 ] \
+        && ! _carry_forward_pages_job_canon "$prev" "$stage"; then
+        rm -rf "$prev"
+        return 1
+      fi
     else
+      if [ "$pages_production_release" = 1 ]; then
+        echo "::error::could not clone previous Pages target; refusing production publish without job-canon compatibility carry-forward" >&2
+        rm -rf "$prev"
+        return 1
+      fi
       echo "additive CDN: no prior CDN clone (first push / transient) — proceeding with new assets only"
     fi
     rm -rf "$prev"
