@@ -116,6 +116,19 @@ describe('audit-keyword-landing-coverage: dist/ coverage for the GSC keyword-lan
     expect(result.checked).toBe(1);
   });
 
+  it('reads keyword URLs from numbered legacy continuations', async () => {
+    const { loadSitemapPaths } = await loadHelpers();
+    const path = keywordLandingPath('medico-ticino', 'it');
+    await writeFile(join(distRoot, SITEMAP_FILE), sitemapXml([]), 'utf8');
+    await writeFile(
+      join(distRoot, 'sitemap-jobs-legacy-001.xml'),
+      sitemapXml([HOST + path]),
+      'utf8',
+    );
+
+    expect(loadSitemapPaths(distRoot)).toContain(path.replace(/\/$/, ''));
+  });
+
   it('THE HISTORICAL BUG (PR #5623): flags a sitemap entry answered by a noindex bridge', async () => {
     const { auditKeywordLandingCoverage } = await loadHelpers();
     const slug = 'pittore-imbianchino-ticino';

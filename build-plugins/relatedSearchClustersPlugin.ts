@@ -150,7 +150,11 @@ import {
 } from './shared/buildSignals';
 import { parseAnnotatedSitemapUrls } from './shared/localeVariantSitemap';
 import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
-import { isJobSitemapShardFilename, isJobSitemapFilename } from '../scripts/lib/sitemap-shard.mjs';
+import {
+  isAuthoritativeJobSitemapShardFilename,
+  isJobSitemapShardFilename,
+  isJobSitemapFilename,
+} from '../scripts/lib/sitemap-shard.mjs';
 import { classifyCanonicalMismatch } from '../scripts/lib/canonicalExemptions.mjs';
 import { readAttr, scanMarkupStartTagGroups, scanMarkupStartTags } from '../scripts/lib/html-attr.mjs';
 import { MID_PLUGINS_FAST } from '../scripts/lib/mid-plugins-flag.mjs';
@@ -5180,18 +5184,21 @@ export function extractSitemapLocs(xml: string): string[] {
 
 /**
  * Recover the jobs producer's active URL set when a cache-hit path reaches
- * reconciliation with the shared registry still unset. `sitemap-jobs.xml` is
- * the producer's persisted decision: its `<loc>` entries and their hreflang
- * annotations are emitted from the same active, self-canonical job set. Keep
- * this fallback scoped to the site's own origin so an unexpected annotation
- * cannot become an allowlist entry.
+ * reconciliation with the shared registry still unset. `sitemap-jobs.xml`
+ * and its numbered `sitemap-jobs-legacy-*` continuations are the producer's
+ * persisted decision: their `<loc>` entries and hreflang annotations are
+ * emitted from the same active, self-canonical job set. Keep this fallback
+ * scoped to the site's own origin so an unexpected annotation cannot become
+ * an allowlist entry.
  */
 function deriveActiveJobSitemapLocs(
   files: ReadonlyArray<{ file: string; xml: string }>,
 ): ReadonlySet<string> {
-  const legacySitemap = files.find(({ file }) => file === 'sitemap-jobs.xml')?.xml;
   const active = new Set<string>();
-  if (!legacySitemap) return active;
+  const authoritativeFiles = files.filter(({ file }) =>
+    file === 'sitemap-jobs.xml' || isAuthoritativeJobSitemapShardFilename(file),
+  );
+  if (authoritativeFiles.length === 0) return active;
 
   const siteOrigin = new URL(BASE_URL).origin;
   const addSiteUrl = (value: string): void => {
@@ -5203,9 +5210,11 @@ function deriveActiveJobSitemapLocs(
     }
   };
 
-  for (const entry of parseAnnotatedSitemapUrls(legacySitemap)) {
-    addSiteUrl(entry.loc);
-    for (const annotation of entry.annotations) addSiteUrl(annotation.href);
+  for (const { xml } of authoritativeFiles) {
+    for (const entry of parseAnnotatedSitemapUrls(xml)) {
+      addSiteUrl(entry.loc);
+      for (const annotation of entry.annotations) addSiteUrl(annotation.href);
+    }
   }
   return active;
 }
@@ -5249,7 +5258,7 @@ function staleJobShardLocs(
   const locRe = /<loc>([^<]+)<\/loc>/;
   const detailPriorityRe = /<priority>\s*0\.6\s*<\/priority>/i;
   for (const { file, xml } of files) {
-    if (!isJobSitemapShardFilename(file)) continue;
+    if (!isJobSitemapShardFilename(file) || isAuthoritativeJobSitemapShardFilename(file)) continue;
     for (const block of xml.matchAll(urlBlockRe)) {
       if (!detailPriorityRe.test(block[0])) continue;
       const loc = block[0].match(locRe)?.[1];
@@ -5261,19 +5270,24 @@ function staleJobShardLocs(
 }
 
 /**
- * Shard `<loc>`s that sitemap-jobs.xml already lists. Google should see each
- * URL in one sitemap only; the shard copy is the redundant one. Without the
- * legacy file there is nothing to compare against (shard-only locale leg).
+ * Shard `<loc>`s that the legacy job sitemap family already lists. Google
+ * should see each URL in one sitemap only; the canton/locale copy is the
+ * redundant one. Without the primary/continuation family there is nothing to
+ * compare against (shard-only locale leg).
  */
 function shardLocsListedInLegacyJobSitemap(
   files: ReadonlyArray<{ file: string; xml: string }>,
 ): string[] {
-  const legacy = files.find(({ file }) => file === 'sitemap-jobs.xml')?.xml;
-  if (!legacy) return [];
-  const legacyLocs = new Set(extractSitemapLocs(legacy).map(normalizeLocForCanonicalCmp));
+  const authoritativeFiles = files.filter(({ file }) =>
+    file === 'sitemap-jobs.xml' || isAuthoritativeJobSitemapShardFilename(file),
+  );
+  if (authoritativeFiles.length === 0) return [];
+  const legacyLocs = new Set(
+    authoritativeFiles.flatMap(({ xml }) => extractSitemapLocs(xml)).map(normalizeLocForCanonicalCmp),
+  );
   const duplicates = new Set<string>();
   for (const { file, xml } of files) {
-    if (!isJobSitemapShardFilename(file)) continue;
+    if (!isJobSitemapShardFilename(file) || isAuthoritativeJobSitemapShardFilename(file)) continue;
     for (const loc of extractSitemapLocs(xml)) {
       if (legacyLocs.has(normalizeLocForCanonicalCmp(loc))) duplicates.add(loc);
     }
@@ -5424,7 +5438,11 @@ export async function reconcileSitemapJobsWithDist(
   // artifact or may have become empty after the dist-truth filter. Leaving it
   // on disk lets sitemapAliasPlugin rediscover and publish the stale filename.
   for (const { file, xml } of sitemapFiles) {
-    if (!isJobSitemapShardFilename(file) || extractSitemapLocs(xml).length > 0) continue;
+    if (
+      !isJobSitemapShardFilename(file) ||
+      isAuthoritativeJobSitemapShardFilename(file) ||
+      extractSitemapLocs(xml).length > 0
+    ) continue;
     try {
       await fs.promises.unlink(path.join(distDir, file));
     } catch (error: any) {
@@ -5480,12 +5498,14 @@ export async function reconcileSitemapJobsWithDist(
   let dropped = 0;
   const changedFiles: string[] = [];
   for (const { file, xml } of sitemapFiles) {
-    const fileDropLocs = isJobSitemapShardFilename(file) && legacyDuplicates.length > 0
+    const isCantonLocaleShard =
+      isJobSitemapShardFilename(file) && !isAuthoritativeJobSitemapShardFilename(file);
+    const fileDropLocs = isCantonLocaleShard && legacyDuplicates.length > 0
       ? [...dropLocs, ...legacyDuplicates]
       : dropLocs;
     const result = dropUrlBlocksByLoc(xml, fileDropLocs);
     if (result.xml === xml || result.dropped === 0) continue;
-    if (isJobSitemapShardFilename(file) && extractSitemapLocs(result.xml).length === 0) {
+    if (isCantonLocaleShard && extractSitemapLocs(result.xml).length === 0) {
       try {
         await fs.promises.unlink(path.join(distDir, file));
       } catch (error: any) {
