@@ -1326,7 +1326,7 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
     ? (localizedLoginData[sourceLocale] || extractLoginLocalizedPageData(html))
     : { title: '', description: '', location: '', requirements: [] };
 
-  // For non-login.org pages (jobs.sbb.ch), use parseSbbDetailPage() which
+  // For non-login.org SBB detail pages, use parseSbbDetailPage() which
   // extracts the full vacancy body from HTML sections, not just the JSON-LD teaser.
   const sbbParsed = !isLoginOrgDetail ? parseSbbDetailPage(html) : null;
   if (sbbParsed) {
