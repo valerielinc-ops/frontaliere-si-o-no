@@ -330,6 +330,9 @@ describe('runner final guard across three application stages', () => {
     };
     const mountedApplication = {
       ...snapshot(manualUrl, 'Application', [{ id: 'apply', text: 'Apply', formId: 'application', frame: 0, disabled: false }]),
+      title: 'Store Assistant | Rituals Careers',
+      heading: 'Store Assistant',
+      text: 'Store Assistant | Rituals Careers. Application',
       fields: [
         { id: 'first', label: 'First Name', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
         { id: 'last', label: 'Last Name', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
