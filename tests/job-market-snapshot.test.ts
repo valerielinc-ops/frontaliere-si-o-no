@@ -40,6 +40,7 @@ import {
   generateJobMarketSnapshotPages,
   generateSectorSnapshotPages,
 } from '../build-plugins/jobMarketSnapshotPlugin';
+import { JOB_MARKET_SNAPSHOT_NOINDEX_MARKER } from '../build-plugins/shared/jobMarketSnapshotNoindexMarker.mjs';
 import { htmlAttr, htmlTagWithAttrs, htmlTagWithClass } from './utils/htmlAttr';
 
 // ── Fixtures ─────────────────────────────────────────────
@@ -504,7 +505,12 @@ describe('generateJobMarketSnapshotPages — normal mode (rich history)', () => 
     let noindexCount = 0;
     for (const [path, html] of Object.entries(out.pages)) {
       if (!/\/(settimana|week|woche|semaine)-\d/.test(path)) continue;
-      if (htmlTagWithAttrs('meta', { name: 'robots', content: 'noindex,follow' }).test(html)) noindexCount++;
+      if (htmlTagWithAttrs('meta', { name: 'robots', content: 'noindex,follow' }).test(html)) {
+        noindexCount++;
+        expect(html).toContain(JOB_MARKET_SNAPSHOT_NOINDEX_MARKER);
+      } else {
+        expect(html).not.toContain(JOB_MARKET_SNAPSHOT_NOINDEX_MARKER);
+      }
     }
     // We have 14 complete weeks × 4 locales = 56 weekly pages; oldest 2 × 4 = 8 should be noindex
     expect(noindexCount).toBeGreaterThanOrEqual(4);

@@ -98,6 +98,43 @@ describe('Bing title/meta template inventory', () => {
     }
   });
 
+  it('maps the T6 referrer samples to exact emitters and keeps nearby paths unknown', () => {
+    const positiveCases = [
+      [`${BASE}/ricerca/`, 'orphan-landing-hub-pages'],
+      [`${BASE}/en/search/`, 'orphan-landing-hub-pages'],
+      [`${BASE}/calcola-stipendio/quanto-guadagneresti-in-svizzera/`, 'salary-quiz-pages'],
+      [`${BASE}/fr/calculer-salaire/comparaison-net-2025-2026-moins-20km/`, 'salary-comparison-pages'],
+      [`${BASE}/calcola-stipendio/quiz-stipendio/`, 'legacy-redirect-stub-pages'],
+      [`${BASE}/fr/calculer-salaire/et-si/`, 'legacy-redirect-stub-pages'],
+      [`${BASE}/fr/entreprises-recrutent/ticino/semaine-actuelle/`, 'legacy-redirect-stub-pages'],
+      [`${BASE}/de/mitteilungen/`, 'communications-pages'],
+      [`${BASE}/cambio-franco-euro/`, 'exchange-rate-pages'],
+      [`${BASE}/preferenze-newsletter/`, 'newsletter-preferences-pages'],
+      [`${BASE}/mappa-del-sito/`, 'site-map-pages'],
+      [`${BASE}/embed/currency-widget.html`, 'currency-widget-pages'],
+    ] as const;
+
+    for (const [url, family] of positiveCases) {
+      expect(classifyBingTemplate(url).id, url).toBe(family);
+    }
+
+    const nearbyNonTargets = [
+      `${BASE}/ricerca/lugano/`,
+      `${BASE}/calcola-stipendio/quanto-guadagneresti-in-svizzera/dettagli/`,
+      `${BASE}/de/mitteilungen/archivio/`,
+      `${BASE}/cambio-franco-euro/4000-franchi-in-euro/`,
+      `${BASE}/preferenze-newsletter/token/`,
+      `${BASE}/mappa-del-sito/extra/`,
+      `${BASE}/embed/currency-widget.html/extra/`,
+      `${BASE}/en/calculate-salary/how-much-would-you-earn-in-switzerland/`,
+      `${BASE}/de/gehalt-berechnen/verdienst-in-der-schweiz/`,
+      `${BASE}/fr/calculer-salaire/combien-gagneriez-vous-en-suisse/`,
+    ];
+    for (const url of nearbyNonTargets) {
+      expect(classifyBingTemplate(url).id, url).toBe('unknown');
+    }
+  });
+
   it('records the concrete emitters for the newly classified families', () => {
     expect(BING_TEMPLATE_TABLE.find((family) => family.id === 'event-pages')?.sourcePaths)
       .toEqual(expect.arrayContaining(['build-plugins/eventsSeoPagesPlugin.ts']));
@@ -120,6 +157,21 @@ describe('Bing title/meta template inventory', () => {
       .toEqual(expect.arrayContaining(['build-plugins/weatherAlertPagesPlugin.ts']));
     expect(BING_TEMPLATE_TABLE.find((family) => family.id === 'salary-profession-canton-pages')?.sourcePaths)
       .toEqual(expect.arrayContaining(['build-plugins/salaryProfessionCantonPages.ts']));
+    expect(BING_TEMPLATE_TABLE.find((family) => family.id === 'orphan-landing-hub-pages')?.sourcePaths)
+      .toEqual(expect.arrayContaining(['build-plugins/orphanQueryLandingPlugin.ts']));
+    expect(BING_TEMPLATE_TABLE.find((family) => family.id === 'communications-pages')?.sourcePaths)
+      .toEqual(expect.arrayContaining(['build-plugins/communicationsPagePlugin.ts']));
+    expect(BING_TEMPLATE_TABLE.find((family) => family.id === 'exchange-rate-pages')?.sourcePaths)
+      .toEqual(expect.arrayContaining(['build-plugins/exchangeRatePagesPlugin.ts']));
+    expect(BING_TEMPLATE_TABLE.find((family) => family.id === 'newsletter-preferences-pages')?.sourcePaths)
+      .toEqual(expect.arrayContaining(['build-plugins/newsletterPreferencesPagesPlugin.ts']));
+    expect(BING_TEMPLATE_TABLE.find((family) => family.id === 'currency-widget-pages')?.sourcePaths)
+      .toEqual(expect.arrayContaining(['public/embed/currency-widget.html']));
+    expect(BING_TEMPLATE_TABLE.find((family) => family.id === 'legacy-redirect-stub-pages')?.sourcePaths)
+      .toEqual(expect.arrayContaining([
+        'build-plugins/legacyRedirectsPlugin.ts',
+        'build-plugins/searchConsoleCompat.ts',
+      ]));
   });
 
   it('preserves unknown paths instead of assigning a guessed first match', () => {
