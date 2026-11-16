@@ -54,6 +54,7 @@ function mockFetch(
 ): void {
   vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
     const u = typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
+    if (new URL(u).pathname === '/cdn-build-id.txt') return new Response('1001');
     if (u.includes('/job-canon/')) {
       return map
         ? new Response(JSON.stringify(map), { status: 200, headers: { 'Content-Type': 'application/json' } })
@@ -168,6 +169,7 @@ describe('locale-router canton-root-validity guard — expired job-detail slug (
       async (input: RequestInfo | URL) => {
         const u = typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
         const { pathname } = new URL(u);
+        if (pathname === '/cdn-build-id.txt') return new Response('1001');
         if (pathname.startsWith('/job-canon/v2/')) return new Response('not found', { status: 404 });
         if (pathname.startsWith('/job-canon/')) {
           return new Response(JSON.stringify(map), {

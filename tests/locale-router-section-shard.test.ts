@@ -104,6 +104,7 @@ function enableLucernaFanoutRegistry(): void {
 function seedJobAliasRedirect(sourcePath: string, targetPath: string): void {
   const key = new URL(APEX);
   key.pathname = `/__worker-cache/job-alias/fr${sourcePath}`;
+  key.searchParams.set('build_id', '1001');
   cacheStore.set(key.toString(), Response.json({ kind: 'redirect', target: targetPath }));
 }
 
@@ -147,6 +148,9 @@ beforeEach(() => {
   vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
     const reqUrl = typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
     const upstreamUrl = new URL(reqUrl);
+    if (upstreamUrl.hostname === 'cdn.frontaliereticino.ch' && upstreamUrl.pathname === '/cdn-build-id.txt') {
+      return new Response('1001');
+    }
     if (upstreamUrl.hostname === 'cdn.frontaliereticino.ch' && upstreamUrl.pathname === '/edge/section-tree-layout.json') {
       sectionTreeLayoutFetches += 1;
       return sectionTreeLayoutResponse();

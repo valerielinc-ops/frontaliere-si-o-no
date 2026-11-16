@@ -1003,6 +1003,40 @@ function aliasVerificationUnavailable(url) {
   );
 }
 
+const JOB_CANON_MARKER_UNAVAILABLE_COPY = {
+  it: 'Il recupero di questo annuncio non è temporaneamente disponibile. Riprova tra poco.',
+  en: 'Job recovery is temporarily unavailable. Please try again shortly.',
+  de: 'Die Wiederherstellung dieser Stellenanzeige ist vorübergehend nicht verfügbar. Bitte versuchen Sie es später erneut.',
+  fr: 'La récupération de cette offre est temporairement indisponible. Veuillez réessayer bientôt.',
+};
+
+// Log only a bounded reason and optional HTTP status. The public URL can
+// contain employer or job details, so marker failures deliberately omit it.
+function logJobCanonMarkerUnavailable(outcome) {
+  const details = {
+    event: 'job_canon_marker_unavailable',
+    reason: outcome.reason,
+    ...(Number.isInteger(outcome.status) ? { status: outcome.status } : {}),
+  };
+  try {
+    console.error(JSON.stringify(details));
+  } catch {
+    // Diagnostics must not alter the recovery response.
+  }
+}
+
+function jobCanonMarkerUnavailableResponse(locale, method) {
+  return new Response(method === 'HEAD' ? null : JOB_CANON_MARKER_UNAVAILABLE_COPY[locale], {
+    status: 503,
+    headers: {
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Content-Language': locale,
+      'Cache-Control': 'no-store',
+      'Retry-After': '60',
+    },
+  });
+}
+
 const MAP_FETCH_TIMEOUT_MS = 2000;
 const JOB_CANON_CACHE_TTL = 21600; // 6 h — map changes only on deploy
 const JOB_ALIAS_REDIRECT_CACHE_TTL = 86400; // 24 h — verified slug mappings are stable
@@ -1030,11 +1064,15 @@ async function fetchJobCanonBuildId() {
       // by this Worker; cacheTtl 0 and no-cache also bypass origin reuse.
       cf: { cacheEverything: false, cacheTtl: 0 },
     });
-    if (!response.ok) return null;
+    if (!response.ok) {
+      return { kind: 'unavailable', reason: 'http-status', status: response.status };
+    }
     const buildId = (await response.text()).trim();
-    return isValidJobCanonBuildId(buildId) ? buildId : null;
+    if (!buildId) return { kind: 'unavailable', reason: 'empty' };
+    if (!isValidJobCanonBuildId(buildId)) return { kind: 'unavailable', reason: 'invalid' };
+    return { kind: 'available', buildId };
   } catch {
-    return null;
+    return { kind: 'unavailable', reason: controller.signal.aborted ? 'timeout' : 'network' };
   } finally {
     clearTimeout(timer);
   }
@@ -3846,42 +3884,57 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
     const fuelStationRedirect = await recoverFuelStationAlias(url, origin);
     if (fuelStationRedirect) return fuelStationRedirect;
     // Read the uncached release marker before the internal alias cache. The
-    // build id namespaces cached redirects and both map shards; without a valid
-    // marker, map-derived recovery stays on the normal 404 path.
-    const jobCanonBuildId = JOB_DETAIL_RE.test(url.pathname)
+    // build id namespaces cached redirects and both map shards. An unavailable
+    // marker is distinct from a valid map miss: it must not become a cacheable
+    // 404, but deterministic recoveries later in this chain may still succeed.
+    const jobCanonMarker = JOB_DETAIL_RE.test(url.pathname)
       ? await fetchJobCanonBuildId()
       : null;
-    jobAliasCacheKey = jobAliasCacheKeyForUrl(url, recoveryLocale, jobCanonBuildId);
-    const cachedJobAliasResponse = await readJobAliasCacheResult(
-      request,
-      url,
-      recoveryLocale,
-      sectionRoute,
-      jobAliasCacheKey,
-    );
-    if (cachedJobAliasResponse) return cachedJobAliasResponse;
-    const redirect = await recoverCantonDriftOrphan(
-      url,
-      recoveryLocale,
-      jobAliasCacheKey,
-      ctx,
-      jobCanonBuildId,
-    );
-    if (redirect === CANTON_DRIFT_CANONICAL_NULL) negativeAliasCacheCandidate = true;
-    else if (redirect) return redirect;
-    const companyRedirect = recoverCrossLocaleCompanyPrefix(url, recoveryLocale);
-    if (companyRedirect) return companyRedirect;
-    // #3015: already-correct-prefix company hub that was pruned from the build —
-    // guarded (redirectTargetIsLive) 301 to the canton section root.
-    const prunedHubRedirect = await recoverPrunedCompanyHub(url, recoveryLocale, origin);
-    if (prunedHubRedirect) return prunedHubRedirect;
+    const jobCanonBuildId = jobCanonMarker?.kind === 'available' ? jobCanonMarker.buildId : null;
+    if (jobCanonMarker?.kind === 'unavailable') logJobCanonMarkerUnavailable(jobCanonMarker);
+    if (jobCanonMarker?.kind === 'available') {
+      jobAliasCacheKey = jobAliasCacheKeyForUrl(url, recoveryLocale, jobCanonBuildId);
+      const cachedJobAliasResponse = await readJobAliasCacheResult(
+        request,
+        url,
+        recoveryLocale,
+        sectionRoute,
+        jobAliasCacheKey,
+      );
+      if (cachedJobAliasResponse) return cachedJobAliasResponse;
+      const redirect = await recoverCantonDriftOrphan(
+        url,
+        recoveryLocale,
+        jobAliasCacheKey,
+        ctx,
+        jobCanonBuildId,
+      );
+      if (redirect === CANTON_DRIFT_CANONICAL_NULL) negativeAliasCacheCandidate = true;
+      else if (redirect) return redirect;
+    }
+    // Company-looking job-detail URLs only reach these fallbacks after the
+    // release-versioned map confirms a miss. Without that ownership check, a
+    // real job slug beginning with a company prefix could be misclassified.
+    if (jobCanonMarker?.kind !== 'unavailable') {
+      const companyRedirect = recoverCrossLocaleCompanyPrefix(url, recoveryLocale);
+      if (companyRedirect) return companyRedirect;
+      // #3015: already-correct-prefix company hub that was pruned from the build —
+      // guarded (redirectTargetIsLive) 301 to the canton section root.
+      const prunedHubRedirect = await recoverPrunedCompanyHub(url, recoveryLocale, origin);
+      if (prunedHubRedirect) return prunedHubRedirect;
+    }
     const paginationRedirect = recoverLegacyPagination(url);
     if (paginationRedirect) return paginationRedirect;
     // #3015: last-resort — a registry-known expired job-detail slug (not a
     // canton drift, not a company/pagination shape) — guarded 301 to the canton
     // section root. Unknown slugs (and unknown `ricerca-*` clusters) stay 404.
-    const expiredJobRedirect = await recoverExpiredJobToCantonRoot(url, origin, jobCanonBuildId);
+    const expiredJobRedirect = jobCanonMarker?.kind === 'available'
+      ? await recoverExpiredJobToCantonRoot(url, origin, jobCanonBuildId)
+      : null;
     if (expiredJobRedirect) return expiredJobRedirect;
+    if (jobCanonMarker?.kind === 'unavailable') {
+      return jobCanonMarkerUnavailableResponse(recoveryLocale, request.method);
+    }
   }
 
   // Stamp Cache-Control on 404s too so crawler re-fetches of dead URLs are

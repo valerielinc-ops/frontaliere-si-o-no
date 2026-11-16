@@ -151,6 +151,7 @@ describe('public/404.html job-canon alias locale validation', () => {
 
   it.each([
     { status: 404, body: '1001' },
+    { status: 500, body: '1001' },
     { status: 200, body: '' },
     { status: 200, body: 'not-a-build-id' },
     { status: 200, body: '1'.repeat(21) },
