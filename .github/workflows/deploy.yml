@@ -472,6 +472,7 @@ jobs:
           compression-level: 0
 
       - name: Retry upload prepared snapshot
+        id: upload-prepared-snapshot-retry
         if: steps.upload-prepared-snapshot.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
@@ -1303,6 +1304,7 @@ jobs:
           if-no-files-found: error
 
       - name: Retry upload deferred job og fallback handoff
+        id: upload-deferred-job-og-fallback-handoff-retry
         if: ( matrix.locale == 'it' && steps.build_step.outcome == 'success' ) && steps.upload-deferred-job-og-fallback-handoff.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
@@ -1480,6 +1482,7 @@ jobs:
           if-no-files-found: warn
 
       - name: Retry upload full-corpus jobs seo markers
+        id: upload-full-corpus-jobs-seo-markers-retry
         if: ( always() && matrix.locale == 'it' ) && steps.upload-full-corpus-jobs-seo-markers.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
@@ -1546,6 +1549,7 @@ jobs:
           if-no-files-found: error
 
       - name: Retry upload expired archive publication evidence
+        id: upload-expired-archive-publication-evidence-retry
         if: ( success() ) && steps.upload-expired-archive-publication-evidence.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
@@ -1615,6 +1619,7 @@ jobs:
           include-hidden-files: true
 
       - name: Retry hreflang index manifest publish (${{ matrix.locale }})
+        id: publish-hreflang-index-manifest-retry
         if: steps.publish-hreflang-index-manifest.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
@@ -1727,6 +1732,7 @@ jobs:
           if-no-files-found: error
 
       - name: Retry upload section tree layout metrics
+        id: upload-section-tree-layout-metrics-retry
         if: steps.upload-section-tree-layout-metrics.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
@@ -1811,6 +1817,7 @@ jobs:
           if-no-files-found: error
 
       - name: Retry upload non-it locale shard source artifact
+        id: upload-locale-source-retry
         if: ( matrix.locale != 'it' ) && steps.upload-locale-source.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
@@ -2021,6 +2028,7 @@ jobs:
           if-no-files-found: error
 
       - name: Retry upload it root publication source
+        id: upload-it-publish-root-retry
         if: ( matrix.locale == 'it' ) && steps.upload-it-publish-root.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
@@ -2044,6 +2052,7 @@ jobs:
           if-no-files-found: error
 
       - name: Retry upload it shard publication plan and support files
+        id: upload-it-shard-source-plan-retry
         if: ( matrix.locale == 'it' ) && steps.upload-it-shard-source-plan.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
@@ -2067,6 +2076,7 @@ jobs:
           if-no-files-found: error
 
       - name: Retry upload it shard source group zurigo
+        id: upload-it-shard-source-zurigo-retry
         if: ( matrix.locale == 'it' ) && steps.upload-it-shard-source-zurigo.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
@@ -2090,6 +2100,7 @@ jobs:
           if-no-files-found: error
 
       - name: Retry upload it shard source group svizzera
+        id: upload-it-shard-source-svizzera-retry
         if: ( matrix.locale == 'it' ) && steps.upload-it-shard-source-svizzera.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
@@ -2113,6 +2124,7 @@ jobs:
           if-no-files-found: error
 
       - name: Retry upload it shard source group small-1
+        id: upload-it-shard-source-small-1-retry
         if: ( matrix.locale == 'it' ) && steps.upload-it-shard-source-small-1.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
@@ -2136,6 +2148,7 @@ jobs:
           if-no-files-found: error
 
       - name: Retry upload it shard source group small-2
+        id: upload-it-shard-source-small-2-retry
         if: ( matrix.locale == 'it' ) && steps.upload-it-shard-source-small-2.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
@@ -2159,6 +2172,7 @@ jobs:
           if-no-files-found: error
 
       - name: Retry upload it shard source group small-3
+        id: upload-it-shard-source-small-3-retry
         if: ( matrix.locale == 'it' ) && steps.upload-it-shard-source-small-3.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
@@ -2182,6 +2196,7 @@ jobs:
           if-no-files-found: error
 
       - name: Retry upload it shard source group small-4
+        id: upload-it-shard-source-small-4-retry
         if: ( matrix.locale == 'it' ) && steps.upload-it-shard-source-small-4.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
@@ -2344,6 +2359,7 @@ jobs:
           if-no-files-found: error
 
       - name: Retry upload master source data for post-deploy validators
+        id: upload-master-source-data-for-post-deploy-validators-retry
         if: ( matrix.locale == 'it' ) && steps.upload-master-source-data-for-post-deploy-validators.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
@@ -2371,6 +2387,7 @@ jobs:
           include-hidden-files: true
 
       - name: Retry write-collisions analysis upload
+        id: write_collisions_analysis-retry
         if: always() && matrix.locale == 'it' && steps.write_collisions_analysis.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
@@ -2405,6 +2422,7 @@ jobs:
           if-no-files-found: ignore
 
       - name: Retry upload previous-slug winners for post-deploy validation
+        id: upload-previous-slug-winners-for-post-deploy-validation-retry
         if: ( matrix.locale == 'it' && steps.winners_changed.outputs.changed == 'true' ) && steps.upload-previous-slug-winners-for-post-deploy-validation.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
@@ -2742,6 +2760,7 @@ jobs:
           retention-days: 3
 
       - name: Retry upload build-history rows
+        id: upload-build-history-rows-retry
         if: ( always() ) && steps.upload-build-history-rows.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
@@ -2759,13 +2778,13 @@ jobs:
           always() &&
           matrix.locale != 'it' &&
           steps.validate-owned-sitemap-pages.outcome == 'success' &&
-          steps.upload-locale-source.outcome == 'success'
+          (steps.upload-locale-source.outcome == 'success' || steps.upload-locale-source-retry.outcome == 'success')
         id: bind-sitemap-page-manifest
         env:
           SOURCE_RUN_ID: ${{ github.run_id }}
           SOURCE_SHA: ${{ github.sha }}
           BASE_ARTIFACT_NAME: ${{ format('locale-shard-source-{0}-{1}', matrix.locale, github.run_id) }}
-          BASE_ARTIFACT_DIGEST: ${{ steps.upload-locale-source.outputs.artifact-digest }}
+          BASE_ARTIFACT_DIGEST: ${{ steps.upload-locale-source-retry.outputs.artifact-digest || steps.upload-locale-source.outputs.artifact-digest }}
           SITEMAPS_ARTIFACT_NAME: ''
           SITEMAPS_ARTIFACT_DIGEST: ''
         run: |
@@ -2796,6 +2815,7 @@ jobs:
           if-no-files-found: error
 
       - name: Retry upload sitemap page manifest for publisher gate
+        id: upload-sitemap-page-manifest-for-publisher-gate-retry
         if: ( always() && steps.bind-sitemap-page-manifest.outcome == 'success' ) && steps.upload-sitemap-page-manifest-for-publisher-gate.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:
@@ -2813,7 +2833,7 @@ jobs:
           PROVENANCE_VALIDATE_OUTCOME: ${{ steps.validate-locale-shard.outcome }}
           PROVENANCE_IT_PREP_OUTCOME: deferred
           PROVENANCE_PAGES_ARTIFACT_OUTCOME: deferred
-          PROVENANCE_SOURCE_ARTIFACT_OUTCOME: ${{ matrix.locale == 'it' && (steps.package-it-publish-source.outcome == 'success' && steps.upload-it-publish-root.outcome == 'success' && steps.upload-it-shard-source-plan.outcome == 'success' && steps.upload-it-shard-source-zurigo.outcome == 'success' && steps.upload-it-shard-source-svizzera.outcome == 'success' && steps.upload-it-shard-source-small-1.outcome == 'success' && steps.upload-it-shard-source-small-2.outcome == 'success' && steps.upload-it-shard-source-small-3.outcome == 'success' && steps.upload-it-shard-source-small-4.outcome == 'success' && 'success' || 'failure') || (steps.pack-locale-source.outcome == 'success' && steps.upload-locale-source.outcome == 'success' && 'success' || 'failure') }}
+          PROVENANCE_SOURCE_ARTIFACT_OUTCOME: ${{ matrix.locale == 'it' && (steps.package-it-publish-source.outcome == 'success' && (steps.upload-it-publish-root.outcome == 'success' || steps.upload-it-publish-root-retry.outcome == 'success') && (steps.upload-it-shard-source-plan.outcome == 'success' || steps.upload-it-shard-source-plan-retry.outcome == 'success') && (steps.upload-it-shard-source-zurigo.outcome == 'success' || steps.upload-it-shard-source-zurigo-retry.outcome == 'success') && (steps.upload-it-shard-source-svizzera.outcome == 'success' || steps.upload-it-shard-source-svizzera-retry.outcome == 'success') && (steps.upload-it-shard-source-small-1.outcome == 'success' || steps.upload-it-shard-source-small-1-retry.outcome == 'success') && (steps.upload-it-shard-source-small-2.outcome == 'success' || steps.upload-it-shard-source-small-2-retry.outcome == 'success') && (steps.upload-it-shard-source-small-3.outcome == 'success' || steps.upload-it-shard-source-small-3-retry.outcome == 'success') && (steps.upload-it-shard-source-small-4.outcome == 'success' || steps.upload-it-shard-source-small-4-retry.outcome == 'success') && 'success' || 'failure') || (steps.pack-locale-source.outcome == 'success' && (steps.upload-locale-source.outcome == 'success' || steps.upload-locale-source-retry.outcome == 'success') && 'success' || 'failure') }}
           PROVENANCE_OFFLOAD_OUTCOME: deferred
           PROVENANCE_SECTION_PUSH_OUTCOME: deferred
           PROVENANCE_CDN_GATE_OUTCOME: deferred
@@ -2847,6 +2867,7 @@ jobs:
           if-no-files-found: error
 
       - name: Retry upload locale publish provenance
+        id: upload-locale-publish-provenance-retry
         if: ( always() ) && steps.upload-locale-publish-provenance.outcome == 'failure'
         uses: actions/upload-artifact@v7
         with:

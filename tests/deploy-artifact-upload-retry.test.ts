@@ -1,7 +1,10 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
-import { findUploadArtifactStepsWithoutRetry } from '../scripts/lib/upload-artifact-retry-contract.mjs';
+import {
+  findStaleFirstAttemptReferences,
+  findUploadArtifactStepsWithoutRetry,
+} from '../scripts/lib/upload-artifact-retry-contract.mjs';
 
 const artifact = (name = 'Upload sample artifact', id = 'upload-sample', withValues = {}) => ({
   name,
@@ -13,6 +16,7 @@ const artifact = (name = 'Upload sample artifact', id = 'upload-sample', withVal
 
 const retry = (id = 'upload-sample', withValues = {}, ifValue = `steps.${id}.outcome == 'failure'`) => ({
   name: 'Retry upload sample artifact',
+  id: `${id}-retry`,
   if: ifValue,
   uses: 'actions/upload-artifact@v7',
   with: { name: 'sample-${{ github.run_id }}', path: 'dist/sample.json', ...withValues, overwrite: true },
@@ -24,6 +28,88 @@ describe('deploy.yml artifact upload retry contract', () => {
   it('covers every upload-artifact step in deploy.yml', () => {
     const doc = YAML.parse(readFileSync(new URL('../.github/workflows/deploy.yml', import.meta.url), 'utf8'));
     expect(findUploadArtifactStepsWithoutRetry(doc)).toEqual([]);
+    const retries = Object.values(doc.jobs).flatMap((job: any) => job.steps)
+      .filter((step: any) => step.name?.startsWith('Retry ') && step.uses?.startsWith('actions/upload-artifact@'));
+    const retryIds = retries.map((step: any) => step.id);
+    expect(retryIds.every((id: unknown) => typeof id === 'string' && id.trim())).toBe(true);
+    expect(new Set(retryIds).size).toBe(retryIds.length);
+  });
+
+  it('routes every first-attempt consumer in deploy.yml through its effective retry result', () => {
+    const doc = YAML.parse(readFileSync(new URL('../.github/workflows/deploy.yml', import.meta.url), 'utf8'));
+    expect(findStaleFirstAttemptReferences(doc)).toEqual([]);
+  });
+
+  it('reports a direct first-attempt outcome reference outside the retry', () => {
+    const consumer = {
+      name: 'Read upload result',
+      env: { RESULT: '${{ steps.upload-sample-retry.outcome }}; ${{ steps.upload-sample.outcome }}' },
+    };
+    expect(findStaleFirstAttemptReferences(workflow(artifact(), retry(), consumer))).toMatchObject([
+      {
+        job: 'build',
+        stepName: 'Upload sample artifact',
+        expression: '${{ steps.upload-sample.outcome }}',
+      },
+    ]);
+  });
+
+  it('accepts an outcome routed through the retry result', () => {
+    const consumer = {
+      name: 'Read effective upload result',
+      env: {
+        RESULT: "${{ steps.upload-sample-retry.outcome == 'success' && 'success' || steps.upload-sample.outcome }}",
+      },
+    };
+    expect(findStaleFirstAttemptReferences(workflow(artifact(), retry(), consumer))).toEqual([]);
+  });
+
+  it('accepts a digest selected from the retry before the first attempt', () => {
+    const consumer = {
+      name: 'Read effective upload digest',
+      env: {
+        DIGEST: '${{ steps.upload-sample-retry.outputs.artifact-digest || steps.upload-sample.outputs.artifact-digest }}',
+      },
+    };
+    expect(findStaleFirstAttemptReferences(workflow(artifact(), retry(), consumer))).toEqual([]);
+  });
+
+  it('does not report the retry condition that checks the first attempt', () => {
+    expect(findStaleFirstAttemptReferences(workflow(artifact(), retry()))).toEqual([]);
+  });
+
+  it('reports an unrouted first-attempt reference in job outputs', () => {
+    const doc = {
+      jobs: {
+        build: {
+          outputs: { result: '${{ steps.upload-sample.outcome }}' },
+          steps: [artifact(), retry()],
+        },
+      },
+    };
+    expect(findStaleFirstAttemptReferences(doc)).toMatchObject([
+      {
+        job: 'build',
+        stepName: 'Upload sample artifact',
+        expression: '${{ steps.upload-sample.outcome }}',
+      },
+    ]);
+  });
+
+  it('routes the sitemap bind gate, digest, and source provenance through the locale-source retry', () => {
+    const doc = YAML.parse(readFileSync(new URL('../.github/workflows/deploy.yml', import.meta.url), 'utf8'));
+    const steps = doc.jobs['build-locale'].steps;
+    const retryStep = steps.find(({ id }) => id === 'upload-locale-source-retry');
+    const bindStep = steps.find(({ id }) => id === 'bind-sitemap-page-manifest');
+    const provenanceStep = steps.find(({ id }) => id === 'write-locale-provenance');
+
+    expect(retryStep).toBeDefined();
+    expect(bindStep.if).toContain('steps.upload-locale-source.outcome');
+    expect(bindStep.if).toContain(`steps.${retryStep.id}.outcome`);
+    expect(bindStep.env.BASE_ARTIFACT_DIGEST).toContain('steps.upload-locale-source.outputs.artifact-digest');
+    expect(bindStep.env.BASE_ARTIFACT_DIGEST).toContain(`steps.${retryStep.id}.outputs.artifact-digest`);
+    expect(provenanceStep.env.PROVENANCE_SOURCE_ARTIFACT_OUTCOME).toContain('steps.upload-locale-source.outcome');
+    expect(provenanceStep.env.PROVENANCE_SOURCE_ARTIFACT_OUTCOME).toContain(`steps.${retryStep.id}.outcome`);
   });
 
   it('accepts a matching first attempt and retry pair', () => {

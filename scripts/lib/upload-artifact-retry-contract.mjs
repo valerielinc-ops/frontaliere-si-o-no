@@ -132,6 +132,111 @@ function isUploadArtifactStep(step) {
   return typeof step?.uses === 'string' && step.uses.startsWith('actions/upload-artifact@');
 }
 
+function retryPairs(workflowDoc) {
+  const pairs = [];
+
+  for (const [job, jobDoc] of Object.entries(workflowDoc?.jobs ?? {})) {
+    const steps = Array.isArray(jobDoc?.steps) ? jobDoc.steps : [];
+
+    for (let index = 0; index < steps.length - 1; index += 1) {
+      const firstAttempt = steps[index];
+      const retry = steps[index + 1];
+
+      if (!isUploadArtifactStep(firstAttempt) || firstAttempt.name?.startsWith('Retry ')
+        || !isUploadArtifactStep(retry) || !retry.name?.startsWith('Retry ')) continue;
+
+      pairs.push({ job, jobDoc, firstAttempt, retry });
+    }
+  }
+
+  return pairs;
+}
+
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
+function stringValues(value, output = []) {
+  if (typeof value === 'string') {
+    output.push(value);
+  } else if (Array.isArray(value)) {
+    for (const entry of value) stringValues(entry, output);
+  } else if (value && typeof value === 'object') {
+    for (const entry of Object.values(value)) stringValues(entry, output);
+  }
+
+  return output;
+}
+
+function expressionContaining(value, index) {
+  const wrappedExpressions = [...value.matchAll(/\$\{\{[\s\S]*?\}\}/g)];
+  const containingExpression = wrappedExpressions.find((match) => (
+    index >= match.index && index < match.index + match[0].length
+  ));
+
+  if (containingExpression) return containingExpression[0];
+  if (wrappedExpressions.length === 0) return value;
+
+  const previousExpression = wrappedExpressions.filter((match) => match.index + match[0].length <= index).at(-1);
+  const nextExpression = wrappedExpressions.find((match) => match.index > index);
+  const start = previousExpression ? previousExpression.index + previousExpression[0].length : 0;
+  const end = nextExpression ? nextExpression.index : value.length;
+  return value.slice(start, end).trim();
+}
+
+function consumerValues(workflowDoc, currentJob, retry) {
+  const values = [];
+
+  for (const [job, jobDoc] of Object.entries(workflowDoc?.jobs ?? {})) {
+    if (typeof jobDoc?.if === 'string') values.push({ job, value: jobDoc.if });
+    if (jobDoc?.outputs !== undefined) {
+      for (const value of stringValues(jobDoc.outputs)) values.push({ job, value });
+    }
+
+    for (const step of Array.isArray(jobDoc?.steps) ? jobDoc.steps : []) {
+      for (const key of ['if', 'env', 'with', 'run']) {
+        if (key === 'if' && job === currentJob && step === retry) continue;
+        if (step?.[key] === undefined) continue;
+        for (const value of stringValues(step[key])) values.push({ job, value });
+      }
+    }
+  }
+
+  return values;
+}
+
+export function findStaleFirstAttemptReferences(workflowDoc) {
+  const findings = [];
+
+  for (const { job, firstAttempt, retry } of retryPairs(workflowDoc)) {
+    if (typeof firstAttempt.id !== 'string' || !firstAttempt.id.trim()) continue;
+
+    const reference = new RegExp(
+      `steps\\.${escapeRegExp(firstAttempt.id)}\\.(?:outcome|conclusion|outputs(?:\\.[A-Za-z0-9_-]+)+)`,
+      'g',
+    );
+    const retryReference = typeof retry.id === 'string' && retry.id.trim()
+      ? new RegExp(`steps\\.${escapeRegExp(retry.id)}\\.`)
+      : null;
+
+    for (const { job: consumerJob, value } of consumerValues(workflowDoc, job, retry)) {
+      for (const match of value.matchAll(reference)) {
+        const expression = expressionContaining(value, match.index);
+        if (retryReference?.test(expression)) continue;
+
+        findings.push({
+          job,
+          stepName: typeof firstAttempt.name === 'string' ? firstAttempt.name : '',
+          expression,
+          reason: `unrouted steps.${firstAttempt.id} reference in ${consumerJob}; retry result ${retry.id ?? '(missing id)'} is not used`,
+        });
+      }
+    }
+  }
+
+  return findings;
+}
+
 export function findUploadArtifactStepsWithoutRetry(workflowDoc, { allowed = [] } = {}) {
   const findings = [];
 
