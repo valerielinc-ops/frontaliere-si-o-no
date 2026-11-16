@@ -154,14 +154,26 @@ export function normalizeBrefispersonalSpec(spec) {
   };
 }
 
-async function fetchJobListings() {
-  const spec = normalizeBrefispersonalSpec(loadSpec(BREFISPERSONAL_KEY));
-  return runSpecInProduction({
-    ...spec,
-    rescueOnEmptyListing: spec.rescueOnEmptyListing === undefined
+export function normalizeBrefispersonalRuntimeSpec(spec) {
+  const normalized = normalizeBrefispersonalSpec(spec);
+  if (!normalized || typeof normalized !== 'object') return normalized;
+  return {
+    ...normalized,
+    // Brefis can expose only a partial board to direct CI requests while a
+    // browser sees the complete vacancy index. Keep the source-specific
+    // browser rescue opt-in, without overriding a future explicit setting.
+    rescueOnPartialListing: normalized.rescueOnPartialListing === undefined
       ? true
-      : spec.rescueOnEmptyListing,
-  }, {
+      : normalized.rescueOnPartialListing,
+    rescueOnEmptyListing: normalized.rescueOnEmptyListing === undefined
+      ? true
+      : normalized.rescueOnEmptyListing,
+  };
+}
+
+async function fetchJobListings() {
+  const spec = normalizeBrefispersonalRuntimeSpec(loadSpec(BREFISPERSONAL_KEY));
+  return runSpecInProduction(spec, {
     browserFetchImpl: fetchHtmlViaBrowser,
   });
 }
