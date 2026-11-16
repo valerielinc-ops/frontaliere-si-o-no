@@ -87,7 +87,7 @@ export const WAVE1_CHANNELS = new Set([
 // Login pages in one run: create, verify, sign in, and one retry.
 const MAX_AUTH_STEPS = AGENT_ROUNDS;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
-const FORGOT_PASSWORD_RE = /(?:forgot(?:ten)?\s+(?:your\s+)?password|password\s+forgotten|passwort\s+vergessen|kennwort\s+vergessen|mot de passe\s+oublié|mot de passe\s+oublie|password\s+dimenticat[oa]|hai dimenticato la password|password dimenticata)/i;
+const FORGOT_PASSWORD_RE = /(?:forgot(?:ten)?\s+(?:your\s+)?password|password\s+forgotten|passwort\s+vergessen|kennwort\s+vergessen|mot de passe\s+oublié|mot de passe\s+oublie|oubli[ée]\s+(?:votre|le|mon\s+)?mot de passe|password\s+dimenticat[oa]|hai dimenticato la password|password dimenticata)/i;
 const PASSWORD_RESET_REQUEST_RE = /^(?:send(?:\s+(?:a\s+)?(?:reset\s+)?(?:link|instructions))?|reset\s+password|request\s+(?:a\s+)?password\s+reset|continue|submit|passwort\s+zurücksetzen|kennwort\s+zurücksetzen|réinitialiser le mot de passe|reinitialiser le mot de passe|invia|continua|reimposta password)$/i;
 const PASSWORD_RESET_CONFIRM_RE = /(?:reset|change|update|save|submit|continue|zurücksetzen|zuruecksetzen|speichern|ändern|aendern|modifier|enregistrer|réinitialiser|reinitialiser|salva|aggiorna|reimposta)/i;
 const PASSWORD_RESET_REFUSED_RE = /(?:expired|invalid|not valid|cannot be used|could not be reset|abgelaufen|ungültig|nicht gültig|expiré|invalide|scadut[oa]|non valido|rifiutat[oa])/i;
@@ -8693,7 +8693,9 @@ export async function openVerifiedPasswordResetNavigation(page, snapshot) {
         || control.dataAutomationId === 'forgotPasswordLink'));
   for (const candidate of candidates) {
     const id = String(candidate.id || '');
-    if (!/^[\w-]{1,80}$/.test(id) || !candidate.formId) continue;
+    if (!/^[\w-]{1,80}$/.test(id)) continue;
+    const workdayPageLevelReset = !candidate.formId && candidate.dataAutomationId === 'forgotPasswordLink';
+    if (!candidate.formId && !workdayPageLevelReset) continue;
     const frame = page.frames()[Number(candidate.frame) || 0] || page.mainFrame();
     const locator = frame.locator(`[data-aa-id="${id}"]`).first();
     if (typeof locator?.isVisible !== 'function' || typeof locator?.evaluate !== 'function'
@@ -8729,12 +8731,23 @@ export async function openVerifiedPasswordResetNavigation(page, snapshot) {
     }).catch(() => null);
     const label = [live?.text, live?.ariaLabel, live?.title, live?.labelledBy].join(' ');
     const explicit = FORGOT_PASSWORD_RE.test(label) || live?.dataAutomationId === 'forgotPasswordLink';
-    if (!explicit || live?.disabled || candidate.disabled === true
-      || live.formId !== String(candidate.formId)
-      || !loginFields({ fields: live.formIdentityFields || [] }).email || live.formHasPassword !== true) continue;
+    if (!live || !explicit || live.disabled || candidate.disabled === true) continue;
     let current;
     try { current = new URL(frame.url()); } catch { continue; }
     if (current.protocol !== 'https:' || current.username || current.password) continue;
+    const sameFormReset = Boolean(candidate.formId)
+      && live.formId === String(candidate.formId)
+      && Boolean(loginFields({ fields: live.formIdentityFields || [] }).email)
+      && live.formHasPassword === true;
+    const pageLogin = Array.isArray(snapshot?.fields) ? loginFields(snapshot) : { email: null, password: null };
+    const workdayPageReset = !candidate.formId
+      && !live.formId
+      && isWorkdayTenantUrl(current.href)
+      && live.tagName === 'BUTTON'
+      && candidate.dataAutomationId === 'forgotPasswordLink'
+      && live.dataAutomationId === 'forgotPasswordLink'
+      && Boolean(pageLogin.email && !pageLogin.email.formId && pageLogin.password && !pageLogin.password.formId);
+    if (!sameFormReset && !workdayPageReset) continue;
     if (live.tagName === 'BUTTON') {
       if (candidate.dataAutomationId !== 'forgotPasswordLink'
         && live.dataAutomationId !== 'forgotPasswordLink' && !FORGOT_PASSWORD_RE.test(label)) continue;
@@ -10927,7 +10940,9 @@ export async function submitViaPortal(ctx) {
       && isNonApplicationJobSearchSurface(snapshot);
     const postingTitle = typeof page.title === 'function' ? await page.title().catch(() => '') : '';
     const postingHeading = await postingMainHeading(page);
-    const postingTitleBound = jobRoomExternalAdFollowed || samePostingAddress(page.url(), ctx.postingUrl);
+    const postingTitleBound = jobRoomExternalAdFollowed
+      || samePostingAddress(page.url(), ctx.postingUrl)
+      || sameBrassRingPostingAddress(page.url(), ctx.postingUrl);
     const portalJob = postingTitleBound && postingHeading
       ? { ...ctx.job, observedPostingTitle: postingHeading }
       : ctx.job;
@@ -10991,8 +11006,8 @@ export async function submitViaPortal(ctx) {
     // selected page must be allowed to expose its own application entry before
     // a form exists; the entry and the form are still checked below.
     const selectedPostingIsApplicationUrl = Boolean(ctx.applyUrl && ctx.postingUrl
-      && samePostingAddress(ctx.applyUrl, ctx.postingUrl)
-      && samePostingAddress(postingUrl, ctx.postingUrl));
+      && (samePostingAddress(ctx.applyUrl, ctx.postingUrl) || sameBrassRingPostingAddress(ctx.applyUrl, ctx.postingUrl))
+      && (samePostingAddress(postingUrl, ctx.postingUrl) || sameBrassRingPostingAddress(postingUrl, ctx.postingUrl)));
     // When the selected posting URL is the page currently open, a failed
     // vacancy-identity check is terminal. Do not let a company-only match on
     // the same page turn a stale role into an application form.
