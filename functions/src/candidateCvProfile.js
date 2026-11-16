@@ -10,9 +10,11 @@
 
 import { FieldValue, Timestamp } from 'firebase-admin/firestore';
 import { getStorage } from 'firebase-admin/storage';
+import { randomUUID } from 'node:crypto';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { extractCvText, MAX_CV_SOURCE_BYTES } from './assistedApplicationAiDocuments.js';
 import { detectCvFileType, ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
+import { ASSISTED_APPLICATION_ORDER_ID_RE, ASSISTED_APPLICATIONS_COLLECTION, hasAssistedApplicationConsent } from './assistedApplicationConstants.js';
 import { CV_PROFILE_PARSER_VERSION } from './candidateCvProfileContract.js';
 
 export { CV_PROFILE_PARSER_VERSION } from './candidateCvProfileContract.js';
@@ -517,6 +519,43 @@ function profileCvFileName(value) {
   return `${base}${extension}`.slice(0, 160);
 }
 
+function assistedApplicationAcceptsCv(order) {
+  return order?.submissionStatus === 'awaiting_upload'
+    && !order.automationState
+    && order.retentionPurgingAt == null
+    && order.retentionPurgedAt == null;
+}
+
+async function cleanupCopiedAssistedApplicationCv({ db, orderRef, targetFile, preserveForRetention = false } = {}) {
+  let cleanupError = null;
+  if (!preserveForRetention) {
+    try {
+      await targetFile.delete({ ignoreNotFound: true });
+      return;
+    } catch (error) {
+      cleanupError = error;
+    }
+  }
+
+  try {
+    await db.runTransaction(async (transaction) => {
+      const snapshot = await transaction.get(orderRef);
+      if (!snapshot.exists) return;
+      transaction.set(orderRef, {
+        // The retention sweep deletes the whole order folder, including
+        // unreferenced copies that Storage could not remove immediately.
+        cvReuseOrphanAt: FieldValue.serverTimestamp(),
+        updatedAt: FieldValue.serverTimestamp(),
+      }, { merge: true });
+    });
+  } catch (recordError) {
+    console.error('[reuseCandidateProfileCvForAssistedApplication] orphan tracking failed', recordError instanceof Error ? recordError.name : 'unknown_error');
+  }
+  if (cleanupError) {
+    console.error('[reuseCandidateProfileCvForAssistedApplication] cleanup failed', cleanupError instanceof Error ? cleanupError.name : 'unknown_error');
+  }
+}
+
 /**
  * Finalize a signed-in candidate's private profile CV upload. The caller must
  * pass the authenticated UID; the storage key is checked against it here and
@@ -623,6 +662,185 @@ export async function processCandidateProfileCvUpload({
     if (oldProfile) await profileRef.set(oldProfile, { merge: false });
     else await profileRef.delete();
     await file.delete({ ignoreNotFound: true });
+    throw error;
+  }
+}
+
+/**
+ * Copy the owner's saved CV into one paid, consented €1.99 application order.
+ * The client supplies only the order ID: source lookup, ownership checks and
+ * the Storage copy stay server-side because profile CV objects are unreadable
+ * to browser clients.
+ */
+export async function reuseCandidateProfileCvForAssistedApplication({
+  db = getAdminDb(),
+  bucket = null,
+  userId,
+  orderId,
+} = {}) {
+  const uid = String(userId || '').trim();
+  const id = String(orderId || '').trim();
+  if (!uid || !ASSISTED_APPLICATION_ORDER_ID_RE.test(id)) {
+    throw new Error('invalid_assisted_application_order_id');
+  }
+
+  const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(id);
+  const profileRef = db.collection('user_cv_profiles').doc(uid);
+  const [orderSnapshot, profileSnapshot] = await Promise.all([orderRef.get(), profileRef.get()]);
+  if (!orderSnapshot.exists) throw new Error('assisted_application_order_not_found');
+  const order = orderSnapshot.data() || {};
+  if (String(order.userId || '') !== uid) throw new Error('assisted_application_not_owned');
+  if (order.paymentStatus !== 'paid') throw new Error('assisted_application_payment_required');
+  if (!hasAssistedApplicationConsent(order)) throw new Error('assisted_application_consent_required');
+  if (!assistedApplicationAcceptsCv(order)) {
+    throw new Error('assisted_application_intake_closed');
+  }
+  if (order.cvStorageKey) {
+    return {
+      status: 'already_uploaded',
+      cvStorageKey: String(order.cvStorageKey),
+      cvFileName: clean(order.cvFileName || sourceFileName(order.cvStorageKey), 160),
+    };
+  }
+  if (!profileSnapshot.exists) throw new Error('candidate_cv_profile_unavailable');
+
+  const profileRecord = profileSnapshot.data() || {};
+  const cvDocument = profileRecord.cvDocument || {};
+  const sourceType = safeSourceType(cvDocument.sourceType || profileRecord.sourceType);
+  const sourceId = String(cvDocument.sourceId || profileRecord.sourceId || '').trim();
+  if (String(profileRecord.userId || '') !== uid
+    || !['ready', 'needs_review'].includes(String(profileRecord.status || ''))
+    || !sourceId) {
+    throw new Error('candidate_cv_profile_unavailable');
+  }
+  const sourceRef = sourceRefFor(db, sourceType, sourceId);
+  if (!sourceRef) throw new Error('candidate_cv_source_unavailable');
+  const sourceSnapshot = await sourceRef.get();
+  if (!sourceSnapshot.exists) throw new Error('candidate_cv_source_unavailable');
+  const source = sourceSnapshot.data() || {};
+  const sourceKey = String(source.cvStorageKey || '');
+  if (String(source.userId || '') !== uid) throw new Error('candidate_cv_source_unavailable');
+
+  let allowedSourceKey = false;
+  if (sourceType === 'candidate_profile') {
+    allowedSourceKey = sourceId === uid && isProfileCvKey(uid, sourceKey);
+  } else if (['assisted_application', 'application_concierge'].includes(sourceType)) {
+    const prefix = sourceType === 'assisted_application'
+      ? `assisted-application-uploads/${sourceId}/`
+      : `application-concierge-uploads/${sourceId}/`;
+    const fileName = sourceKey.startsWith(prefix) ? sourceKey.slice(prefix.length) : '';
+    allowedSourceKey = /^[A-Za-z0-9_-]{6,128}$/.test(sourceId)
+      && Boolean(fileName)
+      && !fileName.includes('/')
+      && !fileName.includes('\\');
+  }
+  const fileName = profileCvFileName(source.cvFileName || cvDocument.fileName || sourceFileName(sourceKey));
+  if (!allowedSourceKey || !fileName) throw new Error('candidate_cv_source_unavailable');
+
+  const storageBucket = bucket || getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET);
+  const sourceFile = storageBucket.file(sourceKey);
+  let metadata;
+  let buffer;
+  try {
+    [metadata] = await sourceFile.getMetadata();
+    const size = Number(metadata?.size);
+    if (!Number.isSafeInteger(size) || size <= 0 || size >= MAX_PROFILE_CV_BYTES) {
+      throw new Error('candidate_cv_source_invalid');
+    }
+    [buffer] = await sourceFile.download();
+  } catch (error) {
+    if (error instanceof Error && error.message === 'candidate_cv_source_invalid') throw error;
+    throw new Error('candidate_cv_source_unavailable');
+  }
+
+  const contentType = String(metadata?.contentType || '').toLowerCase();
+  const detectedType = detectCvFileType(buffer.subarray(0, 8));
+  const extension = fileName.split('.').pop()?.toLowerCase() || '';
+  const allowedTypes = new Set([
+    'application/pdf',
+    'application/msword',
+    'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+  ]);
+  if (!allowedTypes.has(contentType) || !detectedType
+    || (extension === 'pdf' && detectedType !== 'pdf')
+    || (extension === 'doc' && detectedType !== 'doc')
+    || (extension === 'docx' && detectedType !== 'docx')) {
+    throw new Error('candidate_cv_source_invalid');
+  }
+
+  const destinationName = fileName.replace(/[^A-Za-z0-9._-]/g, '_').slice(0, 100) || `cv.${extension}`;
+  const targetKey = `assisted-application-uploads/${id}/${Date.now()}-${randomUUID()}-${destinationName}`;
+  const targetFile = storageBucket.file(targetKey);
+  try {
+    await sourceFile.copy(targetFile);
+    const result = await db.runTransaction(async (transaction) => {
+      const [latestOrderSnapshot, latestProfileSnapshot, latestSourceSnapshot] = await Promise.all([
+        transaction.get(orderRef),
+        transaction.get(profileRef),
+        transaction.get(sourceRef),
+      ]);
+      if (!latestOrderSnapshot.exists) throw new Error('assisted_application_order_not_found');
+      const latestOrder = latestOrderSnapshot.data() || {};
+      if (String(latestOrder.userId || '') !== uid) throw new Error('assisted_application_not_owned');
+      if (latestOrder.paymentStatus !== 'paid') throw new Error('assisted_application_payment_required');
+      if (!hasAssistedApplicationConsent(latestOrder)) throw new Error('assisted_application_consent_required');
+      if (!assistedApplicationAcceptsCv(latestOrder)) {
+        throw new Error('assisted_application_intake_closed');
+      }
+      if (latestOrder.cvStorageKey) {
+        return {
+          status: 'already_uploaded',
+          cvStorageKey: String(latestOrder.cvStorageKey),
+          cvFileName: clean(latestOrder.cvFileName || sourceFileName(latestOrder.cvStorageKey), 160),
+        };
+      }
+
+      const latestProfile = latestProfileSnapshot.exists ? latestProfileSnapshot.data() || {} : {};
+      const latestCvDocument = latestProfile.cvDocument || {};
+      if (String(latestProfile.userId || '') !== uid
+        || !['ready', 'needs_review'].includes(String(latestProfile.status || ''))
+        || safeSourceType(latestCvDocument.sourceType || latestProfile.sourceType) !== sourceType
+        || String(latestCvDocument.sourceId || latestProfile.sourceId || '') !== sourceId) {
+        throw new Error('candidate_cv_profile_changed');
+      }
+      const latestSource = latestSourceSnapshot.exists ? latestSourceSnapshot.data() || {} : {};
+      if (String(latestSource.userId || '') !== uid || String(latestSource.cvStorageKey || '') !== sourceKey) {
+        throw new Error('candidate_cv_profile_changed');
+      }
+
+      const patch = {
+        cvStorageKey: targetKey,
+        cvFileName: destinationName,
+        cvUploadedAt: FieldValue.serverTimestamp(),
+        cvReuseOrphanAt: FieldValue.delete(),
+        updatedAt: FieldValue.serverTimestamp(),
+        // Reuse must not replace the profile's canonical source with this
+        // application-scoped copy, regardless of which service supplied it.
+        cvProfileSourcePreserved: true,
+      };
+      transaction.set(orderRef, patch, { merge: true });
+      return { status: 'reused', cvStorageKey: targetKey, cvFileName: destinationName };
+    });
+
+    if (result.status !== 'reused') {
+      await cleanupCopiedAssistedApplicationCv({ db, orderRef, targetFile });
+    }
+    return result;
+  } catch (error) {
+    // A Firestore transaction can commit while its acknowledgement is lost.
+    // Confirm the reference before deleting the object, or leave it for the
+    // order's retention sweep if Firestore cannot answer.
+    try {
+      const latestOrderSnapshot = await orderRef.get();
+      const latestOrder = latestOrderSnapshot.exists ? latestOrderSnapshot.data() || {} : {};
+      if (String(latestOrder.cvStorageKey || '') === targetKey) {
+        return { status: 'reused', cvStorageKey: targetKey, cvFileName: destinationName };
+      }
+      await cleanupCopiedAssistedApplicationCv({ db, orderRef, targetFile });
+    } catch (verificationError) {
+      console.error('[reuseCandidateProfileCvForAssistedApplication] commit verification failed', verificationError instanceof Error ? verificationError.name : 'unknown_error');
+      await cleanupCopiedAssistedApplicationCv({ db, orderRef, targetFile, preserveForRetention: true });
+    }
     throw error;
   }
 }

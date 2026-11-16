@@ -119,6 +119,7 @@ import {
   discardCandidateProfileCvUpload,
   enrichCandidateProfileFromCv,
   processCandidateProfileCvUpload,
+  reuseCandidateProfileCvForAssistedApplication as copyProfileCvToAssistedApplication,
   refreshCandidateCvProfile as refreshCandidateCvProfileRecord,
 } from './src/candidateCvProfile.js';
 import {
@@ -3311,7 +3312,8 @@ export const enrichAssistedApplicationProfile = onDocumentWritten(
     if (!after?.exists) return;
     const before = event.data?.before?.exists ? event.data.before.data() : null;
     const data = after.data() || {};
-    if (data.billingMode === 'application_concierge' || !data.cvStorageKey || data.cvStorageKey === before?.cvStorageKey) return;
+    if (data.billingMode === 'application_concierge' || data.cvProfileSourcePreserved === true
+      || !data.cvStorageKey || data.cvStorageKey === before?.cvStorageKey) return;
     try {
       const result = await enrichCandidateProfileFromCv({
         db: getAdminDb(),
@@ -3373,6 +3375,48 @@ export const processCandidateCvProfileUpload = onCall(
       }
       console.error('[processCandidateCvProfileUpload]', error instanceof Error ? error.name : 'unknown_error');
       throw new HttpsError('internal', 'candidate_cv_processing_failed');
+    }
+  },
+);
+
+// Reuse the signed-in owner's private profile CV for one paid application.
+// The callable copies it into that order's own retention folder after checking
+// ownership, payment, the mandate and the still-open upload step.
+export const reuseCandidateProfileCvForAssistedApplication = onCall(
+  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 60 },
+  async (request) => {
+    const userId = request.auth?.uid;
+    if (!userId) throw new HttpsError('unauthenticated', 'Sign in is required.');
+    try {
+      return await copyProfileCvToAssistedApplication({
+        db: getAdminDb(),
+        userId,
+        orderId: request.data?.orderId,
+      });
+    } catch (error) {
+      const code = error instanceof Error ? error.message : '';
+      if (code === 'invalid_assisted_application_order_id') {
+        throw new HttpsError('invalid-argument', code);
+      }
+      if (code === 'assisted_application_order_not_found') {
+        throw new HttpsError('not-found', code);
+      }
+      if (code === 'assisted_application_not_owned') {
+        throw new HttpsError('permission-denied', code);
+      }
+      if ([
+        'assisted_application_payment_required',
+        'assisted_application_consent_required',
+        'assisted_application_intake_closed',
+        'candidate_cv_profile_unavailable',
+        'candidate_cv_source_unavailable',
+        'candidate_cv_source_invalid',
+        'candidate_cv_profile_changed',
+      ].includes(code)) {
+        throw new HttpsError('failed-precondition', code);
+      }
+      console.error('[reuseCandidateProfileCvForAssistedApplication]', error instanceof Error ? error.name : 'unknown_error');
+      throw new HttpsError('internal', 'candidate_cv_reuse_failed');
     }
   },
 );
