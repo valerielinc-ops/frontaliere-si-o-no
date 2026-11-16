@@ -319,6 +319,62 @@ describe('runner final guard across three application stages', () => {
     expect(f.click).toHaveBeenCalledOnce();
   });
 
+  it('keeps a Workday chooser on the bare requisition route bound while it mounts', async () => {
+    const jobUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033';
+    const manualUrl = `${jobUrl}/apply/applyManually`;
+    const chooser = {
+      ...snapshot(jobUrl, '', []),
+      title: 'Rituals Careers',
+      heading: '',
+      text: '',
+    };
+    const staleChooser = {
+      ...chooser,
+      buttons: [{ id: 'entry', text: 'Apply', frame: 0, disabled: false }],
+    };
+    const mountedApplication = {
+      ...snapshot(manualUrl, 'Application', [{ id: 'apply', text: 'Apply', formId: 'application', frame: 0, disabled: false }]),
+      title: 'Store Assistant | Rituals Careers',
+      heading: 'Store Assistant',
+      text: 'Store Assistant | Rituals Careers. Application',
+      fields: [
+        { id: 'first', label: 'First Name', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { id: 'last', label: 'Last Name', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { id: 'email', label: 'Email', kind: 'text', inputType: 'email', formId: 'application', frame: 0 },
+        { id: 'cv', label: 'Resume / CV', kind: 'file', inputType: 'file', formId: 'application', frame: 0 },
+      ],
+    };
+    const received = {
+      ...snapshot(manualUrl, 'Thank you for your application.', []),
+      fields: [],
+      buttons: [],
+    };
+    const posting = snapshot(jobUrl, 'Store Assistant Rituals Apply', [{ id: 'entry', text: 'Apply', frame: 0, disabled: false }]);
+    const f = fixture(chooser, posting, review, null, {
+      applyUrl: jobUrl,
+      postingUrl: jobUrl,
+      channelType: 'workday',
+      job: { company: 'Rituals Cosmetics Switzerland', title: 'Store Assistant' },
+      guardUrl: manualUrl,
+      receiptSnapshot: received,
+      onWait: (ms: number) => {
+        if (ms === 1000 && state.snapshot.url === jobUrl && !state.snapshot.fields.length && !state.snapshot.buttons.length) {
+          state.snapshot = staleChooser;
+        } else if (ms === 1000 && state.snapshot.url === jobUrl
+          && state.snapshot.buttons.some((button: any) => button.id === 'entry') && !state.snapshot.fields.length) {
+          state.snapshot = mountedApplication;
+        }
+      },
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
+    expect(f.openClick).toHaveBeenCalledOnce();
+    expect(f.guard).toHaveBeenCalledOnce();
+    expect(f.click).toHaveBeenCalledOnce();
+  });
+
   it('rejects a Workday surface that appears after the polled apply route becomes unbound', async () => {
     const postingUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033';
     const applyUrl = `${postingUrl}/apply`;
