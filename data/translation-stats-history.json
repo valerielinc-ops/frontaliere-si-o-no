@@ -1,113 +1,5 @@
 [
   {
-    "timestamp": "2026-10-27T13:13:46.962Z",
-    "label": "before",
-    "total": 32288,
-    "needsRetranslation": 2504,
-    "suppressed": 114,
-    "incomplete": 2377,
-    "complete": 29911,
-    "slotsPresent": 29911,
-    "flaggedAmongSlotsPresent": 585,
-    "verifiedTranslated": 29326,
-    "sourceCopyExcused": 273,
-    "slotsPresentByLength": 32210,
-    "languageVerified": 31219,
-    "missingByLocale": {
-      "it": 451,
-      "en": 436,
-      "de": 57,
-      "fr": 419
-    },
-    "queueAge": {
-      "count": 2504,
-      "withTimestamp": 2504,
-      "oldestAgeDays": 197.1,
-      "p50AgeDays": 28.6,
-      "p90AgeDays": 112.6,
-      "buckets": {
-        "0-1d": 344,
-        "1-2d": 36,
-        "2-7d": 131,
-        "0-7d": 511,
-        "7-30d": 842,
-        "30-90d": 808,
-        "90-180d": 332,
-        "180d+": 11
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": null,
-    "genderFormRepair": {
-      "measured": false,
-      "status": "cohort-captured",
-      "seed": 20260908,
-      "requested": 120,
-      "queuedCandidates": 823,
-      "sampled": 120,
-      "processed": 0,
-      "residual": 0,
-      "residualRate": null
-    },
-    "publicationHold": {
-      "held": 122,
-      "byCrawler": {
-        "sta": 26,
-        "stellenpartner": 94,
-        "stellentreff": 2
-      }
-    },
-    "predicateVersion": "efa06838687894cc",
-    "freshCohort": {
-      "window": "24-48h",
-      "total": 626,
-      "complete": 607
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 362
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 142
-      },
-      {
-        "company": "Stellenpartner AG",
-        "pending": 124
-      },
-      {
-        "company": "LANDI Oberwallis AG",
-        "pending": 110
-      },
-      {
-        "company": "Medbase",
-        "pending": 103
-      },
-      {
-        "company": "Equans Switzerland",
-        "pending": 79
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 60
-      },
-      {
-        "company": "yellowshark AG",
-        "pending": 58
-      },
-      {
-        "company": "STA Personal AG",
-        "pending": 46
-      },
-      {
-        "company": "Société coopérative Migros Vaud",
-        "pending": 41
-      }
-    ]
-  },
-  {
     "timestamp": "2026-10-27T16:26:38.873Z",
     "label": "after",
     "total": 32288,
@@ -28781,5 +28673,111 @@
         }
       }
     }
+  },
+  {
+    "timestamp": "2026-11-16T17:07:35.641Z",
+    "label": "before",
+    "total": 34724,
+    "needsRetranslation": 1873,
+    "suppressed": 80,
+    "incomplete": 2161,
+    "complete": 32563,
+    "slotsPresent": 32563,
+    "flaggedAmongSlotsPresent": 4,
+    "verifiedTranslated": 32559,
+    "sourceCopyExcused": 0,
+    "slotsPresentByLength": 34707,
+    "languageVerified": 33628,
+    "missingByLocale": {
+      "it": 129,
+      "en": 96,
+      "de": 10,
+      "fr": 96
+    },
+    "queueAge": {
+      "count": 1873,
+      "withTimestamp": 1873,
+      "oldestAgeDays": 217.2,
+      "p50AgeDays": 46.3,
+      "p90AgeDays": 135.3,
+      "buckets": {
+        "0-1d": 23,
+        "1-2d": 20,
+        "2-7d": 279,
+        "0-7d": 322,
+        "7-30d": 458,
+        "30-90d": 654,
+        "90-180d": 377,
+        "180d+": 62
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 460,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "publicationHold": {
+      "held": 131,
+      "byCrawler": {
+        "seco-jobroom": 131
+      }
+    },
+    "predicateVersion": "14b2cee4b7ef2e9e",
+    "freshCohort": {
+      "window": "24-48h",
+      "total": 333,
+      "complete": 313
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 186
+      },
+      {
+        "company": "Die Schweizerische Post AG",
+        "pending": 184
+      },
+      {
+        "company": "LANDI Reba AG",
+        "pending": 130
+      },
+      {
+        "company": "Medbase",
+        "pending": 91
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 90
+      },
+      {
+        "company": "Equans Switzerland",
+        "pending": 87
+      },
+      {
+        "company": "Universitätsspital Zürich (USZ)",
+        "pending": 63
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 56
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 54
+      },
+      {
+        "company": "Société coopérative Migros Vaud",
+        "pending": 34
+      }
+    ]
   }
 ]
