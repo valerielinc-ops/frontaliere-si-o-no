@@ -1623,7 +1623,25 @@ step_pack_new_sitemaps() {
   rm -f "$_pack_log"
 }
 
-# ── 8. Stage sitemaps bundle (pre-deploy + new + build-id) ────────────────────
+# ── 8. Record bridge evidence for data-driven sitemap churn ──────────────────
+# The publisher fast gate must distinguish a live data-driven retirement from a
+# silent 404. Keep only URL/path/hash receipts here; the complete dist tree
+# remains in the Pages artifact and never enters the gate.
+step_build_sitemap_family_bridge_evidence() {
+  local out=/tmp/sitemap-family-bridge-evidence.json
+  if [ ! -s /tmp/pre-deploy-sitemap-urls.json ] || [ ! -s /tmp/new-sitemap-urls.json ] || [ ! -d dist ]; then
+    printf '%s\n' '{"schemaVersion":1,"kind":"sitemap-family-bridge-evidence","complete":false,"entries":[],"missing":[{"reason":"sitemap snapshot or dist unavailable"}]}' > "$out"
+    echo '⚠️ sitemap family bridge evidence incomplete — snapshot or dist unavailable'
+    return 0
+  fi
+  node scripts/ci/build-sitemap-family-bridge-evidence.mjs \
+    --previous /tmp/pre-deploy-sitemap-urls.json \
+    --current /tmp/new-sitemap-urls.json \
+    --dist dist \
+    --out "$out"
+}
+
+# ── 9. Stage sitemaps bundle (pre-deploy + new + build-id + bridge evidence) ─
 # deploy.yml: "Stage sitemaps bundle" — NON-FATAL.
 step_stage_bundle() {
   mkdir -p /tmp/sitemaps-bundle
@@ -1634,6 +1652,7 @@ step_stage_bundle() {
   # downloading the 1.5 GB github-pages artifact.
   cp -f dist/build-id.txt /tmp/sitemaps-bundle/ 2>/dev/null || true
   cp -f /tmp/new-sitemap-urls.json /tmp/sitemaps-bundle/ 2>/dev/null || true
+  cp -f /tmp/sitemap-family-bridge-evidence.json /tmp/sitemaps-bundle/ 2>/dev/null || true
   ls -la /tmp/sitemaps-bundle/
 }
 
@@ -1760,6 +1779,7 @@ main() {
   run_fatal "Drop dist/assets after CDN push" step_drop_assets       # FATAL
   run_nonfatal "Capture pre-deploy sitemap URLs" step_capture_sitemaps   # non-fatal
   run_nonfatal "Pack new sitemap URLs from dist/" step_pack_new_sitemaps # non-fatal
+  run_nonfatal "Build sitemap family bridge evidence" step_build_sitemap_family_bridge_evidence # non-fatal
   run_nonfatal "Stage sitemaps bundle" step_stage_bundle            # non-fatal
   run_fatal "Pack dist/ into Pages tar archive" step_pack_tar        # FATAL
   run_fatal "Audit dist bytes" step_audit_bytes                      # FATAL
