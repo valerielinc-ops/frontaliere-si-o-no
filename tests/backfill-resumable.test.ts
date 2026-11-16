@@ -11,24 +11,24 @@ const recoveryWorkflow = readFileSync(
 );
 
 describe('backfill-expired-from-history.yml — durable checkpoints', () => {
-  it('keeps full commit/tree history and verifies bounded slice-blob prefetch before the backfill walk', () => {
-    const checkoutStart = workflow.indexOf('- name: Checkout (full commit/tree history — slice blobs prefetched below)');
-    const prefetchStart = workflow.indexOf('- name: Prefetch historical job-slice blobs in bounded packs');
+  it('keeps full commit/tree history and prefetches each bounded crawler batch before its walk', () => {
+    const checkoutStart = workflow.indexOf('- name: Checkout (full commit/tree history — slice blobs prefetched per batch below)');
     const setupStart = workflow.indexOf('- name: Setup Node.js');
     const walkStart = workflow.indexOf('- name: Recover dropped jobs and repair active firstSeenAt metadata (checkpointed batches)');
-    const checkoutBlock = workflow.slice(checkoutStart, prefetchStart);
-    const prefetchBlock = workflow.slice(prefetchStart, setupStart);
+    const checkoutBlock = workflow.slice(checkoutStart, setupStart);
+    const prefetchAt = workflow.indexOf('CRAWLER_KEYS="$batch_crawler_keys" node scripts/ci/prefetch-history-blobs.mjs');
+    const walkAt = workflow.indexOf('CRAWLER_KEYS="$key" node scripts/backfill-expired-from-history.mjs');
 
     expect(checkoutStart).toBeGreaterThanOrEqual(0);
-    expect(prefetchStart).toBeGreaterThan(checkoutStart);
-    expect(setupStart).toBeGreaterThan(prefetchStart);
+    expect(setupStart).toBeGreaterThan(checkoutStart);
     expect(walkStart).toBeGreaterThan(setupStart);
     expect(checkoutBlock).toContain('fetch-depth: 0');
     expect(checkoutBlock).toContain('filter: blob:none');
-    expect(prefetchBlock).toContain('scripts/ci/prefetch-history-blobs.mjs');
-    expect(prefetchBlock).toContain('CHECKOUT_TOKEN: ${{ secrets.GITHUB_TOKEN }}');
-    expect(prefetchBlock).toContain('REPOSITORY: ${{ github.repository }}');
-    expect(prefetchBlock).toContain("HISTORY_SINCE: ${{ inputs.history_since || '45 days ago' }}");
+    expect(prefetchAt).toBeGreaterThan(walkStart);
+    expect(walkAt).toBeGreaterThan(prefetchAt);
+    expect(workflow).toContain('batch_keys=("${key_list[@]:batch_start:checkpoint_batch_size}")');
+    expect(workflow).toContain('batch_crawler_keys');
+    expect(workflow).toContain("HISTORY_SINCE: ${{ inputs.history_since || '45 days ago' }}");
   });
 
   it('gives the full active-plus-expired assembly an explicit heap ceiling', () => {
@@ -81,7 +81,9 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(block).toContain("^has_changes=false$");
     expect(block).toContain('git reset --hard origin/main');
     expect(block).toContain('mapfile -t key_list <<< "$keys"');
-    expect(block).toContain('for key in "${key_list[@]}"; do');
+    expect(block).toContain('for key in "${batch_keys[@]}"; do');
+    expect(block).toContain('CRAWLER_KEYS="$batch_crawler_keys" node scripts/ci/prefetch-history-blobs.mjs');
+    expect(block).toContain('batch_size="${#batch_keys[@]}"');
     expect(block).toContain('checkpoint history backfill slices');
     expect(block.indexOf('npm run test:backfill')).toBeLessThan(block.indexOf('git-commit-data.sh --slice-only'));
   });

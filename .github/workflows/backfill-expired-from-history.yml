@@ -69,26 +69,12 @@ jobs:
       NODE_OPTIONS: '--max-old-space-size=8192'
 
     steps:
-      - name: Checkout (full commit/tree history — slice blobs prefetched below)
+      - name: Checkout (full commit/tree history — slice blobs prefetched per batch below)
         uses: actions/checkout@v7
         with:
           fetch-depth: 0
           filter: blob:none
         timeout-minutes: 40
-
-      - name: Prefetch historical job-slice blobs in bounded packs
-        timeout-minutes: 40
-        env:
-          CHECKOUT_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REPOSITORY: ${{ github.repository }}
-          # Run 43462137893 (2026-11-13) hit the 40-minute cap with the
-          # requested 2026-09-20 window. Split the fetch into bounded packs;
-          # HISTORY_SINCE still matches the walk below.
-          HISTORY_SINCE: ${{ inputs.history_since || '45 days ago' }}
-        # The prefetch uses the same commit-date window as the backfill and
-        # reads only the two slice-family trees. It verifies all fetched blob
-        # OIDs before the history walk can trigger any per-blob lazy fetch.
-        run: node scripts/ci/prefetch-history-blobs.mjs
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -327,15 +313,24 @@ jobs:
           fi
 
           mapfile -t key_list <<< "$keys"
-          for key in "${key_list[@]}"; do
-            [ -n "$key" ] || continue
-            echo "──── Backfilling crawler: $key ────"
-            CRAWLER_KEYS="$key" node scripts/backfill-expired-from-history.mjs
-            last_completed_key="$key"
-            checkpoint_count=$((checkpoint_count + 1))
-            if [ "$checkpoint_count" -ge "$checkpoint_batch_size" ]; then
-              checkpoint
-            fi
+          key_total="${#key_list[@]}"
+          for ((batch_start=0; batch_start<key_total; batch_start+=checkpoint_batch_size)); do
+            batch_keys=("${key_list[@]:batch_start:checkpoint_batch_size}")
+            batch_size="${#batch_keys[@]}"
+            batch_crawler_keys=''
+            printf -v batch_crawler_keys '%s,' "${batch_keys[@]}"
+            batch_crawler_keys="${batch_crawler_keys%,}"
+            echo "📦 Prefetching history for crawler batch $((batch_start + 1))-$((batch_start + batch_size))/$key_total"
+            CRAWLER_KEYS="$batch_crawler_keys" node scripts/ci/prefetch-history-blobs.mjs
+
+            for key in "${batch_keys[@]}"; do
+              [ -n "$key" ] || continue
+              echo "──── Backfilling crawler: $key ────"
+              CRAWLER_KEYS="$key" node scripts/backfill-expired-from-history.mjs
+              last_completed_key="$key"
+              checkpoint_count=$((checkpoint_count + 1))
+            done
+            checkpoint
           done
 
           checkpoint 1
