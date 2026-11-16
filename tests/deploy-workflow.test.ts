@@ -296,17 +296,17 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(rehydrate.env.SHARD_ARTIFACT_RUN_ID_IT).toContain('inputs.it_shard_artifact_run_id');
   });
 
-  it('prunes only the source-only image tree for the opted-in weekly full replay', () => {
+  it('prunes only the source-only image tree for opted-in published-dist replays', () => {
     const workflow = YAML.parse(AUDIT_REPORT_YML) as any;
     const full = YAML.parse(AUDIT_FULL_YML) as any;
     const published = YAML.parse(AUDIT_PUBLISHED_YML) as any;
     const steps = workflow.jobs.audit.steps;
     const sparseCheckout = steps.find((step: any) => (
-      step.name === 'Checkout weekly full audit source without source-only images'
+      step.name === 'Checkout audit source without source-only images'
     ));
     const fullCheckout = steps.find((step: any) => step.name === 'Checkout repo (for audit scripts only)');
     const sparseCheckoutIndex = steps.findIndex((step: any) => (
-      step.name === 'Checkout weekly full audit source without source-only images'
+      step.name === 'Checkout audit source without source-only images'
     ));
     const fullCheckoutIndex = steps.findIndex((step: any) => step.name === 'Checkout repo (for audit scripts only)');
     const pruneIndex = steps.findIndex((step: any) => (
@@ -354,7 +354,7 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
       .toBe("${{ inputs.prune_source_images && '2' || '1' }}");
     expect(installIndex).toBeGreaterThan(rehydrateIndex);
     expect(installIndex).toBeLessThan(reconcileIndex);
-    expect(published.jobs.report.with.prune_source_images).not.toBe(true);
+    expect(published.jobs.report.with.prune_source_images).toBe(true);
   });
 
   it('reconciles sitemap membership after shard rehydration and before final-dist audits', () => {
