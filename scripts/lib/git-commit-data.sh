@@ -1156,6 +1156,8 @@ function primitiveKey(value) {
   return '';
 }
 
+const STRICT_ARRAY_KEY_FIELDS = new Set(['url', 'id', 'key', 'slug']);
+
 function detectArrayKey(arrays, forcedKey = '') {
   const candidates = [];
   if (forcedKey) candidates.push(forcedKey);
@@ -1199,7 +1201,7 @@ function detectArrayKey(arrays, forcedKey = '') {
     // old 0.85 ratchet let one duplicate in a 20-job slice through, making
     // previousSlugs follow array order across concurrent writers. Generic
     // metadata arrays keep their existing coverage/uniqueness tolerance.
-    const minimumUniqueness = new Set(['url', 'id', 'key', 'slug']).has(candidate)
+    const minimumUniqueness = STRICT_ARRAY_KEY_FIELDS.has(candidate)
       ? 1
       : 0.85;
     let allPass = true;
