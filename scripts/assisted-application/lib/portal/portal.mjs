@@ -11,7 +11,10 @@ import '../../extension/apply-control.js';
  *   Codex plan, deterministic fill, next → submit → confirmation.
  *
  * CAPTCHA challenges are detected and handed off to Valerie for the owner
- * fill extension; the live application runner never loads a solver.
+ * fill extension. CloakBrowser gets one bounded challenge pass: a Cloudflare
+ * interstitial may settle by itself and a managed Turnstile checkbox may be
+ * clicked once. A challenge that remains, or reCAPTCHA/hCaptcha, is still a
+ * Valerie handoff; the live application runner never loads a solver.
  * A login page is handled by account.mjs: an
  * account on the order's alias, created by the runner and verified through
  * the order's inbox. An application form that asks for the account's password
@@ -27,7 +30,8 @@ import '../../extension/apply-control.js';
  */
 
 import path from 'node:path';
-import { launchChromium } from '../../../lib/ensure-chromium.mjs';
+import { browserEngine, isStealthBrowser, launchStealthOrChromium } from '../../../lib/stealth-browser.mjs';
+import { challengeState, passChallenge } from '../../../lib/challenge-pass.mjs';
 import { applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, gravityFormsSubmissionOutcome, inPageApplicationOpeners, isApplicationRegionUnsupported, portalJobKey } from './stages.mjs';
 import { COVER_LETTER_DOCUMENT_CONTEXT_RE, COVER_LETTER_DOCUMENT_TERMS, CV_DOCUMENT_CONTEXT_RE, CV_DOCUMENT_TERMS } from './document-labels.mjs';
 import { advancedToFinalReview } from './final-review.mjs';
@@ -210,6 +214,47 @@ async function extractFields(page, options) {
   const snapshot = await extractFieldsRaw(page, options);
   const context = verifiedUmantisApplicantPages.get(page);
   return context ? verifiedUmantisApplicantAddressSnapshot(snapshot, page.url(), context) : snapshot;
+}
+
+const portalChallengePresent = (state) => Boolean(
+  state?.interstitial || state?.turnstile || state?.recaptcha || state?.hcaptcha,
+);
+
+/**
+ * Give CloakBrowser one bounded attempt at a managed Cloudflare challenge.
+ * This is deliberately not a solver: reCAPTCHA/hCaptcha and any challenge
+ * left after the attempt go to Valerie through the existing CAPTCHA handoff.
+ */
+async function passAssistedPortalChallenge(page, browser, log = () => {}) {
+  if (!isStealthBrowser(browser)) return { passed: true, challenged: false, clicked: false };
+
+  let initial;
+  try {
+    initial = await challengeState(page);
+  } catch {
+    log('[challenge-pass] check unavailable; handing off to Valerie');
+    return { passed: false, challenged: true, clicked: false, state: null };
+  }
+  if (!portalChallengePresent(initial)) return { passed: true, challenged: false, clicked: false, state: initial };
+  if (initial.recaptcha || initial.hcaptcha) {
+    log('[challenge-pass] unsupported CAPTCHA; handing off to Valerie');
+    return { passed: false, challenged: true, clicked: false, state: initial };
+  }
+
+  try {
+    const result = await passChallenge(page, { timeoutMs: 30_000, pollMs: 1_000, log });
+    const state = result?.state || await challengeState(page);
+    const passed = result?.passed === true && !portalChallengePresent(state);
+    return {
+      passed,
+      challenged: true,
+      clicked: result?.clicked === true,
+      state,
+    };
+  } catch {
+    log('[challenge-pass] bounded attempt failed; handing off to Valerie');
+    return { passed: false, challenged: true, clicked: false, state: initial };
+  }
 }
 
 const OUTCOME_TIMEOUT_MS = 60_000;
@@ -1185,21 +1230,27 @@ function portalChannelType(ctx = {}) {
   return ctx.channelType || '';
 }
 
-/** Launch stock Playwright Chromium; Valerie handles challenges later in her own Chrome extension session. */
-export function launchPortalBrowser() {
-  return launchChromium({
-    headless: !headedBrowser(),
-    // Match the deterministic form viewport configured for this portal.
-    args: ['--window-size=1366,900'],
+/** Launch the opt-in assisted browser; fall back to stock Chromium if needed. */
+export function launchPortalBrowser(ctx = {}) {
+  const headless = typeof ctx.headless === 'boolean' ? ctx.headless : !headedBrowser();
+  const args = ['--window-size=1366,900'];
+  return launchStealthOrChromium({
+    purpose: 'assisted',
+    headless,
+    locale: INTL[ctx.language] || 'de-CH',
+    timezone: 'Europe/Zurich',
+    args,
+    fallbackOptions: { headless, args },
+    ...(typeof ctx.log === 'function' ? { log: ctx.log } : {}),
   });
 }
 
-/** Set form locale and geometry without overriding the browser's identity. */
-export function portalContextOptions(ctx = {}) {
+/** Set form geometry without re-emulating locale, timezone or viewport in CloakBrowser. */
+export function portalContextOptions(ctx = {}, browser = null) {
+  const stealth = isStealthBrowser(browser);
   return {
-    locale: INTL[ctx.language] || 'de-CH',
-    timezoneId: 'Europe/Zurich',
-    viewport: { width: 1366, height: 900 },
+    ...(stealth ? {} : { locale: INTL[ctx.language] || 'de-CH', timezoneId: 'Europe/Zurich' }),
+    viewport: stealth ? null : { width: 1366, height: 900 },
     acceptDownloads: false,
     ...(ctx.portalReplay === true ? { serviceWorkers: 'block' } : {}),
   };
@@ -3875,6 +3926,13 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     pageHeadings: await postingMainHeadings(page),
     text: await pageText(page).catch(() => String(current?.text || '')),
   });
+  const ensurePortalChallenge = async () => {
+    if (typeof stageContext?.onPortalChallenge !== 'function') return true;
+    const challenge = await stageContext.onPortalChallenge(page);
+    if (challenge?.passed === false) return false;
+    if (challenge?.challenged) snapshot = await extractFields(page, NAVIGATION).catch(() => snapshot);
+    return true;
+  };
   const reportNavigation = ({ hop, phase, cookieStatus, controls = [], ownedEntries = [], entryResolution = null, selectedControlKind = 'none', linkVisible = false }) => {
     if (typeof stageContext?.onPortalNavigationDiagnostic !== 'function') return;
     let location = null;
@@ -3902,6 +3960,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     }
   };
   for (let hop = 0; hop < 3; hop += 1) {
+    if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
     if (stageContext && workdayPostingRouteMismatch(page.url(), stageContext.applyUrl, workdayApplicationEntryProven)) {
       return result({ handoff: 'posting_mismatch' });
     }
@@ -3916,6 +3975,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         snapshot = await extractFields(page, NAVIGATION);
       }
     }
+    if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
     if (!await waitForWorkdayApplicationSurface()) return result({ handoff: 'posting_mismatch' });
     const publicRecovery = await recoverStadtZurichPublicJobSearch(page, snapshot, stageContext, {
       searched: publicSearchSearched,
@@ -3998,6 +4058,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         stageContext = { ...stageContext, applyUrl: embeddedApplicationUrl, postingEntry: true };
         await page.goto(embeddedApplicationUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
         await settle(page);
+        if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
         await page.waitForTimeout(1200);
         snapshot = await extractFields(page, NAVIGATION);
         reportNavigation({ hop: hop + 1, phase: 'direct_route', cookieStatus, controls: applicationControls, ownedEntries });
@@ -4065,6 +4126,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         if (applicationUrl !== page.url()) {
           await page.goto(applicationUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
           await settle(page);
+          if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
           await page.waitForTimeout(1200);
           snapshot = await extractFields(page, NAVIGATION);
           if (!await waitForWorkdayApplicationSurface()) return result({ handoff: 'posting_mismatch' });
@@ -4089,6 +4151,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
           || workdayApplicationEntryProven;
         await page.goto(directApplicationUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
         await settle(page);
+        if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
         await page.waitForTimeout(1200);
         snapshot = await extractFields(page, NAVIGATION);
         if (!await waitForWorkdayApplicationSurface()) return result({ handoff: 'posting_mismatch' });
@@ -4126,6 +4189,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       page = (await clickPortalLink(page, link, { context })) || page;
     }
     await settle(page);
+    if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
     await page.waitForTimeout(1200); // a modal (Workday's apply dialog) finishes its animation
     snapshot = await extractFields(page, NAVIGATION);
     if (!await waitForWorkdayApplicationSurface()) return result({ handoff: 'posting_mismatch' });
@@ -9803,6 +9867,13 @@ async function waitForOutcome(page, context = {}) {
   let lastSnapshot = null;
   while (Date.now() < deadline) {
     await page.waitForTimeout(1000);
+    if (typeof context.onPortalChallenge === 'function') {
+      const challenge = await context.onPortalChallenge(page);
+      if (challenge?.passed === false) {
+        const snapshot = await extractFields(page, NAVIGATION).catch(() => null);
+        return { outcome: 'captcha', snapshot: snapshot || lastSnapshot };
+      }
+    }
     const text = await page.evaluate(() => document.body?.innerText || '').catch(() => '');
     let snapshot = await extractFields(page, NAVIGATION).catch(() => null);
     if (snapshot) {
@@ -10386,7 +10457,7 @@ export async function readPortalRequirements(ctx) {
   };
   try {
     browser = await launch();
-    const context = await browser.newContext(portalContextOptions(ctx));
+    const context = await browser.newContext(portalContextOptions(ctx, browser));
     registerPortalChannelType(context, portalChannelType(ctx));
     if (ctx.portalReplay !== true) await registerCookieSessionRecovery(context, { log: ctx.log });
     if (genericPublicRoute && typeof context.route === 'function') {
@@ -10423,6 +10494,10 @@ export async function readPortalRequirements(ctx) {
     page = await context.newPage();
     await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
+    const initialChallenge = await passAssistedPortalChallenge(page, browser, ctx.log || (() => {}));
+    if (!initialChallenge.passed) {
+      return await finish({ questions: [], documents: [], handoff: 'captcha_present' });
+    }
     let snapshot = await extractFields(page, NAVIGATION);
     let jobRoomExternalAdFollowed = false;
     const jobRoomExternalAd = await followJobRoomExternalAd(page, snapshot, { resolvePublicHost });
@@ -10479,6 +10554,7 @@ export async function readPortalRequirements(ctx) {
       postingRouteProof: ctx.postingRouteProof,
       allowSingleExternalApplicationEntry: sourcePostingMatched,
       ...(sourceDocumentHost ? { postingDocumentHost: true, postingDocumentHostUrl: sourcePageUrl } : {}),
+      onPortalChallenge: targetPage => passAssistedPortalChallenge(targetPage, browser, ctx.log || (() => {})),
     });
     ({ page, snapshot } = opened);
     if (opened.resolvedApplicationUrl) ctx.applyUrl = opened.resolvedApplicationUrl;
@@ -10496,6 +10572,13 @@ export async function readPortalRequirements(ctx) {
     snapshot = await awaitFields(page, await extractFields(page, readAhead
       ? { ...NAVIGATION, includeHidden: true, listboxOptions: false }
       : NAVIGATION));
+    const postReadChallenge = await passAssistedPortalChallenge(page, browser, ctx.log || (() => {}));
+    if (!postReadChallenge.passed) {
+      return await finish({ questions: [], documents: [], handoff: 'captcha_present' });
+    }
+    if (postReadChallenge.challenged) snapshot = await extractFields(page, readAhead
+      ? { ...NAVIGATION, includeHidden: true, listboxOptions: false }
+      : NAVIGATION);
     contractSnapshot = snapshot;
     const readableApplication = hasApplicationForm(snapshot)
       && (!snapshot.passwordVisible || snapshot.fields.some((field) => field.kind === 'file') || sendsApplication(snapshot));
@@ -10979,7 +11062,7 @@ export async function submitViaPortal(ctx) {
     return { status: agent.status, acted };
   } : null;
   try {
-    context = await browser.newContext(portalContextOptions(ctx));
+    context = await browser.newContext(portalContextOptions(ctx, browser));
     if (ctx.portalReplay === true && ctx.portalReplayFenceInstalled !== true) {
       const metrics = await installPortalReplayFence(context);
       if (ctx.portalReplayMetrics && typeof ctx.portalReplayMetrics === 'object') Object.assign(ctx.portalReplayMetrics, metrics);
@@ -10997,17 +11080,21 @@ export async function submitViaPortal(ctx) {
     page = await context.newPage();
     // Which browser the portal saw (the run's logs are deleted): headed on the
     // virtual screen or headless, and the user agent it sent.
-    evidence.browser = { headed: headedBrowser(), engine: 'chromium', userAgent: await page.evaluate(() => navigator.userAgent).catch(() => '') };
+    evidence.browser = { headed: headedBrowser(), engine: browserEngine(browser).engine, userAgent: await page.evaluate(() => navigator.userAgent).catch(() => '') };
     let entryUrl = portalEntryUrl(ctx);
     await diagnostics.beginAttempt();
     let response = await page.goto(entryUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     workdayApplicationEntryProven = isWorkdayApplicationRouteBound(entryUrl, ctx.applyUrl);
     await settle(page);
+    const initialChallenge = await passAssistedPortalChallenge(page, browser, log);
+    if (!initialChallenge.passed) return await handoff('captcha');
     let snapshot = await extractFields(page, NAVIGATION);
     const bareLocaleFallback = workdayBareLocaleFallbackUrl(page.url());
     if (bareLocaleFallback && isWorkdayBareLocaleSearchShell(snapshot, await page.title().catch(() => ''))) {
       response = await page.goto(bareLocaleFallback, { waitUntil: 'domcontentloaded', timeout: 60_000 });
       await settle(page);
+      const fallbackChallenge = await passAssistedPortalChallenge(page, browser, log);
+      if (!fallbackChallenge.passed) return await handoff('captcha');
       snapshot = await extractFields(page, NAVIGATION);
     }
     sourceProtocol = snapshot.protocol || null;
@@ -11161,6 +11248,7 @@ export async function submitViaPortal(ctx) {
       ...documentHostContext,
       onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
       cookieAgent,
+      onPortalChallenge: targetPage => passAssistedPortalChallenge(targetPage, browser, log),
     });
     ({ page, snapshot } = opened);
     if (opened.resolvedApplicationUrl) ctx.applyUrl = opened.resolvedApplicationUrl;
@@ -11173,6 +11261,7 @@ export async function submitViaPortal(ctx) {
     }
     enteredThroughApplicationEntry = opened.enteredThroughApplicationEntry === true;
     applicationEntryUrl = opened.applicationEntryUrl || '';
+    if (opened.handoff === 'captcha') return await handoff('captcha');
     if (opened.handoff) startupNavigationHint = opened.handoff;
     const initialReceipt = await confirmedReceipt(snapshot);
     if (initialReceipt) return initialReceipt;
@@ -11277,6 +11366,7 @@ export async function submitViaPortal(ctx) {
           ...documentHostContext,
           onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
           cookieAgent,
+          onPortalChallenge: targetPage => passAssistedPortalChallenge(targetPage, browser, log),
         });
         ({ page, snapshot } = reopened);
         workdayApplicationEntryProven = workdayApplicationEntryProven || reopened.workdayApplicationEntryProven === true;
@@ -11756,7 +11846,14 @@ export async function submitViaPortal(ctx) {
     for (let step = 1; step <= maxSteps; step += 1) {
       if (loopAttemptStarted) await diagnostics?.beginAttempt();
       else loopAttemptStarted = true;
-      if (snapshot.url && snapshot.url !== page.url()) {
+      const loopChallenge = await passAssistedPortalChallenge(page, browser, log);
+      if (!loopChallenge.passed) return await handoff('captcha');
+      if (loopChallenge.challenged) {
+        // A managed same-URL challenge can redraw the form without navigation.
+        // Re-read the DOM before planning the next application action.
+        snapshot = await extractFields(page, NAVIGATION).catch(() => snapshot);
+        pageEpoch += 1;
+      } else if (snapshot.url && snapshot.url !== page.url()) {
         snapshot = await extractFields(page, NAVIGATION).catch(() => snapshot);
         pageEpoch += 1;
       }
@@ -11850,6 +11947,7 @@ export async function submitViaPortal(ctx) {
             ...documentHostContext,
             onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
             cookieAgent,
+            onPortalChallenge: targetPage => passAssistedPortalChallenge(targetPage, browser, log),
           });
           ({ page, snapshot } = reopened);
           workdayApplicationEntryProven = workdayApplicationEntryProven || reopened.workdayApplicationEntryProven === true;
@@ -12057,6 +12155,7 @@ export async function submitViaPortal(ctx) {
             ...documentHostContext,
             onPortalNavigationDiagnostic: ctx.onPortalNavigationDiagnostic,
             cookieAgent,
+            onPortalChallenge: targetPage => passAssistedPortalChallenge(targetPage, browser, log),
           });
           ({ page, snapshot } = reopened);
           workdayApplicationEntryProven = workdayApplicationEntryProven || reopened.workdayApplicationEntryProven === true;
@@ -12907,7 +13006,14 @@ export async function submitViaPortal(ctx) {
         frame: final.frame || page.mainFrame(),
         frameIndex,
       };
-      const observed = await waitForOutcome(page, { applyUrl: ctx.applyUrl, submissionUrl: finalUrl, sourceProtocol, job: ctx.job, finalSubmission });
+      const observed = await waitForOutcome(page, {
+        applyUrl: ctx.applyUrl,
+        submissionUrl: finalUrl,
+        sourceProtocol,
+        job: ctx.job,
+        finalSubmission,
+        onPortalChallenge: targetPage => passAssistedPortalChallenge(targetPage, browser, log),
+      });
       const outcome = observed.outcome;
       (evidence.finalOutcomes ||= []).push(outcome);
       if (outcome === 'confirmed' && ctx.onReceipt) await ctx.onReceipt({ finalUrl: page.url() });

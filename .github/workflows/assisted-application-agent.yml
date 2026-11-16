@@ -130,9 +130,10 @@ jobs:
           # A slow draft must finish (owner decision 2026-09-30): 30 min per call.
           broker_max_timeout_ms: '1800000'
 
-      # The portal runner drives Chromium; the draft reads a single-page form's
-      # questions ahead (career-ops apply.md: identify all questions first).
-      # Install the stock Playwright browser and its system libraries.
+      # The portal runner may opt into CloakBrowser with
+      # STEALTH_BROWSER_ASSISTED=1 and CLOAKBROWSER_LICENSE_KEY_ASSISTED from
+      # Remote Config. Install stock Playwright Chromium and its system
+      # libraries as the deterministic fallback.
       - name: Install Chromium for the portal runner
         run: |
           if command -v sudo >/dev/null 2>&1; then
@@ -142,10 +143,12 @@ jobs:
           npx playwright install chromium || npx playwright install --with-deps chromium
         timeout-minutes: 15
 
-      # The application uses stock Chromium. It never impersonates a user's
-      # browser or automates through anti-bot challenges; CAPTCHA is handed to
-      # Valerie for the owner extension flow. Keep the portal session headed
-      # on a virtual screen so the owner-controlled handoff remains usable.
+      # The assisted runner uses CloakBrowser only when the assisted flag and
+      # key are both valid; otherwise it uses stock Chromium. CloakBrowser is
+      # not a CAPTCHA solver: the runner gets one bounded managed Turnstile
+      # checkbox attempt; if the check remains, or is reCAPTCHA/hCaptcha, the
+      # challenge is handed to Valerie for the owner extension flow. Keep the
+      # headed session on a virtual screen so that handoff remains usable.
       - name: Run agent
         env:
           ORDER_ID: ${{ inputs.order_id }}
@@ -161,10 +164,12 @@ jobs:
           ASSISTED_APPLICATION_STOP_REPORT: ${{ runner.temp }}/portal-stop.json
           # Candidate-free proof used to close stale portal-stop issues after a pass.
           ASSISTED_APPLICATION_PORTAL_PASS: ${{ runner.temp }}/portal-pass.json
-        # Keep the runner's actual Playwright identity. Anti-bot challenges are
-        # handed off instead of being hidden or clicked through. The virtual
-        # screen is required because headed Chromium is the extension-capable
-        # browser session used for the owner handoff.
+        # Keep browser selection explicit and opt-in. The runner may click one
+        # managed Turnstile checkbox; an unsuccessful check is handed off,
+        # never solved with a token or extension. If CloakBrowser is
+        # unavailable, launchStealthOrChromium records the fallback and keeps
+        # the stock Chromium execution path; the virtual screen remains
+        # required for the owner handoff.
         run: |
           if [ "$MODE" = 'verify_portal' ]; then
             if command -v xvfb-run >/dev/null 2>&1; then
