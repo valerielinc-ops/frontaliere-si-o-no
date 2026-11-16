@@ -5,6 +5,7 @@ import path from 'node:path';
 import {
   DISCOVERY_ARTICLES_ARTIFACT,
   DISCOVERY_ARTICLES_MAX_AGE_MS,
+  alignDiscoveryIndexWithSitePull,
   checkDiscoveryArticleRoute,
   chooseDiscoveryArticle,
   freezeCampaignDiscoverySelection,
@@ -70,6 +71,7 @@ function fetchResponse(body: string, status = 200) {
 type FrozenSelection = {
   articleId: string;
   provider: string;
+  sourceCommit?: string;
   article: {
     id: string;
     provider: string;
@@ -429,6 +431,105 @@ describe('loadDiscoveryArticleIndexFromHttp', () => {
       'manifest.json', 'discovery-articles.json', 'manifest.json',
     ]);
     expect(delays).toEqual([17]);
+  });
+});
+
+describe('alignDiscoveryIndexWithSitePull', () => {
+  function writeSnapshotPair(directory: string, payload: ReturnType<typeof index>) {
+    const indexRaw = JSON.stringify(payload);
+    const manifestRaw = JSON.stringify({
+      schema: 1,
+      commit: payload.commit,
+      files: { [DISCOVERY_ARTICLES_ARTIFACT]: Buffer.byteLength(indexRaw, 'utf8') },
+      counts: { discoveryArticles: payload.count },
+    });
+    const manifestFilePath = path.join(directory, 'discovery-articles-manifest.json');
+    const indexFilePath = path.join(directory, 'discovery-articles.json');
+    writeFileSync(manifestFilePath, manifestRaw);
+    writeFileSync(indexFilePath, indexRaw);
+    return { manifestFilePath, indexFilePath };
+  }
+
+  it('freezes all four locales from the verified local snapshot when the API is ahead', async () => {
+    const now = Date.now();
+    const localCommit = 'a'.repeat(40);
+    const apiCommit = 'b'.repeat(40);
+    const localizedArticle = article('site-verified', now, {
+      title: { it: 'Titolo', en: 'Title', de: 'Titel', fr: 'Titre' },
+      excerpt: { it: 'Estratto', en: 'Excerpt', de: 'Auszug', fr: 'Extrait' },
+      url: {
+        it: '/articoli-frontaliere/site-verified/',
+        en: '/en/cross-border-articles/site-verified/',
+        de: '/de/grenzgaenger-artikel/site-verified/',
+        fr: '/fr/articles-frontaliers/site-verified/',
+      },
+    });
+    const localSnapshot = {
+      ...index(now - 60_000, [localizedArticle]),
+      commit: localCommit,
+    };
+    const apiIndex = {
+      ...index(now, [localizedArticle, article('api-only', now)]),
+      commit: apiCommit,
+    };
+    const directory = mkdtempSync(path.join(tmpdir(), 'newsletter-discovery-align-'));
+    try {
+      const paths = writeSnapshotPair(directory, localSnapshot);
+      const aligned = alignDiscoveryIndexWithSitePull(apiIndex, { ...paths, now });
+
+      expect(aligned).toEqual(localSnapshot);
+      const { db } = fakeFirestore();
+      const frozen = await Promise.all(['it', 'en', 'de', 'fr'].map((locale) => (
+        freezeCampaignDiscoverySelection(db, 'weekly_2026-11-16', locale, aligned, { now: new Date(now) })
+      )));
+      expect(frozen).toHaveLength(4);
+      expect(frozen.every((selection) => selection?.sourceCommit === localCommit)).toBe(true);
+    } finally {
+      rmSync(directory, { recursive: true, force: true });
+    }
+  });
+
+  it('fails closed when the local snapshot does not match its manifest', () => {
+    const now = Date.now();
+    const localSnapshot = {
+      ...index(now - 60_000),
+      commit: 'a'.repeat(40),
+    };
+    const apiIndex = {
+      ...index(now),
+      commit: 'b'.repeat(40),
+    };
+    const directory = mkdtempSync(path.join(tmpdir(), 'newsletter-discovery-mismatch-'));
+    try {
+      const paths = writeSnapshotPair(directory, localSnapshot);
+      writeFileSync(paths.indexFilePath, JSON.stringify({
+        ...localSnapshot,
+        commit: 'c'.repeat(40),
+      }));
+
+      expect(alignDiscoveryIndexWithSitePull(apiIndex, { ...paths, now })).toBeNull();
+    } finally {
+      rmSync(directory, { recursive: true, force: true });
+    }
+  });
+
+  it('fails closed when a different HTTP release is not provably newer', () => {
+    const now = Date.now();
+    const localSnapshot = {
+      ...index(now),
+      commit: 'a'.repeat(40),
+    };
+    const apiIndex = {
+      ...index(now - 60_000),
+      commit: 'b'.repeat(40),
+    };
+    const directory = mkdtempSync(path.join(tmpdir(), 'newsletter-discovery-order-'));
+    try {
+      const paths = writeSnapshotPair(directory, localSnapshot);
+      expect(alignDiscoveryIndexWithSitePull(apiIndex, { ...paths, now })).toBeNull();
+    } finally {
+      rmSync(directory, { recursive: true, force: true });
+    }
   });
 });
 
