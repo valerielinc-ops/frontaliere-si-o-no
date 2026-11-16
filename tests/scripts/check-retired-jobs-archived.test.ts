@@ -355,6 +355,50 @@ afterAll(() => {
 });
 
 describe('check-retired-jobs-archived CLI', () => {
+  it('defers instead of measuring a checkpointed backfill as a stable revision', () => {
+    const base = commitSlices({ jobs: [job('kept')] }, [], 'stable base');
+    const progressPath = path.join(repo, '.github', 'backfill-expired-from-history-progress.tsv');
+    fs.mkdirSync(path.dirname(progressPath), { recursive: true });
+    fs.writeFileSync(progressPath, '0123456789abcdef0123456789abcdef01234567\tlast-crawler\tactive\n');
+    const reportPath = path.join(reportDir || (reportDir = fs.mkdtempSync(path.join(os.tmpdir(), 'retired-observer-report-'))), 'deferred.json');
+    const result = observe(base, base, ['--defer-if-backfill-active', progressPath, '--json', reportPath]);
+
+    expect(result.status, result.stderr).toBe(0);
+    expect(result.stdout).toContain('deferred: history backfill is active');
+    expect(JSON.parse(fs.readFileSync(reportPath, 'utf8'))).toMatchObject({
+      deferred: true,
+      reason: 'history-backfill-active',
+      backfillProgress: { status: 'active', lastCompletedKey: 'last-crawler' },
+    });
+
+    fs.writeFileSync(progressPath, '0123456789abcdef0123456789abcdef01234567\tlast-crawler\tcomplete\n');
+    const stable = observe(base, base, ['--defer-if-backfill-active', progressPath]);
+    expect(stable.status, stable.stderr).toBe(0);
+    expect(stable.stdout).toContain('Retired-job archive coverage');
+  });
+
+  it('fails closed when the durable backfill cursor is malformed', () => {
+    const base = commitSlices({ jobs: [job('kept')] }, [], 'malformed progress base');
+    const progressPath = path.join(repo, '.github', 'backfill-expired-from-history-progress.tsv');
+    fs.mkdirSync(path.dirname(progressPath), { recursive: true });
+    fs.writeFileSync(progressPath, 'not-a-valid-cursor\n');
+    const result = observe(base, base, ['--defer-if-backfill-active', progressPath]);
+
+    expect(result.status).toBe(2);
+    expect(result.stderr).toContain('invalid backfill progress file');
+  });
+
+  it('rejects a structurally invalid active marker instead of deferring forever', () => {
+    const base = commitSlices({ jobs: [job('kept')] }, [], 'invalid active progress base');
+    const progressPath = path.join(repo, '.github', 'backfill-expired-from-history-progress.tsv');
+    fs.mkdirSync(path.dirname(progressPath), { recursive: true });
+    fs.writeFileSync(progressPath, 'not-a-hash\tgarbage cursor\tactive\n');
+    const result = observe(base, base, ['--defer-if-backfill-active', progressPath]);
+
+    expect(result.status).toBe(2);
+    expect(result.stderr).toContain('invalid backfill progress file');
+  });
+
   it('exits 0 when the retired posting is archived with its title', () => {
     const base = commitSlices({ jobs: [job('kept'), job('gone')] }, [], 'base');
     const head = commitSlices({ jobs: [job('kept')] }, [job('gone')], 'archived');
@@ -424,6 +468,7 @@ describe('retired jobs archive observer workflow checkout', () => {
     const steps = workflow.jobs.observe.steps as Array<Record<string, any>>;
     const checkout = steps.find((step) => step.uses === 'actions/checkout@v7');
     if (!checkout) throw new Error('Observer checkout step is missing');
+    expect(checkout.with.ref).toBe('main');
     const sparsePaths = checkout.with['sparse-checkout']
       .split('\n')
       .map((value: string) => value.trim())
@@ -436,11 +481,16 @@ describe('retired jobs archive observer workflow checkout', () => {
     const materializedFiles = [...materialize.run.matchAll(/git show "HEAD:([^"]+)" > ([^\s]+)/g)]
       .map((match) => [match[1], match[2]]);
     expect(materializedFiles).toEqual([
+      ['.github/backfill-expired-from-history-progress.tsv', '.github/backfill-expired-from-history-progress.tsv'],
       ['build-plugins/shared/cantonResolvers.mjs', 'build-plugins/shared/cantonResolvers.mjs'],
       ['data/canton-url-slugs.json', 'data/canton-url-slugs.json'],
       ['data/canton-municipalities.json', 'data/canton-municipalities.json'],
       ['data/swiss-locality-postal-codes.json', 'data/swiss-locality-postal-codes.json'],
     ]);
+    expect(workflow.concurrency.group).toBe('jobs-data-pipeline');
+    expect(workflow.concurrency.queue).toBe('max');
+    const measure = steps.find((step) => step.name === 'Measure retired-job archive coverage');
+    expect(measure?.run).toContain('--defer-if-backfill-active');
 
     const prepareDescription = steps.find((step) => step.id === 'issue-description');
     expect(prepareDescription?.if).toBe('failure()');

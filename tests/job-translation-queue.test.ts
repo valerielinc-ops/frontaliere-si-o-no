@@ -114,6 +114,7 @@ describe('measureTranslationQueue', () => {
       '.github/workflows/cleanup-stale-jobs.yml',
       '.github/workflows/migrate-prospected-slugs.yml',
       '.github/workflows/reconcile-expired-route-duplicates.yml',
+      '.github/workflows/retired-jobs-archive-observer.yml',
       '.github/workflows/sync-gsc-orphans.yml',
       '.github/workflows/translate-pending.yml',
     ]);
@@ -149,6 +150,13 @@ describe('measureTranslationQueue', () => {
       queue: 'max',
     });
     expect(portableTranslateJobs.translate_queue_guard.concurrency).toBeUndefined();
+
+    const observerConcurrency = concurrencyConfig(join(WORKFLOWS_DIR, 'retired-jobs-archive-observer.yml'));
+    expect(observerConcurrency).toMatchObject({
+      group: JOBS_DATA_PIPELINE_GROUP,
+      'cancel-in-progress': false,
+      queue: 'max',
+    });
   });
 
   it('counts a queued job whose target slots are byte-identical to the source', () => {
