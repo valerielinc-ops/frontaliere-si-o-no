@@ -38,7 +38,7 @@ describe('public config edge route', () => {
     expect(first.headers.get('Cache-Control')).toBe('public, max-age=300, s-maxage=300');
     expect(fetchMock).toHaveBeenCalledExactlyOnceWith(PUBLIC_CONFIG_ORIGIN, {
       method: 'GET',
-      headers: { Accept: 'application/json' },
+      headers: { Accept: 'application/json', 'Accept-Encoding': 'identity' },
       cf: { cacheEverything: true },
     });
     expect(second.status).toBe(200);

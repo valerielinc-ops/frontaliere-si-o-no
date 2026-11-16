@@ -296,11 +296,19 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     expect(rehydrate.env.SHARD_ARTIFACT_RUN_ID_IT).toContain('inputs.it_shard_artifact_run_id');
   });
 
-  it('prunes only the source-only image tree for the opted-in weekly full replay', () => {
+  it('prunes only the source-only image tree for opted-in published-dist replays', () => {
     const workflow = YAML.parse(AUDIT_REPORT_YML) as any;
     const full = YAML.parse(AUDIT_FULL_YML) as any;
     const published = YAML.parse(AUDIT_PUBLISHED_YML) as any;
     const steps = workflow.jobs.audit.steps;
+    const sparseCheckout = steps.find((step: any) => (
+      step.name === 'Checkout audit source without source-only images'
+    ));
+    const fullCheckout = steps.find((step: any) => step.name === 'Checkout repo (for audit scripts only)');
+    const sparseCheckoutIndex = steps.findIndex((step: any) => (
+      step.name === 'Checkout audit source without source-only images'
+    ));
+    const fullCheckoutIndex = steps.findIndex((step: any) => step.name === 'Checkout repo (for audit scripts only)');
     const pruneIndex = steps.findIndex((step: any) => (
       step.name === 'Prune source-only images before full dist rehydrate'
     ));
@@ -324,6 +332,17 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
       default: false,
       type: 'boolean',
     });
+    expect(sparseCheckout?.if).toBe('${{ inputs.prune_source_images }}');
+    expect(sparseCheckout?.with?.filter).toBe('blob:none');
+    expect(sparseCheckout?.with?.['sparse-checkout']).toContain('!/public/images/');
+    expect(sparseCheckout?.with?.['sparse-checkout-cone-mode']).toBe(false);
+    expect(fullCheckout?.if).toBe('${{ !inputs.prune_source_images }}');
+    expect(fullCheckout?.with?.filter).toBeUndefined();
+    expect(fullCheckout?.with?.['sparse-checkout']).toBeUndefined();
+    expect(sparseCheckoutIndex).toBeGreaterThanOrEqual(0);
+    expect(fullCheckoutIndex).toBeGreaterThanOrEqual(0);
+    expect(sparseCheckoutIndex).toBeLessThan(pruneIndex);
+    expect(fullCheckoutIndex).toBeLessThan(pruneIndex);
     expect(prune?.if).toBe('${{ inputs.prune_source_images }}');
     expect(prune?.run).toContain('rm -rf -- public/images');
     expect(prune?.run).toContain('df -i /');
@@ -335,7 +354,7 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
       .toBe("${{ inputs.prune_source_images && '2' || '1' }}");
     expect(installIndex).toBeGreaterThan(rehydrateIndex);
     expect(installIndex).toBeLessThan(reconcileIndex);
-    expect(published.jobs.report.with.prune_source_images).not.toBe(true);
+    expect(published.jobs.report.with.prune_source_images).toBe(true);
   });
 
   it('reconciles sitemap membership after shard rehydration and before final-dist audits', () => {
@@ -372,8 +391,10 @@ describe('publisher integrity gate and asynchronous historical audits', () => {
     const itPublisherSteps = (YAML.parse(DEPLOY_PUBLISH_YML) as any).jobs['finalize-it-publish'].steps;
     const publisherSteps = (YAML.parse(DEPLOY_PUBLISH_YML) as any).jobs['publish-nonit-shards'].steps;
     const upload = (steps: any[], name: string) => {
-      const matches = steps.filter((step) => step?.uses === 'actions/upload-artifact@v7' && step?.with?.name === name);
-      expect(matches, `missing unique upload step for ${name}`).toHaveLength(1);
+      const matches = steps.filter((step) => step?.uses === 'actions/upload-artifact@v7'
+        && !String(step?.name ?? '').startsWith('Retry ')
+        && step?.with?.name === name);
+      expect(matches, `missing unique initial upload step for ${name}`).toHaveLength(1);
       return matches[0];
     };
     const assertRetention = (steps: any[], names: string[]) => {

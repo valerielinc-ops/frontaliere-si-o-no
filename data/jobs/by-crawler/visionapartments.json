@@ -1,7 +1,7 @@
 {
   "crawlerKey": "visionapartments",
-  "assembledAt": "2026-11-15T21:57:34.922Z",
-  "runId": "43763425473",
+  "assembledAt": "2026-11-16T21:31:45.998Z",
+  "runId": "43959395209",
   "jobs": [
     {
       "id": "visionapartments-a6f2cb44f0b0",
@@ -9,7 +9,7 @@
       "slugByLocale": {
         "it": "hr-business-partner-specialista-paghe-100-vision-management-services-gmbh-zurich",
         "en": "hr-business-partner-payroll-spezialist-in-100-vision-management-services-gmbh-zurich",
-        "de": "hr-business-partner-payroll-spezialist-in-100-visionapartments-zurich",
+        "de": "hr-business-partner-payroll-spezialist-in-100-vision-management-services-gmbh-zurich",
         "fr": "partenaire-rh-et-specialiste-de-la-paie-100-vision-management-services-gmbh-zurich"
       },
       "company": "Vision Management Services GmbH",
@@ -35,7 +35,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/d14022be-0fb5-48ab-b907-196c83d223a0/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:57:29.607Z",
+      "crawledAt": "2026-11-16T21:31:05.324Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -66,6 +66,9 @@
         ],
         "fr": [
           "hr-business-partner-payroll-spezialist-in-100-vision-management-services-gmbh-zurich"
+        ],
+        "de": [
+          "hr-business-partner-payroll-spezialist-in-100-visionapartments-zurich"
         ]
       },
       "firstSeenAt": "2026-10-15T21:44:52.685Z",
@@ -83,7 +86,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-13T21:57:29.607Z",
+      "validThrough": "2027-01-13T21:31:05.324Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -93,7 +96,7 @@
         "it": "responsabile-di-progetto-real-estate-development-60-vision-management-services-gmbh-zurich",
         "en": "projektleiter-in-real-estate-development-60-vision-management-services-gmbh-zurich",
         "de": "projektleiter-in-real-estate-development-60-visionapartments-zurich",
-        "fr": "chef-cheffe-de-projet-construction-et-renovation-60-visionapartments-zurich"
+        "fr": "chef-cheffe-de-projet-construction-et-renovation-60-vision-management-services-gmbh-zurich"
       },
       "company": "Vision Management Services GmbH",
       "companyKey": "visionapartments",
@@ -118,7 +121,7 @@
       "url": "https://www.jobs.ch/fr/offres-emplois/detail/56071e0e-15da-4919-beea-4424c39f31ef/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:57:28.809Z",
+      "crawledAt": "2026-11-16T21:31:04.764Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -141,8 +144,7 @@
       "previousSlugs": [
         "projektleiter-in-real-estate-development-60-visionapartments-zurich",
         "projektleiter-in-real-estate-development-60-vision-management-services-gmbh-zurich",
-        "chef-cheffe-de-projet-construction-et-renovation-60-visionapartments-zurich",
-        "chef-cheffe-de-projet-construction-et-renovation-60-vision-management-services-gmbh-zurich"
+        "chef-cheffe-de-projet-construction-et-renovation-60-visionapartments-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -151,7 +153,7 @@
         ],
         "fr": [
           "projektleiter-in-real-estate-development-60-vision-management-services-gmbh-zurich",
-          "chef-cheffe-de-projet-construction-et-renovation-60-vision-management-services-gmbh-zurich"
+          "chef-cheffe-de-projet-construction-et-renovation-60-visionapartments-zurich"
         ]
       },
       "firstSeenAt": "2026-10-19T09:59:03.293Z",
@@ -169,7 +171,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T21:57:28.809Z",
+      "validThrough": "2027-01-17T21:31:04.764Z",
       "validThroughSource": "last-observed-window"
     }
   ]

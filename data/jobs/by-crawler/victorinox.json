@@ -1,7 +1,7 @@
 {
   "crawlerKey": "victorinox",
-  "assembledAt": "2026-11-16T09:16:14.366Z",
-  "runId": "43837250061",
+  "assembledAt": "2026-11-16T21:17:39.894Z",
+  "runId": "43957157360",
   "jobs": [
     {
       "id": "victorinox-c9a73ab3b99d",
@@ -35,7 +35,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-initiativbewerbung-delemont-m-w-d_211.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:15:48.668Z",
+      "crawledAt": "2026-11-16T21:17:11.642Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "streetAddress": "Delémont",
@@ -85,7 +85,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T09:15:48.668Z",
+      "validThrough": "2026-12-16T21:17:11.642Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-polymechaniker-m-w-d_259.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:15:48.139Z",
+      "crawledAt": "2026-11-16T21:17:11.094Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -169,7 +169,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T09:15:48.139Z",
+      "validThrough": "2026-12-16T21:17:11.094Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -204,7 +204,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-initiativbewerbung-ibach-m-w-d_209.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:15:47.619Z",
+      "crawledAt": "2026-11-16T21:17:10.534Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -256,7 +256,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T09:15:47.619Z",
+      "validThrough": "2026-12-16T21:17:10.534Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -291,7 +291,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-planificateur-de-production-60-70-h-f-d_266.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:15:47.089Z",
+      "crawledAt": "2026-11-16T21:17:09.993Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "streetAddress": "Delémont",
@@ -327,7 +327,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:15:47.089Z",
+      "validThrough": "2027-01-19T21:17:09.993Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -362,7 +362,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-polymechaniker-in-schleiftechnik-100-m-w-d_261.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:15:46.558Z",
+      "crawledAt": "2026-11-16T21:17:09.458Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -412,8 +412,304 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T09:15:46.558Z",
+      "validThrough": "2026-12-19T21:17:09.458Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "victorinox-67c5913ba58c",
+      "slug": "trade-compliance-specialist-m-w-d-victorinox-ibach-schwyz",
+      "slugByLocale": {
+        "it": "trade-compliance-specialist-m-w-d-victorinox-ibach-schwyz",
+        "en": "quality-assurance-specialist-m-f-d-victorinox-ibach-schwyz",
+        "de": "trade-compliance-specialist-m-w-d-victorinox-ibach-schwyz",
+        "fr": "trade-compliance-specialist-m-w-d-victorinox-ibach-schwyz"
+      },
+      "company": "Victorinox",
+      "companyKey": "victorinox",
+      "companyDomain": "victorinox.com",
+      "title": "Trade Compliance Specialist m/w/d",
+      "titleByLocale": {
+        "it": "Trade Compliance Specialista m/w/d",
+        "en": "Quality Assurance Specialist m/f/d",
+        "de": "Trade Compliance Specialist m/w/d",
+        "fr": "Trade Compliance Spécialiste m/w/d"
+      },
+      "description": "Allgemeine Informationen Kennziffer 2026-247 BESCHREIBUNG DER STELLE Stellenbezeichnung Trade Compliance Specialist m/w/d Beschreibung der Aufgaben\n• Pflege, Prüfung und Klassifizierung von Produktstammdaten im Bereich Zoll und Trade Compliance (z. B. Zolltarifnummern, Ursprungsland, Präferenz- und Exportkontrolldaten)\n• Beratung und Unterstützung interner Stakeholder bei Zoll-, Exportkontroll- und Trade-Compliance-Fragestellungen\n• Mitverantwortung für die Umsetzung und Überwachung von Exportkontroll- und Sanktionsvorgaben\n• Mitarbeit in bereichsübergreifenden Zoll- und Compliance-Projekten\n• Überwachung regulatorischer Änderungen und Sicherstellung der Einhaltung gesetzlicher Vorgaben sowie interner Richtlinien\n• Durchführung von Schulungen und Sensibilisierungsmassnahmen zur Förderung des Compliance-Bewusstseins\n• Unterstützung bei Audits und behördlichen Prüfungen\n• Erstellung und Weiterentwicklung von Richtlinien, Arbeitsanweisungen und Prozessdokumentationen im Bereich Trade Compliance\n• Unterstützung bei der Optimierung und Weiterentwicklung von Zoll- und Trade-Compliance-Prozessen in Zusammenarbeit mit internationalen Stakeholdern\n• Key User für Trade-Compliance-Applikationen sowie Unterstützung bei Systemanpassungen und Tests Profil\n• Technische, logistische oder kaufmännische Grundausbildung\n• Weiterbildung als Aussenhandelsfachfrau/-mann mit eidg. Fachausweis, Zollfachfrau/-mann oder vergleichbare Qualifikation von Vorteil\n• Mehrjährige Berufserfahrung im Import-, Export- oder Zollumfeld\n• Erfahrung im Bereich Trade Compliance sowie Interesse an internationalen Zoll- und Exportkontrollthemen\n• Fundierte Kenntnisse im Bereich Warenursprung, Präferenzrecht und Lieferantenerklärungen\n• Kenntnisse in der Warentarifierung und Stammdatenpflege (HS-Codes, CH/EU/UK-Tarifierung)\n• Gute Anwenderkenntnisse in MS Office sowie idealerweise Erfahrung mit Trade-Compliance-Systemen\n• Sehr gute Deutsch- und Englischkenntnisse (Niveau C1) in Wort und Schrift\n• Analytische, strukturierte und selbstständige Arbeitsweise\n• Hohe Qualitätsorientierung, ausgeprägte Kommunikationsfähigkeit sowie Freude an der Zusammenarbeit mit verschiedenen Anspruchsgruppen Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Kevin Volkart",
+      "descriptionByLocale": {
+        "it": "Codice d'informazione generale 2026-247 DESCRIZIONE DELL'AUTORITÀ Titolo del lavoro Specialista di conformità commerciale m/f/d Descrizione dei compiti\n• Manutenzione, collaudo e classificazione dei dati master del prodotto nell'ambito della conformità doganale e commerciale (ad esempio numeri tariffari doganali, paese di origine, dati di preferenza e di controllo delle esportazioni)\n• Consulenza e sostegno delle parti interessate interne alle questioni doganali, di controllo delle esportazioni e di conformità al commercio\n• Co-responsabilità per l'attuazione e il monitoraggio dei requisiti di controllo e sanzioni delle esportazioni\n• Cooperazione nel settore doganale e dei progetti di conformità transfrontalieri\n• Monitorare i cambiamenti normativi e garantire la conformità normativa e le politiche interne\n• Condurre attività di formazione e sensibilizzazione per promuovere la consapevolezza della conformità\n• Supporto per audit e audit normativi\n• Preparazione e sviluppo di linee guida, istruzioni di lavoro e documentazione di processo nel settore della conformità commerciale\n• Supporto per l'ottimizzazione e l'ulteriore sviluppo dei processi doganali e di compliance commerciale in collaborazione con gli stakeholder internazionali\n• L'utente chiave per le applicazioni di conformità commerciale e il supporto per le regolazioni e i test di sistema\n• Formazione tecnica, logistica o commerciale di base\n• Un'ulteriore formazione come specialista del commercio estero con un certificato federale, uno specialista doganale o una qualifica simile è vantaggioso\n• Diversi anni di esperienza professionale nell'ambiente di importazione, esportazione o doganale\n• Esperienza di conformità commerciale e interesse per le questioni doganali e di controllo delle esportazioni internazionali\n• Conoscenza approfondita dell’origine delle merci, legge preferenziale e dichiarazioni dei fornitori\n• Conoscenza della classificazione delle merci e della manutenzione dei dati master (codici HS, tariffe CH/EU/UK)\n• Buona conoscenza dell'utente in MS Office e l'esperienza ideale con i sistemi di conformità commerciale\n• Conoscenza molto buona del tedesco e dell'inglese (livello C1) in parola e scrittura\n• Metodo di lavoro analitico, strutturato e indipendente\n• orientamento di alta qualità, capacità di comunicazione pronunciate e il godimento di lavorare con diversi stakeholder Vantaggi\n• Cultura unica e familiare con gestione aziendale a lungo termine e sostenibile\n• Corsi interni e attività ricreative, nonché supporto per la formazione esterna\n• Modelli moderni del tempo di lavoro, come l'ufficio di casa\n• Parcheggio gratuito o pendolari per i trasporti pubblici\n• Vantaggi di appello per il nostro fondo pensione e le assicurazioni sociali LOCATION OF the STELLE company Victorinox AG Land Svizzera Luogo di lavoro Ibach-Schwyz CONTROLS attraverso il contatto principale Nina Hustinx",
+        "en": "General information Code 2026-247 DESCRIPTION OF THE AUTHORITY Job title Trade Compliance Specialist m/f/d Description of tasks\n• Maintenance, testing and classification of product master data in the area of customs and trade compliance (e.g. customs tariff numbers, country of origin, preference and export control data)\n• Advising and supporting internal stakeholders on customs, export control and trade compliance issues\n• Co-responsibility for the implementation and monitoring of export control and sanctions requirements\n• Cooperation in cross-departmental customs and compliance projects\n• Monitoring regulatory changes and ensuring regulatory compliance and internal policies\n• Conduct training and awareness-raising activities to promote compliance awareness\n• Support for audits and regulatory audits\n• Preparation and further development of guidelines, work instructions and process documentation in the area of trade compliance\n• Support for the optimization and further development of customs and trade compliance processes in cooperation with international stakeholders\n• Key User for trade compliance applications as well as support for system adjustments and tests Profile\n• Basic technical, logistical or commercial training\n• Further training as a foreign trade specialist with a federal certificate, customs specialist or comparable qualification is advantageous\n• Several years of professional experience in the import, export or customs environment\n• Trade compliance experience and interest in international customs and export control issues\n• In-depth knowledge of the origin of goods, preferential law and supplier’s declarations\n• Knowledge of goods classification and master data maintenance (HS codes, CH/EU/UK tariffs)\n• Good user knowledge in MS Office and ideally experience with trade compliance systems\n• Very good knowledge of German and English (level C1) in word and writing\n• Analytical, structured and independent working method\n• High quality orientation, pronounced communication skills and enjoyment of working with different stakeholders Benefits\n• Unique, family culture with long-term and sustainable corporate management\n• Internal courses and leisure activities as well as support for external training\n• Modern working time models, such as home office\n• Free parking or commuting fees for public transport\n• Appealing advantages for our pension fund and the social insurances LOCATION OF THE STELLE company Victorinox AG Land Switzerland Location of work Ibach-Schwyz CONTROLS through main contact Nina Hustinx",
+        "de": "Allgemeine Informationen Kennziffer 2026-247 BESCHREIBUNG DER STELLE Stellenbezeichnung Trade Compliance Specialist m/w/d Beschreibung der Aufgaben\n• Pflege, Prüfung und Klassifizierung von Produktstammdaten im Bereich Zoll und Trade Compliance (z. B. Zolltarifnummern, Ursprungsland, Präferenz- und Exportkontrolldaten)\n• Beratung und Unterstützung interner Stakeholder bei Zoll-, Exportkontroll- und Trade-Compliance-Fragestellungen\n• Mitverantwortung für die Umsetzung und Überwachung von Exportkontroll- und Sanktionsvorgaben\n• Mitarbeit in bereichsübergreifenden Zoll- und Compliance-Projekten\n• Überwachung regulatorischer Änderungen und Sicherstellung der Einhaltung gesetzlicher Vorgaben sowie interner Richtlinien\n• Durchführung von Schulungen und Sensibilisierungsmassnahmen zur Förderung des Compliance-Bewusstseins\n• Unterstützung bei Audits und behördlichen Prüfungen\n• Erstellung und Weiterentwicklung von Richtlinien, Arbeitsanweisungen und Prozessdokumentationen im Bereich Trade Compliance\n• Unterstützung bei der Optimierung und Weiterentwicklung von Zoll- und Trade-Compliance-Prozessen in Zusammenarbeit mit internationalen Stakeholdern\n• Key User für Trade-Compliance-Applikationen sowie Unterstützung bei Systemanpassungen und Tests Profil\n• Technische, logistische oder kaufmännische Grundausbildung\n• Weiterbildung als Aussenhandelsfachfrau/-mann mit eidg. Fachausweis, Zollfachfrau/-mann oder vergleichbare Qualifikation von Vorteil\n• Mehrjährige Berufserfahrung im Import-, Export- oder Zollumfeld\n• Erfahrung im Bereich Trade Compliance sowie Interesse an internationalen Zoll- und Exportkontrollthemen\n• Fundierte Kenntnisse im Bereich Warenursprung, Präferenzrecht und Lieferantenerklärungen\n• Kenntnisse in der Warentarifierung und Stammdatenpflege (HS-Codes, CH/EU/UK-Tarifierung)\n• Gute Anwenderkenntnisse in MS Office sowie idealerweise Erfahrung mit Trade-Compliance-Systemen\n• Sehr gute Deutsch- und Englischkenntnisse (Niveau C1) in Wort und Schrift\n• Analytische, strukturierte und selbstständige Arbeitsweise\n• Hohe Qualitätsorientierung, ausgeprägte Kommunikationsfähigkeit sowie Freude an der Zusammenarbeit mit verschiedenen Anspruchsgruppen Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Kevin Volkart",
+        "fr": "Renseignements généraux Code 2026-247 DESCRIPTION DE L'AUTORITÉ Titre de l'emploi Spécialiste de la conformité commerciale h/f/d Description des tâches\n• Maintenance, mise à l'essai et classement des données de base sur les produits dans le domaine des douanes et de la conformité au commerce (numéros tarifaires douaniers, pays d'origine, préférences et données relatives au contrôle des exportations)\n• Conseiller et soutenir les parties prenantes internes sur les questions douanières, de contrôle des exportations et de conformité commerciale\n• Coresponsabilité dans la mise en œuvre et le suivi des exigences en matière de contrôle des exportations et de sanctions\n• Coopération dans le cadre de projets interdépartementaux relatifs aux douanes et à la conformité\n• Surveillance des changements réglementaires et garantie de la conformité réglementaire et des politiques internes\n• Mener des activités de formation et de sensibilisation pour promouvoir la sensibilisation au respect des dispositions\n• Appui aux audits et vérifications réglementaires\n• Élaboration et mise au point de directives, d ' instructions de travail et de documents de procédure dans le domaine de la conformité commerciale\n• Appui à l ' optimisation et au développement des procédures douanières et commerciales en coopération avec les parties prenantes internationales\n• Utilisateur clé pour les applications de conformité commerciale ainsi que le soutien pour les ajustements et les tests de système Profil\n• Formation technique, logistique ou commerciale de base\n• Une formation complémentaire en tant que spécialiste du commerce extérieur ayant un certificat fédéral, un spécialiste des douanes ou une qualification comparable est avantageuse\n• Plusieurs années d'expérience professionnelle en matière d'importation, d'exportation ou de douane\n• Expérience en matière de respect des règles commerciales et intérêt pour les questions relatives aux douanes internationales et au contrôle des exportations\n• Connaissance approfondie de l'origine des marchandises, du droit préférentiel et des déclarations des fournisseurs\n• Connaissance de la classification des marchandises et de la maintenance des données de base (codes SH, tarifs CH/EU/UK)\n• Bonnes connaissances des utilisateurs dans MS Office et idéalement expérience des systèmes de conformité commerciale\n• Très bonne connaissance de l'allemand et de l'anglais (niveau C1) en paroles et en écriture\n• Méthode de travail analytique, structurée et indépendante\n• Orientation de haute qualité, aptitudes à la communication et plaisir de travailler avec les différentes parties prenantes Avantages\n• Culture familiale unique avec une gestion d'entreprise durable et à long terme\n• Cours internes et activités de loisirs ainsi que soutien à la formation externe\n• Modèles modernes de temps de travail, tels que le bureau à domicile\n• Parking gratuit ou frais de navette pour les transports en commun\n• Appel aux avantages pour notre caisse de retraite et les assurances sociales LOCATION DE LA STELLE société Victorinox AG Land Suisse Lieu de travail Ibach-Schwyz CONTRÔLES via le contact principal Nina Hustinx"
+      },
+      "needsRetranslation": false,
+      "location": "Ibach-Schwyz",
+      "canton": "SZ",
+      "url": "https://victorinox-career.talent-soft.com/stelle/stelle-trade-compliance-specialist-m-w-d_247.aspx",
+      "source": "Victorinox Dedicated Parser (Talentsoft)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-16T21:17:08.912Z",
+      "addressLocality": "Ibach-Schwyz",
+      "addressRegion": "SZ",
+      "streetAddress": "Schmiedgasse 57",
+      "postalCode": "6438",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Industria / Manifatturiero",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://victorinox-career.talent-soft.com/stelle/stelle-trade-compliance-specialist-m-w-d_247.aspx",
+      "jobReqId": "2026-247",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-07-08T22:07:43.472Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-16T21:17:08.912Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "victorinox-0fc68745ff3c",
+      "slug": "consigliere-legale-m-f-d-victorinox-ibach-schwyz",
+      "slugByLocale": {
+        "it": "consigliere-legale-m-f-d-victorinox-ibach-schwyz",
+        "en": "legal-counsel-m-w-d-victorinox-ibach-schwyz",
+        "de": "legal-counsel-m-w-d-victorinox-ibach-schwyz",
+        "fr": "conseiller-juridique-h-f-d-victorinox-ibach-schwyz"
+      },
+      "company": "Victorinox",
+      "companyKey": "victorinox",
+      "companyDomain": "victorinox.com",
+      "title": "Legal Counsel m/w/d",
+      "titleByLocale": {
+        "it": "Consigliere legale m/f/d",
+        "en": "Legal Counsel m/f/d",
+        "de": "Legal Counsel m/w/d",
+        "fr": "Conseiller juridique h/f/d"
+      },
+      "description": "Allgemeine Informationen Kennziffer 2026-250 BESCHREIBUNG DER STELLE Stellenbezeichnung Legal Counsel m/w/d Beschreibung der Aufgaben\n• Beratung und Unterstützung der Victorinox Gruppe in allen rechtlichen Belangen mit Schwerpunkt Vertragsrecht, Vertriebs-, Wettbewerbs- und Kartellrecht sowie Produktsicherheits- und Produkthaftpflichtrecht und Produkt-Compliance\n• Prüfung, Erstellung und Verhandlung nationaler und internationaler Verträge\n• Betreuung und Bearbeitung gesellschaftsrechtlicher Themen sowie Unterstützung bei der Sicherstellung einer rechtskonformen Corporate Governance\n• Unterstützung bei der Sicherstellung und Weiterentwicklung von Compliance-Strukturen sowie der Einhaltung von regulatorischen Vorgaben\n• Identifikation, Bewertung und Minimierung rechtlicher Risiken sowie Erarbeitung rechtskonformer Handlungsempfehlungen Profil\n• Abgeschlossenes Studium der Rechtswissenschaften (Master/Lizentiat) mit Schweizer Anwaltspatent oder gleichwertiger Qualifikation\n• Mindestens 5 Jahre Berufserfahrung, davon mindestens 3 Jahre als Inhouse Legal Counsel in einem international tätigen Unternehmen\n• Fundierte Kenntnisse im Vertrags-, Vertriebs-, Wettbewerbs- und Kartellrecht, Gesellschaftsrecht sowie Produktsicherheits- und Produkthaftpflichtrecht und Produkt-Compliance\n• Erfahrung im Bereich Compliance von Vorteil\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n• Unternehmerisches Denken sowie Verständnis für betriebswirtschaftliche Zusammenhänge und die gesamte Wertschöpfungskette eines international tätigen Unternehmens\n• Selbstständige, lösungsorientierte und pragmatische Arbeitsweise\n• Ausgeprägte Kommunikations-, Verhandlungs- und Analysefähigkeiten Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Nina Hustinx",
+      "descriptionByLocale": {
+        "it": "Codice di informazione generale 2026-250 DESCRIZIONE DEL Titolo AUTHORITY Consigliere legale m/f/d Descrizione dei compiti\n• Consultare e sostenere il Gruppo Victorinox in tutte le questioni legali con particolare attenzione al diritto contrattuale, alla distribuzione, alla concorrenza e al diritto antitrust, nonché alla normativa sulla sicurezza e sulla responsabilità dei prodotti e alla conformità dei prodotti\n• Esame, elaborazione e negoziazione dei trattati nazionali e internazionali\n• Supporto e trattamento delle questioni di diritto societario e supporto per garantire la governance aziendale legalmente conforme\n• Supporto per garantire e sviluppare ulteriormente le strutture di conformità e rispettare i requisiti normativi\n• Identificazione, valutazione e minimizzazione dei rischi legali e sviluppo di raccomandazioni legalmente conformi all'azione Profilo\n• Laurea in giurisprudenza completata (Master/License) con la qualifica di avvocato svizzero o equivalente\n• Almeno 5 anni di esperienza professionale, tra cui almeno 3 anni come consulente legale interno in una società internazionale\n• Conoscenza approfondita del contratto, della distribuzione, della concorrenza e del diritto antitrust, del diritto societario, della sicurezza e della responsabilità del prodotto e della conformità del prodotto\n• L'esperienza nella conformità è un vantaggio\n• Molto buona conoscenza del tedesco e dell'inglese in parola e scrittura\n• Il pensiero imprenditoriale e la comprensione delle relazioni commerciali e l'intera catena del valore di un'azienda attiva a livello internazionale\n• Metodo di lavoro indipendente, orientato alla soluzione e pragmatico\n• Forte capacità di comunicazione, negoziazione e analisi\n• Cultura unica e familiare con gestione aziendale a lungo termine e sostenibile\n• Corsi interni e attività ricreative, nonché supporto per la formazione esterna\n• Modelli di tempo di lavoro moderni, come l'ufficio di casa\n• Parcheggio gratuito o pendolari per i trasporti pubblici\n• Vantaggi di appello per il nostro fondo pensione e le assicurazioni sociali LOCAZIONE della società STELLE Victorinox AG Land Svizzera Ubicazione del lavoro Ibach-Schwyz CONTROLS attraverso il contatto principale Nina Hustinx",
+        "en": "General information Code 2026-250 DESCRIPTION OF THE AUTHORITY Title Legal Counsel m/f/d Description of tasks\n• Advising and supporting the Victorinox Group in all legal matters with a focus on contract law, distribution, competition and antitrust law as well as product safety and liability law and product compliance\n• Examination, drawing up and negotiation of national and international treaties\n• Support and processing of corporate law issues as well as support in ensuring legally compliant corporate governance\n• Support in ensuring and further developing compliance structures and complying with regulatory requirements\n• Identification, evaluation and minimization of legal risks as well as development of legally compliant recommendations for action Profile\n• Completed law degree (Master/License) with Swiss attorney’s or equivalent qualification\n• At least 5 years of professional experience, including at least 3 years as in-house legal counsel in an international company\n• In-depth knowledge of contract, distribution, competition and antitrust law, company law as well as product safety and liability law and product compliance\n• Experience in compliance is an advantage\n• Very good knowledge of German and English in word and writing\n• Entrepreneurial thinking as well as an understanding of business relationships and the entire value chain of an internationally active company\n• Independent, solution-oriented and pragmatic working method\n• Strong communication, negotiation and analysis skills Benefits\n• Unique, family culture with long-term and sustainable corporate management\n• Internal courses and leisure activities as well as support for external training\n• Modern working time models, such as home office\n• Free parking or commuting fees for public transport\n• Appealing advantages for our pension fund and the social insurances LOCATION OF THE STELLE company Victorinox AG Land Switzerland Location of work Ibach-Schwyz CONTROLS through main contact Nina Hustinx",
+        "de": "Allgemeine Informationen Kennziffer 2026-250 BESCHREIBUNG DER STELLE Stellenbezeichnung Legal Counsel m/w/d Beschreibung der Aufgaben\n• Beratung und Unterstützung der Victorinox Gruppe in allen rechtlichen Belangen mit Schwerpunkt Vertragsrecht, Vertriebs-, Wettbewerbs- und Kartellrecht sowie Produktsicherheits- und Produkthaftpflichtrecht und Produkt-Compliance\n• Prüfung, Erstellung und Verhandlung nationaler und internationaler Verträge\n• Betreuung und Bearbeitung gesellschaftsrechtlicher Themen sowie Unterstützung bei der Sicherstellung einer rechtskonformen Corporate Governance\n• Unterstützung bei der Sicherstellung und Weiterentwicklung von Compliance-Strukturen sowie der Einhaltung von regulatorischen Vorgaben\n• Identifikation, Bewertung und Minimierung rechtlicher Risiken sowie Erarbeitung rechtskonformer Handlungsempfehlungen Profil\n• Abgeschlossenes Studium der Rechtswissenschaften (Master/Lizentiat) mit Schweizer Anwaltspatent oder gleichwertiger Qualifikation\n• Mindestens 5 Jahre Berufserfahrung, davon mindestens 3 Jahre als Inhouse Legal Counsel in einem international tätigen Unternehmen\n• Fundierte Kenntnisse im Vertrags-, Vertriebs-, Wettbewerbs- und Kartellrecht, Gesellschaftsrecht sowie Produktsicherheits- und Produkthaftpflichtrecht und Produkt-Compliance\n• Erfahrung im Bereich Compliance von Vorteil\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n• Unternehmerisches Denken sowie Verständnis für betriebswirtschaftliche Zusammenhänge und die gesamte Wertschöpfungskette eines international tätigen Unternehmens\n• Selbstständige, lösungsorientierte und pragmatische Arbeitsweise\n• Ausgeprägte Kommunikations-, Verhandlungs- und Analysefähigkeiten Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Nina Hustinx",
+        "fr": "Informations générales Code 2026-250 DESCRIPTION DE L'AUTORITÉ Titre Conseiller juridique h/f/d Description des tâches\n• Conseiller et soutenir le groupe Victorinox dans toutes les affaires juridiques, en mettant l'accent sur le droit des contrats, la distribution, la concurrence et le droit des ententes ainsi que sur la sécurité et la responsabilité des produits et la conformité des produits\n• Examen, élaboration et négociation des traités nationaux et internationaux\n• Appui et traitement des questions de droit des sociétés ainsi qu ' appui à la mise en place d ' une gouvernance d ' entreprise conforme à la loi\n• Appui à la mise en place et au développement de structures de conformité et au respect des exigences réglementaires\n• Identification, évaluation et minimisation des risques juridiques ainsi que l'élaboration de recommandations d'action conformes\n• Diplôme de droit (Master/License) avec avocat suisse ou diplôme équivalent\n• Au moins 5 ans d'expérience professionnelle, dont au moins 3 ans en tant que conseiller juridique interne dans une entreprise internationale\n• Connaissance approfondie du droit des contrats, de la distribution, de la concurrence et des ententes, du droit des sociétés ainsi que du droit de la sécurité et de la responsabilité des produits et de la conformité des produits\n• L'expérience de la conformité est un avantage\n• Très bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n• Pensée entrepreneuriale et compréhension des relations d'affaires et de la chaîne de valeur d'une entreprise active à l'échelle internationale\n• Méthode de travail indépendante, pragmatique et orientée vers la solution\n• Forte capacité de communication, de négociation et d'analyse Avantages\n• Culture familiale unique avec une gestion d'entreprise durable et à long terme\n• Cours internes et activités de loisirs ainsi que soutien à la formation externe\n• Modèles modernes de temps de travail, tels que le bureau à domicile\n• Parking gratuit ou frais de navette pour les transports en commun\n• Appel aux avantages pour notre caisse de retraite et les assurances sociales LOCATION DE LA STELLE société Victorinox AG Land Suisse Lieu de travail Ibach-Schwyz CONTRÔLES via le contact principal Nina Hustinx"
+      },
+      "needsRetranslation": false,
+      "location": "Ibach-Schwyz",
+      "canton": "SZ",
+      "url": "https://victorinox-career.talent-soft.com/stelle/stelle-legal-counsel-m-w-d_250.aspx",
+      "source": "Victorinox Dedicated Parser (Talentsoft)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-16T21:17:08.342Z",
+      "addressLocality": "Ibach-Schwyz",
+      "addressRegion": "SZ",
+      "streetAddress": "Schmiedgasse 57",
+      "postalCode": "6438",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Legale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Industria / Manifatturiero",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://victorinox-career.talent-soft.com/stelle/stelle-legal-counsel-m-w-d_250.aspx",
+      "jobReqId": "2026-250",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "legal-counsel-m-w-d-victorinox-ibach-schwyz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-counsel-m-w-d-victorinox-ibach-schwyz"
+        ]
+      },
+      "firstSeenAt": "2026-08-18T09:45:47.035Z",
+      "salaryMin": 80000,
+      "salaryMax": 137000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 80000,
+          "maxValue": 137000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-16T21:17:08.342Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "victorinox-9fe945ebdd95",
+      "slug": "projektleiter-elektroplanung-m-w-d-victorinox-ibach-schwyz",
+      "slugByLocale": {
+        "de": "projektleiter-elektroplanung-m-w-d-victorinox-ibach-schwyz",
+        "it": "projektleiter-elektroplanung-m-w-d-victorinox-ibach-schwyz",
+        "en": "projektleiter-elektroplanung-m-w-d-victorinox-ibach-schwyz",
+        "fr": "projektleiter-elektroplanung-m-w-d-victorinox-ibach-schwyz"
+      },
+      "company": "Victorinox",
+      "companyKey": "victorinox",
+      "companyDomain": "victorinox.com",
+      "title": "Projektleiter Elektroplanung m/w/d",
+      "titleByLocale": {
+        "de": "Projektleiter Elektroplanung m/w/d",
+        "it": "Projektleiter Elektroplanung m/w/d",
+        "en": "Projektleiter Elektroplanung m/w/d",
+        "fr": "Projektleiter Elektroplanung m/w/d"
+      },
+      "description": "Allgemeine Informationen Kennziffer 2026-274 BESCHREIBUNG DER STELLE Stellenbezeichnung Projektleiter Elektroplanung m/w/d Beschreibung der Aufgaben\n• Leitung und Koordination von Elektroprojekten im Stark- und Schwachstrombereich von der Planung bis zur Übergabe sowie Sicherstellung der Einhaltung von Terminen, Kosten und Qualitätsstandards\n• Erstellung von Elektroinstallationsplänen, Schemata, technischen Konzepten und Projektdokumentationen sowie Verantwortung für die fachgerechte Dimensionierung elektrischer Anlagen\n• Entwicklung praxisorientierter technischer Lösungen unter Berücksichtigung geltender Normen, Sicherheitsanforderungen und betrieblicher Vorgaben\n• Koordination der Zusammenarbeit mit internen Fachbereichen sowie externen Planern, Architekten, Lieferanten und weiteren Projektbeteiligten\n• Begleitung der Ausführung vor Ort, Unterstützung der Montageteams bei technischen Fragestellungen sowie Sicherstellung der planungskonformen Umsetzung\n• Verantwortung für die Qualitätssicherung, Begleitung von Abnahmen und Inbetriebnahmen sowie Sicherstellung einer vollständigen Projektdokumentation\n• Aktives Einbringen von Fachwissen und Unterstützung der kontinuierlichen Weiterentwicklung unserer Planungsstandards und Prozesse Profil\n• Fundierte Fachkenntnisse in der Elektroplanung, insbesondere im Stark- und Schwachstrombereich, sowie ein gutes Verständnis der relevanten Normen und Vorschriften\n• Erfahrung in der Projektleitung und Koordination von Elektroprojekten sowie in der Zusammenarbeit mit unterschiedlichen Fachbereichen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie ein hohes Qualitäts- und Verantwortungsbewusstsein\n• Klare und professionelle Kommunikation, konstruktiver Umgang mit unterschiedlichen Anspruchsgruppen und Förderung einer partnerschaftlichen Zusammenarbeit\n• Entscheidungsstärke, organisatorisches Geschick und die Fähigkeit, auch bei komplexen Aufgabenstellungen den Überblick zu behalten\n• Offenheit für Veränderungen, Bereitschaft zur fachlichen Weiterentwicklung und zum aktiven Wissensaustausch im Team Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Simone Muntwyler",
+      "descriptionByLocale": {
+        "de": "Allgemeine Informationen Kennziffer 2026-274 BESCHREIBUNG DER STELLE Stellenbezeichnung Projektleiter Elektroplanung m/w/d Beschreibung der Aufgaben\n• Leitung und Koordination von Elektroprojekten im Stark- und Schwachstrombereich von der Planung bis zur Übergabe sowie Sicherstellung der Einhaltung von Terminen, Kosten und Qualitätsstandards\n• Erstellung von Elektroinstallationsplänen, Schemata, technischen Konzepten und Projektdokumentationen sowie Verantwortung für die fachgerechte Dimensionierung elektrischer Anlagen\n• Entwicklung praxisorientierter technischer Lösungen unter Berücksichtigung geltender Normen, Sicherheitsanforderungen und betrieblicher Vorgaben\n• Koordination der Zusammenarbeit mit internen Fachbereichen sowie externen Planern, Architekten, Lieferanten und weiteren Projektbeteiligten\n• Begleitung der Ausführung vor Ort, Unterstützung der Montageteams bei technischen Fragestellungen sowie Sicherstellung der planungskonformen Umsetzung\n• Verantwortung für die Qualitätssicherung, Begleitung von Abnahmen und Inbetriebnahmen sowie Sicherstellung einer vollständigen Projektdokumentation\n• Aktives Einbringen von Fachwissen und Unterstützung der kontinuierlichen Weiterentwicklung unserer Planungsstandards und Prozesse Profil\n• Fundierte Fachkenntnisse in der Elektroplanung, insbesondere im Stark- und Schwachstrombereich, sowie ein gutes Verständnis der relevanten Normen und Vorschriften\n• Erfahrung in der Projektleitung und Koordination von Elektroprojekten sowie in der Zusammenarbeit mit unterschiedlichen Fachbereichen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie ein hohes Qualitäts- und Verantwortungsbewusstsein\n• Klare und professionelle Kommunikation, konstruktiver Umgang mit unterschiedlichen Anspruchsgruppen und Förderung einer partnerschaftlichen Zusammenarbeit\n• Entscheidungsstärke, organisatorisches Geschick und die Fähigkeit, auch bei komplexen Aufgabenstellungen den Überblick zu behalten\n• Offenheit für Veränderungen, Bereitschaft zur fachlichen Weiterentwicklung und zum aktiven Wissensaustausch im Team Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Simone Muntwyler",
+        "it": "Allgemeine Informationen Kennziffer 2026-274 BESCHREIBUNG DER STELLE Stellenbezeichnung Projektleiter Elektroplanung m/w/d Beschreibung der Aufgaben\n• Leitung und Koordination von Elektroprojekten im Stark- und Schwachstrombereich von der Planung bis zur Übergabe sowie Sicherstellung der Einhaltung von Terminen, Kosten und Qualitätsstandards\n• Erstellung von Elektroinstallationsplänen, Schemata, technischen Konzepten und Projektdokumentationen sowie Verantwortung für die fachgerechte Dimensionierung elektrischer Anlagen\n• Entwicklung praxisorientierter technischer Lösungen unter Berücksichtigung geltender Normen, Sicherheitsanforderungen und betrieblicher Vorgaben\n• Koordination der Zusammenarbeit mit internen Fachbereichen sowie externen Planern, Architekten, Lieferanten und weiteren Projektbeteiligten\n• Begleitung der Ausführung vor Ort, Unterstützung der Montageteams bei technischen Fragestellungen sowie Sicherstellung der planungskonformen Umsetzung\n• Verantwortung für die Qualitätssicherung, Begleitung von Abnahmen und Inbetriebnahmen sowie Sicherstellung einer vollständigen Projektdokumentation\n• Aktives Einbringen von Fachwissen und Unterstützung der kontinuierlichen Weiterentwicklung unserer Planungsstandards und Prozesse Profil\n• Fundierte Fachkenntnisse in der Elektroplanung, insbesondere im Stark- und Schwachstrombereich, sowie ein gutes Verständnis der relevanten Normen und Vorschriften\n• Erfahrung in der Projektleitung und Koordination von Elektroprojekten sowie in der Zusammenarbeit mit unterschiedlichen Fachbereichen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie ein hohes Qualitäts- und Verantwortungsbewusstsein\n• Klare und professionelle Kommunikation, konstruktiver Umgang mit unterschiedlichen Anspruchsgruppen und Förderung einer partnerschaftlichen Zusammenarbeit\n• Entscheidungsstärke, organisatorisches Geschick und die Fähigkeit, auch bei komplexen Aufgabenstellungen den Überblick zu behalten\n• Offenheit für Veränderungen, Bereitschaft zur fachlichen Weiterentwicklung und zum aktiven Wissensaustausch im Team Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Simone Muntwyler",
+        "en": "Allgemeine Informationen Kennziffer 2026-274 BESCHREIBUNG DER STELLE Stellenbezeichnung Projektleiter Elektroplanung m/w/d Beschreibung der Aufgaben\n• Leitung und Koordination von Elektroprojekten im Stark- und Schwachstrombereich von der Planung bis zur Übergabe sowie Sicherstellung der Einhaltung von Terminen, Kosten und Qualitätsstandards\n• Erstellung von Elektroinstallationsplänen, Schemata, technischen Konzepten und Projektdokumentationen sowie Verantwortung für die fachgerechte Dimensionierung elektrischer Anlagen\n• Entwicklung praxisorientierter technischer Lösungen unter Berücksichtigung geltender Normen, Sicherheitsanforderungen und betrieblicher Vorgaben\n• Koordination der Zusammenarbeit mit internen Fachbereichen sowie externen Planern, Architekten, Lieferanten und weiteren Projektbeteiligten\n• Begleitung der Ausführung vor Ort, Unterstützung der Montageteams bei technischen Fragestellungen sowie Sicherstellung der planungskonformen Umsetzung\n• Verantwortung für die Qualitätssicherung, Begleitung von Abnahmen und Inbetriebnahmen sowie Sicherstellung einer vollständigen Projektdokumentation\n• Aktives Einbringen von Fachwissen und Unterstützung der kontinuierlichen Weiterentwicklung unserer Planungsstandards und Prozesse Profil\n• Fundierte Fachkenntnisse in der Elektroplanung, insbesondere im Stark- und Schwachstrombereich, sowie ein gutes Verständnis der relevanten Normen und Vorschriften\n• Erfahrung in der Projektleitung und Koordination von Elektroprojekten sowie in der Zusammenarbeit mit unterschiedlichen Fachbereichen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie ein hohes Qualitäts- und Verantwortungsbewusstsein\n• Klare und professionelle Kommunikation, konstruktiver Umgang mit unterschiedlichen Anspruchsgruppen und Förderung einer partnerschaftlichen Zusammenarbeit\n• Entscheidungsstärke, organisatorisches Geschick und die Fähigkeit, auch bei komplexen Aufgabenstellungen den Überblick zu behalten\n• Offenheit für Veränderungen, Bereitschaft zur fachlichen Weiterentwicklung und zum aktiven Wissensaustausch im Team Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Simone Muntwyler",
+        "fr": "Allgemeine Informationen Kennziffer 2026-274 BESCHREIBUNG DER STELLE Stellenbezeichnung Projektleiter Elektroplanung m/w/d Beschreibung der Aufgaben\n• Leitung und Koordination von Elektroprojekten im Stark- und Schwachstrombereich von der Planung bis zur Übergabe sowie Sicherstellung der Einhaltung von Terminen, Kosten und Qualitätsstandards\n• Erstellung von Elektroinstallationsplänen, Schemata, technischen Konzepten und Projektdokumentationen sowie Verantwortung für die fachgerechte Dimensionierung elektrischer Anlagen\n• Entwicklung praxisorientierter technischer Lösungen unter Berücksichtigung geltender Normen, Sicherheitsanforderungen und betrieblicher Vorgaben\n• Koordination der Zusammenarbeit mit internen Fachbereichen sowie externen Planern, Architekten, Lieferanten und weiteren Projektbeteiligten\n• Begleitung der Ausführung vor Ort, Unterstützung der Montageteams bei technischen Fragestellungen sowie Sicherstellung der planungskonformen Umsetzung\n• Verantwortung für die Qualitätssicherung, Begleitung von Abnahmen und Inbetriebnahmen sowie Sicherstellung einer vollständigen Projektdokumentation\n• Aktives Einbringen von Fachwissen und Unterstützung der kontinuierlichen Weiterentwicklung unserer Planungsstandards und Prozesse Profil\n• Fundierte Fachkenntnisse in der Elektroplanung, insbesondere im Stark- und Schwachstrombereich, sowie ein gutes Verständnis der relevanten Normen und Vorschriften\n• Erfahrung in der Projektleitung und Koordination von Elektroprojekten sowie in der Zusammenarbeit mit unterschiedlichen Fachbereichen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie ein hohes Qualitäts- und Verantwortungsbewusstsein\n• Klare und professionelle Kommunikation, konstruktiver Umgang mit unterschiedlichen Anspruchsgruppen und Förderung einer partnerschaftlichen Zusammenarbeit\n• Entscheidungsstärke, organisatorisches Geschick und die Fähigkeit, auch bei komplexen Aufgabenstellungen den Überblick zu behalten\n• Offenheit für Veränderungen, Bereitschaft zur fachlichen Weiterentwicklung und zum aktiven Wissensaustausch im Team Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Simone Muntwyler"
+      },
+      "needsRetranslation": true,
+      "location": "Ibach-Schwyz",
+      "canton": "SZ",
+      "url": "https://victorinox-career.talent-soft.com/stelle/stelle-projektleiter-elektroplanung-m-w-d_274.aspx",
+      "source": "Victorinox Dedicated Parser (Talentsoft)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-16T21:17:07.801Z",
+      "addressLocality": "Ibach-Schwyz",
+      "addressRegion": "SZ",
+      "streetAddress": "Schmiedgasse 57",
+      "postalCode": "6438",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Industria / Manifatturiero",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://victorinox-career.talent-soft.com/stelle/stelle-projektleiter-elektroplanung-m-w-d_274.aspx",
+      "jobReqId": "2026-274",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 78500,
+      "salaryMax": 119000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 78500,
+          "maxValue": 119000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-14T21:17:07.801Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-16T21:17:07.801Z"
+    },
+    {
+      "id": "victorinox-e059972b8d15",
+      "slug": "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz",
+      "slugByLocale": {
+        "de": "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz",
+        "it": "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz",
+        "en": "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz",
+        "fr": "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz"
+      },
+      "company": "Victorinox",
+      "companyKey": "victorinox",
+      "companyDomain": "victorinox.com",
+      "title": "Product Manager, Travel Gear 80-100% m/w/d",
+      "titleByLocale": {
+        "de": "Product Manager, Travel Gear 80-100% m/w/d",
+        "it": "Product Manager, Travel Gear 80-100% m/w/d",
+        "en": "Product Manager, Travel Gear 80-100% m/w/d",
+        "fr": "Product Manager, Travel Gear 80-100% m/w/d"
+      },
+      "description": "Allgemeine Informationen Kennziffer 2026-275 BESCHREIBUNG DER STELLE Stellenbezeichnung Product Manager, Travel Gear 80-100% m/w/d Beschreibung der Aufgaben Gestalte die Weiterentwicklung unserer Wenger Travel Gear Produkte aktiv mit. Als Product Manager übernimmst du eine zentrale Rolle in der Produktentwicklung und arbeitest dabei eng mit verschiedenen Bereichen innerhalb von Victorinox sowie mit internationalen Partnern zusammen.\n• Operative Verantwortung für verschiedene Produktentwicklungsprojekte, vom Briefing bis zur Umsetzung\n• Übersetzung bestehender Produkt- und Portfoliovorgaben in konkrete Entwicklungsschritte und konsequente Umsetzung\n• Proaktive und selbständige Steuerung von Timelines, Prioritäten, Follow-ups und Abstimmungen mit allen relevanten Stakeholdern\n• Enge Zusammenarbeit mit Design, Quality, Sales, Marketing sowie internationalen Entwicklungsteams\n• Aktives Einbringen von Produktwissen und technischer Affinität, um Lösungen kritisch zu hinterfragen und weiterzuentwickeln\n• Erkennen von Optimierungspotenzialen und Erarbeiten pragmatischer Lösungen unter Berücksichtigung von Funktionalität, Design, Qualität, Kosten und Machbarkeit\n• Beobachtung relevanter Markt- und Wettbewerbsentwicklungen und Einbringen konkreter Impulse für Produktverbesserungen\n• Sicherstellung des Überblicks und der richtigen Priorisierung, auch bei parallellaufenden Projekten sowie proaktives Vorantreiben der Themen in einem schnelllebigen und dynamischen Umfeld Profil\n• Ausbildung oder Studium im Bereich Product Management, Business, Product/Industrial Design oder in einem vergleichbaren Bereich\n• Mindestens 3 Jahre Berufserfahrung im Product Management, in der Produktentwicklung oder in einem vergleichbaren schnelllebigen Consumer-Goods-Umfeld\n• Ausgeprägtes Produktverständnis und technische Affinität sowie die Fähigkeit, dich rasch in Produkte, Materialien und Herstellungsprozesse einzuarbeiten\n• Erfahrung mit Textilien, Softgoods, Taschen, Rucksäcken oder Reisegepäck ist von Vorteil\n• Hands-on-Mentalität mit kritischem, lösungsorientiertem Denken und Blick fürs grosse Ganze\n• Hohes Verantwortungsbewusstsein, Ownership und proaktive Arbeitsweise\n• Flexibilität, Resilienz und gutes Priorisierungsvermögen in einem dynamischen Umfeld\n• Hoher Qualitätsanspruch, Auge fürs Detail und Lernbereitschaft\n• Sehr gute Deutsch- und Englischkenntnisse (mind. C1) Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Nina Hustinx",
+      "descriptionByLocale": {
+        "de": "Allgemeine Informationen Kennziffer 2026-275 BESCHREIBUNG DER STELLE Stellenbezeichnung Product Manager, Travel Gear 80-100% m/w/d Beschreibung der Aufgaben Gestalte die Weiterentwicklung unserer Wenger Travel Gear Produkte aktiv mit. Als Product Manager übernimmst du eine zentrale Rolle in der Produktentwicklung und arbeitest dabei eng mit verschiedenen Bereichen innerhalb von Victorinox sowie mit internationalen Partnern zusammen.\n• Operative Verantwortung für verschiedene Produktentwicklungsprojekte, vom Briefing bis zur Umsetzung\n• Übersetzung bestehender Produkt- und Portfoliovorgaben in konkrete Entwicklungsschritte und konsequente Umsetzung\n• Proaktive und selbständige Steuerung von Timelines, Prioritäten, Follow-ups und Abstimmungen mit allen relevanten Stakeholdern\n• Enge Zusammenarbeit mit Design, Quality, Sales, Marketing sowie internationalen Entwicklungsteams\n• Aktives Einbringen von Produktwissen und technischer Affinität, um Lösungen kritisch zu hinterfragen und weiterzuentwickeln\n• Erkennen von Optimierungspotenzialen und Erarbeiten pragmatischer Lösungen unter Berücksichtigung von Funktionalität, Design, Qualität, Kosten und Machbarkeit\n• Beobachtung relevanter Markt- und Wettbewerbsentwicklungen und Einbringen konkreter Impulse für Produktverbesserungen\n• Sicherstellung des Überblicks und der richtigen Priorisierung, auch bei parallellaufenden Projekten sowie proaktives Vorantreiben der Themen in einem schnelllebigen und dynamischen Umfeld Profil\n• Ausbildung oder Studium im Bereich Product Management, Business, Product/Industrial Design oder in einem vergleichbaren Bereich\n• Mindestens 3 Jahre Berufserfahrung im Product Management, in der Produktentwicklung oder in einem vergleichbaren schnelllebigen Consumer-Goods-Umfeld\n• Ausgeprägtes Produktverständnis und technische Affinität sowie die Fähigkeit, dich rasch in Produkte, Materialien und Herstellungsprozesse einzuarbeiten\n• Erfahrung mit Textilien, Softgoods, Taschen, Rucksäcken oder Reisegepäck ist von Vorteil\n• Hands-on-Mentalität mit kritischem, lösungsorientiertem Denken und Blick fürs grosse Ganze\n• Hohes Verantwortungsbewusstsein, Ownership und proaktive Arbeitsweise\n• Flexibilität, Resilienz und gutes Priorisierungsvermögen in einem dynamischen Umfeld\n• Hoher Qualitätsanspruch, Auge fürs Detail und Lernbereitschaft\n• Sehr gute Deutsch- und Englischkenntnisse (mind. C1) Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Nina Hustinx",
+        "it": "Allgemeine Informationen Kennziffer 2026-275 BESCHREIBUNG DER STELLE Stellenbezeichnung Product Manager, Travel Gear 80-100% m/w/d Beschreibung der Aufgaben Gestalte die Weiterentwicklung unserer Wenger Travel Gear Produkte aktiv mit. Als Product Manager übernimmst du eine zentrale Rolle in der Produktentwicklung und arbeitest dabei eng mit verschiedenen Bereichen innerhalb von Victorinox sowie mit internationalen Partnern zusammen.\n• Operative Verantwortung für verschiedene Produktentwicklungsprojekte, vom Briefing bis zur Umsetzung\n• Übersetzung bestehender Produkt- und Portfoliovorgaben in konkrete Entwicklungsschritte und konsequente Umsetzung\n• Proaktive und selbständige Steuerung von Timelines, Prioritäten, Follow-ups und Abstimmungen mit allen relevanten Stakeholdern\n• Enge Zusammenarbeit mit Design, Quality, Sales, Marketing sowie internationalen Entwicklungsteams\n• Aktives Einbringen von Produktwissen und technischer Affinität, um Lösungen kritisch zu hinterfragen und weiterzuentwickeln\n• Erkennen von Optimierungspotenzialen und Erarbeiten pragmatischer Lösungen unter Berücksichtigung von Funktionalität, Design, Qualität, Kosten und Machbarkeit\n• Beobachtung relevanter Markt- und Wettbewerbsentwicklungen und Einbringen konkreter Impulse für Produktverbesserungen\n• Sicherstellung des Überblicks und der richtigen Priorisierung, auch bei parallellaufenden Projekten sowie proaktives Vorantreiben der Themen in einem schnelllebigen und dynamischen Umfeld Profil\n• Ausbildung oder Studium im Bereich Product Management, Business, Product/Industrial Design oder in einem vergleichbaren Bereich\n• Mindestens 3 Jahre Berufserfahrung im Product Management, in der Produktentwicklung oder in einem vergleichbaren schnelllebigen Consumer-Goods-Umfeld\n• Ausgeprägtes Produktverständnis und technische Affinität sowie die Fähigkeit, dich rasch in Produkte, Materialien und Herstellungsprozesse einzuarbeiten\n• Erfahrung mit Textilien, Softgoods, Taschen, Rucksäcken oder Reisegepäck ist von Vorteil\n• Hands-on-Mentalität mit kritischem, lösungsorientiertem Denken und Blick fürs grosse Ganze\n• Hohes Verantwortungsbewusstsein, Ownership und proaktive Arbeitsweise\n• Flexibilität, Resilienz und gutes Priorisierungsvermögen in einem dynamischen Umfeld\n• Hoher Qualitätsanspruch, Auge fürs Detail und Lernbereitschaft\n• Sehr gute Deutsch- und Englischkenntnisse (mind. C1) Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Nina Hustinx",
+        "en": "Allgemeine Informationen Kennziffer 2026-275 BESCHREIBUNG DER STELLE Stellenbezeichnung Product Manager, Travel Gear 80-100% m/w/d Beschreibung der Aufgaben Gestalte die Weiterentwicklung unserer Wenger Travel Gear Produkte aktiv mit. Als Product Manager übernimmst du eine zentrale Rolle in der Produktentwicklung und arbeitest dabei eng mit verschiedenen Bereichen innerhalb von Victorinox sowie mit internationalen Partnern zusammen.\n• Operative Verantwortung für verschiedene Produktentwicklungsprojekte, vom Briefing bis zur Umsetzung\n• Übersetzung bestehender Produkt- und Portfoliovorgaben in konkrete Entwicklungsschritte und konsequente Umsetzung\n• Proaktive und selbständige Steuerung von Timelines, Prioritäten, Follow-ups und Abstimmungen mit allen relevanten Stakeholdern\n• Enge Zusammenarbeit mit Design, Quality, Sales, Marketing sowie internationalen Entwicklungsteams\n• Aktives Einbringen von Produktwissen und technischer Affinität, um Lösungen kritisch zu hinterfragen und weiterzuentwickeln\n• Erkennen von Optimierungspotenzialen und Erarbeiten pragmatischer Lösungen unter Berücksichtigung von Funktionalität, Design, Qualität, Kosten und Machbarkeit\n• Beobachtung relevanter Markt- und Wettbewerbsentwicklungen und Einbringen konkreter Impulse für Produktverbesserungen\n• Sicherstellung des Überblicks und der richtigen Priorisierung, auch bei parallellaufenden Projekten sowie proaktives Vorantreiben der Themen in einem schnelllebigen und dynamischen Umfeld Profil\n• Ausbildung oder Studium im Bereich Product Management, Business, Product/Industrial Design oder in einem vergleichbaren Bereich\n• Mindestens 3 Jahre Berufserfahrung im Product Management, in der Produktentwicklung oder in einem vergleichbaren schnelllebigen Consumer-Goods-Umfeld\n• Ausgeprägtes Produktverständnis und technische Affinität sowie die Fähigkeit, dich rasch in Produkte, Materialien und Herstellungsprozesse einzuarbeiten\n• Erfahrung mit Textilien, Softgoods, Taschen, Rucksäcken oder Reisegepäck ist von Vorteil\n• Hands-on-Mentalität mit kritischem, lösungsorientiertem Denken und Blick fürs grosse Ganze\n• Hohes Verantwortungsbewusstsein, Ownership und proaktive Arbeitsweise\n• Flexibilität, Resilienz und gutes Priorisierungsvermögen in einem dynamischen Umfeld\n• Hoher Qualitätsanspruch, Auge fürs Detail und Lernbereitschaft\n• Sehr gute Deutsch- und Englischkenntnisse (mind. C1) Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Nina Hustinx",
+        "fr": "Allgemeine Informationen Kennziffer 2026-275 BESCHREIBUNG DER STELLE Stellenbezeichnung Product Manager, Travel Gear 80-100% m/w/d Beschreibung der Aufgaben Gestalte die Weiterentwicklung unserer Wenger Travel Gear Produkte aktiv mit. Als Product Manager übernimmst du eine zentrale Rolle in der Produktentwicklung und arbeitest dabei eng mit verschiedenen Bereichen innerhalb von Victorinox sowie mit internationalen Partnern zusammen.\n• Operative Verantwortung für verschiedene Produktentwicklungsprojekte, vom Briefing bis zur Umsetzung\n• Übersetzung bestehender Produkt- und Portfoliovorgaben in konkrete Entwicklungsschritte und konsequente Umsetzung\n• Proaktive und selbständige Steuerung von Timelines, Prioritäten, Follow-ups und Abstimmungen mit allen relevanten Stakeholdern\n• Enge Zusammenarbeit mit Design, Quality, Sales, Marketing sowie internationalen Entwicklungsteams\n• Aktives Einbringen von Produktwissen und technischer Affinität, um Lösungen kritisch zu hinterfragen und weiterzuentwickeln\n• Erkennen von Optimierungspotenzialen und Erarbeiten pragmatischer Lösungen unter Berücksichtigung von Funktionalität, Design, Qualität, Kosten und Machbarkeit\n• Beobachtung relevanter Markt- und Wettbewerbsentwicklungen und Einbringen konkreter Impulse für Produktverbesserungen\n• Sicherstellung des Überblicks und der richtigen Priorisierung, auch bei parallellaufenden Projekten sowie proaktives Vorantreiben der Themen in einem schnelllebigen und dynamischen Umfeld Profil\n• Ausbildung oder Studium im Bereich Product Management, Business, Product/Industrial Design oder in einem vergleichbaren Bereich\n• Mindestens 3 Jahre Berufserfahrung im Product Management, in der Produktentwicklung oder in einem vergleichbaren schnelllebigen Consumer-Goods-Umfeld\n• Ausgeprägtes Produktverständnis und technische Affinität sowie die Fähigkeit, dich rasch in Produkte, Materialien und Herstellungsprozesse einzuarbeiten\n• Erfahrung mit Textilien, Softgoods, Taschen, Rucksäcken oder Reisegepäck ist von Vorteil\n• Hands-on-Mentalität mit kritischem, lösungsorientiertem Denken und Blick fürs grosse Ganze\n• Hohes Verantwortungsbewusstsein, Ownership und proaktive Arbeitsweise\n• Flexibilität, Resilienz und gutes Priorisierungsvermögen in einem dynamischen Umfeld\n• Hoher Qualitätsanspruch, Auge fürs Detail und Lernbereitschaft\n• Sehr gute Deutsch- und Englischkenntnisse (mind. C1) Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Nina Hustinx"
+      },
+      "needsRetranslation": true,
+      "location": "Ibach-Schwyz",
+      "canton": "SZ",
+      "url": "https://victorinox-career.talent-soft.com/stelle/stelle-product-manager-travel-gear-80-100-m-w-d_275.aspx",
+      "source": "Victorinox Dedicated Parser (Talentsoft)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-16T21:17:07.239Z",
+      "addressLocality": "Ibach-Schwyz",
+      "addressRegion": "SZ",
+      "streetAddress": "Schmiedgasse 57",
+      "postalCode": "6438",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Innovazione / Prodotto",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Industria / Manifatturiero",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "applyUrl": "https://victorinox-career.talent-soft.com/stelle/stelle-product-manager-travel-gear-80-100-m-w-d_275.aspx",
+      "jobReqId": "2026-275",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 96000,
+      "salaryMax": 146000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 146000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-14T21:17:07.239Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-16T21:17:07.239Z"
     },
     {
       "id": "victorinox-9436b019e91b",
@@ -499,157 +795,8 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-16T09:15:46.040Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "victorinox-67c5913ba58c",
-      "slug": "trade-compliance-specialist-m-w-d-victorinox-ibach-schwyz",
-      "slugByLocale": {
-        "it": "trade-compliance-specialist-m-w-d-victorinox-ibach-schwyz",
-        "en": "quality-assurance-specialist-m-f-d-victorinox-ibach-schwyz",
-        "de": "trade-compliance-specialist-m-w-d-victorinox-ibach-schwyz",
-        "fr": "trade-compliance-specialist-m-w-d-victorinox-ibach-schwyz"
-      },
-      "company": "Victorinox",
-      "companyKey": "victorinox",
-      "companyDomain": "victorinox.com",
-      "title": "Trade Compliance Specialist m/w/d",
-      "titleByLocale": {
-        "it": "Trade Compliance Specialista m/w/d",
-        "en": "Quality Assurance Specialist m/f/d",
-        "de": "Trade Compliance Specialist m/w/d",
-        "fr": "Trade Compliance Spécialiste m/w/d"
-      },
-      "description": "Allgemeine Informationen Kennziffer 2026-247 BESCHREIBUNG DER STELLE Stellenbezeichnung Trade Compliance Specialist m/w/d Beschreibung der Aufgaben\n• Pflege, Prüfung und Klassifizierung von Produktstammdaten im Bereich Zoll und Trade Compliance (z. B. Zolltarifnummern, Ursprungsland, Präferenz- und Exportkontrolldaten)\n• Beratung und Unterstützung interner Stakeholder bei Zoll-, Exportkontroll- und Trade-Compliance-Fragestellungen\n• Mitverantwortung für die Umsetzung und Überwachung von Exportkontroll- und Sanktionsvorgaben\n• Mitarbeit in bereichsübergreifenden Zoll- und Compliance-Projekten\n• Überwachung regulatorischer Änderungen und Sicherstellung der Einhaltung gesetzlicher Vorgaben sowie interner Richtlinien\n• Durchführung von Schulungen und Sensibilisierungsmassnahmen zur Förderung des Compliance-Bewusstseins\n• Unterstützung bei Audits und behördlichen Prüfungen\n• Erstellung und Weiterentwicklung von Richtlinien, Arbeitsanweisungen und Prozessdokumentationen im Bereich Trade Compliance\n• Unterstützung bei der Optimierung und Weiterentwicklung von Zoll- und Trade-Compliance-Prozessen in Zusammenarbeit mit internationalen Stakeholdern\n• Key User für Trade-Compliance-Applikationen sowie Unterstützung bei Systemanpassungen und Tests Profil\n• Technische, logistische oder kaufmännische Grundausbildung\n• Weiterbildung als Aussenhandelsfachfrau/-mann mit eidg. Fachausweis, Zollfachfrau/-mann oder vergleichbare Qualifikation von Vorteil\n• Mehrjährige Berufserfahrung im Import-, Export- oder Zollumfeld\n• Erfahrung im Bereich Trade Compliance sowie Interesse an internationalen Zoll- und Exportkontrollthemen\n• Fundierte Kenntnisse im Bereich Warenursprung, Präferenzrecht und Lieferantenerklärungen\n• Kenntnisse in der Warentarifierung und Stammdatenpflege (HS-Codes, CH/EU/UK-Tarifierung)\n• Gute Anwenderkenntnisse in MS Office sowie idealerweise Erfahrung mit Trade-Compliance-Systemen\n• Sehr gute Deutsch- und Englischkenntnisse (Niveau C1) in Wort und Schrift\n• Analytische, strukturierte und selbstständige Arbeitsweise\n• Hohe Qualitätsorientierung, ausgeprägte Kommunikationsfähigkeit sowie Freude an der Zusammenarbeit mit verschiedenen Anspruchsgruppen Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Kevin Volkart",
-      "descriptionByLocale": {
-        "it": "Codice d'informazione generale 2026-247 DESCRIZIONE DELL'AUTORITÀ Titolo del lavoro Specialista di conformità commerciale m/f/d Descrizione dei compiti\n• Manutenzione, collaudo e classificazione dei dati master del prodotto nell'ambito della conformità doganale e commerciale (ad esempio numeri tariffari doganali, paese di origine, dati di preferenza e di controllo delle esportazioni)\n• Consulenza e sostegno delle parti interessate interne alle questioni doganali, di controllo delle esportazioni e di conformità al commercio\n• Co-responsabilità per l'attuazione e il monitoraggio dei requisiti di controllo e sanzioni delle esportazioni\n• Cooperazione nel settore doganale e dei progetti di conformità transfrontalieri\n• Monitorare i cambiamenti normativi e garantire la conformità normativa e le politiche interne\n• Condurre attività di formazione e sensibilizzazione per promuovere la consapevolezza della conformità\n• Supporto per audit e audit normativi\n• Preparazione e sviluppo di linee guida, istruzioni di lavoro e documentazione di processo nel settore della conformità commerciale\n• Supporto per l'ottimizzazione e l'ulteriore sviluppo dei processi doganali e di compliance commerciale in collaborazione con gli stakeholder internazionali\n• L'utente chiave per le applicazioni di conformità commerciale e il supporto per le regolazioni e i test di sistema\n• Formazione tecnica, logistica o commerciale di base\n• Un'ulteriore formazione come specialista del commercio estero con un certificato federale, uno specialista doganale o una qualifica simile è vantaggioso\n• Diversi anni di esperienza professionale nell'ambiente di importazione, esportazione o doganale\n• Esperienza di conformità commerciale e interesse per le questioni doganali e di controllo delle esportazioni internazionali\n• Conoscenza approfondita dell’origine delle merci, legge preferenziale e dichiarazioni dei fornitori\n• Conoscenza della classificazione delle merci e della manutenzione dei dati master (codici HS, tariffe CH/EU/UK)\n• Buona conoscenza dell'utente in MS Office e l'esperienza ideale con i sistemi di conformità commerciale\n• Conoscenza molto buona del tedesco e dell'inglese (livello C1) in parola e scrittura\n• Metodo di lavoro analitico, strutturato e indipendente\n• orientamento di alta qualità, capacità di comunicazione pronunciate e il godimento di lavorare con diversi stakeholder Vantaggi\n• Cultura unica e familiare con gestione aziendale a lungo termine e sostenibile\n• Corsi interni e attività ricreative, nonché supporto per la formazione esterna\n• Modelli moderni del tempo di lavoro, come l'ufficio di casa\n• Parcheggio gratuito o pendolari per i trasporti pubblici\n• Vantaggi di appello per il nostro fondo pensione e le assicurazioni sociali LOCATION OF the STELLE company Victorinox AG Land Svizzera Luogo di lavoro Ibach-Schwyz CONTROLS attraverso il contatto principale Nina Hustinx",
-        "en": "General information Code 2026-247 DESCRIPTION OF THE AUTHORITY Job title Trade Compliance Specialist m/f/d Description of tasks\n• Maintenance, testing and classification of product master data in the area of customs and trade compliance (e.g. customs tariff numbers, country of origin, preference and export control data)\n• Advising and supporting internal stakeholders on customs, export control and trade compliance issues\n• Co-responsibility for the implementation and monitoring of export control and sanctions requirements\n• Cooperation in cross-departmental customs and compliance projects\n• Monitoring regulatory changes and ensuring regulatory compliance and internal policies\n• Conduct training and awareness-raising activities to promote compliance awareness\n• Support for audits and regulatory audits\n• Preparation and further development of guidelines, work instructions and process documentation in the area of trade compliance\n• Support for the optimization and further development of customs and trade compliance processes in cooperation with international stakeholders\n• Key User for trade compliance applications as well as support for system adjustments and tests Profile\n• Basic technical, logistical or commercial training\n• Further training as a foreign trade specialist with a federal certificate, customs specialist or comparable qualification is advantageous\n• Several years of professional experience in the import, export or customs environment\n• Trade compliance experience and interest in international customs and export control issues\n• In-depth knowledge of the origin of goods, preferential law and supplier’s declarations\n• Knowledge of goods classification and master data maintenance (HS codes, CH/EU/UK tariffs)\n• Good user knowledge in MS Office and ideally experience with trade compliance systems\n• Very good knowledge of German and English (level C1) in word and writing\n• Analytical, structured and independent working method\n• High quality orientation, pronounced communication skills and enjoyment of working with different stakeholders Benefits\n• Unique, family culture with long-term and sustainable corporate management\n• Internal courses and leisure activities as well as support for external training\n• Modern working time models, such as home office\n• Free parking or commuting fees for public transport\n• Appealing advantages for our pension fund and the social insurances LOCATION OF THE STELLE company Victorinox AG Land Switzerland Location of work Ibach-Schwyz CONTROLS through main contact Nina Hustinx",
-        "de": "Allgemeine Informationen Kennziffer 2026-247 BESCHREIBUNG DER STELLE Stellenbezeichnung Trade Compliance Specialist m/w/d Beschreibung der Aufgaben\n• Pflege, Prüfung und Klassifizierung von Produktstammdaten im Bereich Zoll und Trade Compliance (z. B. Zolltarifnummern, Ursprungsland, Präferenz- und Exportkontrolldaten)\n• Beratung und Unterstützung interner Stakeholder bei Zoll-, Exportkontroll- und Trade-Compliance-Fragestellungen\n• Mitverantwortung für die Umsetzung und Überwachung von Exportkontroll- und Sanktionsvorgaben\n• Mitarbeit in bereichsübergreifenden Zoll- und Compliance-Projekten\n• Überwachung regulatorischer Änderungen und Sicherstellung der Einhaltung gesetzlicher Vorgaben sowie interner Richtlinien\n• Durchführung von Schulungen und Sensibilisierungsmassnahmen zur Förderung des Compliance-Bewusstseins\n• Unterstützung bei Audits und behördlichen Prüfungen\n• Erstellung und Weiterentwicklung von Richtlinien, Arbeitsanweisungen und Prozessdokumentationen im Bereich Trade Compliance\n• Unterstützung bei der Optimierung und Weiterentwicklung von Zoll- und Trade-Compliance-Prozessen in Zusammenarbeit mit internationalen Stakeholdern\n• Key User für Trade-Compliance-Applikationen sowie Unterstützung bei Systemanpassungen und Tests Profil\n• Technische, logistische oder kaufmännische Grundausbildung\n• Weiterbildung als Aussenhandelsfachfrau/-mann mit eidg. Fachausweis, Zollfachfrau/-mann oder vergleichbare Qualifikation von Vorteil\n• Mehrjährige Berufserfahrung im Import-, Export- oder Zollumfeld\n• Erfahrung im Bereich Trade Compliance sowie Interesse an internationalen Zoll- und Exportkontrollthemen\n• Fundierte Kenntnisse im Bereich Warenursprung, Präferenzrecht und Lieferantenerklärungen\n• Kenntnisse in der Warentarifierung und Stammdatenpflege (HS-Codes, CH/EU/UK-Tarifierung)\n• Gute Anwenderkenntnisse in MS Office sowie idealerweise Erfahrung mit Trade-Compliance-Systemen\n• Sehr gute Deutsch- und Englischkenntnisse (Niveau C1) in Wort und Schrift\n• Analytische, strukturierte und selbstständige Arbeitsweise\n• Hohe Qualitätsorientierung, ausgeprägte Kommunikationsfähigkeit sowie Freude an der Zusammenarbeit mit verschiedenen Anspruchsgruppen Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Kevin Volkart",
-        "fr": "Renseignements généraux Code 2026-247 DESCRIPTION DE L'AUTORITÉ Titre de l'emploi Spécialiste de la conformité commerciale h/f/d Description des tâches\n• Maintenance, mise à l'essai et classement des données de base sur les produits dans le domaine des douanes et de la conformité au commerce (numéros tarifaires douaniers, pays d'origine, préférences et données relatives au contrôle des exportations)\n• Conseiller et soutenir les parties prenantes internes sur les questions douanières, de contrôle des exportations et de conformité commerciale\n• Coresponsabilité dans la mise en œuvre et le suivi des exigences en matière de contrôle des exportations et de sanctions\n• Coopération dans le cadre de projets interdépartementaux relatifs aux douanes et à la conformité\n• Surveillance des changements réglementaires et garantie de la conformité réglementaire et des politiques internes\n• Mener des activités de formation et de sensibilisation pour promouvoir la sensibilisation au respect des dispositions\n• Appui aux audits et vérifications réglementaires\n• Élaboration et mise au point de directives, d ' instructions de travail et de documents de procédure dans le domaine de la conformité commerciale\n• Appui à l ' optimisation et au développement des procédures douanières et commerciales en coopération avec les parties prenantes internationales\n• Utilisateur clé pour les applications de conformité commerciale ainsi que le soutien pour les ajustements et les tests de système Profil\n• Formation technique, logistique ou commerciale de base\n• Une formation complémentaire en tant que spécialiste du commerce extérieur ayant un certificat fédéral, un spécialiste des douanes ou une qualification comparable est avantageuse\n• Plusieurs années d'expérience professionnelle en matière d'importation, d'exportation ou de douane\n• Expérience en matière de respect des règles commerciales et intérêt pour les questions relatives aux douanes internationales et au contrôle des exportations\n• Connaissance approfondie de l'origine des marchandises, du droit préférentiel et des déclarations des fournisseurs\n• Connaissance de la classification des marchandises et de la maintenance des données de base (codes SH, tarifs CH/EU/UK)\n• Bonnes connaissances des utilisateurs dans MS Office et idéalement expérience des systèmes de conformité commerciale\n• Très bonne connaissance de l'allemand et de l'anglais (niveau C1) en paroles et en écriture\n• Méthode de travail analytique, structurée et indépendante\n• Orientation de haute qualité, aptitudes à la communication et plaisir de travailler avec les différentes parties prenantes Avantages\n• Culture familiale unique avec une gestion d'entreprise durable et à long terme\n• Cours internes et activités de loisirs ainsi que soutien à la formation externe\n• Modèles modernes de temps de travail, tels que le bureau à domicile\n• Parking gratuit ou frais de navette pour les transports en commun\n• Appel aux avantages pour notre caisse de retraite et les assurances sociales LOCATION DE LA STELLE société Victorinox AG Land Suisse Lieu de travail Ibach-Schwyz CONTRÔLES via le contact principal Nina Hustinx"
-      },
-      "needsRetranslation": false,
-      "location": "Ibach-Schwyz",
-      "canton": "SZ",
-      "url": "https://victorinox-career.talent-soft.com/stelle/stelle-trade-compliance-specialist-m-w-d_247.aspx",
-      "source": "Victorinox Dedicated Parser (Talentsoft)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:15:45.488Z",
-      "addressLocality": "Ibach-Schwyz",
-      "addressRegion": "SZ",
-      "streetAddress": "Schmiedgasse 57",
-      "postalCode": "6438",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Industria / Manifatturiero",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://victorinox-career.talent-soft.com/stelle/stelle-trade-compliance-specialist-m-w-d_247.aspx",
-      "jobReqId": "2026-247",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "firstSeenAt": "2026-07-08T22:07:43.472Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T09:15:45.488Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "victorinox-0fc68745ff3c",
-      "slug": "consigliere-legale-m-f-d-victorinox-ibach-schwyz",
-      "slugByLocale": {
-        "it": "consigliere-legale-m-f-d-victorinox-ibach-schwyz",
-        "en": "legal-counsel-m-w-d-victorinox-ibach-schwyz",
-        "de": "legal-counsel-m-w-d-victorinox-ibach-schwyz",
-        "fr": "conseiller-juridique-h-f-d-victorinox-ibach-schwyz"
-      },
-      "company": "Victorinox",
-      "companyKey": "victorinox",
-      "companyDomain": "victorinox.com",
-      "title": "Legal Counsel m/w/d",
-      "titleByLocale": {
-        "it": "Consigliere legale m/f/d",
-        "en": "Legal Counsel m/f/d",
-        "de": "Legal Counsel m/w/d",
-        "fr": "Conseiller juridique h/f/d"
-      },
-      "description": "Allgemeine Informationen Kennziffer 2026-250 BESCHREIBUNG DER STELLE Stellenbezeichnung Legal Counsel m/w/d Beschreibung der Aufgaben\n• Beratung und Unterstützung der Victorinox Gruppe in allen rechtlichen Belangen mit Schwerpunkt Vertragsrecht, Vertriebs-, Wettbewerbs- und Kartellrecht sowie Produktsicherheits- und Produkthaftpflichtrecht und Produkt-Compliance\n• Prüfung, Erstellung und Verhandlung nationaler und internationaler Verträge\n• Betreuung und Bearbeitung gesellschaftsrechtlicher Themen sowie Unterstützung bei der Sicherstellung einer rechtskonformen Corporate Governance\n• Unterstützung bei der Sicherstellung und Weiterentwicklung von Compliance-Strukturen sowie der Einhaltung von regulatorischen Vorgaben\n• Identifikation, Bewertung und Minimierung rechtlicher Risiken sowie Erarbeitung rechtskonformer Handlungsempfehlungen Profil\n• Abgeschlossenes Studium der Rechtswissenschaften (Master/Lizentiat) mit Schweizer Anwaltspatent oder gleichwertiger Qualifikation\n• Mindestens 5 Jahre Berufserfahrung, davon mindestens 3 Jahre als Inhouse Legal Counsel in einem international tätigen Unternehmen\n• Fundierte Kenntnisse im Vertrags-, Vertriebs-, Wettbewerbs- und Kartellrecht, Gesellschaftsrecht sowie Produktsicherheits- und Produkthaftpflichtrecht und Produkt-Compliance\n• Erfahrung im Bereich Compliance von Vorteil\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n• Unternehmerisches Denken sowie Verständnis für betriebswirtschaftliche Zusammenhänge und die gesamte Wertschöpfungskette eines international tätigen Unternehmens\n• Selbstständige, lösungsorientierte und pragmatische Arbeitsweise\n• Ausgeprägte Kommunikations-, Verhandlungs- und Analysefähigkeiten Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Nina Hustinx",
-      "descriptionByLocale": {
-        "it": "Codice di informazione generale 2026-250 DESCRIZIONE DEL Titolo AUTHORITY Consigliere legale m/f/d Descrizione dei compiti\n• Consultare e sostenere il Gruppo Victorinox in tutte le questioni legali con particolare attenzione al diritto contrattuale, alla distribuzione, alla concorrenza e al diritto antitrust, nonché alla normativa sulla sicurezza e sulla responsabilità dei prodotti e alla conformità dei prodotti\n• Esame, elaborazione e negoziazione dei trattati nazionali e internazionali\n• Supporto e trattamento delle questioni di diritto societario e supporto per garantire la governance aziendale legalmente conforme\n• Supporto per garantire e sviluppare ulteriormente le strutture di conformità e rispettare i requisiti normativi\n• Identificazione, valutazione e minimizzazione dei rischi legali e sviluppo di raccomandazioni legalmente conformi all'azione Profilo\n• Laurea in giurisprudenza completata (Master/License) con la qualifica di avvocato svizzero o equivalente\n• Almeno 5 anni di esperienza professionale, tra cui almeno 3 anni come consulente legale interno in una società internazionale\n• Conoscenza approfondita del contratto, della distribuzione, della concorrenza e del diritto antitrust, del diritto societario, della sicurezza e della responsabilità del prodotto e della conformità del prodotto\n• L'esperienza nella conformità è un vantaggio\n• Molto buona conoscenza del tedesco e dell'inglese in parola e scrittura\n• Il pensiero imprenditoriale e la comprensione delle relazioni commerciali e l'intera catena del valore di un'azienda attiva a livello internazionale\n• Metodo di lavoro indipendente, orientato alla soluzione e pragmatico\n• Forte capacità di comunicazione, negoziazione e analisi\n• Cultura unica e familiare con gestione aziendale a lungo termine e sostenibile\n• Corsi interni e attività ricreative, nonché supporto per la formazione esterna\n• Modelli di tempo di lavoro moderni, come l'ufficio di casa\n• Parcheggio gratuito o pendolari per i trasporti pubblici\n• Vantaggi di appello per il nostro fondo pensione e le assicurazioni sociali LOCAZIONE della società STELLE Victorinox AG Land Svizzera Ubicazione del lavoro Ibach-Schwyz CONTROLS attraverso il contatto principale Nina Hustinx",
-        "en": "General information Code 2026-250 DESCRIPTION OF THE AUTHORITY Title Legal Counsel m/f/d Description of tasks\n• Advising and supporting the Victorinox Group in all legal matters with a focus on contract law, distribution, competition and antitrust law as well as product safety and liability law and product compliance\n• Examination, drawing up and negotiation of national and international treaties\n• Support and processing of corporate law issues as well as support in ensuring legally compliant corporate governance\n• Support in ensuring and further developing compliance structures and complying with regulatory requirements\n• Identification, evaluation and minimization of legal risks as well as development of legally compliant recommendations for action Profile\n• Completed law degree (Master/License) with Swiss attorney’s or equivalent qualification\n• At least 5 years of professional experience, including at least 3 years as in-house legal counsel in an international company\n• In-depth knowledge of contract, distribution, competition and antitrust law, company law as well as product safety and liability law and product compliance\n• Experience in compliance is an advantage\n• Very good knowledge of German and English in word and writing\n• Entrepreneurial thinking as well as an understanding of business relationships and the entire value chain of an internationally active company\n• Independent, solution-oriented and pragmatic working method\n• Strong communication, negotiation and analysis skills Benefits\n• Unique, family culture with long-term and sustainable corporate management\n• Internal courses and leisure activities as well as support for external training\n• Modern working time models, such as home office\n• Free parking or commuting fees for public transport\n• Appealing advantages for our pension fund and the social insurances LOCATION OF THE STELLE company Victorinox AG Land Switzerland Location of work Ibach-Schwyz CONTROLS through main contact Nina Hustinx",
-        "de": "Allgemeine Informationen Kennziffer 2026-250 BESCHREIBUNG DER STELLE Stellenbezeichnung Legal Counsel m/w/d Beschreibung der Aufgaben\n• Beratung und Unterstützung der Victorinox Gruppe in allen rechtlichen Belangen mit Schwerpunkt Vertragsrecht, Vertriebs-, Wettbewerbs- und Kartellrecht sowie Produktsicherheits- und Produkthaftpflichtrecht und Produkt-Compliance\n• Prüfung, Erstellung und Verhandlung nationaler und internationaler Verträge\n• Betreuung und Bearbeitung gesellschaftsrechtlicher Themen sowie Unterstützung bei der Sicherstellung einer rechtskonformen Corporate Governance\n• Unterstützung bei der Sicherstellung und Weiterentwicklung von Compliance-Strukturen sowie der Einhaltung von regulatorischen Vorgaben\n• Identifikation, Bewertung und Minimierung rechtlicher Risiken sowie Erarbeitung rechtskonformer Handlungsempfehlungen Profil\n• Abgeschlossenes Studium der Rechtswissenschaften (Master/Lizentiat) mit Schweizer Anwaltspatent oder gleichwertiger Qualifikation\n• Mindestens 5 Jahre Berufserfahrung, davon mindestens 3 Jahre als Inhouse Legal Counsel in einem international tätigen Unternehmen\n• Fundierte Kenntnisse im Vertrags-, Vertriebs-, Wettbewerbs- und Kartellrecht, Gesellschaftsrecht sowie Produktsicherheits- und Produkthaftpflichtrecht und Produkt-Compliance\n• Erfahrung im Bereich Compliance von Vorteil\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n• Unternehmerisches Denken sowie Verständnis für betriebswirtschaftliche Zusammenhänge und die gesamte Wertschöpfungskette eines international tätigen Unternehmens\n• Selbstständige, lösungsorientierte und pragmatische Arbeitsweise\n• Ausgeprägte Kommunikations-, Verhandlungs- und Analysefähigkeiten Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Nina Hustinx",
-        "fr": "Informations générales Code 2026-250 DESCRIPTION DE L'AUTORITÉ Titre Conseiller juridique h/f/d Description des tâches\n• Conseiller et soutenir le groupe Victorinox dans toutes les affaires juridiques, en mettant l'accent sur le droit des contrats, la distribution, la concurrence et le droit des ententes ainsi que sur la sécurité et la responsabilité des produits et la conformité des produits\n• Examen, élaboration et négociation des traités nationaux et internationaux\n• Appui et traitement des questions de droit des sociétés ainsi qu ' appui à la mise en place d ' une gouvernance d ' entreprise conforme à la loi\n• Appui à la mise en place et au développement de structures de conformité et au respect des exigences réglementaires\n• Identification, évaluation et minimisation des risques juridiques ainsi que l'élaboration de recommandations d'action conformes\n• Diplôme de droit (Master/License) avec avocat suisse ou diplôme équivalent\n• Au moins 5 ans d'expérience professionnelle, dont au moins 3 ans en tant que conseiller juridique interne dans une entreprise internationale\n• Connaissance approfondie du droit des contrats, de la distribution, de la concurrence et des ententes, du droit des sociétés ainsi que du droit de la sécurité et de la responsabilité des produits et de la conformité des produits\n• L'expérience de la conformité est un avantage\n• Très bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n• Pensée entrepreneuriale et compréhension des relations d'affaires et de la chaîne de valeur d'une entreprise active à l'échelle internationale\n• Méthode de travail indépendante, pragmatique et orientée vers la solution\n• Forte capacité de communication, de négociation et d'analyse Avantages\n• Culture familiale unique avec une gestion d'entreprise durable et à long terme\n• Cours internes et activités de loisirs ainsi que soutien à la formation externe\n• Modèles modernes de temps de travail, tels que le bureau à domicile\n• Parking gratuit ou frais de navette pour les transports en commun\n• Appel aux avantages pour notre caisse de retraite et les assurances sociales LOCATION DE LA STELLE société Victorinox AG Land Suisse Lieu de travail Ibach-Schwyz CONTRÔLES via le contact principal Nina Hustinx"
-      },
-      "needsRetranslation": false,
-      "location": "Ibach-Schwyz",
-      "canton": "SZ",
-      "url": "https://victorinox-career.talent-soft.com/stelle/stelle-legal-counsel-m-w-d_250.aspx",
-      "source": "Victorinox Dedicated Parser (Talentsoft)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:15:44.962Z",
-      "addressLocality": "Ibach-Schwyz",
-      "addressRegion": "SZ",
-      "streetAddress": "Schmiedgasse 57",
-      "postalCode": "6438",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Legale",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Industria / Manifatturiero",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://victorinox-career.talent-soft.com/stelle/stelle-legal-counsel-m-w-d_250.aspx",
-      "jobReqId": "2026-250",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "legal-counsel-m-w-d-victorinox-ibach-schwyz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "legal-counsel-m-w-d-victorinox-ibach-schwyz"
-        ]
-      },
-      "firstSeenAt": "2026-08-18T09:45:47.035Z",
-      "salaryMin": 80000,
-      "salaryMax": 137000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 80000,
-          "maxValue": 137000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T09:15:44.962Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     },
     {
       "id": "victorinox-25790a3baf5d",
@@ -731,7 +878,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-03T21:24:01.922Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

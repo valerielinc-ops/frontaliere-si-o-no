@@ -38,7 +38,8 @@ import { realpathSync } from 'node:fs';
  *     (`relatedSearchClustersPlugin`'s non-self-canonical mirror, or a
  *     noindex bridge) — the same two classes `audit:sitemap-canonicals` and
  *     `validate:sitemap-pages` already hard-fail on, generically, sampled.
- *   - IN_SITEMAP = the URL has a `<loc>` in `dist/sitemap-jobs.xml`.
+ *   - IN_SITEMAP = the URL has a `<loc>` in the authoritative
+ *     `sitemap-jobs.xml` family (including numbered continuations).
  *
  * `sitemappedNotGenuine` (IN_SITEMAP but not GENUINE) is the BLOCKING check
  * — it reproduces the exact historical defect shape byte-for-byte: a URL
@@ -61,13 +62,14 @@ import { realpathSync } from 'node:fs';
  *   node scripts/audit-keyword-landing-coverage.mjs
  */
 
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { writeAuditReport } from './lib/auditReport.mjs';
 import { keywordLandingPath } from './lib/keyword-page-paths.mjs';
 import { flatString } from './lib/flat-string.mjs';
 import { readAttr, scanMarkupStartTags } from './lib/html-attr.mjs';
+import { isAuthoritativeJobSitemapShardFilename } from './lib/sitemap-shard.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
@@ -156,18 +158,27 @@ function pathToDistFile(distRoot, urlPath) {
  *  set if the sitemap is absent. */
 export function loadSitemapPaths(distRoot, sitemapFile = SITEMAP_FILE) {
   const out = new Set();
-  const p = join(distRoot, sitemapFile);
-  if (!existsSync(p)) return out;
-  const xml = readFileSync(p, 'utf-8');
+  const sitemapFiles = sitemapFile === SITEMAP_FILE && existsSync(distRoot)
+    ? [
+        sitemapFile,
+        ...readdirSync(distRoot).filter((file) => isAuthoritativeJobSitemapShardFilename(file)),
+      ]
+    : [sitemapFile];
   const re = /<loc>\s*([^<\s][^<]*?)\s*<\/loc>/gi;
-  let m;
-  while ((m = re.exec(xml)) !== null) {
-    const loc = decodeEntities(m[1].trim());
-    try {
-      out.add(new URL(loc).pathname.replace(/\/$/, ''));
-    } catch {
-      out.add(loc.replace(/\/$/, ''));
+  for (const file of sitemapFiles) {
+    const p = join(distRoot, file);
+    if (!existsSync(p)) continue;
+    const xml = readFileSync(p, 'utf-8');
+    let m;
+    while ((m = re.exec(xml)) !== null) {
+      const loc = decodeEntities(m[1].trim());
+      try {
+        out.add(new URL(loc).pathname.replace(/\/$/, ''));
+      } catch {
+        out.add(loc.replace(/\/$/, ''));
+      }
     }
+    re.lastIndex = 0;
   }
   return out;
 }

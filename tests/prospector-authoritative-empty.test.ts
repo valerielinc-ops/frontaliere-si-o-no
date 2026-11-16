@@ -6,6 +6,7 @@ import { runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs'
 const SEED_URL = 'https://eqe.example/unternehmen-2/karriere';
 const EMPTY_MARKER = "We don't have any open positions at the moment";
 const EMPTY_HTML = `<html><body><h1>Current Vacancies</h1><p>${EMPTY_MARKER.replace("'", '&#x27;')}</p></body></html>`;
+const RICH_DETAIL_DESCRIPTION = 'The successful candidate will design reliable systems, collaborate with the engineering team, document procedures, solve operational issues, and support continuous improvement across the organisation. '.repeat(3);
 const NEXT_DATA_EMPTY_HTML = `<script id="__NEXT_DATA__" type="application/json">${JSON.stringify({
   props: {
     pageProps: {
@@ -88,6 +89,127 @@ describe('prospector source-backed empty listing contract', () => {
       httpStatuses: [{ status: 200, url: SEED_URL }],
       fetchOutcome: 'ok',
     });
+  });
+
+  it('stamps a zero after stale detail anchors are all observed and rejected', async () => {
+    const detailUrls = [1, 2].map((index) => (
+      `https://eqe.example/unternehmen-2/offene-stellen/${index}`
+    ));
+    const listing = `<html><body><p>${EMPTY_MARKER}</p>${detailUrls
+      .map((url, index) => `<a href="${url}">Role ${index + 1}</a>`)
+      .join('')}</body></html>`;
+    const genericDetail = '<html><head><title>Current Vacancies</title></head><body>'
+      + '<h1>Current Vacancies</h1><p>We look forward to receiving your application!</p></body></html>';
+    const fetchImpl = async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.endsWith('/robots.txt')) return new Response('User-agent: *\nAllow: /');
+      if (url === SEED_URL) return new Response(listing);
+      if (detailUrls.includes(url)) return new Response(genericDetail);
+      throw new Error(`unexpected fixture URL ${url}`);
+    };
+
+    const rows = await runSpecInProduction({
+      ...spec(),
+      detailEnrichment: true,
+    } as any, {
+      ...runtime(),
+      fetchImpl,
+      returnObservation: true,
+    });
+
+    expect(rows.vacancies).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(rows.vacancies)).toBe(true);
+    expect(rows.vacancies).toHaveProperty('fetchOutcome', 'ok');
+    expect(rows.vacancies).toMatchObject({
+      detailDrop: { candidates: 2, dropped: 2 },
+      authoritativeEmptyEvidence: expect.stringContaining('all 2 detail candidate(s) were fetched and rejected'),
+    });
+    expect(rows.observation).toMatchObject({
+      complete: true,
+      promotionObservationComplete: true,
+      listingCount: 2,
+      publishableCount: 0,
+    });
+    expect(rows.vacancies.fetchReceipt).toMatchObject({
+      phase: 'detail',
+      pages: 3,
+      httpStatuses: expect.arrayContaining([
+        { status: 200, url: SEED_URL },
+        ...detailUrls.map((url) => ({ status: 200, url })),
+      ]),
+    });
+  });
+
+  it('does not treat the marker as empty when one detail candidate is publishable', async () => {
+    const detailUrls = [1, 2].map((index) => (
+      `https://eqe.example/unternehmen-2/offene-stellen/${index}`
+    ));
+    const listing = `<html><body><p>${EMPTY_MARKER}</p>${detailUrls
+      .map((url, index) => `<a href="${url}">Role ${index + 1}</a>`)
+      .join('')}</body></html>`;
+    const validDetail = `<html><body><h1>Role 1</h1><script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Role 1',
+      description: RICH_DETAIL_DESCRIPTION,
+      jobLocation: { address: { addressLocality: 'Olten', addressRegion: 'SO', addressCountry: 'CH' } },
+    })}</script><main><p>${RICH_DETAIL_DESCRIPTION}</p></main></body></html>`;
+    const genericDetail = '<html><head><title>Current Vacancies</title></head><body>'
+      + '<h1>Current Vacancies</h1><p>We look forward to receiving your application!</p></body></html>';
+    const fetchImpl = async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.endsWith('/robots.txt')) return new Response('User-agent: *\nAllow: /');
+      if (url === SEED_URL) return new Response(listing);
+      if (url === detailUrls[0]) return new Response(validDetail);
+      if (url === detailUrls[1]) return new Response(genericDetail);
+      throw new Error(`unexpected fixture URL ${url}`);
+    };
+
+    const rows = await runSpecInProduction({
+      ...spec(),
+      detailEnrichment: true,
+    } as any, {
+      ...runtime(),
+      fetchImpl,
+      returnObservation: true,
+    });
+
+    expect(rows.vacancies).toHaveLength(1);
+    expect(isAuthoritativeEmptySnapshot(rows.vacancies)).toBe(false);
+    expect(rows.vacancies[0]).toMatchObject({ title: 'Role 1', location: 'Olten, SO', canton: 'SO' });
+    expect(rows.observation).toMatchObject({ complete: true, listingCount: 2, publishableCount: 1 });
+  });
+
+  it('keeps the marker fail-closed when detail responses fail', async () => {
+    const detailUrls = [1, 2].map((index) => (
+      `https://eqe.example/unternehmen-2/offene-stellen/${index}`
+    ));
+    const listing = `<html><body><p>${EMPTY_MARKER}</p>${detailUrls
+      .map((url, index) => `<a href="${url}">Role ${index + 1}</a>`)
+      .join('')}</body></html>`;
+    const fetchImpl = async (input: string | URL | Request) => {
+      const url = String(input);
+      if (url.endsWith('/robots.txt')) return new Response('User-agent: *\nAllow: /');
+      if (url === SEED_URL) return new Response(listing);
+      if (detailUrls.includes(url)) return new Response('temporarily unavailable', { status: 503 });
+      throw new Error(`unexpected fixture URL ${url}`);
+    };
+
+    const rows = await runSpecInProduction({
+      ...spec(),
+      detailEnrichment: true,
+    } as any, {
+      ...runtime(),
+      fetchImpl,
+      returnObservation: true,
+    });
+
+    expect(rows.vacancies).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(rows.vacancies)).toBe(false);
+    expect(rows.vacancies).toMatchObject({
+      fetchOutcome: 'ok',
+      detailDrop: { candidates: 2, gone: 2, dropped: 2 },
+    });
+    expect(rows.observation.complete).toBe(false);
   });
 
   it('keeps an unmarked zero fail-closed', async () => {

@@ -104,9 +104,9 @@ describe('house creative readout', () => {
     const result = summarizeReaderSubscriptionTraffic({ rowCount: 8, rows: [
       row('reader_subscription_experiment_exposure', 'reader_subscription_house_v1.control.test.it', 80, 75),
       row('reader_subscription_experiment_exposure', 'reader_subscription_house_v1.subscription.test.it', 75),
-      row('reader_subscription_experiment_impression', 'reader_subscription_house_v1.control.test.it', 80, 70),
+      row('reader_sub_experiment_impression', 'reader_subscription_house_v1.control.test.it', 80, 70),
       row('reader_subscription_experiment_click', 'reader_subscription_house_v1.control.test.it', 4),
-      row('reader_subscription_experiment_impression', 'reader_subscription_house_v1.subscription.test.it', 75),
+      row('reader_sub_experiment_impression', 'reader_subscription_house_v1.subscription.test.it', 75),
       row('reader_subscription_experiment_click', 'reader_subscription_house_v1.subscription.test.it', 9),
       row('reader_subscription_ad_impression', 'reader_subscription_house_v1.subscription.test.it', 75),
       row('reader_subscription_ad_click', 'reader_subscription_house_v1.subscription.test.it', 9),

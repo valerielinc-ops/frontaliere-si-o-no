@@ -1,7 +1,7 @@
 {
   "key": "medartis",
   "label": "Medartis",
-  "generatedAt": "2026-11-16T09:41:37.425Z",
+  "generatedAt": "2026-11-16T21:31:35.436Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 8928,
-  "avgDurationMs": 8928,
+  "durationMs": 7163,
+  "avgDurationMs": 7163,
   "durationHistory": [
-    8928
+    7163
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,7 @@
       "url": "https://careers.medartis.com/job/PLM-Support-Specialist/1428557833/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:41:16.902Z",
+      "crawledAt": "2026-11-16T21:31:12.600Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -61,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T09:41:16.902Z",
+      "validThrough": "2026-12-18T21:31:12.600Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -84,7 +84,7 @@
       "url": "https://careers.medartis.com/job/Quality-Inspector-100/1456101133/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:41:13.994Z",
+      "crawledAt": "2026-11-16T21:31:11.369Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "salarySource": "estimated",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:41:13.994Z",
+      "validThrough": "2027-02-08T21:31:11.369Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -118,5 +118,5 @@
       }
     }
   ],
-  "codeCommit": "71e06c4f557e81be4e8743feaa696210bf683ef0"
+  "codeCommit": "003c4e440c1461e3ea15f62e2d687026ad8479d5"
 }

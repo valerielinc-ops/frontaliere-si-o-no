@@ -1,0 +1,23 @@
+{
+  "companyKey": "birchwoodinnpartnersllp",
+  "companyName": "Birchwood Inn Partners, LLLP",
+  "companyHost": "birchwoodinnpartnersllp.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://birchwoodinnpartnersllp.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Banquet Server",
+    "Cocktail Server - Part Time",
+    "Cook"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-16T14:10:05.636Z",
+  "candidateKey": "birchwoodinnpartnersllp@applytojob.com"
+}

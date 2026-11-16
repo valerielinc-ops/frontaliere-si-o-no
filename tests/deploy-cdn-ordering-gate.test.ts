@@ -1305,7 +1305,7 @@ describe('job-canon CDN releases keep the build marker after the complete payloa
     const push = prep.slice(pushStart, pushEnd);
     const cloneAt = push.indexOf('git clone --depth 1 --filter=blob:none --sparse');
     const sparseAt = push.indexOf('git -C "$prev" sparse-checkout set assets job-canon', cloneAt);
-    const carryForwardAt = push.indexOf('_carry_forward_pages_job_canon "$prev" "$stage"', sparseAt);
+    const carryForwardAt = push.indexOf('_carry_forward_pages_job_canon "$prev" "$stage" "$DEPLOY_BUILD_ID"', sparseAt);
     const markerAt = push.indexOf(' > "$stage/cdn-build-id.txt"', carryForwardAt);
     const gitAddAt = push.indexOf('git add -A', markerAt);
 
@@ -1507,6 +1507,7 @@ describe('job-canon CDN releases keep the build marker after the complete payloa
     put(previous, 'job-canon/another-root-map.json', 'other fixed root path');
     put(previous, 'job-canon/releases/1001/v1-shard.json', 'rollback release 1001');
     put(previous, 'job-canon/releases/1002/v1-shard.json', 'stale bytes for 1002');
+    put(previous, 'job-canon/releases/1002/removed-v1-shard.json', 'stale removed shard for 1002');
     put(stage, 'job-canon/releases/1002/v1-shard.json', 'current release 1002');
 
     try {
@@ -1514,10 +1515,11 @@ describe('job-canon CDN releases keep the build marker after the complete payloa
         'bash',
         [
           '-c',
-          'source scripts/lib/deploy-it-pages-prep.sh && _carry_forward_pages_job_canon "$1" "$2"',
+          'source scripts/lib/deploy-it-pages-prep.sh && _carry_forward_pages_job_canon "$1" "$2" "$3"',
           '_',
           previous,
           stage,
+          '1002',
         ],
         { cwd: resolve('.'), encoding: 'utf8', timeout: 10_000 },
       );
@@ -1526,6 +1528,7 @@ describe('job-canon CDN releases keep the build marker after the complete payloa
       expect(readFileSync(join(stage, 'job-canon/another-root-map.json'), 'utf8')).toBe('other fixed root path');
       expect(readFileSync(join(stage, 'job-canon/releases/1001/v1-shard.json'), 'utf8')).toBe('rollback release 1001');
       expect(readFileSync(join(stage, 'job-canon/releases/1002/v1-shard.json'), 'utf8')).toBe('current release 1002');
+      expect(existsSync(join(stage, 'job-canon/releases/1002/removed-v1-shard.json'))).toBe(false);
     } finally {
       rmSync(fixture, { recursive: true, force: true });
     }
@@ -1852,6 +1855,13 @@ function runPagesPublisher(
   writeFileSync(join(markersDir, 'cdn-publish-complete-id.txt'), 'complete-998');
   const harness = [
     'source "$PREP_SCRIPT"',
+    'node() {',
+    '  case "${1:-}" in',
+    '    */job-canon-publish-handshake.mjs) printf "job-canon-handshake\\n" >> "$TEST_EVENTS"; return "${TEST_JOB_CANON_HANDSHAKE_STATUS:-0}" ;;',
+    '    */cdn-build-marker-handshake.mjs) printf "cdn-marker-handshake\\n" >> "$TEST_EVENTS"; return "${TEST_CDN_MARKER_HANDSHAKE_STATUS:-0}" ;;',
+    '    *) command node "$@" ;;',
+    '  esac',
+    '}',
     '_publish_cdn_r2() {',
     '  printf "r2-call ack=%s\\n" "${CDN_PAGES_BUILD_ID:-}" >> "$TEST_EVENTS"',
     '  if [ "${TEST_R2_MARKER_FAILURE:-}" = 1 ]; then',

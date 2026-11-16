@@ -306,17 +306,15 @@
     },
     "slugByLocale": {
       "it": "senior-field-ingegnere-industrial-robotics-anybotics-zurich",
-      "en": "senior-field-engineer-industrial-robotics-anybotics-ch",
+      "en": "senior-field-engineer-industrial-robotics-anybotics-ch-72c14ff5",
       "de": "senior-field-ingenieur-industrial-robotics-anybotics-zurich",
       "fr": "senior-field-ingenieur-industrial-robotics-anybotics-zurich"
     },
     "sector": "Robotica / Automazione",
     "expiredAt": "2026-09-22T00:00:50.020Z",
-    "previousSlugs": [
-      "senior-field-engineer-industrial-robotics-anybotics-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "senior-field-engineer-industrial-robotics-anybotics-ch-72c14ff5",
         "senior-field-engineer-industrial-robotics-anybotics-ch"
       ],
       "de": [
@@ -324,6 +322,9 @@
       ],
       "fr": [
         "senior-field-engineer-industrial-robotics-anybotics-ch"
+      ],
+      "en": [
+        "senior-field-engineer-industrial-robotics-anybotics-ch-72c14ff5"
       ]
     },
     "salaryMin": 113500,
@@ -331,7 +332,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.lever.co/anybotics/ea8d77e2-423f-4e79-9836-10da898d60d4",
-    "firstSeenAt": "2026-08-06T11:36:58.675Z"
+    "firstSeenAt": "2026-08-06T11:36:58.675Z",
+    "previousSlugs": [
+      "senior-field-engineer-industrial-robotics-anybotics-ch"
+    ]
   },
   {
     "slug": "robotics-lab-technician-tirocinante-anybotics-zurich-switzerland",

@@ -160,7 +160,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/bauingenieur-in-projektleiter-in-rohbau-loetschberg-basistunnel/c1d22453-8149-4bed-9598-25837922cd17",
-    "firstSeenAt": "2026-10-20T09:24:49.087Z"
+    "firstSeenAt": "2026-10-20T09:24:49.087Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/bauingenieur-in-projektleiter-in-rohbau-loetschberg-basistunnel/62a35680-7948-4a48-9bf9-99382b18cc33",
+        "firstSeenAt": "2026-10-20T09:24:49.087Z",
+        "title": "Bauingenieur:in / Projektleiter:in Rohbau Lötschberg-Basistunnel"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/bauingenieur-in-projektleiter-in-rohbau-loetschberg-basistunnel/c1d22453-8149-4bed-9598-25837922cd17",
+        "firstSeenAt": "2026-10-20T09:24:49.087Z",
+        "title": "Bauingenieur:in / Projektleiter:in Rohbau Lötschberg-Basistunnel"
+      }
+    ]
   },
   {
     "slug": "specialista-nella-conservazione-delle-opere-bls-ag-bern",
@@ -560,7 +572,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/dispatcher-in-betriebszentrale-spiez/63dd0fa6-5c46-4de4-b299-ddee2591397f",
-    "firstSeenAt": "2026-10-03T09:22:07.646Z"
+    "firstSeenAt": "2026-10-01T21:20:32.611Z"
   },
   {
     "slug": "giurista-in-diritto-edilizio-pianificazione-territoriale-e-diritto-ambientale-bls-ag-bern-f147975f",
@@ -669,7 +681,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/mechaniker-in-schienenfahrzeuge/6cce2800-1466-485a-8c70-6a7bd4bde222",
-    "firstSeenAt": "2026-09-26T23:39:55.517Z"
+    "firstSeenAt": "2026-09-26T23:39:55.517Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/mechaniker-in-schienenfahrzeuge/6cce2800-1466-485a-8c70-6a7bd4bde222",
+        "firstSeenAt": "2026-09-26T23:39:55.517Z",
+        "title": "Mechaniker:in Schienenfahrzeuge"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/mechaniker-in-schienenfahrzeuge/add3e6ed-28c6-4bed-bdd2-e9530f294dc8",
+        "firstSeenAt": "2026-09-26T23:39:55.517Z",
+        "title": "Mechaniker:in Schienenfahrzeuge"
+      }
+    ]
   },
   {
     "slug": "specialista-in-sicurezza-e-analisi-bls-ag-spiez",
@@ -793,17 +817,23 @@
     "sector": "Trasporti / Ferrovia",
     "expiredAt": "2026-10-23T09:21:15.294Z",
     "previousSlugs": [
-      "disponent-in-leitstelle-bls-ch"
+      "disponent-in-leitstelle-bls-ch",
+      "centro-di-controllo-centrali-centrali-bls-ag-bern",
+      "dispatcher-control-center-bls-ag-bern",
+      "centre-de-controle-du-repartiteur-bls-ag-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "disponent-in-leitstelle-bls-ch"
+        "disponent-in-leitstelle-bls-ch",
+        "centro-di-controllo-centrali-centrali-bls-ag-bern"
       ],
       "en": [
-        "disponent-in-leitstelle-bls-ch"
+        "disponent-in-leitstelle-bls-ch",
+        "dispatcher-control-center-bls-ag-bern"
       ],
       "fr": [
-        "disponent-in-leitstelle-bls-ch"
+        "disponent-in-leitstelle-bls-ch",
+        "centre-de-controle-du-repartiteur-bls-ag-bern"
       ]
     },
     "postalCode": "3004",
@@ -813,7 +843,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/disponent-in-leitstelle/5eaeff87-b73d-4857-b261-a709da144360",
-    "firstSeenAt": "2026-09-29T21:17:02.147Z"
+    "firstSeenAt": "2026-09-29T21:17:02.147Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/disponent-in-leitstelle/5eaeff87-b73d-4857-b261-a709da144360",
+        "firstSeenAt": "2026-09-29T21:17:02.147Z",
+        "title": "Disponent:in Leitstelle"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/disponent-in-leitstelle/bcd75593-bb72-4dcb-a737-645e151018f6",
+        "firstSeenAt": "2026-09-29T21:17:02.147Z",
+        "title": "Disponent:in Leitstelle"
+      }
+    ]
   },
   {
     "slug": "fachverantwortliche-r-iam-bls-ag-bern",
@@ -840,11 +882,25 @@
     "sector": "Trasporti / Ferrovia",
     "expiredAt": "2026-10-23T09:21:15.294Z",
     "previousSlugs": [
-      "fachverantwortliche-r-iam-bls-ch"
+      "fachverantwortliche-r-iam-bls-ch",
+      "specialista-responsabile-bls-ag-bern",
+      "fachverantwortliche-r-iam-bls-ag-bern",
+      "specialist-responsible-r-iam-bls-ag-bern",
+      "specialiste-responsable-bls-ag-bern"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "fachverantwortliche-r-iam-bls-ch"
+        "fachverantwortliche-r-iam-bls-ch",
+        "specialista-responsabile-bls-ag-bern",
+        "fachverantwortliche-r-iam-bls-ag-bern"
+      ],
+      "en": [
+        "specialist-responsible-r-iam-bls-ag-bern",
+        "fachverantwortliche-r-iam-bls-ag-bern"
+      ],
+      "fr": [
+        "specialiste-responsable-bls-ag-bern",
+        "fachverantwortliche-r-iam-bls-ag-bern"
       ]
     },
     "postalCode": "3004",
@@ -854,7 +910,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/fachverantwortliche-r-iam/dffbe024-39ff-4f09-8b10-eebf7c53bd3b",
-    "firstSeenAt": "2026-09-26T23:39:57.826Z"
+    "firstSeenAt": "2026-09-26T23:39:57.826Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/fachverantwortliche-r-iam/0b8a0bd1-28e7-47d7-bf45-01c2994d28e8",
+        "firstSeenAt": "2026-09-26T23:39:57.826Z",
+        "title": "Fachverantwortliche:r IAM"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/fachverantwortliche-r-iam/dffbe024-39ff-4f09-8b10-eebf7c53bd3b",
+        "firstSeenAt": "2026-09-26T23:39:57.826Z",
+        "title": "Fachverantwortliche:r IAM"
+      }
+    ]
   },
   {
     "slug": "direttore-trice-dei-lavori-in-tecnica-ferroviaria-bls-ag-bern-100a4c64",
@@ -878,13 +946,12 @@
     "slugByLocale": {
       "it": "direttore-trice-dei-lavori-in-tecnica-ferroviaria-bls-ag-bern-100a4c64",
       "en": "construction-manager-railway-technology-bls-ag-bern-edb66fcb",
-      "de": "baufuhrer-in-bahntechnik-bls-ch-77499efd",
+      "de": "baufuhrer-in-bahntechnik-bls-ch-2507d039",
       "fr": "conducteur-rice-de-travaux-en-technique-ferroviaire-bls-ag-bern-dea8ee6a"
     },
     "sector": "Trasporti / Ferrovia",
     "expiredAt": "2026-10-22T09:29:16.661Z",
     "previousSlugs": [
-      "baufuhrer-in-bahntechnik-bls-ch-77499efd",
       "responsabile-della-costruzione-nella-costruzione-ferroviaria-bls-ag-bern",
       "baufuhrer-in-bahnbau-bls-ch",
       "costruzione-in-costruzione-ferroviaria-bls-ag-bern",
@@ -905,11 +972,14 @@
       "construction-dans-la-construction-ferroviaire-bls-ag-bern",
       "costruzione-in-ingegneria-ferroviaria-bls-ag-bern",
       "construction-in-railway-engineering-bls-ag-bern",
-      "construction-en-genie-ferroviaire-bls-ag-bern"
+      "construction-en-genie-ferroviaire-bls-ag-bern",
+      "direttore-trice-dei-lavori-in-tecnica-ferroviaria-bls-ag-bern-100a4c64",
+      "baufuhrer-in-bahntechnik-bls-ch-77499efd",
+      "construction-manager-railway-technology-bls-ag-bern-edb66fcb",
+      "conducteur-rice-de-travaux-en-technique-ferroviaire-bls-ag-bern-dea8ee6a"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "baufuhrer-in-bahntechnik-bls-ch-77499efd",
         "responsabile-della-costruzione-nella-costruzione-ferroviaria-bls-ag-bern",
         "baufuhrer-in-bahnbau-bls-ch",
         "costruzione-in-costruzione-ferroviaria-bls-ag-bern",
@@ -923,10 +993,11 @@
         "baufuhrer-in-bahntechnik-bls-ch-a62500f8",
         "baufuhrer-in-bahntechnik-bls-ch-394c05f0",
         "baufuhrer-in-bahntechnik-bls-ch-0353e506",
-        "baufuhrer-in-bahntechnik-bls-ch-4e8e4336"
+        "baufuhrer-in-bahntechnik-bls-ch-4e8e4336",
+        "direttore-trice-dei-lavori-in-tecnica-ferroviaria-bls-ag-bern-100a4c64",
+        "baufuhrer-in-bahntechnik-bls-ch-77499efd"
       ],
       "en": [
-        "baufuhrer-in-bahntechnik-bls-ch-77499efd",
         "construction-manager-in-railway-construction-bls-ag-bern",
         "baufuhrer-in-bahnbau-bls-ch",
         "construction-in-railway-construction-bls-ag-bern",
@@ -940,10 +1011,11 @@
         "baufuhrer-in-bahntechnik-bls-ch-a62500f8",
         "baufuhrer-in-bahntechnik-bls-ch-394c05f0",
         "baufuhrer-in-bahntechnik-bls-ch-0353e506",
-        "baufuhrer-in-bahntechnik-bls-ch-4e8e4336"
+        "baufuhrer-in-bahntechnik-bls-ch-4e8e4336",
+        "construction-manager-railway-technology-bls-ag-bern-edb66fcb",
+        "baufuhrer-in-bahntechnik-bls-ch-77499efd"
       ],
       "fr": [
-        "baufuhrer-in-bahntechnik-bls-ch-77499efd",
         "directeur-de-la-construction-dans-la-construction-ferroviaire-bls-ag-bern",
         "baufuhrer-in-bahnbau-bls-ch",
         "construction-dans-la-construction-ferroviaire-bls-ag-bern",
@@ -957,7 +1029,9 @@
         "baufuhrer-in-bahntechnik-bls-ch-a62500f8",
         "baufuhrer-in-bahntechnik-bls-ch-394c05f0",
         "baufuhrer-in-bahntechnik-bls-ch-0353e506",
-        "baufuhrer-in-bahntechnik-bls-ch-4e8e4336"
+        "baufuhrer-in-bahntechnik-bls-ch-4e8e4336",
+        "conducteur-rice-de-travaux-en-technique-ferroviaire-bls-ag-bern-dea8ee6a",
+        "baufuhrer-in-bahntechnik-bls-ch-77499efd"
       ],
       "de": [
         "baufuhrer-in-bahnbau-bls-ch",
@@ -971,7 +1045,8 @@
         "baufuhrer-in-bahntechnik-bls-ch-a62500f8",
         "baufuhrer-in-bahntechnik-bls-ch-394c05f0",
         "baufuhrer-in-bahntechnik-bls-ch-0353e506",
-        "baufuhrer-in-bahntechnik-bls-ch-4e8e4336"
+        "baufuhrer-in-bahntechnik-bls-ch-4e8e4336",
+        "baufuhrer-in-bahntechnik-bls-ch-77499efd"
       ]
     },
     "postalCode": "3004",
@@ -981,7 +1056,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/baufuehrer-in-bahntechnik/f48461e5-de15-4842-9a1b-0a8ee1bd5d21",
-    "firstSeenAt": "2026-10-13T09:26:06.677Z",
+    "firstSeenAt": "2026-06-02T22:46:42.963Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/baufuehrer-in-bahnbau/89fcd35e-8e59-4e80-a59f-e559eed14465",
@@ -1000,7 +1075,7 @@
       },
       {
         "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/baufuehrer-in-bahntechnik/f48461e5-de15-4842-9a1b-0a8ee1bd5d21",
-        "firstSeenAt": "2026-10-13T09:26:06.677Z",
+        "firstSeenAt": "2026-06-02T22:46:42.963Z",
         "title": "Bauführer:in Bahntechnik"
       }
     ]
@@ -1198,324 +1273,6 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/spezialist-in-business-development/50e618a8-0acd-4607-aa99-18765eb2e4ab",
     "firstSeenAt": "2026-10-08T09:19:06.130Z"
-  },
-  {
-    "slug": "responsabile-sap-technologie-bls-ag-bern-14c5a880",
-    "title": "Leiter:in SAP Technologie",
-    "titleByLocale": {
-      "it": "Responsabile SAP Technologie",
-      "en": "Head of SAP Technology",
-      "de": "Leiter:in SAP Technologie",
-      "fr": "Responsable de la technologie SAP"
-    },
-    "company": "BLS AG",
-    "companyKey": "bls",
-    "location": "Bern",
-    "addressLocality": "Bern",
-    "descriptionByLocale": {
-      "it": "BLS si affida a SAP e quindi completamente su di voi! Come capo: nella tecnologia SAP, hai un'influenza su tutta l'azienda con la tua area di 13 dipendenti. Che si tratti di treni, workshop o processi aziendali. Grazie al vostro impegno, siamo in grado di portare i nostri passeggeri a destinazione in modo sicuro e in tempo ogni giorno. Il vostro lavoro è ovunque – una grande sensazione!\n\nTi aspetta:\n\n• Condurrai e svilupperai un team di esperti nelle aree di SAP Basis, Autorizzazione e Sviluppo e creerai il quadro per un lavoro responsabile ed efficace\n\n• Sarete responsabili dell'architettura tecnologica e dell'ulteriore sviluppo del nostro paesaggio SAP e assicuratevi che le soluzioni on-premise, cloud e integrazione funzionino a lungo termine.\n\n• Insieme al vostro team, svolgete attività di project management nell'ambiente tecnologico, assicurate operazioni SAP stabili, sicure e ad alte prestazioni e sviluppate continuamente modelli operativi, piattaforme e standard tecnici.\n\n• Sei responsabile dei concetti di soluzione tecnologica, delle decisioni architettoniche, dei concetti operativi e dei requisiti di sicurezza e conformità e li rappresenti a dipartimenti specializzati, IT e partner esterni\n\n• Come membro del team di gestione del SAP Competence Center, si modella attivamente l'orientamento tecnologico di SAP e partecipare a progetti strategici e decisioni cross-divisionali.\n\nQuesto è ciò che portate con voi:\n\n• Ulteriore istruzione a livello FH Scienza informatica e/o Informatica aziendale con affinità alla tecnologia\n\n• Diversi anni di esperienza leader team di tecnologia SAP (base, autorizzazioni e sviluppo)\n\n• Comprensione approfondita delle moderne architetture SAP e la capacità di valutare le dipendenze tecnologiche\n\n• Flair per strutturare questioni tecnologiche complesse, per portare a decisioni architettoniche e di soluzione e per rappresentarle chiaramente e convincentemente a diversi stakeholder\n\n• L'azione orientata alla soluzione completa la capacità di mantenere un occhio per il sistema complessivo, anche con interessi diversi e alta complessità\n\nI vostri vantaggi – si può aspettare a:\n\n• Prendi una seconda classe GA, una prima classe GA. Abbonamento di classe o di mezza quota\n\n• Lavora dove ti si addice meglio. Sia in ufficio o in ufficio\n\n• Condividi il tuo tempo di lavoro liberamente. Promuoviamo il lavoro part-time, il top e la condivisione del lavoro\n\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno e prendere un sabbatico di 40 giorni lavorativi ogni sette anni.\n\n• Con eventi stagionali e corsi sosteniamo la vostra salute.\n\n• Supporto finanziario per la formazione esterna, un programma di sviluppo di leadership e un'emozionante offerta di apprendimento interno e corso sono a vostra disposizione.\n\nCon quasi 4.000 dipendenti, BLS è la seconda più grande compagnia ferroviaria in Svizzera. Inoltre, siamo anche una compagnia di navigazione, un'azienda immobiliare, una ferrovia di trasporto internazionale, una compagnia di autobus e auto di trasporto in sicurezza attraverso il Lötschberg e il Simplon. Cosa ci collega? Forte di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
-      "en": "BLS relies on SAP and therefore fully on you! As head: in SAP technology, you have an influence on the entire company with your area of 13 employees. Whether on trains, workshops or business processes. Thanks to your commitment, we manage to get our passengers to their destination safely and on time every day. Your work is everywhere – a great feeling!\n\nThis is waiting for you:\n\n• You will lead and develop an experienced team of experts in the areas of SAP Basis, Authorizations and Development and create the framework for responsible and effective work\n\n• You will be responsible for the technological architecture and further development of our SAP landscape and ensure that on-premise, cloud and integration solutions work together in the long term.\n\n• Together with your team, you take on project management tasks in the technology environment, ensure stable, secure and high-performance SAP operations and continuously develop operating models, platforms and technical standards.\n\n• You are responsible for technological solution concepts, architectural decisions, operating concepts as well as security and compliance requirements and represent them to specialist departments, IT and external partners\n\n• As a member of the management team of the SAP Competence Center, you actively shape the technological orientation of SAP and participate in strategic projects and cross-divisional decisions.\n\nThis is what you bring with you:\n\n• Further education at FH level Computer Science and/or Business Informatics with affinity to technology\n\n• Several years of experience leading SAP technology teams (base, permissions and development)\n\n• In-depth understanding of modern SAP architectures and the ability to assess technological dependencies holistically\n\n• Flair to structure complex technological issues, to bring about architectural and solution decisions and to represent them clearly and convincingly to different stakeholders\n\n• Solution-oriented action complements with the ability to maintain an eye for the overall system, even with different interests and high complexity\n\nYour advantages – you can look forward to:\n\n• Get a GA 2nd class, a GA 1st class. Class or half-tax subscription\n\n• Work where it suits you best. Whether at home office or office\n\n• Share your working time freely. We promote part-time work, top and job sharing\n\n• It is possible to buy an additional five to ten days of holiday per year and to take a sabbatical of 40 working days every seven years.\n\n• With seasonal events and courses we support your health.\n\n• Financial support for external training, a leadership development program and an exciting internal learning and course offer are at your disposal.\n\nWith almost 4,000 employees, BLS is the second largest railway company in Switzerland. Moreover, we are also a shipping company, a real estate company, an international freight railway, a bus company and transport cars safely through the Lötschberg and the Simplon. What connects us? Proud of what we do every day. Mobility has many facets for us. And lots of exciting jobs.",
-      "de": "Die BLS setzt auf SAP und somit voll auf dich! Als Leiter:in SAP Technologie hast du mit deinem Bereich von 13 Mitarbeiter:innen Einfluss auf das gesamte Unternehmen. Egal ob in den Zügen, den Werkstätten oder den Geschäftsprozessen. Dank deinem Einsatz schaffen wir es Tag für Tag, unsere Fahrgäste sicher und pünktlich an ihr Ziel zu bringen. Überall steckt deine Arbeit drin – ein tolles Gefühl!\n\nDas wartet auf dich:\n\n• Du führst und entwickelst ein erfahrenes Expertenteam in den Bereichen SAP Basis, Berechtigungen und Entwicklung und schaffst die Rahmenbedingungen für eigenverantwortliches und wirkungsvolles Arbeiten\n\n• Du verantwortest die technologische Architektur und Weiterentwicklung unserer SAP-Landschaft und stellst sicher, dass On-Premise-, Cloud- und Integrationslösungen langfristig zusammenspielen\n\n• Gemeinsam mit deinem Team übernimmst du Projektleitungsaufgaben im Technologieumfeld, stellst einen stabilen, sicheren und performanten SAP-Betrieb sicher und entwickelst die Betriebsmodelle, Plattformen und technische Standards kontinuierlich weiter\n\n• Du verantwortest technologische Lösungskonzepte, Architekturentscheide, Betriebskonzepte sowie Security- und Compliance-Anforderungen und vertrittst diese gegenüber Fachbereichen, IT und externen Partnern\n\n• Als Mitglied des Leitungsteams des SAP Competence Centers gestaltest du die technologische Ausrichtung von SAP aktiv mit und bringst dich in strategische Vorhaben und bereichsübergreifende Entscheidungen ein\n\nDas bringst du mit:\n\n• Weiterführende Weiterbildung auf Stufe FH Informatik und/oder Wirtschafsinformatik mit Affinität zur Technologie\n\n• Mehrjährige Erfahrung in der Leitung von SAP-Technologie-Teams (Basis, Berechtigungen und Entwicklung)\n\n• Fundiertes Verständnis moderner SAP-Architekturen und die Fähigkeit, technologische Abhängigkeiten gesamtheitlich zu beurteilen\n\n• Flair, komplexe technologische Fragestellungen zu strukturieren, Architektur- und Lösungsentscheide herbeizuführen und diese gegenüber unterschiedlichen Stakeholdern verständlich und überzeugend zu vertreten\n\n• Lösungsorientiertes Handeln ergänzt mit der Fähigkeit, auch bei unterschiedlichen Interessen und hoher Komplexität den Blick für das Gesamtsystem zu wahren\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo\n\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro\n\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen und alle sieben Jahre ein Sabbatical von 40 Arbeitstagen zu beziehen.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen, ein Führungskräfteentwicklungs-Programm sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
-      "fr": "BLS compte sur SAP et donc entièrement sur vous ! En tant que responsable : dans la technologie SAP, vous avez une influence sur toute l'entreprise avec votre secteur de 13 employés. Qu'il s'agisse de trains, d'ateliers ou de processus opérationnels. Grâce à votre engagement, nous parvenons à amener nos passagers à destination en toute sécurité et à l'heure chaque jour. Votre travail est partout – un grand sentiment!\n\nCeci vous attend :\n\n• Vous dirigerez et développerez une équipe expérimentée d'experts dans les domaines de SAP Base, Autorisations et Développement et créerez le cadre pour un travail responsable et efficace\n\n• Vous serez responsable de l'architecture technologique et du développement de notre paysage SAP et vous assurerez que les solutions sur site, cloud et intégration fonctionnent ensemble à long terme.\n\n• Avec votre équipe, vous assumez des tâches de gestion de projet dans l'environnement technologique, vous assurez des opérations SAP stables, sécurisées et performantes et vous développez continuellement des modèles d'exploitation, des plateformes et des normes techniques.\n\n• Vous êtes responsable des concepts de solutions technologiques, des décisions architecturales, des concepts d'exploitation ainsi que des exigences de sécurité et de conformité et les représenter auprès des départements spécialisés, des TI et des partenaires externes\n\n• En tant que membre de l'équipe de gestion du Centre de compétences SAP, vous façonnez activement l'orientation technologique de SAP et participez à des projets stratégiques et à des décisions interdivisionnelles.\n\nC'est ce que vous apportez avec vous :\n\n• Formation continue au niveau FH Informatique et/ou Informatique d'affaires avec affinité avec la technologie\n\n• Plusieurs années d'expérience à la tête des équipes technologiques SAP (base, permissions et développement)\n\n• Compréhension approfondie des architectures SAP modernes et de la capacité d'évaluer les dépendances technologiques de manière holistique\n\n• Flair structurer des enjeux technologiques complexes, prendre des décisions en matière d'architecture et de solutions et les représenter clairement et de manière convaincante aux différents acteurs\n\n• L'action axée sur la solution complète la capacité de maintenir un œil sur l'ensemble du système, même avec des intérêts différents et une grande complexité\n\nVos avantages – vous pouvez vous attendre à:\n\n• Obtenez un GA 2ème classe, un GA 1ère classe. Abonnement classe ou demi-taxe\n\n• Travaillez là où ça vous convient le mieux. Que ce soit au bureau ou au bureau\n\n• Partagez votre temps de travail librement. Nous encourageons le travail à temps partiel, le top et le partage de l'emploi\n\n• Il est possible d'acheter un supplément de cinq à dix jours de vacances par an et de prendre un sabbat de 40 jours ouvrables tous les sept ans.\n\n• Avec des événements saisonniers et des cours, nous soutenons votre santé.\n\n• Un soutien financier pour la formation externe, un programme de perfectionnement en leadership et une offre de cours et d'apprentissage interne passionnante sont à votre disposition.\n\nAvec près de 4 000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En outre, nous sommes également une compagnie maritime, une société immobilière, un chemin de fer international de fret, une compagnie d'autobus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? Fier de ce qu'on fait tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
-    },
-    "slugByLocale": {
-      "it": "responsabile-sap-technologie-bls-ag-bern-14c5a880",
-      "en": "head-of-sap-technology-bls-ag-bern-be9fc7d6",
-      "de": "leiter-in-sap-technologie-bls-ch-fead821f",
-      "fr": "leiter-in-sap-technologie-bls-ch-fead821f"
-    },
-    "sector": "Trasporti / Ferrovia",
-    "expiredAt": "2026-10-15T09:26:51.528Z",
-    "previousSlugs": [
-      "leiter-in-sap-technologie-bls-ch-fead821f",
-      "leiter-in-sap-technologie-bls-ch-3c8510f5",
-      "head-of-sap-technology-bls-ag-bern-8ef362d7",
-      "head-of-sap-technology-bls-ag-bern-bf97649b",
-      "head-of-sap-technology-bls-ag-bern-0d2b4656",
-      "head-of-sap-technology-bls-ag-bern-01acb83d",
-      "head-of-sap-technology-bls-ag-bern-bb399068",
-      "head-of-sap-technology-bls-ag-bern-514f77d7",
-      "head-of-sap-technology-bls-ag-bern-8a405313",
-      "head-of-sap-technology-bls-ag-bern-e8059e63",
-      "head-of-sap-technology-bls-ag-bern-dc7524d0",
-      "head-of-sap-technology-bls-ag-bern-baebe4a2",
-      "head-of-sap-technology-bls-ag-bern-81151142",
-      "head-of-sap-technology-bls-ag-bern-e3f1cafb",
-      "head-of-sap-technology-bls-ag-bern-c09a0c0d",
-      "head-of-sap-technology-bls-ag-bern-c47ea786",
-      "head-of-sap-technology-bls-ag-bern-0bdd84f9",
-      "head-of-sap-technology-bls-ag-bern-a93e469c",
-      "head-of-sap-technology-bls-ag-bern-2d012056",
-      "head-of-sap-technology-bls-ag-bern-28f3f749",
-      "head-of-sap-technology-bls-ag-bern-0a99243a",
-      "head-of-sap-technology-bls-ag-bern-2dd70775",
-      "head-of-sap-technology-bls-ag-bern-4194e73a",
-      "head-of-sap-technology-bls-ag-bern-56dcf61e",
-      "head-of-sap-technology-bls-ag-bern-e27781b5",
-      "head-of-sap-technology-bls-ag-bern-95e63b15",
-      "head-of-sap-technology-bls-ag-bern-34597a3e",
-      "head-of-sap-technology-bls-ag-bern-e711f22c",
-      "head-of-sap-technology-bls-ag-bern-ef2dd123",
-      "head-of-sap-technology-bls-ag-bern-e809891a",
-      "head-of-sap-technology-bls-ag-bern-7261b01f",
-      "head-of-sap-technology-bls-ag-bern-c94300a8",
-      "head-of-sap-technology-bls-ag-bern-532e61ca",
-      "head-of-sap-technology-bls-ag-bern-70bd150d",
-      "head-of-sap-technology-bls-ag-bern-1088dadc",
-      "head-of-sap-technology-bls-ag-bern-c5659bf2",
-      "head-of-sap-technology-bls-ag-bern-5a6d86fd",
-      "head-of-sap-technology-bls-ag-bern-155c55ab",
-      "head-of-sap-technology-bls-ag-bern-10509282",
-      "head-of-sap-technology-bls-ag-bern-844eef5e",
-      "head-of-sap-technology-bls-ag-bern-89d6e9dd",
-      "head-of-sap-technology-bls-ag-bern-909933dc",
-      "head-of-sap-technology-bls-ag-bern-5ab5ff0c",
-      "head-of-sap-technology-bls-ag-bern-01f25b33",
-      "head-of-sap-technology-bls-ag-bern-6dfc36cc",
-      "head-of-sap-technology-bls-ag-bern-b94a4797",
-      "head-of-sap-technology-bls-ag-bern-9a5fc116",
-      "head-of-sap-technology-bls-ag-bern-d091de88",
-      "head-of-sap-technology-bls-ag-bern-0158fc23",
-      "head-of-sap-technology-bls-ag-bern-cedac1fb",
-      "head-of-sap-technology-bls-ag-bern-059426d2",
-      "head-of-sap-technology-bls-ag-bern-12f5f434",
-      "head-of-sap-technology-bls-ag-bern-fb9efb28",
-      "head-of-sap-technology-bls-ag-bern-4bfb8674",
-      "head-of-sap-technology-bls-ag-bern-841a69f4",
-      "head-of-sap-technology-bls-ag-bern-eb2eacee",
-      "head-of-sap-technology-bls-ag-bern-2175b20e",
-      "head-of-sap-technology-bls-ag-bern-cee6792d",
-      "head-of-sap-technology-bls-ag-bern-48802f96",
-      "head-of-sap-technology-bls-ag-bern-d96432d4",
-      "head-of-sap-technology-bls-ag-bern-c18ee640",
-      "head-of-sap-technology-bls-ag-bern-ce33fdb4",
-      "head-of-sap-technology-bls-ag-bern-3b377b29",
-      "head-of-sap-technology-bls-ag-bern-4aaa12e9",
-      "head-of-sap-technology-bls-ag-bern-e8410d25",
-      "head-of-sap-technology-bls-ag-bern-1d5b720a",
-      "head-of-sap-technology-bls-ag-bern-4db88bd2",
-      "head-of-sap-technology-bls-ag-bern-c6eccc7f",
-      "head-of-sap-technology-bls-ag-bern-4a832a72",
-      "head-of-sap-technology-bls-ag-bern-86f57012",
-      "head-of-sap-technology-bls-ag-bern-5ffcab22",
-      "head-of-sap-technology-bls-ag-bern-ca02c567",
-      "head-of-sap-technology-bls-ag-bern-a021631d",
-      "head-of-sap-technology-bls-ag-bern-f49c0ce5",
-      "head-of-sap-technology-bls-ag-bern-8297ed20",
-      "head-of-sap-technology-bls-ag-bern-79536d16",
-      "head-of-sap-technology-bls-ag-bern-5e2ce119",
-      "head-of-sap-technology-bls-ag-bern-a712bbe4",
-      "head-of-sap-technology-bls-ag-bern-e2106da4",
-      "head-of-sap-technology-bls-ag-bern-f6a6981e",
-      "head-of-sap-technology-bls-ag-bern-dc328cea",
-      "head-of-sap-technology-bls-ag-bern-c6b6a330",
-      "head-of-sap-technology-bls-ag-bern-a13f46fd",
-      "head-of-sap-technology-bls-ag-bern-870879fe",
-      "head-of-sap-technology-bls-ag-bern-bb0f10ce",
-      "head-of-sap-technology-bls-ag-bern-573a2e58",
-      "head-of-sap-technology-bls-ag-bern-0b72e8e5",
-      "head-of-sap-technology-bls-ag-bern-e643bd79",
-      "head-of-sap-technology-bls-ag-bern-cf7f9772",
-      "head-of-sap-technology-bls-ag-bern-35fa26ff",
-      "head-of-sap-technology-bls-ag-bern-7f83aeb1",
-      "head-of-sap-technology-bls-ag-bern-f2aeef9b",
-      "head-of-sap-technology-bls-ag-bern-16f7402a",
-      "head-of-sap-technology-bls-ag-bern-1f034feb",
-      "head-of-sap-technology-bls-ag-bern-78a418c8",
-      "head-of-sap-technology-bls-ag-bern-489528f4",
-      "head-of-sap-technology-bls-ag-bern-e0f56a6d",
-      "head-of-sap-technology-bls-ag-bern-691cfbfc",
-      "head-of-sap-technology-bls-ag-bern-7d6fcad9",
-      "head-of-sap-technology-bls-ag-bern-0d109604",
-      "head-of-sap-technology-bls-ag-bern-88059619",
-      "head-of-sap-technology-bls-ag-bern-8269ac71",
-      "head-of-sap-technology-bls-ag-bern-dca0c54f",
-      "head-of-sap-technology-bls-ag-bern-ec7eba97",
-      "head-of-sap-technology-bls-ag-bern-c244303e",
-      "head-of-sap-technology-bls-ag-bern-7735ca34",
-      "head-of-sap-technology-bls-ag-bern-9623d987",
-      "head-of-sap-technology-bls-ag-bern-ed7defff",
-      "head-of-sap-technology-bls-ag-bern-65e704d7",
-      "head-of-sap-technology-bls-ag-bern-013bf580",
-      "head-of-sap-technology-bls-ag-bern-aad7b193",
-      "head-of-sap-technology-bls-ag-bern-25e8b9fa",
-      "head-of-sap-technology-bls-ag-bern-120b0f89",
-      "head-of-sap-technology-bls-ag-bern-9a4b6131",
-      "head-of-sap-technology-bls-ag-bern-2f369967",
-      "head-of-sap-technology-bls-ag-bern-98227a8c",
-      "head-of-sap-technology-bls-ag-bern-23b14a09",
-      "head-of-sap-technology-bls-ag-bern-f6471da1",
-      "head-of-sap-technology-bls-ag-bern-9d4ea56b",
-      "head-of-sap-technology-bls-ag-bern-ec9f0e9d",
-      "head-of-sap-technology-bls-ag-bern-e394aecf",
-      "head-of-sap-technology-bls-ag-bern-a8a37c54",
-      "head-of-sap-technology-bls-ag-bern-47e39e97",
-      "head-of-sap-technology-bls-ag-bern-9488f5f9",
-      "head-of-sap-technology-bls-ag-bern-7630bacb",
-      "head-of-sap-technology-bls-ag-bern-66e9402e",
-      "head-of-sap-technology-bls-ag-bern-2e7f4e6c",
-      "head-of-sap-technology-bls-ag-bern-0cea391d",
-      "head-of-sap-technology-bls-ag-bern-1ae62393",
-      "head-of-sap-technology-bls-ag-bern-fecd0934",
-      "head-of-sap-technology-bls-ag-bern-97f61811",
-      "head-of-sap-technology-bls-ag-bern"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "leiter-in-sap-technologie-bls-ch-fead821f",
-        "leiter-in-sap-technologie-bls-ch-3c8510f5",
-        "head-of-sap-technology-bls-ag-bern"
-      ],
-      "en": [
-        "leiter-in-sap-technologie-bls-ch-fead821f",
-        "leiter-in-sap-technologie-bls-ch-3c8510f5",
-        "head-of-sap-technology-bls-ag-bern-8ef362d7",
-        "head-of-sap-technology-bls-ag-bern-bf97649b",
-        "head-of-sap-technology-bls-ag-bern-0d2b4656",
-        "head-of-sap-technology-bls-ag-bern-01acb83d",
-        "head-of-sap-technology-bls-ag-bern-bb399068",
-        "head-of-sap-technology-bls-ag-bern-514f77d7",
-        "head-of-sap-technology-bls-ag-bern-8a405313",
-        "head-of-sap-technology-bls-ag-bern-e8059e63",
-        "head-of-sap-technology-bls-ag-bern-dc7524d0",
-        "head-of-sap-technology-bls-ag-bern-baebe4a2",
-        "head-of-sap-technology-bls-ag-bern-81151142",
-        "head-of-sap-technology-bls-ag-bern-e3f1cafb",
-        "head-of-sap-technology-bls-ag-bern-c09a0c0d",
-        "head-of-sap-technology-bls-ag-bern-c47ea786",
-        "head-of-sap-technology-bls-ag-bern-0bdd84f9",
-        "head-of-sap-technology-bls-ag-bern-a93e469c",
-        "head-of-sap-technology-bls-ag-bern-2d012056",
-        "head-of-sap-technology-bls-ag-bern-28f3f749",
-        "head-of-sap-technology-bls-ag-bern-0a99243a",
-        "head-of-sap-technology-bls-ag-bern-2dd70775",
-        "head-of-sap-technology-bls-ag-bern-4194e73a",
-        "head-of-sap-technology-bls-ag-bern-56dcf61e",
-        "head-of-sap-technology-bls-ag-bern-e27781b5",
-        "head-of-sap-technology-bls-ag-bern-95e63b15",
-        "head-of-sap-technology-bls-ag-bern-34597a3e",
-        "head-of-sap-technology-bls-ag-bern-e711f22c",
-        "head-of-sap-technology-bls-ag-bern-ef2dd123",
-        "head-of-sap-technology-bls-ag-bern-e809891a",
-        "head-of-sap-technology-bls-ag-bern-7261b01f",
-        "head-of-sap-technology-bls-ag-bern-c94300a8",
-        "head-of-sap-technology-bls-ag-bern-532e61ca",
-        "head-of-sap-technology-bls-ag-bern-70bd150d",
-        "head-of-sap-technology-bls-ag-bern-1088dadc",
-        "head-of-sap-technology-bls-ag-bern-c5659bf2",
-        "head-of-sap-technology-bls-ag-bern-5a6d86fd",
-        "head-of-sap-technology-bls-ag-bern-155c55ab",
-        "head-of-sap-technology-bls-ag-bern-10509282",
-        "head-of-sap-technology-bls-ag-bern-844eef5e",
-        "head-of-sap-technology-bls-ag-bern-89d6e9dd",
-        "head-of-sap-technology-bls-ag-bern-909933dc",
-        "head-of-sap-technology-bls-ag-bern-5ab5ff0c",
-        "head-of-sap-technology-bls-ag-bern-01f25b33",
-        "head-of-sap-technology-bls-ag-bern-6dfc36cc",
-        "head-of-sap-technology-bls-ag-bern-b94a4797",
-        "head-of-sap-technology-bls-ag-bern-9a5fc116",
-        "head-of-sap-technology-bls-ag-bern-d091de88",
-        "head-of-sap-technology-bls-ag-bern-0158fc23",
-        "head-of-sap-technology-bls-ag-bern-cedac1fb",
-        "head-of-sap-technology-bls-ag-bern-059426d2",
-        "head-of-sap-technology-bls-ag-bern-12f5f434",
-        "head-of-sap-technology-bls-ag-bern-fb9efb28",
-        "head-of-sap-technology-bls-ag-bern-4bfb8674",
-        "head-of-sap-technology-bls-ag-bern-841a69f4",
-        "head-of-sap-technology-bls-ag-bern-eb2eacee",
-        "head-of-sap-technology-bls-ag-bern-2175b20e",
-        "head-of-sap-technology-bls-ag-bern-cee6792d",
-        "head-of-sap-technology-bls-ag-bern-48802f96",
-        "head-of-sap-technology-bls-ag-bern-d96432d4",
-        "head-of-sap-technology-bls-ag-bern-c18ee640",
-        "head-of-sap-technology-bls-ag-bern-ce33fdb4",
-        "head-of-sap-technology-bls-ag-bern-3b377b29",
-        "head-of-sap-technology-bls-ag-bern-4aaa12e9",
-        "head-of-sap-technology-bls-ag-bern-e8410d25",
-        "head-of-sap-technology-bls-ag-bern-1d5b720a",
-        "head-of-sap-technology-bls-ag-bern-4db88bd2",
-        "head-of-sap-technology-bls-ag-bern-c6eccc7f",
-        "head-of-sap-technology-bls-ag-bern-4a832a72",
-        "head-of-sap-technology-bls-ag-bern-86f57012",
-        "head-of-sap-technology-bls-ag-bern-5ffcab22",
-        "head-of-sap-technology-bls-ag-bern-ca02c567",
-        "head-of-sap-technology-bls-ag-bern-a021631d",
-        "head-of-sap-technology-bls-ag-bern-f49c0ce5",
-        "head-of-sap-technology-bls-ag-bern-8297ed20",
-        "head-of-sap-technology-bls-ag-bern-79536d16",
-        "head-of-sap-technology-bls-ag-bern-5e2ce119",
-        "head-of-sap-technology-bls-ag-bern-a712bbe4",
-        "head-of-sap-technology-bls-ag-bern-e2106da4",
-        "head-of-sap-technology-bls-ag-bern-f6a6981e",
-        "head-of-sap-technology-bls-ag-bern-dc328cea",
-        "head-of-sap-technology-bls-ag-bern-c6b6a330",
-        "head-of-sap-technology-bls-ag-bern-a13f46fd",
-        "head-of-sap-technology-bls-ag-bern-870879fe",
-        "head-of-sap-technology-bls-ag-bern-bb0f10ce",
-        "head-of-sap-technology-bls-ag-bern-573a2e58",
-        "head-of-sap-technology-bls-ag-bern-0b72e8e5",
-        "head-of-sap-technology-bls-ag-bern-e643bd79",
-        "head-of-sap-technology-bls-ag-bern-cf7f9772",
-        "head-of-sap-technology-bls-ag-bern-35fa26ff",
-        "head-of-sap-technology-bls-ag-bern-7f83aeb1",
-        "head-of-sap-technology-bls-ag-bern-f2aeef9b",
-        "head-of-sap-technology-bls-ag-bern-16f7402a",
-        "head-of-sap-technology-bls-ag-bern-1f034feb",
-        "head-of-sap-technology-bls-ag-bern-78a418c8",
-        "head-of-sap-technology-bls-ag-bern-489528f4",
-        "head-of-sap-technology-bls-ag-bern-e0f56a6d",
-        "head-of-sap-technology-bls-ag-bern-691cfbfc",
-        "head-of-sap-technology-bls-ag-bern-7d6fcad9",
-        "head-of-sap-technology-bls-ag-bern-0d109604",
-        "head-of-sap-technology-bls-ag-bern-88059619",
-        "head-of-sap-technology-bls-ag-bern-8269ac71",
-        "head-of-sap-technology-bls-ag-bern-dca0c54f",
-        "head-of-sap-technology-bls-ag-bern-ec7eba97",
-        "head-of-sap-technology-bls-ag-bern-c244303e",
-        "head-of-sap-technology-bls-ag-bern-7735ca34",
-        "head-of-sap-technology-bls-ag-bern-9623d987",
-        "head-of-sap-technology-bls-ag-bern-ed7defff",
-        "head-of-sap-technology-bls-ag-bern-65e704d7",
-        "head-of-sap-technology-bls-ag-bern-013bf580",
-        "head-of-sap-technology-bls-ag-bern-aad7b193",
-        "head-of-sap-technology-bls-ag-bern-25e8b9fa",
-        "head-of-sap-technology-bls-ag-bern-120b0f89",
-        "head-of-sap-technology-bls-ag-bern-9a4b6131",
-        "head-of-sap-technology-bls-ag-bern-2f369967",
-        "head-of-sap-technology-bls-ag-bern-98227a8c",
-        "head-of-sap-technology-bls-ag-bern-23b14a09",
-        "head-of-sap-technology-bls-ag-bern-f6471da1",
-        "head-of-sap-technology-bls-ag-bern-9d4ea56b",
-        "head-of-sap-technology-bls-ag-bern-ec9f0e9d",
-        "head-of-sap-technology-bls-ag-bern-e394aecf",
-        "head-of-sap-technology-bls-ag-bern-a8a37c54",
-        "head-of-sap-technology-bls-ag-bern-47e39e97",
-        "head-of-sap-technology-bls-ag-bern-9488f5f9",
-        "head-of-sap-technology-bls-ag-bern-7630bacb",
-        "head-of-sap-technology-bls-ag-bern-66e9402e",
-        "head-of-sap-technology-bls-ag-bern-2e7f4e6c",
-        "head-of-sap-technology-bls-ag-bern-0cea391d",
-        "head-of-sap-technology-bls-ag-bern-1ae62393",
-        "head-of-sap-technology-bls-ag-bern-fecd0934",
-        "head-of-sap-technology-bls-ag-bern-97f61811",
-        "head-of-sap-technology-bls-ag-bern",
-        "head-of-sap-technology-bls-ag-bern-be9fc7d6"
-      ],
-      "de": [
-        "head-of-sap-technology-bls-ag-bern"
-      ],
-      "fr": [
-        "head-of-sap-technology-bls-ag-bern"
-      ]
-    },
-    "postalCode": "3004",
-    "streetAddress": "Europaplatz",
-    "salaryMin": 94500,
-    "salaryMax": 143000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/leiter-in-sap-technologie/24e78809-44d5-4b7f-a597-b68042dea70f",
-    "firstSeenAt": "2026-09-26T23:40:04.771Z"
   },
   {
     "slug": "personale-esperto-di-esame-bls-ag-bern",
@@ -2005,7 +1762,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/mechaniker-in-schienenfahrzeuge/add3e6ed-28c6-4bed-bdd2-e9530f294dc8",
-    "firstSeenAt": "2026-09-26T23:39:55.517Z"
+    "firstSeenAt": "2026-09-26T23:39:55.517Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/mechaniker-in-schienenfahrzeuge/6cce2800-1466-485a-8c70-6a7bd4bde222",
+        "firstSeenAt": "2026-09-26T23:39:55.517Z",
+        "title": "Mechaniker:in Schienenfahrzeuge"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/mechaniker-in-schienenfahrzeuge/add3e6ed-28c6-4bed-bdd2-e9530f294dc8",
+        "firstSeenAt": "2026-09-26T23:39:55.517Z",
+        "title": "Mechaniker:in Schienenfahrzeuge"
+      }
+    ]
   },
   {
     "slug": "collaboratore-trice-montage-bls-ag-bonigen",
@@ -2593,7 +2362,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/metallbauer-in-nautiker-in-thun/e010111f-5205-4020-9688-81bf2100eb0f",
-    "firstSeenAt": "2026-08-14T10:21:38.595Z"
+    "firstSeenAt": "2026-08-14T10:21:38.595Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/metallbauer-in-nautiker-in-thun/e010111f-5205-4020-9688-81bf2100eb0f",
+        "firstSeenAt": "2026-08-14T10:21:38.595Z",
+        "title": "Metallbauer:in / Nautiker:in Thun"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/metallbauer-in-nautiker-in-thun/efcf75b6-4248-450e-aaef-49c33b5a3d87",
+        "firstSeenAt": "2026-11-03T09:25:47.994Z",
+        "title": "Metallbauer:in / Nautiker:in Thun"
+      }
+    ]
   },
   {
     "slug": "meccanica-bls-ag-bonigen",
@@ -2674,7 +2455,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/polymechaniker-in/2c363dd2-257a-43f6-a3fb-5c8eac9165dc",
-    "firstSeenAt": "2026-08-25T10:08:59.050Z",
+    "firstSeenAt": "2026-08-25T10:08:57.564Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/fachperson-fahrmotoren/2c363dd2-257a-43f6-a3fb-5c8eac9165dc",
@@ -2688,7 +2469,7 @@
       },
       {
         "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/polymechaniker-in/2c363dd2-257a-43f6-a3fb-5c8eac9165dc",
-        "firstSeenAt": "2026-08-25T10:08:59.050Z",
+        "firstSeenAt": "2026-08-25T10:08:57.564Z",
         "title": "Polymechaniker:in"
       }
     ]
@@ -4317,6 +4098,65 @@
     "firstSeenAt": "2026-07-29T11:38:08.799Z"
   },
   {
+    "slug": "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf-a1abb2b3",
+    "title": "Elektroinstallateur:in / Monteur:in Signaltechnik",
+    "titleByLocale": {
+      "it": "Installatore/trice elettrico/a:in / Monteur:in Signaltechnik",
+      "en": "Electrical installer:in / Installer:in Signaltechnik",
+      "de": "Elektroinstallateur:in / Monteur:in Signaltechnik",
+      "fr": "Installateur électrique:in / Installateur:in Signaltechnik"
+    },
+    "company": "BLS AG",
+    "companyKey": "bls",
+    "location": "Hasle bei Burgdorf",
+    "addressLocality": "Hasle bei Burgdorf",
+    "descriptionByLocale": {
+      "it": "La tecnologia nel trasporto ferroviario sta cambiando rapidamente. Nuovi sistemi e sistemi di sicurezza rendono il viaggio in treno ancora più sicuro nonostante gli orari stretti. Questo sviluppo non accade solo. Si basa sulle competenze di persone come te e la tua ambizione di ottenere un po 'più vicino al 100% di sicurezza nel trasporto ferroviario ogni giorno.\n\nTi aspetta:\n\n• Nuova costruzione di scatole di segnale, passaggi di livello, protezione del treno e attrezzature di segnalazione\n\n• Eseguire la manutenzione e le riparazioni presso le caselle di segnale esistenti, passaggi di livello, protezione del treno e attrezzature di segnalazione\n\n• Localizzazione indipendente e riparazione di interruzioni in tutte le strutture di sicurezza ferroviaria nella regione di Mittelland\n\n• Picchette periodiche\n\nQuesto è ciò che portate con voi:\n\n• Installatore elettrico: in EFZ, operatore automatico: in EFZ o formazione equivalente\n\n• Godetevi il lavoro all'aperto in qualsiasi momento del giorno e della notte (circa il 10% di turno notturno) e nei singoli fine settimana\n\n• L'esperienza nella gestione di nuovi e progetti di ristrutturazione è un vantaggio\n\n• Patente di guida Cat. B\n\n• Prontezza per l'istruzione continua e la formazione\n\n• Buona salute con l'udito e la visione completa\n\nI vostri vantaggi – si può aspettare a:\n\n• Promuoviamo la pianificazione più flessibile dei vostri tour e turni possibili\n\n• Prendi una seconda classe GA, una prima classe GA. Abbonamento di classe o di mezza quota.\n\n• Hai tempo libero quando gli altri lavorano. Per i penny di notte e nei fine settimana ci sono supplementi.\n\n• È possibile acquistare un ulteriore cinque a dieci giorni di vacanza all'anno.\n\n• Sono a vostra disposizione un sostegno finanziario per l'ulteriore istruzione esterna e un'emozionante offerta di apprendimento interno e corsi.\n\n• Con eventi stagionali e corsi sosteniamo la vostra salute\n\nInformazioni sulla BLS\n\nCon quasi 4.000 dipendenti, BLS è la seconda più grande compagnia ferroviaria in Svizzera. Inoltre, siamo anche una compagnia di navigazione, un'azienda immobiliare, una ferrovia di trasporto internazionale, una compagnia di autobus e auto di trasporto in sicurezza attraverso il Lötschberg e il Simplon. Cosa ci collega? Forte di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
+      "en": "The technology in rail transport is changing rapidly. New systems and safety systems make train travel even safer despite tight schedules. This development does not just happen. It is based on the skills of people like you and your ambition to get a little closer to 100% safety in rail transport every day.\n\nThis is waiting for you:\n\n• New construction of signal boxes, level crossings, train protection and signalling equipment\n\n• Carry out maintenance and repairs at existing signal boxes, level crossings, train protection and signalling equipment\n\n• Independent localization and repair of disruptions at all railway safety facilities in the Mittelland region\n\n• Periodic piquettes\n\nThis is what you bring with you:\n\n• Electrical installer:in EFZ, automatic operator:in EFZ or equivalent training\n\n• Enjoy outdoor work at any time of day and night (about 10% night shift) and on individual weekends\n\n• Experience in managing new and renovation projects is an advantage\n\n• Driving licence Cat. B\n\n• Readiness for continuous education and training\n\n• Good health with full hearing and vision\n\nYour advantages – you can look forward to:\n\n• We promote the most flexible planning of your tours and shifts possible\n\n• Get a GA 2nd class, a GA 1st class. Class or a half-tax subscription.\n\n• You have free time when others work. For pennies at night and on weekends there are surcharges.\n\n• It is possible to buy an additional five to ten holiday days per year.\n\n• Financial support for external further education and an exciting internal learning and course offer are at your disposal.\n\n• With seasonal events and courses we support your health\n\nAbout the BLS\n\nWith almost 4,000 employees, BLS is the second largest railway company in Switzerland. Moreover, we are also a shipping company, a real estate company, an international freight railway, a bus company and transport cars safely through the Lötschberg and the Simplon. What connects us? Proud of what we do every day. Mobility has many facets for us. And lots of exciting jobs.",
+      "de": "Die Technologie im Bahnverkehr wandelt sich rasant. Neue Systeme und Sicherungsanlagen machen das Zugfahren trotz dichter Fahrpläne noch sicherer. Diese Entwicklung geschieht nicht einfach so. Sie basiert auf dem Können von Menschen wie dir und deinem Ehrgeiz, der 100-prozentigen Sicherheit im Schienenverkehr jeden Tag noch ein bisschen näher zu kommen.\n\nDas wartet auf dich:\n\n• Neubau von Stellwerken, Bahnübergängen, Zugsicherungs- und Signalanlagen\n\n• Wartungs- und Instandsetzungen an vorhandenen Stellwerken, Bahnübergängen, Zugsicherungs- und Signalanlagen durchführen\n\n• Selbständiges lokalisieren und beheben der Störungen an allen Bahnsicherungsanlagen der Region Mittelland\n\n• Periodische Piketteinsätze\n\nDas bringst du mit:\n\n• Elektroinstallateur:in EFZ, Automatiker:in EFZ oder gleichwertige Ausbildung\n\n• Freude an Aussenarbeit zu jeder Tags- und Nachtzeit (ca. 10% Nachtschicht) und an einzelnen Wochenenden\n\n• Erfahrung im Führen von Neu- und Umbauprojekten von Vorteil\n\n• Führerausweis Kat. B\n\n• Bereitschaft zu kontinuierlichen Aus- und Weiterbildungen\n\n• Gute Gesundheit mit uneingeschränktem Hör- und Sehvermögen\n\nDeine Vorteile – darauf kannst du dich freuen:\n\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit\n\nÜber die BLS\n\nMit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+      "fr": "La technologie du transport ferroviaire évolue rapidement. De nouveaux systèmes et systèmes de sécurité rendent les trains encore plus sûrs malgré des horaires serrés. Cette évolution ne se produit pas seulement. Il est basé sur les compétences de personnes comme vous et votre ambition de se rapprocher un peu plus de 100% de la sécurité dans le transport ferroviaire chaque jour.\n\nCeci vous attend :\n\n• Nouvelle construction de boîtes de signalisation, passages à niveau, équipements de protection et de signalisation des trains\n\n• Entretien et réparation des boîtes de signalisation existantes, des passages à niveau, de l'équipement de protection et de signalisation des trains\n\n• Localisation et réparation indépendantes des perturbations dans toutes les installations de sécurité ferroviaire de la région de Mittelland\n\n• Piquettes périodiques\n\nC'est ce que vous apportez avec vous :\n\n• Installation électrique:dans EFZ, opérateur automatique:dans EFZ ou formation équivalente\n\n• Profitez du travail en plein air à n'importe quel moment du jour et de la nuit (environ 10% de la nuit) et le week-end individuel\n\n• L'expérience dans la gestion de projets nouveaux et de rénovation est un avantage\n\n• Permis de conduire Cat. B\n\n• Préparation à l'éducation et à la formation continues\n\n• Bonne santé avec pleine ouïe et vision\n\nVos avantages – vous pouvez vous attendre à:\n\n• Nous favorisons la planification la plus flexible possible de vos visites et de vos déplacements\n\n• Obtenez un GA 2ème classe, un GA 1ère classe. Classe ou demi-abonnement.\n\n• Vous avez du temps libre quand les autres travaillent. Pour les centimes la nuit et le week-end il y a des suppléments.\n\n• Il est possible d'acheter cinq à dix jours de vacances supplémentaires par an.\n\n• Un soutien financier pour une formation complémentaire externe et une offre de cours et d'apprentissage interne passionnants sont à votre disposition.\n\n• Avec des événements saisonniers et des cours, nous soutenons votre santé\n\nÀ propos du BLS\n\nAvec près de 4 000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En outre, nous sommes également une compagnie maritime, une société immobilière, un chemin de fer international de fret, une compagnie d'autobus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? Fier de ce qu'on fait tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
+    },
+    "slugByLocale": {
+      "it": "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf-a1abb2b3",
+      "en": "electrical-installer-in-installer-in-signaltechnik-bls-ag-hasle-bei-burgdorf-97f3638a",
+      "de": "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch-aa34aab7",
+      "fr": "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf-b6b99806"
+    },
+    "sector": "Trasporti / Ferrovia",
+    "expiredAt": "2026-08-31T15:08:00.747Z",
+    "previousSlugs": [
+      "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf-a1abb2b3",
+      "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch-aa34aab7",
+      "electrical-installer-in-installer-in-signaltechnik-bls-ag-hasle-bei-burgdorf-97f3638a",
+      "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf-b6b99806",
+      "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "installatore-trice-elettrico-a-in-monteur-in-signaltechnik-bls-ag-hasle-bei-burgdorf-a1abb2b3",
+        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch-aa34aab7"
+      ],
+      "en": [
+        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
+        "electrical-installer-in-installer-in-signaltechnik-bls-ag-hasle-bei-burgdorf-97f3638a"
+      ],
+      "fr": [
+        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch",
+        "installateur-electrique-in-installateur-in-signaltechnik-bls-ag-hasle-bei-burgdorf-b6b99806"
+      ],
+      "de": [
+        "elektroinstallateur-in-monteur-in-signaltechnik-bls-ch-aa34aab7"
+      ]
+    },
+    "postalCode": "3415",
+    "salaryMin": 77000,
+    "salaryMax": 116500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/elektroinstallateur-in-monteur-in-signaltechnik/f9f80fc2-eb10-485c-99b6-121e4f34f898",
+    "firstSeenAt": "2026-07-29T11:38:08.799Z"
+  },
+  {
     "slug": "operatrice-operatore-di-sala-operativa-bls-ch",
     "title": "Operatrice/Operatore di Sala Operativa",
     "titleByLocale": {
@@ -5475,6 +5315,216 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/zugverkehrsleiter-in-zweitausbildung/7c8772d1-6e5a-461c-9237-4b5df9b677a4",
     "firstSeenAt": "2026-06-02T22:46:40.769Z"
+  },
+  {
+    "slug": "costruzione-in-costruzione-ferroviaria-bls-ag-bern-6ac0d43d",
+    "title": "Bauführer:in Bahnbau",
+    "titleByLocale": {
+      "it": "Costruzione: in costruzione ferroviaria",
+      "en": "Construction: in railway construction",
+      "de": "Bauführer:in Bahnbau",
+      "fr": "Construction: dans la construction ferroviaire"
+    },
+    "company": "BLS AG",
+    "companyKey": "bls",
+    "location": "Bern",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "it": "Quando gli ultimi treni attraversano l'Oberland Bernese di notte, il tuo lavoro inizia spesso a destra. Con la panoramica, il senso tecnico e un team forte, realizza progetti di costruzione complessi e rinnova la strada dove migliaia di persone viaggiano quotidianamente. Il BLS rimane affidabile in pista – oggi e domani. Questo ti aspetta:\n• Conduce progetti di costruzione complessi con un focus sulla strada e nella pianificazione dell'esecuzione con\n• Coordinare la tecnologia ferroviaria con aree specializzate\n• Prendere la responsabilità di costi, qualità e date nella costruzione ferroviaria\n• Pianificare personale, macchine ed intervalli prevedibilmente ed efficientemente\n• Formare attivamente la sicurezza nei cantieri ed implementare costantemente gli standard\n• Continuare la formazione come progettista: in, tecnico: in HF o qualifica equivalente\n• Utilizzare conoscenze di base in strada, automazione o energia in modo mirato\n• Coordinamento di diversi stakeholder con aspetto chiaro\n• Stile di comunicazione in tedesco – orale e scritto GA\n• Con la guida di categoria B passa, essere flessibile Classe o mezzo-taxabo.\n• Lavora dove ti sta meglio. Sia in ufficio o in ufficio. Promuoviamo il lavoro part-time, il top e la condivisione del lavoro\n• È possibile acquistare cinque o dieci giorni di vacanza all'anno inoltre\n• Supporto finanziario per la formazione esterna e un'emozionante offerta di apprendimento interno e corso sono a vostra disposizione.\n• Con eventi stagionali e corsi sosteniamo la vostra salute. BEL Con quasi 4000 dipendenti, BLS è la seconda compagnia ferroviaria più grande della Svizzera. Di più: Siamo anche una compagnia di navigazione, una società immobiliare, un treno merci internazionale, una compagnia di autobus e auto di trasporto in modo sicuro attraverso il Lötschberg e il Simplon. Cosa ci collega? L'orgoglio di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
+      "en": "When the last trains roll through the Bernese Oberland at night, your work often starts right. With overview, technical sense and a strong team, you realize complex construction projects and renew the road where thousands of people are traveling daily. The BLS remains reliable in the track – today and tomorrow. This is waiting for you:\n• Conducts complex construction projects with a focus on the road and in the planning of the execution with\n• To coordinate railway technology together with specialist areas\n• Take responsibility for costs, quality and dates in railway construction\n• Planning personnel, machines and intervals predictively and efficiently\n• actively shape safety at construction sites and consistently implement standards\n• Continuing training as a designer:in, technician:in HF or equivalent qualification\n• Use basic knowledge in roadway, automation or energy in a targeted manner\n• Coordination of different stakeholders with clear appearance\n• Communicating style in German – oral and written\n• With Category B guide pass, be flexible along the BLS trails your advantages – you can look forward to this:\n• Get a GA 2nd class, a GA 1. Class or half-taxabo.\n• Work where it suits you best. Whether in the home office or in the office. We promote part-time work, top and job sharing\n• It is possible to buy five to ten holiday days a year in addition\n• Financial support for external training and an exciting internal learning and course offer are available to you.\n• With seasonal events and courses we support your health. BLS With nearly 4000 employees, BLS is the second largest railway company in Switzerland. More: We are also a shipping company, a real estate company, an international freight train, a bus company and transport cars safely through the Lötschberg and the Simplon. What links us? The pride of what we do every day. Mobility has many facets for us. And many exciting jobs.",
+      "de": "Wenn nachts die letzten Züge durchs Berner Oberland rollen, läuft deine Arbeit oft erst richtig an. Mit Übersicht, technischem Gespür und einem starken Team realisierst du komplexe Bauprojekte und erneuerst die Fahrbahn dort, wo täglich tausende Menschen unterwegs sind. So bleibt die BLS zuverlässig in der Spur – heute und morgen. Das wartet auf dich:\n• Führst komplexe Bauprojekte mit Schwerpunkt Fahrbahn durch und wirkst bei der Planung der Ausführung mit\n• Gemeinsam mit Fachbereichen die Bahntechnik aufeinander abstimmen\n• Verantwortung für Kosten, Qualität und Termine im Bahnbau übernehmen\n• Personal, Maschinen und Intervalle vorausschauend und effizient planen\n• Sicherheit auf Baustellen aktiv prägen und Standards konsequent umsetzen Das bringst du mit:\n• Weiterbildung als Bauführer:in, Techniker:in HF oder gleichwertige Qualifikation\n• Grundwissen in Fahrbahn, Automation oder Energie gezielt einsetzen\n• Mit klarem Auftreten unterschiedliche Anspruchsgruppen sicher koordinieren\n• Stilsicher auf Deutsch kommunizieren – mündlich wie schriftlich\n• Mit Führerausweis Kategorie B flexibel entlang der BLS-Strecken unterwegs sein Deine Vorteile – darauf kannst du dich freuen:\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit. Über die BLS Mit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+      "fr": "Lorsque les derniers trains traversent l'Oberland bernois la nuit, votre travail commence souvent bien. Avec un aperçu, un sens technique et une équipe forte, vous réalisez des projets de construction complexes et renouvellez la route où des milliers de personnes voyagent quotidiennement. Le BLS reste fiable sur la piste – aujourd'hui et demain. Ceci vous attend:\n• Dirige des projets de construction complexes avec un accent sur la route et dans la planification de l'exécution avec\n• Coordonner la technologie ferroviaire avec les domaines spécialisés\n• Prendre en charge les coûts, la qualité et les dates dans la construction ferroviaire\n• Planifier le personnel, les machines et les intervalles de façon prédictive et efficace\n• façonner activement la sécurité sur les chantiers de construction et mettre en œuvre les normes de manière cohérente\n• Formation continue en tant que concepteur:en, technicien:en HF ou qualification équivalente\n• Utiliser les connaissances de base en matière de route, d'automatisation ou d'énergie de manière ciblée\n• Coordination des différents acteurs avec une apparence claire\n• Communiquer le style en allemand – oral et écrit\n• Avec le passe guide de catégorie B, être flexible le long du BLS trace vos avantages – vous pouvez attendre avec impatience:\n• Obtenez un GA 2e classe, un GA 1. Classe ou demi-taxabo.\n• Travaillez là où ça vous convient le mieux. Que ce soit au bureau à domicile ou au bureau. Nous favorisons le travail à temps partiel, le top et le partage de l'emploi\n• Il est possible d'acheter cinq à dix jours de vacances par an en plus\n• Un soutien financier pour la formation externe et une passionnante offre d'apprentissage interne et de cours sont à votre disposition.\n• Avec des événements saisonniers et des cours, nous soutenons votre santé. BLS Avec près de 4000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En savoir plus: Nous sommes également une compagnie maritime, une société immobilière, un train de marchandises international, une compagnie de bus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? La fierté de ce que nous faisons tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
+    },
+    "slugByLocale": {
+      "it": "costruzione-in-costruzione-ferroviaria-bls-ag-bern-6ac0d43d",
+      "en": "construction-in-railway-construction-bls-ag-bern-54eabe91",
+      "de": "baufuhrer-in-bahnbau-bls-ch-aedf0f4b",
+      "fr": "construction-dans-la-construction-ferroviaire-bls-ag-bern-ef2fda84"
+    },
+    "sector": "Trasporti / Ferrovia",
+    "expiredAt": "2026-06-26T09:58:24.284Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "baufuhrer-in-bahnbau-bls-ch-aedf0f4b",
+        "costruzione-in-ingegneria-ferroviaria-bls-ag-bern-8887350d",
+        "construction-in-railway-engineering-bls-ag-bern-87984bdf",
+        "baufuhrer-in-bahntechnik-bls-ch-7f4ffb90",
+        "construction-en-genie-ferroviaire-bls-ag-bern-3ddce043"
+      ],
+      "en": [
+        "baufuhrer-in-bahnbau-bls-ch-aedf0f4b",
+        "costruzione-in-ingegneria-ferroviaria-bls-ag-bern-8887350d",
+        "construction-in-railway-engineering-bls-ag-bern-87984bdf",
+        "baufuhrer-in-bahntechnik-bls-ch-7f4ffb90",
+        "construction-en-genie-ferroviaire-bls-ag-bern-3ddce043"
+      ],
+      "fr": [
+        "baufuhrer-in-bahnbau-bls-ch-aedf0f4b",
+        "costruzione-in-ingegneria-ferroviaria-bls-ag-bern-8887350d",
+        "construction-in-railway-engineering-bls-ag-bern-87984bdf",
+        "baufuhrer-in-bahntechnik-bls-ch-7f4ffb90",
+        "construction-en-genie-ferroviaire-bls-ag-bern-3ddce043"
+      ],
+      "de": [
+        "baufuhrer-in-bahnbau-bls-ch-aedf0f4b",
+        "costruzione-in-ingegneria-ferroviaria-bls-ag-bern-8887350d",
+        "construction-in-railway-engineering-bls-ag-bern-87984bdf",
+        "baufuhrer-in-bahntechnik-bls-ch-7f4ffb90",
+        "construction-en-genie-ferroviaire-bls-ag-bern-3ddce043"
+      ]
+    },
+    "postalCode": "3001",
+    "streetAddress": "Freiburgstrasse 130",
+    "salaryMin": 68500,
+    "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "previousSlugs": [
+      "costruzione-in-ingegneria-ferroviaria-bls-ag-bern-8887350d",
+      "construction-in-railway-engineering-bls-ag-bern-87984bdf",
+      "baufuhrer-in-bahntechnik-bls-ch-7f4ffb90",
+      "construction-en-genie-ferroviaire-bls-ag-bern-3ddce043"
+    ]
+  },
+  {
+    "slug": "costruzione-in-costruzione-ferroviaria-bls-ag-bern-703ce498",
+    "title": "Bauführer:in Bahnbau",
+    "titleByLocale": {
+      "it": "Costruzione: in costruzione ferroviaria",
+      "en": "Construction: in railway construction",
+      "de": "Bauführer:in Bahnbau",
+      "fr": "Construction: dans la construction ferroviaire"
+    },
+    "company": "BLS AG",
+    "companyKey": "bls",
+    "location": "Bern",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "it": "Quando gli ultimi treni attraversano l'Oberland Bernese di notte, il tuo lavoro inizia spesso a destra. Con la panoramica, il senso tecnico e un team forte, realizza progetti di costruzione complessi e rinnova la strada dove migliaia di persone viaggiano quotidianamente. Il BLS rimane affidabile in pista – oggi e domani. Questo ti aspetta:\n• Conduce progetti di costruzione complessi con un focus sulla strada e nella pianificazione dell'esecuzione con\n• Coordinare la tecnologia ferroviaria con aree specializzate\n• Prendere la responsabilità di costi, qualità e date nella costruzione ferroviaria\n• Pianificare personale, macchine ed intervalli prevedibilmente ed efficientemente\n• Formare attivamente la sicurezza nei cantieri ed implementare costantemente gli standard\n• Continuare la formazione come progettista: in, tecnico: in HF o qualifica equivalente\n• Utilizzare conoscenze di base in strada, automazione o energia in modo mirato\n• Coordinamento di diversi stakeholder con aspetto chiaro\n• Stile di comunicazione in tedesco – orale e scritto GA\n• Con la guida di categoria B passa, essere flessibile Classe o mezzo-taxabo.\n• Lavora dove ti sta meglio. Sia in ufficio o in ufficio. Promuoviamo il lavoro part-time, il top e la condivisione del lavoro\n• È possibile acquistare cinque o dieci giorni di vacanza all'anno inoltre\n• Supporto finanziario per la formazione esterna e un'emozionante offerta di apprendimento interno e corso sono a vostra disposizione.\n• Con eventi stagionali e corsi sosteniamo la vostra salute. BEL Con quasi 4000 dipendenti, BLS è la seconda compagnia ferroviaria più grande della Svizzera. Di più: Siamo anche una compagnia di navigazione, una società immobiliare, un treno merci internazionale, una compagnia di autobus e auto di trasporto in modo sicuro attraverso il Lötschberg e il Simplon. Cosa ci collega? L'orgoglio di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
+      "en": "When the last trains roll through the Bernese Oberland at night, your work often starts right. With overview, technical sense and a strong team, you realize complex construction projects and renew the road where thousands of people are traveling daily. The BLS remains reliable in the track – today and tomorrow. This is waiting for you:\n• Conducts complex construction projects with a focus on the road and in the planning of the execution with\n• To coordinate railway technology together with specialist areas\n• Take responsibility for costs, quality and dates in railway construction\n• Planning personnel, machines and intervals predictively and efficiently\n• actively shape safety at construction sites and consistently implement standards\n• Continuing training as a designer:in, technician:in HF or equivalent qualification\n• Use basic knowledge in roadway, automation or energy in a targeted manner\n• Coordination of different stakeholders with clear appearance\n• Communicating style in German – oral and written\n• With Category B guide pass, be flexible along the BLS trails your advantages – you can look forward to this:\n• Get a GA 2nd class, a GA 1. Class or half-taxabo.\n• Work where it suits you best. Whether in the home office or in the office. We promote part-time work, top and job sharing\n• It is possible to buy five to ten holiday days a year in addition\n• Financial support for external training and an exciting internal learning and course offer are available to you.\n• With seasonal events and courses we support your health. BLS With nearly 4000 employees, BLS is the second largest railway company in Switzerland. More: We are also a shipping company, a real estate company, an international freight train, a bus company and transport cars safely through the Lötschberg and the Simplon. What links us? The pride of what we do every day. Mobility has many facets for us. And many exciting jobs.",
+      "de": "Wenn nachts die letzten Züge durchs Berner Oberland rollen, läuft deine Arbeit oft erst richtig an. Mit Übersicht, technischem Gespür und einem starken Team realisierst du komplexe Bauprojekte und erneuerst die Fahrbahn dort, wo täglich tausende Menschen unterwegs sind. So bleibt die BLS zuverlässig in der Spur – heute und morgen. Das wartet auf dich:\n• Führst komplexe Bauprojekte mit Schwerpunkt Fahrbahn durch und wirkst bei der Planung der Ausführung mit\n• Gemeinsam mit Fachbereichen die Bahntechnik aufeinander abstimmen\n• Verantwortung für Kosten, Qualität und Termine im Bahnbau übernehmen\n• Personal, Maschinen und Intervalle vorausschauend und effizient planen\n• Sicherheit auf Baustellen aktiv prägen und Standards konsequent umsetzen Das bringst du mit:\n• Weiterbildung als Bauführer:in, Techniker:in HF oder gleichwertige Qualifikation\n• Grundwissen in Fahrbahn, Automation oder Energie gezielt einsetzen\n• Mit klarem Auftreten unterschiedliche Anspruchsgruppen sicher koordinieren\n• Stilsicher auf Deutsch kommunizieren – mündlich wie schriftlich\n• Mit Führerausweis Kategorie B flexibel entlang der BLS-Strecken unterwegs sein Deine Vorteile – darauf kannst du dich freuen:\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit. Über die BLS Mit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+      "fr": "Lorsque les derniers trains traversent l'Oberland bernois la nuit, votre travail commence souvent bien. Avec un aperçu, un sens technique et une équipe forte, vous réalisez des projets de construction complexes et renouvellez la route où des milliers de personnes voyagent quotidiennement. Le BLS reste fiable sur la piste – aujourd'hui et demain. Ceci vous attend:\n• Dirige des projets de construction complexes avec un accent sur la route et dans la planification de l'exécution avec\n• Coordonner la technologie ferroviaire avec les domaines spécialisés\n• Prendre en charge les coûts, la qualité et les dates dans la construction ferroviaire\n• Planifier le personnel, les machines et les intervalles de façon prédictive et efficace\n• façonner activement la sécurité sur les chantiers de construction et mettre en œuvre les normes de manière cohérente\n• Formation continue en tant que concepteur:en, technicien:en HF ou qualification équivalente\n• Utiliser les connaissances de base en matière de route, d'automatisation ou d'énergie de manière ciblée\n• Coordination des différents acteurs avec une apparence claire\n• Communiquer le style en allemand – oral et écrit\n• Avec le passe guide de catégorie B, être flexible le long du BLS trace vos avantages – vous pouvez attendre avec impatience:\n• Obtenez un GA 2e classe, un GA 1. Classe ou demi-taxabo.\n• Travaillez là où ça vous convient le mieux. Que ce soit au bureau à domicile ou au bureau. Nous favorisons le travail à temps partiel, le top et le partage de l'emploi\n• Il est possible d'acheter cinq à dix jours de vacances par an en plus\n• Un soutien financier pour la formation externe et une passionnante offre d'apprentissage interne et de cours sont à votre disposition.\n• Avec des événements saisonniers et des cours, nous soutenons votre santé. BLS Avec près de 4000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En savoir plus: Nous sommes également une compagnie maritime, une société immobilière, un train de marchandises international, une compagnie de bus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? La fierté de ce que nous faisons tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
+    },
+    "slugByLocale": {
+      "it": "costruzione-in-costruzione-ferroviaria-bls-ag-bern-703ce498",
+      "en": "construction-in-railway-construction-bls-ag-bern-5334a8e2",
+      "de": "baufuhrer-in-bahnbau-bls-ch-af6fc91d",
+      "fr": "construction-dans-la-construction-ferroviaire-bls-ag-bern-79edc8e0"
+    },
+    "sector": "Trasporti / Ferrovia",
+    "expiredAt": "2026-06-26T09:58:24.284Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "baufuhrer-in-bahnbau-bls-ch-af6fc91d",
+        "costruzione-in-ingegneria-ferroviaria-bls-ag-bern-3d715ee0",
+        "construction-in-railway-engineering-bls-ag-bern-ba8e0092",
+        "baufuhrer-in-bahntechnik-bls-ch-471b3a93",
+        "construction-en-genie-ferroviaire-bls-ag-bern-5ef9f4e3"
+      ],
+      "en": [
+        "baufuhrer-in-bahnbau-bls-ch-af6fc91d",
+        "costruzione-in-ingegneria-ferroviaria-bls-ag-bern-3d715ee0",
+        "construction-in-railway-engineering-bls-ag-bern-ba8e0092",
+        "baufuhrer-in-bahntechnik-bls-ch-471b3a93",
+        "construction-en-genie-ferroviaire-bls-ag-bern-5ef9f4e3"
+      ],
+      "fr": [
+        "baufuhrer-in-bahnbau-bls-ch-af6fc91d",
+        "costruzione-in-ingegneria-ferroviaria-bls-ag-bern-3d715ee0",
+        "construction-in-railway-engineering-bls-ag-bern-ba8e0092",
+        "baufuhrer-in-bahntechnik-bls-ch-471b3a93",
+        "construction-en-genie-ferroviaire-bls-ag-bern-5ef9f4e3"
+      ],
+      "de": [
+        "baufuhrer-in-bahnbau-bls-ch-af6fc91d",
+        "costruzione-in-ingegneria-ferroviaria-bls-ag-bern-3d715ee0",
+        "construction-in-railway-engineering-bls-ag-bern-ba8e0092",
+        "baufuhrer-in-bahntechnik-bls-ch-471b3a93",
+        "construction-en-genie-ferroviaire-bls-ag-bern-5ef9f4e3"
+      ]
+    },
+    "postalCode": "3001",
+    "streetAddress": "Freiburgstrasse 130",
+    "salaryMin": 68500,
+    "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "previousSlugs": [
+      "costruzione-in-ingegneria-ferroviaria-bls-ag-bern-3d715ee0",
+      "construction-in-railway-engineering-bls-ag-bern-ba8e0092",
+      "baufuhrer-in-bahntechnik-bls-ch-471b3a93",
+      "construction-en-genie-ferroviaire-bls-ag-bern-5ef9f4e3"
+    ]
+  },
+  {
+    "slug": "costruzione-in-costruzione-ferroviaria-bls-ag-bern-ce5b468b",
+    "title": "Bauführer:in Bahnbau",
+    "titleByLocale": {
+      "it": "Costruzione: in costruzione ferroviaria",
+      "en": "Construction: in railway construction",
+      "de": "Bauführer:in Bahnbau",
+      "fr": "Construction: dans la construction ferroviaire"
+    },
+    "company": "BLS AG",
+    "companyKey": "bls",
+    "location": "Bern",
+    "addressLocality": "Bern",
+    "descriptionByLocale": {
+      "it": "Quando gli ultimi treni attraversano l'Oberland Bernese di notte, il tuo lavoro inizia spesso a destra. Con la panoramica, il senso tecnico e un team forte, realizza progetti di costruzione complessi e rinnova la strada dove migliaia di persone viaggiano quotidianamente. Il BLS rimane affidabile in pista – oggi e domani. Questo ti aspetta:\n• Conduce progetti di costruzione complessi con un focus sulla strada e nella pianificazione dell'esecuzione con\n• Coordinare la tecnologia ferroviaria con aree specializzate\n• Prendere la responsabilità di costi, qualità e date nella costruzione ferroviaria\n• Pianificare personale, macchine ed intervalli prevedibilmente ed efficientemente\n• Formare attivamente la sicurezza nei cantieri ed implementare costantemente gli standard\n• Continuare la formazione come progettista: in, tecnico: in HF o qualifica equivalente\n• Utilizzare conoscenze di base in strada, automazione o energia in modo mirato\n• Coordinamento di diversi stakeholder con aspetto chiaro\n• Stile di comunicazione in tedesco – orale e scritto GA\n• Con la guida di categoria B passa, essere flessibile Classe o mezzo-taxabo.\n• Lavora dove ti sta meglio. Sia in ufficio o in ufficio. Promuoviamo il lavoro part-time, il top e la condivisione del lavoro\n• È possibile acquistare cinque o dieci giorni di vacanza all'anno inoltre\n• Supporto finanziario per la formazione esterna e un'emozionante offerta di apprendimento interno e corso sono a vostra disposizione.\n• Con eventi stagionali e corsi sosteniamo la vostra salute. BEL Con quasi 4000 dipendenti, BLS è la seconda compagnia ferroviaria più grande della Svizzera. Di più: Siamo anche una compagnia di navigazione, una società immobiliare, un treno merci internazionale, una compagnia di autobus e auto di trasporto in modo sicuro attraverso il Lötschberg e il Simplon. Cosa ci collega? L'orgoglio di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
+      "en": "When the last trains roll through the Bernese Oberland at night, your work often starts right. With overview, technical sense and a strong team, you realize complex construction projects and renew the road where thousands of people are traveling daily. The BLS remains reliable in the track – today and tomorrow. This is waiting for you:\n• Conducts complex construction projects with a focus on the road and in the planning of the execution with\n• To coordinate railway technology together with specialist areas\n• Take responsibility for costs, quality and dates in railway construction\n• Planning personnel, machines and intervals predictively and efficiently\n• actively shape safety at construction sites and consistently implement standards\n• Continuing training as a designer:in, technician:in HF or equivalent qualification\n• Use basic knowledge in roadway, automation or energy in a targeted manner\n• Coordination of different stakeholders with clear appearance\n• Communicating style in German – oral and written\n• With Category B guide pass, be flexible along the BLS trails your advantages – you can look forward to this:\n• Get a GA 2nd class, a GA 1. Class or half-taxabo.\n• Work where it suits you best. Whether in the home office or in the office. We promote part-time work, top and job sharing\n• It is possible to buy five to ten holiday days a year in addition\n• Financial support for external training and an exciting internal learning and course offer are available to you.\n• With seasonal events and courses we support your health. BLS With nearly 4000 employees, BLS is the second largest railway company in Switzerland. More: We are also a shipping company, a real estate company, an international freight train, a bus company and transport cars safely through the Lötschberg and the Simplon. What links us? The pride of what we do every day. Mobility has many facets for us. And many exciting jobs.",
+      "de": "Wenn nachts die letzten Züge durchs Berner Oberland rollen, läuft deine Arbeit oft erst richtig an. Mit Übersicht, technischem Gespür und einem starken Team realisierst du komplexe Bauprojekte und erneuerst die Fahrbahn dort, wo täglich tausende Menschen unterwegs sind. So bleibt die BLS zuverlässig in der Spur – heute und morgen. Das wartet auf dich:\n• Führst komplexe Bauprojekte mit Schwerpunkt Fahrbahn durch und wirkst bei der Planung der Ausführung mit\n• Gemeinsam mit Fachbereichen die Bahntechnik aufeinander abstimmen\n• Verantwortung für Kosten, Qualität und Termine im Bahnbau übernehmen\n• Personal, Maschinen und Intervalle vorausschauend und effizient planen\n• Sicherheit auf Baustellen aktiv prägen und Standards konsequent umsetzen Das bringst du mit:\n• Weiterbildung als Bauführer:in, Techniker:in HF oder gleichwertige Qualifikation\n• Grundwissen in Fahrbahn, Automation oder Energie gezielt einsetzen\n• Mit klarem Auftreten unterschiedliche Anspruchsgruppen sicher koordinieren\n• Stilsicher auf Deutsch kommunizieren – mündlich wie schriftlich\n• Mit Führerausweis Kategorie B flexibel entlang der BLS-Strecken unterwegs sein Deine Vorteile – darauf kannst du dich freuen:\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n• Arbeite dort, wo es für dich am besten passt. Egal ob im Homeoffice oder im Büro.\n• Teile deine Arbeitszeit frei ein. Wir fördern Teilzeitarbeit, Top- und Jobsharing\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen\n• Finanzielle Unterstützung bei externen Weiterbildungen sowie ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit. Über die BLS Mit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+      "fr": "Lorsque les derniers trains traversent l'Oberland bernois la nuit, votre travail commence souvent bien. Avec un aperçu, un sens technique et une équipe forte, vous réalisez des projets de construction complexes et renouvellez la route où des milliers de personnes voyagent quotidiennement. Le BLS reste fiable sur la piste – aujourd'hui et demain. Ceci vous attend:\n• Dirige des projets de construction complexes avec un accent sur la route et dans la planification de l'exécution avec\n• Coordonner la technologie ferroviaire avec les domaines spécialisés\n• Prendre en charge les coûts, la qualité et les dates dans la construction ferroviaire\n• Planifier le personnel, les machines et les intervalles de façon prédictive et efficace\n• façonner activement la sécurité sur les chantiers de construction et mettre en œuvre les normes de manière cohérente\n• Formation continue en tant que concepteur:en, technicien:en HF ou qualification équivalente\n• Utiliser les connaissances de base en matière de route, d'automatisation ou d'énergie de manière ciblée\n• Coordination des différents acteurs avec une apparence claire\n• Communiquer le style en allemand – oral et écrit\n• Avec le passe guide de catégorie B, être flexible le long du BLS trace vos avantages – vous pouvez attendre avec impatience:\n• Obtenez un GA 2e classe, un GA 1. Classe ou demi-taxabo.\n• Travaillez là où ça vous convient le mieux. Que ce soit au bureau à domicile ou au bureau. Nous favorisons le travail à temps partiel, le top et le partage de l'emploi\n• Il est possible d'acheter cinq à dix jours de vacances par an en plus\n• Un soutien financier pour la formation externe et une passionnante offre d'apprentissage interne et de cours sont à votre disposition.\n• Avec des événements saisonniers et des cours, nous soutenons votre santé. BLS Avec près de 4000 employés, BLS est la deuxième compagnie ferroviaire en Suisse. En savoir plus: Nous sommes également une compagnie maritime, une société immobilière, un train de marchandises international, une compagnie de bus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? La fierté de ce que nous faisons tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
+    },
+    "slugByLocale": {
+      "it": "costruzione-in-costruzione-ferroviaria-bls-ag-bern-ce5b468b",
+      "en": "construction-in-railway-construction-bls-ag-bern-ca48fe51",
+      "de": "baufuhrer-in-bahnbau-bls-ch-303a5f5c",
+      "fr": "construction-dans-la-construction-ferroviaire-bls-ag-bern-7321e4d3"
+    },
+    "sector": "Trasporti / Ferrovia",
+    "expiredAt": "2026-06-26T09:58:24.284Z",
+    "previousSlugsByLocale": {
+      "it": [
+        "baufuhrer-in-bahnbau-bls-ch-303a5f5c",
+        "costruzione-in-ingegneria-ferroviaria-bls-ag-bern-b7f539b7",
+        "construction-in-railway-engineering-bls-ag-bern-a87b3674",
+        "baufuhrer-in-bahntechnik-bls-ch-c26ea3a5",
+        "construction-en-genie-ferroviaire-bls-ag-bern-c4e8768e"
+      ],
+      "en": [
+        "baufuhrer-in-bahnbau-bls-ch-303a5f5c",
+        "costruzione-in-ingegneria-ferroviaria-bls-ag-bern-b7f539b7",
+        "construction-in-railway-engineering-bls-ag-bern-a87b3674",
+        "baufuhrer-in-bahntechnik-bls-ch-c26ea3a5",
+        "construction-en-genie-ferroviaire-bls-ag-bern-c4e8768e"
+      ],
+      "fr": [
+        "baufuhrer-in-bahnbau-bls-ch-303a5f5c",
+        "costruzione-in-ingegneria-ferroviaria-bls-ag-bern-b7f539b7",
+        "construction-in-railway-engineering-bls-ag-bern-a87b3674",
+        "baufuhrer-in-bahntechnik-bls-ch-c26ea3a5",
+        "construction-en-genie-ferroviaire-bls-ag-bern-c4e8768e"
+      ],
+      "de": [
+        "baufuhrer-in-bahnbau-bls-ch-303a5f5c",
+        "costruzione-in-ingegneria-ferroviaria-bls-ag-bern-b7f539b7",
+        "construction-in-railway-engineering-bls-ag-bern-a87b3674",
+        "baufuhrer-in-bahntechnik-bls-ch-c26ea3a5",
+        "construction-en-genie-ferroviaire-bls-ag-bern-c4e8768e"
+      ]
+    },
+    "postalCode": "3001",
+    "streetAddress": "Freiburgstrasse 130",
+    "salaryMin": 68500,
+    "salaryMax": 104000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "previousSlugs": [
+      "costruzione-in-ingegneria-ferroviaria-bls-ag-bern-b7f539b7",
+      "construction-in-railway-engineering-bls-ag-bern-a87b3674",
+      "baufuhrer-in-bahntechnik-bls-ch-c26ea3a5",
+      "construction-en-genie-ferroviaire-bls-ag-bern-c4e8768e"
+    ]
   },
   {
     "slug": "avvocato-bls-ag-bern",
@@ -6830,6 +6880,59 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/teamleiter-in-oberflaechenbearbeitung-und-lackierung/33fbbf6c-3136-4ed1-96c7-2ae02b3e93c0",
     "firstSeenAt": "2026-06-02T22:46:35.993Z"
+  },
+  {
+    "slug": "automobilmechatroniker-in-automatiker-in-bls-ag-spiez",
+    "title": "Automobilmechatroniker:in / Automatiker:in",
+    "titleByLocale": {
+      "it": "Automobile meccatronica: in/automatico",
+      "en": "Automobile mechatronics:in/automatic",
+      "de": "Automobilmechatroniker:in / Automatiker:in",
+      "fr": "Mécatronique automobile:en/automatique"
+    },
+    "company": "BLS AG",
+    "companyKey": "bls",
+    "location": "Spiez",
+    "addressLocality": "Spiez",
+    "descriptionByLocale": {
+      "it": "Il treno è uno dei mezzi di trasporto più sicuri al mondo, dice le statistiche. Ma ci sono persone dietro i numeri – persone come te! 60 milioni di passeggeri all'anno si affidano alle vostre competenze e ambizione di mantenere i veicoli al sicuro e al sicuro. Ti rende orgoglioso di essere uno specialista.\n• Vari lavori di manutenzione sulle flotte per autoveicoli\n• Riparazioni richieste sulle flotte per autoveicoli e sui loro sistemi\n• Acquisire dati di manutenzione e guasti\n• Smaltire, elaborare e finalizzare i soggiorni dei veicoli Porti:\n• Formazione come operatore meccatronico automobilistico: Ottima conoscenza del tedesco\n• Pronto a lavorare per notte e fine settimana I vostri vantaggi – potete guardare avanti a questo:\n• Promuoviamo la pianificazione più flessibile dei vostri tour e strati\n• Ottenere un GA 2nd class, un GA 1st class o un abbonamento a metà-tax.\n• Hai tempo libero quando gli altri lavorano. Ci sono supplementi per le penne nella notte e nel fine settimana.\n• C'è la possibilità di acquistare cinque a dieci giorni di vacanza all'anno in aggiunta.\n• Il supporto finanziario per la formazione esterna e un'emozionante offerta di apprendimento interno e corsi sono a vostra disposizione.\n• Con eventi stagionali e corsi sosteniamo la vostra salute Circa la BLS Con quasi 4000 dipendenti, la BLS è la seconda compagnia ferroviaria più grande della Svizzera. Di più: Siamo anche una compagnia di navigazione, una società immobiliare, un treno merci internazionale, una compagnia di autobus e auto di trasporto in modo sicuro attraverso il Lötschberg e il Simplon. Cosa ci collega? L'orgoglio di quello che facciamo ogni giorno. La mobilità ha molte sfaccettature per noi. E molti lavori interessanti.",
+      "en": "The train is one of the safest means of transport in the world, says statistics. But there are people behind the numbers – people like you! 60 million passengers per year rely on your skills and ambition to keep the vehicles safe and secure. It makes you proud as a specialist.\n• Various maintenance work on passenger car fleets\n• Demanding repairs on passenger car fleets and their systems\n• Capturing maintenance and fault data\n• Dispose, process and finalise vehicle stays You bring:\n• Training as an automotive mechatronic operator: Very good knowledge of German\n• Ready to work for night and weekends Your advantages – you can look forward to this:\n• We promote the most flexible planning of your tours and layers\n• Get a GA 2nd class, a GA 1st class or a half-tax subscription.\n• You have free time when others work. There are surcharges for pens in the night and weekend.\n• There is the possibility to buy five to ten holiday days a year in addition.\n• Financial support for external training and an exciting internal learning and course offer are available to you.\n• With seasonal events and courses we support your health About the BLS With almost 4000 employees, the BLS is the second largest railway company in Switzerland. More: We are also a shipping company, a real estate company, an international freight train, a bus company and transport cars safely through the Lötschberg and the Simplon. What links us? The pride of what we do every day. Mobility has many facets for us. And many exciting jobs.",
+      "de": "Die Bahn gehört zu den sichersten Verkehrsmitteln der Welt, sagt die Statistik. Doch hinter den Zahlen stecken Menschen – Menschen wie du! 60 Millionen Fahrgäste im Jahr vertrauen auf dein Können und deinen Ehrgeiz, die Fahrzeuge zuverlässig instand zu halten und ihnen damit die Sicherheit zu gewähren. Das macht dich als Fachkraft stolz. Das wartet auf dich:\n• Durchführen von Störungsanalysen mit anschliessenden anspruchsvollen Reparaturarbeiten an Fahrzeugen und Komponenten\n• Vielfältige Wartungsarbeiten an Triebzügen der Personenfahrzeugflotte\n• Anspruchsvolle Reparaturen an Triebzügen der Personenfahrzeugflotte und deren Systemen\n• Erfassen von Unterhalts- und Störungsdaten\n• Fahrzeugaufenthalte disponieren, bearbeiten und finalisieren Das bringst du mit:\n• Ausbildung als Automobilmechatroniker:in, Automatiker:in, Automatikmonteur:in, Landmachinenmechaniker:in oder Lastwagenmechaniker:in auf Stufe EFZ\n• EDV Anwenderkenntnisse\n• Sehr gute Deutschkenntnisse\n• Bereitschaft zu Nacht- und Wochenendarbeit Deine Vorteile – darauf kannst du dich freuen:\n• Wir fördern eine möglichst flexible Planung deiner Touren und Schichten\n• Erhalte ein GA 2. Klasse, ein GA 1. Klasse oder ein Halbtaxabo.\n• Du hast Freizeit, wenn andere arbeiten. Für Pensen in der Nacht und am Wochenende gibt es Zuschläge.\n• Es besteht die Möglichkeit, fünf bis zehn Ferientage pro Jahr zusätzlich zu kaufen.\n• Finanzielle Unterstützung bei externen Weiterbildungen und ein spannendes internes Lern- und Kursangebot stehen dir zur Verfügung.\n• Mit saisonalen Events und Kursen unterstützen wir deine Gesundheit Über die BLS Mit fast 4000 Mitarbeitenden ist die BLS das zweitgrösste Bahnunternehmen der Schweiz. Mehr noch: Wir sind auch eine Schifffahrtsgesellschaft, eine Immobilienfirma, eine internationale Güterbahn, ein Busunternehmen und transportieren Autos sicher durch den Lötschberg und den Simplon. Was uns dabei verbindet? Der Stolz auf das, was wir jeden Tag tun. Mobilität hat für uns viele Facetten. Und viele spannende Jobs.",
+      "fr": "Selon les statistiques, le train est l'un des moyens de transport les plus sûrs au monde. Mais il y a des gens derrière les chiffres – des gens comme vous! 60 millions de passagers par an comptent sur vos compétences et votre ambition pour assurer la sécurité des véhicules. Ça vous rend fier en tant que spécialiste.\n• Travaux d'entretien divers sur les parcs de voitures particulières\n• Demandes de réparations sur les parcs de voitures particulières et leurs systèmes\n• Capturer les données d'entretien et de défaillance\n• Éliminer, traiter et finaliser les véhicules Vous apportez:\n• Formation comme opérateur mécatronique automobile: Très bonne connaissance de l'allemand\n• Prêt à travailler pour la nuit et le week-end Vos avantages – vous pouvez vous attendre à cela:\n• Nous promouvons la planification la plus flexible de vos tours et couches\n• Obtenez un GA 2ème classe, un GA 1ère classe ou un abonnement demi-taxe.\n• Vous avez du temps libre quand les autres travaillent. Il ya des suppléments pour les stylos dans la nuit et le week-end.\n• Il y a la possibilité d'acheter cinq à dix jours de vacances par an en plus.\n• Un soutien financier pour la formation externe et une offre de cours et d'apprentissage interne passionnante sont à votre disposition.\n• Avec des événements saisonniers et des cours, nous soutenons votre santé.À propos du BLS Avec près de 4000 employés, le BLS est la deuxième compagnie ferroviaire en Suisse. En savoir plus: Nous sommes également une compagnie maritime, une société immobilière, un train de marchandises international, une compagnie de bus et de transport de voitures en toute sécurité à travers le Lötschberg et le Simplon. Qu'est-ce qui nous relie ? La fierté de ce que nous faisons tous les jours. La mobilité a de nombreuses facettes pour nous. Et beaucoup d'emplois passionnants."
+    },
+    "slugByLocale": {
+      "de": "automobilmechatroniker-in-automatiker-in-bls-ch"
+    },
+    "sector": "Trasporti / Ferrovia",
+    "expiredAt": "2026-06-10T11:40:52.446Z",
+    "previousSlugs": [
+      "automobilmechatroniker-in-automatiker-in-bls-ch"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "automobilmechatroniker-in-automatiker-in-bls-ch"
+      ]
+    },
+    "postalCode": "3700",
+    "streetAddress": "Krattigstrasse 1A",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/automobilmechatroniker-in-automatiker-in/e027b324-5ab6-4dac-bb05-3e7787348ffc",
+    "firstSeenAt": "2026-06-02T22:46:39.303Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/automobilmechatroniker-in-automatiker-in/8988a228-5190-40c9-863b-e0e52b394870",
+        "firstSeenAt": "2026-06-02T22:46:39.303Z",
+        "title": "Automobilmechatroniker :in / Automatiker :in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.bls.ch/offene-stellen/automobilmechatroniker-in-automatiker-in/e027b324-5ab6-4dac-bb05-3e7787348ffc",
+        "firstSeenAt": "2026-06-02T22:46:39.303Z",
+        "title": "Automobilmechatroniker:in / Automatiker:in"
+      }
+    ]
   },
   {
     "slug": "automobilmechatroniker-in-automatiker-in-bls-ag-spiez-b8c55071",

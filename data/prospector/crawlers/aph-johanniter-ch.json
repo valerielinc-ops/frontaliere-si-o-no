@@ -1,0 +1,27 @@
+{
+  "companyKey": "aph-johanniter-ch",
+  "companyName": "Alters- und Pflegeheim Johanniter",
+  "companyHost": "yousty.ch",
+  "verifiedEmployerDomain": "aph-johanniter.ch",
+  "platform": "yousty.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.yousty.ch/de-CH/lehrstellen/firmen/2397860-alters-und-pflegeheim-johanniter"
+  ],
+  "detailTemplate": "/de-CH/lehrstellen/profile/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Assistent/in Gesundheit und Soziales (AGS) EBA, Basel",
+    "Fachmann/-frau Betriebsunterhalt EFZ, Basel",
+    "Küchenangestellte/r EBA, Basel",
+    "Koch/Köchin EFZ, Basel",
+    "Fachmann/-frau Gesundheit (FaGe) EFZ, Basel"
+  ],
+  "canton": "BS",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-16T14:19:49.957Z",
+  "candidateKey": "alters-und-pflegeheim-johanniter@basel"
+}

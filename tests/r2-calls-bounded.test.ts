@@ -295,6 +295,12 @@ case "\${1:-}" in scripts/lib/r2-image-namespace-lock.mjs|*/scripts/lib/r2-image
   ;;
 scripts/cf-purge-cache.mjs|*/scripts/cf-purge-cache.mjs)
   exit "\${STUB_PURGE_STATUS:-0}" ;;
+scripts/ci/job-canon-publish-handshake.mjs|*/scripts/ci/job-canon-publish-handshake.mjs|scripts/ci/cdn-build-marker-handshake.mjs|*/scripts/ci/cdn-build-marker-handshake.mjs)
+  # This suite isolates the bounded R2 upload and marker ordering. The
+  # handshake modules have their byte-validation contract covered directly in
+  # tests/job-canon-publish-handshake.test.ts, so the subprocess stub prevents
+  # this fixture from making a real CDN request.
+  exit "\${STUB_HANDSHAKE_STATUS:-0}" ;;
 esac
 exec "$STUB_REAL_NODE" "$@"
 `,
@@ -384,6 +390,14 @@ case "\${args[0]}" in
       exit 124
     fi
     case "$dst" in
+      */job-canon/releases/*)
+        if [ "\${STUB_MISSING_JOB_CANON_LOG:-0}" != 1 ]; then
+          release_prefix="\${dst#*:s3:bkt/}"
+          printf '{"level":"info","msg":"Copied (new)","object":"%s/ab.json"}\n' "$release_prefix"
+          printf '{"level":"info","msg":"Copied (new)","object":"%s/v2/abc.json"}\n' "$release_prefix"
+        fi ;;
+    esac
+    case "$dst" in
       */images)
         printf 'copy:images:%s\\n' "\${FRONTALIERE_R2_IMAGE_LEASE_CONTEXT:-<missing>}" >> "$STUB_LEASE_CALLS"
         if [ -n "\${STUB_IMAGE_WRITER_EVENT_FILE:-}" ]; then
@@ -405,6 +419,16 @@ case "\${args[0]}" in
         : > "$STUB_DIR/fail-once"
         exit "\${STUB_FAIL_ONCE_STATUS:-124}"
       fi ;;
+    esac
+    case "$dst" in */"\${STUB_FAIL_PREFIX:-none}") exit 1 ;; esac
+    exit 0 ;;
+  sync)
+    dst="\${args[2]}"
+    case "$dst" in
+      */job-canon)
+        if [ "\${STUB_MISSING_JOB_CANON_LOG:-0}" != 1 ]; then
+          printf '%s\\n' '{"level":"info","msg":"Copied (new)","object":"job-canon/00.json"}'
+        fi ;;
     esac
     case "$dst" in */"\${STUB_FAIL_PREFIX:-none}") exit 1 ;; esac
     exit 0 ;;
@@ -511,10 +535,11 @@ esac
   const jobCanonMode = env.STUB_JOB_CANON;
   const stageJobCanonRoot = jobCanonMode === '1' || jobCanonMode === 'root-only'
     || (jobCanonMode !== 'missing' && validProductionRelease);
-  const stageJobCanonRelease = jobCanonMode === '1'
-    || (jobCanonMode === undefined && validProductionRelease);
+  const stageJobCanonRelease = validProductionRelease && (jobCanonMode === '1'
+    || (jobCanonMode === undefined && validProductionRelease));
   if (stageJobCanonRoot) {
     mkdirSync(join(stage, 'job-canon'), { recursive: true });
+    writeFileSync(join(stage, 'job-canon', '00.json'), '{"fixture":true}\n');
   }
   if (stageJobCanonRelease) {
     mkdirSync(join(stage, 'job-canon', 'releases', releaseId, 'v2'), { recursive: true });
@@ -1084,6 +1109,15 @@ describe('behaviour: campaign photographs precede executable assets', () => {
     expect(r.calls.some(c => /^rclone copy \S+ :s3:bkt\/assets(?:\s|\/|$)/.test(c))).toBe(false);
     expect(completionMarkerPuts(r.calls)).toEqual([]);
     expect(r.stdout).toContain('campaign images not published — withholding executable assets');
+  });
+});
+
+describe('behaviour: job-canon inventory is fail-closed', () => {
+  it('withholds the R2 completion marker when the release-copy log is missing', () => {
+    const r = runPublish('job-canon-log-missing', { STUB_MISSING_JOB_CANON_LOG: '1' });
+    expect(r.code).toBe(1);
+    expect(r.stdout).toContain('could not derive the affected job-canon shard inventory');
+    expect(completionMarkerPuts(r.calls)).toEqual([]);
   });
 });
 

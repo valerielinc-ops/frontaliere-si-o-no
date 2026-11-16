@@ -1,7 +1,7 @@
 {
   "key": "stiftung-ilgenhalde",
   "label": "Stiftung Ilgenhalde",
-  "generatedAt": "2026-11-16T09:24:33.115Z",
+  "generatedAt": "2026-11-16T21:18:59.606Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -36,10 +36,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3397,
-  "avgDurationMs": 3397,
+  "durationMs": 3456,
+  "avgDurationMs": 3456,
   "durationHistory": [
-    3397
+    3456
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -57,7 +57,7 @@
       "url": "https://link.ostendis.com/publication/lehre-als-fachperson-betreuung-efz/a0mjlsqqam67iioffat4y0weoja7oq5l2ar13kl2xeopjec7aljti675vk37jhry",
       "source": "Stiftung Ilgenhalde Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:24:15.738Z",
+      "crawledAt": "2026-11-16T21:18:48.580Z",
       "addressLocality": "Fehraltorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "salaryMax": 94000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T09:24:15.738Z",
+      "validThrough": "2026-12-16T21:18:48.580Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -91,5 +91,5 @@
       }
     }
   ],
-  "codeCommit": "71e06c4f557e81be4e8743feaa696210bf683ef0"
+  "codeCommit": "003c4e440c1461e3ea15f62e2d687026ad8479d5"
 }

@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-11-15T13:24:45.630Z",
+  "assembledAt": "2026-11-16T14:27:09.506Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -80499,7 +80499,6 @@
       },
       "startDate": "2027-02-05",
       "endDate": "2027-02-05",
-      "startTime": "19:30",
       "category": "Event",
       "venue": "Visp",
       "comune": "Visp",
@@ -80512,6 +80511,9 @@
         "lng": 7.8834446
       },
       "recurring": false,
+      "performer": {
+        "name": "Kinderliedern"
+      },
       "sourceDescriptionHash": "852dd2088490ba59ff7e8e08e77f7f361b750c58c5a57d6a596386cd71934f44"
     },
     {
@@ -80717,12 +80719,11 @@
       },
       "startDate": "2027-04-13",
       "endDate": "2027-04-13",
-      "startTime": "20:30",
-      "category": "Theater",
-      "venue": "Théâtre du Martolet",
+      "category": "Event",
+      "venue": "Saint-Maurice",
       "comune": "Saint-Maurice",
       "canton": "VS",
-      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/potiche/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/potiche/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -80730,6 +80731,9 @@
         "lng": 7.0030302
       },
       "recurring": false,
+      "performer": {
+        "name": "Clémentine Célarié's"
+      },
       "sourceDescriptionHash": "4cd3d6f5b122b1ca493edb9c5adce300f467e327d186b6b87562f7986d2bda2d"
     },
     {
@@ -88479,7 +88483,6 @@
       },
       "startDate": "2026-11-19",
       "endDate": "2026-11-19",
-      "startTime": "20:00",
       "category": "Event",
       "venue": "Sion / Sitten",
       "comune": "Sion",
@@ -88492,6 +88495,9 @@
         "lng": 7.3681163
       },
       "recurring": false,
+      "performer": {
+        "name": "Kikagaku Moyo"
+      },
       "sourceDescriptionHash": "9fea613130db0700a475808a26657b0bca8c2393349c515bc2a4a66bf2198b5a"
     },
     {
@@ -103309,26 +103315,31 @@
         "de": "Gemeinsam lesen",
         "fr": "Gemeinsam lesen"
       },
-      "startDate": "2026-10-03",
+      "startDate": "2026-11-07",
       "endDate": "2027-02-13",
-      "startTime": "10:00",
-      "category": "Theater",
-      "venue": "Mediathek Wallis",
-      "canton": "",
-      "url": "https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/gemeinsam-lesen/",
+      "category": "Event",
+      "venue": "Brig",
+      "comune": "Brig-Glis",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/gemeinsam-lesen/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
-      "address": {
-        "street": "Schlossstrasse 30",
-        "postalCode": "3900",
-        "locality": "Brig"
-      },
       "geo": {
         "lat": 46.3155209,
         "lng": 7.9891942
       },
       "recurring": true,
-      "sourceDescriptionHash": "ab396f64efd04c5a5cef7eb9d3e70d745ffee7d1f8abcf37d9354c4afeac9784"
+      "performer": {
+        "name": "Charme"
+      },
+      "sourceDescriptionHash": "ab396f64efd04c5a5cef7eb9d3e70d745ffee7d1f8abcf37d9354c4afeac9784",
+      "previousRoutes": [
+        {
+          "canton": "__UNRESOLVED-CANTON__",
+          "comune": "__other-events__",
+          "slug": "gemeinsam-lesen-2026-10-03"
+        }
+      ]
     },
     {
       "id": "myswitzerland:74de1e06ef5345588bf27b6e94a27b49",
@@ -215605,31 +215616,18 @@
       },
       "startDate": "2027-04-30",
       "endDate": "2027-04-30",
-      "startTime": "20:00",
-      "category": "Music",
-      "venue": "AREON Eventhalle",
+      "category": "Event",
+      "venue": "Chur",
       "comune": "Chur",
       "canton": "GR",
       "url": "https://www.myswitzerland.com/it-ch/experiences/events/megawatt-1/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
-      "price": {
-        "availability": "http://schema.org/InStock",
-        "url": "https://www.ticketcorner.ch/artist/megawatt/?affiliate=GUI&utm_source=GUI&utm_medium=dp&utm_campaign=guidle",
-        "amount": 64.6,
-        "currency": "CHF",
-        "isFree": false
-      },
       "geo": {
         "lat": 46.8544154,
         "lng": 9.505112
       },
       "recurring": false,
-      "organizer": {
-        "@type": "Organization",
-        "name": "Ticketcorner",
-        "url": "https://www.myswitzerland.com/it-ch/experiences/events/megawatt-1/"
-      },
       "performer": {
         "name": "Megawatt"
       },
@@ -267988,7 +267986,6 @@
       },
       "startDate": "2027-01-15",
       "endDate": "2027-01-15",
-      "startTime": "00:00",
       "category": "Event",
       "venue": "Sierre",
       "comune": "Sierre",
@@ -268001,14 +267998,8 @@
         "lng": 7.5319755
       },
       "recurring": false,
-      "organizer": {
-        "@type": "Organization",
-        "name": "MySwitzerland",
-        "url": "https://www.myswitzerland.com/en/"
-      },
       "performer": {
-        "@type": "Organization",
-        "name": "Sierre"
+        "name": "Meshell Ndegeocello"
       },
       "sourceDescriptionHash": "100664620e82bf62fe9aeb681ad74a543f7327b81e11ffad2fc5df0504a74bff"
     },
@@ -277313,6 +277304,272 @@
       },
       "recurring": false,
       "sourceDescriptionHash": "774e12187a53cc98ed805d2b628f2c9a28b97a852af1d8e521de9d0ac3c73386"
+    },
+    {
+      "id": "myswitzerland:76cbf76ad8a7455995234ce0ad8f4e3c",
+      "title": "Le Fief, Soirée saumon frais mariné",
+      "titleByLocale": {
+        "it": "Le Fief, Soirée saumon frais mariné",
+        "en": "Le Fief, Soirée saumon frais mariné",
+        "de": "Le Fief, Soirée saumon frais mariné",
+        "fr": "Le Fief – Soirée Blind Test"
+      },
+      "startDate": "2026-11-20",
+      "endDate": "2026-11-20",
+      "startTime": "21:00",
+      "category": "Event",
+      "venue": "Romont",
+      "canton": "FR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/le-fief-soiree-saumon-frais-marine/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.6968539,
+        "lng": 6.9192918
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "1d531c78c39e9d763fb787739b435180714448e20a71d465e36f0c0c96600965"
+    },
+    {
+      "id": "myswitzerland:765f577300e644da96be746ed026b36b",
+      "title": "BEWOHNER",
+      "titleByLocale": {
+        "it": "BEWOHNER",
+        "en": "BEWOHNER",
+        "de": "BEWOHNER",
+        "fr": "BEWOHNER"
+      },
+      "startDate": "2026-12-18",
+      "endDate": "2026-12-19",
+      "category": "Event",
+      "venue": "Zurich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/bewohner/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3702702,
+        "lng": 8.5492347
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "KOSTÜM: Klemens KühnMUSIK: Albrecht ZiepertDRAMATURGIE: Linda Best"
+        },
+        {
+          "name": "Puppen"
+        },
+        {
+          "name": "Angehörige"
+        }
+      ],
+      "sourceDescriptionHash": "75f8c2f8aadf33990b1dcb1f00a1d156648de222ef93b7ec8cd099c0819d29a8"
+    },
+    {
+      "id": "myswitzerland:75c0f7fddc2d4277b8f1b4781a8342ea",
+      "title": "Art Version",
+      "titleByLocale": {
+        "it": "Art Version",
+        "en": "Art Version",
+        "de": "Kunstversion",
+        "fr": "VerSion d'Art"
+      },
+      "startDate": "2026-09-01",
+      "endDate": "2027-01-31",
+      "category": "Event",
+      "venue": "Sion / Sitten",
+      "comune": "Sion",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/version-dart-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2114284,
+        "lng": 7.3212752
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "a440ab52a19a9292740cc555d944801222b87681303884b32d9813cfc744762b"
+    },
+    {
+      "id": "myswitzerland:7466c5927cdd417d9852d5495b1573cb",
+      "title": "Surprise multi-artistes evening",
+      "titleByLocale": {
+        "it": "Surprise multi-artistes evening",
+        "en": "Surprise multi-artistes evening",
+        "de": "Überraschungsabend mit zahlreichen Künstlern",
+        "fr": "Soirée surprise multi-artistes"
+      },
+      "startDate": "2027-04-24",
+      "endDate": "2027-04-24",
+      "category": "Event",
+      "venue": "Nendaz",
+      "comune": "Nendaz",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/surprise-multi-artistes-evening/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.1092333,
+        "lng": 7.3172576
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Nendaz"
+        },
+        {
+          "name": "Künstler"
+        }
+      ],
+      "sourceDescriptionHash": "b84710ef135e1957e925fb25f67e2eef212d2a6ca42df13730fbc93286238f7e"
+    },
+    {
+      "id": "myswitzerland:734ab3ebd3df4bcbaca9ca475faff675",
+      "title": "MURPHY’S IRISH FESTIVAL: The Real McKenzies (CA) + Kenny’s Swiss Side (CH)",
+      "titleByLocale": {
+        "it": "MURPHY’S IRISH FESTIVAL: The Real McKenzies (CA) + Kenny’s Swiss Side (CH)",
+        "en": "MURPHY’S IRISH FESTIVAL: The Real McKenzies (CA) + Kenny’s Swiss Side (CH)",
+        "de": "MURPHY’S IRISH FESTIVAL: The Real McKenzies (CA) + Kenny’s Swiss Side (CH)",
+        "fr": "MURPHY’S IRISH FESTIVAL : The Real McKenzies (CA) + Kenny’s Swiss Side (CH)"
+      },
+      "startDate": "2027-03-20",
+      "endDate": "2027-03-21",
+      "category": "Event",
+      "venue": "Riddes",
+      "comune": "Riddes",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/murphys-irish-festival-the-real-mckenzies-ca-kennys-swiss-side-ch/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.1704254,
+        "lng": 7.2199677
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Paul McKenzie"
+      },
+      "sourceDescriptionHash": "c5906a7a1f76f7d9a725fe108796871babb39e48b2bcb4b0d37586beeacb924a"
+    },
+    {
+      "id": "myswitzerland:733898f1efa14dd6a0c81f534a0f4c7b",
+      "title": "Chamber Concert",
+      "titleByLocale": {
+        "it": "Chamber Concert",
+        "en": "Chamber Concert",
+        "de": "Kammerkonzert",
+        "fr": "Concert de musique de chambre"
+      },
+      "startDate": "2027-06-12",
+      "endDate": "2027-06-12",
+      "category": "Event",
+      "venue": "Ernen",
+      "comune": "Ernen",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/chamber-concert-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.3983342,
+        "lng": 8.1440891
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Beethoven"
+        },
+        {
+          "name": "Klaviertrios"
+        },
+        {
+          "name": "Compos"
+        },
+        {
+          "@type": "PerformingGroup",
+          "name": "Piano Trio"
+        },
+        {
+          "@type": "PerformingGroup",
+          "name": "Archduke Trio"
+        }
+      ],
+      "sourceDescriptionHash": "3e5ddf2749766a42a26f035cc2b625bee6635ccbe5c1c8191894a3f2c771f5ac"
+    },
+    {
+      "id": "myswitzerland:7238d4b00b9f47ac9166e2dffe44f534",
+      "title": "Weihnachtssingen im Kindermuseum",
+      "titleByLocale": {
+        "it": "Weihnachtssingen im Kindermuseum",
+        "en": "Weihnachtssingen im Kindermuseum",
+        "de": "Weihnachtssingen im Kindermuseum",
+        "fr": "Weihnachtssingen im Kindermuseum"
+      },
+      "startDate": "2026-12-05",
+      "endDate": "2026-12-05",
+      "category": "Event",
+      "venue": "Baden",
+      "comune": "Baden",
+      "canton": "AG",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/weihnachtssingen-im-kindermuseum/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.4696245,
+        "lng": 8.3091444
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "608f7c4b0b8fb42bc759fd8341c541e453497dd95a8781488ab76c66304befbe"
+    },
+    {
+      "id": "myswitzerland:7205de056b1c47ffa130d76f727371e8",
+      "title": "Adventsmarkt",
+      "titleByLocale": {
+        "it": "Adventsmarkt",
+        "en": "Adventsmarkt",
+        "de": "Adventsmarkt",
+        "fr": "Adventsmarkt"
+      },
+      "startDate": "2026-11-22",
+      "endDate": "2026-11-22",
+      "category": "Event",
+      "venue": "Uitikon-Waldegg",
+      "comune": "Uitikon",
+      "canton": "ZH",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/adventsmarkt-2/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.3701812,
+        "lng": 8.4536026
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "9ab69e2c675c5c4538aaa0ea16688be1b12d6716377307c11e0ab154cca0979e"
+    },
+    {
+      "id": "myswitzerland:71bfa685f6a04123a369b6358d86d14c",
+      "title": "Drache Nationale",
+      "titleByLocale": {
+        "it": "Drache Nationale",
+        "en": "Drache Nationale",
+        "de": "Drache Nationale",
+        "fr": "Drache Nationale"
+      },
+      "startDate": "2027-04-14",
+      "endDate": "2027-04-16",
+      "category": "Event",
+      "venue": "Sion / Sitten",
+      "comune": "Sion",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/drache-nationale/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2336062,
+        "lng": 7.3616521
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "6d034a49aaa692a138bdd1003596ada9a3546f01edf22bd9a2ab302d2eabacf5"
     }
   ]
 }

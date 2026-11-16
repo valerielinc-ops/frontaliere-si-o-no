@@ -158,7 +158,21 @@ describe('Swiss canton pharmacy calendar parser', () => {
       sourceUrl: SOLOTHURN_SOURCE_URL,
       fetchedAt: '2026-10-26T12:00:00.000Z',
       calendarYear: 2026,
-    })).toThrow('Solothurn calendar has no verified duty in fetch week 2026-10-26');
+    })).toThrow('Solothurn calendar has no duty in fetch week 2026-10-26');
+  });
+
+  it('accepts a source fetch after the current-week duty has ended', () => {
+    const html = SOLOTHURN_SOURCE_HTML.replaceAll('25. Dezember 2026', '15. November 2026');
+    const parsed = parseSolothurnDutyPage({
+      html,
+      sourceUrl: SOLOTHURN_SOURCE_URL,
+      fetchedAt: '2026-11-15T13:52:32.000Z',
+      calendarYear: 2026,
+    });
+
+    const currentWeekRows = parsed.rows.filter((row) => row.startsAt.startsWith('2026-11-15'));
+    expect(currentWeekRows).toHaveLength(3);
+    expect(currentWeekRows.every((row) => row.status === 'expired')).toBe(true);
   });
 
   it('rejects a Delémont row whose pharmacy is not allowlisted', () => {

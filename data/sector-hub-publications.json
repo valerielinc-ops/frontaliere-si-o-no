@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-09T15:14:47.865Z",
-  "sourceWeek": "2026-W46",
+  "generatedAt": "2026-11-16T14:54:37.109Z",
+  "sourceWeek": "2026-W47",
   "hubs": [
     {
       "slug": "admin",
@@ -58,7 +58,7 @@
         "public-admin"
       ],
       "firstPublishedAt": "2026-11-02T14:50:23.976Z",
-      "status": "cooling-off"
+      "status": "active"
     },
     {
       "slug": "sanita-ospedali",
@@ -76,7 +76,7 @@
         "Sanità / Ospedali"
       ],
       "firstPublishedAt": "2026-10-20T08:22:55.192Z",
-      "status": "active"
+      "status": "cooling-off"
     },
     {
       "slug": "tecnica",

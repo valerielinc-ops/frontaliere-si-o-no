@@ -15,7 +15,7 @@ function generationOutcomeScript() {
   return String(step.run);
 }
 
-function runGenerationOutcome(fallbackReason: string) {
+function runGenerationOutcome(fallbackReason: string, fallbackDeferred = 'false') {
   const directory = mkdtempSync(path.join(os.tmpdir(), 'social-copy-generation-workflow-'));
   const output = path.join(directory, 'github-output.txt');
   const summary = path.join(directory, 'github-step-summary.txt');
@@ -32,6 +32,7 @@ function runGenerationOutcome(fallbackReason: string) {
           FALLBACK_GENERATED: 'false',
           FALLBACK_PROVIDER: 'none',
           FALLBACK_REASON: fallbackReason,
+          FALLBACK_DEFERRED: fallbackDeferred,
           FALLBACK_FAILURES: 'none',
           GITHUB_OUTPUT: output,
           GITHUB_STEP_SUMMARY: summary,
@@ -48,13 +49,23 @@ function runGenerationOutcome(fallbackReason: string) {
 
 describe('social copy generation outcome', () => {
   it('defers cleanly when the free-provider rolling budget is exhausted', () => {
-    const { result, output, summary } = runGenerationOutcome('free-fallback-weekly-budget-exhausted');
+    const { result, output, summary } = runGenerationOutcome('free-fallback-weekly-budget-exhausted', 'true');
 
     expect(result.status).toBe(0);
     expect(output).toContain('pack_generated=false');
     expect(output).toContain('deferred=true');
     expect(summary).toContain('- Outcome: **deferred**');
     expect(result.stdout).toContain('free-provider budget window reopens');
+  });
+
+  it('defers when the fallback reports that every free provider was transiently unavailable', () => {
+    const { result, output, summary } = runGenerationOutcome('all-free-models-failed', 'true');
+
+    expect(result.status).toBe(0);
+    expect(output).toContain('pack_generated=false');
+    expect(output).toContain('deferred=true');
+    expect(summary).toContain('- Outcome: **deferred**');
+    expect(result.stdout).toContain('existing deterministic copy remains active');
   });
 
   it('keeps provider failures blocking when no pack was generated', () => {

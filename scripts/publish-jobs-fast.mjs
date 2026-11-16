@@ -18,6 +18,7 @@ import {
   nextJobVariantShardFilename,
   selectJobVariantShardFilename,
 } from "./lib/jobs-fast-sitemap.mjs";
+import { SITEMAP_SHARD_CAP } from "./lib/sitemap-limits.mjs";
 import {
   acquireShardWriterLeases,
   releaseShardWriterLeases,
@@ -898,7 +899,7 @@ async function prepareSitemapUpdates(
           removeLocs: [...mutation(filename).removals],
         });
       } catch (error) {
-        if (!/would exceed 50000 URLs/u.test(String(error?.message || error)))
+        if (!String(error?.message || error).includes(`would exceed ${SITEMAP_SHARD_CAP} URLs`))
           throw error;
         filename = nextJobVariantShardFilename(indexXml, cantonSlug, locale);
         indexXml = mergeFastJobSitemapIndex(indexXml, [filename]);

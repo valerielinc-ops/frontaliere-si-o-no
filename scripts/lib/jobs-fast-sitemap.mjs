@@ -1,4 +1,5 @@
 import { emitSitemapXml } from "./sitemap-shard.mjs";
+import { SITEMAP_SHARD_CAP } from "./sitemap-limits.mjs";
 
 const URL_BLOCK_RX = /<url>[\s\S]*?<\/url>/g;
 const LOC_RX = /<loc>\s*([^<]+?)\s*<\/loc>/;
@@ -26,7 +27,7 @@ function escapeXml(value) {
 function mergeUrlset(
   xml,
   entries,
-  { label, maxUrls = 50_000, removeLocs = [], renderEntry },
+  { label, maxUrls = SITEMAP_SHARD_CAP, removeLocs = [], renderEntry },
 ) {
   const rows = Array.isArray(entries) ? entries : [];
   const removals = new Set(
@@ -196,4 +197,4 @@ export function mergeFastJobSitemapIndex(
   return output;
 }
 
-export const JOBS_FAST_SITEMAP_DEFAULTS = Object.freeze({ maxUrls: 50_000 });
+export const JOBS_FAST_SITEMAP_DEFAULTS = Object.freeze({ maxUrls: SITEMAP_SHARD_CAP });

@@ -22,9 +22,11 @@ import fs from 'fs';
 import os from 'os';
 import path from 'path';
 import { validateDedicatedLocaleCoverage } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { isolateCrawlerHistoricalData } from './helpers/isolate-crawler-historical-data.mjs';
 
 const STRICT_ENV = 'JOBS_TRANSLATION_RATIO_TEST_STRICT';
 const NO_BOILERPLATE_COMPANY = 'Zqx Ephemeral Source Sarl';
+isolateCrawlerHistoricalData();
 
 // A fake-but-structurally-valid key: isAnyModelAvailable() only checks
 // presence, never makes a network call, so this keeps the LLM-pool branch

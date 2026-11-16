@@ -481,6 +481,7 @@ function parseArgs(argv) {
     maxActiveLocaleSlugLost: 0,
     json: '',
     prefetch: false,
+    deferIfBackfillActive: '',
   };
   for (let index = 0; index < argv.length; index++) {
     const flag = argv[index];
@@ -492,17 +493,61 @@ function parseArgs(argv) {
     else if (flag === '--max-active-locale-slug-lost') args.maxActiveLocaleSlugLost = Number(value());
     else if (flag === '--json') args.json = value();
     else if (flag === '--prefetch') args.prefetch = true;
+    else if (flag === '--defer-if-backfill-active') args.deferIfBackfillActive = value();
     else throw new Error(`unknown argument: ${flag}`);
   }
-  if (!args.base) throw new Error('--base <rev> is required');
+  if (!args.base && !args.deferIfBackfillActive) throw new Error('--base <rev> is required');
   for (const key of ['maxRetiredUnarchived', 'maxArchiveLost', 'maxActiveLocaleSlugLost']) {
     if (!Number.isInteger(args[key]) || args[key] < 0) throw new Error(`invalid threshold for ${key}`);
   }
   return args;
 }
 
+/**
+ * Read the durable cursor written by backfill-expired-from-history.yml.
+ * An active cursor means the archive is intentionally between stable slices;
+ * an observer must defer rather than turn that transient boundary into a
+ * production-data issue. Malformed state fails closed so it cannot suppress
+ * a real observation silently.
+ */
+export function readBackfillProgress(filePath) {
+  const content = fs.readFileSync(filePath, 'utf8');
+  // The writer uses printf with one LF-terminated TSV record. Do not trim:
+  // accepting a second blank line would turn a malformed durable marker into
+  // a valid defer signal and could suppress the observer indefinitely.
+  if (!content.endsWith('\n') || content.endsWith('\n\n') || content.includes('\r')) {
+    throw new Error(`invalid backfill progress file: ${filePath}`);
+  }
+  const fields = content.slice(0, -1).split('\t');
+  const validWorksetHash = /^[0-9a-f]{40}$/iu.test(fields[0] || '');
+  const validCursor = fields[1] === '-'
+    || /^[A-Za-z0-9][A-Za-z0-9._-]{0,127}$/u.test(fields[1] || '');
+  if (fields.length !== 3 || !validWorksetHash || !validCursor || !['active', 'complete'].includes(fields[2])) {
+    throw new Error(`invalid backfill progress file: ${filePath}`);
+  }
+  return { worksetHash: fields[0], lastCompletedKey: fields[1], status: fields[2] };
+}
+
+function writeReport(filePath, report) {
+  if (filePath) fs.writeFileSync(filePath, `${JSON.stringify(report, null, 2)}\n`);
+}
+
 export async function main(argv = process.argv.slice(2)) {
   const args = parseArgs(argv);
+  if (args.deferIfBackfillActive) {
+    const progress = readBackfillProgress(args.deferIfBackfillActive);
+    if (progress.status === 'active') {
+      const report = {
+        deferred: true,
+        reason: 'history-backfill-active',
+        backfillProgress: progress,
+      };
+      writeReport(args.json, report);
+      console.log(`⏸️ Retired-job archive coverage deferred: history backfill is active after ${progress.lastCompletedKey}.`);
+      return 0;
+    }
+  }
+  if (!args.base) throw new Error('--base <rev> is required');
   const base = git(['rev-parse', '--verify', `${args.base}^{commit}`]).trim();
   const head = git(['rev-parse', '--verify', `${args.head}^{commit}`]).trim();
   const trees = {
@@ -547,7 +592,7 @@ export async function main(argv = process.argv.slice(2)) {
     archiveLostSample: result.archiveLost.slice(0, 50),
     activeLocaleSlugLostSample: result.activeLocaleSlugLost.slice(0, 50),
   };
-  if (args.json) fs.writeFileSync(args.json, `${JSON.stringify(report, null, 2)}\n`);
+  writeReport(args.json, report);
 
   console.log(`🔎 Retired-job archive coverage ${base.slice(0, 12)}..${head.slice(0, 12)}`);
   console.log(`   rows retired from the active set: ${report.retired}`);

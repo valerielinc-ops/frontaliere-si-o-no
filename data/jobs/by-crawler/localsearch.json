@@ -1,7 +1,7 @@
 {
   "crawlerKey": "localsearch",
-  "assembledAt": "2026-11-16T09:15:11.412Z",
-  "runId": "43837412401",
+  "assembledAt": "2026-11-16T21:21:00.960Z",
+  "runId": "43957348156",
   "jobs": [
     {
       "id": "localsearch-6d1ddda45eca",
@@ -34,7 +34,7 @@
       "url": "https://emp.jobylon.com/jobs/360117-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:15:03.968Z",
+      "crawledAt": "2026-11-16T21:20:50.221Z",
       "addressLocality": "Graubünden, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,7 +77,6 @@
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-commercial-terrain-localsearch-zurich",
           "consulente-di-vendita-servizio-esterno-localsearch-graubunden-schweiz",
           "verkaufsberater-in-aussendienst-localsearch-ch",
           "consulente-di-vendita-in-servizio-esterno-localsearch-aargau-schweiz",
@@ -96,7 +95,8 @@
           "sales-consultant-in-foreign-service-localsearch-zurich",
           "sales-consultant-field-localsearch-zurich",
           "consultant-en-ventes-service-sur-le-terrain-localsearch-aargau-schweiz",
-          "consultant-en-ventes-en-service-exterieur-localsearch-zurich"
+          "consultant-en-ventes-en-service-exterieur-localsearch-zurich",
+          "conseiller-commercial-terrain-localsearch-zurich"
         ],
         "en": [
           "verkaufsberater-in-aussendienst-localsearch-graubunden-schweiz"
@@ -126,7 +126,7 @@
       "addressRegion": "GR",
       "streetAddress": "Graubünden, Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T09:15:03.968Z",
+      "validThrough": "2026-12-16T21:20:50.221Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -160,7 +160,7 @@
       "url": "https://emp.jobylon.com/jobs/360110-localsearch-verkaufsberaterin-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:15:03.018Z",
+      "crawledAt": "2026-11-16T21:20:49.108Z",
       "addressLocality": "Baselland, Schweiz",
       "addressCountry": "CH",
       "country": "CH",
@@ -213,7 +213,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Baselland, Schweiz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-24T09:15:03.018Z",
+      "validThrough": "2026-12-23T21:20:49.108Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -247,7 +247,7 @@
       "url": "https://emp.jobylon.com/jobs/386123-localsearch-regionalleitung-sales-mwa-verkauf-von-onlinemarketing-losungen-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:15:01.999Z",
+      "crawledAt": "2026-11-16T21:20:47.438Z",
       "addressLocality": "Fehraltorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -303,7 +303,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Fehraltorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-30T09:15:01.999Z",
+      "validThrough": "2026-12-29T21:20:47.438Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -337,7 +337,7 @@
       "url": "https://emp.jobylon.com/jobs/393356-localsearch-outbound-sales-agent-60-100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:15:00.871Z",
+      "crawledAt": "2026-11-16T21:20:46.243Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -384,7 +384,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:15:00.871Z",
+      "validThrough": "2027-02-07T21:20:46.243Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -418,7 +418,7 @@
       "url": "https://emp.jobylon.com/jobs/396122-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:14:59.906Z",
+      "crawledAt": "2026-11-16T21:20:45.086Z",
       "addressLocality": "Urdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -469,7 +469,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Urdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T09:14:59.906Z",
+      "validThrough": "2027-02-08T21:20:45.086Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -503,7 +503,7 @@
       "url": "https://emp.jobylon.com/jobs/396167-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:14:58.884Z",
+      "crawledAt": "2026-11-16T21:20:44.681Z",
       "addressLocality": "Unterentfelden",
       "addressCountry": "CH",
       "country": "CH",
@@ -556,7 +556,7 @@
       "addressRegion": "AG",
       "streetAddress": "Unterentfelden",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:14:58.884Z",
+      "validThrough": "2027-02-08T21:20:44.681Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -590,7 +590,7 @@
       "url": "https://emp.jobylon.com/jobs/396184-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:14:57.858Z",
+      "crawledAt": "2026-11-16T21:20:43.508Z",
       "addressLocality": "Langenthal",
       "addressCountry": "CH",
       "country": "CH",
@@ -635,7 +635,7 @@
       "addressRegion": "BE",
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:14:57.858Z",
+      "validThrough": "2027-02-08T21:20:43.508Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -669,7 +669,7 @@
       "url": "https://emp.jobylon.com/jobs/396188-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:14:56.853Z",
+      "crawledAt": "2026-11-16T21:20:42.297Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -714,7 +714,7 @@
       "addressRegion": "BS",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:14:56.853Z",
+      "validThrough": "2027-02-08T21:20:42.297Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -748,7 +748,7 @@
       "url": "https://emp.jobylon.com/jobs/396191-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:14:55.847Z",
+      "crawledAt": "2026-11-16T21:20:41.140Z",
       "addressLocality": "Muttenz",
       "addressCountry": "CH",
       "country": "CH",
@@ -793,7 +793,7 @@
       "addressRegion": "BL",
       "streetAddress": "Muttenz",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:14:55.847Z",
+      "validThrough": "2027-02-08T21:20:41.140Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -827,7 +827,7 @@
       "url": "https://emp.jobylon.com/jobs/393364-localsearch-hr-business-partner-80100/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:14:54.888Z",
+      "crawledAt": "2026-11-16T21:20:40.032Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -863,7 +863,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:14:54.888Z",
+      "validThrough": "2027-02-08T21:20:40.032Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -897,7 +897,7 @@
       "url": "https://emp.jobylon.com/jobs/396200-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:14:53.871Z",
+      "crawledAt": "2026-11-16T21:20:38.909Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -942,7 +942,7 @@
       "addressRegion": "BE",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:14:53.871Z",
+      "validThrough": "2027-02-08T21:20:38.909Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -976,7 +976,7 @@
       "url": "https://emp.jobylon.com/jobs/396208-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:14:52.843Z",
+      "crawledAt": "2026-11-16T21:20:37.753Z",
       "addressLocality": "Thun",
       "addressCountry": "CH",
       "country": "CH",
@@ -1021,7 +1021,7 @@
       "addressRegion": "BE",
       "streetAddress": "Thun",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:14:52.843Z",
+      "validThrough": "2027-02-08T21:20:37.753Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1055,7 +1055,7 @@
       "url": "https://emp.jobylon.com/jobs/396214-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:14:51.810Z",
+      "crawledAt": "2026-11-16T21:20:36.593Z",
       "addressLocality": "Visp",
       "addressCountry": "CH",
       "country": "CH",
@@ -1100,7 +1100,7 @@
       "addressRegion": "VS",
       "streetAddress": "Visp",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:14:51.810Z",
+      "validThrough": "2027-02-08T21:20:36.593Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1134,7 +1134,7 @@
       "url": "https://emp.jobylon.com/jobs/396219-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:14:50.813Z",
+      "crawledAt": "2026-11-16T21:20:35.389Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1199,7 +1199,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:14:50.813Z",
+      "validThrough": "2027-02-08T21:20:35.389Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1233,7 +1233,7 @@
       "url": "https://emp.jobylon.com/jobs/396222-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:14:48.708Z",
+      "crawledAt": "2026-11-16T21:20:34.252Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -1276,7 +1276,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Zürich",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:14:48.708Z",
+      "validThrough": "2027-02-08T21:20:34.252Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1310,7 +1310,7 @@
       "url": "https://emp.jobylon.com/jobs/396224-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:14:47.659Z",
+      "crawledAt": "2026-11-16T21:20:33.909Z",
       "addressLocality": "Volketswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -1355,7 +1355,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Volketswil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:14:47.659Z",
+      "validThrough": "2027-02-08T21:20:33.909Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1389,7 +1389,7 @@
       "url": "https://emp.jobylon.com/jobs/396228-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:14:46.670Z",
+      "crawledAt": "2026-11-16T21:20:32.821Z",
       "addressLocality": "Landquart",
       "addressCountry": "CH",
       "country": "CH",
@@ -1434,7 +1434,7 @@
       "addressRegion": "GR",
       "streetAddress": "Landquart",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:14:46.670Z",
+      "validThrough": "2027-02-08T21:20:32.821Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1468,7 +1468,7 @@
       "url": "https://emp.jobylon.com/jobs/396231-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:14:45.687Z",
+      "crawledAt": "2026-11-16T21:20:31.709Z",
       "addressLocality": "Horgen",
       "addressCountry": "CH",
       "country": "CH",
@@ -1513,7 +1513,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Horgen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:14:45.687Z",
+      "validThrough": "2027-02-08T21:20:31.709Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1547,7 +1547,7 @@
       "url": "https://emp.jobylon.com/jobs/396234-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:14:44.624Z",
+      "crawledAt": "2026-11-16T21:20:30.514Z",
       "addressLocality": "Buchrain",
       "addressCountry": "CH",
       "country": "CH",
@@ -1592,7 +1592,7 @@
       "addressRegion": "LU",
       "streetAddress": "Buchrain",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:14:44.624Z",
+      "validThrough": "2027-02-08T21:20:30.514Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1626,7 +1626,7 @@
       "url": "https://emp.jobylon.com/jobs/396236-localsearch-verkauferin-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:14:43.526Z",
+      "crawledAt": "2026-11-16T21:20:29.285Z",
       "addressLocality": "Bremgarten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1670,7 +1670,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Bremgarten",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:14:43.526Z",
+      "validThrough": "2027-02-08T21:20:29.285Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1704,7 +1704,7 @@
       "url": "https://emp.jobylon.com/jobs/396241-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:14:43.180Z",
+      "crawledAt": "2026-11-16T21:20:28.110Z",
       "addressLocality": "Sirnach",
       "addressCountry": "CH",
       "country": "CH",
@@ -1749,7 +1749,7 @@
       "addressRegion": "TG",
       "streetAddress": "Sirnach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:14:43.180Z",
+      "validThrough": "2027-02-08T21:20:28.110Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1783,7 +1783,7 @@
       "url": "https://emp.jobylon.com/jobs/396250-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:14:42.120Z",
+      "crawledAt": "2026-11-16T21:20:26.841Z",
       "addressLocality": "Rapperswil-Jona",
       "addressCountry": "CH",
       "country": "CH",
@@ -1834,7 +1834,7 @@
       "addressRegion": "SG",
       "streetAddress": "Rapperswil-Jona",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:14:42.120Z",
+      "validThrough": "2027-02-08T21:20:26.841Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1868,7 +1868,7 @@
       "url": "https://emp.jobylon.com/jobs/396261-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:14:41.121Z",
+      "crawledAt": "2026-11-16T21:20:25.641Z",
       "addressLocality": "Regensdorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1919,7 +1919,7 @@
       "addressRegion": "ZH",
       "streetAddress": "Regensdorf",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:14:41.121Z",
+      "validThrough": "2027-02-08T21:20:25.641Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1953,7 +1953,7 @@
       "url": "https://emp.jobylon.com/jobs/396272-localsearch-verkauferin-verkaufer-im-aussendienst/",
       "source": "localsearch Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:14:40.089Z",
+      "crawledAt": "2026-11-16T21:20:24.433Z",
       "addressLocality": "Lyssach",
       "addressCountry": "CH",
       "country": "CH",
@@ -2004,8 +2004,80 @@
       "addressRegion": "BE",
       "streetAddress": "Lyssach",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:14:40.089Z",
+      "validThrough": "2027-02-08T21:20:24.433Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "localsearch-954fbcf0af7b",
+      "slug": "hr-service-partner-60-80-localsearch-ch",
+      "slugByLocale": {
+        "de": "hr-service-partner-60-80-localsearch-ch",
+        "it": "hr-service-partner-60-80-localsearch-ch",
+        "en": "hr-service-partner-60-80-localsearch-ch",
+        "fr": "hr-service-partner-60-80-localsearch-ch"
+      },
+      "company": "localsearch",
+      "companyKey": "localsearch",
+      "companyDomain": "localsearch.ch",
+      "title": "HR Service Partner (60-80 %)",
+      "titleByLocale": {
+        "it": "Risorse Umane Service Partner (60-80 %)",
+        "en": "HR Service Partner (60-80 %)",
+        "fr": "Ressources Humaines Service Partner (60-80 %)",
+        "de": "HR Service Partner (60-80 %)"
+      },
+      "description": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n Bei dir laufen die Fäden der HR-Administration zusammen: Personaldaten stimmen, Mutationen sind sauber erfasst und auf Fragen gibt es schnell eine kompetente Antwort. Zusammen mit zwei weiteren HR Service Partner:innen bist du die zentrale Anlaufstelle für alle administrativen HR-Themen und Teil unseres 8-köpfigen HR-Teams in Zürich. Unsere HR-Organisation steckt mitten in einer Transformation, und du gestaltest sie aktiv mit: mit Eigenverantwortung, Blick fürs Ganze und Freude daran, Dinge besser zu machen.\n Das bewegst du:\n\n• Du verantwortest die HR-Administration über den ganzen Mitarbeitenden-Lebenszyklus – von Eintritten über Vertragsänderungen bis zu Austritten\n\n• Du pflegst die Personalstammdaten in Abacus und stellst sicher, dass sie korrekt und vollständig sind\n\n• Du bereitest monatlich die lohnrelevanten Daten vor und bist Ansprechperson für unseren externen Payroll-Partner\n\n• Du beantwortest administrative HR-Anfragen von Mitarbeitenden und Führungskräften und bist Key User für Abacus\n\n• Du arbeitest in HR-Projekten mit und übernimmst eigene Teilprojekte, mit dem Ziel unser Team weiterzuentwickeln\n\n• Du erstellst Reportings, bereitest die Daten für die Weiterverwendung auf und analysierst diese selbständig\n\n• Du betreust die Sozialversicherungen: An- und Abmeldungen, Krankheits- und Unfallmeldungen sowie deren Abrechnungen\n Das bringst du mit:\n\n• Eine abgeschlossene HR-Ausbildung (z. B. HR-Fachfrau/-mann mit eidg. Fachausweis oder HR-Assistent: in) und mehrjährige Erfahrung in der HR-Administration\n\n• Du denkst mit, siehst, wo es Verbesserungen braucht, und packst sie proaktiv an\n\n• Du arbeitest selbständig und übernimmst aktiv Verantwortung – auch für Themen ausserhalb deines Kernbereichs\n\n• Eine exakte und selbständige Arbeitsweise – bei dir stimmen Daten und Fristen\n\n• Du bist eine engagierte Ansprechperson und hast Lust, an neuen Aufgaben zu wachsen\n\n• Du magst ein dynamisches Umfeld und gehst flexibel mit Veränderungen um\n\n• Sehr gute Anwenderkenntnisse in Microsoft 365 (insbesondere Word und Excel) sowie aktive und zielgerichtete Nutzung von KI-Tools zur Steigerung der Effizienz und Produktivität\n\n• Gute Kenntnisse der Schweizer Sozialversicherungen und Erfahrung in der Lohnvorbereitung\n\n• Stilsicheres Deutsch und gute Englischkenntnisse; Französisch und Italienisch sind ein Plus\n Bereit, mit anzupacken?\n Du arbeitest exakt, behältst den Überblick und willst mehr als nur verwalten? Dann freuen wir uns, dich kennenzulernen.\n Kontakt & Bewerbung\n Weitere Informationen zu localsearch als Arbeitgeber findest du hier .\n Mike freut sich auf deine Online-Bewerbung!",
+      "descriptionByLocale": {
+        "de": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n Bei dir laufen die Fäden der HR-Administration zusammen: Personaldaten stimmen, Mutationen sind sauber erfasst und auf Fragen gibt es schnell eine kompetente Antwort. Zusammen mit zwei weiteren HR Service Partner:innen bist du die zentrale Anlaufstelle für alle administrativen HR-Themen und Teil unseres 8-köpfigen HR-Teams in Zürich. Unsere HR-Organisation steckt mitten in einer Transformation, und du gestaltest sie aktiv mit: mit Eigenverantwortung, Blick fürs Ganze und Freude daran, Dinge besser zu machen.\n Das bewegst du:\n\n• Du verantwortest die HR-Administration über den ganzen Mitarbeitenden-Lebenszyklus – von Eintritten über Vertragsänderungen bis zu Austritten\n\n• Du pflegst die Personalstammdaten in Abacus und stellst sicher, dass sie korrekt und vollständig sind\n\n• Du bereitest monatlich die lohnrelevanten Daten vor und bist Ansprechperson für unseren externen Payroll-Partner\n\n• Du beantwortest administrative HR-Anfragen von Mitarbeitenden und Führungskräften und bist Key User für Abacus\n\n• Du arbeitest in HR-Projekten mit und übernimmst eigene Teilprojekte, mit dem Ziel unser Team weiterzuentwickeln\n\n• Du erstellst Reportings, bereitest die Daten für die Weiterverwendung auf und analysierst diese selbständig\n\n• Du betreust die Sozialversicherungen: An- und Abmeldungen, Krankheits- und Unfallmeldungen sowie deren Abrechnungen\n Das bringst du mit:\n\n• Eine abgeschlossene HR-Ausbildung (z. B. HR-Fachfrau/-mann mit eidg. Fachausweis oder HR-Assistent: in) und mehrjährige Erfahrung in der HR-Administration\n\n• Du denkst mit, siehst, wo es Verbesserungen braucht, und packst sie proaktiv an\n\n• Du arbeitest selbständig und übernimmst aktiv Verantwortung – auch für Themen ausserhalb deines Kernbereichs\n\n• Eine exakte und selbständige Arbeitsweise – bei dir stimmen Daten und Fristen\n\n• Du bist eine engagierte Ansprechperson und hast Lust, an neuen Aufgaben zu wachsen\n\n• Du magst ein dynamisches Umfeld und gehst flexibel mit Veränderungen um\n\n• Sehr gute Anwenderkenntnisse in Microsoft 365 (insbesondere Word und Excel) sowie aktive und zielgerichtete Nutzung von KI-Tools zur Steigerung der Effizienz und Produktivität\n\n• Gute Kenntnisse der Schweizer Sozialversicherungen und Erfahrung in der Lohnvorbereitung\n\n• Stilsicheres Deutsch und gute Englischkenntnisse; Französisch und Italienisch sind ein Plus\n Bereit, mit anzupacken?\n Du arbeitest exakt, behältst den Überblick und willst mehr als nur verwalten? Dann freuen wir uns, dich kennenzulernen.\n Kontakt & Bewerbung\n Weitere Informationen zu localsearch als Arbeitgeber findest du hier .\n Mike freut sich auf deine Online-Bewerbung!",
+        "it": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n Bei dir laufen die Fäden der HR-Administration zusammen: Personaldaten stimmen, Mutationen sind sauber erfasst und auf Fragen gibt es schnell eine kompetente Antwort. Zusammen mit zwei weiteren HR Service Partner:innen bist du die zentrale Anlaufstelle für alle administrativen HR-Themen und Teil unseres 8-köpfigen HR-Teams in Zürich. Unsere HR-Organisation steckt mitten in einer Transformation, und du gestaltest sie aktiv mit: mit Eigenverantwortung, Blick fürs Ganze und Freude daran, Dinge besser zu machen.\n Das bewegst du:\n\n• Du verantwortest die HR-Administration über den ganzen Mitarbeitenden-Lebenszyklus – von Eintritten über Vertragsänderungen bis zu Austritten\n\n• Du pflegst die Personalstammdaten in Abacus und stellst sicher, dass sie korrekt und vollständig sind\n\n• Du bereitest monatlich die lohnrelevanten Daten vor und bist Ansprechperson für unseren externen Payroll-Partner\n\n• Du beantwortest administrative HR-Anfragen von Mitarbeitenden und Führungskräften und bist Key User für Abacus\n\n• Du arbeitest in HR-Projekten mit und übernimmst eigene Teilprojekte, mit dem Ziel unser Team weiterzuentwickeln\n\n• Du erstellst Reportings, bereitest die Daten für die Weiterverwendung auf und analysierst diese selbständig\n\n• Du betreust die Sozialversicherungen: An- und Abmeldungen, Krankheits- und Unfallmeldungen sowie deren Abrechnungen\n Das bringst du mit:\n\n• Eine abgeschlossene HR-Ausbildung (z. B. HR-Fachfrau/-mann mit eidg. Fachausweis oder HR-Assistent: in) und mehrjährige Erfahrung in der HR-Administration\n\n• Du denkst mit, siehst, wo es Verbesserungen braucht, und packst sie proaktiv an\n\n• Du arbeitest selbständig und übernimmst aktiv Verantwortung – auch für Themen ausserhalb deines Kernbereichs\n\n• Eine exakte und selbständige Arbeitsweise – bei dir stimmen Daten und Fristen\n\n• Du bist eine engagierte Ansprechperson und hast Lust, an neuen Aufgaben zu wachsen\n\n• Du magst ein dynamisches Umfeld und gehst flexibel mit Veränderungen um\n\n• Sehr gute Anwenderkenntnisse in Microsoft 365 (insbesondere Word und Excel) sowie aktive und zielgerichtete Nutzung von KI-Tools zur Steigerung der Effizienz und Produktivität\n\n• Gute Kenntnisse der Schweizer Sozialversicherungen und Erfahrung in der Lohnvorbereitung\n\n• Stilsicheres Deutsch und gute Englischkenntnisse; Französisch und Italienisch sind ein Plus\n Bereit, mit anzupacken?\n Du arbeitest exakt, behältst den Überblick und willst mehr als nur verwalten? Dann freuen wir uns, dich kennenzulernen.\n Kontakt & Bewerbung\n Weitere Informationen zu localsearch als Arbeitgeber findest du hier .\n Mike freut sich auf deine Online-Bewerbung!",
+        "en": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n Bei dir laufen die Fäden der HR-Administration zusammen: Personaldaten stimmen, Mutationen sind sauber erfasst und auf Fragen gibt es schnell eine kompetente Antwort. Zusammen mit zwei weiteren HR Service Partner:innen bist du die zentrale Anlaufstelle für alle administrativen HR-Themen und Teil unseres 8-köpfigen HR-Teams in Zürich. Unsere HR-Organisation steckt mitten in einer Transformation, und du gestaltest sie aktiv mit: mit Eigenverantwortung, Blick fürs Ganze und Freude daran, Dinge besser zu machen.\n Das bewegst du:\n\n• Du verantwortest die HR-Administration über den ganzen Mitarbeitenden-Lebenszyklus – von Eintritten über Vertragsänderungen bis zu Austritten\n\n• Du pflegst die Personalstammdaten in Abacus und stellst sicher, dass sie korrekt und vollständig sind\n\n• Du bereitest monatlich die lohnrelevanten Daten vor und bist Ansprechperson für unseren externen Payroll-Partner\n\n• Du beantwortest administrative HR-Anfragen von Mitarbeitenden und Führungskräften und bist Key User für Abacus\n\n• Du arbeitest in HR-Projekten mit und übernimmst eigene Teilprojekte, mit dem Ziel unser Team weiterzuentwickeln\n\n• Du erstellst Reportings, bereitest die Daten für die Weiterverwendung auf und analysierst diese selbständig\n\n• Du betreust die Sozialversicherungen: An- und Abmeldungen, Krankheits- und Unfallmeldungen sowie deren Abrechnungen\n Das bringst du mit:\n\n• Eine abgeschlossene HR-Ausbildung (z. B. HR-Fachfrau/-mann mit eidg. Fachausweis oder HR-Assistent: in) und mehrjährige Erfahrung in der HR-Administration\n\n• Du denkst mit, siehst, wo es Verbesserungen braucht, und packst sie proaktiv an\n\n• Du arbeitest selbständig und übernimmst aktiv Verantwortung – auch für Themen ausserhalb deines Kernbereichs\n\n• Eine exakte und selbständige Arbeitsweise – bei dir stimmen Daten und Fristen\n\n• Du bist eine engagierte Ansprechperson und hast Lust, an neuen Aufgaben zu wachsen\n\n• Du magst ein dynamisches Umfeld und gehst flexibel mit Veränderungen um\n\n• Sehr gute Anwenderkenntnisse in Microsoft 365 (insbesondere Word und Excel) sowie aktive und zielgerichtete Nutzung von KI-Tools zur Steigerung der Effizienz und Produktivität\n\n• Gute Kenntnisse der Schweizer Sozialversicherungen und Erfahrung in der Lohnvorbereitung\n\n• Stilsicheres Deutsch und gute Englischkenntnisse; Französisch und Italienisch sind ein Plus\n Bereit, mit anzupacken?\n Du arbeitest exakt, behältst den Überblick und willst mehr als nur verwalten? Dann freuen wir uns, dich kennenzulernen.\n Kontakt & Bewerbung\n Weitere Informationen zu localsearch als Arbeitgeber findest du hier .\n Mike freut sich auf deine Online-Bewerbung!",
+        "fr": "localsearch ist der führende Marketing- und Werbepartner für Schweizer KMU. Wir machen Kunden erfolgreich in der digitalen Welt.\n Bei dir laufen die Fäden der HR-Administration zusammen: Personaldaten stimmen, Mutationen sind sauber erfasst und auf Fragen gibt es schnell eine kompetente Antwort. Zusammen mit zwei weiteren HR Service Partner:innen bist du die zentrale Anlaufstelle für alle administrativen HR-Themen und Teil unseres 8-köpfigen HR-Teams in Zürich. Unsere HR-Organisation steckt mitten in einer Transformation, und du gestaltest sie aktiv mit: mit Eigenverantwortung, Blick fürs Ganze und Freude daran, Dinge besser zu machen.\n Das bewegst du:\n\n• Du verantwortest die HR-Administration über den ganzen Mitarbeitenden-Lebenszyklus – von Eintritten über Vertragsänderungen bis zu Austritten\n\n• Du pflegst die Personalstammdaten in Abacus und stellst sicher, dass sie korrekt und vollständig sind\n\n• Du bereitest monatlich die lohnrelevanten Daten vor und bist Ansprechperson für unseren externen Payroll-Partner\n\n• Du beantwortest administrative HR-Anfragen von Mitarbeitenden und Führungskräften und bist Key User für Abacus\n\n• Du arbeitest in HR-Projekten mit und übernimmst eigene Teilprojekte, mit dem Ziel unser Team weiterzuentwickeln\n\n• Du erstellst Reportings, bereitest die Daten für die Weiterverwendung auf und analysierst diese selbständig\n\n• Du betreust die Sozialversicherungen: An- und Abmeldungen, Krankheits- und Unfallmeldungen sowie deren Abrechnungen\n Das bringst du mit:\n\n• Eine abgeschlossene HR-Ausbildung (z. B. HR-Fachfrau/-mann mit eidg. Fachausweis oder HR-Assistent: in) und mehrjährige Erfahrung in der HR-Administration\n\n• Du denkst mit, siehst, wo es Verbesserungen braucht, und packst sie proaktiv an\n\n• Du arbeitest selbständig und übernimmst aktiv Verantwortung – auch für Themen ausserhalb deines Kernbereichs\n\n• Eine exakte und selbständige Arbeitsweise – bei dir stimmen Daten und Fristen\n\n• Du bist eine engagierte Ansprechperson und hast Lust, an neuen Aufgaben zu wachsen\n\n• Du magst ein dynamisches Umfeld und gehst flexibel mit Veränderungen um\n\n• Sehr gute Anwenderkenntnisse in Microsoft 365 (insbesondere Word und Excel) sowie aktive und zielgerichtete Nutzung von KI-Tools zur Steigerung der Effizienz und Produktivität\n\n• Gute Kenntnisse der Schweizer Sozialversicherungen und Erfahrung in der Lohnvorbereitung\n\n• Stilsicheres Deutsch und gute Englischkenntnisse; Französisch und Italienisch sind ein Plus\n Bereit, mit anzupacken?\n Du arbeitest exakt, behältst den Überblick und willst mehr als nur verwalten? Dann freuen wir uns, dich kennenzulernen.\n Kontakt & Bewerbung\n Weitere Informationen zu localsearch als Arbeitgeber findest du hier .\n Mike freut sich auf deine Online-Bewerbung!"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://emp.jobylon.com/jobs/397439-localsearch-hr-service-partner-60-80/",
+      "source": "localsearch Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-16T21:20:23.273Z",
+      "addressLocality": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Marketing digitale / Tecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-16T12:23:54+00:00",
+      "postedDate": "2026-11-16T12:23:54+00:00",
+      "postingDateSource": "reported",
+      "applyUrl": "https://emp.jobylon.com/jobs/397439-localsearch-hr-service-partner-60-80/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 58800,
+      "salaryMax": 89200,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58800,
+          "maxValue": 89200,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "8001",
+      "addressRegion": "ZH",
+      "streetAddress": "Zürich",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-14T21:20:23.273Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-16T21:20:23.273Z"
     }
   ]
 }

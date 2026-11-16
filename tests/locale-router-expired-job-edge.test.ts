@@ -93,7 +93,10 @@ beforeEach(() => {
   });
 });
 
-afterEach(() => vi.restoreAllMocks());
+afterEach(() => {
+  vi.restoreAllMocks();
+  vi.unstubAllGlobals();
+});
 
 describe('locale-router expired job R2 soft landings', () => {
   it('serves an active dataset record before the known-job 404 redirect recovery', async () => {
@@ -146,14 +149,31 @@ describe('locale-router expired job R2 soft landings', () => {
     expect(fetchedPaths.some((path) => path.startsWith('origin-zurigo-en.'))).toBe(false);
   });
 
-  it('keeps a transient R2 failure out of the section-root redirect recovery', async () => {
+  it('keeps a transient R2 failure out of the section-root redirect recovery without a 503 burst', async () => {
     datasetMode = 'unavailable';
     const response = await worker.fetch(new Request(`${APEX}${PAGE_PATH}`), {}, ctx);
 
-    expect(response.status).toBe(503);
-    expect(response.headers.get('Retry-After')).toBe('60');
-    expect(response.headers.get('Cache-Control')).toBe('no-store');
+    expect(response.status).toBe(404);
+    expect(response.headers.get('Retry-After')).toBeNull();
+    expect(response.headers.get('Cache-Control')).toContain('s-maxage=7200');
+    expect(await response.text()).toContain('Job not found');
     expect(fetchedPaths.some((path) => path.startsWith('cdn.frontaliereticino.ch/job-canon/'))).toBe(false);
+  });
+
+  it('serves the last-good copy before failing closed when the edge dataset is unavailable', async () => {
+    datasetMode = 'unavailable';
+    const cache = new Map([[`${APEX}${PAGE_PATH}`, new Response('<html>last good</html>', { status: 200 })]]);
+    vi.stubGlobal('caches', {
+      default: {
+        match: vi.fn(async (request: Request) => cache.get(request.url)?.clone()),
+      },
+    });
+
+    const response = await worker.fetch(new Request(`${APEX}${PAGE_PATH}`), {}, ctx);
+
+    expect(response.status).toBe(200);
+    expect(response.headers.get('X-Served-Stale')).toBe('expired-job-edge');
+    expect(await response.text()).toBe('<html>last good</html>');
   });
 
   it('falls through to today’s shard behavior when the manifest has no record', async () => {

@@ -160,6 +160,27 @@ describe('observeSwissCantonDutyCoverage', () => {
     expect(observed.unreportedGaps).toEqual([]);
   });
 
+  it('counts an expired interval as source coverage after a fetch later that day', () => {
+    const observed = observeSwissCantonDutyCoverage(sourceRegistry, {
+      jura: release({
+        _fetchedAt: '2026-11-15T13:52:32.000Z',
+        duties: [{
+          status: 'expired',
+          startsAt: '2026-11-15T08:00:00.000Z',
+          endsAt: '2026-11-15T11:00:00.000Z',
+        }],
+      }),
+    });
+
+    expect(observed.entries[0]).toMatchObject({
+      weekStart: '2026-11-09',
+      verifiedDutyCount: 0,
+      fetchWeekDutyCount: 1,
+      covered: true,
+    });
+    expect(observed.unreportedGaps).toEqual([]);
+  });
+
   it('fails the health report for a fresh release with no fetch-week coverage', () => {
     const duties = {
       jura: release({

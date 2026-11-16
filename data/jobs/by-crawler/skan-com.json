@@ -1,7 +1,7 @@
 {
   "crawlerKey": "skan-com",
-  "assembledAt": "2026-11-16T09:45:20.298Z",
-  "runId": "43839824064",
+  "assembledAt": "2026-11-16T21:38:31.017Z",
+  "runId": "43960122329",
   "jobs": [
     {
       "id": "skan-com-fc863d08c94f",
@@ -34,7 +34,7 @@
       "url": "https://jobs.skan.com/job/allschwil-senior-ict-system-engineer-technical-project-lead-%28mwd%29/1370336957",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-16T09:45:05.456Z",
+      "crawledAt": "2026-11-16T21:38:14.515Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -100,7 +100,7 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-08T09:45:05.456Z",
+      "validThrough": "2027-02-07T21:38:14.515Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -134,7 +134,7 @@
       "url": "https://jobs.skan.com/job/allschwil-apprenticeship-in-2027-automation-engineer-efz/1365455957",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-16T09:45:05.450Z",
+      "crawledAt": "2026-11-16T21:38:14.502Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -200,7 +200,7 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-08T09:45:05.450Z",
+      "validThrough": "2027-02-07T21:38:14.502Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -234,7 +234,7 @@
       "url": "https://jobs.skan.com/job/allschwil-team-lead-ict-engineering-&-operations/1361640957",
       "source": "SKAN AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-16T09:45:05.448Z",
+      "crawledAt": "2026-11-16T21:38:14.501Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -294,7 +294,7 @@
         "checkedAt": "2026-11-09T15:43:20.118Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-08T09:45:05.448Z",
+      "validThrough": "2027-02-07T21:38:14.501Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -396,7 +396,7 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-07T21:42:22.650Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "skan-com-a85a162a22b7",
@@ -497,7 +497,7 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-07T21:42:22.643Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

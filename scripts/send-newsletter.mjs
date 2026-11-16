@@ -2768,10 +2768,11 @@ async function main() {
   const allowNewDiscoverySelection = mode !== 'send'
     || (campaignResumeLookupKnown && !isResume);
   // Fetch the manifest-pinned public index before freezing a brand-new
-  // campaign selection. A valid empty response or an unavailable/invalid
-  // optional index freezes a null slot so the regular digest remains sendable.
-  // Resumes keep their immutable Firestore selection and previews continue to
-  // use the committed local snapshot.
+  // campaign selection. If the API is already ahead of the site's verified
+  // manifest-pinned pull, alignment deliberately selects that local snapshot.
+  // An unavailable or unverifiable pair freezes a null slot so the regular
+  // digest remains sendable. Resumes keep their immutable Firestore selection
+  // and previews continue to use the committed local snapshot.
   const shouldAlignDiscoveryWithSitePull = mode === 'send' && Boolean(db) && allowNewDiscoverySelection;
   const loadedDiscoveryIndex = shouldAlignDiscoveryWithSitePull
     ? await loadOptionalDiscoveryArticleIndexFromHttp()
@@ -2781,7 +2782,7 @@ async function main() {
     : loadedDiscoveryIndex;
   if (shouldAlignDiscoveryWithSitePull && !discoveryIndex) {
     console.warn(loadedDiscoveryIndex
-      ? '[newsletter] discovery index does not match the localized site pull; freezing an empty optional slot for this campaign.'
+      ? '[newsletter] discovery index cannot be aligned with a verified localized site pull; freezing an empty optional slot for this campaign.'
       : '[newsletter] discovery index unavailable; freezing an empty optional slot for this campaign.');
   }
   const discoveryByLocale = new Map();

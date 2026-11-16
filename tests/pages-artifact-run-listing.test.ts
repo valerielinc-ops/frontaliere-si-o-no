@@ -462,11 +462,13 @@ describe('la finestra created segue la retention dichiarata in deploy-publish.ym
   // `retention-days` che segue nel testo: se l'upload perdesse il suo, una
   // regex pescherebbe quello dello step dopo.
   const publisher = yaml.load(readFileSync(path.join(ROOT, PUBLISH_PATH), 'utf8')) as {
-    jobs: Record<string, { steps?: Array<{ with?: Record<string, unknown> }> }>;
+    jobs: Record<string, { steps?: Array<{ name?: string; with?: Record<string, unknown> }> }>;
   };
   const uploads = Object.values(publisher.jobs)
     .flatMap((job) => job.steps ?? [])
-    .filter((step) => step.with?.name === 'github-pages' && 'retention-days' in (step.with ?? {}));
+    .filter((step) => !step.name?.startsWith('Retry ')
+      && step.with?.name === 'github-pages'
+      && 'retention-days' in (step.with ?? {}));
   const retention = uploads.length === 1 ? String(uploads[0].with?.['retention-days']) : null;
 
   it('deploy-publish.yml dichiara la retention di github-pages', () => {

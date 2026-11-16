@@ -1,0 +1,26 @@
+{
+  "companyKey": "bernertagesschulen-ch",
+  "companyName": "Verein Berner Tagesschulen",
+  "companyHost": "oda-soziales-bern.ch",
+  "verifiedEmployerDomain": "bernertagesschulen.ch",
+  "platform": "oda-soziales-bern.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://oda-soziales-bern.ch/stellenportal/stellenangebote"
+  ],
+  "detailTemplate": "/stellenportal/detail/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Mehr erfahren",
+    "Mehr erfahren",
+    "Mehr erfahren",
+    "Mehr erfahren"
+  ],
+  "canton": "BE",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-16T14:23:36.550Z",
+  "candidateKey": "verein-berner-tagesschulen"
+}

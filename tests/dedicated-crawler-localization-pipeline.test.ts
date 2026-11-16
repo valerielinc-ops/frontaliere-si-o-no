@@ -9,8 +9,10 @@ import {
   enrichJobLocalesDCC,
   translateMissingJobLocales,
 } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { isolateCrawlerHistoricalData } from './helpers/isolate-crawler-historical-data.mjs';
 
 const ORIGINAL_ENV = { ...process.env };
+isolateCrawlerHistoricalData();
 
 describe('dedicated crawler localization pipeline integration', () => {
   let tempDir: string;

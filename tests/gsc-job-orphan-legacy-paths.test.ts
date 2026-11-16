@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { urlToOrphan } from '../scripts/lib/gsc-job-orphans.mjs';
+import { extractPageSignals, extractRobots } from '../scripts/lib/seo-health-contract.mjs';
 import {
   assertGscLegacyAliasSnapshot,
   assertGscOrphanSnapshot,
@@ -290,6 +291,48 @@ describe('jobOrphanBridgePlugin — expired orphans are left to the Worker 301',
       await closeBundle.handler();
       expect(fs.existsSync(path.join(rootDir, 'dist', 'cerca-lavoro-ticino', slug, 'index.html'))).toBe(false);
       expect(fs.existsSync(path.join(rootDir, 'dist', 'cerca-lavoro-ticino', `${slug}.html`))).toBe(false);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+});
+
+describe('jobOrphanBridgePlugin — incomplete matched fallbacks are noindex', () => {
+  it('does not emit an indexable job-shaped page without the canonical detail', async () => {
+    const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'job-orphan-matched-fallback-'));
+    const slug = 'purchasing-logistica-specialista-mendrisio-site-ticino-sintetica-sa-mendrisio';
+    const currentSlug = `current-${slug}`;
+    const orphanUrl = `https://frontaliereticino.ch/cerca-lavoro-ticino/${slug}/`;
+    try {
+      fs.mkdirSync(path.join(rootDir, 'dist'), { recursive: true });
+      fs.mkdirSync(path.join(rootDir, 'data'), { recursive: true });
+      fs.writeFileSync(path.join(rootDir, 'data', 'gsc-job-orphans.json'), JSON.stringify({
+        generatedAt: '2026-11-16T00:00:00.000Z',
+        sources: ['test'],
+        counts: { matched: 1 },
+        orphans: [{
+          locale: 'it',
+          slug,
+          url: orphanUrl,
+          kind: 'matched',
+          currentSlug,
+        }],
+      }));
+
+      const plugin = jobOrphanBridgePlugin(rootDir);
+      const closeBundle = plugin.closeBundle as { handler: () => Promise<void> };
+      await closeBundle.handler();
+
+      const html = fs.readFileSync(
+        path.join(rootDir, 'dist', 'cerca-lavoro-ticino', slug, 'index.html'),
+        'utf8',
+      );
+      // buildSeoPageHtml finishes with minifyHtml, which removes safe
+      // attribute quotes; assert the exact robots directive semantically.
+      expect(extractRobots(html)).toEqual({ value: 'noindex,follow', noindex: true });
+      expect(html).toContain('<!--JOB_ORPHAN_NOINDEX_BRIDGE-->');
+      expect(extractPageSignals(html, orphanUrl).canonical).toBe(orphanUrl);
+      expect(html).not.toMatch(/"@type":"JobPosting"/);
     } finally {
       fs.rmSync(rootDir, { recursive: true, force: true });
     }

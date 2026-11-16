@@ -1371,9 +1371,9 @@
         "specialist-treasury-currency-banque-cantonale-du-valais-sion-7d686f49",
         "specialiste-tresorerie-devises-bcvs-sion-06786087",
         "specialist-treasury-currency-banque-cantonale-du-valais-sion-4070c8dd",
+        "specialist-treasury-currency-banque-cantonale-du-valais-sion-5cab9908",
         "specialiste-tresorerie-devises-bcvs-sion",
-        "specialist-treasury-currency-banque-cantonale-du-valais-sion",
-        "specialist-treasury-currency-banque-cantonale-du-valais-sion-5cab9908"
+        "specialist-treasury-currency-banque-cantonale-du-valais-sion"
       ],
       "de": [
         "specialiste-tresorerie-devises-bcvs-sion-3db034d6",
@@ -1466,7 +1466,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/specialiste-tresorerie-devises-2540",
-    "firstSeenAt": "2026-05-06T21:27:36.448Z"
+    "firstSeenAt": "2026-05-06T21:27:36.448Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/specialiste-tresorerie-devises-1-2732",
+        "firstSeenAt": "2026-11-02T21:52:44.369Z",
+        "title": "Spécialiste Trésorerie & Devises"
+      },
+      {
+        "sourceIdentity": "url:https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/specialiste-tresorerie-devises-2540",
+        "firstSeenAt": "2026-05-06T21:27:36.448Z",
+        "title": "Spécialiste Trésorerie & Devises"
+      }
+    ]
   },
   {
     "slug": "economy-manager-mail-e-gol-banque-cantonale-du-valais-sion",
@@ -2022,7 +2034,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/berater-in-customer-center-2572",
-    "firstSeenAt": "2026-05-27T22:15:42.716Z"
+    "firstSeenAt": "2026-05-27T22:15:42.716Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/berater-in-customer-center-2572",
+        "firstSeenAt": "2026-05-27T22:15:42.716Z",
+        "title": "Berater/in Customer Center"
+      },
+      {
+        "sourceIdentity": "url:https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/berater-in-customer-center-2734",
+        "firstSeenAt": "2026-11-03T21:55:59.480Z",
+        "title": "Berater/in Customer Center"
+      }
+    ]
   },
   {
     "slug": "senior-immobiliare-esperto-banque-cantonale-du-valais-sion",

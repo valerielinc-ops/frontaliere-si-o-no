@@ -1,7 +1,7 @@
 {
   "version": 1,
   "source": "Zefix via LINDAS",
-  "updatedAt": "2026-11-09T15:45:49.471Z",
+  "updatedAt": "2026-11-16T15:23:46.500Z",
   "entries": {
     "a group|andermatt svizzera|UR": {
       "status": "not-found",
@@ -1055,9 +1055,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Coop City",
+      "jobPostalCode": "1217",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
-      "checkedAt": "2026-10-31T20:47:49.716Z"
+      "checkedAt": "2026-11-16T15:23:32.134Z"
     },
     "agie charmilles sa|biel bienne|BE": {
       "status": "not-found",
@@ -1072,9 +1073,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Confederazione Svizzera",
+      "jobPostalCode": "2502",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:49.716Z"
+      "checkedAt": "2026-11-16T15:23:32.134Z"
     },
     "agie charmilles sa|langnau im emmental|BE": {
       "status": "not-found",
@@ -1124,31 +1126,34 @@
       "companyName": "Coop Genossenschaft",
       "addressLocality": "Biel",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:49.716Z"
+      "checkedAt": "2026-11-16T15:23:32.134Z"
     },
     "agroscope|posieux|FR": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Agroscope",
+      "jobPostalCode": "1725",
       "addressLocality": "Posieux",
       "addressRegion": "FR",
-      "checkedAt": "2026-10-31T20:47:49.716Z"
+      "checkedAt": "2026-11-16T15:23:32.134Z"
     },
     "agroscope|avenches|VD": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Agroscope",
+      "jobPostalCode": "1580",
       "addressLocality": "Avenches",
       "addressRegion": "VD",
-      "checkedAt": "2026-10-31T20:47:49.716Z"
+      "checkedAt": "2026-11-16T15:23:32.134Z"
     },
     "agroscope|ettenhausen|TG": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Agroscope",
+      "jobPostalCode": "8356",
       "addressLocality": "Ettenhausen",
       "addressRegion": "TG",
-      "checkedAt": "2026-10-31T20:47:49.716Z"
+      "checkedAt": "2026-11-16T15:23:32.134Z"
     },
     "agroscope|nyon|VD": {
       "status": "not-found",
@@ -1162,33 +1167,37 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Ardentis",
+      "jobPostalCode": "1260",
       "addressLocality": "Nyon",
       "addressRegion": "VD",
-      "checkedAt": "2026-10-31T20:47:49.716Z"
+      "checkedAt": "2026-11-16T15:23:32.134Z"
     },
     "agroscope|wadenswil|ZH": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Agroscope",
+      "jobPostalCode": "8820",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
-      "checkedAt": "2026-10-31T20:47:50.876Z"
+      "checkedAt": "2026-11-16T15:23:32.134Z"
     },
     "anker swiss ticino ag|wadenswil|ZH": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "8820",
       "addressLocality": "Wädenswil",
       "addressRegion": "ZH",
-      "checkedAt": "2026-10-31T20:47:50.876Z"
+      "checkedAt": "2026-11-16T15:23:32.134Z"
     },
     "air zermatt ag|raron|VS": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Air Zermatt AG",
+      "jobPostalCode": "3942",
       "addressLocality": "Raron",
       "addressRegion": "VS",
-      "checkedAt": "2026-10-31T20:47:50.876Z"
+      "checkedAt": "2026-11-16T15:23:32.134Z"
     },
     "air zermatt ag|zermatt und raron|VS": {
       "status": "not-found",
@@ -1202,9 +1211,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Alpiq",
+      "jobPostalCode": "5013",
       "addressLocality": "Niedergösgen",
       "addressRegion": "SO",
-      "checkedAt": "2026-10-31T20:47:50.876Z"
+      "checkedAt": "2026-11-16T15:23:32.134Z"
     },
     "alpiq|olten|SO": {
       "status": "matched",
@@ -1221,9 +1231,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "C&A Schweiz",
+      "jobPostalCode": "4600",
       "addressLocality": "Olten",
       "addressRegion": "SO",
-      "checkedAt": "2026-10-31T20:47:50.876Z"
+      "checkedAt": "2026-11-16T15:23:34.339Z"
     },
     "alten switzerland|switzerland|TI": {
       "status": "not-found",
@@ -1237,49 +1248,55 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "ALTEN Switzerland",
+      "jobPostalCode": "1204",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
-      "checkedAt": "2026-10-31T20:47:50.876Z"
+      "checkedAt": "2026-11-16T15:23:34.339Z"
     },
     "alten switzerland|switzerland|BE": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "ALTEN Switzerland",
+      "jobPostalCode": "3001",
       "addressLocality": "Switzerland",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:50.876Z"
+      "checkedAt": "2026-11-16T15:23:34.339Z"
     },
     "amag group|lugano|TI": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "AMAG Group",
+      "jobPostalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "checkedAt": "2026-10-31T20:47:50.876Z"
+      "checkedAt": "2026-11-16T15:23:34.339Z"
     },
     "anker swiss ticino ag|lugano|TI": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "checkedAt": "2026-10-31T20:47:50.876Z"
+      "checkedAt": "2026-11-16T15:23:34.339Z"
     },
     "centiel|lugano|TI": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Centiel",
+      "jobPostalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "checkedAt": "2026-10-31T20:47:50.876Z"
+      "checkedAt": "2026-11-16T15:23:34.339Z"
     },
     "amag group|gordola|TI": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "AMAG Group",
+      "jobPostalCode": "6596",
       "addressLocality": "Gordola",
       "addressRegion": "TI",
-      "checkedAt": "2026-10-31T20:47:50.876Z"
+      "checkedAt": "2026-11-16T15:23:34.339Z"
     },
     "amag group|tutti|JU": {
       "status": "not-found",
@@ -1293,33 +1310,37 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "AMAG Group",
+      "jobPostalCode": "6932",
       "addressLocality": "Breganzona",
       "addressRegion": "TI",
-      "checkedAt": "2026-10-31T20:47:51.480Z"
+      "checkedAt": "2026-11-16T15:23:34.339Z"
     },
     "ameos schweiz|einsiedeln|SZ": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "AMEOS Schweiz",
+      "jobPostalCode": "8840",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
-      "checkedAt": "2026-10-31T20:47:51.480Z"
+      "checkedAt": "2026-11-16T15:23:34.339Z"
     },
     "ameos schweiz|brunnen|SZ": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "AMEOS Schweiz",
+      "jobPostalCode": "6440",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
-      "checkedAt": "2026-10-31T20:47:51.480Z"
+      "checkedAt": "2026-11-16T15:23:34.339Z"
     },
     "anker swiss ticino ag|schlieren|ZH": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "8952",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
-      "checkedAt": "2026-10-31T20:47:51.480Z"
+      "checkedAt": "2026-11-16T15:23:34.339Z"
     },
     "anker swiss ticino ag|urdorf|ZH": {
       "status": "not-found",
@@ -1333,17 +1354,19 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3150",
       "addressLocality": "Schwarzenburg",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:51.480Z"
+      "checkedAt": "2026-11-16T15:23:34.339Z"
     },
     "confederazione svizzera|schwarzenburg|BE": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Confederazione Svizzera",
+      "jobPostalCode": "3150",
       "addressLocality": "Schwarzenburg",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:51.480Z"
+      "checkedAt": "2026-11-16T15:23:34.339Z"
     },
     "anker swiss ticino ag|steinhausen|ZG": {
       "status": "not-found",
@@ -1357,9 +1380,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Bosch Thermotechnik AG",
+      "jobPostalCode": "6312",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
-      "checkedAt": "2026-10-31T20:47:51.480Z"
+      "checkedAt": "2026-11-16T15:23:36.731Z"
     },
     "anker swiss ticino ag|wiedlisbach|BE": {
       "status": "not-found",
@@ -1381,9 +1405,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Coop Genossenschaft",
+      "jobPostalCode": "8302",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
-      "checkedAt": "2026-10-31T20:47:51.480Z"
+      "checkedAt": "2026-11-16T15:23:36.731Z"
     },
     "anker swiss ticino ag|st gallen|SG": {
       "status": "not-found",
@@ -1413,9 +1438,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Confederazione Svizzera",
+      "jobPostalCode": "9000",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
-      "checkedAt": "2026-10-31T20:47:52.485Z"
+      "checkedAt": "2026-11-16T15:23:36.731Z"
     },
     "anker swiss ticino ag|hitzkirch|LU": {
       "status": "not-found",
@@ -1429,9 +1455,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "8953",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
-      "checkedAt": "2026-10-31T20:47:52.485Z"
+      "checkedAt": "2026-11-16T15:23:36.731Z"
     },
     "anker swiss ticino ag|hunenberg|ZG": {
       "status": "not-found",
@@ -1445,9 +1472,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "CKW",
+      "jobPostalCode": "6331",
       "addressLocality": "Hünenberg",
       "addressRegion": "ZG",
-      "checkedAt": "2026-10-31T20:47:52.485Z"
+      "checkedAt": "2026-11-16T15:23:36.731Z"
     },
     "anker swiss ticino ag|fluelen|UR": {
       "status": "not-found",
@@ -1469,25 +1497,28 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3600",
       "addressLocality": "Thun",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:52.485Z"
+      "checkedAt": "2026-11-16T15:23:36.731Z"
     },
     "c a schweiz|thun|BE": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "C&A Schweiz",
+      "jobPostalCode": "3600",
       "addressLocality": "Thun",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:52.485Z"
+      "checkedAt": "2026-11-16T15:23:36.731Z"
     },
     "confederazione svizzera|thun|BE": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Confederazione Svizzera",
+      "jobPostalCode": "3600",
       "addressLocality": "Thun",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:52.485Z"
+      "checkedAt": "2026-11-16T15:23:36.731Z"
     },
     "anker swiss ticino ag|liestal|BL": {
       "status": "not-found",
@@ -1501,17 +1532,19 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "C&A Schweiz",
+      "jobPostalCode": "4410",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
-      "checkedAt": "2026-10-31T20:47:52.485Z"
+      "checkedAt": "2026-11-16T15:23:36.731Z"
     },
     "coop genossenschaft|liestal|BL": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Coop Genossenschaft",
+      "jobPostalCode": "4410",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
-      "checkedAt": "2026-10-31T20:47:52.485Z"
+      "checkedAt": "2026-11-16T15:23:36.731Z"
     },
     "anker swiss ticino ag|emmen|LU": {
       "status": "not-found",
@@ -1525,17 +1558,19 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "CKW",
+      "jobPostalCode": "6032",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
-      "checkedAt": "2026-10-31T20:47:52.485Z"
+      "checkedAt": "2026-11-16T15:23:36.731Z"
     },
     "anker swiss ticino ag|lyss|BE": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3250",
       "addressLocality": "Lyss",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:52.485Z"
+      "checkedAt": "2026-11-16T15:23:36.731Z"
     },
     "anker swiss ticino ag|bassersdorf|ZH": {
       "status": "not-found",
@@ -1565,9 +1600,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Coop Genossenschaft",
+      "jobPostalCode": "6490",
       "addressLocality": "Andermatt",
       "addressRegion": "UR",
-      "checkedAt": "2026-10-31T20:47:53.605Z"
+      "checkedAt": "2026-11-16T15:23:39.058Z"
     },
     "anker swiss ticino ag|arch|BE": {
       "status": "not-found",
@@ -1581,9 +1617,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3294",
       "addressLocality": "Büren an der Aare",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:53.605Z"
+      "checkedAt": "2026-11-16T15:23:36.731Z"
     },
     "anker swiss ticino ag|harkingen|SO": {
       "status": "not-found",
@@ -1597,9 +1634,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3186",
       "addressLocality": "Düdingen",
       "addressRegion": "FR",
-      "checkedAt": "2026-10-31T20:47:53.605Z"
+      "checkedAt": "2026-11-16T15:23:39.058Z"
     },
     "atec personal ag|dudingen|FR": {
       "status": "matched",
@@ -1616,51 +1654,57 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3427",
       "addressLocality": "Utzenstorf",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:53.605Z"
+      "checkedAt": "2026-11-16T15:23:39.058Z"
     },
     "anker swiss ticino ag|luzern|LU": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "6003",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
-      "checkedAt": "2026-10-31T20:47:53.605Z"
+      "checkedAt": "2026-11-16T15:23:39.058Z"
     },
     "ckw|luzern|LU": {
       "status": "ambiguous",
       "source": "zefix-lindas",
       "companyName": "CKW",
+      "jobPostalCode": "6003",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "reason": "postal-code-conflict",
-      "checkedAt": "2026-10-31T20:47:53.605Z"
+      "checkedAt": "2026-11-16T15:23:39.058Z"
     },
     "breitling|luzern|LU": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Breitling",
+      "jobPostalCode": "6003",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
-      "checkedAt": "2026-10-31T20:47:53.605Z"
+      "checkedAt": "2026-11-16T15:23:39.058Z"
     },
     "c a schweiz|luzern|LU": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "C&A Schweiz",
+      "jobPostalCode": "6003",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
-      "checkedAt": "2026-10-31T20:47:53.605Z"
+      "checkedAt": "2026-11-16T15:23:39.058Z"
     },
     "caritas schweiz|luzern|LU": {
       "status": "ambiguous",
       "source": "zefix-lindas",
       "companyName": "Caritas Schweiz",
+      "jobPostalCode": "6003",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "reason": "postal-code-conflict",
-      "checkedAt": "2026-10-31T20:47:53.605Z"
+      "checkedAt": "2026-11-16T15:23:39.058Z"
     },
     "confederazione svizzera|luzern|LU": {
       "status": "not-found",
@@ -1674,9 +1718,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3098",
       "addressLocality": "Köniz",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:53.605Z"
+      "checkedAt": "2026-11-16T15:23:39.058Z"
     },
     "benu|koniz|BE": {
       "status": "not-found",
@@ -1722,9 +1767,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3110",
       "addressLocality": "Münsingen",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:54.262Z"
+      "checkedAt": "2026-11-16T15:23:39.058Z"
     },
     "anker swiss ticino ag|oftringen|AG": {
       "status": "not-found",
@@ -1738,17 +1784,19 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "5507",
       "addressLocality": "Mellingen",
       "addressRegion": "AG",
-      "checkedAt": "2026-10-31T20:47:54.262Z"
+      "checkedAt": "2026-11-16T15:23:39.058Z"
     },
     "anker swiss ticino ag|wettingen|AG": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "5430",
       "addressLocality": "Wettingen",
       "addressRegion": "AG",
-      "checkedAt": "2026-10-31T20:47:54.262Z"
+      "checkedAt": "2026-11-16T15:23:39.058Z"
     },
     "anker swiss ticino ag|gurmels|FR": {
       "status": "not-found",
@@ -1762,9 +1810,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "8903",
       "addressLocality": "Birmensdorf ZH",
       "addressRegion": "ZH",
-      "checkedAt": "2026-10-31T20:47:54.262Z"
+      "checkedAt": "2026-11-16T15:23:39.058Z"
     },
     "anker swiss ticino ag|frauenkappelen|BE": {
       "status": "not-found",
@@ -1786,17 +1835,19 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "4806",
       "addressLocality": "Wikon",
       "addressRegion": "LU",
-      "checkedAt": "2026-10-31T20:47:54.924Z"
+      "checkedAt": "2026-11-16T15:23:40.975Z"
     },
     "anker swiss ticino ag|frauenfeld|TG": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "8500",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
-      "checkedAt": "2026-10-31T20:47:54.924Z"
+      "checkedAt": "2026-11-16T15:23:40.975Z"
     },
     "bosch thermotechnik ag|frauenfeld|TG": {
       "status": "not-found",
@@ -1810,41 +1861,46 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "8304",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
-      "checkedAt": "2026-10-31T20:47:54.924Z"
+      "checkedAt": "2026-11-16T15:23:40.975Z"
     },
     "apleona schweiz ag|wallisellen|ZH": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Apleona Schweiz AG",
+      "jobPostalCode": "8304",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
-      "checkedAt": "2026-10-31T20:47:54.924Z"
+      "checkedAt": "2026-11-16T15:23:40.975Z"
     },
     "anker swiss ticino ag|kerzers|FR": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3210",
       "addressLocality": "Kerzers",
       "addressRegion": "FR",
-      "checkedAt": "2026-10-31T20:47:54.924Z"
+      "checkedAt": "2026-11-16T15:23:40.975Z"
     },
     "anker swiss ticino ag|erstfeld|UR": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "6472",
       "addressLocality": "Erstfeld",
       "addressRegion": "UR",
-      "checkedAt": "2026-10-31T20:47:54.924Z"
+      "checkedAt": "2026-11-16T15:23:39.058Z"
     },
     "anker swiss ticino ag|unterkulm|AG": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "5726",
       "addressLocality": "Unterkulm",
       "addressRegion": "AG",
-      "checkedAt": "2026-10-31T20:47:54.924Z"
+      "checkedAt": "2026-11-16T15:23:40.975Z"
     },
     "anker swiss ticino ag|rothrist|AG": {
       "status": "not-found",
@@ -1858,9 +1914,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "6074",
       "addressLocality": "Giswil",
       "addressRegion": "OW",
-      "checkedAt": "2026-10-31T20:47:54.924Z"
+      "checkedAt": "2026-11-16T15:23:40.975Z"
     },
     "anker swiss ticino ag|muntelier|FR": {
       "status": "not-found",
@@ -1882,9 +1939,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3612",
       "addressLocality": "Steffisburg",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:55.190Z"
+      "checkedAt": "2026-11-16T15:23:40.975Z"
     },
     "anker swiss ticino ag|aefligen|BE": {
       "status": "not-found",
@@ -1898,9 +1956,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3661",
       "addressLocality": "Uetendorf",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:55.190Z"
+      "checkedAt": "2026-11-16T15:23:40.975Z"
     },
     "anker swiss ticino ag|interlaken|BE": {
       "status": "not-found",
@@ -1914,9 +1973,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Coop Genossenschaft",
+      "jobPostalCode": "3800",
       "addressLocality": "Interlaken",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:55.190Z"
+      "checkedAt": "2026-11-16T15:23:42.811Z"
     },
     "anker swiss ticino ag|kirchleerau|AG": {
       "status": "not-found",
@@ -1930,33 +1990,37 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "6130",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
-      "checkedAt": "2026-10-31T20:47:55.190Z"
+      "checkedAt": "2026-11-16T15:23:40.975Z"
     },
     "brack alltron ag|willisau|LU": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Brack.Alltron AG",
+      "jobPostalCode": "6130",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
-      "checkedAt": "2026-10-31T20:47:55.190Z"
+      "checkedAt": "2026-11-16T15:23:40.975Z"
     },
     "anker swiss ticino ag|ittigen|BE": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3063",
       "addressLocality": "Ittigen",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:55.190Z"
+      "checkedAt": "2026-11-16T15:23:40.975Z"
     },
     "confederazione svizzera|ittigen|BE": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Confederazione Svizzera",
+      "jobPostalCode": "3063",
       "addressLocality": "Ittigen",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:55.190Z"
+      "checkedAt": "2026-11-16T15:23:40.975Z"
     },
     "anker swiss ticino ag|freimettigen|BE": {
       "status": "not-found",
@@ -1989,25 +2053,28 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino",
+      "jobPostalCode": "6850",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
-      "checkedAt": "2026-10-31T20:47:55.560Z"
+      "checkedAt": "2026-11-16T15:23:42.811Z"
     },
     "convit holding gmbh|mendrisio|TI": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Convit Holding GmbH",
+      "jobPostalCode": "6850",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
-      "checkedAt": "2026-10-31T20:47:55.560Z"
+      "checkedAt": "2026-11-16T15:23:42.811Z"
     },
     "coop|mendrisio|TI": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Coop",
+      "jobPostalCode": "6850",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
-      "checkedAt": "2026-10-31T20:47:55.560Z"
+      "checkedAt": "2026-11-16T15:23:42.811Z"
     },
     "anker swiss ticino ag|leutwil|AG": {
       "status": "not-found",
@@ -2029,9 +2096,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3123",
       "addressLocality": "Belp",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:55.560Z"
+      "checkedAt": "2026-11-16T15:23:42.811Z"
     },
     "anker swiss ticino ag|gwatt thun|BE": {
       "status": "not-found",
@@ -2045,9 +2113,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "6017",
       "addressLocality": "Ruswil",
       "addressRegion": "LU",
-      "checkedAt": "2026-10-31T20:47:55.560Z"
+      "checkedAt": "2026-11-16T15:23:42.811Z"
     },
     "anker swiss ticino ag|erschwil|SO": {
       "status": "not-found",
@@ -2069,89 +2138,100 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3132",
       "addressLocality": "Riggisberg",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:55.560Z"
+      "checkedAt": "2026-11-16T15:23:42.811Z"
     },
     "anker swiss ticino ag|solothurn|SO": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "4500",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "checkedAt": "2026-10-31T20:47:56.033Z"
+      "checkedAt": "2026-11-16T15:23:44.632Z"
     },
     "c a schweiz|solothurn|SO": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "C&A Schweiz",
+      "jobPostalCode": "4500",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
-      "checkedAt": "2026-10-31T20:47:56.033Z"
+      "checkedAt": "2026-11-16T15:23:44.632Z"
     },
     "anker swiss ticino ag|burgdorf|BE": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3400",
       "addressLocality": "Burgdorf",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:56.033Z"
+      "checkedAt": "2026-11-16T15:23:42.811Z"
     },
     "anker swiss ticino ag|lachen|SZ": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "8853",
       "addressLocality": "Lachen",
       "addressRegion": "SZ",
-      "checkedAt": "2026-10-31T20:47:56.033Z"
+      "checkedAt": "2026-11-16T15:23:42.811Z"
     },
     "anker swiss ticino ag|munchenstein|BL": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "4142",
       "addressLocality": "Münchenstein",
       "addressRegion": "BL",
-      "checkedAt": "2026-10-31T20:47:56.033Z"
+      "checkedAt": "2026-11-16T15:23:42.811Z"
     },
     "anker swiss ticino ag|nidau|BE": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "2560",
       "addressLocality": "Nidau",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:56.033Z"
+      "checkedAt": "2026-11-16T15:23:44.632Z"
     },
     "anker swiss ticino ag|buron|LU": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "6233",
       "addressLocality": "Büron",
       "addressRegion": "LU",
-      "checkedAt": "2026-10-31T20:47:56.033Z"
+      "checkedAt": "2026-11-16T15:23:42.811Z"
     },
     "anker swiss ticino ag|sissach|BL": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "4450",
       "addressLocality": "Sissach",
       "addressRegion": "BL",
-      "checkedAt": "2026-10-31T20:47:56.033Z"
+      "checkedAt": "2026-11-16T15:23:44.632Z"
     },
     "anker swiss ticino ag|orpund|BE": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "2552",
       "addressLocality": "Orpund",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:56.033Z"
+      "checkedAt": "2026-11-16T15:23:44.632Z"
     },
     "anker swiss ticino ag|wurenlingen|AG": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "5303",
       "addressLocality": "Würenlingen",
       "addressRegion": "AG",
-      "checkedAt": "2026-10-31T20:47:56.033Z"
+      "checkedAt": "2026-11-16T15:23:44.632Z"
     },
     "c a schweiz|wurenlingen|AG": {
       "status": "not-found",
@@ -2165,49 +2245,55 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "2576",
       "addressLocality": "Lüscherz",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:56.033Z"
+      "checkedAt": "2026-11-16T15:23:42.811Z"
     },
     "anker swiss ticino ag|erlinsbach so|SO": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "5015",
       "addressLocality": "Erlinsbach SO",
       "addressRegion": "SO",
-      "checkedAt": "2026-10-31T20:47:56.381Z"
+      "checkedAt": "2026-11-16T15:23:44.632Z"
     },
     "anker swiss ticino ag|ostermundigen|BE": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3072",
       "addressLocality": "Ostermundigen",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:56.381Z"
+      "checkedAt": "2026-11-16T15:23:46.481Z"
     },
     "anker swiss ticino ag|krauchthal|BE": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3326",
       "addressLocality": "Krauchthal",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:56.381Z"
+      "checkedAt": "2026-11-16T15:23:46.481Z"
     },
     "anker swiss ticino ag|herzogenbuchsee|BE": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3360",
       "addressLocality": "Herzogenbuchsee",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:56.381Z"
+      "checkedAt": "2026-11-16T15:23:46.481Z"
     },
     "anker swiss ticino ag|aegerten|BE": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "2558",
       "addressLocality": "Aegerten",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:56.381Z"
+      "checkedAt": "2026-11-16T15:23:44.632Z"
     },
     "anker swiss ticino ag|alpnach dorf|OW": {
       "status": "not-found",
@@ -2221,9 +2307,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3280",
       "addressLocality": "Greng",
       "addressRegion": "FR",
-      "checkedAt": "2026-10-31T20:47:56.381Z"
+      "checkedAt": "2026-11-16T15:23:44.632Z"
     },
     "anker swiss ticino ag|aarau rohr|AG": {
       "status": "not-found",
@@ -2237,41 +2324,46 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "5000",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
-      "checkedAt": "2026-10-31T20:47:56.381Z"
+      "checkedAt": "2026-11-16T15:23:44.632Z"
     },
     "bank cler|aarau|AG": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Bank Cler",
+      "jobPostalCode": "5000",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
-      "checkedAt": "2026-10-31T20:47:56.381Z"
+      "checkedAt": "2026-11-16T15:23:44.632Z"
     },
     "coop genossenschaft|aarau|AG": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Coop Genossenschaft",
+      "jobPostalCode": "5000",
       "addressLocality": "Aarau",
       "addressRegion": "AG",
-      "checkedAt": "2026-10-31T20:47:56.381Z"
+      "checkedAt": "2026-11-16T15:23:44.632Z"
     },
     "anker swiss ticino ag|gstaad|BE": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3780",
       "addressLocality": "Gstaad",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:56.381Z"
+      "checkedAt": "2026-11-16T15:23:44.632Z"
     },
     "axa svizzera|gstaad|BE": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "AXA Svizzera",
+      "jobPostalCode": "3780",
       "addressLocality": "Gstaad",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:56.381Z"
+      "checkedAt": "2026-11-16T15:23:44.632Z"
     },
     "anker swiss ticino ag|staffelbach|AG": {
       "status": "not-found",
@@ -2301,9 +2393,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Ardentis",
+      "jobPostalCode": "1950",
       "addressLocality": "Sion",
       "addressRegion": "VS",
-      "checkedAt": "2026-10-31T20:47:57.017Z"
+      "checkedAt": "2026-11-16T15:23:46.481Z"
     },
     "banque cantonale du valais|sion|VS": {
       "status": "matched",
@@ -2320,17 +2413,19 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Canton du Valais",
+      "jobPostalCode": "1950",
       "addressLocality": "Sion",
       "addressRegion": "VS",
-      "checkedAt": "2026-10-31T20:47:57.017Z"
+      "checkedAt": "2026-11-16T15:23:46.481Z"
     },
     "coop city|sion|VS": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Coop City",
+      "jobPostalCode": "1950",
       "addressLocality": "Sion",
       "addressRegion": "VS",
-      "checkedAt": "2026-10-31T20:47:57.017Z"
+      "checkedAt": "2026-11-16T15:23:46.481Z"
     },
     "apleona schweiz ag|koniz liebefeld|BE": {
       "status": "not-found",
@@ -2352,17 +2447,19 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Bosch Thermotechnik AG",
+      "jobPostalCode": "8957",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
-      "checkedAt": "2026-10-31T20:47:57.017Z"
+      "checkedAt": "2026-11-16T15:23:46.481Z"
     },
     "c a schweiz|spreitenbach|AG": {
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "C&A Schweiz",
+      "jobPostalCode": "8957",
       "addressLocality": "Spreitenbach",
       "addressRegion": "AG",
-      "checkedAt": "2026-10-31T20:47:57.017Z"
+      "checkedAt": "2026-11-16T15:23:46.481Z"
     },
     "apleona schweiz ag|zurich und umgebung|ZH": {
       "status": "not-found",
@@ -2376,9 +2473,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "Apleona Schweiz AG",
+      "jobPostalCode": "6037",
       "addressLocality": "Root",
       "addressRegion": "LU",
-      "checkedAt": "2026-10-31T20:47:57.017Z"
+      "checkedAt": "2026-11-16T15:23:46.481Z"
     },
     "apleona schweiz ag|zurich oerlikon|ZH": {
       "status": "not-found",
@@ -2400,9 +2498,10 @@
       "status": "not-found",
       "source": "zefix-lindas",
       "companyName": "BLS AG",
+      "jobPostalCode": "3806",
       "addressLocality": "Bönigen",
       "addressRegion": "BE",
-      "checkedAt": "2026-10-31T20:47:57.017Z"
+      "checkedAt": "2026-11-16T15:23:46.481Z"
     },
     "apleona schweiz ag|basel und umgebung|BS": {
       "status": "not-found",
@@ -52059,6 +52158,4415 @@
       "addressLocality": "Rennaz",
       "addressRegion": "VD",
       "checkedAt": "2026-11-09T15:45:35.733Z"
+    },
+    "anker swiss ticino ag|bellinzona|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "collardi|bellinzona|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Collardi",
+      "jobPostalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "baumont ag|bellinzona|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Baumont AG",
+      "jobPostalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "bank cler|bellinzona|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Bank Cler",
+      "jobPostalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "flexsis sa succursale di lugano|bellinzona|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Flexsis SA, succursale di Lugano",
+      "jobPostalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "organizzazione sociopsichiatrica cantonale osc cantone ticino|bellinzona|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino",
+      "jobPostalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "anker swiss ticino ag|recherswil|SO": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "4565",
+      "addressLocality": "Recherswil",
+      "addressRegion": "SO",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "srg ssr|lugano|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "SRG SSR",
+      "jobPostalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "flexsis ag mendrisio|lugano|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Flexsis AG, Mendrisio",
+      "jobPostalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "collardi|lugano|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Collardi",
+      "jobPostalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "la pulimania sagl|lugano|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "La Pulimania Sagl",
+      "jobPostalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "avec competence gmbh|lugano|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "avec compétence GmbH",
+      "jobPostalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "confederazione svizzera|lugano|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Confederazione Svizzera",
+      "jobPostalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "point service interim sa|lugano|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Point Service Interim SA",
+      "jobPostalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "ok job sa|lugano|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "OK JOB SA",
+      "jobPostalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "vf international the north face timberland|lugano|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "VF International (The North Face, Timberland)",
+      "jobPostalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "organizzazione sociopsichiatrica cantonale osc cantone ticino|lugano|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Organizzazione Sociopsichiatrica Cantonale (OSC) — Cantone Ticino",
+      "jobPostalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "fondazione la fonte|lugano|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Fondazione La Fonte",
+      "jobPostalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "artificialy|lugano|TI": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "Artificialy",
+      "streetAddress": "Via Ferruccio Pelli 13",
+      "postalCode": "6900",
+      "registeredName": "Artificialy SA",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "supsi dti|lugano|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "SUPSI / DTI",
+      "jobPostalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "tarchini group|lugano|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Tarchini Group",
+      "jobPostalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "die schweizerische post ag|scuol|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Die Schweizerische Post AG",
+      "jobPostalCode": "7550",
+      "addressLocality": "Scuol",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "die schweizerische post ag|kublis|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Die Schweizerische Post AG",
+      "jobPostalCode": "7240",
+      "addressLocality": "Küblis",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "careerplus sa|sion|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Careerplus SA",
+      "jobPostalCode": "1950",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "l hopital du valais|sion|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "L'Hôpital du Valais",
+      "jobPostalCode": "1950",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "vaudoise assurances|sion|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Vaudoise Assurances",
+      "jobPostalCode": "1950",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "academic work switzerland sa|sion|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Academic Work Switzerland SA",
+      "jobPostalCode": "1950",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "sonic suisse labs sa|sion|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Sonic Suisse Labs SA",
+      "jobPostalCode": "1950",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "les blanchisseries generales lbg sa|sion|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Les Blanchisseries Générales LBG SA",
+      "jobPostalCode": "1950",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "creditx sarl|sion|VS": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "CreditX Sàrl",
+      "streetAddress": "Place de l'Aubade 3",
+      "postalCode": "1950",
+      "registeredName": "CreditX Sàrl",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "1950",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "vermeil architectes sarl|sion|VS": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "vermeil architectes Sàrl",
+      "streetAddress": "Rue de l'Industrie 54",
+      "postalCode": "1950",
+      "registeredName": "vermeil architectes Sàrl",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "1950",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "eta sa swatch group|sion|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "ETA SA (Swatch Group)",
+      "jobPostalCode": "1950",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "spitex regioseuzach|seuzach|ZH": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "Spitex RegioSeuzach",
+      "streetAddress": "Breitestrasse 8b",
+      "postalCode": "8472",
+      "registeredName": "Spitex RegioSeuzach",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "8472",
+      "addressLocality": "Seuzach",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "yellowshark ag|bolligen|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "yellowshark AG",
+      "jobPostalCode": "3065",
+      "addressLocality": "Bolligen",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "yellowshark ag|arlesheim|BL": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "yellowshark AG",
+      "jobPostalCode": "4144",
+      "addressLocality": "Arlesheim",
+      "addressRegion": "BL",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "concordia schweizerische kranken und unfallversicherung|chur|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "CONCORDIA Schweizerische Kranken- und Unfallversicherung",
+      "jobPostalCode": "7000",
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "coople ag|chur|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Coople AG",
+      "jobPostalCode": "7000",
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "baumont ag|chur|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Baumont AG",
+      "jobPostalCode": "7000",
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "coop ristorante|chur|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Coop Ristorante",
+      "jobPostalCode": "7000",
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "schiesser schweiz gmbh|chur|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "SCHIESSER Schweiz GmbH",
+      "jobPostalCode": "7000",
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "spotted|chur|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Spotted",
+      "jobPostalCode": "7000",
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "camion transport ag|chur|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Camion-Transport AG",
+      "jobPostalCode": "7000",
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "medizinisches center bonaduz|chur|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Medizinisches Center Bonaduz",
+      "jobPostalCode": "7000",
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "schenker storen|chur|GR": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "Schenker Storen",
+      "streetAddress": "Grossbruggerweg 4",
+      "postalCode": "7000",
+      "registeredName": "Schenker Storen AG",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "7000",
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "vokus personal ag|chur|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Vokus Personal AG",
+      "jobPostalCode": "7000",
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "itech consult ag|chur|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "ITech Consult AG",
+      "jobPostalCode": "7000",
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:25.553Z"
+    },
+    "concordia schweizerische kranken und unfallversicherung|eyholz|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "CONCORDIA Schweizerische Kranken- und Unfallversicherung",
+      "jobPostalCode": "3930",
+      "addressLocality": "Eyholz",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "hopital du valais|eyholz|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Hôpital du Valais",
+      "jobPostalCode": "3930",
+      "addressLocality": "Eyholz",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "medimeo ag|brig|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Medimeo AG",
+      "jobPostalCode": "3900",
+      "addressLocality": "Brig",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "neho|brig|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Neho",
+      "jobPostalCode": "3900",
+      "addressLocality": "Brig",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "stiftung fernfachhochschule schweiz brig ffh ch|brig|VS": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "Stiftung Fernfachhochschule Schweiz, Brig FFH-CH",
+      "streetAddress": "Schinerstrasse 18",
+      "postalCode": "3900",
+      "registeredName": "Stiftung Fernfachhochschule Schweiz, Brig FFH-CH",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "3900",
+      "addressLocality": "Brig",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "woma work management ag|klosters|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Woma Work Management AG",
+      "jobPostalCode": "7250",
+      "addressLocality": "Klosters",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "vereina|klosters|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Vereina",
+      "jobPostalCode": "7250",
+      "addressLocality": "Klosters",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "hamilton medical ag|domat ems|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Hamilton Medical AG",
+      "jobPostalCode": "7013",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "railcare|domat ems|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "railCare",
+      "jobPostalCode": "7013",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "andsan gastro ag|domat ems|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "ANDSAN Gastro AG",
+      "jobPostalCode": "7013",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "postauto ag|bad ragaz|SG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "PostAuto AG",
+      "jobPostalCode": "7310",
+      "addressLocality": "Bad Ragaz",
+      "addressRegion": "SG",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "yellowshark ag|fribourg|FR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "yellowshark AG",
+      "jobPostalCode": "1700",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "societe cooperative migros neuchatel fribourg|fribourg|FR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Société coopérative Migros Neuchâtel-Fribourg",
+      "jobPostalCode": "1700",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "lip suisse|fribourg|FR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "LIP Suisse",
+      "jobPostalCode": "1700",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "hilti|fribourg|FR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Hilti",
+      "jobPostalCode": "1700",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "rittmeyer ag|fribourg|FR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Rittmeyer AG",
+      "jobPostalCode": "1700",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "ok job sa succursale di mendrisio|fribourg|FR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "OK Job SA, succursale di Mendrisio",
+      "jobPostalCode": "1700",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "grischa personal ag|landquart|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Grischa Personal AG",
+      "jobPostalCode": "7302",
+      "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "julius meinl ag|landquart|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Julius Meinl AG",
+      "jobPostalCode": "7302",
+      "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "takko fashion schweiz ag|landquart|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Takko Fashion (Schweiz) AG",
+      "jobPostalCode": "7302",
+      "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "repower ag|landquart|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Repower AG",
+      "jobPostalCode": "7302",
+      "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "swisscom directories ag|landquart|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Swisscom Directories AG",
+      "jobPostalCode": "7302",
+      "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "zurich generalagentur pieder decurtins|thusis|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Zürich, Generalagentur Pieder Decurtins",
+      "jobPostalCode": "7430",
+      "addressLocality": "Thusis",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "collardi|camorino|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Collardi",
+      "jobPostalCode": "6528",
+      "addressLocality": "Camorino",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "job ticino sa|camorino|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "JOB Ticino SA",
+      "jobPostalCode": "6528",
+      "addressLocality": "Camorino",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "avec competence gmbh|stabio|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "avec compétence GmbH",
+      "jobPostalCode": "6855",
+      "addressLocality": "Stabio",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "ronda ag|stabio|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Ronda AG",
+      "jobPostalCode": "6855",
+      "addressLocality": "Stabio",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "flexsis sa|stabio|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Flexsis SA",
+      "jobPostalCode": "6855",
+      "addressLocality": "Stabio",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:27.469Z"
+    },
+    "collardi|visp|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Collardi",
+      "jobPostalCode": "3930",
+      "addressLocality": "Visp",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:29.680Z"
+    },
+    "die schweizerische post ag|visp|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Die Schweizerische Post AG",
+      "jobPostalCode": "3930",
+      "addressLocality": "Visp",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:29.680Z"
+    },
+    "commune de conthey|st severin|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Commune de Conthey",
+      "jobPostalCode": "1975",
+      "addressLocality": "St-Séverin",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:29.680Z"
+    },
+    "inera sa|monthey|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "INERA SA",
+      "jobPostalCode": "1870",
+      "addressLocality": "Monthey",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:29.680Z"
+    },
+    "fed group|monthey|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Fed Group",
+      "jobPostalCode": "1870",
+      "addressLocality": "Monthey",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:29.680Z"
+    },
+    "rent a person beratungs ag|monthey|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Rent a person Beratungs AG",
+      "jobPostalCode": "1870",
+      "addressLocality": "Monthey",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:29.680Z"
+    },
+    "neho|martigny|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Neho",
+      "jobPostalCode": "1920",
+      "addressLocality": "Martigny",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:29.680Z"
+    },
+    "creabeton materiaux ag|granges|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Creabeton Matériaux AG",
+      "jobPostalCode": "3977",
+      "addressLocality": "Granges",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:29.680Z"
+    },
+    "creabeton ag|granges|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "CREABETON AG",
+      "jobPostalCode": "3977",
+      "addressLocality": "Granges",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:29.680Z"
+    },
+    "spitex regioarbon|arbon|TG": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "Spitex RegioArbon",
+      "streetAddress": "Amriswilerstrasse 50",
+      "postalCode": "9320",
+      "registeredName": "Spitex RegioArbon",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "9320",
+      "addressLocality": "Arbon",
+      "addressRegion": "TG",
+      "checkedAt": "2026-11-16T15:22:29.680Z"
+    },
+    "die schweizerische post|arbon|TG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Die Schweizerische Post",
+      "jobPostalCode": "9320",
+      "addressLocality": "Arbon",
+      "addressRegion": "TG",
+      "checkedAt": "2026-11-16T15:22:29.680Z"
+    },
+    "spitex bachtel ag|gossau zh|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Spitex Bachtel AG",
+      "jobPostalCode": "8625",
+      "addressLocality": "Gossau (ZH)",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:29.680Z"
+    },
+    "anker swiss ticino ag|hondrich|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3702",
+      "addressLocality": "Hondrich",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:29.680Z"
+    },
+    "anker swiss ticino ag|winterthur|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "8400",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:29.680Z"
+    },
+    "decathlon|winterthur|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Decathlon",
+      "jobPostalCode": "8400",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:29.680Z"
+    },
+    "seiro gmbh|winterthur|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "SEIRO GmbH",
+      "jobPostalCode": "8400",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:29.680Z"
+    },
+    "rittmeyer ag|winterthur|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Rittmeyer AG",
+      "jobPostalCode": "8400",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:29.680Z"
+    },
+    "die mobiliar|winterthur|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "die Mobiliar",
+      "jobPostalCode": "8400",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:29.680Z"
+    },
+    "transgourmet|winterthur|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Transgourmet",
+      "jobPostalCode": "8400",
+      "addressLocality": "Winterthur",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:29.680Z"
+    },
+    "anker swiss ticino ag|spreitenbach|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "8957",
+      "addressLocality": "Spreitenbach",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:22:29.680Z"
+    },
+    "anker swiss ticino ag|flumenthal|SO": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "4534",
+      "addressLocality": "Flumenthal",
+      "addressRegion": "SO",
+      "checkedAt": "2026-11-16T15:22:34.121Z"
+    },
+    "anker swiss ticino ag|lostorf|SO": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "4654",
+      "addressLocality": "Lostorf",
+      "addressRegion": "SO",
+      "checkedAt": "2026-11-16T15:22:34.121Z"
+    },
+    "anker swiss ticino ag|sursee|LU": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "6210",
+      "addressLocality": "Sursee",
+      "addressRegion": "LU",
+      "checkedAt": "2026-11-16T15:22:34.121Z"
+    },
+    "data unit ag|sursee|LU": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "DATA UNIT AG",
+      "streetAddress": "Surentalstrasse 10",
+      "postalCode": "6210",
+      "registeredName": "Data-Unit AG",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "6210",
+      "addressLocality": "Sursee",
+      "addressRegion": "LU",
+      "checkedAt": "2026-11-16T15:22:34.121Z"
+    },
+    "anker swiss ticino ag|kriens|LU": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "6010",
+      "addressLocality": "Kriens",
+      "addressRegion": "LU",
+      "checkedAt": "2026-11-16T15:22:34.121Z"
+    },
+    "asanti ag|bern|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Asanti AG",
+      "jobPostalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:34.121Z"
+    },
+    "strabag ag|bern|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "STRABAG AG",
+      "jobPostalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:34.121Z"
+    },
+    "swica gesundheitsorganisation|bern|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "SWICA Gesundheitsorganisation",
+      "jobPostalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:34.121Z"
+    },
+    "apg sga|bern|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "APG|SGA",
+      "jobPostalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:34.121Z"
+    },
+    "privatklinik wyss|bern|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Privatklinik Wyss",
+      "jobPostalCode": "3004",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:34.121Z"
+    },
+    "helsana|luzern|LU": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Helsana",
+      "jobPostalCode": "6003",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "checkedAt": "2026-11-16T15:22:34.121Z"
+    },
+    "roger dubuis|meyrin|GE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Roger Dubuis",
+      "jobPostalCode": "1217",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "checkedAt": "2026-11-16T15:22:34.121Z"
+    },
+    "societe cooperative migros geneve|meyrin|GE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Société coopérative Migros Genève",
+      "jobPostalCode": "1217",
+      "addressLocality": "Meyrin",
+      "addressRegion": "GE",
+      "checkedAt": "2026-11-16T15:22:34.121Z"
+    },
+    "ckw|buttisholz|LU": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "CKW",
+      "jobPostalCode": "6018",
+      "addressLocality": "Buttisholz",
+      "addressRegion": "LU",
+      "checkedAt": "2026-11-16T15:22:34.121Z"
+    },
+    "confederazione svizzera|emmen|LU": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Confederazione Svizzera",
+      "jobPostalCode": "6032",
+      "addressLocality": "Emmen",
+      "addressRegion": "LU",
+      "checkedAt": "2026-11-16T15:22:34.121Z"
+    },
+    "jysk|emmen|LU": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "JYSK",
+      "jobPostalCode": "6032",
+      "addressLocality": "Emmen",
+      "addressRegion": "LU",
+      "checkedAt": "2026-11-16T15:22:34.121Z"
+    },
+    "coop genossenschaft|zernez|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Coop Genossenschaft",
+      "jobPostalCode": "7530",
+      "addressLocality": "Zernez",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:34.121Z"
+    },
+    "ikea|st gallen|SG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "IKEA",
+      "jobPostalCode": "9000",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "checkedAt": "2026-11-16T15:22:37.081Z"
+    },
+    "decathlon|st gallen|SG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Decathlon",
+      "jobPostalCode": "9000",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "checkedAt": "2026-11-16T15:22:37.081Z"
+    },
+    "seiro gmbh|st gallen|SG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "SEIRO GmbH",
+      "jobPostalCode": "9000",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "checkedAt": "2026-11-16T15:22:37.081Z"
+    },
+    "lidl svizzera|st gallen|SG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Lidl Svizzera",
+      "jobPostalCode": "9000",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "checkedAt": "2026-11-16T15:22:37.081Z"
+    },
+    "banca cler|st gallen|SG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Banca Cler",
+      "jobPostalCode": "9000",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "checkedAt": "2026-11-16T15:22:37.081Z"
+    },
+    "apleona schweiz ag|st gallen|SG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Apleona Schweiz AG",
+      "jobPostalCode": "9000",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "checkedAt": "2026-11-16T15:22:37.081Z"
+    },
+    "genossenschaft migros aare|heimberg|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Genossenschaft Migros Aare",
+      "jobPostalCode": "3627",
+      "addressLocality": "Heimberg",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:37.081Z"
+    },
+    "genossenschaft migros luzern|hunenberg|ZG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Genossenschaft Migros Luzern",
+      "jobPostalCode": "6331",
+      "addressLocality": "Hünenberg",
+      "addressRegion": "ZG",
+      "checkedAt": "2026-11-16T15:22:37.081Z"
+    },
+    "migros take away|liestal|BL": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Migros Take Away",
+      "jobPostalCode": "4410",
+      "addressLocality": "Liestal",
+      "addressRegion": "BL",
+      "checkedAt": "2026-11-16T15:22:37.081Z"
+    },
+    "seiro gmbh|liestal|BL": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "SEIRO GmbH",
+      "jobPostalCode": "4410",
+      "addressLocality": "Liestal",
+      "addressRegion": "BL",
+      "checkedAt": "2026-11-16T15:22:37.081Z"
+    },
+    "pizzeria ristorante molino|lancy|GE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Pizzeria Ristorante Molino",
+      "jobPostalCode": "1213",
+      "addressLocality": "Lancy",
+      "addressRegion": "GE",
+      "checkedAt": "2026-11-16T15:22:37.081Z"
+    },
+    "societe cooperative migros geneve|chene bourg|GE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Société coopérative Migros Genève",
+      "jobPostalCode": "1225",
+      "addressLocality": "Chêne-Bourg",
+      "addressRegion": "GE",
+      "checkedAt": "2026-11-16T15:22:37.081Z"
+    },
+    "societe cooperative migros neuchatel fribourg|neuchatel|NE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Société coopérative Migros Neuchâtel-Fribourg",
+      "jobPostalCode": "2000",
+      "addressLocality": "Neuchâtel",
+      "addressRegion": "NE",
+      "checkedAt": "2026-11-16T15:22:37.081Z"
+    },
+    "pemsa|neuchatel|NE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "PEMSA",
+      "jobPostalCode": "2000",
+      "addressLocality": "Neuchâtel",
+      "addressRegion": "NE",
+      "checkedAt": "2026-11-16T15:22:37.081Z"
+    },
+    "ok job sa succursale di mendrisio|neuchatel|NE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "OK Job SA, succursale di Mendrisio",
+      "jobPostalCode": "2000",
+      "addressLocality": "Neuchâtel",
+      "addressRegion": "NE",
+      "checkedAt": "2026-11-16T15:22:37.081Z"
+    },
+    "societe cooperative migros neuchatel fribourg|colombier|NE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Société coopérative Migros Neuchâtel-Fribourg",
+      "jobPostalCode": "2013",
+      "addressLocality": "Colombier",
+      "addressRegion": "NE",
+      "checkedAt": "2026-11-16T15:22:37.081Z"
+    },
+    "societe cooperative migros neuchatel fribourg|cernier|NE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Société coopérative Migros Neuchâtel-Fribourg",
+      "jobPostalCode": "2053",
+      "addressLocality": "Cernier",
+      "addressRegion": "NE",
+      "checkedAt": "2026-11-16T15:22:37.081Z"
+    },
+    "raiffeisen|rorschach|SG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Raiffeisen",
+      "jobPostalCode": "9400",
+      "addressLocality": "Rorschach",
+      "addressRegion": "SG",
+      "checkedAt": "2026-11-16T15:22:37.081Z"
+    },
+    "swiss medical network|glion|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Swiss Medical Network",
+      "jobPostalCode": "1823",
+      "addressLocality": "Glion",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:22:38.989Z"
+    },
+    "yellowshark ag|derendingen|SO": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "yellowshark AG",
+      "jobPostalCode": "4552",
+      "addressLocality": "Derendingen",
+      "addressRegion": "SO",
+      "checkedAt": "2026-11-16T15:22:38.989Z"
+    },
+    "lidl svizzera|derendingen|SO": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Lidl Svizzera",
+      "jobPostalCode": "4552",
+      "addressLocality": "Derendingen",
+      "addressRegion": "SO",
+      "checkedAt": "2026-11-16T15:22:38.989Z"
+    },
+    "yellowshark ag|uetikon am see|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "yellowshark AG",
+      "jobPostalCode": "8707",
+      "addressLocality": "Uetikon am See",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:38.989Z"
+    },
+    "medbase|kreuzlingen|TG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Medbase",
+      "jobPostalCode": "8280",
+      "addressLocality": "Kreuzlingen",
+      "addressRegion": "TG",
+      "checkedAt": "2026-11-16T15:22:38.989Z"
+    },
+    "privatklinik meiringen|hasliberg|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Privatklinik Meiringen",
+      "jobPostalCode": "6083",
+      "addressLocality": "Hasliberg",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:38.989Z"
+    },
+    "ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton bern|hasliberg|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "jobPostalCode": "6083",
+      "addressLocality": "Hasliberg",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:38.989Z"
+    },
+    "lidl svizzera|biel|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Lidl Svizzera",
+      "addressLocality": "Biel",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:38.989Z"
+    },
+    "vaudoise assurances|delemont|JU": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Vaudoise Assurances",
+      "jobPostalCode": "2800",
+      "addressLocality": "Delémont",
+      "addressRegion": "JU",
+      "checkedAt": "2026-11-16T15:22:38.989Z"
+    },
+    "coopers group ag|tessin|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Coopers Group AG",
+      "jobPostalCode": "6500",
+      "addressLocality": "Tessin",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:38.989Z"
+    },
+    "ufficio federale dello sport ufspo|tenero|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Ufficio federale dello sport UFSPO",
+      "jobPostalCode": "6598",
+      "addressLocality": "Tenero",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:38.989Z"
+    },
+    "office federal du sport ofspo|tenero|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Office fédéral du sport OFSPO",
+      "jobPostalCode": "6598",
+      "addressLocality": "Tenero",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:38.989Z"
+    },
+    "baumont ag|mendrisio|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Baumont AG",
+      "jobPostalCode": "6850",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:38.989Z"
+    },
+    "point service interim sa|mendrisio|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Point Service Interim SA",
+      "jobPostalCode": "6850",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:38.989Z"
+    },
+    "ok job sa|mendrisio|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "OK JOB SA",
+      "jobPostalCode": "6850",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:38.989Z"
+    },
+    "supsi dti|mendrisio|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "SUPSI / DTI",
+      "jobPostalCode": "6850",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:38.989Z"
+    },
+    "tarchini group|mendrisio|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Tarchini Group",
+      "jobPostalCode": "6850",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:38.989Z"
+    },
+    "team personnel solutions sa|riazzino|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Team Personnel Solutions SA",
+      "jobPostalCode": "6595",
+      "addressLocality": "Riazzino",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:40.528Z"
+    },
+    "workmanagement ag|zizers|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Workmanagement AG",
+      "jobPostalCode": "7205",
+      "addressLocality": "Zizers",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:40.528Z"
+    },
+    "adecco|zizers|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Adecco",
+      "jobPostalCode": "7205",
+      "addressLocality": "Zizers",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:40.528Z"
+    },
+    "endeso gmbh|zizers|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "endeso GmbH",
+      "jobPostalCode": "7205",
+      "addressLocality": "Zizers",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:40.528Z"
+    },
+    "avec competence gmbh|zizers|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "avec compétence GmbH",
+      "jobPostalCode": "7205",
+      "addressLocality": "Zizers",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:40.528Z"
+    },
+    "sigma talent sa|verbier|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "SIGMA Talent SA",
+      "jobPostalCode": "1936",
+      "addressLocality": "Verbier",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:40.528Z"
+    },
+    "excellent personal dienstleistungen sursee ag|verbier|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Excellent Personal- dienstleistungen Sursee AG",
+      "jobPostalCode": "1936",
+      "addressLocality": "Verbier",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:40.528Z"
+    },
+    "nb deneigement sarl|verbier|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "NB déneigement Sàrl",
+      "jobPostalCode": "1936",
+      "addressLocality": "Verbier",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:40.528Z"
+    },
+    "jabil|raron|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Jabil",
+      "jobPostalCode": "3942",
+      "addressLocality": "Raron",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:40.528Z"
+    },
+    "adecco|raron|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Adecco",
+      "jobPostalCode": "3942",
+      "addressLocality": "Raron",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:40.528Z"
+    },
+    "opus personale sa zweigniederlassung bellinzona|sigirino|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "OPUS Personale SA, Zweigniederlassung Bellinzona",
+      "jobPostalCode": "6806",
+      "addressLocality": "Sigirino",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:40.528Z"
+    },
+    "centre medico social martigny regions|sembrancher|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Centre médico-social Martigny & Régions",
+      "jobPostalCode": "1933",
+      "addressLocality": "Sembrancher",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:40.528Z"
+    },
+    "agat placements fixes et temporaires sa|sembrancher|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "AGAT ! Placements fixes et temporaires SA",
+      "jobPostalCode": "1933",
+      "addressLocality": "Sembrancher",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:40.528Z"
+    },
+    "adecco|tinizong|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Adecco",
+      "jobPostalCode": "7453",
+      "addressLocality": "Tinizong",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:40.528Z"
+    },
+    "taillens sa boulangerie patisserie tea room salon de the|lens|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Taillens SA Boulangerie - Pâtisserie & Tea-Room Salon de the",
+      "jobPostalCode": "1978",
+      "addressLocality": "Lens",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:40.528Z"
+    },
+    "tschuggen collection ag|ascona|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Tschuggen Collection AG",
+      "jobPostalCode": "6612",
+      "addressLocality": "Ascona",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:40.528Z"
+    },
+    "hugo boss|ascona|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Hugo Boss",
+      "jobPostalCode": "6612",
+      "addressLocality": "Ascona",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:40.528Z"
+    },
+    "tschuggen collection|ascona|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Tschuggen Collection",
+      "jobPostalCode": "6612",
+      "addressLocality": "Ascona",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:40.528Z"
+    },
+    "strabag ag|subingen|SO": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "STRABAG AG",
+      "jobPostalCode": "4553",
+      "addressLocality": "Subingen",
+      "addressRegion": "SO",
+      "checkedAt": "2026-11-16T15:22:40.528Z"
+    },
+    "lip suisse|geneve|GE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "LIP Suisse",
+      "jobPostalCode": "1201",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "checkedAt": "2026-11-16T15:22:44.963Z"
+    },
+    "bucherer|geneve|GE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Bucherer",
+      "jobPostalCode": "1201",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "checkedAt": "2026-11-16T15:22:44.963Z"
+    },
+    "kuehne nagel|geneve|GE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Kuehne+Nagel",
+      "jobPostalCode": "1201",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "checkedAt": "2026-11-16T15:22:44.963Z"
+    },
+    "physio swiss|geneve|GE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Physio swiss",
+      "jobPostalCode": "1201",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "checkedAt": "2026-11-16T15:22:44.963Z"
+    },
+    "c a schweiz|geneve|GE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "C&A Schweiz",
+      "jobPostalCode": "1201",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "checkedAt": "2026-11-16T15:22:44.963Z"
+    },
+    "ok job sa succursale di mendrisio|geneve|GE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "OK Job SA, succursale di Mendrisio",
+      "jobPostalCode": "1201",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "checkedAt": "2026-11-16T15:22:44.963Z"
+    },
+    "lip suisse|lausanne|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "LIP Suisse",
+      "jobPostalCode": "1003",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:22:44.963Z"
+    },
+    "city pop|lausanne|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "City Pop",
+      "jobPostalCode": "1003",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:22:44.963Z"
+    },
+    "richemont|lausanne|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Richemont",
+      "jobPostalCode": "1003",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:22:44.963Z"
+    },
+    "lip suisse|nyon|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "LIP Suisse",
+      "jobPostalCode": "1260",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:22:44.963Z"
+    },
+    "lip suisse|lonay|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "LIP Suisse",
+      "jobPostalCode": "1027",
+      "addressLocality": "Lonay",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:22:44.963Z"
+    },
+    "pemsa|vezia|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "PEMSA",
+      "jobPostalCode": "6943",
+      "addressLocality": "Vezia",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:44.963Z"
+    },
+    "flexsis sa succursale di bellinzona|vezia|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Flexsis SA, succursale di Bellinzona",
+      "jobPostalCode": "6943",
+      "addressLocality": "Vezia",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:44.963Z"
+    },
+    "pemsa|melide|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "PEMSA",
+      "jobPostalCode": "6815",
+      "addressLocality": "Melide",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:44.963Z"
+    },
+    "spitex regiokirchspiel|kleindottingen|AG": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "Spitex RegioKirchspiel",
+      "streetAddress": "Industriestrasse 7",
+      "postalCode": "5314",
+      "registeredName": "Spitex RegioKirchspiel",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "5314",
+      "addressLocality": "Kleindöttingen",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:22:44.963Z"
+    },
+    "spitex flawil degersheim|flawil|SG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Spitex Flawil-Degersheim",
+      "jobPostalCode": "9230",
+      "addressLocality": "Flawil",
+      "addressRegion": "SG",
+      "checkedAt": "2026-11-16T15:22:44.963Z"
+    },
+    "spitex aare|hessigkofen|SO": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Spitex Aare",
+      "jobPostalCode": "4577",
+      "addressLocality": "Hessigkofen",
+      "addressRegion": "SO",
+      "checkedAt": "2026-11-16T15:22:44.963Z"
+    },
+    "spitex dienste bellach|bellach|SO": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Spitex Dienste Bellach",
+      "jobPostalCode": "4512",
+      "addressLocality": "Bellach",
+      "addressRegion": "SO",
+      "checkedAt": "2026-11-16T15:22:44.963Z"
+    },
+    "spitex regio frick|frick|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Spitex Regio Frick",
+      "jobPostalCode": "5070",
+      "addressLocality": "Frick",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:22:46.960Z"
+    },
+    "spitex dulliken obergosgen starrkirch wil|dulliken|SO": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "Spitex Dulliken, Obergösgen, Starrkirch-Wil",
+      "streetAddress": "Alte Landstrasse 25",
+      "postalCode": "4657",
+      "registeredName": "Spitex Dulliken, Obergösgen, Starrkirch-Wil",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "4657",
+      "addressLocality": "Dulliken",
+      "addressRegion": "SO",
+      "checkedAt": "2026-11-16T15:22:46.960Z"
+    },
+    "anker swiss ticino ag|kagiswil|OW": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "6056",
+      "addressLocality": "Kägiswil",
+      "addressRegion": "OW",
+      "checkedAt": "2026-11-16T15:22:46.960Z"
+    },
+    "anker swiss ticino ag|malters|LU": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "6102",
+      "addressLocality": "Malters",
+      "addressRegion": "LU",
+      "checkedAt": "2026-11-16T15:22:46.960Z"
+    },
+    "anker swiss ticino ag|grindelwald|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3818",
+      "addressLocality": "Grindelwald",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:46.960Z"
+    },
+    "anker swiss ticino ag|muhlehorn|GL": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "8874",
+      "addressLocality": "Mühlehorn",
+      "addressRegion": "GL",
+      "checkedAt": "2026-11-16T15:22:46.960Z"
+    },
+    "anker swiss ticino ag|wilen sarnen|OW": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "6062",
+      "addressLocality": "Wilen (Sarnen)",
+      "addressRegion": "OW",
+      "checkedAt": "2026-11-16T15:22:46.960Z"
+    },
+    "anker swiss ticino ag|veltheim ag|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "5106",
+      "addressLocality": "Veltheim (AG)",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:22:46.960Z"
+    },
+    "psychiatrische universitatsklinik zurich|dietikon|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Psychiatrische Universitätsklinik Zürich",
+      "jobPostalCode": "8953",
+      "addressLocality": "Dietikon",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:46.960Z"
+    },
+    "raiffeisen|dietikon|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Raiffeisen",
+      "jobPostalCode": "8953",
+      "addressLocality": "Dietikon",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:46.960Z"
+    },
+    "hilti|aarau|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Hilti",
+      "jobPostalCode": "5000",
+      "addressLocality": "Aarau",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:22:46.960Z"
+    },
+    "seiro gmbh|aarau|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "SEIRO GmbH",
+      "jobPostalCode": "5000",
+      "addressLocality": "Aarau",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:22:46.960Z"
+    },
+    "die schweizerische post|genf|GE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Die Schweizerische Post",
+      "jobPostalCode": "1204",
+      "addressLocality": "Genf",
+      "addressRegion": "GE",
+      "checkedAt": "2026-11-16T15:22:48.843Z"
+    },
+    "agroscope|conthey|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Agroscope",
+      "jobPostalCode": "1964",
+      "addressLocality": "Conthey",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:48.843Z"
+    },
+    "medicalis|conthey|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Medicalis",
+      "jobPostalCode": "1964",
+      "addressLocality": "Conthey",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:48.843Z"
+    },
+    "coop genossenschaft|frutigen|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Coop Genossenschaft",
+      "jobPostalCode": "3714",
+      "addressLocality": "Frutigen",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:48.843Z"
+    },
+    "genossenschaft migros aare|frutigen|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Genossenschaft Migros Aare",
+      "jobPostalCode": "3714",
+      "addressLocality": "Frutigen",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:48.843Z"
+    },
+    "coop genossenschaft|matten bei interlaken|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Coop Genossenschaft",
+      "jobPostalCode": "3800",
+      "addressLocality": "Matten bei Interlaken",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:48.843Z"
+    },
+    "jysk|schaffhausen|SH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "JYSK",
+      "jobPostalCode": "8200",
+      "addressLocality": "Schaffhausen",
+      "addressRegion": "SH",
+      "checkedAt": "2026-11-16T15:22:48.843Z"
+    },
+    "seiro gmbh|schaffhausen|SH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "SEIRO GmbH",
+      "jobPostalCode": "8200",
+      "addressLocality": "Schaffhausen",
+      "addressRegion": "SH",
+      "checkedAt": "2026-11-16T15:22:48.843Z"
+    },
+    "jysk|wetzikon|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "JYSK",
+      "jobPostalCode": "8620",
+      "addressLocality": "Wetzikon",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:48.843Z"
+    },
+    "genossenschaft migros ostschweiz|wetzikon zh|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Genossenschaft Migros Ostschweiz",
+      "jobPostalCode": "8620",
+      "addressLocality": "Wetzikon (ZH)",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:48.843Z"
+    },
+    "ipersonal ag|wetzikon zh|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "iPersonal AG",
+      "jobPostalCode": "8620",
+      "addressLocality": "Wetzikon (ZH)",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:48.843Z"
+    },
+    "pflegezentrum sonnweid|wetzikon|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Pflegezentrum Sonnweid",
+      "jobPostalCode": "8620",
+      "addressLocality": "Wetzikon",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:48.843Z"
+    },
+    "migros ticino|steffisburg|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Migros Ticino",
+      "jobPostalCode": "3612",
+      "addressLocality": "Steffisburg",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:48.843Z"
+    },
+    "societe cooperative migros vaud|moudon|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Société coopérative Migros Vaud",
+      "jobPostalCode": "1510",
+      "addressLocality": "Moudon",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:22:48.843Z"
+    },
+    "raiffeisen|mohlin|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Raiffeisen",
+      "jobPostalCode": "4313",
+      "addressLocality": "Möhlin",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:22:48.843Z"
+    },
+    "hug|collonge bellerive|GE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "HUG",
+      "jobPostalCode": "1245",
+      "addressLocality": "Collonge-Bellerive",
+      "addressRegion": "GE",
+      "checkedAt": "2026-11-16T15:22:48.843Z"
+    },
+    "yellowshark ag|rheinfelden|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "yellowshark AG",
+      "jobPostalCode": "4310",
+      "addressLocality": "Rheinfelden",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:22:51.575Z"
+    },
+    "straumann|rheinfelden|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Straumann",
+      "jobPostalCode": "4310",
+      "addressLocality": "Rheinfelden",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:22:51.575Z"
+    },
+    "yellowshark ag|menziken|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "yellowshark AG",
+      "jobPostalCode": "5737",
+      "addressLocality": "Menziken",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:22:51.575Z"
+    },
+    "yellowshark ag|oberrieden|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "yellowshark AG",
+      "jobPostalCode": "8942",
+      "addressLocality": "Oberrieden",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:51.575Z"
+    },
+    "decathlon|baar|ZG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Decathlon",
+      "jobPostalCode": "6340",
+      "addressLocality": "Baar",
+      "addressRegion": "ZG",
+      "checkedAt": "2026-11-16T15:22:51.575Z"
+    },
+    "seiro gmbh|baar|ZG": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "SEIRO GmbH",
+      "streetAddress": "Dorfstrasse 38",
+      "postalCode": "6340",
+      "registeredName": "SEIRO GmbH",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "6340",
+      "addressLocality": "Baar",
+      "addressRegion": "ZG",
+      "checkedAt": "2026-11-16T15:22:51.575Z"
+    },
+    "kantonsspital baden ksb|brugg|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Kantonsspital Baden (KSB)",
+      "jobPostalCode": "5200",
+      "addressLocality": "Brugg",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:22:51.575Z"
+    },
+    "seiro gmbh|seewis|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "SEIRO GmbH",
+      "jobPostalCode": "7212",
+      "addressLocality": "Seewis",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:51.575Z"
+    },
+    "seiro gmbh|basel|BS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "SEIRO GmbH",
+      "jobPostalCode": "4001",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "checkedAt": "2026-11-16T15:22:51.575Z"
+    },
+    "vontobel|basel|BS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Vontobel",
+      "jobPostalCode": "4001",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "checkedAt": "2026-11-16T15:22:51.575Z"
+    },
+    "ok job sa succursale di mendrisio|basel|BS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "OK Job SA, succursale di Mendrisio",
+      "jobPostalCode": "4001",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "checkedAt": "2026-11-16T15:22:51.575Z"
+    },
+    "prodyna schweiz ag|basel|BS": {
+      "status": "ambiguous",
+      "source": "zefix-lindas",
+      "companyName": "PRODYNA (Schweiz) AG",
+      "jobPostalCode": "4001",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "reason": "postal-code-conflict",
+      "checkedAt": "2026-11-16T15:22:51.575Z"
+    },
+    "suchthilfe region basel|basel|BS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Suchthilfe Region Basel",
+      "jobPostalCode": "4001",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "checkedAt": "2026-11-16T15:22:51.575Z"
+    },
+    "lidl svizzera|ebikon|LU": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Lidl Svizzera",
+      "jobPostalCode": "6030",
+      "addressLocality": "Ebikon",
+      "addressRegion": "LU",
+      "checkedAt": "2026-11-16T15:22:51.575Z"
+    },
+    "stiftung bachtelen|lommiswil|SO": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Stiftung Bachtelen",
+      "jobPostalCode": "4514",
+      "addressLocality": "Lommiswil",
+      "addressRegion": "SO",
+      "checkedAt": "2026-11-16T15:22:51.575Z"
+    },
+    "carepeople ag|schiers|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "CarePeople AG",
+      "jobPostalCode": "7220",
+      "addressLocality": "Schiers",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:51.575Z"
+    },
+    "albert spiess zweigniederlassung der orior food ag|schiers|GR": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "Albert Spiess, Zweigniederlassung der ORIOR Food AG",
+      "streetAddress": "Dorfstrasse 64",
+      "postalCode": "7220",
+      "registeredName": "Albert Spiess, Zweigniederlassung der ORIOR Food AG",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "7220",
+      "addressLocality": "Schiers",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:51.575Z"
+    },
+    "endeso gmbh|schiers|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "endeso GmbH",
+      "jobPostalCode": "7220",
+      "addressLocality": "Schiers",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:51.575Z"
+    },
+    "post ch ag|samedan|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Post CH AG",
+      "jobPostalCode": "7503",
+      "addressLocality": "Samedan",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:53.093Z"
+    },
+    "baumont ag|samedan|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Baumont AG",
+      "jobPostalCode": "7503",
+      "addressLocality": "Samedan",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:53.093Z"
+    },
+    "agat placements fixes et temporaires sa|vissoie|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "AGAT ! Placements fixes et temporaires SA",
+      "jobPostalCode": "3961",
+      "addressLocality": "Vissoie",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:53.093Z"
+    },
+    "praderlosinger sa|vetroz|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "PraderLosinger SA",
+      "jobPostalCode": "1963",
+      "addressLocality": "Vétroz",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:53.093Z"
+    },
+    "manpower|termine|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Manpower",
+      "jobPostalCode": "6998",
+      "addressLocality": "Termine",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:53.093Z"
+    },
+    "robert bosch ag|st niklaus|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Robert Bosch AG",
+      "jobPostalCode": "3924",
+      "addressLocality": "St. Niklaus",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:53.093Z"
+    },
+    "coople ag|laax|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Coople AG",
+      "jobPostalCode": "7031",
+      "addressLocality": "Laax",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:53.093Z"
+    },
+    "weisse arena gruppe|laax|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Weisse Arena Gruppe",
+      "jobPostalCode": "7031",
+      "addressLocality": "Laax",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:53.093Z"
+    },
+    "ingrid szabo reinigungen|lenzerheide|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Ingrid Szabo Reinigungen",
+      "jobPostalCode": "7078",
+      "addressLocality": "Lenzerheide",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:53.093Z"
+    },
+    "kappeler gastro ag|lenzerheide|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Kappeler Gastro AG",
+      "jobPostalCode": "7078",
+      "addressLocality": "Lenzerheide",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:53.093Z"
+    },
+    "neufi klg|lenzerheide|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "NeuFi KLG",
+      "jobPostalCode": "7078",
+      "addressLocality": "Lenzerheide",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:53.093Z"
+    },
+    "pemsa|moutier|JU": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "PEMSA",
+      "jobPostalCode": "2740",
+      "addressLocality": "Moutier",
+      "addressRegion": "JU",
+      "checkedAt": "2026-11-16T15:22:53.093Z"
+    },
+    "eta sa swatch group|moutier|JU": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "ETA SA (Swatch Group)",
+      "jobPostalCode": "2740",
+      "addressLocality": "Moutier",
+      "addressRegion": "JU",
+      "checkedAt": "2026-11-16T15:22:53.093Z"
+    },
+    "pemsa|biasca|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "PEMSA",
+      "jobPostalCode": "6710",
+      "addressLocality": "Biasca",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:53.093Z"
+    },
+    "spitex regio zo|fehraltorf|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Spitex Regio ZO",
+      "jobPostalCode": "8320",
+      "addressLocality": "Fehraltorf",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:53.093Z"
+    },
+    "anker swiss ticino ag|kusnacht zh|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "8700",
+      "addressLocality": "Küsnacht (ZH)",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:54.562Z"
+    },
+    "anker swiss ticino ag|erlenbach zh|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "8703",
+      "addressLocality": "Erlenbach (ZH)",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:54.562Z"
+    },
+    "anker swiss ticino ag|stettlen|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3066",
+      "addressLocality": "Stettlen",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:54.562Z"
+    },
+    "anker swiss ticino ag|kussnacht am rigi|SZ": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "6403",
+      "addressLocality": "Küssnacht am Rigi",
+      "addressRegion": "SZ",
+      "checkedAt": "2026-11-16T15:22:54.562Z"
+    },
+    "anker swiss ticino ag|goldau|SZ": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "6410",
+      "addressLocality": "Goldau",
+      "addressRegion": "SZ",
+      "checkedAt": "2026-11-16T15:22:54.562Z"
+    },
+    "anker swiss ticino ag|zollbruck|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "3436",
+      "addressLocality": "Zollbrück",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:54.562Z"
+    },
+    "ckw|hagendorf|SO": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "CKW",
+      "jobPostalCode": "4614",
+      "addressLocality": "Hägendorf",
+      "addressRegion": "SO",
+      "checkedAt": "2026-11-16T15:22:54.562Z"
+    },
+    "postauto ag|aubonne|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "PostAuto AG",
+      "jobPostalCode": "1170",
+      "addressLocality": "Aubonne",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:22:54.562Z"
+    },
+    "swiss armed forces vtg|lavey village|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Swiss Armed Forces (VTG)",
+      "jobPostalCode": "1892",
+      "addressLocality": "Lavey-Village",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:22:54.562Z"
+    },
+    "confederazione svizzera|zurich flughafen|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Confederazione Svizzera",
+      "jobPostalCode": "8001",
+      "addressLocality": "Zürich-Flughafen",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:54.562Z"
+    },
+    "genossenschaft migros ostschweiz|oberburen|SG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Genossenschaft Migros Ostschweiz",
+      "jobPostalCode": "9245",
+      "addressLocality": "Oberbüren",
+      "addressRegion": "SG",
+      "checkedAt": "2026-11-16T15:22:56.299Z"
+    },
+    "migros restaurant|rapperswil|SG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Migros Restaurant",
+      "jobPostalCode": "8640",
+      "addressLocality": "Rapperswil",
+      "addressRegion": "SG",
+      "checkedAt": "2026-11-16T15:22:56.299Z"
+    },
+    "migros restaurant|stans|NW": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Migros Restaurant",
+      "jobPostalCode": "6370",
+      "addressLocality": "Stans",
+      "addressRegion": "NW",
+      "checkedAt": "2026-11-16T15:22:56.299Z"
+    },
+    "activ fitness|carouge|GE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "ACTIV FITNESS",
+      "jobPostalCode": "1227",
+      "addressLocality": "Carouge",
+      "addressRegion": "GE",
+      "checkedAt": "2026-11-16T15:22:56.299Z"
+    },
+    "hug|bernex|GE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "HUG",
+      "jobPostalCode": "1233",
+      "addressLocality": "Bernex",
+      "addressRegion": "GE",
+      "checkedAt": "2026-11-16T15:22:56.299Z"
+    },
+    "swiss medical network|chiasso|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Swiss Medical Network",
+      "jobPostalCode": "6830",
+      "addressLocality": "Chiasso",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:56.299Z"
+    },
+    "team personnel solutions sa|chiasso|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Team Personnel Solutions SA",
+      "jobPostalCode": "6830",
+      "addressLocality": "Chiasso",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:56.299Z"
+    },
+    "physio swiss|chiasso|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Physio swiss",
+      "jobPostalCode": "6830",
+      "addressLocality": "Chiasso",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:56.299Z"
+    },
+    "medipersonal|langnau im emmental|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "MediPersonal",
+      "jobPostalCode": "3550",
+      "addressLocality": "Langnau im Emmental",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:56.299Z"
+    },
+    "die schweizerische post|langnau im emmental|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Die Schweizerische Post",
+      "jobPostalCode": "3550",
+      "addressLocality": "Langnau im Emmental",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:56.299Z"
+    },
+    "medipersonal|koppigen|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "MediPersonal",
+      "jobPostalCode": "3425",
+      "addressLocality": "Koppigen",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:56.299Z"
+    },
+    "medipersonal|rain|LU": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "MediPersonal",
+      "jobPostalCode": "6026",
+      "addressLocality": "Rain",
+      "addressRegion": "LU",
+      "checkedAt": "2026-11-16T15:22:56.299Z"
+    },
+    "spital thurgau stgag|stein am rhein|SH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Spital Thurgau (STGAG)",
+      "jobPostalCode": "8260",
+      "addressLocality": "Stein am Rhein",
+      "addressRegion": "SH",
+      "checkedAt": "2026-11-16T15:22:56.299Z"
+    },
+    "riederalp chuestall gmbh|riederalp|VS": {
+      "status": "address-unavailable",
+      "source": "zefix-lindas",
+      "companyName": "Riederalp Chüestall GmbH",
+      "jobPostalCode": "3987",
+      "addressLocality": "Riederalp",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:57.720Z"
+    },
+    "endeso gmbh|igis|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "endeso GmbH",
+      "jobPostalCode": "7206",
+      "addressLocality": "Igis",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:57.720Z"
+    },
+    "camion transport ag|ilanz|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Camion-Transport AG",
+      "jobPostalCode": "7130",
+      "addressLocality": "Ilanz",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:57.720Z"
+    },
+    "avec competence gmbh|rivera|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "avec compétence GmbH",
+      "jobPostalCode": "6802",
+      "addressLocality": "Rivera",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:57.720Z"
+    },
+    "equans switzerland facility management ag|rivera|TI": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "Equans Switzerland Facility Management AG",
+      "streetAddress": "Via Cantonale 43",
+      "postalCode": "6802",
+      "registeredName": "Equans Switzerland Facility Management AG",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "6802",
+      "addressLocality": "Rivera",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:57.720Z"
+    },
+    "hexenbar|belalp|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Hexenbar",
+      "jobPostalCode": "3914",
+      "addressLocality": "Belalp",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:57.720Z"
+    },
+    "point service interim sa|stampa|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Point Service Interim SA",
+      "jobPostalCode": "7605",
+      "addressLocality": "Stampa",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:57.720Z"
+    },
+    "camion transport ag|cadenazzo|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Camion-Transport AG",
+      "jobPostalCode": "6593",
+      "addressLocality": "Cadenazzo",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:57.720Z"
+    },
+    "point service interim sa|realta|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Point Service Interim SA",
+      "jobPostalCode": "7408",
+      "addressLocality": "Realta",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:57.720Z"
+    },
+    "zenhausern freres sa|saviese|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Zenhäusern Frères SA",
+      "jobPostalCode": "1965",
+      "addressLocality": "Savièse",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:57.720Z"
+    },
+    "endeso gmbh|malans|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "endeso GmbH",
+      "jobPostalCode": "7208",
+      "addressLocality": "Malans",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:57.720Z"
+    },
+    "medizinisches center bonaduz|malans|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Medizinisches Center Bonaduz",
+      "jobPostalCode": "7208",
+      "addressLocality": "Malans",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:22:57.720Z"
+    },
+    "aisa automation industrielle|vouvry|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "AISA Automation Industrielle",
+      "jobPostalCode": "1896",
+      "addressLocality": "Vouvry",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:59.394Z"
+    },
+    "hotelis sa|vouvry|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Hotelis SA",
+      "jobPostalCode": "1896",
+      "addressLocality": "Vouvry",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:22:59.394Z"
+    },
+    "pemsa|torricella|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "PEMSA",
+      "jobPostalCode": "6808",
+      "addressLocality": "Torricella",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:22:59.394Z"
+    },
+    "stellenpartner ag|meilen|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Stellenpartner AG",
+      "jobPostalCode": "8706",
+      "addressLocality": "Meilen",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:59.394Z"
+    },
+    "stellentreff ag|schwyz|SZ": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Stellentreff AG",
+      "jobPostalCode": "6430",
+      "addressLocality": "Schwyz",
+      "addressRegion": "SZ",
+      "checkedAt": "2026-11-16T15:22:59.394Z"
+    },
+    "jysk|schwyz|SZ": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "JYSK",
+      "jobPostalCode": "6430",
+      "addressLocality": "Schwyz",
+      "addressRegion": "SZ",
+      "checkedAt": "2026-11-16T15:22:59.394Z"
+    },
+    "csem landquart|schwyz|SZ": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "CSEM Landquart",
+      "jobPostalCode": "6430",
+      "addressLocality": "Schwyz",
+      "addressRegion": "SZ",
+      "checkedAt": "2026-11-16T15:22:59.394Z"
+    },
+    "anker swiss ticino ag|wattwil|SG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "9630",
+      "addressLocality": "Wattwil",
+      "addressRegion": "SG",
+      "checkedAt": "2026-11-16T15:22:59.394Z"
+    },
+    "berit klinik|wattwil|SG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Berit Klinik",
+      "jobPostalCode": "9630",
+      "addressLocality": "Wattwil",
+      "addressRegion": "SG",
+      "checkedAt": "2026-11-16T15:22:59.394Z"
+    },
+    "anker swiss ticino ag|weesen|SG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "8872",
+      "addressLocality": "Weesen",
+      "addressRegion": "SG",
+      "checkedAt": "2026-11-16T15:22:59.394Z"
+    },
+    "anker swiss ticino ag|mannedorf|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "8708",
+      "addressLocality": "Männedorf",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:59.394Z"
+    },
+    "equans switzerland|mannedorf|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Equans Switzerland",
+      "jobPostalCode": "8708",
+      "addressLocality": "Männedorf",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:59.394Z"
+    },
+    "anker swiss ticino ag|oberengstringen|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "8102",
+      "addressLocality": "Oberengstringen",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:22:59.394Z"
+    },
+    "die schweizerische post|wohlen|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Die Schweizerische Post",
+      "jobPostalCode": "3001",
+      "addressLocality": "Wohlen",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:59.394Z"
+    },
+    "galaxus|wohlen|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Galaxus",
+      "addressLocality": "Wohlen",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:22:59.394Z"
+    },
+    "confederazione svizzera|boudry|NE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Confederazione Svizzera",
+      "jobPostalCode": "2017",
+      "addressLocality": "Boudry",
+      "addressRegion": "NE",
+      "checkedAt": "2026-11-16T15:22:59.394Z"
+    },
+    "elsa group|disentis muster|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Elsa Group",
+      "jobPostalCode": "7180",
+      "addressLocality": "Disentis/Mustér",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:23:01.088Z"
+    },
+    "fitnesspark|baden|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Fitnesspark",
+      "jobPostalCode": "5400",
+      "addressLocality": "Baden",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:23:01.088Z"
+    },
+    "data unit ag|baden|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "DATA UNIT AG",
+      "jobPostalCode": "5400",
+      "addressLocality": "Baden",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:23:01.088Z"
+    },
+    "physio swiss|baden|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Physio swiss",
+      "jobPostalCode": "5400",
+      "addressLocality": "Baden",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:23:01.088Z"
+    },
+    "fresh food beverage group|interlaken|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Fresh Food & Beverage Group",
+      "jobPostalCode": "3800",
+      "addressLocality": "Interlaken",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:01.088Z"
+    },
+    "ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton bern|interlaken|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "jobPostalCode": "3800",
+      "addressLocality": "Interlaken",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:01.088Z"
+    },
+    "genossenschaft migros wallis|fiesch|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Genossenschaft Migros Wallis",
+      "jobPostalCode": "3984",
+      "addressLocality": "Fiesch",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:01.088Z"
+    },
+    "migros logistics|ecublens|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Migros Logistics",
+      "jobPostalCode": "1024",
+      "addressLocality": "Ecublens",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:23:01.088Z"
+    },
+    "c a schweiz|ecublens|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "C&A Schweiz",
+      "jobPostalCode": "1024",
+      "addressLocality": "Ecublens",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:23:01.088Z"
+    },
+    "societe cooperative migros neuchatel fribourg|la neuveville|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Société coopérative Migros Neuchâtel-Fribourg",
+      "jobPostalCode": "2520",
+      "addressLocality": "La Neuveville",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:01.088Z"
+    },
+    "ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton bern|la neuveville|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "jobPostalCode": "2520",
+      "addressLocality": "La Neuveville",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:01.088Z"
+    },
+    "societe cooperative migros valais|montana|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Société coopérative Migros Valais",
+      "jobPostalCode": "3963",
+      "addressLocality": "Montana",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:01.088Z"
+    },
+    "ffs officine ferrovie federali|rothenburg|LU": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "FFS Officine (Ferrovie Federali)",
+      "jobPostalCode": "6023",
+      "addressLocality": "Rothenburg",
+      "addressRegion": "LU",
+      "checkedAt": "2026-11-16T15:23:01.088Z"
+    },
+    "senevita|lausen|BL": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Senevita",
+      "jobPostalCode": "4415",
+      "addressLocality": "Lausen",
+      "addressRegion": "BL",
+      "checkedAt": "2026-11-16T15:23:01.088Z"
+    },
+    "yellowshark ag|rickenbach so|SO": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "yellowshark AG",
+      "jobPostalCode": "4613",
+      "addressLocality": "Rickenbach (SO)",
+      "addressRegion": "SO",
+      "checkedAt": "2026-11-16T15:23:01.088Z"
+    },
+    "medbase|thun|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Medbase",
+      "jobPostalCode": "3600",
+      "addressLocality": "Thun",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:03.155Z"
+    },
+    "michel gruppe ag|thun|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Michel Gruppe AG",
+      "jobPostalCode": "3600",
+      "addressLocality": "Thun",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:03.155Z"
+    },
+    "equans switzerland|wallisellen|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Equans Switzerland",
+      "jobPostalCode": "8304",
+      "addressLocality": "Wallisellen",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:23:03.155Z"
+    },
+    "siemens|wallisellen|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Siemens",
+      "jobPostalCode": "8304",
+      "addressLocality": "Wallisellen",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:23:03.155Z"
+    },
+    "seiro gmbh|stafa|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "SEIRO GmbH",
+      "jobPostalCode": "8712",
+      "addressLocality": "Stäfa",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:23:03.155Z"
+    },
+    "seiro gmbh|aadorf|TG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "SEIRO GmbH",
+      "jobPostalCode": "8355",
+      "addressLocality": "Aadorf",
+      "addressRegion": "TG",
+      "checkedAt": "2026-11-16T15:23:03.155Z"
+    },
+    "seiro gmbh|lenzburg|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "SEIRO GmbH",
+      "jobPostalCode": "5600",
+      "addressLocality": "Lenzburg",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:23:03.155Z"
+    },
+    "seiro gmbh|spiez|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "SEIRO GmbH",
+      "jobPostalCode": "3700",
+      "addressLocality": "Spiez",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:03.155Z"
+    },
+    "landi|spiez|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "LANDI",
+      "jobPostalCode": "3700",
+      "addressLocality": "Spiez",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:03.155Z"
+    },
+    "sulzer|port|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Sulzer",
+      "jobPostalCode": "2562",
+      "addressLocality": "Port",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:03.155Z"
+    },
+    "lidl svizzera|wadenswil|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Lidl Svizzera",
+      "jobPostalCode": "8820",
+      "addressLocality": "Wädenswil",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:23:03.155Z"
+    },
+    "sommet education|crans montana|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Sommet Education",
+      "jobPostalCode": "3963",
+      "addressLocality": "Crans-Montana",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:03.155Z"
+    },
+    "flexsis sa|crans montana|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Flexsis SA",
+      "jobPostalCode": "3963",
+      "addressLocality": "Crans-Montana",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:03.155Z"
+    },
+    "hotelis sa sion|crans montana|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Hotelis SA - Sion",
+      "jobPostalCode": "3963",
+      "addressLocality": "Crans-Montana",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:03.155Z"
+    },
+    "ok job sa lausanne|crans montana|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "OK Job SA Lausanne",
+      "jobPostalCode": "3963",
+      "addressLocality": "Crans-Montana",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:03.155Z"
+    },
+    "hamilton medical ag|bonaduz|GR": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "Hamilton Medical AG",
+      "streetAddress": "Via Crusch 8",
+      "postalCode": "7402",
+      "registeredName": "Hamilton Medical AG",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "7402",
+      "addressLocality": "Bonaduz",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:23:03.155Z"
+    },
+    "acces personnel sa|grone|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Accès Personnel SA",
+      "jobPostalCode": "3979",
+      "addressLocality": "Grône",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:04.699Z"
+    },
+    "adecco|rancate|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Adecco",
+      "jobPostalCode": "6862",
+      "addressLocality": "Rancate",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:23:04.699Z"
+    },
+    "avec competence gmbh|lodrino|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "avec compétence GmbH",
+      "jobPostalCode": "6527",
+      "addressLocality": "Lodrino",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:23:04.699Z"
+    },
+    "grischa plast kunststofftechnik ag|maienfeld|GR": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "Grischa-Plast Kunststofftechnik AG",
+      "streetAddress": "Obere Industrie 9",
+      "postalCode": "7304",
+      "registeredName": "Grischa-Plast Kunststofftechnik AG",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "7304",
+      "addressLocality": "Maienfeld",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:23:04.699Z"
+    },
+    "endeso gmbh|maienfeld|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "endeso GmbH",
+      "jobPostalCode": "7304",
+      "addressLocality": "Maienfeld",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:23:04.699Z"
+    },
+    "zindel co ag|maienfeld|GR": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "Zindel + Co. AG",
+      "streetAddress": "Industriestrasse 19",
+      "postalCode": "7304",
+      "registeredName": "Zindel + Co. AG",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "7304",
+      "addressLocality": "Maienfeld",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:23:04.699Z"
+    },
+    "baumont ag|pazzallo|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Baumont AG",
+      "jobPostalCode": "6912",
+      "addressLocality": "Pazzallo",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:23:04.699Z"
+    },
+    "stellentreff ag|kulm|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Stellentreff AG",
+      "jobPostalCode": "5000",
+      "addressLocality": "Kulm",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:23:04.699Z"
+    },
+    "die schweizerische post|baltschieder|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Die Schweizerische Post",
+      "jobPostalCode": "3937",
+      "addressLocality": "Baltschieder",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:04.699Z"
+    },
+    "css versicherung|langenthal|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "CSS Versicherung",
+      "jobPostalCode": "4900",
+      "addressLocality": "Langenthal",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:04.699Z"
+    },
+    "mcdonald s switzerland|kolliken|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "McDonald's Switzerland",
+      "jobPostalCode": "5742",
+      "addressLocality": "Kölliken",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:23:04.699Z"
+    },
+    "genossenschaft migros neuenburg freiburg|murten|FR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Genossenschaft Migros Neuenburg-Freiburg",
+      "jobPostalCode": "3280",
+      "addressLocality": "Murten",
+      "addressRegion": "FR",
+      "checkedAt": "2026-11-16T15:23:04.699Z"
+    },
+    "migros take away|zug|ZG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Migros Take Away",
+      "jobPostalCode": "6300",
+      "addressLocality": "Zug",
+      "addressRegion": "ZG",
+      "checkedAt": "2026-11-16T15:23:06.982Z"
+    },
+    "societe cooperative migros vaud|etoy|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Société coopérative Migros Vaud",
+      "jobPostalCode": "1163",
+      "addressLocality": "Etoy",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:23:06.982Z"
+    },
+    "raiffeisen|gland|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Raiffeisen",
+      "jobPostalCode": "1196",
+      "addressLocality": "Gland",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:23:06.982Z"
+    },
+    "ffs officine ferrovie federali|brienz|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "FFS Officine (Ferrovie Federali)",
+      "jobPostalCode": "3855",
+      "addressLocality": "Brienz",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:06.982Z"
+    },
+    "foletti computer|taverne|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Foletti Computer",
+      "jobPostalCode": "6807",
+      "addressLocality": "Taverne",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:23:06.982Z"
+    },
+    "job ticino sa|taverne|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "JOB Ticino SA",
+      "jobPostalCode": "6807",
+      "addressLocality": "Taverne",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:23:06.982Z"
+    },
+    "gemmi holding ag|leukerbad|VS": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "Gemmi Holding AG",
+      "streetAddress": "Gemmistrasse 14",
+      "postalCode": "3954",
+      "registeredName": "Gemmi Holding AG",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "3954",
+      "addressLocality": "Leukerbad",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:06.982Z"
+    },
+    "entira gmbh|davos|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Entira GmbH",
+      "jobPostalCode": "7270",
+      "addressLocality": "Davos",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:23:06.982Z"
+    },
+    "schweizerische vogelwarte sempach buro|davos|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Schweizerische Vogelwarte Sempach Büro",
+      "jobPostalCode": "7270",
+      "addressLocality": "Davos",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:23:06.982Z"
+    },
+    "mito personal ag|davos|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Mito Personal AG",
+      "jobPostalCode": "7270",
+      "addressLocality": "Davos",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:23:06.982Z"
+    },
+    "pemsa|collombey|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "PEMSA",
+      "jobPostalCode": "1868",
+      "addressLocality": "Collombey",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:06.982Z"
+    },
+    "chappuis restaurants sarl succursale de vevey|collombey|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Chappuis Restaurants Sàrl, succursale de Vevey",
+      "jobPostalCode": "1868",
+      "addressLocality": "Collombey",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:06.982Z"
+    },
+    "spitex mutschellen reusstal|bremgarten ag|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Spitex Mutschellen-Reusstal",
+      "jobPostalCode": "5620",
+      "addressLocality": "Bremgarten (AG)",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:23:06.982Z"
+    },
+    "physio swiss|bremgarten|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Physio swiss",
+      "jobPostalCode": "5620",
+      "addressLocality": "Bremgarten",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:23:06.982Z"
+    },
+    "watchfinder|geneva|GE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Watchfinder",
+      "jobPostalCode": "1204",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "checkedAt": "2026-11-16T15:23:06.982Z"
+    },
+    "jysk|volketswil|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "JYSK",
+      "jobPostalCode": "8604",
+      "addressLocality": "Volketswil",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:23:08.822Z"
+    },
+    "akadeo succursale de pemsa sa|riddes|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Akadeo, succursale de Pemsa SA",
+      "jobPostalCode": "1908",
+      "addressLocality": "Riddes",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:08.822Z"
+    },
+    "flexsis sa|riddes|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Flexsis SA",
+      "jobPostalCode": "1908",
+      "addressLocality": "Riddes",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:08.822Z"
+    },
+    "coop centrale di distribuzione e uffici amministrativi|novazzano|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Coop Centrale di distribuzione e uffici amministrativi",
+      "jobPostalCode": "6883",
+      "addressLocality": "Novazzano",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:23:08.822Z"
+    },
+    "workflow swiss gmbh|zermatt|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "workflow.swiss GmbH",
+      "jobPostalCode": "3920",
+      "addressLocality": "Zermatt",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:08.822Z"
+    },
+    "fusalp|zermatt|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Fusalp",
+      "jobPostalCode": "3920",
+      "addressLocality": "Zermatt",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:08.822Z"
+    },
+    "zermatt bergbahnen|zermatt|VS": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "Zermatt Bergbahnen",
+      "streetAddress": "Schluhmattstrasse 123",
+      "postalCode": "3920",
+      "registeredName": "Zermatt Bergbahnen AG",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "3920",
+      "addressLocality": "Zermatt",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:08.822Z"
+    },
+    "ws work services sa|s|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "WS Work Services SA",
+      "jobPostalCode": "6592",
+      "addressLocality": "S",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:23:08.822Z"
+    },
+    "iss facility services ag|grimisuat|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "ISS Facility Services AG",
+      "jobPostalCode": "1971",
+      "addressLocality": "Grimisuat",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:08.822Z"
+    },
+    "vd design sagl|st moritz|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "VD Design Sagl",
+      "jobPostalCode": "7500",
+      "addressLocality": "St. Moritz",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:23:08.822Z"
+    },
+    "oki san kenoki|st moritz|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "OKI-SAN KENOKI",
+      "jobPostalCode": "7500",
+      "addressLocality": "St. Moritz",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:23:08.822Z"
+    },
+    "neufi klg|st moritz|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "NeuFi KLG",
+      "jobPostalCode": "7500",
+      "addressLocality": "St. Moritz",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:23:08.822Z"
+    },
+    "engadin st moritz mountains ag|st moritz|GR": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "Engadin St. Moritz Mountains AG",
+      "streetAddress": "Via S. Gian 30",
+      "postalCode": "7500",
+      "registeredName": "Engadin St. Moritz Mountains AG",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "7500",
+      "addressLocality": "St. Moritz",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:23:08.822Z"
+    },
+    "work24 com ag|grusch|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "work24.com ag",
+      "jobPostalCode": "7214",
+      "addressLocality": "Grüsch",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:23:08.822Z"
+    },
+    "ok job sa|grancia|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "OK JOB SA",
+      "jobPostalCode": "6916",
+      "addressLocality": "Grancia",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:23:08.822Z"
+    },
+    "bucherer|kloten|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Bucherer",
+      "jobPostalCode": "8302",
+      "addressLocality": "Kloten",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:23:08.822Z"
+    },
+    "pemsa sa succursale di locarno|gordola|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Pemsa SA, succursale di Locarno",
+      "jobPostalCode": "6596",
+      "addressLocality": "Gordola",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:23:10.294Z"
+    },
+    "physio swiss|gordola|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Physio swiss",
+      "jobPostalCode": "6596",
+      "addressLocality": "Gordola",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:23:10.294Z"
+    },
+    "kantonale verwaltung graubunden|tamins|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Kantonale Verwaltung Graubünden",
+      "jobPostalCode": "7015",
+      "addressLocality": "Tamins",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:23:10.294Z"
+    },
+    "kantonale verwaltung graubunden|tiefencastel|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Kantonale Verwaltung Graubünden",
+      "jobPostalCode": "7450",
+      "addressLocality": "Tiefencastel",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:23:10.294Z"
+    },
+    "anker swiss ticino ag|pambio noranco|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "6915",
+      "addressLocality": "Pambio-Noranco",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:23:10.294Z"
+    },
+    "anker swiss ticino ag|castione|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "6532",
+      "addressLocality": "Castione",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:23:10.294Z"
+    },
+    "flexsis sa|caslano|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Flexsis SA",
+      "jobPostalCode": "6987",
+      "addressLocality": "Caslano",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:23:10.294Z"
+    },
+    "adecco risorse umane sa|ponte tresa|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Adecco Risorse Umane SA",
+      "jobPostalCode": "6988",
+      "addressLocality": "Ponte Tresa",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:23:10.294Z"
+    },
+    "flexsis sa succursale di lugano|manno|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Flexsis SA, succursale di Lugano",
+      "jobPostalCode": "6928",
+      "addressLocality": "Manno",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:23:10.294Z"
+    },
+    "anker swiss ticino ag|corteglia|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "6873",
+      "addressLocality": "Corteglia",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:23:10.294Z"
+    },
+    "anker swiss ticino ag|giubiasco|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Anker Swiss Ticino AG",
+      "jobPostalCode": "6512",
+      "addressLocality": "Giubiasco",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:23:10.294Z"
+    },
+    "das team ag|saxon|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "das team ag",
+      "jobPostalCode": "1907",
+      "addressLocality": "Saxon",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:14.128Z"
+    },
+    "rist la froda|cavergno|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Rist. la Froda",
+      "jobPostalCode": "6690",
+      "addressLocality": "Cavergno",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:23:14.128Z"
+    },
+    "rittmeyer ag|birr|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Rittmeyer AG",
+      "jobPostalCode": "5242",
+      "addressLocality": "Birr",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:23:14.128Z"
+    },
+    "jysk|muri bei bern|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "JYSK",
+      "jobPostalCode": "3074",
+      "addressLocality": "Muri bei Bern",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:14.128Z"
+    },
+    "absolutliv ag|bubikon|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "absolutLIV AG",
+      "jobPostalCode": "8608",
+      "addressLocality": "Bubikon",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:23:14.128Z"
+    },
+    "bucherer|engelberg|OW": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Bucherer",
+      "jobPostalCode": "6390",
+      "addressLocality": "Engelberg",
+      "addressRegion": "OW",
+      "checkedAt": "2026-11-16T15:23:14.128Z"
+    },
+    "kempinski palace engelberg|engelberg|OW": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Kempinski Palace Engelberg",
+      "jobPostalCode": "6390",
+      "addressLocality": "Engelberg",
+      "addressRegion": "OW",
+      "checkedAt": "2026-11-16T15:23:14.128Z"
+    },
+    "confederazione svizzera|payerne|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Confederazione Svizzera",
+      "jobPostalCode": "1530",
+      "addressLocality": "Payerne",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:23:14.128Z"
+    },
+    "ariston group|preverenges|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Ariston Group",
+      "jobPostalCode": "1028",
+      "addressLocality": "Préverenges",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:23:14.128Z"
+    },
+    "ariston group|zurich|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Ariston Group",
+      "jobPostalCode": "8001",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:23:14.128Z"
+    },
+    "fusalp|zurich|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Fusalp",
+      "jobPostalCode": "8001",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:23:14.128Z"
+    },
+    "albis beck|zurich|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Albis Beck",
+      "jobPostalCode": "8001",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:23:14.128Z"
+    },
+    "swiss re|zurich|ZH": {
+      "status": "ambiguous",
+      "source": "zefix-lindas",
+      "companyName": "Swiss Re",
+      "jobPostalCode": "8001",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "reason": "postal-code-conflict",
+      "checkedAt": "2026-11-16T15:23:14.128Z"
+    },
+    "die schweizerische post|pratteln|BL": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Die Schweizerische Post",
+      "jobPostalCode": "4133",
+      "addressLocality": "Pratteln",
+      "addressRegion": "BL",
+      "checkedAt": "2026-11-16T15:23:14.128Z"
+    },
+    "bms building materials|sierre|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "BMS Building Materials",
+      "jobPostalCode": "3960",
+      "addressLocality": "Sierre",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:15.763Z"
+    },
+    "canton du valais|sierre|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Canton du Valais",
+      "jobPostalCode": "3960",
+      "addressLocality": "Sierre",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:15.763Z"
+    },
+    "bms building materials|aigle|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "BMS Building Materials",
+      "jobPostalCode": "1860",
+      "addressLocality": "Aigle",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:23:15.763Z"
+    },
+    "volg|lantsch lenz|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "VOLG",
+      "jobPostalCode": "7083",
+      "addressLocality": "Lantsch/Lenz",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:23:15.763Z"
+    },
+    "volg|vordemwald|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "VOLG",
+      "jobPostalCode": "4803",
+      "addressLocality": "Vordemwald",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:23:15.763Z"
+    },
+    "volg|niederhelfenschwil|SG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "VOLG",
+      "jobPostalCode": "9527",
+      "addressLocality": "Niederhelfenschwil",
+      "addressRegion": "SG",
+      "checkedAt": "2026-11-16T15:23:15.763Z"
+    },
+    "landi|melchnau|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "LANDI",
+      "jobPostalCode": "4917",
+      "addressLocality": "Melchnau",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:15.763Z"
+    },
+    "volg|hendschiken|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "VOLG",
+      "jobPostalCode": "5604",
+      "addressLocality": "Hendschiken",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:23:15.763Z"
+    },
+    "volg|zaziwil|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "VOLG",
+      "jobPostalCode": "3532",
+      "addressLocality": "Zäziwil",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:15.763Z"
+    },
+    "volg|lohningen|SH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "VOLG",
+      "jobPostalCode": "8224",
+      "addressLocality": "Löhningen",
+      "addressRegion": "SH",
+      "checkedAt": "2026-11-16T15:23:15.763Z"
+    },
+    "volg|weite|SG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "VOLG",
+      "jobPostalCode": "9476",
+      "addressLocality": "Weite",
+      "addressRegion": "SG",
+      "checkedAt": "2026-11-16T15:23:15.763Z"
+    },
+    "volg|wettingen|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "VOLG",
+      "jobPostalCode": "5430",
+      "addressLocality": "Wettingen",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:23:17.231Z"
+    },
+    "meliofeed ag|hagenbuch|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Meliofeed AG",
+      "jobPostalCode": "8523",
+      "addressLocality": "Hagenbuch",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:23:17.231Z"
+    },
+    "volg|montfaucon|JU": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "VOLG",
+      "jobPostalCode": "2362",
+      "addressLocality": "Montfaucon",
+      "addressRegion": "JU",
+      "checkedAt": "2026-11-16T15:23:17.231Z"
+    },
+    "geberit|givisiez|FR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Geberit",
+      "jobPostalCode": "1762",
+      "addressLocality": "Givisiez",
+      "addressRegion": "FR",
+      "checkedAt": "2026-11-16T15:23:17.231Z"
+    },
+    "implenia|onex|GE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Implenia",
+      "jobPostalCode": "1213",
+      "addressLocality": "Onex",
+      "addressRegion": "GE",
+      "checkedAt": "2026-11-16T15:23:17.231Z"
+    },
+    "denner|rennaz|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Denner",
+      "jobPostalCode": "1847",
+      "addressLocality": "Rennaz",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:23:17.231Z"
+    },
+    "die mobiliar|ticino|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "die Mobiliar",
+      "jobPostalCode": "2027",
+      "addressLocality": "Ticino",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:23:17.231Z"
+    },
+    "schweizer paraplegiker gruppe|cossonay|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Schweizer Paraplegiker-Gruppe",
+      "jobPostalCode": "1304",
+      "addressLocality": "Cossonay",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:23:17.231Z"
+    },
+    "suva|argovia|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Suva",
+      "jobPostalCode": "5000",
+      "addressLocality": "Argovia",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:23:17.231Z"
+    },
+    "suva|vallese|VS": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Suva",
+      "jobPostalCode": "1950",
+      "addressLocality": "Vallese",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:17.231Z"
+    },
+    "ubs|horgen|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "UBS",
+      "jobPostalCode": "8810",
+      "addressLocality": "Horgen",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:23:18.891Z"
+    },
+    "swiss re|horgen|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Swiss Re",
+      "jobPostalCode": "8810",
+      "addressLocality": "Horgen",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:23:18.891Z"
+    },
+    "ubs|soletta|SO": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "UBS",
+      "jobPostalCode": "4500",
+      "addressLocality": "Soletta",
+      "addressRegion": "SO",
+      "checkedAt": "2026-11-16T15:23:18.891Z"
+    },
+    "laderach schweiz ag|glarus nord|GL": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Läderach (Schweiz) AG",
+      "jobPostalCode": "8752",
+      "addressLocality": "Glarus Nord",
+      "addressRegion": "GL",
+      "checkedAt": "2026-11-16T15:23:18.891Z"
+    },
+    "otto s ag|marly|FR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "OTTO'S AG",
+      "jobPostalCode": "1723",
+      "addressLocality": "Marly",
+      "addressRegion": "FR",
+      "checkedAt": "2026-11-16T15:23:18.891Z"
+    },
+    "physio swiss|lachen|SZ": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Physio swiss",
+      "jobPostalCode": "8853",
+      "addressLocality": "Lachen",
+      "addressRegion": "SZ",
+      "checkedAt": "2026-11-16T15:23:18.891Z"
+    },
+    "physio swiss|nafels|GL": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Physio swiss",
+      "jobPostalCode": "8752",
+      "addressLocality": "Näfels",
+      "addressRegion": "GL",
+      "checkedAt": "2026-11-16T15:23:18.891Z"
+    },
+    "physio swiss|heiden|AR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Physio swiss",
+      "jobPostalCode": "9410",
+      "addressLocality": "Heiden",
+      "addressRegion": "AR",
+      "checkedAt": "2026-11-16T15:23:18.891Z"
+    },
+    "physio swiss|oberburg|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Physio swiss",
+      "jobPostalCode": "3414",
+      "addressLocality": "Oberburg",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:18.891Z"
+    },
+    "physio swiss|agno|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Physio swiss",
+      "jobPostalCode": "6982",
+      "addressLocality": "Agno",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:23:18.891Z"
+    },
+    "physio swiss|zumikon|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Physio swiss",
+      "jobPostalCode": "8126",
+      "addressLocality": "Zumikon",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:23:18.891Z"
+    },
+    "physio swiss|sumiswald|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Physio swiss",
+      "jobPostalCode": "3454",
+      "addressLocality": "Sumiswald",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:20.848Z"
+    },
+    "physio swiss|grono|GR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Physio swiss",
+      "jobPostalCode": "6537",
+      "addressLocality": "Grono",
+      "addressRegion": "GR",
+      "checkedAt": "2026-11-16T15:23:20.848Z"
+    },
+    "physio swiss|hombrechtikon|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Physio swiss",
+      "jobPostalCode": "8634",
+      "addressLocality": "Hombrechtikon",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:23:20.848Z"
+    },
+    "physio swiss|urdorf|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Physio swiss",
+      "jobPostalCode": "8902",
+      "addressLocality": "Urdorf",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:23:20.848Z"
+    },
+    "physio swiss|trubbach|SG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Physio swiss",
+      "jobPostalCode": "9477",
+      "addressLocality": "Trübbach",
+      "addressRegion": "SG",
+      "checkedAt": "2026-11-16T15:23:20.848Z"
+    },
+    "physio swiss|dottingen|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Physio swiss",
+      "jobPostalCode": "5312",
+      "addressLocality": "Döttingen",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:23:20.848Z"
+    },
+    "manor ag|la chaux de fonds|NE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Manor AG",
+      "jobPostalCode": "2300",
+      "addressLocality": "La Chaux-de-Fonds",
+      "addressRegion": "NE",
+      "checkedAt": "2026-11-16T15:23:20.848Z"
+    },
+    "ok job sa succursale di mendrisio|la chaux de fonds|NE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "OK Job SA, succursale di Mendrisio",
+      "jobPostalCode": "2300",
+      "addressLocality": "La Chaux-de-Fonds",
+      "addressRegion": "NE",
+      "checkedAt": "2026-11-16T15:23:20.848Z"
+    },
+    "comadur sa|la chaux de fonds|NE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Comadur SA",
+      "jobPostalCode": "2300",
+      "addressLocality": "La Chaux-de-Fonds",
+      "addressRegion": "NE",
+      "checkedAt": "2026-11-16T15:23:20.848Z"
+    },
+    "c a schweiz|schonbuhl|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "C&A Schweiz",
+      "jobPostalCode": "3321",
+      "addressLocality": "Schönbühl",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:20.848Z"
+    },
+    "c a schweiz|oftringen|AG": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "C&A Schweiz",
+      "jobPostalCode": "4665",
+      "addressLocality": "Oftringen",
+      "addressRegion": "AG",
+      "checkedAt": "2026-11-16T15:23:20.848Z"
+    },
+    "cnvo sa|yverdon les bains|VD": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "CNVO SA",
+      "streetAddress": "Ruelle Vautier 10",
+      "postalCode": "1400",
+      "registeredName": "CNVO SA",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "1400",
+      "addressLocality": "Yverdon-les-Bains",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:23:20.848Z"
+    },
+    "eta sa swatch group|grenchen|SO": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "ETA SA (Swatch Group)",
+      "streetAddress": "Schild-Rust-Strasse 17",
+      "postalCode": "2540",
+      "registeredName": "ETA SA Manufacture Horlogère Suisse",
+      "matchType": "alias",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "2540",
+      "addressLocality": "Grenchen",
+      "addressRegion": "SO",
+      "checkedAt": "2026-11-16T15:23:22.293Z"
+    },
+    "emil egger ag|hasle bei burgdorf|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Emil Egger AG",
+      "jobPostalCode": "3415",
+      "addressLocality": "Hasle bei Burgdorf",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:22.293Z"
+    },
+    "ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton bern|oberfrittenbach|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "jobPostalCode": "3551",
+      "addressLocality": "Oberfrittenbach",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:22.293Z"
+    },
+    "ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton bern|pery la heutte|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "jobPostalCode": "2604",
+      "addressLocality": "Péry-La Heutte",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:22.293Z"
+    },
+    "ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton bern|champagne|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "jobPostalCode": "1424",
+      "addressLocality": "Champagne",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:23:22.293Z"
+    },
+    "ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton bern|bremgarten bei bern|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "jobPostalCode": "3047",
+      "addressLocality": "Bremgarten bei Bern",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:22.293Z"
+    },
+    "ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton bern|linden|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "jobPostalCode": "3673",
+      "addressLocality": "Linden",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:22.293Z"
+    },
+    "ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton bern|brenzikofen|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "jobPostalCode": "3671",
+      "addressLocality": "Brenzikofen",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:22.293Z"
+    },
+    "ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton bern|moosseedorf|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "jobPostalCode": "3302",
+      "addressLocality": "Moosseedorf",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:22.293Z"
+    },
+    "ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton bern|matzwil|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "jobPostalCode": "3036",
+      "addressLocality": "Matzwil",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:22.293Z"
+    },
+    "ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton bern|detligen|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "jobPostalCode": "3036",
+      "addressLocality": "Detligen",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:23.814Z"
+    },
+    "ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton bern|rubigen|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "jobPostalCode": "3113",
+      "addressLocality": "Rubigen",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:23.814Z"
+    },
+    "ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton bern|kirchdorf|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "jobPostalCode": "3116",
+      "addressLocality": "Kirchdorf",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:23.814Z"
+    },
+    "ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton bern|schangnau|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "jobPostalCode": "6197",
+      "addressLocality": "Schangnau",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:23.814Z"
+    },
+    "ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton bern|wilderswil|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "jobPostalCode": "3812",
+      "addressLocality": "Wilderswil",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:23.814Z"
+    },
+    "ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton bern|solothurn|SO": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "jobPostalCode": "4500",
+      "addressLocality": "Solothurn",
+      "addressRegion": "SO",
+      "checkedAt": "2026-11-16T15:23:23.814Z"
+    },
+    "ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton bern|mirchel|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "jobPostalCode": "3532",
+      "addressLocality": "Mirchel",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:23.814Z"
+    },
+    "ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton bern|dotzigen|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "jobPostalCode": "3293",
+      "addressLocality": "Dotzigen",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:23.814Z"
+    },
+    "ksml kantonaler stellenmarkt fur lehrerinnen und lehrer kanton bern|lauenen|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "jobPostalCode": "3782",
+      "addressLocality": "Lauenen",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:23.814Z"
+    },
+    "lemco precision sa|vionnaz|VS": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "Lemco Précision SA",
+      "streetAddress": "Route de la Greffaz 31",
+      "postalCode": "1895",
+      "registeredName": "Lemco Précision SA",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "1895",
+      "addressLocality": "Vionnaz",
+      "addressRegion": "VS",
+      "checkedAt": "2026-11-16T15:23:23.814Z"
+    },
+    "locarno film festival|locarno|TI": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Locarno Film Festival",
+      "jobPostalCode": "6600",
+      "addressLocality": "Locarno",
+      "addressRegion": "TI",
+      "checkedAt": "2026-11-16T15:23:25.631Z"
+    },
+    "ok job sa succursale di mendrisio|yverdon|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "OK Job SA, succursale di Mendrisio",
+      "jobPostalCode": "1400",
+      "addressLocality": "Yverdon",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:23:25.631Z"
+    },
+    "ok job sa succursale di mendrisio|le sentier|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "OK Job SA, succursale di Mendrisio",
+      "jobPostalCode": "1347",
+      "addressLocality": "Le Sentier",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:23:25.631Z"
+    },
+    "ok job sa succursale di mendrisio|bulle|FR": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "OK Job SA, succursale di Mendrisio",
+      "jobPostalCode": "1630",
+      "addressLocality": "Bulle",
+      "addressRegion": "FR",
+      "checkedAt": "2026-11-16T15:23:25.631Z"
+    },
+    "pks bewerbung|binningen|BL": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "pks-bewerbung",
+      "jobPostalCode": "4102",
+      "addressLocality": "Binningen",
+      "addressRegion": "BL",
+      "checkedAt": "2026-11-16T15:23:25.631Z"
+    },
+    "elektriker elektromonteur jobs|binningen|BL": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "elektriker-elektromonteur-jobs",
+      "jobPostalCode": "4102",
+      "addressLocality": "Binningen",
+      "addressRegion": "BL",
+      "checkedAt": "2026-11-16T15:23:25.631Z"
+    },
+    "police lavaux|lutry|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Police Lavaux",
+      "jobPostalCode": "1095",
+      "addressLocality": "Lutry",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:23:25.631Z"
+    },
+    "privatklinik wyss|munchenbuchsee|BE": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "Privatklinik Wyss",
+      "streetAddress": "Fellenbergstrasse 34",
+      "postalCode": "3053",
+      "registeredName": "Privatklinik Wyss AG",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "3053",
+      "addressLocality": "Münchenbuchsee",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:25.631Z"
+    },
+    "fondation rive neuve|blonay|VD": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "Fondation Rive-Neuve",
+      "streetAddress": "Chemin des Cuarroz 57",
+      "postalCode": "1807",
+      "registeredName": "Fondation Rive-Neuve",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "1807",
+      "addressLocality": "Blonay",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:23:25.631Z"
+    },
+    "reseau sante balcon du jura vaudois rsbj|sainte croix|VD": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Réseau Santé Balcon du Jura Vaudois (RSBJ)",
+      "jobPostalCode": "1450",
+      "addressLocality": "Sainte-Croix",
+      "addressRegion": "VD",
+      "checkedAt": "2026-11-16T15:23:25.631Z"
+    },
+    "seniorenzentrum engelhof|altendorf|SZ": {
+      "status": "matched",
+      "source": "zefix-lindas",
+      "companyName": "Seniorenzentrum Engelhof",
+      "streetAddress": "Engelhofstrasse 1",
+      "postalCode": "8852",
+      "registeredName": "Seniorenzentrum Engelhof",
+      "matchType": "exact",
+      "streetAddressSource": "zefix-registry",
+      "jobPostalCode": "8852",
+      "addressLocality": "Altendorf",
+      "addressRegion": "SZ",
+      "checkedAt": "2026-11-16T15:23:25.631Z"
+    },
+    "suchthilfe region basel|reinach|BL": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Suchthilfe Region Basel",
+      "jobPostalCode": "4153",
+      "addressLocality": "Reinach",
+      "addressRegion": "BL",
+      "checkedAt": "2026-11-16T15:23:27.576Z"
+    },
+    "klinik sudhang|kirchlindach|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Klinik Südhang",
+      "jobPostalCode": "3038",
+      "addressLocality": "Kirchlindach",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:27.576Z"
+    },
+    "klinik sudhang|biel bienne|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Klinik Südhang",
+      "jobPostalCode": "2502",
+      "addressLocality": "Biel/Bienne",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:27.576Z"
+    },
+    "swiss re|ruschlikon|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Swiss Re",
+      "jobPostalCode": "8803",
+      "addressLocality": "Rüschlikon",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:23:27.576Z"
+    },
+    "swiss timing swatch group|corgemont|BE": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Swiss Timing (Swatch Group)",
+      "jobPostalCode": "2606",
+      "addressLocality": "Corgémont",
+      "addressRegion": "BE",
+      "checkedAt": "2026-11-16T15:23:27.576Z"
+    },
+    "therapiezentrum meggen|meggen|LU": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Therapiezentrum Meggen",
+      "jobPostalCode": "6045",
+      "addressLocality": "Meggen",
+      "addressRegion": "LU",
+      "checkedAt": "2026-11-16T15:23:27.576Z"
+    },
+    "stiftung wagerenhof|uster|ZH": {
+      "status": "not-found",
+      "source": "zefix-lindas",
+      "companyName": "Stiftung Wagerenhof",
+      "jobPostalCode": "8610",
+      "addressLocality": "Uster",
+      "addressRegion": "ZH",
+      "checkedAt": "2026-11-16T15:23:27.576Z"
     }
   }
 }

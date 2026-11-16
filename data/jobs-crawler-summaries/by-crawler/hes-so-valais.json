@@ -1,18 +1,70 @@
 {
   "key": "hes-so-valais",
   "label": "HES-SO Valais-Wallis",
-  "generatedAt": "2026-11-16T09:15:39.039Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-11-16T21:16:19.679Z",
+  "total": 3,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 8064,
-  "avgDurationMs": 8064,
+  "durationMs": 10360,
+  "avgDurationMs": 10360,
   "durationHistory": [
-    8064
+    10360
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://www.hevs.ch/fr/recruitee/leitende-wissenschaftliche-mitarbeiterin-oder-leitender-wissenschaftlicher-mitarbeiter-80--215673",
+      "applyUrl": "https://www.hevs.ch/fr/recruitee/leitende-wissenschaftliche-mitarbeiterin-oder-leitender-wissenschaftlicher-mitarbeiter-80--215673",
+      "title": "Leitende wissenschaftliche Mitarbeiterin oder leitender",
+      "company": "HES-SO Valais-Wallis",
+      "companyKey": "hes-so-valais",
+      "location": "Sion",
+      "postalCode": "1950",
+      "canton": "VS",
+      "country": "CH",
+      "slug": "leitende-wissenschaftliche-mitarbeiterin-o-leitender-hes-so-valais-wallis-sion",
+      "category": "general",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "source": "hes-so-valais-crawler",
+      "sourceLang": "de",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Istruzione / Ricerca",
+      "_targetScope": {
+        "canton": "VS",
+        "location": "Sion"
+      },
+      "urlByLocale": {
+        "fr": "https://www.hevs.ch/fr/recruitee/leitende-wissenschaftliche-mitarbeiterin-oder-leitender-wissenschaftlicher-mitarbeiter-80--215673",
+        "de": "https://www.hevs.ch/de/recruitee/leitende-wissenschaftliche-mitarbeiterin-oder-leitender-wissenschaftlicher-mitarbeiter-80--215673",
+        "en": "https://www.hevs.ch/en/recruitee/leitende-wissenschaftliche-mitarbeiterin-oder-leitender-wissenschaftlicher-mitarbeiter-80--215673"
+      },
+      "needsRetranslation": true,
+      "crawledAt": "2026-11-16T21:16:07.969Z",
+      "id": "hes-so-valais-7b4d1a0026cc",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "streetAddress": "Sion",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-14T21:16:07.969Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-16T21:16:07.969Z",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 19,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -47,7 +99,7 @@
       },
       "id": "hes-so-valais-60cf728c5753",
       "firstSeenAt": "2026-11-05T21:15:57.137Z",
-      "crawledAt": "2026-11-16T09:15:25.304Z",
+      "crawledAt": "2026-11-16T21:16:07.969Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -56,7 +108,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:15:25.304Z",
+      "validThrough": "2027-02-03T21:16:07.969Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -97,7 +149,7 @@
       },
       "id": "hes-so-valais-6e6dcd0b615a",
       "firstSeenAt": "2026-10-29T21:38:55.675Z",
-      "crawledAt": "2026-11-16T09:15:25.304Z",
+      "crawledAt": "2026-11-16T21:16:07.969Z",
       "salaryMin": 51000,
       "salaryMax": 77500,
       "currency": "CHF",
@@ -106,7 +158,7 @@
       "addressRegion": "VS",
       "streetAddress": "Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-28T09:15:25.304Z",
+      "validThrough": "2027-01-28T21:16:07.969Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -117,5 +169,5 @@
       }
     }
   ],
-  "codeCommit": "71e06c4f557e81be4e8743feaa696210bf683ef0"
+  "codeCommit": "003c4e440c1461e3ea15f62e2d687026ad8479d5"
 }

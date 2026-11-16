@@ -302,10 +302,12 @@ function snapshotHasCoverageSignal(snapshot) {
 
 /**
  * Observes the week containing each Swiss canton release's own fetch timestamp.
- * A historical week may naturally contain only `expired` rows after a later
- * refresh; the observer therefore never anchors to a fixed calendar date.
- * Fresh, release-ready snapshots without a verified interval in their fetch
- * week are an unreported coverage gap and must make the health report red.
+ * A source refresh can happen after that week's interval has ended, so a valid
+ * fetch week may contain only `expired` rows. The observer therefore measures
+ * source-published interval coverage, not whether a duty is operational at the
+ * instant of the fetch. Fresh, release-ready snapshots without any valid
+ * interval in their fetch week are an unreported coverage gap and must make the
+ * health report red.
  */
 export function observeSwissCantonDutyCoverage(registry, duties) {
   const entries = [];
@@ -318,9 +320,11 @@ export function observeSwissCantonDutyCoverage(registry, duties) {
     const fetchedAtMs = fetchedAt ? Date.parse(fetchedAt) : NaN;
     const week = Number.isFinite(fetchedAtMs) ? swissCantonFetchWeek(fetchedAtMs) : null;
     if (!week || !Number.isFinite(week.startMs) || !Number.isFinite(week.endMs)) continue;
-    const verifiedDutyCount = (Array.isArray(snapshot.duties) ? snapshot.duties : [])
-      .filter((duty) => duty?.status === 'verified' && dutyIntersectsWindow(duty, week.startMs, week.endMs))
-      .length;
+    const fetchWeekDuties = (Array.isArray(snapshot.duties) ? snapshot.duties : [])
+      .filter((duty) => (duty?.status === 'verified' || duty?.status === 'expired')
+        && dutyIntersectsWindow(duty, week.startMs, week.endMs));
+    const verifiedDutyCount = fetchWeekDuties.filter((duty) => duty.status === 'verified').length;
+    const fetchWeekDutyCount = fetchWeekDuties.length;
     entries.push({
       key,
       canton: snapshot._scope.canton,
@@ -328,7 +332,8 @@ export function observeSwissCantonDutyCoverage(registry, duties) {
       weekStart: week.startKey,
       weekEnd: week.endKey,
       verifiedDutyCount,
-      covered: verifiedDutyCount > 0,
+      fetchWeekDutyCount,
+      covered: fetchWeekDutyCount > 0,
       signalled: snapshotHasCoverageSignal(snapshot),
     });
   }

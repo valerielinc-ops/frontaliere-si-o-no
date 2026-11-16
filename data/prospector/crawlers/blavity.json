@@ -1,0 +1,22 @@
+{
+  "companyKey": "blavity",
+  "companyName": "Blavity Inc.",
+  "companyHost": "blavity.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://blavity.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Senior Account Director, Blavity Media Group",
+    "Senior Director, New Business Development"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-16T14:10:11.302Z",
+  "candidateKey": "blavity@applytojob.com"
+}

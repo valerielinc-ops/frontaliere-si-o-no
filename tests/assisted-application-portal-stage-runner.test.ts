@@ -1,14 +1,17 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-const state = vi.hoisted(() => ({ snapshot: null as any }));
+const state = vi.hoisted(() => ({ snapshot: null as any, onExtract: null as ((snapshot: any, stack: string) => void) | null }));
 vi.mock('../scripts/assisted-application/lib/portal/fields.mjs', async importOriginal => ({
-  ...await importOriginal<any>(), extractFields: vi.fn(async () => state.snapshot), registerPortalChannelType: vi.fn(),
+  ...await importOriginal<any>(), extractFields: vi.fn(async () => {
+    state.onExtract?.(state.snapshot, new Error().stack || '');
+    return state.snapshot;
+  }), registerPortalChannelType: vi.fn(),
 }));
 vi.mock('../scripts/assisted-application/lib/portal/plan.mjs', async importOriginal => ({
   ...await importOriginal<any>(), planPage: vi.fn(async () => ({ actions: [], missingRequired: [] })),
 }));
 vi.mock('../scripts/assisted-application/lib/portal/diagnostics.mjs', async importOriginal => ({
   ...await importOriginal<any>(), startPortalDiagnostics: () => ({ data: {}, currentAttempt: () => 1, installFetchObserver: async () => {},
-    beginAttempt: async () => {}, beforeSubmit: async () => {}, finalClick: () => {}, afterSubmit: async () => {}, finish: async () => {} }),
+    beginAttempt: async () => {}, beforeSubmit: async () => {}, finalClick: () => {}, challengeAfterClick: () => false, afterSubmit: async () => {}, finish: async () => {} }),
 }));
 import { advancedToFinalReview, embeddedEngelvoelkersApplyUrlFromHtml, submitViaPortal } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { portalProtocolFromHtml } from '../scripts/assisted-application/lib/portal/protocol.mjs';
@@ -31,9 +34,9 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
     expect(click).not.toHaveBeenCalled();
   });
   const click = vi.fn(async () => { expect(guard).toHaveBeenCalledTimes(1); state.snapshot = options.receiptSnapshot || receipt; });
-  const openClick = vi.fn(async () => { expect(guard).not.toHaveBeenCalled(); state.snapshot = initial; });
+  const openClick = vi.fn(async () => { expect(guard).not.toHaveBeenCalled(); state.snapshot = initial; options.onOpenClick?.(); });
   const page: any = {
-    url: () => state.snapshot.url, title: async () => state.snapshot.title || title, frames: () => [page], mainFrame: () => page,
+    url: () => options.pageUrl?.() || state.snapshot.url, title: async () => state.snapshot.title || title, frames: () => [page], mainFrame: () => page,
     goto: vi.fn(async (url: string) => {
       if (url === options.applyUrl && options.applySnapshot) state.snapshot = options.applySnapshot;
       if (url === options.embeddedApplyUrl && options.applySnapshot) state.snapshot = options.applySnapshot;
@@ -52,7 +55,7 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
       return source.includes('document.body') ? state.snapshot.text : false;
     },
     ...(options.agentSnapshot ? { ariaSnapshot: async () => options.agentSnapshot(state.snapshot) } : {}),
-    waitForLoadState: async () => {}, waitForTimeout: async () => {}, screenshot: async () => Buffer.from('fixture'),
+    waitForLoadState: async () => {}, waitForTimeout: async (ms: number) => { options.onWait?.(ms); }, screenshot: async () => Buffer.from('fixture'),
     getByRole: () => ({
       count: async () => 0,
       filter: () => ({ first: () => ({ waitFor: async () => { throw new Error('not visible'); } }) }),
@@ -88,10 +91,11 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
   };
   const browser = { newContext: async () => ({ route: async () => {}, waitForEvent: async () => null, newPage: async () => page, close: async () => {} }), close: async () => {}, version: () => '151' };
   const codex = vi.fn();
-  const run = () => submitViaPortal({ applyUrl: source?.url || options.applyUrl || applyUrl, postingUrl: options.postingUrl, channelType: options.channelType,
+  const run = () => submitViaPortal({ applyUrl: options.applyUrl || source?.url || applyUrl, postingUrl: options.postingUrl, channelType: options.channelType,
     postingRouteProof: options.postingRouteProof,
     job: options.job || { title }, language: 'en', candidate: { identity: {}, profile: {} }, files: {},
     codex, launch: async () => browser, onBeforeSubmit: guard,
+    onPortalNavigationDiagnostic: options.onPortalNavigationDiagnostic,
     ...(options.portalReplay === true ? {
       portalReplay: true,
       portalReplayFenceInstalled: options.portalReplayFenceInstalled === true,
@@ -101,7 +105,10 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
   return { run, guard, click, openClick, page, codex };
 }
 
-beforeEach(() => vi.clearAllMocks());
+beforeEach(() => {
+  state.onExtract = null;
+  vi.clearAllMocks();
+});
 describe('runner final guard across three application stages', () => {
   it('navigates profile → review without a click claim, guards the final Apply once, then confirms this job receipt', async () => {
     const f = fixture();
@@ -174,6 +181,261 @@ describe('runner final guard across three application stages', () => {
 
     expect(f.page.goto).toHaveBeenCalledWith(cityApplyUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     expect(result.event).toMatchObject({ type: 'submit_handoff' });
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('continues after a fieldless UBS Apply now click', async () => {
+    const postingUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=42';
+    const posting = {
+      ...snapshot(postingUrl, `${title}. UBS. Share Apply now Save`, [
+        { id: 'share', text: 'Share', frame: 0, disabled: false },
+        { id: 'posting-entry', text: 'Apply now', section: title, frame: 0, disabled: false },
+        { id: 'save', text: 'Save', frame: 0, disabled: false },
+      ]),
+      title: `${title} | UBS`,
+    };
+    const fieldlessApplication = {
+      ...snapshot(`${postingUrl}#apply`, 'Application. Share Apply now Save', [
+        { id: 'share', text: 'Share', frame: 0, disabled: false },
+        { id: 'application-entry', text: 'Apply now', section: title, frame: 0, disabled: false },
+        { id: 'save', text: 'Save', frame: 0, disabled: false },
+      ]),
+      title: `${title} | UBS`,
+    };
+    const applicationForm = {
+      ...snapshot(`${postingUrl}#form`, 'Application details', [
+        { id: 'application-next', text: 'Next', formId: 'application', frame: 0, disabled: false },
+      ]),
+      title: `${title} | UBS`,
+      fields: [
+        { id: 'first', label: 'First Name', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { id: 'last', label: 'Last Name', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+      ],
+    };
+    const finalReview = {
+      ...snapshot(`${postingUrl}#review`, 'Please review the information below. Once you have reviewed, please select Submit to finalise your application.', [
+        { id: 'commit', text: 'Apply', formId: 'application', frame: 0, disabled: false },
+      ]),
+      title: `${title} | UBS`,
+    };
+    const received = {
+      ...snapshot(`${postingUrl}#confirmation`, `Thank you for your application for ${title}.`, []),
+      title: `${title} | UBS`,
+    };
+    let fieldlessEntryClicks = 0;
+    const f = fixture(fieldlessApplication, posting, finalReview, null, {
+      applyUrl: postingUrl,
+      postingUrl,
+      channelType: 'employer_site',
+      job: { company: 'UBS', title },
+      guardUrl: finalReview.url,
+      receiptSnapshot: received,
+      buttonTransitions: {
+        '[data-aa-id="application-entry"]': async () => {
+          fieldlessEntryClicks += 1;
+          if (fieldlessEntryClicks === 3) state.snapshot = applicationForm;
+        },
+        '[data-aa-id="application-next"]': async () => { state.snapshot = finalReview; },
+      },
+    });
+
+    const result = await f.run();
+
+    expect(f.openClick).toHaveBeenCalledOnce();
+    expect(fieldlessEntryClicks).toBe(3);
+    expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
+    expect(f.guard).toHaveBeenCalledOnce();
+    expect(f.click).toHaveBeenCalledOnce();
+
+    const otherPostingUrl = postingUrl.replace('jobid=42', 'jobid=43');
+    const routeConflict = fixture({ ...fieldlessApplication, url: `${otherPostingUrl}#apply` }, posting, finalReview, null, {
+      applyUrl: postingUrl,
+      postingUrl,
+      channelType: 'employer_site',
+      job: { company: 'UBS', title },
+    });
+    const routeConflictResult = await routeConflict.run();
+    expect(routeConflictResult.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(routeConflict.guard).not.toHaveBeenCalled();
+    expect(routeConflict.click).not.toHaveBeenCalled();
+
+    const provenanceConflict = fixture(fieldlessApplication, posting, finalReview, null, {
+      applyUrl: postingUrl,
+      postingUrl: otherPostingUrl,
+      channelType: 'employer_site',
+      job: { company: 'UBS', title },
+      buttonTransitions: {
+        '[data-aa-id="application-entry"]': async () => {},
+      },
+    });
+    const provenanceConflictResult = await provenanceConflict.run();
+    expect(provenanceConflictResult.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
+    expect(provenanceConflict.guard).not.toHaveBeenCalled();
+    expect(provenanceConflict.click).not.toHaveBeenCalled();
+  });
+
+  it('waits for a blank Rituals Workday apply route to mount before handing it to the agent', async () => {
+    const postingUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033';
+    const applyUrl = `${postingUrl}/apply`;
+    const blankApply = {
+      ...snapshot(applyUrl, '', []),
+      title: 'Rituals Careers',
+      heading: '',
+      text: '',
+    };
+    const mountedApply = {
+      ...snapshot(applyUrl, 'Application', [{ id: 'apply', text: 'Apply', formId: 'application', frame: 0, disabled: false }]),
+      fields: [
+        { id: 'first', label: 'First Name', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { id: 'last', label: 'Last Name', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { id: 'email', label: 'Email', kind: 'text', inputType: 'email', formId: 'application', frame: 0 },
+        { id: 'cv', label: 'Resume / CV', kind: 'file', inputType: 'file', formId: 'application', frame: 0 },
+      ],
+    };
+    const received = {
+      ...snapshot(`${applyUrl}/applyManually`, 'Thank you for your application.', []),
+      fields: [],
+      buttons: [],
+    };
+    const posting = snapshot(postingUrl, 'Store Assistant Rituals Apply', [{ id: 'entry', text: 'Apply', frame: 0, disabled: false }]);
+    const f = fixture(blankApply, posting, review, null, {
+      applyUrl,
+      postingUrl,
+      channelType: 'workday',
+      job: { company: 'Rituals Cosmetics Switzerland', title: 'Store Assistant' },
+      guardUrl: applyUrl,
+      receiptSnapshot: received,
+      onWait: (ms: number) => {
+        if (ms === 1000 && state.snapshot.url === applyUrl && !state.snapshot.fields.length && !state.snapshot.buttons.length) state.snapshot = mountedApply;
+      },
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
+    expect(f.openClick).toHaveBeenCalledOnce();
+    expect(f.guard).toHaveBeenCalledOnce();
+    expect(f.click).toHaveBeenCalledOnce();
+  });
+
+  it('rejects a Workday surface that appears after the polled apply route becomes unbound', async () => {
+    const postingUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033';
+    const applyUrl = `${postingUrl}/apply`;
+    const blankApply = {
+      ...snapshot(applyUrl, '', []),
+      title: 'Rituals Careers',
+      heading: '',
+      text: '',
+    };
+    const unboundSurface = {
+      ...snapshot('https://rituals.wd3.myworkdayjobs.com/en-US/Rituals', 'Search for jobs', [
+        { id: 'search', text: 'Search', formId: 'search', frame: 0, disabled: false },
+      ]),
+      fields: [
+        { id: 'keywords', label: 'Search jobs', kind: 'text', inputType: 'text', formId: 'search', frame: 0 },
+      ],
+    };
+    const posting = snapshot(postingUrl, 'Store Assistant Rituals Apply', [{ id: 'entry', text: 'Apply', frame: 0, disabled: false }]);
+    const polledUnboundSnapshots: string[] = [];
+    state.onExtract = (current, stack) => {
+      if (current.url === unboundSurface.url && stack.includes('waitForWorkdayApplicationSurface')) {
+        polledUnboundSnapshots.push(current.url);
+      }
+    };
+    const f = fixture(blankApply, posting, review, null, {
+      applyUrl,
+      postingUrl,
+      channelType: 'workday',
+      job: { company: 'Rituals Cosmetics Switzerland', title: 'Store Assistant' },
+      onWait: (ms: number) => {
+        if (ms === 1000 && state.snapshot.url === applyUrl) state.snapshot = unboundSurface;
+      },
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(polledUnboundSnapshots).toEqual([]);
+    expect(f.codex).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('rejects an already-unbound Workday URL before adopting the empty apply snapshot', async () => {
+    const postingUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033';
+    const applyUrl = `${postingUrl}/apply`;
+    const unboundUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals';
+    const blankApply = {
+      ...snapshot(applyUrl, '', []),
+      title: 'Rituals Careers',
+      heading: '',
+      text: '',
+    };
+    const posting = snapshot(postingUrl, 'Store Assistant Rituals Apply', [{ id: 'entry', text: 'Apply', frame: 0, disabled: false }]);
+    const navigationDiagnostics: any[] = [];
+    let currentUrl = postingUrl;
+    let applicationStarted = false;
+    const f = fixture(blankApply, posting, review, null, {
+      applyUrl,
+      postingUrl,
+      channelType: 'workday',
+      job: { company: 'Rituals Cosmetics Switzerland', title: 'Store Assistant' },
+      pageUrl: () => currentUrl,
+      onPortalNavigationDiagnostic: (diagnostic: any) => {
+        if (applicationStarted) navigationDiagnostics.push(diagnostic);
+      },
+      onOpenClick: () => { applicationStarted = true; currentUrl = unboundUrl; },
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(navigationDiagnostics).toEqual([]);
+    expect(f.codex).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('rejects a Workday surface that becomes unbound during the pre-poll wait', async () => {
+    const postingUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033/';
+    const applyUrl = `${postingUrl}apply/`;
+    const blankApply = {
+      ...snapshot(applyUrl, '', []),
+      title: 'Rituals Careers',
+      heading: '',
+      text: '',
+    };
+    const unboundSurface = {
+      ...snapshot('https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/', 'Search for jobs', [
+        { id: 'search', text: 'Search', formId: 'search', frame: 0, disabled: false },
+      ]),
+      fields: [
+        { id: 'keywords', label: 'Search jobs', kind: 'text', inputType: 'text', formId: 'search', frame: 0 },
+      ],
+    };
+    const posting = snapshot(postingUrl, 'Store Assistant Rituals Apply', [{ id: 'entry', text: 'Apply', frame: 0, disabled: false }]);
+    const navigationDiagnostics: any[] = [];
+    let applicationStarted = false;
+    const f = fixture(blankApply, posting, review, null, {
+      applyUrl,
+      postingUrl,
+      channelType: 'workday',
+      job: { company: 'Rituals Cosmetics Switzerland', title: 'Store Assistant' },
+      onPortalNavigationDiagnostic: (diagnostic: any) => {
+        if (applicationStarted) navigationDiagnostics.push(diagnostic);
+      },
+      onOpenClick: () => { applicationStarted = true; },
+      onWait: (ms: number) => {
+        if (ms === 1200 && state.snapshot.url === applyUrl) state.snapshot = unboundSurface;
+      },
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'posting_mismatch' });
+    expect(navigationDiagnostics).toEqual([]);
+    expect(f.codex).not.toHaveBeenCalled();
     expect(f.guard).not.toHaveBeenCalled();
     expect(f.click).not.toHaveBeenCalled();
   });

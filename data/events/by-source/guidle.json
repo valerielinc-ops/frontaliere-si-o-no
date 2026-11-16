@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-11-15T13:12:41.023Z",
+  "assembledAt": "2026-11-16T14:15:01.808Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -188725,6 +188725,864 @@
       },
       "recurring": true,
       "sourceDescriptionHash": "393bf9ab4ea804f71965ba218e3709dabde64f41b5e3276a992aa510bda65e6e"
+    },
+    {
+      "id": "guidle:ApyiECR",
+      "title": "Rousseau, lanceur d’alerte",
+      "titleByLocale": {
+        "it": "Rousseau, lanceur d’alerte",
+        "en": "Rousseau, whistleblower",
+        "de": "Rousseau, Whistleblower",
+        "fr": "Rousseau, lanceur d'alerte"
+      },
+      "startDate": "2026-12-06",
+      "endDate": "2026-12-06",
+      "startTime": "14:00",
+      "category": "Visita guidata ulteriore museo",
+      "venue": "Maison de Rousseau et de la littérature (MRL)",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/geneve/rousseau-lanceur-dalerte_ApyiECR",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Grand-Rue 40",
+        "postalCode": "1204"
+      },
+      "geo": {
+        "lat": 46.2013699,
+        "lng": 6.1465501
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "96665a5d45b998ef6d66bc557867e2849e00dcc543cbd7839285e286c1fe17a8"
+    },
+    {
+      "id": "guidle:AJYnFxr",
+      "title": "Rousseau, whistleblower",
+      "titleByLocale": {
+        "it": "Rousseau, whistleblower",
+        "en": "Rousseau ,ist",
+        "de": "Rousseau, acrythistleblo acryber",
+        "fr": "Rousseau, lanceur d’alerte"
+      },
+      "startDate": "2026-12-06",
+      "endDate": "2026-12-06",
+      "startTime": "11:30",
+      "category": "Visita guidata ulteriore museo",
+      "venue": "Maison de Rousseau et de la littérature (MRL)",
+      "canton": "GE",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/geneve/rousseau-whistleblower_AJYnFxr",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Grand-Rue 40",
+        "postalCode": "1204"
+      },
+      "geo": {
+        "lat": 46.2013699,
+        "lng": 6.1465501
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "bb0edf48a860a3f75e9db395e1f371cfd1be7af79ededbbee64ec39ad7c24c6e"
+    },
+    {
+      "id": "guidle:ABY8VeY",
+      "title": "Zmittag für alli",
+      "titleByLocale": {
+        "it": "Zmittag für alli",
+        "en": "Zmittag f al",
+        "de": "Zmittag f Alli",
+        "fr": "Message pour tous"
+      },
+      "startDate": "2026-12-01",
+      "endDate": "2026-12-01",
+      "startTime": "12:00",
+      "category": "Comunione",
+      "comune": "Uitikon",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/uitikon-waldegg/zmittag-fuer-alli_ABY8VeY",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "geo": {
+        "lat": 47.3701812,
+        "lng": 8.4536026
+      },
+      "recurring": false
+    },
+    {
+      "id": "guidle:ASGr5bq",
+      "title": "Initiation au skate",
+      "titleByLocale": {
+        "it": "Initiation au skate",
+        "en": "Introduction to skateboarding",
+        "de": "Einführung in das Skateboarden",
+        "fr": "Initiation au skateboard"
+      },
+      "startDate": "2026-12-09",
+      "endDate": "2027-02-17",
+      "startTime": "15:30",
+      "category": "Altri eventi",
+      "venue": "MEN - Musée d'ethnographie Neuchâtel",
+      "comune": "Neuchâtel",
+      "canton": "NE",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/neuchatel/initiation-au-skate_ASGr5bq",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Rue de Saint-Nicolas 4",
+        "postalCode": "2000"
+      },
+      "geo": {
+        "lat": 46.9907268,
+        "lng": 6.920472
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "c0a702950721affea8151925b38fe3c6d1e315d222f526d94a37b0def8f24f49"
+    },
+    {
+      "id": "guidle:AahCTq1",
+      "title": "Maman sort danser",
+      "titleByLocale": {
+        "it": "Maman sort danser",
+        "en": "Maman sort danser",
+        "de": "Mama ist eine Art Tänzerin",
+        "fr": "Maman sort danseuse"
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2026-12-05",
+      "startTime": "20:00",
+      "category": "Altri eventi",
+      "venue": "Mad",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/maman-sort-danser_AahCTq1",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Rue des Terreaux 25",
+        "postalCode": "1004"
+      },
+      "geo": {
+        "lat": 46.5226895,
+        "lng": 6.6273736
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "90c326d106875dabde750eb83a0190071f8dd21c7ddcd946c4ea6217c97c5e90"
+    },
+    {
+      "id": "guidle:Ajb47GQ",
+      "title": "Café-deuil",
+      "titleByLocale": {
+        "it": "Café-deuil",
+        "en": "Cafe-deuil",
+        "de": "Café deuil",
+        "fr": "Café Deuil"
+      },
+      "startDate": "2026-12-10",
+      "endDate": "2026-12-10",
+      "startTime": "17:30",
+      "category": "Altri eventi",
+      "venue": "palliative vaud",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/cafe-deuil_Ajb47GQ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Rue Saint-Martin 26",
+        "postalCode": "1005"
+      },
+      "geo": {
+        "lat": 46.5232114,
+        "lng": 6.6374176
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "f94c7c65b25a0169657a9ad6a26605819972c796b9a26b55104137d0e40dcbd0"
+    },
+    {
+      "id": "guidle:AhnB2ib",
+      "title": "Atelier Apérographiques",
+      "titleByLocale": {
+        "it": "Atelier Apérographiques",
+        "en": "Apérographiques Workshops",
+        "de": "Apérographische Workshops",
+        "fr": "Ateliers Apérographiques"
+      },
+      "startDate": "2026-11-19",
+      "endDate": "2026-11-19",
+      "startTime": "18:00",
+      "category": "Altri eventi",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/atelier-aperographiques_AhnB2ib",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 46.520634,
+        "lng": 6.6316306
+      },
+      "recurring": false
+    },
+    {
+      "id": "guidle:AiX15rS",
+      "title": "Seniorenmittagessen",
+      "titleByLocale": {
+        "it": "Seniorenmittagessen",
+        "en": "Senior citizens' lunch",
+        "de": "Senior enmittagessen",
+        "fr": "Déjeuners pour seniors"
+      },
+      "startDate": "2026-12-02",
+      "endDate": "2026-12-02",
+      "startTime": "12:00",
+      "category": "Comunione",
+      "venue": "Grand Hotel Kronenhof",
+      "comune": "Pontresina",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/pontresina/seniorenmittagessen_AiX15rS",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 24,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Via Maistra 130",
+        "postalCode": "7504"
+      },
+      "geo": {
+        "lat": 46.4935195,
+        "lng": 9.9011962
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "802adf2e50e04c92a67ff4563801ae243b88bef26a209fb41d931fa450968571"
+    },
+    {
+      "id": "guidle:A59vhAw",
+      "title": "Festager cun iffaunts / Fiira mit da Kliine",
+      "titleByLocale": {
+        "it": "Festager cun iffaunts / Fiira mit da Kliine",
+        "en": "Festager cun iffaunts / Fiira mit by Kliine",
+        "de": "Festager cun iffaunts / Fiira mit von Kliine",
+        "fr": "Fête des mères / Fiira mit by Kliine"
+      },
+      "startDate": "2026-12-14",
+      "endDate": "2026-12-14",
+      "startTime": "09:30",
+      "category": "Ecumenismo",
+      "venue": "Evang. - ref. Kirche Santa Maria",
+      "comune": "S-chanf",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/s-chanf/festager-cun-iffaunts-fiira-mit-da-kliine_A59vhAw",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Via Maistra 79",
+        "postalCode": "7525"
+      },
+      "geo": {
+        "lat": 46.611514,
+        "lng": 9.983109
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Martina Marugg"
+      },
+      "sourceDescriptionHash": "7981900539b1e722e0c1780b2883aa035c0cbbb1ce9055dafcf8895863b18a76"
+    },
+    {
+      "id": "guidle:AXUfZCe",
+      "title": "Im Schweinwerferlicht - Auftritt üben",
+      "titleByLocale": {
+        "it": "Im Schweinwerferlicht - Auftritt üben",
+        "en": "In the spotlight – Rehearsing a performance",
+        "de": "Im Scheinwerferlicht – Auftritt üben",
+        "fr": "Sous les projecteurs – Répéter son entrée en scène"
+      },
+      "startDate": "2027-06-06",
+      "endDate": "2027-06-06",
+      "startTime": "10:15",
+      "category": "Altri eventi",
+      "venue": "Schreibwerk Ost",
+      "canton": "TG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/uesslingen/im-schweinwerferlicht-auftritt-ueben_AXUfZCe",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 280,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Iselisberg 14",
+        "postalCode": "8524"
+      },
+      "geo": {
+        "lat": 47.586391,
+        "lng": 8.8273657
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Peter Höner"
+      },
+      "sourceDescriptionHash": "6a60b17717167758c239d7e835d2d484014ceb952752784924a75b04d7cf31bd"
+    },
+    {
+      "id": "guidle:AXhYkSe",
+      "title": "Austauschgruppe für Angehörige von Menschen mit Demenz",
+      "titleByLocale": {
+        "it": "Austauschgruppe für Angehörige von Menschen mit Demenz",
+        "en": "Support Group for Relatives of People with Dementia",
+        "de": "Austauschgruppe F. V. M. M. M. M. M. M. M. M. M. M. M. M. M. M. M. M. M.",
+        "fr": "Groupe d’échange pour les proches de personnes atteintes de démence"
+      },
+      "startDate": "2026-12-02",
+      "endDate": "2026-12-02",
+      "category": "Comunione",
+      "comune": "Glarus",
+      "canton": "GL",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/glarus/austauschgruppe-fuer-angehoerige-von-menschen-mit-demenz_AXhYkSe",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 50,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.04273,
+        "lng": 9.068244
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "9f376a909cacc64ddaa4bc6491dd11239e270d0cd5cb3ef25fa949daf6bee26f"
+    },
+    {
+      "id": "guidle:APiGrPF",
+      "title": "Bad Zurzach - Trauertreff",
+      "titleByLocale": {
+        "it": "Bad Zurzach - Trauertreff",
+        "en": "Bad Zurzach – Trauertreff",
+        "de": "Bad Zurzach – Trauertreff",
+        "fr": "Mauvais Zurzach - Trauertreff"
+      },
+      "startDate": "2026-11-16",
+      "endDate": "2026-12-21",
+      "startTime": "18:30",
+      "category": "Aiuto volontari",
+      "venue": "Generationenhaus Pfauen",
+      "comune": "Zurzach",
+      "canton": "AG",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/bad-zurzach/bad-zurzach-trauertreff_APiGrPF",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Quellenstrasse 5",
+        "postalCode": "5330"
+      },
+      "geo": {
+        "lat": 47.5869484,
+        "lng": 8.2912221
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "e90c3b1ca6f31c9270725e906431ab268d500bcb622c230d56f1590e95b675c1"
+    },
+    {
+      "id": "guidle:AvBKKY1",
+      "title": "Félix Ringaby",
+      "titleByLocale": {
+        "it": "Félix Ringaby",
+        "en": "Félix Ringaby",
+        "de": "Félix Ringaby",
+        "fr": "Félix Ringaby"
+      },
+      "startDate": "2026-12-10",
+      "endDate": "2026-12-10",
+      "startTime": "19:00",
+      "category": "Altri eventi",
+      "venue": "Liquors Club",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/felix-ringaby_AvBKKY1",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 25,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Rue Enning 1",
+        "postalCode": "1003"
+      },
+      "geo": {
+        "lat": 46.5202364,
+        "lng": 6.6373447
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "830351059b4f1e39ed77d9d2911aa72bc6fcd72427ffc54ef46e842df95cc0ef"
+    },
+    {
+      "id": "guidle:At65PB6",
+      "title": "Gekocht, getrocknet, geräuchert oder gereift?",
+      "titleByLocale": {
+        "it": "Gekocht, getrocknet, geräuchert oder gereift?",
+        "en": "Cooked, dried, smoked, or aged?",
+        "de": "Gekocht, getrocknet, geräuchert oder gereift?",
+        "fr": "Cuite, séchée, fumée ou maturée ?"
+      },
+      "startDate": "2026-11-18",
+      "endDate": "2026-12-30",
+      "startTime": "00:00",
+      "category": "Altri eventi",
+      "venue": "Alimentarium",
+      "comune": "Vevey",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/vevey/cuite-sechee-fumee-ou-maturee-_At65PB6",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Quai Perdonnet 25",
+        "postalCode": "1800"
+      },
+      "geo": {
+        "lat": 46.4583939,
+        "lng": 6.8464425
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "4adbf2903bb89c4277a1e9b28e969eccfd71a450ab1c6582b16f506fc6d800a6"
+    },
+    {
+      "id": "guidle:AxSQZPX",
+      "title": "Öffentliche Führung",
+      "titleByLocale": {
+        "it": "Öffentliche Führung",
+        "en": "Öffentliche Führung",
+        "de": "Öffentliche Führung",
+        "fr": "Öffentliche Führung"
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2027-06-19",
+      "startTime": "14:00",
+      "category": "Visita guidata ulteriore museo",
+      "venue": "Theater Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/basel/oeffentliche-fuehrung_AxSQZPX",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Theaterstrasse 7",
+        "postalCode": "4051"
+      },
+      "geo": {
+        "lat": 47.552934,
+        "lng": 7.590161
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "18e1e7d2a63947c0ac730fc9615083d13e434a08c7539b502f91477a4a2685b6"
+    },
+    {
+      "id": "guidle:AhSHdVw",
+      "title": "Van Manen/Kylián/Goecke",
+      "titleByLocale": {
+        "it": "Van Manen/Kylián/Goecke",
+        "en": "Van Manen/Kylián/Goecke",
+        "de": "Van Manen/Kylián/Goecke",
+        "fr": "Van Manen/Kylián/Goecke"
+      },
+      "startDate": "2027-05-03",
+      "endDate": "2027-06-27",
+      "startTime": "19:30",
+      "category": "Altri eventi",
+      "venue": "Theater Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/basel/van-manenkylingoecke_AhSHdVw",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Theaterstrasse 7",
+        "postalCode": "4051"
+      },
+      "geo": {
+        "lat": 47.552934,
+        "lng": 7.590161
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Profil"
+        },
+        {
+          "name": "Team"
+        }
+      ],
+      "sourceDescriptionHash": "af6d38d495cd0bde97e167f576d3fcfef5af48f8420b6c19ee5c374216df8cfa"
+    },
+    {
+      "id": "guidle:AL5Z7Se",
+      "title": "Politkino! Filmgeschichte im Dialog, 01.09.2026 – 30.06.2027",
+      "titleByLocale": {
+        "it": "Politkino! Filmgeschichte im Dialog, 01.09.2026 – 30.06.2027",
+        "en": "Politkino! Filmgeschichte im Dialog, 01.09.2026 – 30.06.2027",
+        "de": "Politkino! Filmgeschichte im Dialog, 01.09.2026 – 30.06.2027",
+        "fr": "Politkino! Filmgeschichte im Dialog, 01.09.2026 – 30.06.2027"
+      },
+      "startDate": "2026-12-09",
+      "endDate": "2027-06-02",
+      "startTime": "18:15",
+      "category": "Proiezione cinematografica",
+      "venue": "Kino Rex",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/bern/politkino-filmgeschichte-im-dialog-01092026-30062027_AL5Z7Se",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 14,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Schwanengasse 9",
+        "postalCode": "3011"
+      },
+      "geo": {
+        "lat": 46.9466527,
+        "lng": 7.4393553
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Arbeiten"
+        },
+        {
+          "name": "Forschungsschwerpunkt Schweizer Filmgeschichte"
+        }
+      ],
+      "sourceDescriptionHash": "8f29b0b596f1fc3d1b11f481fe3ae53b9e20aa268dd87803da89cd0eaa905561"
+    },
+    {
+      "id": "guidle:At7Bwa7",
+      "title": "Klangreise in Safien Platz",
+      "titleByLocale": {
+        "it": "Klangreise in Safien Platz",
+        "en": "Klangreise in Safien Platz",
+        "de": "Klangreise in Safien Platz",
+        "fr": "Klangreise in Safien Platz"
+      },
+      "startDate": "2026-12-13",
+      "endDate": "2026-12-13",
+      "startTime": "18:00",
+      "category": "Altri eventi",
+      "venue": "Haus Signina",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/safien-platz/klangreise-in-safien-platz_At7Bwa7",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Hauptstrasse 35",
+        "postalCode": "7104"
+      },
+      "geo": {
+        "lat": 46.7919152,
+        "lng": 9.3380936
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "51ae1cd6f576ded88cabfca269cbba94b32b9e6aa2558f3c2cda77f10a6ddf56"
+    },
+    {
+      "id": "guidle:A37rwid",
+      "title": "Töpfern: Schnupperkurs – Drehen an der Töpferscheibe für Anfänger",
+      "titleByLocale": {
+        "it": "Töpfern: Schnupperkurs – Drehen an der Töpferscheibe für Anfänger",
+        "en": "Pottery: Throwing on an electric wheel for beginners and advanced students.",
+        "de": "Töpfern: Schnupperkurs – Drehen an der Töpferscheibe für Anfänger",
+        "fr": "Töpfern: Schnupperkurs – Drehen an der Töpferscheibe für Anfänger"
+      },
+      "startDate": "2027-02-27",
+      "endDate": "2027-02-27",
+      "startTime": "09:00",
+      "category": "Modellazione",
+      "venue": "Atelier Eva Eschmann",
+      "comune": "Dorf",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/seewis-dorf/toepfern-schnupperkurs-drehen-an-der-toepferscheibe-fuer-anfaenger_A37rwid",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 150,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Anna-Frick-Weg 3",
+        "postalCode": "7212"
+      },
+      "geo": {
+        "lat": 46.987278,
+        "lng": 9.637826
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "497d42debd83fe870557892e6ce6a38eddcbc53f06da1693e90a9560dd5038b2"
+    },
+    {
+      "id": "guidle:Aeim9U6",
+      "title": "Führung durch die Ausstellung «Fantastische Karten zu legendären Geschichten»",
+      "titleByLocale": {
+        "it": "Führung durch die Ausstellung «Fantastische Karten zu legendären Geschichten»",
+        "en": "Führung durch die Ausstellung «Fantastische Karten zu legendären Geschichten»",
+        "de": "Führung durch die Ausstellung «Fantastische Karten zu legendären Geschichten»",
+        "fr": "Führung durch die Ausstellung «Fantastische Karten zu legendären Geschichten»"
+      },
+      "startDate": "2026-11-16",
+      "endDate": "2026-12-02",
+      "startTime": "17:00",
+      "category": "Visita guidata ulteriore museo",
+      "venue": "Zentralbibliothek Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zuerich/fuehrung-durch-die-ausstellung-fantastische-karten-zu-legendaeren-geschichten_Aeim9U6",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Zähringerplatz 6",
+        "postalCode": "8001"
+      },
+      "geo": {
+        "lat": 47.3742613,
+        "lng": 8.5454521
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "7f9bc5b6d5e630e7ed3e49e998c8d1a6122f17eac13259103fd8fc33800628ea"
+    },
+    {
+      "id": "guidle:ABsB9LE",
+      "title": "Bern Connect & Games, Spieleabend in Bern",
+      "titleByLocale": {
+        "it": "Bern Connect & Games, Spieleabend in Bern",
+        "en": "Bern Connect & Games, Spieleabend in Bern",
+        "de": "Bern Connect & Games, Spieleabend in Bern",
+        "fr": "Bern Connect & Games, Spieleabend in Bern"
+      },
+      "startDate": "2026-11-18",
+      "endDate": "2026-12-16",
+      "startTime": "18:30",
+      "category": "Giochi da tavolo",
+      "venue": "Bar Erupt",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/bern/bern-connect-und-games-spieleabend-in-bern_ABsB9LE",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Parkterrasse 14",
+        "postalCode": "3012"
+      },
+      "geo": {
+        "lat": 46.9496226,
+        "lng": 7.4384388
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "c1109bb328b7de8f12c3e000139d5a45f94d9d72cf6403590238521d1ccbf57b"
+    },
+    {
+      "id": "guidle:ADWLJJP",
+      "title": "Maha Sadhana – La grande pratique",
+      "titleByLocale": {
+        "it": "Maha Sadhana – La grande pratique",
+        "en": "Maha Sadhana – La grande pratique",
+        "de": "Maha Sadhana – La grande pratique",
+        "fr": "Maha Sadhana – La grande pratique"
+      },
+      "startDate": "2026-12-06",
+      "endDate": "2026-12-06",
+      "startTime": "00:00",
+      "category": "Altri eventi",
+      "venue": "Yog' Altitude",
+      "canton": "FR",
+      "url": "https://www.guidle.com/it/events/this-that/les-paccots/maha-sadhana-la-grande-pratique_ADWLJJP",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Route des Paccots 218",
+        "postalCode": "1619"
+      },
+      "geo": {
+        "lat": 46.5223933,
+        "lng": 6.9456337
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "5a0730d8f337eba4c2f7e7b67e752b583af2ff2a67a44baa6946a55d4bd46bf5"
+    },
+    {
+      "id": "guidle:APQ7MTZ",
+      "title": "Führung in der Ausstellung \"Swiss Design Collection\"",
+      "titleByLocale": {
+        "it": "Führung in der Ausstellung \"Swiss Design Collection\"",
+        "en": "Führung in der Ausstellung \"Swiss Design Collection\"",
+        "de": "Führung in der Ausstellung \"Swiss Design Collection\"",
+        "fr": "Führung in der Ausstellung \"Swiss Design Collection\""
+      },
+      "startDate": "2026-12-06",
+      "endDate": "2026-12-20",
+      "startTime": "11:00",
+      "category": "Design",
+      "venue": "Museum für Gestaltung Zürich, Toni-Areal",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zuerich/fuehrung-in-der-ausstellung-swiss-design-collection_APQ7MTZ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Pfingstweidstrasse 96",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.390133983542334,
+        "lng": 8.512038991996
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "80c8d0bb02e4ba44c6e84b7d636e3667e831610ffa41e15e4c7c0473983c40e4"
+    },
+    {
+      "id": "guidle:ACpTSjf",
+      "title": "Rencontres jeux",
+      "titleByLocale": {
+        "it": "Rencontres jeux",
+        "en": "Rencontres jeux",
+        "de": "Rencontres jeux",
+        "fr": "Rencontres jeux"
+      },
+      "startDate": "2026-12-07",
+      "endDate": "2026-12-07",
+      "startTime": "14:30",
+      "category": "Altri eventi",
+      "venue": "Restaurant Migros - Lausanne - Métropole",
+      "comune": "Lausanne",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/lausanne/rencontres-jeux_ACpTSjf",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": null,
+        "currency": "CHF",
+        "isFree": false
+      },
+      "address": {
+        "street": "Rue des Terreaux 25",
+        "postalCode": "1003"
+      },
+      "geo": {
+        "lat": 46.5226895,
+        "lng": 6.6273736
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "19964cce84211ce1badf795eadfc79676ed261e67c0d90eb952c145dbe025a48"
+    },
+    {
+      "id": "guidle:AdCCXFh",
+      "title": "Yoga und Singen in Ilanz",
+      "titleByLocale": {
+        "it": "Yoga und Singen in Ilanz",
+        "en": "Yoga und Singen in Ilanz",
+        "de": "Yoga und Singen in Ilanz",
+        "fr": "Yoga und Singen in Ilanz"
+      },
+      "startDate": "2026-12-11",
+      "endDate": "2026-12-11",
+      "startTime": "19:00",
+      "category": "Altri eventi",
+      "venue": "Kloster der Dominikanerinnen",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/ilanz/yoga-und-singen-in-ilanz_AdCCXFh",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 35,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Klosterweg 16",
+        "postalCode": "7130"
+      },
+      "geo": {
+        "lat": 46.7776665,
+        "lng": 9.1995762
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "a648518c8dca07c606da7a2ca88b396361c879ae3b2f3d4499c1f8bbb12f5d11"
     }
   ]
 }

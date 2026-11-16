@@ -1,7 +1,7 @@
 {
   "key": "hermes",
   "label": "Hermès",
-  "generatedAt": "2026-11-16T09:18:36.252Z",
+  "generatedAt": "2026-11-16T21:21:49.926Z",
   "total": 6,
   "discovered": null,
   "parsed": 5,
@@ -13,19 +13,20 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 17301,
-  "avgDurationMs": 17301,
+  "durationMs": 20131,
+  "avgDurationMs": 20131,
   "durationHistory": [
-    17301
+    20131
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "hermes-e6ef73b9a7bf",
-      "slug": "cdi-controleur-de-gestion-matieres-precieuses-inventaires-h-f-hermes-ch",
+      "slug": "cdi-controllore-di-gestione-materiali-preziosi-inventory-m-f-hermes-le-noirmont-jura-switzerland",
       "company": "Hermès",
       "companyKey": "hermes",
       "companyDomain": "hermes.com",
@@ -35,7 +36,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24867",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:18:16.481Z",
+      "crawledAt": "2026-11-16T21:21:34.728Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -51,27 +52,26 @@
       "postedDate": "2026-11-16",
       "postingDateSource": "reported",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/job/24867",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-16T09:18:16.481Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
       "postalCode": "2340",
       "streetAddress": "Le Noirmont",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T09:18:16.481Z",
+      "validThrough": "2027-02-14T21:21:34.728Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T09:18:16.481Z",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "id": "hermes-fbd6d61750c5",
-      "slug": "cdi-controleur-qualite-h-f-hermes-ch",
+      "slug": "cdi-controllore-di-qualita-m-f-hermes-brugg-be-bern-switzerland",
       "company": "Hermès",
       "companyKey": "hermes",
       "companyDomain": "hermes.com",
@@ -81,7 +81,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24863",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:18:15.884Z",
+      "crawledAt": "2026-11-16T21:21:34.117Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -98,25 +98,24 @@
       "postingDateSource": "reported",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/job/24863",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-16T09:18:15.884Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T09:18:15.884Z",
+      "validThrough": "2027-02-14T21:21:34.117Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T09:18:15.884Z",
-      "_qualityScore": 86,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -131,7 +130,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/23533",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:18:18.259Z",
+      "crawledAt": "2026-11-16T21:21:36.665Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -153,7 +152,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:18:18.259Z",
+      "validThrough": "2027-01-18T21:21:36.665Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -175,7 +174,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24713",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:18:17.668Z",
+      "crawledAt": "2026-11-16T21:21:35.926Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -198,7 +197,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:18:17.668Z",
+      "validThrough": "2027-02-01T21:21:35.926Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -220,7 +219,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/job/24858",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:18:17.077Z",
+      "crawledAt": "2026-11-16T21:21:35.342Z",
       "addressLocality": "Brügg BE",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -243,7 +242,7 @@
       "postalCode": "3001",
       "streetAddress": "Brügg BE",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:18:17.077Z",
+      "validThrough": "2027-02-10T21:21:35.342Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -290,7 +289,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T21:24:08.658Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -300,5 +299,5 @@
       }
     }
   ],
-  "codeCommit": "71e06c4f557e81be4e8743feaa696210bf683ef0"
+  "codeCommit": "003c4e440c1461e3ea15f62e2d687026ad8479d5"
 }

@@ -544,7 +544,7 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 5188,
-      "retranslationAttempts": 85,
+      "retranslationAttempts": 87,
       "firstSeenAt": "2026-10-01T09:13:13.433Z",
       "crawledAt": "2026-11-15T21:38:40.480Z",
       "streetAddressSource": "to-enrich",
@@ -925,14 +925,15 @@
       "titleByLocale": {
         "it": "Responsabile Senior di Incidenti e Problemi al 100% (m/f/d)",
         "en": "Senior Incident & Problem Manager 100% (f/m/d)",
-        "de": "Senior Incident & Problem Manager 100% (m/w/d)",
+        "de": "Senior Incident- und Problemmanager 100% (m/w/d)",
         "fr": "Gestionnaire principal des incidents et des problèmes 100% (h/f/d)"
       },
       "slug": "senior-incident-problem-manager-100-f-m-d-julius-baer",
       "slugByLocale": {
         "it": "responsabile-senior-di-incidenti-e-problemi-al-100-m-f-d-julius-baer-zurich",
         "en": "senior-incident-problem-manager-100-f-m-d-julius-baer",
-        "fr": "gestionnaire-principal-des-incidents-et-des-problemes-100-h-f-d-julius-baer-zurich"
+        "fr": "gestionnaire-principal-des-incidents-et-des-problemes-100-h-f-d-julius-baer-zurich",
+        "de": "senior-incident-und-problemmanager-100-m-w-d-julius-baer-zurich"
       },
       "category": "management",
       "datePosted": "2026-11-10",
@@ -965,11 +966,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 5,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 4768,
-      "needsRetranslation": true
+      }
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Financial-Crime-Compliance-Methodology-Specialist-100---f-m-d-_r-20287-2",
@@ -1590,7 +1587,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 6,
+      "retranslationAttempts": 8,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 6146,
       "needsRetranslation": true
@@ -2054,7 +2051,7 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3301,
-      "retranslationAttempts": 32,
+      "retranslationAttempts": 34,
       "firstSeenAt": "2026-07-22T11:17:20.458Z",
       "crawledAt": "2026-11-15T21:38:40.480Z",
       "streetAddressSource": "to-enrich",
@@ -3077,7 +3074,7 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3264,
-      "retranslationAttempts": 85,
+      "retranslationAttempts": 87,
       "firstSeenAt": "2026-08-21T21:26:37.240Z",
       "crawledAt": "2026-11-15T21:38:40.480Z",
       "streetAddressSource": "to-enrich",

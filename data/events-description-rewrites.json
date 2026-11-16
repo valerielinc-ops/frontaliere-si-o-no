@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-15T21:44:48.018Z",
+  "generatedAt": "2026-11-16T15:22:49.788Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -131227,6 +131227,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T17:29:17.202Z"
+    },
+    "myswitzerland:9a2dddbd53d940b08a7774f1c3c5cc2f::2db652f3c663d4fb9d4d5ca9ba93c28c6a5d9a77d4da8bacab8eae6969faf94e": {
+      "id": "myswitzerland:9a2dddbd53d940b08a7774f1c3c5cc2f",
+      "sourceDescriptionHash": "2db652f3c663d4fb9d4d5ca9ba93c28c6a5d9a77d4da8bacab8eae6969faf94e",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Mediathek Wallis - Brig Claudine Studer; cantone: VS; categoria: Theater; data: 2026-10-03; ora: 10:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Mediathek Wallis - Brig Claudine Studer; cantone: VS; categoria: Theater; data: 2026-10-03; ora: 10:00. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Mediathek Wallis - Brig Claudine Studer; canton: VS; category: Theater; date: 2026-10-03; time: 10:00. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Mediathek Wallis - Brig Claudine Studer; kanton: VS; kategorie: Theater; datum: 2026-10-03; uhrzeit: 10:00. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Mediathek Wallis - Brig Claudine Studer; canton: VS; catégorie: Theater; date: 2026-10-03; heure: 10:00. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-16T15:16:15.753Z"
     },
     "myswitzerland:9a308883e02d4493902751a1c01ec824::8183056919566a58c03c5db724dedb7c1dd26705a302edb656491330b0bccd1d": {
       "id": "myswitzerland:9a308883e02d4493902751a1c01ec824",

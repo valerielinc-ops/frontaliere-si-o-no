@@ -1,7 +1,7 @@
 {
   "key": "planzer",
   "label": "Planzer",
-  "generatedAt": "2026-11-16T09:22:15.463Z",
+  "generatedAt": "2026-11-16T21:18:05.952Z",
   "total": 11,
   "discovered": null,
   "parsed": 10,
@@ -13,30 +13,31 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 40010,
-  "avgDurationMs": 40010,
+  "durationMs": 29041,
+  "avgDurationMs": 29041,
   "durationHistory": [
-    40010
+    29041
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "planzer-823e5d5e5b71",
-      "slug": "hr-generalist-m-wd-planzer-harkingen",
+      "slug": "risorse-umane-generalist-m-wd-planzer-harkingen",
       "company": "Planzer",
       "companyKey": "planzer",
       "companyDomain": "planzer.ch",
       "title": "HR-Generalist (m/wd)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Härkingen",
       "canton": "SO",
       "url": "https://live.solique.ch/planzer/job/details/4102648",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:21:14.714Z",
+      "crawledAt": "2026-11-16T21:17:27.903Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "streetAddress": "Pfannenstiel 12",
@@ -55,23 +56,22 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://live.solique.ch/planzer/job/details/4102648",
       "externalId": "4102648",
+      "firstSeenAt": "2026-11-16T09:21:14.714Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T09:21:14.714Z",
+      "validThrough": "2027-02-14T21:17:27.903Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T09:21:14.714Z",
-      "_qualityScore": 87,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 23
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -87,7 +87,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4098824",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:21:20.494Z",
+      "crawledAt": "2026-11-16T21:17:34.590Z",
       "addressLocality": "Buchs",
       "addressRegion": "SG",
       "streetAddress": "Mühleäulistrasse 6",
@@ -111,7 +111,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:21:20.494Z",
+      "validThrough": "2027-02-10T21:17:34.590Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -134,7 +134,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4100922",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:21:19.878Z",
+      "crawledAt": "2026-11-16T21:17:33.948Z",
       "addressLocality": "Satigny",
       "addressRegion": "GE",
       "streetAddress": "Route des Moulières 5",
@@ -158,7 +158,7 @@
       "salaryMax": 91500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:21:19.878Z",
+      "validThrough": "2027-02-10T21:17:33.948Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -181,7 +181,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4101844",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:21:19.242Z",
+      "crawledAt": "2026-11-16T21:17:33.229Z",
       "addressLocality": "Regensdorf",
       "addressRegion": "ZH",
       "streetAddress": "Althardstrasse 301",
@@ -204,7 +204,7 @@
       "salaryMax": 154000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T09:21:19.242Z",
+      "validThrough": "2027-02-14T21:17:33.229Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -227,7 +227,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4099119",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:21:18.610Z",
+      "crawledAt": "2026-11-16T21:17:32.545Z",
       "addressLocality": "Zürich-Altstetten",
       "addressRegion": "ZH",
       "streetAddress": "Hermetschloostrasse 12",
@@ -251,7 +251,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:21:18.610Z",
+      "validThrough": "2027-01-12T21:17:32.545Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -274,7 +274,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4099265",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:21:17.994Z",
+      "crawledAt": "2026-11-16T21:17:31.854Z",
       "addressLocality": "Dällikon",
       "addressRegion": "ZH",
       "streetAddress": "Industriestrasse 10",
@@ -298,7 +298,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:21:17.994Z",
+      "validThrough": "2027-01-12T21:17:31.854Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -321,7 +321,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4099133",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:21:17.365Z",
+      "crawledAt": "2026-11-16T21:17:31.098Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Lerzenstrasse 14",
@@ -345,7 +345,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-12T09:21:17.365Z",
+      "validThrough": "2027-01-12T21:17:31.098Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -367,7 +367,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4100347",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:21:16.718Z",
+      "crawledAt": "2026-11-16T21:17:29.971Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Lerzenstrasse 14",
@@ -390,7 +390,7 @@
       "salaryMax": 111500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T09:21:16.718Z",
+      "validThrough": "2027-02-14T21:17:29.971Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -413,7 +413,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4100340",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:21:16.097Z",
+      "crawledAt": "2026-11-16T21:17:29.329Z",
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
       "streetAddress": "Pfannenstiel 12",
@@ -437,7 +437,7 @@
       "salaryMax": 104000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-13T09:21:16.097Z",
+      "validThrough": "2027-02-12T21:17:29.329Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -460,7 +460,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4100344",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:21:15.474Z",
+      "crawledAt": "2026-11-16T21:17:28.682Z",
       "addressLocality": "Märstetten",
       "addressRegion": "TG",
       "streetAddress": "Weinfelderstrasse 6",
@@ -484,7 +484,7 @@
       "salaryMax": 87000,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T09:21:15.474Z",
+      "validThrough": "2026-12-16T21:17:28.682Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -532,7 +532,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-09T21:39:20.995Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -542,5 +542,5 @@
       }
     }
   ],
-  "codeCommit": "71e06c4f557e81be4e8743feaa696210bf683ef0"
+  "codeCommit": "003c4e440c1461e3ea15f62e2d687026ad8479d5"
 }

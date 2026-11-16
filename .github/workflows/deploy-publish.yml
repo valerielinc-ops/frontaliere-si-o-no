@@ -793,7 +793,7 @@ jobs:
       # skips this job restores it from the run named by the receipt.
       - name: Upload durable R2 OG manifest artifact
         id: upload-r2-og-manifest
-        if: ${{ steps.cdn-ready.outcome == 'success' && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') }}
+        if: steps.cdn-ready.outcome == 'success' && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both')
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -802,13 +802,25 @@ jobs:
           include-hidden-files: true
           if-no-files-found: error
           retention-days: 2
+      - name: "Retry Upload durable R2 OG manifest artifact"
+        id: upload-r2-og-manifest-retry
+        if: (steps.cdn-ready.outcome == 'success' && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both')) && steps.upload-r2-og-manifest.outcome == 'failure'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: r2-og-manifest-it-${{ inputs.source_run_id }}
+          path: .cache/r2-og-published-manifest.json
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 2
+          overwrite: true
       # The receipt is an optimisation of the NEXT attempt, never a gate of this
       # one: a failed write only means a retry repeats the CDN push.
       - name: Write durable IT CDN receipt
         if: >-
           ${{ steps.cdn-ready.outcome == 'success' &&
               ((vars.CDN_TARGET != 'r2' && vars.CDN_TARGET != 'both') ||
-               steps.upload-r2-og-manifest.outcome == 'success') }}
+               (steps.upload-r2-og-manifest-retry.outcome == 'success' || steps.upload-r2-og-manifest.outcome == 'success')) }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -1042,6 +1054,7 @@ jobs:
       - name: Upload IT section group results and ok-markers
         id: upload-group-results
         if: always()
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: it-shard-result-group-${{ matrix.group }}-${{ inputs.source_run_id }}
@@ -1052,6 +1065,20 @@ jobs:
           compression-level: 0
           retention-days: 2
           if-no-files-found: ignore
+      - name: "Retry Upload IT section group results and ok-markers"
+        id: upload-group-results-retry
+        if: (always()) && steps.upload-group-results.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: it-shard-result-group-${{ matrix.group }}-${{ inputs.source_run_id }}
+          path: |
+            ${{ runner.temp }}/it-shard-results/*.tar
+            ${{ runner.temp }}/shard-content-manifests/it/*.json
+            ${{ runner.temp }}/shard-ok-*-it
+          compression-level: 0
+          retention-days: 2
+          if-no-files-found: ignore
+          overwrite: true
       # The group's receipt follows its proof: the push step succeeded (so every
       # section has its ok-marker) AND the result artifact the finalizer will
       # need was uploaded. publish-receipts.mjs also re-checks the markers,
@@ -1062,7 +1089,7 @@ jobs:
         if: >-
           always() &&
           steps.push-section-group.outcome == 'success' &&
-          steps.upload-group-results.outcome == 'success'
+          (steps.upload-group-results-retry.outcome == 'success' || steps.upload-group-results.outcome == 'success')
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -1263,7 +1290,7 @@ jobs:
       - name: Package IT post-push validation batches
         run: node scripts/ci/package-it-shard-validation-batches.mjs --plan "$RUNNER_TEMP/it-publish-plan/it-shard-group-plan.json" --tar-dir "$RUNNER_TEMP" --out "$RUNNER_TEMP/it-shard-validation-batches"
       - name: Upload shard batch 1 dist for post-deploy validation
-        id: upload-shard-batch-1
+        id: upload-it-shard-batch-1
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -1272,8 +1299,20 @@ jobs:
           compression-level: 1
           retention-days: 8
           if-no-files-found: ignore
+      - name: "Retry Upload shard batch 1 dist for post-deploy validation"
+        id: upload-it-shard-batch-1-retry
+        if: steps.upload-it-shard-batch-1.outcome == 'failure'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-1-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-shard-validation-batches/1/*
+          compression-level: 1
+          retention-days: 8
+          if-no-files-found: ignore
+          overwrite: true
       - name: Upload shard batch 2 dist for post-deploy validation
-        id: upload-shard-batch-2
+        id: upload-it-shard-batch-2
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -1282,8 +1321,20 @@ jobs:
           compression-level: 1
           retention-days: 8
           if-no-files-found: ignore
+      - name: "Retry Upload shard batch 2 dist for post-deploy validation"
+        id: upload-it-shard-batch-2-retry
+        if: steps.upload-it-shard-batch-2.outcome == 'failure'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-2-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-shard-validation-batches/2/*
+          compression-level: 1
+          retention-days: 8
+          if-no-files-found: ignore
+          overwrite: true
       - name: Upload shard batch 3 dist for post-deploy validation
-        id: upload-shard-batch-3
+        id: upload-it-shard-batch-3
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -1292,8 +1343,20 @@ jobs:
           compression-level: 1
           retention-days: 8
           if-no-files-found: ignore
+      - name: "Retry Upload shard batch 3 dist for post-deploy validation"
+        id: upload-it-shard-batch-3-retry
+        if: steps.upload-it-shard-batch-3.outcome == 'failure'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-3-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-shard-validation-batches/3/*
+          compression-level: 1
+          retention-days: 8
+          if-no-files-found: ignore
+          overwrite: true
       - name: Upload shard batch 4 dist for post-deploy validation
-        id: upload-shard-batch-4
+        id: upload-it-shard-batch-4
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -1302,8 +1365,20 @@ jobs:
           compression-level: 1
           retention-days: 8
           if-no-files-found: ignore
+      - name: "Retry Upload shard batch 4 dist for post-deploy validation"
+        id: upload-it-shard-batch-4-retry
+        if: steps.upload-it-shard-batch-4.outcome == 'failure'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-4-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-shard-validation-batches/4/*
+          compression-level: 1
+          retention-days: 8
+          if-no-files-found: ignore
+          overwrite: true
       - name: Upload shard batch 5 dist for post-deploy validation
-        id: upload-shard-batch-5
+        id: upload-it-shard-batch-5
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -1312,8 +1387,20 @@ jobs:
           compression-level: 1
           retention-days: 8
           if-no-files-found: ignore
+      - name: "Retry Upload shard batch 5 dist for post-deploy validation"
+        id: upload-it-shard-batch-5-retry
+        if: steps.upload-it-shard-batch-5.outcome == 'failure'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-5-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-shard-validation-batches/5/*
+          compression-level: 1
+          retention-days: 8
+          if-no-files-found: ignore
+          overwrite: true
       - name: Upload shard batch 6 dist for post-deploy validation
-        id: upload-shard-batch-6
+        id: upload-it-shard-batch-6
         continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
@@ -1322,6 +1409,18 @@ jobs:
           compression-level: 1
           retention-days: 8
           if-no-files-found: ignore
+      - name: "Retry Upload shard batch 6 dist for post-deploy validation"
+        id: upload-it-shard-batch-6-retry
+        if: steps.upload-it-shard-batch-6.outcome == 'failure'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-6-dist-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/it-shard-validation-batches/6/*
+          compression-level: 1
+          retention-days: 8
+          if-no-files-found: ignore
+          overwrite: true
       - name: Finalize IT section content manifests
         id: finalize-section-manifests-it
         env:
@@ -1329,7 +1428,7 @@ jobs:
           SOURCE_SHA: ${{ inputs.source_sha }}
           ARTIFACT_RUN_ID: ${{ github.run_id }}
           SECTION_BATCH_DIGESTS: >-
-            {"1":"${{ steps.upload-shard-batch-1.outputs.artifact-digest }}","2":"${{ steps.upload-shard-batch-2.outputs.artifact-digest }}","3":"${{ steps.upload-shard-batch-3.outputs.artifact-digest }}","4":"${{ steps.upload-shard-batch-4.outputs.artifact-digest }}","5":"${{ steps.upload-shard-batch-5.outputs.artifact-digest }}","6":"${{ steps.upload-shard-batch-6.outputs.artifact-digest }}"}
+            {"1":"${{ steps.upload-it-shard-batch-1-retry.outputs.artifact-digest || steps.upload-it-shard-batch-1.outputs.artifact-digest }}","2":"${{ steps.upload-it-shard-batch-2-retry.outputs.artifact-digest || steps.upload-it-shard-batch-2.outputs.artifact-digest }}","3":"${{ steps.upload-it-shard-batch-3-retry.outputs.artifact-digest || steps.upload-it-shard-batch-3.outputs.artifact-digest }}","4":"${{ steps.upload-it-shard-batch-4-retry.outputs.artifact-digest || steps.upload-it-shard-batch-4.outputs.artifact-digest }}","5":"${{ steps.upload-it-shard-batch-5-retry.outputs.artifact-digest || steps.upload-it-shard-batch-5.outputs.artifact-digest }}","6":"${{ steps.upload-it-shard-batch-6-retry.outputs.artifact-digest || steps.upload-it-shard-batch-6.outputs.artifact-digest }}"}
         run: |
           set -euo pipefail
           required_sections="$(jq -r '.requiredSections | join(",")' "$RUNNER_TEMP/it-publish-plan/it-shard-group-plan.json")"
@@ -1345,13 +1444,25 @@ jobs:
             --manifest-artifact-name "section-page-manifest-it-$ARTIFACT_RUN_ID" \
             --out "$RUNNER_TEMP/section-page-manifest-it.json"
       - name: Upload IT section content manifest
+        id: upload-section-manifest-it
         if: steps.finalize-section-manifests-it.outcome == 'success'
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: section-page-manifest-it-${{ github.run_id }}
           path: ${{ runner.temp }}/section-page-manifest-it.json
           retention-days: 8
           if-no-files-found: error
+      - name: "Retry Upload IT section content manifest"
+        id: upload-section-manifest-it-retry
+        if: (steps.finalize-section-manifests-it.outcome == 'success') && steps.upload-section-manifest-it.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: section-page-manifest-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/section-page-manifest-it.json
+          retention-days: 8
+          if-no-files-found: error
+          overwrite: true
       - name: Recheck current IT CDN build id before Pages preparation
         id: cdn-current
         env:
@@ -1390,6 +1501,24 @@ jobs:
           DEPLOY_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
           OFFLOAD_CDN_WORKERS: '4'
         run: bash scripts/lib/deploy-it-pages-prep.sh
+      - name: Require closed job-canon handshake before Pages artifact
+        id: job-canon-publish-gate
+        if: steps.deploy-prep-it.outcome == 'success'
+        env:
+          EXPECTED_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
+        run: |
+          set -euo pipefail
+          receipt="$RUNNER_TEMP/job-canon-publish.ok"
+          test -s "$receipt" || {
+            echo "::error::job-canon publication receipt is missing; refusing to upload a Pages artifact with bridge removals"
+            exit 1
+          }
+          actual="$(tr -d '[:space:]' < "$receipt")"
+          test "$actual" = "$EXPECTED_BUILD_ID" || {
+            echo "::error::job-canon publication receipt names build $actual, expected $EXPECTED_BUILD_ID"
+            exit 1
+          }
+          echo "job-canon handshake closed for build $EXPECTED_BUILD_ID"
       - name: Save final R2 OG manifest cache
         if: ${{ always() && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && hashFiles('.cache/r2-og-published-manifest.json') != '' }}
         uses: actions/cache/save@v6
@@ -1408,6 +1537,7 @@ jobs:
             '
       - name: Upload Pages artifact (compression-level 9)
         id: upload-pages-artifact
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: github-pages
@@ -1415,6 +1545,17 @@ jobs:
           retention-days: 8
           if-no-files-found: error
           compression-level: 9
+      - name: "Retry Upload Pages artifact (compression-level 9)"
+        id: upload-pages-artifact-retry
+        if: steps.upload-pages-artifact.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: github-pages
+          path: ${{ runner.temp }}/artifact.tar
+          retention-days: 8
+          if-no-files-found: error
+          compression-level: 9
+          overwrite: true
       - name: Save deploy metadata to Firestore
         if: success()
         continue-on-error: true
@@ -1437,20 +1578,44 @@ jobs:
             --article-category="$(jq -r '.ARTICLE_CATEGORY // ""' "$METADATA_FILE")"
       - name: Upload sitemaps bundle artifact
         id: upload-sitemaps-bundle
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: sitemaps-${{ github.run_id }}
           path: /tmp/sitemaps-bundle/
           retention-days: 8
           if-no-files-found: ignore
+      - name: "Retry Upload sitemaps bundle artifact"
+        id: upload-sitemaps-bundle-retry
+        if: steps.upload-sitemaps-bundle.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: sitemaps-${{ github.run_id }}
+          path: /tmp/sitemaps-bundle/
+          retention-days: 8
+          if-no-files-found: ignore
+          overwrite: true
       - name: Upload pre-deploy snapshot for post-deploy validation
+        id: upload-pre-deploy-snapshot
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: pre-deploy-snapshot-${{ inputs.source_run_id }}
           path: /tmp/pre-deploy-sitemap-urls.json
           retention-days: 1
           if-no-files-found: ignore
+      - name: "Retry Upload pre-deploy snapshot for post-deploy validation"
+        id: upload-pre-deploy-snapshot-retry
+        if: steps.upload-pre-deploy-snapshot.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: pre-deploy-snapshot-${{ inputs.source_run_id }}
+          path: /tmp/pre-deploy-sitemap-urls.json
+          retention-days: 1
+          if-no-files-found: ignore
+          overwrite: true
       - name: Upload dist-size-history + url-first-seen for the history commit
+        id: upload-dist-history
         if: always()
         continue-on-error: true
         uses: actions/upload-artifact@v7
@@ -1465,20 +1630,37 @@ jobs:
             data/url-first-seen/
           retention-days: 2
           if-no-files-found: ignore
+      - name: "Retry Upload dist-size-history + url-first-seen for the history commit"
+        id: upload-dist-history-retry
+        if: (always()) && steps.upload-dist-history.outcome == 'failure'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: dist-history-${{ inputs.source_run_id }}
+          # url-first-seen is sharded (data/url-first-seen/<h>.json, see
+          # scripts/lib/url-first-seen-store.mjs): the single file crossed
+          # GitHub's 100 MB limit. The legacy data/url-first-seen.json is not
+          # uploaded: the writer reads it and folds it into the shards.
+          path: |
+            data/dist-size-history.jsonl
+            data/url-first-seen/
+          retention-days: 2
+          if-no-files-found: ignore
+          overwrite: true
       - name: Bind sitemap page manifest to publisher artifact digests
         id: bind-sitemap-page-manifest
         if: >-
           always() &&
-          steps.upload-pages-artifact.outcome == 'success' &&
-          steps.upload-sitemaps-bundle.outcome == 'success'
+          (steps.upload-pages-artifact-retry.outcome == 'success' || steps.upload-pages-artifact.outcome == 'success') &&
+          (steps.upload-sitemaps-bundle-retry.outcome == 'success' || steps.upload-sitemaps-bundle.outcome == 'success')
         env:
           SOURCE_RUN_ID: ${{ inputs.source_run_id }}
           SOURCE_SHA: ${{ inputs.source_sha }}
           ARTIFACT_RUN_ID: ${{ github.run_id }}
-          BASE_ARTIFACT_DIGEST: ${{ steps.upload-pages-artifact.outputs.artifact-digest }}
-          SITEMAPS_ARTIFACT_DIGEST: ${{ steps.upload-sitemaps-bundle.outputs.artifact-digest }}
+          BASE_ARTIFACT_DIGEST: ${{ steps.upload-pages-artifact-retry.outputs.artifact-digest || steps.upload-pages-artifact.outputs.artifact-digest }}
+          SITEMAPS_ARTIFACT_DIGEST: ${{ steps.upload-sitemaps-bundle-retry.outputs.artifact-digest || steps.upload-sitemaps-bundle.outputs.artifact-digest }}
           SECTION_ARTIFACT_DIGESTS_JSON: >-
-            {"1":"${{ steps.upload-shard-batch-1.outputs.artifact-digest }}","2":"${{ steps.upload-shard-batch-2.outputs.artifact-digest }}","3":"${{ steps.upload-shard-batch-3.outputs.artifact-digest }}","4":"${{ steps.upload-shard-batch-4.outputs.artifact-digest }}","5":"${{ steps.upload-shard-batch-5.outputs.artifact-digest }}","6":"${{ steps.upload-shard-batch-6.outputs.artifact-digest }}"}
+            {"1":"${{ steps.upload-it-shard-batch-1-retry.outputs.artifact-digest || steps.upload-it-shard-batch-1.outputs.artifact-digest }}","2":"${{ steps.upload-it-shard-batch-2-retry.outputs.artifact-digest || steps.upload-it-shard-batch-2.outputs.artifact-digest }}","3":"${{ steps.upload-it-shard-batch-3-retry.outputs.artifact-digest || steps.upload-it-shard-batch-3.outputs.artifact-digest }}","4":"${{ steps.upload-it-shard-batch-4-retry.outputs.artifact-digest || steps.upload-it-shard-batch-4.outputs.artifact-digest }}","5":"${{ steps.upload-it-shard-batch-5-retry.outputs.artifact-digest || steps.upload-it-shard-batch-5.outputs.artifact-digest }}","6":"${{ steps.upload-it-shard-batch-6-retry.outputs.artifact-digest || steps.upload-it-shard-batch-6.outputs.artifact-digest }}"}
         run: |
           set -euo pipefail
           printf '%s\n' "$SECTION_ARTIFACT_DIGESTS_JSON" > "$RUNNER_TEMP/it-section-artifact-digests.json"
@@ -1495,13 +1677,25 @@ jobs:
             --sitemaps-artifact-digest "$SITEMAPS_ARTIFACT_DIGEST" \
             --manifest-artifact-name "sitemap-page-manifest-it-$ARTIFACT_RUN_ID"
       - name: Upload sitemap page manifest for publisher gate
+        id: upload-sitemap-page-manifest
         if: always() && steps.bind-sitemap-page-manifest.outcome == 'success'
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: sitemap-page-manifest-it-${{ github.run_id }}
           path: ${{ runner.temp }}/sitemap-page-manifest-it.json
           retention-days: 8
           if-no-files-found: error
+      - name: "Retry Upload sitemap page manifest for publisher gate"
+        id: upload-sitemap-page-manifest-retry
+        if: (always() && steps.bind-sitemap-page-manifest.outcome == 'success') && steps.upload-sitemap-page-manifest.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: sitemap-page-manifest-it-${{ github.run_id }}
+          path: ${{ runner.temp }}/sitemap-page-manifest-it.json
+          retention-days: 8
+          if-no-files-found: error
+          overwrite: true
       - name: Write IT publish provenance
         if: always()
         env:
@@ -1514,7 +1708,7 @@ jobs:
           PROVENANCE_VALIDATE_OUTCOME: success
           PROVENANCE_SOURCE_ARTIFACT_OUTCOME: success
           PROVENANCE_IT_PREP_OUTCOME: ${{ steps.deploy-prep-it.outcome }}
-          PROVENANCE_PAGES_ARTIFACT_OUTCOME: ${{ steps.upload-pages-artifact.outcome }}
+          PROVENANCE_PAGES_ARTIFACT_OUTCOME: ${{ steps.upload-pages-artifact-retry.outcome == 'success' && 'success' || steps.upload-pages-artifact.outcome }}
           PROVENANCE_OFFLOAD_OUTCOME: ${{ steps.deploy-prep-it.outcome }}
           # A job skipped because a durable receipt proves its work is a
           # success of the CDN / section push; any other skip stays visible.
@@ -1548,6 +1742,17 @@ jobs:
           path: ${{ runner.temp }}/locale-publish-provenance/it.json
           retention-days: 8
           if-no-files-found: error
+      - name: "Retry Upload IT publish provenance"
+        id: upload-it-provenance-retry
+        if: (always()) && steps.upload-it-provenance.outcome == 'failure'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: tail-publish-provenance-it-${{ inputs.source_run_id }}
+          path: ${{ runner.temp }}/locale-publish-provenance/it.json
+          retention-days: 8
+          if-no-files-found: error
+          overwrite: true
 
   # ───────────────────────────────────────────────────────────────────────
   # publish-nonit-shards: the expensive non-IT section/locale tail runs after
@@ -2367,6 +2572,25 @@ jobs:
           # days after the publisher run; keep the selected set on one window.
           retention-days: 8
           if-no-files-found: ignore
+      - name: "Retry Upload shard batch 1 dist for post-deploy validation"
+        if: (matrix.locale != 'it') && steps.upload-shard-batch-1.outcome == 'failure'
+        id: upload-shard-batch-1-retry
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-1-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/appenzello-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/argovia-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/articolifrontaliere-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/articolisvizzera-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/basilea-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          # The weekly full audit replays all six non-IT batches up to eight
+          # days after the publisher run; keep the selected set on one window.
+          retention-days: 8
+          if-no-files-found: ignore
+          overwrite: true
       - name: Upload shard batch 2 dist for post-deploy validation
         if: matrix.locale != 'it'
         id: upload-shard-batch-2
@@ -2383,6 +2607,23 @@ jobs:
           compression-level: 1
           retention-days: 8
           if-no-files-found: ignore
+      - name: "Retry Upload shard batch 2 dist for post-deploy validation"
+        if: (matrix.locale != 'it') && steps.upload-shard-batch-2.outcome == 'failure'
+        id: upload-shard-batch-2-retry
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-2-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/berna-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/friburgo-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/ginevra-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/giura-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/glarona-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 8
+          if-no-files-found: ignore
+          overwrite: true
       - name: Upload shard batch 3 dist for post-deploy validation
         if: matrix.locale != 'it'
         id: upload-shard-batch-3
@@ -2399,6 +2640,23 @@ jobs:
           compression-level: 1
           retention-days: 8
           if-no-files-found: ignore
+      - name: "Retry Upload shard batch 3 dist for post-deploy validation"
+        if: (matrix.locale != 'it') && steps.upload-shard-batch-3.outcome == 'failure'
+        id: upload-shard-batch-3-retry
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-3-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/grigioni-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/lucerna-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/neuchatel-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/nidvaldo-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/obvaldo-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 8
+          if-no-files-found: ignore
+          overwrite: true
       - name: Upload shard batch 4 dist for post-deploy validation
         if: matrix.locale != 'it'
         id: upload-shard-batch-4
@@ -2415,6 +2673,23 @@ jobs:
           compression-level: 1
           retention-days: 8
           if-no-files-found: ignore
+      - name: "Retry Upload shard batch 4 dist for post-deploy validation"
+        if: (matrix.locale != 'it') && steps.upload-shard-batch-4.outcome == 'failure'
+        id: upload-shard-batch-4-retry
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-4-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/sangallo-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/sciaffusa-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/soletta-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/svitto-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/svizzera-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 8
+          if-no-files-found: ignore
+          overwrite: true
       - name: Upload shard batch 5 dist for post-deploy validation
         if: matrix.locale != 'it'
         id: upload-shard-batch-5
@@ -2431,6 +2706,23 @@ jobs:
           compression-level: 1
           retention-days: 8
           if-no-files-found: ignore
+      - name: "Retry Upload shard batch 5 dist for post-deploy validation"
+        if: (matrix.locale != 'it') && steps.upload-shard-batch-5.outcome == 'failure'
+        id: upload-shard-batch-5-retry
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-5-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/ticino-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/turgovia-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/uri-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/vallese-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/vaud-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 8
+          if-no-files-found: ignore
+          overwrite: true
       - name: Upload shard batch 6 dist for post-deploy validation
         if: matrix.locale != 'it'
         id: upload-shard-batch-6
@@ -2444,6 +2736,20 @@ jobs:
           compression-level: 1
           retention-days: 8
           if-no-files-found: ignore
+      - name: "Retry Upload shard batch 6 dist for post-deploy validation"
+        if: (matrix.locale != 'it') && steps.upload-shard-batch-6.outcome == 'failure'
+        id: upload-shard-batch-6-retry
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-batch-6-dist-${{ matrix.locale }}-${{ github.run_id }}
+          path: |
+            ${{ runner.temp }}/zugo-dist-${{ matrix.locale }}.tar
+            ${{ runner.temp }}/zurigo-dist-${{ matrix.locale }}.tar
+          compression-level: 1
+          retention-days: 8
+          if-no-files-found: ignore
+          overwrite: true
 
       - name: Finalize non-IT section content manifests
         if: matrix.locale != 'it'
@@ -2453,7 +2759,7 @@ jobs:
           SOURCE_SHA: ${{ inputs.source_sha }}
           REQUIRED_SECTIONS: ${{ steps.pack-section-shards-nonit.outputs.required_sections }}
           SECTION_ARTIFACT_DIGESTS_JSON: >-
-            {"1":"${{ steps.upload-shard-batch-1.outputs.artifact-digest }}","2":"${{ steps.upload-shard-batch-2.outputs.artifact-digest }}","3":"${{ steps.upload-shard-batch-3.outputs.artifact-digest }}","4":"${{ steps.upload-shard-batch-4.outputs.artifact-digest }}","5":"${{ steps.upload-shard-batch-5.outputs.artifact-digest }}","6":"${{ steps.upload-shard-batch-6.outputs.artifact-digest }}"}
+            {"1":"${{ steps.upload-shard-batch-1-retry.outputs.artifact-digest || steps.upload-shard-batch-1.outputs.artifact-digest }}","2":"${{ steps.upload-shard-batch-2-retry.outputs.artifact-digest || steps.upload-shard-batch-2.outputs.artifact-digest }}","3":"${{ steps.upload-shard-batch-3-retry.outputs.artifact-digest || steps.upload-shard-batch-3.outputs.artifact-digest }}","4":"${{ steps.upload-shard-batch-4-retry.outputs.artifact-digest || steps.upload-shard-batch-4.outputs.artifact-digest }}","5":"${{ steps.upload-shard-batch-5-retry.outputs.artifact-digest || steps.upload-shard-batch-5.outputs.artifact-digest }}","6":"${{ steps.upload-shard-batch-6-retry.outputs.artifact-digest || steps.upload-shard-batch-6.outputs.artifact-digest }}"}
         run: |
           set -euo pipefail
           loc="${{ matrix.locale }}"
@@ -2471,13 +2777,25 @@ jobs:
             --out "$RUNNER_TEMP/section-page-manifest-$loc.json"
 
       - name: Upload non-IT section content manifest
+        id: upload-section-manifest-nonit
         if: matrix.locale != 'it' && steps.finalize-section-manifests-nonit.outcome == 'success'
+        continue-on-error: true
         uses: actions/upload-artifact@v7
         with:
           name: section-page-manifest-${{ matrix.locale }}-${{ github.run_id }}
           path: ${{ runner.temp }}/section-page-manifest-${{ matrix.locale }}.json
           retention-days: 8
           if-no-files-found: error
+      - name: "Retry Upload non-IT section content manifest"
+        id: upload-section-manifest-nonit-retry
+        if: (matrix.locale != 'it' && steps.finalize-section-manifests-nonit.outcome == 'success') && steps.upload-section-manifest-nonit.outcome == 'failure'
+        uses: actions/upload-artifact@v7
+        with:
+          name: section-page-manifest-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/section-page-manifest-${{ matrix.locale }}.json
+          retention-days: 8
+          if-no-files-found: error
+          overwrite: true
 
       - name: Strip section subtrees (non-IT)
         if: matrix.locale != 'it'
@@ -2656,6 +2974,32 @@ jobs:
           compression-level: 1
           retention-days: 8
           if-no-files-found: error
+      - name: "Retry Upload locale shard dist for post-deploy validation"
+        if: (matrix.locale != 'it') && steps.upload-locale-shard.outcome == 'failure'
+        id: upload-locale-shard-retry
+        # MUST stay continue-on-error: this is a non-essential speedup artifact.
+        # deploy + validate-dist gate on `needs.build-locale.result == 'success'`
+        # (in matrix mode `build` is skipped), and build-locale has
+        # fail-fast: false, so a single leg failing here would make
+        # build-locale.result == failure → deploy blocked = no Pages publish.
+        # A transient artifact-service error or an empty dist/<loc> must instead
+        # degrade gracefully: validate-dist's git-clone fallback then rehydrates
+        # the locale (the documented resilience path). Mirrors the adjacent
+        # `Push locale shard` step, which is continue-on-error for the same reason.
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: locale-dist-${{ matrix.locale }}-${{ github.run_id }}
+          # Single tar (see "Pack locale shard dist" above) — NOT the ~410k-file
+          # tree, which overflows the action's file enumerator.
+          path: ${{ runner.temp }}/locale-dist-${{ matrix.locale }}.tar
+          # compression-level 1: the tar is mostly HTML (very compressible) and
+          # this step gates the Pages publish, so favour a fast upload over a few
+          # extra MB. validate-dist downloads it over GitHub's internal network.
+          compression-level: 1
+          retention-days: 8
+          if-no-files-found: error
+          overwrite: true
 
       - name: Enforce non-IT tail budget before locale publish
         id: tail-budget
@@ -2744,6 +3088,7 @@ jobs:
             --locale "$BUILD_LOCALE"
 
       - name: Upload advisory shard push verification report
+        id: upload-advisory-shard-push-verification
         if: always() && vars.SHARD_PUSH_VERIFY == '1'
         continue-on-error: true
         uses: actions/upload-artifact@v7
@@ -2752,6 +3097,17 @@ jobs:
           path: ${{ runner.temp }}/shard-push-verify
           if-no-files-found: ignore
           retention-days: 1
+      - name: "Retry Upload advisory shard push verification report"
+        id: upload-advisory-shard-push-verification-retry
+        if: (always() && vars.SHARD_PUSH_VERIFY == '1') && steps.upload-advisory-shard-push-verification.outcome == 'failure'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: shard-push-verify-${{ matrix.locale }}-${{ github.run_id }}
+          path: ${{ runner.temp }}/shard-push-verify
+          if-no-files-found: ignore
+          retention-days: 1
+          overwrite: true
 
       # ── Purge the ORIGIN key, because that is where the bytes just changed ─
       #
@@ -2930,7 +3286,7 @@ jobs:
           **Dove guardare — il leg IT di questo run, non lo shard \`${LOCALE}\`:**
           1. il leg \`build-locale (it)\` è fallito o è stato lento? Se il suo Build fallisce, il marker non viene mai scritto e tutti e tre i leg non-IT scadono (successo esatto: run 31062047677).
           2. lo step \`Push generated assets to CDN (early …)\` del leg IT ha pubblicato? Se ha loggato \`CDN_BASE unset\` la push è fallita.
-          3. \`curl -s https://cdn.frontaliereticino.ch/cdn-build-id.txt\` corrisponde a \`${CDN_EXPECTED}\`?
+          3. \`curl -s "https://cdn.frontaliereticino.ch/cdn-build-id.txt?nocache=$(date +%s)"\` corrisponde a \`${CDN_EXPECTED}\`?
 
           Il deploy resta verde per design: un solo shard indietro non deve abortire gli altri 26." \
             --priority 1 \
@@ -3071,15 +3427,15 @@ jobs:
           cdn-gate=${{ steps.cdn-gate.outcome }}
           push-section-shards=${SECTION_PUSH_OUTCOME}
           pack-section-shards=${SECTION_PACK_OUTCOME}
-          upload-batch-1=${{ steps.upload-shard-batch-1.outcome }}
-          upload-batch-2=${{ steps.upload-shard-batch-2.outcome }}
-          upload-batch-3=${{ steps.upload-shard-batch-3.outcome }}
-          upload-batch-4=${{ steps.upload-shard-batch-4.outcome }}
-          upload-batch-5=${{ steps.upload-shard-batch-5.outcome }}
-          upload-batch-6=${{ steps.upload-shard-batch-6.outcome }}
+          upload-batch-1=${{ steps.upload-shard-batch-1-retry.outcome == 'success' && 'success' || steps.upload-shard-batch-1.outcome }}
+          upload-batch-2=${{ steps.upload-shard-batch-2-retry.outcome == 'success' && 'success' || steps.upload-shard-batch-2.outcome }}
+          upload-batch-3=${{ steps.upload-shard-batch-3-retry.outcome == 'success' && 'success' || steps.upload-shard-batch-3.outcome }}
+          upload-batch-4=${{ steps.upload-shard-batch-4-retry.outcome == 'success' && 'success' || steps.upload-shard-batch-4.outcome }}
+          upload-batch-5=${{ steps.upload-shard-batch-5-retry.outcome == 'success' && 'success' || steps.upload-shard-batch-5.outcome }}
+          upload-batch-6=${{ steps.upload-shard-batch-6-retry.outcome == 'success' && 'success' || steps.upload-shard-batch-6.outcome }}
           tail-budget=${TAIL_BUDGET_OUTCOME}
           pack-locale=${LOCALE_PACK_OUTCOME}
-          upload-locale=${{ steps.upload-locale-shard.outcome }}
+          upload-locale=${{ steps.upload-locale-shard-retry.outcome == 'success' && 'success' || steps.upload-locale-shard.outcome }}
           push-locale=${LOCALE_PUSH_OUTCOME}
           ROWS
           failed=0
@@ -3121,7 +3477,7 @@ jobs:
           PROVENANCE_CDN_GATE_OUTCOME: ${{ steps.cdn-gate.outcome }}
           PROVENANCE_LOCALE_PUSH_OUTCOME: ${{ steps.push-shard.outcome }}
           PROVENANCE_LOCALE_PACK_OUTCOME: ${{ steps.pack-locale-shard.outcome }}
-          PROVENANCE_LOCALE_ARTIFACT_OUTCOME: ${{ steps.upload-locale-shard.outcome }}
+          PROVENANCE_LOCALE_ARTIFACT_OUTCOME: ${{ steps.upload-locale-shard-retry.outcome == 'success' && 'success' || steps.upload-locale-shard.outcome }}
           PROVENANCE_TAIL_BUDGET_OUTCOME: ${{ steps.tail-budget.outcome }}
         run: |
           node scripts/ci/locale-publish-provenance.mjs \
@@ -3129,6 +3485,7 @@ jobs:
             --dist-dir dist
 
       - name: Upload non-IT locale publish provenance
+        id: upload-nonit-provenance
         if: always()
         continue-on-error: true
         uses: actions/upload-artifact@v7
@@ -3137,6 +3494,17 @@ jobs:
           path: ${{ runner.temp }}/nonit-publish-provenance/${{ matrix.locale }}.json
           retention-days: 8
           if-no-files-found: error
+      - name: "Retry Upload non-IT locale publish provenance"
+        id: upload-nonit-provenance-retry
+        if: (always()) && steps.upload-nonit-provenance.outcome == 'failure'
+        continue-on-error: true
+        uses: actions/upload-artifact@v7
+        with:
+          name: tail-publish-provenance-${{ matrix.locale }}-${{ inputs.source_run_id }}
+          path: ${{ runner.temp }}/nonit-publish-provenance/${{ matrix.locale }}.json
+          retention-days: 8
+          if-no-files-found: error
+          overwrite: true
   # Preserve the IT accumulator writer after moving deploy-prep to this run.
   # It consumes only the post-prep artifact and keeps the guarded merge-driver
   # plus retry path that prevents concurrent producers from losing history.

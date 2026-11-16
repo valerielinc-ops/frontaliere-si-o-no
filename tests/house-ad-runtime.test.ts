@@ -373,7 +373,7 @@ describe('per-slot first-party creative delivery', () => {
     expect(paid.host.childElementCount).toBe(0);
     expect(emit.mock.calls.filter(([name]) => name === 'reader_subscription_ad_impression')).toHaveLength(1);
     expect(emit.mock.calls.filter(([name]) => name === 'reader_subscription_experiment_exposure')).toHaveLength(1);
-    expect(emit.mock.calls.filter(([name]) => name === 'reader_subscription_experiment_impression')).toHaveLength(1);
+    expect(emit.mock.calls.filter(([name]) => name === 'reader_sub_experiment_impression')).toHaveLength(1);
     expect(JSON.parse(w.sessionStorage.getItem('ft_reader_subscription_attribution_v1'))).toMatchObject({
       campaign: 'reader_subscription', experimentId: 'reader_subscription_house_v1',
       variant: 'subscription', touchpoint: 'exposure', enrolled: true,
@@ -432,11 +432,13 @@ describe('per-slot first-party creative delivery', () => {
     expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
     expect(second.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
     expect(emit.mock.calls.filter(([name]) => name === 'reader_subscription_experiment_exposure')).toHaveLength(1);
-    expect(emit.mock.calls.filter(([name]) => name === 'reader_subscription_experiment_impression')).toHaveLength(1);
+    expect(emit.mock.calls.filter(([name]) => name === 'reader_sub_experiment_impression')).toHaveLength(1);
     first.host.querySelector('a').click();
     second.host.querySelector('a').click();
     expect(emit.mock.calls.filter(([name]) => name === 'reader_subscription_experiment_click')).toHaveLength(1);
-    expect(emit.mock.calls.find(([name]) => name === 'reader_subscription_experiment_impression')?.[1]).toMatchObject({
+    const impressionEvent = emit.mock.calls.find(([name]) => name === 'reader_sub_experiment_impression');
+    expect(impressionEvent?.[0].length).toBeLessThanOrEqual(40);
+    expect(impressionEvent?.[1]).toMatchObject({
       experiment_id: 'reader_subscription_house_v1', experiment_variant: 'control',
     });
   });
