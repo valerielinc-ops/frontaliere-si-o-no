@@ -469,6 +469,12 @@ describe('per-slot first-party creative delivery', () => {
     expect(creative.textContent).toContain('Scopri');
     expect(creative.dataset.houseCreative).toBe('subscription_v1');
   });
+  it('uses a concise subscription CTA in vertical skyscrapers', () => {
+    const render = w.eval(`(${createHouseAdCreative.toString()})`);
+    const creative = render({ campaign: 'reader_subscription', variant: 'control', format: 'skyscraper', locale: 'it', placement: 'article-inline' });
+    expect(creative.querySelector('.ft-house-cta')?.textContent).toBe('Scopri');
+    expect(creative.querySelector('.ft-reader-price')?.textContent).toBe('CHF 2.99 al mese');
+  });
   it.each(['en', 'de', 'fr'] as const)('routes the %s anonymous treatment to its localized subscription page', async (locale) => {
     w.document.documentElement.lang = locale;
     w.__ftAdsAuthState = 'anonymous';
