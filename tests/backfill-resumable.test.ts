@@ -205,14 +205,15 @@ function expectCheckpointGates(events: string[]) {
     const validateIndex = beforePush.indexOf('validate');
     const auditIndex = beforePush.indexOf('audit');
     expect(validateIndex).toBeGreaterThanOrEqual(0);
-    expect(auditIndex).toBeGreaterThan(validateIndex);
     const state = events[pushIndex].split(':')[1];
     if (state === 'complete') {
       const assembleIndex = beforePush.indexOf('assemble');
       const testIndex = beforePush.indexOf('test:run test:backfill');
-      expect(assembleIndex).toBeGreaterThan(auditIndex);
+      expect(auditIndex).toBeGreaterThan(testIndex);
+      expect(assembleIndex).toBeGreaterThan(validateIndex);
       expect(testIndex).toBeGreaterThan(assembleIndex);
     } else {
+      expect(auditIndex).toBe(-1);
       expect(beforePush).not.toContain('assemble');
       expect(beforePush).not.toContain('test:run test:backfill');
     }
@@ -485,7 +486,6 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(result.events).toContain('assemble');
     expect(result.events).toContain('test:run test:backfill');
     expect(result.events).toContain('validate');
-    expect(result.events).toContain('audit');
     expectCheckpointGates(result.events);
     expect(result.events.filter((event) => event.startsWith('push:'))).toEqual(['push:active:alpha']);
     expect(result.progress.split('\t')).toHaveLength(5);

@@ -290,12 +290,6 @@ jobs:
               checkpoint_active=0
               return 1
             fi
-            if ! node scripts/audit-expired-at-parsable.mjs; then
-              report_checkpoint_timing 'audit-gate-failure'
-              checkpoint_failed=1
-              checkpoint_active=0
-              return 1
-            fi
             if [ "$checkpoint_final" = '1' ]; then
               # The final checkpoint is the only promotion to `complete`.
               # Keep the cursor `active` while the expensive derived-data gate
