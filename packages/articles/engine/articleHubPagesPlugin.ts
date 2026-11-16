@@ -694,7 +694,7 @@ export function archiveTopicIndexPath(section: ArticleSection, locale: HubLocale
 
 /**
  * The nav block itself: eligible-topic anchors under a collapsed
- * `<details>` (same page-weight-conscious shape and `.hp` anchor class as the
+ * `<details>` (same collapsed shape and `.hp` anchor class as the
  * flat page ladder below — BFS and crawlers read `<a>` inside `<details>`
  * regardless of `open`), the link to the topic INDEX that collects them, and
  * the always-visible cross-link to the sibling section's archive in the same
@@ -1119,7 +1119,7 @@ export function renderPagination(locale: HubLocale, basePath: string, current: n
   // Skip when totalPages ≤ 1 (no pagination needed) or ≤ 5 (compact nav
   // already shows all pages, ladder would be redundant). Deep pages (> 1)
   // keep only the compact nav: page 1 is the BFS bridge to every page-N, so
-  // repeating the O(total) ladder on each page-N was pure weight — same rule
+  // repeating the O(total) ladder on each page-N duplicated navigation — same rule
   // as build-plugins/seoHubsPlugin.ts `renderPagination` (#7790).
   if (total <= 5 || current > 1) return compactNav;
   const flatLabel = {
@@ -1128,35 +1128,24 @@ export function renderPagination(locale: HubLocale, basePath: string, current: n
     de: 'Vollständiges Archiv nach Seite durchsuchen',
     fr: 'Parcourir toutes les archives par page',
   }[locale];
-  // Use CSS classes instead of per-anchor inline styles. With totalPages
-  // ≥ 100 (master jobs hub) the inline-style variant ballooned to ~250 B
-  // per anchor × ~400 anchors = ~100 KB, pushing the last-page HTML past
-  // the 200 KB `audit:page-weight` budget (2026-05-18 regression on
-  // /cerca-lavoro-ticino/tutti/page-387/). Class names are short (.hp, .hc);
-  // their rules now live in public/assets/seo-static.css (already linked on
-  // these pages) instead of a per-page inline <style> block.
+  // Use CSS classes instead of per-anchor inline styles. Class names are
+  // short (.hp, .hc); their rules live in public/assets/seo-static.css
+  // (already linked on these pages) instead of a per-page inline <style> block.
   //
   // Hrefs are root-relative (paginatedPath returns `/…/page-N/`), matching
   // the compact nav above and the `class="thp"` ladder in buildHubHtml.
-  // The absolute `${BASE_URL}` prefix (28 B × every page anchor) was pure
-  // dead weight here — crawlers resolve root-relative links identically and
-  // every anchor is preserved — and with cantons now at ~1500 archive pages
-  // it alone pushed /fr/trouver-emploi-tessin/tous/ past the 215 KB budget
-  // (run 28090796553, ~42 KB of prefix). rel=prev/next <link> head hints
-  // stay absolute (canonical convention).
+  // Root-relative URLs preserve each page-N destination while keeping the
+  // emitted hrefs consistent with paginatedPath. rel=prev/next <link> head
+  // hints stay absolute (canonical convention).
   //
   // Bare page number as the visible/anchor text (was `${pageWord}&nbsp;${p}`).
   // The full ladder MUST keep every page-N anchor for BFS-depth closure (see
   // header comment) — that link set is load-bearing and unchanged here — but
   // the repeated per-anchor word prefix ("Pagina&nbsp;" / "Seite&nbsp;" /
-  // "Page&nbsp;", ~10-12 B each) is not: at ~2 200 archive pages it added
-  // ~24 KB that pushed /cerca-lavoro-ticino/tutti/ and its page-N back over
-  // the 215 KB audit:page-weight budget (post-deploy run 29330607996, 130
-  // offenders 223-228 KB). The compact nav above already renders bare `${p}`
+  // "Page&nbsp;") is not: the compact nav above already renders bare `${p}`
   // links, and the `<details><summary>` + `<nav aria-label>` supply the
-  // "browse by page" context, so the numbers stay understandable. Same
-  // byte-shave class as the prior inline-style→class and BASE_URL-prefix drops
-  // on this exact ladder; every anchor is preserved so BFS depth is unchanged.
+  // "browse by page" context, so the numbers stay understandable. Every
+  // page-N anchor is preserved so BFS depth is unchanged.
   //
   // Per-anchor `class="hp"`/`class="hc"` dropped for the container rule
   // `.hpl a` / `.hpl strong` (public/assets/seo-static.css), in lockstep with

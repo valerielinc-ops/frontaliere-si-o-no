@@ -1879,45 +1879,30 @@ const CARD_EXCERPT_CHARS = 160;
  * same offset — an overflow index computed against a different cap would either
  * skip events (re-orphaning them, the #5434 bug) or repeat carded ones.
  *
- * Raising it is a page-weight decision, not a reachability one any more: every
- * event past the cap is still linked, just as a text row.
+ * Every event past the cap is still linked, just as a text row.
  */
 const EVENT_CARD_CAP = 80;
 const HISTORICAL_ARCHIVE_PAGE_SIZE = 100;
 
 /**
- * The same budget for the comune-less `altri-eventi` sentinel bucket, which is
- * the LARGEST page in the dataset (1235 upcoming events measured 2026-09-04)
- * and therefore the one where 80 cards cost the most: a full card is ~1.4 KB of
- * markup (480x270 `<img>`, category chip, meta line, excerpt up to
- * `CARD_EXCERPT_CHARS`, comune), so the card block alone weighed ~111 KB of the
- * 311.8 KB `fr` page — over `MAX_HTML_BYTES`.
+ * Number of full cards on the comune-less `altri-eventi` sentinel. It is the
+ * largest, heterogeneous event list, so the first cards provide the main
+ * discovery surface while the rest continue in linked `<bucket>/page-N/`
+ * windows as text rows. No event is discarded; only its presentation changes.
+ * Comune hubs keep the larger `EVENT_CARD_CAP` because their cards introduce a
+ * short, coherent local list.
  *
- * Why the sentinel gets its own number instead of lowering `EVENT_CARD_CAP` for
- * everyone: on a comune hub the cards ARE the discovery surface for a short,
- * coherent list, while this bucket is a heterogeneous nationwide dump where the
- * cards past the first couple dozen add no discovery value proportional to
- * their bytes. Nothing is dropped — `renderOverflowIndex()` still links every
- * event past the cap as a text row (~150 B each), so trading 56 cards for 56
- * rows is about -70 KB with the #5434 reachability invariant untouched.
- *
- * Same contract as `EVENT_CARD_CAP`: the card slice and `renderOverflowIndex()`
- * MUST be handed this very constant, never a different number.
+ * The card slice and `renderOverflowIndex()` MUST use this same value so every
+ * event appears exactly once across the card list and overflow pages.
  */
 const OTHER_EVENTS_CARD_CAP = 24;
 
 /**
  * How many overflow ROWS one page carries before the remainder continues on
- * `<bucket>/page-N/` — the bound that makes page weight O(1) in the size of the
- * bucket instead of O(bucket) (issue #7329).
- *
- * 300 at ~150 B a row is ~45 KB of index, which leaves the heaviest possible
- * base page (a comune hub: 80 cards ≈ 111 KB + chrome) comfortably inside
- * `scripts/audit-page-weight.mjs`'s 260 KB budget, and a ladder page (index +
- * chrome only) at ~55 KB. Lower would be safer on bytes but buys nothing and
- * costs nav width: the number of ladder pages is what the canton hub has to
- * link (see `renderHubLadderIndex`), so it must stay small — 1155 rows is 4
- * pages at 300, 12 at 100.
+ * `<bucket>/page-N/` (issue #7329). The number of ladder pages is what the
+ * canton hub has to link (see `renderHubLadderIndex`), so the window size also
+ * controls the width of that navigation — 1155 rows is 4 pages at 300, 12 at
+ * 100.
  *
  * NOT a reachability cap. Every row still exists, just on a numbered page that
  * the hub links directly; changing this number changes only how the same rows
@@ -2133,31 +2118,17 @@ const OVERFLOW_INDEX_COPY: Record<
  * Text index of the events the card grid's `slice(0, cap)` left out — the hub's
  * crawl surface for its own overflow (issue #5434, Causa B).
  *
- * WHY IT EXISTS. The cap is a page-weight measure, but it was also silently a
- * REACHABILITY cap: an event whose only inbound link is its comune hub's card
+ * WHY IT EXISTS. An event whose only inbound link is its comune hub's card
  * grid has no inbound link at all once it falls past the cap, so
  * `audit:max-bfs-depth` counted it as unreachable. Measured on the live graph:
  * 689 of the 819 `sitemap-eventi.xml` offenders were exactly this, and only in
  * the two buckets that exceed the cap.
  *
- * WHY NOT JUST RAISE THE CAP. A card carries an <img>, a chip, meta and an
- * excerpt (~650 B measured); a row here is an <a> and a title (~150 B measured).
- * Rendering the same overflow as cards would cost ~390 KB on the largest bucket
- * against `scripts/audit-page-weight.mjs`'s 260 KB budget.
- *
- * MEASURED HEADROOM (live pages, 2026-08-09, `curl | wc -c`). Only two buckets
- * in the whole dataset are over the cap, so only two pages per locale grow:
- *   /eventi/altri-cantoni/altri-eventi/  76.4 KB + 90.1 KB (603 rows) = 167 KB
- *   /eventi/ginevra/geneve/             115.2 KB + 16.3 KB (111 rows) = 132 KB
- * Both inside the 260 KB budget. That headroom was NOT unbounded and it ran
- * out: the sentinel bucket reached 1235 events on 2026-09-04 (1155 rows,
- * ~190 KB of rows alone) and the `fr` page measured 311.8 KB — over budget
- * (issue #7329). The bound is now structural, not a bigger number: a page
+ * The index keeps visible cards distinct from the linked overflow rows. A page
  * carries at most `OVERFLOW_ROWS_PER_PAGE` rows and the rest continue on
- * `<bucket>/page-N/` (`renderOverflowLadderPage`), so the weight of any single
- * page is O(1) in the size of the bucket. Rows are still never DROPPED — that
- * would silently re-orphan them, which is the #5434 bug this block exists to
- * prevent.
+ * `<bucket>/page-N/` (`renderOverflowLadderPage`). Rows are never DROPPED —
+ * that would silently re-orphan them, which is the #5434 bug this block exists
+ * to prevent.
  *
  * Only events WITH a detail page are listed: `detailHref` returns null for an
  * event that has none, and linking its external source URL instead would add
@@ -2529,7 +2500,7 @@ function visibleEventsWithMarkupPriority(events: SiteEvent[], dateStamp: string,
  * already links, but pages 2..N are new URLs. Hanging them off the bucket page
  * alone would put them one hop deeper and their rows one hop deeper still —
  * exactly the orphan-tail regression (#5434) the overflow index exists to
- * prevent, re-introduced by the fix for page weight. Linked from here they sit
+ * prevent. Linked from here they sit
  * at the same depth as the bucket pages, so the rows keep the depth they had
  * when they were all on one page.
  *
