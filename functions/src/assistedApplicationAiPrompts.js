@@ -407,7 +407,47 @@ export function codexPrompt(systemPrompt, userText) {
 }
 
 /** The letter follows the posting; the customer's site locale is the fallback. */
-export function resolveLetterLanguage(postingLanguage, orderLocale) {
+const FEEDBACK_LANGUAGE_TARGETS = [
+  { code: 'it', token: 'italiano|italian|italienisch|italien' },
+  { code: 'de', token: 'tedesco|german|deutsch|allemand' },
+  { code: 'fr', token: 'francese|french|franz(?:ö|oe|o)sisch|fran[cç]ais' },
+  { code: 'en', token: 'inglese|english|englisch|anglais' },
+];
+
+const FEEDBACK_LANGUAGE_TARGET_RE = new RegExp(
+  `(?:^|[^\\p{L}])(?:in|a|to|into|auf|en)\\s+(${FEEDBACK_LANGUAGE_TARGETS.map((entry) => entry.token).join('|')})(?=$|[^\\p{L}])`,
+  'giu',
+);
+
+function feedbackLanguageCode(token) {
+  const normalized = String(token || '').trim().toLowerCase();
+  return FEEDBACK_LANGUAGE_TARGETS.find(({ token: pattern }) => new RegExp(`^(?:${pattern})$`, 'iu').test(normalized))?.code || '';
+}
+
+const FEEDBACK_NEGATION_RE = /\b(?:non|not|no|don['’]t|do\s+not|never|avoid|evita(?:re)?|ne\s+(?:\w+\s+)?pas|nicht|kein(?:e|en|em|er)?|senza|without|ohne|sans)\b/iu;
+
+export function feedbackRequestedLanguage(feedback = []) {
+  const items = Array.isArray(feedback) ? feedback : [feedback];
+  for (let index = items.length - 1; index >= 0; index -= 1) {
+    const raw = typeof items[index] === 'string' ? items[index] : items[index]?.text;
+    const text = String(raw || '').normalize('NFKC').trim();
+    if (!text) continue;
+    const matches = [...text.matchAll(FEEDBACK_LANGUAGE_TARGET_RE)];
+    for (let matchIndex = matches.length - 1; matchIndex >= 0; matchIndex -= 1) {
+      const match = matches[matchIndex];
+      const prefix = text.slice(0, match.index);
+      const clause = prefix.split(/[,.;!?\n]+/).pop() || '';
+      if (FEEDBACK_NEGATION_RE.test(clause)) continue;
+      const code = feedbackLanguageCode(match[1]);
+      if (code) return code;
+    }
+  }
+  return '';
+}
+
+export function resolveLetterLanguage(postingLanguage, orderLocale, feedback = []) {
+  const requested = feedbackRequestedLanguage(feedback);
+  if (SUPPORTED_LETTER_LANGUAGES.includes(requested)) return requested;
   const posting = String(postingLanguage || '').toLowerCase().slice(0, 2);
   if (SUPPORTED_LETTER_LANGUAGES.includes(posting)) return posting;
   const locale = String(orderLocale || '').toLowerCase().slice(0, 2);

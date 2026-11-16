@@ -122,24 +122,28 @@
     },
     "slugByLocale": {
       "de": "manager-m-w-otto-s-ag-lausanne",
-      "fr": "gerant-h-f-ottos-lausanne"
+      "fr": "gerant-h-f-ottos-lausanne-173ee22d"
     },
     "sector": "Commercio al Dettaglio",
     "expiredAt": "2026-11-14T16:44:07.976Z",
     "previousSlugs": [
-      "gerant-h-f-ottos-lausanne",
-      "gerant-m-w-d-otto-s-ag-lausanne"
+      "gerant-m-w-d-otto-s-ag-lausanne",
+      "gerant-h-f-ottos-lausanne"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "gerant-h-f-ottos-lausanne",
-        "gerant-m-w-d-otto-s-ag-lausanne"
+        "gerant-h-f-ottos-lausanne-173ee22d",
+        "gerant-m-w-d-otto-s-ag-lausanne",
+        "gerant-h-f-ottos-lausanne"
       ],
       "en": [
         "gerant-h-f-ottos-lausanne"
       ],
       "de": [
         "gerant-h-f-ottos-lausanne"
+      ],
+      "fr": [
+        "gerant-h-f-ottos-lausanne-173ee22d"
       ]
     },
     "postalCode": "1003",
@@ -174,26 +178,30 @@
       "it": "alimentare-non-alimentare-venditore-m-f-otto-s-ag-lausanne",
       "en": "food-non-food-seller-m-f-otto-s-ag-lausanne",
       "de": "lebensmittel-nichtlebensmittelverkaufer-m-w-otto-s-ag-lausanne",
-      "fr": "vendeur-food-non-food-h-f-ottos-lausanne"
+      "fr": "vendeur-food-non-food-h-f-ottos-lausanne-2b04e3c8"
     },
     "sector": "Commercio al Dettaglio",
     "expiredAt": "2026-11-14T09:44:08.675Z",
     "previousSlugs": [
-      "vendeur-food-non-food-h-f-ottos-lausanne",
       "vendeur-food-non-food-m-w-d-otto-s-ag-lausanne",
-      "vendeur-food-non-food-h-f-otto-s-ag-lausanne-488581663b"
+      "vendeur-food-non-food-h-f-otto-s-ag-lausanne-488581663b",
+      "vendeur-food-non-food-h-f-ottos-lausanne"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "vendeur-food-non-food-h-f-ottos-lausanne",
+        "vendeur-food-non-food-h-f-ottos-lausanne-2b04e3c8",
         "vendeur-food-non-food-m-w-d-otto-s-ag-lausanne",
-        "vendeur-food-non-food-h-f-otto-s-ag-lausanne-488581663b"
+        "vendeur-food-non-food-h-f-otto-s-ag-lausanne-488581663b",
+        "vendeur-food-non-food-h-f-ottos-lausanne"
       ],
       "en": [
         "vendeur-food-non-food-h-f-ottos-lausanne"
       ],
       "de": [
         "vendeur-food-non-food-h-f-ottos-lausanne"
+      ],
+      "fr": [
+        "vendeur-food-non-food-h-f-ottos-lausanne-2b04e3c8"
       ]
     },
     "postalCode": "1003",
