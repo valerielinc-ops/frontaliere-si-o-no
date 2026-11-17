@@ -3,16 +3,24 @@ import { execFileSync } from 'node:child_process';
 import { existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
+import YAML from 'yaml';
 import {
   compareMapTrees,
   parseRcloneChangedKeys,
 } from '../scripts/ci/job-canon-affected-files.mjs';
 import { verifyMapFreshness } from '../scripts/ci/job-canon-publish-handshake.mjs';
 import { verifyMarker } from '../scripts/ci/cdn-build-marker-handshake.mjs';
+import { resolveJobCanonPublishProof } from '../scripts/ci/job-canon-publish-receipt.mjs';
 
 const PREP_SH = readFileSync(resolve('scripts/lib/deploy-it-pages-prep.sh'), 'utf8');
 const WAIT_SH = readFileSync(resolve('scripts/lib/wait-cdn-build-id.sh'), 'utf8');
 const PUBLISH_YML = readFileSync(resolve('.github/workflows/deploy-publish.yml'), 'utf8');
+const PUBLISH = YAML.parse(PUBLISH_YML) as any;
+const SOURCE_RUN_ID = '43969699461';
+const SOURCE_SHA = 'c'.repeat(40);
+const BUILD_ID = '1770000000001';
+const earlyProof = { sourceRunId: SOURCE_RUN_ID, sourceSha: SOURCE_SHA, buildId: BUILD_ID };
+const durableReceipt = { published: 'true', ...earlyProof };
 
 function fixtureTree() {
   const root = mkdtempSync(join(tmpdir(), 'job-canon-handshake-'));
@@ -134,5 +142,80 @@ describe('job-canon publication handshake', () => {
     expect(PUBLISH_YML.indexOf('Require closed job-canon handshake before Pages artifact'))
       .toBeLessThan(PUBLISH_YML.indexOf('Upload Pages artifact (compression-level 9)'));
     expect(PUBLISH_YML).toContain('Upload Pages artifact (compression-level 9)');
+  });
+
+  it('accepts the early handshake job output when the finalizer runs on another runner', () => {
+    // The finalizer has no access to the CDN runner's RUNNER_TEMP. Its job
+    // dependency output carries the receipt identity across the runner boundary.
+    expect(resolveJobCanonPublishProof({
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      buildId: BUILD_ID,
+      cdnJobResult: 'success',
+      earlyProof,
+      durableReceipt: { published: 'false' },
+    })).toEqual({ accepted: true, source: 'early-job-output' });
+  });
+
+  it('accepts a skipped CDN job only with the exact durable source and build receipt', () => {
+    expect(resolveJobCanonPublishProof({
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      buildId: BUILD_ID,
+      cdnJobResult: 'skipped',
+      earlyProof: {},
+      durableReceipt,
+    })).toEqual({ accepted: true, source: 'durable-receipt' });
+  });
+
+  it.each([
+    ['missing', { published: 'false', ...earlyProof }],
+    ['wrong source run', { ...durableReceipt, sourceRunId: '43969699460' }],
+    ['wrong source SHA', { ...durableReceipt, sourceSha: 'd'.repeat(40) }],
+    ['old build', { ...durableReceipt, buildId: '1770000000000' }],
+    ['missing build', { ...durableReceipt, buildId: '' }],
+  ])('rejects a %s durable receipt', (_case, receipt) => {
+    expect(resolveJobCanonPublishProof({
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      buildId: BUILD_ID,
+      cdnJobResult: 'skipped',
+      earlyProof: {},
+      durableReceipt: receipt,
+    }).accepted).toBe(false);
+  });
+
+  it('does not fall back to a durable receipt after a successful but mismatched early job', () => {
+    expect(resolveJobCanonPublishProof({
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      buildId: BUILD_ID,
+      cdnJobResult: 'success',
+      earlyProof: { ...earlyProof, buildId: '1770000000000' },
+      durableReceipt,
+    }).accepted).toBe(false);
+  });
+
+  it('does not accept CDN_BASE by itself and binds each workflow signal to its source', () => {
+    const baseOnly = resolveJobCanonPublishProof({
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      buildId: BUILD_ID,
+      cdnJobResult: 'skipped',
+      cdnBase: 'https://cdn.frontaliereticino.ch',
+      durableReceipt: { published: 'false' },
+    });
+    expect(baseOnly.accepted).toBe(false);
+
+    const cdn = PUBLISH.jobs['publish-it-cdn'];
+    expect(cdn.outputs.job_canon_source_run_id).toBe('${{ steps.cdn-ready.outputs.job_canon_source_run_id }}');
+    expect(cdn.outputs.job_canon_source_sha).toBe('${{ steps.cdn-ready.outputs.job_canon_source_sha }}');
+    expect(cdn.outputs.job_canon_build_id).toBe('${{ steps.cdn-ready.outputs.job_canon_build_id }}');
+    const finalizerGate = PUBLISH.jobs['finalize-it-publish'].steps.find((step: any) => step.name === 'Require closed job-canon handshake before Pages artifact');
+    expect(finalizerGate.env.CDN_JOB_RESULT).toBe('${{ needs.publish-it-cdn.result }}');
+    expect(finalizerGate.env.DURABLE_RECEIPT_PUBLISHED).toBe('${{ needs.resolve-publish-receipts.outputs.it_cdn_published }}');
+    expect(finalizerGate.run).toContain('node scripts/ci/job-canon-publish-receipt.mjs');
+    expect(finalizerGate.run).not.toContain('RUNNER_TEMP/job-canon-publish.ok');
+    expect(finalizerGate.env.CDN_BASE).toBeUndefined();
   });
 });
