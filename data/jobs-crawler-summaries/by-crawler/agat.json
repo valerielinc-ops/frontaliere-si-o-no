@@ -1,7 +1,7 @@
 {
   "key": "agat",
   "label": "AGAT ! Placements fixes et temporaires SA",
-  "generatedAt": "2026-11-16T21:28:55.082Z",
+  "generatedAt": "2026-11-17T09:39:47.684Z",
   "total": 7,
   "discovered": 8,
   "parsed": 7,
@@ -20,15 +20,11 @@
       },
       {
         "status": 200,
-        "url": "https://www.agat-job.com/post/ma%C3%A7on-q-a-b-100"
-      },
-      {
-        "status": 200,
         "url": "https://www.agat-job.com/post/installateur-%C3%A9lectricien-cfc-f-h-d%C3%A9pannage-et-bricole"
       },
       {
         "status": 200,
-        "url": "https://www.agat-job.com/post/paysagiste-100-1"
+        "url": "https://www.agat-job.com/post/ma%C3%A7on-q-a-b-100"
       },
       {
         "status": 200,
@@ -36,11 +32,15 @@
       },
       {
         "status": 200,
-        "url": "https://www.agat-job.com/post/poseur-de-sols-f-h"
+        "url": "https://www.agat-job.com/post/paysagiste-100-1"
       },
       {
         "status": 200,
         "url": "https://www.agat-job.com/post/monteur-%C3%A9lectricien-cfc-f-h"
+      },
+      {
+        "status": 200,
+        "url": "https://www.agat-job.com/post/poseur-de-sols-f-h"
       },
       {
         "status": 200,
@@ -68,10 +68,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 14001,
-  "avgDurationMs": 14001,
+  "durationMs": 13118,
+  "avgDurationMs": 13118,
   "durationHistory": [
-    14001
+    13118
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -90,7 +90,7 @@
       "url": "https://www.agat-job.com/post/charpentier-cfc-100-1",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T21:28:36.570Z",
+      "crawledAt": "2026-11-17T09:39:34.201Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -110,7 +110,7 @@
       "addressLocality": "région de Sion",
       "streetAddress": "région de Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:28:36.570Z",
+      "validThrough": "2027-01-14T09:39:34.201Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -133,7 +133,7 @@
       "url": "https://www.agat-job.com/post/machiniste-h-f-m1-m2",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T21:28:36.569Z",
+      "crawledAt": "2026-11-17T09:39:34.200Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -153,7 +153,7 @@
       "addressLocality": "région de Sion",
       "streetAddress": "région de Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:28:36.569Z",
+      "validThrough": "2027-01-14T09:39:34.200Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -176,7 +176,7 @@
       "url": "https://www.agat-job.com/post/monteur-%C3%A9lectricien-cfc-f-h",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T21:28:36.567Z",
+      "crawledAt": "2026-11-17T09:39:34.199Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -196,7 +196,7 @@
       "addressLocality": "région de Sion",
       "streetAddress": "région de Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:28:36.567Z",
+      "validThrough": "2027-01-14T09:39:34.199Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -219,7 +219,7 @@
       "url": "https://www.agat-job.com/post/paysagiste-100-1",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T21:28:36.566Z",
+      "crawledAt": "2026-11-17T09:39:34.198Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -239,7 +239,7 @@
       "addressLocality": "région de Sion",
       "streetAddress": "région de Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:28:36.566Z",
+      "validThrough": "2027-01-14T09:39:34.198Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -262,7 +262,7 @@
       "url": "https://www.agat-job.com/post/installateur-sanitaire-exp%C3%A9riment%C3%A9",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T21:28:36.565Z",
+      "crawledAt": "2026-11-17T09:39:34.197Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -282,7 +282,7 @@
       "addressLocality": "région de Sion",
       "streetAddress": "région de Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:28:36.565Z",
+      "validThrough": "2027-01-14T09:39:34.197Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -305,7 +305,7 @@
       "url": "https://www.agat-job.com/post/ma%C3%A7on-q-a-b-100",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T21:28:36.564Z",
+      "crawledAt": "2026-11-17T09:39:34.196Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -325,7 +325,7 @@
       "addressLocality": "région de Sion",
       "streetAddress": "région de Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:28:36.564Z",
+      "validThrough": "2027-01-14T09:39:34.196Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -348,7 +348,7 @@
       "url": "https://www.agat-job.com/post/installateur-%C3%A9lectricien-cfc-f-h-d%C3%A9pannage-et-bricole",
       "source": "AGAT ! Official Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T21:28:36.563Z",
+      "crawledAt": "2026-11-17T09:39:34.195Z",
       "addressRegion": "VS",
       "employmentType": "OTHER",
       "contract": "other",
@@ -368,7 +368,7 @@
       "addressLocality": "région de Sion",
       "streetAddress": "région de Sion",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:28:36.563Z",
+      "validThrough": "2027-01-14T09:39:34.195Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -379,5 +379,5 @@
       }
     }
   ],
-  "codeCommit": "003c4e440c1461e3ea15f62e2d687026ad8479d5"
+  "codeCommit": "0a26498058b0569b9b8027a7e9a03db3e2542c6a"
 }

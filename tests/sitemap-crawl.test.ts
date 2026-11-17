@@ -287,10 +287,174 @@ describe('sitemap change snapshots', () => {
         ...tiers.movedOutOfArchive,
         ...tiers.lastmod,
         ...Object.values(tiers.digestBySitemap).flat(),
+        ...tiers.addedArchive,
       ];
       expect(new Set(grouped).size, fixture.name).toBe(grouped.length);
       expect([...new Set(grouped)].sort(), fixture.name).toEqual(changedUrls(fixture.current, fixture.previous, opts));
     }
+  });
+
+  it('sends only archive-exclusive new URLs to the final addedArchive tier', () => {
+    const archiveUrls = Array.from({ length: 300 }, (_, index) =>
+      `${BASE}/annunci/archive-${String(index).padStart(3, '0')}/`);
+    const archiveKeys = [1, 2, 3].map((shard) =>
+      `sitemap-jobs-expired-${String(shard).padStart(3, '0')}.xml`);
+    const sharedUrl = `${BASE}/annunci/shared/`;
+    const regularUrls = [`${BASE}/ricerca/new-z/`, `${BASE}/ricerca/new-a/`];
+    const current = {
+      version: 3,
+      perSitemap: {
+        [archiveKeys[0]]: archiveUrls.slice(0, 100),
+        [archiveKeys[1]]: archiveUrls.slice(100, 200),
+        [archiveKeys[2]]: archiveUrls.slice(200),
+        'sitemap-jobs-active.xml': [...regularUrls, sharedUrl],
+      },
+      perSitemapDigests: Object.fromEntries([...archiveKeys, 'sitemap-jobs-active.xml'].map((key) => [key, 'current'])),
+    };
+    const previous = {
+      version: 3,
+      perSitemap: { 'sitemap-jobs-active.xml': [] },
+      perSitemapDigests: { 'sitemap-jobs-active.xml': 'previous' },
+    };
+
+    const tiers = changedUrlTiers(current, previous, {
+      digestIgnoredSitemap: isExpiredJobSitemapKey,
+    });
+
+    expect(tiers.added).toEqual([...regularUrls, sharedUrl].sort());
+    expect(tiers.addedArchive).toEqual(archiveUrls);
+    expect([...tiers.added, ...tiers.addedArchive].sort()).toEqual(changedUrls(current, previous));
+  });
+
+  it('keeps a new URL shared by archive and regular sitemaps in added', () => {
+    const sharedUrl = `${BASE}/annunci/shared-new/`;
+    const current = {
+      version: 3,
+      perSitemap: {
+        'sitemap-jobs-expired-001.xml': [sharedUrl],
+        'sitemap-jobs-active.xml': [sharedUrl],
+      },
+      perSitemapDigests: {
+        'sitemap-jobs-expired-001.xml': 'expired',
+        'sitemap-jobs-active.xml': 'active',
+      },
+    };
+    const previous = {
+      version: 3,
+      perSitemap: { 'sitemap-jobs-active.xml': [] },
+      perSitemapDigests: { 'sitemap-jobs-active.xml': 'previous' },
+    };
+
+    const tiers = changedUrlTiers(current, previous, {
+      digestIgnoredSitemap: isExpiredJobSitemapKey,
+    });
+
+    expect(tiers.added).toEqual([sharedUrl]);
+    expect(tiers.addedArchive).toEqual([]);
+  });
+
+  it('fails closed when the missing sitemaps differ between the snapshots and keeps the stable baseline', () => {
+    const archiveOnlyUrl = `${BASE}/annunci/maybe-in-missing-sitemap/`;
+    const build = (missingSitemaps: string[] | undefined, withArchive: boolean) => ({
+      version: 3,
+      perSitemap: withArchive
+        ? { 'sitemap-jobs-expired-001.xml': [archiveOnlyUrl], 'sitemap-jobs-active.xml': [] }
+        : { 'sitemap-jobs-active.xml': [] },
+      perSitemapDigests: withArchive
+        ? { 'sitemap-jobs-expired-001.xml': 'expired', 'sitemap-jobs-active.xml': 'active' }
+        : { 'sitemap-jobs-active.xml': 'previous' },
+      ...(missingSitemaps === undefined ? {} : { missingSitemaps }),
+    });
+    const opts = { digestIgnoredSitemap: isExpiredJobSitemapKey };
+
+    const cases = [
+      { name: 'missing only in current', current: ['sitemap.xml'], previous: undefined, closed: true },
+      { name: 'missing only in previous', current: undefined, previous: ['sitemap.xml'], closed: true },
+      { name: 'different sets', current: ['sitemap.xml'], previous: ['sitemap-cantons.xml'], closed: true },
+      { name: 'identical stable baseline', current: ['sitemap-cantons.xml'], previous: ['sitemap-cantons.xml'], closed: false },
+      { name: 'identical unknown gap', current: ['sitemap.xml'], previous: ['sitemap.xml'], closed: true },
+      { name: 'no missing sitemaps', current: [], previous: [], closed: false },
+    ];
+    for (const testCase of cases) {
+      const current = build(testCase.current, true);
+      const previous = build(testCase.previous, false);
+      const tiers = changedUrlTiers(current, previous, opts);
+      if (testCase.closed) {
+        expect(tiers.addedArchive, testCase.name).toEqual([]);
+        expect(tiers.added, testCase.name).toEqual([archiveOnlyUrl]);
+      } else {
+        expect(tiers.addedArchive, testCase.name).toEqual([archiveOnlyUrl]);
+        expect(tiers.added, testCase.name).toEqual([]);
+      }
+      // The flat list always carries the same URLs; only the archive-last order depends on the split.
+      expect(changedUrls(current, previous, opts), testCase.name).toEqual([archiveOnlyUrl]);
+    }
+  });
+
+  it('keeps added unchanged when the archive classifier or current membership is missing', () => {
+    const archiveUrl = `${BASE}/annunci/new-expired/`;
+    const normalUrl = `${BASE}/ricerca/new/`;
+    const current = {
+      version: 3,
+      perSitemap: {
+        'sitemap-jobs-expired-001.xml': [archiveUrl],
+        'sitemap-jobs-active.xml': [normalUrl],
+      },
+      perSitemapDigests: {
+        'sitemap-jobs-expired-001.xml': 'expired',
+        'sitemap-jobs-active.xml': 'active',
+      },
+    };
+    const previous = {
+      version: 3,
+      perSitemap: {},
+      perSitemapDigests: {},
+    };
+    const expectedAdded = changedUrls(current, previous);
+
+    const withoutClassifier = changedUrlTiers(current, previous);
+    const invalidClassifier = changedUrlTiers(current, previous, {
+      digestIgnoredSitemap: 'not-a-function',
+    });
+    const withoutCurrentMembership = changedUrlTiers(
+      [archiveUrl, normalUrl],
+      previous,
+      { digestIgnoredSitemap: isExpiredJobSitemapKey },
+    );
+
+    expect(withoutClassifier.addedArchive).toEqual([]);
+    expect(withoutClassifier.added).toEqual(expectedAdded);
+    expect(invalidClassifier.addedArchive).toEqual([]);
+    expect(invalidClassifier.added).toEqual(expectedAdded);
+    expect(withoutCurrentMembership.addedArchive).toEqual([]);
+    expect(withoutCurrentMembership.added).toEqual(expectedAdded);
+  });
+
+  it('appends archive-only additions to the flat changedUrls result', () => {
+    const archiveUrls = [`${BASE}/annunci/archive-b/`, `${BASE}/annunci/archive-a/`].sort();
+    const normalUrl = `${BASE}/ricerca/new/`;
+    const current = {
+      version: 3,
+      perSitemap: {
+        'sitemap-jobs-expired-001.xml': archiveUrls,
+        'sitemap-jobs-active.xml': [normalUrl],
+      },
+      perSitemapDigests: {
+        'sitemap-jobs-expired-001.xml': 'expired',
+        'sitemap-jobs-active.xml': 'active',
+      },
+    };
+    const previous = {
+      version: 3,
+      perSitemap: { 'sitemap-jobs-active.xml': [] },
+      perSitemapDigests: { 'sitemap-jobs-active.xml': 'previous' },
+    };
+    const flat = changedUrls(current, previous, {
+      digestIgnoredSitemap: isExpiredJobSitemapKey,
+    });
+
+    expect(flat).toEqual([normalUrl, ...archiveUrls]);
+    expect([...flat].sort()).toEqual(changedUrls(current, previous));
   });
 
   it('suppresses only changed expired-archive digests and counts their URLs', () => {
@@ -403,7 +567,7 @@ describe('sitemap change snapshots', () => {
     expect(Object.values(tiers.digestBySitemap).flat()).not.toContain(url);
   });
 
-  it('keeps a URL first appearing in the expired archive in the added tier', () => {
+  it('keeps a URL first appearing in the expired archive in addedArchive', () => {
     const url = `${BASE}/annunci/new-expired/`;
     const current = {
       version: 3,
@@ -421,7 +585,8 @@ describe('sitemap change snapshots', () => {
       digestIgnoredSitemap: isExpiredJobSitemapKey,
     });
 
-    expect(tiers.added).toEqual([url]);
+    expect(tiers.added).toEqual([]);
+    expect(tiers.addedArchive).toEqual([url]);
     expect(tiers.movedIntoArchive).toEqual([]);
     expect(tiers.movedOutOfArchive).toEqual([]);
     expect(Object.values(tiers.digestBySitemap).flat()).not.toContain(url);

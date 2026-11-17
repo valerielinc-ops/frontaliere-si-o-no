@@ -5,12 +5,15 @@
  * crawls, orphaning the previously-indexed URL → 404. public/404.html recovers
  * these with a soft-404 + JS `location.replace`; the Worker upgrades the en/de/fr
  * shard traffic it already sees to a REAL HTTP 301 (full link-equity transfer)
- * when the slug is in /job-canon/<shard>.json. Unknown slugs keep the soft 404.
+ * when the slug is in the marker-selected /job-canon/releases/<build-id>/ map.
+ * Unknown slugs keep the soft 404.
  *
  * The Worker fetches the shard origin (404 here) and then the map JSON from the
  * public apex; the mock dispatches on URL so each gets the right response.
  */
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS Worker module, no type declarations.
@@ -21,6 +24,7 @@ const APEX = 'https://frontaliereticino.ch';
 const pendingCacheWrites: Promise<unknown>[] = [];
 const cacheEntries = new Map<string, Response>();
 let cacheMatchCount = 0;
+let cachePutCount = 0;
 const ctx = {
   waitUntil: (promise: Promise<unknown>) => pendingCacheWrites.push(promise),
 } as unknown as ExecutionContext;
@@ -33,11 +37,26 @@ function fetchUrl(input: RequestInfo | URL): string {
   return typeof input === 'string' ? input : input instanceof URL ? input.href : input.url;
 }
 
+function loadBrowserJobCanonMapFetcher(): (slug: string, fetcher: typeof fetch) => Promise<unknown> {
+  const source = readFileSync(resolve(process.cwd(), 'public/404.html'), 'utf8');
+  const start = source.indexOf('function jobCanonV1ShardKey(');
+  const end = source.indexOf('// Request locale', start);
+  expect(start).toBeGreaterThanOrEqual(0);
+  expect(end).toBeGreaterThan(start);
+  const declaration = source.slice(start, end);
+  return new Function(
+    'JOB_CANON_CDN',
+    `${declaration}\nreturn fetchJobCanonMap;`,
+  )('https://cdn.frontaliereticino.ch') as (slug: string, fetcher: typeof fetch) => Promise<unknown>;
+}
+
 function seedJobAliasCache(source: string, value: Record<string, string>, ttl: number): void {
   const url = new URL(source);
   const normalizedPath = `${url.pathname.replace(/\/+$/, '')}/`;
+  const locale = url.pathname.match(/^\/(en|de|fr)(?:\/|$)/)?.[1] ?? 'it';
   const key = new URL(url.origin);
-  key.pathname = `/__worker-cache/job-alias/fr${normalizedPath}`;
+  key.pathname = `/__worker-cache/job-alias/${locale}${normalizedPath}`;
+  key.searchParams.set('build_id', '1001');
   cacheEntries.set(key.toString(), new Response(JSON.stringify(value), {
     headers: {
       'Content-Type': 'application/json',
@@ -54,12 +73,14 @@ beforeEach(() => {
   cacheEntries.clear();
   pendingCacheWrites.length = 0;
   cacheMatchCount = 0;
+  cachePutCount = 0;
   const cache = {
     match: vi.fn(async (input: RequestInfo | URL) => {
       cacheMatchCount += 1;
       return cacheEntries.get(cacheKey(input))?.clone();
     }),
     put: vi.fn(async (input: RequestInfo | URL, response: Response) => {
+      cachePutCount += 1;
       cacheEntries.set(cacheKey(input), response.clone());
     }),
   };
@@ -69,11 +90,13 @@ beforeEach(() => {
 afterEach(() => {
   vi.restoreAllMocks();
   vi.unstubAllGlobals();
+  vi.useRealTimers();
 });
 
 /**
  * Mock fetch: the shard origin (origin-{loc}.…) returns `originStatus`; a
- * /job-canon/<sk>.json request returns `map` (or 404 when map is null). The map
+ * /job-canon/releases/<build-id>/<sk>.json request returns `map` (or 404 when
+ * map is null). The map
  * value is the real per-locale object the plugin emits ({ it, en, de, fr }).
  */
 function mockFetch(
@@ -82,6 +105,7 @@ function mockFetch(
 ): void {
   vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
     const u = typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
+    if (new URL(u).pathname === '/cdn-build-id.txt') return new Response('1001');
     if (u.includes('/job-canon/')) {
       return map
         ? new Response(JSON.stringify(map), { status: 200, headers: { 'Content-Type': 'application/json' } })
@@ -96,6 +120,8 @@ function mockVersionedFetch(options: {
   v2Map?: Record<string, Record<string, string>> | null;
   v1Status?: number;
   v1Map?: Record<string, Record<string, string>> | null;
+  marker?: string;
+  markerStatus?: number;
   originStatus?: number;
 } = {}): string[] {
   const {
@@ -103,14 +129,17 @@ function mockVersionedFetch(options: {
     v2Map = null,
     v1Status = 404,
     v1Map = null,
+    marker = '1001',
+    markerStatus = 200,
     originStatus = 404,
   } = options;
   const canonRequests: string[] = [];
   vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
     const u = fetchUrl(input);
+    if (new URL(u).pathname === '/cdn-build-id.txt') return new Response(marker, { status: markerStatus });
     if (u.includes('/job-canon/')) {
       canonRequests.push(u);
-      const isV2 = u.includes('/job-canon/v2/');
+      const isV2 = new URL(u).pathname.includes('/v2/');
       const status = isV2 ? v2Status : v1Status;
       const map = isV2 ? v2Map : v1Map;
       return new Response(map === null ? 'not found' : JSON.stringify(map), {
@@ -136,7 +165,7 @@ describe('locale-router canton-drift 301', () => {
     expect(res.headers.get('Location')).toBe(`/en/find-jobs-zurich/${slug}/`);
     expect(res.headers.get('x-frontaliere-canon-cache')).toBe('miss');
     expect(canonRequests).toHaveLength(1);
-    expect(canonRequests[0]).toContain(`/job-canon/v2/${jobCanonV2ShardKey(slug)}.json`);
+    expect(canonRequests[0]).toContain(`/job-canon/releases/1001/v2/${jobCanonV2ShardKey(slug)}.json`);
   });
 
   it('does not fall back to v1 when a successful v2 shard lacks the slug', async () => {
@@ -152,7 +181,7 @@ describe('locale-router canton-drift 301', () => {
 
     expect(res.status).toBe(404);
     expect(canonRequests.length).toBeGreaterThan(0);
-    expect(canonRequests.every((request) => request.includes('/job-canon/v2/'))).toBe(true);
+    expect(canonRequests.every((request) => request.includes('/job-canon/releases/1001/v2/'))).toBe(true);
     expect(log).not.toHaveBeenCalled();
   });
 
@@ -172,8 +201,8 @@ describe('locale-router canton-drift 301', () => {
       expect(res.status).toBe(301);
       expect(res.headers.get('Location')).toBe(`/en/find-jobs-zurich/${slug}/`);
       expect(canonRequests).toHaveLength(2);
-      expect(canonRequests[0]).toContain(`/job-canon/v2/${jobCanonV2ShardKey(slug)}.json`);
-      expect(canonRequests[1]).toContain('/job-canon/so.json');
+      expect(canonRequests[0]).toContain(`/job-canon/releases/1001/v2/${jobCanonV2ShardKey(slug)}.json`);
+      expect(canonRequests[1]).toContain('/job-canon/releases/1001/so.json');
       expect(log).toHaveBeenCalledTimes(1);
       expect(log).toHaveBeenCalledWith(JSON.stringify({ event: 'job_canon_v1_fallback' }));
     },
@@ -192,7 +221,347 @@ describe('locale-router canton-drift 301', () => {
     expect(res.status).toBe(503);
     expect(res.headers.get('x-frontaliere-canon-cache')).toBeNull();
     expect(canonRequests).toHaveLength(1);
-    expect(canonRequests[0]).toContain('/job-canon/v2/');
+    expect(canonRequests[0]).toContain('/job-canon/releases/1001/v2/');
+  });
+
+  it('uses the release pathname as the map identity when the origin ignores query parameters', async () => {
+    const slug = 'release-versioned-job';
+    const mapsByRelease: Record<string, Record<string, unknown>> = {
+      '1001': { [slug]: { alias: { en: '/en/find-jobs-zurich/old-target' } } },
+      '1002': { [slug]: { alias: { en: '/en/find-jobs-zurich/new-target' } } },
+      '1003': { [slug]: { alias: { en: '/en/find-jobs-zurich/old-target' } } },
+    };
+    const edgeMapCache = new Map<string, Record<string, unknown>>();
+    const mapRequests: string[] = [];
+    let marker = '1001';
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const url = new URL(fetchUrl(input));
+      if (url.pathname === '/cdn-build-id.txt') return new Response(marker);
+      if (url.pathname.includes('/job-canon/')) {
+        mapRequests.push(url.toString());
+        const releaseId = url.pathname.match(/^\/job-canon\/releases\/([0-9]{1,20})\//)?.[1];
+        const cached = edgeMapCache.get(url.pathname);
+        if (cached) return Response.json(cached);
+        // Deliberately select origin bytes only from the immutable pathname.
+        const releaseMap = releaseId ? mapsByRelease[releaseId] : undefined;
+        if (!releaseMap) return new Response('missing release', { status: 404 });
+        edgeMapCache.set(url.pathname, releaseMap);
+        return Response.json(releaseMap);
+      }
+      if (url.hostname.startsWith('origin-')) {
+        return url.pathname.includes('/old-target/') || url.pathname.includes('/new-target/')
+          ? new Response('target live', { status: 200 })
+          : new Response('origin missing', { status: 404 });
+      }
+      return new Response('origin missing', { status: 404 });
+    });
+
+    for (const [release, target] of [
+      ['1001', '/en/find-jobs-zurich/old-target'],
+      ['1002', '/en/find-jobs-zurich/new-target'],
+      ['1003', '/en/find-jobs-zurich/old-target'],
+    ]) {
+      marker = release;
+      const response = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/${slug}/`), {}, ctx);
+      expect(response.status).toBe(301);
+      expect(response.headers.get('Location')).toBe(`${target}/`);
+      await flushCacheWrites();
+    }
+
+    expect(mapRequests).toHaveLength(3);
+    expect(mapRequests.map((request) => new URL(request).pathname.match(/\/releases\/([0-9]{1,20})\//)?.[1]))
+      .toEqual(['1001', '1002', '1003']);
+    expect(mapRequests.every((request) => new URL(request).search === '')).toBe(true);
+    expect(new Set(mapRequests).size).toBe(3);
+    expect([...cacheEntries.keys()].map((key) => new URL(key).searchParams.get('build_id')))
+      .toEqual(['1001', '1002', '1003']);
+  });
+
+  it.each([
+    { marker: '1001', status: 404, reason: 'http-status', loggedStatus: 404 },
+    { marker: 'error', status: 500, reason: 'http-status', loggedStatus: 500 },
+    { marker: '', status: 200, reason: 'empty' },
+    { marker: 'not-a-build-id', status: 200, reason: 'invalid' },
+    { marker: '1'.repeat(21), status: 200, reason: 'invalid' },
+  ])('returns localized no-store 404 and ignores stale alias cache when marker is unavailable (%#)', async ({ marker, status, reason, loggedStatus }) => {
+    const slug = 'some-job-xyz';
+    const source = `${APEX}/en/jobs-in-zurich/${slug}/`;
+    const log = vi.spyOn(console, 'error').mockImplementation(() => {});
+    seedJobAliasCache(source, { kind: 'redirect', target: `/en/find-jobs-stale/${slug}/` }, 86400);
+    const mapRequests: string[] = [];
+    const markerOptions: RequestInit[] = [];
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = new URL(fetchUrl(input));
+      if (url.pathname === '/cdn-build-id.txt') {
+        markerOptions.push(init ?? {});
+        return new Response(marker, { status });
+      }
+      if (url.pathname.includes('/job-canon/')) {
+        mapRequests.push(url.toString());
+        return Response.json({ [slug]: { en: '/en/find-jobs-stale' } });
+      }
+      return new Response('origin missing', { status: 404 });
+    });
+
+    const response = await worker.fetch(new Request(source), {}, ctx);
+
+    expect(response.status).toBe(404);
+    expect(response.headers.get('Location')).toBeNull();
+    expect(response.headers.get('Cache-Control')).toBe('no-store');
+    expect(response.headers.get('Retry-After')).toBeNull();
+    expect(response.headers.get('Content-Language')).toBe('en');
+    expect(await response.text()).toContain('<html lang="en">');
+    expect(response.headers.get('x-frontaliere-job-canon-marker-unavailable')).toBeNull();
+    expect(response.headers.get('x-frontaliere-canon-cache')).toBeNull();
+    expect(cacheMatchCount).toBe(0);
+    expect(cachePutCount).toBe(0);
+    expect(mapRequests).toEqual([]);
+    expect(log).toHaveBeenCalledWith(JSON.stringify({
+      event: 'job_canon_marker_unavailable',
+      reason,
+      ...(loggedStatus === undefined ? {} : { status: loggedStatus }),
+    }));
+    expect(JSON.stringify(log.mock.calls)).not.toContain(slug);
+    expect(markerOptions).toHaveLength(1);
+    expect(markerOptions[0]).toMatchObject({
+      cf: { cacheEverything: false, cacheTtl: 0 },
+      headers: { 'Cache-Control': 'no-cache', Pragma: 'no-cache' },
+    });
+    expect(markerOptions[0]).not.toHaveProperty('cache');
+    expect(markerOptions[0]?.signal).toBeInstanceOf(AbortSignal);
+  });
+
+  it('returns a localized no-store 404 on marker network failure without alias cache access', async () => {
+    const slug = 'network-unavailable-job';
+    const source = `${APEX}/fr/trouver-emploi-zurich/${slug}/`;
+    const log = vi.spyOn(console, 'error').mockImplementation(() => {});
+    seedJobAliasCache(source, { kind: 'redirect', target: `/fr/trouver-emploi-jura/${slug}/` }, 86400);
+    const mapRequests: string[] = [];
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const url = new URL(fetchUrl(input));
+      if (url.pathname === '/cdn-build-id.txt') throw new TypeError('private network detail');
+      if (url.pathname.includes('/job-canon/')) mapRequests.push(url.toString());
+      return new Response('origin missing', { status: 404 });
+    });
+
+    const response = await worker.fetch(new Request(source), {}, ctx);
+
+    expect(response.status).toBe(404);
+    expect(response.headers.get('Cache-Control')).toBe('no-store');
+    expect(response.headers.get('Retry-After')).toBeNull();
+    expect(response.headers.get('Content-Language')).toBe('fr');
+    expect(await response.text()).toContain('<html lang="fr">');
+    expect(cacheMatchCount).toBe(0);
+    expect(cachePutCount).toBe(0);
+    expect(mapRequests).toEqual([]);
+    expect(log).toHaveBeenCalledWith(JSON.stringify({
+      event: 'job_canon_marker_unavailable',
+      reason: 'network',
+    }));
+    expect(JSON.stringify(log.mock.calls)).not.toContain(slug);
+  });
+
+  it('uses the Italian localized 404 on marker failure for an Italian job URL', async () => {
+    const slug = 'marker-temporarily-unavailable';
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const url = new URL(fetchUrl(input));
+      if (url.pathname === '/cdn-build-id.txt') return new Response('unavailable', { status: 500 });
+      return new Response('origin missing', { status: 404 });
+    });
+
+    const response = await worker.fetch(
+      new Request(`${APEX}/cerca-lavoro-zurigo/${slug}/`),
+      {},
+      ctx,
+    );
+
+    expect(response.status).toBe(404);
+    expect(response.headers.get('Content-Language')).toBe('it');
+    expect(await response.text()).toContain('<html lang="it">');
+    expect(response.headers.get('Retry-After')).toBeNull();
+    expect(response.headers.get('Cache-Control')).toBe('no-store');
+  });
+
+  it('returns a localized no-store 404 after the marker request times out', async () => {
+    vi.useFakeTimers();
+    const slug = 'timed-out-marker-job';
+    const source = `${APEX}/de/jobs-in-zurich/${slug}/`;
+    const log = vi.spyOn(console, 'error').mockImplementation(() => {});
+    let markStarted!: () => void;
+    const markerStarted = new Promise<void>((resolve) => { markStarted = resolve; });
+    const mapRequests: string[] = [];
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL, init?: RequestInit) => {
+      const url = new URL(fetchUrl(input));
+      if (url.pathname === '/cdn-build-id.txt') {
+        markStarted();
+        return new Promise<Response>((_resolve, reject) => {
+          init?.signal?.addEventListener('abort', () => reject(new DOMException('Aborted', 'AbortError')), { once: true });
+        });
+      }
+      if (url.pathname.includes('/job-canon/')) mapRequests.push(url.toString());
+      return new Response('origin missing', { status: 404 });
+    });
+
+    const pending = worker.fetch(new Request(source), {}, ctx);
+    await markerStarted;
+    await vi.advanceTimersByTimeAsync(2000);
+    const response = await pending;
+
+    expect(response.status).toBe(404);
+    expect(response.headers.get('Cache-Control')).toBe('no-store');
+    expect(response.headers.get('Retry-After')).toBeNull();
+    expect(response.headers.get('Content-Language')).toBe('de');
+    expect(await response.text()).toContain('<html lang="de">');
+    expect(cacheMatchCount).toBe(0);
+    expect(cachePutCount).toBe(0);
+    expect(mapRequests).toEqual([]);
+    expect(log).toHaveBeenCalledWith(JSON.stringify({
+      event: 'job_canon_marker_unavailable',
+      reason: 'timeout',
+    }));
+    expect(JSON.stringify(log.mock.calls)).not.toContain(slug);
+  });
+
+  it('recovers on the next request when an unavailable marker becomes valid', async () => {
+    const slug = 'marker-recovery-job';
+    const source = `${APEX}/en/jobs-in-zurich/${slug}/`;
+    let markerStatus = 500;
+    let marker = 'unavailable';
+    const mapRequests: string[] = [];
+    const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const url = new URL(fetchUrl(input));
+      if (url.pathname === '/cdn-build-id.txt') return new Response(marker, { status: markerStatus });
+      if (url.pathname.includes('/job-canon/')) {
+        mapRequests.push(url.toString());
+        return Response.json({ [slug]: { en: '/en/find-jobs-bern' } });
+      }
+      if (url.hostname.startsWith('origin-') && url.pathname.includes('/find-jobs-bern/')) {
+        return new Response('live target', { status: 200 });
+      }
+      return new Response('origin missing', { status: 404 });
+    });
+    const log = vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    const unavailable = await worker.fetch(new Request(source), {}, ctx);
+    expect(unavailable.status).toBe(404);
+    expect(cacheMatchCount).toBe(0);
+    expect(cachePutCount).toBe(0);
+    expect(mapRequests).toEqual([]);
+
+    markerStatus = 200;
+    marker = '1002';
+    const recovered = await worker.fetch(new Request(source), {}, ctx);
+
+    expect(recovered.status).toBe(301);
+    expect(recovered.headers.get('Location')).toBe(`/en/find-jobs-bern/${slug}/`);
+    expect(mapRequests).toHaveLength(1);
+    expect(new URL(mapRequests[0]).pathname).toContain('/job-canon/releases/1002/');
+    expect(cacheMatchCount).toBe(1);
+    expect(log).toHaveBeenCalledWith(JSON.stringify({
+      event: 'job_canon_marker_unavailable',
+      reason: 'http-status',
+      status: 500,
+    }));
+    expect(fetchMock).toHaveBeenCalled();
+  });
+
+  it('does not classify an ambiguous company-looking job URL while the marker is unavailable', async () => {
+    const source = `${APEX}/fr/trouver-emploi-tessin/azienda-denner-sa/`;
+    const log = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const mapRequests: string[] = [];
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const url = new URL(fetchUrl(input));
+      if (url.pathname === '/cdn-build-id.txt') return new Response('unavailable', { status: 500 });
+      if (url.pathname.includes('/job-canon/')) mapRequests.push(url.toString());
+      return new Response('origin missing', { status: 404 });
+    });
+
+    const response = await worker.fetch(new Request(source), {}, ctx);
+
+    expect(response.status).toBe(404);
+    expect(response.headers.get('Location')).toBeNull();
+    expect(response.headers.get('Cache-Control')).toBe('no-store');
+    expect(response.headers.get('Retry-After')).toBeNull();
+    expect(response.headers.get('Content-Language')).toBe('fr');
+    expect(mapRequests).toEqual([]);
+    expect(cacheMatchCount).toBe(0);
+    expect(cachePutCount).toBe(0);
+    expect(log).toHaveBeenCalledWith(JSON.stringify({
+      event: 'job_canon_marker_unavailable',
+      reason: 'http-status',
+      status: 500,
+    }));
+    expect(JSON.stringify(log.mock.calls)).not.toContain('azienda-denner-sa');
+  });
+
+  it.each(['GET', 'HEAD'])('keeps unknown, expired, company- and search-shaped URLs on localized no-store 404s (%s)', async (method) => {
+    const cases = [
+      { locale: 'en', path: '/en/jobs-in-zurich/typo-never-seen/', slug: 'typo-never-seen' },
+      { locale: 'de', path: '/de/jobs-in-zurich/expired-old-job/', slug: 'expired-old-job' },
+      { locale: 'fr', path: '/fr/trouver-emploi-tessin/company-real-job/', slug: 'company-real-job' },
+      { locale: 'en', path: '/en/jobs-in-zurich/search-real-role/', slug: 'search-real-role' },
+    ];
+    const log = vi.spyOn(console, 'error').mockImplementation(() => {});
+    const mapRequests: string[] = [];
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const url = new URL(fetchUrl(input));
+      if (url.pathname === '/cdn-build-id.txt') return new Response('temporarily unavailable', { status: 500 });
+      if (url.pathname.includes('/job-canon/')) mapRequests.push(url.toString());
+      return new Response('origin missing', { status: 404 });
+    });
+
+    for (const { locale, path, slug } of cases) {
+      const response = await worker.fetch(new Request(`${APEX}${path}`, { method }), {}, ctx);
+      expect(response.status, path).toBe(404);
+      expect(response.headers.get('Content-Language'), path).toBe(locale);
+      expect(response.headers.get('Cache-Control'), path).toBe('no-store');
+      expect(response.headers.get('Location'), path).toBeNull();
+      expect(response.headers.get('Retry-After'), path).toBeNull();
+      expect(response.headers.get('x-frontaliere-canon-cache'), path).toBeNull();
+      expect(response.headers.get('x-frontaliere-job-canon-marker-unavailable'), path).toBeNull();
+      const body = await response.text();
+      if (method === 'GET') expect(body, path).toContain(`<html lang="${locale}">`);
+      else expect(body, path).toBe('');
+      expect(JSON.stringify(log.mock.calls), path).not.toContain(slug);
+    }
+
+    expect(mapRequests).toEqual([]);
+    expect(cacheMatchCount).toBe(0);
+    expect(cachePutCount).toBe(0);
+    expect(log).toHaveBeenCalledTimes(cases.length);
+  });
+
+  it('builds the same versioned v2 then v1 shard URLs as public/404.html', async () => {
+    const slug = 'legacy-en-v1';
+    const workerRequests = mockVersionedFetch({
+      v2Status: 404,
+      v1Status: 200,
+      v1Map: { [slug]: { en: '/en/find-jobs-zurich' } },
+    });
+    const workerResponse = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/${slug}/`), {}, ctx);
+    expect(workerResponse.status).toBe(301);
+
+    const browserRequests: string[] = [];
+    const browserFetchJobCanonMap = loadBrowserJobCanonMapFetcher();
+    await expect(browserFetchJobCanonMap(slug, (async (input: string | URL | Request) => {
+      const url = fetchUrl(input);
+      if (new URL(url).pathname === '/cdn-build-id.txt') return new Response('1001');
+      browserRequests.push(url);
+      return browserRequests.length === 1
+        ? new Response('v2 missing', { status: 404 })
+        : Response.json({ [slug]: { en: '/en/find-jobs-zurich' } });
+    }) as typeof fetch)).resolves.toEqual({ kind: 'map', value: { [slug]: { en: '/en/find-jobs-zurich' } } });
+
+    expect(browserRequests.map((request) => {
+      const url = new URL(request);
+      return url.pathname;
+    })).toEqual(workerRequests.map((request) => {
+      const url = new URL(request);
+      return url.pathname;
+    }));
+    expect(browserRequests.map((request) => new URL(request).pathname.match(/\/releases\/([0-9]{1,20})\//)?.[1]))
+      .toEqual(['1001', '1001']);
   });
 
   it('301s a known orphan slug to its current canonical page', async () => {
@@ -203,6 +572,52 @@ describe('locale-router canton-drift 301', () => {
     expect(res.status).toBe(301);
     expect(res.headers.get('Location')).toBe('/en/find-jobs-zurich/some-job-xyz/');
     expect(res.headers.get('x-frontaliere-canon-cache')).toBe('miss');
+  });
+
+  it.each([
+    { locale: 'it', prefix: '', legacy: '/cerca-lavoro-ticino', native: '/cerca-lavoro-zurigo' },
+    { locale: 'en', prefix: '/en', legacy: '/en/find-jobs-ticino', native: '/en/find-jobs-zurich' },
+    { locale: 'de', prefix: '/de', legacy: '/de/jobs-im-tessin', native: '/de/jobs-in-zurich' },
+    { locale: 'fr', prefix: '/fr', legacy: '/fr/trouver-emploi-tessin', native: '/fr/trouver-emploi-zurich' },
+  ] as const)('redirects previous, legacy-TI mirror, and cross-locale aliases in $locale without a chain', async ({ locale, legacy, native }) => {
+    const oldSlug = `previous-route-${locale}`;
+    const foreignSlug = `foreign-route-${locale}`;
+    const currentSlug = `current-route-${locale}`;
+    const canonical = `${native}/${currentSlug}/`;
+    const map = {
+      [oldSlug]: { alias: { [locale]: canonical.replace(/\/$/, '') } },
+      [foreignSlug]: { alias: { [locale]: canonical.replace(/\/$/, '') } },
+    };
+    const sourcePaths = [
+      `${native}/${oldSlug}/`,
+      `${legacy}/${oldSlug}/`,
+      `${legacy}/${foreignSlug}/`,
+    ];
+    vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
+      const url = new URL(fetchUrl(input));
+      if (url.pathname.includes('/job-canon/')) {
+        return new Response(JSON.stringify(map), {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
+      if (url.pathname === '/cdn-build-id.txt') return new Response('1001');
+      return new Response(url.pathname === canonical ? 'canonical' : 'origin-404', {
+        status: url.pathname === canonical ? 200 : 404,
+      });
+    });
+
+    for (const sourcePath of sourcePaths) {
+      const response = await worker.fetch(new Request(`${APEX}${sourcePath}`), {}, ctx);
+      expect(response.status, sourcePath).toBe(301);
+      expect(response.headers.get('Location'), sourcePath).toBe(canonical);
+      if (locale !== 'it') expect(response.headers.get('Location')).toMatch(new RegExp(`^/${locale}/`));
+
+      const destination = await worker.fetch(new Request(`${APEX}${response.headers.get('Location')}`), {}, ctx);
+      expect(destination.status, sourcePath).toBe(200);
+      expect(destination.headers.get('Location'), sourcePath).toBeNull();
+    }
+    await flushCacheWrites();
   });
 
   it('301s within the request locale, never cross-locale to the IT page', async () => {
@@ -376,6 +791,7 @@ describe('locale-router: registry alias for a localized slug', () => {
   function mockAliasFetch(map: Record<string, unknown>, live: (url: URL) => number) {
     return vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
       const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
+      if (url.pathname === '/cdn-build-id.txt') return new Response('1001');
       if (url.pathname.includes('/job-canon/')) return Response.json(map);
       return new Response('x', { status: live(url) });
     });
@@ -540,6 +956,7 @@ describe('locale-router job alias edge cache', () => {
   function mockAliasRoute(targetStatus: () => number = () => 200) {
     return vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
       const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
+      if (url.pathname === '/cdn-build-id.txt') return new Response('1001');
       if (url.pathname.includes('/job-canon/')) {
         return Response.json({ [itSlug]: { it: '/cerca-lavoro-turgovia', alias: { fr: frTarget } } });
       }
@@ -573,6 +990,7 @@ describe('locale-router job alias edge cache', () => {
     expect(await stored.clone().json()).toEqual({ kind: 'redirect', target: `${frTarget}/` });
     const [storedKey] = [...cacheEntries.keys()];
     expect(new URL(storedKey ?? APEX).pathname).toBe(`/__worker-cache/job-alias/fr/fr/trouver-emploi-tessin/${itSlug}/`);
+    expect(new URL(storedKey ?? APEX).searchParams.get('build_id')).toBe('1001');
 
     fetchMock.mockClear();
     const matchesBeforeSecond = cacheMatchCount;
@@ -663,6 +1081,7 @@ describe('locale-router job alias edge cache', () => {
   it('caches a canonical-null 404 for 10 minutes', async () => {
     const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
       const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
+      if (url.pathname === '/cdn-build-id.txt') return new Response('1001');
       if (url.pathname.includes('/job-canon/')) return Response.json({});
       return new Response('missing', { status: 404 });
     });
@@ -670,6 +1089,7 @@ describe('locale-router job alias edge cache', () => {
     const first = await worker.fetch(new Request(source), {}, ctx);
     expect(first.status).toBe(404);
     expect(first.headers.get('x-frontaliere-canon-cache')).toBeNull();
+    expect(first.headers.get('Cache-Control')).toBe('public, max-age=300, s-maxage=7200');
     await flushCacheWrites();
     const [stored] = [...cacheEntries.values()];
     expect(stored).toBeDefined();

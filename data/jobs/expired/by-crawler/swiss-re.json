@@ -2140,17 +2140,15 @@
     },
     "slugByLocale": {
       "it": "investment-analista-graduate-swiss-re-london-gb",
-      "en": "investment-analyst-graduate-swiss-re-ch",
+      "en": "investment-analyst-graduate-swiss-re-ch-c4eeb384",
       "de": "investment-ansager-absolventen-swiss-re-london-gb",
       "fr": "investment-analyste-graduate-swiss-re-london-gb"
     },
     "sector": "Assicurazioni",
     "expiredAt": "2026-09-27T14:56:09.961Z",
-    "previousSlugs": [
-      "investment-analyst-graduate-swiss-re-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "investment-analyst-graduate-swiss-re-ch-c4eeb384",
         "investment-analyst-graduate-swiss-re-ch"
       ],
       "de": [
@@ -2165,7 +2163,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://www.swissre.com/careers/job/investment-analyst-graduate/1437787033",
-    "firstSeenAt": "2026-09-19T22:53:09.849Z"
+    "firstSeenAt": "2026-09-19T22:53:09.849Z",
+    "previousSlugs": [
+      "investment-analyst-graduate-swiss-re-ch"
+    ]
   },
   {
     "slug": "junior-technical-accountant-con-lingua-tedesca-ruolo-temporaneo-swiss-re-bratislava-sk",

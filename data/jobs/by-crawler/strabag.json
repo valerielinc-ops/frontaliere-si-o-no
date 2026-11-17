@@ -1,7 +1,7 @@
 {
   "crawlerKey": "strabag",
-  "assembledAt": "2026-11-16T21:28:20.309Z",
-  "runId": "43959395209",
+  "assembledAt": "2026-11-17T09:46:06.836Z",
+  "runId": "44054937007",
   "jobs": [
     {
       "id": "strabag-be6c4df9cb17",
@@ -35,7 +35,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/9294703d-0e8e-446c-a4f3-599c847be9cc/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:28:09.608Z",
+      "crawledAt": "2026-11-17T09:45:27.029Z",
       "addressLocality": "Disentis oder Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -86,7 +86,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:28:09.608Z",
+      "validThrough": "2027-02-03T09:45:27.029Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -121,7 +121,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/221cf7e6-dd11-4f45-8f2c-17c8a2394925/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:28:08.943Z",
+      "crawledAt": "2026-11-17T09:45:26.139Z",
       "addressLocality": "Disentis oder Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -172,7 +172,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:28:08.943Z",
+      "validThrough": "2027-02-03T09:45:26.139Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -207,7 +207,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/8d070c96-5cc4-4fbb-8a72-55857355859a/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:28:08.181Z",
+      "crawledAt": "2026-11-17T09:45:25.223Z",
       "addressLocality": "Rothenburg",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -250,7 +250,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:28:08.181Z",
+      "validThrough": "2027-02-04T09:45:25.223Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -285,7 +285,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/19809f6c-74b3-429f-b152-712f5c67bdf1/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:28:07.440Z",
+      "crawledAt": "2026-11-17T09:45:23.909Z",
       "addressLocality": "Thusis",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -334,7 +334,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T21:28:07.440Z",
+      "validThrough": "2027-02-04T09:45:23.909Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -369,7 +369,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/97134f90-53ca-4c05-ab1e-0d73680d4164/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:28:06.560Z",
+      "crawledAt": "2026-11-17T09:45:22.852Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -426,7 +426,7 @@
         "checkedAt": "2026-11-09T15:43:34.452Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-07T21:28:06.560Z",
+      "validThrough": "2027-02-07T09:45:22.852Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -461,7 +461,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/6db58daf-a718-44e1-a504-49529a27bf65/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:28:05.795Z",
+      "crawledAt": "2026-11-17T09:45:21.230Z",
       "addressLocality": "Lindau (bei Effretikon)",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -510,7 +510,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:28:05.795Z",
+      "validThrough": "2027-02-10T09:45:21.230Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -545,7 +545,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/8ec5502f-2df6-4102-9452-e31e337521d7/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:28:04.933Z",
+      "crawledAt": "2026-11-17T09:45:19.433Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -596,7 +596,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:28:04.933Z",
+      "validThrough": "2027-02-10T09:45:19.433Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -631,7 +631,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/bfa39525-ec66-431a-a93d-a73d27c836c2/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:28:04.196Z",
+      "crawledAt": "2026-11-17T09:45:18.454Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -694,7 +694,7 @@
         "checkedAt": "2026-11-09T15:43:34.452Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-10T21:28:04.196Z",
+      "validThrough": "2027-02-10T09:45:18.454Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -729,7 +729,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/febecfc5-942c-4837-924b-31da91dc4932/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:28:03.490Z",
+      "crawledAt": "2026-11-17T09:45:15.603Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -780,7 +780,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T21:28:03.490Z",
+      "validThrough": "2027-02-10T09:45:15.603Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -814,7 +814,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/98f471f6-9235-41f9-8c22-6c0491d079f6/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:28:02.753Z",
+      "crawledAt": "2026-11-17T09:45:14.848Z",
       "addressLocality": "Subingen / Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -863,7 +863,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:28:02.753Z",
+      "validThrough": "2027-02-11T09:45:14.848Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -898,7 +898,7 @@
       "url": "https://www.jobs.ch/de/stellenangebote/detail/b2f51c80-c36f-4074-85bc-b12ed91ddbaf/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:28:01.912Z",
+      "crawledAt": "2026-11-17T09:45:13.964Z",
       "addressLocality": "Subingen / Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -947,16 +947,16 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:28:01.912Z",
+      "validThrough": "2027-02-11T09:45:13.964Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "strabag-3b437237d25e",
       "slug": "meccanico-a-di-macchine-edili-efz-strabag-ag-lindau",
       "slugByLocale": {
-        "de": "baumaschinenmechaniker-in-efz-strabag-lindau",
         "it": "meccanico-a-di-macchine-edili-efz-strabag-ag-lindau",
         "en": "baumaschinenmechaniker-in-efz-strabag-lindau",
+        "de": "baumaschinenmechaniker-in-efz-strabag-lindau",
         "fr": "baumaschinenmechaniker-in-efz-strabag-lindau"
       },
       "company": "STRABAG AG",
@@ -964,24 +964,24 @@
       "companyDomain": "strabag.ch",
       "title": "Baumaschinenmechaniker:in EFZ",
       "titleByLocale": {
-        "de": "Baumaschinenmechaniker:in EFZ",
         "it": "Meccanico/a di macchine edili EFZ",
         "en": "Construction Machinery Mechanic EFZ",
+        "de": "Baumaschinenmechaniker:in EFZ",
         "fr": "Mécanicien·ne de machines de chantier CFC"
       },
       "description": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter: Innovation, Digitalisierung und Nachhaltigkeit sind zentrale Punkte auf unserem Weg zum Bauen von Morgen. STRABAG verfolgt dabei eine klare Nachhaltigkeitsstrategie . Dabei sind Chancengleichheit, Vielfalt und Inklusion genauso integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\n Gemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nBaumaschinenmechaniker:in EFZ\n Dein Beitrag bei uns\n\n• Revisionen, Reparaturen sowie Service- und Unterhaltsarbeiten an Baumaschinen und Fahrzeugen\n\n• Reparatureinsätze auf Baustellen mit einem gut ausgerüstetem Servicefahrzeug\n\n• Instandsetzung von diversen Kleingeräten\n\n• Allgemeine Mechanik- und Schweissarbeiten\n Was für uns zählt\n\n• Abgeschlossene Berufslehre EFZ als Baumaschinen- / Landmaschinen- oder Lastwagen-Mechaniker:in - Lehrabgänger sind willkommen!\n\n• Berufserfahrung in der Baumaschinen-/Landmaschinenbranche ist zwingend erforderlich\n\n• Gute Kenntnisse in Hydraulik, Pneumatik, Fahrzeugbau und Fahrzeugelektrik sowie Schweissen\n\n• Führerschein Klasse B\n\n• Selbstständige, exakte und zuverlässige Arbeitsweise\n\nUnser Mehrwert für dich\n Du bekommst die Möglichkeit, dich innerhalb des Teams sowohl persönlich als auch fachlich weiterzuentwickeln. Zu den Rahmenbedingungen zählen unter anderem praxisorientierte Weiterbildungsmöglichkeiten sowie attraktive Rabatte für Mitarbeitende. Hast du Freude an Baumaschinen und Geräten, arbeitest exakt, zuverlässig und qualitätsbewusst und bist offen für moderne Technik und spannende Aufgaben in unserem Maschinenpark? Dann sende uns bitte deine vollständigen und aussagekräftigen Bewerbungsunterlagen mit Angabe deines frühestmöglichen Eintrittstermins und Gehaltsvorstellungen über das Onlineformular.\n:::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• kostenlose Getränke\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Mitarbeiterevents\n\nKontakt\n Patrick Cona\n\n+41 76 811 26 26\n Jetzt bewerben",
       "descriptionByLocale": {
-        "de": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter: Innovation, Digitalisierung und Nachhaltigkeit sind zentrale Punkte auf unserem Weg zum Bauen von Morgen. STRABAG verfolgt dabei eine klare Nachhaltigkeitsstrategie . Dabei sind Chancengleichheit, Vielfalt und Inklusion genauso integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\n Gemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nBaumaschinenmechaniker:in EFZ\n Dein Beitrag bei uns\n\n• Revisionen, Reparaturen sowie Service- und Unterhaltsarbeiten an Baumaschinen und Fahrzeugen\n\n• Reparatureinsätze auf Baustellen mit einem gut ausgerüstetem Servicefahrzeug\n\n• Instandsetzung von diversen Kleingeräten\n\n• Allgemeine Mechanik- und Schweissarbeiten\n Was für uns zählt\n\n• Abgeschlossene Berufslehre EFZ als Baumaschinen- / Landmaschinen- oder Lastwagen-Mechaniker:in - Lehrabgänger sind willkommen!\n\n• Berufserfahrung in der Baumaschinen-/Landmaschinenbranche ist zwingend erforderlich\n\n• Gute Kenntnisse in Hydraulik, Pneumatik, Fahrzeugbau und Fahrzeugelektrik sowie Schweissen\n\n• Führerschein Klasse B\n\n• Selbstständige, exakte und zuverlässige Arbeitsweise\n\nUnser Mehrwert für dich\n Du bekommst die Möglichkeit, dich innerhalb des Teams sowohl persönlich als auch fachlich weiterzuentwickeln. Zu den Rahmenbedingungen zählen unter anderem praxisorientierte Weiterbildungsmöglichkeiten sowie attraktive Rabatte für Mitarbeitende. Hast du Freude an Baumaschinen und Geräten, arbeitest exakt, zuverlässig und qualitätsbewusst und bist offen für moderne Technik und spannende Aufgaben in unserem Maschinenpark? Dann sende uns bitte deine vollständigen und aussagekräftigen Bewerbungsunterlagen mit Angabe deines frühestmöglichen Eintrittstermins und Gehaltsvorstellungen über das Onlineformular.\n:::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• kostenlose Getränke\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Mitarbeiterevents\n\nKontakt\n Patrick Cona\n\n+41 76 811 26 26\n Jetzt bewerben",
-        "it": "A STRABAG, circa 89.000 persone stanno facendo progressi in oltre 2.400 sedi in tutto il mondo. L'unicità e i punti di forza individuali caratterizzano non solo i nostri progetti, ma anche ognuno di noi. Sia nella costruzione che nell'ingegneria, nell'ingegneria stradale e civile, nella costruzione di ponti e gallerie, nella produzione di materiali da costruzione, nello sviluppo di progetti o nella gestione degli edifici, continuiamo a pensare alla costruzione: innovazione, digitalizzazione e sostenibilità sono punti centrali per la costruzione di domani. STRABAG sta perseguendo una chiara strategia di sostenibilità. Le pari opportunità, la diversità e l'inclusione sono parte integrante di ciò che ci rende un'azienda e come lavoriamo.\n Insieme implementiamo i progetti con successo e in partnership e cresciamo in nuovi compiti. Insieme creiamo grandi cose. Facciamo progressi!\n\nMeccanico di macchine da costruzione: in EFZ\n Il tuo contributo con noi\n\n• Servizi di riparazione e manutenzione di macchine edili e veicoli\n\n• Operazioni di riparazione su cantieri con un veicolo di servizio ben attrezzato\n\n• Riparazione di varie piccole attrezzature\n\n• Lavori meccanici e di saldatura generali\n Cosa ci importa\n\n• Completo di apprendistato professionale EFZ come macchine edili/macchine agricole o meccanico di camion:in - gli apprendisti sono benvenuti!\n\n• L'esperienza professionale nell'industria delle macchine da costruzione/macchine agricole è obbligatoria\n\n• Buona conoscenza dell'idraulica, della pneumatica, della costruzione del veicolo e dell'elettricità del veicolo e della saldatura\n\n• Titolo di guida della categoria B\n\n• Metodo di lavoro indipendente, preciso e affidabile\n\nIl nostro valore aggiunto per te\n Si ottiene l'opportunità di sviluppare all'interno del team sia personalmente che professionalmente. Le condizioni quadro includono opportunità pratiche di formazione e interessanti sconti per i dipendenti. Vi piacciono i macchinari e le attrezzature per la costruzione, lavorate con precisione, in modo affidabile e di qualità e siete aperti alla tecnologia moderna e alle attività emozionanti nel nostro parco macchine? Allora vi preghiamo di inviarci i vostri documenti di applicazione completi e significativi con la vostra prima data di entrata possibile e le aspettative di stipendio tramite il modulo online.\n:::\n\n• Diverse opportunità di formazione\n\n• Parcheggio\n\n• bevande gratuite\n\n• Retribuzione competitiva\n\n• Sconti dei dipendenti\n\n• Eventi del personale\n\nInformazioni di contatto\n Patrick Cona\n\n+41 76 811 26 26\n Applicare ora",
-        "en": "At STRABAG, around 89,000 people are making progress at more than 2,400 locations worldwide. Uniqueness and individual strengths characterize not only our projects, but also each and every one of us. Whether in construction and engineering, road and civil engineering, bridge and tunnel construction, in building materials production, project development or building management - we continue to think about construction: innovation, digitalization and sustainability are central points on our way to building tomorrow. STRABAG is pursuing a clear sustainability strategy. Equal opportunities, diversity and inclusion are just as integral parts of what makes us a company and how we work.\n Together we implement projects successfully and in partnership and grow in new tasks. Together we create great things. Let's make progress!\n\nConstruction machinery mechanic:in EFZ\n Your contribution with us\n\n• Repair and maintenance services of construction machinery and vehicles\n\n• Repair operations on construction sites with a well-equipped service vehicle\n\n• Repair of various small equipment\n\n• General mechanical and welding work\n What matters to us\n\n• Completed vocational apprenticeship EFZ as construction machinery / agricultural machinery or truck mechanic:in - apprentices are welcome!\n\n• Professional experience in the construction machinery/agricultural machinery industry is mandatory\n\n• Good knowledge of hydraulics, pneumatics, vehicle construction and vehicle electrics as well as welding\n\n• Category B driving licence\n\n• Independent, exact and reliable working method\n\nOur added value for you\n You get the opportunity to develop within the team both personally and professionally. The framework conditions include practical training opportunities and attractive discounts for employees. Do you enjoy construction machinery and equipment, work accurately, reliably and quality-consciously and are open to modern technology and exciting tasks in our machine park? Then please send us your complete and meaningful application documents with your earliest possible entry date and salary expectations via the online form.\n:::\n\n• Diverse training opportunities\n\n• Parking\n\n• Free drinks\n\n• Competitive remuneration\n\n• Employee discounts\n\n• Staff events\n\nContact details\n Patrick Cona\n\n+41 76 811 26 26\n Apply now",
-        "fr": "Au STRABAG, environ 89 000 personnes font des progrès dans plus de 2 400 endroits dans le monde. Unicité et forces individuelles caractérisent non seulement nos projets, mais aussi chacun de nous. Qu'il s'agisse de la construction et de l'ingénierie, de l'ingénierie routière et civile, de la construction de ponts et de tunnels, de la production de matériaux de construction, du développement de projets ou de la gestion de bâtiments, nous continuons de penser à la construction : l'innovation, la numérisation et la durabilité sont des points centraux de notre construction de demain. STRABAG poursuit une stratégie de durabilité claire. L'égalité des chances, la diversité et l'inclusion font également partie intégrante de ce qui fait de nous une entreprise et de notre façon de travailler.\n Ensemble, nous mettons en œuvre des projets avec succès et en partenariat et nous développons dans de nouvelles tâches. Ensemble, nous créons de grandes choses. Faisons des progrès !\n\nMécanicien des machines de construction:dans EFZ\n Votre contribution avec nous\n\n• Services de réparation et d'entretien de machines et de véhicules de construction\n\n• Opérations de réparation sur les chantiers de construction avec un véhicule de service bien équipé\n\n• Réparation de divers petits équipements\n\n• Travaux généraux de mécanique et de soudage\n Ce qui nous importe\n\n• Apprentissage professionnel terminé EFZ comme machines de construction / machines agricoles ou mécanicien de camion:in - les apprentis sont les bienvenus!\n\n• L'expérience professionnelle dans l'industrie des machines de construction et des machines agricoles est obligatoire\n\n• Bonne connaissance de l'hydraulique, des pneumatiques, de la construction des véhicules et de l'électricité des véhicules ainsi que du soudage\n\n• Permis de conduire de catégorie B\n\n• Méthode de travail indépendante, exacte et fiable\n\nNotre valeur ajoutée pour vous\n Vous avez la possibilité de vous développer au sein de l'équipe, tant personnellement que professionnellement. Les conditions-cadres comprennent des possibilités de formation pratique et des rabais intéressants pour les employés. Vous aimez les machines et les équipements de construction, travaillez avec précision, fiabilité et consciencieusement, et êtes-vous ouvert à la technologie moderne et aux tâches passionnantes dans notre parc de machines? Alors envoyez-nous vos documents de candidature complets et significatifs avec votre date d'entrée et vos attentes salariales le plus tôt possible via le formulaire en ligne.\n:::\n\n• Différentes possibilités de formation\n\n• Stationnement\n\n• Boissons gratuites\n\n• Rémunération concurrentielle\n\n• Remises aux employés\n\n• Manifestations du personnel\n\nCoordonnées\n Patrick Cona\n\n+41 76 811 26 26\n Appliquer maintenant"
+        "it": "A STRABAG, circa 89.000 persone stanno facendo progressi in oltre 2.400 sedi in tutto il mondo. L'unicità e i punti di forza individuali caratterizzano non solo i nostri progetti, ma anche ognuno di noi. Sia nella costruzione che nell'ingegneria, nell'ingegneria stradale e civile, nella costruzione di ponti e gallerie, nella produzione di materiali da costruzione, nello sviluppo di progetti o nella gestione degli edifici, continuiamo a pensare alla costruzione: innovazione, digitalizzazione e sostenibilità sono punti centrali per la costruzione di domani. STRABAG sta perseguendo una chiara strategia di sostenibilità. Le pari opportunità, la diversità e l'inclusione sono parte integrante di ciò che ci rende un'azienda e come lavoriamo.\nInsieme implementiamo i progetti con successo e in partnership e cresciamo in nuovi compiti. Insieme creiamo grandi cose. Facciamo progressi!\n\nMeccanico di macchine da costruzione: in EFZ\nIl tuo contributo con noi\n\n• Servizi di riparazione e manutenzione di macchine edili e veicoli\n\n• Operazioni di riparazione su cantieri con un veicolo di servizio ben attrezzato\n\n• Riparazione di varie piccole attrezzature\n\n• Lavori meccanici e di saldatura generali\nCosa ci importa\n\n• Completo di apprendistato professionale EFZ come macchine edili/macchine agricole o meccanico di camion:in - gli apprendisti sono benvenuti!\n\n• L'esperienza professionale nell'industria delle macchine da costruzione/macchine agricole è obbligatoria\n\n• Buona conoscenza dell'idraulica, della pneumatica, della costruzione del veicolo e dell'elettricità del veicolo e della saldatura\n\n• Titolo di guida della categoria B\n\n• Metodo di lavoro indipendente, preciso e affidabile\n\nIl nostro valore aggiunto per te\nSi ottiene l'opportunità di sviluppare all'interno del team sia personalmente che professionalmente. Le condizioni quadro includono opportunità pratiche di formazione e interessanti sconti per i dipendenti. Vi piacciono i macchinari e le attrezzature per la costruzione, lavorate con precisione, in modo affidabile e di qualità e siete aperti alla tecnologia moderna e alle attività emozionanti nel nostro parco macchine? Allora vi preghiamo di inviarci i vostri documenti di applicazione completi e significativi con la vostra prima data di entrata possibile e le aspettative di stipendio tramite il modulo online.\n:::\n\n• Diverse opportunità di formazione\n\n• Parcheggio\n\n• bevande gratuite\n\n• Retribuzione competitiva\n\n• Sconti dei dipendenti\n\n• Eventi del personale\n\nInformazioni di contatto\nPatrick Cona\n\n+41 76 811 26 26\nApplicare ora",
+        "en": "At STRABAG, around 89,000 people are making progress at more than 2,400 locations worldwide. Uniqueness and individual strengths characterize not only our projects, but also each and every one of us. Whether in construction and engineering, road and civil engineering, bridge and tunnel construction, in building materials production, project development or building management - we continue to think about construction: innovation, digitalization and sustainability are central points on our way to building tomorrow. STRABAG is pursuing a clear sustainability strategy. Equal opportunities, diversity and inclusion are just as integral parts of what makes us a company and how we work.\nTogether we implement projects successfully and in partnership and grow in new tasks. Together we create great things. Let's make progress!\n\nConstruction machinery mechanic:in EFZ\nYour contribution with us\n\n• Repair and maintenance services of construction machinery and vehicles\n\n• Repair operations on construction sites with a well-equipped service vehicle\n\n• Repair of various small equipment\n\n• General mechanical and welding work\nWhat matters to us\n\n• Completed vocational apprenticeship EFZ as construction machinery / agricultural machinery or truck mechanic:in - apprentices are welcome!\n\n• Professional experience in the construction machinery/agricultural machinery industry is mandatory\n\n• Good knowledge of hydraulics, pneumatics, vehicle construction and vehicle electrics as well as welding\n\n• Category B driving licence\n\n• Independent, exact and reliable working method\n\nOur added value for you\nYou get the opportunity to develop within the team both personally and professionally. The framework conditions include practical training opportunities and attractive discounts for employees. Do you enjoy construction machinery and equipment, work accurately, reliably and quality-consciously and are open to modern technology and exciting tasks in our machine park? Then please send us your complete and meaningful application documents with your earliest possible entry date and salary expectations via the online form.\n:::\n\n• Diverse training opportunities\n\n• Parking\n\n• Free drinks\n\n• Competitive remuneration\n\n• Employee discounts\n\n• Staff events\n\nContact details\nPatrick Cona\n\n+41 76 811 26 26\nApply now",
+        "de": "Bei STRABAG bauen rund 89.000 Menschen an mehr als 2.400 Standorten weltweit am Fortschritt. Einzigartigkeit und individuelle Stärken kennzeichnen dabei nicht nur unsere Projekte, sondern auch jede:n Einzelne:n von uns. Ob im Hoch- und Ingenieurbau, Straßen- und Tiefbau, Brücken- und Tunnelbau, in der Baustoffproduktion, Projektentwicklung oder im Gebäudemanagement - wir denken Bauen weiter: Innovation, Digitalisierung und Nachhaltigkeit sind zentrale Punkte auf unserem Weg zum Bauen von Morgen. STRABAG verfolgt dabei eine klare Nachhaltigkeitsstrategie . Dabei sind Chancengleichheit, Vielfalt und Inklusion genauso integrale Bestandteile dessen, was uns als Unternehmen ausmacht und wie wir arbeiten.\nGemeinsam setzen wir Vorhaben erfolgreich und partnerschaftlich um und wachsen an neuen Aufgaben. Gemeinsam erschaffen wir Großes. Let's progress!\n\nBaumaschinenmechaniker:in EFZ\nDein Beitrag bei uns\n\n• Revisionen, Reparaturen sowie Service- und Unterhaltsarbeiten an Baumaschinen und Fahrzeugen\n\n• Reparatureinsätze auf Baustellen mit einem gut ausgerüstetem Servicefahrzeug\n\n• Instandsetzung von diversen Kleingeräten\n\n• Allgemeine Mechanik- und Schweissarbeiten\nWas für uns zählt\n\n• Abgeschlossene Berufslehre EFZ als Baumaschinen- / Landmaschinen- oder Lastwagen-Mechaniker:in - Lehrabgänger sind willkommen!\n\n• Berufserfahrung in der Baumaschinen-/Landmaschinenbranche ist zwingend erforderlich\n\n• Gute Kenntnisse in Hydraulik, Pneumatik, Fahrzeugbau und Fahrzeugelektrik sowie Schweissen\n\n• Führerschein Klasse B\n\n• Selbstständige, exakte und zuverlässige Arbeitsweise\n\nUnser Mehrwert für dich\nDu bekommst die Möglichkeit, dich innerhalb des Teams sowohl persönlich als auch fachlich weiterzuentwickeln. Zu den Rahmenbedingungen zählen unter anderem praxisorientierte Weiterbildungsmöglichkeiten sowie attraktive Rabatte für Mitarbeitende. Hast du Freude an Baumaschinen und Geräten, arbeitest exakt, zuverlässig und qualitätsbewusst und bist offen für moderne Technik und spannende Aufgaben in unserem Maschinenpark? Dann sende uns bitte deine vollständigen und aussagekräftigen Bewerbungsunterlagen mit Angabe deines frühestmöglichen Eintrittstermins und Gehaltsvorstellungen über das Onlineformular.\n:::\n\n• vielfältige Weiterbildungsmöglichkeiten\n\n• Parkplatz\n\n• kostenlose Getränke\n\n• wettbewerbsfähige Vergütung\n\n• Mitarbeiterrabatte\n\n• Mitarbeiterevents\n\nKontakt\nPatrick Cona\n\n+41 76 811 26 26\nJetzt bewerben",
+        "fr": "Au STRABAG, environ 89 000 personnes font des progrès dans plus de 2 400 endroits dans le monde. Unicité et forces individuelles caractérisent non seulement nos projets, mais aussi chacun de nous. Qu'il s'agisse de la construction et de l'ingénierie, de l'ingénierie routière et civile, de la construction de ponts et de tunnels, de la production de matériaux de construction, du développement de projets ou de la gestion de bâtiments, nous continuons de penser à la construction : l'innovation, la numérisation et la durabilité sont des points centraux de notre construction de demain. STRABAG poursuit une stratégie de durabilité claire. L'égalité des chances, la diversité et l'inclusion font également partie intégrante de ce qui fait de nous une entreprise et de notre façon de travailler.\nEnsemble, nous mettons en œuvre des projets avec succès et en partenariat et nous développons dans de nouvelles tâches. Ensemble, nous créons de grandes choses. Faisons des progrès !\n\nMécanicien des machines de construction:dans EFZ\nVotre contribution avec nous\n\n• Services de réparation et d'entretien de machines et de véhicules de construction\n\n• Opérations de réparation sur les chantiers de construction avec un véhicule de service bien équipé\n\n• Réparation de divers petits équipements\n\n• Travaux généraux de mécanique et de soudage\nCe qui nous importe\n\n• Apprentissage professionnel terminé EFZ comme machines de construction / machines agricoles ou mécanicien de camion:in - les apprentis sont les bienvenus!\n\n• L'expérience professionnelle dans l'industrie des machines de construction et des machines agricoles est obligatoire\n\n• Bonne connaissance de l'hydraulique, des pneumatiques, de la construction des véhicules et de l'électricité des véhicules ainsi que du soudage\n\n• Permis de conduire de catégorie B\n\n• Méthode de travail indépendante, exacte et fiable\n\nNotre valeur ajoutée pour vous\nVous avez la possibilité de vous développer au sein de l'équipe, tant personnellement que professionnellement. Les conditions-cadres comprennent des possibilités de formation pratique et des rabais intéressants pour les employés. Vous aimez les machines et les équipements de construction, travaillez avec précision, fiabilité et consciencieusement, et êtes-vous ouvert à la technologie moderne et aux tâches passionnantes dans notre parc de machines? Alors envoyez-nous vos documents de candidature complets et significatifs avec votre date d'entrée et vos attentes salariales le plus tôt possible via le formulaire en ligne.\n:::\n\n• Différentes possibilités de formation\n\n• Stationnement\n\n• Boissons gratuites\n\n• Rémunération concurrentielle\n\n• Remises aux employés\n\n• Manifestations du personnel\n\nCoordonnées\nPatrick Cona\n\n+41 76 811 26 26\nAppliquer maintenant"
       },
       "location": "Lindau",
       "canton": "ZH",
       "url": "https://www.jobs.ch/de/stellenangebote/detail/221353a5-6c1a-4c1f-a103-59fb95fea682/",
       "source": "STRABAG AG Dedicated Parser (jobs.ch)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:28:01.001Z",
+      "crawledAt": "2026-11-17T09:45:13.192Z",
       "addressLocality": "Lindau",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1000,9 +1000,24 @@
       "postingDateSource": "reported",
       "applyUrl": "https://www.jobs.ch/de/stellenangebote/detail/221353a5-6c1a-4c1f-a103-59fb95fea682/",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "baumaschinenmechaniker-in-efz-strabag-lindau",
+        "construction-machinery-mechanic-efz-strabag-ag-lindau",
+        "mecanicien-ne-de-machines-de-chantier-cfc-strabag-ag-lindau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "baumaschinenmechaniker-in-efz-strabag-lindau"
+        ],
+        "en": [
+          "construction-machinery-mechanic-efz-strabag-ag-lindau"
+        ],
+        "fr": [
+          "mecanicien-ne-de-machines-de-chantier-cfc-strabag-ag-lindau"
+        ]
       },
+      "firstSeenAt": "2026-09-19T23:05:40.047Z",
       "salaryMin": 82500,
       "salaryMax": 104500,
       "salarySource": "estimated",
@@ -1017,17 +1032,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T21:28:01.001Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-19T23:05:40.047Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "baumaschinenmechaniker-in-efz-strabag-lindau"
-        ]
-      },
-      "previousSlugs": [
-        "baumaschinenmechaniker-in-efz-strabag-lindau"
-      ]
+      "validThrough": "2027-02-14T09:45:13.192Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "strabag-871d47678bf3",
@@ -1114,7 +1120,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:56:31.661Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

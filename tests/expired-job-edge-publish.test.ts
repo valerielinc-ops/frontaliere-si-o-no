@@ -53,6 +53,12 @@ describe('expired job edge R2 publisher plan', () => {
     expect(staticBody).toBeGreaterThan(staticSkip);
     expect(plugin).toContain('requestedSections: expiredJobEdgeRequestedSections');
     expect(plugin).toContain('expiredJobEdgeStaticSkipPaths.add(canonicalPath)');
+
+    const staticSkipCheck = plugin.indexOf('Expired-job edge rollout cannot remove a path already claimed by another page:', staticSkip);
+    const finalManifestCheck = plugin.indexOf('Expired-job edge path was emitted statically after suppression:');
+    expect(plugin.slice(staticSkip, staticSkipCheck)).toContain('pathWasEmitted(targets.indexPath)');
+    expect(plugin.slice(finalManifestCheck - 300, finalManifestCheck)).toContain('pathWasEmitted(targets.indexPath)');
+    expect(plugin).toContain('const pathWasEmitted = (filePath: string): boolean => pathWasClaimed(filePath) || fs.existsSync(filePath);');
   });
 
   it('uploads immutable shards first and publishes the mutable manifest last', () => {

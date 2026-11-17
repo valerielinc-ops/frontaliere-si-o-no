@@ -29,7 +29,7 @@ function readAffectedFile(file) {
   if (!existsSync(file)) throw new Error(`affected job-canon inventory is missing: ${file}`);
   const keys = [...new Set(readFileSync(file, 'utf8').split(/\r?\n/).map((line) => line.trim()).filter(Boolean))].sort();
   for (const key of keys) {
-    if (!/^job-canon\/(?:[a-z0-9_]{2}\.json|v2\/[0-9a-f]{3}\.json)$/.test(key)) {
+    if (!/^job-canon\/(?:[a-z0-9_]{2}\.json|v2\/[0-9a-f]{3}\.json|releases\/[0-9]{1,20}\/(?:[a-z0-9_]{2}\.json|v2\/[0-9a-f]{3}\.json))$/.test(key)) {
       throw new Error(`invalid affected job-canon key: ${key}`);
     }
   }

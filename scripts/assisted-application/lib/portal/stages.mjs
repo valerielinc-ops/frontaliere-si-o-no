@@ -532,6 +532,14 @@ export function applicationStage(snapshot, {
     if (!isWorkdayJobRouteBound(url, applyUrl)) return { kind: 'posting_mismatch' };
   }
   const buttons = (snapshot?.buttons || []).filter(button => !button.chrome && !button.disabled);
+  const brassRingPrivacyGate = brassRingPrivacyGateControl(snapshot, {
+    applyUrl,
+    applicationEntryProven: brassRingApplicationEntryProven,
+  });
+  // BrassRing's privacy copy contains a thank-you sentence. Prove this exact
+  // intermediate gate before the generic receipt/confirmation classifiers can
+  // interpret that sentence as a completed application.
+  if (brassRingPrivacyGate) return { kind: 'application_start', control: brassRingPrivacyGate };
   if (applicationReceipt(snapshot, { url, applyUrl, sourceProtocol, postingEntry, job })) return { kind: 'receipt' };
   const mismatchedJob = parsed(url)?.origin === parsed(applyUrl)?.origin
     && portalJobKey(url) && portalJobKey(applyUrl, sourceProtocol) && portalJobKey(url) !== portalJobKey(applyUrl, sourceProtocol);
@@ -550,7 +558,7 @@ export function applicationStage(snapshot, {
     || incompleteApplication(text) || BEFORE_SEND_RE.test(text);
   const applicationStart = workdayApplicationStartControl(snapshot, { url, applyUrl })
     || brassRingApplicationStartControl(snapshot, brassRingApplicationEntryProven)
-    || brassRingPrivacyGateControl(snapshot, { applyUrl, applicationEntryProven: brassRingApplicationEntryProven });
+    || brassRingPrivacyGate;
   if (!pending && applicationStart) return { kind: 'application_start', control: applicationStart };
   const links = buttons.filter(button => GENERIC_APPLY_RE.test(button.text || '') && button.href
     && boundRoute(url, applyUrl, sourceProtocol) && reviewNavigationRoute(button.href, applyUrl, sourceProtocol)

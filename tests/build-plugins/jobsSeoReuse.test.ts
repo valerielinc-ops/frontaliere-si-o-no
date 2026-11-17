@@ -1550,9 +1550,9 @@ describe('jobs SEO disk HTML reuse', () => {
     // Path ownership checks query the registry directly; the renderer also
     // logs its size. Neither path keeps a second copy of registry entries.
     expect(plugin.match(/getPathHistory\(\)[^\n]*/g)).toEqual([
-      'getPathHistory().has(filePath);',
       'getPathHistory().size,',
     ]);
+    expect(plugin).toContain('hasClaimedPath(filePath);');
     // No pass-through profiler wrapper wraps a render call.
     const profilerImport = plugin.match(/import\s*\{([^}]*)\}\s*from\s*['"]\.\/shared\/jobsSeoProfiler(?:\.ts)?['"]/);
     expect(profilerImport?.[1]).toBeDefined();

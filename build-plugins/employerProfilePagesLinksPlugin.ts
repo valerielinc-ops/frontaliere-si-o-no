@@ -138,13 +138,16 @@ export function employerProfilePagesLinksPlugin(rootDir: string): Plugin {
     async closeBundle() {
       if (process.env.SKIP_EMPLOYER_PROFILE_PAGES === '1') return;
 
-      const distDir = np.resolve(rootDir, 'dist');
-      if (!fs.existsSync(distDir)) return;
-
       const [profiles] = await Promise.all([
         employerProfilesFlushed,
         staticPagesFlushed,
       ]);
+
+      // The profile and static-page producers can create dist while their
+      // parallel closeBundle hooks are still running. Check only after both
+      // producers have flushed their final outputs.
+      const distDir = np.resolve(rootDir, 'dist');
+      if (!fs.existsSync(distDir)) return;
 
       if (profiles.length === 0) {
         console.log('\x1b[36m[employer-profile-pages-links]\x1b[0m No emitted profiles — nothing to link.');

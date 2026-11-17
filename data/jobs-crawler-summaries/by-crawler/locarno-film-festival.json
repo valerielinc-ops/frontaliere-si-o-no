@@ -1,7 +1,7 @@
 {
   "key": "locarno-film-festival",
   "label": "Locarno Film Festival",
-  "generatedAt": "2026-11-16T21:36:58.367Z",
+  "generatedAt": "2026-11-17T09:48:35.327Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -47,10 +47,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 20222,
-  "avgDurationMs": 20222,
+  "durationMs": 21419,
+  "avgDurationMs": 21419,
   "durationHistory": [
-    20222
+    21419
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -68,7 +68,7 @@
       "url": "https://www.locarnofestival.ch/it/dam/jcr:7f0ffc2a-4fcb-4c1d-ae58-af1f09b3acc0/lff80%20%20-%20%20adf%20project%20manager.pdf",
       "source": "Locarno Film Festival Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-16T21:36:42.087Z",
+      "crawledAt": "2026-11-17T09:48:19.347Z",
       "addressLocality": "Locarno",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -91,7 +91,7 @@
       "salaryMax": 103000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:36:42.087Z",
+      "validThrough": "2027-02-09T09:48:19.347Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -102,5 +102,5 @@
       }
     }
   ],
-  "codeCommit": "003c4e440c1461e3ea15f62e2d687026ad8479d5"
+  "codeCommit": "0a26498058b0569b9b8027a7e9a03db3e2542c6a"
 }

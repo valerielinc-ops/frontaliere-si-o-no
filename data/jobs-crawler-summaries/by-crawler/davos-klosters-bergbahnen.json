@@ -1,21 +1,19 @@
 {
   "key": "davos-klosters-bergbahnen",
   "label": "Davos Klosters Bergbahnen",
-  "generatedAt": "2026-11-16T09:24:04.976Z",
+  "generatedAt": "2026-11-17T09:34:15.271Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 5543,
-  "avgDurationMs": 5543,
+  "unchangedCount": 0,
+  "durationMs": 4895,
+  "avgDurationMs": 4895,
   "durationHistory": [
-    5543
+    4895
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "davos-klosters-bergbahnen-4ebcfb661afd",
       "slug": "servizio-bar-ristorante-bolgen-plaza-100-davos-klosters-bergbahnen-ag-davos",
@@ -38,7 +36,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Service-Bar-Restaurant-Bolgen-Plaza-100_j_3958627",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:23:50.495Z",
+      "crawledAt": "2026-11-17T09:34:03.102Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-11-11T21:34:55.741Z",
       "salaryMin": 62000,
@@ -49,7 +47,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:23:50.495Z",
+      "validThrough": "2026-12-27T09:34:03.102Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -81,7 +79,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Seilbahnmechatroniker-in-Parsenn-100_j_3958639",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:23:50.299Z",
+      "crawledAt": "2026-11-17T09:34:02.906Z",
       "firstSeenAt": "2026-11-04T09:27:08.619Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -91,7 +89,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:23:50.299Z",
+      "validThrough": "2026-12-19T09:34:02.906Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -123,7 +121,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Immobilienunterhalt-100_j_3958640",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:23:50.109Z",
+      "crawledAt": "2026-11-17T09:34:02.707Z",
       "firstSeenAt": "2026-11-04T09:27:07.823Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -133,7 +131,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:23:50.109Z",
+      "validThrough": "2026-12-19T09:34:02.707Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -165,8 +163,9 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebs-Mechaniker-in-Parsenn-100_j_3958638",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T09:23:49.916Z",
+      "crawledAt": "2026-11-17T09:34:02.510Z",
       "firstSeenAt": "2026-11-03T21:58:55.152Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -175,7 +174,7 @@
       "addressRegion": "GR",
       "streetAddress": "Davos",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T09:23:49.916Z",
+      "validThrough": "2026-12-19T09:34:02.510Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -186,5 +185,7 @@
       }
     }
   ],
-  "codeCommit": "71e06c4f557e81be4e8743feaa696210bf683ef0"
+  "removedJobs": [],
+  "unchangedJobs": [],
+  "codeCommit": "0a26498058b0569b9b8027a7e9a03db3e2542c6a"
 }

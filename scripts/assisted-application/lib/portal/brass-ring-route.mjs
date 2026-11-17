@@ -1,8 +1,8 @@
 const BRASSRING_HOME_WITH_PRELOAD_RE = /^\/tgnewui\/search\/home\/homewithpreload\/?$/i;
 
-const BRASSRING_PROCESSING_LABEL = 'ubs processing your personal data in the context of your application as outlined above';
-const BRASSRING_TRANSFER_LABEL = 'the cross-border transfer of your personal data to above mentioned service providers to carry out the purpose of recruit';
-const BRASSRING_AGREE_NOTICE = 'thank you for your interest in a job at ubs note: you must agree to proceed.';
+const BRASSRING_PROCESSING_MARKER = 'processing your personal data';
+const BRASSRING_TRANSFER_MARKER = 'cross-border transfer of your personal data';
+const BRASSRING_AGREE_MARKER = 'must agree to proceed';
 
 const normalizeBrassRingText = value => String(value || '').normalize('NFKC')
   .replace(/\p{Cf}/gu, '').replace(/\s+/gu, ' ').trim();
@@ -10,7 +10,6 @@ const normalizeBrassRingText = value => String(value || '').normalize('NFKC')
 const brassRingControlText = control => normalizeBrassRingText(
   control?.text || control?.label || control?.ariaLabel,
 );
-const brassRingLabelMatches = (value, expected) => normalizeBrassRingText(value).toLowerCase() === expected;
 
 const mainFrame = value => value === undefined || value === null
   || (typeof value === 'number' && Number.isSafeInteger(value) && value === 0)
@@ -66,9 +65,9 @@ export function sameBrassRingPostingAddress(firstUrl, secondUrl) {
 /** The UBS privacy gate is a portal-owned intermediate page, not a candidate fact. */
 export function isBrassRingPrivacyGateText(value) {
   const text = normalizeBrassRingText(value).toLowerCase();
-  return text.includes(BRASSRING_PROCESSING_LABEL)
-    && text.includes(BRASSRING_TRANSFER_LABEL)
-    && text.includes(BRASSRING_AGREE_NOTICE);
+  return text.includes(BRASSRING_PROCESSING_MARKER)
+    && text.includes(BRASSRING_TRANSFER_MARKER)
+    && text.includes(BRASSRING_AGREE_MARKER);
 }
 
 /**
@@ -87,12 +86,28 @@ export function brassRingPrivacyGateControl(snapshot, {
 
   const fields = (snapshot.fields || []).filter(field => !field?.chrome && !field?.disabled
     && !['hidden', 'submit', 'button', 'reset', 'image'].includes(String(field?.inputType || '').toLowerCase()));
-  const checkboxes = fields.filter(field => field?.kind === 'checkbox' || String(field?.inputType || '').toLowerCase() === 'checkbox');
-  const radios = fields.filter(field => field?.kind === 'radio' || String(field?.inputType || '').toLowerCase() === 'radio');
-  if (fields.length !== 3 || checkboxes.length !== 2 || radios.length !== 1
-    || !checkboxes.some(field => brassRingLabelMatches(field?.label, BRASSRING_PROCESSING_LABEL))
-    || !checkboxes.some(field => brassRingLabelMatches(field?.label, BRASSRING_TRANSFER_LABEL))
-    || !brassRingLabelMatches(radios[0]?.label, BRASSRING_AGREE_NOTICE)) return null;
+  const fieldText = field => [
+    field?.label,
+    field?.text,
+    field?.name,
+    field?.id,
+    field?.context,
+    field?.section,
+    ...(Array.isArray(field?.labels) ? field.labels : []),
+    ...(Array.isArray(field?.options) ? field.options.map(option => typeof option === 'string' ? option : option?.label) : []),
+  ].filter(Boolean).map(normalizeBrassRingText).join(' ').toLowerCase();
+  const choices = fields.filter(field => ['checkbox', 'radio'].includes(String(field?.kind || '').toLowerCase())
+    || ['checkbox', 'radio'].includes(String(field?.inputType || '').toLowerCase()));
+  const checkboxes = choices.filter(field => field?.kind === 'checkbox'
+    || String(field?.inputType || '').toLowerCase() === 'checkbox');
+  const radios = choices.filter(field => field?.kind === 'radio'
+    || String(field?.inputType || '').toLowerCase() === 'radio');
+  const checkboxText = checkboxes.map(fieldText).join(' ');
+  const radioText = radios.map(fieldText).join(' ');
+  if (fields.length < 3 || choices.length !== fields.length || checkboxes.length < 2 || radios.length < 1
+    || !checkboxText.includes(BRASSRING_PROCESSING_MARKER)
+    || !checkboxText.includes(BRASSRING_TRANSFER_MARKER)
+    || !radioText.includes(BRASSRING_AGREE_MARKER)) return null;
 
   const agree = (snapshot.buttons || []).filter(button => !button?.chrome && !button?.disabled
     && mainFrame(button?.frame) && /^agree$/iu.test(brassRingControlText(button)));

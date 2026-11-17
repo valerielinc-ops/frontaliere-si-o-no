@@ -11,7 +11,6 @@
   ],
   "seedUrls": [
     "https://jobs.de.jysk.ch/offene-stellen/filialleiterin-100-der-filiale-langenthal",
-    "https://jobs.de.jysk.ch/offene-stellen/filialleiterin-mit-potential-100-der-filiale-chur",
     "https://jobs.de.jysk.ch/offene-stellen/filialleiterin-mit-potenzial-100-der-filiale-emmenbruecke",
     "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-davos",
     "https://jobs.de.jysk.ch/offene-stellen/lernende-detailhandelsfachfrau-mann-efz-der-filiale-guemligenfeld-bei-muribern",
@@ -43,6 +42,7 @@
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-60-der-filiale-stans",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-60-der-filiale-zollikofen",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-80-der-filiale-amriswil",
+    "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-80-der-filiale-chur",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-auspackhilfe-40-der-filiale-seewen",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-mit-lagerverantwortung-40-60-der-filiale-seewen",
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin-mit-lagerverantwortung-40-60-der-filiale-thalwil",
@@ -52,5 +52,5 @@
     "https://jobs.de.jysk.ch/offene-stellen/verkaeuferin40-der-filiale-baden-daettwil"
   ],
   "notes": "JYSK Swiss-German careers portal (Drupal CMS). Detail pages at /offene-stellen/{slug} have JSON-LD JobPosting structured data. Seed URLs auto-discovered from listing page.",
-  "updatedAt": "2026-11-16T21:21:34.499Z"
+  "updatedAt": "2026-11-17T09:23:33.317Z"
 }

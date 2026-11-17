@@ -138,35 +138,30 @@ describe('SEO builder noindex guards', () => {
       expect(block).toContain('expiredRobotsTag');
     });
 
-    it('legacy slug bridge pages serve full locale-canonical HTML but stay noindex', () => {
-      // Phase 4 (2026-04-30): replaces the previous thin
-      // buildCanonicalBridgePage redirect — those were noindex,follow with
-      // a `location.replace` placeholder UI. The new bridge reuses the
-      // full locale-canonical `html` (same pattern as the previousSlugs
-      // bridge at jobsSeoPagesPlugin:7264-7271): `<link rel="canonical">`
-      // inside `html` already points at the locale-canonical URL, so
-      // Google folds equity. The old URL stays noindex so only the
-      // canonical detail can compete in search. The page is still
-      // SPA-hydratable (bundle inside `html`),
-      // monetised (ADSENSE_SNIPPET inherited), and auth-gated for real
-      // users while bypassing for crawlers via `isCrawlerVisitor`.
-      // Anchor on the `if` statement, not the comment, so the comment block
-      // (which legitimately mentions `buildCanonicalBridgePage` to explain
-      // what was replaced) doesn't leak into the assertion text.
-      const ifLine = "if (locale !== 'it' && perLocaleSlug[locale] !== job.slug) {";
-      const start = source.indexOf(ifLine, source.indexOf('// Legacy bridge'));
-      const end = source.indexOf("recordEmit('active-job-legacy-bridge'", start);
-      const block = source.slice(start, end);
-      // Reuses the locale-canonical html, NOT the thin redirect builder.
-      expect(block).not.toContain('buildCanonicalBridgePage');
-      expect(block).toContain('noindexJobAliasHtml');
-      // Hooks: __BRIDGE_TARGET_SLUG__ for the SPA's lookup, plus the
-      // canonical html as the source.
-      expect(block).toContain('__BRIDGE_TARGET_SLUG__');
-      expect(block).toContain('perLocaleSlug[locale]');
-      expect(block).toContain('html.replace(\'</head>\'');
-      // Cross-job collision guard: don't clobber another job's canonical.
-      expect(block).toContain('activeJobDirs.has');
+    it('reserves removable aliases and validates retained bridges as noindex/canonical', () => {
+      // PR-B lets an exact Worker destination retire its static alias. The
+      // reservation suppresses any earlier queued bridge write; uncertain
+      // paths stay in retainedBridgePaths and must pass the final HTML checks.
+      const classifyStart = source.indexOf('if (classification.removable.has(bridge.path))');
+      const classifyEnd = source.indexOf('bridgePlan.bridgePaths.length = 0', classifyStart);
+      const classifyBlock = source.slice(classifyStart, classifyEnd);
+      expect(classifyStart).toBeGreaterThan(-1);
+      expect(classifyEnd).toBeGreaterThan(classifyStart);
+      expect(classifyBlock).toContain('reserveJobAliasRedirectDir(targets.directoryPath);');
+      expect(classifyBlock).toContain('continue;');
+      expect(classifyBlock).not.toMatch(/\b(?:_qw|_qwFlat|_qwFlatFull|writeFileSync)\s*\(/);
+      expect(classifyBlock).toContain('retainedBridgePaths.set(bridgePathKey(bridge.locale, bridge.path), { bridge, reason });');
+
+      const coverageStart = source.indexOf('const bridgeDistCoverage = assertBridgePathDistCoverage(');
+      const coverageEnd = source.indexOf('console.log(', coverageStart);
+      const coverageBlock = source.slice(coverageStart, coverageEnd);
+      expect(coverageStart).toBeGreaterThan(-1);
+      expect(coverageEnd).toBeGreaterThan(coverageStart);
+      expect(coverageBlock).toContain('removableBridgeOutputs');
+      expect(coverageBlock).toContain('retainedBridgeOutputs');
+      expect(coverageBlock).toContain('noindex: hasNoindexRobotsMeta(html)');
+      expect(coverageBlock).toContain('canonical: hasExactCanonicalHref(html, targetPath)');
+      expect(coverageBlock).toContain('if (!checks.noindex || !checks.targetSlug || !checks.canonical)');
     });
 
     // en/de/fr legacy TI URLs of non-TI jobs (and localized-slug aliases) are
@@ -187,19 +182,20 @@ describe('SEO builder noindex guards', () => {
       expect(block.match(/writeSoftLandingPage\(/g)).toHaveLength(1);
     });
 
-    it('active cross-canton legacy-TI copies are IT-only; en/de/fr only claim the path', () => {
-      const start = source.indexOf("if (jobCanton !== 'TI' && !isCompanyHubNamespaceSlug(job.slug, locale)) {");
+    it('non-IT cross-canton legacy-TI paths stay absent and claimed against stale mirrors', () => {
+      const start = source.indexOf("if (!options.fastLane && jobCanton !== 'TI' && !isCompanyHubNamespaceSlug(job.slug, locale)) {");
       const end = source.indexOf("recordEmit('active-job-cross-canton-legacy'", start);
       const block = source.slice(start, end);
       expect(start).toBeGreaterThan(-1);
       expect(end).toBeGreaterThan(start);
-      const nonItBranch = block.slice(
-        block.indexOf("if (locale !== 'it' && !activeJobDirs.has(legacyTIKey)) {"),
-        block.indexOf('} else if (!activeJobDirs.has(legacyTIKey)) {'),
-      );
+      const nonItStart = block.indexOf("if (locale !== 'it' && !activeJobDirs.has(legacyTIKey)) {");
+      const itBranchStart = block.indexOf('} else if (!activeJobDirs.has(legacyTIKey))', nonItStart);
+      const nonItBranch = block.slice(nonItStart, itBranchStart);
+      expect(nonItStart).toBeGreaterThan(-1);
+      expect(itBranchStart).toBeGreaterThan(nonItStart);
       expect(nonItBranch).toContain('legacyTiBridgeDirs.add(legacyTIKey);');
-      expect(nonItBranch).not.toContain('_qw(');
-      expect(nonItBranch).not.toContain('_qwFlatFull(');
+      expect(nonItBranch).not.toMatch(/\b(?:_md|_qw|_qwFlat|_qwFlatFull)\s*\(/);
+      expect(block.slice(itBranchStart)).toContain('noindexJobAliasHtml');
     });
 
     it('cross-locale mirrors skip legacy-TI paths the Worker recovers', () => {
@@ -209,15 +205,15 @@ describe('SEO builder noindex guards', () => {
       // Explicit previousSlugs are durable producer ownership claims. They
       // deliberately override the generic Worker-recovery guard below, while
       // expired/self-healing and cross-locale reconciliation paths keep it.
-      const previousSlugStart = source.indexOf('/* ── Full-content pages for previousSlugs of active jobs');
+      const previousSlugStart = source.indexOf('/* ── Retained full-content pages for previousSlugs');
       const previousSlugEnd = source.indexOf('if (bridgeCount > 0)', previousSlugStart);
       const previousSlugBlock = source.slice(previousSlugStart, previousSlugEnd);
       expect(previousSlugBlock).not.toContain('legacyTiPathRecoveredByWorker(locale, oldSlug, legacyTIRelPath)');
       expect(previousSlugBlock).toContain('previousSlug declaration is authoritative');
     });
 
-    it('previous-slug bridges force noindex after fresh render or cache reuse', () => {
-      const start = source.indexOf('/* ── Full-content pages for previousSlugs of active jobs');
+    it('retained previous-slug bridges force noindex after fresh render or cache reuse', () => {
+      const start = source.indexOf('/* ── Retained full-content pages for previousSlugs');
       const end = source.indexOf('if (bridgeCount > 0)', start);
       const block = source.slice(start, end);
       expect(start).toBeGreaterThan(-1);

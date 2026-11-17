@@ -1,6 +1,10 @@
 import { decode as decodeHTML } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
-import { firstLocationSegment } from './ats-clients/workday-client.mjs';
+import {
+  fetchWorkdayJobDetail,
+  fetchWorkdayJsonWithRetry,
+  firstLocationSegment,
+} from './ats-clients/workday-client.mjs';
 /**
  * Otis SA — Workday API job parser
  *
@@ -285,8 +289,6 @@ export function parseOtisWorkdayDetail(detail, externalPath = '') {
  * Uses searchText:"Switzerland" instead of facet IDs (which cause HTTP 400).
  */
 export async function fetchOtisJobUrls(timeoutMs = 15000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
     const allJobs = [];
     let offset = 0;
@@ -294,14 +296,10 @@ export async function fetchOtisJobUrls(timeoutMs = 15000) {
     let hasMore = true;
 
     while (hasMore) {
-      const res = await fetch(`${WORKDAY_API_BASE}/jobs`, {
+      const data = await fetchWorkdayJsonWithRetry(WORKDAY_API_BASE, `${WORKDAY_API_BASE}/jobs`, {
         method: 'POST',
-        signal: controller.signal,
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-          'User-Agent': UA,
-        },
+        timeoutMs,
+        userAgent: UA,
         body: JSON.stringify({
           appliedFacets: {},
           limit,
@@ -309,8 +307,6 @@ export async function fetchOtisJobUrls(timeoutMs = 15000) {
           searchText: 'Switzerland',
         }),
       });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const data = await res.json();
       const listings = parseOtisWorkdayListings(data);
       allJobs.push(...listings);
 
@@ -326,7 +322,6 @@ export async function fetchOtisJobUrls(timeoutMs = 15000) {
       hasMore = rawCount >= limit && (total <= 0 || offset < total) && offset < 1000;
     }
 
-    clearTimeout(timer);
     return allJobs;
   } catch (err) {
     console.warn(`\u26a0\ufe0f Failed to fetch Otis Workday listings: ${err.message}`);
@@ -334,8 +329,6 @@ export async function fetchOtisJobUrls(timeoutMs = 15000) {
     // classify it (connection-level soft exit or HTTP error) instead of
     // publishing a cause-less no-jobs-parsed abort.
     throw err;
-  } finally {
-    clearTimeout(timer);
   }
 }
 
@@ -345,22 +338,13 @@ export async function fetchOtisJobUrls(timeoutMs = 15000) {
  * (externalPath already starts with /job/...)
  */
 export async function fetchOtisDetailPage(externalPath, timeoutMs = 15000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(`${WORKDAY_API_BASE}${externalPath}`, {
-      signal: controller.signal,
-      headers: {
-        Accept: 'application/json',
-        'User-Agent': UA,
-      },
+    const data = await fetchWorkdayJobDetail(WORKDAY_API_BASE, externalPath, {
+      timeoutMs,
+      userAgent: UA,
     });
-    if (!res.ok) return null;
-    const data = await res.json();
     return parseOtisWorkdayDetail(data, externalPath);
   } catch {
     return null;
-  } finally {
-    clearTimeout(timer);
   }
 }

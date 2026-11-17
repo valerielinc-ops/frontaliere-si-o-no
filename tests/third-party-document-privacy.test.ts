@@ -430,6 +430,9 @@ describe('signed-origin autonomous SDK startup', () => {
   expect(THIRD_PARTY_DOCUMENT_INITIAL_GUARD).not.toContain('**');
   expect(Buffer.byteLength(THIRD_PARTY_DOCUMENT_INITIAL_GUARD, 'utf8')).toBeLessThan(256);
  });
+ it('enables Firebase-gated reader subscription in the static recovery bootstrap', () => {
+  expect(AD_RECOVERY_CONTENT).toContain('readerSubscriptionExperimentEnabled:true');
+ });
  it('invalidates the transported fingerprint when either producer or helper changes', () => {
   const snapshot = thirdPartyShellAssetSnapshot();
   const fingerprint = { ...snapshot, initialDocumentGuard: { sha256: snapshot.initialDocumentGuard.sha256 }, assets: snapshot.assets.map(({ content: _content, ...asset }) => asset) };

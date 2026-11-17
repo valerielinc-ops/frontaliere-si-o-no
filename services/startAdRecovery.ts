@@ -22,7 +22,7 @@ export function startAdRecovery() {
     assignmentUrl: 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/getHouseAdCreativeAssignment',
     consentKey: ADS_CONSENT_STORAGE_KEY, consentEvent: ADS_CONSENT_CHANGE_EVENT, variants: HOUSE_AD_VARIANTS,
     readerSubscriptionPaths: READER_SUBSCRIPTION_PATHS,
-    readerSubscriptionExperimentEnabled: false, // Retired: keep fallback slots on job-search creatives.
+    readerSubscriptionExperimentEnabled: true, // Firebase Remote Config enrolls anonymous visitors in the experiment.
   });
   const recovery = installAdRecovery(probeIabAdBlock, createAdScriptLoader, emitAdDiagnostic, allowed,
     { consentKey: ADS_CONSENT_STORAGE_KEY, consentEvent: ADS_CONSENT_CHANGE_EVENT, publisherId: AD_CLIENT.replace(/^ca-/, ''), inlineHouseAds: true, readerSubscriptionPaths: Object.values(READER_SUBSCRIPTION_PATHS) });

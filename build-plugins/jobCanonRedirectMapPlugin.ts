@@ -7,6 +7,7 @@
 import path from 'node:path';
 import fs from 'node:fs';
 import os from 'node:os';
+import { createHash } from 'node:crypto';
 import { createInterface } from 'node:readline';
 import { readJsonFile } from '../scripts/lib/read-large-json.mjs';
 import type { Plugin } from 'vite';
@@ -35,16 +36,22 @@ import {
 import {
   emitActiveJobCanonAliases,
   JOB_CANON_LOCALES,
+  JOB_CANON_REGISTRY_ALIAS_LOCALES,
   type ActiveJobAliasStats,
   type ActiveJobSlugMapRow,
   type JobCanonLocale,
 } from './shared/jobCanonBridgePaths';
+import {
+  jobsSeoPagesFlushed,
+  shouldAwaitJobsSeoPagesFlushed,
+} from './shared/buildSignals';
 
 const OUT_SUBDIR = 'job-canon';
 const V2_SUBDIR = 'v2';
-const REGISTRY_ALIAS_LOCALES = ['en', 'de', 'fr'] as const;
 const V2_BUCKET_COUNT = JOB_CANON_V2_SHARD_COUNT;
 const V2_MAX_SHARD_BYTES = 256 * 1024;
+const MANIFEST_SCHEMA_VERSION = 1;
+const MANIFEST_LOCALE_ORDER = ['it', 'en', 'de', 'fr'] as const satisfies readonly JobCanonLocale[];
 const STAGE_OPERATIONS = ['prefix', 'registry-alias', 'active-alias', 'active-prefix', 'active-job'] as const;
 const LOCALE_INDEX = new Map<JobCanonLocale, number>(JOB_CANON_LOCALES.map((locale, index) => [locale, index]));
 const WORKER_LOCALE_MASK = (1 << JOB_CANON_LOCALES.length) - 1;
@@ -73,6 +80,49 @@ type CompactRegistryIndex = {
   setPrefixMask(index: number, mask: number): void;
   clear(): void;
 };
+
+type JobCanonFileManifest = {
+  bytes: number;
+  sha256: string;
+  entries: number;
+  aliases: number;
+  canonicalEntriesSha256: string;
+};
+
+function canonicalJobCanonEntry(entry: LocaleEntry): LocaleEntry {
+  const canonical: LocaleEntry = {};
+  for (const locale of MANIFEST_LOCALE_ORDER) {
+    if (typeof entry[locale] === 'string') canonical[locale] = entry[locale];
+  }
+  if (entry.alias && typeof entry.alias === 'object') {
+    const alias: Partial<Record<JobCanonLocale, string>> = {};
+    for (const locale of MANIFEST_LOCALE_ORDER) {
+      if (typeof entry.alias[locale] === 'string') alias[locale] = entry.alias[locale];
+    }
+    if (Object.keys(alias).length > 0) canonical.alias = alias;
+  }
+  return canonical;
+}
+
+function updateCanonicalEntryDigest(
+  hash: ReturnType<typeof createHash>,
+  slug: string,
+  entry: LocaleEntry,
+): void {
+  hash.update(JSON.stringify(slug));
+  hash.update(':');
+  hash.update(JSON.stringify(canonicalJobCanonEntry(entry)));
+  hash.update('\n');
+}
+
+function countAliases(entry: LocaleEntry): number {
+  if (!entry.alias) return 0;
+  let count = 0;
+  for (const locale of MANIFEST_LOCALE_ORDER) {
+    if (typeof entry.alias[locale] === 'string') count += 1;
+  }
+  return count;
+}
 
 function shardKey(slug: string): string {
   const value = slug.slice(0, 2).toLowerCase().replace(/[^a-z0-9]/g, '_');
@@ -424,6 +474,13 @@ export function restoreJobCanonOrderingHandoffFromEnv(): void {
   }
 }
 
+function isNoJobsBuild(rootDir: string): boolean {
+  const dataDir = path.resolve(rootDir, 'data');
+  return fs.existsSync(dataDir)
+    && fs.statSync(dataDir).isDirectory()
+    && !fs.existsSync(path.join(dataDir, 'jobs.json'));
+}
+
 export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
   return {
     name: 'job-canon-redirect-map',
@@ -433,16 +490,52 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
     // fields written by localeJobsSplitPlugin in the first process before any SSG work.
     buildStart() {
       if (process.env.BUILD_STAGE !== 'ssg' || process.env.BUILD_LOCALE !== 'it') return;
-      restoreJobCanonOrderingHandoffFromEnv();
-    },
-    async closeBundle() {
-      const distDir = path.resolve(rootDir, 'dist');
-      if (!fs.existsSync(distDir)) return;
-      const buildLocale = process.env.BUILD_LOCALE;
-      if (buildLocale !== 'it') {
+      // An initialized data directory with no jobs.json is the no-jobs input.
+      // A fixture root without data/ has no dataset signal, so keep requiring
+      // the staged handoff instead of silently classifying it as no jobs.
+      if (isNoJobsBuild(rootDir)) {
         clearJobCanonOrderingFields();
         return;
       }
+      restoreJobCanonOrderingHandoffFromEnv();
+    },
+    async closeBundle() {
+      const buildLocale = (process.env.BUILD_LOCALE ?? '').trim();
+      const ownsWorkerMap = buildLocale === '' || buildLocale === 'it';
+      const buildStage = process.env.BUILD_STAGE || 'single';
+      const distDir = path.resolve(rootDir, 'dist');
+      if (ownsWorkerMap && isNoJobsBuild(rootDir)) {
+        console.log(
+          '[job-canon-redirect-map] data/jobs.json missing; skipping Worker map generation',
+        );
+        clearJobCanonOrderingFields();
+        return;
+      }
+
+      if (shouldAwaitJobsSeoPagesFlushed()) {
+        console.log('[job-canon-redirect-map] waiting for jobs SEO to flush the reconciled Worker slug map');
+        await jobsSeoPagesFlushed;
+      }
+
+      if (!fs.existsSync(distDir)) {
+        if (ownsWorkerMap) {
+          const slugMapPath = path.join(distDir, 'data', 'jobs-slug-map.json');
+          throw new Error(
+            `[job-canon-redirect-map] ${buildLocale === '' ? 'all-locale build' : 'BUILD_LOCALE=it'} `
+            + `requires ${path.relative(rootDir, slugMapPath)} from jobsSeoPagesPlugin`,
+          );
+        }
+        return;
+      }
+      if (!ownsWorkerMap) {
+        console.log(
+          `[job-canon-redirect-map] BUILD_LOCALE=${buildLocale} does not own the Worker map; `
+          + 'the IT or all-locale build emits it',
+        );
+        clearJobCanonOrderingFields();
+        return;
+      }
+      console.log(`[job-canon-redirect-map] Worker map owner=${buildLocale || 'all-locale'}`);
 
       let orderingFieldsById = getJobCanonOrderingFields();
       if (!orderingFieldsById && process.env.BUILD_STAGE === 'ssg') {
@@ -599,7 +692,7 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           if (slugIndexEntry < 0 || slugIndex!.parts[slugIndexEntry] !== entryPartIndex) continue;
           if (!paths || typeof paths !== 'object') continue;
           const order = slugIndex!.orders[slugIndexEntry];
-          for (const locale of REGISTRY_ALIAS_LOCALES) {
+          for (const locale of JOB_CANON_REGISTRY_ALIAS_LOCALES) {
             const value = paths[locale];
             if (typeof value !== 'string') continue;
             const target = value.replace(/\/+$/, '');
@@ -642,13 +735,18 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           conflictExamples: [] as Array<{ locale: JobCanonLocale; slug: string; prefixes: string[] }>,
         };
 
-        if (buildLocale === 'it') {
+        if (ownsWorkerMap) {
           if (!fs.existsSync(slugMapPath)) {
-            throw new Error(`[job-canon-redirect-map] BUILD_LOCALE=it requires ${path.relative(rootDir, slugMapPath)} from localeJobsSplitPlugin`);
+            throw new Error(
+              `[job-canon-redirect-map] ${buildLocale === '' ? 'all-locale build' : 'BUILD_LOCALE=it'} `
+              + `requires ${path.relative(rootDir, slugMapPath)} from jobsSeoPagesPlugin`,
+            );
           }
           const raw = readJsonFile(slugMapPath) as unknown;
           if (!Array.isArray(raw)) {
-            throw new Error(`[job-canon-redirect-map] ${path.relative(rootDir, slugMapPath)} must contain an array`);
+            throw new Error(
+              `[job-canon-redirect-map] ${path.relative(rootDir, slugMapPath)} must contain an array`,
+            );
           }
           activeJobsRaw = raw;
           jobs = raw as ActiveJobSlugMapRow[];
@@ -664,7 +762,8 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             const stableId = String(row.id || row.slug || '').trim();
             const orderingFields = stableId ? orderingFieldsById.get(stableId) : undefined;
             if (!orderingFields) {
-              throw new Error('[job-canon-redirect-map] slug map and in-memory ordering fields do not match');
+              const sourceName = buildStage === 'ssg' ? 'build handoff' : 'in-memory ordering fields';
+              throw new Error(`[job-canon-redirect-map] slug map and ${sourceName} do not match`);
             }
             Object.assign(row, orderingFields);
             jobs[writeIndex++] = row;
@@ -968,6 +1067,8 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
         const outDir = path.join(distDir, OUT_SUBDIR);
         const v2Dir = path.join(outDir, V2_SUBDIR);
         fs.mkdirSync(outDir, { recursive: true });
+        const releaseManifestPath = path.join(outDir, 'manifest.json');
+        fs.rmSync(releaseManifestPath, { force: true });
         fs.rmSync(v2Dir, { recursive: true, force: true });
         fs.mkdirSync(v2Dir, { recursive: true });
         for (const file of fs.readdirSync(outDir)) {
@@ -993,6 +1094,11 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
         const v1Started = new Set<string>();
         const v1HasEntries = new Set<string>();
         const v1Keys = new Set<string>();
+        const v1EntriesByShard = new Map<string, number>();
+        const v1AliasesByShard = new Map<string, number>();
+        const v1FileManifest: Record<string, JobCanonFileManifest> = Object.create(null) as Record<string, JobCanonFileManifest>;
+        const v2FileManifest: Record<string, JobCanonFileManifest> = Object.create(null) as Record<string, JobCanonFileManifest>;
+        const logicalEntriesDigest = createHash('sha256');
         const flushV1Buffer = (key: string): void => {
           const pending = v1BufferByShard.get(key);
           if (!pending) return;
@@ -1011,9 +1117,12 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
           const pending = v1BufferByShard.get(key) ?? [];
           const separator = v1HasEntries.has(key) ? ',' : '';
           v1HasEntries.add(key);
-          const fragment = Buffer.from(`${separator}${JSON.stringify(slug)}:${JSON.stringify(entry)}`, 'utf8');
+          const canonicalEntry = canonicalJobCanonEntry(entry);
+          const fragment = Buffer.from(`${separator}${JSON.stringify(slug)}:${JSON.stringify(canonicalEntry)}`, 'utf8');
           pending.push(fragment);
           v1BufferByShard.set(key, pending);
+          v1EntriesByShard.set(key, (v1EntriesByShard.get(key) ?? 0) + 1);
+          v1AliasesByShard.set(key, (v1AliasesByShard.get(key) ?? 0) + countAliases(canonicalEntry));
           const bufferedBytes = (v1BufferBytesByShard.get(key) ?? 0) + fragment.length;
           v1BufferBytesByShard.set(key, bufferedBytes);
           if (bufferedBytes >= 16 * 1024) flushV1Buffer(key);
@@ -1098,29 +1207,49 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
             }
           }
 
-          logicalStats.entries += Object.keys(bucket).length;
-          for (const slug in bucket) {
-            const alias = bucket[slug].alias;
-            if (!alias) continue;
-            for (const locale of JOB_CANON_LOCALES) {
-              if (typeof alias[locale] === 'string') {
-                logicalStats.aliases += 1;
-                logicalStats.aliasesByLocale[locale] += 1;
-              }
+          const slugs = Object.keys(bucket).sort();
+          if (slugs.length === 0) {
+            prefixOrderBySlugLocale.clear();
+            currentPrefixes.clear();
+            return null;
+          }
+          const canonicalBucketDigest = createHash('sha256');
+          let bucketAliasCount = 0;
+          for (const slug of slugs) {
+            const entry = canonicalJobCanonEntry(bucket[slug]);
+            delete bucket[slug];
+            bucket[slug] = entry;
+            logicalStats.entries += 1;
+            const entryAliases = countAliases(entry);
+            logicalStats.aliases += entryAliases;
+            bucketAliasCount += entryAliases;
+            for (const locale of MANIFEST_LOCALE_ORDER) {
+              if (typeof entry.alias?.[locale] === 'string') logicalStats.aliasesByLocale[locale] += 1;
             }
+            updateCanonicalEntryDigest(logicalEntriesDigest, slug, entry);
+            updateCanonicalEntryDigest(canonicalBucketDigest, slug, entry);
           }
 
           const serialized = JSON.stringify(bucket);
-          const bytes = Buffer.byteLength(serialized, 'utf8');
+          const serializedBytes = Buffer.from(serialized, 'utf8');
+          const bytes = serializedBytes.length;
           assertJobCanonV2ShardWithinLimit(bytes);
-          fs.writeFileSync(path.join(v2Dir, `${key}.json`), serialized, 'utf8');
+          const relativeFile = `${key}.json`;
+          fs.writeFileSync(path.join(v2Dir, relativeFile), serializedBytes);
+          v2FileManifest[relativeFile] = {
+            bytes,
+            sha256: createHash('sha256').update(serializedBytes).digest('hex'),
+            entries: slugs.length,
+            aliases: bucketAliasCount,
+            canonicalEntriesSha256: canonicalBucketDigest.digest('hex'),
+          };
           // Every slug belongs to exactly one hash bucket. Append each finished
           // v2 entry to its v1 file in bounded chunks so the 29 MB `ve` shard
           // never becomes an in-memory object or one giant JSON string.
-          for (const slug in bucket) appendV1Entry(slug, bucket[slug]);
+          for (const slug of slugs) appendV1Entry(slug, bucket[slug]);
           prefixOrderBySlugLocale.clear();
           currentPrefixes.clear();
-          for (const slug in bucket) delete bucket[slug];
+          for (const slug of slugs) delete bucket[slug];
           sampleHeap();
           return bytes;
         };
@@ -1137,7 +1266,49 @@ export function jobCanonRedirectMapPlugin(rootDir: string): Plugin {
         }
         for (const key of [...v1BufferByShard.keys()]) flushV1Buffer(key);
         for (const key of v1Keys) fs.appendFileSync(path.join(v1Dir, `${key}.json`), '}', 'utf8');
-        const v1Bytes = [...v1Keys].map((key) => fs.statSync(path.join(v1Dir, `${key}.json`)).size);
+        const v1Bytes: number[] = [];
+        for (const key of [...v1Keys].sort()) {
+          const relativeFile = `${key}.json`;
+          const outputPath = path.join(v1Dir, relativeFile);
+          const raw = fs.readFileSync(outputPath);
+          const parsed = JSON.parse(raw.toString('utf8')) as Record<string, LocaleEntry>;
+          const slugs = Object.keys(parsed).sort();
+          const canonicalDigest = createHash('sha256');
+          let aliases = 0;
+          for (const slug of slugs) {
+            const entry = canonicalJobCanonEntry(parsed[slug]);
+            aliases += countAliases(entry);
+            updateCanonicalEntryDigest(canonicalDigest, slug, entry);
+          }
+          const entries = v1EntriesByShard.get(key) ?? 0;
+          if (slugs.length !== entries || aliases !== (v1AliasesByShard.get(key) ?? 0)) {
+            throw new Error(`[job-canon-redirect-map] v1 manifest counters disagree with emitted shard ${relativeFile}`);
+          }
+          v1Bytes.push(raw.length);
+          v1FileManifest[relativeFile] = {
+            bytes: raw.length,
+            sha256: createHash('sha256').update(raw).digest('hex'),
+            entries,
+            aliases,
+            canonicalEntriesSha256: canonicalDigest.digest('hex'),
+          };
+        }
+        const sortFileManifest = (files: Record<string, JobCanonFileManifest>): Record<string, JobCanonFileManifest> => {
+          const sorted: Record<string, JobCanonFileManifest> = Object.create(null) as Record<string, JobCanonFileManifest>;
+          for (const filename of Object.keys(files).sort()) sorted[filename] = files[filename];
+          return sorted;
+        };
+        const manifest = {
+          schemaVersion: MANIFEST_SCHEMA_VERSION,
+          logical: {
+            entries: logicalStats.entries,
+            aliases: logicalStats.aliases,
+            canonicalEntriesSha256: logicalEntriesDigest.digest('hex'),
+          },
+          v1: { files: sortFileManifest(v1FileManifest) },
+          v2: { files: sortFileManifest(v2FileManifest) },
+        };
+        fs.writeFileSync(releaseManifestPath, `${JSON.stringify(manifest)}\n`, 'utf8');
         markHeap('v1-and-v2-written');
         markHeap('v2-written');
         console.log(

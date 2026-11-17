@@ -180,10 +180,14 @@ export const JOBS_SEO_FINGERPRINT_INERT_MODULES = Object.freeze({
     'build-plugins/jobsSeoPagesPlugin.ts',
   ]),
   // Path-collision registry: claim() either accepts the write or throws; the
-  // renderer reads only getPathHistory().size for a memory log line.
+  // renderer queries ownership with hasClaimedPath() and reads only
+  // getPathHistory().size for its memory log. The shared path-safety helper
+  // also consults the build-scoped alias reservation guard, but all of these
+  // calls decide only whether a file may be written, not its HTML.
   'build-plugins/sharedWriteRegistry.ts': Object.freeze([
     'build-plugins/batchWrite.ts',
     'build-plugins/jobsSeoPagesPlugin.ts',
+    'build-plugins/shared/distPathSafety.ts',
     'build-plugins/shared/postWalkDerivedDigest.ts',
   ]),
   // `[mem]` log line; returns only the MB freed by the forced GC.

@@ -1,9 +1,9 @@
 {
   "key": "sta",
   "label": "STA Personal AG",
-  "generatedAt": "2026-11-17T08:20:03.979Z",
+  "generatedAt": "2026-11-17T09:26:17.846Z",
   "total": 0,
-  "discovered": null,
+  "discovered": 100,
   "parsed": 0,
   "lastFetchOutcome": "selector_miss",
   "fetchReceipt": {
@@ -12,15 +12,35 @@
       "https://www.sta.jobs/stellen/"
     ],
     "phase": "listing",
-    "pages": 2,
+    "pages": 7,
     "httpStatuses": [
       {
-        "status": 403,
+        "status": 200,
         "url": "https://www.sta.jobs/stellen/"
       },
       {
         "status": 200,
-        "url": "https://www.sta.jobs/stellen/",
+        "url": "https://www.sta.jobs/stellen/page/2/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.sta.jobs/stellen/page/3/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.sta.jobs/stellen/page/4/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.sta.jobs/stellen/page/5/"
+      },
+      {
+        "status": 403,
+        "url": "https://www.sta.jobs/stellen/page/6/"
+      },
+      {
+        "status": 200,
+        "url": "https://www.sta.jobs/stellen/page/6/",
         "proxiedBy": "browser"
       }
     ],
@@ -28,7 +48,7 @@
       "browser"
     ],
     "fetchOutcome": null,
-    "fetchDetail": "[prospector:sta] totale dichiarato dalla fonte non trovato (declaredTotalPattern ([\\d'’.,]+)\\s*(?:<[^>]*>\\s*)*Resultate): impossibile provare la listing completa"
+    "fetchDetail": "[prospector:sta] listing incompleta: 100/1779 righe di copertura (annunci distinti: 100) dichiarati dalla fonte su 6 pagine (copertura minima 0.95)"
   },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
@@ -44,5 +64,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "c7f629a83a0168b6f42a10497b8c6fae1f62ae1a"
+  "codeCommit": "0a26498058b0569b9b8027a7e9a03db3e2542c6a"
 }

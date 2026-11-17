@@ -62,6 +62,43 @@ describe('portal runner self-correction', () => {
     expect(exactClick).toHaveBeenCalledWith({ timeout: 6000 });
   });
 
+  it('recovers a fieldless semantic-form action through its role-form owner', async () => {
+    const locatorTimeout = new Error('locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f5"]');
+    const staleClick = vi.fn().mockRejectedValue(locatorTimeout);
+    const exactClick = vi.fn().mockResolvedValue(undefined);
+    const semanticForm = { getAttribute: (name: string) => name === 'data-aa-id' ? 'f2' : '' };
+    const semanticButton = {
+      form: null,
+      closest: (selector: string) => selector === '[role="form"]' ? semanticForm : null,
+    };
+    const exactButton = {
+      isVisible: vi.fn().mockResolvedValue(true),
+      isEnabled: vi.fn().mockResolvedValue(true),
+      click: exactClick,
+      evaluate: vi.fn(async (read: (element: unknown) => unknown) => read(semanticButton)),
+    };
+    const candidates = { count: vi.fn().mockResolvedValue(1), nth: vi.fn().mockReturnValue(exactButton) };
+    const noLinks = { count: vi.fn().mockResolvedValue(0), nth: vi.fn() };
+    const frame = {
+      url: () => 'https://portal.example/apply',
+      evaluate: vi.fn(async (read: unknown) => read === extractFieldsInPage ? ({
+        url: 'https://portal.example/apply', fields: [],
+        buttons: [{ id: 'f5', text: 'Submit', formId: '', roleFormId: 'f2', disabled: false }],
+        links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [], text: '',
+      }) : null),
+      locator: vi.fn(() => ({ first: () => ({ click: staleClick }) })),
+      getByRole: vi.fn((role: string) => role === 'button' ? candidates : noLinks),
+    };
+    const page = { url: () => 'https://portal.example/apply', frames: () => [frame], mainFrame: () => frame };
+
+    await expect(clickButton(page as any, {
+      id: 'f5', text: 'Submit', formId: '', roleFormId: 'f2', frame: 0,
+    })).resolves.toBe('role');
+    expect(staleClick).toHaveBeenCalledTimes(2);
+    expect(exactButton.evaluate).toHaveBeenCalledOnce();
+    expect(exactClick).toHaveBeenCalledWith({ timeout: 6000 });
+  });
+
   it('recovers a scoped JavaScript action link when its snapshot omits the non-navigation href', async () => {
     const locatorTimeout = new Error('locator.click: Timeout 6000ms exceeded waiting for locator [data-aa-id="f5"]');
     const staleClick = vi.fn().mockRejectedValue(locatorTimeout);

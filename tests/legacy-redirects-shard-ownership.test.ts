@@ -100,3 +100,39 @@ describe('legacy redirects respect locale-shard ownership before gap-fill', () =
     },
   );
 });
+
+describe('legacy redirects respect reserved job alias paths', () => {
+  it('does not refill an alias path, while the same plugin still writes an unreserved redirect', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'legacy-reserved-job-alias-'));
+    const dist = path.join(root, 'dist');
+    const reservedPath = '/en/partner-services/';
+    const controlPath = '/de/partner-dienste/';
+    const index = (url: string) => path.join(dist, url.slice(1), 'index.html');
+    let resetWriteRegistry: (() => void) | undefined;
+    try {
+      fs.mkdirSync(path.join(root, 'data'), { recursive: true });
+      fs.mkdirSync(dist, { recursive: true });
+      fs.writeFileSync(path.join(root, 'data/jobs.json'), '[]');
+      fs.writeFileSync(path.join(root, 'data/article-redirects.json'), '{}');
+      // Load the reservation and plugin from the same module graph. Several
+      // tests above reset Vite's module cache, so a static import would reserve
+      // the old registry instance rather than the one used by the plugin.
+      const registry = await import('../build-plugins/sharedWriteRegistry');
+      resetWriteRegistry = registry.reset;
+      registry.reserveJobAliasRedirectDir(path.dirname(index(reservedPath)));
+      const { legacyRedirectsPlugin } = await import('../build-plugins/legacyRedirectsPlugin');
+      const hook = legacyRedirectsPlugin(root).closeBundle;
+      if (!hook || typeof hook !== 'object' || typeof hook.handler !== 'function') {
+        throw new Error('Expected the ordered native legacy emitter');
+      }
+      await hook.handler.call({} as never);
+
+      expect(fs.existsSync(index(reservedPath))).toBe(false);
+      expect(fs.existsSync(path.join(dist, reservedPath.slice(1, -1) + '.html'))).toBe(false);
+      expect(fs.existsSync(index(controlPath))).toBe(true);
+    } finally {
+      resetWriteRegistry?.();
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+});

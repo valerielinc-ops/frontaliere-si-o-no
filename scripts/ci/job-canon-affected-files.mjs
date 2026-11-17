@@ -14,14 +14,28 @@ import { isInvokedDirectly } from '../lib/is-invoked-directly.mjs';
 const JOB_CANON_PREFIX = 'job-canon/';
 const V1_RE = /^[a-z0-9_]{2}\.json$/;
 const V2_RE = /^v2\/[0-9a-f]{3}\.json$/;
+const RELEASE_V1_RE = /^releases\/([0-9]{1,20})\/[a-z0-9_]{2}\.json$/;
+const RELEASE_V2_RE = /^releases\/([0-9]{1,20})\/v2\/[0-9a-f]{3}\.json$/;
+const MANIFEST_RE = /^(?:manifest\.json|releases\/[0-9]{1,20}\/manifest\.json)$/;
 
 function normalizeMapRelative(relativePath) {
   const normalized = String(relativePath || '').replaceAll('\\', '/').replace(/^\/+/, '');
   const withoutPrefix = normalized.startsWith(JOB_CANON_PREFIX)
     ? normalized.slice(JOB_CANON_PREFIX.length)
     : normalized;
-  if (!V1_RE.test(withoutPrefix) && !V2_RE.test(withoutPrefix)) return null;
+  if (!V1_RE.test(withoutPrefix)
+    && !V2_RE.test(withoutPrefix)
+    && !RELEASE_V1_RE.test(withoutPrefix)
+    && !RELEASE_V2_RE.test(withoutPrefix)) return null;
   return withoutPrefix;
+}
+
+function isManifestPath(relativePath) {
+  const normalized = String(relativePath || '').replaceAll('\\', '/').replace(/^\/+/, '');
+  const withoutPrefix = normalized.startsWith(JOB_CANON_PREFIX)
+    ? normalized.slice(JOB_CANON_PREFIX.length)
+    : normalized;
+  return MANIFEST_RE.test(withoutPrefix);
 }
 
 function mapKey(relativePath) {
@@ -43,6 +57,9 @@ function walkMapTree(rootDir) {
         continue;
       }
       if (!entry.isFile()) continue;
+      // The release manifest validates the emitted map set but is not a
+      // routable shard and must not enter the edge purge inventory.
+      if (isManifestPath(rel)) continue;
       const normalized = normalizeMapRelative(rel);
       if (!normalized) {
         throw new Error(`unexpected job-canon file: ${rel}`);
@@ -79,7 +96,15 @@ export function compareMapTrees(currentDir, previousDir) {
  * unrecognized record must not become an empty change set before the
  * job-canon marker is released.
  */
-export function parseRcloneChangedKeys(logText) {
+export function parseRcloneChangedKeys(logText, targetPrefix = 'job-canon') {
+  return parseRcloneChangedKeysForPrefix(logText, targetPrefix);
+}
+
+function parseRcloneChangedKeysForPrefix(logText, targetPrefix) {
+  if (!/^job-canon(?:\/releases\/[0-9]{1,20})?$/.test(targetPrefix)) {
+    throw new Error(`invalid job-canon target prefix: ${targetPrefix}`);
+  }
+  const targetRelative = targetPrefix.slice(JOB_CANON_PREFIX.length);
   const keys = new Set();
   for (const [index, line] of String(logText || '').split(/\r?\n/).entries()) {
     const trimmed = line.trim();
@@ -106,11 +131,27 @@ export function parseRcloneChangedKeys(logText) {
       if (!object) {
         throw new Error(`unrecognized rclone change record at line ${index + 1}: missing object`);
       }
-      const relativePath = normalizeMapRelative(object);
-      if (!relativePath) {
+      const normalizedObject = String(object).replaceAll('\\', '/').replace(/^\/+/, '');
+      const hasNamespacePrefix = normalizedObject.startsWith(JOB_CANON_PREFIX);
+      const withoutNamespace = hasNamespacePrefix
+        ? normalizedObject.slice(JOB_CANON_PREFIX.length)
+        : normalizedObject;
+      let relativePath;
+      if (targetRelative && withoutNamespace.startsWith(`${targetRelative}/`)) {
+        relativePath = withoutNamespace;
+      } else if (targetRelative && hasNamespacePrefix) {
+        throw new Error(`rclone change is outside expected job-canon target ${targetPrefix}: ${object}`);
+      } else if (targetRelative && withoutNamespace.startsWith('releases/')) {
+        throw new Error(`rclone change is outside expected job-canon target ${targetPrefix}: ${object}`);
+      } else {
+        relativePath = targetRelative ? `${targetRelative}/${withoutNamespace}` : withoutNamespace;
+      }
+      const normalizedMapPath = normalizeMapRelative(relativePath);
+      if (!normalizedMapPath) {
+        if (isManifestPath(relativePath)) continue;
         throw new Error(`unrecognized job-canon object at line ${index + 1}: ${object}`);
       }
-      keys.add(mapKey(relativePath));
+      keys.add(mapKey(normalizedMapPath));
       continue;
     }
     // Stats and other global messages normally have no object. An object
@@ -138,6 +179,7 @@ function main() {
   if (!currentDir || !output) throw new Error('usage: --current-dir=<dir> --output=<file> [--previous-dir=<dir> | --rclone-log=<file>]');
   const previousDir = flags['previous-dir'];
   const rcloneLog = flags['rclone-log'];
+  const rclonePrefix = flags['rclone-prefix'] || 'job-canon';
   if (Boolean(previousDir) === Boolean(rcloneLog)) {
     throw new Error('provide exactly one of --previous-dir or --rclone-log');
   }
@@ -146,7 +188,7 @@ function main() {
   }
   const keys = previousDir
     ? compareMapTrees(currentDir, previousDir)
-    : parseRcloneChangedKeys(readFileSync(rcloneLog, 'utf8'));
+    : parseRcloneChangedKeysForPrefix(readFileSync(rcloneLog, 'utf8'), rclonePrefix);
   mkdirSync(dirname(output), { recursive: true });
   writeFileSync(output, keys.length ? `${keys.join('\n')}\n` : '', 'utf8');
   console.log(`job-canon affected objects: ${keys.length}`);

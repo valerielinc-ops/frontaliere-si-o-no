@@ -78,6 +78,7 @@ source "$(dirname "${BASH_SOURCE[0]}")/shard-git-helpers.sh"
 source "$(dirname "${BASH_SOURCE[0]}")/r2-image-lease-process.sh"
 
 RUNNER_TEMP="${RUNNER_TEMP:-/tmp}"
+DEPLOY_IT_PREP_ROOT="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/../.." && pwd)"
 
 # R2 wall-clock limit (seconds) read from the environment. `timeout 0` means NO
 # limit in GNU coreutils, and a non-number makes `timeout` fail before the call
@@ -96,6 +97,15 @@ _r2_timeout_s() {
     echo "::warning::[r2] $name='$value' is not a whole number of seconds from 1 to 9999 — using ${fallback}s" >&2
   fi
   printf '%s\n' "$fallback"
+}
+
+# Worker/browser map lookups accept only the same numeric build-id shape as the
+# marker parser. The length bound also keeps the identifier within one path
+# segment before it is used below as a release directory.
+_is_valid_deploy_build_id() {
+  local value="${1:-}"
+  case "$value" in ''|*[!0123456789]*) return 1 ;; esac
+  [ "${#value}" -le 20 ]
 }
 
 # Export a key=value INTO THE CURRENT PROCESS (so later sections of THIS script
@@ -352,10 +362,11 @@ _publish_cdn_r2() {
     }
     # `copy` is additive and checksum-diffed, so repeating a prefix resumes
     # objects left behind by a timed-out attempt without deleting live keys.
-    # The job-canon map is the one deliberate exception: `exact` uses sync so a
-    # shard removed from the build cannot survive forever as a stale 301 source
-    # in R2. Its JSON log is retained as the affected-key inventory for the
-    # deploy-side purge handshake.
+    # `exact` is reserved for replace-in-place prefixes. Production job-canon
+    # releases remain additive because their URLs are immutable and the live
+    # handshake validates every changed shard before releasing the build marker.
+    # Any caller using exact mode retains its JSON log as the affected-key
+    # inventory for the deploy-side purge handshake.
     # Keep each attempt's upload log separately and append it to the aggregate:
     # the asset purge must see keys uploaded before a timeout as well as keys
     # moved by the successful retry.
@@ -813,22 +824,41 @@ _publish_cdn_r2() {
   # Data is additive; avoid listing the full existing prefix and check each
   # current source key directly instead.
   _r2_sync 1800 "$stage/data"     data      "public,max-age=600" "" no-traverse
-  if ! _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600" "$job_canon_log" exact; then
-    echo "::error::[r2] job-canon sync failed; refusing to close the CDN generation"
-    ok=0
-    job_canon_inventory_ok=0
+  local job_canon_target_prefix=job-canon
+  if [ -n "${DEPLOY_BUILD_ID:-}" ]; then
+    if ! _is_valid_deploy_build_id "$DEPLOY_BUILD_ID"; then
+      echo "::error::[r2] DEPLOY_BUILD_ID must contain 1–20 digits before publishing job-canon releases" >&2
+      ok=0
+    else
+      local job_canon_release_dir="$stage/job-canon/releases/$DEPLOY_BUILD_ID"
+      job_canon_target_prefix="job-canon/releases/$DEPLOY_BUILD_ID"
+      if [ ! -d "$stage/job-canon" ]; then
+        echo "::error::[r2] job-canon payload is incomplete: required stage directory is missing at $stage/job-canon" >&2
+        ok=0
+      elif [ ! -d "$job_canon_release_dir" ]; then
+        echo "::error::[r2] job-canon payload is incomplete: release directory is missing at $job_canon_release_dir" >&2
+        ok=0
+      elif ! _r2_sync 120 "$job_canon_release_dir" "job-canon/releases/$DEPLOY_BUILD_ID" "public,max-age=31536000,immutable" "$job_canon_log"; then
+        echo "::error::[r2] job-canon payload is incomplete: release upload failed for $job_canon_release_dir; withholding CDN markers" >&2
+        ok=0
+      fi
+    fi
+  elif [ -d "$stage/job-canon" ]; then
+    # Local/legacy invocations have no marker-selected generation. Keep their
+    # fixed paths additive so they do not remove previous immutable releases.
+    if ! _r2_sync 120 "$stage/job-canon" job-canon "public,max-age=600" "$job_canon_log"; then
+      echo "::error::[r2] legacy job-canon payload upload failed; withholding CDN markers" >&2
+      ok=0
+    fi
   fi
-  if [ -d "$stage/job-canon" ]; then
-    if ! node scripts/ci/job-canon-affected-files.mjs \
+  if [ "$ok" = 1 ] && [ "$job_canon_inventory_ok" = 1 ] \
+    && { [ -n "${DEPLOY_BUILD_ID:-}" ] || [ -d "$stage/job-canon" ]; } \
+    && ! node "$DEPLOY_IT_PREP_ROOT/scripts/ci/job-canon-affected-files.mjs" \
       --current-dir="$stage/job-canon" \
       --rclone-log="$job_canon_log" \
+      --rclone-prefix="$job_canon_target_prefix" \
       --output="$job_canon_affected_file"; then
-      echo "::error::[r2] could not derive the affected job-canon shard inventory"
-      ok=0
-      job_canon_inventory_ok=0
-    fi
-  else
-    echo "::error::[r2] job-canon stage is missing; refusing to close the CDN generation"
+    echo "::error::[r2] could not derive the affected job-canon shard inventory" >&2
     ok=0
     job_canon_inventory_ok=0
   fi
@@ -981,7 +1011,7 @@ _publish_cdn_r2() {
     _janitor_cdn_r2 "$stage" "dry-run"
     return 0
   fi
-  if ! node scripts/ci/job-canon-publish-handshake.mjs \
+  if ! node "$DEPLOY_IT_PREP_ROOT/scripts/ci/job-canon-publish-handshake.mjs" \
     --map-dir="$stage/job-canon" \
     --affected-file="$job_canon_affected_file"; then
     echo "::error::[r2] job-canon publication handshake failed — withholding completion marker"
@@ -997,7 +1027,7 @@ _publish_cdn_r2() {
        --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
     if timeout -k 10 "$_t_obj" "${RC[@]}" copyto "$_publish_marker_file" "$bkt/cdn-publish-complete-id.txt" \
          --header-upload "Content-Type: text/plain; charset=utf-8" --header-upload "Cache-Control: no-store, max-age=0"; then
-      if [ -n "${DEPLOY_BUILD_ID:-}" ] && ! node scripts/ci/cdn-build-marker-handshake.mjs \
+      if [ -n "${DEPLOY_BUILD_ID:-}" ] && ! node "$DEPLOY_IT_PREP_ROOT/scripts/ci/cdn-build-marker-handshake.mjs" \
         --build-id="$DEPLOY_BUILD_ID"; then
         echo "::error::[r2] CDN marker purge/live validation failed — withholding CDN completion"
         return 1
@@ -1231,6 +1261,454 @@ _validate_stable_shell_asset_pair() {
   fi
 }
 
+_carry_forward_pages_job_canon() { # <previous-pages-clone> <new-stage> [current-build-id]
+  local previous="$1" stage="$2" current_release_id="${3:-}" source_file relative_path destination
+  if [ -n "$current_release_id" ] && ! _is_valid_deploy_build_id "$current_release_id"; then
+    echo "::error::invalid current job-canon release id for Pages carry-forward" >&2
+    return 1
+  fi
+  [ -d "$previous/job-canon" ] || return 0
+  mkdir -p "$stage/job-canon" || {
+    echo "::error::could not create Pages job-canon compatibility namespace" >&2
+    return 1
+  }
+  # There is no age cutoff: a cached old Worker/browser can still request a
+  # fixed legacy path, and rollback can still select any earlier release id.
+  # The stage already contains this production build's release directory.
+  # Copy only missing files. BSD cp -n can return failure for a normal
+  # same-path collision, so per-file checks keep current bytes authoritative
+  # while still surfacing an actual mkdir/copy failure.
+  if ! find "$previous/job-canon" -type f -print0 | while IFS= read -r -d '' source_file; do
+    relative_path="${source_file#"$previous/job-canon/"}"
+    case "$relative_path" in
+      "releases/$current_release_id/"*) continue ;;
+    esac
+    destination="$stage/job-canon/$relative_path"
+    if [ -e "$destination" ] || [ -L "$destination" ]; then
+      continue
+    fi
+    if ! mkdir -p "$(dirname "$destination")" || ! cp -p "$source_file" "$destination"; then
+      echo "::error::could not carry forward Pages job-canon file $relative_path" >&2
+      exit 1
+    fi
+  done; then
+    echo "::error::could not carry forward the previous Pages job-canon namespace" >&2
+    return 1
+  fi
+  echo "additive CDN: carried forward prior job-canon/ compatibility paths and releases"
+}
+
+# _validate_pages_job_canon_release <release-dir> <build-id>
+# The Worker and browser 404 consumer accept v1 root shards named
+# [a-z0-9_]{2}.json and v2 shards under v2/[0-9a-f]{3}.json. The plugin emits
+# both layouts from the same current entries. Check the staged release itself
+# (after copying dist/job-canon) so a previous release carried forward from
+# Pages can never make the current build marker appear complete.
+_validate_pages_job_canon_release() {
+  local release_dir="$1" build_id="$2"
+  if [ ! -d "$release_dir" ]; then
+    echo "::error::[pages] production job-canon payload is incomplete: release directory is missing for DEPLOY_BUILD_ID=$build_id at $release_dir" >&2
+    return 1
+  fi
+  if ! node - "$release_dir" <<'NODE'
+const fs = require('node:fs');
+const path = require('node:path');
+const { createHash } = require('node:crypto');
+
+const releaseDir = process.argv[2];
+const failures = [];
+const LOCALES = ['it', 'en', 'de', 'fr'];
+const SHA256 = /^[0-9a-f]{64}$/;
+
+function fail(message) {
+  failures.push(message);
+}
+
+function isRecord(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function hasExactKeys(value, expected) {
+  return isRecord(value)
+    && Object.keys(value).length === expected.length
+    && expected.every((key) => Object.prototype.hasOwnProperty.call(value, key));
+}
+
+function assertNoDuplicateJsonKeys(source) {
+  let offset = 0;
+  const skipWhitespace = () => {
+    while (offset < source.length && /[\u0009\u000a\u000d\u0020]/.test(source[offset])) offset += 1;
+  };
+  const readString = () => {
+    const start = offset;
+    offset += 1;
+    while (offset < source.length) {
+      const character = source[offset];
+      if (character === '"') {
+        offset += 1;
+        return source.slice(start, offset);
+      }
+      if (character === '\\') offset += 1;
+      offset += 1;
+    }
+    throw new Error('unterminated JSON string');
+  };
+  const parseValue = (depth) => {
+    if (depth > 128) throw new Error('JSON nesting is too deep');
+    skipWhitespace();
+    const character = source[offset];
+    if (character === '"') {
+      readString();
+      return;
+    }
+    if (character === '{') {
+      offset += 1;
+      skipWhitespace();
+      if (source[offset] === '}') {
+        offset += 1;
+        return;
+      }
+      const keys = new Set();
+      while (offset < source.length) {
+        skipWhitespace();
+        if (source[offset] !== '"') throw new Error('object key is not a string');
+        const key = JSON.parse(readString());
+        if (keys.has(key)) throw new Error(`duplicate JSON object key ${JSON.stringify(key)}`);
+        keys.add(key);
+        skipWhitespace();
+        if (source[offset] !== ':') throw new Error('object key has no value');
+        offset += 1;
+        parseValue(depth + 1);
+        skipWhitespace();
+        if (source[offset] === '}') {
+          offset += 1;
+          return;
+        }
+        if (source[offset] !== ',') throw new Error('object member separator is invalid');
+        offset += 1;
+      }
+      throw new Error('unterminated JSON object');
+    }
+    if (character === '[') {
+      offset += 1;
+      skipWhitespace();
+      if (source[offset] === ']') {
+        offset += 1;
+        return;
+      }
+      while (offset < source.length) {
+        parseValue(depth + 1);
+        skipWhitespace();
+        if (source[offset] === ']') {
+          offset += 1;
+          return;
+        }
+        if (source[offset] !== ',') throw new Error('array item separator is invalid');
+        offset += 1;
+      }
+      throw new Error('unterminated JSON array');
+    }
+    const rest = source.slice(offset);
+    const literal = /^(?:true|false|null)/.exec(rest);
+    if (literal) {
+      offset += literal[0].length;
+      return;
+    }
+    const number = /^-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?(?:[eE][+-]?[0-9]+)?/.exec(rest);
+    if (number) {
+      offset += number[0].length;
+      return;
+    }
+    throw new Error('invalid JSON value');
+  };
+
+  parseValue(0);
+  skipWhitespace();
+  if (offset !== source.length) throw new Error('trailing JSON content');
+}
+
+function parseJsonNoDuplicates(source, label) {
+  try {
+    assertNoDuplicateJsonKeys(source);
+    return JSON.parse(source);
+  } catch (error) {
+    throw new Error(`${label} is invalid JSON: ${error instanceof Error ? error.message : String(error)}`);
+  }
+}
+
+function canonicalEntry(value, slug, label) {
+  if (!isRecord(value)) throw new Error(`${label} entry ${JSON.stringify(slug)} is not an object`);
+  const allowedKeys = new Set([...LOCALES, 'alias']);
+  for (const key of Object.keys(value)) {
+    if (!allowedKeys.has(key)) throw new Error(`${label} entry ${JSON.stringify(slug)} has an unknown field`);
+  }
+  const result = {};
+  let fieldCount = 0;
+  for (const locale of LOCALES) {
+    if (!Object.prototype.hasOwnProperty.call(value, locale)) continue;
+    if (typeof value[locale] !== 'string' || value[locale].length === 0) {
+      throw new Error(`${label} entry ${JSON.stringify(slug)} has an invalid ${locale} target`);
+    }
+    result[locale] = value[locale];
+    fieldCount += 1;
+  }
+  if (Object.prototype.hasOwnProperty.call(value, 'alias')) {
+    if (!isRecord(value.alias) || Object.keys(value.alias).length === 0) {
+      throw new Error(`${label} entry ${JSON.stringify(slug)} has an empty or invalid alias object`);
+    }
+    const aliases = {};
+    for (const locale of Object.keys(value.alias)) {
+      if (!LOCALES.includes(locale)) throw new Error(`${label} entry ${JSON.stringify(slug)} has an unknown alias locale`);
+    }
+    for (const locale of LOCALES) {
+      if (!Object.prototype.hasOwnProperty.call(value.alias, locale)) continue;
+      if (typeof value.alias[locale] !== 'string' || value.alias[locale].length === 0) {
+        throw new Error(`${label} entry ${JSON.stringify(slug)} has an invalid ${locale} alias target`);
+      }
+      aliases[locale] = value.alias[locale];
+    }
+    result.alias = aliases;
+    fieldCount += 1;
+  }
+  if (fieldCount === 0) throw new Error(`${label} entry ${JSON.stringify(slug)} has no locale targets`);
+  return result;
+}
+
+function hashCanonicalEntry(hash, slug, entry) {
+  hash.update(JSON.stringify(slug));
+  hash.update(':');
+  hash.update(JSON.stringify(entry));
+  hash.update('\n');
+}
+
+function aliasCount(entry) {
+  return entry.alias ? Object.keys(entry.alias).length : 0;
+}
+
+function v1ShardKey(slug) {
+  const value = slug.slice(0, 2).toLowerCase().replace(/[^a-z0-9]/g, '_');
+  return value.length === 2 ? value : (value + '__').slice(0, 2);
+}
+
+function v2ShardKey(slug) {
+  let hash = 5381;
+  for (let index = 0; index < slug.length; index += 1) hash = ((hash * 33) ^ slug.charCodeAt(index)) >>> 0;
+  return (hash % 4096).toString(16).padStart(3, '0');
+}
+
+function validateFileManifest(files, pattern, label) {
+  if (!isRecord(files) || Object.keys(files).length === 0) {
+    fail(`manifest ${label}.files is missing or empty`);
+    return false;
+  }
+  for (const [filename, spec] of Object.entries(files)) {
+    if (!pattern.test(filename)) fail(`manifest ${label}.files contains an invalid filename`);
+    if (!hasExactKeys(spec, ['bytes', 'sha256', 'entries', 'aliases', 'canonicalEntriesSha256'])) {
+      fail(`manifest ${label}.files entry ${filename} has missing or unknown fields`);
+      continue;
+    }
+    if (!Number.isSafeInteger(spec.bytes) || spec.bytes <= 0) fail(`manifest ${label}.files entry ${filename} has an invalid byte count`);
+    if (!Number.isSafeInteger(spec.entries) || spec.entries <= 0) fail(`manifest ${label}.files entry ${filename} has an invalid entry count`);
+    if (!Number.isSafeInteger(spec.aliases) || spec.aliases < 0) fail(`manifest ${label}.files entry ${filename} has an invalid alias count`);
+    if (!SHA256.test(spec.sha256)) fail(`manifest ${label}.files entry ${filename} has an invalid raw SHA-256`);
+    if (!SHA256.test(spec.canonicalEntriesSha256)) fail(`manifest ${label}.files entry ${filename} has an invalid canonical SHA-256`);
+  }
+  return true;
+}
+
+function readDeclaredMap(directory, filename, spec, label) {
+  const filePath = path.join(directory, filename);
+  let raw;
+  try {
+    raw = fs.readFileSync(filePath);
+  } catch {
+    fail(`${label} map ${filename} is missing or unreadable`);
+    return null;
+  }
+  if (raw.length === 0) fail(`${label} map ${filename} is empty`);
+  if (raw.length !== spec.bytes) fail(`${label} map ${filename} byte count does not match manifest`);
+  if (createHash('sha256').update(raw).digest('hex') !== spec.sha256) fail(`${label} map ${filename} raw SHA-256 does not match manifest`);
+  const contents = raw.toString('utf8');
+  if (!Buffer.from(contents, 'utf8').equals(raw)) fail(`${label} map ${filename} is not valid UTF-8`);
+  let map;
+  try {
+    map = parseJsonNoDuplicates(contents, `${label} map ${filename}`);
+  } catch (error) {
+    fail(error instanceof Error ? error.message : String(error));
+    return null;
+  }
+  if (!isRecord(map)) {
+    fail(`${label} map ${filename} is not a Worker-consumable object`);
+    return null;
+  }
+  if (Object.keys(map).length === 0) fail(`${label} map ${filename} has no entries`);
+  return map;
+}
+
+function reportFailures() {
+  if (failures.length > 0) {
+    console.error(`[pages] production job-canon payload is incomplete: ${failures.join('; ')}`);
+    process.exitCode = 1;
+  }
+}
+
+let manifest;
+try {
+  const manifestPath = path.join(releaseDir, 'manifest.json');
+  const stat = fs.lstatSync(manifestPath);
+  if (!stat.isFile()) throw new Error('manifest.json is not a regular file');
+  const contents = fs.readFileSync(manifestPath, 'utf8');
+  if (contents.trim().length === 0) throw new Error('manifest.json is empty');
+  manifest = parseJsonNoDuplicates(contents, 'manifest.json');
+} catch (error) {
+  fail(`manifest.json is missing, malformed, or unreadable: ${error instanceof Error ? error.message : String(error)}`);
+}
+
+if (!manifest || !isRecord(manifest)) {
+  fail('manifest.json is not an object');
+  reportFailures();
+  process.exit(1);
+}
+if (!hasExactKeys(manifest, ['schemaVersion', 'logical', 'v1', 'v2'])) fail('manifest has missing or unknown top-level fields');
+if (manifest.schemaVersion !== 1) fail('manifest schemaVersion is unknown');
+if (!hasExactKeys(manifest.logical, ['entries', 'aliases', 'canonicalEntriesSha256'])) fail('manifest logical section has missing or unknown fields');
+if (!hasExactKeys(manifest.v1, ['files'])) fail('manifest v1 section has missing or unknown fields');
+if (!hasExactKeys(manifest.v2, ['files'])) fail('manifest v2 section has missing or unknown fields');
+if (!Number.isSafeInteger(manifest.logical?.entries) || manifest.logical.entries <= 0) fail('manifest logical.entries is invalid');
+if (!Number.isSafeInteger(manifest.logical?.aliases) || manifest.logical.aliases < 0) fail('manifest logical.aliases is invalid');
+if (!SHA256.test(manifest.logical?.canonicalEntriesSha256 ?? '')) fail('manifest logical canonical SHA-256 is invalid');
+
+const v1Files = manifest.v1?.files;
+const v2Files = manifest.v2?.files;
+validateFileManifest(v1Files, /^[a-z0-9_]{2}\.json$/, 'v1');
+validateFileManifest(v2Files, /^[0-9a-f]{3}\.json$/, 'v2');
+if (failures.length > 0) {
+  reportFailures();
+  process.exit(1);
+}
+
+const v1Names = Object.keys(v1Files).sort();
+const v2Names = Object.keys(v2Files).sort();
+try {
+  const rootEntries = fs.readdirSync(releaseDir, { withFileTypes: true });
+  const expectedRootNames = new Set(['manifest.json', 'v2', ...v1Names]);
+  for (const entry of rootEntries) {
+    if (!expectedRootNames.has(entry.name)) fail(`unexpected job-canon root payload ${entry.name}`);
+    if (entry.name === 'manifest.json' && !entry.isFile()) fail('manifest.json is not a regular file');
+    if (entry.name === 'v2' && !entry.isDirectory()) fail('v2 payload is not a directory');
+    if (v1Names.includes(entry.name) && !entry.isFile()) fail(`v1 map ${entry.name} is not a regular file`);
+  }
+  for (const name of expectedRootNames) {
+    if (!rootEntries.some((entry) => entry.name === name)) fail(`declared job-canon root payload ${name} is missing`);
+  }
+  const v2Entries = fs.readdirSync(path.join(releaseDir, 'v2'), { withFileTypes: true });
+  const expectedV2Names = new Set(v2Names);
+  for (const entry of v2Entries) {
+    if (!expectedV2Names.has(entry.name)) fail(`unexpected v2 payload ${entry.name}`);
+    if (expectedV2Names.has(entry.name) && !entry.isFile()) fail(`v2 map ${entry.name} is not a regular file`);
+  }
+  for (const name of expectedV2Names) {
+    if (!v2Entries.some((entry) => entry.name === name)) fail(`declared v2 map ${name} is missing`);
+  }
+} catch (error) {
+  fail(`job-canon payload directory is missing or unreadable: ${error instanceof Error ? error.message : String(error)}`);
+}
+
+const v1BySlug = new Map();
+for (const filename of v1Names) {
+  const spec = v1Files[filename];
+  const map = readDeclaredMap(releaseDir, filename, spec, 'v1');
+  if (!map) continue;
+  const slugs = Object.keys(map).sort();
+  const canonicalDigest = createHash('sha256');
+  let aliases = 0;
+  for (const slug of slugs) {
+    if (!slug) {
+      fail(`v1 map ${filename} contains an empty slug`);
+      continue;
+    }
+    if (`${v1ShardKey(slug)}.json` !== filename) fail(`v1 slug ${JSON.stringify(slug)} is in the wrong shard`);
+    let entry;
+    try {
+      entry = canonicalEntry(map[slug], slug, `v1 map ${filename}`);
+    } catch (error) {
+      fail(error instanceof Error ? error.message : String(error));
+      continue;
+    }
+    aliases += aliasCount(entry);
+    hashCanonicalEntry(canonicalDigest, slug, entry);
+    if (v1BySlug.has(slug)) fail(`v1 slug ${JSON.stringify(slug)} is duplicated across shards`);
+    else v1BySlug.set(slug, JSON.stringify(entry));
+  }
+  if (slugs.length !== spec.entries) fail(`v1 map ${filename} entry count does not match manifest`);
+  if (aliases !== spec.aliases) fail(`v1 map ${filename} alias count does not match manifest`);
+  if (canonicalDigest.digest('hex') !== spec.canonicalEntriesSha256) fail(`v1 map ${filename} canonical digest does not match manifest`);
+}
+
+const logicalDigest = createHash('sha256');
+const seenV2 = new Set();
+let logicalEntries = 0;
+let logicalAliases = 0;
+for (const filename of v2Names) {
+  const spec = v2Files[filename];
+  const map = readDeclaredMap(path.join(releaseDir, 'v2'), filename, spec, 'v2');
+  if (!map) continue;
+  const slugs = Object.keys(map).sort();
+  const canonicalDigest = createHash('sha256');
+  let aliases = 0;
+  for (const slug of slugs) {
+    if (!slug) {
+      fail(`v2 map ${filename} contains an empty slug`);
+      continue;
+    }
+    if (`${v2ShardKey(slug)}.json` !== filename) fail(`v2 slug ${JSON.stringify(slug)} is in the wrong shard`);
+    let entry;
+    try {
+      entry = canonicalEntry(map[slug], slug, `v2 map ${filename}`);
+    } catch (error) {
+      fail(error instanceof Error ? error.message : String(error));
+      continue;
+    }
+    if (seenV2.has(slug)) fail(`v2 slug ${JSON.stringify(slug)} is duplicated across shards`);
+    seenV2.add(slug);
+    const serializedEntry = JSON.stringify(entry);
+    const v1Entry = v1BySlug.get(slug);
+    if (v1Entry === undefined) fail(`v2 slug ${JSON.stringify(slug)} is absent from v1`);
+    else if (v1Entry !== serializedEntry) fail(`v1/v2 entry mismatch for slug ${JSON.stringify(slug)}`);
+    else v1BySlug.delete(slug);
+    aliases += aliasCount(entry);
+    logicalAliases += aliasCount(entry);
+    logicalEntries += 1;
+    hashCanonicalEntry(canonicalDigest, slug, entry);
+    hashCanonicalEntry(logicalDigest, slug, entry);
+  }
+  if (slugs.length !== spec.entries) fail(`v2 map ${filename} entry count does not match manifest`);
+  if (aliases !== spec.aliases) fail(`v2 map ${filename} alias count does not match manifest`);
+  if (canonicalDigest.digest('hex') !== spec.canonicalEntriesSha256) fail(`v2 map ${filename} canonical digest does not match manifest`);
+}
+if (v1BySlug.size > 0) fail(`v1 contains ${v1BySlug.size} slug(s) missing from v2`);
+if (logicalEntries !== manifest.logical.entries) fail('manifest logical entry count does not match v2');
+if (logicalAliases !== manifest.logical.aliases) fail('manifest logical alias count does not match v2');
+if (logicalDigest.digest('hex') !== manifest.logical.canonicalEntriesSha256) fail('manifest logical digest does not match v2');
+
+if (failures.length > 0) {
+  reportFailures();
+} else {
+  console.log(`[pages] validated current job-canon release: v1=${v1Names.length}, v2=${v2Names.length}, entries=${logicalEntries}, aliases=${logicalAliases}`);
+}
+NODE
+  then
+    echo "::error::[pages] refusing to publish DEPLOY_BUILD_ID=$build_id without usable current job-canon maps" >&2
+    return 1
+  fi
+}
+
+_pages_build_publish_acknowledged() {
+  [ -n "${DEPLOY_BUILD_ID:-}" ] || return 0
+  [ "${CDN_TARGET:-pages}" = "r2" ] && return 0
+  [ "${CDN_PAGES_BUILD_ID:-}" = "$DEPLOY_BUILD_ID" ]
+}
+
 step_push_cdn() {
   set -uo pipefail
   # CDN_TARGET selects the publish path; default 'pages' keeps the legacy
@@ -1239,6 +1717,9 @@ step_push_cdn() {
   # CDN_DEPLOY_KEY.
   local cdn_target="${CDN_TARGET:-pages}"
   local stage="${CDN_STAGE_DIR:-${RUNNER_TEMP}/cdn-stage}"
+  if [ -n "${DEPLOY_BUILD_ID:-}" ] && [ "$cdn_target" != "r2" ]; then
+    unset CDN_PAGES_BUILD_ID
+  fi
   local job_canon_affected_file="${RUNNER_TEMP}/job-canon-affected.txt"
   rm -f "${RUNNER_TEMP}/job-canon-publish.ok" "$job_canon_affected_file"
   # Same leaked-staging-dir class fixed for push-locale-shard.sh /
@@ -1351,12 +1832,10 @@ step_push_cdn() {
   # ordinary developer path. The missing-credential return above stays first so
   # the legacy Pages diagnostic remains compatible when no publish can occur.
   if [ -n "${DEPLOY_BUILD_ID:-}" ]; then
-    case "$DEPLOY_BUILD_ID" in
-      ''|*[!0-9]*)
-        echo "::error::DEPLOY_BUILD_ID must contain digits only for a production CDN release" >&2
-        return 1
-        ;;
-    esac
+    if ! _is_valid_deploy_build_id "$DEPLOY_BUILD_ID"; then
+      echo "::error::DEPLOY_BUILD_ID must contain 1–20 digits for a production CDN release" >&2
+      return 1
+    fi
     local versioned_release_entry="$stage/assets/releases/$DEPLOY_BUILD_ID/index-entry.js"
     if [ ! -s "$versioned_release_entry" ] || ! grep -q 'FRONTALIERE_VERSIONED_CDN_BOOTSTRAP' "$stage/assets/index-entry.js"; then
       echo "::error::CDN asset stage is missing the build-scoped executable release for DEPLOY_BUILD_ID=$DEPLOY_BUILD_ID" >&2
@@ -1364,11 +1843,25 @@ step_push_cdn() {
       return 1
     fi
   fi
-  # Canton-drift 404-recovery shard map (jobCanonRedirectMapPlugin, ~29 MB /
-  # 400 shards): runtime-fetch only (public/404.html + the Worker), no static
-  # HTML ref to rewrite, so the offload script just deletes dist/job-canon
-  # once this push succeeds (see its job-canon phase).
-  [ -d dist/job-canon ]    && cp -r dist/job-canon    "$stage/job-canon"
+  # Canton-drift 404-recovery maps are runtime-fetch only (public/404.html +
+  # the Worker). Production keys include the validated build id in the
+  # pathname; the legacy fixed keys remain only for local invocations without
+  # DEPLOY_BUILD_ID. The CDN build marker is staged later, after this payload.
+  if [ -d dist/job-canon ]; then
+    if [ -n "${DEPLOY_BUILD_ID:-}" ]; then
+      local job_canon_release_stage="$stage/job-canon/releases/$DEPLOY_BUILD_ID"
+      mkdir -p "$job_canon_release_stage"
+      cp -r dist/job-canon/. "$job_canon_release_stage/" || {
+        echo "::error::could not stage build-scoped job-canon maps for DEPLOY_BUILD_ID=$DEPLOY_BUILD_ID" >&2
+        return 1
+      }
+    else
+      cp -r dist/job-canon "$stage/job-canon" || {
+        echo "::error::could not stage legacy job-canon maps" >&2
+        return 1
+      }
+    fi
+  fi
   [ -d public/images/blog ] && mkdir -p "$stage/images" && cp -r public/images/blog "$stage/images/blog"
   # Self-hosted brand/logo/author images (#1360): push from the git-tracked
   # public/images/<dir> source to ${CDN}/images/<dir>, so the offload script
@@ -1429,30 +1922,33 @@ step_push_cdn() {
   fi
   printf '<!doctype html><meta charset=utf-8><title>frontaliereticino.ch CDN</title>frontaliereticino.ch asset CDN' > "$stage/index.html"
 
-  # ── Publish: r2 (instant) | both (dual-publish for cutover) | pages (legacy) ─
-  # 'both' writes R2 AND Pages so the live domain (still → Pages until the R2
-  # custom-domain flip) keeps serving while R2 is populated+validated in
-  # parallel — zero-downtime cutover. 'r2' is R2-only (post-flip). 'pages'
-  # (default) is the legacy git force-push, byte-identical to before.
-  if [ "$cdn_target" = "r2" ] || [ "$cdn_target" = "both" ]; then
+  # ── Publish: r2 (instant) | both (Pages, then R2) | pages (legacy) ─
+  # 'r2' is R2-only (post-flip). 'pages' (default) is the legacy git
+  # force-push, byte-identical to before. 'both' publishes Pages first and
+  # only advances R2 after Pages acknowledges the same production build.
+  if [ "$cdn_target" = "r2" ]; then
     if ! _publish_cdn_r2 "$stage" "$r2_og_changed_files" "$r2_og_candidate" "$job_canon_affected_file" \
       || [ -z "${CDN_BASE:-}" ]; then
       echo "::error::CDN R2 publish did not close the job-canon handshake"
       cd "$PREP_CWD"
       return 1
     fi
-    if [ "$cdn_target" = "r2" ]; then
-      printf '%s\n' "${DEPLOY_BUILD_ID:-local}" > "${RUNNER_TEMP}/job-canon-publish.ok"
-      cd "$PREP_CWD"
-      return 0
-    fi
-    # 'both': fall through to ALSO publish to Pages (live domain unchanged).
+    printf '%s\n' "${DEPLOY_BUILD_ID:-local}" > "${RUNNER_TEMP}/job-canon-publish.ok"
+    cd "$PREP_CWD"
+    return 0
   fi
   # Legacy Pages path below (CDN_TARGET=pages or both).
   if [ -z "${CDN_DEPLOY_KEY:-}" ]; then
     echo "no CDN_DEPLOY_KEY secret — skipping CDN push, assets stay in dist"
     cd "${PREP_CWD:-$PWD}"
     return 0
+  fi
+  local pages_production_release=0
+  [ -n "${DEPLOY_BUILD_ID:-}" ] && pages_production_release=1
+  if [ "$pages_production_release" = 1 ] \
+    && ! _validate_pages_job_canon_release "$stage/job-canon/releases/$DEPLOY_BUILD_ID" "$DEPLOY_BUILD_ID"; then
+    cd "${PREP_CWD:-$PWD}"
+    return 1
   fi
   keyfile="$RUNNER_TEMP/cdn_deploy_key"
   printf '%s\n' "$CDN_DEPLOY_KEY" > "$keyfile" && chmod 600 "$keyfile"
@@ -1470,46 +1966,50 @@ step_push_cdn() {
   # JS → SPA dead (prod outage 2026-06-04). og/data/images are refreshed from
   # the current build above (overwrite is correct for them).
   # prune-cdn-assets.mjs GCs the carried-forward legacy hashes post-grace.
-  # Sparse + blob:none keeps the clone to the small assets/ tree only.
+  # Sparse + blob:none keeps the clone small; production also checks out the
+  # complete job-canon/ namespace because rollback and older consumers need it.
   local prev=""
-  if [ -d "$stage/job-canon" ] && [ -n "${DEPLOY_BUILD_ID:-}" ]; then
+  if [ -d "$stage/assets" ] || [ "$pages_production_release" = 1 ]; then
     prev="$RUNNER_TEMP/cdn-prev"
     rm -rf "$prev"
-    if ! git clone --depth 1 --filter=blob:none --sparse \
-         git@github.com:valerielinc-ops/frontaliere-cdn.git "$prev" 2>/dev/null; then
-      echo "::error::cannot inventory the previous CDN job-canon tree — refusing to publish bridge-removed Pages"
-      cd "$PREP_CWD"
+    if git clone --depth 1 --filter=blob:none --sparse \
+      git@github.com:valerielinc-ops/frontaliere-cdn.git "$prev" 2>/dev/null; then
+      if [ "$pages_production_release" = 1 ]; then
+        if ! git -C "$prev" sparse-checkout set assets job-canon 2>/dev/null; then
+          echo "::error::could not load the previous Pages job-canon namespace required for production compatibility" >&2
+          rm -rf "$prev"
+          return 1
+        fi
+      else
+        git -C "$prev" sparse-checkout set assets 2>/dev/null || true
+      fi
+    else
+      if [ "$pages_production_release" = 1 ]; then
+        echo "::error::could not clone previous Pages target; refusing production publish without job-canon compatibility carry-forward" >&2
+        rm -rf "$prev"
+        return 1
+      fi
+      prev=""
+      echo "additive CDN: no prior CDN clone (first push / transient) — proceeding with new assets only"
+    fi
+  fi
+  if [ -n "$prev" ] && [ -d "$prev/assets" ] && [ -d "$stage/assets" ]; then
+    cp -rn "$prev/assets/." "$stage/assets/" 2>/dev/null || true
+    echo "additive CDN: carried forward prior assets/ (now $(ls -1 "$stage/assets" | wc -l) files)"
+  fi
+  if [ "$pages_production_release" = 1 ]; then
+    if ! _carry_forward_pages_job_canon "$prev" "$stage" "$DEPLOY_BUILD_ID"; then
+      rm -rf "$prev"
       return 1
     fi
-    if ! git -C "$prev" sparse-checkout set assets job-canon 2>/dev/null; then
-      echo "::error::cannot materialize the previous CDN job-canon tree — refusing to publish bridge-removed Pages"
-      cd "$PREP_CWD"
-      return 1
-    fi
-    if ! node scripts/ci/job-canon-affected-files.mjs \
+    if ! node "$DEPLOY_IT_PREP_ROOT/scripts/ci/job-canon-affected-files.mjs" \
       --current-dir="$stage/job-canon" \
       --previous-dir="$prev/job-canon" \
       --output="$job_canon_affected_file"; then
       echo "::error::could not derive the affected Pages job-canon shard inventory"
+      rm -rf "$prev"
       cd "$PREP_CWD"
       return 1
-    fi
-  fi
-  if [ -d "$stage/assets" ]; then
-    if [ -z "$prev" ]; then
-      prev="$RUNNER_TEMP/cdn-prev"
-      rm -rf "$prev"
-      git clone --depth 1 --filter=blob:none --sparse \
-        git@github.com:valerielinc-ops/frontaliere-cdn.git "$prev" 2>/dev/null || true
-    fi
-    if [ -d "$prev/.git" ]; then
-      git -C "$prev" sparse-checkout set assets job-canon 2>/dev/null || true
-      if [ -d "$prev/assets" ]; then
-        cp -rn "$prev/assets/." "$stage/assets/" 2>/dev/null || true
-        echo "additive CDN: carried forward prior assets/ (now $(ls -1 "$stage/assets" | wc -l) files)"
-      fi
-    else
-      echo "additive CDN: no prior CDN clone (first push / transient) — proceeding with new assets only"
     fi
   fi
   [ -n "$prev" ] && rm -rf "$prev"
@@ -1553,7 +2053,7 @@ step_push_cdn() {
     _push_ok=1
   fi
   if [ "$_push_ok" = 1 ] && [ -n "${DEPLOY_BUILD_ID:-}" ]; then
-    if ! node scripts/ci/job-canon-publish-handshake.mjs \
+    if ! node "$DEPLOY_IT_PREP_ROOT/scripts/ci/job-canon-publish-handshake.mjs" \
       --map-dir="$stage/job-canon" \
       --affected-file="$job_canon_affected_file"; then
       echo "::error::Pages job-canon publication handshake failed — leaving the previous Pages artifact live"
@@ -1568,7 +2068,7 @@ step_push_cdn() {
     if shard_push_with_retry "$stage" "git@github.com:valerielinc-ops/frontaliere-cdn.git" main "CDN marker"; then
       _push_ok=1
     fi
-    if [ "$_push_ok" = 1 ] && ! node scripts/ci/cdn-build-marker-handshake.mjs \
+    if [ "$_push_ok" = 1 ] && ! node "$DEPLOY_IT_PREP_ROOT/scripts/ci/cdn-build-marker-handshake.mjs" \
       --build-id="$DEPLOY_BUILD_ID"; then
       echo "::error::Pages CDN marker purge/live validation failed — withholding CDN completion"
       _push_ok=0
@@ -1577,7 +2077,13 @@ step_push_cdn() {
   if [ "$_push_ok" = 1 ]; then
     export_env CDN_BASE "https://cdn.frontaliereticino.ch"
     printf '%s\n' "${DEPLOY_BUILD_ID:-local}" > "${RUNNER_TEMP}/job-canon-publish.ok"
-    echo "✅ pushed assets to frontaliere-cdn with a closed job-canon handshake"
+    if [ "$pages_production_release" = 1 ]; then
+      # Keep a Pages-specific acknowledgement in this publisher invocation so
+      # a successful R2 half of CDN_TARGET=both cannot certify a failed Pages
+      # marker/map publication.
+      export CDN_PAGES_BUILD_ID="$DEPLOY_BUILD_ID"
+    fi
+    echo "✅ pushed assets to frontaliere-cdn"
   else
     echo "⚠️ CDN push failed after 3 attempts — offload skipped, og/data stay in dist"
   fi
@@ -1585,6 +2091,14 @@ step_push_cdn() {
   # Return to the prep cwd (the IT shard dist root) for the steps that follow,
   # since the monolith ran each YAML step from the workspace root regardless.
   cd "$PREP_CWD"
+  if [ "$cdn_target" = "both" ] \
+    && [ "$_push_ok" = 1 ] \
+    && _pages_build_publish_acknowledged; then
+    # Pages can serve this build while R2 stays last-known-good if its publish
+    # fails; the Pages acknowledgement never stands in for the R2 marker.
+    _publish_cdn_r2 "$stage" "$r2_og_changed_files" "$r2_og_candidate"
+    cd "$PREP_CWD"
+  fi
 }
 
 # ── 3. Offload og refs + data base into dist ──────────────────────────────────
@@ -1843,6 +2357,10 @@ main() {
   # original order, from the normal (unflagged) invocation below.
   if [ "${DEPLOY_CDN_PUSH_ONLY:-}" = "1" ]; then
     run_nonfatal "Push generated assets to CDN repo (early phase)" step_push_cdn
+    if ! _pages_build_publish_acknowledged; then
+      echo "::error::[deploy-it-pages-prep] Pages CDN publish for build ${DEPLOY_BUILD_ID} was not acknowledged with the current job-canon payload and marker — failing the IT leg"
+      return 1
+    fi
     if [ -n "${CDN_BASE:-}" ]; then
       echo "✅ early CDN push complete — CDN_BASE exported, the full prep will skip its own push"
     else
@@ -1859,9 +2377,11 @@ main() {
   # Skipped iff the early phase above already published THIS build's payload
   # (it exported CDN_BASE into $GITHUB_ENV, which GitHub injects into this
   # step's env). Unset → push here, i.e. the pre-hoist behaviour verbatim.
+  local cdn_push_attempted=0
   if [ -n "${CDN_BASE:-}" ]; then
     echo "CDN_BASE=$CDN_BASE already set by the early CDN push phase — skipping the CDN push (payload for this build is live)"
   else
+    cdn_push_attempted=1
     run_nonfatal "Push generated assets to CDN repo" step_push_cdn   # non-fatal
   fi
   # A matrix build carries a shared id because the non-IT shards must wait for
@@ -1872,6 +2392,10 @@ main() {
   # observer can then stop its wait early while keeping the shard unpublished.
   if [ -n "${DEPLOY_BUILD_ID:-}" ] && [ -z "${CDN_BASE:-}" ]; then
     echo "::error::[deploy-it-pages-prep] CDN publish for build ${DEPLOY_BUILD_ID} was not acknowledged (CDN_BASE unset) — failing the IT leg so non-IT shards do not spend the full #2569 wait"
+    return 1
+  fi
+  if [ "$cdn_push_attempted" = 1 ] && ! _pages_build_publish_acknowledged; then
+    echo "::error::[deploy-it-pages-prep] Pages CDN publish for build ${DEPLOY_BUILD_ID} was not acknowledged with the current job-canon payload and marker — failing the IT leg"
     return 1
   fi
   run_nonfatal "Offload og refs + data base into dist" step_offload  # non-fatal

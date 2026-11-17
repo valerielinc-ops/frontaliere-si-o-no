@@ -272,7 +272,7 @@ export const JobCvFitMatcher: React.FC<JobCvFitMatcherProps> = ({
   return (
     <section
       data-testid="job-cv-fit-matcher"
-      className={`space-y-4 rounded-md border border-edge bg-surface p-4 sm:p-5 ${className}`}
+      className={`space-y-4 rounded-xl border border-edge bg-surface p-4 sm:p-5 ${className}`}
       aria-label={t('jobBoard.affinity.ariaLabel')}
     >
       <header className="flex flex-wrap items-start justify-between gap-3 border-b border-edge/60 pb-3">
@@ -311,18 +311,21 @@ export const JobCvFitMatcher: React.FC<JobCvFitMatcherProps> = ({
       </p>
 
       <div role="status" aria-live="polite" className="space-y-2">
-        <p className="text-sm leading-relaxed text-body">
-          {score !== null ? (
-            <>
-              <strong className="font-semibold tabular-nums text-heading">{score}%</strong>
-              {' · '}
+        {score !== null ? (
+          <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+            <span className="font-display text-2xl font-semibold leading-none tabular-nums text-heading sm:text-3xl">
+              {score}%
+            </span>
+            <p className="text-sm leading-relaxed text-body">
               {t('jobBoard.affinity.coverageCount', {
                 matched: matchResult.matchedSkills.length,
                 total: matchResult.jobSkills.length,
               })}
-            </>
-          ) : statusCopy[matchResult.status]}
-        </p>
+            </p>
+          </div>
+        ) : (
+          <p className="text-sm leading-relaxed text-body">{statusCopy[matchResult.status]}</p>
+        )}
         {score !== null && (
           <div
             role="progressbar"

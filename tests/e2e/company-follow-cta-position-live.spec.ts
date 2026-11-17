@@ -1,6 +1,12 @@
 import { test, expect, type Page } from 'playwright/test';
 import { listActiveJobDetailPaths, resolveActiveJobDetailPath } from './lib/live-jobs';
 import { getLiveWithRetry, liveRequestTimeoutMs } from './lib/live-request';
+import {
+  firstPageErrorFrameUrl,
+  ownHostOf,
+  splitPageErrors,
+  type CapturedPageError,
+} from './lib/page-errors';
 import { JOB_DESCRIPTION_PREVIEW_LENGTH } from '../../services/jobs/descriptionPreview';
 
 /**
@@ -149,9 +155,9 @@ async function probeSettle(page: Page): Promise<void> {
 // fires while surface renders" guarantee (file header, point 3) even though
 // `navigateToSurface` may run several times against different candidates
 // before the one that gets asserted.
-function collectPageErrors(page: Page): string[] {
-  const pageErrors: string[] = [];
-  page.on('pageerror', (err) => pageErrors.push(err.message));
+function collectPageErrors(page: Page): CapturedPageError[] {
+  const pageErrors: CapturedPageError[] = [];
+  page.on('pageerror', (err) => pageErrors.push({ name: err.name, message: err.message, stack: err.stack || '' }));
   return pageErrors;
 }
 
@@ -160,7 +166,7 @@ async function navigateToSurface(page: Page, path: string): Promise<void> {
   await page.locator('main').first().waitFor({ state: 'attached', timeout: 30_000 });
 }
 
-async function assertSurfaceLayout(page: Page, label: string, pageErrors: string[]): Promise<void> {
+async function assertSurfaceLayout(page: Page, label: string, pageErrors: CapturedPageError[]): Promise<void> {
   for (const viewport of VIEWPORTS) {
     await page.setViewportSize({ width: viewport.width, height: viewport.height });
     await page.waitForTimeout(300);
@@ -182,7 +188,14 @@ async function assertSurfaceLayout(page: Page, label: string, pageErrors: string
     expect(violations, `${label} @ ${viewport.label}: fixed widgets overlapping >8px on both axes: ${JSON.stringify(violations)}`).toHaveLength(0);
   }
 
-  expect(pageErrors, `${label}: uncaught JS errors: ${JSON.stringify(pageErrors)}`).toHaveLength(0);
+  const { own, thirdParty } = splitPageErrors(pageErrors, ownHostOf(LIVE_BASE_URL));
+  for (const error of thirdParty) {
+    const description = `${error.name}: ${error.message} @ ${firstPageErrorFrameUrl(error.stack) ?? '(frame URL unavailable)'}`;
+    test.info().annotations.push({ type: 'third-party-pageerror', description });
+    console.warn(description);
+  }
+  const ownMessages = own.map((error) => error.message);
+  expect(ownMessages, `${label}: uncaught JS errors: ${JSON.stringify(ownMessages)}`).toHaveLength(0);
 }
 
 async function assertSurface(page: Page, path: string, label: string): Promise<void> {
