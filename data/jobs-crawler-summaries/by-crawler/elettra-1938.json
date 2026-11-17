@@ -1,7 +1,7 @@
 {
   "key": "elettra-1938",
   "label": "Elettra 1938",
-  "generatedAt": "2026-11-17T09:44:13.862Z",
+  "generatedAt": "2026-11-17T21:33:05.588Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -13,16 +13,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6483,
-  "avgDurationMs": 6483,
+  "durationMs": 43446,
+  "avgDurationMs": 43446,
   "durationHistory": [
-    6483
+    43446
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "elettra-1938-b734b498aa38",
       "slug": "hw-engineer-elettra-1938-ch",
@@ -35,7 +36,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/hw-engineer-740162/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-11-17T09:44:02.367Z",
+      "crawledAt": "2026-11-17T21:32:02.331Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -52,26 +53,24 @@
       "postedDate": "2026-11-17",
       "postingDateSource": "reported",
       "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/hw-engineer-740162/it/",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-11-17T09:44:02.367Z",
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
       "streetAddress": "Sede Stabio Svizzera",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T09:44:02.367Z",
+      "validThrough": "2027-02-15T21:32:02.331Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:44:02.367Z",
-      "_qualityScore": 91,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "0a26498058b0569b9b8027a7e9a03db3e2542c6a"
+  "codeCommit": "8a8594aa5e6a6b71cb0a2a3883a7ded1be40621c"
 }
