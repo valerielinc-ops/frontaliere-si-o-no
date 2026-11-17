@@ -57,7 +57,7 @@ describe('cathedral Phase 8b — previousSlugs bridges canton-aware', () => {
     // bridge generator (the `for (const job of validJobs) { ... }` loop that
     // emits bridge HTML to dist/<canton-section>/<oldSlug>/index.html) lives
     // between this anchor and the next major section header.
-    const bridgeAnchor = '/* ── Full-content pages for previousSlugs of active jobs';
+    const bridgeAnchor = '/* ── Retained full-content pages for previousSlugs';
     const anchorIdx = src.indexOf(bridgeAnchor);
     expect(anchorIdx, `bridge anchor comment missing in jobsSeoPagesPlugin.ts`).toBeGreaterThan(0);
     // End the region at the next ── header (next phase of closeBundle), e.g.

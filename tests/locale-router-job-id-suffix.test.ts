@@ -11,6 +11,7 @@ afterEach(() => { vi.restoreAllMocks(); vi.unstubAllGlobals(); });
 function mockFetch(prefix: string | null, { targetStatus = 200, expectedOrigin = '' } = {}) {
   return vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL, _init?: RequestInit) => {
     const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
+    if (url.pathname === '/cdn-build-id.txt') return new Response('1001');
     if (url.pathname.includes('/job-canon/')) return Response.json(prefix ? { 'known-job': { it: prefix, en: prefix, de: prefix, fr: prefix } } : {});
     if (prefix && url.pathname === `${prefix}/known-job/` && (!expectedOrigin || url.hostname === expectedOrigin)) {
       return new Response('job', { status: targetStatus });
@@ -78,6 +79,7 @@ describe.each(['GET', 'HEAD'])('registry-confirmed vacancy aliases with a source
   it.each(['network', 'bad-json', 'bad-schema', 'server'])('does not report absence after a %s job-canon failure', async (mode) => {
     vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
       const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
+      if (url.pathname === '/cdn-build-id.txt') return new Response('1001');
       if (url.pathname.includes('/job-canon/')) {
         if (mode === 'network') throw new TypeError('Network unavailable');
         if (mode === 'bad-json') return new Response('{');
@@ -95,6 +97,7 @@ describe.each(['GET', 'HEAD'])('registry-confirmed vacancy aliases with a source
     let unavailableLayoutProbes = 0;
     vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
       const url = new URL(typeof input === 'string' ? input : input instanceof URL ? input.href : input.url);
+      if (url.pathname === '/cdn-build-id.txt') return new Response('1001');
       if (url.pathname.includes('/job-canon/')) return Response.json({ 'known-job': { it: '/cerca-lavoro-ticino' } });
       if (url.pathname.includes('/_tree/') && url.pathname.endsWith('/known-job/')) {
         unavailableLayoutProbes += 1;

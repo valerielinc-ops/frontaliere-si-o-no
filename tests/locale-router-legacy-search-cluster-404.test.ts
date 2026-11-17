@@ -37,6 +37,7 @@ afterEach(() => {
 function mockFetch(map: Record<string, Record<string, string>> | null): void {
   vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
     const u = typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
+    if (new URL(u).pathname === '/cdn-build-id.txt') return new Response('1001');
     if (u.includes('/job-canon/')) {
       return map
         ? new Response(JSON.stringify(map), { status: 200, headers: { 'Content-Type': 'application/json' } })

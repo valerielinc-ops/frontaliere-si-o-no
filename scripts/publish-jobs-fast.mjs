@@ -26,6 +26,7 @@ import {
   SHARD_WRITER_LOCK_DEFAULTS,
 } from "./lib/shard-writer-lease.mjs";
 import { stableJobId } from "../build-plugins/shared/stableJobId.mjs";
+import { ADSENSE_LOADER_FILENAME } from "../build-plugins/constants.ts";
 import {
   ACTIVE_JOB_PAGE_LOCALES,
   activeJobPathOwnerKey,
@@ -392,7 +393,7 @@ export function validateFullBuildActiveJobAlternates(
   }
 }
 
-function checkJobPageContracts(receipt, expectedPagePlan) {
+export function checkJobPageContracts(receipt, expectedPagePlan) {
   if (
     receipt?.schema !== RENDER_RECEIPT_SCHEMA ||
     !Array.isArray(receipt.pages) ||
@@ -505,10 +506,16 @@ function checkJobPageContracts(receipt, expectedPagePlan) {
         `[jobs-fast] robots directives are missing for ${page.locale} offer page`,
       );
     }
-    if (
-      !html.includes("adsbygoogle") ||
-      !hasGoogleAnalyticsRuntime(html)
-    ) {
+    const hasAdSenseLoader = [...html.matchAll(/<script\b[^>]*>/giu)].some((match) => {
+      const src = extractAttr(match[0], "src");
+      try {
+        const asset = new URL(src, BASE_URL);
+        return asset.origin === BASE_URL && asset.pathname === `/assets/${ADSENSE_LOADER_FILENAME}`;
+      } catch {
+        return false;
+      }
+    });
+    if (!hasAdSenseLoader || !hasGoogleAnalyticsRuntime(html)) {
       throw new Error(
         `[jobs-fast] AdSense or Google Analytics runtime is missing for ${page.locale} offer page`,
       );

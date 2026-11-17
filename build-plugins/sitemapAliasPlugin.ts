@@ -691,7 +691,6 @@ function buildSitemapAliasPlugin(rootDir: string): Plugin {
       async handler() {
         const fs = await import('node:fs');
         const distDir = path.resolve(rootDir, 'dist');
-        if (!fs.existsSync(distDir)) return;
 
         // 0. Final dist-truth reconciliation for every sitemap family. This hook
         //    is deliberately the last sitemap hook in the post phase: the
@@ -709,6 +708,8 @@ function buildSitemapAliasPlugin(rootDir: string): Plugin {
           : [staticPagesFlushed, fuelDailyPagesFlushed];
         if (shouldAwaitJobsSeoPagesFlushed()) buildSignals.push(jobsSeoPagesFlushed);
         await Promise.all(buildSignals);
+        if (!fs.existsSync(distDir)) return;
+
         await reconcileFinalSitemapsWithDist(distDir, getFinalSitemapMirrorLocs(), {
           keepMissing: false,
           ignoreShardOwnership: false,

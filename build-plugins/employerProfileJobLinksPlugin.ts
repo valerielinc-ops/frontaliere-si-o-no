@@ -57,12 +57,16 @@ export function employerProfileJobLinksPlugin(rootDir: string): Plugin {
     enforce: 'post',
     async closeBundle() {
       if (process.env.SKIP_EMPLOYER_PROFILE_PAGES === '1') return;
-
-      const distDir = np.resolve(rootDir, 'dist');
-      if (!fs.existsSync(distDir) || !shouldAwaitJobsSeoPagesFlushed()) return;
+      if (!shouldAwaitJobsSeoPagesFlushed()) return;
 
       const [profiles] = await Promise.all([employerProfilesFlushed, jobsSeoPagesFlushed]);
       if (profiles.length === 0) return;
+
+      // jobsSeoPagesPlugin and the profile emitter can create dist while their
+      // parallel closeBundle hooks are still running. Check only after both
+      // producers have flushed their final outputs.
+      const distDir = np.resolve(rootDir, 'dist');
+      if (!fs.existsSync(distDir)) return;
 
       const allowlist = getJobSitemapAllowlist();
       if (allowlist === null) {

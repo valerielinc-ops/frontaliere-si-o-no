@@ -20,9 +20,12 @@ import {
   jobSlugShardIndexForCount,
 } from '../../services/jobSlugShards';
 import { jobCanonTarget } from '../../infra/cloudflare-worker/locale-router.js';
+import { iterateAllKnownJobSlugPartEntries } from '../../scripts/lib/all-known-job-slugs-store.mjs';
 
 export const JOB_CANON_LOCALES = ACTIVE_JOB_PAGE_LOCALES;
 export type JobCanonLocale = (typeof JOB_CANON_LOCALES)[number];
+/** Registry aliases are emitted only for the three non-Italian locales by the Worker. */
+export const JOB_CANON_REGISTRY_ALIAS_LOCALES = ['en', 'de', 'fr'] as const;
 
 export interface ActiveJobSlugMapRow {
   id?: unknown;
@@ -50,11 +53,319 @@ export interface JobCanonBridgePath {
   targetPath: string;
   kind: 'previousSlug' | 'legacyTiMirror' | 'crossLocale';
   canton: string;
+  /** Stable job key whose fields in jobs-slug-map.json produced this path. */
+  sourceJobIdentifier?: string;
+}
+
+export interface FinalWorkerSlugMapReconciliation {
+  /** Jobs with one unique serialized row whose effective route fields now match the final SEO input. */
+  matchedJobIdentifiers: Set<string>;
+  /** Jobs with a missing/duplicate row or route-field drift; their bridges must stay static. */
+  unmatchedJobIdentifiers: Set<string>;
+  updatedJobCount: number;
+}
+
+function activeJobMapKey(job: ActiveJobSlugMapRow): string {
+  return String(job.id || job.slug || '').trim();
+}
+
+function copiedSlugArray(value: unknown): string[] | undefined {
+  if (!Array.isArray(value)) return undefined;
+  const result = value.filter((item): item is string => typeof item === 'string' && item.length > 0);
+  return result.length > 0 ? result : undefined;
+}
+
+function copiedLocaleSlugArrays(value: unknown): Partial<Record<JobCanonLocale, string[]>> | undefined {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return undefined;
+  const result: Partial<Record<JobCanonLocale, string[]>> = {};
+  for (const locale of JOB_CANON_LOCALES) {
+    const slugs = copiedSlugArray((value as Partial<Record<JobCanonLocale, unknown>>)[locale]);
+    if (slugs) result[locale] = slugs;
+  }
+  return Object.keys(result).length > 0 ? result : undefined;
+}
+
+function sameSlugField(left: unknown, right: unknown): boolean {
+  return JSON.stringify(copiedSlugArray(left) ?? null) === JSON.stringify(copiedSlugArray(right) ?? null);
+}
+
+function sameLocaleSlugField(left: unknown, right: unknown): boolean {
+  return JSON.stringify(copiedLocaleSlugArrays(left) ?? null)
+    === JSON.stringify(copiedLocaleSlugArrays(right) ?? null);
+}
+
+/**
+ * Reconcile late previous-slug discoveries into the exact serialized input
+ * later read by jobCanonRedirectMapPlugin. A missing or duplicate source row
+ * is reported as unmatched so callers retain its static bridge.
+ */
+export function reconcileFinalWorkerSlugMapRows(
+  serializedRows: ActiveJobSlugMapRow[],
+  finalJobs: readonly ActiveJobSlugMapRow[],
+): FinalWorkerSlugMapReconciliation {
+  const rowsByKey = new Map<string, ActiveJobSlugMapRow[]>();
+  for (const row of serializedRows) {
+    const key = activeJobMapKey(row);
+    if (!key) continue;
+    const rows = rowsByKey.get(key) ?? [];
+    rows.push(row);
+    rowsByKey.set(key, rows);
+  }
+
+  const finalJobsByKey = new Map<string, ActiveJobSlugMapRow[]>();
+  for (const job of finalJobs) {
+    const key = activeJobMapKey(job);
+    if (!key) continue;
+    const jobs = finalJobsByKey.get(key) ?? [];
+    jobs.push(job);
+    finalJobsByKey.set(key, jobs);
+  }
+
+  const matchedJobIdentifiers = new Set<string>();
+  const unmatchedJobIdentifiers = new Set<string>();
+  let updatedJobCount = 0;
+  for (const [key, jobs] of finalJobsByKey) {
+    const rows = rowsByKey.get(key);
+    if (jobs.length !== 1 || rows?.length !== 1) {
+      unmatchedJobIdentifiers.add(key);
+      continue;
+    }
+
+    const [job] = jobs;
+    const [row] = rows;
+    const sameRouteIdentity = String(row.slug ?? '') === String(job.slug ?? '')
+      && resolveJobCanton(row) === resolveJobCanton(job)
+      && JOB_CANON_LOCALES.every((locale) => localizedActiveJobSlug(row, locale) === localizedActiveJobSlug(job, locale));
+    if (!sameRouteIdentity) {
+      unmatchedJobIdentifiers.add(key);
+      continue;
+    }
+
+    const previousSlugs = copiedSlugArray(job.previousSlugs);
+    const previousSlugsByLocale = copiedLocaleSlugArrays(job.previousSlugsByLocale);
+    const rowChanged = !sameSlugField(row.previousSlugs, previousSlugs)
+      || !sameLocaleSlugField(row.previousSlugsByLocale, previousSlugsByLocale);
+    if (previousSlugs) row.previousSlugs = previousSlugs;
+    else delete row.previousSlugs;
+    if (previousSlugsByLocale) row.previousSlugsByLocale = previousSlugsByLocale;
+    else delete row.previousSlugsByLocale;
+    if (rowChanged) updatedJobCount += 1;
+
+    matchedJobIdentifiers.add(key);
+  }
+
+  return { matchedJobIdentifiers, unmatchedJobIdentifiers, updatedJobCount };
 }
 
 export type JobCanonEntryLookup =
   | ReadonlyMap<string, JobCanonEntryLike>
   | ((slug: string) => JobCanonEntryLike | undefined);
+
+/**
+ * Reconstruct prefix/alias facts from an in-memory logical registry. This is
+ * useful for pure fixtures, but late PR-B classification must use
+ * `buildTrackedJobCanonEntriesFromPersistedRegistry`: the caller's mutable
+ * snapshot may have diverged from the immutable store parts consumed by the
+ * Worker.
+ */
+export function buildTrackedJobCanonEntries(
+  tracking: Readonly<Record<string, Partial<Record<JobCanonLocale, unknown>>>>,
+  candidateSlugs: ReadonlySet<string>,
+  onHeapSample?: () => void,
+): { entries: Map<string, JobCanonEntryLike> } {
+  const entries = new Map<string, JobCanonEntryLike>();
+  const prefixByLocaleSlug = new Map<string, string>();
+  const entryFor = (slug: string): JobCanonEntryLike => {
+    let entry = entries.get(slug);
+    if (!entry) {
+      entry = {};
+      entries.set(slug, entry);
+    }
+    return entry;
+  };
+  const pathParts = (value: unknown): { targetSlug: string; prefix: string; targetPath: string } | null => {
+    if (typeof value !== 'string') return null;
+    const targetPath = value.replace(/\/+$/, '');
+    const segments = targetPath.split('/').filter(Boolean);
+    if (segments.length < 2) return null;
+    const targetSlug = segments[segments.length - 1];
+    return {
+      targetSlug,
+      prefix: `/${segments.slice(0, -1).join('/')}`,
+      targetPath,
+    };
+  };
+
+  // Prefix staging indexes each source path under its destination's final
+  // segment. PR-A resolves conflicts by first registry order, so retain that
+  // same winner rather than inventing an ambiguity the Worker does not have.
+  let sourceSlugCount = 0;
+  for (const sourceSlug of Object.keys(tracking)) {
+    sourceSlugCount++;
+    if (sourceSlugCount % 8192 === 0) onHeapSample?.();
+    const paths = tracking[sourceSlug];
+    if (!paths || typeof paths !== 'object') continue;
+    for (const locale of JOB_CANON_LOCALES) {
+      const parsed = pathParts(paths[locale]);
+      if (!parsed || !candidateSlugs.has(parsed.targetSlug)) continue;
+      const key = localeSlugKey(locale, parsed.targetSlug);
+      if (!prefixByLocaleSlug.has(key)) prefixByLocaleSlug.set(key, parsed.prefix);
+    }
+  }
+
+  for (const slug of candidateSlugs) {
+    const entry = entryFor(slug);
+    for (const locale of JOB_CANON_LOCALES) {
+      const key = localeSlugKey(locale, slug);
+      const prefix = prefixByLocaleSlug.get(key);
+      if (prefix !== undefined) entry[locale] = prefix;
+    }
+    const sourcePaths = tracking[slug];
+    if (!sourcePaths || typeof sourcePaths !== 'object') continue;
+    for (const locale of JOB_CANON_LOCALES) {
+      if (locale === 'it' || entry[locale]) continue;
+      const parsed = pathParts(sourcePaths[locale]);
+      if (!parsed || parsed.targetSlug === slug) continue;
+      const alias = entry.alias ?? (entry.alias = {});
+      if (alias[locale] === undefined) alias[locale] = parsed.targetPath;
+    }
+  }
+  return { entries };
+}
+
+/**
+ * Reconstruct only the persisted registry facts that can affect candidate
+ * bridge slugs. This mirrors jobCanonRedirectMapPlugin's streamed registry
+ * phases without materializing the full registry or its key index.
+ *
+ * Store parts stream legacy first, then numbered shards. The Worker keeps the
+ * first-seen source-key order for prefix conflict resolution, but the last
+ * store part containing a source key owns its locale map. Duplicate JSON keys
+ * in that winning part are all visited in file order: the first path wins an
+ * equal-order prefix tie and the first staged registry alias wins. The Worker's
+ * separate recovery scan resets a duplicate source's recovery facts on each
+ * row, so its last duplicate wins there; PR-B consumes only the redirect
+ * prefix/alias facts reconstructed below.
+ */
+export function buildTrackedJobCanonEntriesFromPersistedRegistry(
+  rootDir: string,
+  candidateSlugs: ReadonlySet<string>,
+  onHeapSample?: () => void,
+): { entries: Map<string, JobCanonEntryLike> } {
+  const sourceFacts = new Map<string, { winningPart: number; firstOrder?: number }>();
+  const pathParts = (value: unknown): { targetSlug: string; prefix: string; targetPath: string } | null => {
+    if (typeof value !== 'string') return null;
+    const targetPath = value.replace(/\/+$/, '');
+    const segments = targetPath.split('/').filter(Boolean);
+    if (segments.length < 2) return null;
+    return {
+      targetSlug: segments[segments.length - 1],
+      prefix: `/${segments.slice(0, -1).join('/')}`,
+      targetPath,
+    };
+  };
+  const hasCandidateTarget = (paths: unknown): boolean => {
+    if (!paths || typeof paths !== 'object') return false;
+    for (const locale of JOB_CANON_LOCALES) {
+      const parsed = pathParts((paths as Partial<Record<JobCanonLocale, unknown>>)[locale]);
+      if (parsed && candidateSlugs.has(parsed.targetSlug)) return true;
+    }
+    return false;
+  };
+
+  // First pass: retain final-part ownership only for source keys that can
+  // supply a prefix to a candidate or an alias from a candidate slug. A later
+  // non-candidate row for an already relevant key still replaces its map.
+  let scannedEntries = 0;
+  for (const [sourceSlug, paths, entryPartIndex] of iterateAllKnownJobSlugPartEntries(rootDir)) {
+    scannedEntries += 1;
+    if (scannedEntries % 8192 === 0) onHeapSample?.();
+    const existing = sourceFacts.get(sourceSlug);
+    if (existing) {
+      existing.winningPart = entryPartIndex;
+      continue;
+    }
+    if (candidateSlugs.has(sourceSlug) || hasCandidateTarget(paths)) {
+      sourceFacts.set(sourceSlug, { winningPart: entryPartIndex });
+    }
+  }
+
+  const prefixByLocaleSlug = new Map<string, { prefix: string; order: number }>();
+  const aliasByLocaleSlug = new Map<string, string>();
+  let sourceOrder = 0;
+  scannedEntries = 0;
+
+  // Second pass: recover first-seen order for the targeted keys while applying
+  // only their winning-part rows, matching the Worker's phase-a index and
+  // phase-b staging predicates. Raw entry ordinals preserve relative first-key
+  // order without retaining an index for unrelated registry keys.
+  for (const [sourceSlug, paths, entryPartIndex] of iterateAllKnownJobSlugPartEntries(rootDir)) {
+    scannedEntries += 1;
+    if (scannedEntries % 8192 === 0) onHeapSample?.();
+    const order = sourceOrder;
+    sourceOrder += 1;
+    const sourceFact = sourceFacts.get(sourceSlug);
+    if (!sourceFact) continue;
+    const firstOrder = sourceFact.firstOrder ?? order;
+    sourceFact.firstOrder = firstOrder;
+    if (sourceFact.winningPart !== entryPartIndex || !paths || typeof paths !== 'object') continue;
+
+    for (const locale of JOB_CANON_LOCALES) {
+      const parsed = pathParts((paths as Partial<Record<JobCanonLocale, unknown>>)[locale]);
+      if (!parsed) continue;
+
+      if (candidateSlugs.has(parsed.targetSlug)) {
+        const key = localeSlugKey(locale, parsed.targetSlug);
+        const prior = prefixByLocaleSlug.get(key);
+        if (!prior || firstOrder < prior.order) {
+          // Equal-order rows are duplicate source keys in one winning part;
+          // retaining the first encountered path matches staged-file order.
+          prefixByLocaleSlug.set(key, { prefix: parsed.prefix, order: firstOrder });
+        }
+      }
+
+      if (
+        candidateSlugs.has(sourceSlug)
+        && (JOB_CANON_REGISTRY_ALIAS_LOCALES as readonly string[]).includes(locale)
+        && parsed.targetSlug !== sourceSlug
+      ) {
+        const key = localeSlugKey(locale, sourceSlug);
+        if (!aliasByLocaleSlug.has(key)) aliasByLocaleSlug.set(key, parsed.targetPath);
+      }
+    }
+  }
+
+  const entries = new Map<string, JobCanonEntryLike>();
+  const entryFor = (slug: string): JobCanonEntryLike => {
+    let entry = entries.get(slug);
+    if (!entry) {
+      entry = {};
+      entries.set(slug, entry);
+    }
+    return entry;
+  };
+  for (const [key, { prefix }] of prefixByLocaleSlug) {
+    const split = key.indexOf('\u0000');
+    const locale = key.slice(0, split) as JobCanonLocale;
+    const slug = key.slice(split + 1);
+    entryFor(slug)[locale] = prefix;
+  }
+  for (const [key, targetPath] of aliasByLocaleSlug) {
+    if (prefixByLocaleSlug.has(key)) continue;
+    const split = key.indexOf('\u0000');
+    const locale = key.slice(0, split) as JobCanonLocale;
+    const slug = key.slice(split + 1);
+    const entry = entryFor(slug);
+    const alias = { ...(entry.alias ?? {}) };
+    alias[locale] = targetPath;
+    entry.alias = alias;
+  }
+
+  sourceFacts.clear();
+  prefixByLocaleSlug.clear();
+  aliasByLocaleSlug.clear();
+  return { entries };
+}
 
 export interface ActiveJobBridgePathStats {
   activeJobs: number;
@@ -78,6 +389,7 @@ export interface ActiveJobBridgePathPlan {
   bridgePaths: JobCanonBridgePath[];
   activeRouteSlugKeys: ReadonlySet<string>;
   activeCanonicalPaths: ReadonlySet<string>;
+  activePrefixByLocaleSlug: Map<string, string | null>;
   stats: ActiveJobBridgePathStats;
 }
 
@@ -368,6 +680,7 @@ export function buildActiveJobBridgePathPlan(
           targetPath: buildCanonicalJobDetailPath(locale, job, currentSlug, canton),
           kind: 'previousSlug',
           canton,
+          sourceJobIdentifier: jobIdentifier,
         });
         claimedPaths.add(`${locale}\u0000${oldPathKey}`);
 
@@ -388,6 +701,7 @@ export function buildActiveJobBridgePathPlan(
             targetPath: buildCanonicalJobDetailPath(locale, job, currentSlug, canton),
             kind: 'legacyTiMirror',
             canton,
+            sourceJobIdentifier: jobIdentifier,
           });
           claimedPaths.add(mirrorMapKey);
         }
@@ -449,6 +763,7 @@ export function buildActiveJobBridgePathPlan(
           targetPath: buildCanonicalJobDetailPath(baseLocale, job, baseSlug, canton),
           kind: 'crossLocale',
           canton,
+          sourceJobIdentifier: String(job.id || job.slug || ''),
         });
         claimedPaths.add(pathMapKey);
       }
@@ -456,10 +771,29 @@ export function buildActiveJobBridgePathPlan(
   }
 
   stats.crossLocalePaths = [...bridgeByPath.values()].filter((record) => record.kind === 'crossLocale').length;
+  const bridgeSlugs = new Set([...bridgeByPath.values()].map((bridge) => bridge.slug));
+  const activePrefixByLocaleSlug = new Map<string, string | null>();
+  for (const job of jobs) {
+    const canton = cantonByJob.get(job)!;
+    const currentByLocale = currentSlugByJobLocale.get(job)!;
+    for (const locale of JOB_CANON_LOCALES) {
+      const currentSlug = currentByLocale[locale];
+      if (!currentSlug || !bridgeSlugs.has(currentSlug)) continue;
+      const canonicalPath = buildCanonicalJobDetailPath(locale, job, currentSlug, canton);
+      const canonicalSegments = canonicalPath.replace(/\/+$/, '').split('/').filter(Boolean);
+      if (canonicalSegments.length < 2) continue;
+      const prefix = `/${canonicalSegments.slice(0, -1).join('/')}`;
+      const prefixKey = localeSlugKey(locale, currentSlug);
+      if (!activePrefixByLocaleSlug.has(prefixKey)) activePrefixByLocaleSlug.set(prefixKey, prefix);
+      else if (activePrefixByLocaleSlug.get(prefixKey) !== prefix) activePrefixByLocaleSlug.set(prefixKey, null);
+    }
+  }
+  bridgeSlugs.clear();
   return {
     bridgePaths: [...bridgeByPath.values()],
     activeRouteSlugKeys,
     activeCanonicalPaths,
+    activePrefixByLocaleSlug,
     stats,
   };
 }
@@ -473,12 +807,16 @@ export function buildActiveJobBridgePathPlan(
 export function planActiveJobCanonAliases(
   plan: ActiveJobBridgePathPlan,
   entryForSlug: (slug: string) => JobCanonEntryLike | undefined,
+  onHeapSample?: () => void,
 ): ActiveJobAliasPlan {
   const targetsByLocaleSlug = new Map<string, Set<string>>();
   const bridgePathKeys = new Set(
     plan.bridgePaths.map((bridge) => localeSlugKey(bridge.locale, normalizedPathKey(bridge.path))),
   );
+  let bridgeIndex = 0;
   for (const bridge of plan.bridgePaths) {
+    bridgeIndex++;
+    if (bridgeIndex % 2048 === 0) onHeapSample?.();
     const key = localeSlugKey(bridge.locale, bridge.slug);
     const targets = targetsByLocaleSlug.get(key) ?? new Set<string>();
     targets.add(bridge.targetPath);
@@ -499,7 +837,10 @@ export function planActiveJobCanonAliases(
     ambiguousExamples: [],
   };
 
+  let targetGroupIndex = 0;
   for (const [key, targets] of targetsByLocaleSlug) {
+    targetGroupIndex++;
+    if (targetGroupIndex % 2048 === 0) onHeapSample?.();
     const split = key.indexOf('\u0000');
     const locale = key.slice(0, split) as JobCanonLocale;
     const slug = key.slice(split + 1);
@@ -886,6 +1227,7 @@ export function classifyBridgePaths(
   entryForSlug: JobCanonEntryLookup,
   ambiguousCantonKeys: ReadonlySet<string> = new Set(),
   activeCurrentSlugKeys: ReadonlySet<string> = new Set(),
+  onHeapSample?: () => void,
 ): BridgePathClassification {
   const lookup = typeof entryForSlug === 'function'
     ? entryForSlug
@@ -896,7 +1238,10 @@ export function classifyBridgePaths(
   const removable = new Set<string>();
   const keepBridge = new Map<string, BridgeKeepReason>();
 
+  let bridgeIndex = 0;
   for (const bridge of bridgePaths) {
+    bridgeIndex++;
+    if (bridgeIndex % 2048 === 0) onHeapSample?.();
     const entry = lookup(bridge.slug);
     const workerTarget = entry ? jobCanonTarget(entry, bridge.slug, bridge.locale) as string | null : null;
     if (workerTarget === bridge.targetPath) {
@@ -928,4 +1273,101 @@ export function classifyBridgePaths(
     keepBridge.set(bridge.path, reason);
   }
   return { removable, keepBridge };
+}
+
+/**
+ * A bridge is removable only when its source job was uniquely reconciled into
+ * the final serialized Worker slug map. The caller supplies alias facts built
+ * from that same reconciled input; unmatched source rows remain `keepBridge`.
+ */
+export function classifyBridgePathsFromFinalWorkerMap(
+  bridgePaths: readonly JobCanonBridgePath[],
+  entryForSlug: JobCanonEntryLookup,
+  matchedWorkerJobIdentifiers: ReadonlySet<string>,
+  ambiguousCantonKeys: ReadonlySet<string> = new Set(),
+  activeCurrentSlugKeys: ReadonlySet<string> = new Set(),
+  onHeapSample?: () => void,
+): BridgePathClassification {
+  const classification = classifyBridgePaths(
+    bridgePaths,
+    entryForSlug,
+    ambiguousCantonKeys,
+    activeCurrentSlugKeys,
+    onHeapSample,
+  );
+  for (const bridge of bridgePaths) {
+    if (bridge.sourceJobIdentifier && matchedWorkerJobIdentifiers.has(bridge.sourceJobIdentifier)) continue;
+    if (classification.removable.delete(bridge.path)) {
+      classification.keepBridge.set(bridge.path, 'noEntry');
+    } else if (!classification.keepBridge.has(bridge.path)) {
+      classification.keepBridge.set(bridge.path, 'noEntry');
+    }
+  }
+  return classification;
+}
+
+/** Fail a build when any old bridge is unclassified or its alias target drifts. */
+export function assertBridgePathClassificationCoverage(
+  bridgePaths: readonly JobCanonBridgePath[],
+  classification: BridgePathClassification,
+  entryForSlug: JobCanonEntryLookup,
+): void {
+  if (classification.removable.size + classification.keepBridge.size !== bridgePaths.length) {
+    throw new Error('[job-alias-redirect-gate] bridge path classification is incomplete');
+  }
+  const lookup = typeof entryForSlug === 'function'
+    ? entryForSlug
+    : (slug: string) => entryForSlug.get(slug);
+
+  for (const bridge of bridgePaths) {
+    const removable = classification.removable.has(bridge.path);
+    const keepBridge = classification.keepBridge.has(bridge.path);
+    if (removable === keepBridge) {
+      throw new Error('[job-alias-redirect-gate] bridge path has conflicting classification');
+    }
+    if (removable) {
+      const entry = lookup(bridge.slug);
+      const workerTarget = entry ? jobCanonTarget(entry, bridge.slug, bridge.locale) as string | null : null;
+      if (workerTarget !== bridge.targetPath) {
+        throw new Error('[job-alias-redirect-gate] removable path has no exact Worker target');
+      }
+    }
+  }
+}
+
+export interface JobAliasRemovedPageOutput {
+  indexPath: string;
+  flatPath: string;
+}
+
+export interface JobAliasRetainedPageOutput {
+  indexPath: string;
+  targetPath: string;
+}
+
+/** Verify removed paths stay absent and retained paths still contain their bridge page. */
+export function assertBridgePathDistCoverage(
+  removableOutputs: Iterable<JobAliasRemovedPageOutput>,
+  retainedOutputs: Iterable<JobAliasRetainedPageOutput>,
+  outputExists: (filePath: string) => boolean,
+  retainedOutputMatches: (filePath: string, targetPath: string) => boolean,
+): { removable404: number; retained200: number } {
+  let removable404 = 0;
+  for (const output of removableOutputs) {
+    if (outputExists(output.indexPath) || outputExists(output.flatPath)) {
+      throw new Error('[job-alias-redirect-gate] removable path still has static HTML');
+    }
+    removable404++;
+  }
+  let retained200 = 0;
+  for (const output of retainedOutputs) {
+    if (!outputExists(output.indexPath)) {
+      throw new Error('[job-alias-redirect-gate] path has neither an exact 301 nor a retained bridge');
+    }
+    if (!retainedOutputMatches(output.indexPath, output.targetPath)) {
+      throw new Error('[job-alias-redirect-gate] retained bridge does not point to its planned canonical');
+    }
+    retained200++;
+  }
+  return { removable404, retained200 };
 }

@@ -1,6 +1,16 @@
 import { describe, expect, it, vi } from 'vitest';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { WriteCollector } from '../../build-plugins/batchWrite';
+import {
+  hasClaimedPath,
+  hasClaimedOrReservedPath,
+  reserveJobAliasRedirectDir,
+  reset as resetWriteRegistry,
+} from '../../build-plugins/sharedWriteRegistry';
 import {
   pruneSelfHealTracking,
   pruneSelfHealTrackingRow,
@@ -60,6 +70,28 @@ describe('self-heal tracking retention', () => {
     });
   });
 
+  it('keeps a reservation out of emitted history while suppressing the self-heal tombstone', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'self-heal-alias-reserved-'));
+    const distDir = path.join(root, 'dist');
+    const pageDir = path.join(distDir, 'de', 'jobs-in-zurich', 'old-route');
+    const indexPath = path.join(pageDir, 'index.html');
+    const collector = new WriteCollector({ distDir, pluginName: 'self-heal-fixture' });
+    try {
+      reserveJobAliasRedirectDir(pageDir);
+      const relativePath = '/de/jobs-in-zurich/old-route';
+      const outputPath = path.join(distDir, relativePath.replace(/^\/+/, ''), 'index.html');
+      expect(hasClaimedPath(outputPath)).toBe(false);
+      const selfHealWriteSuppressed = hasClaimedOrReservedPath(outputPath);
+      expect(selfHealWriteSuppressed).toBe(true);
+      if (!selfHealWriteSuppressed) collector.add(indexPath, '<html>noindex tombstone</html>');
+      await collector.flush();
+      expect(fs.existsSync(indexPath)).toBe(false);
+    } finally {
+      resetWriteRegistry();
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
   it('prunes a large registry without materializing a full keys array', () => {
     const tracking = Object.fromEntries(
       Array.from({ length: 50_000 }, (_, index) => [`slug-${index}`, { de: `/de/jobs/slug-${index}/` }]),
@@ -82,12 +114,14 @@ describe('self-heal tracking retention', () => {
     const lastExpiredPathRead = pluginSource.lastIndexOf('tracking[baseSlug]?.[baseLocale]');
     const prune = pluginSource.indexOf('const selfHealTrackingRetention = pruneSelfHealTracking(');
     const previousSlugPhase = pluginSource.indexOf(
-      '/* ── Full-content pages for previousSlugs of active jobs',
+      '/* ── Retained full-content pages for previousSlugs',
     );
 
     expect(lastExpiredPathRead).toBeGreaterThan(-1);
     expect(prune).toBeGreaterThan(lastExpiredPathRead);
     expect(previousSlugPhase).toBeGreaterThan(prune);
+    expect(pluginSource).toContain('const isSelfHealTrackingPathClaimed = (relativePath: string): boolean => pathWasClaimed(');
+    expect(pluginSource).toContain('if (pathIsClaimedOrReserved(absFile)) continue;');
   });
 
   it('releases expired-sweep rows on every sweep exit and preserves cross-locale rows', () => {

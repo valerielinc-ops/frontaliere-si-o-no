@@ -83,6 +83,9 @@ function mockFetch(plan: FetchPlan) {
     const reqUrl = typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
     fetched.push(reqUrl);
     const u = new URL(reqUrl);
+    if (u.hostname === 'cdn.frontaliereticino.ch' && u.pathname === '/cdn-build-id.txt') {
+      return new Response('1001', { status: 200 });
+    }
     if (reqUrl === REGISTRY_URL) {
       if (plan.registry === undefined || plan.registry === null) return new Response('nope', { status: 404 });
       if (typeof plan.registry === 'number') return new Response('err', { status: plan.registry });

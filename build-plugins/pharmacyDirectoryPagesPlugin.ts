@@ -48,6 +48,7 @@ import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { buildPharmacyTitle } from '../services/pharmacies/title';
 import { pharmacyFaqHeading, pharmacyFaqItems, pharmacyFaqStructuredData } from '../services/pharmacies/faq';
 import { getSafeDistPageTargets } from './shared/distPathSafety';
+import { isJobAliasRedirectPath } from './sharedWriteRegistry';
 import {
   DECISION_MOMENT_COMPLETED_ATTRIBUTE,
   DECISION_MOMENT_ID_ATTRIBUTE,
@@ -472,6 +473,7 @@ export function emitPharmacyAliasBridge(distDir: string, descriptor: PharmacyAli
     console.warn(`[pharmacy-pages] skipped unsafe alias path ${descriptor.from}`);
     return;
   }
+  if (isJobAliasRedirectPath(safeTargets.indexPath) || isJobAliasRedirectPath(safeTargets.flatPath)) return;
   const html = buildPharmacyAliasBridge(descriptor);
   fs.mkdirSync(safeTargets.directoryPath, { recursive: true });
   fs.writeFileSync(safeTargets.indexPath, html, 'utf8');

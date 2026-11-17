@@ -16,7 +16,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { afterAll, describe, expect, it } from 'vitest';
+import { afterAll, describe, expect, it, vi } from 'vitest';
 import {
   assertRetirementsDisjointFromPlan,
   buildClusterContext,
@@ -27,14 +27,25 @@ import {
   junkRetirementWrites,
   loadPreviouslyEmittedClusterKeys,
   prepareRetirementGuardInputs,
+  reapplyRetiredManifestFiles,
   retiredManifestWrites,
   restoredKeywordLandingPaths,
   restoredRetiredLandingPaths,
   saveToCache,
   tryRestoreFromCache,
+  tryRestoreFromCacheAfterJobsFlush,
   TokenIndex,
 } from '../build-plugins/relatedSearchClustersPlugin';
 import { transformFlatRedirect } from '../build-plugins/flatHtmlRedirectPlugin';
+import {
+  reserveJobAliasRedirectDir,
+  reset as resetSharedWriteRegistry,
+} from '../build-plugins/sharedWriteRegistry';
+import {
+  _resetJobsSeoPagesSignalForTests,
+  registerJobsSeoPagesProducer,
+  resolveJobsSeoPagesFlushed,
+} from '../build-plugins/shared/buildSignals';
 import type { CandidateEntry, RawJob } from '../build-plugins/relatedSearchClustersData';
 
 const JUNK: CandidateEntry = {
@@ -486,6 +497,242 @@ describe('restoredKeywordLandingPaths — a poisoned manifest fails the cache HI
       expect(fs.readFileSync(path.join(dist2, write.rel), 'utf-8')).toBe(write.html);
     }
     fs.rmSync(root, { recursive: true, force: true });
+  });
+});
+
+describe('retired manifest restore respects reserved job alias paths', () => {
+  it('does not reapply an index or flat retirement output over a reserved alias', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'rsc-job-alias-reservation-'));
+    const distDir = path.join(root, 'dist');
+    const writes = junkRetirementWrites(
+      '/cerca-lavoro-svizzera/ricerca-cookie-bern/',
+      buildJunkRetirementHtml('it'),
+    );
+    const indexPath = path.join(distDir, writes[0].rel);
+    resetSharedWriteRegistry();
+    try {
+      reserveJobAliasRedirectDir(path.dirname(indexPath));
+      expect(reapplyRetiredManifestFiles(distDir, writes.map((write) => write.rel))).toBe(0);
+      expect(writes.every((write) => !fs.existsSync(path.join(distDir, write.rel)))).toBe(true);
+    } finally {
+      resetSharedWriteRegistry();
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+});
+
+describe('related-search cache respects reserved job alias paths', () => {
+  it('waits for the jobs reservation before copying cache-hit aliases', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'rsc-cache-job-alias-barrier-'));
+    const sourceDist = path.join(root, 'source-dist');
+    const reservedDist = path.join(root, 'reserved-dist');
+    const aliasDir = 'cerca-lavoro-svizzera/ricerca-cookie-bern';
+    const aliasIndex = `${aliasDir}/index.html`;
+    const aliasFlat = `${aliasDir}.html`;
+    const live = 'cerca-lavoro-svizzera/ricerca-infermiere-lugano/index.html';
+    const key = 'reserved-job-alias-barrier';
+    const previousFastBuild = process.env.FAST_BUILD;
+    delete process.env.FAST_BUILD;
+    resetSharedWriteRegistry();
+    _resetJobsSeoPagesSignalForTests();
+    const copyFileSpy = vi.spyOn(fs.promises, 'copyFile');
+    try {
+      for (const [rel, body] of [
+        [aliasIndex, '<html>alias index</html>'],
+        [aliasFlat, '<html>alias flat</html>'],
+        [live, '<html>live cluster</html>'],
+      ]) {
+        const file = path.join(sourceDist, rel);
+        fs.mkdirSync(path.dirname(file), { recursive: true });
+        fs.writeFileSync(file, body, 'utf-8');
+      }
+      expect(saveToCache(root, sourceDist, key, [aliasIndex, aliasFlat, live], [], [], [], [], [
+        aliasIndex,
+        aliasFlat,
+      ])).toBe(3);
+
+      registerJobsSeoPagesProducer();
+      const restore = tryRestoreFromCacheAfterJobsFlush(root, reservedDist, key);
+      expect(copyFileSpy).not.toHaveBeenCalled();
+
+      // The producer reserves both static representations before releasing
+      // the barrier, so tryRestoreFromCache sees the final build-scoped set.
+      reserveJobAliasRedirectDir(path.join(reservedDist, aliasDir));
+      resolveJobsSeoPagesFlushed();
+      const restored = await restore;
+
+      expect(copyFileSpy).toHaveBeenCalledTimes(1);
+      expect(copyFileSpy.mock.calls[0][0]).toBe(path.join(
+        root,
+        '.cache',
+        'related-search-clusters',
+        key,
+        'files',
+        live,
+      ));
+      expect(restored).not.toBeNull();
+      expect(restored!.files).toEqual([live]);
+      expect(restored!.retiredFiles).toEqual([]);
+      expect(restored!.emittedCount).toBe(1);
+      expect(fs.existsSync(path.join(reservedDist, aliasIndex))).toBe(false);
+      expect(fs.existsSync(path.join(reservedDist, aliasFlat))).toBe(false);
+      expect(fs.existsSync(path.join(reservedDist, live))).toBe(true);
+    } finally {
+      copyFileSpy.mockRestore();
+      resolveJobsSeoPagesFlushed();
+      _resetJobsSeoPagesSignalForTests();
+      resetSharedWriteRegistry();
+      if (previousFastBuild === undefined) delete process.env.FAST_BUILD;
+      else process.env.FAST_BUILD = previousFastBuild;
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps cache misses off the jobs barrier', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'rsc-cache-miss-jobs-barrier-'));
+    _resetJobsSeoPagesSignalForTests();
+    try {
+      registerJobsSeoPagesProducer();
+      await expect(tryRestoreFromCacheAfterJobsFlush(root, path.join(root, 'dist'), 'missing-key'))
+        .resolves.toBeNull();
+    } finally {
+      resolveJobsSeoPagesFlushed();
+      _resetJobsSeoPagesSignalForTests();
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it.each([
+    { name: 'without a registered producer', fastBuild: false, producer: false },
+    { name: 'in FAST_BUILD', fastBuild: true, producer: true },
+  ])('does not wait on a cache hit $name', async ({ fastBuild, producer }) => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'rsc-cache-hit-no-jobs-barrier-'));
+    const previousFastBuild = process.env.FAST_BUILD;
+    const sourceDist = path.join(root, 'source-dist');
+    const live = 'cerca-lavoro-svizzera/ricerca-infermiere-lugano/index.html';
+    _resetJobsSeoPagesSignalForTests();
+    if (fastBuild) process.env.FAST_BUILD = '1';
+    else delete process.env.FAST_BUILD;
+    try {
+      const source = path.join(sourceDist, live);
+      fs.mkdirSync(path.dirname(source), { recursive: true });
+      fs.writeFileSync(source, '<html>live cluster</html>', 'utf-8');
+      expect(saveToCache(root, sourceDist, 'no-jobs-barrier', [live], [], [], [], [])).toBe(1);
+      if (producer) registerJobsSeoPagesProducer();
+
+      const restored = await tryRestoreFromCacheAfterJobsFlush(
+        root,
+        path.join(root, 'dist'),
+        'no-jobs-barrier',
+      );
+      expect(restored?.files).toEqual([live]);
+      expect(fs.existsSync(path.join(root, 'dist', live))).toBe(true);
+    } finally {
+      resolveJobsSeoPagesFlushed();
+      _resetJobsSeoPagesSignalForTests();
+      if (previousFastBuild === undefined) delete process.env.FAST_BUILD;
+      else process.env.FAST_BUILD = previousFastBuild;
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('filters reserved index and flat outputs on cache HIT while keeping unreserved restores unchanged', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'rsc-cache-job-alias-hit-'));
+    const dist = path.join(root, 'source-dist');
+    const aliasDir = 'cerca-lavoro-svizzera/ricerca-cookie-bern';
+    const aliasIndex = `${aliasDir}/index.html`;
+    const aliasFlat = `${aliasDir}.html`;
+    const live = 'cerca-lavoro-svizzera/ricerca-infermiere-lugano/index.html';
+    const key = 'reserved-job-alias-hit';
+    resetSharedWriteRegistry();
+    try {
+      for (const [rel, body] of [
+        [aliasIndex, '<html>alias index</html>'],
+        [aliasFlat, '<html>alias flat</html>'],
+        [live, '<html>live cluster</html>'],
+      ]) {
+        const file = path.join(dist, rel);
+        fs.mkdirSync(path.dirname(file), { recursive: true });
+        fs.writeFileSync(file, body, 'utf-8');
+      }
+      expect(saveToCache(root, dist, key, [aliasIndex, aliasFlat, live], [], [], [], [], [
+        aliasIndex,
+        aliasFlat,
+      ])).toBe(3);
+
+      const reservedDist = path.join(root, 'reserved-dist');
+      fs.mkdirSync(reservedDist, { recursive: true });
+      reserveJobAliasRedirectDir(path.join(reservedDist, aliasDir));
+      const restored = await tryRestoreFromCache(root, reservedDist, key);
+
+      expect(restored).not.toBeNull();
+      expect(restored!.files).toEqual([live]);
+      expect(restored!.retiredFiles).toEqual([]);
+      expect(restored!.emittedCount).toBe(1);
+      expect(fs.readFileSync(path.join(reservedDist, live), 'utf-8')).toBe('<html>live cluster</html>');
+      expect(fs.existsSync(path.join(reservedDist, aliasIndex))).toBe(false);
+      expect(fs.existsSync(path.join(reservedDist, aliasFlat))).toBe(false);
+      expect(restoredKeywordLandingPaths(restored!.files, restored!.retiredFiles ?? []))
+        .toEqual(['/cerca-lavoro-svizzera/ricerca-infermiere-lugano']);
+
+      resetSharedWriteRegistry();
+      const unreservedDist = path.join(root, 'unreserved-dist');
+      fs.mkdirSync(unreservedDist, { recursive: true });
+      const unreserved = await tryRestoreFromCache(root, unreservedDist, key);
+
+      expect(unreserved).not.toBeNull();
+      expect(unreserved!.files).toEqual([aliasIndex, aliasFlat, live]);
+      expect(unreserved!.emittedCount).toBe(3);
+      expect(fs.existsSync(path.join(unreservedDist, aliasIndex))).toBe(true);
+      expect(fs.existsSync(path.join(unreservedDist, aliasFlat))).toBe(true);
+    } finally {
+      resetSharedWriteRegistry();
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('does not save reserved alias bytes or advertise reserved paths in the manifest', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'rsc-cache-job-alias-save-'));
+    const dist = path.join(root, 'dist');
+    const aliasDir = 'cerca-lavoro-svizzera/ricerca-cookie-bern';
+    const aliasIndex = `${aliasDir}/index.html`;
+    const aliasFlat = `${aliasDir}.html`;
+    const live = 'cerca-lavoro-svizzera/ricerca-infermiere-lugano/index.html';
+    const key = 'reserved-job-alias-save';
+    resetSharedWriteRegistry();
+    try {
+      reserveJobAliasRedirectDir(path.join(dist, aliasDir));
+      for (const [rel, body] of [
+        [aliasIndex, '<html>reserved alias index</html>'],
+        [aliasFlat, '<html>reserved alias flat</html>'],
+        [live, '<html>live cluster</html>'],
+      ]) {
+        const file = path.join(dist, rel);
+        fs.mkdirSync(path.dirname(file), { recursive: true });
+        fs.writeFileSync(file, body, 'utf-8');
+      }
+
+      expect(saveToCache(root, dist, key, [aliasIndex, aliasFlat, live], [], [], [], [], [
+        aliasIndex,
+        aliasFlat,
+      ])).toBe(1);
+
+      const cacheDir = path.join(root, '.cache', 'related-search-clusters', key);
+      const manifest = JSON.parse(fs.readFileSync(path.join(cacheDir, 'manifest.json'), 'utf-8')) as {
+        files: string[];
+        retiredFiles?: string[];
+        emittedCount: number;
+      };
+      expect(manifest.files).toEqual([live]);
+      expect(manifest.retiredFiles ?? []).toEqual([]);
+      expect(manifest.emittedCount).toBe(1);
+      expect(fs.existsSync(path.join(cacheDir, 'files', aliasIndex))).toBe(false);
+      expect(fs.existsSync(path.join(cacheDir, 'files', aliasFlat))).toBe(false);
+      expect(fs.existsSync(path.join(cacheDir, 'files', live))).toBe(true);
+    } finally {
+      resetSharedWriteRegistry();
+      fs.rmSync(root, { recursive: true, force: true });
+    }
   });
 });
 

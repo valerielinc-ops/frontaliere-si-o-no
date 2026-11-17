@@ -24,6 +24,8 @@ import { getManifest } from './contentHash';
 import {
  assertNoFileDirectoryPathCollisions,
  claim,
+ hasJobAliasRedirectReservations,
+ isJobAliasRedirectPath,
  type ClaimOutcome,
 } from './sharedWriteRegistry';
 import { shouldEmitPath, EMIT_ALL_LOCALES } from './shared/localeEmitFilter';
@@ -84,6 +86,19 @@ function prepareWriteBatch(writes: PendingWrite[]): void {
  for (const d of dirs) ensureDir(d);
 }
 
+async function removeReservedAliasOutputs(writes: readonly PendingWrite[]): Promise<number> {
+ if (!hasJobAliasRedirectReservations()) return 0;
+ const reservedWrites = writes.filter((write) => isJobAliasRedirectPath(write.filePath));
+ await Promise.all(reservedWrites.map(async ({ filePath }) => {
+  try {
+   await fs.promises.unlink(filePath);
+  } catch (error) {
+   if ((error as NodeJS.ErrnoException | null | undefined)?.code !== 'ENOENT') throw error;
+  }
+ }));
+ return reservedWrites.length;
+}
+
 /**
  * Flush an array of pending writes in parallel batches.
  * @param writes - Array of { filePath, content } objects
@@ -101,14 +116,19 @@ async function flushWritesWithScheduler(
  concurrency: number,
  scheduleWrite: WriteScheduler,
 ): Promise<number> {
- prepareWriteBatch(writes);
+ const allowedWrites = hasJobAliasRedirectReservations()
+  ? writes.filter((write) => !isJobAliasRedirectPath(write.filePath))
+  : writes;
+ if (allowedWrites.length === 0) return 0;
+ prepareWriteBatch(allowedWrites);
 
  // Write files in parallel batches
  let written = 0;
- for (let i = 0; i < writes.length; i += concurrency) {
- const batch = writes.slice(i, i + concurrency);
+ for (let i = 0; i < allowedWrites.length; i += concurrency) {
+ const batch = allowedWrites.slice(i, i + concurrency);
  await Promise.all(batch.map(scheduleWrite));
- written += batch.length;
+ const removed = await removeReservedAliasOutputs(batch);
+ written += hasJobAliasRedirectReservations() ? batch.length - removed : batch.length;
  }
  return written;
 }
@@ -259,12 +279,21 @@ export class WriteCollector {
  }
 
  private async flushOrderedWrites(batch: PendingWrite[], concurrency: number): Promise<number> {
-  await prepareWriteBatchAsync(batch);
-  const scheduled = batch.map((write) => {
+  const allowedBatch = hasJobAliasRedirectReservations()
+   ? batch.filter((write) => !isJobAliasRedirectPath(write.filePath))
+   : batch;
+  if (allowedBatch.length === 0) return 0;
+  await prepareWriteBatchAsync(allowedBatch);
+  const readyBatch = hasJobAliasRedirectReservations()
+   ? allowedBatch.filter((write) => !isJobAliasRedirectPath(write.filePath))
+   : allowedBatch;
+  if (readyBatch.length === 0) return 0;
+  const scheduled = readyBatch.map((write) => {
    const previous = this._pathFlushChains.get(write.filePath) ?? Promise.resolve();
    let start!: () => void;
    let cancel!: (reason: unknown) => void;
    let started = false;
+   let didWrite = false;
    let resolveCurrent!: () => void;
    let rejectCurrent!: (reason: unknown) => void;
    const current = new Promise<void>((resolve, reject) => {
@@ -275,7 +304,11 @@ export class WriteCollector {
     if (started) return;
     started = true;
     previous
-      .then(() => fs.promises.writeFile(write.filePath, write.content, 'utf-8'))
+      .then(async () => {
+       if (hasJobAliasRedirectReservations() && isJobAliasRedirectPath(write.filePath)) return;
+       await fs.promises.writeFile(write.filePath, write.content, 'utf-8');
+       didWrite = true;
+      })
       .then(resolveCurrent, rejectCurrent);
    };
    cancel = (reason) => {
@@ -296,7 +329,7 @@ export class WriteCollector {
     }
    },
    );
-   return { promise: current, start, cancel };
+   return { promise: current, start, cancel, write, didWrite: () => didWrite };
   });
 
   return (async () => {
@@ -306,7 +339,10 @@ export class WriteCollector {
      const chunk = scheduled.slice(i, i + concurrency);
      for (const item of chunk) item.start();
      await Promise.all(chunk.map((item) => item.promise));
-     written += chunk.length;
+     await removeReservedAliasOutputs(chunk.map((item) => item.write));
+     written += hasJobAliasRedirectReservations()
+      ? chunk.filter((item) => item.didWrite() && !isJobAliasRedirectPath(item.write.filePath)).length
+      : chunk.filter((item) => item.didWrite()).length;
     }
    } catch (error) {
     for (const item of scheduled) item.cancel(error);
@@ -537,7 +573,13 @@ export class WriteCollector {
  }
 
  private markWritten(writes: PendingWrite[]): void {
-  for (const write of writes) this._writtenPaths.add(write.filePath);
+  if (!hasJobAliasRedirectReservations()) {
+   for (const write of writes) this._writtenPaths.add(write.filePath);
+   return;
+  }
+  for (const write of writes) {
+   if (!isJobAliasRedirectPath(write.filePath)) this._writtenPaths.add(write.filePath);
+  }
  }
 
  /**

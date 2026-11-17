@@ -73,6 +73,7 @@ import {
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { getSafeDistPageTargets, isSafeDistPath } from './shared/distPathSafety';
+import { isJobAliasRedirectPath } from './sharedWriteRegistry';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { HREFLANG_LINK_RX } from './shared/headLinkPatterns';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
@@ -145,6 +146,7 @@ import {
   getActiveJobSitemapLocs,
   getJobSitemapAllowlist,
   jobsSeoPagesFlushed,
+  shouldAwaitJobsSeoPagesFlushed,
   setActiveJobSitemapLocs,
   setJobSitemapAllowlist,
 } from './shared/buildSignals';
@@ -680,7 +682,13 @@ export async function tryRestoreFromCache(
   // 4-thread pool with mkdir overlap, low enough to avoid EMFILE on the
   // runner's default ulimit (1024 open files).
   const concurrency = 64;
-  const files = manifest.files;
+  // Job alias reservations are build-scoped, while the cache key is not. A
+  // cache produced before a reservation must not recreate either static
+  // representation of that alias on a later cache HIT.
+  const files = manifest.files.filter((rel) =>
+    !isJobAliasRedirectPath(path.resolve(distDir, rel)));
+  const retiredFiles = manifest.retiredFiles?.filter((rel) =>
+    !isJobAliasRedirectPath(path.resolve(distDir, rel)));
   const ensuredDirs = new Set<string>();
   let restored = 0;
   let missing = 0;
@@ -740,7 +748,7 @@ export async function tryRestoreFromCache(
     // populations). Re-apply the manifest's retired files before returning
     // null, so the fallback cannot leave a live doorway behind; the caller
     // also carries these rels into the next cache save.
-    const reapplied = reapplyRetiredManifestFiles(distDir, manifest.retiredFiles ?? []);
+    const reapplied = reapplyRetiredManifestFiles(distDir, retiredFiles ?? []);
     if (reapplied > 0) {
       console.warn(
         `\x1b[33m[related-search-clusters]\x1b[0m cache INVALID (key=${cacheKey}): re-applied ${reapplied} manifest retirement file(s) before full emit`,
@@ -749,7 +757,29 @@ export async function tryRestoreFromCache(
     return null;
   }
 
-  return { ...manifest, emittedCount: restored };
+  return {
+    ...manifest,
+    files,
+    ...(retiredFiles ? { retiredFiles } : {}),
+    emittedCount: restored,
+  };
+}
+
+/**
+ * A valid cache manifest can include a job alias that this build's jobs
+ * producer is about to reserve. Wait before `tryRestoreFromCache` snapshots
+ * that reservation set; cache misses and isolated/FAST_BUILD consumers keep
+ * their existing no-wait path.
+ */
+export async function tryRestoreFromCacheAfterJobsFlush(
+  rootDir: string,
+  distDir: string,
+  cacheKey: string,
+): Promise<CacheManifest | null> {
+  if (readCacheManifest(rootDir, cacheKey) && shouldAwaitJobsSeoPagesFlushed()) {
+    await jobsSeoPagesFlushed;
+  }
+  return tryRestoreFromCache(rootDir, distDir, cacheKey);
 }
 
 export function saveToCache(
@@ -781,6 +811,7 @@ export function saveToCache(
   for (const rel of emittedFiles) {
     if (visited.has(rel)) continue;
     visited.add(rel);
+    if (isJobAliasRedirectPath(path.resolve(distDir, rel))) continue;
     const src = path.join(distDir, rel);
     if (!fs.existsSync(src)) {
       skipped++;
@@ -3141,7 +3172,7 @@ export function retiredManifestWrites(
   return writes;
 }
 
-function reapplyRetiredManifestFiles(
+export function reapplyRetiredManifestFiles(
   distDir: string,
   retiredFiles: ReadonlyArray<string>,
 ): number {
@@ -3153,7 +3184,10 @@ function reapplyRetiredManifestFiles(
     const expectedPath = write.rel.endsWith('/index.html')
       ? safeTargets.indexPath
       : safeTargets.flatPath;
-    return Boolean(expectedPath) && path.resolve(expectedPath) === path.resolve(distDir, write.rel);
+    const outputPath = path.resolve(distDir, write.rel);
+    return Boolean(expectedPath)
+      && path.resolve(expectedPath) === outputPath
+      && !isJobAliasRedirectPath(outputPath);
   });
   for (const write of safeWrites) {
     const outFile = path.resolve(distDir, write.rel);
@@ -5765,7 +5799,7 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
       let invalidatedRetirementWrites: { rel: string; html: string }[] = [];
       if (cacheEnabled) {
         const __tCacheRestore = profileStart();
-        const restored = await tryRestoreFromCache(rootDir, distDir, cacheKey);
+        const restored = await tryRestoreFromCacheAfterJobsFlush(rootDir, distDir, cacheKey);
         profileRecord('cache-restore-check', __tCacheRestore);
         if (restored) {
           // Re-run the cross-plugin patches against THIS build's dist.
@@ -5806,7 +5840,7 @@ function buildRelatedSearchClustersPlugin(rootDir: string): Plugin {
             cacheHitRetiredLandingPaths(junkRetirements, restored.retiredFiles ?? []),
           );
           finalSitemapMirrorLocs = [...(restored.crossSectionMirrorLocs ?? [])];
-          await jobsSeoPagesFlushed;
+          if (shouldAwaitJobsSeoPagesFlushed()) await jobsSeoPagesFlushed;
           await reconcileSitemapJobsWithDist(
             distDir,
             restored.crossSectionMirrorLocs ?? [],

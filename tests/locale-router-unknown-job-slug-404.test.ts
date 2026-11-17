@@ -40,6 +40,7 @@ type Map = Record<string, Record<string, string>>;
 function mockFetch({ map = null, live = [], canonStatus = 200 }: { map?: Map | null; live?: string[]; canonStatus?: number }) {
   return vi.spyOn(globalThis, 'fetch').mockImplementation(async (input: RequestInfo | URL) => {
     const u = typeof input === 'string' ? input : input instanceof URL ? input.toString() : input.url;
+    if (new URL(u).pathname === '/cdn-build-id.txt') return new Response('1001');
     if (u.includes('/job-canon/')) {
       if (canonStatus !== 200) return new Response('unavailable', { status: canonStatus });
       return map ? Response.json(map) : new Response('not found', { status: 404 });

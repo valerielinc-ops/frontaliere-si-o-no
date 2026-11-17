@@ -60,6 +60,7 @@ import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext'
 import { windowDaysForVariant } from './jobRecencyLanding';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 import { getSafeDistPageTargets } from './shared/distPathSafety';
+import { isJobAliasRedirectPath } from './sharedWriteRegistry';
 
 const LOCALES: ReadonlyArray<JobLandingLocale> = ['it', 'en', 'de', 'fr'];
 
@@ -406,6 +407,7 @@ ${alternates}
             console.warn(`[job-recency-pages] skipped unsafe path ${canonicalPath}`);
             continue;
           }
+          if (isJobAliasRedirectPath(safeTargets.indexPath) || isJobAliasRedirectPath(safeTargets.flatPath)) continue;
           ensureDir(safeTargets.directoryPath);
           fs.writeFileSync(safeTargets.indexPath, html, 'utf-8');
           ensureDir(np.dirname(safeTargets.flatPath));

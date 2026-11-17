@@ -457,12 +457,26 @@ describe('every active ad links its employer hub (mossa 2)', () => {
     ]);
   });
 
-  it('takes the emitted paths from the build signal, never from an ordering assumption', () => {
-    // buildSignals.ts: closeBundle hooks run in PARALLEL. Reading another
-    // plugin's output without its explicit barrier is a known recurring bug
-    // shape in this repo (PATTERN_CLASSES in scripts/ci/check-sibling-patterns.mjs).
-    expect(source).toContain("import { employerProfilesFlushed, resolveJobsSeoPagesFlushed } from './shared/buildSignals';");
+  it('waits for the canonical profile emitter and consumes its emitted paths', () => {
+    // closeBundle hooks run in parallel. The profile producer resolves the
+    // signal only after its writes flush; jobsSeoPagesPlugin must await that
+    // signal and use the exact path supplied by the emitter.
+    const signalImports = [...source.matchAll(/import\s*\{([^}]+)\}\s*from '\.\/shared\/buildSignals';/g)];
+    const importedSignals = signalImports.flatMap((match) => match[1].split(',').map((name) => name.trim()));
+    const profileProducer = readRepoFile('build-plugins/employerProfilePagesPlugin.ts');
+    const profileFlushAt = profileProducer.lastIndexOf('await collector.flush();');
+    const profileSignalAt = profileProducer.lastIndexOf('resolveEmployerProfilesFlushed(emittedProfiles);');
+    const jobsFlushAt = source.lastIndexOf('await collector.flush();');
+    const jobsSignalAt = source.indexOf('resolveJobsSeoPagesFlushed();', jobsFlushAt);
+
+    expect(importedSignals).toContain('employerProfilesFlushed');
+    expect(importedSignals).toContain('resolveJobsSeoPagesFlushed');
+    expect(profileFlushAt).toBeGreaterThan(-1);
+    expect(profileSignalAt).toBeGreaterThan(profileFlushAt);
     expect(source).toContain('for (const emitted of await employerProfilesFlushed) {');
+    expect(source).toContain('emitted.path');
+    expect(jobsFlushAt).toBeGreaterThan(-1);
+    expect(jobsSignalAt).toBeGreaterThan(jobsFlushAt);
   });
 
   it('copies the href out of the emitter instead of rebuilding the URL', () => {

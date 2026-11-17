@@ -267,11 +267,18 @@ describe('job-canon publication handshake', () => {
       writeFileSync(join(current, '02.json'), '{"new":true}');
       writeFileSync(join(previous, 'v2', 'abc.json'), '{"removed":true}');
       writeFileSync(join(current, 'v2', 'def.json'), '{"added":true}');
+      mkdirSync(join(previous, 'releases', '1001', 'v2'), { recursive: true });
+      mkdirSync(join(current, 'releases', '1001', 'v2'), { recursive: true });
+      writeFileSync(join(previous, 'releases', '1001', 'manifest.json'), '{"generation":"old"}');
+      writeFileSync(join(current, 'releases', '1001', 'manifest.json'), '{"generation":"new"}');
+      writeFileSync(join(previous, 'releases', '1001', 'v2', 'abc.json'), '{"release":"old"}');
+      writeFileSync(join(current, 'releases', '1001', 'v2', 'abc.json'), '{"release":"new"}');
 
       expect(compareMapTrees(current, previous)).toEqual([
         'job-canon/02.json',
         'job-canon/a_.json',
         'job-canon/bi.json',
+        'job-canon/releases/1001/v2/abc.json',
         'job-canon/v2/abc.json',
         'job-canon/v2/def.json',
       ]);
@@ -286,6 +293,8 @@ describe('job-canon publication handshake', () => {
       JSON.stringify({ msg: 'Copied (new)', object: 'job-canon/bi.json' }),
       JSON.stringify({ msg: 'Copied (new)', object: 'job-canon/a_.json' }),
       JSON.stringify({ msg: 'Deleted', object: 'v2/abc.json' }),
+      JSON.stringify({ msg: 'Copied (new)', object: 'job-canon/releases/1001/v2/abc.json' }),
+      JSON.stringify({ msg: 'Copied (new)', object: 'job-canon/releases/1001/manifest.json' }),
       JSON.stringify({ msg: 'Unchanged skipping', object: 'job-canon/02.json' }),
       JSON.stringify({ msg: 'Updated modification time', object: 'job-canon/03.json' }),
     ].join('\n');
@@ -293,13 +302,24 @@ describe('job-canon publication handshake', () => {
       'job-canon/01.json',
       'job-canon/a_.json',
       'job-canon/bi.json',
+      'job-canon/releases/1001/v2/abc.json',
       'job-canon/v2/abc.json',
     ]);
+    expect(parseRcloneChangedKeys(
+      JSON.stringify({ msg: 'Copied (new)', object: 'v2/abc.json' }),
+      'job-canon/releases/1001',
+    )).toEqual(['job-canon/releases/1001/v2/abc.json']);
+    expect(() => parseRcloneChangedKeys(
+      JSON.stringify({ msg: 'Copied (new)', object: 'job-canon/releases/1002/v2/abc.json' }),
+      'job-canon/releases/1001',
+    )).toThrow(/outside expected job-canon target/);
     expect(() => parseRcloneChangedKeys(`${log}\npartial json`)).toThrow(/invalid rclone JSON log record/);
     expect(() => parseRcloneChangedKeys(JSON.stringify({ msg: 'Copied (new)', object: 'assets/nope.js' })))
       .toThrow(/unrecognized job-canon object/);
     expect(() => parseRcloneChangedKeys(JSON.stringify({ msg: 'Unknown operation', object: 'job-canon/01.json' })))
       .toThrow(/unrecognized rclone object record/);
+    expect(() => parseRcloneChangedKeys(JSON.stringify({ msg: 'Copied (new)', object: 'job-canon/releases/latest/v2/abc.json' })))
+      .toThrow(/unrecognized job-canon object/);
   });
 
   it.each(['b.json', 'bi0.json', 'BI.json', 'b-.json'])(
@@ -389,17 +409,28 @@ describe('job-canon publication handshake', () => {
     try {
       const bytes = Buffer.from('{"canonical":"/it/job/"}');
       writeFileSync(join(current, '01.json'), bytes);
+      mkdirSync(join(current, 'releases', '43874484314', 'v2'), { recursive: true });
+      writeFileSync(join(current, 'releases', '43874484314', 'v2', 'abc.json'), bytes);
+      const seen: string[] = [];
       const fetchImpl = async (url: string) => ({
         status: url.endsWith('deleted.json') ? 404 : 200,
         headers: { get: () => '' },
-        arrayBuffer: async () => bytes,
+        arrayBuffer: async () => {
+          seen.push(url);
+          return bytes;
+        },
       });
       await verifyMapFreshness(
-        ['job-canon/01.json', 'job-canon/v2/deleted.json'],
+        [
+          'job-canon/01.json',
+          'job-canon/v2/deleted.json',
+          'job-canon/releases/43874484314/v2/abc.json',
+        ],
         current,
         'https://cdn.example.test',
         fetchImpl,
       );
+      expect(seen).toContain('https://cdn.example.test/job-canon/releases/43874484314/v2/abc.json');
 
       const staleFetch = async () => ({
         status: 200,

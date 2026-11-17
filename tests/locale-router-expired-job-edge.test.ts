@@ -55,6 +55,7 @@ beforeEach(() => {
     const url = new URL(requestUrl);
     fetchedPaths.push(`${url.hostname}${url.pathname}`);
     if (url.hostname === 'cdn.frontaliereticino.ch') {
+      if (url.pathname === '/cdn-build-id.txt') return new Response('1001', { status: 200 });
       if (url.pathname === `${EXPIRED_JOB_EDGE_DATASET_PREFIX}/en/manifest.json`) {
         if (datasetMode === 'unavailable') return new Response('temporarily unavailable', { status: 503 });
         if (datasetMode === 'disabled') return new Response('not found', { status: 404 });
@@ -112,6 +113,7 @@ describe('locale-router expired job R2 soft landings', () => {
     expect(html).not.toContain('JobPosting');
     expect(fetchedPaths.some((path) => path.startsWith('cdn.frontaliereticino.ch/edge/expired-jobs/v1/en/'))).toBe(true);
     expect(fetchedPaths.some((path) => path.startsWith('cdn.frontaliereticino.ch/job-canon/'))).toBe(false);
+    expect(fetchedPaths.some((path) => path.endsWith('/cdn-build-id.txt'))).toBe(false);
   });
 
   it('leaves an origin 200 untouched without reading R2', async () => {

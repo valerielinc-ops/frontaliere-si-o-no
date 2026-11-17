@@ -122,6 +122,19 @@ export function countCanonicalLinks(html: string): number {
   return countLinks(html, CANONICAL_LINK_RX);
 }
 
+/** Return the href from the first valid canonical tag in emitted HTML. */
+export function extractCanonicalHref(html: string): string | null {
+  const canonical = String(html).match(CANONICAL_LINK_RX)?.[0];
+  if (!canonical) return null;
+  const href = canonical.match(/(?:^|\s)href=(?:"([^"]+)"|'([^']+)'|([^\s"'<>=`]+))/i);
+  return href?.[1] ?? href?.[2] ?? href?.[3] ?? null;
+}
+
+/** Require one canonical tag whose emitted href exactly matches the target. */
+export function hasExactCanonicalHref(html: string, expectedHref: string): boolean {
+  return countCanonicalLinks(html) === 1 && extractCanonicalHref(html) === expectedHref;
+}
+
 /** Number of `<link rel=alternate hreflang=…>` tags on the page. */
 export function countHreflangLinks(html: string): number {
   return countLinks(html, HREFLANG_LINK_RX);
