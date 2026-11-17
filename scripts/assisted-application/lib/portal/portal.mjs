@@ -3982,14 +3982,14 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     }
     return workdayChooserEntries(current).length > 0;
   };
-  const waitForWorkdayApplicationSurface = async () => {
+  const waitForWorkdayApplicationSurface = async ({ pendingEntry = false } = {}) => {
     // Workday keeps the requisition URL while its application SPA mounts. The
     // fixed modal-animation wait below is not enough for every tenant; wait
     // only on the selected job/application route (or its bound account route),
     // never on an unverified page whose empty surface could be a navigation
     // mismatch.
     if (!stageContext || !isWorkdayTenantUrl(stageContext.applyUrl)) return true;
-    if (!enteredThroughApplicationEntry && !workdayApplicationEntryProven) return true;
+    if (!pendingEntry && !enteredThroughApplicationEntry && !workdayApplicationEntryProven) return true;
     // The initial Workday CTA can open its application chooser in place on
     // the bare requisition route. It is still bound to the selected vacancy;
     // requiring `/apply` here rejects that legitimate pre-entry surface before
@@ -4032,8 +4032,17 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     if (['account', 'receipt', 'review_navigation', 'final_review', 'application_start'].includes(stage.kind)
       || stage.prefinal === true) return true;
     const nextEntries = applicationEntryControls(observed, stageContext || {});
+    const hasApplicationOwnedContainerMarker = (control) => Boolean(
+      control?.formId
+      || control?.roleFormId
+      || (control?.menuItem === true && control?.href)
+      || (control?.dialogId && /\b(?:application|bewerbung|candidatur|candidature|candidatura|postuler)\b/iu.test(
+        [control?.section, control?.context, control?.sectionGroup].filter(Boolean).join(' '),
+      )),
+    );
     if (followedControlSignature && nextEntries.some((control) =>
-      portalControlSignature(control) !== followedControlSignature)) return true;
+      portalControlSignature(control) !== followedControlSignature
+      && hasApplicationOwnedContainerMarker(control))) return true;
     const controls = pageControls(observed.buttons || [], NO_PORTAL_KNOWLEDGE, page.url(), {
       ...(stageContext || {}),
       snapshot: observed,
@@ -4340,7 +4349,9 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     await settle(page);
     if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
     snapshot = await extractFields(page, NAVIGATION);
-    if (!await waitForWorkdayApplicationSurface()) return result({ handoff: 'posting_mismatch' });
+    if (!await waitForWorkdayApplicationSurface({ pendingEntry: followedApplicationEntryThisHop })) {
+      return result({ handoff: 'posting_mismatch' });
+    }
     const postEntryEvidence = followedApplicationEntryThisHop && await waitForPostApplicationEntryEvidence({
       brassRingEntryProven: pendingBrassRingEntryProven,
       followedControlSignature: portalControlSignature(manual || apply || linkEntry),

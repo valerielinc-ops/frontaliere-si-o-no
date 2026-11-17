@@ -40,6 +40,7 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
     goto: vi.fn(async (url: string) => {
       if (url === options.applyUrl && options.applySnapshot) state.snapshot = options.applySnapshot;
       if (url === options.embeddedApplyUrl && options.applySnapshot) state.snapshot = options.applySnapshot;
+      if (url === options.manualUrl && options.manualSnapshot) state.snapshot = options.manualSnapshot;
       if (url === reviewUrl) { expect(guard).not.toHaveBeenCalled(); state.snapshot = finalReview; }
       return { status: () => 200 };
     }),
@@ -371,6 +372,69 @@ describe('runner final guard across three application stages', () => {
 
     const result = await f.run();
 
+    expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
+    expect(f.openClick).toHaveBeenCalledOnce();
+    expect(f.guard).toHaveBeenCalledOnce();
+    expect(f.click).toHaveBeenCalledOnce();
+  });
+
+  it('waits beyond the post-CTA evidence window for a Workday chooser to mount', async () => {
+    const jobUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033';
+    const manualUrl = `${jobUrl}/apply/applyManually`;
+    const chooser = {
+      ...snapshot(jobUrl, '', []),
+      title: 'Rituals Careers',
+      heading: '',
+      text: '',
+    };
+    const delayedChooser = {
+      ...snapshot(jobUrl, 'Choose how to apply', [
+        { id: 'manual', text: 'Apply manually', dialog: true, dialogId: 'd1', section: 'Application chooser', frame: 0, disabled: false },
+      ]),
+      title: 'Rituals Careers',
+      heading: 'Choose how to apply',
+    };
+    const mountedApplication = {
+      ...snapshot(manualUrl, 'Application', [{ id: 'apply', text: 'Apply', formId: 'application', frame: 0, disabled: false }]),
+      title: 'Store Assistant | Rituals Careers',
+      heading: 'Store Assistant',
+      text: 'Store Assistant | Rituals Careers. Application',
+      fields: [
+        { id: 'first', label: 'First Name', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { id: 'last', label: 'Last Name', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { id: 'email', label: 'Email', kind: 'text', inputType: 'email', formId: 'application', frame: 0 },
+        { id: 'cv', label: 'Resume / CV', kind: 'file', inputType: 'file', formId: 'application', frame: 0 },
+      ],
+    };
+    const received = {
+      ...snapshot(manualUrl, 'Thank you for your application.', []),
+      fields: [],
+      buttons: [],
+    };
+    const posting = snapshot(jobUrl, 'Store Assistant Rituals Apply', [{ id: 'entry', text: 'Apply', frame: 0, disabled: false }]);
+    let chooserPolls = 0;
+    const f = fixture(chooser, posting, review, null, {
+      applyUrl: jobUrl,
+      postingUrl: jobUrl,
+      manualUrl,
+      manualSnapshot: mountedApplication,
+      channelType: 'workday',
+      job: { company: 'Rituals Cosmetics Switzerland', title: 'Store Assistant' },
+      guardUrl: manualUrl,
+      receiptSnapshot: received,
+      buttonTransitions: {
+        '[data-aa-id="manual"]': async () => { state.snapshot = mountedApplication; },
+      },
+      onWait: (ms: number) => {
+        if (ms !== 1000 || state.snapshot !== chooser) return;
+        chooserPolls += 1;
+        if (chooserPolls === 7) state.snapshot = delayedChooser;
+      },
+    });
+
+    const result = await f.run();
+
+    expect(chooserPolls).toBe(7);
     expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
     expect(f.openClick).toHaveBeenCalledOnce();
     expect(f.guard).toHaveBeenCalledOnce();
@@ -1426,6 +1490,36 @@ describe('runner final guard across three application stages', () => {
 
     expect(f.openClick).toHaveBeenCalledOnce();
     expect(postCtaPolls).toBeGreaterThan(0);
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
+    expect(f.codex).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('does not treat unchanged duplicate posting CTAs as post-entry evidence', async () => {
+    const postingUrl = 'https://www.clinica-holistica.ch/de/job/infrastructure-strategy-manager';
+    const clinicaApplyUrl = `${postingUrl}/apply?jobId=clinica-19138`;
+    const clickedPosting = {
+      ...snapshot(postingUrl, `${title}. Clinica Holistica.`, [
+        { id: 'apply-top', text: 'Jetzt bewerben', frame: 0, disabled: false },
+        { id: 'apply-bottom', text: 'Jetzt bewerben', frame: 0, disabled: false },
+      ]),
+      title: `${title} | Clinica Holistica`,
+    };
+    const posting = {
+      ...clickedPosting,
+      buttons: [clickedPosting.buttons[0]],
+    };
+    const f = fixture(clickedPosting, posting, review, null, {
+      applyUrl: clinicaApplyUrl,
+      postingUrl,
+      channelType: 'employer_site',
+      job: { company: 'Clinica Holistica', title },
+    });
+
+    const result = await f.run();
+
+    expect(f.openClick).toHaveBeenCalledOnce();
     expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
     expect(f.codex).not.toHaveBeenCalled();
     expect(f.guard).not.toHaveBeenCalled();
