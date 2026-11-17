@@ -61,7 +61,7 @@ describe('portal field extraction', () => {
   });
 
   it('binds the complete Pinpoint applicant address cluster and preserves its form controls', () => {
-    const snapshot = extract(`<form>
+    const form = `<form>
       <button type="button">Remove</button>
       <button type="button">Save application for later</button>
       <button type="submit">SUBMIT APPLICATION</button>
@@ -89,7 +89,8 @@ describe('portal field extraction', () => {
         <label><input type="radio" name="candidate-data" value="yes">Yes</label>
         <label><input type="radio" name="candidate-data" value="no">No</label>
       </fieldset>
-    </form>`, 'https://kempinski.pinpointhq.com/en/postings/9d8a7c6b-5e4f-4321-9abc-0123456789de/applications/new');
+    </form>`;
+    const snapshot = extract(form, 'https://kempinski.pinpointhq.com/en/postings/9d8a7c6b-5e4f-4321-9abc-0123456789de/applications/new');
 
     expect(snapshot.buttons.map((button: any) => button.text)).toEqual(expect.arrayContaining([
       'Remove', 'Save application for later', 'SUBMIT APPLICATION', 'COOKIES',
@@ -141,6 +142,11 @@ describe('portal field extraction', () => {
       missingRequired: [],
     }, snapshot.fields, candidate);
     expect(guarded.missingRequired.map((item: any) => item.fieldId)).not.toEqual(expect.arrayContaining(addressFields.map(field => field.id)));
+
+    const unrelatedHost = extract(form, 'https://jobs.example/apply');
+    expect(unrelatedHost.fields.find((field: any) => field.label === 'Town')).toMatchObject({
+      addressContext: { section: '', owners: [], unknown: false },
+    });
   });
 
   it.each(['CV', 'Resume/CV', 'Lebenslauf', 'Curriculum'])('uses a Workday section title for a hidden unlabelled upload input: %s', (title) => {

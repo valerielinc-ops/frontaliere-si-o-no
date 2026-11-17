@@ -1067,10 +1067,9 @@ function nativeQuestionText(value, counter = null) {
   };
   const pinpointIdentityField = (field, kind) => {
     const caption = pinpointCaption(field);
-    const autocomplete = clean(field?.autocomplete || '');
-    if (kind === 'email') return field?.inputType === 'email' || /^(?:email|email\s+address|e-mail)$/i.test(caption) || autocomplete === 'email';
-    if (kind === 'given') return /^(?:first\s+name|given\s+name|firstname|forename)$/i.test(caption) || autocomplete === 'given-name';
-    return /^(?:last\s+name|family\s+name|surname|lastname)$/i.test(caption) || autocomplete === 'family-name';
+    if (kind === 'email') return field?.inputType === 'email' || /^(?:email|email\s+address|e-mail)$/i.test(caption) || clean(field?.autocomplete || '') === 'email';
+    if (kind === 'given') return /^(?:first\s+name|first_name|firstname|forename)$/i.test(caption);
+    return /^(?:last\s+name|last_name|lastname|surname)$/i.test(caption);
   };
   const applyPinpointApplicantAddressOwnership = () => {
     if (!PINPOINT_HOST_RE.test(String(location?.hostname || ''))
