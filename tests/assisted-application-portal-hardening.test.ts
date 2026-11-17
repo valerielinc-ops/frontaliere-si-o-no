@@ -103,7 +103,7 @@ describe('BrassRing security-question field classification', () => {
 
   it('selects an available non-placeholder visible option for a security-question listbox when fallback text is absent', async () => {
     let selected = '';
-    const field = { id: 'q2', kind: '', inputType: 'listbox', label: 'Question 2', options: [], form: 0, frame: 0 };
+    const field = { id: 'q2', kind: '', inputType: 'listbox', label: 'Security question', name: 'security_question_2', options: [], form: 0, frame: 0 };
     const controlLocator = {
       count: async () => 1,
       click: async () => {},
@@ -113,7 +113,7 @@ describe('BrassRing security-question field classification', () => {
       locator: (selector: string) => {
         if (selector === '[role="option"]:visible') {
           return {
-            allInnerTexts: async () => ['Select...', 'First pet?', 'Favorite city?', 'Childhood street?'],
+            allInnerTexts: async () => ['Please select a question', 'First pet?', 'Favorite city?', 'Childhood street?'],
           };
         }
         return { first: () => controlLocator };
@@ -136,6 +136,28 @@ describe('BrassRing security-question field classification', () => {
     );
     expect(result).toEqual([{ fieldId: 'q2', ok: true }]);
     expect(selected).toBe('Favorite city?');
+  });
+
+  it('fails closed when the security-question ordinal is outside the visible options', async () => {
+    let optionClicks = 0;
+    const field = { id: 'q3', kind: '', inputType: 'listbox', label: 'Security question 3', options: [], form: 0, frame: 0 };
+    const controlLocator = { count: async () => 1, click: async () => {}, evaluate: async () => false };
+    const frame = {
+      locator: (selector: string) => selector === '[role="option"]:visible'
+        ? { allInnerTexts: async () => ['Please select a question', 'First pet?', 'Favorite city?'] }
+        : { first: () => controlLocator },
+      getByRole: () => ({ first: () => ({ click: async () => { optionClicks += 1; } }) }),
+    };
+    const result = await applyActions(
+      { frames: () => [frame], mainFrame: () => frame } as any,
+      [field],
+      [{ fieldId: 'q3', action: 'select', value: 'A question not shown', evidence: 'account_security_question' }],
+      {},
+      { pause: async () => {} },
+    );
+
+    expect(result).toEqual([{ fieldId: 'q3', ok: false, error: 'option_not_found' }]);
+    expect(optionClicks).toBe(0);
   });
 });
 

@@ -294,6 +294,12 @@ const normalizedChoice = (value) => String(value || '')
   .trim()
   .toLowerCase();
 
+const SECURITY_QUESTION_PLACEHOLDER_RE = /^(?:--+|(?:please\s+)?(?:select|choose|pick)(?:\s+(?:a|an|your))?(?:\s+(?:question|option|answer))?(?:\s*\.{2,})?|(?:bitte\s+)?(?:ausw[aä]hlen|wählen)|(?:seleziona(?:re)?|scegli(?:ere)?)|choisir(?:\s+(?:une\s+)?(?:question|option))?)$/i;
+const isSecurityQuestionPlaceholder = (value) => {
+  const label = normalizedChoice(value);
+  return !label || SECURITY_QUESTION_PLACEHOLDER_RE.test(label);
+};
+
 export function uniqueNormalizedOptionIndex(labels, selectedLabel) {
   const wanted = normalizedChoice(selectedLabel);
   const matches = labels.reduce((indices, label, index) => {
@@ -1073,19 +1079,26 @@ export async function applyActions(page, fields, actions, files, {
           const labels = (countryLike || securityChoice)
             ? (await visibleOptions.allInnerTexts().catch(() => [])).map((label) => String(label).replace(/\s+/g, ' ').trim()).filter(Boolean)
             : [];
-          const exact = labels.find((label) => normalizedChoice(label) === normalizedChoice(action.value));
           const usableSecurity = securityChoice
-            ? labels.filter((label) => !/^(?:select|choose|bitte|seleziona|choisir|--)/i.test(label))
+            ? labels.filter((label) => !isSecurityQuestionPlaceholder(label))
             : [];
-          const securityIndex = securityChoice ? Math.max(1, Number(/(\d+)/.exec(String(field.label || field.name || ''))?.[1] || 1)) : 1;
+          const exact = (securityChoice ? usableSecurity : labels)
+            .find((label) => normalizedChoice(label) === normalizedChoice(action.value));
+          const ordinalFrom = (value) => Number(/(\d+)/.exec(String(value || ''))?.[1] || 0);
+          const securityIndex = securityChoice
+            ? ordinalFrom(field.label) || ordinalFrom(field.name) || 1
+            : 0;
+          const securityFallback = securityChoice && securityIndex >= 1 && securityIndex <= usableSecurity.length
+            ? usableSecurity[securityIndex - 1]
+            : '';
           selectedLabel = exact || (isNationalityField(field.label)
             ? nationalityOptionLabel(action.value, labels, nationalityFieldLanguage(field.label))
             : isPhoneCountryField(field)
               ? phoneCountryOptionLabel(action.value, labels)
               : isResidenceCountryField(field)
                 ? residenceCountryOptionLabel(action.value, labels)
-                : securityChoice && usableSecurity.length
-                  ? usableSecurity[(securityIndex - 1) % usableSecurity.length]
+                : securityChoice
+                  ? securityFallback
                   : action.value);
           if (!selectedLabel) throw new Error('option_not_found');
           await frame.getByRole('option', { name: selectedLabel, exact: true }).first().click({ timeout: 6000 });
