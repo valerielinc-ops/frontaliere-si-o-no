@@ -9403,11 +9403,15 @@ function securityQuestionFieldRole(field) {
 
 function securityQuestionFieldScope(field) {
   const frame = Number.isSafeInteger(field?.frame) ? field.frame : null;
+  const formId = String(field?.formId || '').trim();
   const formIndex = Number.isSafeInteger(field?.form) && field.form >= 0
     ? `index:${field.form}` : '';
-  const formId = String(field?.formId || '').trim();
   const roleFormId = String(field?.roleFormId || '').trim();
-  const owner = formIndex || (formId ? `id:${formId}` : '') || (roleFormId ? `role:${roleFormId}` : '');
+  // BrassRing's proxy listbox can report form=-1 while the native answer
+  // reports a numeric form index. The stable DOM form identity must win when
+  // it is available; otherwise a real prompt/answer pair is split across
+  // scopes and remains in the generic planner path.
+  const owner = formId ? `id:${formId}` : formIndex || (roleFormId ? `role:${roleFormId}` : '');
   return frame === null || !owner ? '' : `${frame}\u0000${owner}`;
 }
 

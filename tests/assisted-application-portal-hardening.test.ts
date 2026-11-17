@@ -82,6 +82,15 @@ describe('BrassRing security-question field classification', () => {
     ];
     expect(crossFrame.some((field) => isSecurityQuestionField(field, crossFrame))).toBe(false);
   });
+
+  it('uses the stable form id when a BrassRing proxy reports form=-1', () => {
+    const fields = [
+      { id: 'question-proxy', kind: 'listbox', inputType: 'listbox', label: 'Question 1', options: [], form: -1, formId: 'f1', frame: 0 },
+      { id: 'answer-native', kind: 'text', inputType: 'text', label: 'Question 1 Answer', options: [], form: 0, formId: 'f1', frame: 0 },
+    ];
+
+    expect(fields.filter((field) => isSecurityQuestionField(field, fields))).toHaveLength(2);
+  });
 });
 
 describe('in-page application opener classification', () => {
