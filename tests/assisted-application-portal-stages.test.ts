@@ -73,7 +73,7 @@ describe('application stage ownership', () => {
         { id: 'notice', kind: 'radio', inputType: 'radio', label: 'Thank you for your interest in a job at UBS Note: You must AGREE to proceed.' },
       ],
       buttons: [agree],
-      text: 'UBS processing your Personal Data in the context of your application as outlined above The cross-border transfer of your Personal Data to above mentioned service providers to carry out the purpose of recruit Thank you for your interest in a job at UBS Note: You must AGREE to proceed.',
+      text: 'Infrastructure Strategy Manager UBS processing your Personal Data in the context of your application as outlined above The cross-border transfer of your Personal Data to above mentioned service providers to carry out the purpose of recruit Thank you for your interest in a job at UBS Note: You must AGREE to proceed.',
     };
     const context = { applyUrl, brassRingApplicationEntryProven: true, job: { company: 'UBS', title: 'Infrastructure Strategy Manager' } };
 
@@ -84,6 +84,29 @@ describe('application stage ownership', () => {
       .not.toBe('application_start');
     expect(applicationStage(snapshot, { ...context, brassRingApplicationEntryProven: false }).kind)
       .not.toBe('application_start');
+  });
+
+  it('recognizes a UBS privacy gate when the radio notice is exposed as an option', () => {
+    const applyUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=43';
+    const agree = { id: 'agree', text: 'Agree', frame: 0, disabled: false };
+    const snapshot = {
+      url: `${applyUrl}#privacy`,
+      fields: [
+        { kind: 'checkbox', inputType: 'checkbox', label: 'UBS processing your Personal Data in the context of your application' },
+        { kind: 'checkbox', inputType: 'checkbox', label: 'The cross-border transfer of your Personal Data' },
+        {
+          kind: 'radio',
+          inputType: 'radio',
+          label: 'Consent choice',
+          options: [{ label: 'Thank you for your interest in a job at UBS Note: You must AGREE to proceed.' }],
+        },
+      ],
+      buttons: [agree],
+      text: 'UBS processing your Personal Data. The cross-border transfer of your Personal Data. Thank you for your interest in a job at UBS Note: You must AGREE to proceed.',
+    };
+    const context = { applyUrl, brassRingApplicationEntryProven: true, job: { company: 'UBS', title: 'Infrastructure Strategy Manager' } };
+
+    expect(applicationStage(snapshot, context)).toMatchObject({ kind: 'application_start', control: agree });
   });
 
   it.each([
