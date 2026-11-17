@@ -188,6 +188,7 @@ describe('BrassRing security-question field classification', () => {
     for (const [placeholder, answer, fieldLabel] of [
       ['Bitte wählen', 'Wie heißt Ihr Haustier?', 'Sicherheitsfrage 2'],
       ['Choisissez une question', 'Nom de votre premier animal?', 'Question de sécurité 2'],
+      ['Choisir...', 'Quelle est votre couleur préférée ?', 'Security question 2'],
     ]) {
       let selected = '';
       const field = { id: 'q2', kind: '', inputType: 'listbox', label: fieldLabel, name: 'security_question_2', options: [], form: 0, frame: 0 };

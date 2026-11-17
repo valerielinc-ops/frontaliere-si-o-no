@@ -294,7 +294,7 @@ const normalizedChoice = (value) => String(value || '')
   .trim()
   .toLowerCase();
 
-const SECURITY_QUESTION_PLACEHOLDER_RE = /^(?:--+|(?:please\s+)?(?:select|choose|pick)(?:\s+(?:a|an|your))?(?:\s+(?:question|option|answer))?(?:\s*\.{2,})?|(?:bitte\s+)?(?:auswahlen|wahlen(?:\s+sie)?)|(?:seleziona(?:re)?|scegli(?:ere)?)|(?:choisir|choisissez|selectionnez)(?:\s+(?:une\s+)?(?:question|option))?)$/i;
+const SECURITY_QUESTION_PLACEHOLDER_RE = /^(?:--+|(?:please\s+)?(?:select|choose|pick)(?:\s+(?:a|an|your))?(?:\s+(?:question|option|answer))?(?:\s*\.{2,})?|(?:bitte\s+)?(?:auswahlen|wahlen(?:\s+sie)?)|(?:seleziona(?:re)?|scegli(?:ere)?)|(?:choisir|choisissez|selectionnez)(?:\s+(?:une\s+)?(?:question|option))?(?:\s*\.{2,})?)$/i;
 const isSecurityQuestionPlaceholder = (value) => {
   const label = normalizedChoice(value);
   return !label || SECURITY_QUESTION_PLACEHOLDER_RE.test(label);
