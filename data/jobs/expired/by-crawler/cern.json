@@ -7111,17 +7111,24 @@
     },
     "slugByLocale": {
       "it": "tecnico-meccanico-te-vsc-scc-2026-212-grae-cern-geneva",
-      "en": "mechanical-technician-te-vsc-scc-2026-212-grae-cern-geneva-geneva-switzerland",
+      "en": "mechanical-technician-te-vsc-scc-2026-212-grae-cern-geneva-geneva-switzerland-c279ebf9",
       "de": "mechanical-techniker-te-vsc-scc-2026-212-grae-cern-geneva",
       "fr": "mechanical-technicien-te-vsc-scc-2026-212-grae-cern-geneva"
     },
     "sector": "Ricerca / Scienza",
     "expiredAt": "2026-09-24T14:23:53.231Z",
-    "previousSlugs": [
-      "mechanical-technician-te-vsc-scc-2026-212-grae-cern-geneva-geneva-switzerland"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "mechanical-technician-te-vsc-scc-2026-212-grae-cern-geneva-geneva-switzerland-c279ebf9",
+        "mechanical-technician-te-vsc-scc-2026-212-grae-cern-geneva-geneva-switzerland"
+      ],
+      "en": [
+        "mechanical-technician-te-vsc-scc-2026-212-grae-cern-geneva-geneva-switzerland-c279ebf9"
+      ],
+      "de": [
+        "mechanical-technician-te-vsc-scc-2026-212-grae-cern-geneva-geneva-switzerland"
+      ],
+      "fr": [
         "mechanical-technician-te-vsc-scc-2026-212-grae-cern-geneva-geneva-switzerland"
       ]
     },
@@ -7132,7 +7139,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.smartrecruiters.com/cern/744000146178969-mechanical-technician-te-vsc-scc-2026-212-grae-?oga=true",
-    "firstSeenAt": "2026-08-31T17:13:56.003Z"
+    "firstSeenAt": "2026-08-31T17:13:56.003Z",
+    "previousSlugs": [
+      "mechanical-technician-te-vsc-scc-2026-212-grae-cern-geneva-geneva-switzerland"
+    ]
   },
   {
     "slug": "deep-learning-sviluppatore-it-ce-cds-2026-137-grap-cern-geneva",

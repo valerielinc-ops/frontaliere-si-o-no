@@ -1,7 +1,7 @@
 {
   "crawlerKey": "edmond-de-rothschild",
-  "assembledAt": "2026-11-17T09:18:11.632Z",
-  "runId": "44053784068",
+  "assembledAt": "2026-11-17T21:25:22.814Z",
+  "runId": "44178049619",
   "jobs": [
     {
       "id": "edmond-de-rothschild-4838c42e2ab0",
@@ -35,7 +35,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3080",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T09:18:06.934Z",
+      "crawledAt": "2026-11-17T21:25:13.418Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "Switzerland",
@@ -85,7 +85,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:18:06.934Z",
+      "validThrough": "2026-12-17T21:25:13.418Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3088",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T09:18:06.285Z",
+      "crawledAt": "2026-11-17T21:25:12.911Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "Switzerland",
@@ -171,7 +171,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-20T09:18:06.285Z",
+      "validThrough": "2027-01-20T21:25:12.911Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -205,7 +205,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3081",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T09:18:05.635Z",
+      "crawledAt": "2026-11-17T21:25:12.410Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "Switzerland",
@@ -255,7 +255,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:18:05.635Z",
+      "validThrough": "2027-02-01T21:25:12.410Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -289,7 +289,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3038",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T09:18:05.085Z",
+      "crawledAt": "2026-11-17T21:25:11.866Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "Switzerland",
@@ -325,7 +325,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-02T09:18:05.085Z",
+      "validThrough": "2027-02-02T21:25:11.866Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -360,7 +360,7 @@
       "url": "https://evht.fa.ocs.oraclecloud.eu/hcmUI/CandidateExperience/en/sites/CX_7001/job/3095",
       "source": "Edmond de Rothschild Dedicated Parser (Oracle HCM)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T09:18:04.416Z",
+      "crawledAt": "2026-11-17T21:25:11.294Z",
       "addressLocality": "Switzerland",
       "addressRegion": "GE",
       "streetAddress": "Switzerland",
@@ -410,7 +410,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T09:18:04.416Z",
+      "validThrough": "2027-02-10T21:25:11.294Z",
       "validThroughSource": "last-observed-window"
     }
   ]
