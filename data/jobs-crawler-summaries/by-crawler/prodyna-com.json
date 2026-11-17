@@ -1,7 +1,7 @@
 {
   "key": "prodyna-com",
   "label": "PRODYNA (Schweiz) AG",
-  "generatedAt": "2026-11-17T09:47:51.781Z",
+  "generatedAt": "2026-11-17T21:48:08.292Z",
   "total": 2,
   "discovered": 2,
   "parsed": 2,
@@ -60,10 +60,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 13741,
-  "avgDurationMs": 13741,
+  "durationMs": 16702,
+  "avgDurationMs": 16702,
   "durationHistory": [
-    13741
+    16702
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -81,7 +81,7 @@
       "url": "https://www.prodyna.com/jobs/senior-data-engineer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T09:47:14.211Z",
+      "crawledAt": "2026-11-17T21:47:04.566Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -104,7 +104,7 @@
       "salaryMax": 151000,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:47:14.211Z",
+      "validThrough": "2027-02-09T21:47:04.566Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -126,7 +126,7 @@
       "url": "https://www.prodyna.com/jobs/senior-java-developer-athens",
       "source": "PRODYNA (Schweiz) AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T09:47:14.204Z",
+      "crawledAt": "2026-11-17T21:47:04.557Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -149,7 +149,7 @@
       "salaryMax": 169500,
       "salarySource": "estimated",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:47:14.204Z",
+      "validThrough": "2027-02-09T21:47:04.557Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -160,5 +160,5 @@
       }
     }
   ],
-  "codeCommit": "0a26498058b0569b9b8027a7e9a03db3e2542c6a"
+  "codeCommit": "8a8594aa5e6a6b71cb0a2a3883a7ded1be40621c"
 }
