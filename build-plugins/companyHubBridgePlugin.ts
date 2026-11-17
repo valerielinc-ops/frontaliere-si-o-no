@@ -50,7 +50,7 @@ import { isBrandAlias, resolveBrandCanonical } from './shared/brandCanonicalMap'
 import { buildTitleWithBrand, composePlaceTitle } from './shared/titleSuffix';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 import { getSafeDistPageTargets, isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
-import { isJobAliasRedirectPath } from './sharedWriteRegistry';
+import { hasClaimedPath, isJobAliasRedirectPath } from './sharedWriteRegistry';
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -892,7 +892,9 @@ export function companyHubBridgePlugin(rootDir: string): Plugin {
           skipped++;
           continue;
         }
-        if (fs.existsSync(indexTarget)) { skipped++; continue; }
+        if (hasClaimedPath(indexTarget)
+          || Boolean(flatTarget && hasClaimedPath(flatTarget))
+          || fs.existsSync(indexTarget)) { skipped++; continue; }
 
         const brandCanonicalSlug = resolveBrandCanonical(entry.companySlug);
         const html = (brandCanonicalSlug && isBrandAlias(entry.companySlug))

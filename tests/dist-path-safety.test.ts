@@ -13,6 +13,7 @@ import {
 } from '../build-plugins/shared/distPathSafety';
 import { isRetainedBridgePathSafeToEmit } from '../build-plugins/shared/jobCanonBridgePaths';
 import {
+  claim,
   getJobAliasRedirectDirs,
   isJobAliasRedirectPath,
   reserveJobAliasRedirectDir,
@@ -235,6 +236,28 @@ describe('filesystem target preflight', () => {
       fs.rmSync(distDir, { recursive: true, force: true });
     }
   });
+
+  it('blocks safe compatibility page writes when a richer page is only claimed', () => {
+    const distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'dist-path-claimed-page-'));
+    const pathname = '/de/jobs-in-zurich/active-route/';
+    const targets = getSafeDistPageTargets(distDir, pathname)!;
+    try {
+      claim(targets.indexPath, 'jobs-seo-pages', '<html>active page</html>');
+      expect(writeDistPageSafely({
+        distDir,
+        indexPath: targets.indexPath,
+        flatPath: targets.flatPath,
+        html: '<html>compatibility page</html>',
+        urlPath: pathname,
+        logPrefix: 'claimed-page-test',
+      })).toBe(false);
+      expect(fs.existsSync(targets.indexPath)).toBe(false);
+      expect(fs.existsSync(targets.flatPath!)).toBe(false);
+    } finally {
+      resetWriteRegistry();
+      fs.rmSync(distDir, { recursive: true, force: true });
+    }
+  });
 });
 
 describe('raw URL-to-dist writers apply the guard before filesystem joins', () => {
@@ -309,6 +332,13 @@ describe('raw URL-to-dist writers apply the guard before filesystem joins', () =
     expect(CF_SOURCE).toContain('writeDistPageSafely({');
     expect(DIST_SAFETY_SOURCE).toContain('isJobAliasRedirectPath(indexPath)');
     expect(DIST_SAFETY_SOURCE).toContain('isJobAliasRedirectPath(flatPath)');
+    expect(DIST_SAFETY_SOURCE).toContain('hasClaimedPath(indexPath)');
+    expect(JOB_ORPHAN_SOURCE).toContain('hasClaimedPath(indexTarget)');
+    expect(LEGACY_ALIAS_SOURCE).toContain('hasClaimedPath(indexTarget)');
+    expect(LOCATION_SOURCE).toContain('hasClaimedPath(indexTarget)');
+    expect(COMPANY_SOURCE).toContain('hasClaimedPath(indexTarget)');
+    expect(CF_SOURCE).toContain('hasClaimedPath(safeTargets.indexPath)');
+    expect(CANTON_ORPHAN_SOURCE).toContain('hasClaimedPath(outFile)');
     expect(JOBS_SOURCE).toContain('const pathWasClaimed = (filePath: string): boolean => hasClaimedPath(filePath);');
     expect(JOBS_SOURCE).toContain('const pathIsClaimedOrReserved = (filePath: string): boolean => hasClaimedOrReservedPath(filePath);');
     expect(JOBS_SOURCE).toContain('const isSelfHealTrackingPathClaimed = (relativePath: string): boolean => pathWasClaimed(');
