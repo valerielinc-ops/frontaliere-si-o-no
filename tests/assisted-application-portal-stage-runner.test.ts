@@ -40,6 +40,7 @@ function fixture(initial = profile, source: any = null, finalReview = review, fi
     goto: vi.fn(async (url: string) => {
       if (url === options.applyUrl && options.applySnapshot) state.snapshot = options.applySnapshot;
       if (url === options.embeddedApplyUrl && options.applySnapshot) state.snapshot = options.applySnapshot;
+      if (url === options.manualUrl && options.manualSnapshot) state.snapshot = options.manualSnapshot;
       if (url === reviewUrl) { expect(guard).not.toHaveBeenCalled(); state.snapshot = finalReview; }
       return { status: () => 200 };
     }),
@@ -377,6 +378,69 @@ describe('runner final guard across three application stages', () => {
     expect(f.click).toHaveBeenCalledOnce();
   });
 
+  it('waits beyond the post-CTA evidence window for a Workday chooser to mount', async () => {
+    const jobUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033';
+    const manualUrl = `${jobUrl}/apply/applyManually`;
+    const chooser = {
+      ...snapshot(jobUrl, '', []),
+      title: 'Rituals Careers',
+      heading: '',
+      text: '',
+    };
+    const delayedChooser = {
+      ...snapshot(jobUrl, 'Choose how to apply', [
+        { id: 'manual', text: 'Apply manually', dialog: true, dialogId: 'd1', section: 'Application chooser', frame: 0, disabled: false },
+      ]),
+      title: 'Rituals Careers',
+      heading: 'Choose how to apply',
+    };
+    const mountedApplication = {
+      ...snapshot(manualUrl, 'Application', [{ id: 'apply', text: 'Apply', formId: 'application', frame: 0, disabled: false }]),
+      title: 'Store Assistant | Rituals Careers',
+      heading: 'Store Assistant',
+      text: 'Store Assistant | Rituals Careers. Application',
+      fields: [
+        { id: 'first', label: 'First Name', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { id: 'last', label: 'Last Name', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { id: 'email', label: 'Email', kind: 'text', inputType: 'email', formId: 'application', frame: 0 },
+        { id: 'cv', label: 'Resume / CV', kind: 'file', inputType: 'file', formId: 'application', frame: 0 },
+      ],
+    };
+    const received = {
+      ...snapshot(manualUrl, 'Thank you for your application.', []),
+      fields: [],
+      buttons: [],
+    };
+    const posting = snapshot(jobUrl, 'Store Assistant Rituals Apply', [{ id: 'entry', text: 'Apply', frame: 0, disabled: false }]);
+    let chooserPolls = 0;
+    const f = fixture(chooser, posting, review, null, {
+      applyUrl: jobUrl,
+      postingUrl: jobUrl,
+      manualUrl,
+      manualSnapshot: mountedApplication,
+      channelType: 'workday',
+      job: { company: 'Rituals Cosmetics Switzerland', title: 'Store Assistant' },
+      guardUrl: manualUrl,
+      receiptSnapshot: received,
+      buttonTransitions: {
+        '[data-aa-id="manual"]': async () => { state.snapshot = mountedApplication; },
+      },
+      onWait: (ms: number) => {
+        if (ms !== 1000 || state.snapshot !== chooser) return;
+        chooserPolls += 1;
+        if (chooserPolls === 7) state.snapshot = delayedChooser;
+      },
+    });
+
+    const result = await f.run();
+
+    expect(chooserPolls).toBe(7);
+    expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
+    expect(f.openClick).toHaveBeenCalledOnce();
+    expect(f.guard).toHaveBeenCalledOnce();
+    expect(f.click).toHaveBeenCalledOnce();
+  });
+
   it('rejects a Workday surface that appears after the polled apply route becomes unbound', async () => {
     const postingUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033';
     const applyUrl = `${postingUrl}/apply`;
@@ -485,7 +549,7 @@ describe('runner final guard across three application stages', () => {
       },
       onOpenClick: () => { applicationStarted = true; },
       onWait: (ms: number) => {
-        if (ms === 1200 && state.snapshot.url === applyUrl) state.snapshot = unboundSurface;
+        if (ms === 1000 && state.snapshot.url === applyUrl) state.snapshot = unboundSurface;
       },
     });
 
@@ -621,7 +685,8 @@ describe('runner final guard across three application stages', () => {
     const menu = {
       ...posting,
       buttons: [toggles[0],
-        { id: 'manual', text: 'Jetzt bewerben', menuItem: true, href: `${postingUrl}#`, section: title, context: title },
+        { id: 'manual', text: 'Jetzt bewerben', menuItem: true, href: `${postingUrl}#`, section: title, context: title,
+          applicationScopeId: 'application-scope', sectionGroupId: 'application-menu', sectionGroup: 'Application menu' },
         { id: 'linkedin', text: 'Apply with LinkedIn', menuItem: true, href: `${postingUrl}#`, section: title, context: title },
         toggles[1]],
     };
@@ -1316,6 +1381,180 @@ describe('runner final guard across three application stages', () => {
     expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
     expect(headerClick).not.toHaveBeenCalled();
     expect(matchingClick).toHaveBeenCalledOnce();
+  });
+
+  it('waits for the Clinica posting CTA to mount its application form before carrying entry provenance', async () => {
+    const postingUrl = 'https://www.clinica-holistica.ch/de/job/infrastructure-strategy-manager';
+    const clinicaApplyUrl = `${postingUrl}/apply?jobId=clinica-19138`;
+    const clinicaButtons = [
+      'Patient/in',
+      'Behandlungsangebot',
+      'Über uns',
+      'Jetzt bewerben',
+      'Erfahre mehr',
+      'Zum Kontaktformular',
+      'Datenschutz',
+    ].map((text, index) => ({ id: `clinica-${index}`, text, frame: 0, disabled: false }));
+    const posting = {
+      ...snapshot(postingUrl, `${title}. Clinica Holistica.`, clinicaButtons),
+      title: `${title} | Clinica Holistica`,
+    };
+    const mounting = {
+      ...snapshot(postingUrl, 'Bewerbungsformular wird geladen', []),
+      title: `${title} | Clinica Holistica`,
+    };
+    const applicationForm = {
+      ...snapshot(clinicaApplyUrl, `${title}. Bewerbungsformular.`, [
+        { id: 'application-next', text: 'Weiter', formId: 'application', frame: 0, disabled: false },
+      ]),
+      title: `${title} | Clinica Holistica`,
+      fields: [
+        { id: 'first', label: 'Vorname', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { id: 'last', label: 'Nachname', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { id: 'email', label: 'E-Mail', kind: 'text', inputType: 'email', formId: 'application', frame: 0 },
+      ],
+    };
+    const clinicaReview = {
+      ...review,
+      url: `${postingUrl}/application/review?jobId=clinica-19138`,
+      title: `${title} | Clinica Holistica`,
+      text: `${title}. Please review the information below. Once you have reviewed, please select Submit to finalise your application.`,
+      buttons: [{ id: 'commit', text: 'Apply', formId: 'application', frame: 0, disabled: false }],
+    };
+    const clinicaReceipt = {
+      ...receipt,
+      url: `${postingUrl}/confirmation?jobId=clinica-19138`,
+      title: `${title} | Clinica Holistica`,
+      text: `Thank you for your application for ${title}.`,
+      buttons: [],
+    };
+    let postCtaPolls = 0;
+    const f = fixture(mounting, posting, clinicaReview, null, {
+      applyUrl: clinicaApplyUrl,
+      postingUrl,
+      channelType: 'employer_site',
+      job: { company: 'Clinica Holistica', title },
+      guardUrl: clinicaReview.url,
+      receiptSnapshot: clinicaReceipt,
+      buttonTransitions: {
+        '[data-aa-id="application-next"]': async () => { state.snapshot = clinicaReview; },
+      },
+      onWait: (ms: number) => {
+        if (ms !== 1000 || state.snapshot !== mounting) return;
+        postCtaPolls += 1;
+        if (postCtaPolls === 2) state.snapshot = applicationForm;
+      },
+    });
+
+    const result = await f.run();
+
+    expect(posting.buttons.map((button: any) => button.text)).toEqual([
+      'Patient/in', 'Behandlungsangebot', 'Über uns', 'Jetzt bewerben',
+      'Erfahre mehr', 'Zum Kontaktformular', 'Datenschutz',
+    ]);
+    expect(f.openClick).toHaveBeenCalledOnce();
+    expect(postCtaPolls).toBe(2);
+    expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
+    expect(f.guard).toHaveBeenCalledOnce();
+    expect(f.click).toHaveBeenCalledOnce();
+  });
+
+  it('fails closed when the Clinica posting CTA produces no observable application evidence', async () => {
+    const postingUrl = 'https://www.clinica-holistica.ch/de/job/infrastructure-strategy-manager';
+    const clinicaApplyUrl = `${postingUrl}/apply?jobId=clinica-19138`;
+    const posting = {
+      ...snapshot(postingUrl, `${title}. Clinica Holistica.`, [
+        'Patient/in',
+        'Behandlungsangebot',
+        'Über uns',
+        'Jetzt bewerben',
+        'Erfahre mehr',
+        'Zum Kontaktformular',
+        'Datenschutz',
+      ].map((text, index) => ({ id: `clinica-${index}`, text, frame: 0, disabled: false }))),
+      title: `${title} | Clinica Holistica`,
+    };
+    const noEvidence = {
+      ...snapshot(clinicaApplyUrl, 'Bewerbungsformular wird geladen', []),
+      title: `${title} | Clinica Holistica`,
+    };
+    let postCtaPolls = 0;
+    const f = fixture(noEvidence, posting, review, null, {
+      applyUrl: clinicaApplyUrl,
+      postingUrl,
+      channelType: 'employer_site',
+      job: { company: 'Clinica Holistica', title },
+      onWait: (ms: number) => { if (ms === 1000 && state.snapshot === noEvidence) postCtaPolls += 1; },
+    });
+
+    const result = await f.run();
+
+    expect(f.openClick).toHaveBeenCalledOnce();
+    expect(postCtaPolls).toBeGreaterThan(0);
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
+    expect(f.codex).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('does not treat unchanged duplicate posting CTAs as post-entry evidence', async () => {
+    const postingUrl = 'https://www.clinica-holistica.ch/de/job/infrastructure-strategy-manager';
+    const clinicaApplyUrl = `${postingUrl}/apply?jobId=clinica-19138`;
+    const clickedPosting = {
+      ...snapshot(postingUrl, `${title}. Clinica Holistica.`, [
+        { id: 'apply-top', text: 'Jetzt bewerben', frame: 0, disabled: false },
+        { id: 'apply-bottom', text: 'Jetzt bewerben', formId: 'posting-form', frame: 0, disabled: false },
+      ]),
+      title: `${title} | Clinica Holistica`,
+    };
+    const posting = {
+      ...clickedPosting,
+      buttons: [clickedPosting.buttons[0]],
+    };
+    const f = fixture(clickedPosting, posting, review, null, {
+      applyUrl: clinicaApplyUrl,
+      postingUrl,
+      channelType: 'employer_site',
+      job: { company: 'Clinica Holistica', title },
+    });
+
+    const result = await f.run();
+
+    expect(f.openClick).toHaveBeenCalledOnce();
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
+    expect(f.codex).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('does not treat an unchanged posting menu CTA as post-entry evidence', async () => {
+    const postingUrl = 'https://www.clinica-holistica.ch/de/job/infrastructure-strategy-manager';
+    const clinicaApplyUrl = `${postingUrl}/apply?jobId=clinica-19138`;
+    const clickedPosting = {
+      ...snapshot(postingUrl, `${title}. Clinica Holistica.`, [
+        { id: 'apply-top', text: 'Jetzt bewerben', frame: 0, disabled: false },
+        { id: 'apply-bottom', text: 'Jetzt bewerben', menuItem: true, href: `${postingUrl}#`, frame: 0, disabled: false },
+      ]),
+      title: `${title} | Clinica Holistica`,
+    };
+    const posting = {
+      ...clickedPosting,
+      buttons: [clickedPosting.buttons[0]],
+    };
+    const f = fixture(clickedPosting, posting, review, null, {
+      applyUrl: clinicaApplyUrl,
+      postingUrl,
+      channelType: 'employer_site',
+      job: { company: 'Clinica Holistica', title },
+    });
+
+    const result = await f.run();
+
+    expect(f.openClick).toHaveBeenCalledOnce();
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
+    expect(f.codex).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
   });
 
   it('keeps a regional notice terminal when a same-title no-href CTA lacks the current posting identity', async () => {
