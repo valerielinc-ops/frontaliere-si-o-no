@@ -11922,6 +11922,9 @@ export async function submitViaPortal(ctx) {
           workdayDeterministicRestoreAttempted = true;
           await page.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 }).catch(() => {});
           await settle(page).catch(() => {});
+          // The pre-navigation shell marker is not evidence for the restored route. Clear it
+          // before extraction so a failed read cannot make the old snapshot satisfy the wait.
+          snapshot = { ...snapshot, workdayApplicationSurface: false };
           snapshot = await extractFields(page, NAVIGATION).catch(() => snapshot);
           snapshot = await awaitWorkdayApplicationMount(page, snapshot);
         }
