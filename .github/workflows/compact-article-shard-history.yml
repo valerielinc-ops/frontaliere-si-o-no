@@ -241,7 +241,16 @@ jobs:
           compact_one() {
             local pair="$1" section loc
             section="${pair%%:*}"; loc="${pair##*:}"
-            if bash scripts/lib/compact-article-shard-history.sh "$section" "$loc"; then
+            # History compaction force-pushes an orphan commit. It must share
+            # the same per-section/locale writer lease as deploy and the
+            # marker-only heartbeat, otherwise it can replace a successful
+            # generation write with a clone taken from an older remote tip.
+            # Bound the complete lease+clone+push invocation: the lock timeout
+            # only covers acquisition, not a stalled SSH operation.
+            if timeout --verbose --signal=TERM --kill-after=120s 4200s \
+              node scripts/ci/with-shard-writer-lock.mjs \
+                --section "$section" --locale "$loc" --policy wait --timeout-ms 3600000 -- \
+                bash scripts/lib/compact-article-shard-history.sh "$section" "$loc"; then
               return 0
             fi
             echo "::warning::$section-$loc shard history compaction failed — continuing to the next section"

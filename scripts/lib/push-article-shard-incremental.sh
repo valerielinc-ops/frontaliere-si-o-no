@@ -226,9 +226,11 @@ remote_newer_paths=()
 append_remote_newer_path() {
   local candidate="$1"
   local existing
-  for existing in "${remote_newer_paths[@]}"; do
-    [ "$existing" = "$candidate" ] && return 0
-  done
+  if [ "${#remote_newer_paths[@]}" -gt 0 ]; then
+    for existing in "${remote_newer_paths[@]}"; do
+      [ "$existing" = "$candidate" ] && return 0
+    done
+  fi
   remote_newer_paths+=("$candidate")
 }
 
@@ -396,7 +398,7 @@ _attempt() {
   fi
   for rel in "${relpaths[@]}"; do
     local is_newer=0
-    if [ -n "$article_content_revision" ]; then
+    if [ -n "$article_content_revision" ] && [ "${#remote_newer_paths[@]}" -gt 0 ]; then
       local newer_path
       for newer_path in "${remote_newer_paths[@]}"; do
         if [ "$newer_path" = "$rel" ]; then is_newer=1; break; fi
@@ -424,16 +426,18 @@ _attempt() {
     echo "monotonic guard: kept remote for $last_skipped_newer_count newer article path(s): $last_skipped_newer_names"
   fi
 
-  for rel in "${eligible_relpaths[@]}"; do
-    src="$scratch_dist_dir/$rel"
-    # ls-tree only touches tree objects (never a blob fetch) — used purely to
-    # classify rel as "new" vs "replaced" for the .shard-filecount delta below.
-    if [ -z "$(git -C "$stage" ls-tree HEAD -- "$rel" 2>/dev/null)" ]; then
-      new_count=$((new_count + 1))
-    fi
-    sha="$(git -C "$stage" hash-object -w --path="$rel" "$src")" || return 1
-    git -C "$stage" update-index --add --cacheinfo 100644,"$sha","$rel" || return 1
-  done
+  if [ "${#eligible_relpaths[@]}" -gt 0 ]; then
+    for rel in "${eligible_relpaths[@]}"; do
+      src="$scratch_dist_dir/$rel"
+      # ls-tree only touches tree objects (never a blob fetch) — used purely to
+      # classify rel as "new" vs "replaced" for the .shard-filecount delta below.
+      if [ -z "$(git -C "$stage" ls-tree HEAD -- "$rel" 2>/dev/null)" ]; then
+        new_count=$((new_count + 1))
+      fi
+      sha="$(git -C "$stage" hash-object -w --path="$rel" "$src")" || return 1
+      git -C "$stage" update-index --add --cacheinfo 100644,"$sha","$rel" || return 1
+    done
+  fi
 
   # Previous file-count: read straight from the tree we just cloned (a single
   # small targeted blob fetch — see header comment for why this beats the

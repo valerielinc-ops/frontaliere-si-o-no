@@ -32,6 +32,8 @@ import {
 
 const ROOT = resolve(import.meta.dirname, '..');
 const SCRIPT = readFileSync(resolve(ROOT, 'scripts/audit-404-risk.mjs'), 'utf-8');
+const PUBLISH_WORKFLOW = readFileSync(resolve(ROOT, '.github/workflows/deploy-publish.yml'), 'utf-8');
+const HEARTBEAT_SCRIPT = readFileSync(resolve(ROOT, 'scripts/lib/heartbeat-section-shard.sh'), 'utf-8');
 
 /**
  * The module runs `main()` on import, so the pure helpers are exercised through
@@ -459,6 +461,61 @@ describe('generationSummary — the deferral is bounded, not open-ended', () => 
       NOW,
     );
     expect(s.staleShards).toEqual([]);
+  });
+});
+
+describe('publish generation heartbeat for build-skipped article shards', () => {
+  it('advances all four articolisvizzera generations without re-enabling a full payload push', () => {
+    expect(PUBLISH_WORKFLOW).toContain('Heartbeat excluded articolisvizzera IT shard');
+    expect(PUBLISH_WORKFLOW).toContain('bash scripts/lib/heartbeat-section-shard.sh articolisvizzera it');
+    expect(PUBLISH_WORKFLOW).toContain('Heartbeat excluded articolisvizzera non-IT shard');
+    expect(PUBLISH_WORKFLOW).toContain('bash scripts/lib/heartbeat-section-shard.sh articolisvizzera "${BUILD_LOCALE}"');
+    expect(PUBLISH_WORKFLOW).toContain('order="${order}"$\'\\n\'articolisvizzera');
+    expect(PUBLISH_WORKFLOW).toContain('BUILD_EMIT_SKIP=true — excluded from full-replace push');
+  });
+
+  it('keeps the heartbeat fail-closed and marker-only', () => {
+    expect(HEARTBEAT_SCRIPT).toContain("if [ \"$changed_paths\" != '.shard-source' ]; then");
+    expect(HEARTBEAT_SCRIPT).toContain('exit 1');
+    expect(HEARTBEAT_SCRIPT).toContain('shard_pat_push "$stage" "$shard_repo" "$refspec" "$label" 0');
+    expect(HEARTBEAT_SCRIPT).not.toMatch(/git[^\n]*push[^\n]*(?:\s-f\b|--force)/);
+  });
+
+  it('turns a non-IT heartbeat failure red despite the resilient section-push step', () => {
+    const pushStart = PUBLISH_WORKFLOW.indexOf('id: push-section-shards-nonit');
+    const gateStart = PUBLISH_WORKFLOW.indexOf('- name: Require excluded articolisvizzera heartbeat');
+    const gateEnd = PUBLISH_WORKFLOW.indexOf('\n      - name:', gateStart + 1);
+    const receiptStart = PUBLISH_WORKFLOW.indexOf('- name: Write durable locale shard receipt');
+    const pushBlock = PUBLISH_WORKFLOW.slice(pushStart, gateStart);
+    const gateBlock = PUBLISH_WORKFLOW.slice(gateStart, gateEnd);
+
+    expect(pushBlock).toContain('continue-on-error: true');
+    expect(PUBLISH_WORKFLOW).toContain('id: heartbeat-excluded-articolisvizzera-nonit');
+    expect(PUBLISH_WORKFLOW).toContain("echo 'articolisvizzera_heartbeat_succeeded=true' >> \"$GITHUB_OUTPUT\"");
+    expect(gateBlock).toContain("if: always() && matrix.locale != 'it'");
+    expect(gateBlock).toContain('HEARTBEAT_SUCCEEDED: ${{ steps.heartbeat-excluded-articolisvizzera-nonit.outputs.articolisvizzera_heartbeat_succeeded');
+    expect(gateBlock).toContain('[ "$HEARTBEAT_SUCCEEDED" != true ]');
+    expect(gateBlock).toContain('exit 1');
+    expect(gateStart).toBeLessThan(receiptStart);
+    const heartbeatStart = PUBLISH_WORKFLOW.indexOf('- name: Heartbeat excluded articolisvizzera non-IT shard');
+    expect(heartbeatStart).toBeGreaterThan(-1);
+    expect(heartbeatStart).toBeLessThan(receiptStart);
+    expect(PUBLISH_WORKFLOW.slice(gateStart, gateEnd)).not.toContain('DURABLE_LOCALE_PUBLISHED');
+    expect(PUBLISH_WORKFLOW.slice(receiptStart, receiptStart + 600))
+      .toContain("steps.push-section-shards-nonit.outcome == 'success'");
+    expect(PUBLISH_WORKFLOW).toContain("needs.publish-nonit-shards.result == 'success'");
+  });
+
+  it('keeps the separate IT heartbeat as a hard finalizer step', () => {
+    const heartbeatStart = PUBLISH_WORKFLOW.indexOf('- name: Heartbeat excluded articolisvizzera IT shard');
+    const heartbeatEnd = PUBLISH_WORKFLOW.indexOf('\n      - name:', heartbeatStart + 1);
+    const heartbeatBlock = PUBLISH_WORKFLOW.slice(heartbeatStart, heartbeatEnd);
+
+    expect(heartbeatStart).toBeGreaterThan(-1);
+    expect(heartbeatBlock).toContain('bash scripts/lib/heartbeat-section-shard.sh articolisvizzera it');
+    expect(heartbeatBlock).toContain('timeout --verbose --signal=TERM --kill-after=120s 4200s');
+    expect(heartbeatBlock).not.toContain('continue-on-error: true');
+    expect(PUBLISH_WORKFLOW).toContain("needs.finalize-it-publish.result == 'success'");
   });
 });
 
