@@ -8877,12 +8877,12 @@ export function getAllPreviousSlugs(job) {
  * Would `cleanPreviousSlugsPerLocale()` drop this previous slug from `job`?
  *
  * A locale-attributed entry is dropped when it equals that locale's active
- * slug or the master slug; an unattributed (flat-only) entry when it equals
- * the master slug or any active locale slug. Writers that carry bridges
- * forward must ask this before adding one: a bridge the cleaner removes on
- * the next pass can never be persisted, so treating it as missing makes the
- * writer non-idempotent (translate-pending run 37723588903: 1065 such
- * bridges kept the scatter parity gate red).
+ * slug, or when the Italian bucket equals the master slug; an unattributed
+ * (flat-only) entry is dropped when it equals the master slug or any active
+ * locale slug. Writers that carry bridges forward must ask this before adding
+ * one: a bridge the cleaner removes on the next pass can never be persisted,
+ * so treating it as missing makes the writer non-idempotent (translate-pending
+ * run 37723588903: 1065 such bridges kept the scatter parity gate red).
  *
  * @param {object} job job whose ACTIVE slugs decide the verdict
  * @param {string|null} locale bucket the slug is attributed to, null = flat
@@ -8892,7 +8892,10 @@ export function getAllPreviousSlugs(job) {
 export function isSelfCanonicalPreviousSlug(job, locale, slug) {
   const norm = normalizeSpace(String(slug || ''));
   if (!norm || !job || typeof job !== 'object') return false;
-  if (norm === normalizeSpace(job.slug || '')) return true;
+  // The master slug is always the Italian route, but it can also have been
+  // the active route in another locale before that locale was translated.
+  // A locale-aware bridge under en/de/fr must survive that transition.
+  if ((locale === null || locale === 'it') && norm === normalizeSpace(job.slug || '')) return true;
   const active = job.slugByLocale && typeof job.slugByLocale === 'object' ? job.slugByLocale : {};
   if (locale) return norm === normalizeSpace(active[locale] || '');
   return Object.values(active).some((value) => value && norm === normalizeSpace(String(value)));
@@ -8902,8 +8905,10 @@ export function isSelfCanonicalPreviousSlug(job, locale, slug) {
  * Per-locale safety net: for each locale, strip previousSlugsByLocale entries
  * that match ONLY that same locale's active slug. Cross-locale matches are
  * preserved (e.g. old FR slug that matches current DE slug → keep for FR bridge).
- * Also cleans legacy flat previousSlugs by removing entries that match the
- * master slug or any locale slug that has no locale-aware bucket.
+ * The master slug is removed from the Italian bucket, but kept in en/de/fr
+ * when it is the old active route for that locale. Also cleans legacy flat
+ * previousSlugs by removing entries that match the master slug or any locale
+ * slug that has no locale-aware bucket.
  */
 export function cleanPreviousSlugsPerLocale(job) {
   // Clean locale-aware entries: per-locale comparison only
@@ -8924,8 +8929,9 @@ export function cleanPreviousSlugsPerLocale(job) {
           });
           return false;
         }
-        // Remove if matches master slug (always has a live page at IT path)
-        if (norm === masterSlug) {
+        // The master slug is a live Italian route. For another locale it can
+        // still be the old active route whose bridge must be retained.
+        if (locale === 'it' && norm === masterSlug) {
           recordSlugMutation({
             jobId: job.id, locale, slug: norm, action: 'drop',
             source: 'dedicated-crawler-common.cleanPreviousSlugsPerLocale',
