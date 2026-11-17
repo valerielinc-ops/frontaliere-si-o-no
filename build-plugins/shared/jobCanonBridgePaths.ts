@@ -28,7 +28,7 @@ export type JobCanonLocale = (typeof JOB_CANON_LOCALES)[number];
 /** Registry aliases are emitted only for the three non-Italian locales by the Worker. */
 export const JOB_CANON_REGISTRY_ALIAS_LOCALES = ['en', 'de', 'fr'] as const;
 
-/** Check a retained bridge only after letting reserved removable aliases exit on their index target. */
+/** Validate a retained directory page after letting reserved aliases exit on their index target. */
 export function isRetainedBridgePathSafeToEmit(
   distDir: string,
   canonicalPath: string,
@@ -36,11 +36,9 @@ export function isRetainedBridgePathSafeToEmit(
   hasRetainedClassification: (canonicalPath: string) => boolean,
 ): boolean {
   const indexTargets = getSafeDistPageTargets(distDir, canonicalPath, { includeFlat: false });
-  if (!indexTargets) throw new Error('[job-alias-redirect-gate] bridge path is not a safe dist target');
+  if (!indexTargets) return false;
   if (isReservedPath(indexTargets.indexPath)) return false;
 
-  const targets = getSafeDistPageTargets(distDir, canonicalPath);
-  if (!targets) throw new Error('[job-alias-redirect-gate] bridge path is not a safe dist target');
   if (!hasRetainedClassification(canonicalPath)) {
     throw new Error('[job-alias-redirect-gate] emitted bridge path is missing from the shared classification');
   }
