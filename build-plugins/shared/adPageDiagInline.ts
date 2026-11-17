@@ -6,8 +6,8 @@
  * BOT_GATE_FN: the loader calls it once, before its no-ads and bot-gate early
  * returns, so those page views are reported too (`ad_path`). Every literal it
  * shares with the SPA is interpolated from the TS source — the page-template
- * rules, storage keys, consent values, the consent-change event, the delay
- * and the event name — so only the control flow is re-expressed here.
+ * rules, storage keys, consent values, consent and CMP events, the delay and
+ * the event name — so only the control flow is re-expressed here.
  * tests/ad-page-diag-parity.test.ts runs this collector and the TS one on the
  * same DOM and requires identical parameters, and pins the once-per-page-view
  * behaviour of both.
@@ -18,6 +18,7 @@
  * `flush(1)` before starting its own.
  */
 import {
+  ADS_CMP_SHOWN_EVENT,
   ADS_CONSENT_CHANGE_EVENT,
   ADS_CONSENT_DENIED,
   ADS_CONSENT_GRANTED,
@@ -72,9 +73,9 @@ export const AD_PAGE_DIAG_FN =
   `if(h.ff<0){var fo=new MutationObserver(function(rs){for(var i=0;i<rs.length;i++){var t=rs[i].target;if(t.tagName==='INS'&&t.getAttribute('data-ad-status')==='filled'&&man(t)){h.ff=Math.max(0,Math.round(now()-t0));fo.disconnect();return;}}});` +
   `fo.observe(d.documentElement,{subtree:true,attributes:true,attributeFilter:['data-ad-status']});offs.push(function(){fo.disconnect();});}` +
   `if(d.body){var co=new MutationObserver(function(){noteCmp();if(h.cmp)co.disconnect();});co.observe(d.body,{childList:true});offs.push(function(){co.disconnect();});}}` +
-  `var onC=function(){h.cmp=1;},onS=function(e){if(e.key===null||e.key==='${ADS_CONSENT_STORAGE_KEY}')h.cmp=1;};` +
-  `w.addEventListener('${ADS_CONSENT_CHANGE_EVENT}',onC);w.addEventListener('storage',onS);` +
-  `offs.push(function(){w.removeEventListener('${ADS_CONSENT_CHANGE_EVENT}',onC);w.removeEventListener('storage',onS);});` +
+  `var onC=function(){h.cmp=1;},onM=function(){h.cmp=1;},onS=function(e){if(e.key===null||e.key==='${ADS_CONSENT_STORAGE_KEY}')h.cmp=1;};` +
+  `w.addEventListener('${ADS_CONSENT_CHANGE_EVENT}',onC);w.addEventListener('${ADS_CMP_SHOWN_EVENT}',onM);w.addEventListener('storage',onS);` +
+  `offs.push(function(){w.removeEventListener('${ADS_CONSENT_CHANGE_EVENT}',onC);w.removeEventListener('${ADS_CMP_SHOWN_EVENT}',onM);w.removeEventListener('storage',onS);});` +
   `${COLLECT_JS}${SEND_JS}h.collect=collect;` +
   `h.flush=function(hidden){if(h.done)return;h.done=true;for(var i=0;i<offs.length;i++)try{offs[i]();}catch(e){}try{send(collect(hidden));}catch(e){}};` +
   `var tm=setTimeout(function(){h.flush(0);},${AD_PAGE_DIAG_DELAY_MS});offs.push(function(){clearTimeout(tm);});` +

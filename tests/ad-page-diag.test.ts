@@ -32,7 +32,7 @@ import {
   classifyAdPageTemplate,
   type AdPageTemplate,
 } from '@/services/adPageTemplate';
-import { ADS_CONSENT_CHANGE_EVENT, ADS_CONSENT_STORAGE_KEY } from '@/services/adsConsent';
+import { ADS_CMP_SHOWN_EVENT, ADS_CONSENT_CHANGE_EVENT, ADS_CONSENT_STORAGE_KEY } from '@/services/adsConsent';
 import { AD_BANNER_STATE_ATTR } from '@/services/adsenseSlots';
 import { useAdPageDiag } from '@/hooks/useAdPageDiag';
 import { SEO_TRACKING_PUSH_EVENT } from '@/hooks/useSeoPageTracking';
@@ -320,6 +320,18 @@ describe('collector parity (TS ≡ inline)', () => {
     window.dispatchEvent(new CustomEvent(ADS_CONSENT_CHANGE_EVENT, { detail: 'granted' }));
     expect(ts.collect(0).cmp_shown).toBe(1);
     expect(inline.collect(0).cmp_shown).toBe(1);
+  });
+
+  it('marks cmp_shown from the TCF UI signal even when the CMP root is not in the DOM', () => {
+    setPath('/');
+    const ts = runTs();
+    window.dispatchEvent(new CustomEvent(ADS_CMP_SHOWN_EVENT));
+    expect(ts.collect(0).cmp_shown).toBe(1);
+
+    const inline = runInline();
+    window.dispatchEvent(new CustomEvent(ADS_CMP_SHOWN_EVENT));
+    expect(inline.collect(0).cmp_shown).toBe(1);
+    expect(inline.collect(0)).toEqual(ts.collect(0));
   });
 
   it('the pure TS collector matches what the handle reports', () => {

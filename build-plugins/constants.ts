@@ -62,7 +62,7 @@ import {
 // derived from these constants at build time. Safe to import here — every DOM
 // access in that module is behind a `typeof window === 'undefined'` guard, so
 // module scope is inert under Node.
-import { ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED, ADS_CONSENT_DENIED, ADS_CONSENT_CHANGE_EVENT } from '../services/adsConsent';
+import { ADS_CMP_SHOWN_EVENT, ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED, ADS_CONSENT_DENIED, ADS_CONSENT_CHANGE_EVENT } from '../services/adsConsent';
 import { AD_PAGE_TEMPLATE_INLINE_FN } from '../services/adPageTemplate';
 import '../services/adSlotKinds';
 import '../services/manualAdLifecycle';
@@ -866,9 +866,10 @@ export const FC_PUBLISHER_ID = ADSENSE_CLIENT_ID.replace(/^ca-/, ''); // pub-862
  * CMP as the writer instead of the removed custom banner.
  *
  * Mechanics:
- *  - registers on `googlefc.callbackQueue` with CONSENT_DATA_READY — the
- *    documented FC integration point; the queue accepts pushes before AND
- *    after the FC loader runs, so ordering against the loader cannot race;
+ *  - registers on `googlefc.callbackQueue` with CONSENT_API_READY to observe
+ *    the TCF UI while it is open, and CONSENT_DATA_READY for the non-TCF path;
+ *    the queue accepts pushes before AND after the FC loader runs, so ordering
+ *    against the loader cannot race;
  *  - if CONSENT_DATA_READY fires and `__tcfapi` was never installed, FC
  *    decided no TCF framework applies to this visitor (non-EEA regions, US
  *    opt-out regimes) → granted. Without this branch the whole non-TCF
@@ -930,14 +931,18 @@ window.addEventListener('storage',function(e){if(e.key===null||e.key==='${ADS_CO
 function prev(){if(window.__ftAdsConsentDecision==='${ADS_CONSENT_GRANTED}'||window.__ftAdsConsentDecision==='${ADS_CONSENT_DENIED}')return window.__ftAdsConsentDecision;try{return window.localStorage.getItem('${ADS_CONSENT_STORAGE_KEY}');}catch(e){return null;}}
 function record(g){var v=g?'${ADS_CONSENT_GRANTED}':'${ADS_CONSENT_DENIED}';if(prev()===v)return;window.__ftAdsConsentDecision=v;try{window.localStorage.setItem('${ADS_CONSENT_STORAGE_KEY}',v);}catch(e){}try{window.dispatchEvent(new CustomEvent('${ADS_CONSENT_CHANGE_EVENT}',{detail:v}));}catch(e){}}
 function grant(act){if(act||prev()!=='${ADS_CONSENT_DENIED}')record(true);}
-var g=window.googlefc=window.googlefc||{},uiSeen=false,recoveryRequested=false,uiObserver;
-function noteVisibleCmp(){try{var n=document.querySelector('.fc-consent-root');if(!n)return uiSeen;var r=n.getBoundingClientRect(),s=window.getComputedStyle?window.getComputedStyle(n):null,visible=!!r&&r.width>0&&r.height>0;if(s&&(s.display==='none'||s.visibility==='hidden'||s.opacity==='0'))visible=false;if(visible){uiSeen=true;if(uiObserver)uiObserver.disconnect();}}catch(e){}return uiSeen;}
+var g=window.googlefc=window.googlefc||{},uiSeen=false,recoveryRequested=false,uiObserver,tcfApiReady=false,tcfListenerInstalled=false,uiShownPath=null;
+function markCmpVisible(){uiSeen=true;if(uiObserver)uiObserver.disconnect();}
+function markCmpShown(){markCmpVisible();var path=window.location.pathname||'/';if(uiShownPath===path)return;uiShownPath=path;try{window.dispatchEvent(new CustomEvent('${ADS_CMP_SHOWN_EVENT}'));}catch(e){}}
+function noteVisibleCmp(){try{var n=document.querySelector('.fc-consent-root');if(!n)return uiSeen;var r=n.getBoundingClientRect(),s=window.getComputedStyle?window.getComputedStyle(n):null,visible=!!r&&r.width>0&&r.height>0;if(s&&(s.display==='none'||s.visibility==='hidden'||s.opacity==='0'))visible=false;if(visible)markCmpVisible();}catch(e){}return uiSeen;}
 function watchCmp(){noteVisibleCmp();if(uiSeen||!window.MutationObserver||!document.documentElement)return;uiObserver=new window.MutationObserver(noteVisibleCmp);uiObserver.observe(document.documentElement,{attributes:true,childList:true,subtree:true,attributeFilter:['class','style','hidden','aria-hidden']});}
 function wasRecoveryAttempted(){try{return window.sessionStorage.getItem('__ftFcSilentConsentRecovery')==='1';}catch(e){return false;}}
 function recoverSilentCmp(){noteVisibleCmp();var saved=prev();if(uiSeen||saved==='${ADS_CONSENT_GRANTED}'||saved==='${ADS_CONSENT_DENIED}')return false;if(recoveryRequested)return true;if(wasRecoveryAttempted()){recoveryRequested=true;return true;}if(typeof g.showRevocationMessage!=='function')return true;recoveryRequested=true;var stored=false;try{window.sessionStorage.setItem('__ftFcSilentConsentRecovery','1');stored=true;}catch(e){}try{g.showRevocationMessage();return true;}catch(e){recoveryRequested=false;if(stored)try{window.sessionStorage.removeItem('__ftFcSilentConsentRecovery');}catch(e){}return true;}}
 watchCmp();
 g.callbackQueue=g.callbackQueue||[];
-g.callbackQueue.push({'CONSENT_DATA_READY':function(){if(typeof window.__tcfapi!=='function'){grant(false);return;}window.__tcfapi('addEventListener',2,function(d,ok){if(!ok||!d)return;var s=d.eventStatus;if(s==='cmpuishown'){uiSeen=true;if(uiObserver)uiObserver.disconnect();return;}if(s!=='tcloaded'&&s!=='useractioncomplete')return;var act=s==='useractioncomplete';if(d.gdprApplies===false){grant(act);return;}var p=d.purpose&&d.purpose.consents;if(p&&p[1]===true){grant(act);return;}if(p&&p[1]===false){if(act){if(d.gdprApplies===true&&recoverSilentCmp())return;record(false);return;}if(prev()==='${ADS_CONSENT_GRANTED}')record(false);}});}});
+function listenToTcf(){if(typeof window.__tcfapi!=='function'||tcfListenerInstalled)return;tcfListenerInstalled=true;window.__tcfapi('addEventListener',2,function(d,ok){if(!ok||!d)return;var s=d.eventStatus;if(s==='cmpuishown'){markCmpShown();return;}if(s!=='tcloaded'&&s!=='useractioncomplete')return;var act=s==='useractioncomplete';if(d.gdprApplies===false){grant(act);return;}var p=d.purpose&&d.purpose.consents;if(p&&p[1]===true){grant(act);return;}if(p&&p[1]===false){if(act){if(d.gdprApplies===true&&recoverSilentCmp())return;record(false);return;}if(prev()==='${ADS_CONSENT_GRANTED}')record(false);}});}
+g.callbackQueue.push({'CONSENT_API_READY':function(){if(typeof window.__tcfapi!=='function')return;tcfApiReady=true;listenToTcf();}});
+g.callbackQueue.push({'CONSENT_DATA_READY':function(){if(!tcfApiReady&&typeof window.__tcfapi!=='function')grant(false);}});
 })();`;
 
 /**
