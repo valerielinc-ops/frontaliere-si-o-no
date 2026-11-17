@@ -989,7 +989,7 @@ export async function submitLocator(page, ref) {
   if (!await locator.isEnabled({ timeout: 2000 }).catch(() => false)) return null;
   const binding = await locator.evaluate(element => {
     const form = element.form || element.closest?.('form');
-    const roleForm = form ? null : element.closest?.('[role="form"]');
+    const roleForm = form ? null : element.closest?.('[role="form"], [data-automation-id="applyFlowPage"]');
     return {
       buttonId: String(element.getAttribute('data-aa-id') || ''),
       formId: String(form?.getAttribute('data-aa-id') || ''),
