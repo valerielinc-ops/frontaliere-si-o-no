@@ -108,7 +108,8 @@
       "validThrough": "2027-02-08T21:28:34.200Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-10T21:28:34.200Z",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-351ab04cc079",
@@ -567,7 +568,8 @@
       "validThrough": "2027-02-08T21:28:19.190Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-10T21:28:19.190Z",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-096cdbcd8162",
@@ -2801,7 +2803,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-03T21:28:39.191Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-b4ec8ebaee0f",
@@ -7056,7 +7059,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T21:28:48.226Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-267b05aacbe5",
@@ -7158,7 +7162,8 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-26T21:28:48.710Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "sbb-48fdac3fd924",
@@ -17342,7 +17347,6 @@
       "url": "https://careers.sbb.ch/job/Arth-Goldau-Monteurin-Fahrleitung-B100-und-Triebfahrzeugf%C3%BChrerin-Arth/1386287733",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:44.359Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "monteur-in-fahrleitung-b100-und-triebfahrzeugfuhrer-in-ffs-officine-ferrovie-federali-ticino"
@@ -17483,7 +17487,6 @@
       "url": "https://careers.sbb.ch/job/Basel-Lokf%C3%BChrerin-Kat_-A40-Base/1438386733",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:44.466Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -17550,7 +17553,6 @@
       "url": "https://careers.sbb.ch/job/Basel-Polizistin-Transportpolizei-Base/1407842233",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:44.474Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -17625,7 +17627,6 @@
       "url": "https://careers.sbb.ch/job/Basel-Automobilmechatronikerin-f%C3%BCr-die-Zugdiagnostik-Base/1427121233",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:44.479Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automobilmechatroniker-in-fur-die-zugdiagnostik-ffs-officine-ferrovie-federali-ticino"
@@ -17700,7 +17701,6 @@
       "url": "https://careers.sbb.ch/job/Basel-Quereinstieg-Lokf%C3%BChrerin-Personenverkehr-092027-Base/1450118933",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:44.500Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -17767,7 +17767,6 @@
       "url": "https://careers.sbb.ch/job/Basel-Quereinstieg-Lokf%C3%BChrerin-Rangier-Base/1408888433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:44.583Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -17983,7 +17982,6 @@
       "url": "https://careers.sbb.ch/job/Bellinzona-Leiterin-Projektmanagement-Team-Region-S%C3%BCd-%28mwd%29-Infr/1457520833",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:44.719Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-projektmanagement-team-region-sud-m-w-d-ffs-officine-ferrovie-federali-ticino"
@@ -18331,7 +18329,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Compensation-Spezialistin/1453937133",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:44.960Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -18398,7 +18395,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Capoteam-Gestione-Strategica-degli-impianti-Accesso-alla-mobilit%C3%A0-%28mfd%29/1454565333",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:44.969Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -18465,7 +18461,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Divisional-Performance-Managerin/1455855833",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:44.999Z",
-      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 135000,
       "salarySource": "estimated",
@@ -18740,7 +18735,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Fachlead-Produktionslogistik-und-Standortentwicklung-%28mwd%29/1454103733",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:45.235Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachlead-produktionslogistik-und-standortentwicklung-m-w-d-ffs-officine-ferrovie-federali-ticino"
@@ -18815,7 +18809,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Fachspezialistin-Einsatzleitzentrale-der-Transportpolizei/1454308333",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:45.256Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -19022,7 +19015,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Ingenieurin-f%C3%BCr-Mess-und-Inspektionssysteme-Bern/1452444033",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:45.315Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "ingenieur-in-fur-mess-und-inspektionssysteme-ffs-officine-ferrovie-federali-ticino"
@@ -19097,7 +19089,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Kommunikationsberaterin-SBB-Pr%C3%A4sident-%28VRP%29/1455666833",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:45.321Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -19164,7 +19155,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Kundenberaterin-mit-Berufsbildungsfunktion-Bern/1454219933",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:45.464Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -19297,7 +19287,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Linux-System-und-Automation-Engineer-%28mwd%29-Testumfeld-Bern/1455868633",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:45.533Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "linux-system-und-automation-engineer-m-w-d-testumfeld-ffs-officine-ferrovie-federali-ticino"
@@ -19439,7 +19428,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Netzleiterin-Spezialistin-Bahnverkehr-Infr/1452240533",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:45.587Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -19573,7 +19561,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Planerin-Gleisbaumaschinen-Bern/1434532633",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:45.697Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -19640,7 +19627,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Planerin-Instandhaltung-Schienenfahrzeuge/1456839833",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:45.751Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -19841,7 +19827,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Projektleiterin-Technik-Grossprojekte-Flotte-Bern/1448918133",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:45.832Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-technik-grossprojekte-flotte-ffs-officine-ferrovie-federali-ticino"
@@ -19983,7 +19968,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Quereinstieg-Rangierspezialistin-Bern/1369690433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:45.926Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -20058,7 +20042,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Sachbearbeiterin-Projekt-und-Anlagenbuchhaltung/1457236433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:46.029Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-projekt-und-anlagenbuchhaltung-ffs-officine-ferrovie-federali-ticino"
@@ -20133,7 +20116,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Teamleiterin-Fahrzeugdiagnose/1455699633",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:46.087Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -20200,7 +20182,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Teamleiterin-Strategisches-Anlagenmanagement-f%C3%BCr-Zugang-zur-Mobilit%C3%A4t/1454565533",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:46.094Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-strategisches-anlagenmanagement-fur-zugang-zur-mobilitat-ffs-officine-ferrovie-federali-ticino"
@@ -20275,7 +20256,6 @@
       "url": "https://careers.sbb.ch/job/Bern-SAP-Berechtigungsexpertin-Bern/1456343333",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:46.114Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -20342,7 +20322,6 @@
       "url": "https://careers.sbb.ch/job/Bern-Stage-als-Projektleiterin-fit4future-mit-Schwerpunkt-KI/1452800333",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:46.123Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "stage-als-projektleiter-in-fit4future-mit-schwerpunkt-ki-ffs-officine-ferrovie-federali-ticino"
@@ -20483,7 +20462,6 @@
       "url": "https://careers.sbb.ch/job/BielBienne-Fachtechnikerin-Industrie-Biel/1432783533",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:46.316Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -20558,7 +20536,6 @@
       "url": "https://careers.sbb.ch/job/BielBienne-Fahrzeugdiagnostikerin-Schienenfahrzeuge-Biel/1414386733",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:46.325Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -20691,7 +20668,6 @@
       "url": "https://careers.sbb.ch/job/BielBienne-Quereinstieg-Lokf%C3%BChrerin-Rangier-Biel/1423662833",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:46.361Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -20766,7 +20742,6 @@
       "url": "https://careers.sbb.ch/job/BielBienne-Fachtechnikerin-Industrie/1454292933",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:46.389Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -20980,7 +20955,6 @@
       "url": "https://careers.sbb.ch/job/BielBienne-Technikerin-Fahrleitung%2C-Chefmonteurin-Infr/1449406733",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:46.605Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -21047,7 +21021,6 @@
       "url": "https://careers.sbb.ch/job/Birsfelden-Hafen-Quereinstieg-Rangierspezialistin-Birs/1441451333",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:46.625Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -21122,7 +21095,6 @@
       "url": "https://careers.sbb.ch/job/Brig-Kundenberaterin-First-Level-Support-Brig/1406294733",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:46.636Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -21189,7 +21161,6 @@
       "url": "https://careers.sbb.ch/job/Brig-Fachtechnikerin-Elektro-und-Telecom-Brig/1432849633",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:46.642Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachtechniker-in-elektro-und-telecom-ffs-officine-ferrovie-federali-ticino"
@@ -21264,7 +21235,6 @@
       "url": "https://careers.sbb.ch/job/Brig-Quereinstieg-Kundenberaterin-im-Contact-Center-Brig/1407555233",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:46.670Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -21331,7 +21301,6 @@
       "url": "https://careers.sbb.ch/job/Brig-Quereinstieg-Lokf%C3%BChrerin-Rangier-Brig/1423661433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:46.834Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -21549,7 +21518,6 @@
       "url": "https://careers.sbb.ch/job/Dulliken-Chefmonteurin-Fahrleitungszugmaschine-%28FZM%29-Dull/1410419333",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:46.874Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -21616,7 +21584,6 @@
       "url": "https://careers.sbb.ch/job/Dulliken-Lokf%C3%BChrerin-Kat_-B100-Fahrleitungszugmaschine-Dull/1412717733",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:46.881Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -21683,7 +21650,6 @@
       "url": "https://careers.sbb.ch/job/Dulliken-Metallbauerin%2C-Schlosserin-als-Monteurin-Fahrleitungszugmaschine-%28FZM%29-Dull/1259193901",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:46.917Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "metallbauer-in-schlosser-in-als-monteur-in-fahrleitungszugmaschine-fzm-ffs-officine-ferrovie-federali-schlosser-in-als-monteur-in-fahrleitungszugmaschine-fzm"
@@ -21832,7 +21798,6 @@
       "url": "https://careers.sbb.ch/job/Dulliken-Triebfahrzeugf%C3%BChrerin-Kat_-A-Fahrleitungszugmaschine-%28FZM%29-Dull/1411658533",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:47.075Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -21899,7 +21864,6 @@
       "url": "https://careers.sbb.ch/job/Emmenbr%C3%BCcke-Automatikerin-oder-Elektroinstallateurin-Bahnstrom-Emme/1386264533",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:47.109Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-oder-elektroinstallateur-in-bahnstrom-ffs-officine-ferrovie-federali-ticino"
@@ -21974,7 +21938,6 @@
       "url": "https://careers.sbb.ch/job/Erstfeld-Quereinstieg-Lokf%C3%BChrerin-Bauzug-mit-handwerklicher-Erfahrung-Erst/1400661533",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:47.124Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -22263,7 +22226,6 @@
       "url": "https://careers.sbb.ch/job/H%C3%A4gendorf-Fachf%C3%BChrung-Ressourcenplanerin-H%C3%A4ge/1435606433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:47.315Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -22407,7 +22369,6 @@
       "url": "https://careers.sbb.ch/job/H%C3%A4gendorf-Quereinstieg-Rangierlokf%C3%BChrerin-&-Rangierleiterin-Kat_-A40-H%C3%A4ge/1403891933",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:47.369Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -22474,7 +22435,6 @@
       "url": "https://careers.sbb.ch/job/Landquart-Technischer-Kontrolleurin-Cargo/1453786333",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:47.379Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -22613,7 +22573,6 @@
       "url": "https://careers.sbb.ch/job/Langenthal-Quereinsteigerin-Rangierspezialistin-Lang/1434874933",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:47.451Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -22688,7 +22647,6 @@
       "url": "https://careers.sbb.ch/job/Lausanne-Assistant%C2%B7e-client%C3%A8le-en-charge-du-relev%C3%A9-des-fr%C3%A9quences-en-reconversion-professionnelle-Laus/1429266533",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:47.549Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -23035,7 +22993,6 @@
       "url": "https://careers.sbb.ch/job/Lenzburg-Gleisbau-Polierin-oder-Vorarbeiterin-Lenz/1391681033",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:47.679Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "gleisbau-polier-in-oder-vorarbeiter-in-ffs-officine-ferrovie-federali-ticino"
@@ -23110,7 +23067,6 @@
       "url": "https://careers.sbb.ch/job/Luzern-Elektrikerin%2C-Automatikerin-f%C3%BCr-den-Einstieg-in-den-Bereich-Bahnsicherungsanlagen-Luze/1425574933",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:47.745Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "elektriker-in-automatiker-in-fur-den-einstieg-in-den-bereich-bahnsicherungsanlagen-ffs-officine-ferrovie-federali-ticino",
@@ -23187,7 +23143,6 @@
       "url": "https://careers.sbb.ch/job/Lenzburg-Quereinstieg-Lokf%C3%BChrerin-Bauzug-mit-handwerklicher-Erfahrung-Lenz/1276777501",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:47.799Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -23262,7 +23217,6 @@
       "url": "https://careers.sbb.ch/job/Luzern-Polierin-Gleisbau/1456840433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:47.815Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -23337,7 +23291,6 @@
       "url": "https://careers.sbb.ch/job/Luzern-Quereinstieg-Kundenbegleiterin-f%C3%BCr-Frequenzerfassung-Luze/1429935933",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:47.866Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-kundenbegleiter-in-fur-frequenzerfassung-ffs-officine-ferrovie-federali-ticino",
@@ -23414,7 +23367,6 @@
       "url": "https://careers.sbb.ch/job/Luzern-Quereinstieg-Lokf%C3%BChrerin-Personenverkehr-032027-Luze/1392853833",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:47.892Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -23489,7 +23441,6 @@
       "url": "https://careers.sbb.ch/job/Luzern-Quereinstieg-Lokf%C3%BChrerin-Rangier-Luze/1433970433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:47.912Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -23776,7 +23727,6 @@
       "url": "https://careers.sbb.ch/job/Muttenz-Lokf%C3%BChrerin-Bauz%C3%BCge-Infr/1452010733",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:48.121Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -23843,7 +23793,6 @@
       "url": "https://careers.sbb.ch/job/Muttenz-Quereinstieg-Rangiermitarbeiterin-Mutt/1432461833",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:48.130Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -23918,7 +23867,6 @@
       "url": "https://careers.sbb.ch/job/Muttenz-Quereinstieg-Zugverkehrsleiterin-Mutt/1407757433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:48.137Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -24198,7 +24146,6 @@
       "url": "https://careers.sbb.ch/job/Niederglatt-Quereinstieg-Rangierspezialistin-G%C3%BCterverkehr-Nied/1436702733",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:48.360Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -24331,7 +24278,6 @@
       "url": "https://careers.sbb.ch/job/Niederglatt-Teststelle-Prospective-Quereinstieg-Rangierspezialistin-G%C3%BCterverkehr-Nied/1447963733",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:48.382Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -24398,7 +24344,6 @@
       "url": "https://careers.sbb.ch/job/Olten-AutomatikerinElektronikerin-f%C3%BCr-die-Komponentenaufarbeitung-im-Bereich-der-Elektrotechnik/1450324133",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:48.527Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "automatiker-in-elektroniker-in-fur-die-komponentenaufarbeitung-im-bereich-der-elektrotechnik-ffs-officine-ferrovie-federali-ticino"
@@ -24539,7 +24484,6 @@
       "url": "https://careers.sbb.ch/job/Olten-Gleisbauerin%2C-Rangierbegleiterin-Ai-als-Gleis-Baumaschinenbegleiterin-Olte/1442179733",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:48.613Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "gleisbauer-in-rangierbegleiter-in-ai-als-gleis-baumaschinenbegleiter-in-ffs-officine-ferrovie-federali-rangierbegleiter-in-ai-als-gleis-baumaschinenbegleiter-in"
@@ -24613,7 +24557,6 @@
       "url": "https://careers.sbb.ch/job/Olten-Fachspezialistin-Einsatzleitzentrale-der-Transportpolizei/1454319033",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:48.630Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -24768,7 +24711,6 @@
       "url": "https://careers.sbb.ch/job/Olten-HR-Beraterin/1455999633",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:48.651Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -24843,7 +24785,6 @@
       "url": "https://careers.sbb.ch/job/Olten-Polizistin-Transportpolizei-Olte/1288330001",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:48.759Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -24918,7 +24859,6 @@
       "url": "https://careers.sbb.ch/job/Olten-Quereinstieg-Kundenbegleiterin-f%C3%BCr-Frequenzerfassung-Olte/1438001333",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:48.805Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quereinstieg-kundenbegleiter-in-fur-frequenzerfassung-ffs-officine-ferrovie-federali-ticino",
@@ -24995,7 +24935,6 @@
       "url": "https://careers.sbb.ch/job/Olten-Quereinstieg-Zugverkehrsleiterin-Olte/1407749233",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:48.864Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -25280,7 +25219,6 @@
       "url": "https://careers.sbb.ch/job/Olten-Technikerin-f%C3%BCr-Elektro-und-Telekommunikationsanlagen/1450212533",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:49.032Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "techniker-in-fur-elektro-und-telekommunikationsanlagen-ffs-officine-ferrovie-federali-ticino"
@@ -25355,7 +25293,6 @@
       "url": "https://careers.sbb.ch/job/Olten-Technikerin-Klimaanlagen-der-SBB-Flotte-Olte/1278069801",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:49.059Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -25422,7 +25359,6 @@
       "url": "https://careers.sbb.ch/job/Ostermundigen-Fahrleitungsmonteurin%2C-Schlosserin%2C-Mechanikerin%2C-Netzelektrikerin%2C-Elektroinstallateurin-Oste/1445644033",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:49.130Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fahrleitungsmonteur-in-schlosser-in-mechaniker-in-netzelektriker-in-elektroinstallateur-in-ffs-officine-ferrovie-federali-elektroinstallateur-in",
@@ -25499,7 +25435,6 @@
       "url": "https://careers.sbb.ch/job/Ostermundigen-Logistikerin-Oste/1434657433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:49.144Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-ffs-officine-ferrovie-federali-ticino"
@@ -25574,7 +25509,6 @@
       "url": "https://careers.sbb.ch/job/Ostermundigen-Chefmonteurin-Fahrleitung-Oste/1278598901",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:49.169Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -25641,7 +25575,6 @@
       "url": "https://careers.sbb.ch/job/Ostermundigen-Quereinstieg-Sicherheitsw%C3%A4rterin-Sicherheitschefin/1455612433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:49.198Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -25716,7 +25649,6 @@
       "url": "https://careers.sbb.ch/job/Ostermundigen-Teamleiterin-Baustellensicherheit/1445094133",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:49.296Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -25849,7 +25781,6 @@
       "url": "https://careers.sbb.ch/job/Rapperswil-%28SG%29-Elektroinstallateurin-EFZ-Rapp/1281011301",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:49.368Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-efz-ffs-officine-ferrovie-federali-ticino"
@@ -25924,7 +25855,6 @@
       "url": "https://careers.sbb.ch/job/Rapperswil-%28SG%29-Quereinstieg-Lokf%C3%BChrerin-Personenverkehr-062027-Rapp/1434271433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:49.399Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -25999,7 +25929,6 @@
       "url": "https://careers.sbb.ch/job/Rapperswil-%28SG%29-Quereinstieg-Lokf%C3%BChrerin-Rangier-Rapp/1430052733",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:49.432Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -26074,7 +26003,6 @@
       "url": "https://careers.sbb.ch/job/Rapperswil-%28SG%29-Quereinstieg-Sicherheitsw%C3%A4rterin-Sicherheitschefin-Infr/1455693333",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:49.450Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -26545,7 +26473,6 @@
       "url": "https://careers.sbb.ch/job/Renens-Projektleiterin-Bauingenieurwesen-Rene/1404211133",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:49.782Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-ticino"
@@ -26626,7 +26553,6 @@
       "url": "https://careers.sbb.ch/job/Romanshorn-Quereinstieg-Lokf%C3%BChrerin-Rangier-Roma/1430161433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:49.879Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -26701,7 +26627,6 @@
       "url": "https://careers.sbb.ch/job/Rotkreuz-Quereinstieg-Rangierspezialistin-Rotk/1440041633",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:49.899Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -26776,7 +26701,6 @@
       "url": "https://careers.sbb.ch/job/Solothurn-Fahrleitungsmonteurin%2C-Schlosserin%2C-Mechanikerin%2C-Netzelektrikerin%2C-Elektroinstallateurin-Z%C3%BCri/1278553901",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:49.924Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fahrleitungsmonteur-in-schlosser-in-mechaniker-in-netzelektriker-in-elektroinstallateur-in-ffs-officine-ferrovie-federali-elektroinstallateur-in",
@@ -26853,7 +26777,6 @@
       "url": "https://careers.sbb.ch/job/Rothenburg-Vorarbeiterin-Gleisbau-Infr/1456018233",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:49.937Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -26928,7 +26851,6 @@
       "url": "https://careers.sbb.ch/job/Sargans-Elektrikerin%2C-Automatikerin-f%C3%BCr-den-Einstieg-in-den-Bereich-Bahnsicherungsanlagen-Sarg/1403391133",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:49.945Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "elektriker-in-automatiker-in-fur-den-einstieg-in-den-bereich-bahnsicherungsanlagen-ffs-officine-ferrovie-federali-ticino",
@@ -27005,7 +26927,6 @@
       "url": "https://careers.sbb.ch/job/Spreitenbach-Quereinstieg-Rangiermitarbeiterin-1-Spre/1278588001",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:50.059Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -27080,7 +27001,6 @@
       "url": "https://careers.sbb.ch/job/St_-Gallen-Polizistin-Transportpolizei-St_/1185992801",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:50.101Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -27232,7 +27152,6 @@
       "url": "https://careers.sbb.ch/job/St_-Gallen-Stage-Teamleiterin-Kundenbegleitung-St_-Gallen/1453498133",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:50.180Z",
-      "needsRetranslation": true,
       "salaryMin": 46000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -27299,7 +27218,6 @@
       "url": "https://careers.sbb.ch/job/Thalwil-Kundenberaterin-Reisezentren/1453943833",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:50.211Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -27366,7 +27284,6 @@
       "url": "https://careers.sbb.ch/job/Winterthur-Diagnostikerin-St%C3%B6rungssuche-Inbetriebsetzerin-Wint/1430661233",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:50.222Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -27433,7 +27350,6 @@
       "url": "https://careers.sbb.ch/job/Winterthur-Polizistin-Transportpolizei-Wint/1165756801",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:50.345Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -27508,7 +27424,6 @@
       "url": "https://careers.sbb.ch/job/Winterthur-Quereinstieg-Sicherheitsw%C3%A4rterin-Sicherheitschefin-Wint/1378291233",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:50.368Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -27649,7 +27564,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Altstetten-Fachspezialistin-Einsatzgruppe-Transportpolizei-Z%C3%BCri/1443395033",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:50.427Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -27716,7 +27630,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Altstetten-Instandhaltungstechnikerin-%28Quereinstieg-m%C3%B6glich%29-Z%C3%BCri/1292695101",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:50.458Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -27783,7 +27696,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Altstetten-Produktionsmanagerin-Region-Ost/1453292033",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:50.479Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -27988,7 +27900,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Diagnostikerin-Fahrzeugdiagnostikerin-Pers/1457281033",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:50.664Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -28055,7 +27966,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Chefin-St%C3%BCtzpunkt-Pers/1454538833",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:50.673Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -28272,7 +28182,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Fachspezialistin-f%C3%BCr-Material-und-Equipment-Stammdaten-Pers/1457236233",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:50.842Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-in-fur-material-und-equipment-stammdaten-ffs-officine-ferrovie-federali-ticino"
@@ -28347,7 +28256,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Flughafen-Quereinstieg-Zugverkehrsleiterin-Z%C3%BCri/1403316033",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:50.853Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -28422,7 +28330,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Leiterin-Transportpolizei-Region-Ost/1456432733",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:50.902Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-transportpolizei-region-ost-ffs-officine-ferrovie-federali-ticino"
@@ -28569,7 +28476,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Polierin-Gleisbau-Z%C3%BCri/1278586001",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:50.970Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -28644,7 +28550,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Polizistin-Transportpolizei-Z%C3%BCri/1184724601",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:50.980Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -28719,7 +28624,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Quereinsteigerin-in-die-Welt-der-mechanisch-handwerklichen-Berufe-Z%C3%BCri/1278570801",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:51.078Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -28863,7 +28767,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Quereinstieg-Lokf%C3%BChrerin-Bauzug-mit-handwerklicher-Erfahrung-Wint/1423233533",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:51.147Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -28938,7 +28841,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Quereinstieg-Rangierspezialistin-Z%C3%BCri/1440009533",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:51.210Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -29013,7 +28915,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Quereinstieg-Lokf%C3%BChrerin-Rangier-Z%C3%BCri/1237396201",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:51.220Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -29088,7 +28989,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Quereinstieg-Sicherheitsw%C3%A4rterin-Sicherheitschefin-Infr/1456290533",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:51.228Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -29163,7 +29063,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Spezialistin-St%C3%B6rungsdiagnosen-und-Instandhaltung-von-Schienenfahrzeugen/1456845433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:51.325Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "spezialist-in-storungsdiagnosen-und-instandhaltung-von-schienenfahrzeugen-ffs-officine-ferrovie-federali-ticino"
@@ -29310,7 +29209,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Spezialmonteurin-Kabel-Tiefbau%2C-Landschaftsg%C3%A4rtnerin%2C-Maurerin%2C-Tiefbauerin%2C-Verkehrswegbauerin-Z%C3%BCri/1289954901",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:51.432Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "spezialmonteur-in-kabel-tiefbau-landschaftsgartner-in-maurer-in-tiefbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-verkehrswegbauer-in"
@@ -29385,7 +29283,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Spezialmonteurin-Kabel%2C-Spleisserin%2C-Elektroinstallateurin%2C-Elektrikerin%2C-Mechanikerin-Z%C3%BCri/1278566401",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:51.460Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "spezialmonteur-in-kabel-spleisser-in-elektroinstallateur-in-elektriker-in-mechaniker-in-ffs-officine-ferrovie-federali-mechaniker-in"
@@ -29532,7 +29429,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-System-Engineer-Operations/1452829133",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:51.524Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -29671,7 +29567,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Teamleiterin-AVU-Fahrbahn-Gleisbaumaschinen%2C-Region-Ost-Z%C3%BCri/1451332133",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:51.604Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -29738,7 +29633,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Technikerin-Sicherungsanlagen-Aussen%2C-Produktionsmechanikerin%2C-Polymechanikerin%2C-Schlosserin-Z%C3%BCri/1278563301",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:51.674Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -29805,7 +29699,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Technikerin-Sicherungsanlagen-Innen%2C-Elektroinstallateurin%2C-Automatikerin-Z%C3%BCri/1278560201",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:51.711Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "techniker-in-sicherungsanlagen-innen-elektroinstallateur-in-automatiker-in-ffs-officine-ferrovie-federali-automatiker-in"
@@ -29880,7 +29773,6 @@
       "url": "https://careers.sbb.ch/job/Ziegelbr%C3%BCcke-Quereinstieg-Lokf%C3%BChrerin-Personenverkehr-062027-Zieg/1454142133",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:51.795Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -29955,7 +29847,6 @@
       "url": "https://careers.sbb.ch/job/Zug-Quereinstieg-Lokf%C3%BChrerin-Personenverkehr-032027-Zug/1392861433",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:51.807Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -30030,7 +29921,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Vorarbeiterin-Gleisbau-Z%C3%BCri/1278588601",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:51.815Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -30105,7 +29995,6 @@
       "url": "https://careers.sbb.ch/job/Zurich-Cheftechnikerin-SAI-Z%C3%BCri/1278592201",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T09:24:51.845Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -30321,7 +30210,6 @@
       "url": "https://careers.sbb.ch/job/Bellinzona-HR-Beraterin/1455621633",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T08:20:28.965Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -30402,7 +30290,6 @@
       "url": "https://careers.sbb.ch/job/Spreitenbach-Teamleiterin-Rangier-%28Stage-oder-Festantellung-m%C3%B6glich%29/1453920033",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T08:20:34.370Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-in-rangier-stage-oder-festantellung-moglich-ffs-officine-ferrovie-federali-ticino"
@@ -30483,7 +30370,6 @@
       "url": "https://careers.sbb.ch/job/Z%C3%BCrich-Expertin-Qualit%C3%A4tssicherung-Beschaffung-Schienenfahrzeuge/1453346233",
       "source": "SBB Dedicated Parser (API + login.org)",
       "crawledAt": "2026-11-17T08:20:35.093Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",

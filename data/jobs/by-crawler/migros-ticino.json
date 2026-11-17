@@ -774,6 +774,8 @@
         "fachspezialist-in-arbeitssicherheit-e-gesundheitsschutz-genossenschaft-migros-luzern-dierikon-o1fffd",
         "fachspezialist-in-arbeitssicherheit-und-gesundheitsschutz-genossenschaft-migros-luzern-dierikon"
       ],
+      "salaryMin": 69500,
+      "salaryMax": 106000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -792,9 +794,7 @@
       "streetAddress": "Dierikon",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:42:57.384Z",
-      "validThroughSource": "last-observed-window",
-      "salaryMin": 69500,
-      "salaryMax": 106000
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "company-2bxi8t",
@@ -17288,7 +17288,8 @@
         "baker-confectioner-genossenschaft-migros-ostschweiz-schaffhausen",
         "patissier-confiseur-genossenschaft-migros-ostschweiz-schaffhausen",
         "fornaio-in-pasticceria-genossenschaft-migros-ostschweiz-schaffhausen",
-        "boulangerie-en-confiserie-genossenschaft-migros-ostschweiz-schaffhausen"
+        "boulangerie-en-confiserie-genossenschaft-migros-ostschweiz-schaffhausen",
+        "boulanger-patissier-genossenschaft-migros-ostschweiz-schaffhausen"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -17533,7 +17534,8 @@
         "backer-in-konditor-in-genossenschaft-migros-ostschweiz-winterthur",
         "panettiere-pasticciere-genossenschaft-migros-ostschweiz-winterthur",
         "baker-confectioner-genossenschaft-migros-ostschweiz-winterthur-11f85e",
-        "confiserie-baker-genossenschaft-migros-ostschweiz-winterthur"
+        "confiserie-baker-genossenschaft-migros-ostschweiz-winterthur",
+        "boulanger-patissier-genossenschaft-migros-ostschweiz-winterthur"
       ],
       "salarySource": "estimated",
       "baseSalary": {
