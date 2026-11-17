@@ -573,6 +573,7 @@ jobs:
       statuses: write   # durable IT CDN receipt
     outputs:
       cdn_build_id: ${{ steps.cdn-ready.outputs.build_id }}
+      job_canon_build_id: ${{ steps.cdn-ready.outputs.job_canon_build_id }}
       cdn_base: ${{ steps.cdn-ready.outputs.cdn_base }}
     steps:
       - name: Checkout IT publisher sources
@@ -784,6 +785,15 @@ jobs:
           fi
           echo "build_id=$EXPECTED_BUILD_ID" >> "$GITHUB_OUTPUT"
           echo "cdn_base=https://cdn.frontaliereticino.ch" >> "$GITHUB_OUTPUT"
+          receipt="$RUNNER_TEMP/job-canon-publish.ok"
+          job_canon_build_id=''
+          if [ -s "$receipt" ]; then
+            receipt_build_id="$(tr -d '[:space:]' < "$receipt" 2>/dev/null || true)"
+            if [ "$receipt_build_id" = "$EXPECTED_BUILD_ID" ]; then
+              job_canon_build_id="$receipt_build_id"
+            fi
+          fi
+          echo "job_canon_build_id=$job_canon_build_id" >> "$GITHUB_OUTPUT"
       # With an R2 target the finalizer's deploy prep diffs against the R2 OG
       # manifest this job leaves in `.cache/`. The per-run cache is best-effort
       # and unreachable from a NEW publisher run, so the manifest is also
@@ -1518,19 +1528,25 @@ jobs:
         if: steps.deploy-prep-it.outcome == 'success'
         env:
           EXPECTED_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
+          EARLY_JOB_CANON_BUILD_ID: ${{ needs.publish-it-cdn.outputs.job_canon_build_id }}
         run: |
           set -euo pipefail
           receipt="$RUNNER_TEMP/job-canon-publish.ok"
-          test -s "$receipt" || {
-            echo "::error::job-canon publication receipt is missing; refusing to upload a Pages artifact with bridge removals"
-            exit 1
-          }
-          actual="$(tr -d '[:space:]' < "$receipt")"
-          test "$actual" = "$EXPECTED_BUILD_ID" || {
-            echo "::error::job-canon publication receipt names build $actual, expected $EXPECTED_BUILD_ID"
-            exit 1
-          }
-          echo "job-canon handshake closed for build $EXPECTED_BUILD_ID"
+          if [ -s "$receipt" ]; then
+            actual="$(tr -d '[:space:]' < "$receipt")"
+            test "$actual" = "$EXPECTED_BUILD_ID" || {
+              echo "::error::job-canon publication receipt names build $actual, expected $EXPECTED_BUILD_ID"
+              exit 1
+            }
+            echo "job-canon handshake closed for build $EXPECTED_BUILD_ID"
+            exit 0
+          fi
+          if [ -n "$EXPECTED_BUILD_ID" ] && [ "$EARLY_JOB_CANON_BUILD_ID" = "$EXPECTED_BUILD_ID" ]; then
+            echo "job-canon handshake closed for build $EXPECTED_BUILD_ID (by the early CDN job)"
+            exit 0
+          fi
+          echo "::error::job-canon publication receipt is missing; refusing to upload a Pages artifact with bridge removals"
+          exit 1
       - name: Save final R2 OG manifest cache
         if: ${{ always() && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && hashFiles('.cache/r2-og-published-manifest.json') != '' }}
         uses: actions/cache/save@v6
