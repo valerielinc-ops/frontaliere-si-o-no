@@ -1,8 +1,9 @@
 import { describe, expect, it } from 'vitest';
-import { execFileSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import { existsSync, mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { tmpdir } from 'node:os';
+import YAML from 'yaml';
 import {
   compareMapTrees,
   parseRcloneChangedKeys,
@@ -13,6 +14,22 @@ import { verifyMarker } from '../scripts/ci/cdn-build-marker-handshake.mjs';
 const PREP_SH = readFileSync(resolve('scripts/lib/deploy-it-pages-prep.sh'), 'utf8');
 const WAIT_SH = readFileSync(resolve('scripts/lib/wait-cdn-build-id.sh'), 'utf8');
 const PUBLISH_YML = readFileSync(resolve('.github/workflows/deploy-publish.yml'), 'utf8');
+const PUBLISH = YAML.parse(PUBLISH_YML) as {
+  jobs: Record<string, { outputs?: Record<string, unknown>; steps?: Array<Record<string, any>> }>;
+};
+
+function workflowStep(jobName: string, id: string) {
+  const step = PUBLISH.jobs[jobName]?.steps?.find((candidate) => candidate.id === id);
+  if (!step) throw new Error(`missing workflow step ${jobName}.${id}`);
+  return step;
+}
+
+function runWorkflowBash(run: unknown, runnerTemp: string, extraEnv: Record<string, string>) {
+  return spawnSync('bash', ['-c', String(run)], {
+    encoding: 'utf8',
+    env: { ...process.env, RUNNER_TEMP: runnerTemp, ...extraEnv },
+  });
+}
 
 function fixtureTree() {
   const root = mkdtempSync(join(tmpdir(), 'job-canon-handshake-'));
@@ -24,6 +41,140 @@ function fixtureTree() {
 }
 
 describe('job-canon publication handshake', () => {
+  it('exports only the matching early job-canon receipt without changing cdn-ready status', () => {
+    const cdnReady = workflowStep('publish-it-cdn', 'cdn-ready');
+    const run = String(cdnReady.run);
+    const root = mkdtempSync(join(tmpdir(), 'job-canon-cdn-ready-'));
+    const receipt = join(root, 'job-canon-publish.ok');
+    const output = join(root, 'github-output');
+    try {
+      expect(run).not.toContain('${{');
+      expect(cdnReady.if).toBe('always()');
+      expect(cdnReady.env.EXPECTED_BUILD_ID).toBe('${{ needs.resolve-publish-plan.outputs.build_id }}');
+      expect(PUBLISH.jobs['publish-it-cdn'].outputs?.job_canon_build_id)
+        .toBe('${{ steps.cdn-ready.outputs.job_canon_build_id }}');
+      expect(PUBLISH.jobs['publish-it-cdn'].outputs?.cdn_build_id)
+        .toBe('${{ steps.cdn-ready.outputs.build_id }}');
+      expect(PUBLISH.jobs['publish-it-cdn'].outputs?.cdn_base)
+        .toBe('${{ steps.cdn-ready.outputs.cdn_base }}');
+
+      const cases = [
+        { receiptContent: ' build-42 \n', expectedOutput: 'job_canon_build_id=build-42\n' },
+        { receiptContent: 'build-43\n', expectedOutput: 'job_canon_build_id=\n' },
+        { receiptContent: null, expectedOutput: 'job_canon_build_id=\n' },
+      ];
+      for (const testCase of cases) {
+        if (testCase.receiptContent === null) rmSync(receipt, { force: true });
+        else writeFileSync(receipt, testCase.receiptContent);
+        writeFileSync(output, '');
+        const result = runWorkflowBash(run, root, {
+          EARLY_OUTCOME: 'success',
+          RETRY_OUTCOME: 'skipped',
+          EXPECTED_BUILD_ID: 'build-42',
+          GITHUB_OUTPUT: output,
+        });
+        expect(result.error).toBeUndefined();
+        expect(result.status).toBe(0);
+        expect(readFileSync(output, 'utf8')).toContain(testCase.expectedOutput);
+      }
+
+      rmSync(receipt, { force: true });
+      writeFileSync(output, '');
+      const failedPush = runWorkflowBash(run, root, {
+        EARLY_OUTCOME: 'failure',
+        RETRY_OUTCOME: 'failure',
+        EXPECTED_BUILD_ID: 'build-42',
+        GITHUB_OUTPUT: output,
+      });
+      expect(failedPush.status).toBe(1);
+      expect(readFileSync(output, 'utf8')).not.toContain('job_canon_build_id=');
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('runs the finalizer gate with local or early receipt proof and fails closed otherwise', () => {
+    const gate = workflowStep('finalize-it-publish', 'job-canon-publish-gate');
+    const run = String(gate.run);
+    const root = mkdtempSync(join(tmpdir(), 'job-canon-final-gate-'));
+    const receipt = join(root, 'job-canon-publish.ok');
+    try {
+      expect(run).not.toContain('${{');
+      expect(gate.if).toBe("steps.deploy-prep-it.outcome == 'success'");
+      expect(gate.env.EARLY_JOB_CANON_BUILD_ID)
+        .toBe('${{ needs.publish-it-cdn.outputs.job_canon_build_id }}');
+      expect(gate.env.EARLY_JOB_CANON_BUILD_ID).not.toContain('resolve-publish-receipts');
+
+      const cases = [
+        {
+          receiptContent: 'build-42\n',
+          earlyBuildId: '',
+          status: 0,
+          output: 'job-canon handshake closed for build build-42\n',
+        },
+        {
+          receiptContent: null,
+          earlyBuildId: 'build-42',
+          status: 0,
+          output: 'job-canon handshake closed for build build-42 (by the early CDN job)\n',
+        },
+        {
+          receiptContent: null,
+          earlyBuildId: '',
+          status: 1,
+          output: 'job-canon publication receipt is missing; refusing to upload a Pages artifact with bridge removals',
+        },
+        {
+          receiptContent: null,
+          earlyBuildId: 'build-43',
+          status: 1,
+          output: 'job-canon publication receipt is missing; refusing to upload a Pages artifact with bridge removals',
+        },
+        {
+          receiptContent: 'build-43\n',
+          earlyBuildId: 'build-42',
+          status: 1,
+          output: 'job-canon publication receipt names build build-43, expected build-42',
+        },
+      ];
+      for (const testCase of cases) {
+        if (testCase.receiptContent === null) rmSync(receipt, { force: true });
+        else writeFileSync(receipt, testCase.receiptContent);
+        const result = runWorkflowBash(run, root, {
+          EXPECTED_BUILD_ID: 'build-42',
+          EARLY_JOB_CANON_BUILD_ID: testCase.earlyBuildId,
+        });
+        expect(result.error).toBeUndefined();
+        expect(result.status).toBe(testCase.status);
+        expect(`${result.stdout}${result.stderr}`).toContain(testCase.output);
+      }
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps deploy-publish if expressions wrapped as YAML expressions without mixed text', () => {
+    const invalidIfs: string[] = [];
+    const visit = (value: unknown, path: string) => {
+      if (Array.isArray(value)) {
+        value.forEach((item, index) => visit(item, `${path}[${index}]`));
+        return;
+      }
+      if (!value || typeof value !== 'object') return;
+      for (const [key, child] of Object.entries(value)) {
+        const childPath = path ? `${path}.${key}` : key;
+        if (key === 'if' && typeof child === 'string' && child.includes('${{')
+          && !/^\s*\$\{\{[\s\S]*\}\}\s*$/.test(child)) {
+          invalidIfs.push(childPath);
+        }
+        visit(child, childPath);
+      }
+    };
+
+    visit(PUBLISH, '');
+    expect(invalidIfs).toEqual([]);
+  });
+
   it('inventories changed, added, and deleted Pages shards by bytes', () => {
     const { root, current, previous } = fixtureTree();
     try {
