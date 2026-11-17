@@ -36,6 +36,7 @@ import {
   isPostingRouteBound,
   isVerifiedPostingEntry,
   isSafeEmployerSitePreread,
+  isSecurityQuestionField,
   readPortalQuestions,
   startsApplication,
   urlConfirms,
@@ -45,6 +46,23 @@ import { mergeRequiredDocuments } from '../functions/src/assistedApplicationExtr
 import { interviewPrepUserText } from '../functions/src/assistedApplicationInterviewPrep.js';
 import { parseAltenDetailHtml } from '../scripts/lib/alten-job-parser.mjs';
 import umantisAccountStepFixture from './fixtures/umantis-recruitingapp-2761-application-new-account.json';
+
+describe('BrassRing security-question field classification', () => {
+  it('recognizes context-free Question/Answer pairs from the UBS registration surface', () => {
+    const fields = [1, 2, 3].flatMap((index) => [
+      { id: `question-${index}`, kind: 'listbox', inputType: 'select', label: `Question ${index}`, options: [] },
+      { id: `answer-${index}`, kind: 'text', inputType: 'text', label: `Question ${index} Answer`, options: [] },
+    ]);
+
+    expect(fields.filter((field) => isSecurityQuestionField(field, fields))).toHaveLength(6);
+  });
+
+  it('does not classify an unpaired generic Question listbox as a security field', () => {
+    const fields = [{ id: 'question-1', kind: 'listbox', inputType: 'select', label: 'Question 1', options: [] }];
+
+    expect(isSecurityQuestionField(fields[0], fields)).toBe(false);
+  });
+});
 
 describe('in-page application opener classification', () => {
   const url = 'https://jobs.example.test/apply?posting=fixture';

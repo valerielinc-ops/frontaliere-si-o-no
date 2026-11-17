@@ -9385,6 +9385,36 @@ async function recoverAccountPassword({ page, snapshot, ctx, host, account, diag
   return { ...signedIn, accountRecovered: true };
 }
 
+const SECURITY_SECTION_RE = /(?:security\s*questions?|domande\s+di\s+sicurezza|questions?\s+de\s+s[eé]curit[eé]|sicherheitsfragen)/i;
+const SECURITY_FIELD_RE = /^(?:security\s+)?(?:question|domanda|frage)\s*(\d+)\s*(answer|risposta|r[eé]ponse|antwort)?\s*[＊*]?$/i;
+
+/**
+ * Recognize a registration security-question field, including BrassRing's
+ * context-free `Question N` + `Question N Answer` pair.
+ *
+ * The pair check is deliberately structural: an unpaired generic listbox
+ * named `Question N` must not be treated as a synthetic security answer.
+ */
+export function isSecurityQuestionField(field, fields = []) {
+  const label = String(field?.label || field?.name || '').trim();
+  const match = SECURITY_FIELD_RE.exec(label);
+  if (!match) return false;
+  if (SECURITY_SECTION_RE.test(`${field?.section || ''} ${field?.context || ''}`)) return true;
+
+  const index = Number(match[1]);
+  const isAnswer = Boolean(match[2]);
+  return (Array.isArray(fields) ? fields : []).some((candidate) => {
+    if (candidate === field) return false;
+    const candidateMatch = SECURITY_FIELD_RE.exec(String(candidate?.label || candidate?.name || '').trim());
+    if (!candidateMatch || Number(candidateMatch[1]) !== index || Boolean(candidateMatch[2]) === isAnswer) return false;
+    const candidateKind = String(candidate?.kind || '').toLowerCase();
+    const candidateIsSelect = candidateKind === 'select' || candidateKind === 'listbox';
+    const candidateIsAnswer = !candidateIsSelect
+      && (!Array.isArray(candidate?.options) || candidate.options.length === 0);
+    return isAnswer ? candidateIsSelect : candidateIsAnswer;
+  });
+}
+
 /**
  * One login page (account.mjs): sign in with the order's account, or create
  * it on the alias, or verify it. Returns the next page, a handoff reason,
@@ -9555,15 +9585,11 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     return { snapshot: await awaitAuthView(page, snapshot) };
   }
   if (ctx.dryRun) return { dryRun: true };
-  const SECURITY_SECTION_RE = /(?:security\s*questions?|domande\s+di\s+sicurezza|questions?\s+de\s+s[eé]curit[eé]|sicherheitsfragen)/i;
-  const SECURITY_FIELD_RE = /^(?:security\s+)?(?:question|domanda|frage)\s*(\d+)\s*(answer|risposta|r[eé]ponse|antwort)?\s*[＊*]?$/i;
-  const isSecurityQuestionField = (field) => SECURITY_SECTION_RE.test(`${field?.section || ''} ${field?.context || ''}`)
-    && SECURITY_FIELD_RE.test(String(field?.label || field?.name || '').trim());
   const securityQuestionAnswers = new Map();
   const planRegistrationWithSecurityQuestions = async (plannedSnapshot) => {
     const allFields = Array.isArray(plannedSnapshot?.fields) ? plannedSnapshot.fields : [];
-    const securityFields = allFields.filter(isSecurityQuestionField);
-    const nonSecurityFields = allFields.filter((field) => !isSecurityQuestionField(field) && field.inputType !== 'password');
+    const securityFields = allFields.filter((field) => isSecurityQuestionField(field, allFields));
+    const nonSecurityFields = allFields.filter((field) => !isSecurityQuestionField(field, allFields) && field.inputType !== 'password');
     const planned = await planPage({
       snapshot: { ...plannedSnapshot, fields: nonSecurityFields },
       candidate,
