@@ -1,7 +1,7 @@
 {
   "key": "franklin-university",
   "label": "Franklin University Switzerland",
-  "generatedAt": "2026-11-17T09:33:57.879Z",
+  "generatedAt": "2026-11-17T21:33:52.212Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 4875,
-  "avgDurationMs": 4875,
+  "durationMs": 5398,
+  "avgDurationMs": 5398,
   "durationHistory": [
-    4875
+    5398
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -53,7 +53,7 @@
       "applyUrl": "https://www.fus.edu/about-franklin/job-opportunities#para_4679",
       "source": "Franklin University Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T09:33:44.667Z",
+      "crawledAt": "2026-11-17T21:33:33.711Z",
       "firstSeenAt": "2026-10-20T09:27:01.136Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -61,7 +61,7 @@
       "salarySource": "estimated",
       "streetAddress": "Sorengo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:33:44.667Z",
+      "validThrough": "2027-01-18T21:33:33.711Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -98,7 +98,7 @@
       "applyUrl": "https://www.fus.edu/about-franklin/job-opportunities#para_4667",
       "source": "Franklin University Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T09:33:44.366Z",
+      "crawledAt": "2026-11-17T21:33:33.408Z",
       "firstSeenAt": "2026-10-08T09:27:59.100Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -106,7 +106,7 @@
       "salarySource": "estimated",
       "streetAddress": "Sorengo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-06T09:33:44.366Z",
+      "validThrough": "2027-01-06T21:33:33.408Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -143,7 +143,7 @@
       "applyUrl": "https://www.fus.edu/about-franklin/job-opportunities#para_4660",
       "source": "Franklin University Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T09:33:44.064Z",
+      "crawledAt": "2026-11-17T21:33:33.105Z",
       "firstSeenAt": "2026-07-08T11:31:39.336Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
@@ -151,7 +151,7 @@
       "salarySource": "estimated",
       "streetAddress": "Sorengo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:33:44.064Z",
+      "validThrough": "2026-12-17T21:33:33.105Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -188,7 +188,7 @@
       "applyUrl": "https://www.fus.edu/about-franklin/job-opportunities#para_4678",
       "source": "Franklin University Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T09:33:43.761Z",
+      "crawledAt": "2026-11-17T21:33:32.799Z",
       "firstSeenAt": "2026-10-20T09:27:00.226Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -196,7 +196,7 @@
       "salarySource": "estimated",
       "streetAddress": "Sorengo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:33:43.761Z",
+      "validThrough": "2027-01-18T21:33:32.799Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -233,7 +233,7 @@
       "applyUrl": "https://www.fus.edu/about-franklin/job-opportunities#para_4677",
       "source": "Franklin University Switzerland Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T09:33:43.460Z",
+      "crawledAt": "2026-11-17T21:33:32.496Z",
       "firstSeenAt": "2026-10-20T09:26:59.923Z",
       "salaryMin": 50500,
       "salaryMax": 89000,
@@ -241,7 +241,7 @@
       "salarySource": "estimated",
       "streetAddress": "Sorengo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:33:43.460Z",
+      "validThrough": "2027-01-18T21:33:32.496Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -252,5 +252,5 @@
       }
     }
   ],
-  "codeCommit": "0a26498058b0569b9b8027a7e9a03db3e2542c6a"
+  "codeCommit": "8a8594aa5e6a6b71cb0a2a3883a7ded1be40621c"
 }
