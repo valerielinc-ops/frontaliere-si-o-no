@@ -24,6 +24,7 @@ import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } fro
 import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
 import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
+import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -126,35 +127,48 @@ function detectEmploymentType(timeType = '') {
 /* ── Workday API ──────────────────────────────────────────── */
 
 /**
- * Call the Workday JSON API with timeout handling.
+ * Call the Workday JSON API with timeout handling and bounded retries for
+ * transient responses such as rate limits.
  */
 async function fetchJson(url, options = {}) {
-  const timeoutMs = options.timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  const { timeoutMs: configuredTimeoutMs, ...requestOptions } = options;
+  const timeoutMs = Number(configuredTimeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   try {
-    const res = await fetch(url, {
-      ...options,
-      signal: controller.signal,
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        'Accept-Language': 'en,de-CH;q=0.9',
-        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-        ...options.headers,
-      },
-    });
-    if (!res.ok) {
-      console.warn(`\u26a0\ufe0f HTTP ${res.status} for ${url}`);
-      return null;
-    }
-    return await res.json();
+    return await fetchWithRetry(async () => {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      try {
+        const res = await fetch(url, {
+          ...requestOptions,
+          signal: controller.signal,
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+            'Accept-Language': 'en,de-CH;q=0.9',
+            'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
+              'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+            ...requestOptions.headers,
+          },
+        });
+        if (!res.ok) {
+          if (RETRYABLE_STATUS.has(res.status)) {
+            const error = new Error(`HTTP ${res.status} for ${url}`);
+            error.status = res.status;
+            error.retryable = true;
+            error.response = res;
+            throw error;
+          }
+          console.warn(`\u26a0\ufe0f HTTP ${res.status} for ${url}`);
+          return null;
+        }
+        return await res.json();
+      } finally {
+        clearTimeout(timer);
+      }
+    }, { label: `arxada ${url}` });
   } catch (err) {
-    console.warn(`\u26a0\ufe0f Fetch failed for ${url}: ${err.message}`);
+    console.warn(`\u26a0\ufe0f Fetch failed for ${url}: ${err?.message || err}`);
     return null;
-  } finally {
-    clearTimeout(timer);
   }
 }
 

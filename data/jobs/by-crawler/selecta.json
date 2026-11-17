@@ -1,7 +1,7 @@
 {
   "crawlerKey": "selecta",
-  "assembledAt": "2026-11-15T21:35:32.236Z",
-  "runId": "43762814121",
+  "assembledAt": "2026-11-17T06:50:35.570Z",
+  "runId": "44032852054",
   "jobs": [
     {
       "id": "selecta-1ed3c74ce61c",
@@ -34,7 +34,7 @@
       "url": "https://careers.selecta.ch/Job/4591",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:35:16.966Z",
+      "crawledAt": "2026-11-17T06:49:54.191Z",
       "addressLocality": "Zürich / Aargau",
       "addressRegion": "AG",
       "streetAddress": "Zürich / Aargau",
@@ -88,17 +88,17 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:35:16.966Z",
+      "validThrough": "2026-12-17T06:49:54.191Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "selecta-f525a4ac08a1",
       "slug": "servizio-clienti-m-w-d-selecta-wallis",
       "slugByLocale": {
-        "it": "account-manager-m-f-d-selecta-wallis",
-        "en": "account-manager-m-f-d-selecta-wallis",
+        "it": "servizio-clienti-m-w-d-selecta-wallis",
+        "en": "customer-service-provider-m-w-d-selecta-wallis",
         "de": "kundenbetreuer-m-w-d-selecta-region-wallis",
-        "fr": "gestionnaire-de-comptes-m-f-d-selecta-wallis"
+        "fr": "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -122,7 +122,7 @@
       "url": "https://careers.selecta.ch/Job/4606",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:35:16.821Z",
+      "crawledAt": "2026-11-17T06:49:54.071Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "streetAddress": "Wallis",
@@ -151,19 +151,20 @@
       "previousSlugs": [
         "kundenbetreuer-m-w-d-selecta-wallis",
         "kundenbetreuer-m-w-d-selecta-region-wallis",
-        "customer-service-provider-m-w-d-selecta-wallis",
-        "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
+        "account-manager-m-f-d-selecta-wallis",
+        "gestionnaire-de-comptes-m-f-d-selecta-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenbetreuer-m-w-d-selecta-wallis",
-          "kundenbetreuer-m-w-d-selecta-region-wallis"
+          "kundenbetreuer-m-w-d-selecta-region-wallis",
+          "account-manager-m-f-d-selecta-wallis"
         ],
         "en": [
-          "customer-service-provider-m-w-d-selecta-wallis"
+          "account-manager-m-f-d-selecta-wallis"
         ],
         "fr": [
-          "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
+          "gestionnaire-de-comptes-m-f-d-selecta-wallis"
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:32.256Z",
@@ -181,7 +182,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:35:16.821Z",
+      "validThrough": "2026-12-17T06:49:54.071Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -215,7 +216,7 @@
       "url": "https://careers.selecta.ch/Job/4633",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:35:16.677Z",
+      "crawledAt": "2026-11-17T06:49:53.344Z",
       "addressLocality": "Reinach BL / Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Reinach BL / Kirchberg BE",
@@ -264,7 +265,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:35:16.677Z",
+      "validThrough": "2026-12-17T06:49:53.344Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -298,7 +299,7 @@
       "url": "https://careers.selecta.ch/Job/4634",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:35:16.530Z",
+      "crawledAt": "2026-11-17T06:49:53.229Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE",
@@ -350,7 +351,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:35:16.530Z",
+      "validThrough": "2026-12-17T06:49:53.229Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -384,7 +385,7 @@
       "url": "https://careers.selecta.ch/Job/4609",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:35:16.385Z",
+      "crawledAt": "2026-11-17T06:49:53.118Z",
       "addressLocality": "Wädenswil bis Glarus",
       "addressRegion": "GL",
       "streetAddress": "Wädenswil bis Glarus",
@@ -433,7 +434,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:35:16.385Z",
+      "validThrough": "2026-12-17T06:49:53.118Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -467,7 +468,7 @@
       "url": "https://careers.selecta.ch/Job/4608",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:35:16.233Z",
+      "crawledAt": "2026-11-17T06:49:53.003Z",
       "addressLocality": "Dübendorf / Volketswil / Pfäffikon",
       "addressRegion": "ZH",
       "streetAddress": "Dübendorf / Volketswil / Pfäffikon",
@@ -516,7 +517,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:35:16.233Z",
+      "validThrough": "2026-12-17T06:49:53.003Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -550,7 +551,7 @@
       "url": "https://careers.selecta.ch/Job/4558",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:35:16.087Z",
+      "crawledAt": "2026-11-17T06:49:52.818Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE",
@@ -599,7 +600,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:35:16.087Z",
+      "validThrough": "2026-12-17T06:49:52.818Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -633,7 +634,7 @@
       "url": "https://careers.selecta.ch/Job/4557",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:35:15.938Z",
+      "crawledAt": "2026-11-17T06:49:52.080Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE",
@@ -682,7 +683,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:35:15.938Z",
+      "validThrough": "2026-12-17T06:49:52.080Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -716,7 +717,7 @@
       "url": "https://careers.selecta.ch/Job/4610",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:35:15.795Z",
+      "crawledAt": "2026-11-17T06:49:51.390Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "streetAddress": "Sursee",
@@ -773,7 +774,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:35:15.795Z",
+      "validThrough": "2026-12-17T06:49:51.390Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -807,7 +808,7 @@
       "url": "https://careers.selecta.ch/Job/4615",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:35:15.648Z",
+      "crawledAt": "2026-11-17T06:49:50.668Z",
       "addressLocality": "Sargans / Landquart",
       "addressRegion": "GR",
       "streetAddress": "Sargans / Landquart",
@@ -856,7 +857,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:35:15.648Z",
+      "validThrough": "2026-12-17T06:49:50.668Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -890,7 +891,7 @@
       "url": "https://careers.selecta.ch/Job/4616",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:35:15.496Z",
+      "crawledAt": "2026-11-17T06:49:50.032Z",
       "addressLocality": "primär Spiez",
       "addressRegion": "BE",
       "streetAddress": "primär Spiez",
@@ -939,7 +940,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:35:15.496Z",
+      "validThrough": "2026-12-17T06:49:50.032Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -973,7 +974,7 @@
       "url": "https://careers.selecta.ch/Job/4623",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:35:15.348Z",
+      "crawledAt": "2026-11-17T06:49:49.911Z",
       "addressLocality": "Wolhusen / Luzern",
       "addressRegion": "LU",
       "streetAddress": "Wolhusen / Luzern",
@@ -1022,7 +1023,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:35:15.348Z",
+      "validThrough": "2026-12-17T06:49:49.911Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1056,7 +1057,7 @@
       "url": "https://careers.selecta.ch/Job/4637",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:35:15.191Z",
+      "crawledAt": "2026-11-17T06:49:49.795Z",
       "addressLocality": "Oberwallis und Berner Oberland",
       "addressRegion": "VS",
       "streetAddress": "Oberwallis und Berner Oberland",
@@ -1111,7 +1112,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-14T21:35:15.191Z",
+      "validThrough": "2027-01-14T06:49:49.795Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1145,7 +1146,7 @@
       "url": "https://careers.selecta.ch/Job/4601",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:35:15.043Z",
+      "crawledAt": "2026-11-17T06:49:49.146Z",
       "addressLocality": "Kirchberg BE -",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE -",
@@ -1211,16 +1212,16 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:35:15.043Z",
+      "validThrough": "2026-12-17T06:49:49.146Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "selecta-2da14a0c9720",
       "slug": "chauffeur-cat-c-ed-e-m-f-d-selecta-kirchberg-be",
       "slugByLocale": {
-        "de": "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15",
         "it": "chauffeur-cat-c-ed-e-m-f-d-selecta-kirchberg-be",
         "en": "chauffeur-cat-c-and-e-m-f-d-selecta-kirchberg-be-fbad9f",
+        "de": "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15",
         "fr": "chauffeur-cat-c-et-e-m-f-d-selecta-kirchberg-be-fbad9f"
       },
       "company": "Selecta",
@@ -1228,16 +1229,16 @@
       "companyDomain": "selecta.com",
       "title": "Chauffeur Kat. C und E (m/w/d)",
       "titleByLocale": {
-        "de": "Chauffeur Kat. C und E (m/w/d)",
         "it": "Chauffeur Kat. C e E (m/w/d)",
         "en": "Chauffeur Cat C and E (m/f/d)",
+        "de": "Chauffeur Kat. C und E (m/w/d)",
         "fr": "Chauffeur Cat C et E (h/f/d)"
       },
       "description": "Chauffeur Kat. C und E (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE - (Montag bis Freitag von 05:00 Uhr bis 15:00 Uhr) Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Anlieferung und Einlagerung von Einfüllprodukten an zahlreichen Standorten unserer Verpflegungsautomaten direkt bei unseren Kunden im Mittelland\n• Beladen des Lastwagens mit bereitgestellten Produkten\n• Rücknahme von Leergebinden\n• Pflege und Unterhalt des Fahrzeugs Ausbildung\n• Führerausweis Kat. C/E Profil\n• Mehrjährige Erfahrung als Chauffeur von Vorteil\n• Guter Orientierungssinn\n• Körperlich belastbar und gewohnt, anzupacken\n• Erfahrung im Umgang mit Kunden\n• Sehr gute Deutschkenntnisse in Wort und Schrift Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
       "descriptionByLocale": {
-        "de": "Chauffeur Kat. C und E (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE - (Montag bis Freitag von 05:00 Uhr bis 15:00 Uhr) Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Anlieferung und Einlagerung von Einfüllprodukten an zahlreichen Standorten unserer Verpflegungsautomaten direkt bei unseren Kunden im Mittelland\n• Beladen des Lastwagens mit bereitgestellten Produkten\n• Rücknahme von Leergebinden\n• Pflege und Unterhalt des Fahrzeugs Ausbildung\n• Führerausweis Kat. C/E Profil\n• Mehrjährige Erfahrung als Chauffeur von Vorteil\n• Guter Orientierungssinn\n• Körperlich belastbar und gewohnt, anzupacken\n• Erfahrung im Umgang mit Kunden\n• Sehr gute Deutschkenntnisse in Wort und Schrift Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
         "it": "Chauffeur Cat C e E (m/f/d) 100% Il Gruppo Selecta, con sede in Svizzera dal 1957, è leader europeo nella fornitura di caffè e soluzioni innovative per la tecnologia alimentare sul posto di lavoro e negli spazi pubblici. Ogni giorno, serviamo più di 10 milioni di persone in 16 paesi europei con caffè e bevande premium, snack e pasti freschi. Il nostro successo con un fatturato annuo di 1,4 miliardi di euro è dovuto al nostro ca. 6.000 dipendenti Selecta altamente qualificati, dedicati e appassionati: donne che creano milioni di momenti di gioia per i nostri clienti ogni giorno: donne e consumatori: donne. La sostenibilità è parte integrante della nostra attività e si concentra sulle aree chiave in cui possiamo dare un contributo positivo. Luogo di lavoro Kirchberg BE - (dal lunedì al venerdì dalle 05:00 alle 15:00) Il lavoro inizia immediatamente o su appuntamento\n• Consegna e stoccaggio di prodotti di riempimento in numerose località delle nostre macchine di catering direttamente presso i nostri clienti nel Mittelland\n• Caricamento del camion con prodotti forniti\n• Ritiro di contenitori vuoti\n• Cura e manutenzione del veicolo Formazione\n• Profilo Cat C/E\n• Diversi anni di esperienza come autista vantaggioso\n• Buon senso della direzione\n• Fisicamente resiliente e abituato ad affrontare\n• Esperienza nel trattare con i clienti\n• Molto buona conoscenza del tedesco in parola e scrittura Applicazioni speciali Abbiamo suscitato il vostro interesse? Allora vorremmo conoscerti. Attendiamo con ansia la vostra applicazione. Si prega di applicare online sul portale di carriera Selecta. Non saranno prese in considerazione applicazioni via e-mail o posta.",
         "en": "Chauffeur Cat C and E (m/f/d) 100% The Selecta Group, headquartered in Switzerland since 1957, is Europe’s leading provider of coffee and innovative food tech solutions in the workplace and in public spaces. Every day, we serve more than 10 million people in 16 European countries with premium coffee and drinks, snacks and fresh meals. Our success with an annual turnover of 1.4 billion euros is due to our approx. 6,000 highly qualified, dedicated and passionate Selecta employees: women who create millions of moments of joy for our customers every day: women and their consumers: women. Sustainability is an integral part of our business and focuses on the key areas where we can make a positive contribution. Work location Kirchberg BE - (Monday to Friday from 05:00 to 15:00) Work starts immediately or by appointment Main tasks\n• Delivery and storage of filling products at numerous locations of our catering machines directly at our customers in the Mittelland\n• Loading the truck with provided products\n• Withdrawal of empty containers\n• Care and maintenance of the vehicle Training\n• Cat C/E profile\n• Several years of experience as a chauffeur advantageous\n• Good sense of direction\n• Physically resilient and accustomed to tackle\n• Experience in dealing with customers\n• Very good knowledge of German in word and writing Special Applications Have we aroused your interest? Then we would like to meet you. We look forward to your application. Please apply online on the Selecta career portal. No applications by e-mail or post will be considered.",
+        "de": "Chauffeur Kat. C und E (m/w/d) 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg BE - (Montag bis Freitag von 05:00 Uhr bis 15:00 Uhr) Arbeitsbeginn per sofort oder nach Vereinbarung Hauptaufgaben\n• Anlieferung und Einlagerung von Einfüllprodukten an zahlreichen Standorten unserer Verpflegungsautomaten direkt bei unseren Kunden im Mittelland\n• Beladen des Lastwagens mit bereitgestellten Produkten\n• Rücknahme von Leergebinden\n• Pflege und Unterhalt des Fahrzeugs Ausbildung\n• Führerausweis Kat. C/E Profil\n• Mehrjährige Erfahrung als Chauffeur von Vorteil\n• Guter Orientierungssinn\n• Körperlich belastbar und gewohnt, anzupacken\n• Erfahrung im Umgang mit Kunden\n• Sehr gute Deutschkenntnisse in Wort und Schrift Spezielles Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
         "fr": "Chauffeur Cat C et E (h/f/d) 100% Le groupe Selecta, dont le siège social est en Suisse depuis 1957, est le premier fournisseur européen de café et de solutions food tech innovantes sur le lieu de travail et dans les espaces publics. Chaque jour, nous servons plus de 10 millions de personnes dans 16 pays européens avec un café et des boissons haut de gamme, des collations et des repas frais. Notre succès avec un chiffre d'affaires annuel de 1,4 milliard d'euros est dû à notre approx. 6 000 collaborateurs hautement qualifiés, dévoués et passionnés: des femmes qui créent des millions de moments de joie pour nos clients chaque jour: des femmes et leurs consommateurs: des femmes. La durabilité fait partie intégrante de notre activité et se concentre sur les domaines clés où nous pouvons apporter une contribution positive. Lieu de travail Kirchberg BE - (du lundi au vendredi de 05:00 à 15:00) Le travail commence immédiatement ou sur rendez-vous Principales tâches\n• Livraison et stockage de produits de remplissage à de nombreux endroits de nos machines de restauration directement chez nos clients dans le Mittelland\n• Chargement du camion avec les produits fournis\n• Retrait des conteneurs vides\n• Entretien et entretien du véhicule\n• Profil C/E du chat\n• Plusieurs années d'expérience en tant que chauffeur avantageux\n• Bonne direction\n• Résilient physique et habitué à s'attaquer\n• Expérience dans le traitement des clients\n• Très bonne connaissance de l'allemand en paroles et en écriture Applications spéciales Avez-vous suscité votre intérêt? Alors nous aimerions vous rencontrer. Nous attendons avec impatience votre candidature. Veuillez postuler en ligne sur le portail de carrière Selecta. Aucune demande par courrier électronique ou par la poste ne sera examinée."
       },
       "location": "Kirchberg BE -",
@@ -1245,7 +1246,7 @@
       "url": "https://careers.selecta.ch/Job/4600",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:35:14.897Z",
+      "crawledAt": "2026-11-17T06:49:48.464Z",
       "addressLocality": "Kirchberg BE -",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE -",
@@ -1266,21 +1267,20 @@
       "department": "",
       "jobReqId": "4600",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
       "_targetScope": {
         "canton": "BE",
         "location": "Kirchberg BE -"
       },
+      "previousSlugs": [
+        "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15"
         ]
       },
-      "previousSlugs": [
-        "chauffeur-kat-c-und-e-m-w-d-selecta-kirchberg-be-montag-bis-freitag-von-05-00-uhr-bis-15"
-      ],
+      "firstSeenAt": "2026-07-04T11:56:55.088Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1295,9 +1295,8 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:35:14.897Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-07-04T11:56:55.088Z"
+      "validThrough": "2026-12-17T06:49:48.464Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "selecta-8b973ef54c2f",
@@ -1330,7 +1329,7 @@
       "url": "https://careers.selecta.ch/Job/4638",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:35:14.749Z",
+      "crawledAt": "2026-11-17T06:49:47.762Z",
       "addressLocality": "Bern - Betreuung der Kantine im Bundeshaus",
       "addressRegion": "BE",
       "streetAddress": "Bern - Betreuung der Kantine im Bundeshaus",
@@ -1385,7 +1384,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:35:14.749Z",
+      "validThrough": "2027-01-26T06:49:47.762Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1419,7 +1418,7 @@
       "url": "https://careers.selecta.ch/Job/4595",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:35:14.069Z",
+      "crawledAt": "2026-11-17T06:49:47.087Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "Kirchberg BE",
@@ -1474,7 +1473,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:35:14.069Z",
+      "validThrough": "2026-12-17T06:49:47.087Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1484,7 +1483,7 @@
         "it": "tecnico-di-servizio-m-f-d-selecta-tessin",
         "en": "service-technician-m-f-d-selecta-tessin",
         "de": "servicetechniker-m-w-d-selecta-region-tessin",
-        "fr": "servicetechniker-m-w-d-selecta-tessin"
+        "fr": "technicien-de-service-m-w-d-selecta-tessin"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -1508,7 +1507,7 @@
       "url": "https://careers.selecta.ch/Job/4626",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:35:13.921Z",
+      "crawledAt": "2026-11-17T06:49:46.960Z",
       "addressLocality": "Tessin",
       "addressRegion": "TI",
       "streetAddress": "Tessin",
@@ -1537,8 +1536,7 @@
       "previousSlugs": [
         "servicetechniker-m-w-d-selecta-tessin",
         "technicien-de-service-h-f-d-selecta-tessin",
-        "servicetechniker-m-w-d-selecta-region-tessin",
-        "technicien-de-service-m-w-d-selecta-tessin"
+        "servicetechniker-m-w-d-selecta-region-tessin"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1550,7 +1548,7 @@
         ],
         "fr": [
           "technicien-de-service-h-f-d-selecta-tessin",
-          "technicien-de-service-m-w-d-selecta-tessin"
+          "servicetechniker-m-w-d-selecta-tessin"
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:34.123Z",
@@ -1568,8 +1566,86 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:35:13.921Z",
+      "validThrough": "2026-12-17T06:49:46.960Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "selecta-ec03b2521c29",
+      "slug": "technical-supporter-technical-supporterin-selecta-kirchberg-murten",
+      "slugByLocale": {
+        "de": "technical-supporter-technical-supporterin-selecta-kirchberg-murten",
+        "it": "technical-supporter-technical-supporterin-selecta-kirchberg-murten",
+        "en": "technical-supporter-technical-supporterin-selecta-kirchberg-murten",
+        "fr": "technical-supporter-technical-supporterin-selecta-kirchberg-murten"
+      },
+      "company": "Selecta",
+      "companyKey": "selecta",
+      "companyDomain": "selecta.com",
+      "title": "Technical Supporter/Technical Supporterin",
+      "titleByLocale": {
+        "de": "Technical Supporter/Technical Supporterin",
+        "it": "Technical Supporter/Technical Supporterin",
+        "en": "Technical Supporter/Technical Supporterin",
+        "fr": "Technical Supporter/Technical Supporterin"
+      },
+      "description": "Technical Supporter/Technical Supporterin 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg, Murten Arbeitsbeginn Per sofort oder nach Vereinbarung Hauptaufgaben\n• Second Level Support für Produktion und Techniker\n• Second Level Support für Zahlungssysteme, Telemetrie und Smart Solution Lösungen\n• Koordination von Fachgremien bestehend aus Technikern und Fachspezialisten\n• Validierung von neuer Hardware/Software\n• Ausbau/Pflege der technischen Dokumentation\n• Definition, Dokumentation und Einführung von Arbeitsprozessen und Standards\n• Mitarbeit bei der Weiterentwicklung von Support-, Service- und Betriebsprozesse\n• Zusammenarbeit mit anderen Abteilungen und externen Partnern\n• Leitung kleinerer technischer Projekte Ausbildung\n• Abgeschlossene technische Grundausbildung mit EFZ\n• Technische Weiterbildungen von Vorteil\n• Mehrjährige Erfahrung im technischen Support oder Serviceumfeld\n• Gute Deutsch-, Französisch und Englischkenntnisse\n• Erweiterte Anwenderkenntnisse in Office Anwendungen Profil\n• Analytische Fähigkeiten in komplexen Umgebungen\n• Schnelle Auffassungsgabe\n• Strukturierter und systematischer Arbeitsstil\n• Teamfähige Persönlichkeit mit der notwendigen Durchsetzungsstärke zur Erreichung vereinbarter Ziele\n• Eigeninitiative und Interesse am Verbessern von Arbeitsabläufen und Prozessen\n• Hohe Kunden- und Serviceorientierung\n• Bereitschaft, Verantwortung zu übernehmen Spezielles\n• Wohnhaft in genannten Regionen\n• Freude am Kaffeegenuss\n• Einwandfreier Leumund Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+      "descriptionByLocale": {
+        "de": "Technical Supporter/Technical Supporterin 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg, Murten Arbeitsbeginn Per sofort oder nach Vereinbarung Hauptaufgaben\n• Second Level Support für Produktion und Techniker\n• Second Level Support für Zahlungssysteme, Telemetrie und Smart Solution Lösungen\n• Koordination von Fachgremien bestehend aus Technikern und Fachspezialisten\n• Validierung von neuer Hardware/Software\n• Ausbau/Pflege der technischen Dokumentation\n• Definition, Dokumentation und Einführung von Arbeitsprozessen und Standards\n• Mitarbeit bei der Weiterentwicklung von Support-, Service- und Betriebsprozesse\n• Zusammenarbeit mit anderen Abteilungen und externen Partnern\n• Leitung kleinerer technischer Projekte Ausbildung\n• Abgeschlossene technische Grundausbildung mit EFZ\n• Technische Weiterbildungen von Vorteil\n• Mehrjährige Erfahrung im technischen Support oder Serviceumfeld\n• Gute Deutsch-, Französisch und Englischkenntnisse\n• Erweiterte Anwenderkenntnisse in Office Anwendungen Profil\n• Analytische Fähigkeiten in komplexen Umgebungen\n• Schnelle Auffassungsgabe\n• Strukturierter und systematischer Arbeitsstil\n• Teamfähige Persönlichkeit mit der notwendigen Durchsetzungsstärke zur Erreichung vereinbarter Ziele\n• Eigeninitiative und Interesse am Verbessern von Arbeitsabläufen und Prozessen\n• Hohe Kunden- und Serviceorientierung\n• Bereitschaft, Verantwortung zu übernehmen Spezielles\n• Wohnhaft in genannten Regionen\n• Freude am Kaffeegenuss\n• Einwandfreier Leumund Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "it": "Technical Supporter/Technical Supporterin 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg, Murten Arbeitsbeginn Per sofort oder nach Vereinbarung Hauptaufgaben\n• Second Level Support für Produktion und Techniker\n• Second Level Support für Zahlungssysteme, Telemetrie und Smart Solution Lösungen\n• Koordination von Fachgremien bestehend aus Technikern und Fachspezialisten\n• Validierung von neuer Hardware/Software\n• Ausbau/Pflege der technischen Dokumentation\n• Definition, Dokumentation und Einführung von Arbeitsprozessen und Standards\n• Mitarbeit bei der Weiterentwicklung von Support-, Service- und Betriebsprozesse\n• Zusammenarbeit mit anderen Abteilungen und externen Partnern\n• Leitung kleinerer technischer Projekte Ausbildung\n• Abgeschlossene technische Grundausbildung mit EFZ\n• Technische Weiterbildungen von Vorteil\n• Mehrjährige Erfahrung im technischen Support oder Serviceumfeld\n• Gute Deutsch-, Französisch und Englischkenntnisse\n• Erweiterte Anwenderkenntnisse in Office Anwendungen Profil\n• Analytische Fähigkeiten in komplexen Umgebungen\n• Schnelle Auffassungsgabe\n• Strukturierter und systematischer Arbeitsstil\n• Teamfähige Persönlichkeit mit der notwendigen Durchsetzungsstärke zur Erreichung vereinbarter Ziele\n• Eigeninitiative und Interesse am Verbessern von Arbeitsabläufen und Prozessen\n• Hohe Kunden- und Serviceorientierung\n• Bereitschaft, Verantwortung zu übernehmen Spezielles\n• Wohnhaft in genannten Regionen\n• Freude am Kaffeegenuss\n• Einwandfreier Leumund Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "en": "Technical Supporter/Technical Supporterin 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg, Murten Arbeitsbeginn Per sofort oder nach Vereinbarung Hauptaufgaben\n• Second Level Support für Produktion und Techniker\n• Second Level Support für Zahlungssysteme, Telemetrie und Smart Solution Lösungen\n• Koordination von Fachgremien bestehend aus Technikern und Fachspezialisten\n• Validierung von neuer Hardware/Software\n• Ausbau/Pflege der technischen Dokumentation\n• Definition, Dokumentation und Einführung von Arbeitsprozessen und Standards\n• Mitarbeit bei der Weiterentwicklung von Support-, Service- und Betriebsprozesse\n• Zusammenarbeit mit anderen Abteilungen und externen Partnern\n• Leitung kleinerer technischer Projekte Ausbildung\n• Abgeschlossene technische Grundausbildung mit EFZ\n• Technische Weiterbildungen von Vorteil\n• Mehrjährige Erfahrung im technischen Support oder Serviceumfeld\n• Gute Deutsch-, Französisch und Englischkenntnisse\n• Erweiterte Anwenderkenntnisse in Office Anwendungen Profil\n• Analytische Fähigkeiten in komplexen Umgebungen\n• Schnelle Auffassungsgabe\n• Strukturierter und systematischer Arbeitsstil\n• Teamfähige Persönlichkeit mit der notwendigen Durchsetzungsstärke zur Erreichung vereinbarter Ziele\n• Eigeninitiative und Interesse am Verbessern von Arbeitsabläufen und Prozessen\n• Hohe Kunden- und Serviceorientierung\n• Bereitschaft, Verantwortung zu übernehmen Spezielles\n• Wohnhaft in genannten Regionen\n• Freude am Kaffeegenuss\n• Einwandfreier Leumund Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt.",
+        "fr": "Technical Supporter/Technical Supporterin 100% Die Selecta-Gruppe, die ihren Hauptsitz seit 1957 in der Schweiz hat, ist Europas führender Anbieter von Kaffee- und innovativen FoodTech-Lösungen am Arbeitsplatz und im öffentlichen Raum. Jeden Tag versorgen wir mehr als 10 Millionen Menschen in 16 Ländern Europas mit Premium-Kaffee und -Getränken, Snacks und frischen Mahlzeiten. Unseren Erfolg mit einem Jahresumsatz von 1,4 Milliarden Euro verdanken wir unseren ca. 6.000 hochqualifizierten, engagierten und leidenschaftlichen Selecta-Mitarbeiter:innen, die täglich Millionen von Momenten der Freude für unsere Kunden:innen und deren Konsumenten:innen schaffen. Nachhaltigkeit ist ein integraler Bestandteil unserer Geschäftstätigkeit und konzentriert sich auf die Schlüsselbereiche, in denen wir einen positiven Beitrag leisten können. Arbeitsort Kirchberg, Murten Arbeitsbeginn Per sofort oder nach Vereinbarung Hauptaufgaben\n• Second Level Support für Produktion und Techniker\n• Second Level Support für Zahlungssysteme, Telemetrie und Smart Solution Lösungen\n• Koordination von Fachgremien bestehend aus Technikern und Fachspezialisten\n• Validierung von neuer Hardware/Software\n• Ausbau/Pflege der technischen Dokumentation\n• Definition, Dokumentation und Einführung von Arbeitsprozessen und Standards\n• Mitarbeit bei der Weiterentwicklung von Support-, Service- und Betriebsprozesse\n• Zusammenarbeit mit anderen Abteilungen und externen Partnern\n• Leitung kleinerer technischer Projekte Ausbildung\n• Abgeschlossene technische Grundausbildung mit EFZ\n• Technische Weiterbildungen von Vorteil\n• Mehrjährige Erfahrung im technischen Support oder Serviceumfeld\n• Gute Deutsch-, Französisch und Englischkenntnisse\n• Erweiterte Anwenderkenntnisse in Office Anwendungen Profil\n• Analytische Fähigkeiten in komplexen Umgebungen\n• Schnelle Auffassungsgabe\n• Strukturierter und systematischer Arbeitsstil\n• Teamfähige Persönlichkeit mit der notwendigen Durchsetzungsstärke zur Erreichung vereinbarter Ziele\n• Eigeninitiative und Interesse am Verbessern von Arbeitsabläufen und Prozessen\n• Hohe Kunden- und Serviceorientierung\n• Bereitschaft, Verantwortung zu übernehmen Spezielles\n• Wohnhaft in genannten Regionen\n• Freude am Kaffeegenuss\n• Einwandfreier Leumund Bewerben Haben wir Dein Interesse geweckt? Dann möchten wir Dich gerne kennenlernen. Auf Deine Bewerbung freuen wir uns. Bitte bewirb Dich online auf dem Selecta Karriereportal. Es werden keine Bewerbungen per E-Mail oder Post berücksichtigt."
+      },
+      "location": "Kirchberg, Murten",
+      "canton": "FR",
+      "url": "https://careers.selecta.ch/Job/4313",
+      "source": "Selecta Dedicated Parser (eRecruiter)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-17T06:49:46.328Z",
+      "addressLocality": "Kirchberg, Murten",
+      "addressRegion": "FR",
+      "streetAddress": "Kirchberg, Murten",
+      "postalCode": "3280",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Vending / Food & Coffee Tech",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2023-01-17",
+      "postedDate": "2023-01-17",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.selecta.ch/Job/4313",
+      "department": "",
+      "jobReqId": "4313",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "_targetScope": {
+        "canton": "FR",
+        "location": "Kirchberg, Murten"
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T06:49:46.328Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-17T06:49:46.328Z"
     }
   ]
 }

@@ -37,6 +37,7 @@ import {
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
+import { httpFetchAndReadWithRetry, isRetryBudgetExhausted } from './lib/transient-fetch.mjs';
 import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { crawledAtFromObservation } from './lib/source-crawl-observation.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -166,33 +167,27 @@ function isTrustedDomain(rawUrl = '') {
 // ─────────────────────────────────────────────────────────────
 
 async function fetchJson(url, options = {}) {
-  const timeoutMs = options.timeoutMs || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  const { timeoutMs: requestedTimeoutMs, headers: requestHeaders, ...requestOptions } = options;
+  const timeoutMs = requestedTimeoutMs || 20000;
   try {
-    const res = await fetch(url, {
-      ...options,
-      signal: controller.signal,
+    return await httpFetchAndReadWithRetry(url, {
+      ...requestOptions,
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
         'Accept-Language': 'en,it-CH;q=0.9',
         'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
           'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-        ...options.headers,
+        ...requestHeaders,
       },
+    }, {
+      timeout: timeoutMs,
+      label: `bracco ${url}`,
+      readResponse: (response) => response.json(),
     });
-    if (!res.ok) {
-      const error = new Error(`HTTP ${res.status} for ${url}`);
-      error.status = res.status;
-      throw error;
-    }
-    return await res.json();
   } catch (err) {
     console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`);
     throw err;
-  } finally {
-    clearTimeout(timer);
   }
 }
 
@@ -283,6 +278,10 @@ async function fetchJobDetail(externalPath) {
   try {
     return await fetchJson(`${BRACCO_API_BASE}${externalPath}`);
   } catch (err) {
+    // A detail endpoint that stays rate-limited after the shared retry budget
+    // is exhausted means the snapshot is incomplete. Let main() preserve the
+    // previous slice instead of silently publishing a partial listing.
+    if (isRetryBudgetExhausted(err)) throw err;
     console.warn(`⚠️ Bracco detail unavailable for ${externalPath}: ${err.message}`);
     return null;
   }
@@ -733,10 +732,13 @@ async function main() {
   try {
     discoveredJobs = await fetchBraccoJobs();
   } catch (err) {
-    if (!isConnectionLevelFetchError(err)) throw err;
+    const retryBudgetExhausted = isRetryBudgetExhausted(err);
+    if (!isConnectionLevelFetchError(err) && !retryBudgetExhausted) throw err;
     markCrawlerSummaryAbortKind('connection-level-fetch');
     console.log(
-      `\n⚠️ Bracco Suisse: connection-level fetch failure after retries + proxy fallback (${err?.message || err}). Keeping existing jobs (no de-index).`,
+      retryBudgetExhausted
+        ? `\n⚠️ Bracco Suisse: retryable HTTP response exhausted its retry budget (${err?.message || err}). Keeping existing jobs (no de-index).`
+        : `\n⚠️ Bracco Suisse: connection-level fetch failure after retries + proxy fallback (${err?.message || err}). Keeping existing jobs (no de-index).`,
     );
     await rewriteStoredJobsWithoutThinSource(
       readExistingCrawlerJobs(BRACCO_KEY, DATA_JOBS).filter(isBraccoJob),

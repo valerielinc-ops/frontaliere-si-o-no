@@ -63,10 +63,12 @@ import {
   sourceLangOfBody,
 } from './lib/source-locale-slots.mjs';
 import { fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { looksLikeAntiBotChallenge } from './lib/jina-proxy.mjs';
 import { dropFabricatedDescription } from './lib/drop-fabricated-description.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { chromeUserAgent, isStealthBrowser, launchStealthOrChromium } from './lib/stealth-browser.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -152,9 +154,66 @@ function isTrustedDomain(rawUrl = '') {
 }
 
 /* ── Fetch & Parse ─────────────────────────────────────────── */
-async function fetchCareersHtml() {
+async function fetchCareersHtmlViaBrowser() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  return fetchHtml(CAREERS_URL, { timeoutMs, headers: { Accept: 'text/html', 'User-Agent': UA } });
+  const browser = await launchStealthOrChromium({
+    purpose: 'crawler',
+    headless: true,
+    locale: 'en-US',
+    timezone: 'Europe/Zurich',
+    fallbackOptions: { headless: true },
+  });
+
+  let context;
+  let page;
+  try {
+    const stealth = isStealthBrowser(browser);
+    context = await browser.newContext(stealth
+      ? { viewport: null }
+      : {
+          userAgent: chromeUserAgent(typeof browser.version === 'function' ? browser.version() : ''),
+          viewport: { width: 1280, height: 720 },
+          locale: 'en-US',
+          timezoneId: 'Europe/Zurich',
+        });
+    page = await context.newPage();
+    await page.goto(CAREERS_URL, {
+      waitUntil: 'domcontentloaded',
+      timeout: timeoutMs,
+    });
+    await page.waitForSelector('div.accordion-item', {
+      timeout: Math.min(timeoutMs, 10000),
+    }).catch(() => {});
+
+    const html = await page.content();
+    // Keep the existing parser as the quality gate: a browser challenge, a
+    // JavaScript error page, or an empty careers page must never become an
+    // empty successful crawl.
+    parseCareersPage(html);
+    return html;
+  } finally {
+    await page?.close().catch(() => {});
+    await context?.close().catch(() => {});
+    await browser.close().catch(() => {});
+  }
+}
+
+export async function fetchCareersHtml() {
+  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
+  const html = await fetchHtml(CAREERS_URL, {
+    timeoutMs,
+    headers: { Accept: 'text/html', 'User-Agent': UA },
+  });
+
+  try {
+    parseCareersPage(html);
+    return html;
+  } catch (error) {
+    const emptyListingError = /zero valid accordion listings/i.test(error?.message || '');
+    if (!emptyListingError && !looksLikeAntiBotChallenge(html)) throw error;
+    console.warn('⚠️ Centiel careers page returned no listings; retrying through a real browser before failing closed.');
+    return fetchCareersHtmlViaBrowser();
+  }
 }
 
 /**
