@@ -60,6 +60,9 @@ async function openJobDetailWithCompanyLink(page: Page): Promise<string> {
 test.use({ viewport: { width: 1280, height: 800 } });
 
 test('company link from job detail lands on a real, styled company hub', async ({ page }) => {
+  // One live job probe may use 6 × 15 s timeouts plus 25 s of retry pauses.
+  test.setTimeout(115_000);
+
   const sourcePath = await openJobDetailWithCompanyLink(page);
   const companyLink = page.locator(COMPANY_HUB_LINK_SELECTOR).first();
   const companyHref = await companyLink.getAttribute('href');

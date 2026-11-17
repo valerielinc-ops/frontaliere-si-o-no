@@ -3,9 +3,10 @@
  *
  * Live validation is deliberately strict about 4xx responses: a missing or
  * malformed route is a product failure, not something a retry can repair.
- * Edge timeouts and 5xx responses are different. A Pages/Fastly edge can be
- * briefly unavailable while the deploy is settling, and a second request is
- * enough to distinguish that transient from a reproducible failure.
+ * Edge timeouts and 5xx responses are different. A Cloudflare edge can be
+ * briefly unavailable while the deploy is settling; validate-live run
+ * 44007052100 observed an intermittent 503 for more than ~19 s, so the default
+ * retry budget allows five 5 s pauses before a persistent failure is reported.
  */
 
 export interface LiveRequestOptions {
@@ -19,8 +20,8 @@ export interface LiveResponse {
 
 export type LiveGet = (url: string, options?: LiveRequestOptions) => Promise<LiveResponse>;
 
-export const LIVE_REQUEST_ATTEMPTS = 2;
-export const LIVE_REQUEST_RETRY_DELAY_MS = 1_000;
+export const LIVE_REQUEST_ATTEMPTS = 6;
+export const LIVE_REQUEST_RETRY_DELAY_MS = 5_000;
 
 function sleep(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
