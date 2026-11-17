@@ -6812,7 +6812,10 @@ export function registryPinnedLocaleSlug(registered, locale, sourceLang, opts = 
           // canonical slug; preserve that registry pin unless the scoped
           // policy has positive evidence of corruption.
           if (garbledPinRepairPolicy(registered, locale, opts)) return null;
-          return regLoc;
+          // Keep the prior fail-closed behavior when only one witness has
+          // usable tokens: that shape is still ambiguous, not evidence of a
+          // valid translation.
+          return titleTokens.size > 0 && canonicalTokens.size > 0 ? regLoc : null;
         }
       }
     }
