@@ -330,6 +330,15 @@ async function openedListbox(frame, field) {
   const list = typeof visibleLists.last === 'function' ? visibleLists.last() : null;
   const active = await usable(list);
   if (active) return active;
+  const allLists = frame.locator('[role="listbox"]');
+  const listCount = typeof allLists.count === 'function' ? await allLists.count() : 0;
+  if (listCount > 0) {
+    return {
+      list: null,
+      options: frame.locator('[role="option"]:visible'),
+      blocked: true,
+    };
+  }
   return { list: frame, options: frame.locator('[role="option"]:visible') };
 }
 
@@ -1108,7 +1117,8 @@ export async function applyActions(page, fields, actions, files, {
           const frame = page.frames()[field.frame || 0] || page.mainFrame();
           const countryLike = isNationalityField(field.label) || isResidenceCountryField(field) || isPhoneCountryField(field);
           const securityChoice = action.evidence === 'account_security_question';
-          const { list, options: visibleOptions } = await openedListbox(frame, field);
+          const { list, options: visibleOptions, blocked } = await openedListbox(frame, field);
+          if (blocked) throw new Error('listbox_not_open');
           if ((countryLike || securityChoice) && typeof visibleOptions.first === 'function') {
             await visibleOptions.first().waitFor?.({ state: 'visible', timeout: 2500 }).catch(() => {});
           }
