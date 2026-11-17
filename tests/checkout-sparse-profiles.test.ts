@@ -203,6 +203,42 @@ describe('profili di sparse-checkout', () => {
     expect(sparsePaths).toContain('/scripts/lib/https-url.mjs');
   });
 
+  it('il probe Source Liveness non trascina il tree generato nel checkout', () => {
+    const workflow = YAML.parse(
+      fs.readFileSync(path.join(WF_DIR, 'source-liveness.yml'), 'utf8'),
+      { logLevel: 'silent' },
+    );
+    const checkout = workflow?.jobs?.liveness?.steps?.find(
+      (step: any) => typeof step?.uses === 'string' && step.uses.startsWith('actions/checkout@'),
+    );
+    const sparsePaths = String(checkout?.with?.['sparse-checkout'] ?? '')
+      .split('\n')
+      .map((entry: string) => entry.trim())
+      .filter(Boolean);
+
+    expect(checkout?.with?.filter).toBe('blob:none');
+    expect(checkout?.with?.['sparse-checkout-cone-mode']).toBe(false);
+    expect(sparsePaths).toEqual([
+      '/.npmrc',
+      '/package.json',
+      '/package-lock.json',
+      '/scripts/load-rc-env.mjs',
+      '/scripts/check-source-liveness.mjs',
+      '/scripts/lib/fetch-with-ref-timeout.mjs',
+      '/scripts/lib/remote-config-template-url.mjs',
+      '/scripts/lib/google-service-account-token.mjs',
+      '/scripts/lib/source-liveness.mjs',
+      '/scripts/lib/int-from-env.mjs',
+      '/scripts/lib/monitor-scheda.mjs',
+      '/scripts/lib/posthog-client.mjs',
+      '/scripts/lib/ga4-service-account.mjs',
+      '/scripts/lib/analytics-settled-window.mjs',
+      '/scripts/lib/github-issue-creator.mjs',
+    ]);
+    expect(sparsePaths).not.toContain('/*');
+    expect(sparsePaths).not.toContain('/scripts/');
+  });
+
   it('il gate promotion include il helper del controllo di ingresso diretto', () => {
     const workflow = YAML.parse(
       fs.readFileSync(path.join(WF_DIR, 'deploy.yml'), 'utf8'),
