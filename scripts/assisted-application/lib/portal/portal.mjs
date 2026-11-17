@@ -9388,6 +9388,29 @@ async function recoverAccountPassword({ page, snapshot, ctx, host, account, diag
 const SECURITY_SECTION_RE = /(?:security\s*questions?|domande\s+di\s+sicurezza|questions?\s+de\s+s[eé]curit[eé]|sicherheitsfragen)/i;
 const SECURITY_FIELD_RE = /^(?:security\s+)?(?:question|domanda|frage)\s*(\d+)\s*(answer|risposta|r[eé]ponse|antwort)?\s*[＊*]?$/i;
 
+function securityQuestionFieldRole(field) {
+  const kind = String(field?.kind || '').toLowerCase();
+  const inputType = String(field?.inputType || '').toLowerCase();
+  const isSelect = kind === 'select' || kind === 'listbox'
+    || inputType === 'select' || inputType === 'listbox';
+  if (isSelect) return 'prompt';
+  const isAnswerControl = kind === 'text' || kind === 'textarea'
+    || inputType === 'text' || inputType === 'textarea';
+  return isAnswerControl && (!Array.isArray(field?.options) || field.options.length === 0)
+    ? 'answer'
+    : '';
+}
+
+function securityQuestionFieldScope(field) {
+  const frame = Number.isSafeInteger(field?.frame) ? field.frame : null;
+  const formIndex = Number.isSafeInteger(field?.form) && field.form >= 0
+    ? `index:${field.form}` : '';
+  const formId = String(field?.formId || '').trim();
+  const roleFormId = String(field?.roleFormId || '').trim();
+  const owner = formIndex || (formId ? `id:${formId}` : '') || (roleFormId ? `role:${roleFormId}` : '');
+  return frame === null || !owner ? '' : `${frame}\u0000${owner}`;
+}
+
 /**
  * Recognize a registration security-question field, including BrassRing's
  * context-free `Question N` + `Question N Answer` pair.
@@ -9403,15 +9426,16 @@ export function isSecurityQuestionField(field, fields = []) {
 
   const index = Number(match[1]);
   const isAnswer = Boolean(match[2]);
+  const role = securityQuestionFieldRole(field);
+  if (!role || role !== (isAnswer ? 'answer' : 'prompt')) return false;
+  const scope = securityQuestionFieldScope(field);
+  if (!scope) return false;
   return (Array.isArray(fields) ? fields : []).some((candidate) => {
     if (candidate === field) return false;
     const candidateMatch = SECURITY_FIELD_RE.exec(String(candidate?.label || candidate?.name || '').trim());
     if (!candidateMatch || Number(candidateMatch[1]) !== index || Boolean(candidateMatch[2]) === isAnswer) return false;
-    const candidateKind = String(candidate?.kind || '').toLowerCase();
-    const candidateIsSelect = candidateKind === 'select' || candidateKind === 'listbox';
-    const candidateIsAnswer = !candidateIsSelect
-      && (!Array.isArray(candidate?.options) || candidate.options.length === 0);
-    return isAnswer ? candidateIsSelect : candidateIsAnswer;
+    if (securityQuestionFieldScope(candidate) !== scope) return false;
+    return securityQuestionFieldRole(candidate) === (isAnswer ? 'prompt' : 'answer');
   });
 }
 
