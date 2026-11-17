@@ -4817,17 +4817,24 @@
       "jobReqId": "744000161749201",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "stage-de-master-en-physique-medicale-100-hug-geneve",
-        "master-in-fisica-medica-100-hug-geneve"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "stage-de-master-en-physique-medicale-100-hug-geneve",
-          "master-in-fisica-medica-100-hug-geneve"
+          "master-in-fisica-medica-100-hug-geneve",
+          "master-in-fisica-medica-100-hug-geneve-f95a3fe16b"
+        ],
+        "en": [
+          "stage-de-master-en-physique-medicale-100-hug-geneve"
+        ],
+        "de": [
+          "stage-de-master-en-physique-medicale-100-hug-geneve"
         ]
       },
-      "firstSeenAt": "2026-11-13T09:18:07.046Z",
+      "previousSlugs": [
+        "stage-de-master-en-physique-medicale-100-hug-geneve",
+        "master-in-fisica-medica-100-hug-geneve",
+        "master-in-fisica-medica-100-hug-geneve-f95a3fe16b"
+      ],
       "salaryMin": 77500,
       "salaryMax": 108000,
       "salarySource": "estimated",
@@ -4845,7 +4852,8 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T21:33:36.436Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-13T09:18:07.046Z"
     },
     {
       "id": "hug-0ddd9fb6fd2a",

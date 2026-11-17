@@ -743,10 +743,9 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 5188,
-      "retranslationAttempts": 90,
+      "retranslationAttempts": 91,
       "firstSeenAt": "2026-10-01T09:13:13.433Z",
       "crawledAt": "2026-11-17T21:30:57.646Z",
       "streetAddressSource": "to-enrich",
@@ -765,7 +764,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Operations-Specialist---Tax-Reclaim-100---f-m-d-----Maternity-cover--February-2027-until-May-2027---contract-through-our-external-payroll-partner-_r-20436-1",
@@ -1780,10 +1780,6 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": true,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 6146,
-      "retranslationAttempts": 11,
       "firstSeenAt": "2026-11-03T21:24:53.488Z",
       "crawledAt": "2026-11-17T21:30:57.646Z",
       "streetAddressSource": "to-enrich",
@@ -1802,7 +1798,11 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 12,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 6146,
+      "needsRetranslation": true
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Finance-Business-Partner---Global-Product-Solutions-and-CIO-100---f-m-d-_r-20236",
@@ -2236,7 +2236,7 @@
       "slug": "front-arena-trading-systems-specialist-equities-derivatives-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer",
       "slugByLocale": {
         "it": "front-arena-market-making-specialist-amas-100-f-m-d-contrasporta-il-nostro-partner-di-payroll-esterno-partenza-immediata",
-        "en": "front-arena-trading-systems-specialist-equities-derivatives-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer",
+        "en": "front-arena-market-making-specialist-amas-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer",
         "de": "front-arena-market-making-specialist-amas-100-w-m-d-vertrag-uber-unseren-externen-lohnabrechnungspartner-sofortiger",
         "fr": "front-arena-specialiste-de-la-preparation-du-marche-amas-100-f-m-d-contracter-par-l-intermediaire-de-notre-partenaire"
       },
@@ -2254,20 +2254,20 @@
         "location": "Zurich"
       },
       "previousSlugs": [
-        "front-arena-market-making-specialist-amas-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer"
+        "front-arena-market-making-specialist-amas-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer",
+        "front-arena-trading-systems-specialist-equities-derivatives-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer"
       ],
       "previousSlugsByLocale": {
-        "it": [
-          "front-arena-market-making-specialist-amas-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer"
-        ],
         "en": [
+          "front-arena-trading-systems-specialist-equities-derivatives-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer"
+        ],
+        "it": [
           "front-arena-market-making-specialist-amas-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3301,
-      "retranslationAttempts": 37,
+      "retranslationAttempts": 38,
       "firstSeenAt": "2026-07-22T11:17:20.458Z",
       "crawledAt": "2026-11-17T21:30:57.646Z",
       "streetAddressSource": "to-enrich",
@@ -2286,7 +2286,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-Relationship-Manager-Global-NRI_r-20321",
@@ -2457,7 +2458,7 @@
       "slug": "application-support-specialist-2nd-level-support-100-f-m-d-julius-baer",
       "slugByLocale": {
         "it": "supporto-di-applicazione-t24-ingegnere-di-funzionamento-100-m-f-d-julius-baer-zurich",
-        "en": "application-support-specialist-2nd-level-support-100-f-m-d-julius-baer",
+        "en": "t24-application-support-operation-engineer-100-f-m-d-julius-baer",
         "de": "t24-application-support-operation-engineer-100-f-m-d-julius-baer",
         "fr": "t24-application-support-operation-engineer-100-f-m-d-julius-baer"
       },
@@ -2474,17 +2475,18 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "previousSlugs": [
-        "t24-application-support-operation-engineer-100-f-m-d-julius-baer"
-      ],
       "previousSlugsByLocale": {
-        "it": [
-          "t24-application-support-operation-engineer-100-f-m-d-julius-baer"
-        ],
         "en": [
+          "application-support-specialist-2nd-level-support-100-f-m-d-julius-baer"
+        ],
+        "it": [
           "t24-application-support-operation-engineer-100-f-m-d-julius-baer"
         ]
       },
+      "previousSlugs": [
+        "t24-application-support-operation-engineer-100-f-m-d-julius-baer",
+        "application-support-specialist-2nd-level-support-100-f-m-d-julius-baer"
+      ],
       "firstSeenAt": "2026-10-20T21:13:38.037Z",
       "crawledAt": "2026-11-17T21:30:57.646Z",
       "streetAddressSource": "to-enrich",
@@ -3474,7 +3476,7 @@
       "slug": "lawyer-with-a-focus-on-wealth-planning-latam-zurich-100-f-m-d-julius-baer",
       "slugByLocale": {
         "it": "clienti-chiave-e-servizi-per-l-ufficio-familiare-zurigo-100-m-f-d-julius-baer-zurich",
-        "en": "lawyer-with-a-focus-on-wealth-planning-latam-zurich-100-f-m-d-julius-baer",
+        "en": "wealth-planner-key-clients-family-office-services-zurich-100-f-m-d-julius-baer",
         "de": "vermogensplaner-schlusselkunden-family-office-services-zurich-100-m-w-d-julius-baer-zurich",
         "fr": "planificateur-de-patrimoine-clients-cles-et-services-de-bureau-a-la-famille-zurich-100-f-m-d-julius-baer-zurich"
       },
@@ -3491,14 +3493,14 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "previousSlugs": [
-        "wealth-planner-key-clients-family-office-services-zurich-100-f-m-d-julius-baer"
-      ],
       "previousSlugsByLocale": {
         "en": [
-          "wealth-planner-key-clients-family-office-services-zurich-100-f-m-d-julius-baer"
+          "lawyer-with-a-focus-on-wealth-planning-latam-zurich-100-f-m-d-julius-baer"
         ]
       },
+      "previousSlugs": [
+        "lawyer-with-a-focus-on-wealth-planning-latam-zurich-100-f-m-d-julius-baer"
+      ],
       "firstSeenAt": "2026-10-12T21:15:14.256Z",
       "crawledAt": "2026-11-17T21:30:57.646Z",
       "streetAddressSource": "to-enrich",
@@ -3954,7 +3956,7 @@
       "slug": "senior-java-engineer-cloud-native-backend-development-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-for-12-months-with-possible-extension-julius-baer",
       "slugByLocale": {
         "it": "ingegnere-java-senior-100-m-f-d-contrasportare-attraverso-il-nostro-partner-payroll-esterno-con-partenza-immediata-fino",
-        "en": "senior-java-engineer-cloud-native-backend-development-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-for-12-months-with-possible-extension-julius-baer",
+        "en": "senior-java-engineer-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-30-09-2027-with-possible-extension-julius-baer",
         "de": "senior-java-engineer-100-m-w-d-vertrag-uber-unseren-externen-lohnabrechnungspartner-mit-sofortigem-start-bis-zum-30-09",
         "fr": "ingenieur-java-senior-100-h-f-d-contracter-par-l-intermediaire-de-notre-partenaire-externe-de-paye-avec-debut-immediat"
       },
@@ -3971,17 +3973,18 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "previousSlugs": [
-        "senior-java-engineer-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-30-09-2027-with-possible-extension-julius-baer"
-      ],
       "previousSlugsByLocale": {
-        "it": [
-          "senior-java-engineer-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-30-09-2027-with-possible-extension-julius-baer"
-        ],
         "en": [
+          "senior-java-engineer-cloud-native-backend-development-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-for-12-months-with-possible-extension-julius-baer"
+        ],
+        "it": [
           "senior-java-engineer-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-30-09-2027-with-possible-extension-julius-baer"
         ]
       },
+      "previousSlugs": [
+        "senior-java-engineer-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-30-09-2027-with-possible-extension-julius-baer",
+        "senior-java-engineer-cloud-native-backend-development-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-for-12-months-with-possible-extension-julius-baer"
+      ],
       "firstSeenAt": "2026-09-17T03:45:19.250Z",
       "crawledAt": "2026-11-17T21:30:57.646Z",
       "streetAddressSource": "to-enrich",
@@ -4793,7 +4796,7 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3264,
-      "retranslationAttempts": 90,
+      "retranslationAttempts": 91,
       "firstSeenAt": "2026-08-21T21:26:37.240Z",
       "crawledAt": "2026-11-15T21:38:40.480Z",
       "streetAddressSource": "to-enrich",
