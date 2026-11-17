@@ -185,6 +185,53 @@ describe('scope, languages and actual field options', () => {
     expect(operationalDefaultAnswer({ ...binary, type: 'text', options: [] })).toBeNull();
   });
 
+  it('automatically accepts current-application privacy text fields in the candidate language', () => {
+    const questions = [
+      {
+        id: 'processing',
+        question: 'Acconsento al trattamento dei miei dati personali da parte di Delvitech SA esclusivamente nella misura necessaria per valutare la mia idoneità alla posizione per la quale mi candido (art. 328b CO, art. 6 FADP).',
+        applicationQuestion: 'I consent to Delvitech SA processing my personal data solely to the extent necessary to assess my suitability for the position for which I am applying (Art. 328b CO, Art. 6 FADP).',
+        type: 'text', required: true, context: 'Privacy Consent Current Application', source: 'portal',
+      },
+      {
+        id: 'rights',
+        question: 'Ho letto l’Informativa sulla privacy. So di poter richiedere l’accesso, la rettifica o la cancellazione dei miei dati e revocare il mio consenso in qualsiasi momento scrivendo a hr@delvi.tech.',
+        applicationQuestion: 'I have read the Privacy Notice. I know that I can request access to, correction or deletion of my data and withdraw my consent at any time by writing to hr@delvi.tech.',
+        type: 'text', required: true, context: 'Privacy Rights and Withdrawal Acknowledged', source: 'portal',
+      },
+    ];
+
+    expect(questions.map(question => operationalQuestionTopic(question))).toEqual([
+      'application_data_processing_consent', 'privacy_review_ack',
+    ]);
+    expect(operationalDefaultAnswer(questions[0], { locale: 'it' })).toMatchObject({
+      value: 'Acconsento', topic: 'application_data_processing_consent', source: 'policy_default',
+    });
+    expect(operationalDefaultAnswer(questions[1], { locale: 'it' })).toMatchObject({
+      value: 'Acconsento', topic: 'privacy_review_ack', source: 'policy_default',
+    });
+    expect(withOperationalQuestionAnswers(questions, {}, { locale: 'it' }).answers).toEqual({
+      processing: 'Acconsento', rights: 'Acconsento',
+    });
+    expect(evaluateRedFlags({ questions }).candidate).toEqual([]);
+    const retry = transition(
+      { state: 'submitting', round: 1, heldBy: [], dispatch: { mode: 'submit', round: 1, attempts: 1 } },
+      { type: 'submit_needs_candidate', round: 1, questions: questions.map(question => question.id) },
+      { draft: { questions }, answers: {}, nowMs: 1 },
+    );
+    expect(retry.flow.state).toBe('submitting');
+    expect(retry.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'existing_candidate_answers', attempts: 2 }]);
+  });
+
+  it('does not auto-accept optional privacy purposes in a text field', () => {
+    const question = {
+      question: 'Acconsento al trattamento dei miei dati personali per marketing e newsletter.',
+      type: 'text', required: true, source: 'portal',
+    };
+    expect(operationalQuestionTopic(question)).toBeNull();
+    expect(operationalDefaultAnswer(question)).toBeNull();
+  });
+
   it('does not turn combined marketing or candidate-fact statements into an application privacy default', () => {
     const marketing = {
       question: 'I have read and accept the Privacy Policy for marketing and newsletters.',

@@ -388,11 +388,10 @@ describe('runner final guard across three application stages', () => {
       text: '',
     };
     const delayedChooser = {
-      ...snapshot(jobUrl, 'Choose how to apply', [
-        { id: 'manual', text: 'Apply manually', dialog: true, dialogId: 'd1', section: 'Application chooser', frame: 0, disabled: false },
-      ]),
+      ...snapshot(jobUrl, 'Choose how to apply', []),
       title: 'Rituals Careers',
       heading: 'Choose how to apply',
+      links: [{ id: 'manual', text: 'Apply manually', href: manualUrl }],
     };
     const mountedApplication = {
       ...snapshot(manualUrl, 'Application', [{ id: 'apply', text: 'Apply', formId: 'application', frame: 0, disabled: false }]),
@@ -422,9 +421,6 @@ describe('runner final guard across three application stages', () => {
       job: { company: 'Rituals Cosmetics Switzerland', title: 'Store Assistant' },
       guardUrl: manualUrl,
       receiptSnapshot: received,
-      buttonTransitions: {
-        '[data-aa-id="manual"]': async () => { state.snapshot = mountedApplication; },
-      },
       onWait: (ms: number) => {
         if (ms !== 1000 || state.snapshot !== chooser) return;
         chooserPolls += 1;
@@ -439,6 +435,62 @@ describe('runner final guard across three application stages', () => {
     expect(f.openClick).toHaveBeenCalledOnce();
     expect(f.guard).toHaveBeenCalledOnce();
     expect(f.click).toHaveBeenCalledOnce();
+  });
+
+  it('does not treat a pre-existing duplicate Workday Apply CTA as a mounted chooser', async () => {
+    const jobUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033';
+    const postingBeforeClick = snapshot(jobUrl, 'Store Assistant Rituals Apply', [
+      { id: 'entry-top', text: 'Apply', href: jobUrl, frame: 0, disabled: false },
+      { id: 'entry-bottom', text: 'Apply', href: jobUrl, frame: 0, disabled: false },
+    ]);
+    const unchangedPosting = snapshot(jobUrl, 'Store Assistant Rituals Apply', [
+      { id: 'entry-top', text: 'Apply', href: jobUrl, frame: 0, disabled: false },
+      { id: 'entry-bottom', text: 'Apply', href: jobUrl, frame: 0, disabled: false },
+    ]);
+    const f = fixture(unchangedPosting, postingBeforeClick, review, null, {
+      applyUrl: jobUrl,
+      postingUrl: jobUrl,
+      channelType: 'workday',
+      job: { company: 'Rituals Cosmetics Switzerland', title: 'Store Assistant' },
+      guardUrl: review.url,
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
+    expect(f.openClick).toHaveBeenCalledOnce();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('does not treat a mutated pre-click Workday Apply CTA as a mounted chooser', async () => {
+    const jobUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033';
+    const postingBeforeClick = snapshot(jobUrl, 'Store Assistant Rituals Apply', [
+      {
+        id: 'entry', text: 'Apply', href: jobUrl, frame: 0, disabled: false,
+        documentInstance: 'doc-1', controlInstance: 'control-1',
+      },
+    ]);
+    const mutatedPosting = snapshot(jobUrl, 'Store Assistant Rituals Apply now', [
+      {
+        id: 'entry', text: 'Apply now', href: jobUrl, frame: 0, disabled: false,
+        documentInstance: 'doc-1', controlInstance: 'control-1',
+      },
+    ]);
+    const f = fixture(mutatedPosting, postingBeforeClick, review, null, {
+      applyUrl: jobUrl,
+      postingUrl: jobUrl,
+      channelType: 'workday',
+      job: { company: 'Rituals Cosmetics Switzerland', title: 'Store Assistant' },
+      guardUrl: review.url,
+    });
+
+    const result = await f.run();
+
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
+    expect(f.openClick).toHaveBeenCalledOnce();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
   });
 
   it('rejects a Workday surface that appears after the polled apply route becomes unbound', async () => {

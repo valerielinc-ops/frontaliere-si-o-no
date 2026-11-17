@@ -65,6 +65,8 @@ type AdsConsentWindow = Window & {
  * subscriber reacts to a CMP decision exactly as it reacted to the old banner.
  */
 export const ADS_CONSENT_CHANGE_EVENT = 'frontaliere:ads-consent';
+/** Fired when Funding Choices reports that its TCF consent UI is actually shown. */
+export const ADS_CMP_SHOWN_EVENT = 'frontaliere:cmp-shown';
 const CHANGE_EVENT = ADS_CONSENT_CHANGE_EVENT;
 
 /**

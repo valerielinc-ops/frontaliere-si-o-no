@@ -27,7 +27,7 @@ import { resolveLocalityAddress } from './swiss-structured-address.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton, isKnownSwissCity, isSwissLocationText, isTargetSwissLocation } from './target-swiss-locations.mjs';
-import { firstLocationSegment, workdayPostingDateFields } from './ats-clients/workday-client.mjs';
+import { fetchWorkdayJsonWithRetry, firstLocationSegment, workdayPostingDateFields } from './ats-clients/workday-client.mjs';
 import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -152,37 +152,29 @@ function detectEmploymentType(timeType = '') {
 /* ── Workday API Client ───────────────────────────────────── */
 
 /**
- * Fetch JSON from the Workday API with timeout handling.
+ * Fetch JSON from the Workday API with timeout handling and bounded retries for
+ * transient responses such as rate limits.
  */
-async function fetchJson(url, options = {}) {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-
+async function fetchJson(url, options = {}, browserFallback) {
+  const {
+    timeoutMs: configuredTimeoutMs,
+    method = 'GET',
+    body,
+  } = options;
+  const timeoutMs = Number(configuredTimeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   try {
-    const res = await fetch(url, {
-      ...options,
-      signal: controller.signal,
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        'Accept-Language': 'en,de-CH;q=0.9',
-        'User-Agent':
-          process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-        ...options.headers,
-      },
+    return await fetchWorkdayJsonWithRetry(WORKDAY_API_BASE, url, {
+      method,
+      body,
+      timeoutMs,
+      retries: 3,
+      userAgent: process.env.JOBS_CRAWLER_USER_AGENT ||
+        'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+      ...(browserFallback === undefined ? {} : { browserFallback }),
     });
-    if (!res.ok) {
-      console.warn(`⚠️ HTTP ${res.status} for ${url}`);
-      return null;
-    }
-    return await res.json();
   } catch (err) {
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
     return null;
-  } finally {
-    clearTimeout(timer);
   }
 }
 
@@ -220,7 +212,7 @@ export function assertSwissLifeNationalReadComplete({
  * higher total. We stop only on an empty page or after reaching a positive
  * declared total; an incomplete read fails closed.
  */
-export async function fetchSwissListings() {
+export async function fetchSwissListings({ browserFallback } = {}) {
   const seen = new Map();
   const seenSourceRecordKeys = new Set();
   let offset = 0;
@@ -240,7 +232,7 @@ export async function fetchSwissListings() {
         offset,
         searchText: '',
       }),
-    });
+    }, browserFallback);
 
     if (!data || !Array.isArray(data.jobPostings)) {
       if (offset === 0) console.warn('  ⚠️ Failed to fetch Workday listings.');

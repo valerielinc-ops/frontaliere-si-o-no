@@ -93,4 +93,33 @@ describe('Workday tenant account routes', () => {
       buttons: [cont],
     }, { applyUrl: url, postingUrl: url, allowSingleExternalApplicationEntry: true })).toEqual([]);
   });
+
+  it('maps Workday From* and To* profile date fields to start and end', async () => {
+    const { profileEntryAnswer } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
+    const entry = { role: 'Consultant', employer: 'ACME', start: '2021-03', end: '2024-06' };
+    expect(profileEntryAnswer(entry, 'experience', { label: 'From*' })).toEqual({ value: '2021-03', source: 'profile' });
+    expect(profileEntryAnswer(entry, 'experience', { label: 'To*' })).toEqual({ value: '2024-06', source: 'profile' });
+    expect(profileEntryAnswer(entry, 'education', { label: 'From*' })).toEqual({ value: '2021-03', source: 'profile' });
+  });
+
+  it('clears prefilled Workday spinbuttons before writing Month and Year', async () => {
+    const { fillWorkdayDate } = await import('../scripts/assisted-application/lib/portal/fill.mjs');
+    const state = { Month: '03', Year: '2024' };
+    const makeSpin = (key: 'Month' | 'Year') => ({
+      count: async () => 1,
+      first: () => makeSpin(key),
+      evaluate: async () => true,
+      fill: async (v: string) => { state[key] = v; },
+      press: async () => {},
+    });
+    const wrapper = {
+      locator: (sel: string) => {
+        if (sel.includes('Month')) return makeSpin('Month');
+        if (sel.includes('Year')) return makeSpin('Year');
+        return { count: async () => 2, nth: (i: number) => makeSpin(i === 0 ? 'Month' : 'Year') };
+      },
+    };
+    await fillWorkdayDate(wrapper as any, '05/2024');
+    expect(state).toEqual({ Month: '05', Year: '2024' });
+  });
 });

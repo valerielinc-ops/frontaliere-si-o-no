@@ -24,8 +24,11 @@ function makeListing(id: string, locationsText = 'Zürich, Switzerland') {
 }
 
 function jsonResponse(body: unknown) {
+  const text = JSON.stringify(body);
   return {
     ok: true,
+    status: 200,
+    text: async () => text,
     json: async () => body,
   };
 }
@@ -356,6 +359,50 @@ describe('Swiss Life crawler parser', () => {
   });
 
   describe('national pagination', () => {
+    it('retries a transient Workday rate limit before reading the national board', async () => {
+      const previousRetryBaseMs = process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+      process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
+      const listing = makeListing('rate-limited-once');
+      const fetchMock = vi.fn()
+        .mockResolvedValueOnce({ ok: false, status: 429 })
+        .mockResolvedValueOnce(jsonResponse({ total: 1, jobPostings: [listing] }));
+      vi.stubGlobal('fetch', fetchMock);
+
+      try {
+        const listings = await fetchSwissListings();
+
+        expect(listings).toEqual([listing]);
+        expect(fetchMock).toHaveBeenCalledTimes(2);
+      } finally {
+        if (previousRetryBaseMs === undefined) delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+        else process.env.JOBS_CRAWLER_RETRY_BASE_MS = previousRetryBaseMs;
+      }
+    });
+
+    it('recovers a retry-exhausted board through the Workday browser transport', async () => {
+      const previousRetryBaseMs = process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+      process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
+      const listing = makeListing('rate-limited-through-browser');
+      const directFetch = vi.fn().mockResolvedValue(new Response('', { status: 429 }));
+      const browserFallback = vi.fn().mockResolvedValue({ total: 1, jobPostings: [listing] });
+      vi.stubGlobal('fetch', directFetch);
+
+      try {
+        const listings = await fetchSwissListings({ browserFallback });
+
+        expect(listings).toEqual([listing]);
+        expect(directFetch).toHaveBeenCalledTimes(4);
+        expect(browserFallback).toHaveBeenCalledOnce();
+        expect(browserFallback).toHaveBeenCalledWith(expect.objectContaining({
+          url: 'https://swisslife.wd3.myworkdayjobs.com/wday/cxs/swisslife/Swiss_Life_Career_Site/jobs',
+          method: 'POST',
+        }));
+      } finally {
+        if (previousRetryBaseMs === undefined) delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+        else process.env.JOBS_CRAWLER_RETRY_BASE_MS = previousRetryBaseMs;
+      }
+    });
+
     it('continues after a short page until the declared total is reached', async () => {
       const pages = new Map([
         [0, { total: 2, jobPostings: [makeListing('one')] }],

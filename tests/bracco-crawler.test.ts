@@ -13,10 +13,71 @@ const TEXT = fs.readFileSync(path.join(__dirname, 'fixtures', 'bracco', 'workday
 
 afterEach(() => {
   vi.unstubAllGlobals();
+  vi.unstubAllEnvs();
   vi.useRealTimers();
 });
 
 describe('Bracco crawl provenance', () => {
+  it('retries a transient Workday 429 before accepting the listing', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    let listingAttempts = 0;
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      if (url.endsWith('/jobs')) {
+        listingAttempts += 1;
+        if (listingAttempts === 1) return new Response('', { status: 429 });
+        return new Response(JSON.stringify({
+          total: 1,
+          jobPostings: [{
+            title: 'Digital Learning & Training Internship',
+            externalPath: '/job/CHE---Cadempino/Digital-Learning_R1',
+            locationsText: 'Cadempino, Switzerland',
+          }],
+        }), { status: 200 });
+      }
+      return new Response(JSON.stringify({
+        jobPostingInfo: {
+          title: 'Digital Learning & Training Internship',
+          location: 'Cadempino, Switzerland',
+          jobDescription: TEXT,
+          timeType: 'Full time',
+          jobReqId: 'R1',
+        },
+      }), { status: 200 });
+    }));
+
+    const [job] = await fetchBraccoJobs();
+
+    expect(listingAttempts).toBe(2);
+    expect(job.url).toContain('Digital-Learning_R1');
+  });
+
+  it('does not hide an exhausted detail retry as a partial listing', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    let detailAttempts = 0;
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      if (url.endsWith('/jobs')) {
+        return new Response(JSON.stringify({
+          total: 1,
+          jobPostings: [{
+            title: 'Digital Learning & Training Internship',
+            externalPath: '/job/CHE---Cadempino/Digital-Learning_R1',
+            locationsText: 'Cadempino, Switzerland',
+          }],
+        }), { status: 200 });
+      }
+      detailAttempts += 1;
+      return new Response('', { status: 429 });
+    }));
+
+    await expect(fetchBraccoJobs({ browserFallback: null })).rejects.toMatchObject({
+      retryExhausted: true,
+      status: 429,
+    });
+    expect(detailAttempts).toBe(2);
+  });
+
   it('propagates the successful Workday listing observation time', async () => {
     const observedAt = new Date('2026-10-13T10:20:00.000Z');
     vi.useFakeTimers();

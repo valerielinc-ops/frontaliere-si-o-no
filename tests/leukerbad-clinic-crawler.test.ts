@@ -21,6 +21,13 @@ function listingHtml(lang: 'de' | 'fr', rows: Array<{ slug: string; title: strin
     </ul><footer><a href="${prefix}/footer-noise">noise</a></footer>`;
 }
 
+function emptyListingHtml(lang: 'de' | 'fr') {
+  const message = lang === 'de'
+    ? 'Zurzeit ist keine Stelle ausgeschrieben'
+    : 'Aucun poste n’est ouvert pour le moment';
+  return `<!doctype html><main><section data-testid="offres-vide"><h2>${message}</h2></section></main>`;
+}
+
 function detailHtml(lang: 'de' | 'fr', slug: string, title: string) {
   const applyPath = lang === 'de' ? '/de/karriere/initiativbewerbung' : '/fr/carriere/candidature-spontanee';
   return `<!doctype html><main id="contenu"><div class="offre-page"><h1>${title}</h1>
@@ -134,6 +141,21 @@ describe('Leukerbad Clinic official HTML crawler', () => {
       { employmentType: 'PART_TIME', contract: 'part-time' },
       { employmentType: 'PART_TIME', contract: 'part-time' },
     ]);
+  });
+
+  it('accepts the official empty-state marker as an authoritative zero', async () => {
+    globalThis.fetch = vi.fn(async (input: any) => {
+      const url = String(input);
+      if (url === DE_LISTING) return new Response(emptyListingHtml('de'), { status: 200 });
+      if (url === FR_LISTING) return new Response(emptyListingHtml('fr'), { status: 200 });
+      return new Response('', { status: 404 });
+    }) as any;
+
+    const jobs = await fetchAllLeukerbadClinicJobs();
+    expect(jobs).toEqual([]);
+    expect(Reflect.get(jobs, 'authoritativeEmptyState')).toBe('authoritative-source-zero');
+    expect(Reflect.get(jobs, 'authoritativeEmptyEvidence')).toContain('offres-vide');
+    expect((globalThis.fetch as any).mock.calls).toHaveLength(2);
   });
 
   it('fails closed when either locale loses its listing contract', async () => {

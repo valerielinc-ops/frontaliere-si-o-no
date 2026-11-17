@@ -13,7 +13,7 @@ import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
-import { firstLocationSegment, workdayPostingDateFields } from './ats-clients/workday-client.mjs';
+import { fetchWorkdayJsonWithRetry, firstLocationSegment, workdayPostingDateFields } from './ats-clients/workday-client.mjs';
 import { recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 import {
   dropSameSourceReference,
@@ -106,32 +106,19 @@ export function isTrustedDomain(rawUrl = '') {
 /* ── Workday API ───────────────────────────────────────────── */
 
 async function fetchJson(url, options = {}) {
-  const timeoutMs = options.timeoutMs || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  const { timeoutMs: configuredTimeoutMs, method = 'GET', body } = options;
+  const timeoutMs = Number(configuredTimeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   try {
-    const res = await fetch(url, {
-      ...options,
-      signal: controller.signal,
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        'Accept-Language': 'en,de-CH;q=0.9',
-        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-        ...options.headers,
-      },
+    return await fetchWorkdayJsonWithRetry(LONZA_API_BASE, url, {
+      method,
+      body,
+      timeoutMs,
+      userAgent: process.env.JOBS_CRAWLER_USER_AGENT ||
+        'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
     });
-    if (!res.ok) {
-      console.warn(`⚠️ HTTP ${res.status} for ${url}`);
-      return null;
-    }
-    return await res.json();
   } catch (err) {
-    console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`);
+    console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
     return null;
-  } finally {
-    clearTimeout(timer);
   }
 }
 

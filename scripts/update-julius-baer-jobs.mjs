@@ -28,6 +28,7 @@ import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { sourceLocaleDescription } from './lib/source-locale-description.mjs';
 import { sourceSlotTitleAndSlug, dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import { slugify, normalizeSpace, stripHtml, WORKDAY_API_BASE, WORKDAY_PUBLIC_BASE, COMPANY_HOST, isJuliusBaerSwissListing, resolveJuliusBaerPlace, detectCategory, detectExperienceLevel, detectEmploymentType, buildPublicUrl, dropJuliusBaerFabricatedText } from './lib/julius-baer-job-parser.mjs';
+import { fetchWorkdayJsonWithRetry } from './lib/ats-clients/workday-client.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -63,15 +64,20 @@ function isTrustedDomain(rawUrl = '') {
 }
 
 async function fetchJson(url, options = {}) {
-  const timeoutMs = options.timeoutMs || 20000;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  const { timeoutMs: configuredTimeoutMs, method = 'GET', body } = options;
+  const timeoutMs = Number(configuredTimeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   try {
-    const res = await fetch(url, { ...options, signal: controller.signal, headers: { 'Content-Type': 'application/json', Accept: 'application/json', 'Accept-Language': 'en,it-CH;q=0.9', 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)', ...options.headers } });
-    if (!res.ok) { console.warn(`⚠️ HTTP ${res.status} for ${url}`); return null; }
-    return await res.json();
-  } catch (err) { console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`); return null; }
-  finally { clearTimeout(timer); }
+    return await fetchWorkdayJsonWithRetry(WORKDAY_API_BASE, url, {
+      method,
+      body,
+      timeoutMs,
+      userAgent: process.env.JOBS_CRAWLER_USER_AGENT ||
+        'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+    });
+  } catch (err) {
+    console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
+    return null;
+  }
 }
 
 // Workday `Location_Country` facet ID for Switzerland on the Julius Baer tenant.
