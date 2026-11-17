@@ -1058,17 +1058,21 @@ service cloud.firestore {
           'consentVersion', 'consentedAt', 'submissionStatus', 'submittedAt', 'updatedAt',
         ])
         // Asked with the CV (owner decision 2026-11-09): permit, passport and nationality; since 2026-11-10 also
-        // an entry in the criminal record and in the debt-enforcement register ('no' / 'yes').
+        // an entry in the criminal record and in the debt-enforcement register ('no' / 'yes');
+        // optional noticePeriod and salaryExpectation for ATS pre-harvest questions.
         && (!request.resource.data.keys().hasAny(['candidateFacts'])
           || request.resource.data.candidateFacts == null
           || (request.resource.data.candidateFacts is map
-            && request.resource.data.candidateFacts.keys().hasOnly(['workPermit', 'passport', 'nationality', 'criminalRecord', 'debtRecord'])
+            && request.resource.data.candidateFacts.keys().hasOnly(['workPermit', 'passport', 'nationality', 'criminalRecord', 'debtRecord', 'noticePeriod', 'salaryExpectation'])
             && request.resource.data.candidateFacts.get('workPermit', '') in ['', 'swiss', 'permit_c', 'permit_b', 'permit_l', 'permit_g', 'none']
             && request.resource.data.candidateFacts.get('passport', '') in ['', 'swiss', 'eu_efta', 'other']
             && request.resource.data.candidateFacts.get('nationality', '') is string
             && request.resource.data.candidateFacts.get('nationality', '').size() <= 80
             && request.resource.data.candidateFacts.get('criminalRecord', '') in ['', 'no', 'yes']
-            && request.resource.data.candidateFacts.get('debtRecord', '') in ['', 'no', 'yes']))
+            && request.resource.data.candidateFacts.get('debtRecord', '') in ['', 'no', 'yes']
+            && request.resource.data.candidateFacts.get('noticePeriod', '') in ['', 'immediate', '1_month', '2_months', '3_months']
+            && request.resource.data.candidateFacts.get('salaryExpectation', '') is string
+            && request.resource.data.candidateFacts.get('salaryExpectation', '').size() <= 40))
         // v2 names the employer's terms accepted on the candidate's behalf; v3 (2026-11-11) adds the express request
         // to start at once and the acknowledgement of Terms 6.5 (no refund once started); v1 and v2 stay valid.
         && ((resource.data.consentVersion == null
@@ -1165,6 +1169,12 @@ service cloud.firestore {
     // In particular, a candidate must not be able to erase or forge a
     // manual-submission completion, block reason, or refund event.
     match /assisted_applications/{orderId}/events/{eventId} {
+      allow read, write: if false;
+    }
+
+    // Backend-only cache of pre-harvested ATS job questions (Admin SDK only;
+    // client reads and writes are explicitly denied).
+    match /assisted_application_job_questions/{jobHash} {
       allow read, write: if false;
     }
 

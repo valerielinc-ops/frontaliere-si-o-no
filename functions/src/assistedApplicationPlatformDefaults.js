@@ -439,6 +439,14 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
     if (listed.length) for (const entry of listed) { entry.level = 'native'; entry.inferred = true; }
     else languages.push({ code: cvLanguage, level: 'native', inferred: true });
   }
+  const noticeMap = { immediate: 0, '1_month': 1, '2_months': 2, '3_months': 3 };
+  const uploadedNotice = Object.hasOwn(noticeMap, uploaded.noticePeriod) ? noticeMap[uploaded.noticePeriod] : null;
+  const uploadedSalaryMatch = /(\d[\d'’.,\s]{3,12})/.exec(String(uploaded.salaryExpectation || ''));
+  const uploadedSalaryNum = uploadedSalaryMatch ? Number(uploadedSalaryMatch[1].replace(/[^0-9]/g, '')) : 0;
+  const baseSalary = platformSalary(order);
+  const resolvedSalary = baseSalary?.annual || !(uploadedSalaryNum >= 10000 && uploadedSalaryNum <= 1000000)
+    ? baseSalary
+    : { ...baseSalary, annual: uploadedSalaryNum, monthly: Math.round(uploadedSalaryNum / 12), source: 'candidate_upload' };
   return {
     version: PLATFORM_DEFAULTS_VERSION,
     locale: language,
@@ -465,11 +473,11 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
     civilStatusLabel: civilStatus ? civilStatusOptions(language)[CIVIL_STATUS_ORDER.indexOf(civilStatus)] || '' : '',
     civilStatusEstimated: !statedCivil && Boolean(civilStatus),
     languages,
-    salary: platformSalary(order),
+    salary: resolvedSalary,
     // What the candidate stated in their reply (assistedApplicationCandidateReply.js) wins over the rule.
     startDate: statedStartDate(order, nowMs) || platformStartDate(nowMs),
-    startDateStated: Boolean(statedStartDate(order, nowMs)),
-    noticeMonths: PLATFORM_NOTICE_MONTHS,
+    startDateStated: Boolean(statedStartDate(order, nowMs)) || uploadedNotice === 0,
+    noticeMonths: uploadedNotice !== null ? uploadedNotice : PLATFORM_NOTICE_MONTHS,
     workloadPercent: statedWorkloadPercent(order),
     permitStatus,
     // 'candidate' for a status the candidate stated, 'deduced' for the one the platform deduced from the CV.
