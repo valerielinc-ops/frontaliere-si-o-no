@@ -9462,11 +9462,19 @@ function securityQuestionFieldScope(field) {
   const formIndex = Number.isSafeInteger(field?.form) && field.form >= 0
     ? `index:${field.form}` : '';
   const roleFormId = String(field?.roleFormId || '').trim();
+  const sectionGroupId = String(field?.sectionGroupId || '').trim();
+  const applicationScopeId = String(field?.applicationScopeId || '').trim();
   // BrassRing's proxy listbox can report form=-1 while the native answer
   // reports a numeric form index. The stable DOM form identity must win when
-  // it is available; otherwise a real prompt/answer pair is split across
-  // scopes and remains in the generic planner path.
-  const owner = formId ? `id:${formId}` : formIndex || (roleFormId ? `role:${roleFormId}` : '');
+  // it is available. Some BrassRing registration controls are not descendants
+  // of a form or role-form at all, but the extractor still records their
+  // explicit labelled section/application scope. Use those only as a
+  // progressively weaker, same-DOM fallback; never fall back to frame alone.
+  const owner = formId ? `id:${formId}`
+    : (roleFormId ? `role:${roleFormId}` : '')
+      || formIndex
+      || (sectionGroupId ? `section:${sectionGroupId}` : '')
+      || (applicationScopeId ? `application:${applicationScopeId}` : '');
   return frame === null || !owner ? '' : `${frame}\u0000${owner}`;
 }
 
