@@ -21,7 +21,7 @@ import { describe, it, expect, vi, afterEach } from 'vitest';
 import { fetchHtml as hospitalFetchHtml } from '../scripts/lib/hospital-custom-html-helpers.mjs';
 import { fetchGreenhouseJobs, GreenhouseApiError } from '../scripts/lib/ats-clients/greenhouse-client.mjs';
 import { fetchLeverJobs } from '../scripts/lib/ats-clients/lever-client.mjs';
-import { fetchWorkdayJobDetail } from '../scripts/lib/ats-clients/workday-client.mjs';
+import { fetchWorkdayJobDetail, fetchWorkdayJson } from '../scripts/lib/ats-clients/workday-client.mjs';
 
 // The PastaHR/GZO-Wetzikon/IGS-Bern case (#3255) is cross-origin between the
 // employer's career page (referer) and the widget endpoint (publicjobs.ch), so
@@ -222,6 +222,34 @@ describe('workday-client.fetchWorkdayJobDetail', () => {
     // 1 initial attempt + the shared default of 3 retries = 4 total — the
     // retry loop was actually exercised, not a fail-fast on attempt 1.
     expect(fetchMock).toHaveBeenCalledTimes(4);
+  });
+});
+
+describe('workday-client.fetchWorkdayJson', () => {
+  it('uses the browser fallback after a persistent transient HTTP response', async () => {
+    withFastRetry();
+    const fetchMock = vi.fn().mockResolvedValue(jsonResponse(429, {}));
+    const browserFallback = vi.fn().mockResolvedValue({ total: 0, jobPostings: [] });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const data = await fetchWorkdayJson(
+      'https://swisslife.wd3.myworkdayjobs.com/wday/cxs/swisslife/Swiss_Life_Career_Site',
+      'https://swisslife.wd3.myworkdayjobs.com/wday/cxs/swisslife/Swiss_Life_Career_Site/jobs',
+      {
+        method: 'POST',
+        body: JSON.stringify({ appliedFacets: {}, limit: 20, offset: 0, searchText: '' }),
+        retries: 1,
+        browserFallback,
+      },
+    );
+
+    expect(data).toEqual({ total: 0, jobPostings: [] });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    expect(browserFallback).toHaveBeenCalledTimes(1);
+    expect(browserFallback).toHaveBeenCalledWith(expect.objectContaining({
+      method: 'POST',
+      body: expect.any(String),
+    }));
   });
 });
 

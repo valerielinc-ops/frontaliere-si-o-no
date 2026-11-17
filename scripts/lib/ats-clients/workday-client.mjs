@@ -403,6 +403,64 @@ async function fetchJsonWithRetry(url, options = {}) {
   }
 }
 
+/**
+ * Fetch one Workday JSON endpoint with the shared retry policy and the lazy
+ * same-origin browser fallback used by the generic Workday clients.
+ *
+ * Legacy parsers sometimes need custom pagination or response validation and
+ * therefore cannot use `fetchWorkdayJobs` directly. Keeping this small
+ * transport public lets them share the same anti-rate-limit recovery without
+ * duplicating the browser-session lifecycle.
+ *
+ * @param {string} apiBase Workday CXS API base used to derive the public page
+ *   for the browser fallback.
+ * @param {string} url JSON endpoint to fetch.
+ * @param {object} [options]
+ * @param {string} [options.method='GET']
+ * @param {string} [options.body]
+ * @param {string} [options.userAgent]
+ * @param {number} [options.timeoutMs]
+ * @param {number} [options.retries] Defaults to the shared env setting or 3.
+ * @param {Function|null} [options.browserFallback] Test/custom transport; an
+ *   explicit null disables the default browser fallback.
+ * @returns {Promise<any>}
+ */
+export async function fetchWorkdayJson(apiBase, url, options = {}) {
+  if (!apiBase) throw new TypeError('fetchWorkdayJson: apiBase is required');
+  if (!url) throw new TypeError('fetchWorkdayJson: url is required');
+
+  const {
+    method = 'GET',
+    body,
+    userAgent = DEFAULT_USER_AGENT,
+    timeoutMs = DEFAULT_TIMEOUT_MS,
+    browserFallback,
+  } = options;
+  const configuredRetries = Number(options.retries);
+  const retries = Number.isFinite(configuredRetries)
+    ? configuredRetries
+    : (Number.isFinite(Number(process.env.JOBS_CRAWLER_RETRIES))
+      ? Number(process.env.JOBS_CRAWLER_RETRIES)
+      : 3);
+  const browserSession = browserFallback === undefined
+    ? createWorkdayBrowserJsonFallback(apiBase)
+    : null;
+  const fallback = browserFallback === undefined ? browserSession.request : browserFallback;
+
+  try {
+    return await fetchJsonWithRetry(url, {
+      method,
+      body,
+      userAgent,
+      timeoutMs,
+      retries,
+      browserFallback: fallback,
+    });
+  } finally {
+    await browserSession?.close();
+  }
+}
+
 /* ── Listing iterator ──────────────────────────────────────────────────── */
 
 /**
