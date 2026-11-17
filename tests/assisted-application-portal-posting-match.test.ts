@@ -376,4 +376,31 @@ describe('PinpointHQ New Application title and route binding', () => {
       applyUrl: postingUrl,
     })).toBe('mismatch');
   });
+
+  it('does not treat "<Company> employee" inside a screening question as another employer', () => {
+    const postingUrl = 'https://example-hotel.pinpointhq.com/en/postings/c570608c-e27d-47f1-8e91-1e9b6d16a27e';
+    const applicationUrl = `${postingUrl}/applications/new`;
+    const job = {
+      company: 'Grand Hotel Example St. Moritz',
+      title: 'Commis de Rang (f/m/d) In Room Dining',
+    };
+    const form = [
+      'New Application | Commis de Rang (f/m/d) In Room Dining | Grand Hotel Example St. Moritz Careers',
+      'Apply',
+      'Are you currently a Example employee?',
+      'If you are a Example employee, have you discussed your interest with HR?',
+    ].join('\n');
+
+    expect(formPostingMatch(form, job, {
+      postingMatched: true,
+      applicationEntry: true,
+      applicationEntryUrl: applicationUrl,
+      pageUrl: applicationUrl,
+      postingUrl,
+      paidPostingUrl: postingUrl,
+      pageHeading: 'Apply',
+      pageHeadings: ['Apply'],
+      applyUrl: postingUrl,
+    })).toBe('match');
+  });
 });

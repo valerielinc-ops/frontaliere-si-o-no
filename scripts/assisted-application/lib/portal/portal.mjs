@@ -4748,6 +4748,8 @@ const FORM_VOCABULARY = new Set([
   'team', 'bereich', 'welcome', 'willkommen', 'benvenuti', 'bienvenue',
   'number', 'numero', 'nummer',
   'process', 'prozess', 'processo', 'processus', 'recruiting', 'recruitment', 'applicant', 'candidate', 'kandidat', 'candidato', 'candidat',
+  'employee', 'employees', 'staff', 'dipendente', 'dipendenti', 'mitarbeiter', 'mitarbeiterin', 'mitarbeitende',
+  'collaborator', 'collaborators', 'collaboratore', 'collaboratori', 'collaboratrice', 'collaborateur', 'collaborateurs', 'employe', 'employes',
   'stellenangebot', 'stellenanzeige', 'karriereportal', 'jobportal', 'bewerbungsformular', 'onlinebewerbung', 'page', 'seite', 'pagina',
   // SuccessFactors titles every page with its careers section: «Opportunités de carrière : Créer un
   // compte» (Rolex, 2026-10-03), «Karrierechancen: Anmelden» (Coop), «Career Opportunities: …».
@@ -5905,12 +5907,13 @@ export function formPostingMatch(formText, job = {}, {
   if (ambiguousBrandHeading && !verifiedFormBinding) return 'unknown';
   if (brassRingPrivacyGateForm && roleHeading !== 'mismatch' && !headingConflict) return 'match';
   const sameBoundPosting = bound && samePostingAddress(pageUrl, formPostingUrl);
+  const boundPinpointApplication = bound && isPinpointPostingEntry({ applyUrl: pageUrl, postingUrl: postingUrl || paidPostingUrl });
   const successFactorsBound = successFactorsRequisitionShown(postingEvidenceText, job, { pageUrl, applyUrl });
   if (headingConflict && !trustedUmantisApplication && !sameBoundPosting && !successFactorsBound) return 'mismatch';
   if (direct === 'match' && !talentSoftAlias
     && (trustedUmantisApplication
       ? umantisHeadingConflict
-      : (headingConflict || namesAnotherEmployer(employerText, job, { allowPostingLocation: postingLocationBound })))) return 'mismatch';
+      : (headingConflict || (!boundPinpointApplication && namesAnotherEmployer(employerText, job, { allowPostingLocation: postingLocationBound }))))) return 'mismatch';
   // If the browser cannot return a bounded heading set on a TalentSoft form,
   // the tenant alias and title alone do not resolve who owns the final page.
   let isTalentSoftHost = false;
@@ -5949,6 +5952,10 @@ export function formPostingMatch(formText, job = {}, {
   // reinterpreted as a role heading here.
   if (boundUmantisApplication) {
     if (umantisHeadingConflict || roleHeading === 'mismatch' || explicitRoleConflict) return 'mismatch';
+    return 'match';
+  }
+  if (boundPinpointApplication) {
+    if (headingConflict || roleHeading === 'mismatch' || explicitRoleConflict) return 'mismatch';
     return 'match';
   }
   // Some snapshots carry the Umantis Application/New URL only in the extracted
