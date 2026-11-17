@@ -11974,7 +11974,11 @@ export async function submitViaPortal(ctx) {
         return null;
       };
       const currentRoute = workdayJobRoute(page.url());
-      const currentApplicationSurface = snapshot?.workdayApplicationSurface === true
+      // A marker carried into a bound manual route may describe the page before
+      // the account transition, not the route currently being restored. Treat
+      // that marker as stale until this branch performs a fresh extraction.
+      const currentApplicationSurface = (currentRoute?.suffix !== 'manual'
+        && snapshot?.workdayApplicationSurface === true)
         || hasApplicationForm(snapshot)
         || Boolean(findButton(snapshot.buttons, NEXT_RE))
         || Boolean(findButton(snapshot.buttons, SUBMIT_RE));
@@ -11992,6 +11996,10 @@ export async function submitViaPortal(ctx) {
           snapshot = { ...snapshot, workdayApplicationSurface: false };
           snapshot = await extractFields(page, NAVIGATION).catch(() => snapshot);
           snapshot = await awaitWorkdayApplicationMount(page, snapshot);
+        } else if (currentRoute?.suffix === 'manual') {
+          // Without a deterministic navigation target there is still no fresh
+          // evidence that the carried marker belongs to this manual route.
+          snapshot = { ...snapshot, workdayApplicationSurface: false };
         }
         if (!isWorkdayJobRouteBound(page.url(), ctx.applyUrl)
           || (workdayJobRoute(page.url())?.suffix === 'manual' && !snapshot?.workdayApplicationSurface
