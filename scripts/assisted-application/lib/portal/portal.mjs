@@ -9468,14 +9468,42 @@ function securityQuestionFieldScope(field) {
   const frame = Number.isSafeInteger(field?.frame) ? field.frame : null;
   const formId = String(field?.formId || '').trim();
   const formIndex = Number.isSafeInteger(field?.form) && field.form >= 0
-    ? `index:${field.form}` : '';
+    ? field.form : null;
   const roleFormId = String(field?.roleFormId || '').trim();
-  // BrassRing's proxy listbox can report form=-1 while the native answer
-  // reports a numeric form index. The stable DOM form identity must win when
-  // it is available; otherwise a real prompt/answer pair is split across
-  // scopes and remains in the generic planner path.
-  const owner = formId ? `id:${formId}` : formIndex || (roleFormId ? `role:${roleFormId}` : '');
-  return frame === null || !owner ? '' : `${frame}\u0000${owner}`;
+  const sectionGroupId = String(field?.sectionGroupId || '').trim();
+  const applicationScopeId = String(field?.applicationScopeId || '').trim();
+  return {
+    frame,
+    formId,
+    formIndex,
+    roleFormId,
+    sectionGroupId,
+    applicationScopeId,
+  };
+}
+
+function securityQuestionFieldsShareScope(left, right) {
+  if (!left || !right || left.frame === null || left.frame !== right.frame) return false;
+
+  // A proxy control may lack formId/form while its native companion exposes
+  // both. Any identity present on both controls must nevertheless agree: a
+  // shared role-form or page scope is not permission to cross a real form.
+  if (left.formId && right.formId && left.formId !== right.formId) return false;
+  if (left.formIndex !== null && right.formIndex !== null && left.formIndex !== right.formIndex) return false;
+  if (left.roleFormId && right.roleFormId && left.roleFormId !== right.roleFormId) return false;
+  if (left.sectionGroupId && right.sectionGroupId && left.sectionGroupId !== right.sectionGroupId) return false;
+  if (left.applicationScopeId && right.applicationScopeId && left.applicationScopeId !== right.applicationScopeId) return false;
+
+  // Prefer the strongest shared structural identity, but permit a proxy/native
+  // pair to use the role-form or explicit DOM scope when one side lacks the
+  // native form metadata. Never accept frame alone.
+  return Boolean(
+    (left.formId && right.formId && left.formId === right.formId)
+    || (left.formIndex !== null && right.formIndex !== null && left.formIndex === right.formIndex)
+    || (left.roleFormId && right.roleFormId && left.roleFormId === right.roleFormId)
+    || (left.sectionGroupId && right.sectionGroupId && left.sectionGroupId === right.sectionGroupId)
+    || (left.applicationScopeId && right.applicationScopeId && left.applicationScopeId === right.applicationScopeId)
+  );
 }
 
 /**
@@ -9496,14 +9524,28 @@ export function isSecurityQuestionField(field, fields = []) {
   const role = securityQuestionFieldRole(field);
   if (!role || role !== (isAnswer ? 'answer' : 'prompt')) return false;
   const scope = securityQuestionFieldScope(field);
-  if (!scope) return false;
-  return (Array.isArray(fields) ? fields : []).some((candidate) => {
+  const counterparts = (Array.isArray(fields) ? fields : []).filter((candidate) => {
     if (candidate === field) return false;
     const candidateMatch = SECURITY_FIELD_RE.exec(String(candidate?.label || candidate?.name || '').trim());
     if (!candidateMatch || Number(candidateMatch[1]) !== index || Boolean(candidateMatch[2]) === isAnswer) return false;
-    if (securityQuestionFieldScope(candidate) !== scope) return false;
+    if (!securityQuestionFieldsShareScope(scope, securityQuestionFieldScope(candidate))) return false;
     return securityQuestionFieldRole(candidate) === (isAnswer ? 'prompt' : 'answer');
   });
+  // A proxy can carry only a role-form/page owner while multiple native
+  // answers expose different real form identities. A one-sided match would
+  // let the planner select an arbitrary form, so require a reciprocal,
+  // one-to-one pairing and fail closed on ambiguity.
+  if (counterparts.length !== 1) return false;
+  const counterpart = counterparts[0];
+  const counterpartScope = securityQuestionFieldScope(counterpart);
+  const reciprocal = (Array.isArray(fields) ? fields : []).filter((candidate) => {
+    if (candidate === counterpart) return false;
+    const candidateMatch = SECURITY_FIELD_RE.exec(String(candidate?.label || candidate?.name || '').trim());
+    if (!candidateMatch || Number(candidateMatch[1]) !== index || Boolean(candidateMatch[2]) !== isAnswer) return false;
+    return securityQuestionFieldsShareScope(counterpartScope, securityQuestionFieldScope(candidate))
+      && securityQuestionFieldRole(candidate) === role;
+  });
+  return reciprocal.length === 1 && reciprocal[0] === field;
 }
 
 /**
