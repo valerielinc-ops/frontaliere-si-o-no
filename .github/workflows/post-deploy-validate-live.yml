@@ -708,6 +708,7 @@ jobs:
           if [ "$e2e_round" -gt 1 ]; then
             echo "::warning::[validate-live] e2e smoke passed on retry after round $((e2e_round - 1))."
           fi
+          final_failed_tests=()
           write_summary
 
       # Visual regression on the LIVE site. Skipped until linux baselines

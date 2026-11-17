@@ -231,6 +231,7 @@ describe('post-deploy live smoke retry contract', () => {
     expect(result.output).toContain('[validate-live] flaky (passed on retry): [chromium] › tests/e2e/edge-retry.spec.ts:10:5 › recovers after a transient edge error');
     expect(result.summary).toContain('**flaky (passed on retry):**');
     expect(result.summary).toContain('recovers after a transient edge error');
+    expect(result.summary).not.toContain('**Still failing after the final round:**');
     expect(result.smokeLog).toContain('  1) [chromium] › tests/e2e/edge-retry.spec.ts:10:5');
     expect(result.smokeLog).toContain('  ✓ 1 [chromium]');
   });
