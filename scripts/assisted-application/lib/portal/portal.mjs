@@ -8861,10 +8861,7 @@ async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries,
       }
     }
   }
-  return {
-    snapshot: await extractFields(page).catch(() => current),
-    reconciledCount: refreshedByOrdinal.size ? Math.max(...refreshedByOrdinal.keys()) : 0,
-  };
+  return { snapshot: await extractFields(page).catch(() => current) };
 }
 
 /**
@@ -8883,20 +8880,16 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
     // When Workday already renders inline rows (e.g. from CV autofill or a
     // resumed draft), reconcile missing fields on existing rows and remove
     // extra empty rows instead of clicking "Add Another" for every entry.
-    let startIndex = 0;
     if (profileFields(current, kind).length && profileButtons(current, kind, PROFILE_INLINE_ROW_RE).length) {
       const reconciled = await reconcileExistingInlineProfileRows(page, current, kind, entries, { files });
       current = reconciled.snapshot;
       if (reconciled.handoff) return { ...reconciled, counts };
-      startIndex = reconciled.reconciledCount || 0;
-      if (startIndex >= entries.length) {
-        done.add(`${page.url()}|${kind}`);
-        continue;
-      }
+      done.add(`${page.url()}|${kind}`);
+      continue;
     }
     let added = 0;
     let skipped = Math.max(0, (candidate?.profile?.[kind]?.length || 0) - entries.length);
-    for (const entry of entries.slice(startIndex)) {
+    for (const entry of entries) {
       current = await extractFields(page);
       const add = profileButtons(current, kind, PROFILE_ADD_RE)[0];
       if (!add) return { snapshot: current, counts, handoff: 'profile_section_add_unavailable' };
