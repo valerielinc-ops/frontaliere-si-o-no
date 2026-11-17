@@ -3144,8 +3144,8 @@ function jobRoomApiEntryProven(ctx = {}) {
 // click on the sign-in page behind it. Deloitte's manager says «Decline
 // optional cookies» / «Accept optional cookies»; optional is still the
 // manager's decision, not its preferences control.
-export const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
-export const COOKIE_ACCEPT_RE = /^(cookies akzeptieren|alle( cookies)? akzeptieren|akzeptieren|accept( all| optional)?( cookies)?|accetta( tutti)?( i cookie)?|tout accepter|accepter( tout| tous les cookies)?|ok)$/i;
+export const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| (?:les|tous les) cookies)?|tout refuser|continuer sans accepter)$/i;
+export const COOKIE_ACCEPT_RE = /^(cookies akzeptieren|alle( cookies)? akzeptieren|akzeptieren|accept( all| optional)?( cookies)?|accetta( tutti)?( i cookie)?|tout accepter|accepter( tout| (?:les|tous les) cookies)?|ok)$/i;
 export const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settings|preferences|options)|manage cookies|modify cookie preferences|cookie[- ]einstellungen(?: (?:ändern|bearbeiten))?|einstellungen (?:für )?cookies?|cookies? (?:anpassen|verwalten)|(?:impostazioni|preferenze) (?:dei )?cookies?|gestisci (?:le )?(?:impostazioni|preferenze) (?:dei )?cookies?|personalizza (?:i )?cookies?|(?:paramètres?|préférences?) (?:des )?cookies?|gérer (?:les )?cookies?|modifier (?:les )?(?:paramètres?|préférences?) (?:des )?cookies?|cookie[- ]?(?:instellingen|voorkeuren)|cookies? beheren)$/i;
 // Yellowshark exposes this bare label without the word "cookie". Keep it out
 // of the general preference vocabulary: it is accepted only after the live
@@ -3181,11 +3181,16 @@ const COOKIE_GENERIC_ACCEPT_LABEL_RE = /^(?:ok|accept|akzeptieren|accetta|accept
 // its generic controls without a cookie-specific landmark. Keep the fallback
 // narrow: a consent sentence must be visible together with a separate close
 // control, so an application privacy dialog cannot borrow a generic "Accept".
-const COOKIE_CONSENT_COPY_RE = /(?:\bcookies?\b.{0,240}\b(?:website|webseite|nutzung|navigation|verwendung|use|using|brows(?:e|ing)|navigat|utilis|utilizz|consent)\b|\b(?:website|webseite|nutzung|navigation|verwendung|use|using|brows(?:e|ing)|navigat|utilis|utilizz|consent)\b.{0,240}\bcookies?\b)/i;
+const COOKIE_CONSENT_COPY_RE = /(?:\bcookies?\b.{0,240}\b(?:website|webseite|site\s+web|nutzung|navigation|verwendung|use|using|brows(?:e|ing)|navigat|utilis|utilizz|consent)\b|\b(?:website|webseite|site\s+web|nutzung|navigation|verwendung|use|using|brows(?:e|ing)|navigat|utilis|utilizz|consent)\b.{0,240}\bcookies?\b)/i;
 const COOKIE_DISMISS_RE = /^(?:schlie(?:ß|ss)en|close|dismiss|chiudi|fermer|cerrar|sluiten|fechar)$/i;
 const normalizeCookieText = value => String(value || '').replace(/\s+/g, ' ').trim();
 const cookieControlLabel = (button) => [button?.text, button?.label, button?.ariaLabel, button?.title]
   .map(value => String(value || '').trim()).find(Boolean) || '';
+const cookieChoiceCompanion = (buttonLabel, candidateLabel) => {
+  if (COOKIE_DISMISS_RE.test(candidateLabel)) return true;
+  return (COOKIE_ACCEPT_RE.test(buttonLabel) && COOKIE_REJECT_RE.test(candidateLabel))
+    || (COOKIE_REJECT_RE.test(buttonLabel) && COOKIE_ACCEPT_RE.test(candidateLabel));
+};
 const escapeRegex = value => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const cookieSupportingContext = (button) => {
   const ownLabels = [button.text, button.label, button.title, button.ariaLabel]
@@ -3279,12 +3284,16 @@ async function genericCookieControlsShareContainer(page, button, closeControls) 
 
 async function isPageCookieConsentControl(page, snapshot, button) {
   const label = cookieControlLabel(button);
-  const activeCookieSurface = button.cookieSurface === 'banner';
-  if (button.disabled || (button.chrome && !activeCookieSurface) || button.dialog || !COOKIE_ACCEPT_RE.test(label)) return false;
+  const isCookieChoice = COOKIE_ACCEPT_RE.test(label)
+    || COOKIE_REJECT_RE.test(label)
+    || COOKIE_SAVE_RE.test(label);
+  if (button.disabled || button.dialog || !isCookieChoice) return false;
   const frame = Number(button.frame) || 0;
   const closeControls = (snapshot?.buttons || []).filter(candidate => (Number(candidate.frame) || 0) === frame
-    && !candidate.disabled && (!candidate.chrome || candidate.cookieSurface === 'banner')
-    && COOKIE_DISMISS_RE.test(cookieControlLabel(candidate)));
+    && candidate !== button
+    && !(candidate.id && button.id && String(candidate.id) === String(button.id))
+    && !candidate.disabled
+    && cookieChoiceCompanion(label, cookieControlLabel(candidate)));
   if (!closeControls.length) return false;
   const frames = typeof page?.frames === 'function' ? page.frames() : [];
   const ownerFrame = frames[frame]
@@ -3382,7 +3391,7 @@ async function findCookieControls(page, snapshot, pattern, {
 } = {}) {
   const controls = [];
   for (const button of snapshot?.buttons || []) {
-    if (button.disabled || (button.chrome && button.cookieSurface !== 'banner')) continue;
+    if (button.disabled) continue;
     const label = cookieControlLabel(button);
     if (!pattern.test(label)
       && !(genericPreferences && COOKIE_GENERIC_PREFERENCES_RE.test(label))
