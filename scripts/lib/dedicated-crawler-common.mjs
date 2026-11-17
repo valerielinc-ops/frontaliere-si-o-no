@@ -6876,6 +6876,7 @@ function isRegistryPinGarbled(registered, locale, opts = {}) {
 const GARBLED_PIN_MIN_WITNESS_TOKEN_LENGTH = 6;
 const GARBLED_PIN_MIN_SUFFIX_LENGTH = 6;
 const GARBLED_PIN_MIN_EXTRA_LENGTH = 3;
+const GARBLED_PIN_MIN_DISTINCT_SUFFIXES = 2;
 
 function hasStrongSharedPinWitness(left, right) {
   for (const token of left) {
@@ -6886,6 +6887,7 @@ function hasStrongSharedPinWitness(left, right) {
 }
 
 function hasMalformedPinSuffix(pinTokens, witnessTokens) {
+  const candidates = [];
   for (const pinToken of pinTokens) {
     for (const witnessToken of witnessTokens) {
       if (pinToken === witnessToken) continue;
@@ -6902,8 +6904,28 @@ function hasMalformedPinSuffix(pinTokens, witnessTokens) {
         pinToken.length - suffixLength >= GARBLED_PIN_MIN_EXTRA_LENGTH &&
         witnessToken.length - suffixLength >= GARBLED_PIN_MIN_EXTRA_LENGTH
       ) {
-        return true;
+        candidates.push({
+          pinPrefix: pinToken.slice(0, -suffixLength),
+          witnessPrefix: witnessToken.slice(0, -suffixLength),
+          suffix: pinToken.slice(-suffixLength),
+        });
       }
+    }
+  }
+
+  // One common suffix is normal compounding (`industrie`/`versicherung` +
+  // `kaufmann`). The KSA corruption is stronger evidence: the same foreign
+  // prefix is attached to two distinct role endings (`hyardfachfrau` and
+  // `hyardfachmann`) while the witness uses the corresponding real prefix.
+  // Require that repeated shape before allowing the destructive repair.
+  for (let i = 0; i < candidates.length; i += 1) {
+    const first = candidates[i];
+    const suffixes = new Set([first.suffix]);
+    for (let j = i + 1; j < candidates.length; j += 1) {
+      const next = candidates[j];
+      if (next.pinPrefix !== first.pinPrefix || next.witnessPrefix !== first.witnessPrefix) continue;
+      suffixes.add(next.suffix);
+      if (suffixes.size >= GARBLED_PIN_MIN_DISTINCT_SUFFIXES) return true;
     }
   }
   return false;

@@ -196,6 +196,24 @@ describe('registryPinnedLocaleSlug', () => {
       );
     });
 
+    it('does not treat one shared compound suffix as corruption', () => {
+      const legitimateCompound = {
+        canonicalSlug: 'versicherungskaufmann-ksa-aarau',
+        slugByLocale: { de: 'industriekaufmann-ksa-aarau' },
+      };
+      const legitimateCtx = {
+        titleByLocale: { de: 'Versicherungskaufmann' },
+        company: 'KSA',
+        location: 'Aarau',
+        sourceLang: '',
+      };
+
+      expect(garbledPinRepairPolicy(legitimateCompound, 'de', legitimateCtx)).toBe(false);
+      expect(registryPinnedLocaleSlug(legitimateCompound, 'de', '', legitimateCtx)).toBe(
+        'industriekaufmann-ksa-aarau',
+      );
+    });
+
     it('KEEPS a valid-but-generic pin that still shares the canonical token (anti-churn, harden-registry-pin-quality-repair)', () => {
       // Real regression shape (EOC, umantis 2908): source-lang detection lands
       // on EN and overwrites the EN title to the German base ("Informatiker/in"),
