@@ -14924,7 +14924,7 @@ ${staticAnalyticsHtml}
     return Boolean(safeTargets);
    },
    canWriteCrossLocalePath: (bridgePath) => {
-    const safeTargets = getSafeDistPageTargets(distDir, bridgePath);
+    const safeTargets = getSafeDistPageTargets(distDir, bridgePath, { includeFlat: false });
     return Boolean(safeTargets && !pathIsClaimedOrReserved(safeTargets.indexPath));
    },
   });
@@ -17227,7 +17227,7 @@ ${staticAnalyticsHtml}
   skippedUnsafeDistPaths++;
   continue;
  }
- const safeTargets = getSafeDistPageTargets(distDir, relPath);
+ const safeTargets = getSafeDistPageTargets(distDir, relPath, { includeFlat: false });
  if (!safeTargets) {
   skippedFilesystemLimitPaths++;
   continue;
