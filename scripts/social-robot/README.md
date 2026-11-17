@@ -131,9 +131,9 @@ Il formato e i relativi parametri sono conservati per riferimento; non
 alimentano alcuna pubblicazione automatica. La descrizione qui sotto è storica.
 
 `answer-voice-v1` risponde a una sola domanda presa dalla FAQ di un articolo
-pubblicato: voce italiana (Gemini TTS), stesse parole a schermo, caption con la
-domanda in prima riga. Il testo non viene riscritto. Il robot non applica suoni
-di tendenza a questi video, perché sostituirebbero la voce.
+pubblicato: testo verificato mostrato a schermo, caption con la domanda in prima
+riga. Il testo non viene riscritto e non viene sintetizzata alcuna voce. Il robot
+non applica suoni di tendenza a questi video.
 
 | Parametro Firebase | Valori | Default locale |
 |---|---|---|

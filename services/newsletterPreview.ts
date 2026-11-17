@@ -83,17 +83,18 @@ async function fetchExchangeRate(db: ReturnType<typeof getFirestore>) {
 }
 
 /**
- * Call Gemini API directly from the browser for preview AI content.
+ * Call the server-side Codex-backed endpoint for preview AI content.
  * Returns null on any failure — callers must provide fallback.
  */
-async function callGeminiForPreview(
+async function callCodexForPreview(
  systemPrompt: string,
  userPrompt: string,
  maxTokens: number,
  temperature: number,
 ): Promise<string | null> {
  try {
- // Gemini runs server-side (geminiGenerate Cloud Function); no key in the browser.
+ // Codex runs server-side (historical geminiGenerate Cloud Function endpoint);
+ // no provider key is exposed in the browser.
  const res = await fetch('https://europe-west6-frontaliere-ticino.cloudfunctions.net/geminiGenerate', {
  method: 'POST',
  headers: { 'Content-Type': 'application/json' },
@@ -126,7 +127,7 @@ async function generatePreviewBriefing(
  featuredTool,
  };
  const prompts = buildBriefingPrompt(ctx);
- const result = await callGeminiForPreview(prompts.system, prompts.user, 500, 0.7);
+ const result = await callCodexForPreview(prompts.system, prompts.user, 500, 0.7);
 
  if (result) {
  // Ensure output has <p> tags (same cleanup as send-newsletter.mjs)
@@ -162,7 +163,7 @@ async function generatePreviewSubject(
  briefingSummary,
  };
  const prompts = buildSubjectPrompt(ctx);
- const result = await callGeminiForPreview(prompts.system, prompts.user, 80, 0.8);
+ const result = await callCodexForPreview(prompts.system, prompts.user, 80, 0.8);
 
  if (result) {
  // Clean up: strip quotes and markdown artifacts (same as send-newsletter.mjs)

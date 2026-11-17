@@ -135,7 +135,7 @@ jobs:
         # Generates 80-120 word AI intros + 3 FAQ per cluster. Incremental:
         # cached entries are skipped via SHA-256 fingerprint of the input
         # candidate. Best-effort — never blocks the snapshot.
-        if: env.GH_MODELS_PAT != '' || env.GITHUB_PAT != '' || env.GEMINI_API_KEY != '' || env.OPENROUTER_API_KEY != ''
+        if: env.GH_MODELS_PAT != '' || env.GITHUB_PAT != '' || env.OPENROUTER_API_KEY != '' || steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket != ''
         env:
           # Auth for the bounded Codex Luna Max article lane. Harmless to
           # always pass: ai-models.mjs only opens the broker when its gate is

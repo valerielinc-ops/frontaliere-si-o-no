@@ -583,7 +583,7 @@ async function main() {
   }
 
   if (!isAnyModelAvailable()) {
-    console.error('❌ No AI model is available. Set GH_MODELS_PAT or GEMINI_API_KEY.');
+    console.error('❌ No AI model is available. Configure Codex Luna Max or an approved fallback provider.');
     process.exit(1);
   }
 

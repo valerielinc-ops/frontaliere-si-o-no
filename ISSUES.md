@@ -97,7 +97,7 @@ I file rigenerati `data/**` (job JSON, snapshot, translation-cache, blog-article
   - **Daily bucket** (`follow-up(daily:…)`): `no-root-cause` per-item; niente `AUTOMATION_DEFERRED`/label `automation-deferred`, routing intatto. `route-already-fixed.mjs` → `State: blocked` + `FU_ITEM_BLOCKED reason=<esito>`; bucket in coda.
 - `main` risolto → `already-fixed` + `<!-- FIX_EVIDENCE: pr=<N> commit=<sha> run=<id> -->`; capability → `blocked-*`.
 - Repo sbagliato → migra al proprietario, collega le schede, chiudi l'errata con evidenza (`DECISIONS.md`). Dato mancante → strumenta, non parcheggiare.
-- **I segreti CI SONO**: Remote Config carica `CF_API_TOKEN`, `POSTHOG_*`, `GEMINI_API_KEY`, `GITHUB_PAT` in `process.env`. Implementa i fix che li richiedono; `blocked-secrets` solo per variabile vuota, nominandola (`RC_TO_ENV`).
+- **I segreti CI SONO**: Remote Config carica `CF_API_TOKEN`, `POSTHOG_*`, `CODEX_AUTH_JSON`, `GITHUB_PAT` in `process.env`. Implementa i fix che li richiedono; `blocked-secrets` solo per variabile vuota, nominandola (`RC_TO_ENV`).
   - **Rotazione credenziali:** l'autorizzazione copre l'USO, non ROTAZIONE (`DECISIONS.md`). Per ruotare/rigenerare/revocare: "rotazione di credenziali — resta una decisione umana (DECISIONS.md)" e termina PRIMA del diff.
 - **Capability-guard `.github/workflows/**` (turno ~1, PRIMA del fix).** Senza `APP_TOKEN_WORKFLOWS == 'true'` push fallisce **sempre**: posta diff + "serve scope `workflows` / mano umana"; **TERMINA SUBITO**. Setting/branch-protection/admin-API 403 → `blocked-admin-settings`.
 - Mai un fix speculativo.

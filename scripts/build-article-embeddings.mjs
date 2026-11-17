@@ -221,10 +221,10 @@ async function main() {
   if (toEmbed.length > 0) {
     // Chain-driven guard: skip only when NO provider key is in env at all.
     // Derived from selectProvider() (the actual EMBEDDING_PROVIDERS chain) so a
-    // newly-added provider — e.g. Gemini — counts automatically. Hardcoding
-    // mistral/cohere here would skip even when only GEMINI_API_KEY is set.
+    // newly-added embedding provider counts automatically. Hardcoding
+    // mistral/cohere here would skip when only another configured provider is set.
     if (!selectProvider()) {
-      console.error(`EMBEDDINGS_BUILD skipped — no embedding provider configured (set MISTRAL_API_KEY, COHERE_API_KEY or GEMINI_API_KEY in Remote Config). ${toEmbed.length} articles would have been embedded; cascadedScore will fall through to cluster median for unembedded articles.`);
+      console.error(`EMBEDDINGS_BUILD skipped — no embedding provider configured (set MISTRAL_API_KEY or COHERE_API_KEY in Remote Config). ${toEmbed.length} articles would have been embedded; cascadedScore will fall through to cluster median for unembedded articles.`);
       const meta = {
         // Preserve the untouched store's own model label (don't relabel a store
         // we didn't rebuild). Fall back to EMBEDDING_MODEL only if unknown.
@@ -262,7 +262,7 @@ async function main() {
     } catch (err) {
       // Graceful degradation (#1338): the keys ARE configured, but the embedding
       // provider chain failed at REQUEST time (e.g. Mistral 401 + Cohere quota +
-      // Gemini free-tier 1000/day cap — embedBatch only throws after EVERY keyed
+      // Provider quota/cap exhaustion — embedBatch only throws after EVERY keyed
       // provider fails). Embeddings are a similarity SIGNAL, not a hard
       // dependency: cascadedScore falls through to the cluster median for any
       // article without a vector, so a missing embedding never blocks article
@@ -271,7 +271,7 @@ async function main() {
       const embeddedThisRun = records.length - baseRecords;
       if (embeddedThisRun > 0) {
         // PARTIAL PROGRESS: some new vectors were produced before the chain ran
-        // out (e.g. Gemini's 1000/day free cap mid-way through a ~2700-article
+        // out (e.g. a daily provider cap mid-way through a ~2700-article
         // re-embed). Persist them — DON'T discard — so the store advances and the
         // NEXT daily run continues from here (model now matches → no re-drift,
         // only the still-uncached articles are embedded). Falls through to the

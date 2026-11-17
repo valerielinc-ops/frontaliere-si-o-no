@@ -37,16 +37,16 @@ const ApiStatus: React.FC = () => {
  testUrl: 'https://developer.tomtom.com/routing-api/documentation/tomtom-maps/calculate-route'
  });
 
- // 2. Google Gemini API — now server-side (geminiGenerate / chatbotInference
- // Cloud Functions). No API key in the browser to inspect.
+ // 2. OpenAI Codex — now server-side (geminiGenerate / chatbotInference
+ // Cloud Functions). No provider key in the browser to inspect.
  checks.push({
- name: 'Google Gemini API',
+ name: 'OpenAI Codex (Luna Max)',
  key: 'server-managed',
  configured: true,
  value: '✓ Server-side (Cloud Function)',
  status: 'success',
- message: 'AI via geminiGenerate/chatbotInference — nessuna chiave nel browser.',
- testUrl: 'https://aistudio.google.com/app/apikey'
+ message: 'AI via Codex Luna Max e fallback server-side — nessuna chiave nel browser.',
+ testUrl: 'https://chatgpt.com/'
  });
 
  // 3. GitHub issue tracking — now server-side. The PAT lives in the

@@ -3,7 +3,7 @@ import { pathToFileURL } from 'node:url';
 /**
  * check-ai-visibility.mjs — Monitor AI search engine citations of frontaliereticino.ch
  *
- * Checks whether AI platforms (Perplexity, ChatGPT, Gemini, Google AI Overviews)
+ * Checks whether AI platforms (Perplexity, ChatGPT, Google AI Overviews)
  * cite frontaliereticino.ch for the site's top keyword queries.
  *
  * Usage:
@@ -12,7 +12,6 @@ import { pathToFileURL } from 'node:url';
  *
  * Environment variables (loaded via load-rc-env.mjs in CI):
  *   PERPLEXITY_API_KEY  — Perplexity Sonar API (primary, supports citations)
- *   GEMINI_API_KEY      — Google Gemini API (secondary check, Google Search grounding)
  *   OPENROUTER_API_KEY  — OpenRouter with the web-search plugin (second grounded
  *                         platform; metered, see OPENROUTER_MAX_REQUESTS)
  *   GH_MODELS_PAT       — GitHub Models PAT for GPT-4o (tertiary check)
@@ -87,9 +86,10 @@ const COMPETITORS = [
   'grfranco.ch',
 ];
 
-// Gemini sometimes returns a bare hostname in `web.title`. Restrict that
-// fallback to suffixes used by the known competitors and common public domains
-// so dotted prose tokens such as `art.3.OAMal` are not promoted to hosts.
+// Grounded providers sometimes return a bare hostname in a title field.
+// Restrict that fallback to suffixes used by the known competitors and common
+// public domains so dotted prose tokens such as `art.3.OAMal` are not promoted
+// to hosts.
 const PLAUSIBLE_BARE_HOST_TLDS = new Set(['ch', 'it', 'com', 'net', 'org', 'eu']);
 
 // ─── CLI flags ──────────────────────────────────────────────────────────────
@@ -100,7 +100,6 @@ const VERBOSE = process.argv.includes('--verbose');
 // ─── API helpers ────────────────────────────────────────────────────────────
 
 function getPerplexityKey() { return (process.env.PERPLEXITY_API_KEY || '').trim(); }
-function getGeminiKey() { return (process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY || '').trim(); }
 function getGhModelsPat() { return (process.env.GH_MODELS_PAT || '').trim(); }
 function getOpenRouterKey() { return (process.env.OPENROUTER_API_KEY || '').trim(); }
 
@@ -200,50 +199,6 @@ async function queryPerplexity(query) {
 }
 
 /**
- * Call Gemini API to check if it references our site. Uses Google Search
- * grounding — without it, the model can only answer from parametric training
- * knowledge and structurally can never surface a citation (ours or any
- * competitor's) for a niche/recent query, which was masking the real
- * visibility signal (0/20 with zero competitor mentions on every query).
- */
-async function queryGemini(query) {
-  const key = getGeminiKey();
-  if (!key) return null;
-
-  const res = await fetchWithRetry(
-    'Gemini',
-    `https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-latest:generateContent?key=${key}`,
-    {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{
-          parts: [{
-            text: `Answer the following question and cite specific websites with their URLs where relevant: ${query}`,
-          }],
-        }],
-        tools: [{ google_search: {} }],
-        generationConfig: { maxOutputTokens: 1024, temperature: 0.2 },
-      }),
-    },
-  );
-
-  if (!res) return null;
-
-  const data = await readJsonResponse('Gemini', res, hasGeminiEnvelope);
-  if (!data) return null;
-  const content = getGeminiText(data);
-  const groundingChunks = data.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
-  // Grounding chunks expose the source both as a redirect uri (which never
-  // contains the real host) and as `web.title`, which IS the domain — match
-  // on both, otherwise no domain, ours or a competitor's, can ever be found.
-  const citations = groundingChunks
-    .flatMap(c => [c.web?.uri, c.web?.title])
-    .filter(Boolean);
-  return { content, citations, raw: data };
-}
-
-/**
  * Call GitHub Models (GPT-4o) via OpenAI-compatible API.
  */
 async function queryGitHubModels(query) {
@@ -280,11 +235,11 @@ async function queryGitHubModels(query) {
 }
 
 /**
- * Call OpenRouter with the web-search plugin — the second platform whose
+ * Call OpenRouter with the web-search plugin — a grounded platform whose
  * answer is GROUNDED, i.e. backed by live retrieval. Without a search tool a
  * model can only answer from parametric training knowledge and structurally
  * can never surface a citation for a niche query, so the grounding is the
- * whole point of adding it (same reasoning as queryGemini).
+ * grounding is the whole point of adding it.
  * Docs: https://openrouter.ai/docs/features/web-search
  */
 async function queryOpenRouter(query) {
@@ -426,18 +381,6 @@ function hasChatCompletionEnvelope(data) {
     && message.content.trim().length > 0;
 }
 
-function getGeminiText(data) {
-  const parts = Array.isArray(data?.candidates)
-    ? data.candidates[0]?.content?.parts
-    : null;
-  if (!Array.isArray(parts)) return '';
-  return parts.find(part => isRecord(part) && typeof part.text === 'string' && part.text.trim().length > 0)?.text || '';
-}
-
-function hasGeminiEnvelope(data) {
-  return getGeminiText(data).length > 0;
-}
-
 async function readJsonResponse(label, res, isExpectedEnvelope = isRecord) {
   const body = await res.text();
   let data;
@@ -554,11 +497,11 @@ function findSiteMention(content, citations = []) {
  * successes.
  *
  * A citation entry is accepted as a host only when the WHOLE string is one.
- * That is deliberate and load-bearing for Gemini, whose grounding chunks carry
+ * That is deliberate and load-bearing for grounding responses, whose chunks carry
  * the source twice: a redirect `uri` that never contains the real host, and a
  * `web.title` that usually IS the bare domain (`comparis.ch`) but is sometimes
  * a real page title (`... la guida di Comparis.ch spiegata`). Parsing the bare
- * domain keeps Gemini's competitor signal alive; refusing the prose title drops
+ * domain keeps the competitor signal alive; refusing the prose title drops
  * the second false positive. Redirect uris parse to Google's own host and
  * simply never match a competitor.
  */
@@ -572,7 +515,7 @@ function citedHosts(content, citations = []) {
   for (const raw of candidates) {
     const cleaned = String(raw || '').trim().replace(/[.,;:!?)]+$/, '');
     if (!cleaned) continue;
-    // Bare hostname (a Gemini `web.title`) — no scheme, no whitespace.
+    // Bare hostname from a grounding citation — no scheme, no whitespace.
     const hasScheme = /^[a-z][a-z0-9+.-]*:\/\//i.test(cleaned);
     const isBareHost = /^[a-z0-9-]+(\.[a-z0-9-]+)+(\/\S*)?$/i.test(cleaned);
     const bareHostname = isBareHost ? cleaned.split('/', 1)[0] : '';
@@ -655,7 +598,6 @@ function applyPlatformAnswer(result, platform, answer) {
 function detectPlatforms() {
   return {
     perplexity: !!getPerplexityKey(),
-    gemini: !!getGeminiKey(),
     chatgpt: !!getGhModelsPat(),
     openrouter: !!getOpenRouterKey() && !isOpenRouterDisabled(),
   };
@@ -707,7 +649,6 @@ async function runCheck() {
     if (availablePlatforms.length === 0) {
       console.log('\n⚠ No API keys detected. Set one or more of:');
       console.log('   PERPLEXITY_API_KEY  — Perplexity Sonar API (best: returns native citations)');
-      console.log('   GEMINI_API_KEY      — Google Gemini API (Google Search grounding)');
       console.log('   OPENROUTER_API_KEY  — OpenRouter web search (grounded; metered, capped per run)');
       console.log('   GH_MODELS_PAT       — GitHub Models (GPT-4o)');
       console.log('\n   In CI, keys are loaded from Firebase Remote Config via load-rc-env.mjs.');
@@ -718,7 +659,7 @@ async function runCheck() {
 
   if (availablePlatforms.length === 0) {
     console.error('\n❌ No API keys available. Cannot perform visibility check.');
-    console.error('   Set at least one of: PERPLEXITY_API_KEY, GEMINI_API_KEY, OPENROUTER_API_KEY, GH_MODELS_PAT');
+    console.error('   Set at least one of: PERPLEXITY_API_KEY, OPENROUTER_API_KEY, GH_MODELS_PAT');
     process.exit(1);
   }
 
@@ -743,13 +684,6 @@ async function runCheck() {
       console.log('  → Perplexity...');
       applyPlatformAnswer(result, 'perplexity', await queryPerplexity(q));
       await sleep(1500); // Rate limit: ~20 req/min for Sonar
-    }
-
-    // Gemini
-    if (platforms.gemini) {
-      console.log('  → Gemini...');
-      applyPlatformAnswer(result, 'gemini', await queryGemini(q));
-      await sleep(1000);
     }
 
     // OpenRouter (second grounded platform — web-search plugin, metered)
@@ -1100,7 +1034,6 @@ export {
   findCompetitorMentions,
   generateMarkdown,
   loadPreviousReport,
-  queryGemini,
   queryPerplexity,
   queryGitHubModels,
   runCheck,

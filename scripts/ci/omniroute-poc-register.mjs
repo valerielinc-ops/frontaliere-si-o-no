@@ -50,7 +50,6 @@ if (malformed) {
 const CURATED_FALLBACK = [
   ['groq', 'Groq (CI POC)', ['GROQ_API_KEY'], null],
   ['openrouter', 'OpenRouter (CI POC)', ['OPENROUTER_API_KEY'], null],
-  ['gemini', 'Gemini (CI POC)', ['GEMINI_API_KEY'], null],
   ['mistral', 'Mistral (CI POC, expected dead)', ['MISTRAL_API_KEY'], null],
 ];
 

@@ -229,7 +229,7 @@ jobs:
           fi
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
           export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/firebase-sa.json"
-          node scripts/load-rc-env.mjs --only-env=GEMINI_API_KEY,GROQ_API_KEY,OPENROUTER_API_KEY
+          node scripts/load-rc-env.mjs --only-env=GROQ_API_KEY,OPENROUTER_API_KEY
 
       - name: Generate with one free-provider fallback chain
         id: free_fallback

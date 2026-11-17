@@ -142,7 +142,7 @@ const SENDERS: SenderPerimeter[] = [
       '.github/actions/setup-omniroute/action.yml',
       '.github/actions/setup-claude-haiku-fallback/action.yml',
     ],
-    mustList: ['NEWSLETTER_SECRET', 'MAILEROO_API_KEY', 'GEMINI_API_KEY', 'OMNIROUTE_PROVIDERS_JSON', 'ENABLE_OMNIROUTE_FALLBACK',
+    mustList: ['NEWSLETTER_SECRET', 'MAILEROO_API_KEY', 'OMNIROUTE_PROVIDERS_JSON', 'ENABLE_OMNIROUTE_FALLBACK',
       'ENABLE_CODEX_ARTICLE_FALLBACK', 'NEWSLETTER_CAMPAIGN_CONTENT_FREEZE', 'NEWSLETTER_RESUME_RECEIPT_SCAN'],
     mustNotList: UNRELATED,
     maxTimeoutMinutes: 360,

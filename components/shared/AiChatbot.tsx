@@ -1,11 +1,10 @@
 /**
  * AiChatbot — Floating AI assistant for frontalieri questions
  *
- * Inference architecture (free-first, multi-provider fallback):
+ * Inference architecture (Codex-first, multi-provider fallback):
  * 1. Firebase Function `chatbotInference` (server-side, keeps key off browser)
- * — tries gemini-flash-lite-latest → gemini-flash-latest internally
- * 2. Browser-side direct Gemini call (fallback when Function is unreachable)
- * — uses gemini-flash-lite-latest (alias sullo stable corrente)
+ * — tries Codex Luna Max, then OpenAI-compatible providers internally
+ * 2. No browser-side provider call: the key remains server-side
  * 3. Local deterministic fallback (always available, no network required)
  * — keyword-matched FAQ answers with internal navigation links
  */
@@ -598,7 +597,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  const e1 = err1 as Error & { code?: string };
  remoteErr = e1;
  console.warn('[Chatbot] Tier 1 (Cloud Function) failed:', e1.message);
- // No browser-side Gemini fallback — the API key stays server-side. On
+ // No browser-side provider fallback — the API key stays server-side. On
  // failure we fall through to the local deterministic FAQ (Tier 3) below.
  }
  }

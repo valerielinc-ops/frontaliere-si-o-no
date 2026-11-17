@@ -86,7 +86,7 @@ describe('social native insights workflow contract', () => {
     expect(codex).toContain('scripts/social-copy/generate-free-model-fallback.mjs');
     expect(codex).toContain('FALLBACK_FAILURES: ${{ steps.free_fallback.outputs.attempt_failures }}');
     expect(codex).toContain("Fallback attempts: `%s`");
-    expect(codex).toContain('node scripts/load-rc-env.mjs --only-env=GEMINI_API_KEY,GROQ_API_KEY,OPENROUTER_API_KEY');
+    expect(codex).toContain('node scripts/load-rc-env.mjs --only-env=GROQ_API_KEY,OPENROUTER_API_KEY');
     expect(codex).not.toContain('GH_MODELS_PAT');
     expect(codex).toContain("if: steps.codex.outputs.primary_success != 'true'");
     expect(codex).not.toContain("if: always() && steps.codex.outputs.primary_success != 'true'");

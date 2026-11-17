@@ -15,7 +15,6 @@ import {
   generateMarkdown,
   listAvailablePlatforms,
   openRouterWebEngine,
-  queryGemini,
   queryPerplexity,
   queryGitHubModels,
   queryOpenRouter,
@@ -50,7 +49,7 @@ const meta = (over: Record<string, unknown> = {}) => ({
   domain: 'frontaliereticino.ch',
   totalQueries: 2,
   queriesChecked: 2,
-  platformsChecked: ['gemini'],
+  platformsChecked: ['openrouter'],
   score: 0,
   scoreMax: 2,
   scorePercent: 0,
@@ -105,8 +104,8 @@ describe('unreachable platforms are not a visibility signal', () => {
     const md = generateMarkdown({
       meta: meta({ queriesChecked: 1, scoreMax: 1 }),
       results: [
-        query({ checkedByAny: true, platforms: { gemini: { checked: true, cited: false } } }),
-        query({ query: 'permesso G vantaggi svantaggi', platforms: { gemini: { checked: false, error: 'API call failed' } } }),
+        query({ checkedByAny: true, platforms: { openrouter: { checked: true, cited: false } } }),
+        query({ query: 'permesso G vantaggi svantaggi', platforms: { openrouter: { checked: false, error: 'API call failed' } } }),
       ],
       competitorSummary: [],
     });
@@ -137,7 +136,7 @@ describe('unreachable platforms are not a visibility signal', () => {
 });
 
 describe('citation matching', () => {
-  it('finds our domain in a Gemini grounding chunk title, not just in the redirect uri', () => {
+  it('finds our domain in a grounded title, not just in the redirect uri', () => {
     // groundingChunks expose the source host in `web.title`; `web.uri` is an
     // opaque vertexaisearch redirect that never contains the real domain.
     const citations = [
@@ -157,7 +156,7 @@ describe('fetchWithRetry', () => {
       .mockResolvedValueOnce(new Response('rate limited', { status: 429, headers: { 'retry-after': '1' } }))
       .mockResolvedValueOnce(ok);
 
-    const promise = fetchWithRetry('Gemini', 'https://example.test', {});
+    const promise = fetchWithRetry('OpenRouter', 'https://example.test', {});
     await vi.runAllTimersAsync();
 
     expect(await promise).toBe(ok);
@@ -168,7 +167,7 @@ describe('fetchWithRetry', () => {
     vi.useFakeTimers();
     vi.spyOn(globalThis, 'fetch').mockImplementation(async () => new Response('down', { status: 503 }));
 
-    const promise = fetchWithRetry('Gemini', 'https://example.test', {});
+    const promise = fetchWithRetry('OpenRouter', 'https://example.test', {});
     await vi.runAllTimersAsync();
 
     expect(await promise).toBeNull();
@@ -202,15 +201,6 @@ describe('provider response parsing', () => {
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
-  it.each(['"OK"', '[]', '{}'])('treats HTTP 200 JSON %s without a Gemini answer envelope as unavailable', async body => {
-    vi.stubEnv('GEMINI_API_KEY', 'gemini-test');
-    const fetchMock = vi.spyOn(globalThis, 'fetch')
-      .mockResolvedValue(new Response(body, { status: 200 }));
-
-    await expect(queryGemini('costo vita Ticino')).resolves.toBeNull();
-    expect(fetchMock).toHaveBeenCalledTimes(1);
-  });
-
   it.each(['"OK"', '[]', '{}'])('treats HTTP 200 JSON %s without a GitHub Models answer envelope as unavailable', async body => {
     vi.stubEnv('GH_MODELS_PAT', 'ghp-test');
     const fetchMock = vi.spyOn(globalThis, 'fetch')
@@ -220,47 +210,25 @@ describe('provider response parsing', () => {
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
-  it('accepts the valid answer envelopes for all three providers', async () => {
+  it('accepts the valid answer envelopes for the active providers', async () => {
     vi.stubEnv('PERPLEXITY_API_KEY', 'pplx-test');
-    vi.stubEnv('GEMINI_API_KEY', 'gemini-test');
     vi.stubEnv('GH_MODELS_PAT', 'ghp-test');
     const responseBodies = [
       JSON.stringify({ choices: [{ message: { content: 'Perplexity answer' } }], citations: [] }),
-      JSON.stringify({ candidates: [{ content: { parts: [{ text: 'Gemini answer' }] } }] }),
       JSON.stringify({ choices: [{ message: { content: 'GitHub Models answer' } }] }),
     ];
     const fetchMock = vi.spyOn(globalThis, 'fetch')
       .mockImplementation(async () => new Response(responseBodies.shift()!, { status: 200 }));
 
     await expect(queryPerplexity('costo vita Ticino')).resolves.toMatchObject({ content: 'Perplexity answer' });
-    await expect(queryGemini('costo vita Ticino')).resolves.toMatchObject({ content: 'Gemini answer' });
     await expect(queryGitHubModels('costo vita Ticino')).resolves.toMatchObject({ content: 'GitHub Models answer' });
-    expect(fetchMock).toHaveBeenCalledTimes(3);
-  });
-
-  it('uses the first non-empty Gemini text part after non-text parts', async () => {
-    vi.stubEnv('GEMINI_API_KEY', 'gemini-test');
-    vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response(JSON.stringify({
-      candidates: [{
-        content: {
-          parts: [
-            { functionCall: { name: 'search' } },
-            { text: 'frontaliereticino.ch' },
-          ],
-        },
-      }],
-    }), { status: 200 }));
-
-    await expect(queryGemini('costo vita Ticino'))
-      .resolves.toMatchObject({ content: 'frontaliereticino.ch' });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 });
 
 /**
- * Issue #7402. With GitHub Models in retirement brownout, Gemini was the only
- * platform whose answer is GROUNDED (backed by live retrieval): one 429 of
- * quota and the whole run observes nothing. OpenRouter's web-search plugin is
- * a second grounded platform reachable with a key the repo already maps.
+ * OpenRouter's web-search plugin provides a grounded platform reachable with a
+ * key the repo already maps.
  */
 describe('OpenRouter web-search platform', () => {
   it('reads the url_citation annotations as the real sources', async () => {
@@ -377,10 +345,10 @@ describe('competitor matching is bounded to the host', () => {
     expect(citedHosts('', ['https://example.OAMal/path'])).toEqual(['example.oamal']);
   });
 
-  it('still books a competitor cited by URL or as a bare Gemini host', () => {
+  it('still books a competitor cited by URL or as a bare grounded host', () => {
     expect(findCompetitorMentions('Fonte: https://www.comparis.ch/krankenkassen', []))
       .toEqual(['comparis.ch']);
-    // Gemini grounding chunks expose the real host only as `web.title`.
+    // Grounded providers expose the real host in a title field.
     expect(findCompetitorMentions('', ['ticino.ch'])).toEqual(['ticino.ch']);
     // A subdomain of a competitor is still that competitor.
     expect(findCompetitorMentions('', ['https://www4.ti.ch/x', 'https://red.admin.ch/y']))

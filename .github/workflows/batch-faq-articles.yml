@@ -12,7 +12,7 @@ on:
       # against it. Re-enabling means deleting these comment markers; it is not
       # a code change, which is what makes the rollback cheap.
   # schedule:  # DISABLED AT CUTOVER — see above
-  # - cron: '30 0 * * *'  # Daily at 00:30 UTC (after Gemini quota reset)
+  # - cron: '30 0 * * *'  # Daily at 00:30 UTC (after provider quota reset)
   workflow_dispatch:
     inputs:
       limit:

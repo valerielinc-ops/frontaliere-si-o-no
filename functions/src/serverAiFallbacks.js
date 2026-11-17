@@ -2,7 +2,7 @@
 export const SERVER_TEXT_FALLBACKS = Object.freeze([
   { apiFamily: 'groq', rcKey: 'GROQ_API_KEY', base: 'https://api.groq.com/openai/v1/chat/completions', model: 'openai/gpt-oss-120b', label: 'groq-gpt-oss-120b' },
   // An independent provider must fit inside bounded callers' three attempts
-  // (Gemini + Groq + NVIDIA), rather than trying two exhausted Groq quotas.
+  // (Codex + Groq + NVIDIA), rather than trying two exhausted Groq quotas.
   { apiFamily: 'nvidia', rcKey: 'NVIDIA_API_KEY', base: 'https://integrate.api.nvidia.com/v1/chat/completions', model: 'openai/gpt-oss-20b', label: 'nvidia-gpt-oss-20b' },
   { apiFamily: 'groq', rcKey: 'GROQ_API_KEY', base: 'https://api.groq.com/openai/v1/chat/completions', model: 'openai/gpt-oss-20b', label: 'groq-gpt-oss-20b' },
 ]);

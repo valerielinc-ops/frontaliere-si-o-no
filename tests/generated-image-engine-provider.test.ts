@@ -8,7 +8,6 @@ import path from 'node:path';
 import sharp from 'sharp';
 
 import {
-  extractGeminiImageData,
   extractFalImageData,
   extractPexelsPhoto,
   extractPixabayPhoto,
@@ -230,12 +229,11 @@ describe('generated image provider contracts', () => {
       rmSync(tempDir, { recursive: true, force: true });
     }
   });
-  it('recognizes nested transport causes and Gemini request aborts as vision-provider outages', async () => {
+  it('recognizes nested transport causes and request aborts as vision-provider outages', async () => {
     const tempDir = mkdtempSync(path.join(process.cwd(), '.tmp-vision-provider-outage-'));
     const imagePath = path.join(tempDir, 'candidate.webp');
     const socketPath = path.join(os.tmpdir(), `frontaliere-vision-outage-${process.pid}-${Date.now()}.sock`);
     const originalSocket = process.env.CODEX_AUTH_BROKER_SOCKET;
-    const originalGeminiKey = process.env.GEMINI_API_KEY;
     const originalFetch = globalThis.fetch;
     const server = net.createServer((socket) => {
       socket.setEncoding('utf8');
@@ -249,7 +247,6 @@ describe('generated image provider contracts', () => {
         server.listen(socketPath, resolve);
       });
       process.env.CODEX_AUTH_BROKER_SOCKET = socketPath;
-      process.env.GEMINI_API_KEY = 'fixture-provider-key';
 
       const verifyWithFetchFailure = async (fetchFailure: Error) => {
         vi.stubGlobal('fetch', async () => { throw fetchFailure; });
@@ -276,8 +273,6 @@ describe('generated image provider contracts', () => {
     } finally {
       if (originalSocket === undefined) delete process.env.CODEX_AUTH_BROKER_SOCKET;
       else process.env.CODEX_AUTH_BROKER_SOCKET = originalSocket;
-      if (originalGeminiKey === undefined) delete process.env.GEMINI_API_KEY;
-      else process.env.GEMINI_API_KEY = originalGeminiKey;
       vi.unstubAllGlobals();
       globalThis.fetch = originalFetch;
       await new Promise<void>((resolve) => server.close(() => resolve()));
@@ -289,7 +284,6 @@ describe('generated image provider contracts', () => {
     const imagePath = path.join(tempDir, 'candidate.webp');
     const socketPath = path.join(os.tmpdir(), `frontaliere-malformed-vision-${process.pid}-${Date.now()}.sock`);
     const originalSocket = process.env.CODEX_AUTH_BROKER_SOCKET;
-    const originalGeminiKey = process.env.GEMINI_API_KEY;
     const server = net.createServer((socket) => {
       socket.setEncoding('utf8');
       socket.once('data', () => socket.end(`${JSON.stringify({ ok: true, result: 'not a JSON verdict' })}\n`));
@@ -302,7 +296,6 @@ describe('generated image provider contracts', () => {
         server.listen(socketPath, resolve);
       });
       process.env.CODEX_AUTH_BROKER_SOCKET = socketPath;
-      delete process.env.GEMINI_API_KEY;
 
       const error = await verifyGeneratedImage(imagePath, {
         scope: 'article-hero',
@@ -317,8 +310,6 @@ describe('generated image provider contracts', () => {
     } finally {
       if (originalSocket === undefined) delete process.env.CODEX_AUTH_BROKER_SOCKET;
       else process.env.CODEX_AUTH_BROKER_SOCKET = originalSocket;
-      if (originalGeminiKey === undefined) delete process.env.GEMINI_API_KEY;
-      else process.env.GEMINI_API_KEY = originalGeminiKey;
       await new Promise<void>((resolve) => server.close(() => resolve()));
       rmSync(tempDir, { recursive: true, force: true });
     }
@@ -328,16 +319,14 @@ describe('generated image provider contracts', () => {
     const imageBytes = await sharp({
       create: { width: 8, height: 8, channels: 3, background: { r: 25, g: 80, b: 120 } },
     }).jpeg().toBuffer();
-    const originalGeminiKey = process.env.GEMINI_API_KEY;
     const originalFalKey = process.env.FAL_KEY;
     const originalFetch = globalThis.fetch;
     const providerAttempts: Array<{ provider: string; status: string }> = [];
-    process.env.GEMINI_API_KEY = 'fixture-provider-key';
-    delete process.env.FAL_KEY;
+    process.env.FAL_KEY = 'fixture-provider-key';
     vi.stubGlobal('fetch', async () => ({
       ok: true,
       json: async () => ({
-        output_image: { type: 'image', mime_type: 'image/jpeg', data: imageBytes.toString('base64') },
+        images: [{ b64_json: imageBytes.toString('base64') }],
       }),
       text: async () => '',
     }));
@@ -351,7 +340,7 @@ describe('generated image provider contracts', () => {
         assetId: 'vision-provider-outage-test',
       }, {
         outputDir,
-        chain: ['gemini', 'fal'],
+        chain: ['fal'],
         onProviderAttempt: ({ provider, status }) => providerAttempts.push({ provider, status }),
         verifyImage: async () => { throw verifierFailure; },
       }).then(() => null, (caught: unknown) => caught as Error & {
@@ -362,16 +351,14 @@ describe('generated image provider contracts', () => {
       expect(error?.sharedProviderUnavailable).toBe(true);
       expect(error?.imageProviderLedger).toEqual({
         schema: 1,
-        complete: false,
-        expectedProviders: ['gemini', 'fal'],
-        attemptedProviders: ['gemini'],
+        complete: true,
+        expectedProviders: ['fal'],
+        attemptedProviders: ['fal'],
       });
       expect(providerAttempts.filter(({ status }) => status === 'started')).toEqual([
-        { provider: 'gemini', status: 'started' },
+        { provider: 'fal', status: 'started' },
       ]);
     } finally {
-      if (originalGeminiKey === undefined) delete process.env.GEMINI_API_KEY;
-      else process.env.GEMINI_API_KEY = originalGeminiKey;
       if (originalFalKey === undefined) delete process.env.FAL_KEY;
       else process.env.FAL_KEY = originalFalKey;
       vi.unstubAllGlobals();
@@ -381,10 +368,12 @@ describe('generated image provider contracts', () => {
   });
   it('records whether the full selected provider chain was actually attempted', async () => {
     const outputDir = mkdtempSync(path.join(os.tmpdir(), 'generated-image-provider-ledger-'));
-    const previousGeminiKey = process.env.GEMINI_API_KEY;
     const previousFalKey = process.env.FAL_KEY;
-    delete process.env.GEMINI_API_KEY;
-    delete process.env.FAL_KEY;
+    const previousTogetherKey = process.env.TOGETHER_API_KEY;
+    const previousFetch = globalThis.fetch;
+    process.env.FAL_KEY = 'fixture-provider-key';
+    process.env.TOGETHER_API_KEY = 'fixture-provider-key';
+    vi.stubGlobal('fetch', async () => { throw new Error('provider unavailable'); });
 
     const request = (maxAttempts?: number) => generateImageFromSpec({
       scope: 'article-hero',
@@ -392,7 +381,7 @@ describe('generated image provider contracts', () => {
       assetId: 'provider-ledger-test',
     }, {
       outputDir,
-      chain: ['gemini', 'fal'],
+      chain: ['fal', 'together'],
       maxAttempts,
     }).then(() => null, (error: unknown) => error as Error & {
       imageProviderLedger?: {
@@ -407,22 +396,24 @@ describe('generated image provider contracts', () => {
       expect(exhausted?.imageProviderLedger).toEqual({
         schema: 1,
         complete: true,
-        expectedProviders: ['gemini', 'fal'],
-        attemptedProviders: ['gemini', 'fal'],
+        expectedProviders: ['fal', 'together'],
+        attemptedProviders: ['fal', 'together'],
       });
 
       const capped = await request(1);
       expect(capped?.imageProviderLedger).toEqual({
         schema: 1,
         complete: false,
-        expectedProviders: ['gemini', 'fal'],
-        attemptedProviders: ['gemini'],
+        expectedProviders: ['fal', 'together'],
+        attemptedProviders: ['fal'],
       });
     } finally {
-      if (previousGeminiKey === undefined) delete process.env.GEMINI_API_KEY;
-      else process.env.GEMINI_API_KEY = previousGeminiKey;
       if (previousFalKey === undefined) delete process.env.FAL_KEY;
       else process.env.FAL_KEY = previousFalKey;
+      if (previousTogetherKey === undefined) delete process.env.TOGETHER_API_KEY;
+      else process.env.TOGETHER_API_KEY = previousTogetherKey;
+      vi.unstubAllGlobals();
+      globalThis.fetch = previousFetch;
       rmSync(outputDir, { recursive: true, force: true });
     }
   });
@@ -431,19 +422,13 @@ describe('generated image provider contracts', () => {
     const imageBytes = await sharp({
       create: { width: 8, height: 8, channels: 3, background: { r: 25, g: 80, b: 120 } },
     }).jpeg().toBuffer();
-    const previousGeminiKey = process.env.GEMINI_API_KEY;
     const previousFalKey = process.env.FAL_KEY;
     const previousFetch = globalThis.fetch;
-    process.env.GEMINI_API_KEY = 'fixture-provider-key';
-    delete process.env.FAL_KEY;
+    process.env.FAL_KEY = 'fixture-provider-key';
     vi.stubGlobal('fetch', async () => ({
       ok: true,
       json: async () => ({
-        output_image: {
-          type: 'image',
-          mime_type: 'image/jpeg',
-          data: imageBytes.toString('base64'),
-        },
+        images: [{ b64_json: imageBytes.toString('base64') }],
       }),
       text: async () => '',
     }));
@@ -466,7 +451,7 @@ describe('generated image provider contracts', () => {
         assetId: 'vision-provider-ledger-test',
       }, {
         outputDir,
-        chain: ['gemini', 'fal'],
+        chain: ['fal'],
         verifyImage: async () => { throw imageVisionRejectionError(vision); },
       }).then(() => null, (caught: unknown) => caught as Error & {
         failures?: Array<{ provider: string; vision?: Record<string, unknown> }>;
@@ -476,11 +461,11 @@ describe('generated image provider contracts', () => {
       expect(error?.imageProviderLedger).toEqual({
         schema: 1,
         complete: true,
-        expectedProviders: ['gemini', 'fal'],
-        attemptedProviders: ['gemini', 'fal'],
+        expectedProviders: ['fal'],
+        attemptedProviders: ['fal'],
       });
       expect(error?.failures?.[0]).toMatchObject({
-        provider: 'gemini',
+        provider: 'fal',
         vision: {
           contains_text: false,
           contains_logo: true,
@@ -492,13 +477,7 @@ describe('generated image provider contracts', () => {
         },
       });
       expect(error?.failures?.[0]?.vision).not.toHaveProperty('notes');
-      expect(error?.failures?.[1]).toMatchObject({
-        provider: 'fal',
-        reason: 'missing-key:FAL_KEY',
-      });
     } finally {
-      if (previousGeminiKey === undefined) delete process.env.GEMINI_API_KEY;
-      else process.env.GEMINI_API_KEY = previousGeminiKey;
       if (previousFalKey === undefined) delete process.env.FAL_KEY;
       else process.env.FAL_KEY = previousFalKey;
       vi.unstubAllGlobals();
@@ -506,58 +485,32 @@ describe('generated image provider contracts', () => {
       rmSync(outputDir, { recursive: true, force: true });
     }
   });
-  it('reads the image block from a completed Gemini Interactions response', () => {
-    const encoded = Buffer.from('fake-jpeg-bytes').toString('base64');
-
-    expect(extractGeminiImageData({
-      id: 'interaction-1',
-      status: 'completed',
-      output_image: {
-        type: 'image',
-        mime_type: 'image/jpeg',
-        data: encoded,
-      },
-    })).toBe(encoded);
-  });
-
-  it('keeps the step-content image shape as a compatible fallback', () => {
-    const encoded = Buffer.from('step-image').toString('base64');
-
-    expect(extractGeminiImageData({
-      status: 'completed',
-      steps: [{
-        type: 'model_output',
-        content: [{ type: 'image', mime_type: 'image/jpeg', data: encoded }],
-      }],
-    })).toBe(encoded);
-  });
-
   it('includes a bounded, redacted provider body in HTTP diagnostics', () => {
     const message = formatProviderHttpError(
-      'Gemini',
+      'Fal',
       400,
       '{"error":{"message":"image/png is not supported","api_key":"AIza-secret-value"}}',
     );
 
-    expect(message).toContain('Gemini image request failed with HTTP 400');
+    expect(message).toContain('Fal image request failed with HTTP 400');
     expect(message).toContain('image/png is not supported');
     expect(message).not.toContain('AIza-secret-value');
     expect(message.length).toBeLessThanOrEqual(650);
   });
 
   it('uses the governed generation chain with Codex first', () => {
-    expect(imageProviderSequence()).toEqual(['openai-codex', 'gemini', 'fal', 'together', 'pollinations']);
+    expect(imageProviderSequence()).toEqual(['openai-codex', 'fal', 'together', 'pollinations']);
     expect(imageProviderSequence({ scope: 'event-library' })).toEqual([
-      'openai-codex', 'gemini', 'fal', 'together', 'pollinations', 'wikimedia', 'pexels', 'pixabay',
+      'openai-codex', 'fal', 'together', 'pollinations', 'wikimedia', 'pexels', 'pixabay',
     ]);
     expect(imageProviderSequence({ scope: 'article-hero' })).toEqual([
-      'openai-codex', 'gemini', 'fal', 'together', 'pollinations', 'wikimedia', 'pexels', 'pixabay',
+      'openai-codex', 'fal', 'together', 'pollinations', 'wikimedia', 'pexels', 'pixabay',
     ]);
     expect(imageProviderSequence({ scope: 'editorial-profile' })).toEqual([
-      'openai-codex', 'gemini', 'fal', 'together', 'pollinations',
+      'openai-codex', 'fal', 'together', 'pollinations',
     ]);
     expect(imageProviderSequence({ kind: 'photo' })).toEqual([
-      'wikimedia', 'pexels', 'pixabay', 'openai-codex', 'gemini', 'fal', 'together', 'pollinations',
+      'wikimedia', 'pexels', 'pixabay', 'openai-codex', 'fal', 'together', 'pollinations',
     ]);
     expect(imageProviderSequence({ chain: 'together, pollinations' })).toEqual(['together', 'pollinations']);
   });

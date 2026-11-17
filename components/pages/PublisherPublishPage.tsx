@@ -69,7 +69,7 @@ const CREATE_CHECKOUT_ENDPOINT =
  'https://europe-west6-frontaliere-ticino.cloudfunctions.net/createPublisherCheckout';
 const ATTACH_PUBLISHER_JOB_ENDPOINT =
  'https://europe-west6-frontaliere-ticino.cloudfunctions.net/attachPublisherJob';
-const GEMINI_ENDPOINT =
+const AI_GENERATE_ENDPOINT =
  'https://europe-west6-frontaliere-ticino.cloudfunctions.net/geminiGenerate';
 
 const VALID_EMPLOYMENT_TYPES = ['FULL_TIME', 'PART_TIME', 'CONTRACTOR', 'TEMPORARY', 'INTERN'];
@@ -484,7 +484,7 @@ const PublisherPublishPage: React.FC<PublisherPublishPageProps> = ({ entry = 'st
  `"employmentType" (uno tra ${VALID_EMPLOYMENT_TYPES.join(', ')}), ` +
  `"sector" (settore breve, es. "sanità", "edilizia", "IT"), ` +
  `"category" (uno tra ${CATEGORY_SLUGS.join(', ')}).`;
- const res = await fetch(GEMINI_ENDPOINT, {
+ const res = await fetch(AI_GENERATE_ENDPOINT, {
  method: 'POST',
  headers: { 'Content-Type': 'application/json' },
  body: JSON.stringify({ userPrompt, maxTokens: 1024, temperature: 0.6 }),

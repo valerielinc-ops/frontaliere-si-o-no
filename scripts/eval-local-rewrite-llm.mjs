@@ -18,8 +18,8 @@
  *   node scripts/eval-local-rewrite-llm.mjs [--models=qwen2.5:0.5b,qwen2.5:1.5b,qwen2.5:3b] [--samples=5]
  *
  * Requires: `ollama serve` running locally with the candidate models pulled,
- * and GEMINI_API_KEY set (only verifier model available without a
- * GH_MODELS_PAT in this environment — llmFactCheck degrades gracefully to
+ * and CODEX_AUTH_JSON or GH_MODELS_PAT set (the verifier degrades gracefully
+ * without a configured remote lane — llmFactCheck degrades gracefully to
  * single-model consensus, same as a GitHub Models outage in production).
  */
 import fs from 'node:fs';

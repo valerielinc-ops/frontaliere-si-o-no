@@ -1,7 +1,7 @@
 /**
  * tests/functions/codex-fallback.test.ts
  *
- * Copertura di functions/src/codexFallback.js — l'ultimo rung delle fallback
+ * Copertura di functions/src/codexFallback.js — la corsia primaria della
  * chain di geminiGenerate.js e chatbotInference.js. Si autentica con il login
  * ChatGPT della Codex CLI (`CODEX_AUTH_JSON` da Remote Config, la copia scritta
  * da codex-auth-rotate.yml) e chiama il backend Codex come `codex exec` 0.153.4.
@@ -449,11 +449,11 @@ describe('parità con la CI e con la rotazione', () => {
   });
 });
 
-describe('handleGeminiGenerate — rung Codex', () => {
+describe('handleGeminiGenerate — Codex primary e fallback compatibili', () => {
   const req = { method: 'POST', body: { systemPrompt: 'sys', userPrompt: 'scrivi', maxTokens: 300, temperature: 0.2 } };
 
-  it('Codex è l’ultimo rung: arriva solo dopo Gemini e i provider gratuiti', async () => {
-    rc = { GEMINI_API_KEY: 'g', GROQ_API_KEY: 'q', NVIDIA_API_KEY: 'n', CODEX_AUTH_JSON: codexLogin() };
+  it('Codex è il primo rung e non interroga provider successivi quando risponde', async () => {
+    rc = { GROQ_API_KEY: 'q', NVIDIA_API_KEY: 'n', CODEX_AUTH_JSON: codexLogin() };
     fetchMock.mockImplementation(async (url: string) => {
       if (String(url) === CODEX_URL) return codexOk('dal rung codex');
       return new Response('down', { status: 503 });
@@ -464,17 +464,16 @@ describe('handleGeminiGenerate — rung Codex', () => {
 
     expect(res).toEqual({ status: 200, body: { ok: true, text: 'dal rung codex', provider: 'codex' } });
     const urls = fetchMock.mock.calls.map(([url]) => String(url));
-    expect(urls).toHaveLength(5); // Gemini, Groq 120B, independent NVIDIA 20B, Groq 20B, Codex
-    expect(urls.at(-1)).toBe(CODEX_URL);
-    expect(urls.slice(0, -1)).not.toContain(CODEX_URL);
+    expect(urls).toHaveLength(1);
+    expect(urls[0]).toBe(CODEX_URL);
     expect(JSON.parse(codexCalls()[0][1].body).input[0]).toEqual({ type: 'message', role: 'developer', content: [{ type: 'input_text', text: 'sys' }] });
     for (const key of ['ANTHROPIC_API_KEY', 'OPENAI_API_KEY']) expect(getRemoteConfigValueMock).not.toHaveBeenCalledWith(key);
   });
 
-  it('uses the supported Groq fallback after primary quota failure, preserving the prompt and budget', async () => {
-    rc = { GEMINI_API_KEY: 'g', GROQ_API_KEY: 'q' };
+  it('uses the supported Groq fallback after primary Codex quota failure, preserving the prompt and budget', async () => {
+    rc = { GROQ_API_KEY: 'q', CODEX_AUTH_JSON: codexLogin() };
     fetchMock.mockImplementation(async (url: string, init: any) => {
-      if (String(url).includes('generativelanguage.googleapis.com')) return new Response('quota', { status: 429 });
+      if (String(url) === CODEX_URL) return new Response('quota', { status: 429 });
       const body = JSON.parse(init.body);
       expect(body).toMatchObject({ model: 'openai/gpt-oss-120b', max_completion_tokens: 300, reasoning_effort: 'low',
         messages: [{ role: 'system', content: 'sys' }, { role: 'user', content: 'scrivi' }] });
@@ -488,7 +487,7 @@ describe('handleGeminiGenerate — rung Codex', () => {
   });
 
   it('recovers bounded concierge generation through the independent NVIDIA provider', async () => {
-    rc = { GEMINI_API_KEY: 'g', GROQ_API_KEY: 'q', NVIDIA_API_KEY: 'n' };
+    rc = { GROQ_API_KEY: 'q', NVIDIA_API_KEY: 'n' };
     fetchMock.mockImplementation(async (url: string, init: any) => {
       if (!String(url).startsWith('https://integrate.api.nvidia.com/')) return new Response('quota', { status: 429 });
       const body = JSON.parse(init.body);
@@ -498,12 +497,12 @@ describe('handleGeminiGenerate — rung Codex', () => {
     });
     const { generateServerText } = await import('../../functions/src/geminiGenerate.js');
     expect(await generateServerText({ systemPrompt: 'sys', userPrompt: 'scrivi', maxTokens: 8192, temperature: 0, maxProviderAttempts: 3, allowCodexFallback: false })).toMatchObject({ status: 200, body: { text: '{"verified":true}', provider: 'nvidia-gpt-oss-20b' } });
-    expect(fetchMock).toHaveBeenCalledTimes(3);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
     expect(codexCalls()).toHaveLength(0);
   });
 
   it('espone diagnostica strutturata solo al caller background trusted', async () => {
-    rc = { GEMINI_API_KEY: 'g', GROQ_API_KEY: 'q', NVIDIA_API_KEY: 'n', CODEX_AUTH_JSON: codexLogin() };
+    rc = { GROQ_API_KEY: 'q', NVIDIA_API_KEY: 'n', CODEX_AUTH_JSON: codexLogin() };
     fetchMock.mockImplementation(async (url: string) => {
       if (String(url) === CODEX_URL) return new Response('codex down', { status: 500 });
       return new Response('quota detail must not become retry metadata', { status: 429 });
@@ -514,10 +513,9 @@ describe('handleGeminiGenerate — rung Codex', () => {
 
     expect(result).toMatchObject({ status: 502, body: { error: 'all_providers_failed' } });
     expect(result.body.providerFailures).toEqual([
-      { provider: 'gemini', cause: 'rate_limited', status: 429 },
+      { provider: 'codex', cause: 'provider_http', status: 500 },
       { provider: 'groq-gpt-oss-120b', cause: 'rate_limited', status: 429 },
       { provider: 'nvidia-gpt-oss-20b', cause: 'rate_limited', status: 429 },
-      { provider: 'codex', cause: 'provider_http', status: 500 },
     ]);
     expect(JSON.stringify(result.body.providerFailures)).not.toContain('quota detail');
   });

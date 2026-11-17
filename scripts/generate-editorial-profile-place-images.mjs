@@ -116,7 +116,7 @@ async function main() {
   const registry = readRegistry();
   const assetsByUrl = new Map(registry.assets.map((record) => [record.imageUrl, record]));
   const items = descriptors(scope);
-  const providerCounts = { 'openai-codex': 0, gemini: 0 };
+  const providerCounts = { 'openai-codex': 0 };
 
   for (const item of items) {
     const result = await generateImageFromSpec({
@@ -132,7 +132,7 @@ async function main() {
       assetId: item.assetId,
       publishedImageUrl: item.imageUrl,
       onProviderAttempt: ({ provider }) => {
-        providerCounts[provider] += 1;
+        providerCounts[provider] = (providerCounts[provider] || 0) + 1;
         console.error(`[generated-image] ${item.assetId}: ${provider}`);
       },
     });
@@ -144,7 +144,7 @@ async function main() {
   }
 
   const finalRegistry = persist(assetsByUrl);
-  console.error(`[generated-image] registry records: ${finalRegistry.assetCount}; codex=${providerCounts['openai-codex']}; gemini=${providerCounts.gemini}`);
+  console.error(`[generated-image] registry records: ${finalRegistry.assetCount}; codex=${providerCounts['openai-codex'] || 0}`);
 }
 
 main().catch((error) => {

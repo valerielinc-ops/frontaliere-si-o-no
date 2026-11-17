@@ -1,7 +1,7 @@
 /**
- * codexFallback.js — ultimo rung, condiviso da geminiGenerate.js e
- * chatbotInference.js: Codex Luna Max dopo Gemini e dopo ogni provider
- * OpenAI-compatible gratuito (Groq, NVIDIA). Consuma la quota della
+ * codexFallback.js — trasporto condiviso da geminiGenerate.js e
+ * chatbotInference.js: Codex Luna Max come corsia primaria e, se richiesto,
+ * dopo ogni provider OpenAI-compatible (Groq, NVIDIA). Consuma la quota della
  * subscription Codex condivisa con la CI (AGENTS.md → «Quota condivisa»).
  *
  * Autenticazione (istruzione del proprietario 2026-09-24: «anziché utilizzare

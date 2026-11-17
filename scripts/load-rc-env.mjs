@@ -85,7 +85,6 @@ export const RC_TO_ENV = {
   // Build-time, comma-separated section allowlist for expired-job edge
   // soft-landings. Missing/invalid input means off and keeps pages static.
   EXPIRED_JOB_EDGE_SECTIONS: ['EXPIRED_JOB_EDGE_SECTIONS'],
-  GEMINI_API_KEY:                 ['GEMINI_API_KEY', 'VITE_GEMINI_API_KEY'],
   BING_API_KEY:                   ['BING_API_KEY'],
   PAGESPEED_API_KEY:              ['PAGESPEED_API_KEY'],
   FB_PAGE_ID:                     ['FB_PAGE_ID'],

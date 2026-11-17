@@ -6,7 +6,7 @@ description: >-
   decrypted from a local OmniRoute install when OMNIROUTE_PROVIDERS_JSON is
   present in Remote Config (see scripts/sync-omniroute-providers-rc.mjs),
   else a small curated fallback from env (GROQ_API_KEY/OPENROUTER_API_KEY/
-  GEMINI_API_KEY/MISTRAL_API_KEY — see scripts/ci/omniroute-poc-register.mjs),
+  MISTRAL_API_KEY — see scripts/ci/omniroute-poc-register.mjs),
   then sets OMNIROUTE_ENABLED=1 so scripts/lib/ai-models.mjs offers
   AI_MODELS.OMNIROUTE_AUTO (single "auto" routing-sentinel node — OmniRoute
   does its OWN internal provider fallback across whatever it has

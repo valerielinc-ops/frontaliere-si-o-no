@@ -9,7 +9,7 @@
  * - PARSER_APPLY_CONFIG ('1' to merge into jobs-crawler-config.json)
  *
  * Secrets (handled by centralized scripts/lib/ai-models.mjs):
- * - GH_MODELS_PAT, GEMINI_API_KEY, GROQ_API_KEY, OPENROUTER_API_KEY
+ * - CODEX_AUTH_JSON / GH_MODELS_PAT, GROQ_API_KEY, OPENROUTER_API_KEY
  */
 
 import fs from 'node:fs';
