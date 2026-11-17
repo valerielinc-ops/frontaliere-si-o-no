@@ -12,6 +12,8 @@ import {
   writeDistPageSafely,
 } from '../build-plugins/shared/distPathSafety';
 import {
+  getJobAliasRedirectDirs,
+  isJobAliasRedirectPath,
   reserveJobAliasRedirectDir,
   reset as resetWriteRegistry,
 } from '../build-plugins/sharedWriteRegistry';
@@ -60,6 +62,41 @@ describe('filesystem target preflight', () => {
     const pathname = `/${'x'.repeat(251)}/`;
     expect(isSafeDistPath(pathname)).toBe(true);
     expect(getSafeDistPageTargets('/runner/dist', pathname)).toBeNull();
+  });
+
+  it('accepts and reserves a removable alias when only its flat sibling is unaddressable', () => {
+    const distDir = fs.mkdtempSync(path.join(os.tmpdir(), 'dist-path-removable-alias-'));
+    const pathname = `/${'x'.repeat(251)}/`;
+    const targets = getSafeDistPageTargets(distDir, pathname, { includeFlat: false });
+    try {
+      expect(isSafeDistPath(pathname)).toBe(true);
+      expect(getSafeDistPageTargets(distDir, pathname)).toBeNull();
+      expect(targets).not.toBeNull();
+      expect(targets?.flatPath).toBeUndefined();
+
+      fs.mkdirSync(targets!.directoryPath);
+      reserveJobAliasRedirectDir(targets!.directoryPath);
+
+      expect([...getJobAliasRedirectDirs()]).toContain(path.resolve(targets!.directoryPath));
+      expect(isJobAliasRedirectPath(targets!.indexPath)).toBe(true);
+      expect(isJobAliasRedirectPath(`${targets!.directoryPath}.html`)).toBe(true);
+      expect(fs.existsSync(targets!.indexPath)).toBe(false);
+      expect(fs.existsSync(`${targets!.directoryPath}.html`)).toBe(false);
+    } finally {
+      resetWriteRegistry();
+      fs.rmSync(distDir, { recursive: true, force: true });
+    }
+  });
+
+  it('keeps URL and directory target safety checks when the flat sibling is omitted', () => {
+    const unsafeUrl = `/${'x'.repeat(MAX_FILESYSTEM_SEGMENT_BYTES + 1)}/`;
+    expect(getSafeDistPageTargets('/runner/dist', unsafeUrl, { includeFlat: false })).toBeNull();
+
+    const overlongDistDir = path.resolve(
+      os.tmpdir(),
+      ...Array.from({ length: 17 }, () => 'd'.repeat(235)),
+    );
+    expect(getSafeDistPageTargets(overlongDistDir, '/safe/', { includeFlat: false })).toBeNull();
   });
 
   it('rejects a pathname at the 4096-byte boundary before either target is emitted', () => {

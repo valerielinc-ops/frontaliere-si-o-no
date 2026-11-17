@@ -14961,7 +14961,7 @@ ${staticAnalyticsHtml}
     activeBridgeRedirectCounts[bridge.locale]++;
     activeBridgeRemovableByKind[bridge.kind]++;
     if (!shouldEmitLocale(bridge.locale)) continue;
-    const targets = getSafeDistPageTargets(distDir, bridge.path);
+    const targets = getSafeDistPageTargets(distDir, bridge.path, { includeFlat: false });
     if (!targets) {
      throw new Error('[job-alias-redirect-gate] removable bridge path is not a safe dist target');
     }
