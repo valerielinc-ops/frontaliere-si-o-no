@@ -129,6 +129,7 @@ export function installAdRecovery(
   let cmpReopenAt = 0;
   let nativeRecoveryReported = false;
   let adsAllowedOutcomeReported = false;
+  let fundingChoicesBlockSignalReported = false;
   let popup: HTMLDialogElement | null = null;
   let promo: HTMLElement | null = null;
   let probeResult = 'unknown';
@@ -143,6 +144,14 @@ export function installAdRecovery(
   const rememberPromptShown = () => { w.__ftNativeApplicationOfferShown = true; store(recoveryPromptSeenKey, '1'); };
   const promptWasDismissed = () => storageRead(recoveryPromptDismissedKey) === '1';
   const nativeRecoveryWasShown = () => nativeRecoveryReported || storageRead('ft_ad_recovery_google_prompted') === '1';
+  const reportFundingChoicesBlockSignal = () => {
+    const signal = w.__ftAdBlock;
+    if (fundingChoicesBlockSignalReported || signal?.blocked !== true || signal.adsAllowed === true) return;
+    fundingChoicesBlockSignalReported = true;
+    emit('ad_reliability_state', {
+      reason: 'adblock_detected', source: 'funding_choices', signal_state: 'blocked', blocked: 1, ads_allowed: 0,
+    });
+  };
   const hasDecision = () => { try { return /^(granted|denied)$/.test((w as RecoveryWindow & { __ftAdsConsentDecision?: string }).__ftAdsConsentDecision || localStorage.getItem(config.consentKey) || ''); } catch { return false; } };
   const onScreen = (el: Element) => {
     for (let node: Element | null = el; node; node = node.parentElement) {
@@ -344,9 +353,10 @@ export function installAdRecovery(
       if (pollTimer === undefined) pollTimer = setInterval(schedule, 1000);
     } else { clearInterval(pollTimer); pollTimer = undefined; }
     if (location.pathname !== path) {
-      path = location.pathname; started = Date.now(); reportedState = ''; removePromo(); closePopup();
+      path = location.pathname; started = Date.now(); reportedState = ''; fundingChoicesBlockSignalReported = false; removePromo(); closePopup();
     }
     if (!permitted()) { removePromo(); closePopup(); return; }
+    reportFundingChoicesBlockSignal();
     if (!adsAllowedOutcomeReported && w.__ftAdBlock?.adsAllowed === true
         && storageRead('ft_ad_recovery_ads_allowed_reported') !== '1') {
       adsAllowedOutcomeReported = true;
