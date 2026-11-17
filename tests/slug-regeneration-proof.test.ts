@@ -176,4 +176,22 @@ describe('slug regeneration post-run proof', () => {
       fs.rmSync(root, { recursive: true, force: true });
     }
   });
+
+  it('counts a master bridge as self when the locale has no explicit active slug', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'slug-regeneration-proof-fallback-'));
+    const slicePath = path.join(root, 'slice.json');
+    try {
+      fs.writeFileSync(slicePath, JSON.stringify({
+        jobs: [{
+          slug: 'master',
+          slugByLocale: {},
+          previousSlugsByLocale: { en: ['master'] },
+        }],
+      }));
+
+      expect(snapshotSlugCorpus([slicePath], { root }).selfBridgeCount).toBe(1);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
 });

@@ -94,7 +94,7 @@ export function snapshotSlugCorpus(filePaths, { root = process.cwd(), read = rea
       let jobBridgeCount = 0;
       for (const [locale, slugs] of Object.entries(job.previousSlugsByLocale || {})) {
         if (!LOCALES.includes(locale) || !Array.isArray(slugs)) continue;
-        const activeLocale = normalizedSlug(slugByLocale[locale]);
+        const activeLocale = normalizedSlug(slugByLocale[locale]) || masterSlug;
         for (const slugValue of slugs) {
           const slug = normalizedSlug(slugValue);
           if (!slug) continue;
@@ -103,10 +103,11 @@ export function snapshotSlugCorpus(filePaths, { root = process.cwd(), read = rea
           ensureSet(bridgeByLocale, locale).add(slug);
           bridgeRefs.push({ kind: 'locale', locale, slug });
           // A locale-aware bridge is self-referential only when it points to
-          // that locale's active route. The master slug is the Italian route;
-          // under en/de/fr it can be the old active route preserved during a
-          // locale translation and must not fail the post-run proof.
-          if (slug === activeLocale || (locale === 'it' && slug === masterSlug)) {
+          // that locale's effective active route. When a locale has no
+          // explicit slug, the active route falls back to the master slug;
+          // once translated, the old master route under en/de/fr is a valid
+          // historical bridge and no longer counts as self-referential.
+          if (slug === activeLocale) {
             selfBridgeCount++;
           }
         }
