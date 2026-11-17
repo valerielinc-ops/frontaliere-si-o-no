@@ -20,7 +20,7 @@ describe('OmniRoute free-provider allowlist', () => {
   });
 
   it('keeps the free providers our own chain already runs at $0', () => {
-    for (const p of ['gemini', 'groq', 'openrouter', 'cerebras', 'github-models', 'huggingface']) {
+    for (const p of ['nvidia', 'groq', 'openrouter', 'cerebras', 'github-models', 'huggingface']) {
       expect(OMNIROUTE_FREE_PROVIDERS).toContain(p);
     }
   });
@@ -72,17 +72,17 @@ describe('OmniRoute free-provider allowlist', () => {
     });
 
     it('a CSV override replaces the list outright rather than extending it', () => {
-      const { allowlist, filteringOff } = resolveOmniRouteAllowlist('groq, gemini');
+      const { allowlist, filteringOff } = resolveOmniRouteAllowlist('groq, nvidia');
       expect(filteringOff).toBe(false);
-      expect([...allowlist].sort()).toEqual(['gemini', 'groq']);
+      expect([...allowlist].sort()).toEqual(['groq', 'nvidia']);
       // Not a merge: a built-in entry absent from the override is dropped.
       expect(allowlist.has('cerebras')).toBe(false);
     });
 
     it('tolerates whitespace and stray separators in the override', () => {
-      const { allowlist, filteringOff } = resolveOmniRouteAllowlist('  groq , , gemini ,');
+      const { allowlist, filteringOff } = resolveOmniRouteAllowlist('  groq , , nvidia ,');
       expect(filteringOff).toBe(false);
-      expect([...allowlist].sort()).toEqual(['gemini', 'groq']);
+      expect([...allowlist].sort()).toEqual(['groq', 'nvidia']);
     });
 
     it('a whitespace-only override reads as cleared, i.e. filtering off', () => {
@@ -127,7 +127,7 @@ describe('OmniRoute free-provider allowlist', () => {
     it('still drops an empty value for every other key', () => {
       // ~90 other params: empty means "never configured", and exporting it
       // would shadow a legitimate built-in default instead of falling through.
-      expect(shouldExportRcValue('', 'GEMINI_API_KEY')).toBe(false);
+      expect(shouldExportRcValue('', 'GROQ_API_KEY')).toBe(false);
       expect(shouldExportRcValue('', 'ENABLE_OMNIROUTE_FALLBACK')).toBe(false);
     });
 
@@ -136,8 +136,8 @@ describe('OmniRoute free-provider allowlist', () => {
     });
 
     it('exports normal values unchanged, for allowed and ordinary keys alike', () => {
-      expect(shouldExportRcValue('groq,gemini', 'OMNIROUTE_PROVIDER_ALLOWLIST')).toBe(true);
-      expect(shouldExportRcValue('some-secret', 'GEMINI_API_KEY')).toBe(true);
+      expect(shouldExportRcValue('groq,nvidia', 'OMNIROUTE_PROVIDER_ALLOWLIST')).toBe(true);
+      expect(shouldExportRcValue('some-secret', 'GROQ_API_KEY')).toBe(true);
     });
 
     it('bridges through to filtering-off, end to end', () => {
@@ -149,10 +149,10 @@ describe('OmniRoute free-provider allowlist', () => {
   });
 
   it('filters a realistic mixed payload down to free providers only', () => {
-    const offered = ['groq', 'deepinfra', 'gemini', 'poe', 'cerebras', 'stability-ai',
-      'openrouter', 'hyperbolic', 'gemini-web', 'llm7'];
+    const offered = ['groq', 'deepinfra', 'nvidia', 'poe', 'cerebras', 'stability-ai',
+      'openrouter', 'hyperbolic', 'perplexity-web', 'llm7'];
     const { allowlist } = resolveOmniRouteAllowlist(undefined);
     expect(offered.filter((p) => allowlist.has(p)).sort())
-      .toEqual(['cerebras', 'gemini', 'groq', 'llm7', 'openrouter']);
+      .toEqual(['cerebras', 'groq', 'llm7', 'nvidia', 'openrouter']);
   });
 });

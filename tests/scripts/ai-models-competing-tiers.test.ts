@@ -30,7 +30,7 @@ describe('ai-models AI_COMPETING_TIERS kill-switch', () => {
     'OMNIROUTE_ENABLED', 'OMNIROUTE_URL', 'OMNIROUTE_API_KEY',
     'LOCAL_LLM_ENABLED',
     'ENABLE_HAIKU_ARTICLE_FALLBACK', 'CLAUDE_CODE_OAUTH_TOKEN',
-    'GEMINI_API_KEY',
+    'GH_MODELS_PAT',
   ] as const;
   const saved: Record<string, string | undefined> = {};
   let warnSpy: ReturnType<typeof vi.spyOn>;
@@ -83,7 +83,7 @@ describe('ai-models AI_COMPETING_TIERS kill-switch', () => {
     });
 
     it('ramp-up: a normal tier-0 model with no accumulated score still outranks a freshly-promoted tier tied at score 0 (DEFAULT_CHAIN array-position tiebreak, no artificial initial score)', () => {
-      process.env.GEMINI_API_KEY = 'fake-key-for-routing-test-only';
+      process.env.GH_MODELS_PAT = 'github-models-test-key';
       enableAllLastResortTiers();
       // sortChainByScore's index tiebreak (scripts/lib/ai-models.mjs) is the
       // position within the chain ARRAY PASSED IN, not a lookup into
@@ -92,15 +92,15 @@ describe('ai-models AI_COMPETING_TIERS kill-switch', () => {
       // ordering the array (a hand-written order silently asserts nothing
       // about DEFAULT_CHAIN once tier-0 makes both candidates equal-tier).
       // Deriving it from the real DEFAULT_CHAIN also makes this assertion
-      // self-updating if the array is ever reordered. GEMINI_FLASH sits far
+      // self-updating if the array is ever reordered. GPT4O sits far
       // earlier in DEFAULT_CHAIN than OMNIROUTE_AUTO (the final active
       // last-resort entry; the legacy Claude provider is not in this chain).
       // With every score equal (0, nothing persisted yet), the promoted tier
       // starts BEHIND, not pinned to the top.
-      const candidates = new Set([AI_MODELS.OMNIROUTE_AUTO, AI_MODELS.GEMINI_FLASH]);
+      const candidates = new Set([AI_MODELS.OMNIROUTE_AUTO, AI_MODELS.GPT4O]);
       const chain = DEFAULT_CHAIN.filter((m) => candidates.has(m));
-      expect(chain).toEqual([AI_MODELS.GEMINI_FLASH, AI_MODELS.OMNIROUTE_AUTO]); // sanity-check the assumed real order
-      expect(getPreferredModel({ chain })).toBe(AI_MODELS.GEMINI_FLASH);
+      expect(chain).toEqual([AI_MODELS.GPT4O, AI_MODELS.OMNIROUTE_AUTO]); // sanity-check the assumed real order
+      expect(getPreferredModel({ chain })).toBe(AI_MODELS.GPT4O);
     });
   });
 
@@ -116,11 +116,11 @@ describe('ai-models AI_COMPETING_TIERS kill-switch', () => {
     });
 
     it('a normal tier-0 cloud model still outranks all 3 last-resort tiers under the rollback, same as before this feature existed', () => {
-      process.env.GEMINI_API_KEY = 'fake-key-for-routing-test-only';
+      process.env.GH_MODELS_PAT = 'github-models-test-key';
       enableAllLastResortTiers();
       process.env.AI_COMPETING_TIERS = '';
-      const chain = [AI_MODELS.CLAUDE_CLI_HAIKU, AI_MODELS.LOCAL_FALLBACK, AI_MODELS.OMNIROUTE_AUTO, AI_MODELS.GEMINI_FLASH];
-      expect(getPreferredModel({ chain })).toBe(AI_MODELS.GEMINI_FLASH);
+      const chain = [AI_MODELS.CLAUDE_CLI_HAIKU, AI_MODELS.LOCAL_FALLBACK, AI_MODELS.OMNIROUTE_AUTO, AI_MODELS.GPT4O];
+      expect(getPreferredModel({ chain })).toBe(AI_MODELS.GPT4O);
     });
   });
 
