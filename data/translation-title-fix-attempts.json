@@ -9878,10 +9878,10 @@
       "rung": "unserved"
     },
     "mcdonald-s-switzerland-b521c2367e5d|fr|it": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-11-09T08:17:28.102Z",
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-17T10:21:42.124Z",
       "source": "5d285367ec5d",
-      "rung": "mozhiDdg"
+      "rung": "codex"
     },
     "mcdonald-s-switzerland-98e045590fab|fr|en": {
       "attempts": 5,
@@ -53362,10 +53362,10 @@
       "lastAttemptAt": "2026-10-05T17:13:51.673Z"
     },
     "bachem-9666131b02de|de|en": {
-      "attempts": 5,
-      "lastAttemptAt": "2026-11-04T10:22:24.959Z",
-      "source": "0723592b350d",
-      "rung": "unserved"
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:21:53.595Z",
+      "source": "569058edc707",
+      "rung": "myMemory"
     },
     "bachem-bebb17040a66|de|en": {
       "attempts": 5,
@@ -172768,7 +172768,9 @@
     },
     "wagerenhof-62b4ceb5eb10|de|en": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-12T12:10:50.364Z"
+      "lastAttemptAt": "2026-11-17T10:21:27.468Z",
+      "source": "e6bbf405cdb1",
+      "rung": "codex"
     },
     "confederazione-ticino-08863d85378c|de|en": {
       "attempts": 1,
@@ -172804,7 +172806,9 @@
     },
     "wagerenhof-62b4ceb5eb10|de|it": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-12T12:10:55.882Z"
+      "lastAttemptAt": "2026-11-17T10:22:10.987Z",
+      "source": "e6bbf405cdb1",
+      "rung": "codex"
     },
     "confederazione-ticino-08863d85378c|de|it": {
       "attempts": 1,
@@ -172864,7 +172868,9 @@
     },
     "wagerenhof-62b4ceb5eb10|de|fr": {
       "attempts": 1,
-      "lastAttemptAt": "2026-10-12T12:11:02.258Z"
+      "lastAttemptAt": "2026-11-17T10:21:38.793Z",
+      "source": "e6bbf405cdb1",
+      "rung": "codex"
     },
     "confederazione-ticino-08863d85378c|de|fr": {
       "attempts": 1,
@@ -196284,10 +196290,10 @@
       "source": "2a05a35e8306"
     },
     "roche-5d6ee10f786f|en|de": {
-      "attempts": 4,
-      "lastAttemptAt": "2026-11-09T08:18:15.601Z",
+      "attempts": 5,
+      "lastAttemptAt": "2026-11-17T10:21:50.868Z",
       "source": "9fea462c9ea0",
-      "rung": "myMemory"
+      "rung": "codex"
     },
     "roche-5d6ee10f786f|en|it": {
       "attempts": 2,
@@ -319080,8 +319086,8 @@
       "rung": "codex"
     },
     "grand-hotel-kronenhof-d171ddb1b6dc|en|de": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-04T10:20:10.517Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:22:22.047Z",
       "source": "086750bbb76e",
       "rung": "codex"
     },
@@ -352290,40 +352296,40 @@
       "rung": "codex"
     },
     "unispital-basel-4dc57c6d2315|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-09T00:10:11.792Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:21:27.468Z",
       "source": "4d5a2bd5cf96",
-      "rung": "myMemory"
+      "rung": "codex"
     },
     "unispital-basel-4dc57c6d2315|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-09T00:10:12.880Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:21:42.264Z",
       "source": "4d5a2bd5cf96",
-      "rung": "myMemory"
+      "rung": "codex"
     },
     "unispital-basel-260c44549ad0|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-09T00:10:12.880Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:21:27.468Z",
       "source": "4d5a2bd5cf96",
-      "rung": "myMemory"
+      "rung": "codex"
     },
     "unispital-basel-260c44549ad0|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-09T00:10:12.881Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:21:42.264Z",
       "source": "4d5a2bd5cf96",
-      "rung": "myMemory"
+      "rung": "codex"
     },
     "unispital-basel-4dc57c6d2315|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-09T00:10:13.720Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:21:16.296Z",
       "source": "4d5a2bd5cf96",
-      "rung": "myMemory"
+      "rung": "codex"
     },
     "unispital-basel-260c44549ad0|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-09T00:10:13.720Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:21:16.296Z",
       "source": "4d5a2bd5cf96",
-      "rung": "myMemory"
+      "rung": "codex"
     },
     "denner-491b0418c963|de|en": {
       "attempts": 2,
@@ -356838,20 +356844,20 @@
       "rung": "myMemory"
     },
     "fachkraft-b8cf7414277e|de|en": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-15T08:10:20.699Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-17T10:21:27.467Z",
       "source": "e9b982f97aad",
       "rung": "codex"
     },
     "fachkraft-b8cf7414277e|de|fr": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-15T08:10:15.280Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-17T10:21:42.264Z",
       "source": "e9b982f97aad",
       "rung": "codex"
     },
     "fachkraft-b8cf7414277e|de|it": {
-      "attempts": 2,
-      "lastAttemptAt": "2026-11-15T08:10:37.885Z",
+      "attempts": 3,
+      "lastAttemptAt": "2026-11-17T10:21:16.296Z",
       "source": "e9b982f97aad",
       "rung": "codex"
     },
@@ -395256,8 +395262,8 @@
       "rung": "codex"
     },
     "seco-jobroom-7daf056b-8d96-4ab4-a130-4c22fa5e2793|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:54:08.540Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:21:38.793Z",
       "source": "f8fd6fd7cad9",
       "rung": "codex"
     },
@@ -395340,14 +395346,14 @@
       "rung": "codex"
     },
     "seco-jobroom-7daf056b-8d96-4ab4-a130-4c22fa5e2793|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:54:32.791Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:21:52.480Z",
       "source": "f8fd6fd7cad9",
       "rung": "codex"
     },
     "komax-67324041002d|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:54:36.136Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:21:54.458Z",
       "source": "980ed27957f5",
       "rung": "myMemory"
     },
@@ -395376,8 +395382,8 @@
       "rung": "codex"
     },
     "belimo-cdaabc62a51d|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:54:45.001Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:22:03.489Z",
       "source": "ee458af4d9a9",
       "rung": "unserved"
     },
@@ -395400,8 +395406,8 @@
       "rung": "codex"
     },
     "luks-2978bf686d95|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:54:49.687Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:22:10.988Z",
       "source": "6545ae2dcc54",
       "rung": "codex"
     },
@@ -395412,8 +395418,8 @@
       "rung": "codex"
     },
     "seco-jobroom-7daf056b-8d96-4ab4-a130-4c22fa5e2793|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:54:52.146Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:22:10.988Z",
       "source": "f8fd6fd7cad9",
       "rung": "codex"
     },
@@ -395478,20 +395484,20 @@
       "rung": "codex"
     },
     "galenica-ff4f960519a7|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:55:11.865Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:21:56.665Z",
       "source": "ee73170a9349",
       "rung": "myMemory"
     },
     "localsearch-954fbcf0af7b|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:55:12.638Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:21:57.276Z",
       "source": "e13bbfc2fb01",
       "rung": "myMemory"
     },
     "the-living-circle-7877e16541b8|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:55:13.299Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:21:58.297Z",
       "source": "1a2555942271",
       "rung": "myMemory"
     },
@@ -395514,8 +395520,8 @@
       "rung": "codex"
     },
     "cern-90a7c17c9749|en|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:55:24.242Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:21:59.041Z",
       "source": "fb3245d9db14",
       "rung": "codex"
     },
@@ -395550,8 +395556,8 @@
       "rung": "codex"
     },
     "hilcona-a44d7989c0a9|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:55:24.538Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:22:10.988Z",
       "source": "08c804bef8f6",
       "rung": "codex"
     },
@@ -395574,8 +395580,8 @@
       "rung": "codex"
     },
     "puk-zuerich-0ba3fabb2cda|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:55:25.328Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:22:10.991Z",
       "source": "f4b049b3683c",
       "rung": "codex"
     },
@@ -395586,8 +395592,8 @@
       "rung": "codex"
     },
     "cern-90a7c17c9749|en|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:55:29.194Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:21:56.793Z",
       "source": "fb3245d9db14",
       "rung": "codex"
     },
@@ -395616,14 +395622,14 @@
       "rung": "codex"
     },
     "the-living-circle-24560d97075c|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:55:35.906Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:22:19.895Z",
       "source": "528405f304ef",
       "rung": "myMemory"
     },
     "kanton-basel-landschaft-c5a928f3f95f|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:55:37.030Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:22:20.862Z",
       "source": "070897d2e585",
       "rung": "myMemory"
     },
@@ -395694,8 +395700,8 @@
       "rung": "codex"
     },
     "company-2bxi8t|de|fr": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:55:49.236Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:22:04.309Z",
       "source": "4323353eaf21",
       "rung": "codex"
     },
@@ -395748,8 +395754,8 @@
       "rung": "codex"
     },
     "company-2bxi8t|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:56:03.121Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:22:14.912Z",
       "source": "4323353eaf21",
       "rung": "codex"
     },
@@ -395760,8 +395766,8 @@
       "rung": "codex"
     },
     "company-2bxi8t|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:56:11.992Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:22:18.153Z",
       "source": "4323353eaf21",
       "rung": "codex"
     },
@@ -395802,8 +395808,8 @@
       "rung": "codex"
     },
     "unibe-a7c6c87895cc|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:56:16.269Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:22:18.152Z",
       "source": "43414ac37c84",
       "rung": "codex"
     },
@@ -395838,8 +395844,8 @@
       "rung": "codex"
     },
     "hitachi-energy-0ee4149cd26c|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:56:25.298Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:22:27.149Z",
       "source": "e7280ca2bfab",
       "rung": "unserved"
     },
@@ -395850,8 +395856,8 @@
       "rung": "codex"
     },
     "seco-jobroom-0320e4ab-f0fe-4dfc-81f1-0b9bd5b3c226|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:56:30.170Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:22:15.018Z",
       "source": "dc3f63942cb7",
       "rung": "codex"
     },
@@ -395910,8 +395916,8 @@
       "rung": "codex"
     },
     "seco-jobroom-1c393e9f-d589-4cf4-b86a-8869e09e3121|de|it": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:56:35.891Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:22:14.913Z",
       "source": "55f8e316a44a",
       "rung": "codex"
     },
@@ -395934,8 +395940,8 @@
       "rung": "codex"
     },
     "seco-jobroom-07d8a690-b55c-4d66-af73-466247351e74|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:56:39.399Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:22:21.979Z",
       "source": "bdecab546c7b",
       "rung": "unserved"
     },
@@ -396006,8 +396012,8 @@
       "rung": "codex"
     },
     "seco-jobroom-7a18d3ff-66c8-40ae-901d-0a571acaf857|de|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:56:53.014Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:22:25.195Z",
       "source": "b21073f4625e",
       "rung": "unserved"
     },
@@ -396042,14 +396048,14 @@
       "rung": "codex"
     },
     "seco-jobroom-ca756066-631f-41de-878a-71b75a8db48f|fr|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:57:03.077Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:22:28.852Z",
       "source": "35a9cb898763",
       "rung": "unserved"
     },
     "seco-jobroom-c1129613-a176-44c6-870a-2a6766fe07ba|fr|en": {
-      "attempts": 1,
-      "lastAttemptAt": "2026-11-17T02:57:03.682Z",
+      "attempts": 2,
+      "lastAttemptAt": "2026-11-17T10:22:31.329Z",
       "source": "95b5d9c8bee0",
       "rung": "unserved"
     },
@@ -396135,6 +396141,2742 @@
       "attempts": 1,
       "lastAttemptAt": "2026-11-17T02:57:21.033Z",
       "source": "d83cb3d8da85",
+      "rung": "codex"
+    },
+    "bachem-adfea07f6698|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:13:49.988Z",
+      "source": "ae64852e7ad6",
+      "rung": "codex"
+    },
+    "unispital-basel-df726f61e74f|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:13:49.994Z",
+      "source": "c009b2353cef",
+      "rung": "codex"
+    },
+    "holcim-7044f5a9d0db|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:13:49.997Z",
+      "source": "c0ab6c82e62c",
+      "rung": "codex"
+    },
+    "wagerenhof-61b58ac47fcf|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:13:49.998Z",
+      "source": "b1e1675075ac",
+      "rung": "codex"
+    },
+    "holcim-f5ebce4bf321|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:13:49.999Z",
+      "source": "58f18c7edc4d",
+      "rung": "codex"
+    },
+    "spruengli-099ae07c7240|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:13:49.999Z",
+      "source": "31cff641b5d2",
+      "rung": "codex"
+    },
+    "spruengli-1f477732ab02|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:13:50.000Z",
+      "source": "1cb2d3b8d405",
+      "rung": "codex"
+    },
+    "accor-5538f01b285e|fr|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:13:53.729Z",
+      "source": "17e4eeca4b66",
+      "rung": "codex"
+    },
+    "unispital-basel-df726f61e74f|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:09.747Z",
+      "source": "c009b2353cef",
+      "rung": "codex"
+    },
+    "holcim-7044f5a9d0db|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:09.747Z",
+      "source": "c0ab6c82e62c",
+      "rung": "codex"
+    },
+    "holcim-f5ebce4bf321|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:09.747Z",
+      "source": "58f18c7edc4d",
+      "rung": "codex"
+    },
+    "spruengli-099ae07c7240|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:09.747Z",
+      "source": "31cff641b5d2",
+      "rung": "codex"
+    },
+    "spruengli-1f477732ab02|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:09.748Z",
+      "source": "1cb2d3b8d405",
+      "rung": "codex"
+    },
+    "pallas-kliniken-a97ef5d79657|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:09.748Z",
+      "source": "8f7f21ef5ed2",
+      "rung": "codex"
+    },
+    "ksow-b08599a52768|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:09.748Z",
+      "source": "71cb42f09be2",
+      "rung": "codex"
+    },
+    "valiant-bank-9637a7c5386c|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:09.749Z",
+      "source": "2e080b5ef3ce",
+      "rung": "codex"
+    },
+    "valiant-bank-f71c920a577c|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:09.749Z",
+      "source": "4e81d57d8b55",
+      "rung": "codex"
+    },
+    "pallas-kliniken-a97ef5d79657|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:15.360Z",
+      "source": "8f7f21ef5ed2",
+      "rung": "codex"
+    },
+    "ksow-b08599a52768|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:15.360Z",
+      "source": "71cb42f09be2",
+      "rung": "codex"
+    },
+    "valiant-bank-9637a7c5386c|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:15.360Z",
+      "source": "2e080b5ef3ce",
+      "rung": "codex"
+    },
+    "valiant-bank-f71c920a577c|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:15.361Z",
+      "source": "4e81d57d8b55",
+      "rung": "codex"
+    },
+    "css-versicherung-49adfe2224bb|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:15.361Z",
+      "source": "b5455e9651dc",
+      "rung": "codex"
+    },
+    "unispital-basel-df726f61e74f|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:22.052Z",
+      "source": "c009b2353cef",
+      "rung": "codex"
+    },
+    "holcim-7044f5a9d0db|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:22.052Z",
+      "source": "c0ab6c82e62c",
+      "rung": "codex"
+    },
+    "holcim-f5ebce4bf321|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:22.052Z",
+      "source": "58f18c7edc4d",
+      "rung": "codex"
+    },
+    "spruengli-099ae07c7240|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:22.052Z",
+      "source": "31cff641b5d2",
+      "rung": "codex"
+    },
+    "spruengli-1f477732ab02|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:22.053Z",
+      "source": "1cb2d3b8d405",
+      "rung": "codex"
+    },
+    "bachem-adfea07f6698|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:22.339Z",
+      "source": "ae64852e7ad6",
+      "rung": "unserved"
+    },
+    "pallas-kliniken-a97ef5d79657|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:25.209Z",
+      "source": "8f7f21ef5ed2",
+      "rung": "codex"
+    },
+    "ksow-b08599a52768|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:25.210Z",
+      "source": "71cb42f09be2",
+      "rung": "codex"
+    },
+    "valiant-bank-9637a7c5386c|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:25.210Z",
+      "source": "2e080b5ef3ce",
+      "rung": "codex"
+    },
+    "valiant-bank-f71c920a577c|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:25.210Z",
+      "source": "4e81d57d8b55",
+      "rung": "codex"
+    },
+    "css-versicherung-49adfe2224bb|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:26.037Z",
+      "source": "b5455e9651dc",
+      "rung": "codex"
+    },
+    "css-versicherung-f23bc72d0b32|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:26.038Z",
+      "source": "b7db9413ab49",
+      "rung": "codex"
+    },
+    "css-versicherung-a93757df2f03|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:26.038Z",
+      "source": "e4c5a2a9363f",
+      "rung": "codex"
+    },
+    "css-versicherung-63c4f2b341b8|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:26.038Z",
+      "source": "d1893230cdab",
+      "rung": "codex"
+    },
+    "css-versicherung-42dad6b7fb4a|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:26.038Z",
+      "source": "e5c41b7ea397",
+      "rung": "codex"
+    },
+    "css-versicherung-f23bc72d0b32|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:38.554Z",
+      "source": "b7db9413ab49",
+      "rung": "codex"
+    },
+    "css-versicherung-a93757df2f03|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:38.554Z",
+      "source": "e4c5a2a9363f",
+      "rung": "codex"
+    },
+    "css-versicherung-63c4f2b341b8|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:38.554Z",
+      "source": "d1893230cdab",
+      "rung": "codex"
+    },
+    "css-versicherung-42dad6b7fb4a|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:38.554Z",
+      "source": "e5c41b7ea397",
+      "rung": "codex"
+    },
+    "css-versicherung-41fd16b1b2df|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:38.555Z",
+      "source": "20072f49a796",
+      "rung": "codex"
+    },
+    "css-versicherung-b00f95c34213|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:38.555Z",
+      "source": "b5295723bd8d",
+      "rung": "codex"
+    },
+    "css-versicherung-41fd16b1b2df|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:38.723Z",
+      "source": "20072f49a796",
+      "rung": "codex"
+    },
+    "css-versicherung-b00f95c34213|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:38.723Z",
+      "source": "b5295723bd8d",
+      "rung": "codex"
+    },
+    "css-versicherung-4bbdac22a6d4|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:38.724Z",
+      "source": "6dc9943d81c8",
+      "rung": "codex"
+    },
+    "sbb-fcc6f3cc7df6|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:38.724Z",
+      "source": "bea604e807a0",
+      "rung": "codex"
+    },
+    "sbb-006a63580dc7|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:38.724Z",
+      "source": "07f0878a45a4",
+      "rung": "codex"
+    },
+    "css-versicherung-4bbdac22a6d4|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:52.323Z",
+      "source": "6dc9943d81c8",
+      "rung": "codex"
+    },
+    "sbb-fcc6f3cc7df6|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:52.324Z",
+      "source": "bea604e807a0",
+      "rung": "codex"
+    },
+    "sbb-006a63580dc7|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:52.324Z",
+      "source": "07f0878a45a4",
+      "rung": "codex"
+    },
+    "sbb-97a6a7da5c49|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:52.324Z",
+      "source": "d9093dc777a4",
+      "rung": "codex"
+    },
+    "sbb-0b4a0cdcc447|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:52.324Z",
+      "source": "2d182f252049",
+      "rung": "codex"
+    },
+    "css-versicherung-49adfe2224bb|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:53.611Z",
+      "source": "b5455e9651dc",
+      "rung": "codex"
+    },
+    "css-versicherung-f23bc72d0b32|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:53.614Z",
+      "source": "b7db9413ab49",
+      "rung": "codex"
+    },
+    "css-versicherung-a93757df2f03|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:53.614Z",
+      "source": "e4c5a2a9363f",
+      "rung": "codex"
+    },
+    "css-versicherung-63c4f2b341b8|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:53.614Z",
+      "source": "d1893230cdab",
+      "rung": "codex"
+    },
+    "css-versicherung-42dad6b7fb4a|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:53.614Z",
+      "source": "e5c41b7ea397",
+      "rung": "codex"
+    },
+    "css-versicherung-41fd16b1b2df|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:56.342Z",
+      "source": "20072f49a796",
+      "rung": "codex"
+    },
+    "css-versicherung-b00f95c34213|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:56.342Z",
+      "source": "b5295723bd8d",
+      "rung": "codex"
+    },
+    "css-versicherung-4bbdac22a6d4|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:56.342Z",
+      "source": "6dc9943d81c8",
+      "rung": "codex"
+    },
+    "sbb-fcc6f3cc7df6|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:56.342Z",
+      "source": "bea604e807a0",
+      "rung": "codex"
+    },
+    "sbb-006a63580dc7|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:14:56.342Z",
+      "source": "07f0878a45a4",
+      "rung": "codex"
+    },
+    "sbb-97a6a7da5c49|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:04.595Z",
+      "source": "d9093dc777a4",
+      "rung": "codex"
+    },
+    "sbb-0b4a0cdcc447|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:04.595Z",
+      "source": "2d182f252049",
+      "rung": "codex"
+    },
+    "sbb-92f069e259f7|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:04.595Z",
+      "source": "ff5a38024a6b",
+      "rung": "codex"
+    },
+    "sbb-d8ba8b4da16e|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:04.595Z",
+      "source": "d2b65f050cca",
+      "rung": "codex"
+    },
+    "sbb-6f5c2d63d1fa|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:04.596Z",
+      "source": "de061aa493f3",
+      "rung": "codex"
+    },
+    "sbb-97a6a7da5c49|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:07.507Z",
+      "source": "d9093dc777a4",
+      "rung": "codex"
+    },
+    "sbb-0b4a0cdcc447|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:07.507Z",
+      "source": "2d182f252049",
+      "rung": "codex"
+    },
+    "sbb-92f069e259f7|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:07.507Z",
+      "source": "ff5a38024a6b",
+      "rung": "codex"
+    },
+    "sbb-d8ba8b4da16e|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:07.507Z",
+      "source": "d2b65f050cca",
+      "rung": "codex"
+    },
+    "sbb-6f5c2d63d1fa|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:07.508Z",
+      "source": "de061aa493f3",
+      "rung": "codex"
+    },
+    "sbb-92f069e259f7|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:09.465Z",
+      "source": "ff5a38024a6b",
+      "rung": "codex"
+    },
+    "sbb-d8ba8b4da16e|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:09.466Z",
+      "source": "d2b65f050cca",
+      "rung": "codex"
+    },
+    "sbb-6f5c2d63d1fa|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:09.468Z",
+      "source": "de061aa493f3",
+      "rung": "codex"
+    },
+    "sbb-65fab49b998e|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:09.469Z",
+      "source": "6cc21a30f9e1",
+      "rung": "codex"
+    },
+    "sbb-0a53a5e7bf3a|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:09.469Z",
+      "source": "8c428b4ead41",
+      "rung": "codex"
+    },
+    "sbb-65fab49b998e|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:13.257Z",
+      "source": "6cc21a30f9e1",
+      "rung": "codex"
+    },
+    "sbb-0a53a5e7bf3a|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:13.257Z",
+      "source": "8c428b4ead41",
+      "rung": "codex"
+    },
+    "sbb-d4cb8d51cc63|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:13.257Z",
+      "source": "8a488df31e3b",
+      "rung": "codex"
+    },
+    "sbb-2f763e13139a|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:13.257Z",
+      "source": "177a117d92f5",
+      "rung": "codex"
+    },
+    "sbb-65fab49b998e|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:15.178Z",
+      "source": "6cc21a30f9e1",
+      "rung": "codex"
+    },
+    "sbb-0a53a5e7bf3a|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:15.178Z",
+      "source": "8c428b4ead41",
+      "rung": "codex"
+    },
+    "sbb-d4cb8d51cc63|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:15.178Z",
+      "source": "8a488df31e3b",
+      "rung": "codex"
+    },
+    "sbb-2f763e13139a|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:15.178Z",
+      "source": "177a117d92f5",
+      "rung": "codex"
+    },
+    "sbb-942b26b55909|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:15.181Z",
+      "source": "1dd3af60f3c1",
+      "rung": "codex"
+    },
+    "sbb-fb68f0381b97|it|de": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:19.691Z",
+      "source": "56dbfb82639e",
+      "rung": "codex"
+    },
+    "sbb-fb68f0381b97|it|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:20.113Z",
+      "source": "56dbfb82639e",
+      "rung": "codex"
+    },
+    "sbb-d4cb8d51cc63|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:21.150Z",
+      "source": "8a488df31e3b",
+      "rung": "codex"
+    },
+    "sbb-2f763e13139a|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:21.150Z",
+      "source": "177a117d92f5",
+      "rung": "codex"
+    },
+    "sbb-942b26b55909|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:21.150Z",
+      "source": "1dd3af60f3c1",
+      "rung": "codex"
+    },
+    "sbb-07976fcbb871|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:21.151Z",
+      "source": "6128c5177968",
+      "rung": "codex"
+    },
+    "sbb-1633369a4ace|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:21.151Z",
+      "source": "864eb1c01164",
+      "rung": "codex"
+    },
+    "sbb-57b844c162ff|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:21.353Z",
+      "source": "e63ec7ad26cc",
+      "rung": "unserved"
+    },
+    "sbb-fb68f0381b97|it|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:28.341Z",
+      "source": "56dbfb82639e",
+      "rung": "codex"
+    },
+    "sbb-a98cec1767e5|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:36.865Z",
+      "source": "e5bad98108c3",
+      "rung": "codex"
+    },
+    "sbb-1633369a4ace|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:36.865Z",
+      "source": "864eb1c01164",
+      "rung": "codex"
+    },
+    "sbb-8e8fe5e97858|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:36.866Z",
+      "source": "1a7f482c90e4",
+      "rung": "codex"
+    },
+    "sbb-424f935cab0c|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:36.866Z",
+      "source": "66e8a91cb5ce",
+      "rung": "codex"
+    },
+    "sbb-994f28de3b8f|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:36.866Z",
+      "source": "7ed542bd4d87",
+      "rung": "codex"
+    },
+    "sbb-942b26b55909|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:40.485Z",
+      "source": "1dd3af60f3c1",
+      "rung": "codex"
+    },
+    "sbb-07976fcbb871|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:40.485Z",
+      "source": "6128c5177968",
+      "rung": "codex"
+    },
+    "sbb-1633369a4ace|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:40.485Z",
+      "source": "864eb1c01164",
+      "rung": "codex"
+    },
+    "sbb-8e8fe5e97858|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:40.485Z",
+      "source": "1a7f482c90e4",
+      "rung": "codex"
+    },
+    "sbb-424f935cab0c|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:40.486Z",
+      "source": "66e8a91cb5ce",
+      "rung": "codex"
+    },
+    "sbb-994f28de3b8f|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:40.486Z",
+      "source": "7ed542bd4d87",
+      "rung": "codex"
+    },
+    "sbb-c511144680b8|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:42.734Z",
+      "source": "f8599b06c316",
+      "rung": "codex"
+    },
+    "sbb-4b2567666b00|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:42.734Z",
+      "source": "b74994b2c3b3",
+      "rung": "codex"
+    },
+    "sbb-f8dc7300b3bf|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:42.734Z",
+      "source": "fed68e5ce51b",
+      "rung": "codex"
+    },
+    "sbb-67b61d53c471|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:43.630Z",
+      "source": "32a8eb488d84",
+      "rung": "myMemory"
+    },
+    "sbb-beb64dd74712|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:48.575Z",
+      "source": "59d8d2a25e2d",
+      "rung": "unserved"
+    },
+    "sbb-a419bbc6c131|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:48.646Z",
+      "source": "2dc663135fdd",
+      "rung": "unserved"
+    },
+    "sbb-c511144680b8|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:50.414Z",
+      "source": "f8599b06c316",
+      "rung": "codex"
+    },
+    "sbb-4b2567666b00|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:50.415Z",
+      "source": "b74994b2c3b3",
+      "rung": "codex"
+    },
+    "sbb-f8dc7300b3bf|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:50.415Z",
+      "source": "fed68e5ce51b",
+      "rung": "codex"
+    },
+    "sbb-6c1791ffd119|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:50.415Z",
+      "source": "c6f913afb42b",
+      "rung": "codex"
+    },
+    "sbb-f8dc7300b3bf|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:58.651Z",
+      "source": "fed68e5ce51b",
+      "rung": "codex"
+    },
+    "sbb-6578bd3d0123|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:58.651Z",
+      "source": "41c84fcaab5f",
+      "rung": "codex"
+    },
+    "sbb-336f7625f516|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:58.651Z",
+      "source": "8f7bb2005370",
+      "rung": "codex"
+    },
+    "sbb-b97bb0a9f397|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:58.652Z",
+      "source": "998be7e90214",
+      "rung": "codex"
+    },
+    "sbb-83d72263a26c|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:58.652Z",
+      "source": "d646664fa01b",
+      "rung": "codex"
+    },
+    "sbb-8e8fe5e97858|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:59.266Z",
+      "source": "1a7f482c90e4",
+      "rung": "codex"
+    },
+    "sbb-424f935cab0c|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:59.266Z",
+      "source": "66e8a91cb5ce",
+      "rung": "codex"
+    },
+    "sbb-994f28de3b8f|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:59.266Z",
+      "source": "7ed542bd4d87",
+      "rung": "codex"
+    },
+    "sbb-6eca7d4d0cd2|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:59.267Z",
+      "source": "312d1b2e364e",
+      "rung": "codex"
+    },
+    "sbb-c511144680b8|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:59.267Z",
+      "source": "f8599b06c316",
+      "rung": "codex"
+    },
+    "sbb-4b2567666b00|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:15:59.267Z",
+      "source": "b74994b2c3b3",
+      "rung": "codex"
+    },
+    "sbb-d3830dac78d5|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:11.196Z",
+      "source": "cca74ac6e46b",
+      "rung": "codex"
+    },
+    "sbb-537493fc7843|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:11.199Z",
+      "source": "d4d6277985ab",
+      "rung": "codex"
+    },
+    "sbb-b9d1b2696413|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:11.199Z",
+      "source": "a27ac93b63f9",
+      "rung": "codex"
+    },
+    "sbb-173da7a73720|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:11.199Z",
+      "source": "1b3b7a06989b",
+      "rung": "codex"
+    },
+    "sbb-9b727530e265|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:11.199Z",
+      "source": "6d4eb4ad0689",
+      "rung": "codex"
+    },
+    "sbb-fe8dff979294|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:11.199Z",
+      "source": "6d4eb4ad0689",
+      "rung": "codex"
+    },
+    "sbb-a44139e19edd|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:11.200Z",
+      "source": "de061aa493f3",
+      "rung": "codex"
+    },
+    "sbb-a44139e19edd|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:11.200Z",
+      "source": "de061aa493f3",
+      "rung": "codex"
+    },
+    "sbb-a44139e19edd|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:11.201Z",
+      "source": "de061aa493f3",
+      "rung": "codex"
+    },
+    "sbb-ef93de85b2d4|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:11.201Z",
+      "source": "998be7e90214",
+      "rung": "codex"
+    },
+    "sbb-6578bd3d0123|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:13.011Z",
+      "source": "41c84fcaab5f",
+      "rung": "codex"
+    },
+    "sbb-336f7625f516|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:13.011Z",
+      "source": "8f7bb2005370",
+      "rung": "codex"
+    },
+    "sbb-b97bb0a9f397|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:13.011Z",
+      "source": "998be7e90214",
+      "rung": "codex"
+    },
+    "sbb-ef93de85b2d4|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:13.014Z",
+      "source": "998be7e90214",
+      "rung": "codex"
+    },
+    "sbb-83d72263a26c|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:13.014Z",
+      "source": "d646664fa01b",
+      "rung": "codex"
+    },
+    "sbb-6c1791ffd119|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:14.452Z",
+      "source": "c6f913afb42b",
+      "rung": "myMemory"
+    },
+    "sbb-d3830dac78d5|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:22.849Z",
+      "source": "cca74ac6e46b",
+      "rung": "codex"
+    },
+    "sbb-537493fc7843|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:22.849Z",
+      "source": "d4d6277985ab",
+      "rung": "codex"
+    },
+    "sbb-b9d1b2696413|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:22.849Z",
+      "source": "a27ac93b63f9",
+      "rung": "codex"
+    },
+    "sbb-173da7a73720|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:22.849Z",
+      "source": "1b3b7a06989b",
+      "rung": "codex"
+    },
+    "sbb-fab44d5a5168|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:22.852Z",
+      "source": "de061aa493f3",
+      "rung": "codex"
+    },
+    "sbb-fab44d5a5168|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:22.852Z",
+      "source": "de061aa493f3",
+      "rung": "codex"
+    },
+    "sbb-fab44d5a5168|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:22.853Z",
+      "source": "de061aa493f3",
+      "rung": "codex"
+    },
+    "sbb-537493fc7843|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:25.712Z",
+      "source": "d4d6277985ab",
+      "rung": "codex"
+    },
+    "sbb-b9d1b2696413|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:25.712Z",
+      "source": "a27ac93b63f9",
+      "rung": "codex"
+    },
+    "sbb-173da7a73720|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:25.713Z",
+      "source": "1b3b7a06989b",
+      "rung": "codex"
+    },
+    "sbb-9b727530e265|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:25.713Z",
+      "source": "6d4eb4ad0689",
+      "rung": "codex"
+    },
+    "sbb-fe8dff979294|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:25.713Z",
+      "source": "6d4eb4ad0689",
+      "rung": "codex"
+    },
+    "sbb-b2651b631601|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:33.697Z",
+      "source": "a023dd10f809",
+      "rung": "codex"
+    },
+    "sbb-40a17b9c1c78|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:33.697Z",
+      "source": "9c9d615fec0b",
+      "rung": "codex"
+    },
+    "sbb-7a0ac38bc269|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:33.698Z",
+      "source": "7cd05edd0f54",
+      "rung": "codex"
+    },
+    "sbb-1b5897fc6917|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:33.698Z",
+      "source": "f8e960afb43c",
+      "rung": "codex"
+    },
+    "sbb-aa5a3593228d|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:33.698Z",
+      "source": "85ee3d702c95",
+      "rung": "codex"
+    },
+    "sbb-9b727530e265|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:33.812Z",
+      "source": "6d4eb4ad0689",
+      "rung": "codex"
+    },
+    "sbb-fe8dff979294|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:33.812Z",
+      "source": "6d4eb4ad0689",
+      "rung": "codex"
+    },
+    "sbb-b2651b631601|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:33.812Z",
+      "source": "a023dd10f809",
+      "rung": "codex"
+    },
+    "sbb-40a17b9c1c78|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:33.812Z",
+      "source": "9c9d615fec0b",
+      "rung": "codex"
+    },
+    "sbb-7a0ac38bc269|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:33.813Z",
+      "source": "7cd05edd0f54",
+      "rung": "codex"
+    },
+    "sbb-1b5897fc6917|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:33.813Z",
+      "source": "f8e960afb43c",
+      "rung": "codex"
+    },
+    "sbb-6578bd3d0123|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:40.218Z",
+      "source": "41c84fcaab5f",
+      "rung": "codex"
+    },
+    "sbb-336f7625f516|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:40.219Z",
+      "source": "8f7bb2005370",
+      "rung": "codex"
+    },
+    "sbb-b97bb0a9f397|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:40.219Z",
+      "source": "998be7e90214",
+      "rung": "codex"
+    },
+    "sbb-ef93de85b2d4|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:40.219Z",
+      "source": "998be7e90214",
+      "rung": "codex"
+    },
+    "sbb-83d72263a26c|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:40.219Z",
+      "source": "d646664fa01b",
+      "rung": "codex"
+    },
+    "sbb-d3830dac78d5|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:40.219Z",
+      "source": "cca74ac6e46b",
+      "rung": "codex"
+    },
+    "sbb-b2651b631601|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:45.928Z",
+      "source": "a023dd10f809",
+      "rung": "codex"
+    },
+    "sbb-40a17b9c1c78|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:45.928Z",
+      "source": "9c9d615fec0b",
+      "rung": "codex"
+    },
+    "sbb-7a0ac38bc269|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:45.928Z",
+      "source": "7cd05edd0f54",
+      "rung": "codex"
+    },
+    "sbb-1b5897fc6917|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:45.929Z",
+      "source": "f8e960afb43c",
+      "rung": "codex"
+    },
+    "sbb-aa5a3593228d|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:45.929Z",
+      "source": "85ee3d702c95",
+      "rung": "codex"
+    },
+    "sbb-aa5a3593228d|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:57.650Z",
+      "source": "85ee3d702c95",
+      "rung": "codex"
+    },
+    "sbb-8a269df99eae|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:57.650Z",
+      "source": "4fbb847dbcfe",
+      "rung": "codex"
+    },
+    "sbb-5854116b4740|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:57.650Z",
+      "source": "72550afb1c5f",
+      "rung": "codex"
+    },
+    "sbb-956e89ef0cb8|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:57.653Z",
+      "source": "3c3d7e56dc34",
+      "rung": "codex"
+    },
+    "sbb-fc8061b2e409|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:16:57.653Z",
+      "source": "eb930a176d71",
+      "rung": "codex"
+    },
+    "sbb-8a269df99eae|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:08.210Z",
+      "source": "4fbb847dbcfe",
+      "rung": "codex"
+    },
+    "sbb-5854116b4740|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:08.210Z",
+      "source": "72550afb1c5f",
+      "rung": "codex"
+    },
+    "sbb-956e89ef0cb8|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:08.211Z",
+      "source": "3c3d7e56dc34",
+      "rung": "codex"
+    },
+    "sbb-fc8061b2e409|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:08.211Z",
+      "source": "eb930a176d71",
+      "rung": "codex"
+    },
+    "sbb-8920b847979c|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:08.213Z",
+      "source": "547b6a9ee2be",
+      "rung": "codex"
+    },
+    "sbb-8a269df99eae|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:09.213Z",
+      "source": "4fbb847dbcfe",
+      "rung": "codex"
+    },
+    "sbb-5854116b4740|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:09.213Z",
+      "source": "72550afb1c5f",
+      "rung": "codex"
+    },
+    "sbb-956e89ef0cb8|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:09.213Z",
+      "source": "3c3d7e56dc34",
+      "rung": "codex"
+    },
+    "sbb-fc8061b2e409|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:09.213Z",
+      "source": "eb930a176d71",
+      "rung": "codex"
+    },
+    "sbb-8920b847979c|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:09.214Z",
+      "source": "547b6a9ee2be",
+      "rung": "codex"
+    },
+    "sbb-8920b847979c|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:11.769Z",
+      "source": "547b6a9ee2be",
+      "rung": "codex"
+    },
+    "sbb-64b66a967588|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:11.769Z",
+      "source": "cffa897fe9ee",
+      "rung": "codex"
+    },
+    "sbb-fb4feed245b9|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:11.769Z",
+      "source": "9710553b58ce",
+      "rung": "codex"
+    },
+    "sbb-defd653d3bc6|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:11.769Z",
+      "source": "9710553b58ce",
+      "rung": "codex"
+    },
+    "sbb-3a6106ddc3b2|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:11.770Z",
+      "source": "37469e36c9ab",
+      "rung": "codex"
+    },
+    "sbb-31472f054d10|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:11.770Z",
+      "source": "dad1f8db13ab",
+      "rung": "codex"
+    },
+    "sbb-64b66a967588|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:22.117Z",
+      "source": "cffa897fe9ee",
+      "rung": "codex"
+    },
+    "sbb-fb4feed245b9|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:22.118Z",
+      "source": "9710553b58ce",
+      "rung": "codex"
+    },
+    "sbb-defd653d3bc6|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:22.118Z",
+      "source": "9710553b58ce",
+      "rung": "codex"
+    },
+    "sbb-3a6106ddc3b2|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:22.118Z",
+      "source": "37469e36c9ab",
+      "rung": "codex"
+    },
+    "sbb-31472f054d10|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:22.118Z",
+      "source": "dad1f8db13ab",
+      "rung": "codex"
+    },
+    "sbb-d54f307b93fa|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:22.118Z",
+      "source": "36506ef2ca09",
+      "rung": "codex"
+    },
+    "sbb-32fd43379cfb|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:22.119Z",
+      "source": "de061aa493f3",
+      "rung": "codex"
+    },
+    "sbb-32fd43379cfb|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:22.119Z",
+      "source": "de061aa493f3",
+      "rung": "codex"
+    },
+    "sbb-32fd43379cfb|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:22.120Z",
+      "source": "de061aa493f3",
+      "rung": "codex"
+    },
+    "sbb-d54f307b93fa|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:26.199Z",
+      "source": "36506ef2ca09",
+      "rung": "codex"
+    },
+    "sbb-be41070bfca6|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:26.200Z",
+      "source": "18309c79fcf8",
+      "rung": "codex"
+    },
+    "sbb-6ce9772c637b|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:26.200Z",
+      "source": "d046ab3254c6",
+      "rung": "codex"
+    },
+    "sbb-b607b4974c6e|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:26.200Z",
+      "source": "30ce9788865d",
+      "rung": "codex"
+    },
+    "sbb-64b66a967588|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:36.195Z",
+      "source": "cffa897fe9ee",
+      "rung": "codex"
+    },
+    "sbb-fb4feed245b9|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:36.196Z",
+      "source": "9710553b58ce",
+      "rung": "codex"
+    },
+    "sbb-defd653d3bc6|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:36.196Z",
+      "source": "9710553b58ce",
+      "rung": "codex"
+    },
+    "sbb-3a6106ddc3b2|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:36.196Z",
+      "source": "37469e36c9ab",
+      "rung": "codex"
+    },
+    "sbb-31472f054d10|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:36.196Z",
+      "source": "dad1f8db13ab",
+      "rung": "codex"
+    },
+    "sbb-d54f307b93fa|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:36.196Z",
+      "source": "36506ef2ca09",
+      "rung": "codex"
+    },
+    "sbb-be41070bfca6|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:39.703Z",
+      "source": "18309c79fcf8",
+      "rung": "codex"
+    },
+    "sbb-6ce9772c637b|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:39.703Z",
+      "source": "d046ab3254c6",
+      "rung": "codex"
+    },
+    "sbb-b607b4974c6e|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:39.703Z",
+      "source": "30ce9788865d",
+      "rung": "codex"
+    },
+    "sbb-9f3108eb12c9|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:39.704Z",
+      "source": "2f5d87d01473",
+      "rung": "codex"
+    },
+    "sbb-fe5cded571f1|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:39.704Z",
+      "source": "2042caa2db5a",
+      "rung": "codex"
+    },
+    "sbb-78e4a0ca53ee|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:39.708Z",
+      "source": "864eb1c01164",
+      "rung": "codex"
+    },
+    "sbb-78e4a0ca53ee|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:39.708Z",
+      "source": "864eb1c01164",
+      "rung": "codex"
+    },
+    "sbb-78e4a0ca53ee|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:39.709Z",
+      "source": "864eb1c01164",
+      "rung": "codex"
+    },
+    "sbb-856f630a71b8|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:39.709Z",
+      "source": "bea604e807a0",
+      "rung": "codex"
+    },
+    "sbb-856f630a71b8|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:39.709Z",
+      "source": "bea604e807a0",
+      "rung": "codex"
+    },
+    "sbb-856f630a71b8|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:39.709Z",
+      "source": "bea604e807a0",
+      "rung": "codex"
+    },
+    "sbb-c44376e36c6e|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:39.710Z",
+      "source": "6cc21a30f9e1",
+      "rung": "codex"
+    },
+    "sbb-c44376e36c6e|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:39.710Z",
+      "source": "6cc21a30f9e1",
+      "rung": "codex"
+    },
+    "sbb-c44376e36c6e|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:39.710Z",
+      "source": "6cc21a30f9e1",
+      "rung": "codex"
+    },
+    "sbb-be41070bfca6|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:42.627Z",
+      "source": "18309c79fcf8",
+      "rung": "codex"
+    },
+    "sbb-6ce9772c637b|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:42.627Z",
+      "source": "d046ab3254c6",
+      "rung": "codex"
+    },
+    "sbb-b607b4974c6e|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:42.627Z",
+      "source": "30ce9788865d",
+      "rung": "codex"
+    },
+    "sbb-9f3108eb12c9|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:42.627Z",
+      "source": "2f5d87d01473",
+      "rung": "codex"
+    },
+    "sbb-fe5cded571f1|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:42.627Z",
+      "source": "2042caa2db5a",
+      "rung": "codex"
+    },
+    "sbb-0d784b345f66|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:42.628Z",
+      "source": "2042caa2db5a",
+      "rung": "codex"
+    },
+    "sbb-0d784b345f66|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:42.629Z",
+      "source": "2042caa2db5a",
+      "rung": "codex"
+    },
+    "sbb-fd2d776c97fe|fr|de": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:43.421Z",
+      "source": "0aa41dd8d74b",
+      "rung": "codex"
+    },
+    "sbb-b47f33a4460e|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:56.941Z",
+      "source": "dd0970586913",
+      "rung": "codex"
+    },
+    "sbb-d29e153c4fad|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:56.941Z",
+      "source": "cb53fd1d70fb",
+      "rung": "codex"
+    },
+    "sbb-3b5422d251c7|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:56.942Z",
+      "source": "d582b13948e5",
+      "rung": "codex"
+    },
+    "sbb-dd5a1236c8cb|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:56.942Z",
+      "source": "d289b1ceafec",
+      "rung": "codex"
+    },
+    "sbb-6ded42751134|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:56.942Z",
+      "source": "d289b1ceafec",
+      "rung": "codex"
+    },
+    "sbb-116ce24125cb|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:17:56.942Z",
+      "source": "6c968d8eed76",
+      "rung": "codex"
+    },
+    "sbb-b47f33a4460e|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:03.586Z",
+      "source": "dd0970586913",
+      "rung": "codex"
+    },
+    "sbb-d29e153c4fad|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:03.586Z",
+      "source": "cb53fd1d70fb",
+      "rung": "codex"
+    },
+    "sbb-3b5422d251c7|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:03.589Z",
+      "source": "d582b13948e5",
+      "rung": "codex"
+    },
+    "sbb-dd5a1236c8cb|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:03.589Z",
+      "source": "d289b1ceafec",
+      "rung": "codex"
+    },
+    "sbb-6ded42751134|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:03.589Z",
+      "source": "d289b1ceafec",
+      "rung": "codex"
+    },
+    "sbb-116ce24125cb|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:03.589Z",
+      "source": "6c968d8eed76",
+      "rung": "codex"
+    },
+    "sbb-359b6f779d23|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:03.589Z",
+      "source": "e5e98d628f2d",
+      "rung": "codex"
+    },
+    "sbb-359b6f779d23|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:17.278Z",
+      "source": "e5e98d628f2d",
+      "rung": "codex"
+    },
+    "sbb-caff08c7fd14|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:17.278Z",
+      "source": "64cbd395f34b",
+      "rung": "codex"
+    },
+    "sbb-fd759288ab92|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:17.279Z",
+      "source": "2dc0c2892ee6",
+      "rung": "codex"
+    },
+    "sbb-8fa1ee5a454c|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:17.279Z",
+      "source": "6702bf584005",
+      "rung": "codex"
+    },
+    "sbb-359b6f779d23|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:17.354Z",
+      "source": "e5e98d628f2d",
+      "rung": "codex"
+    },
+    "sbb-caff08c7fd14|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:17.354Z",
+      "source": "64cbd395f34b",
+      "rung": "codex"
+    },
+    "sbb-fd759288ab92|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:17.355Z",
+      "source": "2dc0c2892ee6",
+      "rung": "codex"
+    },
+    "sbb-caff08c7fd14|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:26.500Z",
+      "source": "64cbd395f34b",
+      "rung": "codex"
+    },
+    "sbb-fd759288ab92|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:26.500Z",
+      "source": "2dc0c2892ee6",
+      "rung": "codex"
+    },
+    "sbb-8fa1ee5a454c|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:26.500Z",
+      "source": "6702bf584005",
+      "rung": "codex"
+    },
+    "sbb-a1decc198978|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:26.501Z",
+      "source": "1b5f11a3302b",
+      "rung": "codex"
+    },
+    "sbb-b36ea14128e4|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:26.501Z",
+      "source": "f8b4a3841d9d",
+      "rung": "codex"
+    },
+    "sbb-8fa1ee5a454c|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:38.141Z",
+      "source": "6702bf584005",
+      "rung": "codex"
+    },
+    "sbb-a1decc198978|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:38.141Z",
+      "source": "1b5f11a3302b",
+      "rung": "codex"
+    },
+    "sbb-b36ea14128e4|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:38.141Z",
+      "source": "f8b4a3841d9d",
+      "rung": "codex"
+    },
+    "sbb-e6463c990d9c|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:38.142Z",
+      "source": "86f4880981dc",
+      "rung": "codex"
+    },
+    "sbb-46f3e22bf526|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:38.142Z",
+      "source": "cfd2e47dc66e",
+      "rung": "codex"
+    },
+    "sbb-8863596d4be2|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:38.142Z",
+      "source": "de061aa493f3",
+      "rung": "codex"
+    },
+    "sbb-8863596d4be2|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:38.143Z",
+      "source": "de061aa493f3",
+      "rung": "codex"
+    },
+    "sbb-8863596d4be2|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:38.143Z",
+      "source": "de061aa493f3",
+      "rung": "codex"
+    },
+    "sbb-4167a6eed301|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:38.143Z",
+      "source": "cfd2e47dc66e",
+      "rung": "codex"
+    },
+    "sbb-d3e0c31b360d|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:38.143Z",
+      "source": "de061aa493f3",
+      "rung": "codex"
+    },
+    "sbb-d3e0c31b360d|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:38.143Z",
+      "source": "de061aa493f3",
+      "rung": "codex"
+    },
+    "sbb-d3e0c31b360d|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:38.144Z",
+      "source": "de061aa493f3",
+      "rung": "codex"
+    },
+    "sbb-e6463c990d9c|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:44.690Z",
+      "source": "86f4880981dc",
+      "rung": "codex"
+    },
+    "sbb-46f3e22bf526|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:44.690Z",
+      "source": "cfd2e47dc66e",
+      "rung": "codex"
+    },
+    "sbb-4167a6eed301|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:44.691Z",
+      "source": "cfd2e47dc66e",
+      "rung": "codex"
+    },
+    "sbb-ec570d3722d0|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:44.691Z",
+      "source": "0b15c2ac2eff",
+      "rung": "codex"
+    },
+    "sbb-79445546e7fc|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:44.691Z",
+      "source": "6d49c317efa8",
+      "rung": "codex"
+    },
+    "sbb-a3797372e48b|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:44.692Z",
+      "source": "998be7e90214",
+      "rung": "codex"
+    },
+    "sbb-a3797372e48b|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:44.692Z",
+      "source": "998be7e90214",
+      "rung": "codex"
+    },
+    "sbb-a3797372e48b|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:44.692Z",
+      "source": "998be7e90214",
+      "rung": "codex"
+    },
+    "sbb-600462dd9db8|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:44.692Z",
+      "source": "d046ab3254c6",
+      "rung": "codex"
+    },
+    "sbb-600462dd9db8|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:44.693Z",
+      "source": "d046ab3254c6",
+      "rung": "codex"
+    },
+    "sbb-600462dd9db8|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:44.693Z",
+      "source": "d046ab3254c6",
+      "rung": "codex"
+    },
+    "sbb-42ab653b3ee2|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:44.693Z",
+      "source": "86f4880981dc",
+      "rung": "codex"
+    },
+    "sbb-42ab653b3ee2|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:44.693Z",
+      "source": "86f4880981dc",
+      "rung": "codex"
+    },
+    "sbb-b36ea14128e4|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:49.116Z",
+      "source": "f8b4a3841d9d",
+      "rung": "codex"
+    },
+    "sbb-e6463c990d9c|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:49.116Z",
+      "source": "86f4880981dc",
+      "rung": "codex"
+    },
+    "sbb-42ab653b3ee2|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:49.117Z",
+      "source": "86f4880981dc",
+      "rung": "codex"
+    },
+    "sbb-46f3e22bf526|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:49.117Z",
+      "source": "cfd2e47dc66e",
+      "rung": "codex"
+    },
+    "sbb-4167a6eed301|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:49.117Z",
+      "source": "cfd2e47dc66e",
+      "rung": "codex"
+    },
+    "sbb-ec570d3722d0|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:49.117Z",
+      "source": "0b15c2ac2eff",
+      "rung": "codex"
+    },
+    "sbb-db00559e4dc0|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:49.118Z",
+      "source": "bea604e807a0",
+      "rung": "codex"
+    },
+    "sbb-db00559e4dc0|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:49.121Z",
+      "source": "bea604e807a0",
+      "rung": "codex"
+    },
+    "sbb-db00559e4dc0|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:49.121Z",
+      "source": "bea604e807a0",
+      "rung": "codex"
+    },
+    "sbb-7b24b6adbd14|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:49.121Z",
+      "source": "72550afb1c5f",
+      "rung": "codex"
+    },
+    "sbb-7b24b6adbd14|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:49.121Z",
+      "source": "72550afb1c5f",
+      "rung": "codex"
+    },
+    "sbb-7b24b6adbd14|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:49.122Z",
+      "source": "72550afb1c5f",
+      "rung": "codex"
+    },
+    "sbb-9f3108eb12c9|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:53.240Z",
+      "source": "2f5d87d01473",
+      "rung": "codex"
+    },
+    "sbb-fe5cded571f1|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:53.241Z",
+      "source": "2042caa2db5a",
+      "rung": "codex"
+    },
+    "sbb-0d784b345f66|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:53.241Z",
+      "source": "2042caa2db5a",
+      "rung": "codex"
+    },
+    "sbb-b47f33a4460e|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:53.241Z",
+      "source": "dd0970586913",
+      "rung": "codex"
+    },
+    "sbb-d29e153c4fad|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:53.241Z",
+      "source": "cb53fd1d70fb",
+      "rung": "codex"
+    },
+    "sbb-3b5422d251c7|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:53.242Z",
+      "source": "d582b13948e5",
+      "rung": "codex"
+    },
+    "sbb-dd5a1236c8cb|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:53.242Z",
+      "source": "d289b1ceafec",
+      "rung": "codex"
+    },
+    "sbb-6ded42751134|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:53.242Z",
+      "source": "d289b1ceafec",
+      "rung": "codex"
+    },
+    "sbb-116ce24125cb|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:53.242Z",
+      "source": "6c968d8eed76",
+      "rung": "codex"
+    },
+    "sbb-1c31fd14eefd|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:53.246Z",
+      "source": "bea604e807a0",
+      "rung": "codex"
+    },
+    "sbb-1c31fd14eefd|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:53.246Z",
+      "source": "bea604e807a0",
+      "rung": "codex"
+    },
+    "sbb-1c31fd14eefd|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:53.246Z",
+      "source": "bea604e807a0",
+      "rung": "codex"
+    },
+    "sbb-633a66f7208e|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:53.246Z",
+      "source": "cfd2e47dc66e",
+      "rung": "codex"
+    },
+    "sbb-633a66f7208e|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:53.247Z",
+      "source": "cfd2e47dc66e",
+      "rung": "codex"
+    },
+    "sbb-633a66f7208e|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:53.247Z",
+      "source": "cfd2e47dc66e",
+      "rung": "codex"
+    },
+    "sbb-ec570d3722d0|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:59.240Z",
+      "source": "0b15c2ac2eff",
+      "rung": "codex"
+    },
+    "sbb-79445546e7fc|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:59.240Z",
+      "source": "6d49c317efa8",
+      "rung": "codex"
+    },
+    "sbb-5c8499668a35|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:59.241Z",
+      "source": "ad5e8e7faf9a",
+      "rung": "codex"
+    },
+    "sbb-76d33d85f467|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:18:59.241Z",
+      "source": "8cc5c144964f",
+      "rung": "codex"
+    },
+    "sbb-79445546e7fc|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:00.199Z",
+      "source": "6d49c317efa8",
+      "rung": "codex"
+    },
+    "sbb-76d33d85f467|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:00.199Z",
+      "source": "8cc5c144964f",
+      "rung": "codex"
+    },
+    "sbb-f1e295a1aa7f|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:00.199Z",
+      "source": "e08f0f2d3a3d",
+      "rung": "codex"
+    },
+    "sbb-44e79587bc9b|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:00.200Z",
+      "source": "acf369a22662",
+      "rung": "codex"
+    },
+    "sbb-5c8499668a35|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:06.141Z",
+      "source": "ad5e8e7faf9a",
+      "rung": "codex"
+    },
+    "sbb-76d33d85f467|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:06.142Z",
+      "source": "8cc5c144964f",
+      "rung": "codex"
+    },
+    "sbb-f1e295a1aa7f|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:06.142Z",
+      "source": "e08f0f2d3a3d",
+      "rung": "codex"
+    },
+    "sbb-44e79587bc9b|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:06.142Z",
+      "source": "acf369a22662",
+      "rung": "codex"
+    },
+    "sbb-d74b7e539356|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:06.142Z",
+      "source": "8584fcda9c81",
+      "rung": "codex"
+    },
+    "sbb-f1e295a1aa7f|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:18.912Z",
+      "source": "e08f0f2d3a3d",
+      "rung": "codex"
+    },
+    "sbb-44e79587bc9b|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:18.912Z",
+      "source": "acf369a22662",
+      "rung": "codex"
+    },
+    "sbb-d74b7e539356|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:18.912Z",
+      "source": "8584fcda9c81",
+      "rung": "codex"
+    },
+    "sbb-8db7e4eac37e|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:18.912Z",
+      "source": "f1edb73f5b86",
+      "rung": "codex"
+    },
+    "sbb-4c0329dcd9ad|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:18.915Z",
+      "source": "f48b2ff609a8",
+      "rung": "codex"
+    },
+    "sbb-1ccf791f057b|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:18.915Z",
+      "source": "e933ef4614f7",
+      "rung": "codex"
+    },
+    "sbb-8db7e4eac37e|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:19.017Z",
+      "source": "f1edb73f5b86",
+      "rung": "codex"
+    },
+    "sbb-4c0329dcd9ad|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:19.017Z",
+      "source": "f48b2ff609a8",
+      "rung": "codex"
+    },
+    "sbb-1ccf791f057b|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:19.017Z",
+      "source": "e933ef4614f7",
+      "rung": "codex"
+    },
+    "sbb-e64c5a4eec41|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:19.017Z",
+      "source": "e95f14b3e5ea",
+      "rung": "codex"
+    },
+    "sbb-8f85911c61a0|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:19.017Z",
+      "source": "fa7fafb7ccea",
+      "rung": "codex"
+    },
+    "sbb-d74b7e539356|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:23.254Z",
+      "source": "8584fcda9c81",
+      "rung": "codex"
+    },
+    "sbb-8db7e4eac37e|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:23.254Z",
+      "source": "f1edb73f5b86",
+      "rung": "codex"
+    },
+    "sbb-4c0329dcd9ad|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:23.255Z",
+      "source": "f48b2ff609a8",
+      "rung": "codex"
+    },
+    "sbb-1ccf791f057b|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:23.255Z",
+      "source": "e933ef4614f7",
+      "rung": "codex"
+    },
+    "sbb-e64c5a4eec41|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:23.255Z",
+      "source": "e95f14b3e5ea",
+      "rung": "codex"
+    },
+    "sbb-cca567b12324|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:23.256Z",
+      "source": "d289b1ceafec",
+      "rung": "codex"
+    },
+    "sbb-cca567b12324|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:23.256Z",
+      "source": "d289b1ceafec",
+      "rung": "codex"
+    },
+    "sbb-cca567b12324|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:23.256Z",
+      "source": "d289b1ceafec",
+      "rung": "codex"
+    },
+    "sbb-36e5ee4ba1e9|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:23.259Z",
+      "source": "2f5d87d01473",
+      "rung": "codex"
+    },
+    "sbb-36e5ee4ba1e9|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:23.259Z",
+      "source": "2f5d87d01473",
+      "rung": "codex"
+    },
+    "sbb-36e5ee4ba1e9|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:23.259Z",
+      "source": "2f5d87d01473",
+      "rung": "codex"
+    },
+    "sbb-da9f79193d50|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:23.259Z",
+      "source": "bea604e807a0",
+      "rung": "codex"
+    },
+    "sbb-da9f79193d50|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:23.259Z",
+      "source": "bea604e807a0",
+      "rung": "codex"
+    },
+    "sbb-da9f79193d50|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:23.259Z",
+      "source": "bea604e807a0",
+      "rung": "codex"
+    },
+    "sbb-8f85911c61a0|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:30.238Z",
+      "source": "fa7fafb7ccea",
+      "rung": "codex"
+    },
+    "sbb-b75f68e815fa|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:30.239Z",
+      "source": "f937119910bf",
+      "rung": "codex"
+    },
+    "sbb-fa5226d89228|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:30.239Z",
+      "source": "22d67cd2c1b0",
+      "rung": "codex"
+    },
+    "sbb-32e8dcbd4871|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:30.239Z",
+      "source": "ebd3dfbe2b8b",
+      "rung": "codex"
+    },
+    "sbb-2d2f876914dd|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:30.239Z",
+      "source": "b626fd7dfe90",
+      "rung": "codex"
+    },
+    "sbb-70b0521d8f06|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:30.242Z",
+      "source": "72550afb1c5f",
+      "rung": "codex"
+    },
+    "sbb-70b0521d8f06|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:30.242Z",
+      "source": "72550afb1c5f",
+      "rung": "codex"
+    },
+    "sbb-70b0521d8f06|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:30.243Z",
+      "source": "72550afb1c5f",
+      "rung": "codex"
+    },
+    "sbb-4fa4a94e8d17|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:30.243Z",
+      "source": "de061aa493f3",
+      "rung": "codex"
+    },
+    "sbb-4fa4a94e8d17|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:30.243Z",
+      "source": "de061aa493f3",
+      "rung": "codex"
+    },
+    "sbb-4fa4a94e8d17|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:30.244Z",
+      "source": "de061aa493f3",
+      "rung": "codex"
+    },
+    "sbb-7229d2c1e033|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:30.244Z",
+      "source": "9710553b58ce",
+      "rung": "codex"
+    },
+    "sbb-7229d2c1e033|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:30.244Z",
+      "source": "9710553b58ce",
+      "rung": "codex"
+    },
+    "sbb-7229d2c1e033|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:30.244Z",
+      "source": "9710553b58ce",
+      "rung": "codex"
+    },
+    "sbb-19ede2cef7ba|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:30.244Z",
+      "source": "998be7e90214",
+      "rung": "codex"
+    },
+    "sbb-19ede2cef7ba|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:30.245Z",
+      "source": "998be7e90214",
+      "rung": "codex"
+    },
+    "sbb-19ede2cef7ba|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:30.245Z",
+      "source": "998be7e90214",
+      "rung": "codex"
+    },
+    "sbb-dec58ea4269b|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:30.245Z",
+      "source": "cfd2e47dc66e",
+      "rung": "codex"
+    },
+    "sbb-dec58ea4269b|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:30.245Z",
+      "source": "cfd2e47dc66e",
+      "rung": "codex"
+    },
+    "sbb-dec58ea4269b|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:30.245Z",
+      "source": "cfd2e47dc66e",
+      "rung": "codex"
+    },
+    "sbb-b75f68e815fa|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:31.615Z",
+      "source": "f937119910bf",
+      "rung": "codex"
+    },
+    "sbb-fa5226d89228|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:31.616Z",
+      "source": "22d67cd2c1b0",
+      "rung": "codex"
+    },
+    "sbb-32e8dcbd4871|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:31.616Z",
+      "source": "ebd3dfbe2b8b",
+      "rung": "codex"
+    },
+    "sbb-2d2f876914dd|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:31.616Z",
+      "source": "b626fd7dfe90",
+      "rung": "codex"
+    },
+    "sbb-9823d3f4efd6|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:31.616Z",
+      "source": "b2d43e6b5d33",
+      "rung": "codex"
+    },
+    "sbb-148b00592405|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:38.734Z",
+      "source": "7edf812c3d2f",
+      "rung": "codex"
+    },
+    "sbb-a2812be4dfb3|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:38.735Z",
+      "source": "1733799b8c44",
+      "rung": "codex"
+    },
+    "sbb-7942968f0813|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:38.735Z",
+      "source": "bd82a76f58ba",
+      "rung": "codex"
+    },
+    "sbb-cd3c6f78381b|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:38.735Z",
+      "source": "af5e814db86d",
+      "rung": "codex"
+    },
+    "sbb-8460793f37b5|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:38.735Z",
+      "source": "310afd7dc18b",
+      "rung": "codex"
+    },
+    "sbb-e64c5a4eec41|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:41.410Z",
+      "source": "e95f14b3e5ea",
+      "rung": "codex"
+    },
+    "sbb-8f85911c61a0|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:41.410Z",
+      "source": "fa7fafb7ccea",
+      "rung": "codex"
+    },
+    "sbb-b75f68e815fa|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:41.410Z",
+      "source": "f937119910bf",
+      "rung": "codex"
+    },
+    "sbb-fa5226d89228|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:41.412Z",
+      "source": "22d67cd2c1b0",
+      "rung": "codex"
+    },
+    "sbb-32e8dcbd4871|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:41.413Z",
+      "source": "ebd3dfbe2b8b",
+      "rung": "codex"
+    },
+    "sbb-478e5edb11f7|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:41.414Z",
+      "source": "8cc5c144964f",
+      "rung": "codex"
+    },
+    "sbb-478e5edb11f7|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:41.414Z",
+      "source": "8cc5c144964f",
+      "rung": "codex"
+    },
+    "sbb-478e5edb11f7|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:41.414Z",
+      "source": "8cc5c144964f",
+      "rung": "codex"
+    },
+    "sbb-a24a38c65820|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:41.415Z",
+      "source": "acf369a22662",
+      "rung": "codex"
+    },
+    "sbb-a24a38c65820|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:41.415Z",
+      "source": "acf369a22662",
+      "rung": "codex"
+    },
+    "sbb-a24a38c65820|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:41.415Z",
+      "source": "acf369a22662",
+      "rung": "codex"
+    },
+    "sbb-b93e0b16b82e|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:41.415Z",
+      "source": "dd0970586913",
+      "rung": "codex"
+    },
+    "sbb-b93e0b16b82e|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:41.415Z",
+      "source": "dd0970586913",
+      "rung": "codex"
+    },
+    "sbb-b93e0b16b82e|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:41.416Z",
+      "source": "dd0970586913",
+      "rung": "codex"
+    },
+    "sbb-2d2f876914dd|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:44.009Z",
+      "source": "b626fd7dfe90",
+      "rung": "codex"
+    },
+    "sbb-9823d3f4efd6|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:44.010Z",
+      "source": "b2d43e6b5d33",
+      "rung": "codex"
+    },
+    "sbb-148b00592405|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:44.010Z",
+      "source": "7edf812c3d2f",
+      "rung": "codex"
+    },
+    "sbb-a2812be4dfb3|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:44.011Z",
+      "source": "1733799b8c44",
+      "rung": "codex"
+    },
+    "sbb-7942968f0813|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:19:44.011Z",
+      "source": "bd82a76f58ba",
+      "rung": "codex"
+    },
+    "sbb-a2812be4dfb3|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:05.729Z",
+      "source": "1733799b8c44",
+      "rung": "codex"
+    },
+    "sbb-7942968f0813|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:05.729Z",
+      "source": "bd82a76f58ba",
+      "rung": "codex"
+    },
+    "sbb-8460793f37b5|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:05.729Z",
+      "source": "310afd7dc18b",
+      "rung": "codex"
+    },
+    "sbb-e56cf62490f2|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:05.729Z",
+      "source": "458ad27ecefb",
+      "rung": "codex"
+    },
+    "sbb-8a92ec3e89c4|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:05.730Z",
+      "source": "33622e3e7eef",
+      "rung": "codex"
+    },
+    "sbb-e56cf62490f2|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:10.609Z",
+      "source": "458ad27ecefb",
+      "rung": "codex"
+    },
+    "sbb-8a92ec3e89c4|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:10.610Z",
+      "source": "33622e3e7eef",
+      "rung": "codex"
+    },
+    "sbb-5cf64b614564|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:10.610Z",
+      "source": "2e647619866b",
+      "rung": "codex"
+    },
+    "sbb-40cff5c653ad|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:10.610Z",
+      "source": "65fb989c5b7f",
+      "rung": "codex"
+    },
+    "sbb-d3e9b4eb6d31|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:11.881Z",
+      "source": "57e1377fa646",
+      "rung": "myMemory"
+    },
+    "sbb-cd3c6f78381b|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:28.469Z",
+      "source": "af5e814db86d",
+      "rung": "codex"
+    },
+    "sbb-8460793f37b5|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:28.469Z",
+      "source": "310afd7dc18b",
+      "rung": "codex"
+    },
+    "sbb-e56cf62490f2|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:28.469Z",
+      "source": "458ad27ecefb",
+      "rung": "codex"
+    },
+    "sbb-8a92ec3e89c4|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:28.470Z",
+      "source": "33622e3e7eef",
+      "rung": "codex"
+    },
+    "sbb-5cf64b614564|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:28.470Z",
+      "source": "2e647619866b",
+      "rung": "codex"
+    },
+    "sbb-5cf64b614564|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:41.624Z",
+      "source": "2e647619866b",
+      "rung": "codex"
+    },
+    "sbb-40cff5c653ad|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:41.624Z",
+      "source": "65fb989c5b7f",
+      "rung": "codex"
+    },
+    "sbb-17139454d01a|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:41.625Z",
+      "source": "605fb4821ba6",
+      "rung": "codex"
+    },
+    "sbb-8d8e6f32c530|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:41.625Z",
+      "source": "73c55d43e4c0",
+      "rung": "codex"
+    },
+    "sbb-5d883fc7252e|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:41.625Z",
+      "source": "8527aef3c4a5",
+      "rung": "codex"
+    },
+    "sbb-40cff5c653ad|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:43.597Z",
+      "source": "65fb989c5b7f",
+      "rung": "codex"
+    },
+    "sbb-17139454d01a|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:43.598Z",
+      "source": "605fb4821ba6",
+      "rung": "codex"
+    },
+    "sbb-8d8e6f32c530|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:43.598Z",
+      "source": "73c55d43e4c0",
+      "rung": "codex"
+    },
+    "sbb-5d883fc7252e|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:43.598Z",
+      "source": "8527aef3c4a5",
+      "rung": "codex"
+    },
+    "gesundheitsnetz-kuesnacht-f31ea0125d8c|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:43.598Z",
+      "source": "0d702b5c15ea",
+      "rung": "codex"
+    },
+    "sbb-17139454d01a|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:54.396Z",
+      "source": "605fb4821ba6",
+      "rung": "codex"
+    },
+    "sbb-8d8e6f32c530|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:54.397Z",
+      "source": "73c55d43e4c0",
+      "rung": "codex"
+    },
+    "sbb-5d883fc7252e|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:54.397Z",
+      "source": "8527aef3c4a5",
+      "rung": "codex"
+    },
+    "gesundheitsnetz-kuesnacht-f31ea0125d8c|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:54.397Z",
+      "source": "0d702b5c15ea",
+      "rung": "codex"
+    },
+    "recruitingapp-2563-5d7c7b9626ab|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:54.397Z",
+      "source": "99dd82dd90b3",
+      "rung": "codex"
+    },
+    "recruitingapp-2563-5d7c7b9626ab|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:57.119Z",
+      "source": "99dd82dd90b3",
+      "rung": "codex"
+    },
+    "asana-spital-e60865921093|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:57.120Z",
+      "source": "f46e4dc03f10",
+      "rung": "codex"
+    },
+    "unispital-basel-1269d61614e4|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:57.120Z",
+      "source": "87c65683eb00",
+      "rung": "codex"
+    },
+    "apg-sga-f9ac031f849f|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:57.121Z",
+      "source": "55f34bfb5722",
+      "rung": "codex"
+    },
+    "holcim-d695e7dec9ea|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:20:57.121Z",
+      "source": "f54a5ff49b80",
+      "rung": "codex"
+    },
+    "asana-spital-e60865921093|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:21:09.762Z",
+      "source": "f46e4dc03f10",
+      "rung": "codex"
+    },
+    "unispital-basel-1269d61614e4|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:21:09.762Z",
+      "source": "87c65683eb00",
+      "rung": "codex"
+    },
+    "apg-sga-f9ac031f849f|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:21:09.762Z",
+      "source": "55f34bfb5722",
+      "rung": "codex"
+    },
+    "holcim-d695e7dec9ea|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:21:09.762Z",
+      "source": "f54a5ff49b80",
+      "rung": "codex"
+    },
+    "kanton-solothurn-7fa7533b4c8f|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:21:09.762Z",
+      "source": "5b58ec57d1ba",
+      "rung": "codex"
+    },
+    "apg-sga-f9ac031f849f|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:21:16.295Z",
+      "source": "55f34bfb5722",
+      "rung": "codex"
+    },
+    "holcim-d695e7dec9ea|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:21:16.295Z",
+      "source": "f54a5ff49b80",
+      "rung": "codex"
+    },
+    "kanton-solothurn-1cd37eb80b34|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:21:16.296Z",
+      "source": "191af2c195c9",
+      "rung": "codex"
+    },
+    "kanton-solothurn-1cd37eb80b34|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:21:27.467Z",
+      "source": "191af2c195c9",
+      "rung": "codex"
+    },
+    "bachem-0b2f355f527f|de|en": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:21:28.695Z",
+      "source": "278f23ff998d",
+      "rung": "myMemory"
+    },
+    "gesundheitsnetz-kuesnacht-f31ea0125d8c|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:21:38.762Z",
+      "source": "0d702b5c15ea",
+      "rung": "codex"
+    },
+    "recruitingapp-2563-5d7c7b9626ab|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:21:38.762Z",
+      "source": "99dd82dd90b3",
+      "rung": "codex"
+    },
+    "asana-spital-e60865921093|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:21:38.763Z",
+      "source": "f46e4dc03f10",
+      "rung": "codex"
+    },
+    "unispital-basel-1269d61614e4|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:21:38.763Z",
+      "source": "87c65683eb00",
+      "rung": "codex"
+    },
+    "kanton-aargau-208b030f1989|de|it": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:21:38.763Z",
+      "source": "a39be22a2be0",
+      "rung": "codex"
+    },
+    "kanton-solothurn-7fa7533b4c8f|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:21:42.263Z",
+      "source": "5b58ec57d1ba",
+      "rung": "codex"
+    },
+    "kanton-solothurn-1cd37eb80b34|de|fr": {
+      "attempts": 1,
+      "lastAttemptAt": "2026-11-17T10:21:42.263Z",
+      "source": "191af2c195c9",
       "rung": "codex"
     }
   }
