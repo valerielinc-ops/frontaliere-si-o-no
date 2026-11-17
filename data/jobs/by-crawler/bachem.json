@@ -88,7 +88,7 @@
       "slug": "esperto-di-processo-a-valle-api-production-sisslerfeld-site-development-a-al-100-bachem-ag-stein-ag",
       "slugByLocale": {
         "it": "esperto-di-processo-a-valle-api-production-sisslerfeld-site-development-a-al-100-bachem-ag-stein-ag",
-        "en": "downstream-process-expert-api-production-sisslerfeld-site-development-a-100-bachem-stein",
+        "en": "downstream-process-expert-isolation-api-production-sisslerfeld-site-development-a-100-bachem-ag-stein-ag",
         "de": "downstream-process-expert-isolation-api-production-sisslerfeld-site-development-a-100",
         "fr": "expert-en-aval-des-processus-api-production-sisslerfeld-developpement-du-site-a-100-bachem-ag-stein-ag"
       },
@@ -134,19 +134,22 @@
       "applyUrl": "https://careers.bachem.com/talentcommunity/apply/1441748133/?locale=de_DE",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "downstream-process-expert-api-production-sisslerfeld-site-development-a-100-bachem-stein",
-        "downstream-process-expert-isolation-api-production-sisslerfeld-site-development-a-100"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "downstream-process-expert-api-production-sisslerfeld-site-development-a-100-bachem-stein"
+        ],
         "it": [
           "downstream-process-expert-api-production-sisslerfeld-site-development-a-100-bachem-stein",
           "downstream-process-expert-isolation-api-production-sisslerfeld-site-development-a-100"
         ],
-        "de": [
+        "en": [
           "downstream-process-expert-api-production-sisslerfeld-site-development-a-100-bachem-stein"
         ]
       },
+      "previousSlugs": [
+        "downstream-process-expert-api-production-sisslerfeld-site-development-a-100-bachem-stein",
+        "downstream-process-expert-isolation-api-production-sisslerfeld-site-development-a-100"
+      ],
       "firstSeenAt": "2026-09-28T21:24:07.305Z",
       "salaryMin": 64500,
       "salaryMax": 110000,
@@ -1959,11 +1962,11 @@
     },
     {
       "id": "bachem-adfea07f6698",
-      "slug": "chemist-a-100-bachem-bubendorf",
+      "slug": "chimico-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "chemist-a-100-bachem-bubendorf",
-        "en": "chemist-a-100-bachem-bubendorf",
         "de": "chemist-a-100-bachem-bubendorf",
+        "it": "chimico-a-100-bachem-ag-bubendorf",
+        "en": "chemist-a-100-bachem-bubendorf",
         "fr": "chemist-a-100-bachem-bubendorf"
       },
       "company": "Bachem AG",
@@ -2036,7 +2039,15 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T09:22:19.844Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-05-28T22:15:02.225Z"
+      "firstSeenAt": "2026-05-28T22:15:02.225Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chemist-a-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "chemist-a-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-c763b3065202",
@@ -4264,12 +4275,12 @@
     },
     {
       "id": "bachem-830a5015f400",
-      "slug": "responsible-person-rp-fvp-a-100-bachem-bubendorf",
+      "slug": "persona-responsabile-rp-fvp-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "responsible-person-rp-fvp-a-100-bachem-bubendorf",
         "en": "responsible-person-rp-fvp-a-100-bachem-bubendorf",
+        "it": "persona-responsabile-rp-fvp-a-100-bachem-ag-bubendorf",
         "de": "responsible-person-rp-fvp-a-100-bachem-bubendorf",
-        "fr": "responsible-person-rp-fvp-a-100-bachem-bubendorf"
+        "fr": "personne-responsable-rp-fvp-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -4340,7 +4351,18 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T09:22:06.430Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T08:25:36.703Z"
+      "firstSeenAt": "2026-11-17T08:25:36.703Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsible-person-rp-fvp-a-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "responsible-person-rp-fvp-a-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "responsible-person-rp-fvp-a-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-8dcaf2fa729a",
@@ -4432,12 +4454,12 @@
     },
     {
       "id": "bachem-75c4e1c9ce66",
-      "slug": "lead-of-coe-industrial-hygiene-occupational-health-a-100-bachem-bubendorf",
+      "slug": "piombo-di-igiene-industriale-coe-salute-sul-lavoro-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "lead-of-coe-industrial-hygiene-occupational-health-a-100-bachem-bubendorf",
         "en": "lead-of-coe-industrial-hygiene-occupational-health-a-100-bachem-bubendorf",
-        "de": "lead-of-coe-industrial-hygiene-occupational-health-a-100-bachem-bubendorf",
-        "fr": "lead-of-coe-industrial-hygiene-occupational-health-a-100-bachem-bubendorf"
+        "it": "piombo-di-igiene-industriale-coe-salute-sul-lavoro-a-100-bachem-ag-bubendorf",
+        "de": "leitung-von-coe-industriehygiene-arbeitshygiene-a-100-bachem-ag-bubendorf",
+        "fr": "responsable-de-l-hygiene-industrielle-et-de-la-sante-au-travail-du-conseil-de-l-europe-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -4508,7 +4530,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T09:22:05.453Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T08:25:38.303Z"
+      "firstSeenAt": "2026-11-17T08:25:38.303Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-of-coe-industrial-hygiene-occupational-health-a-100-bachem-bubendorf"
+        ],
+        "de": [
+          "lead-of-coe-industrial-hygiene-occupational-health-a-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "lead-of-coe-industrial-hygiene-occupational-health-a-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "lead-of-coe-industrial-hygiene-occupational-health-a-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-74aca1f1c5a8",
@@ -4770,12 +4806,12 @@
     },
     {
       "id": "bachem-1972f89ed8d6",
-      "slug": "lead-of-coe-process-safety-a-100-bachem-bubendorf",
+      "slug": "piombo-di-sicurezza-del-processo-di-coe-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "lead-of-coe-process-safety-a-100-bachem-bubendorf",
         "en": "lead-of-coe-process-safety-a-100-bachem-bubendorf",
-        "de": "lead-of-coe-process-safety-a-100-bachem-bubendorf",
-        "fr": "lead-of-coe-process-safety-a-100-bachem-bubendorf"
+        "it": "piombo-di-sicurezza-del-processo-di-coe-a-100-bachem-ag-bubendorf",
+        "de": "blei-von-coe-prozesssicherheit-a-100-bachem-ag-bubendorf",
+        "fr": "responsable-de-la-securite-des-procedes-du-conseil-de-l-europe-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -4846,7 +4882,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T09:22:03.374Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T08:25:39.330Z"
+      "firstSeenAt": "2026-11-17T08:25:39.330Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-of-coe-process-safety-a-100-bachem-bubendorf"
+        ],
+        "de": [
+          "lead-of-coe-process-safety-a-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "lead-of-coe-process-safety-a-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "lead-of-coe-process-safety-a-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-7f5b782f19d6",
@@ -4930,12 +4980,12 @@
     },
     {
       "id": "bachem-1d7fd73675c5",
-      "slug": "lead-of-coe-hse-digital-systems-a-100-bachem-bubendorf",
+      "slug": "piombo-di-sistemi-digitali-coe-hse-a-100-bachem-ag-bubendorf",
       "slugByLocale": {
-        "it": "lead-of-coe-hse-digital-systems-a-100-bachem-bubendorf",
         "en": "lead-of-coe-hse-digital-systems-a-100-bachem-bubendorf",
+        "it": "piombo-di-sistemi-digitali-coe-hse-a-100-bachem-ag-bubendorf",
         "de": "lead-of-coe-hse-digital-systems-a-100-bachem-bubendorf",
-        "fr": "lead-of-coe-hse-digital-systems-a-100-bachem-bubendorf"
+        "fr": "responsable-des-systemes-numeriques-du-coe-hse-a-100-bachem-ag-bubendorf"
       },
       "company": "Bachem AG",
       "companyKey": "bachem",
@@ -5006,7 +5056,18 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-10T09:22:02.323Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T08:25:37.757Z"
+      "firstSeenAt": "2026-11-17T08:25:37.757Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-of-coe-hse-digital-systems-a-100-bachem-bubendorf"
+        ],
+        "fr": [
+          "lead-of-coe-hse-digital-systems-a-100-bachem-bubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "lead-of-coe-hse-digital-systems-a-100-bachem-bubendorf"
+      ]
     },
     {
       "id": "bachem-661420a19b7a",
