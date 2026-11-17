@@ -1,6 +1,6 @@
 import { test, expect, type APIRequestContext, type APIResponse } from 'playwright/test';
 import { resolveActiveJobDetailPath } from './lib/live-jobs';
-import { getLiveWithRetry } from './lib/live-request';
+import { getLiveWithRetry, liveRequestTimeoutMs } from './lib/live-request';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 
 /**
@@ -120,7 +120,7 @@ for (const target of TARGETS) {
       request,
     }) => {
       // One 20 s request gets 6 attempts plus 25 s of retry pauses.
-      test.setTimeout(145_000);
+      test.setTimeout(liveRequestTimeoutMs(20_000));
 
       const fetched = await fetchHtml(request, url);
 
@@ -155,7 +155,7 @@ for (const target of TARGETS) {
 
     test(`browser navigation completes within 25 s (${target.path})`, async ({ page }) => {
       // One 15 s preflight request gets 6 attempts plus 25 s of retry pauses.
-      test.setTimeout(115_000);
+      test.setTimeout(liveRequestTimeoutMs(15_000) + 25_000);
 
       // Collect uncaught exceptions surfaced to the page. A cross-chunk
       // version-skew TypeError (stable filenames + re-lettered minified exports
@@ -242,7 +242,7 @@ for (const target of TARGETS) {
 test.describe('live: active job page (must hydrate)', () => {
   test('renders without redirect loop, includes SPA bundle and <main> element', async ({ page }) => {
     // One 20 s request gets 6 attempts plus 25 s of retry pauses.
-    test.setTimeout(145_000);
+    test.setTimeout(liveRequestTimeoutMs(20_000));
 
     const path = await resolveActiveJobDetailPath(page);
     const url = `${LIVE_BASE_URL}${path}`;
@@ -273,7 +273,7 @@ test.describe('live: active job page (must hydrate)', () => {
 
   test('browser navigation completes within 25 s and hydrates main element', async ({ page }) => {
     // Active-job resolution uses 15 s requests plus 25 s of retry pauses.
-    test.setTimeout(115_000);
+    test.setTimeout(liveRequestTimeoutMs(15_000) + 40_000);
 
     const path = await resolveActiveJobDetailPath(page);
     const url = `${LIVE_BASE_URL}${path}`;
