@@ -141,6 +141,7 @@ const LIDL_VERIFIED_LOCALITY_CANTONS = new Map([
   ['perlen|6035', 'LU'],
   ['emmenbrucke|6020', 'LU'],
   ['bevaix|2022', 'NE'],
+  ['broye|1470', 'FR'],
   ['niederuzwil|9244', 'SG'],
   ['romont|1680', 'FR'],
   ['luchingen|9450', 'SG'],
