@@ -42,7 +42,7 @@ const login = () => ({
   ],
   buttons: [
     { id: 'privacy', frame: 0, text: 'Lire tout le message sur la confidentialité', chrome: true },
-    { id: 'reject', frame: 0, text: 'Refuser', chrome: true },
+    { id: 'reject', frame: 0, text: 'Refuser les cookies', chrome: true },
     { id: 'accept', frame: 0, text: 'Accepter les cookies', chrome: true },
     { id: 'sign-in', frame: 0, text: 'Connexion', chrome: true },
     { id: 'visit', frame: 0, text: 'Visite Swarovski.com', chrome: true },
@@ -178,6 +178,17 @@ function harnessWithUnmarkedFrenchCookieControls(afterForgot: any) {
   return fixture;
 }
 
+function harnessWithUnmarkedFrenchAcceptOnly(afterForgot: any) {
+  const fixture = harnessWithUnmarkedFrenchCookieControls(afterForgot);
+  recoveryState.snapshot = {
+    ...recoveryState.snapshot,
+    buttons: recoveryState.snapshot.buttons.map((button: any) => (
+      button.id === 'reject' ? { ...button, text: 'Fermer' } : button
+    )),
+  };
+  return fixture;
+}
+
 beforeEach(() => vi.clearAllMocks());
 
 describe('bounded Workday password-reset request surface', () => {
@@ -216,6 +227,24 @@ describe('bounded Workday password-reset request surface', () => {
     expect(result).not.toMatchObject({ handoff: 'account_recovery_rejected' });
     expect(recoveryState.events).toEqual([
       'click:cookie:reject',
+      'click:forgot',
+      'fill:reset-email',
+      'beginRecovery',
+      'click:reset-send',
+    ]);
+    expect(fixture.beginRecovery).toHaveBeenCalledOnce();
+    expect(fixture.sendClick).toHaveBeenCalledOnce();
+  });
+
+  it('accepts the exact French cookie choice when reject is not offered', async () => {
+    const fixture = harnessWithUnmarkedFrenchAcceptOnly(resetRequest());
+
+    const result = await fixture.run();
+
+    expect(result).toMatchObject({ handoff: 'account_recovery_timeout', accountFailure: { code: 'account_recovery_timeout' } });
+    expect(result).not.toMatchObject({ handoff: 'account_recovery_rejected' });
+    expect(recoveryState.events).toEqual([
+      'click:cookie:accept',
       'click:forgot',
       'fill:reset-email',
       'beginRecovery',
