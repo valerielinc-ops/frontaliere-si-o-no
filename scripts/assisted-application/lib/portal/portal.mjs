@@ -8729,6 +8729,12 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
     const entries = profileEntriesForSection(candidate, kind);
     if (!entries.length || done.has(`${page.url()}|${kind}`)) continue;
     if (!profileButtons(current, kind, PROFILE_ADD_RE).length) continue;
+    // When Workday already renders inline rows (e.g. from CV autofill or a
+    // resumed draft), clicking "Add Another" for every entry duplicates rows.
+    if (profileFields(current, kind).length && profileButtons(current, kind, PROFILE_INLINE_ROW_RE).length) {
+      done.add(`${page.url()}|${kind}`);
+      continue;
+    }
     let added = 0;
     let skipped = Math.max(0, (candidate?.profile?.[kind]?.length || 0) - entries.length);
     for (const entry of entries) {
@@ -8785,7 +8791,9 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
       }
       const cancel = async () => {
         current = await extractFields(page);
-        const control = profileButtons(current, kind, PROFILE_CANCEL_RE)[0];
+        const cancelButtons = profileButtons(current, kind, PROFILE_CANCEL_RE);
+        const control = cancelButtons.find((btn) => /^(?:cancel|abbrechen|annuler|annulla)\b/i.test(String(btn.text || '').trim()))
+          || cancelButtons.at(-1);
         if (!control) return false;
         try {
           await clickButton(page, control);
