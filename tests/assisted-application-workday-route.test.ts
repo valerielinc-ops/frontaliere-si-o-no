@@ -205,4 +205,36 @@ describe('Workday tenant account routes', () => {
     expect(result.handoff).toBe('profile_section_row_fill_failed');
     expect(done.has(`${page.url()}|experience`)).toBe(false);
   });
+
+  it('returns profile_section_row_fill_failed without marking done when an extra inline row cannot be deleted', async () => {
+    const { fillProfileSections } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
+    const done = new Set<string>();
+    const page = {
+      url: () => 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Role_R2420/apply/applyManually',
+      frames: () => [{
+        locator: () => ({ first: () => ({ click: async () => { throw new Error('delete_failed'); } }) }),
+      }],
+    };
+    const snapshot = {
+      url: page.url(),
+      fields: [
+        { id: 'jt-1', label: 'Job Title*', section: 'Work Experience 1', kind: 'text', required: true, value: 'Sales' },
+        { id: 'jt-2', label: 'Job Title*', section: 'Work Experience 2', kind: 'text', required: true, value: '' },
+      ],
+      buttons: [
+        { id: 'del-1', text: 'Delete', section: 'Work Experience', frame: 0 },
+        { id: 'del-2', text: 'Delete', section: 'Work Experience', frame: 0 },
+        { id: 'add-another', text: 'Add Another', section: 'Work Experience', frame: 0 },
+      ],
+    };
+    const candidate = {
+      profile: {
+        experience: [{ role: 'Sales', employer: 'ACME', start: '2022-01', end: '2024-01' }],
+        education: [],
+      },
+    };
+    const result = await fillProfileSections(page as any, snapshot as any, { candidate, done });
+    expect(result.handoff).toBe('profile_section_row_fill_failed');
+    expect(done.has(`${page.url()}|experience`)).toBe(false);
+  });
 });

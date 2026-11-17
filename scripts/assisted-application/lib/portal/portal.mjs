@@ -8791,7 +8791,12 @@ async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries,
           await clickButton(page, delBtn);
           await page.waitForTimeout(200);
           current = await extractFields(page);
-        } catch {}
+        } catch {
+          return {
+            snapshot: await extractFields(page).catch(() => current),
+            handoff: 'profile_section_row_fill_failed',
+          };
+        }
       }
     }
   }
