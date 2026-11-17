@@ -2062,12 +2062,12 @@
     },
     {
       "id": "spital-affoltern-27971f9561ef",
-      "slug": "assistenzarztin-assistenzarzt-notfallzentrum-100-spital-affoltern-affoltern-am-albis",
+      "slug": "assistente-medico-assistente-medico-centro-di-emergenza-100-spital-affoltern-ag-affoltern-am-albis",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-notfallzentrum-100-spital-affoltern-affoltern-am-albis",
-        "en": "assistenzarztin-assistenzarzt-notfallzentrum-100-spital-affoltern-affoltern-am-albis",
         "de": "assistenzarztin-assistenzarzt-notfallzentrum-100-spital-affoltern-affoltern-am-albis",
-        "fr": "assistenzarztin-assistenzarzt-notfallzentrum-100-spital-affoltern-affoltern-am-albis"
+        "it": "assistente-medico-assistente-medico-centro-di-emergenza-100-spital-affoltern-ag-affoltern-am-albis",
+        "en": "assistant-doctor-assistant-doctor-emergency-center-100-spital-affoltern-ag-affoltern-am-albis",
+        "fr": "assistant-medecin-assistant-medecin-centre-d-urgence-100-spital-affoltern-ag-affoltern-am-albis"
       },
       "company": "Spital Affoltern AG",
       "companyKey": "spital-affoltern",
@@ -2141,7 +2141,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-15T09:20:10.192Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T08:19:00.731Z"
+      "firstSeenAt": "2026-11-17T08:19:00.731Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-notfallzentrum-100-spital-affoltern-affoltern-am-albis"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-notfallzentrum-100-spital-affoltern-affoltern-am-albis"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-notfallzentrum-100-spital-affoltern-affoltern-am-albis"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-notfallzentrum-100-spital-affoltern-affoltern-am-albis"
+      ]
     },
     {
       "id": "spital-affoltern-8f6bed2f2481",

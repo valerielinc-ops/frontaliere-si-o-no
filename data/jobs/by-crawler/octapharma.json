@@ -145,10 +145,10 @@
     },
     {
       "id": "octapharma-18ebbb436c47",
-      "slug": "group-senior-manager-data-ai-octapharma-lachen",
+      "slug": "gruppo-senior-manager-dati-ai-octapharma-lachen",
       "slugByLocale": {
-        "it": "group-senior-manager-data-ai-octapharma-lachen",
         "en": "group-senior-manager-data-ai-octapharma-lachen",
+        "it": "gruppo-senior-manager-dati-ai-octapharma-lachen",
         "de": "group-senior-manager-data-ai-octapharma-lachen",
         "fr": "group-senior-manager-data-ai-octapharma-lachen"
       },
@@ -210,7 +210,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:20:41.512Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T08:20:33.962Z"
+      "firstSeenAt": "2026-11-17T08:20:33.962Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "group-senior-manager-data-ai-octapharma-lachen"
+        ]
+      },
+      "previousSlugs": [
+        "group-senior-manager-data-ai-octapharma-lachen"
+      ]
     },
     {
       "id": "octapharma-effa920e96b5",

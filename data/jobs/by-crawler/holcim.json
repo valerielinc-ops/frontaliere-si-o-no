@@ -1130,12 +1130,12 @@
     },
     {
       "id": "holcim-f5ebce4bf321",
-      "slug": "mechaniker-in-holcim-ch",
+      "slug": "meccanico-a-holcim-group-mulligen",
       "slugByLocale": {
-        "it": "mechaniker-in-holcim-ch",
-        "en": "mechaniker-in-holcim-ch",
         "de": "mechaniker-in-holcim-ch",
-        "fr": "mechaniker-in-holcim-ch"
+        "it": "meccanico-a-holcim-group-mulligen",
+        "en": "mechanic-holcim-group-mulligen",
+        "fr": "mecanicien-ne-holcim-group-mulligen"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -1195,7 +1195,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:23:35.210Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-28T21:27:07.903Z"
+      "firstSeenAt": "2026-09-28T21:27:07.903Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mechaniker-in-holcim-ch"
+        ],
+        "en": [
+          "mechaniker-in-holcim-ch"
+        ],
+        "fr": [
+          "mechaniker-in-holcim-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mechaniker-in-holcim-ch"
+      ]
     },
     {
       "id": "holcim-408ddee49d0d",
@@ -1453,7 +1467,7 @@
         "it": "rmx-manager-dell-eccellenza-della-qualita-holcim-group-wurenlingen",
         "en": "rmx-quality-excellence-manager-holcim-ch",
         "de": "rmx-quality-excellence-manager-holcim-ch",
-        "fr": "rmx-quality-excellence-manager-holcim-ch"
+        "fr": "responsable-de-l-excellence-qualite-rmx-holcim-group-wurenlingen"
       },
       "company": "Holcim Group",
       "companyKey": "holcim",
@@ -1500,6 +1514,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "rmx-quality-excellence-manager-holcim-ch"
+        ],
+        "fr": [
           "rmx-quality-excellence-manager-holcim-ch"
         ]
       },

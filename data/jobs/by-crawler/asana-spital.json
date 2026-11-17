@@ -2026,12 +2026,12 @@
     },
     {
       "id": "asana-spital-e60865921093",
-      "slug": "fachfrau-fachmann-apotheke-cfc-50-o-pharma-assistent-in-cfc-asana-spital-ag-menziken-leuggern",
+      "slug": "impiegata-impiegato-di-farmacia-efz-50-oppure-assistente-di-farmacia-efz-asana-spital-ag-menziken-leuggern-leuggern",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-apotheke-cfc-50-o-pharma-assistent-in-cfc-asana-spital-ag-menziken-leuggern",
-        "en": "fachfrau-fachmann-apotheke-efz-50-oder-pharma-assistent-in-efz-asana-spital-leuggern",
         "de": "fachfrau-fachmann-apotheke-efz-50-oder-pharma-assistent-in-efz-asana-spital-leuggern",
-        "fr": "fachfrau-fachmann-apotheke-efz-50-oder-pharma-assistent-in-efz-asana-spital-leuggern"
+        "it": "impiegata-impiegato-di-farmacia-efz-50-oppure-assistente-di-farmacia-efz-asana-spital-ag-menziken-leuggern-leuggern",
+        "en": "pharmacy-specialist-efz-50-or-pharmaceutical-assistant-efz-asana-spital-ag-menziken-leuggern-leuggern",
+        "fr": "assistante-assistant-en-pharmacie-cfc-50-ou-assistant-e-en-pharmacie-cfc-asana-spital-ag-menziken-leuggern-leuggern"
       },
       "company": "asana Spital AG (Menziken / Leuggern)",
       "companyKey": "asana-spital",
@@ -2077,11 +2077,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-fachmann-apotheke-efz-50-oder-pharma-assistent-in-efz-asana-spital-leuggern",
+          "fachfrau-fachmann-apotheke-cfc-50-o-pharma-assistent-in-cfc-asana-spital-ag-menziken-leuggern"
+        ],
+        "en": [
+          "fachfrau-fachmann-apotheke-efz-50-oder-pharma-assistent-in-efz-asana-spital-leuggern"
+        ],
+        "fr": [
           "fachfrau-fachmann-apotheke-efz-50-oder-pharma-assistent-in-efz-asana-spital-leuggern"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-apotheke-efz-50-oder-pharma-assistent-in-efz-asana-spital-leuggern"
+        "fachfrau-fachmann-apotheke-efz-50-oder-pharma-assistent-in-efz-asana-spital-leuggern",
+        "fachfrau-fachmann-apotheke-cfc-50-o-pharma-assistent-in-cfc-asana-spital-ag-menziken-leuggern"
       ],
       "salaryMin": 44000,
       "salaryMax": 61500,
@@ -2103,12 +2111,12 @@
     },
     {
       "id": "asana-spital-3541986a3834",
-      "slug": "dipl-expertin-expertin-anasthesiepflege-nds-hf-60-100-asana-spital-leuggern",
+      "slug": "dipl-expert-expert-anesthesia-care-nds-hf-60-100-asana-spital-ag-menziken-leuggern-leuggern",
       "slugByLocale": {
-        "it": "dipl-expertin-expertin-anasthesiepflege-nds-hf-60-100-asana-spital-leuggern",
-        "en": "dipl-expertin-expertin-anasthesiepflege-nds-hf-60-100-asana-spital-leuggern",
         "de": "dipl-expertin-expertin-anasthesiepflege-nds-hf-60-100-asana-spital-leuggern",
-        "fr": "dipl-expertin-expertin-anasthesiepflege-nds-hf-60-100-asana-spital-leuggern"
+        "it": "dipl-expert-expert-anesthesia-care-nds-hf-60-100-asana-spital-ag-menziken-leuggern-leuggern",
+        "en": "dipl-expertin-expertin-anasthesiepflege-nds-hf-60-100-asana-spital-leuggern",
+        "fr": "dipl-expert-expert-anesthesie-soins-nds-hf-60-100-asana-spital-ag-menziken-leuggern-leuggern"
       },
       "company": "asana Spital AG (Menziken / Leuggern)",
       "companyKey": "asana-spital",
@@ -2168,7 +2176,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:22:26.895Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T08:21:56.504Z"
+      "firstSeenAt": "2026-11-17T08:21:56.504Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-expertin-anasthesiepflege-nds-hf-60-100-asana-spital-leuggern"
+        ],
+        "fr": [
+          "dipl-expertin-expertin-anasthesiepflege-nds-hf-60-100-asana-spital-leuggern"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-expertin-anasthesiepflege-nds-hf-60-100-asana-spital-leuggern"
+      ]
     }
   ]
 }

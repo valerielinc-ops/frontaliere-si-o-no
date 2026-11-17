@@ -3429,12 +3429,12 @@
     },
     {
       "id": "kanton-aargau-3a8bf98d1cd8",
-      "slug": "leiterin-leiter-staatsanwaltschaft-zofingen-kulm-kanton-aargau-zofingen",
+      "slug": "capo-dell-ufficio-pubblico-ministero-zofingen-kulm-kanton-aargau-zofingen",
       "slugByLocale": {
-        "it": "leiterin-leiter-staatsanwaltschaft-zofingen-kulm-kanton-aargau-zofingen",
-        "en": "leiterin-leiter-staatsanwaltschaft-zofingen-kulm-kanton-aargau-ch",
         "de": "leiterin-leiter-staatsanwaltschaft-zofingen-kulm-kanton-aargau-ch",
-        "fr": "leiterin-leiter-staatsanwaltschaft-zofingen-kulm-kanton-aargau-ch"
+        "it": "capo-dell-ufficio-pubblico-ministero-zofingen-kulm-kanton-aargau-zofingen",
+        "en": "head-of-public-prosecutor-s-office-zofingen-kulm-kanton-aargau-zofingen",
+        "fr": "chef-du-ministere-public-zofingen-kulm-kanton-aargau-zofingen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -3482,11 +3482,19 @@
       "department": "Staatsanwaltschaft Aargau",
       "previousSlugsByLocale": {
         "it": [
+          "leiterin-leiter-staatsanwaltschaft-zofingen-kulm-kanton-aargau-ch",
+          "leiterin-leiter-staatsanwaltschaft-zofingen-kulm-kanton-aargau-zofingen"
+        ],
+        "en": [
+          "leiterin-leiter-staatsanwaltschaft-zofingen-kulm-kanton-aargau-ch"
+        ],
+        "fr": [
           "leiterin-leiter-staatsanwaltschaft-zofingen-kulm-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
-        "leiterin-leiter-staatsanwaltschaft-zofingen-kulm-kanton-aargau-ch"
+        "leiterin-leiter-staatsanwaltschaft-zofingen-kulm-kanton-aargau-ch",
+        "leiterin-leiter-staatsanwaltschaft-zofingen-kulm-kanton-aargau-zofingen"
       ],
       "salaryMin": 109000,
       "salaryMax": 187000,
@@ -4966,12 +4974,12 @@
     },
     {
       "id": "kanton-aargau-478830ef47c2",
-      "slug": "handwerkerin-handwerker-100-kanton-aargau-ch",
+      "slug": "artigiano-artigiano-100-kanton-aargau-oftringen",
       "slugByLocale": {
-        "it": "handwerkerin-handwerker-100-kanton-aargau-ch",
-        "en": "handwerkerin-handwerker-100-kanton-aargau-ch",
         "de": "handwerkerin-handwerker-100-kanton-aargau-ch",
-        "fr": "handwerkerin-handwerker-100-kanton-aargau-ch"
+        "it": "artigiano-artigiano-100-kanton-aargau-oftringen",
+        "en": "craftsman-craftsman-100-kanton-aargau-oftringen",
+        "fr": "artisan-artisan-100-kanton-aargau-oftringen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5032,16 +5040,30 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-10-03T09:23:40.927Z"
+      "firstSeenAt": "2026-10-03T09:23:40.927Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "handwerkerin-handwerker-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "handwerkerin-handwerker-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "handwerkerin-handwerker-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "handwerkerin-handwerker-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-eefed447208b",
-      "slug": "sachbearbeiterin-sachbearbeiter-kanzlei-80-100-kanton-aargau-ch",
+      "slug": "ufficio-del-personale-80-100-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "sachbearbeiterin-sachbearbeiter-kanzlei-80-100-kanton-aargau-ch",
-        "en": "sachbearbeiterin-sachbearbeiter-kanzlei-80-100-kanton-aargau-ch",
         "de": "sachbearbeiterin-sachbearbeiter-kanzlei-80-100-kanton-aargau-ch",
-        "fr": "sachbearbeiterin-sachbearbeiter-kanzlei-80-100-kanton-aargau-ch"
+        "it": "ufficio-del-personale-80-100-kanton-aargau-aarau",
+        "en": "personnel-personnel-office-80-100-kanton-aargau-aarau",
+        "fr": "personnel-bureau-du-personnel-80-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5102,16 +5124,30 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-10-08T22:33:19.707Z"
+      "firstSeenAt": "2026-10-08T22:33:19.707Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-sachbearbeiter-kanzlei-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-kanzlei-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-kanzlei-80-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-kanzlei-80-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-ff8558a99374",
-      "slug": "fachperson-justizvollzug-gewerbe-100-kanton-aargau-ch",
+      "slug": "special-prisoners-commercio-100-kanton-aargau-lenzburg",
       "slugByLocale": {
-        "it": "fachperson-justizvollzug-gewerbe-100-kanton-aargau-ch",
-        "en": "fachperson-justizvollzug-gewerbe-100-kanton-aargau-ch",
         "de": "fachperson-justizvollzug-gewerbe-100-kanton-aargau-ch",
-        "fr": "fachperson-justizvollzug-gewerbe-100-kanton-aargau-ch"
+        "it": "special-prisoners-commercio-100-kanton-aargau-lenzburg",
+        "en": "specialist-prisoners-trade-100-kanton-aargau-lenzburg",
+        "fr": "commerce-des-detenus-specialises-100-kanton-aargau-lenzburg"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5172,7 +5208,21 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-17T08:23:14.802Z"
+      "firstSeenAt": "2026-11-17T08:23:14.802Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-justizvollzug-gewerbe-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "fachperson-justizvollzug-gewerbe-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "fachperson-justizvollzug-gewerbe-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-justizvollzug-gewerbe-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-ea5e9ba9f05d",
@@ -5406,12 +5456,12 @@
     },
     {
       "id": "kanton-aargau-1a55b48e5020",
-      "slug": "praktikantin-praktikant-spezialkulturen-60-100-kanton-aargau-ch",
+      "slug": "interno-interno-culture-speciali-60-100-kanton-aargau-granichen",
       "slugByLocale": {
-        "it": "praktikantin-praktikant-spezialkulturen-60-100-kanton-aargau-ch",
-        "en": "praktikantin-praktikant-spezialkulturen-60-100-kanton-aargau-ch",
         "de": "praktikantin-praktikant-spezialkulturen-60-100-kanton-aargau-ch",
-        "fr": "praktikantin-praktikant-spezialkulturen-60-100-kanton-aargau-ch"
+        "it": "interno-interno-culture-speciali-60-100-kanton-aargau-granichen",
+        "en": "intern-intern-special-cultures-60-100-kanton-aargau-granichen",
+        "fr": "stage-stage-cultures-speciales-60-100-kanton-aargau-granichen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5472,16 +5522,30 @@
       "streetAddress": "Gränichen",
       "streetAddressSource": "to-enrich",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-17T08:23:07.061Z"
+      "firstSeenAt": "2026-11-17T08:23:07.061Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-praktikant-spezialkulturen-60-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "praktikantin-praktikant-spezialkulturen-60-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "praktikantin-praktikant-spezialkulturen-60-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikant-spezialkulturen-60-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-fc7f11adf67e",
-      "slug": "sachbearbeiterin-sachbearbeiter-information-60-kanton-aargau-ch",
+      "slug": "personale-dati-personali-60-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "sachbearbeiterin-sachbearbeiter-information-60-kanton-aargau-ch",
-        "en": "sachbearbeiterin-sachbearbeiter-information-60-kanton-aargau-ch",
         "de": "sachbearbeiterin-sachbearbeiter-information-60-kanton-aargau-ch",
-        "fr": "sachbearbeiterin-sachbearbeiter-information-60-kanton-aargau-ch"
+        "it": "personale-dati-personali-60-kanton-aargau-aarau",
+        "en": "personnel-personnel-information-60-kanton-aargau-aarau",
+        "fr": "renseignements-sur-le-personnel-60-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5542,16 +5606,30 @@
       },
       "streetAddressSource": "listing-source",
       "validThroughSource": "source",
-      "firstSeenAt": "2026-11-17T08:23:04.768Z"
+      "firstSeenAt": "2026-11-17T08:23:04.768Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-sachbearbeiter-information-60-kanton-aargau-ch"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-information-60-kanton-aargau-ch"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-information-60-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-information-60-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-7d2027e99458",
       "slug": "it-leiterin-informatikbeauftragte-it-leiter-informatikbeauftragter-bks-80-100-kanton-aargau-aarau",
       "slugByLocale": {
-        "it": "it-leiterin-informatikbeauftragte-it-leiter-informatikbeauftragter-bks-80-100-kanton-aargau-aarau",
-        "en": "it-leiterin-informatikbeauftragte-it-leiter-informatikbeauftragter-bks-80-100-kanton",
         "de": "it-leiterin-informatikbeauftragte-it-leiter-informatikbeauftragter-bks-80-100-kanton",
-        "fr": "it-leiterin-informatikbeauftragte-it-leiter-informatikbeauftragter-bks-80-100-kanton"
+        "it": "it-leiterin-informatikbeauftragte-it-leiter-informatikbeauftragter-bks-80-100-kanton-aargau-aarau",
+        "en": "it-manager-it-manager-it-manager-it-manager-bks-80-100-kanton-aargau-aarau",
+        "fr": "gestionnaire-informatique-gestionnaire-informatique-gestionnaire-informatique-bks-80-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5599,6 +5677,12 @@
       "department": "Generalsekretariat BKS",
       "previousSlugsByLocale": {
         "it": [
+          "it-leiterin-informatikbeauftragte-it-leiter-informatikbeauftragter-bks-80-100-kanton"
+        ],
+        "en": [
+          "it-leiterin-informatikbeauftragte-it-leiter-informatikbeauftragter-bks-80-100-kanton"
+        ],
+        "fr": [
           "it-leiterin-informatikbeauftragte-it-leiter-informatikbeauftragter-bks-80-100-kanton"
         ]
       },
@@ -5706,10 +5790,10 @@
       "id": "kanton-aargau-208b030f1989",
       "slug": "mittelschullehrperson-wirtschaft-e-recht-220-kanton-aargau-baden",
       "slugByLocale": {
-        "it": "mittelschullehrperson-wirtschaft-e-recht-220-kanton-aargau-baden",
-        "en": "mittelschullehrperson-wirtschaft-und-recht-220-kanton-aargau-ch",
         "de": "mittelschullehrperson-wirtschaft-und-recht-220-kanton-aargau-ch",
-        "fr": "mittelschullehrperson-wirtschaft-und-recht-220-kanton-aargau-ch"
+        "it": "mittelschullehrperson-wirtschaft-e-recht-220-kanton-aargau-baden",
+        "en": "secondary-school-teacher-economics-and-law-220-kanton-aargau-baden",
+        "fr": "professeur-d-economie-et-de-droit-a-l-ecole-secondaire-220-kanton-aargau-baden"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5757,6 +5841,12 @@
       "department": "Abteilung Berufsbildung und Mittelschule",
       "previousSlugsByLocale": {
         "it": [
+          "mittelschullehrperson-wirtschaft-und-recht-220-kanton-aargau-ch"
+        ],
+        "en": [
+          "mittelschullehrperson-wirtschaft-und-recht-220-kanton-aargau-ch"
+        ],
+        "fr": [
           "mittelschullehrperson-wirtschaft-und-recht-220-kanton-aargau-ch"
         ]
       },

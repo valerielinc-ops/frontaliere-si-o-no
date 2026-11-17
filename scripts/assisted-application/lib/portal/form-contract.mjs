@@ -8,7 +8,7 @@ export function installFinalFormGuardCaptureInPage(targetDocument = globalThis.d
   const applicationContextRe = /\b(?:application|bewerbung|bewerb(?:en)?|candidatur\w*|candidature\w*|candidatura\w*|postulation\w*|postul(?:er|ar)|cover\s+letter|resume|curriculum\s+vitae|lebenslauf|cv)\b/iu;
   const nonApplicationContextRe = /\b(?:cookie|preference|privacy\s+setting|consent|newsletter|marketing|subscription|job\s*alert|job[- ]?abo|stellenalarm)\b/iu;
   const preferenceConfirmationRe = /\b(?:confirm\w*|conferm\w*|best[aä]tig\w*)\b.{0,24}\b(?:selection|auswahl|selezione|s[eé]lection)\b/iu;
-  const ownerFor = control => control?.form || control?.closest?.('form') || control?.closest?.('[role="form"]') || null;
+  const ownerFor = control => control?.form || control?.closest?.('form') || control?.closest?.('[role="form"], [data-automation-id="applyFlowPage"]') || null;
   const formContext = control => {
     const form = ownerFor(control);
     return `${control?.innerText || control?.textContent || ''} ${form?.getAttribute?.('aria-label') || ''} ${form?.getAttribute?.('name') || ''} ${form?.id || ''} ${form?.innerText || form?.textContent || ''}`
@@ -123,7 +123,7 @@ export function armFinalFormClickGuardInPage(button, {
   if (view.__frontaliereFinalFormGuardCaptureInstalled !== true) return fail('capture_unavailable');
 
   const nativeOwner = button.form || button.closest?.('form') || null;
-  const semanticOwner = nativeOwner ? null : button.closest?.('[role="form"]') || null;
+  const semanticOwner = nativeOwner ? null : button.closest?.('[role="form"], [data-automation-id="applyFlowPage"]') || null;
   const owner = nativeOwner || semanticOwner;
   if (!owner) return fail('form_unlinked');
   const buttonId = String(button.getAttribute('data-aa-id') || '');
@@ -139,7 +139,7 @@ export function armFinalFormClickGuardInPage(button, {
 
   const compact = value => String(value ?? '').normalize('NFC').replace(/\s+/gu, ' ').trim().slice(0, 500);
   const textFor = node => compact(node?.innerText || node?.textContent || '');
-  const ownerFor = node => node?.form || node?.closest?.('form') || node?.closest?.('[role="form"]') || null;
+  const ownerFor = node => node?.form || node?.closest?.('form') || node?.closest?.('[role="form"], [data-automation-id="applyFlowPage"]') || null;
   const secretFingerprint = value => {
     let hash = 0xcbf29ce484222325n;
     for (const character of String(value || '')) {

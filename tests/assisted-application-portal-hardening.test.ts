@@ -36,6 +36,7 @@ import {
   isPostingRouteBound,
   isVerifiedPostingEntry,
   isSafeEmployerSitePreread,
+  isSecurityQuestionField,
   readPortalQuestions,
   startsApplication,
   urlConfirms,
@@ -45,6 +46,61 @@ import { mergeRequiredDocuments } from '../functions/src/assistedApplicationExtr
 import { interviewPrepUserText } from '../functions/src/assistedApplicationInterviewPrep.js';
 import { parseAltenDetailHtml } from '../scripts/lib/alten-job-parser.mjs';
 import umantisAccountStepFixture from './fixtures/umantis-recruitingapp-2761-application-new-account.json';
+
+describe('BrassRing security-question field classification', () => {
+  it('recognizes context-free Question/Answer pairs from the UBS registration surface', () => {
+    const fields = [1, 2, 3].flatMap((index) => [
+      { id: `question-${index}`, kind: 'listbox', inputType: 'listbox', label: `Question ${index}`, options: [], form: 0, frame: 0 },
+      { id: `answer-${index}`, kind: 'text', inputType: 'text', label: `Question ${index} Answer`, options: [], form: 0, frame: 0 },
+    ]);
+
+    expect(fields.filter((field) => isSecurityQuestionField(field, fields))).toHaveLength(6);
+  });
+
+  it('does not classify an unpaired generic Question listbox as a security field', () => {
+    const fields = [{ id: 'question-1', kind: 'listbox', inputType: 'listbox', label: 'Question 1', options: [], form: 0, frame: 0 }];
+
+    expect(isSecurityQuestionField(fields[0], fields)).toBe(false);
+  });
+
+  it('rejects text controls and pairs that cross form or frame boundaries', () => {
+    const textPair = [
+      { id: 'question-text', kind: 'text', inputType: 'text', label: 'Question 1', options: [], form: 0, frame: 0 },
+      { id: 'answer-text', kind: 'text', inputType: 'text', label: 'Question 1 Answer', options: [], form: 0, frame: 0 },
+    ];
+    expect(textPair.some((field) => isSecurityQuestionField(field, textPair))).toBe(false);
+
+    const crossForm = [
+      { id: 'question-form-a', kind: 'listbox', inputType: 'listbox', label: 'Question 1', options: [], form: 0, frame: 0 },
+      { id: 'answer-form-b', kind: 'text', inputType: 'text', label: 'Question 1 Answer', options: [], form: 1, frame: 0 },
+    ];
+    expect(crossForm.some((field) => isSecurityQuestionField(field, crossForm))).toBe(false);
+
+    const crossFrame = [
+      { id: 'question-frame-a', kind: 'listbox', inputType: 'listbox', label: 'Question 1', options: [], form: 0, frame: 0 },
+      { id: 'answer-frame-b', kind: 'text', inputType: 'text', label: 'Question 1 Answer', options: [], form: 0, frame: 1 },
+    ];
+    expect(crossFrame.some((field) => isSecurityQuestionField(field, crossFrame))).toBe(false);
+  });
+
+  it('uses the stable form id when a BrassRing proxy reports form=-1', () => {
+    const fields = [
+      { id: 'question-proxy', kind: 'listbox', inputType: 'listbox', label: 'Question 1', options: [], form: -1, formId: 'f1', frame: 0 },
+      { id: 'answer-native', kind: 'text', inputType: 'text', label: 'Question 1 Answer', options: [], form: 0, formId: 'f1', frame: 0 },
+    ];
+
+    expect(fields.filter((field) => isSecurityQuestionField(field, fields))).toHaveLength(2);
+  });
+
+  it('keeps a listbox prompt selectable when the proxy omits kind', () => {
+    const fields = [
+      { id: 'question-proxy', kind: '', inputType: 'listbox', label: 'Question 1', options: [{ value: 'school', label: 'First school' }], form: 0, frame: 0 },
+      { id: 'answer-native', kind: 'text', inputType: 'text', label: 'Question 1 Answer', options: [], form: 0, frame: 0 },
+    ];
+
+    expect(fields.filter((field) => isSecurityQuestionField(field, fields))).toHaveLength(2);
+  });
+});
 
 describe('in-page application opener classification', () => {
   const url = 'https://jobs.example.test/apply?posting=fixture';

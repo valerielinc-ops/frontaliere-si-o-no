@@ -169,10 +169,10 @@
       "id": "wagerenhof-61b58ac47fcf",
       "slug": "fachexpertin-fachexperte-pflege-come-pflegerische-hausverantwortliche-r-80-100-stiftung-wagerenhof-uster",
       "slugByLocale": {
-        "it": "fachexpertin-fachexperte-pflege-come-pflegerische-hausverantwortliche-r-80-100-stiftung-wagerenhof-uster",
-        "en": "fachexpertin-fachexperte-pflege-als-pflegerische-hausverantwortliche-r-80-100-stiftung-wagerenhof-uster",
         "de": "fachexpertin-fachexperte-pflege-wagerenhof-uster",
-        "fr": "fachexpertin-fachexperte-pflege-als-pflegerische-hausverantwortliche-r-80-100-stiftung-wagerenhof-uster"
+        "it": "expert-expert-care-stiftung-wagerenhof-uster",
+        "en": "expert-expert-care-stiftung-wagerenhof-uster",
+        "fr": "expert-expert-care-stiftung-wagerenhof-uster"
       },
       "company": "Stiftung Wagerenhof",
       "companyKey": "wagerenhof",
@@ -216,23 +216,22 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
+        "it": [
+          "fachexpertin-fachexperte-pflege-als-pflegerische-hausverantwortliche-r-80-100-wagerenhof"
+        ],
         "de": [
           "fachexpertin-fachexperte-pflege-als-pflegerische-hausverantwortliche-r-80-100-wagerenhof"
         ],
-        "it": [
-          "fachexpertin-fachexperte-pflege-als-pflegerische-hausverantwortliche-r-80-100-wagerenhof",
-          "expert-expert-care-stiftung-wagerenhof-uster"
-        ],
         "en": [
-          "expert-expert-care-stiftung-wagerenhof-uster"
+          "fachexpertin-fachexperte-pflege-als-pflegerische-hausverantwortliche-r-80-100-stiftung-wagerenhof-uster"
         ],
         "fr": [
-          "expert-expert-care-stiftung-wagerenhof-uster"
+          "fachexpertin-fachexperte-pflege-als-pflegerische-hausverantwortliche-r-80-100-stiftung-wagerenhof-uster"
         ]
       },
       "previousSlugs": [
         "fachexpertin-fachexperte-pflege-als-pflegerische-hausverantwortliche-r-80-100-wagerenhof",
-        "expert-expert-care-stiftung-wagerenhof-uster"
+        "fachexpertin-fachexperte-pflege-als-pflegerische-hausverantwortliche-r-80-100-stiftung-wagerenhof-uster"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

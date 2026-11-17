@@ -66,6 +66,38 @@ describe('Workday JSON transport', () => {
     expect(directFetch).toHaveBeenCalledTimes(2);
   });
 
+  it('honors Workday Retry-After before retrying a rate-limited JSON request', async () => {
+    vi.useFakeTimers();
+    const random = vi.spyOn(Math, 'random').mockReturnValue(0);
+    try {
+      vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
+      const directFetch = vi
+        .fn()
+        .mockResolvedValueOnce(new Response('', {
+          status: 429,
+          headers: { 'Retry-After': '5' },
+        }))
+        .mockResolvedValueOnce(new Response(JSON.stringify({ total: 1, jobPostings: [] }), { status: 200 }));
+      vi.stubGlobal('fetch', directFetch);
+
+      const pending = fetchWorkdayJsonWithRetry(API_BASE, `${API_BASE}/jobs`, {
+        method: 'POST',
+        body: '{}',
+        retryBaseMs: 100,
+        browserFallback: null,
+      });
+
+      await vi.advanceTimersByTimeAsync(4_999);
+      expect(directFetch).toHaveBeenCalledTimes(1);
+      await vi.advanceTimersByTimeAsync(1);
+      await expect(pending).resolves.toEqual({ total: 1, jobPostings: [] });
+      expect(directFetch).toHaveBeenCalledTimes(2);
+    } finally {
+      random.mockRestore();
+      vi.useRealTimers();
+    }
+  });
+
   it('recovers a connection-level listing failure through the browser origin', async () => {
     vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
     const directFetch = vi.fn().mockRejectedValue(new TypeError('fetch failed'));

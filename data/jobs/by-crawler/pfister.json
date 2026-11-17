@@ -699,12 +699,12 @@
     },
     {
       "id": "pfister-eff459b32730",
-      "slug": "ensemblier-iere-f-m-d-pfister-villeneuve",
+      "slug": "enemblier-iere-m-f-d-mobel-pfister-ag-villeneuve",
       "slugByLocale": {
-        "it": "ensemblier-iere-f-m-d-pfister-villeneuve",
+        "fr": "ensemblier-iere-f-m-d-pfister-villeneuve",
+        "it": "enemblier-iere-m-f-d-mobel-pfister-ag-villeneuve",
         "en": "ensemblier-iere-f-m-d-pfister-villeneuve",
-        "de": "ensemblier-iere-f-m-d-pfister-villeneuve",
-        "fr": "ensemblier-iere-f-m-d-pfister-villeneuve"
+        "de": "enemblier-iere-m-w-d-mobel-pfister-ag-villeneuve"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -768,16 +768,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:21:04.071Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T08:22:34.422Z"
+      "firstSeenAt": "2026-11-17T08:22:34.422Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ensemblier-iere-f-m-d-pfister-villeneuve"
+        ],
+        "de": [
+          "ensemblier-iere-f-m-d-pfister-villeneuve"
+        ]
+      },
+      "previousSlugs": [
+        "ensemblier-iere-f-m-d-pfister-villeneuve"
+      ]
     },
     {
       "id": "pfister-09129d6b18d5",
-      "slug": "wohnberaterin-w-m-d-pfister-dubendorf",
+      "slug": "home-consulente-m-f-d-mobel-pfister-ag-dubendorf",
       "slugByLocale": {
-        "it": "wohnberaterin-w-m-d-pfister-dubendorf",
-        "en": "wohnberaterin-w-m-d-pfister-dubendorf",
         "de": "wohnberaterin-w-m-d-pfister-dubendorf",
-        "fr": "wohnberaterin-w-m-d-pfister-dubendorf"
+        "it": "home-consulente-m-f-d-mobel-pfister-ag-dubendorf",
+        "en": "home-consultant-m-f-d-mobel-pfister-ag-dubendorf",
+        "fr": "consultant-a-domicile-h-f-d-mobel-pfister-ag-dubendorf"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -841,16 +852,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T09:21:03.651Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T08:22:34.009Z"
+      "firstSeenAt": "2026-11-17T08:22:34.009Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "wohnberaterin-w-m-d-pfister-dubendorf"
+        ],
+        "en": [
+          "wohnberaterin-w-m-d-pfister-dubendorf"
+        ],
+        "fr": [
+          "wohnberaterin-w-m-d-pfister-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "wohnberaterin-w-m-d-pfister-dubendorf"
+      ]
     },
     {
       "id": "pfister-b16933a21077",
-      "slug": "fachverkauferin-kleinmobel-w-m-d-pfister-dubendorf",
+      "slug": "fornitore-specializzato-in-piccoli-mobili-m-f-d-mobel-pfister-ag-dubendorf",
       "slugByLocale": {
-        "it": "fachverkauferin-kleinmobel-w-m-d-pfister-dubendorf",
-        "en": "fachverkauferin-kleinmobel-w-m-d-pfister-dubendorf",
         "de": "fachverkauferin-kleinmobel-w-m-d-pfister-dubendorf",
-        "fr": "fachverkauferin-kleinmobel-w-m-d-pfister-dubendorf"
+        "it": "fornitore-specializzato-in-piccoli-mobili-m-f-d-mobel-pfister-ag-dubendorf",
+        "en": "specialist-vendor-in-small-furniture-m-f-d-mobel-pfister-ag-dubendorf",
+        "fr": "vendeur-specialise-dans-les-petits-meubles-h-f-d-mobel-pfister-ag-dubendorf"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -914,16 +939,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:21:03.232Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T08:22:33.589Z"
+      "firstSeenAt": "2026-11-17T08:22:33.589Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachverkauferin-kleinmobel-w-m-d-pfister-dubendorf"
+        ],
+        "en": [
+          "fachverkauferin-kleinmobel-w-m-d-pfister-dubendorf"
+        ],
+        "fr": [
+          "fachverkauferin-kleinmobel-w-m-d-pfister-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "fachverkauferin-kleinmobel-w-m-d-pfister-dubendorf"
+      ]
     },
     {
       "id": "pfister-968beea2969b",
-      "slug": "gestionnaire-du-commerce-du-detail-textile-apprentissage-mobel-pfister-ag-villeneuve",
+      "slug": "retail-manager-tessile-learning-mobel-pfister-ag-villeneuve",
       "slugByLocale": {
-        "it": "gestionnaire-du-commerce-du-detail-textile-apprentissage-mobel-pfister-ag-villeneuve",
-        "en": "gestionnaire-du-commerce-du-detail-textile-apprentissage-pfister-villeneuve",
-        "de": "gestionnaire-du-commerce-du-detail-textile-apprentissage-pfister-villeneuve",
-        "fr": "gestionnaire-du-commerce-du-detail-textile-apprentissage-pfister-villeneuve"
+        "fr": "gestionnaire-du-commerce-du-detail-textile-apprentissage-pfister-villeneuve",
+        "it": "retail-manager-tessile-learning-mobel-pfister-ag-villeneuve",
+        "en": "retail-manager-textile-learning-mobel-pfister-ag-villeneuve",
+        "de": "retail-manager-textile-lernen-mobel-pfister-ag-villeneuve"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -972,11 +1011,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-du-commerce-du-detail-textile-apprentissage-pfister-villeneuve",
+          "gestionnaire-du-commerce-du-detail-textile-apprentissage-mobel-pfister-ag-villeneuve"
+        ],
+        "en": [
+          "gestionnaire-du-commerce-du-detail-textile-apprentissage-pfister-villeneuve"
+        ],
+        "de": [
           "gestionnaire-du-commerce-du-detail-textile-apprentissage-pfister-villeneuve"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-du-commerce-du-detail-textile-apprentissage-pfister-villeneuve"
+        "gestionnaire-du-commerce-du-detail-textile-apprentissage-pfister-villeneuve",
+        "gestionnaire-du-commerce-du-detail-textile-apprentissage-mobel-pfister-ag-villeneuve"
       ],
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -5630,9 +5677,9 @@
       "slug": "gestione-immobiliare-business-mobel-pfister-ag-suhr",
       "slugByLocale": {
         "it": "gestione-immobiliare-business-mobel-pfister-ag-suhr",
-        "en": "immobilien-administrator-mobel-pfister-ag-suhr",
+        "en": "real-estate-management-business-mobel-pfister-ag-suhr",
         "de": "sachbearbeiterin-immobilienbewirtschaftung-gewerbe-pfister-suhr",
-        "fr": "administrateur-immobilier-mobel-pfister-ag-suhr"
+        "fr": "gestion-immobiliere-mobel-pfister-ag-suhr"
       },
       "company": "Möbel Pfister AG",
       "companyKey": "pfister",
@@ -5688,8 +5735,8 @@
         "immobilien-accountant-mobel-pfister-ag-suhr",
         "comptable-immobilier-mobel-pfister-ag-suhr",
         "sachbearbeiterin-immobilienbewirtschaftung-gewerbe-pfister-suhr",
-        "real-estate-management-business-mobel-pfister-ag-suhr",
-        "gestion-immobiliere-mobel-pfister-ag-suhr"
+        "immobilien-administrator-mobel-pfister-ag-suhr",
+        "administrateur-immobilier-mobel-pfister-ag-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5704,14 +5751,14 @@
         ],
         "en": [
           "personnel-real-estate-accountants-mobel-pfister-ag-suhr",
-          "real-estate-management-business-mobel-pfister-ag-suhr"
+          "immobilien-administrator-mobel-pfister-ag-suhr"
         ],
         "de": [
           "sachbearbeiter-in-immobilienbuchhaltung-pfister-suhr"
         ],
         "fr": [
           "comptables-du-personnel-et-des-biens-immobiliers-mobel-pfister-ag-suhr",
-          "gestion-immobiliere-mobel-pfister-ag-suhr"
+          "administrateur-immobilier-mobel-pfister-ag-suhr"
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:21.817Z",
@@ -5737,7 +5784,7 @@
       "id": "pfister-0d61f03b0343",
       "slug": "montatore-falegname-m-w-d-mobel-pfister-ag-suhr",
       "slugByLocale": {
-        "it": "montatore-falegname-m-w-d-mobel-pfister-ag-suhr",
+        "it": "installatore-carpentiere-f-m-d-mobel-pfister-ag-suhr",
         "en": "installer-carpenter-f-m-d-mobel-pfister-ag-suhr",
         "de": "monteurin-schreinerin-w-m-d-pfister-suhr",
         "fr": "installateur-menuisier-f-m-d-mobel-pfister-ag-suhr"
@@ -5790,14 +5837,12 @@
       "pensum": "100%",
       "previousSlugs": [
         "montatore-falegname-f-m-d-mobel-pfister-ag-suhr",
-        "monteurin-schreinerin-w-m-d-pfister-suhr",
-        "installatore-carpentiere-f-m-d-mobel-pfister-ag-suhr"
+        "monteurin-schreinerin-w-m-d-pfister-suhr"
       ],
       "previousSlugsByLocale": {
         "it": [
           "montatore-falegname-f-m-d-mobel-pfister-ag-suhr",
-          "monteurin-schreinerin-w-m-d-pfister-suhr",
-          "installatore-carpentiere-f-m-d-mobel-pfister-ag-suhr"
+          "monteurin-schreinerin-w-m-d-pfister-suhr"
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:18.345Z",
@@ -5824,7 +5869,7 @@
       "slug": "specialista-in-cucine-f-m-d-mobel-pfister-ag-alchenfluh-lyssach",
       "slugByLocale": {
         "it": "specialista-in-cucine-f-m-d-mobel-pfister-ag-alchenfluh-lyssach",
-        "en": "kitchen-sales-associate-m-w-d-mobel-pfister-ag-alchenfluh-lyssach",
+        "en": "specialist-vendorin-kitchens-f-m-d-mobel-pfister-ag-alchenfluh-lyssach",
         "de": "fachverkauferin-kuchen-w-m-d-pfister-alchenfluh-lyssach",
         "fr": "vendeur-specialise-dans-les-cuisines-f-m-d-mobel-pfister-ag-alchenfluh-lyssach"
       },
@@ -5876,14 +5921,14 @@
       "pensum": "80%",
       "previousSlugs": [
         "fachverkauferin-kuchen-w-m-d-pfister-alchenfluh-lyssach",
-        "specialist-vendorin-kitchens-f-m-d-mobel-pfister-ag-alchenfluh-lyssach"
+        "kitchen-sales-associate-m-w-d-mobel-pfister-ag-alchenfluh-lyssach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachverkauferin-kuchen-w-m-d-pfister-alchenfluh-lyssach"
         ],
         "en": [
-          "specialist-vendorin-kitchens-f-m-d-mobel-pfister-ag-alchenfluh-lyssach"
+          "kitchen-sales-associate-m-w-d-mobel-pfister-ag-alchenfluh-lyssach"
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:13.556Z",
