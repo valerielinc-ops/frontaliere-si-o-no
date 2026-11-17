@@ -184,6 +184,46 @@ describe('BrassRing security-question field classification', () => {
     expect(selected).toBe('Favorite city?');
   });
 
+  it('skips localized security-question placeholders after accent normalization', async () => {
+    for (const [placeholder, answer, fieldLabel] of [
+      ['Bitte wählen', 'Wie heißt Ihr Haustier?', 'Sicherheitsfrage 2'],
+      ['Choisissez une question', 'Nom de votre premier animal?', 'Question de sécurité 2'],
+    ]) {
+      let selected = '';
+      const field = { id: 'q2', kind: '', inputType: 'listbox', label: fieldLabel, name: 'security_question_2', options: [], form: 0, frame: 0 };
+      const controlLocator = {
+        count: async () => 1,
+        click: async () => {},
+        evaluate: async () => selected === answer,
+      };
+      const frame = {
+        locator: (selector: string) => {
+          if (selector === '[role="option"]:visible') {
+            return { allInnerTexts: async () => [placeholder, 'Eine andere Frage?', answer] };
+          }
+          return { first: () => controlLocator };
+        },
+        getByRole: (_role: string, opts: { name?: string }) => ({
+          first: () => ({
+            click: async () => {
+              selected = opts?.name || '';
+            },
+          }),
+        }),
+      };
+      const result = await applyActions(
+        { frames: () => [frame], mainFrame: () => frame, waitForTimeout: async () => {} } as any,
+        [field],
+        [{ fieldId: 'q2', action: 'select', value: 'A question not shown', evidence: 'account_security_question' }],
+        {},
+        { pause: async () => {} },
+      );
+
+      expect(result).toEqual([{ fieldId: 'q2', ok: true }]);
+      expect(selected).toBe(answer);
+    }
+  });
+
   it('fails closed when the security-question ordinal is outside the visible options', async () => {
     let optionClicks = 0;
     const field = { id: 'q3', kind: '', inputType: 'listbox', label: 'Security question 3', options: [], form: 0, frame: 0 };
