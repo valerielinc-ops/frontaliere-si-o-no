@@ -153,6 +153,14 @@ describe('SEO builder noindex guards', () => {
       expect(classifyBlock).not.toMatch(/\b(?:_qw|_qwFlat|_qwFlatFull|writeFileSync)\s*\(/);
       expect(classifyBlock).toContain('retainedBridgePaths.set(bridgePathKey(bridge.locale, bridge.path), { bridge, reason });');
 
+      const retainedGuardStart = source.indexOf('const isRetainedActiveBridgePath = (locale: JobSeoLocale, pathname: string): boolean => {');
+      const retainedGuardEnd = source.indexOf('\n };', retainedGuardStart);
+      const retainedGuardBlock = source.slice(retainedGuardStart, retainedGuardEnd);
+      expect(retainedGuardStart).toBeGreaterThan(-1);
+      expect(retainedGuardEnd).toBeGreaterThan(retainedGuardStart);
+      expect(retainedGuardBlock).toContain('isRetainedBridgePathSafeToEmit(');
+      expect(retainedGuardBlock).toContain('retainedBridgePaths.has(bridgePathKey(locale, candidatePath))');
+
       const retainedOutputStart = source.indexOf('const retainedBridgeOutputs = (function* () {');
       const retainedOutputEnd = source.indexOf('})();', retainedOutputStart);
       const retainedOutputBlock = source.slice(retainedOutputStart, retainedOutputEnd);

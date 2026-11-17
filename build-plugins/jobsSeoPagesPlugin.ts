@@ -264,6 +264,7 @@ import {
  reconcileFinalWorkerSlugMapRows,
  assertBridgePathClassificationCoverage,
  assertBridgePathDistCoverage,
+ isRetainedBridgePathSafeToEmit,
  type JobCanonBridgePath,
  type ActiveJobSlugMapRow,
  type BridgeKeepReason,
@@ -15006,13 +15007,11 @@ ${staticAnalyticsHtml}
  });
  const isRetainedActiveBridgePath = (locale: JobSeoLocale, pathname: string): boolean => {
   const canonicalPath = withSlash(pathname);
-  const targets = getSafeDistPageTargets(distDir, canonicalPath);
-  if (!targets) throw new Error('[job-alias-redirect-gate] bridge path is not a safe dist target');
-  if (isJobAliasRedirectPath(targets.indexPath)) return false;
-  if (!retainedBridgePaths.has(bridgePathKey(locale, canonicalPath))) {
-   throw new Error('[job-alias-redirect-gate] emitted bridge path is missing from the shared classification');
-  }
-  return true;
+  return isRetainedBridgePathSafeToEmit(
+   distDir,
+   canonicalPath,
+   (candidatePath) => retainedBridgePaths.has(bridgePathKey(locale, candidatePath)),
+  );
  };
 
  // Keep both employer and recent recommendations in the archived job's canton.
