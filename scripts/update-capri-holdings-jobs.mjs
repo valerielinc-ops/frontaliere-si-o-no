@@ -19,7 +19,7 @@ import { readJsonFile } from './lib/read-large-json.mjs';
  *   5. Runs base crawler for AI localization (4 locales)
  *   6. Post-processes and validates locale coverage
  */
-import { workdayPostingDateFields } from './lib/ats-clients/workday-client.mjs';
+import { fetchWorkdayJsonWithRetry, workdayPostingDateFields } from './lib/ats-clients/workday-client.mjs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -68,7 +68,6 @@ import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 // Brand sites and endpoints live in one place: the parser module documents
 // why a site is (no longer) queried.
 import { WORKDAY_SITES, WORKDAY_API_BASE, WORKDAY_PUBLIC_BASE } from './lib/capri-holdings-job-parser.mjs';
-import { fetchWithRetry, RETRYABLE_STATUS } from './lib/transient-fetch.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -330,42 +329,17 @@ function isTrustedDomain(rawUrl = '') {
 
 /* ── Workday API ──────────────────────────────────────────── */
 
-async function fetchJson(url, options = {}) {
-  const { timeoutMs: configuredTimeoutMs, ...requestOptions } = options;
+async function fetchJson(url, options = {}, apiBase = WORKDAY_API_BASE) {
+  const { timeoutMs: configuredTimeoutMs, method = 'GET', body } = options;
   const timeoutMs = Number(configuredTimeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   try {
-    return await fetchWithRetry(async () => {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), timeoutMs);
-      try {
-        const res = await fetch(url, {
-          ...requestOptions,
-          signal: controller.signal,
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-            'Accept-Language': 'en,it-CH;q=0.9',
-            'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-              'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-            ...requestOptions.headers,
-          },
-        });
-        if (!res.ok) {
-          if (RETRYABLE_STATUS.has(res.status)) {
-            const error = new Error(`HTTP ${res.status} for ${url}`);
-            error.status = res.status;
-            error.retryable = true;
-            error.response = res;
-            throw error;
-          }
-          console.warn(`⚠️ HTTP ${res.status} for ${url}`);
-          return null;
-        }
-        return await res.json();
-      } finally {
-        clearTimeout(timer);
-      }
-    }, { label: `capri ${url}` });
+    return await fetchWorkdayJsonWithRetry(apiBase, url, {
+      method,
+      body,
+      timeoutMs,
+      userAgent: process.env.JOBS_CRAWLER_USER_AGENT ||
+        'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+    });
   } catch (err) {
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
     return null;
@@ -399,6 +373,7 @@ export async function listSwissJobs(site, brand) {
             searchText,
             offset,
             expectedTotal: queryExpectedTotal,
+            apiBase: `${WORKDAY_API_BASE}/${site}`,
           });
           if (queryExpectedTotal === undefined) queryExpectedTotal = declaredTotal;
           const pageLength = jobPostings.length;
@@ -478,7 +453,7 @@ export async function listSwissJobs(site, brand) {
 }
 
 async function fetchJobDetail(site, externalPath) {
-  return fetchJson(`${WORKDAY_API_BASE}/${site}${externalPath}`);
+  return fetchJson(`${WORKDAY_API_BASE}/${site}${externalPath}`, {}, `${WORKDAY_API_BASE}/${site}`);
 }
 
 export function assertWorkdayPage(data, {
@@ -530,7 +505,7 @@ export function assertWorkdayPage(data, {
 async function fetchWorkdayPage(apiUrl, body, context) {
   let retries = 0;
   while (true) {
-    const data = await fetchJson(apiUrl, { method: 'POST', body });
+    const data = await fetchJson(apiUrl, { method: 'POST', body }, context.apiBase);
     try {
       return assertWorkdayPage(data, context);
     } catch (error) {

@@ -15,6 +15,20 @@ import { inferSwissTargetCanton } from '../scripts/lib/target-swiss-locations.mj
 import { COMPANY_HQ } from '../scripts/lib/crawler-location-config.mjs';
 import { __internals as lonzaInternals } from '../scripts/lib/lonza-job-parser.mjs';
 
+function workdayResponse(body: unknown) {
+  const text = JSON.stringify(body);
+  return {
+    ok: true,
+    status: 200,
+    async text() {
+      return text;
+    },
+    async json() {
+      return body;
+    },
+  };
+}
+
 // ─── Constants (mirroring the crawler script) ─────────────────────────────────
 
 const LONZA_KEY = 'lonza';
@@ -670,15 +684,10 @@ describe('Workday API request construction', () => {
 
 describe('Workday pagination integrity', () => {
   it('fails closed at the safety cap instead of returning partial postings', async () => {
-    const fetchMock = vi.fn(async () => ({
-      ok: true,
-      async json() {
-        return {
-          jobPostings: Array.from({ length: 20 }, (_, index) => ({
-            externalPath: `/job/Visp/Role_${index}`,
-          })),
-        };
-      },
+    const fetchMock = vi.fn(async () => workdayResponse({
+      jobPostings: Array.from({ length: 20 }, (_, index) => ({
+        externalPath: `/job/Visp/Role_${index}`,
+      })),
     }));
     const realSetTimeout = globalThis.setTimeout;
 
@@ -715,22 +724,19 @@ describe('fetchAllLonzaJobs — published text', () => {
     const detail = (title: string, jobDescription: string) => ({
       jobPostingInfo: { title, location: 'CH - Visp', jobDescription, timeType: 'Full time', startDate: '2026-09-20', jobReqId: title },
     });
-    const fetchMock = vi.fn(async (url: string) => ({
-      ok: true,
-      async json() {
-        if (url.endsWith('/jobs')) {
-          return {
-            total: 2,
-            jobPostings: [
-              { title: 'Biotechnologist (m/f/d)', externalPath: '/job/CH---Visp/Biotechnologist--m-f-d-_R73688' },
-              { title: 'Operator (m/f/d)', externalPath: '/job/CH---Visp/Operator--m-f-d-_R70001' },
-            ],
-          };
-        }
-        if (url.includes('R73688')) return detail('Biotechnologist (m/f/d)', body);
-        return detail('Operator (m/f/d)', '');
-      },
-    }));
+    const fetchMock = vi.fn(async (url: string) => {
+      if (url.endsWith('/jobs')) {
+        return workdayResponse({
+          total: 2,
+          jobPostings: [
+            { title: 'Biotechnologist (m/f/d)', externalPath: '/job/CH---Visp/Biotechnologist--m-f-d-_R73688' },
+            { title: 'Operator (m/f/d)', externalPath: '/job/CH---Visp/Operator--m-f-d-_R70001' },
+          ],
+        });
+      }
+      if (url.includes('R73688')) return workdayResponse(detail('Biotechnologist (m/f/d)', body));
+      return workdayResponse(detail('Operator (m/f/d)', ''));
+    });
     vi.stubGlobal('fetch', fetchMock);
     try {
       const { fetchAllLonzaJobs } = await import('../scripts/lib/lonza-job-parser.mjs');
@@ -763,24 +769,21 @@ describe('fetchAllLonzaJobs — published text', () => {
       R76397: { timeType: 'Full time', startDate: '2026-05-18' },
       R76400: { timeType: 'Part time', startDate: '2026-05-20' },
     };
-    const fetchMock = vi.fn(async (url: string) => ({
-      ok: true,
-      async json() {
-        if (url.endsWith('/jobs')) {
-          return {
-            total: 4,
-            jobPostings: [
-              { title, externalPath: '/job/CH---Visp/Elektroinstallateur-EFZ-80-100---m-w-d-_R76184-1' },
-              { title, externalPath: '/job/CH---Visp/Elektroinstallateur-EFZ-80-100---m-w-d-_R76397' },
-              { title, externalPath: '/job/Visp/Elektroinstallateur-EFZ_R76397' },
-              { title, externalPath: '/job/CH---Visp/Elektroinstallateur-EFZ-80-100---m-w-d-_R76400' },
-            ],
-          };
-        }
-        const jobReqId = Object.keys(reqs).find((id) => url.endsWith(`_${id}`)) || 'R76397';
-        return { jobPostingInfo: { title, location: 'CH - Visp', jobDescription: body, ...reqs[jobReqId], jobReqId } };
-      },
-    }));
+    const fetchMock = vi.fn(async (url: string) => {
+      if (url.endsWith('/jobs')) {
+        return workdayResponse({
+          total: 4,
+          jobPostings: [
+            { title, externalPath: '/job/CH---Visp/Elektroinstallateur-EFZ-80-100---m-w-d-_R76184-1' },
+            { title, externalPath: '/job/CH---Visp/Elektroinstallateur-EFZ-80-100---m-w-d-_R76397' },
+            { title, externalPath: '/job/Visp/Elektroinstallateur-EFZ_R76397' },
+            { title, externalPath: '/job/CH---Visp/Elektroinstallateur-EFZ-80-100---m-w-d-_R76400' },
+          ],
+        });
+      }
+      const jobReqId = Object.keys(reqs).find((id) => url.endsWith(`_${id}`)) || 'R76397';
+      return workdayResponse({ jobPostingInfo: { title, location: 'CH - Visp', jobDescription: body, ...reqs[jobReqId], jobReqId } });
+    });
     vi.stubGlobal('fetch', fetchMock);
     try {
       const { fetchAllLonzaJobs } = await import('../scripts/lib/lonza-job-parser.mjs');

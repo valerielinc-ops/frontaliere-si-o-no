@@ -1113,6 +1113,50 @@ function nativeQuestionText(value, counter = null) {
       ...(isSiteChromeControl(picker) ? { chrome: true } : {}),
     });
   }
+  for (const wrapper of document.querySelectorAll('[data-automation-id="dateInputWrapper"]')) {
+    if (!readable(wrapper) || wrapper.closest(datePickerSelector)) continue;
+    const spins = [...wrapper.querySelectorAll('[role="spinbutton"]')];
+    if (!spins.length) continue;
+    const formField = wrapper.closest('[data-automation-id*="formField"]');
+    const formLabel = clean(formField?.querySelector('label, [data-automation-id*="Label"]')?.textContent || '');
+    const rawLabel = formLabel || clean(labelFor(wrapper));
+    const rawId = `${wrapper.id || ''} ${formField?.getAttribute('data-automation-id') || ''}`;
+    const label = /--startDate\b|startDate/i.test(rawLabel) || (!rawLabel && /startDate/i.test(rawId))
+      ? 'From*'
+      : /--endDate\b|endDate/i.test(rawLabel) || (!rawLabel && /endDate/i.test(rawId))
+        ? 'To*'
+        : rawLabel;
+    const readSpin = (spin) => {
+      const val = clean(spin.getAttribute('aria-valuenow') || spin.textContent || '');
+      return /^\d+$/.test(val) ? val : '';
+    };
+    const monthSpin = spins.find((s) => /month|monat|mois|mese/i.test(`${s.getAttribute('data-automation-id') || ''} ${s.getAttribute('aria-label') || ''}`)) || spins[0];
+    const yearSpin = spins.find((s) => /year|jahr|ann|anno/i.test(`${s.getAttribute('data-automation-id') || ''} ${s.getAttribute('aria-label') || ''}`)) || spins[1];
+    const mm = monthSpin ? readSpin(monthSpin) : '';
+    const yyyy = yearSpin ? readSpin(yearSpin) : '';
+    const required = ariaRequiredToken(wrapper) !== 'false'
+      || Boolean(formField?.querySelector('[aria-required="true"], abbr[title*="required" i]'))
+      || /[＊*]/.test(label);
+    fields.push({
+      id: idFor(wrapper),
+      kind: 'text',
+      widget: 'workday-date',
+      ...dialogMeta(wrapper),
+      inputType: 'date',
+      name: clean(wrapper.getAttribute('name') || ''),
+      label,
+      context: sectionContext(wrapper),
+      addressContext: ownedAddressContext(wrapper),
+      required,
+      value: mm && yyyy ? `${mm.padStart(2, '0')}/${yyyy}` : '',
+      search: false,
+      maxLength: null,
+      accept: '',
+      autocomplete: '',
+      invalid: wrapper.getAttribute('aria-invalid') === 'true' || spins.some((s) => s.getAttribute('aria-invalid') === 'true'),
+      ...(isSiteChromeControl(wrapper) ? { chrome: true } : {}),
+    });
+  }
   // Which <form> a control is sent with (-1: none). A password in the form
   // that also asks for the CV is the application's own (account.mjs).
   const forms = [...document.forms];
@@ -1130,7 +1174,7 @@ function nativeQuestionText(value, counter = null) {
     // can place required fields inside the employer's header or footer.
     if (isSiteGlobalSearchField(element)) continue;
     if (isSiteLanguageControl(element)) continue;
-    if (element.closest(datePickerSelector)) continue;
+    if (element.closest(datePickerSelector) || element.closest('[data-automation-id="dateInputWrapper"]')) continue;
     if (element.disabled || element.readOnly || !readable(element)) continue;
     // A field its own label keeps for robots («This input is for robots only, do not enter if you're human»)
     // is a trap whatever its size: never a field of the form.
@@ -1558,6 +1602,8 @@ function nativeQuestionText(value, counter = null) {
     .map((element) => ({
       ...visibilityMetadata(element),
       ...dialogMeta(element),
+      documentInstance,
+      controlInstance: controlInstanceFor(element),
       id: idFor(element),
       text: buttonName(element),
       label: buttonAccessibleLabel(element),
@@ -1607,6 +1653,9 @@ function nativeQuestionText(value, counter = null) {
     || hasCloudflareChallengeScript
     || hasCloudflareChallengeToken
     || hasCloudflareChallengeRuntime;
+  const IMAGE_CAPTCHA_FIELD_RE = /(?:digita|inserisci|scrivi|riporta|type|enter|saisissez|entrez|geben\s+sie).{0,40}(?:testo|caratteri|codice|text|characters?|code|zeichen).{0,40}(?:immagine|sopra|sotto|image|picture|below|above|bild|ci-(?:dessus|dessous))|\bcaptcha\b/i;
+  const imageCaptcha = fields.some((field) => field.kind === 'text'
+    && IMAGE_CAPTCHA_FIELD_RE.test(`${field.label || ''} ${field.placeholder || ''} ${field.name || ''}`));
   const captcha = [...document.querySelectorAll('iframe')].some((frame) => {
     const src = String(frame.getAttribute('src') || '');
     const rect = frame.getBoundingClientRect();
@@ -1619,7 +1668,7 @@ function nativeQuestionText(value, counter = null) {
     // path so the extension can wait for it and unresolved cases hand off.
     if (/challenges\.cloudflare\.com/.test(src)) return !answered('cf-turnstile-response');
     return /captcha-delivery\.com/.test(src);
-  }) || cloudflarePageChallenge;
+  }) || cloudflarePageChallenge || imageCaptcha;
   const passwordVisible = [...document.querySelectorAll('input[type="password"]')].some(visible);
   // The form's own validation messages, read back to the planner when a page does not advance.
   // A framework's route announcer is no message on the form: Next.js reads the

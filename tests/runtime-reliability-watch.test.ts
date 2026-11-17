@@ -662,7 +662,7 @@ describe('runtime reliability watchdog', () => {
     expect(cathedralStep).toContain('PUBLISHER_SOURCE_SHA: ${{ inputs.source_sha }}');
   });
 
-  it('replaces the removed zone-wide deploy purge with the exact Pages home key', () => {
+  it('replaces the removed zone-wide deploy purge with exact Pages home and sitemap index keys', () => {
     const workflow = readFileSync(
       new URL('../.github/workflows/post-deploy-validate-live.yml', import.meta.url),
       'utf8',
@@ -673,8 +673,8 @@ describe('runtime reliability watchdog', () => {
     expect(start).toBeGreaterThan(-1);
     expect(workflow.indexOf('run: node scripts/load-rc-env.mjs')).toBeLessThan(start);
     expect(step).toContain("if: steps.propagation.outcome == 'success'");
-    expect(step).toContain('PAGES_HOME_PURGE_URL: https://frontaliereticino.ch/');
-    expect(step).toContain('purge_urls="${PAGES_HOME_PURGE_URL:-}"');
+    expect(step).toContain('PAGES_PURGE_URLS: https://frontaliereticino.ch/,https://frontaliereticino.ch/sitemap.xml');
+    expect(step).toContain('purge_urls="${PAGES_PURGE_URLS:-}"');
     expect(step).toContain('node scripts/cf-purge-cache.mjs "--files=$purge_urls"');
     expect(step).toContain('CF_API_TOKEN missing');
     expect(step).not.toContain('purge_everything');
