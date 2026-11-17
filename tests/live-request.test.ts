@@ -12,6 +12,18 @@ describe('getLiveWithRetry', () => {
     expect(get).toHaveBeenCalledTimes(2);
   });
 
+  it('allows a second transient server response before failing the live gate', async () => {
+    const get = vi
+      .fn()
+      .mockResolvedValueOnce(response(503))
+      .mockResolvedValueOnce(response(503))
+      .mockResolvedValueOnce(response(200));
+
+    const recovered = await getLiveWithRetry(get, 'https://example.test/page', undefined, { delayMs: 0 });
+    expect(recovered.status()).toBe(200);
+    expect(get).toHaveBeenCalledTimes(3);
+  });
+
   it('retries a transport error without retrying a client error', async () => {
     const get = vi
       .fn()
@@ -36,6 +48,6 @@ describe('getLiveWithRetry', () => {
     const get = vi.fn().mockRejectedValue(error);
 
     await expect(getLiveWithRetry(get, 'https://example.test/page', undefined, { delayMs: 0 })).rejects.toBe(error);
-    expect(get).toHaveBeenCalledTimes(2);
+    expect(get).toHaveBeenCalledTimes(3);
   });
 });

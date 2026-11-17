@@ -19,7 +19,10 @@ export interface LiveResponse {
 
 export type LiveGet = (url: string, options?: LiveRequestOptions) => Promise<LiveResponse>;
 
-export const LIVE_REQUEST_ATTEMPTS = 2;
+// Keep the blocking live preflight aligned with probe-5xx.mjs: one initial
+// request plus two bounded retries lets a short edge/origin flap recover while
+// a persistent 5xx still fails the gate.
+export const LIVE_REQUEST_ATTEMPTS = 3;
 export const LIVE_REQUEST_RETRY_DELAY_MS = 1_000;
 
 function sleep(ms: number): Promise<void> {
