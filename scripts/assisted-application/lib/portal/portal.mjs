@@ -9282,6 +9282,8 @@ async function recoverAccountPassword({ page, snapshot, ctx, host, account, diag
       }
       snapshot = await awaitAuthView(page, snapshot);
     }
+    const cookies = await resolveCookieConsent(page, snapshot).catch(() => null);
+    if (cookies?.snapshot) snapshot = cookies.snapshot;
     if (authPageKind(snapshot) !== 'sign_in' || !await openVerifiedPasswordResetNavigation(page, snapshot)) {
       return accountHandoff('account_recovery_rejected', 'account_recovery_rejected', 'login');
     }
@@ -9567,22 +9569,35 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     const secActions = [];
     const selectedByIndex = new Map();
     const usedOptionValues = new Set();
+    const BRASSRING_FALLBACK_SECURITY_QUESTIONS = [
+      'What is the name of your first school?',
+      'Where is your favorite vacation spot?',
+      "What is your mother's maiden name?",
+    ];
     for (const field of securityFields) {
       const match = SECURITY_FIELD_RE.exec(String(field.label || field.name || '').trim());
       const index = Number(match?.[1]) || 1;
-      const isAnswer = Boolean(match?.[2]) || (!Array.isArray(field.options) || field.options.length === 0);
-      if (!isAnswer && Array.isArray(field.options) && field.options.length) {
-        const usable = field.options.filter((opt) => {
+      const isAnswer = Boolean(match?.[2])
+        || (field.kind !== 'select' && field.kind !== 'listbox' && (!Array.isArray(field.options) || field.options.length === 0));
+      if (!isAnswer) {
+        let options = Array.isArray(field.options) ? field.options : [];
+        if (!options.length) {
+          const refreshed = await refreshChoiceCatalogues(page, { ...plannedSnapshot, fields: [field] }).catch(() => null);
+          options = refreshed?.fields?.find((f) => f.id === field.id)?.options || [];
+        }
+        const usable = options.filter((opt) => {
           const val = String(opt?.value || opt?.label || '').trim();
           return val && !/^(?:select|choose|bitte|seleziona|choisir|--)/i.test(String(opt?.label || val));
         });
-        const pool = usable.length ? usable : field.options;
+        const pool = usable.length ? usable : options;
         const chosen = pool.find((opt) => !usedOptionValues.has(opt.value || opt.label))
-          || pool[(index - 1) % pool.length];
-        if (chosen) {
-          const val = chosen.value || chosen.label;
+          || pool[(index - 1) % Math.max(1, pool.length)];
+        const val = chosen
+          ? (chosen.value || chosen.label)
+          : BRASSRING_FALLBACK_SECURITY_QUESTIONS[(index - 1) % BRASSRING_FALLBACK_SECURITY_QUESTIONS.length];
+        if (val) {
           usedOptionValues.add(val);
-          selectedByIndex.set(index, chosen.label || val);
+          selectedByIndex.set(index, chosen?.label || val);
           secActions.push({
             fieldId: field.id,
             action: 'select',
