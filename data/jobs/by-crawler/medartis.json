@@ -1,7 +1,7 @@
 {
   "crawlerKey": "medartis",
-  "assembledAt": "2026-11-16T21:31:21.377Z",
-  "runId": "43959210428",
+  "assembledAt": "2026-11-17T09:40:13.101Z",
+  "runId": "44054775937",
   "jobs": [
     {
       "id": "medartis-62427cab689e",
@@ -34,7 +34,7 @@
       "url": "https://careers.medartis.com/job/PLM-Support-Specialist/1428557833/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:31:12.600Z",
+      "crawledAt": "2026-11-17T09:40:07.269Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -77,7 +77,7 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-18T21:31:12.600Z",
+      "validThrough": "2026-12-18T09:40:07.269Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -112,7 +112,7 @@
       "url": "https://careers.medartis.com/job/Quality-Inspector-100/1456101133/",
       "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:31:11.369Z",
+      "crawledAt": "2026-11-17T09:40:06.282Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -158,8 +158,80 @@
       },
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-08T21:31:11.369Z",
+      "validThrough": "2027-02-08T09:40:06.282Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "medartis-c6bf655ea106",
+      "slug": "events-manager-medartis-basel",
+      "slugByLocale": {
+        "de": "events-manager-medartis-basel",
+        "it": "events-manager-medartis-basel",
+        "en": "events-manager-medartis-basel",
+        "fr": "events-manager-medartis-basel"
+      },
+      "company": "Medartis",
+      "companyKey": "medartis",
+      "companyDomain": "medartis.com",
+      "title": "Events Manager",
+      "titleByLocale": {
+        "de": "Events Manager",
+        "it": "Events Manager",
+        "en": "Events Manager",
+        "fr": "Events Manager"
+      },
+      "description": "Zur Verstärkung unseres Global Events Teams in Basel suchen wir eine organisationsstarke und engagierte Persönlichkeit als Events Manager.\nIn dieser Rolle planst und organisierst du unsere Auftritte an internationalen Kongressen, Medartis Kurse sowie IBRA Symposien und Workshops - von der Konzeption über die Durchführung vor Ort bis zur Nachbereitung. Als Ansprechperson für deine Regionen arbeitest du eng mit Sales, Marketing, Product Management und Education sowie mit externen Dienstleistern und Referenten zusammen und sorgst dafür, dass unsere Veranstaltungen professionell, effizient und compliant umgesetzt werden.\n\nEvents Manager\n\nIhr Aufgabengebiet\n\n• Du planst und organisierst unsere Kongressauftritte – vom Standkonzept, Zeitplan und Budget über Standausstattung und Logistik bis zur Nachbereitung inklusive Erfolgskontrolle.\n\n• Du holst Offerten ein, koordinierst externe Dienstleister wie Messebauer, Techniker und Logistikpartner und verhandelst Sponsoringpakete mit Kongressveranstaltern (PCOs) und Kliniken.\n\n• Du organisierst Medartis Kurse sowie IBRA Symposien, Kurse und Workshops, inklusive Räumlichkeiten, Infrastruktur, Verpflegung, Rahmenprogramm und Kursmaterial.\n\n• Du verantwortest das Teilnehmer- und Referentenmanagement – von der Registrierung über Reise und Unterkunft bis zu Abrechnungen und Zertifikaten.\n\n• Du bist vor Ort die zentrale Ansprechperson, koordinierst die Abläufe und findest bei kurzfristigen Änderungen pragmatische Lösungen.\n\n• Du organisierst hybride und virtuelle Formate wie Webinare, Livestreams und Live-Surgery-Übertragungen sowie weitere Anlässe wie HQ-Besuche und Sales Events.\n\n• Du behältst Budgets und Termine im Blick, prüfst Rechnungen und pflegst die Eventdaten in unseren Systemen sowie die Event-Agenda auf Website und Intranet.\n\n• Du betreust die dir zugewiesenen Regionen (Tochtergesellschaften und Distributoren) und stellst die Einhaltung unserer Qualitäts- und Compliance-Vorgaben sicher.\n\nIhre Qualifikationen\n\n• Abgeschlossene kaufmännische Grundausbildung; eine Weiterbildung im Event- oder Kongressmanagement ist von Vorteil.\n\n• Nachgewiesene Erfahrung in der Organisation und Durchführung von Events, idealerweise in der Kongressorganisation.\n\n• Erfahrung mit hybriden und virtuellen Eventformaten sowie mit Hands-on-Workshops oder Wet Labs ist von Vorteil.\n\n• Erfahrung in Vertragsverhandlungen mit Hotels, Locations und Kongressveranstaltern sowie im Risiko- und Notfallmanagement vor Ort.\n\n• Erfahrung in der Medizintechnik- oder Healthcare-Branche sowie Kenntnisse der Compliance-Vorgaben im Umgang mit Fachpersonen des Gesundheitswesens sind von Vorteil.\n\n• Sehr gute Kenntnisse in Microsoft Office; Erfahrung mit Cvent, SharePoint und CRM-Systemen wie Salesforce ist von Vorteil.\n\n• Organisationsstarke, service- und lösungsorientierte Persönlichkeit mit Verhandlungsgeschick, souveränem Auftreten auch unter Zeitdruck und Freude an der Zusammenarbeit in einem internationalen Umfeld.\n\n• Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift, Französisch von Vorteil, sowie Reisebereitschaft\n\nÜber Medartis\n\nMedartis ist einer der führenden Hersteller von medizinischen Produkten für die Osteosynthese im Bereich des Gesichtsschädels und der Extremitäten. Medartis hat sich zum Wohle des Patienten verpflichtet, Chirurgen und OP-Personal mit den innovativsten Titanimplantaten und Instrumenten zu versorgen und den besten Service zu bieten.\n\nWir bieten Ihnen eine verantwortungsvolle und abwechslungsreiche Tätigkeit mit hohen Qualitätsanforderungen in einem wachsenden, internationalen Unternehmen mit fortschrittlichen Sozialleistungen.\n\nWir freuen uns auf Ihre vollständige Online Bewerbung.\n\t\t\t Medartis\n\nHuman Resources\n\nT +41 61 633 34 34\n\nwww.medartis.com",
+      "descriptionByLocale": {
+        "de": "Zur Verstärkung unseres Global Events Teams in Basel suchen wir eine organisationsstarke und engagierte Persönlichkeit als Events Manager.\nIn dieser Rolle planst und organisierst du unsere Auftritte an internationalen Kongressen, Medartis Kurse sowie IBRA Symposien und Workshops - von der Konzeption über die Durchführung vor Ort bis zur Nachbereitung. Als Ansprechperson für deine Regionen arbeitest du eng mit Sales, Marketing, Product Management und Education sowie mit externen Dienstleistern und Referenten zusammen und sorgst dafür, dass unsere Veranstaltungen professionell, effizient und compliant umgesetzt werden.\n\nEvents Manager\n\nIhr Aufgabengebiet\n\n• Du planst und organisierst unsere Kongressauftritte – vom Standkonzept, Zeitplan und Budget über Standausstattung und Logistik bis zur Nachbereitung inklusive Erfolgskontrolle.\n\n• Du holst Offerten ein, koordinierst externe Dienstleister wie Messebauer, Techniker und Logistikpartner und verhandelst Sponsoringpakete mit Kongressveranstaltern (PCOs) und Kliniken.\n\n• Du organisierst Medartis Kurse sowie IBRA Symposien, Kurse und Workshops, inklusive Räumlichkeiten, Infrastruktur, Verpflegung, Rahmenprogramm und Kursmaterial.\n\n• Du verantwortest das Teilnehmer- und Referentenmanagement – von der Registrierung über Reise und Unterkunft bis zu Abrechnungen und Zertifikaten.\n\n• Du bist vor Ort die zentrale Ansprechperson, koordinierst die Abläufe und findest bei kurzfristigen Änderungen pragmatische Lösungen.\n\n• Du organisierst hybride und virtuelle Formate wie Webinare, Livestreams und Live-Surgery-Übertragungen sowie weitere Anlässe wie HQ-Besuche und Sales Events.\n\n• Du behältst Budgets und Termine im Blick, prüfst Rechnungen und pflegst die Eventdaten in unseren Systemen sowie die Event-Agenda auf Website und Intranet.\n\n• Du betreust die dir zugewiesenen Regionen (Tochtergesellschaften und Distributoren) und stellst die Einhaltung unserer Qualitäts- und Compliance-Vorgaben sicher.\n\nIhre Qualifikationen\n\n• Abgeschlossene kaufmännische Grundausbildung; eine Weiterbildung im Event- oder Kongressmanagement ist von Vorteil.\n\n• Nachgewiesene Erfahrung in der Organisation und Durchführung von Events, idealerweise in der Kongressorganisation.\n\n• Erfahrung mit hybriden und virtuellen Eventformaten sowie mit Hands-on-Workshops oder Wet Labs ist von Vorteil.\n\n• Erfahrung in Vertragsverhandlungen mit Hotels, Locations und Kongressveranstaltern sowie im Risiko- und Notfallmanagement vor Ort.\n\n• Erfahrung in der Medizintechnik- oder Healthcare-Branche sowie Kenntnisse der Compliance-Vorgaben im Umgang mit Fachpersonen des Gesundheitswesens sind von Vorteil.\n\n• Sehr gute Kenntnisse in Microsoft Office; Erfahrung mit Cvent, SharePoint und CRM-Systemen wie Salesforce ist von Vorteil.\n\n• Organisationsstarke, service- und lösungsorientierte Persönlichkeit mit Verhandlungsgeschick, souveränem Auftreten auch unter Zeitdruck und Freude an der Zusammenarbeit in einem internationalen Umfeld.\n\n• Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift, Französisch von Vorteil, sowie Reisebereitschaft\n\nÜber Medartis\n\nMedartis ist einer der führenden Hersteller von medizinischen Produkten für die Osteosynthese im Bereich des Gesichtsschädels und der Extremitäten. Medartis hat sich zum Wohle des Patienten verpflichtet, Chirurgen und OP-Personal mit den innovativsten Titanimplantaten und Instrumenten zu versorgen und den besten Service zu bieten.\n\nWir bieten Ihnen eine verantwortungsvolle und abwechslungsreiche Tätigkeit mit hohen Qualitätsanforderungen in einem wachsenden, internationalen Unternehmen mit fortschrittlichen Sozialleistungen.\n\nWir freuen uns auf Ihre vollständige Online Bewerbung.\n\t\t\t Medartis\n\nHuman Resources\n\nT +41 61 633 34 34\n\nwww.medartis.com",
+        "it": "Zur Verstärkung unseres Global Events Teams in Basel suchen wir eine organisationsstarke und engagierte Persönlichkeit als Events Manager.\nIn dieser Rolle planst und organisierst du unsere Auftritte an internationalen Kongressen, Medartis Kurse sowie IBRA Symposien und Workshops - von der Konzeption über die Durchführung vor Ort bis zur Nachbereitung. Als Ansprechperson für deine Regionen arbeitest du eng mit Sales, Marketing, Product Management und Education sowie mit externen Dienstleistern und Referenten zusammen und sorgst dafür, dass unsere Veranstaltungen professionell, effizient und compliant umgesetzt werden.\n\nEvents Manager\n\nIhr Aufgabengebiet\n\n• Du planst und organisierst unsere Kongressauftritte – vom Standkonzept, Zeitplan und Budget über Standausstattung und Logistik bis zur Nachbereitung inklusive Erfolgskontrolle.\n\n• Du holst Offerten ein, koordinierst externe Dienstleister wie Messebauer, Techniker und Logistikpartner und verhandelst Sponsoringpakete mit Kongressveranstaltern (PCOs) und Kliniken.\n\n• Du organisierst Medartis Kurse sowie IBRA Symposien, Kurse und Workshops, inklusive Räumlichkeiten, Infrastruktur, Verpflegung, Rahmenprogramm und Kursmaterial.\n\n• Du verantwortest das Teilnehmer- und Referentenmanagement – von der Registrierung über Reise und Unterkunft bis zu Abrechnungen und Zertifikaten.\n\n• Du bist vor Ort die zentrale Ansprechperson, koordinierst die Abläufe und findest bei kurzfristigen Änderungen pragmatische Lösungen.\n\n• Du organisierst hybride und virtuelle Formate wie Webinare, Livestreams und Live-Surgery-Übertragungen sowie weitere Anlässe wie HQ-Besuche und Sales Events.\n\n• Du behältst Budgets und Termine im Blick, prüfst Rechnungen und pflegst die Eventdaten in unseren Systemen sowie die Event-Agenda auf Website und Intranet.\n\n• Du betreust die dir zugewiesenen Regionen (Tochtergesellschaften und Distributoren) und stellst die Einhaltung unserer Qualitäts- und Compliance-Vorgaben sicher.\n\nIhre Qualifikationen\n\n• Abgeschlossene kaufmännische Grundausbildung; eine Weiterbildung im Event- oder Kongressmanagement ist von Vorteil.\n\n• Nachgewiesene Erfahrung in der Organisation und Durchführung von Events, idealerweise in der Kongressorganisation.\n\n• Erfahrung mit hybriden und virtuellen Eventformaten sowie mit Hands-on-Workshops oder Wet Labs ist von Vorteil.\n\n• Erfahrung in Vertragsverhandlungen mit Hotels, Locations und Kongressveranstaltern sowie im Risiko- und Notfallmanagement vor Ort.\n\n• Erfahrung in der Medizintechnik- oder Healthcare-Branche sowie Kenntnisse der Compliance-Vorgaben im Umgang mit Fachpersonen des Gesundheitswesens sind von Vorteil.\n\n• Sehr gute Kenntnisse in Microsoft Office; Erfahrung mit Cvent, SharePoint und CRM-Systemen wie Salesforce ist von Vorteil.\n\n• Organisationsstarke, service- und lösungsorientierte Persönlichkeit mit Verhandlungsgeschick, souveränem Auftreten auch unter Zeitdruck und Freude an der Zusammenarbeit in einem internationalen Umfeld.\n\n• Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift, Französisch von Vorteil, sowie Reisebereitschaft\n\nÜber Medartis\n\nMedartis ist einer der führenden Hersteller von medizinischen Produkten für die Osteosynthese im Bereich des Gesichtsschädels und der Extremitäten. Medartis hat sich zum Wohle des Patienten verpflichtet, Chirurgen und OP-Personal mit den innovativsten Titanimplantaten und Instrumenten zu versorgen und den besten Service zu bieten.\n\nWir bieten Ihnen eine verantwortungsvolle und abwechslungsreiche Tätigkeit mit hohen Qualitätsanforderungen in einem wachsenden, internationalen Unternehmen mit fortschrittlichen Sozialleistungen.\n\nWir freuen uns auf Ihre vollständige Online Bewerbung.\n\t\t\t Medartis\n\nHuman Resources\n\nT +41 61 633 34 34\n\nwww.medartis.com",
+        "en": "Zur Verstärkung unseres Global Events Teams in Basel suchen wir eine organisationsstarke und engagierte Persönlichkeit als Events Manager.\nIn dieser Rolle planst und organisierst du unsere Auftritte an internationalen Kongressen, Medartis Kurse sowie IBRA Symposien und Workshops - von der Konzeption über die Durchführung vor Ort bis zur Nachbereitung. Als Ansprechperson für deine Regionen arbeitest du eng mit Sales, Marketing, Product Management und Education sowie mit externen Dienstleistern und Referenten zusammen und sorgst dafür, dass unsere Veranstaltungen professionell, effizient und compliant umgesetzt werden.\n\nEvents Manager\n\nIhr Aufgabengebiet\n\n• Du planst und organisierst unsere Kongressauftritte – vom Standkonzept, Zeitplan und Budget über Standausstattung und Logistik bis zur Nachbereitung inklusive Erfolgskontrolle.\n\n• Du holst Offerten ein, koordinierst externe Dienstleister wie Messebauer, Techniker und Logistikpartner und verhandelst Sponsoringpakete mit Kongressveranstaltern (PCOs) und Kliniken.\n\n• Du organisierst Medartis Kurse sowie IBRA Symposien, Kurse und Workshops, inklusive Räumlichkeiten, Infrastruktur, Verpflegung, Rahmenprogramm und Kursmaterial.\n\n• Du verantwortest das Teilnehmer- und Referentenmanagement – von der Registrierung über Reise und Unterkunft bis zu Abrechnungen und Zertifikaten.\n\n• Du bist vor Ort die zentrale Ansprechperson, koordinierst die Abläufe und findest bei kurzfristigen Änderungen pragmatische Lösungen.\n\n• Du organisierst hybride und virtuelle Formate wie Webinare, Livestreams und Live-Surgery-Übertragungen sowie weitere Anlässe wie HQ-Besuche und Sales Events.\n\n• Du behältst Budgets und Termine im Blick, prüfst Rechnungen und pflegst die Eventdaten in unseren Systemen sowie die Event-Agenda auf Website und Intranet.\n\n• Du betreust die dir zugewiesenen Regionen (Tochtergesellschaften und Distributoren) und stellst die Einhaltung unserer Qualitäts- und Compliance-Vorgaben sicher.\n\nIhre Qualifikationen\n\n• Abgeschlossene kaufmännische Grundausbildung; eine Weiterbildung im Event- oder Kongressmanagement ist von Vorteil.\n\n• Nachgewiesene Erfahrung in der Organisation und Durchführung von Events, idealerweise in der Kongressorganisation.\n\n• Erfahrung mit hybriden und virtuellen Eventformaten sowie mit Hands-on-Workshops oder Wet Labs ist von Vorteil.\n\n• Erfahrung in Vertragsverhandlungen mit Hotels, Locations und Kongressveranstaltern sowie im Risiko- und Notfallmanagement vor Ort.\n\n• Erfahrung in der Medizintechnik- oder Healthcare-Branche sowie Kenntnisse der Compliance-Vorgaben im Umgang mit Fachpersonen des Gesundheitswesens sind von Vorteil.\n\n• Sehr gute Kenntnisse in Microsoft Office; Erfahrung mit Cvent, SharePoint und CRM-Systemen wie Salesforce ist von Vorteil.\n\n• Organisationsstarke, service- und lösungsorientierte Persönlichkeit mit Verhandlungsgeschick, souveränem Auftreten auch unter Zeitdruck und Freude an der Zusammenarbeit in einem internationalen Umfeld.\n\n• Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift, Französisch von Vorteil, sowie Reisebereitschaft\n\nÜber Medartis\n\nMedartis ist einer der führenden Hersteller von medizinischen Produkten für die Osteosynthese im Bereich des Gesichtsschädels und der Extremitäten. Medartis hat sich zum Wohle des Patienten verpflichtet, Chirurgen und OP-Personal mit den innovativsten Titanimplantaten und Instrumenten zu versorgen und den besten Service zu bieten.\n\nWir bieten Ihnen eine verantwortungsvolle und abwechslungsreiche Tätigkeit mit hohen Qualitätsanforderungen in einem wachsenden, internationalen Unternehmen mit fortschrittlichen Sozialleistungen.\n\nWir freuen uns auf Ihre vollständige Online Bewerbung.\n\t\t\t Medartis\n\nHuman Resources\n\nT +41 61 633 34 34\n\nwww.medartis.com",
+        "fr": "Zur Verstärkung unseres Global Events Teams in Basel suchen wir eine organisationsstarke und engagierte Persönlichkeit als Events Manager.\nIn dieser Rolle planst und organisierst du unsere Auftritte an internationalen Kongressen, Medartis Kurse sowie IBRA Symposien und Workshops - von der Konzeption über die Durchführung vor Ort bis zur Nachbereitung. Als Ansprechperson für deine Regionen arbeitest du eng mit Sales, Marketing, Product Management und Education sowie mit externen Dienstleistern und Referenten zusammen und sorgst dafür, dass unsere Veranstaltungen professionell, effizient und compliant umgesetzt werden.\n\nEvents Manager\n\nIhr Aufgabengebiet\n\n• Du planst und organisierst unsere Kongressauftritte – vom Standkonzept, Zeitplan und Budget über Standausstattung und Logistik bis zur Nachbereitung inklusive Erfolgskontrolle.\n\n• Du holst Offerten ein, koordinierst externe Dienstleister wie Messebauer, Techniker und Logistikpartner und verhandelst Sponsoringpakete mit Kongressveranstaltern (PCOs) und Kliniken.\n\n• Du organisierst Medartis Kurse sowie IBRA Symposien, Kurse und Workshops, inklusive Räumlichkeiten, Infrastruktur, Verpflegung, Rahmenprogramm und Kursmaterial.\n\n• Du verantwortest das Teilnehmer- und Referentenmanagement – von der Registrierung über Reise und Unterkunft bis zu Abrechnungen und Zertifikaten.\n\n• Du bist vor Ort die zentrale Ansprechperson, koordinierst die Abläufe und findest bei kurzfristigen Änderungen pragmatische Lösungen.\n\n• Du organisierst hybride und virtuelle Formate wie Webinare, Livestreams und Live-Surgery-Übertragungen sowie weitere Anlässe wie HQ-Besuche und Sales Events.\n\n• Du behältst Budgets und Termine im Blick, prüfst Rechnungen und pflegst die Eventdaten in unseren Systemen sowie die Event-Agenda auf Website und Intranet.\n\n• Du betreust die dir zugewiesenen Regionen (Tochtergesellschaften und Distributoren) und stellst die Einhaltung unserer Qualitäts- und Compliance-Vorgaben sicher.\n\nIhre Qualifikationen\n\n• Abgeschlossene kaufmännische Grundausbildung; eine Weiterbildung im Event- oder Kongressmanagement ist von Vorteil.\n\n• Nachgewiesene Erfahrung in der Organisation und Durchführung von Events, idealerweise in der Kongressorganisation.\n\n• Erfahrung mit hybriden und virtuellen Eventformaten sowie mit Hands-on-Workshops oder Wet Labs ist von Vorteil.\n\n• Erfahrung in Vertragsverhandlungen mit Hotels, Locations und Kongressveranstaltern sowie im Risiko- und Notfallmanagement vor Ort.\n\n• Erfahrung in der Medizintechnik- oder Healthcare-Branche sowie Kenntnisse der Compliance-Vorgaben im Umgang mit Fachpersonen des Gesundheitswesens sind von Vorteil.\n\n• Sehr gute Kenntnisse in Microsoft Office; Erfahrung mit Cvent, SharePoint und CRM-Systemen wie Salesforce ist von Vorteil.\n\n• Organisationsstarke, service- und lösungsorientierte Persönlichkeit mit Verhandlungsgeschick, souveränem Auftreten auch unter Zeitdruck und Freude an der Zusammenarbeit in einem internationalen Umfeld.\n\n• Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift, Französisch von Vorteil, sowie Reisebereitschaft\n\nÜber Medartis\n\nMedartis ist einer der führenden Hersteller von medizinischen Produkten für die Osteosynthese im Bereich des Gesichtsschädels und der Extremitäten. Medartis hat sich zum Wohle des Patienten verpflichtet, Chirurgen und OP-Personal mit den innovativsten Titanimplantaten und Instrumenten zu versorgen und den besten Service zu bieten.\n\nWir bieten Ihnen eine verantwortungsvolle und abwechslungsreiche Tätigkeit mit hohen Qualitätsanforderungen in einem wachsenden, internationalen Unternehmen mit fortschrittlichen Sozialleistungen.\n\nWir freuen uns auf Ihre vollständige Online Bewerbung.\n\t\t\t Medartis\n\nHuman Resources\n\nT +41 61 633 34 34\n\nwww.medartis.com"
+      },
+      "needsRetranslation": true,
+      "location": "Basel",
+      "canton": "BS",
+      "url": "https://careers.medartis.com/job/Events-Manager/1457737633/",
+      "source": "Medartis Dedicated Parser (SuccessFactors CSB)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-17T09:40:05.653Z",
+      "addressLocality": "Basel",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "4001",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "MedTech / Dispositivi medici",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-16T00:00:00Z",
+      "postedDate": "2026-11-16T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://careers.medartis.com/talentcommunity/apply/1457737633/?locale=de_DE",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 99500,
+      "salaryMax": 151000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 99500,
+          "maxValue": 151000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Basel",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-14T09:40:05.653Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-17T09:40:05.653Z"
     }
   ]
 }
