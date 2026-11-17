@@ -73,7 +73,7 @@ describe('unvalidated-perf-claim: le prove accettate e i numeri che non sono pre
   it('claim dichiarato non validato pre-merge con trigger di revert', () => {
     const res = strict(body(
       `${claim} Stima **non validata pre-merge**.`,
-      '- Riduzione dei tempi, blocked: misura post-merge. **Trigger di revert:** wall-time del job oltre 20 minuti nel primo run → revert di questa PR.',
+      '- Riduzione dei tempi, blocked: misura post-merge sulla run `tests.yml`. **Trigger di revert:** wall-time del job oltre 20 minuti nel primo run → revert di questa PR.',
     ));
     expect(res.violations.some(isClaimViolation)).toBe(false);
   });
