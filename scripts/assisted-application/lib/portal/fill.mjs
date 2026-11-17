@@ -652,7 +652,7 @@ function parseMonthYear(value) {
   return parsed ? { year: parsed.year, month: parsed.month } : null;
 }
 
-async function fillWorkdayDate(locator, value) {
+export async function fillWorkdayDate(locator, value) {
   const my = parseMonthYear(value);
   if (!my || my.month < 1 || my.month > 12 || my.year < 1900 || my.year > 2100) throw new Error('date_unreadable');
   const spins = locator.locator('[role="spinbutton"]');
@@ -662,12 +662,19 @@ async function fillWorkdayDate(locator, value) {
   const yearSpin = locator.locator('[role="spinbutton"][data-automation-id*="Year"], [role="spinbutton"][aria-label*="Year" i], [role="spinbutton"][aria-label*="Jahr" i], [role="spinbutton"][aria-label*="Ann" i], [role="spinbutton"][aria-label*="Anno" i]').first();
   const mTarget = (await monthSpin.count()) ? monthSpin : spins.nth(0);
   const yTarget = (await yearSpin.count()) ? yearSpin : spins.nth(1);
-  const mm = String(my.month).padStart(2, '0');
-  const yyyy = String(my.year);
-  await mTarget.click({ timeout: ACTION_TIMEOUT_MS });
-  await mTarget.page().keyboard.type(mm, { delay: 20 });
-  await yTarget.click({ timeout: ACTION_TIMEOUT_MS });
-  await yTarget.page().keyboard.type(yyyy, { delay: 20 });
+  const writeSpin = async (target, digits) => {
+    const isInput = await target.evaluate((el) => el.tagName === 'INPUT' || el.tagName === 'TEXTAREA').catch(() => false);
+    if (isInput) {
+      await target.fill(digits, { timeout: ACTION_TIMEOUT_MS });
+      return;
+    }
+    await target.click({ timeout: ACTION_TIMEOUT_MS });
+    await target.press('ControlOrMeta+a').catch(() => {});
+    await target.press('Backspace').catch(() => {});
+    await target.page().keyboard.type(digits, { delay: 20 });
+  };
+  await writeSpin(mTarget, String(my.month).padStart(2, '0'));
+  await writeSpin(yTarget, String(my.year));
   await yTarget.press('Tab').catch(() => {});
 }
 
