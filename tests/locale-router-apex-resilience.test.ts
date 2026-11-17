@@ -3,7 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error — plain JS Worker module, no type declarations.
-import worker from '../infra/cloudflare-worker/locale-router.js';
+import worker, { router } from '../infra/cloudflare-worker/locale-router.js';
 
 const APEX = 'https://frontaliereticino.ch';
 const page = `${APEX}/calcola-stipendio/`;
@@ -66,6 +66,29 @@ describe('locale-router apex resilience', () => {
       path: '/calcola-stipendio/',
       stale: false,
     });
+  });
+
+  it('binds unexpected top-level errors and returns a sanitized observable 503', async () => {
+    const log = vi.spyOn(console, 'error').mockImplementation(() => {});
+    vi.spyOn(router, 'fetch').mockRejectedValueOnce(new TypeError('token=must-not-leak'));
+
+    const res = await worker.fetch(new Request(`${page}?token=secret`), {}, ctx);
+
+    expect(res.status).toBe(503);
+    expect(res.headers.get('Retry-After')).toBe('30');
+    expect(res.headers.get('Cache-Control')).toBe('no-store');
+    expect(await res.text()).toBe('Origin unavailable');
+    const signal = JSON.parse(String(log.mock.calls[0][0]));
+    expect(signal).toEqual({
+      event: 'origin_failure',
+      reason: 'router-exception',
+      path: '/calcola-stipendio/',
+      status: 503,
+      stage: 'router',
+      error: 'TypeError',
+    });
+    expect(JSON.stringify(signal)).not.toContain('secret');
+    expect(JSON.stringify(signal)).not.toContain('must-not-leak');
   });
 
   it('never logs on the happy path', async () => {
