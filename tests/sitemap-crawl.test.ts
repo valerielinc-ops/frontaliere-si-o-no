@@ -611,6 +611,76 @@ describe('sitemap change snapshots', () => {
 });
 
 describe('sitemap graph availability policy', () => {
+  it('cache-busts every live request while keeping crawl and snapshot identities canonical', async () => {
+    const calls: string[] = [];
+    vi.stubGlobal('fetch', vi.fn().mockImplementation((input: string) => {
+      const url = new URL(String(input));
+      calls.push(url.href);
+      if (url.pathname === '/robots.txt') {
+        return Promise.resolve(new Response(`Sitemap: ${BASE}/sitemap-robots.xml`, { status: 200 }));
+      }
+      if (url.pathname === '/sitemap.xml') {
+        return Promise.resolve(new Response(
+          `<sitemapindex><sitemap><loc>${BASE}/sitemap-child.xml</loc></sitemap></sitemapindex>`,
+          { status: 200 },
+        ));
+      }
+      if (url.pathname === '/sitemap-robots.xml' || url.pathname === '/sitemap-child.xml') {
+        return Promise.resolve(new Response(
+          `<urlset><url><loc>${BASE}/pagina${url.pathname === '/sitemap-child.xml' ? '-figlia' : '-robots'}/</loc></url></urlset>`,
+          { status: 200 },
+        ));
+      }
+      return Promise.resolve(new Response('missing', { status: 404 }));
+    }));
+
+    const crawl = await crawlSitemaps({
+      baseUrl: BASE,
+      seeds: ['sitemap.xml'],
+      strict: true,
+      fetchDelayMs: 0,
+      liveCacheBust: 'run-7',
+    });
+    const snapshot = snapshotFromCrawl(crawl);
+
+    expect(calls).toHaveLength(4);
+    expect(calls.every((url) => new URL(url).searchParams.get('cb') === 'run-7')).toBe(true);
+    expect(calls.map((url) => new URL(url).pathname)).toContain('/robots.txt');
+    expect(Object.keys(snapshot.perSitemap)).toEqual(['sitemap-child.xml', 'sitemap-robots.xml', 'sitemap.xml']);
+    expect([...crawl.records.keys()].sort()).toEqual(Object.keys(snapshot.perSitemap));
+    expect([...crawl.records.values()].every((record) => !record.url.includes('cb='))).toBe(true);
+    expect(JSON.stringify(snapshot.perSitemap)).not.toContain('cb=');
+    expect(JSON.stringify([...crawl.records])).not.toContain('cb=');
+  });
+
+  it('does not add cache-busting query parameters when liveCacheBust is empty', async () => {
+    const calls: string[] = [];
+    vi.stubGlobal('fetch', vi.fn().mockImplementation((input: string) => {
+      const url = new URL(String(input));
+      calls.push(url.href);
+      if (url.pathname === '/robots.txt') {
+        return Promise.resolve(new Response(`Sitemap: ${BASE}/sitemap-child.xml`, { status: 200 }));
+      }
+      if (url.pathname === '/sitemap.xml') {
+        return Promise.resolve(new Response('<urlset><url><loc>https://frontaliereticino.ch/home/</loc></url></urlset>', { status: 200 }));
+      }
+      if (url.pathname === '/sitemap-child.xml') {
+        return Promise.resolve(new Response('<urlset><url><loc>https://frontaliereticino.ch/figlia/</loc></url></urlset>', { status: 200 }));
+      }
+      return Promise.resolve(new Response('missing', { status: 404 }));
+    }));
+
+    await crawlSitemaps({
+      baseUrl: BASE,
+      seeds: ['sitemap.xml'],
+      strict: true,
+      fetchDelayMs: 0,
+    });
+
+    expect(calls).toHaveLength(3);
+    expect(calls.every((url) => !new URL(url).searchParams.has('cb'))).toBe(true);
+  });
+
   it('fails closed when a default or robots-discovered seed is unavailable', async () => {
     vi.stubGlobal('fetch', vi.fn().mockImplementation((input: string) => {
       const url = String(input);
@@ -771,23 +841,24 @@ describe('sitemap graph availability policy', () => {
     vi.stubGlobal('fetch', vi.fn().mockImplementation((input: string) => {
       const url = String(input);
       calls.push(url);
-      if (url.endsWith('/robots.txt')) {
+      const pathname = new URL(url).pathname;
+      if (pathname === '/robots.txt') {
         return Promise.resolve(new Response(`Sitemap: ${BASE}/sitemap.xml`, { status: 200 }));
       }
-      if (url.endsWith('/sitemap.xml')) {
+      if (pathname === '/sitemap.xml') {
         return Promise.resolve(new Response(
           `<sitemapindex><sitemap><loc>${BASE}/sitemap-jobs-expired-044.xml</loc></sitemap>` +
           `<sitemap><loc>${BASE}/sitemap-pages.xml</loc></sitemap></sitemapindex>`,
           { status: 200 },
         ));
       }
-      if (url.includes('/sitemap-jobs-expired-044.xml')) {
+      if (pathname === '/sitemap-jobs-expired-044.xml') {
         return Promise.resolve(new Response('missing', {
           status: 404,
           headers: { 'cf-cache-status': 'MISS', age: '19' },
         }));
       }
-      if (url.endsWith('/sitemap-pages.xml')) {
+      if (pathname === '/sitemap-pages.xml') {
         return Promise.resolve(new Response(
           `<urlset><url><loc>${BASE}/pagina-corrente/</loc></url></urlset>`,
           { status: 200 },
@@ -802,8 +873,9 @@ describe('sitemap graph availability policy', () => {
       strict: true,
       fetchAttempts: 1,
       fetchDelayMs: 0,
+      liveCacheBust: 'run-7',
       tolerateMissing: isExpiredJobSitemapKey,
-      unreachableRetry: { attempts: 2, delaysMs: [0, 0], cacheBust: 'run-123' },
+      unreachableRetry: { attempts: 2, delaysMs: [0, 0], cacheBust: 'retry-1' },
       logger: { warn: vi.fn() },
     });
     const expiredRequests = calls.filter((url) => new URL(url).pathname.endsWith('/sitemap-jobs-expired-044.xml'));
@@ -819,7 +891,8 @@ describe('sitemap graph availability policy', () => {
     expect(crawl.missing).toEqual([]);
     expect(crawl.missingRequired).toEqual([]);
     expect(expiredRequests).toHaveLength(3);
-    expect(expiredRequests.slice(1).every((url) => new URL(url).searchParams.get('cb') === 'run-123')).toBe(true);
+    expect(new URL(expiredRequests[0]).searchParams.get('cb')).toBe('run-7');
+    expect(expiredRequests.slice(1).every((url) => new URL(url).searchParams.get('cb') === 'retry-1')).toBe(true);
     expect(crawl.toleratedMissing[0].key).not.toContain('?cb=');
   });
 

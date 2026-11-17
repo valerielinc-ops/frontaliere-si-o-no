@@ -550,7 +550,7 @@ describe('SBB two-source discovery invariants', () => {
     expect(listingValidationReason).toBe('SBB vacancies listing result count missing');
   });
 
-  it('uses the current Italian vacancies page for AEM discovery', async () => {
+  it('uses the current Italian AEM endpoint for discovery', async () => {
     const requestedUrls: string[] = [];
     const fetchAem = async (url: string) => {
       requestedUrls.push(url);
@@ -560,7 +560,7 @@ describe('SBB two-source discovery invariants', () => {
     await expect(fetchSbbJobDetailUrls({ fetchPageImpl: fetchAem, timeoutMs: 1000 }))
       .resolves.toMatchObject({ urls: [], sourceZero: true });
     expect(requestedUrls).toEqual([
-      'https://company.sbb.ch/content/internet/corporate/it/impieghi-carriera/jobs/posti-liberi/jcr:content/parmain/jobfilter.results.json',
+      'https://company.sbb.ch/content/internet/corporate/it/jobs-karriere/jobs/job-suche/jcr:content/parmain/jobfilter.results.json',
     ]);
   });
 

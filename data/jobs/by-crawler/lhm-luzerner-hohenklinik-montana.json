@@ -1,7 +1,7 @@
 {
   "crawlerKey": "lhm-luzerner-hohenklinik-montana",
-  "assembledAt": "2026-11-15T21:36:52.191Z",
-  "runId": "43762814121",
+  "assembledAt": "2026-11-17T06:51:28.056Z",
+  "runId": "44032852054",
   "jobs": [
     {
       "id": "lhm-luzerner-hohenklinik-montana-4be678959842",
@@ -35,7 +35,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/fachaerztin-arzt-allgemeine-innere-medizin",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:36:39.446Z",
+      "crawledAt": "2026-11-17T06:50:49.628Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       },
       "streetAddress": "Crans-Montana",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:36:39.446Z",
+      "validThrough": "2026-12-17T06:50:49.628Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -113,7 +113,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/assistenzaerztin-assistenzarzt",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:36:39.055Z",
+      "crawledAt": "2026-11-17T06:50:49.249Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -175,7 +175,7 @@
       },
       "streetAddress": "Crans-Montana",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:36:39.055Z",
+      "validThrough": "2026-12-17T06:50:49.249Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -210,7 +210,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/oberaerztin-oberarzt-oder-stv",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:36:38.661Z",
+      "crawledAt": "2026-11-17T06:50:48.877Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -253,7 +253,7 @@
       },
       "streetAddress": "Crans-Montana",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:36:38.661Z",
+      "validThrough": "2026-12-17T06:50:48.877Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -288,7 +288,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/infirmier-praticien-formateur",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:36:38.258Z",
+      "crawledAt": "2026-11-17T06:50:48.509Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -335,7 +335,7 @@
       },
       "streetAddress": "Crans-Montana",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:36:38.258Z",
+      "validThrough": "2026-12-17T06:50:48.509Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -345,7 +345,7 @@
         "it": "infermiere-i-praticante-con-autorizzazione-all-insegnamento-luzerner-hohenklinik-montana-crans-montana",
         "en": "practicing-nurse-with-teaching-authorization-luzerner-hohenklinik-montana-crans-montana",
         "de": "pflegefachmann-frau-stationsleiterin-lhm-luzerner-hohenklinik-montana-crans-montana",
-        "fr": "pflegefachmann-frau-stationsleiterin-luzerner-hohenklinik-montana-crans-montana"
+        "fr": "infirmier-infirmiere-chef-de-service-luzerner-hohenklinik-montana-crans-montana"
       },
       "company": "Luzerner Höhenklinik Montana",
       "companyKey": "lhm-luzerner-hohenklinik-montana",
@@ -369,7 +369,7 @@
       "url": "https://www.lhm.ch/de/allgemein/jobs/pflegefachfrau-pflegefachmann-hf-fh-stationsleiterin",
       "source": "Luzerner Höhenklinik Montana Dedicated Parser (Custom HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:36:37.862Z",
+      "crawledAt": "2026-11-17T06:50:48.131Z",
       "addressLocality": "Crans-Montana",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -397,14 +397,14 @@
       },
       "previousSlugs": [
         "pflegefachmann-frau-stationsleiterin-lhm-luzerner-hohenklinik-montana-crans-montana",
-        "infirmier-infirmiere-chef-de-service-luzerner-hohenklinik-montana-crans-montana"
+        "pflegefachmann-frau-stationsleiterin-luzerner-hohenklinik-montana-crans-montana"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachmann-frau-stationsleiterin-lhm-luzerner-hohenklinik-montana-crans-montana"
         ],
         "fr": [
-          "infirmier-infirmiere-chef-de-service-luzerner-hohenklinik-montana-crans-montana"
+          "pflegefachmann-frau-stationsleiterin-luzerner-hohenklinik-montana-crans-montana"
         ]
       },
       "firstSeenAt": "2026-05-19T13:47:25.338Z",
@@ -423,7 +423,7 @@
       },
       "streetAddress": "Crans-Montana",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:36:37.862Z",
+      "validThrough": "2026-12-17T06:50:48.131Z",
       "validThroughSource": "last-observed-window"
     }
   ]
