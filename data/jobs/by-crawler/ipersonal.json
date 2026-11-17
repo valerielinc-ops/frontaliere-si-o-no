@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ipersonal",
-  "assembledAt": "2026-11-17T06:51:02.982Z",
-  "runId": "44032839886",
+  "assembledAt": "2026-11-17T09:19:53.526Z",
+  "runId": "44052460695",
   "jobs": [
     {
       "id": "ipersonal-b14d0297131a",
@@ -34,7 +34,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-fachpersonen-langzeitpflege-betreuung-in-littenheid-jetzt-bewerben/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T06:50:57.031Z",
+      "crawledAt": "2026-11-17T09:19:42.876Z",
       "addressLocality": "Littenheid",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -90,7 +90,7 @@
       },
       "streetAddress": "Littenheid",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T06:50:57.031Z",
+      "validThrough": "2027-01-24T09:19:42.876Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -124,7 +124,7 @@
       "url": "https://med-ipersonal.ch/jobs/advanced-practice-nurse-apn-master-of-science-in-pflege-80-100-in-sursee-und-umgebung-gesucht/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T06:50:56.730Z",
+      "crawledAt": "2026-11-17T09:19:42.574Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -169,7 +169,7 @@
       },
       "streetAddress": "Sursee",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T06:50:56.730Z",
+      "validThrough": "2027-01-24T09:19:42.574Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -203,7 +203,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-betreuung-in-aarberg-werde-teil-eines-engagierten-teams/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T06:50:56.429Z",
+      "crawledAt": "2026-11-17T09:19:42.272Z",
       "addressLocality": "Aarberg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -219,34 +219,6 @@
       "postedDate": "2026-10-26",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-betreuung-in-aarberg-werde-teil-eines-engagierten-teams/",
-      "previousSlugsByLocale": {
-        "de": [
-          "offene-stellen-fur-betreuung-medipersonal-aarberg-bern",
-          "fachfrau-mann-betreuung-medipersonal-aarberg-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
-          "fachfrau-mann-betreuung-medipersonal-berna"
-        ],
-        "it": [
-          "offene-stellen-fur-betreuung-medipersonal-aarberg-bern",
-          "offene-stellen-per-betreuung-medipersonal-aarberg",
-          "offene-stellen-per-betreuung-medipersonal-aarberg-bern",
-          "fachfrau-mann-betreuung-medipersonal-aarberg-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
-          "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-bern",
-          "posizioni-aperte-per-l-assistenza-medipersonal-berna-b3cbe3",
-          "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861",
-          "fachfrau-mann-betreuung-medipersonal-aarberg-und-umgebung",
-          "posizioni-aperte-per-l-assistenza-medipersonal-berna"
-        ],
-        "en": [
-          "offene-stellen-fur-betreuung-medipersonal-aarberg-bern",
-          "care-vacancies-medipersonal-aarberg-bern",
-          "care-vacancies-medipersonal-berna"
-        ],
-        "fr": [
-          "offene-stellen-fur-betreuung-medipersonal-aarberg-bern",
-          "emplois-vacants-medipersonal-aarberg-bern",
-          "emplois-vacants-medipersonal-berna"
-        ]
-      },
       "previousSlugs": [
         "offene-stellen-fur-betreuung-medipersonal-aarberg-bern",
         "offene-stellen-per-betreuung-medipersonal-aarberg",
@@ -263,6 +235,34 @@
         "emplois-vacants-medipersonal-berna",
         "posizioni-aperte-per-l-assistenza-medipersonal-berna"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "offene-stellen-fur-betreuung-medipersonal-aarberg-bern",
+          "offene-stellen-per-betreuung-medipersonal-aarberg",
+          "offene-stellen-per-betreuung-medipersonal-aarberg-bern",
+          "fachfrau-mann-betreuung-medipersonal-aarberg-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
+          "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-bern",
+          "posizioni-aperte-per-l-assistenza-medipersonal-berna-b3cbe3",
+          "posizioni-aperte-per-l-assistenza-medipersonal-aarberg-462f871861",
+          "fachfrau-mann-betreuung-medipersonal-aarberg-und-umgebung",
+          "posizioni-aperte-per-l-assistenza-medipersonal-berna"
+        ],
+        "en": [
+          "offene-stellen-fur-betreuung-medipersonal-aarberg-bern",
+          "care-vacancies-medipersonal-aarberg-bern",
+          "care-vacancies-medipersonal-berna"
+        ],
+        "de": [
+          "offene-stellen-fur-betreuung-medipersonal-aarberg-bern",
+          "fachfrau-mann-betreuung-medipersonal-aarberg-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
+          "fachfrau-mann-betreuung-medipersonal-berna"
+        ],
+        "fr": [
+          "offene-stellen-fur-betreuung-medipersonal-aarberg-bern",
+          "emplois-vacants-medipersonal-aarberg-bern",
+          "emplois-vacants-medipersonal-berna"
+        ]
+      },
       "firstSeenAt": "2026-11-04T09:17:17.925Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -280,7 +280,7 @@
       "postalCode": "3270",
       "streetAddress": "Aarberg",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T06:50:56.429Z",
+      "validThrough": "2027-01-24T09:19:42.272Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -314,7 +314,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-pflege-in-langenthal-dein-engagement-zaehlt/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T06:50:56.128Z",
+      "crawledAt": "2026-11-17T09:19:41.970Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -391,7 +391,7 @@
       },
       "streetAddress": "Langenthal",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T06:50:56.128Z",
+      "validThrough": "2027-01-24T09:19:41.970Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -425,7 +425,7 @@
       "url": "https://med-ipersonal.ch/jobs/personalberater-in-fuer-die-medizinbranche-gesucht-m-w-d-100-in-region-baeretswil/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T06:50:55.827Z",
+      "crawledAt": "2026-11-17T09:19:41.669Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -491,7 +491,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-24T06:50:55.827Z",
+      "validThrough": "2027-01-24T09:19:41.669Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -525,7 +525,7 @@
       "url": "https://med-ipersonal.ch/jobs/fachmann-fachfrau-gesundheit-efz-m-w-d-temporaerstellen-fuer-pflege-st-gallen-mit-zukunft/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T06:50:55.526Z",
+      "crawledAt": "2026-11-17T09:19:41.366Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -541,11 +541,17 @@
       "postedDate": "2026-10-26",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/fachmann-fachfrau-gesundheit-efz-m-w-d-temporaerstellen-fuer-pflege-st-gallen-mit-zukunft/",
+      "previousSlugs": [
+        "fachmann-fachfrau-gesundheit-efz-medipersonal-st-gallen-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
+        "fachmann-fachfrau-gesundheit-cfc-medipersonal-st-gallen",
+        "fachmann-fachfrau-gesundheit-cfc-medipersonal-san-gallo",
+        "fachmann-fachfrau-gesundheit-efz-medipersonal-san-gallo",
+        "fachmann-fachfrau-gesundheit-efz-medipersonal-st-gallen-und-umgebung",
+        "professional-professional-health-efz-medipersonal-san-gallo",
+        "professionnel-professionnel-sante-efz-medipersonal-san-gallo",
+        "operatore-sociosanitario-operatrice-sociosanitaria-afc-medipersonal-san-gallo"
+      ],
       "previousSlugsByLocale": {
-        "de": [
-          "fachmann-fachfrau-gesundheit-efz-medipersonal-st-gallen-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
-          "fachmann-fachfrau-gesundheit-efz-medipersonal-san-gallo"
-        ],
         "it": [
           "fachmann-fachfrau-gesundheit-efz-medipersonal-st-gallen-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
           "fachmann-fachfrau-gesundheit-cfc-medipersonal-st-gallen",
@@ -558,22 +564,16 @@
           "fachmann-fachfrau-gesundheit-efz-medipersonal-san-gallo",
           "professional-professional-health-efz-medipersonal-san-gallo"
         ],
+        "de": [
+          "fachmann-fachfrau-gesundheit-efz-medipersonal-st-gallen-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
+          "fachmann-fachfrau-gesundheit-efz-medipersonal-san-gallo"
+        ],
         "fr": [
           "fachmann-fachfrau-gesundheit-efz-medipersonal-st-gallen-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
           "fachmann-fachfrau-gesundheit-efz-medipersonal-san-gallo",
           "professionnel-professionnel-sante-efz-medipersonal-san-gallo"
         ]
       },
-      "previousSlugs": [
-        "fachmann-fachfrau-gesundheit-efz-medipersonal-st-gallen-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
-        "fachmann-fachfrau-gesundheit-cfc-medipersonal-st-gallen",
-        "fachmann-fachfrau-gesundheit-cfc-medipersonal-san-gallo",
-        "fachmann-fachfrau-gesundheit-efz-medipersonal-san-gallo",
-        "fachmann-fachfrau-gesundheit-efz-medipersonal-st-gallen-und-umgebung",
-        "professional-professional-health-efz-medipersonal-san-gallo",
-        "professionnel-professionnel-sante-efz-medipersonal-san-gallo",
-        "operatore-sociosanitario-operatrice-sociosanitaria-afc-medipersonal-san-gallo"
-      ],
       "firstSeenAt": "2026-11-04T09:17:17.019Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -591,7 +591,7 @@
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T06:50:55.526Z",
+      "validThrough": "2027-01-24T09:19:41.366Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -625,7 +625,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-betreuung-in-bern-werde-teil-eines-engagierten-teams/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T06:50:55.225Z",
+      "crawledAt": "2026-11-17T09:19:41.065Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -641,34 +641,6 @@
       "postedDate": "2026-10-26",
       "postingDateSource": "reported",
       "applyUrl": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-betreuung-in-bern-werde-teil-eines-engagierten-teams/",
-      "previousSlugsByLocale": {
-        "de": [
-          "offene-stellen-fur-betreuung-medipersonal-bern-bern",
-          "fachfrau-mann-betreuung-medipersonal-bern-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
-          "fachfrau-mann-betreuung-medipersonal-berna"
-        ],
-        "it": [
-          "offene-stellen-fur-betreuung-medipersonal-bern-bern",
-          "offene-stellen-per-betreuung-medipersonal-bern",
-          "offene-stellen-per-betreuung-medipersonal-bern-bern",
-          "fachfrau-mann-betreuung-medipersonal-bern-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
-          "posizioni-aperte-per-l-assistenza-medipersonal-bern-bern",
-          "posizioni-aperte-per-l-assistenza-medipersonal-berna-746cd4",
-          "posizioni-aperte-per-l-assistenza-medipersonal-bern-1cb64a7a44",
-          "fachfrau-mann-betreuung-medipersonal-bern-und-umgebung",
-          "posizioni-aperte-per-l-assistenza-medipersonal-berna"
-        ],
-        "en": [
-          "offene-stellen-fur-betreuung-medipersonal-bern-bern",
-          "care-vacancies-medipersonal-bern-bern",
-          "care-vacancies-medipersonal-berna"
-        ],
-        "fr": [
-          "offene-stellen-fur-betreuung-medipersonal-bern-bern",
-          "emplois-vacants-medipersonal-bern-bern",
-          "emplois-vacants-medipersonal-berna"
-        ]
-      },
       "previousSlugs": [
         "offene-stellen-fur-betreuung-medipersonal-bern-bern",
         "offene-stellen-per-betreuung-medipersonal-bern",
@@ -685,6 +657,34 @@
         "emplois-vacants-medipersonal-berna",
         "posizioni-aperte-per-l-assistenza-medipersonal-berna"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "offene-stellen-fur-betreuung-medipersonal-bern-bern",
+          "offene-stellen-per-betreuung-medipersonal-bern",
+          "offene-stellen-per-betreuung-medipersonal-bern-bern",
+          "fachfrau-mann-betreuung-medipersonal-bern-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
+          "posizioni-aperte-per-l-assistenza-medipersonal-bern-bern",
+          "posizioni-aperte-per-l-assistenza-medipersonal-berna-746cd4",
+          "posizioni-aperte-per-l-assistenza-medipersonal-bern-1cb64a7a44",
+          "fachfrau-mann-betreuung-medipersonal-bern-und-umgebung",
+          "posizioni-aperte-per-l-assistenza-medipersonal-berna"
+        ],
+        "en": [
+          "offene-stellen-fur-betreuung-medipersonal-bern-bern",
+          "care-vacancies-medipersonal-bern-bern",
+          "care-vacancies-medipersonal-berna"
+        ],
+        "de": [
+          "offene-stellen-fur-betreuung-medipersonal-bern-bern",
+          "fachfrau-mann-betreuung-medipersonal-bern-und-umgebung-einsatzbeginn-ab-sofort-oder-nach-vereinbarung",
+          "fachfrau-mann-betreuung-medipersonal-berna"
+        ],
+        "fr": [
+          "offene-stellen-fur-betreuung-medipersonal-bern-bern",
+          "emplois-vacants-medipersonal-bern-bern",
+          "emplois-vacants-medipersonal-berna"
+        ]
+      },
       "firstSeenAt": "2026-11-04T09:17:16.716Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -702,7 +702,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T06:50:55.225Z",
+      "validThrough": "2027-01-24T09:19:41.065Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -736,7 +736,7 @@
       "url": "https://med-ipersonal.ch/jobs/offene-stellen-fuer-pflege-in-frauenfeld-dein-engagement-zaehlt/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T06:50:54.924Z",
+      "crawledAt": "2026-11-17T09:19:40.763Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -811,7 +811,7 @@
       },
       "streetAddress": "Frauenfeld",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-24T06:50:54.924Z",
+      "validThrough": "2027-01-24T09:19:40.763Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -845,7 +845,7 @@
       "url": "https://med-ipersonal.ch/jobs/pflegefachmann-frau-hf-100-bern-i-2026-0006/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T06:50:54.622Z",
+      "crawledAt": "2026-11-17T09:19:40.462Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -905,7 +905,7 @@
       },
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-27T06:50:54.622Z",
+      "validThrough": "2027-01-27T09:19:40.462Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -939,7 +939,7 @@
       "url": "https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-100-flawil-i-2026-0009/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T06:50:54.321Z",
+      "crawledAt": "2026-11-17T09:19:40.161Z",
       "addressLocality": "Flawil",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1001,7 +1001,7 @@
       },
       "streetAddress": "Flawil",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T06:50:54.321Z",
+      "validThrough": "2027-02-01T09:19:40.161Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1035,7 +1035,7 @@
       "url": "https://med-ipersonal.ch/jobs/pflegefachmann-frau-hf-80-100-stein-am-rhein-i-2026-0026/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T06:50:54.020Z",
+      "crawledAt": "2026-11-17T09:19:39.859Z",
       "addressLocality": "Stein am Rhein",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -1101,7 +1101,7 @@
       },
       "streetAddress": "Stein am Rhein",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T06:50:54.020Z",
+      "validThrough": "2027-02-04T09:19:39.859Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1135,7 +1135,7 @@
       "url": "https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-80-100-biel-bienne-i-2026-0027/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T06:50:53.719Z",
+      "crawledAt": "2026-11-17T09:19:39.558Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1197,7 +1197,7 @@
       },
       "streetAddress": "Biel/Bienne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T06:50:53.719Z",
+      "validThrough": "2027-02-04T09:19:39.558Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1231,7 +1231,7 @@
       "url": "https://med-ipersonal.ch/jobs/medizinische-r-praxisassistent-in-efz-80-100-rain-i-2026-0045/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T06:50:53.418Z",
+      "crawledAt": "2026-11-17T09:19:39.257Z",
       "addressLocality": "Rain",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1280,7 +1280,7 @@
       },
       "streetAddress": "Rain",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T06:50:53.418Z",
+      "validThrough": "2027-02-09T09:19:39.257Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1314,7 +1314,7 @@
       "url": "https://med-ipersonal.ch/jobs/medizinische-r-praxisassistent-in-efz-50-70-koppigen-i-2026-0044/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T06:50:53.116Z",
+      "crawledAt": "2026-11-17T09:19:38.956Z",
       "addressLocality": "Koppigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1363,7 +1363,7 @@
       },
       "streetAddress": "Koppigen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T06:50:53.116Z",
+      "validThrough": "2027-02-09T09:19:38.956Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1397,7 +1397,7 @@
       "url": "https://med-ipersonal.ch/jobs/fachmann-frau-gesundheit-efz-80-100-langnau-im-emmental-i-2026-0046/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T06:50:52.815Z",
+      "crawledAt": "2026-11-17T09:19:38.655Z",
       "addressLocality": "Langnau im Emmental",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1448,7 +1448,7 @@
       },
       "streetAddress": "Langnau im Emmental",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T06:50:52.815Z",
+      "validThrough": "2027-02-09T09:19:38.655Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1482,7 +1482,7 @@
       "url": "https://med-ipersonal.ch/jobs/personalvermittler-in-100-personalberater-in-gesundheitswesen-wallisellen-i-2026-0039/",
       "source": "MediPersonal Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T06:50:52.514Z",
+      "crawledAt": "2026-11-17T09:19:38.354Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1529,7 +1529,7 @@
       "postalCode": "8304",
       "streetAddress": "Wallisellen",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-10T06:50:52.514Z",
+      "validThrough": "2027-02-10T09:19:38.354Z",
       "validThroughSource": "last-observed-window"
     }
   ]
