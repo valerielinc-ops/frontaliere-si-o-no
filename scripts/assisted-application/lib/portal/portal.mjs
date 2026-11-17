@@ -558,6 +558,13 @@ function profileMatchText(value) {
     .replace(/[^a-z0-9]+/g, ' ').trim();
 }
 
+function profileScopeHasValue(scope, value) {
+  const scopeTokens = profileMatchText(scope).split(' ').filter(Boolean);
+  const valueTokens = profileMatchText(value).split(' ').filter(Boolean);
+  if (!valueTokens.length || valueTokens.join(' ').length < 3) return false;
+  return scopeTokens.some((_, index) => scopeTokens.slice(index, index + valueTokens.length).join(' ') === valueTokens.join(' '));
+}
+
 /**
  * A date question can be retired only when its profile section and row are
  * known, and the requested endpoint exists on that row. Ambiguous questions
@@ -582,7 +589,7 @@ export function profileDateQuestionsCanUseProfile(candidate, questions) {
       const title = kind === 'experience' ? entry?.role : entry?.degree;
       const organization = kind === 'experience' ? entry?.employer : entry?.institution;
       return [title, organization].map(profileMatchText)
-        .some((value) => value.length >= 3 && scope.includes(value));
+        .some((value) => profileScopeHasValue(scope, value));
     });
     if (matching.length === 1) return Boolean(String(matching[0]?.[key] || '').trim());
     if (matching.length > 1) return false;

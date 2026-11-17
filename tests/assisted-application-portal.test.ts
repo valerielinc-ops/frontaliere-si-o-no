@@ -450,6 +450,15 @@ describe('assisted application profile history and file replacement', () => {
     }])).toBe(false);
   });
 
+  it('does not treat a profile row token as owned through a substring match', () => {
+    const candidate = { profile: { experience: [
+      { role: 'Art', employer: 'Foo', start: '2020-01', end: '2022-01' },
+    ] } };
+    expect(profileDateQuestionsCanUseProfile(candidate, [{
+      type: 'date', applicationQuestion: 'To*', section: 'Work Experience', context: 'work experience marketing',
+    }])).toBe(false);
+  });
+
   it('does not mistake a selected Workday filename for a successful upload receipt', async () => {
     const locator = { evaluate: vi.fn(async () => ['CV.pdf']) };
     const page = {
