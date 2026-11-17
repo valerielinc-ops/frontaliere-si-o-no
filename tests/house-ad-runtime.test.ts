@@ -129,7 +129,7 @@ describe('per-slot first-party creative delivery', () => {
     await start();
     const creative = empty.host.querySelector('a');
     expect(creative?.querySelector('.ft-house-title')?.textContent).toBe('Lavoro in Svizzera?');
-    expect(creative?.querySelector('.ft-house-promise')?.textContent).toBe('Troviamo offerte e prepariamo candidature.');
+    expect(creative?.querySelector('.ft-house-promise')?.textContent).toBe('Lo cerchiamo noi per te.');
     expect(creative?.getAttribute('aria-label')).toContain('prepariamo le candidature per te');
     expect(creative?.querySelector('.ft-house-cta')?.textContent).toBe('Scopri');
   });
@@ -518,14 +518,14 @@ describe('per-slot first-party creative delivery', () => {
     expect(desktop.querySelector('.ft-house-title').textContent).toBe('Logistiker in Svizzera?');
     expect(desktop.querySelector('.ft-house-body').textContent).toContain('Logistiker in Kommissionierung');
     expect(desktop.querySelector('.ft-house-body').textContent).toContain('Rotkreuz');
-    expect(desktop.getAttribute('aria-label')).toContain('Troviamo offerte e prepariamo le candidature per te.');
+    expect(desktop.getAttribute('aria-label')).toContain('Troviamo offerte adatte al tuo mestiere.');
 
     const alternate = render({ variant: 'time_saved', format: 'mobile_banner', locale: 'it', placement: 'job-detail', context });
     expect(alternate.querySelector('.ft-house-title').textContent).toBe('Logistiker in Svizzera?');
-    expect(alternate.querySelector('.ft-house-promise').textContent).toBe('Troviamo offerte e prepariamo candidature.');
+    expect(alternate.querySelector('.ft-house-promise').textContent).toBe('Ci pensiamo noi.');
     const alternateBillboard = render({ variant: 'time_saved', format: 'billboard', locale: 'it', placement: 'job-detail', context });
     expect(alternateBillboard.querySelector('.ft-house-title').textContent).toBe('Logistiker in Svizzera?');
-    expect(alternateBillboard.querySelector('.ft-house-promise').textContent).toBe('Troviamo offerte e prepariamo le candidature per te.');
+    expect(alternateBillboard.querySelector('.ft-house-promise').textContent).toBe('Cercare annunci richiede tempo. Ci pensiamo noi.');
     expect(alternateBillboard.querySelector('.ft-house-body').textContent).toContain('Logistiker in Kommissionierung');
 
     const longRole = render({
@@ -542,7 +542,17 @@ describe('per-slot first-party creative delivery', () => {
     const mobile = render({ variant: 'profile_match', format: 'mobile_large', locale: 'it', placement: 'job-detail', context });
     expect(mobile.querySelector('img').src).toContain('logistics-portrait-v1.webp');
     expect(mobile.querySelector('.ft-house-title').textContent).toBe('Logistiker in Svizzera?');
-    expect(mobile.querySelector('.ft-house-promise').textContent).toContain('Troviamo offerte e prepariamo candidature.');
+    expect(mobile.querySelector('.ft-house-promise').textContent).toBe('Offerte per il tuo mestiere.');
+  });
+  it('keeps all six message variants distinct in compact and contextual desktop formats', () => {
+    const render = w.eval(`(${createHouseAdCreative.toString()})`);
+    const context = { source: 'job_detail', sector: 'logistics', role: 'Magazziniere', place: 'Chiasso' } as const;
+    for (const format of ['mobile_banner', 'billboard'] as const) {
+      const promises = HOUSE_AD_VARIANTS.map((variant) => render({
+        variant, format, locale: 'it', placement: 'job-detail', context,
+      }).querySelector('.ft-house-promise').textContent);
+      expect(new Set(promises).size).toBe(HOUSE_AD_VARIANTS.length);
+    }
   });
   it('maps job context to an existing visual sector without guessing unsupported trades', () => {
     expect(resolveHouseAdImageSector('other', 'Logistica', 'Logistiker in Kommissionierung')).toBe('logistics');
