@@ -947,6 +947,33 @@ describe('job canon bridge path planning and PR-B classification', () => {
     previousSlugsByLocale: { en: ['old-en', 'worker-owned', 'reserved-hub', 'azienda-acme'] },
   } satisfies ActiveJobSlugMapRow;
 
+  it('skips unsafe previous-slug and legacy-TI bridge paths before classification', () => {
+    const job = {
+      id: 'unsafe-bridge-owner',
+      slug: 'current-it',
+      canton: 'ZH',
+      slugByLocale: { it: 'current-it', en: 'current-en', de: 'current-de', fr: 'current-fr' },
+      previousSlugsByLocale: { en: ['unsafe-slug', 'safe-slug'] },
+    } satisfies ActiveJobSlugMapRow;
+
+    const checkedPaths: string[] = [];
+    const plan = buildActiveJobBridgePathPlan([job], {
+      winners: {},
+      reservedHubSlugs: new Set(),
+      isSafeBridgePath: (bridgePath) => {
+        checkedPaths.push(bridgePath);
+        return !bridgePath.includes('/unsafe-slug/');
+      },
+    });
+
+    expect(checkedPaths).toEqual(expect.arrayContaining([
+      '/en/find-jobs-zurich/unsafe-slug/',
+      '/en/find-jobs-ticino/unsafe-slug/',
+    ]));
+    expect(plan.bridgePaths.some((bridge) => bridge.slug === 'unsafe-slug')).toBe(false);
+    expect(plan.bridgePaths.some((bridge) => bridge.slug === 'safe-slug')).toBe(true);
+  });
+
   it('matches the cross-locale emitter predicate and creates legacy-TI mirror paths', () => {
     const plan = buildActiveJobBridgePathPlan([active], {
       winners: {},

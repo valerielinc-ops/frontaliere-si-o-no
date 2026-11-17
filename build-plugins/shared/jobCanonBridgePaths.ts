@@ -777,6 +777,7 @@ export function buildActiveJobBridgePathPlan(
           stats.crossLocaleWorkerRecovered += 1;
           continue;
         }
+        if (!isSafeBridgePath(bridgePath)) continue;
         if (!canWriteCrossLocalePath(bridgePath)) continue;
         if (claimedPaths.has(pathMapKey)) {
           stats.crossLocaleAlreadyClaimed += 1;
