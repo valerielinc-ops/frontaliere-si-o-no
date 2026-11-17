@@ -135,8 +135,8 @@ describe('Workday tenant account routes', () => {
     const snapshot = {
       url: page.url(),
       fields: [
-        { id: 'jt-1', label: 'Job Title*', section: 'Work Experience', kind: 'text', required: true },
-        { id: 'co-1', label: 'Company*', section: 'Work Experience', kind: 'text', required: true },
+        { id: 'jt-1', label: 'Job Title*', section: 'Work Experience', context: 'Work Experience 1', kind: 'text', required: true },
+        { id: 'co-1', label: 'Company*', section: 'Work Experience', context: 'Work Experience 1', kind: 'text', required: true },
       ],
       buttons: [
         { id: 'del-1', text: 'Delete', section: 'Work Experience', frame: 0 },
@@ -149,9 +149,12 @@ describe('Workday tenant account routes', () => {
         education: [],
       },
     };
-    const result = await fillProfileSections(page as any, snapshot as any, { candidate });
+    const done = new Set<string>();
+    const result = await fillProfileSections(page as any, snapshot as any, { candidate, done });
     expect(clicks).toEqual([]);
     expect(result.counts).toEqual([]);
+    expect(result.handoff).toBe('profile_section_row_fill_failed');
+    expect(done).toEqual(new Set());
   });
 
   it('blocks Work Experience Job Title*, Company*, From*, To* from candidate prompts when CV profile has experience', async () => {
