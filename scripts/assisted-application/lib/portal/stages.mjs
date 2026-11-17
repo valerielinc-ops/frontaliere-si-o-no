@@ -1,6 +1,7 @@
 /** Application stages are proved by the page's controls and instructions, never its URL alone. */
 import { avaturePortalDirectory, avaturePostingJobKey, sameAvaturePortal } from './protocol.mjs';
 import { isCvDocumentLabel } from './document-labels.mjs';
+import { brassRingPrivacyGateControl } from './brass-ring-route.mjs';
 import { isWorkdayJobRouteBound, isWorkdayTenantAccountRoute, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayJobRoute } from './workday-route.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE } from './fill.mjs';
 
@@ -548,7 +549,8 @@ export function applicationStage(snapshot, {
   const pending = NOT_SUBMITTED_APPLICATION_RE.test(text) || PROFILE_CONTINUATION_RE.test(text)
     || incompleteApplication(text) || BEFORE_SEND_RE.test(text);
   const applicationStart = workdayApplicationStartControl(snapshot, { url, applyUrl })
-    || brassRingApplicationStartControl(snapshot, brassRingApplicationEntryProven);
+    || brassRingApplicationStartControl(snapshot, brassRingApplicationEntryProven)
+    || brassRingPrivacyGateControl(snapshot, { applyUrl, applicationEntryProven: brassRingApplicationEntryProven });
   if (!pending && applicationStart) return { kind: 'application_start', control: applicationStart };
   const links = buttons.filter(button => GENERIC_APPLY_RE.test(button.text || '') && button.href
     && boundRoute(url, applyUrl, sourceProtocol) && reviewNavigationRoute(button.href, applyUrl, sourceProtocol)

@@ -206,6 +206,22 @@ describe('runner final guard across three application stages', () => {
       ]),
       title: `${title} | UBS`,
     };
+    const privacyLabels = [
+      'UBS processing your Personal Data in the context of your application as outlined above',
+      'The cross-border transfer of your Personal Data to above mentioned service providers to carry out the purpose of recruit',
+      'Thank you for your interest in a job at UBS Note: You must AGREE to proceed.',
+    ];
+    const privacyGate = {
+      ...snapshot(`${postingUrl}#privacy`, privacyLabels.join(' '), [
+        { id: 'privacy-agree', text: 'Agree', frame: 0, disabled: false },
+      ]),
+      title: `${title} | UBS`,
+      fields: [
+        { id: 'processing', label: privacyLabels[0], kind: 'checkbox', inputType: 'checkbox', frame: 0 },
+        { id: 'transfer', label: privacyLabels[1], kind: 'checkbox', inputType: 'checkbox', frame: 0 },
+        { id: 'notice', label: privacyLabels[2], kind: 'radio', inputType: 'radio', frame: 0 },
+      ],
+    };
     const applicationForm = {
       ...snapshot(`${postingUrl}#form`, 'Application details', [
         { id: 'application-next', text: 'Next', formId: 'application', frame: 0, disabled: false },
@@ -227,6 +243,7 @@ describe('runner final guard across three application stages', () => {
       title: `${title} | UBS`,
     };
     let fieldlessEntryClicks = 0;
+    let privacyGateClicks = 0;
     const f = fixture(fieldlessApplication, posting, finalReview, null, {
       applyUrl: postingUrl,
       postingUrl,
@@ -237,7 +254,11 @@ describe('runner final guard across three application stages', () => {
       buttonTransitions: {
         '[data-aa-id="application-entry"]': async () => {
           fieldlessEntryClicks += 1;
-          if (fieldlessEntryClicks === 3) state.snapshot = applicationForm;
+          if (fieldlessEntryClicks === 1) state.snapshot = privacyGate;
+        },
+        '[data-aa-id="privacy-agree"]': async () => {
+          privacyGateClicks += 1;
+          state.snapshot = applicationForm;
         },
         '[data-aa-id="application-next"]': async () => { state.snapshot = finalReview; },
       },
@@ -246,7 +267,8 @@ describe('runner final guard across three application stages', () => {
     const result = await f.run();
 
     expect(f.openClick).toHaveBeenCalledOnce();
-    expect(fieldlessEntryClicks).toBe(3);
+    expect(fieldlessEntryClicks).toBe(1);
+    expect(privacyGateClicks).toBe(1);
     expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
     expect(f.guard).toHaveBeenCalledOnce();
     expect(f.click).toHaveBeenCalledOnce();
