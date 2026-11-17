@@ -2417,6 +2417,7 @@ jobs:
       # that one failure out of the continue-on-error step so the matrix job is
       # red, no locale receipt is admitted, and deploy remains skipped.
       - name: Require excluded articolisvizzera heartbeat
+        id: require-excluded-articolisvizzera-heartbeat
         if: always() && matrix.locale != 'it'
         env:
           ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
@@ -3136,6 +3137,7 @@ jobs:
         if: >-
           ${{ always() && matrix.locale != 'it' &&
               env.DURABLE_LOCALE_PUBLISHED != 'true' &&
+              steps.require-excluded-articolisvizzera-heartbeat.outcome == 'success' &&
               steps.push-section-shards-nonit.outcome == 'success' &&
               steps.push-shard.outcome == 'success' }}
         env:

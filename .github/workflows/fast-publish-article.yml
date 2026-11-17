@@ -154,6 +154,23 @@ jobs:
         with:
           node-version: 22
 
+      # The shard writer lease is a Firestore transaction shared with the full
+      # publisher and the history compactor. Keep the full runtime cached so a
+      # fast publish does not silently run without the lease implementation's
+      # firebase-admin dependency on a clean runner.
+      - name: Cache shard-writer dependencies
+        id: shard-writer-node-modules-cache
+        uses: actions/cache@v6
+        with:
+          path: node_modules
+          key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}
+
+      - name: Install shard-writer dependencies
+        if: >-
+          ${{ inputs.dry_run != true && inputs.dry_run != 'true' &&
+              steps.shard-writer-node-modules-cache.outputs.cache-hit != 'true' }}
+        run: npm ci --ignore-scripts --no-audit --no-fund
+
       - name: Install article renderer runtime dependencies
         run: bash scripts/lib/install-article-renderer-runtime-deps.sh
 
@@ -164,21 +181,22 @@ jobs:
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
-          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
-            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
-          else
-            echo "⚠️ Firebase secrets not set — R2/indexing credential load will be limited."
-          fi
+          set -euo pipefail
+          test -n "$FIREBASE_SERVICE_ACCOUNT_JSON" || {
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON is required for the shard writer lease"
+            exit 1
+          }
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+          chmod 600 "$RUNNER_TEMP/firebase-sa.json"
+          echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
 
       # R2 (CDN) credentials + any other provider keys this render path needs
       # are Remote-Config-sourced, same as every other workflow in this repo
       # (scripts/load-rc-env.mjs RC_TO_ENV: R2_ACCOUNT_ID, R2_BUCKET,
-      # R2_S3_ENDPOINT, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY). Deliberately
-      # NO full `npm ci` anywhere in this job — the renderer’s targeted runtime
-      # dependencies (`esbuild` for static shell serialization plus the
-      # renderer packages) are installed from the root lockfile above. `tsx` stays
-      # on-demand and the shard-push / CDN-upload scripts use Node built-ins.
+      # R2_S3_ENDPOINT, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY). The full
+      # dependency tree is cached above for the mandatory Firestore shard-writer
+      # lease; the renderer still uses its targeted installer so render-only
+      # dependencies remain explicit and isolated.
       - name: Load secrets from Remote Config (R2 + indexing)
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
@@ -504,7 +522,9 @@ jobs:
           while IFS= read -r shard_json; do
             locale="$(jq -r '.locale' <<<"$shard_json")"
             mapfile -t rel_paths < <(jq -r '.paths[]' <<<"$shard_json")
-            bash scripts/lib/push-article-shard-incremental.sh "$SHARD_SECTION" "$locale" "$DIST_DIR" "${rel_paths[@]}" &
+            node scripts/ci/with-shard-writer-lock.mjs \
+              --section "$SHARD_SECTION" --locale "$locale" --policy wait --timeout-ms 900000 -- \
+              bash scripts/lib/push-article-shard-incremental.sh "$SHARD_SECTION" "$locale" "$DIST_DIR" "${rel_paths[@]}" &
             pids+=("$!"); names+=("$locale")
           done < <(jq -c '.shards[]' "$SUMMARY_PATH")
 
