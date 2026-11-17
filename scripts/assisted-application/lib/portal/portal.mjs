@@ -8787,23 +8787,29 @@ async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries,
     if (ordinal > entries.length && !rowFields.some((field) => holdsValue(field))) {
       const delButtons = profileButtons(current, kind, DELETE_ROW_RE);
       const delBtn = delButtons[ordinal - 1] || delButtons.at(-1);
-      if (delBtn) {
-        try {
-          const clickOutcome = await clickButton(page, delBtn);
-          if (typeof clickOutcome !== 'string' || !clickOutcome) {
-            return {
-              snapshot: await extractFields(page).catch(() => current),
-              handoff: 'profile_section_row_fill_failed',
-            };
-          }
-          await page.waitForTimeout(200);
-          current = await extractFields(page);
-        } catch {
+      if (!delBtn) {
+        return { snapshot: current, handoff: 'profile_section_row_fill_failed' };
+      }
+      try {
+        const clickOutcome = await clickButton(page, delBtn);
+        if (typeof clickOutcome !== 'string' || !clickOutcome) {
           return {
             snapshot: await extractFields(page).catch(() => current),
             handoff: 'profile_section_row_fill_failed',
           };
         }
+        await page.waitForTimeout(200);
+        current = await extractFields(page);
+      } catch {
+        return {
+          snapshot: await extractFields(page).catch(() => current),
+          handoff: 'profile_section_row_fill_failed',
+        };
+      }
+      const stillPresent = profileFields(current, kind)
+        .some((field) => inlineProfileRowOrdinal(field, kind) === ordinal && !holdsValue(field));
+      if (stillPresent) {
+        return { snapshot: current, handoff: 'profile_section_row_fill_failed' };
       }
     }
   }
@@ -8842,7 +8848,10 @@ async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries,
       }
     }
   }
-  return { snapshot: await extractFields(page).catch(() => current) };
+  return {
+    snapshot: await extractFields(page).catch(() => current),
+    reconciledCount: refreshedByOrdinal.size ? Math.max(...refreshedByOrdinal.keys()) : 0,
+  };
 }
 
 /**
@@ -8861,16 +8870,20 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
     // When Workday already renders inline rows (e.g. from CV autofill or a
     // resumed draft), reconcile missing fields on existing rows and remove
     // extra empty rows instead of clicking "Add Another" for every entry.
+    let startIndex = 0;
     if (profileFields(current, kind).length && profileButtons(current, kind, PROFILE_INLINE_ROW_RE).length) {
       const reconciled = await reconcileExistingInlineProfileRows(page, current, kind, entries, { files });
       current = reconciled.snapshot;
       if (reconciled.handoff) return { ...reconciled, counts };
-      done.add(`${page.url()}|${kind}`);
-      continue;
+      startIndex = reconciled.reconciledCount || 0;
+      if (startIndex >= entries.length) {
+        done.add(`${page.url()}|${kind}`);
+        continue;
+      }
     }
     let added = 0;
     let skipped = Math.max(0, (candidate?.profile?.[kind]?.length || 0) - entries.length);
-    for (const entry of entries) {
+    for (const entry of entries.slice(startIndex)) {
       current = await extractFields(page);
       const add = profileButtons(current, kind, PROFILE_ADD_RE)[0];
       if (!add) return { snapshot: current, counts, handoff: 'profile_section_add_unavailable' };
