@@ -36,6 +36,7 @@
  */
 
 import { describe, it, expect } from 'vitest';
+import { XMLValidator } from 'fast-xml-parser';
 import fs from 'node:fs';
 import path from 'node:path';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
@@ -78,6 +79,22 @@ function requireCommittedSitemaps() {
   return snapshot;
 }
 
+/**
+ * Google News has a rolling 48-hour window, so its sitemap is allowed to be
+ * empty on a quiet day. The empty state is valid only for that one document
+ * and only when it is still a well-formed news `<urlset>` with no `<url>`
+ * blocks. A missing or malformed ordinary sitemap must still fail this gate.
+ */
+function hasCommittedSitemapPayload(name: string, xml: string): boolean {
+  if (/<loc>[^<]+<\/loc>/.test(xml)) return true;
+  if (name !== 'sitemap-news.xml' || XMLValidator.validate(xml) !== true) return false;
+
+  const root = xml.match(/<urlset\b([^>]*)>([\s\S]*)<\/urlset>\s*$/);
+  if (!root || /<url\b/.test(root[2])) return false;
+
+  return /\bxmlns:news\s*=\s*["']http:\/\/www\.google\.com\/schemas\/sitemap-news\/0\.9["']/.test(root[1]);
+}
+
 describe('the gate can actually see both sides of the intersection', () => {
   it.skipIf(SKIP_LIVE_DATA)('finds the committed sitemaps', () => {
     const { sitemapFiles } = readSitemaps();
@@ -87,10 +104,24 @@ describe('the gate can actually see both sides of the intersection', () => {
     expect(sitemapFiles.length, `no sitemap-*.xml under public/`).toBeGreaterThanOrEqual(11);
   });
 
-  it.skipIf(SKIP_LIVE_DATA)('reads real <loc>s out of every one of them', () => {
+  it.skipIf(SKIP_LIVE_DATA)('reads a real payload out of every one of them', () => {
     const { documents } = requireCommittedSitemaps();
-    const empty = documents.filter(({ xml }) => !/<loc>[^<]+<\/loc>/.test(xml));
-    expect(empty.map((d) => d.name), 'sitemap with no parseable <loc>').toEqual([]);
+    const empty = documents.filter(({ name, xml }) => !hasCommittedSitemapPayload(name, xml));
+    expect(empty.map((d) => d.name), 'sitemap with no parseable payload').toEqual([]);
+  });
+
+  it('allows only the well-formed empty Google News quiet-day state', () => {
+    const emptyNews = [
+      '<?xml version="1.0" encoding="UTF-8"?>',
+      '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+      '        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">',
+      '</urlset>',
+    ].join('\n');
+
+    expect(hasCommittedSitemapPayload('sitemap-news.xml', emptyNews)).toBe(true);
+    expect(hasCommittedSitemapPayload('sitemap-pages.xml', emptyNews)).toBe(false);
+    expect(hasCommittedSitemapPayload('sitemap-news.xml', emptyNews.replace('</urlset>', '<url></urlset>'))).toBe(false);
+    expect(hasCommittedSitemapPayload('sitemap-news.xml', emptyNews.replace('</urlset>', '</broken>'))).toBe(false);
   });
 
   it('has a retired table to intersect against', () => {
