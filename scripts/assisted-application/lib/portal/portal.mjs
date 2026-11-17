@@ -3946,6 +3946,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
   let publicSearchSearched = false;
   let customSuccessFactorsEntryClicked = false;
   let workdayEntryControlSignature = '';
+  let workdayPreClickEntryIdentities = new Set();
   const result = (extra = {}) => ({
     page,
     snapshot,
@@ -3967,11 +3968,32 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     control?.menuItem === true,
     control?.popup === true,
   ]);
+  // The caption and href can change in place while Workday mounts its chooser;
+  // they are evidence, not identity. Prefer the physical node identity emitted
+  // by fields.mjs so a mutated pre-click CTA cannot be accepted as new.
+  const portalControlIdentity = (control = {}) => {
+    const instance = String(control?.controlInstance || '');
+    if (instance) return JSON.stringify([
+      String(control?.documentInstance || ''),
+      instance,
+      Number(control?.frame) || 0,
+    ]);
+    return JSON.stringify([
+      String(control?.id || ''),
+      String(control?.domId || ''),
+      String(control?.name || ''),
+      Number(control?.frame) || 0,
+    ]);
+  };
   const workdayChooserEntries = (current) => {
     if (!stageContext || !isWorkdayTenantUrl(stageContext.applyUrl)) return [];
     const entries = applicationEntryControls(current, stageContext);
     return workdayEntryControlSignature
-      ? entries.filter((control) => portalControlSignature(control) !== workdayEntryControlSignature)
+      ? entries.filter((control) => {
+        const signature = portalControlSignature(control);
+        return signature !== workdayEntryControlSignature
+          && !workdayPreClickEntryIdentities.has(portalControlIdentity(control));
+      })
       : entries;
   };
   const workdayApplicationSurfaceReady = (current) => {
@@ -4032,6 +4054,24 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     if (['account', 'receipt', 'review_navigation', 'final_review', 'application_start'].includes(stage.kind)
       || stage.prefinal === true) return true;
     const nextEntries = applicationEntryControls(observed, stageContext || {});
+    // Workday can mount its chooser in place on the exact requisition route.
+    // The chooser is application-owned only when the tenant adapter has
+    // already recorded the selected posting CTA and a different Workday entry
+    // control is now visible on that same requisition. Do not generalize this
+    // to arbitrary forms or menu items: those can be duplicate posting CTAs.
+    const hasBoundWorkdayChooser = Boolean(
+      stageContext
+      && isWorkdayTenantUrl(stageContext.applyUrl)
+      && workdayEntryControlSignature
+      && followedControlSignature
+      && isWorkdayJobRouteBound(page.url(), stageContext.applyUrl)
+      && workdayChooserEntries(observed).some((control) => {
+        const signature = portalControlSignature(control);
+        return signature !== followedControlSignature
+          && signature !== workdayEntryControlSignature;
+      })
+    );
+    if (hasBoundWorkdayChooser) return true;
     const applicationContainerMarker = /\b(?:application|applicant|bewerbung|candidatur|candidature|candidatura|postuler|postulation|postulazione)\b/iu;
     const hasApplicationOwnedContainerMarker = (control) => {
       const containerText = [control?.section, control?.context, control?.sectionGroup, control?.formContext]
@@ -4095,6 +4135,10 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     }
   };
   for (let hop = 0; hop < 3; hop += 1) {
+    // The chooser proof below is scoped to the control set that existed before
+    // this hop's click. Do not let a prior hop's baseline make an unchanged
+    // posting surface look like a newly mounted application chooser.
+    workdayPreClickEntryIdentities = new Set();
     if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
     if (stageContext && workdayPostingRouteMismatch(page.url(), stageContext.applyUrl, workdayApplicationEntryProven)) {
       return result({ handoff: 'posting_mismatch' });
@@ -4253,6 +4297,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       && (manual || apply || linkEntry)?.menuItem !== true;
     const sourceUrl = page.url();
     if (stageContext && isWorkdayTenantUrl(stageContext.applyUrl)) {
+      workdayPreClickEntryIdentities = new Set(ownedEntries.map((control) => portalControlIdentity(control)));
       const selectedWorkdayControl = manual || apply || linkEntry;
       if (selectedWorkdayControl) workdayEntryControlSignature = portalControlSignature(selectedWorkdayControl);
     }
