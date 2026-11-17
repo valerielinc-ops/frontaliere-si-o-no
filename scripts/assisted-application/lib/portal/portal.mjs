@@ -9460,22 +9460,42 @@ function securityQuestionFieldScope(field) {
   const frame = Number.isSafeInteger(field?.frame) ? field.frame : null;
   const formId = String(field?.formId || '').trim();
   const formIndex = Number.isSafeInteger(field?.form) && field.form >= 0
-    ? `index:${field.form}` : '';
+    ? field.form : null;
   const roleFormId = String(field?.roleFormId || '').trim();
   const sectionGroupId = String(field?.sectionGroupId || '').trim();
   const applicationScopeId = String(field?.applicationScopeId || '').trim();
-  // BrassRing's proxy listbox can report form=-1 while the native answer
-  // reports a numeric form index. The stable DOM form identity must win when
-  // it is available. Some BrassRing registration controls are not descendants
-  // of a form or role-form at all, but the extractor still records their
-  // explicit labelled section/application scope. Use those only as a
-  // progressively weaker, same-DOM fallback; never fall back to frame alone.
-  const owner = formId ? `id:${formId}`
-    : (roleFormId ? `role:${roleFormId}` : '')
-      || formIndex
-      || (sectionGroupId ? `section:${sectionGroupId}` : '')
-      || (applicationScopeId ? `application:${applicationScopeId}` : '');
-  return frame === null || !owner ? '' : `${frame}\u0000${owner}`;
+  return {
+    frame,
+    formId,
+    formIndex,
+    roleFormId,
+    sectionGroupId,
+    applicationScopeId,
+  };
+}
+
+function securityQuestionFieldsShareScope(left, right) {
+  if (!left || !right || left.frame === null || left.frame !== right.frame) return false;
+
+  // A proxy control may lack formId/form while its native companion exposes
+  // both. Any identity present on both controls must nevertheless agree: a
+  // shared role-form or page scope is not permission to cross a real form.
+  if (left.formId && right.formId && left.formId !== right.formId) return false;
+  if (left.formIndex !== null && right.formIndex !== null && left.formIndex !== right.formIndex) return false;
+  if (left.roleFormId && right.roleFormId && left.roleFormId !== right.roleFormId) return false;
+  if (left.sectionGroupId && right.sectionGroupId && left.sectionGroupId !== right.sectionGroupId) return false;
+  if (left.applicationScopeId && right.applicationScopeId && left.applicationScopeId !== right.applicationScopeId) return false;
+
+  // Prefer the strongest shared structural identity, but permit a proxy/native
+  // pair to use the role-form or explicit DOM scope when one side lacks the
+  // native form metadata. Never accept frame alone.
+  return Boolean(
+    (left.formId && right.formId && left.formId === right.formId)
+    || (left.formIndex !== null && right.formIndex !== null && left.formIndex === right.formIndex)
+    || (left.roleFormId && right.roleFormId && left.roleFormId === right.roleFormId)
+    || (left.sectionGroupId && right.sectionGroupId && left.sectionGroupId === right.sectionGroupId)
+    || (left.applicationScopeId && right.applicationScopeId && left.applicationScopeId === right.applicationScopeId)
+  );
 }
 
 /**
@@ -9496,12 +9516,11 @@ export function isSecurityQuestionField(field, fields = []) {
   const role = securityQuestionFieldRole(field);
   if (!role || role !== (isAnswer ? 'answer' : 'prompt')) return false;
   const scope = securityQuestionFieldScope(field);
-  if (!scope) return false;
   return (Array.isArray(fields) ? fields : []).some((candidate) => {
     if (candidate === field) return false;
     const candidateMatch = SECURITY_FIELD_RE.exec(String(candidate?.label || candidate?.name || '').trim());
     if (!candidateMatch || Number(candidateMatch[1]) !== index || Boolean(candidateMatch[2]) === isAnswer) return false;
-    if (securityQuestionFieldScope(candidate) !== scope) return false;
+    if (!securityQuestionFieldsShareScope(scope, securityQuestionFieldScope(candidate))) return false;
     return securityQuestionFieldRole(candidate) === (isAnswer ? 'prompt' : 'answer');
   });
 }
