@@ -4736,7 +4736,9 @@ export function postingMatch(pageText, job = {}, pageUrl = '') {
 
 // A page's own vocabulary names no employer («Hotel application», «Bewerbung im Hotel Bereich»).
 const FORM_VOCABULARY = new Set([
-  'application', 'applications', 'apply', 'jetzt', 'now', 'maintenant', 'ora', 'subito', 'spater', 'bewerbung', 'bewerbungen', 'bewerben', 'candidatura', 'candidature', 'candidati', 'postuler',
+  // Pinpoint can put its save-later action and cookie control before the first
+  // field; those labels describe the form surface, not another employer.
+  'application', 'applications', 'apply', 'save', 'later', 'cookies', 'jetzt', 'now', 'maintenant', 'ora', 'subito', 'spater', 'bewerbung', 'bewerbungen', 'bewerben', 'candidatura', 'candidature', 'candidati', 'postuler',
   // Once a generic stage heading is removed, the first visible control labels
   // can become the page's first line. These labels describe form fields, not a
   // second employer («Vorname», «Nachname», «E-Mail-Adresse», «Weiter»).

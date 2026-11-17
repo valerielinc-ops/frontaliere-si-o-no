@@ -331,6 +331,42 @@ describe('team.jobs application entry', () => {
 });
 
 describe('PinpointHQ New Application title and route binding', () => {
+  it('binds the PinpointHQ form when action and cookie controls precede its fields', () => {
+    const postingUrl = 'https://kempinski.pinpointhq.com/en/postings/9d8a7c6b-5e4f-4321-9abc-0123456789de';
+    const applicationUrl = `${postingUrl}/applications/new`;
+    const job = { company: 'Kempinski', title: 'Front Office Agent' };
+    const form = [
+      'Save application for later',
+      'SUBMIT APPLICATION',
+      'COOKIES',
+      'First Name',
+      'Middle Name',
+      'Last Name',
+      'Email Address',
+      'Phone',
+      'application_form[application][country]',
+      'Address Line 1',
+      'Address Line 2',
+      'Town',
+      'Postcode',
+      'Attach Résumé / CV',
+      'Personal Summary Use it to tell us a little more about yourself.',
+      'What is your level of German?',
+      '(Required) Allow us to process my personal information.',
+      '[candidate data]',
+    ].join('\n');
+
+    expect(formPostingMatch(form, job, {
+      postingMatched: true,
+      applicationEntry: true,
+      applicationEntryUrl: applicationUrl,
+      pageUrl: applicationUrl,
+      postingUrl,
+      paidPostingUrl: postingUrl,
+      applyUrl: postingUrl,
+    })).toBe('match');
+  });
+
   it('matches a PinpointHQ application form titled "New Application | <Source Role> | <Company> Careers"', () => {
     const postingUrl = 'https://example-hotel.pinpointhq.com/en/postings/c570608c-e27d-47f1-8e91-1e9b6d16a27e';
     const applicationUrl = `${postingUrl}/applications/new`;
