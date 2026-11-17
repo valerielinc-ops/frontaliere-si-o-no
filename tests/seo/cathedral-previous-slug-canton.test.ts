@@ -81,12 +81,12 @@ describe('cathedral Phase 8b — previousSlugs bridges canton-aware', () => {
         /sectionByLocale\[locale\]/,
       );
       // The line that builds oldPath must reference the canton-aware section —
-      // either directly (`buildCantonAwareSection(...)`) or via a hoisted
-      // variable name that itself derived from the canton-aware helper
-      // (anything containing "Section" works as a heuristic so long as
-      // sectionByLocale was excluded above).
+      // either directly (`buildCantonAwareSection(...)`), through the shared
+      // canonical path builder, or via a hoisted variable name derived from
+      // one of those helpers (anything containing "Section" works as a
+      // heuristic so long as sectionByLocale was excluded above).
       expect(l, `bridge oldPath does not appear canton-aware: ${l}`).toMatch(
-        /buildCantonAwareSection|\w*[Ss]ection\b/,
+        /buildCantonAwareSection|buildCanonicalJobDetailPath|\w*[Ss]ection\b/,
       );
     }
   });
