@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "spruengli-1f477732ab02",
-      "slug": "verkaufsberater-in-80-luzern-stadt-confiserie-sprungli-ag-luzern",
+      "slug": "consulente-di-vendita-80-lucerna-citta-confiserie-sprungli-ag-luzern",
       "slugByLocale": {
-        "it": "verkaufsberater-in-80-luzern-stadt-confiserie-sprungli-ag-luzern",
-        "en": "verkaufsberater-in-80-luzern-stadt-confiserie-sprungli-ag-luzern",
         "de": "verkaufsberater-in-80-luzern-stadt-spruengli-luzern",
-        "fr": "verkaufsberater-in-80-luzern-stadt-confiserie-sprungli-ag-luzern"
+        "it": "consulente-di-vendita-80-lucerna-citta-confiserie-sprungli-ag-luzern",
+        "en": "sales-advisor-80-lucerne-city-confiserie-sprungli-ag-luzern",
+        "fr": "conseiller-ere-de-vente-80-lucerne-ville-confiserie-sprungli-ag-luzern"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -58,11 +58,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-in-80-luzern-stadt-spruengli-luzern"
+          "verkaufsberater-in-80-luzern-stadt-spruengli-luzern",
+          "verkaufsberater-in-80-luzern-stadt-confiserie-sprungli-ag-luzern"
+        ],
+        "en": [
+          "verkaufsberater-in-80-luzern-stadt-confiserie-sprungli-ag-luzern"
+        ],
+        "fr": [
+          "verkaufsberater-in-80-luzern-stadt-confiserie-sprungli-ag-luzern"
         ]
       },
       "previousSlugs": [
-        "verkaufsberater-in-80-luzern-stadt-spruengli-luzern"
+        "verkaufsberater-in-80-luzern-stadt-spruengli-luzern",
+        "verkaufsberater-in-80-luzern-stadt-confiserie-sprungli-ag-luzern"
       ],
       "salaryMin": 63200,
       "salaryMax": 97200,

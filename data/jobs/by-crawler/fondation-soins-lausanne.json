@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "fondation-soins-lausanne-c0f93fa97058",
-      "slug": "infirmier-rai-hc-h-f-fondation-soins-lausanne-lausanne",
+      "slug": "infermiera-rai-hc-m-f-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
-        "it": "infirmier-rai-hc-h-f-fondation-soins-lausanne-lausanne",
+        "fr": "infirmier-rai-hc-h-f-fondation-soins-lausanne-lausanne",
+        "it": "infermiera-rai-hc-m-f-fondation-soins-lausanne-lausanne",
         "en": "infirmier-rai-hc-h-f-fondation-soins-lausanne-lausanne",
-        "de": "infirmier-rai-hc-h-f-fondation-soins-lausanne-lausanne",
-        "fr": "infirmier-rai-hc-h-f-fondation-soins-lausanne-lausanne"
+        "de": "infirmier-rai-hc-h-f-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -71,16 +71,24 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:25:57.239Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-19T22:58:47.313Z"
+      "firstSeenAt": "2026-09-19T22:58:47.313Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-rai-hc-h-f-fondation-soins-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-rai-hc-h-f-fondation-soins-lausanne-lausanne"
+      ]
     },
     {
       "id": "fondation-soins-lausanne-f85bd8346603",
-      "slug": "infirmier-referent-h-f-fondation-soins-lausanne-lausanne",
+      "slug": "infermiera-di-riferimento-m-f-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
-        "it": "infirmier-referent-h-f-fondation-soins-lausanne-lausanne",
+        "fr": "infirmier-referent-h-f-fondation-soins-lausanne-lausanne",
+        "it": "infermiera-di-riferimento-m-f-fondation-soins-lausanne-lausanne",
         "en": "infirmier-referent-h-f-fondation-soins-lausanne-lausanne",
-        "de": "infirmier-referent-h-f-fondation-soins-lausanne-lausanne",
-        "fr": "infirmier-referent-h-f-fondation-soins-lausanne-lausanne"
+        "de": "infirmier-referent-h-f-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -141,16 +149,24 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:25:56.528Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:47:38.519Z"
+      "firstSeenAt": "2026-09-23T23:47:38.519Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-referent-h-f-fondation-soins-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-referent-h-f-fondation-soins-lausanne-lausanne"
+      ]
     },
     {
       "id": "fondation-soins-lausanne-47f066e9d2ae",
-      "slug": "infirmier-sante-mentale-h-f-fondation-soins-lausanne-lausanne",
+      "slug": "salute-mentale-infermiera-m-f-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
-        "it": "infirmier-sante-mentale-h-f-fondation-soins-lausanne-lausanne",
+        "fr": "infirmier-sante-mentale-h-f-fondation-soins-lausanne-lausanne",
+        "it": "salute-mentale-infermiera-m-f-fondation-soins-lausanne-lausanne",
         "en": "infirmier-sante-mentale-h-f-fondation-soins-lausanne-lausanne",
-        "de": "infirmier-sante-mentale-h-f-fondation-soins-lausanne-lausanne",
-        "fr": "infirmier-sante-mentale-h-f-fondation-soins-lausanne-lausanne"
+        "de": "infirmier-sante-mentale-h-f-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -211,7 +227,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:25:55.810Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:47:37.835Z"
+      "firstSeenAt": "2026-09-23T23:47:37.835Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-sante-mentale-h-f-fondation-soins-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-sante-mentale-h-f-fondation-soins-lausanne-lausanne"
+      ]
     },
     {
       "id": "fondation-soins-lausanne-35a76a41d258",
@@ -295,12 +319,12 @@
     },
     {
       "id": "fondation-soins-lausanne-b32bddc0fdf6",
-      "slug": "auxiliaire-de-sante-m-w-d-fondation-soins-lausanne",
+      "slug": "salute-ausiliare-m-f-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
-        "it": "auxiliaire-de-sante-m-w-d-fondation-soins-lausanne",
+        "fr": "auxiliaire-de-sante-h-f-fondation-soins-lausanne-lausanne",
+        "it": "salute-ausiliare-m-f-fondation-soins-lausanne-lausanne",
         "en": "auxiliaire-de-sante-h-f-fondation-soins-lausanne-lausanne",
-        "de": "auxiliaire-de-sante-h-f-fondation-soins-lausanne-lausanne",
-        "fr": "auxiliaire-de-sante-h-f-fondation-soins-lausanne-lausanne"
+        "de": "auxiliaire-de-sante-h-f-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -346,11 +370,13 @@
       "careerSiteUrl": "https://www.jobup.ch/fr/emplois/?term=Fondation%20Soins%20Lausanne",
       "previousSlugsByLocale": {
         "it": [
-          "auxiliaire-de-sante-h-f-fondation-soins-lausanne-lausanne"
+          "auxiliaire-de-sante-h-f-fondation-soins-lausanne-lausanne",
+          "auxiliaire-de-sante-m-w-d-fondation-soins-lausanne"
         ]
       },
       "previousSlugs": [
-        "auxiliaire-de-sante-h-f-fondation-soins-lausanne-lausanne"
+        "auxiliaire-de-sante-h-f-fondation-soins-lausanne-lausanne",
+        "auxiliaire-de-sante-m-w-d-fondation-soins-lausanne"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -373,12 +399,12 @@
     },
     {
       "id": "fondation-soins-lausanne-3772eb5d0779",
-      "slug": "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne",
+      "slug": "infermiera-di-campo-m-f-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
-        "it": "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne",
+        "fr": "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne",
+        "it": "infermiera-di-campo-m-f-fondation-soins-lausanne-lausanne",
         "en": "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne",
-        "de": "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne",
-        "fr": "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne"
+        "de": "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -439,16 +465,24 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:25:53.592Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:47:35.746Z"
+      "firstSeenAt": "2026-09-23T23:47:35.746Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-terrain-h-f-fondation-soins-lausanne-lausanne"
+      ]
     },
     {
       "id": "fondation-soins-lausanne-ec3926527693",
-      "slug": "assistant-social-h-f-fondation-soins-lausanne-lausanne",
+      "slug": "assistente-sociale-m-f-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
-        "it": "assistant-social-h-f-fondation-soins-lausanne-lausanne",
+        "fr": "assistant-social-h-f-fondation-soins-lausanne-lausanne",
+        "it": "assistente-sociale-m-f-fondation-soins-lausanne-lausanne",
         "en": "assistant-social-h-f-fondation-soins-lausanne-lausanne",
-        "de": "assistent-social-h-f-fondation-soins-lausanne-lausanne",
-        "fr": "assistant-social-h-f-fondation-soins-lausanne-lausanne"
+        "de": "assistent-social-h-f-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -509,16 +543,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:25:52.911Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T06:53:31.838Z"
+      "firstSeenAt": "2026-11-17T06:53:31.838Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-social-h-f-fondation-soins-lausanne-lausanne"
+        ],
+        "de": [
+          "assistant-social-h-f-fondation-soins-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-social-h-f-fondation-soins-lausanne-lausanne"
+      ]
     },
     {
       "id": "fondation-soins-lausanne-690668a0a6cb",
-      "slug": "assistant-en-soins-et-sante-communautaire-h-f-fondation-soins-lausanne-lausanne",
+      "slug": "assistente-per-la-salute-e-la-cura-della-comunita-m-f-fondation-soins-lausanne-lausanne",
       "slugByLocale": {
-        "it": "assistant-en-soins-et-sante-communautaire-h-f-fondation-soins-lausanne-lausanne",
+        "fr": "assistant-en-soins-et-sante-communautaire-h-f-fondation-soins-lausanne-lausanne",
+        "it": "assistente-per-la-salute-e-la-cura-della-comunita-m-f-fondation-soins-lausanne-lausanne",
         "en": "assistant-en-soins-et-sante-communautaire-h-f-fondation-soins-lausanne-lausanne",
-        "de": "assistant-en-soins-et-sante-communautaire-h-f-fondation-soins-lausanne-lausanne",
-        "fr": "assistant-en-soins-et-sante-communautaire-h-f-fondation-soins-lausanne-lausanne"
+        "de": "assistant-en-soins-et-sante-communautaire-h-f-fondation-soins-lausanne-lausanne"
       },
       "company": "Fondation Soins Lausanne",
       "companyKey": "fondation-soins-lausanne",
@@ -579,7 +624,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:25:52.332Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-23T23:47:33.658Z"
+      "firstSeenAt": "2026-09-23T23:47:33.658Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-en-soins-et-sante-communautaire-h-f-fondation-soins-lausanne-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-en-soins-et-sante-communautaire-h-f-fondation-soins-lausanne-lausanne"
+      ]
     },
     {
       "id": "fondation-soins-lausanne-80a034d907e0",

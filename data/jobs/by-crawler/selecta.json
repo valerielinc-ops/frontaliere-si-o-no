@@ -95,10 +95,10 @@
       "id": "selecta-f525a4ac08a1",
       "slug": "servizio-clienti-m-w-d-selecta-wallis",
       "slugByLocale": {
-        "it": "servizio-clienti-m-w-d-selecta-wallis",
-        "en": "customer-service-provider-m-w-d-selecta-wallis",
+        "it": "account-manager-m-f-d-selecta-wallis",
+        "en": "account-manager-m-f-d-selecta-wallis",
         "de": "kundenbetreuer-m-w-d-selecta-region-wallis",
-        "fr": "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
+        "fr": "gestionnaire-de-comptes-m-f-d-selecta-wallis"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -151,20 +151,19 @@
       "previousSlugs": [
         "kundenbetreuer-m-w-d-selecta-wallis",
         "kundenbetreuer-m-w-d-selecta-region-wallis",
-        "account-manager-m-f-d-selecta-wallis",
-        "gestionnaire-de-comptes-m-f-d-selecta-wallis"
+        "customer-service-provider-m-w-d-selecta-wallis",
+        "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenbetreuer-m-w-d-selecta-wallis",
-          "kundenbetreuer-m-w-d-selecta-region-wallis",
-          "account-manager-m-f-d-selecta-wallis"
+          "kundenbetreuer-m-w-d-selecta-region-wallis"
         ],
         "en": [
-          "account-manager-m-f-d-selecta-wallis"
+          "customer-service-provider-m-w-d-selecta-wallis"
         ],
         "fr": [
-          "gestionnaire-de-comptes-m-f-d-selecta-wallis"
+          "fournisseur-de-services-a-la-clientele-m-w-d-selecta-wallis"
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:32.256Z",
@@ -1478,12 +1477,12 @@
     },
     {
       "id": "selecta-ec03b2521c29",
-      "slug": "technical-supporter-technical-supporterin-selecta-kirchberg-murten",
+      "slug": "supporto-tecnico-supportatore-tecnico-selecta-kirchberg-murten",
       "slugByLocale": {
-        "it": "technical-supporter-technical-supporterin-selecta-kirchberg-murten",
-        "en": "technical-supporter-technical-supporterin-selecta-kirchberg-murten",
         "de": "technical-supporter-technical-supporterin-selecta-kirchberg-murten",
-        "fr": "technical-supporter-technical-supporterin-selecta-kirchberg-murten"
+        "it": "supporto-tecnico-supportatore-tecnico-selecta-kirchberg-murten",
+        "en": "technical-supporter-technical-supporterin-selecta-kirchberg-murten",
+        "fr": "support-technique-support-technique-selecta-kirchberg-murten"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -1549,7 +1548,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-17T09:22:42.482Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T06:49:46.328Z"
+      "firstSeenAt": "2026-11-17T06:49:46.328Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technical-supporter-technical-supporterin-selecta-kirchberg-murten"
+        ],
+        "fr": [
+          "technical-supporter-technical-supporterin-selecta-kirchberg-murten"
+        ]
+      },
+      "previousSlugs": [
+        "technical-supporter-technical-supporterin-selecta-kirchberg-murten"
+      ]
     },
     {
       "id": "selecta-b92530adfcbe",
@@ -1558,7 +1568,7 @@
         "it": "tecnico-di-servizio-m-f-d-selecta-tessin",
         "en": "service-technician-m-f-d-selecta-tessin",
         "de": "servicetechniker-m-w-d-selecta-region-tessin",
-        "fr": "technicien-de-service-m-w-d-selecta-tessin"
+        "fr": "servicetechniker-m-w-d-selecta-tessin"
       },
       "company": "Selecta",
       "companyKey": "selecta",
@@ -1611,7 +1621,8 @@
       "previousSlugs": [
         "servicetechniker-m-w-d-selecta-tessin",
         "technicien-de-service-h-f-d-selecta-tessin",
-        "servicetechniker-m-w-d-selecta-region-tessin"
+        "servicetechniker-m-w-d-selecta-region-tessin",
+        "technicien-de-service-m-w-d-selecta-tessin"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1623,7 +1634,7 @@
         ],
         "fr": [
           "technicien-de-service-h-f-d-selecta-tessin",
-          "servicetechniker-m-w-d-selecta-tessin"
+          "technicien-de-service-m-w-d-selecta-tessin"
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:34.123Z",

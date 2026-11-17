@@ -1500,12 +1500,12 @@
     },
     {
       "id": "kanton-solothurn-1cd37eb80b34",
-      "slug": "sachbearbeiter-in-familienerganzungsleistungen-90-100-kanton-solothurn-solothurn",
+      "slug": "impiegato-a-amministrativo-a-per-le-prestazioni-integrative-per-famiglie-90-100-kanton-solothurn-solothurn",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-familienerganzungsleistungen-90-100-kanton-solothurn-solothurn",
-        "en": "sachbearbeiter-in-familienerganzungsleistungen-90-100-kanton-solothurn-solothurn",
         "de": "sachbearbeiter-in-familienerganzungsleistungen-90-100-kanton-solothurn-solothurn",
-        "fr": "sachbearbeiter-in-familienerganzungsleistungen-90-100-kanton-solothurn-solothurn"
+        "it": "impiegato-a-amministrativo-a-per-le-prestazioni-integrative-per-famiglie-90-100-kanton-solothurn-solothurn",
+        "en": "administrative-officer-family-supplementary-benefits-90-100-kanton-solothurn-solothurn",
+        "fr": "gestionnaire-des-prestations-complementaires-pour-familles-90-100-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1565,7 +1565,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-09T09:21:30.678Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T08:25:11.566Z"
+      "firstSeenAt": "2026-11-17T08:25:11.566Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-familienerganzungsleistungen-90-100-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "sachbearbeiter-in-familienerganzungsleistungen-90-100-kanton-solothurn-solothurn"
+        ],
+        "fr": [
+          "sachbearbeiter-in-familienerganzungsleistungen-90-100-kanton-solothurn-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-familienerganzungsleistungen-90-100-kanton-solothurn-solothurn"
+      ]
     },
     {
       "id": "kanton-solothurn-cf007db60b00",
@@ -1741,10 +1755,10 @@
       "id": "kanton-solothurn-7fa7533b4c8f",
       "slug": "responsabile-grundbuchamt-100-kanton-solothurn",
       "slugByLocale": {
-        "it": "responsabile-grundbuchamt-100-kanton-solothurn",
-        "en": "leiter-in-grundbuchamt-100-kanton-solothurn-solothurn",
         "de": "leiter-in-grundbuchamt-100-kanton-solothurn-solothurn",
-        "fr": "leiter-in-grundbuchamt-100-kanton-solothurn-solothurn"
+        "it": "responsabile-grundbuchamt-100-kanton-solothurn",
+        "en": "head-of-the-land-registry-office-100-kanton-solothurn-solothurn",
+        "fr": "responsable-de-l-office-du-registre-foncier-100-kanton-solothurn-solothurn"
       },
       "company": "Kanton Solothurn",
       "companyKey": "kanton-solothurn",
@@ -1790,6 +1804,12 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-grundbuchamt-100-kanton-solothurn-solothurn"
+        ],
+        "en": [
+          "leiter-in-grundbuchamt-100-kanton-solothurn-solothurn"
+        ],
+        "fr": [
           "leiter-in-grundbuchamt-100-kanton-solothurn-solothurn"
         ]
       },

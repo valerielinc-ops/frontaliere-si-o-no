@@ -354,12 +354,12 @@
     },
     {
       "id": "seiro-215a0ff5fca1",
-      "slug": "oberarztin-oberarzt-akutpsychiatrie-st-gallen-seiro-seiro-gmbh-st-gallen",
+      "slug": "medico-senior-medico-senior-akutpsychiatrie-st-gallen-seiro-seiro-gmbh-st-gallen-sankt-gallen",
       "slugByLocale": {
-        "it": "oberarztin-oberarzt-akutpsychiatrie-st-gallen-seiro-seiro-gmbh-st-gallen",
-        "en": "oberarztin-oberarzt-akutpsychiatrie-st-gallen-seiro-seiro-gmbh-st-gallen",
         "de": "oberarztin-oberarzt-akutpsychiatrie-st-gallen-seiro-st-gallen-sankt-gallen-seiro-ch",
-        "fr": "oberarztin-oberarzt-akutpsychiatrie-st-gallen-seiro-seiro-gmbh-st-gallen"
+        "it": "medico-senior-medico-senior-akutpsychiatrie-st-gallen-seiro-seiro-gmbh-st-gallen-sankt-gallen",
+        "en": "senior-physician-senior-physician-akutpsychiatrie-st-gallen-seiro-seiro-gmbh-st-gallen-sankt-gallen",
+        "fr": "medecin-principal-medecin-principal-akutpsychiatrie-st-gallen-seiro-gmbh-st-gallen-sankt-gallen"
       },
       "company": "SEIRO GmbH",
       "companyKey": "seiro",
@@ -404,11 +404,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-akutpsychiatrie-st-gallen-seiro-st-gallen-sankt-gallen-seiro-ch"
+          "oberarztin-oberarzt-akutpsychiatrie-st-gallen-seiro-st-gallen-sankt-gallen-seiro-ch",
+          "oberarztin-oberarzt-akutpsychiatrie-st-gallen-seiro-seiro-gmbh-st-gallen"
+        ],
+        "en": [
+          "oberarztin-oberarzt-akutpsychiatrie-st-gallen-seiro-seiro-gmbh-st-gallen"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-akutpsychiatrie-st-gallen-seiro-seiro-gmbh-st-gallen"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-akutpsychiatrie-st-gallen-seiro-st-gallen-sankt-gallen-seiro-ch"
+        "oberarztin-oberarzt-akutpsychiatrie-st-gallen-seiro-st-gallen-sankt-gallen-seiro-ch",
+        "oberarztin-oberarzt-akutpsychiatrie-st-gallen-seiro-seiro-gmbh-st-gallen"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

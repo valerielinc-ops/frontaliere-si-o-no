@@ -337,12 +337,12 @@
     },
     {
       "id": "clinique-de-genolier-03e0841d3542",
-      "slug": "secretaire-medical-e-en-radiologie-clinique-de-genolier",
+      "slug": "segretario-medico-in-radiologia-clinique-de-genolier-genolier",
       "slugByLocale": {
-        "it": "secretaire-medical-e-en-radiologie-clinique-de-genolier",
+        "fr": "secretaire-medical-e-en-radiologie-clinique-de-genolier",
+        "it": "segretario-medico-in-radiologia-clinique-de-genolier-genolier",
         "en": "secretaire-medical-e-en-radiologie-clinique-de-genolier",
-        "de": "secretaire-medical-e-en-radiologie-clinique-de-genolier",
-        "fr": "secretaire-medical-e-en-radiologie-clinique-de-genolier"
+        "de": "secretaire-medical-e-en-radiologie-clinique-de-genolier"
       },
       "company": "Clinique de Genolier",
       "companyKey": "clinique-de-genolier",
@@ -401,7 +401,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-15T09:26:37.743Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-25T14:48:35.885Z"
+      "firstSeenAt": "2026-09-25T14:48:35.885Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-e-en-radiologie-clinique-de-genolier"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-e-en-radiologie-clinique-de-genolier"
+      ]
     },
     {
       "id": "clinique-de-genolier-a81120ce1d55",

@@ -542,6 +542,61 @@ export function profileEntryAnswer(entry, kind, field) {
   const value = key ? String(entry?.[key] || '').trim() : '';
   return value ? { value, source: 'profile' } : null;
 }
+
+const PROFILE_DATE_FIELD_PATTERNS = [
+  [/^(?:start date|from|da|von|de|à)\s*[＊*]?$/iu, 'start'],
+  [/^(?:end date|to|a|bis)\s*[＊*]?$/iu, 'end'],
+];
+
+function profileDateFieldKey(question) {
+  const label = String(question?.applicationQuestion || question?.question || '').normalize('NFKC').trim();
+  return PROFILE_DATE_FIELD_PATTERNS.find(([pattern]) => pattern.test(label))?.[1] || '';
+}
+
+function profileMatchText(value) {
+  return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ').trim();
+}
+
+function profileScopeHasValue(scope, value) {
+  const scopeTokens = profileMatchText(scope).split(' ').filter(Boolean);
+  const valueTokens = profileMatchText(value).split(' ').filter(Boolean);
+  if (!valueTokens.length || valueTokens.join(' ').length < 3) return false;
+  return scopeTokens.some((_, index) => scopeTokens.slice(index, index + valueTokens.length).join(' ') === valueTokens.join(' '));
+}
+
+/**
+ * A date question can be retired only when its profile section and row are
+ * known, and the requested endpoint exists on that row. Ambiguous questions
+ * stay candidate-owned rather than borrowing a date from another row.
+ */
+export function profileDateQuestionsCanUseProfile(candidate, questions) {
+  if (!Array.isArray(questions) || !questions.length) return false;
+  return questions.every((question) => {
+    if (question?.type !== 'date') return false;
+    const key = profileDateFieldKey(question);
+    const scope = [question?.context, question?.section, question?.profileSection, question?.sectionGroup]
+      .map(profileMatchText).filter(Boolean).join(' ');
+    const kind = profileSectionKind(scope);
+    if (!key || !kind) return false;
+    const entries = (Array.isArray(candidate?.profile?.[kind]) ? candidate.profile[kind] : []).filter((entry) => {
+      const title = kind === 'experience' ? entry?.role : entry?.degree;
+      const organization = kind === 'experience' ? entry?.employer : entry?.institution;
+      return Boolean(profileMatchText(title) && profileMatchText(organization));
+    });
+    if (!entries.length) return false;
+    const matching = entries.filter((entry) => {
+      const title = kind === 'experience' ? entry?.role : entry?.degree;
+      const organization = kind === 'experience' ? entry?.employer : entry?.institution;
+      return [title, organization].map(profileMatchText)
+        .some((value) => profileScopeHasValue(scope, value));
+    });
+    if (matching.length === 1) return Boolean(String(matching[0]?.[key] || '').trim());
+    if (matching.length > 1) return false;
+    return false;
+  });
+}
+
 const POPUP_WAIT_TIMEOUT_MS = 60_000;
 const POPUP_GRACE_MS = 6_000;
 // Scans that only look for buttons, a CAPTCHA or a login never open listboxes (see extractFields).
@@ -2888,7 +2943,7 @@ async function clickUniqueNamedControl(frame, button) {
       if (!await candidate.isEnabled({ timeout: 2_000 }).catch(() => false)) continue;
       const owner = await candidate.evaluate((element) => {
         const form = element.form || element.closest?.('form');
-        const roleForm = form ? null : element.closest?.('[role="form"]');
+        const roleForm = form ? null : element.closest?.('[role="form"], [data-automation-id="applyFlowPage"]');
         const dialog = element.closest?.('dialog, [role="dialog"], [aria-modal="true"]');
         return {
           formId: form?.getAttribute('data-aa-id') || '',
@@ -12240,6 +12295,9 @@ export async function submitViaPortal(ctx) {
       }
       if (!request) return null;
       if (request.handoff) return await handoff(request.handoff);
+      if (profileDateQuestionsCanUseProfile(ctx.candidate, request.questions)) {
+        return await handoff('profile_section_row_incomplete');
+      }
       return {
         event: {
           type: 'submit_needs_candidate',

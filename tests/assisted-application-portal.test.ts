@@ -6,7 +6,7 @@ import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, chooseFile
 import { verificationIsPending, verificationOutcome } from '../scripts/assisted-application/lib/portal/account.mjs';
 import { applicationStage } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { navigationInfrastructureFailure } from '../functions/src/assistedApplicationTransportRetryPolicy.js';
-import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, formPostingMatch, handleAuth, hasApplicationSurface, isOtpVerificationPage, isWorkdayBareLocaleSearchShell, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, postingMatch, PREREAD_CHANNELS, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, waitForNonBlankPage, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { autoAnswersForPortalQuestions, candidateForForm, clickPortalLink, COVER_LETTER_UPLOAD_RE, CV_UPLOAD_RE, dedupePortalQuestions, dialogFileInput, failedConsentRequiresHandoff, formPostingMatch, handleAuth, hasApplicationSurface, isOtpVerificationPage, isWorkdayBareLocaleSearchShell, needsPortalOptionRead, openFormSections, portalQuestionId, portalQuestionKey, portalRequirementsFromMissingRequired, postingMatch, PREREAD_CHANNELS, profileDateQuestionsCanUseProfile, profileEntriesForSection, profileEntryAnswer, removalsOf, slugId, uploadButtonCandidatesFor, uploadButtonFor, uploadTriggerKey, waitForFileRemoval, waitForNonBlankPage, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { addressQuestionAnswer, residenceCountryCode, resolveResidenceAddress } from '../scripts/assisted-application/lib/portal/residence-address.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 import { markOptionalAutofillDeclineInPage } from '../scripts/assisted-application/lib/portal/optional-autofill.mjs';
@@ -424,6 +424,39 @@ describe('assisted application profile history and file replacement', () => {
     const entry = { role: 'Retail Assistant', employer: 'Mendrisio Market', start: '2020-03', end: '2022-04' };
     expect(profileEntryAnswer(entry, 'experience', { label: 'Job Title*' })).toEqual({ value: 'Retail Assistant', source: 'profile' });
     expect(profileEntryAnswer(entry, 'experience', { label: 'Company*' })).toEqual({ value: 'Mendrisio Market', source: 'profile' });
+  });
+
+  it('retires a profile date question only for the matching row and endpoint', () => {
+    const candidate = { profile: { experience: [
+      { role: 'Complete role', employer: 'Complete employer', start: '2020-01', end: '2022-01' },
+      { role: 'Incomplete role', employer: 'Incomplete employer', start: '2022-02', end: '' },
+    ] } };
+    expect(profileDateQuestionsCanUseProfile(candidate, [{
+      type: 'date', applicationQuestion: 'To*', section: 'Work Experience', context: 'Incomplete role · Incomplete employer · To*',
+    }])).toBe(false);
+    expect(profileDateQuestionsCanUseProfile(candidate, [{
+      type: 'date', applicationQuestion: 'To*', section: 'Work Experience', context: 'Complete role · Complete employer · To*',
+    }])).toBe(true);
+    expect(profileDateQuestionsCanUseProfile(candidate, [{ type: 'date', applicationQuestion: 'To*' }])).toBe(false);
+  });
+
+  it('keeps an unowned profile date question with multiple complete rows candidate-owned', () => {
+    const candidate = { profile: { experience: [
+      { role: 'First role', employer: 'First employer', start: '2020-01', end: '2022-01' },
+      { role: 'Second role', employer: 'Second employer', start: '2022-02', end: '2024-03' },
+    ] } };
+    expect(profileDateQuestionsCanUseProfile(candidate, [{
+      type: 'date', applicationQuestion: 'To*', section: 'Work Experience', context: 'Work Experience · To*',
+    }])).toBe(false);
+  });
+
+  it('does not treat a profile row token as owned through a substring match', () => {
+    const candidate = { profile: { experience: [
+      { role: 'Art', employer: 'Foo', start: '2020-01', end: '2022-01' },
+    ] } };
+    expect(profileDateQuestionsCanUseProfile(candidate, [{
+      type: 'date', applicationQuestion: 'To*', section: 'Work Experience', context: 'work experience marketing',
+    }])).toBe(false);
   });
 
   it('does not mistake a selected Workday filename for a successful upload receipt', async () => {
