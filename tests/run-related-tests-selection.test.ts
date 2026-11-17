@@ -208,6 +208,30 @@ describe('run-related-tests selection contract', () => {
     expect(result.output).not.toContain('selection_failed=true');
   });
 
+  it('selects tests that read generated assisted-application extension assets by path', () => {
+    const generated = 'scripts/assisted-application/extension/runner-fields.js';
+    const root = fixture({
+      [generated]: 'window.CompilaRunnerFields = function read() {};',
+      'tests/extension-file-reader.test.ts': [
+        "import { readFileSync } from 'node:fs';",
+        "readFileSync(new URL('../scripts/assisted-application/extension/runner-fields.js', import.meta.url), 'utf8');",
+      ].join('\n'),
+      'tests/extension-directory-reader.test.ts': [
+        "import { readFileSync } from 'node:fs';",
+        "const file = 'runner-fields.js';",
+        "readFileSync(new URL('../scripts/assisted-application/extension/' + file, import.meta.url), 'utf8');",
+      ].join('\n'),
+      'tests/unrelated.test.ts': 'export const unrelated = true;',
+    });
+    const result = select(root, [generated]);
+    expect(result.status, result.stderr || result.stdout).toBe(0);
+    expect(result.stdout).toContain('tests/extension-file-reader.test.ts');
+    expect(result.stdout).toContain('tests/extension-directory-reader.test.ts');
+    expect(result.stdout).not.toContain('tests/unrelated.test.ts');
+    expect(result.output).toContain('required=false');
+    expect(result.output).not.toContain('selection_failed=true');
+  });
+
   it('uses changed export symbols to keep direct consumers precise', () => {
     const source = 'services/changed.mjs';
     const root = fixture({
