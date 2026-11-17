@@ -60,6 +60,8 @@ describe('scatter parity for source-backed multi-location postings', () => {
       id: 'pwc-3a6f9a7a6262',
       url,
       company: 'PwC Switzerland',
+      companyKey: 'pwc',
+      source: 'pwc-dedicated-crawler',
       location: 'Zürich',
       addressLocality: 'Zürich',
       canton: 'ZH',
@@ -165,6 +167,35 @@ describe('scatter parity for source-backed multi-location postings', () => {
     };
 
     expect(verifyScatterParity([assembled], [{ file: 'shared.json', jobs: [assembled, differentCompany] }])).toMatchObject({
+      duplicateSliceKeys: 0,
+      duplicateAssembledMatches: 1,
+      sourceLocationVariantMatches: 0,
+      passed: false,
+    });
+  });
+
+  it('keeps generic same-url rows with different ids fail-closed', () => {
+    const assembled = {
+      id: 'generic-owner',
+      url: 'https://jobs.example.test/careers/open-roles',
+      company: 'Example Employer',
+      source: 'generic-listing-crawler',
+      location: 'Zürich',
+      addressLocality: 'Zürich',
+      titleByLocale: { it: 'Contabile senior' },
+      descriptionByLocale: { it: 'Descrizione contabile' },
+      slugByLocale: { it: 'contabile-senior-zurigo' },
+    };
+    const unrelatedListing = {
+      ...structuredClone(assembled),
+      id: 'generic-other',
+      location: 'Bern',
+      addressLocality: 'Bern',
+      titleByLocale: { it: 'Tecnico di laboratorio' },
+      descriptionByLocale: { it: 'Descrizione laboratorio' },
+    };
+
+    expect(verifyScatterParity([assembled], [{ file: 'generic.json', jobs: [assembled, unrelatedListing] }])).toMatchObject({
       duplicateSliceKeys: 0,
       duplicateAssembledMatches: 1,
       sourceLocationVariantMatches: 0,

@@ -52,6 +52,12 @@ function normalizedSourceCompany(job) {
     .toLowerCase();
 }
 
+function hasUrlLevelPostingIdentityContract(job) {
+  return String(job?.source || '').trim().toLowerCase() === 'pwc-dedicated-crawler'
+    && normalizedSourceCompany(job) === 'pwc'
+    && /^https:\/\/jobs\.pwc\.ch\/job-vacancies\//.test(normalizedJobUrl(job));
+}
+
 /**
  * Whether two records are source-backed location variants of one posting.
  *
@@ -59,11 +65,12 @@ function normalizedSourceCompany(job) {
  * keeps one location, while the crawler slice deliberately keeps one record
  * per office. The shared URL proves the source posting; two different
  * non-empty localities prove these are not duplicate rows. Crawler ids are
- * not required here: dedicated crawlers may content-address the same source
- * posting once per locality (PwC does this), while assembly keeps one
- * synthetic winner. Matching company identity is the extra guard for that
- * id-per-location form. Slugs and bridge history remain per-location and must
- * not be copied from the assembled winner onto its siblings.
+ * not required for PwC because its dedicated source contract explicitly
+ * reuses a direct vacancy URL for every exploded office. Other crawlers
+ * remain fail-closed when their stable keys differ: a generic listing URL
+ * must not gain location-variant status merely because the company label
+ * matches. Slugs and bridge history remain per-location and must not be
+ * copied from the assembled winner onto its siblings.
  */
 function isSourceBackedLocationVariant(sliceJob, assembled) {
   const sliceUrl = normalizedJobUrl(sliceJob);
@@ -78,9 +85,8 @@ function isSourceBackedLocationVariant(sliceJob, assembled) {
   const assembledKey = resolveJobDiffKey(assembled);
   if (sliceKey && sliceKey === assembledKey) return true;
 
-  const sliceCompany = normalizedSourceCompany(sliceJob);
-  const assembledCompany = normalizedSourceCompany(assembled);
-  return Boolean(sliceCompany && assembledCompany && sliceCompany === assembledCompany);
+  return hasUrlLevelPostingIdentityContract(sliceJob)
+    && hasUrlLevelPostingIdentityContract(assembled);
 }
 
 function stableUrlIndexKey(url) {
