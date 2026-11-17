@@ -97,6 +97,9 @@ for (const target of TARGETS) {
     const url = `${LIVE_BASE_URL}${target.path}`;
 
     test(`renders visible content above the fold (${target.path})`, async ({ page }) => {
+      // One live request may use 6 × 15 s timeouts plus 25 s of retry pauses.
+      test.setTimeout(115_000);
+
       // Pre-flight: a 404 on a tolerated URL means content rotated, not a regression.
       const head = await getLiveWithRetry(page.request.get.bind(page.request), url, {
         maxRedirects: 5,

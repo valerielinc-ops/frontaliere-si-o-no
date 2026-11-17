@@ -1,4 +1,5 @@
-import { test, expect, type APIRequestContext } from 'playwright/test';
+import { test, expect, type APIRequestContext, type APIResponse } from 'playwright/test';
+import { getLiveWithRetry } from './lib/live-request';
 
 /**
  * Live regression guard for the canonical sector landing
@@ -57,7 +58,10 @@ interface FetchedHtml {
 }
 
 async function fetchHtml(request: APIRequestContext, url: string): Promise<FetchedHtml> {
-  const response = await request.get(url, { maxRedirects: 5, timeout: 20_000 });
+  const response = await getLiveWithRetry<APIResponse>(request.get.bind(request), url, {
+    maxRedirects: 5,
+    timeout: 20_000,
+  });
   return { status: response.status(), body: await response.text(), finalUrl: response.url() };
 }
 
@@ -77,6 +81,9 @@ function extractJsonLdBlocks(body: string): unknown[] {
 
 test.describe('live: /cerca-lavoro-ticino/settori/ (sector catalogue landing)', () => {
   test('static HTML carries title, h1, canonical, hreflang, SPA bundle and JSON-LD', async ({ request }) => {
+    // One 20 s request gets 6 attempts plus 25 s of retry pauses.
+    test.setTimeout(145_000);
+
     const { status, body } = await fetchHtml(request, URL);
 
     expect(status, `${URL} should return 200`).toBe(200);
@@ -136,6 +143,9 @@ test.describe('live: /cerca-lavoro-ticino/settori/ (sector catalogue landing)', 
   });
 
   test('static HTML lists at least 40 sector links into the job board', async ({ request }) => {
+    // One 20 s request gets 6 attempts plus 25 s of retry pauses.
+    test.setTimeout(145_000);
+
     const { body } = await fetchHtml(request, URL);
 
     // Sector funnel ships two link shapes today:
