@@ -138,12 +138,15 @@ trunk_replace_begin() {
   local state="${TRUNK_GUARD_STATE:-${RUNNER_TEMP:-/tmp}/trunk-guard}"
   local all="$state/$label.all"
   local idx="$state/$label.idx"
+  local scope="$state/$label.scope"
   local p f
   mkdir -p "$state" 2>/dev/null || true
   if [ ! -f "$all" ]; then
     : > "$all"
     : > "$idx"
+    : > "$scope"
     for p in "$@"; do
+      printf '%s\n' "$p" >> "$scope" 2>/dev/null || true
       if [ ! -e "$dist/$p" ]; then continue; fi
       while IFS= read -r f; do
         if [ -n "$f" ]; then printf '%s\n' "${f#"$dist/"}" >> "$all"; fi
@@ -179,52 +182,95 @@ trunk_replace_end() {
   local state="${TRUNK_GUARD_STATE:-${RUNNER_TEMP:-/tmp}/trunk-guard}"
   local all="$state/$label.all"
   local idx="$state/$label.idx"
+  local scope="$state/$label.scope"
+  local current_file="$state/$label.current"
+  local exact_lost_file="$state/$label.exact-lost"
+  local twin_candidates_file="$state/$label.twin-candidates"
+  local respelled_file="$state/$label.respelled"
   local lost_file="$state/$label.lost"
   local fatal_file="$state/$label.fatal"
   local benign_file="$state/$label.benign"
   if [ ! -f "$all" ]; then return 0; fi
 
-  local rel twin lost=0 fatal=0 benign=0 respelled=0 classification_ok=1
+  local p rel twin lost=0 fatal=0 benign=0 respelled=0 classification_ok=1
   local fatal_s="" benign_s="" respelled_s=""
-  # A lost path is counted before it is written so the final verdict can stay
-  # fail-closed even when the inventory itself becomes unwritable (for
-  # example, a full runner filesystem or a broken state path). Do not let that
-  # write failure turn a real loss into an empty `comm` input.
-  if ! : > "$lost_file"; then classification_ok=0; fi
-  while IFS= read -r rel; do
-    if [ -z "$rel" ]; then continue; fi
-    if [ -e "$dist/$rel" ]; then continue; fi
-    # Same url, other spelling. Counted and named — never silently dropped —
-    # but it is not a loss: the url still answers from `$dist/$twin`. The
-    # structural contract is that the shard can answer the same url from the
-    # shard's other spelling, and that fact must remain visible to the guard.
-    twin="$(trunk_url_twin "$rel")"
-    if [ -n "$twin" ] && [ -e "$dist/$twin" ]; then
-      respelled=$((respelled + 1))
-      if [ "$respelled" -le "${TRUNK_GUARD_SAMPLE_CAP:-12}" ]; then
-        # Braced and ASCII on purpose: `$rel=>` is one token, but `$rel→` is
-        # parsed as the name `rel→` in a UTF-8 locale and dies under `set -u`
-        # ("rel→: unbound variable") — which is a crash inside the very
-        # accounting this file exists to make reliable.
-        respelled_s="$respelled_s ${dist}/${rel}=>${dist}/${twin}"
-      fi
-      continue
-    fi
-    lost=$((lost + 1))
-    if ! printf '%s\n' "$rel" >> "$lost_file"; then
+  # The old path checked `[ -e ]` once per snapshotted file and then called
+  # `trunk_url_twin` for every missing path. On a multi-million-file subtree
+  # that kept the shell in a per-file syscall/function loop even after the
+  # per-loss grep was batched (#18984), which is enough to host-kill the
+  # validator before it can emit a verdict. Build one current inventory with
+  # find, derive only the twins of exact losses, and compare sorted sets with
+  # comm/join. Keeping the twin candidates proportional to the missing set
+  # avoids duplicating a multi-million-file current inventory on disk.
+  if ! : > "$current_file" || ! : > "$exact_lost_file" || ! : > "$twin_candidates_file" \
+      || ! : > "$respelled_file" || ! : > "$lost_file"; then
+    classification_ok=0
+  fi
+  if [ "$classification_ok" -eq 1 ]; then
+    if [ ! -f "$scope" ]; then
       classification_ok=0
+    else
+      while IFS= read -r p; do
+        [ -n "$p" ] || continue
+        if [ -f "$dist/$p" ]; then
+          printf '%s\n' "$p" >> "$current_file" || classification_ok=0
+        elif [ -d "$dist/$p" ]; then
+          # `find` emits the complete subtree in one process. awk removes the
+          # dist-root prefix without treating the path as a regular expression.
+          if ! find "$dist/$p" -type f -print 2>/dev/null \
+              | awk -v root="${dist%/}/" '{ if (index($0, root) == 1) print substr($0, length(root) + 1); }' \
+              >> "$current_file"; then
+            classification_ok=0
+          fi
+        fi
+      done < "$scope"
     fi
-  done < "$all"
+  fi
+  if [ "$classification_ok" -eq 1 ] \
+      && ! LC_ALL=C sort -u "$all" -o "$all"; then classification_ok=0; fi
+  if [ "$classification_ok" -eq 1 ] \
+      && ! LC_ALL=C sort -u "$current_file" -o "$current_file"; then classification_ok=0; fi
+  if [ "$classification_ok" -eq 1 ] \
+      && ! LC_ALL=C comm -23 "$all" "$current_file" > "$exact_lost_file"; then
+    classification_ok=0
+  fi
+  if [ "$classification_ok" -eq 1 ] \
+      && ! LC_ALL=C awk '
+        function emit(path, twin) { print twin "\t" path }
+        {
+          if ($0 ~ /\/index\.html$/ && $0 != "index.html") {
+            twin = $0
+            sub(/\/index\.html$/, ".html", twin)
+            emit($0, twin)
+          } else if ($0 ~ /\.html$/ && $0 !~ /(^|\/)index\.html$/) {
+            twin = $0
+            sub(/\.html$/, "/index.html", twin)
+            emit($0, twin)
+          }
+        }
+      ' "$exact_lost_file" | LC_ALL=C sort -t $'\t' -k1,1 -k2,2 > "$twin_candidates_file"; then
+    classification_ok=0
+  fi
+  if [ "$classification_ok" -eq 1 ] \
+      && ! LC_ALL=C join -t $'\t' -1 1 -2 1 -o 1.2,1.1 \
+          "$twin_candidates_file" "$current_file" \
+          | LC_ALL=C cut -f1 | LC_ALL=C sort -u > "$respelled_file"; then
+    classification_ok=0
+  fi
+  if [ "$classification_ok" -eq 1 ] \
+      && ! LC_ALL=C comm -23 "$exact_lost_file" "$respelled_file" > "$lost_file"; then
+    classification_ok=0
+  fi
+  if [ "$classification_ok" -eq 1 ]; then
+    lost="$(wc -l < "$lost_file" 2>/dev/null || printf '0')"
+    respelled="$(wc -l < "$respelled_file" 2>/dev/null || printf '0')"
+  fi
 
   # `$idx` contains every path whose HTML was classified as indexable while
-  # it still existed. The old lookup ran `grep -qxF` once per lost path; on a
-  # multi-million-file Ticino subtree that spawned millions of processes and
-  # made the validator host-kill before it could report a verdict (#7421).
-  # Sort once and classify the complete lost set with two linear `comm` passes:
-  # same exact path semantics, one bounded set of external processes.
+  # it still existed. Classify the complete lost set with two linear comm
+  # passes, preserving the fail-closed fallback if any inventory operation
+  # becomes unreadable (for example, a full runner filesystem).
   if [ "$lost" -gt 0 ]; then
-    if [ "$classification_ok" -eq 1 ] \
-        && ! LC_ALL=C sort -u "$lost_file" -o "$lost_file"; then classification_ok=0; fi
     if [ "$classification_ok" -eq 1 ] \
         && ! LC_ALL=C sort -u "$idx" -o "$idx"; then classification_ok=0; fi
     if [ "$classification_ok" -eq 1 ] \
@@ -253,14 +299,39 @@ trunk_replace_end() {
       fatal="$(wc -l < "$fatal_file" 2>/dev/null || printf '0')"
       benign="$(wc -l < "$benign_file" 2>/dev/null || printf '0')"
     fi
-    while IFS= read -r rel; do
-      if [ -n "$rel" ]; then fatal_s="$fatal_s $dist/$rel"; fi
-    done < <(head -n "${TRUNK_GUARD_SAMPLE_CAP:-12}" "$fatal_file" 2>/dev/null)
-    while IFS= read -r rel; do
-      if [ -n "$rel" ]; then benign_s="$benign_s $dist/$rel"; fi
-    done < <(head -n "${TRUNK_GUARD_SAMPLE_CAP:-12}" "$benign_file" 2>/dev/null)
   fi
-  rm -f "$all" "$idx" "$lost_file" "$fatal_file" "$benign_file" "$state/$label.benign-empty" 2>/dev/null || true
+  if [ "$classification_ok" -eq 0 ]; then
+    # Do not leave an unreadable inventory looking like a clean replacement.
+    # The complete snapshot is the safest available evidence when the current
+    # inventory or set comparison could not be materialised.
+    if [ "$lost" -eq 0 ]; then
+      echo "::error::[trunk-guard] $label: could not classify lost paths; treating all snapshotted paths as indexable"
+    fi
+    fatal_file="$all"
+    benign_file="$state/$label.benign-empty"
+    : > "$benign_file" 2>/dev/null || true
+    lost="$(wc -l < "$all" 2>/dev/null || printf '0')"
+    fatal="$lost"
+    benign=0
+  fi
+  if [ "$respelled" -gt 0 ]; then
+    while IFS= read -r rel; do
+      [ -n "$rel" ] || continue
+      twin="$(trunk_url_twin "$rel")"
+      if [ -n "$twin" ]; then
+        respelled_s="$respelled_s ${dist}/${rel}=>${dist}/${twin}"
+      fi
+    done < <(head -n "${TRUNK_GUARD_SAMPLE_CAP:-12}" "$respelled_file" 2>/dev/null)
+  fi
+  while IFS= read -r rel; do
+    if [ -n "$rel" ]; then fatal_s="$fatal_s $dist/$rel"; fi
+  done < <(head -n "${TRUNK_GUARD_SAMPLE_CAP:-12}" "$fatal_file" 2>/dev/null)
+  while IFS= read -r rel; do
+    if [ -n "$rel" ]; then benign_s="$benign_s $dist/$rel"; fi
+  done < <(head -n "${TRUNK_GUARD_SAMPLE_CAP:-12}" "$benign_file" 2>/dev/null)
+  rm -f \
+    "$all" "$idx" "$scope" "$current_file" "$exact_lost_file" "$twin_candidates_file" "$respelled_file" \
+    "$lost_file" "$fatal_file" "$benign_file" "$state/$label.benign-empty" 2>/dev/null || true
 
   # Report the re-spellings even on an otherwise clean replace: they are the
   # evidence the url-level comparison is doing something, and the line a future
