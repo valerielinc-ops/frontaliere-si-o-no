@@ -1,21 +1,19 @@
 {
   "key": "casale",
   "label": "Casale SA",
-  "generatedAt": "2026-11-17T09:15:54.836Z",
+  "generatedAt": "2026-11-17T21:17:53.364Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 21156,
-  "avgDurationMs": 21156,
+  "unchangedCount": 1,
+  "durationMs": 32603,
+  "avgDurationMs": 32603,
   "durationHistory": [
-    21156
+    32603
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "url": "https://recruit.casale.ch/o/process-engineer-recently-graduated",
       "applyUrl": "https://recruit.casale.ch/o/process-engineer-recently-graduated/c/new",
@@ -45,10 +43,10 @@
         "location": "Lugano"
       },
       "firstSeenAt": "2026-11-11T21:15:11.220Z",
-      "crawledAt": "2026-11-17T09:15:42.390Z",
+      "crawledAt": "2026-11-17T21:17:36.836Z",
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-10T09:15:42.390Z",
+      "validThrough": "2027-02-09T21:17:36.836Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 58000,
       "salaryMax": 88000,
@@ -61,7 +59,10 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://recruit.casale.ch/o/senior-estimating-engineer",
       "applyUrl": "https://recruit.casale.ch/o/senior-estimating-engineer/c/new",
@@ -91,10 +92,10 @@
         "location": "Lugano"
       },
       "firstSeenAt": "2026-10-09T09:16:20.980Z",
-      "crawledAt": "2026-11-17T09:15:42.390Z",
+      "crawledAt": "2026-11-17T21:17:36.836Z",
       "crawledAtSource": "slice-writer",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-08T09:15:42.390Z",
+      "validThrough": "2027-01-07T21:17:36.836Z",
       "validThroughSource": "last-observed-window",
       "salaryMin": 79500,
       "salaryMax": 120500,
@@ -109,5 +110,5 @@
       }
     }
   ],
-  "codeCommit": "0a26498058b0569b9b8027a7e9a03db3e2542c6a"
+  "codeCommit": "8a8594aa5e6a6b71cb0a2a3883a7ded1be40621c"
 }

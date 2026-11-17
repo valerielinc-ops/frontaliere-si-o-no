@@ -1,7 +1,7 @@
 {
   "crawlerKey": "arosa-lenzerheide",
-  "assembledAt": "2026-11-17T09:21:17.190Z",
-  "runId": "44052136225",
+  "assembledAt": "2026-11-17T21:17:20.028Z",
+  "runId": "44176153406",
   "jobs": [
     {
       "id": "arosa-lenzerheide-726881d50d40",
@@ -35,7 +35,7 @@
       "url": "https://app.reflinejobs.io/3316/0051/pub/36/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:21:11.651Z",
+      "crawledAt": "2026-11-17T21:17:12.605Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -85,7 +85,7 @@
       },
       "streetAddress": "Lenzerheide",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T09:21:11.651Z",
+      "validThrough": "2027-02-03T21:17:12.605Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -120,7 +120,7 @@
       "url": "https://app.reflinejobs.io/3316/0048/pub/33/index.html",
       "source": "Arosa Lenzerheide Dedicated Parser (Refline 3316)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:21:10.197Z",
+      "crawledAt": "2026-11-17T21:17:10.737Z",
       "addressLocality": "Lenzerheide",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -170,7 +170,7 @@
       },
       "streetAddress": "Lenzerheide",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-03T09:21:10.197Z",
+      "validThrough": "2027-02-03T21:17:10.737Z",
       "validThroughSource": "last-observed-window"
     }
   ]
