@@ -640,6 +640,44 @@ async function chooseInOwnedList(page, field, locator, value) {
 }
 
 /** SAP UI5's date picker: its own input, in its shadow root, in the pattern it states. */
+function parseMonthYear(value) {
+  const text = String(value || '').trim();
+  const iso = /^(\d{4})[-/.](\d{1,2})(?:[-/.]\d{1,2})?$/.exec(text);
+  if (iso) return { year: Number(iso[1]), month: Number(iso[2]) };
+  const my = /^(?:\d{1,2}[-/.])?(\d{1,2})[-/.](\d{4})$/.exec(text);
+  if (my) return { year: Number(my[2]), month: Number(my[1]) };
+  const yearOnly = /^(\d{4})$/.exec(text);
+  if (yearOnly) return { year: Number(yearOnly[1]), month: 1 };
+  const parsed = parsePortalDate(text);
+  return parsed ? { year: parsed.year, month: parsed.month } : null;
+}
+
+export async function fillWorkdayDate(locator, value) {
+  const my = parseMonthYear(value);
+  if (!my || my.month < 1 || my.month > 12 || my.year < 1900 || my.year > 2100) throw new Error('date_unreadable');
+  const spins = locator.locator('[role="spinbutton"]');
+  const count = await spins.count();
+  if (count < 2) throw new Error('workday_date_spinbuttons_missing');
+  const monthSpin = locator.locator('[role="spinbutton"][data-automation-id*="Month"], [role="spinbutton"][aria-label*="Month" i], [role="spinbutton"][aria-label*="Monat" i], [role="spinbutton"][aria-label*="Mois" i], [role="spinbutton"][aria-label*="Mese" i]').first();
+  const yearSpin = locator.locator('[role="spinbutton"][data-automation-id*="Year"], [role="spinbutton"][aria-label*="Year" i], [role="spinbutton"][aria-label*="Jahr" i], [role="spinbutton"][aria-label*="Ann" i], [role="spinbutton"][aria-label*="Anno" i]').first();
+  const mTarget = (await monthSpin.count()) ? monthSpin : spins.nth(0);
+  const yTarget = (await yearSpin.count()) ? yearSpin : spins.nth(1);
+  const writeSpin = async (target, digits) => {
+    const isInput = await target.evaluate((el) => el.tagName === 'INPUT' || el.tagName === 'TEXTAREA').catch(() => false);
+    if (isInput) {
+      await target.fill(digits, { timeout: ACTION_TIMEOUT_MS });
+      return;
+    }
+    await target.click({ timeout: ACTION_TIMEOUT_MS });
+    await target.press('ControlOrMeta+a').catch(() => {});
+    await target.press('Backspace').catch(() => {});
+    await target.page().keyboard.type(digits, { delay: 20 });
+  };
+  await writeSpin(mTarget, String(my.month).padStart(2, '0'));
+  await writeSpin(yTarget, String(my.year));
+  await yTarget.press('Tab').catch(() => {});
+}
+
 async function fillUi5Date(locator, field, value) {
   const date = parsePortalDate(value);
   if (!date) throw new Error('date_unreadable');
@@ -1061,6 +1099,8 @@ export async function applyActions(page, fields, actions, files, {
         if (!await dateRegistered(locator, action.value)) throw new Error('date_not_registered');
       } else if (field.widget === 'ui5-date') {
         await fillUi5Date(locator, field, action.value);
+      } else if (field.widget === 'workday-date') {
+        await fillWorkdayDate(locator, action.value);
       } else if (field.search && searchHolds(field.value, action.value)) {
         // The search box already holds this answer (Workday sets the phone code with the country): typed
         // and chosen again, it would be the chosen value that gets clicked.
