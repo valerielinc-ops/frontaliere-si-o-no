@@ -36,6 +36,7 @@ import {
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { classifyApplicationChannel, fetchJobPosting, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { candidateWithEdits } from '../../../functions/src/assistedApplicationCandidateEdits.js';
+import { loadCachedJobQuestions, mergePreharvestedQuestions, preharvestPublicAtsQuestions } from './preharvest.mjs';
 import { draftCvAnswers } from './cv-answers.mjs';
 import { draftDecisionAnswers } from './decision-answers.mjs';
 import { verifiedCvAnswers } from '../../../functions/src/assistedApplicationCvAnswers.js';
@@ -283,6 +284,15 @@ export async function buildDraft(ctx) {
     return !held.length;
   };
   let questions = ensureRequiredQuestions(match.questions, { requirements, profile, answers, locale }).filter(notAnsweredByUpload);
+  const [cachedJobQuestions, publicAtsQuestions] = await Promise.all([
+    loadCachedJobQuestions(db, postingUrl || order?.jobUrl),
+    preharvestPublicAtsQuestions(postingUrl || order?.jobUrl),
+  ]);
+  const preharvested = [...cachedJobQuestions, ...publicAtsQuestions].filter(notAnsweredByUpload);
+  if (preharvested.length) {
+    questions = mergePreharvestedQuestions(questions, preharvested);
+    log('merged preharvested ATS/cached questions', preharvested.length);
+  }
 
   const contactPerson = requirements.contactPerson || posting.contactPerson;
   // The CV text is the strict source of facts; the answers the candidate gave

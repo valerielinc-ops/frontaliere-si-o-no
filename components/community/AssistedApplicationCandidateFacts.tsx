@@ -16,9 +16,12 @@ export interface CandidateFacts {
   nationality?: string;
   criminalRecord?: string;
   debtRecord?: string;
+  noticePeriod?: string;
+  salaryExpectation?: string;
 }
 
 export const CANDIDATE_PASSPORTS = ['swiss', 'eu_efta', 'other'] as const;
+export const CANDIDATE_NOTICE_PERIODS = ['immediate', '1_month', '2_months', '3_months'] as const;
 /** The answers of the two legal facts, as stored (sanitizeCandidateFacts, firestore.rules). */
 export const CANDIDATE_LEGAL_ANSWERS = ['no', 'yes'] as const;
 
@@ -33,12 +36,16 @@ export function candidateFactsComplete(facts: CandidateFacts) {
 }
 
 export function cleanCandidateFacts(facts: CandidateFacts): CandidateFacts {
+  const notice = String(facts.noticePeriod || '');
+  const salary = String(facts.salaryExpectation || '').trim().slice(0, 40);
   return {
     workPermit: String(facts.workPermit || ''),
     passport: String(facts.passport || ''),
     nationality: String(facts.nationality || '').trim().slice(0, 80),
     criminalRecord: String(facts.criminalRecord || ''),
     debtRecord: String(facts.debtRecord || ''),
+    ...((CANDIDATE_NOTICE_PERIODS as readonly string[]).includes(notice) ? { noticePeriod: notice } : {}),
+    ...(salary ? { salaryExpectation: salary } : {}),
   };
 }
 
@@ -102,6 +109,19 @@ export function AssistedApplicationCandidateFacts({ value, onChange, locale, dis
             </select>
           </label>
         ))}
+      </div>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <label className="text-sm font-medium text-body">
+          {t('jobBoard.assisted.noticePeriod')}
+          <select value={value.noticePeriod || ''} onChange={(event) => onChange({ ...value, noticePeriod: event.target.value })} className={fieldClass}>
+            <option value="">—</option>
+            {CANDIDATE_NOTICE_PERIODS.map((period) => <option key={period} value={period}>{t(`jobBoard.assisted.noticePeriod.${period}`)}</option>)}
+          </select>
+        </label>
+        <label className="text-sm font-medium text-body">
+          {t('jobBoard.assisted.salaryExpectation')}
+          <input value={value.salaryExpectation || ''} onChange={(event) => onChange({ ...value, salaryExpectation: event.target.value })} placeholder={t('jobBoard.assisted.salaryExpectationPlaceholder')} className={fieldClass} autoComplete="off" maxLength={40} />
+        </label>
       </div>
     </fieldset>
   );
