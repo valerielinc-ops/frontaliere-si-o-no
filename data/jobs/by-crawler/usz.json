@@ -19120,12 +19120,12 @@
     },
     {
       "id": "usz-b91f43ca5749",
-      "slug": "leitende-oberarztin-leitender-oberarzt-w-m-d-intensivmedizin-80-100-usz-ch",
+      "slug": "senior-medical-officer-senior-medical-officer-m-f-d-medicina-intensiva-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "leitende-oberarztin-leitender-oberarzt-w-m-d-intensivmedizin-80-100-usz-ch",
-        "it": "leitende-oberarztin-leitender-oberarzt-w-m-d-intensivmedizin-80-100-usz-ch",
-        "en": "leitende-oberarztin-leitender-oberarzt-w-m-d-intensivmedizin-80-100-usz-ch",
-        "fr": "leitende-oberarztin-leitender-oberarzt-w-m-d-intensivmedizin-80-100-usz-ch"
+        "it": "senior-medical-officer-senior-medical-officer-m-f-d-medicina-intensiva-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "senior-medical-officer-senior-medical-officer-m-f-d-intensive-care-medicine-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "medecin-principal-medecin-principal-h-f-d-medecine-de-soins-intensifs-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -19187,7 +19187,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T21:18:08.835Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:18:08.835Z"
+      "firstSeenAt": "2026-11-16T21:18:08.835Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-oberarztin-leitender-oberarzt-w-m-d-intensivmedizin-80-100-usz-ch"
+        ],
+        "en": [
+          "leitende-oberarztin-leitender-oberarzt-w-m-d-intensivmedizin-80-100-usz-ch"
+        ],
+        "fr": [
+          "leitende-oberarztin-leitender-oberarzt-w-m-d-intensivmedizin-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-oberarztin-leitender-oberarzt-w-m-d-intensivmedizin-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-fcf35d989675",

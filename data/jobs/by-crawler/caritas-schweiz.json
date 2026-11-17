@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "caritas-schweiz-0e067aefd94b",
-      "slug": "projektleitung-kulturlegi-e-mentoringprojekte-m-d-w-100-caritas-schweiz-aarau",
+      "slug": "responsabile-di-progetto-kulturlegi-e-progetti-di-mentoring-m-d-w-100-caritas-schweiz-aarau",
       "slugByLocale": {
         "de": "projektleitung-kulturlegi-und-mentoringprojekte-m-d-w-100-caritas-schweiz-aarau",
-        "it": "projektleitung-kulturlegi-e-mentoringprojekte-m-d-w-100-caritas-schweiz-aarau",
-        "en": "projektleitung-kulturlegi-und-mentoringprojekte-m-d-w-100-caritas-schweiz-aarau",
-        "fr": "projektleitung-kulturlegi-und-mentoringprojekte-m-d-w-100-caritas-schweiz-aarau"
+        "it": "responsabile-di-progetto-kulturlegi-e-progetti-di-mentoring-m-d-w-100-caritas-schweiz-aarau",
+        "en": "project-management-culturelegi-and-mentoring-projects-m-d-f-100-caritas-schweiz-aarau",
+        "fr": "gestion-de-projet-culturelegi-et-projets-de-mentorat-m-d-f-100-caritas-schweiz-aarau"
       },
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -60,11 +60,19 @@
       "pensum": "70 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "projektleitung-kulturlegi-und-mentoringprojekte-m-d-w-100-caritas-schweiz-aarau",
+          "projektleitung-kulturlegi-e-mentoringprojekte-m-d-w-100-caritas-schweiz-aarau"
+        ],
+        "en": [
+          "projektleitung-kulturlegi-und-mentoringprojekte-m-d-w-100-caritas-schweiz-aarau"
+        ],
+        "fr": [
           "projektleitung-kulturlegi-und-mentoringprojekte-m-d-w-100-caritas-schweiz-aarau"
         ]
       },
       "previousSlugs": [
-        "projektleitung-kulturlegi-und-mentoringprojekte-m-d-w-100-caritas-schweiz-aarau"
+        "projektleitung-kulturlegi-und-mentoringprojekte-m-d-w-100-caritas-schweiz-aarau",
+        "projektleitung-kulturlegi-e-mentoringprojekte-m-d-w-100-caritas-schweiz-aarau"
       ],
       "salaryMin": 52500,
       "salaryMax": 96500,
@@ -87,12 +95,12 @@
     },
     {
       "id": "caritas-schweiz-9ddec5edc18c",
-      "slug": "kv-allrounder-in-m-w-d-40-caritas-schweiz-aarau",
+      "slug": "impiegato-a-commerciale-tuttofare-m-f-d-40-caritas-schweiz-aarau",
       "slugByLocale": {
         "de": "kv-allrounder-in-m-w-d-40-caritas-schweiz-aarau",
-        "it": "kv-allrounder-in-m-w-d-40-caritas-schweiz-aarau",
-        "en": "kv-allrounder-in-m-w-d-40-caritas-schweiz-aarau",
-        "fr": "kv-allrounder-in-m-w-d-40-caritas-schweiz-aarau"
+        "it": "impiegato-a-commerciale-tuttofare-m-f-d-40-caritas-schweiz-aarau",
+        "en": "commercial-all-rounder-m-f-d-40-caritas-schweiz-aarau",
+        "fr": "employe-e-de-commerce-polyvalent-e-h-f-d-40-caritas-schweiz-aarau"
       },
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -157,7 +165,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:16:27.764Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:16:27.764Z"
+      "firstSeenAt": "2026-11-16T21:16:27.764Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kv-allrounder-in-m-w-d-40-caritas-schweiz-aarau"
+        ],
+        "en": [
+          "kv-allrounder-in-m-w-d-40-caritas-schweiz-aarau"
+        ],
+        "fr": [
+          "kv-allrounder-in-m-w-d-40-caritas-schweiz-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "kv-allrounder-in-m-w-d-40-caritas-schweiz-aarau"
+      ]
     },
     {
       "id": "caritas-schweiz-e24ca4232fc9",
@@ -509,12 +531,12 @@
     },
     {
       "id": "caritas-schweiz-f587483a5b3e",
-      "slug": "fachbereichsleitung-gesundheit-mna-diplomierte-pflegefachperson-fh-80-100-m-w-d-caritas",
+      "slug": "dipartimento-capo-della-salute-mna-infermiera-certificata-fh-80-100-m-f-d-caritas-schweiz-zurich",
       "slugByLocale": {
         "de": "fachbereichsleitung-gesundheit-mna-diplomierte-pflegefachperson-fh-80-100-m-w-d-caritas",
-        "it": "fachbereichsleitung-gesundheit-mna-diplomierte-pflegefachperson-fh-80-100-m-w-d-caritas",
-        "en": "fachbereichsleitung-gesundheit-mna-diplomierte-pflegefachperson-fh-80-100-m-w-d-caritas",
-        "fr": "fachbereichsleitung-gesundheit-mna-diplomierte-pflegefachperson-fh-80-100-m-w-d-caritas"
+        "it": "dipartimento-capo-della-salute-mna-infermiera-certificata-fh-80-100-m-f-d-caritas-schweiz-zurich",
+        "en": "department-head-of-health-mna-certified-nurse-fh-80-100-m-f-d-caritas-schweiz-zurich",
+        "fr": "chef-de-departement-de-la-sante-mna-infirmiere-agreee-fh-80-100-h-f-d-caritas-schweiz-zurich"
       },
       "company": "Caritas Schweiz",
       "companyKey": "caritas-schweiz",
@@ -579,7 +601,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-10T21:16:25.445Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:16:25.445Z"
+      "firstSeenAt": "2026-11-16T21:16:25.445Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachbereichsleitung-gesundheit-mna-diplomierte-pflegefachperson-fh-80-100-m-w-d-caritas"
+        ],
+        "en": [
+          "fachbereichsleitung-gesundheit-mna-diplomierte-pflegefachperson-fh-80-100-m-w-d-caritas"
+        ],
+        "fr": [
+          "fachbereichsleitung-gesundheit-mna-diplomierte-pflegefachperson-fh-80-100-m-w-d-caritas"
+        ]
+      },
+      "previousSlugs": [
+        "fachbereichsleitung-gesundheit-mna-diplomierte-pflegefachperson-fh-80-100-m-w-d-caritas"
+      ]
     },
     {
       "id": "caritas-schweiz-9d8a49d4a0d0",

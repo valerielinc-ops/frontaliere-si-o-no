@@ -107,8 +107,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-verkaufssupport-m-w-d-generalagentur-wil-mobiliar-ch",
         "it": "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-wil-die-mobiliar-wil",
-        "en": "mitarbeiter-verkaufssupport-m-w-d-generalagentur-wil-mobiliar-ch",
-        "fr": "mitarbeiter-verkaufssupport-m-w-d-generalagentur-wil-mobiliar-ch"
+        "en": "employee-sales-support-m-f-d-general-agency-wil-die-mobiliar-wil",
+        "fr": "soutien-aux-ventes-des-employes-h-f-d-agence-generale-wil-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -169,6 +169,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkaufssupport-m-w-d-generalagentur-wil-mobiliar-ch"
+        ],
+        "en": [
+          "mitarbeiter-verkaufssupport-m-w-d-generalagentur-wil-mobiliar-ch"
+        ],
+        "fr": [
+          "mitarbeiter-verkaufssupport-m-w-d-generalagentur-wil-mobiliar-ch"
         ]
       },
       "previousSlugs": [
@@ -196,12 +202,12 @@
     },
     {
       "id": "mobiliar-17787540fa5e",
-      "slug": "product-owner-prozess-vertragsfuhrung-w-m-d-mobiliar-ch",
+      "slug": "proprietario-del-prodotto-gestione-del-contratto-m-f-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "product-owner-prozess-vertragsfuhrung-w-m-d-mobiliar-ch",
-        "it": "product-owner-prozess-vertragsfuhrung-w-m-d-mobiliar-ch",
-        "en": "product-owner-prozess-vertragsfuhrung-w-m-d-mobiliar-ch",
-        "fr": "product-owner-prozess-vertragsfuhrung-w-m-d-mobiliar-ch"
+        "it": "proprietario-del-prodotto-gestione-del-contratto-m-f-d-die-mobiliar-bern",
+        "en": "product-owner-process-contract-management-m-f-d-die-mobiliar-bern",
+        "fr": "processus-du-proprietaire-du-produit-gestion-des-contrats-h-f-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -287,19 +293,23 @@
       "previousSlugs": [
         "proprietario-del-prodotto-gestione-del-contratto-m-f-d-die-mobiliar-bern",
         "product-owner-process-contract-management-m-f-d-die-mobiliar-bern",
-        "processus-du-proprietaire-du-produit-gestion-des-contrats-h-f-d-die-mobiliar-bern"
+        "processus-du-proprietaire-du-produit-gestion-des-contrats-h-f-d-die-mobiliar-bern",
+        "product-owner-prozess-vertragsfuhrung-w-m-d-mobiliar-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "proprietario-del-prodotto-gestione-del-contratto-m-f-d-die-mobiliar-bern",
           "product-owner-process-contract-management-m-f-d-die-mobiliar-bern",
-          "processus-du-proprietaire-du-produit-gestion-des-contrats-h-f-d-die-mobiliar-bern"
+          "processus-du-proprietaire-du-produit-gestion-des-contrats-h-f-d-die-mobiliar-bern",
+          "product-owner-prozess-vertragsfuhrung-w-m-d-mobiliar-ch"
         ],
         "en": [
-          "product-owner-process-contract-management-m-f-d-die-mobiliar-bern"
+          "product-owner-process-contract-management-m-f-d-die-mobiliar-bern",
+          "product-owner-prozess-vertragsfuhrung-w-m-d-mobiliar-ch"
         ],
         "fr": [
-          "processus-du-proprietaire-du-produit-gestion-des-contrats-h-f-d-die-mobiliar-bern"
+          "processus-du-proprietaire-du-produit-gestion-des-contrats-h-f-d-die-mobiliar-bern",
+          "product-owner-prozess-vertragsfuhrung-w-m-d-mobiliar-ch"
         ]
       }
     },
@@ -406,8 +416,8 @@
       "slugByLocale": {
         "de": "spezialist-mahnen-betreiben-w-m-d-mobiliar-ch",
         "it": "spezialist-mahnen-betreiben-m-w-d-die-mobiliar-bern",
-        "en": "spezialist-mahnen-betreiben-m-w-d-die-mobiliar-bern",
-        "fr": "spezialist-mahnen-betreiben-m-w-d-die-mobiliar-bern"
+        "en": "specialist-reminders-operating-m-f-d-die-mobiliar-bern",
+        "fr": "rappels-specialises-et-exploitation-h-f-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -484,12 +494,6 @@
         "it": [
           "spezialist-mahnen-betreiben-w-m-d-mobiliar-ch",
           "promemoria-specialistica-e-funzionamento-m-f-d-die-mobiliar-bern"
-        ],
-        "en": [
-          "specialist-reminders-operating-m-f-d-die-mobiliar-bern"
-        ],
-        "fr": [
-          "rappels-specialises-et-exploitation-h-f-d-die-mobiliar-bern"
         ]
       },
       "previousSlugs": [
@@ -610,12 +614,12 @@
     },
     {
       "id": "mobiliar-c75b93f03059",
-      "slug": "fachspezialist-projektmanagement-w-m-d-die-mobiliar-bern",
+      "slug": "gestione-del-progetto-specializzato-m-f-d-die-mobiliar-bern",
       "slugByLocale": {
         "de": "fachspezialist-projektmanagement-w-m-d-mobiliar-ch",
-        "it": "fachspezialist-projektmanagement-w-m-d-die-mobiliar-bern",
-        "en": "fachspezialist-projektmanagement-w-m-d-die-mobiliar-bern",
-        "fr": "fachspezialist-projektmanagement-w-m-d-die-mobiliar-bern"
+        "it": "gestione-del-progetto-specializzato-m-f-d-die-mobiliar-bern",
+        "en": "specialist-project-management-m-f-d-die-mobiliar-bern",
+        "fr": "specialiste-de-la-gestion-de-projet-h-f-d-die-mobiliar-bern"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -682,11 +686,19 @@
       "sfJobId": "1165805555",
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-projektmanagement-w-m-d-mobiliar-ch"
+          "fachspezialist-projektmanagement-w-m-d-mobiliar-ch",
+          "fachspezialist-projektmanagement-w-m-d-die-mobiliar-bern"
+        ],
+        "en": [
+          "fachspezialist-projektmanagement-w-m-d-die-mobiliar-bern"
+        ],
+        "fr": [
+          "fachspezialist-projektmanagement-w-m-d-die-mobiliar-bern"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-projektmanagement-w-m-d-mobiliar-ch"
+        "fachspezialist-projektmanagement-w-m-d-mobiliar-ch",
+        "fachspezialist-projektmanagement-w-m-d-die-mobiliar-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -711,12 +723,12 @@
     },
     {
       "id": "mobiliar-903ceaa947ac",
-      "slug": "schadenmitarbeiter-m-w-d-agenzia-generale-horgen-die-mobiliar-horgen",
+      "slug": "addetto-ai-sinistri-m-f-d-agenzia-generale-horgen-die-mobiliar-horgen",
       "slugByLocale": {
         "de": "schadenmitarbeiter-w-m-d-generalagentur-horgen-mobiliar-ch",
-        "it": "schadenmitarbeiter-m-w-d-agenzia-generale-horgen-die-mobiliar-horgen",
-        "en": "schadenmitarbeiter-w-m-d-generalagentur-horgen-mobiliar-ch",
-        "fr": "schadenmitarbeiter-w-m-d-generalagentur-horgen-mobiliar-ch"
+        "it": "addetto-ai-sinistri-m-f-d-agenzia-generale-horgen-die-mobiliar-horgen",
+        "en": "claims-employee-m-f-d-general-agency-horgen-die-mobiliar-horgen",
+        "fr": "employe-des-reclamations-h-f-d-agence-generale-horgen-die-mobiliar-horgen"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -775,11 +787,19 @@
       "sfJobId": "1165802555",
       "previousSlugsByLocale": {
         "it": [
+          "schadenmitarbeiter-w-m-d-generalagentur-horgen-mobiliar-ch",
+          "schadenmitarbeiter-m-w-d-agenzia-generale-horgen-die-mobiliar-horgen"
+        ],
+        "en": [
+          "schadenmitarbeiter-w-m-d-generalagentur-horgen-mobiliar-ch"
+        ],
+        "fr": [
           "schadenmitarbeiter-w-m-d-generalagentur-horgen-mobiliar-ch"
         ]
       },
       "previousSlugs": [
-        "schadenmitarbeiter-w-m-d-generalagentur-horgen-mobiliar-ch"
+        "schadenmitarbeiter-w-m-d-generalagentur-horgen-mobiliar-ch",
+        "schadenmitarbeiter-m-w-d-agenzia-generale-horgen-die-mobiliar-horgen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -804,12 +824,12 @@
     },
     {
       "id": "mobiliar-1ba3bf0f522b",
-      "slug": "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-chur-die-mobiliar-chur",
+      "slug": "addetto-al-supporto-vendite-m-f-d-agenzia-generale-chur-die-mobiliar-chur",
       "slugByLocale": {
         "de": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-chur-mobiliar-ch",
-        "it": "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-chur-die-mobiliar-chur",
-        "en": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-chur-mobiliar-ch",
-        "fr": "mitarbeiter-verkaufssupport-w-m-d-generalagentur-chur-mobiliar-ch"
+        "it": "addetto-al-supporto-vendite-m-f-d-agenzia-generale-chur-die-mobiliar-chur",
+        "en": "employee-sales-support-m-f-d-general-agency-chur-die-mobiliar-chur",
+        "fr": "soutien-aux-ventes-des-employes-h-f-d-agence-generale-chur-die-mobiliar-chur"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -856,11 +876,19 @@
       "sfJobId": "1165802655",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-verkaufssupport-w-m-d-generalagentur-chur-mobiliar-ch",
+          "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-chur-die-mobiliar-chur"
+        ],
+        "en": [
+          "mitarbeiter-verkaufssupport-w-m-d-generalagentur-chur-mobiliar-ch"
+        ],
+        "fr": [
           "mitarbeiter-verkaufssupport-w-m-d-generalagentur-chur-mobiliar-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-verkaufssupport-w-m-d-generalagentur-chur-mobiliar-ch"
+        "mitarbeiter-verkaufssupport-w-m-d-generalagentur-chur-mobiliar-ch",
+        "collaboratore-trice-verkaufssupport-m-w-d-agenzia-generale-chur-die-mobiliar-chur"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -7121,9 +7149,9 @@
       "slug": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
       "slugByLocale": {
         "it": "schadenspezialist-m-w-d-agenzia-generale-wil-sg-die-mobiliar-wil",
-        "en": "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "en": "projektleiter-m-d-die-mobiliar-wil",
         "de": "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "fr": "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
+        "fr": "projektleiter-m-d-die-mobiliar-wil"
       },
       "company": "die Mobiliar",
       "companyKey": "mobiliar",
@@ -7187,17 +7215,18 @@
       "sfJobId": "1164087255",
       "previousSlugs": [
         "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch",
-        "projektleiter-m-d-die-mobiliar-wil"
+        "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil",
+        "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schadenspezialist-w-m-d-generalagentur-wil-sg-mobiliar-ch"
         ],
         "en": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "damage-specialist-m-w-d-general-agency-wil-sg-die-mobiliar-wil"
         ],
         "fr": [
-          "projektleiter-m-d-die-mobiliar-wil"
+          "specialiste-des-dommages-m-w-d-agence-generale-wil-sg-die-mobiliar-wil"
         ]
       },
       "firstSeenAt": "2026-05-10T22:08:57.734Z",

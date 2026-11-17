@@ -13695,7 +13695,7 @@
       "slugByLocale": {
         "it": "gestione-account-chiave-gastronomia-fresh-food-beverage-group-zurich",
         "en": "key-account-manager-gastronomie-fresh-food-beverage-group-zurich-2uar1f",
-        "de": "key-account-manager-gastronomie-fresh-food-beverage-group-zurich-2uar1f",
+        "de": "schlusselkontomanager-gastronomie-fresh-food-beverage-group-zurich",
         "fr": "key-account-manager-gastronomie-fresh-food-beverage-group-zurich-2uar1f"
       },
       "requirementsByLocale": {
@@ -13717,6 +13717,9 @@
       "previousSlugsByLocale": {
         "it": [
           "key-account-manager-gastronomie-fresh-food-beverage-group-zurich",
+          "key-account-manager-gastronomie-fresh-food-beverage-group-zurich-2uar1f"
+        ],
+        "de": [
           "key-account-manager-gastronomie-fresh-food-beverage-group-zurich-2uar1f"
         ]
       },

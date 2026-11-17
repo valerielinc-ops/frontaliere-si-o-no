@@ -1316,10 +1316,10 @@
     },
     {
       "id": "totalenergies-d012268297eb",
-      "slug": "shipping-overheads-accountant-intern-totalenergies-geneve",
+      "slug": "shipping-overheads-contabile-tirocinante-totalenergies-geneve",
       "slugByLocale": {
         "en": "shipping-overheads-accountant-intern-totalenergies-geneve",
-        "it": "shipping-overheads-accountant-intern-totalenergies-geneve",
+        "it": "shipping-overheads-contabile-tirocinante-totalenergies-geneve",
         "de": "shipping-overheads-accountant-intern-totalenergies-geneve",
         "fr": "shipping-overheads-accountant-intern-totalenergies-geneve"
       },
@@ -1389,13 +1389,15 @@
       "previousSlugs": [
         "shipping-overheads-contabile-tirocinante-totalenergies-geneve",
         "shipping-overheads-buchhalter-praktikant-totalenergies-geneve",
-        "shipping-overheads-comptable-stagiaire-totalenergies-geneve"
+        "shipping-overheads-comptable-stagiaire-totalenergies-geneve",
+        "shipping-overheads-accountant-intern-totalenergies-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "shipping-overheads-contabile-tirocinante-totalenergies-geneve",
           "shipping-overheads-buchhalter-praktikant-totalenergies-geneve",
-          "shipping-overheads-comptable-stagiaire-totalenergies-geneve"
+          "shipping-overheads-comptable-stagiaire-totalenergies-geneve",
+          "shipping-overheads-accountant-intern-totalenergies-geneve"
         ],
         "de": [
           "shipping-overheads-buchhalter-praktikant-totalenergies-geneve"
@@ -1407,12 +1409,12 @@
     },
     {
       "id": "totalenergies-49fd518760a9",
-      "slug": "ai-engineer-intern-totalenergies-geneve",
+      "slug": "ai-ingegnere-tirocinante-totalenergies-geneve",
       "slugByLocale": {
         "en": "ai-engineer-intern-totalenergies-geneve",
-        "it": "ai-engineer-intern-totalenergies-geneve",
-        "de": "ai-engineer-intern-totalenergies-geneve",
-        "fr": "ai-engineer-intern-totalenergies-geneve"
+        "it": "ai-ingegnere-tirocinante-totalenergies-geneve",
+        "de": "ai-ingenieur-praktikant-totalenergies-geneve",
+        "fr": "ai-ingenieur-stagiaire-totalenergies-geneve"
       },
       "company": "TotalEnergies",
       "companyKey": "totalenergies",
@@ -1476,7 +1478,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-31T21:20:45.258Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:20:45.258Z"
+      "firstSeenAt": "2026-11-16T21:20:45.258Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ai-engineer-intern-totalenergies-geneve"
+        ],
+        "de": [
+          "ai-engineer-intern-totalenergies-geneve"
+        ],
+        "fr": [
+          "ai-engineer-intern-totalenergies-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "ai-engineer-intern-totalenergies-geneve"
+      ]
     },
     {
       "id": "totalenergies-bb6abb3eee25",

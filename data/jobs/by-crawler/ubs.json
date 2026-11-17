@@ -4071,12 +4071,12 @@
     },
     {
       "id": "ubs-26a6406710d3",
-      "slug": "2027-internship-business-management-wealth-management-zurich-ubs-zurich",
+      "slug": "2027-stage-gestione-della-ricchezza-aziendale-zurigo-ubs-zurich",
       "slugByLocale": {
         "en": "2027-internship-business-management-wealth-management-zurich-ubs-zurich",
-        "it": "2027-internship-business-management-wealth-management-zurich-ubs-zurich",
+        "it": "2027-stage-gestione-della-ricchezza-aziendale-zurigo-ubs-zurich",
         "de": "2027-internship-business-management-wealth-management-zurich-ubs-zurich",
-        "fr": "2027-internship-business-management-wealth-management-zurich-ubs-zurich"
+        "fr": "2027-stage-gestion-d-entreprise-gestion-de-patrimoine-zurich-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -4161,14 +4161,25 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-14T21:18:46.399Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:18:46.399Z"
+      "firstSeenAt": "2026-11-16T21:18:46.399Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-internship-business-management-wealth-management-zurich-ubs-zurich"
+        ],
+        "fr": [
+          "2027-internship-business-management-wealth-management-zurich-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-internship-business-management-wealth-management-zurich-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-e0d7bd79cc18",
-      "slug": "2027-internship-ux-ui-designer-zurich-ubs-zurich",
+      "slug": "2027-stage-ux-ui-designer-zurigo-ubs-zurich",
       "slugByLocale": {
         "en": "2027-internship-ux-ui-designer-zurich-ubs-zurich",
-        "it": "2027-internship-ux-ui-designer-zurich-ubs-zurich",
+        "it": "2027-stage-ux-ui-designer-zurigo-ubs-zurich",
         "de": "2027-internship-ux-ui-designer-zurich-ubs-zurich",
         "fr": "2027-internship-ux-ui-designer-zurich-ubs-zurich"
       },
@@ -4255,7 +4266,15 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-14T21:18:45.743Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:18:45.743Z"
+      "firstSeenAt": "2026-11-16T21:18:45.743Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "2027-internship-ux-ui-designer-zurich-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "2027-internship-ux-ui-designer-zurich-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-7a92a8a4e5b6",
@@ -9065,7 +9084,7 @@
       "slugByLocale": {
         "it": "responsabile-relazioni-wm-ubs-zurich",
         "en": "relationship-manager-wm-ubs-zurich",
-        "de": "relationship-manager-wm-osteuropa-ubs-zurich",
+        "de": "responsabile-relazioni-wm-ubs-zurich",
         "fr": "gestionnaire-de-relations-wm-ubs-zurich"
       },
       "company": "UBS",
@@ -9118,11 +9137,15 @@
         "jobType": ""
       },
       "previousSlugs": [
-        "relationship-manager-wm-eastern-europe-ubs-zurich"
+        "relationship-manager-wm-eastern-europe-ubs-zurich",
+        "relationship-manager-wm-osteuropa-ubs-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "relationship-manager-wm-eastern-europe-ubs-zurich"
+        ],
+        "de": [
+          "relationship-manager-wm-osteuropa-ubs-zurich"
         ]
       },
       "firstSeenAt": "2026-10-23T09:26:39.470Z",
@@ -13143,8 +13166,8 @@
       "slugByLocale": {
         "en": "desk-head-arabian-gulf-ubs-zurich",
         "it": "desk-head-arabian-gulf-ubs-zurich",
-        "de": "desk-head-arabian-gulf-ubs-zurich",
-        "fr": "desk-head-arabian-gulf-ubs-zurich"
+        "de": "desk-head-arabischer-golf-ubs-zurich",
+        "fr": "tete-de-bureau-golfe-arabe-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -13233,12 +13256,12 @@
     },
     {
       "id": "ubs-155051abb855",
-      "slug": "relationship-manager-ubs-zurich",
+      "slug": "responsabile-relazioni-ubs-zurich",
       "slugByLocale": {
         "en": "relationship-manager-ubs-zurich",
-        "it": "relationship-manager-ubs-zurich",
-        "de": "relationship-manager-ubs-zurich",
-        "fr": "relationship-manager-ubs-zurich"
+        "it": "responsabile-relazioni-ubs-zurich",
+        "de": "beziehungsmanager-ubs-zurich",
+        "fr": "gestionnaire-de-relations-ubs-zurich"
       },
       "company": "UBS",
       "companyKey": "ubs",
@@ -13323,7 +13346,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-14T21:17:41.141Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:17:41.141Z"
+      "firstSeenAt": "2026-11-16T21:17:41.141Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "relationship-manager-ubs-zurich"
+        ],
+        "de": [
+          "relationship-manager-ubs-zurich"
+        ],
+        "fr": [
+          "relationship-manager-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "relationship-manager-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-1fe40b96a117",
