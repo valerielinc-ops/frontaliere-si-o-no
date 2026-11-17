@@ -9385,6 +9385,64 @@ async function recoverAccountPassword({ page, snapshot, ctx, host, account, diag
   return { ...signedIn, accountRecovered: true };
 }
 
+const SECURITY_SECTION_RE = /(?:security\s*questions?|domande\s+di\s+sicurezza|questions?\s+de\s+s[eé]curit[eé]|sicherheitsfragen)/i;
+const SECURITY_FIELD_RE = /^(?:security\s+)?(?:question|domanda|frage)\s*(\d+)\s*(answer|risposta|r[eé]ponse|antwort)?\s*[＊*]?$/i;
+
+function securityQuestionFieldRole(field) {
+  const kind = String(field?.kind || '').toLowerCase();
+  const inputType = String(field?.inputType || '').toLowerCase();
+  const isSelect = kind === 'select' || kind === 'listbox'
+    || inputType === 'select' || inputType === 'listbox';
+  if (isSelect) return 'prompt';
+  const isAnswerControl = kind === 'text' || kind === 'textarea'
+    || inputType === 'text' || inputType === 'textarea';
+  return isAnswerControl && (!Array.isArray(field?.options) || field.options.length === 0)
+    ? 'answer'
+    : '';
+}
+
+function securityQuestionFieldScope(field) {
+  const frame = Number.isSafeInteger(field?.frame) ? field.frame : null;
+  const formId = String(field?.formId || '').trim();
+  const formIndex = Number.isSafeInteger(field?.form) && field.form >= 0
+    ? `index:${field.form}` : '';
+  const roleFormId = String(field?.roleFormId || '').trim();
+  // BrassRing's proxy listbox can report form=-1 while the native answer
+  // reports a numeric form index. The stable DOM form identity must win when
+  // it is available; otherwise a real prompt/answer pair is split across
+  // scopes and remains in the generic planner path.
+  const owner = formId ? `id:${formId}` : formIndex || (roleFormId ? `role:${roleFormId}` : '');
+  return frame === null || !owner ? '' : `${frame}\u0000${owner}`;
+}
+
+/**
+ * Recognize a registration security-question field, including BrassRing's
+ * context-free `Question N` + `Question N Answer` pair.
+ *
+ * The pair check is deliberately structural: an unpaired generic listbox
+ * named `Question N` must not be treated as a synthetic security answer.
+ */
+export function isSecurityQuestionField(field, fields = []) {
+  const label = String(field?.label || field?.name || '').trim();
+  const match = SECURITY_FIELD_RE.exec(label);
+  if (!match) return false;
+  if (SECURITY_SECTION_RE.test(`${field?.section || ''} ${field?.context || ''}`)) return true;
+
+  const index = Number(match[1]);
+  const isAnswer = Boolean(match[2]);
+  const role = securityQuestionFieldRole(field);
+  if (!role || role !== (isAnswer ? 'answer' : 'prompt')) return false;
+  const scope = securityQuestionFieldScope(field);
+  if (!scope) return false;
+  return (Array.isArray(fields) ? fields : []).some((candidate) => {
+    if (candidate === field) return false;
+    const candidateMatch = SECURITY_FIELD_RE.exec(String(candidate?.label || candidate?.name || '').trim());
+    if (!candidateMatch || Number(candidateMatch[1]) !== index || Boolean(candidateMatch[2]) === isAnswer) return false;
+    if (securityQuestionFieldScope(candidate) !== scope) return false;
+    return securityQuestionFieldRole(candidate) === (isAnswer ? 'prompt' : 'answer');
+  });
+}
+
 /**
  * One login page (account.mjs): sign in with the order's account, or create
  * it on the alias, or verify it. Returns the next page, a handoff reason,
@@ -9555,15 +9613,11 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     return { snapshot: await awaitAuthView(page, snapshot) };
   }
   if (ctx.dryRun) return { dryRun: true };
-  const SECURITY_SECTION_RE = /(?:security\s*questions?|domande\s+di\s+sicurezza|questions?\s+de\s+s[eé]curit[eé]|sicherheitsfragen)/i;
-  const SECURITY_FIELD_RE = /^(?:security\s+)?(?:question|domanda|frage)\s*(\d+)\s*(answer|risposta|r[eé]ponse|antwort)?\s*[＊*]?$/i;
-  const isSecurityQuestionField = (field) => SECURITY_SECTION_RE.test(`${field?.section || ''} ${field?.context || ''}`)
-    && SECURITY_FIELD_RE.test(String(field?.label || field?.name || '').trim());
   const securityQuestionAnswers = new Map();
   const planRegistrationWithSecurityQuestions = async (plannedSnapshot) => {
     const allFields = Array.isArray(plannedSnapshot?.fields) ? plannedSnapshot.fields : [];
-    const securityFields = allFields.filter(isSecurityQuestionField);
-    const nonSecurityFields = allFields.filter((field) => !isSecurityQuestionField(field) && field.inputType !== 'password');
+    const securityFields = allFields.filter((field) => isSecurityQuestionField(field, allFields));
+    const nonSecurityFields = allFields.filter((field) => !isSecurityQuestionField(field, allFields) && field.inputType !== 'password');
     const planned = await planPage({
       snapshot: { ...plannedSnapshot, fields: nonSecurityFields },
       candidate,
@@ -9582,8 +9636,11 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     for (const field of securityFields) {
       const match = SECURITY_FIELD_RE.exec(String(field.label || field.name || '').trim());
       const index = Number(match?.[1]) || 1;
-      const isAnswer = Boolean(match?.[2])
-        || (field.kind !== 'select' && field.kind !== 'listbox' && (!Array.isArray(field.options) || field.options.length === 0));
+      // Keep the planner's action role identical to the classifier's role:
+      // BrassRing may expose a listbox through inputType while leaving kind
+      // empty on the proxy field. Looking only at kind would fill the prompt
+      // as an answer instead of selecting it.
+      const isAnswer = Boolean(match?.[2]) || securityQuestionFieldRole(field) === 'answer';
       if (!isAnswer) {
         let options = Array.isArray(field.options) ? field.options : [];
         if (!options.length) {

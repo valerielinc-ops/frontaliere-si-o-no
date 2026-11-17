@@ -21,6 +21,7 @@ import { ASSISTED_APPLICATION_STORAGE_BUCKET, detectCvFileType } from '../../fun
 import { ASSISTED_APPLICATION_ORDER_ID_RE } from '../../functions/src/assistedApplicationConstants.js';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { buildDraft, DraftAbort } from './lib/draft.mjs';
+import { saveCachedJobQuestions } from './lib/preharvest.mjs';
 import { maskValues, personalValuesOf, runKeyFrom } from './lib/secure-run.mjs';
 import { portalAccountStore } from './lib/portal/account.mjs';
 import { portalKnowledgeStore } from './lib/portal/knowledge.mjs';
@@ -298,8 +299,10 @@ async function main() {
         return;
       }
       const details = questionDetailsForEvent(event.questionDetails, portalQuestionKey);
-      if (details.length) event.questionDetails = details;
-      else delete event.questionDetails;
+      if (details.length) {
+        event.questionDetails = details;
+        await saveCachedJobQuestions(db, order.jobUrl, details, { source: 'portal_discovery' });
+      } else delete event.questionDetails;
     }
     // What left (lib/submit.mjs), on the draft first: before the event marks the order sent (whatever it
     // sets off, the candidate's «inviata» e-mail and the review page, finds it there), and before every

@@ -69,10 +69,10 @@ function targetAlreadyServesSlug(job, locale, slug) {
   const normalized = normalizedSlug(slug);
   if (!normalized || !job || typeof job !== 'object') return false;
 
-  // The master slug is the live Italian route even when the redirect was
-  // recorded under a different locale. Adding it back as history would create
-  // a self-canonical bridge on the next SEO emit.
-  if (normalized === normalizedSlug(job.slug)) return true;
+  // The master slug is the live Italian route. It is self-canonical for the
+  // Italian bucket (and for the flat legacy bucket), but not automatically for
+  // en/de/fr: there it may be the old active route that needs a bridge.
+  if ((locale === null || locale === 'it') && normalized === normalizedSlug(job.slug)) return true;
 
   if (locale !== null) {
     return normalized === normalizedSlug(job.slugByLocale?.[locale]);
@@ -97,7 +97,7 @@ function hasSelfCanonicalBridge(job) {
     const activeLocale = normalizedSlug(activeByLocale[locale]);
     if (slugs.some((slug) => {
       const normalized = normalizedSlug(slug);
-      return normalized === activeLocale || normalized === masterSlug;
+      return normalized === activeLocale || (locale === 'it' && normalized === masterSlug);
     })) return true;
   }
 

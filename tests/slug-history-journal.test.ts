@@ -394,13 +394,20 @@ describe('slug-history-journal', () => {
       },
       previousSlugsByLocale: {
         it: ['tornitore-medacta-international-sa-castel-san-pietro-rancate'], // ≠ active IT — keep
-        en: ['turner-medacta-international-sa-castel-san-pietro-rancate', 'lathe-operator-...-rancate'], // first matches active EN → drop; second keep
+        en: [
+          'turner-medacta-international-sa-castel-san-pietro-rancate',
+          'tornitore-medacta-international-sa-castel-san-pietro', // old EN route shared the master slug — keep
+          'lathe-operator-...-rancate',
+        ], // first matches active EN → drop; the old master route and second keep
         de: ['turner-medacta-international-sa-castel-san-pietro-rancate'], // matches active DE → drop
       },
     };
     cleanPreviousSlugsPerLocale(job);
     expect(job.previousSlugsByLocale.it).toEqual(['tornitore-medacta-international-sa-castel-san-pietro-rancate']);
-    expect(job.previousSlugsByLocale.en).toEqual(['lathe-operator-...-rancate']);
+    expect(job.previousSlugsByLocale.en).toEqual([
+      'tornitore-medacta-international-sa-castel-san-pietro',
+      'lathe-operator-...-rancate',
+    ]);
     expect(job.previousSlugsByLocale.de).toBeUndefined();
     const drops = getEvents().filter((e: any) => e.action === 'drop');
     expect(drops).toHaveLength(2);

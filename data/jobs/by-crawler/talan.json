@@ -1,7 +1,7 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-11-17T06:51:37.215Z",
-  "runId": "44032839886",
+  "assembledAt": "2026-11-17T09:18:23.229Z",
+  "runId": "44052460695",
   "jobs": [
     {
       "id": "talan-838cc2a04384",
@@ -35,7 +35,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T06:51:32.107Z",
+      "crawledAt": "2026-11-17T09:17:52.896Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -79,7 +79,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T06:51:32.107Z",
+      "validThrough": "2026-12-17T09:17:52.896Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -114,7 +114,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T06:51:32.106Z",
+      "crawledAt": "2026-11-17T09:17:52.894Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -158,7 +158,164 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T06:51:32.106Z",
+      "validThrough": "2026-12-17T09:17:52.894Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "talan-3d22739aef94",
+      "slug": "business-analista-enterprise-data-management-edm-talan-geneve",
+      "slugByLocale": {
+        "it": "business-analista-enterprise-data-management-edm-talan-geneve",
+        "en": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland",
+        "de": "business-analyst-unternehmensdatenmanagement-edm-talan-geneve-switzerland",
+        "fr": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Business Analyst – Enterprise Data Management (EDM)",
+      "titleByLocale": {
+        "it": "Analista di business – Gestione dei dati aziendali (EDM)",
+        "en": "Business Analyst - Enterprise Data Management (EDM)",
+        "de": "Business-Analyst – Unternehmensdatenmanagement (EDM)",
+        "fr": "Business Analyst – Enterprise Data Management (EDM)"
+      },
+      "description": "Contexte\n Dans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\n Vous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\n Vos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\n Compétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\n Qualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données.",
+      "descriptionByLocale": {
+        "it": "Contesto\n\nNell'ambito di un programma strategico di trasformazione Data, il nostro cliente è alla ricerca di un Business Analyst specializzato in Enterprise Data Management (EDM) e Instrument Data Management per accompagnare l'evoluzione della sua piattaforma di gestione dei dati finanziari.\n\nInterverrete nella gestione delle anagrafiche titoli, della qualità dei dati e dell'integrazione dei flussi che alimentano le attività di Wealth Management e Asset Management.\n\nLe vostre mansioni\n\n- Raccogliere e analizzare le esigenze dei team Front Office, Rischi, Operazioni e Finanza.\n- Partecipare alla progettazione delle soluzioni EDM: acquisizione, convalida, arricchimento e distribuzione dei dati.\n- Garantire la gestione e la qualità dei dati finanziari di riferimento.\n- Definire le regole di controllo, i KPI e gli indicatori di qualità.\n- Partecipare all'integrazione dei fornitori di dati finanziari.\n- Facilitare workshop con le funzioni aziendali e coordinare i diversi interlocutori del progetto.\n- Produrre la documentazione funzionale e supportare gli utenti.\n\nCompetenze funzionali\n\n- Almeno 3-5 anni di esperienza in EDM, Reference Data o Security Master.\n- Solida conoscenza degli strumenti finanziari:\n- ISINA, CUSIP, SEDOLO\n- Azioni societarie\n- La tabella seguente indica il numero di partecipanti al programma.\n- Classificazioni e anagrafiche titoli\n- Esperienza in un ambiente bancario, di Asset Management o Wealth Management.\n- Conoscenza dei fornitori di dati come Bloomberg, Refinitiv o SIX.\n\nCompetenze tecniche\n\n- Esperienza nell'utilizzo di una piattaforma EDM o Security Master:\n- Informazioni su NeoXam\n- Fonte d'oro\n- Markit EDM\n- SimCorp\n- Aladdin.\n- o equivalente\n- Buona padronanza di SQL.\n- Conoscenza dei flussi di integrazione, API, XML / JSON.\n- Un'esperienza nel Cloud e in ambienti Agile costituisce un plus.\n\nQualità ricercate\n\n- Spiccate capacità di analisi e di risoluzione dei problemi.\n- Ottime capacità relazionali e di comunicazione con i team di business e IT.\n- Autonomia, rigore e senso dell'organizzazione.\n- Capacità di operare in ambienti complessi e fortemente orientati ai dati.",
+        "en": "Context\n\nAs part of a strategic Data transformation program, our client is looking for a Business Analyst specializing in Enterprise Data Management (EDM) and Instrument Data Management to support the evolution of its financial data management platform.\n\nYou will work on the management of security master data, data quality, and the integration of feeds supporting Wealth Management and Asset Management activities.\n\nYour responsibilities\n\n- Gather and analyze the needs of the Front Office, Risk, Operations, and Finance teams.\n- Participate in the design of EDM solutions: data ingestion, validation, enrichment, and distribution.\n- Ensure the management and quality of financial reference data.\n- Define control rules, KPIs, and quality indicators.\n- Participate in the integration of financial data providers.\n- Lead business workshops and coordinate the various project stakeholders.\n- Produce functional documentation and support users.\n\nFunctional skills\n\n- At least 3 to 5 years of experience in EDM, Reference Data, or Security Master.\n- Strong knowledge of financial instruments:\n- ISIN, CUSIP, SEDOL\n- corporate stock .\n- The following table shows the number of participants in the programme.\n- Classifications and security master data\n- Experience in a banking, Asset Management, or Wealth Management environment.\n- Knowledge of data providers such as Bloomberg, Refinitiv, or SIX.\n\nTechnical skills\n\n- Experience with an EDM or Security Master platform:\n- NeoXam DataHub\n- Golden Source\n- Markit EDM\n- SimCorp\n- Aladdin\n- or equivalent\n- Good command of SQL.\n- Knowledge of integration flows, APIs, XML / JSON.\n- Experience with Cloud and Agile environments is a plus.\n\nDesired qualities\n\n- Strong analytical and problem-solving skills.\n- Excellent interpersonal skills and communication with business and IT teams.\n- Autonomy, rigor and organizational skills.\n- Ability to work in complex and highly data-oriented environments.",
+        "de": "Kontext\n\nIm Rahmen eines strategischen Programms zur Datentransformation sucht unser Kunde einen Business Analysten mit Spezialisierung auf Enterprise Data Management (EDM) und Instrument Data Management, um die Weiterentwicklung seiner Plattform für die Verwaltung von Finanzdaten zu begleiten.\n\nSie werden in den Bereichen Wertpapierstammdatenverwaltung, Datenqualität und Integration von Datenströmen tätig sein, die die Aktivitäten im Wealth Management und Asset Management versorgen.\n\nIhre Aufgaben\n\n- Die Anforderungen der Teams aus Front Office, Risikomanagement, Operations und Finance erfassen und analysieren.\n- An der Konzeption von EDM-Lösungen mitwirken: Datenaufnahme, Validierung, Anreicherung und Verteilung der Daten.\n- Die Verwaltung und Qualität der Finanzstammdaten sicherstellen.\n- Kontrollregeln, KPIs und Qualitätsindikatoren definieren.\n- An der Integration von Finanzdatenanbietern mitwirken.\n- Fachliche Workshops moderieren und die verschiedenen Projektbeteiligten koordinieren.\n- Die funktionale Dokumentation erstellen und die Benutzer unterstützen.\n\nFunktionale Kompetenzen\n\n- Mindestens 3 bis 5 Jahre Erfahrung in EDM, Reference Data oder Security Master.\n- Fundierte Kenntnisse von Finanzinstrumenten:\n- ISIN, CUSIP, SEDOL\n- Gesellschaftsaktionen\n- Die folgende Tabelle zeigt die Anzahl der Teilnehmer am Programm.\n- Klassifikationen und Wertpapier-Referenzdaten\n- Erfahrung in einem Bankenumfeld, im Asset Management oder im Wealth Management.\n- Kenntnis der Datenanbieter wie Bloomberg, Refinitiv oder SIX.\n\nTechnische Kompetenzen\n\n- Erfahrung mit einer EDM- oder Security-Master-Plattform:\n- NeoXam DataHub\n- Goldene Quelle\n- Markit EDM\n- SimCorp\n- Aladin\n- oder gleichwertig\n- Gute SQL-Kenntnisse.\n- Kenntnisse der Integrationsflüsse, APIs, XML / JSON.\n- Erfahrung mit Cloud und agilen Umgebungen ist von Vorteil.\n\nGesuchte Qualitäten\n\n- Ausgeprägte Analyse- und Problemlösungsfähigkeiten.\n- Ausgeprägte soziale Kompetenz und Kommunikationsfähigkeit im Umgang mit den Fach- und IT-Teams.\n- Selbstständigkeit, Genauigkeit und Organisationstalent.\n- Fähigkeit, in komplexen und stark datenorientierten Umgebungen zu agieren.",
+        "fr": "Contexte\nDans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\nVous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\nVos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\nCompétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\nQualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données."
+      },
+      "needsRetranslation": true,
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-17T09:17:52.893Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-09-08T13:16:20.226Z",
+      "postedDate": "2026-09-08T13:16:20.226Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
+      "jobReqId": "744000148235109",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-09-08T13:35:44.207Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-17T09:17:52.893Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "talan-338bfd5acd78",
+      "slug": "business-analyst-core-banking-talan-geneve",
+      "slugByLocale": {
+        "it": "business-analyst-core-banking-talan-geneve",
+        "en": "business-analyste-core-banking-talan-geneve-switzerland",
+        "de": "business-analyst-core-banking-talan-geneve",
+        "fr": "business-analyste-core-banking-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Business Analyste Core Banking",
+      "titleByLocale": {
+        "it": "Business Analyst Core Banking",
+        "en": "Business Analyst Core Banking",
+        "de": "Business Analyst Core Banking",
+        "fr": "Business Analyste Core Banking"
+      },
+      "description": "Au sein de l’équipe Core Banking IT , le Business Analyst accompagne les projets de transformation du Core Banking et assure l’interface entre les équipes métier et IT.\n Principales responsabilités:\n\n• Analyser et formaliser les besoins métier liés au Core Banking.\n\n• Concevoir les solutions avec les SME et Service Owners.\n\n• Rédiger les exigences et spécifications fonctionnelles.\n\n• Présenter les analyses aux utilisateurs et obtenir leur validation.\n\n• Réaliser les estimations de charge de développement.\n\n• Garantir le respect des standards, procédures et architecture IT\n\n• Assurer la coordination entre les équipes Métier, IT et techniques.\n\nProfil recherché\n\n• Plus de 15 ans d’expérience dans le secteur bancaire, idéalement en environnement Core Banking.\n\n• Solide expérience en transformation et delivery IT.\n\n• Bonne connaissance des processus opérationnels en Wealth Management et de l’écosystème Core Banking.\n\n• Expérience en Intelligence Artificielle.\n\n• Excellentes capacités de communication, avec un bon niveau en français et en anglais, à l’oral comme à l’écrit.\n\n• Autonome, structuré et doté d’un fort esprit analytique.\n\n• Orientation client et capacité à travailler avec des interlocuteurs variés.\n\n• Bonne maîtrise de SQL.\n\n• Capacité à évoluer dans un environnement complexe et à gérer plusieurs sujets en parallèle.\n\n• Diplôme Bachelor ou équivalent.",
+      "descriptionByLocale": {
+        "it": "All'interno del team di Core Banking IT, Business Analyst supporta i progetti di trasformazione di Core Banking e fornisce l'interfaccia tra team aziendali e IT.\nPrincipali responsabilità:\n\n• Analizzare e formalizzare le esigenze aziendali di Core Banking.\n\n• Soluzioni di progettazione con EMS e Service Owners.\n\n• Scrivere requisiti funzionali e specifiche.\n\n• Presentare le analisi agli utenti e ottenere la loro validazione.\n\n• Condurre le stime del carico di sviluppo.\n\n• Garantire il rispetto degli standard, delle procedure e dell'architettura IT\n\n• Assicurare il coordinamento tra il commercio, l'IT e i team tecnici.\n\nProfilo ricercato\n\n• Più di 15 anni di esperienza nel settore bancario, idealmente in Core Banking.\n\n• Forte esperienza nella trasformazione e consegna IT.\n\n• Buona conoscenza dei processi operativi in Wealth Management e nell'ecosistema Core Banking.\n\n• Esperienza nell'intelligenza artificiale.\n\n• Ottima capacità di comunicazione, con un buon livello in francese e inglese, sia orale che scritta.\n\n• Autonomo, strutturato e dotato di un forte spirito analitico.\n\n• L'orientamento del cliente e la capacità di lavorare con vari interlocutori.\n\n• Buon controllo SQL.\n\n• Capacità di evolversi in un ambiente complesso e gestire più argomenti in parallelo.\n\n• Laurea o equivalente.",
+        "en": "Within the Core Banking IT team, the Business Analyst supports Core Banking transformation projects and provides the interface between business and IT teams.\nMain responsibilities:\n\n• Analyze and formalize Core Banking business needs.\n\n• Design solutions with EMS and Service Owners.\n\n• Write down functional requirements and specifications.\n\n• Present the analyses to users and obtain their validation.\n\n• Conduct development load estimates.\n\n• Ensure compliance with IT standards, procedures and architecture\n\n• Ensure coordination between trade, IT and technical teams.\n\nProfile sought\n\n• More than 15 years of experience in the banking sector, ideally in Core Banking.\n\n• Strong experience in transformation and delivery IT.\n\n• Good knowledge of the operational processes in Wealth Management and the Core Banking ecosystem.\n\n• Experience in Artificial Intelligence.\n\n• Excellent communication skills, with a good level in French and English, both oral and written.\n\n• Autonomous, structured and endowed with a strong analytical spirit.\n\n• Customer orientation and ability to work with various interlocutors.\n\n• Good SQL control.\n\n• Ability to evolve in a complex environment and manage multiple topics in parallel.\n\n• Bachelor's degree or equivalent.",
+        "de": "Innerhalb des Core Banking IT Teams unterstützt der Business Analyst Core Banking Transformationsprojekte und stellt die Schnittstelle zwischen Business und IT Teams bereit.\nHauptzuständigkeiten:\n\n• Analysieren und formalisieren Sie die Anforderungen des Core Banking-Geschäfts.\n\n• Design-Lösungen mit EMS und Service Ownern.\n\n• Notieren Sie sich funktionale Anforderungen und Spezifikationen.\n\n• Präsentieren Sie die Analysen den Nutzern und erhalten Sie deren Validierung.\n\n• Durchführung von Entwicklungslastschätzungen.\n\n• Gewährleistung der Einhaltung von IT-Standards, -Verfahren und -Architektur\n\n• Gewährleistung der Koordinierung zwischen Handels-, IT- und technischen Teams.\n\nProfil gesucht\n\n• Mehr als 15 Jahre Erfahrung im Bankensektor, idealerweise im Core Banking.\n\n• Starke Erfahrung in der Transformation und Delivery IT.\n\n• Gute Kenntnisse der operativen Prozesse im Wealth Management und im Core Banking Ökosystem.\n\n• Erfahrung in Künstlicher Intelligenz.\n\n• Hervorragende Kommunikationsfähigkeiten, mit einem guten Niveau in Französisch und Englisch, sowohl mündlich als auch schriftlich.\n\n• Autonom, strukturiert und mit einem starken analytischen Geist ausgestattet.\n\n• Kundenorientierung und die Fähigkeit, mit verschiedenen Gesprächspartnern zu arbeiten.\n\n• Gute SQL-Kontrolle.\n\n• Fähigkeit, sich in einer komplexen Umgebung zu entwickeln und mehrere Themen parallel zu verwalten.\n\n• Bachelor-Abschluss oder gleichwertig.",
+        "fr": "Au sein de l’équipe Core Banking IT , le Business Analyst accompagne les projets de transformation du Core Banking et assure l’interface entre les équipes métier et IT.\nPrincipales responsabilités:\n\n• Analyser et formaliser les besoins métier liés au Core Banking.\n\n• Concevoir les solutions avec les SME et Service Owners.\n\n• Rédiger les exigences et spécifications fonctionnelles.\n\n• Présenter les analyses aux utilisateurs et obtenir leur validation.\n\n• Réaliser les estimations de charge de développement.\n\n• Garantir le respect des standards, procédures et architecture IT\n\n• Assurer la coordination entre les équipes Métier, IT et techniques.\n\nProfil recherché\n\n• Plus de 15 ans d’expérience dans le secteur bancaire, idéalement en environnement Core Banking.\n\n• Solide expérience en transformation et delivery IT.\n\n• Bonne connaissance des processus opérationnels en Wealth Management et de l’écosystème Core Banking.\n\n• Expérience en Intelligence Artificielle.\n\n• Excellentes capacités de communication, avec un bon niveau en français et en anglais, à l’oral comme à l’écrit.\n\n• Autonome, structuré et doté d’un fort esprit analytique.\n\n• Orientation client et capacité à travailler avec des interlocuteurs variés.\n\n• Bonne maîtrise de SQL.\n\n• Capacité à évoluer dans un environnement complexe et à gérer plusieurs sujets en parallèle.\n\n• Diplôme Bachelor ou équivalent."
+      },
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-17T09:17:52.891Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-08-21T14:00:33.629Z",
+      "postedDate": "2026-08-21T14:00:33.629Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
+      "jobReqId": "744000144774739",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "business-analyste-core-banking-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "business-analyste-core-banking-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-08-21T21:26:00.523Z",
+      "salaryMin": 63000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 63000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-17T09:17:52.891Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -193,7 +350,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T06:51:32.105Z",
+      "crawledAt": "2026-11-17T09:17:52.890Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "1003",
@@ -253,164 +410,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-25T06:51:32.105Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "talan-3d22739aef94",
-      "slug": "business-analista-enterprise-data-management-edm-talan-geneve",
-      "slugByLocale": {
-        "it": "business-analista-enterprise-data-management-edm-talan-geneve",
-        "en": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland",
-        "de": "business-analyst-unternehmensdatenmanagement-edm-talan-geneve-switzerland",
-        "fr": "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Business Analyst – Enterprise Data Management (EDM)",
-      "titleByLocale": {
-        "it": "Analista di business – Gestione dei dati aziendali (EDM)",
-        "en": "Business Analyst - Enterprise Data Management (EDM)",
-        "de": "Business-Analyst – Unternehmensdatenmanagement (EDM)",
-        "fr": "Business Analyst – Enterprise Data Management (EDM)"
-      },
-      "description": "Contexte\n Dans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\n Vous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\n Vos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\n Compétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\n Qualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données.",
-      "descriptionByLocale": {
-        "it": "Contesto\n\nNell'ambito di un programma strategico di trasformazione Data, il nostro cliente è alla ricerca di un Business Analyst specializzato in Enterprise Data Management (EDM) e Instrument Data Management per accompagnare l'evoluzione della sua piattaforma di gestione dei dati finanziari.\n\nInterverrete nella gestione delle anagrafiche titoli, della qualità dei dati e dell'integrazione dei flussi che alimentano le attività di Wealth Management e Asset Management.\n\nLe vostre mansioni\n\n- Raccogliere e analizzare le esigenze dei team Front Office, Rischi, Operazioni e Finanza.\n- Partecipare alla progettazione delle soluzioni EDM: acquisizione, convalida, arricchimento e distribuzione dei dati.\n- Garantire la gestione e la qualità dei dati finanziari di riferimento.\n- Definire le regole di controllo, i KPI e gli indicatori di qualità.\n- Partecipare all'integrazione dei fornitori di dati finanziari.\n- Facilitare workshop con le funzioni aziendali e coordinare i diversi interlocutori del progetto.\n- Produrre la documentazione funzionale e supportare gli utenti.\n\nCompetenze funzionali\n\n- Almeno 3-5 anni di esperienza in EDM, Reference Data o Security Master.\n- Solida conoscenza degli strumenti finanziari:\n- ISINA, CUSIP, SEDOLO\n- Azioni societarie\n- La tabella seguente indica il numero di partecipanti al programma.\n- Classificazioni e anagrafiche titoli\n- Esperienza in un ambiente bancario, di Asset Management o Wealth Management.\n- Conoscenza dei fornitori di dati come Bloomberg, Refinitiv o SIX.\n\nCompetenze tecniche\n\n- Esperienza nell'utilizzo di una piattaforma EDM o Security Master:\n- Informazioni su NeoXam\n- Fonte d'oro\n- Markit EDM\n- SimCorp\n- Aladdin.\n- o equivalente\n- Buona padronanza di SQL.\n- Conoscenza dei flussi di integrazione, API, XML / JSON.\n- Un'esperienza nel Cloud e in ambienti Agile costituisce un plus.\n\nQualità ricercate\n\n- Spiccate capacità di analisi e di risoluzione dei problemi.\n- Ottime capacità relazionali e di comunicazione con i team di business e IT.\n- Autonomia, rigore e senso dell'organizzazione.\n- Capacità di operare in ambienti complessi e fortemente orientati ai dati.",
-        "en": "Context\n\nAs part of a strategic Data transformation program, our client is looking for a Business Analyst specializing in Enterprise Data Management (EDM) and Instrument Data Management to support the evolution of its financial data management platform.\n\nYou will work on the management of security master data, data quality, and the integration of feeds supporting Wealth Management and Asset Management activities.\n\nYour responsibilities\n\n- Gather and analyze the needs of the Front Office, Risk, Operations, and Finance teams.\n- Participate in the design of EDM solutions: data ingestion, validation, enrichment, and distribution.\n- Ensure the management and quality of financial reference data.\n- Define control rules, KPIs, and quality indicators.\n- Participate in the integration of financial data providers.\n- Lead business workshops and coordinate the various project stakeholders.\n- Produce functional documentation and support users.\n\nFunctional skills\n\n- At least 3 to 5 years of experience in EDM, Reference Data, or Security Master.\n- Strong knowledge of financial instruments:\n- ISIN, CUSIP, SEDOL\n- corporate stock .\n- The following table shows the number of participants in the programme.\n- Classifications and security master data\n- Experience in a banking, Asset Management, or Wealth Management environment.\n- Knowledge of data providers such as Bloomberg, Refinitiv, or SIX.\n\nTechnical skills\n\n- Experience with an EDM or Security Master platform:\n- NeoXam DataHub\n- Golden Source\n- Markit EDM\n- SimCorp\n- Aladdin\n- or equivalent\n- Good command of SQL.\n- Knowledge of integration flows, APIs, XML / JSON.\n- Experience with Cloud and Agile environments is a plus.\n\nDesired qualities\n\n- Strong analytical and problem-solving skills.\n- Excellent interpersonal skills and communication with business and IT teams.\n- Autonomy, rigor and organizational skills.\n- Ability to work in complex and highly data-oriented environments.",
-        "de": "Kontext\n\nIm Rahmen eines strategischen Programms zur Datentransformation sucht unser Kunde einen Business Analysten mit Spezialisierung auf Enterprise Data Management (EDM) und Instrument Data Management, um die Weiterentwicklung seiner Plattform für die Verwaltung von Finanzdaten zu begleiten.\n\nSie werden in den Bereichen Wertpapierstammdatenverwaltung, Datenqualität und Integration von Datenströmen tätig sein, die die Aktivitäten im Wealth Management und Asset Management versorgen.\n\nIhre Aufgaben\n\n- Die Anforderungen der Teams aus Front Office, Risikomanagement, Operations und Finance erfassen und analysieren.\n- An der Konzeption von EDM-Lösungen mitwirken: Datenaufnahme, Validierung, Anreicherung und Verteilung der Daten.\n- Die Verwaltung und Qualität der Finanzstammdaten sicherstellen.\n- Kontrollregeln, KPIs und Qualitätsindikatoren definieren.\n- An der Integration von Finanzdatenanbietern mitwirken.\n- Fachliche Workshops moderieren und die verschiedenen Projektbeteiligten koordinieren.\n- Die funktionale Dokumentation erstellen und die Benutzer unterstützen.\n\nFunktionale Kompetenzen\n\n- Mindestens 3 bis 5 Jahre Erfahrung in EDM, Reference Data oder Security Master.\n- Fundierte Kenntnisse von Finanzinstrumenten:\n- ISIN, CUSIP, SEDOL\n- Gesellschaftsaktionen\n- Die folgende Tabelle zeigt die Anzahl der Teilnehmer am Programm.\n- Klassifikationen und Wertpapier-Referenzdaten\n- Erfahrung in einem Bankenumfeld, im Asset Management oder im Wealth Management.\n- Kenntnis der Datenanbieter wie Bloomberg, Refinitiv oder SIX.\n\nTechnische Kompetenzen\n\n- Erfahrung mit einer EDM- oder Security-Master-Plattform:\n- NeoXam DataHub\n- Goldene Quelle\n- Markit EDM\n- SimCorp\n- Aladin\n- oder gleichwertig\n- Gute SQL-Kenntnisse.\n- Kenntnisse der Integrationsflüsse, APIs, XML / JSON.\n- Erfahrung mit Cloud und agilen Umgebungen ist von Vorteil.\n\nGesuchte Qualitäten\n\n- Ausgeprägte Analyse- und Problemlösungsfähigkeiten.\n- Ausgeprägte soziale Kompetenz und Kommunikationsfähigkeit im Umgang mit den Fach- und IT-Teams.\n- Selbstständigkeit, Genauigkeit und Organisationstalent.\n- Fähigkeit, in komplexen und stark datenorientierten Umgebungen zu agieren.",
-        "fr": "Contexte\nDans le cadre d’un programme stratégique de transformation Data, notre client recherche un Business Analyst spécialisé en Enterprise Data Management (EDM) et Instrument Data Management afin d'accompagner l'évolution de sa plateforme de gestion des données financières.\nVous interviendrez sur la gestion des référentiels titres, la qualité des données et l'intégration de flux alimentant les activités de Wealth Management et d'Asset Management.\nVos missions\n\n• Recueillir et analyser les besoins des équipes Front Office, Risques, Opérations et Finance.\n\n• Participer à la conception des solutions EDM : ingestion, validation, enrichissement et diffusion des données.\n\n• Assurer la gestion et la qualité des données de référence financières.\n\n• Définir les règles de contrôle, KPI et indicateurs de qualité.\n\n• Participer à l'intégration des fournisseurs de données financières.\n\n• Animer des ateliers métiers et coordonner les différents intervenants du projet.\n\n• Produire la documentation fonctionnelle et accompagner les utilisateurs.\n\nCompétences fonctionnelles\n\n• 3 à 5 ans minimum d'expérience en EDM , Reference Data ou Security Master .\n\n• Solide connaissance des instruments financiers :\n• ISIN, CUSIP, SEDOL\n\n• Corporate Actions\n\n• Pricing\n\n• Classifications et référentiels titres\n\n• Expérience dans un environnement bancaire, Asset Management ou Wealth Management.\n\n• Connaissance des fournisseurs de données tels que Bloomberg , Refinitiv ou SIX .\nCompétences techniques\n\n• Expérience sur une plateforme EDM ou Security Master :\n• NeoXam DataHub\n\n• GoldenSource\n\n• Markit EDM\n\n• SimCorp\n\n• Aladdin\n\n• ou équivalent\n\n• Bonne maîtrise du SQL.\n\n• Connaissances des flux d'intégration, API, XML / JSON.\n\n• Une expérience Cloud et des environnements Agile constitue un plus.\nQualités recherchées\n\n• Forte capacité d'analyse et de résolution de problèmes.\n\n• Excellent relationnel et communication avec les équipes métiers et IT.\n\n• Autonomie, rigueur et sens de l'organisation.\n\n• Capacité à évoluer dans des environnements complexes et fortement orientés données."
-      },
-      "needsRetranslation": true,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-17T06:51:32.105Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-09-08T13:16:20.226Z",
-      "postedDate": "2026-09-08T13:16:20.226Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
-      "jobReqId": "744000148235109",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-analyst-enterprise-data-management-edm-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-09-08T13:35:44.207Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T06:51:32.105Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "talan-338bfd5acd78",
-      "slug": "business-analyst-core-banking-talan-geneve",
-      "slugByLocale": {
-        "it": "business-analyst-core-banking-talan-geneve",
-        "en": "business-analyste-core-banking-talan-geneve-switzerland",
-        "de": "business-analyst-core-banking-talan-geneve",
-        "fr": "business-analyste-core-banking-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Business Analyste Core Banking",
-      "titleByLocale": {
-        "it": "Business Analyst Core Banking",
-        "en": "Business Analyst Core Banking",
-        "de": "Business Analyst Core Banking",
-        "fr": "Business Analyste Core Banking"
-      },
-      "description": "Au sein de l’équipe Core Banking IT , le Business Analyst accompagne les projets de transformation du Core Banking et assure l’interface entre les équipes métier et IT.\n Principales responsabilités:\n\n• Analyser et formaliser les besoins métier liés au Core Banking.\n\n• Concevoir les solutions avec les SME et Service Owners.\n\n• Rédiger les exigences et spécifications fonctionnelles.\n\n• Présenter les analyses aux utilisateurs et obtenir leur validation.\n\n• Réaliser les estimations de charge de développement.\n\n• Garantir le respect des standards, procédures et architecture IT\n\n• Assurer la coordination entre les équipes Métier, IT et techniques.\n\nProfil recherché\n\n• Plus de 15 ans d’expérience dans le secteur bancaire, idéalement en environnement Core Banking.\n\n• Solide expérience en transformation et delivery IT.\n\n• Bonne connaissance des processus opérationnels en Wealth Management et de l’écosystème Core Banking.\n\n• Expérience en Intelligence Artificielle.\n\n• Excellentes capacités de communication, avec un bon niveau en français et en anglais, à l’oral comme à l’écrit.\n\n• Autonome, structuré et doté d’un fort esprit analytique.\n\n• Orientation client et capacité à travailler avec des interlocuteurs variés.\n\n• Bonne maîtrise de SQL.\n\n• Capacité à évoluer dans un environnement complexe et à gérer plusieurs sujets en parallèle.\n\n• Diplôme Bachelor ou équivalent.",
-      "descriptionByLocale": {
-        "it": "All'interno del team di Core Banking IT, Business Analyst supporta i progetti di trasformazione di Core Banking e fornisce l'interfaccia tra team aziendali e IT.\nPrincipali responsabilità:\n\n• Analizzare e formalizzare le esigenze aziendali di Core Banking.\n\n• Soluzioni di progettazione con EMS e Service Owners.\n\n• Scrivere requisiti funzionali e specifiche.\n\n• Presentare le analisi agli utenti e ottenere la loro validazione.\n\n• Condurre le stime del carico di sviluppo.\n\n• Garantire il rispetto degli standard, delle procedure e dell'architettura IT\n\n• Assicurare il coordinamento tra il commercio, l'IT e i team tecnici.\n\nProfilo ricercato\n\n• Più di 15 anni di esperienza nel settore bancario, idealmente in Core Banking.\n\n• Forte esperienza nella trasformazione e consegna IT.\n\n• Buona conoscenza dei processi operativi in Wealth Management e nell'ecosistema Core Banking.\n\n• Esperienza nell'intelligenza artificiale.\n\n• Ottima capacità di comunicazione, con un buon livello in francese e inglese, sia orale che scritta.\n\n• Autonomo, strutturato e dotato di un forte spirito analitico.\n\n• L'orientamento del cliente e la capacità di lavorare con vari interlocutori.\n\n• Buon controllo SQL.\n\n• Capacità di evolversi in un ambiente complesso e gestire più argomenti in parallelo.\n\n• Laurea o equivalente.",
-        "en": "Within the Core Banking IT team, the Business Analyst supports Core Banking transformation projects and provides the interface between business and IT teams.\nMain responsibilities:\n\n• Analyze and formalize Core Banking business needs.\n\n• Design solutions with EMS and Service Owners.\n\n• Write down functional requirements and specifications.\n\n• Present the analyses to users and obtain their validation.\n\n• Conduct development load estimates.\n\n• Ensure compliance with IT standards, procedures and architecture\n\n• Ensure coordination between trade, IT and technical teams.\n\nProfile sought\n\n• More than 15 years of experience in the banking sector, ideally in Core Banking.\n\n• Strong experience in transformation and delivery IT.\n\n• Good knowledge of the operational processes in Wealth Management and the Core Banking ecosystem.\n\n• Experience in Artificial Intelligence.\n\n• Excellent communication skills, with a good level in French and English, both oral and written.\n\n• Autonomous, structured and endowed with a strong analytical spirit.\n\n• Customer orientation and ability to work with various interlocutors.\n\n• Good SQL control.\n\n• Ability to evolve in a complex environment and manage multiple topics in parallel.\n\n• Bachelor's degree or equivalent.",
-        "de": "Innerhalb des Core Banking IT Teams unterstützt der Business Analyst Core Banking Transformationsprojekte und stellt die Schnittstelle zwischen Business und IT Teams bereit.\nHauptzuständigkeiten:\n\n• Analysieren und formalisieren Sie die Anforderungen des Core Banking-Geschäfts.\n\n• Design-Lösungen mit EMS und Service Ownern.\n\n• Notieren Sie sich funktionale Anforderungen und Spezifikationen.\n\n• Präsentieren Sie die Analysen den Nutzern und erhalten Sie deren Validierung.\n\n• Durchführung von Entwicklungslastschätzungen.\n\n• Gewährleistung der Einhaltung von IT-Standards, -Verfahren und -Architektur\n\n• Gewährleistung der Koordinierung zwischen Handels-, IT- und technischen Teams.\n\nProfil gesucht\n\n• Mehr als 15 Jahre Erfahrung im Bankensektor, idealerweise im Core Banking.\n\n• Starke Erfahrung in der Transformation und Delivery IT.\n\n• Gute Kenntnisse der operativen Prozesse im Wealth Management und im Core Banking Ökosystem.\n\n• Erfahrung in Künstlicher Intelligenz.\n\n• Hervorragende Kommunikationsfähigkeiten, mit einem guten Niveau in Französisch und Englisch, sowohl mündlich als auch schriftlich.\n\n• Autonom, strukturiert und mit einem starken analytischen Geist ausgestattet.\n\n• Kundenorientierung und die Fähigkeit, mit verschiedenen Gesprächspartnern zu arbeiten.\n\n• Gute SQL-Kontrolle.\n\n• Fähigkeit, sich in einer komplexen Umgebung zu entwickeln und mehrere Themen parallel zu verwalten.\n\n• Bachelor-Abschluss oder gleichwertig.",
-        "fr": "Au sein de l’équipe Core Banking IT , le Business Analyst accompagne les projets de transformation du Core Banking et assure l’interface entre les équipes métier et IT.\nPrincipales responsabilités:\n\n• Analyser et formaliser les besoins métier liés au Core Banking.\n\n• Concevoir les solutions avec les SME et Service Owners.\n\n• Rédiger les exigences et spécifications fonctionnelles.\n\n• Présenter les analyses aux utilisateurs et obtenir leur validation.\n\n• Réaliser les estimations de charge de développement.\n\n• Garantir le respect des standards, procédures et architecture IT\n\n• Assurer la coordination entre les équipes Métier, IT et techniques.\n\nProfil recherché\n\n• Plus de 15 ans d’expérience dans le secteur bancaire, idéalement en environnement Core Banking.\n\n• Solide expérience en transformation et delivery IT.\n\n• Bonne connaissance des processus opérationnels en Wealth Management et de l’écosystème Core Banking.\n\n• Expérience en Intelligence Artificielle.\n\n• Excellentes capacités de communication, avec un bon niveau en français et en anglais, à l’oral comme à l’écrit.\n\n• Autonome, structuré et doté d’un fort esprit analytique.\n\n• Orientation client et capacité à travailler avec des interlocuteurs variés.\n\n• Bonne maîtrise de SQL.\n\n• Capacité à évoluer dans un environnement complexe et à gérer plusieurs sujets en parallèle.\n\n• Diplôme Bachelor ou équivalent."
-      },
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-17T06:51:32.104Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-08-21T14:00:33.629Z",
-      "postedDate": "2026-08-21T14:00:33.629Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
-      "jobReqId": "744000144774739",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "business-analyste-core-banking-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "business-analyste-core-banking-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-08-21T21:26:00.523Z",
-      "salaryMin": 63000,
-      "salaryMax": 107500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 63000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T06:51:32.104Z",
+      "validThrough": "2026-12-25T09:17:52.890Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -445,7 +445,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T06:51:32.103Z",
+      "crawledAt": "2026-11-17T09:17:52.889Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -489,7 +489,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-01T06:51:32.103Z",
+      "validThrough": "2026-12-31T09:17:52.889Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -524,7 +524,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T06:51:32.103Z",
+      "crawledAt": "2026-11-17T09:17:52.886Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -571,89 +571,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-01T06:51:32.103Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "talan-dbc24b5b3f3c",
-      "slug": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
-      "slugByLocale": {
-        "it": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
-        "en": "tech-lead-fullstack-net-c-talan-geneve-switzerland",
-        "de": "technischer-leiter-net-c-talan-geneve-switzerland",
-        "fr": "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Tech Lead Fullstack .NET / C#",
-      "titleByLocale": {
-        "it": "Responsabile tecnico Fullstack .NET / C#",
-        "en": "Fullstack Technical Manager .NET / C#",
-        "de": "Technischer Leiter.NET / C#",
-        "fr": "Tech Lead Fullstack .NET / C#"
-      },
-      "description": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\n En tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\n Responsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\n Compétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée.",
-      "descriptionByLocale": {
-        "it": "All'interno del team di sviluppo digitale, si sta guidando tecnicamente il design, lo sviluppo e l'evoluzione delle applicazioni digitali dedicate alla gestione della ricchezza.\nCome Tech Lead Fullstack, sei il riferimento tecnico del tuo perimetro. Interviene in tutta la catena di sviluppo, da frontend a backend, garantendo al contempo la qualità, la sicurezza e le prestazioni delle applicazioni. Supporti gli sviluppatori, contribuisci alle scelte architettoniche e partecipi attivamente al supporto di produzione e applicazione.\nResponsabilità chiave\n\n• Definire gli orientamenti tecnici e le architetture applicative.\n\n• Partecipare allo sviluppo completo e risolvere problemi tecnici complessi.\n\n• Sostenere gli sviluppatori, condurre le recensioni dei codici e promuovere buone pratiche.\n\n• Assicurare la qualità, la sicurezza, le prestazioni e la manutenzione delle applicazioni.\n\n• Contribuire all'industrializzazione degli sviluppi, delle tubazioni CI/CD e delle distribuzioni.\n\n• Partecipazione alla produzione\nCompetenza tecnica\n\n• Backend: C#, .NET, REST API e architetture microservices.\n\n• Fronte: Angolare, React o Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Contenitore: Docker, Kubernetes, OpenShift.\n\n• Distribuzione: Helm, Kustomize, Argo CD.\n\n• Infrastrutture: Windows Server e IIS.\n\n• Sensibilità alle questioni di sicurezza e riservatezza dei dati.\n\n• Esperienza confermata in pieno sviluppo e solida esperienza .NET / C#.\n\n• Capacità di prendere decisioni tecniche, sostenere un team e lavorare in modo indipendente.\n\n• Analisi eccellente, pragmatismo, rigore e senso di responsabilità.\n\n• Eccellente resistenza allo stress, capacità di gestire le priorità, emergenze e vincoli di tempo in un ambiente esigente.\n\n• Buona relazione, comunicazione costruttiva e capacità di collaborare con vari interlocutori.\n\n• Inglese comune e francese, sia orale che scritta.\n\n• L'esperienza nel settore bancario o bancario privato è un bene.\n\nPosizione: Residence in Svizzera.",
-        "en": "Within the Digital Development team, you are technically leading the design, development and evolution of digital applications dedicated to wealth management.\nAs Tech Lead Fullstack, you are the technical reference of your perimeter. You intervene throughout the development chain, from frontend to backend, while guaranteeing the quality, security and performance of applications. You support developers, contribute to architectural choices and actively participate in production and application support.\nKey responsibilities\n\n• Define technical orientations and application architectures.\n\n• Participate in fullstack development and solving complex technical issues.\n\n• Support developers, conduct code reviews and promote good practices.\n\n• Ensure the quality, security, performance and maintenance of applications.\n\n• Contribute to the industrialization of developments, CI/CD pipelines and deployments.\n\n• Participate in production\nTechnical expertise\n\n• Backend : C#, .NET, REST API and microservices architectures.\n\n• Frontend : Angular, React or Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Deployment: Helm, Kustomize, Argo CD.\n\n• Infrastructure: Windows Server and IIS.\n\n• Sensitivity to application security and data confidentiality issues.\n\n• Experience confirmed in fullstack development and solid .NET / C# expertise.\n\n• Ability to make technical decisions, support a team and work independently.\n\n• Excellent analysis, pragmatism, rigour and sense of responsibility.\n\n• Excellent stress resistance, ability to manage priorities, emergencies and time constraints in a demanding environment.\n\n• Good relationship, constructive communication and ability to collaborate with various interlocutors.\n\n• Common English and French, both oral and written.\n\n• Experience in banking or private banking is an asset.\n\nLocation: Residence in Switzerland.",
-        "de": "Innerhalb des Digital Development Teams leiten Sie technisch das Design, die Entwicklung und die Weiterentwicklung von digitalen Anwendungen, die sich dem Vermögensmanagement widmen.\nAls Tech Lead Fullstack sind Sie die technische Referenz Ihres Perimeters. Sie intervenieren in der gesamten Entwicklungskette, vom Frontend bis zum Backend, und garantieren gleichzeitig die Qualität, Sicherheit und Leistung von Anwendungen. Sie unterstützen Entwickler, tragen zu architektonischen Entscheidungen bei und beteiligen sich aktiv an der Produktions- und Anwendungsunterstützung.\nHauptzuständigkeiten\n\n• Definieren Sie technische Ausrichtungen und Anwendungsarchitekturen.\n\n• Beteiligen Sie sich an der Fullstack-Entwicklung und der Lösung komplexer technischer Probleme.\n\n• Unterstützen Sie Entwickler, führen Sie Code Reviews durch und fördern Sie gute Praktiken.\n\n• Gewährleistung der Qualität, Sicherheit, Leistung und Wartung von Anwendungen.\n\n• Beitrag zur Industrialisierung von Entwicklungen, CI/CD-Pipelines und Deployments.\n\n• Teilnahme an der Produktion\nTechnische Expertise\n\n• Backend: C#, .NET, REST API und Microservices-Architekturen.\n\n• Frontend: Angular, React oder Vue.js.\n\n• Datenbanken: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Einsatz: Helm, Kustomize, Argo CD.\n\n• Infrastruktur: Windows Server und IIS.\n\n• Sensitivität für die Anwendungssicherheit und Datenschutzprobleme.\n\n• Erfahrung bestätigt in Fullstack-Entwicklung und solide .NET / C# Expertise.\n\n• Fähigkeit, technische Entscheidungen zu treffen, ein Team zu unterstützen und unabhängig zu arbeiten.\n\n• Ausgezeichnete Analyse, Pragmatismus, Strenge und Verantwortungsbewusstsein.\n\n• Hervorragende Stressresistenz, Fähigkeit, Prioritäten, Notfälle und Zeitbeschränkungen in einer anspruchsvollen Umgebung zu verwalten.\n\n• Gute Beziehung, konstruktive Kommunikation und die Fähigkeit, mit verschiedenen Gesprächspartnern zusammenzuarbeiten.\n\n• Englisch und Französisch, sowohl mündlich als auch schriftlich.\n\n• Erfahrung im Banking oder Private Banking ist ein Asset.\n\nStandort: Wohnsitz in der Schweiz.",
-        "fr": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\nEn tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\nResponsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\nCompétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée."
-      },
-      "needsRetranslation": false,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-17T06:51:32.102Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-10-23T13:35:09.147Z",
-      "postedDate": "2026-10-23T13:35:09.147Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
-      "jobReqId": "744000157480029",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-        ],
-        "de": [
-          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-10-23T21:11:18.471Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-22T06:51:32.102Z",
+      "validThrough": "2026-12-31T09:17:52.886Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -687,7 +605,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T06:51:32.102Z",
+      "crawledAt": "2026-11-17T09:17:52.883Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -742,7 +660,89 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-01T06:51:32.102Z",
+      "validThrough": "2027-01-01T09:17:52.883Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "talan-dbc24b5b3f3c",
+      "slug": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
+      "slugByLocale": {
+        "it": "fullstack-technical-manager-net-c-talan-geneve-switzerland",
+        "en": "tech-lead-fullstack-net-c-talan-geneve-switzerland",
+        "de": "technischer-leiter-net-c-talan-geneve-switzerland",
+        "fr": "tech-lead-fullstack-net-c-talan-geneve-switzerland"
+      },
+      "company": "Talan",
+      "companyKey": "talan",
+      "companyDomain": "talan.com",
+      "title": "Tech Lead Fullstack .NET / C#",
+      "titleByLocale": {
+        "it": "Responsabile tecnico Fullstack .NET / C#",
+        "en": "Fullstack Technical Manager .NET / C#",
+        "de": "Technischer Leiter.NET / C#",
+        "fr": "Tech Lead Fullstack .NET / C#"
+      },
+      "description": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\n En tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\n Responsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\n Compétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée.",
+      "descriptionByLocale": {
+        "it": "All'interno del team di sviluppo digitale, si sta guidando tecnicamente il design, lo sviluppo e l'evoluzione delle applicazioni digitali dedicate alla gestione della ricchezza.\nCome Tech Lead Fullstack, sei il riferimento tecnico del tuo perimetro. Interviene in tutta la catena di sviluppo, da frontend a backend, garantendo al contempo la qualità, la sicurezza e le prestazioni delle applicazioni. Supporti gli sviluppatori, contribuisci alle scelte architettoniche e partecipi attivamente al supporto di produzione e applicazione.\nResponsabilità chiave\n\n• Definire gli orientamenti tecnici e le architetture applicative.\n\n• Partecipare allo sviluppo completo e risolvere problemi tecnici complessi.\n\n• Sostenere gli sviluppatori, condurre le recensioni dei codici e promuovere buone pratiche.\n\n• Assicurare la qualità, la sicurezza, le prestazioni e la manutenzione delle applicazioni.\n\n• Contribuire all'industrializzazione degli sviluppi, delle tubazioni CI/CD e delle distribuzioni.\n\n• Partecipazione alla produzione\nCompetenza tecnica\n\n• Backend: C#, .NET, REST API e architetture microservices.\n\n• Fronte: Angolare, React o Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Contenitore: Docker, Kubernetes, OpenShift.\n\n• Distribuzione: Helm, Kustomize, Argo CD.\n\n• Infrastrutture: Windows Server e IIS.\n\n• Sensibilità alle questioni di sicurezza e riservatezza dei dati.\n\n• Esperienza confermata in pieno sviluppo e solida esperienza .NET / C#.\n\n• Capacità di prendere decisioni tecniche, sostenere un team e lavorare in modo indipendente.\n\n• Analisi eccellente, pragmatismo, rigore e senso di responsabilità.\n\n• Eccellente resistenza allo stress, capacità di gestire le priorità, emergenze e vincoli di tempo in un ambiente esigente.\n\n• Buona relazione, comunicazione costruttiva e capacità di collaborare con vari interlocutori.\n\n• Inglese comune e francese, sia orale che scritta.\n\n• L'esperienza nel settore bancario o bancario privato è un bene.\n\nPosizione: Residence in Svizzera.",
+        "en": "Within the Digital Development team, you are technically leading the design, development and evolution of digital applications dedicated to wealth management.\nAs Tech Lead Fullstack, you are the technical reference of your perimeter. You intervene throughout the development chain, from frontend to backend, while guaranteeing the quality, security and performance of applications. You support developers, contribute to architectural choices and actively participate in production and application support.\nKey responsibilities\n\n• Define technical orientations and application architectures.\n\n• Participate in fullstack development and solving complex technical issues.\n\n• Support developers, conduct code reviews and promote good practices.\n\n• Ensure the quality, security, performance and maintenance of applications.\n\n• Contribute to the industrialization of developments, CI/CD pipelines and deployments.\n\n• Participate in production\nTechnical expertise\n\n• Backend : C#, .NET, REST API and microservices architectures.\n\n• Frontend : Angular, React or Vue.js.\n\n• Databases: Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Deployment: Helm, Kustomize, Argo CD.\n\n• Infrastructure: Windows Server and IIS.\n\n• Sensitivity to application security and data confidentiality issues.\n\n• Experience confirmed in fullstack development and solid .NET / C# expertise.\n\n• Ability to make technical decisions, support a team and work independently.\n\n• Excellent analysis, pragmatism, rigour and sense of responsibility.\n\n• Excellent stress resistance, ability to manage priorities, emergencies and time constraints in a demanding environment.\n\n• Good relationship, constructive communication and ability to collaborate with various interlocutors.\n\n• Common English and French, both oral and written.\n\n• Experience in banking or private banking is an asset.\n\nLocation: Residence in Switzerland.",
+        "de": "Innerhalb des Digital Development Teams leiten Sie technisch das Design, die Entwicklung und die Weiterentwicklung von digitalen Anwendungen, die sich dem Vermögensmanagement widmen.\nAls Tech Lead Fullstack sind Sie die technische Referenz Ihres Perimeters. Sie intervenieren in der gesamten Entwicklungskette, vom Frontend bis zum Backend, und garantieren gleichzeitig die Qualität, Sicherheit und Leistung von Anwendungen. Sie unterstützen Entwickler, tragen zu architektonischen Entscheidungen bei und beteiligen sich aktiv an der Produktions- und Anwendungsunterstützung.\nHauptzuständigkeiten\n\n• Definieren Sie technische Ausrichtungen und Anwendungsarchitekturen.\n\n• Beteiligen Sie sich an der Fullstack-Entwicklung und der Lösung komplexer technischer Probleme.\n\n• Unterstützen Sie Entwickler, führen Sie Code Reviews durch und fördern Sie gute Praktiken.\n\n• Gewährleistung der Qualität, Sicherheit, Leistung und Wartung von Anwendungen.\n\n• Beitrag zur Industrialisierung von Entwicklungen, CI/CD-Pipelines und Deployments.\n\n• Teilnahme an der Produktion\nTechnische Expertise\n\n• Backend: C#, .NET, REST API und Microservices-Architekturen.\n\n• Frontend: Angular, React oder Vue.js.\n\n• Datenbanken: Microsoft SQL Server.\n\n• DevOps / DevSecOps: Azure DevOps, Git, SonarQube, CI/CD.\n\n• Container: Docker, Kubernetes, OpenShift.\n\n• Einsatz: Helm, Kustomize, Argo CD.\n\n• Infrastruktur: Windows Server und IIS.\n\n• Sensitivität für die Anwendungssicherheit und Datenschutzprobleme.\n\n• Erfahrung bestätigt in Fullstack-Entwicklung und solide .NET / C# Expertise.\n\n• Fähigkeit, technische Entscheidungen zu treffen, ein Team zu unterstützen und unabhängig zu arbeiten.\n\n• Ausgezeichnete Analyse, Pragmatismus, Strenge und Verantwortungsbewusstsein.\n\n• Hervorragende Stressresistenz, Fähigkeit, Prioritäten, Notfälle und Zeitbeschränkungen in einer anspruchsvollen Umgebung zu verwalten.\n\n• Gute Beziehung, konstruktive Kommunikation und die Fähigkeit, mit verschiedenen Gesprächspartnern zusammenzuarbeiten.\n\n• Englisch und Französisch, sowohl mündlich als auch schriftlich.\n\n• Erfahrung im Banking oder Private Banking ist ein Asset.\n\nStandort: Wohnsitz in der Schweiz.",
+        "fr": "Au sein de l’équipe Digital Development, vous pilotez techniquement la conception, le développement et l’évolution d’applications digitales dédiées à la gestion de fortune ( Wealth Management ).\nEn tant que Tech Lead Fullstack , vous êtes le référent technique de votre périmètre. Vous intervenez sur l’ensemble de la chaîne de développement, du frontend au backend, tout en garantissant la qualité, la sécurité et la performance des applications. Vous accompagnez les développeurs, contribuez aux choix d’architecture et participez activement aux mises en production ainsi qu’au support applicatif.\nResponsabilités principales\n\n• Définir les orientations techniques et les architectures applicatives.\n\n• Participer au développement fullstack et à la résolution des problématiques techniques complexes.\n\n• Accompagner les développeurs, réaliser des revues de code et promouvoir les bonnes pratiques.\n\n• Garantir la qualité, la sécurité, la performance et la maintenabilité des applications.\n\n• Contribuer à l’industrialisation des développements, aux pipelines CI/CD et aux déploiements.\n\n• Participer aux mises en production\nCompétences techniques\n\n• Backend : C#, .NET, API REST et architectures microservices.\n\n• Frontend : Angular, React ou Vue.js.\n\n• Bases de données : Microsoft SQL Server.\n\n• DevOps / DevSecOps : Azure DevOps, Git, SonarQube, CI/CD.\n\n• Conteneurisation : Docker, Kubernetes, OpenShift.\n\n• Déploiement : Helm, Kustomize, Argo CD.\n\n• Infrastructure : Windows Server et IIS.\n\n• Sensibilité aux enjeux de sécurité applicative et de confidentialité des données.\n\n• Expérience confirmée en développement fullstack et solide expertise .NET / C#.\n\n• Capacité à prendre des décisions techniques, à accompagner une équipe et à travailler de manière autonome.\n\n• Excellent esprit d’analyse, pragmatisme, rigueur et sens des responsabilités.\n\n• Excellente résistance au stress , capacité à gérer les priorités, les urgences et les contraintes de délais dans un environnement exigeant.\n\n• Bon relationnel, communication constructive et capacité à collaborer avec des interlocuteurs variés.\n\n• Français et anglais courants, à l’oral comme à l’écrit.\n\n• Une expérience dans le secteur bancaire ou la banque privée constitue un atout.\n\n📍 Localisation : Résidence en Suisse souhaitée."
+      },
+      "needsRetranslation": false,
+      "location": "Genève, , Switzerland",
+      "canton": "GE",
+      "url": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
+      "source": "Talan Dedicated Parser (SmartRecruiters)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-17T09:17:52.882Z",
+      "addressLocality": "Genève",
+      "addressRegion": "GE",
+      "postalCode": "1201",
+      "streetAddress": "Place Ruth-Bösiger 6",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "IT / SAP / AI Consulting",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-10-23T13:35:09.147Z",
+      "postedDate": "2026-10-23T13:35:09.147Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000157480029-tech-lead-fullstack-net-c-?oga=true",
+      "jobReqId": "744000157480029",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "tech-lead-fullstack-net-c-talan-geneve-switzerland"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
+        ],
+        "de": [
+          "tech-lead-fullstack-net-c-talan-geneve-switzerland"
+        ]
+      },
+      "firstSeenAt": "2026-10-23T21:11:18.471Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 165500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-22T09:17:52.882Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -776,7 +776,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000160297069-technical-analyst-power-trading-systems?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T06:51:32.101Z",
+      "crawledAt": "2026-11-17T09:17:52.879Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -826,7 +826,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T06:51:32.101Z",
+      "validThrough": "2027-02-05T09:17:52.879Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -860,7 +860,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000160297119-senior-business-analyst-pricing-modelling?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T06:51:32.100Z",
+      "crawledAt": "2026-11-17T09:17:52.878Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -912,7 +912,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T06:51:32.100Z",
+      "validThrough": "2027-02-05T09:17:52.878Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -946,7 +946,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000160297169-senior-business-analyst-orchestrade?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T06:51:32.099Z",
+      "crawledAt": "2026-11-17T09:17:52.876Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -996,34 +996,34 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T06:51:32.099Z",
+      "validThrough": "2027-02-05T09:17:52.876Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "talan-7f8bf54e2a45",
-      "slug": "consultant-e-business-continuity-infrastructure-talan-geneve-switzerland",
+      "slug": "consulente-e-business-continuity-infrastructure-talan-geneve",
       "slugByLocale": {
-        "fr": "consultant-e-business-continuity-infrastructure-talan-geneve-switzerland",
-        "it": "consultant-e-business-continuity-infrastructure-talan-geneve-switzerland",
+        "it": "consulente-e-business-continuity-infrastructure-talan-geneve",
         "en": "consultant-e-business-continuity-infrastructure-talan-geneve-switzerland",
-        "de": "consultant-e-business-continuity-infrastructure-talan-geneve-switzerland"
+        "de": "berater-e-business-continuity-infrastructure-talan-geneve",
+        "fr": "consultant-e-business-continuity-infrastructure-talan-geneve-switzerland"
       },
       "company": "Talan",
       "companyKey": "talan",
       "companyDomain": "talan.com",
       "title": "Consultant.e Business Continuity & Infrastructure",
       "titleByLocale": {
-        "fr": "Consultant.e Business Continuity & Infrastructure",
         "it": "Consulente.e Business Continuity & Infrastructure",
         "en": "Consultant.e Business Continuity & Infrastructure",
-        "de": "Berater.e Business Continuity & Infrastructure"
+        "de": "Berater.e Business Continuity & Infrastructure",
+        "fr": "Consultant.e Business Continuity & Infrastructure"
       },
       "description": "Contexte\n Dans le cadre du renforcement de son dispositif de résilience IT, notre client recherche un Ingénieur d’exploitation Infrastructure pour accompagner le Business Continuity Management Office (BCMO).\n L'objectif est de garantir la continuité des services IT critiques et d'assurer la bonne intégration des exigences de continuité d'activité dans les projets (BUILD) et les environnements en exploitation (RUN).\n Missions principales\n\n• Assurer le suivi des exigences de Business Continuity dans les projets et services IT.\n\n• Contribuer à la rédaction, la mise à jour et l'amélioration des PCA/PRA.\n\n• Fiabiliser les référentiels BCM et les données relatives aux services critiques.\n\n• Préparer et accompagner les campagnes de revue, tests de continuité, exercices et audits.\n\n• Identifier les dépendances techniques, les risques et les points de fragilité des infrastructures.\n\n• Coordonner les plans de remédiation et suivre les actions correctrices.\n\n• Produire les KPI/KRI, reportings et tableaux de bord liés à la résilience IT.\n\nBusiness Continuity / IT Resilience\n\n• Expérience opérationnelle en Business Continuity Management dans un environnement IT.\n\n• Maîtrise des PCA/PRA, BCP/DRP et analyses d'impact métier (BIA).\n\n• Expérience des tests de Disaster Recovery et exercices de continuité.\n\n• Connaissance de la norme ISO 22301 et des bonnes pratiques BCM.\n\n• Connaissance de l'outil ParaSolution appréciée.\n Infrastructure IT\n\n• Bonne compréhension des environnements multisites et datacenters.\n\n• Windows, Linux, virtualisation, réseaux, Cloud.\n\n• Active Directory, DNS, DHCP, stockage, sauvegardes et bases de données.\n\n• Outils ITSM et CMDB.\n Outils et reporting\n\n• Excellente maîtrise d'Excel : TCD, fonctions avancées, Power Query, consolidation et contrôle de données.\n\n• Maîtrise de SharePoint : bibliothèques, droits d'accès, versioning et listes documentaires.\n Compétences transverses\n\n• Esprit d'analyse et capacité à identifier les dépendances et risques techniques.\n\n• Coordination de multiples interlocuteurs et animation d'ateliers.\n\n• Rigueur documentaire, capacité de synthèse et suivi des plans d'actions.",
       "descriptionByLocale": {
-        "fr": "Contexte\n Dans le cadre du renforcement de son dispositif de résilience IT, notre client recherche un Ingénieur d’exploitation Infrastructure pour accompagner le Business Continuity Management Office (BCMO).\n L'objectif est de garantir la continuité des services IT critiques et d'assurer la bonne intégration des exigences de continuité d'activité dans les projets (BUILD) et les environnements en exploitation (RUN).\n Missions principales\n\n• Assurer le suivi des exigences de Business Continuity dans les projets et services IT.\n\n• Contribuer à la rédaction, la mise à jour et l'amélioration des PCA/PRA.\n\n• Fiabiliser les référentiels BCM et les données relatives aux services critiques.\n\n• Préparer et accompagner les campagnes de revue, tests de continuité, exercices et audits.\n\n• Identifier les dépendances techniques, les risques et les points de fragilité des infrastructures.\n\n• Coordonner les plans de remédiation et suivre les actions correctrices.\n\n• Produire les KPI/KRI, reportings et tableaux de bord liés à la résilience IT.\n\nBusiness Continuity / IT Resilience\n\n• Expérience opérationnelle en Business Continuity Management dans un environnement IT.\n\n• Maîtrise des PCA/PRA, BCP/DRP et analyses d'impact métier (BIA).\n\n• Expérience des tests de Disaster Recovery et exercices de continuité.\n\n• Connaissance de la norme ISO 22301 et des bonnes pratiques BCM.\n\n• Connaissance de l'outil ParaSolution appréciée.\n Infrastructure IT\n\n• Bonne compréhension des environnements multisites et datacenters.\n\n• Windows, Linux, virtualisation, réseaux, Cloud.\n\n• Active Directory, DNS, DHCP, stockage, sauvegardes et bases de données.\n\n• Outils ITSM et CMDB.\n Outils et reporting\n\n• Excellente maîtrise d'Excel : TCD, fonctions avancées, Power Query, consolidation et contrôle de données.\n\n• Maîtrise de SharePoint : bibliothèques, droits d'accès, versioning et listes documentaires.\n Compétences transverses\n\n• Esprit d'analyse et capacité à identifier les dépendances et risques techniques.\n\n• Coordination de multiples interlocuteurs et animation d'ateliers.\n\n• Rigueur documentaire, capacité de synthèse et suivi des plans d'actions.",
-        "it": "Contexte\n Dans le cadre du renforcement de son dispositif de résilience IT, notre client recherche un Ingénieur d’exploitation Infrastructure pour accompagner le Business Continuity Management Office (BCMO).\n L'objectif est de garantir la continuité des services IT critiques et d'assurer la bonne intégration des exigences de continuité d'activité dans les projets (BUILD) et les environnements en exploitation (RUN).\n Missions principales\n\n• Assurer le suivi des exigences de Business Continuity dans les projets et services IT.\n\n• Contribuer à la rédaction, la mise à jour et l'amélioration des PCA/PRA.\n\n• Fiabiliser les référentiels BCM et les données relatives aux services critiques.\n\n• Préparer et accompagner les campagnes de revue, tests de continuité, exercices et audits.\n\n• Identifier les dépendances techniques, les risques et les points de fragilité des infrastructures.\n\n• Coordonner les plans de remédiation et suivre les actions correctrices.\n\n• Produire les KPI/KRI, reportings et tableaux de bord liés à la résilience IT.\n\nBusiness Continuity / IT Resilience\n\n• Expérience opérationnelle en Business Continuity Management dans un environnement IT.\n\n• Maîtrise des PCA/PRA, BCP/DRP et analyses d'impact métier (BIA).\n\n• Expérience des tests de Disaster Recovery et exercices de continuité.\n\n• Connaissance de la norme ISO 22301 et des bonnes pratiques BCM.\n\n• Connaissance de l'outil ParaSolution appréciée.\n Infrastructure IT\n\n• Bonne compréhension des environnements multisites et datacenters.\n\n• Windows, Linux, virtualisation, réseaux, Cloud.\n\n• Active Directory, DNS, DHCP, stockage, sauvegardes et bases de données.\n\n• Outils ITSM et CMDB.\n Outils et reporting\n\n• Excellente maîtrise d'Excel : TCD, fonctions avancées, Power Query, consolidation et contrôle de données.\n\n• Maîtrise de SharePoint : bibliothèques, droits d'accès, versioning et listes documentaires.\n Compétences transverses\n\n• Esprit d'analyse et capacité à identifier les dépendances et risques techniques.\n\n• Coordination de multiples interlocuteurs et animation d'ateliers.\n\n• Rigueur documentaire, capacité de synthèse et suivi des plans d'actions.",
-        "en": "Contexte\n Dans le cadre du renforcement de son dispositif de résilience IT, notre client recherche un Ingénieur d’exploitation Infrastructure pour accompagner le Business Continuity Management Office (BCMO).\n L'objectif est de garantir la continuité des services IT critiques et d'assurer la bonne intégration des exigences de continuité d'activité dans les projets (BUILD) et les environnements en exploitation (RUN).\n Missions principales\n\n• Assurer le suivi des exigences de Business Continuity dans les projets et services IT.\n\n• Contribuer à la rédaction, la mise à jour et l'amélioration des PCA/PRA.\n\n• Fiabiliser les référentiels BCM et les données relatives aux services critiques.\n\n• Préparer et accompagner les campagnes de revue, tests de continuité, exercices et audits.\n\n• Identifier les dépendances techniques, les risques et les points de fragilité des infrastructures.\n\n• Coordonner les plans de remédiation et suivre les actions correctrices.\n\n• Produire les KPI/KRI, reportings et tableaux de bord liés à la résilience IT.\n\nBusiness Continuity / IT Resilience\n\n• Expérience opérationnelle en Business Continuity Management dans un environnement IT.\n\n• Maîtrise des PCA/PRA, BCP/DRP et analyses d'impact métier (BIA).\n\n• Expérience des tests de Disaster Recovery et exercices de continuité.\n\n• Connaissance de la norme ISO 22301 et des bonnes pratiques BCM.\n\n• Connaissance de l'outil ParaSolution appréciée.\n Infrastructure IT\n\n• Bonne compréhension des environnements multisites et datacenters.\n\n• Windows, Linux, virtualisation, réseaux, Cloud.\n\n• Active Directory, DNS, DHCP, stockage, sauvegardes et bases de données.\n\n• Outils ITSM et CMDB.\n Outils et reporting\n\n• Excellente maîtrise d'Excel : TCD, fonctions avancées, Power Query, consolidation et contrôle de données.\n\n• Maîtrise de SharePoint : bibliothèques, droits d'accès, versioning et listes documentaires.\n Compétences transverses\n\n• Esprit d'analyse et capacité à identifier les dépendances et risques techniques.\n\n• Coordination de multiples interlocuteurs et animation d'ateliers.\n\n• Rigueur documentaire, capacité de synthèse et suivi des plans d'actions.",
-        "de": "Contexte\n Dans le cadre du renforcement de son dispositif de résilience IT, notre client recherche un Ingénieur d’exploitation Infrastructure pour accompagner le Business Continuity Management Office (BCMO).\n L'objectif est de garantir la continuité des services IT critiques et d'assurer la bonne intégration des exigences de continuité d'activité dans les projets (BUILD) et les environnements en exploitation (RUN).\n Missions principales\n\n• Assurer le suivi des exigences de Business Continuity dans les projets et services IT.\n\n• Contribuer à la rédaction, la mise à jour et l'amélioration des PCA/PRA.\n\n• Fiabiliser les référentiels BCM et les données relatives aux services critiques.\n\n• Préparer et accompagner les campagnes de revue, tests de continuité, exercices et audits.\n\n• Identifier les dépendances techniques, les risques et les points de fragilité des infrastructures.\n\n• Coordonner les plans de remédiation et suivre les actions correctrices.\n\n• Produire les KPI/KRI, reportings et tableaux de bord liés à la résilience IT.\n\nBusiness Continuity / IT Resilience\n\n• Expérience opérationnelle en Business Continuity Management dans un environnement IT.\n\n• Maîtrise des PCA/PRA, BCP/DRP et analyses d'impact métier (BIA).\n\n• Expérience des tests de Disaster Recovery et exercices de continuité.\n\n• Connaissance de la norme ISO 22301 et des bonnes pratiques BCM.\n\n• Connaissance de l'outil ParaSolution appréciée.\n Infrastructure IT\n\n• Bonne compréhension des environnements multisites et datacenters.\n\n• Windows, Linux, virtualisation, réseaux, Cloud.\n\n• Active Directory, DNS, DHCP, stockage, sauvegardes et bases de données.\n\n• Outils ITSM et CMDB.\n Outils et reporting\n\n• Excellente maîtrise d'Excel : TCD, fonctions avancées, Power Query, consolidation et contrôle de données.\n\n• Maîtrise de SharePoint : bibliothèques, droits d'accès, versioning et listes documentaires.\n Compétences transverses\n\n• Esprit d'analyse et capacité à identifier les dépendances et risques techniques.\n\n• Coordination de multiples interlocuteurs et animation d'ateliers.\n\n• Rigueur documentaire, capacité de synthèse et suivi des plans d'actions."
+        "it": "Contexte\nDans le cadre du renforcement de son dispositif de résilience IT, notre client recherche un Ingénieur d’exploitation Infrastructure pour accompagner le Business Continuity Management Office (BCMO).\nL'objectif est de garantir la continuité des services IT critiques et d'assurer la bonne intégration des exigences de continuité d'activité dans les projets (BUILD) et les environnements en exploitation (RUN).\nMissions principales\n\n• Assurer le suivi des exigences de Business Continuity dans les projets et services IT.\n\n• Contribuer à la rédaction, la mise à jour et l'amélioration des PCA/PRA.\n\n• Fiabiliser les référentiels BCM et les données relatives aux services critiques.\n\n• Préparer et accompagner les campagnes de revue, tests de continuité, exercices et audits.\n\n• Identifier les dépendances techniques, les risques et les points de fragilité des infrastructures.\n\n• Coordonner les plans de remédiation et suivre les actions correctrices.\n\n• Produire les KPI/KRI, reportings et tableaux de bord liés à la résilience IT.\n\nBusiness Continuity / IT Resilience\n\n• Expérience opérationnelle en Business Continuity Management dans un environnement IT.\n\n• Maîtrise des PCA/PRA, BCP/DRP et analyses d'impact métier (BIA).\n\n• Expérience des tests de Disaster Recovery et exercices de continuité.\n\n• Connaissance de la norme ISO 22301 et des bonnes pratiques BCM.\n\n• Connaissance de l'outil ParaSolution appréciée.\nInfrastructure IT\n\n• Bonne compréhension des environnements multisites et datacenters.\n\n• Windows, Linux, virtualisation, réseaux, Cloud.\n\n• Active Directory, DNS, DHCP, stockage, sauvegardes et bases de données.\n\n• Outils ITSM et CMDB.\nOutils et reporting\n\n• Excellente maîtrise d'Excel : TCD, fonctions avancées, Power Query, consolidation et contrôle de données.\n\n• Maîtrise de SharePoint : bibliothèques, droits d'accès, versioning et listes documentaires.\nCompétences transverses\n\n• Esprit d'analyse et capacité à identifier les dépendances et risques techniques.\n\n• Coordination de multiples interlocuteurs et animation d'ateliers.\n\n• Rigueur documentaire, capacité de synthèse et suivi des plans d'actions.",
+        "en": "Contexte\nDans le cadre du renforcement de son dispositif de résilience IT, notre client recherche un Ingénieur d’exploitation Infrastructure pour accompagner le Business Continuity Management Office (BCMO).\nL'objectif est de garantir la continuité des services IT critiques et d'assurer la bonne intégration des exigences de continuité d'activité dans les projets (BUILD) et les environnements en exploitation (RUN).\nMissions principales\n\n• Assurer le suivi des exigences de Business Continuity dans les projets et services IT.\n\n• Contribuer à la rédaction, la mise à jour et l'amélioration des PCA/PRA.\n\n• Fiabiliser les référentiels BCM et les données relatives aux services critiques.\n\n• Préparer et accompagner les campagnes de revue, tests de continuité, exercices et audits.\n\n• Identifier les dépendances techniques, les risques et les points de fragilité des infrastructures.\n\n• Coordonner les plans de remédiation et suivre les actions correctrices.\n\n• Produire les KPI/KRI, reportings et tableaux de bord liés à la résilience IT.\n\nBusiness Continuity / IT Resilience\n\n• Expérience opérationnelle en Business Continuity Management dans un environnement IT.\n\n• Maîtrise des PCA/PRA, BCP/DRP et analyses d'impact métier (BIA).\n\n• Expérience des tests de Disaster Recovery et exercices de continuité.\n\n• Connaissance de la norme ISO 22301 et des bonnes pratiques BCM.\n\n• Connaissance de l'outil ParaSolution appréciée.\nInfrastructure IT\n\n• Bonne compréhension des environnements multisites et datacenters.\n\n• Windows, Linux, virtualisation, réseaux, Cloud.\n\n• Active Directory, DNS, DHCP, stockage, sauvegardes et bases de données.\n\n• Outils ITSM et CMDB.\nOutils et reporting\n\n• Excellente maîtrise d'Excel : TCD, fonctions avancées, Power Query, consolidation et contrôle de données.\n\n• Maîtrise de SharePoint : bibliothèques, droits d'accès, versioning et listes documentaires.\nCompétences transverses\n\n• Esprit d'analyse et capacité à identifier les dépendances et risques techniques.\n\n• Coordination de multiples interlocuteurs et animation d'ateliers.\n\n• Rigueur documentaire, capacité de synthèse et suivi des plans d'actions.",
+        "de": "Contexte\nDans le cadre du renforcement de son dispositif de résilience IT, notre client recherche un Ingénieur d’exploitation Infrastructure pour accompagner le Business Continuity Management Office (BCMO).\nL'objectif est de garantir la continuité des services IT critiques et d'assurer la bonne intégration des exigences de continuité d'activité dans les projets (BUILD) et les environnements en exploitation (RUN).\nMissions principales\n\n• Assurer le suivi des exigences de Business Continuity dans les projets et services IT.\n\n• Contribuer à la rédaction, la mise à jour et l'amélioration des PCA/PRA.\n\n• Fiabiliser les référentiels BCM et les données relatives aux services critiques.\n\n• Préparer et accompagner les campagnes de revue, tests de continuité, exercices et audits.\n\n• Identifier les dépendances techniques, les risques et les points de fragilité des infrastructures.\n\n• Coordonner les plans de remédiation et suivre les actions correctrices.\n\n• Produire les KPI/KRI, reportings et tableaux de bord liés à la résilience IT.\n\nBusiness Continuity / IT Resilience\n\n• Expérience opérationnelle en Business Continuity Management dans un environnement IT.\n\n• Maîtrise des PCA/PRA, BCP/DRP et analyses d'impact métier (BIA).\n\n• Expérience des tests de Disaster Recovery et exercices de continuité.\n\n• Connaissance de la norme ISO 22301 et des bonnes pratiques BCM.\n\n• Connaissance de l'outil ParaSolution appréciée.\nInfrastructure IT\n\n• Bonne compréhension des environnements multisites et datacenters.\n\n• Windows, Linux, virtualisation, réseaux, Cloud.\n\n• Active Directory, DNS, DHCP, stockage, sauvegardes et bases de données.\n\n• Outils ITSM et CMDB.\nOutils et reporting\n\n• Excellente maîtrise d'Excel : TCD, fonctions avancées, Power Query, consolidation et contrôle de données.\n\n• Maîtrise de SharePoint : bibliothèques, droits d'accès, versioning et listes documentaires.\nCompétences transverses\n\n• Esprit d'analyse et capacité à identifier les dépendances et risques techniques.\n\n• Coordination de multiples interlocuteurs et animation d'ateliers.\n\n• Rigueur documentaire, capacité de synthèse et suivi des plans d'actions.",
+        "fr": "Contexte\nDans le cadre du renforcement de son dispositif de résilience IT, notre client recherche un Ingénieur d’exploitation Infrastructure pour accompagner le Business Continuity Management Office (BCMO).\nL'objectif est de garantir la continuité des services IT critiques et d'assurer la bonne intégration des exigences de continuité d'activité dans les projets (BUILD) et les environnements en exploitation (RUN).\nMissions principales\n\n• Assurer le suivi des exigences de Business Continuity dans les projets et services IT.\n\n• Contribuer à la rédaction, la mise à jour et l'amélioration des PCA/PRA.\n\n• Fiabiliser les référentiels BCM et les données relatives aux services critiques.\n\n• Préparer et accompagner les campagnes de revue, tests de continuité, exercices et audits.\n\n• Identifier les dépendances techniques, les risques et les points de fragilité des infrastructures.\n\n• Coordonner les plans de remédiation et suivre les actions correctrices.\n\n• Produire les KPI/KRI, reportings et tableaux de bord liés à la résilience IT.\n\nBusiness Continuity / IT Resilience\n\n• Expérience opérationnelle en Business Continuity Management dans un environnement IT.\n\n• Maîtrise des PCA/PRA, BCP/DRP et analyses d'impact métier (BIA).\n\n• Expérience des tests de Disaster Recovery et exercices de continuité.\n\n• Connaissance de la norme ISO 22301 et des bonnes pratiques BCM.\n\n• Connaissance de l'outil ParaSolution appréciée.\nInfrastructure IT\n\n• Bonne compréhension des environnements multisites et datacenters.\n\n• Windows, Linux, virtualisation, réseaux, Cloud.\n\n• Active Directory, DNS, DHCP, stockage, sauvegardes et bases de données.\n\n• Outils ITSM et CMDB.\nOutils et reporting\n\n• Excellente maîtrise d'Excel : TCD, fonctions avancées, Power Query, consolidation et contrôle de données.\n\n• Maîtrise de SharePoint : bibliothèques, droits d'accès, versioning et listes documentaires.\nCompétences transverses\n\n• Esprit d'analyse et capacité à identifier les dépendances et risques techniques.\n\n• Coordination de multiples interlocuteurs et animation d'ateliers.\n\n• Rigueur documentaire, capacité de synthèse et suivi des plans d'actions."
       },
       "needsRetranslation": true,
       "location": "Genève, , Switzerland",
@@ -1031,7 +1031,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000161805949-consultant-e-business-continuity-infrastructure-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T06:51:32.098Z",
+      "crawledAt": "2026-11-17T09:17:52.874Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1051,9 +1051,19 @@
       "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000161805949-consultant-e-business-continuity-infrastructure-?oga=true",
       "jobReqId": "744000161805949",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-11-17T06:51:32.098Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "consultant-e-business-continuity-infrastructure-talan-geneve-switzerland"
+        ],
+        "de": [
+          "consultant-e-business-continuity-infrastructure-talan-geneve-switzerland"
+        ]
       },
+      "previousSlugs": [
+        "consultant-e-business-continuity-infrastructure-talan-geneve-switzerland"
+      ],
       "salaryMin": 74500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -1068,35 +1078,34 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T06:51:32.098Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T06:51:32.098Z"
+      "validThrough": "2027-02-15T09:17:52.874Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "talan-6f87bf1f8368",
       "slug": "sales-manager-talan-geneva-ge-switzerland",
       "slugByLocale": {
-        "fr": "sales-manager-talan-geneva-ge-switzerland",
         "it": "sales-manager-talan-geneva-ge-switzerland",
         "en": "sales-manager-talan-geneva-ge-switzerland",
-        "de": "sales-manager-talan-geneva-ge-switzerland"
+        "de": "sales-manager-talan-geneva-ge-switzerland",
+        "fr": "sales-manager-talan-geneva-ge-switzerland"
       },
       "company": "Talan",
       "companyKey": "talan",
       "companyDomain": "talan.com",
       "title": "Sales Manager",
       "titleByLocale": {
-        "fr": "Sales Manager",
         "it": "Sales Manager",
         "en": "Sales Manager",
-        "de": "Sales Manager"
+        "de": "Sales Manager",
+        "fr": "Sales Manager"
       },
       "description": "Contexte du poste\n L'organisation commerciale est structurée par secteurs d'activité, sous la responsabilité globale de la Direction Commerciale. Le Sales Manager est le garant, sur son secteur, du développement commercial, du pilotage de son équipe et de la qualité de la relation avec les comptes stratégiques. Il/elle est un relais clé entre la Direction Commerciale, son équipe, et les autres fonctions de l'entreprise (avant-vente, practices, marketing, delivery).\n Missions et responsabilités\n 1. Pilotage stratégique et commercial du secteur\n\n• Définir, en lien avec la Direction Commerciale, la stratégie commerciale et le plan d'action annuel du secteur (objectifs, priorités, comptes cibles).\n\n• Décliner les objectifs commerciaux globaux du secteur en objectifs individuels pour chaque membre de l'équipe.\n\n• Être responsable du chiffre d'affaires et de la marge réalisés sur le secteur, et rendre compte régulièrement des résultats à la Direction Commerciale.\n\n• Identifier les tendances, enjeux et opportunités de marché sur le secteur, et ajuster le plan d'action en conséquence.\n 2. Management et animation d'équipe\n\n• Manager, animer et faire monter en compétence une équipe dédiée au secteur, pouvant être composée de Key Account Managers, Account Managers et/ou Business Developers.\n\n• Participer au recrutement, à l'intégration et à l'accompagnement des nouveaux collaborateurs de l'équipe.\n\n• Fixer les objectifs individuels, suivre la performance de chacun et conduire les entretiens de suivi et annuels.\n\n• Organiser et animer les rituels commerciaux de l'équipe (points de pipe, revues de comptes, réunions d'équipe).\n\n• Favoriser la cohésion d'équipe et diffuser les bonnes pratiques commerciales au sein du secteur.\n 3. Développement du portefeuille de comptes stratégiques\n\n• Développer et piloter personnellement un portefeuille de comptes stratégiques du secteur, en synergie avec l'équipe.\n\n• Identifier et qualifier les opportunités commerciales, en direct ou en soutien de l'équipe.\n\n• Piloter le cycle de vente complexe sur les dossiers stratégiques : qualification, réponses aux appels d'offres, négociation, closing.\n\n• Construire des propositions de valeur différenciantes en s'appuyant sur l'offre de services et les expertises internes.\n 4. Collaboration transverse\n\n• Travailler en étroite collaboration avec les autres Sales Managers de secteur et la Direction Commerciale pour partager les bonnes pratiques et assurer la cohérence de l'approche commerciale globale.\n\n• Collaborer avec les équipes avant-vente et les practices internes (consultants, architectes, chefs de projets, experts fonctionnels) pour construire la meilleure réponse aux enjeux clients.\n\n• Coordonner avec l'équipe marketing les actions de développement commercial sur le secteur (événements, contenus, campagnes).\n\n• Assurer, le cas échéant, l'interface avec les partenaires et éditeurs stratégiques du secteur.\n 5. Reporting et pilotage de la performance\n\n• Assurer le suivi rigoureux du pipe commercial de l'équipe et la fiabilité du reporting dans Salesforce.\n\n• Produire les reportings et prévisions (forecast) demandés par la Direction Commerciale.\n\n• Analyser les indicateurs de performance du secteur et proposer des plans d'action correctifs.\n Interlocuteurs clés\n\n• Direction Commerciale\n\n• Autres Sales Managers de secteur\n\n• Équipes avant-vente et practices / expertises internes\n\n• Direction Marketing\n\n• Partenaires et éditeurs stratégiques du secteur\n Indicateurs de performance clés (KPIs)\n\n• Chiffre d'affaires et marge réalisés vs objectifs du secteur.\n\n• Taux de transformation du pipe commercial.\n\n• Qualité et fiabilité du forecast (précision des prévisions dans Salesforce).\n\n• Atteinte des objectifs individuels par les membres de l'équipe.\n\n• Fidélisation et développement des comptes stratégiques du secteur.\n\n• Formation supérieure Bac+5 / Master, idéalement en commerce, management ou école de commerce.\n\n• Expérience confirmée en développement commercial B2B, idéalement dans le conseil ou les services IT.\n\n• Expérience réussie en management d’équipe commerciale\n\n• Maîtrise des cycles de vente complexes et du développement de comptes stratégiques.\n\n• Forte culture du résultat : chiffre d’affaires, marge, pipeline et forecast.\n\n• Leadership, capacité de négociation et excellent relationnel client.\n\n• Maîtrise d’un CRM, idéalement Salesforce.\n\n• Anglais bilingue\n\n• Expériences marché Suisse Obligatoire\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
       "descriptionByLocale": {
-        "fr": "Contexte du poste\n L'organisation commerciale est structurée par secteurs d'activité, sous la responsabilité globale de la Direction Commerciale. Le Sales Manager est le garant, sur son secteur, du développement commercial, du pilotage de son équipe et de la qualité de la relation avec les comptes stratégiques. Il/elle est un relais clé entre la Direction Commerciale, son équipe, et les autres fonctions de l'entreprise (avant-vente, practices, marketing, delivery).\n Missions et responsabilités\n 1. Pilotage stratégique et commercial du secteur\n\n• Définir, en lien avec la Direction Commerciale, la stratégie commerciale et le plan d'action annuel du secteur (objectifs, priorités, comptes cibles).\n\n• Décliner les objectifs commerciaux globaux du secteur en objectifs individuels pour chaque membre de l'équipe.\n\n• Être responsable du chiffre d'affaires et de la marge réalisés sur le secteur, et rendre compte régulièrement des résultats à la Direction Commerciale.\n\n• Identifier les tendances, enjeux et opportunités de marché sur le secteur, et ajuster le plan d'action en conséquence.\n 2. Management et animation d'équipe\n\n• Manager, animer et faire monter en compétence une équipe dédiée au secteur, pouvant être composée de Key Account Managers, Account Managers et/ou Business Developers.\n\n• Participer au recrutement, à l'intégration et à l'accompagnement des nouveaux collaborateurs de l'équipe.\n\n• Fixer les objectifs individuels, suivre la performance de chacun et conduire les entretiens de suivi et annuels.\n\n• Organiser et animer les rituels commerciaux de l'équipe (points de pipe, revues de comptes, réunions d'équipe).\n\n• Favoriser la cohésion d'équipe et diffuser les bonnes pratiques commerciales au sein du secteur.\n 3. Développement du portefeuille de comptes stratégiques\n\n• Développer et piloter personnellement un portefeuille de comptes stratégiques du secteur, en synergie avec l'équipe.\n\n• Identifier et qualifier les opportunités commerciales, en direct ou en soutien de l'équipe.\n\n• Piloter le cycle de vente complexe sur les dossiers stratégiques : qualification, réponses aux appels d'offres, négociation, closing.\n\n• Construire des propositions de valeur différenciantes en s'appuyant sur l'offre de services et les expertises internes.\n 4. Collaboration transverse\n\n• Travailler en étroite collaboration avec les autres Sales Managers de secteur et la Direction Commerciale pour partager les bonnes pratiques et assurer la cohérence de l'approche commerciale globale.\n\n• Collaborer avec les équipes avant-vente et les practices internes (consultants, architectes, chefs de projets, experts fonctionnels) pour construire la meilleure réponse aux enjeux clients.\n\n• Coordonner avec l'équipe marketing les actions de développement commercial sur le secteur (événements, contenus, campagnes).\n\n• Assurer, le cas échéant, l'interface avec les partenaires et éditeurs stratégiques du secteur.\n 5. Reporting et pilotage de la performance\n\n• Assurer le suivi rigoureux du pipe commercial de l'équipe et la fiabilité du reporting dans Salesforce.\n\n• Produire les reportings et prévisions (forecast) demandés par la Direction Commerciale.\n\n• Analyser les indicateurs de performance du secteur et proposer des plans d'action correctifs.\n Interlocuteurs clés\n\n• Direction Commerciale\n\n• Autres Sales Managers de secteur\n\n• Équipes avant-vente et practices / expertises internes\n\n• Direction Marketing\n\n• Partenaires et éditeurs stratégiques du secteur\n Indicateurs de performance clés (KPIs)\n\n• Chiffre d'affaires et marge réalisés vs objectifs du secteur.\n\n• Taux de transformation du pipe commercial.\n\n• Qualité et fiabilité du forecast (précision des prévisions dans Salesforce).\n\n• Atteinte des objectifs individuels par les membres de l'équipe.\n\n• Fidélisation et développement des comptes stratégiques du secteur.\n\n• Formation supérieure Bac+5 / Master, idéalement en commerce, management ou école de commerce.\n\n• Expérience confirmée en développement commercial B2B, idéalement dans le conseil ou les services IT.\n\n• Expérience réussie en management d’équipe commerciale\n\n• Maîtrise des cycles de vente complexes et du développement de comptes stratégiques.\n\n• Forte culture du résultat : chiffre d’affaires, marge, pipeline et forecast.\n\n• Leadership, capacité de négociation et excellent relationnel client.\n\n• Maîtrise d’un CRM, idéalement Salesforce.\n\n• Anglais bilingue\n\n• Expériences marché Suisse Obligatoire\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
-        "it": "Contexte du poste\n L'organisation commerciale est structurée par secteurs d'activité, sous la responsabilité globale de la Direction Commerciale. Le Sales Manager est le garant, sur son secteur, du développement commercial, du pilotage de son équipe et de la qualité de la relation avec les comptes stratégiques. Il/elle est un relais clé entre la Direction Commerciale, son équipe, et les autres fonctions de l'entreprise (avant-vente, practices, marketing, delivery).\n Missions et responsabilités\n 1. Pilotage stratégique et commercial du secteur\n\n• Définir, en lien avec la Direction Commerciale, la stratégie commerciale et le plan d'action annuel du secteur (objectifs, priorités, comptes cibles).\n\n• Décliner les objectifs commerciaux globaux du secteur en objectifs individuels pour chaque membre de l'équipe.\n\n• Être responsable du chiffre d'affaires et de la marge réalisés sur le secteur, et rendre compte régulièrement des résultats à la Direction Commerciale.\n\n• Identifier les tendances, enjeux et opportunités de marché sur le secteur, et ajuster le plan d'action en conséquence.\n 2. Management et animation d'équipe\n\n• Manager, animer et faire monter en compétence une équipe dédiée au secteur, pouvant être composée de Key Account Managers, Account Managers et/ou Business Developers.\n\n• Participer au recrutement, à l'intégration et à l'accompagnement des nouveaux collaborateurs de l'équipe.\n\n• Fixer les objectifs individuels, suivre la performance de chacun et conduire les entretiens de suivi et annuels.\n\n• Organiser et animer les rituels commerciaux de l'équipe (points de pipe, revues de comptes, réunions d'équipe).\n\n• Favoriser la cohésion d'équipe et diffuser les bonnes pratiques commerciales au sein du secteur.\n 3. Développement du portefeuille de comptes stratégiques\n\n• Développer et piloter personnellement un portefeuille de comptes stratégiques du secteur, en synergie avec l'équipe.\n\n• Identifier et qualifier les opportunités commerciales, en direct ou en soutien de l'équipe.\n\n• Piloter le cycle de vente complexe sur les dossiers stratégiques : qualification, réponses aux appels d'offres, négociation, closing.\n\n• Construire des propositions de valeur différenciantes en s'appuyant sur l'offre de services et les expertises internes.\n 4. Collaboration transverse\n\n• Travailler en étroite collaboration avec les autres Sales Managers de secteur et la Direction Commerciale pour partager les bonnes pratiques et assurer la cohérence de l'approche commerciale globale.\n\n• Collaborer avec les équipes avant-vente et les practices internes (consultants, architectes, chefs de projets, experts fonctionnels) pour construire la meilleure réponse aux enjeux clients.\n\n• Coordonner avec l'équipe marketing les actions de développement commercial sur le secteur (événements, contenus, campagnes).\n\n• Assurer, le cas échéant, l'interface avec les partenaires et éditeurs stratégiques du secteur.\n 5. Reporting et pilotage de la performance\n\n• Assurer le suivi rigoureux du pipe commercial de l'équipe et la fiabilité du reporting dans Salesforce.\n\n• Produire les reportings et prévisions (forecast) demandés par la Direction Commerciale.\n\n• Analyser les indicateurs de performance du secteur et proposer des plans d'action correctifs.\n Interlocuteurs clés\n\n• Direction Commerciale\n\n• Autres Sales Managers de secteur\n\n• Équipes avant-vente et practices / expertises internes\n\n• Direction Marketing\n\n• Partenaires et éditeurs stratégiques du secteur\n Indicateurs de performance clés (KPIs)\n\n• Chiffre d'affaires et marge réalisés vs objectifs du secteur.\n\n• Taux de transformation du pipe commercial.\n\n• Qualité et fiabilité du forecast (précision des prévisions dans Salesforce).\n\n• Atteinte des objectifs individuels par les membres de l'équipe.\n\n• Fidélisation et développement des comptes stratégiques du secteur.\n\n• Formation supérieure Bac+5 / Master, idéalement en commerce, management ou école de commerce.\n\n• Expérience confirmée en développement commercial B2B, idéalement dans le conseil ou les services IT.\n\n• Expérience réussie en management d’équipe commerciale\n\n• Maîtrise des cycles de vente complexes et du développement de comptes stratégiques.\n\n• Forte culture du résultat : chiffre d’affaires, marge, pipeline et forecast.\n\n• Leadership, capacité de négociation et excellent relationnel client.\n\n• Maîtrise d’un CRM, idéalement Salesforce.\n\n• Anglais bilingue\n\n• Expériences marché Suisse Obligatoire\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
-        "en": "Contexte du poste\n L'organisation commerciale est structurée par secteurs d'activité, sous la responsabilité globale de la Direction Commerciale. Le Sales Manager est le garant, sur son secteur, du développement commercial, du pilotage de son équipe et de la qualité de la relation avec les comptes stratégiques. Il/elle est un relais clé entre la Direction Commerciale, son équipe, et les autres fonctions de l'entreprise (avant-vente, practices, marketing, delivery).\n Missions et responsabilités\n 1. Pilotage stratégique et commercial du secteur\n\n• Définir, en lien avec la Direction Commerciale, la stratégie commerciale et le plan d'action annuel du secteur (objectifs, priorités, comptes cibles).\n\n• Décliner les objectifs commerciaux globaux du secteur en objectifs individuels pour chaque membre de l'équipe.\n\n• Être responsable du chiffre d'affaires et de la marge réalisés sur le secteur, et rendre compte régulièrement des résultats à la Direction Commerciale.\n\n• Identifier les tendances, enjeux et opportunités de marché sur le secteur, et ajuster le plan d'action en conséquence.\n 2. Management et animation d'équipe\n\n• Manager, animer et faire monter en compétence une équipe dédiée au secteur, pouvant être composée de Key Account Managers, Account Managers et/ou Business Developers.\n\n• Participer au recrutement, à l'intégration et à l'accompagnement des nouveaux collaborateurs de l'équipe.\n\n• Fixer les objectifs individuels, suivre la performance de chacun et conduire les entretiens de suivi et annuels.\n\n• Organiser et animer les rituels commerciaux de l'équipe (points de pipe, revues de comptes, réunions d'équipe).\n\n• Favoriser la cohésion d'équipe et diffuser les bonnes pratiques commerciales au sein du secteur.\n 3. Développement du portefeuille de comptes stratégiques\n\n• Développer et piloter personnellement un portefeuille de comptes stratégiques du secteur, en synergie avec l'équipe.\n\n• Identifier et qualifier les opportunités commerciales, en direct ou en soutien de l'équipe.\n\n• Piloter le cycle de vente complexe sur les dossiers stratégiques : qualification, réponses aux appels d'offres, négociation, closing.\n\n• Construire des propositions de valeur différenciantes en s'appuyant sur l'offre de services et les expertises internes.\n 4. Collaboration transverse\n\n• Travailler en étroite collaboration avec les autres Sales Managers de secteur et la Direction Commerciale pour partager les bonnes pratiques et assurer la cohérence de l'approche commerciale globale.\n\n• Collaborer avec les équipes avant-vente et les practices internes (consultants, architectes, chefs de projets, experts fonctionnels) pour construire la meilleure réponse aux enjeux clients.\n\n• Coordonner avec l'équipe marketing les actions de développement commercial sur le secteur (événements, contenus, campagnes).\n\n• Assurer, le cas échéant, l'interface avec les partenaires et éditeurs stratégiques du secteur.\n 5. Reporting et pilotage de la performance\n\n• Assurer le suivi rigoureux du pipe commercial de l'équipe et la fiabilité du reporting dans Salesforce.\n\n• Produire les reportings et prévisions (forecast) demandés par la Direction Commerciale.\n\n• Analyser les indicateurs de performance du secteur et proposer des plans d'action correctifs.\n Interlocuteurs clés\n\n• Direction Commerciale\n\n• Autres Sales Managers de secteur\n\n• Équipes avant-vente et practices / expertises internes\n\n• Direction Marketing\n\n• Partenaires et éditeurs stratégiques du secteur\n Indicateurs de performance clés (KPIs)\n\n• Chiffre d'affaires et marge réalisés vs objectifs du secteur.\n\n• Taux de transformation du pipe commercial.\n\n• Qualité et fiabilité du forecast (précision des prévisions dans Salesforce).\n\n• Atteinte des objectifs individuels par les membres de l'équipe.\n\n• Fidélisation et développement des comptes stratégiques du secteur.\n\n• Formation supérieure Bac+5 / Master, idéalement en commerce, management ou école de commerce.\n\n• Expérience confirmée en développement commercial B2B, idéalement dans le conseil ou les services IT.\n\n• Expérience réussie en management d’équipe commerciale\n\n• Maîtrise des cycles de vente complexes et du développement de comptes stratégiques.\n\n• Forte culture du résultat : chiffre d’affaires, marge, pipeline et forecast.\n\n• Leadership, capacité de négociation et excellent relationnel client.\n\n• Maîtrise d’un CRM, idéalement Salesforce.\n\n• Anglais bilingue\n\n• Expériences marché Suisse Obligatoire\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
-        "de": "Contexte du poste\n L'organisation commerciale est structurée par secteurs d'activité, sous la responsabilité globale de la Direction Commerciale. Le Sales Manager est le garant, sur son secteur, du développement commercial, du pilotage de son équipe et de la qualité de la relation avec les comptes stratégiques. Il/elle est un relais clé entre la Direction Commerciale, son équipe, et les autres fonctions de l'entreprise (avant-vente, practices, marketing, delivery).\n Missions et responsabilités\n 1. Pilotage stratégique et commercial du secteur\n\n• Définir, en lien avec la Direction Commerciale, la stratégie commerciale et le plan d'action annuel du secteur (objectifs, priorités, comptes cibles).\n\n• Décliner les objectifs commerciaux globaux du secteur en objectifs individuels pour chaque membre de l'équipe.\n\n• Être responsable du chiffre d'affaires et de la marge réalisés sur le secteur, et rendre compte régulièrement des résultats à la Direction Commerciale.\n\n• Identifier les tendances, enjeux et opportunités de marché sur le secteur, et ajuster le plan d'action en conséquence.\n 2. Management et animation d'équipe\n\n• Manager, animer et faire monter en compétence une équipe dédiée au secteur, pouvant être composée de Key Account Managers, Account Managers et/ou Business Developers.\n\n• Participer au recrutement, à l'intégration et à l'accompagnement des nouveaux collaborateurs de l'équipe.\n\n• Fixer les objectifs individuels, suivre la performance de chacun et conduire les entretiens de suivi et annuels.\n\n• Organiser et animer les rituels commerciaux de l'équipe (points de pipe, revues de comptes, réunions d'équipe).\n\n• Favoriser la cohésion d'équipe et diffuser les bonnes pratiques commerciales au sein du secteur.\n 3. Développement du portefeuille de comptes stratégiques\n\n• Développer et piloter personnellement un portefeuille de comptes stratégiques du secteur, en synergie avec l'équipe.\n\n• Identifier et qualifier les opportunités commerciales, en direct ou en soutien de l'équipe.\n\n• Piloter le cycle de vente complexe sur les dossiers stratégiques : qualification, réponses aux appels d'offres, négociation, closing.\n\n• Construire des propositions de valeur différenciantes en s'appuyant sur l'offre de services et les expertises internes.\n 4. Collaboration transverse\n\n• Travailler en étroite collaboration avec les autres Sales Managers de secteur et la Direction Commerciale pour partager les bonnes pratiques et assurer la cohérence de l'approche commerciale globale.\n\n• Collaborer avec les équipes avant-vente et les practices internes (consultants, architectes, chefs de projets, experts fonctionnels) pour construire la meilleure réponse aux enjeux clients.\n\n• Coordonner avec l'équipe marketing les actions de développement commercial sur le secteur (événements, contenus, campagnes).\n\n• Assurer, le cas échéant, l'interface avec les partenaires et éditeurs stratégiques du secteur.\n 5. Reporting et pilotage de la performance\n\n• Assurer le suivi rigoureux du pipe commercial de l'équipe et la fiabilité du reporting dans Salesforce.\n\n• Produire les reportings et prévisions (forecast) demandés par la Direction Commerciale.\n\n• Analyser les indicateurs de performance du secteur et proposer des plans d'action correctifs.\n Interlocuteurs clés\n\n• Direction Commerciale\n\n• Autres Sales Managers de secteur\n\n• Équipes avant-vente et practices / expertises internes\n\n• Direction Marketing\n\n• Partenaires et éditeurs stratégiques du secteur\n Indicateurs de performance clés (KPIs)\n\n• Chiffre d'affaires et marge réalisés vs objectifs du secteur.\n\n• Taux de transformation du pipe commercial.\n\n• Qualité et fiabilité du forecast (précision des prévisions dans Salesforce).\n\n• Atteinte des objectifs individuels par les membres de l'équipe.\n\n• Fidélisation et développement des comptes stratégiques du secteur.\n\n• Formation supérieure Bac+5 / Master, idéalement en commerce, management ou école de commerce.\n\n• Expérience confirmée en développement commercial B2B, idéalement dans le conseil ou les services IT.\n\n• Expérience réussie en management d’équipe commerciale\n\n• Maîtrise des cycles de vente complexes et du développement de comptes stratégiques.\n\n• Forte culture du résultat : chiffre d’affaires, marge, pipeline et forecast.\n\n• Leadership, capacité de négociation et excellent relationnel client.\n\n• Maîtrise d’un CRM, idéalement Salesforce.\n\n• Anglais bilingue\n\n• Expériences marché Suisse Obligatoire\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle."
+        "it": "Contexte du poste\nL'organisation commerciale est structurée par secteurs d'activité, sous la responsabilité globale de la Direction Commerciale. Le Sales Manager est le garant, sur son secteur, du développement commercial, du pilotage de son équipe et de la qualité de la relation avec les comptes stratégiques. Il/elle est un relais clé entre la Direction Commerciale, son équipe, et les autres fonctions de l'entreprise (avant-vente, practices, marketing, delivery).\nMissions et responsabilités\n1. Pilotage stratégique et commercial du secteur\n\n• Définir, en lien avec la Direction Commerciale, la stratégie commerciale et le plan d'action annuel du secteur (objectifs, priorités, comptes cibles).\n\n• Décliner les objectifs commerciaux globaux du secteur en objectifs individuels pour chaque membre de l'équipe.\n\n• Être responsable du chiffre d'affaires et de la marge réalisés sur le secteur, et rendre compte régulièrement des résultats à la Direction Commerciale.\n\n• Identifier les tendances, enjeux et opportunités de marché sur le secteur, et ajuster le plan d'action en conséquence.\n2. Management et animation d'équipe\n\n• Manager, animer et faire monter en compétence une équipe dédiée au secteur, pouvant être composée de Key Account Managers, Account Managers et/ou Business Developers.\n\n• Participer au recrutement, à l'intégration et à l'accompagnement des nouveaux collaborateurs de l'équipe.\n\n• Fixer les objectifs individuels, suivre la performance de chacun et conduire les entretiens de suivi et annuels.\n\n• Organiser et animer les rituels commerciaux de l'équipe (points de pipe, revues de comptes, réunions d'équipe).\n\n• Favoriser la cohésion d'équipe et diffuser les bonnes pratiques commerciales au sein du secteur.\n3. Développement du portefeuille de comptes stratégiques\n\n• Développer et piloter personnellement un portefeuille de comptes stratégiques du secteur, en synergie avec l'équipe.\n\n• Identifier et qualifier les opportunités commerciales, en direct ou en soutien de l'équipe.\n\n• Piloter le cycle de vente complexe sur les dossiers stratégiques : qualification, réponses aux appels d'offres, négociation, closing.\n\n• Construire des propositions de valeur différenciantes en s'appuyant sur l'offre de services et les expertises internes.\n4. Collaboration transverse\n\n• Travailler en étroite collaboration avec les autres Sales Managers de secteur et la Direction Commerciale pour partager les bonnes pratiques et assurer la cohérence de l'approche commerciale globale.\n\n• Collaborer avec les équipes avant-vente et les practices internes (consultants, architectes, chefs de projets, experts fonctionnels) pour construire la meilleure réponse aux enjeux clients.\n\n• Coordonner avec l'équipe marketing les actions de développement commercial sur le secteur (événements, contenus, campagnes).\n\n• Assurer, le cas échéant, l'interface avec les partenaires et éditeurs stratégiques du secteur.\n5. Reporting et pilotage de la performance\n\n• Assurer le suivi rigoureux du pipe commercial de l'équipe et la fiabilité du reporting dans Salesforce.\n\n• Produire les reportings et prévisions (forecast) demandés par la Direction Commerciale.\n\n• Analyser les indicateurs de performance du secteur et proposer des plans d'action correctifs.\nInterlocuteurs clés\n\n• Direction Commerciale\n\n• Autres Sales Managers de secteur\n\n• Équipes avant-vente et practices / expertises internes\n\n• Direction Marketing\n\n• Partenaires et éditeurs stratégiques du secteur\nIndicateurs de performance clés (KPIs)\n\n• Chiffre d'affaires et marge réalisés vs objectifs du secteur.\n\n• Taux de transformation du pipe commercial.\n\n• Qualité et fiabilité du forecast (précision des prévisions dans Salesforce).\n\n• Atteinte des objectifs individuels par les membres de l'équipe.\n\n• Fidélisation et développement des comptes stratégiques du secteur.\n\n• Formation supérieure Bac+5 / Master, idéalement en commerce, management ou école de commerce.\n\n• Expérience confirmée en développement commercial B2B, idéalement dans le conseil ou les services IT.\n\n• Expérience réussie en management d’équipe commerciale\n\n• Maîtrise des cycles de vente complexes et du développement de comptes stratégiques.\n\n• Forte culture du résultat : chiffre d’affaires, marge, pipeline et forecast.\n\n• Leadership, capacité de négociation et excellent relationnel client.\n\n• Maîtrise d’un CRM, idéalement Salesforce.\n\n• Anglais bilingue\n\n• Expériences marché Suisse Obligatoire\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
+        "en": "Contexte du poste\nL'organisation commerciale est structurée par secteurs d'activité, sous la responsabilité globale de la Direction Commerciale. Le Sales Manager est le garant, sur son secteur, du développement commercial, du pilotage de son équipe et de la qualité de la relation avec les comptes stratégiques. Il/elle est un relais clé entre la Direction Commerciale, son équipe, et les autres fonctions de l'entreprise (avant-vente, practices, marketing, delivery).\nMissions et responsabilités\n1. Pilotage stratégique et commercial du secteur\n\n• Définir, en lien avec la Direction Commerciale, la stratégie commerciale et le plan d'action annuel du secteur (objectifs, priorités, comptes cibles).\n\n• Décliner les objectifs commerciaux globaux du secteur en objectifs individuels pour chaque membre de l'équipe.\n\n• Être responsable du chiffre d'affaires et de la marge réalisés sur le secteur, et rendre compte régulièrement des résultats à la Direction Commerciale.\n\n• Identifier les tendances, enjeux et opportunités de marché sur le secteur, et ajuster le plan d'action en conséquence.\n2. Management et animation d'équipe\n\n• Manager, animer et faire monter en compétence une équipe dédiée au secteur, pouvant être composée de Key Account Managers, Account Managers et/ou Business Developers.\n\n• Participer au recrutement, à l'intégration et à l'accompagnement des nouveaux collaborateurs de l'équipe.\n\n• Fixer les objectifs individuels, suivre la performance de chacun et conduire les entretiens de suivi et annuels.\n\n• Organiser et animer les rituels commerciaux de l'équipe (points de pipe, revues de comptes, réunions d'équipe).\n\n• Favoriser la cohésion d'équipe et diffuser les bonnes pratiques commerciales au sein du secteur.\n3. Développement du portefeuille de comptes stratégiques\n\n• Développer et piloter personnellement un portefeuille de comptes stratégiques du secteur, en synergie avec l'équipe.\n\n• Identifier et qualifier les opportunités commerciales, en direct ou en soutien de l'équipe.\n\n• Piloter le cycle de vente complexe sur les dossiers stratégiques : qualification, réponses aux appels d'offres, négociation, closing.\n\n• Construire des propositions de valeur différenciantes en s'appuyant sur l'offre de services et les expertises internes.\n4. Collaboration transverse\n\n• Travailler en étroite collaboration avec les autres Sales Managers de secteur et la Direction Commerciale pour partager les bonnes pratiques et assurer la cohérence de l'approche commerciale globale.\n\n• Collaborer avec les équipes avant-vente et les practices internes (consultants, architectes, chefs de projets, experts fonctionnels) pour construire la meilleure réponse aux enjeux clients.\n\n• Coordonner avec l'équipe marketing les actions de développement commercial sur le secteur (événements, contenus, campagnes).\n\n• Assurer, le cas échéant, l'interface avec les partenaires et éditeurs stratégiques du secteur.\n5. Reporting et pilotage de la performance\n\n• Assurer le suivi rigoureux du pipe commercial de l'équipe et la fiabilité du reporting dans Salesforce.\n\n• Produire les reportings et prévisions (forecast) demandés par la Direction Commerciale.\n\n• Analyser les indicateurs de performance du secteur et proposer des plans d'action correctifs.\nInterlocuteurs clés\n\n• Direction Commerciale\n\n• Autres Sales Managers de secteur\n\n• Équipes avant-vente et practices / expertises internes\n\n• Direction Marketing\n\n• Partenaires et éditeurs stratégiques du secteur\nIndicateurs de performance clés (KPIs)\n\n• Chiffre d'affaires et marge réalisés vs objectifs du secteur.\n\n• Taux de transformation du pipe commercial.\n\n• Qualité et fiabilité du forecast (précision des prévisions dans Salesforce).\n\n• Atteinte des objectifs individuels par les membres de l'équipe.\n\n• Fidélisation et développement des comptes stratégiques du secteur.\n\n• Formation supérieure Bac+5 / Master, idéalement en commerce, management ou école de commerce.\n\n• Expérience confirmée en développement commercial B2B, idéalement dans le conseil ou les services IT.\n\n• Expérience réussie en management d’équipe commerciale\n\n• Maîtrise des cycles de vente complexes et du développement de comptes stratégiques.\n\n• Forte culture du résultat : chiffre d’affaires, marge, pipeline et forecast.\n\n• Leadership, capacité de négociation et excellent relationnel client.\n\n• Maîtrise d’un CRM, idéalement Salesforce.\n\n• Anglais bilingue\n\n• Expériences marché Suisse Obligatoire\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
+        "de": "Contexte du poste\nL'organisation commerciale est structurée par secteurs d'activité, sous la responsabilité globale de la Direction Commerciale. Le Sales Manager est le garant, sur son secteur, du développement commercial, du pilotage de son équipe et de la qualité de la relation avec les comptes stratégiques. Il/elle est un relais clé entre la Direction Commerciale, son équipe, et les autres fonctions de l'entreprise (avant-vente, practices, marketing, delivery).\nMissions et responsabilités\n1. Pilotage stratégique et commercial du secteur\n\n• Définir, en lien avec la Direction Commerciale, la stratégie commerciale et le plan d'action annuel du secteur (objectifs, priorités, comptes cibles).\n\n• Décliner les objectifs commerciaux globaux du secteur en objectifs individuels pour chaque membre de l'équipe.\n\n• Être responsable du chiffre d'affaires et de la marge réalisés sur le secteur, et rendre compte régulièrement des résultats à la Direction Commerciale.\n\n• Identifier les tendances, enjeux et opportunités de marché sur le secteur, et ajuster le plan d'action en conséquence.\n2. Management et animation d'équipe\n\n• Manager, animer et faire monter en compétence une équipe dédiée au secteur, pouvant être composée de Key Account Managers, Account Managers et/ou Business Developers.\n\n• Participer au recrutement, à l'intégration et à l'accompagnement des nouveaux collaborateurs de l'équipe.\n\n• Fixer les objectifs individuels, suivre la performance de chacun et conduire les entretiens de suivi et annuels.\n\n• Organiser et animer les rituels commerciaux de l'équipe (points de pipe, revues de comptes, réunions d'équipe).\n\n• Favoriser la cohésion d'équipe et diffuser les bonnes pratiques commerciales au sein du secteur.\n3. Développement du portefeuille de comptes stratégiques\n\n• Développer et piloter personnellement un portefeuille de comptes stratégiques du secteur, en synergie avec l'équipe.\n\n• Identifier et qualifier les opportunités commerciales, en direct ou en soutien de l'équipe.\n\n• Piloter le cycle de vente complexe sur les dossiers stratégiques : qualification, réponses aux appels d'offres, négociation, closing.\n\n• Construire des propositions de valeur différenciantes en s'appuyant sur l'offre de services et les expertises internes.\n4. Collaboration transverse\n\n• Travailler en étroite collaboration avec les autres Sales Managers de secteur et la Direction Commerciale pour partager les bonnes pratiques et assurer la cohérence de l'approche commerciale globale.\n\n• Collaborer avec les équipes avant-vente et les practices internes (consultants, architectes, chefs de projets, experts fonctionnels) pour construire la meilleure réponse aux enjeux clients.\n\n• Coordonner avec l'équipe marketing les actions de développement commercial sur le secteur (événements, contenus, campagnes).\n\n• Assurer, le cas échéant, l'interface avec les partenaires et éditeurs stratégiques du secteur.\n5. Reporting et pilotage de la performance\n\n• Assurer le suivi rigoureux du pipe commercial de l'équipe et la fiabilité du reporting dans Salesforce.\n\n• Produire les reportings et prévisions (forecast) demandés par la Direction Commerciale.\n\n• Analyser les indicateurs de performance du secteur et proposer des plans d'action correctifs.\nInterlocuteurs clés\n\n• Direction Commerciale\n\n• Autres Sales Managers de secteur\n\n• Équipes avant-vente et practices / expertises internes\n\n• Direction Marketing\n\n• Partenaires et éditeurs stratégiques du secteur\nIndicateurs de performance clés (KPIs)\n\n• Chiffre d'affaires et marge réalisés vs objectifs du secteur.\n\n• Taux de transformation du pipe commercial.\n\n• Qualité et fiabilité du forecast (précision des prévisions dans Salesforce).\n\n• Atteinte des objectifs individuels par les membres de l'équipe.\n\n• Fidélisation et développement des comptes stratégiques du secteur.\n\n• Formation supérieure Bac+5 / Master, idéalement en commerce, management ou école de commerce.\n\n• Expérience confirmée en développement commercial B2B, idéalement dans le conseil ou les services IT.\n\n• Expérience réussie en management d’équipe commerciale\n\n• Maîtrise des cycles de vente complexes et du développement de comptes stratégiques.\n\n• Forte culture du résultat : chiffre d’affaires, marge, pipeline et forecast.\n\n• Leadership, capacité de négociation et excellent relationnel client.\n\n• Maîtrise d’un CRM, idéalement Salesforce.\n\n• Anglais bilingue\n\n• Expériences marché Suisse Obligatoire\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle.",
+        "fr": "Contexte du poste\nL'organisation commerciale est structurée par secteurs d'activité, sous la responsabilité globale de la Direction Commerciale. Le Sales Manager est le garant, sur son secteur, du développement commercial, du pilotage de son équipe et de la qualité de la relation avec les comptes stratégiques. Il/elle est un relais clé entre la Direction Commerciale, son équipe, et les autres fonctions de l'entreprise (avant-vente, practices, marketing, delivery).\nMissions et responsabilités\n1. Pilotage stratégique et commercial du secteur\n\n• Définir, en lien avec la Direction Commerciale, la stratégie commerciale et le plan d'action annuel du secteur (objectifs, priorités, comptes cibles).\n\n• Décliner les objectifs commerciaux globaux du secteur en objectifs individuels pour chaque membre de l'équipe.\n\n• Être responsable du chiffre d'affaires et de la marge réalisés sur le secteur, et rendre compte régulièrement des résultats à la Direction Commerciale.\n\n• Identifier les tendances, enjeux et opportunités de marché sur le secteur, et ajuster le plan d'action en conséquence.\n2. Management et animation d'équipe\n\n• Manager, animer et faire monter en compétence une équipe dédiée au secteur, pouvant être composée de Key Account Managers, Account Managers et/ou Business Developers.\n\n• Participer au recrutement, à l'intégration et à l'accompagnement des nouveaux collaborateurs de l'équipe.\n\n• Fixer les objectifs individuels, suivre la performance de chacun et conduire les entretiens de suivi et annuels.\n\n• Organiser et animer les rituels commerciaux de l'équipe (points de pipe, revues de comptes, réunions d'équipe).\n\n• Favoriser la cohésion d'équipe et diffuser les bonnes pratiques commerciales au sein du secteur.\n3. Développement du portefeuille de comptes stratégiques\n\n• Développer et piloter personnellement un portefeuille de comptes stratégiques du secteur, en synergie avec l'équipe.\n\n• Identifier et qualifier les opportunités commerciales, en direct ou en soutien de l'équipe.\n\n• Piloter le cycle de vente complexe sur les dossiers stratégiques : qualification, réponses aux appels d'offres, négociation, closing.\n\n• Construire des propositions de valeur différenciantes en s'appuyant sur l'offre de services et les expertises internes.\n4. Collaboration transverse\n\n• Travailler en étroite collaboration avec les autres Sales Managers de secteur et la Direction Commerciale pour partager les bonnes pratiques et assurer la cohérence de l'approche commerciale globale.\n\n• Collaborer avec les équipes avant-vente et les practices internes (consultants, architectes, chefs de projets, experts fonctionnels) pour construire la meilleure réponse aux enjeux clients.\n\n• Coordonner avec l'équipe marketing les actions de développement commercial sur le secteur (événements, contenus, campagnes).\n\n• Assurer, le cas échéant, l'interface avec les partenaires et éditeurs stratégiques du secteur.\n5. Reporting et pilotage de la performance\n\n• Assurer le suivi rigoureux du pipe commercial de l'équipe et la fiabilité du reporting dans Salesforce.\n\n• Produire les reportings et prévisions (forecast) demandés par la Direction Commerciale.\n\n• Analyser les indicateurs de performance du secteur et proposer des plans d'action correctifs.\nInterlocuteurs clés\n\n• Direction Commerciale\n\n• Autres Sales Managers de secteur\n\n• Équipes avant-vente et practices / expertises internes\n\n• Direction Marketing\n\n• Partenaires et éditeurs stratégiques du secteur\nIndicateurs de performance clés (KPIs)\n\n• Chiffre d'affaires et marge réalisés vs objectifs du secteur.\n\n• Taux de transformation du pipe commercial.\n\n• Qualité et fiabilité du forecast (précision des prévisions dans Salesforce).\n\n• Atteinte des objectifs individuels par les membres de l'équipe.\n\n• Fidélisation et développement des comptes stratégiques du secteur.\n\n• Formation supérieure Bac+5 / Master, idéalement en commerce, management ou école de commerce.\n\n• Expérience confirmée en développement commercial B2B, idéalement dans le conseil ou les services IT.\n\n• Expérience réussie en management d’équipe commerciale\n\n• Maîtrise des cycles de vente complexes et du développement de comptes stratégiques.\n\n• Forte culture du résultat : chiffre d’affaires, marge, pipeline et forecast.\n\n• Leadership, capacité de négociation et excellent relationnel client.\n\n• Maîtrise d’un CRM, idéalement Salesforce.\n\n• Anglais bilingue\n\n• Expériences marché Suisse Obligatoire\n\nPourquoi rejoindre Talan Suisse ?\n\n• Participer à la croissance d'une practice Data & AI en forte expansion.\n\n• Jouer un rôle clé dans la structuration de notre offre Data Management.\n\n• Intervenir sur des programmes stratégiques auprès de grands comptes suisses.\n\n• Bénéficier d'un environnement entrepreneurial offrant autonomie, impact et perspectives d'évolution.\n\n• Collaborer avec des experts Data, Analytics, Gouvernance des données et Intelligence Artificielle."
       },
       "needsRetranslation": true,
       "location": "Geneva, GE, Switzerland",
@@ -1104,7 +1113,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000161839349-sales-manager-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T06:51:32.096Z",
+      "crawledAt": "2026-11-17T09:17:52.870Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1124,9 +1133,8 @@
       "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000161839349-sales-manager-?oga=true",
       "jobReqId": "744000161839349",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-11-17T06:51:32.096Z",
       "salaryMin": 101500,
       "salaryMax": 156000,
       "salarySource": "estimated",
@@ -1141,178 +1149,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-15T06:51:32.096Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T06:51:32.096Z"
-    },
-    {
-      "id": "talan-a04a3a751aa7",
-      "slug": "consulente-e-m365-sharepoint-talan-geneve",
-      "slugByLocale": {
-        "it": "consulente-e-m365-sharepoint-talan-geneve",
-        "en": "consultant-e-m365-sharepoint-talan-geneve-switzerland",
-        "de": "berater-e-m365-sharepoint-talan-geneve",
-        "fr": "consultant-e-m365-sharepoint-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "Consultant(e) M365 Sharepoint",
-      "titleByLocale": {
-        "it": "Consulente(e) M365 Sharepoint",
-        "en": "Consultant M365 Sharepoint",
-        "de": "Berater(e) M365 Sharepoint",
-        "fr": "Consultant(e) M365 Sharepoint"
-      },
-      "description": "Contexte de la mission\n Dans le cadre du maintien et de l’évolution de ses plateformes collaboratives, notre client recherche un Consultant Senior SharePoint / Microsoft 365 .\n Vous interviendrez sur des environnements SharePoint On-Premises et Microsoft 365 , avec un rôle central dans l’administration, le support de niveau 3, la résolution d’incidents complexes et l’accompagnement de la transformation progressive vers les solutions cloud Microsoft.\n Vos responsabilités\n\n• Administrer et maintenir en conditions opérationnelles les environnements SharePoint On-Premises et SharePoint Online .\n\n• Assurer le support L3 et prendre en charge les incidents complexes.\n\n• Garantir la disponibilité, la stabilité et la performance des plateformes collaboratives.\n\n• Administrer les principaux services Microsoft 365 associés.\n\n• Automatiser les tâches d’administration et d’exploitation avec PowerShell .\n\n• Participer à la gestion des identités et des accès avec Microsoft Entra ID , notamment authentification, autorisation, Conditional Access, App Registrations et Microsoft Graph API.\n\n• Contribuer aux sujets de sécurité, conformité et gouvernance Microsoft 365 .\n\n• Participer aux processus ITSM : Incident, Problem et Change Management .\n\n• Identifier les incidents récurrents et mettre en place des actions correctives et des automatisations.\n\n• Participer aux projets de migration de SharePoint On-Premises vers SharePoint Online .\n\n• Produire et maintenir la documentation technique et assurer le transfert de connaissances.\n\n• Collaborer avec les équipes infrastructure, sécurité, métiers et projets dans un environnement Agile/Scrum .\n\nCompétences indispensables\n\n• 7 ans minimum d'expérience sur des environnements SharePoint et Microsoft 365.\n\n• Expertise en administration et maintien en conditions opérationnelles de SharePoint On-Premises .\n\n• Très bonne maîtrise de SharePoint Online et Microsoft 365 .\n\n• Expérience confirmée en support technique L3 .\n\n• Excellente maîtrise de PowerShell pour l'administration et l'automatisation.\n\n• Bonne maîtrise de Microsoft Entra ID / Azure AD :\n• authentification et autorisation ;\n\n• Conditional Access ;\n\n• App Registrations ;\n\n• Microsoft Graph API.\n\n• Bonne compréhension de Microsoft SQL Server , Active Directory et des concepts réseau.\n\n• Maîtrise des problématiques de sécurité, conformité et gouvernance Microsoft 365 .\n\n• Connaissance des processus ITSM , notamment Incident, Problem et Change Management.\n\n• Expérience dans un environnement Agile/Scrum .\n Compétences appréciées\n\n• Migration SharePoint On-Premises vers SharePoint Online .\n\n• Outils de migration ShareGate et SharePoint Migration Tool (SPMT) .\n\n• Power Platform : Power Apps, Power Automate et Power BI.\n\n• Développement SharePoint avec SPFx, TypeScript et React .\n\n• Outils de monitoring et reporting tels que Prometheus, SPDockit ou AdminDroid .\n\n• Certifications Microsoft liées à SharePoint / Microsoft 365 .",
-      "descriptionByLocale": {
-        "it": "contesto missionario\nNell'ambito della manutenzione e dell'evoluzione delle sue piattaforme collaborative, il nostro cliente cerca un consulente senior SharePoint / Microsoft 365.\nInterverrete su SharePoint On-Premises e Microsoft 365 ambienti, con un ruolo centrale nell'amministrazione, il supporto di Livello 3, la risoluzione degli incidenti complessa e l'accompagnamento della trasformazione progressiva a soluzioni cloud Microsoft.\nLe tue responsabilità\n\n• Amministrare e mantenere gli ambienti SharePoint On-Premises e SharePoint Online in condizioni operative.\n\n• Fornire supporto L3 e gestire incidenti complessi.\n\n• Assicurare la disponibilità, la stabilità e le prestazioni di piattaforme collaborative.\n\n• Amministra i principali servizi associati Microsoft 365.\n\n• Automatizzare le attività di amministrazione e di funzionamento con PowerShell.\n\n• Partecipa alla gestione dell'identità e dell'accesso con Microsoft Entra ID, tra cui autenticazione, autorizzazione, Accesso Condizionato, Registrazioni App e Microsoft Graph API.\n\n• Contribuisci a problemi di sicurezza, conformità e governance Microsoft 365.\n\n• Partecipa ai processi ITSM: Incident, Problem and Change Management .\n\n• Identificare incidenti ricorrenti e implementare azioni correttive e automazione.\n\n• Partecipa a SharePoint On-Premises progetti di migrazione a SharePoint Online .\n\n• Produrre e mantenere la documentazione tecnica e garantire il trasferimento delle conoscenze.\n\n• Collabora con i team di infrastrutture, sicurezza, trade e progetti in un ambiente Agile/Scrum.\n\nCapacità essenziali\n\n• Esperienza minima di 7 anni sugli ambienti SharePoint e Microsoft 365.\n\n• Competenza in amministrazione e manutenzione di SharePoint On-Premises .\n\n• Ottimo controllo su SharePoint Online e Microsoft 365.\n\n• Esperienza confermata nel supporto tecnico L3 .\n\n• Eccellente padronanza di PowerShell per amministrazione e automazione.\n\n• Buona padronanza di Microsoft Entra ID / Azure AD:\n• autenticazione e autorizzazione;\n\n• Accesso condizionale;\n\n• Applicazioni Registrazioni;\n\n• Microsoft Graph API.\n\n• Buona comprensione di Microsoft SQL Server , Active Directory e concetti di rete.\n\n• Controllo di problemi di sicurezza, conformità e governance Microsoft 365.\n\n• Conoscenza dei processi ITSM, tra cui Incident, Problem and Change Management.\n\n• Esperienza in un ambiente Agile/Scrum.\nCompetenze valutate\n\n• Migrazione SharePoint On-Premises to SharePoint Online .\n\n• Strumenti di migrazione ShareGate e SharePoint Migration Tool (SPMT) .\n\n• Piattaforma di potenza: Power Apps, Power Automation e Power BI.\n\n• Sviluppo SharePoint con SPFx, TypeScript e React .\n\n• Strumenti di monitoraggio e reporting come Prometheus, SPDockit o AdminDroid .\n\n• Certificazioni Microsoft relative a SharePoint / Microsoft 365 .",
-        "en": "Mission context\nAs part of the maintenance and evolution of its collaborative platforms, our client is looking for a Senior SharePoint Consultant / Microsoft 365.\nYou will intervene on SharePoint On-Premises and Microsoft 365 environments, with a central role in administration, Level 3 support, complex incident resolution and accompanying the progressive transformation to Microsoft cloud solutions.\nYour Responsibilities\n\n• Administer and maintain SharePoint On-Premises and SharePoint Online environments in operational conditions.\n\n• Provide L3 support and handle complex incidents.\n\n• Ensure the availability, stability and performance of collaborative platforms.\n\n• Administer the main Microsoft 365 associated services.\n\n• Automate administration and operating tasks with PowerShell.\n\n• Participate in identity and access management with Microsoft Entra ID, including authentication, authorization, Conditional Access, App Registrations and Microsoft Graph API.\n\n• Contribute to Microsoft 365 security, compliance and governance issues.\n\n• Participate in ITSM processes: Incident, Problem and Change Management .\n\n• Identify recurring incidents and implement corrective actions and automation.\n\n• Participate in SharePoint On-Premises migration projects to SharePoint Online .\n\n• Produce and maintain technical documentation and ensure knowledge transfer.\n\n• Collaborate with infrastructure, security, trades and projects teams in an Agile/Scrum environment.\n\nEssential skills\n\n• 7 years minimum experience on SharePoint and Microsoft 365 environments.\n\n• Expertise in administration and maintenance of SharePoint On-Premises .\n\n• Very good control of SharePoint Online and Microsoft 365.\n\n• Experience confirmed in technical support L3 .\n\n• Excellent mastery of PowerShell for administration and automation.\n\n• Good Mastery of Microsoft Entra ID / Azure AD:\n• authentication and authorization;\n\n• Conditional Access;\n\n• Apps Registrations;\n\n• Microsoft Graph API.\n\n• Good understanding of Microsoft SQL Server , Active Directory and network concepts.\n\n• Controlling Microsoft 365 security, compliance and governance issues.\n\n• Knowledge of ITSM processes, including Incident, Problem and Change Management.\n\n• Experience in an Agile/Scrum environment.\nAssessed competencies\n\n• Migration SharePoint On-Premises to SharePoint Online .\n\n• Migration tools ShareGate and SharePoint Migration Tool (SPMT) .\n\n• Power Platform: Power Apps, Power Automation and Power BI.\n\n• SharePoint development with SPFx, TypeScript and React .\n\n• Monitoring and reporting tools such as Prometheus, SPDockit or AdminDroid .\n\n• Microsoft Certifications related to SharePoint / Microsoft 365 .",
-        "de": "Missionskontext\nIm Rahmen der Wartung und Weiterentwicklung seiner kollaborativen Plattformen sucht unser Kunde einen Senior SharePoint Consultant / Microsoft 365.\nSie werden in SharePoint On-Premises und Microsoft 365-Umgebungen intervenieren, mit einer zentralen Rolle in der Verwaltung, dem Level 3-Support, der komplexen Incident-Lösung und der fortschreitenden Transformation zu Microsoft Cloud-Lösungen.\nIhre Aufgaben\n\n• Verwalten und pflegen Sie SharePoint On-Premises- und SharePoint Online-Umgebungen unter Betriebsbedingungen.\n\n• Bereitstellung von L3-Unterstützung und Bewältigung komplexer Vorfälle.\n\n• Gewährleistung der Verfügbarkeit, Stabilität und Leistung von Kooperationsplattformen.\n\n• Verwalten Sie die wichtigsten Microsoft 365 zugehörigen Dienste.\n\n• Automatisieren Sie Verwaltungs- und Betriebsaufgaben mit PowerShell.\n\n• Beteiligen Sie sich am Identitäts- und Zugriffsmanagement mit Microsoft Entra ID, einschließlich Authentifizierung, Autorisierung, bedingter Zugriff, App-Registrierungen und Microsoft Graph API.\n\n• Tragen Sie zu Microsoft 365-Sicherheits-, Compliance- und Governance-Problemen bei.\n\n• Beteiligen Sie sich an ITSM-Prozessen: Incident, Problem and Change Management.\n\n• Identifizieren Sie wiederkehrende Vorfälle und implementieren Sie Korrekturmaßnahmen und Automatisierung.\n\n• Nehmen Sie an SharePoint On-Premises-Migrationsprojekten zu SharePoint Online teil.\n\n• Erstellung und Pflege der technischen Dokumentation und Sicherstellung des Wissenstransfers.\n\n• Arbeiten Sie mit Infrastruktur-, Sicherheits-, Trades- und Projektteams in einer Agile/Scrum-Umgebung zusammen.\n\nGrundlegende Fähigkeiten\n\n• 7 Jahre Mindesterfahrung in SharePoint- und Microsoft 365-Umgebungen.\n\n• Expertise in der Verwaltung und Wartung von SharePoint On-Premises.\n\n• Sehr gute Kontrolle über SharePoint Online und Microsoft 365.\n\n• Erfahrung bestätigt im technischen Support L3 .\n\n• Hervorragende Beherrschung von PowerShell für Verwaltung und Automatisierung.\n\n• Gute Kenntnisse der Microsoft Entra ID / Azure AD:\n• Authentifizierung und Autorisierung;\n\n• Bedingter Zugang;\n\n• Registrierung von Apps;\n\n• Microsoft Graph API.\n\n• Gutes Verständnis von Microsoft SQL Server, Active Directory und Netzwerkkonzepten.\n\n• Steuerung von Microsoft 365 Sicherheits-, Compliance- und Governance-Problemen.\n\n• Kenntnisse über ITSM-Prozesse, einschließlich Incident, Problem- und Change Management.\n\n• Erfahrung in einer Agile/Scrum-Umgebung.\nBewertete Kompetenzen\n\n• Migration von SharePoint On-Premises zu SharePoint Online.\n\n• Migrationstools ShareGate und SharePoint Migration Tool (SPMT).\n\n• Power Platform: Power Apps, Power Automation und Power BI.\n\n• SharePoint Entwicklung mit SPFx, TypeScript und React.\n\n• Monitoring- und Reporting-Tools wie Prometheus, SPDockit oder AdminDroid.\n\n• Microsoft-Zertifizierungen im Zusammenhang mit SharePoint / Microsoft 365.",
-        "fr": "Contexte de la mission\nDans le cadre du maintien et de l’évolution de ses plateformes collaboratives, notre client recherche un Consultant Senior SharePoint / Microsoft 365 .\nVous interviendrez sur des environnements SharePoint On-Premises et Microsoft 365 , avec un rôle central dans l’administration, le support de niveau 3, la résolution d’incidents complexes et l’accompagnement de la transformation progressive vers les solutions cloud Microsoft.\nVos responsabilités\n\n• Administrer et maintenir en conditions opérationnelles les environnements SharePoint On-Premises et SharePoint Online .\n\n• Assurer le support L3 et prendre en charge les incidents complexes.\n\n• Garantir la disponibilité, la stabilité et la performance des plateformes collaboratives.\n\n• Administrer les principaux services Microsoft 365 associés.\n\n• Automatiser les tâches d’administration et d’exploitation avec PowerShell .\n\n• Participer à la gestion des identités et des accès avec Microsoft Entra ID , notamment authentification, autorisation, Conditional Access, App Registrations et Microsoft Graph API.\n\n• Contribuer aux sujets de sécurité, conformité et gouvernance Microsoft 365 .\n\n• Participer aux processus ITSM : Incident, Problem et Change Management .\n\n• Identifier les incidents récurrents et mettre en place des actions correctives et des automatisations.\n\n• Participer aux projets de migration de SharePoint On-Premises vers SharePoint Online .\n\n• Produire et maintenir la documentation technique et assurer le transfert de connaissances.\n\n• Collaborer avec les équipes infrastructure, sécurité, métiers et projets dans un environnement Agile/Scrum .\n\nCompétences indispensables\n\n• 7 ans minimum d'expérience sur des environnements SharePoint et Microsoft 365.\n\n• Expertise en administration et maintien en conditions opérationnelles de SharePoint On-Premises .\n\n• Très bonne maîtrise de SharePoint Online et Microsoft 365 .\n\n• Expérience confirmée en support technique L3 .\n\n• Excellente maîtrise de PowerShell pour l'administration et l'automatisation.\n\n• Bonne maîtrise de Microsoft Entra ID / Azure AD :\n• authentification et autorisation ;\n\n• Conditional Access ;\n\n• App Registrations ;\n\n• Microsoft Graph API.\n\n• Bonne compréhension de Microsoft SQL Server , Active Directory et des concepts réseau.\n\n• Maîtrise des problématiques de sécurité, conformité et gouvernance Microsoft 365 .\n\n• Connaissance des processus ITSM , notamment Incident, Problem et Change Management.\n\n• Expérience dans un environnement Agile/Scrum .\nCompétences appréciées\n\n• Migration SharePoint On-Premises vers SharePoint Online .\n\n• Outils de migration ShareGate et SharePoint Migration Tool (SPMT) .\n\n• Power Platform : Power Apps, Power Automate et Power BI.\n\n• Développement SharePoint avec SPFx, TypeScript et React .\n\n• Outils de monitoring et reporting tels que Prometheus, SPDockit ou AdminDroid .\n\n• Certifications Microsoft liées à SharePoint / Microsoft 365 ."
-      },
-      "needsRetranslation": false,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000159632440-consultant-e-m365-sharepoint?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:14:19.325Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Consulenza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-04T13:37:48.760Z",
-      "postedDate": "2026-11-04T13:37:48.760Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000159632440-consultant-e-m365-sharepoint?oga=true",
-      "jobReqId": "744000159632440",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "consultant-e-m365-sharepoint-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "consultant-e-m365-sharepoint-talan-geneve-switzerland"
-        ],
-        "de": [
-          "consultant-e-m365-sharepoint-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-11-04T21:21:08.600Z",
-      "salaryMin": 74500,
-      "salaryMax": 118500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 74500,
-          "maxValue": 118500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T09:14:19.325Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "talan-7973c2b19651",
-      "slug": "ai-senior-lead-ingegnere-talan-geneve",
-      "slugByLocale": {
-        "it": "ai-senior-lead-ingegnere-talan-geneve",
-        "en": "ai-senior-lead-certificate-talan-geneve",
-        "de": "ai-senior-lead-ingenieur-talan-geneve",
-        "fr": "ai-senior-lead-engineer-talan-geneve-switzerland"
-      },
-      "company": "Talan",
-      "companyKey": "talan",
-      "companyDomain": "talan.com",
-      "title": "AI Senior Lead Engineer",
-      "titleByLocale": {
-        "it": "AI Senior Lead Ingegnere",
-        "en": "AI Senior Lead Certificate",
-        "de": "AI Senior Lead Ingenieur",
-        "fr": "AI Senior Lead Engineer"
-      },
-      "description": "Nous recherchons un(e) AI Senior Lead Engineer pour assurer le leadership technique et piloter la conception, le développement et le déploiement de solutions d'Intelligence Artificielle et de Data à grande échelle.\n Vous serez responsable de la définition de l'architecture, de la feuille de route IA et de la coordination des équipes techniques afin de garantir des solutions robustes, évolutives et industrialisées.\n 🚀 Vos responsabilités\n\n• Définir et piloter la feuille de route IA.\n\n• Concevoir et déployer des solutions d'extraction d'entités (NER) et de classification documentaire.\n\n• Développer et industrialiser des architectures Data & AI.\n\n• Concevoir et mettre en œuvre des ontologies institutionnelles et des Knowledge Graphs.\n\n• Déployer des pipelines de traitement de données à grande échelle.\n\n• Garantir la qualité, la traçabilité et l'auditabilité des données.\n\n• Coordonner les équipes internes, partenaires et consultants.\n\n• Assurer le suivi technique et la mise en production des solutions.\n\n🧠 Compétences et expérience requises\n\n• Solide expertise en Data Engineering et Intelligence Artificielle.\n\n• Excellente maîtrise de Python.\n\n• Expérience avec Docker, Kubernetes, Message Queues et Data Pipelines.\n\n• Maîtrise des bases de données, des API et du Model Serving (FastAPI ou équivalent).\n\n• Expérience des Triplestores et de SPARQL (GraphWise / OntoText).\n\n• Connaissance des graphes de propriétés : Neo4j, Cypher.\n\n• Expérience des moteurs de recherche sémantique et par mots-clés.\n\n• Expérience en production de modèles NER, classification et traitement documentaire multilingue.\n\n• Expérience dans le traitement de millions de documents en environnement On-Premise.\n\n• Expérience des méthodologies Agile / SAFe.\n\n• Capacité à définir des architectures Data & AI et à coordonner des équipes techniques.\n\n⭐ Compétences complémentaires appréciées\n\n• Connaissance des standards archivistiques : OAIS, RiC-O.\n\n• Expérience dans la mise en œuvre d'ontologies métier.\n\n• Expérience en Knowledge Graph.\n\n• Connaissance des architectures RAG (Retrieval Augmented Generation).\n\n• Expérience en OCR et reconnaissance d'écriture manuscrite.\n\n• Annotation d'images et gestion de la qualité des métadonnées.\n\n• Expérience avec les Vector Databases.\n\n• Sensibilité aux principes de Security by Design.",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un AI Senior Lead Engineer per fornire la leadership tecnica e guidare la progettazione, lo sviluppo e la distribuzione di soluzioni Artificial Intelligence e Data su larga scala.\nSarete responsabili della definizione di architettura, roadmap AI e del coordinamento di team tecnici per garantire soluzioni robuste, scalabili e industrializzate.\nLe tue responsabilità\n\n• Definire e pilotare la roadmap IA.\n\n• Progettazione e distribuzione delle soluzioni di Estrazione di Entity (ENR) e Classificazione Documenti.\n\n• Sviluppare e industrializzare le architetture Data & AI.\n\n• Progettazione e realizzazione di onlogie istituzionali e Grafici di Conoscenza.\n\n• Distribuire grandi linee di elaborazione dati.\n\n• Assicurare qualità, tracciabilità e verificabilità dei dati.\n\n• Coordinare team, partner e consulenti interni.\n\n• Assicurare il monitoraggio tecnico e la produzione di soluzioni.\n\nCompetenze ed esperienza necessarie\n\n• Forte competenza in Ingegneria dei dati e intelligenza artificiale.\n\n• Ottima padronanza di Python.\n\n• Esperienza con Docker, Kubernetes, Message Queues e Data Pipelines.\n\n• Controllo di database, API e servizio di modelli (FastaPI o equivalente).\n\n• Esperienza dei Triplestores e SPARQL (GraphWise / OntoText).\n\n• Conoscenza dei grafici di proprietà: Neo4j, Cypher.\n\n• Esperienza di motori di ricerca semantica e parola chiave.\n\n• Esperienza nella produzione di modelli NER, classificazione e lavorazione di documenti multilingue.\n\n• Esperienza nel trattamento di milioni di documenti ambientali On-Premise.\n\n• Agile / FASe Esperienza metodologica.\n\n• Capacità di definire architetture Data & AI e coordinare team tecnici.\n\nComplementari competenze apprezzate\n\n• Conoscenza degli standard archivistici: OAIS, RiC-O.\n\n• Esperienza nell'attuazione di metodologie professionali.\n\n• Esperienza nel grafico della conoscenza.\n\n• Conoscenza delle architetture RAG (Retrival Augmented Generation).\n\n• Esperienza in OCR e riconoscimento della scrittura.\n\n• Annotazione delle immagini e gestione della qualità dei metadati.\n\n• Esperienza con i database vettoriali.\n\n• Sensibilità ai principi di Sicurezza per Design.",
-        "en": "We are looking for an AI Senior Lead Engineer to provide technical leadership and lead the design, development and deployment of large-scale Artificial Intelligence and Data solutions.\nYou will be responsible for defining architecture, the AI roadmap and coordinating technical teams to ensure robust, scalable and industrialised solutions.\nYour responsibilities\n\n• Define and pilot the IA roadmap.\n\n• Design and deploy Entity Extraction (ENR) and Document Classification solutions.\n\n• Develop and industrialize Data & AI architectures.\n\n• Design and implement institutional ontologies and Knowledge Graphs.\n\n• Deploy large-scale data processing pipelines.\n\n• Ensure quality, traceability and auditability of data.\n\n• Coordinate internal teams, partners and consultants.\n\n• Ensure technical monitoring and production of solutions.\n\nSkills and experience required\n\n• Strong expertise in Data Engineering and Artificial Intelligence.\n\n• Excellent mastery of Python.\n\n• Experience with Docker, Kubernetes, Message Queues and Data Pipelines.\n\n• Control of databases, APIs and Model Serving (FastaPI or equivalent).\n\n• Experience of the Triplestores and SPARQL (GraphWise / OntoText).\n\n• Knowledge of property graphs: Neo4j, Cypher.\n\n• Experience of semantic and keyword search engines.\n\n• Experience in NER model production, multilingual document classification and processing.\n\n• Experience in processing millions of On-Premise environmental documents.\n\n• Agile / FASe Methodological Experience.\n\n• Ability to define Data & AI architectures and coordinate technical teams.\n\nComplementary competences appreciated\n\n• Knowledge of archival standards: OAIS, RiC-O.\n\n• Experience in implementing professional ontologies.\n\n• Experience in Knowledge Graph.\n\n• Knowledge of RAG (Retrival Augmented Generation) architectures.\n\n• Experience in OCR and handwriting recognition.\n\n• Image annotation and metadata quality management.\n\n• Experience with Vector Databases.\n\n• Sensitivity to the principles of Security by Design.",
-        "de": "Wir suchen einen AI Senior Lead Engineer, der die technische Führung übernimmt und das Design, die Entwicklung und den Einsatz von großen Lösungen für künstliche Intelligenz und Daten leitet.\nSie sind für die Definition der Architektur, der KI-Roadmap und die Koordination der technischen Teams verantwortlich, um robuste, skalierbare und industrialisierte Lösungen zu gewährleisten.\nIhre Verantwortung\n\n• Definieren und Pilotieren der IA-Roadmap.\n\n• Entwerfen und Bereitstellen von Entity Extraction (ENR) und Document Classification Lösungen.\n\n• Entwicklung und Industrialisierung von Daten- und KI-Architekturen.\n\n• Konzipieren und implementieren Sie institutionelle Ontologien und Knowledge Graphs.\n\n• Bereitstellung groß angelegter Datenverarbeitungspipelines.\n\n• Gewährleistung von Qualität, Rückverfolgbarkeit und Prüfbarkeit der Daten.\n\n• Koordination interner Teams, Partner und Berater.\n\n• Gewährleistung der technischen Überwachung und Herstellung von Lösungen.\n\nErforderliche Fähigkeiten und Erfahrungen\n\n• Starke Expertise in Data Engineering und Künstlicher Intelligenz.\n\n• Ausgezeichnete Beherrschung von Python.\n\n• Erfahrung mit Docker, Kubernetes, Message Queues und Data Pipelines.\n\n• Kontrolle von Datenbanken, APIs und Model Serving (FastaPI oder gleichwertig).\n\n• Erfahrung der Triplestores und SPARQL (GraphWise / OntoText).\n\n• Kenntnisse von Eigenschaftsgraphen: Neo4j, Cypher.\n\n• Erfahrung mit semantischen und Keyword-Suchmaschinen.\n\n• Erfahrung in der Herstellung von NER-Modellen, mehrsprachiger Dokumentenklassifizierung und -verarbeitung.\n\n• Erfahrung in der Verarbeitung von Millionen von On-Premise-Umweltdokumenten.\n\n• Agile / FASe Methodische Erfahrung.\n\n• Fähigkeit, Daten- und KI-Architekturen zu definieren und technische Teams zu koordinieren.\n\nKomplementäre Kompetenzen geschätzt\n\n• Kenntnisse der Archivstandards: OAIS, RiC-O.\n\n• Erfahrung in der Umsetzung professioneller Ontologien.\n\n• Erfahrung im Knowledge Graph.\n\n• Wissen über RAG (Retrival Augmented Generation) Architekturen.\n\n• Erfahrung in OCR und Handschrifterkennung.\n\n• Bildannotation und Metadaten Qualitätsmanagement.\n\n• Erfahrung mit Vektordatenbanken.\n\n• Sensibilität für die Prinzipien von Security by Design.",
-        "fr": "Nous recherchons un(e) AI Senior Lead Engineer pour assurer le leadership technique et piloter la conception, le développement et le déploiement de solutions d'Intelligence Artificielle et de Data à grande échelle.\nVous serez responsable de la définition de l'architecture, de la feuille de route IA et de la coordination des équipes techniques afin de garantir des solutions robustes, évolutives et industrialisées.\n🚀 Vos responsabilités\n\n• Définir et piloter la feuille de route IA.\n\n• Concevoir et déployer des solutions d'extraction d'entités (NER) et de classification documentaire.\n\n• Développer et industrialiser des architectures Data & AI.\n\n• Concevoir et mettre en œuvre des ontologies institutionnelles et des Knowledge Graphs.\n\n• Déployer des pipelines de traitement de données à grande échelle.\n\n• Garantir la qualité, la traçabilité et l'auditabilité des données.\n\n• Coordonner les équipes internes, partenaires et consultants.\n\n• Assurer le suivi technique et la mise en production des solutions.\n\n🧠 Compétences et expérience requises\n\n• Solide expertise en Data Engineering et Intelligence Artificielle.\n\n• Excellente maîtrise de Python.\n\n• Expérience avec Docker, Kubernetes, Message Queues et Data Pipelines.\n\n• Maîtrise des bases de données, des API et du Model Serving (FastAPI ou équivalent).\n\n• Expérience des Triplestores et de SPARQL (GraphWise / OntoText).\n\n• Connaissance des graphes de propriétés : Neo4j, Cypher.\n\n• Expérience des moteurs de recherche sémantique et par mots-clés.\n\n• Expérience en production de modèles NER, classification et traitement documentaire multilingue.\n\n• Expérience dans le traitement de millions de documents en environnement On-Premise.\n\n• Expérience des méthodologies Agile / SAFe.\n\n• Capacité à définir des architectures Data & AI et à coordonner des équipes techniques.\n\n⭐ Compétences complémentaires appréciées\n\n• Connaissance des standards archivistiques : OAIS, RiC-O.\n\n• Expérience dans la mise en œuvre d'ontologies métier.\n\n• Expérience en Knowledge Graph.\n\n• Connaissance des architectures RAG (Retrieval Augmented Generation).\n\n• Expérience en OCR et reconnaissance d'écriture manuscrite.\n\n• Annotation d'images et gestion de la qualité des métadonnées.\n\n• Expérience avec les Vector Databases.\n\n• Sensibilité aux principes de Security by Design."
-      },
-      "needsRetranslation": false,
-      "location": "Genève, , Switzerland",
-      "canton": "GE",
-      "url": "https://jobs.smartrecruiters.com/Talan/744000160169949-ai-senior-lead-engineer?oga=true",
-      "source": "Talan Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-15T09:14:19.318Z",
-      "addressLocality": "Genève",
-      "addressRegion": "GE",
-      "postalCode": "1201",
-      "streetAddress": "Place Ruth-Bösiger 6",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "IT / SAP / AI Consulting",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "2026-11-06T10:52:27.187Z",
-      "postedDate": "2026-11-06T10:52:27.187Z",
-      "postingDateSource": "reported",
-      "applyUrl": "https://jobs.smartrecruiters.com/Talan/744000160169949-ai-senior-lead-engineer?oga=true",
-      "jobReqId": "744000160169949",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "ai-senior-lead-engineer-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "ai-senior-lead-engineer-talan-geneve-switzerland"
-        ],
-        "en": [
-          "ai-senior-lead-engineer-talan-geneve-switzerland"
-        ],
-        "de": [
-          "ai-senior-lead-engineer-talan-geneve-switzerland"
-        ]
-      },
-      "firstSeenAt": "2026-11-06T21:21:13.152Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 97500,
-          "maxValue": 165500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-05T09:14:19.318Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 2
+      "validThrough": "2027-02-15T09:17:52.870Z",
+      "validThroughSource": "last-observed-window"
     }
   ]
 }

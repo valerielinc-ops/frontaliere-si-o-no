@@ -365,12 +365,26 @@ describe('scatter carry-forward of assembled previousSlugs bridges', () => {
     expect(job.previousSlugsByLocale.fr).toContain('yard-service-specialist-arxada-visp');
   });
 
+  it('keeps a translated locale bridge when its old slug was the master slug', () => {
+    const sliceJob = arxadaSlice();
+    sliceJob.slugByLocale.en = sliceJob.slug;
+    const assembled = structuredClone(sliceJob);
+    assembled.slugByLocale.en = 'yard-service-specialist-arxada-visp-translated';
+
+    const { job } = applyAssembledToSliceJob(sliceJob, assembled);
+
+    expect(job.previousSlugsByLocale.en).toContain(sliceJob.slug);
+    cleanPreviousSlugsPerLocale(job);
+    expect(job.previousSlugsByLocale.en).toContain(sliceJob.slug);
+  });
+
   it('isSelfCanonicalPreviousSlug predicts exactly what cleanPreviousSlugsPerLocale drops', () => {
     const base = arxadaSlice();
     const candidates: Array<[string | null, string]> = [
       ['it', base.slug],
       ['it', base.slugByLocale.it],
       ['it', base.slugByLocale.en],
+      ['en', base.slug],
       ['fr', base.slugByLocale.en],
       ['de', 'some-old-slug'],
       [null, base.slug],
