@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { launchStealthOrChromium } from '../scripts/lib/stealth-browser.mjs';
-import { fitToLength } from '../scripts/assisted-application/lib/portal/fill.mjs';
+import { applyActions, fitToLength } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { birthDatePartOption, candidateAnswerForField, guardPlan, PLAN_SCHEMA } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { applicationReceipt, applicationStage, gravityFormsSubmissionOutcome, inPageApplicationOpeners } from '../scripts/assisted-application/lib/portal/stages.mjs';
 import { guardAgentStep } from '../scripts/assisted-application/lib/portal/agent.mjs';
@@ -99,6 +99,43 @@ describe('BrassRing security-question field classification', () => {
     ];
 
     expect(fields.filter((field) => isSecurityQuestionField(field, fields))).toHaveLength(2);
+  });
+
+  it('selects an available non-placeholder visible option for a security-question listbox when fallback text is absent', async () => {
+    let selected = '';
+    const field = { id: 'q2', kind: '', inputType: 'listbox', label: 'Question 2', options: [], form: 0, frame: 0 };
+    const controlLocator = {
+      count: async () => 1,
+      click: async () => {},
+      evaluate: async () => selected === 'Favorite city?',
+    };
+    const frame = {
+      locator: (selector: string) => {
+        if (selector === '[role="option"]:visible') {
+          return {
+            allInnerTexts: async () => ['Select...', 'First pet?', 'Favorite city?', 'Childhood street?'],
+          };
+        }
+        return { first: () => controlLocator };
+      },
+      getByRole: (_role: string, opts: { name?: string }) => ({
+        first: () => ({
+          click: async () => {
+            selected = opts?.name || '';
+          },
+        }),
+      }),
+    };
+    const page = { frames: () => [frame], mainFrame: () => frame };
+    const result = await applyActions(
+      page as any,
+      [field],
+      [{ fieldId: 'q2', action: 'select', value: 'Where is your favorite vacation spot?', evidence: 'account_security_question' }],
+      {},
+      { pause: async () => {} },
+    );
+    expect(result).toEqual([{ fieldId: 'q2', ok: true }]);
+    expect(selected).toBe('Favorite city?');
   });
 });
 

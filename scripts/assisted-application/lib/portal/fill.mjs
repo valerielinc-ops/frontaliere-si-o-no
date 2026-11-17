@@ -1018,9 +1018,10 @@ export async function applyActions(page, fields, actions, files, {
         const option = field.options.find((item) => item.label === action.value || item.value === action.value);
         if (!option) throw new Error('radio_option_missing');
         await setChoice(await radioLocator(page, field, option), true);
-      } else if (['select', 'listbox', 'combobox'].includes(field.kind)) {
+      } else if (['select', 'listbox', 'combobox'].includes(field.kind || field.inputType)) {
+        const effectiveKind = field.kind || field.inputType;
         let selectedLabel = action.value;
-        if (field.kind === 'select') {
+        if (effectiveKind === 'select') {
           const exact = (field.options || []).find((option) => normalizedChoice(option.label) === normalizedChoice(action.value));
           const nationality = isNationalityField(field.label);
           const phoneCountry = isPhoneCountryField(field);
@@ -1062,23 +1063,30 @@ export async function applyActions(page, fields, actions, files, {
           results.push({ fieldId: field.id, ok: true });
           await pause();
           continue;
-        } else if (field.kind === 'listbox') {
-          // Workday: open the listbox and click the option (OfferOS dom-fill, fillListboxButton).
+        } else if (effectiveKind === 'listbox') {
+          // Workday / BrassRing: open the listbox and click the option.
           await locator.click({ timeout: ACTION_TIMEOUT_MS });
           const frame = page.frames()[field.frame || 0] || page.mainFrame();
           const countryLike = isNationalityField(field.label) || isResidenceCountryField(field) || isPhoneCountryField(field);
+          const securityChoice = action.evidence === 'account_security_question';
           const visibleOptions = frame.locator('[role="option"]:visible');
-          const labels = countryLike
+          const labels = (countryLike || securityChoice)
             ? (await visibleOptions.allInnerTexts().catch(() => [])).map((label) => String(label).replace(/\s+/g, ' ').trim()).filter(Boolean)
             : [];
           const exact = labels.find((label) => normalizedChoice(label) === normalizedChoice(action.value));
+          const usableSecurity = securityChoice
+            ? labels.filter((label) => !/^(?:select|choose|bitte|seleziona|choisir|--)/i.test(label))
+            : [];
+          const securityIndex = securityChoice ? Math.max(1, Number(/(\d+)/.exec(String(field.label || field.name || ''))?.[1] || 1)) : 1;
           selectedLabel = exact || (isNationalityField(field.label)
             ? nationalityOptionLabel(action.value, labels, nationalityFieldLanguage(field.label))
             : isPhoneCountryField(field)
               ? phoneCountryOptionLabel(action.value, labels)
               : isResidenceCountryField(field)
                 ? residenceCountryOptionLabel(action.value, labels)
-                : action.value);
+                : securityChoice && usableSecurity.length
+                  ? usableSecurity[(securityIndex - 1) % usableSecurity.length]
+                  : action.value);
           if (!selectedLabel) throw new Error('option_not_found');
           await frame.getByRole('option', { name: selectedLabel, exact: true }).first().click({ timeout: 6000 });
         } else if (field.selectLike) {
@@ -1092,7 +1100,7 @@ export async function applyActions(page, fields, actions, files, {
         if (field.selectLike && typeof locator.press === 'function') await locator.press('Tab');
         const registered = field.selectLike
           ? await choiceCommitted(locator, field, selectedLabel)
-          : await choiceRegistered(locator, field.kind, selectedLabel);
+          : await choiceRegistered(locator, effectiveKind, selectedLabel);
         if (!registered && !await choiceShownAfterRedraw(page, field, selectedLabel)) throw new Error('choice_not_registered');
       } else if (field.kind === 'date') {
         await fillDatePicker(page, field, locator, action.value);
