@@ -22,6 +22,29 @@ describe('verified posting script entry (#17253)', () => {
       { snapshot, applyUrl: url }).submit).toBeNull();
   });
 
+  it('opens Migros’ sole script CTA on its nested fieldless job detail route', () => {
+    const migrosUrl = 'https://jobs.migros.ch/de/unsere-unternehmen/job/synthetic-company/synthetic-role/00000000-0000-0000-0000-000000000000';
+    const migrosButtons = [
+      { text: 'DE Deutsch', chrome: true },
+      { text: 'Teilen' },
+      { text: 'Jetzt bewerben' },
+      { text: 'Cookie-Einstellungen', chrome: true },
+    ];
+    const migrosContext = {
+      postingUrl: migrosUrl,
+      applyUrl: migrosUrl,
+      allowSingleExternalApplicationEntry: true,
+      selectedPostingIsApplicationUrl: true,
+    };
+
+    expect(applicationEntryControls({ url: migrosUrl, buttons: migrosButtons, fields: [] }, migrosContext))
+      .toEqual([migrosButtons[2]]);
+    const otherUrl = migrosUrl.replace('jobs.migros.ch', 'jobs.example.test');
+    expect(applicationEntryControls({ url: otherUrl, buttons: migrosButtons, fields: [] }, {
+      ...migrosContext, postingUrl: otherUrl, applyUrl: otherUrl,
+    })).toEqual([]);
+  });
+
   it('accepts a unique script Apply control on the exact selected posting route without vendor identity', () => {
     const postingUrl = 'https://jobs.example.test/job/synthetic-role/42/';
     const apply = { text: 'Apply now', frame: 0 };

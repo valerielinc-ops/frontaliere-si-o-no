@@ -2105,6 +2105,29 @@ function comparablePortalRoute(value, base = '') {
   }
 }
 
+const GENERIC_FIELDLESS_JOB_DETAIL_PATH_RE = /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+(?:\/[^/]+)?\/?$/i;
+const MIGROS_JOB_DETAIL_PATH_RE = /^\/(?:de|fr|it|en)\/unsere-unternehmen\/job\/[^/]+\/[^/]+\/[0-9a-f]{8}(?:-[0-9a-f]{4}){3}-[0-9a-f]{12}\/?$/iu;
+
+/**
+ * A fieldless job detail can expose only a script Apply CTA. Keep the generic
+ * route contract narrow, with the Migros employer-site route as an explicit
+ * host-owned exception rather than accepting arbitrary nested `/job/` paths.
+ */
+function isFieldlessJobDetailRoute(value) {
+  const route = comparablePortalRoute(value);
+  if (!route) return false;
+  if (GENERIC_FIELDLESS_JOB_DETAIL_PATH_RE.test(route.pathname)) return true;
+  try {
+    const url = new URL(String(value || ''));
+    return url.protocol === 'https:'
+      && !url.username && !url.password
+      && url.hostname.toLowerCase() === 'jobs.migros.ch'
+      && MIGROS_JOB_DETAIL_PATH_RE.test(route.pathname);
+  } catch {
+    return false;
+  }
+}
+
 function samePortalRoute(one, other, base = '') {
   const left = comparablePortalRoute(one, base);
   const right = comparablePortalRoute(other, base);
@@ -2461,7 +2484,7 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
   // forms, listings, redirected pages, or ambiguous multiple-entry surfaces.
   const current = comparablePortalRoute(snapshot.url);
   const apply = comparablePortalRoute(context.applyUrl);
-  const verifiedFieldlessJobRoute = /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+\/[^/]+\/?$/i.test(posting?.pathname || '')
+  const verifiedFieldlessJobRoute = isFieldlessJobDetailRoute(context.postingUrl)
     // BrassRing/Taleo keeps the selected vacancy and its sole script CTA on
     // the query-bound HomeWithPreLoad route (jobs.ubs.com). The explicit
     // jobid plus the exact same-route checks below bind this exception to the
@@ -2541,13 +2564,13 @@ export function applicationEntryControls(snapshot = {}, context = {}) {
     && current.origin === posting.origin
     && current.pathname === posting.pathname
     && current.search === posting.search
-    && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+(?:\/[^/]+)?\/?$/i.test(posting.pathname)
+    && isFieldlessJobDetailRoute(context.postingUrl)
     && Array.isArray(snapshot.fields) && snapshot.fields.length === 0
     && scriptEntries.length === 1 && allEntries.length === 1
     && publicDetailEntries.length === 1) return scriptEntries;
   if (posting && current && current.origin === posting.origin
     && current.pathname === posting.pathname && current.search === posting.search
-    && /^(?:\/[a-zA-Z0-9%._-]+)?\/job\/[^/]+(?:\/[^/]+)?\/?$/i.test(posting.pathname)
+    && isFieldlessJobDetailRoute(context.postingUrl)
     && (selectedPostingApplyPage || isSuccessFactorsPostingEntry(context))
     // Jobs2Web detail pages can expose the required alert-frequency input
     // beside their sole script Apply button. The route shape alone is shared
