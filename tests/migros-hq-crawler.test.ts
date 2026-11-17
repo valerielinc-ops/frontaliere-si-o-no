@@ -5,6 +5,7 @@ import {
   fetchAllMigrosHqJobs,
   isMigrosHqJob,
   isTrustedDomain,
+  normalizeMigrosHqDetailUrl,
   resolveMigrosHqSourceGeography,
 } from '../scripts/lib/migros-hq-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
@@ -40,6 +41,12 @@ describe('Migros HQ Zürich crawler parser', () => {
       ).toBe(true);
     });
 
+    it('matches locale-less German sitemap URLs before they are normalized', () => {
+      expect(
+        isMigrosHqJob({ url: 'https://jobs.migros.ch/unsere-unternehmen/job/migros-genossenschafts-bund/x/5ebe9a24-db13-4fee-a3b1-b041531b7f2b' }),
+      ).toBe(true);
+    });
+
     it('rejects a different Migros group-company path', () => {
       expect(isMigrosHqJob({
         url: 'https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/x/5ebe9a24-db13-4fee-a3b1-b041531b7f2b',
@@ -56,6 +63,44 @@ describe('Migros HQ Zürich crawler parser', () => {
       expect(isMigrosHqJob(null)).toBe(false);
       expect(isMigrosHqJob(undefined)).toBe(false);
       expect(isMigrosHqJob({})).toBe(false);
+    });
+  });
+
+  describe('source detail URL normalization', () => {
+    it('adds the German locale only for the trusted HQ detail route', () => {
+      const localeLess = 'https://jobs.migros.ch/unsere-unternehmen/job/migros-genossenschafts-bund/application-manager-wmd/c7a8f09b-0219-4d8c-b9ba-8926d74095c9';
+      expect(normalizeMigrosHqDetailUrl(localeLess)).toBe(
+        'https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/application-manager-wmd/c7a8f09b-0219-4d8c-b9ba-8926d74095c9',
+      );
+      expect(normalizeMigrosHqDetailUrl('https://evil.example/unsere-unternehmen/job/migros-genossenschafts-bund/x/5ebe9a24-db13-4fee-a3b1-b041531b7f2b')).toBeNull();
+      expect(normalizeMigrosHqDetailUrl('https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/x/5ebe9a24-db13-4fee-a3b1-b041531b7f2b')).toBeNull();
+    });
+
+    it('fetches a locale-less sitemap entry through the canonical German route', async () => {
+      const localeLess = 'https://jobs.migros.ch/unsere-unternehmen/job/migros-genossenschafts-bund/application-manager-wmd/c7a8f09b-0219-4d8c-b9ba-8926d74095c9';
+      const canonical = 'https://jobs.migros.ch/de/unsere-unternehmen/job/migros-genossenschafts-bund/application-manager-wmd/c7a8f09b-0219-4d8c-b9ba-8926d74095c9';
+      const detail = `<script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting',
+        title: 'Application Manager',
+        description: 'A complete source-backed Migros role description.',
+        datePosted: '2026-10-05',
+        jobLocation: { address: { addressLocality: 'Zürich' } },
+      })}</script>`;
+      const calls: string[] = [];
+
+      const jobs = await fetchAllMigrosHqJobs({
+        fetchPage: async (url: string) => {
+          calls.push(url);
+          if (url.endsWith('/sitemap.xml')) return `<url><loc>${localeLess}</loc></url>`;
+          if (url === canonical) return detail;
+          throw new Error(`unexpected URL: ${url}`);
+        },
+        delayMs: 0,
+      });
+
+      expect(calls).toEqual(['https://jobs.migros.ch/de/sitemap.xml', canonical]);
+      expect(jobs).toHaveLength(1);
+      expect(jobs[0]).toMatchObject({ title: 'Application Manager', url: canonical });
     });
   });
 

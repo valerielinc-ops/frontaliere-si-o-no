@@ -50,16 +50,11 @@ export const MIGROS_HQ_COMPANY_NAME = 'Migros HQ Zürich';
 export const MIGROS_HQ_COMPANY_DOMAIN = 'migros.ch';
 
 const SITEMAP_URL = 'https://jobs.migros.ch/de/sitemap.xml';
-// Company slug segment that scopes this crawler to the national
-// Migros-Genossenschafts-Bund legal entity only — every other slug in the
-// sitemap (genossenschaft-migros-zurich, denner-ag, galaxus, …) belongs to a
-// different group company/co-op and is out of scope here (some are covered by
-// the sibling `migros-ticino` crawler, see scripts/update-migros-jobs.mjs).
-const COMPANY_PATH_SEGMENT = '/job/migros-genossenschafts-bund/';
 // A trailing UUID-shaped segment is the reliable signal of an actual job
 // posting — non-job company/brand pages (e.g. "arbeiten-bei-uns") don't have
-// one.
-const JOB_URL_RE = /\/unsere-unternehmen\/job\/migros-genossenschafts-bund\/[^/]+\/[0-9a-f-]{20,}\/?$/i;
+// one. The German sitemap has emitted both `/de/...` and locale-less
+// `/unsere-unternehmen/...` paths; the detail renderer needs the former.
+const JOB_URL_RE = /^\/(?:de\/)?unsere-unternehmen\/job\/migros-genossenschafts-bund\/[^/]+\/[0-9a-f-]{20,}\/?$/i;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -79,6 +74,36 @@ function isMigrosHqSourceUrl(rawUrl = '') {
   } catch {
     return false;
   }
+}
+
+/**
+ * Canonicalize a Migros HQ detail URL emitted by the German sitemap.
+ *
+ * Some sitemap entries omit the `/de/` locale prefix even though the detail
+ * renderer serves the German route. Add it only after validating the exact
+ * trusted host and HQ route; unrelated or ambiguous URLs remain rejected.
+ */
+export function normalizeMigrosHqDetailUrl(rawUrl = '') {
+  let url;
+  try {
+    url = new URL(rawUrl);
+  } catch {
+    return null;
+  }
+  if (
+    url.protocol !== 'https:'
+    || url.hostname.toLowerCase() !== 'jobs.migros.ch'
+    || url.search
+    || url.hash
+  ) return null;
+
+  const canonicalPath = /^\/de\//i.test(url.pathname)
+    ? url.pathname
+    : `/de${url.pathname}`;
+  if (!JOB_URL_RE.test(canonicalPath)) return null;
+
+  url.pathname = canonicalPath;
+  return url.href;
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -169,7 +194,7 @@ async function fetchHqJobUrls({ fetchPage = fetchHtml } = {}) {
 
   // <loc> is XML text: decode `&amp;` so the stored URL is the page's own.
   const allUrls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/gi)].map((m) => decodeEntities(m[1].trim()));
-  const jobUrls = [...new Set(allUrls.filter((url) => url.includes(COMPANY_PATH_SEGMENT) && JOB_URL_RE.test(url)))];
+  const jobUrls = [...new Set(allUrls.map(normalizeMigrosHqDetailUrl).filter(Boolean))];
 
   console.log(`  📦 Migros HQ (migros-genossenschafts-bund) job URLs in sitemap: ${jobUrls.length}`);
   return jobUrls;
