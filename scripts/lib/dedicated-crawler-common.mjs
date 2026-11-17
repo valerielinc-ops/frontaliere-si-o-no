@@ -2076,8 +2076,8 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
       const isSlugMeaningful = localizedSlug && localizedSlug.length >= 15;
       // Item #3 (follow-up #4206): registryPinnedLocaleSlug just rejected THIS
       // locale's pin above (fell through instead of `continue`-ing) — check
-      // WHY. If it's demonstrably garbled (#4071 guard), none of the repair
-      // heuristics below are guaranteed to catch it: they each target a
+      // WHY. If the scoped policy confirms it is demonstrably garbled (#4071),
+      // none of the repair heuristics below are guaranteed to catch it: they each target a
       // SPECIFIC known corruption shape (Italian mistranslation, boilerplate,
       // company-name collision), not generic garbage sitting in an arbitrary
       // locale slot. Real case: KSA's "logi-hyardfachfrau-…" lives in the `de`
@@ -2085,7 +2085,7 @@ export function hardenJobLocaleFields({ dataJobsPath, fillEmptyWithSourceCopy = 
       // only flags German words in NON-German locales) never fires for it,
       // and none of these heuristics recognize it either — the same garbage
       // slug would otherwise sit untouched, unhealed and un-bridged, forever.
-      const registryPinIsGarbled = isRegistryPinGarbled(registeredSlug, locale, sourceSlugPinContext(job, titleSourceLang));
+      const registryPinIsGarbled = garbledPinRepairPolicy(registeredSlug, locale, sourceSlugPinContext(job, titleSourceLang));
       const shouldRefreshSlug =
         !localizedSlug ||
         (!isSlugMeaningful && localizedSlug === baseSlug) ||
@@ -6666,7 +6666,7 @@ export function getRegisteredSlug(job, registry) {
  * @param {object} job        the job being pinned
  * @param {string|null} [srcLang] retained for call-site compatibility (unused;
  *   the guard resolves the per-locale title from titleByLocale)
- * @returns {{titleByLocale: object, company: string, location: string, disambiguator: string}}
+ * @returns {{titleByLocale: object, company: string, location: string, disambiguator: string, sourceLang: string}}
  */
 export function sourceSlugPinContext(job, srcLang) { // eslint-disable-line no-unused-vars
   return {
@@ -6674,6 +6674,10 @@ export function sourceSlugPinContext(job, srcLang) { // eslint-disable-line no-u
     company: String(job?.company || '').trim(),
     location: String(job?.addressLocality || job?.location || '').trim(),
     disambiguator: String(job?.slugDisambiguator || '').trim(),
+    // Only an explicitly stored source language is authoritative for the
+    // repair policy. The caller's detected language can be wrong on short or
+    // corrupted titles and must not turn a valid translation into a repair.
+    sourceLang: String(job?.sourceLang || '').trim().toLowerCase(),
     // The employer's title: lets the truncation guard below see a pin that
     // dropped the trade (`m1-m2-pemsa-lugano` for "Macchinista M1, M2,M3").
     sourceTitle: String(job?.title || '').trim(),
@@ -6685,10 +6689,9 @@ export function sourceSlugPinContext(job, srcLang) { // eslint-disable-line no-u
  * @param {string} locale           target locale (it/en/de/fr)
  * @param {string|null} sourceLang  job source language, to detect source copies
  * @param {object} [opts]           optional title context for the garbage-pin
- *   guard (issue #4071). When `opts.titleByLocale` is supplied, a pinned slug is
- *   refused only if it is DEMONSTRABLY corrupt for its locale: zero title-token
- *   overlap with BOTH that locale's title AND the entry's canonicalSlug (noise
- *   subtracted). Omit to keep prior behavior.
+ *   guard (issue #4071). When `opts.titleByLocale` is supplied, a zero-overlap
+ *   pin is refused only when `garbledPinRepairPolicy()` has positive evidence
+ *   that it is corrupt. Omit to keep prior behavior.
  * @param {object} [opts.titleByLocale] job's per-locale title map
  * @param {string} [opts.company]       company label (noise-subtracted in match)
  * @param {string} [opts.location]      location label (noise-subtracted in match)
@@ -6746,26 +6749,20 @@ export function registryPinnedLocaleSlug(registered, locale, sourceLang, opts = 
     }
   }
 
-  // Garbage-pin guard (issue #4071) — NARROW, per-locale. Refuse a pinned slug
-  // ONLY when it is DEMONSTRABLY corrupt for its locale: it shares no meaningful
-  // title token with EITHER this locale's title OR the entry's canonicalSlug
-  // (company/location/disambiguator noise subtracted). KSA froze garbage like
-  // "logi-hyardfachfrau-hyardfachmann-kantonsspital-aarau-ksa-aarau" for "Dipl.
-  // Pflegefachfrau / Pflegefachmann" — zero overlap with BOTH the DE title AND
-  // the canonical "dipl-pflegefachfrau-…-ksa-ch" — so honoring the pin
-  // short-circuits the stale-slug re-derivation in hardenJobLocaleFields and the
-  // garbage stays live for every open vacancy. Refusing it lets the fresh crawl
-  // slug heal the slot (old slug bridged via previousSlugs). Applied to EVERY
-  // locale (not just the detected source): hardenJobLocaleFields re-detects
-  // sourceLang and misclassifies the KSA German titles as `it`, so the corrupt
-  // slot is a "non-source" locale from its point of view.
+  // Garbage-pin guard (issue #4071) — NARROW, per-locale. Zero overlap is only
+  // a candidate: `garbledPinRepairPolicy()` must provide positive corruption
+  // evidence before the immutable pin is refused. This distinction is needed
+  // for valid translated pins whose vocabulary differs from both the current
+  // title copy and the source-locale canonical slug. KSA's
+  // "logi-hyardfachfrau-…" remains repairable because its malformed suffix
+  // matches the role witness in the title/canonical pair.
   //
   // A merely title-mismatched pin is NOT refused: a valid-but-generic slug
   // (e.g. the boilerplate "…-informatico-eoc-bellinzona" whose mutable source
   // title drifted to another language) still carries the job's canonical token
   // ("informatico") and MUST stay pinned, or every crawler would churn indexed
-  // URLs (harden-registry-pin-quality-repair guardrail). A real translation
-  // always shares a token with its own locale title, so it is never refused.
+  // URLs (harden-registry-pin-quality-repair guardrail). A zero-overlap
+  // translation is likewise kept unless the repair policy proves corruption.
   //
   // Follow-up #4206 hardening (adversarial review of #4071/#4201):
   //  - item #1: a caller that DID opt into validation (passed titleByLocale)
@@ -6808,7 +6805,15 @@ export function registryPinnedLocaleSlug(registered, locale, sourceLang, opts = 
       if (titleTokens.size > 0 || canonicalTokens.size > 0) { // item #2
         const sharesTitle = pinTokens.some((t) => titleTokens.has(t));
         const sharesCanonical = pinTokens.some((t) => canonicalTokens.has(t));
-        if (!sharesTitle && !sharesCanonical) return null;
+        if (!sharesTitle && !sharesCanonical) {
+          // Zero overlap is only a candidate for the garbled-pin repair. A
+          // real translation can legitimately use a completely different
+          // vocabulary from both the current title copy and the source-locale
+          // canonical slug; preserve that registry pin unless the scoped
+          // policy has positive evidence of corruption.
+          if (garbledPinRepairPolicy(registered, locale, opts)) return null;
+          return regLoc;
+        }
       }
     }
   }
@@ -6817,55 +6822,121 @@ export function registryPinnedLocaleSlug(registered, locale, sourceLang, opts = 
 }
 
 /**
- * Item #3 (follow-up #4206): does `registered` carry a per-locale slug that
- * `registryPinnedLocaleSlug` would refuse SPECIFICALLY because it is
- * demonstrably corrupt (issue #4071's garbage-pin guard) — as opposed to a
- * source-copy / unknown-source rejection, which means "no real translation
- * yet" and must NOT be force-healed the same way (the fresh crawl's own
- * title-derived slug is not necessarily better, just unverified).
+ * Build the per-locale witnesses used by the detector and repair policy.
+ * Missing title context is represented by `null`, not by a generic fallback.
  *
- * hardenJobLocaleFields uses this to force a fresh title-based re-derivation
- * for a locale whose registry pin is confirmed garbage, bypassing the
- * narrower stale-slug heuristics that can miss same-locale corruption (e.g.
- * the KSA German nursing titles: the corrupt slot IS locale `de`, so the
- * foreign-word heuristic — which only flags German words in NON-German
- * locales — never fires for it; see hardenJobLocaleFields's registry-pin
- * re-check). Without this, a rejected pin can leave the garbage slug in
- * place untouched: no re-derivation, no previousSlugs bridge — the same 404
- * risk the guard exists to prevent.
- *
- * @param {object} registered  registry entry from getRegisteredSlug()
- * @param {string} locale      target locale
- * @param {object} opts        same shape as registryPinnedLocaleSlug's opts
- *   (must carry opts.titleByLocale — callers without title context can never
- *   demonstrate garbage, so this returns false for them)
- * @returns {boolean}
+ * @param {object} registered registry entry from getRegisteredSlug()
+ * @param {string} locale target locale
+ * @param {object} opts same shape as registryPinnedLocaleSlug's opts
+ * @returns {object|null}
  */
-function isRegistryPinGarbled(registered, locale, opts = {}) {
-  if (!registered || !registered.slugByLocale || typeof registered.slugByLocale !== 'object') return false;
+function registryPinGarbleEvidence(registered, locale, opts = {}) {
+  if (!registered || !registered.slugByLocale || typeof registered.slugByLocale !== 'object') return null;
   const regLoc = normalizeSpace(String(registered.slugByLocale[locale] || ''));
-  if (!regLoc) return false;
+  if (!regLoc) return null;
   const hasTitleContext = !!(opts && opts.titleByLocale && typeof opts.titleByLocale === 'object');
-  if (!hasTitleContext) return false;
+  if (!hasTitleContext) return null;
   const localeTitle = String(opts.titleByLocale[locale] || '').trim();
   const canonical = normalizeSpace(String(registered.canonicalSlug || ''));
   const noise = slugTokenSet(slugify(
     `${opts.company || ''} ${opts.location || ''} ${opts.disambiguator || ''}`,
   ));
   const pinTokens = [...slugTokenSet(regLoc)].filter((t) => !noise.has(t));
-  if (pinTokens.length === 0) return false;
-  if (!localeTitle && !canonical) return true; // item #1: no witness at all
-  if (!(localeTitle && canonical)) return false; // single witness → not judgeable
   const titleTokens = new Set(
     [...slugTokenSet(slugify(localeTitle))].filter((t) => !noise.has(t)),
   );
   const canonicalTokens = new Set(
     [...slugTokenSet(canonical)].filter((t) => !noise.has(t)),
   );
-  if (titleTokens.size === 0 && canonicalTokens.size === 0) return false; // item #2
-  const sharesTitle = pinTokens.some((t) => titleTokens.has(t));
-  const sharesCanonical = pinTokens.some((t) => canonicalTokens.has(t));
-  return !sharesTitle && !sharesCanonical;
+  return {
+    regLoc,
+    hasTitleContext,
+    localeTitle,
+    canonical,
+    pinTokens,
+    titleTokens,
+    canonicalTokens,
+    sharesTitle: pinTokens.some((t) => titleTokens.has(t)),
+    sharesCanonical: pinTokens.some((t) => canonicalTokens.has(t)),
+  };
+}
+
+function isRegistryPinGarbled(registered, locale, opts = {}) {
+  const evidence = registryPinGarbleEvidence(registered, locale, opts);
+  if (!evidence || evidence.pinTokens.length === 0) return false;
+  if (!evidence.localeTitle && !evidence.canonical) return true; // item #1: no witness at all
+  if (!(evidence.localeTitle && evidence.canonical)) return false; // single witness → not judgeable
+  if (evidence.titleTokens.size === 0 && evidence.canonicalTokens.size === 0) return false; // item #2
+  return !evidence.sharesTitle && !evidence.sharesCanonical;
+}
+
+const GARBLED_PIN_MIN_WITNESS_TOKEN_LENGTH = 6;
+const GARBLED_PIN_MIN_SUFFIX_LENGTH = 6;
+const GARBLED_PIN_MIN_EXTRA_LENGTH = 3;
+
+function hasStrongSharedPinWitness(left, right) {
+  for (const token of left) {
+    if (token.length < GARBLED_PIN_MIN_WITNESS_TOKEN_LENGTH) continue;
+    if (right.has(token)) return true;
+  }
+  return false;
+}
+
+function hasMalformedPinSuffix(pinTokens, witnessTokens) {
+  for (const pinToken of pinTokens) {
+    for (const witnessToken of witnessTokens) {
+      if (pinToken === witnessToken) continue;
+      let suffixLength = 0;
+      while (
+        suffixLength < pinToken.length &&
+        suffixLength < witnessToken.length &&
+        pinToken[pinToken.length - suffixLength - 1] === witnessToken[witnessToken.length - suffixLength - 1]
+      ) {
+        suffixLength += 1;
+      }
+      if (
+        suffixLength >= GARBLED_PIN_MIN_SUFFIX_LENGTH &&
+        pinToken.length - suffixLength >= GARBLED_PIN_MIN_EXTRA_LENGTH &&
+        witnessToken.length - suffixLength >= GARBLED_PIN_MIN_EXTRA_LENGTH
+      ) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+/**
+ * Authorize the destructive side of the garbled-pin heuristic.
+ *
+ * `isRegistryPinGarbled()` is intentionally only a detector: a valid
+ * translation may share no exact title token with the source canonical slug.
+ * A repair therefore needs an additional positive witness:
+ *
+ *  - the locale title and canonical slug agree on a meaningful role token;
+ *  - the pin is the source-locale pin, or it contains a malformed suffix
+ *    attached to that role (the observed KSA `hyardfachfrau` shape).
+ *
+ * Missing or ambiguous evidence returns false. The registry pin then remains
+ * authoritative instead of manufacturing a bridge from a translation guess.
+ *
+ * @param {object|null} registered registry entry from getRegisteredSlug()
+ * @param {string} locale target locale
+ * @param {object} opts sourceSlugPinContext-style title context
+ * @returns {boolean}
+ */
+export function garbledPinRepairPolicy(registered, locale, opts = {}) {
+  const evidence = registryPinGarbleEvidence(registered, locale, opts);
+  if (!evidence || !isRegistryPinGarbled(registered, locale, opts)) return false;
+  if (!evidence.localeTitle || !evidence.canonical) return false;
+  if (evidence.titleTokens.size === 0 || evidence.canonicalTokens.size === 0) return false;
+  if (!hasStrongSharedPinWitness(evidence.titleTokens, evidence.canonicalTokens)) return false;
+
+  const sourceLang = String(opts?.sourceLang || '').trim().toLowerCase();
+  if (sourceLang && sourceLang === String(locale || '').trim().toLowerCase()) return true;
+
+  const witnessTokens = new Set([...evidence.titleTokens, ...evidence.canonicalTokens]);
+  return hasMalformedPinSuffix(evidence.pinTokens, witnessTokens);
 }
 
 /**

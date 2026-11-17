@@ -13,7 +13,11 @@
  * `assistant-psychologist-or-specialist-...` (the deployed, indexed URL).
  */
 import { describe, expect, it } from 'vitest';
-import { registryPinnedLocaleSlug, sourceSlugPinContext } from '../scripts/lib/dedicated-crawler-common.mjs';
+import {
+  garbledPinRepairPolicy,
+  registryPinnedLocaleSlug,
+  sourceSlugPinContext,
+} from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const REGISTERED = {
   canonicalSlug: 'psicologo-a-assistente-o-a-psicologo-a-specializzato-a-upd-bern',
@@ -171,6 +175,27 @@ describe('registryPinnedLocaleSlug', () => {
       expect(registryPinnedLocaleSlug(GARBLED, 'de', 'it', ctx)).toBeNull();
     });
 
+    it('keeps a valid translated pin with zero overlap instead of authorizing a repair', () => {
+      const translated = {
+        canonicalSlug: 'verkauferin-coop-lugano',
+        slugByLocale: {
+          de: 'verkauferin-coop-lugano',
+          it: 'commesso-commessa-coop-lugano',
+        },
+      };
+      const translatedCtx = {
+        titleByLocale: { de: 'Verkäuferin', it: 'Verkäuferin' },
+        company: 'Coop',
+        location: 'Lugano',
+        sourceLang: 'de',
+      };
+
+      expect(garbledPinRepairPolicy(translated, 'it', translatedCtx)).toBe(false);
+      expect(registryPinnedLocaleSlug(translated, 'it', 'de', translatedCtx)).toBe(
+        'commesso-commessa-coop-lugano',
+      );
+    });
+
     it('KEEPS a valid-but-generic pin that still shares the canonical token (anti-churn, harden-registry-pin-quality-repair)', () => {
       // Real regression shape (EOC, umantis 2908): source-lang detection lands
       // on EN and overwrites the EN title to the German base ("Informatiker/in"),
@@ -282,6 +307,7 @@ describe('registryPinnedLocaleSlug', () => {
         company: 'Kantonsspital Aarau (KSA)',
         location: 'Aarau',
         disambiguator: '',
+        sourceLang: 'de',
         // The employer title feeds the truncation guard (job-title-identity.mjs).
         sourceTitle: '',
       });
