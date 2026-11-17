@@ -14964,7 +14964,10 @@ ${staticAnalyticsHtml}
     if (!shouldEmitLocale(bridge.locale)) continue;
     const targets = getSafeDistPageTargets(distDir, bridge.path, { includeFlat: false });
     if (!targets) {
-     throw new Error('[job-alias-redirect-gate] removable bridge path is not a safe dist target');
+     console.warn(
+      `[jobs-seo-pages] skipped unsafe removable bridge path ${bridge.path}; Worker redirect remains authoritative`,
+     );
+     continue;
     }
     reserveJobAliasRedirectDir(targets.directoryPath);
     continue;
