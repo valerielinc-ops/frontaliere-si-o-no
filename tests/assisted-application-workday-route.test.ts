@@ -174,6 +174,11 @@ describe('Workday tenant account routes', () => {
     expect(profileSectionQuestionsOwnedByCv(candidate, [
       { applicationQuestion: 'Why do you want to join Rituals?', section: 'Application Questions' },
     ])).toBe(false);
+    expect(profileSectionQuestionsOwnedByCv({
+      profile: { experience: [{ role: 'x' }], education: [] },
+    }, [
+      { applicationQuestion: 'School*', context: 'Work Experience and Education' },
+    ])).toBe(false);
   });
 
   it('returns profile_section_row_fill_failed without marking done when inline row fill fails', async () => {

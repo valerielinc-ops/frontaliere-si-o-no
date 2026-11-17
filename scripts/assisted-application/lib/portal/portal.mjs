@@ -622,6 +622,7 @@ export function profileSectionQuestionsOwnedByCv(candidate, questions) {
       question?.sectionGroup,
       ...(Array.isArray(question?.addressContext?.owners) ? question.addressContext.owners : []),
     ].map(profileMatchText).filter(Boolean).join(' ');
+    if (/\b(?:work\s+)?experience\b/i.test(scope) && /\beducation\b/i.test(scope)) return false;
     const kind = profileSectionKind(scope);
     if (!kind) return false;
     return Array.isArray(candidate?.profile?.[kind]) && candidate.profile[kind].length > 0;
