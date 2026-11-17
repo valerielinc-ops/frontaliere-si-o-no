@@ -2020,6 +2020,22 @@ function hasApplicationForm(snapshot) {
   return kinds.includes('file') || (textish >= 3 && email);
 }
 
+/**
+ * A marker carried into a Workday manual route may belong to the page before
+ * an account transition. Do not use that marker as restore proof until the
+ * route has been freshly read; application controls remain valid evidence.
+ */
+export function workdayRestoreNeedsManualNavigation({ pageUrl = '', applyUrl = '', snapshot = {} } = {}) {
+  const currentRoute = workdayJobRoute(pageUrl);
+  const currentApplicationSurface = (currentRoute?.suffix !== 'manual'
+    && snapshot?.workdayApplicationSurface === true)
+    || hasApplicationForm(snapshot)
+    || Boolean(findButton(snapshot.buttons, NEXT_RE))
+    || Boolean(findButton(snapshot.buttons, SUBMIT_RE));
+  return !isWorkdayJobRouteBound(pageUrl, applyUrl)
+    || (currentRoute?.suffix === 'manual' && !currentApplicationSurface);
+}
+
 function hasApplicationFormInCookieScope(snapshot, button) {
   const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : [];
   const frame = Number(button?.frame) || 0;
@@ -11974,16 +11990,9 @@ export async function submitViaPortal(ctx) {
         return null;
       };
       const currentRoute = workdayJobRoute(page.url());
-      // A marker carried into a bound manual route may describe the page before
-      // the account transition, not the route currently being restored. Treat
-      // that marker as stale until this branch performs a fresh extraction.
-      const currentApplicationSurface = (currentRoute?.suffix !== 'manual'
-        && snapshot?.workdayApplicationSurface === true)
-        || hasApplicationForm(snapshot)
-        || Boolean(findButton(snapshot.buttons, NEXT_RE))
-        || Boolean(findButton(snapshot.buttons, SUBMIT_RE));
-      const needsManualRestore = !isWorkdayJobRouteBound(page.url(), ctx.applyUrl)
-        || (currentRoute?.suffix === 'manual' && !currentApplicationSurface);
+      const needsManualRestore = workdayRestoreNeedsManualNavigation({
+        pageUrl: page.url(), applyUrl: ctx.applyUrl, snapshot,
+      });
       if (needsManualRestore) {
         const target = workdayApplicationEntryProven && !workdayDeterministicRestoreAttempted
           ? workdayManualApplicationUrl(ctx.applyUrl) : '';

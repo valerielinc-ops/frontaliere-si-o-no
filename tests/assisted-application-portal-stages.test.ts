@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, isApplicationRegionUnsupported, portalJobKey } from '../scripts/assisted-application/lib/portal/stages.mjs';
-import { applicationEntryControls, hasApplicationSurface, isVerifiedPostingEntry, openVerifiedPasswordResetNavigation, pageControls, urlConfirms } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { applicationEntryControls, hasApplicationSurface, isVerifiedPostingEntry, openVerifiedPasswordResetNavigation, pageControls, urlConfirms, workdayRestoreNeedsManualNavigation } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const origin = 'https://careers.example';
 const applyUrl = `${origin}/Careers/ApplicationMethods?jobId=42`;
@@ -33,6 +33,15 @@ describe('application stage ownership', () => {
       postingUrl: manualUrl,
     })).toBe(false);
     expect(hasApplicationSurface(empty, { pageUrl: manualUrl, postingUrl: manualUrl })).toBe(false);
+  });
+
+  it('does not treat a carried mount marker as fresh proof on a bound manual route', () => {
+    const applyUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Conseiller-de-Vente--h-f-_R2420/apply';
+    const manualUrl = `${applyUrl}/applyManually`;
+    const carried = { url: manualUrl, fields: [], buttons: [], workdayApplicationSurface: true };
+
+    expect(workdayRestoreNeedsManualNavigation({ pageUrl: manualUrl, applyUrl, snapshot: carried })).toBe(true);
+    expect(workdayRestoreNeedsManualNavigation({ pageUrl: applyUrl, applyUrl, snapshot: carried })).toBe(false);
   });
 
   it('does not accept a malformed frame as the UBS main-frame application entry', () => {
