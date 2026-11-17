@@ -212,9 +212,12 @@ function workdayApplicationFormSurface(snapshot, { url = snapshot?.url, applyUrl
   const nextControls = controls.filter(button => NEXT_RE.test(String(button?.text || button?.label || button?.ariaLabel || '')));
   if (nextControls.length !== 1) return false;
   const nextKey = applicationFormKey(nextControls[0]);
-  const formFields = nextKey
-    ? fields.filter(field => applicationFormKey(field) === nextKey)
-    : fields;
+  // An unowned control cannot borrow identity/contact evidence from every
+  // visible form on the page. Without the explicit form/frame binding, a
+  // search or profile field can be combined with a contact field from a
+  // different surface and falsely promote the page to an application form.
+  if (!nextKey) return false;
+  const formFields = fields.filter(field => applicationFormKey(field) === nextKey);
   const hasIdentity = formFields.some(field => WORKDAY_APPLICATION_IDENTITY_RE.test(String(field?.label || field?.name || '').trim()));
   const hasContact = formFields.some(field => field?.inputType === 'email'
     || WORKDAY_APPLICATION_CONTACT_RE.test(String(field?.label || field?.name || '').trim()));

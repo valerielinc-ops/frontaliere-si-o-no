@@ -340,6 +340,22 @@ describe('application stage ownership', () => {
     expect(pageControls(snapshot.buttons, known, snapshot.url, { snapshot, applyUrl }).next).toBeNull();
   });
 
+  it('does not combine identity and contact fields across forms for an unowned Continue control', () => {
+    const applyUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033/apply';
+    const snapshot = {
+      url: `${applyUrl}/applyManually`,
+      text: 'Continue your application',
+      fields: [
+        { label: 'First Name', kind: 'text', inputType: 'text', formId: 'profile', frame: 0 },
+        { label: 'Email Address', kind: 'text', inputType: 'email', formId: 'contact', frame: 0 },
+      ],
+      buttons: [{ text: 'Save and Continue', frame: 0, disabled: false }],
+    };
+
+    expect(applicationStage(snapshot, { applyUrl })).toMatchObject({ kind: 'unknown_apply', prefinal: true });
+    expect(pageControls(snapshot.buttons, known, snapshot.url, { snapshot, applyUrl }).next).toBeNull();
+  });
+
   it('keeps a Roche Workday details module bound to the selected announcement', () => {
     const detailsUrl = 'https://roche.wd3.myworkdayjobs.com/en-US/roche-ext/details/Technical-Product-Owner--Sites--SHE---Sustainability_202606-116471-2';
     const apply = { text: 'Apply', frame: 0, disabled: false };
