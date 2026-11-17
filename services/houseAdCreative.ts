@@ -50,23 +50,23 @@ export function createHouseAdCreative(options: {
     it: { cta: 'Scopri come funziona', shortCta: 'Scopri', bannerTitle: 'Lavoro in Svizzera?', body: 'Troviamo le offerte adatte al tuo mestiere e prepariamo le candidature per te.',
       titles: { control: 'Lavoro in Svizzera?', time_saved: 'Vuoi lavorare in Svizzera?', profile_match: 'Il tuo mestiere in Svizzera?', in_control: 'Svizzera: da dove iniziare?', swiss_work: 'Vuoi un lavoro in Svizzera?', next_chapter: 'La ricerca in Svizzera prende tempo?' },
       short: { control: 'Lavoro in Svizzera?', time_saved: 'Vuoi lavorare in Svizzera?', profile_match: 'Il tuo mestiere in Svizzera?', in_control: 'Svizzera: da dove iniziare?', swiss_work: 'Lavoro in Svizzera?', next_chapter: 'Lavoro in Svizzera?' },
-      promises: { control: 'Troviamo le offerte e prepariamo le candidature per te.', time_saved: 'Troviamo offerte e prepariamo candidature. Ci pensiamo noi.', profile_match: 'Troviamo offerte per il tuo mestiere. Prepariamo le candidature.', in_control: 'Troviamo le offerte. Prepariamo le candidature.', swiss_work: 'Cerchiamo offerte in Svizzera e prepariamo le candidature.', next_chapter: 'Meno ricerca: troviamo offerte e prepariamo candidature.' },
-      shortPromises: { control: 'Troviamo offerte e prepariamo candidature.', time_saved: 'Troviamo offerte e prepariamo candidature.', profile_match: 'Troviamo offerte e prepariamo candidature.', in_control: 'Troviamo offerte e prepariamo candidature.', swiss_work: 'Troviamo offerte e prepariamo candidature.', next_chapter: 'Troviamo offerte e prepariamo candidature.' } },
+      promises: { control: 'Lo cerchiamo noi per te.', time_saved: 'Cercare annunci richiede tempo. Ci pensiamo noi.', profile_match: 'Troviamo offerte adatte al tuo mestiere.', in_control: 'Non sai da dove iniziare? Ti aiutiamo noi.', swiss_work: 'Cerchiamo offerte in Svizzera per te.', next_chapter: 'Meno ricerca di annunci. Più tempo per te.' },
+      shortPromises: { control: 'Lo cerchiamo noi per te.', time_saved: 'Ci pensiamo noi.', profile_match: 'Offerte per il tuo mestiere.', in_control: 'Ti aiutiamo da subito.', swiss_work: 'Offerte in Svizzera per te.', next_chapter: 'Meno ricerca. Più tempo.' } },
     en: { cta: 'See how it works', shortCta: 'Explore', bannerTitle: 'Work in Switzerland?', body: 'We find job offers that fit your profession and prepare the applications for you.',
       titles: { control: 'A job in Switzerland?', time_saved: 'Want to work in Switzerland?', profile_match: 'Your profession in Switzerland?', in_control: 'Working in Switzerland: where to start?', swiss_work: 'Looking for a job in Switzerland?', next_chapter: 'Swiss job searches take time?' },
       short: { control: 'A job in Switzerland?', time_saved: 'Work in Switzerland?', profile_match: 'Your profession in Switzerland?', in_control: 'Switzerland: where to start?', swiss_work: 'A Swiss job?', next_chapter: 'Work in Switzerland?' },
-      promises: { control: 'We find suitable jobs and prepare applications for you.', time_saved: 'We find jobs and prepare applications. We handle it.', profile_match: 'We find jobs for your profession. Applications prepared for you.', in_control: 'We find the jobs. We prepare the applications.', swiss_work: 'We find jobs in Switzerland and prepare applications.', next_chapter: 'Less searching: we find jobs and prepare applications.' },
-      shortPromises: { control: 'We find jobs and prepare applications.', time_saved: 'We find jobs and prepare applications.', profile_match: 'We find jobs and prepare applications.', in_control: 'We find jobs and prepare applications.', swiss_work: 'We find jobs and prepare applications.', next_chapter: 'We find jobs and prepare applications.' } },
+      promises: { control: 'We find a job for you.', time_saved: 'Searching takes time. We can help.', profile_match: 'Offers for your line of work.', in_control: 'Not sure where to start? We’ll help.', swiss_work: 'We find jobs in Switzerland for you.', next_chapter: 'Less searching. More time for you.' },
+      shortPromises: { control: 'Let us find it.', time_saved: 'We’ll handle the search.', profile_match: 'Jobs for your trade.', in_control: 'We’ll help you start.', swiss_work: 'Swiss jobs for you.', next_chapter: 'Less searching.' } },
     de: { cta: 'So funktioniert es', shortCta: 'Entdecken', bannerTitle: 'Arbeit in der Schweiz?', body: 'Wir suchen passende Stellen für Ihren Beruf und bereiten Ihre Bewerbungen vor.',
       titles: { control: 'Arbeit in der Schweiz?', time_saved: 'Möchten Sie in der Schweiz arbeiten?', profile_match: 'Ihr Beruf in der Schweiz?', in_control: 'Arbeit in der Schweiz: Wo anfangen?', swiss_work: 'Eine Stelle in der Schweiz?', next_chapter: 'Die Stellensuche in der Schweiz kostet Zeit?' },
       short: { control: 'Arbeit in der Schweiz?', time_saved: 'Arbeit in der Schweiz?', profile_match: 'Ihr Beruf in der Schweiz?', in_control: 'Schweiz: Wo anfangen?', swiss_work: 'Eine Schweizer Stelle?', next_chapter: 'Arbeit in der Schweiz?' },
-      promises: { control: 'Wir finden passende Stellen und bereiten Bewerbungen für Sie vor.', time_saved: 'Wir finden Stellen und bereiten Bewerbungen vor.', profile_match: 'Wir finden Stellen für Ihren Beruf und bereiten Bewerbungen vor.', in_control: 'Wir finden die Stellen und bereiten Bewerbungen vor.', swiss_work: 'Wir finden Stellen in der Schweiz und bereiten Bewerbungen vor.', next_chapter: 'Weniger suchen: Wir finden Stellen und bereiten Bewerbungen vor.' },
-      shortPromises: { control: 'Wir finden Stellen und bereiten Bewerbungen vor.', time_saved: 'Wir finden Stellen und bereiten Bewerbungen vor.', profile_match: 'Wir finden Stellen und bereiten Bewerbungen vor.', in_control: 'Wir finden Stellen und bereiten Bewerbungen vor.', swiss_work: 'Wir finden Stellen und bereiten Bewerbungen vor.', next_chapter: 'Wir finden Stellen und bereiten Bewerbungen vor.' } },
+      promises: { control: 'Wir suchen für Sie.', time_saved: 'Suchen kostet Zeit. Wir helfen.', profile_match: 'Stellen für Ihren Beruf.', in_control: 'Sie wissen nicht, wo anfangen? Wir helfen.', swiss_work: 'Stellen in der Schweiz für Sie.', next_chapter: 'Weniger suchen. Mehr Zeit für Sie.' },
+      shortPromises: { control: 'Wir suchen für Sie.', time_saved: 'Wir kümmern uns.', profile_match: 'Stellen für Ihren Beruf.', in_control: 'Wir helfen beim Start.', swiss_work: 'Stellen in der Schweiz.', next_chapter: 'Weniger suchen.' } },
     fr: { cta: 'Voir comment ça marche', shortCta: 'Découvrir', bannerTitle: 'Un emploi en Suisse ?', body: 'Nous cherchons les offres adaptées à votre métier et préparons vos candidatures.',
       titles: { control: 'Un emploi en Suisse ?', time_saved: 'Vous voulez travailler en Suisse ?', profile_match: 'Votre métier en Suisse ?', in_control: 'Travailler en Suisse : par où commencer ?', swiss_work: 'Un emploi en Suisse ?', next_chapter: 'Chercher en Suisse prend du temps ?' },
       short: { control: 'Un emploi en Suisse ?', time_saved: 'Travailler en Suisse ?', profile_match: 'Votre métier en Suisse ?', in_control: 'La Suisse : par où commencer ?', swiss_work: 'Un emploi en Suisse ?', next_chapter: 'Travailler en Suisse ?' },
-      promises: { control: 'Nous trouvons des offres adaptées et préparons vos candidatures.', time_saved: 'Nous trouvons des offres et préparons les candidatures.', profile_match: 'Nous trouvons des offres pour votre métier et préparons vos candidatures.', in_control: 'Nous trouvons les offres et préparons les candidatures.', swiss_work: 'Nous trouvons des offres en Suisse et préparons les candidatures.', next_chapter: 'Moins chercher : nous trouvons les offres et préparons les candidatures.' },
-      shortPromises: { control: 'Nous trouvons des offres et préparons les candidatures.', time_saved: 'Nous trouvons des offres et préparons les candidatures.', profile_match: 'Nous trouvons des offres et préparons les candidatures.', in_control: 'Nous trouvons des offres et préparons les candidatures.', swiss_work: 'Nous trouvons des offres et préparons les candidatures.', next_chapter: 'Nous trouvons des offres et préparons les candidatures.' } },
+      promises: { control: 'Nous cherchons un emploi pour vous.', time_saved: 'Chercher prend du temps. Nous vous aidons.', profile_match: 'Des offres pour votre métier.', in_control: 'Vous ne savez pas par où commencer ? Nous vous aidons.', swiss_work: 'Nous cherchons des offres en Suisse pour vous.', next_chapter: 'Moins de recherches. Plus de temps pour vous.' },
+      shortPromises: { control: 'Nous cherchons pour vous.', time_saved: 'Nous nous en occupons.', profile_match: 'Des offres pour votre métier.', in_control: 'Nous vous aidons à commencer.', swiss_work: 'Des offres en Suisse.', next_chapter: 'Moins de recherches.' } },
   }[locale];
   const narrow = options.portraitArtwork || format === 'rectangle' || format === 'mobile_banner' || format === 'mobile_large' || format === 'skyscraper';
   const compact = format === 'mobile_banner' || format === 'mobile_large';
@@ -96,8 +96,6 @@ export function createHouseAdCreative(options: {
       billboardTitle: compactRole ? `${compactRole} in Svizzera?` : 'Lavoro in Svizzera?',
       leaderboardTitle: compactRole ? `${compactRole} in Svizzera?` : 'Lavoro in Svizzera?',
       mobileTitle: compactRole ? `${compactRole} in Svizzera?` : 'Lavoro in Svizzera?',
-      promise: 'Troviamo offerte e prepariamo le candidature per te.',
-      compactPromise: 'Troviamo offerte e prepariamo candidature.',
       body: contextRole && contextPlace
         ? `Troviamo offerte per ${contextRole} nella zona di ${contextPlace} e prepariamo le candidature per te.`
         : contextRole ? `Troviamo offerte per ${contextRole} e prepariamo le candidature per te.`
@@ -113,8 +111,6 @@ export function createHouseAdCreative(options: {
       billboardTitle: compactRole ? `${compactRole} jobs in Switzerland?` : 'A job in Switzerland?',
       leaderboardTitle: compactRole ? `${compactRole} jobs in Switzerland?` : 'A job in Switzerland?',
       mobileTitle: compactRole ? `${compactRole} in Switzerland?` : 'Work in Switzerland?',
-      promise: 'We find suitable jobs and prepare applications for you.',
-      compactPromise: 'We find jobs and prepare applications.',
       body: contextRole && contextPlace
         ? `We find ${contextRole} roles around ${contextPlace} and prepare the applications for you.`
         : contextRole ? `We find ${contextRole} roles and prepare the applications for you.`
@@ -132,8 +128,6 @@ export function createHouseAdCreative(options: {
       billboardTitle: compactRole ? `${compactRole} in der Schweiz?` : 'Arbeit in der Schweiz?',
       leaderboardTitle: compactRole ? `${compactRole}-Jobs in der Schweiz?` : 'Arbeit in der Schweiz?',
       mobileTitle: compactRole ? `${compactRole} in der Schweiz?` : 'Arbeit in der Schweiz?',
-      promise: 'Wir finden passende Stellen und bereiten Bewerbungen für Sie vor.',
-      compactPromise: 'Wir finden Stellen und bereiten Bewerbungen vor.',
       body: contextRole && contextPlace
         ? `Wir finden passende Stellen für ${contextRole} in der Region ${contextPlace} und bereiten Ihre Bewerbungen vor.`
         : contextRole ? `Wir finden passende Stellen für ${contextRole} und bereiten Ihre Bewerbungen vor.`
@@ -151,8 +145,6 @@ export function createHouseAdCreative(options: {
       billboardTitle: compactRole ? `${compactRole} en Suisse ?` : 'Un emploi en Suisse ?',
       leaderboardTitle: compactRole ? `${compactRole} en Suisse ?` : 'Un emploi en Suisse ?',
       mobileTitle: compactRole ? `${compactRole} en Suisse ?` : 'Un emploi en Suisse ?',
-      promise: 'Nous trouvons des offres adaptées et préparons vos candidatures.',
-      compactPromise: 'Nous trouvons des offres et préparons les candidatures.',
       body: contextRole && contextPlace
         ? `Nous trouvons des offres ${frenchRolePreposition} dans la région de ${contextPlace} et préparons vos candidatures.`
         : contextRole ? `Nous trouvons des offres ${frenchRolePreposition} et préparons vos candidatures.`
@@ -171,9 +163,7 @@ export function createHouseAdCreative(options: {
             : format === 'rectangle' ? contextStrings.tightTitle
             : contextStrings.title
     : format === 'mobile_banner' ? words.bannerTitle : compact ? words.short[variant] : words.titles[variant];
-  const creativePromise = hasContext
-    ? compact ? contextStrings.compactPromise : contextStrings.promise
-    : compact ? words.shortPromises[variant] : words.promises[variant];
+  const creativePromise = compact ? words.shortPromises[variant] : words.promises[variant];
   const creativeBody = hasContext
     ? format === 'billboard' ? contextStrings.billboardBody : contextStrings.body
     : words.body;
