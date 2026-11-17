@@ -1088,8 +1088,8 @@ export async function applyActions(page, fields, actions, files, {
           const securityIndex = securityChoice
             ? ordinalFrom(field.label) || ordinalFrom(field.name) || 1
             : 0;
-          const securityFallback = securityChoice && securityIndex >= 1 && securityIndex <= usableSecurity.length
-            ? usableSecurity[securityIndex - 1]
+          const securityFallback = securityChoice && usableSecurity.length
+            ? usableSecurity[(Math.max(1, securityIndex) - 1) % usableSecurity.length]
             : '';
           selectedLabel = exact || (isNationalityField(field.label)
             ? nationalityOptionLabel(action.value, labels, nationalityFieldLanguage(field.label))

@@ -225,13 +225,13 @@ describe('BrassRing security-question field classification', () => {
     }
   });
 
-  it('fails closed when the security-question ordinal is outside the visible options', async () => {
+  it('fails closed when only placeholder security options are visible', async () => {
     let optionClicks = 0;
     const field = { id: 'q3', kind: '', inputType: 'listbox', label: 'Security question 3', options: [], form: 0, frame: 0 };
     const controlLocator = { count: async () => 1, click: async () => {}, evaluate: async () => false };
     const frame = {
       locator: (selector: string) => selector === '[role="option"]:visible'
-        ? { allInnerTexts: async () => ['Please select a question', 'First pet?', 'Favorite city?'] }
+        ? { allInnerTexts: async () => ['Please select a question', 'Choisir...'] }
         : { first: () => controlLocator },
       getByRole: () => ({ first: () => ({ click: async () => { optionClicks += 1; } }) }),
     };
@@ -245,6 +245,33 @@ describe('BrassRing security-question field classification', () => {
 
     expect(result).toEqual([{ fieldId: 'q3', ok: false, error: 'option_not_found' }]);
     expect(optionClicks).toBe(0);
+  });
+
+  it('selects the remaining non-placeholder option when Choisir... is filtered out for Security question 2', async () => {
+    let selected = '';
+    const field = { id: 'q2', kind: '', inputType: 'listbox', label: 'Security question 2', options: [], form: 0, frame: 0 };
+    const controlLocator = {
+      count: async () => 1,
+      click: async () => {},
+      evaluate: async () => selected === 'Quelle est votre couleur préférée ?',
+    };
+    const frame = {
+      locator: (selector: string) => selector === '[role="option"]:visible'
+        ? { allInnerTexts: async () => ['Choisir...', 'Quelle est votre couleur préférée ?'] }
+        : { first: () => controlLocator },
+      getByRole: (_role: string, opts: { name?: string }) => ({
+        first: () => ({ click: async () => { selected = opts?.name || ''; } }),
+      }),
+    };
+    const result = await applyActions(
+      { frames: () => [frame], mainFrame: () => frame, waitForTimeout: async () => {} } as any,
+      [field],
+      [{ fieldId: 'q2', action: 'select', value: 'A question not shown', evidence: 'account_security_question' }],
+      {},
+      { pause: async () => {} },
+    );
+    expect(result).toEqual([{ fieldId: 'q2', ok: true }]);
+    expect(selected).toBe('Quelle est votre couleur préférée ?');
   });
 
   it('uses an explicit application scope when BrassRing controls have no form owner', () => {
