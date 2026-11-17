@@ -28,7 +28,7 @@ import { describe, it, expect, beforeAll } from 'vitest';
 import { createHash } from 'node:crypto';
 import { execFile, execFileSync } from 'node:child_process';
 import { resolve, join } from 'node:path';
-import { existsSync, mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync, symlinkSync } from 'node:fs';
+import { cpSync, existsSync, mkdtempSync, mkdirSync, writeFileSync, readFileSync, rmSync, symlinkSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import YAML from 'yaml';
 import { IT_SHARD_GROUP_IDS } from '../scripts/ci/it-shard-group-plan.mjs';
@@ -1845,7 +1845,11 @@ function runPagesPublisher(
   symlinkSync(resolve('scripts'), join(workspace, 'scripts'), 'dir');
   symlinkSync(resolve('docs'), join(workspace, 'docs'), 'dir');
   mkdirSync(join(workspace, 'public', 'images'), { recursive: true });
-  symlinkSync(resolve('public/images/job-search-campaign'), join(workspace, 'public/images/job-search-campaign'), 'dir');
+  cpSync(
+    resolve('public/images/job-search-campaign'),
+    join(workspace, 'public/images/job-search-campaign'),
+    { recursive: true, dereference: true },
+  );
 
   const eventsPath = join(workspace, 'events.log');
   const envPath = join(workspace, 'github-env.txt');
