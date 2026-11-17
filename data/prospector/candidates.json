@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-17T15:12:04.256Z",
+  "updatedAt": "2026-11-17T15:12:40.740Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -155794,12 +155794,12 @@
     },
     "barock-job@solothurn": {
       "key": "barock-job@solothurn",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:26:03.341Z",
-      "updatedAt": "2026-11-17T14:56:38.406Z",
+      "updatedAt": "2026-11-17T15:12:40.658Z",
       "name": "Barock Job AG",
       "city": "Solothurn",
       "zip": "4500",
@@ -156629,7 +156629,9 @@
       "secoStaffingMatchConfidence": "curated-registry-and-signal-residual",
       "emailDomainHints": [
         "barockjob.ch"
-      ]
+      ],
+      "promotionPr": "19250",
+      "promotionBranch": "prospector/promote-2026-11-17"
     },
     "barockcafe.ch": {
       "key": "barockcafe.ch",
@@ -280997,12 +280999,12 @@
     },
     "careanesth": {
       "key": "careanesth",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:25:29.823Z",
-      "updatedAt": "2026-11-17T14:55:58.194Z",
+      "updatedAt": "2026-11-17T15:12:40.658Z",
       "name": "Careanesth AG",
       "city": "",
       "zip": "",
@@ -281716,7 +281718,9 @@
       ],
       "emailDomainHints": [],
       "secoEmployerClassification": "direct",
-      "secoStaffingMatchConfidence": "curated-registry-and-signal-residual"
+      "secoStaffingMatchConfidence": "curated-registry-and-signal-residual",
+      "promotionPr": "19250",
+      "promotionBranch": "prospector/promote-2026-11-17"
     },
     "careanesth@bern": {
       "key": "careanesth@bern",
@@ -1267363,12 +1267367,12 @@
     },
     "ritter-schumacher": {
       "key": "ritter-schumacher",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-10-17T07:58:10.494Z",
-      "updatedAt": "2026-11-17T14:53:44.956Z",
+      "updatedAt": "2026-11-17T15:12:40.658Z",
       "name": "Ritter Schumacher AG",
       "city": "",
       "zip": "",
@@ -1268360,7 +1268364,9 @@
           "logoSourceUrl": "https://ritterschumacher.com/images/favicon.ico",
           "employerSiteName": "Ritter Schumacher"
         }
-      ]
+      ],
+      "promotionPr": "19250",
+      "promotionBranch": "prospector/promote-2026-11-17"
     },
     "ritterapotheke.ch": {
       "key": "ritterapotheke.ch",

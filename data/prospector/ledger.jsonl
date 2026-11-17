@@ -61380,3 +61380,6 @@
 {"eventType":"phase_started","at":"2026-11-17T15:12:00.868Z","runId":"44078763297","runAttempt":1,"phase":"promote","eventId":"89c5071ab64bed0f01a49d90"}
 {"eventType":"candidate_attempt","key":"sintio.ch","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-17T15:12:04.136Z","runId":"44078763297","runAttempt":1,"phase":"promote","eventId":"29157ffeb0750194722c319a"}
 {"eventType":"candidate_transition","key":"skan","from":"awaiting_first_crawl","to":"production","at":"2026-11-17T15:12:04.136Z","runId":"44078763297","runAttempt":1,"phase":"promote","eventId":"24c7542f23e6e949a7cd71e6"}
+{"eventType":"candidate_transition","key":"barock-job@solothurn","from":"promoted","to":"promoting","at":"2026-11-17T15:12:40.658Z","runId":"44078763297","runAttempt":1,"phase":"promote","eventId":"1061afdd00917abafc88fa00"}
+{"eventType":"candidate_transition","key":"ritter-schumacher","from":"promoted","to":"promoting","at":"2026-11-17T15:12:40.658Z","runId":"44078763297","runAttempt":1,"phase":"promote","eventId":"0f4c7e72e1c535865db61c31"}
+{"eventType":"candidate_transition","key":"careanesth","from":"promoted","to":"promoting","at":"2026-11-17T15:12:40.658Z","runId":"44078763297","runAttempt":1,"phase":"promote","eventId":"720a0b7b6aea9b07950f6950"}
