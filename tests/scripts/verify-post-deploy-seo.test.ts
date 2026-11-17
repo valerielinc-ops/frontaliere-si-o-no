@@ -7,7 +7,10 @@ import {
   inspectLiveJobPostingHtml,
   parseLiveJobSitemapSignals,
 } from '../../scripts/verify-post-deploy-seo.mjs';
-import { JOB_ORPHAN_NOINDEX_BRIDGE_MARKER } from '../../build-plugins/shared/jobOrphanNoindexBridgeMarker.mjs';
+import {
+  hasJobOrphanNoindexBridgeMarker,
+  JOB_ORPHAN_NOINDEX_BRIDGE_MARKER,
+} from '../../build-plugins/shared/jobOrphanNoindexBridgeMarker.mjs';
 
 const completeJobPosting = {
   '@context': 'https://schema.org',
@@ -78,6 +81,19 @@ describe('post-deploy SEO verification', () => {
       issue: 'missing-jobposting',
       skipped: false,
     });
+  });
+
+  it('recognizes the persistent bridge marker after HTML minification', () => {
+    const minifiedMarker = '<meta content=job-orphan-noindex name=frontaliereticino-bridge>';
+    const commentOnly = '<!--JOB_ORPHAN_NOINDEX_BRIDGE-->';
+
+    expect(hasJobOrphanNoindexBridgeMarker(minifiedMarker)).toBe(true);
+    expect(hasJobOrphanNoindexBridgeMarker(commentOnly)).toBe(false);
+    expect(hasJobOrphanNoindexBridgeMarker(JOB_ORPHAN_NOINDEX_BRIDGE_MARKER)).toBe(true);
+    expect(hasJobOrphanNoindexBridgeMarker('<meta name=frontaliereticino-bridge content=job-orphan-noindex-stale>')).toBe(false);
+    expect(hasJobOrphanNoindexBridgeMarker('<meta data-name=frontaliereticino-bridge data-content=job-orphan-noindex>')).toBe(false);
+    expect(hasJobOrphanNoindexBridgeMarker('<script>const fake = "<meta name=frontaliereticino-bridge content=job-orphan-noindex>";</script>')).toBe(false);
+    expect(hasJobOrphanNoindexBridgeMarker('<meta name="frontaliereticino-bridge content=job-orphan-noindex>')).toBe(false);
   });
 
   it('does not exempt an unowned noindex detail-shaped response', () => {

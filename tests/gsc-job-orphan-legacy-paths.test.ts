@@ -14,6 +14,7 @@ import {
 } from '../scripts/lib/gsc-orphan-snapshot.mjs';
 import { jobOrphanBridgePlugin, sectionPathFromOrphan } from '../build-plugins/jobOrphanBridgePlugin';
 import { legacyAliasPlugin } from '../build-plugins/legacyAliasPlugin';
+import { hasJobOrphanNoindexBridgeMarker } from '../build-plugins/shared/jobOrphanNoindexBridgeMarker.mjs';
 
 const jobSections = {
   it: new Set(['cerca-lavoro-ticino']),
@@ -330,7 +331,8 @@ describe('jobOrphanBridgePlugin — incomplete matched fallbacks are noindex', (
       // buildSeoPageHtml finishes with minifyHtml, which removes safe
       // attribute quotes; assert the exact robots directive semantically.
       expect(extractRobots(html)).toEqual({ value: 'noindex,follow', noindex: true });
-      expect(html).toContain('<!--JOB_ORPHAN_NOINDEX_BRIDGE-->');
+      expect(hasJobOrphanNoindexBridgeMarker(html)).toBe(true);
+      expect(html).not.toContain('<!--JOB_ORPHAN_NOINDEX_BRIDGE-->');
       expect(extractPageSignals(html, orphanUrl).canonical).toBe(orphanUrl);
       expect(html).not.toMatch(/"@type":"JobPosting"/);
     } finally {
