@@ -389,7 +389,7 @@ describe('runner final guard across three application stages', () => {
     };
     const delayedChooser = {
       ...snapshot(jobUrl, 'Choose how to apply', [
-        { id: 'manual', text: 'Apply manually', dialog: true, dialogId: 'd1', section: 'Application chooser', frame: 0, disabled: false },
+        { id: 'manual', text: 'Apply manually', frame: 0, disabled: false },
       ]),
       title: 'Rituals Careers',
       heading: 'Choose how to apply',

@@ -4032,6 +4032,24 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     if (['account', 'receipt', 'review_navigation', 'final_review', 'application_start'].includes(stage.kind)
       || stage.prefinal === true) return true;
     const nextEntries = applicationEntryControls(observed, stageContext || {});
+    // Workday can mount its chooser in place on the exact requisition route.
+    // The chooser is application-owned only when the tenant adapter has
+    // already recorded the selected posting CTA and a different Workday entry
+    // control is now visible on that same requisition. Do not generalize this
+    // to arbitrary forms or menu items: those can be duplicate posting CTAs.
+    const hasBoundWorkdayChooser = Boolean(
+      stageContext
+      && isWorkdayTenantUrl(stageContext.applyUrl)
+      && workdayEntryControlSignature
+      && followedControlSignature
+      && isWorkdayJobRouteBound(page.url(), stageContext.applyUrl)
+      && workdayChooserEntries(observed).some((control) => {
+        const signature = portalControlSignature(control);
+        return signature !== followedControlSignature
+          && signature !== workdayEntryControlSignature;
+      })
+    );
+    if (hasBoundWorkdayChooser) return true;
     const applicationContainerMarker = /\b(?:application|applicant|bewerbung|candidatur|candidature|candidatura|postuler|postulation|postulazione)\b/iu;
     const hasApplicationOwnedContainerMarker = (control) => {
       const containerText = [control?.section, control?.context, control?.sectionGroup, control?.formContext]
