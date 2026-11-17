@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-11-16T14:15:01.808Z",
+  "assembledAt": "2026-11-17T15:05:56.417Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -189583,6 +189583,501 @@
       },
       "recurring": false,
       "sourceDescriptionHash": "a648518c8dca07c606da7a2ca88b396361c879ae3b2f3d4499c1f8bbb12f5d11"
+    },
+    {
+      "id": "guidle:A9cJvEH",
+      "title": "Treffen und Spiele",
+      "titleByLocale": {
+        "it": "Incontro di gaming",
+        "en": "Gaming meet-up",
+        "de": "Gaming-Treffen",
+        "fr": "Rencontres jeux"
+      },
+      "startDate": "2026-12-07",
+      "endDate": "2026-12-07",
+      "startTime": "14:30",
+      "category": "Altri eventi",
+      "venue": "Restaurant Migros Métropole",
+      "comune": "Yverdon-les-Bains",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/evenements/ceci-cela/yverdon-les-bains/rencontres-jeux_A9cJvEH",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Rue de Neuchâtel 3",
+        "postalCode": "1400"
+      },
+      "geo": {
+        "lat": 46.781197,
+        "lng": 6.6353732
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "920ae9f167082679451df3ae3faa0552e30cca41d048ce2f1eb9bf65a3709a85"
+    },
+    {
+      "id": "guidle:AZ9MbX7",
+      "title": "Café-visite",
+      "titleByLocale": {
+        "it": "Café-visite",
+        "en": "Coffee visits",
+        "de": "Café-Besuch",
+        "fr": "Visite de café"
+      },
+      "startDate": "2026-12-01",
+      "endDate": "2027-02-02",
+      "startTime": "00:00",
+      "category": "Visita guidata ulteriore museo",
+      "venue": "Musée d'histoire naturelle",
+      "canton": "FR",
+      "url": "https://www.guidle.com/it/events/this-that/fribourg/cafe-visite_AZ9MbX7",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700"
+      },
+      "geo": {
+        "lat": 46.7934745,
+        "lng": 7.1559652
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "fc57ca148b919aaca6e4a4e854cc1776d2a3115907d3cf9cc03e4eeb12d4b0b4"
+    },
+    {
+      "id": "guidle:Av2imHm",
+      "title": "Ateliers parents-enfants au Musée d’histoire naturelle",
+      "titleByLocale": {
+        "it": "Ateliers parents-enfants au Musée d’histoire naturelle",
+        "en": "Parent-child workshops at the Natural History Museum",
+        "de": "Workshops für Eltern und Kinder im Naturkundemuseum",
+        "fr": "Ateliers parents-enfants au Musée d'Histoire Naturelle"
+      },
+      "startDate": "2026-12-12",
+      "endDate": "2027-02-27",
+      "startTime": "00:00",
+      "category": "Natura / Ambiente",
+      "venue": "Musée d'histoire naturelle",
+      "canton": "FR",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/fribourg/ateliers-parents-enfants-au-musee-dhistoire-naturelle_Av2imHm",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Chemin du Musée 6",
+        "postalCode": "1700"
+      },
+      "geo": {
+        "lat": 46.7934745,
+        "lng": 7.1559652
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Ihren Kindern"
+        },
+        {
+          "name": "Grosskindern"
+        }
+      ],
+      "sourceDescriptionHash": "eaaee7acc00f5b8f45cd56742b0654c8662a152b13362a4c1f2926b96456534c"
+    },
+    {
+      "id": "guidle:AXBrejm",
+      "title": "Out of Service? – Schweizer Sakralarchitektur im Wandel",
+      "titleByLocale": {
+        "it": "Out of Service? – Schweizer Sakralarchitektur im Wandel",
+        "en": "Out of Service? – Swiss Sacred Architecture in Transition",
+        "de": "Außer Betrieb? – Schweizer heiliger Architektur im Wandel",
+        "fr": "Hors service ? – L’architecture sacrée suisse en mutation"
+      },
+      "startDate": "2026-11-26",
+      "endDate": "2027-01-07",
+      "startTime": "18:00",
+      "category": "Altri eventi",
+      "venue": "ZAZ Zentrum Architektur Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zuerich/vernissage-out-of-service-schweizer-sakralarchitektur-im-wandel_AXBrejm",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Höschgasse 3",
+        "postalCode": "8008"
+      },
+      "geo": {
+        "lat": 47.3564709,
+        "lng": 8.5500277
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "0bd92ecf6ea59a10fe381311a9fdb53aaa15d2a93936da97763d0dddd034ced0"
+    },
+    {
+      "id": "guidle:AaAxMJW",
+      "title": "Yoga im Kirchner Museum",
+      "titleByLocale": {
+        "it": "Yoga im Kirchner Museum",
+        "en": "Yoga in the Kirchner Museum",
+        "de": "⑤oga im Kirchner Museum",
+        "fr": "Yoga au Kirchner Museum"
+      },
+      "startDate": "2026-11-19",
+      "endDate": "2026-12-17",
+      "startTime": "08:30",
+      "category": "Altri eventi",
+      "venue": "Kirchner Museum Davos",
+      "comune": "Davos",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/events/this-that/davos-platz/yoga-im-kirchner-museum_AaAxMJW",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Promenade 82",
+        "postalCode": "7270"
+      },
+      "geo": {
+        "lat": 46.8001369,
+        "lng": 9.8267507
+      },
+      "recurring": true,
+      "performer": {
+        "name": "Yogaplaza"
+      },
+      "sourceDescriptionHash": "5b19032d7fe1ba73ee90625ff1ac530d9791a32d7f8832f3634daf80e62bb8d8"
+    },
+    {
+      "id": "guidle:ACbEKZT",
+      "title": "Öffentliche Führung",
+      "titleByLocale": {
+        "it": "Öffentliche Führung",
+        "en": "Fhr",
+        "de": "②fentliche F",
+        "fr": "RHF"
+      },
+      "startDate": "2027-01-11",
+      "endDate": "2027-06-08",
+      "startTime": "00:00",
+      "category": "Visita guidata ulteriore museo",
+      "venue": "Burgerbibliothek Bern",
+      "comune": "Bern",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/bern/oeffentliche-fuehrung_ACbEKZT",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Münstergasse 63",
+        "postalCode": "3011"
+      },
+      "geo": {
+        "lat": 46.9473522,
+        "lng": 7.448353
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "ae157c8df5da5a294e5124b69b81ad0276d64d89e70ea07bcb64739675401cfa"
+    },
+    {
+      "id": "guidle:AfEkXe4",
+      "title": "Führung in der Ausstellung \"Avantgarde – Grafikdesign im Aufbruch\"",
+      "titleByLocale": {
+        "it": "Führung in der Ausstellung \"Avantgarde – Grafikdesign im Aufbruch\"",
+        "en": "Guided tour of the exhibition “Avantgarde – Grafikdesign im Aufbruch”",
+        "de": "Führung durch die Ausstellung „Avantgarde – Grafikdesign im Aufbruch“",
+        "fr": "Visite guidée de l’exposition « Avantgarde – Grafikdesign im Aufbruch »"
+      },
+      "startDate": "2026-12-13",
+      "endDate": "2027-01-10",
+      "startTime": "11:00",
+      "category": "Design",
+      "venue": "Museum für Gestaltung Zürich",
+      "comune": "Zürich",
+      "canton": "ZH",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zuerich/fuehrung-in-der-ausstellung-avantgarde-grafikdesign-im-aufbruch_AfEkXe4",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Ausstellungsstrasse 60",
+        "postalCode": "8005"
+      },
+      "geo": {
+        "lat": 47.3828692,
+        "lng": 8.5356949
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "e5321c320ac90cc980b27dc1c51425ffac452c389a3a71302d3e76466a0c1f9e"
+    },
+    {
+      "id": "guidle:A95rfXy",
+      "title": "DENISE FELBER «Zwischenräume»",
+      "titleByLocale": {
+        "it": "DENISE FELBER «Zwischenräume»",
+        "en": "DENISE FELBER “Zwischenräume”",
+        "de": "DENISE FELBER „Zwischenräume“",
+        "fr": "DENISE FELBER « Zwischenräume »"
+      },
+      "startDate": "2026-12-30",
+      "endDate": "2026-12-30",
+      "startTime": "20:00",
+      "category": "Altri eventi",
+      "venue": "ONO Kulturlokal",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/bern/denise-felber-zwischenraeume_A95rfXy",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Kramgasse 6",
+        "postalCode": "3011"
+      },
+      "geo": {
+        "lat": 46.9481497,
+        "lng": 7.4519649
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Denise Felber"
+        },
+        {
+          "name": "Sprache"
+        }
+      ],
+      "sourceDescriptionHash": "3d1de0ed2a1bb329d2567093cc66f748e8da96df1ec440fed8e9717b2eaa4bc7"
+    },
+    {
+      "id": "guidle:ADPHK2S",
+      "title": "Tango-Samstage und traditionelle argentinische Tänze",
+      "titleByLocale": {
+        "it": "Sabati del tango e balli tradizionali argentini",
+        "en": "Tango Saturdays and traditional Argentine dances",
+        "de": "Tango-Samstage und traditionelle argentinische Tänze",
+        "fr": "Les samedis du tango et danses traditionnelles argentines"
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-12-12",
+      "startTime": "16:30",
+      "category": "Altri eventi",
+      "venue": "Rubí Gastrobar",
+      "comune": "Aigle",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/events/this-that/aigle/tango-saturdays-and-traditional-argentine-dances_ADPHK2S",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 5,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Rue de Jérusalem 6",
+        "postalCode": "1860"
+      },
+      "geo": {
+        "lat": 46.3187449,
+        "lng": 6.9690399
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "1100a5262bc723a72cf78d6e850a553411a843a583383234d966be01952651d8"
+    },
+    {
+      "id": "guidle:AkwfA3Z",
+      "title": "Les coulisses de la clinique équine d’Avenches",
+      "titleByLocale": {
+        "it": "Les coulisses de la clinique équine d’Avenches",
+        "en": "Behind the scenes at the Avenches Equine Clinic",
+        "de": "Hinter den Kulissen der Pferdeklinik Avenches",
+        "fr": "Dans les coulisses de la clinique équine d'Avenches"
+      },
+      "startDate": "2027-10-04",
+      "endDate": "2027-10-04",
+      "startTime": "00:00",
+      "category": "Altri eventi",
+      "venue": "Avenches Tourisme",
+      "comune": "Avenches",
+      "canton": "VD",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/avenches/les-coulisses-de-la-clinique-equine-davenches_AkwfA3Z",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Place de l'Eglise 3",
+        "postalCode": "1580"
+      },
+      "geo": {
+        "lat": 46.8802403,
+        "lng": 7.040135
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "39290beeb9ff739114604cd88854a372d22a3b988c60c7159b1ac6fa77ad797f"
+    },
+    {
+      "id": "guidle:A5PRbf5",
+      "title": "Hedwig Hayoz-Häfeli : Seelenfutter Teil II Sonntagnachmittag",
+      "titleByLocale": {
+        "it": "Hedwig Hayoz-Häfeli : Seelenfutter Teil II Sonntagnachmittag",
+        "en": "Hedwig Hayoz-Häfeli: Seelenfutter Part II Sunday Afternoon",
+        "de": "Hedwig Hayoz-Häfeli: Seelenfutter Teil II Sonntagnachmittag",
+        "fr": "Hedwig Hayoz-Häfeli : Quatrième partie II Dimanche après-midi"
+      },
+      "startDate": "2026-12-06",
+      "endDate": "2027-06-06",
+      "startTime": "14:00",
+      "category": "Altri eventi",
+      "venue": "Galerie am Königweg",
+      "canton": "BE",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/bern/hedwig-hayoz-haefeli-seelenfutter-teil-ii-sonntagnachmittag_A5PRbf5",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Königweg 2A",
+        "postalCode": "3006"
+      },
+      "geo": {
+        "lat": 46.9464969,
+        "lng": 7.4736391
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "9ec7f2d6485915b2872d07cc1e96f1a393538f007eec665d7a53718a9b9dfdc3"
+    },
+    {
+      "id": "guidle:APdN8tJ",
+      "title": "Cinema Teatro: Stagione teatrale 2026/2027",
+      "titleByLocale": {
+        "it": "Cinema Teatro: Stagione teatrale 2026/2027",
+        "en": "Cinema Teatro: 2026/2027 Theater Season",
+        "de": "Cinema Teatro: Theatersaison 2026/2027",
+        "fr": "Cinema Teatro : Saison théâtrale 2026/2027"
+      },
+      "startDate": "2026-11-17",
+      "endDate": "2026-11-17",
+      "category": "Altri eventi",
+      "comune": "Chiasso",
+      "canton": "TI",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/chiasso/cinema-teatro-theatersaison-20262027_APdN8tJ",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "geo": {
+        "lat": 45.8365535,
+        "lng": 9.0266246
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Italian-speaking Switzerland"
+      },
+      "sourceDescriptionHash": "9dcf7579ffbcae1e733dc369719a13319f473af0b0871aac47ffa38274e36ecc"
+    },
+    {
+      "id": "guidle:Aw6cZN2",
+      "title": "Ghörige Stube",
+      "titleByLocale": {
+        "it": "Ghörige Stube",
+        "en": "Ghrig",
+        "de": "GH ①rige Stube",
+        "fr": "Grigu"
+      },
+      "startDate": "2026-12-13",
+      "endDate": "2026-12-13",
+      "startTime": "14:30",
+      "category": "Comunione",
+      "canton": "",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/bregenz/ghoerige-stube_Aw6cZN2",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "geo": {
+        "lat": 47.504502,
+        "lng": 9.7474802
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "b77658277d3702ad073fbdbcad7f089b29e90429bf60885f335a2a0bff83280b"
+    },
+    {
+      "id": "guidle:AxsuuV3",
+      "title": "CEVI Jungschar Zizers",
+      "titleByLocale": {
+        "it": "CEVI Jungschar Zizers",
+        "en": "CEVIung",
+        "de": "CEVI ①ungschar Zizers",
+        "fr": "Céviande"
+      },
+      "startDate": "2026-12-05",
+      "endDate": "2027-06-12",
+      "startTime": "14:00",
+      "category": "Incontro dei giovani",
+      "venue": "Evang.-ref. Kirchgemeindehaus Zizers",
+      "comune": "Zizers",
+      "canton": "GR",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/zizers/cevi-jungschar-zizers_AxsuuV3",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "address": {
+        "street": "Vialstrasse 13",
+        "postalCode": "7205"
+      },
+      "geo": {
+        "lat": 46.9347961,
+        "lng": 9.5660422
+      },
+      "recurring": true,
+      "performer": [
+        {
+          "name": "Herz"
+        },
+        {
+          "name": "Hand"
+        }
+      ],
+      "sourceDescriptionHash": "4707c20019194c293ebaf47e84b67988d76a32efe04aae6956c66f6313762d00"
+    },
+    {
+      "id": "guidle:AQ9mqud",
+      "title": "Hausführung",
+      "titleByLocale": {
+        "it": "Hausführung",
+        "en": "Hausfhr",
+        "de": "Hausf ①hrung",
+        "fr": "Visite guidée de la maison"
+      },
+      "startDate": "2026-12-05",
+      "endDate": "2026-12-05",
+      "startTime": "14:00",
+      "category": "Architettura / Design",
+      "venue": "cheesmeyer",
+      "comune": "Sissach",
+      "canton": "BL",
+      "url": "https://www.guidle.com/it/veranstaltungen/dies-das/sissach/hausfuehrung_AQ9mqud",
+      "sourceKey": "guidle",
+      "sourceName": "Guidle",
+      "price": {
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false,
+        "priceSource": "guidle",
+        "priceField": "price-accordion"
+      },
+      "address": {
+        "street": "Hauptstrasse 55",
+        "postalCode": "4450"
+      },
+      "geo": {
+        "lat": 47.4635872,
+        "lng": 7.8125001
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Brigitte Frei-Heitz"
+      },
+      "sourceDescriptionHash": "a83b2e33c3c522f7c9deaead059c50880d208b1eef195a9f451d83d68c581ac4"
     }
   ]
 }

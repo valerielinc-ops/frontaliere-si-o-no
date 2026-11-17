@@ -3,7 +3,7 @@
   "sourceKey": "fr-agenda",
   "sourceName": "Etat de Fribourg — Evénements",
   "canton": "FR",
-  "assembledAt": "2026-11-16T14:40:33.591Z",
+  "assembledAt": "2026-11-17T15:29:59.371Z",
   "events": [
     {
       "id": "fr-agenda:bis-bald-baleine-120-baleines-miniatures",
@@ -28,7 +28,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d'histoire naturelle Fribourg"
@@ -93,7 +93,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Bibliothèque cantonale et universitaire"
@@ -123,7 +123,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d’art et d’histoire MAHF & Espace Jean Tinguely – Niki de Saint Phalle"
@@ -153,7 +153,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d’art et d’histoire MAHF & Espace Jean Tinguely – Niki de Saint Phalle"
@@ -1450,7 +1450,7 @@
     {
       "id": "fr-agenda:fresede-seance-dinformation-en-presentiel",
       "title": "FRESEdE – Séance d'information en présentiel",
-      "startDate": "2026-11-16",
+      "startDate": "2026-12-09",
       "startTime": "19:00",
       "category": "Séance d'information",
       "venue": "Posieux",
@@ -1467,12 +1467,19 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ecole professionnelle santé-social"
       },
-      "sourceDescriptionHash": "6fb2e9154f321409aed6b13b6be8781981a853a56711ff1bb18e30e2354831c4"
+      "sourceDescriptionHash": "d3e5e18f59b61df60e858767bab301a1d961e867dcc8376cd23bd2f34008cb49",
+      "previousRoutes": [
+        {
+          "canton": "FR",
+          "comune": "__other-events__",
+          "slug": "fresede-seance-dinformation-en-presentiel-2026-11-16"
+        }
+      ]
     },
     {
       "id": "fr-agenda:cfc-assc-avec-maturite-integree-presentation-online-via-teams-17-novembre-2026",
@@ -1493,7 +1500,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ecole professionnelle santé-social"
@@ -1522,7 +1529,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Bibliothèque cantonale et universitaire"
@@ -1552,7 +1559,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Bureau de promotion des enfants et des jeunes"
@@ -1581,7 +1588,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Police cantonale"
@@ -1608,7 +1615,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ecole professionnelle santé-social"
@@ -1637,7 +1644,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Service de l'orientation professionnelle et de la formation des adultes - Centre de carrières"
@@ -1666,7 +1673,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Bibliothèque cantonale et universitaire"
@@ -1730,7 +1737,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Police cantonale"
@@ -1759,7 +1766,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d'histoire naturelle Fribourg"
@@ -1788,7 +1795,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d'histoire naturelle Fribourg"
@@ -1851,7 +1858,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d'histoire naturelle Fribourg"
@@ -1880,7 +1887,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d’art et d’histoire MAHF & Espace Jean Tinguely – Niki de Saint Phalle"
@@ -1909,7 +1916,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Bibliothèque cantonale et universitaire"
@@ -1938,7 +1945,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Bibliothèque cantonale et universitaire"
@@ -1967,7 +1974,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Service de l'orientation professionnelle et de la formation des adultes - Centre de carrières"
@@ -1996,7 +2003,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Bibliothèque cantonale et universitaire"
@@ -2025,7 +2032,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d'histoire naturelle Fribourg"
@@ -2054,7 +2061,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Bibliothèque cantonale et universitaire"
@@ -2083,7 +2090,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d'histoire naturelle Fribourg"
@@ -2112,7 +2119,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Bibliothèque cantonale et universitaire"
@@ -2141,7 +2148,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d’art et d’histoire MAHF & Espace Jean Tinguely – Niki de Saint Phalle"
@@ -2204,7 +2211,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d'histoire naturelle Fribourg"
@@ -2233,7 +2240,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d'histoire naturelle Fribourg"
@@ -2296,7 +2303,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d'histoire naturelle Fribourg"
@@ -2325,7 +2332,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d'histoire naturelle Fribourg"
@@ -2354,7 +2361,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d'histoire naturelle Fribourg"
@@ -2383,7 +2390,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d'histoire naturelle Fribourg"
@@ -2412,7 +2419,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Ecole professionnelle artisanale et commerciale de Bulle"
@@ -2441,7 +2448,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d'histoire naturelle Fribourg"
@@ -2470,7 +2477,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d'histoire naturelle Fribourg"
@@ -2499,7 +2506,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d'histoire naturelle Fribourg"
@@ -2528,7 +2535,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d'histoire naturelle Fribourg"
@@ -2557,7 +2564,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Conservatoire de Fribourg"
@@ -2654,7 +2661,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d'histoire naturelle Fribourg"
@@ -2683,7 +2690,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d'histoire naturelle Fribourg"
@@ -2712,7 +2719,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d'histoire naturelle Fribourg"
@@ -2742,7 +2749,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Service de la culture"
@@ -2771,7 +2778,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Conservatoire de Fribourg"
@@ -2800,7 +2807,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Conservatoire de Fribourg"
@@ -2829,7 +2836,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Conservatoire de Fribourg"
@@ -2858,7 +2865,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Conservatoire de Fribourg"
@@ -2946,7 +2953,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d’art et d’histoire MAHF & Espace Jean Tinguely – Niki de Saint Phalle"
@@ -3009,7 +3016,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Conservatoire de Fribourg"
@@ -3096,7 +3103,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Musée d’art et d’histoire MAHF & Espace Jean Tinguely – Niki de Saint Phalle"
@@ -3154,7 +3161,7 @@
       },
       "sourceKey": "fr-agenda",
       "sourceName": "Etat de Fribourg — Evénements",
-      "crawledAt": "2026-11-16T14:40:33.591Z",
+      "crawledAt": "2026-11-17T15:29:59.371Z",
       "organizer": {
         "@type": "Organization",
         "name": "Service de la prévoyance sociale"

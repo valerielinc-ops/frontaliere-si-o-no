@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-11-16T14:27:09.506Z",
+  "assembledAt": "2026-11-17T15:17:12.386Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -79935,16 +79935,15 @@
     },
     {
       "id": "myswitzerland:887fe00e394a48c7a9b63369ed3f193c",
-      "title": "Ensemble Noda ǀ X. Phillips ǀ Professeur.e.s et étudiant.e.s de l’HEMU — Va",
+      "title": "Ensemble Noda ǀ X. Phillips ǀ Professeur.e.s et étudiant.e.s de l’HEMU — Va",
       "titleByLocale": {
-        "it": "Ensemble Noda ǀ X. Phillips ǀ Professeur.e.s et étudiant.e.s de l’HEMU — Va",
-        "en": "Ensemble Noda ǀ X. Phillips ǀ Professeur.e.s et étudiant.e.s de l’HEMU — Va",
-        "de": "Ensemble Noda ǀ X. Phillips ǀ Professeur.e.s et étudiant.e.s de l’HEMU — Va",
-        "fr": "Ensemble Noda ǀ X. Phillips ǀ Professeur.e.s et étudiant.e.s de l’HEMU"
+        "it": "Ensemble Noda ǀ X. Phillips ǀ Professeur.e.s et étudiant.e.s de l’HEMU — Va",
+        "en": "Ensemble Noda ǀ X. Phillips ǀ Professeur.e.s et étudiant.e.s de l’HEMU — Va",
+        "de": "Ensemble Noda ǀ X. Phillips ǀ Professeur.e.s et étudiant.e.s de l’HEMU — Va",
+        "fr": "Ensemble Noda ǀ X. Phillips ǀ Professeur.e.s et étudiant.e.s de l’HEMU"
       },
       "startDate": "2027-05-14",
       "endDate": "2027-05-14",
-      "startTime": "19:30",
       "category": "Event",
       "venue": "Sion / Sitten",
       "comune": "Sion",
@@ -79957,6 +79956,20 @@
         "lng": 7.3624633
       },
       "recurring": false,
+      "performer": [
+        {
+          "name": "HEMU"
+        },
+        {
+          "name": "Dirigenten"
+        },
+        {
+          "name": "Violinisten"
+        },
+        {
+          "name": "Pianisten"
+        }
+      ],
       "sourceDescriptionHash": "59581e173f05153b8f72950428302fbd9ced4f108990996f0d5a90b81b861685"
     },
     {
@@ -144679,18 +144692,17 @@
       "title": "Alouette - Marc Donnet Monay",
       "titleByLocale": {
         "it": "Alouette - Marc Donnet Monay",
-        "en": "Alouette-Marc Donnet Monay",
-        "de": "Alouette – Marc Donnet Monay",
-        "fr": "Alouette-Marc Donnet Monay"
+        "en": "Alouette - Marc Donnet Monay",
+        "de": "Alouette - Marc Donnet Monay",
+        "fr": "Alouette - Marc Donnet Monay"
       },
       "startDate": "2027-03-05",
       "endDate": "2027-03-05",
-      "startTime": "20:00",
-      "category": "Theater",
-      "venue": "Theatre du Crochetan",
+      "category": "Event",
+      "venue": "Monthey",
       "comune": "Monthey",
       "canton": "VS",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/alouette-marc-donnet-monay/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/alouette-marc-donnet-monay/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "geo": {
@@ -144698,7 +144710,7 @@
         "lng": 6.9506528
       },
       "recurring": false,
-      "sourceDescriptionHash": "9052789f4081dca94f4cda2b2ea3826e39e3ed5e7d4f76dbc6ac7ae4199089e0"
+      "sourceDescriptionHash": "e66ddbc2dd7ced6ef121a22ab100150c6ac1c1bb4011740a5a56b80a95ff24f1"
     },
     {
       "id": "myswitzerland:84c348441b144b26aae91778362bdfc4",
@@ -184619,7 +184631,6 @@
       },
       "startDate": "2026-12-03",
       "endDate": "2026-12-03",
-      "startTime": "20:00",
       "category": "Event",
       "venue": "Oberhofen",
       "comune": "Oberhofen am Thunersee",
@@ -184632,15 +184643,6 @@
         "lng": 7.6726276
       },
       "recurring": false,
-      "organizer": {
-        "@type": "Organization",
-        "name": "MySwitzerland",
-        "url": "https://www.myswitzerland.com/en/"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Oberhofen"
-      },
       "sourceDescriptionHash": "20b391850c5fd91110b9f5952334f2d3d62cd72349d4d769552f96fa72c2b85c"
     },
     {
@@ -240851,31 +240853,20 @@
       },
       "startDate": "2026-12-28",
       "endDate": "2026-12-28",
-      "startTime": "17:00",
       "category": "Event",
-      "venue": "Röm.-kath. Pfarrkirche Sankt Martin von Tours",
+      "venue": "Obergesteln",
       "comune": "Obergoms",
       "canton": "VS",
-      "url": "https://www.myswitzerland.com/en-ch/experiences/events/weihnachtskonzerte-2026-3/",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/weihnachtskonzerte-2026-3/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
-      "price": {
-        "availability": "http://schema.org/InStock",
-        "url": "http://www.vocalisti.ch/"
-      },
       "geo": {
         "lat": 46.5148241,
         "lng": 8.3242938
       },
       "recurring": false,
-      "organizer": {
-        "@type": "Organization",
-        "name": "MySwitzerland",
-        "url": "https://www.myswitzerland.com/en/"
-      },
       "performer": {
-        "@type": "Organization",
-        "name": "Röm.-kath. Pfarrkirche Sankt Martin von Tours"
+        "name": "Advent"
       },
       "italianFrontierComuni": [
         "Formazza"
@@ -241331,7 +241322,6 @@
       },
       "startDate": "2026-12-01",
       "endDate": "2026-12-22",
-      "startTime": "10:00",
       "category": "Event",
       "venue": "Mandach",
       "comune": "Mandach",
@@ -241344,15 +241334,32 @@
         "lng": 8.1860493
       },
       "recurring": true,
-      "organizer": {
-        "@type": "Organization",
-        "name": "MySwitzerland",
-        "url": "https://www.myswitzerland.com/en/"
-      },
-      "performer": {
-        "@type": "Organization",
-        "name": "Mandach"
-      },
+      "performer": [
+        {
+          "name": "Bruno Hochstrasser"
+        },
+        {
+          "name": "Künstler"
+        },
+        {
+          "name": "Gitarrist Bruno Hochstrasser"
+        },
+        {
+          "name": "Kräuterkreationen"
+        },
+        {
+          "name": "Geschenkideen"
+        },
+        {
+          "name": "Glühwein"
+        },
+        {
+          "name": "Musik"
+        },
+        {
+          "name": "Festwirtschaft"
+        }
+      ],
       "sourceDescriptionHash": "10e357077c5e66559a0db76969d54eb8167e31b4fdd434a8db264b17126ada24"
     },
     {
@@ -277570,6 +277577,441 @@
       },
       "recurring": true,
       "sourceDescriptionHash": "6d034a49aaa692a138bdd1003596ada9a3546f01edf22bd9a2ab302d2eabacf5"
+    },
+    {
+      "id": "myswitzerland:8ab7235de82b42528544e761e371f47d",
+      "title": "Contes du mercredi",
+      "titleByLocale": {
+        "it": "Contes du mercredi",
+        "en": "Contes du mercredi",
+        "de": "Contes du mercredi",
+        "fr": "Contes du mercredi"
+      },
+      "startDate": "2027-01-20",
+      "endDate": "2027-01-20",
+      "category": "Event",
+      "venue": "Saint-Maurice",
+      "comune": "Saint-Maurice",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/contes-du-mercredi-1/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2165974,
+        "lng": 7.0043309
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Claudine Boiron"
+      },
+      "sourceDescriptionHash": "0a5ef5d8a87fd38c70261b2cbd265f0fa35065f328933b467705e77f0aee0ebe"
+    },
+    {
+      "id": "myswitzerland:8a190bfc332f4cd98ef779427476d619",
+      "title": "Sunrise",
+      "titleByLocale": {
+        "it": "Sunrise",
+        "en": "Sunrise",
+        "de": "Sunrise",
+        "fr": "Sunrise"
+      },
+      "startDate": "2027-05-02",
+      "endDate": "2027-05-02",
+      "category": "Event",
+      "venue": "Sion / Sitten",
+      "comune": "Sion",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/sunrise/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2283929,
+        "lng": 7.3624633
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "608d4959097d272e6a547590896868b73645f4c4aeb2e32960fea40dd4dea0fd"
+    },
+    {
+      "id": "myswitzerland:88a16849f8ea47c6b7ea6340d54079c5",
+      "title": "Brindisi di Capodanno in musica",
+      "titleByLocale": {
+        "it": "Brindisi di Capodanno in musica",
+        "en": "Brindisi di Capodanno in musica",
+        "de": "Brindisi di Capodanno in musica",
+        "fr": "Brindisi di Capodanno in musica"
+      },
+      "startDate": "2027-01-01",
+      "endDate": "2027-01-01",
+      "category": "Event",
+      "venue": "San Bernardino",
+      "comune": "Mesocco",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/brindisi-di-capodanno-in-musica/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.4626084,
+        "lng": 9.1921505
+      },
+      "recurring": false,
+      "italianFrontierComuni": [
+        "Madesimo",
+        "Campodolcino"
+      ],
+      "sourceDescriptionHash": "b1bf4d59c299c5183d631664940dd81eee0c6a9d0678ce50936850af62484609"
+    },
+    {
+      "id": "myswitzerland:886f2430fda447039f7ddcf804a5d84a",
+      "title": "Workshop cerchio di Natale",
+      "titleByLocale": {
+        "it": "Workshop cerchio di Natale",
+        "en": "Workshop cerchio di Natale",
+        "de": "Workshop cerchio di Natale",
+        "fr": "Workshop cerchio di Natale"
+      },
+      "startDate": "2026-12-19",
+      "endDate": "2026-12-19",
+      "category": "Event",
+      "venue": "San Bernardino",
+      "comune": "Mesocco",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/workshop-cerchio-di-natale/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.463102,
+        "lng": 9.192077
+      },
+      "recurring": false,
+      "italianFrontierComuni": [
+        "Madesimo",
+        "Campodolcino"
+      ],
+      "sourceDescriptionHash": "0bbf355c7190c4270436c42838e2e4f8e0f3f608c7397d161608d6827d6a4d89"
+    },
+    {
+      "id": "myswitzerland:87e7f07ae9b14953bbf961293463a675",
+      "title": "Carmen.",
+      "titleByLocale": {
+        "it": "Carmen.",
+        "en": "Carmen.",
+        "de": "Carmen.",
+        "fr": "Carmen."
+      },
+      "startDate": "2027-04-24",
+      "endDate": "2027-04-24",
+      "category": "Event",
+      "venue": "Sion / Sitten",
+      "comune": "Sion",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/carmen-3/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2337825,
+        "lng": 7.3621238
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "fc6125adf527bc6e6db128cadd5d38d60c1f507053dd3ed5e5204fe19c08a21f"
+    },
+    {
+      "id": "myswitzerland:87dc5d1309ca4f50adf1b36e350e0dc1",
+      "title": "Julien Perret - \"Intense Illusion\" at the Sequoïa",
+      "titleByLocale": {
+        "it": "Julien Perret - \"Intense Illusion\" at the Sequoïa",
+        "en": "Julien Perret - \"Intense Illusion\" at the Sequoïa",
+        "de": "Julien Perret – „Intense Illusion“ im Sequoïa",
+        "fr": "Julien Perret - intense illusion au Sequoïa"
+      },
+      "startDate": "2026-11-26",
+      "endDate": "2026-11-26",
+      "category": "Event",
+      "venue": "Sierre",
+      "comune": "Sierre",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/julien-perret-intense-illusion-au-sequoia/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.3169163,
+        "lng": 7.5213307
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Künstlerin"
+        },
+        {
+          "name": "Region"
+        }
+      ],
+      "sourceDescriptionHash": "ca153aeac3f059b58df87bb645502ac4a6ac1eb91b155e2774cefd068a60ecb3"
+    },
+    {
+      "id": "myswitzerland:873d3a7eec7b44d28380721dc6d3480c",
+      "title": "Reavertüra Jon Sport - Wiedereröffnung Jon Sport",
+      "titleByLocale": {
+        "it": "Reavertüra Jon Sport - Wiedereröffnung Jon Sport",
+        "en": "Reavertüra Jon Sport - Wiedereröffnung Jon Sport",
+        "de": "Reavertüra Jon Sport - Wiedereröffnung Jon Sport",
+        "fr": "Reavertüra Jon Sport - Wiedereröffnung Jon Sport"
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-11-28",
+      "category": "Event",
+      "venue": "Scuol",
+      "comune": "Scuol",
+      "canton": "GR",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/reavertuera-jon-sport-wiedereroeffnung-jon-sport/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.797402,
+        "lng": 10.299669
+      },
+      "recurring": false,
+      "performer": {
+        "name": "Eröffnungspreisen"
+      },
+      "sourceDescriptionHash": "2634bb768c9a6f8a1204344e3c9d0015e24f9d1704f8816dde4d4308cb08dcf3"
+    },
+    {
+      "id": "myswitzerland:86ce4cd5fd9c4a8ab4c00f27dd387420",
+      "title": "LE JEU DE L'AMOUR ET DU HASARD",
+      "titleByLocale": {
+        "it": "LE JEU DE L'AMOUR ET DU HASARD",
+        "en": "LE JEU DE L'AMOUR ET DU HASARD",
+        "de": "LE JEU DE L'AMOUR ET DU HASARD",
+        "fr": "LE JEU DE L'AMOUR ET DU HASARD"
+      },
+      "startDate": "2027-02-25",
+      "endDate": "2027-02-25",
+      "category": "Event",
+      "venue": "Savièse",
+      "comune": "Savièse",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/le-jeu-de-lamour-et-du-hasard/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2485912,
+        "lng": 7.3519778
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "1daf1b950bf6da6b9a87dfe7fd1aad6ea4bb541bf5703ccb682d2974cd353ee5"
+    },
+    {
+      "id": "myswitzerland:863b0305764c4ce29205ce628e6bc696",
+      "title": "Einladung zum Podium: Wie viel Kultur braucht SRF?",
+      "titleByLocale": {
+        "it": "Einladung zum Podium: Wie viel Kultur braucht SRF?",
+        "en": "Einladung zum Podium: Wie viel Kultur braucht SRF?",
+        "de": "Einladung zum Podium: Wie viel Kultur braucht SRF?",
+        "fr": "Einladung zum Podium: Wie viel Kultur braucht SRF?"
+      },
+      "startDate": "2026-11-26",
+      "endDate": "2026-11-26",
+      "category": "Event",
+      "venue": "Basel",
+      "comune": "Basel",
+      "canton": "BS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/einladung-zum-podium-wie-viel-kultur-braucht-srf/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.5462612,
+        "lng": 7.58711
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Leiter Kaserne BaselAnja"
+        },
+        {
+          "name": "Kulturschaffenden"
+        },
+        {
+          "name": "Kulturveranstaltenden"
+        }
+      ],
+      "sourceDescriptionHash": "8b669fba832c29697d8eb97029a8dbce49e01b93128ba20114c8f854daf56363"
+    },
+    {
+      "id": "myswitzerland:8616b05f569243cea26ffb6ae7c19aca",
+      "title": "Jahreskonzert Mundovision",
+      "titleByLocale": {
+        "it": "Jahreskonzert Mundovision",
+        "en": "Jahreskonzert Mundovision",
+        "de": "Jahreskonzert Mundovision",
+        "fr": "Jahreskonzert Mundovision"
+      },
+      "startDate": "2026-11-21",
+      "endDate": "2026-11-21",
+      "category": "Event",
+      "venue": "Solothurn",
+      "comune": "Solothurn",
+      "canton": "SO",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/jahreskonzert-mundovision/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.2093461,
+        "lng": 7.5349505
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Pianist Nathan Julius"
+        },
+        {
+          "name": "Gitarristen Ngawang Yougyal"
+        },
+        {
+          "name": "Joseph Onana"
+        }
+      ],
+      "sourceDescriptionHash": "d880fa7cead46ad1a4e98eb41cce5299a84e7726d30557a31f07927707f648ce"
+    },
+    {
+      "id": "myswitzerland:857769689baf4b63b6869d7963530975",
+      "title": "Formaggio, per favore! Viva la fonduta! - La nave della fonduta",
+      "titleByLocale": {
+        "it": "Formaggio, per favore! Viva la fonduta! - La nave della fonduta",
+        "en": "Cheese, please! Fondue, here we come! - Fondue Ship",
+        "de": "Cheese, please! Fondue Ahoi! - Fondueschiff",
+        "fr": "Souriez, s'il vous plaît ! À la fondue ! - Le bateau à fondue"
+      },
+      "startDate": "2026-11-06",
+      "endDate": "2026-12-13",
+      "category": "Event",
+      "venue": "Vitznau",
+      "comune": "Vitznau",
+      "canton": "LU",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/formaggio-per-favore-viva-la-fonduta-la-nave-della-fonduta/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.007728,
+        "lng": 8.4832511
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "013317ec9d209583ac63dd1198268e3155f62296ea5b7ccb804c4b568ecbc534"
+    },
+    {
+      "id": "myswitzerland:8515b36252e94bb6953ea4b19074c0ee",
+      "title": "Avril Jam Session",
+      "titleByLocale": {
+        "it": "Avril Jam Session",
+        "en": "Avril Jam Session",
+        "de": "Avril Jam Session",
+        "fr": "Avril Jam Session"
+      },
+      "startDate": "2027-04-14",
+      "endDate": "2027-04-14",
+      "category": "Event",
+      "venue": "Losanna",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/scoprire-la-svizzera/manifestazioni/avril-jam-session/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.5205898,
+        "lng": 6.5680873
+      },
+      "recurring": false,
+      "performer": [
+        {
+          "name": "Freunden"
+        },
+        {
+          "name": "Schlagzeug"
+        },
+        {
+          "name": "Gitarre"
+        },
+        {
+          "name": "Keyboard"
+        },
+        {
+          "name": "Bass"
+        }
+      ],
+      "sourceDescriptionHash": "0d74697c684fa65539b8710a44a0ec191f6ed4a6da8362a053060f68ab0a5b81"
+    },
+    {
+      "id": "myswitzerland:850d171dbdde40c28a7ce23cad99b449",
+      "title": "Local produce market",
+      "titleByLocale": {
+        "it": "Local produce market",
+        "en": "Local produce market",
+        "de": "Markt für regionale Produkte",
+        "fr": "Marché des produits du terroir"
+      },
+      "startDate": "2027-10-23",
+      "endDate": "2027-10-24",
+      "category": "Event",
+      "venue": "Cernier",
+      "comune": "Val-de-Ruz",
+      "canton": "NE",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/local-produce-market/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 47.0591761,
+        "lng": 6.909851
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "e08d02d1e71240b8e3d6eddf55b0504a5040b3ca6954385177700217e8ea50af"
+    },
+    {
+      "id": "myswitzerland:8483c4a287714e0b80505f61078deefb",
+      "title": "Roméo et Juliette",
+      "titleByLocale": {
+        "it": "Roméo et Juliette",
+        "en": "Roméo et Juliette",
+        "de": "Roméo et Juliette",
+        "fr": "Roméo et Juliette"
+      },
+      "startDate": "2027-03-14",
+      "endDate": "2027-03-14",
+      "category": "Event",
+      "venue": "Grône / Loye",
+      "comune": "Grône",
+      "canton": "VS",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/romeo-et-juliette/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.2526316,
+        "lng": 7.4605636
+      },
+      "recurring": false,
+      "sourceDescriptionHash": "1304a3a52659a7335a24c5c6d9c6764fdf687bf352cc0dca7f60d7958f50012c"
+    },
+    {
+      "id": "myswitzerland:83a6b03f65fa423eb7ffd25e21222271",
+      "title": "Baulmes Christmas Market",
+      "titleByLocale": {
+        "it": "Baulmes Christmas Market",
+        "en": "Baulmes Christmas Market",
+        "de": "Weihnachtsmarkt in Baulmes",
+        "fr": "Marché de Noël de Baulmes"
+      },
+      "startDate": "2026-11-28",
+      "endDate": "2026-11-29",
+      "category": "Event",
+      "venue": "Baulmes",
+      "comune": "Baulmes",
+      "canton": "VD",
+      "url": "https://www.myswitzerland.com/it-ch/experiences/events/baulmes-christmas-market/",
+      "sourceKey": "myswitzerland",
+      "sourceName": "MySwitzerland",
+      "geo": {
+        "lat": 46.7891304,
+        "lng": 6.5262058
+      },
+      "recurring": true,
+      "sourceDescriptionHash": "ac9f1886c4eef08e233de27ce9be0db249a77def0d31fd35ad98913631750e57"
     }
   ]
 }
