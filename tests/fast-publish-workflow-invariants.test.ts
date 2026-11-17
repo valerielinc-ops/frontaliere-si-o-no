@@ -57,6 +57,11 @@ describe('fast-publish workflow invariants', () => {
     expect(workflow).toContain("key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}");
     expect(workflow).toContain('run: npm ci --ignore-scripts --no-audit --no-fund');
     expect(workflow.slice(installIdx, rendererIdx)).toContain('cache-hit');
+    const cacheIdx = workflow.indexOf('- name: Cache shard-writer dependencies');
+    const cacheEnd = workflow.indexOf('\n      - name:', cacheIdx + 1);
+    expect(workflow.slice(cacheIdx, cacheEnd)).toContain(
+      "if: inputs.dry_run != true && inputs.dry_run != 'true'",
+    );
   });
 
   it('pings search engines only after live verification, never before', () => {

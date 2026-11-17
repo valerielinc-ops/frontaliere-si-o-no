@@ -160,6 +160,7 @@ jobs:
       # firebase-admin dependency on a clean runner.
       - name: Cache shard-writer dependencies
         id: shard-writer-node-modules-cache
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         uses: actions/cache@v6
         with:
           path: node_modules

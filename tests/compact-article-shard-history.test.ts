@@ -300,6 +300,11 @@ describe('compact-article-shard-history.sh — structural invariants (issue #488
     );
     expect(fastWorkflow).toContain('FIREBASE_SERVICE_ACCOUNT_JSON is required for the shard writer lease');
     expect(fastWorkflow).toContain('run: npm ci --ignore-scripts --no-audit --no-fund');
+    const fastCacheStart = fastWorkflow.indexOf('- name: Cache shard-writer dependencies');
+    const fastCacheEnd = fastWorkflow.indexOf('\n      - name:', fastCacheStart + 1);
+    expect(fastWorkflow.slice(fastCacheStart, fastCacheEnd)).toContain(
+      "if: inputs.dry_run != true && inputs.dry_run != 'true'",
+    );
   });
 });
 
