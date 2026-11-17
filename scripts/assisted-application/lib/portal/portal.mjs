@@ -4032,14 +4032,14 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     if (['account', 'receipt', 'review_navigation', 'final_review', 'application_start'].includes(stage.kind)
       || stage.prefinal === true) return true;
     const nextEntries = applicationEntryControls(observed, stageContext || {});
-    const hasApplicationOwnedContainerMarker = (control) => Boolean(
-      control?.formId
-      || control?.roleFormId
-      || (control?.menuItem === true && control?.href)
-      || (control?.dialogId && /\b(?:application|bewerbung|candidatur|candidature|candidatura|postuler)\b/iu.test(
-        [control?.section, control?.context, control?.sectionGroup].filter(Boolean).join(' '),
-      )),
-    );
+    const applicationContainerMarker = /\b(?:application|applicant|bewerbung|candidatur|candidature|candidatura|postuler|postulation|postulazione)\b/iu;
+    const hasApplicationOwnedContainerMarker = (control) => {
+      if (control?.menuItem === true && control?.href) return true;
+      const containerText = [control?.section, control?.context, control?.sectionGroup, control?.formContext]
+        .filter(Boolean).join(' ');
+      return Boolean(applicationContainerMarker.test(containerText)
+        && (control?.formId || control?.roleFormId || control?.dialogId || control?.sectionGroupId));
+    };
     if (followedControlSignature && nextEntries.some((control) =>
       portalControlSignature(control) !== followedControlSignature
       && hasApplicationOwnedContainerMarker(control))) return true;

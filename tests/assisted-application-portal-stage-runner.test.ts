@@ -1502,7 +1502,7 @@ describe('runner final guard across three application stages', () => {
     const clickedPosting = {
       ...snapshot(postingUrl, `${title}. Clinica Holistica.`, [
         { id: 'apply-top', text: 'Jetzt bewerben', frame: 0, disabled: false },
-        { id: 'apply-bottom', text: 'Jetzt bewerben', frame: 0, disabled: false },
+        { id: 'apply-bottom', text: 'Jetzt bewerben', formId: 'posting-form', frame: 0, disabled: false },
       ]),
       title: `${title} | Clinica Holistica`,
     };
