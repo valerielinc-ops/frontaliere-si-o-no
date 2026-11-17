@@ -2,7 +2,7 @@
 import { avaturePortalDirectory, avaturePostingJobKey, sameAvaturePortal } from './protocol.mjs';
 import { isCvDocumentLabel } from './document-labels.mjs';
 import { brassRingPrivacyGateControl } from './brass-ring-route.mjs';
-import { isWorkdayJobRouteBound, isWorkdayTenantAccountRoute, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayJobRoute } from './workday-route.mjs';
+import { isWorkdayApplicationRouteBound, isWorkdayJobRouteBound, isWorkdayTenantAccountRoute, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayJobRoute } from './workday-route.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE } from './fill.mjs';
 
 // Match the complete route relative to the proved source directory, never a
@@ -43,6 +43,8 @@ const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?
 const CLOSED_APPLICATION_EXPAND_RE = /^(?:expand all(?: sections)?|show all(?: sections)?|alle abschnitte einblenden|alle einblenden|mostra tutte(?: le sezioni)?|espandi tutte(?: le sezioni)?|afficher toutes les sections|tout afficher|développer tout)\W*$/iu;
 const WORKDAY_APPLICATION_START_RE = /^(?:start(?:\s+application)?|get\s+started|begin(?:\s+application)?|d[ée]marrer|commencer|comenzar|inizia(?:re)?|jetzt\s+starten)\W*$/iu;
 const WORKDAY_PROFILE_INTRO_RE = /\b(?:introduce\s+yourself|présentez[- ]vous|stellen\s+sie\s+sich\s+vor|presentati)\b/iu;
+const WORKDAY_APPLICATION_IDENTITY_RE = /^(?:given\s+name(?:\s*\(s\))?|first\s+name|forename|vorname|pr[ée]nom|nome|family\s+name|last\s+name|surname|nachname|nom(?:\s+de\s+famille)?|cognome)/iu;
+const WORKDAY_APPLICATION_CONTACT_RE = /^(?:country\s+phone\s+code|phone(?:\s+(?:number|extension|device\s+type))?|telephone(?:\s+(?:number|extension))?|t[ée]l[ée]phone|telefon(?:nummer)?|telefono|e-?mail|email|adresse\s+e-?mail|indirizzo\s+e-?mail)/iu;
 const APPLICATION_DIVERSION_TITLE_RE = /^(?:talent\s*pool|talentpool|introduce\s+yourself|spontaneous\s+application|unsolicited\s+application|general\s+application|initiativbewerbung|initiativ\s+bewerbung|initiativbewerbungen|create\s+(?:a\s+)?job\s*alerts?|job\s*alerts?|job[- ]?abo\s+(?:erstellen|anlegen|cr[eé]er)|stellenalarm|jobbenachrichtigung|présentez[- ]?vous|candidature\s+(?:spontanée|spontanee|libre)|alerte\s+(?:emploi|offre)|cr[eé]er\s+une\s+alerte(?:\s+(?:emploi|offre))?|creer\s+une\s+alerte(?:\s+(?:emploi|offre))?|presentati|candidatura\s+(?:spontanea|libera)|autocandidatura|avviso\s+(?:di\s+)?lavoro|crea\s+(?:un['’]?\s+)?avviso)\W*$/iu;
 const APPLICATION_DESTINATION_TITLE_RE = /^(?:talent\s*pool|talentpool|spontaneous\s+application|unsolicited\s+application|general\s+application|initiativbewerbung|initiativ\s+bewerbung|initiativbewerbungen|create\s+(?:a\s+)?job\s*alerts?|job\s*alerts?|job[- ]?abo\s+(?:erstellen|anlegen|cr[eé]er)|stellenalarm|jobbenachrichtigung|candidature\s+(?:spontanée|spontanee|libre)|alerte\s+(?:emploi|offre)|cr[eé]er\s+une\s+alerte(?:\s+(?:emploi|offre))?|creer\s+une\s+alerte(?:\s+(?:emploi|offre))?|candidatura\s+(?:spontanea|libera)|autocandidatura|avviso\s+(?:di\s+)?lavoro|crea\s+(?:un['’]?\s+)?avviso)\W*$/iu;
 const APPLICATION_DIVERSION_CONTROL_RE = /^(?:talent\s*pool|talentpool|introduce\s+yourself|initiativbewerbung|initiativ\s+bewerbung|initiativbewerbungen|create\s+(?:a\s+)?job\s*alert|job\s*alert|job[- ]?abo|stellenalarm|jobbenachrichtigung|présentez[- ]?vous|candidature\s+(?:spontanée|spontanee|libre)|cr[eé]er\s+une\s+alerte(?:\s+(?:emploi|offre))?|creer\s+une\s+alerte(?:\s+(?:emploi|offre))?|presentati|candidatura\s+(?:spontanea|libera)|autocandidatura|avviso\s+(?:di\s+)?lavoro|crea\s+(?:un['’]?\s+)?avviso)\W*$/iu;
@@ -193,6 +195,33 @@ function workdayApplicationStartControl(snapshot, { url = snapshot?.url, applyUr
     && !['hidden', 'submit', 'button', 'reset', 'image'].includes(String(field?.inputType || '').toLowerCase()));
   if (applyButtons.length === 0 || starts.length !== 1 || fields.length > 0) return null;
   return starts[0];
+}
+
+/**
+ * A mounted Workday step can expose only candidate fields and «Save and
+ * Continue»: the original Apply/start control is gone by then. Keep this
+ * proof narrow so a bound posting shell or an account/profile page cannot be
+ * promoted to an application merely because it has a Continue button.
+ */
+function workdayApplicationFormSurface(snapshot, { url = snapshot?.url, applyUrl = '' } = {}) {
+  if (!isWorkdayApplicationRouteBound(url, applyUrl)) return false;
+  const fields = (snapshot?.fields || []).filter(field => !field?.chrome && !field?.disabled
+    && !['hidden', 'submit', 'button', 'reset', 'image'].includes(String(field?.inputType || '').toLowerCase()));
+  const controls = (snapshot?.buttons || []).filter(button => !button?.chrome && !button?.disabled
+    && !button?.href && !button?.leavesDocument);
+  const nextControls = controls.filter(button => NEXT_RE.test(String(button?.text || button?.label || button?.ariaLabel || '')));
+  if (nextControls.length !== 1) return false;
+  const nextKey = applicationFormKey(nextControls[0]);
+  // An unowned control cannot borrow identity/contact evidence from every
+  // visible form on the page. Without the explicit form/frame binding, a
+  // search or profile field can be combined with a contact field from a
+  // different surface and falsely promote the page to an application form.
+  if (!nextKey) return false;
+  const formFields = fields.filter(field => applicationFormKey(field) === nextKey);
+  const hasIdentity = formFields.some(field => WORKDAY_APPLICATION_IDENTITY_RE.test(String(field?.label || field?.name || '').trim()));
+  const hasContact = formFields.some(field => field?.inputType === 'email'
+    || WORKDAY_APPLICATION_CONTACT_RE.test(String(field?.label || field?.name || '').trim()));
+  return hasIdentity && hasContact;
 }
 
 function brassRingApplicationStartControl(snapshot, applicationEntryProven = false) {
@@ -560,6 +589,10 @@ export function applicationStage(snapshot, {
     || brassRingApplicationStartControl(snapshot, brassRingApplicationEntryProven)
     || brassRingPrivacyGate;
   if (!pending && applicationStart) return { kind: 'application_start', control: applicationStart };
+  // Workday can keep generic "continue your application" copy on a mounted
+  // form. The bounded route + identity/contact fields + step control are
+  // stronger evidence than that generic incomplete-state wording.
+  if (workdayApplicationFormSurface(snapshot, { url, applyUrl })) return { kind: 'form' };
   const links = buttons.filter(button => GENERIC_APPLY_RE.test(button.text || '') && button.href
     && boundRoute(url, applyUrl, sourceProtocol) && reviewNavigationRoute(button.href, applyUrl, sourceProtocol)
     && !parsed(button.href)?.hash

@@ -1023,7 +1023,7 @@ function nativeQuestionText(value, counter = null) {
     return scope ? { applicationScopeId: idFor(scope) } : {};
   };
   const applicationOwnershipFor = (element) => {
-    const roleForm = element.closest('[role="form"]');
+    const roleForm = element.closest('[role="form"], [data-automation-id="applyFlowPage"]');
     return {
       ...applicationScopeFor(element),
       ...sectionGroupFor(element),
@@ -1117,8 +1117,11 @@ function nativeQuestionText(value, counter = null) {
         ? 'To*'
         : rawLabel;
     const readSpin = (spin) => {
-      const val = clean(spin.getAttribute('aria-valuenow') || spin.textContent || '');
-      return /^\d+$/.test(val) ? val : '';
+      return [
+        'value' in spin ? spin.value : '',
+        spin.getAttribute('aria-valuenow'),
+        spin.textContent,
+      ].map(clean).find((value) => /^\d+$/.test(value)) || '';
     };
     const monthSpin = spins.find((s) => /month|monat|mois|mese/i.test(`${s.getAttribute('data-automation-id') || ''} ${s.getAttribute('aria-label') || ''}`)) || spins[0];
     const yearSpin = spins.find((s) => /year|jahr|ann|anno/i.test(`${s.getAttribute('data-automation-id') || ''} ${s.getAttribute('aria-label') || ''}`)) || spins[1];
@@ -1199,6 +1202,7 @@ function nativeQuestionText(value, counter = null) {
       ...dialogMeta(element),
       inputType: type,
       form: formOf(element),
+      formId: element.form || element.closest('form') ? idFor(element.form || element.closest('form')) : '',
       domId: element.id || '',
       ...(type === 'file' ? { documentInstance, controlInstance: controlInstanceFor(element) } : {}),
       ...semanticIdentifiers(element),
@@ -1334,6 +1338,8 @@ function nativeQuestionText(value, counter = null) {
       kind: 'listbox',
       ...dialogMeta(element),
       inputType: 'listbox',
+      form: formOf(element),
+      formId: element.form || element.closest('form') ? idFor(element.form || element.closest('form')) : '',
       name: clean(element.getAttribute('name') || ''),
       label: fieldLabel,
       context: sectionContext(element), addressContext: ownedAddressContext(element),

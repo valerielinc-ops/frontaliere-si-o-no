@@ -4716,7 +4716,7 @@
       "slug": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "fisioterapista-fisioterapista-universitatsspital-basel-basel",
-        "en": "physiotherapist-universitatsspital-basel",
+        "en": "physiotherapeutin-physiotherapeut-universitatsspital-basel",
         "de": "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "fr": "physiotherapeute-physiotherapiste-universitatsspital-basel-basel"
       },
@@ -4765,7 +4765,7 @@
         "physiotherapeutin-physiotherapeut-unispital-basel-ch",
         "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
         "physiotherapist-physiotherapist-universitatsspital-basel-basel",
-        "physiotherapeutin-physiotherapeut-universitatsspital-basel"
+        "physiotherapist-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4775,7 +4775,7 @@
         "en": [
           "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel",
           "physiotherapist-physiotherapist-universitatsspital-basel-basel",
-          "physiotherapeutin-physiotherapeut-universitatsspital-basel"
+          "physiotherapist-universitatsspital-basel"
         ],
         "fr": [
           "physiotherapeutin-physiotherapeut-universitatsspital-basel-basel"
@@ -5270,10 +5270,10 @@
       "id": "unispital-basel-4dc57c6d2315",
       "slug": "analista-biomedico-hf-universitatsspital-basel-basel-d251e4604d",
       "slugByLocale": {
-        "it": "analista-biomedico-hf-universitatsspital-basel-basel-d251e4604d",
-        "en": "biomedizinische-r-analytiker-in-hf-universitatsspital-basel",
         "de": "biomedizinische-r-analytiker-in-hf-unispital-basel-ch",
-        "fr": "biomedizinische-r-analytiker-in-hf-universitatsspital-basel"
+        "it": "analista-biomedico-hf-universitatsspital-basel-basel-d251e4604d",
+        "en": "biomedical-analyst-hf-universitatsspital-basel-basel",
+        "fr": "analyste-biomedical-hf-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -5321,16 +5321,15 @@
           "biomedizinische-r-analytiker-in-hf-unispital-basel-ch"
         ],
         "en": [
-          "biomedical-analyst-hf-universitatsspital-basel-basel"
+          "biomedizinische-r-analytiker-in-hf-universitatsspital-basel"
         ],
         "fr": [
-          "analyste-biomedical-hf-universitatsspital-basel-basel"
+          "biomedizinische-r-analytiker-in-hf-universitatsspital-basel"
         ]
       },
       "previousSlugs": [
         "biomedizinische-r-analytiker-in-hf-unispital-basel-ch",
-        "biomedical-analyst-hf-universitatsspital-basel-basel",
-        "analyste-biomedical-hf-universitatsspital-basel-basel"
+        "biomedizinische-r-analytiker-in-hf-universitatsspital-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -5929,10 +5928,10 @@
       "id": "unispital-basel-260c44549ad0",
       "slug": "analista-biomedico-hf-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "analista-biomedico-hf-universitatsspital-basel-basel",
-        "en": "biomedizinische-r-analytiker-in-hf-universitatsspital-basel",
         "de": "biomedizinische-r-analytiker-in-hf-unispital-basel-ch",
-        "fr": "biomedizinische-r-analytiker-in-hf-universitatsspital-basel"
+        "it": "analista-biomedico-hf-universitatsspital-basel-basel",
+        "en": "biomedical-analyst-hf-universitatsspital-basel-basel",
+        "fr": "analyste-biomedical-hf-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -5980,16 +5979,15 @@
           "biomedizinische-r-analytiker-in-hf-unispital-basel-ch"
         ],
         "en": [
-          "biomedical-analyst-hf-universitatsspital-basel-basel"
+          "biomedizinische-r-analytiker-in-hf-universitatsspital-basel"
         ],
         "fr": [
-          "analyste-biomedical-hf-universitatsspital-basel-basel"
+          "biomedizinische-r-analytiker-in-hf-universitatsspital-basel"
         ]
       },
       "previousSlugs": [
         "biomedizinische-r-analytiker-in-hf-unispital-basel-ch",
-        "biomedical-analyst-hf-universitatsspital-basel-basel",
-        "analyste-biomedical-hf-universitatsspital-basel-basel"
+        "biomedizinische-r-analytiker-in-hf-universitatsspital-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -9601,12 +9599,12 @@
     },
     {
       "id": "unispital-basel-d71c4f3935a6",
-      "slug": "praktikantin-praktikant-wms-neurologie-unispital-basel-ch",
+      "slug": "intern-internship-wms-neurologia-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "praktikantin-praktikant-wms-neurologie-unispital-basel-ch",
-        "en": "praktikantin-praktikant-wms-neurologie-unispital-basel-ch",
         "de": "praktikantin-praktikant-wms-neurologie-unispital-basel-ch",
-        "fr": "praktikantin-praktikant-wms-neurologie-unispital-basel-ch"
+        "it": "intern-internship-wms-neurologia-universitatsspital-basel-basel",
+        "en": "intern-internship-wms-neurology-universitatsspital-basel-basel",
+        "fr": "neurologie-de-l-ems-interne-interne-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -9665,16 +9663,30 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:25:59.906Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-praktikant-wms-neurologie-unispital-basel-ch"
+        ],
+        "en": [
+          "praktikantin-praktikant-wms-neurologie-unispital-basel-ch"
+        ],
+        "fr": [
+          "praktikantin-praktikant-wms-neurologie-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikant-wms-neurologie-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-2727cfe0604d",
-      "slug": "fachfrau-fachmann-operationstechnik-universitatsspital-basel-basel",
+      "slug": "tecnologia-chirurgica-professionale-specialistica-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "fachfrau-fachmann-operationstechnik-universitatsspital-basel-basel",
-        "en": "fachfrau-fachmann-operationstechnik-universitatsspital-basel-basel",
         "de": "fachfrau-fachmann-operationstechnik-unispital-basel-ch",
-        "fr": "fachfrau-fachmann-operationstechnik-universitatsspital-basel-basel"
+        "it": "tecnologia-chirurgica-professionale-specialistica-universitatsspital-basel-basel",
+        "en": "professional-specialist-surgical-technology-universitatsspital-basel-basel",
+        "fr": "technologie-chirurgicale-professionnelle-specialisee-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -9719,11 +9731,19 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-operationstechnik-unispital-basel-ch"
+          "fachfrau-fachmann-operationstechnik-unispital-basel-ch",
+          "fachfrau-fachmann-operationstechnik-universitatsspital-basel-basel"
+        ],
+        "en": [
+          "fachfrau-fachmann-operationstechnik-universitatsspital-basel-basel"
+        ],
+        "fr": [
+          "fachfrau-fachmann-operationstechnik-universitatsspital-basel-basel"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-operationstechnik-unispital-basel-ch"
+        "fachfrau-fachmann-operationstechnik-unispital-basel-ch",
+        "fachfrau-fachmann-operationstechnik-universitatsspital-basel-basel"
       ],
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -9746,12 +9766,12 @@
     },
     {
       "id": "unispital-basel-e23dc20e089b",
-      "slug": "psychologin-psychologe-unispital-basel-ch",
+      "slug": "psicologo-psicologo-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "psychologin-psychologe-unispital-basel-ch",
-        "en": "psychologin-psychologe-unispital-basel-ch",
         "de": "psychologin-psychologe-unispital-basel-ch",
-        "fr": "psychologin-psychologe-unispital-basel-ch"
+        "it": "psicologo-psicologo-universitatsspital-basel-basel",
+        "en": "psychologist-psychologist-universitatsspital-basel-basel",
+        "fr": "psychologue-psychologue-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -9811,7 +9831,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:25:59.903Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T08:22:25.905Z"
+      "firstSeenAt": "2026-11-17T08:22:25.905Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologin-psychologe-unispital-basel-ch"
+        ],
+        "en": [
+          "psychologin-psychologe-unispital-basel-ch"
+        ],
+        "fr": [
+          "psychologin-psychologe-unispital-basel-ch"
+        ]
+      },
+      "previousSlugs": [
+        "psychologin-psychologe-unispital-basel-ch"
+      ]
     },
     {
       "id": "unispital-basel-bc0c6788110c",
@@ -10058,12 +10092,12 @@
     },
     {
       "id": "unispital-basel-7bab06b4bff5",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurochirurgie-spinale-chirurgie-unispital-basel",
+      "slug": "dipl-specialista-infermieristico-hf-fh-chirurgia-neurochirurgia-chirurgia-spinale-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurochirurgie-spinale-chirurgie-unispital-basel",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurochirurgie-spinale-chirurgie-unispital-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurochirurgie-spinale-chirurgie-unispital-basel",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurochirurgie-spinale-chirurgie-unispital-basel"
+        "it": "dipl-specialista-infermieristico-hf-fh-chirurgia-neurochirurgia-chirurgia-spinale-universitatsspital-basel-basel",
+        "en": "dipl-nursing-specialist-hf-fh-neurosurgery-spinal-surgery-universitatsspital-basel-basel",
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-neurosurgie-chirurgie-spinale-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10123,16 +10157,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-21T09:25:59.900Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-21T16:08:59.795Z"
+      "firstSeenAt": "2026-09-21T16:08:59.795Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurochirurgie-spinale-chirurgie-unispital-basel"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurochirurgie-spinale-chirurgie-unispital-basel"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurochirurgie-spinale-chirurgie-unispital-basel"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurochirurgie-spinale-chirurgie-unispital-basel"
+      ]
     },
     {
       "id": "unispital-basel-df726f61e74f",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-con-option-berufsbildner-in-chirurgie-innere-medizin-universitatsspital-basel",
+      "slug": "infermiera-diplomata-infermiere-diplomato-hf-fh-con-possibilita-di-diventare-formatore-trice-professionale-1fa902",
       "slugByLocale": {
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-con-option-berufsbildner-in-chirurgie-innere-medizin-universitatsspital-basel",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere"
+        "it": "infermiera-diplomata-infermiere-diplomato-hf-fh-con-possibilita-di-diventare-formatore-trice-professionale-1fa902",
+        "en": "qualified-nurse-hf-fh-with-option-to-become-a-vocational-trainer-surgery-internal-medicine-universitatsspital-1fa902",
+        "fr": "infirmiere-diplomee-infirmier-diplome-es-hes-avec-option-formatrice-formateur-en-entreprise-chirurgie-medecine-interne"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10195,21 +10243,29 @@
       "firstSeenAt": "2026-07-16T11:29:56.677Z",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-con-option-berufsbildner-in-chirurgie-innere-medizin-universitatsspital-basel"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-mit-option-berufsbildner-in-chirurgie-amp-innere",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-con-option-berufsbildner-in-chirurgie-innere-medizin-universitatsspital-basel"
       ]
     },
     {
       "id": "unispital-basel-1269d61614e4",
-      "slug": "medizinische-r-praxisassistent-in-ambulante-plattforme-mit-schwerpunkt-administration",
+      "slug": "assistente-di-studio-medico-piattaforme-ambulatoriali-con-specializzazione-in-amministrazione-universitatsspital-basel",
       "slugByLocale": {
-        "it": "medizinische-r-praxisassistent-in-ambulante-plattforme-mit-schwerpunkt-administration",
-        "en": "medizinische-r-praxisassistent-in-ambulante-plattforme-mit-schwerpunkt-administration",
         "de": "medizinische-r-praxisassistent-in-ambulante-plattforme-mit-schwerpunkt-administration",
-        "fr": "medizinische-r-praxisassistent-in-ambulante-plattforme-mit-schwerpunkt-administration"
+        "it": "assistente-di-studio-medico-piattaforme-ambulatoriali-con-specializzazione-in-amministrazione-universitatsspital-basel",
+        "en": "medical-practice-assistant-outpatient-platforms-with-a-focus-on-administration-universitatsspital-basel-basel",
+        "fr": "assistant-e-medical-e-plateforme-ambulatoire-avec-specialisation-en-administration-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -10269,7 +10325,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:25:59.899Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T08:22:25.901Z"
+      "firstSeenAt": "2026-11-17T08:22:25.901Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-ambulante-plattforme-mit-schwerpunkt-administration"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-ambulante-plattforme-mit-schwerpunkt-administration"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-ambulante-plattforme-mit-schwerpunkt-administration"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-ambulante-plattforme-mit-schwerpunkt-administration"
+      ]
     },
     {
       "id": "unispital-basel-20d0404b7727",
@@ -11713,7 +11783,7 @@
       "slug": "platform-manager-platform-manager-op-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "platform-manager-platform-manager-op-universitatsspital-basel-basel",
-        "en": "platform-manager-op-universitatsspital-basel",
+        "en": "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel",
         "de": "plattformmanagerin-plattformmanager-op-unispital-basel-ch",
         "fr": "gestionnaire-de-plateforme-gestionnaire-de-plateforme-op-universitatsspital-basel-basel"
       },
@@ -11760,7 +11830,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "plattformmanagerin-plattformmanager-op-unispital-basel-ch",
-        "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
+        "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel",
+        "platform-manager-op-universitatsspital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11768,7 +11839,7 @@
           "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
         ],
         "en": [
-          "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"
+          "platform-manager-op-universitatsspital-basel"
         ],
         "fr": [
           "plattformmanagerin-plattformmanager-op-universitatsspital-basel-basel"

@@ -66,6 +66,20 @@ export function summarizeHouseFallbacks(response) {
   }).sort((a, b) => b.events - a.events);
 }
 
+export function summarizeAdReliability(response) {
+  assertCompleteGa4Report(response);
+  return (response?.rows || []).map(row => {
+    const [event, action, component, surface, device] = (row.dimensionValues || []).map(value => value?.value || '(not set)');
+    return {
+      event: event || '(not set)', action: action || '(not set)',
+      component: component || '(not set)', surface: surface || '(not set)',
+      device: device || '(not set)',
+      events: Number(row.metricValues?.[0]?.value || 0),
+      uniqueUsers: Number(row.metricValues?.[1]?.value || 0),
+    };
+  }).sort((a, b) => b.events - a.events);
+}
+
 export function summarizeHouseOrders(services, startMs, endMs) {
   const groups = new Map();
   for (const service of services) {
@@ -211,6 +225,24 @@ export async function runHouseAdReadout(argv = process.argv.slice(2)) {
     dimensionFilter: { filter: { fieldName: 'eventName', stringFilter: { value: 'house_ad_fallback_rendered' } } },
     limit: 10000,
   } });
+  const reliabilityTraffic = await runGa4Report({ token, body: {
+    dateRanges: [{ startDate: window.start, endDate: window.end }],
+    dimensions: [
+      { name: 'eventName' }, { name: 'customEvent:action' },
+      { name: 'customEvent:component' }, { name: 'customEvent:cta_surface' },
+      { name: 'deviceCategory' },
+    ],
+    metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
+    dimensionFilter: { filter: { fieldName: 'eventName', inListFilter: { values: [
+      'ad_reliability_state', 'ad_script_state', 'ad_slot_error',
+      'ad_slot_waiting_width', 'ad_slot_width_timeout', 'ad_unavailable',
+      'ad_unfilled', 'ad_waiting', 'ad_collapsed', 'ad_cmp_state',
+      'ad_cmp_recovery', 'ad_block_probe', 'ad_recovery_outcome',
+      'ad_recovery_action', 'ad_recovery_prompt', 'ad_fallback_shown',
+      'ad_fallback_dismiss', 'ad_fallback_click',
+    ] } } },
+    limit: 10000,
+  } });
   const { initializeApp, applicationDefault, deleteApp } = await import('firebase-admin/app');
   const { getFirestore, Timestamp } = await import('firebase-admin/firestore');
   const app = initializeApp({ credential: applicationDefault(), projectId: 'frontaliere-ticino' }, 'house-ad-readout');
@@ -240,8 +272,9 @@ export async function runHouseAdReadout(argv = process.argv.slice(2)) {
     console.log(JSON.stringify({ currentExperimentId: 'house_creatives_v2', readerSubscriptionExperimentId: 'reader_subscription_house_v1', window, observedAt: new Date().toISOString(),
       trafficTotals: summarizeHouseTrafficTotals(trafficTotals), traffic: summarizeHouseTraffic(traffic), orderCohorts: summarizeHouseOrders(services, startMs, endMs),
       fallbackReasons: summarizeHouseFallbacks(fallbackTraffic),
+      adReliability: summarizeAdReliability(reliabilityTraffic),
       readerSubscriptionResults: summarizeReaderSubscriptionResults(readerSubscriptionTraffic, readerSubscriptionPurchases),
-      caveats: ['house_creatives_v1 is the legacy browser-hash split; compare job-search creatives within currentExperimentId only.', 'CTR uses observed GA4 event counts; unique user fields use GA4 totalUsers and include only users whose Analytics measurement is available.', 'Fallback reason rows break down rendered creatives; uniqueUsers are per row and must not be added across placements.', 'The report fails closed when GA4 marks rows truncated, merged into Other, or subject to thresholding.', 'Job-search purchases use verified paymentStatus=paid and paidAt in the service ledger; refunds remain separate.', 'Reader subscription conversion uses Stripe firstPaidAt and only Firebase Remote Config enrolled attribution; exposure event counts approximate observed sessions, while unique users are reported separately. Do not declare statistical winners from short samples.'],
+      caveats: ['house_creatives_v1 is the legacy browser-hash split; compare job-search creatives within currentExperimentId only.', 'CTR uses observed GA4 event counts; unique user fields use GA4 totalUsers and include only users whose Analytics measurement is available.', 'Fallback reason and reliability rows break down observed events; uniqueUsers are per row and must not be added across placements or states.', 'The report fails closed when GA4 marks rows truncated, merged into Other, or subject to thresholding.', 'Job-search purchases use verified paymentStatus=paid and paidAt in the service ledger; refunds remain separate.', 'Reader subscription conversion uses Stripe firstPaidAt and only Firebase Remote Config enrolled attribution; exposure event counts approximate observed sessions, while unique users are reported separately. Do not declare statistical winners from short samples.'],
     }, null, 2));
   } finally { await deleteApp(app); }
 }

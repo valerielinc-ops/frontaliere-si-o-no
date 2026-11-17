@@ -108,7 +108,7 @@
       "slug": "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
         "it": "levatrice-ss-sup-indipendente-accreditata-kantonsspital-obwalden-sarnen",
-        "en": "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen",
+        "en": "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen",
         "de": "hebamme-hf-als-beleghebamme-kantonsspital-obwalden-sarnen",
         "fr": "sage-femme-es-hes-agreee-independante-kantonsspital-obwalden-sarnen"
       },
@@ -184,12 +184,12 @@
           "hebamme-hf-als-beleghebamme-ksow-sarnen"
         ],
         "en": [
-          "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen"
+          "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
         "hebamme-hf-als-beleghebamme-ksow-sarnen",
-        "midwife-hf-fh-as-affiliated-midwife-kantonsspital-obwalden-sarnen"
+        "hebamme-hf-as-a-record-liftingamme-kantonsspital-obwalden-sarnen"
       ],
       "firstSeenAt": "2026-05-26T14:05:22.515Z",
       "salaryMin": 86500,
@@ -1284,12 +1284,12 @@
     },
     {
       "id": "ksow-b08599a52768",
-      "slug": "collaboratore-trice-zentrallager-a-50-kantonsspital-obwalden-sarnen",
+      "slug": "addetto-a-al-magazzino-centrale-a-50-kantonsspital-obwalden-sarnen",
       "slugByLocale": {
-        "it": "collaboratore-trice-zentrallager-a-50-kantonsspital-obwalden-sarnen",
-        "en": "mitarbeiter-in-zentrallager-a-50-kantonsspital-obwalden-sarnen",
         "de": "mitarbeiter-in-zentrallager-a-50-ksow-sarnen",
-        "fr": "mitarbeiter-in-zentrallager-a-50-kantonsspital-obwalden-sarnen"
+        "it": "addetto-a-al-magazzino-centrale-a-50-kantonsspital-obwalden-sarnen",
+        "en": "central-warehouse-employee-a-50-kantonsspital-obwalden-sarnen",
+        "fr": "collaborateur-trice-de-l-entrepot-central-a-50-kantonsspital-obwalden-sarnen"
       },
       "company": "Kantonsspital Obwalden",
       "companyKey": "ksow",
@@ -1334,11 +1334,20 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-zentrallager-a-50-ksow-sarnen"
+          "mitarbeiter-in-zentrallager-a-50-ksow-sarnen",
+          "collaboratore-trice-zentrallager-a-50-kantonsspital-obwalden-sarnen"
+        ],
+        "en": [
+          "mitarbeiter-in-zentrallager-a-50-kantonsspital-obwalden-sarnen"
+        ],
+        "fr": [
+          "mitarbeiter-in-zentrallager-a-50-kantonsspital-obwalden-sarnen"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-zentrallager-a-50-ksow-sarnen"
+        "mitarbeiter-in-zentrallager-a-50-ksow-sarnen",
+        "collaboratore-trice-zentrallager-a-50-kantonsspital-obwalden-sarnen",
+        "mitarbeiter-in-zentrallager-a-50-kantonsspital-obwalden-sarnen"
       ],
       "salaryMin": 34800,
       "salaryMax": 53000,

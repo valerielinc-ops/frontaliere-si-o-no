@@ -1117,6 +1117,19 @@ describe('fill extension: the runner’s reading on any portal', () => {
     window.close();
   });
 
+  it('uses a numeric aria-valuenow when a Workday spinbutton value is nonnumeric', () => {
+    const { window, read } = runnerPage(`<div data-automation-id="applyFlowPage">
+      <div data-automation-id="dateInputWrapper">
+        <div data-automation-id="formField-startDate"><label>From*</label>
+          <input role="spinbutton" aria-label="Month" value="March" aria-valuenow="3">
+          <input role="spinbutton" aria-label="Year" value="2024" aria-valuenow="2024">
+        </div>
+      </div>
+    </div>`, 'https://jobs.example.ch/apply');
+    expect(read().fields.find((field: any) => field.widget === 'workday-date')).toMatchObject({ value: '03/2024' });
+    window.close();
+  });
+
   it('keeps an Italian apply link ahead of the field snapshot budget', () => {
     const navigation = Array.from({ length: 60 }, (_, index) => `<button type="button">Action ${index}</button>`).join('');
     const { window, read } = runnerPage(`${navigation}<a class="btn" href="/apply">Applica ora</a>`, 'https://jobs.example.ch/posting/example');

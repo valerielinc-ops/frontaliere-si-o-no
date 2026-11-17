@@ -95,10 +95,10 @@ describe('real request evidence', () => {
     lifecycle.fail('script_failed'); expect(box.hasAttribute('data-ft-ad-request-pending')).toBe(false);
     lifecycle.stop(); expect(box.hasAttribute('data-ft-ad-request-pending')).toBe(false);
   });
-  it('marks a still-pending slot stalled after preserving the late-fill window', async () => {
+  it('shows the fallback after the response budget while preserving late fills', async () => {
     const { box, el, lifecycle, events } = setup();
     lifecycle.request();
-    vi.advanceTimersByTime(45_000 - 1);
+    vi.advanceTimersByTime(15_000 - 1);
     expect(el.hasAttribute('data-ft-ad-stalled')).toBe(false);
     vi.advanceTimersByTime(1);
     expect(el.getAttribute('data-ft-ad-stalled')).toBe('response_stalled');
