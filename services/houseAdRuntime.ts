@@ -15,6 +15,7 @@ export function installHouseAds(
     consentEvent: string;
     variants: readonly HouseAdVariant[];
     readerSubscriptionPaths?: Partial<Record<HouseAdLocale, string>>;
+    readerSubscriptionExperimentEnabled?: boolean;
   },
 ) {
   type Entry = { creative: HTMLAnchorElement; timer?: ReturnType<typeof setTimeout>; seen: boolean; data: Record<string, string | number>; contextSignature: string; impressionKey: string };
@@ -32,6 +33,7 @@ export function installHouseAds(
   // fill. Skip this optional layer and let the independent recovery continue.
   if (typeof MutationObserver !== 'function') return undefined;
   const variants = config.variants;
+  const readerSubscriptionExperimentEnabled = config.readerSubscriptionExperimentEnabled === true;
   const occupiedAdSelector = 'ins[data-ad-status="filled"],ins[data-ad-status="unfill-optimized"],ins[data-anchor-status="displayed"],[data-ad-state="filled"],[data-ad-state="optimized"],[data-ft-ad-state="filled"],[data-ft-ad-state="optimized"],[data-ft-static-ad-state="filled"],[data-ft-static-ad-state="optimized"]';
   const entries = new Map<HTMLElement, Entry>();
   const eligibleFrames = new Set<HTMLElement>();
@@ -319,7 +321,7 @@ export function installHouseAds(
       // Resolve the experiment arm while the no-fill grace is running so a
       // slow assignment request does not add its full latency afterwards.
       if (frame.getBoundingClientRect().width >= 160 && visible(frame)) {
-        requestAuthState();
+        if (readerSubscriptionExperimentEnabled) requestAuthState();
         if (!ready || (!assignmentRequested && analyticsAllowed())) requestAssignment();
       }
       // A blocker or a confirmed 45s request stall should reach the inline
@@ -348,7 +350,8 @@ export function installHouseAds(
       });
     }
 
-    const readerExperimentEligible = authState === 'anonymous' && assignment.readerSubscriptionEnrolled;
+    const readerExperimentEligible = readerSubscriptionExperimentEnabled
+      && authState === 'anonymous' && assignment.readerSubscriptionEnrolled;
     if (readerSubscriptionTarget && !candidates.some((candidate) => candidate.frame === readerSubscriptionTarget)) readerSubscriptionTarget = null;
     if (!readerExperimentEligible) readerSubscriptionTarget = null;
     const noReaderExperimentExposure = !readerSubscriptionExperimentExposed
