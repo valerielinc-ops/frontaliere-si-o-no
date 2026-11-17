@@ -437,6 +437,9 @@ describe('assisted application profile history and file replacement', () => {
     expect(profileDateQuestionsCanUseProfile(candidate, [{
       type: 'date', applicationQuestion: 'To*', section: 'Work Experience', context: 'Complete role · Complete employer · To*',
     }])).toBe(true);
+    expect(profileDateQuestionsCanUseProfile(candidate, [{
+      type: 'date', applicationQuestion: 'To*', context: 'To*', addressContext: { section: 'To*', owners: ['Complete role', 'Work Experience'] },
+    }])).toBe(true);
     expect(profileDateQuestionsCanUseProfile(candidate, [{ type: 'date', applicationQuestion: 'To*' }])).toBe(false);
   });
 

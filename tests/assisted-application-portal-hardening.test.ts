@@ -92,6 +92,52 @@ describe('BrassRing security-question field classification', () => {
     expect(fields.filter((field) => isSecurityQuestionField(field, fields))).toHaveLength(2);
   });
 
+  it('keeps a proxy/native pair together when only the role-form owner is stable', () => {
+    const fields = [
+      { id: 'question-proxy', kind: 'listbox', inputType: 'listbox', label: 'Question 1', options: [], form: -1, frame: 0, roleFormId: 'application' },
+      { id: 'answer-native', kind: 'text', inputType: 'text', label: 'Question 1 Answer', options: [], form: 0, formId: 'f1', frame: 0, roleFormId: 'application' },
+    ];
+
+    expect(fields.filter((field) => isSecurityQuestionField(field, fields))).toHaveLength(2);
+  });
+
+  it('rejects a role-form pair when the controls expose different form indices', () => {
+    const fields = [
+      { id: 'question-form-a', kind: 'listbox', inputType: 'listbox', label: 'Question 1', options: [], form: 0, frame: 0, roleFormId: 'application' },
+      { id: 'answer-form-b', kind: 'text', inputType: 'text', label: 'Question 1 Answer', options: [], form: 1, frame: 0, roleFormId: 'application' },
+    ];
+
+    expect(fields.some((field) => isSecurityQuestionField(field, fields))).toBe(false);
+  });
+
+  it('rejects a role-form pair when both controls expose different form ids', () => {
+    const fields = [
+      { id: 'question-form-a', kind: 'listbox', inputType: 'listbox', label: 'Question 1', options: [], form: -1, formId: 'f1', frame: 0, roleFormId: 'application' },
+      { id: 'answer-form-b', kind: 'text', inputType: 'text', label: 'Question 1 Answer', options: [], form: -1, formId: 'f2', frame: 0, roleFormId: 'application' },
+    ];
+
+    expect(fields.some((field) => isSecurityQuestionField(field, fields))).toBe(false);
+  });
+
+  it('rejects a role-form pair when explicit section groups differ', () => {
+    const fields = [
+      { id: 'question-section-a', kind: 'listbox', inputType: 'listbox', label: 'Question 1', options: [], form: -1, frame: 0, roleFormId: 'application', sectionGroupId: 'section-a' },
+      { id: 'answer-section-b', kind: 'text', inputType: 'text', label: 'Question 1 Answer', options: [], form: -1, frame: 0, roleFormId: 'application', sectionGroupId: 'section-b' },
+    ];
+
+    expect(fields.some((field) => isSecurityQuestionField(field, fields))).toBe(false);
+  });
+
+  it('fails closed when an owner-poor proxy has two native answers in distinct forms', () => {
+    const fields = [
+      { id: 'question-proxy', kind: 'listbox', inputType: 'listbox', label: 'Question 1', options: [], form: -1, frame: 0, roleFormId: 'application', applicationScopeId: 'main' },
+      { id: 'answer-form-a', kind: 'text', inputType: 'text', label: 'Question 1 Answer', options: [], form: 0, formId: 'f1', frame: 0, roleFormId: 'application', applicationScopeId: 'main' },
+      { id: 'answer-form-b', kind: 'text', inputType: 'text', label: 'Question 1 Answer', options: [], form: 1, formId: 'f2', frame: 0, roleFormId: 'application', applicationScopeId: 'main' },
+    ];
+
+    expect(fields.some((field) => isSecurityQuestionField(field, fields))).toBe(false);
+  });
+
   it('keeps a listbox prompt selectable when the proxy omits kind', () => {
     const fields = [
       { id: 'question-proxy', kind: '', inputType: 'listbox', label: 'Question 1', options: [{ value: 'school', label: 'First school' }], form: 0, frame: 0 },
@@ -158,6 +204,24 @@ describe('BrassRing security-question field classification', () => {
 
     expect(result).toEqual([{ fieldId: 'q3', ok: false, error: 'option_not_found' }]);
     expect(optionClicks).toBe(0);
+  });
+
+  it('uses an explicit application scope when BrassRing controls have no form owner', () => {
+    const fields = [
+      { id: 'question-proxy', kind: 'listbox', inputType: 'listbox', label: 'Question 1', options: [], form: -1, frame: 0, applicationScopeId: 'application' },
+      { id: 'answer-native', kind: 'text', inputType: 'text', label: 'Question 1 Answer', options: [], form: -1, frame: 0, applicationScopeId: 'application' },
+    ];
+
+    expect(fields.filter((field) => isSecurityQuestionField(field, fields))).toHaveLength(2);
+  });
+
+  it('does not pair context-free questions across explicit application scopes', () => {
+    const fields = [
+      { id: 'question-a', kind: 'listbox', inputType: 'listbox', label: 'Question 1', options: [], form: -1, frame: 0, applicationScopeId: 'application-a' },
+      { id: 'answer-b', kind: 'text', inputType: 'text', label: 'Question 1 Answer', options: [], form: -1, frame: 0, applicationScopeId: 'application-b' },
+    ];
+
+    expect(fields.some((field) => isSecurityQuestionField(field, fields))).toBe(false);
   });
 });
 

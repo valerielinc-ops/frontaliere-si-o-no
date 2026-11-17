@@ -122,4 +122,35 @@ describe('Workday tenant account routes', () => {
     await fillWorkdayDate(wrapper as any, '05/2024');
     expect(state).toEqual({ Month: '05', Year: '2024' });
   });
+
+  it('skips Add Another in fillProfileSections when inline Workday rows already exist', async () => {
+    const { fillProfileSections } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
+    const clicks: string[] = [];
+    const page = {
+      url: () => 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Biel/Role_R3537/apply/applyManually',
+      frames: () => [{
+        locator: () => ({ first: () => ({ click: async () => { clicks.push('clicked'); } }) }),
+      }],
+    };
+    const snapshot = {
+      url: page.url(),
+      fields: [
+        { id: 'jt-1', label: 'Job Title*', section: 'Work Experience', kind: 'text', required: true },
+        { id: 'co-1', label: 'Company*', section: 'Work Experience', kind: 'text', required: true },
+      ],
+      buttons: [
+        { id: 'del-1', text: 'Delete', section: 'Work Experience', frame: 0 },
+        { id: 'add-another', text: 'Add Another', section: 'Work Experience', frame: 0 },
+      ],
+    };
+    const candidate = {
+      profile: {
+        experience: [{ role: 'Sales', employer: 'ACME', start: '2022-01', end: '2024-01' }],
+        education: [],
+      },
+    };
+    const result = await fillProfileSections(page as any, snapshot as any, { candidate });
+    expect(clicks).toEqual([]);
+    expect(result.counts).toEqual([]);
+  });
 });
