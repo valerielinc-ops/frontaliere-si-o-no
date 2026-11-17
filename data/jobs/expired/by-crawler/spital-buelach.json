@@ -3546,6 +3546,9 @@
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-09-03T14:05:47.945Z",
+    "previousSlugs": [
+      "dipl-rettungssanitater-in-hf-spital-buelach-bulach-a6a76499"
+    ],
     "previousSlugsByLocale": {
       "it": [
         "dipl-rettungssanitater-in-hf-spital-buelach-bulach"
@@ -3565,10 +3568,7 @@
     "salaryMin": 91500,
     "salaryMax": 128000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "previousSlugs": [
-      "dipl-rettungssanitater-in-hf-spital-buelach-bulach-a6a76499"
-    ]
+    "salaryPeriod": "YEAR"
   },
   {
     "slug": "medizinische-r-kodierer-in-spital-buelach-bulach",
