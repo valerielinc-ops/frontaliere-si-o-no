@@ -1,7 +1,7 @@
 {
   "key": "conservatorio",
   "label": "Conservatorio della Svizzera italiana",
-  "generatedAt": "2026-11-15T21:24:32.067Z",
+  "generatedAt": "2026-11-17T06:50:07.997Z",
   "total": 1,
   "discovered": 17,
   "parsed": 1,
@@ -17,10 +17,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 20975,
-  "avgDurationMs": 20975,
+  "durationMs": 22744,
+  "avgDurationMs": 22744,
   "durationHistory": [
-    20975
+    22744
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
       "applyUrl": "https://www.conservatorio.ch/it/fondazione/il-csi-informa/dettaglio/id/57566/la-fondazione-conservatorio-della-svizzera-italiana-cerca-un-a-direttore-direttrice-sum",
       "source": "Conservatorio della Svizzera italiana Dedicated Parser (news + PDF)",
       "sourceLang": "it",
-      "crawledAt": "2026-11-15T21:24:03.949Z",
+      "crawledAt": "2026-11-17T06:49:48.266Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -73,5 +73,5 @@
       }
     }
   ],
-  "codeCommit": "b0e0a209c23d72cde28658756e39fb5de3eaaca5"
+  "codeCommit": "1bdf8e0dd5f55245d7df5b9a0ab8034e119b2c46"
 }
