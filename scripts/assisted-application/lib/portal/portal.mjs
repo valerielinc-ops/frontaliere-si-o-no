@@ -542,6 +542,54 @@ export function profileEntryAnswer(entry, kind, field) {
   const value = key ? String(entry?.[key] || '').trim() : '';
   return value ? { value, source: 'profile' } : null;
 }
+
+const PROFILE_DATE_FIELD_PATTERNS = [
+  [/^(?:start date|from|da|von|de|à)\s*[＊*]?$/iu, 'start'],
+  [/^(?:end date|to|a|bis)\s*[＊*]?$/iu, 'end'],
+];
+
+function profileDateFieldKey(question) {
+  const label = String(question?.applicationQuestion || question?.question || '').normalize('NFKC').trim();
+  return PROFILE_DATE_FIELD_PATTERNS.find(([pattern]) => pattern.test(label))?.[1] || '';
+}
+
+function profileMatchText(value) {
+  return String(value || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+    .replace(/[^a-z0-9]+/g, ' ').trim();
+}
+
+/**
+ * A date question can be retired only when its profile section and row are
+ * known, and the requested endpoint exists on that row. Ambiguous questions
+ * stay candidate-owned rather than borrowing a date from another row.
+ */
+export function profileDateQuestionsCanUseProfile(candidate, questions) {
+  if (!Array.isArray(questions) || !questions.length) return false;
+  return questions.every((question) => {
+    if (question?.type !== 'date') return false;
+    const key = profileDateFieldKey(question);
+    const scope = [question?.context, question?.section, question?.profileSection, question?.sectionGroup]
+      .map(profileMatchText).filter(Boolean).join(' ');
+    const kind = profileSectionKind(scope);
+    if (!key || !kind) return false;
+    const entries = (Array.isArray(candidate?.profile?.[kind]) ? candidate.profile[kind] : []).filter((entry) => {
+      const title = kind === 'experience' ? entry?.role : entry?.degree;
+      const organization = kind === 'experience' ? entry?.employer : entry?.institution;
+      return Boolean(profileMatchText(title) && profileMatchText(organization));
+    });
+    if (!entries.length) return false;
+    const matching = entries.filter((entry) => {
+      const title = kind === 'experience' ? entry?.role : entry?.degree;
+      const organization = kind === 'experience' ? entry?.employer : entry?.institution;
+      return [title, organization].map(profileMatchText)
+        .some((value) => value.length >= 3 && scope.includes(value));
+    });
+    if (matching.length === 1) return Boolean(String(matching[0]?.[key] || '').trim());
+    if (matching.length > 1) return false;
+    return entries.every((entry) => Boolean(String(entry?.[key] || '').trim()));
+  });
+}
+
 const POPUP_WAIT_TIMEOUT_MS = 60_000;
 const POPUP_GRACE_MS = 6_000;
 // Scans that only look for buttons, a CAPTCHA or a login never open listboxes (see extractFields).
@@ -12183,13 +12231,7 @@ export async function submitViaPortal(ctx) {
       }
       if (!request) return null;
       if (request.handoff) return await handoff(request.handoff);
-      const PROFILE_DATE_LABEL_RE = /^(?:from|to|da|a|von|bis|de|à|start date|end date)\s*[＊*]?$/i;
-      const profileHasDates = Boolean(
-        ctx.candidate?.profile?.experience?.some((entry) => entry?.start || entry?.end)
-        || ctx.candidate?.profile?.education?.some((entry) => entry?.start || entry?.end),
-      );
-      if (profileHasDates && Array.isArray(request.questions) && request.questions.length
-        && request.questions.every((q) => q?.type === 'date' && PROFILE_DATE_LABEL_RE.test(String(q?.applicationQuestion || q?.question || '').trim()))) {
+      if (profileDateQuestionsCanUseProfile(ctx.candidate, request.questions)) {
         return await handoff('profile_section_row_incomplete');
       }
       return {
