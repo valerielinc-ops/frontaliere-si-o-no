@@ -9,10 +9,12 @@ import {
   hasJobPostingRichResult,
   pickEvaluationDay,
   evaluateWeekdayDrop,
+  evaluateAttributedJobListingDrop,
   evaluateRichShare,
   seededSample,
   SETTLE_DAYS,
   isIndexedUrlInspection,
+  CLICK_DROP_DIFFERENTIAL_THRESHOLD,
 } from '../scripts/lib/job-rich-result-guard.mjs';
 
 const series = (start: string, clicks: number[]) =>
@@ -79,6 +81,47 @@ describe('pickEvaluationDay', () => {
     const healthy = series('2026-09-14', Array(31).fill(1000)); // 14/09..14/10, then nothing
     const day = pickEvaluationDay(healthy, '2026-10-24');
     expect(evaluateWeekdayDrop(healthy, { day: day!, historyStart: '2026-09-14' })).toMatchObject({ clicks: 0, drop: 1, alert: true });
+  });
+});
+
+describe('evaluateAttributedJobListingDrop', () => {
+  const drop = (value: number, overrides = {}) => ({
+    day: '2026-11-09', clicks: 100, baseline: 200, drop: value,
+    alert: value > 0.3, reason: value > 0.3 ? 'drop' : 'ok', ...overrides,
+  });
+
+  it('attributes a raw JOB_LISTING alert only above the 20 pp differential', () => {
+    expect(CLICK_DROP_DIFFERENTIAL_THRESHOLD).toBe(0.2);
+    expect(evaluateAttributedJobListingDrop(drop(0.45), drop(0.1))).toMatchObject({
+      comparable: true, differential: 0.35, alert: true, reason: 'attributed-drop',
+    });
+  });
+
+  it('does not attribute the parallel drops from issue 18354', () => {
+    const listingDrop = (1015 - 599) / 1015;
+    const detailsDrop = (176.5 - 111) / 176.5;
+    const result = evaluateAttributedJobListingDrop(
+      drop(listingDrop, { clicks: 599, baseline: 1015 }),
+      drop(detailsDrop, { clicks: 111, baseline: 176.5 }),
+    );
+    expect(result).toMatchObject({ comparable: true, alert: false, reason: 'parallel-drop' });
+    expect(result.differential).toBeCloseTo(0.03875, 4);
+  });
+
+  it('keeps the existing 30% raw threshold as a prerequisite', () => {
+    expect(evaluateAttributedJobListingDrop(drop(0.25), drop(0))).toMatchObject({
+      comparable: true, alert: false, reason: 'raw-drop-not-alerting',
+    });
+  });
+
+  it('requires strictly more than 20 pp and comparable successful observations', () => {
+    expect(evaluateAttributedJobListingDrop(drop(0.5), drop(0.3))).toMatchObject({ alert: false, reason: 'parallel-drop' });
+    expect(evaluateAttributedJobListingDrop(drop(0.5), { day: null, alert: false, reason: 'http-500' })).toMatchObject({
+      comparable: false, differential: null, alert: false, reason: 'details-not-comparable',
+    });
+    expect(evaluateAttributedJobListingDrop(drop(0.5), drop(0.1, { day: '2026-11-08' }))).toMatchObject({
+      comparable: false, differential: null, alert: false, reason: 'day-mismatch',
+    });
   });
 });
 

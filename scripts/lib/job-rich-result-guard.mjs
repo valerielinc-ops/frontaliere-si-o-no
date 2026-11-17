@@ -5,11 +5,15 @@
  *
  *   1. JOB_LISTING clicks (Search Console searchAppearance, dataState "all"):
  *      the evaluated day is compared with the MEDIAN of the same weekday in the
- *      4 preceding weeks. A drop above 30% alerts. Same-weekday because job
- *      search is strongly weekly (Monday ~2x Saturday): a day-over-day or
- *      7-day-mean comparison would alert every weekend.
+ *      4 preceding weeks. A raw drop above 30% is attributable to the job rich
+ *      result only when it exceeds the comparable JOB_DETAILS drop by more than
+ *      20 percentage points. The differential keeps broad GSC traffic drops
+ *      non-actionable while retaining a conservative margin for listing-only
+ *      regressions. Missing, errored or different-day series are not comparable.
+ *      Same-weekday because job search is strongly weekly (Monday ~2x Saturday):
+ *      a day-over-day or 7-day-mean comparison would alert every weekend.
  *      Backtest on seo-data/daily-by-appearance.json (2026-08..10): the
- *      4-22 October outage (JobPosting not emitted, PR 11394) crosses the
+ *      4-22 October outage (JobPosting not emitted, PR 11394) crosses the raw
  *      threshold from 2026-10-06, the first full weekday after it began.
  *
  *   2. Share of sampled live job pages that Google reports with a
@@ -26,6 +30,8 @@
  */
 
 export const CLICK_DROP_THRESHOLD = 0.3;
+/** JOB_LISTING must fall >20 percentage points more than JOB_DETAILS. */
+export const CLICK_DROP_DIFFERENTIAL_THRESHOLD = 0.2;
 export const RICH_SHARE_THRESHOLD = 0.8;
 export const BASELINE_WEEKS = 4;
 /** Below this many eligible pages the share is reported but cannot alert. */
@@ -105,6 +111,55 @@ export function evaluateWeekdayDrop(series, { day, threshold = CLICK_DROP_THRESH
   if (baseline <= 0) return { day, clicks, baseline, drop: null, alert: false, reason: 'zero-baseline' };
   const drop = (baseline - clicks) / baseline;
   return { day, clicks, baseline, drop, alert: drop > threshold, reason: drop > threshold ? 'drop' : 'ok', baselineDates };
+}
+
+/**
+ * Attribute a raw JOB_LISTING click alert to the listing/rich-result surface.
+ * Both weekday comparisons must describe the same day and carry complete,
+ * successful numeric observations. The existing 30% raw threshold remains a
+ * prerequisite; attribution additionally requires a differential strictly
+ * greater than 20 percentage points over JOB_DETAILS.
+ *
+ * @param {{day?: string|null, clicks?: number, baseline?: number|null, drop?: number|null, alert?: boolean, reason?: string}} listing
+ * @param {{day?: string|null, clicks?: number, baseline?: number|null, drop?: number|null, alert?: boolean, reason?: string}} details
+ * @param {{differentialThreshold?: number}} opts
+ */
+export function evaluateAttributedJobListingDrop(
+  listing,
+  details,
+  { differentialThreshold = CLICK_DROP_DIFFERENTIAL_THRESHOLD } = {},
+) {
+  const isComparable = (value) => Boolean(
+    value
+    && typeof value.day === 'string'
+    && value.day.length > 0
+    && Number.isFinite(value.clicks)
+    && value.clicks >= 0
+    && Number.isFinite(value.baseline)
+    && value.baseline > 0
+    && Number.isFinite(value.drop)
+    && (value.reason === 'drop' || value.reason === 'ok')
+  );
+
+  if (!isComparable(listing)) {
+    return { comparable: false, differential: null, alert: false, reason: 'listing-not-comparable' };
+  }
+  if (!isComparable(details)) {
+    return { comparable: false, differential: null, alert: false, reason: 'details-not-comparable' };
+  }
+  if (listing.day !== details.day) {
+    return { comparable: false, differential: null, alert: false, reason: 'day-mismatch' };
+  }
+
+  const differential = listing.drop - details.drop;
+  const rawAlert = listing.alert === true && listing.drop > CLICK_DROP_THRESHOLD;
+  const alert = rawAlert && differential > differentialThreshold;
+  return {
+    comparable: true,
+    differential,
+    alert,
+    reason: !rawAlert ? 'raw-drop-not-alerting' : (alert ? 'attributed-drop' : 'parallel-drop'),
+  };
 }
 
 /**

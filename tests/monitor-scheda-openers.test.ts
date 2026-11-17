@@ -97,8 +97,9 @@ const OPENERS: Array<[string, () => string]> = [
   )],
   ['gsc-job-rich-regression', () => buildRichRegressionIssueBody({
     share: { eligible: 27, withJobs: 20, share: 20 / 27, alert: true },
-    listing: { day: '2026-10-21', clicks: 1059, baseline: 1424.5, drop: 0.26, alert: false },
-    details: { day: '2026-10-21', clicks: 168, baseline: 250.5 },
+    listing: { day: '2026-10-21', clicks: 800, baseline: 1424.5, drop: 0.44, alert: true, reason: 'drop' },
+    details: { day: '2026-10-21', clicks: 225, baseline: 250.5, drop: 0.1, alert: false, reason: 'ok' },
+    clickAttribution: { comparable: true, differential: 0.34, alert: true, reason: 'attributed-drop' },
     rows: [{ url: 'https://frontaliereticino.ch/cerca-lavoro-zurigo/x/', liveJob: true, inspected: true, indexed: true, hasJobs: false, coverageState: 'Submitted and indexed', crawlTime: '2026-10-10T00:00:00Z' }],
   })],
   ['gsc-structured-data', () => buildStructuredDataIssueBody(
@@ -171,6 +172,17 @@ describe('opener dei monitor — il blocco `## Scheda`', () => {
       });
     });
   }
+});
+
+describe('gsc-job-rich-regression — attribuzione del calo click', () => {
+  it('distingue nel body drop grezzi e drop attribuito', () => {
+    const body = OPENERS.find(([name]) => name === 'gsc-job-rich-regression')![1]();
+    expect(body).toContain('Drop grezzo JOB_LISTING');
+    expect(body).toContain('Drop grezzo JOB_DETAILS');
+    expect(body).toContain('Drop attribuito JOB_LISTING');
+    expect(body).toContain('differenziale **34 pp**');
+    expect(body).toContain('share Job Postings sotto soglia resta un segnale indipendente');
+  });
 });
 
 describe('opener senza corpo esportato — controllo statico', () => {
