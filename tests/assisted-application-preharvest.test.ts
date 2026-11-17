@@ -139,4 +139,48 @@ describe('preharvest ATS questions & job question cache', () => {
     expect(defaults.noticeMonths).toBe(1);
     expect(defaults.salary?.annual).toBe(85000);
   });
+
+  it('recognizes PinpointHQ postings and extracts unconditional screening questions from HTML', async () => {
+    const postingUrl = 'https://example-hotel.pinpointhq.com/en/postings/c570608c-e27d-47f1-8e91-1e9b6d16a27e';
+    expect(parsePublicAtsPosting(postingUrl)).toEqual({
+      provider: 'pinpoint',
+      apiUrl: `${postingUrl}/applications/new`,
+    });
+
+    const q1 = JSON.stringify({
+      questionDetails: { title: 'What is your level of German?', questionType: 'multiple_choice', required: true },
+      options: [{ label: 'Elementary (A1/A2)' }, { label: 'Intermediate (B1/B2)' }],
+      conditionalQuestionParentQuestionId: null,
+    }).replace(/"/g, '&quot;');
+    const q2 = JSON.stringify({
+      questionDetails: { title: 'Are you currently an employee?', questionType: 'boolean', required: true },
+      options: [],
+      conditionalQuestionParentQuestionId: null,
+    }).replace(/"/g, '&quot;');
+    const q3Conditional = JSON.stringify({
+      questionDetails: { title: 'Have you informed your HR representative?', questionType: 'multiple_choice', required: true },
+      options: [{ label: 'Yes' }, { label: 'No' }],
+      conditionalQuestionParentQuestionId: 1127735,
+    }).replace(/"/g, '&quot;');
+
+    const html = `
+      <div data-component-name="Shared::Form::Questions::Singleselect">${q1}</div>
+      <div data-component-name="Shared::Form::Questions::Boolean">${q2}</div>
+      <div data-component-name="Shared::Form::Questions::Singleselect">${q3Conditional}</div>
+    `;
+    const fetchImpl = vi.fn().mockResolvedValue({ ok: true, text: async () => html });
+    const questions = await preharvestPublicAtsQuestions(postingUrl, { fetchImpl });
+    expect(questions).toHaveLength(2);
+    expect(questions[0]).toMatchObject({
+      question: 'What is your level of German?',
+      type: 'choice',
+      options: ['Elementary (A1/A2)', 'Intermediate (B1/B2)'],
+      required: true,
+    });
+    expect(questions[1]).toMatchObject({
+      question: 'Are you currently an employee?',
+      type: 'boolean',
+      required: true,
+    });
+  });
 });

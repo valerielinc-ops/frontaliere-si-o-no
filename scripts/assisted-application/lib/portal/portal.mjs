@@ -1084,9 +1084,23 @@ function verifiedPostingEntryFor(ctx = {}) {
  * This is stronger than the rendered posting text: Umantis can show a generic
  * application form without repeating the employer or vacancy title.
  */
+function isPinpointPostingEntry({ applyUrl, postingUrl } = {}) {
+  try {
+    const apply = new URL(String(applyUrl || ''));
+    const posting = new URL(String(postingUrl || ''));
+    if (apply.origin !== posting.origin) return false;
+    const applyMatch = /^\/(?:[a-z]{2}(?:-[a-z]{2})?\/)?postings\/([^/]+)\/applications(?:\/new)?\/?$/iu.exec(apply.pathname);
+    const postingMatch = /^\/(?:[a-z]{2}(?:-[a-z]{2})?\/)?postings\/([^/]+)\/?$/iu.exec(posting.pathname);
+    return Boolean(applyMatch && postingMatch && applyMatch[1] === postingMatch[1]);
+  } catch {
+    return false;
+  }
+}
+
 export function isVerifiedPostingEntry({ applyUrl, postingUrl, postingRouteProof } = {}) {
   return isSuccessFactorsPostingEntry({ applyUrl, postingUrl, postingRouteProof })
     || isDirectJobApplyEntry({ applyUrl, postingUrl })
+    || isPinpointPostingEntry({ applyUrl, postingUrl })
     || isTeamJobsPostingEntry({ applyUrl, postingUrl })
     || isWorkdayPostingEntry({ applyUrl, postingUrl })
     || isUmantisPostingEntry({ applyUrl, postingUrl });
@@ -4806,17 +4820,35 @@ const GENERIC_APPLICATION_HEADING_WORDS = new Set([
   'la', 'le', 'il', 'i',
 ]);
 const AMBIGUOUS_APPLICATION_HEADING_SEGMENTS = new Set(['about you']);
+const GENERIC_APPLICATION_HEADING_SEGMENTS = new Set([
+  'new application',
+  'nuova candidatura',
+  'neue bewerbung',
+  'nouvelle candidature',
+]);
 function employerIdentityHeadingText(value, { allowAmbiguous = false } = {}) {
   return String(value || '').split(PHRASE_END_RE)
     .filter((segment) => {
       const normalized = normalizeWords(segment);
       const words = normalized.split(' ').filter(Boolean);
-      const genericStageHeading = (allowAmbiguous && AMBIGUOUS_APPLICATION_HEADING_SEGMENTS.has(normalized))
+      const genericStageHeading = GENERIC_APPLICATION_HEADING_SEGMENTS.has(normalized)
+        || (allowAmbiguous && AMBIGUOUS_APPLICATION_HEADING_SEGMENTS.has(normalized))
         || (words.length > 0 && words.every((word) => GENERIC_APPLICATION_HEADING_WORDS.has(word)
           || FORM_VOCABULARY.has(word) || FILLER_WORDS.has(word)));
       return !genericStageHeading;
     })
     .join(' ')
+    .trim();
+}
+
+function stripGenericStageTitleSegments(value) {
+  return String(value || '')
+    .split(/(\s*[—–|·•]\s*|\s+-\s+)/)
+    .filter((part, index, parts) => {
+      if (index % 2 === 1) return false;
+      return !GENERIC_APPLICATION_HEADING_SEGMENTS.has(normalizeWords(part));
+    })
+    .join(' | ')
     .trim();
 }
 // `one` is neutral only as the second token of the UI placeholder «Select one».
@@ -5795,14 +5827,15 @@ export function formPostingMatch(formText, job = {}, {
   // carries no employer identity at all and is never raw evidence of one.
   const genericOnlyTitleLine = Boolean(rawFormTitleLine.trim())
     && !employerIdentityHeadingText(rawFormTitleLine, { allowAmbiguous: allowAmbiguousStageHeading });
+  const employerIdentityLines = identityFormText.split(/\r?\n/);
   const employerIdentityText = genericOnlyTitleLine
-    ? ['', ...identityFormText.split(/\r?\n/).slice(1)].join('\n')
-    : identityFormText;
+    ? ['', ...employerIdentityLines.slice(1)].join('\n')
+    : [stripGenericStageTitleSegments(employerIdentityLines[0]), ...employerIdentityLines.slice(1)].join('\n');
   const employerText = [...employerHeadingCandidates, employerIdentityText].filter(Boolean).join('\n');
   const postingEvidenceText = [...headingCandidates, identityFormText].filter(Boolean).join('\n');
   const direct = postingMatch(postingEvidenceText, job, pageUrl);
   const rawDirect = postingMatch(String(formText || ''), job, pageUrl);
-  const formTitleLine = genericOnlyTitleLine ? '' : rawFormTitleLine;
+  const formTitleLine = genericOnlyTitleLine ? '' : stripGenericStageTitleSegments(rawFormTitleLine);
   const headingConflict = [...employerHeadingCandidates, formTitleLine].filter(Boolean)
     .some((headingText) => namesAnotherEmployer(headingText, job, { allowPostingLocation: postingLocationBound }));
   const talentSoftAlias = talentSoftEmployerAliasMatches(identityFormText, job, pageUrl);

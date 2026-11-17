@@ -329,3 +329,51 @@ describe('team.jobs application entry', () => {
     expect(applicationEntryControls(snapshot, context)).toEqual([]);
   });
 });
+
+describe('PinpointHQ New Application title and route binding', () => {
+  it('matches a PinpointHQ application form titled "New Application | <Source Role> | <Company> Careers"', () => {
+    const postingUrl = 'https://example-hotel.pinpointhq.com/en/postings/c570608c-e27d-47f1-8e91-1e9b6d16a27e';
+    const applicationUrl = `${postingUrl}/applications/new`;
+    const job = {
+      company: 'Grand Hotel Example St. Moritz',
+      title: 'Commissione di Rang (m/f/d) Sala da pranzo',
+      sourceTitle: 'Commis de Rang (f/m/d) In Room Dining',
+    };
+    const form = 'New Application | Commis de Rang (f/m/d) In Room Dining | Grand Hotel Example St. Moritz Careers\nApply\nFirst Name\nLast Name';
+
+    expect(formPostingMatch(form, job, {
+      postingMatched: true,
+      applicationEntry: true,
+      applicationEntryUrl: applicationUrl,
+      pageUrl: applicationUrl,
+      postingUrl,
+      paidPostingUrl: postingUrl,
+      pageHeading: 'Apply',
+      pageHeadings: ['Apply'],
+      applyUrl: postingUrl,
+    })).toBe('match');
+  });
+
+  it('still rejects a conflicting employer even with a "New Application" prefix', () => {
+    const postingUrl = 'https://example-hotel.pinpointhq.com/en/postings/c570608c-e27d-47f1-8e91-1e9b6d16a27e';
+    const applicationUrl = `${postingUrl}/applications/new`;
+    const job = {
+      company: 'Grand Hotel Example St. Moritz',
+      title: 'Commis de Rang (f/m/d)',
+      sourceTitle: 'Commis de Rang (f/m/d)',
+    };
+    const form = 'New Application | Commis de Rang (f/m/d) | Other Palace Resort Careers\nApply';
+
+    expect(formPostingMatch(form, job, {
+      postingMatched: true,
+      applicationEntry: true,
+      applicationEntryUrl: applicationUrl,
+      pageUrl: applicationUrl,
+      postingUrl,
+      paidPostingUrl: postingUrl,
+      pageHeading: 'Apply',
+      pageHeadings: ['Apply'],
+      applyUrl: postingUrl,
+    })).toBe('mismatch');
+  });
+});
