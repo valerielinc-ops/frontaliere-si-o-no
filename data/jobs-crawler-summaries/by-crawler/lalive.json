@@ -1,7 +1,7 @@
 {
   "key": "lalive",
   "label": "LALIVE",
-  "generatedAt": "2026-11-17T06:52:55.300Z",
+  "generatedAt": "2026-11-17T09:28:38.735Z",
   "total": 9,
   "discovered": null,
   "parsed": 9,
@@ -13,16 +13,17 @@
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 7231,
-  "avgDurationMs": 7231,
+  "durationMs": 40424,
+  "avgDurationMs": 40424,
   "durationHistory": [
-    7231
+    40424
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "lalive-126ff90e219e",
       "slug": "administrative-assistant-50-60-zurich-lalive-zurigo",
@@ -35,7 +36,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/2877776",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T06:52:36.139Z",
+      "crawledAt": "2026-11-17T09:27:45.656Z",
       "addressLocality": "Zurigo",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -53,14 +54,14 @@
       "postingDateSource": "unknown",
       "applyUrl": "https://lalive-law.jobs.personio.com/job/2877776",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-11-17T06:52:36.139Z",
       "salaryMin": 44100,
       "salaryMax": 66900,
       "salarySource": "estimated",
       "streetAddress": "Zurigo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-15T06:52:36.139Z",
+      "validThrough": "2027-02-15T09:27:45.656Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T06:52:36.139Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -70,7 +71,6 @@
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -85,7 +85,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/2877233",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T06:52:35.702Z",
+      "crawledAt": "2026-11-17T09:27:45.145Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "salarySource": "estimated",
       "streetAddress": "Ginevra",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-05T06:52:35.702Z",
+      "validThrough": "2027-02-04T09:27:45.145Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -130,7 +130,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/2644016",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T06:52:35.175Z",
+      "crawledAt": "2026-11-17T09:27:44.961Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -153,7 +153,7 @@
       "salarySource": "estimated",
       "streetAddress": "Ginevra",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T06:52:35.175Z",
+      "validThrough": "2026-12-17T09:27:44.961Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -175,7 +175,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/2585737",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T06:52:34.976Z",
+      "crawledAt": "2026-11-17T09:27:44.823Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -198,7 +198,7 @@
       "salarySource": "estimated",
       "streetAddress": "Ginevra",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T06:52:34.976Z",
+      "validThrough": "2026-12-17T09:27:44.823Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -220,7 +220,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/2412556",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T06:52:34.816Z",
+      "crawledAt": "2026-11-17T09:27:44.580Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -243,7 +243,7 @@
       "salarySource": "estimated",
       "streetAddress": "Ginevra",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T06:52:34.816Z",
+      "validThrough": "2026-12-17T09:27:44.580Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -265,7 +265,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/2344646",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T06:52:34.280Z",
+      "crawledAt": "2026-11-17T09:27:44.414Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -288,7 +288,7 @@
       "salarySource": "estimated",
       "streetAddress": "Ginevra",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T06:52:34.280Z",
+      "validThrough": "2026-12-17T09:27:44.414Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -310,7 +310,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/1158506",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T06:52:33.764Z",
+      "crawledAt": "2026-11-17T09:27:43.837Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -327,14 +327,14 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://lalive-law.jobs.personio.com/job/1158506",
-      "firstSeenAt": "2026-07-03T22:12:34.422Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T22:12:34.422Z",
       "salaryMin": 69000,
       "salaryMax": 118000,
       "salarySource": "estimated",
       "streetAddress": "Ginevra",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T06:52:33.764Z",
+      "validThrough": "2026-12-17T09:27:43.837Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -356,7 +356,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/1158502",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T06:52:33.250Z",
+      "crawledAt": "2026-11-17T09:27:43.673Z",
       "addressLocality": "Zurigo",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -373,14 +373,14 @@
       "postedDate": "",
       "postingDateSource": "unknown",
       "applyUrl": "https://lalive-law.jobs.personio.com/job/1158502",
-      "firstSeenAt": "2026-07-03T22:12:34.421Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T22:12:34.421Z",
       "salaryMin": 85000,
       "salaryMax": 145000,
       "salarySource": "estimated",
       "streetAddress": "Zurigo",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T06:52:33.250Z",
+      "validThrough": "2026-12-17T09:27:43.673Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -402,7 +402,7 @@
       "url": "https://lalive-law.jobs.personio.com/job/1155459",
       "source": "LALIVE Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T06:52:33.032Z",
+      "crawledAt": "2026-11-17T09:27:43.192Z",
       "addressLocality": "Ginevra",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -425,7 +425,7 @@
       "salarySource": "estimated",
       "streetAddress": "Ginevra",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T06:52:33.032Z",
+      "validThrough": "2026-12-17T09:27:43.192Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -436,5 +436,5 @@
       }
     }
   ],
-  "codeCommit": "1bdf8e0dd5f55245d7df5b9a0ab8034e119b2c46"
+  "codeCommit": "0a26498058b0569b9b8027a7e9a03db3e2542c6a"
 }

@@ -1,7 +1,7 @@
 {
   "key": "artisa-group",
   "label": "Artisa Group",
-  "generatedAt": "2026-11-17T06:52:30.492Z",
+  "generatedAt": "2026-11-17T09:26:48.561Z",
   "total": 2,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": true,
@@ -9,10 +9,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 2442,
-  "avgDurationMs": 2442,
+  "durationMs": 3039,
+  "avgDurationMs": 3039,
   "durationHistory": [
-    2442
+    3039
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       "postedDate": "",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-12-28T06:52:13.116Z",
+      "validThrough": "2026-12-28T09:26:30.083Z",
       "id": "artisa-group-602dc2ab62a9",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -53,7 +53,7 @@
       "postingDateSource": "unknown",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-17T06:52:13.116Z",
+      "crawledAt": "2026-11-17T09:26:30.083Z",
       "crawledAtSource": "slice-writer",
       "_qualityScore": 95,
       "_qualityBreakdown": {
@@ -86,7 +86,7 @@
       "postingDateSource": "unknown",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2027-01-06T06:52:13.116Z",
+      "validThrough": "2027-01-06T09:26:30.083Z",
       "id": "artisa-group-ce53cb93ea60",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -97,7 +97,7 @@
       "firstSeenAt": "2026-10-07T21:40:39.703Z",
       "streetAddressSource": "listing-source",
       "validThroughSource": "last-observed-window",
-      "crawledAt": "2026-11-17T06:52:13.116Z",
+      "crawledAt": "2026-11-17T09:26:30.083Z",
       "crawledAtSource": "slice-writer",
       "sourceIdentity": "url:https://artisagroup.com/carriera",
       "_qualityScore": 95,
@@ -109,5 +109,5 @@
       }
     }
   ],
-  "codeCommit": "1bdf8e0dd5f55245d7df5b9a0ab8034e119b2c46"
+  "codeCommit": "0a26498058b0569b9b8027a7e9a03db3e2542c6a"
 }
