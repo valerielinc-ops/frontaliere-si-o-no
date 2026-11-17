@@ -2888,7 +2888,7 @@ async function clickUniqueNamedControl(frame, button) {
       if (!await candidate.isEnabled({ timeout: 2_000 }).catch(() => false)) continue;
       const owner = await candidate.evaluate((element) => {
         const form = element.form || element.closest?.('form');
-        const roleForm = form ? null : element.closest?.('[role="form"]');
+        const roleForm = form ? null : element.closest?.('[role="form"], [data-automation-id="applyFlowPage"]');
         const dialog = element.closest?.('dialog, [role="dialog"], [aria-modal="true"]');
         return {
           formId: form?.getAttribute('data-aa-id') || '',
@@ -12183,6 +12183,15 @@ export async function submitViaPortal(ctx) {
       }
       if (!request) return null;
       if (request.handoff) return await handoff(request.handoff);
+      const PROFILE_DATE_LABEL_RE = /^(?:from|to|da|a|von|bis|de|à|start date|end date)\s*[＊*]?$/i;
+      const profileHasDates = Boolean(
+        ctx.candidate?.profile?.experience?.some((entry) => entry?.start || entry?.end)
+        || ctx.candidate?.profile?.education?.some((entry) => entry?.start || entry?.end),
+      );
+      if (profileHasDates && Array.isArray(request.questions) && request.questions.length
+        && request.questions.every((q) => q?.type === 'date' && PROFILE_DATE_LABEL_RE.test(String(q?.applicationQuestion || q?.question || '').trim()))) {
+        return await handoff('profile_section_row_incomplete');
+      }
       return {
         event: {
           type: 'submit_needs_candidate',

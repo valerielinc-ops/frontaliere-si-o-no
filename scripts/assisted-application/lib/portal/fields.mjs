@@ -1033,7 +1033,7 @@ function nativeQuestionText(value, counter = null) {
     return scope ? { applicationScopeId: idFor(scope) } : {};
   };
   const applicationOwnershipFor = (element) => {
-    const roleForm = element.closest('[role="form"]');
+    const roleForm = element.closest('[role="form"], [data-automation-id="applyFlowPage"]');
     return {
       ...applicationScopeFor(element),
       ...sectionGroupFor(element),
@@ -1127,7 +1127,7 @@ function nativeQuestionText(value, counter = null) {
         ? 'To*'
         : rawLabel;
     const readSpin = (spin) => {
-      const val = clean(spin.getAttribute('aria-valuenow') || spin.textContent || '');
+      const val = clean(('value' in spin ? spin.value : '') || spin.getAttribute('aria-valuenow') || spin.textContent || '');
       return /^\d+$/.test(val) ? val : '';
     };
     const monthSpin = spins.find((s) => /month|monat|mois|mese/i.test(`${s.getAttribute('data-automation-id') || ''} ${s.getAttribute('aria-label') || ''}`)) || spins[0];
