@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { readJsonFile } from './lib/read-large-json.mjs';
+import { XMLValidator } from 'fast-xml-parser';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -588,6 +589,11 @@ function validateSbbCareersSitemapBody(body = '') {
   const text = String(body || '').trim();
   if (!/<urlset\b/i.test(text) || !/<\/urlset>/i.test(text)) {
     return 'SBB careers sitemap root marker missing';
+  }
+  const xmlValidation = XMLValidator.validate(text);
+  if (xmlValidation !== true) {
+    const detail = xmlValidation?.err?.msg ? `: ${xmlValidation.err.msg}` : '';
+    return `SBB careers sitemap XML is malformed${detail}`;
   }
   if (extractSbbCareersSitemapDetailUrls(text).length === 0) {
     return 'SBB careers sitemap has no canonical job URLs';

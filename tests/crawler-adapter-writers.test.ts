@@ -761,6 +761,23 @@ describe('SBB two-source discovery invariants', () => {
     })).rejects.toThrow(/unavailable/);
   });
 
+  it('fails closed when the official careers sitemap XML is malformed', async () => {
+    const malformedSitemap = '<urlset><url><loc>https://careers.sbb.ch/job/Bellinzona-Macchinista/1457236233</loc></urlset>';
+    const fetchPage = async (url: string) => (url === 'https://careers.sbb.ch/sitemap.xml' ? malformedSitemap : null);
+    const fetchJina = async (url: string) => {
+      if (url === 'https://careers.sbb.ch/sitemap.xml') {
+        return { ok: true, status: 200, text: async () => malformedSitemap };
+      }
+      return { ok: false, status: 502, text: async () => '' };
+    };
+
+    await expect(fetchSbbJobDetailUrls({
+      fetchPageImpl: fetchPage,
+      fetchJinaImpl: fetchJina,
+      timeoutMs: 1000,
+    })).rejects.toThrow(/unavailable/);
+  });
+
   it('fails closed on the primary AEM source, degrades the secondary login.org source on outage, and supports verified empty sources', async () => {
     const unavailable = async () => null;
     // Primary source (AEM API) and the source-backed HTML fallback are both
