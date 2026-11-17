@@ -603,6 +603,32 @@ export function profileDateQuestionsCanUseProfile(candidate, questions) {
   });
 }
 
+const PROFILE_ROW_FIELD_RE = /^(?:job\s+title|company|employer|titolo\s+professionale|azienda|from|to|da|a|start\s+date|end\s+date|school(?:\s+or\s+university)?|university|institution|degree|titolo\s+di\s+studio|field\s+of\s+study|location|i\s+currently\s+work\s+here)\s*[＊*]?$/i;
+
+/**
+ * Block sending Workday Work Experience / Education row fields (Job Title*,
+ * Company*, From*, To*, Degree*, School*) back to the candidate when the
+ * candidate's CV profile already supplies entries for that section.
+ */
+export function profileSectionQuestionsOwnedByCv(candidate, questions) {
+  if (!Array.isArray(questions) || !questions.length) return false;
+  return questions.every((question) => {
+    const label = String(question?.applicationQuestion || question?.question || '').trim();
+    if (!PROFILE_ROW_FIELD_RE.test(label)) return false;
+    const scope = [
+      question?.context,
+      question?.section,
+      question?.profileSection,
+      question?.sectionGroup,
+      ...(Array.isArray(question?.addressContext?.owners) ? question.addressContext.owners : []),
+    ].map(profileMatchText).filter(Boolean).join(' ');
+    if (/\b(?:work\s+)?experience\b/i.test(scope) && /\beducation\b/i.test(scope)) return false;
+    const kind = profileSectionKind(scope);
+    if (!kind) return false;
+    return Array.isArray(candidate?.profile?.[kind]) && candidate.profile[kind].length > 0;
+  });
+}
+
 const POPUP_WAIT_TIMEOUT_MS = 60_000;
 const POPUP_GRACE_MS = 6_000;
 // Scans that only look for buttons, a CAPTCHA or a login never open listboxes (see extractFields).
@@ -8813,6 +8839,113 @@ async function waitForProfileFields(page, kind, beforeIds, timeoutMs = 10_000) {
   return { snapshot, fields: [] };
 }
 
+function inlineProfileRowOrdinal(field, kind) {
+  const scope = [
+    field?.section,
+    field?.context,
+    ...(Array.isArray(field?.addressContext?.owners) ? field.addressContext.owners : []),
+  ].filter(Boolean).join(' ');
+  const pattern = kind === 'education'
+    ? /\beducation\s+(\d+)\b/i
+    : /\b(?:work\s+)?experience\s+(\d+)\b/i;
+  const match = pattern.exec(scope);
+  return match ? Number(match[1]) : 0;
+}
+
+async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries, { files = {} } = {}) {
+  let current = snapshot;
+  const rowsByOrdinal = (fields) => {
+    const rows = new Map();
+    for (const field of fields) {
+      const ordinal = inlineProfileRowOrdinal(field, kind);
+      if (ordinal < 1) continue;
+      if (!rows.has(ordinal)) rows.set(ordinal, []);
+      rows.get(ordinal).push(field);
+    }
+    return rows;
+  };
+  const fail = async () => ({
+    snapshot: await extractFields(page).catch(() => current),
+    handoff: 'profile_section_row_fill_failed',
+  });
+  let byOrdinal = rowsByOrdinal(profileFields(current, kind));
+  const hasExpectedRows = () => Array.from({ length: entries.length }, (_, index) => index + 1)
+    .every((ordinal) => byOrdinal.has(ordinal));
+  const ADD_INLINE_ROW_RE = /^(?:add another|weitere hinzufügen|weitere hinzufuegen|ajouter une autre|aggiungi un altro)\b/i;
+  let addAttempts = 0;
+  while (!hasExpectedRows()) {
+    if (addAttempts++ >= Math.max(entries.length + 1, 2)) return fail();
+    const addBtn = profileButtons(current, kind, ADD_INLINE_ROW_RE).at(-1);
+    if (!addBtn) return fail();
+    const beforeIds = new Set(profileFields(current, kind).map((field) => field.id));
+    try {
+      const clickOutcome = await clickButton(page, addBtn);
+      if (typeof clickOutcome !== 'string' || !clickOutcome) return fail();
+    } catch {
+      return fail();
+    }
+    const opened = await waitForProfileFields(page, kind, beforeIds);
+    current = opened.snapshot;
+    byOrdinal = rowsByOrdinal(profileFields(current, kind));
+    if (!opened.fields.length && !hasExpectedRows()) return fail();
+  }
+
+  let deleteAttempts = 0;
+  const DELETE_ROW_RE = /^(?:delete|remove|löschen|loeschen|entfernen|supprimer|elimina|rimuovi)\b/i;
+  while (true) {
+    byOrdinal = rowsByOrdinal(profileFields(current, kind));
+    const emptyExtraOrdinal = [...byOrdinal.entries()]
+      .filter(([ordinal, rowFields]) => ordinal > entries.length && !rowFields.some((field) => holdsValue(field)))
+      .map(([ordinal]) => ordinal)
+      .sort((a, b) => b - a)[0];
+    if (emptyExtraOrdinal === undefined) break;
+    if (deleteAttempts++ >= Math.max(byOrdinal.size, entries.length + 1)) return fail();
+    const delButtons = profileButtons(current, kind, DELETE_ROW_RE);
+    const delBtn = delButtons[emptyExtraOrdinal - 1] || delButtons.at(-1);
+    if (!delBtn) return fail();
+    try {
+      const clickOutcome = await clickButton(page, delBtn);
+      if (typeof clickOutcome !== 'string' || !clickOutcome) return fail();
+      await page.waitForTimeout(200);
+      current = await extractFields(page);
+    } catch {
+      return fail();
+    }
+  }
+  byOrdinal = rowsByOrdinal(profileFields(current, kind));
+  const unresolvedExtra = [...byOrdinal.entries()]
+    .some(([ordinal, rowFields]) => ordinal > entries.length && !rowFields.some((field) => holdsValue(field)));
+  if (unresolvedExtra || !hasExpectedRows()) return fail();
+  for (let ordinal = 1; ordinal <= entries.length; ordinal += 1) {
+    const entry = entries[ordinal - 1];
+    const rowFields = byOrdinal.get(ordinal) || [];
+    if (!rowFields.length) return fail();
+    const actions = [];
+    for (const field of rowFields) {
+      if (!field.required || holdsValue(field)) continue;
+      const answer = profileEntryAnswer(entry, kind, field);
+      if (!answer?.value) continue;
+      actions.push({
+        fieldId: field.id,
+        action: field.options?.length ? 'select' : 'fill',
+        ...answer,
+        document: 'none',
+        evidence: '',
+      });
+    }
+    if (actions.length) {
+      const results = await applyActions(page, rowFields, actions, files).catch(() => null);
+      if (!Array.isArray(results) || results.some((result) => !result?.ok)) {
+        return {
+          snapshot: await extractFields(page).catch(() => current),
+          handoff: 'profile_section_row_fill_failed',
+        };
+      }
+    }
+  }
+  return { snapshot: await extractFields(page).catch(() => current) };
+}
+
 /**
  * Workday's profile history is not a normal planner page: rows exist only
  * after the matching section's Add control is pressed. Fill and save each
@@ -8827,8 +8960,12 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
     if (!entries.length || done.has(`${page.url()}|${kind}`)) continue;
     if (!profileButtons(current, kind, PROFILE_ADD_RE).length) continue;
     // When Workday already renders inline rows (e.g. from CV autofill or a
-    // resumed draft), clicking "Add Another" for every entry duplicates rows.
+    // resumed draft), reconcile missing fields on existing rows and remove
+    // extra empty rows instead of clicking "Add Another" for every entry.
     if (profileFields(current, kind).length && profileButtons(current, kind, PROFILE_INLINE_ROW_RE).length) {
+      const reconciled = await reconcileExistingInlineProfileRows(page, current, kind, entries, { files });
+      current = reconciled.snapshot;
+      if (reconciled.handoff) return { ...reconciled, counts };
       done.add(`${page.url()}|${kind}`);
       continue;
     }
@@ -12449,7 +12586,8 @@ export async function submitViaPortal(ctx) {
       }
       if (!request) return null;
       if (request.handoff) return await handoff(request.handoff);
-      if (profileDateQuestionsCanUseProfile(ctx.candidate, request.questions)) {
+      if (profileDateQuestionsCanUseProfile(ctx.candidate, request.questions)
+        || profileSectionQuestionsOwnedByCv(ctx.candidate, request.questions)) {
         return await handoff('profile_section_row_incomplete');
       }
       return {

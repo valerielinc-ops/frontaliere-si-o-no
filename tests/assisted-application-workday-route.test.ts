@@ -11,6 +11,55 @@ import {
 
 const applyUrl = 'https://acme.wd3.myworkdayjobs.com/fr-FR/AcmeCareers/job/Mendrisio%2C-Outlet/Consultant_R-12345-1/apply/applyManually';
 
+function workdaySnapshot(url: string, fields: any[], buttons: any[]) {
+  return {
+    url,
+    pageMarker: '',
+    fields,
+    buttons,
+    links: [],
+    dialogs: [],
+    captcha: false,
+    passwordVisible: false,
+    errors: [],
+    text: '',
+  };
+}
+
+function dynamicWorkdayPage(initialSnapshot: any, onClick: (id: string, snapshot: any) => void = () => {}) {
+  let currentSnapshot = initialSnapshot;
+  const clicks: string[] = [];
+  const frame = {
+    evaluate: async (fn: Function) => fn.name === 'extractFieldsInPage' ? currentSnapshot : false,
+    locator: (selector: string) => {
+      const match = /data-aa-id="([^"]+)"/.exec(selector);
+      const id = match?.[1] || '';
+      let locator: any;
+      locator = {
+        first: () => locator,
+        count: async () => 0,
+        allInnerTexts: async () => [],
+        click: async () => {
+          clicks.push(id);
+          onClick(id, currentSnapshot);
+        },
+        fill: async (value: string) => {
+          const field = currentSnapshot.fields.find((item: any) => item.id === id);
+          if (field) field.value = value;
+        },
+        inputValue: async () => currentSnapshot.fields.find((item: any) => item.id === id)?.value || '',
+      };
+      return locator;
+    },
+  };
+  const page = {
+    url: () => initialSnapshot.url,
+    frames: () => [frame],
+    waitForTimeout: async () => {},
+  };
+  return { page, clicks, getSnapshot: () => currentSnapshot };
+}
+
 describe('Workday tenant account routes', () => {
   it.each(['login', 'createAccount', 'forgotPassword', 'passwordreset', 'resetPassword', 'verifyEmail', 'activate'])(
     'recognizes the same-site account route %s', (route) => {
@@ -135,8 +184,8 @@ describe('Workday tenant account routes', () => {
     const snapshot = {
       url: page.url(),
       fields: [
-        { id: 'jt-1', label: 'Job Title*', section: 'Work Experience', kind: 'text', required: true },
-        { id: 'co-1', label: 'Company*', section: 'Work Experience', kind: 'text', required: true },
+        { id: 'jt-1', label: 'Job Title*', section: 'Work Experience', context: 'Work Experience 1', kind: 'text', required: true },
+        { id: 'co-1', label: 'Company*', section: 'Work Experience', context: 'Work Experience 1', kind: 'text', required: true },
       ],
       buttons: [
         { id: 'del-1', text: 'Delete', section: 'Work Experience', frame: 0 },
@@ -149,8 +198,182 @@ describe('Workday tenant account routes', () => {
         education: [],
       },
     };
-    const result = await fillProfileSections(page as any, snapshot as any, { candidate });
+    const done = new Set<string>();
+    const result = await fillProfileSections(page as any, snapshot as any, { candidate, done });
     expect(clicks).toEqual([]);
     expect(result.counts).toEqual([]);
+    expect(result.handoff).toBe('profile_section_row_fill_failed');
+    expect(done).toEqual(new Set());
+  });
+
+  it('blocks Work Experience Job Title*, Company*, From*, To* from candidate prompts when CV profile has experience', async () => {
+    const { profileSectionQuestionsOwnedByCv } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
+    const candidate = {
+      profile: {
+        experience: [{ role: 'Sales', employer: 'ACME', start: '2022-01', end: '2024-01' }],
+        education: [],
+      },
+    };
+    expect(profileSectionQuestionsOwnedByCv(candidate, [
+      { applicationQuestion: 'Job Title*', section: 'Work Experience', context: 'Work Experience 8 · Job Title*' },
+      { applicationQuestion: 'Company*', section: 'Work Experience', context: 'Work Experience 8 · Company*' },
+      { applicationQuestion: 'From*', context: 'From*', addressContext: { owners: ['From*', 'Work Experience 1', 'Work Experience'] } },
+      { applicationQuestion: 'To*', context: 'To*', addressContext: { owners: ['To*', 'Work Experience 1', 'Work Experience'] } },
+    ])).toBe(true);
+    expect(profileSectionQuestionsOwnedByCv(candidate, [
+      { applicationQuestion: 'Why do you want to join Rituals?', section: 'Application Questions' },
+    ])).toBe(false);
+    expect(profileSectionQuestionsOwnedByCv({
+      profile: { experience: [{ role: 'x' }], education: [] },
+    }, [
+      { applicationQuestion: 'School*', context: 'Work Experience and Education' },
+    ])).toBe(false);
+  });
+
+  it('returns profile_section_row_fill_failed without marking done when inline row fill fails', async () => {
+    const { fillProfileSections } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
+    const done = new Set<string>();
+    const page = {
+      url: () => 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Role_R2420/apply/applyManually',
+      frames: () => [{
+        locator: () => ({ first: () => ({ count: async () => 0 }) }),
+      }],
+    };
+    const snapshot = {
+      url: page.url(),
+      fields: [
+        { id: 'jt-1', label: 'Job Title*', section: 'Work Experience 1', kind: 'text', required: true, value: '' },
+      ],
+      buttons: [
+        { id: 'del-1', text: 'Delete', section: 'Work Experience', frame: 0 },
+        { id: 'add-another', text: 'Add Another', section: 'Work Experience', frame: 0 },
+      ],
+    };
+    const candidate = {
+      profile: {
+        experience: [{ role: 'Sales', employer: 'ACME', start: '2022-01', end: '2024-01' }],
+        education: [],
+      },
+    };
+    const result = await fillProfileSections(page as any, snapshot as any, { candidate, done });
+    expect(result.handoff).toBe('profile_section_row_fill_failed');
+    expect(done.has(`${page.url()}|experience`)).toBe(false);
+  });
+
+  it('returns profile_section_row_fill_failed without marking done when an extra inline row cannot be deleted', async () => {
+    const { fillProfileSections } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
+    const done = new Set<string>();
+    const page = {
+      url: () => 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Role_R2420/apply/applyManually',
+      frames: () => [{
+        locator: () => ({ first: () => ({ click: async () => { throw new Error('delete_failed'); } }) }),
+      }],
+    };
+    const snapshot = {
+      url: page.url(),
+      fields: [
+        { id: 'jt-1', label: 'Job Title*', section: 'Work Experience 1', kind: 'text', required: true, value: 'Sales' },
+        { id: 'jt-2', label: 'Job Title*', section: 'Work Experience 2', kind: 'text', required: true, value: '' },
+      ],
+      buttons: [
+        { id: 'del-1', text: 'Delete', section: 'Work Experience', frame: 0 },
+        { id: 'del-2', text: 'Delete', section: 'Work Experience', frame: 0 },
+        { id: 'add-another', text: 'Add Another', section: 'Work Experience', frame: 0 },
+      ],
+    };
+    const candidate = {
+      profile: {
+        experience: [{ role: 'Sales', employer: 'ACME', start: '2022-01', end: '2024-01' }],
+        education: [],
+      },
+    };
+    const result = await fillProfileSections(page as any, snapshot as any, { candidate, done });
+    expect(result.handoff).toBe('profile_section_row_fill_failed');
+    expect(done.has(`${page.url()}|experience`)).toBe(false);
+  });
+
+  it('creates and fills missing inline rows before marking the Workday section done', async () => {
+    const { fillProfileSections } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
+    const url = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Role_R2420/apply/applyManually';
+    const snapshot = workdaySnapshot(url, [
+      { id: 'jt-1', label: 'Job Title*', section: 'Work Experience 1', context: 'Work Experience 1', kind: 'text', required: true, value: 'Sales' },
+    ], [
+      { id: 'add-another', text: 'Add Another', section: 'Work Experience', frame: 0 },
+    ]);
+    const mock = dynamicWorkdayPage(snapshot, (id, current) => {
+      if (id !== 'add-another') return;
+      current.fields.push({
+        id: 'jt-2',
+        label: 'Job Title*',
+        section: 'Work Experience 2',
+        context: 'Work Experience 2',
+        kind: 'text',
+        required: true,
+        value: '',
+      });
+    });
+    const candidate = {
+      profile: {
+        experience: [
+          { role: 'Sales', employer: 'ACME', start: '2022-01', end: '2024-01' },
+          { role: 'Consultant', employer: 'Globex', start: '2020-01', end: '2021-01' },
+        ],
+        education: [],
+      },
+    };
+    const done = new Set<string>();
+    const result = await fillProfileSections(mock.page as any, snapshot as any, { candidate, done });
+    expect(mock.clicks).toEqual(['add-another']);
+    expect(mock.getSnapshot().fields.find((field: any) => field.id === 'jt-2')?.value).toBe('Consultant');
+    expect(result.handoff).toBeUndefined();
+    expect(done.has(`${url}|experience`)).toBe(true);
+  });
+
+  it('hands off when an extra empty inline row has no delete control', async () => {
+    const { fillProfileSections } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
+    const url = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Role_R2420/apply/applyManually';
+    const snapshot = workdaySnapshot(url, [
+      { id: 'jt-1', label: 'Job Title*', section: 'Work Experience 1', context: 'Work Experience 1', kind: 'text', required: true, value: 'Sales' },
+      { id: 'jt-2', label: 'Job Title*', section: 'Work Experience 2', context: 'Work Experience 2', kind: 'text', required: true, value: '' },
+    ], [
+      { id: 'add-another', text: 'Add Another', section: 'Work Experience', frame: 0 },
+    ]);
+    const mock = dynamicWorkdayPage(snapshot);
+    const candidate = {
+      profile: {
+        experience: [{ role: 'Sales', employer: 'ACME', start: '2022-01', end: '2024-01' }],
+        education: [],
+      },
+    };
+    const done = new Set<string>();
+    const result = await fillProfileSections(mock.page as any, snapshot as any, { candidate, done });
+    expect(result.handoff).toBe('profile_section_row_fill_failed');
+    expect(mock.clicks).toEqual([]);
+    expect(done.has(`${url}|experience`)).toBe(false);
+  });
+
+  it('hands off when a successful delete click leaves the empty extra row in the refreshed snapshot', async () => {
+    const { fillProfileSections } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
+    const url = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Role_R2420/apply/applyManually';
+    const snapshot = workdaySnapshot(url, [
+      { id: 'jt-1', label: 'Job Title*', section: 'Work Experience 1', context: 'Work Experience 1', kind: 'text', required: true, value: 'Sales' },
+      { id: 'jt-2', label: 'Job Title*', section: 'Work Experience 2', context: 'Work Experience 2', kind: 'text', required: true, value: '' },
+    ], [
+      { id: 'del-1', text: 'Delete', section: 'Work Experience', frame: 0 },
+      { id: 'del-2', text: 'Delete', section: 'Work Experience', frame: 0 },
+      { id: 'add-another', text: 'Add Another', section: 'Work Experience', frame: 0 },
+    ]);
+    const mock = dynamicWorkdayPage(snapshot);
+    const candidate = {
+      profile: {
+        experience: [{ role: 'Sales', employer: 'ACME', start: '2022-01', end: '2024-01' }],
+        education: [],
+      },
+    };
+    const done = new Set<string>();
+    const result = await fillProfileSections(mock.page as any, snapshot as any, { candidate, done });
+    expect(result.handoff).toBe('profile_section_row_fill_failed');
+    expect(mock.clicks).toContain('del-2');
+    expect(done.has(`${url}|experience`)).toBe(false);
   });
 });
