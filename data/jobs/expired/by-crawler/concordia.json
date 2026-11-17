@@ -203,16 +203,23 @@
     "slugByLocale": {
       "it": "capo-dell-agenzia-100-in-biel-concordia-biel",
       "en": "head-of-agency-100-in-biel-concordia-biel",
-      "de": "agenturleiter-in-100-in-biel-concordia-biel",
+      "de": "agenturleiter-in-100-in-biel-concordia-biel-460d3ce4",
       "fr": "chef-de-l-agence-100-a-biel-concordia-biel"
     },
     "sector": "Assicurazioni",
     "expiredAt": "2026-11-14T09:26:39.510Z",
-    "previousSlugs": [
-      "agenturleiter-in-100-in-biel-concordia-biel"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "agenturleiter-in-100-in-biel-concordia-biel-460d3ce4",
+        "agenturleiter-in-100-in-biel-concordia-biel"
+      ],
+      "en": [
+        "agenturleiter-in-100-in-biel-concordia-biel"
+      ],
+      "de": [
+        "agenturleiter-in-100-in-biel-concordia-biel-460d3ce4"
+      ],
+      "fr": [
         "agenturleiter-in-100-in-biel-concordia-biel"
       ]
     },
@@ -223,7 +230,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobs.concordia.ch/offene-stellen/agenturleiter-in-in-biel/50d2155d-a2fb-4467-a8f4-1ca66f4af55d",
-    "firstSeenAt": "2026-09-19T22:53:53.300Z"
+    "firstSeenAt": "2026-09-19T22:53:53.300Z",
+    "previousSlugs": [
+      "agenturleiter-in-100-in-biel-concordia-biel"
+    ]
   },
   {
     "slug": "consulente-clienti-60-100-a-langenthal-concordia-langenthal-0d6bcc31",
