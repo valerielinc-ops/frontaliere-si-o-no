@@ -13695,7 +13695,7 @@
       "slugByLocale": {
         "it": "gestione-account-chiave-gastronomia-fresh-food-beverage-group-zurich",
         "en": "key-account-manager-gastronomie-fresh-food-beverage-group-zurich-2uar1f",
-        "de": "key-account-manager-gastronomie-fresh-food-beverage-group-zurich-2uar1f",
+        "de": "schlusselkontomanager-gastronomie-fresh-food-beverage-group-zurich",
         "fr": "key-account-manager-gastronomie-fresh-food-beverage-group-zurich-2uar1f"
       },
       "requirementsByLocale": {
@@ -13717,6 +13717,9 @@
       "previousSlugsByLocale": {
         "it": [
           "key-account-manager-gastronomie-fresh-food-beverage-group-zurich",
+          "key-account-manager-gastronomie-fresh-food-beverage-group-zurich-2uar1f"
+        ],
+        "de": [
           "key-account-manager-gastronomie-fresh-food-beverage-group-zurich-2uar1f"
         ]
       },
@@ -16521,7 +16524,8 @@
         "baker-confectioner-genossenschaft-migros-ostschweiz-schaffhausen",
         "patissier-confiseur-genossenschaft-migros-ostschweiz-schaffhausen",
         "fornaio-in-pasticceria-genossenschaft-migros-ostschweiz-schaffhausen",
-        "boulangerie-en-confiserie-genossenschaft-migros-ostschweiz-schaffhausen"
+        "boulangerie-en-confiserie-genossenschaft-migros-ostschweiz-schaffhausen",
+        "boulanger-patissier-genossenschaft-migros-ostschweiz-schaffhausen"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -16776,7 +16780,8 @@
         "cuoco-cuoca-genossenschaft-migros-ostschweiz-st-gallen",
         "cook-genossenschaft-migros-ostschweiz-st-gallen",
         "cuisinier-cuisiniere-genossenschaft-migros-ostschweiz-st-gallen",
-        "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen"
+        "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen",
+        "cucina-chef-genossenschaft-migros-ostschweiz-st-gallen-66548555e2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -16890,7 +16895,8 @@
         "backer-in-konditor-in-genossenschaft-migros-ostschweiz-winterthur",
         "panettiere-pasticciere-genossenschaft-migros-ostschweiz-winterthur",
         "baker-confectioner-genossenschaft-migros-ostschweiz-winterthur-11f85e",
-        "confiserie-baker-genossenschaft-migros-ostschweiz-winterthur"
+        "confiserie-baker-genossenschaft-migros-ostschweiz-winterthur",
+        "boulanger-patissier-genossenschaft-migros-ostschweiz-winterthur"
       ],
       "salarySource": "estimated",
       "baseSalary": {

@@ -45,10 +45,23 @@ describe('fast-publish workflow invariants', () => {
     expect(group).toContain('inputs.article_id');
   });
 
-  it('never installs dependencies on the critical path', () => {
-    // The whole point is skipping the full build; `npm ci` would add ~1-2 min
-    // to a path whose entire render takes under a second.
-    expect(workflow).not.toMatch(/^\s*run:\s*npm ci\b/m);
+  it('caches the full runtime only for the mandatory shard-writer lease', () => {
+    // The fast path still skips the full site build. The Firestore writer lease
+    // is mandatory now that history compaction and fast pushes share a writer;
+    // an uncached clean runner must install it rather than publish unlocked.
+    const installIdx = workflow.indexOf('- name: Install shard-writer dependencies');
+    const rendererIdx = workflow.indexOf('- name: Install article renderer runtime dependencies');
+    expect(installIdx).toBeGreaterThan(-1);
+    expect(installIdx).toBeLessThan(rendererIdx);
+    expect(workflow).toContain('uses: actions/cache@v6');
+    expect(workflow).toContain("key: node-modules-${{ runner.os }}-node22-${{ hashFiles('package-lock.json') }}");
+    expect(workflow).toContain('run: npm ci --ignore-scripts --no-audit --no-fund');
+    expect(workflow.slice(installIdx, rendererIdx)).toContain('cache-hit');
+    const cacheIdx = workflow.indexOf('- name: Cache shard-writer dependencies');
+    const cacheEnd = workflow.indexOf('\n      - name:', cacheIdx + 1);
+    expect(workflow.slice(cacheIdx, cacheEnd)).toContain(
+      "if: inputs.dry_run != true && inputs.dry_run != 'true'",
+    );
   });
 
   it('pings search engines only after live verification, never before', () => {

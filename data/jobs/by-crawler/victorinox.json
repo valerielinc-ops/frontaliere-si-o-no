@@ -179,7 +179,7 @@
         "it": "applicazione-dell-iniziativa-ibach-m-f-d-victorinox-ibach-schwyz",
         "en": "initiative-application-ibach-m-f-d-victorinox-ibach-schwyz",
         "de": "initiativbewerbung-ibach-m-w-d-victorinox-ibach-schwyz",
-        "fr": "candidature-spontanee-ibach-tous-les-genres-victorinox-ibach-schwyz"
+        "fr": "demande-d-initiative-ibach-m-f-d-victorinox-ibach-schwyz"
       },
       "company": "Victorinox",
       "companyKey": "victorinox",
@@ -227,7 +227,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "initiativbewerbung-ibach-m-w-d-victorinox-ibach-schwyz",
-        "demande-d-initiative-ibach-m-f-d-victorinox-ibach-schwyz"
+        "candidature-spontanee-ibach-tous-les-genres-victorinox-ibach-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -238,7 +238,7 @@
         ],
         "fr": [
           "initiativbewerbung-ibach-m-w-d-victorinox-ibach-schwyz",
-          "demande-d-initiative-ibach-m-f-d-victorinox-ibach-schwyz"
+          "candidature-spontanee-ibach-tous-les-genres-victorinox-ibach-schwyz"
         ]
       },
       "firstSeenAt": "2026-07-04T12:22:24.532Z",
@@ -491,7 +491,7 @@
       "slug": "consigliere-legale-m-f-d-victorinox-ibach-schwyz",
       "slugByLocale": {
         "it": "consigliere-legale-m-f-d-victorinox-ibach-schwyz",
-        "en": "legal-counsel-m-w-d-victorinox-ibach-schwyz",
+        "en": "consigliere-legale-m-f-d-victorinox-ibach-schwyz",
         "de": "legal-counsel-m-w-d-victorinox-ibach-schwyz",
         "fr": "conseiller-juridique-h-f-d-victorinox-ibach-schwyz"
       },
@@ -545,6 +545,9 @@
       "previousSlugsByLocale": {
         "it": [
           "legal-counsel-m-w-d-victorinox-ibach-schwyz"
+        ],
+        "en": [
+          "legal-counsel-m-w-d-victorinox-ibach-schwyz"
         ]
       },
       "firstSeenAt": "2026-08-18T09:45:47.035Z",
@@ -567,12 +570,12 @@
     },
     {
       "id": "victorinox-9fe945ebdd95",
-      "slug": "projektleiter-elektroplanung-m-w-d-victorinox-ibach-schwyz",
+      "slug": "project-manager-pianificazione-elettrica-m-f-d-victorinox-ibach-schwyz",
       "slugByLocale": {
         "de": "projektleiter-elektroplanung-m-w-d-victorinox-ibach-schwyz",
-        "it": "projektleiter-elektroplanung-m-w-d-victorinox-ibach-schwyz",
-        "en": "projektleiter-elektroplanung-m-w-d-victorinox-ibach-schwyz",
-        "fr": "projektleiter-elektroplanung-m-w-d-victorinox-ibach-schwyz"
+        "it": "project-manager-pianificazione-elettrica-m-f-d-victorinox-ibach-schwyz",
+        "en": "project-manager-electrical-planning-m-f-d-victorinox-ibach-schwyz",
+        "fr": "gestionnaire-de-projet-planification-electrique-h-f-d-victorinox-ibach-schwyz"
       },
       "company": "Victorinox",
       "companyKey": "victorinox",
@@ -635,16 +638,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T21:17:07.801Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:17:07.801Z"
+      "firstSeenAt": "2026-11-16T21:17:07.801Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-elektroplanung-m-w-d-victorinox-ibach-schwyz"
+        ],
+        "en": [
+          "projektleiter-elektroplanung-m-w-d-victorinox-ibach-schwyz"
+        ],
+        "fr": [
+          "projektleiter-elektroplanung-m-w-d-victorinox-ibach-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "projektleiter-elektroplanung-m-w-d-victorinox-ibach-schwyz"
+      ]
     },
     {
       "id": "victorinox-e059972b8d15",
-      "slug": "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz",
+      "slug": "product-manager-ingranaggio-da-viaggio-80-100-m-f-d-victorinox-ibach-schwyz",
       "slugByLocale": {
         "de": "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz",
-        "it": "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz",
+        "it": "product-manager-ingranaggio-da-viaggio-80-100-m-f-d-victorinox-ibach-schwyz",
         "en": "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz",
-        "fr": "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz"
+        "fr": "gestionnaire-de-produits-equipement-de-voyage-80-100-h-f-d-victorinox-ibach-schwyz"
       },
       "company": "Victorinox",
       "companyKey": "victorinox",
@@ -708,7 +725,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T21:17:07.239Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:17:07.239Z"
+      "firstSeenAt": "2026-11-16T21:17:07.239Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz"
+        ],
+        "fr": [
+          "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz"
+      ]
     },
     {
       "id": "victorinox-9436b019e91b",

@@ -493,6 +493,7 @@ describe('publish generation heartbeat for build-skipped article shards', () => 
     expect(PUBLISH_WORKFLOW).toContain('id: heartbeat-excluded-articolisvizzera-nonit');
     expect(PUBLISH_WORKFLOW).toContain("echo 'articolisvizzera_heartbeat_succeeded=true' >> \"$GITHUB_OUTPUT\"");
     expect(gateBlock).toContain("if: always() && matrix.locale != 'it'");
+    expect(gateBlock).toContain('id: require-excluded-articolisvizzera-heartbeat');
     expect(gateBlock).toContain('HEARTBEAT_SUCCEEDED: ${{ steps.heartbeat-excluded-articolisvizzera-nonit.outputs.articolisvizzera_heartbeat_succeeded');
     expect(gateBlock).toContain('[ "$HEARTBEAT_SUCCEEDED" != true ]');
     expect(gateBlock).toContain('exit 1');
@@ -501,7 +502,9 @@ describe('publish generation heartbeat for build-skipped article shards', () => 
     expect(heartbeatStart).toBeGreaterThan(-1);
     expect(heartbeatStart).toBeLessThan(receiptStart);
     expect(PUBLISH_WORKFLOW.slice(gateStart, gateEnd)).not.toContain('DURABLE_LOCALE_PUBLISHED');
-    expect(PUBLISH_WORKFLOW.slice(receiptStart, receiptStart + 600))
+    expect(PUBLISH_WORKFLOW.slice(receiptStart, receiptStart + 700))
+      .toContain("steps.require-excluded-articolisvizzera-heartbeat.outcome == 'success'");
+    expect(PUBLISH_WORKFLOW.slice(receiptStart, receiptStart + 700))
       .toContain("steps.push-section-shards-nonit.outcome == 'success'");
     expect(PUBLISH_WORKFLOW).toContain("needs.publish-nonit-shards.result == 'success'");
   });
