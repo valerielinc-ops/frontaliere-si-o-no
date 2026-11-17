@@ -100,6 +100,27 @@ describe('unvalidated-perf-claim: le prove accettate e i numeri che non sono pre
     expect(res.violations.some(isClaimViolation)).toBe(false);
   });
 
+  it('riconosce gli ausiliari stato e been nei claim non misurati pre-merge', () => {
+    for (const claim of [
+      '- Il tempo di build non è stato misurato pre-merge.',
+      '- The build time has not been measured pre-merge.',
+    ]) {
+      const res = strict(body(
+        claim,
+        '- blocked: misura post-merge sulla run `tests.yml`; soglia 30 minuti. **Trigger di revert:** se il job supera 30 minuti, revert di questa PR.',
+      ));
+      expect(res.violations.some(isClaimViolation), claim).toBe(false);
+    }
+  });
+
+  it('non tratta una parola generica come identificatore di job o workflow', () => {
+    const res = strict(body(
+      '- La riduzione wall-clock non è validata pre-merge.',
+      '- blocked: misura post-merge; ci sarà una soglia di 80 MB; **Trigger di revert:** rollback oltre 80 MB.',
+    ));
+    expect(res.violations.some(isClaimViolation)).toBe(true);
+  });
+
   it('numeri che non sono prestazioni («3 file», «12 test»)', () => {
     const res = strict(body('- Aggiornati 3 file del crawler e aggiunti 12 test; il parser evita i duplicati di slug.'));
     expect(res.ok).toBe(true);

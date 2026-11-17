@@ -494,13 +494,18 @@ const PERF_EVIDENCE_MEASURE_RE = /\bmisur[ae]\s+(?:pre\/post|prima\/dopo|prima e
 const PERF_EVIDENCE_REVERT_RE = /\b(?:trigger\s+di\s+revert|revert[- ]trigger|rischio\s+di\s+revert)\b\s*(?::|[-–—])?\s*([^\n.;]*)/i;
 const PERF_EVIDENCE_BLOCKED_RE = /\bblocked\s*:\s*misura\s+post-?merge\b([^\n.;]*)/i;
 const PERF_EVIDENCE_BASELINE_RE = /\bbaseline\b\s*(?::|[-–—])?\s*([^\n.;]*)/i;
+const PERF_DEFERRED_NEGATION = String.raw`(?:non|(?:(?:has|have)\s+)?not)`;
+const PERF_DEFERRED_QUALIFIERS = String.raw`(?:(?:(?:stato|stata|stati|state|been)\s+(?:ancora|yet)\s+|(?:ancora|yet)\s+(?:(?:stato|stata|stati|state|been)\s+)?|(?:stato|stata|stati|state|been)\s+|(?:ancora|yet)\s+))?`;
 const PERF_DEFERRED_CLAIM_RE = new RegExp(
   String.raw`\b(?:`
-  + String.raw`(?:non|not)\s+(?:è\s+|is\s+)?(?:ancora\s+|yet\s+)?(?:validat\w*|misurat\w*|verificat\w*)\s+pre-?merge`
-  + String.raw`|pre-?merge\s+(?:non|not)\s+(?:è\s+|is\s+)?(?:ancora\s+|yet\s+)?(?:validat\w*|misurat\w*|verificat\w*))\b`,
+  + PERF_DEFERRED_NEGATION + String.raw`\s+(?:è\s+|is\s+)?` + PERF_DEFERRED_QUALIFIERS
+  + String.raw`(?:validat\w*|misurat\w*|verificat\w*)\s+pre-?merge`
+  + String.raw`|pre-?merge\s+` + PERF_DEFERRED_NEGATION + String.raw`\s+(?:è\s+|is\s+)?` + PERF_DEFERRED_QUALIFIERS
+  + String.raw`(?:validat\w*|misurat\w*|verificat\w*))\b`,
   'i',
 );
 const PERF_CONTEXT_RE = new RegExp(`${PERF_RESOURCE}|${PERF_BENEFIT}|${PERF_QTY}`, 'i');
+const PERF_CONCRETE_JOB_WORKFLOW_RE = /(?:\/actions\/runs\/\d+|\.ya?ml\b|\b(?:workflow|job|run|deploy)\s+(?:["'`][^"'`]+["'`]|[A-Za-z0-9]+[A-Za-z0-9_.:\/-]*(?:[._:\/-][A-Za-z0-9_.:\/-]*|\d+)))/i;
 const PERF_PAIR_RE = new RegExp(
   String.raw`${PERF_QTY}[^.\n]{0,40}(?:\bcontro\b|\bvs\.?(?!\w)|→|->)[^.\n]{0,20}?${PERF_QTY}`
   + String.raw`|\bda\s+(?:circa\s+|~)?${PERF_QTY}\s+a\s+(?:circa\s+|~)?${PERF_QTY}`,
@@ -556,7 +561,8 @@ function hasDeferredPerfTracking(body) {
   const units = topLevelBullets(residual, { includePreamble: true });
   const candidates = units.length > 0 ? units.map((unit) => unit.text) : [residual];
   return candidates.some((unit) => {
-    const clean = stripCode(stripNonContent(unit));
+    const source = stripNonContent(unit);
+    const clean = stripCode(source);
     const blocked = PERF_EVIDENCE_BLOCKED_RE.exec(clean);
     if (!blocked) return false;
 
@@ -565,7 +571,7 @@ function hasDeferredPerfTracking(body) {
       && hasSubstantialEvidenceTail(trigger)
       && /\b(?:revert|rollback|ripristin\w*)\b/i.test(trigger[1]);
     const hasThreshold = new RegExp(PERF_QTY, 'i').test(clean);
-    const hasJobOrWorkflow = /\b(?:workflow|job|run|deploy|ci)\b|\.ya?ml\b|\/actions\/runs\//i.test(clean);
+    const hasJobOrWorkflow = PERF_CONCRETE_JOB_WORKFLOW_RE.test(source);
     return Boolean(hasRevertAction && hasThreshold && hasJobOrWorkflow);
   });
 }
