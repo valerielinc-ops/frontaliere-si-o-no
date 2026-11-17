@@ -3300,6 +3300,9 @@ async function genericCookieControlsShareContainer(page, button, closeControls) 
   const frame = frames[frameNumber]
     || (frameNumber === 0 ? (typeof page?.mainFrame === 'function' ? page.mainFrame() : page) : null);
   const closeIds = closeControls.map(candidate => String(candidate.id || '').trim()).filter(Boolean);
+  const explicitCookieChoice = COOKIE_WORD_RE.test(cookieControlLabel(button))
+    || closeControls.some(candidate => COOKIE_WORD_RE.test(cookieControlLabel(candidate)));
+  const copySource = explicitCookieChoice ? COOKIE_WORD_RE.source : COOKIE_CONSENT_COPY_RE.source;
   if (button.id && closeIds.length && typeof frame?.evaluate === 'function') {
     const domResult = await frame.evaluate(({ acceptId, closeIds: ids, copyPattern }) => {
       const normalize = value => String(value || '').replace(/\s+/g, ' ').trim();
@@ -3346,7 +3349,7 @@ async function genericCookieControlsShareContainer(page, button, closeControls) 
         if (acceptGenericSurface && acceptGenericSurface === closeGenericSurface) return true;
       }
       return false;
-    }, { acceptId: String(button.id), closeIds, copyPattern: COOKIE_CONSENT_COPY_RE.source }).catch(() => null);
+    }, { acceptId: String(button.id), closeIds, copyPattern: copySource }).catch(() => null);
     if (typeof domResult === 'boolean') return domResult;
   }
   // Snapshot fixtures and older producers may carry a stable container identity
@@ -3355,7 +3358,7 @@ async function genericCookieControlsShareContainer(page, button, closeControls) 
   const scopedCopyEvidence = [button, ...closeControls]
     .flatMap(candidate => [candidate.cookieContainerText, candidate.cookieContextText, candidate.containerText,
       candidate.context, candidate.section])
-    .some(value => COOKIE_CONSENT_COPY_RE.test(normalizeCookieText(value)));
+    .some(value => new RegExp(copySource, 'i').test(normalizeCookieText(value)));
   return Boolean(scope && sameScope && scopedCopyEvidence);
 }
 
@@ -3377,7 +3380,10 @@ async function isPageCookieConsentControl(page, snapshot, button) {
     || (frame === 0 ? (typeof page?.mainFrame === 'function' ? page.mainFrame() : page) : null);
   const ownerText = await ownerFrame?.evaluate?.(() => document.body?.innerText || '').catch(() => '') || '';
   const consentText = ownerText || (frame === 0 ? snapshot?.text : '');
-  if (!COOKIE_CONSENT_COPY_RE.test(normalizeCookieText(consentText))) return false;
+  const hasCookieProse = COOKIE_CONSENT_COPY_RE.test(normalizeCookieText(consentText))
+    || ((COOKIE_WORD_RE.test(label) || closeControls.some(c => COOKIE_WORD_RE.test(cookieControlLabel(c))))
+      && COOKIE_WORD_RE.test(normalizeCookieText(consentText)));
+  if (!hasCookieProse) return false;
   return genericCookieControlsShareContainer(page, button, closeControls);
 }
 

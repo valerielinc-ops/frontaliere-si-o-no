@@ -24,7 +24,7 @@ vi.mock('../scripts/assisted-application/lib/portal/fill.mjs', async importOrigi
   }),
 }));
 
-import { handleAuth, passwordResetRequestSurface } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { dismissCookieBanner, handleAuth, passwordResetRequestSurface } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const host = 'swarovski.wd3.myworkdayjobs.com';
 const url = `https://${host}/fr-FR/swarovski/job/Mendrisio-Outlet/Seasonal-Sales-Consultant_R-12345-1/apply/applyManually`;
@@ -282,5 +282,87 @@ describe('bounded Workday password-reset request surface', () => {
       email: { id: 'reset-email', dialog: true },
       request: { id: 'reset-send', text: 'Envoyer', dialog: true },
     });
+  });
+
+  it('accepts French cookie Refuser + Accepter les cookies without English/prose consent keywords', async () => {
+    const clicked: string[] = [];
+    const { resolveCookieConsent } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
+    let snapshot: any = {
+      url: 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio/Role_R-1/apply/applyManually',
+      text: 'Vos choix de cookies : Refuser / Accepter les cookies',
+      fields: [],
+      buttons: [
+        { id: 'f2', frame: 0, text: 'Refuser', dialog: false },
+        { id: 'f3', frame: 0, text: 'Accepter les cookies', dialog: false },
+      ],
+    };
+    const makeLocator = (id: string) => ({
+      first: () => ({
+        isVisible: async () => snapshot.buttons.some((b: any) => b.id === id),
+        click: async () => {
+          clicked.push(id);
+          snapshot = { ...snapshot, buttons: [] };
+        },
+        evaluate: async () => ({ tagName: 'BUTTON', role: '', href: null, text: id === 'f2' ? 'Refuser' : 'Accepter les cookies', ariaLabel: '', title: '', labelledBy: '', dataAutomationId: '', formId: '', formIdentityFields: [], formHasPassword: false }),
+      }),
+    });
+    const frame: any = {
+      url: () => snapshot.url,
+      evaluate: vi.fn(async (fn: Function) => {
+        const src = String(fn);
+        if (src.includes('document.body?.innerText')) return snapshot.text;
+        if (src.includes('const controlFor')) return true;
+        return snapshot;
+      }),
+      locator: (sel: string) => {
+        const m = /data-aa-id="([^"]+)"/.exec(sel);
+        return makeLocator(m?.[1] || '');
+      },
+    };
+    const page: any = {
+      url: () => snapshot.url,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      waitForTimeout: async () => {},
+    };
+    await resolveCookieConsent(page, snapshot);
+    expect(clicked).toEqual(['f2']);
+  });
+
+  it('uses cookie-word evidence in the snapshot fallback for a bounded cookie pair', async () => {
+    const clicked: string[] = [];
+    let snapshot: any = {
+      url: 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio/Role_R-1/apply/applyManually',
+      text: 'cookies',
+      fields: [],
+      buttons: [
+        { id: 'f2', frame: 0, text: 'Refuser', cookieContainerId: 'cmp', cookieContainerText: 'cookies' },
+        { id: 'f3', frame: 0, text: 'Accepter les cookies', cookieContainerId: 'cmp', cookieContainerText: 'cookies' },
+      ],
+      links: [], dialogs: [],
+    };
+    recoveryState.snapshot = snapshot;
+    const frame: any = {
+      locator: (selector: string) => ({
+        first: () => ({
+          click: async () => {
+            clicked.push(/data-aa-id="([^"]+)"/.exec(selector)?.[1] || '');
+            snapshot = { ...snapshot, buttons: [] };
+            recoveryState.snapshot = snapshot;
+          },
+        }),
+      }),
+    };
+    const page: any = {
+      url: () => snapshot.url,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      waitForTimeout: async () => {},
+    };
+
+    const result = await dismissCookieBanner(page, snapshot);
+
+    expect(result.status).toBe('dismissed');
+    expect(clicked).toEqual(['f2']);
   });
 });
