@@ -1,7 +1,7 @@
 {
   "crawlerKey": "visionapartments",
-  "assembledAt": "2026-11-17T09:50:42.219Z",
-  "runId": "44054937007",
+  "assembledAt": "2026-11-17T21:54:17.577Z",
+  "runId": "44179405255",
   "jobs": [
     {
       "id": "visionapartments-8ba295514d0c",
@@ -35,7 +35,7 @@
       "url": "https://www.jobs.ch/fr/offres-emplois/detail/56071e0e-15da-4919-beea-4424c39f31ef/",
       "source": "VISIONAPARTMENTS Dedicated Parser (jobs.ch)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T09:50:36.190Z",
+      "crawledAt": "2026-11-17T21:54:11.206Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -55,22 +55,22 @@
       "applyUrl": "https://www.jobs.ch/fr/offres-emplois/detail/56071e0e-15da-4919-beea-4424c39f31ef/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "fr": [
-          "projektleiter-in-real-estate-development-60-vision-management-services-gmbh-zurich",
-          "chef-cheffe-de-projet-construction-et-renovation-60-vision-management-services-gmbh-zurich"
-        ],
-        "it": [
-          "projektleiter-in-real-estate-development-60-visionapartments-zurich",
-          "chef-cheffe-de-projet-construction-et-renovation-60-visionapartments-zurich"
-        ]
-      },
       "previousSlugs": [
         "projektleiter-in-real-estate-development-60-visionapartments-zurich",
         "projektleiter-in-real-estate-development-60-vision-management-services-gmbh-zurich",
         "chef-cheffe-de-projet-construction-et-renovation-60-visionapartments-zurich",
         "chef-cheffe-de-projet-construction-et-renovation-60-vision-management-services-gmbh-zurich"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "projektleiter-in-real-estate-development-60-visionapartments-zurich",
+          "chef-cheffe-de-projet-construction-et-renovation-60-visionapartments-zurich"
+        ],
+        "fr": [
+          "projektleiter-in-real-estate-development-60-vision-management-services-gmbh-zurich",
+          "chef-cheffe-de-projet-construction-et-renovation-60-vision-management-services-gmbh-zurich"
+        ]
+      },
       "firstSeenAt": "2026-10-19T09:59:03.293Z",
       "salaryMin": 60900,
       "salaryMax": 92400,
@@ -86,7 +86,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T09:50:36.190Z",
+      "validThrough": "2027-01-17T21:54:11.206Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -174,7 +174,7 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-13T21:31:05.324Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
