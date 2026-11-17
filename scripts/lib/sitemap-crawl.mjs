@@ -471,11 +471,50 @@ function snapshotPerSitemap(snapshot) {
   return snapshot?.perSitemap && typeof snapshot.perSitemap === 'object' ? snapshot.perSitemap : {};
 }
 
+function hasSitemapMembership(snapshot) {
+  return !Array.isArray(snapshot)
+    && snapshot?.perSitemap
+    && typeof snapshot.perSitemap === 'object'
+    && !Array.isArray(snapshot.perSitemap);
+}
+
+function archiveOnlyCurrentUrls(currentPer, current, digestIgnoredSitemap) {
+  if (typeof digestIgnoredSitemap !== 'function' || !hasSitemapMembership(current)) return new Set();
+
+  const archiveUrls = new Set();
+  for (const [key, urls] of Object.entries(currentPer)) {
+    if (!digestIgnoredSitemap(key)) continue;
+    for (const url of asSet(urls)) archiveUrls.add(url);
+  }
+  for (const [key, urls] of Object.entries(currentPer)) {
+    if (digestIgnoredSitemap(key)) continue;
+    for (const url of asSet(urls)) archiveUrls.delete(url);
+  }
+  return archiveUrls;
+}
+
+function changedUrlsWithArchiveAddedLast(changed, current, previous, digestIgnoredSitemap) {
+  const sorted = [...changed].sort();
+  const archiveOnlyUrls = archiveOnlyCurrentUrls(snapshotPerSitemap(current), current, digestIgnoredSitemap);
+  if (archiveOnlyUrls.size === 0) return sorted;
+
+  const previousUrls = snapshotUrls(previous);
+  const addedArchive = sorted.filter((url) => archiveOnlyUrls.has(url) && !previousUrls.has(url));
+  if (addedArchive.length === 0) return sorted;
+
+  const addedArchiveSet = new Set(addedArchive);
+  return [...sorted.filter((url) => !addedArchiveSet.has(url)), ...addedArchive];
+}
+
 /** Return URLs whose sitemap membership, lastmod, or XML payload changed. */
 export function changedUrls(
   current,
   previous,
-  { includeRemoved = false, includeRemovedFromMissingSitemaps = true } = {},
+  {
+    includeRemoved = false,
+    includeRemovedFromMissingSitemaps = true,
+    digestIgnoredSitemap,
+  } = {},
 ) {
   const currentPer = snapshotPerSitemap(current);
   const previousPer = snapshotPerSitemap(previous);
@@ -495,7 +534,7 @@ export function changedUrls(
       const now = snapshotUrls(current);
       for (const url of previousPer._legacy_flat) if (!now.has(url)) changed.add(url);
     }
-    return [...changed].sort();
+    return changedUrlsWithArchiveAddedLast(changed, current, previous, digestIgnoredSitemap);
   }
 
   for (const key of Object.keys(currentPer)) {
@@ -542,7 +581,7 @@ export function changedUrls(
     }
   }
 
-  return [...changed].sort();
+  return changedUrlsWithArchiveAddedLast(changed, current, previous, digestIgnoredSitemap);
 }
 
 /** Return changed URLs grouped by graph-level priority without double-counting. */
@@ -564,7 +603,7 @@ export function changedUrlTiers(
   const legacy = Array.isArray(previous) || previous?.version !== 3 || Object.keys(previousDigests).length === 0;
   const currentUrls = snapshotUrls(current);
   const previousUrls = snapshotUrls(previous);
-  const added = [...currentUrls].filter((url) => !previousUrls.has(url)).sort();
+  let added = [...currentUrls].filter((url) => !previousUrls.has(url)).sort();
 
   const removedSet = new Set();
   if (includeRemoved) {
@@ -583,17 +622,12 @@ export function changedUrlTiers(
   }
   const removed = [...removedSet].sort();
 
+  // Classify the original additions before splitting the archive-only last tier.
   const alreadyClassified = new Set([...added, ...removed]);
   const currentArchiveUrls = new Set();
   const previousArchiveUrls = new Set();
-  const hasCurrentSitemapMembership = !Array.isArray(current)
-    && current?.perSitemap
-    && typeof current.perSitemap === 'object'
-    && !Array.isArray(current.perSitemap);
-  const hasPreviousSitemapMembership = !Array.isArray(previous)
-    && previous?.perSitemap
-    && typeof previous.perSitemap === 'object'
-    && !Array.isArray(previous.perSitemap);
+  const hasCurrentSitemapMembership = hasSitemapMembership(current);
+  const hasPreviousSitemapMembership = hasSitemapMembership(previous);
   if (typeof digestIgnoredSitemap === 'function' && hasCurrentSitemapMembership && hasPreviousSitemapMembership) {
     for (const [key, urls] of Object.entries(currentPer)) {
       if (!digestIgnoredSitemap(key)) continue;
@@ -612,6 +646,10 @@ export function changedUrlTiers(
     .sort();
   for (const url of movedIntoArchive) alreadyClassified.add(url);
   for (const url of movedOutOfArchive) alreadyClassified.add(url);
+
+  const currentArchiveOnlyUrls = archiveOnlyCurrentUrls(currentPer, current, digestIgnoredSitemap);
+  const addedArchive = added.filter((url) => currentArchiveOnlyUrls.has(url));
+  added = added.filter((url) => !currentArchiveOnlyUrls.has(url));
 
   const lastmodSet = new Set();
   for (const key of Object.keys(currentPer)) {
@@ -637,7 +675,7 @@ export function changedUrlTiers(
     if (!digestChanged) continue;
 
     const urls = [...asSet(currentPer[key])].sort();
-    if (digestIgnoredSitemap?.(key)) {
+    if (typeof digestIgnoredSitemap === 'function' && digestIgnoredSitemap(key)) {
       suppressedSitemaps.add(key);
       for (const url of urls) {
         if (!alreadyClassified.has(url)) suppressedUrls.add(url);
@@ -651,6 +689,7 @@ export function changedUrlTiers(
 
   return {
     added,
+    addedArchive,
     removed,
     movedIntoArchive,
     movedOutOfArchive,

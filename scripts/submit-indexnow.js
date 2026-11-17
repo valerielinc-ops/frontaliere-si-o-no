@@ -192,6 +192,7 @@ function appendIndexNowStepSummary(summary) {
   const rows = [
     ['Grafo', summary.graph],
     ['Added', summary.added],
+    ['Added archive', summary.addedArchive],
     ['Removed', summary.removed],
     ['Moved into archive', summary.movedIntoArchive],
     ['Moved out of archive', summary.movedOutOfArchive],
@@ -244,6 +245,7 @@ export async function submitToIndexNow(overrides = {}) {
     ...tiers.movedOutOfArchive,
     ...tiers.lastmod,
     ...digestUrls,
+    ...tiers.addedArchive,
   ]);
   const classifiedUrls = new Set(urls);
   const alternateCount = publicRegistryAlternates(urls);
@@ -258,11 +260,14 @@ export async function submitToIndexNow(overrides = {}) {
     ['lastmod', tiers.lastmod],
     ['digest', digestUrls],
     ['alternate', alternateUrls],
+    ['addedArchive', tiers.addedArchive],
   ];
   const total = urls.size;
   const summary = {
     graph,
+    // `added` now excludes URLs present only in expired-archive sitemaps.
     added: tiers.added.length,
+    addedArchive: tiers.addedArchive.length,
     removed: tiers.removed.length,
     movedIntoArchive: tiers.movedIntoArchive.length,
     movedOutOfArchive: tiers.movedOutOfArchive.length,
@@ -277,7 +282,7 @@ export async function submitToIndexNow(overrides = {}) {
     stoppedByDeadline: false,
   };
 
-  console.log(`📊 ${graph} URL nel grafo; added=${summary.added} removed=${summary.removed} movedIn=${summary.movedIntoArchive} movedOut=${summary.movedOutOfArchive} lastmod=${summary.lastmod} digest=${summary.digest} (digest archivio ignorato: ${tiers.suppressedDigest.sitemaps} sitemap, ${tiers.suppressedDigest.urls} URL)`);
+  console.log(`📊 ${graph} URL nel grafo; added=${summary.added} addedArchive=${summary.addedArchive} removed=${summary.removed} movedIn=${summary.movedIntoArchive} movedOut=${summary.movedOutOfArchive} lastmod=${summary.lastmod} digest=${summary.digest} (digest archivio ignorato: ${tiers.suppressedDigest.sitemaps} sitemap, ${tiers.suppressedDigest.urls} URL)`);
   if (previous) {
     console.log(`📸 Baseline pre-deploy presente: ${PRE_DEPLOY_SNAPSHOT}`);
   } else {
