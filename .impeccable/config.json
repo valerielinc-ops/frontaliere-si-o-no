@@ -161,6 +161,24 @@
         ],
         "createdAt": "2026-11-16T17:38:42.064Z",
         "reason": "Agent: index.html declares self-hosted Space Grotesk for headings as the established display font; project design context calls for custom expressive typography."
+      },
+      {
+        "rule": "overused-font",
+        "value": "inter",
+        "files": [
+          "public/404.html"
+        ],
+        "createdAt": "2026-11-17T00:17:33.163Z",
+        "reason": "Project DESIGN.md explicitly prescribes Inter for body text; public/404.html is a pre-existing branded error surface."
+      },
+      {
+        "rule": "ai-color-palette",
+        "value": "*",
+        "files": [
+          "public/404.html"
+        ],
+        "createdAt": "2026-11-17T00:17:38.241Z",
+        "reason": "Project DESIGN.md defines Electric Purple as the brand accent; public/404.html has a pre-existing intentional branded header gradient."
       }
     ]
   },
