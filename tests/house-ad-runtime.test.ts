@@ -317,7 +317,7 @@ describe('per-slot first-party creative delivery', () => {
       experimentId: 'house_creatives_v2', assignmentSource: 'firebase_remote_config', variant: 'profile_match', enrolled: true,
     });
   });
-  it('keeps the retired reader-subscription creative out of the fallback rotation', async () => {
+  it('respects a disabled runtime gate even when Firebase enrolls a reader-subscription treatment', async () => {
     w.__ftAdsAuthState = 'anonymous';
     w.fetch.mockResolvedValue({ ok: true, json: async () => ({
       variant: 'time_saved', enrolled: true, experimentId: 'house_creatives_v2', assignmentSource: 'firebase_remote_config',

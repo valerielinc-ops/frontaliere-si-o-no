@@ -3,6 +3,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { AD_RECOVERY_CONTENT } from '../build-plugins/constants';
 
 const state = vi.hoisted(() => ({ active: false, callback: undefined as undefined | (() => void), houseRefresh: vi.fn(), recoveryRefresh: vi.fn(), allowed: undefined as undefined | (() => boolean), houseConfig: undefined as unknown, recoveryConfig: undefined as unknown, subscribe: vi.fn() }));
 vi.mock('../services/readerEntitlement', () => ({
@@ -46,8 +47,9 @@ describe('house campaign bootstrap entitlement updates', () => {
     expect(state.allowed?.()).toBe(true);
     expect(state.houseConfig).toMatchObject({
       readerSubscriptionPaths: { it: '/abbonamento/', en: '/en/subscribe/', de: '/de/abonnement/', fr: '/fr/abonnement/' },
-      readerSubscriptionExperimentEnabled: false,
+      readerSubscriptionExperimentEnabled: true,
     });
+    expect(AD_RECOVERY_CONTENT).toContain('readerSubscriptionExperimentEnabled:true');
     expect(state.recoveryConfig).toMatchObject({ readerSubscriptionPaths: ['/abbonamento/', '/en/subscribe/', '/de/abonnement/', '/fr/abonnement/'] });
     state.active = true; state.callback?.();
     expect(state.allowed?.()).toBe(false);
