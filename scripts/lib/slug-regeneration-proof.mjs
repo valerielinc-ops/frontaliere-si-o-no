@@ -102,7 +102,13 @@ export function snapshotSlugCorpus(filePaths, { root = process.cwd(), read = rea
           jobBridgeCount++;
           ensureSet(bridgeByLocale, locale).add(slug);
           bridgeRefs.push({ kind: 'locale', locale, slug });
-          if (slug === activeLocale || slug === masterSlug) selfBridgeCount++;
+          // A locale-aware bridge is self-referential only when it points to
+          // that locale's active route. The master slug is the Italian route;
+          // under en/de/fr it can be the old active route preserved during a
+          // locale translation and must not fail the post-run proof.
+          if (slug === activeLocale || (locale === 'it' && slug === masterSlug)) {
+            selfBridgeCount++;
+          }
         }
       }
 
