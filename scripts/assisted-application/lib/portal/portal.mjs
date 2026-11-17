@@ -5583,7 +5583,9 @@ const OTHER_EMPLOYER_MARKER_WORDS = new Set([
   'other', 'another', 'andere', 'anderer', 'anderes', 'anderen', 'fremde', 'fremder', 'fremdes',
   'altro', 'altra', 'altri', 'altre', 'autre', 'autres',
 ]);
-const FORM_SURFACE_START_RE = /^(?:numero(?:\s+di)?\s+candidatura|data\s+di\s+compilazione|application\s+(?:number|details)|candidate\s+information|personal\s+information|personal\s+data|first\s+name|last\s+name|vorname|nachname|e[\s-]?mail(?:\s+(?:adresse|address))?|telefono|address|type\s+of\s+application|tipo\s+di\s+candidatura|i\s+campi\b|fields?\s+marked\b)/iu;
+// Pinpoint renders action/cookie controls before its first field; they are
+// form chrome, not a role heading that can contradict the bound posting.
+const FORM_SURFACE_START_RE = /^(?:numero(?:\s+di)?\s+candidatura|data\s+di\s+compilazione|application\s+(?:number|details)|candidate\s+information|personal\s+information|personal\s+data|first\s+name|last\s+name|vorname|nachname|e[\s-]?mail(?:\s+(?:adresse|address))?|telefono|address|type\s+of\s+application|tipo\s+di\s+candidatura|i\s+campi\b|fields?\s+marked\b|save\s+application\s+for\s+later|cookies?)/iu;
 
 function isGenericFormChromeSegment(segment) {
   const words = normalizeWords(segment).split(' ').filter(Boolean);
