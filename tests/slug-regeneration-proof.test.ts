@@ -177,6 +177,7 @@ describe('slug regeneration post-run proof', () => {
     }
   });
 
+  // Acceptance: a missing locale slug falls back to master for self-bridge counting.
   it('counts a master bridge as self when the locale has no explicit active slug', () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'slug-regeneration-proof-fallback-'));
     const slicePath = path.join(root, 'slice.json');
