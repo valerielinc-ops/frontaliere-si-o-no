@@ -52,7 +52,7 @@ const isArticlePublisherSelectionPath = (file) =>
 const changedPathFile = process.env.CHANGED_PATHS_FILE || 'changed-paths.txt';
 const changedStatusFile = process.env.CHANGED_PATHS_STATUS_FILE || 'changed-paths-status.txt';
 const graphFile = process.env.VITEST_RELATED_GRAPH || '.cache/vitest-related/graph.json';
-const graphVersion = 21;
+const graphVersion = 22;
 const require = createRequire(import.meta.url);
 let typescript;
 const selectionOnly = process.argv.includes('--select-only');
@@ -714,6 +714,14 @@ const ignoredRe = GRAPH_IGNORED_RE;
 // finche' non l'ha ereditato una PR estranea (#7514, #7580).
 const githubAssetRe = /^\.github\/.+\.(?:ya?ml|json)$/i;
 const testFixtureRe = /^tests\/.+\.json$/i;
+// The browser extension is generated/runtime code, but its contract tests load
+// those files with readFileSync(new URL(...)) instead of importing them.
+// Keep that path-based dependency in the same bounded asset graph as workflow
+// and fixture files; otherwise a generated extension diff can fail selection
+// before Vitest starts.
+const assistedApplicationExtensionDirectory = 'scripts/assisted-application/extension';
+const assistedApplicationExtensionAssetRe = /^scripts\/assisted-application\/extension\/[^/]+\.(?:[cm]?js|json)$/i;
+const assistedApplicationExtensionLiteralRe = /(?<=['"\x60])(?:(?:\.\.?\/)+)?scripts\/assisted-application\/extension(?:\/[A-Za-z0-9._\/-]+)?/g;
 // Asset paths are only dependencies when the path starts a quoted/template
 // literal.  Matching `.github/workflows` in the middle of an explanatory
 // string (for example a live-data guard message) expands that one phrase to
@@ -725,7 +733,7 @@ const assetLiteralRe = /(?<=['"`])(?:(?:\.\.?\/)+)?(?:\.github|tests|data)\/[A-Z
 // `path.resolve(__dirname, '..', '.github', 'workflows', 'x.yml')`.
 // La sequenza di letterali consecutivi separati da virgola che inizia con
 // `'.github'`, `'data'`, `'.'` o `'..'` vale come il path unito con `/`.
-const segmentedAssetRe = /(['"])(?:\.github|data|\.\.?)\1(?:\s*,\s*(['"])[A-Za-z0-9._-][A-Za-z0-9._/-]*\2)+/g;
+const segmentedAssetRe = /(['"])(?:\.github|data|scripts|\.\.?)\1(?:\s*,\s*(['"])[A-Za-z0-9._-][A-Za-z0-9._/-]*\2)+/g;
 const segmentLiteralRe = /['"]([^'"]+)['"]/g;
 // Contratti di processo in prosa alla radice del repo. Come gli asset sotto
 // `.github/` non si importano: i test che ne congelano le frasi li aprono per
@@ -761,6 +769,7 @@ const testIrrelevantAssetEdges = new Map([
 const isRelatedAsset = (file) => githubAssetRe.test(file)
   || testFixtureRe.test(file)
   || dataAssetRe.test(file)
+  || assistedApplicationExtensionAssetRe.test(file)
   || rootDocContractSet.has(file);
 const skipCorpusWide = process.env.VITEST_SKIP_CORPUS_WIDE === 'true';
 const corpusWideTests = skipCorpusWide ? new Set(listCorpusWideTests()) : new Set();
@@ -838,7 +847,10 @@ function resolveAssetLiteral(from, rawLiteral) {
 }
 
 function assetLiteralsIn(code, from) {
-  const literals = new Set([...code.matchAll(assetLiteralRe)]
+  const literals = new Set([
+    ...code.matchAll(assetLiteralRe),
+    ...code.matchAll(assistedApplicationExtensionLiteralRe),
+  ]
     .map((match) => resolveAssetLiteral(from, match[0])));
   for (const [sequence] of code.matchAll(segmentedAssetRe)) {
     const segments = [...sequence.matchAll(segmentLiteralRe)].map((match) => match[1]);
@@ -924,6 +936,10 @@ function trackedAssets() {
     .concat(
       execFileSync('git', ['ls-files', '-z', '--', 'data'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
         .split('\0').filter(Boolean).map(normalize).filter((file) => file.startsWith('data/')),
+    )
+    .concat(
+      execFileSync('git', ['ls-files', '-z', '--', assistedApplicationExtensionDirectory], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+        .split('\0').filter(Boolean).map(normalize).filter((file) => assistedApplicationExtensionAssetRe.test(file)),
     );
 }
 
@@ -1026,7 +1042,10 @@ function importsOf(file, fileSet, assets, assetSet) {
   // letterale come `` `.github/…/crawler-group-${g}.yml` `` non produce arco, e
   // non serve: quei file non cambiano mai senza `contract.json`, che ne porta
   // gli sha256 ed e' nominato per esteso.
-  const literals = [...code.matchAll(assetLiteralRe)].map((m) => m[0]);
+  const literals = [
+    ...code.matchAll(assetLiteralRe),
+    ...code.matchAll(assistedApplicationExtensionLiteralRe),
+  ].map((m) => m[0]);
   for (const [sequence] of code.matchAll(segmentedAssetRe)) {
     const segments = [...sequence.matchAll(segmentLiteralRe)].map((m) => m[1]);
     const literal = segments.join('/');
@@ -1037,7 +1056,8 @@ function importsOf(file, fileSet, assets, assetSet) {
     // `` `.github/workflows/${name}` `` o `'.github/corpus-workflows/' + file` —
     // lascia il letterale con lo slash e senza normalizzazione non matcha.
     const literal = resolveAssetLiteral(file, rawLiteral);
-    const directoryLiteral = directoryLiterals.has(literal);
+    const directoryLiteral = directoryLiterals.has(literal)
+      || literal === assistedApplicationExtensionDirectory;
     if (assetSet.has(literal) && !testIrrelevantAssetEdges.get(file)?.has(literal)) {
       deps.add(literal);
       addImportBindings(imports, literal, [{ imported: '*', local: '*' }]);
@@ -1123,7 +1143,8 @@ function loadGraph(files, assets) {
   // la 19 limita gli asset workflow ai contratti globali o a scope espliciti;
   // la 20 conserva i reader che nominano il file workflow esatto; la 21
   // invalida le entry del publisher freshness test quando il suo workflow
-  // trigger entra nello scope asset esplicito.
+  // trigger entra nello scope asset esplicito. La 22 aggiunge l'albero runtime
+  // dell'estensione assisted-application agli asset letti per path.
   const assetsDigest = createHash('sha1').update([...assets].sort().join('\n')).digest('hex');
   try {
     const cached = JSON.parse(readFileSync(graphFile, 'utf8'));
