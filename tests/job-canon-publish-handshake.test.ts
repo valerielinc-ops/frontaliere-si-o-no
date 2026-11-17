@@ -10,6 +10,7 @@ import {
 } from '../scripts/ci/job-canon-affected-files.mjs';
 import { verifyMapFreshness } from '../scripts/ci/job-canon-publish-handshake.mjs';
 import { verifyMarker } from '../scripts/ci/cdn-build-marker-handshake.mjs';
+import { resolveJobCanonPublishProof } from '../scripts/ci/job-canon-publish-receipt.mjs';
 
 const PREP_SH = readFileSync(resolve('scripts/lib/deploy-it-pages-prep.sh'), 'utf8');
 const WAIT_SH = readFileSync(resolve('scripts/lib/wait-cdn-build-id.sh'), 'utf8');
@@ -17,6 +18,11 @@ const PUBLISH_YML = readFileSync(resolve('.github/workflows/deploy-publish.yml')
 const PUBLISH = YAML.parse(PUBLISH_YML) as {
   jobs: Record<string, { outputs?: Record<string, unknown>; steps?: Array<Record<string, any>> }>;
 };
+const SOURCE_RUN_ID = '43969699461';
+const SOURCE_SHA = 'c'.repeat(40);
+const BUILD_ID = '1770000000001';
+const earlyProof = { sourceRunId: SOURCE_RUN_ID, sourceSha: SOURCE_SHA, buildId: BUILD_ID };
+const durableReceipt = { published: 'true', ...earlyProof };
 
 function workflowStep(jobName: string, id: string) {
   const step = PUBLISH.jobs[jobName]?.steps?.find((candidate) => candidate.id === id);
@@ -41,7 +47,7 @@ function fixtureTree() {
 }
 
 describe('job-canon publication handshake', () => {
-  it('exports only the matching early job-canon receipt without changing cdn-ready status', () => {
+  it('exports the verified early source and build identity from cdn-ready', () => {
     const cdnReady = workflowStep('publish-it-cdn', 'cdn-ready');
     const run = String(cdnReady.run);
     const root = mkdtempSync(join(tmpdir(), 'job-canon-cdn-ready-'));
@@ -51,6 +57,12 @@ describe('job-canon publication handshake', () => {
       expect(run).not.toContain('${{');
       expect(cdnReady.if).toBe('always()');
       expect(cdnReady.env.EXPECTED_BUILD_ID).toBe('${{ needs.resolve-publish-plan.outputs.build_id }}');
+      expect(cdnReady.env.EXPECTED_SOURCE_RUN_ID).toBe('${{ inputs.source_run_id }}');
+      expect(cdnReady.env.EXPECTED_SOURCE_SHA).toBe('${{ inputs.source_sha }}');
+      expect(PUBLISH.jobs['publish-it-cdn'].outputs?.job_canon_source_run_id)
+        .toBe('${{ steps.cdn-ready.outputs.job_canon_source_run_id }}');
+      expect(PUBLISH.jobs['publish-it-cdn'].outputs?.job_canon_source_sha)
+        .toBe('${{ steps.cdn-ready.outputs.job_canon_source_sha }}');
       expect(PUBLISH.jobs['publish-it-cdn'].outputs?.job_canon_build_id)
         .toBe('${{ steps.cdn-ready.outputs.job_canon_build_id }}');
       expect(PUBLISH.jobs['publish-it-cdn'].outputs?.cdn_build_id)
@@ -58,10 +70,10 @@ describe('job-canon publication handshake', () => {
       expect(PUBLISH.jobs['publish-it-cdn'].outputs?.cdn_base)
         .toBe('${{ steps.cdn-ready.outputs.cdn_base }}');
 
-      const cases = [
-        { receiptContent: ' build-42 \n', expectedOutput: 'job_canon_build_id=build-42\n' },
-        { receiptContent: 'build-43\n', expectedOutput: 'job_canon_build_id=\n' },
-        { receiptContent: null, expectedOutput: 'job_canon_build_id=\n' },
+      const cases: Array<{ receiptContent: string | null; status: 0 | 1 }> = [
+        { receiptContent: ' 1770000000001 \n', status: 0 },
+        { receiptContent: '1770000000000\n', status: 1 },
+        { receiptContent: null, status: 1 },
       ];
       for (const testCase of cases) {
         if (testCase.receiptContent === null) rmSync(receipt, { force: true });
@@ -70,12 +82,21 @@ describe('job-canon publication handshake', () => {
         const result = runWorkflowBash(run, root, {
           EARLY_OUTCOME: 'success',
           RETRY_OUTCOME: 'skipped',
-          EXPECTED_BUILD_ID: 'build-42',
+          EXPECTED_SOURCE_RUN_ID: SOURCE_RUN_ID,
+          EXPECTED_SOURCE_SHA: SOURCE_SHA,
+          EXPECTED_BUILD_ID: BUILD_ID,
           GITHUB_OUTPUT: output,
         });
         expect(result.error).toBeUndefined();
-        expect(result.status).toBe(0);
-        expect(readFileSync(output, 'utf8')).toContain(testCase.expectedOutput);
+        expect(result.status).toBe(testCase.status);
+        if (testCase.status === 0) {
+          const contents = readFileSync(output, 'utf8');
+          expect(contents).toContain(`job_canon_source_run_id=${SOURCE_RUN_ID}\n`);
+          expect(contents).toContain(`job_canon_source_sha=${SOURCE_SHA}\n`);
+          expect(contents).toContain(`job_canon_build_id=${BUILD_ID}\n`);
+        } else {
+          expect(readFileSync(output, 'utf8')).not.toContain('job_canon_');
+        }
       }
 
       rmSync(receipt, { force: true });
@@ -83,74 +104,116 @@ describe('job-canon publication handshake', () => {
       const failedPush = runWorkflowBash(run, root, {
         EARLY_OUTCOME: 'failure',
         RETRY_OUTCOME: 'failure',
-        EXPECTED_BUILD_ID: 'build-42',
+        EXPECTED_SOURCE_RUN_ID: SOURCE_RUN_ID,
+        EXPECTED_SOURCE_SHA: SOURCE_SHA,
+        EXPECTED_BUILD_ID: BUILD_ID,
         GITHUB_OUTPUT: output,
       });
       expect(failedPush.status).toBe(1);
-      expect(readFileSync(output, 'utf8')).not.toContain('job_canon_build_id=');
+      expect(readFileSync(output, 'utf8')).not.toContain('job_canon_');
     } finally {
       rmSync(root, { recursive: true, force: true });
     }
   });
 
-  it('runs the finalizer gate with local or early receipt proof and fails closed otherwise', () => {
+  it('runs the finalizer gate with only source-bound early or durable proof', () => {
     const gate = workflowStep('finalize-it-publish', 'job-canon-publish-gate');
     const run = String(gate.run);
     const root = mkdtempSync(join(tmpdir(), 'job-canon-final-gate-'));
-    const receipt = join(root, 'job-canon-publish.ok');
+    const localReceipt = join(root, 'job-canon-publish.ok');
     try {
       expect(run).not.toContain('${{');
       expect(gate.if).toBe("steps.deploy-prep-it.outcome == 'success'");
-      expect(gate.env.EARLY_JOB_CANON_BUILD_ID)
-        .toBe('${{ needs.publish-it-cdn.outputs.job_canon_build_id }}');
-      expect(gate.env.EARLY_JOB_CANON_BUILD_ID).not.toContain('resolve-publish-receipts');
+      expect(run).toContain('node scripts/ci/job-canon-publish-receipt.mjs');
+      expect(run).not.toContain('RUNNER_TEMP/job-canon-publish.ok');
+      expect(gate.env.EXPECTED_SOURCE_RUN_ID).toBe('${{ inputs.source_run_id }}');
+      expect(gate.env.EXPECTED_SOURCE_SHA).toBe('${{ inputs.source_sha }}');
+      expect(gate.env.EXPECTED_BUILD_ID).toBe('${{ needs.resolve-publish-plan.outputs.build_id }}');
+      expect(gate.env.CDN_JOB_RESULT).toBe('${{ needs.publish-it-cdn.result }}');
+      expect(gate.env.EARLY_SOURCE_RUN_ID).toBe('${{ needs.publish-it-cdn.outputs.job_canon_source_run_id }}');
+      expect(gate.env.EARLY_SOURCE_SHA).toBe('${{ needs.publish-it-cdn.outputs.job_canon_source_sha }}');
+      expect(gate.env.EARLY_BUILD_ID).toBe('${{ needs.publish-it-cdn.outputs.job_canon_build_id }}');
+      expect(gate.env.DURABLE_RECEIPT_PUBLISHED).toBe('${{ needs.resolve-publish-receipts.outputs.it_cdn_published }}');
+      expect(gate.env.DURABLE_SOURCE_RUN_ID).toBe('${{ needs.resolve-publish-receipts.outputs.it_cdn_source_run_id }}');
+      expect(gate.env.DURABLE_SOURCE_SHA).toBe('${{ needs.resolve-publish-receipts.outputs.it_cdn_source_sha }}');
+      expect(gate.env.DURABLE_BUILD_ID).toBe('${{ needs.resolve-publish-receipts.outputs.it_cdn_build_id }}');
+      expect(gate.env.CDN_BASE).toBeUndefined();
+      expect(gate.env.EARLY_JOB_CANON_BUILD_ID).toBeUndefined();
 
-      const cases = [
+      // This file exists only on the test runner's local temp path and must not
+      // substitute for the early job output or the source-bound durable receipt.
+      writeFileSync(localReceipt, `${BUILD_ID}\n`);
+
+      const cases: Array<{
+        cdnJobResult: 'success' | 'skipped';
+        earlyProof: Partial<typeof earlyProof>;
+        durableReceipt: Partial<typeof durableReceipt>;
+        status: 0 | 1;
+        output: string;
+      }> = [
         {
-          receiptContent: 'build-42\n',
-          earlyBuildId: '',
+          cdnJobResult: 'success',
+          earlyProof,
+          durableReceipt: { published: 'false' },
           status: 0,
-          output: 'job-canon handshake closed for build build-42\n',
+          output: `job-canon handshake closed for build ${BUILD_ID} via early-job-output`,
         },
         {
-          receiptContent: null,
-          earlyBuildId: 'build-42',
+          cdnJobResult: 'skipped',
+          earlyProof: {},
+          durableReceipt,
           status: 0,
-          output: 'job-canon handshake closed for build build-42 (by the early CDN job)\n',
+          output: `job-canon handshake closed for build ${BUILD_ID} via durable-receipt`,
         },
         {
-          receiptContent: null,
-          earlyBuildId: '',
+          cdnJobResult: 'skipped',
+          earlyProof: {},
+          durableReceipt: { ...durableReceipt, published: 'false' },
           status: 1,
-          output: 'job-canon publication receipt is missing; refusing to upload a Pages artifact with bridge removals',
+          output: 'durable IT CDN receipt does not prove this source run, SHA, and build',
         },
         {
-          receiptContent: null,
-          earlyBuildId: 'build-43',
+          cdnJobResult: 'skipped',
+          earlyProof: {},
+          durableReceipt: { ...durableReceipt, sourceRunId: '43969699460' },
           status: 1,
-          output: 'job-canon publication receipt is missing; refusing to upload a Pages artifact with bridge removals',
+          output: 'durable IT CDN receipt does not prove this source run, SHA, and build',
         },
         {
-          receiptContent: 'build-43\n',
-          earlyBuildId: 'build-42',
+          cdnJobResult: 'success',
+          earlyProof: { ...earlyProof, sourceSha: 'd'.repeat(40) },
+          durableReceipt,
           status: 1,
-          output: 'job-canon publication receipt names build build-43, expected build-42',
+          output: 'early CDN job output does not prove this source run, SHA, and build',
         },
         {
-          // An empty expected id must never be "proved" by an empty early output.
-          receiptContent: null,
-          expectedBuildId: '',
-          earlyBuildId: '',
+          cdnJobResult: 'skipped',
+          earlyProof: {},
+          durableReceipt: {},
           status: 1,
-          output: 'job-canon publication receipt is missing; refusing to upload a Pages artifact with bridge removals',
+          output: 'durable IT CDN receipt does not prove this source run, SHA, and build',
+        },
+        {
+          cdnJobResult: 'skipped',
+          earlyProof: {},
+          durableReceipt: { published: 'false' },
+          status: 1,
+          output: 'durable IT CDN receipt does not prove this source run, SHA, and build',
         },
       ];
       for (const testCase of cases) {
-        if (testCase.receiptContent === null) rmSync(receipt, { force: true });
-        else writeFileSync(receipt, testCase.receiptContent);
         const result = runWorkflowBash(run, root, {
-          EXPECTED_BUILD_ID: testCase.expectedBuildId ?? 'build-42',
-          EARLY_JOB_CANON_BUILD_ID: testCase.earlyBuildId,
+          EXPECTED_SOURCE_RUN_ID: SOURCE_RUN_ID,
+          EXPECTED_SOURCE_SHA: SOURCE_SHA,
+          EXPECTED_BUILD_ID: BUILD_ID,
+          CDN_JOB_RESULT: testCase.cdnJobResult,
+          EARLY_SOURCE_RUN_ID: testCase.earlyProof.sourceRunId ?? '',
+          EARLY_SOURCE_SHA: testCase.earlyProof.sourceSha ?? '',
+          EARLY_BUILD_ID: testCase.earlyProof.buildId ?? '',
+          DURABLE_RECEIPT_PUBLISHED: testCase.durableReceipt.published ?? '',
+          DURABLE_SOURCE_RUN_ID: testCase.durableReceipt.sourceRunId ?? '',
+          DURABLE_SOURCE_SHA: testCase.durableReceipt.sourceSha ?? '',
+          DURABLE_BUILD_ID: testCase.durableReceipt.buildId ?? '',
         });
         expect(result.error).toBeUndefined();
         expect(result.status).toBe(testCase.status);
@@ -293,5 +356,80 @@ describe('job-canon publication handshake', () => {
     expect(PUBLISH_YML.indexOf('Require closed job-canon handshake before Pages artifact'))
       .toBeLessThan(PUBLISH_YML.indexOf('Upload Pages artifact (compression-level 9)'));
     expect(PUBLISH_YML).toContain('Upload Pages artifact (compression-level 9)');
+  });
+
+  it('accepts the early handshake job output when the finalizer runs on another runner', () => {
+    // The finalizer has no access to the CDN runner's RUNNER_TEMP. Its job
+    // dependency output carries the receipt identity across the runner boundary.
+    expect(resolveJobCanonPublishProof({
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      buildId: BUILD_ID,
+      cdnJobResult: 'success',
+      earlyProof,
+      durableReceipt: { published: 'false' },
+    })).toEqual({ accepted: true, source: 'early-job-output' });
+  });
+
+  it('accepts a skipped CDN job only with the exact durable source and build receipt', () => {
+    expect(resolveJobCanonPublishProof({
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      buildId: BUILD_ID,
+      cdnJobResult: 'skipped',
+      earlyProof: {},
+      durableReceipt,
+    })).toEqual({ accepted: true, source: 'durable-receipt' });
+  });
+
+  it.each([
+    ['missing', { published: 'false', ...earlyProof }],
+    ['wrong source run', { ...durableReceipt, sourceRunId: '43969699460' }],
+    ['wrong source SHA', { ...durableReceipt, sourceSha: 'd'.repeat(40) }],
+    ['old build', { ...durableReceipt, buildId: '1770000000000' }],
+    ['missing build', { ...durableReceipt, buildId: '' }],
+  ])('rejects a %s durable receipt', (_case, receipt) => {
+    expect(resolveJobCanonPublishProof({
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      buildId: BUILD_ID,
+      cdnJobResult: 'skipped',
+      earlyProof: {},
+      durableReceipt: receipt,
+    }).accepted).toBe(false);
+  });
+
+  it('does not fall back to a durable receipt after a successful but mismatched early job', () => {
+    expect(resolveJobCanonPublishProof({
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      buildId: BUILD_ID,
+      cdnJobResult: 'success',
+      earlyProof: { ...earlyProof, buildId: '1770000000000' },
+      durableReceipt,
+    }).accepted).toBe(false);
+  });
+
+  it('does not accept CDN_BASE by itself and binds each workflow signal to its source', () => {
+    const baseOnly = resolveJobCanonPublishProof({
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      buildId: BUILD_ID,
+      cdnJobResult: 'skipped',
+      cdnBase: 'https://cdn.frontaliereticino.ch',
+      durableReceipt: { published: 'false' },
+    });
+    expect(baseOnly.accepted).toBe(false);
+
+    const cdn = PUBLISH.jobs['publish-it-cdn'];
+    expect(cdn.outputs?.job_canon_source_run_id).toBe('${{ steps.cdn-ready.outputs.job_canon_source_run_id }}');
+    expect(cdn.outputs?.job_canon_source_sha).toBe('${{ steps.cdn-ready.outputs.job_canon_source_sha }}');
+    expect(cdn.outputs?.job_canon_build_id).toBe('${{ steps.cdn-ready.outputs.job_canon_build_id }}');
+    const finalizerGate = workflowStep('finalize-it-publish', 'job-canon-publish-gate');
+    expect(finalizerGate.env.CDN_JOB_RESULT).toBe('${{ needs.publish-it-cdn.result }}');
+    expect(finalizerGate.env.DURABLE_RECEIPT_PUBLISHED).toBe('${{ needs.resolve-publish-receipts.outputs.it_cdn_published }}');
+    expect(finalizerGate.run).toContain('node scripts/ci/job-canon-publish-receipt.mjs');
+    expect(finalizerGate.run).not.toContain('RUNNER_TEMP/job-canon-publish.ok');
+    expect(finalizerGate.env.CDN_BASE).toBeUndefined();
   });
 });

@@ -136,6 +136,7 @@ describe('IT receipts: what a retry still has to do (F0.9)', () => {
   const resolve = (statuses: any[], options: Record<string, unknown> = {}) => resolveItPublishReceipts({
     statuses,
     sourceRunId: SOURCE_RUN_ID,
+    sourceSha: SOURCE_SHA,
     buildId: BUILD_ID,
     expectedDigests,
     ...options,
@@ -216,7 +217,7 @@ describe('IT receipts: what a retry still has to do (F0.9)', () => {
     const noPublisherRun = { ...cdnReceipt(), target_url: 'https://example.invalid/x' };
     expect(resolve([noPublisherRun]).itCdnPublished).toBe(false);
     expect(resolve([noPublisherRun]).itCdnPublisherRunId).toBe('');
-    expect(resolve([cdnReceipt()], { buildId: undefined }).itCdnPublished).toBe(true);
+    expect(resolve([cdnReceipt()], { buildId: undefined }).itCdnPublished).toBe(false);
   });
 
   it('tolerates the 1000-status cap by refusing to write near it, not by dropping receipts', () => {
@@ -276,12 +277,16 @@ describe('IT receipts: the publish graph (F0.9, F0.2-bis)', () => {
     const state = resolveItPublishReceipts({
       statuses,
       sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
       buildId: BUILD_ID,
       expectedDigests: expectedItGroupDigests(plan),
     });
     return {
       it_cdn_published: String(state.itCdnPublished),
       it_cdn_publisher_run_id: state.itCdnPublisherRunId,
+      it_cdn_source_run_id: state.itCdnSourceRunId,
+      it_cdn_source_sha: state.itCdnSourceSha,
+      it_cdn_build_id: state.itCdnBuildId,
       pending_it_groups: JSON.stringify(state.pendingItGroups),
       receipt_it_groups: JSON.stringify(state.publishedItGroups.map((entry: any) => ({ group: entry.group, runId: entry.publisherRunId }))),
     };
@@ -453,10 +458,13 @@ describe('IT receipts: the publish graph (F0.9, F0.2-bis)', () => {
     expect(publish.jobs['finalize-it-publish'].permissions.actions).toBe('read');
   });
 
-  it('resolves the receipts with the source plan and exposes the four IT outputs', () => {
+  it('resolves the receipts with the source plan and exposes source-bound IT outputs', () => {
     const outputs = publish.jobs['resolve-publish-receipts'].outputs;
     expect(outputs.it_cdn_published).toBe('${{ steps.receipts.outputs.it_cdn_published }}');
     expect(outputs.it_cdn_publisher_run_id).toBe('${{ steps.receipts.outputs.it_cdn_publisher_run_id }}');
+    expect(outputs.it_cdn_source_run_id).toBe('${{ steps.receipts.outputs.it_cdn_source_run_id }}');
+    expect(outputs.it_cdn_source_sha).toBe('${{ steps.receipts.outputs.it_cdn_source_sha }}');
+    expect(outputs.it_cdn_build_id).toBe('${{ steps.receipts.outputs.it_cdn_build_id }}');
     expect(outputs.pending_it_groups).toBe('${{ steps.receipts.outputs.pending_it_groups }}');
     expect(outputs.receipt_it_groups).toBe('${{ steps.receipts.outputs.receipt_it_groups }}');
     const earlyRestore = namedStep('finalize-it-publish', 'Restore R2 OG manifest from the early CDN job');
@@ -592,6 +600,11 @@ process.exit(1);
     expect(result.status, result.stderr).toBe(0);
     expect(outputs.it_cdn_published).toBe('true');
     expect(outputs.it_cdn_publisher_run_id).toBe(PUBLISHER_RUN_ID);
+    expect(outputs.it_cdn_source_run_id).toBe(SOURCE_RUN_ID);
+    expect(outputs.it_cdn_source_sha).toBe(SOURCE_SHA);
+    expect(outputs.it_cdn_build_id).toBe(BUILD_ID);
+    const statusCalls = fs.readFileSync(gh.log, 'utf8').trim().split('\n').map((line) => JSON.parse(line));
+    expect(statusCalls.some((args: string[]) => args.includes(`repos/${REPO}/commits/${SOURCE_SHA}/statuses?per_page=100`))).toBe(true);
     expect(JSON.parse(outputs.pending_it_groups)).toEqual(['zurigo', 'small-1']);
     expect(JSON.parse(outputs.receipt_it_groups)).toEqual([
       { group: 'svizzera', runId: PUBLISHER_RUN_ID },
@@ -623,6 +636,7 @@ process.exit(1);
     expect(JSON.parse(missing.outputs.pending_it_groups)).toEqual([...IT_SHARD_GROUP_IDS]);
     expect(missing.outputs.it_cdn_published).toBe('true');
     expect(missing.outputs.it_cdn_publisher_run_id).toBe(PUBLISHER_RUN_ID);
+    expect(missing.outputs.it_cdn_build_id).toBe(BUILD_ID);
     expect(missing.result.stdout + missing.result.stderr).toContain('unreadable');
     const wrongSource = run(['--resolve', '--source-run-id', '1', '--source-sha', SOURCE_SHA, '--it-plan', planFile()], gh);
     expect(JSON.parse(wrongSource.outputs.pending_it_groups)).toEqual([...IT_SHARD_GROUP_IDS]);
@@ -709,6 +723,7 @@ describe('durable R2 OG manifest behind the IT CDN receipt', () => {
   const resolveCdn = (statuses: any[], options: Record<string, unknown> = {}) => resolveItPublishReceipts({
     statuses,
     sourceRunId: SOURCE_RUN_ID,
+    sourceSha: SOURCE_SHA,
     buildId: BUILD_ID,
     expectedDigests: expectedItGroupDigests(plan),
     ...options,
@@ -718,8 +733,24 @@ describe('durable R2 OG manifest behind the IT CDN receipt', () => {
     const state = resolveCdn([cdnReceipt()]);
     expect(state.itCdnPublished).toBe(true);
     expect(state.itCdnPublisherRunId).toBe(PUBLISHER_RUN_ID);
+    expect(state).toMatchObject({
+      itCdnSourceRunId: SOURCE_RUN_ID,
+      itCdnSourceSha: SOURCE_SHA,
+      itCdnBuildId: BUILD_ID,
+    });
     expect(resolveCdn([]).itCdnPublisherRunId).toBe('');
     expect(itCdnManifestArtifactName(SOURCE_RUN_ID)).toBe(`r2-og-manifest-it-${SOURCE_RUN_ID}`);
+  });
+
+  it('does not accept a missing, old, or mismatched CDN receipt identity', () => {
+    const wrongSourceRun = status(
+      itCdnReceiptContext(SOURCE_RUN_ID),
+      formatItCdnReceiptDescription({ sourceRunId: '43410016877', buildId: BUILD_ID }),
+    );
+    expect(resolveCdn([wrongSourceRun]).itCdnPublished).toBe(false);
+    expect(resolveCdn([cdnReceipt('1770000000000')]).itCdnPublished).toBe(false);
+    expect(resolveCdn([cdnReceipt()], { buildId: '' }).itCdnPublished).toBe(false);
+    expect(resolveCdn([cdnReceipt()], { sourceSha: '' }).itCdnPublished).toBe(false);
   });
 
   it('with an R2 target a receipt whose manifest artifact is gone does not skip the CDN job', () => {
