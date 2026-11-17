@@ -14,6 +14,7 @@ import { createWorkdaySwissParser } from '../scripts/lib/workday-swiss-job-parse
 import { fetchAllKsbJobs } from '../scripts/lib/ksb-job-parser.mjs';
 import {
   fetchWorkdayJobDetail,
+  fetchWorkdayJsonWithRetry,
   fetchWorkdayJobs,
   WorkdayApiError,
 } from '../scripts/lib/ats-clients/workday-client.mjs';
@@ -46,6 +47,25 @@ afterEach(() => {
 });
 
 describe('Workday JSON transport', () => {
+  it('retries a rate-limited JSON request before returning the listing', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    const directFetch = vi
+      .fn()
+      .mockResolvedValueOnce(new Response('', { status: 429 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ total: 1, jobPostings: [] }), { status: 200 }));
+    vi.stubGlobal('fetch', directFetch);
+
+    const data = await fetchWorkdayJsonWithRetry(API_BASE, `${API_BASE}/jobs`, {
+      method: 'POST',
+      body: '{}',
+      browserFallback: null,
+    });
+
+    expect(data).toEqual({ total: 1, jobPostings: [] });
+    expect(directFetch).toHaveBeenCalledTimes(2);
+  });
+
   it('recovers a connection-level listing failure through the browser origin', async () => {
     vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
     const directFetch = vi.fn().mockRejectedValue(new TypeError('fetch failed'));
@@ -249,6 +269,27 @@ describe('Workday JSON transport', () => {
     expect(jobs).toHaveLength(0);
     expect(page.goto).toHaveBeenCalledWith(
       'https://everest.wd5.myworkdayjobs.com/en-US/everest-re',
+      expect.objectContaining({ waitUntil: 'domcontentloaded' }),
+    );
+  });
+
+  it('preserves the portal path when deriving a TRUMPF browser fallback page', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('fetch failed')));
+    const { page } = browserTransport({
+      total: 0,
+      jobPostings: [],
+    });
+
+    const jobs = [];
+    for await (const posting of fetchWorkdayJobs(
+      'https://trumpf.wd3.myworkdayjobs.com/wday/cxs/trumpf/TRUMPF_Graduates_and_Professionals',
+      { minDelayMs: 0 },
+    )) jobs.push(posting);
+
+    expect(jobs).toHaveLength(0);
+    expect(page.goto).toHaveBeenCalledWith(
+      'https://trumpf.wd3.myworkdayjobs.com/en-US/TRUMPF_Graduates_and_Professionals',
       expect.objectContaining({ waitUntil: 'domcontentloaded' }),
     );
   });

@@ -49,6 +49,7 @@ import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { fetchWorkdayJsonWithRetry } from './lib/ats-clients/workday-client.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -168,6 +169,7 @@ function mapEmploymentType(timeType = '', title = '') {
 // ──────────────────────────────────────────────────────────────
 
 async function fetchPortalJobs(portal) {
+  const portalApiBase = `${WORKDAY_CXS}/${portal}`;
   const url = `${WORKDAY_CXS}/${portal}/jobs`;
   const PAGE_SIZE = 20;
   const allJobs = [];
@@ -183,19 +185,13 @@ async function fetchPortalJobs(portal) {
       searchText: 'Switzerland',
     });
 
-    const res = await fetch(url, {
+    const data = await fetchWorkdayJsonWithRetry(portalApiBase, url, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'User-Agent': UA,
-        Accept: 'application/json',
-      },
       body,
-      signal: AbortSignal.timeout(TIMEOUT_MS),
+      timeoutMs: TIMEOUT_MS,
+      userAgent: UA,
     });
 
-    if (!res.ok) throw new Error(`Workday API error for ${portal}: ${res.status}`);
-    const data = await res.json();
     const total = data.total || 0;
     const postings = assertJsonListShape(data, { key: 'jobPostings', source: `trumpf:${portal}` });
     allJobs.push(...postings.map((p) => ({ ...p, portal })));
@@ -217,14 +213,13 @@ async function fetchPortalJobs(portal) {
 }
 
 async function fetchJobDetail(portal, externalPath) {
+  const portalApiBase = `${WORKDAY_CXS}/${portal}`;
   const url = `${WORKDAY_CXS}/${portal}${externalPath}`;
   try {
-    const res = await fetch(url, {
-      headers: { 'Content-Type': 'application/json', 'User-Agent': UA, Accept: 'application/json' },
-      signal: AbortSignal.timeout(TIMEOUT_MS),
+    return await fetchWorkdayJsonWithRetry(portalApiBase, url, {
+      timeoutMs: TIMEOUT_MS,
+      userAgent: UA,
     });
-    if (!res.ok) return null;
-    return await res.json();
   } catch (err) {
     console.warn(`  ⚠️ Detail fetch failed for ${externalPath}: ${err.message}`);
     return null;

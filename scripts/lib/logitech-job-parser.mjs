@@ -18,6 +18,7 @@ import { markLocationDerivedFromVacancyText } from './crawler-location-config.mj
 import { splitJobLocation } from './job-location-display.mjs';
 import {
   buildWorkdayApiBase,
+  fetchWorkdayJobDetail,
   fetchWorkdayJobs,
   workdayPostingDateFields,
   extractWorkdayJobIdentity,
@@ -168,21 +169,14 @@ const DETAIL_TIMEOUT_MS = 15_000;
 async function fetchWorkdayJobDetailPayload(apiBase, externalPath) {
   const empty = { description: '', info: {} };
   if (!apiBase || !externalPath) return empty;
-  const ctrl = new AbortController();
-  const timer = setTimeout(() => ctrl.abort(), DETAIL_TIMEOUT_MS);
   try {
-    const url = `${apiBase.replace(/\/+$/, '')}${externalPath}`;
-    const res = await fetch(url, {
-      headers: {
-        Accept: 'application/json',
-        'User-Agent': 'FrontaliereTicino-JobCrawler/2.0 (+https://frontaliereticino.ch)',
-      },
-      signal: ctrl.signal,
-      redirect: 'follow',
+    const detail = await fetchWorkdayJobDetail(apiBase, externalPath, {
+      timeoutMs: DETAIL_TIMEOUT_MS,
+      userAgent: 'FrontaliereTicino-JobCrawler/2.0 (+https://frontaliereticino.ch)',
     });
-    if (!res.ok) return empty;
-    const json = await res.json();
-    const info = json?.jobPostingInfo && typeof json.jobPostingInfo === 'object' ? json.jobPostingInfo : {};
+    const info = detail?.jobPostingInfo && typeof detail.jobPostingInfo === 'object'
+      ? detail.jobPostingInfo
+      : {};
     const html = String(info.jobDescription || '').trim();
     const description = html
       ? stripHtml(html)
@@ -194,8 +188,6 @@ async function fetchWorkdayJobDetailPayload(apiBase, externalPath) {
     return { description, info };
   } catch {
     return empty;
-  } finally {
-    clearTimeout(timer);
   }
 }
 

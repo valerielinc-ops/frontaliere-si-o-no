@@ -32,7 +32,7 @@ import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { fetchWorkdayJobs } from './lib/ats-clients/workday-client.mjs';
+import { fetchWorkdayJobDetail, fetchWorkdayJobs } from './lib/ats-clients/workday-client.mjs';
 import {
   snapshotJobSlugs,
   computeCrawlDiff,
@@ -147,24 +147,10 @@ function parseWorkload(title = '') {
 }
 
 async function fetchJobDetail(externalPath) {
-  const url = `${DETAIL_BASE}${externalPath}`;
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
-  try {
-    const res = await fetch(url, {
-      headers: {
-        Accept: 'application/json',
-        'User-Agent': UA,
-      },
-      signal: controller.signal,
-    });
-    if (!res.ok) return null;
-    return await res.json();
-  } catch {
-    return null;
-  } finally {
-    clearTimeout(timer);
-  }
+  return fetchWorkdayJobDetail(DETAIL_BASE, externalPath, {
+    timeoutMs: TIMEOUT_MS,
+    userAgent: UA,
+  });
 }
 
 /* ── Fetch all Swiss jobs ─────────────────────────────────── */
