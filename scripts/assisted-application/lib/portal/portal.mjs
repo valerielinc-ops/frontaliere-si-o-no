@@ -9636,8 +9636,11 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     for (const field of securityFields) {
       const match = SECURITY_FIELD_RE.exec(String(field.label || field.name || '').trim());
       const index = Number(match?.[1]) || 1;
-      const isAnswer = Boolean(match?.[2])
-        || (field.kind !== 'select' && field.kind !== 'listbox' && (!Array.isArray(field.options) || field.options.length === 0));
+      // Keep the planner's action role identical to the classifier's role:
+      // BrassRing may expose a listbox through inputType while leaving kind
+      // empty on the proxy field. Looking only at kind would fill the prompt
+      // as an answer instead of selecting it.
+      const isAnswer = Boolean(match?.[2]) || securityQuestionFieldRole(field) === 'answer';
       if (!isAnswer) {
         let options = Array.isArray(field.options) ? field.options : [];
         if (!options.length) {

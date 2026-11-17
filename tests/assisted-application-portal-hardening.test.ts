@@ -91,6 +91,15 @@ describe('BrassRing security-question field classification', () => {
 
     expect(fields.filter((field) => isSecurityQuestionField(field, fields))).toHaveLength(2);
   });
+
+  it('keeps a listbox prompt selectable when the proxy omits kind', () => {
+    const fields = [
+      { id: 'question-proxy', kind: '', inputType: 'listbox', label: 'Question 1', options: [{ value: 'school', label: 'First school' }], form: 0, frame: 0 },
+      { id: 'answer-native', kind: 'text', inputType: 'text', label: 'Question 1 Answer', options: [], form: 0, frame: 0 },
+    ];
+
+    expect(fields.filter((field) => isSecurityQuestionField(field, fields))).toHaveLength(2);
+  });
 });
 
 describe('in-page application opener classification', () => {
