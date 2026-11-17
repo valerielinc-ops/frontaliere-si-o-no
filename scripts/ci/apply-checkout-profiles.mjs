@@ -315,8 +315,34 @@ function semanticDiffOk(beforeRaw, afterRaw) {
  * Ritorna `{ text, jobsPatched, savedMb, manual }`. Non scrive: decide il
  * chiamante.
  */
+// The crawler workflow generator renders the same group twice when a file
+// needs shell compaction, and the barrier tests regenerate the full set again
+// before producing the cross-repo artifacts. The profile result is a pure
+// function of the workflow name, npm script table, and input bytes; caching it
+// avoids re-parsing and re-walking identical generated workflows while keeping
+// every profile decision and validation intact.
+const PROFILE_RESULT_CACHE = new WeakMap();
+
+function profileResultCacheFor(npmScripts, workflowName) {
+  if (!npmScripts || typeof npmScripts !== 'object') return null;
+  let byWorkflow = PROFILE_RESULT_CACHE.get(npmScripts);
+  if (!byWorkflow) {
+    byWorkflow = new Map();
+    PROFILE_RESULT_CACHE.set(npmScripts, byWorkflow);
+  }
+  let byContent = byWorkflow.get(workflowName);
+  if (!byContent) {
+    byContent = new Map();
+    byWorkflow.set(workflowName, byContent);
+  }
+  return byContent;
+}
+
 export function computeProfiledText(workflowPath, npmScripts) {
   const before = fs.readFileSync(workflowPath, 'utf8');
+  const cache = profileResultCacheFor(npmScripts, path.basename(workflowPath));
+  const cached = cache?.get(before);
+  if (cached) return cached;
   const analysis = analyzeWorkflow(workflowPath, npmScripts);
   const manual = [];
   const multi = [];
@@ -342,7 +368,9 @@ export function computeProfiledText(workflowPath, npmScripts) {
     YAML.parse(text, { logLevel: 'silent' });          // deve restare YAML valido
     if (!semanticDiffOk(before, text)) throw new Error("il diff semantico non e' limitato alle chiavi sparse-checkout");
   }
-  return { text, before, jobsPatched, savedMb, manual, multi };
+  const result = { text, before, jobsPatched, savedMb, manual, multi };
+  cache?.set(before, result);
+  return result;
 }
 
 /** Applica e SCRIVE. Ritorna il testo finale. */
