@@ -1201,9 +1201,10 @@ jobs:
         run: |
           set -euo pipefail
           export GITHUB_SHA="$DEPLOY_HEAD_SHA"
-          node scripts/ci/with-shard-writer-lock.mjs \
-            --section articolisvizzera --locale it --policy wait --timeout-ms 3600000 -- \
-            bash scripts/lib/heartbeat-section-shard.sh articolisvizzera it
+          timeout --verbose --signal=TERM --kill-after=120s 4200s \
+            node scripts/ci/with-shard-writer-lock.mjs \
+              --section articolisvizzera --locale it --policy wait --timeout-ms 3600000 -- \
+              bash scripts/lib/heartbeat-section-shard.sh articolisvizzera it
       - name: Download IT root source artifact
         uses: actions/download-artifact@v8
         with:
@@ -2105,6 +2106,32 @@ jobs:
           CDN_JOB_FINISH_RESERVE_S: 180
         run: GITHUB_RUN_ID="$CDN_IT_RUN_ID" bash scripts/lib/wait-cdn-build-id.sh "$DEPLOY_BUILD_ID"
 
+      # This write must happen before the durable-receipt fast path below. A
+      # receipt proves that a previous publisher completed the locale tail; it
+      # does not prove that an older attempt advanced the excluded
+      # articolisvizzera shard's generation marker. Keep the marker write in a
+      # separate step so both the normal and the receipt-reuse paths share the
+      # same fail-closed gate.
+      - name: Heartbeat excluded articolisvizzera non-IT shard
+        id: heartbeat-excluded-articolisvizzera-nonit
+        if: matrix.locale != 'it' && vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP != 'false'
+        continue-on-error: true
+        env:
+          DEPLOY_HEAD_SHA: ${{ inputs.source_sha }}
+          SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
+        run: |
+          set -euo pipefail
+          export GITHUB_SHA="$DEPLOY_HEAD_SHA"
+          cd "$PUBLISHER_ROOT"
+          timeout --verbose --signal=TERM --kill-after=120s 4200s \
+            node scripts/ci/with-shard-writer-lock.mjs \
+              --section articolisvizzera --locale "${BUILD_LOCALE}" --policy wait --timeout-ms 3600000 -- \
+              bash scripts/lib/heartbeat-section-shard.sh articolisvizzera "${BUILD_LOCALE}"
+          echo 'articolisvizzera_heartbeat_succeeded=true' >> "$GITHUB_OUTPUT"
+
       # A duplicate publisher can have passed the matrix-level resolver before
       # the first publisher wrote its receipt. Re-read after this locale job has
       # acquired its own concurrency slot and before any shard push; an
@@ -2289,9 +2316,6 @@ jobs:
           # timings row" in fondo al job.
           trap 'echo "wall_seconds=$SECONDS" >> "$GITHUB_OUTPUT"' EXIT
           loc="${{ matrix.locale }}"
-          heartbeat_status_file="$RUNNER_TEMP/articolisvizzera-heartbeat-$loc.ok"
-          rm -f "$heartbeat_status_file"
-          export HEARTBEAT_STATUS_FILE="$heartbeat_status_file"
           # Each section pushes to its OWN shard repo — one section's push
           # failure (e.g. a corrupted remote clone) must never skip the
           # others. bp_run_bounded records each failing section instead of
@@ -2329,17 +2353,6 @@ jobs:
             skip_var="$(echo "$section" | LC_ALL=C tr '[:lower:]' '[:upper:]')_BUILD_EMIT_SKIP"
             if [ "${!skip_var:-}" = "true" ]; then
               echo "$section-$loc: BUILD_EMIT_SKIP=true — excluded from full-replace push (served by fast-publish only)"
-              if [ "$section" = articolisvizzera ]; then
-                if node scripts/ci/with-shard-writer-lock.mjs \
-                    --section "$section" --locale "$loc" --policy wait --timeout-ms 3600000 -- \
-                    bash scripts/lib/heartbeat-section-shard.sh "$section" "$loc"; then
-                  : > "$HEARTBEAT_STATUS_FILE"
-                  return 0
-                else
-                  rc=$?
-                  return "$rc"
-                fi
-              fi
               return 0
             fi
             # A full-overlay ticino-fr push of 9.9 GB / 558,573 files completed
@@ -2375,17 +2388,22 @@ jobs:
             echo "::error::could not order the section list — refusing to push a partial set of shards"
             exit 1
           }
+          # deploy-shard-sections.sh intentionally omits externally served
+          # article sections. When articolisvizzera emission is skipped, this
+          # tail still has one required marker-only write, so include it in the
+          # bounded fan-out explicitly; otherwise push_one never receives the
+          # section and the fail-closed gate can only report false.
+          if [ "$ARTICOLISVIZZERA_BUILD_EMIT_SKIP" = true ] \
+            && ! printf '%s\n' "$order" | grep -Fxq articolisvizzera; then
+            order="${order}"$'\n'articolisvizzera
+            echo "section push order: added articolisvizzera heartbeat section"
+          fi
           echo "section push order (longest-first): $(echo "$order" | tr '\n' ' ')"
 
           export BP_FAILED_FILE="$RUNNER_TEMP/shard-push-failed-$loc.txt"
           fail=0
           mapfile -t ordered_sections <<< "$order"
           bp_run_bounded 4 push_one "${ordered_sections[@]}" || fail=1
-          if [ -f "$heartbeat_status_file" ]; then
-            echo 'articolisvizzera_heartbeat_succeeded=true' >> "$GITHUB_OUTPUT"
-          else
-            echo 'articolisvizzera_heartbeat_succeeded=false' >> "$GITHUB_OUTPUT"
-          fi
           # Same visibility contract as the IT leg above — see that comment.
           if [ -s "$BP_FAILED_FILE" ]; then
             node "$PUBLISHER_ROOT/scripts/ci/report-shard-push-failure.mjs" \
@@ -2399,10 +2417,10 @@ jobs:
       # that one failure out of the continue-on-error step so the matrix job is
       # red, no locale receipt is admitted, and deploy remains skipped.
       - name: Require excluded articolisvizzera heartbeat
-        if: always() && matrix.locale != 'it' && env.DURABLE_LOCALE_PUBLISHED != 'true'
+        if: always() && matrix.locale != 'it'
         env:
           ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
-          HEARTBEAT_SUCCEEDED: ${{ steps.push-section-shards-nonit.outputs.articolisvizzera_heartbeat_succeeded || 'false' }}
+          HEARTBEAT_SUCCEEDED: ${{ steps.heartbeat-excluded-articolisvizzera-nonit.outputs.articolisvizzera_heartbeat_succeeded || 'false' }}
         run: |
           set -euo pipefail
           if [ "$ARTICOLISVIZZERA_BUILD_EMIT_SKIP" = true ] && [ "$HEARTBEAT_SUCCEEDED" != true ]; then

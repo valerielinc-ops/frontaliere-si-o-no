@@ -154,6 +154,7 @@ describe('shard_history_needs_compaction (runtime, temp git fixtures)', () => {
 
 describe('compact-article-shard-history.sh — structural invariants (issue #4881 defect B)', () => {
   const script = read('scripts/lib/compact-article-shard-history.sh');
+  const workflow = read('.github/workflows/compact-article-shard-history.yml');
   const liveCode = script
     .split('\n')
     .filter((line) => !/^\s*#/.test(line))
@@ -259,6 +260,19 @@ describe('compact-article-shard-history.sh — structural invariants (issue #488
 
   it('never introduces a working-tree file check on a --no-checkout clone (same class as defect A/B)', () => {
     expect(script).not.toMatch(/\[\s+-f\s+"\$stage\//);
+  });
+
+  it('serializes each force-pushing compaction through the shared shard writer lock', () => {
+    const workerStart = workflow.indexOf('compact_one()');
+    const pairsStart = workflow.indexOf('          pairs=()', workerStart);
+    expect(workerStart).toBeGreaterThan(-1);
+    expect(pairsStart).toBeGreaterThan(workerStart);
+    const worker = workflow.slice(workerStart, pairsStart);
+
+    expect(worker).toContain('timeout --verbose --signal=TERM --kill-after=120s 4200s');
+    expect(worker).toContain('node scripts/ci/with-shard-writer-lock.mjs');
+    expect(worker).toContain('--section "$section" --locale "$loc" --policy wait --timeout-ms 3600000 --');
+    expect(worker).toContain('bash scripts/lib/compact-article-shard-history.sh "$section" "$loc"');
   });
 });
 
