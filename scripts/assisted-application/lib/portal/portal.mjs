@@ -8881,6 +8881,80 @@ function inlineProfileRowOrdinal(field, kind) {
   return match ? Number(match[1]) : 0;
 }
 
+function inlineProfileDateEndpoint(field) {
+  const widget = String(field?.widget || '').trim().toLowerCase();
+  const inputType = String(field?.inputType || '').trim().toLowerCase();
+  if (widget && widget !== 'workday-date') return '';
+  if (!widget && inputType !== 'date' && field?.kind !== 'date') return '';
+  const label = String(field?.label || '').trim();
+  if (/^(?:start date|from)\s*[＊*]?$/i.test(label)) return 'start';
+  if (/^(?:end date|to)\s*[＊*]?$/i.test(label)) return 'end';
+  return '';
+}
+
+const INLINE_PROFILE_GENERIC_OWNER_RE = /^(?:work\s+experience|experience|employment\s+history|work\s+history|education|academic\s+history|studies)(?:\s+\d+)?$/i;
+
+function inlineProfileOwnerTokens(field, includeValue = false) {
+  const endpoint = inlineProfileDateEndpoint(field);
+  const values = [
+    field?.rowOwner,
+    field?.owner,
+    field?.sectionGroupId,
+    field?.addressContext?.section,
+    ...(Array.isArray(field?.addressContext?.owners) ? field.addressContext.owners : []),
+    field?.context,
+    field?.section,
+    ...(includeValue ? [field?.value, field?.label] : []),
+  ];
+  return [...new Set(values.flatMap((value) => String(value || '').split(/\s*[·|]\s*/u)))]
+    .map((value) => value.normalize('NFKC').replace(/\s+/gu, ' ').trim().toLowerCase())
+    .filter((value) => value && value !== String(field?.label || '').trim().toLowerCase()
+      && !INLINE_PROFILE_GENERIC_OWNER_RE.test(value)
+      && (!endpoint || !/^(?:start date|end date|from|to)\s*[＊*]?$/i.test(value)));
+}
+
+/**
+ * Workday's dateInputWrapper controls are extracted before ordinary inputs and
+ * may carry only the section name, while the other controls expose the row's
+ * ordinal. A date wrapper without a structural owner cannot be assigned by
+ * array position: doing so can put one row's dates into another row after a
+ * redraw. Match each endpoint to exactly one existing row through shared
+ * owner evidence, and leave the whole reconciliation fail-closed otherwise.
+ */
+function attachUnnumberedInlineProfileDates(fields, kind, rows) {
+  const ordinals = [...rows.keys()].sort((left, right) => left - right);
+  if (!ordinals.length || ordinals.some((ordinal, index) => ordinal !== index + 1)) return true;
+  const unnumbered = fields.filter((field) => inlineProfileRowOrdinal(field, kind) === 0
+    && inlineProfileDateEndpoint(field));
+  if (!unnumbered.length) return true;
+  const rowOwners = new Map(ordinals.map((ordinal) => [
+    ordinal,
+    new Set(rows.get(ordinal).flatMap((field) => inlineProfileOwnerTokens(field, true))),
+  ]));
+  const assignments = new Map(ordinals.map((ordinal) => [ordinal, { start: [], end: [] }]));
+  for (const field of unnumbered) {
+    const owners = inlineProfileOwnerTokens(field);
+    if (!owners.length) return false;
+    const matches = ordinals.filter((ordinal) => owners.some((owner) => rowOwners.get(ordinal).has(owner)));
+    if (matches.length !== 1) return false;
+    assignments.get(matches[0])[inlineProfileDateEndpoint(field)].push(field);
+  }
+  for (const ordinal of ordinals) {
+    const existing = rows.get(ordinal).reduce((counts, field) => {
+      const endpoint = inlineProfileDateEndpoint(field);
+      if (endpoint) counts[endpoint] += 1;
+      return counts;
+    }, { start: 0, end: 0 });
+    const assigned = assignments.get(ordinal);
+    if (existing.start + assigned.start.length !== 1 || existing.end + assigned.end.length !== 1) return false;
+  }
+  for (const ordinal of ordinals) {
+    const assigned = assignments.get(ordinal);
+    rows.get(ordinal).push(...assigned.start, ...assigned.end);
+  }
+  return true;
+}
+
 async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries, { files = {} } = {}) {
   let current = snapshot;
   const rowsByOrdinal = (fields) => {
@@ -8898,6 +8972,7 @@ async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries,
     handoff: 'profile_section_row_fill_failed',
   });
   let byOrdinal = rowsByOrdinal(profileFields(current, kind));
+  if (!attachUnnumberedInlineProfileDates(profileFields(current, kind), kind, byOrdinal)) return fail();
   const hasExpectedRows = () => Array.from({ length: entries.length }, (_, index) => index + 1)
     .every((ordinal) => byOrdinal.has(ordinal));
   const ADD_INLINE_ROW_RE = /^(?:add another|weitere hinzufügen|weitere hinzufuegen|ajouter une autre|aggiungi un altro)\b/i;
@@ -8916,6 +8991,7 @@ async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries,
     const opened = await waitForProfileFields(page, kind, beforeIds);
     current = opened.snapshot;
     byOrdinal = rowsByOrdinal(profileFields(current, kind));
+    if (!attachUnnumberedInlineProfileDates(profileFields(current, kind), kind, byOrdinal)) return fail();
     if (!opened.fields.length && !hasExpectedRows()) return fail();
   }
 
@@ -8923,6 +8999,7 @@ async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries,
   const DELETE_ROW_RE = /^(?:delete|remove|löschen|loeschen|entfernen|supprimer|elimina|rimuovi)\b/i;
   while (true) {
     byOrdinal = rowsByOrdinal(profileFields(current, kind));
+    if (!attachUnnumberedInlineProfileDates(profileFields(current, kind), kind, byOrdinal)) return fail();
     const emptyExtraOrdinal = [...byOrdinal.entries()]
       .filter(([ordinal, rowFields]) => ordinal > entries.length && !rowFields.some((field) => holdsValue(field)))
       .map(([ordinal]) => ordinal)
@@ -8942,6 +9019,7 @@ async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries,
     }
   }
   byOrdinal = rowsByOrdinal(profileFields(current, kind));
+  if (!attachUnnumberedInlineProfileDates(profileFields(current, kind), kind, byOrdinal)) return fail();
   const unresolvedExtra = [...byOrdinal.entries()]
     .some(([ordinal, rowFields]) => ordinal > entries.length && !rowFields.some((field) => holdsValue(field)));
   if (unresolvedExtra || !hasExpectedRows()) return fail();

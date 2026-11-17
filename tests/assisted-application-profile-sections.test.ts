@@ -96,4 +96,143 @@ describe('profile history rows', () => {
       expect.objectContaining({ fieldId: 'education-start', value: '2017-09', source: 'profile', action: 'fill' }),
     ]);
   });
+
+  it('associates Workday date wrappers with rows when only the other controls expose ordinals', async () => {
+    const fields = [
+      { id: 'title-1', section: 'Work Experience 1', label: 'Job Title*', kind: 'text', required: true, value: 'Existing role' },
+      { id: 'company-1', section: 'Work Experience 1', label: 'Company*', kind: 'text', required: true, value: 'Existing employer' },
+      { id: 'title-2', section: 'Work Experience 2', label: 'Job Title*', kind: 'text', required: true, value: 'Another role' },
+      { id: 'company-2', section: 'Work Experience 2', label: 'Company*', kind: 'text', required: true, value: 'Another employer' },
+      { id: 'from-2', section: 'Work Experience', label: 'From*', kind: 'text', inputType: 'date', widget: 'workday-date', required: true, value: '', addressContext: { section: 'Work Experience', owners: ['Another role'], unknown: false } },
+      { id: 'to-1', section: 'Work Experience', label: 'To*', kind: 'text', inputType: 'date', widget: 'workday-date', required: true, value: '', addressContext: { section: 'Work Experience', owners: ['Existing role'], unknown: false } },
+      { id: 'from-1', section: 'Work Experience', label: 'From*', kind: 'text', inputType: 'date', widget: 'workday-date', required: true, value: '', addressContext: { section: 'Work Experience', owners: ['Existing role'], unknown: false } },
+      { id: 'to-2', section: 'Work Experience', label: 'To*', kind: 'text', inputType: 'date', widget: 'workday-date', required: true, value: '', addressContext: { section: 'Work Experience', owners: ['Another role'], unknown: false } },
+    ];
+    const current = {
+      url: 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Role_R2420/apply/applyManually',
+      fields,
+      buttons: [
+        { id: 'delete-1', text: 'Delete', section: 'Work Experience', disabled: false },
+        { id: 'delete-2', text: 'Delete', section: 'Work Experience', disabled: false },
+        { id: 'add-another', text: 'Add Another', section: 'Work Experience', disabled: false },
+      ],
+    };
+    doubles.extractFields.mockImplementation(async () => current);
+    doubles.applyActions.mockImplementation(async (_page, rowFields, actions) => {
+      for (const action of actions) rowFields.find((field) => field.id === action.fieldId).value = action.value;
+      return actions.map((action) => ({ fieldId: action.fieldId, ok: true }));
+    });
+
+    const candidate = {
+      profile: {
+        experience: [
+          { role: 'Existing role', employer: 'Existing employer', start: '2022-01', end: '2024-01' },
+          { role: 'Another role', employer: 'Another employer', start: '2020-02', end: '2021-03' },
+        ],
+        education: [],
+      },
+    };
+
+    const result = await fillProfileSections({ url: () => current.url } as never, current as never, { candidate });
+
+    expect(result.handoff).toBeUndefined();
+    expect(current.fields.find((field) => field.id === 'from-1').value).toBe('2022-01');
+    expect(current.fields.find((field) => field.id === 'to-1').value).toBe('2024-01');
+    expect(current.fields.find((field) => field.id === 'from-2').value).toBe('2020-02');
+    expect(current.fields.find((field) => field.id === 'to-2').value).toBe('2021-03');
+  });
+
+  it('hands off instead of assigning unowned date wrappers by array position', async () => {
+    const current = {
+      url: 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Role_R2420/apply/applyManually',
+      fields: [
+        { id: 'title-1', section: 'Work Experience 1', label: 'Job Title*', kind: 'text', required: true, value: 'Existing role' },
+        { id: 'title-2', section: 'Work Experience 2', label: 'Job Title*', kind: 'text', required: true, value: 'Another role' },
+        { id: 'from-1', section: 'Work Experience', label: 'From*', kind: 'text', inputType: 'date', widget: 'workday-date', required: true, value: '' },
+        { id: 'to-1', section: 'Work Experience', label: 'To*', kind: 'text', inputType: 'date', widget: 'workday-date', required: true, value: '' },
+        { id: 'from-2', section: 'Work Experience', label: 'From*', kind: 'text', inputType: 'date', widget: 'workday-date', required: true, value: '' },
+        { id: 'to-2', section: 'Work Experience', label: 'To*', kind: 'text', inputType: 'date', widget: 'workday-date', required: true, value: '' },
+      ],
+      buttons: [{ id: 'add-another', text: 'Add Another', section: 'Work Experience', disabled: false }],
+    };
+    doubles.extractFields.mockImplementation(async () => current);
+    const candidate = {
+      profile: {
+        experience: [
+          { role: 'Existing role', employer: 'Existing employer', start: '2022-01', end: '2024-01' },
+          { role: 'Another role', employer: 'Another employer', start: '2020-02', end: '2021-03' },
+        ],
+        education: [],
+      },
+    };
+
+    const result = await fillProfileSections({ url: () => current.url } as never, current as never, { candidate });
+
+    expect(result.handoff).toBe('profile_section_row_fill_failed');
+    expect(current.fields.filter((field) => /^(?:From|To)\*/.test(field.label)).every((field) => field.value === '')).toBe(true);
+  });
+
+  it('associates date wrappers through sectionGroupId when it is the only row owner', async () => {
+    const current = {
+      url: 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Role_R2420/apply/applyManually',
+      fields: [
+        { id: 'title-1', section: 'Work Experience 1', label: 'Job Title*', kind: 'text', required: true, value: 'Existing role', sectionGroupId: 'group-1' },
+        { id: 'title-2', section: 'Work Experience 2', label: 'Job Title*', kind: 'text', required: true, value: 'Another role', sectionGroupId: 'group-2' },
+        { id: 'from-2', section: 'Work Experience', label: 'From*', kind: 'text', inputType: 'date', widget: 'workday-date', required: true, value: '', sectionGroupId: 'group-2' },
+        { id: 'to-1', section: 'Work Experience', label: 'To*', kind: 'text', inputType: 'date', widget: 'workday-date', required: true, value: '', sectionGroupId: 'group-1' },
+        { id: 'from-1', section: 'Work Experience', label: 'From*', kind: 'text', inputType: 'date', widget: 'workday-date', required: true, value: '', sectionGroupId: 'group-1' },
+        { id: 'to-2', section: 'Work Experience', label: 'To*', kind: 'text', inputType: 'date', widget: 'workday-date', required: true, value: '', sectionGroupId: 'group-2' },
+      ],
+      buttons: [
+        { id: 'delete-1', text: 'Delete', section: 'Work Experience', disabled: false },
+        { id: 'delete-2', text: 'Delete', section: 'Work Experience', disabled: false },
+        { id: 'add-another', text: 'Add Another', section: 'Work Experience', disabled: false },
+      ],
+    };
+    doubles.extractFields.mockImplementation(async () => current);
+    doubles.applyActions.mockImplementation(async (_page, rowFields, actions) => {
+      for (const action of actions) rowFields.find((field) => field.id === action.fieldId).value = action.value;
+      return actions.map((action) => ({ fieldId: action.fieldId, ok: true }));
+    });
+    const candidate = {
+      profile: {
+        experience: [
+          { role: 'Existing role', employer: 'Existing employer', start: '2022-01', end: '2024-01' },
+          { role: 'Another role', employer: 'Another employer', start: '2020-02', end: '2021-03' },
+        ],
+        education: [],
+      },
+    };
+
+    const result = await fillProfileSections({ url: () => current.url } as never, current as never, { candidate });
+
+    expect(result.handoff).toBeUndefined();
+    expect(current.fields.find((field) => field.id === 'from-1').value).toBe('2022-01');
+    expect(current.fields.find((field) => field.id === 'to-1').value).toBe('2024-01');
+    expect(current.fields.find((field) => field.id === 'from-2').value).toBe('2020-02');
+    expect(current.fields.find((field) => field.id === 'to-2').value).toBe('2021-03');
+  });
+
+  it('hands off when an owner-matched date endpoint pair is incomplete', async () => {
+    const current = {
+      url: 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Role_R2420/apply/applyManually',
+      fields: [
+        { id: 'title-1', section: 'Work Experience 1', label: 'Job Title*', kind: 'text', required: true, value: 'Existing role' },
+        { id: 'from-1', section: 'Work Experience', label: 'From*', kind: 'text', inputType: 'date', widget: 'workday-date', required: true, value: '', addressContext: { section: 'Work Experience', owners: ['Existing role'], unknown: false } },
+      ],
+      buttons: [{ id: 'add-another', text: 'Add Another', section: 'Work Experience', disabled: false }],
+    };
+    doubles.extractFields.mockImplementation(async () => current);
+    const candidate = {
+      profile: {
+        experience: [{ role: 'Existing role', employer: 'Existing employer', start: '2022-01', end: '2024-01' }],
+        education: [],
+      },
+    };
+
+    const result = await fillProfileSections({ url: () => current.url } as never, current as never, { candidate });
+
+    expect(result.handoff).toBe('profile_section_row_fill_failed');
+    expect(current.fields.find((field) => field.id === 'from-1').value).toBe('');
+  });
 });
