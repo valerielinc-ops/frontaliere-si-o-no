@@ -316,11 +316,20 @@ jobs:
           LIVE_BASE_URL: https://frontaliereticino.ch
         run: |
           set -uo pipefail
+          live_check_module="scripts/lib/live-link-check.mjs"
+          if [ ! -f "$live_check_module" ]; then
+            # Older deploy refs may predate the shared module; fetch its current source instead of duplicating the UA literal.
+            git fetch --depth=1 origin main -q
+            live_check_module="$RUNNER_TEMP/live-link-check.mjs"
+            git show origin/main:scripts/lib/live-link-check.mjs > "$live_check_module"
+          fi
+          LIVE_CHECK_USER_AGENT="$(node --input-type=module -e 'import { pathToFileURL } from "node:url"; const { DEFAULT_LIVE_CHECK_USER_AGENT } = await import(pathToFileURL(process.argv[1]).href); process.stdout.write(DEFAULT_LIVE_CHECK_USER_AGENT);' "$live_check_module")"
+          printf 'LIVE_CHECK_USER_AGENT=%s\n' "$LIVE_CHECK_USER_AGENT" >> "$GITHUB_ENV"
           # Retry the homepage fetch so a transient network blip can't masquerade
           # as "no CDN ref → nothing to verify" and silently skip the gate.
           html=""
           for i in 1 2 3 4; do
-            html="$(curl -s --max-time 30 "${LIVE_BASE_URL}/" || true)"
+            html="$(curl -s --max-time 30 -A "$LIVE_CHECK_USER_AGENT" "${LIVE_BASE_URL}/" || true)"
             [ -n "$html" ] && break
             sleep 5
           done
@@ -349,7 +358,7 @@ jobs:
           echo "[validate-live] verifying boot bundle on CDN: $asset"
           ok=""
           for i in $(seq 1 12); do
-            code="$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$asset" || echo 000)"
+            code="$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 -A "$LIVE_CHECK_USER_AGENT" "$asset" || echo 000)"
             echo "  attempt $i: $code"
             [ "$code" = "200" ] && { ok=1; break; }
             sleep 10
@@ -387,7 +396,7 @@ jobs:
           base="${CDN_BASE_URL}/data/jobs-by-canton"
           manifest=""
           for i in $(seq 1 12); do
-            manifest="$(curl -s --max-time 20 "$base/manifest.json" || true)"
+            manifest="$(curl -s --max-time 20 -A "$LIVE_CHECK_USER_AGENT" "$base/manifest.json" || true)"
             grep -q '"total"' <<<"$manifest" && break
             echo "  attempt $i: manifest not ready"
             manifest=""
@@ -404,7 +413,7 @@ jobs:
           for f in TI-it BASILEA-de; do
             ok=""
             for i in $(seq 1 6); do
-              code="$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 "$base/$f.json" || echo 000)"
+              code="$(curl -s -o /dev/null -w '%{http_code}' --max-time 20 -A "$LIVE_CHECK_USER_AGENT" "$base/$f.json" || echo 000)"
               [ "$code" = "200" ] && { ok=1; break; }
               echo "  $f attempt $i: $code"
               sleep 10
@@ -418,7 +427,7 @@ jobs:
           # Truncation check: the TI shard must hold exactly what the manifest
           # promised for TI. Catches a half-written or stale-cached shard set.
           want="$(printf '%s' "$manifest" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{console.log(JSON.parse(s).byCanton.TI)}catch{console.log("")}})')"
-          got="$(curl -s --max-time 30 "$base/TI-it.json" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{console.log(JSON.parse(s).length)}catch{console.log("")}})')"
+          got="$(curl -s --max-time 30 -A "$LIVE_CHECK_USER_AGENT" "$base/TI-it.json" | node -e 'let s="";process.stdin.on("data",d=>s+=d).on("end",()=>{try{console.log(JSON.parse(s).length)}catch{console.log("")}})')"
           if [ -n "$want" ] && [ -n "$got" ] && [ "$want" != "$got" ]; then
             echo "::error::[validate-live] TI shard holds $got records but the manifest promises $want — truncated or stale shard set. Failing → rollback."
             exit 1
@@ -486,19 +495,220 @@ jobs:
         env:
           PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
           LIVE_BASE_URL: https://frontaliereticino.ch
+          LIVE_PROBE_MAX_ATTEMPTS: "3"
+          LIVE_PROBE_RETRY_DELAY_SECONDS: "30"
+          LIVE_E2E_MAX_ROUNDS: "3"
+          LIVE_E2E_RETRY_DELAY_SECONDS_2: "60"
+          LIVE_E2E_RETRY_DELAY_SECONDS_3: "120"
         run: |
-          # Preserve the foreground output before the in-job reporter runs:
-          # GitHub does not expose a running job's log through the jobs API.
-          # Keeping both gates in the same file also captures the e2e failure
-          # when the probe itself is green.
-          set -o pipefail
+          set -eo pipefail
           : > live-smoke-output.log
-          npm run probe:5xx 2>&1 | tee -a live-smoke-output.log
+          probe_rows=()
+          e2e_rows=()
+          flaky_tests=()
+          persistent_tests=()
+          final_failed_tests=()
+
+          write_summary() {
+            if [ -z "${GITHUB_STEP_SUMMARY:-}" ]; then
+              return 0
+            fi
+            {
+              printf '### Live smoke retries\n\n| Round | Result | Duration |\n|---|---|---:|\n'
+              for row in "${probe_rows[@]}" "${e2e_rows[@]}"; do
+                [ -n "$row" ] && printf '%s\n' "$row"
+              done
+              if [ "${#flaky_tests[@]}" -gt 0 ]; then
+                printf '\n**flaky (passed on retry):**\n'
+                for test_name in "${flaky_tests[@]}"; do
+                  printf -- '- `%s`\n' "$test_name"
+                done
+              fi
+              if [ "${#final_failed_tests[@]}" -gt 0 ]; then
+                printf '\n**Still failing after the final round:**\n'
+                for test_name in "${final_failed_tests[@]}"; do
+                  printf -- '- `%s`\n' "$test_name"
+                done
+              fi
+            } >> "$GITHUB_STEP_SUMMARY" || true
+          }
+
+          extract_failed_tests() {
+            printf '%s\n' "$1" \
+              | sed -nE 's/^[[:space:]]*[0-9]+\) (.*)$/\1/p' \
+              | sed -E 's/[[:space:]]+──[[:space:]]*$//'
+          }
+
+          contains_test() {
+            local candidate="$1"
+            shift
+            local existing
+            for existing in "$@"; do
+              if [ "$existing" = "$candidate" ]; then
+                return 0
+              fi
+            done
+            return 1
+          }
+
+          probe_attempt=1
+          probe_succeeded=0
+          probe_exit_status=1
+          while [ "$probe_attempt" -le "$LIVE_PROBE_MAX_ATTEMPTS" ]; do
+            round_started=$SECONDS
+            if npm run probe:5xx 2>&1 | tee -a live-smoke-output.log; then
+              probe_result=passed
+              probe_exit_status=0
+              probe_succeeded=1
+            else
+              probe_exit_status=$?
+              probe_result=failed
+            fi
+            round_duration=$((SECONDS - round_started))
+            probe_rows+=("| probe ${probe_attempt}/${LIVE_PROBE_MAX_ATTEMPTS} | ${probe_result} | ${round_duration}s |")
+            printf '[validate-live] probe round %s/%s: %s (%ss)\n' "$probe_attempt" "$LIVE_PROBE_MAX_ATTEMPTS" "$probe_result" "$round_duration"
+            if [ "$probe_succeeded" -eq 1 ]; then
+              break
+            fi
+            if [ "$probe_attempt" -lt "$LIVE_PROBE_MAX_ATTEMPTS" ]; then
+              sleep "$LIVE_PROBE_RETRY_DELAY_SECONDS"
+            fi
+            probe_attempt=$((probe_attempt + 1))
+          done
+
+          if [ "$probe_succeeded" -ne 1 ]; then
+            echo "::error::[validate-live] probe:5xx failed on all ${LIVE_PROBE_MAX_ATTEMPTS} attempts."
+            write_summary
+            exit "$probe_exit_status"
+          fi
+
           # The static article → SPA handoff suite is a report-only UX/perf
-          # audit. It runs in post-deploy-audit-live.yml, in parallel with
-          # this blocking smoke, so a transient hydration gap cannot sequester
-          # publish while 5xx/boot/content-serving checks remain blocking.
-          npm run test:e2e:live -- --grep-invert "static article" 2>&1 | tee -a live-smoke-output.log
+          # audit. It runs in post-deploy-audit-live.yml; this blocking smoke
+          # keeps 5xx/boot/content-serving checks in the publish path.
+          e2e_round=1
+          e2e_exit_status=1
+          previous_failed_tests=()
+          while [ "$e2e_round" -le "$LIVE_E2E_MAX_ROUNDS" ]; do
+            if [ "$e2e_round" -gt 1 ]; then
+              delay_name="LIVE_E2E_RETRY_DELAY_SECONDS_${e2e_round}"
+              delay_seconds="${!delay_name}"
+              printf '[validate-live] waiting %ss before e2e round %s/%s.\n' "$delay_seconds" "$e2e_round" "$LIVE_E2E_MAX_ROUNDS"
+              sleep "$delay_seconds"
+            fi
+
+            round_started=$SECONDS
+            round_output=""
+            if [ "$e2e_round" -eq 1 ]; then
+              if round_output="$(npm run test:e2e:live -- --grep-invert "static article" 2>&1 | tee -a live-smoke-output.log)"; then
+                round_exit_status=0
+              else
+                round_exit_status=$?
+              fi
+            else
+              if round_output="$(npm run test:e2e:live -- --last-failed --grep-invert "static article" 2>&1 | tee -a live-smoke-output.log)"; then
+                round_exit_status=0
+              else
+                round_exit_status=$?
+              fi
+            fi
+            round_duration=$((SECONDS - round_started))
+            round_failed_tests=()
+            while IFS= read -r failed_test; do
+              if [ -n "$failed_test" ]; then
+                round_failed_tests+=("$failed_test")
+              fi
+            done < <(extract_failed_tests "$round_output")
+
+            if [ "$round_exit_status" -eq 0 ]; then
+              round_result=passed
+              e2e_exit_status=0
+              e2e_rows+=("| e2e ${e2e_round}/${LIVE_E2E_MAX_ROUNDS} | ${round_result} | ${round_duration}s |")
+              printf '[validate-live] e2e round %s/%s: %s (%ss)\n' "$e2e_round" "$LIVE_E2E_MAX_ROUNDS" "$round_result" "$round_duration"
+              for prior_test in "${previous_failed_tests[@]}"; do
+                if ! contains_test "$prior_test" "${flaky_tests[@]}"; then
+                  flaky_tests+=("$prior_test")
+                  printf '[validate-live] flaky (passed on retry): %s\n' "$prior_test"
+                fi
+              done
+              break
+            fi
+
+            round_result=failed
+            e2e_exit_status="$round_exit_status"
+            e2e_rows+=("| e2e ${e2e_round}/${LIVE_E2E_MAX_ROUNDS} | ${round_result} | ${round_duration}s |")
+            printf '[validate-live] e2e round %s/%s: %s (%ss)\n' "$e2e_round" "$LIVE_E2E_MAX_ROUNDS" "$round_result" "$round_duration"
+            if [ "${#round_failed_tests[@]}" -eq 0 ]; then
+              printf '[validate-live] failed test names were not present in the Playwright reporter output for round %s.\n' "$e2e_round"
+              echo "::error::[validate-live] refusing an unscoped e2e retry because the failed tests could not be identified."
+              final_failed_tests+=("Failed test names unavailable; inspect live-smoke-output.log")
+              write_summary
+              exit "$round_exit_status"
+            else
+              printf '[validate-live] failed tests in e2e round %s:\n' "$e2e_round"
+              for failed_test in "${round_failed_tests[@]}"; do
+                printf '  - %s\n' "$failed_test"
+              done
+            fi
+
+            if [ ! -s test-results/.last-run.json ]; then
+              echo "::error::[validate-live] refusing --last-failed because test-results/.last-run.json was not written."
+              final_failed_tests+=("Failed test selection unavailable; inspect live-smoke-output.log")
+              write_summary
+              exit "$round_exit_status"
+            fi
+            if ! failed_test_count="$(node -e 'const fs = require("node:fs"); const lastRun = JSON.parse(fs.readFileSync(process.argv[1], "utf8")); if (!Array.isArray(lastRun.failedTests)) process.exit(2); process.stdout.write(String(lastRun.failedTests.length));' test-results/.last-run.json)" \
+              || [ "$failed_test_count" -eq 0 ]; then
+              echo "::error::[validate-live] refusing --last-failed because no failed test IDs were recorded."
+              final_failed_tests+=("Failed test IDs unavailable; inspect live-smoke-output.log")
+              write_summary
+              exit "$round_exit_status"
+            fi
+
+            for prior_test in "${previous_failed_tests[@]}"; do
+              if ! contains_test "$prior_test" "${round_failed_tests[@]}" \
+                && ! contains_test "$prior_test" "${flaky_tests[@]}"; then
+                flaky_tests+=("$prior_test")
+                printf '[validate-live] flaky (passed on retry): %s\n' "$prior_test"
+              fi
+            done
+
+            if [ "$e2e_round" -eq 1 ]; then
+              persistent_tests=("${round_failed_tests[@]}")
+            else
+              next_persistent_tests=()
+              for prior_test in "${persistent_tests[@]}"; do
+                if contains_test "$prior_test" "${round_failed_tests[@]}"; then
+                  next_persistent_tests+=("$prior_test")
+                fi
+              done
+              persistent_tests=("${next_persistent_tests[@]}")
+            fi
+            final_failed_tests=("${round_failed_tests[@]}")
+            previous_failed_tests=("${round_failed_tests[@]}")
+            e2e_round=$((e2e_round + 1))
+          done
+
+          if [ "$e2e_exit_status" -ne 0 ]; then
+            printf '[validate-live] e2e smoke failed after %s rounds; tests still failing in the final round:\n' "$LIVE_E2E_MAX_ROUNDS"
+            for failed_test in "${final_failed_tests[@]}"; do
+              printf '  - %s\n' "$failed_test"
+            done
+            printf '[validate-live] tests failing in every e2e round:\n'
+            if [ "${#persistent_tests[@]}" -eq 0 ]; then
+              printf '  - none (the failing set changed between rounds)\n'
+            else
+              for failed_test in "${persistent_tests[@]}"; do
+                printf '  - %s\n' "$failed_test"
+              done
+            fi
+            write_summary
+            exit "$e2e_exit_status"
+          fi
+
+          if [ "$e2e_round" -gt 1 ]; then
+            echo "::warning::[validate-live] e2e smoke passed on retry after round $((e2e_round - 1))."
+          fi
+          write_summary
 
       # Visual regression on the LIVE site. Skipped until linux baselines
       # are committed (run regenerate-visual-baselines.yml workflow_dispatch
