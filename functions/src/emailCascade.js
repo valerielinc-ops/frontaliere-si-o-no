@@ -251,7 +251,7 @@ function remainingQuota(providerId) {
 // unbounded fetch stalling past that ceiling produces a raw platform 504
 // (bypasses the app's cors:true wrapper entirely, so no CORS header — not a
 // clean error response). Same convention as PROVIDER_TIMEOUT_MS in
-// chatbotInference.js/geminiGenerate.js.
+// chatbotInference.js/server text generation.
 const QUOTA_FETCH_TIMEOUT_MS = 8000;
 
 async function fetchMailgunDailyUsage() {

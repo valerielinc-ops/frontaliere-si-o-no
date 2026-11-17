@@ -20,7 +20,7 @@ import { assertSocialCopyPackProductionRef, socialCopyInvocationId } from './res
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 // GitHub Models has been retired; only configured providers with an active free route belong here.
-const ALLOWED_FREE_PROVIDERS = new Set(['gemini', 'groq', 'openrouter']);
+const ALLOWED_FREE_PROVIDERS = new Set(['groq', 'openrouter']);
 // Groq's free route has an 8,000-token TPM request ceiling. The compact social
 // prompt consumes part of it, so keep the completion request below the cap
 // instead of reproducing the observed 8,277-token rejection.
@@ -33,7 +33,6 @@ const TRANSIENT_FAILURE_CATEGORIES = new Set([
 // Only established no-cost tiers are eligible. Keep Cloudflare, Cohere trials,
 // and paid or retired providers out of this recovery path.
 export const FREE_SOCIAL_COPY_MODEL_CANDIDATES = Object.freeze([
-  Object.freeze({ provider: 'gemini', model: AI_MODELS.GEMMA_4_31B, context: 'full' }),
   Object.freeze({ provider: 'openrouter', model: AI_MODELS.OR_FREE_ROUTER, context: 'full' }),
   Object.freeze({ provider: 'groq', model: AI_MODELS.GROQ_GPT_OSS_120B, context: 'compact' }),
 ]);

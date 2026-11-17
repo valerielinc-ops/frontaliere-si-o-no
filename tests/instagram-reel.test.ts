@@ -69,7 +69,8 @@ describe('Instagram Reel creative experiment', () => {
     expect(content.slides[2].cta).toBeTruthy();
     expect(content.caption).toContain(creative.cta);
     expect(content.caption).toContain('link in bio');
-    expect(content.caption).toContain('Voce sintetica');
+    expect(content.caption).toContain('Testo verificato mostrato nel video');
+    expect(content.caption).not.toContain('Voce sintetica');
     expect(content.productionKit.voiceScript).toBe(content.productionKit.subtitles.join(' '));
     expect(content.productionKit.subtitles).toHaveLength(3);
     expect(content.productionKit.subtitles[0]).toContain(content.slides[0].title);

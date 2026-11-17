@@ -4,12 +4,10 @@
  * Runs inside Firebase Functions (europe-west6) to keep provider API keys
  * off the browser, enable multi-provider fallback, and cache common FAQ answers.
  *
- * Provider chain (free-first):
- * 1. Gemini (gemini-flash-lite-latest → gemini-flash-latest) — primary
+ * Provider chain:
+ * 1. Codex Luna Max with the ChatGPT login in Remote Config — primary
  * 2. Groq GPT-OSS 120B — first OpenAI-compatible fallback
  * 3. Groq GPT-OSS 20B — second OpenAI-compatible fallback
- * 4. Codex Luna Max with the CI's Codex ChatGPT login — last-resort of last
- *    resort (see codexFallback.js — scoped exception, #4495)
  *
  * Tools (searchJobs) are embedded as text in the system prompt; no native
  * function-calling API is used, so OpenAI-compatible providers work identically.
@@ -22,28 +20,11 @@ import { createHash } from 'node:crypto';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { SERVER_TEXT_FALLBACKS as OPENAI_FALLBACKS, serverTextFallbackBody } from './serverAiFallbacks.js';
 import { tryCodexFallback } from './codexFallback.js';
-import { geminiResponseText } from './lib/geminiResponseText.js';
-
-// ── Model chain (free-first, non-deprecated) ────────────────────────────────
-
-// Alias "latest", non id versionati: seguono da soli le promozioni di Google e
-// sono l'unica forma che non rimarcisce. Entrambi gli id precedenti
-// ('gemini-2.0-flash-lite' e 'gemini-1.5-flash-8b') sono RITIRATI — verificato
-// il 2026-08-14 contro il listing live dell'API (54 modelli offerti, nessuno dei
-// due presente). Questo file chiama l'endpoint Gemini direttamente con `fetch`,
-// quindi il matcher 404 di scripts/lib/ai-models.mjs non lo protegge: ogni
-// interazione del chatbot sitewide pagava DUE 404 garantiti prima del fallback.
-const GEMINI_MODELS = [
- 'gemini-flash-lite-latest', // Primary: alias sullo stable lite corrente
- 'gemini-flash-latest', // Secondary: alias sullo stable flash corrente
-];
-
-const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
 const PROVIDER_TIMEOUT_MS = 18000;
 
-// Free OpenAI-compatible fallbacks tried when all Gemini models fail.
-// Keys already live in Remote Config (same pool as geminiGenerate / translation chain).
-// The catalog is shared with geminiGenerate so provider retirements cannot drift.
+// OpenAI-compatible fallbacks tried after Codex.
+// Keys already live in Remote Config (same pool as the server text endpoint /
+// translation chain). The catalog is shared so provider retirements cannot drift.
 
 
 // ── Available client-side tools ─────────────────────────────────────────────
@@ -52,7 +33,7 @@ const PROVIDER_TIMEOUT_MS = 18000;
 // locale-aware slug tables. The server-side inference simply documents the
 // tools in the system prompt so the model knows they exist.
 //
-// Shape matches OpenAI/Gemini function-calling schema minimally: name,
+// Shape matches the OpenAI-compatible function-calling schema minimally: name,
 // description, parameters. Extend when a new tool ships.
 export const AVAILABLE_TOOLS = [
  {
@@ -120,73 +101,6 @@ function cacheSet(key, text) {
 
 // ── Provider calls ───────────────────────────────────────────────────────────
 
-function sleep(ms) {
- return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-/**
- * Call a specific Gemini model.
- * Returns the text on success, throws on any failure.
- * Retries 429 up to 3 times with backoff; does NOT retry other errors.
- */
-async function callGeminiModel(model, messages, systemPrompt, apiKey) {
- const url = `${GEMINI_BASE}/${model}:generateContent?key=${encodeURIComponent(apiKey)}`;
-
- const contents = messages.map(m => ({
- role: m.role === 'assistant' ? 'model' : 'user',
- parts: [{ text: String(m.content ?? '') }],
- }));
-
- for (let attempt = 0; attempt < 3; attempt++) {
- const response = await fetch(url, {
- method: 'POST',
- headers: { 'Content-Type': 'application/json' },
- body: JSON.stringify({
- system_instruction: { parts: [{ text: systemPrompt }] },
- contents,
- generationConfig: {
- temperature: 0.7,
- maxOutputTokens: 1024,
- topP: 0.95,
- },
- safetySettings: [
- { category: 'HARM_CATEGORY_HARASSMENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
- { category: 'HARM_CATEGORY_HATE_SPEECH', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
- { category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
- { category: 'HARM_CATEGORY_DANGEROUS_CONTENT', threshold: 'BLOCK_MEDIUM_AND_ABOVE' },
- ],
- }),
- signal: AbortSignal.timeout(PROVIDER_TIMEOUT_MS),
- });
-
- if (response.ok) {
- const data = await response.json();
- const text = geminiResponseText(data);
- if (!text) throw Object.assign(new Error('empty_response'), { code: 'EMPTY' });
- return text;
- }
-
- if (response.status === 429) {
- if (attempt < 2) {
- const retryAfter = response.headers.get('retry-after');
- const delayMs = retryAfter ? Number(retryAfter) * 1000 : 900 * (attempt + 1);
- await sleep(delayMs);
- continue;
- }
- throw Object.assign(new Error('rate_limited'), { code: '429', status: 429 });
- }
-
- // Non-retriable error
- const bodyText = await response.text().catch(() => '');
- throw Object.assign(
- new Error(`gemini_${model}_error_${response.status}`),
- { code: String(response.status), status: response.status, body: bodyText.slice(0, 200) },
- );
- }
-
- throw Object.assign(new Error('rate_limited_exhausted'), { code: '429', status: 429 });
-}
-
 /**
  * Call an OpenAI-compatible chat endpoint with multi-turn message history.
  * Returns trimmed text on success, throws on failure.
@@ -220,10 +134,10 @@ async function callOpenAiCompatibleMultiTurn({ base, apiKey, model, messages, sy
 
 /**
  * Handle a chatbot inference request.
- * Tries Gemini first, then falls through to free OpenAI-compatible providers.
+ * Tries Codex Luna Max first, then falls through to OpenAI-compatible providers.
  *
  * @param {{ messages: Array<{role:string,content:string}>, systemPrompt: string }} params
- * @returns {{ text: string, model: string, source: 'cache'|'gemini'|'openai-compat'|'codex' }}
+ * @returns {{ text: string, model: string, source: 'cache'|'openai-compat'|'codex' }}
  */
 export async function handleChatbotInference({ messages, systemPrompt }) {
  if (!Array.isArray(messages) || messages.length === 0) {
@@ -243,26 +157,19 @@ export async function handleChatbotInference({ messages, systemPrompt }) {
  const augmentedPrompt = `${systemPrompt}${buildToolsSection()}`;
  const failures = [];
 
- // 2. Primary: Gemini (free tier). Skip cleanly if the key isn't configured.
- const geminiKey = await getRemoteConfigValue('GEMINI_API_KEY');
- if (geminiKey) {
- for (const model of GEMINI_MODELS) {
- try {
- const text = await callGeminiModel(model, messages, augmentedPrompt, geminiKey);
- if (key) cacheSet(key, text);
- return { text, model, source: 'gemini' };
- } catch (err) {
- failures.push(`gemini/${model}: ${err instanceof Error ? err.message : String(err)}`);
- // Rate limit is per-key — no point trying the next Gemini model
- if (err?.code === '429') break;
- console.warn(`[chatbot] model=${model} failed: ${err.message}`);
+ // 2. Primary: Codex Luna Max with the ChatGPT login from Remote Config.
+ const codexResult = await tryCodexFallback({
+   systemPrompt: augmentedPrompt,
+   messages,
+ });
+ if (codexResult.ok) {
+   console.log('[chatbot] served by primary codex');
+   if (key) cacheSet(key, codexResult.text);
+   return { text: codexResult.text, model: codexResult.model, source: 'codex' };
  }
- }
- } else {
- failures.push('gemini: not_configured');
- }
+ failures.push(codexResult.notConfigured ? 'codex: not_configured' : `codex: ${codexResult.error}`);
 
- // 3. Fallbacks: free OpenAI-compatible providers (keys already in Remote Config).
+ // 3. Fallbacks: OpenAI-compatible providers (keys already in Remote Config).
  //    Tools are embedded as text in augmentedPrompt — no format translation needed.
  for (const fb of OPENAI_FALLBACKS) {
  const fbKey = await getRemoteConfigValue(fb.rcKey);
@@ -279,21 +186,6 @@ export async function handleChatbotInference({ messages, systemPrompt }) {
  failures.push(`${fb.label}: ${err instanceof Error ? err.message : String(err)}`);
  }
  }
-
- // 4. Last resort: Codex Luna Max with the Codex ChatGPT login
- // (CODEX_AUTH_JSON from Remote Config, never refreshed here) — scoped
- // exception in AGENTS.md (issue #4495). Only reached once every free
- // provider above has failed.
- const codexResult = await tryCodexFallback({
- systemPrompt: augmentedPrompt,
- messages,
- });
- if (codexResult.ok) {
- console.log('[chatbot] served by fallback codex');
- if (key) cacheSet(key, codexResult.text);
- return { text: codexResult.text, model: codexResult.model, source: 'codex' };
- }
- failures.push(codexResult.notConfigured ? 'codex: not_configured' : `codex: ${codexResult.error}`);
 
  // Every provider failed.
  console.error('[chatbot] all providers failed —', failures.join(' | '));

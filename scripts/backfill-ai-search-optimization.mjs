@@ -300,15 +300,15 @@ async function main() {
 
   // ── --apply mode: actually generate + write ───────────────────────────
   const hasKey = Boolean(
-    process.env.GH_MODELS_PAT
-      || process.env.GEMINI_API_KEY
+    process.env.CODEX_AUTH_JSON
+      || process.env.GH_MODELS_PAT
       || process.env.OPENAI_API_KEY
       || process.env.GROQ_API_KEY
       || process.env.OPENROUTER_API_KEY,
   );
   if (!hasKey) {
     console.error(`\nERROR: --apply requires an AI provider API key in env.`);
-    console.error(`Set one of: GH_MODELS_PAT, GEMINI_API_KEY, OPENAI_API_KEY, GROQ_API_KEY, OPENROUTER_API_KEY.`);
+    console.error(`Set one of: CODEX_AUTH_JSON, GH_MODELS_PAT, OPENAI_API_KEY, GROQ_API_KEY, OPENROUTER_API_KEY.`);
     process.exit(1);
   }
 

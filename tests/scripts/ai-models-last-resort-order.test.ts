@@ -37,7 +37,7 @@ describe('ai-models AI_LAST_RESORT_ORDER kill-switch', () => {
     'OMNIROUTE_ENABLED', 'OMNIROUTE_URL', 'OMNIROUTE_API_KEY',
     'LOCAL_LLM_ENABLED',
     'ENABLE_HAIKU_ARTICLE_FALLBACK', 'CLAUDE_CODE_OAUTH_TOKEN',
-    'GEMINI_API_KEY',
+    'GH_MODELS_PAT',
   ] as const;
   const saved: Record<string, string | undefined> = {};
   let warnSpy: ReturnType<typeof vi.spyOn>;
@@ -144,9 +144,9 @@ describe('ai-models AI_LAST_RESORT_ORDER kill-switch', () => {
   });
 
   it('an ordinary tier-0 cloud model always outranks all 3 last-resort tiers, regardless of AI_LAST_RESORT_ORDER', () => {
-    process.env.GEMINI_API_KEY = 'fake-key-for-routing-test-only';
+    process.env.GH_MODELS_PAT = 'github-models-test-key';
     enableAllLastResortTiers();
-    const cloudModel = AI_MODELS.GEMINI_FLASH;
+    const cloudModel = AI_MODELS.GPT4O;
 
     for (const order of [undefined, 'omniroute,local,claude-cli', 'local,omniroute,claude-cli', 'claude-cli,omniroute,local', 'garbage-value']) {
       if (order === undefined) delete process.env.AI_LAST_RESORT_ORDER;

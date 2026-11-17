@@ -136,7 +136,7 @@ export function buildToolCatalogue(t: TranslateFn): string {
 }
 
 /**
- * Builds a locale-aware system prompt for the Gemini chatbot.
+ * Builds a locale-aware system prompt for the Codex-backed chatbot.
  * Includes the tool catalogue and instructions to use [text](nav:action) links.
  */
 export function buildSystemPrompt(t: TranslateFn, locale: string): string {

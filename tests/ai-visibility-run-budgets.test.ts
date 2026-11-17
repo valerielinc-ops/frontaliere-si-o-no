@@ -52,8 +52,6 @@ const rateLimited = () => new Response('slow down', {
 
 beforeEach(() => {
   vi.stubEnv('PERPLEXITY_API_KEY', '');
-  vi.stubEnv('GEMINI_API_KEY', '');
-  vi.stubEnv('VITE_GEMINI_API_KEY', '');
   vi.stubEnv('GH_MODELS_PAT', '');
   vi.stubEnv('OPENROUTER_API_KEY', 'sk-or-test');
   vi.stubEnv('AI_VISIBILITY_OPENROUTER_DISABLED', '');

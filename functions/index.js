@@ -316,8 +316,8 @@ export const signStabioDossoPetition = onRequest(
  },
 );
 
-// Generic Gemini text generation (feedback "AI optimize", newsletter preview).
-// Keeps GEMINI_API_KEY server-side.
+// Compatibility text-generation endpoint (feedback "AI optimize", newsletter preview).
+// Keeps provider credentials server-side; the implementation uses Codex Luna Max.
 export const geminiGenerate = onRequest(
  {
  region: 'europe-west6',
@@ -1550,11 +1550,11 @@ export const sendCalculatorReport = onRequest(
 /**
  * chatbotInference — Server-side AI inference endpoint for the site chatbot.
  *
- * Keeps the Gemini API key off the browser, provides multi-model fallback
- * (gemini-flash-lite-latest → gemini-flash-latest), and caches common FAQ answers.
+ * Keeps provider credentials off the browser, uses Codex Luna Max first, and
+ * caches common FAQ answers.
  *
  * POST { messages: [{role, content},...], systemPrompt: string }
- * → { ok: true, text: string, model: string, source: 'cache'|'gemini' }
+ * → { ok: true, text: string, model: string, source: 'cache'|'codex'|'openai-compat' }
  * → { ok: false, error: string, code: string }
  */
 export const chatbotInference = onRequest(

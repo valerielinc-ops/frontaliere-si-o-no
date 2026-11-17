@@ -3,8 +3,8 @@ name: Smoke-Test AI Models
 # Manual-only. One ping per model in DEFAULT_CHAIN; records pass/4xx/5xx/timeout.
 # Use after touching scripts/lib/ai-models.mjs to confirm new IDs work and to
 # spot newly deprecated models before they brick a production workflow
-# (cf. run 26534353239 where gemini-3.1-flash-lite-preview kept winning the
-# fallback selector after Google deprecated it).
+# (cf. run 26534353239 where a retired Google model kept winning the fallback
+# selector after its provider deprecated it).
 on:
   workflow_dispatch: {}
   # Scheduled so the Mistral `-latest` regression gate (issue #892) actually

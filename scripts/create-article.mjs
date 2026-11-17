@@ -9,16 +9,16 @@ import { realpathSync } from 'node:fs';
  *
  * Auto-scan mode (default):
  *   1. Scans multiple Ticino + frontalieri news sources for recent headlines
- *   2. Uses Gemini to select the most relevant article for frontalieri
+ *   2. Uses the Codex Luna Max article lane to select the most relevant article
  *   3. Checks against existing articles to avoid duplicates
  *   4. Generates full article in 4 languages + image
  *
- * Requires: GH_MODELS_PAT env var (text), Codex image broker/OAuth (images);
- * Gemini 3.1 is the engine's reserve when GEMINI_API_KEY is configured.
+ * Requires: Codex Luna Max broker/OAuth (text and images), with approved
+ * OpenAI-compatible fallbacks where configured.
  *
  * What it does:
  *   1. Fetches the web page content at the given URL
- *   2. Calls Gemini 2.0 Flash to generate article data in 4 languages
+ *   2. Calls Codex Luna Max to generate article data in 4 languages
  *   3. Generates a contextual article image through the governed image engine
  *   4. Validates CTA presence and enforces internal links to site tools
  *   5. Programmatically detects duplicates (Jaccard similarity on titles + ID/slug checks)
@@ -36,7 +36,7 @@ import { realpathSync } from 'node:fs';
  *    Evitare pattern tipici dell'AI (frasi filler, strutture ripetitive).
  *
  * 2. IMMAGINE CONTESTUALE: Generare un'immagine contestuale all'articolo
- *    tramite il motore governato (Codex OAuth, poi Gemini 3.1).
+ *    tramite il motore governato (Codex OAuth, modello `gpt-image-2`).
  *    Fallback: immagine del Ticino dal catalogo AVAILABLE_IMAGES.
  *    Le immagini generate vanno in public/images/generated/ e hanno un record
  *    obbligatorio in data/generated-image-registry.json.
@@ -390,7 +390,7 @@ function countTopicalHits(text) {
 // This cheap pre-spend gate fires BEFORE the article-gen `Tentativo` loop:
 //
 //  (1) CLASSIFIER (ALWAYS) — every candidate headline goes through a tiny LLM
-//      (gemini-2.5-flash-lite, ~50 output tokens, no schema mode) to answer
+//      (Codex Luna Max, ~50 output tokens, no schema mode) to answer
 //      "is this directly relevant to frontalieri Ticino-Italia? yes/no".
 //      Off-topic → drop, no expensive article-gen attempt.
 //
@@ -417,8 +417,7 @@ function countTopicalHits(text) {
 //  - PRESPEND_TOPIC_GATE_CLASSIFIER=0  → legacy anchor-only fast-path
 //    (emergency rollback to pre-2026-05-15 behaviour, accepts on anchor
 //    match without LLM confirmation). Default is "classifier-always".
-//  - PRESPEND_GATE_MODEL=<id>  → override classifier model (default
-//    AI_MODELS.GEMINI_FLASH_LITE)
+//  - PRESPEND_GATE_MODEL=<id>  → override classifier model (default Codex Luna Max)
 
 // Strict frontaliere anchors — high-precision regex set. Headlines that
 // match ANY anchor are accepted without an LLM call. The list is in a
@@ -449,7 +448,7 @@ async function classifyFrontaliereRelevance(headline, summary) {
   if (cacheKey && _preSpendGateCache.has(cacheKey)) {
     return _preSpendGateCache.get(cacheKey);
   }
-  const model = process.env.PRESPEND_GATE_MODEL || AI_MODELS.GEMINI_FLASH_LITE;
+  const model = process.env.PRESPEND_GATE_MODEL || AI_MODELS.CODEX_CLI_PRIMARY;
   const prompt = IS_FRONTALIERE
     ? `Sei un editor del sito frontaliereticino.ch, focalizzato ESCLUSIVAMENTE sui FRONTALIERI ITALO-SVIZZERI che lavorano in Ticino.
 
@@ -666,8 +665,8 @@ async function applyPreSpendTopicGate(headlines, opts = {}) {
 }
 
 // ── Config ──────────────────────────────────────────────────
-// Image generation goes through the governed engine: Codex OAuth first,
-// Gemini 3.1 Flash Image as the bounded reserve. A successful call always
+// Image generation goes through the governed engine with Codex `gpt-image-2`
+// first and the governed non-Google reserve chain after it. A successful call always
 // returns a registry record before this generator stages the article.
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -1131,7 +1130,7 @@ const CREATE_ARTICLE_MIN_WORDS_RETRIES = Math.max(
 const MIN_WORDS_MODEL_ROTATION = [
   AI_MODELS.GPT_4_1,                 // attempt 1: gpt-4.1 (GitHub Models, different daily limit — leads so attempt 2 uses a genuinely different model if content is short)
   GH_MODEL_HEAVY,                    // attempt 2: gpt-4o (GitHub Models — moved from first: was redundant when the default generation model also uses gpt-4o)
-  'gemini',                          // attempt 3: gemini-2.5-flash (Google, different provider)
+  AI_MODELS.CODEX_CLI_PRIMARY,       // attempt 3: Codex Luna Max via the OAuth broker
   AI_MODELS.GPT_4_1_NANO,             // attempt 4: gpt-4.1-nano (GitHub Models — GPT_5_NANO killed 2026-05-18)
   AI_MODELS.GROQ_GPT_OSS_120B,       // attempt 5: GPT-OSS 120B (Groq — GROQ_KIMI_K2 swapped 2026-06-15: dead HTTP 404 "moonshotai/kimi-k2-instruct does not exist"; a dead model here triggered the full free-tier fallback cascade, ~11min wasted per pick)
   GH_MODEL_LIGHT,                    // attempt 6: gpt-4o-mini (then expansion fallback)
@@ -3830,15 +3829,14 @@ Categorie valide: ${FACT_CHECK_CATEGORIES.join(', ')}`;
   // first two entries MUST span two independent providers. Previously both were
   // GitHub Models (GPT_4_1 + GPT4O) — when that free tier is down or emits
   // non-JSON (the common failure, 2026-06), BOTH primary queries fail in lockstep
-  // every attempt, exhausting all FACTCHECK_INFRA_RETRIES before the lone Gemini
-  // fallback runs. That inflated per-attempt wall time and was a primary driver of
-  // the frontaliere section stall (#2675/#2672). Interleaving Gemini (Gemini API
-  // free) into the pair makes a GitHub Models outage survivable on the first pass
-  // and also strengthens consensus (two model families, not two OpenAI siblings).
+  // every attempt, exhausting all FACTCHECK_INFRA_RETRIES before an independent
+  // fallback verifier runs. That inflated per-attempt wall time and was a primary
+  // driver of the frontaliere section stall (#2675/#2672). The current pair uses
+  // Codex plus OpenRouter/Groq, keeping independent model families without a Google API.
   const verificationModels = [
-    AI_MODELS.GPT_4_1,        // GitHub Models (OpenAI flagship)
-    AI_MODELS.GEMINI_FLASH,   // Gemini API free — distinct provider → pair survives a GH Models outage
-    AI_MODELS.GPT4O,          // GitHub Models — fallback when the primary pair yields nothing
+    AI_MODELS.CODEX_CLI_PRIMARY,
+    AI_MODELS.OR_NV_NEMOTRON_120B,
+    AI_MODELS.GROQ_GPT_OSS_120B,
   ].filter(Boolean);
 
   const modelResults = [];
@@ -6059,10 +6057,12 @@ ISTRUZIONI TASSATIVE per questo tentativo:
 
   // ── Multi-call generation with automatic model fallback ──
   // Supports model override via sourceContext._forceModel and temperature via sourceContext._temperature
-  const forceModel = sourceContext?._forceModel;
+  const requestedForceModel = sourceContext?._forceModel;
+  const forceModel = /^(?:gemini|gemma)(?:-|$)/i.test(String(requestedForceModel || ''))
+    ? AI_MODELS.CODEX_CLI_PRIMARY
+    : requestedForceModel;
   const temperature = Number(sourceContext?._temperature || 0.7);
-  const useGeminiDirect = forceModel === 'gemini';
-  const effectiveModel = useGeminiDirect ? `Gemini ${AI_MODELS.GEMINI_FLASH}` : (forceModel || GH_MODEL_HEAVY);
+  const effectiveModel = forceModel || GH_MODEL_HEAVY;
 
   // Call 1: Italian content + metadata (id, category, image, slugs, imagePrompt, imageAlt)
   console.error(`🤖 [1/5] Generazione contenuto IT + metadata con ${effectiveModel}...`);
@@ -6233,17 +6233,7 @@ Rispondi SOLO con JSON valido, senza markdown.` },
     );
   }
 
-  let itRaw;
-  if (useGeminiDirect) {
-    // Lo slot `gemini` della rotazione (tentativo 3) e' un modello di
-    // partenza come gli altri: passa dalla stessa preferenza del ramo sotto,
-    // o quel tentativo salta Codex e parte dalla sola cascata free
-    // (review di frontaliere-articles#1751).
-    itRaw = await callLLM(llmMessages, { model: AI_MODELS.GEMINI_FLASH, prefer: PREFERRED_GENERATION_MODELS, temperature, maxTokens: IT_GENERATION_MAX_TOKENS, jsonMode: true, jsonSchema: articleSchema });
-    console.error(`  ↪ Completato (slot Gemini ${AI_MODELS.GEMINI_FLASH})`);
-  } else {
-    itRaw = await callLLM(llmMessages, { model: forceModel || GH_MODEL_HEAVY, prefer: PREFERRED_GENERATION_MODELS, temperature, maxTokens: IT_GENERATION_MAX_TOKENS, jsonMode: true, jsonSchema: articleSchema });
-  }
+  const itRaw = await callLLM(llmMessages, { model: forceModel || GH_MODEL_HEAVY, prefer: PREFERRED_GENERATION_MODELS, temperature, maxTokens: IT_GENERATION_MAX_TOKENS, jsonMode: true, jsonSchema: articleSchema });
   let itData;
   const itRepaired = repairLlmJson(itRaw);
   try {
@@ -6267,9 +6257,7 @@ Rispondi SOLO con JSON valido, senza markdown.` },
     const retryTokens = isTruncation ? 16000 : IT_GENERATION_MAX_TOKENS;
     console.error(`  🔄 Retry IT con maxTokens=${retryTokens}${isTruncation ? ' (troncamento rilevato)' : ''}...`);
     try {
-      const itRaw2 = useGeminiDirect
-        ? await callLLM(llmMessages, { model: AI_MODELS.GEMINI_FLASH, prefer: PREFERRED_GENERATION_MODELS, temperature: 0.3, maxTokens: retryTokens, jsonMode: true, jsonSchema: articleSchema })
-        : await callLLM(llmMessages, { model: forceModel || GH_MODEL_HEAVY, prefer: PREFERRED_GENERATION_MODELS, temperature: 0.3, maxTokens: retryTokens, jsonMode: true, jsonSchema: articleSchema });
+      const itRaw2 = await callLLM(llmMessages, { model: forceModel || GH_MODEL_HEAVY, prefer: PREFERRED_GENERATION_MODELS, temperature: 0.3, maxTokens: retryTokens, jsonMode: true, jsonSchema: articleSchema });
       itData = JSON.parse(repairLlmJson(itRaw2));
       console.error(`  ✅ Retry IT riuscito`);
     } catch (retryErr) {
@@ -10731,10 +10719,9 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     // CREATE_ARTICLE_MINWORDS_DEDUP=0 reverts to the plain clamp).
     const modelSlot = selectMinWordsRetryModel(attempt, previousMinWordsModel);
     previousMinWordsModel = modelSlot;
-    const useGeminiDirect = modelSlot === 'gemini';
     // Higher temperature on later attempts to get more varied/longer output
     const tempBoost = attempt >= 7 ? 0.9 : (attempt >= 5 ? 0.8 : 0.7);
-    const modelLabel = useGeminiDirect ? `Gemini ${AI_MODELS.GEMINI_FLASH}` : modelSlot;
+    const modelLabel = modelSlot;
     if (attempt > 1) {
       console.error(`  🔄 Tentativo ${attempt}/${maxAttempts} con ${modelLabel} (temp=${tempBoost})...`);
     }
@@ -10745,7 +10732,7 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       _generationAttemptMax: maxAttempts,
       _minItalianWords: adaptiveMinWords,
       _previousWordCount: lastWordCount || undefined,
-      _forceModel: useGeminiDirect ? 'gemini' : modelSlot,
+      _forceModel: modelSlot,
       _temperature: tempBoost,
       // A5: surface the headline error from the previous iteration so the
       // refined prompt block in callGemini knows what to ask the model to fix.

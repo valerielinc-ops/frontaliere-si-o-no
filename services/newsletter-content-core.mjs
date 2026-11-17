@@ -1407,7 +1407,7 @@ export function buildSubjectPrompt(ctx) {
  * variant, each in that variant's style only, and returns them as a JSON
  * object keyed by variant id. Patterns, rules and hints are those of
  * buildSubjectPrompt. `jsonSchema` is the callLLM option with which
- * schema-capable providers (Codex `--output-schema`, Gemini, OpenAI strict)
+ * schema-capable providers (Codex `--output-schema`, OpenAI-compatible strict)
  * return exactly those keys.
  *
  * @param {object} ctx — as buildSubjectPrompt, plus `variants: string[]` and

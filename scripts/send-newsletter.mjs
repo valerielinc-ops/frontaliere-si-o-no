@@ -8,7 +8,7 @@ import { realpathSync } from 'node:fs';
  * send-newsletter.mjs — v2 (AI-powered personalized newsletter)
  *
  * Each subscriber receives a unique email with:
- *  - AI-generated personalized briefing (via Gemini/multi-model chain)
+ *  - AI-generated personalized briefing (via Codex/multi-model chain)
  *  - Smart job matching (filtered by location/sector interests)
  *  - AI-generated subject line
  *  - Exchange rate card
@@ -27,7 +27,7 @@ import { realpathSync } from 'node:fs';
  *   node scripts/send-newsletter.mjs --digest-only # Only send to type='weekly_digest' subscribers
  *
  * Env vars (for --test/--send):
- *   RESEND_API_KEY, NEWSLETTER_SECRET, GEMINI_API_KEY or GH_MODELS_PAT,
+ *   RESEND_API_KEY, NEWSLETTER_SECRET, CODEX_AUTH_JSON or GH_MODELS_PAT,
  *   NEWSLETTER_EXPERIMENTAL_MODE=false, NEWSLETTER_ENABLE_SEND=true
  */
 
@@ -337,19 +337,12 @@ async function initAI() {
 // Avoids the 115+ model shotgun that causes cascading 429s and slow fallbacks.
 // One briefing per locale + one call for both subjects of a locale = ≤8 calls per run.
 // Models are still sorted by score at runtime, so the best performer leads.
-// IMPORTANT: keep these strings in sync with the canonical IDs in scripts/lib/ai-models.mjs
-// (AI_MODELS.*). When Google renames a model on the Gemini API, fix it there first.
+// IMPORTANT: keep these strings in sync with the canonical IDs in scripts/lib/ai-models.mjs.
 const NEWSLETTER_AI_CHAIN = [
-  'gemini-2.5-flash',           // Google — 1500 req/day free, fast
-  'gemini-flash-latest',        // Google — alias sullo stable corrente (era gemini-2.0-flash,
-  //                                ritirato 2026-08-14: HTTP 404 "no longer available")
+  'codex-cli/gpt-5.6-luna',     // Codex Luna Max — primary editorial lane
   'gpt-4.1-nano',               // GitHub Models — proven workhorse in past sends
-  'gemini-2.5-flash-lite',      // Google — 3000 req/day free, lightweight
-  'gemma-4-31b-it',             // Google — 14,400 req/day free
-  'gemma-4-26b-a4b-it',         // Google — 14,400 req/day free (Gemma 4 MoE — exact API id)
   // 'mistral/mistral-small-latest' tolto: Mistral e' in RETIRED_FREE_PROVIDERS
   // (HTTP 402 permanente dal 2026-09, vedi scripts/lib/ai-models.mjs).
-  'gemini-2.5-pro',             // Google — 500 req/day free, highest quality fallback
   // Self-hosted local AI gateway (OmniRoute), same AI_MODELS.OMNIROUTE_AUTO
   // used by create-article.mjs's DEFAULT_CHAIN. Since 2026-07-29
   // (AI_COMPETING_TIERS default in ai-models.mjs) this is tier-0 BY DEFAULT —
@@ -361,10 +354,6 @@ const NEWSLETTER_AI_CHAIN = [
   // "Setup OmniRoute" step in send-newsletter.yml) — inert no-op otherwise,
   // so it's safe to always list.
   'omniroute/auto',
-  // Codex Luna Max article lane, enabled only when the action-owned broker
-  // socket is available. Keep this explicit preference scoped to generation;
-  // translations and metadata remain on the free chain.
-  'codex-cli/gpt-5.6-luna',
 ];
 
 /**

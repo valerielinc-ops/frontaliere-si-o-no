@@ -35,7 +35,7 @@ describe('social copy free-model fallback', () => {
     const candidates = [
       { provider: 'openrouter', model: 'openrouter/free', context: 'compact' },
       { provider: 'openrouter', model: 'openrouter/static:free', context: 'compact' },
-      { provider: 'gemini', model: 'gemma-a', context: 'full' },
+      { provider: 'openrouter', model: 'openrouter/gemma-a', context: 'full' },
       { provider: 'cloudflare', model: 'cf-a', context: 'full' },
       { provider: 'github', model: 'gpt-a', context: 'compact' },
     ];
@@ -43,12 +43,12 @@ describe('social copy free-model fallback', () => {
       candidates,
       providerOf: (model) => model.startsWith('openrouter/')
         ? 'openrouter'
-        : model.startsWith('gemma') ? 'gemini'
+        : model.startsWith('openrouter/') ? 'openrouter'
           : model.startsWith('gpt') ? 'github' : 'cloudflare',
       available: () => true,
     });
 
-    expect(selected).toEqual([candidates[0], candidates[2]]);
+    expect(selected).toEqual([candidates[0]]);
   });
 
   it('routes the configured dynamic free-model candidate through OpenRouter', () => {
@@ -77,7 +77,7 @@ describe('social copy free-model fallback', () => {
   });
 
   it.each([
-    [new Error('Gemini API key not set'), 'provider-auth-failed'],
+    [new Error('OpenRouter API key not set'), 'provider-auth-failed'],
     [new Error('[model] HTTP 401: credential detail'), 'provider-auth-failed'],
     [new Error('[model] HTTP 403: access denied'), 'provider-access-denied'],
     [new Error('[model] HTTP 429: quota exceeded'), 'provider-quota-or-rate-limit'],
@@ -107,15 +107,15 @@ describe('social copy free-model fallback', () => {
 
   it('defers only a no-pack result made entirely of transient request failures', () => {
     expect(isTransientSocialCopyFallbackFailureSet([
-      { provider: 'gemini', phase: 'request', category: 'provider-quota-or-rate-limit' },
+      { provider: 'openrouter', phase: 'request', category: 'provider-quota-or-rate-limit' },
       { provider: 'openrouter', phase: 'request', category: 'provider-temporary-failure' },
     ])).toBe(true);
     expect(isTransientSocialCopyFallbackFailureSet([
-      { provider: 'gemini', phase: 'request', category: 'provider-quota-or-rate-limit' },
+      { provider: 'openrouter', phase: 'request', category: 'provider-quota-or-rate-limit' },
       { provider: 'groq', phase: 'request', category: 'provider-request-rejected' },
     ])).toBe(false);
     expect(isTransientSocialCopyFallbackFailureSet([
-      { provider: 'gemini', phase: 'validation', category: 'response-invalid' },
+      { provider: 'openrouter', phase: 'validation', category: 'response-invalid' },
     ])).toBe(false);
   });
 
@@ -125,7 +125,7 @@ describe('social copy free-model fallback', () => {
     const workflowOutputPath = path.join(directory, 'github-output.txt');
     const stdout = { value: '', write(text: string) { this.value += text; } };
     const candidates = [
-      { provider: 'gemini', model: 'gemini-test', context: 'compact' },
+      { provider: 'openrouter', model: 'openrouter/test', context: 'compact' },
       { provider: 'groq', model: 'groq-test', context: 'compact' },
     ];
 
@@ -140,10 +140,10 @@ describe('social copy free-model fallback', () => {
       now: new Date('2026-11-07T12:00:00.000Z'),
       modelCandidates: candidates,
       available: () => true,
-      providerOf: (model) => model.startsWith('gemini') ? 'gemini' : 'groq',
+      providerOf: (model) => model.startsWith('openrouter/') ? 'openrouter' : 'groq',
       db: {} as any,
       callModel: async (_messages: unknown, options: Record<string, unknown>) => {
-        if (options.model === 'gemini-test') throw new Error('[model] HTTP 401: private-token-value');
+        if (options.model === 'openrouter/test') throw new Error('[model] HTTP 401: private-token-value');
         return 'not valid JSON';
       },
       reserve: async () => ({ allowed: true } as any),
@@ -156,15 +156,15 @@ describe('social copy free-model fallback', () => {
       packGenerated: false,
       reason: 'all-free-models-failed',
       failures: [
-        { provider: 'gemini', phase: 'request', category: 'provider-auth-failed' },
+        { provider: 'openrouter', phase: 'request', category: 'provider-auth-failed' },
         { provider: 'groq', phase: 'validation', category: 'response-invalid' },
       ],
     });
-    expect(stdout.value).toContain('gemini:request:provider-auth-failed');
+    expect(stdout.value).toContain('openrouter:request:provider-auth-failed');
     expect(stdout.value).toContain('groq:validation:response-invalid');
     expect(stdout.value).not.toContain('private-token-value');
     const workflowOutput = readFileSync(workflowOutputPath, 'utf8');
-    expect(workflowOutput).toContain('attempt_failures=gemini:request:provider-auth-failed,groq:validation:response-invalid');
+    expect(workflowOutput).toContain('attempt_failures=openrouter:request:provider-auth-failed,groq:validation:response-invalid');
     expect(workflowOutput).not.toContain('private-token-value');
   });
 
@@ -179,9 +179,9 @@ describe('social copy free-model fallback', () => {
         GITHUB_RUN_ID: '126',
         GITHUB_RUN_ATTEMPT: '1',
       },
-      modelCandidates: [{ provider: 'gemini', model: 'gemini-test', context: 'compact' }],
+      modelCandidates: [{ provider: 'openrouter', model: 'openrouter/test', context: 'compact' }],
       available: () => true,
-      providerOf: () => 'gemini',
+      providerOf: () => 'openrouter',
       db: {} as any,
       callModel: async () => { called += 1; return '{}'; },
       reserve: async () => { reserved += 1; return { allowed: true } as any; },
@@ -211,9 +211,9 @@ describe('social copy free-model fallback', () => {
         GITHUB_RUN_ATTEMPT: '1',
       },
       now: new Date('2026-11-07T12:00:00.000Z'),
-      modelCandidates: [{ provider: 'gemini', model: 'gemini-test', context: 'compact' }],
+      modelCandidates: [{ provider: 'openrouter', model: 'openrouter/test', context: 'compact' }],
       available: () => true,
-      providerOf: () => 'gemini',
+      providerOf: () => 'openrouter',
       db: {} as any,
       callModel: async (_messages: unknown, options: Record<string, unknown>) => {
         callOptions = options;
@@ -229,20 +229,20 @@ describe('social copy free-model fallback', () => {
     });
 
     const generated = JSON.parse(readFileSync(outputPath, 'utf8'));
-    expect(result).toMatchObject({ packGenerated: true, provider: 'gemini', attempted: ['gemini'] });
+    expect(result).toMatchObject({ packGenerated: true, provider: 'openrouter', attempted: ['openrouter'] });
     expect(reserved).toBe(1);
-    expect(callOptions).toMatchObject({ model: 'gemini-test', jsonMode: true, maxRetriesPerModel: 1, recordScore: false });
+    expect(callOptions).toMatchObject({ model: 'openrouter/test', jsonMode: true, maxRetriesPerModel: 1, recordScore: false });
     expect(Object.keys(generated).sort()).toEqual(['channels', 'editorialPlan']);
-    expect(stdout.value).toContain('provider=gemini');
+    expect(stdout.value).toContain('provider=openrouter');
     expect(stdout.value).toContain('editorial_parity=match');
-    expect(stdout.value).toContain('editorial_parity_provider=gemini');
-    expect(result.editorialParity).toMatchObject({ provider: 'gemini', status: 'match' });
+    expect(stdout.value).toContain('editorial_parity_provider=openrouter');
+    expect(result.editorialParity).toMatchObject({ provider: 'openrouter', status: 'match' });
   });
 
   it('keeps the Groq completion under its free-route TPM ceiling', () => {
     expect(socialCopyFallbackMaxTokens({ provider: 'groq', context: 'compact' })).toBe(5000);
-    expect(socialCopyFallbackMaxTokens({ provider: 'gemini', context: 'compact' })).toBe(6000);
-    expect(socialCopyFallbackMaxTokens({ provider: 'gemini', context: 'full' })).toBe(7500);
+    expect(socialCopyFallbackMaxTokens({ provider: 'openrouter', context: 'compact' })).toBe(6000);
+    expect(socialCopyFallbackMaxTokens({ provider: 'openrouter', context: 'full' })).toBe(7500);
   });
 
   it('observes stable Italian editorial parity per generation provider', () => {
@@ -251,17 +251,17 @@ describe('social copy free-model fallback', () => {
     const generated = normalizeSocialCopyPack({
       editorialPlan: previous.editorialPlan,
       channels: previous.channels,
-    }, { generatedAt: previous.generatedAt, generationProvider: 'gemini' });
+    }, { generatedAt: previous.generatedAt, generationProvider: 'openrouter' });
 
     expect(fallbackPackEditorialParity(generated, previous)).toMatchObject({
-      provider: 'gemini',
+      provider: 'openrouter',
       status: 'match',
       baseline: 'current-pack-editorial-plan',
     });
   });
 
   it('does not observe a raw or invalid pack as editorial parity', () => {
-    expect(() => fallbackPackEditorialParity({ generationProvider: 'gemini' }, null))
+    expect(() => fallbackPackEditorialParity({ generationProvider: 'openrouter' }, null))
       .toThrow('fallback pack is not normalized');
   });
 
@@ -277,9 +277,9 @@ describe('social copy free-model fallback', () => {
         GITHUB_RUN_ATTEMPT: '1',
       },
       now: new Date('2026-11-07T12:00:00.000Z'),
-      modelCandidates: [{ provider: 'gemini', model: 'gemini-test', context: 'compact' }],
+      modelCandidates: [{ provider: 'openrouter', model: 'openrouter/test', context: 'compact' }],
       available: () => true,
-      providerOf: () => 'gemini',
+      providerOf: () => 'openrouter',
       inputPaths: {
         previousPack: path.join(ROOT, 'data/social-copy-packs/current.json'),
         ga4: path.join(directory, 'missing-ga4.json'),

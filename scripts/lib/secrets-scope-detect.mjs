@@ -8,7 +8,7 @@
  * → catch-all `other`, see ISSUES.md "Categorie") and, until 2026-08-24, were
  * structurally unfixable by the issue-fix.yml Claude agent: it ran with
  * `GH_TOKEN` (GitHub App) only, no Firebase Remote Config SA, so none of
- * CF_API_TOKEN / POSTHOG_PERSONAL_API_KEY+POSTHOG_PROJECT_ID / GEMINI_API_KEY+
+ * CF_API_TOKEN / POSTHOG_PERSONAL_API_KEY+POSTHOG_PROJECT_ID / CODEX_AUTH_JSON+
  * GH_MODELS_PAT were ever available to it (scripts/load-rc-env.mjs requires
  * GOOGLE_APPLICATION_CREDENTIALS, absent in that container). From 2026-08-24
  * `issue-fix.yml` loads Remote Config too (owner decision, DECISIONS.md), so the
@@ -29,7 +29,7 @@
  *     POSTHOG_PERSONAL_API_KEY/POSTHOG_PROJECT_ID (scripts/lib/posthog-client.mjs)
  *     required.
  *   - `evergreen-refresh` (evergreen-refresh-audit.yml): a genuine content refresh
- *     runs the AI generation pipeline in scripts/create-article.mjs (GEMINI_API_KEY,
+ *     runs the AI generation pipeline in scripts/create-article.mjs (Codex broker,
  *     fallback GH_MODELS_PAT) — a manual `updatedAt` bump would be a fake freshness
  *     signal (non-negotiable #1), not a real fix.
  *
@@ -134,7 +134,7 @@ export const SECRETS_SCOPED_LABELS = {
       "un fix reale richiede triage live via query HogQL per-elemento (nessun breakdown per-elemento è nel body issue, solo l'aggregato)",
   },
   'evergreen-refresh': {
-    secret: 'GEMINI_API_KEY / GH_MODELS_PAT',
+    secret: 'CODEX_AUTH_JSON / GH_MODELS_PAT',
     reason:
       "un refresh genuino gira la pipeline AI di scripts/create-article.mjs; un bump manuale di `updatedAt` sarebbe un freshness signal fittizio (non-negotiable #1)",
   },

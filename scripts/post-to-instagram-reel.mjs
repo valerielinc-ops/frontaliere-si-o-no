@@ -36,8 +36,7 @@ import { previousReportDay, rankCandidates, pickTopNUnposted } from './lib/daily
 import { fetchGa4PageReport } from './lib/ga4-service-account.mjs';
 import { pendingInstagramReel, recentInstagramReel } from './lib/instagram-reel-queue.mjs';
 import { renderReelSlides } from './lib/social-reel-image.mjs';
-import { renderAnswerVideo } from './lib/social-carousel-video.mjs';
-import { planAnswerTimeline, synthesizeAnswerVoice } from './lib/tiktok-answer-format.mjs';
+import { renderCarouselVideo } from './lib/social-carousel-video.mjs';
 import { uploadCarouselSlides, uploadCarouselVideo } from './lib/social-carousel-upload.mjs';
 import {
   buildQueueEntry,
@@ -302,13 +301,13 @@ async function publishReelSlot({ kind, day, dryRun, publishingMode }) {
 
   let rendered;
   try {
-    const { wav, seconds } = await synthesizeAnswerVoice(content.productionKit.voiceScript);
-    const spokenCards = content.productionKit.subtitles.map((text) => ({ text }));
-    const durations = planAnswerTimeline(spokenCards, seconds);
-    rendered = renderAnswerVideo(slides, durations, wav);
+    // The former narration lane called Google's Gemini TTS. Keep the Reel
+    // publishable with the verified on-screen copy and a silent MP4 until a
+    // non-Google voice provider is approved.
+    rendered = renderCarouselVideo(slides);
   } catch (err) {
-    console.log(`❌ Reel narration or MP4 unavailable: ${err.message}`);
-    return 'voice-render-failed';
+    console.log(`❌ Reel MP4 unavailable: ${err.message}`);
+    return 'render-failed';
   }
   const videoUrl = uploadCarouselVideo(rendered.buffer, { channel: 'instagram', keyPrefix });
   if (!videoUrl) {

@@ -347,7 +347,7 @@ const FETCH_RETRY_ATTEMPTS = clampNum(process.env.JOBS_CRAWLER_FETCH_RETRIES, 0,
 const FETCH_RETRY_BASE_MS = clampNum(process.env.JOBS_CRAWLER_FETCH_RETRY_BASE_MS, 100, 5000, 350);
 const RETRYABLE_HTTP_STATUS = new Set([408, 425, 429, 500, 502, 503, 504]);
 // AI availability is checked via centralized isAnyModelAvailable() from ai-models.mjs
-// (covers all 4 providers: GitHub Models, Gemini, Groq, OpenRouter)
+// (covers the approved text providers: Codex, GitHub Models, Groq, OpenRouter)
 const GOOGLE_CSE_API_KEY = normalizeSpace(process.env.GOOGLE_CSE_API_KEY || process.env.GOOGLE_API_KEY || '');
 const GOOGLE_CSE_CX = normalizeSpace(process.env.GOOGLE_CSE_CX || '');
 const GOOGLE_MAPS_API_KEY = normalizeSpace(process.env.GOOGLE_MAPS_API_KEY || '');
@@ -1542,7 +1542,7 @@ ${rawText}`;
     structureDescriptionCalls++;
     const result = await callLLM(
       [{ role: 'user', content: prompt }],
-      { model: 'gemini-flash-latest', maxTokens: 4000, temperature: 0.1 }
+      { model: 'codex-cli/gpt-5.6-luna', maxTokens: 4000, temperature: 0.1 }
     );
     if (!result) {
       setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);
@@ -1697,7 +1697,7 @@ ${contextParts.join('\n\n')}`;
     enrichThinCalls++;
     const result = await callLLM(
       [{ role: 'user', content: prompt }],
-      { model: 'gemini-flash-latest', maxTokens: 4000, temperature: 0.2 }
+      { model: 'codex-cli/gpt-5.6-luna', maxTokens: 4000, temperature: 0.2 }
     );
     if (!result) {
       setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);

@@ -199,7 +199,7 @@ export function buildInstagramReelContent({ kind, dayLabel, item, creative, soci
     selected.objective === 'follow'
       ? 'Fonte e dettagli sono nel link in bio.'
       : generatedCopy && /link in bio/i.test(generatedCopy.cta) ? '' : '👉 Per dettagli e fonti: link in bio.',
-    'Voce sintetica; la narrazione ripete il testo verificato mostrato nel video.',
+    'Testo verificato mostrato nel video; fonti e dettagli nel link in bio.',
     '',
     '#frontalieri #ticino #svizzera #italia #lavoro',
   ].join('\n');

@@ -102,8 +102,8 @@ compatibility re-export:
   directory to the requested workspace output. Without the broker, the local
   CLI uses the same command and resolves the image under
   `$CODEX_HOME/generated_images/<thread-id>/`.
-- Generated imagery follows the governed chain `openai-codex` (`gpt-image-2.5`),
-  `gemini` (`gemini-3.1-flash-image`), `fal` (FLUX), `together` (FLUX) and
+- Generated imagery follows the governed chain `openai-codex` (`gpt-image-2`),
+  `fal` (FLUX), `together` (FLUX) and
   `pollinations` (Flux). Codex is always first by default; missing credentials
   are skipped with a redacted diagnostic and callers may provide an explicit
   provider or comma-separated chain.

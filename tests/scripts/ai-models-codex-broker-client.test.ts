@@ -26,6 +26,7 @@ import {
  * lo score di codex-cli da 676 a 573 senza una sola risposta del modello).
  */
 const CODEX = AI_MODELS.CODEX_CLI_PRIMARY;
+const FALLBACK = AI_MODELS.GROQ_GPT_OSS_120B;
 const ENV_KEYS = [
   'ENABLE_CODEX_ARTICLE_FALLBACK',
   'CODEX_AUTH_BROKER_SOCKET',
@@ -34,7 +35,7 @@ const ENV_KEYS = [
   'AI_MODELS_PREFER',
   'AI_MODELS_FORCE_CHAIN',
   'AI_MODELS_SCHEMA_MODE',
-  'GEMINI_API_KEY',
+  'GROQ_API_KEY',
   'CODEX_AUTH_JSON',
 ] as const;
 
@@ -119,33 +120,33 @@ describe('client del broker Codex', () => {
 
   it('Codex Luna Max e\' il primo della catena, ma senza broker resta il fallback storico', () => {
     expect(DEFAULT_CHAIN[0]).toBe(CODEX);
-    process.env.GEMINI_API_KEY = 'gemini-test-key';
-    expect(getPreferredModel({ chain: [CODEX, AI_MODELS.GEMINI_FLASH] })).toBe(CODEX);
+    process.env.GROQ_API_KEY = 'groq-test-key';
+    expect(getPreferredModel({ chain: [CODEX, FALLBACK] })).toBe(CODEX);
 
     delete process.env.CODEX_AUTH_BROKER_SOCKET;
-    expect(getPreferredModel({ chain: [CODEX, AI_MODELS.GEMINI_FLASH] })).toBe(AI_MODELS.GEMINI_FLASH);
+    expect(getPreferredModel({ chain: [CODEX, FALLBACK] })).toBe(FALLBACK);
   });
 
   it('il kill-switch esistente esclude Codex senza cambiare la catena di ripiego', () => {
-    process.env.GEMINI_API_KEY = 'gemini-test-key';
+    process.env.GROQ_API_KEY = 'groq-test-key';
     process.env.ENABLE_CODEX_ARTICLE_FALLBACK = '0';
-    expect(getPreferredModel({ chain: [CODEX, AI_MODELS.GEMINI_FLASH] })).toBe(AI_MODELS.GEMINI_FLASH);
+    expect(getPreferredModel({ chain: [CODEX, FALLBACK] })).toBe(FALLBACK);
   });
 
-  it('un timeout Codex apre il circuito per run e passa subito a Gemini', async () => {
+  it('un timeout Codex apre il circuito per run e passa subito al fallback Groq', async () => {
     const log = warnings();
-    process.env.GEMINI_API_KEY = 'gemini-test-key';
+    process.env.GROQ_API_KEY = 'groq-test-key';
     behavior = (client) => {
       client.end(`${JSON.stringify({ ok: false, error: 'Codex CLI timed out after 15000ms' })}\n`);
     };
     const realFetch = globalThis.fetch;
     globalThis.fetch = async () => new Response(JSON.stringify({
-      candidates: [{ content: { parts: [{ text: 'FALLBACK' }] } }],
+      choices: [{ message: { content: 'FALLBACK' } }],
     }), { status: 200 });
     try {
       const result = await callLLM(messages, {
         model: CODEX,
-        chain: [CODEX, AI_MODELS.GEMINI_FLASH],
+        chain: [CODEX, FALLBACK],
         prefer: [CODEX],
         bypassForceChain: true,
         maxRetriesPerModel: 1,

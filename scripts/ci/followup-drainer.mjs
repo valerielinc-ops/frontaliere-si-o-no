@@ -6577,7 +6577,7 @@ export function runDrain() {
     // Check: secrets-scoped category (escalation #5057) — `cloudflare-5xx` /
     // `campaign-goal` / `evergreen-refresh` labels mark issues whose root fix
     // structurally requires a Firebase-RC-loaded credential (CF_API_TOKEN /
-    // POSTHOG_* / GEMINI_API_KEY+GH_MODELS_PAT) never available to `issue-fix`
+    // POSTHOG_* / CODEX_AUTH_JSON+GH_MODELS_PAT) never available to `issue-fix`
     // (GH_TOKEN only). Promoting always burns a full Claude run that ends
     // `blocked-secrets` — park pre-promotion instead, zero Claude tokens spent.
     //

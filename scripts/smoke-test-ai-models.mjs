@@ -87,7 +87,7 @@ const summary = results.reduce((acc, r) => {
   acc[r.status] = (acc[r.status] || 0) + 1;
   return acc;
 }, {});
-// GitHub Models is the default provider for bare, non-Gemini ids. Keep the
+// GitHub Models is the default provider for bare, non-Google ids. Keep the
 // roster ids bare here: publisher qualification belongs to the call site and
 // changing the roster would reroute cohere/* and mistral/* to other providers.
 const githubBareRoster = Object.values(AI_MODELS).filter(

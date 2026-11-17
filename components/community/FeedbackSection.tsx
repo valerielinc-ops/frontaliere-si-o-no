@@ -133,7 +133,8 @@ export const FeedbackSection: React.FC = () => {
  // the prompt degrades the service they asked for. Here the service is a
  // rephrasing, and it is just as good on redacted input.
  const safeDescription = redactForPublication(formData.description);
- // Gemini runs server-side (geminiGenerate Cloud Function); no API key in the browser.
+ // Codex runs server-side (historical geminiGenerate Cloud Function endpoint);
+ // no provider key is exposed in the browser.
  const userPrompt = `Agisci come un esperto Product Manager. L'utente vuole segnalare un problema o un'idea per un'app di calcolo tasse frontalieri.\nTesto utente: "${safeDescription}".\n\nRiscrivi il testo in modo chiaro e tecnico per una GitHub Issue. Non aggiungere saluti. Solo il corpo del testo.`;
  const res = await fetch('https://europe-west6-frontaliere-ticino.cloudfunctions.net/geminiGenerate', {
  method: 'POST',

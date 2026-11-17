@@ -3,7 +3,7 @@
  * generate-whats-new.mjs — Auto-generate WhatsNew release entries from pending commits.
  *
  * Reads data/pending-releases.json (populated by the post-commit hook),
- * uses Gemini AI to generate i18n translations, and outputs:
+ * uses the Codex Luna Max text lane to generate i18n translations, and outputs:
  *   1. A new RELEASES entry for WhatsNewModal.tsx
  *   2. i18n keys for all 4 locales (it, en, de, fr)
  *
@@ -46,7 +46,7 @@ try {
   callLLM = aiModule.callLLM;
   flushScores = aiModule.flushScores;
 } catch {
-  console.error('⚠️  Cannot load AI models. Set GEMINI_API_KEY or GH_MODELS_PAT.');
+  console.error('⚠️  Cannot load AI models. Configure Codex Luna Max or an approved fallback provider.');
   console.error('   Running in preview-only mode (no translations).');
   callLLM = null;
   flushScores = null;
@@ -249,7 +249,7 @@ IDs da usare nell'ordine: ${items.map(i => `"${i.id}"`).join(', ')}`;
   try {
     const raw = await callLLM(
       [{ role: 'user', content: prompt }],
-      { model: 'gemini-flash-latest', maxTokens: 4000, temperature: 0.3 }
+      { model: 'codex-cli/gpt-5.6-luna', maxTokens: 4000, temperature: 0.3 }
     );
     if (!raw) throw new Error('Empty LLM response');
 
@@ -318,7 +318,7 @@ if (violations.length > 0) {
   for (const v of violations) console.error(`   • ${v}`);
   console.error('');
   console.error(`   ${pending.length} pending entr${pending.length === 1 ? 'y' : 'ies'} left untouched in ${PENDING_FILE.replace(ROOT + '/', '')};`);
-  console.error('   re-run with a working translator (GEMINI_API_KEY / GH_MODELS_PAT) to publish them.');
+  console.error('   re-run with a working Codex Luna Max or approved fallback provider to publish them.');
   console.error('   Nothing was written: an untranslated note in it/de/fr is worse than no note.');
   if (flushScores) await flushScores();
   process.exit(strictMode ? 1 : 0);

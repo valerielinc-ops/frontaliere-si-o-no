@@ -2,7 +2,7 @@
 /**
  * Batch LLM fact-check audit for all existing blog articles.
  * Uses GitHub Models (GPT-4.1-nano via GITHUB_TOKEN) for free, high-throughput verification.
- * Falls back to Gemini if GH Models unavailable.
+ * Uses only the configured GitHub Models lane.
  * 
  * Usage: node scripts/audit-articles-factcheck.mjs
  */

@@ -67,8 +67,11 @@ export function resolveTikTokVideoCreativeVariant({ queueId, env = process.env }
  * rollout, or that has no usable FAQ, runs the slide experiment unchanged.
  */
 export function isTikTokAnswerFormatAssigned({ queueId, env = process.env } = {}) {
-  const rollout = percent(env?.TIKTOK_ANSWER_FORMAT_ROLLOUT_PERCENT ?? DEFAULT_TIKTOK_ANSWER_FORMAT_ROLLOUT_PERCENT);
-  return Boolean(queueId) && hashBucket(queueId, 'answer-format') < rollout;
+  // The old answer arm depended on Gemini TTS. Keep it disabled until a
+  // non-Google voice provider is approved; slide formats remain available.
+  void queueId;
+  void env;
+  return false;
 }
 
 export function tiktokVideoCreativeLabel(variant) {

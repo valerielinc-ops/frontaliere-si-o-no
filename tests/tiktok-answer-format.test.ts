@@ -125,10 +125,10 @@ describe('answer video plan', () => {
 });
 
 describe('buildAnswerCaption', () => {
-  it('leads with the question and discloses the synthetic voice', () => {
+  it('leads with the question and discloses the verified on-screen text', () => {
     const caption = buildAnswerCaption({ question: 'Quanto resta da 5000 franchi?', answer: ANSWER });
     expect(caption.split('\n')[0]).toBe('Quanto resta da 5000 franchi?');
-    expect(caption).toContain('voce sintetica');
+    expect(caption).toContain('Testo verificato mostrato nel video');
     expect(caption).not.toContain('visualizzazioni');
     expect(caption.match(/#\w+/g)).toHaveLength(4);
   });
@@ -146,7 +146,7 @@ describe('buildAnswerCaption', () => {
     expect(caption).toContain('Un chiarimento utile sul lavoro oltre confine');
     expect(caption).toContain('Approfondisci dal link in bio');
     expect(caption).not.toContain('Ti è capitato?');
-    expect(caption).toContain('voce sintetica');
+    expect(caption).toContain('Testo verificato mostrato nel video');
     expect(caption).toContain('frontaliereticino.ch');
   });
 });
@@ -159,50 +159,17 @@ describe('voice', () => {
     expect(wav.readUInt32LE(40)).toBe(48_000);
   });
 
-  it('measures the voice from the PCM length', async () => {
-    const data = Buffer.alloc(240_000).toString('base64');
-    const fetchImpl = async () => new Response(JSON.stringify({ candidates: [{ content: { parts: [{ inlineData: { data } }] } }] }));
-    const { seconds } = await synthesizeAnswerVoice('ciao', { apiKey: 'k', fetchImpl });
-    expect(seconds).toBe(5);
-  });
-
-  it('uses the current Gemini TTS interaction API and accepts its complete WAV output', async () => {
-    const wav = pcmToWav(Buffer.alloc(48_000));
-    let requestUrl = '';
-    let requestBody: Record<string, any> = {};
-    const fetchImpl = async (url: string, options: { body: string }) => {
-      requestUrl = url;
-      requestBody = JSON.parse(options.body);
-      return new Response(JSON.stringify({
-        steps: [{ type: 'model_output', content: [{ type: 'audio', data: wav.toString('base64') }] }],
-      }));
-    };
-    const result = await synthesizeAnswerVoice('Una risposta verificata.', { apiKey: 'k', fetchImpl });
-
-    expect(requestUrl).toBe('https://generativelanguage.googleapis.com/v1beta/interactions');
-    expect(requestBody).toMatchObject({
-      model: 'gemini-3.8-flash-tts',
-      response_format: { type: 'audio' },
-      generation_config: { speech_config: [{ voice: 'Kore' }] },
-    });
-    expect(requestBody.input[0].content[0].text).toBe('Una risposta verificata.');
-    expect(result.wav.equals(wav)).toBe(true);
-    expect(result.seconds).toBe(1);
-  });
-
-  it('fails on a missing key, empty transcript, or audio-less response', async () => {
-    await expect(synthesizeAnswerVoice('ciao', { apiKey: '' })).rejects.toThrow(/GEMINI_API_KEY/);
-    await expect(synthesizeAnswerVoice('', { apiKey: 'k' })).rejects.toThrow(/transcript is empty/);
-    const fetchImpl = async () => new Response('{}');
-    await expect(synthesizeAnswerVoice('ciao', { apiKey: 'k', fetchImpl })).rejects.toThrow(/no audio/);
+  it('keeps the retired voice lane disabled until a non-Google provider is approved', async () => {
+    await expect(synthesizeAnswerVoice('Una risposta verificata.', { apiKey: 'ignored' }))
+      .rejects.toThrow(/TTS provider retired/);
   });
 });
 
 describe('answer format assignment', () => {
-  it('stays off by default and is stable for a queue id', () => {
+  it('stays off until a non-Google voice provider is approved', () => {
     expect(isTikTokAnswerFormatAssigned({ queueId: 'article-2026-11-01', env: {} })).toBe(false);
     const env = { TIKTOK_ANSWER_FORMAT_ROLLOUT_PERCENT: '100' };
-    expect(isTikTokAnswerFormatAssigned({ queueId: 'article-2026-11-01', env })).toBe(true);
+    expect(isTikTokAnswerFormatAssigned({ queueId: 'article-2026-11-01', env })).toBe(false);
     expect(isTikTokAnswerFormatAssigned({ queueId: '', env })).toBe(false);
   });
 

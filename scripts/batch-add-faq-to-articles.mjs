@@ -504,26 +504,21 @@ function discoverArticles() {
 
 // ── FAQ generation via AI ────────────────────────────────────
 
-// Preferred models for FAQ (Gemini free tier — reliable JSON output)
+// Codex Luna Max is the preferred FAQ model; the shared chain supplies
+// approved non-Google fallbacks when the broker is unavailable.
 const FAQ_MODELS = [
-  AI_MODELS.GEMINI_FLASH,
-  // Era AI_MODELS.GEMINI_2_FLASH, ritirato da Google il 2026-08-14 (HTTP 404 "no
-  // longer available"). Resta in AI_MODELS perche' il matcher del 404 lo esaurisce
-  // da solo al primo tentativo, ma non ha senso metterlo QUI come preferenza: una
-  // catena di preferenza dovrebbe nominare modelli vivi.
-  AI_MODELS.GEMINI_FLASH_LITE_LATEST,
-  AI_MODELS.GEMINI_FLASH_LITE,
+  AI_MODELS.CODEX_CLI_PRIMARY,
 ];
 
-// Rate limiter: space out calls to avoid 503 on Gemini free tier (15 RPM).
+// Rate limiter: space out calls when several workers share the Codex broker.
 // Reserve a slot SYNCHRONOUSLY (read + write _nextSlotMs with no await between)
 // so the parallel workers (runWithConcurrency, --concurrency up to 5) each get a
 // distinct minGapMs-spaced slot instead of all reading the same timestamp,
-// waiting the same delta, and bursting → 503 on Gemini's free tier, which would
+// waiting the same delta, and bursting → a provider 503, which would
 // degrade the FAQPage JSON-LD on indexed article pages.
 let _nextSlotMs = 0;
 async function rateLimitedDelay() {
-  const minGapMs = 4500; // ~13 RPM max, safe for Gemini free tier
+  const minGapMs = 4500; // bounded broker/provider rate
   const now = Date.now();
   const slot = Math.max(now, _nextSlotMs);
   _nextSlotMs = slot + minGapMs;
@@ -535,17 +530,17 @@ async function rateLimitedDelay() {
 
 async function callFaqModel(messages, opts = {}) {
   await rateLimitedDelay();
-  // Try Gemini models first — force-clear exhaustion from previous runs
-  // (ScoreStore persists exhaustion to Firestore, but with rate limiting we're safe)
+  // Try the preferred Codex model first — force-clear exhaustion from previous
+  // runs (ScoreStore persists exhaustion to Firestore, but the lane is bounded).
   for (const model of FAQ_MODELS) {
     try {
       resetExhaustedModel(model);
       return await callSingleModel(messages, { ...opts, model, maxRetriesPerModel: 4, backoffMs: 5000 });
     } catch {
-      // Model genuinely failed — try next Gemini variant
+      // Model genuinely failed — try the next configured fallback
     }
   }
-  // All Gemini failed — fall back to general chain
+  // All preferred models failed — fall back to the general chain
   return callLLM(messages, opts);
 }
 

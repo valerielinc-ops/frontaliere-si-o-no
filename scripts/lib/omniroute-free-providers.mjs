@@ -29,7 +29,7 @@
  */
 export const OMNIROUTE_FREE_PROVIDERS = Object.freeze([
   // Free tiers we already run at $0 in scripts/lib/ai-models.mjs's own chain.
-  'cerebras', 'cloudflare-ai', 'codestral', 'cohere', 'gemini', 'github-models',
+  'cerebras', 'cloudflare-ai', 'codestral', 'cohere', 'github-models',
   'groq', 'huggingface', 'mistral', 'nvidia', 'openrouter', 'sambanova', 'zai',
   // Free-by-construction gateways (no paid plan to fall through to).
   'freeaiapikey', 'freemodel-dev', 'hackclub', 'llm7', 'pollinations',

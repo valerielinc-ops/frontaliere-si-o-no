@@ -7,27 +7,15 @@
  * has its own richer endpoint (chatbotInference); this is for simple
  * prompt → text uses.
  *
- * Provider chain (free-first): Gemini is primary, but its free tier exhausts
- * quota daily (HTTP 429). When Gemini fails for ANY reason we fall through a
- * chain of free OpenAI-compatible providers whose keys already live in Remote
- * Config (same keys the translation/article AI model chain uses), then a
- * last-resort Codex Luna Max call authenticated with the CI's Codex ChatGPT
- * login (see codexFallback.js — scoped exception, issue #4495). The endpoint only surfaces an
- * error when EVERY provider fails — so a single exhausted quota no longer
- * breaks the feature.
+ * Provider chain: Codex Luna Max is primary, followed by OpenAI-compatible
+ * fallbacks whose keys already live in Remote Config. The endpoint keeps its
+ * historical name for client compatibility; it no longer calls Google Gemini.
  */
 
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { SERVER_TEXT_FALLBACKS as OPENAI_FALLBACKS, serverTextFallbackBody } from './serverAiFallbacks.js';
 import { tryCodexFallback } from './codexFallback.js';
-import { geminiResponseText } from './lib/geminiResponseText.js';
-
-const GEMINI_BASE = 'https://generativelanguage.googleapis.com/v1beta/models';
-// Alias "latest": 'gemini-2.0-flash-lite' e' RITIRATO (verificato il 2026-08-14
-// contro il listing live dell'API). Questo endpoint serve i bottoni "Compila con
-// AI" / "AI optimize" e chiama Gemini direttamente, quindi ogni click pagava un
-// 404 garantito prima del fallback.
-const DEFAULT_MODEL = 'gemini-flash-lite-latest';
+const DEFAULT_MODEL = 'gpt-5.6-luna';
 const MAX_PROMPT_CHARS = 8000;
 const PROVIDER_TIMEOUT_MS = 18000;
 // Full-posting qualification measured 29.6s on NVIDIA. Only trusted background
@@ -57,39 +45,10 @@ function providerFailure(provider, value) {
   return { provider, cause, status };
 }
 
-// Free OpenAI-compatible fallbacks, tried in order when Gemini fails. Keys are
-// already present in Remote Config (hydrated into CI via load-rc-env.mjs).
+// OpenAI-compatible fallbacks, tried in order after Codex. Keys are already
+// present in Remote Config (hydrated into CI via load-rc-env.mjs).
 // The shared catalog uses current Groq models with independent model budgets.
 // NVIDIA’s previous hosted model is retired (HTTP 410); do not retry that dead ID.
-
-
-/** Single-shot Gemini call. Returns trimmed text on success, throws on failure. */
-async function callGemini({ apiKey, model, systemPrompt, userPrompt, maxTokens, temperature, signal }) {
-  const payload = {
-    contents: [{ role: 'user', parts: [{ text: userPrompt }] }],
-    generationConfig: { maxOutputTokens: maxTokens, temperature },
-  };
-  if (systemPrompt.trim()) {
-    payload.systemInstruction = { parts: [{ text: systemPrompt }] };
-  }
-
-  const res = await fetch(`${GEMINI_BASE}/${model}:generateContent?key=${encodeURIComponent(apiKey)}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload),
-    signal: providerSignal(signal, PROVIDER_TIMEOUT_MS),
-  });
-
-  if (!res.ok) {
-    const detail = await res.text().catch(() => '');
-    throw new Error(`gemini_error_${res.status}: ${detail.slice(0, 120)}`);
-  }
-
-  const data = await res.json().catch(() => ({}));
-  const text = geminiResponseText(data);
-  if (!text) throw new Error('gemini_empty');
-  return text;
-}
 
 /** Single-shot OpenAI-compatible chat call. Returns trimmed text, throws on failure. */
 async function callOpenAiCompatible({ base, apiKey, model, systemPrompt, userPrompt, maxTokens, temperature, apiFamily, background, signal }) {
@@ -164,23 +123,24 @@ export async function generateServerText({ systemPrompt = '', userPrompt = '', m
     return ok;
   };
 
-  // 1. Primary: Gemini (free tier). Skip cleanly if the key isn't configured.
-  const geminiKey = await getRemoteConfigValue('GEMINI_API_KEY');
-  if (signal?.aborted) return cancelled();
-  if (geminiKey && attempts < maxProviderAttempts) {
+  // 1. Primary: Codex Luna Max with the ChatGPT login from Remote Config.
+  if (allowCodexFallback && attempts < maxProviderAttempts) {
     attempts += 1;
-    try {
-      const text = await callGemini({ apiKey: geminiKey, model, systemPrompt, userPrompt, maxTokens, temperature, signal });
-      if (accepted(text)) return { status: 200, body: { ok: true, text, provider: 'gemini' } };
-      noteFailure('gemini', 'invalid_output');
-    } catch (err) {
-      noteFailure('gemini', err);
+    const codexResult = await tryCodexFallback({
+      systemPrompt,
+      messages: [{ role: 'user', content: userPrompt }],
+      background,
+      signal,
+    });
+    if (signal?.aborted) return cancelled();
+    if (codexResult.ok && accepted(codexResult.text)) {
+      console.log('[geminiGenerate] served by primary codex');
+      return { status: 200, body: { ok: true, text: codexResult.text, provider: 'codex' } };
     }
-  } else {
-    noteFailure('gemini', 'not_configured');
+    noteFailure('codex', codexResult.ok ? 'invalid_output' : codexResult.notConfigured ? 'not_configured' : codexResult.error);
   }
 
-  // 2. Fallbacks: free OpenAI-compatible providers (keys already in Remote Config).
+  // 2. Fallbacks: OpenAI-compatible providers (keys already in Remote Config).
   for (const fb of OPENAI_FALLBACKS) {
     if (signal?.aborted) return cancelled();
     if (attempts >= maxProviderAttempts) break;
@@ -204,28 +164,7 @@ export async function generateServerText({ systemPrompt = '', userPrompt = '', m
     }
   }
 
-  // 3. Last resort: Codex Luna Max with the Codex ChatGPT login
-  //    (CODEX_AUTH_JSON from Remote Config, never refreshed here) — scoped
-  //    exception in AGENTS.md (issue #4495). Only reached once every free
-  //    provider above has failed.
-  if (signal?.aborted) return cancelled();
-  const codexResult = allowCodexFallback ? await tryCodexFallback({
-    systemPrompt,
-    messages: [{ role: 'user', content: userPrompt }],
-    background,
-    signal,
-  }) : { ok: false, notConfigured: true };
-  // A worker deadline can expire while Codex is reading its SSE stream. Do not
-  // turn that cancellation into a generic provider failure (or accept a late
-  // result); callers must observe the shared cancellation contract.
-  if (signal?.aborted) return cancelled();
-  if (codexResult.ok && accepted(codexResult.text)) {
-    console.log('[geminiGenerate] served by fallback codex');
-    return { status: 200, body: { ok: true, text: codexResult.text, provider: 'codex' } };
-  }
-  noteFailure('codex', codexResult.ok ? 'invalid_output' : codexResult.notConfigured ? 'not_configured' : codexResult.error);
-
-  // Every provider failed.
+  // Every configured provider failed.
   console.error('[geminiGenerate] all providers failed —', failures.join(' | '));
   const body = { ok: false, error: 'all_providers_failed', detail: failures.join(' | ').slice(0, 300),
     ...(rejectedOutput ? { invalidOutput: true } : {}) };

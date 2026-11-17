@@ -105,7 +105,7 @@ const AVAILABLE_IMAGES = new Function(`${cut('const PLACES_IMAGES =', '\n];')}\n
 // include quindi anche il pre-flight `[prompt-budget]`, cosi' che il marker che
 // un watchdog leggera' sia pinnato dal suo output reale e non da un grep.
 const PROMPT_BLOCK_START = 'const generationAttempt = Number(sourceContext?._generationAttempt || 1);';
-const PROMPT_BLOCK_END = '\n  let itRaw;';
+const PROMPT_BLOCK_END = '\n  const itRaw =';
 const promptBlock = cut(PROMPT_BLOCK_START, PROMPT_BLOCK_END, { includeEnd: false });
 
 const DEPS = [

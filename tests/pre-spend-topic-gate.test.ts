@@ -145,7 +145,7 @@ describe('pre-spend topic gate — wiring into main()', () => {
   });
 
   it('uses a cheap classifier model by default (no full GPT-4o burn)', () => {
-    expect(SRC).toMatch(/AI_MODELS\.GEMINI_FLASH_LITE/);
+    expect(SRC).toMatch(/AI_MODELS\.CODEX_CLI_PRIMARY/);
     // The classifier call must NOT use jsonMode (avoids schema-mode bugs).
     const classifierBlock = SRC.match(
       /async function classifyFrontaliereRelevance[\s\S]*?\n\}\n/,
