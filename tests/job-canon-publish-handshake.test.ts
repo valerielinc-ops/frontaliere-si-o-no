@@ -37,6 +37,15 @@ function runWorkflowBash(run: unknown, runnerTemp: string, extraEnv: Record<stri
   });
 }
 
+function runPublishHandshake(mapDir: string, affectedFile: string) {
+  return spawnSync(process.execPath, [
+    resolve('scripts/ci/job-canon-publish-handshake.mjs'),
+    `--map-dir=${mapDir}`,
+    `--affected-file=${affectedFile}`,
+    '--base=https://cdn.example.test',
+  ], { encoding: 'utf8', env: { CF_API_TOKEN: '' } });
+}
+
 function fixtureTree() {
   const root = mkdtempSync(join(tmpdir(), 'job-canon-handshake-'));
   const current = join(root, 'current');
@@ -318,6 +327,43 @@ describe('job-canon publication handshake', () => {
     expect(() => parseRcloneChangedKeys(JSON.stringify({ msg: 'Copied (new)', object: 'job-canon/v2/abg.json' })))
       .toThrow(/unrecognized job-canon object/);
   });
+
+  it('accepts v1 and v2 inventory keys in the publish handshake gate', () => {
+    const { root, current } = fixtureTree();
+    try {
+      const affectedFile = join(root, 'affected.txt');
+      writeFileSync(affectedFile, [
+        'job-canon/bi.json',
+        'job-canon/a_.json',
+        'job-canon/v2/abc.json',
+      ].join('\n'));
+
+      const result = runPublishHandshake(current, affectedFile);
+      expect(result.status).toBe(1);
+      expect(result.stderr).toContain('CF_API_TOKEN is required');
+      expect(result.stderr).not.toContain('invalid affected job-canon key');
+    } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it.each(['BI.json', 'a-.json', 'v2/abg.json', 'v2/ab.json'])(
+    'rejects invalid handshake inventory key job-canon/%s',
+    (filename) => {
+      const { root, current } = fixtureTree();
+      try {
+        const affectedFile = join(root, 'affected.txt');
+        writeFileSync(affectedFile, `job-canon/${filename}\n`);
+
+        const result = runPublishHandshake(current, affectedFile);
+        expect(result.status).toBe(1);
+        expect(result.stderr).toContain('invalid affected job-canon key');
+        expect(result.stderr).not.toContain('CF_API_TOKEN is required');
+      } finally {
+        rmSync(root, { recursive: true, force: true });
+      }
+    },
+  );
 
   it('fails closed when the R2 log file is missing', () => {
     const root = mkdtempSync(join(tmpdir(), 'job-canon-inventory-'));
