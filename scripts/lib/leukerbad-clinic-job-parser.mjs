@@ -27,6 +27,7 @@ import {
   locateTagByAttribute,
   normalizeSpace,
 } from './hospital-custom-html-helpers.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { sourcePostingDateFields } from './source-posting-date.mjs';
 
 export const LEUKERBAD_CLINIC_KEY = 'leukerbad-clinic';
@@ -73,6 +74,14 @@ export function leukerbadClinicMatchKey(job = {}) {
 function innerHtmlByAttribute(html, attrMatcher, scanCap = 200_000) {
   const located = locateTagByAttribute(String(html || ''), attrMatcher, { skipVoidTags: true });
   return located ? extractBalancedTagBlock(located.rest, located.tagName, scanCap) : '';
+}
+
+function hasAuthoritativeEmptyListing(html) {
+  return Boolean(locateTagByAttribute(
+    String(html || ''),
+    'data-testid=["\']offres-vide["\']',
+    { skipVoidTags: true },
+  ));
 }
 
 function expectedDetailPrefix(lang) {
@@ -193,10 +202,24 @@ function buildJob(row, detail) {
 export async function fetchAllLeukerbadClinicJobs() {
   console.log('🏥 Fetching Leukerbad Clinic jobs from official server-rendered HTML');
   const rows = [];
+  let authoritativeEmptyListings = 0;
   for (const listing of LISTINGS) {
     console.log(`   Listing (${listing.lang}): ${listing.url}`);
     const html = await fetchHtml(listing.url);
+    if (hasAuthoritativeEmptyListing(html)) {
+      authoritativeEmptyListings += 1;
+      continue;
+    }
     rows.push(...parseLeukerbadClinicListing(html, listing.url, listing.lang));
+  }
+
+  if (authoritativeEmptyListings === LISTINGS.length) {
+    const emptyJobs = markAuthoritativeEmptySnapshot(
+      [],
+      'official German and French listings rendered data-testid=offres-vide',
+    );
+    console.log('\n📋 Leukerbad Clinic reports no open vacancies in either official locale');
+    return emptyJobs;
   }
 
   const jobs = [];
