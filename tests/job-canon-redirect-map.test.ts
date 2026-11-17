@@ -962,7 +962,7 @@ describe('job canon bridge path planning and PR-B classification', () => {
     const plan = buildActiveJobBridgePathPlan([job], {
       winners: {},
       reservedHubSlugs: new Set(),
-      isSafeBridgePath: (bridgePath) => {
+      canEmitBridgePath: (_locale, bridgePath) => {
         checkedPaths.push(bridgePath);
         return !bridgePath.includes('/unsafe-slug/');
       },
@@ -974,6 +974,79 @@ describe('job canon bridge path planning and PR-B classification', () => {
     ]));
     expect(plan.bridgePaths.some((bridge) => bridge.slug === 'unsafe-slug')).toBe(false);
     expect(plan.bridgePaths.some((bridge) => bridge.slug === 'safe-slug')).toBe(true);
+  });
+
+  it('uses the shared canonical path for normalized previous-slug and cross-locale candidates', () => {
+    const job = {
+      id: 'normalized-bridge-owner',
+      slug: 'current-it',
+      canton: 'ZH',
+      slugByLocale: { it: 'current-it', en: 'current-en', de: 'current-de', fr: 'current-fr' },
+      previousSlugsByLocale: { en: [' old-en '] },
+    } satisfies ActiveJobSlugMapRow;
+    const plan = buildActiveJobBridgePathPlan([job], {
+      winners: {},
+      reservedHubSlugs: new Set(),
+    });
+
+    const previous = plan.bridgePaths.find((bridge) =>
+      bridge.kind === 'previousSlug' && bridge.locale === 'en' && bridge.slug === ' old-en ',
+    );
+    const legacyTiMirror = plan.bridgePaths.find((bridge) =>
+      bridge.kind === 'legacyTiMirror' && bridge.locale === 'en' && bridge.slug === ' old-en ',
+    );
+    const crossLocale = plan.bridgePaths.find((bridge) =>
+      bridge.kind === 'crossLocale' && bridge.locale === 'it' && bridge.slug === ' old-en ',
+    );
+
+    expect(previous?.path).toBe(buildCanonicalJobDetailPath('en', job, ' old-en ', 'ZH'));
+    expect(legacyTiMirror?.path).toBe(buildCanonicalJobDetailPath('en', 'TI', ' old-en '));
+    expect(crossLocale?.path).toBe(buildCanonicalJobDetailPath('it', 'TI', ' old-en '));
+  });
+
+  it('leaves a previously claimed canonical page out of the retained bridge inventory', () => {
+    const job = {
+      id: 'bridge-owner',
+      slug: 'current-it',
+      canton: 'GE',
+      slugByLocale: { it: 'current-it', en: 'current-en', de: 'current-de', fr: 'current-fr' },
+      previousSlugsByLocale: { it: ['owned-canonical-page'] },
+    } satisfies ActiveJobSlugMapRow;
+    const ownedCanonicalPath = buildCanonicalJobDetailPath('it', job, 'owned-canonical-page', 'GE');
+    const plan = buildActiveJobBridgePathPlan([job], {
+      winners: {},
+      reservedHubSlugs: new Set(),
+      canEmitBridgePath: (_locale, candidatePath) => candidatePath !== ownedCanonicalPath,
+    });
+
+    expect(plan.bridgePaths.some((bridge) =>
+      bridge.kind === 'previousSlug' && bridge.path === ownedCanonicalPath,
+    )).toBe(false);
+  });
+
+  it('keeps index-only bridge candidates when the optional flat sibling is unsafe', () => {
+    const distDir = path.join(os.tmpdir(), 'active-bridge-index-only-dist');
+    const oldSlug = 'a'.repeat(255);
+    const job = {
+      id: 'index-only-bridge-owner',
+      slug: 'current-it',
+      canton: 'ZH',
+      slugByLocale: { it: 'current-it', en: 'current-en', de: 'current-de', fr: 'current-fr' },
+      previousSlugsByLocale: { en: [oldSlug] },
+    } satisfies ActiveJobSlugMapRow;
+    const candidatePath = buildCanonicalJobDetailPath('en', job, oldSlug, 'ZH');
+
+    expect(getSafeDistPageTargets(distDir, candidatePath, { includeFlat: false })).not.toBeNull();
+    expect(getSafeDistPageTargets(distDir, candidatePath)).toBeNull();
+
+    const plan = buildActiveJobBridgePathPlan([job], {
+      winners: {},
+      reservedHubSlugs: new Set(),
+      canEmitBridgePath: (locale, path) => locale === 'en'
+        && Boolean(getSafeDistPageTargets(distDir, path, { includeFlat: false })),
+    });
+
+    expect(plan.bridgePaths.some((bridge) => bridge.locale === 'en' && bridge.path === candidatePath)).toBe(true);
   });
 
   it('keeps a retained bridge when only its optional flat sibling exceeds filesystem limits', () => {
@@ -1461,6 +1534,28 @@ describe('job canon bridge path planning and PR-B classification', () => {
       () => true,
       () => false,
     )).toThrow('[job-alias-redirect-gate] retained bridge does not point to its planned canonical');
+  });
+
+  it('accepts retained HTML only when it is noindex and carries the exact target slug and canonical', () => {
+    const targetPath = 'https://frontaliereticino.ch/cerca-lavoro-zurigo/current-route/';
+    const indexPath = '/dist/cerca-lavoro-ticino/old-route/index.html';
+    const html = [
+      '<html><head>',
+      '<meta name="robots" content="noindex,follow">',
+      `<link rel="canonical" href="${targetPath}">`,
+      '<script>window.__BRIDGE_TARGET_SLUG__="current-route";</script>',
+      '</head><body>Retained bridge</body></html>',
+    ].join('');
+
+    expect(assertBridgePathDistCoverage(
+      [],
+      [{ indexPath, targetPath }],
+      (candidatePath) => candidatePath === indexPath,
+      (candidatePath, canonicalTarget) => candidatePath === indexPath
+        && html.includes('<meta name="robots" content="noindex,follow">')
+        && html.includes(`window.__BRIDGE_TARGET_SLUG__="${canonicalTarget.split('/').filter(Boolean).at(-1)}"`)
+        && html.includes(`<link rel="canonical" href="${canonicalTarget}">`),
+    )).toEqual({ removable404: 0, retained200: 1 });
   });
 
   it('measures four-locale bridge removal on a synthetic full-content corpus', () => {

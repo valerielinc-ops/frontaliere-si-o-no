@@ -5642,7 +5642,7 @@ ${staticAnalyticsHtml}
  // rare, but possible for short generic slugs), leave it alone.
  if (!options.fastLane && locale !== 'it' && perLocaleSlug[locale] !== job.slug) {
  const __tLegacyBridge = startTimer();
- const legacyRel = `${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/${job.slug}`.replace(/\/+/g, '/').replace(/^\//, '');
+ const legacyRel = buildCanonicalJobDetailPath(locale, job, job.slug, jobCanton).replace(/^\/+|\/+$/g, '');
  if (!activeJobDirs.has(legacyRel.replace(/\/+$/, ''))) {
  const legacyReuseInput = incrementalManifests
   ? {
@@ -5704,7 +5704,7 @@ ${staticAnalyticsHtml}
  // slug under the TI section.
  if (!options.fastLane && jobCanton !== 'TI' && !isCompanyHubNamespaceSlug(job.slug, locale)) {
  const __tCrossCantonLegacy = startTimer();
- const legacyTIRel = `${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}/${job.slug}`.replace(/\/+/g, '/').replace(/^\//, '');
+ const legacyTIRel = buildCanonicalJobDetailPath(locale, 'TI', job.slug).replace(/^\/+|\/+$/g, '');
  const legacyTIKey = legacyTIRel.replace(/\/+$/, '');
  if (locale !== 'it' && !activeJobDirs.has(legacyTIKey)) {
  // en/de/fr: no copy. The legacy TI URL of a non-TI job is left to the
@@ -14890,6 +14890,7 @@ ${staticAnalyticsHtml}
  // soft-landings and self-heal run. Only exact Worker destinations may lose
  // their static output; uncertain paths remain full-content bridges.
  const retainedBridgePaths = new Map<string, { bridge: JobCanonBridgePath; reason: BridgeKeepReason }>();
+ const activeBridgePathsOwnedBeforePlan = new Set<string>();
  const bridgePathKey = (locale: string, pathname: string): string =>
   `${locale}\u0000${pathname.replace(/^\/+|\/+$/g, '')}`;
  const activeBridgeRedirectCounts: Record<typeof localeList[number], number> = {
@@ -14918,14 +14919,17 @@ ${staticAnalyticsHtml}
    reservedHubSlugs: RESERVED_HUB_SLUGS,
    workerWouldRecover: legacyTiPathRecoveredByWorker,
    onHeapSample: sampleBridgePlanHeap,
-   isSafeBridgePath: (bridgePath) => {
+   canEmitBridgePath: (locale, bridgePath) => {
     const safeTargets = getSafeDistPageTargets(distDir, bridgePath, { includeFlat: false });
-    if (!safeTargets) unsafeBridgePathsSkipped++;
-    return Boolean(safeTargets);
-   },
-   canWriteCrossLocalePath: (bridgePath) => {
-    const safeTargets = getSafeDistPageTargets(distDir, bridgePath, { includeFlat: false });
-    return Boolean(safeTargets && !pathIsClaimedOrReserved(safeTargets.indexPath));
+    if (!safeTargets) {
+     unsafeBridgePathsSkipped++;
+     return false;
+    }
+    if (pathIsClaimedOrReserved(safeTargets.indexPath)) {
+     activeBridgePathsOwnedBeforePlan.add(bridgePathKey(locale, bridgePath));
+     return false;
+    }
+    return true;
    },
   });
   const bridgeSlugs = new Set(bridgePlan.bridgePaths.map((bridge) => bridge.slug));
@@ -15018,6 +15022,7 @@ ${staticAnalyticsHtml}
  });
  const isRetainedActiveBridgePath = (locale: JobSeoLocale, pathname: string): boolean => {
   const canonicalPath = withSlash(pathname);
+  if (activeBridgePathsOwnedBeforePlan.has(bridgePathKey(locale, canonicalPath))) return false;
   return isRetainedBridgePathSafeToEmit(
    distDir,
    canonicalPath,
@@ -16852,7 +16857,6 @@ ${staticAnalyticsHtml}
  // Canton resolution is per-job (not per-oldSlug) — the same job emits all
  // its bridges under the same section regardless of locale-aware vs legacy
  // previousSlugs entries.
- const bridgeSection = buildCantonAwareSection(locale, jobCantonForBridge);
  for (const oldSlug of prevSlugsForLocale) {
  if (oldSlug === currentSlug) continue;
  // Skip bridge generation when the previousSlug is a reserved sector/city
@@ -16875,7 +16879,7 @@ ${staticAnalyticsHtml}
  bridgeSkippedNotWinner += 1;
  continue;
  }
- const oldPath = `${localePrefix[locale]}/${bridgeSection}/${oldSlug}`.replace(/\/+/g, '/');
+ const oldPath = buildCanonicalJobDetailPath(locale, job, oldSlug, jobCantonForBridge).replace(/\/+$/, '');
  const oldRelPath = oldPath.replace(/^\//, '');
  // Skip if an active job page already occupies this path (buffered writes
  // are invisible to fs.existsSync — use the activeJobDirs set instead).
@@ -16985,7 +16989,7 @@ ${staticAnalyticsHtml}
  // bridge at ~line 2840 (PR #159), extended here to cover every
  // per-locale previousSlug too.
  if (jobCantonForBridge !== 'TI' && !isCompanyHubNamespaceSlug(oldSlug, locale)) {
- const legacyTIRelPath = `${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}/${oldSlug}`.replace(/\/+/g, '/').replace(/^\//, '');
+ const legacyTIRelPath = buildCanonicalJobDetailPath(locale, 'TI', oldSlug).replace(/^\/+|\/+$/g, '');
  const legacyTIKey = legacyTIRelPath.replace(/\/+$/, '');
  // The legacy TI section is canton-blind: every non-TI job collapses
  // here, so this oldSlug mirror can collide with (a) an active job's
@@ -17178,7 +17182,7 @@ ${staticAnalyticsHtml}
   }
  }
  for (const foreignSlug of foreignSlugs) {
-  const candidatePath = `${localePrefix[baseLocale]}/${sectionByLocale[baseLocale]}/${foreignSlug}`.replace(/\/+/g, '/');
+  const candidatePath = buildCanonicalJobDetailPath(baseLocale, 'TI', foreignSlug);
   if (!retainedBridgePaths.has(bridgePathKey(baseLocale, candidatePath))) foreignSlugs.delete(foreignSlug);
  }
  if (foreignSlugs.size === 0) continue;
@@ -17221,7 +17225,7 @@ ${staticAnalyticsHtml}
  // job's location falls back to TI, a foreign-locale company-shaped slug is a
  // company-hub URL and must be left to that emitter (issue #2976).
  if (isCompanyHubNamespaceSlug(foreignSlug, baseLocale)) continue;
- const relPath = `${localePrefix[baseLocale]}/${sectionByLocale[baseLocale]}/${foreignSlug}`.replace(/\/+/g, '/');
+ const relPath = buildCanonicalJobDetailPath(baseLocale, 'TI', foreignSlug).replace(/^\/+|\/+$/g, '');
  if (isDistPathOverFilesystemLimits(relPath)) {
   skippedFilesystemLimitPaths++;
   continue;
@@ -17806,6 +17810,8 @@ ${staticAnalyticsHtml}
    return true;
   },
  );
+ retainedBridgePaths.clear();
+ activeBridgePathsOwnedBeforePlan.clear();
  console.log(
   `[job-alias-redirect-gate] verified removable-404=${bridgeDistCoverage.removable404} retained-200=${bridgeDistCoverage.retained200} `
   + `unsafe-flat-siblings-skipped=${unsafeBridgeFlatSiblingsSkipped}`,

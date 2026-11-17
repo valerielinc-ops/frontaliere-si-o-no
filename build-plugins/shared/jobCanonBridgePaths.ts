@@ -539,16 +539,14 @@ export function buildActiveJobBridgePathPlan(
     resolvedWinners?: WinnersFile;
     reservedHubSlugs: ReadonlySet<string>;
     workerWouldRecover?: (locale: JobCanonLocale, slug: string, path: string) => boolean;
-    /** Data-sourced previous slugs must pass the same dist safety preflight as emitted pages. */
-    isSafeBridgePath?: (path: string) => boolean;
-    canWriteCrossLocalePath?: (path: string) => boolean;
+    /** Every active bridge candidate must pass the producer's path and ownership checks. */
+    canEmitBridgePath?: (locale: JobCanonLocale, path: string) => boolean;
     onHeapSample?: () => void;
   },
 ): ActiveJobBridgePathPlan {
   const { reservedHubSlugs } = options;
   const workerWouldRecover = options.workerWouldRecover ?? (() => false);
-  const isSafeBridgePath = options.isSafeBridgePath ?? (() => true);
-  const canWriteCrossLocalePath = options.canWriteCrossLocalePath ?? (() => true);
+  const canEmitBridgePath = options.canEmitBridgePath ?? (() => true);
   const stats: ActiveJobBridgePathStats = {
     activeJobs: jobs.length,
     previousSlugClaims: 0,
@@ -686,7 +684,7 @@ export function buildActiveJobBridgePathPlan(
       }
 
       const oldPath = buildCanonicalJobDetailPath(locale, job, oldSlug, canton);
-      if (isSafeBridgePath(oldPath)) {
+      if (canEmitBridgePath(locale, oldPath)) {
         const oldPathKey = normalizedPathKey(oldPath);
         if (
           activeJobDirs.has(oldPathKey)
@@ -709,7 +707,7 @@ export function buildActiveJobBridgePathPlan(
 
       if (canton !== 'TI' && !isCompanyHubNamespaceSlug(oldSlug, locale)) {
         const mirrorPath = buildCanonicalJobDetailPath(locale, 'TI', oldSlug);
-        if (!isSafeBridgePath(mirrorPath)) return;
+        if (!canEmitBridgePath(locale, mirrorPath)) return;
         const mirrorKey = normalizedPathKey(mirrorPath);
         const mirrorMapKey = `${locale}\u0000${mirrorKey}`;
         if (
@@ -775,8 +773,7 @@ export function buildActiveJobBridgePathPlan(
           stats.crossLocaleWorkerRecovered += 1;
           continue;
         }
-        if (!isSafeBridgePath(bridgePath)) continue;
-        if (!canWriteCrossLocalePath(bridgePath)) continue;
+        if (!canEmitBridgePath(baseLocale, bridgePath)) continue;
         if (claimedPaths.has(pathMapKey)) {
           stats.crossLocaleAlreadyClaimed += 1;
           continue;
