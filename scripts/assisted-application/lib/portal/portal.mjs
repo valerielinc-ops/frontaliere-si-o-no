@@ -4736,7 +4736,9 @@ export function postingMatch(pageText, job = {}, pageUrl = '') {
 
 // A page's own vocabulary names no employer («Hotel application», «Bewerbung im Hotel Bereich»).
 const FORM_VOCABULARY = new Set([
-  'application', 'applications', 'apply', 'jetzt', 'now', 'maintenant', 'ora', 'subito', 'spater', 'bewerbung', 'bewerbungen', 'bewerben', 'candidatura', 'candidature', 'candidati', 'postuler',
+  // Pinpoint can put its save-later action and cookie control before the first
+  // field; those labels describe the form surface, not another employer.
+  'application', 'applications', 'apply', 'save', 'later', 'cookies', 'jetzt', 'now', 'maintenant', 'ora', 'subito', 'spater', 'bewerbung', 'bewerbungen', 'bewerben', 'candidatura', 'candidature', 'candidati', 'postuler',
   // Once a generic stage heading is removed, the first visible control labels
   // can become the page's first line. These labels describe form fields, not a
   // second employer («Vorname», «Nachname», «E-Mail-Adresse», «Weiter»).
@@ -5583,9 +5585,7 @@ const OTHER_EMPLOYER_MARKER_WORDS = new Set([
   'other', 'another', 'andere', 'anderer', 'anderes', 'anderen', 'fremde', 'fremder', 'fremdes',
   'altro', 'altra', 'altri', 'altre', 'autre', 'autres',
 ]);
-// Pinpoint renders action/cookie controls before its first field; they are
-// form chrome, not a role heading that can contradict the bound posting.
-const FORM_SURFACE_START_RE = /^(?:numero(?:\s+di)?\s+candidatura|data\s+di\s+compilazione|application\s+(?:number|details)|candidate\s+information|personal\s+information|personal\s+data|first\s+name|last\s+name|vorname|nachname|e[\s-]?mail(?:\s+(?:adresse|address))?|telefono|address|type\s+of\s+application|tipo\s+di\s+candidatura|i\s+campi\b|fields?\s+marked\b|save\s+application\s+for\s+later|cookies?)/iu;
+const FORM_SURFACE_START_RE = /^(?:numero(?:\s+di)?\s+candidatura|data\s+di\s+compilazione|application\s+(?:number|details)|candidate\s+information|personal\s+information|personal\s+data|first\s+name|last\s+name|vorname|nachname|e[\s-]?mail(?:\s+(?:adresse|address))?|telefono|address|type\s+of\s+application|tipo\s+di\s+candidatura|i\s+campi\b|fields?\s+marked\b)/iu;
 
 function isGenericFormChromeSegment(segment) {
   const words = normalizeWords(segment).split(' ').filter(Boolean);
