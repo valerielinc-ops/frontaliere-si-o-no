@@ -8858,6 +8858,39 @@ function inlineProfileRowOrdinal(field, kind) {
   return match ? Number(match[1]) : 0;
 }
 
+function inlineProfileDateEndpoint(field) {
+  const label = String(field?.label || '').trim();
+  if (/^(?:start date|from)\s*[＊*]?$/i.test(label)) return 'start';
+  if (/^(?:end date|to)\s*[＊*]?$/i.test(label)) return 'end';
+  return '';
+}
+
+/**
+ * Workday's dateInputWrapper controls are extracted before ordinary inputs and
+ * may carry only the section name, while the other controls expose the row's
+ * ordinal. Attach them only when both date endpoints form one complete,
+ * ordered set for the already identified rows; otherwise leave the ownership
+ * unknown and let the normal handoff stay fail-closed.
+ */
+function attachUnnumberedInlineProfileDates(fields, kind, rows) {
+  const ordinals = [...rows.keys()].sort((left, right) => left - right);
+  if (!ordinals.length || ordinals.some((ordinal, index) => ordinal !== index + 1)) return rows;
+  const unnumbered = fields.filter((field) => inlineProfileRowOrdinal(field, kind) === 0
+    && inlineProfileDateEndpoint(field));
+  if (!unnumbered.length) return rows;
+  const byEndpoint = new Map([
+    ['start', unnumbered.filter((field) => inlineProfileDateEndpoint(field) === 'start')],
+    ['end', unnumbered.filter((field) => inlineProfileDateEndpoint(field) === 'end')],
+  ]);
+  if (byEndpoint.get('start').length !== ordinals.length
+    || byEndpoint.get('end').length !== ordinals.length
+    || unnumbered.length !== ordinals.length * 2) return rows;
+  ordinals.forEach((ordinal, index) => {
+    rows.get(ordinal).push(byEndpoint.get('start')[index], byEndpoint.get('end')[index]);
+  });
+  return rows;
+}
+
 async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries, { files = {} } = {}) {
   let current = snapshot;
   const rowsByOrdinal = (fields) => {
@@ -8875,6 +8908,7 @@ async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries,
     handoff: 'profile_section_row_fill_failed',
   });
   let byOrdinal = rowsByOrdinal(profileFields(current, kind));
+  attachUnnumberedInlineProfileDates(profileFields(current, kind), kind, byOrdinal);
   const hasExpectedRows = () => Array.from({ length: entries.length }, (_, index) => index + 1)
     .every((ordinal) => byOrdinal.has(ordinal));
   const ADD_INLINE_ROW_RE = /^(?:add another|weitere hinzufügen|weitere hinzufuegen|ajouter une autre|aggiungi un altro)\b/i;
@@ -8893,6 +8927,7 @@ async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries,
     const opened = await waitForProfileFields(page, kind, beforeIds);
     current = opened.snapshot;
     byOrdinal = rowsByOrdinal(profileFields(current, kind));
+    attachUnnumberedInlineProfileDates(profileFields(current, kind), kind, byOrdinal);
     if (!opened.fields.length && !hasExpectedRows()) return fail();
   }
 
@@ -8900,6 +8935,7 @@ async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries,
   const DELETE_ROW_RE = /^(?:delete|remove|löschen|loeschen|entfernen|supprimer|elimina|rimuovi)\b/i;
   while (true) {
     byOrdinal = rowsByOrdinal(profileFields(current, kind));
+    attachUnnumberedInlineProfileDates(profileFields(current, kind), kind, byOrdinal);
     const emptyExtraOrdinal = [...byOrdinal.entries()]
       .filter(([ordinal, rowFields]) => ordinal > entries.length && !rowFields.some((field) => holdsValue(field)))
       .map(([ordinal]) => ordinal)
@@ -8919,6 +8955,7 @@ async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries,
     }
   }
   byOrdinal = rowsByOrdinal(profileFields(current, kind));
+  attachUnnumberedInlineProfileDates(profileFields(current, kind), kind, byOrdinal);
   const unresolvedExtra = [...byOrdinal.entries()]
     .some(([ordinal, rowFields]) => ordinal > entries.length && !rowFields.some((field) => holdsValue(field)));
   if (unresolvedExtra || !hasExpectedRows()) return fail();
