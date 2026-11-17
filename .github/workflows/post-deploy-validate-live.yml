@@ -256,11 +256,12 @@ jobs:
       # copy, and serve_stale can only serve one that exists and merely expired
       # (measured staleRescuable = 0).
       #
-      # Apex freshness is now a bounded 300s edge TTL (APEX_EDGE_TTL_SECONDS in
-      # scripts/cf-locale-failover-setup.mjs) — self-invalidating, no purge
-      # needed. cf-purge-cache.mjs still supports the zone-wide mode for
-      # deliberate operator use, but it now requires CF_PURGE_ZONE_WIDE=1 so it
-      # cannot silently return to a deploy path.
+      # General apex freshness is bounded by a 300s edge TTL
+      # (APEX_EDGE_TTL_SECONDS in scripts/cf-locale-failover-setup.mjs). The
+      # Pages home and sitemap index still need exact-key purges after deploy:
+      # stale-while-revalidate can keep those specific old copies available.
+      # cf-purge-cache.mjs still supports zone-wide mode for deliberate operator
+      # use, but it requires CF_PURGE_ZONE_WIDE=1 and is never used here.
       # Guarded by tests/cf-zone-purge-blast-radius.test.ts.
 
       # Verify the offloaded JS/CSS bundle actually serves from the CDN on the
@@ -282,25 +283,29 @@ jobs:
       - name: Load RC secrets (PageSpeed API key)
         run: node scripts/load-rc-env.mjs
 
-      # GitHub Pages does not invalidate Cloudflare's apex HTML entry when it
-      # publishes. The old zone-wide purge was removed to preserve the R2 CDN
-      # cache, but no exact replacement covered `/`; the 300s TTL is not a
-      # freshness guarantee while stale-while-revalidate can keep an old page
-      # available. Clear only the Pages home key after origin propagation is
-      # confirmed. The runtime watchdog separately checks all four locale homes.
+      # GitHub Pages does not invalidate Cloudflare's apex cache entries when it
+      # publishes. The same stale-while-revalidate behavior that can keep an old
+      # home available also affected the sitemap index: on 2026-11-17 the apex
+      # /sitemap.xml was a HIT with Last-Modified 2026-11-06, 159 entries, and
+      # s-maxage=86400 while the origin had 203 entries. A manual purge of that
+      # exact URL returned 203 entries (MISS then HIT, max-age=600). Once origin
+      # propagation is confirmed, purge only the Pages home and sitemap index
+      # URLs with --files. This is a targeted two-URL purge, never zone-wide;
+      # the child sitemaps were already fresh. The runtime watchdog separately
+      # checks all four locale homes.
       - name: Purge exact cache entry for the Pages home
         if: steps.propagation.outcome == 'success'
         env:
-          PAGES_HOME_PURGE_URL: https://frontaliereticino.ch/
+          PAGES_PURGE_URLS: https://frontaliereticino.ch/,https://frontaliereticino.ch/sitemap.xml
         run: |
           set -euo pipefail
           if [ -z "${CF_API_TOKEN:-}" ]; then
-            echo "::error::CF_API_TOKEN missing after Remote Config load — the Pages home cache could not be purged"
+            echo "::error::CF_API_TOKEN missing after Remote Config load — the Pages home and sitemap index cache entries could not be purged"
             exit 1
           fi
-          purge_urls="${PAGES_HOME_PURGE_URL:-}"
+          purge_urls="${PAGES_PURGE_URLS:-}"
           if [ -z "$purge_urls" ]; then
-            echo "::error::the exact Pages home purge URL list is empty"
+            echo "::error::the exact Pages cache purge URL list is empty"
             exit 1
           fi
           node scripts/cf-purge-cache.mjs "--files=$purge_urls"
