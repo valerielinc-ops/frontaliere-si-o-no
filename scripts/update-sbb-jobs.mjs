@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 import { readJsonFile } from './lib/read-large-json.mjs';
+import { XMLValidator } from 'fast-xml-parser';
 import { pathToFileURL } from 'node:url';
 import { realpathSync } from 'node:fs';
 /**
@@ -23,6 +24,9 @@ import { realpathSync } from 'node:fs';
  * API endpoint:
  *   https://company.sbb.ch/content/internet/corporate/it/jobs-karriere/jobs/
  *     job-suche/jcr:content/parmain/jobfilter.results.json
+ *
+ * Official careers sitemap fallback:
+ *   https://careers.sbb.ch/sitemap.xml
  *
  * Apprenticeship listing endpoint:
  *   https://www.login.org/it/panoramica-dei-posti-di-tirocinio-disponibili-nel
@@ -99,6 +103,7 @@ const SBB_API_URL =
 const SBB_LISTING_URL = 'https://company.sbb.ch/it/impieghi-carriera/jobs/posti-liberi.html';
 const SBB_LISTING_START_URL = `${SBB_LISTING_URL}?startItem=1`;
 const SBB_LISTING_MAX_PAGES = 40;
+const SBB_CAREERS_SITEMAP_URL = 'https://careers.sbb.ch/sitemap.xml';
 const SBB_AEM_BROWSER_USER_AGENT =
   'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36';
 
@@ -198,7 +203,10 @@ function isLoginSbbJob(job) {
 }
 
 export function buildSbbSourceHealth(apiSeed = {}, loginDiscovery = {}) {
-  const aemDegraded = apiSeed?.source === 'sbb-vacancies-listing';
+  const aemFallbackSource = ['sbb-vacancies-listing', 'sbb-careers-sitemap'].includes(apiSeed?.source)
+    ? apiSeed.source
+    : '';
+  const aemDegraded = Boolean(aemFallbackSource);
   const loginDegraded = loginDiscovery?.degraded === true;
   return {
     status: aemDegraded || loginDegraded ? 'degraded' : 'healthy',
@@ -215,7 +223,7 @@ export function buildSbbSourceHealth(apiSeed = {}, loginDiscovery = {}) {
         aemUrlCount: Array.isArray(apiSeed?.urls) ? apiSeed.urls.length : 0,
         ...(aemDegraded
           ? {
-              fallbackSource: 'sbb-vacancies-listing',
+              fallbackSource: aemFallbackSource,
               failureReason: 'aem-api-unavailable',
             }
           : {}),
@@ -552,6 +560,92 @@ async function fetchSbbListingDetailUrls({ fetchPageImpl, fetchJinaImpl, timeout
     targetJobs: urls.length,
     duplicateIdentity: 0,
     source: 'sbb-vacancies-listing',
+  };
+}
+
+function extractSbbCareersSitemapDetailUrls(xml = '') {
+  const urls = new Set();
+  const locRe = /<loc>\s*([^<]+?)\s*<\/loc>/gi;
+  let match;
+  while ((match = locRe.exec(String(xml || ''))) !== null) {
+    const href = decodeHtmlEntities(match[1]);
+    let url;
+    try {
+      url = new URL(href);
+    } catch {
+      continue;
+    }
+    if (url.protocol !== 'https:' || url.hostname !== 'careers.sbb.ch') continue;
+    const normalizedUrl = normalizeDetailUrl(url.toString());
+    if (!getSbbDetailIdentity(normalizedUrl)) continue;
+    urls.add(normalizedUrl);
+  }
+  return [...urls].sort((a, b) => a.localeCompare(b));
+}
+
+function validateSbbCareersSitemapBody(body = '') {
+  const jinaReason = detectJinaErrorBody(body);
+  if (jinaReason) return jinaReason;
+  const text = String(body || '').trim();
+  if (!/<urlset\b/i.test(text) || !/<\/urlset>/i.test(text)) {
+    return 'SBB careers sitemap root marker missing';
+  }
+  const xmlValidation = XMLValidator.validate(text);
+  if (xmlValidation !== true) {
+    const detail = xmlValidation?.err?.msg ? `: ${xmlValidation.err.msg}` : '';
+    return `SBB careers sitemap XML is malformed${detail}`;
+  }
+  if (extractSbbCareersSitemapDetailUrls(text).length === 0) {
+    return 'SBB careers sitemap has no canonical job URLs';
+  }
+  return null;
+}
+
+async function fetchSbbCareersSitemapBody({ fetchPageImpl, fetchJinaImpl, timeoutMs }) {
+  const accept = 'application/xml,text/xml;q=0.9,text/plain;q=0.8';
+  const directBody = await fetchPageImpl(SBB_CAREERS_SITEMAP_URL, timeoutMs, accept);
+  const directReason = validateSbbCareersSitemapBody(directBody);
+  if (directBody && !directReason) return directBody;
+  if (directBody) {
+    console.warn(`⚠️ Direct SBB careers sitemap was not usable (${directReason}).`);
+  }
+
+  const response = await fetchJinaImpl(SBB_CAREERS_SITEMAP_URL, {
+    timeoutMs,
+    format: 'text',
+    accept,
+    validateBody: validateSbbCareersSitemapBody,
+  });
+  if (!response?.ok) {
+    console.warn(`⚠️ Jina proxy returned HTTP ${response?.status ?? 'unknown'} for SBB careers sitemap.`);
+    return null;
+  }
+  const body = await response.text();
+  const reason = validateSbbCareersSitemapBody(body);
+  if (reason) {
+    console.warn(`⚠️ Jina-proxied SBB careers sitemap was not usable (${reason}).`);
+    return null;
+  }
+  return body;
+}
+
+async function fetchSbbCareersSitemapDetailUrls({ fetchPageImpl, fetchJinaImpl, timeoutMs }) {
+  const body = await fetchSbbCareersSitemapBody({ fetchPageImpl, fetchJinaImpl, timeoutMs });
+  if (!body) return null;
+
+  const urls = extractSbbCareersSitemapDetailUrls(body);
+  const apiMetaByUrl = new Map();
+  const apiMetaByTitle = new Map();
+  console.log(`✅ SBB official careers sitemap detail URLs discovered: ${urls.length}`);
+  return {
+    urls,
+    apiMetaByUrl,
+    apiMetaByTitle,
+    sourceZero: false,
+    totalJobs: urls.length,
+    targetJobs: urls.length,
+    duplicateIdentity: 0,
+    source: 'sbb-careers-sitemap',
   };
 }
 
@@ -908,8 +1002,16 @@ export async function fetchSbbJobDetailUrls(options = {}) {
 
   if (!body) {
     console.warn('⚠️ SBB AEM discovery unavailable — falling back to the official vacancies listing...');
-    const listingSeed = await fetchSbbListingDetailUrls({ fetchPageImpl, fetchJinaImpl, timeoutMs });
-    if (listingSeed) return listingSeed;
+    try {
+      const listingSeed = await fetchSbbListingDetailUrls({ fetchPageImpl, fetchJinaImpl, timeoutMs });
+      if (listingSeed) return listingSeed;
+    } catch (err) {
+      console.warn(`⚠️ SBB official vacancies listing fallback failed (${err.message}) — trying the official careers sitemap...`);
+    }
+
+    console.warn('⚠️ SBB vacancies listing unavailable — trying the official careers sitemap...');
+    const sitemapSeed = await fetchSbbCareersSitemapDetailUrls({ fetchPageImpl, fetchJinaImpl, timeoutMs });
+    if (sitemapSeed) return sitemapSeed;
     throw new Error('SBB AEM discovery failed: API response unavailable.');
   }
 
