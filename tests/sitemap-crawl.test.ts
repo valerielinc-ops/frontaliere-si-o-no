@@ -372,6 +372,7 @@ describe('sitemap change snapshots', () => {
       { name: 'missing only in previous', current: undefined, previous: ['sitemap.xml'], closed: true },
       { name: 'different sets', current: ['sitemap.xml'], previous: ['sitemap-cantons.xml'], closed: true },
       { name: 'identical stable baseline', current: ['sitemap-cantons.xml'], previous: ['sitemap-cantons.xml'], closed: false },
+      { name: 'identical unknown gap', current: ['sitemap.xml'], previous: ['sitemap.xml'], closed: true },
       { name: 'no missing sitemaps', current: [], previous: [], closed: false },
     ];
     for (const testCase of cases) {

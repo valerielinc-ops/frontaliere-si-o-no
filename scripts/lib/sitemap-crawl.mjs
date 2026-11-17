@@ -484,21 +484,21 @@ function hasSitemapMembership(snapshot) {
 
 function missingSitemapKeys(snapshot) {
   if (Array.isArray(snapshot) || !Array.isArray(snapshot?.missingSitemaps)) return new Set();
-  return new Set(snapshot.missingSitemaps);
+  // The canton index is an edge-owned article surface, not a job sitemap. It
+  // may be absent from the local post-build crawl without making the job
+  // sitemap membership incomplete. Every other missing sitemap remains
+  // evidence that archive-only classification is unsafe.
+  return new Set(snapshot.missingSitemaps.filter((key) => key !== 'sitemap-cantons.xml'));
 }
 
-// A sitemap that is unavailable in only ONE of the two snapshots makes the URL
-// membership of that snapshot incomplete: a URL that lives in a regular sitemap
-// could then look archive-only and be deferred behind the whole archive. The
-// same sitemaps missing from BOTH snapshots are a stable baseline (an edge-owned
-// file such as sitemap-cantons.xml is unavailable in every live capture), so
-// they do not disable the split.
+// A missing job sitemap in EITHER snapshot makes the URL membership incomplete:
+// a URL that lives in a regular sitemap could then look archive-only and be
+// deferred behind the whole archive. Only known non-job surfaces are removed
+// by missingSitemapKeys above; identical unknown gaps are not authoritative.
 function hasUnstableMissingSitemaps(current, previous) {
   const currentMissing = missingSitemapKeys(current);
   const previousMissing = missingSitemapKeys(previous);
-  for (const key of currentMissing) if (!previousMissing.has(key)) return true;
-  for (const key of previousMissing) if (!currentMissing.has(key)) return true;
-  return false;
+  return currentMissing.size > 0 || previousMissing.size > 0;
 }
 
 function archiveOnlyCurrentUrls(currentPer, current, previous, digestIgnoredSitemap) {
