@@ -1,11 +1,21 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-const { fetchHtml, pdfGetText, writeJsonAtomic } = vi.hoisted(() => ({
+const {
+  fetchHtml,
+  pdfGetText,
+  writeJsonAtomic,
+  launchStealthOrChromium,
+  isStealthBrowser,
+  chromeUserAgent,
+} = vi.hoisted(() => ({
   fetchHtml: vi.fn(),
   pdfGetText: vi.fn(),
   writeJsonAtomic: vi.fn(),
+  launchStealthOrChromium: vi.fn(),
+  isStealthBrowser: vi.fn(() => false),
+  chromeUserAgent: vi.fn(() => "Mozilla/5.0 Chrome/140.0.0.0"),
 }));
-vi.mock("@/scripts/lib/crawler-template.mjs", async (importOriginal) => {
+vi.mock("../scripts/lib/crawler-template.mjs", async (importOriginal) => {
   const actual = (await importOriginal()) as Record<string, unknown>;
   return { ...actual, fetchHtml };
 });
@@ -16,14 +26,19 @@ vi.mock("pdf-parse", () => ({
     }
   },
 }));
-vi.mock("@/scripts/lib/atomic-write-json.mjs", async (importOriginal) => {
+vi.mock("../scripts/lib/atomic-write-json.mjs", async (importOriginal) => {
   const actual = (await importOriginal()) as Record<string, unknown>;
   return { ...actual, writeJsonAtomic };
+});
+vi.mock("../scripts/lib/stealth-browser.mjs", async (importOriginal) => {
+  const actual = (await importOriginal()) as Record<string, unknown>;
+  return { ...actual, launchStealthOrChromium, isStealthBrowser, chromeUserAgent };
 });
 
 import {
   buildJob,
   dropCentielFabricatedText,
+  fetchCareersHtml,
   main,
   parseCareersPage,
   prepareExistingJobs,
@@ -120,6 +135,39 @@ describe("Centiel careers parser", () => {
       "After-Sales Technician",
     ]);
     expect(jobs.every((job) => job.pdfUrl.endsWith(".pdf"))).toBe(true);
+  });
+
+  it("uses the browser fallback when a 200 challenge page has no listings", async () => {
+    fetchHtml.mockResolvedValueOnce("<html><body>Just a moment...</body></html>");
+    const page = {
+      goto: vi.fn().mockResolvedValue(undefined),
+      waitForSelector: vi.fn().mockResolvedValue(undefined),
+      content: vi.fn().mockResolvedValue(LIVE_CAREERS_FIXTURE),
+      close: vi.fn().mockResolvedValue(undefined),
+    };
+    const context = {
+      newPage: vi.fn().mockResolvedValue(page),
+      close: vi.fn().mockResolvedValue(undefined),
+    };
+    const browser = {
+      version: vi.fn().mockReturnValue("140.0.0"),
+      newContext: vi.fn().mockResolvedValue(context),
+      close: vi.fn().mockResolvedValue(undefined),
+    };
+    launchStealthOrChromium.mockResolvedValueOnce(browser);
+
+    await expect(fetchCareersHtml()).resolves.toBe(LIVE_CAREERS_FIXTURE);
+    expect(launchStealthOrChromium).toHaveBeenCalledWith(expect.objectContaining({
+      purpose: "crawler",
+      fallbackOptions: { headless: true },
+    }));
+    expect(page.goto).toHaveBeenCalledWith(
+      "https://www.centiel.com/careers/",
+      expect.objectContaining({ waitUntil: "domcontentloaded" }),
+    );
+    expect(page.close).toHaveBeenCalledOnce();
+    expect(context.close).toHaveBeenCalledOnce();
+    expect(browser.close).toHaveBeenCalledOnce();
   });
 
   it("accepts a listing without a PDF only when its inline content is substantial", () => {

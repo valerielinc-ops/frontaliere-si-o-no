@@ -30,9 +30,9 @@ import fs from 'node:fs';
 import { decode as decodeHTML } from 'html-entities';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
+import { fetchWorkdayJobs } from './lib/ats-clients/workday-client.mjs';
 import {
   snapshotJobSlugs,
   computeCrawlDiff,
@@ -77,7 +77,8 @@ const PUBLIC_JOBS = `${DATA_JOBS}.public.json`;
 const COMPANY_NAME = 'Hamilton Bonaduz AG';
 const COMPANY_DOMAIN = 'hamilton.ch';
 
-const API_URL = 'https://hamilton.wd3.myworkdayjobs.com/wday/cxs/hamilton/hamilton_jobs/jobs';
+const API_BASE = 'https://hamilton.wd3.myworkdayjobs.com/wday/cxs/hamilton/hamilton_jobs';
+const API_URL = `${API_BASE}/jobs`;
 const DETAIL_BASE = 'https://hamilton.wd3.myworkdayjobs.com/wday/cxs/hamilton/hamilton_jobs';
 const CAREERS_URL = 'https://jobs.hamilton.ch/en/open-positions/';
 const JOB_URL_BASE = 'https://hamilton.wd3.myworkdayjobs.com/en-US/hamilton_jobs';
@@ -145,35 +146,6 @@ function parseWorkload(title = '') {
   return '';
 }
 
-/* ── Workday API fetch ─────────────────────────────────────── */
-async function fetchJobsPage(offset = 0) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
-  try {
-    const res = await fetch(API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        'User-Agent': UA,
-      },
-      body: JSON.stringify({
-        appliedFacets: {
-          locationCountry: [SWITZERLAND_FACET_ID],
-        },
-        limit: PAGE_SIZE,
-        offset,
-        searchText: '',
-      }),
-      signal: controller.signal,
-    });
-    if (!res.ok) throw new Error(`HTTP ${res.status} ${res.statusText}`);
-    return await res.json();
-  } finally {
-    clearTimeout(timer);
-  }
-}
-
 async function fetchJobDetail(externalPath) {
   const url = `${DETAIL_BASE}${externalPath}`;
   const controller = new AbortController();
@@ -196,43 +168,33 @@ async function fetchJobDetail(externalPath) {
 }
 
 /* ── Fetch all Swiss jobs ─────────────────────────────────── */
-async function fetchAllSwissJobs() {
+export async function fetchAllSwissJobs() {
   const allJobs = [];
-  let offset = 0;
-  let total = null;
-  let pages = 0;
-  const MAX_PAGES = 100;
+  const stats = {};
 
-  while (true) {
-    console.log(`   📄 Fetching offset=${offset}...`);
-    const data = await fetchJobsPage(offset);
-    const postings = assertJsonListShape(data, { key: 'jobPostings', source: 'hamilton' });
+  for await (const posting of fetchWorkdayJobs(API_BASE, {
+    appliedFacets: {
+      locationCountry: [SWITZERLAND_FACET_ID],
+    },
+    pageSize: PAGE_SIZE,
+    maxPages: 100,
+    userAgent: UA,
+    minDelayMs: 500,
+    timeoutMs: TIMEOUT_MS,
+    stats,
+  })) {
+    allJobs.push(posting);
+  }
 
-    if (total === null) {
-      total = data.total || 0;
-      console.log(`   📊 Total Swiss jobs reported: ${total}`);
-    }
-
-    if (postings.length === 0) break;
-
-    for (const posting of postings) {
-      allJobs.push(posting);
-    }
-
-    offset += postings.length;
-    pages += 1;
-
-    // Short/empty page = genuine end. Trust `total` ONLY as a positive upper
-    // bound: a degenerate Workday response can echo total:0 with a full page,
-    // and the old `|| allJobs.length` fallback recreated total===offset →
-    // break after page 1, silently dropping postings on pages 2+.
-    if (postings.length < PAGE_SIZE) break;
-    if (total > 0 && offset >= total) break;
-    if (pages >= MAX_PAGES) {
-      console.warn(`   ⚠️ Reached pagination safety cap (${MAX_PAGES} pages); stopping.`);
-      break;
-    }
-    await sleep(500);
+  // The shared iterator can return a prefix after a later page failure or
+  // after hitting its safety cap. Publishing either prefix would silently
+  // delete the missing jobs from the company slice. Accept only an explicit,
+  // complete pagination termination.
+  const completeEndReasons = new Set(['empty-page', 'short-page', 'total-reached']);
+  if (!completeEndReasons.has(stats.endReason)) {
+    throw new Error(
+      `Hamilton Workday pagination stopped without an explicit complete end condition (${stats.endReason || 'unknown'}); refusing to publish a partial crawl.`,
+    );
   }
 
   return allJobs;
@@ -525,4 +487,14 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Hamilton'));
+const isMain = process.argv[1] && (() => {
+  try {
+    return import.meta.url === pathToFileURL(fs.realpathSync(process.argv[1])).href;
+  } catch {
+    return false;
+  }
+})();
+
+if (isMain) {
+  main().catch((err) => exitCrawlerOnError(err, 'Hamilton'));
+}
