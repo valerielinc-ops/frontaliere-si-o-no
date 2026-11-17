@@ -51,6 +51,9 @@ describe('GA4 ad diagnostic dimensions', () => {
     send('ad_reliability_state', { reason: 'response_pending', cmp_state: 'loaded' });
     expect(emit).toHaveBeenCalledWith('event', 'ad_reliability_state', expect.objectContaining({ action: 'response_pending', component: 'loaded' }));
 
+    send('ad_reliability_state', { reason: 'adblock_detected', source: 'funding_choices', signal_state: 'blocked' });
+    expect(emit).toHaveBeenCalledWith('event', 'ad_reliability_state', expect.objectContaining({ action: 'adblock_detected', component: 'funding_choices' }));
+
     send('ad_recovery_prompt', { source: 'funding_choices_native', reason: 'adblock_detected', prompt_action: 'shown' });
     expect(emit).toHaveBeenCalledWith('event', 'ad_recovery_prompt', expect.objectContaining({ action: 'adblock_detected', component: 'funding_choices_native' }));
   });
