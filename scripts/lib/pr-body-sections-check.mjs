@@ -499,9 +499,9 @@ const PERF_DEFERRED_QUALIFIERS = String.raw`(?:(?:(?:stato|stata|stati|state|bee
 const PERF_DEFERRED_CLAIM_RE = new RegExp(
   String.raw`\b(?:`
   + PERF_DEFERRED_NEGATION + String.raw`\s+(?:è\s+|is\s+)?` + PERF_DEFERRED_QUALIFIERS
-  + String.raw`(?:validat\w*|misurat\w*|verificat\w*)\s+pre-?merge`
+  + String.raw`(?:validat\w*|misurat\w*|verificat\w*|measur\w*|verif\w*)\s+pre-?merge`
   + String.raw`|pre-?merge\s+` + PERF_DEFERRED_NEGATION + String.raw`\s+(?:è\s+|is\s+)?` + PERF_DEFERRED_QUALIFIERS
-  + String.raw`(?:validat\w*|misurat\w*|verificat\w*))\b`,
+  + String.raw`(?:validat\w*|misurat\w*|verificat\w*|measur\w*|verif\w*))\b`,
   'i',
 );
 const PERF_CONTEXT_RE = new RegExp(`${PERF_RESOURCE}|${PERF_BENEFIT}|${PERF_QTY}`, 'i');

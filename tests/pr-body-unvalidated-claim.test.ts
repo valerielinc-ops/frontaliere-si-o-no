@@ -105,11 +105,14 @@ describe('unvalidated-perf-claim: le prove accettate e i numeri che non sono pre
       '- Il tempo di build non è stato misurato pre-merge.',
       '- The build time has not been measured pre-merge.',
     ]) {
-      const res = strict(body(
+      const missingPlan = strict(body(claim));
+      expect(missingPlan.violations.some(isClaimViolation), `${claim} senza piano`).toBe(true);
+
+      const tracked = strict(body(
         claim,
         '- blocked: misura post-merge sulla run `tests.yml`; soglia 30 minuti. **Trigger di revert:** se il job supera 30 minuti, revert di questa PR.',
       ));
-      expect(res.violations.some(isClaimViolation), claim).toBe(false);
+      expect(tracked.violations.some(isClaimViolation), `${claim} con piano`).toBe(false);
     }
   });
 
