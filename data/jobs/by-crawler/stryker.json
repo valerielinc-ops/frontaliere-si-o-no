@@ -772,12 +772,12 @@
     },
     {
       "id": "stryker-bd62ad7cc34b",
-      "slug": "vertriebsmitarbeiter-sales-representative-m-w-d-sportmedizin-zentralschweiz-stryker-ch",
+      "slug": "rappresentante-vendite-m-f-d-medicina-dello-sport-svizzera-centrale-stryker-luzern",
       "slugByLocale": {
         "de": "vertriebsmitarbeiter-sales-representative-m-w-d-sportmedizin-zentralschweiz-stryker-ch",
-        "it": "vertriebsmitarbeiter-sales-representative-m-w-d-sportmedizin-zentralschweiz-stryker-ch",
-        "en": "vertriebsmitarbeiter-sales-representative-m-w-d-sportmedizin-zentralschweiz-stryker-ch",
-        "fr": "vertriebsmitarbeiter-sales-representative-m-w-d-sportmedizin-zentralschweiz-stryker-ch"
+        "it": "rappresentante-vendite-m-f-d-medicina-dello-sport-svizzera-centrale-stryker-luzern",
+        "en": "sales-representative-m-f-d-sports-medicine-central-switzerland-stryker-luzern",
+        "fr": "representant-commercial-h-f-d-medecine-du-sport-suisse-centrale-stryker-luzern"
       },
       "company": "Stryker",
       "companyKey": "stryker",
@@ -840,16 +840,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:48:21.779Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:48:21.779Z"
+      "firstSeenAt": "2026-11-17T09:48:21.779Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vertriebsmitarbeiter-sales-representative-m-w-d-sportmedizin-zentralschweiz-stryker-ch"
+        ],
+        "en": [
+          "vertriebsmitarbeiter-sales-representative-m-w-d-sportmedizin-zentralschweiz-stryker-ch"
+        ],
+        "fr": [
+          "vertriebsmitarbeiter-sales-representative-m-w-d-sportmedizin-zentralschweiz-stryker-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vertriebsmitarbeiter-sales-representative-m-w-d-sportmedizin-zentralschweiz-stryker-ch"
+      ]
     },
     {
       "id": "stryker-1bbed743c2bf",
-      "slug": "vertriebsmitarbeiter-sales-representative-m-w-d-sportmedizin-region-zurich-stryker-ch",
+      "slug": "rappresentante-di-vendita-m-f-d-regione-di-medicina-dello-sport-zurigo-stryker-zurich",
       "slugByLocale": {
         "de": "vertriebsmitarbeiter-sales-representative-m-w-d-sportmedizin-region-zurich-stryker-ch",
-        "it": "vertriebsmitarbeiter-sales-representative-m-w-d-sportmedizin-region-zurich-stryker-ch",
-        "en": "vertriebsmitarbeiter-sales-representative-m-w-d-sportmedizin-region-zurich-stryker-ch",
-        "fr": "vertriebsmitarbeiter-sales-representative-m-w-d-sportmedizin-region-zurich-stryker-ch"
+        "it": "rappresentante-di-vendita-m-f-d-regione-di-medicina-dello-sport-zurigo-stryker-zurich",
+        "en": "sales-representative-m-f-d-sports-medicine-region-zurich-stryker-zurich",
+        "fr": "representant-des-ventes-h-f-d-region-de-medecine-sportive-zurich-stryker-zurich"
       },
       "company": "Stryker",
       "companyKey": "stryker",
@@ -912,7 +926,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:48:00.647Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:48:00.647Z"
+      "firstSeenAt": "2026-11-17T09:48:00.647Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vertriebsmitarbeiter-sales-representative-m-w-d-sportmedizin-region-zurich-stryker-ch"
+        ],
+        "en": [
+          "vertriebsmitarbeiter-sales-representative-m-w-d-sportmedizin-region-zurich-stryker-ch"
+        ],
+        "fr": [
+          "vertriebsmitarbeiter-sales-representative-m-w-d-sportmedizin-region-zurich-stryker-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vertriebsmitarbeiter-sales-representative-m-w-d-sportmedizin-region-zurich-stryker-ch"
+      ]
     },
     {
       "id": "stryker-0d8aaa2cd1fa",
@@ -920,7 +948,7 @@
       "slugByLocale": {
         "de": "manufacturing-engineer-m-w-d-befristet-auf-2-5-jahre-stryker-ch",
         "it": "manufacturing-ingegnere-m-w-d-befristet-auf-2-5-jahre-stryker-selzach",
-        "en": "manufacturing-engineer-m-w-d-befristet-auf-2-5-jahre-stryker-ch",
+        "en": "manufacturing-engineer-m-f-d-limited-to-2-5-years-stryker-selzach",
         "fr": "manufacturing-engineer-m-w-d-befristet-auf-2-5-jahre-stryker-ch"
       },
       "company": "Stryker",
@@ -968,6 +996,9 @@
       "jobReqId": "R575462",
       "previousSlugsByLocale": {
         "it": [
+          "manufacturing-engineer-m-w-d-befristet-auf-2-5-jahre-stryker-ch"
+        ],
+        "en": [
           "manufacturing-engineer-m-w-d-befristet-auf-2-5-jahre-stryker-ch"
         ]
       },

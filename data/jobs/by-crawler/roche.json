@@ -6875,9 +6875,9 @@
       "slug": "tirocinante-roche-kaiseraugst",
       "slugByLocale": {
         "it": "tirocinante-roche-kaiseraugst",
-        "en": "internship-in-quality-control-pharma-roche-kaiseraugst",
+        "en": "internal-roche-kaiseraugst",
         "de": "praktikum-im-bereich-quality-control-pharma-roche-kaiseraugst",
-        "fr": "stage-dans-le-domaine-du-controle-qualite-pharma-roche-kaiseraugst"
+        "fr": "stagiaire-roche-kaiseraugst"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -6922,8 +6922,8 @@
         "praktikum-im-bereich-quality-control-pharma-roche-ch",
         "praktikum-im-bereich-quality-control-pharma-roche-kaiseraugst",
         "praktikum-im-bereich-qualite-control-pharma-roche-kaiseraugst",
-        "internal-roche-kaiseraugst",
-        "stagiaire-roche-kaiseraugst"
+        "internship-in-quality-control-pharma-roche-kaiseraugst",
+        "stage-dans-le-domaine-du-controle-qualite-pharma-roche-kaiseraugst"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6931,14 +6931,14 @@
         ],
         "en": [
           "praktikum-im-bereich-quality-control-pharma-roche-kaiseraugst",
-          "internal-roche-kaiseraugst"
+          "internship-in-quality-control-pharma-roche-kaiseraugst"
         ],
         "de": [
           "praktikum-im-bereich-quality-control-pharma-roche-ch"
         ],
         "fr": [
           "praktikum-im-bereich-qualite-control-pharma-roche-kaiseraugst",
-          "stagiaire-roche-kaiseraugst"
+          "stage-dans-le-domaine-du-controle-qualite-pharma-roche-kaiseraugst"
         ]
       },
       "firstSeenAt": "2026-11-12T09:18:12.938Z",
@@ -8189,8 +8189,8 @@
       "slug": "emea-workplace-strategist-roche-basel",
       "slugByLocale": {
         "en": "global-workplace-strategist-roche-ch",
-        "it": "emea-workplace-strategist-roche-basel",
-        "fr": "emea-workplace-strategist-roche-basel",
+        "it": "strategista-del-posto-di-lavoro-globale-roche-basel",
+        "fr": "stratege-mondial-sur-le-lieu-de-travail-roche-basel",
         "de": "strategista-del-posto-di-lavoro-globale-roche-basel"
       },
       "company": "Roche",
@@ -8237,20 +8237,18 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "emea-workplace-strategist-roche-ch",
-          "strategista-del-posto-di-lavoro-globale-roche-basel"
+          "emea-workplace-strategist-roche-ch"
         ],
         "en": [
           "emea-workplace-strategist-roche-ch"
         ],
         "fr": [
-          "stratege-mondial-sur-le-lieu-de-travail-roche-basel"
+          "emea-workplace-strategist-roche-basel"
         ]
       },
       "previousSlugs": [
         "emea-workplace-strategist-roche-ch",
-        "strategista-del-posto-di-lavoro-globale-roche-basel",
-        "stratege-mondial-sur-le-lieu-de-travail-roche-basel"
+        "emea-workplace-strategist-roche-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8279,8 +8277,8 @@
       "slugByLocale": {
         "en": "team-leader-analytical-process-development-drug-substance-roche-ch",
         "it": "team-leader-analytical-process-development-drug-substance-roche-ch",
-        "de": "team-leader-analytical-process-development-drug-substance-roche-ch",
-        "fr": "team-leader-analytical-process-development-drug-substance-roche-ch"
+        "de": "teamleiter-analytische-prozessentwicklung-arzneimittelsubstanz-roche-basel",
+        "fr": "chef-d-equipe-developpement-de-procedes-d-analyse-substance-medicamenteuse-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8342,7 +8340,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:20:31.192Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:20:31.192Z"
+      "firstSeenAt": "2026-11-17T09:20:31.192Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "team-leader-analytical-process-development-drug-substance-roche-ch"
+        ],
+        "fr": [
+          "team-leader-analytical-process-development-drug-substance-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "team-leader-analytical-process-development-drug-substance-roche-ch"
+      ]
     },
     {
       "id": "roche-d8d2860f4830",
@@ -8511,12 +8520,12 @@
     },
     {
       "id": "roche-0ab7011f74e4",
-      "slug": "delivery-manager-diagnostics-direct-procurement-roche-ch",
+      "slug": "direttore-di-consegna-appalti-diretti-diagnostici-roche-rotkreuz",
       "slugByLocale": {
         "en": "delivery-manager-diagnostics-direct-procurement-roche-ch",
-        "it": "delivery-manager-diagnostics-direct-procurement-roche-ch",
+        "it": "direttore-di-consegna-appalti-diretti-diagnostici-roche-rotkreuz",
         "de": "delivery-manager-diagnostics-direct-procurement-roche-ch",
-        "fr": "delivery-manager-diagnostics-direct-procurement-roche-ch"
+        "fr": "gestionnaire-de-la-prestation-diagnostics-achats-directs-roche-rotkreuz"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8578,7 +8587,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:19:04.269Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:19:04.269Z"
+      "firstSeenAt": "2026-11-17T09:19:04.269Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "delivery-manager-diagnostics-direct-procurement-roche-ch"
+        ],
+        "fr": [
+          "delivery-manager-diagnostics-direct-procurement-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "delivery-manager-diagnostics-direct-procurement-roche-ch"
+      ]
     },
     {
       "id": "roche-21c9c846fef5",
@@ -8659,7 +8679,7 @@
         "de": "rism-internship-for-students-in-pharmacy-pharmaceutical-science-or-pharmaceutical",
         "it": "stage-rism-per-gli-studenti-in-farmacia-scienza-farmaceutica-o-tecnologia-farmaceutica-basel-6-mesi-roche-basel",
         "fr": "stage-rism-pour-etudiants-en-pharmacie-sciences-pharmaceutiques-ou-technologie-pharmaceutique-bale-6-mois-roche-basel",
-        "en": "stage-rism-per-gli-studenti-in-farmacia-scienza-farmaceutica-o-tecnologia-farmaceutica-basel-6-mesi-roche-basel"
+        "en": "rism-internship-for-students-of-pharmacy-pharmaceutical-sciences-or-pharmaceutical-technology-basel-6-months-from"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8709,10 +8729,14 @@
         ],
         "de": [
           "rism-praktikum-fur-studierende-der-pharmazie-pharmazeutischen-wissenschaften-oder"
+        ],
+        "en": [
+          "stage-rism-per-gli-studenti-in-farmacia-scienza-farmaceutica-o-tecnologia-farmaceutica-basel-6-mesi-roche-basel"
         ]
       },
       "previousSlugs": [
-        "rism-praktikum-fur-studierende-der-pharmazie-pharmazeutischen-wissenschaften-oder"
+        "rism-praktikum-fur-studierende-der-pharmazie-pharmazeutischen-wissenschaften-oder",
+        "stage-rism-per-gli-studenti-in-farmacia-scienza-farmaceutica-o-tecnologia-farmaceutica-basel-6-mesi-roche-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -8737,12 +8761,12 @@
     },
     {
       "id": "roche-c21e99bc1d09",
-      "slug": "projektmanager-prozess-prozessplanung-m-w-d-roche-ch",
+      "slug": "processo-di-project-manager-pianificazione-di-processo-m-f-d-roche-basel",
       "slugByLocale": {
         "de": "projektmanager-prozess-prozessplanung-m-w-d-roche-ch",
-        "it": "projektmanager-prozess-prozessplanung-m-w-d-roche-ch",
-        "en": "projektmanager-prozess-prozessplanung-m-w-d-roche-ch",
-        "fr": "projektmanager-prozess-prozessplanung-m-w-d-roche-ch"
+        "it": "processo-di-project-manager-pianificazione-di-processo-m-f-d-roche-basel",
+        "en": "project-manager-process-process-planning-m-f-d-roche-basel",
+        "fr": "gestionnaire-de-projet-processus-planification-de-processus-h-f-d-roche-basel"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -8804,7 +8828,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:17:21.392Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:17:21.392Z"
+      "firstSeenAt": "2026-11-17T09:17:21.392Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektmanager-prozess-prozessplanung-m-w-d-roche-ch"
+        ],
+        "en": [
+          "projektmanager-prozess-prozessplanung-m-w-d-roche-ch"
+        ],
+        "fr": [
+          "projektmanager-prozess-prozessplanung-m-w-d-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "projektmanager-prozess-prozessplanung-m-w-d-roche-ch"
+      ]
     },
     {
       "id": "roche-40c7af08c4a1",

@@ -2506,12 +2506,12 @@
     },
     {
       "id": "livit-c5412dbdeffb",
-      "slug": "junior-bewirtschafter-in-livit-st-gallen",
+      "slug": "amministratore-amministratrice-junior-di-immobili-livit-ag-st-gallen",
       "slugByLocale": {
         "de": "junior-bewirtschafter-in-livit-st-gallen",
-        "it": "junior-bewirtschafter-in-livit-st-gallen",
-        "en": "junior-bewirtschafter-in-livit-st-gallen",
-        "fr": "junior-bewirtschafter-in-livit-st-gallen"
+        "it": "amministratore-amministratrice-junior-di-immobili-livit-ag-st-gallen",
+        "en": "junior-property-manager-livit-ag-st-gallen",
+        "fr": "gerant-e-immobilier-junior-livit-ag-st-gallen"
       },
       "company": "Livit AG",
       "companyKey": "livit",
@@ -2585,14 +2585,28 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-14T09:47:33.971Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:47:33.971Z"
+      "firstSeenAt": "2026-11-17T09:47:33.971Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-bewirtschafter-in-livit-st-gallen"
+        ],
+        "en": [
+          "junior-bewirtschafter-in-livit-st-gallen"
+        ],
+        "fr": [
+          "junior-bewirtschafter-in-livit-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "junior-bewirtschafter-in-livit-st-gallen"
+      ]
     },
     {
       "id": "livit-1a206cef5e4f",
-      "slug": "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-bern",
+      "slug": "impiegato-a-di-commercio-afc-immobili-agosto-2027-livit-ag-bern",
       "slugByLocale": {
         "de": "kaufmann-frau-efz-immobilien-august-2027-livit-bern",
-        "it": "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-bern",
+        "it": "impiegato-a-di-commercio-afc-immobili-agosto-2027-livit-ag-bern",
         "en": "kaufmann-frau-efz-immobilien-august-2027-livit-bern",
         "fr": "kaufmann-frau-efz-immobilien-august-2027-livit-bern"
       },
@@ -2643,11 +2657,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "kaufmann-frau-efz-immobilien-august-2027-livit-bern"
+          "kaufmann-frau-efz-immobilien-august-2027-livit-bern",
+          "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-bern"
         ]
       },
       "previousSlugs": [
-        "kaufmann-frau-efz-immobilien-august-2027-livit-bern"
+        "kaufmann-frau-efz-immobilien-august-2027-livit-bern",
+        "kaufmann-frau-cfc-immobilien-august-2027-livit-ag-bern"
       ],
       "salaryMin": 59000,
       "salaryMax": 108500,

@@ -1063,7 +1063,7 @@
       "slugByLocale": {
         "en": "investment-analyst-graduate-swiss-re-ch",
         "it": "investment-analyst-graduate-swiss-re-ch",
-        "de": "investment-analyst-graduate-swiss-re-ch",
+        "de": "investmentanalyst-fur-hochschulabsolventen-swiss-re-zurich-ch",
         "fr": "investment-analyst-graduate-swiss-re-ch"
       },
       "company": "Swiss Re",
@@ -1127,7 +1127,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-19T09:23:10.972Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-19T22:53:09.849Z"
+      "firstSeenAt": "2026-09-19T22:53:09.849Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "investment-analyst-graduate-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "investment-analyst-graduate-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-912f07ec931b",
@@ -1136,7 +1144,7 @@
         "en": "middle-east-underwriter-property-casualty-graduate-swiss-re-ch",
         "it": "middle-east-underwriter-property-casualty-graduate-swiss-re-ch",
         "de": "middle-east-underwriter-property-casualty-graduate-swiss-re-ch",
-        "fr": "middle-east-underwriter-property-casualty-graduate-swiss-re-ch"
+        "fr": "moyen-orient-underwriter-property-casualty-diplome-swiss-re-zurich-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -1198,7 +1206,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:23:09.832Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:23:09.832Z"
+      "firstSeenAt": "2026-11-17T09:23:09.832Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "middle-east-underwriter-property-casualty-graduate-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "middle-east-underwriter-property-casualty-graduate-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-71b02824a1af",
@@ -1277,8 +1293,8 @@
       "slugByLocale": {
         "en": "senior-underwriter-facultative-property-uki-market-hybrid-m-f-x-d-80-100-swiss-re-ch",
         "it": "senior-underwriter-facultative-property-uki-market-hybrid-m-f-x-d-80-100-swiss-re-ch",
-        "de": "senior-underwriter-facultative-property-uki-market-hybrid-m-f-x-d-80-100-swiss-re-ch",
-        "fr": "senior-underwriter-facultative-property-uki-market-hybrid-m-f-x-d-80-100-swiss-re-ch"
+        "de": "senior-underwriter-fur-fakultative-sachversicherung-uki-markt-hybrid-m-w-x-d-80-100-swiss-re-zurich-ch",
+        "fr": "titres-de-propriete-principale-marche-uki-hybrid-h-f-x-j-80-100-swiss-re-zurich-ch"
       },
       "company": "Swiss Re",
       "companyKey": "swiss-re",
@@ -1341,7 +1357,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:23:06.738Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:23:06.738Z"
+      "firstSeenAt": "2026-11-17T09:23:06.738Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "senior-underwriter-facultative-property-uki-market-hybrid-m-f-x-d-80-100-swiss-re-ch"
+        ],
+        "fr": [
+          "senior-underwriter-facultative-property-uki-market-hybrid-m-f-x-d-80-100-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-underwriter-facultative-property-uki-market-hybrid-m-f-x-d-80-100-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-6ed34b7b06cb",

@@ -2399,12 +2399,12 @@
     },
     {
       "id": "spital-zofingen-7ba4cb1542df",
-      "slug": "studierende-r-ernahrungsberatung-zusatzmodul-b-c-spital-zofingen-zofingen",
+      "slug": "studenti-consulenza-delle-noci-modulo-aggiuntivo-b-c-spital-zofingen-zofingen",
       "slugByLocale": {
         "de": "studierende-r-ernahrungsberatung-zusatzmodul-b-c-spital-zofingen-zofingen",
-        "it": "studierende-r-ernahrungsberatung-zusatzmodul-b-c-spital-zofingen-zofingen",
-        "en": "studierende-r-ernahrungsberatung-zusatzmodul-b-c-spital-zofingen-zofingen",
-        "fr": "studierende-r-ernahrungsberatung-zusatzmodul-b-c-spital-zofingen-zofingen"
+        "it": "studenti-consulenza-delle-noci-modulo-aggiuntivo-b-c-spital-zofingen-zofingen",
+        "en": "students-nutrition-consultancy-additional-module-b-c-spital-zofingen-zofingen",
+        "fr": "consultants-etudiants-nutrition-module-supplementaire-b-c-spital-zofingen-zofingen"
       },
       "company": "Spital Zofingen",
       "companyKey": "spital-zofingen",
@@ -2466,7 +2466,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T09:41:48.111Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:41:48.111Z"
+      "firstSeenAt": "2026-11-17T09:41:48.111Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "studierende-r-ernahrungsberatung-zusatzmodul-b-c-spital-zofingen-zofingen"
+        ],
+        "en": [
+          "studierende-r-ernahrungsberatung-zusatzmodul-b-c-spital-zofingen-zofingen"
+        ],
+        "fr": [
+          "studierende-r-ernahrungsberatung-zusatzmodul-b-c-spital-zofingen-zofingen"
+        ]
+      },
+      "previousSlugs": [
+        "studierende-r-ernahrungsberatung-zusatzmodul-b-c-spital-zofingen-zofingen"
+      ]
     }
   ]
 }

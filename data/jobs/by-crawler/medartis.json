@@ -163,12 +163,12 @@
     },
     {
       "id": "medartis-c6bf655ea106",
-      "slug": "events-manager-medartis-basel",
+      "slug": "responsabile-eventi-medartis-basel",
       "slugByLocale": {
         "de": "events-manager-medartis-basel",
-        "it": "events-manager-medartis-basel",
+        "it": "responsabile-eventi-medartis-basel",
         "en": "events-manager-medartis-basel",
-        "fr": "events-manager-medartis-basel"
+        "fr": "gestionnaire-d-evenements-medartis-basel"
       },
       "company": "Medartis",
       "companyKey": "medartis",
@@ -231,7 +231,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:40:05.653Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:40:05.653Z"
+      "firstSeenAt": "2026-11-17T09:40:05.653Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "events-manager-medartis-basel"
+        ],
+        "fr": [
+          "events-manager-medartis-basel"
+        ]
+      },
+      "previousSlugs": [
+        "events-manager-medartis-basel"
+      ]
     }
   ]
 }

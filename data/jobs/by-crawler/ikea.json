@@ -1599,12 +1599,12 @@
     },
     {
       "id": "ikea-405983cb598f",
-      "slug": "collaboratore-trice-ikea-restaurant-kuche-ikea-bistro-schwedenshop-40-ikea-dietlikon",
+      "slug": "collaboratore-trice-ikea-ristorante-cucina-ikea-bistro-negozio-svedese-40-ikea-dietlikon-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-ikea-restaurant-kuche-ikea-bistro-schwedenshop-40-ikea-ch",
-        "it": "collaboratore-trice-ikea-restaurant-kuche-ikea-bistro-schwedenshop-40-ikea-dietlikon",
-        "en": "mitarbeiter-in-ikea-restaurant-kuche-ikea-bistro-schwedenshop-40-ikea-ch",
-        "fr": "mitarbeiter-in-ikea-restaurant-kuche-ikea-bistro-schwedenshop-40-ikea-ch"
+        "it": "collaboratore-trice-ikea-ristorante-cucina-ikea-bistro-negozio-svedese-40-ikea-dietlikon-zurich",
+        "en": "employee-ikea-restaurant-kitchen-ikea-bistro-swedish-shop-40-ikea-dietlikon-zurich",
+        "fr": "employe-e-ikea-restaurant-cuisine-ikea-bistro-boutique-suedoise-40-ikea-dietlikon-zurich"
       },
       "company": "IKEA",
       "companyKey": "ikea",
@@ -1652,11 +1652,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-ikea-restaurant-kuche-ikea-bistro-schwedenshop-40-ikea-ch",
+          "collaboratore-trice-ikea-restaurant-kuche-ikea-bistro-schwedenshop-40-ikea-dietlikon"
+        ],
+        "en": [
+          "mitarbeiter-in-ikea-restaurant-kuche-ikea-bistro-schwedenshop-40-ikea-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-ikea-restaurant-kuche-ikea-bistro-schwedenshop-40-ikea-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-ikea-restaurant-kuche-ikea-bistro-schwedenshop-40-ikea-ch"
+        "mitarbeiter-in-ikea-restaurant-kuche-ikea-bistro-schwedenshop-40-ikea-ch",
+        "collaboratore-trice-ikea-restaurant-kuche-ikea-bistro-schwedenshop-40-ikea-dietlikon"
       ],
       "salaryMin": 29400,
       "salaryMax": 44600,
@@ -2546,7 +2554,7 @@
       "slugByLocale": {
         "it": "collaboratore-logistico-60-ikea-riddes-valais",
         "en": "logistics-contributor-60-ikea-riddes-valais",
-        "de": "mitarbeiter-logistikmanager-60-ikea-aubonne",
+        "de": "logistikbeitrag-60-ikea-riddes-valais",
         "fr": "collaborateur-trice-logistique-60-ikea-ch"
       },
       "company": "IKEA",
@@ -2593,7 +2601,7 @@
       "previousSlugs": [
         "collaborateur-trice-logistique-60-ikea-ch",
         "collaborateur-trice-logistique-60-ikea-aubonne",
-        "logistikbeitrag-60-ikea-riddes-valais"
+        "mitarbeiter-logistikmanager-60-ikea-aubonne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2601,7 +2609,7 @@
           "collaborateur-trice-logistique-60-ikea-aubonne"
         ],
         "de": [
-          "logistikbeitrag-60-ikea-riddes-valais"
+          "mitarbeiter-logistikmanager-60-ikea-aubonne"
         ]
       },
       "firstSeenAt": "2026-08-26T09:53:00.147Z",

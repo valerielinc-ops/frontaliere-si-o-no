@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "zurich-insurance-sede-ticino-1377606857",
-      "slug": "praktikant-corporate-real-estate-logistic-services-m-w-d-6-monate-befristet-zurich-insurance-zurich",
+      "slug": "intern-corporate-real-estate-logistic-services-m-f-d-6-mesi-limitati-zurich-insurance-zurich-1377606857",
       "slugByLocale": {
         "de": "praktikant-corporate-real-estate-logistic-services-m-w-d-6-monate-befristet-zurich",
-        "it": "praktikant-corporate-real-estate-logistic-services-m-w-d-6-monate-befristet-zurich-insurance-zurich",
-        "en": "praktikant-corporate-real-estate-logistic-services-m-w-d-6-monate-befristet-zurich",
-        "fr": "praktikant-corporate-real-estate-logistic-services-m-w-d-6-monate-befristet-zurich"
+        "it": "intern-corporate-real-estate-logistic-services-m-f-d-6-mesi-limitati-zurich-insurance-zurich-1377606857",
+        "en": "intern-corporate-real-estate-logistic-services-m-f-d-6-months-limited-zurich-insurance-zurich-1377606857",
+        "fr": "internat-corporate-real-estate-logistic-services-h-f-d-6-mois-limites-zurich-insurance-zurich-1377606857"
       },
       "slugDisambiguator": "1377606857",
       "company": "Zurich Insurance",
@@ -59,11 +59,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "praktikant-corporate-real-estate-logistic-services-m-w-d-6-monate-befristet-zurich",
+          "praktikant-corporate-real-estate-logistic-services-m-w-d-6-monate-befristet-zurich-insurance-zurich"
+        ],
+        "en": [
+          "praktikant-corporate-real-estate-logistic-services-m-w-d-6-monate-befristet-zurich"
+        ],
+        "fr": [
           "praktikant-corporate-real-estate-logistic-services-m-w-d-6-monate-befristet-zurich"
         ]
       },
       "previousSlugs": [
-        "praktikant-corporate-real-estate-logistic-services-m-w-d-6-monate-befristet-zurich"
+        "praktikant-corporate-real-estate-logistic-services-m-w-d-6-monate-befristet-zurich",
+        "praktikant-corporate-real-estate-logistic-services-m-w-d-6-monate-befristet-zurich-insurance-zurich"
       ],
       "salaryMin": 79000,
       "salaryMax": 138500,

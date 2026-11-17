@@ -13151,12 +13151,12 @@
     },
     {
       "id": "med-ipersonal-1702165c81f5",
-      "slug": "lastwagenchauffeur-euse-ipersonal-ag-au-sg-sg",
+      "slug": "camion-driver-uso-ipersonal-ag-au-sg-sg",
       "slugByLocale": {
         "de": "lastwagenchauffeur-euse-ipersonal-ag-au-sg-sg",
-        "it": "lastwagenchauffeur-euse-ipersonal-ag-au-sg-sg",
-        "en": "lastwagenchauffeur-euse-ipersonal-ag-au-sg-sg",
-        "fr": "lastwagenchauffeur-euse-ipersonal-ag-au-sg-sg"
+        "it": "camion-driver-uso-ipersonal-ag-au-sg-sg",
+        "en": "truck-driver-euse-ipersonal-ag-au-sg-sg",
+        "fr": "conducteur-utilisateur-de-camion-ipersonal-ag-au-sg-sg"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -13214,7 +13214,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:36:18.813Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:36:18.813Z"
+      "firstSeenAt": "2026-11-17T09:36:18.813Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lastwagenchauffeur-euse-ipersonal-ag-au-sg-sg"
+        ],
+        "en": [
+          "lastwagenchauffeur-euse-ipersonal-ag-au-sg-sg"
+        ],
+        "fr": [
+          "lastwagenchauffeur-euse-ipersonal-ag-au-sg-sg"
+        ]
+      },
+      "previousSlugs": [
+        "lastwagenchauffeur-euse-ipersonal-ag-au-sg-sg"
+      ]
     }
   ]
 }

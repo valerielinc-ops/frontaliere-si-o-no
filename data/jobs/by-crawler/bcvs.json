@@ -1055,12 +1055,12 @@
     },
     {
       "id": "bcvs-2f9d01b68292",
-      "slug": "chef-fe-de-projets-it-business-analyste-bcvs-sion",
+      "slug": "responsabile-del-progetto-it-business-analyst-banque-cantonale-du-valais-sion",
       "slugByLocale": {
         "fr": "chef-fe-de-projets-it-business-analyste-bcvs-sion",
-        "it": "chef-fe-de-projets-it-business-analyste-bcvs-sion",
-        "en": "chef-fe-de-projets-it-business-analyste-bcvs-sion",
-        "de": "chef-fe-de-projets-it-business-analyste-bcvs-sion"
+        "it": "responsabile-del-progetto-it-business-analyst-banque-cantonale-du-valais-sion",
+        "en": "it-business-analyst-project-manager-banque-cantonale-du-valais-sion",
+        "de": "it-business-analyst-projektmanager-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -1145,7 +1145,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2026-12-30T09:51:01.974Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-30T21:25:25.329Z"
+      "firstSeenAt": "2026-09-30T21:25:25.329Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-fe-de-projets-it-business-analyste-bcvs-sion"
+        ],
+        "en": [
+          "chef-fe-de-projets-it-business-analyste-bcvs-sion"
+        ],
+        "de": [
+          "chef-fe-de-projets-it-business-analyste-bcvs-sion"
+        ]
+      },
+      "previousSlugs": [
+        "chef-fe-de-projets-it-business-analyste-bcvs-sion"
+      ]
     }
   ]
 }

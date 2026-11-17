@@ -769,12 +769,12 @@
     },
     {
       "id": "institution-lavigny-795446df91c5",
-      "slug": "repondant-informatique-h-f-institution-lavigny-lavigny",
+      "slug": "risponde-al-computer-m-f-institution-de-lavigny-lavigny",
       "slugByLocale": {
         "fr": "repondant-informatique-h-f-institution-lavigny-lavigny",
-        "it": "repondant-informatique-h-f-institution-lavigny-lavigny",
-        "en": "repondant-informatique-h-f-institution-lavigny-lavigny",
-        "de": "repondant-informatique-h-f-institution-lavigny-lavigny"
+        "it": "risponde-al-computer-m-f-institution-de-lavigny-lavigny",
+        "en": "computer-respondent-m-f-institution-de-lavigny-lavigny",
+        "de": "computerbeantworter-m-w-institution-de-lavigny-lavigny"
       },
       "company": "Institution de Lavigny",
       "companyKey": "institution-lavigny",
@@ -837,7 +837,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:51:36.712Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:51:36.712Z"
+      "firstSeenAt": "2026-11-17T09:51:36.712Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "repondant-informatique-h-f-institution-lavigny-lavigny"
+        ],
+        "en": [
+          "repondant-informatique-h-f-institution-lavigny-lavigny"
+        ],
+        "de": [
+          "repondant-informatique-h-f-institution-lavigny-lavigny"
+        ]
+      },
+      "previousSlugs": [
+        "repondant-informatique-h-f-institution-lavigny-lavigny"
+      ]
     },
     {
       "id": "institution-lavigny-5abc686a8baa",

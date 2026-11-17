@@ -1914,9 +1914,9 @@
       "slug": "farmacia-esperto-specialista-a-60-80-medbase-dubendorf",
       "slugByLocale": {
         "it": "farmacia-esperto-specialista-a-60-80-medbase-dubendorf",
-        "en": "pharmacist-a-60-80-medbase-dubendorf",
+        "en": "expert-specialist-pharmacy-a-60-80-medbase-dubendorf",
         "de": "fachfrau-fachmann-apotheke-a-60-80-medbase-ch",
-        "fr": "pharmacien-a-60-80-medbase-dubendorf"
+        "fr": "expert-specialiste-pharmacie-a-60-80-medbase-dubendorf"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -1962,8 +1962,8 @@
       "jobReqId": "JR06924",
       "previousSlugs": [
         "fachfrau-fachmann-apotheke-a-60-80-medbase-ch",
-        "expert-specialist-pharmacy-a-60-80-medbase-dubendorf",
-        "expert-specialiste-pharmacie-a-60-80-medbase-dubendorf"
+        "pharmacist-a-60-80-medbase-dubendorf",
+        "pharmacien-a-60-80-medbase-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1971,11 +1971,11 @@
         ],
         "en": [
           "fachfrau-fachmann-apotheke-a-60-80-medbase-ch",
-          "expert-specialist-pharmacy-a-60-80-medbase-dubendorf"
+          "pharmacist-a-60-80-medbase-dubendorf"
         ],
         "fr": [
           "fachfrau-fachmann-apotheke-a-60-80-medbase-ch",
-          "expert-specialiste-pharmacie-a-60-80-medbase-dubendorf"
+          "pharmacien-a-60-80-medbase-dubendorf"
         ]
       },
       "firstSeenAt": "2026-07-04T11:44:21.452Z",
@@ -3530,7 +3530,7 @@
       "slugByLocale": {
         "it": "assistente-medico-tutti-i-tipi-medbase-vevey",
         "en": "apprentice-medical-assistant-all-kinds-medbase-vevey",
-        "de": "lehrlingsarzt-alle-arten-medbase-vevey",
+        "de": "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-2",
         "fr": "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-pfmwzw"
       },
       "company": "Medbase",
@@ -3577,7 +3577,8 @@
       "jobReqId": "JR07151",
       "previousSlugs": [
         "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch",
-        "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-2"
+        "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-2",
+        "lehrlingsarzt-alle-arten-medbase-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3588,7 +3589,7 @@
           "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-2"
         ],
         "de": [
-          "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-2"
+          "lehrlingsarzt-alle-arten-medbase-vevey"
         ],
         "fr": [
           "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch"
@@ -3620,7 +3621,7 @@
       "slugByLocale": {
         "it": "assistente-medico-tutti-i-tipi-medbase-lausanne",
         "en": "apprentice-medical-assistant-all-kinds-medbase-lausanne",
-        "de": "lehrlingsarzt-alle-arten-medbase-lausanne",
+        "de": "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-3",
         "fr": "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-pfmxs5"
       },
       "company": "Medbase",
@@ -3667,7 +3668,8 @@
       "jobReqId": "JR07037",
       "previousSlugs": [
         "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch",
-        "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-3"
+        "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-3",
+        "lehrlingsarzt-alle-arten-medbase-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3678,7 +3680,7 @@
           "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-3"
         ],
         "de": [
-          "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch-3"
+          "lehrlingsarzt-alle-arten-medbase-lausanne"
         ],
         "fr": [
           "apprenti-e-assistant-e-medicale-tous-genres-medbase-ch"
@@ -3797,7 +3799,7 @@
       "slugByLocale": {
         "it": "assistente-medico-apprendista-medbase-bulle",
         "en": "apprenti-e-assistant-e-medical-e-medbase-ch-2",
-        "de": "auszubildender-arzt-medbase-bulle",
+        "de": "apprenti-e-assistant-e-medical-e-medbase-ch-2",
         "fr": "apprenti-e-assistant-e-medical-e-medbase-ch"
       },
       "company": "Medbase",
@@ -3844,7 +3846,8 @@
       "jobReqId": "JR06840",
       "previousSlugs": [
         "apprenti-e-assistant-e-medical-e-medbase-ch",
-        "apprenti-e-assistant-e-medical-e-medbase-ch-2"
+        "apprenti-e-assistant-e-medical-e-medbase-ch-2",
+        "auszubildender-arzt-medbase-bulle"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3852,7 +3855,7 @@
           "apprenti-e-assistant-e-medical-e-medbase-ch-2"
         ],
         "de": [
-          "apprenti-e-assistant-e-medical-e-medbase-ch-2"
+          "auszubildender-arzt-medbase-bulle"
         ]
       },
       "firstSeenAt": "2026-07-31T22:19:14.606Z",
@@ -4444,7 +4447,7 @@
         "it": "farmacista-in-a-40-60-medbase-basel",
         "en": "pharmacist-in-a-40-60-medbase-basel",
         "de": "apotheker-in-a-40-60-medbase-ch",
-        "fr": "pharmacien-ne-a-40-60-medbase-basel"
+        "fr": "pharmacie-en-a-40-60-medbase-basel"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -4508,7 +4511,7 @@
         "fr": [
           "apotheker-in-a-40-60-medbase-ch",
           "directeur-general-r-pharmacien-en-a-100-medbase-basel",
-          "pharmacie-en-a-40-60-medbase-basel"
+          "pharmacien-ne-a-40-60-medbase-basel"
         ]
       },
       "previousSlugs": [
@@ -4518,7 +4521,7 @@
         "managing-director-r-pharmacist-in-a-100-medbase-basel",
         "geschaftsfuhrende-r-apotheker-in-a-100-medbase-ch",
         "directeur-general-r-pharmacien-en-a-100-medbase-basel",
-        "pharmacie-en-a-40-60-medbase-basel"
+        "pharmacien-ne-a-40-60-medbase-basel"
       ],
       "firstSeenAt": "2026-07-04T11:44:29.235Z",
       "salaryMin": 62000,
@@ -5709,7 +5712,7 @@
         "it": "fisioterapista-in-a-40-medbase-uzwil",
         "en": "physiotherapist-in-a-40-medbase-uzwil",
         "de": "physiotherapeut-in-a-40-medbase-ch",
-        "fr": "kinesitherapeute-a-40-medbase-uzwil"
+        "fr": "physiotherapeute-en-a-40-medbase-uzwil"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -5756,7 +5759,7 @@
       "previousSlugs": [
         "physiotherapeut-in-a-40-medbase-ch",
         "physiotherapeut-in-a-40-medbase-uzwil",
-        "physiotherapeute-en-a-40-medbase-uzwil"
+        "kinesitherapeute-a-40-medbase-uzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5768,7 +5771,7 @@
         ],
         "fr": [
           "physiotherapeut-in-a-40-medbase-uzwil",
-          "physiotherapeute-en-a-40-medbase-uzwil"
+          "kinesitherapeute-a-40-medbase-uzwil"
         ]
       },
       "firstSeenAt": "2026-07-04T11:44:03.938Z",
@@ -5795,10 +5798,10 @@
       "id": "medbase-b5825a90149b",
       "slug": "assistente-di-studio-medico-a-60-80-medbase-schaffhausen",
       "slugByLocale": {
-        "it": "assistente-di-studio-medico-a-60-80-medbase-schaffhausen",
+        "it": "assistenza-medica-a-60-80-medbase-schaffhausen",
         "en": "medical-practice-assistance-a-60-80-medbase-schaffhausen",
         "de": "medizinische-praxisassistenz-a-60-80-medbase-ch",
-        "fr": "assistant-e-medical-e-a-60-80-medbase-schaffhausen"
+        "fr": "assistance-medicale-a-60-80-medbase-schaffhausen"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -5845,21 +5848,19 @@
       "previousSlugs": [
         "medizinische-praxisassistenz-a-60-80-medbase-ch",
         "medizinische-praxisassistenz-a-60-80-medbase-schaffhausen",
-        "assistenza-medica-a-60-80-medbase-schaffhausen",
-        "assistance-medicale-a-60-80-medbase-schaffhausen"
+        "assistant-e-medical-e-a-60-80-medbase-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-praxisassistenz-a-60-80-medbase-ch",
-          "medizinische-praxisassistenz-a-60-80-medbase-schaffhausen",
-          "assistenza-medica-a-60-80-medbase-schaffhausen"
+          "medizinische-praxisassistenz-a-60-80-medbase-schaffhausen"
         ],
         "en": [
           "medizinische-praxisassistenz-a-60-80-medbase-schaffhausen"
         ],
         "fr": [
           "medizinische-praxisassistenz-a-60-80-medbase-schaffhausen",
-          "assistance-medicale-a-60-80-medbase-schaffhausen"
+          "assistant-e-medical-e-a-60-80-medbase-schaffhausen"
         ]
       },
       "firstSeenAt": "2026-07-04T11:43:57.081Z",
@@ -6162,7 +6163,7 @@
       "id": "medbase-5d5a130eab24",
       "slug": "specialista-in-reumatologia-50-60-a-medbase-baden",
       "slugByLocale": {
-        "it": "specialista-in-reumatologia-50-60-a-medbase-baden",
+        "it": "riumatologia-specialistica-50-60-a-medbase-baden",
         "en": "specialist-rheumatology-50-60-a-medbase-baden",
         "de": "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch",
         "fr": "specialiste-en-rhumatologie-50-60-a-medbase-baden"
@@ -6210,13 +6211,11 @@
       "requirementsByLocale": {},
       "jobReqId": "JR04333",
       "previousSlugs": [
-        "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch",
-        "riumatologia-specialistica-50-60-a-medbase-baden"
+        "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch",
-          "riumatologia-specialistica-50-60-a-medbase-baden"
+          "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch"
         ],
         "en": [
           "facharztin-facharzt-rheumatologie-50-60-a-medbase-ch"
@@ -11896,12 +11895,12 @@
     },
     {
       "id": "medbase-e6a039cb6d92",
-      "slug": "apotheken-koordinator-in-80-100-zurich-kreis-12-medbase-ch",
+      "slug": "coordinatore-trice-di-farmacia-80-100-zurigo-circondario-12-medbase-zurich",
       "slugByLocale": {
         "de": "apotheken-koordinator-in-80-100-zurich-kreis-12-medbase-ch",
-        "it": "apotheken-koordinator-in-80-100-zurich-kreis-12-medbase-ch",
-        "en": "apotheken-koordinator-in-80-100-zurich-kreis-12-medbase-ch",
-        "fr": "apotheken-koordinator-in-80-100-zurich-kreis-12-medbase-ch"
+        "it": "coordinatore-trice-di-farmacia-80-100-zurigo-circondario-12-medbase-zurich",
+        "en": "pharmacy-coordinator-80-100-zurich-district-12-medbase-zurich",
+        "fr": "coordinateur-rice-de-pharmacies-80-100-zurich-district-12-medbase-zurich"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -11965,16 +11964,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:24:40.682Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:24:40.682Z"
+      "firstSeenAt": "2026-11-17T09:24:40.682Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apotheken-koordinator-in-80-100-zurich-kreis-12-medbase-ch"
+        ],
+        "en": [
+          "apotheken-koordinator-in-80-100-zurich-kreis-12-medbase-ch"
+        ],
+        "fr": [
+          "apotheken-koordinator-in-80-100-zurich-kreis-12-medbase-ch"
+        ]
+      },
+      "previousSlugs": [
+        "apotheken-koordinator-in-80-100-zurich-kreis-12-medbase-ch"
+      ]
     },
     {
       "id": "medbase-c483a8da8132",
-      "slug": "arztsekretar-in-a-80-100-zurich-hb-permanence-medbase-ch-2",
+      "slug": "segretario-a-di-studio-medico-a-80-100-zurich-hb-permanence-medbase-zurich",
       "slugByLocale": {
         "de": "arztsekretar-in-a-80-100-zurich-hb-permanence-medbase-ch",
-        "it": "arztsekretar-in-a-80-100-zurich-hb-permanence-medbase-ch-2",
-        "en": "arztsekretar-in-a-80-100-zurich-hb-permanence-medbase-ch-2",
-        "fr": "arztsekretar-in-a-80-100-zurich-hb-permanence-medbase-ch-2"
+        "it": "segretario-a-di-studio-medico-a-80-100-zurich-hb-permanence-medbase-zurich",
+        "en": "medical-secretary-a-80-100-zurich-hb-permanence-medbase-zurich-108cde",
+        "fr": "secretaire-medical-e-a-80-100-zurich-hb-permanence-medbase-zurich-108cde"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -12038,16 +12051,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:24:40.000Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-02T11:28:10.479Z"
+      "firstSeenAt": "2026-11-02T11:28:10.479Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-a-80-100-zurich-hb-permanence-medbase-ch-2"
+        ],
+        "en": [
+          "arztsekretar-in-a-80-100-zurich-hb-permanence-medbase-ch-2"
+        ],
+        "fr": [
+          "arztsekretar-in-a-80-100-zurich-hb-permanence-medbase-ch-2"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-a-80-100-zurich-hb-permanence-medbase-ch-2"
+      ]
     },
     {
       "id": "medbase-b340c09eb5c8",
-      "slug": "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-zurich-hb-permanence-medbase-ch",
+      "slug": "specialista-generale-medicina-interna-a-80-100-permanenza-hb-di-zurigo-medbase-zurich",
       "slugByLocale": {
         "de": "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-zurich-hb-permanence-medbase-ch",
-        "it": "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-zurich-hb-permanence-medbase-ch",
-        "en": "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-zurich-hb-permanence-medbase-ch",
-        "fr": "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-zurich-hb-permanence-medbase-ch"
+        "it": "specialista-generale-medicina-interna-a-80-100-permanenza-hb-di-zurigo-medbase-zurich",
+        "en": "specialist-general-internal-medicine-a-80-100-zurich-hb-permanence-medbase-zurich",
+        "fr": "specialiste-en-medecine-interne-generale-a-80-100-zurich-hb-permanence-medbase-zurich"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -12110,16 +12137,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:24:39.331Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:24:39.331Z"
+      "firstSeenAt": "2026-11-17T09:24:39.331Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-zurich-hb-permanence-medbase-ch"
+        ],
+        "en": [
+          "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-zurich-hb-permanence-medbase-ch"
+        ],
+        "fr": [
+          "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-zurich-hb-permanence-medbase-ch"
+        ]
+      },
+      "previousSlugs": [
+        "facharztin-facharzt-allgemeine-innere-medizin-a-80-100-zurich-hb-permanence-medbase-ch"
+      ]
     },
     {
       "id": "medbase-37114ccfa8aa",
-      "slug": "medizinische-praxisassistenz-a-80-100-basel-heuwaage-medbase-ch",
+      "slug": "assistente-medico-a-80-100-basel-heuwaage-medbase-basel",
       "slugByLocale": {
         "de": "medizinische-praxisassistenz-a-80-100-basel-heuwaage-medbase-ch",
-        "it": "medizinische-praxisassistenz-a-80-100-basel-heuwaage-medbase-ch",
-        "en": "medizinische-praxisassistenz-a-80-100-basel-heuwaage-medbase-ch",
-        "fr": "medizinische-praxisassistenz-a-80-100-basel-heuwaage-medbase-ch"
+        "it": "assistente-medico-a-80-100-basel-heuwaage-medbase-basel",
+        "en": "medical-practice-assistant-a-80-100-basel-heuwaage-medbase-basel",
+        "fr": "assistant-de-medecine-a-80-100-basel-heuwaage-medbase-basel"
       },
       "company": "Medbase",
       "companyKey": "medbase",
@@ -12181,7 +12222,21 @@
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:24:38.626Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistenz-a-80-100-basel-heuwaage-medbase-ch"
+        ],
+        "en": [
+          "medizinische-praxisassistenz-a-80-100-basel-heuwaage-medbase-ch"
+        ],
+        "fr": [
+          "medizinische-praxisassistenz-a-80-100-basel-heuwaage-medbase-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistenz-a-80-100-basel-heuwaage-medbase-ch"
+      ]
     },
     {
       "id": "medbase-d3135f099799",

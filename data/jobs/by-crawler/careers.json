@@ -166,12 +166,12 @@
     },
     {
       "id": "careers-11d4df91a79d",
-      "slug": "weihnachtsaushilfe-produktion-70-100-lepatron-bockten",
+      "slug": "produzione-di-rifiuti-di-natale-70-100-lepatron-bockten",
       "slugByLocale": {
         "de": "weihnachtsaushilfe-produktion-70-100-careers-ch",
-        "it": "weihnachtsaushilfe-produktion-70-100-lepatron-bockten",
-        "en": "weihnachtsaushilfe-produktion-70-100-lepatron-bockten",
-        "fr": "weihnachtsaushilfe-produktion-70-100-lepatron-bockten"
+        "it": "produzione-di-rifiuti-di-natale-70-100-lepatron-bockten",
+        "en": "christmas-relief-production-70-100-lepatron-bockten",
+        "fr": "production-de-secours-de-noel-70-100-lepatron-bockten"
       },
       "company": "lepatron",
       "companyKey": "careers",
@@ -217,11 +217,19 @@
       "postingDateSource": "unknown",
       "previousSlugsByLocale": {
         "it": [
-          "weihnachtsaushilfe-produktion-70-100-careers-ch"
+          "weihnachtsaushilfe-produktion-70-100-careers-ch",
+          "weihnachtsaushilfe-produktion-70-100-lepatron-bockten"
+        ],
+        "en": [
+          "weihnachtsaushilfe-produktion-70-100-lepatron-bockten"
+        ],
+        "fr": [
+          "weihnachtsaushilfe-produktion-70-100-lepatron-bockten"
         ]
       },
       "previousSlugs": [
-        "weihnachtsaushilfe-produktion-70-100-careers-ch"
+        "weihnachtsaushilfe-produktion-70-100-careers-ch",
+        "weihnachtsaushilfe-produktion-70-100-lepatron-bockten"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

@@ -528,8 +528,8 @@
       "slugByLocale": {
         "de": "lehrstelle-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-ch",
         "it": "apprendistato-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-andermatt",
-        "en": "lehrstelle-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-andermatt",
-        "fr": "lehrstelle-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-andermatt"
+        "en": "polymechanical-apprenticeship-m-f-d-in-andermatt-matterhorn-gotthard-bahn-andermatt",
+        "fr": "apprentissage-polymecanique-m-f-d-a-andermatt-matterhorn-gotthard-bahn-andermatt"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -598,16 +598,15 @@
           "lehrstelle-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-ch"
         ],
         "en": [
-          "polymechanical-apprenticeship-m-f-d-in-andermatt-matterhorn-gotthard-bahn-andermatt"
+          "lehrstelle-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-andermatt"
         ],
         "fr": [
-          "apprentissage-polymecanique-m-f-d-a-andermatt-matterhorn-gotthard-bahn-andermatt"
+          "lehrstelle-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-andermatt"
         ]
       },
       "previousSlugs": [
         "lehrstelle-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-ch",
-        "polymechanical-apprenticeship-m-f-d-in-andermatt-matterhorn-gotthard-bahn-andermatt",
-        "apprentissage-polymecanique-m-f-d-a-andermatt-matterhorn-gotthard-bahn-andermatt"
+        "lehrstelle-polymechaniker-m-w-d-in-andermatt-matterhorn-gotthard-bahn-andermatt"
       ],
       "salaryMin": 54000,
       "salaryMax": 82000,
@@ -631,7 +630,7 @@
       "id": "matterhorn-gotthard-bahn-41586bb36b7c",
       "slug": "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig",
       "slugByLocale": {
-        "it": "filettaio-network-elettrico-m-w-d-matterhorn-gotthard-bahn-brig",
+        "it": "elettricista-m-f-d-matterhorn-gotthard-bahn-brig",
         "en": "catenary-fitter-network-electrician-m-f-d-matterhorn-gotthard-bahn-brig",
         "de": "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
         "fr": "electricien-du-reseau-installateur-catenaire-m-f-d-matterhorn-gotthard-bahn-brig"
@@ -699,14 +698,12 @@
       },
       "previousSlugs": [
         "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
-        "elettricista-m-f-d-matterhorn-gotthard-bahn-brig"
+        "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-ch",
-          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig",
-          "elettricista-m-f-d-matterhorn-gotthard-bahn-brig"
+          "fahrleitungsmonteur-netzelektriker-m-w-d-matterhorn-gotthard-bahn-brig"
         ]
       },
       "firstSeenAt": "2026-09-07T15:24:41.109Z",

@@ -555,12 +555,12 @@
     },
     {
       "id": "anybotics-9f3fd35c998c",
-      "slug": "product-compliance-and-certification-lead-anybotics-ch",
+      "slug": "conformita-e-certificazione-del-prodotto-piombo-anybotics-zurich-switzerland",
       "slugByLocale": {
         "en": "product-compliance-and-certification-lead-anybotics-ch",
-        "it": "product-compliance-and-certification-lead-anybotics-ch",
+        "it": "conformita-e-certificazione-del-prodotto-piombo-anybotics-zurich-switzerland",
         "de": "product-compliance-and-certification-lead-anybotics-ch",
-        "fr": "product-compliance-and-certification-lead-anybotics-ch"
+        "fr": "conformite-des-produits-et-certification-plomb-anybotics-zurich-switzerland"
       },
       "company": "ANYbotics",
       "companyKey": "anybotics",
@@ -623,7 +623,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-01T09:22:19.216Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:22:19.216Z"
+      "firstSeenAt": "2026-11-17T09:22:19.216Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-compliance-and-certification-lead-anybotics-ch"
+        ],
+        "fr": [
+          "product-compliance-and-certification-lead-anybotics-ch"
+        ]
+      },
+      "previousSlugs": [
+        "product-compliance-and-certification-lead-anybotics-ch"
+      ]
     },
     {
       "id": "anybotics-262149a19b82",

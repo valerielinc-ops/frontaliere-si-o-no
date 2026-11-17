@@ -89,12 +89,12 @@
     },
     {
       "id": "endress-hauser-901eb0a1fc78",
-      "slug": "collaboratore-trice-in-sensorfertigung-m-w-d-endress-hauser-reinach",
+      "slug": "collaboratore-trice-nella-produzione-di-sensori-m-f-d-endress-hauser-reinach",
       "slugByLocale": {
         "de": "mitarbeiter-in-sensorfertigung-w-m-d-endress-hauser-reinach",
-        "it": "collaboratore-trice-in-sensorfertigung-m-w-d-endress-hauser-reinach",
-        "en": "mitarbeiter-in-sensorfertigung-w-m-d-endress-hauser-reinach",
-        "fr": "mitarbeiter-in-sensorfertigung-w-m-d-endress-hauser-reinach"
+        "it": "collaboratore-trice-nella-produzione-di-sensori-m-f-d-endress-hauser-reinach",
+        "en": "sensor-manufacturing-employee-m-f-d-endress-hauser-reinach",
+        "fr": "collaborateur-trice-de-fabrication-de-capteurs-h-f-d-endress-hauser-reinach"
       },
       "company": "Endress+Hauser",
       "companyKey": "endress-hauser",
@@ -142,11 +142,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-sensorfertigung-w-m-d-endress-hauser-reinach",
+          "collaboratore-trice-in-sensorfertigung-m-w-d-endress-hauser-reinach"
+        ],
+        "en": [
+          "mitarbeiter-in-sensorfertigung-w-m-d-endress-hauser-reinach"
+        ],
+        "fr": [
           "mitarbeiter-in-sensorfertigung-w-m-d-endress-hauser-reinach"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-sensorfertigung-w-m-d-endress-hauser-reinach"
+        "mitarbeiter-in-sensorfertigung-w-m-d-endress-hauser-reinach",
+        "collaboratore-trice-in-sensorfertigung-m-w-d-endress-hauser-reinach"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -840,7 +848,7 @@
       "slug": "schnuppertage-computer-scientist-endress-hauser-reinach",
       "slugByLocale": {
         "it": "schnuppertage-computer-scientist-endress-hauser-reinach",
-        "en": "taster-days-computerscientist-endress-hauser-reinach",
+        "en": "computer-science-experts-endress-hauser-reinach",
         "de": "schnuppertage-informatiker-in-endress-hauser-reinach",
         "fr": "schnuppertage-informatique-scientifique-endress-hauser-reinach"
       },
@@ -888,7 +896,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "schnuppertage-informatiker-in-endress-hauser-reinach",
-        "computer-science-experts-endress-hauser-reinach"
+        "taster-days-computerscientist-endress-hauser-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -896,7 +904,7 @@
         ],
         "en": [
           "schnuppertage-informatiker-in-endress-hauser-reinach",
-          "computer-science-experts-endress-hauser-reinach"
+          "taster-days-computerscientist-endress-hauser-reinach"
         ],
         "fr": [
           "schnuppertage-informatiker-in-endress-hauser-reinach"

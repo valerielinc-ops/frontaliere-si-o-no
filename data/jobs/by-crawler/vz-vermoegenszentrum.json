@@ -7283,7 +7283,7 @@
         "de": "junior-expert-financial-reporting-accounting-vz-vorsorgestiftungen-vz-vermoegenszentrum-ch",
         "it": "junior-expert-financial-reporting-accounting-vz-vorsorgestiftungen-vz-vermogenszentrum-zurich",
         "en": "junior-expert-financial-reporting-accounting-vz-vorsorgestiftungen-vz-vermogenszentrum-zurich",
-        "fr": "junior-expert-financial-reporting-accounting-vz-vorsorgestiftungen-vz-vermogenszentrum-zurich"
+        "fr": "junior-expert-rapports-financiers-et-comptabilite-fondations-de-retraite-vz-vz-vermogenszentrum-zurich-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -7345,10 +7345,14 @@
       "previousSlugsByLocale": {
         "it": [
           "junior-expert-financial-reporting-accounting-vz-vorsorgestiftungen-vz-vermoegenszentrum-ch"
+        ],
+        "fr": [
+          "junior-expert-financial-reporting-accounting-vz-vorsorgestiftungen-vz-vermogenszentrum-zurich"
         ]
       },
       "previousSlugs": [
-        "junior-expert-financial-reporting-accounting-vz-vorsorgestiftungen-vz-vermoegenszentrum-ch"
+        "junior-expert-financial-reporting-accounting-vz-vorsorgestiftungen-vz-vermoegenszentrum-ch",
+        "junior-expert-financial-reporting-accounting-vz-vorsorgestiftungen-vz-vermogenszentrum-zurich"
       ],
       "salaryMin": 79000,
       "salaryMax": 138500,

@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "octapharma-186c552b48e8",
-      "slug": "group-associate-specialist-customer-service-octapharma-lachen",
+      "slug": "group-associate-specialista-servizio-clienti-octapharma-lachen",
       "slugByLocale": {
         "en": "group-associate-specialist-customer-service-octapharma-lachen",
-        "it": "group-associate-specialist-customer-service-octapharma-lachen",
-        "de": "group-associate-specialist-customer-service-octapharma-lachen",
-        "fr": "group-associate-specialist-customer-service-octapharma-lachen"
+        "it": "group-associate-specialista-servizio-clienti-octapharma-lachen",
+        "de": "group-associate-spezialist-kundendienst-octapharma-lachen",
+        "fr": "group-associate-specialiste-service-client-octapharma-lachen"
       },
       "company": "Octapharma",
       "companyKey": "octapharma",
@@ -71,7 +71,21 @@
       "streetAddress": "Lachen",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:20:42.605Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "group-associate-specialist-customer-service-octapharma-lachen"
+        ],
+        "de": [
+          "group-associate-specialist-customer-service-octapharma-lachen"
+        ],
+        "fr": [
+          "group-associate-specialist-customer-service-octapharma-lachen"
+        ]
+      },
+      "previousSlugs": [
+        "group-associate-specialist-customer-service-octapharma-lachen"
+      ]
     },
     {
       "id": "octapharma-bcf2f4b50027",

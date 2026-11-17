@@ -2823,12 +2823,12 @@
     },
     {
       "id": "helsana-557708435d9f",
-      "slug": "controller-a-80-100-helsana-zurich",
+      "slug": "regolatore-a-80-100-helsana-zurich",
       "slugByLocale": {
         "de": "controller-a-80-100-helsana-zurich",
-        "it": "controller-a-80-100-helsana-zurich",
+        "it": "regolatore-a-80-100-helsana-zurich",
         "en": "controller-a-80-100-helsana-zurich",
-        "fr": "controller-a-80-100-helsana-zurich"
+        "fr": "controleur-a-80-100-helsana-zurich"
       },
       "company": "Helsana",
       "companyKey": "helsana",
@@ -2891,7 +2891,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:20:36.888Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:20:36.888Z"
+      "firstSeenAt": "2026-11-17T09:20:36.888Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "controller-a-80-100-helsana-zurich"
+        ],
+        "fr": [
+          "controller-a-80-100-helsana-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "controller-a-80-100-helsana-zurich"
+      ]
     },
     {
       "id": "helsana-7d699f07cae6",

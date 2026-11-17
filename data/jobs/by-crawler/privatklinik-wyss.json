@@ -5,12 +5,12 @@
   "jobs": [
     {
       "id": "privatklinik-wyss-5db01bdc0ea7",
-      "slug": "praktikant-in-psychologie-m-w-d-privatklinik-wyss-ch",
+      "slug": "tirocinante-in-psicologia-m-f-d-privatklinik-wyss-munchenbuchsee",
       "slugByLocale": {
         "de": "praktikant-in-psychologie-m-w-d-privatklinik-wyss-ch",
-        "it": "praktikant-in-psychologie-m-w-d-privatklinik-wyss-ch",
-        "en": "praktikant-in-psychologie-m-w-d-privatklinik-wyss-ch",
-        "fr": "praktikant-in-psychologie-m-w-d-privatklinik-wyss-ch"
+        "it": "tirocinante-in-psicologia-m-f-d-privatklinik-wyss-munchenbuchsee",
+        "en": "psychology-intern-m-f-d-privatklinik-wyss-munchenbuchsee",
+        "fr": "stagiaire-en-psychologie-h-f-d-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -90,7 +90,21 @@
       "streetAddressSource": "zefix-registry",
       "validThrough": "2027-02-15T09:12:32.658Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:12:32.658Z"
+      "firstSeenAt": "2026-11-17T09:12:32.658Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-psychologie-m-w-d-privatklinik-wyss-ch"
+        ],
+        "en": [
+          "praktikant-in-psychologie-m-w-d-privatklinik-wyss-ch"
+        ],
+        "fr": [
+          "praktikant-in-psychologie-m-w-d-privatklinik-wyss-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-psychologie-m-w-d-privatklinik-wyss-ch"
+      ]
     },
     {
       "id": "privatklinik-wyss-53276e49b5c3",
@@ -426,7 +440,7 @@
         "it": "terapeuta-della-musica-f-m-d-privatklinik-wyss-munchenbuchsee",
         "en": "stv-music-therapist-in-m-f-d-privatklinik-wyss-munchenbuchsee",
         "de": "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch",
-        "fr": "musicotherapeute-en-m-w-d-privatklinik-wyss-munchenbuchsee"
+        "fr": "stv-musicotherapie-f-m-d-privatklinik-wyss-munchenbuchsee"
       },
       "company": "Privatklinik Wyss",
       "companyKey": "privatklinik-wyss",
@@ -477,7 +491,7 @@
         "stv-kunsttherapeut-in-w-m-d-privatklinik-wyss-munchenbuchsee",
         "stv-music-therapist-f-m-d-privatklinik-wyss-munchenbuchsee",
         "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-munchenbuchsee",
-        "stv-musicotherapie-f-m-d-privatklinik-wyss-munchenbuchsee"
+        "musicotherapeute-en-m-w-d-privatklinik-wyss-munchenbuchsee"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -500,7 +514,7 @@
         "fr": [
           "stv-musiktherapeut-in-w-m-d-privatklinik-wyss-ch",
           "artotherapeute-stv-f-m-d-privatklinik-wyss-munchenbuchsee",
-          "stv-musicotherapie-f-m-d-privatklinik-wyss-munchenbuchsee"
+          "musicotherapeute-en-m-w-d-privatklinik-wyss-munchenbuchsee"
         ]
       },
       "firstSeenAt": "2026-06-24T22:36:14.843Z",

@@ -1118,12 +1118,12 @@
     },
     {
       "id": "michaelpage-9af384410399",
-      "slug": "directeur-trice-general-e-michael-page-geneve-geneva-9af38441",
+      "slug": "direttore-generale-michael-page-geneve-geneva-9af38441",
       "slugByLocale": {
         "fr": "directeur-trice-general-e-michael-page-geneve-geneva-9af38441",
-        "it": "directeur-trice-general-e-michael-page-geneve-geneva-9af38441",
-        "en": "directeur-trice-general-e-michael-page-geneve-geneva-9af38441",
-        "de": "directeur-trice-general-e-michael-page-geneve-geneva-9af38441"
+        "it": "direttore-generale-michael-page-geneve-geneva-9af38441",
+        "en": "director-general-michael-page-geneve-geneva-9af38441",
+        "de": "generaldirektor-michael-page-geneve-geneva-9af38441"
       },
       "slugDisambiguator": "9af38441",
       "company": "Michael Page",
@@ -1186,15 +1186,29 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:57:14.198Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:57:14.198Z"
+      "firstSeenAt": "2026-11-17T09:57:14.198Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "directeur-trice-general-e-michael-page-geneve-geneva-9af38441"
+        ],
+        "en": [
+          "directeur-trice-general-e-michael-page-geneve-geneva-9af38441"
+        ],
+        "de": [
+          "directeur-trice-general-e-michael-page-geneve-geneva-9af38441"
+        ]
+      },
+      "previousSlugs": [
+        "directeur-trice-general-e-michael-page-geneve-geneva-9af38441"
+      ]
     },
     {
       "id": "michaelpage-7f5deb212cfb",
-      "slug": "finance-director-finance-business-partner-michael-page-zurich-switzerland-7f5deb21",
+      "slug": "finanza-direttore-finanza-business-partner-michael-page-zurich-switzerland-7f5deb21",
       "slugByLocale": {
         "en": "finance-director-finance-business-partner-michael-page-zurich-switzerland-7f5deb21",
-        "it": "finance-director-finance-business-partner-michael-page-zurich-switzerland-7f5deb21",
-        "de": "finance-director-finance-business-partner-michael-page-zurich-switzerland-7f5deb21",
+        "it": "finanza-direttore-finanza-business-partner-michael-page-zurich-switzerland-7f5deb21",
+        "de": "finanzen-direktor-finanzen-business-partner-michael-page-zurich-switzerland-7f5deb21",
         "fr": "finance-director-finance-business-partner-michael-page-zurich-switzerland-7f5deb21"
       },
       "slugDisambiguator": "7f5deb21",
@@ -1258,7 +1272,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:57:14.197Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:57:14.197Z"
+      "firstSeenAt": "2026-11-17T09:57:14.197Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "finance-director-finance-business-partner-michael-page-zurich-switzerland-7f5deb21"
+        ],
+        "de": [
+          "finance-director-finance-business-partner-michael-page-zurich-switzerland-7f5deb21"
+        ]
+      },
+      "previousSlugs": [
+        "finance-director-finance-business-partner-michael-page-zurich-switzerland-7f5deb21"
+      ]
     }
   ]
 }

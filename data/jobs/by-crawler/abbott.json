@@ -1315,7 +1315,7 @@
         "en": "global-medical-manager-oncology-biosimilars-abbott-ch",
         "it": "global-medical-manager-oncology-biosimilars-abbott-ch",
         "de": "global-medical-manager-oncology-biosimilars-abbott-ch",
-        "fr": "global-medical-manager-oncology-biosimilars-abbott-ch"
+        "fr": "responsable-medical-mondial-en-oncologie-biosimilaires-abbott-allschwil"
       },
       "company": "Abbott",
       "companyKey": "abbott",
@@ -1379,7 +1379,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:27:36.150Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:27:36.150Z"
+      "firstSeenAt": "2026-11-17T09:27:36.150Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "global-medical-manager-oncology-biosimilars-abbott-ch"
+        ]
+      },
+      "previousSlugs": [
+        "global-medical-manager-oncology-biosimilars-abbott-ch"
+      ]
     },
     {
       "id": "abbott-7ad18fe42a6f",

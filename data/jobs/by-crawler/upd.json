@@ -9322,12 +9322,12 @@
     },
     {
       "id": "upd-b4907e9ac93b",
-      "slug": "fachperson-gesundheit-station-saxer-upd-bern",
+      "slug": "professional-health-station-saxer-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "fachperson-gesundheit-station-saxer-upd-bern",
-        "it": "fachperson-gesundheit-station-saxer-upd-bern",
+        "it": "professional-health-station-saxer-universitare-psychiatrische-dienste-bern-upd-bern",
         "en": "fachperson-gesundheit-station-saxer-upd-bern",
-        "fr": "fachperson-gesundheit-station-saxer-upd-bern"
+        "fr": "station-de-sante-professionnelle-saxer-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -9389,7 +9389,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T09:37:54.229Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:37:54.229Z"
+      "firstSeenAt": "2026-11-17T09:37:54.229Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-station-saxer-upd-bern"
+        ],
+        "fr": [
+          "fachperson-gesundheit-station-saxer-upd-bern"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-station-saxer-upd-bern"
+      ]
     },
     {
       "id": "upd-c0ebc1f46461",
@@ -9645,12 +9656,12 @@
     },
     {
       "id": "upd-2ae4b7ce0f7b",
-      "slug": "dipl-pflegefachperson-psychiatrische-akutaufnahmestation-mit-zusatzfunktion-trainer",
+      "slug": "infermiere-a-diplomato-a-del-reparto-di-accettazione-psichiatrica-acuta-con-funzione-aggiuntiva-di-formatore-trice-per",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-psychiatrische-akutaufnahmestation-mit-zusatzfunktion-trainer",
-        "it": "dipl-pflegefachperson-psychiatrische-akutaufnahmestation-mit-zusatzfunktion-trainer",
-        "en": "dipl-pflegefachperson-psychiatrische-akutaufnahmestation-mit-zusatzfunktion-trainer",
-        "fr": "dipl-pflegefachperson-psychiatrische-akutaufnahmestation-mit-zusatzfunktion-trainer"
+        "it": "infermiere-a-diplomato-a-del-reparto-di-accettazione-psichiatrica-acuta-con-funzione-aggiuntiva-di-formatore-trice-per",
+        "en": "dipl-nurse-psychiatric-acute-care-unit-with-additional-function-trainer-aggression-management-universitare",
+        "fr": "dipl-infirmiere-psychiatrique-unite-de-soins-actifs-avec-fonction-supplementaire-trainer-aggression-management"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -9713,16 +9724,30 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T09:37:54.221Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:37:54.221Z"
+      "firstSeenAt": "2026-11-17T09:37:54.221Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-psychiatrische-akutaufnahmestation-mit-zusatzfunktion-trainer"
+        ],
+        "en": [
+          "dipl-pflegefachperson-psychiatrische-akutaufnahmestation-mit-zusatzfunktion-trainer"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-psychiatrische-akutaufnahmestation-mit-zusatzfunktion-trainer"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-psychiatrische-akutaufnahmestation-mit-zusatzfunktion-trainer"
+      ]
     },
     {
       "id": "upd-4e92b392c581",
-      "slug": "dipl-pflegefachperson-psychiatrische-akutaufnahmestation-tag-o-nachtdienst-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "infermiere-a-diplomato-a-per-il-reparto-di-accettazione-psichiatrica-acuta-servizio-diurno-o-notturno-universitare",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-psychiatrische-akutaufnahmestation-tag-oder-nachtdienst-upd-bern",
-        "it": "dipl-pflegefachperson-psychiatrische-akutaufnahmestation-tag-o-nachtdienst-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "dipl-pflegefachperson-psychiatrische-akutaufnahmestation-tag-oder-nachtdienst-upd-bern",
-        "fr": "dipl-pflegefachperson-psychiatrische-akutaufnahmestation-tag-oder-nachtdienst-upd-bern"
+        "it": "infermiere-a-diplomato-a-per-il-reparto-di-accettazione-psichiatrica-acuta-servizio-diurno-o-notturno-universitare",
+        "en": "dipl-nurse-psychiatric-acute-care-unit-day-or-night-duty-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "dipl-infirmiere-unite-de-soins-psychiatriques-aigus-service-de-jour-ou-de-nuit-universitare-psychiatrische-dienste-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -9771,11 +9796,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-psychiatrische-akutaufnahmestation-tag-oder-nachtdienst-upd-bern",
+          "dipl-pflegefachperson-psychiatrische-akutaufnahmestation-tag-o-nachtdienst-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "en": [
+          "dipl-pflegefachperson-psychiatrische-akutaufnahmestation-tag-oder-nachtdienst-upd-bern"
+        ],
+        "fr": [
           "dipl-pflegefachperson-psychiatrische-akutaufnahmestation-tag-oder-nachtdienst-upd-bern"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-psychiatrische-akutaufnahmestation-tag-oder-nachtdienst-upd-bern"
+        "dipl-pflegefachperson-psychiatrische-akutaufnahmestation-tag-oder-nachtdienst-upd-bern",
+        "dipl-pflegefachperson-psychiatrische-akutaufnahmestation-tag-o-nachtdienst-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -10144,12 +10177,12 @@
     },
     {
       "id": "upd-7b4755c492e5",
-      "slug": "fachperson-gesundheit-per-akutstation-per-junge-erwachsene-universitare-psychiatrische-dienste-bern-upd-bern",
+      "slug": "professionista-sanitario-a-per-il-reparto-acuto-per-giovani-adulti-universitare-psychiatrische-dienste-bern-upd-bern",
       "slugByLocale": {
         "de": "fachperson-gesundheit-fur-akutstation-fur-junge-erwachsene-upd-bern",
-        "it": "fachperson-gesundheit-per-akutstation-per-junge-erwachsene-universitare-psychiatrische-dienste-bern-upd-bern",
-        "en": "fachperson-gesundheit-fur-akutstation-fur-junge-erwachsene-upd-bern",
-        "fr": "fachperson-gesundheit-fur-akutstation-fur-junge-erwachsene-upd-bern"
+        "it": "professionista-sanitario-a-per-il-reparto-acuto-per-giovani-adulti-universitare-psychiatrische-dienste-bern-upd-bern",
+        "en": "specialist-health-for-acute-care-unit-for-young-adults-universitare-psychiatrische-dienste-bern-upd-bern",
+        "fr": "service-de-sante-specialisee-pour-les-jeunes-adultes-universitare-psychiatrische-dienste-bern-upd-bern"
       },
       "company": "Universitäre Psychiatrische Dienste Bern (UPD)",
       "companyKey": "upd",
@@ -10198,11 +10231,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-fur-akutstation-fur-junge-erwachsene-upd-bern",
+          "fachperson-gesundheit-per-akutstation-per-junge-erwachsene-universitare-psychiatrische-dienste-bern-upd-bern"
+        ],
+        "en": [
+          "fachperson-gesundheit-fur-akutstation-fur-junge-erwachsene-upd-bern"
+        ],
+        "fr": [
           "fachperson-gesundheit-fur-akutstation-fur-junge-erwachsene-upd-bern"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-fur-akutstation-fur-junge-erwachsene-upd-bern"
+        "fachperson-gesundheit-fur-akutstation-fur-junge-erwachsene-upd-bern",
+        "fachperson-gesundheit-per-akutstation-per-junge-erwachsene-universitare-psychiatrische-dienste-bern-upd-bern"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,

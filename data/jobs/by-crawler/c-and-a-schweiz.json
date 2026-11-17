@@ -2601,12 +2601,12 @@
     },
     {
       "id": "c-and-a-schweiz-bb960bb2682b",
-      "slug": "collaboratrice-de-vente-20-cdd-23-11-au-31-12-2026-thonex-c-and-a-schweiz-ch",
+      "slug": "vendite-collaboratore-20-csd-23-11-al-31-12-2026-thonex-c-a-schweiz-thonex-ch",
       "slugByLocale": {
         "fr": "collaboratrice-de-vente-20-cdd-23-11-au-31-12-2026-thonex-c-and-a-schweiz-ch",
-        "it": "collaboratrice-de-vente-20-cdd-23-11-au-31-12-2026-thonex-c-and-a-schweiz-ch",
-        "en": "collaboratrice-de-vente-20-cdd-23-11-au-31-12-2026-thonex-c-and-a-schweiz-ch",
-        "de": "collaboratrice-de-vente-20-cdd-23-11-au-31-12-2026-thonex-c-and-a-schweiz-ch"
+        "it": "vendite-collaboratore-20-csd-23-11-al-31-12-2026-thonex-c-a-schweiz-thonex-ch",
+        "en": "sales-collaborator-20-csd-23-11-to-31-12-2026-thonex-c-a-schweiz-thonex-ch",
+        "de": "vertriebsmitarbeiter-20-csd-23-11-bis-31-12-2026-thonex-c-a-schweiz-thonex-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -2668,7 +2668,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:24:27.556Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:24:27.556Z"
+      "firstSeenAt": "2026-11-17T09:24:27.556Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-de-vente-20-cdd-23-11-au-31-12-2026-thonex-c-and-a-schweiz-ch"
+        ],
+        "en": [
+          "collaboratrice-de-vente-20-cdd-23-11-au-31-12-2026-thonex-c-and-a-schweiz-ch"
+        ],
+        "de": [
+          "collaboratrice-de-vente-20-cdd-23-11-au-31-12-2026-thonex-c-and-a-schweiz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-de-vente-20-cdd-23-11-au-31-12-2026-thonex-c-and-a-schweiz-ch"
+      ]
     },
     {
       "id": "c-and-a-schweiz-9ba5b1c742be",

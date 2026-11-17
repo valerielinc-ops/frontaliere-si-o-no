@@ -920,7 +920,7 @@
     },
     {
       "title": "Leitung Fakturierung, 100%",
-      "slug": "leitung-fakturierung-100-berit-klinik",
+      "slug": "responsabile-fatturazione-100-berit-klinik-speicher",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_leitung_fakturierung_100__87c105f729.pdf",
       "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
       "company": "Berit Klinik",
@@ -958,9 +958,9 @@
       },
       "slugByLocale": {
         "de": "leitung-fakturierung-100-berit-klinik",
-        "it": "leitung-fakturierung-100-berit-klinik",
-        "en": "leitung-fakturierung-100-berit-klinik",
-        "fr": "leitung-fakturierung-100-berit-klinik"
+        "it": "responsabile-fatturazione-100-berit-klinik-speicher",
+        "en": "head-of-billing-100-berit-klinik-speicher",
+        "fr": "responsable-de-la-facturation-100-berit-klinik-speicher"
       },
       "_meta": {
         "sourceFilename": "stelleninserat_leitung_fakturierung_100__87c105f729.pdf"
@@ -996,11 +996,25 @@
       "streetAddress": "Vögelinsegg 5",
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:27:59.132Z"
+      "firstSeenAt": "2026-11-17T09:27:59.132Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-fakturierung-100-berit-klinik"
+        ],
+        "en": [
+          "leitung-fakturierung-100-berit-klinik"
+        ],
+        "fr": [
+          "leitung-fakturierung-100-berit-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-fakturierung-100-berit-klinik"
+      ]
     },
     {
       "title": "Medizinische/r Praxisassistent/in, 100%",
-      "slug": "medizinische-r-praxisassistent-in-100-berit-klinik",
+      "slug": "assistente-di-studio-medico-100-berit-klinik-speicher",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_medizinische_r_praxisassistent_in__100__f09b04abfb.pdf",
       "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
       "company": "Berit Klinik",
@@ -1039,9 +1053,9 @@
       },
       "slugByLocale": {
         "de": "medizinische-r-praxisassistent-in-100-berit-klinik",
-        "it": "medizinische-r-praxisassistent-in-100-berit-klinik",
-        "en": "medizinische-r-praxisassistent-in-100-berit-klinik",
-        "fr": "medizinische-r-praxisassistent-in-100-berit-klinik"
+        "it": "assistente-di-studio-medico-100-berit-klinik-speicher",
+        "en": "medical-practice-assistant-100-berit-klinik-speicher",
+        "fr": "assistant-e-medical-e-100-berit-klinik-speicher"
       },
       "_meta": {
         "sourceFilename": "stelleninserat_medizinische_r_praxisassistent_in__100__f09b04abfb.pdf"
@@ -1077,7 +1091,21 @@
       "streetAddress": "Vögelinsegg 5",
       "streetAddressSource": "zefix-registry",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-05-20T05:18:01.368Z"
+      "firstSeenAt": "2026-05-20T05:18:01.368Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-r-praxisassistent-in-100-berit-klinik"
+        ],
+        "en": [
+          "medizinische-r-praxisassistent-in-100-berit-klinik"
+        ],
+        "fr": [
+          "medizinische-r-praxisassistent-in-100-berit-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-100-berit-klinik"
+      ]
     }
   ]
 }

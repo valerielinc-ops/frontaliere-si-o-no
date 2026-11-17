@@ -1483,9 +1483,9 @@
       "slug": "fachmann-frau-hotellerie-hauswirtschaft-i-a-specializzazione-hotellerie-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "it": "fachmann-frau-hotellerie-hauswirtschaft-i-a-specializzazione-hotellerie-kantonsspital-baden-ksb-baden",
-        "en": "hospitality-and-housekeeping-specialist-in-training-specialization-in-housekeeping-kantonsspital-baden-ksb-baden",
+        "en": "professional-woman-hotel-industry-i-a-field-of-expertise-hotel-industry-kantonsspital-baden-ksb-baden",
         "de": "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hotellerie-ksb-ch",
-        "fr": "specialiste-en-hotellerie-intendance-en-formation-orientation-intendance-kantonsspital-baden-ksb-baden"
+        "fr": "industrie-hoteliere-professionnelle-femme-i-a-domaine-d-expertise-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -1533,8 +1533,8 @@
         "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hauswirtschaft-kantonsspital-baden-ksb-baden",
         "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hauswirtschaft-ksb-ch",
         "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hotellerie-ksb-ch-nl99l0",
-        "professional-woman-hotel-industry-i-a-field-of-expertise-hotel-industry-kantonsspital-baden-ksb-baden",
-        "industrie-hoteliere-professionnelle-femme-i-a-domaine-d-expertise-kantonsspital-baden-ksb-baden"
+        "hospitality-and-housekeeping-specialist-in-training-specialization-in-housekeeping-kantonsspital-baden-ksb-baden",
+        "specialiste-en-hotellerie-intendance-en-formation-orientation-intendance-kantonsspital-baden-ksb-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1542,14 +1542,14 @@
         ],
         "en": [
           "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hauswirtschaft-kantonsspital-baden-ksb-baden",
-          "professional-woman-hotel-industry-i-a-field-of-expertise-hotel-industry-kantonsspital-baden-ksb-baden"
+          "hospitality-and-housekeeping-specialist-in-training-specialization-in-housekeeping-kantonsspital-baden-ksb-baden"
         ],
         "de": [
           "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hotellerie-ksb-ch-nl99l0"
         ],
         "fr": [
           "fachmann-frau-hotellerie-hauswirtschaft-i-a-fachrichtung-hauswirtschaft-kantonsspital-baden-ksb-baden",
-          "industrie-hoteliere-professionnelle-femme-i-a-domaine-d-expertise-kantonsspital-baden-ksb-baden"
+          "specialiste-en-hotellerie-intendance-en-formation-orientation-intendance-kantonsspital-baden-ksb-baden"
         ]
       },
       "firstSeenAt": "2026-06-29T22:37:05.092Z",
@@ -7829,12 +7829,12 @@
     },
     {
       "id": "ksb-a093b520a7e2",
-      "slug": "sachbearbeiter-in-notaufnahme-50-kantonsspital-baden-ksb-baden",
+      "slug": "impiegato-a-amministrativo-a-del-pronto-soccorso-50-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "de": "sachbearbeiter-in-notaufnahme-50-ksb-ch",
-        "it": "sachbearbeiter-in-notaufnahme-50-kantonsspital-baden-ksb-baden",
-        "en": "sachbearbeiter-in-notaufnahme-50-kantonsspital-baden-ksb-baden",
-        "fr": "sachbearbeiter-in-notaufnahme-50-kantonsspital-baden-ksb-baden"
+        "it": "impiegato-a-amministrativo-a-del-pronto-soccorso-50-kantonsspital-baden-ksb-baden",
+        "en": "administrative-assistant-emergency-department-50-kantonsspital-baden-ksb-baden",
+        "fr": "employe-e-administratif-ve-au-service-des-urgences-50-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7882,11 +7882,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-notaufnahme-50-ksb-ch"
+          "sachbearbeiter-in-notaufnahme-50-ksb-ch",
+          "sachbearbeiter-in-notaufnahme-50-kantonsspital-baden-ksb-baden"
+        ],
+        "en": [
+          "sachbearbeiter-in-notaufnahme-50-kantonsspital-baden-ksb-baden"
+        ],
+        "fr": [
+          "sachbearbeiter-in-notaufnahme-50-kantonsspital-baden-ksb-baden"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-notaufnahme-50-ksb-ch"
+        "sachbearbeiter-in-notaufnahme-50-ksb-ch",
+        "sachbearbeiter-in-notaufnahme-50-kantonsspital-baden-ksb-baden"
       ],
       "salaryMin": 31000,
       "salaryMax": 47000,

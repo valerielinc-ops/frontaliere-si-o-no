@@ -975,12 +975,12 @@
     },
     {
       "id": "csl-behring-bd8d451c0e1b",
-      "slug": "ad-regional-regulatory-strategist-eu-csl-behring-ch",
+      "slug": "ad-stratega-normativo-regionale-ue-csl-behring-opfikon",
       "slugByLocale": {
         "en": "ad-regional-regulatory-strategist-eu-csl-behring-ch",
-        "it": "ad-regional-regulatory-strategist-eu-csl-behring-ch",
-        "de": "ad-regional-regulatory-strategist-eu-csl-behring-ch",
-        "fr": "ad-regional-regulatory-strategist-eu-csl-behring-ch"
+        "it": "ad-stratega-normativo-regionale-ue-csl-behring-opfikon",
+        "de": "ad-strateg-in-fur-regionale-regulierung-eu-csl-behring-opfikon",
+        "fr": "ad-stratege-regional-de-reglementation-ue-csl-behring-opfikon"
       },
       "company": "CSL Behring",
       "companyKey": "csl-behring",
@@ -1044,7 +1044,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:35:09.442Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:35:09.442Z"
+      "firstSeenAt": "2026-11-17T09:35:09.442Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ad-regional-regulatory-strategist-eu-csl-behring-ch"
+        ],
+        "de": [
+          "ad-regional-regulatory-strategist-eu-csl-behring-ch"
+        ],
+        "fr": [
+          "ad-regional-regulatory-strategist-eu-csl-behring-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ad-regional-regulatory-strategist-eu-csl-behring-ch"
+      ]
     }
   ]
 }

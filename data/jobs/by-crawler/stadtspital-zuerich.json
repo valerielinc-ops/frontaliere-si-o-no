@@ -4396,7 +4396,7 @@
       "id": "stadtspital-zuerich-53d18d59894f",
       "slug": "infermiere-specializzato-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-0845ae55b1",
       "slugByLocale": {
-        "it": "infermiere-specializzato-in-cardiochirurgia-e-traumatologia-triemli-stadtspital-zurich-zurich-0845ae55b1",
+        "it": "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich",
         "en": "dipl-nursing-specialist-heart-surgery-and-traumatology-triemli-stadtspital-zurich-zurich",
         "de": "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
         "fr": "dipl-specialiste-des-soins-infirmiers-chirurgie-cardiaque-et-traumatologie-triemli-stadtspital-zurich-zurich"
@@ -7897,7 +7897,7 @@
       "id": "stadtspital-zuerich-5a2b061390bf",
       "slug": "infermiere-a-diplomato-a-chirurgia-cardiaca-e-traumatologia-triemli-stadtspital-zurich-zurich-e516337fce",
       "slugByLocale": {
-        "it": "infermiere-a-diplomato-a-chirurgia-cardiaca-e-traumatologia-triemli-stadtspital-zurich-zurich-e516337fce",
+        "it": "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich",
         "en": "dipl-nursing-specialist-heart-surgery-and-traumatology-triemli-stadtspital-zurich-zurich",
         "de": "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
         "fr": "dipl-specialiste-des-soins-infirmiers-chirurgie-cardiaque-et-traumatologie-triemli-stadtspital-zurich-zurich"
@@ -7949,14 +7949,12 @@
       "referenceNumber": "50310",
       "previousSlugs": [
         "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
-        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-587721fbb9",
-        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
+        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-587721fbb9"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310",
-          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-587721fbb9",
-          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich"
+          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-zurich-587721fbb9"
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:25.499Z",
@@ -8334,12 +8332,12 @@
     },
     {
       "id": "stadtspital-zuerich-404406e6a1ff",
-      "slug": "collaboratore-trice-in-warentransport-e-entsorgung-stadtspital-zurich",
+      "slug": "addetto-a-al-trasporto-delle-merci-e-allo-smaltimento-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-warentransport-und-entsorgung-stadtspital-zuerich-52283",
-        "it": "collaboratore-trice-in-warentransport-e-entsorgung-stadtspital-zurich",
-        "en": "mitarbeiter-in-warentransport-und-entsorgung-stadtspital-zurich-zurich",
-        "fr": "mitarbeiter-in-warentransport-und-entsorgung-stadtspital-zurich-zurich"
+        "it": "addetto-a-al-trasporto-delle-merci-e-allo-smaltimento-stadtspital-zurich-zurich",
+        "en": "goods-transport-and-waste-disposal-employee-stadtspital-zurich-zurich",
+        "fr": "collaborateur-rice-au-transport-de-marchandises-et-a-l-elimination-des-dechets-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -8391,11 +8389,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-warentransport-und-entsorgung-stadtspital-zuerich-52283"
+          "mitarbeiter-in-warentransport-und-entsorgung-stadtspital-zuerich-52283",
+          "collaboratore-trice-in-warentransport-e-entsorgung-stadtspital-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-warentransport-und-entsorgung-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-in-warentransport-und-entsorgung-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-warentransport-und-entsorgung-stadtspital-zuerich-52283"
+        "mitarbeiter-in-warentransport-und-entsorgung-stadtspital-zuerich-52283",
+        "collaboratore-trice-in-warentransport-e-entsorgung-stadtspital-zurich",
+        "mitarbeiter-in-warentransport-und-entsorgung-stadtspital-zurich-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,

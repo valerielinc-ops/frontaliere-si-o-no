@@ -978,10 +978,10 @@
     },
     {
       "id": "omega-34261",
-      "slug": "apprentissage-de-cuisinier-ere-cfc-omega-sa-biel-bienne",
+      "slug": "avvertenza-della-cucina-omega-sa-biel-bienne",
       "slugByLocale": {
         "fr": "apprentissage-de-cuisinier-ere-cfc-omega-biel-bienne",
-        "it": "apprentissage-de-cuisinier-ere-cfc-omega-sa-biel-bienne",
+        "it": "avvertenza-della-cucina-omega-sa-biel-bienne",
         "en": "apprentissage-de-cuisinier-ere-cfc-omega-biel-bienne",
         "de": "apprentissage-de-cuisinier-ere-cfc-omega-biel-bienne"
       },
@@ -1043,11 +1043,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "apprentissage-de-cuisinier-ere-cfc-omega-biel-bienne"
+          "apprentissage-de-cuisinier-ere-cfc-omega-biel-bienne",
+          "apprentissage-de-cuisinier-ere-cfc-omega-sa-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "apprentissage-de-cuisinier-ere-cfc-omega-biel-bienne"
+        "apprentissage-de-cuisinier-ere-cfc-omega-biel-bienne",
+        "apprentissage-de-cuisinier-ere-cfc-omega-sa-biel-bienne"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,

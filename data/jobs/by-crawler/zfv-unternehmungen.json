@@ -2232,10 +2232,10 @@
       "id": "zfv-unternehmungen-4f619d70341d",
       "slug": "cuoca-cuoco-zfv-unternehmungen-baden",
       "slugByLocale": {
-        "it": "cuoca-cuoco-zfv-unternehmungen-baden",
+        "it": "cucinare-cucinare-zfv-unternehmungen-baden",
         "en": "cook-cook-zfv-unternehmungen-baden",
         "de": "kochin-koch-zfv-unternehmungen-baden",
-        "fr": "cuisiniere-cuisinier-zfv-unternehmungen-baden"
+        "fr": "cuire-cuire-zfv-unternehmungen-baden"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -2281,20 +2281,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kochin-koch-zfv-unternehmungen-baden",
-        "cucinare-cucinare-zfv-unternehmungen-baden",
-        "cuire-cuire-zfv-unternehmungen-baden"
+        "cuisiniere-cuisinier-zfv-unternehmungen-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-zfv-unternehmungen-baden",
-          "cucinare-cucinare-zfv-unternehmungen-baden"
+          "kochin-koch-zfv-unternehmungen-baden"
         ],
         "en": [
           "kochin-koch-zfv-unternehmungen-baden"
         ],
         "fr": [
           "kochin-koch-zfv-unternehmungen-baden",
-          "cuire-cuire-zfv-unternehmungen-baden"
+          "cuisiniere-cuisinier-zfv-unternehmungen-baden"
         ]
       },
       "firstSeenAt": "2026-09-22T00:05:09.436Z",
@@ -2403,7 +2401,7 @@
       "slug": "cucinare-cucinare-zfv-unternehmungen-basel-39bb96",
       "slugByLocale": {
         "it": "cucinare-cucinare-zfv-unternehmungen-basel-39bb96",
-        "en": "cook-65-zfv-unternehmungen-basel",
+        "en": "kochin-koch-65-zfv-unternehmungen-basel",
         "de": "kochin-koch-zfv-unternehmungen-basel-i8lq6g",
         "fr": "cuisiniere-cuisiniere-zfv-unternehmungen-basel-39bb96"
       },
@@ -2449,14 +2447,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kochin-koch-65-zfv-unternehmungen-basel"
+        "kochin-koch-65-zfv-unternehmungen-basel",
+        "cook-65-zfv-unternehmungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kochin-koch-65-zfv-unternehmungen-basel"
         ],
         "en": [
-          "kochin-koch-65-zfv-unternehmungen-basel"
+          "cook-65-zfv-unternehmungen-basel"
         ],
         "de": [
           "kochin-koch-65-zfv-unternehmungen-basel"
@@ -5896,7 +5895,7 @@
       "id": "zfv-unternehmungen-7e4f10d29cce",
       "slug": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
       "slugByLocale": {
-        "it": "service-collaboratore-trice-20-zfv-unternehmungen-bern",
+        "it": "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b",
         "en": "service-associate-20-zfv-unternehmungen-bern",
         "de": "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "fr": "service-collaborateur-trice-20-zfv-unternehmungen-bern"
@@ -5948,14 +5947,12 @@
         "personnel-des-services-en-20-zfv-unternehmungen-bern",
         "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
         "service-staff-in-20-zfv-unternehmungen-bern-72427b",
-        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b",
-        "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
+        "personnel-des-services-en-20-zfv-unternehmungen-bern-72427b"
       ],
       "previousSlugsByLocale": {
         "it": [
           "personale-di-servizio-in-20-zfv-unternehmungen-bern",
-          "service-mitarbeiter-in-20-zfv-unternehmungen-bern",
-          "personale-di-servizio-in-20-zfv-unternehmungen-bern-72427b"
+          "service-mitarbeiter-in-20-zfv-unternehmungen-bern"
         ],
         "en": [
           "service-staff-in-20-zfv-unternehmungen-bern",
@@ -6360,12 +6357,12 @@
     },
     {
       "id": "zfv-unternehmungen-ce6583ff5b17",
-      "slug": "spezialist-in-backoffice-strategischer-einkauf-zfv-unternehmungen-zurich",
+      "slug": "specialista-del-back-office-per-gli-acquisti-strategici-zfv-unternehmungen-zurich",
       "slugByLocale": {
         "de": "spezialist-in-backoffice-strategischer-einkauf-zfv-unternehmungen-zurich",
-        "it": "spezialist-in-backoffice-strategischer-einkauf-zfv-unternehmungen-zurich",
-        "en": "spezialist-in-backoffice-strategischer-einkauf-zfv-unternehmungen-zurich",
-        "fr": "spezialist-in-backoffice-strategischer-einkauf-zfv-unternehmungen-zurich"
+        "it": "specialista-del-back-office-per-gli-acquisti-strategici-zfv-unternehmungen-zurich",
+        "en": "specialist-back-office-strategic-procurement-zfv-unternehmungen-zurich",
+        "fr": "specialiste-du-back-office-des-achats-strategiques-zfv-unternehmungen-zurich"
       },
       "company": "ZFV-Unternehmungen",
       "companyKey": "zfv-unternehmungen",
@@ -6427,7 +6424,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-15T09:18:07.926Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:18:07.926Z"
+      "firstSeenAt": "2026-11-17T09:18:07.926Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialist-in-backoffice-strategischer-einkauf-zfv-unternehmungen-zurich"
+        ],
+        "en": [
+          "spezialist-in-backoffice-strategischer-einkauf-zfv-unternehmungen-zurich"
+        ],
+        "fr": [
+          "spezialist-in-backoffice-strategischer-einkauf-zfv-unternehmungen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "spezialist-in-backoffice-strategischer-einkauf-zfv-unternehmungen-zurich"
+      ]
     },
     {
       "id": "zfv-unternehmungen-20171242814a",

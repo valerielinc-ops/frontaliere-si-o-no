@@ -5913,12 +5913,12 @@
     },
     {
       "id": "szb-chb-a723b01666f7",
-      "slug": "medizinische-n-praxisassistentin-en-o-fachangestellte-r-gesundheit-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+      "slug": "assistente-di-studio-medico-o-operatore-trice-sociosanitario-a-40-spitalzentrum-biel-centre-hospitalier-bienne-biel",
       "slugByLocale": {
         "de": "medizinische-n-praxisassistentin-en-oder-fachangestellte-r-gesundheit-40-szb-chb-biel",
-        "it": "medizinische-n-praxisassistentin-en-o-fachangestellte-r-gesundheit-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
-        "en": "medizinische-n-praxisassistentin-en-oder-fachangestellte-r-gesundheit-40-spitalzentrum-biel-centre-hospitalier-bienne",
-        "fr": "medizinische-n-praxisassistentin-en-oder-fachangestellte-r-gesundheit-40-spitalzentrum-biel-centre-hospitalier-bienne"
+        "it": "assistente-di-studio-medico-o-operatore-trice-sociosanitario-a-40-spitalzentrum-biel-centre-hospitalier-bienne-biel",
+        "en": "medical-practitioner-or-health-assistant-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "fr": "medecin-ou-assistant-de-sante-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
       },
       "company": "Spitalzentrum Biel / Centre hospitalier Bienne",
       "companyKey": "szb-chb",
@@ -5967,11 +5967,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-n-praxisassistentin-en-oder-fachangestellte-r-gesundheit-40-szb-chb-biel"
+          "medizinische-n-praxisassistentin-en-oder-fachangestellte-r-gesundheit-40-szb-chb-biel",
+          "medizinische-n-praxisassistentin-en-o-fachangestellte-r-gesundheit-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne"
+        ],
+        "en": [
+          "medizinische-n-praxisassistentin-en-oder-fachangestellte-r-gesundheit-40-spitalzentrum-biel-centre-hospitalier-bienne"
+        ],
+        "fr": [
+          "medizinische-n-praxisassistentin-en-oder-fachangestellte-r-gesundheit-40-spitalzentrum-biel-centre-hospitalier-bienne"
         ]
       },
       "previousSlugs": [
-        "medizinische-n-praxisassistentin-en-oder-fachangestellte-r-gesundheit-40-szb-chb-biel"
+        "medizinische-n-praxisassistentin-en-oder-fachangestellte-r-gesundheit-40-szb-chb-biel",
+        "medizinische-n-praxisassistentin-en-o-fachangestellte-r-gesundheit-40-spitalzentrum-biel-centre-hospitalier-bienne-biel-bienne",
+        "medizinische-n-praxisassistentin-en-oder-fachangestellte-r-gesundheit-40-spitalzentrum-biel-centre-hospitalier-bienne"
       ],
       "salaryMin": 34000,
       "salaryMax": 47600,

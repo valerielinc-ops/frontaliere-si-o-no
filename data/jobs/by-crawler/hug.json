@@ -4104,12 +4104,12 @@
     },
     {
       "id": "hug-129c929c9a5e",
-      "slug": "physiotherapeute-en-readaptation-et-geriatrie-au-centre-de-prevention-et-traitement-des",
+      "slug": "fisioterapia-in-riabilitazione-e-geriatria-presso-il-centro-per-la-prevenzione-e-il-trattamento-delle-cadute-cptc-70-hug",
       "slugByLocale": {
         "fr": "physiotherapeute-en-readaptation-et-geriatrie-au-centre-de-prevention-et-traitement-des",
-        "it": "physiotherapeute-en-readaptation-et-geriatrie-au-centre-de-prevention-et-traitement-des",
-        "en": "physiotherapeute-en-readaptation-et-geriatrie-au-centre-de-prevention-et-traitement-des",
-        "de": "physiotherapeute-en-readaptation-et-geriatrie-au-centre-de-prevention-et-traitement-des"
+        "it": "fisioterapia-in-riabilitazione-e-geriatria-presso-il-centro-per-la-prevenzione-e-il-trattamento-delle-cadute-cptc-70-hug",
+        "en": "physiotherapy-in-rehabilitation-and-geriatrics-at-the-centre-for-fall-prevention-and-treatment-cptc-70-hug-chene-bourg",
+        "de": "physiotherapie-in-rehabilitation-und-geriatrie-am-zentrum-fur-fallpravention-und-behandlung-cptc-70-hug-chene-bourg"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4172,16 +4172,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:25:11.439Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:25:11.439Z"
+      "firstSeenAt": "2026-11-17T09:25:11.439Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeute-en-readaptation-et-geriatrie-au-centre-de-prevention-et-traitement-des"
+        ],
+        "en": [
+          "physiotherapeute-en-readaptation-et-geriatrie-au-centre-de-prevention-et-traitement-des"
+        ],
+        "de": [
+          "physiotherapeute-en-readaptation-et-geriatrie-au-centre-de-prevention-et-traitement-des"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeute-en-readaptation-et-geriatrie-au-centre-de-prevention-et-traitement-des"
+      ]
     },
     {
       "id": "hug-afc4a91452db",
-      "slug": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-sein-du-centre-de-la",
+      "slug": "capo-o-capo-di-clinica-con-o-senza-titolo-di-specialita-all-interno-del-centro-di-memoria-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-sein-du-centre-de-la",
-        "it": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-sein-du-centre-de-la",
-        "en": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-sein-du-centre-de-la",
-        "de": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-sein-du-centre-de-la"
+        "it": "capo-o-capo-di-clinica-con-o-senza-titolo-di-specialita-all-interno-del-centro-di-memoria-80-al-100-hug-geneve",
+        "en": "chief-or-head-of-clinic-with-or-without-specialty-title-within-the-memory-centre-80-to-100-hug-geneve",
+        "de": "chef-oder-leiter-der-klinik-mit-oder-ohne-fachbezeichnung-innerhalb-des-gedachtniszentrums-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4244,16 +4258,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:25:11.433Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:25:11.433Z"
+      "firstSeenAt": "2026-11-17T09:25:11.433Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-sein-du-centre-de-la"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-sein-du-centre-de-la"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-sein-du-centre-de-la"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-sein-du-centre-de-la"
+      ]
     },
     {
       "id": "hug-90095b1509de",
-      "slug": "stagiaire-rh-conventionne-80-a-100-hug-geneve",
+      "slug": "interno-hr-registrato-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "stagiaire-rh-conventionne-80-a-100-hug-geneve",
-        "it": "stagiaire-rh-conventionne-80-a-100-hug-geneve",
-        "en": "stagiaire-rh-conventionne-80-a-100-hug-geneve",
-        "de": "stagiaire-rh-conventionne-80-a-100-hug-geneve"
+        "it": "interno-hr-registrato-80-al-100-hug-geneve",
+        "en": "registered-hr-intern-80-to-100-hug-geneve",
+        "de": "registrierter-hr-intern-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4316,14 +4344,28 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:25:11.429Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-rh-conventionne-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "stagiaire-rh-conventionne-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "stagiaire-rh-conventionne-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-rh-conventionne-80-a-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-b30cd3fdd003",
-      "slug": "agents-ou-agentes-proprete-hygiene-100-hug-geneve",
+      "slug": "agenti-di-igiene-100-hug-geneve",
       "slugByLocale": {
         "fr": "agents-ou-agentes-proprete-hygiene-100-hug-geneve",
-        "it": "agents-ou-agentes-proprete-hygiene-100-hug-geneve",
+        "it": "agenti-di-igiene-100-hug-geneve",
         "en": "agents-ou-agentes-proprete-hygiene-100-hug-geneve",
         "de": "agents-ou-agentes-proprete-hygiene-100-hug-geneve"
       },
@@ -4387,16 +4429,24 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:25:11.428Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "agents-ou-agentes-proprete-hygiene-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "agents-ou-agentes-proprete-hygiene-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-3ed1c779e7c3",
-      "slug": "controleur-ou-controleuse-de-gestion-en-charge-du-processus-de-remuneration-des-honoraires",
+      "slug": "responsabile-responsabile-del-processo-di-remunerazione-delle-spese-private-100-hug-chene-bourg",
       "slugByLocale": {
         "fr": "controleur-ou-controleuse-de-gestion-en-charge-du-processus-de-remuneration-des-honoraires",
-        "it": "controleur-ou-controleuse-de-gestion-en-charge-du-processus-de-remuneration-des-honoraires",
-        "en": "controleur-ou-controleuse-de-gestion-en-charge-du-processus-de-remuneration-des-honoraires",
-        "de": "controleur-ou-controleuse-de-gestion-en-charge-du-processus-de-remuneration-des-honoraires"
+        "it": "responsabile-responsabile-del-processo-di-remunerazione-delle-spese-private-100-hug-chene-bourg",
+        "en": "manager-responsible-for-the-process-of-remuneration-of-private-fees-100-hug-chene-bourg",
+        "de": "manager-verantwortlich-fur-den-prozess-der-vergutung-von-privaten-gebuhren-100-hug-chene-bourg"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4460,16 +4510,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:25:11.426Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:25:11.426Z"
+      "firstSeenAt": "2026-11-17T09:25:11.426Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "controleur-ou-controleuse-de-gestion-en-charge-du-processus-de-remuneration-des-honoraires"
+        ],
+        "en": [
+          "controleur-ou-controleuse-de-gestion-en-charge-du-processus-de-remuneration-des-honoraires"
+        ],
+        "de": [
+          "controleur-ou-controleuse-de-gestion-en-charge-du-processus-de-remuneration-des-honoraires"
+        ]
+      },
+      "previousSlugs": [
+        "controleur-ou-controleuse-de-gestion-en-charge-du-processus-de-remuneration-des-honoraires"
+      ]
     },
     {
       "id": "hug-f805769bff92",
-      "slug": "commise-ou-commis-administratif-facturation-80-hug-geneve",
+      "slug": "ciclo-di-fatturazione-o-impiegato-amministrativo-80-hug-geneve",
       "slugByLocale": {
         "fr": "commise-ou-commis-administratif-facturation-80-hug-geneve",
-        "it": "commise-ou-commis-administratif-facturation-80-hug-geneve",
-        "en": "commise-ou-commis-administratif-facturation-80-hug-geneve",
-        "de": "commise-ou-commis-administratif-facturation-80-hug-geneve"
+        "it": "ciclo-di-fatturazione-o-impiegato-amministrativo-80-hug-geneve",
+        "en": "invoicing-clerk-or-administrative-clerk-80-hug-geneve",
+        "de": "rechnungsschreiber-oder-verwaltungsschreiber-80-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4532,16 +4596,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:25:11.418Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:25:11.418Z"
+      "firstSeenAt": "2026-11-17T09:25:11.418Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "commise-ou-commis-administratif-facturation-80-hug-geneve"
+        ],
+        "en": [
+          "commise-ou-commis-administratif-facturation-80-hug-geneve"
+        ],
+        "de": [
+          "commise-ou-commis-administratif-facturation-80-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "commise-ou-commis-administratif-facturation-80-hug-geneve"
+      ]
     },
     {
       "id": "hug-bef481184a85",
-      "slug": "stage-master-en-radioprotection-100-hug-geneve",
+      "slug": "corso-master-in-protezione-delle-radiazioni-100-hug-geneve",
       "slugByLocale": {
         "fr": "stage-master-en-radioprotection-100-hug-geneve",
-        "it": "stage-master-en-radioprotection-100-hug-geneve",
-        "en": "stage-master-en-radioprotection-100-hug-geneve",
-        "de": "stage-master-en-radioprotection-100-hug-geneve"
+        "it": "corso-master-in-protezione-delle-radiazioni-100-hug-geneve",
+        "en": "master-course-in-radiation-protection-100-hug-geneve",
+        "de": "masterkurs-strahlenschutz-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4604,16 +4682,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:25:11.416Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:25:11.416Z"
+      "firstSeenAt": "2026-11-17T09:25:11.416Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-master-en-radioprotection-100-hug-geneve"
+        ],
+        "en": [
+          "stage-master-en-radioprotection-100-hug-geneve"
+        ],
+        "de": [
+          "stage-master-en-radioprotection-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "stage-master-en-radioprotection-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-0ddd9fb6fd2a",
-      "slug": "physiotherapeutes-crans-montana-80-hug-crans-montana",
+      "slug": "fisioterapisti-crans-montana-80-hug-crans-montana",
       "slugByLocale": {
         "fr": "physiotherapeutes-crans-montana-80-hug-crans-montana",
-        "it": "physiotherapeutes-crans-montana-80-hug-crans-montana",
-        "en": "physiotherapeutes-crans-montana-80-hug-crans-montana",
-        "de": "physiotherapeutes-crans-montana-80-hug-crans-montana"
+        "it": "fisioterapisti-crans-montana-80-hug-crans-montana",
+        "en": "physiotherapists-crans-montana-80-hug-crans-montana",
+        "de": "physiotherapeuten-crans-montana-80-hug-crans-montana"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4676,7 +4768,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:25:11.414Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:25:11.414Z"
+      "firstSeenAt": "2026-11-17T09:25:11.414Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "physiotherapeutes-crans-montana-80-hug-crans-montana"
+        ],
+        "en": [
+          "physiotherapeutes-crans-montana-80-hug-crans-montana"
+        ],
+        "de": [
+          "physiotherapeutes-crans-montana-80-hug-crans-montana"
+        ]
+      },
+      "previousSlugs": [
+        "physiotherapeutes-crans-montana-80-hug-crans-montana"
+      ]
     },
     {
       "id": "hug-46810bd6329c",
@@ -4761,12 +4867,12 @@
     },
     {
       "id": "hug-fdf8be0e7d82",
-      "slug": "responsable-de-la-gestion-des-risques-immobiliers-et-du-management-des-actifs-100-hug",
+      "slug": "responsabile-per-la-gestione-del-rischio-immobiliare-e-la-gestione-patrimoniale-100-hug-geneve",
       "slugByLocale": {
         "fr": "responsable-de-la-gestion-des-risques-immobiliers-et-du-management-des-actifs-100-hug",
-        "it": "responsable-de-la-gestion-des-risques-immobiliers-et-du-management-des-actifs-100-hug",
-        "en": "responsable-de-la-gestion-des-risques-immobiliers-et-du-management-des-actifs-100-hug",
-        "de": "responsable-de-la-gestion-des-risques-immobiliers-et-du-management-des-actifs-100-hug"
+        "it": "responsabile-per-la-gestione-del-rischio-immobiliare-e-la-gestione-patrimoniale-100-hug-geneve",
+        "en": "responsible-for-real-estate-risk-management-and-asset-management-100-hug-geneve",
+        "de": "verantwortlich-fur-real-estate-risk-management-und-asset-management-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -4828,7 +4934,21 @@
       "streetAddress": "Genève",
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:25:11.409Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-de-la-gestion-des-risques-immobiliers-et-du-management-des-actifs-100-hug"
+        ],
+        "en": [
+          "responsable-de-la-gestion-des-risques-immobiliers-et-du-management-des-actifs-100-hug"
+        ],
+        "de": [
+          "responsable-de-la-gestion-des-risques-immobiliers-et-du-management-des-actifs-100-hug"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-de-la-gestion-des-risques-immobiliers-et-du-management-des-actifs-100-hug"
+      ]
     },
     {
       "id": "hug-3da73f54d76b",
@@ -5086,7 +5206,7 @@
       "id": "hug-d9d59da821bb",
       "slug": "master-in-fisica-medica-100-hug-geneve-f95a3fe16b",
       "slugByLocale": {
-        "it": "master-in-fisica-medica-100-hug-geneve-f95a3fe16b",
+        "it": "master-in-fisica-medica-100-hug-geneve",
         "en": "master-s-degree-in-medical-physics-100-hug-geneve",
         "de": "master-in-medizinischer-physik-100-hug-geneve",
         "fr": "stage-de-master-en-physique-medicale-100-hug-geneve"
@@ -5133,13 +5253,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stage-de-master-en-physique-medicale-100-hug-geneve",
-        "master-in-fisica-medica-100-hug-geneve"
+        "stage-de-master-en-physique-medicale-100-hug-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stage-de-master-en-physique-medicale-100-hug-geneve",
-          "master-in-fisica-medica-100-hug-geneve"
+          "stage-de-master-en-physique-medicale-100-hug-geneve"
         ],
         "en": [
           "stage-de-master-en-physique-medicale-100-hug-geneve"

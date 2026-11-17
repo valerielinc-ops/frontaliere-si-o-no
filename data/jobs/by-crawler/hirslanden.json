@@ -12106,8 +12106,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-gastronomie-a-40-hirslanden-hirslanden-salem-spital",
         "it": "mitarbeiterin-collaboratore-trice-gastronomie-a-40-hirslanden-klinik-hirslanden-salem-spital",
-        "en": "mitarbeiterin-mitarbeiter-gastronomie-a-40-hirslanden-hirslanden-salem-spital",
-        "fr": "mitarbeiterin-mitarbeiter-gastronomie-a-40-hirslanden-hirslanden-salem-spital"
+        "en": "employee-employee-gastronomy-a-40-hirslanden-klinik-hirslanden-salem-spital",
+        "fr": "salaries-salaries-gastronomie-a-40-hirslanden-klinik-hirslanden-salem-spital"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -12155,6 +12155,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-gastronomie-a-40-hirslanden-hirslanden-salem-spital"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-gastronomie-a-40-hirslanden-hirslanden-salem-spital"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-gastronomie-a-40-hirslanden-hirslanden-salem-spital"
         ]
       },
@@ -27117,7 +27123,7 @@
         "de": "mitarbeiter-facility-management-80-hirslanden-hirslanden-klinik-linde",
         "it": "collaboratore-trice-facility-management-80-hirslanden-klinik-linde",
         "en": "mitarbeiter-facility-management-80-hirslanden-hirslanden-klinik-linde",
-        "fr": "mitarbeiter-facility-management-80-hirslanden-hirslanden-klinik-linde"
+        "fr": "gestion-des-installations-des-employes-80-hirslanden-klinik-hirslanden-klinik-linde"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27164,6 +27170,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-facility-management-80-hirslanden-hirslanden-klinik-linde"
+        ],
+        "fr": [
           "mitarbeiter-facility-management-80-hirslanden-hirslanden-klinik-linde"
         ]
       },
@@ -27352,8 +27361,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-hauswirtschaft-a-80-hirslanden-hirslanden-klinik-stephanshorn",
         "it": "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-80-hirslanden-klinik-stephanshorn",
-        "en": "mitarbeiterin-mitarbeiter-hauswirtschaft-a-80-hirslanden-hirslanden-klinik-stephanshorn",
-        "fr": "mitarbeiterin-mitarbeiter-hauswirtschaft-a-80-hirslanden-hirslanden-klinik-stephanshorn"
+        "en": "employee-housekeeping-a-80-hirslanden-klinik-hirslanden-klinik-stephanshorn",
+        "fr": "employe-menage-a-80-hirslanden-klinik-hirslanden-klinik-stephanshorn"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -27401,6 +27410,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-a-80-hirslanden-hirslanden-klinik-stephanshorn"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-hauswirtschaft-a-80-hirslanden-hirslanden-klinik-stephanshorn"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-hauswirtschaft-a-80-hirslanden-hirslanden-klinik-stephanshorn"
         ]
       },

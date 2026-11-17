@@ -189,9 +189,9 @@
       },
       "slugByLocale": {
         "it": "stagista-52-settimane-supsi-dti-manno",
-        "en": "stagista-52-settimane-supsi-dti-manno",
-        "de": "stagista-52-settimane-supsi-dti-manno",
-        "fr": "stagista-52-settimane-supsi-dti-manno"
+        "en": "stagist-52-weeks-supsi-dti-manno",
+        "de": "stagist-52-wochen-supsi-dti-manno",
+        "fr": "stagiaire-52-semaines-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -242,19 +242,20 @@
           "stagiaire-52-semaines-supsi-dti-manno"
         ],
         "en": [
-          "stagist-52-weeks-supsi-dti-manno"
+          "stagista-52-settimane-supsi-dti-manno"
         ],
         "de": [
-          "stagist-52-wochen-supsi-dti-manno"
+          "stagista-52-settimane-supsi-dti-manno"
         ],
         "fr": [
-          "stagiaire-52-semaines-supsi-dti-manno"
+          "stagista-52-settimane-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
         "stagist-52-weeks-supsi-dti-manno",
         "stagist-52-wochen-supsi-dti-manno",
-        "stagiaire-52-semaines-supsi-dti-manno"
+        "stagiaire-52-semaines-supsi-dti-manno",
+        "stagista-52-settimane-supsi-dti-manno"
       ],
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-03T09:55:27.889Z",
@@ -622,7 +623,7 @@
       "slugByLocale": {
         "it": "dottoranda-dottorando-in-intelligenza-artificiale-modellazione-causale-e-sistemi-multi-agente-supsi-dti-manno",
         "en": "phd-student-in-artificial-intelligence-causal-modelling-and-multi-agent-systems-supsi-dti-manno",
-        "de": "dottoranda-dottorando-in-intelligenza-artificiale-modellazione-causale-e-sistemi-multi-agente-supsi-dti-manno",
+        "de": "phd-phd-in-kunstlicher-intelligenz-kausalmodellierung-und-multiagentensysteme-supsi-dti-manno",
         "fr": "phd-phd-en-intelligence-artificielle-modelisation-causale-et-systemes-multi-agents-supsi-dti-manno"
       },
       "requirementsByLocale": {
@@ -719,11 +720,12 @@
           "phd-phd-in-kunstlicher-intelligenz-kausalmodellierung-und-multiagentensysteme-supsi-dti-manno"
         ],
         "de": [
-          "phd-phd-in-kunstlicher-intelligenz-kausalmodellierung-und-multiagentensysteme-supsi-dti-manno"
+          "dottoranda-dottorando-in-intelligenza-artificiale-modellazione-causale-e-sistemi-multi-agente-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
-        "phd-phd-in-kunstlicher-intelligenz-kausalmodellierung-und-multiagentensysteme-supsi-dti-manno"
+        "phd-phd-in-kunstlicher-intelligenz-kausalmodellierung-und-multiagentensysteme-supsi-dti-manno",
+        "dottoranda-dottorando-in-intelligenza-artificiale-modellazione-causale-e-sistemi-multi-agente-supsi-dti-manno"
       ]
     },
     {
@@ -779,7 +781,7 @@
         "it": "assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-dti-manno",
         "en": "assistant-with-bachelor-or-master-degree-in-architecture-supsi-dti-manno",
         "de": "assistent-mit-bachelor-oder-master-abschluss-in-architektur-supsi-dti-manno",
-        "fr": "assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-dti-manno"
+        "fr": "assistant-avec-baccalaureat-ou-maitrise-en-architecture-supsi-dti-manno"
       },
       "requirementsByLocale": {
         "it": [
@@ -851,11 +853,12 @@
           "assistant-avec-baccalaureat-ou-maitrise-en-architecture-supsi-dti-manno"
         ],
         "fr": [
-          "assistant-avec-baccalaureat-ou-maitrise-en-architecture-supsi-dti-manno"
+          "assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
-        "assistant-avec-baccalaureat-ou-maitrise-en-architecture-supsi-dti-manno"
+        "assistant-avec-baccalaureat-ou-maitrise-en-architecture-supsi-dti-manno",
+        "assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-dti-manno"
       ]
     },
     {
@@ -913,8 +916,8 @@
       "slugByLocale": {
         "it": "docente-ricercatore-docente-ricercatrice-in-conservazione-e-restauro-delle-pitture-murali-supsi-dti-mendrisio",
         "en": "lecturer-researcher-in-wall-paintings-conservation-supsi-dti-mendrisio",
-        "de": "docente-ricercatore-docente-ricercatrice-in-conservazione-e-restauro-delle-pitture-murali-supsi-dti-mendrisio",
-        "fr": "docente-ricercatore-docente-ricercatrice-in-conservazione-e-restauro-delle-pitture-murali-supsi-dti-mendrisio"
+        "de": "dozent-forscher-dozent-forscher-in-konservierung-und-restaurierung-von-wandgemalden-supsi-dti-mendrisio",
+        "fr": "enseignant-chercheur-enseignant-chercheur-en-conservation-et-restauration-de-peintures-murales-supsi-dti-mendrisio"
       },
       "requirementsByLocale": {
         "it": [
@@ -999,15 +1002,16 @@
           "enseignant-chercheur-enseignant-chercheur-en-conservation-et-restauration-de-peintures-murales-supsi-dti-mendrisio"
         ],
         "de": [
-          "dozent-forscher-dozent-forscher-in-konservierung-und-restaurierung-von-wandgemalden-supsi-dti-mendrisio"
+          "docente-ricercatore-docente-ricercatrice-in-conservazione-e-restauro-delle-pitture-murali-supsi-dti-mendrisio"
         ],
         "fr": [
-          "enseignant-chercheur-enseignant-chercheur-en-conservation-et-restauration-de-peintures-murales-supsi-dti-mendrisio"
+          "docente-ricercatore-docente-ricercatrice-in-conservazione-e-restauro-delle-pitture-murali-supsi-dti-mendrisio"
         ]
       },
       "previousSlugs": [
         "dozent-forscher-dozent-forscher-in-konservierung-und-restaurierung-von-wandgemalden-supsi-dti-mendrisio",
-        "enseignant-chercheur-enseignant-chercheur-en-conservation-et-restauration-de-peintures-murales-supsi-dti-mendrisio"
+        "enseignant-chercheur-enseignant-chercheur-en-conservation-et-restauration-de-peintures-murales-supsi-dti-mendrisio",
+        "docente-ricercatore-docente-ricercatrice-in-conservazione-e-restauro-delle-pitture-murali-supsi-dti-mendrisio"
       ]
     },
     {
@@ -1050,7 +1054,7 @@
         "it": "assistente-con-bachelor-presso-il-corso-di-laurea-in-comunicazione-visiva-supsi-dti-manno",
         "en": "assistant-with-bachelor-of-science-in-visual-communication-supsi-dti-manno",
         "de": "assistent-mit-bachelor-of-science-in-visual-communication-supsi-dti-manno",
-        "fr": "assistente-con-bachelor-presso-il-corso-di-laurea-in-comunicazione-visiva-supsi-dti-manno"
+        "fr": "assistante-titulaire-d-un-baccalaureat-es-sciences-en-communication-visuelle-supsi-dti-manno"
       },
       "titleByLocale": {
         "it": "Assistente con Bachelor presso il Corso di laurea in Comunicazione visiva",
@@ -1130,11 +1134,12 @@
           "assistante-titulaire-d-un-baccalaureat-es-sciences-en-communication-visuelle-supsi-dti-manno"
         ],
         "fr": [
-          "assistante-titulaire-d-un-baccalaureat-es-sciences-en-communication-visuelle-supsi-dti-manno"
+          "assistente-con-bachelor-presso-il-corso-di-laurea-in-comunicazione-visiva-supsi-dti-manno"
         ]
       },
       "previousSlugs": [
-        "assistante-titulaire-d-un-baccalaureat-es-sciences-en-communication-visuelle-supsi-dti-manno"
+        "assistante-titulaire-d-un-baccalaureat-es-sciences-en-communication-visuelle-supsi-dti-manno",
+        "assistente-con-bachelor-presso-il-corso-di-laurea-in-comunicazione-visiva-supsi-dti-manno"
       ]
     },
     {

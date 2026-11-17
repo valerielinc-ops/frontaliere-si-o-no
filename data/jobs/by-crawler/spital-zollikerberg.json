@@ -341,12 +341,12 @@
     },
     {
       "id": "spital-zollikerberg-c5ff26275f9e",
-      "slug": "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-spital-zollikerberg-zollikerberg",
+      "slug": "dipl-esperto-dipl-esperti-anesthesia-care-nds-hf-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-spital-zollikerberg-zollikerberg",
-        "it": "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-spital-zollikerberg-zollikerberg",
-        "en": "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-spital-zollikerberg-zollikerberg",
-        "fr": "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-spital-zollikerberg-zollikerberg"
+        "it": "dipl-esperto-dipl-esperti-anesthesia-care-nds-hf-spital-zollikerberg-zollikerberg",
+        "en": "dipl-expert-dipl-experts-anesthesia-care-nds-hf-spital-zollikerberg-zollikerberg",
+        "fr": "dipl-expert-dipl-experts-anesthesie-soins-nds-hf-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -408,16 +408,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:12:46.447Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:12:46.447Z"
+      "firstSeenAt": "2026-11-17T09:12:46.447Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-spital-zollikerberg-zollikerberg"
+        ],
+        "en": [
+          "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-spital-zollikerberg-zollikerberg"
+        ],
+        "fr": [
+          "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-expertin-dipl-experten-anasthesiepflege-nds-hf-spital-zollikerberg-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-4eb0240c89fa",
-      "slug": "praxisleiterin-pflege-praxisleiter-pflege-kinder-permanence-am-spital-zollikerberg-pflege",
+      "slug": "responsabile-infermieristica-dell-ambulatorio-responsabile-infermieristico-dell-ambulatorio-permanence-pediatrica-presso",
       "slugByLocale": {
         "de": "praxisleiterin-pflege-praxisleiter-pflege-kinder-permanence-am-spital-zollikerberg-pflege",
-        "it": "praxisleiterin-pflege-praxisleiter-pflege-kinder-permanence-am-spital-zollikerberg-pflege",
-        "en": "praxisleiterin-pflege-praxisleiter-pflege-kinder-permanence-am-spital-zollikerberg-pflege",
-        "fr": "praxisleiterin-pflege-praxisleiter-pflege-kinder-permanence-am-spital-zollikerberg-pflege"
+        "it": "responsabile-infermieristica-dell-ambulatorio-responsabile-infermieristico-dell-ambulatorio-permanence-pediatrica-presso",
+        "en": "practice-manager-care-practice-manager-care-children-permanence-at-the-spital-zollikerberg-care-support-and",
+        "fr": "responsable-de-la-pratique-soins-responsable-de-la-pratique-soins-aux-enfants-permanence-au-soutien-et-a-l"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -480,7 +494,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:12:46.445Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:12:46.445Z"
+      "firstSeenAt": "2026-11-17T09:12:46.445Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praxisleiterin-pflege-praxisleiter-pflege-kinder-permanence-am-spital-zollikerberg-pflege"
+        ],
+        "en": [
+          "praxisleiterin-pflege-praxisleiter-pflege-kinder-permanence-am-spital-zollikerberg-pflege"
+        ],
+        "fr": [
+          "praxisleiterin-pflege-praxisleiter-pflege-kinder-permanence-am-spital-zollikerberg-pflege"
+        ]
+      },
+      "previousSlugs": [
+        "praxisleiterin-pflege-praxisleiter-pflege-kinder-permanence-am-spital-zollikerberg-pflege"
+      ]
     },
     {
       "id": "spital-zollikerberg-e4c256987138",

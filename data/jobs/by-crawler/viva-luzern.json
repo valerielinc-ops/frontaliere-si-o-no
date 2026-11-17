@@ -125,7 +125,7 @@
         "it": "pflegefachfrau-mann-hf-viva-luzern",
         "en": "certified-nursing-professional-viva-luzern-luzern",
         "de": "pflegefachfrau-mann-hf-viva-luzern-luzern",
-        "fr": "professionnel-de-soins-viva-luzern"
+        "fr": "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -192,7 +192,7 @@
         "registered-nurse-hf-viva-luzern",
         "pflegefachfrau-mann-hf-viva-luzern-luzern-uy50u4",
         "pflegefachfrau-mann-hf-viva-luzern-luzern-1067271482",
-        "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern"
+        "professionnel-de-soins-viva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -226,7 +226,7 @@
         "fr": [
           "specialiste-des-soins-palliatifs-viva-luzern-luzern",
           "soins-infirmiers-professionnels-hf-viva-luzern",
-          "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern"
+          "professionnel-de-soins-viva-luzern"
         ]
       },
       "firstSeenAt": "2026-07-06T15:43:44.088Z",
@@ -2839,10 +2839,10 @@
     },
     {
       "id": "viva-luzern-6a58faacc84a",
-      "slug": "stellvertretung-teamleitung-pflege-viva-luzern-luzern",
+      "slug": "capogruppo-aggiunto-viva-luzern-luzern",
       "slugByLocale": {
         "de": "stellvertretung-teamleitung-pflege-viva-luzern-luzern",
-        "it": "stellvertretung-teamleitung-pflege-viva-luzern-luzern",
+        "it": "capogruppo-aggiunto-viva-luzern-luzern",
         "en": "stellvertretung-teamleitung-pflege-viva-luzern-luzern",
         "fr": "stellvertretung-teamleitung-pflege-viva-luzern-luzern"
       },
@@ -2920,16 +2920,24 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-01-05T09:22:19.566Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-07T09:18:39.676Z"
+      "firstSeenAt": "2026-10-07T09:18:39.676Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stellvertretung-teamleitung-pflege-viva-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "stellvertretung-teamleitung-pflege-viva-luzern-luzern"
+      ]
     },
     {
       "id": "viva-luzern-6a9ce827ae9c",
-      "slug": "fachfrau-mann-gesundheit-cfc-50-100-viva-luzern",
+      "slug": "operatore-trice-sociosanitario-a-afc-50-100-viva-luzern-luzern",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-50-100-viva-luzern-luzern",
-        "it": "fachfrau-mann-gesundheit-cfc-50-100-viva-luzern",
-        "en": "fachfrau-mann-gesundheit-efz-50-100-viva-luzern-luzern",
-        "fr": "fachfrau-mann-gesundheit-efz-50-100-viva-luzern-luzern"
+        "it": "operatore-trice-sociosanitario-a-afc-50-100-viva-luzern-luzern",
+        "en": "healthcare-professional-efz-50-100-viva-luzern-luzern",
+        "fr": "assistant-e-en-soins-et-sante-communautaire-cfc-50-100-viva-luzern-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -2978,11 +2986,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-efz-50-100-viva-luzern-luzern",
+          "fachfrau-mann-gesundheit-cfc-50-100-viva-luzern"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-efz-50-100-viva-luzern-luzern"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-efz-50-100-viva-luzern-luzern"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-50-100-viva-luzern-luzern"
+        "fachfrau-mann-gesundheit-efz-50-100-viva-luzern-luzern",
+        "fachfrau-mann-gesundheit-cfc-50-100-viva-luzern"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

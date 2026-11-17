@@ -1502,12 +1502,12 @@
     },
     {
       "id": "corner-banca-ee753601a92f",
-      "slug": "investment-risk-manager-ref-1140-corner-banca-lugano",
+      "slug": "responsabile-della-gestione-del-rischio-d-investimento-rif-1140-corner-banca-lugano",
       "slugByLocale": {
-        "it": "investment-risk-manager-ref-1140-corner-banca-lugano",
+        "it": "responsabile-della-gestione-del-rischio-d-investimento-rif-1140-corner-banca-lugano",
         "en": "investment-risk-manager-ref-1140-corner-banca-lugano",
         "de": "investment-risk-manager-ref-1140-corner-banca-lugano",
-        "fr": "investment-risk-manager-ref-1140-corner-banca-lugano"
+        "fr": "gestionnaire-des-risques-d-investissement-ref-1140-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -1602,7 +1602,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-15T09:31:49.839Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:31:49.839Z"
+      "firstSeenAt": "2026-11-17T09:31:49.839Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "investment-risk-manager-ref-1140-corner-banca-lugano"
+        ],
+        "fr": [
+          "investment-risk-manager-ref-1140-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "investment-risk-manager-ref-1140-corner-banca-lugano"
+      ]
     }
   ]
 }

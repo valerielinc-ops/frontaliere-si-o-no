@@ -1817,7 +1817,7 @@
       "slug": "maestro-6a-classe-kantonale-verwaltung-basel-landschaft-ormalingen",
       "slugByLocale": {
         "it": "maestro-6a-classe-kantonale-verwaltung-basel-landschaft-ormalingen",
-        "en": "teacher-6th-class-kantonale-verwaltung-basel-landschaft-ormalingen",
+        "en": "lehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-ormalingen",
         "de": "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen",
         "fr": "enseignant-6e-classe-kantonale-verwaltung-basel-landschaft-ormalingen"
       },
@@ -1866,14 +1866,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen",
-        "lehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-ormalingen"
+        "teacher-6th-class-kantonale-verwaltung-basel-landschaft-ormalingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen"
         ],
         "en": [
-          "lehrperson-6-klasse-kantonale-verwaltung-basel-landschaft-ormalingen"
+          "teacher-6th-class-kantonale-verwaltung-basel-landschaft-ormalingen"
         ],
         "fr": [
           "lehrperson-6-klasse-kanton-basel-landschaft-ormalingen"
@@ -5827,12 +5827,12 @@
     },
     {
       "id": "kanton-basel-landschaft-7a411abfe8a5",
-      "slug": "lehrperson-gitarre-kanton-basel-landschaft-therwil",
+      "slug": "chitarra-degli-insegnanti-kantonale-verwaltung-basel-landschaft-therwil",
       "slugByLocale": {
         "de": "lehrperson-gitarre-kanton-basel-landschaft-therwil",
-        "it": "lehrperson-gitarre-kanton-basel-landschaft-therwil",
-        "en": "lehrperson-gitarre-kanton-basel-landschaft-therwil",
-        "fr": "lehrperson-gitarre-kanton-basel-landschaft-therwil"
+        "it": "chitarra-degli-insegnanti-kantonale-verwaltung-basel-landschaft-therwil",
+        "en": "teacher-guitar-kantonale-verwaltung-basel-landschaft-therwil",
+        "fr": "guitare-enseignante-kantonale-verwaltung-basel-landschaft-therwil"
       },
       "company": "Kantonale Verwaltung Basel-Landschaft",
       "companyKey": "kanton-basel-landschaft",
@@ -5894,7 +5894,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-15T09:20:23.369Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:20:23.369Z"
+      "firstSeenAt": "2026-11-17T09:20:23.369Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrperson-gitarre-kanton-basel-landschaft-therwil"
+        ],
+        "en": [
+          "lehrperson-gitarre-kanton-basel-landschaft-therwil"
+        ],
+        "fr": [
+          "lehrperson-gitarre-kanton-basel-landschaft-therwil"
+        ]
+      },
+      "previousSlugs": [
+        "lehrperson-gitarre-kanton-basel-landschaft-therwil"
+      ]
     },
     {
       "id": "kanton-basel-landschaft-6602ba0ff32c",

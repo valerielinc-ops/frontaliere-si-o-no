@@ -1349,7 +1349,7 @@
         "it": "consulente-del-cliente-f-m-d-assicurazione-langenthal-part-time-fulltime-helvetia-versicherungen-langenthal",
         "en": "customer-consultant-f-m-d-langenthal-insurance-part-time-full-time-helvetia-versicherungen-langenthal",
         "de": "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "fr": "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
+        "fr": "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -1418,14 +1418,14 @@
       },
       "previousSlugs": [
         "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal",
-        "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+        "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kundenberater-w-m-d-versicherungen-langenthal-teilzeit-vollzeit-helvetia-langenthal"
         ],
         "fr": [
-          "consultant-client-f-m-d-helvetia-versicherungen-langenthal"
+          "conseiller-a-la-clientele-assurances-langenthal-helvetia-versicherungen-langenthal"
         ]
       },
       "firstSeenAt": "2026-08-05T11:27:42.887Z",
@@ -5405,10 +5405,10 @@
       "id": "helvetia-9e1d12aa6d7d",
       "slug": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
       "slugByLocale": {
-        "it": "specialista-m-w-d-in-cura-dei-bambini-80-helvetia-versicherungen-basel",
-        "en": "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "it": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
+        "en": "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
         "de": "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "fr": "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
+        "fr": "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -5483,21 +5483,20 @@
       },
       "previousSlugs": [
         "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-        "professional-m-f-d-child-care-80-helvetia-versicherungen-basel",
-        "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+        "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel",
+        "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel"
         ],
         "en": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "professional-m-f-d-child-care-80-helvetia-versicherungen-basel"
+          "childcare-specialist-m-w-d-80-helvetia-versicherungen-basel"
         ],
         "fr": [
           "fachperson-m-w-d-kinderbetreuung-80-helvetia-basel",
-          "soins-professionnels-h-f-d-80-helvetia-versicherungen-basel"
+          "specialiste-en-garde-d-enfants-m-w-d-80-helvetia-versicherungen-basel"
         ]
       },
       "firstSeenAt": "2026-10-13T09:10:58.294Z",
@@ -14316,12 +14315,12 @@
     },
     {
       "id": "helvetia-809703ba57d3",
-      "slug": "werkstudent-m-w-d-beratungs-e-verkaufsprozesse-teilzeit-vollzeit-helvetia-versicherungen-basel",
+      "slug": "studente-lavoratore-m-f-d-processi-di-consulenza-e-vendita-part-time-full-time-helvetia-versicherungen-basel",
       "slugByLocale": {
         "de": "werkstudent-w-m-d-beratungs-und-verkaufsprozesse-teilzeit-vollzeit-helvetia-basel",
-        "it": "werkstudent-m-w-d-beratungs-e-verkaufsprozesse-teilzeit-vollzeit-helvetia-versicherungen-basel",
-        "en": "werkstudent-w-m-d-beratungs-und-verkaufsprozesse-teilzeit-vollzeit-helvetia-basel",
-        "fr": "werkstudent-w-m-d-beratungs-und-verkaufsprozesse-teilzeit-vollzeit-helvetia-basel"
+        "it": "studente-lavoratore-m-f-d-processi-di-consulenza-e-vendita-part-time-full-time-helvetia-versicherungen-basel",
+        "en": "working-student-m-f-d-consulting-and-sales-processes-part-time-full-time-helvetia-versicherungen-basel",
+        "fr": "etudiante-au-travail-h-f-d-processus-de-consultation-et-de-vente-temps-partiel-temps-plein-helvetia-versicherungen-basel"
       },
       "company": "Helvetia Versicherungen",
       "companyKey": "helvetia",
@@ -14370,11 +14369,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "werkstudent-w-m-d-beratungs-und-verkaufsprozesse-teilzeit-vollzeit-helvetia-basel",
+          "werkstudent-m-w-d-beratungs-e-verkaufsprozesse-teilzeit-vollzeit-helvetia-versicherungen-basel"
+        ],
+        "en": [
+          "werkstudent-w-m-d-beratungs-und-verkaufsprozesse-teilzeit-vollzeit-helvetia-basel"
+        ],
+        "fr": [
           "werkstudent-w-m-d-beratungs-und-verkaufsprozesse-teilzeit-vollzeit-helvetia-basel"
         ]
       },
       "previousSlugs": [
-        "werkstudent-w-m-d-beratungs-und-verkaufsprozesse-teilzeit-vollzeit-helvetia-basel"
+        "werkstudent-w-m-d-beratungs-und-verkaufsprozesse-teilzeit-vollzeit-helvetia-basel",
+        "werkstudent-m-w-d-beratungs-e-verkaufsprozesse-teilzeit-vollzeit-helvetia-versicherungen-basel"
       ],
       "salaryMin": 52500,
       "salaryMax": 96500,

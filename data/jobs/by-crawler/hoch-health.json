@@ -5185,7 +5185,7 @@
         "it": "tirocinio-professionale-scuola-media-professionale-infermieristica-sss-hoch-health-ostschweiz-uznach",
         "en": "professional-internship-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach",
         "de": "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "fr": "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
+        "fr": "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -5237,7 +5237,7 @@
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-st-gallen-2",
         "stage-professionale-per-scuola-professionale-assistenza-hf-hoch-health-ostschweiz-st-gallen",
         "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach",
-        "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
+        "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5245,7 +5245,7 @@
           "berufspraktikum-fachmittelschule-pflege-hf-hoch-health-uznach"
         ],
         "fr": [
-          "stage-professionnel-fachmittelschule-pflege-hf-hoch-health-ostschweiz-uznach"
+          "ecole-intermediaire-technique-de-stages-professionnels-care-hf-hoch-health-ostschweiz-uznach"
         ]
       },
       "firstSeenAt": "2026-05-19T22:28:24.584Z",
@@ -18207,12 +18207,12 @@
     },
     {
       "id": "hoch-health-fe2de96da52c",
-      "slug": "collaboratore-trice-spulkuche-e-speiseverteilung-im-stundenlohn-auf-abruf-per-wochenendeinsatze-hoch-health-ostschweiz-st-gallen",
+      "slug": "addetto-a-al-lavaggio-stoviglie-e-alla-distribuzione-dei-pasti-con-retribuzione-oraria-su-chiamata-per-impieghi-nel-fine",
       "slugByLocale": {
         "de": "mitarbeiter-in-spulkuche-und-speiseverteilung-im-stundenlohn-auf-abruf-fur",
-        "it": "collaboratore-trice-spulkuche-e-speiseverteilung-im-stundenlohn-auf-abruf-per-wochenendeinsatze-hoch-health-ostschweiz-st-gallen",
-        "en": "mitarbeiter-in-spulkuche-und-speiseverteilung-im-stundenlohn-auf-abruf-fur",
-        "fr": "mitarbeiter-in-spulkuche-und-speiseverteilung-im-stundenlohn-auf-abruf-fur"
+        "it": "addetto-a-al-lavaggio-stoviglie-e-alla-distribuzione-dei-pasti-con-retribuzione-oraria-su-chiamata-per-impieghi-nel-fine",
+        "en": "dishwashing-and-meal-distribution-assistant-hourly-paid-on-call-for-weekend-assignments-hoch-health-ostschweiz-st-gallen",
+        "fr": "collaborateur-rice-de-la-plonge-et-de-la-distribution-des-repas-remunere-e-a-l-heure-sur-appel-pour-des-interventions-le"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18260,11 +18260,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-spulkuche-und-speiseverteilung-im-stundenlohn-auf-abruf-fur",
+          "collaboratore-trice-spulkuche-e-speiseverteilung-im-stundenlohn-auf-abruf-per-wochenendeinsatze-hoch-health-ostschweiz-st-gallen"
+        ],
+        "en": [
+          "mitarbeiter-in-spulkuche-und-speiseverteilung-im-stundenlohn-auf-abruf-fur"
+        ],
+        "fr": [
           "mitarbeiter-in-spulkuche-und-speiseverteilung-im-stundenlohn-auf-abruf-fur"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-spulkuche-und-speiseverteilung-im-stundenlohn-auf-abruf-fur"
+        "mitarbeiter-in-spulkuche-und-speiseverteilung-im-stundenlohn-auf-abruf-fur",
+        "collaboratore-trice-spulkuche-e-speiseverteilung-im-stundenlohn-auf-abruf-per-wochenendeinsatze-hoch-health-ostschweiz-st-gallen"
       ],
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -18287,12 +18295,12 @@
     },
     {
       "id": "hoch-health-f658a3230411",
-      "slug": "collaboratore-trice-spulkuche-e-speiseverteilung-im-stundenlohn-auf-abruf-hoch-health-ostschweiz-st-gallen",
+      "slug": "addetto-a-al-lavaggio-stoviglie-e-alla-distribuzione-dei-pasti-con-retribuzione-oraria-su-chiamata-hoch-health",
       "slugByLocale": {
         "de": "mitarbeiter-in-spulkuche-und-speiseverteilung-im-stundenlohn-auf-abruf-hoch-health-st",
-        "it": "collaboratore-trice-spulkuche-e-speiseverteilung-im-stundenlohn-auf-abruf-hoch-health-ostschweiz-st-gallen",
-        "en": "mitarbeiter-in-spulkuche-und-speiseverteilung-im-stundenlohn-auf-abruf-hoch-health-st",
-        "fr": "mitarbeiter-in-spulkuche-und-speiseverteilung-im-stundenlohn-auf-abruf-hoch-health-st"
+        "it": "addetto-a-al-lavaggio-stoviglie-e-alla-distribuzione-dei-pasti-con-retribuzione-oraria-su-chiamata-hoch-health",
+        "en": "dishwashing-and-meal-distribution-assistant-hourly-paid-on-call-hoch-health-ostschweiz-st-gallen",
+        "fr": "collaborateur-rice-de-la-plonge-et-de-la-distribution-des-repas-remunere-e-a-l-heure-sur-appel-hoch-health-ostschweiz-st"
       },
       "company": "HOCH Health Ostschweiz",
       "companyKey": "hoch-health",
@@ -18340,11 +18348,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-spulkuche-und-speiseverteilung-im-stundenlohn-auf-abruf-hoch-health-st",
+          "collaboratore-trice-spulkuche-e-speiseverteilung-im-stundenlohn-auf-abruf-hoch-health-ostschweiz-st-gallen"
+        ],
+        "en": [
+          "mitarbeiter-in-spulkuche-und-speiseverteilung-im-stundenlohn-auf-abruf-hoch-health-st"
+        ],
+        "fr": [
           "mitarbeiter-in-spulkuche-und-speiseverteilung-im-stundenlohn-auf-abruf-hoch-health-st"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-spulkuche-und-speiseverteilung-im-stundenlohn-auf-abruf-hoch-health-st"
+        "mitarbeiter-in-spulkuche-und-speiseverteilung-im-stundenlohn-auf-abruf-hoch-health-st",
+        "collaboratore-trice-spulkuche-e-speiseverteilung-im-stundenlohn-auf-abruf-hoch-health-ostschweiz-st-gallen"
       ],
       "salaryMin": 62000,
       "salaryMax": 78000,

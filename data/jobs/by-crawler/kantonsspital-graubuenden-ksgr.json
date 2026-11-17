@@ -26,12 +26,12 @@
       "employmentType": "30 - 90%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-11-17T09:28:11.015Z",
-      "slug": "pflegefachfrau-pflegefachmann-innere-medizin-kantonsspital-graubunden-chur",
+      "slug": "infermiera-infermiera-medicina-interna-kantonsspital-graubunden-chur-e58663",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-innere-medizin-kantonsspital-graubunden-chur",
-        "it": "pflegefachfrau-pflegefachmann-innere-medizin-kantonsspital-graubunden-chur",
-        "en": "pflegefachfrau-pflegefachmann-innere-medizin-kantonsspital-graubunden-chur",
-        "fr": "pflegefachfrau-pflegefachmann-innere-medizin-kantonsspital-graubunden-chur"
+        "it": "infermiera-infermiera-medicina-interna-kantonsspital-graubunden-chur-e58663",
+        "en": "nurse-nurse-internal-medicine-kantonsspital-graubunden-chur-e58663",
+        "fr": "infirmiere-infirmiere-en-medecine-interne-kantonsspital-graubunden-chur-e58663"
       },
       "titleByLocale": {
         "de": "Pflegefachfrau / Pflegefachmann Innere Medizin",
@@ -65,7 +65,21 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-11-05T21:45:24.244Z"
+      "firstSeenAt": "2026-11-05T21:45:24.244Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-innere-medizin-kantonsspital-graubunden-chur"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-innere-medizin-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-innere-medizin-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-innere-medizin-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10263376",
@@ -94,7 +108,7 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-room-service-kantonsspital-graubunden-chur",
         "it": "servizio-in-camera-kantonsspital-graubunden-chur",
-        "en": "mitarbeiter-in-room-service-kantonsspital-graubunden-chur",
+        "en": "staff-room-service-kantonsspital-graubunden-walenstadt",
         "fr": "service-des-chambres-du-personnel-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
@@ -128,6 +142,9 @@
           "mitarbeiter-in-room-service-kantonsspital-graubunden-chur"
         ],
         "fr": [
+          "mitarbeiter-in-room-service-kantonsspital-graubunden-chur"
+        ],
+        "en": [
           "mitarbeiter-in-room-service-kantonsspital-graubunden-chur"
         ]
       },

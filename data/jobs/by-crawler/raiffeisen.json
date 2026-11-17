@@ -10,7 +10,7 @@
         "it": "consulente-patrimoniale-raiffeisen-savosa",
         "en": "asset-consultant-raiffeisen-savosa",
         "de": "vermogensberater-raiffeisen-savosa",
-        "fr": "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
+        "fr": "consultant-en-biens-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -56,11 +56,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "consultant-en-biens-raiffeisen-savosa"
+        "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "consultant-en-biens-raiffeisen-savosa"
+          "conseiller-en-gestion-patrimoniale-raiffeisen-savosa"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.430Z",
@@ -260,7 +260,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-privata-individuale-raiffeisen-gordola",
         "en": "individual-private-customer-advisor-raiffeisen-gordola",
-        "de": "berater-fur-individuelle-privatkunden-raiffeisen-gordola",
+        "de": "privatkundenberater-raiffeisen-gordola",
         "fr": "conseiller-client-prive-individuel-raiffeisen-gordola"
       },
       "company": "Raiffeisen",
@@ -319,7 +319,7 @@
         "individual-private-customer-advisor-h-f-raiffeisen-saignelegier",
         "privatkundenberater-h-f-raiffeisen-saignelegier",
         "conseiller-a-la-clientele-privee-individuelle-h-f-raiffeisen-saignelegier",
-        "privatkundenberater-raiffeisen-gordola"
+        "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -342,7 +342,7 @@
           "privatkundenberater-raiffeisen-poschiavo",
           "privatkundenberater-m-w-d-raiffeisen-thierrens",
           "privatkundenberater-h-f-raiffeisen-saignelegier",
-          "privatkundenberater-raiffeisen-gordola"
+          "berater-fur-individuelle-privatkunden-raiffeisen-gordola"
         ],
         "fr": [
           "conseiller-client-prive-individuel-raiffeisen-poschiavo",
@@ -452,7 +452,7 @@
       "slugByLocale": {
         "it": "consulente-clientela-aziendale-raiffeisen-savosa",
         "en": "corporate-customer-advisor-raiffeisen-savosa",
-        "de": "firmenkundenberater-raiffeisen-savosa",
+        "de": "corporate-customer-advisor-raiffeisen-savosa",
         "fr": "conseiller-client-d-entreprise-raiffeisen-savosa"
       },
       "company": "Raiffeisen",
@@ -502,7 +502,7 @@
         "consulente-clientela-aziendale-raiffeisen-bellinzona",
         "corporate-customer-advisor-raiffeisen-bellinzona",
         "conseiller-client-d-entreprise-raiffeisen-bellinzona",
-        "corporate-customer-advisor-raiffeisen-savosa"
+        "firmenkundenberater-raiffeisen-savosa"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -512,7 +512,7 @@
         ],
         "de": [
           "corporate-customer-advisor-raiffeisen-bellinzona",
-          "corporate-customer-advisor-raiffeisen-savosa"
+          "firmenkundenberater-raiffeisen-savosa"
         ],
         "fr": [
           "conseiller-client-d-entreprise-raiffeisen-bellinzona"
@@ -540,7 +540,7 @@
       "id": "raiffeisen-6f93c19ab091",
       "slug": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
       "slugByLocale": {
-        "it": "consulente-alla-clientela-privata-base-m-w-d-raiffeisen-villmergen",
+        "it": "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen",
         "en": "retail-client-advisor-basis-f-m-d-raiffeisen-villmergen",
         "de": "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
         "fr": "clientele-de-detail-f-m-d-raiffeisen-villmergen"
@@ -590,14 +590,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-        "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+        "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-alla-clientela-privata-base-m-f-d-raiffeisen-villmergen",
-          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen",
-          "consulenza-clienti-al-dettaglio-f-m-d-raiffeisen-villmergen"
+          "privatkundenberater-basis-w-m-d-raiffeisen-villmergen"
         ]
       },
       "firstSeenAt": "2026-07-04T12:06:05.336Z",
@@ -703,7 +701,7 @@
         "it": "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach",
         "en": "employee-credit-administration-m-f-d-raiffeisen-egnach",
         "de": "mitarbeiter-kreditadministration-m-w-d-raiffeisen-egnach",
-        "fr": "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
+        "fr": "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -761,14 +759,14 @@
         ],
         "fr": [
           "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-          "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
+          "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
         ]
       },
       "previousSlugs": [
         "stv-leiter-kreditverarbeitung-w-m-d-raiffeisen-neukirch-egnach",
         "collaboratore-trice-kreditadministration-m-w-d-raiffeisen-egnach-uazwgk",
         "stv-leiter-kreditverarbeitung-m-w-d-raiffeisen-neukirch-egnach",
-        "administration-du-credit-aux-employes-m-f-d-raiffeisen-egnach"
+        "responsable-adjoint-du-traitement-des-credits-m-w-d-raiffeisen-neukirch-egnach"
       ],
       "firstSeenAt": "2026-10-22T09:33:25.776Z",
       "salaryMin": 110500,
@@ -10793,7 +10791,7 @@
         "de": "senior-credit-advisory-w-m-d-raiffeisen-zurich-the-circle",
         "it": "senior-credit-advisory-w-m-d-raiffeisen-zurich-the-circle",
         "en": "senior-credit-advisory-w-m-d-raiffeisen-zurich-the-circle",
-        "fr": "senior-credit-advisory-w-m-d-raiffeisen-zurich-the-circle"
+        "fr": "avis-de-credit-principal-h-f-d-raiffeisen-zurich-the-circle"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -10855,16 +10853,24 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T09:34:52.642Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:34:52.642Z"
+      "firstSeenAt": "2026-11-17T09:34:52.642Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "senior-credit-advisory-w-m-d-raiffeisen-zurich-the-circle"
+        ]
+      },
+      "previousSlugs": [
+        "senior-credit-advisory-w-m-d-raiffeisen-zurich-the-circle"
+      ]
     },
     {
       "id": "raiffeisen-bd792e624dd1",
-      "slug": "senior-aktienhandler-w-m-d-raiffeisen-zurich",
+      "slug": "trader-senior-m-f-d-raiffeisen-zurich",
       "slugByLocale": {
         "de": "senior-aktienhandler-w-m-d-raiffeisen-zurich",
-        "it": "senior-aktienhandler-w-m-d-raiffeisen-zurich",
-        "en": "senior-aktienhandler-w-m-d-raiffeisen-zurich",
-        "fr": "senior-aktienhandler-w-m-d-raiffeisen-zurich"
+        "it": "trader-senior-m-f-d-raiffeisen-zurich",
+        "en": "senior-stock-trader-m-f-d-raiffeisen-zurich",
+        "fr": "trafic-principal-d-actions-h-f-d-raiffeisen-zurich"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -10926,14 +10932,28 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T09:34:52.636Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:34:52.636Z"
+      "firstSeenAt": "2026-11-17T09:34:52.636Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-aktienhandler-w-m-d-raiffeisen-zurich"
+        ],
+        "en": [
+          "senior-aktienhandler-w-m-d-raiffeisen-zurich"
+        ],
+        "fr": [
+          "senior-aktienhandler-w-m-d-raiffeisen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-aktienhandler-w-m-d-raiffeisen-zurich"
+      ]
     },
     {
       "id": "raiffeisen-ffc2f85358ea",
-      "slug": "privatkundenberater-e-stv-leiter-geschaftsstelle-rapperswil-jona-m-w-d-raiffeisen-rapperswil-jona",
+      "slug": "consulente-alla-clientela-privata-e-vice-responsabile-della-filiale-rapperswil-jona-m-f-d-raiffeisen-rapperswil-jona",
       "slugByLocale": {
         "de": "privatkundenberater-und-stv-leiter-geschaftsstelle-rapperswil-jona-w-m-d-raiffeisen",
-        "it": "privatkundenberater-e-stv-leiter-geschaftsstelle-rapperswil-jona-m-w-d-raiffeisen-rapperswil-jona",
+        "it": "consulente-alla-clientela-privata-e-vice-responsabile-della-filiale-rapperswil-jona-m-f-d-raiffeisen-rapperswil-jona",
         "en": "privatkundenberater-und-stv-leiter-geschaftsstelle-rapperswil-jona-w-m-d-raiffeisen",
         "fr": "privatkundenberater-und-stv-leiter-geschaftsstelle-rapperswil-jona-w-m-d-raiffeisen"
       },
@@ -10984,11 +11004,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "privatkundenberater-und-stv-leiter-geschaftsstelle-rapperswil-jona-w-m-d-raiffeisen"
+          "privatkundenberater-und-stv-leiter-geschaftsstelle-rapperswil-jona-w-m-d-raiffeisen",
+          "privatkundenberater-e-stv-leiter-geschaftsstelle-rapperswil-jona-m-w-d-raiffeisen-rapperswil-jona"
         ]
       },
       "previousSlugs": [
-        "privatkundenberater-und-stv-leiter-geschaftsstelle-rapperswil-jona-w-m-d-raiffeisen"
+        "privatkundenberater-und-stv-leiter-geschaftsstelle-rapperswil-jona-w-m-d-raiffeisen",
+        "privatkundenberater-e-stv-leiter-geschaftsstelle-rapperswil-jona-m-w-d-raiffeisen-rapperswil-jona"
       ],
       "salaryMin": 110500,
       "salaryMax": 154000,
@@ -11010,12 +11032,12 @@
     },
     {
       "id": "raiffeisen-f4fa08f514a0",
-      "slug": "avaloq-applikationsentwickler-w-m-d-raiffeisen-st-gallen",
+      "slug": "sviluppatore-di-applicazioni-avaloq-m-f-d-raiffeisen-st-gallen",
       "slugByLocale": {
         "de": "avaloq-applikationsentwickler-w-m-d-raiffeisen-st-gallen",
-        "it": "avaloq-applikationsentwickler-w-m-d-raiffeisen-st-gallen",
-        "en": "avaloq-applikationsentwickler-w-m-d-raiffeisen-st-gallen",
-        "fr": "avaloq-applikationsentwickler-w-m-d-raiffeisen-st-gallen"
+        "it": "sviluppatore-di-applicazioni-avaloq-m-f-d-raiffeisen-st-gallen",
+        "en": "avaloq-application-developer-m-f-d-raiffeisen-st-gallen",
+        "fr": "developpeur-d-applications-avaloq-h-f-d-raiffeisen-st-gallen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11077,14 +11099,28 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T09:34:52.628Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:34:52.628Z"
+      "firstSeenAt": "2026-11-17T09:34:52.628Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "avaloq-applikationsentwickler-w-m-d-raiffeisen-st-gallen"
+        ],
+        "en": [
+          "avaloq-applikationsentwickler-w-m-d-raiffeisen-st-gallen"
+        ],
+        "fr": [
+          "avaloq-applikationsentwickler-w-m-d-raiffeisen-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "avaloq-applikationsentwickler-w-m-d-raiffeisen-st-gallen"
+      ]
     },
     {
       "id": "raiffeisen-1275c95744ee",
-      "slug": "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen",
+      "slug": "consulente-clienti-privato-m-f-d-raiffeisen-oberlunkhofen",
       "slugByLocale": {
         "de": "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen",
-        "it": "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen",
+        "it": "consulente-clienti-privato-m-f-d-raiffeisen-oberlunkhofen",
         "en": "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen",
         "fr": "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen"
       },
@@ -11148,14 +11184,22 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T09:34:52.620Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-19T23:02:14.275Z"
+      "firstSeenAt": "2026-09-19T23:02:14.275Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen"
+        ]
+      },
+      "previousSlugs": [
+        "privatkundenberater-w-m-d-raiffeisen-oberlunkhofen"
+      ]
     },
     {
       "id": "raiffeisen-39220af77f07",
-      "slug": "kundenberater-w-m-d-raiffeisen-oberlunkhofen",
+      "slug": "consulente-clienti-w-m-d-raiffeisen-oberlunkhofen",
       "slugByLocale": {
         "de": "kundenberater-w-m-d-raiffeisen-oberlunkhofen",
-        "it": "kundenberater-w-m-d-raiffeisen-oberlunkhofen",
+        "it": "consulente-clienti-w-m-d-raiffeisen-oberlunkhofen",
         "en": "kundenberater-w-m-d-raiffeisen-oberlunkhofen",
         "fr": "kundenberater-w-m-d-raiffeisen-oberlunkhofen"
       },
@@ -11219,16 +11263,24 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T09:34:52.614Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-13T21:20:11.763Z"
+      "firstSeenAt": "2026-10-13T21:20:11.763Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-w-m-d-raiffeisen-oberlunkhofen"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-w-m-d-raiffeisen-oberlunkhofen"
+      ]
     },
     {
       "id": "raiffeisen-2c8467c68588",
-      "slug": "planificateur-financier-h-f-raiffeisen-vernier",
+      "slug": "piano-finanziario-m-f-raiffeisen-vernier",
       "slugByLocale": {
         "fr": "planificateur-financier-h-f-raiffeisen-vernier",
-        "it": "planificateur-financier-h-f-raiffeisen-vernier",
-        "en": "planificateur-financier-h-f-raiffeisen-vernier",
-        "de": "planificateur-financier-h-f-raiffeisen-vernier"
+        "it": "piano-finanziario-m-f-raiffeisen-vernier",
+        "en": "financial-planner-m-f-raiffeisen-vernier",
+        "de": "finanzplaner-m-w-raiffeisen-vernier"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -11290,14 +11342,28 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:34:52.575Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:34:52.575Z"
+      "firstSeenAt": "2026-11-17T09:34:52.575Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "planificateur-financier-h-f-raiffeisen-vernier"
+        ],
+        "en": [
+          "planificateur-financier-h-f-raiffeisen-vernier"
+        ],
+        "de": [
+          "planificateur-financier-h-f-raiffeisen-vernier"
+        ]
+      },
+      "previousSlugs": [
+        "planificateur-financier-h-f-raiffeisen-vernier"
+      ]
     },
     {
       "id": "raiffeisen-3f2dc63726f3",
-      "slug": "privatkundenberater-individual-w-m-d-raiffeisen-unterageri",
+      "slug": "consulente-clienti-privato-individuale-m-f-d-raiffeisen-unterageri",
       "slugByLocale": {
         "de": "privatkundenberater-individual-w-m-d-raiffeisen-unterageri",
-        "it": "privatkundenberater-individual-w-m-d-raiffeisen-unterageri",
+        "it": "consulente-clienti-privato-individuale-m-f-d-raiffeisen-unterageri",
         "en": "privatkundenberater-individual-w-m-d-raiffeisen-unterageri",
         "fr": "privatkundenberater-individual-w-m-d-raiffeisen-unterageri"
       },
@@ -11361,7 +11427,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-15T09:34:52.570Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-09-30T21:18:42.012Z"
+      "firstSeenAt": "2026-09-30T21:18:42.012Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "privatkundenberater-individual-w-m-d-raiffeisen-unterageri"
+        ]
+      },
+      "previousSlugs": [
+        "privatkundenberater-individual-w-m-d-raiffeisen-unterageri"
+      ]
     },
     {
       "id": "raiffeisen-3e83425ff358",

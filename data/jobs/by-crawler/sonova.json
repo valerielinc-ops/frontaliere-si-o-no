@@ -828,7 +828,7 @@
         "de": "manager-future-manufacturing-automation-80-100-mf-d-sonova-ch",
         "it": "manager-future-manufacturing-automation-80-100-mf-d-sonova-ch",
         "en": "manager-future-manufacturing-automation-80-100-mf-d-sonova-ch",
-        "fr": "manager-future-manufacturing-automation-80-100-mf-d-sonova-ch"
+        "fr": "gestionnaire-fabrication-et-automatisation-futures-80-100-mf-j-sonova-staefa-switzerland"
       },
       "company": "Sonova",
       "companyKey": "sonova",
@@ -890,7 +890,15 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-11T09:16:26.941Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:16:26.941Z"
+      "firstSeenAt": "2026-11-17T09:16:26.941Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "manager-future-manufacturing-automation-80-100-mf-d-sonova-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manager-future-manufacturing-automation-80-100-mf-d-sonova-ch"
+      ]
     },
     {
       "id": "sonova-374a65613887",

@@ -1667,12 +1667,12 @@
     },
     {
       "id": "hochgebirgsklinik-davos-455df865aaa1",
-      "slug": "pharma-assistenten-drogisten-w-m-40-60-hochgebirgsklinik-davos-ch",
+      "slug": "assistenti-farmaceutici-drogatori-m-f-40-60-hochgebirgsklinik-davos-davos",
       "slugByLocale": {
         "de": "pharma-assistenten-drogisten-w-m-40-60-hochgebirgsklinik-davos-ch",
-        "it": "pharma-assistenten-drogisten-w-m-40-60-hochgebirgsklinik-davos-ch",
-        "en": "pharma-assistenten-drogisten-w-m-40-60-hochgebirgsklinik-davos-ch",
-        "fr": "pharma-assistenten-drogisten-w-m-40-60-hochgebirgsklinik-davos-ch"
+        "it": "assistenti-farmaceutici-drogatori-m-f-40-60-hochgebirgsklinik-davos-davos",
+        "en": "pharmaceutical-assistants-drugists-m-f-40-60-hochgebirgsklinik-davos-davos",
+        "fr": "assistants-medicaments-pharmaceutiques-h-f-40-60-hochgebirgsklinik-davos-davos"
       },
       "company": "Hochgebirgsklinik Davos",
       "companyKey": "hochgebirgsklinik-davos",
@@ -1740,7 +1740,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-15T09:14:27.400Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:14:27.400Z"
+      "firstSeenAt": "2026-11-17T09:14:27.400Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pharma-assistenten-drogisten-w-m-40-60-hochgebirgsklinik-davos-ch"
+        ],
+        "en": [
+          "pharma-assistenten-drogisten-w-m-40-60-hochgebirgsklinik-davos-ch"
+        ],
+        "fr": [
+          "pharma-assistenten-drogisten-w-m-40-60-hochgebirgsklinik-davos-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pharma-assistenten-drogisten-w-m-40-60-hochgebirgsklinik-davos-ch"
+      ]
     },
     {
       "id": "hochgebirgsklinik-davos-acd10818a6e9",

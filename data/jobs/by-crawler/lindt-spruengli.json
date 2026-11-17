@@ -260,7 +260,7 @@
       "slugByLocale": {
         "it": "domanda-non-richiesta-lindt-sprungli-kilchberg",
         "en": "unsolicited-application-lindt-spruengli-kilchberg",
-        "de": "initiativbewerbung-lindt-sprungli-kilchberg",
+        "de": "unerbetene-anwendung-lindt-sprungli-kilchberg",
         "fr": "demande-spontanee-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
@@ -318,7 +318,7 @@
         "personnel-militaire-lindt-sprungli-kilchberg",
         "servicemitarbeiter-in-lindt-sprungli-kilchberg",
         "patissier-in-90-lindt-sprungli-kilchberg",
-        "unerbetene-anwendung-lindt-sprungli-kilchberg"
+        "initiativbewerbung-lindt-sprungli-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -340,7 +340,7 @@
         "de": [
           "unsolicited-application-lindt-spruengli-kilchberg",
           "patissier-in-90-lindt-spruengli-kilchberg",
-          "unerbetene-anwendung-lindt-sprungli-kilchberg"
+          "initiativbewerbung-lindt-sprungli-kilchberg"
         ],
         "fr": [
           "unsolicited-application-lindt-spruengli-kilchberg",
@@ -2000,12 +2000,12 @@
     },
     {
       "id": "lindt-spruengli-81d08db03cec",
-      "slug": "produktionsbereichseiter-in-kakaomassenherstellung-lindt-sprungli-olten",
+      "slug": "responsabile-dell-area-di-produzione-delle-masse-di-cacao-lindt-sprungli-olten",
       "slugByLocale": {
         "de": "produktionsbereichseiter-in-kakaomassenherstellung-lindt-spruengli-olten",
-        "it": "produktionsbereichseiter-in-kakaomassenherstellung-lindt-sprungli-olten",
-        "en": "produktionsbereichseiter-in-kakaomassenherstellung-lindt-sprungli-olten",
-        "fr": "produktionsbereichseiter-in-kakaomassenherstellung-lindt-sprungli-olten"
+        "it": "responsabile-dell-area-di-produzione-delle-masse-di-cacao-lindt-sprungli-olten",
+        "en": "production-area-manager-cocoa-mass-production-lindt-sprungli-olten",
+        "fr": "responsable-du-secteur-de-production-de-masse-de-cacao-lindt-sprungli-olten"
       },
       "company": "Lindt & Sprüngli",
       "companyKey": "lindt-spruengli",
@@ -2055,11 +2055,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "produktionsbereichseiter-in-kakaomassenherstellung-lindt-spruengli-olten"
+          "produktionsbereichseiter-in-kakaomassenherstellung-lindt-spruengli-olten",
+          "produktionsbereichseiter-in-kakaomassenherstellung-lindt-sprungli-olten"
+        ],
+        "en": [
+          "produktionsbereichseiter-in-kakaomassenherstellung-lindt-sprungli-olten"
+        ],
+        "fr": [
+          "produktionsbereichseiter-in-kakaomassenherstellung-lindt-sprungli-olten"
         ]
       },
       "previousSlugs": [
-        "produktionsbereichseiter-in-kakaomassenherstellung-lindt-spruengli-olten"
+        "produktionsbereichseiter-in-kakaomassenherstellung-lindt-spruengli-olten",
+        "produktionsbereichseiter-in-kakaomassenherstellung-lindt-sprungli-olten"
       ],
       "salaryMin": 71000,
       "salaryMax": 95500,

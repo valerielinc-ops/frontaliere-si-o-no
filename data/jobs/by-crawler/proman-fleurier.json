@@ -241,12 +241,12 @@
     },
     {
       "id": "proman-fleurier-25482098321a",
-      "slug": "macon-coffreur-h-f-neuchatel-proman-25482098",
+      "slug": "mason-petto-m-f-proman-bm-emploi-sa-fleurier-neuchatel-25482098",
       "slugByLocale": {
         "fr": "macon-coffreur-h-f-neuchatel-proman-25482098",
-        "it": "macon-coffreur-h-f-neuchatel-proman-25482098",
-        "en": "macon-coffreur-h-f-neuchatel-proman-25482098",
-        "de": "macon-coffreur-h-f-neuchatel-proman-25482098"
+        "it": "mason-petto-m-f-proman-bm-emploi-sa-fleurier-neuchatel-25482098",
+        "en": "mason-chest-m-f-proman-bm-emploi-sa-fleurier-neuchatel-25482098",
+        "de": "mason-truhe-m-w-proman-bm-emploi-sa-fleurier-neuchatel-25482098"
       },
       "slugDisambiguator": "25482098",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -307,16 +307,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:52:37.772Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:52:37.772Z"
+      "firstSeenAt": "2026-11-17T09:52:37.772Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "macon-coffreur-h-f-neuchatel-proman-25482098"
+        ],
+        "en": [
+          "macon-coffreur-h-f-neuchatel-proman-25482098"
+        ],
+        "de": [
+          "macon-coffreur-h-f-neuchatel-proman-25482098"
+        ]
+      },
+      "previousSlugs": [
+        "macon-coffreur-h-f-neuchatel-proman-25482098"
+      ]
     },
     {
       "id": "proman-fleurier-f232f08084dd",
-      "slug": "regleur-cnc-h-f-la-chaux-de-fonds-proman-f232f080",
+      "slug": "regolatore-cnc-m-f-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-f232f080",
       "slugByLocale": {
         "fr": "regleur-cnc-h-f-la-chaux-de-fonds-proman-f232f080",
-        "it": "regleur-cnc-h-f-la-chaux-de-fonds-proman-f232f080",
-        "en": "regleur-cnc-h-f-la-chaux-de-fonds-proman-f232f080",
-        "de": "regleur-cnc-h-f-la-chaux-de-fonds-proman-f232f080"
+        "it": "regolatore-cnc-m-f-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-f232f080",
+        "en": "cnc-adjuster-m-f-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-f232f080",
+        "de": "cnc-einsteller-m-w-proman-bm-emploi-sa-fleurier-la-chaux-de-fonds-f232f080"
       },
       "slugDisambiguator": "f232f080",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -377,7 +391,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:52:37.772Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:52:37.772Z"
+      "firstSeenAt": "2026-11-17T09:52:37.772Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regleur-cnc-h-f-la-chaux-de-fonds-proman-f232f080"
+        ],
+        "en": [
+          "regleur-cnc-h-f-la-chaux-de-fonds-proman-f232f080"
+        ],
+        "de": [
+          "regleur-cnc-h-f-la-chaux-de-fonds-proman-f232f080"
+        ]
+      },
+      "previousSlugs": [
+        "regleur-cnc-h-f-la-chaux-de-fonds-proman-f232f080"
+      ]
     },
     {
       "id": "proman-fleurier-6d0aa4def8a5",
@@ -458,12 +486,12 @@
     },
     {
       "id": "proman-fleurier-f2af3e10fd40",
-      "slug": "macons-h-f-neuchatel-proman-f2af3e10",
+      "slug": "masons-m-f-proman-bm-emploi-sa-fleurier-neuchatel-f2af3e10",
       "slugByLocale": {
         "fr": "macons-h-f-neuchatel-proman-f2af3e10",
-        "it": "macons-h-f-neuchatel-proman-f2af3e10",
+        "it": "masons-m-f-proman-bm-emploi-sa-fleurier-neuchatel-f2af3e10",
         "en": "macons-h-f-neuchatel-proman-f2af3e10",
-        "de": "macons-h-f-neuchatel-proman-f2af3e10"
+        "de": "freimaurer-m-w-proman-bm-emploi-sa-fleurier-neuchatel-f2af3e10"
       },
       "slugDisambiguator": "f2af3e10",
       "company": "PROMAN BM-EMPLOI SA — Fleurier",
@@ -524,7 +552,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-15T09:52:37.771Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:52:37.771Z"
+      "firstSeenAt": "2026-11-17T09:52:37.771Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "macons-h-f-neuchatel-proman-f2af3e10"
+        ],
+        "de": [
+          "macons-h-f-neuchatel-proman-f2af3e10"
+        ]
+      },
+      "previousSlugs": [
+        "macons-h-f-neuchatel-proman-f2af3e10"
+      ]
     },
     {
       "id": "proman-fleurier-f0ad4292ea01",

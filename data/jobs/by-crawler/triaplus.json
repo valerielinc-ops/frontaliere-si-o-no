@@ -1182,7 +1182,7 @@
         "it": "consulente-nutrizionale-w-m-d-a-ore-triaplus-ag-oberwil",
         "en": "nutrition-consultant-w-m-d-hourly-triaplus-ag-oberwil",
         "de": "ernahrungsberaterin-w-m-d-im-stundenlohn-triaplus-ernaehrungsberaterin-w-m-d-im",
-        "fr": "dieteticien-ne-m-w-d-au-salaire-horaire-triaplus-ag-oberwil"
+        "fr": "consultant-en-nutrition-w-m-d-a-l-heure-triaplus-ag-oberwil"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -1255,7 +1255,7 @@
         "ernahrungsberaterin-w-m-d-im-stundenlohn-triaplus-ernaehrungsberaterin-w-m-d-im",
         "ernahrungsberaterin-w-m-d-im-stundenlohn-triaplus-ag-oberwil",
         "ernahrungsberaterin-hf-w-m-d-triaplus-ernaehrungsberaterin-w-m-d-im-stundenlohn",
-        "consultant-en-nutrition-w-m-d-a-l-heure-triaplus-ag-oberwil"
+        "dieteticien-ne-m-w-d-au-salaire-horaire-triaplus-ag-oberwil"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1266,7 +1266,7 @@
           "ernahrungsberaterin-w-m-d-im-stundenlohn-triaplus-ag-oberwil"
         ],
         "fr": [
-          "consultant-en-nutrition-w-m-d-a-l-heure-triaplus-ag-oberwil"
+          "dieteticien-ne-m-w-d-au-salaire-horaire-triaplus-ag-oberwil"
         ]
       },
       "firstSeenAt": "2026-05-19T21:17:13.784Z",
@@ -1572,7 +1572,7 @@
         "it": "medico-senior-m-f-d-ambulatorio-triaplus-ag-goldau",
         "en": "senior-physician-m-f-d-ambulatory-triaplus-ag-goldau",
         "de": "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant",
-        "fr": "ophtalmologiste-m-w-d-ambulant-triaplus-ag-goldau"
+        "fr": "medecin-principal-h-f-d-ambulatoire-triaplus-ag-goldau"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -1617,7 +1617,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant",
-        "medecin-principal-h-f-d-ambulatoire-triaplus-ag-goldau"
+        "ophtalmologiste-m-w-d-ambulant-triaplus-ag-goldau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1628,7 +1628,7 @@
         ],
         "fr": [
           "oberarztin-w-m-d-ambulant-triaplus-oberaerztin-w-m-d-ambulant",
-          "medecin-principal-h-f-d-ambulatoire-triaplus-ag-goldau"
+          "ophtalmologiste-m-w-d-ambulant-triaplus-ag-goldau"
         ]
       },
       "firstSeenAt": "2026-08-31T17:07:24.738Z",
@@ -1994,12 +1994,12 @@
     },
     {
       "id": "triaplus-b5a4e5241043",
-      "slug": "assistenzarztin-o-facharztin-m-w-d-per-kinder-e-jugendpsychiatrie-ambulant-triaplus-ag-lachen",
+      "slug": "medico-assistente-o-medico-specialista-m-f-d-in-psichiatria-infantile-e-dell-adolescenza-ambulatoriale-triaplus-ag",
       "slugByLocale": {
         "de": "assistenzarztin-oder-facharztin-w-m-d-fur-kinder-und-jugendpsychiatrie-ambulant-triaplus",
-        "it": "assistenzarztin-o-facharztin-m-w-d-per-kinder-e-jugendpsychiatrie-ambulant-triaplus-ag-lachen",
-        "en": "assistenzarztin-oder-facharztin-w-m-d-fur-kinder-und-jugendpsychiatrie-ambulant-triaplus",
-        "fr": "assistenzarztin-oder-facharztin-w-m-d-fur-kinder-und-jugendpsychiatrie-ambulant-triaplus"
+        "it": "medico-assistente-o-medico-specialista-m-f-d-in-psichiatria-infantile-e-dell-adolescenza-ambulatoriale-triaplus-ag",
+        "en": "assistant-doctor-or-specialist-m-f-d-for-child-and-adolescent-psychiatry-triaplus-ag-lachen",
+        "fr": "medecin-adjoint-ou-specialiste-h-f-d-pour-la-psychiatrie-des-enfants-et-des-adolescents-triaplus-ag-lachen"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -2047,11 +2047,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistenzarztin-oder-facharztin-w-m-d-fur-kinder-und-jugendpsychiatrie-ambulant-triaplus",
+          "assistenzarztin-o-facharztin-m-w-d-per-kinder-e-jugendpsychiatrie-ambulant-triaplus-ag-lachen"
+        ],
+        "en": [
+          "assistenzarztin-oder-facharztin-w-m-d-fur-kinder-und-jugendpsychiatrie-ambulant-triaplus"
+        ],
+        "fr": [
           "assistenzarztin-oder-facharztin-w-m-d-fur-kinder-und-jugendpsychiatrie-ambulant-triaplus"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-oder-facharztin-w-m-d-fur-kinder-und-jugendpsychiatrie-ambulant-triaplus"
+        "assistenzarztin-oder-facharztin-w-m-d-fur-kinder-und-jugendpsychiatrie-ambulant-triaplus",
+        "assistenzarztin-o-facharztin-m-w-d-per-kinder-e-jugendpsychiatrie-ambulant-triaplus-ag-lachen"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -2074,12 +2082,12 @@
     },
     {
       "id": "triaplus-d0d908f0c21a",
-      "slug": "dipl-pflegefachperson-hf-fh-spezialstation-per-depressionsbehandlung-triaplus-ag-oberwil",
+      "slug": "infermiere-a-diplomato-a-hf-fh-presso-il-reparto-specializzato-per-il-trattamento-della-depressione-triaplus-ag-oberwil",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-fh-spezialstation-fur-depressionsbehandlung-triaplus-dipl",
-        "it": "dipl-pflegefachperson-hf-fh-spezialstation-per-depressionsbehandlung-triaplus-ag-oberwil",
-        "en": "dipl-pflegefachperson-hf-fh-spezialstation-fur-depressionsbehandlung-triaplus-dipl",
-        "fr": "dipl-pflegefachperson-hf-fh-spezialstation-fur-depressionsbehandlung-triaplus-dipl"
+        "it": "infermiere-a-diplomato-a-hf-fh-presso-il-reparto-specializzato-per-il-trattamento-della-depressione-triaplus-ag-oberwil",
+        "en": "dipl-care-professional-hf-fh-special-unit-for-depression-treatment-triaplus-ag-oberwil",
+        "fr": "oui-soins-professionnels-hf-fh-unite-speciale-pour-le-traitement-de-la-depression-triaplus-ag-oberwil"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -2127,11 +2135,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-fh-spezialstation-fur-depressionsbehandlung-triaplus-dipl",
+          "dipl-pflegefachperson-hf-fh-spezialstation-per-depressionsbehandlung-triaplus-ag-oberwil"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-fh-spezialstation-fur-depressionsbehandlung-triaplus-dipl"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-fh-spezialstation-fur-depressionsbehandlung-triaplus-dipl"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-spezialstation-fur-depressionsbehandlung-triaplus-dipl"
+        "dipl-pflegefachperson-hf-fh-spezialstation-fur-depressionsbehandlung-triaplus-dipl",
+        "dipl-pflegefachperson-hf-fh-spezialstation-per-depressionsbehandlung-triaplus-ag-oberwil"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -2154,12 +2170,12 @@
     },
     {
       "id": "triaplus-4bee89c1d52b",
-      "slug": "finanzbuchhalter-m-w-d-triaplus-ag-oberwil",
+      "slug": "contabilita-finanziaria-m-f-d-triaplus-ag-oberwil",
       "slugByLocale": {
         "de": "finanzbuchhalter-m-w-d-triaplus-finanzbuchhalter-m-w-d",
-        "it": "finanzbuchhalter-m-w-d-triaplus-ag-oberwil",
-        "en": "finanzbuchhalter-m-w-d-triaplus-ag-oberwil",
-        "fr": "finanzbuchhalter-m-w-d-triaplus-ag-oberwil"
+        "it": "contabilita-finanziaria-m-f-d-triaplus-ag-oberwil",
+        "en": "financial-accountants-m-f-d-triaplus-ag-oberwil",
+        "fr": "comptables-financiers-h-f-d-triaplus-ag-oberwil"
       },
       "company": "Triaplus AG",
       "companyKey": "triaplus",
@@ -2206,11 +2222,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "finanzbuchhalter-m-w-d-triaplus-finanzbuchhalter-m-w-d"
+          "finanzbuchhalter-m-w-d-triaplus-finanzbuchhalter-m-w-d",
+          "finanzbuchhalter-m-w-d-triaplus-ag-oberwil"
+        ],
+        "en": [
+          "finanzbuchhalter-m-w-d-triaplus-ag-oberwil"
+        ],
+        "fr": [
+          "finanzbuchhalter-m-w-d-triaplus-ag-oberwil"
         ]
       },
       "previousSlugs": [
-        "finanzbuchhalter-m-w-d-triaplus-finanzbuchhalter-m-w-d"
+        "finanzbuchhalter-m-w-d-triaplus-finanzbuchhalter-m-w-d",
+        "finanzbuchhalter-m-w-d-triaplus-ag-oberwil"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

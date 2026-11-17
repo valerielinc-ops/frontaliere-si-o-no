@@ -3296,12 +3296,12 @@
     },
     {
       "id": "decathlon-ad426a421d78",
-      "slug": "sport-leader-verkaufsberater-m-w-d-60-80-decathlon-ch",
+      "slug": "leader-sportivo-sales-advisor-m-f-d-60-80-decathlon-basel",
       "slugByLocale": {
         "de": "sport-leader-verkaufsberater-m-w-d-60-80-decathlon-ch",
-        "it": "sport-leader-verkaufsberater-m-w-d-60-80-decathlon-ch",
-        "en": "sport-leader-verkaufsberater-m-w-d-60-80-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-m-w-d-60-80-decathlon-ch"
+        "it": "leader-sportivo-sales-advisor-m-f-d-60-80-decathlon-basel",
+        "en": "sport-leader-sales-advisor-m-f-d-60-80-decathlon-basel",
+        "fr": "leader-sportif-conseiller-commercial-h-f-d-60-80-decathlon-basel"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3362,16 +3362,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:28:32.769Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:28:32.769Z"
+      "firstSeenAt": "2026-11-17T09:28:32.769Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sport-leader-verkaufsberater-m-w-d-60-80-decathlon-ch"
+        ],
+        "en": [
+          "sport-leader-verkaufsberater-m-w-d-60-80-decathlon-ch"
+        ],
+        "fr": [
+          "sport-leader-verkaufsberater-m-w-d-60-80-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sport-leader-verkaufsberater-m-w-d-60-80-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-62fda402e1aa",
-      "slug": "conseiller-ere-cycle-h-f-cdd-70-lausanne-bussigny-decathlon-ch",
+      "slug": "avvocato-ciclo-m-f-cdd-70-losanna-bussigny-decathlon-bussigny",
       "slugByLocale": {
         "fr": "conseiller-ere-cycle-h-f-cdd-70-lausanne-bussigny-decathlon-ch",
-        "it": "conseiller-ere-cycle-h-f-cdd-70-lausanne-bussigny-decathlon-ch",
+        "it": "avvocato-ciclo-m-f-cdd-70-losanna-bussigny-decathlon-bussigny",
         "en": "conseiller-ere-cycle-h-f-cdd-70-lausanne-bussigny-decathlon-ch",
-        "de": "conseiller-ere-cycle-h-f-cdd-70-lausanne-bussigny-decathlon-ch"
+        "de": "ratgeber-zyklus-m-w-cdd-70-lausanne-bussigny-decathlon-bussigny"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3432,16 +3446,27 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:28:32.155Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:28:32.155Z"
+      "firstSeenAt": "2026-11-17T09:28:32.155Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseiller-ere-cycle-h-f-cdd-70-lausanne-bussigny-decathlon-ch"
+        ],
+        "de": [
+          "conseiller-ere-cycle-h-f-cdd-70-lausanne-bussigny-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "conseiller-ere-cycle-h-f-cdd-70-lausanne-bussigny-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-eccbdad4b2df",
-      "slug": "hote-esse-de-caisse-conseiller-ere-rando-ski-h-f-cdd-40-villeneuve-decathlon-ch",
+      "slug": "addetto-a-alla-cassa-consulente-escursionismo-sci-m-f-contratto-a-tempo-determinato-40-villeneuve-decathlon-villeneuve",
       "slugByLocale": {
         "fr": "hote-esse-de-caisse-conseiller-ere-rando-ski-h-f-cdd-40-villeneuve-decathlon-ch",
-        "it": "hote-esse-de-caisse-conseiller-ere-rando-ski-h-f-cdd-40-villeneuve-decathlon-ch",
-        "en": "hote-esse-de-caisse-conseiller-ere-rando-ski-h-f-cdd-40-villeneuve-decathlon-ch",
-        "de": "hote-esse-de-caisse-conseiller-ere-rando-ski-h-f-cdd-40-villeneuve-decathlon-ch"
+        "it": "addetto-a-alla-cassa-consulente-escursionismo-sci-m-f-contratto-a-tempo-determinato-40-villeneuve-decathlon-villeneuve",
+        "en": "cashier-hiking-ski-advisor-m-f-fixed-term-contract-40-villeneuve-decathlon-villeneuve",
+        "de": "kassenmitarbeiter-in-berater-in-wandern-ski-m-w-befristete-anstellung-40-villeneuve-decathlon-villeneuve"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3503,7 +3528,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T09:28:31.452Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:28:31.452Z"
+      "firstSeenAt": "2026-11-17T09:28:31.452Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hote-esse-de-caisse-conseiller-ere-rando-ski-h-f-cdd-40-villeneuve-decathlon-ch"
+        ],
+        "en": [
+          "hote-esse-de-caisse-conseiller-ere-rando-ski-h-f-cdd-40-villeneuve-decathlon-ch"
+        ],
+        "de": [
+          "hote-esse-de-caisse-conseiller-ere-rando-ski-h-f-cdd-40-villeneuve-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hote-esse-de-caisse-conseiller-ere-rando-ski-h-f-cdd-40-villeneuve-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-fb0687d95393",
