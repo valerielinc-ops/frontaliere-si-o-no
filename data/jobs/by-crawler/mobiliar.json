@@ -166,7 +166,6 @@
         ]
       },
       "sfJobId": "1165809355",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkaufssupport-m-w-d-generalagentur-wil-mobiliar-ch"
@@ -284,7 +283,25 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-11T21:20:59.387Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-10-13T21:12:48.067Z"
+      "firstSeenAt": "2026-10-13T21:12:48.067Z",
+      "previousSlugs": [
+        "proprietario-del-prodotto-gestione-del-contratto-m-f-d-die-mobiliar-bern",
+        "product-owner-process-contract-management-m-f-d-die-mobiliar-bern",
+        "processus-du-proprietaire-du-produit-gestion-des-contrats-h-f-d-die-mobiliar-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "proprietario-del-prodotto-gestione-del-contratto-m-f-d-die-mobiliar-bern",
+          "product-owner-process-contract-management-m-f-d-die-mobiliar-bern",
+          "processus-du-proprietaire-du-produit-gestion-des-contrats-h-f-d-die-mobiliar-bern"
+        ],
+        "en": [
+          "product-owner-process-contract-management-m-f-d-die-mobiliar-bern"
+        ],
+        "fr": [
+          "processus-du-proprietaire-du-produit-gestion-des-contrats-h-f-d-die-mobiliar-bern"
+        ]
+      }
     },
     {
       "id": "mobiliar-b955e2146ee0",
@@ -465,7 +482,8 @@
       "sfJobId": "1165518755",
       "previousSlugsByLocale": {
         "it": [
-          "spezialist-mahnen-betreiben-w-m-d-mobiliar-ch"
+          "spezialist-mahnen-betreiben-w-m-d-mobiliar-ch",
+          "promemoria-specialistica-e-funzionamento-m-f-d-die-mobiliar-bern"
         ],
         "en": [
           "specialist-reminders-operating-m-f-d-die-mobiliar-bern"
@@ -477,7 +495,8 @@
       "previousSlugs": [
         "spezialist-mahnen-betreiben-w-m-d-mobiliar-ch",
         "specialist-reminders-operating-m-f-d-die-mobiliar-bern",
-        "rappels-specialises-et-exploitation-h-f-d-die-mobiliar-bern"
+        "rappels-specialises-et-exploitation-h-f-d-die-mobiliar-bern",
+        "promemoria-specialistica-e-funzionamento-m-f-d-die-mobiliar-bern"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -560,7 +579,6 @@
         ]
       },
       "sfJobId": "1165807755",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "berater-assistance-soforthilfe-w-m-d-mobiliar-ch"
@@ -755,7 +773,6 @@
         ]
       },
       "sfJobId": "1165802555",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "schadenmitarbeiter-w-m-d-generalagentur-horgen-mobiliar-ch"
@@ -837,7 +854,6 @@
         "de": []
       },
       "sfJobId": "1165802655",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-verkaufssupport-w-m-d-generalagentur-chur-mobiliar-ch"
