@@ -18,34 +18,80 @@ afterEach(() => {
 });
 
 describe('public config edge route', () => {
-  it('enables Cloudflare caching, drops request credentials and shares an in-flight fill', async () => {
-    let resolveUpstream!: (response: Response) => void;
+  it('enables Cloudflare caching, drops request credentials and keeps concurrent fetches request-local', async () => {
+    const resolveUpstream: Array<(response: Response) => void> = [];
     const fetchMock = vi.spyOn(globalThis, 'fetch').mockImplementation(() => new Promise((resolve) => {
-      resolveUpstream = resolve;
+      resolveUpstream.push(resolve);
     }));
-    const firstRequest = worker.fetch(new Request(`${CACHE_KEY}?first=1`, {
-      headers: { Cookie: 'private=discarded', Authorization: 'Bearer discarded' },
-    }), {});
-    const secondRequest = worker.fetch(new Request(`${CACHE_KEY}?second=2`), {});
-    await Promise.resolve();
-    resolveUpstream(new Response(
-      JSON.stringify({ FIREBASE_API_KEY: 'public-key' }),
-      { status: 200, headers: { 'Content-Type': 'application/json', 'Cache-Control': 'public, max-age=300, s-maxage=300' } },
-    ));
-    const [first, second] = await Promise.all([firstRequest, secondRequest]);
+    const requests = [
+      worker.fetch(new Request(`${CACHE_KEY}?first=1`, {
+        headers: { Cookie: 'private=discarded', Authorization: 'Bearer discarded' },
+      }), {}),
+      worker.fetch(new Request(`${CACHE_KEY}?second=2`), {}),
+      worker.fetch(new Request(`${CACHE_KEY}?third=3`), {}),
+    ];
 
-    expect(first.status).toBe(200);
-    expect(first.headers.get('Cache-Control')).toBe('public, max-age=300, s-maxage=300');
-    expect(fetchMock).toHaveBeenCalledExactlyOnceWith(PUBLIC_CONFIG_ORIGIN, {
-      method: 'GET',
-      headers: { Accept: 'application/json', 'Accept-Encoding': 'identity' },
-      cf: { cacheEverything: true },
-    });
-    expect(second.status).toBe(200);
-    expect(await second.json()).toEqual({ FIREBASE_API_KEY: 'public-key' });
+    expect(fetchMock).toHaveBeenCalledTimes(requests.length);
+    expect(resolveUpstream).toHaveLength(requests.length);
+    resolveUpstream.forEach((resolve, index) => resolve(new Response(
+      JSON.stringify({ FIREBASE_API_KEY: `public-key-${index + 1}` }),
+      {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': 'public, max-age=300, s-maxage=300',
+          'X-Upstream-Request': String(index + 1),
+        },
+      },
+    )));
+    const responses = await Promise.all(requests);
+
+    expect(responses.map((response) => response.status)).toEqual([200, 200, 200]);
+    expect(responses.map((response) => response.headers.get('X-Upstream-Request'))).toEqual(['1', '2', '3']);
+    expect(responses.map((response) => response.headers.get('Cache-Control'))).toEqual([
+      'public, max-age=300, s-maxage=300',
+      'public, max-age=300, s-maxage=300',
+      'public, max-age=300, s-maxage=300',
+    ]);
+    expect(await Promise.all(responses.map((response) => response.json()))).toEqual([
+      { FIREBASE_API_KEY: 'public-key-1' },
+      { FIREBASE_API_KEY: 'public-key-2' },
+      { FIREBASE_API_KEY: 'public-key-3' },
+    ]);
+    expect(fetchMock).toHaveBeenCalledTimes(requests.length);
+    for (let index = 1; index <= requests.length; index += 1) {
+      expect(fetchMock).toHaveBeenNthCalledWith(index, PUBLIC_CONFIG_ORIGIN, {
+        method: 'GET',
+        headers: { Accept: 'application/json', 'Accept-Encoding': 'identity' },
+        cf: { cacheEverything: true },
+      });
+    }
     const cache = (globalThis as unknown as { caches: { default: { match: ReturnType<typeof vi.fn>; put: ReturnType<typeof vi.fn> } } }).caches.default;
     expect(cache.match).not.toHaveBeenCalled();
     expect(cache.put).not.toHaveBeenCalled();
+  });
+
+  it('fails open on an upstream 5xx without affecting the next request', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValueOnce(new Response('temporarily unavailable', { status: 503 }))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ FIREBASE_API_KEY: 'recovered-key' }), {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': 'public, max-age=300, s-maxage=300',
+        },
+      }));
+
+    const failed = await worker.fetch(new Request(CACHE_KEY), {});
+    const recovered = await worker.fetch(new Request(CACHE_KEY), {});
+
+    expect(failed.status).toBe(200);
+    expect(failed.headers.get('Cache-Control')).toBe('no-store');
+    expect(await failed.json()).toEqual({});
+    expect(recovered.status).toBe(200);
+    expect(recovered.headers.get('Cache-Control')).toBe('public, max-age=300, s-maxage=300');
+    expect(await recovered.json()).toEqual({ FIREBASE_API_KEY: 'recovered-key' });
+    expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 
   it('preserves no-store on the function fail-open response', async () => {
@@ -74,9 +120,18 @@ describe('public config edge route', () => {
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
-  it('fails open with a non-cacheable response when the function is unreachable', async () => {
+  it('fails open independently when fetch is unreachable and a later request recovers', async () => {
     const errorLog = vi.spyOn(console, 'error').mockImplementation(() => {});
-    const fetchMock = vi.spyOn(globalThis, 'fetch').mockRejectedValue(new Error('network unavailable'));
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockRejectedValueOnce(new Error('network unavailable'))
+      .mockRejectedValueOnce(new Error('network unavailable'))
+      .mockResolvedValueOnce(new Response(JSON.stringify({ FIREBASE_API_KEY: 'recovered-key' }), {
+        status: 200,
+        headers: {
+          'Content-Type': 'application/json',
+          'Cache-Control': 'public, max-age=300, s-maxage=300',
+        },
+      }));
     const [response, concurrentResponse] = await Promise.all([
       worker.fetch(new Request(CACHE_KEY), {}),
       worker.fetch(new Request(`${CACHE_KEY}?concurrent=1`), {}),
@@ -89,7 +144,11 @@ describe('public config edge route', () => {
     expect(concurrentResponse.status).toBe(200);
     expect(concurrentResponse.headers.get('Cache-Control')).toBe('no-store');
     expect(await concurrentResponse.json()).toEqual({});
-    expect(fetchMock).toHaveBeenCalledTimes(1);
+    const recovered = await worker.fetch(new Request(CACHE_KEY), {});
+    expect(recovered.status).toBe(200);
+    expect(recovered.headers.get('Cache-Control')).toBe('public, max-age=300, s-maxage=300');
+    expect(await recovered.json()).toEqual({ FIREBASE_API_KEY: 'recovered-key' });
+    expect(fetchMock).toHaveBeenCalledTimes(3);
     expect(errorLog).toHaveBeenCalledTimes(2);
     expect(errorLog.mock.calls.map(([entry]) => JSON.parse(String(entry)))).toEqual([
       { event: 'origin_failure', reason: 'public-config', path: '/api/public-config/' },
