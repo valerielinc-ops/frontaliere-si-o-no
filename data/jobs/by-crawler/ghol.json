@@ -1,15 +1,15 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-11-16T09:25:25.756Z",
-  "runId": "43838527664",
+  "assembledAt": "2026-11-17T09:32:25.993Z",
+  "runId": "44054287640",
   "jobs": [
     {
       "id": "ghol-52354c0ae92c",
       "slug": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
       "slugByLocale": {
         "it": "cuoco-a-dietista-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "fr": "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
@@ -50,7 +50,7 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:25:20.419Z",
+      "crawledAt": "2026-11-17T09:32:21.368Z",
       "needsRetranslation": false,
       "requirementsByLocale": {
         "it": [
@@ -79,8 +79,8 @@
       "previousSlugs": [
         "cucina-alimentare-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -88,10 +88,10 @@
           "cuisinier-ere-en-dietetique-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "en": [
-          "dietary-cooking-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "dietetic-chef-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ],
         "de": [
-          "diatkuche-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+          "diatkoch-kochin-groupement-hospitalier-de-l-ouest-lemanique-nyon"
         ]
       },
       "firstSeenAt": "2026-05-20T05:15:42.711Z",
@@ -110,7 +110,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T09:25:20.419Z",
+      "validThrough": "2026-12-17T09:32:21.368Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -160,7 +160,7 @@
       "applyUrl": "https://app.beehire.com/invite/tGAb_cui0",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:25:20.418Z",
+      "crawledAt": "2026-11-17T09:32:21.367Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "infirmier-ere-chef-fe-des-urgences-adultes-groupement-hospitalier-de-l-ouest-lemanique"
@@ -192,7 +192,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-23T09:25:20.418Z",
+      "validThrough": "2026-12-23T09:32:21.367Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -242,7 +242,7 @@
       "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:25:20.418Z",
+      "crawledAt": "2026-11-17T09:32:21.367Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l"
@@ -268,7 +268,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T09:25:20.418Z",
+      "validThrough": "2026-12-17T09:32:21.367Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -318,7 +318,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:25:20.418Z",
+      "crawledAt": "2026-11-17T09:32:21.367Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "cura-e-supporto-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -350,7 +350,7 @@
       },
       "streetAddress": "Rolle",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T09:25:20.418Z",
+      "validThrough": "2026-12-17T09:32:21.367Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -400,7 +400,7 @@
       "applyUrl": "https://app.beehire.com/invite/I_TEMIvLa",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:25:20.417Z",
+      "crawledAt": "2026-11-17T09:32:21.366Z",
       "previousSlugs": [
         "medecin-assistant-e-en-cabinet-forcab-mfe-region-ouest-groupement-hospitalier-de-l-ouest"
       ],
@@ -425,88 +425,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-01T09:25:20.417Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "ghol-ecf3f8695ba9",
-      "slug": "responsabile-della-gestione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-      "slugByLocale": {
-        "it": "responsabile-della-gestione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "en": "stewardship-manager-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "de": "stewardship-manager-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      },
-      "company": "Groupement Hospitalier de l'Ouest Lémanique",
-      "companyKey": "ghol",
-      "companyDomain": "ghol.ch",
-      "title": "Gestionnaire en intendance",
-      "titleByLocale": {
-        "it": "Responsabile della gestione",
-        "en": "Stewardship Manager",
-        "de": "Stewardship Manager",
-        "fr": "Gestionnaire en intendance"
-      },
-      "description": "Le Groupement Hospitalier de l’Ouest Lémanique (GHOL) est une institution de santé reconnue d’intérêt public, au service de la population de la région. À travers ses établissements de Nyon et de Rolle, il propose une offre de soins diversifiée et veille à garantir une prise en charge de qualité dans un environnement accueillant, sûr et adapté aux besoins des patient·es.\n Au sein de notre service d’intendance, vous contribuez quotidiennement à la qualité de l’accueil et au bien-être des patient·es, du personnel et des visiteurs. Par votre travail, vous participez au maintien d’un environnement propre, agréable et respectueux des exigences d’hygiène propres au milieu hospitalier.\n Afin de garantir une meilleure coordination des activités et un suivi de proximité des équipes, le rôle de nos gestionnaires en intendance est axé vers davantage de pilotage des secteurs et d’accompagnement des employé·es dans leur quotidien.\n Votre mission:\n\n• Assurer le bon fonctionnement quotidien des activités hôtelières sur le terrain\n\n• Organiser et répartir les tâches des équipes\n\n• Gérer les imprévus et superviser les activités du secteur\n\n• Assurer les contrôles qualité de premier niveau\n\n• Participer à l'intégration et à la formation des collaborateurs\n\n• Veiller au respect des standards institutionnels\n Votre profil:\n\n• CFC de Gestionnaire en intendance\n\n• Minimum 3 ans d'expérience dans un établissement de santé\n\n• Sens de l'organisation, autonomie et esprit d'équipe\n\n• Excellentes compétences relationnelles et sens des responsabilités\n Nous offrons:\n\n• Une activité variée au sein d'un environnement hospitalier dynamique\n\n• Une collaboration étroite avec les différents services de l'institution\n\n• Des prestations de la convention collective du secteur sanitaire parapublic vaudois (CCT-San)\n\n• Des avantages collaborateurs et des tarifs préférentiels auprès d’enseignes de la région\n\n• Un restaurant du personnel avec participation aux coûts des repas\n\n• Une priorité d’admission aux enfants du personnel à la crèche Le Carrousel\n\n• Des événements institutionnels\n Vous vous reconnaissez dans ce profil et souhaitez rejoindre un service offrant un environnement de travail stimulant ? Nous nous réjouissons de recevoir votre candidature.",
-      "descriptionByLocale": {
-        "it": "Il Groupement Hospitalier de l'Ouest Lémanique (GHOL) è un istituto sanitario pubblicamente riconosciuto che serve la popolazione della regione. Attraverso le sue strutture a Nyon e Rolle, offre una vasta gamma di cura e garantisce una cura della qualità in un ambiente accogliente, sicuro e reattivo.\nAll'interno del nostro dipartimento di stewardship, contribuite quotidianamente alla qualità della ricezione e del benessere dei pazienti, del personale e dei visitatori. Attraverso il vostro lavoro, siete coinvolti nel mantenere un ambiente pulito e piacevole che rispetta i requisiti igienici dell'ambiente ospedaliero.\nAl fine di garantire un migliore coordinamento delle attività e un attento monitoraggio dei team, il ruolo dei nostri manager nella gestione è rivolto a più sterzo dei settori e ai dipendenti che accompagnano nella loro vita quotidiana.\nLa vostra missione:\n\n• Garantire il funzionamento quotidiano delle attività alberghiere nel campo\n\n• Organizzare e assegnare i compiti dei team\n\n• Gestione delle contingenze e supervisione delle attività del settore\n\n• Garantire controlli di qualità di primo livello\n\n• Partecipazione all'integrazione e formazione dei dipendenti\n\n• Assicurare il rispetto delle norme istituzionali\nIl tuo profilo:\n\n• Direttore di gestione SWC\n\n• Minimo 3 anni di esperienza in un impianto sanitario\n\n• Senso organizzativo, autonomia e spirito di squadra\n\n• Eccellente capacità relazionali e senso di responsabilità\nOffriamo:\n\n• Una varia attività all'interno di un ambiente ospedaliero dinamico\n\n• Cooperazione stretta con i vari dipartimenti dell'istituzione\n\n• Benefici dell'accordo collettivo per il settore della sanità pubblica (CCT-San)\n\n• Collaborare vantaggi e tariffe preferenziali con i marchi locali\n\n• Un ristorante personale con condivisione dei costi dei pasti\n\n• Priorità per l'ammissione dei bambini del personale alla scuola materna Le Carrousel\n\n• Eventi istituzionali\nTi riconosci in questo profilo e vuoi unire un servizio che offre un ambiente di lavoro stimolante? Non vediamo l'ora di ricevere la vostra domanda.",
-        "en": "The Groupement Hospitalier de l'Ouest Lémanique (GHOL) is a publicly recognized health institution serving the population of the region. Through its facilities in Nyon and Rolle, it offers a diverse range of care and ensures quality care in a welcoming, safe and responsive environment.\nWithin our stewardship department, you contribute daily to the quality of reception and well-being of patients, staff and visitors. Through your work, you are involved in maintaining a clean, pleasant environment that respects the hygiene requirements of the hospital environment.\nIn order to ensure better coordination of activities and close monitoring of teams, the role of our managers in stewardship is directed towards more steering of sectors and accompanying employees in their daily lives.\nYour mission:\n\n• Ensuring the daily functioning of hotel activities in the field\n\n• Organize and allocate the tasks of the teams\n\n• Manage contingencies and oversee sector activities\n\n• Ensuring first level quality controls\n\n• Participate in the integration and training of employees\n\n• Ensure compliance with institutional standards\nYour profile:\n\n• Stewardship Manager SWC\n\n• Minimum 3 years of experience in a health facility\n\n• Organizational sense, autonomy and team spirit\n\n• Excellent relational skills and sense of responsibility\nWe offer:\n\n• A varied activity within a dynamic hospital environment\n\n• Close cooperation with the various departments of the institution\n\n• Benefits of the collective agreement for the public health sector (CCT-San)\n\n• Collaborating advantages and preferential rates with local brands\n\n• A staff restaurant with meal cost sharing\n\n• Priority for admission of staff children to the Le Carrousel nursery\n\n• Institutional events\nDo you recognize yourself in this profile and want to join a service offering a stimulating work environment? We look forward to receiving your application.",
-        "de": "Das Groupement Hospitalier de l'Ouest Lémanique (GHOL) ist eine öffentlich anerkannte Gesundheitseinrichtung, die der Bevölkerung der Region dient. Durch seine Einrichtungen in Nyon und Rolle bietet es ein vielfältiges Pflegeangebot und sorgt für eine qualitativ hochwertige Pflege in einer einladenden, sicheren und reaktionsschnellen Umgebung.\nIn unserer Stewardship-Abteilung tragen Sie täglich zur Qualität der Aufnahme und des Wohlbefindens von Patienten, Mitarbeitern und Besuchern bei. Durch Ihre Arbeit sind Sie daran beteiligt, eine saubere, angenehme Umgebung zu erhalten, die die Hygieneanforderungen des Krankenhausumfeldes respektiert.\nUm eine bessere Koordination der Aktivitäten und eine enge Überwachung der Teams zu gewährleisten, ist die Rolle unserer Führungskräfte in der Verwaltung auf eine stärkere Steuerung der Sektoren und die Begleitung der Mitarbeiter in ihrem täglichen Leben ausgerichtet.\nIhre Mission:\n\n• Sicherstellung des täglichen Funktionierens der Hotelaktivitäten vor Ort\n\n• Organisation und Zuweisung der Aufgaben der Teams\n\n• Umgang mit unvorhergesehenen Ereignissen und Überwachung der Tätigkeiten des Sektors\n\n• Gewährleistung von First Level Qualitätskontrollen\n\n• Teilnahme an der Integration und Schulung von Mitarbeitern\n\n• Gewährleistung der Einhaltung institutioneller Standards\nIhr Profil:\n\n• Stewardship Manager SWC\n\n• Mindestens 3 Jahre Erfahrung in einer Gesundheitseinrichtung\n\n• Organisationssinn, Autonomie und Teamgeist\n\n• Exzellente relationale Fähigkeiten und Verantwortungsbewusstsein\nWir bieten:\n\n• Eine abwechslungsreiche Aktivität in einem dynamischen Krankenhausumfeld\n\n• Enge Zusammenarbeit mit den verschiedenen Abteilungen der Institution\n\n• Vorteile des Tarifvertrags für den öffentlichen Gesundheitssektor (CCT-San)\n\n• Zusammenarbeit von Vorteilen und Vorzugstarifen mit lokalen Marken\n\n• Ein Personalrestaurant mit Kostenteilung für Mahlzeiten\n\n• Priorität für die Zulassung von Personalkindern in die Kindertagesstätte Le Carrousel\n\n• Institutionelle Veranstaltungen\nErkennen Sie sich in diesem Profil wieder und möchten sich einem Service anschließen, der ein anregendes Arbeitsumfeld bietet? Wir freuen uns auf Ihre Bewerbung.",
-        "fr": "Le Groupement Hospitalier de l’Ouest Lémanique (GHOL) est une institution de santé reconnue d’intérêt public, au service de la population de la région. À travers ses établissements de Nyon et de Rolle, il propose une offre de soins diversifiée et veille à garantir une prise en charge de qualité dans un environnement accueillant, sûr et adapté aux besoins des patient·es.\nAu sein de notre service d’intendance, vous contribuez quotidiennement à la qualité de l’accueil et au bien-être des patient·es, du personnel et des visiteurs. Par votre travail, vous participez au maintien d’un environnement propre, agréable et respectueux des exigences d’hygiène propres au milieu hospitalier.\nAfin de garantir une meilleure coordination des activités et un suivi de proximité des équipes, le rôle de nos gestionnaires en intendance est axé vers davantage de pilotage des secteurs et d’accompagnement des employé·es dans leur quotidien.\nVotre mission:\n\n• Assurer le bon fonctionnement quotidien des activités hôtelières sur le terrain\n\n• Organiser et répartir les tâches des équipes\n\n• Gérer les imprévus et superviser les activités du secteur\n\n• Assurer les contrôles qualité de premier niveau\n\n• Participer à l'intégration et à la formation des collaborateurs\n\n• Veiller au respect des standards institutionnels\nVotre profil:\n\n• CFC de Gestionnaire en intendance\n\n• Minimum 3 ans d'expérience dans un établissement de santé\n\n• Sens de l'organisation, autonomie et esprit d'équipe\n\n• Excellentes compétences relationnelles et sens des responsabilités\nNous offrons:\n\n• Une activité variée au sein d'un environnement hospitalier dynamique\n\n• Une collaboration étroite avec les différents services de l'institution\n\n• Des prestations de la convention collective du secteur sanitaire parapublic vaudois (CCT-San)\n\n• Des avantages collaborateurs et des tarifs préférentiels auprès d’enseignes de la région\n\n• Un restaurant du personnel avec participation aux coûts des repas\n\n• Une priorité d’admission aux enfants du personnel à la crèche Le Carrousel\n\n• Des événements institutionnels\nVous vous reconnaissez dans ce profil et souhaitez rejoindre un service offrant un environnement de travail stimulant ? Nous nous réjouissons de recevoir votre candidature."
-      },
-      "location": "Nyon",
-      "canton": "VD",
-      "addressLocality": "Nyon",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1260",
-      "category": "healthcare",
-      "sector": "Salute / Ospedale",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://app.beehire.com/invite/jsVFtWAvo",
-      "applyUrl": "https://app.beehire.com/invite/jsVFtWAvo",
-      "source": "GHOL Dedicated Parser (Beehire public API)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:25:20.416Z",
-      "previousSlugs": [
-        "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "en": [
-          "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ],
-        "de": [
-          "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
-        ]
-      },
-      "firstSeenAt": "2026-10-12T09:24:39.247Z",
-      "salaryMin": 116500,
-      "salaryMax": 162500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 116500,
-          "maxValue": 162500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Nyon",
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:25:20.416Z",
+      "validThrough": "2027-01-01T09:32:21.366Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -556,7 +475,7 @@
       "applyUrl": "https://app.beehire.com/invite/yxQoAFzqJ",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:25:20.415Z",
+      "crawledAt": "2026-11-17T09:32:21.365Z",
       "previousSlugs": [
         "physiotherapeute-groupement-hospitalier-de-l-ouest-lemanique-nyon"
       ],
@@ -587,7 +506,7 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-26T09:25:20.415Z",
+      "validThrough": "2026-12-26T09:32:21.365Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -637,7 +556,7 @@
       "applyUrl": "https://app.beehire.com/invite/5d21Gnrjl",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:25:20.415Z",
+      "crawledAt": "2026-11-17T09:32:21.365Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "collaborateur-trice-facturation-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -669,7 +588,88 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-18T09:25:20.415Z",
+      "validThrough": "2027-01-18T09:32:21.365Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "ghol-ecf3f8695ba9",
+      "slug": "responsabile-della-gestione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "it": "responsabile-della-gestione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "stewardship-manager-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "stewardship-manager-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "fr": "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Gestionnaire en intendance",
+      "titleByLocale": {
+        "it": "Responsabile della gestione",
+        "en": "Stewardship Manager",
+        "de": "Stewardship Manager",
+        "fr": "Gestionnaire en intendance"
+      },
+      "description": "Le Groupement Hospitalier de l’Ouest Lémanique (GHOL) est une institution de santé reconnue d’intérêt public, au service de la population de la région. À travers ses établissements de Nyon et de Rolle, il propose une offre de soins diversifiée et veille à garantir une prise en charge de qualité dans un environnement accueillant, sûr et adapté aux besoins des patient·es.\n Au sein de notre service d’intendance, vous contribuez quotidiennement à la qualité de l’accueil et au bien-être des patient·es, du personnel et des visiteurs. Par votre travail, vous participez au maintien d’un environnement propre, agréable et respectueux des exigences d’hygiène propres au milieu hospitalier.\n Afin de garantir une meilleure coordination des activités et un suivi de proximité des équipes, le rôle de nos gestionnaires en intendance est axé vers davantage de pilotage des secteurs et d’accompagnement des employé·es dans leur quotidien.\n Votre mission:\n\n• Assurer le bon fonctionnement quotidien des activités hôtelières sur le terrain\n\n• Organiser et répartir les tâches des équipes\n\n• Gérer les imprévus et superviser les activités du secteur\n\n• Assurer les contrôles qualité de premier niveau\n\n• Participer à l'intégration et à la formation des collaborateurs\n\n• Veiller au respect des standards institutionnels\n Votre profil:\n\n• CFC de Gestionnaire en intendance\n\n• Minimum 3 ans d'expérience dans un établissement de santé\n\n• Sens de l'organisation, autonomie et esprit d'équipe\n\n• Excellentes compétences relationnelles et sens des responsabilités\n Nous offrons:\n\n• Une activité variée au sein d'un environnement hospitalier dynamique\n\n• Une collaboration étroite avec les différents services de l'institution\n\n• Des prestations de la convention collective du secteur sanitaire parapublic vaudois (CCT-San)\n\n• Des avantages collaborateurs et des tarifs préférentiels auprès d’enseignes de la région\n\n• Un restaurant du personnel avec participation aux coûts des repas\n\n• Une priorité d’admission aux enfants du personnel à la crèche Le Carrousel\n\n• Des événements institutionnels\n Vous vous reconnaissez dans ce profil et souhaitez rejoindre un service offrant un environnement de travail stimulant ? Nous nous réjouissons de recevoir votre candidature.",
+      "descriptionByLocale": {
+        "it": "Il Groupement Hospitalier de l'Ouest Lémanique (GHOL) è un istituto sanitario pubblicamente riconosciuto che serve la popolazione della regione. Attraverso le sue strutture a Nyon e Rolle, offre una vasta gamma di cura e garantisce una cura della qualità in un ambiente accogliente, sicuro e reattivo.\nAll'interno del nostro dipartimento di stewardship, contribuite quotidianamente alla qualità della ricezione e del benessere dei pazienti, del personale e dei visitatori. Attraverso il vostro lavoro, siete coinvolti nel mantenere un ambiente pulito e piacevole che rispetta i requisiti igienici dell'ambiente ospedaliero.\nAl fine di garantire un migliore coordinamento delle attività e un attento monitoraggio dei team, il ruolo dei nostri manager nella gestione è rivolto a più sterzo dei settori e ai dipendenti che accompagnano nella loro vita quotidiana.\nLa vostra missione:\n\n• Garantire il funzionamento quotidiano delle attività alberghiere nel campo\n\n• Organizzare e assegnare i compiti dei team\n\n• Gestione delle contingenze e supervisione delle attività del settore\n\n• Garantire controlli di qualità di primo livello\n\n• Partecipazione all'integrazione e formazione dei dipendenti\n\n• Assicurare il rispetto delle norme istituzionali\nIl tuo profilo:\n\n• Direttore di gestione SWC\n\n• Minimo 3 anni di esperienza in un impianto sanitario\n\n• Senso organizzativo, autonomia e spirito di squadra\n\n• Eccellente capacità relazionali e senso di responsabilità\nOffriamo:\n\n• Una varia attività all'interno di un ambiente ospedaliero dinamico\n\n• Cooperazione stretta con i vari dipartimenti dell'istituzione\n\n• Benefici dell'accordo collettivo per il settore della sanità pubblica (CCT-San)\n\n• Collaborare vantaggi e tariffe preferenziali con i marchi locali\n\n• Un ristorante personale con condivisione dei costi dei pasti\n\n• Priorità per l'ammissione dei bambini del personale alla scuola materna Le Carrousel\n\n• Eventi istituzionali\nTi riconosci in questo profilo e vuoi unire un servizio che offre un ambiente di lavoro stimolante? Non vediamo l'ora di ricevere la vostra domanda.",
+        "en": "The Groupement Hospitalier de l'Ouest Lémanique (GHOL) is a publicly recognized health institution serving the population of the region. Through its facilities in Nyon and Rolle, it offers a diverse range of care and ensures quality care in a welcoming, safe and responsive environment.\nWithin our stewardship department, you contribute daily to the quality of reception and well-being of patients, staff and visitors. Through your work, you are involved in maintaining a clean, pleasant environment that respects the hygiene requirements of the hospital environment.\nIn order to ensure better coordination of activities and close monitoring of teams, the role of our managers in stewardship is directed towards more steering of sectors and accompanying employees in their daily lives.\nYour mission:\n\n• Ensuring the daily functioning of hotel activities in the field\n\n• Organize and allocate the tasks of the teams\n\n• Manage contingencies and oversee sector activities\n\n• Ensuring first level quality controls\n\n• Participate in the integration and training of employees\n\n• Ensure compliance with institutional standards\nYour profile:\n\n• Stewardship Manager SWC\n\n• Minimum 3 years of experience in a health facility\n\n• Organizational sense, autonomy and team spirit\n\n• Excellent relational skills and sense of responsibility\nWe offer:\n\n• A varied activity within a dynamic hospital environment\n\n• Close cooperation with the various departments of the institution\n\n• Benefits of the collective agreement for the public health sector (CCT-San)\n\n• Collaborating advantages and preferential rates with local brands\n\n• A staff restaurant with meal cost sharing\n\n• Priority for admission of staff children to the Le Carrousel nursery\n\n• Institutional events\nDo you recognize yourself in this profile and want to join a service offering a stimulating work environment? We look forward to receiving your application.",
+        "de": "Das Groupement Hospitalier de l'Ouest Lémanique (GHOL) ist eine öffentlich anerkannte Gesundheitseinrichtung, die der Bevölkerung der Region dient. Durch seine Einrichtungen in Nyon und Rolle bietet es ein vielfältiges Pflegeangebot und sorgt für eine qualitativ hochwertige Pflege in einer einladenden, sicheren und reaktionsschnellen Umgebung.\nIn unserer Stewardship-Abteilung tragen Sie täglich zur Qualität der Aufnahme und des Wohlbefindens von Patienten, Mitarbeitern und Besuchern bei. Durch Ihre Arbeit sind Sie daran beteiligt, eine saubere, angenehme Umgebung zu erhalten, die die Hygieneanforderungen des Krankenhausumfeldes respektiert.\nUm eine bessere Koordination der Aktivitäten und eine enge Überwachung der Teams zu gewährleisten, ist die Rolle unserer Führungskräfte in der Verwaltung auf eine stärkere Steuerung der Sektoren und die Begleitung der Mitarbeiter in ihrem täglichen Leben ausgerichtet.\nIhre Mission:\n\n• Sicherstellung des täglichen Funktionierens der Hotelaktivitäten vor Ort\n\n• Organisation und Zuweisung der Aufgaben der Teams\n\n• Umgang mit unvorhergesehenen Ereignissen und Überwachung der Tätigkeiten des Sektors\n\n• Gewährleistung von First Level Qualitätskontrollen\n\n• Teilnahme an der Integration und Schulung von Mitarbeitern\n\n• Gewährleistung der Einhaltung institutioneller Standards\nIhr Profil:\n\n• Stewardship Manager SWC\n\n• Mindestens 3 Jahre Erfahrung in einer Gesundheitseinrichtung\n\n• Organisationssinn, Autonomie und Teamgeist\n\n• Exzellente relationale Fähigkeiten und Verantwortungsbewusstsein\nWir bieten:\n\n• Eine abwechslungsreiche Aktivität in einem dynamischen Krankenhausumfeld\n\n• Enge Zusammenarbeit mit den verschiedenen Abteilungen der Institution\n\n• Vorteile des Tarifvertrags für den öffentlichen Gesundheitssektor (CCT-San)\n\n• Zusammenarbeit von Vorteilen und Vorzugstarifen mit lokalen Marken\n\n• Ein Personalrestaurant mit Kostenteilung für Mahlzeiten\n\n• Priorität für die Zulassung von Personalkindern in die Kindertagesstätte Le Carrousel\n\n• Institutionelle Veranstaltungen\nErkennen Sie sich in diesem Profil wieder und möchten sich einem Service anschließen, der ein anregendes Arbeitsumfeld bietet? Wir freuen uns auf Ihre Bewerbung.",
+        "fr": "Le Groupement Hospitalier de l’Ouest Lémanique (GHOL) est une institution de santé reconnue d’intérêt public, au service de la population de la région. À travers ses établissements de Nyon et de Rolle, il propose une offre de soins diversifiée et veille à garantir une prise en charge de qualité dans un environnement accueillant, sûr et adapté aux besoins des patient·es.\nAu sein de notre service d’intendance, vous contribuez quotidiennement à la qualité de l’accueil et au bien-être des patient·es, du personnel et des visiteurs. Par votre travail, vous participez au maintien d’un environnement propre, agréable et respectueux des exigences d’hygiène propres au milieu hospitalier.\nAfin de garantir une meilleure coordination des activités et un suivi de proximité des équipes, le rôle de nos gestionnaires en intendance est axé vers davantage de pilotage des secteurs et d’accompagnement des employé·es dans leur quotidien.\nVotre mission:\n\n• Assurer le bon fonctionnement quotidien des activités hôtelières sur le terrain\n\n• Organiser et répartir les tâches des équipes\n\n• Gérer les imprévus et superviser les activités du secteur\n\n• Assurer les contrôles qualité de premier niveau\n\n• Participer à l'intégration et à la formation des collaborateurs\n\n• Veiller au respect des standards institutionnels\nVotre profil:\n\n• CFC de Gestionnaire en intendance\n\n• Minimum 3 ans d'expérience dans un établissement de santé\n\n• Sens de l'organisation, autonomie et esprit d'équipe\n\n• Excellentes compétences relationnelles et sens des responsabilités\nNous offrons:\n\n• Une activité variée au sein d'un environnement hospitalier dynamique\n\n• Une collaboration étroite avec les différents services de l'institution\n\n• Des prestations de la convention collective du secteur sanitaire parapublic vaudois (CCT-San)\n\n• Des avantages collaborateurs et des tarifs préférentiels auprès d’enseignes de la région\n\n• Un restaurant du personnel avec participation aux coûts des repas\n\n• Une priorité d’admission aux enfants du personnel à la crèche Le Carrousel\n\n• Des événements institutionnels\nVous vous reconnaissez dans ce profil et souhaitez rejoindre un service offrant un environnement de travail stimulant ? Nous nous réjouissons de recevoir votre candidature."
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://app.beehire.com/invite/jsVFtWAvo",
+      "applyUrl": "https://app.beehire.com/invite/jsVFtWAvo",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-17T09:32:21.365Z",
+      "previousSlugs": [
+        "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "en": [
+          "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ],
+        "de": [
+          "gestionnaire-en-intendance-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+        ]
+      },
+      "firstSeenAt": "2026-10-12T09:24:39.247Z",
+      "salaryMin": 116500,
+      "salaryMax": 162500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 116500,
+          "maxValue": 162500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Nyon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-10T09:32:21.365Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -679,24 +679,24 @@
         "it": "segretario-medico-ufficio-privato-del-dr-ramadani-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "en": "medical-secretary-private-office-of-dr-ramadani-groupement-hospitalier-de-l-ouest-lemanique-nyon",
         "de": "medical-secretary-private-office-von-dr-ramadani-groupement-hospitalier-de-l-ouest-lemanique-nyon",
-        "fr": "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
+        "fr": "assistante-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
       },
       "company": "Groupement Hospitalier de l'Ouest Lémanique",
       "companyKey": "ghol",
       "companyDomain": "ghol.ch",
-      "title": "Secrétaire médicale cabinet privé du Dr Ramadani",
+      "title": "Assistante médicale cabinet privé du Dr Ramadani",
       "titleByLocale": {
         "it": "Segretario medico Ufficio privato del Dr. Ramadani",
         "en": "Medical Secretary Private Office of Dr. Ramadani",
         "de": "Medical Secretary Private Office von Dr. Ramadani",
-        "fr": "Secrétaire médicale cabinet privé du Dr Ramadani"
+        "fr": "Assistante médicale cabinet privé du Dr Ramadani"
       },
-      "description": "Cabinet d'urologie – Nyon\n Pour renforcer notre équipe au sein de notre cabinet d'urologie à Nyon, nous recherchons une secrétaire médicale motivée, organisée et consciencieuse pour un poste à 40 %.\n Vos principales responsabilités:\n\n• Gestion des appels téléphoniques et accueil des patients.\n\n• Gestion des courriels et de la correspondance.\n\n• Frappe, mise en page et suivi des rapports médicaux.\n\n• Gestion administrative des dossiers patients.\n\n• Classement et archivage des documents.\n\n• Diverses tâches administratives liées à l'activité du cabinet.\n Votre profil\n\n• •Vous êtes titulaire d'une formation de secrétaire médicale ou disposez d'une expérience équivalente.\n\n• Une expérience dans le domaine médical, idéalement en urologie, constitue un atout.\n\n• Vous avez une excellente maîtrise du français, tant à l'oral qu'à l'écrit.\n\n• Vous êtes à l'aise avec les outils informatiques.\n\n• Vous êtes organisée, autonome, polyvalente et avez le sens des responsabilités.\n\n• Vous appréciez le contact avec les patients et faites preuve d'empathie et de discrétion.\n\n• Vous respectez strictement la confidentialité des informations médicales.\n Nous vous proposons\n\n• Un poste à 40 % au sein d'un cabinet médical spécialisé en urologie.\n\n• Un environnement de travail professionnel et agréable.\n\n• Une activité variée avec des responsabilités administratives diversifiées.\n Intéressée ?\n Nous vous invitons à nous faire parvenir votre dossier de candidature (CV et lettre de motivation) à l'adresse suivante : Durrsim.ramadani@svmed-hin.ch\n Nous nous réjouissons de faire votre connaissance !",
+      "description": "Cabinet d'urologie – Nyon\n Pour renforcer notre équipe au sein de notre cabinet d'urologie à Nyon, nous recherchons une assistante médicale motivée, organisée et consciencieuse pour un poste à 40 %.\n Vos principales responsabilités:\n\n• Assistance pour les cystoscopies\n\n• Changements de sondes vésicales\n\n• Prises de sang et instillations vésicales\n\n• Gestion des appels téléphoniques et accueil des patients.\n\n• Gestion des courriels et de la correspondance.\n\n• Frappe, mise en page et suivi des rapports médicaux.\n\n• Gestion administrative des dossiers patients.\n\n• Classement et archivage des documents.\n\n• Diverses tâches administratives liées à l'activité du cabinet.\n Votre profil\n\n• Vous êtes titulaire d'un CFC d'assistante médicale ou d'une formation de secrétaire médicale ou disposez d'une expérience équivalente.\n\n• Première expérience dans le domaine médical, idéalement en urologie.\n\n• Connaissance du logiciel Axenita, un atout.\n\n• Vous avez une excellente maîtrise du français, tant à l'oral qu'à l'écrit.\n\n• Vous êtes à l'aise avec les outils informatiques.\n\n• Vous êtes organisée, autonome, polyvalente et avez le sens des responsabilités.\n\n• Vous appréciez le contact avec les patients et faites preuve d'empathie et de discrétion.\n\n• Vous respectez strictement la confidentialité des informations médicales.\n Nous vous proposons\n\n• Un poste à 40 % au sein d'un cabinet médical spécialisé en urologie.\n\n• Un environnement de travail professionnel et agréable.\n\n• Une activité variée avec des responsabilités administratives diversifiées.\n Nous nous réjouissons de faire votre connaissance !",
       "descriptionByLocale": {
         "it": "Governo di Urologia – Nyon\nPer rafforzare il nostro team all'interno del nostro studio di urologia a Nyon, stiamo cercando un segretario medico motivato, organizzato e coscienzioso per una posizione del 40%.\nLe vostre principali responsabilità:\n\n• Gestione delle chiamate telefoniche e accoglienza dei pazienti.\n\n• Gestione e-mail e corrispondenza.\n\n• Strike, layout e follow-up dei rapporti medici.\n\n• Gestione amministrativa dei registri dei pazienti.\n\n• Documento di archiviazione e archiviazione.\n\n• Vari compiti amministrativi relativi all'attività dell'impresa.\nIl tuo profilo\n\n•\n• Hai una formazione di segretaria medica o un'esperienza equivalente.\n\n• L'esperienza nel campo medico, idealmente in urologia, è un bene.\n\n• Avete un ottimo comando del francese, sia orale che scritto.\n\n• Sei a tuo agio con strumenti informatici.\n\n• Siete organizzati, autonomi, versatili e avete un senso di responsabilità.\n\n• Apprezzi il contatto con i pazienti e mostra empatia e discrezione.\n\n• Lei rispetta rigorosamente la riservatezza delle informazioni mediche.\nVi offriamo\n\n• Una posizione del 40% in una ditta medica specializzata in urologia.\n\n• Un ambiente di lavoro professionale e piacevole.\n\n• Una variegata attività con diverse responsabilità amministrative.\nInteressante?\nVi invitiamo a inviarci la vostra domanda (CV e lettera di copertura) a Durrsim.ramadani@svmed-hin.ch\nNon vediamo l'ora di incontrarvi!",
         "en": "Urology Cabinet – Nyon\nTo strengthen our team within our urology firm in Nyon, we are looking for a motivated, organized and conscientious medical secretary for a 40% position.\nYour main responsibilities:\n\n• Telephone call management and patient reception.\n\n• E-mail and correspondence management.\n\n• Strike, layout and follow-up of medical reports.\n\n• Administrative management of patient records.\n\n• Document filing and archiving.\n\n• Various administrative tasks related to the activity of the firm.\nYour profile\n\n• •You have a medical secretary training or equivalent experience.\n\n• Experience in the medical field, ideally in urology, is an asset.\n\n• You have an excellent command of French, both oral and written.\n\n• You're comfortable with computer tools.\n\n• You are organized, autonomous, versatile and have a sense of responsibility.\n\n• You appreciate contact with patients and show empathy and discretion.\n\n• You strictly respect the confidentiality of medical information.\nWe offer you\n\n• A 40% position in a medical firm specializing in urology.\n\n• A professional and pleasant working environment.\n\n• A varied activity with diverse administrative responsibilities.\nInterested?\nWe invite you to send us your application (CV and cover letter) to Durrsim.ramadani@svmed-hin.ch\nWe look forward to meeting you!",
         "de": "Urologiekabinett – Nyon\nUm unser Team in unserer Urologiefirma in Nyon zu stärken, suchen wir eine motivierte, organisierte und gewissenhafte medizinische Sekretärin für eine Position von 40%.\nIhre Hauptaufgaben:\n\n• Telefonanrufmanagement und Patientenempfang.\n\n• E-Mail- und Korrespondenzmanagement.\n\n• Streik, Layout und Follow-up von medizinischen Berichten.\n\n• Verwaltung der Patientenakten.\n\n• Archivierung und Archivierung von Dokumenten.\n\n• Verschiedene Verwaltungsaufgaben im Zusammenhang mit der Tätigkeit des Unternehmens.\nDein Profil\n\n•\n• Sie haben eine medizinische Sekretär Ausbildung oder gleichwertige Erfahrung.\n\n• Erfahrung im medizinischen Bereich, idealerweise in der Urologie, ist ein Gewinn.\n\n• Sie haben ein ausgezeichnetes Französisch, sowohl mündlich als auch schriftlich.\n\n• Sie fühlen sich wohl mit Computer-Tools.\n\n• Sie sind organisiert, autonom, vielseitig und haben Verantwortungsbewusstsein.\n\n• Sie schätzen den Kontakt zu Patienten und zeigen Empathie und Diskretion.\n\n• Sie respektieren strikt die Vertraulichkeit der medizinischen Informationen.\nWir bieten Ihnen\n\n• Eine Position von 40% in einer auf Urologie spezialisierten medizinischen Firma.\n\n• Ein professionelles und angenehmes Arbeitsumfeld.\n\n• Eine abwechslungsreiche Tätigkeit mit unterschiedlichen administrativen Verantwortlichkeiten.\nInteressiert?\nWir laden Sie ein, uns Ihre Bewerbung (Lebenslauf und Anschreiben) an Durrsim.ramadani@svmed-hin.ch zu senden\nWir freuen uns auf Sie!",
-        "fr": "Cabinet d'urologie – Nyon\nPour renforcer notre équipe au sein de notre cabinet d'urologie à Nyon, nous recherchons une secrétaire médicale motivée, organisée et consciencieuse pour un poste à 40 %.\nVos principales responsabilités:\n\n• Gestion des appels téléphoniques et accueil des patients.\n\n• Gestion des courriels et de la correspondance.\n\n• Frappe, mise en page et suivi des rapports médicaux.\n\n• Gestion administrative des dossiers patients.\n\n• Classement et archivage des documents.\n\n• Diverses tâches administratives liées à l'activité du cabinet.\nVotre profil\n\n• •Vous êtes titulaire d'une formation de secrétaire médicale ou disposez d'une expérience équivalente.\n\n• Une expérience dans le domaine médical, idéalement en urologie, constitue un atout.\n\n• Vous avez une excellente maîtrise du français, tant à l'oral qu'à l'écrit.\n\n• Vous êtes à l'aise avec les outils informatiques.\n\n• Vous êtes organisée, autonome, polyvalente et avez le sens des responsabilités.\n\n• Vous appréciez le contact avec les patients et faites preuve d'empathie et de discrétion.\n\n• Vous respectez strictement la confidentialité des informations médicales.\nNous vous proposons\n\n• Un poste à 40 % au sein d'un cabinet médical spécialisé en urologie.\n\n• Un environnement de travail professionnel et agréable.\n\n• Une activité variée avec des responsabilités administratives diversifiées.\nIntéressée ?\nNous vous invitons à nous faire parvenir votre dossier de candidature (CV et lettre de motivation) à l'adresse suivante : Durrsim.ramadani@svmed-hin.ch\nNous nous réjouissons de faire votre connaissance !"
+        "fr": "Cabinet d'urologie – Nyon\nPour renforcer notre équipe au sein de notre cabinet d'urologie à Nyon, nous recherchons une assistante médicale motivée, organisée et consciencieuse pour un poste à 40 %.\nVos principales responsabilités:\n\n• Assistance pour les cystoscopies\n\n• Changements de sondes vésicales\n\n• Prises de sang et instillations vésicales\n\n• Gestion des appels téléphoniques et accueil des patients.\n\n• Gestion des courriels et de la correspondance.\n\n• Frappe, mise en page et suivi des rapports médicaux.\n\n• Gestion administrative des dossiers patients.\n\n• Classement et archivage des documents.\n\n• Diverses tâches administratives liées à l'activité du cabinet.\nVotre profil\n\n• Vous êtes titulaire d'un CFC d'assistante médicale ou d'une formation de secrétaire médicale ou disposez d'une expérience équivalente.\n\n• Première expérience dans le domaine médical, idéalement en urologie.\n\n• Connaissance du logiciel Axenita, un atout.\n\n• Vous avez une excellente maîtrise du français, tant à l'oral qu'à l'écrit.\n\n• Vous êtes à l'aise avec les outils informatiques.\n\n• Vous êtes organisée, autonome, polyvalente et avez le sens des responsabilités.\n\n• Vous appréciez le contact avec les patients et faites preuve d'empathie et de discrétion.\n\n• Vous respectez strictement la confidentialité des informations médicales.\nNous vous proposons\n\n• Un poste à 40 % au sein d'un cabinet médical spécialisé en urologie.\n\n• Un environnement de travail professionnel et agréable.\n\n• Une activité variée avec des responsabilités administratives diversifiées.\nNous nous réjouissons de faire votre connaissance !"
       },
       "location": "Nyon",
       "canton": "VD",
@@ -719,13 +719,15 @@
       "applyUrl": "https://app.beehire.com/invite/Vom0mKPyO",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:25:20.414Z",
-      "previousSlugs": [
-        "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
-      ],
+      "crawledAt": "2026-11-17T09:32:21.364Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
-        "it": [
+        "fr": [
           "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
+        ],
+        "it": [
+          "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest",
+          "assistante-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
         ],
         "en": [
           "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
@@ -734,6 +736,10 @@
           "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
         ]
       },
+      "previousSlugs": [
+        "secretaire-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest",
+        "assistante-medicale-cabinet-prive-du-dr-ramadani-groupement-hospitalier-de-l-ouest"
+      ],
       "firstSeenAt": "2026-11-10T21:51:18.880Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -750,8 +756,76 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T09:25:20.414Z",
+      "validThrough": "2027-02-09T09:32:21.364Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "ghol-b5750f3ce390",
+      "slug": "stagiaire-maturite-professionnelle-commerciale-3-1-groupement-hospitalier-de-l-ouest",
+      "slugByLocale": {
+        "fr": "stagiaire-maturite-professionnelle-commerciale-3-1-groupement-hospitalier-de-l-ouest",
+        "it": "stagiaire-maturite-professionnelle-commerciale-3-1-groupement-hospitalier-de-l-ouest",
+        "en": "stagiaire-maturite-professionnelle-commerciale-3-1-groupement-hospitalier-de-l-ouest",
+        "de": "stagiaire-maturite-professionnelle-commerciale-3-1-groupement-hospitalier-de-l-ouest"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Stagiaire maturité professionnelle commerciale 3+1",
+      "titleByLocale": {
+        "fr": "Stagiaire maturité professionnelle commerciale 3+1",
+        "it": "Stagiaire maturité professionnelle commerciale 3+1",
+        "en": "Stagiaire maturité professionnelle commerciale 3+1",
+        "de": "Stagiaire maturité professionnelle commerciale 3+1"
+      },
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n Le service de la facturation hospitalière est un acteur essentiel du parcours administratif des patients et de la gestion financière de l’hôpital. Nous offrons une première expérience professionnelle enrichissante et formatrice, dans un environnement dynamique et exigeant, qui te permettra de mettre en pratique les connaissances acquises durant tes études.\n Destiné aux étudiants qui, dans le cadre de leur formation en école de commerce ou au gymnase (option économie et commerce), achèvent leur cursus par une année de stage de pratique, ce programme permet de développer des compétences solides, à la fois techniques et interpersonnelles, dans un milieu hospitalier stimulant.\n En complément, tu auras également l’opportunité d’effectuer des stages d’immersion dans d’autres services du GHOL, afin de répondre à l’ensemble de tes objectifs de formation et ainsi mieux comprendre le fonctionnement global de l’hôpital.\n Description du poste :\n En tant que stagiaire 3+1 au service de la facturation hospitalière, tu intégreras pleinement l’équipe et seras impliqué dans ses activités quotidiennes. Sous la supervision d’une formatrice, tu auras l’occasion de :\n\n• Participer à la saisie, au contrôle et au suivi des prestations médicales et paramédicales\n\n• Contribuer à la préparation, l’envoi et le contrôle des factures destinées aux caisses et aux patients\n\n• Assurer certaines tâches administratives de suivi et de coordination\n\n• Collaborer à des projets d’amélioration des processus et outils internes\n\n• Découvrir les interactions avec les différents services hospitaliers\n Profil requis :\n Nous sommes convaincus que ton stage sera couronné de succès grâce, d’une part, à notre engagement dans ta formation et, d’autre part, grâce à ta soif de réussite. Par ailleurs, il te faudra :\n\n• Être en dernière année d’école de commerce / Gymnase, option économie et commerce\n\n• Répondre aux conditions d’admission à la maturité professionnelle commerciale (MPC)\n\n• Un intérêt marqué pour le secteur de la santé et le domaine administratif\n\n• Un sens de l’organisation, rigueur et capacité à travailler en équipe\n\n• Être dynamique, curieux et avoir envie d’apprendre\n Niveau de formation :\n Certificat de maturité gymnasiale",
+      "descriptionByLocale": {
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n Le service de la facturation hospitalière est un acteur essentiel du parcours administratif des patients et de la gestion financière de l’hôpital. Nous offrons une première expérience professionnelle enrichissante et formatrice, dans un environnement dynamique et exigeant, qui te permettra de mettre en pratique les connaissances acquises durant tes études.\n Destiné aux étudiants qui, dans le cadre de leur formation en école de commerce ou au gymnase (option économie et commerce), achèvent leur cursus par une année de stage de pratique, ce programme permet de développer des compétences solides, à la fois techniques et interpersonnelles, dans un milieu hospitalier stimulant.\n En complément, tu auras également l’opportunité d’effectuer des stages d’immersion dans d’autres services du GHOL, afin de répondre à l’ensemble de tes objectifs de formation et ainsi mieux comprendre le fonctionnement global de l’hôpital.\n Description du poste :\n En tant que stagiaire 3+1 au service de la facturation hospitalière, tu intégreras pleinement l’équipe et seras impliqué dans ses activités quotidiennes. Sous la supervision d’une formatrice, tu auras l’occasion de :\n\n• Participer à la saisie, au contrôle et au suivi des prestations médicales et paramédicales\n\n• Contribuer à la préparation, l’envoi et le contrôle des factures destinées aux caisses et aux patients\n\n• Assurer certaines tâches administratives de suivi et de coordination\n\n• Collaborer à des projets d’amélioration des processus et outils internes\n\n• Découvrir les interactions avec les différents services hospitaliers\n Profil requis :\n Nous sommes convaincus que ton stage sera couronné de succès grâce, d’une part, à notre engagement dans ta formation et, d’autre part, grâce à ta soif de réussite. Par ailleurs, il te faudra :\n\n• Être en dernière année d’école de commerce / Gymnase, option économie et commerce\n\n• Répondre aux conditions d’admission à la maturité professionnelle commerciale (MPC)\n\n• Un intérêt marqué pour le secteur de la santé et le domaine administratif\n\n• Un sens de l’organisation, rigueur et capacité à travailler en équipe\n\n• Être dynamique, curieux et avoir envie d’apprendre\n Niveau de formation :\n Certificat de maturité gymnasiale",
+        "it": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n Le service de la facturation hospitalière est un acteur essentiel du parcours administratif des patients et de la gestion financière de l’hôpital. Nous offrons une première expérience professionnelle enrichissante et formatrice, dans un environnement dynamique et exigeant, qui te permettra de mettre en pratique les connaissances acquises durant tes études.\n Destiné aux étudiants qui, dans le cadre de leur formation en école de commerce ou au gymnase (option économie et commerce), achèvent leur cursus par une année de stage de pratique, ce programme permet de développer des compétences solides, à la fois techniques et interpersonnelles, dans un milieu hospitalier stimulant.\n En complément, tu auras également l’opportunité d’effectuer des stages d’immersion dans d’autres services du GHOL, afin de répondre à l’ensemble de tes objectifs de formation et ainsi mieux comprendre le fonctionnement global de l’hôpital.\n Description du poste :\n En tant que stagiaire 3+1 au service de la facturation hospitalière, tu intégreras pleinement l’équipe et seras impliqué dans ses activités quotidiennes. Sous la supervision d’une formatrice, tu auras l’occasion de :\n\n• Participer à la saisie, au contrôle et au suivi des prestations médicales et paramédicales\n\n• Contribuer à la préparation, l’envoi et le contrôle des factures destinées aux caisses et aux patients\n\n• Assurer certaines tâches administratives de suivi et de coordination\n\n• Collaborer à des projets d’amélioration des processus et outils internes\n\n• Découvrir les interactions avec les différents services hospitaliers\n Profil requis :\n Nous sommes convaincus que ton stage sera couronné de succès grâce, d’une part, à notre engagement dans ta formation et, d’autre part, grâce à ta soif de réussite. Par ailleurs, il te faudra :\n\n• Être en dernière année d’école de commerce / Gymnase, option économie et commerce\n\n• Répondre aux conditions d’admission à la maturité professionnelle commerciale (MPC)\n\n• Un intérêt marqué pour le secteur de la santé et le domaine administratif\n\n• Un sens de l’organisation, rigueur et capacité à travailler en équipe\n\n• Être dynamique, curieux et avoir envie d’apprendre\n Niveau de formation :\n Certificat de maturité gymnasiale",
+        "en": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n Le service de la facturation hospitalière est un acteur essentiel du parcours administratif des patients et de la gestion financière de l’hôpital. Nous offrons une première expérience professionnelle enrichissante et formatrice, dans un environnement dynamique et exigeant, qui te permettra de mettre en pratique les connaissances acquises durant tes études.\n Destiné aux étudiants qui, dans le cadre de leur formation en école de commerce ou au gymnase (option économie et commerce), achèvent leur cursus par une année de stage de pratique, ce programme permet de développer des compétences solides, à la fois techniques et interpersonnelles, dans un milieu hospitalier stimulant.\n En complément, tu auras également l’opportunité d’effectuer des stages d’immersion dans d’autres services du GHOL, afin de répondre à l’ensemble de tes objectifs de formation et ainsi mieux comprendre le fonctionnement global de l’hôpital.\n Description du poste :\n En tant que stagiaire 3+1 au service de la facturation hospitalière, tu intégreras pleinement l’équipe et seras impliqué dans ses activités quotidiennes. Sous la supervision d’une formatrice, tu auras l’occasion de :\n\n• Participer à la saisie, au contrôle et au suivi des prestations médicales et paramédicales\n\n• Contribuer à la préparation, l’envoi et le contrôle des factures destinées aux caisses et aux patients\n\n• Assurer certaines tâches administratives de suivi et de coordination\n\n• Collaborer à des projets d’amélioration des processus et outils internes\n\n• Découvrir les interactions avec les différents services hospitaliers\n Profil requis :\n Nous sommes convaincus que ton stage sera couronné de succès grâce, d’une part, à notre engagement dans ta formation et, d’autre part, grâce à ta soif de réussite. Par ailleurs, il te faudra :\n\n• Être en dernière année d’école de commerce / Gymnase, option économie et commerce\n\n• Répondre aux conditions d’admission à la maturité professionnelle commerciale (MPC)\n\n• Un intérêt marqué pour le secteur de la santé et le domaine administratif\n\n• Un sens de l’organisation, rigueur et capacité à travailler en équipe\n\n• Être dynamique, curieux et avoir envie d’apprendre\n Niveau de formation :\n Certificat de maturité gymnasiale",
+        "de": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n Le service de la facturation hospitalière est un acteur essentiel du parcours administratif des patients et de la gestion financière de l’hôpital. Nous offrons une première expérience professionnelle enrichissante et formatrice, dans un environnement dynamique et exigeant, qui te permettra de mettre en pratique les connaissances acquises durant tes études.\n Destiné aux étudiants qui, dans le cadre de leur formation en école de commerce ou au gymnase (option économie et commerce), achèvent leur cursus par une année de stage de pratique, ce programme permet de développer des compétences solides, à la fois techniques et interpersonnelles, dans un milieu hospitalier stimulant.\n En complément, tu auras également l’opportunité d’effectuer des stages d’immersion dans d’autres services du GHOL, afin de répondre à l’ensemble de tes objectifs de formation et ainsi mieux comprendre le fonctionnement global de l’hôpital.\n Description du poste :\n En tant que stagiaire 3+1 au service de la facturation hospitalière, tu intégreras pleinement l’équipe et seras impliqué dans ses activités quotidiennes. Sous la supervision d’une formatrice, tu auras l’occasion de :\n\n• Participer à la saisie, au contrôle et au suivi des prestations médicales et paramédicales\n\n• Contribuer à la préparation, l’envoi et le contrôle des factures destinées aux caisses et aux patients\n\n• Assurer certaines tâches administratives de suivi et de coordination\n\n• Collaborer à des projets d’amélioration des processus et outils internes\n\n• Découvrir les interactions avec les différents services hospitaliers\n Profil requis :\n Nous sommes convaincus que ton stage sera couronné de succès grâce, d’une part, à notre engagement dans ta formation et, d’autre part, grâce à ta soif de réussite. Par ailleurs, il te faudra :\n\n• Être en dernière année d’école de commerce / Gymnase, option économie et commerce\n\n• Répondre aux conditions d’admission à la maturité professionnelle commerciale (MPC)\n\n• Un intérêt marqué pour le secteur de la santé et le domaine administratif\n\n• Un sens de l’organisation, rigueur et capacité à travailler en équipe\n\n• Être dynamique, curieux et avoir envie d’apprendre\n Niveau de formation :\n Certificat de maturité gymnasiale"
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "CONTRACTOR",
+      "experienceLevel": "mid",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://app.beehire.com/invite/NVFf6OQjf",
+      "applyUrl": "https://app.beehire.com/invite/NVFf6OQjf",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-17T09:32:21.364Z",
+      "needsRetranslation": true,
+      "salaryMin": 77500,
+      "salaryMax": 108000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 108000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Nyon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-16T09:32:21.364Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-17T09:32:21.364Z"
     },
     {
       "id": "ghol-672a515466e9",
@@ -800,7 +874,7 @@
       "applyUrl": "https://app.beehire.com/invite/991xXK1-6",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T09:25:20.414Z",
+      "crawledAt": "2026-11-17T09:32:21.364Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "ambulancier-ere-es-groupement-hospitalier-de-l-ouest-lemanique-nyon"
@@ -826,8 +900,212 @@
       },
       "streetAddress": "Nyon",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:25:20.414Z",
+      "validThrough": "2027-01-03T09:32:21.364Z",
       "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "ghol-440c0d8e188b",
+      "slug": "sous-chef-de-cuisine-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "fr": "sous-chef-de-cuisine-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "it": "sous-chef-de-cuisine-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "sous-chef-de-cuisine-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "sous-chef-de-cuisine-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Sous-chef de cuisine",
+      "titleByLocale": {
+        "fr": "Sous-chef de cuisine",
+        "it": "Sous-chef de cuisine",
+        "en": "Sous-chef de cuisine",
+        "de": "Sous-chef de cuisine"
+      },
+      "description": "À propos de nous :\n Rejoindre le Groupement Hospitalier de l’Ouest Lémanique (GHOL), c’est intégrer un hôpital régional à taille humaine, reconnu pour la qualité de sa prise en charge et l’attention portée au bien-être des patients.\n À Nyon, nos équipes conjuguent exigence professionnelle, proximité et esprit de collaboration. Dans ce cadre, nous renforçons notre brigade et recherchons un·e sous-chef de cuisine , animé·e par la nutrition santé, la cuisine diététique de qualité et la gastronomie.\n Votre mission :\n Au sein de la cuisine centrale, vous intégrez une brigade d’environ 20 collaborateurs fonctionnant en horaires continus.\n Véritable lien entre les prescriptions médicales et la gastronomie hospitalière pour nos patients, vous contribuez chaque jour à une alimentation sûre, adaptée et appétissante, participant pleinement au parcours de soins.\n En tant que sous-chef de cuisine , vous assistez le chef des cuisines dans l’organisation, la coordination et le suivi de la production et de la distribution des repas destinés aux patients, aux collaborateurs et aux clients externes. Vous le remplacez en son absence dans le cadre des délégations accordées.\n Dans votre nouvelle fonction, vous serez en charge des principales missions suivantes :\n\n• Participer à l’élaboration des menus en collaboration avec le chef des cuisines et les diététiciennes.\n\n• Assurer le suivi quotidien de la production chaude, froide et diététique et contrôler la qualité gustative, nutritionnelle et esthétique des préparations.\n\n• Veiller au respect des fiches techniques, des normes HACCP, d’hygiène et de sécurité alimentaire.\n\n• Participer aux commandes, contrôler la réception des marchandises et gérer les stocks.\n\n• Encadrer et coordonner les cuisiniers, cuisiniers en diététique, pâtissier, aides de cuisine et apprentis, répartir les tâches et contrôler la qualité du travail effectué.\n\n• Accompagner l’intégration des nouveaux collaborateurs et la formation pratique des apprentis.\n\n• Participer à l’élaboration des plannings de production, à la gestion des absences et à la planification des manifestations et prestations spéciales.\n\n• Veiller à l’état, à l’entretien et à l’utilisation optimale des machines et équipements, et participer à la tenue des inventaires.\n\n• Assurer une présence sur le terrain et intervenir en production lorsque nécessaire.\n\n• Garantir la continuité du fonctionnement des cuisines en l’absence du chef des cuisines\n\n• Contribuer au respect du budget et à l’amélioration continue des prestations en étant force de proposition.\n\n• Participer aux colloques, groupes de travail et audits, et relayer les directives institutionnelles auprès des équipes.\n Profil requis :\n Votre succès est garanti grâce à un/une,\n\n• CFC de cuisinier·ère en diététique ou formation jugée équivalente ; formation complémentaire en gestion ou conduite d’équipe souhaitée.\n\n• Expérience confirmée (min. 5 ans) en cuisine en milieu hospitalier, avec une expérience d’encadrement d’équipe.\n\n• Excellente maîtrise des techniques culinaires modernes et connaissances des régimes et textures adaptés aux patients.\n\n• Maîtrise des normes HACCP et de la législation sur les denrées alimentaires en collectivité.\n\n• Connaissances en gestion des stocks et des commandes.\n\n• Maîtrise des outils informatiques usuels (Excel, Word, logiciels métiers comme Logimen).\n\n• Sens des responsabilités, capacité d’organisation, de planification et de décision opérationnelle.\n\n• Rigueur, réactivité et sens de l’anticipation.\n\n• Esprit d’équipe, communication constructive, sens du service, diplomatie et bonne gestion des conflits.\n Leader de terrain, vous aimez transmettre votre savoir-faire et fédérer votre brigade autour d’une cuisine de qualité, au service des patients.\n Véritable team player, vous favorisez un climat de travail positif et collaboratif et vous êtes à l’aise pour relayer les consignes comme pour faire remonter les besoins de vos équipes.\n Ce que nous offrons :\n Un poste à responsabilités au cœur de la restauration hospitalière, avec un rôle de suppléance du chef des cuisines.\n Un hôpital régional à taille humaine, où la proximité et l’esprit de collaboration comptent.\n Une collaboration étroite avec les diététiciennes et l’ensemble des services du GHOL.",
+      "descriptionByLocale": {
+        "fr": "À propos de nous :\n Rejoindre le Groupement Hospitalier de l’Ouest Lémanique (GHOL), c’est intégrer un hôpital régional à taille humaine, reconnu pour la qualité de sa prise en charge et l’attention portée au bien-être des patients.\n À Nyon, nos équipes conjuguent exigence professionnelle, proximité et esprit de collaboration. Dans ce cadre, nous renforçons notre brigade et recherchons un·e sous-chef de cuisine , animé·e par la nutrition santé, la cuisine diététique de qualité et la gastronomie.\n Votre mission :\n Au sein de la cuisine centrale, vous intégrez une brigade d’environ 20 collaborateurs fonctionnant en horaires continus.\n Véritable lien entre les prescriptions médicales et la gastronomie hospitalière pour nos patients, vous contribuez chaque jour à une alimentation sûre, adaptée et appétissante, participant pleinement au parcours de soins.\n En tant que sous-chef de cuisine , vous assistez le chef des cuisines dans l’organisation, la coordination et le suivi de la production et de la distribution des repas destinés aux patients, aux collaborateurs et aux clients externes. Vous le remplacez en son absence dans le cadre des délégations accordées.\n Dans votre nouvelle fonction, vous serez en charge des principales missions suivantes :\n\n• Participer à l’élaboration des menus en collaboration avec le chef des cuisines et les diététiciennes.\n\n• Assurer le suivi quotidien de la production chaude, froide et diététique et contrôler la qualité gustative, nutritionnelle et esthétique des préparations.\n\n• Veiller au respect des fiches techniques, des normes HACCP, d’hygiène et de sécurité alimentaire.\n\n• Participer aux commandes, contrôler la réception des marchandises et gérer les stocks.\n\n• Encadrer et coordonner les cuisiniers, cuisiniers en diététique, pâtissier, aides de cuisine et apprentis, répartir les tâches et contrôler la qualité du travail effectué.\n\n• Accompagner l’intégration des nouveaux collaborateurs et la formation pratique des apprentis.\n\n• Participer à l’élaboration des plannings de production, à la gestion des absences et à la planification des manifestations et prestations spéciales.\n\n• Veiller à l’état, à l’entretien et à l’utilisation optimale des machines et équipements, et participer à la tenue des inventaires.\n\n• Assurer une présence sur le terrain et intervenir en production lorsque nécessaire.\n\n• Garantir la continuité du fonctionnement des cuisines en l’absence du chef des cuisines\n\n• Contribuer au respect du budget et à l’amélioration continue des prestations en étant force de proposition.\n\n• Participer aux colloques, groupes de travail et audits, et relayer les directives institutionnelles auprès des équipes.\n Profil requis :\n Votre succès est garanti grâce à un/une,\n\n• CFC de cuisinier·ère en diététique ou formation jugée équivalente ; formation complémentaire en gestion ou conduite d’équipe souhaitée.\n\n• Expérience confirmée (min. 5 ans) en cuisine en milieu hospitalier, avec une expérience d’encadrement d’équipe.\n\n• Excellente maîtrise des techniques culinaires modernes et connaissances des régimes et textures adaptés aux patients.\n\n• Maîtrise des normes HACCP et de la législation sur les denrées alimentaires en collectivité.\n\n• Connaissances en gestion des stocks et des commandes.\n\n• Maîtrise des outils informatiques usuels (Excel, Word, logiciels métiers comme Logimen).\n\n• Sens des responsabilités, capacité d’organisation, de planification et de décision opérationnelle.\n\n• Rigueur, réactivité et sens de l’anticipation.\n\n• Esprit d’équipe, communication constructive, sens du service, diplomatie et bonne gestion des conflits.\n Leader de terrain, vous aimez transmettre votre savoir-faire et fédérer votre brigade autour d’une cuisine de qualité, au service des patients.\n Véritable team player, vous favorisez un climat de travail positif et collaboratif et vous êtes à l’aise pour relayer les consignes comme pour faire remonter les besoins de vos équipes.\n Ce que nous offrons :\n Un poste à responsabilités au cœur de la restauration hospitalière, avec un rôle de suppléance du chef des cuisines.\n Un hôpital régional à taille humaine, où la proximité et l’esprit de collaboration comptent.\n Une collaboration étroite avec les diététiciennes et l’ensemble des services du GHOL.",
+        "it": "À propos de nous :\n Rejoindre le Groupement Hospitalier de l’Ouest Lémanique (GHOL), c’est intégrer un hôpital régional à taille humaine, reconnu pour la qualité de sa prise en charge et l’attention portée au bien-être des patients.\n À Nyon, nos équipes conjuguent exigence professionnelle, proximité et esprit de collaboration. Dans ce cadre, nous renforçons notre brigade et recherchons un·e sous-chef de cuisine , animé·e par la nutrition santé, la cuisine diététique de qualité et la gastronomie.\n Votre mission :\n Au sein de la cuisine centrale, vous intégrez une brigade d’environ 20 collaborateurs fonctionnant en horaires continus.\n Véritable lien entre les prescriptions médicales et la gastronomie hospitalière pour nos patients, vous contribuez chaque jour à une alimentation sûre, adaptée et appétissante, participant pleinement au parcours de soins.\n En tant que sous-chef de cuisine , vous assistez le chef des cuisines dans l’organisation, la coordination et le suivi de la production et de la distribution des repas destinés aux patients, aux collaborateurs et aux clients externes. Vous le remplacez en son absence dans le cadre des délégations accordées.\n Dans votre nouvelle fonction, vous serez en charge des principales missions suivantes :\n\n• Participer à l’élaboration des menus en collaboration avec le chef des cuisines et les diététiciennes.\n\n• Assurer le suivi quotidien de la production chaude, froide et diététique et contrôler la qualité gustative, nutritionnelle et esthétique des préparations.\n\n• Veiller au respect des fiches techniques, des normes HACCP, d’hygiène et de sécurité alimentaire.\n\n• Participer aux commandes, contrôler la réception des marchandises et gérer les stocks.\n\n• Encadrer et coordonner les cuisiniers, cuisiniers en diététique, pâtissier, aides de cuisine et apprentis, répartir les tâches et contrôler la qualité du travail effectué.\n\n• Accompagner l’intégration des nouveaux collaborateurs et la formation pratique des apprentis.\n\n• Participer à l’élaboration des plannings de production, à la gestion des absences et à la planification des manifestations et prestations spéciales.\n\n• Veiller à l’état, à l’entretien et à l’utilisation optimale des machines et équipements, et participer à la tenue des inventaires.\n\n• Assurer une présence sur le terrain et intervenir en production lorsque nécessaire.\n\n• Garantir la continuité du fonctionnement des cuisines en l’absence du chef des cuisines\n\n• Contribuer au respect du budget et à l’amélioration continue des prestations en étant force de proposition.\n\n• Participer aux colloques, groupes de travail et audits, et relayer les directives institutionnelles auprès des équipes.\n Profil requis :\n Votre succès est garanti grâce à un/une,\n\n• CFC de cuisinier·ère en diététique ou formation jugée équivalente ; formation complémentaire en gestion ou conduite d’équipe souhaitée.\n\n• Expérience confirmée (min. 5 ans) en cuisine en milieu hospitalier, avec une expérience d’encadrement d’équipe.\n\n• Excellente maîtrise des techniques culinaires modernes et connaissances des régimes et textures adaptés aux patients.\n\n• Maîtrise des normes HACCP et de la législation sur les denrées alimentaires en collectivité.\n\n• Connaissances en gestion des stocks et des commandes.\n\n• Maîtrise des outils informatiques usuels (Excel, Word, logiciels métiers comme Logimen).\n\n• Sens des responsabilités, capacité d’organisation, de planification et de décision opérationnelle.\n\n• Rigueur, réactivité et sens de l’anticipation.\n\n• Esprit d’équipe, communication constructive, sens du service, diplomatie et bonne gestion des conflits.\n Leader de terrain, vous aimez transmettre votre savoir-faire et fédérer votre brigade autour d’une cuisine de qualité, au service des patients.\n Véritable team player, vous favorisez un climat de travail positif et collaboratif et vous êtes à l’aise pour relayer les consignes comme pour faire remonter les besoins de vos équipes.\n Ce que nous offrons :\n Un poste à responsabilités au cœur de la restauration hospitalière, avec un rôle de suppléance du chef des cuisines.\n Un hôpital régional à taille humaine, où la proximité et l’esprit de collaboration comptent.\n Une collaboration étroite avec les diététiciennes et l’ensemble des services du GHOL.",
+        "en": "À propos de nous :\n Rejoindre le Groupement Hospitalier de l’Ouest Lémanique (GHOL), c’est intégrer un hôpital régional à taille humaine, reconnu pour la qualité de sa prise en charge et l’attention portée au bien-être des patients.\n À Nyon, nos équipes conjuguent exigence professionnelle, proximité et esprit de collaboration. Dans ce cadre, nous renforçons notre brigade et recherchons un·e sous-chef de cuisine , animé·e par la nutrition santé, la cuisine diététique de qualité et la gastronomie.\n Votre mission :\n Au sein de la cuisine centrale, vous intégrez une brigade d’environ 20 collaborateurs fonctionnant en horaires continus.\n Véritable lien entre les prescriptions médicales et la gastronomie hospitalière pour nos patients, vous contribuez chaque jour à une alimentation sûre, adaptée et appétissante, participant pleinement au parcours de soins.\n En tant que sous-chef de cuisine , vous assistez le chef des cuisines dans l’organisation, la coordination et le suivi de la production et de la distribution des repas destinés aux patients, aux collaborateurs et aux clients externes. Vous le remplacez en son absence dans le cadre des délégations accordées.\n Dans votre nouvelle fonction, vous serez en charge des principales missions suivantes :\n\n• Participer à l’élaboration des menus en collaboration avec le chef des cuisines et les diététiciennes.\n\n• Assurer le suivi quotidien de la production chaude, froide et diététique et contrôler la qualité gustative, nutritionnelle et esthétique des préparations.\n\n• Veiller au respect des fiches techniques, des normes HACCP, d’hygiène et de sécurité alimentaire.\n\n• Participer aux commandes, contrôler la réception des marchandises et gérer les stocks.\n\n• Encadrer et coordonner les cuisiniers, cuisiniers en diététique, pâtissier, aides de cuisine et apprentis, répartir les tâches et contrôler la qualité du travail effectué.\n\n• Accompagner l’intégration des nouveaux collaborateurs et la formation pratique des apprentis.\n\n• Participer à l’élaboration des plannings de production, à la gestion des absences et à la planification des manifestations et prestations spéciales.\n\n• Veiller à l’état, à l’entretien et à l’utilisation optimale des machines et équipements, et participer à la tenue des inventaires.\n\n• Assurer une présence sur le terrain et intervenir en production lorsque nécessaire.\n\n• Garantir la continuité du fonctionnement des cuisines en l’absence du chef des cuisines\n\n• Contribuer au respect du budget et à l’amélioration continue des prestations en étant force de proposition.\n\n• Participer aux colloques, groupes de travail et audits, et relayer les directives institutionnelles auprès des équipes.\n Profil requis :\n Votre succès est garanti grâce à un/une,\n\n• CFC de cuisinier·ère en diététique ou formation jugée équivalente ; formation complémentaire en gestion ou conduite d’équipe souhaitée.\n\n• Expérience confirmée (min. 5 ans) en cuisine en milieu hospitalier, avec une expérience d’encadrement d’équipe.\n\n• Excellente maîtrise des techniques culinaires modernes et connaissances des régimes et textures adaptés aux patients.\n\n• Maîtrise des normes HACCP et de la législation sur les denrées alimentaires en collectivité.\n\n• Connaissances en gestion des stocks et des commandes.\n\n• Maîtrise des outils informatiques usuels (Excel, Word, logiciels métiers comme Logimen).\n\n• Sens des responsabilités, capacité d’organisation, de planification et de décision opérationnelle.\n\n• Rigueur, réactivité et sens de l’anticipation.\n\n• Esprit d’équipe, communication constructive, sens du service, diplomatie et bonne gestion des conflits.\n Leader de terrain, vous aimez transmettre votre savoir-faire et fédérer votre brigade autour d’une cuisine de qualité, au service des patients.\n Véritable team player, vous favorisez un climat de travail positif et collaboratif et vous êtes à l’aise pour relayer les consignes comme pour faire remonter les besoins de vos équipes.\n Ce que nous offrons :\n Un poste à responsabilités au cœur de la restauration hospitalière, avec un rôle de suppléance du chef des cuisines.\n Un hôpital régional à taille humaine, où la proximité et l’esprit de collaboration comptent.\n Une collaboration étroite avec les diététiciennes et l’ensemble des services du GHOL.",
+        "de": "À propos de nous :\n Rejoindre le Groupement Hospitalier de l’Ouest Lémanique (GHOL), c’est intégrer un hôpital régional à taille humaine, reconnu pour la qualité de sa prise en charge et l’attention portée au bien-être des patients.\n À Nyon, nos équipes conjuguent exigence professionnelle, proximité et esprit de collaboration. Dans ce cadre, nous renforçons notre brigade et recherchons un·e sous-chef de cuisine , animé·e par la nutrition santé, la cuisine diététique de qualité et la gastronomie.\n Votre mission :\n Au sein de la cuisine centrale, vous intégrez une brigade d’environ 20 collaborateurs fonctionnant en horaires continus.\n Véritable lien entre les prescriptions médicales et la gastronomie hospitalière pour nos patients, vous contribuez chaque jour à une alimentation sûre, adaptée et appétissante, participant pleinement au parcours de soins.\n En tant que sous-chef de cuisine , vous assistez le chef des cuisines dans l’organisation, la coordination et le suivi de la production et de la distribution des repas destinés aux patients, aux collaborateurs et aux clients externes. Vous le remplacez en son absence dans le cadre des délégations accordées.\n Dans votre nouvelle fonction, vous serez en charge des principales missions suivantes :\n\n• Participer à l’élaboration des menus en collaboration avec le chef des cuisines et les diététiciennes.\n\n• Assurer le suivi quotidien de la production chaude, froide et diététique et contrôler la qualité gustative, nutritionnelle et esthétique des préparations.\n\n• Veiller au respect des fiches techniques, des normes HACCP, d’hygiène et de sécurité alimentaire.\n\n• Participer aux commandes, contrôler la réception des marchandises et gérer les stocks.\n\n• Encadrer et coordonner les cuisiniers, cuisiniers en diététique, pâtissier, aides de cuisine et apprentis, répartir les tâches et contrôler la qualité du travail effectué.\n\n• Accompagner l’intégration des nouveaux collaborateurs et la formation pratique des apprentis.\n\n• Participer à l’élaboration des plannings de production, à la gestion des absences et à la planification des manifestations et prestations spéciales.\n\n• Veiller à l’état, à l’entretien et à l’utilisation optimale des machines et équipements, et participer à la tenue des inventaires.\n\n• Assurer une présence sur le terrain et intervenir en production lorsque nécessaire.\n\n• Garantir la continuité du fonctionnement des cuisines en l’absence du chef des cuisines\n\n• Contribuer au respect du budget et à l’amélioration continue des prestations en étant force de proposition.\n\n• Participer aux colloques, groupes de travail et audits, et relayer les directives institutionnelles auprès des équipes.\n Profil requis :\n Votre succès est garanti grâce à un/une,\n\n• CFC de cuisinier·ère en diététique ou formation jugée équivalente ; formation complémentaire en gestion ou conduite d’équipe souhaitée.\n\n• Expérience confirmée (min. 5 ans) en cuisine en milieu hospitalier, avec une expérience d’encadrement d’équipe.\n\n• Excellente maîtrise des techniques culinaires modernes et connaissances des régimes et textures adaptés aux patients.\n\n• Maîtrise des normes HACCP et de la législation sur les denrées alimentaires en collectivité.\n\n• Connaissances en gestion des stocks et des commandes.\n\n• Maîtrise des outils informatiques usuels (Excel, Word, logiciels métiers comme Logimen).\n\n• Sens des responsabilités, capacité d’organisation, de planification et de décision opérationnelle.\n\n• Rigueur, réactivité et sens de l’anticipation.\n\n• Esprit d’équipe, communication constructive, sens du service, diplomatie et bonne gestion des conflits.\n Leader de terrain, vous aimez transmettre votre savoir-faire et fédérer votre brigade autour d’une cuisine de qualité, au service des patients.\n Véritable team player, vous favorisez un climat de travail positif et collaboratif et vous êtes à l’aise pour relayer les consignes comme pour faire remonter les besoins de vos équipes.\n Ce que nous offrons :\n Un poste à responsabilités au cœur de la restauration hospitalière, avec un rôle de suppléance du chef des cuisines.\n Un hôpital régional à taille humaine, où la proximité et l’esprit de collaboration comptent.\n Une collaboration étroite avec les diététiciennes et l’ensemble des services du GHOL."
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://app.beehire.com/invite/6NMbh5sJz",
+      "applyUrl": "https://app.beehire.com/invite/6NMbh5sJz",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-17T09:32:21.363Z",
+      "needsRetranslation": true,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Nyon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-15T09:32:21.363Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-17T09:32:21.363Z"
+    },
+    {
+      "id": "ghol-a56d8de8120f",
+      "slug": "medecin-chef-fe-de-clinique-service-des-urgences-groupement-hospitalier-de-l-ouest",
+      "slugByLocale": {
+        "fr": "medecin-chef-fe-de-clinique-service-des-urgences-groupement-hospitalier-de-l-ouest",
+        "it": "medecin-chef-fe-de-clinique-service-des-urgences-groupement-hospitalier-de-l-ouest",
+        "en": "medecin-chef-fe-de-clinique-service-des-urgences-groupement-hospitalier-de-l-ouest",
+        "de": "medecin-chef-fe-de-clinique-service-des-urgences-groupement-hospitalier-de-l-ouest"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Médecin chef·fe de clinique - Service des urgences",
+      "titleByLocale": {
+        "fr": "Médecin chef·fe de clinique - Service des urgences",
+        "it": "Médecin chef·fe de clinique - Service des urgences",
+        "en": "Médecin chef·fe de clinique - Service des urgences",
+        "de": "Médecin chef·fe de clinique - Service des urgences"
+      },
+      "description": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n Description du service :\n L’Hôpital de Nyon draine un bassin de population de 100'000 habitantes et habitants, et le service des urgences accueille une patientèle adulte de plus de 25'000 personnes par année, chiffre en augmentation constante.\n Description du poste:\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Assurer la supervision clinique des médecins assistants pour la prise en charge des patients des urgences\n\n• Contribuer à la gestion de flux des patients des urgences\n\n• Contribuer à la formation pré et post-graduée des stagiaires et médecins assistants des urgences\n\n• Contribuer aux projets de développement du service, notamment la création d’une filière rapide\n Profil requis:\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience de chef·fe de clinique ou cadre en milieu universitaire ;\n\n• Excellentes compétences dans les urgences hospitalières médico-chirurgicales ;\n\n• Attrait pour une activité pré-hospitalière ;\n\n• Expérience en ultrasonographie : un atout ;\n\n• Collégialité, sens des responsabilités et de l’organisation ;\n\n• Esprit vif, entrepreneurial, novateur et tourné vers le futur ;\n\n• Fort intérêt pour la formation ;\n\n• Volonté d’intégrer une structure en pleine expansion et de travailler dans un esprit de collégialité et d’interdisciplinarité notamment médico-soignante.\n Niveau de formation:\n\n• Diplôme de médecin suisse ou équivalent\n\n• Titre de spécialiste FMH en médecine interne, ou formation équivalente et titre en voie d’obtention pour les CDC\n\n• Formation approfondie de médecine d’urgence hospitalière SSMUS ou en cours d’obtention pour les CDC\n Avantages:\n\n• Un cadre de travail dynamique dans un service en expansion\n\n• Une casuistique variée\n\n• Un plateau technique performant (soins intensifs, stroke unit, bloc opératoire, maternité, nombreux spécialistes)\n\n• La possibilité d’exercer une activité pré-hospitalière en SMUR\n\n• La possibilité de participer aux projets de développement du service\n Renseignements:\n Dr Sagara Wijayasinghe, Dre Joëlle Hausser, Dre Muriel Abi-Khalil, Dr Gioele Ongaro, médecin-chefs co-responsables du service des urgences, 022 994 60 98, 022 994 64 47, 022 994 61 42, 022 994 63 44\n Candidatures:\n Les candidatures doivent comporter un dossier complet, comprenant lettre de motivation, curriculum vitae, diplômes, certificats de formations et lettres de recommandations à l’attention des médecins chefs des urgences",
+      "descriptionByLocale": {
+        "fr": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n Description du service :\n L’Hôpital de Nyon draine un bassin de population de 100'000 habitantes et habitants, et le service des urgences accueille une patientèle adulte de plus de 25'000 personnes par année, chiffre en augmentation constante.\n Description du poste:\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Assurer la supervision clinique des médecins assistants pour la prise en charge des patients des urgences\n\n• Contribuer à la gestion de flux des patients des urgences\n\n• Contribuer à la formation pré et post-graduée des stagiaires et médecins assistants des urgences\n\n• Contribuer aux projets de développement du service, notamment la création d’une filière rapide\n Profil requis:\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience de chef·fe de clinique ou cadre en milieu universitaire ;\n\n• Excellentes compétences dans les urgences hospitalières médico-chirurgicales ;\n\n• Attrait pour une activité pré-hospitalière ;\n\n• Expérience en ultrasonographie : un atout ;\n\n• Collégialité, sens des responsabilités et de l’organisation ;\n\n• Esprit vif, entrepreneurial, novateur et tourné vers le futur ;\n\n• Fort intérêt pour la formation ;\n\n• Volonté d’intégrer une structure en pleine expansion et de travailler dans un esprit de collégialité et d’interdisciplinarité notamment médico-soignante.\n Niveau de formation:\n\n• Diplôme de médecin suisse ou équivalent\n\n• Titre de spécialiste FMH en médecine interne, ou formation équivalente et titre en voie d’obtention pour les CDC\n\n• Formation approfondie de médecine d’urgence hospitalière SSMUS ou en cours d’obtention pour les CDC\n Avantages:\n\n• Un cadre de travail dynamique dans un service en expansion\n\n• Une casuistique variée\n\n• Un plateau technique performant (soins intensifs, stroke unit, bloc opératoire, maternité, nombreux spécialistes)\n\n• La possibilité d’exercer une activité pré-hospitalière en SMUR\n\n• La possibilité de participer aux projets de développement du service\n Renseignements:\n Dr Sagara Wijayasinghe, Dre Joëlle Hausser, Dre Muriel Abi-Khalil, Dr Gioele Ongaro, médecin-chefs co-responsables du service des urgences, 022 994 60 98, 022 994 64 47, 022 994 61 42, 022 994 63 44\n Candidatures:\n Les candidatures doivent comporter un dossier complet, comprenant lettre de motivation, curriculum vitae, diplômes, certificats de formations et lettres de recommandations à l’attention des médecins chefs des urgences",
+        "it": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n Description du service :\n L’Hôpital de Nyon draine un bassin de population de 100'000 habitantes et habitants, et le service des urgences accueille une patientèle adulte de plus de 25'000 personnes par année, chiffre en augmentation constante.\n Description du poste:\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Assurer la supervision clinique des médecins assistants pour la prise en charge des patients des urgences\n\n• Contribuer à la gestion de flux des patients des urgences\n\n• Contribuer à la formation pré et post-graduée des stagiaires et médecins assistants des urgences\n\n• Contribuer aux projets de développement du service, notamment la création d’une filière rapide\n Profil requis:\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience de chef·fe de clinique ou cadre en milieu universitaire ;\n\n• Excellentes compétences dans les urgences hospitalières médico-chirurgicales ;\n\n• Attrait pour une activité pré-hospitalière ;\n\n• Expérience en ultrasonographie : un atout ;\n\n• Collégialité, sens des responsabilités et de l’organisation ;\n\n• Esprit vif, entrepreneurial, novateur et tourné vers le futur ;\n\n• Fort intérêt pour la formation ;\n\n• Volonté d’intégrer une structure en pleine expansion et de travailler dans un esprit de collégialité et d’interdisciplinarité notamment médico-soignante.\n Niveau de formation:\n\n• Diplôme de médecin suisse ou équivalent\n\n• Titre de spécialiste FMH en médecine interne, ou formation équivalente et titre en voie d’obtention pour les CDC\n\n• Formation approfondie de médecine d’urgence hospitalière SSMUS ou en cours d’obtention pour les CDC\n Avantages:\n\n• Un cadre de travail dynamique dans un service en expansion\n\n• Une casuistique variée\n\n• Un plateau technique performant (soins intensifs, stroke unit, bloc opératoire, maternité, nombreux spécialistes)\n\n• La possibilité d’exercer une activité pré-hospitalière en SMUR\n\n• La possibilité de participer aux projets de développement du service\n Renseignements:\n Dr Sagara Wijayasinghe, Dre Joëlle Hausser, Dre Muriel Abi-Khalil, Dr Gioele Ongaro, médecin-chefs co-responsables du service des urgences, 022 994 60 98, 022 994 64 47, 022 994 61 42, 022 994 63 44\n Candidatures:\n Les candidatures doivent comporter un dossier complet, comprenant lettre de motivation, curriculum vitae, diplômes, certificats de formations et lettres de recommandations à l’attention des médecins chefs des urgences",
+        "en": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n Description du service :\n L’Hôpital de Nyon draine un bassin de population de 100'000 habitantes et habitants, et le service des urgences accueille une patientèle adulte de plus de 25'000 personnes par année, chiffre en augmentation constante.\n Description du poste:\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Assurer la supervision clinique des médecins assistants pour la prise en charge des patients des urgences\n\n• Contribuer à la gestion de flux des patients des urgences\n\n• Contribuer à la formation pré et post-graduée des stagiaires et médecins assistants des urgences\n\n• Contribuer aux projets de développement du service, notamment la création d’une filière rapide\n Profil requis:\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience de chef·fe de clinique ou cadre en milieu universitaire ;\n\n• Excellentes compétences dans les urgences hospitalières médico-chirurgicales ;\n\n• Attrait pour une activité pré-hospitalière ;\n\n• Expérience en ultrasonographie : un atout ;\n\n• Collégialité, sens des responsabilités et de l’organisation ;\n\n• Esprit vif, entrepreneurial, novateur et tourné vers le futur ;\n\n• Fort intérêt pour la formation ;\n\n• Volonté d’intégrer une structure en pleine expansion et de travailler dans un esprit de collégialité et d’interdisciplinarité notamment médico-soignante.\n Niveau de formation:\n\n• Diplôme de médecin suisse ou équivalent\n\n• Titre de spécialiste FMH en médecine interne, ou formation équivalente et titre en voie d’obtention pour les CDC\n\n• Formation approfondie de médecine d’urgence hospitalière SSMUS ou en cours d’obtention pour les CDC\n Avantages:\n\n• Un cadre de travail dynamique dans un service en expansion\n\n• Une casuistique variée\n\n• Un plateau technique performant (soins intensifs, stroke unit, bloc opératoire, maternité, nombreux spécialistes)\n\n• La possibilité d’exercer une activité pré-hospitalière en SMUR\n\n• La possibilité de participer aux projets de développement du service\n Renseignements:\n Dr Sagara Wijayasinghe, Dre Joëlle Hausser, Dre Muriel Abi-Khalil, Dr Gioele Ongaro, médecin-chefs co-responsables du service des urgences, 022 994 60 98, 022 994 64 47, 022 994 61 42, 022 994 63 44\n Candidatures:\n Les candidatures doivent comporter un dossier complet, comprenant lettre de motivation, curriculum vitae, diplômes, certificats de formations et lettres de recommandations à l’attention des médecins chefs des urgences",
+        "de": "Le GHOL est l’hôpital de référence pour l’Ouest lémanique avec ses structures sur Nyon et Rolle. Demain, nous vous proposons de poursuivre votre épanouissement professionnel en vous impliquant dans vos nouvelles missions et en participant au développement du GHOL, au sein de son nouveau bâtiment d’hospitalisation sur le site de Nyon.\n Description du service :\n L’Hôpital de Nyon draine un bassin de population de 100'000 habitantes et habitants, et le service des urgences accueille une patientèle adulte de plus de 25'000 personnes par année, chiffre en augmentation constante.\n Description du poste:\n Dans vos nouvelles fonctions, vos missions ont un impact sur la qualité de prise en charge des patients. Votre rôle consistera notamment à\n\n• Assurer la supervision clinique des médecins assistants pour la prise en charge des patients des urgences\n\n• Contribuer à la gestion de flux des patients des urgences\n\n• Contribuer à la formation pré et post-graduée des stagiaires et médecins assistants des urgences\n\n• Contribuer aux projets de développement du service, notamment la création d’une filière rapide\n Profil requis:\n Nous sommes convaincus de votre réussite rapide dans vos futures fonctions grâce à votre/vos :\n\n• Expérience de chef·fe de clinique ou cadre en milieu universitaire ;\n\n• Excellentes compétences dans les urgences hospitalières médico-chirurgicales ;\n\n• Attrait pour une activité pré-hospitalière ;\n\n• Expérience en ultrasonographie : un atout ;\n\n• Collégialité, sens des responsabilités et de l’organisation ;\n\n• Esprit vif, entrepreneurial, novateur et tourné vers le futur ;\n\n• Fort intérêt pour la formation ;\n\n• Volonté d’intégrer une structure en pleine expansion et de travailler dans un esprit de collégialité et d’interdisciplinarité notamment médico-soignante.\n Niveau de formation:\n\n• Diplôme de médecin suisse ou équivalent\n\n• Titre de spécialiste FMH en médecine interne, ou formation équivalente et titre en voie d’obtention pour les CDC\n\n• Formation approfondie de médecine d’urgence hospitalière SSMUS ou en cours d’obtention pour les CDC\n Avantages:\n\n• Un cadre de travail dynamique dans un service en expansion\n\n• Une casuistique variée\n\n• Un plateau technique performant (soins intensifs, stroke unit, bloc opératoire, maternité, nombreux spécialistes)\n\n• La possibilité d’exercer une activité pré-hospitalière en SMUR\n\n• La possibilité de participer aux projets de développement du service\n Renseignements:\n Dr Sagara Wijayasinghe, Dre Joëlle Hausser, Dre Muriel Abi-Khalil, Dr Gioele Ongaro, médecin-chefs co-responsables du service des urgences, 022 994 60 98, 022 994 64 47, 022 994 61 42, 022 994 63 44\n Candidatures:\n Les candidatures doivent comporter un dossier complet, comprenant lettre de motivation, curriculum vitae, diplômes, certificats de formations et lettres de recommandations à l’attention des médecins chefs des urgences"
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare-medical",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://app.beehire.com/invite/z7t0fy8gS",
+      "applyUrl": "https://app.beehire.com/invite/z7t0fy8gS",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-17T09:32:21.363Z",
+      "needsRetranslation": true,
+      "salaryMin": 86500,
+      "salaryMax": 120500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 86500,
+          "maxValue": 120500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Nyon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-15T09:32:21.363Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-17T09:32:21.363Z"
+    },
+    {
+      "id": "ghol-e5191ec74619",
+      "slug": "sous-chef-de-cuisine-junior-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+      "slugByLocale": {
+        "fr": "sous-chef-de-cuisine-junior-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "it": "sous-chef-de-cuisine-junior-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "en": "sous-chef-de-cuisine-junior-groupement-hospitalier-de-l-ouest-lemanique-nyon",
+        "de": "sous-chef-de-cuisine-junior-groupement-hospitalier-de-l-ouest-lemanique-nyon"
+      },
+      "company": "Groupement Hospitalier de l'Ouest Lémanique",
+      "companyKey": "ghol",
+      "companyDomain": "ghol.ch",
+      "title": "Sous-chef de cuisine junior",
+      "titleByLocale": {
+        "fr": "Sous-chef de cuisine junior",
+        "it": "Sous-chef de cuisine junior",
+        "en": "Sous-chef de cuisine junior",
+        "de": "Sous-chef de cuisine junior"
+      },
+      "description": "À propos de nous :\n Rejoindre le Groupement Hospitalier de l’Ouest Lémanique (GHOL), c’est intégrer un hôpital régional à taille humaine, reconnu pour la qualité de sa prise en charge et l’attention portée au bien-être des patients.\n À Nyon, nos équipes conjuguent exigence professionnelle, proximité et esprit de collaboration. Dans ce cadre, nous renforçons notre brigade et recherchons un·e sous-chef de cuisine junior , animé·e par la nutrition santé et la cuisine diététique de qualité.\n Votre mission :\n Au sein de la cuisine centrale, vous intégrez une brigade d’environ 20 collaborateurs fonctionnant en horaires continus.\n Véritable lien entre les prescriptions médicales et la gastronomie hospitalière pour nos patients, vous contribuez chaque jour à une alimentation sûre, adaptée et appétissante, participant pleinement au parcours de soins.\n En tant que sous-chef de cuisine junior , vous assistez le chef des cuisines dans l’organisation quotidienne de la production et de la distribution des repas destinés aux patients, aux collaborateurs et aux clients externes. Vous participez activement à la production et développez progressivement vos compétences d’encadrement et de gestion au sein du service restauration.\n Dans votre nouvelle fonction, vous serez en charge des principales missions suivantes :\n\n• Participer activement à la production chaude, froide et diététique des repas et contrôler la qualité des préparations avant leur distribution.\n\n• Veiller au respect des fiches techniques, des exigences du chef des cuisines et des normes HACCP.\n\n• Participer à l’élaboration des menus et des recettes, aux commandes et aux contrôles des marchandises.\n\n• Assurer une gestion rigoureuse des matières premières et contribuer à la réduction du gaspillage alimentaire.\n\n• Répartir les tâches selon les consignes du chef des cuisines et soutenir les collaborateurs dans l’organisation de leur travail quotidien.\n\n• Participer à l’accueil et à l’intégration des nouveaux collaborateurs et accompagner les apprentis dans leur formation pratique.\n\n• Participer à la planification de la production, au suivi des besoins en personnel et à l’organisation des manifestations et prestations spéciales (banquets, cocktails…).\n\n• Contrôler les relevés de températures, l’utilisation de l’Epack hygiène et le bon fonctionnement des équipements, et signaler toute non-conformité ou panne.\n\n• Assurer la transmission des informations entre la hiérarchie et les équipes.\n\n• Remplacer ponctuellement les collaborateurs dans les différents secteurs de production et assurer certaines tâches du chef des cuisines lors de ses absences de courte durée.\n\n• Être force de proposition pour l’amélioration de la qualité des repas et du service.\n\n• Participer aux réunions de service, inventaires, audits et groupes de travail.\n Profil requis :\n Votre succès est garanti grâce à un/une,\n\n• CFC de cuisinier·ère ou de cuisinier·ère en diététique ; formation complémentaire en gestion ou conduite d’équipe souhaitée.\n\n• Expérience de 2 à 5 ans en cuisine collective, restauration hospitalière ou restauration de collectivité ; première expérience de coordination d’équipe souhaitée.\n\n• Bonne maîtrise des techniques culinaires et connaissances de base des régimes alimentaires et des textures modifiées.\n\n• Très bonnes connaissances des normes HACCP en milieu hospitalier.\n\n• Notions de gestion des stocks et des commandes.\n\n• Maîtrise des outils informatiques usuels (Word, Excel, logiciels métiers comme Logimen).\n\n• Sens de l’organisation, esprit d’initiative et capacité à travailler en équipe.\n\n• Capacité à transmettre des consignes et un esprit d’équipe, et volonté de développer vos compétences de management.\n\n• Excellente collaboration, sens du service, respect du secret professionnel, communication respectueuse, flexibilité et capacité d’adaptation.\n Motivé·e à évoluer vers des responsabilités d’encadrement, vous souhaitez progresser aux côtés du chef des cuisines et de ses sous chefs. Véritable team player, vous contribuez à un climat de travail positif et collaboratif.\n Ce que nous offrons :\n Une première expérience de coordination au sein d’une brigade d’environ 20 collaborateurs, avec le soutien du chef des cuisines et de ses sous chefs.\n Un poste évolutif qui vous permet de développer progressivement vos compétences d’encadrement et de gestion, avec l’accès aux formations internes et externes.\n Un hôpital régional à taille humaine, où la proximité et l’esprit de collaboration comptent.",
+      "descriptionByLocale": {
+        "fr": "À propos de nous :\n Rejoindre le Groupement Hospitalier de l’Ouest Lémanique (GHOL), c’est intégrer un hôpital régional à taille humaine, reconnu pour la qualité de sa prise en charge et l’attention portée au bien-être des patients.\n À Nyon, nos équipes conjuguent exigence professionnelle, proximité et esprit de collaboration. Dans ce cadre, nous renforçons notre brigade et recherchons un·e sous-chef de cuisine junior , animé·e par la nutrition santé et la cuisine diététique de qualité.\n Votre mission :\n Au sein de la cuisine centrale, vous intégrez une brigade d’environ 20 collaborateurs fonctionnant en horaires continus.\n Véritable lien entre les prescriptions médicales et la gastronomie hospitalière pour nos patients, vous contribuez chaque jour à une alimentation sûre, adaptée et appétissante, participant pleinement au parcours de soins.\n En tant que sous-chef de cuisine junior , vous assistez le chef des cuisines dans l’organisation quotidienne de la production et de la distribution des repas destinés aux patients, aux collaborateurs et aux clients externes. Vous participez activement à la production et développez progressivement vos compétences d’encadrement et de gestion au sein du service restauration.\n Dans votre nouvelle fonction, vous serez en charge des principales missions suivantes :\n\n• Participer activement à la production chaude, froide et diététique des repas et contrôler la qualité des préparations avant leur distribution.\n\n• Veiller au respect des fiches techniques, des exigences du chef des cuisines et des normes HACCP.\n\n• Participer à l’élaboration des menus et des recettes, aux commandes et aux contrôles des marchandises.\n\n• Assurer une gestion rigoureuse des matières premières et contribuer à la réduction du gaspillage alimentaire.\n\n• Répartir les tâches selon les consignes du chef des cuisines et soutenir les collaborateurs dans l’organisation de leur travail quotidien.\n\n• Participer à l’accueil et à l’intégration des nouveaux collaborateurs et accompagner les apprentis dans leur formation pratique.\n\n• Participer à la planification de la production, au suivi des besoins en personnel et à l’organisation des manifestations et prestations spéciales (banquets, cocktails…).\n\n• Contrôler les relevés de températures, l’utilisation de l’Epack hygiène et le bon fonctionnement des équipements, et signaler toute non-conformité ou panne.\n\n• Assurer la transmission des informations entre la hiérarchie et les équipes.\n\n• Remplacer ponctuellement les collaborateurs dans les différents secteurs de production et assurer certaines tâches du chef des cuisines lors de ses absences de courte durée.\n\n• Être force de proposition pour l’amélioration de la qualité des repas et du service.\n\n• Participer aux réunions de service, inventaires, audits et groupes de travail.\n Profil requis :\n Votre succès est garanti grâce à un/une,\n\n• CFC de cuisinier·ère ou de cuisinier·ère en diététique ; formation complémentaire en gestion ou conduite d’équipe souhaitée.\n\n• Expérience de 2 à 5 ans en cuisine collective, restauration hospitalière ou restauration de collectivité ; première expérience de coordination d’équipe souhaitée.\n\n• Bonne maîtrise des techniques culinaires et connaissances de base des régimes alimentaires et des textures modifiées.\n\n• Très bonnes connaissances des normes HACCP en milieu hospitalier.\n\n• Notions de gestion des stocks et des commandes.\n\n• Maîtrise des outils informatiques usuels (Word, Excel, logiciels métiers comme Logimen).\n\n• Sens de l’organisation, esprit d’initiative et capacité à travailler en équipe.\n\n• Capacité à transmettre des consignes et un esprit d’équipe, et volonté de développer vos compétences de management.\n\n• Excellente collaboration, sens du service, respect du secret professionnel, communication respectueuse, flexibilité et capacité d’adaptation.\n Motivé·e à évoluer vers des responsabilités d’encadrement, vous souhaitez progresser aux côtés du chef des cuisines et de ses sous chefs. Véritable team player, vous contribuez à un climat de travail positif et collaboratif.\n Ce que nous offrons :\n Une première expérience de coordination au sein d’une brigade d’environ 20 collaborateurs, avec le soutien du chef des cuisines et de ses sous chefs.\n Un poste évolutif qui vous permet de développer progressivement vos compétences d’encadrement et de gestion, avec l’accès aux formations internes et externes.\n Un hôpital régional à taille humaine, où la proximité et l’esprit de collaboration comptent.",
+        "it": "À propos de nous :\n Rejoindre le Groupement Hospitalier de l’Ouest Lémanique (GHOL), c’est intégrer un hôpital régional à taille humaine, reconnu pour la qualité de sa prise en charge et l’attention portée au bien-être des patients.\n À Nyon, nos équipes conjuguent exigence professionnelle, proximité et esprit de collaboration. Dans ce cadre, nous renforçons notre brigade et recherchons un·e sous-chef de cuisine junior , animé·e par la nutrition santé et la cuisine diététique de qualité.\n Votre mission :\n Au sein de la cuisine centrale, vous intégrez une brigade d’environ 20 collaborateurs fonctionnant en horaires continus.\n Véritable lien entre les prescriptions médicales et la gastronomie hospitalière pour nos patients, vous contribuez chaque jour à une alimentation sûre, adaptée et appétissante, participant pleinement au parcours de soins.\n En tant que sous-chef de cuisine junior , vous assistez le chef des cuisines dans l’organisation quotidienne de la production et de la distribution des repas destinés aux patients, aux collaborateurs et aux clients externes. Vous participez activement à la production et développez progressivement vos compétences d’encadrement et de gestion au sein du service restauration.\n Dans votre nouvelle fonction, vous serez en charge des principales missions suivantes :\n\n• Participer activement à la production chaude, froide et diététique des repas et contrôler la qualité des préparations avant leur distribution.\n\n• Veiller au respect des fiches techniques, des exigences du chef des cuisines et des normes HACCP.\n\n• Participer à l’élaboration des menus et des recettes, aux commandes et aux contrôles des marchandises.\n\n• Assurer une gestion rigoureuse des matières premières et contribuer à la réduction du gaspillage alimentaire.\n\n• Répartir les tâches selon les consignes du chef des cuisines et soutenir les collaborateurs dans l’organisation de leur travail quotidien.\n\n• Participer à l’accueil et à l’intégration des nouveaux collaborateurs et accompagner les apprentis dans leur formation pratique.\n\n• Participer à la planification de la production, au suivi des besoins en personnel et à l’organisation des manifestations et prestations spéciales (banquets, cocktails…).\n\n• Contrôler les relevés de températures, l’utilisation de l’Epack hygiène et le bon fonctionnement des équipements, et signaler toute non-conformité ou panne.\n\n• Assurer la transmission des informations entre la hiérarchie et les équipes.\n\n• Remplacer ponctuellement les collaborateurs dans les différents secteurs de production et assurer certaines tâches du chef des cuisines lors de ses absences de courte durée.\n\n• Être force de proposition pour l’amélioration de la qualité des repas et du service.\n\n• Participer aux réunions de service, inventaires, audits et groupes de travail.\n Profil requis :\n Votre succès est garanti grâce à un/une,\n\n• CFC de cuisinier·ère ou de cuisinier·ère en diététique ; formation complémentaire en gestion ou conduite d’équipe souhaitée.\n\n• Expérience de 2 à 5 ans en cuisine collective, restauration hospitalière ou restauration de collectivité ; première expérience de coordination d’équipe souhaitée.\n\n• Bonne maîtrise des techniques culinaires et connaissances de base des régimes alimentaires et des textures modifiées.\n\n• Très bonnes connaissances des normes HACCP en milieu hospitalier.\n\n• Notions de gestion des stocks et des commandes.\n\n• Maîtrise des outils informatiques usuels (Word, Excel, logiciels métiers comme Logimen).\n\n• Sens de l’organisation, esprit d’initiative et capacité à travailler en équipe.\n\n• Capacité à transmettre des consignes et un esprit d’équipe, et volonté de développer vos compétences de management.\n\n• Excellente collaboration, sens du service, respect du secret professionnel, communication respectueuse, flexibilité et capacité d’adaptation.\n Motivé·e à évoluer vers des responsabilités d’encadrement, vous souhaitez progresser aux côtés du chef des cuisines et de ses sous chefs. Véritable team player, vous contribuez à un climat de travail positif et collaboratif.\n Ce que nous offrons :\n Une première expérience de coordination au sein d’une brigade d’environ 20 collaborateurs, avec le soutien du chef des cuisines et de ses sous chefs.\n Un poste évolutif qui vous permet de développer progressivement vos compétences d’encadrement et de gestion, avec l’accès aux formations internes et externes.\n Un hôpital régional à taille humaine, où la proximité et l’esprit de collaboration comptent.",
+        "en": "À propos de nous :\n Rejoindre le Groupement Hospitalier de l’Ouest Lémanique (GHOL), c’est intégrer un hôpital régional à taille humaine, reconnu pour la qualité de sa prise en charge et l’attention portée au bien-être des patients.\n À Nyon, nos équipes conjuguent exigence professionnelle, proximité et esprit de collaboration. Dans ce cadre, nous renforçons notre brigade et recherchons un·e sous-chef de cuisine junior , animé·e par la nutrition santé et la cuisine diététique de qualité.\n Votre mission :\n Au sein de la cuisine centrale, vous intégrez une brigade d’environ 20 collaborateurs fonctionnant en horaires continus.\n Véritable lien entre les prescriptions médicales et la gastronomie hospitalière pour nos patients, vous contribuez chaque jour à une alimentation sûre, adaptée et appétissante, participant pleinement au parcours de soins.\n En tant que sous-chef de cuisine junior , vous assistez le chef des cuisines dans l’organisation quotidienne de la production et de la distribution des repas destinés aux patients, aux collaborateurs et aux clients externes. Vous participez activement à la production et développez progressivement vos compétences d’encadrement et de gestion au sein du service restauration.\n Dans votre nouvelle fonction, vous serez en charge des principales missions suivantes :\n\n• Participer activement à la production chaude, froide et diététique des repas et contrôler la qualité des préparations avant leur distribution.\n\n• Veiller au respect des fiches techniques, des exigences du chef des cuisines et des normes HACCP.\n\n• Participer à l’élaboration des menus et des recettes, aux commandes et aux contrôles des marchandises.\n\n• Assurer une gestion rigoureuse des matières premières et contribuer à la réduction du gaspillage alimentaire.\n\n• Répartir les tâches selon les consignes du chef des cuisines et soutenir les collaborateurs dans l’organisation de leur travail quotidien.\n\n• Participer à l’accueil et à l’intégration des nouveaux collaborateurs et accompagner les apprentis dans leur formation pratique.\n\n• Participer à la planification de la production, au suivi des besoins en personnel et à l’organisation des manifestations et prestations spéciales (banquets, cocktails…).\n\n• Contrôler les relevés de températures, l’utilisation de l’Epack hygiène et le bon fonctionnement des équipements, et signaler toute non-conformité ou panne.\n\n• Assurer la transmission des informations entre la hiérarchie et les équipes.\n\n• Remplacer ponctuellement les collaborateurs dans les différents secteurs de production et assurer certaines tâches du chef des cuisines lors de ses absences de courte durée.\n\n• Être force de proposition pour l’amélioration de la qualité des repas et du service.\n\n• Participer aux réunions de service, inventaires, audits et groupes de travail.\n Profil requis :\n Votre succès est garanti grâce à un/une,\n\n• CFC de cuisinier·ère ou de cuisinier·ère en diététique ; formation complémentaire en gestion ou conduite d’équipe souhaitée.\n\n• Expérience de 2 à 5 ans en cuisine collective, restauration hospitalière ou restauration de collectivité ; première expérience de coordination d’équipe souhaitée.\n\n• Bonne maîtrise des techniques culinaires et connaissances de base des régimes alimentaires et des textures modifiées.\n\n• Très bonnes connaissances des normes HACCP en milieu hospitalier.\n\n• Notions de gestion des stocks et des commandes.\n\n• Maîtrise des outils informatiques usuels (Word, Excel, logiciels métiers comme Logimen).\n\n• Sens de l’organisation, esprit d’initiative et capacité à travailler en équipe.\n\n• Capacité à transmettre des consignes et un esprit d’équipe, et volonté de développer vos compétences de management.\n\n• Excellente collaboration, sens du service, respect du secret professionnel, communication respectueuse, flexibilité et capacité d’adaptation.\n Motivé·e à évoluer vers des responsabilités d’encadrement, vous souhaitez progresser aux côtés du chef des cuisines et de ses sous chefs. Véritable team player, vous contribuez à un climat de travail positif et collaboratif.\n Ce que nous offrons :\n Une première expérience de coordination au sein d’une brigade d’environ 20 collaborateurs, avec le soutien du chef des cuisines et de ses sous chefs.\n Un poste évolutif qui vous permet de développer progressivement vos compétences d’encadrement et de gestion, avec l’accès aux formations internes et externes.\n Un hôpital régional à taille humaine, où la proximité et l’esprit de collaboration comptent.",
+        "de": "À propos de nous :\n Rejoindre le Groupement Hospitalier de l’Ouest Lémanique (GHOL), c’est intégrer un hôpital régional à taille humaine, reconnu pour la qualité de sa prise en charge et l’attention portée au bien-être des patients.\n À Nyon, nos équipes conjuguent exigence professionnelle, proximité et esprit de collaboration. Dans ce cadre, nous renforçons notre brigade et recherchons un·e sous-chef de cuisine junior , animé·e par la nutrition santé et la cuisine diététique de qualité.\n Votre mission :\n Au sein de la cuisine centrale, vous intégrez une brigade d’environ 20 collaborateurs fonctionnant en horaires continus.\n Véritable lien entre les prescriptions médicales et la gastronomie hospitalière pour nos patients, vous contribuez chaque jour à une alimentation sûre, adaptée et appétissante, participant pleinement au parcours de soins.\n En tant que sous-chef de cuisine junior , vous assistez le chef des cuisines dans l’organisation quotidienne de la production et de la distribution des repas destinés aux patients, aux collaborateurs et aux clients externes. Vous participez activement à la production et développez progressivement vos compétences d’encadrement et de gestion au sein du service restauration.\n Dans votre nouvelle fonction, vous serez en charge des principales missions suivantes :\n\n• Participer activement à la production chaude, froide et diététique des repas et contrôler la qualité des préparations avant leur distribution.\n\n• Veiller au respect des fiches techniques, des exigences du chef des cuisines et des normes HACCP.\n\n• Participer à l’élaboration des menus et des recettes, aux commandes et aux contrôles des marchandises.\n\n• Assurer une gestion rigoureuse des matières premières et contribuer à la réduction du gaspillage alimentaire.\n\n• Répartir les tâches selon les consignes du chef des cuisines et soutenir les collaborateurs dans l’organisation de leur travail quotidien.\n\n• Participer à l’accueil et à l’intégration des nouveaux collaborateurs et accompagner les apprentis dans leur formation pratique.\n\n• Participer à la planification de la production, au suivi des besoins en personnel et à l’organisation des manifestations et prestations spéciales (banquets, cocktails…).\n\n• Contrôler les relevés de températures, l’utilisation de l’Epack hygiène et le bon fonctionnement des équipements, et signaler toute non-conformité ou panne.\n\n• Assurer la transmission des informations entre la hiérarchie et les équipes.\n\n• Remplacer ponctuellement les collaborateurs dans les différents secteurs de production et assurer certaines tâches du chef des cuisines lors de ses absences de courte durée.\n\n• Être force de proposition pour l’amélioration de la qualité des repas et du service.\n\n• Participer aux réunions de service, inventaires, audits et groupes de travail.\n Profil requis :\n Votre succès est garanti grâce à un/une,\n\n• CFC de cuisinier·ère ou de cuisinier·ère en diététique ; formation complémentaire en gestion ou conduite d’équipe souhaitée.\n\n• Expérience de 2 à 5 ans en cuisine collective, restauration hospitalière ou restauration de collectivité ; première expérience de coordination d’équipe souhaitée.\n\n• Bonne maîtrise des techniques culinaires et connaissances de base des régimes alimentaires et des textures modifiées.\n\n• Très bonnes connaissances des normes HACCP en milieu hospitalier.\n\n• Notions de gestion des stocks et des commandes.\n\n• Maîtrise des outils informatiques usuels (Word, Excel, logiciels métiers comme Logimen).\n\n• Sens de l’organisation, esprit d’initiative et capacité à travailler en équipe.\n\n• Capacité à transmettre des consignes et un esprit d’équipe, et volonté de développer vos compétences de management.\n\n• Excellente collaboration, sens du service, respect du secret professionnel, communication respectueuse, flexibilité et capacité d’adaptation.\n Motivé·e à évoluer vers des responsabilités d’encadrement, vous souhaitez progresser aux côtés du chef des cuisines et de ses sous chefs. Véritable team player, vous contribuez à un climat de travail positif et collaboratif.\n Ce que nous offrons :\n Une première expérience de coordination au sein d’une brigade d’environ 20 collaborateurs, avec le soutien du chef des cuisines et de ses sous chefs.\n Un poste évolutif qui vous permet de développer progressivement vos compétences d’encadrement et de gestion, avec l’accès aux formations internes et externes.\n Un hôpital régional à taille humaine, où la proximité et l’esprit de collaboration comptent."
+      },
+      "location": "Nyon",
+      "canton": "VD",
+      "addressLocality": "Nyon",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1260",
+      "category": "healthcare",
+      "sector": "Salute / Ospedale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "junior",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://app.beehire.com/invite/mINV-Y_jl",
+      "applyUrl": "https://app.beehire.com/invite/mINV-Y_jl",
+      "source": "GHOL Dedicated Parser (Beehire public API)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-17T09:32:21.361Z",
+      "needsRetranslation": true,
+      "salaryMin": 77500,
+      "salaryMax": 108000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77500,
+          "maxValue": 108000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Nyon",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-15T09:32:21.361Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-17T09:32:21.361Z"
     },
     {
       "id": "ghol-328ae8b07693",
@@ -910,7 +1188,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-21T09:28:31.877Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
