@@ -154,6 +154,9 @@ for (const target of TARGETS) {
     });
 
     test(`browser navigation completes within 25 s (${target.path})`, async ({ page }) => {
+      // One 15 s preflight request gets 6 attempts plus 25 s of retry pauses.
+      test.setTimeout(115_000);
+
       // Collect uncaught exceptions surfaced to the page. A cross-chunk
       // version-skew TypeError (stable filenames + re-lettered minified exports
       // after a deploy, e.g. "ls(...).then is not a function" on articles)
@@ -165,7 +168,10 @@ for (const target of TARGETS) {
       );
 
       // First confirm the URL is live; if 404 and tolerated, skip rather than fail.
-      const headResponse = await page.request.get(url, { maxRedirects: 5, timeout: 15_000 });
+      const headResponse = await getLiveWithRetry(page.request.get.bind(page.request), url, {
+        maxRedirects: 5,
+        timeout: 15_000,
+      });
       if (headResponse.status() === 404 && target.tolerate404) {
         test.skip(true, `${url} returned 404 (content may have rotated)`);
         return;

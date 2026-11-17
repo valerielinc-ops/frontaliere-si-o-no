@@ -14,6 +14,9 @@ describe('live specs retry transient edge responses', () => {
       /getLiveWithRetry\(page\.request\.get\.bind\(page\.request\), url, \{\s*maxRedirects: 5,\s*timeout: 20_000,\s*\}\)/,
     );
     expect(postDeploySource).toMatch(
+      /const headResponse = await getLiveWithRetry\(page\.request\.get\.bind\(page\.request\), url, \{\s*maxRedirects: 5,\s*timeout: 15_000,\s*\}\);\s*if \(headResponse\.status\(\) === 404 && target\.tolerate404\) \{\s*test\.skip\(true,/,
+    );
+    expect(postDeploySource).toMatch(
       /if \(fetched\.status === 404 && target\.tolerate404\) \{\s*test\.skip\(true,/,
     );
     expect(postDeploySource).toContain('expect(fetched.status, `${url} should return 200`).toBe(200);');
