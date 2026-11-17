@@ -1,11 +1,12 @@
 {
   "key": "mabetex",
   "label": "Mabetex Group",
-  "generatedAt": "2026-11-10T21:28:29.839Z",
+  "generatedAt": "2026-11-17T08:25:56.270Z",
   "total": 0,
   "discovered": 1,
   "parsed": 0,
   "lastFetchOutcome": null,
+  "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 0,
@@ -16,14 +17,14 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1459,
-  "avgDurationMs": 1459,
+  "durationMs": 1306,
+  "avgDurationMs": 1306,
   "durationHistory": [
-    1459
+    1306
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [],
-  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
+  "codeCommit": "c7f629a83a0168b6f42a10497b8c6fae1f62ae1a"
 }

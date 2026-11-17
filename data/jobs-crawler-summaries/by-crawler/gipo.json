@@ -1,15 +1,84 @@
 {
   "key": "gipo",
   "label": "GIPO GISLER POWER AG",
-  "generatedAt": "2026-11-10T21:28:45.644Z",
+  "generatedAt": "2026-11-17T08:25:07.680Z",
   "total": 1,
-  "discovered": 12,
+  "discovered": 13,
   "parsed": 1,
   "lastFetchOutcome": null,
+  "fetchReceipt": {
+    "specKey": "gipo",
+    "seedUrls": [
+      "https://gipo.ch/de/karriere-bei-gipo/stellenangebote-bei-gipo/"
+    ],
+    "phase": "detail",
+    "pages": 14,
+    "httpStatuses": [
+      {
+        "status": 200,
+        "url": "https://gipo.ch/de/karriere-bei-gipo/stellenangebote-bei-gipo/"
+      },
+      {
+        "status": 200,
+        "url": "https://gipo.ch/de/offene_stellen/teamleiter-bandschlosserei-3606b68d/"
+      },
+      {
+        "status": 200,
+        "url": "https://gipo.ch/de/offene_stellen/stv-abteilungsleiter-schlosserei-2edb5fed/"
+      },
+      {
+        "status": 200,
+        "url": "https://gipo.ch/de/offene_stellen/projektleiter-elektro-5b377502/"
+      },
+      {
+        "status": 200,
+        "url": "https://gipo.ch/de/offene_stellen/chefmonteur-anlagenbau-adcc70a0/"
+      },
+      {
+        "status": 200,
+        "url": "https://gipo.ch/de/offene_stellen/servicetechniker-mobile-anlagen-30d6b7b1/"
+      },
+      {
+        "status": 200,
+        "url": "https://gipo.ch/de/offene_stellen/lackierer-19af718c/"
+      },
+      {
+        "status": 200,
+        "url": "https://gipo.ch/de/offene_stellen/abteilungsleiter-in-oberflaechenbehandlung-601ba517/"
+      },
+      {
+        "status": 200,
+        "url": "https://gipo.ch/de/offene_stellen/fachmann-endmontage-f591cc7e/"
+      },
+      {
+        "status": 200,
+        "url": "https://gipo.ch/de/offene_stellen/berufsbildner-fuer-anlagen-apparatebauer-metallbaupraktiker-91775c12/"
+      },
+      {
+        "status": 200,
+        "url": "https://gipo.ch/de/offene_stellen/konstrukteur-efz-06517836/"
+      },
+      {
+        "status": 200,
+        "url": "https://gipo.ch/de/offene_stellen/stellvertretender-leiter-kundendienst-1ae197a6/"
+      },
+      {
+        "status": 200,
+        "url": "https://gipo.ch/de/offene_stellen/teamleiter-schlosserei-65f98ba9/"
+      },
+      {
+        "status": 200,
+        "url": "https://gipo.ch/de/offene_stellen/metallbauer-anlagen-und-apparatebauer-b3665564/"
+      }
+    ],
+    "proxiedBy": [],
+    "fetchOutcome": null,
+    "fetchDetail": null
+  },
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
   "written": 1,
-  "detailCandidates": 12,
+  "detailCandidates": 13,
   "detailGone": 0,
   "detailRejected": 0,
   "resurrectedJobs": 0,
@@ -19,10 +88,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 77538,
-  "avgDurationMs": 77538,
+  "durationMs": 21059,
+  "avgDurationMs": 21059,
   "durationHistory": [
-    77538
+    21059
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -41,7 +110,7 @@
       "url": "https://gipo.ch/de/offene_stellen/projektleiter-elektro-5b377502/",
       "source": "GIPO GISLER POWER AG Official Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-10T21:28:29.098Z",
+      "crawledAt": "2026-11-17T08:24:47.365Z",
       "addressLocality": "Seedorf",
       "addressRegion": "UR",
       "addressCountry": "CH",
@@ -65,7 +134,7 @@
       "salaryMax": 162500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-10T21:28:29.098Z",
+      "validThrough": "2026-12-17T08:24:47.365Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -76,5 +145,5 @@
       }
     }
   ],
-  "codeCommit": "75769c55d46b824538c2cefc863883b9b7639cfc"
+  "codeCommit": "c7f629a83a0168b6f42a10497b8c6fae1f62ae1a"
 }
