@@ -586,7 +586,7 @@ export function profileDateQuestionsCanUseProfile(candidate, questions) {
     });
     if (matching.length === 1) return Boolean(String(matching[0]?.[key] || '').trim());
     if (matching.length > 1) return false;
-    return entries.every((entry) => Boolean(String(entry?.[key] || '').trim()));
+    return false;
   });
 }
 

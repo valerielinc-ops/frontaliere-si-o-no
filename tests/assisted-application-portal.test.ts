@@ -440,6 +440,16 @@ describe('assisted application profile history and file replacement', () => {
     expect(profileDateQuestionsCanUseProfile(candidate, [{ type: 'date', applicationQuestion: 'To*' }])).toBe(false);
   });
 
+  it('keeps an unowned profile date question with multiple complete rows candidate-owned', () => {
+    const candidate = { profile: { experience: [
+      { role: 'First role', employer: 'First employer', start: '2020-01', end: '2022-01' },
+      { role: 'Second role', employer: 'Second employer', start: '2022-02', end: '2024-03' },
+    ] } };
+    expect(profileDateQuestionsCanUseProfile(candidate, [{
+      type: 'date', applicationQuestion: 'To*', section: 'Work Experience', context: 'Work Experience · To*',
+    }])).toBe(false);
+  });
+
   it('does not mistake a selected Workday filename for a successful upload receipt', async () => {
     const locator = { evaluate: vi.fn(async () => ['CV.pdf']) };
     const page = {
