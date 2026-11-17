@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import { applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, isApplicationRegionUnsupported, portalJobKey } from '../scripts/assisted-application/lib/portal/stages.mjs';
-import { applicationEntryControls, isVerifiedPostingEntry, openVerifiedPasswordResetNavigation, pageControls, urlConfirms } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { applicationEntryControls, hasApplicationSurface, isVerifiedPostingEntry, openVerifiedPasswordResetNavigation, pageControls, urlConfirms, workdayRestoreNeedsManualNavigation } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const origin = 'https://careers.example';
 const applyUrl = `${origin}/Careers/ApplicationMethods?jobId=42`;
@@ -19,6 +19,31 @@ const receipt = { url: receiptUrl, fields: [], text: `Thank you for your applica
 const controls = (snapshot: any) => pageControls(snapshot.buttons, known, snapshot.url, { snapshot, applyUrl, job });
 
 describe('application stage ownership', () => {
+  it('keeps a fieldless Workday apply shell distinct from an empty route', () => {
+    const manualUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Conseiller-de-Vente--h-f-_R2420/apply/applyManually';
+    const mounted = { url: manualUrl, fields: [], buttons: [], workdayApplicationSurface: true };
+    const empty = { url: manualUrl, fields: [], buttons: [] };
+
+    expect(hasApplicationSurface(mounted, { pageUrl: manualUrl, postingUrl: manualUrl })).toBe(true);
+    expect(hasApplicationSurface(mounted, {
+      pageUrl: 'https://careers.example/apply/applyManually', postingUrl: manualUrl,
+    })).toBe(false);
+    expect(hasApplicationSurface(mounted, {
+      pageUrl: 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Other_R9999/apply/applyManually',
+      postingUrl: manualUrl,
+    })).toBe(false);
+    expect(hasApplicationSurface(empty, { pageUrl: manualUrl, postingUrl: manualUrl })).toBe(false);
+  });
+
+  it('does not treat a carried mount marker as fresh proof on a bound manual route', () => {
+    const applyUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Conseiller-de-Vente--h-f-_R2420/apply';
+    const manualUrl = `${applyUrl}/applyManually`;
+    const carried = { url: manualUrl, fields: [], buttons: [], workdayApplicationSurface: true };
+
+    expect(workdayRestoreNeedsManualNavigation({ pageUrl: manualUrl, applyUrl, snapshot: carried })).toBe(true);
+    expect(workdayRestoreNeedsManualNavigation({ pageUrl: applyUrl, applyUrl, snapshot: carried })).toBe(false);
+  });
+
   it('does not accept a malformed frame as the UBS main-frame application entry', () => {
     const applyUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=42';
     const button = { id: 'application-entry', text: 'Apply now', section: job.title, frame: 0, disabled: false };

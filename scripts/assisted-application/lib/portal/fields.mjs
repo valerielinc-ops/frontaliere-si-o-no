@@ -32,6 +32,11 @@ function nativeQuestionText(value, counter = null) {
       .filter((item) => !item.endsWith('='));
     return `${node.tagName.toLowerCase()}${attributes.length ? `:${attributes.join(',')}` : ''}`;
   }).join('|');
+  // Workday mounts its application wizard in an explicit, fieldless shell
+  // before React has rendered the first question. Preserve that native mount
+  // proof so the route-bound runner can distinguish loading from a wrong
+  // posting without treating time alone as evidence.
+  const workdayApplicationSurface = Boolean(document.querySelector('[data-automation-id="applyFlowPage"]'));
   // These identifiers are part of the control's own DOM contract. Read only
   // scalar attributes from the element itself: ancestor/global IDs are not
   // evidence for the question represented by this field.
@@ -1693,6 +1698,7 @@ function nativeQuestionText(value, counter = null) {
   return {
     url: location.href,
     pageMarker,
+    workdayApplicationSurface,
     title: document.title,
     fields,
     buttons,
@@ -1788,7 +1794,7 @@ function isTurnstileFrame(url) {
 
 export async function extractFields(page, { listboxOptions = true, channelType = '', includeHidden = false } = {}) {
   const frames = page.frames();
-  const result = { url: page.url(), pageMarker: '', fields: [], buttons: [], links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [], text: '', frames: [] };
+  const result = { url: page.url(), pageMarker: '', workdayApplicationSurface: false, fields: [], buttons: [], links: [], dialogs: [], captcha: false, passwordVisible: false, errors: [], text: '', frames: [] };
   const context = typeof page.context === 'function' ? page.context() : null;
   const pageMarkers = [];
   const effectiveChannelType = String(channelType || portalChannelTypes.get(context) || '').trim();
@@ -1814,6 +1820,7 @@ export async function extractFields(page, { listboxOptions = true, channelType =
       field.options = field.selectLike ? await readOwnedListOptions(frame, field) : await readListboxOptions(frame, field.id);
     }
     result.frames.push({ index, url: snapshot.url });
+    result.workdayApplicationSurface ||= snapshot.workdayApplicationSurface === true;
     if (index === 0 || snapshot.fields.length > 0 || snapshot.buttons.length > 0) {
       // A portal can keep the application inside an iframe while the parent
       // URL and the iframe's control labels stay the same across wizard steps.

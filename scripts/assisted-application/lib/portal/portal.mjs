@@ -2034,6 +2034,22 @@ function hasApplicationForm(snapshot) {
   return kinds.includes('file') || (textish >= 3 && email);
 }
 
+/**
+ * A marker carried into a Workday manual route may belong to the page before
+ * an account transition. Do not use that marker as restore proof until the
+ * route has been freshly read; application controls remain valid evidence.
+ */
+export function workdayRestoreNeedsManualNavigation({ pageUrl = '', applyUrl = '', snapshot = {} } = {}) {
+  const currentRoute = workdayJobRoute(pageUrl);
+  const currentApplicationSurface = (currentRoute?.suffix !== 'manual'
+    && snapshot?.workdayApplicationSurface === true)
+    || hasApplicationForm(snapshot)
+    || Boolean(findButton(snapshot.buttons, NEXT_RE))
+    || Boolean(findButton(snapshot.buttons, SUBMIT_RE));
+  return !isWorkdayJobRouteBound(pageUrl, applyUrl)
+    || (currentRoute?.suffix === 'manual' && !currentApplicationSurface);
+}
+
 function hasApplicationFormInCookieScope(snapshot, button) {
   const fields = Array.isArray(snapshot?.fields) ? snapshot.fields : [];
   const frame = Number(button?.frame) || 0;
@@ -2635,11 +2651,17 @@ function hasApplicationEntryControl(snapshot = {}, context = {}) {
  * application form. The thin-shell exception is limited to Stadt Zürich's
  * exact posting route; a verified apply URL alone still needs a form surface.
  * Custom widgets may have no native fields yet, but their own buttons are
- * actionable and must reach the agentic fallback.
+ * actionable and must reach the agentic fallback. A fieldless Workday shell
+ * is evidence only while the browser is on the selected tenant requisition's
+ * application route.
  */
 export function hasApplicationSurface(snapshot, { pageUrl = '', postingUrl = '', postingMatch = '' } = {}) {
   if (isNonApplicationSurface(snapshot)) return false;
-  return Boolean(snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome)
+  const boundWorkdayApplicationSurface = snapshot?.workdayApplicationSurface === true
+    && isWorkdayTenantUrl(pageUrl)
+    && isWorkdayApplicationRouteBound(pageUrl, postingUrl);
+  return Boolean(boundWorkdayApplicationSurface
+    || snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome)
     || (postingMatch === 'match' && isStadtZurichPostingRoute({ pageUrl, postingUrl })));
 }
 
@@ -2771,6 +2793,21 @@ async function awaitFields(page, snapshot, unchanged = () => false) {
   for (let waited = 0; waited < 10_000 && (unchanged(current) || !current.fields.length); waited += 2000) {
     await page.waitForTimeout(2000);
     current = await extractFields(page);
+  }
+  return current;
+}
+
+/**
+ * Workday exposes its application shell before its first controls. Wait for
+ * that explicit mount marker so a bound manual route can survive the
+ * fieldless SPA transition without making an empty page look like an
+ * application by timeout alone.
+ */
+async function awaitWorkdayApplicationMount(page, snapshot) {
+  let current = snapshot;
+  for (let waited = 0; waited < 10_000 && !current?.workdayApplicationSurface; waited += 1000) {
+    await page.waitForTimeout(1000);
+    current = await extractFields(page, NAVIGATION).catch(() => current);
   }
   return current;
 }
@@ -4036,7 +4073,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       : entries;
   };
   const workdayApplicationSurfaceReady = (current) => {
-    if (current?.fields?.length) return true;
+    if (current?.workdayApplicationSurface === true || current?.fields?.length) return true;
     if (!workdayEntryControlSignature) {
       return Boolean(current?.buttons?.some((button) => !button?.chrome)
         || current?.links?.some((link) => !link?.chrome));
@@ -4062,7 +4099,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       if (!isWorkdayJobRouteBound(page.url(), stageContext.applyUrl)) return false;
       snapshot = await extractFields(page, NAVIGATION);
     }
-    return true;
+    return workdayApplicationSurfaceReady(snapshot);
   };
   const currentApplicationDiversion = async (current = snapshot) => applicationDestinationDiversionHint({
     ...current,
@@ -4081,6 +4118,9 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       text: await pageText(page).catch(() => String(current?.text || '')),
     };
     if (hasApplicationForm(observed) || signedInApplicationSurface(observed)) return true;
+    if (observed.workdayApplicationSurface === true
+      && stageContext && isWorkdayTenantUrl(stageContext.applyUrl)
+      && isWorkdayApplicationRouteBound(page.url(), stageContext.applyUrl)) return true;
     // Authentication and verification are deterministic application entry
     // surfaces after a bound CTA even when no candidate fields are mounted yet.
     if (authPageKind(observed) !== 'none' || observed.passwordVisible === true || codeField(observed)) return true;
@@ -11983,11 +12023,9 @@ export async function submitViaPortal(ctx) {
         return null;
       };
       const currentRoute = workdayJobRoute(page.url());
-      const currentApplicationSurface = hasApplicationForm(snapshot)
-        || Boolean(findButton(snapshot.buttons, NEXT_RE))
-        || Boolean(findButton(snapshot.buttons, SUBMIT_RE));
-      const needsManualRestore = !isWorkdayJobRouteBound(page.url(), ctx.applyUrl)
-        || (currentRoute?.suffix === 'manual' && !currentApplicationSurface);
+      const needsManualRestore = workdayRestoreNeedsManualNavigation({
+        pageUrl: page.url(), applyUrl: ctx.applyUrl, snapshot,
+      });
       if (needsManualRestore) {
         const target = workdayApplicationEntryProven && !workdayDeterministicRestoreAttempted
           ? workdayManualApplicationUrl(ctx.applyUrl) : '';
@@ -11995,10 +12033,19 @@ export async function submitViaPortal(ctx) {
           workdayDeterministicRestoreAttempted = true;
           await page.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 }).catch(() => {});
           await settle(page).catch(() => {});
+          // The pre-navigation shell marker is not evidence for the restored route. Clear it
+          // before extraction so a failed read cannot make the old snapshot satisfy the wait.
+          snapshot = { ...snapshot, workdayApplicationSurface: false };
           snapshot = await extractFields(page, NAVIGATION).catch(() => snapshot);
+          snapshot = await awaitWorkdayApplicationMount(page, snapshot);
+        } else if (currentRoute?.suffix === 'manual') {
+          // Without a deterministic navigation target there is still no fresh
+          // evidence that the carried marker belongs to this manual route.
+          snapshot = { ...snapshot, workdayApplicationSurface: false };
         }
         if (!isWorkdayJobRouteBound(page.url(), ctx.applyUrl)
-          || (workdayJobRoute(page.url())?.suffix === 'manual' && !hasApplicationForm(snapshot)
+          || (workdayJobRoute(page.url())?.suffix === 'manual' && !snapshot?.workdayApplicationSurface
+            && !hasApplicationForm(snapshot)
             && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE))) {
           return await recoverWithAgent();
         }
