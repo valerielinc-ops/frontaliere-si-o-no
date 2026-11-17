@@ -47,7 +47,7 @@ import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseSwisscomJobDescription, dropSwisscomFabricatedText } from './lib/swisscom-job-parser.mjs';
 import { inferAnyCanton, isSwissLocationText } from './lib/target-swiss-locations.mjs';
 import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './lib/workday-swiss-job-parser-common.mjs';
-import { fetchWithRetry, RETRYABLE_STATUS } from './lib/transient-fetch.mjs';
+import { fetchWorkdayJsonWithRetry } from './lib/ats-clients/workday-client.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -145,41 +145,16 @@ function isSwissLocation(locText = '') {
 // ─────────────────────────────────────────────────────────────
 
 async function fetchJson(url, options = {}) {
-  const { timeoutMs: configuredTimeoutMs, ...requestOptions } = options;
+  const { timeoutMs: configuredTimeoutMs, method = 'GET', body } = options;
   const timeoutMs = Number(configuredTimeoutMs) || Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   try {
-    return await fetchWithRetry(async () => {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), timeoutMs);
-      try {
-        const res = await fetch(url, {
-          ...requestOptions,
-          signal: controller.signal,
-          headers: {
-            'Content-Type': 'application/json',
-            Accept: 'application/json',
-            'Accept-Language': 'it-CH,it;q=0.9,en;q=0.8',
-            'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-              'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-            ...requestOptions.headers,
-          },
-        });
-        if (!res.ok) {
-          if (RETRYABLE_STATUS.has(res.status)) {
-            const error = new Error(`HTTP ${res.status} for ${url}`);
-            error.status = res.status;
-            error.retryable = true;
-            error.response = res;
-            throw error;
-          }
-          console.warn(`⚠️ HTTP ${res.status} for ${url}`);
-          return null;
-        }
-        return await res.json();
-      } finally {
-        clearTimeout(timer);
-      }
-    }, { label: `swisscom ${url}` });
+    return await fetchWorkdayJsonWithRetry(SWISSCOM_API_BASE, url, {
+      method,
+      body,
+      timeoutMs,
+      userAgent: process.env.JOBS_CRAWLER_USER_AGENT ||
+        'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+    });
   } catch (err) {
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
     return null;

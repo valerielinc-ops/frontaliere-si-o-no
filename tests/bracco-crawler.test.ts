@@ -71,7 +71,7 @@ describe('Bracco crawl provenance', () => {
       return new Response('', { status: 429 });
     }));
 
-    await expect(fetchBraccoJobs()).rejects.toMatchObject({
+    await expect(fetchBraccoJobs({ browserFallback: null })).rejects.toMatchObject({
       retryExhausted: true,
       status: 429,
     });

@@ -287,7 +287,8 @@ async function fetchJsonWithRetry(url, options = {}) {
     body,
     userAgent = DEFAULT_USER_AGENT,
     timeoutMs = DEFAULT_TIMEOUT_MS,
-    retries = 1,
+    retries,
+    retryBaseMs,
     browserFallback = null,
   } = options;
 
@@ -357,6 +358,7 @@ async function fetchJsonWithRetry(url, options = {}) {
       },
       {
         retries,
+        retryBaseMs,
         label: `workday ${url}`,
         // WorkdayAuthError (401/403) is a persistent anti-bot block, never
         // retry. Otherwise defer to the shared transient classifier (which

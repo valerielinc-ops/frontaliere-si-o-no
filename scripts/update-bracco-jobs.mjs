@@ -37,7 +37,7 @@ import {
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
-import { httpFetchAndReadWithRetry, isRetryBudgetExhausted } from './lib/transient-fetch.mjs';
+import { isRetryBudgetExhausted } from './lib/transient-fetch.mjs';
 import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { crawledAtFromObservation } from './lib/source-crawl-observation.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -56,7 +56,7 @@ import {
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
-import { firstLocationSegment, workdayPostingDateFields } from './lib/ats-clients/workday-client.mjs';
+import { fetchWorkdayJsonWithRetry, firstLocationSegment, workdayPostingDateFields } from './lib/ats-clients/workday-client.mjs';
 import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './lib/workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
@@ -166,24 +166,17 @@ function isTrustedDomain(rawUrl = '') {
 // Workday API
 // ─────────────────────────────────────────────────────────────
 
-async function fetchJson(url, options = {}) {
-  const { timeoutMs: requestedTimeoutMs, headers: requestHeaders, ...requestOptions } = options;
+async function fetchJson(url, options = {}, browserFallback) {
+  const { timeoutMs: requestedTimeoutMs, method = 'GET', body } = options;
   const timeoutMs = requestedTimeoutMs || 20000;
   try {
-    return await httpFetchAndReadWithRetry(url, {
-      ...requestOptions,
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-        'Accept-Language': 'en,it-CH;q=0.9',
-        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-        ...requestHeaders,
-      },
-    }, {
-      timeout: timeoutMs,
-      label: `bracco ${url}`,
-      readResponse: (response) => response.json(),
+    return await fetchWorkdayJsonWithRetry(BRACCO_API_BASE, url, {
+      method,
+      body,
+      timeoutMs,
+      userAgent: process.env.JOBS_CRAWLER_USER_AGENT ||
+        'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+      ...(browserFallback === undefined ? {} : { browserFallback }),
     });
   } catch (err) {
     console.warn(`⚠️ Fetch failed for ${url}: ${err.message}`);
@@ -206,7 +199,7 @@ async function fetchJson(url, options = {}) {
  * posting on pages 2+). A very high safety cap bounds a broken tenant; reaching
  * it throws instead of publishing an unverified partial result.
  */
-async function listSwissJobs() {
+async function listSwissJobs({ browserFallback } = {}) {
   const candidates = [];
   let offset = 0;
   let total = null;
@@ -226,7 +219,7 @@ async function listSwissJobs() {
     const data = await fetchJson(`${BRACCO_API_BASE}/jobs`, {
       method: 'POST',
       body,
-    });
+    }, browserFallback);
 
     if (!data || !Array.isArray(data.jobPostings)) {
       throw new Error('Bracco Workday listing response has no jobPostings array');
@@ -274,9 +267,9 @@ async function listSwissJobs() {
 /**
  * Fetch full detail for a single job via Workday API.
  */
-async function fetchJobDetail(externalPath) {
+async function fetchJobDetail(externalPath, browserFallback) {
   try {
-    return await fetchJson(`${BRACCO_API_BASE}${externalPath}`);
+    return await fetchJson(`${BRACCO_API_BASE}${externalPath}`, {}, browserFallback);
   } catch (err) {
     // A detail endpoint that stays rate-limited after the shared retry budget
     // is exhausted means the snapshot is incomplete. Let main() preserve the
@@ -378,12 +371,12 @@ function buildPublicUrl(externalPath) {
 // Fetch and build all Bracco Swiss jobs
 // ─────────────────────────────────────────────────────────────
 
-export async function fetchBraccoJobs() {
+export async function fetchBraccoJobs({ browserFallback } = {}) {
   console.log(`🔍 Fetching Bracco Suisse S.A. jobs from Workday API`);
   console.log(`   API: ${BRACCO_API_BASE}/jobs`);
   console.log(`   Keeping concrete Swiss locations across all 26 cantons by location text\n`);
 
-  const listings = await listSwissJobs();
+  const listings = await listSwissJobs({ browserFallback });
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No Swiss job listings returned from Workday API.');
     return [];
@@ -400,7 +393,7 @@ export async function fetchBraccoJobs() {
     if (!externalPath) continue;
 
     console.log(`  📄 Fetching detail: ${listing.title}`);
-    const detail = await fetchJobDetail(externalPath);
+    const detail = await fetchJobDetail(externalPath, browserFallback);
 
     const info = detail?.jobPostingInfo || {};
     const title = normalizeSpace(info.title || listing.title || '');
