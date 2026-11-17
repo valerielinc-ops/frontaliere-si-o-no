@@ -186,12 +186,14 @@ export async function fetchAllSwissJobs() {
     allJobs.push(posting);
   }
 
-  // The shared iterator returns already-yielded postings when a later page
-  // fails. Publishing that prefix would silently delete the missing jobs from
-  // the company slice, so Hamilton must fail closed on pagination errors.
-  if (stats.endReason === 'page-error') {
+  // The shared iterator can return a prefix after a later page failure or
+  // after hitting its safety cap. Publishing either prefix would silently
+  // delete the missing jobs from the company slice. Accept only an explicit,
+  // complete pagination termination.
+  const completeEndReasons = new Set(['empty-page', 'short-page', 'total-reached']);
+  if (!completeEndReasons.has(stats.endReason)) {
     throw new Error(
-      'Hamilton Workday pagination stopped after a transient page failure; refusing to publish a partial crawl.',
+      `Hamilton Workday pagination stopped without an explicit complete end condition (${stats.endReason || 'unknown'}); refusing to publish a partial crawl.`,
     );
   }
 

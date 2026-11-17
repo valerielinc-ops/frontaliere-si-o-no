@@ -44,7 +44,18 @@ describe("Hamilton Workday crawler transport", () => {
     });
 
     await expect(fetchAllSwissJobs()).rejects.toThrow(
-      /pagination stopped after a transient page failure.*refusing to publish a partial crawl/i,
+      /pagination stopped without an explicit complete end condition \(page-error\).*refusing to publish a partial crawl/i,
+    );
+  });
+
+  it("fails closed when pagination reaches the safety cap", async () => {
+    fetchWorkdayJobs.mockImplementation(async function* (_apiBase, receivedOptions) {
+      yield { title: "First page only", externalPath: "/job/Bonaduz/Cap" };
+      receivedOptions.stats.endReason = "max-pages";
+    });
+
+    await expect(fetchAllSwissJobs()).rejects.toThrow(
+      /pagination stopped without an explicit complete end condition \(max-pages\).*refusing to publish a partial crawl/i,
     );
   });
 });
