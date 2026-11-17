@@ -71,6 +71,17 @@ export function parsePublicAtsPosting(jobUrl) {
     }
   }
 
+  if (/^[a-z0-9-]+\.pinpointhq\.com$/i.test(host) && parsed.protocol === 'https:') {
+    const match = /^\/(?:([a-z]{2}(?:-[a-z]{2})?)\/)?postings\/([a-z0-9-]+)(?:\/applications(?:\/new)?)?\/?$/i.exec(parsed.pathname);
+    if (match) {
+      const prefix = match[1] ? `/${match[1]}` : '';
+      return {
+        provider: 'pinpoint',
+        apiUrl: `${parsed.origin}${prefix}/postings/${encodeURIComponent(match[2])}/applications/new`,
+      };
+    }
+  }
+
   return null;
 }
 
@@ -105,6 +116,39 @@ function normalizeQuestionEntry(raw, index, provider) {
   };
 }
 
+function decodeHtmlEntities(raw) {
+  return String(raw || '')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&amp;/g, '&');
+}
+
+function extractPinpointQuestionsFromHtml(html) {
+  const out = [];
+  const pattern = /data-component-name="Shared::Form::Questions::([^"]+)"[^>]*>([^<]+)</g;
+  let match;
+  let idx = 0;
+  while ((match = pattern.exec(String(html || ''))) !== null) {
+    try {
+      const props = JSON.parse(decodeHtmlEntities(match[2]));
+      if (props?.conditionalQuestionParentQuestionId != null) continue;
+      const details = props?.questionDetails || {};
+      const item = normalizeQuestionEntry({
+        label: details.title,
+        type: details.questionType || match[1],
+        required: details.required,
+        options: Array.isArray(props?.options) ? props.options : [],
+      }, idx++, 'pinpoint');
+      if (item) out.push(item);
+    } catch {
+      // Ignore malformed component payloads.
+    }
+  }
+  return out;
+}
+
 /** Extract custom application questions from public ATS JSON APIs without a browser. Fail-open on any network/format issue. */
 export async function preharvestPublicAtsQuestions(jobUrl, { fetchImpl = globalThis.fetch, timeoutMs = 6000 } = {}) {
   const target = parsePublicAtsPosting(jobUrl);
@@ -113,10 +157,14 @@ export async function preharvestPublicAtsQuestions(jobUrl, { fetchImpl = globalT
   const timer = controller ? setTimeout(() => controller.abort(), timeoutMs) : null;
   try {
     const res = await fetchImpl(target.apiUrl, {
-      headers: { Accept: 'application/json' },
+      headers: { Accept: target.provider === 'pinpoint' ? 'text/html,application/xhtml+xml' : 'application/json' },
       ...(controller ? { signal: controller.signal } : {}),
     });
     if (!res?.ok) return [];
+    if (target.provider === 'pinpoint') {
+      const html = typeof res.text === 'function' ? await res.text() : '';
+      return extractPinpointQuestionsFromHtml(html).slice(0, 20);
+    }
     const data = await res.json();
     const out = [];
     if (target.provider === 'greenhouse' && Array.isArray(data?.questions)) {
