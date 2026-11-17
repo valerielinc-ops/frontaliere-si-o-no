@@ -647,7 +647,7 @@ describe('locale-router canton-drift 301', () => {
     const res = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/some-job-xyz/`), {}, ctx);
 
     expect(res.status).toBe(404);
-    expect(res.headers.get('x-frontaliere-canon-cache')).toBeNull();
+    expect(res.headers.get('x-frontaliere-canon-cache')).toBe('miss');
   });
 
   it('falls through to the soft 404 for a legacy string map value (stale deploy)', async () => {
@@ -658,6 +658,8 @@ describe('locale-router canton-drift 301', () => {
     const res = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/some-job-xyz/`), {}, ctx);
 
     expect(res.status).toBe(404);
+    expect(res.headers.get('x-frontaliere-canon-cache')).toBe('miss');
+    expect(cacheMatchCount).toBe(1);
   });
 
   it('preserves query + hash on the 301 Location', async () => {
@@ -681,7 +683,7 @@ describe('locale-router canton-drift 301', () => {
     const res = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/some-job-xyz/`), {}, ctx);
 
     expect(res.status).toBe(404);
-    expect(res.headers.get('x-frontaliere-canon-cache')).toBeNull();
+    expect(res.headers.get('x-frontaliere-canon-cache')).toBe('miss');
     expect(cacheMatchCount).toBe(1);
     expect(res.headers.get('Cache-Control')).toBe('public, max-age=300, s-maxage=7200');
   });
@@ -727,6 +729,9 @@ describe('locale-router canton-drift 301', () => {
     const res = await worker.fetch(new Request(`${APEX}/en/jobs-in-zurich/some-job-xyz/`), {}, ctx);
 
     expect(res.status).toBe(404);
+    expect(res.headers.get('x-frontaliere-canon-cache')).toBeNull();
+    expect(cacheMatchCount).toBe(1);
+    expect(cachePutCount).toBe(0);
   });
 
   it('leaves a healthy 200 untouched (no map lookup)', async () => {
@@ -1028,6 +1033,7 @@ describe('locale-router job alias edge cache', () => {
 
     expect(response.status).toBe(200);
     expect(response.headers.get('Location')).toBeNull();
+    expect(response.headers.get('x-frontaliere-canon-cache')).toBeNull();
     expect(cacheMatchCount).toBe(0);
     expect(fetchMock).toHaveBeenCalled();
     if (method === 'GET') expect(await response.text()).toBe('live page');
@@ -1088,7 +1094,7 @@ describe('locale-router job alias edge cache', () => {
 
     const first = await worker.fetch(new Request(source), {}, ctx);
     expect(first.status).toBe(404);
-    expect(first.headers.get('x-frontaliere-canon-cache')).toBeNull();
+    expect(first.headers.get('x-frontaliere-canon-cache')).toBe('miss');
     expect(first.headers.get('Cache-Control')).toBe('public, max-age=300, s-maxage=7200');
     await flushCacheWrites();
     const [stored] = [...cacheEntries.values()];
@@ -1100,7 +1106,7 @@ describe('locale-router job alias edge cache', () => {
     const matchesBeforeSecond = cacheMatchCount;
     const second = await worker.fetch(new Request(source), {}, ctx);
     expect(second.status).toBe(404);
-    expect(second.headers.get('x-frontaliere-canon-cache')).toBeNull();
+    expect(second.headers.get('x-frontaliere-canon-cache')).toBe('hit');
     expect(second.headers.get('Cache-Control')).toBe('public, max-age=300, s-maxage=7200');
     expect(cacheMatchCount).toBe(matchesBeforeSecond + 1);
     expect(fetchMock).toHaveBeenCalled();

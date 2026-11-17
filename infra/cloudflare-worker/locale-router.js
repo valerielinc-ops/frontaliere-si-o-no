@@ -1485,6 +1485,7 @@ async function readJobAliasCacheResult(request, url, locale, sectionRoute, key) 
           'Content-Type': 'text/html; charset=utf-8',
           'Content-Language': locale,
           'Cache-Control': NOT_FOUND_CACHE_CONTROL,
+          [JOB_ALIAS_CACHE_DIAGNOSTIC_HEADER]: 'hit',
         },
       });
     }
@@ -3960,6 +3961,9 @@ async function serveShard(request, url, origin, recoveryLocale, ctx, sectionRout
         'Content-Language': recoveryLocale,
         'Cache-Control': jobCanonMarkerUnavailable ? 'no-store' : NOT_FOUND_CACHE_CONTROL,
       });
+      if (negativeAliasCacheCandidate && jobAliasCacheKey) {
+        headers.set(JOB_ALIAS_CACHE_DIAGNOSTIC_HEADER, 'miss');
+      }
       if (jobCanonMarkerUnavailable) headers.set(JOB_CANON_MARKER_UNAVAILABLE_HEADER, '1');
       return new Response(request.method === 'HEAD' ? null : page, {
         status: 404,
