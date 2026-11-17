@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-10T14:52:50.001Z",
+  "generatedAt": "2026-11-17T15:58:34.194Z",
   "config": {
     "days": 28,
     "rotateDays": 7,
@@ -23,7 +23,7 @@
   },
   "decision": {
     "nextVariant": "intent_simulation",
-    "reason": "winner_already_active",
+    "reason": "uplift_below_threshold",
     "mode": "exploit",
     "scores": {
       "year_intent": {
@@ -34,19 +34,19 @@
       },
       "intent_simulation": {
         "samples": 13,
-        "impressions": 1435757,
-        "clicks": 92588,
-        "ctr": 6.449
+        "impressions": 1420912,
+        "clicks": 88909,
+        "ctr": 6.257
       }
     }
   },
   "kpi": {
     "consideredPages": 20,
-    "totalImpressions": 81417,
-    "totalClicks": 5386,
-    "weightedCtr": 6.615,
-    "opportunities": 2,
-    "exposures": 224
+    "totalImpressions": 99300,
+    "totalClicks": 5180,
+    "weightedCtr": 5.217,
+    "opportunities": 3,
+    "exposures": 210
   },
   "changed": false,
   "published": false
