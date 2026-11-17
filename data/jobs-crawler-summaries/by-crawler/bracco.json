@@ -1,18 +1,66 @@
 {
   "key": "bracco",
   "label": "Bracco Suisse",
-  "generatedAt": "2026-11-17T09:26:07.414Z",
-  "total": 5,
-  "newCount": 0,
+  "generatedAt": "2026-11-17T21:25:35.493Z",
+  "total": 6,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 361422,
-  "avgDurationMs": 361422,
+  "durationMs": 411950,
+  "avgDurationMs": 411950,
   "durationHistory": [
-    361422
+    411950
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Plan-les-Ouates/HSE-Manager_JR100494",
+      "applyUrl": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Plan-les-Ouates/HSE-Manager_JR100494",
+      "title": "HSE Manager",
+      "company": "Bracco Suisse S.A.",
+      "companyKey": "bracco",
+      "location": "Plan-les-Ouates",
+      "canton": "GE",
+      "country": "CH",
+      "slug": "hse-manager-bracco-suisse",
+      "category": "management",
+      "datePosted": "2026-11-17",
+      "postedDate": "2026-11-17",
+      "postingDateSource": "reported",
+      "crawledAt": "2026-11-17T21:25:21.815Z",
+      "source": "bracco-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sourceLang": "fr",
+      "sector": "Healthcare / Imaging diagnostico",
+      "_targetScope": {
+        "canton": "GE",
+        "location": "Plan-les-Ouates"
+      },
+      "jobReqId": "JR100494",
+      "needsRetranslation": true,
+      "id": "bracco-2896a4802400",
+      "salaryMin": 83500,
+      "salaryMax": 126500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Plan-les-Ouates",
+      "addressRegion": "GE",
+      "postalCode": "1228",
+      "streetAddress": "Plan-les-Ouates",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-15T21:25:21.815Z",
+      "validThroughSource": "last-observed-window",
+      "firstSeenAt": "2026-11-17T21:25:21.815Z",
+      "_qualityScore": 83,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 22
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -30,7 +78,7 @@
       "datePosted": "2026-11-09",
       "postedDate": "2026-11-09",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-17T09:25:56.383Z",
+      "crawledAt": "2026-11-17T21:25:21.815Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -52,7 +100,7 @@
       "postalCode": "6814",
       "streetAddress": "Cadempino",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T09:25:56.383Z",
+      "validThrough": "2027-02-07T21:25:21.815Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -76,7 +124,7 @@
       "datePosted": "2026-11-03",
       "postedDate": "2026-11-03",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-17T09:25:56.383Z",
+      "crawledAt": "2026-11-17T21:25:21.815Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -98,7 +146,7 @@
       "postalCode": "6814",
       "streetAddress": "Cadempino",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-01T09:25:56.383Z",
+      "validThrough": "2027-02-01T21:25:21.815Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -122,7 +170,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-17T09:25:56.383Z",
+      "crawledAt": "2026-11-17T21:25:21.815Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -144,7 +192,7 @@
       "postalCode": "1228",
       "streetAddress": "Plan-les-Ouates",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:25:56.383Z",
+      "validThrough": "2027-01-25T21:25:21.815Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -168,7 +216,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-17T09:25:56.383Z",
+      "crawledAt": "2026-11-17T21:25:21.815Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -190,7 +238,7 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:25:56.383Z",
+      "validThrough": "2027-01-25T21:25:21.815Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -214,7 +262,7 @@
       "datePosted": "2026-10-27",
       "postedDate": "2026-10-27",
       "postingDateSource": "reported",
-      "crawledAt": "2026-11-17T09:25:56.383Z",
+      "crawledAt": "2026-11-17T21:25:21.815Z",
       "source": "bracco-workday-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "ENTRY",
@@ -236,7 +284,7 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-25T09:25:56.383Z",
+      "validThrough": "2027-01-25T21:25:21.815Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 92,
       "_qualityBreakdown": {
@@ -247,5 +295,5 @@
       }
     }
   ],
-  "codeCommit": "0a26498058b0569b9b8027a7e9a03db3e2542c6a"
+  "codeCommit": "8a8594aa5e6a6b71cb0a2a3883a7ded1be40621c"
 }
