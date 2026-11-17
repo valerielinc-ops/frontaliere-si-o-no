@@ -95,6 +95,10 @@ import { isListingInventoryJob, normalizeListingIdentity, selectJobBoardInventor
 import { iterateCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import { getSafeDistPageTargets, isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
+import {
+ assertRemovableBridgeSkipThreshold,
+ planRemovableBridgeReservations,
+} from './shared/removableBridgeReservations';
 import { readOrphanEnriched } from '../scripts/lib/orphan-enriched-store.mjs';
 import { keywordPageMatcher } from '../scripts/lib/keyword-page-match.mjs';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -14957,16 +14961,39 @@ ${staticAnalyticsHtml}
   );
   assertBridgePathClassificationCoverage(bridgePlan.bridgePaths, classification, workerEntries);
 
+  const removableBridgePlan = planRemovableBridgeReservations({
+   distDir,
+   bridges: bridgePlan.bridgePaths,
+   removable: classification.removable,
+   shouldEmitLocale,
+  });
+  for (const locale of localeList) {
+   activeBridgeRedirectCounts[locale] = removableBridgePlan.removableCountsByLocale.get(locale) ?? 0;
+  }
+  for (const kind of Object.keys(activeBridgeRemovableByKind) as JobCanonBridgePath['kind'][]) {
+   activeBridgeRemovableByKind[kind] = removableBridgePlan.removableCountsByKind.get(kind) ?? 0;
+  }
+  assertRemovableBridgeSkipThreshold(removableBridgePlan);
+  if (removableBridgePlan.skipped.length > 0) {
+   const byReason: Record<string, number> = {};
+   for (const item of removableBridgePlan.skipped) {
+    for (const reason of item.reasons) byReason[reason] = (byReason[reason] ?? 0) + 1;
+   }
+   const firstTen = removableBridgePlan.skipped
+    .slice(0, 10)
+    .map(({ path: skippedPath, reasons }) => `${JSON.stringify(skippedPath)} [${reasons.join(', ')}]`)
+    .join('; ');
+   console.warn(
+    `[jobs-seo-pages] removable bridge paths skipped as unsafe dist targets: ${removableBridgePlan.skipped.length} `
+    + `(by reason: ${JSON.stringify(byReason)}); first 10: ${firstTen}`,
+   );
+  }
+  for (const reservation of removableBridgePlan.reservations) {
+   reserveJobAliasRedirectDir(reservation.directoryPath);
+  }
+
   for (const bridge of bridgePlan.bridgePaths) {
    if (classification.removable.has(bridge.path)) {
-    activeBridgeRedirectCounts[bridge.locale]++;
-    activeBridgeRemovableByKind[bridge.kind]++;
-    if (!shouldEmitLocale(bridge.locale)) continue;
-    const targets = getSafeDistPageTargets(distDir, bridge.path, { includeFlat: false });
-    if (!targets) {
-     throw new Error('[job-alias-redirect-gate] removable bridge path is not a safe dist target');
-    }
-    reserveJobAliasRedirectDir(targets.directoryPath);
     continue;
    }
    const reason = classification.keepBridge.get(bridge.path);
@@ -14994,6 +15021,7 @@ ${staticAnalyticsHtml}
  for (const _directory of getJobAliasRedirectDirs()) reservedJobAliasDirCount++;
  console.log(
   `[jobs-seo-pages] active bridge handoff plan: removable=${activeBridgeRedirectCount} retained=${activeBridgeKeepCount} `
+  + `unsafe-removable-skipped=${removableBridgePlan.skipped.length} `
   + `by-locale=${JSON.stringify({ removable: activeBridgeRedirectCounts, retained: activeBridgeKeepCounts })} `
   + `by-kind=${JSON.stringify({ removable: activeBridgeRemovableByKind, retained: activeBridgeKeepByKind })} `
   + `heap-peak-mb=${(bridgePlanHeapPeakBytes / (1024 * 1024)).toFixed(1)} `
@@ -15002,6 +15030,7 @@ ${staticAnalyticsHtml}
  forceGc();
  logJobsSeoMem('after-active-bridge-classification', {
   removableBridgePaths: activeBridgeRedirectCount,
+  unsafeRemovableBridgeSkipped: removableBridgePlan.skipped.length,
   retainedBridgePaths: activeBridgeKeepCount,
   reservedJobAliasDirs: reservedJobAliasDirCount,
  });

@@ -142,16 +142,22 @@ describe('SEO builder noindex guards', () => {
       // PR-B lets an exact Worker destination retire its static alias. The
       // reservation suppresses any earlier queued bridge write; uncertain
       // paths stay in retainedBridgePaths and must pass the final HTML checks.
-      const classifyStart = source.indexOf('if (classification.removable.has(bridge.path))');
+      const classifyStart = source.indexOf('const removableBridgePlan = planRemovableBridgeReservations({');
       const classifyEnd = source.indexOf('bridgePlan.bridgePaths.length = 0', classifyStart);
       const classifyBlock = source.slice(classifyStart, classifyEnd);
       expect(classifyStart).toBeGreaterThan(-1);
       expect(classifyEnd).toBeGreaterThan(classifyStart);
-      expect(classifyBlock).toContain('getSafeDistPageTargets(distDir, bridge.path, { includeFlat: false });');
-      expect(classifyBlock).toContain('reserveJobAliasRedirectDir(targets.directoryPath);');
+      expect(classifyBlock).toContain('removable: classification.removable,');
+      expect(classifyBlock).toContain('assertRemovableBridgeSkipThreshold(removableBridgePlan);');
+      expect(classifyBlock).toContain('reserveJobAliasRedirectDir(reservation.directoryPath);');
       expect(classifyBlock).toContain('continue;');
       expect(classifyBlock).not.toMatch(/\b(?:_qw|_qwFlat|_qwFlatFull|writeFileSync)\s*\(/);
+      expect(classifyBlock).toContain('if (classification.removable.has(bridge.path))');
       expect(classifyBlock).toContain('retainedBridgePaths.set(bridgePathKey(bridge.locale, bridge.path), { bridge, reason });');
+
+      expect(source.match(/removable bridge paths skipped as unsafe dist targets:/g) ?? []).toHaveLength(1);
+      expect(source).toContain('unsafe-removable-skipped=${removableBridgePlan.skipped.length}');
+      expect(source).toContain('unsafeRemovableBridgeSkipped: removableBridgePlan.skipped.length');
 
       const retainedGuardStart = source.indexOf('const isRetainedActiveBridgePath = (locale: JobSeoLocale, pathname: string): boolean => {');
       const retainedGuardEnd = source.indexOf('\n };', retainedGuardStart);

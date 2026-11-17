@@ -23,8 +23,15 @@ export {
  * escapes and oversized segments before any filesystem join/write.
  */
 export function isSafeDistPath(pathname: string): boolean {
-  return !isDistPathOverFilesystemLimitsShared(pathname)
-    && isSafeCompatPath(pathname, { maxSegmentBytes: MAX_FILESYSTEM_SEGMENT_BYTES_SHARED });
+  return getUnsafeDistUrlPathReason(pathname) === null;
+}
+
+function getUnsafeDistUrlPathReason(pathname: string): string | null {
+  if (isDistPathOverFilesystemLimitsShared(pathname)) return 'path-over-filesystem-limits';
+  if (!isSafeCompatPath(pathname, { maxSegmentBytes: MAX_FILESYSTEM_SEGMENT_BYTES_SHARED })) {
+    return 'unsafe-compat-path';
+  }
+  return null;
 }
 
 export interface SafeDistPageWriteOptions {
@@ -62,6 +69,34 @@ export function isSafeDistTargetPath(targetPath: string): boolean {
     .every((segment) => Buffer.byteLength(segment, 'utf8') <= MAX_FILESYSTEM_SEGMENT_BYTES_SHARED);
 }
 
+function resolveDistPageTargetPaths(
+  distDir: string,
+  pathname: string,
+  includeFlat: boolean,
+): SafeDistPageTargets {
+  const relativePath = pathname.replace(/^\/+/, '').replace(/\/+$/, '');
+  const directoryPath = path.join(distDir, relativePath);
+  const indexPath = path.join(directoryPath, 'index.html');
+  const flatPath = includeFlat ? path.join(distDir, `${relativePath}.html`) : undefined;
+  return { directoryPath, indexPath, flatPath };
+}
+
+/**
+ * Explain why the directory-only dist targets for a URL would be rejected.
+ * The URL and target checks use the same predicates and target paths as the
+ * page preflight below, so diagnostics cannot drift from the write gate.
+ */
+export function explainUnsafeDistPath(distDir: string, pathname: string): string[] {
+  const urlReason = getUnsafeDistUrlPathReason(pathname);
+  if (urlReason) return [urlReason];
+
+  const targets = resolveDistPageTargetPaths(distDir, pathname, false);
+  const reasons: string[] = [];
+  if (!isSafeDistTargetPath(targets.directoryPath)) reasons.push('target-directory-unsafe');
+  if (!isSafeDistTargetPath(targets.indexPath)) reasons.push('target-index-unsafe');
+  return reasons;
+}
+
 /**
  * Calculate every filesystem target for a URL page before an emitter writes.
  * `includeFlat:false` is for emitters that deliberately write only the
@@ -75,14 +110,11 @@ export function getSafeDistPageTargets(
 ): SafeDistPageTargets | null {
   if (!isSafeDistPath(pathname)) return null;
 
-  const relativePath = pathname.replace(/^\/+/, '').replace(/\/+$/, '');
-  const directoryPath = path.join(distDir, relativePath);
-  const indexPath = path.join(directoryPath, 'index.html');
-  const flatPath = includeFlat ? path.join(distDir, `${relativePath}.html`) : undefined;
-  const targets = [directoryPath, indexPath, ...(flatPath ? [flatPath] : [])];
+  const pageTargets = resolveDistPageTargetPaths(distDir, pathname, includeFlat);
+  const targets = [pageTargets.directoryPath, pageTargets.indexPath, ...(pageTargets.flatPath ? [pageTargets.flatPath] : [])];
   if (!targets.every(isSafeDistTargetPath)) return null;
 
-  return { directoryPath, indexPath, flatPath };
+  return pageTargets;
 }
 
 /** Write one bridge page without allowing a bad path or disk error to abort the build. */
