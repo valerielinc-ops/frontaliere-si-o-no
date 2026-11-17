@@ -377,16 +377,22 @@
     "slugByLocale": {
       "it": "test-ingegnere-transgourmet-moosseedorf",
       "en": "test-engineer-transgourmet-moosseedorf",
-      "de": "test-engineer-transgourmet-moosseedorf",
+      "de": "test-engineer-transgourmet-moosseedorf-17901d35",
       "fr": "test-ingenieur-transgourmet-moosseedorf"
     },
     "sector": "Commercio all'ingrosso alimentare",
     "expiredAt": "2026-11-07T09:31:23.575Z",
-    "previousSlugs": [
-      "test-engineer-transgourmet-moosseedorf"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "test-engineer-transgourmet-moosseedorf-17901d35"
+      ],
+      "en": [
+        "test-engineer-transgourmet-moosseedorf"
+      ],
+      "de": [
+        "test-engineer-transgourmet-moosseedorf-17901d35"
+      ],
+      "fr": [
         "test-engineer-transgourmet-moosseedorf"
       ]
     },

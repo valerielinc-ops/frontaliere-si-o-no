@@ -9,16 +9,16 @@
     "eta-sa-swatch-group",
     "swiss-timing-swatch-group"
   ],
-  "generatedAt": "2026-11-17T09:26:27.948Z",
+  "generatedAt": "2026-11-17T21:27:26.128Z",
   "total": 27,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 26,
-  "durationMs": 425032,
-  "avgDurationMs": 425032,
+  "durationMs": 465110,
+  "avgDurationMs": 465110,
   "durationHistory": [
-    425032
+    465110
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -86,7 +86,7 @@
       "source": "Company Careers Crawler",
       "companyKey": "comadur-swatch-group",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-11-16T21:24:04.818Z",
+      "crawledAt": "2026-11-17T21:25:00.327Z",
       "firstSeenAt": "2026-11-13T21:26:05.084Z",
       "sourceLang": "fr",
       "salaryMin": 60500,
@@ -98,9 +98,8 @@
       "addressRegion": "NE",
       "streetAddress": "La Chaux-de-Fonds",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T21:24:04.818Z",
+      "validThrough": "2026-12-29T21:25:00.327Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1136,5 +1135,5 @@
       }
     }
   ],
-  "codeCommit": "0a26498058b0569b9b8027a7e9a03db3e2542c6a"
+  "codeCommit": "8a8594aa5e6a6b71cb0a2a3883a7ded1be40621c"
 }
