@@ -43,28 +43,44 @@ function normalizedSourceLocation(job) {
     .toLowerCase();
 }
 
+function normalizedSourceCompany(job) {
+  return String(job?.companyKey || job?.company || '')
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
+
 /**
  * Whether two records are source-backed location variants of one posting.
  *
  * PwC can publish one vacancy URL/ID for several explicit offices. Assembly
  * keeps one location, while the crawler slice deliberately keeps one record
- * per office. The shared URL and diff identity prove the source posting; two
- * different non-empty localities prove these are not duplicate rows. Slugs
- * and bridge history remain per-location and must not be copied from the
- * assembled winner onto its siblings.
+ * per office. The shared URL proves the source posting; two different
+ * non-empty localities prove these are not duplicate rows. Crawler ids are
+ * not required here: dedicated crawlers may content-address the same source
+ * posting once per locality (PwC does this), while assembly keeps one
+ * synthetic winner. Matching company identity is the extra guard for that
+ * id-per-location form. Slugs and bridge history remain per-location and must
+ * not be copied from the assembled winner onto its siblings.
  */
 function isSourceBackedLocationVariant(sliceJob, assembled) {
   const sliceUrl = normalizedJobUrl(sliceJob);
   const assembledUrl = normalizedJobUrl(assembled);
   if (!sliceUrl || sliceUrl !== assembledUrl) return false;
 
-  const sliceKey = resolveJobDiffKey(sliceJob);
-  const assembledKey = resolveJobDiffKey(assembled);
-  if (!sliceKey || sliceKey !== assembledKey) return false;
-
   const sliceLocation = normalizedSourceLocation(sliceJob);
   const assembledLocation = normalizedSourceLocation(assembled);
-  return Boolean(sliceLocation && assembledLocation && sliceLocation !== assembledLocation);
+  if (!sliceLocation || !assembledLocation || sliceLocation === assembledLocation) return false;
+
+  const sliceKey = resolveJobDiffKey(sliceJob);
+  const assembledKey = resolveJobDiffKey(assembled);
+  if (sliceKey && sliceKey === assembledKey) return true;
+
+  const sliceCompany = normalizedSourceCompany(sliceJob);
+  const assembledCompany = normalizedSourceCompany(assembled);
+  return Boolean(sliceCompany && assembledCompany && sliceCompany === assembledCompany);
 }
 
 function stableUrlIndexKey(url) {
@@ -892,8 +908,9 @@ export function collectMissingAssembledBridges(sliceJob, assembled, { skipBridge
       for (const s of arr) {
         const v = String(s || '');
         // A bridge the cleaner drops on its next pass (it equals this
-        // locale's active slug or the master slug) can never be persisted:
-        // it is not missing, and adding it would only be undone.
+        // locale's active slug, or the master slug in the Italian bucket) can
+        // never be persisted: it is not missing, and adding it would only be
+        // undone.
         if (!v || bucket.includes(v) || skipBridges.has(v) || isSelfCanonicalPreviousSlug(effectiveActive, locale, v)) continue;
         const dedupKey = `${locale} ${v}`;
         if (seen.has(dedupKey)) continue;

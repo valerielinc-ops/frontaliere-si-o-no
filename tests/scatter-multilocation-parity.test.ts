@@ -72,6 +72,7 @@ describe('scatter parity for source-backed multi-location postings', () => {
     };
     const bern = {
       ...structuredClone(assembled),
+      id: 'pwc-bern-location-variant',
       location: 'Bern',
       addressLocality: 'Bern',
       canton: 'BE',
@@ -117,6 +118,54 @@ describe('scatter parity for source-backed multi-location postings', () => {
 
     expect(verifyScatterParity([assembled], [{ file: 'pwc.json', jobs: [assembled, duplicate] }])).toMatchObject({
       duplicateSliceKeys: 1,
+      duplicateAssembledMatches: 1,
+      sourceLocationVariantMatches: 0,
+      passed: false,
+    });
+  });
+
+  it('keeps same-location duplicates fail-closed when crawler ids differ', () => {
+    const assembled = {
+      id: 'pwc-duplicate-owner',
+      url: 'https://jobs.pwc.ch/job-vacancies/duplicate/42',
+      company: 'PwC Switzerland',
+      location: 'Bern',
+      addressLocality: 'Bern',
+      slugByLocale: { it: 'duplicate-pwc-bern' },
+      titleByLocale: { it: 'Duplicato' },
+      descriptionByLocale: { it: 'Descrizione' },
+    };
+    const duplicate = { ...structuredClone(assembled), id: 'pwc-duplicate-other' };
+
+    expect(verifyScatterParity([assembled], [{ file: 'pwc.json', jobs: [assembled, duplicate] }])).toMatchObject({
+      duplicateSliceKeys: 0,
+      duplicateAssembledMatches: 1,
+      sourceLocationVariantMatches: 0,
+      passed: false,
+    });
+  });
+
+  it('does not treat same-url rows from different companies as location variants', () => {
+    const assembled = {
+      id: 'pwc-company-owner',
+      url: 'https://jobs.example.test/shared-role/42',
+      company: 'PwC Switzerland',
+      location: 'Zürich',
+      addressLocality: 'Zürich',
+      slugByLocale: { it: 'shared-role-zurich' },
+      titleByLocale: { it: 'Ruolo condiviso' },
+      descriptionByLocale: { it: 'Descrizione' },
+    };
+    const differentCompany = {
+      ...structuredClone(assembled),
+      id: 'other-company-location',
+      company: 'Another Company',
+      location: 'Bern',
+      addressLocality: 'Bern',
+    };
+
+    expect(verifyScatterParity([assembled], [{ file: 'shared.json', jobs: [assembled, differentCompany] }])).toMatchObject({
+      duplicateSliceKeys: 0,
       duplicateAssembledMatches: 1,
       sourceLocationVariantMatches: 0,
       passed: false,
