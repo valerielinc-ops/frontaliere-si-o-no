@@ -1,7 +1,7 @@
 {
   "crawlerKey": "assura-ch",
-  "assembledAt": "2026-11-16T21:37:41.789Z",
-  "runId": "43960122329",
+  "assembledAt": "2026-11-17T09:47:20.332Z",
+  "runId": "44055593978",
   "jobs": [
     {
       "id": "assura-ch-3bbdf9f3a33f",
@@ -34,7 +34,7 @@
       "url": "https://www.assura.ch/fr/carriere/postes-a-pourvoir/business-anali-lausanne",
       "source": "Assura, l’assicurazione malattie al suo fianco Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T21:37:26.615Z",
+      "crawledAt": "2026-11-17T09:47:05.449Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -78,7 +78,7 @@
       "postalCode": "1003",
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T21:37:26.615Z",
+      "validThrough": "2027-02-06T09:47:05.449Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -112,7 +112,7 @@
       "url": "https://www.assura.ch/fr/carriere/postes-a-pourvoir/infirmier-conseil-psy-ma",
       "source": "Assura, l’assicurazione malattie al suo fianco Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T21:37:26.609Z",
+      "crawledAt": "2026-11-17T09:47:05.446Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -161,7 +161,7 @@
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-06T21:37:26.609Z",
+      "validThrough": "2027-02-06T09:47:05.446Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -249,7 +249,7 @@
       "validThrough": "2027-02-06T09:44:13.802Z",
       "validThroughSource": "last-observed-window",
       "sourceIdentity": "url:https://www.assura.ch/fr/carriere/postes-a-pourvoir/gestionnaire-admin-pu-de-fr",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
