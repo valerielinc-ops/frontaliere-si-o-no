@@ -1,5 +1,6 @@
 /** Application stages are proved by the page's controls and instructions, never its URL alone. */
 import { avaturePortalDirectory, avaturePostingJobKey, sameAvaturePortal } from './protocol.mjs';
+import { sameBrassRingPostingAddress } from './brassring-route.mjs';
 import { isCvDocumentLabel } from './document-labels.mjs';
 import { isWorkdayJobRouteBound, isWorkdayTenantAccountRoute, isWorkdayTenantUrl, sameWorkdayJobRoute, workdayJobRoute } from './workday-route.mjs';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE } from './fill.mjs';
@@ -39,6 +40,8 @@ const APPLICATION_ANAPHORIC_BRIDGE_RE = new RegExp([
 const REVIEW_INSTRUCTIONS_RE = /(?:please )?review (?:the |your )?information.{0,600}(?:select|click|press).{0,50}(?:submit|apply).{0,80}(?:finali[sz]e|send|submit|complete).{0,40}(?:application|candidature)/i;
 const BEFORE_SEND_RE = /(?:review|check).{0,160}(?:before (?:you )?(?:submit|send|apply)|next (?:step|page))/i;
 const GENERIC_APPLY_RE = /^(?:apply(?: now)?|bewerben|jetzt bewerben|candidati(?: ora)?|applica|postuler)\W*$/i;
+const BRASSRING_CONSENT_ACTION_RE = /^(?:i\s+)?agree(?:\s+(?:and\s+)?(?:continue|proceed|apply))?\W*$/iu;
+const BRASSRING_CONSENT_GATE_RE = /(?:processing\s+your\s+personal\s+data|cross[-\s]?border\s+transfer|must\s+agree(?:\s+to\s+proceed)?)/iu;
 const CLOSED_APPLICATION_EXPAND_RE = /^(?:expand all(?: sections)?|show all(?: sections)?|alle abschnitte einblenden|alle einblenden|mostra tutte(?: le sezioni)?|espandi tutte(?: le sezioni)?|afficher toutes les sections|tout afficher|développer tout)\W*$/iu;
 const WORKDAY_APPLICATION_START_RE = /^(?:start(?:\s+application)?|get\s+started|begin(?:\s+application)?|d[ée]marrer|commencer|comenzar|inizia(?:re)?|jetzt\s+starten)\W*$/iu;
 const WORKDAY_PROFILE_INTRO_RE = /\b(?:introduce\s+yourself|présentez[- ]vous|stellen\s+sie\s+sich\s+vor|presentati)\b/iu;
@@ -204,6 +207,35 @@ function brassRingApplicationStartControl(snapshot, applicationEntryProven = fal
     && validFrameIndex(button?.frame) === 0 && !button?.leavesDocument
     && /^apply now$/iu.test(String(button?.text || button?.label || button?.ariaLabel || '').normalize('NFKC').trim()));
   return applyNow.length === 1 ? applyNow[0] : null;
+}
+
+/**
+ * UBS BrassRing puts a consent gate between its posting CTA and the actual
+ * application form while keeping the same query-bound HomeWithPreLoad route.
+ * It is an application step only after the runner proved the preceding Apply
+ * entry; an arbitrary Agree button must never become navigation provenance.
+ */
+function brassRingConsentGateControl(snapshot, {
+  url = snapshot?.url,
+  applyUrl,
+  brassRingApplicationEntryProven = false,
+} = {}) {
+  if (brassRingApplicationEntryProven !== true
+    || !sameBrassRingPostingAddress(url, applyUrl)) return null;
+  const fields = (snapshot?.fields || []).filter(field => !field?.chrome && !field?.disabled
+    && !['hidden', 'submit', 'button', 'reset', 'image'].includes(String(field?.inputType || '').toLowerCase()));
+  if (!fields.length || fields.some(field => !['checkbox', 'radio'].includes(String(field?.kind || '').toLowerCase())
+    && !['checkbox', 'radio'].includes(String(field?.inputType || '').toLowerCase()))) return null;
+  const fieldText = fields.flatMap(field => [
+    field?.label, field?.name, field?.id, field?.context, field?.section,
+    ...(Array.isArray(field?.labels) ? field.labels : []),
+    ...(Array.isArray(field?.options) ? field.options.map(option => typeof option === 'string' ? option : option?.label) : []),
+  ]).filter(Boolean).join(' ');
+  const pageText = [snapshot?.text, fieldText].filter(Boolean).join(' ');
+  if (!BRASSRING_CONSENT_GATE_RE.test(pageText)) return null;
+  const controls = (snapshot?.buttons || []).filter(control => !control?.chrome && !control?.disabled
+    && BRASSRING_CONSENT_ACTION_RE.test(String(control?.text || control?.label || control?.ariaLabel || control?.title || '').trim()));
+  return controls.length === 1 ? controls[0] : null;
 }
 
 function validFrameIndex(value) {
@@ -535,6 +567,12 @@ export function applicationStage(snapshot, {
   const mismatchedJob = parsed(url)?.origin === parsed(applyUrl)?.origin
     && portalJobKey(url) && portalJobKey(applyUrl, sourceProtocol) && portalJobKey(url) !== portalJobKey(applyUrl, sourceProtocol);
   if (mismatchedJob) return { kind: 'posting_mismatch' };
+  const brassRingConsent = brassRingConsentGateControl(snapshot, {
+    url,
+    applyUrl,
+    brassRingApplicationEntryProven,
+  });
+  if (brassRingConsent) return { kind: 'application_start', control: brassRingConsent };
   // A thank-you page with an unbound route is still an observed application
   // surface, but it cannot be treated as a normal form or a receipt.
   if (CONFIRM_RE.test(text) && titleBound(text, job.title)) {

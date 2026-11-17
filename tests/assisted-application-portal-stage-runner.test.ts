@@ -278,6 +278,68 @@ describe('runner final guard across three application stages', () => {
     expect(provenanceConflict.click).not.toHaveBeenCalled();
   });
 
+  it('passes the UBS BrassRing consent gate before planning the application form', async () => {
+    const postingUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=42';
+    const posting = {
+      ...snapshot(postingUrl, `${title}. UBS. Share Apply now Save`, [
+        { id: 'share', text: 'Share', frame: 0, disabled: false },
+        { id: 'posting-entry', text: 'Apply now', section: 'Job details', frame: 0, disabled: false },
+        { id: 'save', text: 'Save', frame: 0, disabled: false },
+      ]),
+      title: `${title} | UBS`,
+    };
+    const gate = {
+      ...snapshot(`${postingUrl}#application`, 'UBS processing your Personal Data. The cross-border transfer of your Personal Data. You must AGREE to proceed.', [
+        { id: 'agree', text: 'Agree', formId: 'consent', frame: 0, disabled: false },
+      ]),
+      title: `${title} | UBS`,
+      fields: [
+        { id: 'processing', label: 'UBS processing your Personal Data in the context of your application', kind: 'checkbox', inputType: 'checkbox', formId: 'consent', frame: 0, required: true, checked: true },
+        { id: 'transfer', label: 'The cross-border transfer of your Personal Data to above mentioned service providers', kind: 'checkbox', inputType: 'checkbox', formId: 'consent', frame: 0, required: true, checked: true },
+        { id: 'interest', label: 'Thank you for your interest in a job at UBS Note: You must AGREE to proceed.', kind: 'radio', inputType: 'radio', formId: 'consent', frame: 0, required: true, checked: true },
+      ],
+    };
+    const applicationForm = {
+      ...snapshot(`${postingUrl}#form`, 'Application details', [
+        { id: 'application-next', text: 'Next', formId: 'application', frame: 0, disabled: false },
+      ]),
+      title: `${title} | UBS`,
+      fields: [
+        { id: 'first', label: 'First Name', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { id: 'last', label: 'Last Name', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+      ],
+    };
+    const finalReview = {
+      ...snapshot(`${postingUrl}#review`, 'Please review the information below. Once you have reviewed, please select Submit to finalise your application.', [
+        { id: 'commit', text: 'Apply', formId: 'application', frame: 0, disabled: false },
+      ]),
+      title: `${title} | UBS`,
+    };
+    const received = {
+      ...snapshot(`${postingUrl}#confirmation`, `Thank you for your application for ${title}.`, []),
+      title: `${title} | UBS`,
+    };
+    const f = fixture(gate, posting, finalReview, null, {
+      applyUrl: postingUrl,
+      postingUrl,
+      channelType: 'employer_site',
+      job: { company: 'UBS', title },
+      guardUrl: finalReview.url,
+      receiptSnapshot: received,
+      buttonTransitions: {
+        '[data-aa-id="agree"]': async () => { state.snapshot = applicationForm; },
+        '[data-aa-id="application-next"]': async () => { state.snapshot = finalReview; },
+      },
+    });
+
+    const result = await f.run();
+
+    expect(f.openClick).toHaveBeenCalledOnce();
+    expect(result.event).toEqual({ type: 'submit_succeeded', channel: 'portal' });
+    expect(f.guard).toHaveBeenCalledOnce();
+    expect(f.click).toHaveBeenCalledOnce();
+  });
+
   it('waits for a blank Rituals Workday apply route to mount before handing it to the agent', async () => {
     const postingUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033';
     const applyUrl = `${postingUrl}/apply`;

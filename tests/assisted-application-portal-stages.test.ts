@@ -62,6 +62,36 @@ describe('application stage ownership', () => {
     }).kind).not.toBe('application_start');
   });
 
+  it('recognizes the proved UBS BrassRing consent gate as an intermediate application step', () => {
+    const ubsUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=348358';
+    const gate = {
+      url: `${ubsUrl}#application`,
+      text: 'UBS processing your Personal Data in the context of your application. The cross-border transfer of your Personal Data is required. You must AGREE to proceed.',
+      fields: [
+        { kind: 'checkbox', inputType: 'checkbox', label: 'UBS processing your Personal Data in the context of your application as outlined above', required: true },
+        { kind: 'checkbox', inputType: 'checkbox', label: 'The cross-border transfer of your Personal Data to the above mentioned service providers', required: true },
+        { kind: 'radio', inputType: 'radio', label: 'Thank you for your interest in a job at UBS. You must AGREE to proceed.', required: true },
+      ],
+      buttons: [{ id: 'agree', text: 'Agree', frame: 0, disabled: false }],
+    };
+
+    expect(applicationStage(gate, {
+      applyUrl: ubsUrl,
+      brassRingApplicationEntryProven: true,
+      job: { company: 'UBS', title: job.title },
+    })).toMatchObject({ kind: 'application_start', control: gate.buttons[0] });
+    expect(applicationStage(gate, {
+      applyUrl: ubsUrl,
+      brassRingApplicationEntryProven: false,
+      job: { company: 'UBS', title: job.title },
+    }).kind).not.toBe('application_start');
+    expect(applicationStage({ ...gate, url: ubsUrl.replace('348358', '348359') }, {
+      applyUrl: ubsUrl,
+      brassRingApplicationEntryProven: true,
+      job: { company: 'UBS', title: job.title },
+    }).kind).not.toBe('application_start');
+  });
+
   it.each([
     'Introduce yourself',
     'Initiativbewerbung',
