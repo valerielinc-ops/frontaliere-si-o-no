@@ -4034,7 +4034,6 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     const nextEntries = applicationEntryControls(observed, stageContext || {});
     const applicationContainerMarker = /\b(?:application|applicant|bewerbung|candidatur|candidature|candidatura|postuler|postulation|postulazione)\b/iu;
     const hasApplicationOwnedContainerMarker = (control) => {
-      if (control?.menuItem === true && control?.href) return true;
       const containerText = [control?.section, control?.context, control?.sectionGroup, control?.formContext]
         .filter(Boolean).join(' ');
       return Boolean(applicationContainerMarker.test(containerText)

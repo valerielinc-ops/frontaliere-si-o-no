@@ -685,7 +685,8 @@ describe('runner final guard across three application stages', () => {
     const menu = {
       ...posting,
       buttons: [toggles[0],
-        { id: 'manual', text: 'Jetzt bewerben', menuItem: true, href: `${postingUrl}#`, section: title, context: title },
+        { id: 'manual', text: 'Jetzt bewerben', menuItem: true, href: `${postingUrl}#`, section: title, context: title,
+          applicationScopeId: 'application-scope', sectionGroupId: 'application-menu', sectionGroup: 'Application menu' },
         { id: 'linkedin', text: 'Apply with LinkedIn', menuItem: true, href: `${postingUrl}#`, section: title, context: title },
         toggles[1]],
     };
@@ -1503,6 +1504,36 @@ describe('runner final guard across three application stages', () => {
       ...snapshot(postingUrl, `${title}. Clinica Holistica.`, [
         { id: 'apply-top', text: 'Jetzt bewerben', frame: 0, disabled: false },
         { id: 'apply-bottom', text: 'Jetzt bewerben', formId: 'posting-form', frame: 0, disabled: false },
+      ]),
+      title: `${title} | Clinica Holistica`,
+    };
+    const posting = {
+      ...clickedPosting,
+      buttons: [clickedPosting.buttons[0]],
+    };
+    const f = fixture(clickedPosting, posting, review, null, {
+      applyUrl: clinicaApplyUrl,
+      postingUrl,
+      channelType: 'employer_site',
+      job: { company: 'Clinica Holistica', title },
+    });
+
+    const result = await f.run();
+
+    expect(f.openClick).toHaveBeenCalledOnce();
+    expect(result.event).toMatchObject({ type: 'submit_handoff', reason: 'application_stage_unknown' });
+    expect(f.codex).not.toHaveBeenCalled();
+    expect(f.guard).not.toHaveBeenCalled();
+    expect(f.click).not.toHaveBeenCalled();
+  });
+
+  it('does not treat an unchanged posting menu CTA as post-entry evidence', async () => {
+    const postingUrl = 'https://www.clinica-holistica.ch/de/job/infrastructure-strategy-manager';
+    const clinicaApplyUrl = `${postingUrl}/apply?jobId=clinica-19138`;
+    const clickedPosting = {
+      ...snapshot(postingUrl, `${title}. Clinica Holistica.`, [
+        { id: 'apply-top', text: 'Jetzt bewerben', frame: 0, disabled: false },
+        { id: 'apply-bottom', text: 'Jetzt bewerben', menuItem: true, href: `${postingUrl}#`, frame: 0, disabled: false },
       ]),
       title: `${title} | Clinica Holistica`,
     };
