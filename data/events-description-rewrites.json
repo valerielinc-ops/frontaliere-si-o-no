@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-17T17:15:51.288Z",
+  "generatedAt": "2026-11-17T18:56:26.261Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -8587,6 +8587,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-15T20:17:17.050Z"
+    },
+    "ge-agenda:enose::a0cd2eeaebfec6297c6ff60f694c69f8c71541ba634edcb115aaf9b2a9058664": {
+      "id": "ge-agenda:enose",
+      "sourceDescriptionHash": "a0cd2eeaebfec6297c6ff60f694c69f8c71541ba634edcb115aaf9b2a9058664",
+      "description": "End’Ose è un atelier di arteterapia a Ginevra. È rivolto alle donne che vivono con l’endometriosi, la sindrome premestruale o dolori legati alle mestruazioni.",
+      "descriptionByLocale": {
+        "it": "End’Ose è un atelier di arteterapia a Ginevra. È rivolto alle donne che vivono con l’endometriosi, la sindrome premestruale o dolori legati alle mestruazioni.",
+        "en": "End’Ose is an art-therapy workshop in Geneva. It is intended for women affected by endometriosis, premenstrual syndrome or menstrual pain.",
+        "de": "End’Ose ist ein Kunsttherapie-Workshop in Genf. Das Angebot richtet sich an Frauen, die von Endometriose, dem prämenstruellen Syndrom oder Menstruationsschmerzen betroffen sind.",
+        "fr": "End’Ose est un atelier d’art-thérapie à Genève. Il s’adresse aux femmes qui vivent avec l’endométriose, le syndrome prémenstruel ou des douleurs liées aux règles."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-17T18:41:17.380Z"
     },
     "ge-agenda:ensemble-ensemble::30a2ed6bb7cc5d3627ff1657b082305217759ede660f44ca06d4d3bf28963ce5": {
       "id": "ge-agenda:ensemble-ensemble",
@@ -28551,6 +28565,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-19T14:17:13.844Z"
+    },
+    "guidle:A95rfXy::3d1de0ed2a1bb329d2567093cc66f748e8da96df1ec440fed8e9717b2eaa4bc7": {
+      "id": "guidle:A95rfXy",
+      "sourceDescriptionHash": "3d1de0ed2a1bb329d2567093cc66f748e8da96df1ec440fed8e9717b2eaa4bc7",
+      "description": "L’evento all’ONO Kulturlokal presenta lavori dell’artista bernese Denise Felber appartenenti a diverse fasi della sua attività creativa. Le opere sono state concepite appositamente per questo spazio espositivo.",
+      "descriptionByLocale": {
+        "it": "L’evento all’ONO Kulturlokal presenta lavori dell’artista bernese Denise Felber appartenenti a diverse fasi della sua attività creativa. Le opere sono state concepite appositamente per questo spazio espositivo.",
+        "en": "At ONO Kulturlokal, the event presents works by Bernese artist Denise Felber from different periods of her creative work. The pieces were developed specifically for the exhibition venue.",
+        "de": "Die Veranstaltung im ONO Kulturlokal zeigt Arbeiten der Berner Künstlerin Denise Felber aus verschiedenen Schaffensphasen. Die Werke wurden eigens für diesen Ausstellungsort konzipiert.",
+        "fr": "Le rendez-vous à l’ONO Kulturlokal présente des œuvres de l’artiste bernoise Denise Felber issues de plusieurs périodes de création. Les œuvres ont été conçues spécialement pour cet espace d’exposition."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-17T18:47:57.533Z"
     },
     "guidle:A98cxeB::3bec5054872c873a8e14bc04b95255d638527b9d8336b97b60d279624ce3c51b": {
       "id": "guidle:A98cxeB",
@@ -122534,6 +122562,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-11T12:21:15.030Z"
     },
+    "myswitzerland:83a6b03f65fa423eb7ffd25e21222271::ac9f1886c4eef08e233de27ce9be0db249a77def0d31fd35ad98913631750e57": {
+      "id": "myswitzerland:83a6b03f65fa423eb7ffd25e21222271",
+      "sourceDescriptionHash": "ac9f1886c4eef08e233de27ce9be0db249a77def0d31fd35ad98913631750e57",
+      "description": "A Baulmes si svolge un mercatino di Natale con la partecipazione di artigiani locali. L’evento si caratterizza per un’atmosfera cordiale.",
+      "descriptionByLocale": {
+        "it": "A Baulmes si svolge un mercatino di Natale con la partecipazione di artigiani locali. L’evento si caratterizza per un’atmosfera cordiale.",
+        "en": "The Christmas market in Baulmes brings together local craftspeople. The event takes place in a friendly atmosphere.",
+        "de": "Der Weihnachtsmarkt in Baulmes führt regionale Kunsthandwerker zusammen. Die Veranstaltung findet in einer gemütlichen Atmosphäre statt.",
+        "fr": "Le marché de Noël de Baulmes réunit des artisans locaux. L’événement se déroule dans une ambiance chaleureuse."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-17T18:28:13.337Z"
+    },
     "myswitzerland:83ae01e390734032981e99ec4b967eb6::c8ca101809e832bfcbf3ecccdb36988fc31f61b1f2b6b26e7ef2dde8f0d89f9b": {
       "id": "myswitzerland:83ae01e390734032981e99ec4b967eb6",
       "sourceDescriptionHash": "c8ca101809e832bfcbf3ecccdb36988fc31f61b1f2b6b26e7ef2dde8f0d89f9b",
@@ -123429,6 +123471,20 @@
       "model": "gpt-5.6-luna",
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-18T07:16:11.240Z"
+    },
+    "myswitzerland:863b0305764c4ce29205ce628e6bc696::8b669fba832c29697d8eb97029a8dbce49e01b93128ba20114c8f854daf56363": {
+      "id": "myswitzerland:863b0305764c4ce29205ce628e6bc696",
+      "sourceDescriptionHash": "8b669fba832c29697d8eb97029a8dbce49e01b93128ba20114c8f854daf56363",
+      "description": "L’incontro a Basilea è dedicato al ruolo della cultura nella copertura di SRF. Il panel riunisce persone attive nella cultura, nell’organizzazione di eventi e nella rappresentanza di SRF per discutere questo tema.",
+      "descriptionByLocale": {
+        "it": "L’incontro a Basilea è dedicato al ruolo della cultura nella copertura di SRF. Il panel riunisce persone attive nella cultura, nell’organizzazione di eventi e nella rappresentanza di SRF per discutere questo tema.",
+        "en": "The Basel event examines the place of culture in SRF’s reporting. The panel brings together cultural professionals, event organisers and SRF representatives to discuss the subject.",
+        "de": "Die Veranstaltung in Basel befasst sich mit der Rolle der Kulturberichterstattung bei SRF. Auf dem Podium kommen Kulturschaffende, Kulturveranstaltende und SRF-Vertretungen zu diesem Thema zusammen.",
+        "fr": "À Bâle, le rendez-vous porte sur la place de la culture dans la couverture de SRF. Le panel réunit des professionnels de la culture, des organisateurs d’événements et des représentants de SRF pour aborder cette question."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-17T18:25:53.790Z"
     },
     "myswitzerland:863fde50cab64c6fb8baa125a6964796::c424523b1b12e6b18b2762983cd3ed65e302e9ab703a0ca1889f43dda645e9d0": {
       "id": "myswitzerland:863fde50cab64c6fb8baa125a6964796",
@@ -192590,6 +192646,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-11-17T16:21:58.581Z"
     },
+    "tio-agenda:65082::770d852ecfbfdcb1ad42c91f6713a49fc03ebb2911fc5686e0b7e3274114392f": {
+      "id": "tio-agenda:65082",
+      "sourceDescriptionHash": "770d852ecfbfdcb1ad42c91f6713a49fc03ebb2911fc5686e0b7e3274114392f",
+      "description": "Il mercatino di Natale si svolge a Tenero-Contra, in Piazza Canevascini. L’evento riunisce bancarelle, idee regalo e intrattenimento musicale.",
+      "descriptionByLocale": {
+        "it": "Il mercatino di Natale si svolge a Tenero-Contra, in Piazza Canevascini. L’evento riunisce bancarelle, idee regalo e intrattenimento musicale.",
+        "en": "A Christmas market is held in Tenero-Contra at Piazza Canevascini. It features market stalls, gift ideas and musical entertainment.",
+        "de": "Auf der Piazza Canevascini in Tenero-Contra findet ein Weihnachtsmarkt statt. Er umfasst Marktstände, Geschenkideen und musikalische Unterhaltung.",
+        "fr": "Un marché de Noël se tient à la Piazza Canevascini, à Tenero-Contra. Il propose des stands, des idées de cadeaux et une animation musicale."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-17T18:34:12.576Z"
+    },
     "tio-agenda:65087::b5649471ba862ea7538556bcee10d74d85033962da831ce052cfc997ee20cbda": {
       "id": "tio-agenda:65087",
       "sourceDescriptionHash": "b5649471ba862ea7538556bcee10d74d85033962da831ce052cfc997ee20cbda",
@@ -192674,8 +192744,8 @@
       "id": "fr-agenda:3-decembre-2026-journee-internationale-des-personnes-en-situation-de-handicap",
       "sourceDescriptionHash": "bd90340c93dbd31c1ac333396ee75aedd97bfa59e18016ae189e384722059324",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:50:31.906Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:35:25.998Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -192718,9 +192788,9 @@
     "fr-agenda:fresede-seance-dinformation-en-presentiel::d3e5e18f59b61df60e858767bab301a1d961e867dcc8376cd23bd2f34008cb49": {
       "id": "fr-agenda:fresede-seance-dinformation-en-presentiel",
       "sourceDescriptionHash": "d3e5e18f59b61df60e858767bab301a1d961e867dcc8376cd23bd2f34008cb49",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:50:44.263Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:42:53.725Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -192926,8 +192996,8 @@
       "id": "ge-agenda:concert-festival-celtiques-ameigas-traditions-galiciennes",
       "sourceDescriptionHash": "e9dedd438f6f9baf102e7f355544b608a1eda08e702493f64f6fb69e2a7758c9",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:38:40.775Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:40:05.472Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -192944,8 +193014,8 @@
       "id": "ge-agenda:dance-love",
       "sourceDescriptionHash": "95b3afdfdb26d0d4f4ee909d71189c58dec0f0cac7b25464b3f6ccc5ee3c8211",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:36:33.904Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:29:28.723Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -192994,21 +193064,12 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "ge-agenda:enose::a0cd2eeaebfec6297c6ff60f694c69f8c71541ba634edcb115aaf9b2a9058664": {
-      "id": "ge-agenda:enose",
-      "sourceDescriptionHash": "a0cd2eeaebfec6297c6ff60f694c69f8c71541ba634edcb115aaf9b2a9058664",
-      "code": "source-ngram-8",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T17:00:17.945Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "ge-agenda:ensemble-vortex-anche-macchina::aa78372bb93cc71c0dfb6bb7d497e642287b202136284c34313f2892c3d272dc": {
       "id": "ge-agenda:ensemble-vortex-anche-macchina",
       "sourceDescriptionHash": "aa78372bb93cc71c0dfb6bb7d497e642287b202136284c34313f2892c3d272dc",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:20:46.322Z",
+      "code": "source-ngram-8",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:21:35.368Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -193034,8 +193095,8 @@
       "id": "ge-agenda:filmarcito-filmarcito-abuelos-abuelas",
       "sourceDescriptionHash": "25c4abfbec9cc5a61f7a4e6eeb455ea5f5f7a10f1b027a8124c7a295ab58ceea",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:50:47.439Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:45:37.141Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -193258,9 +193319,9 @@
     "ge-agenda:nils-wogras-root-70::6ab57517efed84b14cd71a3472d3504885ae9685355b32f2fa729669a99e68e5": {
       "id": "ge-agenda:nils-wogras-root-70",
       "sourceDescriptionHash": "6ab57517efed84b14cd71a3472d3504885ae9685355b32f2fa729669a99e68e5",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:54:15.863Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:44:41.412Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -193286,8 +193347,8 @@
       "id": "ge-agenda:payer-changer-mode",
       "sourceDescriptionHash": "f2c3599298ea9ab996aae9066523882e3fe9abad10bd5d9a662eb30c16a38c7f",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:48:08.653Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:45:34.733Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -193367,8 +193428,8 @@
       "id": "ge-agenda:seances-chant-1ers-jeudis-mois-99",
       "sourceDescriptionHash": "7615c01db2085027fe80577e6eae5aca29ccb16d4587cd15dd6860e6ebf42a3b",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:23:18.435Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:24:16.762Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -193394,8 +193455,8 @@
       "id": "ge-agenda:seniors-prendre-soin-sante-entrainement-walking-course-pied",
       "sourceDescriptionHash": "e56f9ec5c205db20323a2b05b4aa69314874eee95d6d1409621ee6e27b2524a2",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:21:26.171Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:22:02.259Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -193403,8 +193464,8 @@
       "id": "ge-agenda:session-ouverture-blues-rooster",
       "sourceDescriptionHash": "319d0ab348f4407fa55cfa42d3c7958fdef11e61ea909d084cf8fba5d2d40caa",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:46:08.089Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:37:09.982Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -193429,9 +193490,9 @@
     "ge-agenda:spectacle-improvisation-anglais-renegade-saints-2::826a1af6cbbf111194e039cc3dc2eea53676d3e5c4791c5d75079e5286971fb8": {
       "id": "ge-agenda:spectacle-improvisation-anglais-renegade-saints-2",
       "sourceDescriptionHash": "826a1af6cbbf111194e039cc3dc2eea53676d3e5c4791c5d75079e5286971fb8",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:39:25.276Z",
+      "code": "sentence-count",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:27:21.671Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -193457,8 +193518,8 @@
       "id": "ge-agenda:straight-sound-guest-soldia-sound",
       "sourceDescriptionHash": "1b2cbff4053333178d68a230298117128460dbcfc962e1a377e2e54357344142",
       "code": "new-date-or-price",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T17:02:32.153Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:43:11.677Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -193546,9 +193607,9 @@
     "ge-agenda:vrai-gout-bonheur-exposition-hadrien-dussoix-anthony-maas::6a7987f6be3b0f992f361425c34614c4adc2d3ea6686a7a5e5b1236661911368": {
       "id": "ge-agenda:vrai-gout-bonheur-exposition-hadrien-dussoix-anthony-maas",
       "sourceDescriptionHash": "6a7987f6be3b0f992f361425c34614c4adc2d3ea6686a7a5e5b1236661911368",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:41:10.205Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:37:58.991Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -193864,15 +193925,6 @@
       "code": "new-name",
       "rejectedRuns": 1,
       "lastAttemptAt": "2026-10-13T16:27:43.714Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "guidle:A95rfXy::3d1de0ed2a1bb329d2567093cc66f748e8da96df1ec440fed8e9717b2eaa4bc7": {
-      "id": "guidle:A95rfXy",
-      "sourceDescriptionHash": "3d1de0ed2a1bb329d2567093cc66f748e8da96df1ec440fed8e9717b2eaa4bc7",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:56:13.171Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -194950,9 +195002,9 @@
     "guidle:APdN8tJ::9dcf7579ffbcae1e733dc369719a13319f473af0b0871aac47ffa38274e36ecc": {
       "id": "guidle:APdN8tJ",
       "sourceDescriptionHash": "9dcf7579ffbcae1e733dc369719a13319f473af0b0871aac47ffa38274e36ecc",
-      "code": "source-ngram-8",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:24:54.356Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:23:13.443Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195581,8 +195633,8 @@
       "id": "guidle:Aw6cZN2",
       "sourceDescriptionHash": "b77658277d3702ad073fbdbcad7f089b29e90429bf60885f335a2a0bff83280b",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:57:50.102Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:48:52.135Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195959,8 +196011,8 @@
       "id": "lu-stadt-agenda:7629703",
       "sourceDescriptionHash": "0a80e8375a977c6c0c0e58c634d982b666a9a17f6e8678a8e8b0bad9242fea4d",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:38:21.309Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:30:19.801Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195977,8 +196029,8 @@
       "id": "lu-stadt-agenda:7694122",
       "sourceDescriptionHash": "a4ab323c5cae39e242333889135f8cd2702640684a8b1a48191a69a22c17cce6",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:28:13.461Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:31:25.764Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -195995,8 +196047,8 @@
       "id": "lu-stadt-agenda:7823479",
       "sourceDescriptionHash": "ad11d2a0f2568767cffaea68589764bf603dafc85b9798fba241570c94138165",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:30:21.333Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:20:33.323Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -198313,15 +198365,6 @@
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
-    "myswitzerland:83a6b03f65fa423eb7ffd25e21222271::ac9f1886c4eef08e233de27ce9be0db249a77def0d31fd35ad98913631750e57": {
-      "id": "myswitzerland:83a6b03f65fa423eb7ffd25e21222271",
-      "sourceDescriptionHash": "ac9f1886c4eef08e233de27ce9be0db249a77def0d31fd35ad98913631750e57",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:35:04.040Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
     "myswitzerland:84b51903f55e49f69da5f567396ee88f::20b391850c5fd91110b9f5952334f2d3d62cd72349d4d769552f96fa72c2b85c": {
       "id": "myswitzerland:84b51903f55e49f69da5f567396ee88f",
       "sourceDescriptionHash": "20b391850c5fd91110b9f5952334f2d3d62cd72349d4d769552f96fa72c2b85c",
@@ -198344,8 +198387,8 @@
       "id": "myswitzerland:850d171dbdde40c28a7ce23cad99b449",
       "sourceDescriptionHash": "e08d02d1e71240b8e3d6eddf55b0504a5040b3ca6954385177700217e8ea50af",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T17:11:14.770Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:48:24.171Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -198371,17 +198414,8 @@
       "id": "myswitzerland:8616b05f569243cea26ffb6ae7c19aca",
       "sourceDescriptionHash": "d880fa7cead46ad1a4e98eb41cce5299a84e7726d30557a31f07927707f648ce",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:29:44.076Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:863b0305764c4ce29205ce628e6bc696::8b669fba832c29697d8eb97029a8dbce49e01b93128ba20114c8f854daf56363": {
-      "id": "myswitzerland:863b0305764c4ce29205ce628e6bc696",
-      "sourceDescriptionHash": "8b669fba832c29697d8eb97029a8dbce49e01b93128ba20114c8f854daf56363",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:33:34.661Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:19:54.572Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -200837,8 +200871,8 @@
       "id": "tio-agenda:63778",
       "sourceDescriptionHash": "e4599b285e79c5ed017013409870e8a928423d7ada1fe8d03449afdcd34da266",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:46:41.235Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:39:04.744Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -201062,8 +201096,8 @@
       "id": "tio-agenda:64044",
       "sourceDescriptionHash": "1c4d91761e54dfe236782080728c49701b4d289e698cc31e9e999cb3676515db",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:49:32.935Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:44:16.295Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -201205,9 +201239,9 @@
     "tio-agenda:64268::ae469fb9b7b01d10157bb3d3bc7a1a540df25d1f3edf5e06a3aae19631fca82c": {
       "id": "tio-agenda:64268",
       "sourceDescriptionHash": "ae469fb9b7b01d10157bb3d3bc7a1a540df25d1f3edf5e06a3aae19631fca82c",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:44:54.951Z",
+      "code": "new-number",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:37:31.756Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -201215,8 +201249,8 @@
       "id": "tio-agenda:64276",
       "sourceDescriptionHash": "b30b8358a7eb847024dc267a60c610f9cbc77b6d83885ccbd29c4328d0ee6372",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T17:00:33.231Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:42:51.647Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -201494,8 +201528,8 @@
       "id": "tio-agenda:64970",
       "sourceDescriptionHash": "10c492f095596fba4af61f1291769d6d3f39e3375c6ff9a2e7809783059eef8e",
       "code": "new-date-or-price",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:59:12.622Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:41:22.289Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -201511,18 +201545,18 @@
     "tio-agenda:65032::77cc47fd577a247743fb2c932985eed9e2a67572aeb86480b367c59303a63763": {
       "id": "tio-agenda:65032",
       "sourceDescriptionHash": "77cc47fd577a247743fb2c932985eed9e2a67572aeb86480b367c59303a63763",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:59:29.193Z",
+      "code": "new-number",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:51:51.475Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:65035::cd029fc66901719182ed2c05882de319ffa110ca8d27e3fd3736eff430e57093": {
       "id": "tio-agenda:65035",
       "sourceDescriptionHash": "cd029fc66901719182ed2c05882de319ffa110ca8d27e3fd3736eff430e57093",
-      "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:43:15.269Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:36:09.490Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -201530,17 +201564,17 @@
       "id": "tio-agenda:65036",
       "sourceDescriptionHash": "cd029fc66901719182ed2c05882de319ffa110ca8d27e3fd3736eff430e57093",
       "code": "source-ngram-8",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:52:12.696Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:43:57.266Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:65037::cd029fc66901719182ed2c05882de319ffa110ca8d27e3fd3736eff430e57093": {
       "id": "tio-agenda:65037",
       "sourceDescriptionHash": "cd029fc66901719182ed2c05882de319ffa110ca8d27e3fd3736eff430e57093",
-      "code": "source-ngram-8",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T17:07:32.541Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:49:35.226Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -201548,8 +201582,8 @@
       "id": "tio-agenda:65061",
       "sourceDescriptionHash": "52ee33fa3b24c042ddd4c695759c94b250be0c9f83a4ed627f841e0f89fb6d12",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:41:28.958Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:36:48.484Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -201557,8 +201591,8 @@
       "id": "tio-agenda:65062",
       "sourceDescriptionHash": "724820d81c8143feac2340941b1106bb22699d2cbd2f45a7fd91727bbe1e394d",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:45:19.278Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:36:12.176Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -201566,8 +201600,8 @@
       "id": "tio-agenda:65069",
       "sourceDescriptionHash": "5ea4325a06a8bdeee98902346316e3947cd7141c0aecd676a3fab58310b7562e",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:34:35.795Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:27:22.847Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -201575,17 +201609,17 @@
       "id": "tio-agenda:65070",
       "sourceDescriptionHash": "2e57f987bcc3e7f6b6c6790f2f4768d8e6156193faa5fb4f2b6cf09591d85692",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:22:08.894Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:23:17.755Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:65071::b6f17faed9c1a69a29185b016a2e64b1d70ed59b44d05951a964be0206fcd8e5": {
       "id": "tio-agenda:65071",
       "sourceDescriptionHash": "b6f17faed9c1a69a29185b016a2e64b1d70ed59b44d05951a964be0206fcd8e5",
-      "code": "new-date-or-price",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:29:39.935Z",
+      "code": "new-name",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:32:13.392Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -201593,26 +201627,26 @@
       "id": "tio-agenda:65073",
       "sourceDescriptionHash": "003763d8f2acf71fd8ed879fb19b858bc36f70c9c57ff32cb9bc0afc88959f0e",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:33:38.208Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:26:17.114Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:65074::d5226019c835cfce130892c732e68e2cd978ca98486b8b677665a25f8f2ef530": {
       "id": "tio-agenda:65074",
       "sourceDescriptionHash": "d5226019c835cfce130892c732e68e2cd978ca98486b8b677665a25f8f2ef530",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:30:32.610Z",
+      "code": "new-number",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:19:40.399Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:65075::bc15467d06cfcf52e8154c7dbe78ed593ee41e49a6b151523793f30f5947ceb3": {
       "id": "tio-agenda:65075",
       "sourceDescriptionHash": "bc15467d06cfcf52e8154c7dbe78ed593ee41e49a6b151523793f30f5947ceb3",
-      "code": "source-ngram-8",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:36:24.620Z",
+      "code": "new-number",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:29:31.887Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -201620,8 +201654,8 @@
       "id": "tio-agenda:65076",
       "sourceDescriptionHash": "305261af5680ce7b0ac8fe4cb0a9345f4f12b0ad2dfa4b4c923f2bad07d1234f",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:23:12.218Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:22:38.311Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -201629,8 +201663,8 @@
       "id": "tio-agenda:65077",
       "sourceDescriptionHash": "ba64979b76f384024d775171e85543978fb55a02d3b64caa1879edc24e278d4d",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:20:25.089Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:21:17.431Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -201638,8 +201672,8 @@
       "id": "tio-agenda:65079",
       "sourceDescriptionHash": "cf6c0caea5870fc026b4d60a8565585db75fada8330d522a5bd35dbb541b58bd",
       "code": "new-date-or-price",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:43:38.130Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:38:58.826Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -201647,44 +201681,35 @@
       "id": "tio-agenda:65080",
       "sourceDescriptionHash": "ccfb4c9f5f0e127b5642b58c72ce3153f5dd96a544cfd77f564855f19a7401f1",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:42:33.586Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:38:00.159Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:65081::82a9dde0b79b9aa6651a97e9cfd1b6af98402e9bc3da24ac1d100db091c7562f": {
       "id": "tio-agenda:65081",
       "sourceDescriptionHash": "82a9dde0b79b9aa6651a97e9cfd1b6af98402e9bc3da24ac1d100db091c7562f",
-      "code": "new-date-or-price",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:37:47.511Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "tio-agenda:65082::770d852ecfbfdcb1ad42c91f6713a49fc03ebb2911fc5686e0b7e3274114392f": {
-      "id": "tio-agenda:65082",
-      "sourceDescriptionHash": "770d852ecfbfdcb1ad42c91f6713a49fc03ebb2911fc5686e0b7e3274114392f",
       "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:51:45.272Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:31:38.932Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:65083::8f62e564eb9c9c7ffad849bc1b969fde5a1dc2de7b21ea5435612da387fc2b6f": {
       "id": "tio-agenda:65083",
       "sourceDescriptionHash": "8f62e564eb9c9c7ffad849bc1b969fde5a1dc2de7b21ea5435612da387fc2b6f",
-      "code": "new-name",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:35:23.364Z",
+      "code": "source-ngram-8",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:28:09.527Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
     "tio-agenda:65085::bd98b554f4a22589494ef9748a23a432c9c16d61ba1db253a678669a307fbc57": {
       "id": "tio-agenda:65085",
       "sourceDescriptionHash": "bd98b554f4a22589494ef9748a23a432c9c16d61ba1db253a678669a307fbc57",
-      "code": "new-date-or-price",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:29:18.200Z",
+      "code": "new-number",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:20:19.496Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
@@ -201692,8 +201717,8 @@
       "id": "tio-agenda:65090",
       "sourceDescriptionHash": "660d03a435830fc5df5e57051f382f2696e38968677c9e80049120393a658ec5",
       "code": "new-number",
-      "rejectedRuns": 1,
-      "lastAttemptAt": "2026-11-17T16:20:54.935Z",
+      "rejectedRuns": 2,
+      "lastAttemptAt": "2026-11-17T18:21:51.420Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     }

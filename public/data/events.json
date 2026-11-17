@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-17T17:19:30.566Z",
+  "generatedAt": "2026-11-17T19:00:10.770Z",
   "totalEvents": 17426,
   "events": [
     {
@@ -500359,7 +500359,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "L’incontro a Basilea è dedicato al ruolo della cultura nella copertura di SRF. Il panel riunisce persone attive nella cultura, nell’organizzazione di eventi e nella rappresentanza di SRF per discutere questo tema.",
+      "descriptionByLocale": {
+        "it": "L’incontro a Basilea è dedicato al ruolo della cultura nella copertura di SRF. Il panel riunisce persone attive nella cultura, nell’organizzazione di eventi e nella rappresentanza di SRF per discutere questo tema.",
+        "en": "The Basel event examines the place of culture in SRF’s reporting. The panel brings together cultural professionals, event organisers and SRF representatives to discuss the subject.",
+        "de": "Die Veranstaltung in Basel befasst sich mit der Rolle der Kulturberichterstattung bei SRF. Auf dem Podium kommen Kulturschaffende, Kulturveranstaltende und SRF-Vertretungen zu diesem Thema zusammen.",
+        "fr": "À Bâle, le rendez-vous porte sur la place de la culture dans la couverture de SRF. Le panel réunit des professionnels de la culture, des organisateurs d’événements et des représentants de SRF pour aborder cette question."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:c7b09d21f49943cc8ec0c392de7e0797",
@@ -513454,7 +513462,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "A Baulmes si svolge un mercatino di Natale con la partecipazione di artigiani locali. L’evento si caratterizza per un’atmosfera cordiale.",
+      "descriptionByLocale": {
+        "it": "A Baulmes si svolge un mercatino di Natale con la partecipazione di artigiani locali. L’evento si caratterizza per un’atmosfera cordiale.",
+        "en": "The Christmas market in Baulmes brings together local craftspeople. The event takes place in a friendly atmosphere.",
+        "de": "Der Weihnachtsmarkt in Baulmes führt regionale Kunsthandwerker zusammen. Die Veranstaltung findet in einer gemütlichen Atmosphäre statt.",
+        "fr": "Le marché de Noël de Baulmes réunit des artisans locaux. L’événement se déroule dans une ambiance chaleureuse."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "nw-agenda:91525",
@@ -551836,7 +551852,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "End’Ose è un atelier di arteterapia a Ginevra. È rivolto alle donne che vivono con l’endometriosi, la sindrome premestruale o dolori legati alle mestruazioni.",
+      "descriptionByLocale": {
+        "it": "End’Ose è un atelier di arteterapia a Ginevra. È rivolto alle donne che vivono con l’endometriosi, la sindrome premestruale o dolori legati alle mestruazioni.",
+        "en": "End’Ose is an art-therapy workshop in Geneva. It is intended for women affected by endometriosis, premenstrual syndrome or menstrual pain.",
+        "de": "End’Ose ist ein Kunsttherapie-Workshop in Genf. Das Angebot richtet sich an Frauen, die von Endometriose, dem prämenstruellen Syndrom oder Menstruationsschmerzen betroffen sind.",
+        "fr": "End’Ose est un atelier d’art-thérapie à Genève. Il s’adresse aux femmes qui vivent avec l’endométriose, le syndrome prémenstruel ou des douleurs liées aux règles."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:eb0cb784c32c467688802fe176c8b269",
@@ -553628,7 +553652,15 @@
       "imageLicense": "generated-provider",
       "imageLicenseUrl": "https://openai.com/policies/terms-of-use/",
       "imageCredit": "frontaliereticino.ch",
-      "imageProvider": "openai-codex"
+      "imageProvider": "openai-codex",
+      "description": "Il mercatino di Natale si svolge a Tenero-Contra, in Piazza Canevascini. L’evento riunisce bancarelle, idee regalo e intrattenimento musicale.",
+      "descriptionByLocale": {
+        "it": "Il mercatino di Natale si svolge a Tenero-Contra, in Piazza Canevascini. L’evento riunisce bancarelle, idee regalo e intrattenimento musicale.",
+        "en": "A Christmas market is held in Tenero-Contra at Piazza Canevascini. It features market stalls, gift ideas and musical entertainment.",
+        "de": "Auf der Piazza Canevascini in Tenero-Contra findet ein Weihnachtsmarkt statt. Er umfasst Marktstände, Geschenkideen und musikalische Unterhaltung.",
+        "fr": "Un marché de Noël se tient à la Piazza Canevascini, à Tenero-Contra. Il propose des stands, des idées de cadeaux et une animation musicale."
+      },
+      "descriptionRewriteValidated": true
     },
     {
       "id": "myswitzerland:d3eb5d9ba97b430990707c04f869c041",
