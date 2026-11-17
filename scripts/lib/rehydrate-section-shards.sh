@@ -15,7 +15,12 @@ set -uo pipefail
 # (issue #7421, run 36479391795). The cap uses the shared sliding-window
 # driver already proven for the section-shard push fan-outs, so a finished
 # worker immediately admits the next section without an unbounded resource
-# spike. Shared by seed-bfs-depth-baseline.yml, seed-orphan-pages-baseline.yml,
+# spike. When the caller serializes to one worker, the loop below switches to
+# locale-first ordering: the section-major loop otherwise keeps one batch ZIP
+# open for each of the four locales while it walks the same batch. That
+# retained-archive peak is enough to exhaust a full-audit runner even though
+# extraction itself is serial (issue #17161, run 44078205524). Shared by
+# seed-bfs-depth-baseline.yml, seed-orphan-pages-baseline.yml,
 # seed-text-html-ratio-baseline.yml, seed-title-baselines.yml — previously
 # 4x byte-identical copy-paste of a sequential loop (AGENTS.md #6).
 # Requires GH_TOKEN, DEPLOY_RUN_ID, and one <SECTION>_SHARD_LIVE env var per
@@ -186,9 +191,14 @@ artifactless_article_section() {
 
 rehydrate_section() {
   local section="$1"
+  local requested_loc="${2:-}"
   local batch
   batch="$(jq -r --arg s "$section" '.[$s]' scripts/lib/section-shard-batches.json)"
-  for loc in it en de fr; do
+  local locales=(it en de fr)
+  if [ -n "$requested_loc" ]; then
+    locales=("$requested_loc")
+  fi
+  for loc in "${locales[@]}"; do
     slug="$(jq -r --arg s "$section" --arg l "$loc" '.[$s][$l] // empty' scripts/lib/section-shard-slugs.json)"
     # section-shard-slugs.json values are the URL slug ONLY (no locale
     # prefix) — same it/en-de-fr branch as push-section-shard.sh and
@@ -410,6 +420,20 @@ rehydrate_section() {
   done
 }
 
+# A serial caller must not interleave locales: doing so retains one compressed
+# batch ZIP per locale until the last section in that batch has been visited.
+# Keep the bounded worker contract by making each locale the worker item and
+# preserving the fail-soft behavior for individual section misses inside it.
+rehydrate_locale_sections() {
+  local loc="$1"
+  local section
+  local locale_rc=0
+  for section in "${SECTION_NAMES[@]}"; do
+    rehydrate_section "$section" "$loc" || locale_rc=1
+  done
+  return "$locale_rc"
+}
+
 trunk_guard_init section
 
 # Keep the resource ceiling in one shared implementation. Four is the cap
@@ -457,11 +481,17 @@ if [ "${#SECTION_NAMES[@]}" -gt 0 ]; then
   done
 
   # `bp_run_bounded` records worker failures but does not abort the fan-out;
-  # that preserves this script's existing fail-soft posture. The independent
-  # trunk_guard_verdict below remains the only new correctness failure.
+  # that preserves this script's existing fail-soft posture. With one worker,
+  # use locale items so at most one batch ZIP is retained for the current
+  # locale. The independent trunk_guard_verdict below remains the only new
+  # correctness failure.
   export BP_FAILED_FILE="${RUNNER_TEMP:-/tmp}/section-rehydrate-failures.txt"
   section_rc=0
-  bp_run_bounded "$rehydrate_max_parallel" rehydrate_section "${SECTION_NAMES[@]}" || section_rc=$?
+  if [ "$rehydrate_max_parallel" -eq 1 ]; then
+    bp_run_bounded 1 rehydrate_locale_sections it en de fr || section_rc=$?
+  else
+    bp_run_bounded "$rehydrate_max_parallel" rehydrate_section "${SECTION_NAMES[@]}" || section_rc=$?
+  fi
   if [ "$section_rc" -ne 0 ]; then
     echo "::warning::one or more section rehydrate workers failed — continuing with the existing fail-soft contract: $(paste -sd, "$BP_FAILED_FILE" 2>/dev/null || true)"
   fi

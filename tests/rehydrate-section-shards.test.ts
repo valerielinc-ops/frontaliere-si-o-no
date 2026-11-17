@@ -90,6 +90,8 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
   it('bounds live section workers instead of launching the whole fan-out at once (#7421)', () => {
     expect(script).toContain('bounded-parallel.sh');
     expect(script).toMatch(/rehydrate_max_parallel="\$\{REHYDRATE_MAX_PARALLEL:-1\}"/);
+    expect(script).toContain('rehydrate_locale_sections');
+    expect(script).toContain('bp_run_bounded 1 rehydrate_locale_sections it en de fr');
     expect(script).toContain('bp_run_bounded "$rehydrate_max_parallel" rehydrate_section');
     expect(script).not.toContain('rehydrate_section "$section" &');
     expect(script).not.toContain('SECTION_PIDS=()');
