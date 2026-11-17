@@ -1,7 +1,7 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-11-17T09:37:10.271Z",
-  "runId": "44053613983",
+  "assembledAt": "2026-11-17T21:36:17.300Z",
+  "runId": "44177861664",
   "jobs": [
     {
       "id": "coopers-76e7d5c21035",
@@ -34,7 +34,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=VWR329",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:37:01.991Z",
+      "crawledAt": "2026-11-17T21:35:53.184Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -97,7 +97,7 @@
       "postalCode": "6003",
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:37:01.991Z",
+      "validThrough": "2026-12-17T21:35:53.184Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -131,7 +131,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5T0BU4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:37:01.043Z",
+      "crawledAt": "2026-11-17T21:35:52.165Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -164,19 +164,19 @@
           "Part Time, 80-100%"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-27T22:23:50.233Z",
       "previousSlugsByLocale": {
-        "it": [
+        "de": [
           "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug"
         ],
-        "de": [
+        "it": [
           "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug"
         ]
       },
       "previousSlugs": [
         "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug"
       ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-27T22:23:50.233Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -193,7 +193,7 @@
       "postalCode": "6300",
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:37:01.043Z",
+      "validThrough": "2026-12-17T21:35:52.165Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -227,7 +227,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=DE041O",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:37:00.092Z",
+      "crawledAt": "2026-11-17T21:35:51.151Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -283,7 +283,7 @@
       "postalCode": "8500",
       "streetAddress": "Thurgau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:37:00.092Z",
+      "validThrough": "2026-12-17T21:35:51.151Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -317,7 +317,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GS86S5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:59.161Z",
+      "crawledAt": "2026-11-17T21:35:50.162Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -382,7 +382,7 @@
       "postalCode": "8500",
       "streetAddress": "Thurgau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:36:59.161Z",
+      "validThrough": "2026-12-17T21:35:50.162Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -416,7 +416,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=42VV4D",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:58.228Z",
+      "crawledAt": "2026-11-17T21:35:49.148Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -474,7 +474,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel-Stadt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:36:58.228Z",
+      "validThrough": "2026-12-17T21:35:49.148Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -508,7 +508,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W060PD",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:57.290Z",
+      "crawledAt": "2026-11-17T21:35:48.143Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -583,7 +583,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:36:57.290Z",
+      "validThrough": "2026-12-17T21:35:48.143Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -617,7 +617,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E4R7W1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:56.349Z",
+      "crawledAt": "2026-11-17T21:35:47.131Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -674,7 +674,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:36:56.349Z",
+      "validThrough": "2026-12-17T21:35:47.131Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -708,7 +708,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=XY130U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:55.414Z",
+      "crawledAt": "2026-11-17T21:35:46.125Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -765,7 +765,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel-Stadt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:36:55.414Z",
+      "validThrough": "2026-12-17T21:35:46.125Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -799,7 +799,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=16F3NB",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:54.494Z",
+      "crawledAt": "2026-11-17T21:35:45.089Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -855,7 +855,7 @@
       "postalCode": "5000",
       "streetAddress": "Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:36:54.494Z",
+      "validThrough": "2026-12-17T21:35:45.089Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -889,7 +889,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3R97SF",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T09:36:53.567Z",
+      "crawledAt": "2026-11-17T21:35:44.051Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -960,7 +960,7 @@
       },
       "streetAddress": "Basel-Landschaft",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-02T09:36:53.567Z",
+      "validThrough": "2027-01-02T21:35:44.051Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -994,7 +994,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9JMN86",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:52.632Z",
+      "crawledAt": "2026-11-17T21:35:43.037Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1065,7 +1065,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:36:52.632Z",
+      "validThrough": "2026-12-17T21:35:43.037Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1099,7 +1099,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=R1HY31",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:51.727Z",
+      "crawledAt": "2026-11-17T21:35:42.026Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1155,7 +1155,7 @@
       "postalCode": "5000",
       "streetAddress": "Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:36:51.727Z",
+      "validThrough": "2026-12-17T21:35:42.026Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1189,7 +1189,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=HWB224",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:50.797Z",
+      "crawledAt": "2026-11-17T21:35:40.996Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1248,7 +1248,7 @@
       "postalCode": "5000",
       "streetAddress": "Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:36:50.797Z",
+      "validThrough": "2026-12-17T21:35:40.996Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1282,7 +1282,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8A0OK8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:49.841Z",
+      "crawledAt": "2026-11-17T21:35:39.971Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1339,33 +1339,33 @@
       "postalCode": "4500",
       "streetAddress": "Solothurn",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:36:49.841Z",
+      "validThrough": "2026-12-17T21:35:39.971Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-a8c91082987c",
       "slug": "senior-frontend-ingegnere-m-w-d-coopers-group-ag-luzern",
       "slugByLocale": {
-        "de": "senior-frontend-engineer-m-w-d-coopers-luzern",
         "it": "senior-frontend-ingegnere-m-w-d-coopers-group-ag-luzern",
-        "fr": "senior-frontend-ingenieur-m-w-d-coopers-group-ag-luzern",
-        "en": "senior-frontend-ingegnere-m-w-d-coopers-group-ag-luzern"
+        "en": "senior-frontend-ingegnere-m-w-d-coopers-group-ag-luzern",
+        "de": "senior-frontend-engineer-m-w-d-coopers-luzern",
+        "fr": "senior-frontend-ingenieur-m-w-d-coopers-group-ag-luzern"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
       "companyDomain": "coopers.ch",
       "title": "Senior Frontend Entwickler:in (UX/UI) (m/w/d)",
       "titleByLocale": {
-        "de": "Senior Frontend Entwickler:in (UX/UI) (m/w/d)",
         "it": "Sviluppatore/sviluppatrice frontend senior (UX/UI) (m/f/d)",
         "en": "Senior Frontend Developer (UX/UI) (m/f/d)",
+        "de": "Senior Frontend Entwickler:in (UX/UI) (m/w/d)",
         "fr": "Développeur·euse frontend senior (h/f/d)"
       },
       "description": "Für unseren Kunden aus der Versicherungsbranche in Luzern, suchen wir eine:n motivierte:n und aufgeschlossene:n Senior Frontend Entwickler:in (UX/UI).\n\nDeine Aufgaben:\n• Konzeption, Entwicklung und Weiterentwicklung moderner Frontend-Lösungen in einem agilen Umfeld\n• Eigenständige Analyse und Umsetzung komplexer fachlicher und technischer Anforderungen\n• Sicherstellung von Codequalität, Performance, Wartbarkeit und Skalierbarkeit der Anwendungen\n• Aktive Mitarbeit bei Architektur- und Technologieentscheidungen\n• Enge Zusammenarbeit mit Product Ownern, UX/UI Designern und Backend-Entwicklern\n• Förderung von Best Practices in Software Engineering, Testing und Code Reviews\n• Verantwortung für eine zuverlässige und termingerechte Delivery innerhalb des Produktteams\n• Identifikation und Umsetzung von Optimierungspotenzialen in Entwicklungsprozessen und Anwendungen\n• Konstruktive Mitgestaltung technischer Diskussionen und kontinuierliche Weiterentwicklung der Frontend-Landschaft\n• Professioneller Einsatz moderner AI-basierter Coding-Assistants (z. B. GitHub Copilot) zur Steigerung von Entwicklungsqualität und Effizienz\n\nDein Profil:\n• Fundierte praktische Erfahrung als Frontend-Entwickler:in mit Angular, TypeScript, HTML und SCSS\n• Ausgeprägter UX/UI-Fokus und ein sehr gutes Gespür für User Experience, Usability und moderne Webdesign-Prinzipien\n• Fundierte Kenntnisse in Web Components, Accessibility und der Umsetzung responsiver und benutzerfreundlicher Interfaces\n• Erfahrung in der engen Zusammenarbeit mit UX/UI Designern sowie in der technischen Umsetzung von Designkonzepten\n• Erfahrung im DevOps- und Cloud-Umfeld\n• Praxis in E2E-Tests und UI-Testing, idealerweise mit Storybook und Chromatic\n• Erfahrung in der Erarbeitung und Umsetzung architekturkonformer Lösungen sowie deren Dokumentation\n• Sicherer Umgang mit modernen AI-basierten Coding-Assistants (z. B. GitHub Copilot)Ein Plus sind Bereitschaft und\n• Erfahrungen in der Backend-Entwicklung mit Java\n• Sehr gute Deutsch- und Englischkenntnisse\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Full Time\n• Ab sofort - 31.12.2027 mit Option auf Verlängerung\n• Frontend, Angular, HTML, Typescript, SCSS, User Experience, Accessibility, Usability, DevOps, UI Testing, E2E Tests, GitHub Copilot\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance",
       "descriptionByLocale": {
-        "de": "Für unseren Kunden aus der Versicherungsbranche in Luzern, suchen wir eine:n motivierte:n und aufgeschlossene:n Senior Frontend Entwickler:in (UX/UI).\n\nDeine Aufgaben:\n• Konzeption, Entwicklung und Weiterentwicklung moderner Frontend-Lösungen in einem agilen Umfeld\n• Eigenständige Analyse und Umsetzung komplexer fachlicher und technischer Anforderungen\n• Sicherstellung von Codequalität, Performance, Wartbarkeit und Skalierbarkeit der Anwendungen\n• Aktive Mitarbeit bei Architektur- und Technologieentscheidungen\n• Enge Zusammenarbeit mit Product Ownern, UX/UI Designern und Backend-Entwicklern\n• Förderung von Best Practices in Software Engineering, Testing und Code Reviews\n• Verantwortung für eine zuverlässige und termingerechte Delivery innerhalb des Produktteams\n• Identifikation und Umsetzung von Optimierungspotenzialen in Entwicklungsprozessen und Anwendungen\n• Konstruktive Mitgestaltung technischer Diskussionen und kontinuierliche Weiterentwicklung der Frontend-Landschaft\n• Professioneller Einsatz moderner AI-basierter Coding-Assistants (z. B. GitHub Copilot) zur Steigerung von Entwicklungsqualität und Effizienz\n\nDein Profil:\n• Fundierte praktische Erfahrung als Frontend-Entwickler:in mit Angular, TypeScript, HTML und SCSS\n• Ausgeprägter UX/UI-Fokus und ein sehr gutes Gespür für User Experience, Usability und moderne Webdesign-Prinzipien\n• Fundierte Kenntnisse in Web Components, Accessibility und der Umsetzung responsiver und benutzerfreundlicher Interfaces\n• Erfahrung in der engen Zusammenarbeit mit UX/UI Designern sowie in der technischen Umsetzung von Designkonzepten\n• Erfahrung im DevOps- und Cloud-Umfeld\n• Praxis in E2E-Tests und UI-Testing, idealerweise mit Storybook und Chromatic\n• Erfahrung in der Erarbeitung und Umsetzung architekturkonformer Lösungen sowie deren Dokumentation\n• Sicherer Umgang mit modernen AI-basierten Coding-Assistants (z. B. GitHub Copilot)Ein Plus sind Bereitschaft und\n• Erfahrungen in der Backend-Entwicklung mit Java\n• Sehr gute Deutsch- und Englischkenntnisse\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Full Time\n• Ab sofort - 31.12.2027 mit Option auf Verlängerung\n• Frontend, Angular, HTML, Typescript, SCSS, User Experience, Accessibility, Usability, DevOps, UI Testing, E2E Tests, GitHub Copilot\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance",
         "it": "Per i nostri clienti del settore assicurativo di Lucerne, stiamo cercando un:n motivato:n e open-minded:n Senior Frontend Sviluppatore:in (UX/UI).\n\nI vostri compiti:\n• Concezione, sviluppo e sviluppo di moderne soluzioni front-end in un ambiente agile\n• Analisi indipendente e realizzazione di complessi requisiti professionali e tecnici\n• Garantire qualità, prestazioni, manutenbilità e scalabilità del codice\n• Partecipazione attiva alle decisioni di architettura e tecnologia\n• stretta collaborazione con i proprietari di prodotti, progettisti UX/UI e sviluppatori backend\n• Promuovere le migliori pratiche in ingegneria del software, test e recensioni di codice\n• Responsabilità per la consegna affidabile e tempestiva all'interno del team del prodotto\n• Identificazione e implementazione del potenziale di ottimizzazione nei processi di sviluppo e nelle applicazioni\n• Partecipazione costruttiva alle discussioni tecniche e sviluppo continuo del paesaggio di front-end\n• Uso professionale dei moderni assistenti di codifica basati su AI (ad esempio GitHub Copilot) per aumentare la qualità e l'efficienza dello sviluppo\n\nIl tuo profilo:\n• Esperienza pratica approfondita come sviluppatore frontend: in con Angular, TypeScript, HTML e SCSS\n• Forte messa a fuoco UX/UI e un ottimo senso di esperienza utente, usabilità e moderni principi di web design\n• Conoscenza approfondita dei componenti web, l'accessibilità e l'implementazione di interfacce reattive e user-friendly\n• Esperienza in stretta collaborazione con i designer UX/UI e nell'implementazione tecnica dei concetti di design\n• Esperienza nell'ambiente DevOps e cloud\n• Pratica nei test E2E e test UI, idealmente con Storybook e Cromatic\n• Esperienza nello sviluppo e nell'implementazione di soluzioni conformi all'architettura e nella loro documentazione\n• Gestione sicura dei moderni assistenti di codifica basati su AI (ad esempio GitHub Copilot)\n• Esperienza nello sviluppo backend con Java\n• Molto buona conoscenza del tedesco e dell'inglese\n\nProfili di lavoro\n• IT - Ingegneria del software\n• Lucerna\n• Contraente\n• Tempo pieno\n• D'ora in poi - 31.12.2027 con opzione di estensione\n• Frontend, Angular, HTML, Typescript, SCSS, User Experience, Accessibilità, Usability, DevOps, UI Testing, E2E Tests, GitHub Copilot\n\nPrestazioni di lavoro\n• Termini di primo nome\n• Gerarchia piatta\n• Home Ufficio\n• Spazio di lavoro moderno\n• Bilancia della vita lavorativa",
         "en": "For our customers from the insurance industry in Lucerne, we are looking for a:n motivated:n and open-minded:n Senior Frontend Developer:in (UX/UI).\n\nYour tasks:\n• Conception, development and further development of modern front-end solutions in an agile environment\n• Independent analysis and implementation of complex professional and technical requirements\n• Ensuring code quality, performance, maintainability and scalability of applications\n• Active participation in architectural and technology decisions\n• Close collaboration with product owners, UX/UI designers and backend developers\n• Promoting best practices in software engineering, testing and code reviews\n• Responsibility for reliable and timely delivery within the product team\n• Identification and implementation of optimization potential in development processes and applications\n• Constructive participation in technical discussions and continuous development of the front-end landscape\n• Professional use of modern AI-based coding assistants (e.g. GitHub Copilot) to increase development quality and efficiency\n\nYour profile:\n• In-depth practical experience as a frontend developer: in with Angular, TypeScript, HTML and SCSS\n• Strong UX/UI focus and a very good sense of user experience, usability and modern web design principles\n• In-depth knowledge of web components, accessibility and the implementation of responsive and user-friendly interfaces\n• Experience in close cooperation with UX/UI designers and in the technical implementation of design concepts\n• Experience in the DevOps and cloud environment\n• Practice in E2E testing and UI testing, ideally with Storybook and Chromatic\n• Experience in the development and implementation of architecture-compliant solutions as well as their documentation\n• Safe handling of modern AI-based coding assistants (e.g. GitHub Copilot)\n• Experience in backend development with Java\n• Very good knowledge of German and English\n\nJob profiles\n• IT - Software Engineering\n• Lucerne\n• Contracting\n• Full time\n• From now - 31.12.2027 with option of extension\n• Frontend, Angular, HTML, Typescript, SCSS, User Experience, Accessibility, Usability, DevOps, UI Testing, E2E Tests, GitHub Copilot\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life balance",
+        "de": "Für unseren Kunden aus der Versicherungsbranche in Luzern, suchen wir eine:n motivierte:n und aufgeschlossene:n Senior Frontend Entwickler:in (UX/UI).\n\nDeine Aufgaben:\n• Konzeption, Entwicklung und Weiterentwicklung moderner Frontend-Lösungen in einem agilen Umfeld\n• Eigenständige Analyse und Umsetzung komplexer fachlicher und technischer Anforderungen\n• Sicherstellung von Codequalität, Performance, Wartbarkeit und Skalierbarkeit der Anwendungen\n• Aktive Mitarbeit bei Architektur- und Technologieentscheidungen\n• Enge Zusammenarbeit mit Product Ownern, UX/UI Designern und Backend-Entwicklern\n• Förderung von Best Practices in Software Engineering, Testing und Code Reviews\n• Verantwortung für eine zuverlässige und termingerechte Delivery innerhalb des Produktteams\n• Identifikation und Umsetzung von Optimierungspotenzialen in Entwicklungsprozessen und Anwendungen\n• Konstruktive Mitgestaltung technischer Diskussionen und kontinuierliche Weiterentwicklung der Frontend-Landschaft\n• Professioneller Einsatz moderner AI-basierter Coding-Assistants (z. B. GitHub Copilot) zur Steigerung von Entwicklungsqualität und Effizienz\n\nDein Profil:\n• Fundierte praktische Erfahrung als Frontend-Entwickler:in mit Angular, TypeScript, HTML und SCSS\n• Ausgeprägter UX/UI-Fokus und ein sehr gutes Gespür für User Experience, Usability und moderne Webdesign-Prinzipien\n• Fundierte Kenntnisse in Web Components, Accessibility und der Umsetzung responsiver und benutzerfreundlicher Interfaces\n• Erfahrung in der engen Zusammenarbeit mit UX/UI Designern sowie in der technischen Umsetzung von Designkonzepten\n• Erfahrung im DevOps- und Cloud-Umfeld\n• Praxis in E2E-Tests und UI-Testing, idealerweise mit Storybook und Chromatic\n• Erfahrung in der Erarbeitung und Umsetzung architekturkonformer Lösungen sowie deren Dokumentation\n• Sicherer Umgang mit modernen AI-basierten Coding-Assistants (z. B. GitHub Copilot)Ein Plus sind Bereitschaft und\n• Erfahrungen in der Backend-Entwicklung mit Java\n• Sehr gute Deutsch- und Englischkenntnisse\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Full Time\n• Ab sofort - 31.12.2027 mit Option auf Verlängerung\n• Frontend, Angular, HTML, Typescript, SCSS, User Experience, Accessibility, Usability, DevOps, UI Testing, E2E Tests, GitHub Copilot\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance",
         "fr": "Pour nos clients du secteur de l'assurance à Lucerne, nous recherchons un:n motivé:n et ouvert d'esprit:n Senior Frontend Developer:in (UX/UI).\n\nVos tâches :\n• Conception, développement et développement de solutions de front modernes dans un environnement agile\n• Analyse indépendante et mise en œuvre de prescriptions professionnelles et techniques complexes\n• Assurer la qualité, la performance, la maintenance et l'évolutivité des applications\n• Participation active aux décisions en matière d'architecture et de technologie\n• Collaboration étroite avec les propriétaires de produits, les concepteurs UX/UI et les développeurs de backend\n• Promouvoir les meilleures pratiques en matière d'ingénierie, d'essais et d'examens de codes logiciels\n• Responsabilité de la livraison fiable et rapide au sein de l'équipe de produits\n• Identification et mise en œuvre du potentiel d'optimisation dans les processus et les applications de développement\n• Participation constructive aux discussions techniques et au développement continu du paysage frontal\n• Utilisation professionnelle d'assistants modernes de codage basés sur l'intelligence artificielle (p. ex. GitHub Copilot) pour améliorer la qualité et l'efficacité du développement\n\nVotre profil:\n• Expérience pratique approfondie en tant que développeur de façade : avec Angular, TypeScript, HTML et SCSS\n• Forte concentration UX/UI et un très bon sens de l'expérience utilisateur, la convivialité et les principes modernes de conception Web\n• Connaissance approfondie des composants Web, accessibilité et mise en place d'interfaces adaptées et conviviales\n• Expérience en coopération étroite avec les concepteurs UX/UI et dans la mise en œuvre technique des concepts de conception\n• Expérience dans l'environnement DevOps et cloud\n• Pratique dans les tests E2E et UI testing, idéalement avec Storybook et Chromatic\n• Expérience dans le développement et la mise en œuvre de solutions conformes à l'architecture ainsi que leur documentation\n• Gestion sécuritaire des assistants de codage modernes basés sur l'intelligence artificielle (p. ex.\n• Expérience en développement backend avec Java\n• Très bonne connaissance de l'allemand et de l'anglais\n\nProfils d'emploi\n• IT - Ingénierie des logiciels\n• Lucerne\n• Contrats\n• Temps plein\n• A partir de maintenant - 31.12.2027 avec possibilité d'extension\n• Frontend, Angulaire, HTML, Typescript, SCSS, Expérience utilisateur, Accessibilité, facilité d'utilisation, DevOps, test d'interface utilisateur, tests E2E, GitHub Copilot\n\nPrestations d'emploi\n• Termes de prénom\n• Hiérarchie plate\n• Accueil\n• Espace de travail moderne\n• Équilibre travail-vie privée"
       },
       "location": "Luzern",
@@ -1373,7 +1373,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B3LB50",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:48.901Z",
+      "crawledAt": "2026-11-17T21:35:38.879Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1400,24 +1400,23 @@
       "requirementsByLocale": {
         "de": [
           "IT - Software Engineering",
-          "Luzern",
           "Contracting",
           "Full Time",
-          "Ab sofort - 31.12.2027 mit Option auf Verlängerung",
-          "Frontend, Angular, HTML, Typescript, SCSS, User Experience, Accessibility, Usability, DevOps, UI Testing, E2E Tests, GitHub Copilot"
+          "Ab sofort - 31.12.2027 mit Option auf Verlängerung"
         ]
       },
       "previousSlugsByLocale": {
-        "it": [
+        "de": [
           "senior-frontend-entwickler-in-ux-ui-m-w-d-coopers-luzern"
         ],
-        "de": [
+        "it": [
           "senior-frontend-entwickler-in-ux-ui-m-w-d-coopers-luzern"
         ]
       },
       "previousSlugs": [
         "senior-frontend-entwickler-in-ux-ui-m-w-d-coopers-luzern"
       ],
+      "firstSeenAt": "2026-11-17T09:36:48.901Z",
       "salaryMin": 107000,
       "salaryMax": 162500,
       "salarySource": "estimated",
@@ -1434,9 +1433,8 @@
       "postalCode": "6003",
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:36:48.901Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:36:48.901Z"
+      "validThrough": "2026-12-17T21:35:38.879Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-0732f02c2230",
@@ -1469,7 +1467,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4QDT87",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:47.969Z",
+      "crawledAt": "2026-11-17T21:35:37.860Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1530,7 +1528,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:36:47.969Z",
+      "validThrough": "2026-12-17T21:35:37.860Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1564,7 +1562,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9TBS41",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:47.056Z",
+      "crawledAt": "2026-11-17T21:35:36.863Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1634,7 +1632,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T09:36:47.056Z",
+      "validThrough": "2026-12-27T21:35:36.863Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1668,7 +1666,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3Z1HK0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:46.143Z",
+      "crawledAt": "2026-11-17T21:35:35.836Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1728,7 +1726,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel-Stadt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-29T09:36:46.143Z",
+      "validThrough": "2026-12-29T21:35:35.836Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1762,7 +1760,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=783GQX",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:45.180Z",
+      "crawledAt": "2026-11-17T21:35:34.812Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1827,7 +1825,7 @@
       "postalCode": "4500",
       "streetAddress": "Solothurn",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-04T09:36:45.180Z",
+      "validThrough": "2027-01-04T21:35:34.812Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1861,7 +1859,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9Q2C5X",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T09:36:44.166Z",
+      "crawledAt": "2026-11-17T21:35:33.792Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1911,7 +1909,7 @@
       "postalCode": "1950",
       "streetAddress": "Wallis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:36:44.166Z",
+      "validThrough": "2027-01-05T21:35:33.792Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -1945,7 +1943,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=P4KY41",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:43.245Z",
+      "crawledAt": "2026-11-17T21:35:32.753Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2003,7 +2001,7 @@
       "postalCode": "6003",
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T09:36:43.245Z",
+      "validThrough": "2027-01-05T21:35:32.753Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2037,7 +2035,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=87KGM4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:42.325Z",
+      "crawledAt": "2026-11-17T21:35:31.755Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2101,7 +2099,7 @@
       "postalCode": "6003",
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:36:42.325Z",
+      "validThrough": "2026-12-17T21:35:31.755Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2135,7 +2133,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=NEH518",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:41.382Z",
+      "crawledAt": "2026-11-17T21:35:30.733Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2196,7 +2194,7 @@
       "postalCode": "6003",
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T09:36:41.382Z",
+      "validThrough": "2027-01-08T21:35:30.733Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2230,7 +2228,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4XL43L",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:40.429Z",
+      "crawledAt": "2026-11-17T21:35:29.681Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2295,7 +2293,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel-Stadt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T09:36:40.429Z",
+      "validThrough": "2027-01-08T21:35:29.681Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2329,7 +2327,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=0EZP96",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:39.403Z",
+      "crawledAt": "2026-11-17T21:35:28.668Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2395,7 +2393,7 @@
       },
       "streetAddress": "Basel-Landschaft",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-08T09:36:39.403Z",
+      "validThrough": "2027-01-08T21:35:28.668Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2429,7 +2427,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9H9RY6",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:38.462Z",
+      "crawledAt": "2026-11-17T21:35:27.649Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2478,7 +2476,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:36:38.462Z",
+      "validThrough": "2027-01-09T21:35:27.649Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2512,7 +2510,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=K1CZ09",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T09:36:37.540Z",
+      "crawledAt": "2026-11-17T21:35:26.617Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -2573,7 +2571,7 @@
       "postalCode": "1950",
       "streetAddress": "Wallis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:36:37.540Z",
+      "validThrough": "2027-01-09T21:35:26.617Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2607,7 +2605,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=J8U26E",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T09:36:36.596Z",
+      "crawledAt": "2026-11-17T21:35:25.618Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2666,7 +2664,7 @@
       "postalCode": "5000",
       "streetAddress": "Aargau",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:36:36.596Z",
+      "validThrough": "2027-01-10T21:35:25.618Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2700,7 +2698,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5SPR40",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:35.653Z",
+      "crawledAt": "2026-11-17T21:35:24.570Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2764,33 +2762,33 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-10T09:36:35.653Z",
+      "validThrough": "2027-01-10T21:35:24.570Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-962516f105df",
       "slug": "h3c-expert-per-infrastruktur-migration-m-w-d-coopers-group-ag-basel-stadt",
       "slugByLocale": {
+        "de": "h3c-expert-fur-infrastruktur-migration-m-w-d-coopers-basel-stadt",
         "it": "h3c-expert-per-infrastruktur-migration-m-w-d-coopers-group-ag-basel-stadt",
         "en": "h3c-expert-fur-infrastruktur-migration-m-w-d-coopers-basel-stadt",
-        "de": "h3c-expert-fur-infrastruktur-migration-m-w-d-coopers-basel-stadt",
         "fr": "h3c-expert-fur-infrastruktur-migration-m-w-d-coopers-basel-stadt"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
       "companyDomain": "coopers.ch",
-      "title": "H3C Expert für Infrastruktur Migration (m/w/d)",
+      "title": "Infrastructure Architect / Systems Engineer (Server, Storage & Virtualization) - H3C Umfeld (m/w/d)",
       "titleByLocale": {
-        "it": "H3C Expert per Infrastruktur Migration (m/w/d)",
-        "en": "H3C Expert for Infrastructure Migration (m/f/d)",
-        "de": "H3C Expert für Infrastruktur Migration (m/w/d)",
-        "fr": "H3C Expert pour la migration des infrastructures (h/f/d)"
+        "de": "Infrastructure Architect / Systems Engineer (Server, Storage & Virtualization) - H3C Umfeld (m/w/d)",
+        "it": "Infrastructure Architetto / Systems Ingegnere (Server, Storage & Virtualization) - H3C Umfeld (m/w/d)",
+        "en": "Infrastructure Architect / Systems Engineer (Server, Storage & Virtualization) - H3C Umfeld (m/w/d)",
+        "fr": "Infrastructure Architecte / Systems Ingénieur (Server, Storage & Virtualization) - H3C Umfeld (m/w/d)"
       },
-      "description": "Für ein anspruchsvolles Infrastruktur-Transformationsprojekt für unseren Kunden in Basel suchen wir eine:n erfahrene:n H3C Expert . Im Rahmen des Projekts wird eine bestehende Server-, Storage- und Virtualisierungslandschaft durch moderne H3C-Lösungen ersetzt. Du übernimmst eine zentrale Rolle bei der Planung, Architektur und Umsetzung der neuen Infrastruktur und begleiten die Migration bestehender Systeme in die neue Zielumgebung.\n\nDeine Aufgaben:\n• Konzeption und Design der zukünftigen H3C-Infrastruktur\n• Planung und Durchführung von Migrationsprojekten im Bereich Computer, Storage und Virtualisierung\n• Implementierung und Konfiguration von H3C UniServer-, UniStor- und CAS-Umgebungen\n• Migration von virtuellen Maschinen und Daten aus bestehenden Plattformen (z. B. VMware vSphere oder Microsoft Hyper-V)\n• Aufbau und Optimierung von Hochverfügbarkeits- und Disaster-Recovery-Lösungen\n• Integration von Backup-, Monitoring-, Active-Directory-, Netzwerk- und SAN-Lösungen\n• Unterstützung bei Sizing, Performance-Optimierung und Kapazitätsplanung\n• Technische Beratung von Projektleitung und Stakeholdern\n• Dokumentation der Architektur und Betriebsprozesse\n\nDein Profil:\n• Mehrjährige Erfahrung als Infrastructure Architect, Systems Engineer oder Datacenter Consultant\n• Nachweisbare Praxiserfahrung mit mindestens einem der folgenden H3C-Produkten: H3C UniServer, H3C UniStor, H3C CAS, H3C UIS, H3C CloudOS\n• Erfahrung in Infrastruktur-Migrationsprojekten und der Transformation bestehender IT-Landschaften\n• Fundierte Kenntnisse in Server-, Storage- und Virtualisierungsumgebungen\n• Erfahrung mit VMware vSphere, Hyper-V oder vergleichbaren Plattformen\n• Gute Kenntnisse von Storage-Protokollen wie FC, iSCSI und NFS\n• Erfahrung mit Clustering-, High-Availability- und Disaster-Recovery-Konzepten\n• Kenntnisse in der Integration von Netzwerk-, SAN-, Backup- und Monitoring-Lösungen\n• H3C-Zertifizierungen sind von Vorteil\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\n\nJob profile\n• IT - Software Engineering\n• Basel-Stadt\n• Contracting\n• Part Time, 80-100%\n• Ab sofort - 6 Monate ++\n• H3C, H3C UniServer, H3C UniStor, H3C CAS und CloudOS, Storage, Virtualisierung, Cloud",
+      "description": "Für ein anspruchsvolles Infrastruktur-Transformationsprojekt bei unserem Kunden in Basel suchen wir eine:n erfahrene:n Infrastructure Architect oder Systems Engineer. Im Rahmen des Projekts wird eine bestehende Server-, Storage- und Virtualisierungslandschaft durch moderne H3C-Lösungen ersetzt.\n\nWir suchen Fachpersonen mit fundierter Erfahrung im Bereich Server, Storage und Virtualisierung, die bereits mit vergleichbaren Technologien gearbeitet haben und Interesse mitbringen, sich in die H3C-Plattform einzuarbeiten.\n\nDeine Aufgaben:\n• Konzeption und Design der zukünftigen Infrastrukturplattform\n• Planung und Durchführung von Migrationsprojekten im Bereich Server, Storage und Virtualisierung\n• Implementierung, Integration und Konfiguration der neuen Zielumgebung\n• Migration von virtuellen Maschinen und Daten aus bestehenden Plattformen (z. B. VMware vSphere, Microsoft Hyper-V oder vergleichbaren Lösungen)\n• Aufbau und Optimierung von High-Availability- und Disaster-Recovery-Konzepten\n• Integration von Backup-, Monitoring-, Active-Directory-, Netzwerk- und SAN-Lösungen\n• Unterstützung bei Sizing, Performance-Optimierung und Kapazitätsplanung\n• Beratung von Projektleitung und Stakeholdern in technischen Fragestellungen\n• Erstellung und Pflege von Architektur- und Betriebsdokumentationen\n\nDein Profil:\n• Mehrjährige Erfahrung als Infrastructure Architect, Systems Engineer, Datacenter Engineer oder Consultant\n• Fundierte Praxiserfahrung in Enterprise-Infrastrukturen mit Server-, Storage- und Virtualisierungstechnologien\n• Erfahrung mit Lösungen von Herstellern wie HPE, Dell EMC, Lenovo, Cisco UCS, NetApp, Pure Storage, Nutanix, VMware, Microsoft Hyper-V oder vergleichbaren Plattformen\n• Erfahrung in Infrastrukturmigrationen und der Modernisierung bestehender Rechenzentrumsumgebungen\n• Gute Kenntnisse von Storage-Technologien und Protokollen wie FC, iSCSI und NFS\n• Erfahrung mit Clustering-, High-Availability- und Disaster-Recovery-Konzepten\n• Kenntnisse in der Integration von Netzwerk-, SAN-, Backup- und Monitoring-Lösungen\n• Erfahrung mit H3C-Produkten (z. B. UniServer, UniStor, CAS, UIS oder CloudOS) ist von Vorteil, jedoch keine Voraussetzung\n• Bereitschaft, sich in H3C-Technologien einzuarbeiten und diese im Projektumfeld einzusetzen\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\n\nNice to have:\n• Erfahrung mit HCI-Plattformen wie Nutanix, VMware vSAN oder vergleichbaren Lösungen\n• Zertifizierungen im Bereich VMware, Microsoft, HPE, Dell EMC, NetApp oder vergleichbaren Herstellern\n• Erste Berührungspunkte mit H3C-Technologien\n\nJob profile\n• IT - Software Engineering\n• Basel-Stadt\n• Contracting\n• Part Time, 80-100%\n• Ab sofort - 6 Monate ++\n• H3C, H3C UniServer, H3C UniStor, H3C CAS und CloudOS, Storage, Virtualisierung, Cloud",
       "descriptionByLocale": {
         "it": "Per un impegnativo progetto di trasformazione delle infrastrutture per il nostro cliente a Basilea, stiamo cercando un esperto:n H3C Expert. Il progetto sostituirà un ambiente di server, archiviazione e virtualizzazione esistente con le moderne soluzioni H3C. Si gioca un ruolo centrale nella pianificazione, l'architettura e l'attuazione della nuova infrastruttura e accompagnare la migrazione dei sistemi esistenti nel nuovo ambiente di destinazione.\n\nI vostri compiti:\n• Concezione e progettazione della futura infrastruttura H3C\n• Pianificazione e realizzazione di progetti di migrazione nell'area di elaborazione, archiviazione e virtualizzazione\n• Attuazione e configurazione degli ambienti H3C UniServer, UniStor e CAS\n• Migrazione di macchine virtuali e dati da piattaforme esistenti (ad esempio VMware vSphere o Microsoft Hyper-V)\n• Costruire e ottimizzare soluzioni di elevata disponibilità e di disaster recovery\n• Integrazione di backup, monitoraggio, directory attiva, soluzioni di rete e SAN\n• Supporto per dimensionamento, ottimizzazione delle prestazioni e pianificazione delle capacità\n• Consulenza tecnica alla gestione dei progetti e agli stakeholder\n• Documentazione di architettura e processi operativi\n\nIl tuo profilo:\n• Diversi anni di esperienza come Architetto delle Infrastrutture, Ingegnere Sistemi o Consulente Datacenter\n• Dimostrare esperienza pratica con almeno uno dei seguenti prodotti H3C: H3C UniServer, H3C UniStor, H3C CAS, H3C UIS, H3C CloudOS\n• Esperienza nei progetti di migrazione delle infrastrutture e trasformazione dei paesaggi IT esistenti\n• Conoscenza approfondita degli ambienti server, storage e virtualizzazione\n• Esperienza con VMware vSphere, Hyper-V o piattaforme simili\n• Buona conoscenza dei protocolli di archiviazione come FC, iSCSI e NFS\n• Esperienza con i concetti di clustering, alta disponibilità e di disaster recovery\n• Conoscenza nell'integrazione di soluzioni di rete, SAN, backup e monitoraggio\n• Le certificazioni H3C sono vantaggiose\n• Conoscenza molto buona del tedesco e buona conoscenza dell'inglese\n\nProfili di lavoro\n• IT - Ingegneria del software\n• Città di Basilea\n• Contratti\n• Tempo parziale, 80-100 %\n• D'ora in poi - 6 mesi ++\n• H3C, H3C UniServer, H3C UniStor, H3C CAS e CloudOS, Storage, Virtualization, Cloud",
         "en": "For a demanding infrastructure transformation project for our customer in Basel, we are looking for an experienced:n H3C Expert. The project will replace an existing server, storage and virtualization landscape with modern H3C solutions. You play a central role in the planning, architecture and implementation of the new infrastructure and accompany the migration of existing systems into the new target environment.\n\nYour tasks:\n• Conception and design of the future H3C infrastructure\n• Planning and implementation of migration projects in the area of compute, storage and virtualization\n• Implementation and configuration of H3C UniServer, UniStor and CAS environments\n• Migration of virtual machines and data from existing platforms (e.g. VMware vSphere or Microsoft Hyper-V)\n• Building and optimizing high availability and disaster recovery solutions\n• Integration of backup, monitoring, active directory, network and SAN solutions\n• Support for sizing, performance optimization and capacity planning\n• Technical advice to project management and stakeholders\n• Documentation of architecture and operational processes\n\nYour profile:\n• Several years of experience as an Infrastructure Architect, Systems Engineer or Datacenter Consultant\n• Demonstrate practical experience with at least one of the following H3C products: H3C UniServer, H3C UniStor, H3C CAS, H3C UIS, H3C CloudOS\n• Experience in infrastructure migration projects and the transformation of existing IT landscapes\n• In-depth knowledge of server, storage and virtualization environments\n• Experience with VMware vSphere, Hyper-V or similar platforms\n• Good knowledge of storage protocols such as FC, iSCSI and NFS\n• Experience with clustering, high-availability and disaster recovery concepts\n• Knowledge in the integration of network, SAN, backup and monitoring solutions\n• H3C certifications are beneficial\n• Very good knowledge of German and good knowledge of English\n\nJob profiles\n• IT - Software Engineering\n• Basel City\n• Contracting\n• Part Time, 80-100 %\n• From now on - 6 months ++\n• H3C, H3C UniServer, H3C UniStor, H3C CAS and CloudOS, Storage, Virtualization, Cloud",
-        "de": "Für ein anspruchsvolles Infrastruktur-Transformationsprojekt für unseren Kunden in Basel suchen wir eine:n erfahrene:n H3C Expert . Im Rahmen des Projekts wird eine bestehende Server-, Storage- und Virtualisierungslandschaft durch moderne H3C-Lösungen ersetzt. Du übernimmst eine zentrale Rolle bei der Planung, Architektur und Umsetzung der neuen Infrastruktur und begleiten die Migration bestehender Systeme in die neue Zielumgebung.\n\nDeine Aufgaben:\n• Konzeption und Design der zukünftigen H3C-Infrastruktur\n• Planung und Durchführung von Migrationsprojekten im Bereich Computer, Storage und Virtualisierung\n• Implementierung und Konfiguration von H3C UniServer-, UniStor- und CAS-Umgebungen\n• Migration von virtuellen Maschinen und Daten aus bestehenden Plattformen (z. B. VMware vSphere oder Microsoft Hyper-V)\n• Aufbau und Optimierung von Hochverfügbarkeits- und Disaster-Recovery-Lösungen\n• Integration von Backup-, Monitoring-, Active-Directory-, Netzwerk- und SAN-Lösungen\n• Unterstützung bei Sizing, Performance-Optimierung und Kapazitätsplanung\n• Technische Beratung von Projektleitung und Stakeholdern\n• Dokumentation der Architektur und Betriebsprozesse\n\nDein Profil:\n• Mehrjährige Erfahrung als Infrastructure Architect, Systems Engineer oder Datacenter Consultant\n• Nachweisbare Praxiserfahrung mit mindestens einem der folgenden H3C-Produkten: H3C UniServer, H3C UniStor, H3C CAS, H3C UIS, H3C CloudOS\n• Erfahrung in Infrastruktur-Migrationsprojekten und der Transformation bestehender IT-Landschaften\n• Fundierte Kenntnisse in Server-, Storage- und Virtualisierungsumgebungen\n• Erfahrung mit VMware vSphere, Hyper-V oder vergleichbaren Plattformen\n• Gute Kenntnisse von Storage-Protokollen wie FC, iSCSI und NFS\n• Erfahrung mit Clustering-, High-Availability- und Disaster-Recovery-Konzepten\n• Kenntnisse in der Integration von Netzwerk-, SAN-, Backup- und Monitoring-Lösungen\n• H3C-Zertifizierungen sind von Vorteil\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\n\nJob profile\n• IT - Software Engineering\n• Basel-Stadt\n• Contracting\n• Part Time, 80-100%\n• Ab sofort - 6 Monate ++\n• H3C, H3C UniServer, H3C UniStor, H3C CAS und CloudOS, Storage, Virtualisierung, Cloud",
+        "de": "Für ein anspruchsvolles Infrastruktur-Transformationsprojekt bei unserem Kunden in Basel suchen wir eine:n erfahrene:n Infrastructure Architect oder Systems Engineer. Im Rahmen des Projekts wird eine bestehende Server-, Storage- und Virtualisierungslandschaft durch moderne H3C-Lösungen ersetzt.\n\nWir suchen Fachpersonen mit fundierter Erfahrung im Bereich Server, Storage und Virtualisierung, die bereits mit vergleichbaren Technologien gearbeitet haben und Interesse mitbringen, sich in die H3C-Plattform einzuarbeiten.\n\nDeine Aufgaben:\n• Konzeption und Design der zukünftigen Infrastrukturplattform\n• Planung und Durchführung von Migrationsprojekten im Bereich Server, Storage und Virtualisierung\n• Implementierung, Integration und Konfiguration der neuen Zielumgebung\n• Migration von virtuellen Maschinen und Daten aus bestehenden Plattformen (z. B. VMware vSphere, Microsoft Hyper-V oder vergleichbaren Lösungen)\n• Aufbau und Optimierung von High-Availability- und Disaster-Recovery-Konzepten\n• Integration von Backup-, Monitoring-, Active-Directory-, Netzwerk- und SAN-Lösungen\n• Unterstützung bei Sizing, Performance-Optimierung und Kapazitätsplanung\n• Beratung von Projektleitung und Stakeholdern in technischen Fragestellungen\n• Erstellung und Pflege von Architektur- und Betriebsdokumentationen\n\nDein Profil:\n• Mehrjährige Erfahrung als Infrastructure Architect, Systems Engineer, Datacenter Engineer oder Consultant\n• Fundierte Praxiserfahrung in Enterprise-Infrastrukturen mit Server-, Storage- und Virtualisierungstechnologien\n• Erfahrung mit Lösungen von Herstellern wie HPE, Dell EMC, Lenovo, Cisco UCS, NetApp, Pure Storage, Nutanix, VMware, Microsoft Hyper-V oder vergleichbaren Plattformen\n• Erfahrung in Infrastrukturmigrationen und der Modernisierung bestehender Rechenzentrumsumgebungen\n• Gute Kenntnisse von Storage-Technologien und Protokollen wie FC, iSCSI und NFS\n• Erfahrung mit Clustering-, High-Availability- und Disaster-Recovery-Konzepten\n• Kenntnisse in der Integration von Netzwerk-, SAN-, Backup- und Monitoring-Lösungen\n• Erfahrung mit H3C-Produkten (z. B. UniServer, UniStor, CAS, UIS oder CloudOS) ist von Vorteil, jedoch keine Voraussetzung\n• Bereitschaft, sich in H3C-Technologien einzuarbeiten und diese im Projektumfeld einzusetzen\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\n\nNice to have:\n• Erfahrung mit HCI-Plattformen wie Nutanix, VMware vSAN oder vergleichbaren Lösungen\n• Zertifizierungen im Bereich VMware, Microsoft, HPE, Dell EMC, NetApp oder vergleichbaren Herstellern\n• Erste Berührungspunkte mit H3C-Technologien\n\nJob profile\n• IT - Software Engineering\n• Basel-Stadt\n• Contracting\n• Part Time, 80-100%\n• Ab sofort - 6 Monate ++\n• H3C, H3C UniServer, H3C UniStor, H3C CAS und CloudOS, Storage, Virtualisierung, Cloud",
         "fr": "Pour un projet de transformation d'infrastructure exigeant pour notre client à Bâle, nous recherchons un expert expérimenté:n H3C. Le projet remplacera un serveur, un stockage et une virtualisation existants par des solutions H3C modernes. Vous jouez un rôle central dans la planification, l'architecture et la mise en œuvre de la nouvelle infrastructure et accompagnez la migration des systèmes existants vers le nouvel environnement cible.\n\nVos tâches:\n• Conception et conception de la future infrastructure H3C\n• Planification et mise en œuvre de projets de migration dans le domaine du calcul, du stockage et de la virtualisation\n• Implémentation et configuration des environnements H3C UniServer, UniStor et CAS\n• Migration de machines virtuelles et de données à partir de plateformes existantes (par exemple VMware vSphere ou Microsoft Hyper-V)\n• Bâtir et optimiser des solutions de haute disponibilité et de reprise après sinistre\n• Intégration de solutions de sauvegarde, de surveillance, de répertoire actif, de réseau et de SAN\n• Appui au calibrage, à l'optimisation des performances et à la planification des capacités\n• Conseils techniques à la gestion de projet et aux parties prenantes\n• Documentation de l'architecture et des processus opérationnels\n\nVotre profil:\n• Plusieurs années d'expérience en tant qu'architecte d'infrastructure, ingénieur de systèmes ou consultant datacenter\n• Démontrer une expérience pratique avec au moins un des produits H3C suivants: H3C UniServer, H3C UniStor, H3C CAS, H3C UIS, H3C CloudOS\n• Expérience dans les projets de migration d'infrastructures et la transformation des paysages informatiques existants\n• Connaissance approfondie des environnements serveur, stockage et virtualisation\n• Expérience avec VMware vSphere, Hyper-V ou plateformes similaires\n• Bonne connaissance des protocoles de stockage tels que FC, iSCSI et NFS\n• Expérience des concepts de regroupement, de disponibilité élevée et de reprise après sinistre\n• Connaissance de l'intégration des solutions réseau, SAN, sauvegarde et monitoring\n• Les certifications H3C sont bénéfiques\n• Très bonne connaissance de l'allemand et bonne connaissance de l'anglais\n\nProfils d'emploi\n• IT - Génie logiciel\n• Ville de Bâle\n• Contrats\n• Temps partiel, 80-100 %\n• A partir de maintenant - 6 mois ++\n• H3C, H3C UniServer, H3C UniStor, H3C CAS et CloudOS, Stockage, Virtualisation, Cloud"
       },
       "location": "Basel-Stadt",
@@ -2798,12 +2796,12 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8WU85W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:34.702Z",
+      "crawledAt": "2026-11-17T21:35:23.553Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
       "country": "CH",
-      "category": "Altro",
+      "category": "Ingegneria",
       "contract": "contracting",
       "employmentType": "PART_TIME",
       "experienceLevel": "mid",
@@ -2832,32 +2830,38 @@
           "H3C, H3C UniServer, H3C UniStor, H3C CAS und CloudOS, Storage, Virtualisierung, Cloud"
         ]
       },
-      "previousSlugs": [
-        "h3c-expert-fur-infrastruktur-migration-m-w-d-coopers-basel-stadt"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
+        "de": [
+          "infrastructure-architect-systems-engineer-server-storage-virtualization-h3c-umfeld-m-w-d"
+        ],
         "it": [
-          "h3c-expert-fur-infrastruktur-migration-m-w-d-coopers-basel-stadt"
+          "h3c-expert-fur-infrastruktur-migration-m-w-d-coopers-basel-stadt",
+          "infrastructure-architect-systems-engineer-server-storage-virtualization-h3c-umfeld-m-w-d"
         ]
       },
+      "previousSlugs": [
+        "h3c-expert-fur-infrastruktur-migration-m-w-d-coopers-basel-stadt",
+        "infrastructure-architect-systems-engineer-server-storage-virtualization-h3c-umfeld-m-w-d"
+      ],
       "firstSeenAt": "2026-10-22T09:27:38.714Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
+      "salaryMin": 72500,
+      "salaryMax": 110500,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
+          "minValue": 72500,
+          "maxValue": 110500,
           "unitText": "YEAR"
         }
       },
       "postalCode": "4001",
       "streetAddress": "Basel-Stadt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-20T09:36:34.702Z",
+      "validThrough": "2026-12-20T21:35:23.553Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2891,7 +2895,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=DU207T",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T09:36:33.745Z",
+      "crawledAt": "2026-11-17T21:35:22.527Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -2945,7 +2949,7 @@
       "postalCode": "6300",
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:36:33.745Z",
+      "validThrough": "2027-01-11T21:35:22.527Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -2979,7 +2983,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=68XLU0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T09:36:32.788Z",
+      "crawledAt": "2026-11-17T21:35:21.497Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3042,7 +3046,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel-Stadt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-11T09:36:32.788Z",
+      "validThrough": "2027-01-11T21:35:21.497Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3076,7 +3080,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=253DGT",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:31.860Z",
+      "crawledAt": "2026-11-17T21:35:20.479Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3142,7 +3146,7 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:36:31.860Z",
+      "validThrough": "2027-01-12T21:35:20.479Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3176,7 +3180,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=KH03C5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T09:36:30.926Z",
+      "crawledAt": "2026-11-17T21:35:19.426Z",
       "addressLocality": "Tessin",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -3240,7 +3244,7 @@
       "postalCode": "6500",
       "streetAddress": "Tessin",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:36:30.926Z",
+      "validThrough": "2027-01-12T21:35:19.426Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3274,7 +3278,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=O4V7A3",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T09:36:29.968Z",
+      "crawledAt": "2026-11-17T21:35:18.420Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -3341,7 +3345,7 @@
       "postalCode": "1950",
       "streetAddress": "Wallis",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:36:29.968Z",
+      "validThrough": "2027-01-12T21:35:18.420Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3375,7 +3379,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4QT2Z1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:29.037Z",
+      "crawledAt": "2026-11-17T21:35:17.400Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3440,7 +3444,7 @@
       "postalCode": "4001",
       "streetAddress": "Basel-Stadt",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-12T09:36:29.037Z",
+      "validThrough": "2027-01-12T21:35:17.400Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3474,7 +3478,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=OUE247",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:28.092Z",
+      "crawledAt": "2026-11-17T21:35:16.362Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3538,7 +3542,7 @@
       "postalCode": "6003",
       "streetAddress": "Luzern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-09T09:36:28.092Z",
+      "validThrough": "2027-01-09T21:35:16.362Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -3572,7 +3576,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=O4UI83",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:36:26.134Z",
+      "crawledAt": "2026-11-17T21:35:15.317Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3635,32 +3639,32 @@
       "postalCode": "3004",
       "streetAddress": "Bern",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:36:26.134Z",
+      "validThrough": "2026-12-17T21:35:15.317Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "coopers-28dc7c192ce4",
-      "slug": "semantic-hvac-ontology-engineer-m-f-d-coopers-zug",
+      "slug": "semantic-hvac-ontology-ingegnere-m-f-d-coopers-group-ag-zug",
       "slugByLocale": {
+        "it": "semantic-hvac-ontology-ingegnere-m-f-d-coopers-group-ag-zug",
         "en": "semantic-hvac-ontology-engineer-m-f-d-coopers-zug",
-        "it": "semantic-hvac-ontology-engineer-m-f-d-coopers-zug",
-        "de": "semantic-hvac-ontology-engineer-m-f-d-coopers-zug",
-        "fr": "semantic-hvac-ontology-engineer-m-f-d-coopers-zug"
+        "de": "semantic-hvac-ontology-ingenieur-m-f-d-coopers-group-ag-zug",
+        "fr": "semantic-hvac-ontology-ingenieur-m-f-d-coopers-group-ag-zug"
       },
       "company": "Coopers Group AG",
       "companyKey": "coopers",
       "companyDomain": "coopers.ch",
       "title": "Semantic HVAC & Ontology Engineer (m/f/d)",
       "titleByLocale": {
-        "en": "Semantic HVAC & Ontology Engineer (m/f/d)",
         "it": "Semantic HVAC & Ontology Ingegnere (m/f/d)",
+        "en": "Semantic HVAC & Ontology Engineer (m/f/d)",
         "de": "Semantic HVAC & Ontology Ingenieur (m/f/d)",
         "fr": "Semantic HVAC & Ontology Ingénieur (m/f/d)"
       },
       "description": "For our client in Zug, we are looking for an experienced Semantic HVAC & Ontology Engineer to strengthen an innovative R&D team focused on intelligent buildings, semantic data models, and digital building technologies.\n\nYour Responsabilities:\n• Model HVAC equipment, systems, and their relationships within a semantic building ontology to create a structured representation of HVAC domain knowledge\n• Map existing engineering data and application templates to a unified semantic data model using established industry standards\n• Integrate Web of Things (WoT) Thing Models into semantic building models to simplify device integration and commissioning\n• Leverage Artificial Intelligence to accelerate semantic mapping processes and develop innovative applications in analytics, optimization, and autonomous building operations\n• Ensure interoperability across different product lines and support the integration of new devices and systems\n• Collaborate closely with interdisciplinary teams, product management, and other stakeholders within an agile R&D environment\n• Actively contribute to knowledge sharing and the advancement of technological standards and solution\n\nYour Profile:\n• Bachelor’s or Master’s degree in Building Technologies, Mechanical Engineering, or a comparable technical discipline is an advantage\n• Strong hands-on experience in HVAC engineering, controls engineering, and the development of HVAC systems and applications\n• Solid understanding of semantic technologies and ontologies, particularly RDF , RDFS , and OWL\n• Experience with semantic building models such as Brick Schema , RealEstateCore , or similar frameworks\n• Experience in mapping and modelling technical data structures\n• Good knowledge of modern programming languages and development practices, ideally with Python\n• Experience working with Siemens Control Engineering Libraries is a plus\n• Fluent English, both written and spoken, German language skills are considered an advantage\n\nJob profile\n• IT - Software Engineering\n• Zug\n• Contracting\n• Full Time\n• Ab sofort - 12 Monate mit Option auf Verlängerung\n• HVAC, Brick Schema, RealEstateCore, RDF, RDFS, OWL",
       "descriptionByLocale": {
-        "en": "For our client in Zug, we are looking for an experienced Semantic HVAC & Ontology Engineer to strengthen an innovative R&D team focused on intelligent buildings, semantic data models, and digital building technologies.\n\nYour Responsabilities:\n• Model HVAC equipment, systems, and their relationships within a semantic building ontology to create a structured representation of HVAC domain knowledge\n• Map existing engineering data and application templates to a unified semantic data model using established industry standards\n• Integrate Web of Things (WoT) Thing Models into semantic building models to simplify device integration and commissioning\n• Leverage Artificial Intelligence to accelerate semantic mapping processes and develop innovative applications in analytics, optimization, and autonomous building operations\n• Ensure interoperability across different product lines and support the integration of new devices and systems\n• Collaborate closely with interdisciplinary teams, product management, and other stakeholders within an agile R&D environment\n• Actively contribute to knowledge sharing and the advancement of technological standards and solution\n\nYour Profile:\n• Bachelor’s or Master’s degree in Building Technologies, Mechanical Engineering, or a comparable technical discipline is an advantage\n• Strong hands-on experience in HVAC engineering, controls engineering, and the development of HVAC systems and applications\n• Solid understanding of semantic technologies and ontologies, particularly RDF , RDFS , and OWL\n• Experience with semantic building models such as Brick Schema , RealEstateCore , or similar frameworks\n• Experience in mapping and modelling technical data structures\n• Good knowledge of modern programming languages and development practices, ideally with Python\n• Experience working with Siemens Control Engineering Libraries is a plus\n• Fluent English, both written and spoken, German language skills are considered an advantage\n\nJob profile\n• IT - Software Engineering\n• Zug\n• Contracting\n• Full Time\n• Ab sofort - 12 Monate mit Option auf Verlängerung\n• HVAC, Brick Schema, RealEstateCore, RDF, RDFS, OWL",
         "it": "Per il nostro cliente a Zug, stiamo cercando un esperto Semantic HVAC & Ontology Engineer per rafforzare un innovativo team R&D focalizzato su edifici intelligenti, modelli di dati semantici e tecnologie di costruzione digitale.\n\nLe tue responsabilità:\n• Modello HVAC attrezzature, sistemi e le loro relazioni all'interno di un'ontologia semantica edificio per creare una rappresentazione strutturata della conoscenza di dominio HVAC\n• Mappa i dati di ingegneria esistenti e i modelli di applicazione per un modello di dati semantici unificato utilizzando standard industriali consolidati\n• Integra Web of Things (WoT) Thing Models in modelli di costruzione semantica per semplificare l'integrazione dei dispositivi e la messa in servizio\n• Leva l'intelligenza artificiale per accelerare i processi di mappatura semantica e sviluppare applicazioni innovative nelle operazioni di analisi, ottimizzazione e costruzione autonoma\n• Assicurare l'interoperabilità attraverso diverse linee di prodotto e supportare l'integrazione di nuovi dispositivi e sistemi\n• Collabora a stretto contatto con team interdisciplinari, gestione dei prodotti e altri stakeholder all'interno di un ambiente R&D agile\n• Contribuire attivamente alla condivisione della conoscenza e al progresso degli standard e delle soluzioni tecnologiche\n\nIl tuo profilo:\n• Corso di laurea o master in tecnologie edili, ingegneria meccanica, o una disciplina tecnica comparabile è un vantaggio\n• Forte esperienza pratica nell'ingegneria HVAC, nell'ingegneria dei controlli e nello sviluppo di sistemi e applicazioni HVAC\n• Solida comprensione delle tecnologie e delle tecnologie semantiche, in particolare RDF, RDFS e OWL\n• Esperienza con modelli di costruzione semantica come Brick Schema , RealEstateCore , o strutture simili\n• Esperienza nella mappatura e nella modellazione delle strutture tecniche dei dati\n• Buona conoscenza dei moderni linguaggi di programmazione e pratiche di sviluppo, idealmente con Python\n• Esperienza di lavoro con Siemens Control Engineering Libraries è un plus\n• Inglese fluente, sia scritto che parlato, le competenze linguistiche tedesche sono considerate un vantaggio\n\nProfilo del lavoro\n• IT - Ingegneria del software\n• Zucchero\n• Contraente\n• Tempo pieno\n• Ab sofort - 12 Monate mit Option auf Verlängerung\n• HVAC, Brick Schema, RealEstateCore, RDF, RDFS, OWL",
+        "en": "For our client in Zug, we are looking for an experienced Semantic HVAC & Ontology Engineer to strengthen an innovative R&D team focused on intelligent buildings, semantic data models, and digital building technologies.\n\nYour Responsabilities:\n• Model HVAC equipment, systems, and their relationships within a semantic building ontology to create a structured representation of HVAC domain knowledge\n• Map existing engineering data and application templates to a unified semantic data model using established industry standards\n• Integrate Web of Things (WoT) Thing Models into semantic building models to simplify device integration and commissioning\n• Leverage Artificial Intelligence to accelerate semantic mapping processes and develop innovative applications in analytics, optimization, and autonomous building operations\n• Ensure interoperability across different product lines and support the integration of new devices and systems\n• Collaborate closely with interdisciplinary teams, product management, and other stakeholders within an agile R&D environment\n• Actively contribute to knowledge sharing and the advancement of technological standards and solution\n\nYour Profile:\n• Bachelor’s or Master’s degree in Building Technologies, Mechanical Engineering, or a comparable technical discipline is an advantage\n• Strong hands-on experience in HVAC engineering, controls engineering, and the development of HVAC systems and applications\n• Solid understanding of semantic technologies and ontologies, particularly RDF , RDFS , and OWL\n• Experience with semantic building models such as Brick Schema , RealEstateCore , or similar frameworks\n• Experience in mapping and modelling technical data structures\n• Good knowledge of modern programming languages and development practices, ideally with Python\n• Experience working with Siemens Control Engineering Libraries is a plus\n• Fluent English, both written and spoken, German language skills are considered an advantage\n\nJob profile\n• IT - Software Engineering\n• Zug\n• Contracting\n• Full Time\n• Ab sofort - 12 Monate mit Option auf Verlängerung\n• HVAC, Brick Schema, RealEstateCore, RDF, RDFS, OWL",
         "de": "Für unseren Kunden in Zug suchen wir einen erfahrenen Semantic HVAC & Ontology Engineer zur Stärkung eines innovativen F&E-Teams mit Fokus auf intelligente Gebäude, semantische Datenmodelle und digitale Gebäudetechnologien.\n\nIhre Aufgaben:\n• Modell HVAC-Geräte, Systeme und ihre Beziehungen innerhalb einer semantischen Gebäudeontologie, um eine strukturierte Darstellung des HVAC-Domänenwissens zu erstellen\n• Zuordnung bestehender Engineering-Daten und Anwendungsvorlagen zu einem einheitlichen semantischen Datenmodell unter Verwendung etablierter Industriestandards\n• Integrieren Sie Web of Things (WoT) Thing-Modelle in semantische Gebäudemodelle, um die Geräteintegration und Inbetriebnahme zu vereinfachen\n• Nutzen Sie künstliche Intelligenz, um semantische Mapping-Prozesse zu beschleunigen und innovative Anwendungen in den Bereichen Analytik, Optimierung und autonomer Gebäudebetrieb zu entwickeln\n• Gewährleistung der Interoperabilität über verschiedene Produktlinien hinweg und Unterstützung der Integration neuer Geräte und Systeme\n• Enge Zusammenarbeit mit interdisziplinären Teams, Produktmanagement und anderen Stakeholdern in einem agilen F&E-Umfeld\n• Aktiv zum Wissensaustausch und zur Weiterentwicklung technologischer Standards und Lösungen beitragen\n\nIhr Profil:\n• Bachelor- oder Master-Abschluss in Bautechnik, Maschinenbau oder einer vergleichbaren Fachdisziplin ist von Vorteil\n• Starke praktische Erfahrung in HLK-Engineering, Steuerungstechnik und Entwicklung von HLK-Systemen und -Anwendungen\n• Solides Verständnis von semantischen Technologien und Ontologien, insbesondere RDF, RDFS und OWL\n• Erfahrung mit semantischen Gebäudemodellen wie Brick Schema, RealEstateCore oder ähnlichen Frameworks\n• Erfahrung in der Abbildung und Modellierung technischer Datenstrukturen\n• Gute Kenntnisse moderner Programmiersprachen und Entwicklungspraktiken, idealerweise mit Python\n• Erfahrung in der Zusammenarbeit mit Siemens Control Engineering Libraries ist ein Plus\n• fließendes Englisch, sowohl geschrieben als auch gesprochen, deutsche Sprachkenntnisse gelten als Vorteil\n\nStellenprofil\n• IT - Software Engineering\n• Zug\n• Vertrag\n• Vollzeit\n• Ab sofort - 12 Monate mit Option auf Verlängerung\n• HVAC, Brick Schema, RealEstateCore, RDF, RDFS, OWL",
         "fr": "Pour notre client à Zug, nous sommes à la recherche d'un ingénieur sémantique et en ontologie expérimenté pour renforcer une équipe de R-D innovante axée sur les bâtiments intelligents, les modèles de données sémantiques et les technologies numériques de construction.\n\nVos responsabilités :\n• Modèles d'équipement, de systèmes et de relations CVC au sein d'un bâtiment sémantique pour créer une représentation structurée des connaissances du domaine CVC\n• Carter les données d'ingénierie existantes et les modèles d'application en utilisant un modèle de données sémantiques unifié en utilisant les normes établies de l'industrie\n• Intégrer Web of Things (WoT) Thing Models dans des modèles de construction sémantique pour simplifier l'intégration et la mise en service des appareils\n• Tirer parti de l'intelligence artificielle pour accélérer les processus de cartographie sémantique et développer des applications innovantes dans les opérations d'analyse, d'optimisation et de construction autonome\n• Assurer l'interopérabilité entre les différentes gammes de produits et soutenir l'intégration de nouveaux dispositifs et systèmes\n• Collaborer étroitement avec les équipes interdisciplinaires, la gestion des produits et d'autres intervenants dans un environnement agile de R-D\n• Contribuer activement au partage des connaissances et à l'avancement des normes et des solutions technologiques\n\nVotre profil:\n• Baccalauréat ou maîtrise en technologies du bâtiment, génie mécanique ou discipline technique comparable est un avantage\n• Forte expérience pratique en ingénierie CVC, en ingénierie des commandes et en développement de systèmes et d'applications CVC\n• Compréhension solide des technologies sémantiques et des ontologies, en particulier RDF, RDFS et OWL\n• Expérience avec des modèles de construction sémantique tels que Brick Schema , RealEstateCore , ou des cadres similaires\n• Expérience en matière de cartographie et de modélisation des structures de données techniques\n• Bonne connaissance des langages de programmation modernes et des pratiques de développement, idéalement avec Python\n• Expérience de travail avec Siemens Control Engineering Libraries est un plus\n• L'anglais, à la fois écrit et parlé, est considéré comme un avantage\n\nProfil d'emploi\n• IT - Ingénierie des logiciels\n• Zug\n• Contrats\n• Temps plein\n• Absfort - 12 Monate mit Option auf Verlängerung\n• HVAC, Brick Schema, RealEstateCore, RDF, RDFS, OWL"
       },
@@ -3669,7 +3673,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=J4R31T",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-17T09:36:25.184Z",
+      "crawledAt": "2026-11-17T21:35:14.294Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3701,6 +3705,21 @@
           "HVAC, Brick Schema, RealEstateCore, RDF, RDFS, OWL"
         ]
       },
+      "firstSeenAt": "2026-11-17T09:36:25.184Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "semantic-hvac-ontology-engineer-m-f-d-coopers-zug"
+        ],
+        "de": [
+          "semantic-hvac-ontology-engineer-m-f-d-coopers-zug"
+        ],
+        "fr": [
+          "semantic-hvac-ontology-engineer-m-f-d-coopers-zug"
+        ]
+      },
+      "previousSlugs": [
+        "semantic-hvac-ontology-engineer-m-f-d-coopers-zug"
+      ],
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -3717,9 +3736,94 @@
       "postalCode": "6300",
       "streetAddress": "Zug",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-15T09:36:25.184Z",
+      "validThrough": "2027-01-15T21:35:14.294Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "coopers-fdf0579d8f24",
+      "slug": "fire-protection-engineer-m-f-d-coopers-wallis",
+      "slugByLocale": {
+        "en": "fire-protection-engineer-m-f-d-coopers-wallis",
+        "it": "fire-protection-engineer-m-f-d-coopers-wallis",
+        "de": "fire-protection-engineer-m-f-d-coopers-wallis",
+        "fr": "fire-protection-engineer-m-f-d-coopers-wallis"
+      },
+      "company": "Coopers Group AG",
+      "companyKey": "coopers",
+      "companyDomain": "coopers.ch",
+      "title": "Fire Protection Engineer (m/f/d)",
+      "titleByLocale": {
+        "en": "Fire Protection Engineer (m/f/d)",
+        "it": "Fire Protection Ingegnere (m/f/d)",
+        "de": "Fire Protection Ingenieur (m/f/d)",
+        "fr": "Fire Protection Ingénieur (m/f/d)"
+      },
+      "description": "We are looking for a Senior Engineer who is experienced in fire protection systems on Pharma companies.\n\nKey responsibilities\n• Support the definition and implementation of fire protection concepts and requirements for capital projects\n• Coordinate with architects, engineering partners, fire protection specialists, project teams, and the site fire brigad\n• Lead the technical oversight of fire protection systems, including sprinkler systems, deluge systems, dry extinguishing systems, firewater networks, and firewater retention solutions\n• Manage designers, contractors and vendors responsible for technical fire protection installations\n• Ensure project delivery with respect to cost, schedule, quality, and compliance requirements\n• Participate in 3D design reviews and multidisciplinary coordination to resolve clashes and technical issues\n• Oversee commissioning, functional testing, and acceptance activities for fire protection systems\n• Participate in integrated system tests together with engineering teams, contractors, and stakeholders\n• Review, collect, and hand over as-built documentation and ensure smooth transfer of systems to operations and end users.\n• Required Qualifications\n• Bachelor's or Master's degree in Safety Engineering, Mechanical Engineering, Process Engineering, Chemical Engineering, or a related engineering discipline\n• Certifications: VKF certification such as \"Fachperson für Wasserlöschanlagen VKF\" is considered a strong advantage\n• Extensive experience working with and designing fire protection systems and related regulations, standards, and guidelines (e.g., VKF, SES)\n• Experience within pharmaceutical, biotechnology, chemical, or industrial manufacturing environments\n• Strong understanding of GMP and cleanroom environments is advantageous\n• Technical expertise in fire protection systems and infrastructur\n• Knowledge of fire safety codes, regulations, and industry standards\n• Experience with commissioning and integrated testing activities\n• German: Business Fluent (required), English: Basic to intermediate, French: Nice to have\n\n•\n\nJob profile\n• Engineering - Electrical Engineering\n• Engineering - Mechanical Engineering\n• Wallis\n• Contracting\n• Full Time\n• Gebäudetechnik",
+      "descriptionByLocale": {
+        "en": "We are looking for a Senior Engineer who is experienced in fire protection systems on Pharma companies.\n\nKey responsibilities\n• Support the definition and implementation of fire protection concepts and requirements for capital projects\n• Coordinate with architects, engineering partners, fire protection specialists, project teams, and the site fire brigad\n• Lead the technical oversight of fire protection systems, including sprinkler systems, deluge systems, dry extinguishing systems, firewater networks, and firewater retention solutions\n• Manage designers, contractors and vendors responsible for technical fire protection installations\n• Ensure project delivery with respect to cost, schedule, quality, and compliance requirements\n• Participate in 3D design reviews and multidisciplinary coordination to resolve clashes and technical issues\n• Oversee commissioning, functional testing, and acceptance activities for fire protection systems\n• Participate in integrated system tests together with engineering teams, contractors, and stakeholders\n• Review, collect, and hand over as-built documentation and ensure smooth transfer of systems to operations and end users.\n• Required Qualifications\n• Bachelor's or Master's degree in Safety Engineering, Mechanical Engineering, Process Engineering, Chemical Engineering, or a related engineering discipline\n• Certifications: VKF certification such as \"Fachperson für Wasserlöschanlagen VKF\" is considered a strong advantage\n• Extensive experience working with and designing fire protection systems and related regulations, standards, and guidelines (e.g., VKF, SES)\n• Experience within pharmaceutical, biotechnology, chemical, or industrial manufacturing environments\n• Strong understanding of GMP and cleanroom environments is advantageous\n• Technical expertise in fire protection systems and infrastructur\n• Knowledge of fire safety codes, regulations, and industry standards\n• Experience with commissioning and integrated testing activities\n• German: Business Fluent (required), English: Basic to intermediate, French: Nice to have\n\n•\n\nJob profile\n• Engineering - Electrical Engineering\n• Engineering - Mechanical Engineering\n• Wallis\n• Contracting\n• Full Time\n• Gebäudetechnik",
+        "it": "We are looking for a Senior Engineer who is experienced in fire protection systems on Pharma companies.\n\nKey responsibilities\n• Support the definition and implementation of fire protection concepts and requirements for capital projects\n• Coordinate with architects, engineering partners, fire protection specialists, project teams, and the site fire brigad\n• Lead the technical oversight of fire protection systems, including sprinkler systems, deluge systems, dry extinguishing systems, firewater networks, and firewater retention solutions\n• Manage designers, contractors and vendors responsible for technical fire protection installations\n• Ensure project delivery with respect to cost, schedule, quality, and compliance requirements\n• Participate in 3D design reviews and multidisciplinary coordination to resolve clashes and technical issues\n• Oversee commissioning, functional testing, and acceptance activities for fire protection systems\n• Participate in integrated system tests together with engineering teams, contractors, and stakeholders\n• Review, collect, and hand over as-built documentation and ensure smooth transfer of systems to operations and end users.\n• Required Qualifications\n• Bachelor's or Master's degree in Safety Engineering, Mechanical Engineering, Process Engineering, Chemical Engineering, or a related engineering discipline\n• Certifications: VKF certification such as \"Fachperson für Wasserlöschanlagen VKF\" is considered a strong advantage\n• Extensive experience working with and designing fire protection systems and related regulations, standards, and guidelines (e.g., VKF, SES)\n• Experience within pharmaceutical, biotechnology, chemical, or industrial manufacturing environments\n• Strong understanding of GMP and cleanroom environments is advantageous\n• Technical expertise in fire protection systems and infrastructur\n• Knowledge of fire safety codes, regulations, and industry standards\n• Experience with commissioning and integrated testing activities\n• German: Business Fluent (required), English: Basic to intermediate, French: Nice to have\n\n•\n\nJob profile\n• Engineering - Electrical Engineering\n• Engineering - Mechanical Engineering\n• Wallis\n• Contracting\n• Full Time\n• Gebäudetechnik",
+        "de": "We are looking for a Senior Engineer who is experienced in fire protection systems on Pharma companies.\n\nKey responsibilities\n• Support the definition and implementation of fire protection concepts and requirements for capital projects\n• Coordinate with architects, engineering partners, fire protection specialists, project teams, and the site fire brigad\n• Lead the technical oversight of fire protection systems, including sprinkler systems, deluge systems, dry extinguishing systems, firewater networks, and firewater retention solutions\n• Manage designers, contractors and vendors responsible for technical fire protection installations\n• Ensure project delivery with respect to cost, schedule, quality, and compliance requirements\n• Participate in 3D design reviews and multidisciplinary coordination to resolve clashes and technical issues\n• Oversee commissioning, functional testing, and acceptance activities for fire protection systems\n• Participate in integrated system tests together with engineering teams, contractors, and stakeholders\n• Review, collect, and hand over as-built documentation and ensure smooth transfer of systems to operations and end users.\n• Required Qualifications\n• Bachelor's or Master's degree in Safety Engineering, Mechanical Engineering, Process Engineering, Chemical Engineering, or a related engineering discipline\n• Certifications: VKF certification such as \"Fachperson für Wasserlöschanlagen VKF\" is considered a strong advantage\n• Extensive experience working with and designing fire protection systems and related regulations, standards, and guidelines (e.g., VKF, SES)\n• Experience within pharmaceutical, biotechnology, chemical, or industrial manufacturing environments\n• Strong understanding of GMP and cleanroom environments is advantageous\n• Technical expertise in fire protection systems and infrastructur\n• Knowledge of fire safety codes, regulations, and industry standards\n• Experience with commissioning and integrated testing activities\n• German: Business Fluent (required), English: Basic to intermediate, French: Nice to have\n\n•\n\nJob profile\n• Engineering - Electrical Engineering\n• Engineering - Mechanical Engineering\n• Wallis\n• Contracting\n• Full Time\n• Gebäudetechnik",
+        "fr": "We are looking for a Senior Engineer who is experienced in fire protection systems on Pharma companies.\n\nKey responsibilities\n• Support the definition and implementation of fire protection concepts and requirements for capital projects\n• Coordinate with architects, engineering partners, fire protection specialists, project teams, and the site fire brigad\n• Lead the technical oversight of fire protection systems, including sprinkler systems, deluge systems, dry extinguishing systems, firewater networks, and firewater retention solutions\n• Manage designers, contractors and vendors responsible for technical fire protection installations\n• Ensure project delivery with respect to cost, schedule, quality, and compliance requirements\n• Participate in 3D design reviews and multidisciplinary coordination to resolve clashes and technical issues\n• Oversee commissioning, functional testing, and acceptance activities for fire protection systems\n• Participate in integrated system tests together with engineering teams, contractors, and stakeholders\n• Review, collect, and hand over as-built documentation and ensure smooth transfer of systems to operations and end users.\n• Required Qualifications\n• Bachelor's or Master's degree in Safety Engineering, Mechanical Engineering, Process Engineering, Chemical Engineering, or a related engineering discipline\n• Certifications: VKF certification such as \"Fachperson für Wasserlöschanlagen VKF\" is considered a strong advantage\n• Extensive experience working with and designing fire protection systems and related regulations, standards, and guidelines (e.g., VKF, SES)\n• Experience within pharmaceutical, biotechnology, chemical, or industrial manufacturing environments\n• Strong understanding of GMP and cleanroom environments is advantageous\n• Technical expertise in fire protection systems and infrastructur\n• Knowledge of fire safety codes, regulations, and industry standards\n• Experience with commissioning and integrated testing activities\n• German: Business Fluent (required), English: Basic to intermediate, French: Nice to have\n\n•\n\nJob profile\n• Engineering - Electrical Engineering\n• Engineering - Mechanical Engineering\n• Wallis\n• Contracting\n• Full Time\n• Gebäudetechnik"
+      },
+      "location": "Wallis",
+      "canton": "VS",
+      "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8C84LR",
+      "source": "Coopers Group AG Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-11-17T21:35:13.242Z",
+      "addressLocality": "Wallis",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "contracting",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Farmaceutica / Life Sciences",
+      "currency": "CHF",
+      "featured": false,
+      "datePosted": "2026-11-17T00:00:00Z",
+      "postedDate": "2026-11-17T00:00:00Z",
+      "postingDateSource": "reported",
+      "applyUrl": "https://www.coopers.ch/en/jobs/detail.php?refCode=8C84LR",
+      "requirements": [
+        "Engineering - Electrical Engineering",
+        "Engineering - Mechanical Engineering",
+        "Wallis",
+        "Contracting",
+        "Full Time",
+        "Gebäudetechnik"
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Engineering - Electrical Engineering",
+          "Engineering - Mechanical Engineering",
+          "Wallis",
+          "Contracting",
+          "Full Time",
+          "Gebäudetechnik"
+        ]
+      },
+      "needsRetranslation": true,
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "1950",
+      "streetAddress": "Wallis",
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-16T21:35:13.242Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-17T09:36:25.184Z"
+      "firstSeenAt": "2026-11-17T21:35:13.242Z"
     },
     {
       "id": "coopers-7cba30c89f47",
@@ -3819,7 +3923,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T21:43:13.696Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "coopers-8607ee46c11d",
@@ -3918,7 +4022,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-26T21:43:11.667Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "coopers-6fe800951300",
@@ -4017,7 +4121,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-05T21:43:07.663Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "coopers-28b2f81e5465",
@@ -4113,7 +4217,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-08T21:43:03.617Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "coopers-838dc6350f43",
@@ -4206,7 +4310,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-08T21:43:02.605Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "coopers-2de9001f4420",
@@ -4302,7 +4406,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-09T21:42:56.405Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "coopers-61429c7e83ea",
@@ -4399,7 +4503,7 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-01-10T21:42:54.363Z",
       "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

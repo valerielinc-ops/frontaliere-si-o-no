@@ -1,7 +1,7 @@
 {
   "key": "heini-ch-heini-ch",
   "label": "Heini Conditorei AG",
-  "generatedAt": "2026-11-17T09:30:16.770Z",
+  "generatedAt": "2026-11-17T21:34:34.556Z",
   "total": 0,
   "discovered": 4,
   "parsed": 0,
@@ -32,11 +32,11 @@
       },
       {
         "status": 200,
-        "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/12503252-detailhandelsfachmann-frau-efz-gestalten-von-einkaufserlebnissen-baeckerei-confiserie-luzern-lu-heini-conditorei-ag"
+        "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/12503251-baecker-in-konditor-in-confiseur-in-eba-luzern-lu-heini-conditorei-ag"
       },
       {
         "status": 200,
-        "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/12503251-baecker-in-konditor-in-confiseur-in-eba-luzern-lu-heini-conditorei-ag"
+        "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/12503252-detailhandelsfachmann-frau-efz-gestalten-von-einkaufserlebnissen-baeckerei-confiserie-luzern-lu-heini-conditorei-ag"
       }
     ],
     "proxiedBy": [],
@@ -51,10 +51,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8602,
-  "avgDurationMs": 8602,
+  "durationMs": 7783,
+  "avgDurationMs": 7783,
   "durationHistory": [
-    8602
+    7783
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -62,5 +62,5 @@
   "unchangedJobs": [],
   "earlyExit": false,
   "exitCode": 0,
-  "codeCommit": "0a26498058b0569b9b8027a7e9a03db3e2542c6a"
+  "codeCommit": "8a8594aa5e6a6b71cb0a2a3883a7ded1be40621c"
 }
