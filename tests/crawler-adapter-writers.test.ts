@@ -538,7 +538,7 @@ describe('SBB two-source discovery invariants', () => {
       options: { validateBody?: (body: string) => string | null } = {},
     ) => {
       if (url.includes('jobfilter.results.json')) return { ok: false, status: 502, text: async () => '' };
-      listingValidationReason = options.validateBody?.(listingHtml);
+      if (listingValidationReason === undefined) listingValidationReason = options.validateBody?.(listingHtml);
       return { ok: true, status: 200, text: async () => listingHtml };
     });
 
@@ -710,6 +710,55 @@ describe('SBB two-source discovery invariants', () => {
       expect.stringContaining('posti-liberi.html?startItem=2'),
       expect.objectContaining({ format: 'html', validateBody: expect.any(Function) }),
     );
+  });
+
+  it('falls back to the official careers sitemap when AEM and the vacancies listing are blocked', async () => {
+    const currentCareerUrls = [
+      'https://careers.sbb.ch/job/Bellinzona-Macchinista/1457236233/',
+      'https://careers.sbb.ch/job/Lugano-Tecnica-di-manutenzione/1457236433/',
+    ];
+    const sitemap = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+      <url><loc>${currentCareerUrls[0]}</loc></url>
+      <url><loc>${currentCareerUrls[1]}</loc></url>
+      <url><loc>https://careers.sbb.ch/jobs</loc></url>
+    </urlset>`;
+    const requested: Array<{ url: string; accept?: string }> = [];
+    const fetchPage = async (url: string, _timeoutMs: number, accept?: string) => {
+      requested.push({ url, accept });
+      return url === 'https://careers.sbb.ch/sitemap.xml' ? sitemap : null;
+    };
+
+    const result = await fetchSbbJobDetailUrls({
+      fetchPageImpl: fetchPage,
+      fetchJinaImpl: async () => ({ ok: false, status: 502, text: async () => '' }),
+      timeoutMs: 1000,
+    });
+
+    expect(result).toMatchObject({
+      urls: currentCareerUrls.map((url) => url.replace(/\/$/, '')).sort(),
+      sourceZero: false,
+      totalJobs: 2,
+      source: 'sbb-careers-sitemap',
+    });
+    expect(buildSbbSourceHealth(result, { urls: [], degraded: false })).toMatchObject({
+      status: 'degraded',
+      degradedSources: ['sbb-aem-json'],
+      sources: { aem: { fallbackSource: 'sbb-careers-sitemap' } },
+    });
+    expect(requested.at(-1)).toMatchObject({
+      url: 'https://careers.sbb.ch/sitemap.xml',
+      accept: 'application/xml,text/xml;q=0.9,text/plain;q=0.8',
+    });
+  });
+
+  it('fails closed when the official careers sitemap has no canonical job URLs', async () => {
+    const emptySitemap = '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://careers.sbb.ch/jobs</loc></url></urlset>';
+    const fetchPage = async (url: string) => (url === 'https://careers.sbb.ch/sitemap.xml' ? emptySitemap : null);
+    await expect(fetchSbbJobDetailUrls({
+      fetchPageImpl: fetchPage,
+      fetchJinaImpl: async () => ({ ok: true, status: 200, text: async () => emptySitemap }),
+      timeoutMs: 1000,
+    })).rejects.toThrow(/unavailable/);
   });
 
   it('fails closed on the primary AEM source, degrades the secondary login.org source on outage, and supports verified empty sources', async () => {
