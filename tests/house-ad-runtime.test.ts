@@ -11,7 +11,7 @@ let dom: JSDOM;
 let w: any;
 let testHouseBlock: HTMLElement;
 const emit = vi.fn();
-const config = { assignmentUrl: 'https://example.test/house-ad-assignment', consentKey: 'frontaliere_ads_consent', consentEvent: 'frontaliere:ads-consent', variants: HOUSE_AD_VARIANTS, readerSubscriptionPaths: READER_SUBSCRIPTION_PATHS };
+const config = { assignmentUrl: 'https://example.test/house-ad-assignment', consentKey: 'frontaliere_ads_consent', consentEvent: 'frontaliere:ads-consent', variants: HOUSE_AD_VARIANTS, readerSubscriptionPaths: READER_SUBSCRIPTION_PATHS, readerSubscriptionExperimentEnabled: true };
 function frame(state: string, placement = 'article-inline', block: HTMLElement = testHouseBlock) {
   const el = w.document.createElement('div'); el.dataset.house = placement; el.dataset.ftHouseHeight = '250';
   const google = w.document.createElement('div'); google.dataset.ftHouseGoogle = ''; google.dataset.ftAdState = state;
@@ -25,9 +25,9 @@ function blockerOnlyFrame(placement = 'article-atf') {
   el.append(google);
   w.document.body.append(el); return el;
 }
-async function start(allowed = () => true) {
+async function start(allowed = () => true, runtimeConfig = config) {
   const install = w.eval(`(${installHouseAds.toString()})`);
-  install(w.eval(`(${createHouseAdCreative.toString()})`), HOUSE_AD_CREATIVE_CSS, emit, allowed, config);
+  install(w.eval(`(${createHouseAdCreative.toString()})`), HOUSE_AD_CREATIVE_CSS, emit, allowed, runtimeConfig);
   await vi.advanceTimersByTimeAsync(12200);
 }
 beforeEach(() => {
@@ -316,6 +316,20 @@ describe('per-slot first-party creative delivery', () => {
     expect(JSON.parse(w.sessionStorage.getItem('ft_house_ad_click_v1'))).toMatchObject({
       experimentId: 'house_creatives_v2', assignmentSource: 'firebase_remote_config', variant: 'profile_match', enrolled: true,
     });
+  });
+  it('keeps the retired reader-subscription creative out of the fallback rotation', async () => {
+    w.__ftAdsAuthState = 'anonymous';
+    w.fetch.mockResolvedValue({ ok: true, json: async () => ({
+      variant: 'time_saved', enrolled: true, experimentId: 'house_creatives_v2', assignmentSource: 'firebase_remote_config',
+      readerSubscriptionVariant: 'subscription', readerSubscriptionEnrolled: true,
+      readerSubscriptionExperimentId: 'reader_subscription_house_v1', readerSubscriptionAssignmentSource: 'firebase_remote_config',
+    }) });
+    const block = w.document.createElement('section'); block.dataset.ftHouseBlock = ''; w.document.body.append(block);
+    const first = frame('unfilled'); const second = frame('unfilled', 'article-end'); block.append(first.el, second.el);
+    await start(() => true, { ...config, readerSubscriptionExperimentEnabled: false });
+    expect(first.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+    expect(second.host.querySelector('a')?.dataset.houseCampaign).toBe('job_search_automation');
+    expect(w.document.querySelector('.ft-reader-subscription')).toBeNull();
   });
   it('keeps assignment stable and counts one viewable impression per slot creative', async () => {
     const empty = frame('unfilled'); await start(); await vi.advanceTimersByTimeAsync(1200);

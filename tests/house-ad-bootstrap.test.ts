@@ -44,7 +44,10 @@ describe('house campaign bootstrap entitlement updates', () => {
     startAdRecovery(); startAdRecovery();
     expect(state.subscribe).toHaveBeenCalledTimes(1);
     expect(state.allowed?.()).toBe(true);
-    expect(state.houseConfig).toMatchObject({ readerSubscriptionPaths: { it: '/abbonamento/', en: '/en/subscribe/', de: '/de/abonnement/', fr: '/fr/abonnement/' } });
+    expect(state.houseConfig).toMatchObject({
+      readerSubscriptionPaths: { it: '/abbonamento/', en: '/en/subscribe/', de: '/de/abonnement/', fr: '/fr/abonnement/' },
+      readerSubscriptionExperimentEnabled: false,
+    });
     expect(state.recoveryConfig).toMatchObject({ readerSubscriptionPaths: ['/abbonamento/', '/en/subscribe/', '/de/abonnement/', '/fr/abonnement/'] });
     state.active = true; state.callback?.();
     expect(state.allowed?.()).toBe(false);
