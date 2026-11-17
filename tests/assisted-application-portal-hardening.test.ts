@@ -278,6 +278,80 @@ describe('BrassRing security-question field classification', () => {
     expect(selected).toBe('First pet?');
   });
 
+  it('uses the active listbox when an earlier UBS popup remains visible', async () => {
+    let selected = '';
+    let globalOptionClicks = 0;
+    const field = { id: 'q1', kind: 'listbox', inputType: 'listbox', label: 'Question 1', options: [], form: 0, frame: 0 };
+    const controlLocator = {
+      count: async () => 1,
+      click: async () => {},
+      evaluate: async () => selected === 'First pet?',
+    };
+    const activeOptions = {
+      first: () => ({ waitFor: async () => {} }),
+      allInnerTexts: async () => ['Please select a question', 'First pet?', 'Favorite city?'],
+    };
+    const activeList = {
+      waitFor: async () => {},
+      locator: () => activeOptions,
+      getByRole: (_role: string, opts: { name?: string }) => ({
+        first: () => ({ click: async () => { selected = opts?.name || ''; } }),
+      }),
+    };
+    const staleOptions = {
+      allInnerTexts: async () => ['Please select a question', 'Wrong stale question?'],
+    };
+    const frame = {
+      locator: (selector: string) => {
+        if (selector === '[role="listbox"]:visible') return { last: () => activeList };
+        if (selector === '[role="option"]:visible') return staleOptions;
+        return { first: () => controlLocator };
+      },
+      getByRole: () => ({
+        first: () => ({ click: async () => { globalOptionClicks += 1; } }),
+      }),
+    };
+    const result = await applyActions(
+      { frames: () => [frame], mainFrame: () => frame } as any,
+      [field],
+      [{ fieldId: 'q1', action: 'select', value: 'Unlisted fallback', evidence: 'account_security_question' }],
+      {},
+      { pause: async () => {} },
+    );
+
+    expect(result).toEqual([{ fieldId: 'q1', ok: true }]);
+    expect(selected).toBe('First pet?');
+    expect(globalOptionClicks).toBe(0);
+  });
+
+  it('fails closed when a hidden listbox remains mounted', async () => {
+    let optionClicks = 0;
+    const field = { id: 'q1', kind: 'listbox', inputType: 'listbox', label: 'Question 1', options: [], form: 0, frame: 0 };
+    const controlLocator = { count: async () => 1, click: async () => {}, evaluate: async () => false };
+    const hiddenList = {
+      waitFor: async () => { throw new Error('hidden'); },
+    };
+    const frame = {
+      locator: (selector: string) => {
+        if (selector === '[role="listbox"]:visible') return { last: () => hiddenList };
+        if (selector === '[role="listbox"]') return { count: async () => 1 };
+        if (selector === '[role="option"]:visible') return { allInnerTexts: async () => ['Unrelated visible option'] };
+        return { first: () => controlLocator };
+      },
+      getByRole: () => ({ first: () => ({ click: async () => { optionClicks += 1; } }) }),
+    };
+    const result = await applyActions(
+      { frames: () => [frame], mainFrame: () => frame } as any,
+      [field],
+      [{ fieldId: 'q1', action: 'select', value: 'Unlisted fallback', evidence: 'account_security_question' }],
+      {},
+      { pause: async () => {} },
+    );
+
+    expect(result).toEqual([{ fieldId: 'q1', ok: false, error: 'listbox_not_open' }]);
+    expect(optionClicks).toBe(0);
+  });
+
   it('fails closed when the security-question ordinal is outside the visible options', async () => {
     let optionClicks = 0;
     const field = { id: 'q3', kind: '', inputType: 'listbox', label: 'Security question 3', options: [], form: 0, frame: 0 };

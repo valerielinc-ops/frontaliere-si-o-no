@@ -300,6 +300,48 @@ const isSecurityQuestionPlaceholder = (value) => {
   return !label || SECURITY_QUESTION_PLACEHOLDER_RE.test(label);
 };
 
+const quoteAttributeSelectorValue = (value) => String(value || '').replace(/["\\]/g, '\\$&');
+
+/**
+ * The options belonging to the list that the just-clicked control opened.
+ *
+ * Workday/BrassRing can leave a prior popup mounted while opening the next
+ * one. A frame-wide option locator then mixes the two catalogues and can
+ * click a stale answer (or fail to register the current one). Prefer the
+ * explicit aria-owned list captured by fields.mjs; for older controls without
+ * ownership, use the last visible listbox, matching readListboxOptions(). The
+ * frame-wide locator is retained only for legacy markup with no listbox
+ * container at all.
+ */
+async function openedListbox(frame, field) {
+  const ownedList = field?.ownedList
+    ? frame.locator(`[id="${quoteAttributeSelectorValue(field.ownedList)}"]`)
+    : null;
+  const usable = async (list) => {
+    if (!list || typeof list.locator !== 'function') return null;
+    const visible = typeof list.waitFor === 'function'
+      ? await list.waitFor({ state: 'visible', timeout: 2500 }).then(() => true, () => false)
+      : true;
+    return visible ? { list, options: list.locator('[role="option"]:visible') } : null;
+  }
+  const owned = await usable(ownedList);
+  if (owned) return owned;
+  const visibleLists = frame.locator('[role="listbox"]:visible');
+  const list = typeof visibleLists.last === 'function' ? visibleLists.last() : null;
+  const active = await usable(list);
+  if (active) return active;
+  const allLists = frame.locator('[role="listbox"]');
+  const listCount = typeof allLists.count === 'function' ? await allLists.count() : 0;
+  if (listCount > 0) {
+    return {
+      list: null,
+      options: frame.locator('[role="option"]:visible'),
+      blocked: true,
+    };
+  }
+  return { list: frame, options: frame.locator('[role="option"]:visible') };
+}
+
 export function uniqueNormalizedOptionIndex(labels, selectedLabel) {
   const wanted = normalizedChoice(selectedLabel);
   const matches = labels.reduce((indices, label, index) => {
@@ -1075,7 +1117,8 @@ export async function applyActions(page, fields, actions, files, {
           const frame = page.frames()[field.frame || 0] || page.mainFrame();
           const countryLike = isNationalityField(field.label) || isResidenceCountryField(field) || isPhoneCountryField(field);
           const securityChoice = action.evidence === 'account_security_question';
-          const visibleOptions = frame.locator('[role="option"]:visible');
+          const { list, options: visibleOptions, blocked } = await openedListbox(frame, field);
+          if (blocked) throw new Error('listbox_not_open');
           if ((countryLike || securityChoice) && typeof visibleOptions.first === 'function') {
             await visibleOptions.first().waitFor?.({ state: 'visible', timeout: 2500 }).catch(() => {});
           }
@@ -1110,7 +1153,10 @@ export async function applyActions(page, fields, actions, files, {
                   ? securityFallback
                   : action.value);
           if (!selectedLabel) throw new Error('option_not_found');
-          await frame.getByRole('option', { name: selectedLabel, exact: true }).first().click({ timeout: 6000 });
+          const option = typeof list.getByRole === 'function'
+            ? list.getByRole('option', { name: selectedLabel, exact: true }).first()
+            : frame.getByRole('option', { name: selectedLabel, exact: true }).first();
+          await option.click({ timeout: 6000 });
         } else if (field.selectLike) {
           selectedLabel = await chooseInOwnedList(page, field, locator, action.value);
         } else {
