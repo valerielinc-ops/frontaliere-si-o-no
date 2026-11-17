@@ -3614,12 +3614,12 @@
     },
     {
       "id": "hopital-du-valais-a615af442888",
-      "slug": "advanced-practice-nurse-apn-lean-bettenstation-klinik-orthopadie-traumatologie-wirbelsaule",
+      "slug": "infermiere-a-di-pratica-avanzata-apn-lean-reparto-di-degenza-clinica-ortopedia-traumatologia-colonna-vertebrale-60-100",
       "slugByLocale": {
         "de": "advanced-practice-nurse-apn-lean-bettenstation-klinik-orthopadie-traumatologie-wirbelsaule",
-        "it": "advanced-practice-nurse-apn-lean-bettenstation-klinik-orthopadie-traumatologie-wirbelsaule",
-        "en": "advanced-practice-nurse-apn-lean-bettenstation-klinik-orthopadie-traumatologie-wirbelsaule",
-        "fr": "advanced-practice-nurse-apn-lean-bettenstation-klinik-orthopadie-traumatologie-wirbelsaule"
+        "it": "infermiere-a-di-pratica-avanzata-apn-lean-reparto-di-degenza-clinica-ortopedia-traumatologia-colonna-vertebrale-60-100",
+        "en": "advanced-practice-nurse-apn-lean-bed-station-clinic-orthopedics-traumatology-spine-60-100-hopital-du-valais-visp",
+        "fr": "infirmiere-praticienne-avancee-apn-clinique-de-la-station-lean-bed-orthopedie-traumatologie-spine-60-100-hopital-du"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3664,7 +3664,6 @@
         "famille": "Soins",
         "site": "VISP"
       },
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -3684,16 +3683,30 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T21:16:17.694Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:16:17.694Z"
+      "firstSeenAt": "2026-11-16T21:16:17.694Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "advanced-practice-nurse-apn-lean-bettenstation-klinik-orthopadie-traumatologie-wirbelsaule"
+        ],
+        "en": [
+          "advanced-practice-nurse-apn-lean-bettenstation-klinik-orthopadie-traumatologie-wirbelsaule"
+        ],
+        "fr": [
+          "advanced-practice-nurse-apn-lean-bettenstation-klinik-orthopadie-traumatologie-wirbelsaule"
+        ]
+      },
+      "previousSlugs": [
+        "advanced-practice-nurse-apn-lean-bettenstation-klinik-orthopadie-traumatologie-wirbelsaule"
+      ]
     },
     {
       "id": "hopital-du-valais-dc0529896434",
-      "slug": "chefarztin-arzt-e-abteilungsleiter-in-pneumologie-80-100-hopital-du-valais-visp",
+      "slug": "medico-a-primario-a-e-responsabile-di-reparto-di-pneumologia-80-100-hopital-du-valais-visp",
       "slugByLocale": {
         "de": "chefarztin-arzt-und-abteilungsleiter-in-pneumologie-80-100-hopital-du-valais-visp",
-        "it": "chefarztin-arzt-e-abteilungsleiter-in-pneumologie-80-100-hopital-du-valais-visp",
-        "en": "chefarztin-arzt-und-abteilungsleiter-in-pneumologie-80-100-hopital-du-valais-visp",
-        "fr": "chefarztin-arzt-und-abteilungsleiter-in-pneumologie-80-100-hopital-du-valais-visp"
+        "it": "medico-a-primario-a-e-responsabile-di-reparto-di-pneumologia-80-100-hopital-du-valais-visp",
+        "en": "chief-physician-and-head-of-the-pulmonology-department-80-100-hopital-du-valais-visp",
+        "fr": "medecin-chef-fe-et-responsable-du-service-de-pneumologie-80-100-hopital-du-valais-visp"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -3738,14 +3751,21 @@
         "famille": "Médecins",
         "site": "VISP"
       },
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "chefarztin-arzt-und-abteilungsleiter-in-pneumologie-80-100-hopital-du-valais-visp",
+          "chefarztin-arzt-e-abteilungsleiter-in-pneumologie-80-100-hopital-du-valais-visp"
+        ],
+        "en": [
+          "chefarztin-arzt-und-abteilungsleiter-in-pneumologie-80-100-hopital-du-valais-visp"
+        ],
+        "fr": [
           "chefarztin-arzt-und-abteilungsleiter-in-pneumologie-80-100-hopital-du-valais-visp"
         ]
       },
       "previousSlugs": [
-        "chefarztin-arzt-und-abteilungsleiter-in-pneumologie-80-100-hopital-du-valais-visp"
+        "chefarztin-arzt-und-abteilungsleiter-in-pneumologie-80-100-hopital-du-valais-visp",
+        "chefarztin-arzt-e-abteilungsleiter-in-pneumologie-80-100-hopital-du-valais-visp"
       ],
       "salaryMin": 86500,
       "salaryMax": 120500,

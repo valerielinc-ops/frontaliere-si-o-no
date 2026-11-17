@@ -55,6 +55,7 @@ const EXCLUDED_DIRECTORIES = new Set([
   'fixture',
 ]);
 const CODE_FILE_RE = /\.(mjs|js|ts|tsx)$/;
+const ARGV1_IDENTITY_RE = /process\.argv\s*\[\s*1\s*\]/;
 const ONE_SIDED_GUARD_RE = /pathToFileURL\(\s*(?:[A-Za-z_$][\w$]*\.)?realpathSync\(\s*process\.argv\[1\]\s*\)\s*\)\.href/;
 const TWO_SIDED_GUARD_RE = /(?:[A-Za-z_$][\w$]*\.)?realpathSync\(\s*fileURLToPath\(\s*import\.meta\.url\s*\)\s*\)\s*===\s*(?:[A-Za-z_$][\w$]*\.)?realpathSync\(\s*process\.argv\[1\](?:\s*\|\|\s*(?:''|""))?\s*\)/;
 const isCanonicalGuard = (text: string) => ONE_SIDED_GUARD_RE.test(text) || TWO_SIDED_GUARD_RE.test(text);
@@ -87,7 +88,7 @@ type GuardFacts = {
 
 function factsForSource(source: string): GuardFacts {
   return {
-    arg: /process\.argv\s*\[\s*1\s*\]/.test(source),
+    arg: ARGV1_IDENTITY_RE.test(source),
     meta: /import\.meta\.(?:url|filename)|fileURLToPath\(\s*import\.meta\.url|new\s+URL\(\s*import\.meta\.url/.test(source),
     marker: /__filename|SCRIPT_PATH|endsWith\s*\(|basename\s*\(/.test(source),
     canonical: isCanonicalGuard(source),
@@ -95,7 +96,8 @@ function factsForSource(source: string): GuardFacts {
 }
 
 function sourceNeedsGuardAst(source: string) {
-  if (HELPER_GUARD_RE.test(source)) return false;
+  if (source.includes('isInvokedDirectly') && HELPER_GUARD_RE.test(source)) return false;
+  if (!source.includes('process.argv') || !ARGV1_IDENTITY_RE.test(source)) return false;
 
   // Most CLI modules already contain only a canonical guard. Remove those
   // expressions before paying the cost of parsing and recursively walking a

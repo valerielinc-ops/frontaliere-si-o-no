@@ -66,10 +66,17 @@ function mirrorAuthSessionMarker(user: unknown | null): void {
  setFirebaseAuthSessionMarker(window.localStorage, Boolean(user));
 }
 
-/** Publish only Firebase's resolved signed-out/signed-in state to the static ad shell. */
+/** Resolve Firebase's confirmed guest/registered audience for the static ad shell. */
+export function resolveAdsAuthState(user: unknown | null): 'anonymous' | 'authenticated' {
+ if (user === null || user === undefined) return 'anonymous';
+ if (typeof user === 'object' && user !== null
+     && (user as { isAnonymous?: unknown }).isAnonymous === true) return 'anonymous';
+ return 'authenticated';
+}
+
 function publishAdsAuthState(user: unknown | null): void {
  if (typeof window === 'undefined') return;
- const state = user ? 'authenticated' : 'anonymous';
+ const state = resolveAdsAuthState(user);
  const authWindow = window as Window & { __ftAdsAuthState?: 'unknown' | 'anonymous' | 'authenticated' };
  if (authWindow.__ftAdsAuthState === state) return;
  authWindow.__ftAdsAuthState = state;

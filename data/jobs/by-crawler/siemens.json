@@ -4186,12 +4186,12 @@
     },
     {
       "id": "siemens-3ceec12b3ef0",
-      "slug": "logistics-specialist-customer-service-80-100-siemens-wallisellen",
+      "slug": "logistica-specialista-servizio-clienti-80-100-siemens-wallisellen",
       "slugByLocale": {
         "de": "logistics-specialist-customer-service-80-100-siemens-wallisellen",
-        "it": "logistics-specialist-customer-service-80-100-siemens-wallisellen",
+        "it": "logistica-specialista-servizio-clienti-80-100-siemens-wallisellen",
         "en": "logistics-specialist-customer-service-80-100-siemens-wallisellen",
-        "fr": "logistics-specialist-customer-service-80-100-siemens-wallisellen"
+        "fr": "logistique-specialiste-service-client-80-100-siemens-wallisellen"
       },
       "company": "Siemens",
       "companyKey": "siemens",
@@ -4256,7 +4256,18 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T21:14:32.364Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:14:32.364Z"
+      "firstSeenAt": "2026-11-16T21:14:32.364Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "logistics-specialist-customer-service-80-100-siemens-wallisellen"
+        ],
+        "fr": [
+          "logistics-specialist-customer-service-80-100-siemens-wallisellen"
+        ]
+      },
+      "previousSlugs": [
+        "logistics-specialist-customer-service-80-100-siemens-wallisellen"
+      ]
     },
     {
       "id": "siemens-cb6a258f969e",

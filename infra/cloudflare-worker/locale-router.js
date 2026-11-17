@@ -3415,8 +3415,8 @@ function logEdgeFailure(reason, url, fields = {}) {
   console.error(JSON.stringify({ event: 'origin_failure', reason, path: url.pathname, ...fields }));
 }
 
-function edgeFailureResponse(url, reason, body, headers) {
-  logEdgeFailure(reason, url);
+function edgeFailureResponse(url, reason, body, headers, fields = {}) {
+  logEdgeFailure(reason, url, fields);
   return new Response(body, { status: 503, headers });
 }
 
@@ -4124,7 +4124,7 @@ export async function servePublicConfig(request) {
   }
 }
 
-const router = {
+export const router = {
   async fetch(request, _env, ctx) {
     const url = new URL(request.url);
 
@@ -4364,12 +4364,22 @@ export default {
         router.fetch(boardRequest, env, ctx),
       );
       return stripStaleAssetIntegrity(request, served);
-    } catch {
+    } catch (error) {
       if (request.method === 'GET' && url.pathname === PUBLIC_CONFIG_PATH) {
         logEdgeFailure('public-config', url, { stage: 'router' });
         return publicConfigFailOpenResponse();
       }
-      throw error;
+      return edgeFailureResponse(
+        url,
+        'router-exception',
+        'Origin unavailable',
+        { 'Retry-After': '30', 'Cache-Control': 'no-store' },
+        {
+          status: 503,
+          stage: 'router',
+          error: error instanceof Error ? error.name : 'NonErrorThrow',
+        },
+      );
     }
   },
 };

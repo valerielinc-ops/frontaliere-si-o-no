@@ -1,5 +1,6 @@
-import { test, expect, type APIRequestContext } from 'playwright/test';
+import { test, expect, type APIRequestContext, type APIResponse } from 'playwright/test';
 import { resolveActiveJobDetailPath } from './lib/live-jobs';
+import { getLiveWithRetry } from './lib/live-request';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
 
 /**
@@ -100,7 +101,7 @@ async function fetchHtml(
   // caps any pathological chain. An infinite client-side `location.replace`
   // loop is caught by the browser navigation test below (goto timeout); HTTP
   // redirect counting here is an orthogonal sanity check.
-  const response = await request.get(url, {
+  const response = await getLiveWithRetry<APIResponse>(request.get.bind(request), url, {
     maxRedirects: 5,
     timeout: 20_000,
   });
@@ -118,6 +119,9 @@ for (const target of TARGETS) {
     test(`renders without redirect loop and includes SPA bundle (${target.path})`, async ({
       request,
     }) => {
+      // One 20 s request gets 6 attempts plus 25 s of retry pauses.
+      test.setTimeout(145_000);
+
       const fetched = await fetchHtml(request, url);
 
       if (fetched.status === 404 && target.tolerate404) {
@@ -150,6 +154,9 @@ for (const target of TARGETS) {
     });
 
     test(`browser navigation completes within 25 s (${target.path})`, async ({ page }) => {
+      // One 15 s preflight request gets 6 attempts plus 25 s of retry pauses.
+      test.setTimeout(115_000);
+
       // Collect uncaught exceptions surfaced to the page. A cross-chunk
       // version-skew TypeError (stable filenames + re-lettered minified exports
       // after a deploy, e.g. "ls(...).then is not a function" on articles)
@@ -161,7 +168,10 @@ for (const target of TARGETS) {
       );
 
       // First confirm the URL is live; if 404 and tolerated, skip rather than fail.
-      const headResponse = await page.request.get(url, { maxRedirects: 5, timeout: 15_000 });
+      const headResponse = await getLiveWithRetry(page.request.get.bind(page.request), url, {
+        maxRedirects: 5,
+        timeout: 15_000,
+      });
       if (headResponse.status() === 404 && target.tolerate404) {
         test.skip(true, `${url} returned 404 (content may have rotated)`);
         return;
@@ -231,9 +241,15 @@ for (const target of TARGETS) {
 // respond 200 AND carry <main> in their static HTML.
 test.describe('live: active job page (must hydrate)', () => {
   test('renders without redirect loop, includes SPA bundle and <main> element', async ({ page }) => {
+    // One 20 s request gets 6 attempts plus 25 s of retry pauses.
+    test.setTimeout(145_000);
+
     const path = await resolveActiveJobDetailPath(page);
     const url = `${LIVE_BASE_URL}${path}`;
-    const response = await page.request.get(url, { maxRedirects: 5, timeout: 20_000 });
+    const response = await getLiveWithRetry<APIResponse>(page.request.get.bind(page.request), url, {
+      maxRedirects: 5,
+      timeout: 20_000,
+    });
 
     expect(response.status(), `${url} should return 200`).toBe(200);
     const body = await response.text();
@@ -256,6 +272,9 @@ test.describe('live: active job page (must hydrate)', () => {
   });
 
   test('browser navigation completes within 25 s and hydrates main element', async ({ page }) => {
+    // Active-job resolution uses 15 s requests plus 25 s of retry pauses.
+    test.setTimeout(115_000);
+
     const path = await resolveActiveJobDetailPath(page);
     const url = `${LIVE_BASE_URL}${path}`;
 

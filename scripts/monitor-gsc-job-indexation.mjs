@@ -18,7 +18,8 @@
  * 6. Logs summary with trend data
  * 7. Anti-regression for job rich results (scripts/lib/job-rich-result-guard.mjs):
  *    - JOB_LISTING clicks (searchAppearance, dataState all) vs the median of
- *      the same weekday over the 4 previous weeks: drop > 30% alerts;
+ *      the same weekday over the 4 previous weeks: raw drop > 30% alerts only
+ *      when it exceeds the comparable JOB_DETAILS drop by >20 percentage points;
  *    - share of sampled LIVE job pages Google reports with a "Job Postings"
  *      rich result: < 80% alerts. The sample is fixed (top job pages by
  *      impressions) + random (live job sitemaps, seeded by date).
@@ -54,11 +55,13 @@ import {
   hasJobPostingRichResult,
   pickEvaluationDay,
   evaluateWeekdayDrop,
+  evaluateAttributedJobListingDrop,
   evaluateRichShare,
   seededSample,
   isIndexedUrlInspection,
   isRichResultEligibleRow,
   CLICK_DROP_THRESHOLD,
+  CLICK_DROP_DIFFERENTIAL_THRESHOLD,
   RICH_SHARE_THRESHOLD,
 } from './lib/job-rich-result-guard.mjs';
 import { isJobDetailCandidate, parseJobSitemapIndex, parseSitemapUrlset, judgeLive } from './lib/indexing-jobs-planner.mjs';
@@ -772,12 +775,16 @@ async function checkRichResultRegression({ accessToken, siteUrl, today, richRows
       : { day: null, alert: false, reason: series.error || 'no-data' };
   }
   const listing = appearances.JOB_LISTING;
+  const details = appearances.JOB_DETAILS;
+  const clickAttribution = evaluateAttributedJobListingDrop(listing, details);
   const fmtPct = v => (v == null ? 'n/a' : `${(v * 100).toFixed(0)}%`);
+  const fmtPp = v => (v == null ? 'n/a' : `${(v * 100).toFixed(0)} pp`);
 
   log('🧪', `Jobs rich result share: ${share.withJobs}/${share.eligible} live job pages = ${fmtPct(share.share)} (threshold ${fmtPct(RICH_SHARE_THRESHOLD)}, ${share.reason})`);
   for (const [name, a] of Object.entries(appearances)) {
     log('🧪', `${name} clicks ${a.day || 'n/a'}: ${a.clicks ?? 'n/a'} vs same-weekday median ${a.baseline ?? 'n/a'} → drop ${fmtPct(a.drop)} (${a.reason})`);
   }
+  log('🧪', `JOB_LISTING attributed click signal: differential ${fmtPp(clickAttribution.differential)} vs JOB_DETAILS (threshold >${fmtPp(CLICK_DROP_DIFFERENTIAL_THRESHOLD)}, ${clickAttribution.reason})`);
 
   const missing = richRows.filter(r => isRichResultEligibleRow(r) && !r.hasJobs).map(r => r.url);
   if (RICH_MISSING_OUT) {
@@ -795,14 +802,15 @@ async function checkRichResultRegression({ accessToken, siteUrl, today, richRows
         '| Signal | Value | Threshold | Alert |',
         '|---|---|---|---|',
         `| Live job pages with "Job Postings" | ${share.withJobs}/${share.eligible} (${fmtPct(share.share)}) | ≥ ${fmtPct(RICH_SHARE_THRESHOLD)} | ${share.alert ? '🔴' : '—'} |`,
-        `| JOB_LISTING clicks ${listing.day || ''} vs weekday median | ${listing.clicks ?? 'n/a'} vs ${listing.baseline ?? 'n/a'} (${fmtPct(listing.drop)}) | drop ≤ ${fmtPct(CLICK_DROP_THRESHOLD)} | ${listing.alert ? '🔴' : '—'} |`,
-        `| JOB_DETAILS clicks ${appearances.JOB_DETAILS.day || ''} (info) | ${appearances.JOB_DETAILS.clicks ?? 'n/a'} vs ${appearances.JOB_DETAILS.baseline ?? 'n/a'} | — | — |`,
+        `| JOB_LISTING raw click drop ${listing.day || ''} | ${listing.clicks ?? 'n/a'} vs ${listing.baseline ?? 'n/a'} (${fmtPct(listing.drop)}) | raw drop > ${fmtPct(CLICK_DROP_THRESHOLD)} is diagnostic | ${listing.alert ? '⚠️ raw' : '—'} |`,
+        `| JOB_DETAILS raw click drop ${details.day || ''} | ${details.clicks ?? 'n/a'} vs ${details.baseline ?? 'n/a'} (${fmtPct(details.drop)}) | comparison | — |`,
+        `| JOB_LISTING attributed click drop | ${fmtPp(clickAttribution.differential)} (${clickAttribution.reason}) | JOB_LISTING − JOB_DETAILS > ${fmtPp(CLICK_DROP_DIFFERENTIAL_THRESHOLD)} | ${clickAttribution.alert ? '🔴' : '—'} |`,
         '',
       ].join('\n'));
     } catch { /* ignore */ }
   }
 
-  if (!share.alert && !listing.alert) return;
+  if (!share.alert && !clickAttribution.alert) return;
   if (DRY_RUN) {
     log('ℹ️', 'DRY RUN — would open the job rich result regression issue');
     return;
@@ -813,7 +821,7 @@ async function checkRichResultRegression({ accessToken, siteUrl, today, richRows
     const { createGithubIssue: create } = await import('./lib/github-issue-creator.mjs');
     await create({
       title: RICH_REGRESSION_TITLE,
-      description: buildRichRegressionIssueBody({ share, listing, details: appearances.JOB_DETAILS, rows: richRows }),
+      description: buildRichRegressionIssueBody({ share, listing, details, clickAttribution, rows: richRows }),
       priority: 1,
       labels: ['Bug', 'seo'],
       project: 'SEO',
@@ -827,16 +835,19 @@ async function checkRichResultRegression({ accessToken, siteUrl, today, richRows
 export const RICH_REGRESSION_TITLE = '[Monitor] job rich results regression (JOB_LISTING / Job Postings)';
 
 /** Corpo della issue anti-regressione, scheda inclusa. Esportato per il test. */
-export function buildRichRegressionIssueBody({ share, listing, details, rows }) {
+export function buildRichRegressionIssueBody({ share, listing, details, clickAttribution, rows }) {
   const pct = v => (v == null ? 'n/a' : `${(v * 100).toFixed(0)}%`);
+  const pp = v => (v == null ? 'n/a' : `${(v * 100).toFixed(0)} pp`);
+  const attributed = clickAttribution || evaluateAttributedJobListingDrop(listing, details);
   const missing = rows.filter(r => isRichResultEligibleRow(r) && !r.hasJobs);
   return [
     '## Job rich results — regressione rilevata',
     '',
     `**Data**: ${new Date().toISOString().split('T')[0]}`,
     `- Pagine annuncio live e indicizzate con rich result "Job Postings": **${share.withJobs}/${share.eligible} (${pct(share.share)})**, soglia ${pct(RICH_SHARE_THRESHOLD)}${share.alert ? ' — 🔴 sotto soglia' : ''}`,
-    `- Clic JOB_LISTING del ${listing.day || 'n/a'}: **${listing.clicks ?? 'n/a'}** contro mediana ${listing.baseline ?? 'n/a'} dello stesso giorno della settimana nelle 4 settimane precedenti → calo ${pct(listing.drop)}${listing.alert ? ` — 🔴 oltre il ${pct(CLICK_DROP_THRESHOLD)}` : ''}`,
-    `- Clic JOB_DETAILS del ${details?.day || 'n/a'} (informativo): ${details?.clicks ?? 'n/a'} contro ${details?.baseline ?? 'n/a'}`,
+    `- Drop grezzo JOB_LISTING del ${listing.day || 'n/a'}: **${listing.clicks ?? 'n/a'}** clic contro mediana ${listing.baseline ?? 'n/a'} dello stesso giorno della settimana nelle 4 settimane precedenti → calo ${pct(listing.drop)}${listing.alert ? ` — ⚠️ oltre il ${pct(CLICK_DROP_THRESHOLD)}, da attribuire` : ''}`,
+    `- Drop grezzo JOB_DETAILS del ${details?.day || 'n/a'}: ${details?.clicks ?? 'n/a'} clic contro mediana ${details?.baseline ?? 'n/a'} → calo ${pct(details?.drop)}`,
+    `- Drop attribuito JOB_LISTING: differenziale **${pp(attributed.differential)}** rispetto a JOB_DETAILS (soglia >${pp(CLICK_DROP_DIFFERENTIAL_THRESHOLD)}) — ${attributed.alert ? '🔴 alert click attribuito' : `non azionabile (${attributed.reason})`}`,
     '',
     '### Pagine live e indicizzate senza rich result Jobs nel campione',
     ...(missing.length
@@ -848,23 +859,23 @@ export function buildRichRegressionIssueBody({ share, listing, details, rows }) 
     '',
     buildScheda({
       causa: [
-        '(ipotesi, da confermare.) Google mostra meno annunci come offerte di lavoro. Il monitor',
-        'deve distinguere le pagine vive ma non ancora indicizzate, che non possono avere un rich',
-        'result, dalle pagine indicizzate senza Job Postings (come nell outage 4-22/10/2026, PR 11394).',
+        'Un calo JOB_LISTING che procede in parallelo con JOB_DETAILS e\' traffico GSC generale,',
+        'non evidenza attribuibile ai rich result. Il segnale click deve misurare il differenziale',
+        'fra serie comparabili; dati mancanti, errori o giorni diversi non sono azionabili.',
       ],
       fix: [
-        'Contare e accodare come regressione solo le URL vive con URL Inspection `verdict=PASS`;',
-        'le URL non ancora indicizzate restano nella normale pipeline Indexing API. | **REPO**: sito.',
+        `Attribuire il drop click solo quando JOB_LISTING supera JOB_DETAILS di oltre ${pp(CLICK_DROP_DIFFERENTIAL_THRESHOLD)};`,
+        'la share Job Postings sotto soglia resta un segnale indipendente. | **REPO**: sito.',
       ],
-      metrica: `prima=${pct(share.share)} pagine con Jobs, calo clic ${pct(listing.drop)} atteso=share ≥ ${pct(RICH_SHARE_THRESHOLD)} e calo ≤ ${pct(CLICK_DROP_THRESHOLD)}`,
+      metrica: `prima=share ${pct(share.share)}, drop grezzo ${pct(listing.drop)}, differenziale ${pp(attributed.differential)} atteso=share ≥ ${pct(RICH_SHARE_THRESHOLD)} e nessun drop attribuito > ${pp(CLICK_DROP_DIFFERENTIAL_THRESHOLD)}`,
       comando: 'node scripts/monitor-gsc-job-indexation.mjs --dry-run',
       note: [
-        'Il comando rifa la stessa misura senza coniare issue e stampa le due righe `🧪`.',
+        'Il comando rifa la stessa misura senza coniare issue e stampa le righe `🧪` per share, drop grezzi e attribuzione.',
         'Vuole le credenziali Search Console: dalla root del workspace, `source bin/rc-env.sh`.',
       ],
       osservatore: [
         '`.github/workflows/monitor-gsc-seo.yml` (giornaliero), che rifa la misura e aggiorna',
-        "questa issue finche' uno dei due segnali resta oltre soglia. Non c'e' un closer",
+        "questa issue finche' la share resta sotto soglia o il drop click resta attribuito. Non c'e' un closer",
         "automatico: il comando qui sopra e' il criterio di chiusura.",
       ],
       fallimento: `\`${RICH_REGRESSION_TITLE}\``,

@@ -131,11 +131,6 @@ export function formatItCdnReceiptDescription({ sourceRunId, buildId }) {
     : `IT CDN published for source run ${runId}`;
 }
 
-function parseItCdnReceiptBuildId(description) {
-  const match = /\bbuild (\d+)$/.exec(text(description));
-  return match ? match[1] : '';
-}
-
 function statusContext(status) {
   return text(status?.context);
 }
@@ -201,8 +196,9 @@ function publisherRunIdOf(status) {
 /**
  * What a retry of one source run still has to do on the IT side.
  *
- * - `itCdnPublished`: the CDN payload receipt exists (and, when the build id is
- *   known, was written for that build).
+ * - `itCdnPublished`: the CDN payload receipt is attached to this source SHA,
+ *   names this source run and the exact expected build, and has a recoverable
+ *   publisher run.
  * - `itCdnPublisherRunId`: the publisher run that wrote the CDN receipt, when
  *   the receipt is valid and can safely supply its durable R2 manifest.
  * - `pendingItGroups`: every group that has no valid receipt, in canonical
@@ -216,6 +212,7 @@ function publisherRunIdOf(status) {
 export function resolveItPublishReceipts({
   statuses = [],
   sourceRunId,
+  sourceSha,
   buildId,
   expectedDigests = null,
   artifactAvailable = () => true,
@@ -225,14 +222,19 @@ export function resolveItPublishReceipts({
   const entries = Array.isArray(statuses) ? statuses : [];
   const cdnContext = itCdnReceiptContext(sourceRunId);
   const cdnStatus = cdnContext ? newestStatusFor(entries, cdnContext) : null;
+  const expectedSourceRunId = validateRunId(sourceRunId);
+  const expectedSourceSha = validateSha(sourceSha);
   const expectedBuild = text(buildId);
+  const expectedCdnDescription = expectedSourceRunId && RUN_ID_RE.test(expectedBuild)
+    ? formatItCdnReceiptDescription({ sourceRunId: expectedSourceRunId, buildId: expectedBuild })
+    : '';
   // The publisher run that wrote the CDN receipt also holds the durable R2 OG
   // manifest artifact the finalizer restores in place of the per-run cache, so a
   // receipt whose run cannot be recovered is not a receipt.
   const cdnPublisherRunId = publisherRunIdOf(cdnStatus);
-  const cdnReceiptValid = Boolean(cdnStatus
+  const cdnReceiptValid = Boolean(expectedSourceSha && expectedCdnDescription && cdnStatus
     && text(cdnStatus.state).toLowerCase() === STATUS_SUCCESS
-    && (!expectedBuild || parseItCdnReceiptBuildId(cdnStatus.description) === expectedBuild)
+    && text(cdnStatus.description) === expectedCdnDescription
     && cdnPublisherRunId);
   const itCdnPublisherRunId = cdnReceiptValid ? cdnPublisherRunId : '';
   // With an R2 CDN target the receipt is only as good as the manifest behind it:
@@ -272,6 +274,9 @@ export function resolveItPublishReceipts({
   return {
     itCdnPublished,
     itCdnPublisherRunId: itCdnPublished ? itCdnPublisherRunId : '',
+    itCdnSourceRunId: itCdnPublished ? expectedSourceRunId : '',
+    itCdnSourceSha: itCdnPublished ? expectedSourceSha : '',
+    itCdnBuildId: itCdnPublished ? expectedBuild : '',
     itCdnRejectedReason: cdnRejectedReason,
     pendingItGroups,
     publishedItGroups,
@@ -399,6 +404,9 @@ function writeGithubOutputs(file, state, itState = null) {
     ? [
       `it_cdn_published=${itState.itCdnPublished}`,
       `it_cdn_publisher_run_id=${itState.itCdnPublisherRunId}`,
+      `it_cdn_source_run_id=${itState.itCdnSourceRunId}`,
+      `it_cdn_source_sha=${itState.itCdnSourceSha}`,
+      `it_cdn_build_id=${itState.itCdnBuildId}`,
       `pending_it_groups=${JSON.stringify(itState.pendingItGroups)}`,
       `receipt_it_groups=${JSON.stringify(itState.publishedItGroups.map((entry) => ({ group: entry.group, runId: entry.publisherRunId })))}`,
     ]
@@ -587,6 +595,7 @@ function main() {
       itState = resolveItPublishReceipts({
         statuses,
         sourceRunId,
+        sourceSha: args['source-sha'],
         buildId: text(args['build-id']) || undefined,
         expectedDigests,
         artifactAvailable: ({ group, publisherRunId }) => hasArtifact(publisherRunId, itGroupResultArtifactName(group, sourceRunId)),

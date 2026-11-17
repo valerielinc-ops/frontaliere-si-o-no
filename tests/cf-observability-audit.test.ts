@@ -2,8 +2,10 @@ import { describe, expect, it } from 'vitest';
 import {
   buildIssueBody,
   buildBlockedUaFilters,
+  buildOriginFailureLogFilters,
   estimateMonthlyLogVolume,
   evaluateChecks,
+  isOriginFailureLogEvent,
   isReportOnly,
   issueTitle,
 } from '../scripts/cf-observability-audit.mjs';
@@ -29,6 +31,26 @@ const failing = (snapshot: typeof healthy, now = before) =>
   evaluateChecks(snapshot, now).filter((check) => check.failed).map((check) => check.id);
 
 describe('cf-observability-audit checks', () => {
+  it('separates request-line invocation events from structured origin_failure log events', () => {
+    const invocation503 = {
+      $metadata: { type: 'cf-worker-event', message: 'GET https://frontaliereticino.ch/calcola-stipendio/' },
+      $workers: { event: { response: { status: 503 } } },
+    };
+    const originFailureLog = {
+      $metadata: {
+        type: 'cf-worker-log',
+        message: '{"event":"origin_failure","reason":"router-exception","path":"/calcola-stipendio/","status":503}',
+      },
+    };
+
+    expect(isOriginFailureLogEvent(invocation503)).toBe(false);
+    expect(isOriginFailureLogEvent(originFailureLog)).toBe(true);
+    expect(buildOriginFailureLogFilters()).toEqual([
+      { key: '$metadata.type', operation: 'eq', value: 'cf-worker-log', type: 'string' },
+      { key: '$metadata.message', operation: 'includes', value: '"event":"origin_failure"', type: 'string' },
+    ]);
+  });
+
   it('keeps the leak query aligned with the WAF country scope for legacy Chrome', () => {
     expect(buildBlockedUaFilters('Baiduspider')).toEqual([
       {
@@ -57,6 +79,15 @@ describe('cf-observability-audit checks', () => {
   it('has ten checks and passes on a healthy week', () => {
     expect(evaluateChecks(healthy, before)).toHaveLength(10);
     expect(failing(healthy)).toEqual([]);
+  });
+
+  it('models origin-failure telemetry as aggregate-only instead of claiming one log per 503', () => {
+    const check = evaluateChecks({ ...healthy, count503: 100, originFailureLogs: 0 }, before)
+      .find(({ id }) => id === 'origin-failure-cause')!;
+    expect(check.failed).toBe(true);
+    expect(check.value).toContain('aggregati separati');
+    expect(check.target).toContain('nessuna pretesa di copertura 1:1');
+    expect(check.target).not.toContain('ogni 503');
   });
 
   it.each([

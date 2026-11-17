@@ -373,6 +373,9 @@ jobs:
       # ([{group, runId}], the publisher run that holds each result artifact).
       it_cdn_published: ${{ steps.receipts.outputs.it_cdn_published }}
       it_cdn_publisher_run_id: ${{ steps.receipts.outputs.it_cdn_publisher_run_id }}
+      it_cdn_source_run_id: ${{ steps.receipts.outputs.it_cdn_source_run_id }}
+      it_cdn_source_sha: ${{ steps.receipts.outputs.it_cdn_source_sha }}
+      it_cdn_build_id: ${{ steps.receipts.outputs.it_cdn_build_id }}
       pending_it_groups: ${{ steps.receipts.outputs.pending_it_groups }}
       receipt_it_groups: ${{ steps.receipts.outputs.receipt_it_groups }}
     steps:
@@ -574,6 +577,9 @@ jobs:
     outputs:
       cdn_build_id: ${{ steps.cdn-ready.outputs.build_id }}
       cdn_base: ${{ steps.cdn-ready.outputs.cdn_base }}
+      job_canon_source_run_id: ${{ steps.cdn-ready.outputs.job_canon_source_run_id }}
+      job_canon_source_sha: ${{ steps.cdn-ready.outputs.job_canon_source_sha }}
+      job_canon_build_id: ${{ steps.cdn-ready.outputs.job_canon_build_id }}
     steps:
       - name: Checkout IT publisher sources
         uses: actions/checkout@v7
@@ -776,14 +782,40 @@ jobs:
           EARLY_OUTCOME: ${{ steps.cdn-push-early.outcome }}
           RETRY_OUTCOME: ${{ steps.cdn-push-early-retry.outcome }}
           EXPECTED_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
+          EXPECTED_SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          EXPECTED_SOURCE_SHA: ${{ inputs.source_sha }}
         run: |
           set -euo pipefail
           if [ "$EARLY_OUTCOME" != success ] && [ "$RETRY_OUTCOME" != success ]; then
             echo "::error::IT CDN push failed twice; section and locale shard pushes must not run."
             exit 1
           fi
+          case "$EXPECTED_SOURCE_RUN_ID" in
+            ''|*[!0-9]*) echo '::error::source run id is missing or malformed'; exit 1 ;;
+          esac
+          [[ "$EXPECTED_SOURCE_SHA" =~ ^[0-9a-fA-F]{40}$ ]] || {
+            echo '::error::source SHA is missing or malformed'
+            exit 1
+          }
+          [[ "$EXPECTED_BUILD_ID" =~ ^[0-9]+$ ]] || {
+            echo '::error::expected CDN build id is missing or malformed'
+            exit 1
+          }
+          receipt="$RUNNER_TEMP/job-canon-publish.ok"
+          test -s "$receipt" || {
+            echo '::error::early CDN job did not produce a job-canon handshake receipt'
+            exit 1
+          }
+          actual="$(tr -d '[:space:]' < "$receipt")"
+          test "$actual" = "$EXPECTED_BUILD_ID" || {
+            echo "::error::early job-canon handshake receipt names build $actual, expected $EXPECTED_BUILD_ID"
+            exit 1
+          }
           echo "build_id=$EXPECTED_BUILD_ID" >> "$GITHUB_OUTPUT"
           echo "cdn_base=https://cdn.frontaliereticino.ch" >> "$GITHUB_OUTPUT"
+          echo "job_canon_source_run_id=$EXPECTED_SOURCE_RUN_ID" >> "$GITHUB_OUTPUT"
+          echo "job_canon_source_sha=$EXPECTED_SOURCE_SHA" >> "$GITHUB_OUTPUT"
+          echo "job_canon_build_id=$actual" >> "$GITHUB_OUTPUT"
       # With an R2 target the finalizer's deploy prep diffs against the R2 OG
       # manifest this job leaves in `.cache/`. The per-run cache is best-effort
       # and unreachable from a NEW publisher run, so the manifest is also
@@ -1193,6 +1225,18 @@ jobs:
           fi
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
+      - name: Heartbeat excluded articolisvizzera IT shard
+        if: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP != 'false' }}
+        env:
+          DEPLOY_HEAD_SHA: ${{ inputs.source_sha }}
+          SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY }}
+        run: |
+          set -euo pipefail
+          export GITHUB_SHA="$DEPLOY_HEAD_SHA"
+          timeout --verbose --signal=TERM --kill-after=120s 4200s \
+            node scripts/ci/with-shard-writer-lock.mjs \
+              --section articolisvizzera --locale it --policy wait --timeout-ms 3600000 -- \
+              bash scripts/lib/heartbeat-section-shard.sh articolisvizzera it
       - name: Download IT root source artifact
         uses: actions/download-artifact@v8
         with:
@@ -1505,20 +1549,20 @@ jobs:
         id: job-canon-publish-gate
         if: steps.deploy-prep-it.outcome == 'success'
         env:
+          EXPECTED_SOURCE_RUN_ID: ${{ inputs.source_run_id }}
+          EXPECTED_SOURCE_SHA: ${{ inputs.source_sha }}
           EXPECTED_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
+          CDN_JOB_RESULT: ${{ needs.publish-it-cdn.result }}
+          EARLY_SOURCE_RUN_ID: ${{ needs.publish-it-cdn.outputs.job_canon_source_run_id }}
+          EARLY_SOURCE_SHA: ${{ needs.publish-it-cdn.outputs.job_canon_source_sha }}
+          EARLY_BUILD_ID: ${{ needs.publish-it-cdn.outputs.job_canon_build_id }}
+          DURABLE_RECEIPT_PUBLISHED: ${{ needs.resolve-publish-receipts.outputs.it_cdn_published }}
+          DURABLE_SOURCE_RUN_ID: ${{ needs.resolve-publish-receipts.outputs.it_cdn_source_run_id }}
+          DURABLE_SOURCE_SHA: ${{ needs.resolve-publish-receipts.outputs.it_cdn_source_sha }}
+          DURABLE_BUILD_ID: ${{ needs.resolve-publish-receipts.outputs.it_cdn_build_id }}
         run: |
           set -euo pipefail
-          receipt="$RUNNER_TEMP/job-canon-publish.ok"
-          test -s "$receipt" || {
-            echo "::error::job-canon publication receipt is missing; refusing to upload a Pages artifact with bridge removals"
-            exit 1
-          }
-          actual="$(tr -d '[:space:]' < "$receipt")"
-          test "$actual" = "$EXPECTED_BUILD_ID" || {
-            echo "::error::job-canon publication receipt names build $actual, expected $EXPECTED_BUILD_ID"
-            exit 1
-          }
-          echo "job-canon handshake closed for build $EXPECTED_BUILD_ID"
+          node scripts/ci/job-canon-publish-receipt.mjs
       - name: Save final R2 OG manifest cache
         if: ${{ always() && (vars.CDN_TARGET == 'r2' || vars.CDN_TARGET == 'both') && hashFiles('.cache/r2-og-published-manifest.json') != '' }}
         uses: actions/cache/save@v6
@@ -2094,6 +2138,32 @@ jobs:
           CDN_JOB_FINISH_RESERVE_S: 180
         run: GITHUB_RUN_ID="$CDN_IT_RUN_ID" bash scripts/lib/wait-cdn-build-id.sh "$DEPLOY_BUILD_ID"
 
+      # This write must happen before the durable-receipt fast path below. A
+      # receipt proves that a previous publisher completed the locale tail; it
+      # does not prove that an older attempt advanced the excluded
+      # articolisvizzera shard's generation marker. Keep the marker write in a
+      # separate step so both the normal and the receipt-reuse paths share the
+      # same fail-closed gate.
+      - name: Heartbeat excluded articolisvizzera non-IT shard
+        id: heartbeat-excluded-articolisvizzera-nonit
+        if: matrix.locale != 'it' && vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP != 'false'
+        continue-on-error: true
+        env:
+          DEPLOY_HEAD_SHA: ${{ inputs.source_sha }}
+          SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_IT_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_EN_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_DE_DEPLOY_KEY }}
+          SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLISVIZZERA_FR_DEPLOY_KEY }}
+        run: |
+          set -euo pipefail
+          export GITHUB_SHA="$DEPLOY_HEAD_SHA"
+          cd "$PUBLISHER_ROOT"
+          timeout --verbose --signal=TERM --kill-after=120s 4200s \
+            node scripts/ci/with-shard-writer-lock.mjs \
+              --section articolisvizzera --locale "${BUILD_LOCALE}" --policy wait --timeout-ms 3600000 -- \
+              bash scripts/lib/heartbeat-section-shard.sh articolisvizzera "${BUILD_LOCALE}"
+          echo 'articolisvizzera_heartbeat_succeeded=true' >> "$GITHUB_OUTPUT"
+
       # A duplicate publisher can have passed the matrix-level resolver before
       # the first publisher wrote its receipt. Re-read after this locale job has
       # acquired its own concurrency slot and before any shard push; an
@@ -2350,6 +2420,16 @@ jobs:
             echo "::error::could not order the section list — refusing to push a partial set of shards"
             exit 1
           }
+          # deploy-shard-sections.sh intentionally omits externally served
+          # article sections. When articolisvizzera emission is skipped, this
+          # tail still has one required marker-only write, so include it in the
+          # bounded fan-out explicitly; otherwise push_one never receives the
+          # section and the fail-closed gate can only report false.
+          if [ "$ARTICOLISVIZZERA_BUILD_EMIT_SKIP" = true ] \
+            && ! printf '%s\n' "$order" | grep -Fxq articolisvizzera; then
+            order="${order}"$'\n'articolisvizzera
+            echo "section push order: added articolisvizzera heartbeat section"
+          fi
           echo "section push order (longest-first): $(echo "$order" | tr '\n' ' ')"
 
           export BP_FAILED_FILE="$RUNNER_TEMP/shard-push-failed-$loc.txt"
@@ -2362,6 +2442,24 @@ jobs:
               --locale "$loc" --shards "$(paste -sd, "$BP_FAILED_FILE")" || true
           fi
           exit "$fail"
+
+      # Section pushes are normally resilient: a failed remote keeps serving
+      # its last-known-good payload. The build-skipped articolisvizzera shard is
+      # different because this heartbeat is its only generation write. Promote
+      # that one failure out of the continue-on-error step so the matrix job is
+      # red, no locale receipt is admitted, and deploy remains skipped.
+      - name: Require excluded articolisvizzera heartbeat
+        id: require-excluded-articolisvizzera-heartbeat
+        if: always() && matrix.locale != 'it'
+        env:
+          ARTICOLISVIZZERA_BUILD_EMIT_SKIP: ${{ vars.ARTICOLISVIZZERA_BUILD_EMIT_SKIP == 'false' && 'false' || 'true' }}
+          HEARTBEAT_SUCCEEDED: ${{ steps.heartbeat-excluded-articolisvizzera-nonit.outputs.articolisvizzera_heartbeat_succeeded || 'false' }}
+        run: |
+          set -euo pipefail
+          if [ "$ARTICOLISVIZZERA_BUILD_EMIT_SKIP" = true ] && [ "$HEARTBEAT_SUCCEEDED" != true ]; then
+            echo "::error::articolisvizzera-${{ matrix.locale }} heartbeat did not update .shard-source; refusing a green non-IT tail"
+            exit 1
+          fi
 
       # ── Purge the sections just pushed (apex AND origin), batched (#5513) ──
       # Same gap and same fix as the IT leg above — see that step's comment
@@ -3071,6 +3169,7 @@ jobs:
         if: >-
           ${{ always() && matrix.locale != 'it' &&
               env.DURABLE_LOCALE_PUBLISHED != 'true' &&
+              steps.require-excluded-articolisvizzera-heartbeat.outcome == 'success' &&
               steps.push-section-shards-nonit.outcome == 'success' &&
               steps.push-shard.outcome == 'success' }}
         env:

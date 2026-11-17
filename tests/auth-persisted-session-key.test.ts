@@ -11,7 +11,7 @@ const {
   setFirebaseApiKey,
   setFirebaseAuthSessionMarker,
 } = await import('@/services/firebaseAuthPersistence');
-const { hasPersistedAuthSession } = await import('@/services/authService');
+const { hasPersistedAuthSession, resolveAdsAuthState } = await import('@/services/authService');
 setFirebaseApiKey('runtime-api-key');
 const ACTIVE_PERSISTENCE_KEY = getFirebaseAuthPersistenceKey();
 
@@ -62,5 +62,17 @@ describe('persisted Firebase auth session detection', () => {
  vi.stubGlobal('window', undefined);
  expect(hasPersistedAuthSession()).toBe(false);
  vi.unstubAllGlobals();
+ });
+});
+
+describe('ad audience auth state', () => {
+ it('treats signed-out visitors and Firebase anonymous users as anonymous', () => {
+  expect(resolveAdsAuthState(null)).toBe('anonymous');
+  expect(resolveAdsAuthState(undefined)).toBe('anonymous');
+  expect(resolveAdsAuthState({ uid: 'temporary-user', isAnonymous: true })).toBe('anonymous');
+ });
+
+ it('treats Firebase users with a linked account as authenticated', () => {
+  expect(resolveAdsAuthState({ uid: 'registered-user', isAnonymous: false })).toBe('authenticated');
  });
 });

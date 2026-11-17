@@ -120,9 +120,9 @@
     },
     "slugByLocale": {
       "it": "dipl-specialista-hf-fh-flex-personal-care-spital-sts-thun-7b86c86a",
-      "en": "dipl-care-specialist-hf-fh-flex-personal-care-spital-sts-thun",
+      "en": "dipl-care-specialist-hf-fh-flex-personal-care-spital-sts-thun-10a6158e",
       "de": "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun-ab177da0",
-      "fr": "dipl-specialiste-des-soins-hf-fh-flex-personal-care-spital-sts-thun"
+      "fr": "dipl-specialiste-des-soins-hf-fh-flex-personal-care-spital-sts-thun-e1567939"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-11-14T21:19:05.979Z",
@@ -131,10 +131,12 @@
         "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun-ab177da0"
       ],
       "en": [
-        "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun-ab177da0"
+        "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun-ab177da0",
+        "dipl-care-specialist-hf-fh-flex-personal-care-spital-sts-thun"
       ],
       "fr": [
-        "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun-ab177da0"
+        "dipl-pflegefachperson-hf-fh-flex-personal-pflege-spital-sts-thun-ab177da0",
+        "dipl-specialiste-des-soins-hf-fh-flex-personal-care-spital-sts-thun"
       ]
     },
     "postalCode": "3600",
@@ -144,7 +146,11 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://ohws.prospective.ch/public/v1/redirect/9d7c5690-b2bb-45ab-bc45-892b3e7ab107/ats",
-    "firstSeenAt": "2026-11-06T21:30:46.384Z"
+    "firstSeenAt": "2026-11-06T21:30:46.384Z",
+    "previousSlugs": [
+      "dipl-care-specialist-hf-fh-flex-personal-care-spital-sts-thun",
+      "dipl-specialiste-des-soins-hf-fh-flex-personal-care-spital-sts-thun"
+    ]
   },
   {
     "slug": "infermiere-a-diplomato-a-in-gastroenterologia-spital-sts-thun",
@@ -882,6 +888,7 @@
         "specialist-health-medicine-orthopaedics-spital-sts-thun-f1c38f57",
         "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun-af62e022",
         "specialist-health-medicine-orthopaedics-spital-sts-thun-690c14aa",
+        "specialist-health-medicine-orthopaedics-spital-sts-thun-05034669",
         "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun",
         "specialist-health-medicine-orthopaedics-spital-sts-thun"
       ],
@@ -990,6 +997,7 @@
         "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun-7a11aa8a",
         "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun-af62e022",
         "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun-7111c586",
+        "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun-65219218",
         "fachfrau-mann-gesundheit-medizin-orthopadie-spital-sts-thun",
         "specialiste-en-medecine-de-la-sante-orthopedie-spital-sts-thun"
       ],
