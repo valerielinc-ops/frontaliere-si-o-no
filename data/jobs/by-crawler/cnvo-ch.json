@@ -1,7 +1,7 @@
 {
   "crawlerKey": "cnvo-ch",
-  "assembledAt": "2026-11-17T09:28:32.839Z",
-  "runId": "44053279485",
+  "assembledAt": "2026-11-17T21:29:55.055Z",
+  "runId": "44177478353",
   "jobs": [
     {
       "id": "cnvo-ch-331408950081",
@@ -34,7 +34,7 @@
       "url": "https://www.cnvo.ch/offres-demploi",
       "source": "CNVO SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T09:28:27.554Z",
+      "crawledAt": "2026-11-17T21:29:49.524Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -54,10 +54,11 @@
       "applyUrl": "https://www.cnvo.ch/offres-demploi",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "offres-d-8217-emploi-yverdon-les-bains-vd-taux-d-activite-40-entree-en-fonction-1er-mars",
+        "offres-d-8217-emploi-yverdon-les-bains-vd-cnvo-ch-ch"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "offres-d-8217-emploi-yverdon-les-bains-vd-taux-d-activite-40-entree-en-fonction-1er-mars"
-        ],
         "it": [
           "offres-d-8217-emploi-yverdon-les-bains-vd-taux-d-activite-40-entree-en-fonction-1er-mars",
           "offres-d-8217-emploi-yverdon-les-bains-vd-cnvo-ch-ch"
@@ -67,12 +68,11 @@
         ],
         "de": [
           "offres-d-8217-emploi-yverdon-les-bains-vd-taux-d-activite-40-entree-en-fonction-1er-mars"
+        ],
+        "fr": [
+          "offres-d-8217-emploi-yverdon-les-bains-vd-taux-d-activite-40-entree-en-fonction-1er-mars"
         ]
       },
-      "previousSlugs": [
-        "offres-d-8217-emploi-yverdon-les-bains-vd-taux-d-activite-40-entree-en-fonction-1er-mars",
-        "offres-d-8217-emploi-yverdon-les-bains-vd-cnvo-ch-ch"
-      ],
       "firstSeenAt": "2026-11-15T21:39:58.788Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -102,7 +102,7 @@
         "checkedAt": "2026-11-16T15:23:20.848Z"
       },
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2027-02-14T09:28:27.554Z",
+      "validThrough": "2027-02-14T21:29:49.524Z",
       "validThroughSource": "last-observed-window"
     }
   ]
