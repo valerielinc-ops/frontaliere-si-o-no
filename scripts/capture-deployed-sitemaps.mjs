@@ -57,6 +57,11 @@ async function main() {
     // Edge-owned files are not materialized in dist/; local snapshots are
     // scoped to files present in this build. Live snapshots remain strict.
     strict: SOURCE !== 'local',
+    ...(SOURCE === 'live' ? {
+      liveCacheBust: process.env.GITHUB_RUN_ID
+        ? `${process.env.GITHUB_RUN_ID}-${process.env.GITHUB_RUN_ATTEMPT || 1}`
+        : String(Date.now()),
+    } : {}),
     tolerateMissing: isExpiredJobSitemapKey,
     unreachableRetry: {
       cacheBust: process.env.GITHUB_RUN_ID || String(Date.now()),

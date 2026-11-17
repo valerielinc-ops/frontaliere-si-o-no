@@ -284,6 +284,9 @@ export async function crawlSitemaps({
   strict = source === 'live',
   fetchAttempts = DEFAULT_LIVE_FETCH_ATTEMPTS,
   fetchDelayMs = DEFAULT_LIVE_FETCH_RETRY_DELAY_MS,
+  // Publisher 44007052100 measured apex sitemap XML with s-maxage=86400.
+  // Cache-bust pre-deploy requests so the capture reads origin, not stale Cloudflare edge content.
+  liveCacheBust = '',
   tolerateMissing,
   unreachableRetry,
   logger = console,
@@ -294,8 +297,8 @@ export async function crawlSitemaps({
   const options = { baseUrl, host };
   const loader = source === 'local'
     ? makeLocalLoader(rootDir, options)
-    : (url, { retry = false, cacheBust = '' } = {}) => fetchLiveTextResult(
-      retry ? withCacheBust(url, cacheBust) : url,
+    : (url, { retry = false, cacheBust = liveCacheBust } = {}) => fetchLiveTextResult(
+      retry || liveCacheBust ? withCacheBust(url, retry ? cacheBust : liveCacheBust) : url,
       {
         attempts: retry ? 1 : fetchAttempts,
         retryDelayMs: retry ? 0 : fetchDelayMs,
@@ -305,7 +308,8 @@ export async function crawlSitemaps({
   if (source === 'local') {
     seedValues = seeds || localSitemapSeeds(rootDir, options);
   } else {
-    const robots = await fetchLiveText(new URL('/robots.txt', baseUrl).href);
+    const robotsUrl = new URL('/robots.txt', baseUrl).href;
+    const robots = await fetchLiveText(liveCacheBust ? withCacheBust(robotsUrl, liveCacheBust) : robotsUrl);
     seedValues = [...new Set([
       ...(seeds || DEFAULT_SITEMAP_SEEDS),
       ...(robots ? sitemapUrlsFromText(robots, options) : []),

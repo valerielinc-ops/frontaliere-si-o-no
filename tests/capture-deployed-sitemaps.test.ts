@@ -13,6 +13,7 @@ const environmentKeys = [
   'LOCAL_ROOT',
   'SITEMAP_BASE',
   'GITHUB_RUN_ID',
+  'GITHUB_RUN_ATTEMPT',
   'GITHUB_STEP_SUMMARY',
 ];
 
@@ -35,6 +36,7 @@ afterEach(() => {
   vi.unstubAllGlobals();
   vi.useRealTimers();
   vi.restoreAllMocks();
+  vi.doUnmock('../scripts/lib/sitemap-crawl.mjs');
   for (const [key, value] of savedEnvironment) {
     if (value === undefined) delete process.env[key];
     else process.env[key] = value;
@@ -91,6 +93,7 @@ describe('pre-deploy sitemap capture', () => {
       OUTPUT: outputPath,
       SITEMAP_BASE: baseUrl,
       GITHUB_RUN_ID: 'capture-test-run',
+      GITHUB_RUN_ATTEMPT: '3',
       GITHUB_STEP_SUMMARY: summaryPath,
     });
     const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
@@ -113,7 +116,7 @@ describe('pre-deploy sitemap capture', () => {
     expect(calls.some((url) => {
       const parsed = new URL(url);
       return parsed.pathname === '/sitemap-jobs-expired-044.xml'
-        && parsed.searchParams.get('cb') === 'capture-test-run';
+        && parsed.searchParams.get('cb') === 'capture-test-run-3';
     })).toBe(true);
     expect(existsSync(outputPath)).toBe(true);
 
@@ -127,5 +130,46 @@ describe('pre-deploy sitemap capture', () => {
     expect(summary).toContain('status=404');
     expect(summary).toContain('cf-cache-status=MISS');
     expect(summary).toContain('age=63');
+  });
+
+  it('passes a run-scoped cache bust only to live capture crawls', async () => {
+    const crawlSitemapsMock = vi.fn().mockResolvedValue({ toleratedMissing: [], records: new Map() });
+    const writeSnapshotFileMock = vi.fn().mockResolvedValue({
+      urls: 0,
+      sitemaps: 0,
+      bytes: 0,
+      maxChunkChars: 0,
+    });
+    vi.doMock('../scripts/lib/sitemap-crawl.mjs', () => ({
+      crawlSitemaps: crawlSitemapsMock,
+      writeSnapshotFile: writeSnapshotFileMock,
+    }));
+    const logSpy = vi.spyOn(console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+    vi.spyOn(process, 'exit').mockImplementation((() => undefined) as never);
+
+    setEnvironment({
+      SOURCE: 'live',
+      OUTPUT: 'ignored-live-snapshot.ndjson',
+      LOCAL_ROOT: 'unused-local-root',
+      GITHUB_RUN_ID: 'run-42',
+      GITHUB_RUN_ATTEMPT: '2',
+    });
+    const liveUrl = new URL('../scripts/capture-deployed-sitemaps.mjs', import.meta.url);
+    liveUrl.searchParams.set('test', `live-${Date.now()}`);
+    await import(liveUrl.href);
+    await vi.waitFor(() => expect(crawlSitemapsMock).toHaveBeenCalledTimes(1));
+    expect(crawlSitemapsMock.mock.calls[0][0]).toHaveProperty('liveCacheBust', 'run-42-2');
+
+    crawlSitemapsMock.mockClear();
+    process.env.SOURCE = 'local';
+    process.env.OUTPUT = 'ignored-local-snapshot.ndjson';
+    const localUrl = new URL('../scripts/capture-deployed-sitemaps.mjs', import.meta.url);
+    localUrl.searchParams.set('test', `local-${Date.now()}`);
+    await import(localUrl.href);
+    await vi.waitFor(() => expect(crawlSitemapsMock).toHaveBeenCalledTimes(1));
+    expect(crawlSitemapsMock.mock.calls[0][0]).not.toHaveProperty('liveCacheBust');
+    expect(logSpy).toHaveBeenCalledWith(expect.stringContaining('(local,'));
+    vi.doUnmock('../scripts/lib/sitemap-crawl.mjs');
   });
 });
