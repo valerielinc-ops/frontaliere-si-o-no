@@ -129,7 +129,7 @@ describe('per-slot first-party creative delivery', () => {
     await start();
     const creative = empty.host.querySelector('a');
     expect(creative?.querySelector('.ft-house-title')?.textContent).toBe('Lavoro in Svizzera?');
-    expect(creative?.querySelector('.ft-house-promise')?.textContent).toBe('Lo cerchiamo noi.');
+    expect(creative?.querySelector('.ft-house-promise')?.textContent).toBe('Troviamo offerte e prepariamo candidature.');
     expect(creative?.getAttribute('aria-label')).toContain('prepariamo le candidature per te');
     expect(creative?.querySelector('.ft-house-cta')?.textContent).toBe('Scopri');
   });
@@ -518,14 +518,14 @@ describe('per-slot first-party creative delivery', () => {
     expect(desktop.querySelector('.ft-house-title').textContent).toBe('Logistiker in Svizzera?');
     expect(desktop.querySelector('.ft-house-body').textContent).toContain('Logistiker in Kommissionierung');
     expect(desktop.querySelector('.ft-house-body').textContent).toContain('Rotkreuz');
-    expect(desktop.getAttribute('aria-label')).toContain('Lo cerchiamo noi per te.');
+    expect(desktop.getAttribute('aria-label')).toContain('Troviamo offerte e prepariamo le candidature per te.');
 
     const alternate = render({ variant: 'time_saved', format: 'mobile_banner', locale: 'it', placement: 'job-detail', context });
     expect(alternate.querySelector('.ft-house-title').textContent).toBe('Logistiker in Svizzera?');
-    expect(alternate.querySelector('.ft-house-promise').textContent).toBe('Ci pensiamo noi.');
+    expect(alternate.querySelector('.ft-house-promise').textContent).toBe('Troviamo offerte e prepariamo candidature.');
     const alternateBillboard = render({ variant: 'time_saved', format: 'billboard', locale: 'it', placement: 'job-detail', context });
     expect(alternateBillboard.querySelector('.ft-house-title').textContent).toBe('Logistiker in Svizzera?');
-    expect(alternateBillboard.querySelector('.ft-house-promise').textContent).toBe('Alla ricerca pensiamo noi.');
+    expect(alternateBillboard.querySelector('.ft-house-promise').textContent).toBe('Troviamo offerte e prepariamo le candidature per te.');
     expect(alternateBillboard.querySelector('.ft-house-body').textContent).toContain('Logistiker in Kommissionierung');
 
     const longRole = render({

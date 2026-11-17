@@ -179,6 +179,15 @@
         ],
         "createdAt": "2026-11-17T00:17:38.241Z",
         "reason": "Project DESIGN.md defines Electric Purple as the brand accent; public/404.html has a pre-existing intentional branded header gradient."
+      },
+      {
+        "rule": "design-system-font-size",
+        "value": "*",
+        "files": [
+          "services/houseAdCreative.ts"
+        ],
+        "createdAt": "2026-11-17T11:04:02.649Z",
+        "reason": "Frontaliere Ticino design system (DESIGN.md): these literals map to fixed responsive ad sizes; Chrome previews at 320x50, 320x100, 728x90, 970x250 and 160x600 show the copy fits without clipping."
       }
     ]
   },
