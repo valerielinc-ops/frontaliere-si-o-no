@@ -1,0 +1,25 @@
+{
+  "companyKey": "buckinstitute",
+  "companyName": "Buck Institute",
+  "companyHost": "buckinstitute.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://buckinstitute.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 23,
+  "sampleTitles": [
+    "Controller",
+    "Project Manager, Proteostasis Project",
+    "Senior Director, Technology Transfer & Business Development",
+    "Senior Science Editor",
+    "Clinical Research Associate/Coordinator I"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-17T14:22:21.329Z",
+  "candidateKey": "buckinstitute@applytojob.com"
+}

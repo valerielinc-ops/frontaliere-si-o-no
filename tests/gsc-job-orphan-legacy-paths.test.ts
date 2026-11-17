@@ -14,6 +14,7 @@ import {
 } from '../scripts/lib/gsc-orphan-snapshot.mjs';
 import { jobOrphanBridgePlugin, sectionPathFromOrphan } from '../build-plugins/jobOrphanBridgePlugin';
 import { legacyAliasPlugin } from '../build-plugins/legacyAliasPlugin';
+import { WriteCollector } from '../build-plugins/batchWrite';
 import { hasJobOrphanNoindexBridgeMarker } from '../build-plugins/shared/jobOrphanNoindexBridgeMarker.mjs';
 
 const jobSections = {
@@ -335,6 +336,43 @@ describe('jobOrphanBridgePlugin — incomplete matched fallbacks are noindex', (
       expect(html).not.toContain('<!--JOB_ORPHAN_NOINDEX_BRIDGE-->');
       expect(extractPageSignals(html, orphanUrl).canonical).toBe(orphanUrl);
       expect(html).not.toMatch(/"@type":"JobPosting"/);
+    } finally {
+      fs.rmSync(rootDir, { recursive: true, force: true });
+    }
+  });
+
+  it('does not overwrite an active page that is claimed but not flushed yet', async () => {
+    const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'job-orphan-pending-active-'));
+    const slug = 'purchasing-logistica-specialista-mendrisio-site-ticino-sintetica-sa-mendrisio';
+    const currentSlug = `current-${slug}`;
+    const orphanUrl = `https://frontaliereticino.ch/cerca-lavoro-ticino/${slug}/`;
+    const indexTarget = path.join(rootDir, 'dist', 'cerca-lavoro-ticino', slug, 'index.html');
+    const flatTarget = path.join(rootDir, 'dist', 'cerca-lavoro-ticino', `${slug}.html`);
+    const activeHtml = '<!doctype html><html><head><script type="application/ld+json">{"@type":"JobPosting","datePosted":"2026-11-16"}</script></head></html>';
+    try {
+      fs.mkdirSync(path.join(rootDir, 'dist'), { recursive: true });
+      fs.mkdirSync(path.join(rootDir, 'data'), { recursive: true });
+      fs.writeFileSync(path.join(rootDir, 'data', 'gsc-job-orphans.json'), JSON.stringify({
+        generatedAt: '2026-11-17T00:00:00.000Z',
+        sources: ['test'],
+        counts: { matched: 1 },
+        orphans: [{ locale: 'it', slug, url: orphanUrl, kind: 'matched', currentSlug }],
+      }));
+
+      const collector = new WriteCollector({ distDir: path.join(rootDir, 'dist'), pluginName: 'jobs-seo-pages' });
+      collector.add(indexTarget, activeHtml);
+      collector.add(flatTarget, activeHtml);
+
+      const plugin = jobOrphanBridgePlugin(rootDir);
+      const closeBundle = plugin.closeBundle as { handler: () => Promise<void> };
+      await closeBundle.handler();
+
+      expect(fs.existsSync(indexTarget)).toBe(false);
+      expect(fs.existsSync(flatTarget)).toBe(false);
+
+      await collector.flush();
+      expect(fs.readFileSync(indexTarget, 'utf8')).toBe(activeHtml);
+      expect(fs.readFileSync(flatTarget, 'utf8')).toBe(activeHtml);
     } finally {
       fs.rmSync(rootDir, { recursive: true, force: true });
     }

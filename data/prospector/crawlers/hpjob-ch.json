@@ -1,0 +1,26 @@
+{
+  "companyKey": "hpjob-ch",
+  "companyName": "HP Job GmbH",
+  "companyHost": "hpjob.ch",
+  "verifiedEmployerDomain": "hpjob.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://hpjob.ch/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Büro, Finanz & IT Technischer Kaufmann mit Französischkenntnissen 100% (m/w/d) Balgach 100 %",
+    "Büro, Finanz & IT Verkaufsinnendienst mit Italienisch 100% (m/w/d) Au 100 %",
+    "Holz & Bau Lackierer / Maler für Produktion 100% (m/w/d) Buchs (SG) 100 %",
+    "Weitere Teamleiter Einkauf & Prozessoptimierung 100 % (m/w/d) Buchs (SG) 100 %"
+  ],
+  "canton": "AG",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-17T14:36:22.897Z",
+  "candidateKey": "hp-job@au-sg"
+}

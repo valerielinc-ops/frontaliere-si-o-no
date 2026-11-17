@@ -1,0 +1,23 @@
+{
+  "companyKey": "bubblesexpresscarwash",
+  "companyName": "Bubbles Express Car Wash",
+  "companyHost": "bubblesexpresscarwash.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://bubblesexpresscarwash.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Team Member (Redstone Road SW )",
+    "Team Member (Madison)",
+    "Team Member (Sparkman Dr)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-17T14:22:20.061Z",
+  "candidateKey": "bubblesexpresscarwash@applytojob.com"
+}
