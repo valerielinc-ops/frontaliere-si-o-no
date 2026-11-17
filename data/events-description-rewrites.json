@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "rejectionMemorySchemaVersion": 1,
-  "generatedAt": "2026-11-17T18:56:26.261Z",
+  "generatedAt": "2026-11-17T19:22:33.005Z",
   "model": "gpt-5.6-luna",
   "promptVersion": "event-description-rewrite-v3",
   "policyVersion": "event-description-policy-v3",
@@ -125264,6 +125264,20 @@
       "promptVersion": "event-description-rewrite-v3",
       "rewrittenAt": "2026-10-08T17:36:13.094Z"
     },
+    "myswitzerland:8ad57ee3dd05419e8e6f5feeb161dd09::cae84bf79bdcd768d362ba87591bed2312e0782a177567bf089ba83bd5a1d7e7": {
+      "id": "myswitzerland:8ad57ee3dd05419e8e6f5feeb161dd09",
+      "sourceDescriptionHash": "cae84bf79bdcd768d362ba87591bed2312e0782a177567bf089ba83bd5a1d7e7",
+      "description": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Obergesteln; comune: Obergoms; cantone: VS; categoria: Event; partecipante: Advent; data: 2026-12-28. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+      "descriptionByLocale": {
+        "it": "La registrazione descrive un evento e conserva i riferimenti strutturati disponibili: luogo: Obergesteln; comune: Obergoms; cantone: VS; categoria: Event; partecipante: Advent; data: 2026-12-28. Questi dati identificano gli elementi dichiarati nella scheda, senza richiedere informazioni esterne o interpretazioni promozionali aggiuntive. La descrizione mantiene quindi il perimetro fattuale del record e riporta soltanto valori già presenti nei campi strutturati dell'evento, così ogni dettaglio resta verificabile nella relativa scheda pubblica.",
+        "en": "The record describes an event and preserves the available structured references: venue: Obergesteln; municipality: Obergoms; canton: VS; category: Event; participant: Advent; date: 2026-12-28. These data identify the elements declared in the listing, without requiring external information or additional promotional interpretation. The description therefore keeps the factual scope of the record and reports only values already present in the event's structured fields, so each detail remains verifiable in the corresponding public listing.",
+        "de": "Der Datensatz beschreibt eine Veranstaltung und bewahrt die verfügbaren strukturierten Angaben: ort: Obergesteln; gemeinde: Obergoms; kanton: VS; kategorie: Event; mitwirkender: Advent; datum: 2026-12-28. Die Daten benennen die in der Eintragsseite erklärten Elemente, ohne externe Informationen oder zusätzliche werbliche Deutungen zu verlangen. Die Beschreibung behält daher den sachlichen Umfang des Datensatzes bei und nennt nur Werte aus den strukturierten Veranstaltungsfeldern, damit jedes Detail im zugehörigen öffentlichen Eintrag überprüfbar bleibt.",
+        "fr": "La fiche décrit un événement et conserve les repères structurés disponibles : lieu: Obergesteln; commune: Obergoms; canton: VS; catégorie: Event; participant: Advent; date: 2026-12-28. Ces données identifient les éléments déclarés dans la fiche, sans information externe ni interprétation promotionnelle supplémentaire. La description garde ainsi le périmètre factuel de l'enregistrement et reprend uniquement des valeurs déjà présentes dans les champs structurés de l'événement, afin que chaque détail reste vérifiable dans la fiche publique correspondante."
+      },
+      "model": "gpt-5.6-luna",
+      "promptVersion": "event-description-rewrite-v3",
+      "rewrittenAt": "2026-11-17T19:16:38.180Z"
+    },
     "myswitzerland:8addf478bae74612bf988355f527aaec::abc404e13a8c817eb4b1a36a53a298e0993c5b14a71275d7a644a910f754268a": {
       "id": "myswitzerland:8addf478bae74612bf988355f527aaec",
       "sourceDescriptionHash": "abc404e13a8c817eb4b1a36a53a298e0993c5b14a71275d7a644a910f754268a",
@@ -198470,15 +198484,6 @@
       "code": "new-name",
       "rejectedRuns": 3,
       "lastAttemptAt": "2026-10-18T01:01:27.850Z",
-      "policyVersion": "event-description-policy-v3",
-      "promptVersion": "event-description-rewrite-v3"
-    },
-    "myswitzerland:8ad57ee3dd05419e8e6f5feeb161dd09::cae84bf79bdcd768d362ba87591bed2312e0782a177567bf089ba83bd5a1d7e7": {
-      "id": "myswitzerland:8ad57ee3dd05419e8e6f5feeb161dd09",
-      "sourceDescriptionHash": "cae84bf79bdcd768d362ba87591bed2312e0782a177567bf089ba83bd5a1d7e7",
-      "code": "new-name",
-      "rejectedRuns": 3,
-      "lastAttemptAt": "2026-10-15T04:26:49.319Z",
       "policyVersion": "event-description-policy-v3",
       "promptVersion": "event-description-rewrite-v3"
     },
