@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 
 const STANDARD_IDENTITY_RE = /^(?:first[\s_-]*name|last[\s_-]*name|full[\s_-]*name|name|e?-?mail|phone|mobile|resume|cv|cover[\s_-]*letter|linkedin|website|portfolio|location|address|city|country)$/i;
 const TRACKING_PARAM_RE = /^(?:utm_[^=]+|fbclid|gclid|mc_cid|mc_eid|ref|source)$/i;
+export const JOB_QUESTION_CACHE_TTL_MS = 7 * 24 * 60 * 60 * 1_000;
 
 /** Canonicalize a job posting URL for stable cross-candidate question caching. */
 export function canonicalizeJobPostingUrl(rawUrl) {
@@ -185,13 +186,21 @@ export function sanitizeQuestionsForCache(questions) {
     }));
 }
 
-export async function loadCachedJobQuestions(db, jobUrl) {
+export async function loadCachedJobQuestions(db, jobUrl, {
+  nowMs = Date.now(),
+  ttlMs = JOB_QUESTION_CACHE_TTL_MS,
+} = {}) {
   if (!db) return [];
   const key = canonicalJobQuestionCacheKey(jobUrl);
   if (!key) return [];
   try {
     const snap = await db.collection('assisted_application_job_questions').doc(key).get();
     const data = snap.exists ? snap.data() : null;
+    const updatedAt = typeof data?.updatedAt?.toMillis === 'function'
+      ? data.updatedAt.toMillis()
+      : Number(data?.updatedAt);
+    const ageMs = Number(nowMs) - updatedAt;
+    if (!Number.isFinite(updatedAt) || !Number.isFinite(ageMs) || ageMs > ttlMs) return [];
     return Array.isArray(data?.questions) ? data.questions : [];
   } catch {
     return [];

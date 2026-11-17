@@ -441,7 +441,7 @@ export function platformCandidateFacts({ order = {}, profile = {}, identity = {}
   }
   const noticeMap = { immediate: 0, '1_month': 1, '2_months': 2, '3_months': 3 };
   const uploadedNotice = Object.hasOwn(noticeMap, uploaded.noticePeriod) ? noticeMap[uploaded.noticePeriod] : null;
-  const uploadedSalaryMatch = /(\d[\d'’.\s]{3,12})/.exec(String(uploaded.salaryExpectation || ''));
+  const uploadedSalaryMatch = /(\d[\d'’.,\s]{3,12})/.exec(String(uploaded.salaryExpectation || ''));
   const uploadedSalaryNum = uploadedSalaryMatch ? Number(uploadedSalaryMatch[1].replace(/[^0-9]/g, '')) : 0;
   const baseSalary = platformSalary(order);
   const resolvedSalary = baseSalary?.annual || !(uploadedSalaryNum >= 10000 && uploadedSalaryNum <= 1000000)

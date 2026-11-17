@@ -2,6 +2,7 @@ import { describe, expect, it, vi } from 'vitest';
 import {
   canonicalizeJobPostingUrl,
   canonicalJobQuestionCacheKey,
+  JOB_QUESTION_CACHE_TTL_MS,
   loadCachedJobQuestions,
   mergePreharvestedQuestions,
   parsePublicAtsPosting,
@@ -93,6 +94,22 @@ describe('preharvest ATS questions & job question cache', () => {
     const loaded = await loadCachedJobQuestions(fakeDb, 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Role_R2420');
     expect(loaded).toHaveLength(1);
 
+    const stale = await loadCachedJobQuestions(
+      {
+        collection: () => ({
+          doc: () => ({
+            get: async () => ({
+              exists: true,
+              data: () => ({ questions: sanitized, updatedAt: 1_000 }),
+            }),
+          }),
+        }),
+      },
+      'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Role_R2420',
+      { nowMs: 1_000 + JOB_QUESTION_CACHE_TTL_MS + 1 },
+    );
+    expect(stale).toEqual([]);
+
     const merged = mergePreharvestedQuestions(
       [{ id: 'existing', question: 'Do you speak French?' }],
       [...loaded, { id: 'new_q', question: 'Available start date?' }],
@@ -112,7 +129,7 @@ describe('preharvest ATS questions & job question cache', () => {
           criminalRecord: 'no',
           debtRecord: 'no',
           noticePeriod: '1_month',
-          salaryExpectation: "85'000 CHF",
+          salaryExpectation: '85,000 CHF',
         },
       },
       profile: { location: 'Como, IT' },

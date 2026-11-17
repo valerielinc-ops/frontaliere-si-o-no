@@ -286,7 +286,7 @@ export async function buildDraft(ctx) {
   let questions = ensureRequiredQuestions(match.questions, { requirements, profile, answers, locale }).filter(notAnsweredByUpload);
   const preharvestTargetUrl = order?.jobUrl || posting?.url || '';
   const [cachedJobQuestions, publicAtsQuestions] = await Promise.all([
-    loadCachedJobQuestions(db, preharvestTargetUrl),
+    loadCachedJobQuestions(db, preharvestTargetUrl, { nowMs }),
     preharvestPublicAtsQuestions(preharvestTargetUrl, { fetchImpl: ctx.fetchImpl }),
   ]);
   const preharvested = [...cachedJobQuestions, ...publicAtsQuestions].filter(notAnsweredByUpload);
