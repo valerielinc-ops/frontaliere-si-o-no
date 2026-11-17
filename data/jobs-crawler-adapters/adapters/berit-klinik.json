@@ -18,10 +18,12 @@
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mpa_sportmedizin_80_100__b02c76d519.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_stationssekret_r__in_80_100__reha_deffb9a3a9.pdf",
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_lehrstelle_fachperson_hotellerie_hauswirtschaft_efz_a3e30da3c2.pdf",
-    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_restaurant_80__785965013f.pdf"
+    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_restaurant_80__785965013f.pdf",
+    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_leitung_fakturierung_100__87c105f729.pdf",
+    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_medizinische_r_praxisassistent_in__100__f09b04abfb.pdf"
   ],
   "notes": "Dedicated Berit Klinik crawler parses the Next.js careers page and extracts descriptions from CMS-hosted Stelleninserat PDFs.",
-  "updatedAt": "2026-11-15T21:46:07.011Z",
+  "updatedAt": "2026-11-17T09:27:58.571Z",
   "seedMetaByUrl": {
     "https://cms-berit-klinik.deployco.de/api/media/file/ausbildungsstelle_zur_dipl._pflegefachperson_hf_dbd1e8bae0.pdf": {
       "location": "Speicher",
@@ -98,6 +100,22 @@
     "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_mitarbeiter_in_restaurant_80__785965013f.pdf": {
       "location": "Wattwil",
       "canton": "SG",
+      "company": "Berit Klinik",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown"
+    },
+    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_leitung_fakturierung_100__87c105f729.pdf": {
+      "location": "Speicher",
+      "canton": "AR",
+      "company": "Berit Klinik",
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown"
+    },
+    "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_medizinische_r_praxisassistent_in__100__f09b04abfb.pdf": {
+      "location": "Speicher",
+      "canton": "AR",
       "company": "Berit Klinik",
       "datePosted": "",
       "postedDate": "",

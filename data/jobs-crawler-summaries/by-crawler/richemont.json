@@ -1,12 +1,12 @@
 {
-  "detailCandidates": 192,
+  "detailCandidates": 195,
   "detailGone": 0,
-  "detailRejected": 83,
+  "detailRejected": 143,
   "key": "richemont",
   "label": "Richemont",
-  "generatedAt": "2026-11-15T21:50:01.746Z",
+  "generatedAt": "2026-11-17T09:36:22.313Z",
   "total": 0,
-  "discovered": 192,
+  "discovered": 195,
   "parsed": 0,
   "lastFetchOutcome": "selector_miss",
   "fetchReceipt": null,
@@ -24,5 +24,5 @@
   "unchangedJobs": [],
   "earlyExit": true,
   "exitCode": 0,
-  "codeCommit": "b0e0a209c23d72cde28658756e39fb5de3eaaca5"
+  "codeCommit": "0a26498058b0569b9b8027a7e9a03db3e2542c6a"
 }
