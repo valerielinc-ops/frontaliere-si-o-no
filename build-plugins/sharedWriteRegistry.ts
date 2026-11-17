@@ -493,7 +493,7 @@ export function reserveJobAliasRedirectDir(directoryPath: string): void {
   // Other closeBundle hooks can start before jobsSeoPages has enough input to
   // classify this URL. Remove any already completed compatibility output;
   // queued WriteCollector output is filtered again at flush time below.
-  for (const outputPath of [indexPath, flatPath]) {
+  for (const [isFlatPath, outputPath] of [[false, indexPath], [true, flatPath]] as const) {
     try {
       const stat = fs.statSync(outputPath);
       if (!stat.isFile()) {
@@ -502,7 +502,10 @@ export function reserveJobAliasRedirectDir(directoryPath: string): void {
       fs.unlinkSync(outputPath);
     } catch (error) {
       const code = (error as NodeJS.ErrnoException | null | undefined)?.code;
-      if (code !== 'ENOENT') throw error;
+      // Some removable aliases have a safe directory/index target but an
+      // unaddressable optional flat sibling. ENAMETOOLONG means that sibling
+      // cannot exist on this filesystem; still reserve its lexical path below.
+      if (code !== 'ENOENT' && !(isFlatPath && code === 'ENAMETOOLONG')) throw error;
     }
   }
   jobAliasRedirectDirs.add(directory);

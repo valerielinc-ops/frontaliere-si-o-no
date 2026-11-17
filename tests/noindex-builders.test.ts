@@ -147,10 +147,19 @@ describe('SEO builder noindex guards', () => {
       const classifyBlock = source.slice(classifyStart, classifyEnd);
       expect(classifyStart).toBeGreaterThan(-1);
       expect(classifyEnd).toBeGreaterThan(classifyStart);
+      expect(classifyBlock).toContain('getSafeDistPageTargets(distDir, bridge.path, { includeFlat: false });');
       expect(classifyBlock).toContain('reserveJobAliasRedirectDir(targets.directoryPath);');
       expect(classifyBlock).toContain('continue;');
       expect(classifyBlock).not.toMatch(/\b(?:_qw|_qwFlat|_qwFlatFull|writeFileSync)\s*\(/);
       expect(classifyBlock).toContain('retainedBridgePaths.set(bridgePathKey(bridge.locale, bridge.path), { bridge, reason });');
+
+      const retainedOutputStart = source.indexOf('const retainedBridgeOutputs = (function* () {');
+      const retainedOutputEnd = source.indexOf('})();', retainedOutputStart);
+      const retainedOutputBlock = source.slice(retainedOutputStart, retainedOutputEnd);
+      expect(retainedOutputStart).toBeGreaterThan(-1);
+      expect(retainedOutputEnd).toBeGreaterThan(retainedOutputStart);
+      expect(retainedOutputBlock).toContain('getSafeDistPageTargets(distDir, bridge.path);');
+      expect(retainedOutputBlock).not.toContain('includeFlat: false');
 
       const coverageStart = source.indexOf('const bridgeDistCoverage = assertBridgePathDistCoverage(');
       const coverageEnd = source.indexOf('console.log(', coverageStart);
