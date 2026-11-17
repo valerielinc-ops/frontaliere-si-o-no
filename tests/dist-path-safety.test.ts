@@ -119,8 +119,21 @@ describe('filesystem target preflight', () => {
       )).toBe(true);
       expect(safeRetainedClassification).toHaveBeenCalledWith('/safe/');
 
-      expect(() => isRetainedBridgePathSafeToEmit(distDir, '/unclassified/', isJobAliasRedirectPath, () => false))
-        .toThrow('[job-alias-redirect-gate] emitted bridge path is missing from the shared classification');
+      const onUnplannedPath = vi.fn();
+      expect(isRetainedBridgePathSafeToEmit(distDir, '/unclassified/', isJobAliasRedirectPath, () => false, onUnplannedPath))
+        .toBe(false);
+      expect(onUnplannedPath).toHaveBeenCalledTimes(1);
+      expect(onUnplannedPath).toHaveBeenCalledWith('/unclassified/');
+
+      const classifiedCallback = vi.fn();
+      expect(isRetainedBridgePathSafeToEmit(distDir, '/classified/', isJobAliasRedirectPath, () => true, classifiedCallback))
+        .toBe(true);
+      expect(classifiedCallback).not.toHaveBeenCalled();
+
+      const reservedCallback = vi.fn();
+      expect(isRetainedBridgePathSafeToEmit(distDir, reservedPath, isJobAliasRedirectPath, () => false, reservedCallback))
+        .toBe(false);
+      expect(reservedCallback).not.toHaveBeenCalled();
 
       const nonReservedPath = `/${'y'.repeat(251)}/`;
       const nonReservedClassification = vi.fn(() => true);

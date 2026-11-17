@@ -14980,7 +14980,7 @@ ${staticAnalyticsHtml}
     continue;
    }
    const reason = classification.keepBridge.get(bridge.path);
-   if (!reason) throw new Error('[job-alias-redirect-gate] bridge path has no classification');
+   if (!reason) throw new Error(`[job-alias-redirect-gate] bridge path has no classification (locale=${bridge.locale} path=${bridge.path})`);
    retainedBridgePaths.set(bridgePathKey(bridge.locale, bridge.path), { bridge, reason });
    activeBridgeKeepCounts[bridge.locale]++;
    activeBridgeKeepByKind[bridge.kind]++;
@@ -15016,13 +15016,36 @@ ${staticAnalyticsHtml}
   retainedBridgePaths: activeBridgeKeepCount,
   reservedJobAliasDirs: reservedJobAliasDirCount,
  });
- const isRetainedActiveBridgePath = (locale: JobSeoLocale, pathname: string): boolean => {
+ // Emitters enumerate bridges with filters independent from the plan: a path the plan never
+ // classified is skipped (fail-closed; Worker/404 behaviour unchanged, the bridge would be
+ // noindex anyway) and counted here, by unique path, so the drift stays visible.
+ const unplannedBridgesSkippedByKind: Record<JobCanonBridgePath['kind'], number> = {
+  previousSlug: 0, legacyTiMirror: 0, crossLocale: 0,
+ };
+ const unplannedBridgesSkippedByLocale: Record<string, number> = {};
+ const unplannedBridgeExamples: string[] = [];
+ const unplannedBridgeKeys = new Set<string>();
+ let unplannedBridgeVisits = 0;
+ const isRetainedActiveBridgePath = (
+  locale: JobSeoLocale,
+  pathname: string,
+  kind: JobCanonBridgePath['kind'],
+ ): boolean => {
   const canonicalPath = withSlash(pathname);
   return isRetainedBridgePathSafeToEmit(
    distDir,
    canonicalPath,
    isJobAliasRedirectPath,
    (candidatePath) => retainedBridgePaths.has(bridgePathKey(locale, candidatePath)),
+   (unplannedPath) => {
+    unplannedBridgeVisits++;
+    const unplannedKey = `${locale}\u0000${unplannedPath}`;
+    if (unplannedBridgeKeys.has(unplannedKey)) return;
+    unplannedBridgeKeys.add(unplannedKey);
+    unplannedBridgesSkippedByKind[kind]++;
+    unplannedBridgesSkippedByLocale[locale] = (unplannedBridgesSkippedByLocale[locale] ?? 0) + 1;
+    if (unplannedBridgeExamples.length < 20) unplannedBridgeExamples.push(`${kind}:${locale}:${unplannedPath}`);
+   },
   );
  };
 
@@ -16912,7 +16935,7 @@ ${staticAnalyticsHtml}
  const __tPrevSlugBridge = startTimer();
  const outDir = np.join(distDir, oldRelPath);
  let indexHtml: string | null = null;
- if (isRetainedActiveBridgePath(locale, oldPath)) {
+ if (isRetainedActiveBridgePath(locale, oldPath, 'previousSlug')) {
   // Keep full-content rendering and incremental reuse only for URLs that the
   // Worker cannot redirect to this exact canonical destination.
   bridgeFullCount++;
@@ -17003,7 +17026,7 @@ ${staticAnalyticsHtml}
  !activeJobDirs.has(legacyTIKey) &&
  !legacyTiBridgeDirs.has(legacyTIKey)
  ) {
- if (!isRetainedActiveBridgePath(locale, legacyTIRelPath)) continue;
+ if (!isRetainedActiveBridgePath(locale, legacyTIRelPath, 'legacyTiMirror')) continue;
  legacyTiBridgeDirs.add(legacyTIKey);
  const __tPrevSlugLegacyTIBridge = startTimer();
  const legacyTIOutDir = np.join(distDir, legacyTIRelPath);
@@ -17254,7 +17277,7 @@ ${staticAnalyticsHtml}
  // Skip if a previousSlugs bridge already covered this path for
  // this job (same content would be written again).
  if (pathIsClaimedOrReserved(indexFile)) continue;
- if (!isRetainedActiveBridgePath(baseLocale, relPath)) continue;
+ if (!isRetainedActiveBridgePath(baseLocale, relPath, 'crossLocale')) continue;
  const __tCrossLocaleActive = startTimer();
  const crossLocaleActiveReuseInput = incrementalManifests
   ? {
@@ -17778,13 +17801,21 @@ ${staticAnalyticsHtml}
   for (const { bridge } of retainedBridgePaths.values()) {
    if (!shouldEmitLocale(bridge.locale)) continue;
    const targets = getSafeDistPageTargets(distDir, bridge.path, { includeFlat: false });
-   if (!targets) throw new Error('[job-alias-redirect-gate] retained bridge path is not a safe dist target');
+   if (!targets) throw new Error(`[job-alias-redirect-gate] retained bridge path is not a safe dist target (locale=${bridge.locale} path=${bridge.path})`);
    yield {
     indexPath: targets.indexPath,
     targetPath: `${BASE_URL}${bridge.targetPath}`,
    };
   }
  })();
+ if (unplannedBridgeKeys.size > 0) {
+  console.warn(
+   `[job-alias-redirect-gate] unplanned-bridges-skipped=${unplannedBridgeKeys.size} visits=${unplannedBridgeVisits} `
+   + `by-kind=${JSON.stringify(unplannedBridgesSkippedByKind)} `
+   + `by-locale=${JSON.stringify(unplannedBridgesSkippedByLocale)} `
+   + `examples=${JSON.stringify(unplannedBridgeExamples)}`,
+  );
+ }
  const bridgeDistCoverage = assertBridgePathDistCoverage(
   removableBridgeOutputs,
   retainedBridgeOutputs,

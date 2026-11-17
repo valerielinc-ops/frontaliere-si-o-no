@@ -28,19 +28,25 @@ export type JobCanonLocale = (typeof JOB_CANON_LOCALES)[number];
 /** Registry aliases are emitted only for the three non-Italian locales by the Worker. */
 export const JOB_CANON_REGISTRY_ALIAS_LOCALES = ['en', 'de', 'fr'] as const;
 
-/** Validate a retained directory page after letting reserved aliases exit on their index target. */
+/**
+ * Validate a retained directory page after letting reserved aliases exit on their index target.
+ * An unclassified path is skipped (no static write) and reported through `onUnplannedPath`;
+ * only classified paths reach the dist-coverage check.
+ */
 export function isRetainedBridgePathSafeToEmit(
   distDir: string,
   canonicalPath: string,
   isReservedPath: (filePath: string) => boolean,
   hasRetainedClassification: (canonicalPath: string) => boolean,
+  onUnplannedPath?: (canonicalPath: string) => void,
 ): boolean {
   const indexTargets = getSafeDistPageTargets(distDir, canonicalPath, { includeFlat: false });
   if (!indexTargets) return false;
   if (isReservedPath(indexTargets.indexPath)) return false;
 
   if (!hasRetainedClassification(canonicalPath)) {
-    throw new Error('[job-alias-redirect-gate] emitted bridge path is missing from the shared classification');
+    onUnplannedPath?.(canonicalPath);
+    return false;
   }
   return true;
 }
@@ -1348,13 +1354,13 @@ export function assertBridgePathClassificationCoverage(
     const removable = classification.removable.has(bridge.path);
     const keepBridge = classification.keepBridge.has(bridge.path);
     if (removable === keepBridge) {
-      throw new Error('[job-alias-redirect-gate] bridge path has conflicting classification');
+      throw new Error(`[job-alias-redirect-gate] bridge path has conflicting classification (locale=${bridge.locale} path=${bridge.path})`);
     }
     if (removable) {
       const entry = lookup(bridge.slug);
       const workerTarget = entry ? jobCanonTarget(entry, bridge.slug, bridge.locale) as string | null : null;
       if (workerTarget !== bridge.targetPath) {
-        throw new Error('[job-alias-redirect-gate] removable path has no exact Worker target');
+        throw new Error(`[job-alias-redirect-gate] removable path has no exact Worker target (locale=${bridge.locale} path=${bridge.path})`);
       }
     }
   }
@@ -1380,17 +1386,17 @@ export function assertBridgePathDistCoverage(
   let removable404 = 0;
   for (const output of removableOutputs) {
     if (outputExists(output.indexPath) || outputExists(output.flatPath)) {
-      throw new Error('[job-alias-redirect-gate] removable path still has static HTML');
+      throw new Error(`[job-alias-redirect-gate] removable path still has static HTML (path=${output.indexPath})`);
     }
     removable404++;
   }
   let retained200 = 0;
   for (const output of retainedOutputs) {
     if (!outputExists(output.indexPath)) {
-      throw new Error('[job-alias-redirect-gate] path has neither an exact 301 nor a retained bridge');
+      throw new Error(`[job-alias-redirect-gate] path has neither an exact 301 nor a retained bridge (path=${output.indexPath})`);
     }
     if (!retainedOutputMatches(output.indexPath, output.targetPath)) {
-      throw new Error('[job-alias-redirect-gate] retained bridge does not point to its planned canonical');
+      throw new Error(`[job-alias-redirect-gate] retained bridge does not point to its planned canonical (path=${output.indexPath})`);
     }
     retained200++;
   }
