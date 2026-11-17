@@ -3916,8 +3916,6 @@ export function stripStaleAssetIntegrity(request, response) {
   }
 }
 
-let publicConfigFetchPromise = null;
-
 async function fetchPublicConfigSnapshot() {
   const upstream = await fetch(PUBLIC_CONFIG_FUNCTION_ENDPOINT, {
     method: 'GET',
@@ -3970,7 +3968,11 @@ function publicConfigUnavailableResponse(url) {
   return publicConfigFailOpenResponse();
 }
 
-/** Proxy the allowlisted Remote Config through the production edge cache. */
+/**
+ * 2026-11-17: Workers Logs reported "The Workers runtime canceled this request because it detected that your Worker's code had hung and would never generate a response"; all 50 sampled events had trigger "GET /api/public-config/".
+ * A module-level promise made requests await I/O started in another request context; if that request ended or was canceled before the I/O resolved, its waiters could hang.
+ * Keep each fetch in its own request context. Cloudflare's edge cache on the subrequest (`cf: { cacheEverything: true }`) remains responsible for deduplicating upstream access.
+ */
 export async function servePublicConfig(request) {
   const url = new URL(request.url);
   if (request.method !== 'GET') {
@@ -3980,24 +3982,8 @@ export async function servePublicConfig(request) {
     });
   }
 
-  if (publicConfigFetchPromise) {
-    try {
-      const snapshot = await publicConfigFetchPromise;
-      if (snapshot.status >= 500) {
-        logEdgeFailure('public-config', url, { status: snapshot.status });
-        return publicConfigFailOpenResponse();
-      }
-      return publicConfigResponseFromSnapshot(snapshot) || publicConfigFailOpenResponse();
-    } catch {
-      return publicConfigUnavailableResponse(url);
-    }
-  }
-
-  const pending = fetchPublicConfigSnapshot();
-
-  publicConfigFetchPromise = pending;
   try {
-    const snapshot = await pending;
+    const snapshot = await fetchPublicConfigSnapshot();
     if (snapshot.status >= 500) {
       logEdgeFailure('public-config', url, { status: snapshot.status });
       return publicConfigFailOpenResponse();
@@ -4005,8 +3991,6 @@ export async function servePublicConfig(request) {
     return publicConfigResponseFromSnapshot(snapshot) || publicConfigFailOpenResponse();
   } catch {
     return publicConfigUnavailableResponse(url);
-  } finally {
-    if (publicConfigFetchPromise === pending) publicConfigFetchPromise = null;
   }
 }
 
