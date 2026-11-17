@@ -15017,13 +15017,15 @@ ${staticAnalyticsHtml}
   reservedJobAliasDirs: reservedJobAliasDirCount,
  });
  // Emitters enumerate bridges with filters independent from the plan: a path the plan never
- // classified is still emitted (fail-open) but counted here so the drift stays visible.
- const unplannedBridgesEmittedByKind: Record<JobCanonBridgePath['kind'], number> = {
+ // classified is skipped (fail-closed; Worker/404 behaviour unchanged, the bridge would be
+ // noindex anyway) and counted here, by unique path, so the drift stays visible.
+ const unplannedBridgesSkippedByKind: Record<JobCanonBridgePath['kind'], number> = {
   previousSlug: 0, legacyTiMirror: 0, crossLocale: 0,
  };
- const unplannedBridgesEmittedByLocale: Record<string, number> = {};
+ const unplannedBridgesSkippedByLocale: Record<string, number> = {};
  const unplannedBridgeExamples: string[] = [];
- let unplannedBridgesEmitted = 0;
+ const unplannedBridgeKeys = new Set<string>();
+ let unplannedBridgeVisits = 0;
  const isRetainedActiveBridgePath = (
   locale: JobSeoLocale,
   pathname: string,
@@ -15036,9 +15038,12 @@ ${staticAnalyticsHtml}
    isJobAliasRedirectPath,
    (candidatePath) => retainedBridgePaths.has(bridgePathKey(locale, candidatePath)),
    (unplannedPath) => {
-    unplannedBridgesEmitted++;
-    unplannedBridgesEmittedByKind[kind]++;
-    unplannedBridgesEmittedByLocale[locale] = (unplannedBridgesEmittedByLocale[locale] ?? 0) + 1;
+    unplannedBridgeVisits++;
+    const unplannedKey = `${locale}\u0000${unplannedPath}`;
+    if (unplannedBridgeKeys.has(unplannedKey)) return;
+    unplannedBridgeKeys.add(unplannedKey);
+    unplannedBridgesSkippedByKind[kind]++;
+    unplannedBridgesSkippedByLocale[locale] = (unplannedBridgesSkippedByLocale[locale] ?? 0) + 1;
     if (unplannedBridgeExamples.length < 20) unplannedBridgeExamples.push(`${kind}:${locale}:${unplannedPath}`);
    },
   );
@@ -17803,6 +17808,14 @@ ${staticAnalyticsHtml}
    };
   }
  })();
+ if (unplannedBridgeKeys.size > 0) {
+  console.warn(
+   `[job-alias-redirect-gate] unplanned-bridges-skipped=${unplannedBridgeKeys.size} visits=${unplannedBridgeVisits} `
+   + `by-kind=${JSON.stringify(unplannedBridgesSkippedByKind)} `
+   + `by-locale=${JSON.stringify(unplannedBridgesSkippedByLocale)} `
+   + `examples=${JSON.stringify(unplannedBridgeExamples)}`,
+  );
+ }
  const bridgeDistCoverage = assertBridgePathDistCoverage(
   removableBridgeOutputs,
   retainedBridgeOutputs,
@@ -17828,14 +17841,6 @@ ${staticAnalyticsHtml}
   `[job-alias-redirect-gate] verified removable-404=${bridgeDistCoverage.removable404} retained-200=${bridgeDistCoverage.retained200} `
   + `unsafe-flat-siblings-skipped=${unsafeBridgeFlatSiblingsSkipped}`,
  );
- if (unplannedBridgesEmitted > 0) {
-  console.warn(
-   `[job-alias-redirect-gate] unplanned-bridges-emitted=${unplannedBridgesEmitted} `
-   + `by-kind=${JSON.stringify(unplannedBridgesEmittedByKind)} `
-   + `by-locale=${JSON.stringify(unplannedBridgesEmittedByLocale)} `
-   + `examples=${JSON.stringify(unplannedBridgeExamples)}`,
-  );
- }
  const skipped = collector.skippedByHash;
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s` +
  (skipped > 0 ? ` (${skipped} skipped by content hash)` : ''));

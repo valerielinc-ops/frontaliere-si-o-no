@@ -121,7 +121,7 @@ describe('filesystem target preflight', () => {
 
       const onUnplannedPath = vi.fn();
       expect(isRetainedBridgePathSafeToEmit(distDir, '/unclassified/', isJobAliasRedirectPath, () => false, onUnplannedPath))
-        .toBe(true);
+        .toBe(false);
       expect(onUnplannedPath).toHaveBeenCalledTimes(1);
       expect(onUnplannedPath).toHaveBeenCalledWith('/unclassified/');
 

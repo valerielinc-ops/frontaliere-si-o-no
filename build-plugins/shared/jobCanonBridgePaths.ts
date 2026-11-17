@@ -30,9 +30,8 @@ export const JOB_CANON_REGISTRY_ALIAS_LOCALES = ['en', 'de', 'fr'] as const;
 
 /**
  * Validate a retained directory page after letting reserved aliases exit on their index target.
- * An unclassified path fails open (emitted as a 200 bridge, as before the classification gate):
- * removable paths are reserved and already excluded above, so emitting is safe; the caller is
- * told through `onUnplannedPath` so the drift between plan and emitters stays observable.
+ * An unclassified path is skipped (no static write) and reported through `onUnplannedPath`;
+ * only classified paths reach the dist-coverage check.
  */
 export function isRetainedBridgePathSafeToEmit(
   distDir: string,
@@ -47,6 +46,7 @@ export function isRetainedBridgePathSafeToEmit(
 
   if (!hasRetainedClassification(canonicalPath)) {
     onUnplannedPath?.(canonicalPath);
+    return false;
   }
   return true;
 }
