@@ -1,14 +1,14 @@
 {
   "crawlerKey": "heineken-ch",
-  "assembledAt": "2026-11-15T21:56:27.602Z",
-  "runId": "43763620797",
+  "assembledAt": "2026-11-17T09:35:34.187Z",
+  "runId": "44055269248",
   "jobs": [
     {
       "id": "heineken-ch-a716028f91b3",
       "jobReqId": "149312",
       "slug": "autista-c-e-heineken-switzerland-fahrweid",
       "slugByLocale": {
-        "it": "chauffeur-c-e-heineken-switzerland-fahrweid",
+        "it": "autista-c-e-heineken-switzerland-fahrweid",
         "en": "driver-c-e-heineken-switzerland-fahrweid",
         "de": "chauffeur-c-e-heineken-ch-fahrweid",
         "fr": "conducteur-de-categorie-c-e-heineken-switzerland-fahrweid"
@@ -51,15 +51,17 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=149312&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:56:20.112Z",
+      "crawledAt": "2026-11-17T09:35:26.923Z",
       "previousSlugs": [
         "chauffeur-c-e-heineken-ch-fahrweid",
-        "c-c-e-heineken-switzerland-fahrweid"
+        "c-c-e-heineken-switzerland-fahrweid",
+        "chauffeur-c-e-heineken-switzerland-fahrweid"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chauffeur-c-e-heineken-ch-fahrweid",
-          "c-c-e-heineken-switzerland-fahrweid"
+          "c-c-e-heineken-switzerland-fahrweid",
+          "chauffeur-c-e-heineken-switzerland-fahrweid"
         ],
         "en": [
           "c-c-e-heineken-switzerland-fahrweid"
@@ -83,7 +85,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-13T21:56:20.112Z",
+      "validThrough": "2027-02-15T09:35:26.923Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -134,7 +136,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=156187&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:56:12.968Z",
+      "crawledAt": "2026-11-17T09:35:18.693Z",
       "previousSlugs": [
         "chauffeur-kat-c-e-heineken-ch-luzern",
         "chauffeur-kat-c-e-heineken-switzerland-luzern"
@@ -161,7 +163,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-05T21:56:12.968Z",
+      "validThrough": "2027-01-06T09:35:18.693Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -212,7 +214,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164368&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:56:05.225Z",
+      "crawledAt": "2026-11-17T09:35:10.573Z",
       "previousSlugs": [
         "sales-market-analyst-w-m-d-heineken-ch-luzern"
       ],
@@ -237,7 +239,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:56:05.225Z",
+      "validThrough": "2026-12-17T09:35:10.573Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -288,7 +290,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164840&career_ns=job_application",
       "source": "Heineken Switzerland Dedicated Parser (Playwright)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:55:55.968Z",
+      "crawledAt": "2026-11-17T09:35:02.802Z",
       "previousSlugsByLocale": {
         "de": [
           "specialist-warehouse-m-w-d-heineken-ch-belp"
@@ -324,7 +326,452 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:55:55.968Z",
+      "validThrough": "2026-12-17T09:35:02.802Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "heineken-ch-3ed8481a3b74",
+      "jobReqId": "127858",
+      "slug": "autista-c-e-orion-heineken-switzerland-luzern",
+      "slugByLocale": {
+        "it": "autista-c-e-orion-heineken-switzerland-luzern",
+        "en": "driver-c-e-orion-heineken-switzerland-luzern",
+        "de": "chauffeur-c-e-orion-heineken-ch-luzern",
+        "fr": "chauffeur-c-e-orion-heineken-ch-luzern"
+      },
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Chauffeur / Tankwagenfahrer CE Gastronomie & Events (m/w/d) - 100%",
+      "titleByLocale": {
+        "it": "Autista C/E Orion",
+        "en": "Driver C/E Orion",
+        "de": "Chauffeur / Tankwagenfahrer CE Gastronomie & Events (m/w/d) - 100%",
+        "fr": "Chauffeur C/E Orion"
+      },
+      "description": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 17 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Bewege Hektoliter und steuere unseren City Liner quer durch die Schweiz! Hinter jedem grossen Event und jeder gut besuchten Gastronomie steckt eine Logistik, die zuverlässig funktioniert. Und genau hier kommst du ins Spiel. Als wichtiger Teil unseres Orion-Teams sorgst du dafür, dass unseren Kunden der Nachschub nicht ausgeht. Mit unserem modernen City Liner bist du in der ganzen Schweiz unterwegs, belieferst unsere Gastronomiekunden direkt vor Ort und stellst eine reibungslose Versorgung sicher. Du bist gerne auf Achse, packst mit an und suchst eine abwechslungsreiche Fahrtätigkeit mit Verantwortung? Dann bist du bei uns genau richtig. In dieser vielseitigen Funktion erwartet dich mehr als nur das Fahren von A nach B: Du befüllst Kundentanks mit dem City Liner und bist dafür in der ganzen Schweiz unterwegs Du führst und manövrierst den City Liner sicher und fachkundig Du sorgst dafür, dass die Aufliegeranlage gemäss unseren Standards gewartet und gepflegt ist Du führst die erforderlichen Qualitätsdokumente gewissenhaft und zuverlässig Bei Bedarf unterstützt du deine Kolleginnen und Kollegen in der Transport-Feinverteilung sowie im Lager Je nach Tour übernachtest du ein- bis zweimal pro Woche im LKW Das bringst du mit Führerausweis der Kategorien C und E Berufserfahrung als Chauffeur Ein freundliches und professionelles Auftreten, denn bei unseren Kunden bist du eine wichtige Ansprechperson und das Gesicht unseres Unternehmens vor Ort Eine selbstständige, zuverlässige und verantwortungsbewusste Arbeitsweise Gute Deutschkenntnisse in Wort und Schrift Bereitschaft für einen frühen Arbeitsbeginn ab ca. 04:30 Uhr sowie gelegentliche Wochenendeinsätze Körperliche Fitness und Belastbarkeit Du bist gerne unterwegs, übernimmst Verantwortung und schätzt einen Arbeitsalltag, bei dem kein Tag genau gleich aussieht? Dann möchten wir dich kennenlernen. Steig ein und werde Teil unseres Teams!",
+      "descriptionByLocale": {
+        "it": "Sei responsabile della consegna tempestiva di tutti i prodotti inclusi nella gamma Orion ai nostri clienti, principalmente nella ristorazione ed eventi. Assicurare la roadworthiness del veicolo in conformità con i requisiti del Road Traffic Act. In questa attività vivace e versatile siete per i seguenti\n• Compiti responsabili: riempimento di serbatoi con un City Liner in tutta la Svizzera Manutenzione e manutenzione del sistema di semirimorchio secondo gli standard specificati Gestione specializzata e manovra di una City Liner Gestione consapevole dei documenti di qualità Supporto nel trasporto distribuzione fine e magazzino come richiesto Pernottamento nel camion una o due volte alla settimana come richiesto\n• Compiti di successo, ci aspettiamo i seguenti prerequisiti: Autista C ed E Work esperienza come autista Prima persona di contatto con modi impeccabile, affidabilità e impegno Metodi di lavoro autonomi e affidabili ti distinguono dalle Buone competenze tedesche in parola e scrittura Prontezza per l'inizio del lavoro (04:30) e weekend assegnazioni se necessario (principalmente sabato) Fisicamente adatta e resiliente Interessi? Il signor Roger Roggo, HR Business Partner, non vede l'ora di presentare i suoi documenti completi.",
+        "en": "You are responsible for the timely delivery of all products contained in the Orion range to our customers, mainly in the catering industry and at events. You ensure the vehicle's suitability for traffic according to the regulations of the Road Traffic Act.\n\nIn this lively and versatile activity you are responsible for the following\n• tasks: Filling customer tanks with a City Liner throughout Switzerland Maintenance and maintenance of the trailer system according to specified standards Professional driving and maneuvering of a City Liner Conscient carrying of quality documents Support in transport fine distribution and storage as required Overnight stay in a truck once or twice a week if required To successfully perform these challenging\n• tasks, we expect the following requirements: Driver permit C and E professional experience\n\nas a chauffeur First contact person with flawless handling, reliability and commitment Self-employed and reliable working methods distinguish you from good German knowledge in word and writing readiness for early work start (04:30 clock) and weekend sets if required (mainly Saturday) Physically fit and resilient Interested?\n\nMr Roger Rogue, HR Business Partner, is looking forward to receiving your complete application documents.",
+        "de": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 17 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Bewege Hektoliter und steuere unseren City Liner quer durch die Schweiz! Hinter jedem grossen Event und jeder gut besuchten Gastronomie steckt eine Logistik, die zuverlässig funktioniert. Und genau hier kommst du ins Spiel. Als wichtiger Teil unseres Orion-Teams sorgst du dafür, dass unseren Kunden der Nachschub nicht ausgeht. Mit unserem modernen City Liner bist du in der ganzen Schweiz unterwegs, belieferst unsere Gastronomiekunden direkt vor Ort und stellst eine reibungslose Versorgung sicher. Du bist gerne auf Achse, packst mit an und suchst eine abwechslungsreiche Fahrtätigkeit mit Verantwortung? Dann bist du bei uns genau richtig. In dieser vielseitigen Funktion erwartet dich mehr als nur das Fahren von A nach B: Du befüllst Kundentanks mit dem City Liner und bist dafür in der ganzen Schweiz unterwegs Du führst und manövrierst den City Liner sicher und fachkundig Du sorgst dafür, dass die Aufliegeranlage gemäss unseren Standards gewartet und gepflegt ist Du führst die erforderlichen Qualitätsdokumente gewissenhaft und zuverlässig Bei Bedarf unterstützt du deine Kolleginnen und Kollegen in der Transport-Feinverteilung sowie im Lager Je nach Tour übernachtest du ein- bis zweimal pro Woche im LKW Das bringst du mit Führerausweis der Kategorien C und E Berufserfahrung als Chauffeur Ein freundliches und professionelles Auftreten, denn bei unseren Kunden bist du eine wichtige Ansprechperson und das Gesicht unseres Unternehmens vor Ort Eine selbstständige, zuverlässige und verantwortungsbewusste Arbeitsweise Gute Deutschkenntnisse in Wort und Schrift Bereitschaft für einen frühen Arbeitsbeginn ab ca. 04:30 Uhr sowie gelegentliche Wochenendeinsätze Körperliche Fitness und Belastbarkeit Du bist gerne unterwegs, übernimmst Verantwortung und schätzt einen Arbeitsalltag, bei dem kein Tag genau gleich aussieht? Dann möchten wir dich kennenlernen. Steig ein und werde Teil unseres Teams!",
+        "fr": "Vous êtes responsable de la livraison en temps opportun de tous les produits inclus dans la gamme Orion à nos clients, principalement dans la restauration et les événements. Vous assurez la navigabilité du véhicule conformément aux exigences de la Loi sur la circulation routière. Dans cette activité vivante et polyvalente, vous êtes pour\n• Tâches à assumer : remplir les réservoirs du client avec un City Liner dans toute la Suisse Entretien et entretien du système semi-remorque selon les normes spécifiées Gestion et manœuvre spécialisées d'un City Liner Gestion consciente des documents de qualité Support dans le transport distribution fine et entrepôt selon les besoins Nuit dans le camion une ou deux fois par semaine selon les besoins\n• Accomplir avec succès les tâches, nous attendons les conditions préalables suivantes: Conducteur d'approbation C et E Expérience de travail en tant que chauffeur Première personne de contact avec des manières impeccables, la fiabilité et l'engagement Les méthodes de travail indépendantes et fiables vous distinguent des bonnes compétences allemandes en paroles et en écriture. M. Roger Roggo, associé d'affaires RH, attend avec impatience vos documents de demande complets."
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6003",
+      "streetAddress": "Luzern, LU",
+      "category": "Logistica",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-tankwagenfahrer-ce-gastronomie-events-mwd-100?jobid=127858",
+      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=127858&career_ns=job_application",
+      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-17T09:34:54.273Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "chauffeur-kat-c-e-heineken-ch-luzern",
+          "chauffeur-tankwagenfahrer-ce-gastronomie-events-m-w-d-100-heineken-ch-luzern"
+        ],
+        "it": [
+          "autista-c-e-heineken-switzerland-content-width-device-width",
+          "driver-c-e-heineken-switzerland-content-width-device-width",
+          "chauffeur-c-e-heineken-switzerland-content-width-device-width",
+          "autista-cat-c-e-heineken-switzerland-luzern",
+          "autista-c-e-heineken-switzerland-warum-zu-uns",
+          "chauffeur-c-e-orion-heineken-ch-luzern",
+          "chauffeur-tankwagenfahrer-ce-gastronomie-events-m-w-d-100-heineken-ch-luzern",
+          "bezeichnung-chauffeur-c-e-heineken-ch-content-width-device-width",
+          "driver-c-e-heineken-switzerland-warum-zu-uns",
+          "driver-c-e-heineken-switzerland-luzern",
+          "driver-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
+          "title-chauffeur-kat-c-e-heineken-ch-warum-zu-uns",
+          "title-chauffeur-kat-c-e-heineken-ch-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
+          "chauffeur-c-e-heineken-switzerland-warum-zu-uns",
+          "chauffeur-c-e-heineken-switzerland-luzern",
+          "chauffeur-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
+          "autista-di-camion-heineken-switzerland-content-width-device-width",
+          "chauffeur-de-camion-heineken-switzerland-content-width-device-width",
+          "titre-truck-driver-heineken-switzerland-content-width-device-width",
+          "autista-di-camion-heineken-switzerland-content-width-device-width-bteei3"
+        ],
+        "en": [
+          "driver-cat-c-e-heineken-switzerland-luzern"
+        ],
+        "fr": [
+          "chauffeur-cat-c-e-heineken-switzerland-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "title-chauffeur-kat-c-e-heineken-ch-content-width-device-width",
+        "autista-c-e-heineken-switzerland-luzern",
+        "autista-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
+        "title-truck-driver-heineken-ch-content-width-device-width",
+        "bezeichnung-chauffeur-c-e-heineken-ch-content-width-device-width",
+        "driver-c-e-heineken-switzerland-warum-zu-uns",
+        "driver-c-e-heineken-switzerland-luzern",
+        "driver-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
+        "title-chauffeur-kat-c-e-heineken-ch-warum-zu-uns",
+        "title-chauffeur-kat-c-e-heineken-ch-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
+        "chauffeur-c-e-heineken-switzerland-warum-zu-uns",
+        "chauffeur-c-e-heineken-switzerland-luzern",
+        "chauffeur-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
+        "autista-di-camion-heineken-switzerland-content-width-device-width",
+        "chauffeur-de-camion-heineken-switzerland-content-width-device-width",
+        "titre-truck-driver-heineken-switzerland-content-width-device-width",
+        "autista-di-camion-heineken-switzerland-content-width-device-width-bteei3",
+        "autista-c-e-heineken-switzerland-content-width-device-width",
+        "driver-c-e-heineken-switzerland-content-width-device-width",
+        "chauffeur-c-e-heineken-switzerland-content-width-device-width",
+        "driver-cat-c-e-heineken-switzerland-luzern",
+        "chauffeur-kat-c-e-heineken-ch-luzern",
+        "chauffeur-cat-c-e-heineken-switzerland-luzern",
+        "autista-cat-c-e-heineken-switzerland-luzern",
+        "autista-c-e-heineken-switzerland-warum-zu-uns",
+        "chauffeur-c-e-orion-heineken-ch-luzern",
+        "chauffeur-tankwagenfahrer-ce-gastronomie-events-m-w-d-100-heineken-ch-luzern"
+      ],
+      "firstSeenAt": "2026-09-10T23:22:07.997Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-17T09:34:54.273Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "heineken-ch-a85de7fe0f2b",
+      "jobReqId": "165451",
+      "slug": "tecnico-dbo-m-f-d-heineken-switzerland-denges",
+      "slugByLocale": {
+        "it": "tecnico-dbo-m-f-d-heineken-switzerland-denges",
+        "en": "technician-dbo-m-w-d-heineken-ch-denges",
+        "de": "technician-dbo-m-w-d-heineken-ch-denges",
+        "fr": "technicien-dbo-m-w-d-heineken-switzerland-denges"
+      },
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Technician DBO (m/w/d)",
+      "titleByLocale": {
+        "it": "Tecnico DBO (m/f/d)",
+        "en": "Technician DBO (m/f/d)",
+        "de": "Techniker DBO (m/w/d)",
+        "fr": "Technician DBO (m/w/d)"
+      },
+      "description": "Ce poste intéressant et varié comprend les axes principaux suivants : Réalisation des opérations de maintenance et d’entretien, et rédaction d’un rapport d’état sur les systèmes de distribution en vrac, ainsi que les montages et démontages Résolution efficace et dans les délais des pannes (travaux de réparation) chez le client, ainsi que contrôle d’entretien des installations conformément au manuel Installation irréprochable et respectueuse des normes de qualité des systèmes de tirage de bière Assistance aux responsables régionaux du service après-vente (conseil à la clientèle) lors de la conception ou de la modification d’installations chez les clients en ce qui concerne le matériel, le montage, les croquis, etc. Mise en service des installations de débit de bière et formation des clients, y compris les formalités administratives sur place (signature des contrats, rédaction de rapports) Des astreintes sporadiques font également partie de ce domaine d’activité Nos exigences : Apprentissage technique achevé (mécanique, installation ou équivalent) Plusieurs années d’expérience professionnelle dans la maintenance technique, le montage et la mise en service d’équipements complexes Une méthode de travail rigoureuse et autonome, alliée à un bon contact avec les autres Un sens des responsabilités, la capacité à répondre aux différents besoins de nos clients sur le marché et à cerner leurs attentes, ainsi qu’un tempérament équilibré sont essentiels pour cette fonction. Bonnes connaissances des outils informatiques (applications MS Office) Très bonne maîtrise du français ainsi qu’une bonne maîtrise de l’allemand à l’oral et à l’écrit Un permis de conduire valide est indispensable (catégorie B, éventuellement C/C1) Domicile en Suisse romande avec un bon accès à la zone d’intervention",
+      "descriptionByLocale": {
+        "it": "Infrastrutture di trasporto Mise en service des installazioni de débit de bière et formazione des client, y compris les formalité Des astreintes sporadiques font également partie de ce domaine d’activité Nos exigences: Apprentissage technology achevé (mécanique, install ou équivalent) Plusieurs années d’expérience professionnelle dans la tecnica di manutenzione, le montage et la mise en service d’équipements complessies Une méthode de travail rigoureuse et autonome, alliée à un bon contact avec les autres Nel senso delle responsabilità, la capacità di rispondere alle difficoltà di nessun cliente sul mercato e sul mercato per la fornitura di servizi, è essenziale per la fornitura di servizi. Bonnes connaissances des outils informatiques (applicazioni MS Office) Très bonne maîtrise du français Un permis de conduire valide est indispensabili (catégorie B, éventuellement C/C1) Domicile en Suisse romande avec un bon accès à la zone d’intervention",
+        "en": "Poste intéressant et varié comprend les axes principaux suivants : Réalisation des operations de maintenance et d’entretien, et rédaction d’rapport d’état sur les systèmes de distribution en vrac, ainsi que les montages et démontages Résolution efficace et dans les délais des installations conformément au manuel Installation irréprochable et respectueuse des normes de qualité des systèmes de tirage de bière assistance aux responsables régionaux du service après-vente (conseil à la clientèle) lors de la conception ou de la modification d’installations chez les clients en ce qui concerne le matériel, le montage, les croquis, etc. Mise en service des installations de débit de bière et formation des clients, y compris les formalité Des astreintes sporadiques font également partie de ce domaine d’activité Nos exigences : Apprentissage technique achevé (mécanique, installation ou équivalent) Plusieurs années d’expérience professionnelle dans la maintenance technique, le montage et la mise en service d’équipements complexes Une méthode de travail rigoureuse et autonome, alliée à un bon contact avec les autres In the sense of the responsabilities, the capacity to respond to the difficulties of no clients on the market and on the market for the supply of services, it is essential for the provision of services. Bonnes connaissances des outils informatiques (applications MS Office) Très bonne maîtrise du français ainsi qu’une bonne maîtrise de l’allemand à l’oral et à l’écrit Un permis de conduire valide est indispensable (catégorie B, éventuellement C/C1) Domicile en Suisse romande avec un bon accès à la zone d’intervention",
+        "de": "Diese interessante und abwechslungsreiche Position umfasst die folgenden Hauptachsen: Durchführung von Wartungs- und Wartungsarbeiten und Verfassen eines Statusberichts über Massenverteilungssysteme sowie Montage und Demontage Effektive und rechtzeitige Auflösung von Pannen (Reparaturarbeiten) beim Kunden sowie Überwachung der Wartung der Anlagen gemäß der manuellen einwandfreien Installation und Einhaltung der Qualitätsstandards von Bierzeichnungssystemen Unterstützung für regionale Post-Sales-Service-Manager (Kundenberatung) bei der Gestaltung oder Änderung von Anlagen auf Kundenebene in Bezug auf Ausrüstung, Montage, Skizzen usw. Die Umsetzung von Bierliefereinrichtungen und Kundenschulungen, einschließlich der Verwaltungsverfahren vor Ort (Vertragsunterzeichnung, Berichterstattung) Sporadische Strafen gehören ebenfalls zu diesem Tätigkeitsbereich. Unsere\n• Anforderungen: Abgeschlossenes technisches Lernen (mechanisch, Installation oder gleichwertig) Mehrjährige Berufserfahrung in der technischen Wartung, Montage und Inbetriebnahme komplexer Geräte Eine strenge und autonome Arbeitsweise, kombiniert mit gutem Kontakt mit anderen Ein Verantwortungsbewusstsein, die Fähigkeit, die unterschiedlichen Bedürfnisse unserer Kunden auf dem Markt zu erfüllen und ihre Erwartungen zu erkennen, sowie ein ausgewogenes Temperament sind für diese Funktion unerlässlich. Gute Kenntnisse der IT-Tools (MS Office-Anwendungen) Sehr gute Französischkenntnisse sowie gute Deutschkenntnisse in mündlicher und schriftlicher Form Ein gültiger Führerschein ist unerlässlich (Kategorie B, möglicherweise C/C1) Home in der französischsprachigen Schweiz mit gutem Zugang zur Interventionszone",
+        "fr": "Ce poste intéressant et varié comprend les axes principaux suivants : Réalisation des opérations de maintenance et d’entretien, et rédaction d’un rapport d’état sur les systèmes de distribution en vrac, ainsi que les montages et démontages Résolution efficace et dans les délais des pannes (travaux de réparation) chez le client, ainsi que contrôle d’entretien des installations conformément au manuel Installation irréprochable et respectueuse des normes de qualité des systèmes de tirage de bière Assistance aux responsables régionaux du service après-vente (conseil à la clientèle) lors de la conception ou de la modification d’installations chez les clients en ce qui concerne le matériel, le montage, les croquis, etc. Mise en service des installations de débit de bière et formation des clients, y compris les formalités administratives sur place (signature des contrats, rédaction de rapports) Des astreintes sporadiques font également partie de ce domaine d’activité Nos exigences : Apprentissage technique achevé (mécanique, installation ou équivalent) Plusieurs années d’expérience professionnelle dans la maintenance technique, le montage et la mise en service d’équipements complexes Une méthode de travail rigoureuse et autonome, alliée à un bon contact avec les autres Un sens des responsabilités, la capacité à répondre aux différents besoins de nos clients sur le marché et à cerner leurs attentes, ainsi qu’un tempérament équilibré sont essentiels pour cette fonction. Bonnes connaissances des outils informatiques (applications MS Office) Très bonne maîtrise du français ainsi qu’une bonne maîtrise de l’allemand à l’oral et à l’écrit Un permis de conduire valide est indispensable (catégorie B, éventuellement C/C1) Domicile en Suisse romande avec un bon accès à la zone d’intervention"
+      },
+      "location": "Denges",
+      "canton": "VD",
+      "addressLocality": "Denges",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1026",
+      "streetAddress": "Denges, VD",
+      "category": "Tecnica",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/technician-dbo-mwd?jobid=165451",
+      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=165451&career_ns=job_application",
+      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-11-17T09:34:48.344Z",
+      "previousSlugs": [
+        "technician-dbo-m-w-d-heineken-ch-denges",
+        "techniker-dbo-m-w-d-heineken-switzerland-denges"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "technician-dbo-m-w-d-heineken-ch-denges"
+        ],
+        "de": [
+          "techniker-dbo-m-w-d-heineken-switzerland-denges"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T23:10:19.910Z",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 107500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-19T09:34:48.344Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "heineken-ch-d7d5efdbb829",
+      "jobReqId": "162220",
+      "slug": "logistica-key-account-specialista-m-w-d-80-100-heineken-switzerland-luzern",
+      "slugByLocale": {
+        "it": "logistica-key-account-specialista-m-w-d-80-100-heineken-switzerland-luzern",
+        "en": "logistics-key-account-specialist-m-w-d-80-100-heineken-ch-luzern",
+        "de": "logistics-key-account-specialist-m-w-d-80-100-heineken-ch-luzern",
+        "fr": "logistique-key-account-specialiste-m-w-d-80-100-heineken-switzerland-luzern"
+      },
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Logistics Key Account Specialist (m/w/d) (80-100%)",
+      "titleByLocale": {
+        "it": "Logistica Key Account Specialista (m/w/d) (80-100%)",
+        "en": "Logistics Key Account Specialist (m/f/d) (80-100%)",
+        "de": "Logistics Key Account Specialist (m/w/d) (80-100%)",
+        "fr": "Logistique Key Account Spécialiste (m/w/d) (80-100%)"
+      },
+      "description": "Deine Verantwortungen: Betreuung und Weiterentwicklung strategischer Logistikbeziehungen mit Schlüsselkunden zur Sicherstellung einer hohen Servicequalität Koordination der Zusammenarbeit zwischen Kunden sowie internen Bereichen wie Sales, Customer Service, Logistik und Transport Planung und Umsetzung von Optimierungsmassnahmen entlang der Supply Chain zur Steigerung von Service, Effizienz und Kundenzufriedenheit Überwachung der Logistikleistung und Sicherstellung der Einhaltung von Service-, Qualitäts- und Sicherheitsstandards Identifikation und Realisierung von Optimierungspotenzialen hinsichtlich Kosten, Prozessen und Kundenanforderungen Mitarbeit bei Projekten sowie der kontinuierlichen Weiterentwicklung von Prozessen und Schnittstellen im Verantwortungsbereich Das bringst du mit: Abgeschlossene Berufsausbildung sowie Berufserfahrung in den Bereichen Logistik, Supply Chain Management oder Customer Service Erfahrung in der Steuerung von Kundenbeziehungen und bereichsübergreifenden Projekten Gutes Verständnis logistischer Prozesse und kundenspezifischer Supply Chains Selbstständige, strukturierte und lösungsorientierte Arbeitsweise Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift \n• Das bieten wir dir: Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen",
+      "descriptionByLocale": {
+        "it": "Le vostre responsabilità: Supporto e ulteriore sviluppo di relazioni logistiche strategiche con i clienti chiave per garantire un'alta qualità del servizio Coordinamento della cooperazione tra i clienti e aree interne come vendite, servizio clienti, logistica e trasporto Pianificazione e implementazione di misure di ottimizzazione lungo la catena di fornitura per aumentare il servizio, l'efficienza e la soddisfazione del cliente Monitoraggio delle prestazioni logistiche e garantire la conformità con il servizio, la qualità e gli standard di sicurezza Identificazione e la realizzazione dei potenziali di ottimizzazione per quanto riguarda i costi, processi e i processi e le esigenze del cliente, nonché i progetti di interfaccia continua Porti con te: Formazione professionale completa e esperienza professionale nei settori della logistica, della gestione della supply chain o dell'esperienza del servizio clienti nella gestione delle relazioni con i clienti e dei progetti cross-divisionali Buona comprensione dei processi logistici e delle supply chain specifiche del cliente Metodo di lavoro indipendente, strutturato e orientato alla soluzione Buona conoscenza della lingua tedesca e buona conoscenza dell'inglese nella parola e nella scrittura\n• Questo è ciò che vi offriamo: Flessibilità & Work-Life-Balance: Ore di lavoro flessibili e lavoro ibrido Learning & Development: Offerte di formazione interna ed esterna, ad esempio formazione linguistica o il nostro Beer Academy Team Spirit & Culture: Eventi dipendenti regolari, apos aziendali mensili e celebrazioni congiunte Sconti & Extra: Sconti interessanti, ad esempio nel nostro negozio di bevande o nelle offerte culturali selezionate Eventi & Esperienze: Tartufi regolari di biglietti per festival, concerti e altri eventi Salute e benessere: Salute e supporto offerte per diverse situazioni di vita",
+        "en": "Your responsibilities: Support and further development of strategic logistics relationships with key customers to ensure a high quality of service Coordination of cooperation between customers as well as internal areas such as sales, customer service, logistics and transport Planning and implementation of optimization measures along the supply chain to increase service, efficiency and customer satisfaction Monitoring of logistics performance and ensuring compliance with service, quality and security standards Identification and realization of optimization potentials with regard to costs, processes and customer requirements Collaboration in projects as well as the continuous further development of processes and interfaces in the area of responsibility You bring with you: Completed vocational training as well as professional experience in the areas of logistics, supply chain management or customer service experience in the management of customer relationships and cross-divisional projects Good understanding of logistics processes and customer-specific supply chains Independent, structured and solution-oriented working method Very good knowledge of German and good knowledge of English in word and writing\n• This is what we offer you: Flexibility & Work-Life-Balance: Flexible working hours and hybrid working Learning & Development: Internal and external training offers, e.g. language training or our Beer Academy Team Spirit & Culture: Regular employee events, monthly company apos and joint celebrations Discounts & Extras: Attractive discounts, e.g. in our drink shop or in selected leisure and cultural offers Events & Experiences: Regular raffles of tickets for festivals, concerts and other events Health & Well-being: Health and support offers for different life situations",
+        "de": "Deine Verantwortungen: Betreuung und Weiterentwicklung strategischer Logistikbeziehungen mit Schlüsselkunden zur Sicherstellung einer hohen Servicequalität Koordination der Zusammenarbeit zwischen Kunden sowie internen Bereichen wie Sales, Customer Service, Logistik und Transport Planung und Umsetzung von Optimierungsmassnahmen entlang der Supply Chain zur Steigerung von Service, Effizienz und Kundenzufriedenheit Überwachung der Logistikleistung und Sicherstellung der Einhaltung von Service-, Qualitäts- und Sicherheitsstandards Identifikation und Realisierung von Optimierungspotenzialen hinsichtlich Kosten, Prozessen und Kundenanforderungen Mitarbeit bei Projekten sowie der kontinuierlichen Weiterentwicklung von Prozessen und Schnittstellen im Verantwortungsbereich Das bringst du mit: Abgeschlossene Berufsausbildung sowie Berufserfahrung in den Bereichen Logistik, Supply Chain Management oder Customer Service Erfahrung in der Steuerung von Kundenbeziehungen und bereichsübergreifenden Projekten Gutes Verständnis logistischer Prozesse und kundenspezifischer Supply Chains Selbstständige, strukturierte und lösungsorientierte Arbeitsweise Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift \n• Das bieten wir dir: Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen",
+        "fr": "Vos responsabilités: Soutenir et développer les relations stratégiques de logistique avec les principaux clients afin d'assurer une qualité de service élevée Coordination de la coopération entre les clients ainsi que des domaines internes tels que les ventes, le service à la clientèle, la logistique et les transports Planification et mise en œuvre de mesures d'optimisation le long de la chaîne d'approvisionnement pour accroître le service, l'efficacité et la satisfaction de la clientèle Suivi de la performance logistique et garantie du respect des normes de service, de qualité et de sécurité Identification et réalisation des possibilités d'optimisation en ce qui concerne les coûts, les processus et les besoins de la clientèle Collaboration dans les projets ainsi que le développement continu des processus et des interfaces dans le domaine de responsabilité Vous apportez avec vous: Formation professionnelle complétée ainsi que l'expérience professionnelle dans les domaines de la logistique, de la gestion de la chaîne d'approvisionnement ou de l'expérience du service à la clientèle dans la gestion des relations client et des projets interdivisions Bonne compréhension des processus logistiques et des chaînes d'approvisionnement spécifiques au client Méthode de travail indépendante, structurée et orientée vers la solution Très bonne connaissance de l'allemand et bonne connaissance de l'anglais en paroles et en écriture\n• Voici ce que nous vous offrons: Flexibilité & Work-Life-Balance: Flexibilité des horaires de travail et de travail hybride Apprentissage & Développement: Des formations internes et externes, p.ex. une formation linguistique ou notre équipe de Beer Academy Spirit & Culture: des événements réguliers pour les employés, des apos mensuels et des célébrations conjointes. Raffles régulières de billets pour les festivals, concerts et autres événements Santé et bien-être: Santé et offres de soutien pour différentes situations de vie"
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6003",
+      "streetAddress": "Luzern, LU",
+      "category": "Logistica",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/logistics-key-account-specialist-mwd-80-100?jobid=162220",
+      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162220&career_ns=job_application",
+      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-17T09:34:38.801Z",
+      "previousSlugs": [
+        "logistics-key-account-specialist-m-w-d-80-100-heineken-ch-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "logistics-key-account-specialist-m-w-d-80-100-heineken-ch-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-09-28T21:34:24.739Z",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69500,
+          "maxValue": 106000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2026-12-28T09:34:38.801Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "heineken-ch-3fa21e66e8a3",
+      "jobReqId": "164139",
+      "slug": "chauffeur-c-o-c1-m-w-d-arosa-heineken-switzerland-arosa",
+      "slugByLocale": {
+        "it": "chauffeur-c-o-c1-m-w-d-arosa-heineken-switzerland-arosa",
+        "en": "chauffeur-c-oder-c1-m-w-arosa-heineken-ch-arosa",
+        "de": "chauffeur-c-e-m-w-arosa-heineken-ch-arosa",
+        "fr": "chauffeur-c-oder-c1-m-w-arosa-heineken-ch-arosa"
+      },
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Chauffeur Kat. C1/C - Wintersaison 2026/27 Chur & Arosa",
+      "titleByLocale": {
+        "it": "Chauffeur Cat. C1/C - Stagione invernale 2026/27 Chur & Arosa",
+        "en": "Chauffeur Cat. C1/C - Winter season 2026/27 Chur & Arosa",
+        "de": "Chauffeur Kat. C1/C - Wintersaison 2026/27 Chur & Arosa",
+        "fr": "Chauffeur Cat. C1/C - Saison d'hiver 2026/27 Chur & Arosa"
+      },
+      "description": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir für die Wintersaison 2026/27, befristet von Dezember 2026 bis März 2027, eine selbständige und zuverlässige Persönlichkeit als Chauffeur Kat. C1/C. Dein Arbeitsort ist Chur. Aufgrund der Wintersaison wirst Du während dieser Zeit jedoch vermehrt in Arosa im Einsatz sein und unsere Gastronomiekunden in der Region beliefern. Deine Hauptaufgaben: Belieferung unserer Gastronomiekunden mit Bier und weiteren Getränken nach vorgegebenem Tourenplan Sicherstellung einer zuverlässigen und kundenorientierten Auslieferung Mithilfe im Lager, insbesondere beim Rüsten und Bereitstellen von Bestellungen Unterstützung bei Bedarf im Festservice Professioneller und freundlicher Kontakt mit unseren Kunden Unsere \n• Anforderungen: Gültiger Führerausweis der Kategorie C1 oder C Berufserfahrung als Chauffeur von Vorteil Selbständige, zuverlässige und verantwortungsbewusste Arbeitsweise Freundliches und verbindliches Auftreten sowie sehr gute Deutschkenntnisse Körperliche Fitness und Bereitschaft, tatkräftig mitanzupacken Erfahrung in der Kommissionierung und im Umgang mit Elektroameisen Idealerweise Wohnort in der Region, damit auch Pikett-Einsätze möglich sind Auch wenn es einmal hektischer wird, behältst Du den Überblick und überzeugst mit einer zuverlässigen und unkomplizierten Art. Hast Du Interesse an einer abwechslungsreichen Tätigkeit während der Wintersaison? Dann freuen wir uns auf Deine Bewerbung. Für Fragen steht Dir Javier Senande unter Tel. 079 593 11 59 zur Verfügung.",
+      "descriptionByLocale": {
+        "it": "Per la nostra controllata Stardrinks AG cerchiamo una personalità indipendente e affidabile come autista per la stagione invernale 2026/27, temporaneamente dal dicembre 2026 al marzo 2027. C1/C. Il tuo posto di lavoro e' Chur. A causa della stagione invernale Durante questo periodo, tuttavia, sarete sempre più in uso in Arosa e fornire i nostri clienti di catering nella regione. I vostri compiti principali: fornire ai nostri clienti di catering birra e altre bevande secondo un piano di tour specificato Garantire un'assistenza di consegna affidabile e orientata al cliente nel magazzino, soprattutto quando si imposta e fornisce l'assistenza agli ordini Se necessario nel Festservice Professional e amichevole contatto con i nostri clienti\n• Requisiti: Valida patente di guida della categoria C1 o C Esperienza professionale come autista vantaggioso Autolavoro, affidabile e responsabile metodi di lavoro Amichevole e vincolante, nonché buona conoscenza della fisica tedesca e la disponibilità ad affrontare attivamente l'esperienza nel raccogliere e gestire formiche elettriche Idealmente luogo di residenza nella regione, in modo che anche le assegnazioni pikett sono possibili Anche se diventa frenetica, si mantiene la visione d'insieme e convincere con un modo affidabile e semplice. Sei interessato a una variegata attività durante la stagione invernale? Attendiamo con ansia la vostra applicazione. Per domande, Javier Senande è disponibile a Tel. 079 593 11 59.",
+        "en": "For our subsidiary Stardrinks AG we are looking for an independent and reliable personality as a chauffeur cat for the winter season 2026/27, temporarily from December 2026 to March 2027. C1/C. Your place of work is Chur. Due to the winter season During this time, however, you will increasingly be in use in Arosa and supply our catering customers in the region. Your main tasks: supplying our catering customers with beer and other drinks according to a specified tour plan Ensuring a reliable and customer-oriented delivery assistance in the warehouse, especially when setting up and providing orders Support if necessary in the Festservice Professional and friendly contact with our customers Our\n• Requirements: Valid driving license of category C1 or C Professional experience as a chauffeur advantageous Self-employed, reliable and responsible working methods Friendly and binding appearance as well as very good knowledge of German Physical fitness and willingness to actively tackle experience in picking and handling electric ants Ideally place of residence in the region, so that also pikett assignments are possible Even if it gets hectic, you keep the overview and convince with a reliable and uncomplicated way. Are you interested in a varied activity during the winter season? We look forward to your application. For questions, Javier Senande is available at Tel. 079 593 11 59.",
+        "de": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir für die Wintersaison 2026/27, befristet von Dezember 2026 bis März 2027, eine selbständige und zuverlässige Persönlichkeit als Chauffeur Kat. C1/C. Dein Arbeitsort ist Chur. Aufgrund der Wintersaison wirst Du während dieser Zeit jedoch vermehrt in Arosa im Einsatz sein und unsere Gastronomiekunden in der Region beliefern. Deine Hauptaufgaben: Belieferung unserer Gastronomiekunden mit Bier und weiteren Getränken nach vorgegebenem Tourenplan Sicherstellung einer zuverlässigen und kundenorientierten Auslieferung Mithilfe im Lager, insbesondere beim Rüsten und Bereitstellen von Bestellungen Unterstützung bei Bedarf im Festservice Professioneller und freundlicher Kontakt mit unseren Kunden Unsere \n• Anforderungen: Gültiger Führerausweis der Kategorie C1 oder C Berufserfahrung als Chauffeur von Vorteil Selbständige, zuverlässige und verantwortungsbewusste Arbeitsweise Freundliches und verbindliches Auftreten sowie sehr gute Deutschkenntnisse Körperliche Fitness und Bereitschaft, tatkräftig mitanzupacken Erfahrung in der Kommissionierung und im Umgang mit Elektroameisen Idealerweise Wohnort in der Region, damit auch Pikett-Einsätze möglich sind Auch wenn es einmal hektischer wird, behältst Du den Überblick und überzeugst mit einer zuverlässigen und unkomplizierten Art. Hast Du Interesse an einer abwechslungsreichen Tätigkeit während der Wintersaison? Dann freuen wir uns auf Deine Bewerbung. Für Fragen steht Dir Javier Senande unter Tel. 079 593 11 59 zur Verfügung.",
+        "fr": "Pour notre filiale Stardrinks AG, nous recherchons une personnalité indépendante et fiable en tant que chauffeur pour la saison d'hiver 2026/27, temporairement de décembre 2026 à mars 2027. C1/C. Votre lieu de travail est Chur. En raison de la saison hivernale Pendant cette période, cependant, vous serez de plus en plus utilisé à Arosa et fournir nos clients de restauration dans la région. Vos tâches principales: fournir à nos clients de restauration de la bière et d'autres boissons selon un plan de visite spécifique Assurer une assistance fiable et orientée vers le client dans l'entrepôt, en particulier lors de la mise en place et de la prestation des commandes Support si nécessaire dans le Festservice Contact professionnel et amical avec nos clients\n• Exigences: Permis de conduire valide de catégorie C1 ou C Expérience professionnelle en tant que chauffeur avantageux Indépendant, fiable et responsable méthodes de travail Aspect amical et contraignant ainsi que très bonne connaissance de l'allemand Condition physique et volonté de s'attaquer activement à l'expérience dans la cueillette et la manutention des fourmis électriques Idéalement lieu de résidence dans la région, de sorte que également des missions pikett sont possibles Même si elle devient agitée, vous gardez l'aperçu et convainquez avec une manière fiable et non compliquée. Êtes-vous intéressé par une activité variée pendant la saison hivernale? Nous attendons avec impatience votre candidature. Pour toute question, Javier Senade est disponible au tél. 079 593 11 59."
+      },
+      "location": "Arosa",
+      "canton": "GR",
+      "addressLocality": "Arosa",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "7050",
+      "streetAddress": "Arosa, Graubünden",
+      "category": "Logistica",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-kat-c1c-wintersaison-202627-chur-arosa?jobid=164139",
+      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164139&career_ns=job_application",
+      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-17T09:34:30.639Z",
+      "previousSlugsByLocale": {
+        "de": [
+          "chauffeur-kat-c1-c-wintersaison-2026-27-chur-arosa-heineken-ch-arosa"
+        ],
+        "it": [
+          "chauffeur-kat-c1-c-wintersaison-2026-27-chur-arosa-heineken-ch-arosa"
+        ]
+      },
+      "previousSlugs": [
+        "chauffeur-kat-c1-c-wintersaison-2026-27-chur-arosa-heineken-ch-arosa"
+      ],
+      "firstSeenAt": "2026-11-09T09:49:59.139Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-02-08T09:34:30.639Z",
+      "validThroughSource": "last-observed-window"
+    },
+    {
+      "id": "heineken-ch-fae5aa8c7fef",
+      "jobReqId": "168001",
+      "slug": "event-portfolio-specialista-m-w-d-100-heineken-switzerland-luzern",
+      "slugByLocale": {
+        "it": "event-portfolio-specialista-m-w-d-100-heineken-switzerland-luzern",
+        "en": "event-portfolio-specialist-m-w-d-100-heineken-ch-luzern",
+        "de": "event-portfolio-specialist-m-w-d-100-heineken-ch-luzern",
+        "fr": "event-portfolio-specialiste-m-w-d-100-heineken-switzerland-luzern"
+      },
+      "company": "Heineken Switzerland",
+      "companyKey": "heineken-ch",
+      "companyDomain": "theheinekencompany.com",
+      "title": "Event Portfolio Specialist (m/w/d) 100%",
+      "titleByLocale": {
+        "it": "Event Portfolio Specialista (m/w/d) 100%",
+        "en": "Event portfolio specialist (m/f/d) 100%",
+        "de": "Event Portfolio Specialist (m/w/d) 100%",
+        "fr": "Event Portfolio Spécialiste (m/w/d) 100%"
+      },
+      "description": "Gestalte mit uns unvergessliche Eventerlebnisse! Ob Festival, Grossveranstaltung oder exklusiver Markenauftritt – hinter jedem erfolgreichen Event steckt eine durchdachte Planung und das passende Material. Genau hier kommst Du ins Spiel! Werde per 1. Januar 2027 oder nach Vereinbarung Teil unseres Event Teams und sorge dafür, dass unsere Biermarken an Events begeistern. In dieser vielseitigen Rolle verbindest Du Organisationstalent mit strategischem Weitblick, entwickelst unser nationales Eventmaterial-Portfolio weiter und bringst eigene Ideen und Projekte voran. Dabei arbeitest Du eng mit verschiedenen Teams zusammen und gestaltest die Zukunft unserer Eventauftritte aktiv mit. Deine \n• Aufgaben Eventmaterial im Griff: Du verantwortest unser nationales Eventmaterial-Portfolio und stellst sicher, dass Bestand, Qualität und Einsatzbereitschaft jederzeit stimmen. Vorausschauend planen: Du koordinierst Materialbedarf, Forecasts und Verfügbarkeiten und sorgst für eine optimale Ressourcenplanung. Beschaffung clever steuern: Du koordinierst Beschaffungen, Zumietungen sowie Wartungs- und Reparaturarbeiten und behältst dabei Qualität und Wirtschaftlichkeit im Blick. Portfolio weiterdenken: Du erkennst zukünftige Bedürfnisse, entwickelst unser Sortiment strategisch weiter und bringst innovative Lösungen auf den Weg. Marken erlebbar machen: Gemeinsam mit Event und Marketing sorgst Du dafür, dass unsere Brands durch passendes Eventmaterial überzeugend in Szene gesetzt werden. Projekte vorantreiben: Du leitest eigenständig Projekte von der ersten Idee über die Evaluation und Beschaffung bis zur erfolgreichen Umsetzung und optimierst bestehende Prozesse. Zahlen im Blick behalten: Du planst und überwachst Investitions- und Unterhaltsbudgets und verantwortest die dazugehörigen Bestell- und Administrationsprozesse. Das bringst Du mit Fundiertes Know-how: Du verfügst über eine abgeschlossene Ausbildung und idealerweise eine Weiterbildung in Eventmanagement, Marketing, Beschaffung, Logistik, Betriebswirtschaft oder Projektmanagement. Erfahrung, die zählt: Du bringst mehrjährige Berufserfahrung mit und hast bereits erfolgreich eigene Projekte geplant und umgesetzt. Organisationstalent: Du denkst voraus, setzt Prioritäten und behältst auch bei mehreren parallelen Themen den Überblick. Eigeninitiative: Du arbeitest selbstständig, übernimmst gerne Verantwortung und bringst eigene Ideen aktiv ein. Blick fürs Ganze: Du verbindest strategisches Denken mit einem guten Verständnis für Planung, Beschaffung und logistische Zusammenhänge. Teamspirit: Du begeisterst Dich für Events und Marken und schätzt die Zusammenarbeit mit unterschiedlichen Fachbereichen. Digital fit: Du bist versiert im Umgang mit MS Office und SAP und kommunizierst sehr gut auf Deutsch sowie gut auf Englisch. \n• Das bieten wir Dir Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen",
+      "descriptionByLocale": {
+        "it": "Il rispetto, il godimento e la qualità basati sulla passione sono tra i nostri valori fondamentali. Come produttore di birra con sedi di birreria a Chur e Lucerna, siamo una società di importanza nazionale. Ci concentriamo su un mix di tradizione, innovazione e prossimità del cliente. Con le nostre birre di marca, contribuiamo alla diversificata cultura della birra svizzera. Crea esperienze indimenticabili con noi! Che si tratti di un festival, di un evento importante o di un’esclusiva presenza di brand – dietro ogni evento di successo si trova una pianificazione premurosa e il materiale giusto. E' qui che entri in gioco! Entra a far parte del nostro team di eventi il 1 gennaio 2027 o su appuntamento e assicurati che i nostri brand di birra ispirino eventi. In questo ruolo versatile, combini talento organizzativo con la previsione strategica, sviluppi il nostro portafoglio di materiali per eventi nazionali e sviluppi le tue idee e progetti. Lavorate a stretto contatto con diverse squadre e formate attivamente il futuro delle nostre performance. Il tuo\n• Materiale Evento sotto controllo: Sei responsabile del nostro portafoglio di materiali per eventi nazionali e assicurati che stock, qualità e disponibilità operativa siano sempre giuste. Pianifica in anticipo: coordina i requisiti materiali, le previsioni e la disponibilità e assicura una pianificazione ottimale delle risorse. Acquisti di controllo intelligentemente: Lei coordina il lavoro di approvvigionamento, leasing e manutenzione e riparazione mentre tiene d'occhio la qualità e l'efficacia dei costi. Pensando al portfolio: Riconoscete le esigenze future, sviluppate strategicamente la nostra gamma e lanciate soluzioni innovative. Rendere le marche tangibili: insieme all'evento e al marketing Ti per il fatto che i nostri marchi sono presentati in modo convincente da materiale di evento adatto. Progetti pilota: Gestisci in modo indipendente i progetti dalla prima idea attraverso la valutazione e l'approvvigionamento per implementare e ottimizzare i processi esistenti. Tieni d'occhio le figure: Pianifichi e monitori i bilanci di investimento e manutenzione e sei responsabile dei corrispondenti processi di ordinazione e amministrazione. Porti questo con un know-how ben fondato: Hai una formazione completa e idealmente un'ulteriore formazione nella gestione degli eventi, nel marketing, nell'approvvigionamento, nella logistica, nell'amministrazione aziendale o nella gestione dei progetti. Esperienza che conta: Hai diversi anni di esperienza professionale e hai già pianificato e implementato con successo i tuoi progetti. Talenti organizzativi: Pensate avanti, impostate le priorità e tenete traccia di diversi argomenti paralleli. Iniziativa: Lei lavora in modo indipendente, come prendersi la responsabilità e contribuire attivamente le proprie idee. Cercate il tutto: combinate il pensiero strategico con una buona comprensione di pianificazione, approvvigionamento e connessioni logistiche. Spirito di squadra: Sei entusiasta di eventi e marchi e apprezzi la collaborazione con diverse aree specializzate. Digital fit: Sei ben versato nel trattare con MS Office e SAP e comunicare molto bene in tedesco e in inglese.\n• Questo è ciò che vi offriamo Flexibility & Work-Life Balance: orari di lavoro flessibili e lavoro ibrido Learning & Development: offerte di formazione interna ed esterna, ad esempio formazione di lingua o il nostro Beer Academy Team Spirit & Culture: eventi di dipendenti regolari, apos aziendali mensili e celebrazioni congiunte Sconti & Extra: sconti interessanti, ad esempio nel nostro negozio di bevande o in offerte ricreative e culturali selezionate Tartufi regolari di biglietti per festival, concerti e altri eventi Salute e benessere: Salute e supporto offerte per diverse situazioni di vita",
+        "en": "Respect, enjoyment and quality based on passion are among our core values. As a beer producer with brewery locations in Chur and Lucerne, we are a company of national importance. We focus on a mix of tradition, innovation and customer proximity. With our brand beers, we contribute to the diverse Swiss beer culture. Create unforgettable event experiences with us! Whether it’s a festival, a major event or an exclusive brand presence – behind every successful event lies thoughtful planning and the right material. This is where you come into play! Become part of our event team on January 1, 2027 or by appointment and make sure that our beer brands inspire events. In this versatile role, you combine organizational talent with strategic foresight, develop our national event material portfolio and advance your own ideas and projects. You work closely with different teams and actively shape the future of our event performances. Your\n• Event material under control: You are responsible for our national event material portfolio and ensure that stock, quality and operational readiness are right at all times. Plan ahead: You coordinate material requirements, forecasts and availability and ensure optimal resource planning. Control procurement cleverly: You coordinate procurement, leasing and maintenance and repair work while keeping an eye on quality and cost-effectiveness. Thinking portfolio further: You recognize future needs, strategically develop our range and launch innovative solutions. Making brands tangible: together with event and marketing You for the fact that our brands are presented convincingly by suitable event material. Drive projects: You independently manage projects from the first idea through evaluation and procurement to successful implementation and optimize existing processes. Keep an eye on figures: You plan and monitor investment and maintenance budgets and are responsible for the corresponding ordering and administration processes. You bring this with well-founded know-how: You have a completed training and ideally a further education in event management, marketing, procurement, logistics, business administration or project management. Experience that counts: You have several years of professional experience and have already successfully planned and implemented your own projects. Organizational talent: You think ahead, set priorities and keep track of several parallel topics. Own initiative: You work independently, like to take responsibility and actively contribute your own ideas. Look for the whole: You combine strategic thinking with a good understanding of planning, procurement and logistical connections. Team spirit: You are enthusiastic about events and brands and appreciate the cooperation with different specialist areas. Digital fit: You are well versed in dealing with MS Office and SAP and communicate very well in German as well as in English.\n• This is what we offer you Flexibility & Work-Life Balance: Flexible working hours and hybrid working Learning & Development: Internal and external training offers, e.g. language training or our Beer Academy Team Spirit & Culture: Regular employee events, monthly company apos and joint celebrations Discounts & Extras: Attractive discounts, e.g. in our drink shop or in selected leisure and cultural offers Events & Experiences: Regular raffles of tickets for festivals, concerts and other events Health & Well-being: Health and support offers for different life situations",
+        "de": "Gestalte mit uns unvergessliche Eventerlebnisse! Ob Festival, Grossveranstaltung oder exklusiver Markenauftritt – hinter jedem erfolgreichen Event steckt eine durchdachte Planung und das passende Material. Genau hier kommst Du ins Spiel! Werde per 1. Januar 2027 oder nach Vereinbarung Teil unseres Event Teams und sorge dafür, dass unsere Biermarken an Events begeistern. In dieser vielseitigen Rolle verbindest Du Organisationstalent mit strategischem Weitblick, entwickelst unser nationales Eventmaterial-Portfolio weiter und bringst eigene Ideen und Projekte voran. Dabei arbeitest Du eng mit verschiedenen Teams zusammen und gestaltest die Zukunft unserer Eventauftritte aktiv mit. Deine \n• Aufgaben Eventmaterial im Griff: Du verantwortest unser nationales Eventmaterial-Portfolio und stellst sicher, dass Bestand, Qualität und Einsatzbereitschaft jederzeit stimmen. Vorausschauend planen: Du koordinierst Materialbedarf, Forecasts und Verfügbarkeiten und sorgst für eine optimale Ressourcenplanung. Beschaffung clever steuern: Du koordinierst Beschaffungen, Zumietungen sowie Wartungs- und Reparaturarbeiten und behältst dabei Qualität und Wirtschaftlichkeit im Blick. Portfolio weiterdenken: Du erkennst zukünftige Bedürfnisse, entwickelst unser Sortiment strategisch weiter und bringst innovative Lösungen auf den Weg. Marken erlebbar machen: Gemeinsam mit Event und Marketing sorgst Du dafür, dass unsere Brands durch passendes Eventmaterial überzeugend in Szene gesetzt werden. Projekte vorantreiben: Du leitest eigenständig Projekte von der ersten Idee über die Evaluation und Beschaffung bis zur erfolgreichen Umsetzung und optimierst bestehende Prozesse. Zahlen im Blick behalten: Du planst und überwachst Investitions- und Unterhaltsbudgets und verantwortest die dazugehörigen Bestell- und Administrationsprozesse. Das bringst Du mit Fundiertes Know-how: Du verfügst über eine abgeschlossene Ausbildung und idealerweise eine Weiterbildung in Eventmanagement, Marketing, Beschaffung, Logistik, Betriebswirtschaft oder Projektmanagement. Erfahrung, die zählt: Du bringst mehrjährige Berufserfahrung mit und hast bereits erfolgreich eigene Projekte geplant und umgesetzt. Organisationstalent: Du denkst voraus, setzt Prioritäten und behältst auch bei mehreren parallelen Themen den Überblick. Eigeninitiative: Du arbeitest selbstständig, übernimmst gerne Verantwortung und bringst eigene Ideen aktiv ein. Blick fürs Ganze: Du verbindest strategisches Denken mit einem guten Verständnis für Planung, Beschaffung und logistische Zusammenhänge. Teamspirit: Du begeisterst Dich für Events und Marken und schätzt die Zusammenarbeit mit unterschiedlichen Fachbereichen. Digital fit: Du bist versiert im Umgang mit MS Office und SAP und kommunizierst sehr gut auf Deutsch sowie gut auf Englisch. \n• Das bieten wir Dir Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen",
+        "fr": "Le respect, la jouissance et la qualité basées sur la passion font partie de nos valeurs fondamentales. En tant que producteur de bière avec des sites de brasserie à Chur et Lucerne, nous sommes une entreprise d'importance nationale. Nous nous concentrons sur un mélange de tradition, d'innovation et de proximité client. Avec nos bières de marque, nous contribuons à la diversité de la culture de la bière suisse. Créez des expériences inoubliables avec nous ! Qu'il s'agisse d'un festival, d'un événement majeur ou d'une présence exclusive de la marque – derrière chaque événement réussi se trouve une planification réfléchie et le bon matériel. C'est ici que vous entrez en jeu ! Faites partie de notre équipe le 1er janvier 2027 ou sur rendez-vous et assurez-vous que nos marques de bière inspirent les événements. Dans ce rôle polyvalent, vous combinez talent organisationnel et prospective stratégique, développez notre portefeuille national de matériel événementiel et faites avancer vos propres idées et projets. Vous travaillez en étroite collaboration avec différentes équipes et façonnez activement l'avenir de nos performances. Votre\n• Matériel d'événement sous contrôle : Vous êtes responsable de notre portefeuille national de matériel d'événement et vous assurez que les stocks, la qualité et la disponibilité opérationnelle sont corrects en tout temps. Planifier à l'avance : Vous coordonnez les besoins matériels, les prévisions et la disponibilité et vous assurez une planification optimale des ressources. Contrôlez astucieusement l'approvisionnement : Vous coordonnez les achats, leasing, maintenance et réparation tout en gardant un œil sur la qualité et la rentabilité. Vous reconnaissez les besoins futurs, développez stratégiquement notre gamme et lancez des solutions innovantes. Making brands tangible: with event and marketing Vous pour le fait que nos marques sont présentées de manière convaincante par du matériel d'événement approprié. Conduire les projets: Vous gérez les projets de manière indépendante depuis la première idée jusqu'à la mise en oeuvre réussie et l'optimisation des processus existants. Surveillez les chiffres : Vous planifiez et surveillez les budgets d'investissement et de maintenance et êtes responsable des processus de commande et d'administration correspondants. Vous apportez ceci avec un savoir-faire bien fondé: Vous avez une formation complète et idéalement une formation complémentaire en gestion d'événements, marketing, approvisionnement, logistique, administration d'entreprise ou gestion de projet. Expérience qui compte : Vous avez plusieurs années d'expérience professionnelle et avez déjà planifié et mis en œuvre avec succès vos propres projets. Les talents organisationnels : Vous pensez à l'avenir, fixez des priorités et suivez plusieurs sujets parallèles. Votre propre initiative : Vous travaillez de façon indépendante, aimez prendre des responsabilités et contribuer activement à vos propres idées. Recherchez l'ensemble: Vous combinez la pensée stratégique avec une bonne compréhension de la planification, des achats et des connexions logistiques. L'esprit d'équipe : Vous êtes enthousiaste envers les événements et les marques et appréciez la coopération avec différents domaines spécialisés. Coupe numérique: Vous êtes bien au fait de traiter avec MS Office et SAP et de communiquer très bien en allemand ainsi qu'en anglais.\n• C'est ce que nous vous offrons Flexibilité et équilibre entre vie professionnelle et vie professionnelle : horaires de travail flexibles et travail hybride Apprentissage et développement : offres de formation internes et externes, par exemple formation linguistique ou notre équipe de Beer Academy Spirit & Culture : événements réguliers pour les employés, apos mensuels de l'entreprise et célébrations conjointes Réductions et avantages : réductions attractives, par exemple dans notre magasin de boissons ou dans certaines offres de loisirs et culturelles Événements et expériences : Raffles régulières de billets pour les festivals, concerts et autres événements Santé & Bien-être: Santé et offres de soutien pour différentes situations de vie"
+      },
+      "location": "Luzern",
+      "canton": "LU",
+      "addressLocality": "Luzern",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6003",
+      "streetAddress": "Luzern, LU",
+      "category": "Commerciale",
+      "sector": "Industria / Alimentare",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "featured": false,
+      "datePosted": "",
+      "postedDate": "",
+      "postingDateSource": "unknown",
+      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/event-portfolio-specialist-mwd-100?jobid=168001",
+      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=168001&career_ns=job_application",
+      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
+      "sourceLang": "de",
+      "crawledAt": "2026-11-17T09:34:22.765Z",
+      "previousSlugs": [
+        "event-portfolio-specialist-m-w-d-100-heineken-ch-luzern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "event-portfolio-specialist-m-w-d-100-heineken-ch-luzern"
+        ],
+        "fr": [
+          "event-portfolio-specialist-m-w-d-100-heineken-ch-luzern"
+        ]
+      },
+      "firstSeenAt": "2026-10-28T21:49:25.082Z",
+      "salaryMin": 79000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 121500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "to-enrich",
+      "validThrough": "2027-01-27T09:34:22.765Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -347,11 +794,11 @@
         "de": "Specialist Business Applications & Operations (m/w/d)",
         "fr": "Spécialiste des applications métier et des opérations (h/f/d)"
       },
-      "description": "Deine Verantwortungen Verknüpfung von Geschäftsanforderungen mit technologischen Möglichkeiten und operativen Prioritäten Beratung interner Stakeholder bei technologischen und anwendungsbezogenen Fragestellungen Verantwortung für den zuverlässigen Betrieb, die Servicequalität und die Business Continuity der Business Applications Priorisierung und Koordination von Service Requests, Optimierungen und Änderungen innerhalb des RUN-Portfolios Steuerung des Incident- und Problemmanagements inklusive Root-Cause-Analysen und nachhaltiger Behebung wiederkehrender Probleme Koordination von AMS-Partnern, internen Fachpersonen und externen Anbietern Sicherstellung der vereinbarten Servicequalität und Förderung der operativen Exzellenz Förderung der kontinuierlichen Verbesserung von Anwendungen und Services Mitwirkung bei der Weiterentwicklung von Application Roadmaps Sicherstellung der reibungslosen Übergabe neuer Lösungen vom BUILD- in den RUN-Betrieb Koordination und Abstimmung operativer Prioritäten, Risiken, Ressourcen und Abhängigkeiten über verschiedene Applikationsbereiche hinweg Das bringst du mit Abgeschlossene Ausbildung oder Studium im Bereich Informationstechnologie, Informatik oder in einer vergleichbaren Fachrichtung Sehr gute Deutsch- und Englischkenntnisse Mindestens fünf Jahre Berufserfahrung im Bereich Business Applications und ERP-Systeme Erfahrung mit Application Management Services, Service Management und der Optimierung operativer Abläufe Fundierte Kenntnisse der ITIL-Prozesse und der Operational Governance Erfahrung im Incident- und Problemmanagement sowie in der nachhaltigen Verbesserung von Services Ausgeprägte Kommunikations- und Problemlösungskompetenz Fähigkeit zur Abwägung geschäftlicher Prioritäten, operativer Risiken und der Servicequalität Erfahrung mit agilen Arbeitsweisen und in der Projektumsetzung \n• Das bieten wir dir Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen",
+      "description": "Deine Verantwortungen Verknüpfung von Geschäftsanforderungen mit technologischen Möglichkeiten und operativen Prioritäten Beratung interner Stakeholder bei technologischen und anwendungsbezogenen Fragestellungen Verantwortung für den zuverlässigen Betrieb, die Servicequalität und die Business Continuity der Business Applications Priorisierung und Koordination von Service Requests, Optimierungen und Änderungen innerhalb des RUN-Portfolios Steuerung des Incident- und Problemmanagements inklusive Root-Cause-Analysen und nachhaltiger Behebung wiederkehrender Probleme Koordination von AMS-Partnern, internen Fachpersonen und externen Anbietern Sicherstellung der vereinbarten Servicequalität und Förderung der operativen Exzellenz Förderung der kontinuierlichen Verbesserung von Anwendungen und Services Mitwirkung bei der Weiterentwicklung von Application Roadmaps Sicherstellung der reibungslosen Übergabe neuer Lösungen vom BUILD- in den RUN-Betrieb Koordination und Abstimmung operativer Prioritäten, Risiken, Ressourcen und Abhängigkeiten über verschiedene Applikationsbereiche hinweg Das bringst du mit Abgeschlossene Ausbildung oder Studium im Bereich Informationstechnologie, Informatik oder in einer vergleichbaren Fachrichtung Sehr gute Deutsch- und Englischkenntnisse Mindestens fünf Jahre Berufserfahrung im Bereich Business Applications und ERP-Systeme Erfahrung mit Application Management Services, Service Management und der Optimierung operativer Abläufe Fundierte Kenntnisse der ITIL-Prozesse und der Operational Governance Erfahrung im Incident- und Problemmanagement sowie in der nachhaltigen Verbesserung von Services Ausgeprägte Kommunikations- und Problemlösungskompetenz Fähigkeit zur Abwägung geschäftlicher Prioritäten, operativer Risiken und der Servicequalität Erfahrung mit agilen Arbeitsweisen und in der Projektumsetzung\n• Das bieten wir dir Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen",
       "descriptionByLocale": {
         "it": "Le tue responsabilità\n\n- Collegamento dei requisiti aziendali con le possibilità tecnologiche e le priorità operative\n- Consulenza agli stakeholder interni su questioni tecnologiche e relative alle applicazioni\n- Responsabilità del funzionamento affidabile, della qualità del servizio e della continuità operativa delle applicazioni aziendali\n- Definizione delle priorità e coordinamento delle richieste di servizio, delle ottimizzazioni e delle modifiche all'interno del portafoglio RUN\n- Gestione degli incidenti e dei problemi, comprese le analisi delle cause principali e la risoluzione definitiva dei problemi ricorrenti\n- Coordinamento dei partner AMS, degli specialisti interni e dei fornitori esterni\n- Garanzia della qualità del servizio concordata e promozione dell'eccellenza operativa\n- Promozione del miglioramento continuo di applicazioni e servizi\n- Collaborazione all'evoluzione delle roadmap applicative\n- Garanzia della transizione senza intoppi delle nuove soluzioni dalla fase BUILD alla fase RUN\n- Coordinamento e allineamento delle priorità operative, dei rischi, delle risorse e delle dipendenze tra diverse aree applicative\n\nCosa porti con te\n\n- Formazione professionale completata o studi universitari nell'ambito delle tecnologie dell'informazione, dell'informatica o di una disciplina affine\n- Ottima conoscenza del tedesco e dell'inglese\n- Almeno cinque anni di esperienza professionale nell'ambito delle applicazioni aziendali e dei sistemi ERP\n- Esperienza nei servizi di Application Management, nel Service Management e nell'ottimizzazione dei processi operativi\n- Conoscenza approfondita dei processi ITIL e della governance operativa\n- Esperienza nella gestione degli incidenti e dei problemi, nonché nel miglioramento duraturo dei servizi\n- Spiccate capacità comunicative e di risoluzione dei problemi\n- Capacità di ponderare le priorità aziendali, i rischi operativi e la qualità del servizio\n- Esperienza con modalità di lavoro agili e nella realizzazione di progetti\n\nCosa ti offriamo\n\n- Flessibilità e equilibrio tra vita privata e lavoro: Orari di lavoro flessibili e lavoro ibrido\n- Apprendimento e sviluppo: Opportunità di formazione continua interne ed esterne, ad es. corsi di lingua o la nostra Beer Academy\n- Spirito di squadra & cultura: Eventi regolari per il personale, aperitivi aziendali mensili e festeggiamenti insieme\n- Sconti & extra: Sconti interessanti, ad es. nel nostro negozio di bevande o presso offerte selezionate per il tempo libero e la cultura\n- Eventi & esperienze: Sorteggi regolari di biglietti per festival, concerti e altri eventi\n- Salute & benessere: Servizi per la salute e il sostegno in diverse situazioni della vita",
         "en": "Your responsibilities\n\n- Linking business requirements with technological possibilities and operational priorities\n- Advising internal stakeholders on technological and application-related issues\n- Responsibility for the reliable operation, service quality and business continuity of Business Applications\n- Prioritization and coordination of service requests, optimizations and changes within the RUN portfolio\n- Management of incident and problem management, including root-cause analyses and sustainable resolution of recurring problems\n- Coordination of AMS partners, internal specialists and external providers\n- Ensuring the agreed service quality and promoting operational excellence\n- Promoting the continuous improvement of applications and services\n- Contributing to the further development of application roadmaps\n- Ensuring the smooth handover of new solutions from BUILD to RUN operations\n- Coordination and alignment of operational priorities, risks, resources and dependencies across various application areas\n\nWhat you bring\n\n- Completed vocational training or degree in information technology, computer science or a comparable field\n- Very good command of German and English\n- At least five years of professional experience in business applications and ERP systems\n- Experience with Application Management Services, service management and optimizing operational processes\n- In-depth knowledge of ITIL processes and operational governance\n- Experience in incident and problem management as well as sustainable service improvement\n- Strong communication and problem-solving skills\n- Ability to balance business priorities, operational risks, and service quality\n- Experience with agile ways of working and project implementation\n\nWhat we offer you\n\n- Flexibility & Work-Life Balance: Flexible working hours and hybrid work\n- Learning & Development: Internal and external training opportunities, e.g. language training or our Beer Academy\n- Team Spirit & Culture: Regular employee events, monthly company aperitifs, and shared celebrations\n- Discounts & Extras: Attractive discounts, e.g. in our beverage shop or on selected leisure and cultural offerings\n- Events & Experiences: Regular prize draws for tickets to festivals, concerts, and other events\n- Health & Well-Being: Health and support services for various life situations",
-        "de": "Deine Verantwortungen Verknüpfung von Geschäftsanforderungen mit technologischen Möglichkeiten und operativen Prioritäten Beratung interner Stakeholder bei technologischen und anwendungsbezogenen Fragestellungen Verantwortung für den zuverlässigen Betrieb, die Servicequalität und die Business Continuity der Business Applications Priorisierung und Koordination von Service Requests, Optimierungen und Änderungen innerhalb des RUN-Portfolios Steuerung des Incident- und Problemmanagements inklusive Root-Cause-Analysen und nachhaltiger Behebung wiederkehrender Probleme Koordination von AMS-Partnern, internen Fachpersonen und externen Anbietern Sicherstellung der vereinbarten Servicequalität und Förderung der operativen Exzellenz Förderung der kontinuierlichen Verbesserung von Anwendungen und Services Mitwirkung bei der Weiterentwicklung von Application Roadmaps Sicherstellung der reibungslosen Übergabe neuer Lösungen vom BUILD- in den RUN-Betrieb Koordination und Abstimmung operativer Prioritäten, Risiken, Ressourcen und Abhängigkeiten über verschiedene Applikationsbereiche hinweg Das bringst du mit Abgeschlossene Ausbildung oder Studium im Bereich Informationstechnologie, Informatik oder in einer vergleichbaren Fachrichtung Sehr gute Deutsch- und Englischkenntnisse Mindestens fünf Jahre Berufserfahrung im Bereich Business Applications und ERP-Systeme Erfahrung mit Application Management Services, Service Management und der Optimierung operativer Abläufe Fundierte Kenntnisse der ITIL-Prozesse und der Operational Governance Erfahrung im Incident- und Problemmanagement sowie in der nachhaltigen Verbesserung von Services Ausgeprägte Kommunikations- und Problemlösungskompetenz Fähigkeit zur Abwägung geschäftlicher Prioritäten, operativer Risiken und der Servicequalität Erfahrung mit agilen Arbeitsweisen und in der Projektumsetzung \n• Das bieten wir dir Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen",
+        "de": "Deine Verantwortungen Verknüpfung von Geschäftsanforderungen mit technologischen Möglichkeiten und operativen Prioritäten Beratung interner Stakeholder bei technologischen und anwendungsbezogenen Fragestellungen Verantwortung für den zuverlässigen Betrieb, die Servicequalität und die Business Continuity der Business Applications Priorisierung und Koordination von Service Requests, Optimierungen und Änderungen innerhalb des RUN-Portfolios Steuerung des Incident- und Problemmanagements inklusive Root-Cause-Analysen und nachhaltiger Behebung wiederkehrender Probleme Koordination von AMS-Partnern, internen Fachpersonen und externen Anbietern Sicherstellung der vereinbarten Servicequalität und Förderung der operativen Exzellenz Förderung der kontinuierlichen Verbesserung von Anwendungen und Services Mitwirkung bei der Weiterentwicklung von Application Roadmaps Sicherstellung der reibungslosen Übergabe neuer Lösungen vom BUILD- in den RUN-Betrieb Koordination und Abstimmung operativer Prioritäten, Risiken, Ressourcen und Abhängigkeiten über verschiedene Applikationsbereiche hinweg Das bringst du mit Abgeschlossene Ausbildung oder Studium im Bereich Informationstechnologie, Informatik oder in einer vergleichbaren Fachrichtung Sehr gute Deutsch- und Englischkenntnisse Mindestens fünf Jahre Berufserfahrung im Bereich Business Applications und ERP-Systeme Erfahrung mit Application Management Services, Service Management und der Optimierung operativer Abläufe Fundierte Kenntnisse der ITIL-Prozesse und der Operational Governance Erfahrung im Incident- und Problemmanagement sowie in der nachhaltigen Verbesserung von Services Ausgeprägte Kommunikations- und Problemlösungskompetenz Fähigkeit zur Abwägung geschäftlicher Prioritäten, operativer Risiken und der Servicequalität Erfahrung mit agilen Arbeitsweisen und in der Projektumsetzung\n• Das bieten wir dir Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen",
         "fr": "Vos responsabilités\n\n- Mise en relation des exigences métier avec les possibilités technologiques et les priorités opérationnelles\n- Conseil aux parties prenantes internes sur les questions technologiques et liées aux applications\n- Responsabilité du fonctionnement fiable, de la qualité de service et de la continuité des activités des applications métier\n- Priorisation et coordination des demandes de service, des optimisations et des changements au sein du portefeuille RUN\n- Pilotage de la gestion des incidents et des problèmes, y compris les analyses des causes racines et la résolution durable des problèmes récurrents\n- Coordination des partenaires AMS, des spécialistes internes et des prestataires externes\n- Garantie de la qualité de service convenue et promotion de l’excellence opérationnelle\n- Promotion de l’amélioration continue des applications et des services\n- Participation à l’évolution des feuilles de route des applications\n- Assurer le transfert fluide des nouvelles solutions du mode BUILD au mode RUN\n- Coordination et alignement des priorités, des risques, des ressources et des dépendances opérationnels dans différents domaines applicatifs\n\nCe que vous apportez\n\n- Formation professionnelle achevée ou études dans le domaine des technologies de l’information, de l’informatique ou dans une discipline comparable\n- Très bonne maîtrise de l’allemand et de l’anglais\n- Au moins cinq ans d’expérience professionnelle dans le domaine des applications métier et des systèmes ERP\n- Expérience des services de gestion des applications, de la gestion des services et de l’optimisation des processus opérationnels\n- Connaissances approfondies des processus ITIL et de la gouvernance opérationnelle\n- Expérience de la gestion des incidents et des problèmes ainsi que de l’amélioration durable des services\n- Compétences avérées en communication et en résolution de problèmes\n- Capacité à mettre en balance les priorités métier, les risques opérationnels et la qualité de service\n- Expérience des méthodes de travail agiles et de la mise en œuvre de projets\n\nCe que nous vous offrons\n\n- Flexibilité et équilibre entre vie professionnelle et vie privée : horaires de travail flexibles et travail hybride\n- Apprentissage & développement : offres de formation continue internes et externes, p. ex. des formations linguistiques ou notre Beer Academy\n- Esprit d’équipe & culture : événements réguliers pour le personnel, apéritifs mensuels de l’entreprise et célébrations communes\n- Réductions et avantages : Des réductions attrayantes, p. ex. dans notre boutique de boissons ou pour certaines offres de loisirs et de culture\n- Événements et expériences : Tirages au sort réguliers de billets pour des festivals, des concerts et d’autres événements\n- Santé et bien-être : Offres de santé et de soutien pour différentes situations de vie"
       },
       "location": "Luzern",
@@ -407,452 +854,8 @@
       },
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-15T21:55:48.222Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "heineken-ch-3ed8481a3b74",
-      "jobReqId": "127858",
-      "slug": "autista-c-e-orion-heineken-switzerland-luzern",
-      "slugByLocale": {
-        "it": "autista-c-e-orion-heineken-switzerland-luzern",
-        "en": "driver-c-e-orion-heineken-switzerland-luzern",
-        "de": "chauffeur-c-e-orion-heineken-ch-luzern",
-        "fr": "chauffeur-c-e-orion-heineken-ch-luzern"
-      },
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Chauffeur / Tankwagenfahrer CE Gastronomie & Events (m/w/d) - 100%",
-      "titleByLocale": {
-        "it": "Autista C/E Orion",
-        "en": "Driver C/E Orion",
-        "de": "Chauffeur / Tankwagenfahrer CE Gastronomie & Events (m/w/d) - 100%",
-        "fr": "Chauffeur C/E Orion"
-      },
-      "description": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 17 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Bewege Hektoliter und steuere unseren City Liner quer durch die Schweiz! Hinter jedem grossen Event und jeder gut besuchten Gastronomie steckt eine Logistik, die zuverlässig funktioniert. Und genau hier kommst du ins Spiel. Als wichtiger Teil unseres Orion-Teams sorgst du dafür, dass unseren Kunden der Nachschub nicht ausgeht. Mit unserem modernen City Liner bist du in der ganzen Schweiz unterwegs, belieferst unsere Gastronomiekunden direkt vor Ort und stellst eine reibungslose Versorgung sicher. Du bist gerne auf Achse, packst mit an und suchst eine abwechslungsreiche Fahrtätigkeit mit Verantwortung? Dann bist du bei uns genau richtig. In dieser vielseitigen Funktion erwartet dich mehr als nur das Fahren von A nach B: Du befüllst Kundentanks mit dem City Liner und bist dafür in der ganzen Schweiz unterwegs Du führst und manövrierst den City Liner sicher und fachkundig Du sorgst dafür, dass die Aufliegeranlage gemäss unseren Standards gewartet und gepflegt ist Du führst die erforderlichen Qualitätsdokumente gewissenhaft und zuverlässig Bei Bedarf unterstützt du deine Kolleginnen und Kollegen in der Transport-Feinverteilung sowie im Lager Je nach Tour übernachtest du ein- bis zweimal pro Woche im LKW Das bringst du mit Führerausweis der Kategorien C und E Berufserfahrung als Chauffeur Ein freundliches und professionelles Auftreten, denn bei unseren Kunden bist du eine wichtige Ansprechperson und das Gesicht unseres Unternehmens vor Ort Eine selbstständige, zuverlässige und verantwortungsbewusste Arbeitsweise Gute Deutschkenntnisse in Wort und Schrift Bereitschaft für einen frühen Arbeitsbeginn ab ca. 04:30 Uhr sowie gelegentliche Wochenendeinsätze Körperliche Fitness und Belastbarkeit Du bist gerne unterwegs, übernimmst Verantwortung und schätzt einen Arbeitsalltag, bei dem kein Tag genau gleich aussieht? Dann möchten wir dich kennenlernen. Steig ein und werde Teil unseres Teams!",
-      "descriptionByLocale": {
-        "it": "Sei responsabile della consegna tempestiva di tutti i prodotti inclusi nella gamma Orion ai nostri clienti, principalmente nella ristorazione ed eventi. Assicurare la roadworthiness del veicolo in conformità con i requisiti del Road Traffic Act. In questa attività vivace e versatile siete per i seguenti\n• Compiti responsabili: riempimento di serbatoi con un City Liner in tutta la Svizzera Manutenzione e manutenzione del sistema di semirimorchio secondo gli standard specificati Gestione specializzata e manovra di una City Liner Gestione consapevole dei documenti di qualità Supporto nel trasporto distribuzione fine e magazzino come richiesto Pernottamento nel camion una o due volte alla settimana come richiesto\n• Compiti di successo, ci aspettiamo i seguenti prerequisiti: Autista C ed E Work esperienza come autista Prima persona di contatto con modi impeccabile, affidabilità e impegno Metodi di lavoro autonomi e affidabili ti distinguono dalle Buone competenze tedesche in parola e scrittura Prontezza per l'inizio del lavoro (04:30) e weekend assegnazioni se necessario (principalmente sabato) Fisicamente adatta e resiliente Interessi? Il signor Roger Roggo, HR Business Partner, non vede l'ora di presentare i suoi documenti completi.",
-        "en": "You are responsible for the timely delivery of all products contained in the Orion range to our customers, mainly in the catering industry and at events. You ensure the vehicle's suitability for traffic according to the regulations of the Road Traffic Act.\n\nIn this lively and versatile activity you are responsible for the following\n• tasks: Filling customer tanks with a City Liner throughout Switzerland Maintenance and maintenance of the trailer system according to specified standards Professional driving and maneuvering of a City Liner Conscient carrying of quality documents Support in transport fine distribution and storage as required Overnight stay in a truck once or twice a week if required To successfully perform these challenging\n• tasks, we expect the following requirements: Driver permit C and E professional experience\n\nas a chauffeur First contact person with flawless handling, reliability and commitment Self-employed and reliable working methods distinguish you from good German knowledge in word and writing readiness for early work start (04:30 clock) and weekend sets if required (mainly Saturday) Physically fit and resilient Interested?\n\nMr Roger Rogue, HR Business Partner, is looking forward to receiving your complete application documents.",
-        "de": "Respekt, Genuss und Qualität aus Leidenschaft gehören zu unseren Kernwerten. Als Bierproduzent mit Brauereistandorten in Chur und Luzern sowie einem eigenen Getränkehandel mit 17 Standorten in der gesamten Schweiz sind wir ein Unternehmen von nationaler Bedeutung. Wir setzen auf einen Mix aus Tradition, Innovation und Kundennähe. Mit unseren Markenbieren tragen wir zur vielfältigen Schweizer Bierkultur bei. Bewege Hektoliter und steuere unseren City Liner quer durch die Schweiz! Hinter jedem grossen Event und jeder gut besuchten Gastronomie steckt eine Logistik, die zuverlässig funktioniert. Und genau hier kommst du ins Spiel. Als wichtiger Teil unseres Orion-Teams sorgst du dafür, dass unseren Kunden der Nachschub nicht ausgeht. Mit unserem modernen City Liner bist du in der ganzen Schweiz unterwegs, belieferst unsere Gastronomiekunden direkt vor Ort und stellst eine reibungslose Versorgung sicher. Du bist gerne auf Achse, packst mit an und suchst eine abwechslungsreiche Fahrtätigkeit mit Verantwortung? Dann bist du bei uns genau richtig. In dieser vielseitigen Funktion erwartet dich mehr als nur das Fahren von A nach B: Du befüllst Kundentanks mit dem City Liner und bist dafür in der ganzen Schweiz unterwegs Du führst und manövrierst den City Liner sicher und fachkundig Du sorgst dafür, dass die Aufliegeranlage gemäss unseren Standards gewartet und gepflegt ist Du führst die erforderlichen Qualitätsdokumente gewissenhaft und zuverlässig Bei Bedarf unterstützt du deine Kolleginnen und Kollegen in der Transport-Feinverteilung sowie im Lager Je nach Tour übernachtest du ein- bis zweimal pro Woche im LKW Das bringst du mit Führerausweis der Kategorien C und E Berufserfahrung als Chauffeur Ein freundliches und professionelles Auftreten, denn bei unseren Kunden bist du eine wichtige Ansprechperson und das Gesicht unseres Unternehmens vor Ort Eine selbstständige, zuverlässige und verantwortungsbewusste Arbeitsweise Gute Deutschkenntnisse in Wort und Schrift Bereitschaft für einen frühen Arbeitsbeginn ab ca. 04:30 Uhr sowie gelegentliche Wochenendeinsätze Körperliche Fitness und Belastbarkeit Du bist gerne unterwegs, übernimmst Verantwortung und schätzt einen Arbeitsalltag, bei dem kein Tag genau gleich aussieht? Dann möchten wir dich kennenlernen. Steig ein und werde Teil unseres Teams!",
-        "fr": "Vous êtes responsable de la livraison en temps opportun de tous les produits inclus dans la gamme Orion à nos clients, principalement dans la restauration et les événements. Vous assurez la navigabilité du véhicule conformément aux exigences de la Loi sur la circulation routière. Dans cette activité vivante et polyvalente, vous êtes pour\n• Tâches à assumer : remplir les réservoirs du client avec un City Liner dans toute la Suisse Entretien et entretien du système semi-remorque selon les normes spécifiées Gestion et manœuvre spécialisées d'un City Liner Gestion consciente des documents de qualité Support dans le transport distribution fine et entrepôt selon les besoins Nuit dans le camion une ou deux fois par semaine selon les besoins\n• Accomplir avec succès les tâches, nous attendons les conditions préalables suivantes: Conducteur d'approbation C et E Expérience de travail en tant que chauffeur Première personne de contact avec des manières impeccables, la fiabilité et l'engagement Les méthodes de travail indépendantes et fiables vous distinguent des bonnes compétences allemandes en paroles et en écriture. M. Roger Roggo, associé d'affaires RH, attend avec impatience vos documents de demande complets."
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6003",
-      "streetAddress": "Luzern, LU",
-      "category": "Logistica",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-tankwagenfahrer-ce-gastronomie-events-mwd-100?jobid=127858",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=127858&career_ns=job_application",
-      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:55:41.923Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "chauffeur-kat-c-e-heineken-ch-luzern",
-          "chauffeur-tankwagenfahrer-ce-gastronomie-events-m-w-d-100-heineken-ch-luzern"
-        ],
-        "it": [
-          "autista-di-camion-heineken-switzerland-content-width-device-width-bteei3",
-          "autista-c-e-heineken-switzerland-content-width-device-width",
-          "driver-c-e-heineken-switzerland-content-width-device-width",
-          "chauffeur-c-e-heineken-switzerland-content-width-device-width",
-          "autista-cat-c-e-heineken-switzerland-luzern",
-          "autista-c-e-heineken-switzerland-warum-zu-uns",
-          "chauffeur-c-e-orion-heineken-ch-luzern",
-          "chauffeur-tankwagenfahrer-ce-gastronomie-events-m-w-d-100-heineken-ch-luzern",
-          "bezeichnung-chauffeur-c-e-heineken-ch-content-width-device-width",
-          "driver-c-e-heineken-switzerland-warum-zu-uns",
-          "driver-c-e-heineken-switzerland-luzern",
-          "driver-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
-          "title-chauffeur-kat-c-e-heineken-ch-warum-zu-uns",
-          "title-chauffeur-kat-c-e-heineken-ch-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
-          "chauffeur-c-e-heineken-switzerland-warum-zu-uns",
-          "chauffeur-c-e-heineken-switzerland-luzern",
-          "chauffeur-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
-          "autista-di-camion-heineken-switzerland-content-width-device-width",
-          "chauffeur-de-camion-heineken-switzerland-content-width-device-width",
-          "titre-truck-driver-heineken-switzerland-content-width-device-width"
-        ],
-        "en": [
-          "driver-cat-c-e-heineken-switzerland-luzern"
-        ],
-        "fr": [
-          "chauffeur-cat-c-e-heineken-switzerland-luzern"
-        ]
-      },
-      "previousSlugs": [
-        "title-chauffeur-kat-c-e-heineken-ch-content-width-device-width",
-        "autista-c-e-heineken-switzerland-luzern",
-        "autista-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
-        "title-truck-driver-heineken-ch-content-width-device-width",
-        "bezeichnung-chauffeur-c-e-heineken-ch-content-width-device-width",
-        "driver-c-e-heineken-switzerland-warum-zu-uns",
-        "driver-c-e-heineken-switzerland-luzern",
-        "driver-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
-        "title-chauffeur-kat-c-e-heineken-ch-warum-zu-uns",
-        "title-chauffeur-kat-c-e-heineken-ch-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
-        "chauffeur-c-e-heineken-switzerland-warum-zu-uns",
-        "chauffeur-c-e-heineken-switzerland-luzern",
-        "chauffeur-c-e-heineken-switzerland-ungsvolle-aufgabe-erfolgreich-zu-erfullen",
-        "autista-di-camion-heineken-switzerland-content-width-device-width",
-        "chauffeur-de-camion-heineken-switzerland-content-width-device-width",
-        "titre-truck-driver-heineken-switzerland-content-width-device-width",
-        "autista-di-camion-heineken-switzerland-content-width-device-width-bteei3",
-        "autista-c-e-heineken-switzerland-content-width-device-width",
-        "driver-c-e-heineken-switzerland-content-width-device-width",
-        "chauffeur-c-e-heineken-switzerland-content-width-device-width",
-        "driver-cat-c-e-heineken-switzerland-luzern",
-        "chauffeur-kat-c-e-heineken-ch-luzern",
-        "chauffeur-cat-c-e-heineken-switzerland-luzern",
-        "autista-cat-c-e-heineken-switzerland-luzern",
-        "autista-c-e-heineken-switzerland-warum-zu-uns",
-        "chauffeur-c-e-orion-heineken-ch-luzern",
-        "chauffeur-tankwagenfahrer-ce-gastronomie-events-m-w-d-100-heineken-ch-luzern"
-      ],
-      "firstSeenAt": "2026-09-10T23:22:07.997Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:55:41.923Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "heineken-ch-a85de7fe0f2b",
-      "jobReqId": "165451",
-      "slug": "tecnico-dbo-m-f-d-heineken-switzerland-denges",
-      "slugByLocale": {
-        "it": "tecnico-dbo-m-f-d-heineken-switzerland-denges",
-        "en": "technician-dbo-m-w-d-heineken-ch-denges",
-        "de": "technician-dbo-m-w-d-heineken-ch-denges",
-        "fr": "technicien-dbo-m-w-d-heineken-switzerland-denges"
-      },
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Technician DBO (m/w/d)",
-      "titleByLocale": {
-        "it": "Tecnico DBO (m/f/d)",
-        "en": "Technician DBO (m/f/d)",
-        "de": "Techniker DBO (m/w/d)",
-        "fr": "Technician DBO (m/w/d)"
-      },
-      "description": "Ce poste intéressant et varié comprend les axes principaux suivants : Réalisation des opérations de maintenance et d’entretien, et rédaction d’un rapport d’état sur les systèmes de distribution en vrac, ainsi que les montages et démontages Résolution efficace et dans les délais des pannes (travaux de réparation) chez le client, ainsi que contrôle d’entretien des installations conformément au manuel Installation irréprochable et respectueuse des normes de qualité des systèmes de tirage de bière Assistance aux responsables régionaux du service après-vente (conseil à la clientèle) lors de la conception ou de la modification d’installations chez les clients en ce qui concerne le matériel, le montage, les croquis, etc. Mise en service des installations de débit de bière et formation des clients, y compris les formalités administratives sur place (signature des contrats, rédaction de rapports) Des astreintes sporadiques font également partie de ce domaine d’activité Nos exigences : Apprentissage technique achevé (mécanique, installation ou équivalent) Plusieurs années d’expérience professionnelle dans la maintenance technique, le montage et la mise en service d’équipements complexes Une méthode de travail rigoureuse et autonome, alliée à un bon contact avec les autres Un sens des responsabilités, la capacité à répondre aux différents besoins de nos clients sur le marché et à cerner leurs attentes, ainsi qu’un tempérament équilibré sont essentiels pour cette fonction. Bonnes connaissances des outils informatiques (applications MS Office) Très bonne maîtrise du français ainsi qu’une bonne maîtrise de l’allemand à l’oral et à l’écrit Un permis de conduire valide est indispensable (catégorie B, éventuellement C/C1) Domicile en Suisse romande avec un bon accès à la zone d’intervention",
-      "descriptionByLocale": {
-        "it": "Infrastrutture di trasporto Mise en service des installazioni de débit de bière et formazione des client, y compris les formalité Des astreintes sporadiques font également partie de ce domaine d’activité Nos exigences: Apprentissage technology achevé (mécanique, install ou équivalent) Plusieurs années d’expérience professionnelle dans la tecnica di manutenzione, le montage et la mise en service d’équipements complessies Une méthode de travail rigoureuse et autonome, alliée à un bon contact avec les autres Nel senso delle responsabilità, la capacità di rispondere alle difficoltà di nessun cliente sul mercato e sul mercato per la fornitura di servizi, è essenziale per la fornitura di servizi. Bonnes connaissances des outils informatiques (applicazioni MS Office) Très bonne maîtrise du français Un permis de conduire valide est indispensabili (catégorie B, éventuellement C/C1) Domicile en Suisse romande avec un bon accès à la zone d’intervention",
-        "en": "Poste intéressant et varié comprend les axes principaux suivants : Réalisation des operations de maintenance et d’entretien, et rédaction d’rapport d’état sur les systèmes de distribution en vrac, ainsi que les montages et démontages Résolution efficace et dans les délais des installations conformément au manuel Installation irréprochable et respectueuse des normes de qualité des systèmes de tirage de bière assistance aux responsables régionaux du service après-vente (conseil à la clientèle) lors de la conception ou de la modification d’installations chez les clients en ce qui concerne le matériel, le montage, les croquis, etc. Mise en service des installations de débit de bière et formation des clients, y compris les formalité Des astreintes sporadiques font également partie de ce domaine d’activité Nos exigences : Apprentissage technique achevé (mécanique, installation ou équivalent) Plusieurs années d’expérience professionnelle dans la maintenance technique, le montage et la mise en service d’équipements complexes Une méthode de travail rigoureuse et autonome, alliée à un bon contact avec les autres In the sense of the responsabilities, the capacity to respond to the difficulties of no clients on the market and on the market for the supply of services, it is essential for the provision of services. Bonnes connaissances des outils informatiques (applications MS Office) Très bonne maîtrise du français ainsi qu’une bonne maîtrise de l’allemand à l’oral et à l’écrit Un permis de conduire valide est indispensable (catégorie B, éventuellement C/C1) Domicile en Suisse romande avec un bon accès à la zone d’intervention",
-        "de": "Diese interessante und abwechslungsreiche Position umfasst die folgenden Hauptachsen: Durchführung von Wartungs- und Wartungsarbeiten und Verfassen eines Statusberichts über Massenverteilungssysteme sowie Montage und Demontage Effektive und rechtzeitige Auflösung von Pannen (Reparaturarbeiten) beim Kunden sowie Überwachung der Wartung der Anlagen gemäß der manuellen einwandfreien Installation und Einhaltung der Qualitätsstandards von Bierzeichnungssystemen Unterstützung für regionale Post-Sales-Service-Manager (Kundenberatung) bei der Gestaltung oder Änderung von Anlagen auf Kundenebene in Bezug auf Ausrüstung, Montage, Skizzen usw. Die Umsetzung von Bierliefereinrichtungen und Kundenschulungen, einschließlich der Verwaltungsverfahren vor Ort (Vertragsunterzeichnung, Berichterstattung) Sporadische Strafen gehören ebenfalls zu diesem Tätigkeitsbereich. Unsere\n• Anforderungen: Abgeschlossenes technisches Lernen (mechanisch, Installation oder gleichwertig) Mehrjährige Berufserfahrung in der technischen Wartung, Montage und Inbetriebnahme komplexer Geräte Eine strenge und autonome Arbeitsweise, kombiniert mit gutem Kontakt mit anderen Ein Verantwortungsbewusstsein, die Fähigkeit, die unterschiedlichen Bedürfnisse unserer Kunden auf dem Markt zu erfüllen und ihre Erwartungen zu erkennen, sowie ein ausgewogenes Temperament sind für diese Funktion unerlässlich. Gute Kenntnisse der IT-Tools (MS Office-Anwendungen) Sehr gute Französischkenntnisse sowie gute Deutschkenntnisse in mündlicher und schriftlicher Form Ein gültiger Führerschein ist unerlässlich (Kategorie B, möglicherweise C/C1) Home in der französischsprachigen Schweiz mit gutem Zugang zur Interventionszone",
-        "fr": "Ce poste intéressant et varié comprend les axes principaux suivants : Réalisation des opérations de maintenance et d’entretien, et rédaction d’un rapport d’état sur les systèmes de distribution en vrac, ainsi que les montages et démontages Résolution efficace et dans les délais des pannes (travaux de réparation) chez le client, ainsi que contrôle d’entretien des installations conformément au manuel Installation irréprochable et respectueuse des normes de qualité des systèmes de tirage de bière Assistance aux responsables régionaux du service après-vente (conseil à la clientèle) lors de la conception ou de la modification d’installations chez les clients en ce qui concerne le matériel, le montage, les croquis, etc. Mise en service des installations de débit de bière et formation des clients, y compris les formalités administratives sur place (signature des contrats, rédaction de rapports) Des astreintes sporadiques font également partie de ce domaine d’activité Nos exigences : Apprentissage technique achevé (mécanique, installation ou équivalent) Plusieurs années d’expérience professionnelle dans la maintenance technique, le montage et la mise en service d’équipements complexes Une méthode de travail rigoureuse et autonome, alliée à un bon contact avec les autres Un sens des responsabilités, la capacité à répondre aux différents besoins de nos clients sur le marché et à cerner leurs attentes, ainsi qu’un tempérament équilibré sont essentiels pour cette fonction. Bonnes connaissances des outils informatiques (applications MS Office) Très bonne maîtrise du français ainsi qu’une bonne maîtrise de l’allemand à l’oral et à l’écrit Un permis de conduire valide est indispensable (catégorie B, éventuellement C/C1) Domicile en Suisse romande avec un bon accès à la zone d’intervention"
-      },
-      "location": "Denges",
-      "canton": "VD",
-      "addressLocality": "Denges",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1026",
-      "streetAddress": "Denges, VD",
-      "category": "Tecnica",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/technician-dbo-mwd?jobid=165451",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=165451&career_ns=job_application",
-      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:55:31.904Z",
-      "previousSlugs": [
-        "technician-dbo-m-w-d-heineken-ch-denges",
-        "techniker-dbo-m-w-d-heineken-switzerland-denges"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "technician-dbo-m-w-d-heineken-ch-denges"
-        ],
-        "de": [
-          "techniker-dbo-m-w-d-heineken-switzerland-denges"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:10:19.910Z",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 71000,
-          "maxValue": 107500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-19T21:55:31.904Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "heineken-ch-d7d5efdbb829",
-      "jobReqId": "162220",
-      "slug": "logistica-key-account-specialista-m-w-d-80-100-heineken-switzerland-luzern",
-      "slugByLocale": {
-        "it": "logistica-key-account-specialista-m-w-d-80-100-heineken-switzerland-luzern",
-        "en": "logistics-key-account-specialist-m-w-d-80-100-heineken-ch-luzern",
-        "de": "logistics-key-account-specialist-m-w-d-80-100-heineken-ch-luzern",
-        "fr": "logistique-key-account-specialiste-m-w-d-80-100-heineken-switzerland-luzern"
-      },
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Logistics Key Account Specialist (m/w/d) (80-100%)",
-      "titleByLocale": {
-        "it": "Logistica Key Account Specialista (m/w/d) (80-100%)",
-        "en": "Logistics Key Account Specialist (m/f/d) (80-100%)",
-        "de": "Logistics Key Account Specialist (m/w/d) (80-100%)",
-        "fr": "Logistique Key Account Spécialiste (m/w/d) (80-100%)"
-      },
-      "description": "Deine Verantwortungen: Betreuung und Weiterentwicklung strategischer Logistikbeziehungen mit Schlüsselkunden zur Sicherstellung einer hohen Servicequalität Koordination der Zusammenarbeit zwischen Kunden sowie internen Bereichen wie Sales, Customer Service, Logistik und Transport Planung und Umsetzung von Optimierungsmassnahmen entlang der Supply Chain zur Steigerung von Service, Effizienz und Kundenzufriedenheit Überwachung der Logistikleistung und Sicherstellung der Einhaltung von Service-, Qualitäts- und Sicherheitsstandards Identifikation und Realisierung von Optimierungspotenzialen hinsichtlich Kosten, Prozessen und Kundenanforderungen Mitarbeit bei Projekten sowie der kontinuierlichen Weiterentwicklung von Prozessen und Schnittstellen im Verantwortungsbereich Das bringst du mit: Abgeschlossene Berufsausbildung sowie Berufserfahrung in den Bereichen Logistik, Supply Chain Management oder Customer Service Erfahrung in der Steuerung von Kundenbeziehungen und bereichsübergreifenden Projekten Gutes Verständnis logistischer Prozesse und kundenspezifischer Supply Chains Selbstständige, strukturierte und lösungsorientierte Arbeitsweise Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift \n• Das bieten wir dir: Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen",
-      "descriptionByLocale": {
-        "it": "Le vostre responsabilità: Supporto e ulteriore sviluppo di relazioni logistiche strategiche con i clienti chiave per garantire un'alta qualità del servizio Coordinamento della cooperazione tra i clienti e aree interne come vendite, servizio clienti, logistica e trasporto Pianificazione e implementazione di misure di ottimizzazione lungo la catena di fornitura per aumentare il servizio, l'efficienza e la soddisfazione del cliente Monitoraggio delle prestazioni logistiche e garantire la conformità con il servizio, la qualità e gli standard di sicurezza Identificazione e la realizzazione dei potenziali di ottimizzazione per quanto riguarda i costi, processi e i processi e le esigenze del cliente, nonché i progetti di interfaccia continua Porti con te: Formazione professionale completa e esperienza professionale nei settori della logistica, della gestione della supply chain o dell'esperienza del servizio clienti nella gestione delle relazioni con i clienti e dei progetti cross-divisionali Buona comprensione dei processi logistici e delle supply chain specifiche del cliente Metodo di lavoro indipendente, strutturato e orientato alla soluzione Buona conoscenza della lingua tedesca e buona conoscenza dell'inglese nella parola e nella scrittura\n• Questo è ciò che vi offriamo: Flessibilità & Work-Life-Balance: Ore di lavoro flessibili e lavoro ibrido Learning & Development: Offerte di formazione interna ed esterna, ad esempio formazione linguistica o il nostro Beer Academy Team Spirit & Culture: Eventi dipendenti regolari, apos aziendali mensili e celebrazioni congiunte Sconti & Extra: Sconti interessanti, ad esempio nel nostro negozio di bevande o nelle offerte culturali selezionate Eventi & Esperienze: Tartufi regolari di biglietti per festival, concerti e altri eventi Salute e benessere: Salute e supporto offerte per diverse situazioni di vita",
-        "en": "Your responsibilities: Support and further development of strategic logistics relationships with key customers to ensure a high quality of service Coordination of cooperation between customers as well as internal areas such as sales, customer service, logistics and transport Planning and implementation of optimization measures along the supply chain to increase service, efficiency and customer satisfaction Monitoring of logistics performance and ensuring compliance with service, quality and security standards Identification and realization of optimization potentials with regard to costs, processes and customer requirements Collaboration in projects as well as the continuous further development of processes and interfaces in the area of responsibility You bring with you: Completed vocational training as well as professional experience in the areas of logistics, supply chain management or customer service experience in the management of customer relationships and cross-divisional projects Good understanding of logistics processes and customer-specific supply chains Independent, structured and solution-oriented working method Very good knowledge of German and good knowledge of English in word and writing\n• This is what we offer you: Flexibility & Work-Life-Balance: Flexible working hours and hybrid working Learning & Development: Internal and external training offers, e.g. language training or our Beer Academy Team Spirit & Culture: Regular employee events, monthly company apos and joint celebrations Discounts & Extras: Attractive discounts, e.g. in our drink shop or in selected leisure and cultural offers Events & Experiences: Regular raffles of tickets for festivals, concerts and other events Health & Well-being: Health and support offers for different life situations",
-        "de": "Deine Verantwortungen: Betreuung und Weiterentwicklung strategischer Logistikbeziehungen mit Schlüsselkunden zur Sicherstellung einer hohen Servicequalität Koordination der Zusammenarbeit zwischen Kunden sowie internen Bereichen wie Sales, Customer Service, Logistik und Transport Planung und Umsetzung von Optimierungsmassnahmen entlang der Supply Chain zur Steigerung von Service, Effizienz und Kundenzufriedenheit Überwachung der Logistikleistung und Sicherstellung der Einhaltung von Service-, Qualitäts- und Sicherheitsstandards Identifikation und Realisierung von Optimierungspotenzialen hinsichtlich Kosten, Prozessen und Kundenanforderungen Mitarbeit bei Projekten sowie der kontinuierlichen Weiterentwicklung von Prozessen und Schnittstellen im Verantwortungsbereich Das bringst du mit: Abgeschlossene Berufsausbildung sowie Berufserfahrung in den Bereichen Logistik, Supply Chain Management oder Customer Service Erfahrung in der Steuerung von Kundenbeziehungen und bereichsübergreifenden Projekten Gutes Verständnis logistischer Prozesse und kundenspezifischer Supply Chains Selbstständige, strukturierte und lösungsorientierte Arbeitsweise Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift \n• Das bieten wir dir: Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen",
-        "fr": "Vos responsabilités: Soutenir et développer les relations stratégiques de logistique avec les principaux clients afin d'assurer une qualité de service élevée Coordination de la coopération entre les clients ainsi que des domaines internes tels que les ventes, le service à la clientèle, la logistique et les transports Planification et mise en œuvre de mesures d'optimisation le long de la chaîne d'approvisionnement pour accroître le service, l'efficacité et la satisfaction de la clientèle Suivi de la performance logistique et garantie du respect des normes de service, de qualité et de sécurité Identification et réalisation des possibilités d'optimisation en ce qui concerne les coûts, les processus et les besoins de la clientèle Collaboration dans les projets ainsi que le développement continu des processus et des interfaces dans le domaine de responsabilité Vous apportez avec vous: Formation professionnelle complétée ainsi que l'expérience professionnelle dans les domaines de la logistique, de la gestion de la chaîne d'approvisionnement ou de l'expérience du service à la clientèle dans la gestion des relations client et des projets interdivisions Bonne compréhension des processus logistiques et des chaînes d'approvisionnement spécifiques au client Méthode de travail indépendante, structurée et orientée vers la solution Très bonne connaissance de l'allemand et bonne connaissance de l'anglais en paroles et en écriture\n• Voici ce que nous vous offrons: Flexibilité & Work-Life-Balance: Flexibilité des horaires de travail et de travail hybride Apprentissage & Développement: Des formations internes et externes, p.ex. une formation linguistique ou notre équipe de Beer Academy Spirit & Culture: des événements réguliers pour les employés, des apos mensuels et des célébrations conjointes. Raffles régulières de billets pour les festivals, concerts et autres événements Santé et bien-être: Santé et offres de soutien pour différentes situations de vie"
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6003",
-      "streetAddress": "Luzern, LU",
-      "category": "Logistica",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/logistics-key-account-specialist-mwd-80-100?jobid=162220",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=162220&career_ns=job_application",
-      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:55:26.874Z",
-      "previousSlugs": [
-        "logistics-key-account-specialist-m-w-d-80-100-heineken-ch-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "logistics-key-account-specialist-m-w-d-80-100-heineken-ch-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-09-28T21:34:24.739Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-27T21:55:26.874Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "heineken-ch-3fa21e66e8a3",
-      "jobReqId": "164139",
-      "slug": "chauffeur-c-o-c1-m-w-d-arosa-heineken-switzerland-arosa",
-      "slugByLocale": {
-        "it": "chauffeur-c-o-c1-m-w-d-arosa-heineken-switzerland-arosa",
-        "en": "chauffeur-c-oder-c1-m-w-arosa-heineken-ch-arosa",
-        "de": "chauffeur-c-e-m-w-arosa-heineken-ch-arosa",
-        "fr": "chauffeur-c-oder-c1-m-w-arosa-heineken-ch-arosa"
-      },
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Chauffeur Kat. C1/C - Wintersaison 2026/27 Chur & Arosa",
-      "titleByLocale": {
-        "it": "Chauffeur Cat. C1/C - Stagione invernale 2026/27 Chur & Arosa",
-        "en": "Chauffeur Cat. C1/C - Winter season 2026/27 Chur & Arosa",
-        "de": "Chauffeur Kat. C1/C - Wintersaison 2026/27 Chur & Arosa",
-        "fr": "Chauffeur Cat. C1/C - Saison d'hiver 2026/27 Chur & Arosa"
-      },
-      "description": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir für die Wintersaison 2026/27, befristet von Dezember 2026 bis März 2027, eine selbständige und zuverlässige Persönlichkeit als Chauffeur Kat. C1/C. Dein Arbeitsort ist Chur. Aufgrund der Wintersaison wirst Du während dieser Zeit jedoch vermehrt in Arosa im Einsatz sein und unsere Gastronomiekunden in der Region beliefern. Deine Hauptaufgaben: Belieferung unserer Gastronomiekunden mit Bier und weiteren Getränken nach vorgegebenem Tourenplan Sicherstellung einer zuverlässigen und kundenorientierten Auslieferung Mithilfe im Lager, insbesondere beim Rüsten und Bereitstellen von Bestellungen Unterstützung bei Bedarf im Festservice Professioneller und freundlicher Kontakt mit unseren Kunden Unsere \n• Anforderungen: Gültiger Führerausweis der Kategorie C1 oder C Berufserfahrung als Chauffeur von Vorteil Selbständige, zuverlässige und verantwortungsbewusste Arbeitsweise Freundliches und verbindliches Auftreten sowie sehr gute Deutschkenntnisse Körperliche Fitness und Bereitschaft, tatkräftig mitanzupacken Erfahrung in der Kommissionierung und im Umgang mit Elektroameisen Idealerweise Wohnort in der Region, damit auch Pikett-Einsätze möglich sind Auch wenn es einmal hektischer wird, behältst Du den Überblick und überzeugst mit einer zuverlässigen und unkomplizierten Art. Hast Du Interesse an einer abwechslungsreichen Tätigkeit während der Wintersaison? Dann freuen wir uns auf Deine Bewerbung. Für Fragen steht Dir Javier Senande unter Tel. 079 593 11 59 zur Verfügung.",
-      "descriptionByLocale": {
-        "it": "Per la nostra controllata Stardrinks AG cerchiamo una personalità indipendente e affidabile come autista per la stagione invernale 2026/27, temporaneamente dal dicembre 2026 al marzo 2027. C1/C. Il tuo posto di lavoro e' Chur. A causa della stagione invernale Durante questo periodo, tuttavia, sarete sempre più in uso in Arosa e fornire i nostri clienti di catering nella regione. I vostri compiti principali: fornire ai nostri clienti di catering birra e altre bevande secondo un piano di tour specificato Garantire un'assistenza di consegna affidabile e orientata al cliente nel magazzino, soprattutto quando si imposta e fornisce l'assistenza agli ordini Se necessario nel Festservice Professional e amichevole contatto con i nostri clienti\n• Requisiti: Valida patente di guida della categoria C1 o C Esperienza professionale come autista vantaggioso Autolavoro, affidabile e responsabile metodi di lavoro Amichevole e vincolante, nonché buona conoscenza della fisica tedesca e la disponibilità ad affrontare attivamente l'esperienza nel raccogliere e gestire formiche elettriche Idealmente luogo di residenza nella regione, in modo che anche le assegnazioni pikett sono possibili Anche se diventa frenetica, si mantiene la visione d'insieme e convincere con un modo affidabile e semplice. Sei interessato a una variegata attività durante la stagione invernale? Attendiamo con ansia la vostra applicazione. Per domande, Javier Senande è disponibile a Tel. 079 593 11 59.",
-        "en": "For our subsidiary Stardrinks AG we are looking for an independent and reliable personality as a chauffeur cat for the winter season 2026/27, temporarily from December 2026 to March 2027. C1/C. Your place of work is Chur. Due to the winter season During this time, however, you will increasingly be in use in Arosa and supply our catering customers in the region. Your main tasks: supplying our catering customers with beer and other drinks according to a specified tour plan Ensuring a reliable and customer-oriented delivery assistance in the warehouse, especially when setting up and providing orders Support if necessary in the Festservice Professional and friendly contact with our customers Our\n• Requirements: Valid driving license of category C1 or C Professional experience as a chauffeur advantageous Self-employed, reliable and responsible working methods Friendly and binding appearance as well as very good knowledge of German Physical fitness and willingness to actively tackle experience in picking and handling electric ants Ideally place of residence in the region, so that also pikett assignments are possible Even if it gets hectic, you keep the overview and convince with a reliable and uncomplicated way. Are you interested in a varied activity during the winter season? We look forward to your application. For questions, Javier Senande is available at Tel. 079 593 11 59.",
-        "de": "Für unsere Tochtergesellschaft Stardrinks AG suchen wir für die Wintersaison 2026/27, befristet von Dezember 2026 bis März 2027, eine selbständige und zuverlässige Persönlichkeit als Chauffeur Kat. C1/C. Dein Arbeitsort ist Chur. Aufgrund der Wintersaison wirst Du während dieser Zeit jedoch vermehrt in Arosa im Einsatz sein und unsere Gastronomiekunden in der Region beliefern. Deine Hauptaufgaben: Belieferung unserer Gastronomiekunden mit Bier und weiteren Getränken nach vorgegebenem Tourenplan Sicherstellung einer zuverlässigen und kundenorientierten Auslieferung Mithilfe im Lager, insbesondere beim Rüsten und Bereitstellen von Bestellungen Unterstützung bei Bedarf im Festservice Professioneller und freundlicher Kontakt mit unseren Kunden Unsere \n• Anforderungen: Gültiger Führerausweis der Kategorie C1 oder C Berufserfahrung als Chauffeur von Vorteil Selbständige, zuverlässige und verantwortungsbewusste Arbeitsweise Freundliches und verbindliches Auftreten sowie sehr gute Deutschkenntnisse Körperliche Fitness und Bereitschaft, tatkräftig mitanzupacken Erfahrung in der Kommissionierung und im Umgang mit Elektroameisen Idealerweise Wohnort in der Region, damit auch Pikett-Einsätze möglich sind Auch wenn es einmal hektischer wird, behältst Du den Überblick und überzeugst mit einer zuverlässigen und unkomplizierten Art. Hast Du Interesse an einer abwechslungsreichen Tätigkeit während der Wintersaison? Dann freuen wir uns auf Deine Bewerbung. Für Fragen steht Dir Javier Senande unter Tel. 079 593 11 59 zur Verfügung.",
-        "fr": "Pour notre filiale Stardrinks AG, nous recherchons une personnalité indépendante et fiable en tant que chauffeur pour la saison d'hiver 2026/27, temporairement de décembre 2026 à mars 2027. C1/C. Votre lieu de travail est Chur. En raison de la saison hivernale Pendant cette période, cependant, vous serez de plus en plus utilisé à Arosa et fournir nos clients de restauration dans la région. Vos tâches principales: fournir à nos clients de restauration de la bière et d'autres boissons selon un plan de visite spécifique Assurer une assistance fiable et orientée vers le client dans l'entrepôt, en particulier lors de la mise en place et de la prestation des commandes Support si nécessaire dans le Festservice Contact professionnel et amical avec nos clients\n• Exigences: Permis de conduire valide de catégorie C1 ou C Expérience professionnelle en tant que chauffeur avantageux Indépendant, fiable et responsable méthodes de travail Aspect amical et contraignant ainsi que très bonne connaissance de l'allemand Condition physique et volonté de s'attaquer activement à l'expérience dans la cueillette et la manutention des fourmis électriques Idéalement lieu de résidence dans la région, de sorte que également des missions pikett sont possibles Même si elle devient agitée, vous gardez l'aperçu et convainquez avec une manière fiable et non compliquée. Êtes-vous intéressé par une activité variée pendant la saison hivernale? Nous attendons avec impatience votre candidature. Pour toute question, Javier Senade est disponible au tél. 079 593 11 59."
-      },
-      "location": "Arosa",
-      "canton": "GR",
-      "addressLocality": "Arosa",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7050",
-      "streetAddress": "Arosa, Graubünden",
-      "category": "Logistica",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/chauffeur-kat-c1c-wintersaison-202627-chur-arosa?jobid=164139",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=164139&career_ns=job_application",
-      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:55:16.118Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "chauffeur-kat-c1-c-wintersaison-2026-27-chur-arosa-heineken-ch-arosa"
-        ],
-        "it": [
-          "chauffeur-kat-c1-c-wintersaison-2026-27-chur-arosa-heineken-ch-arosa"
-        ]
-      },
-      "previousSlugs": [
-        "chauffeur-kat-c1-c-wintersaison-2026-27-chur-arosa-heineken-ch-arosa"
-      ],
-      "firstSeenAt": "2026-11-09T09:49:59.139Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-07T21:55:16.118Z",
-      "validThroughSource": "last-observed-window"
-    },
-    {
-      "id": "heineken-ch-fae5aa8c7fef",
-      "jobReqId": "168001",
-      "slug": "event-portfolio-specialista-m-w-d-100-heineken-switzerland-luzern",
-      "slugByLocale": {
-        "it": "event-portfolio-specialista-m-w-d-100-heineken-switzerland-luzern",
-        "en": "event-portfolio-specialist-m-w-d-100-heineken-ch-luzern",
-        "de": "event-portfolio-specialist-m-w-d-100-heineken-ch-luzern",
-        "fr": "event-portfolio-specialiste-m-w-d-100-heineken-switzerland-luzern"
-      },
-      "company": "Heineken Switzerland",
-      "companyKey": "heineken-ch",
-      "companyDomain": "theheinekencompany.com",
-      "title": "Event Portfolio Specialist (m/w/d) 100%",
-      "titleByLocale": {
-        "it": "Event Portfolio Specialista (m/w/d) 100%",
-        "en": "Event portfolio specialist (m/f/d) 100%",
-        "de": "Event Portfolio Specialist (m/w/d) 100%",
-        "fr": "Event Portfolio Spécialiste (m/w/d) 100%"
-      },
-      "description": "Gestalte mit uns unvergessliche Eventerlebnisse! Ob Festival, Grossveranstaltung oder exklusiver Markenauftritt – hinter jedem erfolgreichen Event steckt eine durchdachte Planung und das passende Material. Genau hier kommst Du ins Spiel! Werde per 1. Januar 2027 oder nach Vereinbarung Teil unseres Event Teams und sorge dafür, dass unsere Biermarken an Events begeistern. In dieser vielseitigen Rolle verbindest Du Organisationstalent mit strategischem Weitblick, entwickelst unser nationales Eventmaterial-Portfolio weiter und bringst eigene Ideen und Projekte voran. Dabei arbeitest Du eng mit verschiedenen Teams zusammen und gestaltest die Zukunft unserer Eventauftritte aktiv mit. Deine \n• Aufgaben Eventmaterial im Griff: Du verantwortest unser nationales Eventmaterial-Portfolio und stellst sicher, dass Bestand, Qualität und Einsatzbereitschaft jederzeit stimmen. Vorausschauend planen: Du koordinierst Materialbedarf, Forecasts und Verfügbarkeiten und sorgst für eine optimale Ressourcenplanung. Beschaffung clever steuern: Du koordinierst Beschaffungen, Zumietungen sowie Wartungs- und Reparaturarbeiten und behältst dabei Qualität und Wirtschaftlichkeit im Blick. Portfolio weiterdenken: Du erkennst zukünftige Bedürfnisse, entwickelst unser Sortiment strategisch weiter und bringst innovative Lösungen auf den Weg. Marken erlebbar machen: Gemeinsam mit Event und Marketing sorgst Du dafür, dass unsere Brands durch passendes Eventmaterial überzeugend in Szene gesetzt werden. Projekte vorantreiben: Du leitest eigenständig Projekte von der ersten Idee über die Evaluation und Beschaffung bis zur erfolgreichen Umsetzung und optimierst bestehende Prozesse. Zahlen im Blick behalten: Du planst und überwachst Investitions- und Unterhaltsbudgets und verantwortest die dazugehörigen Bestell- und Administrationsprozesse. Das bringst Du mit Fundiertes Know-how: Du verfügst über eine abgeschlossene Ausbildung und idealerweise eine Weiterbildung in Eventmanagement, Marketing, Beschaffung, Logistik, Betriebswirtschaft oder Projektmanagement. Erfahrung, die zählt: Du bringst mehrjährige Berufserfahrung mit und hast bereits erfolgreich eigene Projekte geplant und umgesetzt. Organisationstalent: Du denkst voraus, setzt Prioritäten und behältst auch bei mehreren parallelen Themen den Überblick. Eigeninitiative: Du arbeitest selbstständig, übernimmst gerne Verantwortung und bringst eigene Ideen aktiv ein. Blick fürs Ganze: Du verbindest strategisches Denken mit einem guten Verständnis für Planung, Beschaffung und logistische Zusammenhänge. Teamspirit: Du begeisterst Dich für Events und Marken und schätzt die Zusammenarbeit mit unterschiedlichen Fachbereichen. Digital fit: Du bist versiert im Umgang mit MS Office und SAP und kommunizierst sehr gut auf Deutsch sowie gut auf Englisch. \n• Das bieten wir Dir Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen",
-      "descriptionByLocale": {
-        "it": "Il rispetto, il godimento e la qualità basati sulla passione sono tra i nostri valori fondamentali. Come produttore di birra con sedi di birreria a Chur e Lucerna, siamo una società di importanza nazionale. Ci concentriamo su un mix di tradizione, innovazione e prossimità del cliente. Con le nostre birre di marca, contribuiamo alla diversificata cultura della birra svizzera. Crea esperienze indimenticabili con noi! Che si tratti di un festival, di un evento importante o di un’esclusiva presenza di brand – dietro ogni evento di successo si trova una pianificazione premurosa e il materiale giusto. E' qui che entri in gioco! Entra a far parte del nostro team di eventi il 1 gennaio 2027 o su appuntamento e assicurati che i nostri brand di birra ispirino eventi. In questo ruolo versatile, combini talento organizzativo con la previsione strategica, sviluppi il nostro portafoglio di materiali per eventi nazionali e sviluppi le tue idee e progetti. Lavorate a stretto contatto con diverse squadre e formate attivamente il futuro delle nostre performance. Il tuo\n• Materiale Evento sotto controllo: Sei responsabile del nostro portafoglio di materiali per eventi nazionali e assicurati che stock, qualità e disponibilità operativa siano sempre giuste. Pianifica in anticipo: coordina i requisiti materiali, le previsioni e la disponibilità e assicura una pianificazione ottimale delle risorse. Acquisti di controllo intelligentemente: Lei coordina il lavoro di approvvigionamento, leasing e manutenzione e riparazione mentre tiene d'occhio la qualità e l'efficacia dei costi. Pensando al portfolio: Riconoscete le esigenze future, sviluppate strategicamente la nostra gamma e lanciate soluzioni innovative. Rendere le marche tangibili: insieme all'evento e al marketing Ti per il fatto che i nostri marchi sono presentati in modo convincente da materiale di evento adatto. Progetti pilota: Gestisci in modo indipendente i progetti dalla prima idea attraverso la valutazione e l'approvvigionamento per implementare e ottimizzare i processi esistenti. Tieni d'occhio le figure: Pianifichi e monitori i bilanci di investimento e manutenzione e sei responsabile dei corrispondenti processi di ordinazione e amministrazione. Porti questo con un know-how ben fondato: Hai una formazione completa e idealmente un'ulteriore formazione nella gestione degli eventi, nel marketing, nell'approvvigionamento, nella logistica, nell'amministrazione aziendale o nella gestione dei progetti. Esperienza che conta: Hai diversi anni di esperienza professionale e hai già pianificato e implementato con successo i tuoi progetti. Talenti organizzativi: Pensate avanti, impostate le priorità e tenete traccia di diversi argomenti paralleli. Iniziativa: Lei lavora in modo indipendente, come prendersi la responsabilità e contribuire attivamente le proprie idee. Cercate il tutto: combinate il pensiero strategico con una buona comprensione di pianificazione, approvvigionamento e connessioni logistiche. Spirito di squadra: Sei entusiasta di eventi e marchi e apprezzi la collaborazione con diverse aree specializzate. Digital fit: Sei ben versato nel trattare con MS Office e SAP e comunicare molto bene in tedesco e in inglese.\n• Questo è ciò che vi offriamo Flexibility & Work-Life Balance: orari di lavoro flessibili e lavoro ibrido Learning & Development: offerte di formazione interna ed esterna, ad esempio formazione di lingua o il nostro Beer Academy Team Spirit & Culture: eventi di dipendenti regolari, apos aziendali mensili e celebrazioni congiunte Sconti & Extra: sconti interessanti, ad esempio nel nostro negozio di bevande o in offerte ricreative e culturali selezionate Tartufi regolari di biglietti per festival, concerti e altri eventi Salute e benessere: Salute e supporto offerte per diverse situazioni di vita",
-        "en": "Respect, enjoyment and quality based on passion are among our core values. As a beer producer with brewery locations in Chur and Lucerne, we are a company of national importance. We focus on a mix of tradition, innovation and customer proximity. With our brand beers, we contribute to the diverse Swiss beer culture. Create unforgettable event experiences with us! Whether it’s a festival, a major event or an exclusive brand presence – behind every successful event lies thoughtful planning and the right material. This is where you come into play! Become part of our event team on January 1, 2027 or by appointment and make sure that our beer brands inspire events. In this versatile role, you combine organizational talent with strategic foresight, develop our national event material portfolio and advance your own ideas and projects. You work closely with different teams and actively shape the future of our event performances. Your\n• Event material under control: You are responsible for our national event material portfolio and ensure that stock, quality and operational readiness are right at all times. Plan ahead: You coordinate material requirements, forecasts and availability and ensure optimal resource planning. Control procurement cleverly: You coordinate procurement, leasing and maintenance and repair work while keeping an eye on quality and cost-effectiveness. Thinking portfolio further: You recognize future needs, strategically develop our range and launch innovative solutions. Making brands tangible: together with event and marketing You for the fact that our brands are presented convincingly by suitable event material. Drive projects: You independently manage projects from the first idea through evaluation and procurement to successful implementation and optimize existing processes. Keep an eye on figures: You plan and monitor investment and maintenance budgets and are responsible for the corresponding ordering and administration processes. You bring this with well-founded know-how: You have a completed training and ideally a further education in event management, marketing, procurement, logistics, business administration or project management. Experience that counts: You have several years of professional experience and have already successfully planned and implemented your own projects. Organizational talent: You think ahead, set priorities and keep track of several parallel topics. Own initiative: You work independently, like to take responsibility and actively contribute your own ideas. Look for the whole: You combine strategic thinking with a good understanding of planning, procurement and logistical connections. Team spirit: You are enthusiastic about events and brands and appreciate the cooperation with different specialist areas. Digital fit: You are well versed in dealing with MS Office and SAP and communicate very well in German as well as in English.\n• This is what we offer you Flexibility & Work-Life Balance: Flexible working hours and hybrid working Learning & Development: Internal and external training offers, e.g. language training or our Beer Academy Team Spirit & Culture: Regular employee events, monthly company apos and joint celebrations Discounts & Extras: Attractive discounts, e.g. in our drink shop or in selected leisure and cultural offers Events & Experiences: Regular raffles of tickets for festivals, concerts and other events Health & Well-being: Health and support offers for different life situations",
-        "de": "Gestalte mit uns unvergessliche Eventerlebnisse! Ob Festival, Grossveranstaltung oder exklusiver Markenauftritt – hinter jedem erfolgreichen Event steckt eine durchdachte Planung und das passende Material. Genau hier kommst Du ins Spiel! Werde per 1. Januar 2027 oder nach Vereinbarung Teil unseres Event Teams und sorge dafür, dass unsere Biermarken an Events begeistern. In dieser vielseitigen Rolle verbindest Du Organisationstalent mit strategischem Weitblick, entwickelst unser nationales Eventmaterial-Portfolio weiter und bringst eigene Ideen und Projekte voran. Dabei arbeitest Du eng mit verschiedenen Teams zusammen und gestaltest die Zukunft unserer Eventauftritte aktiv mit. Deine \n• Aufgaben Eventmaterial im Griff: Du verantwortest unser nationales Eventmaterial-Portfolio und stellst sicher, dass Bestand, Qualität und Einsatzbereitschaft jederzeit stimmen. Vorausschauend planen: Du koordinierst Materialbedarf, Forecasts und Verfügbarkeiten und sorgst für eine optimale Ressourcenplanung. Beschaffung clever steuern: Du koordinierst Beschaffungen, Zumietungen sowie Wartungs- und Reparaturarbeiten und behältst dabei Qualität und Wirtschaftlichkeit im Blick. Portfolio weiterdenken: Du erkennst zukünftige Bedürfnisse, entwickelst unser Sortiment strategisch weiter und bringst innovative Lösungen auf den Weg. Marken erlebbar machen: Gemeinsam mit Event und Marketing sorgst Du dafür, dass unsere Brands durch passendes Eventmaterial überzeugend in Szene gesetzt werden. Projekte vorantreiben: Du leitest eigenständig Projekte von der ersten Idee über die Evaluation und Beschaffung bis zur erfolgreichen Umsetzung und optimierst bestehende Prozesse. Zahlen im Blick behalten: Du planst und überwachst Investitions- und Unterhaltsbudgets und verantwortest die dazugehörigen Bestell- und Administrationsprozesse. Das bringst Du mit Fundiertes Know-how: Du verfügst über eine abgeschlossene Ausbildung und idealerweise eine Weiterbildung in Eventmanagement, Marketing, Beschaffung, Logistik, Betriebswirtschaft oder Projektmanagement. Erfahrung, die zählt: Du bringst mehrjährige Berufserfahrung mit und hast bereits erfolgreich eigene Projekte geplant und umgesetzt. Organisationstalent: Du denkst voraus, setzt Prioritäten und behältst auch bei mehreren parallelen Themen den Überblick. Eigeninitiative: Du arbeitest selbstständig, übernimmst gerne Verantwortung und bringst eigene Ideen aktiv ein. Blick fürs Ganze: Du verbindest strategisches Denken mit einem guten Verständnis für Planung, Beschaffung und logistische Zusammenhänge. Teamspirit: Du begeisterst Dich für Events und Marken und schätzt die Zusammenarbeit mit unterschiedlichen Fachbereichen. Digital fit: Du bist versiert im Umgang mit MS Office und SAP und kommunizierst sehr gut auf Deutsch sowie gut auf Englisch. \n• Das bieten wir Dir Flexibilität & Work-Life-Balance: Flexible Arbeitszeiten und hybrides Arbeiten Lernen & Entwicklung: Interne und externe Weiterbildungsangebote, z. B. Sprachtrainings oder unsere Beer Academy Teamspirit & Kultur: Regelmässige Mitarbeitendenanlässe, monatliche Firmenapéros und gemeinsame Feiern Vergünstigungen & Extras: Attraktive Vergünstigungen, z. B. in unserem Getränkeshop oder bei ausgewählten Freizeit- und Kulturangeboten Events & Erlebnisse: Regelmässige Verlosungen von Tickets für Festivals, Konzerte und weitere Events Gesundheit & Wohlbefinden: Gesundheits- und Unterstützungsangebote für verschiedene Lebenssituationen",
-        "fr": "Le respect, la jouissance et la qualité basées sur la passion font partie de nos valeurs fondamentales. En tant que producteur de bière avec des sites de brasserie à Chur et Lucerne, nous sommes une entreprise d'importance nationale. Nous nous concentrons sur un mélange de tradition, d'innovation et de proximité client. Avec nos bières de marque, nous contribuons à la diversité de la culture de la bière suisse. Créez des expériences inoubliables avec nous ! Qu'il s'agisse d'un festival, d'un événement majeur ou d'une présence exclusive de la marque – derrière chaque événement réussi se trouve une planification réfléchie et le bon matériel. C'est ici que vous entrez en jeu ! Faites partie de notre équipe le 1er janvier 2027 ou sur rendez-vous et assurez-vous que nos marques de bière inspirent les événements. Dans ce rôle polyvalent, vous combinez talent organisationnel et prospective stratégique, développez notre portefeuille national de matériel événementiel et faites avancer vos propres idées et projets. Vous travaillez en étroite collaboration avec différentes équipes et façonnez activement l'avenir de nos performances. Votre\n• Matériel d'événement sous contrôle : Vous êtes responsable de notre portefeuille national de matériel d'événement et vous assurez que les stocks, la qualité et la disponibilité opérationnelle sont corrects en tout temps. Planifier à l'avance : Vous coordonnez les besoins matériels, les prévisions et la disponibilité et vous assurez une planification optimale des ressources. Contrôlez astucieusement l'approvisionnement : Vous coordonnez les achats, leasing, maintenance et réparation tout en gardant un œil sur la qualité et la rentabilité. Vous reconnaissez les besoins futurs, développez stratégiquement notre gamme et lancez des solutions innovantes. Making brands tangible: with event and marketing Vous pour le fait que nos marques sont présentées de manière convaincante par du matériel d'événement approprié. Conduire les projets: Vous gérez les projets de manière indépendante depuis la première idée jusqu'à la mise en oeuvre réussie et l'optimisation des processus existants. Surveillez les chiffres : Vous planifiez et surveillez les budgets d'investissement et de maintenance et êtes responsable des processus de commande et d'administration correspondants. Vous apportez ceci avec un savoir-faire bien fondé: Vous avez une formation complète et idéalement une formation complémentaire en gestion d'événements, marketing, approvisionnement, logistique, administration d'entreprise ou gestion de projet. Expérience qui compte : Vous avez plusieurs années d'expérience professionnelle et avez déjà planifié et mis en œuvre avec succès vos propres projets. Les talents organisationnels : Vous pensez à l'avenir, fixez des priorités et suivez plusieurs sujets parallèles. Votre propre initiative : Vous travaillez de façon indépendante, aimez prendre des responsabilités et contribuer activement à vos propres idées. Recherchez l'ensemble: Vous combinez la pensée stratégique avec une bonne compréhension de la planification, des achats et des connexions logistiques. L'esprit d'équipe : Vous êtes enthousiaste envers les événements et les marques et appréciez la coopération avec différents domaines spécialisés. Coupe numérique: Vous êtes bien au fait de traiter avec MS Office et SAP et de communiquer très bien en allemand ainsi qu'en anglais.\n• C'est ce que nous vous offrons Flexibilité et équilibre entre vie professionnelle et vie professionnelle : horaires de travail flexibles et travail hybride Apprentissage et développement : offres de formation internes et externes, par exemple formation linguistique ou notre équipe de Beer Academy Spirit & Culture : événements réguliers pour les employés, apos mensuels de l'entreprise et célébrations conjointes Réductions et avantages : réductions attractives, par exemple dans notre magasin de boissons ou dans certaines offres de loisirs et culturelles Événements et expériences : Raffles régulières de billets pour les festivals, concerts et autres événements Santé & Bien-être: Santé et offres de soutien pour différentes situations de vie"
-      },
-      "location": "Luzern",
-      "canton": "LU",
-      "addressLocality": "Luzern",
-      "addressRegion": "LU",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6003",
-      "streetAddress": "Luzern, LU",
-      "category": "Commerciale",
-      "sector": "Industria / Alimentare",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "url": "https://careers.theheinekencompany.com/job/heineken-switzerland/switzerland/event-portfolio-specialist-mwd-100?jobid=168001",
-      "applyUrl": "https://career5.successfactors.eu/careers?company=C0000032666P&career_job_req_id=168001&career_ns=job_application",
-      "source": "Heineken Switzerland Dedicated Parser (Playwright)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:55:08.360Z",
-      "previousSlugs": [
-        "event-portfolio-specialist-m-w-d-100-heineken-ch-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "event-portfolio-specialist-m-w-d-100-heineken-ch-luzern"
-        ],
-        "fr": [
-          "event-portfolio-specialist-m-w-d-100-heineken-ch-luzern"
-        ]
-      },
-      "firstSeenAt": "2026-10-28T21:49:25.082Z",
-      "salaryMin": 79000,
-      "salaryMax": 121500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 121500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-26T21:55:08.360Z",
-      "validThroughSource": "last-observed-window"
+      "validThroughSource": "last-observed-window",
+      "crawlerMissStreak": 1
     }
   ]
 }

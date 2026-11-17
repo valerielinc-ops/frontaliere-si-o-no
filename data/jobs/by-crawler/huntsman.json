@@ -1,7 +1,7 @@
 {
   "crawlerKey": "huntsman",
-  "assembledAt": "2026-11-15T21:51:57.734Z",
-  "runId": "43763620797",
+  "assembledAt": "2026-11-17T09:36:54.285Z",
+  "runId": "44055269248",
   "jobs": [
     {
       "id": "huntsman-24b5023af669",
@@ -50,7 +50,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Basel/Measurement-Engineer_J-019405",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-11-15T21:51:43.318Z",
+      "crawledAt": "2026-11-17T09:36:47.615Z",
       "jobReqId": "J-019405",
       "previousSlugs": [
         "engineer-measurement-technology-electrical-physical-testing-of-plastics-huntsman-corporati",
@@ -83,7 +83,7 @@
       "addressRegion": "BS",
       "streetAddress": "Basel",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:51:43.318Z",
+      "validThrough": "2026-12-17T09:36:47.615Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -133,7 +133,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Electricien-ou-automaticien--Mtrologie-_J-019937",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:51:42.711Z",
+      "crawledAt": "2026-11-17T09:36:37.496Z",
       "jobReqId": "J-019937",
       "previousSlugs": [
         "electricien-ou-automaticien-metrologie-huntsman-ch"
@@ -161,7 +161,7 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:51:42.711Z",
+      "validThrough": "2026-12-17T09:36:37.496Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -211,7 +211,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Production-Operator_J-019940",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:51:42.145Z",
+      "crawledAt": "2026-11-17T09:36:27.872Z",
       "jobReqId": "J-019940",
       "previousSlugs": [
         "technologue-s-en-production-5-equipes-huntsman-ch"
@@ -245,7 +245,7 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-04T21:51:42.145Z",
+      "validThrough": "2027-02-04T09:36:27.872Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -255,7 +255,7 @@
         "it": "responsabile-tecnico-huntsman-corporation-monthey",
         "en": "technical-officer-huntsman-corporation-monthey",
         "de": "technischer-offizier-huntsman-corporation-monthey",
-        "fr": "agent-technique-huntsman-corporation-monthey"
+        "fr": "agent-technique-huntsman-ch"
       },
       "company": "Huntsman Corporation",
       "companyKey": "huntsman",
@@ -295,12 +295,12 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Agent-Technique_J-020477-1",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:51:41.571Z",
+      "crawledAt": "2026-11-17T09:36:17.510Z",
       "jobReqId": "J-020477",
-      "previousSlugs": [
-        "agent-technique-huntsman-ch"
-      ],
       "previousSlugsByLocale": {
+        "fr": [
+          "agent-technique-huntsman-corporation-monthey"
+        ],
         "it": [
           "agent-technique-huntsman-ch"
         ],
@@ -309,11 +309,12 @@
         ],
         "de": [
           "agent-technique-huntsman-ch"
-        ],
-        "fr": [
-          "agent-technique-huntsman-ch"
         ]
       },
+      "previousSlugs": [
+        "agent-technique-huntsman-ch",
+        "agent-technique-huntsman-corporation-monthey"
+      ],
       "firstSeenAt": "2026-11-13T21:51:10.600Z",
       "salaryMin": 97500,
       "salaryMax": 148000,
@@ -332,7 +333,7 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:51:41.571Z",
+      "validThrough": "2027-02-11T09:36:17.510Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -382,7 +383,7 @@
       "applyUrl": "https://huntsman.wd1.myworkdayjobs.com/en/Huntsman/job/Switzerland---Monthey/Senior-Procurement-Specialist_J-020336",
       "source": "Huntsman Corporation Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-15T21:51:40.981Z",
+      "crawledAt": "2026-11-17T09:36:06.782Z",
       "jobReqId": "J-020336",
       "previousSlugs": [
         "senior-procurement-specialist-huntsman-ch"
@@ -414,7 +415,7 @@
       "addressRegion": "VS",
       "streetAddress": "Monthey",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-11T21:51:40.981Z",
+      "validThrough": "2027-02-11T09:36:06.782Z",
       "validThroughSource": "last-observed-window"
     }
   ]
