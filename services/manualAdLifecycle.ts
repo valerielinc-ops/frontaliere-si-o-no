@@ -7,9 +7,10 @@ export function observeManualAd(
   onState: (state: 'waiting_width' | 'loading' | 'waiting_response' | 'filled' | 'optimized' | 'unfilled' | 'unavailable' | 'collapsed', reason?: string) => void,
   emitEvent: (event: 'ad_request' | 'ad_unavailable' | 'ad_waiting' | 'ad_filled' | 'ad_google_optimized' | 'ad_unfilled' | 'ad_collapsed' | 'ad_measurable' | 'ad_viewable', metrics?: Record<string, string | number>) => void,
 ) {
-  // Preserve late Google fills (including known 30s+ creatives), then expose a
-  // bounded stall signal so the publisher-owned fallback can occupy the slot.
-  const STALLED_AD_FALLBACK_MS = 45_000;
+  // Keep listening for late Google fills (including known 30s+ creatives), but
+  // let the publisher-owned fallback occupy a response that is still pending
+  // after 15 seconds. A later paid fill still replaces the fallback.
+  const STALLED_AD_FALLBACK_MS = 15_000;
   const requestId = `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
   const emit: typeof emitEvent = (event, data = {}) => emitEvent(event, { request_id: requestId, ...data });
   let stopped = false;
