@@ -385,9 +385,10 @@ export function installHouseAds(
       const context = campaign === 'job_search_automation' && frameContext.source !== 'generic'
         ? { ...frameContext, sector: frameContext.sector === 'generic' ? 'commute' : frameContext.sector } as HouseAdCreativeContext
         : undefined;
-      const contextSignature = context
-        ? `${context.source}:${context.sector}:${context.role}:${context.place}`
-        : campaign;
+      const contextParts = context
+        ? [context.source, context.sector, context.role, context.place]
+        : [campaign];
+      const contextSignature = JSON.stringify(contextParts);
       if (existing?.creative.dataset.houseCampaign === campaign
           && existing.creative.dataset.houseFormat === format
           && existing.creative.lang === locale
@@ -440,7 +441,7 @@ export function installHouseAds(
       frame.setAttribute('data-ft-house-active', '');
       // Context is kept local to the runtime: role and place distinguish a
       // genuinely new creative impression without adding either value to GA4.
-      const impressionKey = JSON.stringify([path, data.creative_id, format, contextSignature]);
+      const impressionKey = JSON.stringify([path, data.creative_id, format, ...contextParts]);
       entries.set(frame, { creative, seen: counted.get(frame)?.has(impressionKey) || false, data, contextSignature, impressionKey });
       report('house_ad_rendered', { ...data, action: 'render' });
       report('house_ad_fallback_rendered', { ...data, action: fallbackReason });
