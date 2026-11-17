@@ -7,7 +7,7 @@
   "seedUrls": [
     "https://www.mueller-frauenfeld.ch/fr/karriere/freie-stellen.html"
   ],
-  "detailTemplate": "/karriere/freie-stellen/*",
+  "detailTemplate": "/karriere/freie-stellen/*-#.html",
   "detailEnrichment": true,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 10,
