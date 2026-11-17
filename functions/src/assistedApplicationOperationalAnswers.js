@@ -8,7 +8,7 @@ import { platformDefaultAnswer } from './assistedApplicationPlatformDefaults.js'
 import { isWorkHistoryContext } from './lib/workHistoryContext.js';
 import { cvAnswerFor, isCvAnswerDefault } from './assistedApplicationCvAnswers.js';
 import { decisionAnswerFor, isDecisionAnswerDefault } from './assistedApplicationDecisionAnswers.js';
-import { hasConsentContradiction, isApplicationDataProcessingConsent, isConsentPurpose, isOptionalPurpose, isPrivacyReviewAcknowledgment, minimumDataRetentionOption, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
+import { hasConsentContradiction, isApplicationDataProcessingConsent, isApplicationPrivacyRightsAcknowledgment, isConsentPurpose, isOptionalPurpose, isPrivacyReviewAcknowledgment, minimumDataRetentionOption, privacyReviewAcknowledgmentShape } from './lib/applicationConsent.js';
 
 // v5 (2026-11-09): the platform defaults of assistedApplicationPlatformDefaults.js.
 // v6 (2026-11-10): business travel, profile visibility inside the employer and the decision engine
@@ -25,7 +25,9 @@ import { hasConsentContradiction, isApplicationDataProcessingConsent, isConsentP
 // another block first (platform-defaults-v12): the waits on a second address block are read again.
 // v12 (2026-11-11): the accepted application privacy notice is a policy default, not a candidate fact; existing
 // waits on that acknowledgement are read again.
-export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v12';
+// v13 (2026-11-17): current-application privacy processing and rights acknowledgements can be text inputs; existing
+// waits are read again and receive the localized affirmative consent.
+export const OPERATIONAL_DEFAULTS_VERSION = 'operational-preferences-v13';
 const norm = value => String(value ?? '').normalize('NFD').replace(/[\u0300-\u036f]/g, '')
   .toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim().replace(/\s+/g, ' ');
 const hasAnswer = value => typeof value === 'boolean' || (typeof value === 'number' && Number.isFinite(value))
@@ -44,6 +46,10 @@ const RETENTION_ACTION = /\b(?:retention|retain\w*|keep\w*|stor\w*|conserv\w*|me
 const RETENTION_DATA = /\b(?:data|dati|donnees|daten|personal information|informazioni personali|informazioni di carattere personale|donnees personnelles|personenbezogen\w*)\b/;
 const RETENTION_TIME = /\b(?:how long|for how long|per quanto tempo|per quanto|duration|durata|period|periodo|after|dopo|successiv\w*|future|future offers|offerte di lavoro|nach|apres|combien de temps|wie lange|jahre?|anni?|months?|mesi?|mois|years?|ans?)\b/;
 const AFFIRMATIVE_CONSENT = /^(?:(?:i|io|je|ich) )?(?:si|yes|ja|oui|true|1|acconsent\w*|accett\w*|consent\w*|consens\w*|agree\w*|accept\w*|einwillig\w*|zustimm\w*|akzeptier\w*|autoris\w*)(?: .*)?$/;
+const TEXT_INPUT_TYPES = new Set(['text', 'textarea']);
+const isTextInput = question => [question?.type, question?.kind, question?.inputType]
+  .some(type => TEXT_INPUT_TYPES.has(String(type || '').toLowerCase()));
+const privacyConsentTextAnswer = language => ({ it: 'Acconsento', en: 'I consent', de: 'Ich stimme zu', fr: "J'accepte" }[language]);
 
 function optionsOf(question) {
   const raw = question?.options?.length ? question.options : question?.applicationOptions || [];
@@ -167,6 +173,9 @@ export function operationalQuestionTopic(question) {
     && privacyRepresentations.every(value => privacyReviewAcknowledgmentShape(value).exact)
     && privacyRepresentations.some(value => isPrivacyReviewAcknowledgment(value, question, ...privacyRepresentations, ...supplementalPrivacyLabels));
   if (privacyReviewAck) return 'privacy_review_ack';
+  const privacyRightsAck = privacyRepresentations.length > 0
+    && isApplicationPrivacyRightsAcknowledgment(privacyRepresentations.join(' '), question, ...privacyRepresentations, ...supplementalPrivacyLabels);
+  if (privacyRightsAck) return 'privacy_review_ack';
   const consentText = [...privacyRepresentations, ...supplementalPrivacyLabels, question?.context]
     .filter(value => typeof value === 'string' && value.trim()).join(' ');
   if (isApplicationDataProcessingConsent(consentText, question, ...privacyRepresentations, ...supplementalPrivacyLabels)) {
@@ -249,6 +258,8 @@ function ownerPreferenceAnswer(question, { locale, facts = null } = {}) {
       value = matches[0].label;
     } else if (['yes_no', 'boolean'].includes(question?.type || question?.kind)) {
       value = { it: 'Sì', en: 'Yes', de: 'Ja', fr: 'Oui' }[language];
+    } else if (isTextInput(question)) {
+      value = privacyConsentTextAnswer(language);
     } else return null;
   } else if (topic === 'application_privacy_notice') {
     const answerShape = applicationPrivacyNoticeAnswerShape(question);
@@ -268,8 +279,12 @@ function ownerPreferenceAnswer(question, { locale, facts = null } = {}) {
       const matches = options.filter(option => YES.test(norm(option.label)));
       if (matches.length !== 1) return null;
       value = matches[0].label;
-    } else value = question?.kind === 'checkbox' || question?.type === 'checkbox'
-      ? 'true' : { it: 'Sì', en: 'Yes', de: 'Ja', fr: 'Oui' }[language];
+    } else if (question?.kind === 'checkbox' || question?.type === 'checkbox') value = 'true';
+    else if (isTextInput(question) && isApplicationPrivacyRightsAcknowledgment(
+      [question?.question, question?.label, question?.applicationQuestion].filter(value => typeof value === 'string').join(' '),
+      question,
+    )) value = privacyConsentTextAnswer(language);
+    else value = { it: 'Sì', en: 'Yes', de: 'Ja', fr: 'Oui' }[language];
   } else if (topic === 'notice_period') {
     if (options.length) {
       value = operationalAnswerForOption(question, '3 months');

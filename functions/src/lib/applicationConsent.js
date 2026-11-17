@@ -73,6 +73,30 @@ export function isApplicationDataProcessingConsent(value, ...semanticMetadata) {
 }
 
 /**
+ * A text acknowledgement of the application's privacy notice and the right to
+ * access, correct, delete or withdraw consent. It is deliberately narrower
+ * than the generic privacy grammar: a privacy-looking text field alone is not
+ * enough to authorize an answer.
+ */
+export function isApplicationPrivacyRightsAcknowledgment(value, ...semanticMetadata) {
+  const text = plain(value);
+  if (!text || hasConsentContradiction(text, ...semanticMetadata)) return false;
+  const readNotice = [
+    /\b(?:i have|i ve) read\b[^.!?]{0,100}\b(?:privacy|data protection|data processing)\b/,
+    /\b(?:ho|io ho) letto\b[^.!?]{0,100}\b(?:privacy|informativa|protezione dei dati)\b/,
+    /\bich habe\b[^.!?]{0,100}\b(?:datenschutz\w*|daten\w*schutz)\b[^.!?]{0,30}\bgelesen\b/,
+    /\bj ai lu\b[^.!?]{0,100}\b(?:confidentialite|protection des donnees|politique)\b/,
+  ].some(pattern => pattern.test(text));
+  const rights = [
+    /\b(?:i know|i can|can request)\b[^.!?]{0,180}\b(?:access|correction|deletion|withdraw|revoke)\w*\b/,
+    /\b(?:so|so di poter)\b[^.!?]{0,180}\b(?:accesso|rettifica|cancellaz\w*|revoc\w*)\b/,
+    /\b(?:ich weiss|ich weiß|ich kann)\b[^.!?]{0,180}\b(?:zugang|berichtigung|losch\w*|widerruf\w*)\b/,
+    /\b(?:je sais|je peux|peux demander)\b[^.!?]{0,180}\b(?:acces|rectif\w*|suppression|revoqu\w*|retir\w*)\b/,
+  ].some(pattern => pattern.test(text));
+  return readNotice && rights;
+}
+
+/**
  * Choose the shortest clearly described data-retention option for this
  * application. A current-application deletion option outranks every duration;
  * future-purpose options authorize a distinct use and are never selected by
