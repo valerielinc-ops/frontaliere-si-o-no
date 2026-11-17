@@ -701,7 +701,7 @@ export function workdayFacetLeafValues(facets, facetParameter) {
  * @param {number} [options.timeoutMs] Per-request timeout. Default 15000ms.
  * @param {string} [options.userAgent] Override User-Agent header.
  * @param {number} [options.retries] Override the shared transient retry count.
- * @param {(args: {url: string, method: string, body?: string, userAgent: string, timeoutMs: number}) => Promise<any>|null} [options.browserFallback] Alternate browser transport after direct retries are exhausted.
+ * @param {(args: {url: string, method: string, body?: string, userAgent: string, timeoutMs: number}) => Promise<any>|null} [options.browserFallback] Alternate browser transport after direct retries are exhausted. Omit to use the lazy default browser transport; pass `null` to disable it.
  * @returns {Promise<any|null>} The detail JSON, or `null` on failure.
  *
  * @example
@@ -715,8 +715,13 @@ export async function fetchWorkdayJobDetail(apiBase, externalPath, options = {})
     timeoutMs = 15_000,
     userAgent = DEFAULT_USER_AGENT,
     retries,
-    browserFallback = null,
   } = options;
+  const browserSession = options.browserFallback === undefined
+    ? createWorkdayBrowserJsonFallback(apiBase)
+    : null;
+  const browserFallback = options.browserFallback === undefined
+    ? browserSession.request
+    : options.browserFallback;
 
   const url = `${String(apiBase).replace(/\/+$/, '')}${externalPath}`;
 
@@ -733,6 +738,8 @@ export async function fetchWorkdayJobDetail(apiBase, externalPath, options = {})
     });
   } catch {
     return null;
+  } finally {
+    await browserSession?.close();
   }
 }
 

@@ -121,6 +121,21 @@ describe('Workday JSON transport', () => {
     }));
   });
 
+  it('uses the lazy default browser transport for a rate-limited detail', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('', { status: 429 })));
+    const { page, browser } = browserTransport({
+      jobPostingInfo: { jobDescription: '<p>Recovered detail</p>' },
+    });
+
+    const detail = await fetchWorkdayJobDetail(API_BASE, '/job/Zurich/Swiss_R1');
+
+    expect(detail?.jobPostingInfo?.jobDescription).toBe('<p>Recovered detail</p>');
+    expect(page.evaluate).toHaveBeenCalledOnce();
+    expect(browser.close).toHaveBeenCalledOnce();
+  });
+
   it('uses one browser session to recover parser detail after Workday rate limiting', async () => {
     vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
     vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
