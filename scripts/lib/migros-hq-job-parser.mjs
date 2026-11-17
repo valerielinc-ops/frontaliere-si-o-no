@@ -131,7 +131,7 @@ export function isMigrosHqJob(job) {
  * Validate that a URL belongs to Migros HQ Zürich's domain.
  * Migros HQ is published on jobs.migros.ch, the same Nuxt SSR portal used by
  * every Migros group company — this crawler scopes to the
- * migros-genossenschafts-bund company slug (see COMPANY_PATH_SEGMENT above).
+ * migros-genossenschafts-bund company slug (see JOB_URL_RE above).
  */
 export function isTrustedDomain(rawUrl = '') {
   try {
@@ -183,10 +183,9 @@ function detectEmploymentType(text = '') {
  * detail URLs.
  *
  * The sitemap lists every job across every Migros group company; we filter
- * to the `/job/migros-genossenschafts-bund/` path segment (present regardless
- * of locale prefix — some sitemap entries omit the leading `/de/`) and to
- * URLs ending in a UUID-shaped id, which excludes non-job company/brand pages
- * (e.g. "arbeiten-bei-uns", "karrieremoeglichkeiten").
+ * to the exact `/unsere-unternehmen/job/migros-genossenschafts-bund/` route
+ * and to URLs ending in a UUID-shaped id, which excludes non-job
+ * company/brand pages (e.g. "arbeiten-bei-uns", "karrieremoeglichkeiten").
  */
 async function fetchHqJobUrls({ fetchPage = fetchHtml } = {}) {
   console.log(`  📄 Fetching sitemap: ${SITEMAP_URL}`);
