@@ -103,9 +103,9 @@
     {
       "key": "reviewer-finding/fp:scripts-funnel-treats-any",
       "outcome": "declined",
-      "decidedAt": "2026-11-12T13:57:42Z",
-      "ref": "#18288, #18184, #17990",
-      "reason": "Gia' coperto da AGENTS.md #6: gli esempi ricadono ancora nel divieto di trattare una shape truthy/non-empty come prova senza dominio, contesto e gestione di unknown/ambigui; nessuna nuova riga."
+      "decidedAt": "2026-11-17T14:48:15Z",
+      "ref": "#19205, #19154, #18619, #18391",
+      "reason": "Già coperto da AGENTS.md #6: gli esempi trattano shape o match non vuoti come prova senza dominio/ownership; il discriminatore e la gestione di unknown/ambigui sono già obbligatori, quindi nessuna nuova riga."
     },
     {
       "key": "reviewer-finding/fp:scripts-scripts-scripts-correctness",
@@ -246,6 +246,13 @@
       "decidedAt": "2026-11-16T13:56:28Z",
       "ref": "#19001, #18569, #17130",
       "reason": "Già coperto da AGENTS.md #6: ogni nuovo ramo funnel-critical deve dimostrare dominio/ownership e non può classificare su shape, status o match parziale; una nuova regola duplicherà il contratto."
+    },
+    {
+      "key": "fix-outcome/fix-outcome:pr-open",
+      "outcome": "declined",
+      "decidedAt": "2026-11-17T14:48:15Z",
+      "ref": "#19061, #19053, #19033",
+      "reason": "Già coperto da ISSUES.md → Abort senza PR: solo i codici canonici sono verdetti; `pr-open` è un marker owner, non un esito del fixer, e un codice non elencato non va aggiunto."
     }
   ]
 }
