@@ -73,9 +73,55 @@ describe('unvalidated-perf-claim: le prove accettate e i numeri che non sono pre
   it('claim dichiarato non validato pre-merge con trigger di revert', () => {
     const res = strict(body(
       `${claim} Stima **non validata pre-merge**.`,
-      '- Riduzione dei tempi, blocked: misura post-merge. **Trigger di revert:** wall-time del job oltre 20 minuti nel primo run → revert di questa PR.',
+      '- Riduzione dei tempi, blocked: misura post-merge sulla run `tests.yml`. **Trigger di revert:** wall-time del job oltre 20 minuti nel primo run → revert di questa PR.',
     ));
     expect(res.violations.some(isClaimViolation)).toBe(false);
+  });
+
+  it('non considera una stima pre-merge non validata una prova da sola', () => {
+    const res = strict(body(
+      '- Il nuovo timeout di 30 minuti è una stima pre-merge non ancora validata.',
+    ));
+    expect(res.violations.some(isClaimViolation)).toBe(true);
+  });
+
+  it('non considera sufficiente un trigger scritto nello stesso bullet del claim', () => {
+    const res = strict(body(
+      '- La riduzione wall-clock non è validata pre-merge. Trigger di revert: se il job supera 30 minuti, revert di questa PR.',
+    ));
+    expect(res.violations.some(isClaimViolation)).toBe(true);
+  });
+
+  it('accetta le varianti linguistiche solo con tracking post-merge completo', () => {
+    const res = strict(body(
+      '- La riduzione wall-clock non è validata pre-merge.',
+      '- blocked: misura post-merge sulla run `tests.yml`; soglia 30 minuti. **Trigger di revert:** se il job supera 30 minuti, revert di questa PR.',
+    ));
+    expect(res.violations.some(isClaimViolation)).toBe(false);
+  });
+
+  it('riconosce gli ausiliari stato e been nei claim non misurati pre-merge', () => {
+    for (const claim of [
+      '- Il tempo di build non è stato misurato pre-merge.',
+      '- The build time has not been measured pre-merge.',
+    ]) {
+      const missingPlan = strict(body(claim));
+      expect(missingPlan.violations.some(isClaimViolation), `${claim} senza piano`).toBe(true);
+
+      const tracked = strict(body(
+        claim,
+        '- blocked: misura post-merge sulla run `tests.yml`; soglia 30 minuti. **Trigger di revert:** se il job supera 30 minuti, revert di questa PR.',
+      ));
+      expect(tracked.violations.some(isClaimViolation), `${claim} con piano`).toBe(false);
+    }
+  });
+
+  it('non tratta una parola generica come identificatore di job o workflow', () => {
+    const res = strict(body(
+      '- La riduzione wall-clock non è validata pre-merge.',
+      '- blocked: misura post-merge; ci sarà una soglia di 80 MB; **Trigger di revert:** rollback oltre 80 MB.',
+    ));
+    expect(res.violations.some(isClaimViolation)).toBe(true);
   });
 
   it('numeri che non sono prestazioni («3 file», «12 test»)', () => {
