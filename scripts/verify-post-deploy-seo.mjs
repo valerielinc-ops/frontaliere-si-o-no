@@ -29,7 +29,7 @@ import { pathToFileURL } from 'node:url';
 import { utcDaysBefore } from './lib/analytics-settled-window.mjs';
 import { validateMandatoryJobPostingFields } from './lib/jobposting-mandatory-fields.mjs';
 import { extractRobots, isJobDetailPath } from './lib/seo-health-contract.mjs';
-import { JOB_ORPHAN_NOINDEX_BRIDGE_MARKER } from '../build-plugins/shared/jobOrphanNoindexBridgeMarker.mjs';
+import { hasJobOrphanNoindexBridgeMarker } from '../build-plugins/shared/jobOrphanNoindexBridgeMarker.mjs';
 
 const SITE_URL = 'https://frontaliereticino.ch';
 const LISTING_PATH = '/cerca-lavoro-ticino/';
@@ -195,7 +195,7 @@ export function inspectLiveJobPostingHtml(html) {
     isJobPage: records.length > 0 || malformedJobPosting,
     isListingPage,
     noindex: robots.noindex,
-    isJobOrphanNoindexBridge: html.includes(JOB_ORPHAN_NOINDEX_BRIDGE_MARKER),
+    isJobOrphanNoindexBridge: hasJobOrphanNoindexBridgeMarker(html),
     records,
     errors,
   };
