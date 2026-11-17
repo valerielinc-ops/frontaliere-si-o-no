@@ -1,7 +1,7 @@
 {
   "key": "proplaning-ag",
   "label": "Proplaning AG",
-  "generatedAt": "2026-11-17T09:38:27.400Z",
+  "generatedAt": "2026-11-17T21:56:36.829Z",
   "total": 1,
   "discovered": 1,
   "parsed": 1,
@@ -36,10 +36,10 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3519,
-  "avgDurationMs": 3519,
+  "durationMs": 4257,
+  "avgDurationMs": 4257,
   "durationHistory": [
-    3519
+    4257
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -57,7 +57,7 @@
       "url": "https://my.jobalino.ch/job/b41073c90f165c400f37ffe265a4632e/proplaning-ag/gesamtprojektleiter-baumanagement-w-m-d",
       "source": "Proplaning AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-17T09:38:15.701Z",
+      "crawledAt": "2026-11-17T21:56:15.524Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -80,7 +80,7 @@
       "salaryMax": 129500,
       "salarySource": "estimated",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-17T09:38:15.701Z",
+      "validThrough": "2026-12-17T21:56:15.524Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -91,5 +91,5 @@
       }
     }
   ],
-  "codeCommit": "0a26498058b0569b9b8027a7e9a03db3e2542c6a"
+  "codeCommit": "8a8594aa5e6a6b71cb0a2a3883a7ded1be40621c"
 }

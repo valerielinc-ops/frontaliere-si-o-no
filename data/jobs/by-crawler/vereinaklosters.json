@@ -1,7 +1,7 @@
 {
   "crawlerKey": "vereinaklosters",
-  "assembledAt": "2026-11-16T21:32:30.978Z",
-  "runId": "43959210428",
+  "assembledAt": "2026-11-17T21:48:23.365Z",
+  "runId": "44179211698",
   "jobs": [
     {
       "id": "vereinaklosters-ba2cf05935e8",
@@ -34,7 +34,7 @@
       "url": "https://www.hotelcareer.ch/jobs/hotel-vereina-52746/zimmer-reinigungskraft-4035476?rltr=comp",
       "source": "Vereina Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:32:24.727Z",
+      "crawledAt": "2026-11-17T21:48:15.174Z",
       "addressLocality": "Klosters",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -85,7 +85,7 @@
       "postalCode": "7250",
       "streetAddress": "Klosters",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-14T21:32:24.727Z",
+      "validThrough": "2027-02-14T21:48:15.174Z",
       "validThroughSource": "last-observed-window"
     }
   ]
