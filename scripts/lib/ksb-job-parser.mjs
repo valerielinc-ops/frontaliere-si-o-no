@@ -30,6 +30,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {
   buildWorkdayApiBase,
+  createWorkdayBrowserJsonFallback,
   fetchWorkdayJobs,
   fetchWorkdayJobDetailParts,
   fetchWorkdaySidebarText,
@@ -178,13 +179,18 @@ export async function fetchAllKsbJobs() {
 
   console.log(`  📋 Listings found: ${listings.length}`);
 
+  const detailBrowserSession = createWorkdayBrowserJsonFallback(WORKDAY_API_BASE);
+  try {
+
   // KSB's career site shows an "About us" sidebar next to every posting, and
   // Workday folds it into each posting's JSON-LD description. The CXS job
   // payload never carries it, so KSB's short postings (a two-line
   // "Spontanbewerbung", a 445-character OP-technician apprenticeship) were
   // published at 13-35 % of what the source page states (audit run
   // 36528331656). Read it once per run and append it to each posting body.
-  const aboutText = await fetchWorkdaySidebarText(WORKDAY_API_BASE, stripHtml);
+  const aboutText = await fetchWorkdaySidebarText(WORKDAY_API_BASE, stripHtml, {
+    browserFallback: detailBrowserSession.request,
+  });
 
   const jobs = [];
   let withoutBody = 0;
@@ -196,8 +202,12 @@ export async function fetchAllKsbJobs() {
     // primary workplace (Baden, Muri, ...) may place it, never the Baden main
     // site (issue 9842: no HQ fallback on unknown geography).
     const location = normalizeSpace(listing.location || '')
-      || await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
-    const canton = location ? await fetchWorkdaySwissCanton(WORKDAY_API_BASE, listing.externalPath, location) : '';
+      || await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath, {
+        browserFallback: detailBrowserSession.request,
+      });
+    const canton = location ? await fetchWorkdaySwissCanton(WORKDAY_API_BASE, listing.externalPath, location, {
+      browserFallback: detailBrowserSession.request,
+    }) : '';
     if (!canton) {
       console.log(`  ⏭️  Skipped location without a Swiss canton: ${listing.location || '(roll-up without Swiss primary)'} — ${title}`);
       continue;
@@ -211,6 +221,7 @@ export async function fetchAllKsbJobs() {
       WORKDAY_API_BASE,
       listing.externalPath,
       stripHtml,
+      { browserFallback: detailBrowserSession.request },
     );
     const employmentType = detectEmploymentType(listing.timeType || detailInfo.timeType || title);
     await new Promise((r) => setTimeout(r, 400));
@@ -282,4 +293,7 @@ export async function fetchAllKsbJobs() {
   }
   console.log(`\n📋 Total ${KSB_COMPANY_NAME} jobs discovered: ${jobs.length}`);
   return jobs;
+  } finally {
+    await detailBrowserSession.close();
+  }
 }

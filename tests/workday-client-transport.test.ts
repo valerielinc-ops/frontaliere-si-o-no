@@ -11,6 +11,7 @@ vi.mock('../scripts/lib/stealth-browser.mjs', () => ({
 }));
 
 import { createWorkdaySwissParser } from '../scripts/lib/workday-swiss-job-parser-common.mjs';
+import { fetchAllKsbJobs } from '../scripts/lib/ksb-job-parser.mjs';
 import {
   fetchWorkdayJobDetail,
   fetchWorkdayJobs,
@@ -182,6 +183,42 @@ describe('Workday JSON transport', () => {
     expect(jobs[0].title).toBe('Swiss role');
     expect(directFetch).toHaveBeenCalledTimes(3);
     expect(page.evaluate).toHaveBeenCalledOnce();
+    expect(browser.close).toHaveBeenCalledOnce();
+  });
+
+  it('uses one browser session for two KSB detail requests after rate limiting', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    const vacancy = '<p>Responsibilities include coordinating cross functional projects, preparing clear documentation, supporting the local team, and improving reliable processes. The successful candidate brings relevant experience, strong communication skills, sound judgement, careful attention to detail, and fluent German. We offer a collaborative workplace, flexible working hours, professional development, meaningful ownership, and a structured application process with supportive colleagues and modern tools.</p>';
+    const detailPayloads = [
+      [],
+      { jobPostingInfo: { jobDescription: vacancy, timeType: 'Full time' } },
+      { jobPostingInfo: { jobDescription: vacancy, timeType: 'Part time' } },
+    ];
+    const directFetch = vi.fn(async (url: string) => {
+      if (url.endsWith('/jobs')) {
+        return new Response(JSON.stringify({
+          total: 2,
+          jobPostings: [
+            { title: 'KSB role one', externalPath: '/job/Baden/KSB_R1', locationsText: 'Baden, Switzerland', bulletFields: ['R1'] },
+            { title: 'KSB role two', externalPath: '/job/Baden/KSB_R2', locationsText: 'Baden, Switzerland', bulletFields: ['R2'] },
+          ],
+        }), { status: 200 });
+      }
+      return new Response('', { status: 429 });
+    });
+    vi.stubGlobal('fetch', directFetch);
+    const { page, browser } = browserTransport(null);
+    page.evaluate.mockImplementation(async () => ({
+      status: 200,
+      body: JSON.stringify(detailPayloads.shift()),
+    }));
+
+    const jobs = await fetchAllKsbJobs();
+
+    expect(jobs).toHaveLength(2);
+    expect(jobs.map((job: any) => job.title)).toEqual(['KSB role one', 'KSB role two']);
+    expect(page.evaluate).toHaveBeenCalledTimes(3);
     expect(browser.close).toHaveBeenCalledOnce();
   });
 

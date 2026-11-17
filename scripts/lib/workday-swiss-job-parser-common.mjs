@@ -519,10 +519,10 @@ export async function fetchWorkdaySwissCanton(apiBase, externalPath, location, o
   // No request unless the directory knows the name: on a global board (roche
   // walks every country) a foreign city costs nothing.
   if (!directoryLocalityCanton(text).canton) return '';
-  const { fetchDetail = fetchWorkdayJobDetail } = options;
+  const { fetchDetail = fetchWorkdayJobDetail, browserFallback } = options;
   let detail = null;
   try {
-    detail = await fetchDetail(apiBase, externalPath);
+    detail = await fetchDetail(apiBase, externalPath, browserFallback === undefined ? {} : { browserFallback });
   } catch {
     detail = null;
   }
@@ -546,11 +546,11 @@ export async function fetchWorkdaySwissCanton(apiBase, externalPath, location, o
  * @returns {Promise<string>}
  */
 export async function fetchWorkdayPrimarySwissLocation(apiBase, externalPath, options = {}) {
-  const { fetchDetail = fetchWorkdayJobDetail } = options;
+  const { fetchDetail = fetchWorkdayJobDetail, browserFallback } = options;
   if (!apiBase || !externalPath) return '';
   let detail = null;
   try {
-    detail = await fetchDetail(apiBase, externalPath);
+    detail = await fetchDetail(apiBase, externalPath, browserFallback === undefined ? {} : { browserFallback });
   } catch {
     detail = null;
   }
