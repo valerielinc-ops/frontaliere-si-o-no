@@ -287,8 +287,9 @@ describe('raw URL-to-dist writers apply the guard before filesystem joins', () =
 
   it('guards job soft-landing and cross-locale writes before filesystem joins', () => {
     expect(JOBS_SOURCE).toContain('getSafeDistPageTargets(distDir, distPath)');
-    expect(JOBS_SOURCE.match(/getSafeDistPageTargets\(distDir, relPath(?:, \{ includeFlat: false \})?\)/g) ?? [])
-      .toHaveLength(2);
+    expect(JOBS_SOURCE.match(/getSafeDistPageTargets\(distDir, relPath\)/g) ?? []).toHaveLength(1);
+    expect(JOBS_SOURCE.match(/getSafeDistPageTargets\(distDir, relPath, \{ includeFlat: false \}\)/g) ?? [])
+      .toHaveLength(1);
     expect(JOBS_SOURCE).toContain('isDistPathOverFilesystemLimits(distPath)');
     expect(JOBS_SOURCE.match(/isDistPathOverFilesystemLimits\(relPath\)/g) ?? []).toHaveLength(2);
     expect(JOBS_SOURCE.indexOf('getSafeDistPageTargets(distDir, distPath)')).toBeLessThan(
