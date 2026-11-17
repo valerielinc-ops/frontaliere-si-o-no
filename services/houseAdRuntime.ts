@@ -17,7 +17,7 @@ export function installHouseAds(
     readerSubscriptionPaths?: Partial<Record<HouseAdLocale, string>>;
   },
 ) {
-  type Entry = { creative: HTMLAnchorElement; timer?: ReturnType<typeof setTimeout>; seen: boolean; data: Record<string, string | number>; contextSignature: string };
+  type Entry = { creative: HTMLAnchorElement; timer?: ReturnType<typeof setTimeout>; seen: boolean; data: Record<string, string | number>; contextSignature: string; impressionKey: string };
   type HouseWindow = Window & {
     __ftHouseAds?: { refresh: () => void };
     __ftAdsAuthState?: 'unknown' | 'anonymous' | 'authenticated';
@@ -236,7 +236,7 @@ export function installHouseAds(
         const frame = entry.creative.closest<HTMLElement>('[data-house]');
         if (frame) {
           const keys = counted.get(frame) || new Set<string>();
-          keys.add(`${path}:${entry.data.creative_id}:${entry.data.format}:${entry.data.context_source || 'generic'}:${entry.data.context_sector || 'generic'}`); counted.set(frame, keys);
+          keys.add(entry.impressionKey); counted.set(frame, keys);
         }
         report('house_ad_impression', { ...entry.data, action: 'viewable_1s' });
         if (entry.data.campaign === 'reader_subscription') {
@@ -438,8 +438,10 @@ export function installHouseAds(
       host.appendChild(creative);
       frame.style.setProperty('--ft-house-height', `${height}px`);
       frame.setAttribute('data-ft-house-active', '');
-      const impressionKey = `${path}:${data.creative_id}:${format}:${data.context_source || 'generic'}:${data.context_sector || 'generic'}`;
-      entries.set(frame, { creative, seen: counted.get(frame)?.has(impressionKey) || false, data, contextSignature });
+      // Context is kept local to the runtime: role and place distinguish a
+      // genuinely new creative impression without adding either value to GA4.
+      const impressionKey = JSON.stringify([path, data.creative_id, format, contextSignature]);
+      entries.set(frame, { creative, seen: counted.get(frame)?.has(impressionKey) || false, data, contextSignature, impressionKey });
       report('house_ad_rendered', { ...data, action: 'render' });
       report('house_ad_fallback_rendered', { ...data, action: fallbackReason });
     }
