@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import { resolve } from 'node:path';
+import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 
 const RUN_ID_RE = /^\d+$/;
@@ -78,5 +78,4 @@ function main() {
   console.log(`job-canon handshake closed for build ${process.env.EXPECTED_BUILD_ID} via ${result.source}`);
 }
 
-const invokedPath = process.argv[1];
-if (invokedPath && import.meta.url === pathToFileURL(resolve(invokedPath)).href) main();
+if ((() => { try { return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href; } catch { return false; } })()) main();
