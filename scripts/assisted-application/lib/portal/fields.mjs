@@ -1087,8 +1087,7 @@ function nativeQuestionText(value, counter = null) {
         || !group.some(field => pinpointIdentityField(field, 'given'))
         || !group.some(field => pinpointIdentityField(field, 'family'))) continue;
       const addressFields = group.map((field, index) => ({ field, index, role: pinpointApplicantAddressRole(field) }));
-      let bestCluster = null;
-      let ambiguousCluster = false;
+      const qualifyingClusters = [];
       for (const street of addressFields.filter(item => item.role === 'street')) {
         for (const city of addressFields.filter(item => item.role === 'city')) {
           for (const postalCode of addressFields.filter(item => item.role === 'postalCode')) {
@@ -1097,18 +1096,12 @@ function nativeQuestionText(value, counter = null) {
               const end = Math.max(street.index, city.index, postalCode.index, country.index);
               const span = end - start;
               if (span > 6) continue;
-              const tuple = `${street.index}:${city.index}:${postalCode.index}:${country.index}`;
-              if (!bestCluster || span < bestCluster.span) {
-                bestCluster = { start, end, span, tuple };
-                ambiguousCluster = false;
-              } else if (span === bestCluster.span && bestCluster.tuple !== tuple) {
-                ambiguousCluster = true;
-              }
+              qualifyingClusters.push({ start, end });
             }
           }
         }
       }
-      if (bestCluster && !ambiguousCluster) applicantForms.push({ group, ...bestCluster });
+      if (qualifyingClusters.length === 1) applicantForms.push({ group, ...qualifyingClusters[0] });
     }
     if (applicantForms.length !== 1) return;
     const { group, start, end } = applicantForms[0];

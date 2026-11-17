@@ -149,6 +149,40 @@ describe('portal field extraction', () => {
     });
   });
 
+  it('fails closed when one Pinpoint form contains complete address clusters with different spans', () => {
+    const snapshot = extract(`<form>
+      <label for="first">First Name</label><input id="first" name="first_name">
+      <label for="last">Last Name</label><input id="last" name="last_name">
+      <label for="email">Email Address</label><input id="email" name="email" type="email">
+      <label for="primary-street">Address Line 1</label><input id="primary-street" name="address_line_1">
+      <label for="primary-town">Town</label><input id="primary-town" name="town">
+      <label for="primary-postcode">Postcode</label><input id="primary-postcode" name="postcode">
+      <label for="primary-country">application_form[application][country]</label>
+      <input id="primary-country" name="application_form[application][country]">
+      <label for="emergency-name">Emergency contact name</label><input id="emergency-name">
+      <label for="emergency-phone">Emergency contact phone</label><input id="emergency-phone">
+      <label for="emergency-relation">Emergency contact relation</label><input id="emergency-relation">
+      <label for="reference-name">Reference name</label><input id="reference-name">
+      <label for="reference-phone">Reference phone</label><input id="reference-phone">
+      <label for="additional-note">Additional note</label><input id="additional-note">
+      <label for="preferred-contact">Preferred contact</label><input id="preferred-contact">
+      <label for="alternate-street">Address Line 1</label><input id="alternate-street" name="alternate_address_line_1">
+      <label for="alternate-note">Alternate address note</label><input id="alternate-note">
+      <label for="alternate-contact">Alternate address contact</label><input id="alternate-contact">
+      <label for="alternate-town">Town</label><input id="alternate-town" name="alternate_town">
+      <label for="alternate-postcode">Postcode</label><input id="alternate-postcode" name="alternate_postcode">
+      <label for="alternate-relation">Alternate address relation</label><input id="alternate-relation">
+      <label for="alternate-country">application_form[application][country]</label>
+      <input id="alternate-country" name="application_form[application][country]">
+    </form>`, 'https://kempinski.pinpointhq.com/en/postings/9d8a7c6b-5e4f-4321-9abc-0123456789de/applications/new');
+
+    const addressFields = snapshot.fields.filter((field: any) =>
+      ['Address Line 1', 'Town', 'Postcode'].includes(field.label)
+      || field.label === 'application_form[application][country]');
+    expect(addressFields).toHaveLength(8);
+    expect(addressFields.every((field: any) => field.addressContext?.owners?.includes('Personal information') !== true)).toBe(true);
+  });
+
   it.each(['CV', 'Resume/CV', 'Lebenslauf', 'Curriculum'])('uses a Workday section title for a hidden unlabelled upload input: %s', (title) => {
     const snapshot = extract(`<form><section><h2>${title}</h2>
       <input id="file-upload-input-ref" data-automation-id="file-upload-input-ref" type="file" style="display:none">
