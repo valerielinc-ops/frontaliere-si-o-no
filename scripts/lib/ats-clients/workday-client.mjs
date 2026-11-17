@@ -331,7 +331,7 @@ async function fetchJsonWithRetry(url, options = {}) {
             );
             err.status = res.status;
             err.retryable = RETRYABLE_STATUS.has(res.status);
-            err.retryAfter = res.headers.get('retry-after');
+            err.retryAfter = res.headers?.get?.('retry-after') ?? null;
             throw err;
           }
           const text = await res.text();
