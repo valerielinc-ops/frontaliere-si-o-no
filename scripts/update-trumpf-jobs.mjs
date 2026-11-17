@@ -169,6 +169,7 @@ function mapEmploymentType(timeType = '', title = '') {
 // ──────────────────────────────────────────────────────────────
 
 async function fetchPortalJobs(portal) {
+  const portalApiBase = `${WORKDAY_CXS}/${portal}`;
   const url = `${WORKDAY_CXS}/${portal}/jobs`;
   const PAGE_SIZE = 20;
   const allJobs = [];
@@ -184,7 +185,7 @@ async function fetchPortalJobs(portal) {
       searchText: 'Switzerland',
     });
 
-    const data = await fetchWorkdayJsonWithRetry(WORKDAY_CXS, url, {
+    const data = await fetchWorkdayJsonWithRetry(portalApiBase, url, {
       method: 'POST',
       body,
       timeoutMs: TIMEOUT_MS,
@@ -212,9 +213,10 @@ async function fetchPortalJobs(portal) {
 }
 
 async function fetchJobDetail(portal, externalPath) {
+  const portalApiBase = `${WORKDAY_CXS}/${portal}`;
   const url = `${WORKDAY_CXS}/${portal}${externalPath}`;
   try {
-    return await fetchWorkdayJsonWithRetry(WORKDAY_CXS, url, {
+    return await fetchWorkdayJsonWithRetry(portalApiBase, url, {
       timeoutMs: TIMEOUT_MS,
       userAgent: UA,
     });

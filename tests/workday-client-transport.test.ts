@@ -273,6 +273,27 @@ describe('Workday JSON transport', () => {
     );
   });
 
+  it('preserves the portal path when deriving a TRUMPF browser fallback page', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('fetch failed')));
+    const { page } = browserTransport({
+      total: 0,
+      jobPostings: [],
+    });
+
+    const jobs = [];
+    for await (const posting of fetchWorkdayJobs(
+      'https://trumpf.wd3.myworkdayjobs.com/wday/cxs/trumpf/TRUMPF_Graduates_and_Professionals',
+      { minDelayMs: 0 },
+    )) jobs.push(posting);
+
+    expect(jobs).toHaveLength(0);
+    expect(page.goto).toHaveBeenCalledWith(
+      'https://trumpf.wd3.myworkdayjobs.com/en-US/TRUMPF_Graduates_and_Professionals',
+      expect.objectContaining({ waitUntil: 'domcontentloaded' }),
+    );
+  });
+
   it('aborts a stalled browser fallback at the request timeout', async () => {
     vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
     vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new TypeError('fetch failed')));
