@@ -32,6 +32,7 @@ import {
 } from './authoritative-empty-snapshot.mjs';
 import {
   buildWorkdayApiBase,
+  createWorkdayBrowserJsonFallback,
   fetchWorkdayJobs,
   fetchWorkdayJobDetail,
   fetchWorkdaySidebarText,
@@ -951,8 +952,10 @@ export function createWorkdaySwissParser(config) {
     }
     console.log(`  📋 Listings found: ${listings.length}${strictSwiss ? ' (unfiltered — strict CH gate active)' : ' (Swiss facet)'}`);
 
+    const detailBrowserSession = createWorkdayBrowserJsonFallback(API_BASE);
+    try {
     const sidebarText = includeCareerSiteSidebar
-      ? await fetchWorkdaySidebarText(API_BASE, stripHtml)
+      ? await fetchWorkdaySidebarText(API_BASE, stripHtml, { browserFallback: detailBrowserSession.request })
       : '';
 
     const jobs = [];
@@ -987,7 +990,9 @@ export function createWorkdaySwissParser(config) {
       // additional locations when the listing is an `N Locations` roll-up.
       let detail = null;
       try {
-        detail = await fetchWorkdayJobDetail(API_BASE, listing.externalPath);
+        detail = await fetchWorkdayJobDetail(API_BASE, listing.externalPath, {
+          browserFallback: detailBrowserSession.request,
+        });
       } catch {
         detail = null;
       }
@@ -1216,6 +1221,9 @@ export function createWorkdaySwissParser(config) {
       return markAuthoritativeEmptySnapshot(jobs, evidence);
     }
     return jobs;
+    } finally {
+      await detailBrowserSession.close();
+    }
   }
 
   return { fetchAllJobs, isCompanyJob, isTrustedDomain };
