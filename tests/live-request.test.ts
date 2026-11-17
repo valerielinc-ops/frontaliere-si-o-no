@@ -38,6 +38,37 @@ describe('getLiveWithRetry', () => {
     expect(get).toHaveBeenCalledTimes(6);
   });
 
+  it('retries a transient server response and returns the recovered response', async () => {
+    const get = vi.fn().mockResolvedValueOnce(response(503)).mockResolvedValueOnce(response(200));
+
+    const recovered = await getLiveWithRetry(get, 'https://example.test/page', undefined, { delayMs: 0 });
+    expect(recovered.status()).toBe(200);
+    expect(get).toHaveBeenCalledTimes(2);
+  });
+
+  it('allows a second transient server response before failing the live gate', async () => {
+    const get = vi
+      .fn()
+      .mockResolvedValueOnce(response(503))
+      .mockResolvedValueOnce(response(503))
+      .mockResolvedValueOnce(response(200));
+
+    const recovered = await getLiveWithRetry(get, 'https://example.test/page', undefined, { delayMs: 0 });
+    expect(recovered.status()).toBe(200);
+    expect(get).toHaveBeenCalledTimes(3);
+  });
+
+  it('retries a transport error without retrying a client error', async () => {
+    const get = vi
+      .fn()
+      .mockRejectedValueOnce(new Error('request timed out'))
+      .mockResolvedValueOnce(response(404));
+
+    const clientError = await getLiveWithRetry(get, 'https://example.test/page', undefined, { delayMs: 0 });
+    expect(clientError.status()).toBe(404);
+    expect(get).toHaveBeenCalledTimes(2);
+  });
+
   it('does not retry a 4xx response', async () => {
     const get = vi.fn().mockResolvedValue(response(404));
 
