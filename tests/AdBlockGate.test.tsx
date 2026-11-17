@@ -1,6 +1,8 @@
 /** Coverage for the native application offer shown after ad-block detection. */
 
 import React from 'react';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import { render, screen, act, fireEvent } from '@testing-library/react';
 import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 
@@ -58,6 +60,13 @@ function setSlotSize(slot: HTMLElement, width: number, height: number): void {
 }
 
 describe('AdBlockGate native application offer', () => {
+  it('keeps the offer chunk off the bare mobile job-board snapshot handoff', () => {
+    const appSource = readFileSync(resolve(__dirname, '..', 'App.tsx'), 'utf8');
+    expect(appSource).toContain(
+      '{!jobBoardStaticFallback && !isLikelyBot() && !isLikelySearchCrawler() && (',
+    );
+  });
+
   beforeEach(() => {
     isLikelyBotMock.mockReturnValue(false);
     isLikelySearchCrawlerMock.mockReturnValue(false);
