@@ -172,6 +172,47 @@ describe('profile history rows', () => {
     expect(current.fields.filter((field) => /^(?:From|To)\*/.test(field.label)).every((field) => field.value === '')).toBe(true);
   });
 
+  it('associates date wrappers through sectionGroupId when it is the only row owner', async () => {
+    const current = {
+      url: 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Role_R2420/apply/applyManually',
+      fields: [
+        { id: 'title-1', section: 'Work Experience 1', label: 'Job Title*', kind: 'text', required: true, value: 'Existing role', sectionGroupId: 'group-1' },
+        { id: 'title-2', section: 'Work Experience 2', label: 'Job Title*', kind: 'text', required: true, value: 'Another role', sectionGroupId: 'group-2' },
+        { id: 'from-2', section: 'Work Experience', label: 'From*', kind: 'text', inputType: 'date', widget: 'workday-date', required: true, value: '', sectionGroupId: 'group-2' },
+        { id: 'to-1', section: 'Work Experience', label: 'To*', kind: 'text', inputType: 'date', widget: 'workday-date', required: true, value: '', sectionGroupId: 'group-1' },
+        { id: 'from-1', section: 'Work Experience', label: 'From*', kind: 'text', inputType: 'date', widget: 'workday-date', required: true, value: '', sectionGroupId: 'group-1' },
+        { id: 'to-2', section: 'Work Experience', label: 'To*', kind: 'text', inputType: 'date', widget: 'workday-date', required: true, value: '', sectionGroupId: 'group-2' },
+      ],
+      buttons: [
+        { id: 'delete-1', text: 'Delete', section: 'Work Experience', disabled: false },
+        { id: 'delete-2', text: 'Delete', section: 'Work Experience', disabled: false },
+        { id: 'add-another', text: 'Add Another', section: 'Work Experience', disabled: false },
+      ],
+    };
+    doubles.extractFields.mockImplementation(async () => current);
+    doubles.applyActions.mockImplementation(async (_page, rowFields, actions) => {
+      for (const action of actions) rowFields.find((field) => field.id === action.fieldId).value = action.value;
+      return actions.map((action) => ({ fieldId: action.fieldId, ok: true }));
+    });
+    const candidate = {
+      profile: {
+        experience: [
+          { role: 'Existing role', employer: 'Existing employer', start: '2022-01', end: '2024-01' },
+          { role: 'Another role', employer: 'Another employer', start: '2020-02', end: '2021-03' },
+        ],
+        education: [],
+      },
+    };
+
+    const result = await fillProfileSections({ url: () => current.url } as never, current as never, { candidate });
+
+    expect(result.handoff).toBeUndefined();
+    expect(current.fields.find((field) => field.id === 'from-1').value).toBe('2022-01');
+    expect(current.fields.find((field) => field.id === 'to-1').value).toBe('2024-01');
+    expect(current.fields.find((field) => field.id === 'from-2').value).toBe('2020-02');
+    expect(current.fields.find((field) => field.id === 'to-2').value).toBe('2021-03');
+  });
+
   it('hands off when an owner-matched date endpoint pair is incomplete', async () => {
     const current = {
       url: 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Role_R2420/apply/applyManually',

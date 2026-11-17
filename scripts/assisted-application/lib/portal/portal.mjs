@@ -8876,6 +8876,7 @@ function inlineProfileOwnerTokens(field, includeValue = false) {
   const values = [
     field?.rowOwner,
     field?.owner,
+    field?.sectionGroupId,
     field?.addressContext?.section,
     ...(Array.isArray(field?.addressContext?.owners) ? field.addressContext.owners : []),
     field?.context,
