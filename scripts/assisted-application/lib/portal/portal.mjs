@@ -3946,6 +3946,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
   let publicSearchSearched = false;
   let customSuccessFactorsEntryClicked = false;
   let workdayEntryControlSignature = '';
+  let workdayPreClickEntrySignatures = new Set();
   const result = (extra = {}) => ({
     page,
     snapshot,
@@ -3971,7 +3972,11 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     if (!stageContext || !isWorkdayTenantUrl(stageContext.applyUrl)) return [];
     const entries = applicationEntryControls(current, stageContext);
     return workdayEntryControlSignature
-      ? entries.filter((control) => portalControlSignature(control) !== workdayEntryControlSignature)
+      ? entries.filter((control) => {
+        const signature = portalControlSignature(control);
+        return signature !== workdayEntryControlSignature
+          && !workdayPreClickEntrySignatures.has(signature);
+      })
       : entries;
   };
   const workdayApplicationSurfaceReady = (current) => {
@@ -4113,6 +4118,10 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     }
   };
   for (let hop = 0; hop < 3; hop += 1) {
+    // The chooser proof below is scoped to the control set that existed before
+    // this hop's click. Do not let a prior hop's baseline make an unchanged
+    // posting surface look like a newly mounted application chooser.
+    workdayPreClickEntrySignatures = new Set();
     if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
     if (stageContext && workdayPostingRouteMismatch(page.url(), stageContext.applyUrl, workdayApplicationEntryProven)) {
       return result({ handoff: 'posting_mismatch' });
@@ -4271,6 +4280,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       && (manual || apply || linkEntry)?.menuItem !== true;
     const sourceUrl = page.url();
     if (stageContext && isWorkdayTenantUrl(stageContext.applyUrl)) {
+      workdayPreClickEntrySignatures = new Set(ownedEntries.map((control) => portalControlSignature(control)));
       const selectedWorkdayControl = manual || apply || linkEntry;
       if (selectedWorkdayControl) workdayEntryControlSignature = portalControlSignature(selectedWorkdayControl);
     }
