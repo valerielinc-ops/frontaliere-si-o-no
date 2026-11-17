@@ -1,0 +1,23 @@
+{
+  "companyKey": "cogestim-ch",
+  "companyName": "COGESTIM SA",
+  "companyHost": "cogestim.ch",
+  "verifiedEmployerDomain": "cogestim.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://cogestim.ch/carriere/"
+  ],
+  "detailTemplate": "/carriere/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Courtier en immobilier (H/F)"
+  ],
+  "canton": "VD",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-17T14:33:14.913Z",
+  "candidateKey": "cogestim@lausanne"
+}

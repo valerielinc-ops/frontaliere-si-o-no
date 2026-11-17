@@ -1,0 +1,24 @@
+{
+  "companyKey": "brushclaims",
+  "companyName": "Brush Claims",
+  "companyHost": "brushclaims.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://brushclaims.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Customer Experience Team",
+    "Desk Adjuster",
+    "Field Adjuster",
+    "Scope Only"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-17T14:22:18.780Z",
+  "candidateKey": "brushclaims@applytojob.com"
+}

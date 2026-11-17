@@ -1,0 +1,25 @@
+{
+  "companyKey": "salzgeberholzbau-ch",
+  "companyName": "Salzgeber Holzbau S-chanf",
+  "companyHost": "salzgeberholzbau.ch",
+  "verifiedEmployerDomain": "salzgeberholzbau.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.salzgeberholzbau.ch/stellenangebote/"
+  ],
+  "detailTemplate": "/stellenangebote/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "> Stellenbeschrieb Stellenbeschrieb Mechaniker/in",
+    "> Stellenbeschrieb Stellenbeschrieb Sanitär-/Heizungsinstallateur/Elektriker",
+    "> Stellenbeschrieb Stellenbeschrieb Schreiner"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-17T14:24:19.394Z",
+  "candidateKey": "salzgeber-holzbau-s-chanf@s-chanf"
+}

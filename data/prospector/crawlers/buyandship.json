@@ -1,0 +1,22 @@
+{
+  "companyKey": "buyandship",
+  "companyName": "Buyandship Limited",
+  "companyHost": "buyandship.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://buyandship.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Senior AI Engineer",
+    "客戶服務助理 Customer Service Representative"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-17T14:22:23.862Z",
+  "candidateKey": "buyandship@applytojob.com"
+}

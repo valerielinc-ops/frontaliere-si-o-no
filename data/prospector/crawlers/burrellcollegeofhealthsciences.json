@@ -1,0 +1,25 @@
+{
+  "companyKey": "burrellcollegeofhealthsciences",
+  "companyName": "Burrell College of Health Sciences",
+  "companyHost": "burrellcollegeofhealthsciences.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://burrellcollegeofhealthsciences.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 17,
+  "sampleTitles": [
+    "AA - Assistant Program Director of Academic Affairs - MHSA",
+    "AA - Assistant Program Director of Clinical Affairs - (MHSA)",
+    "AA - Assistant Program Director of Simulation - (MHSA)",
+    "FL - Admissions Advisor/Recruiter",
+    "FL - Assistant Director of Admissions"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-17T14:22:22.598Z",
+  "candidateKey": "burrellcollegeofhealthsciences@applytojob.com"
+}
