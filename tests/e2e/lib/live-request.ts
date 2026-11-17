@@ -1,3 +1,5 @@
+import { DEFAULT_LIVE_CHECK_USER_AGENT } from '../../../scripts/lib/live-link-check.mjs';
+
 /**
  * Retry only transport failures and server errors while probing the live site.
  *
@@ -11,6 +13,7 @@
  */
 
 export interface LiveRequestOptions {
+  headers?: Record<string, string>;
   maxRedirects?: number;
   timeout?: number;
 }
@@ -58,6 +61,7 @@ export async function getLiveWithRetry<T extends LiveResponse>(
   options?: LiveRequestOptions,
   retry: { attempts?: number; delayMs?: number } = {},
 ): Promise<T> {
+  const requestOptions = withDefaultUserAgent(options);
   const attempts = Math.max(1, Math.floor(retry.attempts ?? LIVE_REQUEST_ATTEMPTS));
   const delayMs = Math.max(0, retry.delayMs ?? LIVE_REQUEST_RETRY_DELAY_MS);
   const startedAt = Date.now();
@@ -65,7 +69,7 @@ export async function getLiveWithRetry<T extends LiveResponse>(
 
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
-      const response = await get(url, options);
+      const response = await get(url, requestOptions);
       lastOutcome = { type: 'response', response };
       if (!isTransientStatus(response.status())) return response;
     } catch (error) {
@@ -84,7 +88,7 @@ export async function getLiveWithRetry<T extends LiveResponse>(
     if (Date.now() >= deadline) break;
 
     try {
-      const response = await get(url, options);
+      const response = await get(url, requestOptions);
       lastOutcome = { type: 'response', response };
       if (!isTransientStatus(response.status())) return response;
     } catch (error) {
@@ -97,6 +101,15 @@ export async function getLiveWithRetry<T extends LiveResponse>(
   }
 
   return unwrapLastOutcome(lastOutcome, url);
+}
+
+function withDefaultUserAgent(options?: LiveRequestOptions): LiveRequestOptions {
+  const headers = options?.headers ?? {};
+  const hasUserAgent = Object.keys(headers).some((header) => header.toLowerCase() === 'user-agent');
+  return {
+    ...options,
+    headers: hasUserAgent ? { ...headers } : { ...headers, 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT },
+  };
 }
 
 function unwrapLastOutcome<T extends LiveResponse>(
