@@ -3120,7 +3120,7 @@ const COOKIE_GENERIC_ACCEPT_LABEL_RE = /^(?:ok|accept|akzeptieren|accetta|accept
 // its generic controls without a cookie-specific landmark. Keep the fallback
 // narrow: a consent sentence must be visible together with a separate close
 // control, so an application privacy dialog cannot borrow a generic "Accept".
-const COOKIE_CONSENT_COPY_RE = /(?:\bcookies?\b.{0,240}\b(?:website|webseite|nutzung|navigation|verwendung|use|using|brows(?:e|ing)|navigat|utilis|utilizz|consent)\b|\b(?:website|webseite|nutzung|navigation|verwendung|use|using|brows(?:e|ing)|navigat|utilis|utilizz|consent)\b.{0,240}\bcookies?\b)/i;
+const COOKIE_CONSENT_COPY_RE = /(?:\bcookies?\b.{0,240}\b(?:website|webseite|site\s+web|nutzung|navigation|verwendung|use|using|brows(?:e|ing)|navigat|utilis|utilizz|consent)\b|\b(?:website|webseite|site\s+web|nutzung|navigation|verwendung|use|using|brows(?:e|ing)|navigat|utilis|utilizz|consent)\b.{0,240}\bcookies?\b)/i;
 const COOKIE_DISMISS_RE = /^(?:schlie(?:ß|ss)en|close|dismiss|chiudi|fermer|cerrar|sluiten|fechar)$/i;
 const normalizeCookieText = value => String(value || '').replace(/\s+/g, ' ').trim();
 const cookieControlLabel = (button) => [button?.text, button?.label, button?.ariaLabel, button?.title]
