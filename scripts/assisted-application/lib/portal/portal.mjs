@@ -181,8 +181,7 @@ function verifiedUmantisApplicantAddressSnapshot(snapshot, pageUrl, context) {
     const hasFamilyName = group.some(field => field?.autocomplete === 'family-name'
       || UMANTIS_APPLICANT_IDENTITY_RE.familyName.test(umantisIdentityCaption(field)));
     if (!hasEmail || !hasGivenName || !hasFamilyName) return null;
-    let bestCluster = null;
-    let ambiguousCluster = false;
+    const qualifyingClusters = [];
     for (let street = 0; street < group.length; street += 1) {
       if (residenceFieldRole(group[street]?.label) !== 'street') continue;
       for (let city = 0; city < group.length; city += 1) {
@@ -193,17 +192,12 @@ function verifiedUmantisApplicantAddressSnapshot(snapshot, pageUrl, context) {
           const end = Math.max(street, city, country);
           const span = end - start;
           if (span > 5) continue;
-          if (!bestCluster || span < bestCluster.span) {
-            bestCluster = { start, end, span, tuple: `${street}:${city}:${country}` };
-            ambiguousCluster = false;
-          } else if (span === bestCluster.span && bestCluster.tuple !== `${street}:${city}:${country}`) {
-            ambiguousCluster = true;
-          }
+          qualifyingClusters.push({ start, end });
         }
       }
     }
-    return bestCluster && !ambiguousCluster
-      ? { fields: group.slice(bestCluster.start, bestCluster.end + 1) } : null;
+    return qualifyingClusters.length === 1
+      ? { fields: group.slice(qualifyingClusters[0].start, qualifyingClusters[0].end + 1) } : null;
   }).filter(Boolean);
   if (applicantForms.length !== 1) return snapshot;
 

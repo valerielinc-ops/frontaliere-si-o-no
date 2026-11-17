@@ -1045,6 +1045,76 @@ function nativeQuestionText(value, counter = null) {
       ...(roleForm ? { roleFormId: idFor(roleForm) } : {}),
     };
   };
+  // Pinpoint's New Application form has no semantic section around its
+  // applicant address. The exact route, tenant host, applicant identity and a
+  // tight address cluster together prove that these controls belong to the
+  // candidate; the raw Rails country name is part of that same contract.
+  const PINPOINT_HOST_RE = /^[a-z0-9-]+\.pinpointhq\.com$/i;
+  const PINPOINT_APPLICATION_ROUTE_RE = /^\/(?:[a-z]{2}(?:-[a-z]{2})?\/)?postings\/[^/]+\/applications\/new\/?$/iu;
+  const PINPOINT_COUNTRY_NAME_RE = /^application_form\[application\]\[country\]$/i;
+  const pinpointCaption = (field) => clean(field?.label || '')
+    .replace(/^\s*\((?:required|mandatory|obbligatorio|erforderlich|pflichtfeld|obligatoire)\)\s*/i, '')
+    .replace(/\s*\((?:required|mandatory|obbligatorio|erforderlich|pflichtfeld|obligatoire)\)\s*$/i, '')
+    .replace(/[＊*]/g, '').replace(/[:?]\s*$/, '').trim();
+  const pinpointApplicantAddressRole = (field) => {
+    if (PINPOINT_COUNTRY_NAME_RE.test(clean(field?.name || ''))) return 'country';
+    const caption = pinpointCaption(field);
+    if (/^address\s+line\s+1$/i.test(caption)) return 'street';
+    if (/^address\s+line\s+2$/i.test(caption)) return 'streetOptional';
+    if (/^(?:town|city)$/i.test(caption)) return 'city';
+    if (/^(?:postcode|postal\s+code|zip\s+code)$/i.test(caption)) return 'postalCode';
+    return '';
+  };
+  const pinpointIdentityField = (field, kind) => {
+    const caption = pinpointCaption(field);
+    if (kind === 'email') return field?.inputType === 'email' || /^(?:email|email\s+address|e-mail)$/i.test(caption) || clean(field?.autocomplete || '') === 'email';
+    if (kind === 'given') return /^(?:first\s+name|first_name|firstname|forename)$/i.test(caption);
+    return /^(?:last\s+name|last_name|lastname|surname)$/i.test(caption);
+  };
+  const applyPinpointApplicantAddressOwnership = () => {
+    if (!PINPOINT_HOST_RE.test(String(location?.hostname || ''))
+      || !PINPOINT_APPLICATION_ROUTE_RE.test(String(location?.pathname || ''))) return;
+    const fieldsByForm = new Map();
+    for (const field of fields) {
+      if (!Number.isSafeInteger(field?.form) || field.form < 0) continue;
+      const group = fieldsByForm.get(field.form) || [];
+      group.push(field);
+      fieldsByForm.set(field.form, group);
+    }
+    const applicantForms = [];
+    for (const group of fieldsByForm.values()) {
+      if (!group.some(field => pinpointIdentityField(field, 'email'))
+        || !group.some(field => pinpointIdentityField(field, 'given'))
+        || !group.some(field => pinpointIdentityField(field, 'family'))) continue;
+      const addressFields = group.map((field, index) => ({ field, index, role: pinpointApplicantAddressRole(field) }));
+      const qualifyingClusters = [];
+      for (const street of addressFields.filter(item => item.role === 'street')) {
+        for (const city of addressFields.filter(item => item.role === 'city')) {
+          for (const postalCode of addressFields.filter(item => item.role === 'postalCode')) {
+            for (const country of addressFields.filter(item => item.role === 'country')) {
+              const start = Math.min(street.index, city.index, postalCode.index, country.index);
+              const end = Math.max(street.index, city.index, postalCode.index, country.index);
+              const span = end - start;
+              if (span > 6) continue;
+              qualifyingClusters.push({ start, end });
+            }
+          }
+        }
+      }
+      if (qualifyingClusters.length === 1) applicantForms.push({ group, ...qualifyingClusters[0] });
+    }
+    if (applicantForms.length !== 1) return;
+    const { group, start, end } = applicantForms[0];
+    const applicantOwner = { section: 'Personal information', owners: ['Personal information'], unknown: false };
+    for (const [index, field] of group.entries()) {
+      if (index < start || index > end) continue;
+      const role = pinpointApplicantAddressRole(field);
+      if (!['street', 'streetOptional', 'city', 'postalCode', 'country'].includes(role)) continue;
+      const current = field.addressContext || {};
+      if (current.unknown === true || String(current.section || '').trim() || (Array.isArray(current.owners) && current.owners.length)) continue;
+      field.addressContext = applicantOwner;
+    }
+  };
   // A portal may replace a control while copying its data-aa-id. Keep a
   // page-local identity for the actual DOM node so a later snapshot cannot
   // mistake a fresh control for the one observed before the redraw.
@@ -1377,6 +1447,7 @@ function nativeQuestionText(value, counter = null) {
     const node = identifiedElements.get(field.id);
     if (node) Object.assign(field, applicationOwnershipFor(node));
   }
+  applyPinpointApplicantAddressOwnership();
   // aria-hidden is about the accessibility tree, not about what is drawn: a button with it is still one to
   // press, but for two cases. Workday keeps its real submit, out of the tab order, next to a «click_filter»
   // overlay with the same name, and reads a click on the hidden one as a robot's. And what a page hides

@@ -177,6 +177,7 @@ const AGE_EXPERIENCE_RE = /\b(?:experience|esperienza|exp[ée]rience|erfahrung|o
 // Require a street-field phrase before treating it as postal identity.
 const ITALIAN_STREET_LABEL = String.raw`^\s*via(?:\s*[/]\s*(?:piazza|viale))?\s*[:*?]?\s*$|\b(?:nome\s+(?:della\s+)?via|(?:tua|vostra)\s+via|via\s+(?:e\s+(?:il\s+)?(?:numero|civico)|di\s+residenza))\b`;
 const ADDRESS_FIELD_RE = new RegExp(String.raw`(?:${ITALIAN_STREET_LABEL})|\b(?:address|adresse|indirizzo|rue|strasse|straße|street|cap|codice\s+(?:di\s+)?(?:avviamento\s+)?postale|postal\s*code|postcode|zip\s*code|postleitzahl|plz|npa|residen\w*|domicil\w*|wohn(?:sitz|ort)\w*)\b`, 'i');
+const PINPOINT_APPLICATION_COUNTRY_FIELD_RE = /^application_form\[application\]\[country\]$/i;
 const CONTACT_ADDRESS_RE = /\b(?:e[-\s]?mail|email|courriel|correo|contact\s+(?:address|adresse|indirizzo))\b/i;
 // «Candidate contact address» is the applicant's own postal address. Keep
 // the generic contact-address guard for emergency/contact-person fields, but
@@ -802,9 +803,13 @@ function isPhoneCountryQuestion(value, context = '', metadata = {}) {
 
 export function addressQuestionTopic(text, context = '', metadata = {}) {
   const value = String(text || '');
+  const pinpointApplicantCountry = PINPOINT_APPLICATION_COUNTRY_FIELD_RE.test(String(metadata?.name || '').trim())
+    && Object.hasOwn(metadata || {}, 'addressContext')
+    && hasAddressContextOwnership(metadata);
   const role = residenceFieldRole(value)
     || (STREET_NUMBER_PAIR_RE.test(value) ? 'address' : '')
     || (CANDIDATE_CONTACT_ADDRESS_RE.test(value) ? 'street' : '')
+    || (pinpointApplicantCountry ? 'country' : '')
     || (COUNTRY_RE.test(value) && RESIDENCE_CONTEXT_RE.test(value) && !BIRTH_LOCATION_RE.test(value) ? 'country' : '')
     || (POSTAL_CODE_RE.test(value) && RESIDENCE_CONTEXT_RE.test(value) ? 'postalCode' : '');
   if (!role) return '';

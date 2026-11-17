@@ -985,6 +985,58 @@ it('binds the native Umantis applicant address when applyUrl is the direct posti
   expect(browser.close).toHaveBeenCalledOnce();
 });
 
+it('fails closed when a verified Umantis form contains complete address clusters with different spans', async () => {
+  const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Description/4';
+  const applicationUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/1153/Application/New/4';
+  const unowned = { section: '', owners: [], unknown: false };
+  const snapshot = {
+    url: applicationUrl, buttons: [], captcha: false, passwordVisible: false, errors: [],
+    text: 'Passa a Contenuto principale Impiegato/a amministrativo - Candidatura',
+    fields: [
+      { id: 'first', kind: 'text', inputType: 'text', label: 'Nome', form: 0, required: false },
+      { id: 'last', kind: 'text', inputType: 'text', label: 'Cognome', form: 0, required: false },
+      { id: 'email', kind: 'text', inputType: 'email', label: 'Indirizzo e-mail/login', form: 0, required: false },
+      { id: 'primary-street', kind: 'text', inputType: 'text', label: 'Via', form: 0, required: true, addressContext: unowned },
+      { id: 'primary-city', kind: 'text', inputType: 'text', label: 'Località', form: 0, required: true, addressContext: unowned },
+      { id: 'primary-country', kind: 'select', inputType: 'select', label: 'Paese', form: 0, required: true,
+        options: ['Selezionare', 'Svizzera', 'Italia'], addressContext: unowned },
+      { id: 'emergency-name', kind: 'text', inputType: 'text', label: 'Nome contatto di emergenza', form: 0, required: false },
+      { id: 'emergency-phone', kind: 'text', inputType: 'text', label: 'Telefono contatto di emergenza', form: 0, required: false },
+      { id: 'emergency-relation', kind: 'text', inputType: 'text', label: 'Relazione contatto di emergenza', form: 0, required: false },
+      { id: 'additional-note', kind: 'text', inputType: 'text', label: 'Nota aggiuntiva', form: 0, required: false },
+      { id: 'reference-name', kind: 'text', inputType: 'text', label: 'Nome referenza', form: 0, required: false },
+      { id: 'reference-phone', kind: 'text', inputType: 'text', label: 'Telefono referenza', form: 0, required: false },
+      { id: 'preferred-contact', kind: 'text', inputType: 'text', label: 'Contatto preferito', form: 0, required: false },
+      { id: 'alternate-street', kind: 'text', inputType: 'text', label: 'Via', form: 0, required: true, addressContext: unowned },
+      { id: 'alternate-note', kind: 'text', inputType: 'text', label: 'Nota indirizzo alternativo', form: 0, required: false },
+      { id: 'alternate-contact', kind: 'text', inputType: 'text', label: 'Contatto indirizzo alternativo', form: 0, required: false },
+      { id: 'alternate-city', kind: 'text', inputType: 'text', label: 'Località', form: 0, required: true, addressContext: unowned },
+      { id: 'alternate-postal', kind: 'text', inputType: 'text', label: 'NAP', form: 0, required: false, addressContext: unowned },
+      { id: 'alternate-country', kind: 'select', inputType: 'select', label: 'Paese', form: 0, required: true,
+        options: ['Selezionare', 'Svizzera', 'Italia'], addressContext: unowned },
+    ],
+  };
+  const frame = { evaluate: vi.fn(async () => snapshot) };
+  const page = {
+    frames: () => [frame], url: () => applicationUrl,
+    title: vi.fn(async () => 'Impiegato/a amministrativo - Candidatura | EOC candiDati'),
+    goto: vi.fn(async () => {}), evaluate: vi.fn(async () => false), waitForLoadState: vi.fn(async () => {}),
+    waitForTimeout: vi.fn(async () => {}),
+  };
+  const browser = { newContext: vi.fn(async () => ({ newPage: async () => page })), close: vi.fn(async () => {}) };
+  const codex = vi.fn(async () => ({ actions: [], missingRequired: [] }));
+
+  const result = await readPortalRequirements({
+    channelType: 'umantis', applyUrl: postingUrl, postingUrl, language: 'it', candidateLocale: 'xx',
+    job: { title: 'Impiegato a amministrativo', company: 'EOC – Ente Ospedaliero Cantonale' },
+    candidate: { identity: {}, profile: {}, answers: {} }, codex, launch: async () => browser,
+  });
+
+  expect(result.handoff).toBe('question_label_unreadable');
+  expect(result.questions).toEqual([]);
+  expect(browser.close).toHaveBeenCalledOnce();
+});
+
 it('asks only for the missing EOC residence street and permit after resolving known profile facts', async () => {
   const postingUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/2806/Description/4';
   const applicationUrl = 'https://recruitingapp-2761.umantis.com/Vacancies/2806/Application/New/4';
