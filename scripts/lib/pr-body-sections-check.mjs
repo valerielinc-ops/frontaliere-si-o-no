@@ -459,22 +459,24 @@ export function filesUncitedInBody(diffPaths, body) {
  *     resta advisory.
  *
  * Prova = una qualunque delle forme che il reviewer accetta, associata allo
- * stesso bullet del claim (oppure alla sezione dei residui per il rimedio
- * `blocked: misura post-merge`): link a una run `/actions/runs/<id>`, una riga
+ * stesso bullet del claim: link a una run `/actions/runs/<id>`, una riga
  * `Misura:` / `Comando:` con un valore, risultato o comando sostanziale, una
  * «misura pre/post» o «prima/dopo» con il risultato, una coppia di quantità
- * confrontate («308 MB contro 203 MB», «da 216 s a 9 s»), «non validato
- * pre-merge», un trigger o un rischio di revert con i suoi dettagli,
- * `blocked: misura post-merge` con un contesto concreto, una baseline con un
- * valore. Una prova in un bullet diverso non autorizza un claim indipendente.
+ * confrontate («308 MB contro 203 MB», «da 216 s a 9 s»), oppure una baseline
+ * con un valore. La sola frase «non validato pre-merge» (anche nelle forme
+ * «stima pre-merge non ancora validata» / «non è misurato pre-merge») NON è
+ * prova: deve essere accompagnata, nella sezione dei residui, da un bullet
+ * `blocked: misura post-merge` che nomini il job/workflow, una soglia e il
+ * trigger di revert. Una prova in un bullet diverso non autorizza un claim
+ * indipendente.
  */
 const PERF_QTY = String.raw`\d+(?:[.,']\d+)*\s*(?:ms|s|sec|secondi|minut[oi]|min|ore|h|MB|GB|KB|MiB|GiB|%)(?!\w)`;
-const PERF_BENEFIT_ALT = String.raw`in meno|risparmi\w*|riduc\w*|ridott\w*|dimezz\w*|più veloc\w*|piu' veloc\w*|accelera\w*|velocizz\w*|faster|speed-?up|saves?\b|reduc\w*|abbass\w*|tagli\w*|converg\w*|evit\w*|elimin\w*|non (?:consuma|satura|sfora)\w*|sotto (?:il|i|la|le)\b`;
+const PERF_BENEFIT_ALT = String.raw`in meno|risparmi\w*|riduc\w*|riduz\w*|ridott\w*|dimezz\w*|più veloc\w*|piu' veloc\w*|accelera\w*|velocizz\w*|faster|speed-?up|saves?\b|reduc\w*|abbass\w*|tagli\w*|converg\w*|evit\w*|elimin\w*|non (?:consuma|satura|sfora)\w*|sotto (?:il|i|la|le)\b`;
 // `\b` iniziale: senza, `tagli\w*` matchava dentro «dettaglio» e un body del
 // prospector che descrive il gate di qualita' («85% delle pagine di dettaglio»)
 // diventava un claim di prestazione.
 const PERF_BENEFIT = `\\b(?:${PERF_BENEFIT_ALT})`;
-const PERF_RESOURCE = String.raw`\b(?:suite (?:completa|intera)|wall[- ]?time|durata|tempi? (?:di|del|della)|memoria|rss|oom|heap|disco|disk|spazio su disco|leak|pack|margine del job|minuti|secondi|quota|latenza|throughput|ci(?:/cd)?|build|pipeline)\b`;
+const PERF_RESOURCE = String.raw`\b(?:suite (?:completa|intera)|wall[- ]?(?:time|clock)|durata|tempi? (?:di|del|della)|memoria|rss|oom|heap|disco|disk|spazio su disco|leak|pack|margine del job|timeout|minuti|secondi|quota|latenza|throughput|ci(?:/cd)?|build|pipeline)\b`;
 const PERF_CLAIM_RE = new RegExp(
   String.raw`${PERF_QTY}[^.\n]{0,120}${PERF_BENEFIT}|${PERF_BENEFIT}[^.\n]{0,120}${PERF_QTY}`
   + String.raw`|${PERF_BENEFIT}[^.\n]{0,100}${PERF_RESOURCE}|${PERF_RESOURCE}[^.\n]{0,100}${PERF_BENEFIT}`,
@@ -492,7 +494,13 @@ const PERF_EVIDENCE_MEASURE_RE = /\bmisur[ae]\s+(?:pre\/post|prima\/dopo|prima e
 const PERF_EVIDENCE_REVERT_RE = /\b(?:trigger\s+di\s+revert|revert[- ]trigger|rischio\s+di\s+revert)\b\s*(?::|[-–—])?\s*([^\n.;]*)/i;
 const PERF_EVIDENCE_BLOCKED_RE = /\bblocked\s*:\s*misura\s+post-?merge\b([^\n.;]*)/i;
 const PERF_EVIDENCE_BASELINE_RE = /\bbaseline\b\s*(?::|[-–—])?\s*([^\n.;]*)/i;
-const PERF_EVIDENCE_NON_VALIDATED_RE = /\bnon\s+validat[oaie]\s+pre-?merge\b/i;
+const PERF_DEFERRED_CLAIM_RE = new RegExp(
+  String.raw`\b(?:`
+  + String.raw`(?:non|not)\s+(?:è\s+|is\s+)?(?:ancora\s+|yet\s+)?(?:validat\w*|misurat\w*|verificat\w*)\s+pre-?merge`
+  + String.raw`|pre-?merge\s+(?:non|not)\s+(?:è\s+|is\s+)?(?:ancora\s+|yet\s+)?(?:validat\w*|misurat\w*|verificat\w*))\b`,
+  'i',
+);
+const PERF_CONTEXT_RE = new RegExp(`${PERF_RESOURCE}|${PERF_BENEFIT}|${PERF_QTY}`, 'i');
 const PERF_PAIR_RE = new RegExp(
   String.raw`${PERF_QTY}[^.\n]{0,40}(?:\bcontro\b|\bvs\.?(?!\w)|→|->)[^.\n]{0,20}?${PERF_QTY}`
   + String.raw`|\bda\s+(?:circa\s+|~)?${PERF_QTY}\s+a\s+(?:circa\s+|~)?${PERF_QTY}`,
@@ -516,10 +524,10 @@ function hasSubstantialEvidenceTail(match) {
 }
 
 /**
- * True when `text` contains evidence with a real value/result/command. Empty
- * labels and a bare `baseline` are deliberately not evidence. This is kept as
- * a predicate instead of one broad regex so each alternative can enforce the
- * same non-empty contract.
+ * True when `text` contains measured evidence with a real value/result/command.
+ * A revert trigger or a declaration that a claim is not validated is not a
+ * measurement; those belong to the explicit post-merge tracking contract
+ * checked by `hasDeferredPerfTracking` below.
  */
 function hasSubstantialPerfEvidence(text) {
   const clean = stripNonContent(text);
@@ -529,10 +537,36 @@ function hasSubstantialPerfEvidence(text) {
     const label = PERF_EVIDENCE_LABEL_RE.exec(line);
     if (label && hasSubstantialEvidenceValue(label[1])) return true;
     if (hasSubstantialEvidenceTail(PERF_EVIDENCE_MEASURE_RE.exec(line))) return true;
-    if (hasSubstantialEvidenceTail(PERF_EVIDENCE_REVERT_RE.exec(line))) return true;
-    if (hasSubstantialEvidenceTail(PERF_EVIDENCE_BLOCKED_RE.exec(line))) return true;
     if (hasSubstantialEvidenceTail(PERF_EVIDENCE_BASELINE_RE.exec(line))) return true;
-    return PERF_EVIDENCE_NON_VALIDATED_RE.test(line);
+    return false;
+  });
+}
+
+/**
+ * True when the body explicitly defers one unmeasured performance claim to a
+ * bounded post-merge observation. The old contract accepted any occurrence of
+ * `non validato pre-merge` (or any evidence in an unrelated residual bullet),
+ * which let the reviewer see the same Important again on claims such as a new
+ * timeout, heap ceiling, or disk-order optimization. Require all three pieces
+ * in one residual bullet: the blocked measurement, a job/workflow and a
+ * quantitative threshold plus an actionable revert trigger.
+ */
+function hasDeferredPerfTracking(body) {
+  const residual = extractSection(body, NON_IMPL_ANCORA_RE) ?? '';
+  const units = topLevelBullets(residual, { includePreamble: true });
+  const candidates = units.length > 0 ? units.map((unit) => unit.text) : [residual];
+  return candidates.some((unit) => {
+    const clean = stripCode(stripNonContent(unit));
+    const blocked = PERF_EVIDENCE_BLOCKED_RE.exec(clean);
+    if (!blocked) return false;
+
+    const trigger = PERF_EVIDENCE_REVERT_RE.exec(clean);
+    const hasRevertAction = trigger
+      && hasSubstantialEvidenceTail(trigger)
+      && /\b(?:revert|rollback|ripristin\w*)\b/i.test(trigger[1]);
+    const hasThreshold = new RegExp(PERF_QTY, 'i').test(clean);
+    const hasJobOrWorkflow = /\b(?:workflow|job|run|deploy|ci)\b|\.ya?ml\b|\/actions\/runs\//i.test(clean);
+    return Boolean(hasRevertAction && hasThreshold && hasJobOrWorkflow);
   });
 }
 
@@ -556,8 +590,8 @@ export function unvalidatedPerfClaims(body = '') {
 
   // Group claims by the top-level Implementato bullet. Evidence is local to
   // that group, so a measured second bullet cannot silence an independent
-  // first bullet. A single claim may also be discharged by the prescribed
-  // post-merge/revert evidence in Non implementato (ancora).
+  // first bullet. A single claim may also be discharged by the prescribed,
+  // fully specified post-merge/revert evidence in Non implementato (ancora).
   const units = topLevelBullets(impl, { includePreamble: true });
   const claimUnits = units.length > 0
     ? units.map((unit) => unit.text)
@@ -573,13 +607,13 @@ export function unvalidatedPerfClaims(body = '') {
     for (const sentence of text.split(/(?<=[.;])\s+/)) {
       const claim = sentence.replace(/^[ \t]*[-*+][ \t]*/, '').trim();
       if (!claim) continue;
-      if (PERF_CLAIM_RE.test(claim)) claims.push({ text: claim, localEvidence });
+      const deferredClaim = PERF_DEFERRED_CLAIM_RE.test(claim) && PERF_CONTEXT_RE.test(claim);
+      if (PERF_CLAIM_RE.test(claim) || deferredClaim) claims.push({ text: claim, localEvidence });
       else if (IO_BOUND_CLAIM_RE.test(claim)) claims.push({ text: claim, localEvidence, io: true });
     }
   }
 
-  const residualEvidence = hasSubstantialPerfEvidence(extractSection(s, NON_IMPL_ANCORA_RE) ?? '');
-  const singleClaimHasResidualEvidence = claims.length === 1 && residualEvidence;
+  const singleClaimHasResidualEvidence = claims.length === 1 && hasDeferredPerfTracking(s);
   for (const claim of claims) {
     if (claim.localEvidence || singleClaimHasResidualEvidence) continue;
     if (claim.io) advisory.push(claim.text);

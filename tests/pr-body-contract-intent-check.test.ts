@@ -166,6 +166,24 @@ describe('tests.yml contract job — ineffective closing keyword (issue #5784)',
     expect(setFailed.join(' ')).not.toMatch(/unvalidated performance claim/i);
   });
 
+  it('flags a pre-merge estimate when the residual tracking bullet is missing', async () => {
+    const { setFailed, comments } = await runContractCheck(wrap(
+      '- Il nuovo timeout di 30 minuti è una stima pre-merge non ancora validata.',
+    ));
+    expect(setFailed.join(' ')).toMatch(/unvalidated performance claim/i);
+    expect(comments.join(' ')).toMatch(/Claim di prestazione senza prova/i);
+  });
+
+  it('accepts linguistic variants only with a complete post-merge tracking bullet', async () => {
+    const { setFailed } = await runContractCheck(
+      '## Implementato\n- La riduzione wall-clock non è validata pre-merge.\n\n'
+      + '## Non implementato (ancora)\n'
+      + '- blocked: misura post-merge sulla run `tests.yml`; soglia 30 minuti. '
+      + '**Trigger di revert:** se il job supera 30 minuti, revert di questa PR.\n',
+    );
+    expect(setFailed.join(' ')).not.toMatch(/unvalidated performance claim/i);
+  });
+
   it('does NOT flag when `Closes #N` already covers the same ref (redundant prose, not a missed closure)', async () => {
     const { setFailed } = await runContractCheck(wrap('Closes #123\n\nQuesta PR chiude #123.'));
     expect(setFailed.join(' ')).not.toMatch(/ineffective closing keyword/);

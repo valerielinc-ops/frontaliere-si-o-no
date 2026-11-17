@@ -78,6 +78,28 @@ describe('unvalidated-perf-claim: le prove accettate e i numeri che non sono pre
     expect(res.violations.some(isClaimViolation)).toBe(false);
   });
 
+  it('non considera una stima pre-merge non validata una prova da sola', () => {
+    const res = strict(body(
+      '- Il nuovo timeout di 30 minuti è una stima pre-merge non ancora validata.',
+    ));
+    expect(res.violations.some(isClaimViolation)).toBe(true);
+  });
+
+  it('non considera sufficiente un trigger scritto nello stesso bullet del claim', () => {
+    const res = strict(body(
+      '- La riduzione wall-clock non è validata pre-merge. Trigger di revert: se il job supera 30 minuti, revert di questa PR.',
+    ));
+    expect(res.violations.some(isClaimViolation)).toBe(true);
+  });
+
+  it('accetta le varianti linguistiche solo con tracking post-merge completo', () => {
+    const res = strict(body(
+      '- La riduzione wall-clock non è validata pre-merge.',
+      '- blocked: misura post-merge sulla run `tests.yml`; soglia 30 minuti. **Trigger di revert:** se il job supera 30 minuti, revert di questa PR.',
+    ));
+    expect(res.violations.some(isClaimViolation)).toBe(false);
+  });
+
   it('numeri che non sono prestazioni («3 file», «12 test»)', () => {
     const res = strict(body('- Aggiornati 3 file del crawler e aggiunti 12 test; il parser evita i duplicati di slug.'));
     expect(res.ok).toBe(true);
