@@ -171,6 +171,35 @@ describe('SEO builder noindex guards', () => {
       expect(retainedGuardBlock).toContain('isRetainedBridgePathSafeToEmit(');
       expect(retainedGuardBlock).toContain('isJobAliasRedirectPath,');
       expect(retainedGuardBlock).toContain('retainedBridgePaths.has(bridgePathKey(locale, candidatePath))');
+      expect(retainedGuardBlock).toContain('activeBridgePathsOwnedBeforePlan.has(bridgePathKey(locale, canonicalPath))');
+
+      // Planning and each active bridge writer must use the shared canonical
+      // path builder and the same index-only path ownership preflight.
+      expect(source).toContain('canEmitBridgePath: (locale, bridgePath) =>');
+      expect(source).toContain('pathIsClaimedOrReserved(safeTargets.indexPath)');
+      const activeBridgePlanStart = source.indexOf('const bridgePlan = buildActiveJobBridgePathPlan(activeBridgeJobs, {');
+      const activeBridgePlanEnd = source.indexOf('\n  });', activeBridgePlanStart);
+      const activeBridgePlanBlock = source.slice(activeBridgePlanStart, activeBridgePlanEnd);
+      expect(activeBridgePlanStart).toBeGreaterThan(-1);
+      expect(activeBridgePlanEnd).toBeGreaterThan(activeBridgePlanStart);
+      expect(activeBridgePlanBlock).toContain(
+        'getSafeDistPageTargets(distDir, bridgePath, { includeFlat: false });',
+      );
+      expect(activeBridgePlanBlock).toContain('canEmitBridgePath: (locale, bridgePath) =>');
+      expect(activeBridgePlanBlock).toContain('pathIsClaimedOrReserved(safeTargets.indexPath)');
+      expect(source).toContain('const oldPath = buildCanonicalJobDetailPath(locale, job, oldSlug, jobCantonForBridge)');
+      expect(source).toContain("const legacyTIRelPath = buildCanonicalJobDetailPath(locale, 'TI', oldSlug)");
+      expect(source).toContain("const candidatePath = buildCanonicalJobDetailPath(baseLocale, 'TI', foreignSlug)");
+      expect(source).toContain("const relPath = buildCanonicalJobDetailPath(baseLocale, 'TI', foreignSlug)");
+      expect(source).toContain('const legacyRel = buildCanonicalJobDetailPath(locale, job, job.slug, jobCanton)');
+      expect(source).toContain("const legacyTIRel = buildCanonicalJobDetailPath(locale, 'TI', job.slug)");
+
+      const previousSlugPlanStart = source.indexOf('const PREVIOUS_SLUG_BRIDGE_YIELD_INTERVAL');
+      const previousSlugLocaleGate = source.indexOf('if (!shouldEmitLocale(locale)) continue;', previousSlugPlanStart);
+      expect(previousSlugLocaleGate).toBeGreaterThan(previousSlugPlanStart);
+      const crossLocalePlanStart = source.indexOf('/* ── Cross-locale reconciliation bridge pages');
+      const crossLocaleGate = source.indexOf('if (!shouldEmitLocale(baseLocale)) continue;', crossLocalePlanStart);
+      expect(crossLocaleGate).toBeGreaterThan(crossLocalePlanStart);
 
       const retainedOutputStart = source.indexOf('const retainedBridgeOutputs = (function* () {');
       const retainedOutputEnd = source.indexOf('})();', retainedOutputStart);
@@ -178,6 +207,7 @@ describe('SEO builder noindex guards', () => {
       expect(retainedOutputStart).toBeGreaterThan(-1);
       expect(retainedOutputEnd).toBeGreaterThan(retainedOutputStart);
       expect(retainedOutputBlock).toContain('getSafeDistPageTargets(distDir, bridge.path, { includeFlat: false });');
+      expect(retainedOutputBlock).toContain('if (!shouldEmitLocale(bridge.locale)) continue;');
 
       const coverageStart = source.indexOf('const bridgeDistCoverage = assertBridgePathDistCoverage(');
       const coverageEnd = source.indexOf('console.log(', coverageStart);
