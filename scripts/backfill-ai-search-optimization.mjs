@@ -300,7 +300,8 @@ async function main() {
 
   // ── --apply mode: actually generate + write ───────────────────────────
   const hasKey = Boolean(
-    process.env.GH_MODELS_PAT
+    process.env.CODEX_AUTH_JSON
+      || process.env.GH_MODELS_PAT
       || process.env.OPENAI_API_KEY
       || process.env.GROQ_API_KEY
       || process.env.OPENROUTER_API_KEY,
