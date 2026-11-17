@@ -356,6 +356,26 @@ describe('Swiss Life crawler parser', () => {
   });
 
   describe('national pagination', () => {
+    it('retries a transient Workday rate limit before reading the national board', async () => {
+      const previousRetryBaseMs = process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+      process.env.JOBS_CRAWLER_RETRY_BASE_MS = '0';
+      const listing = makeListing('rate-limited-once');
+      const fetchMock = vi.fn()
+        .mockResolvedValueOnce({ ok: false, status: 429 })
+        .mockResolvedValueOnce(jsonResponse({ total: 1, jobPostings: [listing] }));
+      vi.stubGlobal('fetch', fetchMock);
+
+      try {
+        const listings = await fetchSwissListings();
+
+        expect(listings).toEqual([listing]);
+        expect(fetchMock).toHaveBeenCalledTimes(2);
+      } finally {
+        if (previousRetryBaseMs === undefined) delete process.env.JOBS_CRAWLER_RETRY_BASE_MS;
+        else process.env.JOBS_CRAWLER_RETRY_BASE_MS = previousRetryBaseMs;
+      }
+    });
+
     it('continues after a short page until the declared total is reached', async () => {
       const pages = new Map([
         [0, { total: 2, jobPostings: [makeListing('one')] }],
