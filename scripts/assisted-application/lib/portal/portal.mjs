@@ -2619,7 +2619,8 @@ function hasApplicationEntryControl(snapshot = {}, context = {}) {
  */
 export function hasApplicationSurface(snapshot, { pageUrl = '', postingUrl = '', postingMatch = '' } = {}) {
   if (isNonApplicationSurface(snapshot)) return false;
-  return Boolean(snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome)
+  return Boolean(snapshot?.workdayApplicationSurface === true
+    || snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome)
     || (postingMatch === 'match' && isStadtZurichPostingRoute({ pageUrl, postingUrl })));
 }
 
@@ -2751,6 +2752,21 @@ async function awaitFields(page, snapshot, unchanged = () => false) {
   for (let waited = 0; waited < 10_000 && (unchanged(current) || !current.fields.length); waited += 2000) {
     await page.waitForTimeout(2000);
     current = await extractFields(page);
+  }
+  return current;
+}
+
+/**
+ * Workday exposes its application shell before its first controls. Wait for
+ * that explicit mount marker so a bound manual route can survive the
+ * fieldless SPA transition without making an empty page look like an
+ * application by timeout alone.
+ */
+async function awaitWorkdayApplicationMount(page, snapshot) {
+  let current = snapshot;
+  for (let waited = 0; waited < 10_000 && !current?.workdayApplicationSurface; waited += 1000) {
+    await page.waitForTimeout(1000);
+    current = await extractFields(page, NAVIGATION).catch(() => current);
   }
   return current;
 }
@@ -4007,7 +4023,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       : entries;
   };
   const workdayApplicationSurfaceReady = (current) => {
-    if (current?.fields?.length) return true;
+    if (current?.workdayApplicationSurface === true || current?.fields?.length) return true;
     if (!workdayEntryControlSignature) {
       return Boolean(current?.buttons?.some((button) => !button?.chrome)
         || current?.links?.some((link) => !link?.chrome));
@@ -4033,7 +4049,7 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       if (!isWorkdayJobRouteBound(page.url(), stageContext.applyUrl)) return false;
       snapshot = await extractFields(page, NAVIGATION);
     }
-    return true;
+    return workdayApplicationSurfaceReady(snapshot);
   };
   const currentApplicationDiversion = async (current = snapshot) => applicationDestinationDiversionHint({
     ...current,
@@ -4052,6 +4068,9 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       text: await pageText(page).catch(() => String(current?.text || '')),
     };
     if (hasApplicationForm(observed) || signedInApplicationSurface(observed)) return true;
+    if (observed.workdayApplicationSurface === true
+      && stageContext && isWorkdayTenantUrl(stageContext.applyUrl)
+      && isWorkdayApplicationRouteBound(page.url(), stageContext.applyUrl)) return true;
     // Authentication and verification are deterministic application entry
     // surfaces after a bound CTA even when no candidate fields are mounted yet.
     if (authPageKind(observed) !== 'none' || observed.passwordVisible === true || codeField(observed)) return true;
@@ -11885,7 +11904,8 @@ export async function submitViaPortal(ctx) {
         return null;
       };
       const currentRoute = workdayJobRoute(page.url());
-      const currentApplicationSurface = hasApplicationForm(snapshot)
+      const currentApplicationSurface = snapshot?.workdayApplicationSurface === true
+        || hasApplicationForm(snapshot)
         || Boolean(findButton(snapshot.buttons, NEXT_RE))
         || Boolean(findButton(snapshot.buttons, SUBMIT_RE));
       const needsManualRestore = !isWorkdayJobRouteBound(page.url(), ctx.applyUrl)
@@ -11898,9 +11918,11 @@ export async function submitViaPortal(ctx) {
           await page.goto(target, { waitUntil: 'domcontentloaded', timeout: 60_000 }).catch(() => {});
           await settle(page).catch(() => {});
           snapshot = await extractFields(page, NAVIGATION).catch(() => snapshot);
+          snapshot = await awaitWorkdayApplicationMount(page, snapshot);
         }
         if (!isWorkdayJobRouteBound(page.url(), ctx.applyUrl)
-          || (workdayJobRoute(page.url())?.suffix === 'manual' && !hasApplicationForm(snapshot)
+          || (workdayJobRoute(page.url())?.suffix === 'manual' && !snapshot?.workdayApplicationSurface
+            && !hasApplicationForm(snapshot)
             && !findButton(snapshot.buttons, NEXT_RE) && !findButton(snapshot.buttons, SUBMIT_RE))) {
           return await recoverWithAgent();
         }
