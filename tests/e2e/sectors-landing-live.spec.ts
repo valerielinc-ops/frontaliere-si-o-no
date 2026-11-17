@@ -1,5 +1,5 @@
 import { test, expect, type APIRequestContext, type APIResponse } from 'playwright/test';
-import { getLiveWithRetry } from './lib/live-request';
+import { getLiveWithRetry, liveRequestTimeoutMs } from './lib/live-request';
 
 /**
  * Live regression guard for the canonical sector landing
@@ -82,7 +82,7 @@ function extractJsonLdBlocks(body: string): unknown[] {
 test.describe('live: /cerca-lavoro-ticino/settori/ (sector catalogue landing)', () => {
   test('static HTML carries title, h1, canonical, hreflang, SPA bundle and JSON-LD', async ({ request }) => {
     // One 20 s request gets 6 attempts plus 25 s of retry pauses.
-    test.setTimeout(145_000);
+    test.setTimeout(liveRequestTimeoutMs(20_000));
 
     const { status, body } = await fetchHtml(request, URL);
 
@@ -144,7 +144,7 @@ test.describe('live: /cerca-lavoro-ticino/settori/ (sector catalogue landing)', 
 
   test('static HTML lists at least 40 sector links into the job board', async ({ request }) => {
     // One 20 s request gets 6 attempts plus 25 s of retry pauses.
-    test.setTimeout(145_000);
+    test.setTimeout(liveRequestTimeoutMs(20_000));
 
     const { body } = await fetchHtml(request, URL);
 

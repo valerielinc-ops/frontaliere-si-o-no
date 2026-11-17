@@ -6,7 +6,9 @@ const sectorsSource = readFileSync(new URL('./e2e/sectors-landing-live.spec.ts',
 
 describe('live specs retry transient edge responses', () => {
   it('keeps post-deploy status checks on the retry helper and preserves tolerated 404 skips', () => {
-    expect(postDeploySource).toContain("import { getLiveWithRetry } from './lib/live-request';");
+    expect(postDeploySource).toContain("import { getLiveWithRetry, liveRequestTimeoutMs } from './lib/live-request';");
+    expect(postDeploySource).toContain('liveRequestTimeoutMs(20_000)');
+    expect(postDeploySource).toContain('liveRequestTimeoutMs(15_000) + 25_000');
     expect(postDeploySource).toMatch(
       /getLiveWithRetry(?:<APIResponse>)?\(request\.get\.bind\(request\), url, \{\s*maxRedirects: 5,\s*timeout: 20_000,\s*\}\)/,
     );
@@ -23,7 +25,8 @@ describe('live specs retry transient edge responses', () => {
   });
 
   it('keeps sector landing 200 assertions on the retry helper and leaves 404 fail-closed', () => {
-    expect(sectorsSource).toContain("import { getLiveWithRetry } from './lib/live-request';");
+    expect(sectorsSource).toContain("import { getLiveWithRetry, liveRequestTimeoutMs } from './lib/live-request';");
+    expect(sectorsSource).toContain('liveRequestTimeoutMs(20_000)');
     expect(sectorsSource).toMatch(
       /getLiveWithRetry(?:<APIResponse>)?\(request\.get\.bind\(request\), url, \{\s*maxRedirects: 5,\s*timeout: 20_000,?\s*\}\)/,
     );

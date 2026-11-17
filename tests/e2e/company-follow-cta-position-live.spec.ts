@@ -1,6 +1,6 @@
 import { test, expect, type Page } from 'playwright/test';
 import { listActiveJobDetailPaths, resolveActiveJobDetailPath } from './lib/live-jobs';
-import { getLiveWithRetry } from './lib/live-request';
+import { getLiveWithRetry, liveRequestTimeoutMs } from './lib/live-request';
 import { JOB_DESCRIPTION_PREVIEW_LENGTH } from '../../services/jobs/descriptionPreview';
 
 /**
@@ -195,7 +195,7 @@ async function assertSurface(page: Page, path: string, label: string): Promise<v
 test('gated job detail: preview precedes access and follow, no fixed-widget collisions', async ({ page }) => {
   // Bounded discovery across up to 20 live candidates (see probeSettle above)
   // plus the full settle+assertion on the match — above the default 60s.
-  test.setTimeout(120_000);
+  test.setTimeout(liveRequestTimeoutMs(15_000) + 120_000);
   const pageErrors = collectPageErrors(page);
   const candidates = await listActiveJobDetailPaths(page, { limit: 20 });
   for (const path of candidates) {
@@ -213,7 +213,7 @@ test('gated job detail: preview precedes access and follow, no fixed-widget coll
 
 test('expired job detail: follow CTA sits above the auth gate, no fixed-widget collisions', async ({ page }) => {
   // One live request may use 6 × 15 s timeouts plus 25 s of retry pauses.
-  test.setTimeout(115_000);
+  test.setTimeout(liveRequestTimeoutMs(15_000) + 76_000);
 
   const res = await getLiveWithRetry(
     page.request.get.bind(page.request),
@@ -229,7 +229,7 @@ test('expired job detail: follow CTA sits above the auth gate, no fixed-widget c
 
 
 test('static jobs are complete and only hydrated human previews stay bounded', async ({ browser, page }) => {
-  test.setTimeout(120_000);
+  test.setTimeout(liveRequestTimeoutMs(15_000) + 120_000);
   const path = await resolveActiveJobDetailPath(page);
   const staticContext = await browser.newContext({ javaScriptEnabled: false });
   try {
@@ -257,7 +257,7 @@ test('static jobs are complete and only hydrated human previews stay bounded', a
 
 for (const crawler of ['Googlebot/2.1', 'Google-InspectionTool/1.0']) {
 test(`${crawler} keeps the full description and no auth gate after hydration`, async ({ browser, page }) => {
-  test.setTimeout(120_000);
+  test.setTimeout(liveRequestTimeoutMs(15_000) + 120_000);
   const path = await resolveActiveJobDetailPath(page);
   const crawlerContext = await browser.newContext({ userAgent: `Mozilla/5.0 (compatible; ${crawler})` });
   try {
