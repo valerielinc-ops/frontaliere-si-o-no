@@ -145,6 +145,8 @@ const stopContext = ({ event = {}, evidence = {}, portalNavigationDiagnostics = 
     } catch { return null; }
   })() } : {}),
   ...(evidence.finalButton ? { finalButton: { label: evidence.finalButton.label, by: evidence.finalButton.by } } : {}),
+  ...(evidence.steps?.at(-1)?.applicationStage ? { applicationStage: evidence.steps.at(-1).applicationStage } : {}),
+  ...(evidence.steps?.at(-1)?.finalPostingBinding ? { finalPostingBinding: evidence.steps.at(-1).finalPostingBinding } : {}),
   ...(evidence.postingMatch ? { postingMatch: evidence.postingMatch, postingMatchVia: evidence.postingMatchVia } : {}),
   ...(Array.isArray(portalNavigationDiagnostics) && portalNavigationDiagnostics.length
     ? { portalNavigation: portalNavigationDiagnostics.slice(0, 12).map(safePortalNavigationDiagnostic) } : {}),
@@ -2696,14 +2698,14 @@ async function main() {
     coop.flaky = false;
     check('Coop: a dropped first click on the sections or the CV dialog is tried again, never «Bewerben» on a closed form',
       coopAgain.event.type === 'submit_succeeded' && coop.validationRefusals === 0 && coop.cvUploads === 2
-      && coopAgain.evidence.steps.some((step) => step.cv === 'uploaded'));
+      && coopAgain.evidence.steps.some((step) => step.cv === 'uploaded'), stopContext(coopAgain));
     check('Coop: a run that starts on SuccessFactors (the resolved redirect) signs in with the stored account', coopAgain.event.type === 'submit_succeeded'
-      && coopAgain.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind).join(',') === 'sign_in' && coop.accounts.size === 1 && coop.applications.length === 2);
+      && coopAgain.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind).join(',') === 'sign_in' && coop.accounts.size === 1 && coop.applications.length === 2, stopContext(coopAgain));
     coop.privacyValidationRetry = true;
     const privacyRetry = await run({ applyUrl: `${sfOrigin(server)}${SF_JOB}`, job: coopJob, accounts: coopAccounts, candidate: coopCandidate });
     check('SuccessFactors reopens and accepts the required privacy statement after same-page validation',
       privacyRetry.event.type === 'submit_succeeded' && coop.privacyValidationRetries === 1
-      && coop.applicationPrivacySubmissions.slice(-2).join(',') === '1,1');
+      && coop.applicationPrivacySubmissions.slice(-2).join(',') === '1,1', stopContext(privacyRetry));
   };
   const runSuccessFactorsCustomDomainChecks = async () => {
     const customHost = 'career55.successfactors.localhost';
@@ -3180,14 +3182,17 @@ async function main() {
         });
       },
     };
+    const summarySubmissionsBeforeLearning = state.summarySubmissions;
     const turnsBefore = agentTurns;
     const named = await run({ applyUrl: `${base}/summary`, knowledge });
     check('the agent names an unusual send button and the runner presses it', named.event.type === 'submit_succeeded'
-      && named.evidence.finalButton?.by === 'agent' && state.summarySubmissions === 1 && agentTurns > turnsBefore);
+      && named.evidence.finalButton?.by === 'agent'
+      && state.summarySubmissions === summarySubmissionsBeforeLearning + 1 && agentTurns > turnsBefore, stopContext(named));
     const turnsLearned = agentTurns;
     const taught = await run({ applyUrl: `${base}/summary`, knowledge });
     check('the next run presses the learned button without the agent', taught.event.type === 'submit_succeeded'
-      && taught.evidence.finalButton?.by === 'runner' && state.summarySubmissions === 2 && agentTurns === turnsLearned);
+      && taught.evidence.finalButton?.by === 'runner'
+      && state.summarySubmissions === summarySubmissionsBeforeLearning + 2 && agentTurns === turnsLearned, stopContext(taught));
     const withCv = await run({ applyUrl: `${base}/summary-cv` });
     check('the agent’s send button is pressed under a required CV the runner attached', withCv.event.type === 'submit_succeeded'
       && withCv.evidence.finalButton?.by === 'agent' && state.summaryCv.length === 1 && state.summaryCv[0].hasCv);

@@ -11601,7 +11601,6 @@ export async function submitViaPortal(ctx) {
       return null;
     };
     const match = await formMatch();
-    const explicitInitialPostingMismatch = match === 'mismatch';
     evidence.postingMatch = match;
     const initialOtpAccount = await pendingOtpAccount(snapshot);
     // A generic careers landing page can mention the employer and therefore
@@ -11619,6 +11618,16 @@ export async function submitViaPortal(ctx) {
     });
     evidence.formReady = !noApplicationSurface;
     const accountSurface = authPageKind(snapshot) !== 'none' || snapshot.passwordVisible === true || Boolean(initialOtpAccount);
+    // `skipPostingCheck` is used by the owner retry path to defer the posting
+    // verdict until the final binding guard. A direct form can therefore
+    // legitimately look unrelated before that guard runs; do not let the
+    // initial mismatch short-circuit the deferred `posting_unbound` outcome.
+    // SuccessFactors' module URL is itself the selected requisition boundary,
+    // while its generic sign-in page names neither the role nor employer. The
+    // real form behind that page must perform the posting check after login.
+    const explicitInitialPostingMismatch = match === 'mismatch'
+      && !ctx.skipPostingCheck
+      && !(accountSurface && isSuccessFactorsUrl(page.url()));
     const sameSelectedPostingShell = Boolean(ctx.postingUrl)
       && samePostingAddress(page.url(), ctx.postingUrl)
       && !hasApplicationForm(snapshot)
@@ -12131,7 +12140,9 @@ export async function submitViaPortal(ctx) {
       // surface still needs the agentic recovery lane, as does a known
       // diversion such as a talent pool.
       if (explicitInitialPostingMismatch && !currentAccountSurface
-        && !destinationDiversionHint && currentApplicationSurface) return await handoff('posting_mismatch');
+        && !destinationDiversionHint && currentApplicationSurface) {
+        return await handoff('posting_mismatch');
+      }
       const needsAutonomousNavigation = Boolean(destinationDiversionHint) || (!currentAccountSurface && (Boolean(startupNavigationHint)
         || ['posting_mismatch', 'unknown_apply'].includes(currentStage.kind)
         || (!currentApplicationSurface && !ctx.skipPostingCheck)));
