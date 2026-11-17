@@ -353,6 +353,43 @@ describe('sitemap change snapshots', () => {
     expect(tiers.addedArchive).toEqual([]);
   });
 
+  it('fails closed when the missing sitemaps differ between the snapshots and keeps the stable baseline', () => {
+    const archiveOnlyUrl = `${BASE}/annunci/maybe-in-missing-sitemap/`;
+    const build = (missingSitemaps: string[] | undefined, withArchive: boolean) => ({
+      version: 3,
+      perSitemap: withArchive
+        ? { 'sitemap-jobs-expired-001.xml': [archiveOnlyUrl], 'sitemap-jobs-active.xml': [] }
+        : { 'sitemap-jobs-active.xml': [] },
+      perSitemapDigests: withArchive
+        ? { 'sitemap-jobs-expired-001.xml': 'expired', 'sitemap-jobs-active.xml': 'active' }
+        : { 'sitemap-jobs-active.xml': 'previous' },
+      ...(missingSitemaps === undefined ? {} : { missingSitemaps }),
+    });
+    const opts = { digestIgnoredSitemap: isExpiredJobSitemapKey };
+
+    const cases = [
+      { name: 'missing only in current', current: ['sitemap.xml'], previous: undefined, closed: true },
+      { name: 'missing only in previous', current: undefined, previous: ['sitemap.xml'], closed: true },
+      { name: 'different sets', current: ['sitemap.xml'], previous: ['sitemap-cantons.xml'], closed: true },
+      { name: 'identical stable baseline', current: ['sitemap-cantons.xml'], previous: ['sitemap-cantons.xml'], closed: false },
+      { name: 'no missing sitemaps', current: [], previous: [], closed: false },
+    ];
+    for (const testCase of cases) {
+      const current = build(testCase.current, true);
+      const previous = build(testCase.previous, false);
+      const tiers = changedUrlTiers(current, previous, opts);
+      if (testCase.closed) {
+        expect(tiers.addedArchive, testCase.name).toEqual([]);
+        expect(tiers.added, testCase.name).toEqual([archiveOnlyUrl]);
+      } else {
+        expect(tiers.addedArchive, testCase.name).toEqual([archiveOnlyUrl]);
+        expect(tiers.added, testCase.name).toEqual([]);
+      }
+      // The flat list always carries the same URLs; only the archive-last order depends on the split.
+      expect(changedUrls(current, previous, opts), testCase.name).toEqual([archiveOnlyUrl]);
+    }
+  });
+
   it('keeps added unchanged when the archive classifier or current membership is missing', () => {
     const archiveUrl = `${BASE}/annunci/new-expired/`;
     const normalUrl = `${BASE}/ricerca/new/`;

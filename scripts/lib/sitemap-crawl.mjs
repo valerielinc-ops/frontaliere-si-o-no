@@ -482,8 +482,28 @@ function hasSitemapMembership(snapshot) {
     && !Array.isArray(snapshot.perSitemap);
 }
 
-function archiveOnlyCurrentUrls(currentPer, current, digestIgnoredSitemap) {
+function missingSitemapKeys(snapshot) {
+  if (Array.isArray(snapshot) || !Array.isArray(snapshot?.missingSitemaps)) return new Set();
+  return new Set(snapshot.missingSitemaps);
+}
+
+// A sitemap that is unavailable in only ONE of the two snapshots makes the URL
+// membership of that snapshot incomplete: a URL that lives in a regular sitemap
+// could then look archive-only and be deferred behind the whole archive. The
+// same sitemaps missing from BOTH snapshots are a stable baseline (an edge-owned
+// file such as sitemap-cantons.xml is unavailable in every live capture), so
+// they do not disable the split.
+function hasUnstableMissingSitemaps(current, previous) {
+  const currentMissing = missingSitemapKeys(current);
+  const previousMissing = missingSitemapKeys(previous);
+  for (const key of currentMissing) if (!previousMissing.has(key)) return true;
+  for (const key of previousMissing) if (!currentMissing.has(key)) return true;
+  return false;
+}
+
+function archiveOnlyCurrentUrls(currentPer, current, previous, digestIgnoredSitemap) {
   if (typeof digestIgnoredSitemap !== 'function' || !hasSitemapMembership(current)) return new Set();
+  if (hasUnstableMissingSitemaps(current, previous)) return new Set();
 
   const archiveUrls = new Set();
   for (const [key, urls] of Object.entries(currentPer)) {
@@ -499,7 +519,7 @@ function archiveOnlyCurrentUrls(currentPer, current, digestIgnoredSitemap) {
 
 function changedUrlsWithArchiveAddedLast(changed, current, previous, digestIgnoredSitemap) {
   const sorted = [...changed].sort();
-  const archiveOnlyUrls = archiveOnlyCurrentUrls(snapshotPerSitemap(current), current, digestIgnoredSitemap);
+  const archiveOnlyUrls = archiveOnlyCurrentUrls(snapshotPerSitemap(current), current, previous, digestIgnoredSitemap);
   if (archiveOnlyUrls.size === 0) return sorted;
 
   const previousUrls = snapshotUrls(previous);
@@ -651,7 +671,7 @@ export function changedUrlTiers(
   for (const url of movedIntoArchive) alreadyClassified.add(url);
   for (const url of movedOutOfArchive) alreadyClassified.add(url);
 
-  const currentArchiveOnlyUrls = archiveOnlyCurrentUrls(currentPer, current, digestIgnoredSitemap);
+  const currentArchiveOnlyUrls = archiveOnlyCurrentUrls(currentPer, current, previous, digestIgnoredSitemap);
   const addedArchive = added.filter((url) => currentArchiveOnlyUrls.has(url));
   added = added.filter((url) => !currentArchiveOnlyUrls.has(url));
 
