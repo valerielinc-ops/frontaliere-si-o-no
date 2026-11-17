@@ -5532,23 +5532,26 @@
     "slugByLocale": {
       "it": "organizzatore-in-srg-ssr-lausanne",
       "en": "organization-developer-in-srg-ssr-lausanne",
-      "de": "organisationsentwickler-in-srg-ssr-lausanne",
+      "de": "organisationsentwickler-in-srg-ssr-lausanne-2ac5b80e",
       "fr": "developpeur-organisationnel-in-srg-ssr-lausanne"
     },
     "sector": "Media / Broadcasting",
     "expiredAt": "2026-08-24T10:01:23.067Z",
-    "previousSlugs": [
-      "organisationsentwickler-in-srg-ssr-lausanne"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "organisationsentwickler-in-srg-ssr-lausanne-2ac5b80e",
         "organisationsentwickler-in-srg-ssr-lausanne"
       ],
       "en": [
+        "organisationsentwickler-in-srg-ssr-lausanne-2ac5b80e",
         "organisationsentwickler-in-srg-ssr-lausanne"
       ],
       "fr": [
+        "organisationsentwickler-in-srg-ssr-lausanne-2ac5b80e",
         "organisationsentwickler-in-srg-ssr-lausanne"
+      ],
+      "de": [
+        "organisationsentwickler-in-srg-ssr-lausanne-2ac5b80e"
       ]
     },
     "postalCode": "1010",
@@ -5556,7 +5559,10 @@
     "salaryMin": 71000,
     "salaryMax": 107500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "previousSlugs": [
+      "organisationsentwickler-in-srg-ssr-lausanne"
+    ]
   },
   {
     "slug": "analista-di-processo-srg-ssr-bern",
