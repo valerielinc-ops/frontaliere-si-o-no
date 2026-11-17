@@ -24,7 +24,7 @@ vi.mock('../scripts/assisted-application/lib/portal/fill.mjs', async importOrigi
   }),
 }));
 
-import { handleAuth, passwordResetRequestSurface } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { dismissCookieBanner, handleAuth, passwordResetRequestSurface } from '../scripts/assisted-application/lib/portal/portal.mjs';
 
 const host = 'swarovski.wd3.myworkdayjobs.com';
 const url = `https://${host}/fr-FR/swarovski/job/Mendrisio-Outlet/Seasonal-Sales-Consultant_R-12345-1/apply/applyManually`;
@@ -326,6 +326,43 @@ describe('bounded Workday password-reset request surface', () => {
       waitForTimeout: async () => {},
     };
     await resolveCookieConsent(page, snapshot);
+    expect(clicked).toEqual(['f2']);
+  });
+
+  it('uses cookie-word evidence in the snapshot fallback for a bounded cookie pair', async () => {
+    const clicked: string[] = [];
+    let snapshot: any = {
+      url: 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio/Role_R-1/apply/applyManually',
+      text: 'cookies',
+      fields: [],
+      buttons: [
+        { id: 'f2', frame: 0, text: 'Refuser', cookieContainerId: 'cmp', cookieContainerText: 'cookies' },
+        { id: 'f3', frame: 0, text: 'Accepter les cookies', cookieContainerId: 'cmp', cookieContainerText: 'cookies' },
+      ],
+      links: [], dialogs: [],
+    };
+    recoveryState.snapshot = snapshot;
+    const frame: any = {
+      locator: (selector: string) => ({
+        first: () => ({
+          click: async () => {
+            clicked.push(/data-aa-id="([^"]+)"/.exec(selector)?.[1] || '');
+            snapshot = { ...snapshot, buttons: [] };
+            recoveryState.snapshot = snapshot;
+          },
+        }),
+      }),
+    };
+    const page: any = {
+      url: () => snapshot.url,
+      frames: () => [frame],
+      mainFrame: () => frame,
+      waitForTimeout: async () => {},
+    };
+
+    const result = await dismissCookieBanner(page, snapshot);
+
+    expect(result.status).toBe('dismissed');
     expect(clicked).toEqual(['f2']);
   });
 });

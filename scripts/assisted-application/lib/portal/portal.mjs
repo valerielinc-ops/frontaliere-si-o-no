@@ -3358,7 +3358,7 @@ async function genericCookieControlsShareContainer(page, button, closeControls) 
   const scopedCopyEvidence = [button, ...closeControls]
     .flatMap(candidate => [candidate.cookieContainerText, candidate.cookieContextText, candidate.containerText,
       candidate.context, candidate.section])
-    .some(value => COOKIE_CONSENT_COPY_RE.test(normalizeCookieText(value)));
+    .some(value => new RegExp(copySource, 'i').test(normalizeCookieText(value)));
   return Boolean(scope && sameScope && scopedCopyEvidence);
 }
 
