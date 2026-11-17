@@ -153,6 +153,11 @@ describe('SEO builder noindex guards', () => {
       expect(classifyBlock).not.toContain(
         "throw new Error('[job-alias-redirect-gate] removable bridge path is not a safe dist target')",
       );
+      const unsafeTargetStart = classifyBlock.indexOf('if (!targets) {');
+      const reservationStart = classifyBlock.indexOf('reserveJobAliasRedirectDir(targets.directoryPath);');
+      expect(unsafeTargetStart).toBeGreaterThan(-1);
+      expect(reservationStart).toBeGreaterThan(unsafeTargetStart);
+      expect(classifyBlock.slice(unsafeTargetStart, reservationStart)).toContain('continue;');
       expect(classifyBlock).toContain('reserveJobAliasRedirectDir(targets.directoryPath);');
       expect(classifyBlock).toContain('continue;');
       expect(classifyBlock).not.toMatch(/\b(?:_qw|_qwFlat|_qwFlatFull|writeFileSync)\s*\(/);
