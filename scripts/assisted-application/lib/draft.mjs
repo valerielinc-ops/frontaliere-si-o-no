@@ -145,7 +145,7 @@ function candidateLocale(order) {
  * @returns {Promise<object>} the draft document to write
  */
 export async function buildDraft(ctx) {
-  const { order, orderId, flow, previousDraft, cvBuffer, cvType, codex, bucket, runKey } = ctx;
+  const { db = null, order, orderId, flow, previousDraft, cvBuffer, cvType, codex, bucket, runKey } = ctx;
   const rawEvidenceAtoms = [
     ctx.evidenceAtoms,
     order?.evidenceAtoms,
@@ -284,9 +284,10 @@ export async function buildDraft(ctx) {
     return !held.length;
   };
   let questions = ensureRequiredQuestions(match.questions, { requirements, profile, answers, locale }).filter(notAnsweredByUpload);
+  const preharvestTargetUrl = order?.jobUrl || posting?.url || '';
   const [cachedJobQuestions, publicAtsQuestions] = await Promise.all([
-    loadCachedJobQuestions(db, postingUrl || order?.jobUrl),
-    preharvestPublicAtsQuestions(postingUrl || order?.jobUrl),
+    loadCachedJobQuestions(db, preharvestTargetUrl),
+    preharvestPublicAtsQuestions(preharvestTargetUrl, { fetchImpl: ctx.fetchImpl }),
   ]);
   const preharvested = [...cachedJobQuestions, ...publicAtsQuestions].filter(notAnsweredByUpload);
   if (preharvested.length) {
