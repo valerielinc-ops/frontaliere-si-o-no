@@ -249,6 +249,35 @@ describe('BrassRing security-question field classification', () => {
     expect(selected).toBe('Quelle est votre couleur préférée ?');
   });
 
+  it('skips leading placeholder for Question 1 and waits for visible listbox options', async () => {
+    let selected = '';
+    let waited = false;
+    const field = { id: 'q1', kind: 'listbox', inputType: 'listbox', label: 'Question 1', options: [], form: 0, frame: 0 };
+    const controlLocator = { count: async () => 1, click: async () => {}, evaluate: async () => selected === 'First pet?' };
+    const frame = {
+      locator: (selector: string) => selector === '[role="option"]:visible'
+        ? {
+          first: () => ({ waitFor: async () => { waited = true; } }),
+          allInnerTexts: async () => ['Please select a question', 'First pet?', 'Favorite city?'],
+        }
+        : { first: () => controlLocator },
+      getByRole: (_role: string, opts: { name?: string }) => ({
+        first: () => ({ click: async () => { selected = opts?.name || ''; } }),
+      }),
+    };
+    const result = await applyActions(
+      { frames: () => [frame], mainFrame: () => frame } as any,
+      [field],
+      [{ fieldId: 'q1', action: 'select', value: 'Unlisted fallback', evidence: 'account_security_question' }],
+      {},
+      { pause: async () => {} },
+    );
+
+    expect(waited).toBe(true);
+    expect(result).toEqual([{ fieldId: 'q1', ok: true }]);
+    expect(selected).toBe('First pet?');
+  });
+
   it('fails closed when the security-question ordinal is outside the visible options', async () => {
     let optionClicks = 0;
     const field = { id: 'q3', kind: '', inputType: 'listbox', label: 'Security question 3', options: [], form: 0, frame: 0 };
