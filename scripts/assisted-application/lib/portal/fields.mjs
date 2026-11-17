@@ -1348,6 +1348,7 @@ function nativeQuestionText(value, counter = null) {
     const nativeSelect = element.classList.contains('ui-multiselect') && native?.tagName === 'SELECT'
       && native.id && native.getAttribute('aria-labelledby')
       && native.getAttribute('aria-labelledby') === element.getAttribute('aria-labelledby') ? native : null;
+    const owned = ownedListFor(element);
     fields.push({
       id: idFor(element),
       kind: 'listbox',
@@ -1360,6 +1361,10 @@ function nativeQuestionText(value, counter = null) {
       context: sectionContext(element), addressContext: ownedAddressContext(element),
       required: hasAriaRequired(element) || REQUIRED_LABEL.test(fieldLabel) || hasRequiredMarker(element, fieldLabel),
       value: nativeSelect ? [...nativeSelect.selectedOptions].map(option => clean(option.textContent)).join(', ') : clean(element.innerText || element.textContent),
+      // Keep the control-to-popup relationship in the snapshot. Without it,
+      // a page with more than one visible UBS/BrassRing list would make the
+      // action runner search every option collection in the frame.
+      ...(owned.listbox && owned.id ? { ownedList: owned.id } : {}),
       ...(nativeSelect ? { widget: 'jquery-multiselect', nativeSelectId: nativeSelect.id,
         options: [...nativeSelect.options].filter(option => !option.matches(':disabled') && !option.closest('optgroup:disabled')).map(option => nativeOption(option, nativeSelect)),
         required: nativeSelect.required || hasAriaRequired(nativeSelect) || REQUIRED_LABEL.test(fieldLabel) } : {}),
