@@ -113,12 +113,12 @@ function workdayPublicUrlFromApiBase(apiBase) {
  * Build a lazy browser transport for a Workday tenant. It is intentionally
  * opened only after the direct JSON fetch exhausts its connection-level retry;
  * healthy crawls keep the cheap direct path. The caller owns the session and
- * closes it after the listing/summary operation.
+ * closes it after the Workday operation that uses it.
  *
  * @param {string} apiBase
  * @returns {{request: (args: {url: string, method: string, body?: string, userAgent: string, timeoutMs: number}) => Promise<any>, close: () => Promise<void>}}
  */
-function createWorkdayBrowserJsonFallback(apiBase) {
+export function createWorkdayBrowserJsonFallback(apiBase) {
   let sessionPromise;
   let closed = false;
 
@@ -731,6 +731,8 @@ export function workdayFacetLeafValues(facets, facetParameter) {
  * @param {Object} [options]
  * @param {number} [options.timeoutMs] Per-request timeout. Default 15000ms.
  * @param {string} [options.userAgent] Override User-Agent header.
+ * @param {number} [options.retries] Override the shared transient retry count.
+ * @param {(args: {url: string, method: string, body?: string, userAgent: string, timeoutMs: number}) => Promise<any>|null} [options.browserFallback] Alternate browser transport after direct retries are exhausted. Omit to use the lazy default browser transport; pass `null` to disable it.
  * @returns {Promise<any|null>} The detail JSON, or `null` on failure.
  *
  * @example
@@ -743,7 +745,14 @@ export async function fetchWorkdayJobDetail(apiBase, externalPath, options = {})
   const {
     timeoutMs = 15_000,
     userAgent = DEFAULT_USER_AGENT,
+    retries,
   } = options;
+  const browserSession = options.browserFallback === undefined
+    ? createWorkdayBrowserJsonFallback(apiBase)
+    : null;
+  const browserFallback = options.browserFallback === undefined
+    ? browserSession.request
+    : options.browserFallback;
 
   const url = `${String(apiBase).replace(/\/+$/, '')}${externalPath}`;
 
@@ -751,47 +760,17 @@ export async function fetchWorkdayJobDetail(apiBase, externalPath, options = {})
   // kept without enriched detail) but retry TRANSIENT blips so a network
   // hiccup doesn't silently drop the description on a single attempt.
   try {
-    return await fetchWithRetry(async () => {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), timeoutMs);
-      try {
-        const res = await fetch(url, {
-          method: 'GET',
-          signal: controller.signal,
-          redirect: 'follow',
-          headers: {
-            Accept: 'application/json',
-            'Accept-Language': 'en,de-CH;q=0.9,it-CH;q=0.8,fr-CH;q=0.7',
-            'User-Agent': userAgent,
-          },
-        });
-        if (!res.ok) {
-          if (RETRYABLE_STATUS.has(res.status)) {
-            const err = new Error(`HTTP ${res.status} from ${url}`);
-            err.status = res.status;
-            err.retryable = true;
-            throw err;
-          }
-          return null; // persistent 4xx → no detail, keep the job
-        }
-        const text = await res.text();
-        try {
-          return JSON.parse(text);
-        } catch (parseErr) {
-          // Same WAF/CDN "challenge on a 2xx" signature as #4247 — tag
-          // retryable so the default shared classifier (isTransientFetchError,
-          // which checks `err.retryable` first) self-heals it instead of
-          // degrading straight to null on one blip.
-          const err = new Error(`Invalid JSON from ${url}: ${parseErr?.message || parseErr}`);
-          err.retryable = true;
-          throw err;
-        }
-      } finally {
-        clearTimeout(timer);
-      }
-    }, { label: `workday-detail ${url}` });
+    return await fetchJsonWithRetry(url, {
+      method: 'GET',
+      userAgent,
+      timeoutMs,
+      retries,
+      browserFallback,
+    });
   } catch {
     return null;
+  } finally {
+    await browserSession?.close();
   }
 }
 

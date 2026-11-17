@@ -10,7 +10,13 @@ vi.mock('../scripts/lib/stealth-browser.mjs', () => ({
   launchStealthOrChromium: launchStealthOrChromiumMock,
 }));
 
-import { fetchWorkdayJobs, WorkdayApiError } from '../scripts/lib/ats-clients/workday-client.mjs';
+import { createWorkdaySwissParser } from '../scripts/lib/workday-swiss-job-parser-common.mjs';
+import { fetchAllKsbJobs } from '../scripts/lib/ksb-job-parser.mjs';
+import {
+  fetchWorkdayJobDetail,
+  fetchWorkdayJobs,
+  WorkdayApiError,
+} from '../scripts/lib/ats-clients/workday-client.mjs';
 
 const API_BASE = 'https://everestre.wd5.myworkdayjobs.com/wday/cxs/everestre/External';
 
@@ -90,6 +96,129 @@ describe('Workday JSON transport', () => {
     expect(jobs).toHaveLength(1);
     expect(directFetch).toHaveBeenCalledTimes(2);
     expect(page.evaluate).toHaveBeenCalledOnce();
+    expect(browser.close).toHaveBeenCalledOnce();
+  });
+
+  it('recovers a retry-exhausted detail through an injected browser transport', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    const directFetch = vi.fn().mockResolvedValue(new Response('', { status: 429 }));
+    const browserFallback = vi.fn().mockResolvedValue({
+      jobPostingInfo: { jobDescription: '<p>Recovered detail</p>' },
+    });
+    vi.stubGlobal('fetch', directFetch);
+
+    const detail = await fetchWorkdayJobDetail(API_BASE, '/job/Zurich/Swiss_R1', {
+      browserFallback,
+    });
+
+    expect(detail?.jobPostingInfo?.jobDescription).toBe('<p>Recovered detail</p>');
+    expect(directFetch).toHaveBeenCalledTimes(2);
+    expect(browserFallback).toHaveBeenCalledOnce();
+    expect(browserFallback).toHaveBeenCalledWith(expect.objectContaining({
+      url: `${API_BASE}/job/Zurich/Swiss_R1`,
+      method: 'GET',
+      timeoutMs: 15_000,
+    }));
+  });
+
+  it('uses the lazy default browser transport for a rate-limited detail', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue(new Response('', { status: 429 })));
+    const { page, browser } = browserTransport({
+      jobPostingInfo: { jobDescription: '<p>Recovered detail</p>' },
+    });
+
+    const detail = await fetchWorkdayJobDetail(API_BASE, '/job/Zurich/Swiss_R1');
+
+    expect(detail?.jobPostingInfo?.jobDescription).toBe('<p>Recovered detail</p>');
+    expect(page.evaluate).toHaveBeenCalledOnce();
+    expect(browser.close).toHaveBeenCalledOnce();
+  });
+
+  it('uses one browser session to recover parser detail after Workday rate limiting', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    const detailPayload = {
+      jobPostingInfo: {
+        location: { descriptor: 'Zurich, Switzerland' },
+        jobRequisitionLocation: {
+          country: { alpha2Code: 'CH', descriptor: 'Switzerland' },
+        },
+        jobDescription: '<p>Responsibilities include coordinating cross functional projects, preparing clear documentation, supporting the local team, and improving reliable processes. The successful candidate brings relevant experience, strong communication skills, sound judgement, careful attention to detail, and fluent English. We offer a collaborative international workplace, flexible working hours, professional development, meaningful ownership, and a structured application process with supportive colleagues and modern tools.</p>',
+      },
+    };
+    const directFetch = vi.fn(async (url: string) => {
+      if (url.endsWith('/jobs')) {
+        return new Response(JSON.stringify({
+          total: 1,
+          jobPostings: [{
+            title: 'Swiss role',
+            externalPath: '/job/Zurich/Swiss_R1',
+            locationsText: 'Zurich, Switzerland',
+            postedOn: 'Posted Today',
+            bulletFields: ['R1'],
+          }],
+        }), { status: 200 });
+      }
+      return new Response('', { status: 429 });
+    });
+    vi.stubGlobal('fetch', directFetch);
+    const { page, browser } = browserTransport(detailPayload);
+
+    const parser = createWorkdaySwissParser({
+      companyKey: 'testco',
+      companyName: 'Test Co',
+      companyDomain: 'testco.com',
+      tenantHost: 'testco.wd3.myworkdayjobs.com',
+      sitePath: 'Test_Careers',
+      defaultCanton: 'ZH',
+      defaultCity: 'Zurich',
+    });
+
+    const jobs = await parser.fetchAllJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].title).toBe('Swiss role');
+    expect(directFetch).toHaveBeenCalledTimes(3);
+    expect(page.evaluate).toHaveBeenCalledOnce();
+    expect(browser.close).toHaveBeenCalledOnce();
+  });
+
+  it('uses one browser session for two KSB detail requests after rate limiting', async () => {
+    vi.stubEnv('JOBS_CRAWLER_RETRIES', '1');
+    vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    const vacancy = '<p>Responsibilities include coordinating cross functional projects, preparing clear documentation, supporting the local team, and improving reliable processes. The successful candidate brings relevant experience, strong communication skills, sound judgement, careful attention to detail, and fluent German. We offer a collaborative workplace, flexible working hours, professional development, meaningful ownership, and a structured application process with supportive colleagues and modern tools.</p>';
+    const detailPayloads = [
+      [],
+      { jobPostingInfo: { jobDescription: vacancy, timeType: 'Full time' } },
+      { jobPostingInfo: { jobDescription: vacancy, timeType: 'Part time' } },
+    ];
+    const directFetch = vi.fn(async (url: string) => {
+      if (url.endsWith('/jobs')) {
+        return new Response(JSON.stringify({
+          total: 2,
+          jobPostings: [
+            { title: 'KSB role one', externalPath: '/job/Baden/KSB_R1', locationsText: 'Baden, Switzerland', bulletFields: ['R1'] },
+            { title: 'KSB role two', externalPath: '/job/Baden/KSB_R2', locationsText: 'Baden, Switzerland', bulletFields: ['R2'] },
+          ],
+        }), { status: 200 });
+      }
+      return new Response('', { status: 429 });
+    });
+    vi.stubGlobal('fetch', directFetch);
+    const { page, browser } = browserTransport(null);
+    page.evaluate.mockImplementation(async () => ({
+      status: 200,
+      body: JSON.stringify(detailPayloads.shift()),
+    }));
+
+    const jobs = await fetchAllKsbJobs();
+
+    expect(jobs).toHaveLength(2);
+    expect(jobs.map((job: any) => job.title)).toEqual(['KSB role one', 'KSB role two']);
+    expect(page.evaluate).toHaveBeenCalledTimes(3);
     expect(browser.close).toHaveBeenCalledOnce();
   });
 
