@@ -51,6 +51,9 @@ describe('GA4 ad diagnostic dimensions', () => {
     send('ad_reliability_state', { reason: 'response_pending', cmp_state: 'loaded' });
     expect(emit).toHaveBeenCalledWith('event', 'ad_reliability_state', expect.objectContaining({ action: 'response_pending', component: 'loaded' }));
 
+    send('ad_reliability_state', { reason: 'adblock_detected', source: 'funding_choices', signal_state: 'blocked' });
+    expect(emit).toHaveBeenCalledWith('event', 'ad_reliability_state', expect.objectContaining({ action: 'adblock_detected', component: 'funding_choices' }));
+
     send('ad_recovery_prompt', { source: 'funding_choices_native', reason: 'adblock_detected', prompt_action: 'shown' });
     expect(emit).toHaveBeenCalledWith('event', 'ad_recovery_prompt', expect.objectContaining({ action: 'adblock_detected', component: 'funding_choices_native' }));
   });
@@ -488,6 +491,32 @@ describe('IAB detection and independent recovery surface', () => {
     recoveryApi.refresh();
     w.dispatchEvent(new w.Event('frontaliere:adblock-data'));
     expect(emit.mock.calls.filter(([name, props]) => name === 'ad_recovery_outcome' && props?.outcome === 'ads_allowed')).toHaveLength(1);
+  });
+  it('reports Funding Choices blocker confirmation separately from the IAB probe', async () => {
+    w.__ftAdBlock = { blocked: true, adsAllowed: false };
+    recovery('clear', 'loaded', true);
+    w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(0);
+    w.dispatchEvent(new w.Event('frontaliere:adblock-data'));
+    await vi.advanceTimersByTimeAsync(100);
+
+    const confirmedSignals = emit.mock.calls.filter(([name, props]) => name === 'ad_reliability_state' && props?.source === 'funding_choices');
+    expect(confirmedSignals).toHaveLength(1);
+    expect(confirmedSignals[0][1]).toEqual(expect.objectContaining({
+      reason: 'adblock_detected', signal_state: 'blocked', blocked: 1, ads_allowed: 0,
+    }));
+  });
+  it('reports a Funding Choices blocker signal that arrives after recovery starts', async () => {
+    recovery('clear', 'loaded', true);
+    w.document.dispatchEvent(new w.Event('DOMContentLoaded'));
+    await vi.advanceTimersByTimeAsync(0);
+    expect(emit.mock.calls.some(([name, props]) => name === 'ad_reliability_state' && props?.source === 'funding_choices')).toBe(false);
+
+    w.__ftAdBlock = { blocked: true, adsAllowed: false };
+    w.dispatchEvent(new w.Event('frontaliere:adblock-data'));
+    await vi.advanceTimersByTimeAsync(100);
+
+    expect(emit.mock.calls.filter(([name, props]) => name === 'ad_reliability_state' && props?.source === 'funding_choices')).toHaveLength(1);
   });
   it('uses neutral publisher recovery for a terminal loader error without an inline creative', async () => {
     const houseSlot = w.document.createElement('div');
