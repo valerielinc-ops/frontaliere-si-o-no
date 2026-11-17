@@ -15,11 +15,13 @@ set -uo pipefail
 # (issue #7421, run 36479391795). The cap uses the shared sliding-window
 # driver already proven for the section-shard push fan-outs, so a finished
 # worker immediately admits the next section without an unbounded resource
-# spike. When the caller serializes to one worker, the loop below switches to
-# locale-first ordering: the section-major loop otherwise keeps one batch ZIP
-# open for each of the four locales while it walks the same batch. That
-# retained-archive peak is enough to exhaust a full-audit runner even though
-# extraction itself is serial (issue #17161, run 44078205524). Shared by
+# spike. The fan-out below is locale-first: sections may overlap only within
+# the current locale, and the next locale starts after that window drains.
+# Keeping the four locale trees out of the same window bounds retained batch
+# ZIPs as well as concurrent extraction, fixing the ENOSPC failure that a
+# section-major cap still allowed (issue #19102, run 44030266151). When the
+# caller uses one worker, the same ordering is preserved by the serial loop.
+# Shared by
 # seed-bfs-depth-baseline.yml, seed-orphan-pages-baseline.yml,
 # seed-text-html-ratio-baseline.yml, seed-title-baselines.yml — previously
 # 4x byte-identical copy-paste of a sequential loop (AGENTS.md #6).
@@ -434,6 +436,14 @@ rehydrate_locale_sections() {
   return "$locale_rc"
 }
 
+# `bp_run_bounded` accepts one item per worker and deliberately has no hidden
+# global arguments. Keep the current locale in the caller while the bounded
+# section window runs; the background subshells inherit this shell variable and
+# therefore cannot accidentally interleave a second locale into the window.
+rehydrate_section_for_current_locale() {
+  rehydrate_section "$1" "$REHYDRATE_CURRENT_LOCALE"
+}
+
 trunk_guard_init section
 
 # Keep the resource ceiling in one shared implementation. Four is the cap
@@ -482,15 +492,18 @@ if [ "${#SECTION_NAMES[@]}" -gt 0 ]; then
 
   # `bp_run_bounded` records worker failures but does not abort the fan-out;
   # that preserves this script's existing fail-soft posture. With one worker,
-  # use locale items so at most one batch ZIP is retained for the current
-  # locale. The independent trunk_guard_verdict below remains the only new
-  # correctness failure.
+  # use locale items. With more than one, keep the locale loop in the caller
+  # and bound only the sections for the current locale: the old section-major
+  # fan-out let two workers retain batch ZIPs for different locales while the
+  # logical dist grew, which is the disk peak this setting must avoid.
   export BP_FAILED_FILE="${RUNNER_TEMP:-/tmp}/section-rehydrate-failures.txt"
   section_rc=0
   if [ "$rehydrate_max_parallel" -eq 1 ]; then
     bp_run_bounded 1 rehydrate_locale_sections it en de fr || section_rc=$?
   else
-    bp_run_bounded "$rehydrate_max_parallel" rehydrate_section "${SECTION_NAMES[@]}" || section_rc=$?
+    for REHYDRATE_CURRENT_LOCALE in it en de fr; do
+      bp_run_bounded "$rehydrate_max_parallel" rehydrate_section_for_current_locale "${SECTION_NAMES[@]}" || section_rc=1
+    done
   fi
   if [ "$section_rc" -ne 0 ]; then
     echo "::warning::one or more section rehydrate workers failed — continuing with the existing fail-soft contract: $(paste -sd, "$BP_FAILED_FILE" 2>/dev/null || true)"

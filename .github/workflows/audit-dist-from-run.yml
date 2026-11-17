@@ -322,12 +322,11 @@ jobs:
           # silently misses the new ones; this form cannot drift (AGENTS.md #6).
           REPO_VARS_JSON: ${{ toJSON(vars) }}
           # The complete logical dist is disk-bound even after the source-only
-          # image tree is omitted from this caller's checkout. Two concurrent
-          # tar streams can exhaust the remaining headroom before the last
-          # shard is materialised, so keep the full replay serialized. Make
-          # the safe default explicit here instead of relying on the script's
-          # fallback, which protects this caller if that default changes.
-          REHYDRATE_MAX_PARALLEL: '1'
+          # image tree is omitted from this caller's checkout. The shared
+          # rehydrate script keeps locales serialized and applies this cap to
+          # sections within the current locale, so two workers overlap useful
+          # extraction without retaining batch ZIPs for four growing trees.
+          REHYDRATE_MAX_PARALLEL: '2'
         run: |
           set -uo pipefail
           eval "$(jq -r 'to_entries[]
