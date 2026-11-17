@@ -1,16 +1,16 @@
 {
   "key": "burkhalter-group",
   "label": "burkhalter",
-  "generatedAt": "2026-11-16T21:25:07.022Z",
-  "total": 246,
+  "generatedAt": "2026-11-17T09:35:09.953Z",
+  "total": 245,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 243,
-  "durationMs": 492810,
-  "avgDurationMs": 492810,
+  "removedCount": 1,
+  "unchangedCount": 242,
+  "durationMs": 492240,
+  "avgDurationMs": 492240,
   "durationHistory": [
-    492810
+    492240
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,7 +39,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.811Z",
+      "crawledAt": "2026-11-17T09:34:54.713Z",
       "coordinates": [
         46.7255703,
         7.6144883
@@ -51,7 +51,7 @@
       "salarySource": "reported",
       "firstSeenAt": "2026-09-28T03:38:03.399Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:24:57.811Z",
+      "validThrough": "2026-12-17T09:34:54.713Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -82,7 +82,7 @@
       "postedDate": "2026-06-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.815Z",
+      "crawledAt": "2026-11-17T09:34:54.718Z",
       "coordinates": [
         46.489223,
         9.845449
@@ -99,7 +99,7 @@
       "datePosted": "2026-06-05",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:24:57.815Z",
+      "validThrough": "2026-12-17T09:34:54.718Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -130,7 +130,7 @@
       "postedDate": "2019-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.901Z",
+      "crawledAt": "2026-11-17T09:34:54.873Z",
       "coordinates": [
         47.4800309,
         8.9938264
@@ -147,7 +147,7 @@
       "datePosted": "2019-04-02",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:24:57.901Z",
+      "validThrough": "2026-12-17T09:34:54.873Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -158,290 +158,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "CHEF/FE DE PROJETS en installations électriques (100%)",
-      "slug": "head-fe-di-progetti-in-impianti-elettrici-100-sedelec-sa-succursale-de-la-cote-carouge",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-fe-de-projets-en-installations-electriques-1755",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-fe-de-projets-en-installations-electriques-1755",
-      "company": "Sedelec SA, Succursale de la Côte",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Carouge",
-      "addressLocality": "Carouge",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "postalCode": "1227",
-      "streetAddress": "Rue Blavignac 1",
-      "canton": "GE",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "fr",
-      "datePosted": "2026-10-30",
-      "postedDate": "2026-10-30",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.803Z",
-      "coordinates": [
-        46.3939445,
-        6.2296183
-      ],
-      "id": "burkhalter-group-9edd858d13cd",
-      "salaryMin": 71000,
-      "salaryMax": 107500,
-      "currency": "CHF",
-      "salarySource": "reported",
-      "firstSeenAt": "2026-10-30T21:29:05.984Z",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:24:57.803Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Monteur Lüftung / Quereinsteiger (100%)",
-      "slug": "tecnico-di-impianti-di-ventilazione-persona-proveniente-da-un-altro-settore-100-m-kunz-ag-klosters-klosters-dorf",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/monteur-lueftung-quereinsteiger-1748",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/monteur-lueftung-quereinsteiger-1748",
-      "company": "M. Kunz AG Klosters",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Klosters Dorf",
-      "addressLocality": "Klosters Dorf",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "postalCode": "7252",
-      "streetAddress": "Landstrasse 44",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-30",
-      "postedDate": "2026-10-30",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.803Z",
-      "coordinates": [
-        46.8823512,
-        9.8788827
-      ],
-      "id": "burkhalter-group-b2c514c156d5",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-30T09:24:34.482Z",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:24:57.803Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Projektleiter / Bauleiter Lüftung (100%)",
-      "slug": "project-manager-construction-manager-ventilation-100-m-kunz-ag-klosters-klosters-dorf",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-lueftung-756",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-lueftung-756",
-      "company": "M. Kunz AG Klosters",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Klosters Dorf",
-      "addressLocality": "Klosters Dorf",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "postalCode": "7252",
-      "streetAddress": "Landstrasse 44",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-30",
-      "postedDate": "2026-10-30",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.804Z",
-      "coordinates": [
-        46.8823512,
-        9.8788827
-      ],
-      "id": "burkhalter-group-250b87296359",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "currency": "CHF",
-      "salarySource": "reported",
-      "firstSeenAt": "2026-10-30T09:24:34.482Z",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-28T21:24:57.804Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Lüftungsreiniger/in (80 - 100%)",
-      "slug": "addetto-a-alla-pulizia-degli-impianti-di-ventilazione-80-100-elsener-klima-ag-adliswil",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/lueftungsreiniger-in-1754",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/lueftungsreiniger-in-1754",
-      "company": "Elsener Klima AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Adliswil",
-      "addressLocality": "Adliswil",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "postalCode": "8134",
-      "streetAddress": "Soodring 13a",
-      "canton": "AG",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-29",
-      "postedDate": "2026-10-29",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.805Z",
-      "coordinates": [
-        47.3182296,
-        8.5215463
-      ],
-      "id": "burkhalter-group-aee9940d9fb4",
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-29T21:50:46.437Z",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T21:24:57.805Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Kältetechniker/in Klima & Lüftung (80 - 100%)",
-      "slug": "tecnico-a-della-refrigerazione-climatizzazione-e-ventilazione-80-100-elsener-klima-ag-adliswil",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/kaeltetechniker-in-klima-lueftung-1753",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/kaeltetechniker-in-klima-lueftung-1753",
-      "company": "Elsener Klima AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Adliswil",
-      "addressLocality": "Adliswil",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "postalCode": "8134",
-      "streetAddress": "Soodring 13a",
-      "canton": "AG",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-29",
-      "postedDate": "2026-10-29",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.806Z",
-      "coordinates": [
-        47.3182296,
-        8.5215463
-      ],
-      "id": "burkhalter-group-dac8ab92329f",
-      "salaryMin": 72500,
-      "salaryMax": 110500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-29T21:50:46.438Z",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-27T21:24:57.806Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Sachbearbeiter/in Administration & Innendienst (100%)",
-      "slug": "impiegato-a-amministrativo-a-e-back-office-100-az-systems-ag-landquart",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sachbearbeiter-in-administration-innendienst",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sachbearbeiter-in-administration-innendienst",
-      "company": "AZ systems AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Landquart",
-      "addressLocality": "Landquart",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "postalCode": "7302",
-      "streetAddress": "Bahnhofplatz 3b",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Amministrazione & Risorse Umane",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "datePosted": "2026-10-28",
-      "postedDate": "2026-10-28",
-      "postingDateSource": "reported",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.806Z",
-      "coordinates": [
-        46.9669411,
-        9.5551841
-      ],
-      "id": "burkhalter-group-685f638ac5f3",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-10-28T20:21:43.442Z",
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-26T21:24:57.806Z",
-      "validThroughSource": "last-observed-window",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
+  "removedJobs": [
     {
       "title": "Monteuse / monteur photovoltaïque (100%)",
       "slug": "montatore-assemblatore-fotovoltaico-100-fri-elec-sa-givisiez",
@@ -488,6 +205,290 @@
         "translation": 25,
         "completeness": 25
       }
+    }
+  ],
+  "unchangedJobs": [
+    {
+      "title": "CHEF/FE DE PROJETS en installations électriques (100%)",
+      "slug": "head-fe-di-progetti-in-impianti-elettrici-100-sedelec-sa-succursale-de-la-cote-carouge",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-fe-de-projets-en-installations-electriques-1755",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-fe-de-projets-en-installations-electriques-1755",
+      "company": "Sedelec SA, Succursale de la Côte",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Carouge",
+      "addressLocality": "Carouge",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "postalCode": "1227",
+      "streetAddress": "Rue Blavignac 1",
+      "canton": "GE",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "fr",
+      "datePosted": "2026-10-30",
+      "postedDate": "2026-10-30",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-11-17T09:34:54.697Z",
+      "coordinates": [
+        46.3939445,
+        6.2296183
+      ],
+      "id": "burkhalter-group-9edd858d13cd",
+      "salaryMin": 71000,
+      "salaryMax": 107500,
+      "currency": "CHF",
+      "salarySource": "reported",
+      "firstSeenAt": "2026-10-30T21:29:05.984Z",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-28T09:34:54.697Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Monteur Lüftung / Quereinsteiger (100%)",
+      "slug": "tecnico-di-impianti-di-ventilazione-persona-proveniente-da-un-altro-settore-100-m-kunz-ag-klosters-klosters-dorf",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/monteur-lueftung-quereinsteiger-1748",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/monteur-lueftung-quereinsteiger-1748",
+      "company": "M. Kunz AG Klosters",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Klosters Dorf",
+      "addressLocality": "Klosters Dorf",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "7252",
+      "streetAddress": "Landstrasse 44",
+      "canton": "GR",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-30",
+      "postedDate": "2026-10-30",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-11-17T09:34:54.698Z",
+      "coordinates": [
+        46.8823512,
+        9.8788827
+      ],
+      "id": "burkhalter-group-b2c514c156d5",
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-30T09:24:34.482Z",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-28T09:34:54.698Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Projektleiter / Bauleiter Lüftung (100%)",
+      "slug": "project-manager-construction-manager-ventilation-100-m-kunz-ag-klosters-klosters-dorf",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-lueftung-756",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/projektleiter-in-lueftung-756",
+      "company": "M. Kunz AG Klosters",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Klosters Dorf",
+      "addressLocality": "Klosters Dorf",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "7252",
+      "streetAddress": "Landstrasse 44",
+      "canton": "GR",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-30",
+      "postedDate": "2026-10-30",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-11-17T09:34:54.699Z",
+      "coordinates": [
+        46.8823512,
+        9.8788827
+      ],
+      "id": "burkhalter-group-250b87296359",
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "currency": "CHF",
+      "salarySource": "reported",
+      "firstSeenAt": "2026-10-30T09:24:34.482Z",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-28T09:34:54.699Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Lüftungsreiniger/in (80 - 100%)",
+      "slug": "addetto-a-alla-pulizia-degli-impianti-di-ventilazione-80-100-elsener-klima-ag-adliswil",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/lueftungsreiniger-in-1754",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/lueftungsreiniger-in-1754",
+      "company": "Elsener Klima AG",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Adliswil",
+      "addressLocality": "Adliswil",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "postalCode": "8134",
+      "streetAddress": "Soodring 13a",
+      "canton": "AG",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-29",
+      "postedDate": "2026-10-29",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-11-17T09:34:54.701Z",
+      "coordinates": [
+        47.3182296,
+        8.5215463
+      ],
+      "id": "burkhalter-group-aee9940d9fb4",
+      "salaryMin": 72500,
+      "salaryMax": 110500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-29T21:50:46.437Z",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-27T09:34:54.701Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Kältetechniker/in Klima & Lüftung (80 - 100%)",
+      "slug": "tecnico-a-della-refrigerazione-climatizzazione-e-ventilazione-80-100-elsener-klima-ag-adliswil",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/kaeltetechniker-in-klima-lueftung-1753",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/kaeltetechniker-in-klima-lueftung-1753",
+      "company": "Elsener Klima AG",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Adliswil",
+      "addressLocality": "Adliswil",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "postalCode": "8134",
+      "streetAddress": "Soodring 13a",
+      "canton": "AG",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-29",
+      "postedDate": "2026-10-29",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-11-17T09:34:54.702Z",
+      "coordinates": [
+        47.3182296,
+        8.5215463
+      ],
+      "id": "burkhalter-group-dac8ab92329f",
+      "salaryMin": 72500,
+      "salaryMax": 110500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-29T21:50:46.438Z",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-27T09:34:54.702Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Sachbearbeiter/in Administration & Innendienst (100%)",
+      "slug": "impiegato-a-amministrativo-a-e-back-office-100-az-systems-ag-landquart",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sachbearbeiter-in-administration-innendienst",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/sachbearbeiter-in-administration-innendienst",
+      "company": "AZ systems AG",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Landquart",
+      "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "7302",
+      "streetAddress": "Bahnhofplatz 3b",
+      "canton": "GR",
+      "country": "CH",
+      "category": "Amministrazione & Risorse Umane",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "datePosted": "2026-10-28",
+      "postedDate": "2026-10-28",
+      "postingDateSource": "reported",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-11-17T09:34:54.702Z",
+      "coordinates": [
+        46.9669411,
+        9.5551841
+      ],
+      "id": "burkhalter-group-685f638ac5f3",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-28T20:21:43.442Z",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-01-26T09:34:54.702Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "title": "Servicemonteur/in Sanitär (100%)",
@@ -514,7 +515,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.807Z",
+      "crawledAt": "2026-11-17T09:34:54.703Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -526,7 +527,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-05-13T21:47:32.310Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-21T21:24:57.807Z",
+      "validThrough": "2027-01-21T09:34:54.703Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -561,7 +562,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.807Z",
+      "crawledAt": "2026-11-17T09:34:54.704Z",
       "coordinates": [
         47.5646191,
         9.150227
@@ -573,7 +574,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-19T09:24:25.606Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-17T21:24:57.807Z",
+      "validThrough": "2027-01-17T09:34:54.704Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -608,7 +609,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.808Z",
+      "crawledAt": "2026-11-17T09:34:54.705Z",
       "coordinates": [
         47.0884912,
         8.3439045
@@ -620,7 +621,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-07T21:26:55.297Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-06T21:24:57.808Z",
+      "validThrough": "2027-01-06T09:34:54.705Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -655,7 +656,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.808Z",
+      "crawledAt": "2026-11-17T09:34:54.705Z",
       "coordinates": [
         47.0884912,
         8.3439045
@@ -667,7 +668,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-10-07T21:26:55.298Z",
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-01-05T21:24:57.808Z",
+      "validThrough": "2027-01-05T09:34:54.705Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -698,7 +699,7 @@
       "postedDate": "2026-09-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.808Z",
+      "crawledAt": "2026-11-17T09:34:54.706Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -715,7 +716,7 @@
       "datePosted": "2026-09-21",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-20T21:24:57.808Z",
+      "validThrough": "2026-12-20T09:34:54.706Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -746,7 +747,7 @@
       "postedDate": "2026-09-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.809Z",
+      "crawledAt": "2026-11-17T09:34:54.706Z",
       "coordinates": [
         46.1080222,
         7.9256477
@@ -763,7 +764,7 @@
       "datePosted": "2026-09-15",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:24:57.809Z",
+      "validThrough": "2026-12-17T09:34:54.706Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -794,7 +795,7 @@
       "postedDate": "2026-09-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.809Z",
+      "crawledAt": "2026-11-17T09:34:54.707Z",
       "coordinates": [
         47.0884912,
         8.3439045
@@ -811,7 +812,7 @@
       "datePosted": "2026-09-15",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:24:57.809Z",
+      "validThrough": "2026-12-17T09:34:54.707Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -842,7 +843,7 @@
       "postedDate": "2026-08-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.809Z",
+      "crawledAt": "2026-11-17T09:34:54.708Z",
       "coordinates": [
         47.5567228,
         7.5424767
@@ -859,7 +860,7 @@
       "datePosted": "2026-08-24",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:24:57.809Z",
+      "validThrough": "2026-12-17T09:34:54.708Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -890,7 +891,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.810Z",
+      "crawledAt": "2026-11-17T09:34:54.709Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -907,7 +908,7 @@
       "datePosted": "2026-08-21",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:24:57.810Z",
+      "validThrough": "2026-12-17T09:34:54.709Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -938,7 +939,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.810Z",
+      "crawledAt": "2026-11-17T09:34:54.709Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -955,7 +956,7 @@
       "datePosted": "2026-08-21",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:24:57.810Z",
+      "validThrough": "2026-12-17T09:34:54.709Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -986,7 +987,7 @@
       "postedDate": "2026-08-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.810Z",
+      "crawledAt": "2026-11-17T09:34:54.710Z",
       "coordinates": [
         47.5517966,
         9.2740066
@@ -1003,7 +1004,7 @@
       "datePosted": "2026-08-21",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:24:57.810Z",
+      "validThrough": "2026-12-17T09:34:54.710Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1034,7 +1035,7 @@
       "postedDate": "2026-08-05",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.811Z",
+      "crawledAt": "2026-11-17T09:34:54.711Z",
       "coordinates": [
         47.1896268,
         8.8482094
@@ -1051,7 +1052,7 @@
       "datePosted": "2026-08-05",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:24:57.811Z",
+      "validThrough": "2026-12-17T09:34:54.711Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1082,7 +1083,7 @@
       "postedDate": "2026-07-31",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.811Z",
+      "crawledAt": "2026-11-17T09:34:54.712Z",
       "coordinates": [
         47.5567228,
         7.5424767
@@ -1099,7 +1100,7 @@
       "datePosted": "2026-07-31",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:24:57.811Z",
+      "validThrough": "2026-12-17T09:34:54.712Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1130,7 +1131,7 @@
       "postedDate": "2026-07-16",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.812Z",
+      "crawledAt": "2026-11-17T09:34:54.713Z",
       "coordinates": [
         46.1078651,
         7.0997695
@@ -1147,7 +1148,7 @@
       "datePosted": "2026-07-16",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:24:57.812Z",
+      "validThrough": "2026-12-17T09:34:54.713Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1178,7 +1179,7 @@
       "postedDate": "2026-07-10",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.812Z",
+      "crawledAt": "2026-11-17T09:34:54.714Z",
       "coordinates": [
         47.3885458,
         8.495987
@@ -1195,7 +1196,7 @@
       "datePosted": "2026-07-10",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:24:57.812Z",
+      "validThrough": "2026-12-17T09:34:54.714Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1226,7 +1227,7 @@
       "postedDate": "2026-07-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.812Z",
+      "crawledAt": "2026-11-17T09:34:54.715Z",
       "coordinates": [
         46.9669411,
         9.5551841
@@ -1243,7 +1244,7 @@
       "datePosted": "2026-07-01",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:24:57.812Z",
+      "validThrough": "2026-12-17T09:34:54.715Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1274,7 +1275,7 @@
       "postedDate": "2026-06-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.815Z",
+      "crawledAt": "2026-11-17T09:34:54.717Z",
       "coordinates": [
         47.4691438,
         9.0315766
@@ -1291,7 +1292,7 @@
       "datePosted": "2026-06-15",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:24:57.815Z",
+      "validThrough": "2026-12-17T09:34:54.717Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1322,7 +1323,7 @@
       "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.815Z",
+      "crawledAt": "2026-11-17T09:34:54.719Z",
       "coordinates": [
         46.9530906,
         9.5696389
@@ -1339,7 +1340,7 @@
       "datePosted": "2026-06-01",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:24:57.815Z",
+      "validThrough": "2026-12-17T09:34:54.719Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1370,7 +1371,7 @@
       "postedDate": "2026-06-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.816Z",
+      "crawledAt": "2026-11-17T09:34:54.719Z",
       "coordinates": [
         46.9530906,
         9.5696389
@@ -1387,7 +1388,7 @@
       "datePosted": "2026-06-01",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:24:57.816Z",
+      "validThrough": "2026-12-17T09:34:54.719Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1418,7 +1419,7 @@
       "postedDate": "2026-05-28",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.816Z",
+      "crawledAt": "2026-11-17T09:34:54.720Z",
       "coordinates": [
         47.3765752,
         8.5603708
@@ -1435,7 +1436,7 @@
       "datePosted": "2026-05-28",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:24:57.816Z",
+      "validThrough": "2026-12-17T09:34:54.720Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1470,7 +1471,7 @@
       "postingDateSource": "reported",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.818Z",
+      "crawledAt": "2026-11-17T09:34:54.723Z",
       "coordinates": [
         47.410293,
         9.3385108
@@ -1481,7 +1482,7 @@
       "currency": "CHF",
       "salarySource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:24:57.818Z",
+      "validThrough": "2026-12-17T09:34:54.723Z",
       "validThroughSource": "last-observed-window",
       "firstSeenAt": "2026-11-13T09:22:40.525Z",
       "_qualityScore": 97,
@@ -1513,7 +1514,7 @@
       "postedDate": "2026-05-08",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.818Z",
+      "crawledAt": "2026-11-17T09:34:54.723Z",
       "coordinates": [
         47.3935972,
         8.1643977
@@ -1530,7 +1531,7 @@
       "datePosted": "2026-05-08",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:24:57.818Z",
+      "validThrough": "2026-12-17T09:34:54.723Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1561,7 +1562,7 @@
       "postedDate": "2026-05-08",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-11-16T21:24:57.818Z",
+      "crawledAt": "2026-11-17T09:34:54.724Z",
       "coordinates": [
         47.3096077,
         7.8926763
@@ -1578,7 +1579,7 @@
       "datePosted": "2026-05-08",
       "postingDateSource": "reported",
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:24:57.818Z",
+      "validThrough": "2026-12-17T09:34:54.724Z",
       "validThroughSource": "last-observed-window",
       "_qualityScore": 97,
       "_qualityBreakdown": {
@@ -1587,7 +1588,55 @@
         "translation": 25,
         "completeness": 25
       }
+    },
+    {
+      "title": "Chef de chantier / Cheffe de chantier – Installations électriques (100%)",
+      "slug": "construction-manager-construction-manager-impianti-elettrici-100-sedelec-yverdon-succursale-de-sedelec-sa-lausanne-yverd",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-cheffe-de-chantier-installations-electriques-1663",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-cheffe-de-chantier-installations-electriques-1663",
+      "company": "Sedelec Yverdon, succursale de Sedelec SA Lausanne",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Yverdon-Les-Bains",
+      "addressLocality": "Yverdon-Les-Bains",
+      "addressRegion": "NE",
+      "addressCountry": "CH",
+      "canton": "NE",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-05-01",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-11-17T09:34:54.725Z",
+      "coordinates": [
+        46.7838193,
+        6.6264028
+      ],
+      "id": "burkhalter-group-95b7122a1cc3",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "streetAddress": "Rue de la Blancherie 2",
+      "postalCode": "1400",
+      "firstSeenAt": "2026-05-11T21:39:47.287Z",
+      "salarySource": "reported",
+      "sourceIdentity": "url:https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-de-chantier-cheffe-de-chantier-installations-electriques-1663",
+      "datePosted": "2026-05-01",
+      "postingDateSource": "reported",
+      "streetAddressSource": "listing-source",
+      "validThrough": "2026-12-17T09:34:54.725Z",
+      "validThroughSource": "last-observed-window",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     }
   ],
-  "codeCommit": "003c4e440c1461e3ea15f62e2d687026ad8479d5"
+  "codeCommit": "0a26498058b0569b9b8027a7e9a03db3e2542c6a"
 }

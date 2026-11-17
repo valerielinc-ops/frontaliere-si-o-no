@@ -1,7 +1,7 @@
 {
   "crawlerKey": "victorinox",
-  "assembledAt": "2026-11-16T21:17:39.894Z",
-  "runId": "43957157360",
+  "assembledAt": "2026-11-17T09:25:49.227Z",
+  "runId": "44052947222",
   "jobs": [
     {
       "id": "victorinox-c9a73ab3b99d",
@@ -35,7 +35,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-initiativbewerbung-delemont-m-w-d_211.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T21:17:11.642Z",
+      "crawledAt": "2026-11-17T09:25:15.979Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "streetAddress": "Delémont",
@@ -85,7 +85,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-16T21:17:11.642Z",
+      "validThrough": "2026-12-17T09:25:15.979Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -119,7 +119,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-polymechaniker-m-w-d_259.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:17:11.094Z",
+      "crawledAt": "2026-11-17T09:25:15.347Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -169,7 +169,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:17:11.094Z",
+      "validThrough": "2026-12-17T09:25:15.347Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -179,7 +179,7 @@
         "it": "applicazione-dell-iniziativa-ibach-m-f-d-victorinox-ibach-schwyz",
         "en": "initiative-application-ibach-m-f-d-victorinox-ibach-schwyz",
         "de": "initiativbewerbung-ibach-m-w-d-victorinox-ibach-schwyz",
-        "fr": "demande-d-initiative-ibach-m-f-d-victorinox-ibach-schwyz"
+        "fr": "candidature-spontanee-ibach-tous-les-genres-victorinox-ibach-schwyz"
       },
       "company": "Victorinox",
       "companyKey": "victorinox",
@@ -204,7 +204,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-initiativbewerbung-ibach-m-w-d_209.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:17:10.534Z",
+      "crawledAt": "2026-11-17T09:25:14.778Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -227,7 +227,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "initiativbewerbung-ibach-m-w-d-victorinox-ibach-schwyz",
-        "candidature-spontanee-ibach-tous-les-genres-victorinox-ibach-schwyz"
+        "demande-d-initiative-ibach-m-f-d-victorinox-ibach-schwyz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -238,7 +238,7 @@
         ],
         "fr": [
           "initiativbewerbung-ibach-m-w-d-victorinox-ibach-schwyz",
-          "candidature-spontanee-ibach-tous-les-genres-victorinox-ibach-schwyz"
+          "demande-d-initiative-ibach-m-f-d-victorinox-ibach-schwyz"
         ]
       },
       "firstSeenAt": "2026-07-04T12:22:24.532Z",
@@ -256,7 +256,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:17:10.534Z",
+      "validThrough": "2026-12-17T09:25:14.778Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -291,7 +291,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-planificateur-de-production-60-70-h-f-d_266.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-16T21:17:09.993Z",
+      "crawledAt": "2026-11-17T09:25:14.226Z",
       "addressLocality": "Delémont",
       "addressRegion": "JU",
       "streetAddress": "Delémont",
@@ -327,7 +327,7 @@
         }
       },
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-19T21:17:09.993Z",
+      "validThrough": "2027-01-19T09:25:14.226Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -362,7 +362,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-polymechaniker-in-schleiftechnik-100-m-w-d_261.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:17:09.458Z",
+      "crawledAt": "2026-11-17T09:25:13.633Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -412,7 +412,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-19T21:17:09.458Z",
+      "validThrough": "2026-12-19T09:25:13.633Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -447,7 +447,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-trade-compliance-specialist-m-w-d_247.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:17:08.912Z",
+      "crawledAt": "2026-11-17T09:25:13.065Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -483,7 +483,7 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:17:08.912Z",
+      "validThrough": "2026-12-17T09:25:13.065Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -491,7 +491,7 @@
       "slug": "consigliere-legale-m-f-d-victorinox-ibach-schwyz",
       "slugByLocale": {
         "it": "consigliere-legale-m-f-d-victorinox-ibach-schwyz",
-        "en": "consigliere-legale-m-f-d-victorinox-ibach-schwyz",
+        "en": "legal-counsel-m-w-d-victorinox-ibach-schwyz",
         "de": "legal-counsel-m-w-d-victorinox-ibach-schwyz",
         "fr": "conseiller-juridique-h-f-d-victorinox-ibach-schwyz"
       },
@@ -518,7 +518,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-legal-counsel-m-w-d_250.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:17:08.342Z",
+      "crawledAt": "2026-11-17T09:25:12.508Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -545,9 +545,6 @@
       "previousSlugsByLocale": {
         "it": [
           "legal-counsel-m-w-d-victorinox-ibach-schwyz"
-        ],
-        "en": [
-          "legal-counsel-m-w-d-victorinox-ibach-schwyz"
         ]
       },
       "firstSeenAt": "2026-08-18T09:45:47.035Z",
@@ -565,16 +562,16 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2026-12-16T21:17:08.342Z",
+      "validThrough": "2026-12-17T09:25:12.508Z",
       "validThroughSource": "last-observed-window"
     },
     {
       "id": "victorinox-9fe945ebdd95",
       "slug": "project-manager-pianificazione-elettrica-m-f-d-victorinox-ibach-schwyz",
       "slugByLocale": {
-        "de": "projektleiter-elektroplanung-m-w-d-victorinox-ibach-schwyz",
         "it": "project-manager-pianificazione-elettrica-m-f-d-victorinox-ibach-schwyz",
         "en": "project-manager-electrical-planning-m-f-d-victorinox-ibach-schwyz",
+        "de": "projektleiter-elektroplanung-m-w-d-victorinox-ibach-schwyz",
         "fr": "gestionnaire-de-projet-planification-electrique-h-f-d-victorinox-ibach-schwyz"
       },
       "company": "Victorinox",
@@ -582,16 +579,16 @@
       "companyDomain": "victorinox.com",
       "title": "Projektleiter Elektroplanung m/w/d",
       "titleByLocale": {
-        "de": "Projektleiter Elektroplanung m/w/d",
         "it": "Project manager pianificazione elettrica m/f/d",
         "en": "Project manager electrical planning m/f/d",
+        "de": "Projektleiter Elektroplanung m/w/d",
         "fr": "Gestionnaire de projet planification électrique h/f/d"
       },
       "description": "Allgemeine Informationen Kennziffer 2026-274 BESCHREIBUNG DER STELLE Stellenbezeichnung Projektleiter Elektroplanung m/w/d Beschreibung der Aufgaben\n• Leitung und Koordination von Elektroprojekten im Stark- und Schwachstrombereich von der Planung bis zur Übergabe sowie Sicherstellung der Einhaltung von Terminen, Kosten und Qualitätsstandards\n• Erstellung von Elektroinstallationsplänen, Schemata, technischen Konzepten und Projektdokumentationen sowie Verantwortung für die fachgerechte Dimensionierung elektrischer Anlagen\n• Entwicklung praxisorientierter technischer Lösungen unter Berücksichtigung geltender Normen, Sicherheitsanforderungen und betrieblicher Vorgaben\n• Koordination der Zusammenarbeit mit internen Fachbereichen sowie externen Planern, Architekten, Lieferanten und weiteren Projektbeteiligten\n• Begleitung der Ausführung vor Ort, Unterstützung der Montageteams bei technischen Fragestellungen sowie Sicherstellung der planungskonformen Umsetzung\n• Verantwortung für die Qualitätssicherung, Begleitung von Abnahmen und Inbetriebnahmen sowie Sicherstellung einer vollständigen Projektdokumentation\n• Aktives Einbringen von Fachwissen und Unterstützung der kontinuierlichen Weiterentwicklung unserer Planungsstandards und Prozesse Profil\n• Fundierte Fachkenntnisse in der Elektroplanung, insbesondere im Stark- und Schwachstrombereich, sowie ein gutes Verständnis der relevanten Normen und Vorschriften\n• Erfahrung in der Projektleitung und Koordination von Elektroprojekten sowie in der Zusammenarbeit mit unterschiedlichen Fachbereichen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie ein hohes Qualitäts- und Verantwortungsbewusstsein\n• Klare und professionelle Kommunikation, konstruktiver Umgang mit unterschiedlichen Anspruchsgruppen und Förderung einer partnerschaftlichen Zusammenarbeit\n• Entscheidungsstärke, organisatorisches Geschick und die Fähigkeit, auch bei komplexen Aufgabenstellungen den Überblick zu behalten\n• Offenheit für Veränderungen, Bereitschaft zur fachlichen Weiterentwicklung und zum aktiven Wissensaustausch im Team Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Simone Muntwyler",
       "descriptionByLocale": {
-        "de": "Allgemeine Informationen Kennziffer 2026-274 BESCHREIBUNG DER STELLE Stellenbezeichnung Projektleiter Elektroplanung m/w/d Beschreibung der Aufgaben\n• Leitung und Koordination von Elektroprojekten im Stark- und Schwachstrombereich von der Planung bis zur Übergabe sowie Sicherstellung der Einhaltung von Terminen, Kosten und Qualitätsstandards\n• Erstellung von Elektroinstallationsplänen, Schemata, technischen Konzepten und Projektdokumentationen sowie Verantwortung für die fachgerechte Dimensionierung elektrischer Anlagen\n• Entwicklung praxisorientierter technischer Lösungen unter Berücksichtigung geltender Normen, Sicherheitsanforderungen und betrieblicher Vorgaben\n• Koordination der Zusammenarbeit mit internen Fachbereichen sowie externen Planern, Architekten, Lieferanten und weiteren Projektbeteiligten\n• Begleitung der Ausführung vor Ort, Unterstützung der Montageteams bei technischen Fragestellungen sowie Sicherstellung der planungskonformen Umsetzung\n• Verantwortung für die Qualitätssicherung, Begleitung von Abnahmen und Inbetriebnahmen sowie Sicherstellung einer vollständigen Projektdokumentation\n• Aktives Einbringen von Fachwissen und Unterstützung der kontinuierlichen Weiterentwicklung unserer Planungsstandards und Prozesse Profil\n• Fundierte Fachkenntnisse in der Elektroplanung, insbesondere im Stark- und Schwachstrombereich, sowie ein gutes Verständnis der relevanten Normen und Vorschriften\n• Erfahrung in der Projektleitung und Koordination von Elektroprojekten sowie in der Zusammenarbeit mit unterschiedlichen Fachbereichen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie ein hohes Qualitäts- und Verantwortungsbewusstsein\n• Klare und professionelle Kommunikation, konstruktiver Umgang mit unterschiedlichen Anspruchsgruppen und Förderung einer partnerschaftlichen Zusammenarbeit\n• Entscheidungsstärke, organisatorisches Geschick und die Fähigkeit, auch bei komplexen Aufgabenstellungen den Überblick zu behalten\n• Offenheit für Veränderungen, Bereitschaft zur fachlichen Weiterentwicklung und zum aktiven Wissensaustausch im Team Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Simone Muntwyler",
         "it": "Codice d'informazione generale 2026-274 DESCRIZIONE DEL POINT titolo di lavoro Project Manager Pianificazione elettrica m/f/d Descrizione dei compiti\n• Gestione e coordinamento dei progetti elettrici nel settore ad alta e bassa corrente dalla pianificazione alla consegna, oltre a garantire il rispetto delle scadenze, dei costi e degli standard di qualità\n• Preparazione di piani di installazione elettrica, schemi, concetti tecnici e documentazione del progetto, nonché la responsabilità per il dimensionamento professionale degli impianti elettrici\n• Sviluppo di soluzioni tecniche pratiche che tengano conto delle norme applicabili, dei requisiti di sicurezza e dei requisiti operativi\n• Coordinamento della cooperazione con i dipartimenti interni e con i progettisti esterni, architetti, fornitori e altri partecipanti al progetto\n• Accompagnamento dell'implementazione in loco, supporto ai team di assemblaggio con problemi tecnici e garanzia dell'implementazione pianificata-conforme\n• Responsabilità per l'assicurazione della qualità, il supporto di accettazione e messa in servizio, oltre a garantire la documentazione completa del progetto\n• Contribuire attivamente competenze e sostenere lo sviluppo continuo dei nostri standard di pianificazione e profilo dei processi\n• Competenze approfondite nella pianificazione elettrica, soprattutto nell'alta e bassa gamma di corrente, nonché una buona comprensione delle norme e dei regolamenti pertinenti\n• Esperienza nella gestione e coordinamento dei progetti elettrici e in collaborazione con diversi settori specializzati\n• Metodo di lavoro indipendente, strutturato e orientato alla soluzione, nonché una consapevolezza di alta qualità e responsabilità\n• Comunicazione chiara e professionale, interazione costruttiva con diversi stakeholder e promozione della partnership cooperativa\n• Potere decisionale, capacità organizzativa e capacità di tenere traccia di compiti complessi\n• Apertura al cambiamento, disponibilità per lo sviluppo professionale e scambio di conoscenze attivo in Team Benefits\n• Cultura unica e familiare con gestione aziendale a lungo termine e sostenibile\n• Corsi interni e attività ricreative, nonché supporto per la formazione esterna\n• Modelli moderni del tempo di lavoro, come l'ufficio di casa\n• Parcheggio gratuito o pendolari per i trasporti pubblici\n• Vantaggi appellativi del nostro fondo pensionistico e della nota di assicurazione sociale per i servizi di reclutamento: Per questa posizione, consideriamo solo applicazioni dirette e non lavoriamo con agenzie di reclutamento o agenzie di reclutamento. Vi chiediamo quindi di astenersi dalla consegna non sollecitata dei dossier candidati. LOCAZIONE DELLA STELLE Company Victorinox AG Land Svizzera Ubicazione Ibach-Schwyz OPERATOR IN contatto principale Simone Muntwyler",
         "en": "General information Code 2026-274 DESCRIPTION OF THE POINT job title Project Manager Electrical Planning m/f/d Description of tasks\n• Management and coordination of electrical projects in the high and low current sector from planning to handover as well as ensuring compliance with deadlines, costs and quality standards\n• Preparation of electrical installation plans, schemes, technical concepts and project documentation as well as responsibility for the professional dimensioning of electrical installations\n• Development of practical technical solutions taking into account applicable standards, safety requirements and operational requirements\n• Coordination of cooperation with internal departments as well as external planners, architects, suppliers and other project participants\n• Accompanying the implementation on site, supporting the assembly teams with technical issues as well as ensuring the planning-compliant implementation\n• Responsibility for quality assurance, support of acceptances and commissionings as well as ensuring complete project documentation\n• Actively contribute expertise and support the continuous development of our planning standards and processes profile\n• In-depth expertise in electrical planning, especially in the high and low current range, as well as a good understanding of the relevant standards and regulations\n• Experience in project management and coordination of electrical projects as well as in cooperation with different specialist areas\n• Independent, structured and solution-oriented working method as well as a high quality and responsibility awareness\n• Clear and professional communication, constructive interaction with different stakeholders and promotion of cooperative partnership\n• Decision-making power, organizational skill and the ability to keep track of complex tasks\n• Openness to change, readiness for professional development and active knowledge exchange in Team Benefits\n• Unique, family culture with long-term and sustainable corporate management\n• Internal courses and leisure activities as well as support for external training\n• Modern working time models, such as home office\n• Free parking or commuting fees for public transport\n• Appealing advantages of our pension fund and the social insurance note for recruitment services: For this position, we only consider direct applications and do not work with recruitment agencies or recruiting agencies. We therefore ask you to refrain from the unsolicited delivery of candidate dossiers. LOCATION OF THE STELLE Company Victorinox AG Land Switzerland Location Ibach-Schwyz OPERATOR BY main contact Simone Muntwyler",
+        "de": "Allgemeine Informationen Kennziffer 2026-274 BESCHREIBUNG DER STELLE Stellenbezeichnung Projektleiter Elektroplanung m/w/d Beschreibung der Aufgaben\n• Leitung und Koordination von Elektroprojekten im Stark- und Schwachstrombereich von der Planung bis zur Übergabe sowie Sicherstellung der Einhaltung von Terminen, Kosten und Qualitätsstandards\n• Erstellung von Elektroinstallationsplänen, Schemata, technischen Konzepten und Projektdokumentationen sowie Verantwortung für die fachgerechte Dimensionierung elektrischer Anlagen\n• Entwicklung praxisorientierter technischer Lösungen unter Berücksichtigung geltender Normen, Sicherheitsanforderungen und betrieblicher Vorgaben\n• Koordination der Zusammenarbeit mit internen Fachbereichen sowie externen Planern, Architekten, Lieferanten und weiteren Projektbeteiligten\n• Begleitung der Ausführung vor Ort, Unterstützung der Montageteams bei technischen Fragestellungen sowie Sicherstellung der planungskonformen Umsetzung\n• Verantwortung für die Qualitätssicherung, Begleitung von Abnahmen und Inbetriebnahmen sowie Sicherstellung einer vollständigen Projektdokumentation\n• Aktives Einbringen von Fachwissen und Unterstützung der kontinuierlichen Weiterentwicklung unserer Planungsstandards und Prozesse Profil\n• Fundierte Fachkenntnisse in der Elektroplanung, insbesondere im Stark- und Schwachstrombereich, sowie ein gutes Verständnis der relevanten Normen und Vorschriften\n• Erfahrung in der Projektleitung und Koordination von Elektroprojekten sowie in der Zusammenarbeit mit unterschiedlichen Fachbereichen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise sowie ein hohes Qualitäts- und Verantwortungsbewusstsein\n• Klare und professionelle Kommunikation, konstruktiver Umgang mit unterschiedlichen Anspruchsgruppen und Förderung einer partnerschaftlichen Zusammenarbeit\n• Entscheidungsstärke, organisatorisches Geschick und die Fähigkeit, auch bei komplexen Aufgabenstellungen den Überblick zu behalten\n• Offenheit für Veränderungen, Bereitschaft zur fachlichen Weiterentwicklung und zum aktiven Wissensaustausch im Team Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Simone Muntwyler",
         "fr": "Informations générales Code 2026-274 DESCRIPTION DU POINT Titre du poste Gestionnaire de projet Planification électrique h/f/d Description des tâches\n• Gestion et coordination des projets électriques dans le secteur actuel élevé et faible, de la planification au transfert et en veillant au respect des délais, des coûts et des normes de qualité\n• Élaboration de plans, de plans, de concepts techniques et de documentation des projets d'installations électriques ainsi que de la responsabilité de la dimensionnement professionnel des installations électriques\n• Développement de solutions techniques pratiques tenant compte des normes applicables, des exigences de sécurité et des exigences opérationnelles\n• Coordination de la coopération avec les services internes ainsi qu'avec les planificateurs externes, les architectes, les fournisseurs et les autres participants au projet\n• Accompagner la mise en oeuvre sur place, soutenir les équipes de montage avec des questions techniques et assurer la mise en œuvre conforme à la planification\n• Responsabilité en matière d'assurance de la qualité, d'appui aux acceptations et aux mises en service, ainsi que de documentation complète du projet\n• Contribuer activement à l'expertise et soutenir le développement continu de nos normes et de notre profil de processus de planification\n• Expertise approfondie dans la planification électrique, en particulier dans la gamme haute et basse actuelle, ainsi qu'une bonne compréhension des normes et règlements pertinents\n• Expérience en gestion et coordination de projets électriques ainsi qu'en coopération avec différents domaines spécialisés\n• Méthode de travail indépendante, structurée et axée sur les solutions ainsi qu'une sensibilisation à la qualité et aux responsabilités\n• Communication claire et professionnelle, interaction constructive avec les différentes parties prenantes et promotion du partenariat coopératif\n• Pouvoir décisionnel, compétence organisationnelle et capacité de suivre les tâches complexes\n• Ouverture au changement, préparation au perfectionnement professionnel et échange actif de connaissances dans les avantages pour l'équipe\n• Culture familiale unique avec une gestion d'entreprise durable et à long terme\n• Cours internes et activités de loisirs ainsi que soutien à la formation externe\n• Modèles modernes de temps de travail, tels que le bureau à domicile\n• Parking gratuit ou frais de navette pour les transports en commun\n• Faire appel aux avantages de notre caisse de retraite et de la note d'assurance sociale pour les services de recrutement: Pour ce poste, nous ne considérons que les demandes directes et ne travaillons pas avec les agences de recrutement ou les agences de recrutement. Par conséquent, nous vous demandons de vous abstenir de la livraison spontanée des dossiers des candidats. LIEU DE LA STELLE Entreprise Victorinox AG Land Suisse Localisation Ibach-Schwyz OPERATOR PAR contact principal Simone Muntwyler"
       },
       "location": "Ibach-Schwyz",
@@ -599,7 +596,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-projektleiter-elektroplanung-m-w-d_274.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:17:07.801Z",
+      "crawledAt": "2026-11-17T09:25:11.937Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -619,26 +616,10 @@
       "applyUrl": "https://victorinox-career.talent-soft.com/stelle/stelle-projektleiter-elektroplanung-m-w-d_274.aspx",
       "jobReqId": "2026-274",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
-      "salaryMin": 78500,
-      "salaryMax": 119000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 78500,
-          "maxValue": 119000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T21:17:07.801Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:17:07.801Z",
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "projektleiter-elektroplanung-m-w-d-victorinox-ibach-schwyz"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-elektroplanung-m-w-d-victorinox-ibach-schwyz"
@@ -650,17 +631,31 @@
           "projektleiter-elektroplanung-m-w-d-victorinox-ibach-schwyz"
         ]
       },
-      "previousSlugs": [
-        "projektleiter-elektroplanung-m-w-d-victorinox-ibach-schwyz"
-      ]
+      "firstSeenAt": "2026-11-16T21:17:07.801Z",
+      "salaryMin": 107000,
+      "salaryMax": 162500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 107000,
+          "maxValue": 162500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddressSource": "listing-source",
+      "validThrough": "2027-02-15T09:25:11.937Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "victorinox-e059972b8d15",
       "slug": "product-manager-ingranaggio-da-viaggio-80-100-m-f-d-victorinox-ibach-schwyz",
       "slugByLocale": {
-        "de": "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz",
         "it": "product-manager-ingranaggio-da-viaggio-80-100-m-f-d-victorinox-ibach-schwyz",
         "en": "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz",
+        "de": "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz",
         "fr": "gestionnaire-de-produits-equipement-de-voyage-80-100-h-f-d-victorinox-ibach-schwyz"
       },
       "company": "Victorinox",
@@ -668,16 +663,16 @@
       "companyDomain": "victorinox.com",
       "title": "Product Manager, Travel Gear 80-100% m/w/d",
       "titleByLocale": {
-        "de": "Product Manager, Travel Gear 80-100% m/w/d",
         "it": "Product Manager, Ingranaggio da viaggio 80-100% m/f/d",
         "en": "Product Manager, Travel Gear 80-100% m/f/d",
+        "de": "Product Manager, Travel Gear 80-100% m/w/d",
         "fr": "Gestionnaire de produits, équipement de voyage 80-100% h/f/d"
       },
       "description": "Allgemeine Informationen Kennziffer 2026-275 BESCHREIBUNG DER STELLE Stellenbezeichnung Product Manager, Travel Gear 80-100% m/w/d Beschreibung der Aufgaben Gestalte die Weiterentwicklung unserer Wenger Travel Gear Produkte aktiv mit. Als Product Manager übernimmst du eine zentrale Rolle in der Produktentwicklung und arbeitest dabei eng mit verschiedenen Bereichen innerhalb von Victorinox sowie mit internationalen Partnern zusammen.\n• Operative Verantwortung für verschiedene Produktentwicklungsprojekte, vom Briefing bis zur Umsetzung\n• Übersetzung bestehender Produkt- und Portfoliovorgaben in konkrete Entwicklungsschritte und konsequente Umsetzung\n• Proaktive und selbständige Steuerung von Timelines, Prioritäten, Follow-ups und Abstimmungen mit allen relevanten Stakeholdern\n• Enge Zusammenarbeit mit Design, Quality, Sales, Marketing sowie internationalen Entwicklungsteams\n• Aktives Einbringen von Produktwissen und technischer Affinität, um Lösungen kritisch zu hinterfragen und weiterzuentwickeln\n• Erkennen von Optimierungspotenzialen und Erarbeiten pragmatischer Lösungen unter Berücksichtigung von Funktionalität, Design, Qualität, Kosten und Machbarkeit\n• Beobachtung relevanter Markt- und Wettbewerbsentwicklungen und Einbringen konkreter Impulse für Produktverbesserungen\n• Sicherstellung des Überblicks und der richtigen Priorisierung, auch bei parallellaufenden Projekten sowie proaktives Vorantreiben der Themen in einem schnelllebigen und dynamischen Umfeld Profil\n• Ausbildung oder Studium im Bereich Product Management, Business, Product/Industrial Design oder in einem vergleichbaren Bereich\n• Mindestens 3 Jahre Berufserfahrung im Product Management, in der Produktentwicklung oder in einem vergleichbaren schnelllebigen Consumer-Goods-Umfeld\n• Ausgeprägtes Produktverständnis und technische Affinität sowie die Fähigkeit, dich rasch in Produkte, Materialien und Herstellungsprozesse einzuarbeiten\n• Erfahrung mit Textilien, Softgoods, Taschen, Rucksäcken oder Reisegepäck ist von Vorteil\n• Hands-on-Mentalität mit kritischem, lösungsorientiertem Denken und Blick fürs grosse Ganze\n• Hohes Verantwortungsbewusstsein, Ownership und proaktive Arbeitsweise\n• Flexibilität, Resilienz und gutes Priorisierungsvermögen in einem dynamischen Umfeld\n• Hoher Qualitätsanspruch, Auge fürs Detail und Lernbereitschaft\n• Sehr gute Deutsch- und Englischkenntnisse (mind. C1) Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Nina Hustinx",
       "descriptionByLocale": {
-        "de": "Allgemeine Informationen Kennziffer 2026-275 BESCHREIBUNG DER STELLE Stellenbezeichnung Product Manager, Travel Gear 80-100% m/w/d Beschreibung der Aufgaben Gestalte die Weiterentwicklung unserer Wenger Travel Gear Produkte aktiv mit. Als Product Manager übernimmst du eine zentrale Rolle in der Produktentwicklung und arbeitest dabei eng mit verschiedenen Bereichen innerhalb von Victorinox sowie mit internationalen Partnern zusammen.\n• Operative Verantwortung für verschiedene Produktentwicklungsprojekte, vom Briefing bis zur Umsetzung\n• Übersetzung bestehender Produkt- und Portfoliovorgaben in konkrete Entwicklungsschritte und konsequente Umsetzung\n• Proaktive und selbständige Steuerung von Timelines, Prioritäten, Follow-ups und Abstimmungen mit allen relevanten Stakeholdern\n• Enge Zusammenarbeit mit Design, Quality, Sales, Marketing sowie internationalen Entwicklungsteams\n• Aktives Einbringen von Produktwissen und technischer Affinität, um Lösungen kritisch zu hinterfragen und weiterzuentwickeln\n• Erkennen von Optimierungspotenzialen und Erarbeiten pragmatischer Lösungen unter Berücksichtigung von Funktionalität, Design, Qualität, Kosten und Machbarkeit\n• Beobachtung relevanter Markt- und Wettbewerbsentwicklungen und Einbringen konkreter Impulse für Produktverbesserungen\n• Sicherstellung des Überblicks und der richtigen Priorisierung, auch bei parallellaufenden Projekten sowie proaktives Vorantreiben der Themen in einem schnelllebigen und dynamischen Umfeld Profil\n• Ausbildung oder Studium im Bereich Product Management, Business, Product/Industrial Design oder in einem vergleichbaren Bereich\n• Mindestens 3 Jahre Berufserfahrung im Product Management, in der Produktentwicklung oder in einem vergleichbaren schnelllebigen Consumer-Goods-Umfeld\n• Ausgeprägtes Produktverständnis und technische Affinität sowie die Fähigkeit, dich rasch in Produkte, Materialien und Herstellungsprozesse einzuarbeiten\n• Erfahrung mit Textilien, Softgoods, Taschen, Rucksäcken oder Reisegepäck ist von Vorteil\n• Hands-on-Mentalität mit kritischem, lösungsorientiertem Denken und Blick fürs grosse Ganze\n• Hohes Verantwortungsbewusstsein, Ownership und proaktive Arbeitsweise\n• Flexibilität, Resilienz und gutes Priorisierungsvermögen in einem dynamischen Umfeld\n• Hoher Qualitätsanspruch, Auge fürs Detail und Lernbereitschaft\n• Sehr gute Deutsch- und Englischkenntnisse (mind. C1) Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Nina Hustinx",
         "it": "Informazioni generali Codice 2026-275 DESCRIZIONE DEL titolo di lavoro STELLE Product Manager, Travel Gear 80-100% m/f/d Descrizione delle attività Aiuta attivamente a modellare l'ulteriore sviluppo dei nostri prodotti Wenger Travel Gear. In qualità di Product Manager, svolgerai un ruolo centrale nello sviluppo dei prodotti, lavorando a stretto contatto con varie divisioni all'interno di Victorinox e con partner internazionali.\n• Responsabilità operativa per vari progetti di sviluppo dei prodotti, dal briefing all'implementazione\n• Traduzione delle specifiche esistenti di prodotto e portafoglio in fasi di sviluppo concrete e implementazione coerente\n• Gestione attiva e indipendente di tempi, priorità, follow-up e coordinamento con tutte le parti interessate\n• stretta collaborazione con team di progettazione, qualità, vendita, marketing e sviluppo internazionale\n• Contribuire attivamente la conoscenza del prodotto e l'affinità tecnica alla domanda critica e sviluppare ulteriormente soluzioni\n• Identificazione del potenziale di ottimizzazione e sviluppo di soluzioni pragmatiche tenendo conto delle funzionalità, del design, della qualità, dei costi e della fattibilità\n• Osservare il mercato rilevante e gli sviluppi competitivi e fornire un impulso concreto ai miglioramenti dei prodotti\n• Garantire la panoramica e la corretta priorità, anche in progetti paralleli, oltre a promuovere attivamente gli argomenti in un ambiente dinamico e veloce\n• Istruzione o studi in materia di gestione dei prodotti, business, product/industrial design o in un settore comparabile\n• Almeno 3 anni di esperienza professionale nella gestione dei prodotti, nello sviluppo dei prodotti o in un ambiente di prodotti di consumo paragonabile\n• Forte comprensione del prodotto e affinità tecnica, nonché la capacità di familiarizzare rapidamente con prodotti, materiali e processi produttivi\n• Esperienza con tessuti, softgoods, borse, zaino o bagagli è un vantaggio\n• mentalità a mano con pensiero critico, orientato alla soluzione e un occhio per il grande quadro\n• Alto senso di responsabilità, proprietà e metodi di lavoro proattivi\n• Flessibilità, resilienza e buona capacità di priorità in un ambiente dinamico\n• Standard di alta qualità, occhio per i dettagli e la volontà di imparare\n• Conoscenza molto buona di tedesco e inglese (minimo C1) Vantaggi\n• Cultura unica e familiare con gestione aziendale a lungo termine e sostenibile\n• Corsi interni e attività ricreative, nonché supporto per la formazione esterna\n• Modelli moderni del tempo di lavoro, come l'ufficio di casa\n• Parcheggio gratuito o pendolari per i trasporti pubblici\n• Vantaggi di appello per il nostro fondo pensione e le assicurazioni sociali LOCATION OF the STELLE company Victorinox AG Land Svizzera Luogo di lavoro Ibach-Schwyz CONTROLS attraverso il contatto principale Nina Hustinx",
         "en": "General information Code 2026-275 DESCRIPTION OF THE STELLE job title Product Manager, Travel Gear 80-100% m/f/d Description of tasks Actively help shape the further development of our Wenger Travel Gear products. As a Product Manager, you will play a central role in product development, working closely with various divisions within Victorinox and with international partners.\n• Operational responsibility for various product development projects, from briefing to implementation\n• Translation of existing product and portfolio specifications into concrete development steps and consistent implementation\n• Proactive and independent management of timelines, priorities, follow-ups and coordination with all relevant stakeholders\n• Close cooperation with design, quality, sales, marketing and international development teams\n• Actively contribute product knowledge and technical affinity to critically question and further develop solutions\n• Identification of optimization potential and development of pragmatic solutions taking into account functionality, design, quality, costs and feasibility\n• Observing relevant market and competitive developments and providing concrete impetus for product improvements\n• Ensuring the overview and the correct prioritization, also in parallel projects as well as proactively advancing the topics in a fast-moving and dynamic environment Profile\n• Education or studies in product management, business, product/industrial design or in a comparable field\n• At least 3 years of professional experience in product management, product development or in a comparable fast-moving consumer goods environment\n• Strong product understanding and technical affinity, as well as the ability to quickly familiarize yourself with products, materials and manufacturing processes\n• Experience with textiles, softgoods, bags, rucksacks or luggage is an advantage\n• Hands-on mentality with critical, solution-oriented thinking and an eye for the big picture\n• High sense of responsibility, ownership and proactive working methods\n• Flexibility, resilience and good prioritization ability in a dynamic environment\n• High quality standards, eye for detail and willingness to learn\n• Very good knowledge of German and English (minimum C1) Benefits\n• Unique, family culture with long-term and sustainable corporate management\n• Internal courses and leisure activities as well as support for external training\n• Modern working time models, such as home office\n• Free parking or commuting fees for public transport\n• Appealing advantages for our pension fund and the social insurances LOCATION OF THE STELLE company Victorinox AG Land Switzerland Location of work Ibach-Schwyz CONTROLS through main contact Nina Hustinx",
+        "de": "Allgemeine Informationen Kennziffer 2026-275 BESCHREIBUNG DER STELLE Stellenbezeichnung Product Manager, Travel Gear 80-100% m/w/d Beschreibung der Aufgaben Gestalte die Weiterentwicklung unserer Wenger Travel Gear Produkte aktiv mit. Als Product Manager übernimmst du eine zentrale Rolle in der Produktentwicklung und arbeitest dabei eng mit verschiedenen Bereichen innerhalb von Victorinox sowie mit internationalen Partnern zusammen.\n• Operative Verantwortung für verschiedene Produktentwicklungsprojekte, vom Briefing bis zur Umsetzung\n• Übersetzung bestehender Produkt- und Portfoliovorgaben in konkrete Entwicklungsschritte und konsequente Umsetzung\n• Proaktive und selbständige Steuerung von Timelines, Prioritäten, Follow-ups und Abstimmungen mit allen relevanten Stakeholdern\n• Enge Zusammenarbeit mit Design, Quality, Sales, Marketing sowie internationalen Entwicklungsteams\n• Aktives Einbringen von Produktwissen und technischer Affinität, um Lösungen kritisch zu hinterfragen und weiterzuentwickeln\n• Erkennen von Optimierungspotenzialen und Erarbeiten pragmatischer Lösungen unter Berücksichtigung von Funktionalität, Design, Qualität, Kosten und Machbarkeit\n• Beobachtung relevanter Markt- und Wettbewerbsentwicklungen und Einbringen konkreter Impulse für Produktverbesserungen\n• Sicherstellung des Überblicks und der richtigen Priorisierung, auch bei parallellaufenden Projekten sowie proaktives Vorantreiben der Themen in einem schnelllebigen und dynamischen Umfeld Profil\n• Ausbildung oder Studium im Bereich Product Management, Business, Product/Industrial Design oder in einem vergleichbaren Bereich\n• Mindestens 3 Jahre Berufserfahrung im Product Management, in der Produktentwicklung oder in einem vergleichbaren schnelllebigen Consumer-Goods-Umfeld\n• Ausgeprägtes Produktverständnis und technische Affinität sowie die Fähigkeit, dich rasch in Produkte, Materialien und Herstellungsprozesse einzuarbeiten\n• Erfahrung mit Textilien, Softgoods, Taschen, Rucksäcken oder Reisegepäck ist von Vorteil\n• Hands-on-Mentalität mit kritischem, lösungsorientiertem Denken und Blick fürs grosse Ganze\n• Hohes Verantwortungsbewusstsein, Ownership und proaktive Arbeitsweise\n• Flexibilität, Resilienz und gutes Priorisierungsvermögen in einem dynamischen Umfeld\n• Hoher Qualitätsanspruch, Auge fürs Detail und Lernbereitschaft\n• Sehr gute Deutsch- und Englischkenntnisse (mind. C1) Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Nina Hustinx",
         "fr": "Informations générales Code 2026-275 DESCRIPTION DE L'EMPLOI STELLE Product Manager, Travel Gear 80-100% h/f/d Description des tâches Aider activement à façonner le développement de nos produits Wenger Travel Gear. En tant que gestionnaire de produits, vous jouerez un rôle central dans le développement de produits, en travaillant en étroite collaboration avec différentes divisions au sein de Victorinox et avec des partenaires internationaux.\n• Responsabilité opérationnelle pour divers projets de développement de produits, de l'exposé à la mise en œuvre\n• Traduction des spécifications de produits et de portefeuille existantes en étapes concrètes de développement et mise en œuvre cohérente\n• Gestion proactive et indépendante des délais, des priorités, des suivis et de la coordination avec toutes les parties prenantes concernées\n• Coopération étroite avec des équipes de conception, de qualité, de vente, de marketing et de développement international\n• Contribuer activement à la connaissance du produit et à l'affinité technique pour remettre en question et développer des solutions.\n• Identification du potentiel d'optimisation et développement de solutions pragmatiques tenant compte de la fonctionnalité, de la conception, de la qualité, des coûts et de la faisabilité\n• Observer les évolutions pertinentes du marché et de la concurrence et donner une impulsion concrète à l'amélioration des produits\n• Assurer la vue d'ensemble et la hiérarchisation correcte, y compris dans les projets parallèles et faire progresser les sujets de manière proactive dans un environnement dynamique et en évolution rapide Profil\n• Éducation ou études en gestion de produits, en affaires, en conception de produits/industriels ou dans un domaine comparable\n• Au moins 3 ans d'expérience professionnelle en gestion de produits, développement de produits ou dans un environnement de biens de consommation en évolution rapide comparable\n• Compréhension des produits et affinité technique, ainsi que la capacité de se familiariser rapidement avec les produits, les matériaux et les procédés de fabrication\n• L'expérience avec les textiles, les marchandises douces, les sacs, les sacs à dos ou les bagages est un avantage\n• Une mentalité pratique avec une pensée critique, orientée vers la solution et un œil pour le grand tableau\n• Sens élevé des responsabilités, appropriation et méthodes de travail proactives\n• Flexibilité, résilience et bonne capacité de hiérarchisation dans un environnement dynamique\n• Normes de qualité élevées, souci du détail et volonté d'apprendre\n• Très bonne connaissance de l'allemand et de l'anglais (minimum C1) Prestations\n• Culture familiale unique avec une gestion d'entreprise durable et à long terme\n• Cours internes et activités de loisirs ainsi que soutien à la formation externe\n• Modèles modernes de temps de travail, tels que le bureau à domicile\n• Parking gratuit ou frais de navette pour les transports en commun\n• Appel aux avantages pour notre caisse de retraite et les assurances sociales LOCATION DE LA STELLE société Victorinox AG Land Suisse Lieu de travail Ibach-Schwyz CONTRÔLES via le contact principal Nina Hustinx"
       },
       "needsRetranslation": true,
@@ -686,7 +681,7 @@
       "url": "https://victorinox-career.talent-soft.com/stelle/stelle-product-manager-travel-gear-80-100-m-w-d_275.aspx",
       "source": "Victorinox Dedicated Parser (Talentsoft)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-16T21:17:07.239Z",
+      "crawledAt": "2026-11-17T09:25:11.379Z",
       "addressLocality": "Ibach-Schwyz",
       "addressRegion": "SZ",
       "streetAddress": "Schmiedgasse 57",
@@ -706,9 +701,19 @@
       "applyUrl": "https://victorinox-career.talent-soft.com/stelle/stelle-product-manager-travel-gear-80-100-m-w-d_275.aspx",
       "jobReqId": "2026-275",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz"
+        ],
+        "fr": [
+          "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz"
+        ]
       },
+      "firstSeenAt": "2026-11-16T21:17:07.239Z",
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -723,20 +728,8 @@
         }
       },
       "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-14T21:17:07.239Z",
-      "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:17:07.239Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz"
-        ],
-        "fr": [
-          "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz"
-        ]
-      },
-      "previousSlugs": [
-        "product-manager-travel-gear-80-100-m-w-d-victorinox-ibach-schwyz"
-      ]
+      "validThrough": "2027-02-15T09:25:11.379Z",
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "victorinox-9436b019e91b",
@@ -822,88 +815,6 @@
       },
       "streetAddressSource": "listing-source",
       "validThrough": "2026-12-16T09:15:46.040Z",
-      "validThroughSource": "last-observed-window",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "victorinox-25790a3baf5d",
-      "slug": "coordinatore-marketing-e-operazioni-europa-60-80-m-f-d-victorinox-ibach-schwyz",
-      "slugByLocale": {
-        "it": "coordinatore-marketing-e-operazioni-europa-60-80-m-f-d-victorinox-ibach-schwyz",
-        "en": "marketing-operations-pier-europe-60-802-m-f-d-victorinox-ibach-schwyz",
-        "de": "marketing-operations-coordinator-europe-60-80-m-w-d-victorinox-ibach-schwyz",
-        "fr": "marketing-operations-coordinator-europe-60-80-m-w-d-victorinox-ibach-schwyz"
-      },
-      "company": "Victorinox",
-      "companyKey": "victorinox",
-      "companyDomain": "victorinox.com",
-      "title": "Marketing & Operations Coordinator Europe 60-80% m/w/d",
-      "titleByLocale": {
-        "it": "Coordinatore Marketing e Operazioni Europa 60-80% m/f/d",
-        "en": "Marketing & Operations Pier Europe 60-802 m/f/d",
-        "de": "Marketing & Operations Coordinator Europe 60-80% m/w/d",
-        "fr": "Coordinateur Marketing et Opérations Europe 60-80% h/f/d"
-      },
-      "description": "Allgemeine Informationen Kennziffer 2026-272 BESCHREIBUNG DER STELLE Stellenbezeichnung Marketing & Operations Coordinator Europe 60-80% m/w/d Beschreibung der Aufgaben Assistenz & Administration\n• Organisation von Geschäftsreisen inklusive Flug- und Hotelbuchungen sowie Visa\n• Unterstützung bei der Termin- und Kalenderkoordination\n• Abwicklung von Kreditkarten- und Spesenabrechnungen\n• Koordination und Organisation von Besuchen an unserem Hauptsitz in Ibach\n• Unterstützung bei internen Veranstaltungen wie Management Meetings und Mitarbeiterevents\n• Übernahme der Stellvertretung bei definierten administrativen Prozessen\n• Ansprechperson für Themen rund um das Sicherheits- und Umweltmanagement Marketing & Events\n• Erstellung und Versand von Newslettern rund um Messen und Events\n• Koordination von Hotelbuchungen und Zimmerkontingenten für Veranstaltungen und Messen\n• Organisation von Marketingmaterialien sowie Koordination von Grafikanfragen\n• Organisation von Kunden- und Sales-Besuchen an unserem Hauptsitz\n• Unterstützung des Teams bei der administrativen Planung, Koordination und Umsetzung von Marketingprojekten\n• Enge Zusammenarbeit mit verschiedenen internen und externen Ansprechpartnern sowie Sicherstellung einer zuverlässigen und termingerechten Organisation Profil\n• Abgeschlossene kaufmännische Grundausbildung\n• Idealerweise 3–5 Jahre Berufserfahrung in einer vergleichbaren Funktion, beispielsweise in Administration, Assistenz, Marketingkoordination oder Eventorganisation\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\n• Ausgeprägtes Organisations- und Koordinationstalent\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n• Freude daran, mehrere Themen gleichzeitig zu koordinieren und Prioritäten richtig zu setzen\n• Hohe Dienstleistungsorientierung und Freude am Kontakt mit unterschiedlichen internen und externen Ansprechpartnern\n• Kommunikationsstärke und Teamgeist\n• Flexibilität sowie eine pragmatische und lösungsorientierte Arbeitsweise\n• Qualitätsbewusstsein und ein gutes Auge für Details Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Kevin Volkart",
-      "descriptionByLocale": {
-        "it": "Informazioni generali\n\nNumero di riferimento 2026-272\n\nDESCRIZIONE DELLA POSIZIONE\n\nTitolo della posizione Marketing & Operations Coordinator Europe 60-80% m/f/d\n\nDescrizione delle mansioni\n\nAssistenza e amministrazione\n\n- Organizzazione di viaggi di lavoro, comprese le prenotazioni di voli e hotel, nonché dei visti\n- Supporto nella gestione degli appuntamenti e dei calendari\n- Gestione delle rendicontazioni delle carte di credito e delle note spese\n- Coordinamento e organizzazione delle visite presso la nostra sede principale di Ibach\n- Supporto nell'organizzazione di eventi interni quali riunioni del management ed eventi per i dipendenti\n- Svolgimento della funzione di sostituto per processi amministrativi definiti\n- Persona di riferimento per le tematiche relative alla gestione della sicurezza e dell'ambiente\n\nMarketing ed eventi\n\n- Creazione e invio di newsletter relative a fiere ed eventi\n- Coordinamento delle prenotazioni alberghiere e dei contingenti di camere per eventi e fiere\n- Organizzazione dei materiali di marketing e coordinamento delle richieste grafiche\n- Organizzazione delle visite di clienti e del reparto vendite presso la nostra sede principale\n- Supporto al team nella pianificazione amministrativa, nel coordinamento e nell'attuazione di progetti di marketing\n- Stretta collaborazione con diversi interlocutori interni ed esterni e garanzia di un'organizzazione affidabile e puntuale\n\nProfilo\n\n- Formazione commerciale di base completata\n- Preferibilmente 3–5 anni di esperienza professionale in una funzione analoga, ad esempio nell'amministrazione, nell'assistenza, nel coordinamento marketing o nell'organizzazione di eventi\n- Ottima conoscenza del tedesco e buona conoscenza dell'inglese\n- Spiccate capacità organizzative e di coordinamento\n- Modalità di lavoro autonoma, strutturata e affidabile\n- Piacere nel coordinare più temi contemporaneamente e nel definire correttamente le priorità\n- Forte orientamento al servizio e piacere nel contatto con diversi interlocutori interni ed esterni\n- Spiccate capacità comunicative e spirito di squadra\n- Flessibilità, nonché un modo di lavorare pragmatico e orientato alle soluzioni\n- Consapevolezza della qualità e un buon occhio per i dettagli\n\nVantaggi\n\n- Cultura unica e familiare, con una gestione aziendale orientata al lungo termine e alla sostenibilità\n- Offerta interna di corsi e attività per il tempo libero, nonché supporto per la formazione continua esterna\n- Modelli moderni di orario di lavoro, come ad es. il lavoro da casa\n- Parcheggi gratuiti o contributi per il tragitto casa-lavoro con i mezzi pubblici\n- Vantaggi interessanti presso la nostra cassa pensioni e nell’ambito delle assicurazioni sociali\n\nNota per le agenzie di reclutamento:\n\nPer questa posizione prendiamo in considerazione esclusivamente le candidature dirette e non collaboriamo con agenzie di collocamento o agenzie di recruiting. Vi chiediamo pertanto di astenervi dall’invio non richiesto dei dossier dei candidati.\n\nSEDE DI LAVORO\n\n- Azienda Victorinox AG\n- Paese Svizzera\n- Luogo di lavoro Ibach-Schwyz\n\nSEGUITO DA\n\n- Referente principale Kevin Volkart",
-        "en": "General information\n\nReference number 2026-272\n\nJOB DESCRIPTION\n\nJob title Marketing & Operations Coordinator Europe 60-80% m/f/d\n\nDescription of responsibilities\n\nAssistance & Administration\n\n- Organization of business trips, including flight and hotel bookings as well as visas\n- Support with appointment and calendar coordination\n- Processing of credit card and expense reports\n- Coordination and organization of visits to our headquarters in Ibach\n- Support with internal events such as management meetings and employee events\n- Taking on deputy responsibilities for defined administrative processes\n- Contact person for matters relating to safety and environmental management\n\nMarketing Events\n\n- Creation and distribution of newsletters relating to trade fairs and events\n- Coordination of hotel bookings and room allotments for events and trade fairs\n- Organization of marketing materials and coordination of graphic design requests\n- Organization of customer and sales visits to our headquarters\n- Support for the team with the administrative planning, coordination and implementation of marketing projects\n- Close collaboration with various internal and external contacts and ensuring reliable and timely organization\n\nProfile\n\n- Completed commercial training\n- Ideally 3–5 years of professional experience in a comparable role, for example in administration, assistance, marketing coordination or event organization\n- Very good German skills and good English skills\n- Strong organizational and coordination skills\n- Independent, structured and reliable way of working\n- Enjoyment of coordinating multiple topics simultaneously and setting priorities correctly\n- Strong service orientation and enjoyment of contact with various internal and external contacts\n- Strong communication skills and team spirit\n- Flexibility as well as a pragmatic and solution-oriented way of working\n- Quality awareness and a good eye for detail\n\nThe Commission\n\n- Unique, family-oriented culture with long-term and sustainable corporate management\n- Internal course and leisure activities, as well as support for external professional development\n- Modern working time models, such as working from home\n- Free parking spaces or commuting allowances for public transport\n- Attractive benefits with our pension fund and social insurance schemes\n\nNote for recruitment agencies:\n\nFor this position, we will consider direct applications only and do not work with recruitment agencies or recruiting firms. We therefore ask that you refrain from sending candidate dossiers unsolicited.\n\nLOCATION OF THE POSITION\n\n- Company Victorinox AG\n- Country Switzerland\n- Work location Ibach-Schwyz\n\nMANAGED BY\n\n- Main contact person Kevin Volkart",
-        "de": "Allgemeine Informationen Kennziffer 2026-272 BESCHREIBUNG DER STELLE Stellenbezeichnung Marketing & Operations Coordinator Europe 60-80% m/w/d Beschreibung der Aufgaben Assistenz & Administration\n• Organisation von Geschäftsreisen inklusive Flug- und Hotelbuchungen sowie Visa\n• Unterstützung bei der Termin- und Kalenderkoordination\n• Abwicklung von Kreditkarten- und Spesenabrechnungen\n• Koordination und Organisation von Besuchen an unserem Hauptsitz in Ibach\n• Unterstützung bei internen Veranstaltungen wie Management Meetings und Mitarbeiterevents\n• Übernahme der Stellvertretung bei definierten administrativen Prozessen\n• Ansprechperson für Themen rund um das Sicherheits- und Umweltmanagement Marketing & Events\n• Erstellung und Versand von Newslettern rund um Messen und Events\n• Koordination von Hotelbuchungen und Zimmerkontingenten für Veranstaltungen und Messen\n• Organisation von Marketingmaterialien sowie Koordination von Grafikanfragen\n• Organisation von Kunden- und Sales-Besuchen an unserem Hauptsitz\n• Unterstützung des Teams bei der administrativen Planung, Koordination und Umsetzung von Marketingprojekten\n• Enge Zusammenarbeit mit verschiedenen internen und externen Ansprechpartnern sowie Sicherstellung einer zuverlässigen und termingerechten Organisation Profil\n• Abgeschlossene kaufmännische Grundausbildung\n• Idealerweise 3–5 Jahre Berufserfahrung in einer vergleichbaren Funktion, beispielsweise in Administration, Assistenz, Marketingkoordination oder Eventorganisation\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse\n• Ausgeprägtes Organisations- und Koordinationstalent\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n• Freude daran, mehrere Themen gleichzeitig zu koordinieren und Prioritäten richtig zu setzen\n• Hohe Dienstleistungsorientierung und Freude am Kontakt mit unterschiedlichen internen und externen Ansprechpartnern\n• Kommunikationsstärke und Teamgeist\n• Flexibilität sowie eine pragmatische und lösungsorientierte Arbeitsweise\n• Qualitätsbewusstsein und ein gutes Auge für Details Benefits\n• Einzigartige, familiäre Kultur mit langfristig und nachhaltig ausgerichteter Unternehmensführung\n• Internes Kurs- und Freizeitangebot sowie Unterstützung bei externen Weiterbildungen\n• Moderne Arbeitszeitmodelle, wie z.B. Home-Office\n• Kostenfreie Parkplätze, bzw. Arbeitswegbeiträge für öffentliche Verkehrsmittel\n• Ansprechende Vorteile bei unserer Pensionskasse und den Sozialversicherungen Hinweis für Personalvermittlungen: Für diese Position berücksichtigen wir ausschliesslich Direktbewerbungen und arbeiten nicht mit Personalvermittlungen oder Recruiting-Agenturen zusammen. Wir bitten daher von der unaufgeforderten Zustellung von Kandidatendossiers abzusehen. EINSATZORT DER STELLE Unternehmen Victorinox AG Land Schweiz Arbeitsort Ibach-Schwyz BETREUT DURCH Hauptansprechpartner Kevin Volkart",
-        "fr": "Informations générales\n\nRéférence 2026-272\n\nDESCRIPTION DU POSTE\n\nIntitulé du poste Coordinateur/Coordinatrice Marketing & Opérations Europe 60-80% h/f/d\n\nDescription des tâches\n\nAssistance & administration\n\n- Organisation de voyages d’affaires, y compris les réservations de vols et d’hôtels ainsi que les visas\n- Soutien à la coordination des rendez-vous et des calendriers\n- Traitement des décomptes de cartes de crédit et de frais\n- Coordination et organisation des visites à notre siège à Ibach\n- Soutien lors d’événements internes tels que les réunions de direction et les événements pour le personnel\n- Assurer le remplacement pour les processus administratifs définis\n- Personne de contact pour les questions liées à la gestion de la sécurité et de l’environnement\n\nMarketing & événements\n\n- Rédaction et envoi de newsletters concernant les salons et événements\n- Coordination des réservations d’hôtels et des contingents de chambres pour les événements et les salons\n- Organisation du matériel marketing ainsi que coordination des demandes graphiques\n- Organisation des visites de clients et de l’équipe commerciale à notre siège\n- Soutien de l’équipe dans la planification, la coordination et la mise en œuvre administratives de projets marketing\n- Collaboration étroite avec différents interlocuteurs internes et externes ainsi que garantie d’une organisation fiable et ponctuelle\n\nProfil\n\n- Formation commerciale de base achevée\n- Idéalement 3–5 ans d’expérience professionnelle dans une fonction comparable, par exemple dans l’administration, l’assistanat, la coordination marketing ou l’organisation d’événements\n- Très bonnes connaissances de l’allemand ainsi que bonnes connaissances de l’anglais\n- Excellent talent d’organisation et de coordination\n- Méthode de travail autonome, structurée et fiable\n- Vous aimez coordonner plusieurs sujets simultanément et fixer correctement les priorités\n- Sens aigu du service et plaisir à être en contact avec différents interlocuteurs internes et externes\n- Excellentes aptitudes à la communication et esprit d’équipe\n- Flexibilité ainsi qu’une méthode de travail pragmatique et axée sur les solutions\n- Sens de la qualité et souci du détail\n\nAvantages\n\n- Culture unique et familiale, avec une gestion d’entreprise orientée vers le long terme et la durabilité\n- Offre interne de cours et de loisirs ainsi que soutien pour les formations continues externes\n- Modèles modernes d’organisation du temps de travail, tels que le télétravail\n- Places de parking gratuites ou contributions aux frais de trajet pour les transports publics\n- Avantages intéressants auprès de notre caisse de pension et des assurances sociales\n\nRemarque à l’attention des agences de placement:\n\nPour ce poste, nous prenons exclusivement en considération les candidatures directes et ne collaborons pas avec des agences de placement ou de recrutement. Nous vous prions donc de vous abstenir de nous envoyer des dossiers de candidature non sollicités.\n\nLIEU DE TRAVAIL\n\n- Entreprise Victorinox AG\n- Pays Suisse\n- Lieu de travail Ibach-Schwyz\n\nSUIVI PAR\n\n- Principal interlocuteur Kevin Volkart"
-      },
-      "location": "Ibach-Schwyz",
-      "canton": "SZ",
-      "url": "https://victorinox-career.talent-soft.com/stelle/stelle-marketing-operations-coordinator-europe-60-80-m-w-d_272.aspx",
-      "source": "Victorinox Dedicated Parser (Talentsoft)",
-      "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:24:01.922Z",
-      "addressLocality": "Ibach-Schwyz",
-      "addressRegion": "SZ",
-      "streetAddress": "Schmiedgasse 57",
-      "postalCode": "6438",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Produzione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Industria / Manifatturiero",
-      "currency": "CHF",
-      "featured": false,
-      "datePosted": "",
-      "postedDate": "",
-      "postingDateSource": "unknown",
-      "applyUrl": "https://victorinox-career.talent-soft.com/stelle/stelle-marketing-operations-coordinator-europe-60-80-m-w-d_272.aspx",
-      "jobReqId": "2026-272",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "marketing-operations-coordinator-europe-60-80-m-w-d-victorinox-ibach-schwyz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "marketing-operations-coordinator-europe-60-80-m-w-d-victorinox-ibach-schwyz"
-        ],
-        "en": [
-          "marketing-operations-coordinator-europe-60-80-m-w-d-victorinox-ibach-schwyz"
-        ]
-      },
-      "firstSeenAt": "2026-11-05T21:14:45.513Z",
-      "salaryMin": 57600,
-      "salaryMax": 77600,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57600,
-          "maxValue": 77600,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddressSource": "listing-source",
-      "validThrough": "2027-02-03T21:24:01.922Z",
       "validThroughSource": "last-observed-window",
       "crawlerMissStreak": 2
     }
