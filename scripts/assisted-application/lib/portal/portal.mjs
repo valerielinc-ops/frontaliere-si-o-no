@@ -275,6 +275,11 @@ const OUTCOME_TIMEOUT_MS = 60_000;
 // How long a registration or a sign-in gets to answer its click, and how often the page is read meanwhile.
 const AUTH_OUTCOME_TIMEOUT_MS = 20_000;
 const AUTH_OUTCOME_POLL_MS = 500;
+// A posting-owned CTA is only provenance after an observable application
+// surface answers the click. Poll the page's existing structural evidence;
+// never turn the passage of time or a URL change alone into application proof.
+const POST_APPLICATION_ENTRY_EVIDENCE_TIMEOUT_MS = 6_000;
+const POST_APPLICATION_ENTRY_EVIDENCE_POLL_MS = 1_000;
 // How long the link between the two account pages («Sign In» under the registration form, «Create Account»
 // under the sign-in one) gets to draw the other page.
 const AUTH_VIEW_TIMEOUT_MS = 8_000;
@@ -4005,6 +4010,48 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
     pageHeadings: await postingMainHeadings(page),
     text: await pageText(page).catch(() => String(current?.text || '')),
   });
+  const hasPostApplicationEntryEvidence = async (current, {
+    brassRingEntryProven = brassRingApplicationEntryProven,
+    followedControlSignature = '',
+  } = {}) => {
+    if (!current || await currentApplicationDiversion(current)) return false;
+    const observed = {
+      ...current,
+      text: await pageText(page).catch(() => String(current?.text || '')),
+    };
+    if (hasApplicationForm(observed) || signedInApplicationSurface(observed)) return true;
+    // Authentication and verification are deterministic application entry
+    // surfaces after a bound CTA even when no candidate fields are mounted yet.
+    if (authPageKind(observed) !== 'none' || observed.passwordVisible === true || codeField(observed)) return true;
+    const stage = applicationStage(observed, {
+      ...(stageContext || {}),
+      url: page.url(),
+      workdayApplicationEntryProven,
+      brassRingApplicationEntryProven: brassRingEntryProven,
+    });
+    if (['account', 'receipt', 'review_navigation', 'final_review', 'application_start'].includes(stage.kind)
+      || stage.prefinal === true) return true;
+    const nextEntries = applicationEntryControls(observed, stageContext || {});
+    if (followedControlSignature && nextEntries.some((control) =>
+      portalControlSignature(control) !== followedControlSignature)) return true;
+    const controls = pageControls(observed.buttons || [], NO_PORTAL_KNOWLEDGE, page.url(), {
+      ...(stageContext || {}),
+      snapshot: observed,
+      workdayApplicationEntryProven,
+      brassRingApplicationEntryProven: brassRingEntryProven,
+    });
+    return Boolean(controls.next || controls.submit);
+  };
+  const waitForPostApplicationEntryEvidence = async (options = {}) => {
+    for (let waited = 0; waited <= POST_APPLICATION_ENTRY_EVIDENCE_TIMEOUT_MS;
+      waited += POST_APPLICATION_ENTRY_EVIDENCE_POLL_MS) {
+      if (await hasPostApplicationEntryEvidence(snapshot, options)) return true;
+      if (waited === POST_APPLICATION_ENTRY_EVIDENCE_TIMEOUT_MS) break;
+      await page.waitForTimeout(POST_APPLICATION_ENTRY_EVIDENCE_POLL_MS);
+      snapshot = await extractFields(page, NAVIGATION);
+    }
+    return false;
+  };
   const ensurePortalChallenge = async () => {
     if (typeof stageContext?.onPortalChallenge !== 'function') return true;
     const challenge = await stageContext.onPortalChallenge(page);
@@ -4265,11 +4312,10 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       }
       return result();
     }
+    const pendingBrassRingEntryProven = brassRingApplicationEntryProven
+      || (sameBrassRingPostingAddress(stageContext?.applyUrl, sourceUrl)
+        && sameBrassRingPostingAddress(stageContext?.postingUrl, sourceUrl));
     if (manual || apply) {
-      enteredThroughApplicationEntry = true;
-      brassRingApplicationEntryProven = brassRingApplicationEntryProven
-        || (sameBrassRingPostingAddress(stageContext?.applyUrl, sourceUrl)
-          && sameBrassRingPostingAddress(stageContext?.postingUrl, sourceUrl));
       followedApplicationEntryThisHop = true;
       customSuccessFactorsEntryClicked = customSuccessFactorsEntryClicked || customSuccessFactorsEntry;
       const workdayManualTarget = manual
@@ -4287,24 +4333,35 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
         page = (await popup) || page;
       }
     } else {
-      enteredThroughApplicationEntry = true;
-      brassRingApplicationEntryProven = brassRingApplicationEntryProven
-        || (sameBrassRingPostingAddress(stageContext?.applyUrl, sourceUrl)
-          && sameBrassRingPostingAddress(stageContext?.postingUrl, sourceUrl));
       followedApplicationEntryThisHop = true;
       customSuccessFactorsEntryClicked = customSuccessFactorsEntryClicked || customSuccessFactorsEntry;
       page = (await clickPortalLink(page, link, { context })) || page;
     }
     await settle(page);
     if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
-    await page.waitForTimeout(1200); // a modal (Workday's apply dialog) finishes its animation
     snapshot = await extractFields(page, NAVIGATION);
     if (!await waitForWorkdayApplicationSurface()) return result({ handoff: 'posting_mismatch' });
-    if (followedApplicationEntryThisHop && !await currentApplicationDiversion(snapshot)) applicationEntryUrl = page.url();
+    const postEntryEvidence = followedApplicationEntryThisHop && await waitForPostApplicationEntryEvidence({
+      brassRingEntryProven: pendingBrassRingEntryProven,
+      followedControlSignature: portalControlSignature(manual || apply || linkEntry),
+    });
+    if (stageContext && workdayPostingRouteMismatch(page.url(), stageContext.applyUrl, workdayApplicationEntryProven)) {
+      return result({ handoff: 'posting_mismatch' });
+    }
+    if (pendingBrassRingEntryProven
+      && (!sameBrassRingPostingAddress(stageContext?.applyUrl, page.url())
+        || !sameBrassRingPostingAddress(stageContext?.postingUrl, page.url()))) {
+      return result({ handoff: 'posting_mismatch' });
+    }
     if (customSuccessFactorsEntry
       && !successFactorsCustomPostingDestinationMatches(page.url(), sourceUrl, stageContext)) {
       return result({ handoff: 'posting_mismatch' });
     }
+    if (!postEntryEvidence) return result({ handoff: 'application_stage_unknown' });
+    if (!await ensurePortalChallenge()) return result({ handoff: 'captcha' });
+    enteredThroughApplicationEntry = true;
+    brassRingApplicationEntryProven = pendingBrassRingEntryProven;
+    applicationEntryUrl = page.url();
     reportNavigation({
       hop: hop + 1, phase: 'after_click', cookieStatus, controls: applicationControls, ownedEntries,
       selectedControlKind, linkVisible,
