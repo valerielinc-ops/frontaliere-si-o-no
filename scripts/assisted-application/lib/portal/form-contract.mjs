@@ -8,8 +8,9 @@ export function installFinalFormGuardCaptureInPage(targetDocument = globalThis.d
   const applicationContextRe = /\b(?:application|bewerbung|bewerb(?:en)?|candidatur\w*|candidature\w*|candidatura\w*|postulation\w*|postul(?:er|ar)|cover\s+letter|resume|curriculum\s+vitae|lebenslauf|cv)\b/iu;
   const nonApplicationContextRe = /\b(?:cookie|preference|privacy\s+setting|consent|newsletter|marketing|subscription|job\s*alert|job[- ]?abo|stellenalarm)\b/iu;
   const preferenceConfirmationRe = /\b(?:confirm\w*|conferm\w*|best[aä]tig\w*)\b.{0,24}\b(?:selection|auswahl|selezione|s[eé]lection)\b/iu;
+  const ownerFor = control => control?.form || control?.closest?.('form') || control?.closest?.('[role="form"]') || null;
   const formContext = control => {
-    const form = control?.form || control?.closest?.('form');
+    const form = ownerFor(control);
     return `${control?.innerText || control?.textContent || ''} ${form?.getAttribute?.('aria-label') || ''} ${form?.getAttribute?.('name') || ''} ${form?.id || ''} ${form?.innerText || form?.textContent || ''}`
       .replace(/\s+/gu, ' ').trim().slice(0, 1200);
   };
@@ -110,6 +111,7 @@ export function armFinalFormClickGuardInPage(button, {
   token,
   expectedButtonId = '',
   expectedFormId = '',
+  expectedRoleFormId = '',
   expectedButtonName = '',
 } = {}) {
   const document = button?.ownerDocument;
@@ -120,18 +122,24 @@ export function armFinalFormClickGuardInPage(button, {
   // installed the self-contained capture listener before navigation.
   if (view.__frontaliereFinalFormGuardCaptureInstalled !== true) return fail('capture_unavailable');
 
-  const owner = button.form || button.closest?.('form');
+  const nativeOwner = button.form || button.closest?.('form') || null;
+  const semanticOwner = nativeOwner ? null : button.closest?.('[role="form"]') || null;
+  const owner = nativeOwner || semanticOwner;
   if (!owner) return fail('form_unlinked');
   const buttonId = String(button.getAttribute('data-aa-id') || '');
-  const formId = String(owner.getAttribute('data-aa-id') || '');
-  if (!buttonId || !formId || buttonId !== expectedButtonId || formId !== expectedFormId) {
-    return { ...fail('form_binding_changed'), buttonId, formId };
+  const formId = nativeOwner ? String(owner.getAttribute('data-aa-id') || '') : '';
+  const roleFormId = semanticOwner ? String(owner.getAttribute('data-aa-id') || '') : '';
+  const ownerBindingMatches = nativeOwner
+    ? Boolean(formId) && formId === String(expectedFormId || '')
+    : Boolean(roleFormId) && roleFormId === String(expectedRoleFormId || '');
+  if (!buttonId || buttonId !== expectedButtonId || !ownerBindingMatches) {
+    return { ...fail('form_binding_changed'), buttonId, formId, roleFormId };
   }
   if (button.disabled || button.getAttribute('aria-disabled') === 'true') return fail('submitter_disabled');
 
   const compact = value => String(value ?? '').normalize('NFC').replace(/\s+/gu, ' ').trim().slice(0, 500);
   const textFor = node => compact(node?.innerText || node?.textContent || '');
-  const ownerFor = node => node?.form || node?.closest?.('form') || null;
+  const ownerFor = node => node?.form || node?.closest?.('form') || node?.closest?.('[role="form"]') || null;
   const secretFingerprint = value => {
     let hash = 0xcbf29ce484222325n;
     for (const character of String(value || '')) {
@@ -248,9 +256,10 @@ export function armFinalFormClickGuardInPage(button, {
     return JSON.stringify({
       page: `${view.location.origin}${view.location.pathname}${view.location.search}`,
       owner: {
+        role: String(owner.getAttribute('role') || ''),
         id: String(owner.getAttribute('id') || ''),
         name: String(owner.getAttribute('name') || ''),
-        aaId: formId,
+        aaId: formId || roleFormId,
         action: String(owner.getAttribute('action') || ''),
         resolvedAction: String(owner.action || ''),
         method: String(owner.getAttribute('method') || 'get').toLowerCase(),
@@ -309,7 +318,14 @@ export function armFinalFormClickGuardInPage(button, {
     state.status = 'click_checked';
   };
   registry[token] = state;
-  return { ok: true, buttonId, formId, nativeFormId: String(owner.getAttribute('id') || ''), contractJson };
+  return {
+    ok: true,
+    buttonId,
+    formId,
+    roleFormId,
+    nativeFormId: nativeOwner ? String(owner.getAttribute('id') || '') : '',
+    contractJson,
+  };
 }
 
 /** Read the in-page result after Playwright dispatched the final click. */

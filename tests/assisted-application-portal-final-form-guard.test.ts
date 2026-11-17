@@ -35,6 +35,35 @@ it('collects a canonical contract only after the selected submitter is linked to
   expect(clearFinalFormGuardInPage(button, 'fixture-token')).toBe(true);
 });
 
+it('binds a fieldless Workday review surface when no native form exists', () => {
+  const { dom, button } = fixture(`<div role="form" data-aa-id="f1" id="application-review" aria-label="Application review">
+    <button type="button">Read Full Privacy Message</button>
+    <button type="button">Decline</button>
+    <button type="button">Accept Cookies</button>
+    <span>Candidate profile</span>
+    <button type="button">Rituals Careers</button>
+    <button type="button">Candidate Home</button>
+    <button type="button">Back to Job Posting</button>
+    <button type="button">Back</button>
+    <button data-aa-id="b1" type="button">Submit</button>
+  </div>`);
+  const appClicks = vi.fn();
+  button.addEventListener('click', appClicks);
+  installFinalFormGuardCaptureInPage(dom.window.document);
+
+  const result = armFinalFormClickGuardInPage(button, {
+    token: 'fixture-token', expectedButtonId: 'b1', expectedRoleFormId: 'f1', expectedButtonName: 'Submit',
+  });
+
+  expect(result).toMatchObject({ ok: true, buttonId: 'b1', formId: '', roleFormId: 'f1', nativeFormId: '' });
+  const event = new dom.window.MouseEvent('click', { bubbles: true, cancelable: true });
+  button.dispatchEvent(event);
+
+  expect(event.defaultPrevented).toBe(false);
+  expect(appClicks).toHaveBeenCalledOnce();
+  expect(readFinalFormGuardStatusInPage(button, 'fixture-token')).toBe('click_checked');
+});
+
 it('blocks synchronously before portal click handlers when a field changes after the form was armed', () => {
   const { dom, button, input } = fixture();
   const appClicks = vi.fn();

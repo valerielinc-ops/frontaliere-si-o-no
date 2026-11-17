@@ -978,7 +978,7 @@ export async function advanceLocator(page, ref) {
  * name says sending or an application confirmation and nothing of going back,
  * leaving or signing in. The runner checks the page has nothing left to
  * answer and presses it behind the submission guard; a dry run stops before.
- * @returns {Promise<{locator: import('playwright').Locator, frame: import('playwright').Frame, name: string, buttonId: string, formId: string, dialogId: string}|null>}
+ * @returns {Promise<{locator: import('playwright').Locator, frame: import('playwright').Frame, name: string, buttonId: string, formId: string, roleFormId: string, dialogId: string}|null>}
  */
 export async function submitLocator(page, ref) {
   if (!REF_RE.test(ref || '')) return null;
@@ -989,13 +989,15 @@ export async function submitLocator(page, ref) {
   if (!await locator.isEnabled({ timeout: 2000 }).catch(() => false)) return null;
   const binding = await locator.evaluate(element => {
     const form = element.form || element.closest?.('form');
+    const roleForm = form ? null : element.closest?.('[role="form"]');
     return {
       buttonId: String(element.getAttribute('data-aa-id') || ''),
       formId: String(form?.getAttribute('data-aa-id') || ''),
+      roleFormId: String(roleForm?.getAttribute('data-aa-id') || ''),
       dialogId: String(element.closest?.('dialog, [role="dialog"], [aria-modal="true"]')?.getAttribute('data-aa-dialog-id') || ''),
     };
   }).catch(() => null);
-  if (!binding?.buttonId || !binding.formId) return null;
+  if (!binding?.buttonId || (!binding.formId && !binding.roleFormId)) return null;
   const handle = await locator.elementHandle().catch(() => null);
   const frame = await handle?.ownerFrame().catch(() => null) || page.mainFrame();
   return { locator, frame, name: info.name, ...binding };
@@ -1021,8 +1023,9 @@ export async function clickSubmitButton(page, target) {
     if (!isPreDispatchLocatorClickFailure(error)) return 'outcome';
     const frame = target?.frame || (typeof page?.mainFrame === 'function' ? page.mainFrame() : null);
     const formId = String(target?.formId || '');
+    const roleFormId = formId ? '' : String(target?.roleFormId || '');
     const dialogId = String(target?.dialogId || '');
-    if (!target?.name || !formId || typeof frame?.getByRole !== 'function') throw error;
+    if (!target?.name || (!formId && !roleFormId) || typeof frame?.getByRole !== 'function') throw error;
     const candidates = frame.getByRole('button', { name: target.name, exact: true });
     const count = await candidates.count().catch(() => 0);
     const owned = [];
@@ -1032,13 +1035,15 @@ export async function clickSubmitButton(page, target) {
       if (!await candidate.isEnabled({ timeout: 2000 }).catch(() => false)) continue;
       const owner = await candidate.evaluate(element => {
         const form = element.form || element.closest?.('form');
+        const roleForm = form ? null : element.closest?.('[role="form"]');
         const dialog = element.closest?.('dialog, [role="dialog"], [aria-modal="true"]');
         return {
           formId: String(form?.getAttribute('data-aa-id') || ''),
+          roleFormId: String(roleForm?.getAttribute('data-aa-id') || ''),
           dialogId: String(dialog?.getAttribute('data-aa-dialog-id') || ''),
         };
       }).catch(() => null);
-      if (owner?.formId !== formId || owner.dialogId !== dialogId) continue;
+      if (owner?.formId !== formId || owner?.roleFormId !== roleFormId || owner.dialogId !== dialogId) continue;
       owned.push(candidate);
       if (owned.length > 1) throw error;
     }
