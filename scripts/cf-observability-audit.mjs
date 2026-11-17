@@ -47,6 +47,9 @@ const WELCOMED_UA_RE =
 
 const USER_AGENT = '$workers.event.request.headers.user-agent';
 const REQUEST_COUNTRY = '$workers.event.request.cf.country';
+const EVENT_TYPE = '$metadata.type';
+const LOG_MESSAGE = '$metadata.message';
+const ORIGIN_FAILURE_MESSAGE_TOKEN = '"event":"origin_failure"';
 const filter = (key, operation, value, type = 'string') => ({ key, operation, value, type });
 
 export function buildBlockedUaFilters(ua) {
@@ -54,6 +57,19 @@ export function buildBlockedUaFilters(ua) {
   const country = WAF_BLOCKED_UA_COUNTRY.get(ua);
   if (country) filters.push(filter(REQUEST_COUNTRY, 'eq', country));
   return filters;
+}
+
+export function buildOriginFailureLogFilters() {
+  return [
+    filter(EVENT_TYPE, 'eq', 'cf-worker-log'),
+    filter(LOG_MESSAGE, 'includes', ORIGIN_FAILURE_MESSAGE_TOKEN),
+  ];
+}
+
+export function isOriginFailureLogEvent(event) {
+  return event?.$metadata?.type === 'cf-worker-log'
+    && typeof event.$metadata.message === 'string'
+    && event.$metadata.message.includes(ORIGIN_FAILURE_MESSAGE_TOKEN);
 }
 
 const share = (part, total) => (total > 0 ? part / total : 0);
@@ -86,11 +102,11 @@ export function evaluateChecks(s, now = new Date()) {
     },
     {
       id: 'origin-failure-cause',
-      title: '503 senza causa nei log',
+      title: 'segnale origin_failure assente durante i 503',
       failed: s.count503 * scale >= 50 && s.originFailureLogs === 0,
-      value: `${s.count503} 503 e ${s.originFailureLogs} righe origin_failure`,
-      target: 'ogni 503 ha una riga origin_failure',
-      fix: 'Verificare che il percorso che risponde 503 chiami `logEdgeFailure` in locale-router.js.',
+      value: `${s.count503} eventi di invocazione 503 e ${s.originFailureLogs} eventi log origin_failure strutturati (aggregati separati)`,
+      target: 'con 503 nel periodo, almeno un log origin_failure strutturato; nessuna pretesa di copertura 1:1 senza join per invocazione',
+      fix: 'Verificare che i percorsi di errore chiamino `logEdgeFailure` e classificare separatamente gli eventi `cf-worker-log`.',
     },
     {
       id: 'internal-crawler-share',
@@ -269,7 +285,11 @@ export async function collectSnapshot(now = Date.now()) {
     count503: all503.aggregates?.[0]?.value ?? 0,
     max503PerBucket: Math.max(0, ...buckets),
     count404: await count(filter(STATUS, 'eq', 404, 'number')),
-    originFailureLogs: await count(filter('$metadata.message', 'includes', 'origin_failure')),
+    // Invocation rows carry request-line messages (for example `GET https://…`),
+    // while console.error rows are separate `cf-worker-log` events. The query
+    // therefore measures the structured signal only; it cannot claim a 1:1
+    // relationship with the independently aggregated response-status rows.
+    originFailureLogs: await count(...buildOriginFailureLogFilters()),
     internalCrawlerRequests: await count(filter(USER_AGENT, 'includes', INTERNAL_CRAWLER_UA)),
     versionRequests,
     blockedRequests,
