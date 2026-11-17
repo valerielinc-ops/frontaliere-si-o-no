@@ -575,7 +575,13 @@ export function profileDateQuestionsCanUseProfile(candidate, questions) {
   return questions.every((question) => {
     if (question?.type !== 'date') return false;
     const key = profileDateFieldKey(question);
-    const scope = [question?.context, question?.section, question?.profileSection, question?.sectionGroup]
+    const scope = [
+      question?.context,
+      question?.section,
+      question?.profileSection,
+      question?.sectionGroup,
+      ...(Array.isArray(question?.addressContext?.owners) ? question.addressContext.owners : []),
+    ]
       .map(profileMatchText).filter(Boolean).join(' ');
     const kind = profileSectionKind(scope);
     if (!key || !kind) return false;
