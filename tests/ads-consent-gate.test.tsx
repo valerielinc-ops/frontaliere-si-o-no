@@ -516,6 +516,15 @@ describe('ads-consent gate — CMP → gate bridge', () => {
     window.removeEventListener(ADS_CMP_SHOWN_EVENT, cmpShown);
   });
 
+  it('does not report cmp_shown from visible DOM without the TCF cmpuishown callback', () => {
+    const cmpShown = vi.fn();
+    window.addEventListener(ADS_CMP_SHOWN_EVENT, cmpShown);
+    showCmpUi();
+    runBridge();
+    expect(cmpShown).not.toHaveBeenCalled();
+    window.removeEventListener(ADS_CMP_SHOWN_EVENT, cmpShown);
+  });
+
   it('writes NOTHING when the TCF call reports failure', () => {
     runBridge();
     installTcfapi({ eventStatus: 'tcloaded', gdprApplies: false }, false);
