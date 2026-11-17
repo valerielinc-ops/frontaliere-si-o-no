@@ -8789,7 +8789,13 @@ async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries,
       const delBtn = delButtons[ordinal - 1] || delButtons.at(-1);
       if (delBtn) {
         try {
-          await clickButton(page, delBtn);
+          const clickOutcome = await clickButton(page, delBtn);
+          if (typeof clickOutcome !== 'string' || !clickOutcome) {
+            return {
+              snapshot: await extractFields(page).catch(() => current),
+              handoff: 'profile_section_row_fill_failed',
+            };
+          }
           await page.waitForTimeout(200);
           current = await extractFields(page);
         } catch {
