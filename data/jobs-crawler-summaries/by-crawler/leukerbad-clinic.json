@@ -1,31 +1,30 @@
 {
   "key": "leukerbad-clinic",
   "label": "Leukerbad Clinic",
-  "generatedAt": "2026-11-15T21:38:14.002Z",
-  "total": 5,
-  "discovered": null,
-  "parsed": 5,
+  "generatedAt": "2026-11-17T06:53:13.411Z",
+  "total": 0,
+  "discovered": 0,
+  "parsed": 0,
   "lastFetchOutcome": null,
   "fetchReceipt": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 5,
+  "written": 0,
   "resurrectedJobs": 0,
   "resurrectedWindowDays": 7,
-  "authoritativeEmptySnapshot": false,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 4425,
-  "avgDurationMs": 4425,
+  "removedCount": 5,
+  "unchangedCount": 0,
+  "durationMs": 1278,
+  "avgDurationMs": 1278,
   "durationHistory": [
-    4425
+    1278
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "leukerbad-clinic-fb07edfb1166",
       "slug": "infermiere-infermiera-diplomato-a-m-f-80-100-leukerbad-clinic-leukerbad",
@@ -315,5 +314,6 @@
       }
     }
   ],
-  "codeCommit": "b0e0a209c23d72cde28658756e39fb5de3eaaca5"
+  "unchangedJobs": [],
+  "codeCommit": "1bdf8e0dd5f55245d7df5b9a0ab8034e119b2c46"
 }
