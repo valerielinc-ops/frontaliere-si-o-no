@@ -225,9 +225,17 @@ describe('served-URL ledger', () => {
       [`/cerca-lavoro-ticino/${INDEXED_IT}`]: '2026-09-02',
       [`/cerca-lavoro-ticino/${TITLE_DERIVED_IT}`]: '2026-10-30',
     });
+    expect(buildCanonicalJobDetailPath('it', tiJob, INDEXED_IT))
+      .toBe(`/cerca-lavoro-ticino/${INDEXED_IT}/`);
+    expect(jobDetailPathsFor('it', INDEXED_IT, tiJob))
+      .toEqual([buildCanonicalJobDetailPath('it', tiJob, INDEXED_IT).replace(/\/$/, '')]);
     expect(slugWasServed('it', INDEXED_IT, tiJob)).toBe(true);
     expect(slugWasServed('it', TITLE_DERIVED_IT, tiJob)).toBe(true);
     expect(slugWasServed('en', TITLE_DERIVED_IT, tiJob)).toBe(false);
+    expect(mayReplacePublishedSlug(TITLE_DERIVED_IT, { company: COMPANY, location: 'Chiasso' }, {
+      job: tiJob,
+      locale: 'en',
+    })).toBe(true);
   });
 
   it('an absent ledger is unknown, a present but unreadable one fails closed', () => {
