@@ -47,6 +47,19 @@ const CURRENT_SNAPSHOT_FILES = [
 ];
 const DEFAULT_INDEXNOW_BUDGET_MS = 780_000;
 
+/**
+ * Evidence (2026-11-17, publisher 44062723018): 129.241 of 135.673 digest
+ * URLs came from sitemap-jobs.xml and sitemap-jobs-legacy-001.xml. Their
+ * per-URL lastmod values are real dates, so list membership changes alter the
+ * whole-file digest; membership changes already have dedicated tiers, and the
+ * daily 03:20 submit-indexnow-batch.yml job sends every live URL in 10,000-URL batches.
+ */
+export function isActiveJobListSitemapKey(key) {
+  if (typeof key !== 'string' || key.length === 0) return false;
+  const filename = key.split(/[?#]/, 1)[0].split('/').pop()?.toLowerCase() || '';
+  return filename === 'sitemap-jobs.xml' || /^sitemap-jobs-legacy-\d+\.xml$/.test(filename);
+}
+
 function toBase64Utf8(value) {
   return Buffer.from(String(value || ''), 'utf8').toString('base64');
 }
@@ -199,6 +212,7 @@ function appendIndexNowStepSummary(summary) {
     ['Lastmod', summary.lastmod],
     ['Digest', summary.digest],
     ['Digest archivio ignorato', `${summary.suppressedArchiveDigest.sitemaps} sitemap, ${summary.suppressedArchiveDigest.urls} URL`],
+    ['Digest liste annunci ignorato', `${summary.suppressedJobListDigest.sitemaps} sitemap, ${summary.suppressedJobListDigest.urls} URL`],
     ['Accepted', summary.accepted],
     ['Failed', summary.failed],
     ['Not attempted', summary.notAttempted],
@@ -235,6 +249,7 @@ export async function submitToIndexNow(overrides = {}) {
     includeRemoved: true,
     includeRemovedFromMissingSitemaps: false,
     digestIgnoredSitemap: isExpiredJobSitemapKey,
+    digestSuppressedSitemap: isActiveJobListSitemapKey,
   });
   const graph = snapshotUrls(current).size;
   const digestUrls = digestUrlsByPriority(tiers.digestBySitemap);
@@ -274,6 +289,7 @@ export async function submitToIndexNow(overrides = {}) {
     lastmod: tiers.lastmod.length,
     digest: digestUrls.length,
     suppressedArchiveDigest: tiers.suppressedDigest,
+    suppressedJobListDigest: tiers.suppressedJobListDigest,
     accepted: 0,
     failed: 0,
     notAttempted: 0,
@@ -282,7 +298,7 @@ export async function submitToIndexNow(overrides = {}) {
     stoppedByDeadline: false,
   };
 
-  console.log(`📊 ${graph} URL nel grafo; added=${summary.added} addedArchive=${summary.addedArchive} removed=${summary.removed} movedIn=${summary.movedIntoArchive} movedOut=${summary.movedOutOfArchive} lastmod=${summary.lastmod} digest=${summary.digest} (digest archivio ignorato: ${tiers.suppressedDigest.sitemaps} sitemap, ${tiers.suppressedDigest.urls} URL)`);
+  console.log(`📊 ${graph} URL nel grafo; added=${summary.added} addedArchive=${summary.addedArchive} removed=${summary.removed} movedIn=${summary.movedIntoArchive} movedOut=${summary.movedOutOfArchive} lastmod=${summary.lastmod} digest=${summary.digest} (digest archivio ignorato: ${tiers.suppressedDigest.sitemaps} sitemap, ${tiers.suppressedDigest.urls} URL); liste annunci: ${tiers.suppressedJobListDigest.sitemaps} sitemap, ${tiers.suppressedJobListDigest.urls} URL`);
   if (previous) {
     console.log(`📸 Baseline pre-deploy presente: ${PRE_DEPLOY_SNAPSHOT}`);
   } else {

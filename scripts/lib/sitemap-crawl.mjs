@@ -538,6 +538,7 @@ export function changedUrls(
     includeRemoved = false,
     includeRemovedFromMissingSitemaps = true,
     digestIgnoredSitemap,
+    digestSuppressedSitemap,
   } = {},
 ) {
   const currentPer = snapshotPerSitemap(current);
@@ -591,6 +592,14 @@ export function changedUrls(
       }
       continue;
     }
+    if (typeof digestSuppressedSitemap === 'function' && digestSuppressedSitemap(key)) {
+      if (Object.keys(nowLastmod).length > 0 && Object.keys(beforeLastmod).length > 0) {
+        for (const url of now) {
+          if ((nowLastmod[url] || '') !== (beforeLastmod[url] || '')) changed.add(url);
+        }
+      }
+      continue;
+    }
     // A sitemap digest covers the complete XML block, including alternate,
     // image and news metadata that may not have its own lastmod. Once the
     // payload changes, submit every current URL unless a future per-URL digest
@@ -616,6 +625,7 @@ export function changedUrlTiers(
     includeRemoved = false,
     includeRemovedFromMissingSitemaps = true,
     digestIgnoredSitemap,
+    digestSuppressedSitemap,
   } = {},
 ) {
   const currentPer = snapshotPerSitemap(current);
@@ -692,6 +702,8 @@ export function changedUrlTiers(
   const digestBySitemap = {};
   const suppressedSitemaps = new Set();
   const suppressedUrls = new Set();
+  const suppressedJobListSitemaps = new Set();
+  const suppressedJobListUrls = new Set();
   for (const key of Object.keys(currentPer).sort()) {
     const digestChanged = legacy
       || !Object.prototype.hasOwnProperty.call(previousPer, key)
@@ -703,6 +715,14 @@ export function changedUrlTiers(
       suppressedSitemaps.add(key);
       for (const url of urls) {
         if (!alreadyClassified.has(url)) suppressedUrls.add(url);
+      }
+      continue;
+    }
+
+    if (typeof digestSuppressedSitemap === 'function' && digestSuppressedSitemap(key)) {
+      suppressedJobListSitemaps.add(key);
+      for (const url of urls) {
+        if (!alreadyClassified.has(url)) suppressedJobListUrls.add(url);
       }
       continue;
     }
@@ -720,6 +740,10 @@ export function changedUrlTiers(
     lastmod,
     digestBySitemap,
     suppressedDigest: { sitemaps: suppressedSitemaps.size, urls: suppressedUrls.size },
+    suppressedJobListDigest: {
+      sitemaps: suppressedJobListSitemaps.size,
+      urls: suppressedJobListUrls.size,
+    },
     legacy,
   };
 }

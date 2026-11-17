@@ -291,7 +291,62 @@ describe('sitemap change snapshots', () => {
       ];
       expect(new Set(grouped).size, fixture.name).toBe(grouped.length);
       expect([...new Set(grouped)].sort(), fixture.name).toEqual(changedUrls(fixture.current, fixture.previous, opts));
+      expect(tiers.suppressedJobListDigest, fixture.name).toEqual({ sitemaps: 0, urls: 0 });
     }
+  });
+
+  it('suppresses active job-list digests while preserving membership changes and other digest tiers', () => {
+    const unchangedUrls = Array.from({ length: 1_200 }, (_, index) =>
+      BASE + '/annunci/job-list-stable-' + index + '/');
+    const addedOne = BASE + '/annunci/job-list-added-a/';
+    const addedTwo = BASE + '/annunci/job-list-added-b/';
+    const removed = BASE + '/annunci/job-list-removed/';
+    const lastmodUrl = unchangedUrls[0];
+    const smallDigestUrl = BASE + '/temi/job-list-independent-digest/';
+    const current = {
+      version: 3,
+      perSitemap: {
+        'sitemap-jobs.xml': [...unchangedUrls, addedOne, addedTwo],
+        'sitemap-topics-it.xml': [smallDigestUrl],
+      },
+      perSitemapDigests: {
+        'sitemap-jobs.xml': 'jobs-current',
+        'sitemap-topics-it.xml': 'topics-current',
+      },
+      perSitemapLastmod: { 'sitemap-jobs.xml': { [lastmodUrl]: 'after' } },
+    };
+    const previous = {
+      version: 3,
+      perSitemap: {
+        'sitemap-jobs.xml': [...unchangedUrls, removed],
+        'sitemap-topics-it.xml': [smallDigestUrl],
+      },
+      perSitemapDigests: {
+        'sitemap-jobs.xml': 'jobs-previous',
+        'sitemap-topics-it.xml': 'topics-previous',
+      },
+      perSitemapLastmod: { 'sitemap-jobs.xml': { [lastmodUrl]: 'before' } },
+    };
+    const options = {
+      includeRemoved: true,
+      includeRemovedFromMissingSitemaps: false,
+      digestSuppressedSitemap: (key: string) => key === 'sitemap-jobs.xml',
+    };
+
+    const tiers = changedUrlTiers(current, previous, options);
+
+    expect(tiers.added).toEqual([addedOne, addedTwo].sort());
+    expect(tiers.removed).toEqual([removed]);
+    expect(tiers.lastmod).toEqual([lastmodUrl]);
+    expect(tiers.digestBySitemap).toEqual({ 'sitemap-topics-it.xml': [smallDigestUrl] });
+    expect(tiers.suppressedJobListDigest).toEqual({ sitemaps: 1, urls: unchangedUrls.length - 1 });
+    expect(tiers.suppressedDigest).toEqual({ sitemaps: 0, urls: 0 });
+    expect(changedUrls(current, previous, options)).toEqual([
+      ...tiers.added,
+      ...tiers.removed,
+      ...tiers.lastmod,
+      smallDigestUrl,
+    ].sort());
   });
 
   it('sends only archive-exclusive new URLs to the final addedArchive tier', () => {
@@ -487,8 +542,32 @@ describe('sitemap change snapshots', () => {
     expect(tiers.lastmod).toEqual([]);
     expect(tiers.digestBySitemap).toEqual({});
     expect(tiers.suppressedDigest).toEqual({ sitemaps: 5, urls: 10 });
+    expect(tiers.suppressedJobListDigest).toEqual({ sitemaps: 0, urls: 0 });
     expect(tiers.added).not.toContain(urls[0]);
     expect(tiers.removed).not.toContain(urls[0]);
+  });
+
+  it('counts a sitemap matched by both digest classifiers only as archive-suppressed', () => {
+    const url = BASE + '/annunci/archive-classifier-overlap/';
+    const current = {
+      version: 3,
+      perSitemap: { 'sitemap-overlap.xml': [url] },
+      perSitemapDigests: { 'sitemap-overlap.xml': 'current' },
+    };
+    const previous = {
+      version: 3,
+      perSitemap: { 'sitemap-overlap.xml': [url] },
+      perSitemapDigests: { 'sitemap-overlap.xml': 'previous' },
+    };
+
+    const tiers = changedUrlTiers(current, previous, {
+      digestIgnoredSitemap: () => true,
+      digestSuppressedSitemap: () => true,
+    });
+
+    expect(tiers.digestBySitemap).toEqual({});
+    expect(tiers.suppressedDigest).toEqual({ sitemaps: 1, urls: 1 });
+    expect(tiers.suppressedJobListDigest).toEqual({ sitemaps: 0, urls: 0 });
   });
 
   it('prioritizes a graph URL that moves from an active sitemap into the expired archive', () => {
