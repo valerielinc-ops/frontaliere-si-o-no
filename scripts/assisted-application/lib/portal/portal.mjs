@@ -575,7 +575,13 @@ export function profileDateQuestionsCanUseProfile(candidate, questions) {
   return questions.every((question) => {
     if (question?.type !== 'date') return false;
     const key = profileDateFieldKey(question);
-    const scope = [question?.context, question?.section, question?.profileSection, question?.sectionGroup]
+    const scope = [
+      question?.context,
+      question?.section,
+      question?.profileSection,
+      question?.sectionGroup,
+      ...(Array.isArray(question?.addressContext?.owners) ? question.addressContext.owners : []),
+    ]
       .map(profileMatchText).filter(Boolean).join(' ');
     const kind = profileSectionKind(scope);
     if (!key || !kind) return false;
@@ -3159,8 +3165,8 @@ function jobRoomApiEntryProven(ctx = {}) {
 // click on the sign-in page behind it. Deloitte's manager says «Decline
 // optional cookies» / «Accept optional cookies»; optional is still the
 // manager's decision, not its preferences control.
-export const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| tous les cookies)?|tout refuser|continuer sans accepter)$/i;
-export const COOKIE_ACCEPT_RE = /^(cookies akzeptieren|alle( cookies)? akzeptieren|akzeptieren|accept( all| optional)?( cookies)?|accetta( tutti)?( i cookie)?|tout accepter|accepter( tout| tous les cookies)?|ok)$/i;
+export const COOKIE_REJECT_RE = /^(ablehnen|alle( cookies)? ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all| optional)?( cookies)?|decline( all| optional)?( cookies)?|only necessary|rifiuta( tutti| tutto)?( i cookie)?|solo necessari|refuser( tout| (?:les|tous les) cookies)?|tout refuser|continuer sans accepter)$/i;
+export const COOKIE_ACCEPT_RE = /^(cookies akzeptieren|alle( cookies)? akzeptieren|akzeptieren|accept( all| optional)?( cookies)?|accetta( tutti)?( i cookie)?|tout accepter|accepter( tout| (?:les|tous les) cookies)?|ok)$/i;
 export const COOKIE_CUSTOMIZE_RE = /^(?:customi[sz]e cookies|cookie[- ](?:settings|preferences|options)|manage cookies|modify cookie preferences|cookie[- ]einstellungen(?: (?:ändern|bearbeiten))?|einstellungen (?:für )?cookies?|cookies? (?:anpassen|verwalten)|(?:impostazioni|preferenze) (?:dei )?cookies?|gestisci (?:le )?(?:impostazioni|preferenze) (?:dei )?cookies?|personalizza (?:i )?cookies?|(?:paramètres?|préférences?) (?:des )?cookies?|gérer (?:les )?cookies?|modifier (?:les )?(?:paramètres?|préférences?) (?:des )?cookies?|cookie[- ]?(?:instellingen|voorkeuren)|cookies? beheren)$/i;
 // Yellowshark exposes this bare label without the word "cookie". Keep it out
 // of the general preference vocabulary: it is accepted only after the live
@@ -3196,11 +3202,16 @@ const COOKIE_GENERIC_ACCEPT_LABEL_RE = /^(?:ok|accept|akzeptieren|accetta|accept
 // its generic controls without a cookie-specific landmark. Keep the fallback
 // narrow: a consent sentence must be visible together with a separate close
 // control, so an application privacy dialog cannot borrow a generic "Accept".
-const COOKIE_CONSENT_COPY_RE = /(?:\bcookies?\b.{0,240}\b(?:website|webseite|nutzung|navigation|verwendung|use|using|brows(?:e|ing)|navigat|utilis|utilizz|consent)\b|\b(?:website|webseite|nutzung|navigation|verwendung|use|using|brows(?:e|ing)|navigat|utilis|utilizz|consent)\b.{0,240}\bcookies?\b)/i;
+const COOKIE_CONSENT_COPY_RE = /(?:\bcookies?\b.{0,240}\b(?:website|webseite|site\s+web|nutzung|navigation|verwendung|use|using|brows(?:e|ing)|navigat|utilis|utilizz|consent)\b|\b(?:website|webseite|site\s+web|nutzung|navigation|verwendung|use|using|brows(?:e|ing)|navigat|utilis|utilizz|consent)\b.{0,240}\bcookies?\b)/i;
 const COOKIE_DISMISS_RE = /^(?:schlie(?:ß|ss)en|close|dismiss|chiudi|fermer|cerrar|sluiten|fechar)$/i;
 const normalizeCookieText = value => String(value || '').replace(/\s+/g, ' ').trim();
 const cookieControlLabel = (button) => [button?.text, button?.label, button?.ariaLabel, button?.title]
   .map(value => String(value || '').trim()).find(Boolean) || '';
+const cookieChoiceCompanion = (buttonLabel, candidateLabel) => {
+  if (COOKIE_DISMISS_RE.test(candidateLabel)) return true;
+  return (COOKIE_ACCEPT_RE.test(buttonLabel) && COOKIE_REJECT_RE.test(candidateLabel))
+    || (COOKIE_REJECT_RE.test(buttonLabel) && COOKIE_ACCEPT_RE.test(candidateLabel));
+};
 const escapeRegex = value => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const cookieSupportingContext = (button) => {
   const ownLabels = [button.text, button.label, button.title, button.ariaLabel]
@@ -3294,12 +3305,16 @@ async function genericCookieControlsShareContainer(page, button, closeControls) 
 
 async function isPageCookieConsentControl(page, snapshot, button) {
   const label = cookieControlLabel(button);
-  const activeCookieSurface = button.cookieSurface === 'banner';
-  if (button.disabled || (button.chrome && !activeCookieSurface) || button.dialog || !COOKIE_ACCEPT_RE.test(label)) return false;
+  const isCookieChoice = COOKIE_ACCEPT_RE.test(label)
+    || COOKIE_REJECT_RE.test(label)
+    || COOKIE_SAVE_RE.test(label);
+  if (button.disabled || button.dialog || !isCookieChoice) return false;
   const frame = Number(button.frame) || 0;
   const closeControls = (snapshot?.buttons || []).filter(candidate => (Number(candidate.frame) || 0) === frame
-    && !candidate.disabled && (!candidate.chrome || candidate.cookieSurface === 'banner')
-    && COOKIE_DISMISS_RE.test(cookieControlLabel(candidate)));
+    && candidate !== button
+    && !(candidate.id && button.id && String(candidate.id) === String(button.id))
+    && !candidate.disabled
+    && cookieChoiceCompanion(label, cookieControlLabel(candidate)));
   if (!closeControls.length) return false;
   const frames = typeof page?.frames === 'function' ? page.frames() : [];
   const ownerFrame = frames[frame]
@@ -3397,7 +3412,7 @@ async function findCookieControls(page, snapshot, pattern, {
 } = {}) {
   const controls = [];
   for (const button of snapshot?.buttons || []) {
-    if (button.disabled || (button.chrome && button.cookieSurface !== 'banner')) continue;
+    if (button.disabled) continue;
     const label = cookieControlLabel(button);
     if (!pattern.test(label)
       && !(genericPreferences && COOKIE_GENERIC_PREFERENCES_RE.test(label))
@@ -8753,6 +8768,12 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
     const entries = profileEntriesForSection(candidate, kind);
     if (!entries.length || done.has(`${page.url()}|${kind}`)) continue;
     if (!profileButtons(current, kind, PROFILE_ADD_RE).length) continue;
+    // When Workday already renders inline rows (e.g. from CV autofill or a
+    // resumed draft), clicking "Add Another" for every entry duplicates rows.
+    if (profileFields(current, kind).length && profileButtons(current, kind, PROFILE_INLINE_ROW_RE).length) {
+      done.add(`${page.url()}|${kind}`);
+      continue;
+    }
     let added = 0;
     let skipped = Math.max(0, (candidate?.profile?.[kind]?.length || 0) - entries.length);
     for (const entry of entries) {
@@ -8809,7 +8830,9 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
       }
       const cancel = async () => {
         current = await extractFields(page);
-        const control = profileButtons(current, kind, PROFILE_CANCEL_RE)[0];
+        const cancelButtons = profileButtons(current, kind, PROFILE_CANCEL_RE);
+        const control = cancelButtons.find((btn) => /^(?:cancel|abbrechen|annuler|annulla)\b/i.test(String(btn.text || '').trim()))
+          || cancelButtons.at(-1);
         if (!control) return false;
         try {
           await clickButton(page, control);
@@ -9484,14 +9507,42 @@ function securityQuestionFieldScope(field) {
   const frame = Number.isSafeInteger(field?.frame) ? field.frame : null;
   const formId = String(field?.formId || '').trim();
   const formIndex = Number.isSafeInteger(field?.form) && field.form >= 0
-    ? `index:${field.form}` : '';
+    ? field.form : null;
   const roleFormId = String(field?.roleFormId || '').trim();
-  // BrassRing's proxy listbox can report form=-1 while the native answer
-  // reports a numeric form index. The stable DOM form identity must win when
-  // it is available; otherwise a real prompt/answer pair is split across
-  // scopes and remains in the generic planner path.
-  const owner = formId ? `id:${formId}` : formIndex || (roleFormId ? `role:${roleFormId}` : '');
-  return frame === null || !owner ? '' : `${frame}\u0000${owner}`;
+  const sectionGroupId = String(field?.sectionGroupId || '').trim();
+  const applicationScopeId = String(field?.applicationScopeId || '').trim();
+  return {
+    frame,
+    formId,
+    formIndex,
+    roleFormId,
+    sectionGroupId,
+    applicationScopeId,
+  };
+}
+
+function securityQuestionFieldsShareScope(left, right) {
+  if (!left || !right || left.frame === null || left.frame !== right.frame) return false;
+
+  // A proxy control may lack formId/form while its native companion exposes
+  // both. Any identity present on both controls must nevertheless agree: a
+  // shared role-form or page scope is not permission to cross a real form.
+  if (left.formId && right.formId && left.formId !== right.formId) return false;
+  if (left.formIndex !== null && right.formIndex !== null && left.formIndex !== right.formIndex) return false;
+  if (left.roleFormId && right.roleFormId && left.roleFormId !== right.roleFormId) return false;
+  if (left.sectionGroupId && right.sectionGroupId && left.sectionGroupId !== right.sectionGroupId) return false;
+  if (left.applicationScopeId && right.applicationScopeId && left.applicationScopeId !== right.applicationScopeId) return false;
+
+  // Prefer the strongest shared structural identity, but permit a proxy/native
+  // pair to use the role-form or explicit DOM scope when one side lacks the
+  // native form metadata. Never accept frame alone.
+  return Boolean(
+    (left.formId && right.formId && left.formId === right.formId)
+    || (left.formIndex !== null && right.formIndex !== null && left.formIndex === right.formIndex)
+    || (left.roleFormId && right.roleFormId && left.roleFormId === right.roleFormId)
+    || (left.sectionGroupId && right.sectionGroupId && left.sectionGroupId === right.sectionGroupId)
+    || (left.applicationScopeId && right.applicationScopeId && left.applicationScopeId === right.applicationScopeId)
+  );
 }
 
 /**
@@ -9512,14 +9563,28 @@ export function isSecurityQuestionField(field, fields = []) {
   const role = securityQuestionFieldRole(field);
   if (!role || role !== (isAnswer ? 'answer' : 'prompt')) return false;
   const scope = securityQuestionFieldScope(field);
-  if (!scope) return false;
-  return (Array.isArray(fields) ? fields : []).some((candidate) => {
+  const counterparts = (Array.isArray(fields) ? fields : []).filter((candidate) => {
     if (candidate === field) return false;
     const candidateMatch = SECURITY_FIELD_RE.exec(String(candidate?.label || candidate?.name || '').trim());
     if (!candidateMatch || Number(candidateMatch[1]) !== index || Boolean(candidateMatch[2]) === isAnswer) return false;
-    if (securityQuestionFieldScope(candidate) !== scope) return false;
+    if (!securityQuestionFieldsShareScope(scope, securityQuestionFieldScope(candidate))) return false;
     return securityQuestionFieldRole(candidate) === (isAnswer ? 'prompt' : 'answer');
   });
+  // A proxy can carry only a role-form/page owner while multiple native
+  // answers expose different real form identities. A one-sided match would
+  // let the planner select an arbitrary form, so require a reciprocal,
+  // one-to-one pairing and fail closed on ambiguity.
+  if (counterparts.length !== 1) return false;
+  const counterpart = counterparts[0];
+  const counterpartScope = securityQuestionFieldScope(counterpart);
+  const reciprocal = (Array.isArray(fields) ? fields : []).filter((candidate) => {
+    if (candidate === counterpart) return false;
+    const candidateMatch = SECURITY_FIELD_RE.exec(String(candidate?.label || candidate?.name || '').trim());
+    if (!candidateMatch || Number(candidateMatch[1]) !== index || Boolean(candidateMatch[2]) !== isAnswer) return false;
+    return securityQuestionFieldsShareScope(counterpartScope, securityQuestionFieldScope(candidate))
+      && securityQuestionFieldRole(candidate) === role;
+  });
+  return reciprocal.length === 1 && reciprocal[0] === field;
 }
 
 /**
