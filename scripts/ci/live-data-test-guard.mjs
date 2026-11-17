@@ -54,6 +54,7 @@ const ROOT = path.resolve(__dirname, '..', '..');
  */
 export const BOT_AUDIT_LIVE_DATA_ROOTS = Object.freeze([
   'data/alert-snoozes.json',
+  'data/ats-application-forms.json',
   'data/build-history/memory-peaks.jsonl',
   'data/campaign-goal-status.json',
   'data/canton-notices.json',
