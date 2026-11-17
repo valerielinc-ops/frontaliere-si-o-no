@@ -541,12 +541,15 @@ export function buildActiveJobBridgePathPlan(
     resolvedWinners?: WinnersFile;
     reservedHubSlugs: ReadonlySet<string>;
     workerWouldRecover?: (locale: JobCanonLocale, slug: string, path: string) => boolean;
+    /** Data-sourced previous slugs must pass the same dist safety preflight as emitted pages. */
+    isSafeBridgePath?: (path: string) => boolean;
     canWriteCrossLocalePath?: (path: string) => boolean;
     onHeapSample?: () => void;
   },
 ): ActiveJobBridgePathPlan {
   const { reservedHubSlugs } = options;
   const workerWouldRecover = options.workerWouldRecover ?? (() => false);
+  const isSafeBridgePath = options.isSafeBridgePath ?? (() => true);
   const canWriteCrossLocalePath = options.canWriteCrossLocalePath ?? (() => true);
   const stats: ActiveJobBridgePathStats = {
     activeJobs: jobs.length,
@@ -685,7 +688,8 @@ export function buildActiveJobBridgePathPlan(
       }
 
       const oldPath = buildCanonicalJobDetailPath(locale, job, oldSlug, canton);
-      const oldPathKey = normalizedPathKey(oldPath);
+      if (isSafeBridgePath(oldPath)) {
+        const oldPathKey = normalizedPathKey(oldPath);
         if (
           activeJobDirs.has(oldPathKey)
           || activeRouteOwnerKeys.has(`${canton}:${locale}:${oldSlug}`)
@@ -703,28 +707,30 @@ export function buildActiveJobBridgePathPlan(
           sourceJobIdentifier: jobIdentifier,
         });
         claimedPaths.add(`${locale}\u0000${oldPathKey}`);
+      }
 
-        if (canton !== 'TI' && !isCompanyHubNamespaceSlug(oldSlug, locale)) {
-          const mirrorPath = buildCanonicalJobDetailPath(locale, 'TI', oldSlug);
-          const mirrorKey = normalizedPathKey(mirrorPath);
-          const mirrorMapKey = `${locale}\u0000${mirrorKey}`;
-          if (
-            activeJobDirs.has(mirrorKey)
-            || activeLegacyTiBridgeDirs.has(mirrorMapKey)
-            || legacyTiMirrorDirs.has(mirrorMapKey)
-          ) return;
-          legacyTiMirrorDirs.add(mirrorMapKey);
-          bridgeByPath.set(mirrorMapKey, {
-            path: mirrorPath,
-            locale,
-            slug: oldSlug,
-            targetPath: buildCanonicalJobDetailPath(locale, job, currentSlug, canton),
-            kind: 'legacyTiMirror',
-            canton,
-            sourceJobIdentifier: jobIdentifier,
-          });
-          claimedPaths.add(mirrorMapKey);
-        }
+      if (canton !== 'TI' && !isCompanyHubNamespaceSlug(oldSlug, locale)) {
+        const mirrorPath = buildCanonicalJobDetailPath(locale, 'TI', oldSlug);
+        if (!isSafeBridgePath(mirrorPath)) return;
+        const mirrorKey = normalizedPathKey(mirrorPath);
+        const mirrorMapKey = `${locale}\u0000${mirrorKey}`;
+        if (
+          activeJobDirs.has(mirrorKey)
+          || activeLegacyTiBridgeDirs.has(mirrorMapKey)
+          || legacyTiMirrorDirs.has(mirrorMapKey)
+        ) return;
+        legacyTiMirrorDirs.add(mirrorMapKey);
+        bridgeByPath.set(mirrorMapKey, {
+          path: mirrorPath,
+          locale,
+          slug: oldSlug,
+          targetPath: buildCanonicalJobDetailPath(locale, job, currentSlug, canton),
+          kind: 'legacyTiMirror',
+          canton,
+          sourceJobIdentifier: jobIdentifier,
+        });
+        claimedPaths.add(mirrorMapKey);
+      }
     });
   }
 

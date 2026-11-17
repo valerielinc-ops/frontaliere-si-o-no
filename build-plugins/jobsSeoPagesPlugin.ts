@@ -14904,6 +14904,7 @@ ${staticAnalyticsHtml}
  const activeBridgeKeepByKind: Record<JobCanonBridgePath['kind'], number> = {
   previousSlug: 0, legacyTiMirror: 0, crossLocale: 0,
  };
+ let unsafeBridgePathsSkipped = 0;
  const bridgePlanHeapStartBytes = process.memoryUsage().heapUsed;
  let bridgePlanHeapPeakBytes = bridgePlanHeapStartBytes;
  const sampleBridgePlanHeap = (): void => {
@@ -14916,6 +14917,11 @@ ${staticAnalyticsHtml}
    reservedHubSlugs: RESERVED_HUB_SLUGS,
    workerWouldRecover: legacyTiPathRecoveredByWorker,
    onHeapSample: sampleBridgePlanHeap,
+   isSafeBridgePath: (bridgePath) => {
+    const safeTargets = getSafeDistPageTargets(distDir, bridgePath, { includeFlat: false });
+    if (!safeTargets) unsafeBridgePathsSkipped++;
+    return Boolean(safeTargets);
+   },
    canWriteCrossLocalePath: (bridgePath) => {
     const safeTargets = getSafeDistPageTargets(distDir, bridgePath);
     return Boolean(safeTargets && !pathIsClaimedOrReserved(safeTargets.indexPath));
@@ -14996,6 +15002,7 @@ ${staticAnalyticsHtml}
   `[jobs-seo-pages] active bridge handoff plan: removable=${activeBridgeRedirectCount} retained=${activeBridgeKeepCount} `
   + `by-locale=${JSON.stringify({ removable: activeBridgeRedirectCounts, retained: activeBridgeKeepCounts })} `
   + `by-kind=${JSON.stringify({ removable: activeBridgeRemovableByKind, retained: activeBridgeKeepByKind })} `
+  + `unsafe-paths-skipped=${unsafeBridgePathsSkipped} `
   + `heap-peak-mb=${(bridgePlanHeapPeakBytes / (1024 * 1024)).toFixed(1)} `
   + `heap-over-start-mb=${((bridgePlanHeapPeakBytes - bridgePlanHeapStartBytes) / (1024 * 1024)).toFixed(1)}`,
  );
