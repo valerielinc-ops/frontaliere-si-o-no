@@ -306,6 +306,40 @@ describe('application stage ownership', () => {
       .toMatchObject({ kind: 'application_start', control: start });
   });
 
+  it('recognizes a mounted Rituals Workday step after the original Apply control is gone', () => {
+    const applyUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033/apply';
+    const next = { text: 'Save and Continue', formId: 'application', frame: 0, disabled: false };
+    const snapshot = {
+      url: `${applyUrl}/applyManually`,
+      text: 'Continue your application',
+      fields: [
+        { label: 'Given Name(s)*', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { label: 'Family Name*', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { label: 'Country Phone Code*', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+        { label: 'Phone Number*', kind: 'text', inputType: 'text', formId: 'application', frame: 0 },
+      ],
+      buttons: [next, { text: 'Candidate Home', chrome: true, frame: 0 }],
+    };
+
+    expect(applicationStage(snapshot, { applyUrl, job: { title: 'Store Assistant', company: 'Rituals' } }))
+      .toEqual({ kind: 'form' });
+    expect(pageControls(snapshot.buttons, known, snapshot.url, { snapshot, applyUrl }))
+      .toMatchObject({ submit: null, next });
+  });
+
+  it('does not promote a generic bound Continue surface without application identity and contact proof', () => {
+    const applyUrl = 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Zurich/Store-Assistant_R-19033/apply';
+    const snapshot = {
+      url: `${applyUrl}/applyManually`,
+      text: 'Continue your application',
+      fields: [{ label: 'Search jobs', kind: 'text', inputType: 'text', formId: 'search', frame: 0 }],
+      buttons: [{ text: 'Save and Continue', formId: 'search', frame: 0, disabled: false }],
+    };
+
+    expect(applicationStage(snapshot, { applyUrl })).toMatchObject({ kind: 'unknown_apply', prefinal: true });
+    expect(pageControls(snapshot.buttons, known, snapshot.url, { snapshot, applyUrl }).next).toBeNull();
+  });
+
   it('keeps a Roche Workday details module bound to the selected announcement', () => {
     const detailsUrl = 'https://roche.wd3.myworkdayjobs.com/en-US/roche-ext/details/Technical-Product-Owner--Sites--SHE---Sustainability_202606-116471-2';
     const apply = { text: 'Apply', frame: 0, disabled: false };
