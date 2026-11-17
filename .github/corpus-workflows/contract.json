@@ -4,27 +4,27 @@
   "generatorSha256": "340371d083e0836e23b2f39df8dea876d32c7a1ec690a1afeb2dffbf7761c79c",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "b639a62f95f16b83164ffe76b21fd2efee3444a1",
-  "sourceCommitVerified": true,
+  "sourceCommit": "dc9a9f2c68546825e1e5cb4475eb4df2fd49d71b",
+  "sourceCommitVerified": false,
   "artifactObservation": {
     "generatorSha256": "340371d083e0836e23b2f39df8dea876d32c7a1ec690a1afeb2dffbf7761c79c",
     "sourceRef": "main",
-    "sourceCommit": "b639a62f95f16b83164ffe76b21fd2efee3444a1"
+    "sourceCommit": "dc9a9f2c68546825e1e5cb4475eb4df2fd49d71b"
   },
   "groupCount": 25,
   "artifactCount": 26,
   "observerCount": 8,
-  "crawlerCount": 706,
+  "crawlerCount": 709,
   "crawlerRosterCardinality": {
-    "sourceCommit": "b639a62f95f16b83164ffe76b21fd2efee3444a1",
+    "sourceCommit": "dc9a9f2c68546825e1e5cb4475eb4df2fd49d71b",
     "groupCount": 25,
     "artifactCount": 26,
-    "crawlerCount": 706
+    "crawlerCount": 709
   },
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:acc4e12c5f26d2960a73cbc5baa57e5355478f9bde66aa0ba4f01597b1a28a30",
+    "rosterDigest": "sha256:9ce145bb33078fd7b933bb8b2268ceabec44053b8a496fb980c675dad00e1c1a",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -131,6 +131,7 @@
     "scripts/update-balgrist-jobs.mjs",
     "scripts/update-baloise-jobs.mjs",
     "scripts/update-bankslm-jobs.mjs",
+    "scripts/update-barockjob-jobs.mjs",
     "scripts/update-baronie-jobs.mjs",
     "scripts/update-barry-callebaut-jobs.mjs",
     "scripts/update-bb-trading-werbeartikel-ag-jobs.mjs",
@@ -165,6 +166,7 @@
     "scripts/update-caisse-des-medecins-ch-jobs.mjs",
     "scripts/update-canton-ticino-osc-jobs.mjs",
     "scripts/update-canton-valais-jobs.mjs",
+    "scripts/update-careanesth-com-jobs.mjs",
     "scripts/update-careers-jobs.mjs",
     "scripts/update-caritas-schweiz-jobs.mjs",
     "scripts/update-cdg-beratungen-jobs.mjs",
@@ -513,6 +515,7 @@
     "scripts/update-ricola-jobs.mjs",
     "scripts/update-rieter-jobs.mjs",
     "scripts/update-riri-jobs.mjs",
+    "scripts/update-ritterschumacher-com-jobs.mjs",
     "scripts/update-rituals-cosmetics-jobs.mjs",
     "scripts/update-riveneuve-jobs.mjs",
     "scripts/update-roche-jobs.mjs",
@@ -984,8 +987,8 @@
     {
       "file": "crawler-group-08.yml",
       "sourceLogic": "crawler-group-08-logic.yml",
-      "sourceSha256": "803729f0e6fbd8c1ce96fa8ee995b6e00c33a8d8973eb17f14266acdcdc252c5",
-      "artifactSha256": "2b91a7d66d1f00de1627e3028b676ea979a297276960e42f50e8afffe04e3eed",
+      "sourceSha256": "dfe2a63dc1b5b7a5877e3c46f190dd2a89be9228a8a9f9a9a601846db6696edf",
+      "artifactSha256": "4a135044f5f6e9039cca137d32f831e35d88f8214876403b0319b4856d680fad",
       "generatorSha256": "340371d083e0836e23b2f39df8dea876d32c7a1ec690a1afeb2dffbf7761c79c",
       "members": [
         "salina-reha",
@@ -1017,14 +1020,15 @@
         "ruag",
         "usz",
         "c-and-a-schweiz",
-        "grund-ag-ch"
+        "grund-ag-ch",
+        "ritterschumacher-com"
       ]
     },
     {
       "file": "crawler-group-09.yml",
       "sourceLogic": "crawler-group-09-logic.yml",
-      "sourceSha256": "94c876041749a034c00f4f44e97c715c9c43a8b81eeffa2eb80fa80c8476fc0f",
-      "artifactSha256": "937f5be223c38c0a4d877f9c666696fe20b571b391a9cb93931e3cf760ac7951",
+      "sourceSha256": "8966c4ff70963127e7260f23323124a1d8cbaed01d9392bb015f655f03406a9f",
+      "artifactSha256": "7c40938ddecc314e73f4d354932f9dd4fa065df2d0c6e6bb6b33feb58e6cf476",
       "generatorSha256": "340371d083e0836e23b2f39df8dea876d32c7a1ec690a1afeb2dffbf7761c79c",
       "members": [
         "solina",
@@ -1056,7 +1060,8 @@
         "bitfinex",
         "sunrise",
         "lwphr",
-        "walter-zoo-ag-gossau"
+        "walter-zoo-ag-gossau",
+        "careanesth-com"
       ]
     },
     {
@@ -1619,8 +1624,8 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "0048ad526e12f42c98b524fb69dfa05bb28f11180a2693ef24c0a4296e82b340",
-      "artifactSha256": "29d08cb121ba976d5f4b1103f211ee3ea1d070b271047167c022192290817d4e",
+      "sourceSha256": "48e7be125a46c77a137e69bf72104bc493a1c4c0148f1726192765ada4e56443",
+      "artifactSha256": "94f3e2ae5189ace5e25855ed093aab17ab80a11bd43a03571e95ebb67a3a5646",
       "generatorSha256": "340371d083e0836e23b2f39df8dea876d32c7a1ec690a1afeb2dffbf7761c79c",
       "members": [
         "seco-jobroom",
@@ -1652,7 +1657,8 @@
         "richnerstutz-ch",
         "data-unit-ag",
         "prodyna-com",
-        "benisasa-ch"
+        "benisasa-ch",
+        "barockjob"
       ]
     },
     {

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 25,
-  "crawlerCount": 706,
+  "crawlerCount": 709,
   "groups": {
     "10": [
       "atec-personal",
@@ -468,6 +468,7 @@
       "assura-ch",
       "avantgarten-ch",
       "az-systems-ch",
+      "barockjob",
       "bb-trading-werbeartikel-ag",
       "benisasa-ch",
       "bodmerfischer-ch",
@@ -715,6 +716,7 @@
       "molecular-partners",
       "patek-philippe",
       "rieter",
+      "ritterschumacher-com",
       "ruag-ag",
       "salina-reha",
       "skyguide-sa",
@@ -734,6 +736,7 @@
       "benu",
       "bethesda-spital",
       "bitfinex",
+      "careanesth-com",
       "colin-cie",
       "concara",
       "concordia",
@@ -826,6 +829,7 @@
     "banca-raiffeisen-vedeggio-cassarate": "data/jobs/by-crawler/banca-raiffeisen-vedeggio-cassarate.json",
     "banca-sempione": "data/jobs/by-crawler/banca-sempione.json",
     "bankslm": "data/jobs/by-crawler/bankslm.json",
+    "barockjob": "data/jobs/by-crawler/barockjob.json",
     "baronie": "data/jobs/by-crawler/baronie.json",
     "barry-callebaut": "data/jobs/by-crawler/barry-callebaut.json",
     "bb-trading-werbeartikel-ag": "data/jobs/by-crawler/bb-trading-werbeartikel-ag.json",
@@ -867,6 +871,7 @@
     "canton-ticino-osc": "data/jobs/by-crawler/canton-ticino-osc.json",
     "canton-valais": "data/jobs/by-crawler/canton-valais.json",
     "capri-holdings": "data/jobs/by-crawler/capri-holdings.json",
+    "careanesth-com": "data/jobs/by-crawler/careanesth-com.json",
     "careers": "data/jobs/by-crawler/careers.json",
     "caritas-schweiz": "data/jobs/by-crawler/caritas-schweiz.json",
     "casale": "data/jobs/by-crawler/casale.json",
@@ -1290,6 +1295,7 @@
     "ricola": "data/jobs/by-crawler/ricola.json",
     "rieter": "data/jobs/by-crawler/rieter.json",
     "riri": "data/jobs/by-crawler/riri.json",
+    "ritterschumacher-com": "data/jobs/by-crawler/ritterschumacher-com.json",
     "rittmeyer-ag": "data/jobs/by-crawler/rittmeyer-ag.json",
     "rituals-cosmetics": "data/jobs/by-crawler/rituals-cosmetics.json",
     "riveneuve": "data/jobs/by-crawler/riveneuve.json",
@@ -1468,5 +1474,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:acc4e12c5f26d2960a73cbc5baa57e5355478f9bde66aa0ba4f01597b1a28a30"
+  "digest": "sha256:9ce145bb33078fd7b933bb8b2268ceabec44053b8a496fb980c675dad00e1c1a"
 }
