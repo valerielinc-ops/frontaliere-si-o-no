@@ -22,6 +22,11 @@ function nativeQuestionText(value, counter = null) {
       .filter((item) => !item.endsWith('='));
     return `${node.tagName.toLowerCase()}${attributes.length ? `:${attributes.join(',')}` : ''}`;
   }).join('|');
+  // Workday mounts its application wizard in an explicit, fieldless shell
+  // before React has rendered the first question. Preserve that native mount
+  // proof so the route-bound runner can distinguish loading from a wrong
+  // posting without treating time alone as evidence.
+  const workdayApplicationSurface = Boolean(document.querySelector('[data-automation-id="applyFlowPage"]'));
   // These identifiers are part of the control's own DOM contract. Read only
   // scalar attributes from the element itself: ancestor/global IDs are not
   // evidence for the question represented by this field.
@@ -1683,6 +1688,7 @@ function nativeQuestionText(value, counter = null) {
   return {
     url: location.href,
     pageMarker,
+    workdayApplicationSurface,
     title: document.title,
     fields,
     buttons,
