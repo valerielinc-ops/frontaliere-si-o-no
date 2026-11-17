@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-11-17T15:10:46.762Z",
+  "updatedAt": "2026-11-17T15:12:04.256Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -1375394,7 +1375394,7 @@
         "web"
       ],
       "firstSeenAt": "2026-10-19T21:46:32.730Z",
-      "updatedAt": "2026-11-16T15:01:41.669Z",
+      "updatedAt": "2026-11-17T15:12:04.136Z",
       "name": "sintio",
       "domain": "sintio.ch",
       "careersUrl": "https://join.com/companies/sintio/16868238-technische-r-verkaufsberater-in-und-projektleiter-in-e-mobility",
@@ -1375615,7 +1375615,7 @@
       "firstCrawlerOutputStatus": "empty",
       "firstCrawlerOutputAttention": true,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-16T09:42:25.466Z",
+      "firstCrawlerOutputAt": "2026-11-17T09:45:45.678Z",
       "firstCrawlerJobCount": 0,
       "firstCrawlerOutputAttentionAt": "2026-11-04T13:55:58.168Z"
     },
@@ -1377819,12 +1377819,12 @@
     },
     "skan": {
       "key": "skan",
-      "status": "awaiting_first_crawl",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:26:26.774Z",
-      "updatedAt": "2026-11-16T15:01:41.669Z",
+      "updatedAt": "2026-11-17T15:12:04.136Z",
       "name": "Skan AG",
       "city": "",
       "zip": "",
@@ -1378421,11 +1378421,11 @@
       "promotionPr": "17189",
       "promotionBranch": "prospector/promote-2026-11-05",
       "promotedAt": "2026-11-06T06:23:01Z",
-      "firstCrawlerOutputStatus": "empty",
-      "firstCrawlerOutputAttention": true,
+      "firstCrawlerOutputStatus": "published",
+      "firstCrawlerOutputAttention": false,
       "firstCrawlerOutputReason": null,
-      "firstCrawlerOutputAt": "2026-11-16T09:43:19.264Z",
-      "firstCrawlerJobCount": 0,
+      "firstCrawlerOutputAt": "2026-11-17T09:48:59.161Z",
+      "firstCrawlerJobCount": 1,
       "firstCrawlerOutputAttentionAt": "2026-11-08T13:25:07.327Z"
     },
     "skan@allschwil": {

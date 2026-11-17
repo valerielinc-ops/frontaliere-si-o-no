@@ -61377,3 +61377,6 @@
 {"eventType":"candidate_attempt","key":"lucarna-macana@hinwil","status":"validated","outcome":"weak","at":"2026-11-17T15:10:31.133Z","runId":"44078763297","runAttempt":1,"phase":"validate","eventId":"3b73255859b2470c599fc4d7"}
 {"eventType":"candidate_attempt","key":"buchi@uster","status":"validated","outcome":"weak","at":"2026-11-17T15:10:46.629Z","runId":"44078763297","runAttempt":1,"phase":"validate","eventId":"c99c2dfb2cfa3fee791cbd36"}
 {"eventType":"phase_finished","at":"2026-11-17T15:10:47.329Z","outcome":"complete","durationMs":1949094,"inputCount":65,"successCount":32,"retryCount":33,"runId":"44078763297","runAttempt":1,"phase":"validate","eventId":"528c846e5154df700b5f615a"}
+{"eventType":"phase_started","at":"2026-11-17T15:12:00.868Z","runId":"44078763297","runAttempt":1,"phase":"promote","eventId":"89c5071ab64bed0f01a49d90"}
+{"eventType":"candidate_attempt","key":"sintio.ch","status":"awaiting_first_crawl","outcome":"updated","at":"2026-11-17T15:12:04.136Z","runId":"44078763297","runAttempt":1,"phase":"promote","eventId":"29157ffeb0750194722c319a"}
+{"eventType":"candidate_transition","key":"skan","from":"awaiting_first_crawl","to":"production","at":"2026-11-17T15:12:04.136Z","runId":"44078763297","runAttempt":1,"phase":"promote","eventId":"24c7542f23e6e949a7cd71e6"}
