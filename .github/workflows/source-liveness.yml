@@ -66,9 +66,11 @@ jobs:
         with:
           fetch-depth: 1
           token: ${{ secrets.GITHUB_TOKEN }}
-          # This probe only needs its runner scripts and npm manifests. Keep the
-          # checkout blobless and bounded: the old `/*` profile still fetched
-          # almost the entire generated tree before the first GA4 request.
+          # This probe only needs its runner scripts and npm manifests. The
+          # explicit allow-list bounds the materialized paths by construction;
+          # the checkout resource delta is not a pre-merge measurement. Compare
+          # scheduled Source Liveness runs after merge before calling it a
+          # measured optimization.
           filter: blob:none
           sparse-checkout: |
             /.npmrc
