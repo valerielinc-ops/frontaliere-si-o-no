@@ -3218,12 +3218,18 @@ async function genericCookieControlsShareContainer(page, button, closeControls) 
 
 async function isPageCookieConsentControl(page, snapshot, button) {
   const label = cookieControlLabel(button);
-  const activeCookieSurface = button.cookieSurface === 'banner';
-  if (button.disabled || (button.chrome && !activeCookieSurface) || button.dialog || !COOKIE_ACCEPT_RE.test(label)) return false;
+  const isCookieChoice = COOKIE_ACCEPT_RE.test(label)
+    || COOKIE_REJECT_RE.test(label)
+    || COOKIE_SAVE_RE.test(label);
+  if (button.disabled || button.dialog || !isCookieChoice) return false;
   const frame = Number(button.frame) || 0;
   const closeControls = (snapshot?.buttons || []).filter(candidate => (Number(candidate.frame) || 0) === frame
-    && !candidate.disabled && (!candidate.chrome || candidate.cookieSurface === 'banner')
-    && COOKIE_DISMISS_RE.test(cookieControlLabel(candidate)));
+    && String(candidate.id || '') !== String(button.id || '')
+    && !candidate.disabled
+    && (COOKIE_DISMISS_RE.test(cookieControlLabel(candidate))
+      || COOKIE_ACCEPT_RE.test(cookieControlLabel(candidate))
+      || COOKIE_REJECT_RE.test(cookieControlLabel(candidate))
+      || COOKIE_SAVE_RE.test(cookieControlLabel(candidate))));
   if (!closeControls.length) return false;
   const frames = typeof page?.frames === 'function' ? page.frames() : [];
   const ownerFrame = frames[frame]
@@ -3321,7 +3327,7 @@ async function findCookieControls(page, snapshot, pattern, {
 } = {}) {
   const controls = [];
   for (const button of snapshot?.buttons || []) {
-    if (button.disabled || (button.chrome && button.cookieSurface !== 'banner')) continue;
+    if (button.disabled) continue;
     const label = cookieControlLabel(button);
     if (!pattern.test(label)
       && !(genericPreferences && COOKIE_GENERIC_PREFERENCES_RE.test(label))

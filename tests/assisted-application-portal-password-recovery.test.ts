@@ -4,6 +4,7 @@ const recoveryState = vi.hoisted(() => ({
   snapshot: null as any,
   afterForgot: null as any,
   events: [] as string[],
+  domCookieProof: false,
 }));
 
 vi.mock('../scripts/assisted-application/lib/portal/fields.mjs', async importOriginal => ({
@@ -98,6 +99,7 @@ function harness(afterForgot: any) {
   recoveryState.snapshot = login();
   recoveryState.afterForgot = afterForgot;
   recoveryState.events = [];
+  recoveryState.domCookieProof = false;
   const forgotClick = vi.fn(async () => {
     recoveryState.events.push('click:forgot');
     if (recoveryState.afterForgot) recoveryState.snapshot = recoveryState.afterForgot;
@@ -105,18 +107,33 @@ function harness(afterForgot: any) {
   const sendClick = vi.fn(async () => { recoveryState.events.push('click:reset-send'); });
   const frame: any = {
     url: () => url,
-    evaluate: vi.fn(async () => recoveryState.snapshot),
+    evaluate: vi.fn(async (fn: Function) => {
+      const source = String(fn);
+      if (recoveryState.domCookieProof && source.includes('document.body?.innerText')) {
+        return 'Cette page utilise des cookies sur ce site web.';
+      }
+      if (recoveryState.domCookieProof && source.includes('const controlFor')) return true;
+      return recoveryState.snapshot;
+    }),
     locator: vi.fn((selector: string) => {
       const id = /data-aa-id="([^"]+)"/.exec(selector)?.[1] || '';
       const locator: any = {
         first: () => locator,
-        isVisible: vi.fn(async () => id === 'forgot'),
+        isVisible: vi.fn(async () => id === 'forgot'
+          || (recoveryState.domCookieProof && ['reject', 'accept'].includes(id))),
         evaluate: vi.fn(async () => ({
           tagName: 'BUTTON', role: '', href: null,
           text: 'Vous avez oublié votre mot de passe ?', ariaLabel: '', title: '', labelledBy: '',
           dataAutomationId: '', formId: '', formIdentityFields: [], formHasPassword: false,
         })),
-        click: id === 'forgot' ? forgotClick : id === 'reset-send' ? sendClick : vi.fn(async () => {}),
+        click: id === 'forgot' ? forgotClick : id === 'reset-send' ? sendClick
+          : ['reject', 'accept'].includes(id) ? vi.fn(async () => {
+            recoveryState.events.push(`click:cookie:${id}`);
+            recoveryState.snapshot = {
+              ...recoveryState.snapshot,
+              buttons: recoveryState.snapshot.buttons.filter((button: any) => !['reject', 'accept'].includes(button.id)),
+            };
+          }) : vi.fn(async () => {}),
       };
       return locator;
     }),
@@ -146,6 +163,21 @@ function harness(afterForgot: any) {
   return { run, accounts, beginRecovery, forgotClick, sendClick, page };
 }
 
+function harnessWithUnmarkedFrenchCookieControls(afterForgot: any) {
+  const fixture = harness(afterForgot);
+  const snapshot = recoveryState.snapshot;
+  recoveryState.snapshot = {
+    ...snapshot,
+    buttons: snapshot.buttons.map((button: any) => (
+      ['reject', 'accept'].includes(button.id)
+        ? { ...button, cookieSurface: undefined }
+        : button
+    )),
+  };
+  recoveryState.domCookieProof = true;
+  return fixture;
+}
+
 beforeEach(() => vi.clearAllMocks());
 
 describe('bounded Workday password-reset request surface', () => {
@@ -166,6 +198,24 @@ describe('bounded Workday password-reset request surface', () => {
     expect(result).toMatchObject({ handoff: 'account_recovery_timeout', accountFailure: { code: 'account_recovery_timeout' } });
     expect(result).not.toMatchObject({ handoff: 'account_recovery_rejected' });
     expect(recoveryState.events).toEqual([
+      'click:forgot',
+      'fill:reset-email',
+      'beginRecovery',
+      'click:reset-send',
+    ]);
+    expect(fixture.beginRecovery).toHaveBeenCalledOnce();
+    expect(fixture.sendClick).toHaveBeenCalledOnce();
+  });
+
+  it('keeps unmarked French chrome cookie controls eligible after DOM context proof', async () => {
+    const fixture = harnessWithUnmarkedFrenchCookieControls(resetRequest());
+
+    const result = await fixture.run();
+
+    expect(result).toMatchObject({ handoff: 'account_recovery_timeout', accountFailure: { code: 'account_recovery_timeout' } });
+    expect(result).not.toMatchObject({ handoff: 'account_recovery_rejected' });
+    expect(recoveryState.events).toEqual([
+      'click:cookie:reject',
       'click:forgot',
       'fill:reset-email',
       'beginRecovery',
