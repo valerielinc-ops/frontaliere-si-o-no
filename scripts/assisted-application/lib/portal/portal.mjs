@@ -8821,10 +8821,24 @@ async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries,
       });
     }
     if (actions.length) {
-      await applyActions(page, rowFields, actions, files).catch(() => {});
+      let results;
+      try {
+        results = await applyActions(page, rowFields, actions, files);
+      } catch {
+        return {
+          snapshot: await extractFields(page).catch(() => current),
+          handoff: 'profile_section_row_fill_failed',
+        };
+      }
+      if (results.some((result) => !result?.ok)) {
+        return {
+          snapshot: await extractFields(page).catch(() => current),
+          handoff: 'profile_section_row_fill_failed',
+        };
+      }
     }
   }
-  return await extractFields(page).catch(() => current);
+  return { snapshot: await extractFields(page).catch(() => current) };
 }
 
 /**
@@ -8844,7 +8858,9 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
     // resumed draft), reconcile missing fields on existing rows and remove
     // extra empty rows instead of clicking "Add Another" for every entry.
     if (profileFields(current, kind).length && profileButtons(current, kind, PROFILE_INLINE_ROW_RE).length) {
-      current = await reconcileExistingInlineProfileRows(page, current, kind, entries, { files });
+      const reconciled = await reconcileExistingInlineProfileRows(page, current, kind, entries, { files });
+      current = reconciled.snapshot;
+      if (reconciled.handoff) return { snapshot: current, counts, handoff: reconciled.handoff };
       done.add(`${page.url()}|${kind}`);
       continue;
     }
