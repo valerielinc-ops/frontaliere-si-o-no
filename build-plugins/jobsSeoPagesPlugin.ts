@@ -14980,7 +14980,7 @@ ${staticAnalyticsHtml}
     continue;
    }
    const reason = classification.keepBridge.get(bridge.path);
-   if (!reason) throw new Error('[job-alias-redirect-gate] bridge path has no classification');
+   if (!reason) throw new Error(`[job-alias-redirect-gate] bridge path has no classification (locale=${bridge.locale} path=${bridge.path})`);
    retainedBridgePaths.set(bridgePathKey(bridge.locale, bridge.path), { bridge, reason });
    activeBridgeKeepCounts[bridge.locale]++;
    activeBridgeKeepByKind[bridge.kind]++;
@@ -15016,13 +15016,31 @@ ${staticAnalyticsHtml}
   retainedBridgePaths: activeBridgeKeepCount,
   reservedJobAliasDirs: reservedJobAliasDirCount,
  });
- const isRetainedActiveBridgePath = (locale: JobSeoLocale, pathname: string): boolean => {
+ // Emitters enumerate bridges with filters independent from the plan: a path the plan never
+ // classified is still emitted (fail-open) but counted here so the drift stays visible.
+ const unplannedBridgesEmittedByKind: Record<JobCanonBridgePath['kind'], number> = {
+  previousSlug: 0, legacyTiMirror: 0, crossLocale: 0,
+ };
+ const unplannedBridgesEmittedByLocale: Record<string, number> = {};
+ const unplannedBridgeExamples: string[] = [];
+ let unplannedBridgesEmitted = 0;
+ const isRetainedActiveBridgePath = (
+  locale: JobSeoLocale,
+  pathname: string,
+  kind: JobCanonBridgePath['kind'],
+ ): boolean => {
   const canonicalPath = withSlash(pathname);
   return isRetainedBridgePathSafeToEmit(
    distDir,
    canonicalPath,
    isJobAliasRedirectPath,
    (candidatePath) => retainedBridgePaths.has(bridgePathKey(locale, candidatePath)),
+   (unplannedPath) => {
+    unplannedBridgesEmitted++;
+    unplannedBridgesEmittedByKind[kind]++;
+    unplannedBridgesEmittedByLocale[locale] = (unplannedBridgesEmittedByLocale[locale] ?? 0) + 1;
+    if (unplannedBridgeExamples.length < 20) unplannedBridgeExamples.push(`${kind}:${locale}:${unplannedPath}`);
+   },
   );
  };
 
@@ -16912,7 +16930,7 @@ ${staticAnalyticsHtml}
  const __tPrevSlugBridge = startTimer();
  const outDir = np.join(distDir, oldRelPath);
  let indexHtml: string | null = null;
- if (isRetainedActiveBridgePath(locale, oldPath)) {
+ if (isRetainedActiveBridgePath(locale, oldPath, 'previousSlug')) {
   // Keep full-content rendering and incremental reuse only for URLs that the
   // Worker cannot redirect to this exact canonical destination.
   bridgeFullCount++;
@@ -17003,7 +17021,7 @@ ${staticAnalyticsHtml}
  !activeJobDirs.has(legacyTIKey) &&
  !legacyTiBridgeDirs.has(legacyTIKey)
  ) {
- if (!isRetainedActiveBridgePath(locale, legacyTIRelPath)) continue;
+ if (!isRetainedActiveBridgePath(locale, legacyTIRelPath, 'legacyTiMirror')) continue;
  legacyTiBridgeDirs.add(legacyTIKey);
  const __tPrevSlugLegacyTIBridge = startTimer();
  const legacyTIOutDir = np.join(distDir, legacyTIRelPath);
@@ -17254,7 +17272,7 @@ ${staticAnalyticsHtml}
  // Skip if a previousSlugs bridge already covered this path for
  // this job (same content would be written again).
  if (pathIsClaimedOrReserved(indexFile)) continue;
- if (!isRetainedActiveBridgePath(baseLocale, relPath)) continue;
+ if (!isRetainedActiveBridgePath(baseLocale, relPath, 'crossLocale')) continue;
  const __tCrossLocaleActive = startTimer();
  const crossLocaleActiveReuseInput = incrementalManifests
   ? {
@@ -17778,7 +17796,7 @@ ${staticAnalyticsHtml}
   for (const { bridge } of retainedBridgePaths.values()) {
    if (!shouldEmitLocale(bridge.locale)) continue;
    const targets = getSafeDistPageTargets(distDir, bridge.path, { includeFlat: false });
-   if (!targets) throw new Error('[job-alias-redirect-gate] retained bridge path is not a safe dist target');
+   if (!targets) throw new Error(`[job-alias-redirect-gate] retained bridge path is not a safe dist target (locale=${bridge.locale} path=${bridge.path})`);
    yield {
     indexPath: targets.indexPath,
     targetPath: `${BASE_URL}${bridge.targetPath}`,
@@ -17810,6 +17828,14 @@ ${staticAnalyticsHtml}
   `[job-alias-redirect-gate] verified removable-404=${bridgeDistCoverage.removable404} retained-200=${bridgeDistCoverage.retained200} `
   + `unsafe-flat-siblings-skipped=${unsafeBridgeFlatSiblingsSkipped}`,
  );
+ if (unplannedBridgesEmitted > 0) {
+  console.warn(
+   `[job-alias-redirect-gate] unplanned-bridges-emitted=${unplannedBridgesEmitted} `
+   + `by-kind=${JSON.stringify(unplannedBridgesEmittedByKind)} `
+   + `by-locale=${JSON.stringify(unplannedBridgesEmittedByLocale)} `
+   + `examples=${JSON.stringify(unplannedBridgeExamples)}`,
+  );
+ }
  const skipped = collector.skippedByHash;
  console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Flushed ${written} files in ${((Date.now() - t0) / 1000).toFixed(1)}s` +
  (skipped > 0 ? ` (${skipped} skipped by content hash)` : ''));
