@@ -1,70 +1,86 @@
 {
   "schemaVersion": 1,
-  "lastRunAt": "2026-11-16T12:51:37.934Z",
+  "lastRunAt": "2026-11-17T13:33:02.892Z",
   "findings": {
-    "sitemap-fetch-error|https://frontaliereticino.ch/sitemap-jobs-expired-044.xml": {
-      "code": "sitemap-fetch-error",
-      "url": "https://frontaliereticino.ch/sitemap-jobs-expired-044.xml",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-16T12:51:37.934Z",
-      "lastSeenAt": "2026-11-16T12:51:37.934Z",
-      "detail": null
-    },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-ticino/sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch/": {
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-jura/senior-specialiste-asset-servicing-80-100-graubundner-kantonalbank-chur/": {
       "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/sachbearbeiter-immobilienbewirtschaftung-m-w-d-winterthur-80-100-implenia-ch/",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-jura/senior-specialiste-asset-servicing-80-100-graubundner-kantonalbank-chur/",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-16T12:51:37.934Z",
-      "lastSeenAt": "2026-11-16T12:51:37.934Z",
-      "detail": "edge=503 count=4 live=503 surface=worker-shard"
-    },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-ticino/apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-bern/": {
-      "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-bern/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-16T12:51:37.934Z",
-      "lastSeenAt": "2026-11-16T12:51:37.934Z",
-      "detail": "edge=503 count=4 live=503 surface=worker-shard"
-    },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/de/jobs-in-luzern/stv-rayonleiter-in-grundnahrungsmittel-coop-lyss-bern-gqq2cl/": {
-      "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/de/jobs-in-luzern/stv-rayonleiter-in-grundnahrungsmittel-coop-lyss-bern-gqq2cl/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-16T12:51:37.934Z",
-      "lastSeenAt": "2026-11-16T12:51:37.934Z",
+      "firstSeenAt": "2026-11-17T13:33:02.892Z",
+      "lastSeenAt": "2026-11-17T13:33:02.892Z",
       "detail": "edge=503 count=3 live=503 surface=worker-shard"
     },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/de/jobs-in-solothurn/dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-80-100-mit-herz-und-hightech/": {
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-grisons/chef-de-projet-heizung-100-guyer-warme-und-wasser-ag-zurich/": {
       "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/de/jobs-in-solothurn/dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-80-100-mit-herz-und-hightech/",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-grisons/chef-de-projet-heizung-100-guyer-warme-und-wasser-ag-zurich/",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-16T12:51:37.934Z",
-      "lastSeenAt": "2026-11-16T12:51:37.934Z",
+      "firstSeenAt": "2026-11-17T13:33:02.892Z",
+      "lastSeenAt": "2026-11-17T13:33:02.892Z",
+      "detail": "edge=503 count=3 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-turgovia/mitarbeiterin-reinigung-collaboratore-trice-reinigung-psychiatrische-universitatsklinik-zurich/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-turgovia/mitarbeiterin-reinigung-collaboratore-trice-reinigung-psychiatrische-universitatsklinik-zurich/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-17T13:33:02.892Z",
+      "lastSeenAt": "2026-11-17T13:33:02.892Z",
+      "detail": "edge=503 count=3 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-ginevra/fachtechnische-r-collaboratore-trice-betriebselektrikerin-80-100-canton-du-valais-brig/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-ginevra/fachtechnische-r-collaboratore-trice-betriebselektrikerin-80-100-canton-du-valais-brig/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-17T13:33:02.892Z",
+      "lastSeenAt": "2026-11-17T13:33:02.892Z",
+      "detail": "edge=503 count=3 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-grisons/gestione-del-prodotto-m-w-d-volg-laax-signina/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-grisons/gestione-del-prodotto-m-w-d-volg-laax-signina/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-17T13:33:02.892Z",
+      "lastSeenAt": "2026-11-17T13:33:02.892Z",
+      "detail": "edge=503 count=3 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-bale/pharmaziepraktikanten-innen-4-6-monate-oder-pharmazie-studierende-fur-die-mantelassistenz-/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-bale/pharmaziepraktikanten-innen-4-6-monate-oder-pharmazie-studierende-fur-die-mantelassistenz-/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-17T13:33:02.892Z",
+      "lastSeenAt": "2026-11-17T13:33:02.892Z",
+      "detail": "edge=503 count=3 live=503 surface=worker-shard"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-turgovia/zivildienstante-come-assistente-alla-cura-bambini-stazioni-lettiera-requisiti-101143-luzerner-kantonsspital-luks-luzern/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/cerca-lavoro-turgovia/zivildienstante-come-assistente-alla-cura-bambini-stazioni-lettiera-requisiti-101143-luzerner-kantonsspital-luks-luzern/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-17T13:33:02.892Z",
+      "lastSeenAt": "2026-11-17T13:33:02.892Z",
+      "detail": "edge=503 count=3 live=503 surface=apex-pages"
+    },
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-grisons/droguiste-ou-specialiste-en-sante-a-titre-consultatif-pour-les-aides-a-la-continence-et-a-la-vie-quotidienne-schweizer/": {
+      "code": "cloudflare-5xx-persistent",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-grisons/droguiste-ou-specialiste-en-sante-a-titre-consultatif-pour-les-aides-a-la-continence-et-a-la-vie-quotidienne-schweizer/",
+      "consecutiveRuns": 1,
+      "firstSeenAt": "2026-11-17T13:33:02.892Z",
+      "lastSeenAt": "2026-11-17T13:33:02.892Z",
       "detail": "edge=503 count=2 live=503 surface=worker-shard"
     },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/en/find-jobs-ticino/dipl-nursing-specialist-nursing-specialist-as-a-specialist-expert-therapy-station-youth-psychiatrische/": {
+    "cloudflare-5xx-persistent|https://frontaliereticino.ch/fr/trouver-emploi-bale/employes-pour-les-caisses-de-garantie-h-f-d-galaxus-dintikon/": {
       "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/en/find-jobs-ticino/dipl-nursing-specialist-nursing-specialist-as-a-specialist-expert-therapy-station-youth-psychiatrische/",
+      "url": "https://frontaliereticino.ch/fr/trouver-emploi-bale/employes-pour-les-caisses-de-garantie-h-f-d-galaxus-dintikon/",
       "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-16T12:51:37.934Z",
-      "lastSeenAt": "2026-11-16T12:51:37.934Z",
+      "firstSeenAt": "2026-11-17T13:33:02.892Z",
+      "lastSeenAt": "2026-11-17T13:33:02.892Z",
       "detail": "edge=503 count=2 live=503 surface=worker-shard"
-    },
-    "cloudflare-5xx-persistent|https://frontaliereticino.ch/cerca-lavoro-friburgo/direttore-clinical-trial-operations-universitat-zurich-kurvenstrasse-31/": {
-      "code": "cloudflare-5xx-persistent",
-      "url": "https://frontaliereticino.ch/cerca-lavoro-friburgo/direttore-clinical-trial-operations-universitat-zurich-kurvenstrasse-31/",
-      "consecutiveRuns": 1,
-      "firstSeenAt": "2026-11-16T12:51:37.934Z",
-      "lastSeenAt": "2026-11-16T12:51:37.934Z",
-      "detail": "edge=503 count=2 live=503 surface=apex-pages"
     },
     "cloudflare-5xx-unverified|source:cloudflare-5xx-unverified": {
       "code": "cloudflare-5xx-unverified",
       "url": "source:cloudflare-5xx-unverified",
-      "consecutiveRuns": 4,
+      "consecutiveRuns": 5,
       "firstSeenAt": "2026-11-13T12:18:45.545Z",
-      "lastSeenAt": "2026-11-16T12:51:37.934Z",
-      "detail": "count=5606 sampled-out-or-unprobed; no live recovery asserted"
+      "lastSeenAt": "2026-11-17T13:33:02.892Z",
+      "detail": "count=5697 sampled-out-or-unprobed; no live recovery asserted"
     }
   },
   "cleanRuns": 0,
