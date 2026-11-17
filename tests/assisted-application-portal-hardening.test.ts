@@ -186,9 +186,9 @@ describe('BrassRing security-question field classification', () => {
 
   it('skips localized security-question placeholders after accent normalization', async () => {
     for (const [placeholder, answer, fieldLabel] of [
-      ['Bitte wählen', 'Wie heißt Ihr Haustier?', 'Sicherheitsfrage 2'],
-      ['Choisissez une question', 'Nom de votre premier animal?', 'Question de sécurité 2'],
-      ['Choisir...', 'Quelle est votre couleur préférée ?', 'Security question 2'],
+      ['Bitte wählen', 'Wie heißt Ihr Haustier?', 'Sicherheitsfrage'],
+      ['Choisissez une question', 'Nom de votre premier animal?', 'Question de sécurité'],
+      ['Choisir...', 'Quelle est votre couleur préférée ?', 'Security question'],
     ]) {
       let selected = '';
       const field = { id: 'q2', kind: '', inputType: 'listbox', label: fieldLabel, name: 'security_question_2', options: [], form: 0, frame: 0 };
@@ -225,9 +225,33 @@ describe('BrassRing security-question field classification', () => {
     }
   });
 
+  it('maps an explicit security-question ordinal to the visible option position', async () => {
+    let selected = '';
+    const field = { id: 'q2', kind: '', inputType: 'listbox', label: 'Security question 2', name: 'security_question_2', options: [], form: 0, frame: 0 };
+    const controlLocator = { count: async () => 1, click: async () => {}, evaluate: async () => selected === 'Quelle est votre couleur préférée ?' };
+    const frame = {
+      locator: (selector: string) => selector === '[role="option"]:visible'
+        ? { allInnerTexts: async () => ['Choisir...', 'Quelle est votre couleur préférée ?'] }
+        : { first: () => controlLocator },
+      getByRole: (_role: string, opts: { name?: string }) => ({
+        first: () => ({ click: async () => { selected = opts?.name || ''; } }),
+      }),
+    };
+    const result = await applyActions(
+      { frames: () => [frame], mainFrame: () => frame } as any,
+      [field],
+      [{ fieldId: 'q2', action: 'select', value: 'A question not shown', evidence: 'account_security_question' }],
+      {},
+      { pause: async () => {} },
+    );
+
+    expect(result).toEqual([{ fieldId: 'q2', ok: true }]);
+    expect(selected).toBe('Quelle est votre couleur préférée ?');
+  });
+
   it('fails closed when the security-question ordinal is outside the visible options', async () => {
     let optionClicks = 0;
-    const field = { id: 'q3', kind: '', inputType: 'listbox', label: 'Security question 3', options: [], form: 0, frame: 0 };
+    const field = { id: 'q3', kind: '', inputType: 'listbox', label: 'Security question 4', options: [], form: 0, frame: 0 };
     const controlLocator = { count: async () => 1, click: async () => {}, evaluate: async () => false };
     const frame = {
       locator: (selector: string) => selector === '[role="option"]:visible'

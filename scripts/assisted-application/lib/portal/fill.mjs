@@ -1085,11 +1085,18 @@ export async function applyActions(page, fields, actions, files, {
           const exact = (securityChoice ? usableSecurity : labels)
             .find((label) => normalizedChoice(label) === normalizedChoice(action.value));
           const ordinalFrom = (value) => Number(/(\d+)/.exec(String(value || ''))?.[1] || 0);
-          const securityIndex = securityChoice
-            ? ordinalFrom(field.label) || ordinalFrom(field.name) || 1
-            : 0;
-          const securityFallback = securityChoice && securityIndex >= 1 && securityIndex <= usableSecurity.length
-            ? usableSecurity[securityIndex - 1]
+          const labelSecurityIndex = securityChoice ? ordinalFrom(field.label) : 0;
+          const nameSecurityIndex = securityChoice ? ordinalFrom(field.name) : 0;
+          const securityIndex = labelSecurityIndex || nameSecurityIndex || 1;
+          // An explicit ordinal in the visible label describes the option's
+          // rendered position, including a leading placeholder. A technical
+          // name is the older contract and numbers only usable questions.
+          const ordinalLabels = labelSecurityIndex ? labels : usableSecurity;
+          const ordinalLabel = securityChoice && securityIndex >= 1 && securityIndex <= ordinalLabels.length
+            ? ordinalLabels[securityIndex - 1]
+            : '';
+          const securityFallback = ordinalLabel && !isSecurityQuestionPlaceholder(ordinalLabel)
+            ? ordinalLabel
             : '';
           selectedLabel = exact || (isNationalityField(field.label)
             ? nationalityOptionLabel(action.value, labels, nationalityFieldLanguage(field.label))
