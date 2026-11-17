@@ -2,8 +2,8 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { LIST_PROMPT_RE, extractFields, extractFieldsInPage, registerPortalChannelType, unresolvedTurnstileFrame } from '../scripts/assisted-application/lib/portal/fields.mjs';
 import { findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
-import { guardPlan, planUserText } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { COOKIE_ACCEPT_RE, COOKIE_CUSTOMIZE_RE, COOKIE_MANAGE_CONSENT_RE, COOKIE_REJECT_RE, dismissCookieBanner, openFormSections, portalRequirementsFromMissingRequired, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { candidateAnswerForField, guardPlan, planUserText, questionTopic } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { COOKIE_ACCEPT_RE, COOKIE_CUSTOMIZE_RE, COOKIE_MANAGE_CONSENT_RE, COOKIE_REJECT_RE, candidateForForm, dismissCookieBanner, openFormSections, portalRequirementsFromMissingRequired, uploadButtonCandidatesFor, uploadButtonFor } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { operationalDefaultAnswer, operationalQuestionTopic } from '../functions/src/assistedApplicationOperationalAnswers.js';
 import { mergeLivePortalQuestions } from '../scripts/assisted-application/lib/portal/merge-live-requirements.mjs';
 
@@ -58,6 +58,89 @@ describe('portal field extraction', () => {
     const plannerFields = JSON.parse(planUserText({ snapshot, candidate: { profile: {} } })).form.fields;
     expect(plannerFields.filter((field: any) => field.label === 'Job Title*').every((field: any) => !('name' in field))).toBe(true);
     expect(plannerFields.find((field: any) => field.label === 'Type to Add Skills')).toMatchObject({ name: 'skills' });
+  });
+
+  it('binds the complete Pinpoint applicant address cluster and preserves its form controls', () => {
+    const snapshot = extract(`<form>
+      <button type="button">Remove</button>
+      <button type="button">Save application for later</button>
+      <button type="submit">SUBMIT APPLICATION</button>
+      <button type="button">COOKIES</button>
+      <label for="first">First Name</label><input id="first" name="first_name" required>
+      <label for="middle">Middle Name</label><input id="middle" name="middle_name">
+      <label for="last">Last Name</label><input id="last" name="last_name" required>
+      <label for="email">Email Address</label><input id="email" name="email" type="email" required>
+      <label for="phone">Phone</label><input id="phone" name="phone" type="tel" required>
+      <label for="country">application_form[application][country]</label>
+      <input id="country" name="application_form[application][country]" role="combobox" required>
+      <label for="street">Address Line 1</label><input id="street" name="address_line_1" required>
+      <label for="street2">Address Line 2</label><input id="street2" name="address_line_2">
+      <label for="town">Town</label><input id="town" name="town" required>
+      <label for="postcode">Postcode</label><input id="postcode" name="postcode" required>
+      <label for="day">Day</label><select id="day" name="application_form[application][date_of_birth(3i)]"><option value="">Day</option><option value="1">1</option></select>
+      <label for="month">Month</label><select id="month" name="application_form[application][date_of_birth(2i)]"><option value="">Month</option><option value="1">January</option></select>
+      <label for="year">Year</label><select id="year" name="application_form[application][date_of_birth(1i)]"><option value="">Year</option><option value="1990">1990</option></select>
+      <label for="summary">Personal Summary Use it to tell us a little more about yourself.</label>
+      <textarea id="summary" required></textarea>
+      <label for="german">What is your level of German?</label><input id="german" role="combobox" required>
+      <label for="consent">(Required) Allow us to process your personal information. *</label>
+      <input id="consent" type="checkbox" required>
+      <fieldset><legend>Candidate data</legend>
+        <label><input type="radio" name="candidate-data" value="yes">Yes</label>
+        <label><input type="radio" name="candidate-data" value="no">No</label>
+      </fieldset>
+    </form>`, 'https://kempinski.pinpointhq.com/en/postings/9d8a7c6b-5e4f-4321-9abc-0123456789de/applications/new');
+
+    expect(snapshot.buttons.map((button: any) => button.text)).toEqual(expect.arrayContaining([
+      'Remove', 'Save application for later', 'SUBMIT APPLICATION', 'COOKIES',
+    ]));
+    expect(snapshot.fields.map((field: any) => field.label)).toEqual(expect.arrayContaining([
+      'First Name', 'Middle Name', 'Last Name', 'Email Address', 'Phone',
+      'Address Line 1', 'Address Line 2', 'Town', 'Postcode',
+      'Personal Summary Use it to tell us a little more about yourself.',
+      'What is your level of German?',
+    ]));
+    expect(snapshot.fields.map((field: any) => field.name)).toEqual(expect.arrayContaining([
+      'application_form[application][country]',
+      'application_form[application][date_of_birth(3i)]',
+      'application_form[application][date_of_birth(2i)]',
+      'application_form[application][date_of_birth(1i)]',
+    ]));
+    expect(snapshot.fields.filter((field: any) => field.kind === 'radio')).toHaveLength(1);
+
+    const owner = { section: 'Personal information', owners: ['Personal information'], unknown: false };
+    const country = snapshot.fields.find((field: any) => field.name === 'application_form[application][country]');
+    const street = snapshot.fields.find((field: any) => field.label === 'Address Line 1');
+    const town = snapshot.fields.find((field: any) => field.label === 'Town');
+    const postcode = snapshot.fields.find((field: any) => field.label === 'Postcode');
+    for (const field of [country, street, town, postcode]) {
+      expect(field).toMatchObject({ required: true, addressContext: owner });
+    }
+    expect(questionTopic(country.label, country.context, country)).toBe('residence_country');
+    expect(questionTopic(town.label, town.context, town)).toBe('residence_city');
+    expect(questionTopic(postcode.label, postcode.context, postcode)).toBe('residence_postal_code');
+    expect(questionTopic(street.label, street.context, street)).toBe('address_street');
+
+    const candidate = candidateForForm({
+      identity: { name: 'Test Candidate', email: 'candidate@example.test', phone: '+41 79 000 00 00' },
+      profile: { address: { street: 'Via Example 1', postalCode: '6900', city: 'Lugano', country: 'Switzerland' } },
+    });
+    const addressFields = [country, street, town, postcode];
+    const addressAnswers = addressFields.map(field => candidateAnswerForField(candidate, field));
+    expect(addressAnswers.every(answer => answer?.value && answer.source === 'identity')).toBe(true);
+
+    const guarded = guardPlan({
+      actions: addressFields.map((field, index) => ({
+        fieldId: field.id,
+        action: index === 0 ? 'select' : 'fill',
+        value: addressAnswers[index]!.value,
+        document: 'none',
+        source: 'identity',
+        evidence: '',
+      })),
+      missingRequired: [],
+    }, snapshot.fields, candidate);
+    expect(guarded.missingRequired.map((item: any) => item.fieldId)).not.toEqual(expect.arrayContaining(addressFields.map(field => field.id)));
   });
 
   it.each(['CV', 'Resume/CV', 'Lebenslauf', 'Curriculum'])('uses a Workday section title for a hidden unlabelled upload input: %s', (title) => {
