@@ -46,7 +46,7 @@ describe('house campaign bootstrap entitlement updates', () => {
     expect(state.allowed?.()).toBe(true);
     expect(state.houseConfig).toMatchObject({
       readerSubscriptionPaths: { it: '/abbonamento/', en: '/en/subscribe/', de: '/de/abonnement/', fr: '/fr/abonnement/' },
-      readerSubscriptionExperimentEnabled: false,
+      readerSubscriptionExperimentEnabled: true,
     });
     expect(state.recoveryConfig).toMatchObject({ readerSubscriptionPaths: ['/abbonamento/', '/en/subscribe/', '/de/abonnement/', '/fr/abonnement/'] });
     state.active = true; state.callback?.();
