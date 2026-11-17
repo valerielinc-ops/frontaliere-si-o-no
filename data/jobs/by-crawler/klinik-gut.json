@@ -1,7 +1,7 @@
 {
   "crawlerKey": "klinik-gut",
-  "assembledAt": "2026-11-15T21:44:29.463Z",
-  "runId": "43762616436",
+  "assembledAt": "2026-11-17T08:31:05.969Z",
+  "runId": "44045228434",
   "jobs": [
     {
       "id": "klinik-gut-4367-59b216f06dc4",
@@ -35,7 +35,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-4367",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:44:24.078Z",
+      "crawledAt": "2026-11-17T08:30:59.849Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -89,7 +89,7 @@
       },
       "streetAddress": "Chur",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:44:24.078Z",
+      "validThrough": "2026-12-17T08:30:59.849Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -123,7 +123,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-5387",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:44:24.076Z",
+      "crawledAt": "2026-11-17T08:30:59.846Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -172,7 +172,7 @@
       },
       "streetAddress": "Fläsch",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-09T21:44:24.076Z",
+      "validThrough": "2027-02-10T08:30:59.846Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -180,9 +180,9 @@
       "slug": "tirocinio-di-specializzazione-pj-assistente-ortopedico-chirurgico-klinik-gut-ag-flasch",
       "slugByLocale": {
         "it": "tirocinio-di-specializzazione-pj-assistente-ortopedico-chirurgico-klinik-gut-ag-flasch",
-        "en": "specialization-internship-pj-orthopedic-surgical-assistant-klinik-gut-ag-flasch",
+        "en": "election-year-pj-sub-assistants-klinik-gut-ag-flasch",
         "de": "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch",
-        "fr": "stage-de-specialisation-pj-assistant-en-orthopedie-chirurgie-klinik-gut-ag-flasch"
+        "fr": "annee-electorale-pj-sous-assistants-klinik-gut-ag-flasch"
       },
       "company": "Klinik Gut AG",
       "companyKey": "klinik-gut",
@@ -207,7 +207,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1581",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:44:24.074Z",
+      "crawledAt": "2026-11-17T08:30:59.843Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -228,18 +228,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch",
-        "election-year-pj-sub-assistants-klinik-gut-ag-flasch",
-        "annee-electorale-pj-sous-assistants-klinik-gut-ag-flasch"
+        "specialization-internship-pj-orthopedic-surgical-assistant-klinik-gut-ag-flasch",
+        "stage-de-specialisation-pj-assistant-en-orthopedie-chirurgie-klinik-gut-ag-flasch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "wahlstudienjahr-pj-unterassistenten-klinik-gut-flasch"
         ],
         "en": [
-          "election-year-pj-sub-assistants-klinik-gut-ag-flasch"
+          "specialization-internship-pj-orthopedic-surgical-assistant-klinik-gut-ag-flasch"
         ],
         "fr": [
-          "annee-electorale-pj-sous-assistants-klinik-gut-ag-flasch"
+          "stage-de-specialisation-pj-assistant-en-orthopedie-chirurgie-klinik-gut-ag-flasch"
         ]
       },
       "firstSeenAt": "2026-06-29T22:54:47.989Z",
@@ -258,7 +258,7 @@
       },
       "streetAddress": "Fläsch",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:44:24.074Z",
+      "validThrough": "2026-12-17T08:30:59.843Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -292,7 +292,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-1575",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:44:24.072Z",
+      "crawledAt": "2026-11-17T08:30:59.840Z",
       "addressLocality": "Fläsch",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -337,7 +337,7 @@
       },
       "streetAddress": "Fläsch",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-15T21:44:24.072Z",
+      "validThrough": "2026-12-17T08:30:59.840Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -372,7 +372,7 @@
       "url": "https://www.klinik-gut.ch/de/offene-stellen#drz-accordion-id-2110",
       "source": "Klinik Gut Dedicated Parser (Drupal accordion)",
       "sourceLang": "de",
-      "crawledAt": "2026-11-15T21:44:24.060Z",
+      "crawledAt": "2026-11-17T08:30:59.824Z",
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -426,7 +426,7 @@
       },
       "streetAddress": "Via Paracelsus 2a",
       "streetAddressSource": "zefix-registry",
-      "validThrough": "2026-12-15T21:44:24.060Z",
+      "validThrough": "2026-12-17T08:30:59.824Z",
       "validThroughSource": "last-observed-window"
     }
   ]

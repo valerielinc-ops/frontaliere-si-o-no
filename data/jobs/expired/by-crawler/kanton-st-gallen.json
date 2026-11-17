@@ -3436,16 +3436,14 @@
     "slugByLocale": {
       "it": "specialista-della-pulizia-m-f-d-kanton-st-gallen-wil",
       "en": "housekeeping-specialist-m-f-d-kanton-st-gallen-wil",
-      "de": "fachperson-hauswirtschaft-m-w-d-kanton-st-gallen-ch",
+      "de": "fachperson-hauswirtschaft-m-w-d-kanton-st-gallen-ch-fca0216f",
       "fr": "specialiste-du-menage-h-f-d-kanton-st-gallen-wil"
     },
     "sector": "Amministrazione Pubblica",
     "expiredAt": "2026-10-16T21:23:07.568Z",
-    "previousSlugs": [
-      "fachperson-hauswirtschaft-m-w-d-kanton-st-gallen-ch"
-    ],
     "previousSlugsByLocale": {
       "it": [
+        "fachperson-hauswirtschaft-m-w-d-kanton-st-gallen-ch-fca0216f",
         "fachperson-hauswirtschaft-m-w-d-kanton-st-gallen-ch"
       ],
       "en": [
@@ -3453,6 +3451,9 @@
       ],
       "fr": [
         "fachperson-hauswirtschaft-m-w-d-kanton-st-gallen-ch"
+      ],
+      "de": [
+        "fachperson-hauswirtschaft-m-w-d-kanton-st-gallen-ch-fca0216f"
       ]
     },
     "postalCode": "9500",
@@ -3462,7 +3463,10 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://recruitingapp-2800.umantis.com/vacancies/6429/description/1",
-    "firstSeenAt": "2026-08-20T21:51:15.248Z"
+    "firstSeenAt": "2026-08-20T21:51:15.248Z",
+    "previousSlugs": [
+      "fachperson-hauswirtschaft-m-w-d-kanton-st-gallen-ch"
+    ]
   },
   {
     "slug": "insegnante-per-l-anno-di-preparazione-professionale-bvj-come-deputato-kanton-st-gallen-lichtensteig",
@@ -6662,27 +6666,32 @@
       "mitarbeiter-in-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch",
       "collaboratore-trice-sicherheit-e-betreuung-nacht-e-wochenende-m-w-d-kanton-st-gallen-wil",
       "employee-safety-and-care-night-and-weekend-f-m-d-kanton-st-gallen-wil",
+      "securite-et-soins-des-employes-nuit-et-fin-de-semaine-f-m-j-kanton-st-gallen-wil",
       "mitarbeiter-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch",
-      "securite-et-soins-des-employes-nuit-et-fin-de-semaine-f-m-j-kanton-st-gallen-wil"
+      "mitarbeiter-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch-4859690e"
     ],
     "previousSlugsByLocale": {
       "it": [
         "mitarbeiter-in-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch",
         "collaboratore-trice-sicherheit-e-betreuung-nacht-e-wochenende-m-w-d-kanton-st-gallen-wil",
         "employee-safety-and-care-night-and-weekend-f-m-d-kanton-st-gallen-wil",
-        "mitarbeiter-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch",
-        "securite-et-soins-des-employes-nuit-et-fin-de-semaine-f-m-j-kanton-st-gallen-wil"
+        "mitarbeiter-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch-4859690e",
+        "securite-et-soins-des-employes-nuit-et-fin-de-semaine-f-m-j-kanton-st-gallen-wil",
+        "mitarbeiter-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch"
       ],
       "en": [
         "mitarbeiter-in-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch",
-        "employee-safety-and-care-night-and-weekend-f-m-d-kanton-st-gallen-wil"
+        "employee-safety-and-care-night-and-weekend-f-m-d-kanton-st-gallen-wil",
+        "mitarbeiter-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch"
       ],
       "de": [
+        "mitarbeiter-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch-4859690e",
         "mitarbeiter-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch"
       ],
       "fr": [
         "mitarbeiter-in-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch",
-        "securite-et-soins-des-employes-nuit-et-fin-de-semaine-f-m-j-kanton-st-gallen-wil"
+        "securite-et-soins-des-employes-nuit-et-fin-de-semaine-f-m-j-kanton-st-gallen-wil",
+        "mitarbeiter-sicherheit-und-betreuung-nacht-und-wochenende-w-m-d-kanton-st-gallen-ch"
       ]
     },
     "postalCode": "9001",
