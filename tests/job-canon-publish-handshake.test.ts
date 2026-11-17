@@ -136,12 +136,20 @@ describe('job-canon publication handshake', () => {
           status: 1,
           output: 'job-canon publication receipt names build build-43, expected build-42',
         },
+        {
+          // An empty expected id must never be "proved" by an empty early output.
+          receiptContent: null,
+          expectedBuildId: '',
+          earlyBuildId: '',
+          status: 1,
+          output: 'job-canon publication receipt is missing; refusing to upload a Pages artifact with bridge removals',
+        },
       ];
       for (const testCase of cases) {
         if (testCase.receiptContent === null) rmSync(receipt, { force: true });
         else writeFileSync(receipt, testCase.receiptContent);
         const result = runWorkflowBash(run, root, {
-          EXPECTED_BUILD_ID: 'build-42',
+          EXPECTED_BUILD_ID: testCase.expectedBuildId ?? 'build-42',
           EARLY_JOB_CANON_BUILD_ID: testCase.earlyBuildId,
         });
         expect(result.error).toBeUndefined();

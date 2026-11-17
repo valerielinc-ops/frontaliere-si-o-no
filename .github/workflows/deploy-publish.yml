@@ -1541,7 +1541,7 @@ jobs:
             echo "job-canon handshake closed for build $EXPECTED_BUILD_ID"
             exit 0
           fi
-          if [ "$EARLY_JOB_CANON_BUILD_ID" = "$EXPECTED_BUILD_ID" ]; then
+          if [ -n "$EXPECTED_BUILD_ID" ] && [ "$EARLY_JOB_CANON_BUILD_ID" = "$EXPECTED_BUILD_ID" ]; then
             echo "job-canon handshake closed for build $EXPECTED_BUILD_ID (by the early CDN job)"
             exit 0
           fi
