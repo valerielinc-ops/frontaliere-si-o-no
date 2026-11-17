@@ -2615,11 +2615,16 @@ function hasApplicationEntryControl(snapshot = {}, context = {}) {
  * application form. The thin-shell exception is limited to Stadt Zürich's
  * exact posting route; a verified apply URL alone still needs a form surface.
  * Custom widgets may have no native fields yet, but their own buttons are
- * actionable and must reach the agentic fallback.
+ * actionable and must reach the agentic fallback. A fieldless Workday shell
+ * is evidence only while the browser is on the selected tenant requisition's
+ * application route.
  */
 export function hasApplicationSurface(snapshot, { pageUrl = '', postingUrl = '', postingMatch = '' } = {}) {
   if (isNonApplicationSurface(snapshot)) return false;
-  return Boolean(snapshot?.workdayApplicationSurface === true
+  const boundWorkdayApplicationSurface = snapshot?.workdayApplicationSurface === true
+    && isWorkdayTenantUrl(pageUrl)
+    && isWorkdayApplicationRouteBound(pageUrl, postingUrl);
+  return Boolean(boundWorkdayApplicationSurface
     || snapshot?.fields?.length || snapshot?.buttons?.some((button) => !button.chrome)
     || (postingMatch === 'match' && isStadtZurichPostingRoute({ pageUrl, postingUrl })));
 }

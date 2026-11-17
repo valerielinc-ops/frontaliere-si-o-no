@@ -24,8 +24,15 @@ describe('application stage ownership', () => {
     const mounted = { url: manualUrl, fields: [], buttons: [], workdayApplicationSurface: true };
     const empty = { url: manualUrl, fields: [], buttons: [] };
 
-    expect(hasApplicationSurface(mounted, { pageUrl: manualUrl })).toBe(true);
-    expect(hasApplicationSurface(empty, { pageUrl: manualUrl })).toBe(false);
+    expect(hasApplicationSurface(mounted, { pageUrl: manualUrl, postingUrl: manualUrl })).toBe(true);
+    expect(hasApplicationSurface(mounted, {
+      pageUrl: 'https://careers.example/apply/applyManually', postingUrl: manualUrl,
+    })).toBe(false);
+    expect(hasApplicationSurface(mounted, {
+      pageUrl: 'https://rituals.wd3.myworkdayjobs.com/en-US/Rituals/job/Sion/Other_R9999/apply/applyManually',
+      postingUrl: manualUrl,
+    })).toBe(false);
+    expect(hasApplicationSurface(empty, { pageUrl: manualUrl, postingUrl: manualUrl })).toBe(false);
   });
 
   it('does not accept a malformed frame as the UBS main-frame application entry', () => {
