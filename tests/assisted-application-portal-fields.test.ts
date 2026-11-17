@@ -1099,6 +1099,79 @@ describe('portal field extraction', () => {
     expect(result.status).toBe('none');
   });
 
+  it('does not treat two generic OK controls as a cookie choice', async () => {
+    const url = 'https://careers.example/apply';
+    const cookieContext = {
+      cookieContainerId: 'banner',
+      cookieContainerText: 'This website uses cookies.',
+      disabled: false,
+    };
+    const snapshot = {
+      url,
+      fields: [],
+      buttons: [
+        { ...cookieContext, text: 'OK' },
+        { ...cookieContext, text: 'OK' },
+      ],
+      dialogs: [],
+      errors: [],
+      text: 'This website uses cookies.',
+    };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async () => snapshot.text),
+    };
+    const page = { url: () => url, frames: () => [frame] };
+
+    const result = await dismissCookieBanner(page as any, snapshot as any);
+
+    expect(result.status).toBe('none');
+  });
+
+  it('chooses Refuser when id-less cookie controls offer Refuser and Accepter', async () => {
+    const url = 'https://careers.example/apply';
+    let dismissed = false;
+    let clicked = '';
+    const cookieContext = {
+      cookieContainerId: 'banner',
+      cookieContainerText: 'This website uses cookies.',
+      disabled: false,
+      frame: 0,
+    };
+    const snapshot = {
+      url,
+      fields: [],
+      buttons: [
+        { ...cookieContext, text: 'Refuser' },
+        { ...cookieContext, text: 'Accepter' },
+      ],
+      dialogs: [],
+      errors: [],
+      text: 'This website uses cookies.',
+    };
+    const frame = {
+      url: () => url,
+      evaluate: vi.fn(async (evaluateInPage: Function) => evaluateInPage === extractFieldsInPage
+        ? { ...snapshot, buttons: dismissed ? [] : snapshot.buttons }
+        : snapshot.text),
+      locator: vi.fn((selector: string) => ({
+        first: () => ({
+          click: vi.fn(async () => {
+            expect(selector).toBe('[data-aa-id="undefined"]');
+            clicked = 'Refuser';
+            dismissed = true;
+          }),
+        }),
+      })),
+    };
+    const page = { url: () => url, frames: () => [frame], waitForTimeout: vi.fn(async () => {}) };
+
+    const result = await dismissCookieBanner(page as any, snapshot as any);
+
+    expect(result.status).toBe('dismissed');
+    expect(clicked).toBe('Refuser');
+  });
+
   it('opens an active preference center, then applies only its explicit cookie choice', async () => {
     const url = 'https://careers.example/apply';
     let stage = 0;

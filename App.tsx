@@ -29,7 +29,8 @@ const GamificationWidget = lazyRetry(() => import('@/components/community/Gamifi
 // WhatsNewModal below.
 const NewsletterPopup = React.lazy(() => import('@/components/community/NewsletterPopup'));
 // Native application offer for human visitors with an ad blocker. Keep it
-// client-only and skip its chunk entirely for known automation and crawlers.
+// client-only and skip its chunk entirely for known automation, crawlers, and
+// the bare mobile job-board snapshot while that snapshot owns the first paint.
 const AdBlockGate = React.lazy(() => import('@/components/community/AdBlockGate'));
 // Gates [data-pdf-gate] anchor downloads (self-certification forms) behind email/social signup.
 const PdfDownloadGate = React.lazy(() => import('@/components/shared/PdfDownloadGate'));
@@ -4559,7 +4560,7 @@ const App: React.FC = () => {
  <SafeLazy boundary="job-search-floating-button">
  <JobSearchFloatingButton />
  </SafeLazy>
- {!isLikelyBot() && !isLikelySearchCrawler() && (
+ {!jobBoardStaticFallback && !isLikelyBot() && !isLikelySearchCrawler() && (
   <SafeLazy boundary="native-application-offer">
    <AdBlockGate />
   </SafeLazy>

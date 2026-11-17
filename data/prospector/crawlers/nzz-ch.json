@@ -1,0 +1,27 @@
+{
+  "companyKey": "nzz-ch",
+  "companyName": "NZZ",
+  "companyHost": "jobs.nzz.ch",
+  "verifiedEmployerDomain": "nzz.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.nzz.ch/"
+  ],
+  "detailTemplate": "/job/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 32,
+  "sampleTitles": [
+    "Administration | Kaufm. Berufe | Kd.-Dienst",
+    "Bau |Handwerk |Mechanik |Elektro |HLKS",
+    "Bank | Versicherung",
+    "Bildung | Wissenschaft | Kunst | Sport | Design",
+    "Chemie | Pharma | Biotech | Physik"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-17T14:38:16.632Z",
+  "candidateKey": "nzz@zurich"
+}

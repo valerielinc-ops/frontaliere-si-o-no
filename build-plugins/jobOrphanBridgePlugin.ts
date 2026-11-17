@@ -65,7 +65,7 @@
  */
 
 import path from 'node:path';
-import { isJobAliasRedirectPath } from './sharedWriteRegistry';
+import { hasClaimedPath, isJobAliasRedirectPath } from './sharedWriteRegistry';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { buildSeoPageHtml } from './shared/seoPageShell';
@@ -415,8 +415,12 @@ export function jobOrphanBridgePlugin(rootDir: string): Plugin {
         }
 
         // Skip if another plugin already wrote real content here (e.g. a
-        // re-activated job that re-uses the same slug). Idempotency guard.
-        if (fs.existsSync(indexTarget)) {
+        // re-activated job that re-uses the same slug). A WriteCollector
+        // claims its output before flushing, so disk-only probing is not
+        // sufficient when this direct bridge writer runs concurrently.
+        if (hasClaimedPath(indexTarget)
+          || Boolean(flatTarget && hasClaimedPath(flatTarget))
+          || fs.existsSync(indexTarget)) {
           skippedCollision++;
           continue;
         }

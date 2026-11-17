@@ -1,0 +1,23 @@
+{
+  "companyKey": "solbadhotel-sigriswil",
+  "companyName": "SolbadHotel Sigriswil",
+  "companyHost": "my.jobalino.ch",
+  "verifiedEmployerDomain": "solbadhotel.ch",
+  "platform": "jobalino.ch",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://my.jobalino.ch/de/jobpreview/20191"
+  ],
+  "detailTemplate": "/de/jobpreview/20191",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Spontanbewerbung / 80% - 100%"
+  ],
+  "canton": "BE",
+  "sourceLang": "de",
+  "learnedAt": "2026-11-17T14:36:26.131Z",
+  "candidateKey": "solbadhotel-sigriswil@sigriswil"
+}

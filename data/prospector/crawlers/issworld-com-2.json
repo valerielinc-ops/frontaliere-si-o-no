@@ -1,0 +1,27 @@
+{
+  "companyKey": "issworld-com-2",
+  "companyName": "ISS Facility Services AG",
+  "companyHost": "jobs.issworld.com",
+  "verifiedEmployerDomain": "issworld.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.issworld.com/search/?createNewAlert=false"
+  ],
+  "detailTemplate": "/job/*/*/",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 20,
+  "sampleTitles": [
+    "ISS søger rengøringsassistenter til afløsning ved rengøring i Hirtshals",
+    "Business Central Cloud Product Specialist",
+    "ISS søger Tilsynsfunktionær til eftermiddag/nat indenfor togrengøring til lokationer i København",
+    "Vi søger en Floorhost til attraktiv kunde i Aalborg",
+    "Vi søger en Souschef søges til vores kunde i Odense"
+  ],
+  "canton": "VS",
+  "sourceLang": "en",
+  "learnedAt": "2026-11-17T14:24:21.221Z",
+  "candidateKey": "iss-facility-services@corcelles-ne"
+}

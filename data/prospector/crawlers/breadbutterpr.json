@@ -1,0 +1,24 @@
+{
+  "companyKey": "breadbutterpr",
+  "companyName": "bread & Butter PR",
+  "companyHost": "breadbutterpr.applytojob.com",
+  "platform": "applytojob.com",
+  "mode": "known-template",
+  "seedUrls": [
+    "https://breadbutterpr.applytojob.com/apply"
+  ],
+  "detailTemplate": "/apply/*/*",
+  "detailEnrichment": true,
+  "employerSiteLocationFallback": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Digital Coordinator (CHS)",
+    "Influencer Marketing Manager (MIA, CHI, DEN)",
+    "Social Media Manager (CHI)",
+    "Social Media Manager (Washington, D.C.)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-11-17T14:22:12.644Z",
+  "candidateKey": "breadbutterpr@applytojob.com"
+}

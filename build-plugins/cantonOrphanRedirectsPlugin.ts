@@ -42,7 +42,7 @@ import {
  resolveCantonSection,
  type CantonLocale,
 } from './shared/cantonSection';
-import { isJobAliasRedirectPath } from './sharedWriteRegistry';
+import { hasClaimedPath, isJobAliasRedirectPath } from './sharedWriteRegistry';
 import {
  careClusterSlug,
  getJobNursesHubSlug,
@@ -231,9 +231,9 @@ export function cantonOrphanRedirectsPlugin(options: PluginOptions = {}): Plugin
  // Never overwrite a real page emitted by a higher-priority plugin
  // (e.g. the canonical landing itself, or a soft-landing for an
  // expired job that happens to share the slug).
- if (fs.existsSync(outFile)) {
- skipped++;
- continue;
+ if (hasClaimedPath(outFile) || fs.existsSync(outFile)) {
+  skipped++;
+  continue;
  }
  fs.mkdirSync(outDir, { recursive: true });
  const html = buildOrphanRedirectHtml(r.to, r.canonicalSlug, r.locale);

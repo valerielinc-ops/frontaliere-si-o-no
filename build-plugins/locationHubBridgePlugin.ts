@@ -48,7 +48,7 @@ import { renderCantonSeoProse, buildCantonSeoProseFaqItems, type CantonSeoLocale
 import type { Locale } from '../services/i18n';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { composePlaceTitle } from './shared/titleSuffix';
-import { isJobAliasRedirectPath } from './sharedWriteRegistry';
+import { hasClaimedPath, isJobAliasRedirectPath } from './sharedWriteRegistry';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 import { getSafeDistPageTargets, isDistPathOverFilesystemLimits, isSafeDistPath } from './shared/distPathSafety';
 
@@ -414,7 +414,9 @@ export function locationHubBridgePlugin(rootDir: string): Plugin {
           continue;
         }
 
-        if (fs.existsSync(indexTarget)) { skipped++; continue; }
+        if (hasClaimedPath(indexTarget)
+          || Boolean(flatTarget && hasClaimedPath(flatTarget))
+          || fs.existsSync(indexTarget)) { skipped++; continue; }
 
         const html = entry.kind === 'matched'
           ? renderMatchedPage(entry, distDir)

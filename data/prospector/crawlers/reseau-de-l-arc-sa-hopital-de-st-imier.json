@@ -1,0 +1,23 @@
+{
+  "companyKey": "reseau-de-l-arc-sa-hopital-de-st-imier",
+  "companyName": "Réseau de l'Arc SA / Hôpital de St-Imier",
+  "companyHost": "jobs.smartrecruiters.com",
+  "verifiedEmployerDomain": "reseaudelarc.net",
+  "platform": "smartrecruiters.com",
+  "mode": "microdata",
+  "seedUrls": [
+    "https://jobs.smartrecruiters.com/ni/SwissMedicalNetwork1/2effd706-69fb-46b0-b060-c166de3debac-candidature-spontanee-secteur-soins-therapies"
+  ],
+  "detailTemplate": "/ni/SwissMedicalNetwork1/2effd706-69fb-46b0-b060-c166de3debac-candidature-spontanee-secteur-soins-therapies",
+  "detailEnrichment": false,
+  "employerSiteLocationFallback": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Candidature spontanée - Secteur soins &amp; thérapies"
+  ],
+  "canton": "BE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-11-17T14:36:24.549Z",
+  "candidateKey": "reseau-de-l-arc-hopital-de-st-imier@st-imier"
+}
