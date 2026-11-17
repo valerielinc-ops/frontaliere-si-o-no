@@ -4038,7 +4038,8 @@ async function openApplicationForm(context, page, snapshot, stageContext = null)
       const containerText = [control?.section, control?.context, control?.sectionGroup, control?.formContext]
         .filter(Boolean).join(' ');
       return Boolean(applicationContainerMarker.test(containerText)
-        && (control?.formId || control?.roleFormId || control?.dialogId || control?.sectionGroupId));
+        && ((control?.dialog === true && control?.dialogId)
+          || (control?.applicationScopeId && control?.sectionGroupId)));
     };
     if (followedControlSignature && nextEntries.some((control) =>
       portalControlSignature(control) !== followedControlSignature
