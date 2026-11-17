@@ -8772,59 +8772,72 @@ function inlineProfileRowOrdinal(field, kind) {
 
 async function reconcileExistingInlineProfileRows(page, snapshot, kind, entries, { files = {} } = {}) {
   let current = snapshot;
-  const fields = profileFields(current, kind);
-  const byOrdinal = new Map();
-  for (const field of fields) {
-    const ordinal = inlineProfileRowOrdinal(field, kind);
-    if (ordinal < 1) continue;
-    if (!byOrdinal.has(ordinal)) byOrdinal.set(ordinal, []);
-    byOrdinal.get(ordinal).push(field);
+  const rowsByOrdinal = (fields) => {
+    const rows = new Map();
+    for (const field of fields) {
+      const ordinal = inlineProfileRowOrdinal(field, kind);
+      if (ordinal < 1) continue;
+      if (!rows.has(ordinal)) rows.set(ordinal, []);
+      rows.get(ordinal).push(field);
+    }
+    return rows;
+  };
+  const fail = async () => ({
+    snapshot: await extractFields(page).catch(() => current),
+    handoff: 'profile_section_row_fill_failed',
+  });
+  let byOrdinal = rowsByOrdinal(profileFields(current, kind));
+  const hasExpectedRows = () => Array.from({ length: entries.length }, (_, index) => index + 1)
+    .every((ordinal) => byOrdinal.has(ordinal));
+  const ADD_INLINE_ROW_RE = /^(?:add another|weitere hinzufügen|weitere hinzufuegen|ajouter une autre|aggiungi un altro)\b/i;
+  let addAttempts = 0;
+  while (!hasExpectedRows()) {
+    if (addAttempts++ >= Math.max(entries.length + 1, 2)) return fail();
+    const addBtn = profileButtons(current, kind, ADD_INLINE_ROW_RE).at(-1);
+    if (!addBtn) return fail();
+    const beforeIds = new Set(profileFields(current, kind).map((field) => field.id));
+    try {
+      const clickOutcome = await clickButton(page, addBtn);
+      if (typeof clickOutcome !== 'string' || !clickOutcome) return fail();
+    } catch {
+      return fail();
+    }
+    const opened = await waitForProfileFields(page, kind, beforeIds);
+    current = opened.snapshot;
+    byOrdinal = rowsByOrdinal(profileFields(current, kind));
+    if (!opened.fields.length && !hasExpectedRows()) return fail();
   }
-  const ordinalsDesc = [...byOrdinal.keys()].sort((a, b) => b - a);
+
+  let deleteAttempts = 0;
   const DELETE_ROW_RE = /^(?:delete|remove|löschen|loeschen|entfernen|supprimer|elimina|rimuovi)\b/i;
-  for (const ordinal of ordinalsDesc) {
-    const rowFields = byOrdinal.get(ordinal) || [];
-    if (ordinal > entries.length && !rowFields.some((field) => holdsValue(field))) {
-      const delButtons = profileButtons(current, kind, DELETE_ROW_RE);
-      const delBtn = delButtons[ordinal - 1] || delButtons.at(-1);
-      if (!delBtn) {
-        return { snapshot: current, handoff: 'profile_section_row_fill_failed' };
-      }
-      try {
-        const clickOutcome = await clickButton(page, delBtn);
-        if (typeof clickOutcome !== 'string' || !clickOutcome) {
-          return {
-            snapshot: await extractFields(page).catch(() => current),
-            handoff: 'profile_section_row_fill_failed',
-          };
-        }
-        await page.waitForTimeout(200);
-        current = await extractFields(page);
-      } catch {
-        return {
-          snapshot: await extractFields(page).catch(() => current),
-          handoff: 'profile_section_row_fill_failed',
-        };
-      }
-      const stillPresent = profileFields(current, kind)
-        .some((field) => inlineProfileRowOrdinal(field, kind) === ordinal && !holdsValue(field));
-      if (stillPresent) {
-        return { snapshot: current, handoff: 'profile_section_row_fill_failed' };
-      }
+  while (true) {
+    byOrdinal = rowsByOrdinal(profileFields(current, kind));
+    const emptyExtraOrdinal = [...byOrdinal.entries()]
+      .filter(([ordinal, rowFields]) => ordinal > entries.length && !rowFields.some((field) => holdsValue(field)))
+      .map(([ordinal]) => ordinal)
+      .sort((a, b) => b - a)[0];
+    if (emptyExtraOrdinal === undefined) break;
+    if (deleteAttempts++ >= Math.max(byOrdinal.size, entries.length + 1)) return fail();
+    const delButtons = profileButtons(current, kind, DELETE_ROW_RE);
+    const delBtn = delButtons[emptyExtraOrdinal - 1] || delButtons.at(-1);
+    if (!delBtn) return fail();
+    try {
+      const clickOutcome = await clickButton(page, delBtn);
+      if (typeof clickOutcome !== 'string' || !clickOutcome) return fail();
+      await page.waitForTimeout(200);
+      current = await extractFields(page);
+    } catch {
+      return fail();
     }
   }
-  const refreshedFields = profileFields(current, kind);
-  const refreshedByOrdinal = new Map();
-  for (const field of refreshedFields) {
-    const ordinal = inlineProfileRowOrdinal(field, kind);
-    if (ordinal < 1) continue;
-    if (!refreshedByOrdinal.has(ordinal)) refreshedByOrdinal.set(ordinal, []);
-    refreshedByOrdinal.get(ordinal).push(field);
-  }
-  for (const ordinal of [...refreshedByOrdinal.keys()].sort((a, b) => a - b)) {
+  byOrdinal = rowsByOrdinal(profileFields(current, kind));
+  const unresolvedExtra = [...byOrdinal.entries()]
+    .some(([ordinal, rowFields]) => ordinal > entries.length && !rowFields.some((field) => holdsValue(field)));
+  if (unresolvedExtra || !hasExpectedRows()) return fail();
+  for (let ordinal = 1; ordinal <= entries.length; ordinal += 1) {
     const entry = entries[ordinal - 1];
-    if (!entry) continue;
-    const rowFields = refreshedByOrdinal.get(ordinal) || [];
+    const rowFields = byOrdinal.get(ordinal) || [];
+    if (!rowFields.length) return fail();
     const actions = [];
     for (const field of rowFields) {
       if (!field.required || holdsValue(field)) continue;
