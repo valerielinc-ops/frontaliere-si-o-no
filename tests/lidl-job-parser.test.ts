@@ -573,6 +573,7 @@ const LIDL_VERIFIED_LOCATIONS = [
   ['Perlen', '6035', 'LU'],
   ['Emmenbrücke', '6020', 'LU'],
   ['Bevaix', '2022', 'NE'],
+  ['Broye', '1470', 'FR'],
   ['Niederuzwil', '9244', 'SG'],
   ['Romont', '1680', 'FR'],
   ['Lüchingen', '9450', 'SG'],
