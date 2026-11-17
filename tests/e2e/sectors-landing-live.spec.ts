@@ -1,4 +1,4 @@
-import { test, expect, type APIRequestContext } from 'playwright/test';
+import { test, expect, type APIRequestContext, type APIResponse } from 'playwright/test';
 import { getLiveWithRetry } from './lib/live-request';
 
 /**
@@ -58,7 +58,10 @@ interface FetchedHtml {
 }
 
 async function fetchHtml(request: APIRequestContext, url: string): Promise<FetchedHtml> {
-  const response = await getLiveWithRetry(request.get.bind(request), url, { maxRedirects: 5, timeout: 20_000 });
+  const response = await getLiveWithRetry<APIResponse>(request.get.bind(request), url, {
+    maxRedirects: 5,
+    timeout: 20_000,
+  });
   return { status: response.status(), body: await response.text(), finalUrl: response.url() };
 }
 

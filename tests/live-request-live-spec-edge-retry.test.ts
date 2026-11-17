@@ -8,10 +8,10 @@ describe('live specs retry transient edge responses', () => {
   it('keeps post-deploy status checks on the retry helper and preserves tolerated 404 skips', () => {
     expect(postDeploySource).toContain("import { getLiveWithRetry } from './lib/live-request';");
     expect(postDeploySource).toMatch(
-      /getLiveWithRetry\(request\.get\.bind\(request\), url, \{\s*maxRedirects: 5,\s*timeout: 20_000,\s*\}\)/,
+      /getLiveWithRetry(?:<APIResponse>)?\(request\.get\.bind\(request\), url, \{\s*maxRedirects: 5,\s*timeout: 20_000,\s*\}\)/,
     );
     expect(postDeploySource).toMatch(
-      /getLiveWithRetry\(page\.request\.get\.bind\(page\.request\), url, \{\s*maxRedirects: 5,\s*timeout: 20_000,\s*\}\)/,
+      /getLiveWithRetry(?:<APIResponse>)?\(page\.request\.get\.bind\(page\.request\), url, \{\s*maxRedirects: 5,\s*timeout: 20_000,\s*\}\)/,
     );
     expect(postDeploySource).toMatch(
       /const headResponse = await getLiveWithRetry\(page\.request\.get\.bind\(page\.request\), url, \{\s*maxRedirects: 5,\s*timeout: 15_000,\s*\}\);\s*if \(headResponse\.status\(\) === 404 && target\.tolerate404\) \{\s*test\.skip\(true,/,
@@ -25,7 +25,7 @@ describe('live specs retry transient edge responses', () => {
   it('keeps sector landing 200 assertions on the retry helper and leaves 404 fail-closed', () => {
     expect(sectorsSource).toContain("import { getLiveWithRetry } from './lib/live-request';");
     expect(sectorsSource).toMatch(
-      /getLiveWithRetry\(request\.get\.bind\(request\), url, \{ maxRedirects: 5, timeout: 20_000 \}\)/,
+      /getLiveWithRetry(?:<APIResponse>)?\(request\.get\.bind\(request\), url, \{\s*maxRedirects: 5,\s*timeout: 20_000,?\s*\}\)/,
     );
     expect(sectorsSource).toContain("expect(status, `${URL} should return 200`).toBe(200);");
     expect(sectorsSource).not.toMatch(/status\s*===\s*404/);

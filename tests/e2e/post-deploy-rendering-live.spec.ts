@@ -1,4 +1,4 @@
-import { test, expect, type APIRequestContext } from 'playwright/test';
+import { test, expect, type APIRequestContext, type APIResponse } from 'playwright/test';
 import { resolveActiveJobDetailPath } from './lib/live-jobs';
 import { getLiveWithRetry } from './lib/live-request';
 import { REDIRECT_STUB_MARKER } from '../../build-plugins/shared/redirectStubMarker.mjs';
@@ -101,7 +101,7 @@ async function fetchHtml(
   // caps any pathological chain. An infinite client-side `location.replace`
   // loop is caught by the browser navigation test below (goto timeout); HTTP
   // redirect counting here is an orthogonal sanity check.
-  const response = await getLiveWithRetry(request.get.bind(request), url, {
+  const response = await getLiveWithRetry<APIResponse>(request.get.bind(request), url, {
     maxRedirects: 5,
     timeout: 20_000,
   });
@@ -246,7 +246,7 @@ test.describe('live: active job page (must hydrate)', () => {
 
     const path = await resolveActiveJobDetailPath(page);
     const url = `${LIVE_BASE_URL}${path}`;
-    const response = await getLiveWithRetry(page.request.get.bind(page.request), url, {
+    const response = await getLiveWithRetry<APIResponse>(page.request.get.bind(page.request), url, {
       maxRedirects: 5,
       timeout: 20_000,
     });
