@@ -22,7 +22,6 @@ import {
 import { jobCanonTarget } from '../../infra/cloudflare-worker/locale-router.js';
 import { iterateAllKnownJobSlugPartEntries } from '../../scripts/lib/all-known-job-slugs-store.mjs';
 import { getSafeDistPageTargets } from './distPathSafety';
-import { isJobAliasRedirectPath } from '../sharedWriteRegistry';
 
 export const JOB_CANON_LOCALES = ACTIVE_JOB_PAGE_LOCALES;
 export type JobCanonLocale = (typeof JOB_CANON_LOCALES)[number];
@@ -33,11 +32,12 @@ export const JOB_CANON_REGISTRY_ALIAS_LOCALES = ['en', 'de', 'fr'] as const;
 export function isRetainedBridgePathSafeToEmit(
   distDir: string,
   canonicalPath: string,
+  isReservedPath: (filePath: string) => boolean,
   hasRetainedClassification: (canonicalPath: string) => boolean,
 ): boolean {
   const indexTargets = getSafeDistPageTargets(distDir, canonicalPath, { includeFlat: false });
   if (!indexTargets) throw new Error('[job-alias-redirect-gate] bridge path is not a safe dist target');
-  if (isJobAliasRedirectPath(indexTargets.indexPath)) return false;
+  if (isReservedPath(indexTargets.indexPath)) return false;
 
   const targets = getSafeDistPageTargets(distDir, canonicalPath);
   if (!targets) throw new Error('[job-alias-redirect-gate] bridge path is not a safe dist target');

@@ -101,19 +101,34 @@ describe('filesystem target preflight', () => {
       fs.mkdirSync(indexTargets!.directoryPath);
       reserveJobAliasRedirectDir(indexTargets!.directoryPath);
 
-      expect(isRetainedBridgePathSafeToEmit(distDir, reservedPath, retainedClassification)).toBe(false);
+      expect(isRetainedBridgePathSafeToEmit(
+        distDir,
+        reservedPath,
+        isJobAliasRedirectPath,
+        retainedClassification,
+      )).toBe(false);
       expect(retainedClassification).not.toHaveBeenCalled();
 
       const safeRetainedClassification = vi.fn(() => true);
-      expect(isRetainedBridgePathSafeToEmit(distDir, '/safe/', safeRetainedClassification)).toBe(true);
+      expect(isRetainedBridgePathSafeToEmit(
+        distDir,
+        '/safe/',
+        isJobAliasRedirectPath,
+        safeRetainedClassification,
+      )).toBe(true);
       expect(safeRetainedClassification).toHaveBeenCalledWith('/safe/');
 
-      expect(() => isRetainedBridgePathSafeToEmit(distDir, '/unclassified/', () => false))
+      expect(() => isRetainedBridgePathSafeToEmit(distDir, '/unclassified/', isJobAliasRedirectPath, () => false))
         .toThrow('[job-alias-redirect-gate] emitted bridge path is missing from the shared classification');
 
       const nonReservedPath = `/${'y'.repeat(251)}/`;
       const nonReservedClassification = vi.fn(() => true);
-      expect(() => isRetainedBridgePathSafeToEmit(distDir, nonReservedPath, nonReservedClassification))
+      expect(() => isRetainedBridgePathSafeToEmit(
+        distDir,
+        nonReservedPath,
+        isJobAliasRedirectPath,
+        nonReservedClassification,
+      ))
         .toThrow('[job-alias-redirect-gate] bridge path is not a safe dist target');
       expect(nonReservedClassification).not.toHaveBeenCalled();
     } finally {
@@ -125,14 +140,14 @@ describe('filesystem target preflight', () => {
   it('retains unsafe URL and directory rejection before retained classification', () => {
     const unsafeUrl = `/${'x'.repeat(MAX_FILESYSTEM_SEGMENT_BYTES + 1)}/`;
     const hasRetainedClassification = vi.fn(() => true);
-    expect(() => isRetainedBridgePathSafeToEmit('/runner/dist', unsafeUrl, hasRetainedClassification))
+    expect(() => isRetainedBridgePathSafeToEmit('/runner/dist', unsafeUrl, isJobAliasRedirectPath, hasRetainedClassification))
       .toThrow('[job-alias-redirect-gate] bridge path is not a safe dist target');
 
     const overlongDistDir = path.resolve(
       os.tmpdir(),
       ...Array.from({ length: 17 }, () => 'd'.repeat(235)),
     );
-    expect(() => isRetainedBridgePathSafeToEmit(overlongDistDir, '/safe/', hasRetainedClassification))
+    expect(() => isRetainedBridgePathSafeToEmit(overlongDistDir, '/safe/', isJobAliasRedirectPath, hasRetainedClassification))
       .toThrow('[job-alias-redirect-gate] bridge path is not a safe dist target');
     expect(hasRetainedClassification).not.toHaveBeenCalled();
   });

@@ -159,6 +159,7 @@ describe('SEO builder noindex guards', () => {
       expect(retainedGuardStart).toBeGreaterThan(-1);
       expect(retainedGuardEnd).toBeGreaterThan(retainedGuardStart);
       expect(retainedGuardBlock).toContain('isRetainedBridgePathSafeToEmit(');
+      expect(retainedGuardBlock).toContain('isJobAliasRedirectPath,');
       expect(retainedGuardBlock).toContain('retainedBridgePaths.has(bridgePathKey(locale, candidatePath))');
 
       const retainedOutputStart = source.indexOf('const retainedBridgeOutputs = (function* () {');

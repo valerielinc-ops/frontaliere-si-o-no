@@ -15010,6 +15010,7 @@ ${staticAnalyticsHtml}
   return isRetainedBridgePathSafeToEmit(
    distDir,
    canonicalPath,
+   isJobAliasRedirectPath,
    (candidatePath) => retainedBridgePaths.has(bridgePathKey(locale, candidatePath)),
   );
  };
