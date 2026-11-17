@@ -2161,8 +2161,7 @@
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
       "validThrough": "2026-12-30T09:30:56.158Z",
-      "validThroughSource": "last-observed-window",
-      "needsRetranslation": true
+      "validThroughSource": "last-observed-window"
     },
     {
       "id": "epfl-f4cca40661a0",
@@ -6155,7 +6154,6 @@
       "department": "PhD Student",
       "contractType": "PhD Student",
       "externalId": "1165808155",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",

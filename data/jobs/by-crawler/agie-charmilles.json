@@ -626,8 +626,7 @@
       "validThroughSource": "last-observed-window",
       "crawledAt": "2026-11-17T09:39:11.925Z",
       "crawledAtSource": "slice-writer",
-      "sourceIdentity": "url:https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-field-service-engineer-eastern-switzerland-dfm",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-field-service-engineer-eastern-switzerland-dfm"
     },
     {
       "title": "Servicetechniker Ostschweiz (d/w/m)",
@@ -2016,8 +2015,7 @@
       "previousSlugs": [
         "kaufer-agie-charmilles-sa-losone"
       ],
-      "sourceIdentity": "url:https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-buyer",
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-buyer"
     },
     {
       "title": "Diagnose Engineer",
@@ -2518,7 +2516,8 @@
       "streetAddressSource": "to-enrich",
       "validThroughSource": "last-observed-window",
       "crawledAt": "2026-11-17T09:39:11.925Z",
-      "crawledAtSource": "slice-writer"
+      "crawledAtSource": "slice-writer",
+      "needsRetranslation": true
     },
     {
       "title": "Senior IT Project Manager",

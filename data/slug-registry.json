@@ -147207,7 +147207,7 @@
     "createdAt": "2026-06-18",
     "slugByLocale": {
       "de": "manager-deals-tax-mergers-and-acquisitions-pwc-zurich",
-      "en": "manager-deals-tax-mergers-and-acquisitions-pwc-zurich",
+      "en": "manager-dam-tax-mergers-and-scd-pwc-switzerland-zurich",
       "fr": "gestionnaire-taxe-des-transactions-fusions-et-acquisitions-pwc-switzerland-zurich",
       "it": "manager-tassa-sulle-operazioni-fusioni-e-acquisizioni-pwc-switzerland-zurich"
     }
@@ -454131,7 +454131,8 @@
     "slugByLocale": {
       "de": "senior-manager-legal-counsel-arbeitsrecht-80-100-pwc-zurich",
       "it": "senior-manager-legal-counsel-labour-law-80-100-pwc-switzerland-zurich",
-      "fr": "aine-gestionnaire-conseiller-juridique-droit-du-travail-80-100-pwc-switzerland-zurich"
+      "fr": "aine-gestionnaire-conseiller-juridique-droit-du-travail-80-100-pwc-switzerland-zurich",
+      "en": "senior-manager-legal-counsel-labour-law-80-100-pwc-switzerland-zurich"
     },
     "createdAt": "2026-08-03",
     "canton": "ZH"
@@ -454303,7 +454304,8 @@
     "slugByLocale": {
       "it": "attuario-della-trasformazione-della-vita-manager-pwc-switzerland-zurich-47f81a",
       "de": "life-transformation-aktuar-in-manager-in-pwc-zurich",
-      "fr": "actuaire-de-transformation-de-vie-gestionnaire-pwc-switzerland-zurich"
+      "fr": "actuaire-de-transformation-de-vie-gestionnaire-pwc-switzerland-zurich",
+      "en": "life-transformation-actuary-manager-pwc-switzerland-zurich"
     },
     "createdAt": "2026-08-03",
     "canton": "ZH"
@@ -511597,7 +511599,8 @@
     "slugByLocale": {
       "it": "senior-associate-manager-cybersecurity-berater-e-prufer-pwc-switzerland-zurich",
       "de": "senior-associate-manager-cybersecurity-berater-und-prufer-pwc-zurich",
-      "fr": "associe-principal-gestionnaire-conseiller-en-cybersecurite-et-examinateur-pwc-switzerland-zurich"
+      "fr": "associe-principal-gestionnaire-conseiller-en-cybersecurite-et-examinateur-pwc-switzerland-zurich",
+      "en": "senior-associate-manager-cybersecurity-advisor-and-examiner-pwc-switzerland-zurich"
     },
     "createdAt": "2026-08-14",
     "canton": "ZH"
@@ -636538,7 +636541,8 @@
     "slugByLocale": {
       "de": "regulatory-audit-specialist-banking-pwc-zurich",
       "it": "regulatory-audit-specialista-banking-pwc-switzerland-zurich",
-      "fr": "regulatory-audit-specialiste-banking-pwc-switzerland-zurich"
+      "fr": "regulatory-audit-specialiste-banking-pwc-switzerland-zurich",
+      "en": "legal-audit-specialist-banking-pwc-switzerland-zurich"
     },
     "createdAt": "2026-08-31",
     "canton": "ZH"
@@ -764088,7 +764092,8 @@
     "slugByLocale": {
       "en": "senior-manager-financial-services-consulting-liquidity-funding-pwc-zurich",
       "fr": "gestionnaire-principal-services-financiers-conseils-liquidite-et-financement-pwc-switzerland-zurich",
-      "de": "senior-manager-financial-services-consulting-liquiditat-finanzierung-pwc-switzerland-zurich"
+      "de": "senior-manager-financial-services-consulting-liquiditat-finanzierung-pwc-switzerland-zurich",
+      "it": "manager-senior-della-consulenza-sui-servizi-finanziari-liquidita-e-finanziamento-pwc-switzerland-zurich"
     },
     "createdAt": "2026-09-20",
     "canton": "ZH"
@@ -801622,7 +801627,9 @@
     "canonicalSlug": "manager-payroll-consulting-mandatsverantwortung-pwc-zurich",
     "slugByLocale": {
       "de": "manager-payroll-consulting-mandatsverantwortung-pwc-zurich",
-      "fr": "gestionnaire-conseils-sur-la-paie-et-le-mandat-responsabilite-pwc-switzerland-zurich"
+      "fr": "gestionnaire-conseils-sur-la-paie-et-le-mandat-responsabilite-pwc-switzerland-zurich",
+      "it": "manager-payroll-consulting-mandate-responsibility-pwc-switzerland-zurich",
+      "en": "manager-payroll-consulting-mandate-responsibility-pwc-switzerland-zurich"
     },
     "createdAt": "2026-09-26",
     "canton": "ZH"
@@ -801641,7 +801648,9 @@
   "id|pwc.ch|0dd4899f-7a07-4a2b-a6b8-f97bc4971b41": {
     "canonicalSlug": "senior-associate-manager-in-sap-supply-chain-operations-consulting-pwc-zurich",
     "slugByLocale": {
-      "de": "senior-associate-manager-in-sap-supply-chain-operations-consulting-pwc-zurich"
+      "de": "senior-associate-manager-in-sap-supply-chain-operations-consulting-pwc-zurich",
+      "it": "senior-associate-manager-nella-consulenza-sap-per-le-operazioni-della-catena-di-approvvigionamento-pwc-switzerland",
+      "fr": "senior-associate-manager-in-sap-chaine-d-approvisionnement-operations-consulting-pwc-switzerland-zurich"
     },
     "createdAt": "2026-09-26",
     "canton": "ZH"
@@ -801737,7 +801746,8 @@
     "slugByLocale": {
       "it": "manager-senior-manager-cyber-risk-regulations-consultant-auditor-pwc-switzerland-zurich",
       "de": "manager-senior-manager-cyber-risiko-regulationen-berater-prufer-pwc-zurich",
-      "fr": "gestionnaire-gestionnaire-principal-cyberrisque-et-reglementation-consultant-verificateur-pwc-switzerland-zurich"
+      "fr": "gestionnaire-gestionnaire-principal-cyberrisque-et-reglementation-consultant-verificateur-pwc-switzerland-zurich",
+      "en": "manager-senior-manager-cyber-risk-regulations-consultant-examiner-pwc-switzerland-zurich"
     },
     "createdAt": "2026-09-26",
     "canton": "ZH"
@@ -1053589,5 +1053599,338 @@
     },
     "createdAt": "2026-11-17",
     "canton": "GR"
+  },
+  "id|pwc.ch|a5a6febd-5037-45e0-b344-941083aa58a2": {
+    "canonicalSlug": "senior-associate-manager-pension-consulting-berufliche-previdenza-80-100-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "senior-associate-manager-pension-consulting-berufliche-previdenza-80-100-pwc-switzerland-zurich",
+      "en": "senior-associate-manager-pension-consulting-occupational-pension-provision-80-100-pwc-switzerland-zurich",
+      "de": "senior-associate-manager-pension-consulting-berufliche-vorsorge-80-100-pwc-zurich",
+      "fr": "senior-associate-manager-pension-consulting-pension-professionnelle-80-100-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|1049dfb3-9d23-4718-aaba-6b9949f8846d": {
+    "canonicalSlug": "apprentice-trade-employee-servizio-e-amministrazione-pwc-switzerland-lausanne",
+    "slugByLocale": {
+      "it": "apprentice-trade-employee-servizio-e-amministrazione-pwc-switzerland-lausanne",
+      "en": "apprentice-trade-employee-service-administration-pwc-switzerland-lausanne",
+      "de": "lehrling-handel-mitarbeiter-service-administration-pwc-switzerland-lausanne",
+      "fr": "apprenti-e-employe-e-de-commerce-service-administration-pwc-lausanne"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "VD"
+  },
+  "id|pwc.ch|ca552f75-22a5-4393-aae4-7eb399164326": {
+    "canonicalSlug": "interno-mpc-3-1-pwc-switzerland-geneve",
+    "slugByLocale": {
+      "it": "interno-mpc-3-1-pwc-switzerland-geneve",
+      "en": "intern-mpc-3-1-pwc-switzerland-geneve",
+      "de": "interne-mpc-3-1-pwc-switzerland-geneve",
+      "fr": "stagiaire-mpc-3-1-pwc-geneve"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "GE"
+  },
+  "id|pwc.ch|fd6e6de8-af54-4bca-ac31-389a80f88076": {
+    "canonicalSlug": "senior-associate-consulenza-fiscale-corporate-tax-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "senior-associate-consulenza-fiscale-corporate-tax-pwc-switzerland-zurich",
+      "en": "senior-associate-tax-consultancy-corporate-tax-pwc-switzerland-zurich",
+      "de": "senior-associate-steuerberatung-corporate-tax-pwc-zurich",
+      "fr": "associe-principal-conseil-fiscal-impot-des-societes-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|22b3da45-6359-4d40-bad2-6f006e58c5ab": {
+    "canonicalSlug": "senior-associate-consulenza-globale-in-materia-di-mobilita-e-immigrazione-clienti-privati-e-interni-pwc-switzerland",
+    "slugByLocale": {
+      "it": "senior-associate-consulenza-globale-in-materia-di-mobilita-e-immigrazione-clienti-privati-e-interni-pwc-switzerland",
+      "en": "senior-associate-global-mobility-immigration-consulting-private-internal-clients-pwc-zurich",
+      "de": "senior-associate-global-mobility-immigration-consulting-private-interne-kunden-pwc-switzerland-zurich",
+      "fr": "senior-associate-global-mobility-immigration-consulting-clients-prives-et-internes-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|0fc4d854-8c97-49a4-abbf-e6e5e5a8d262": {
+    "canonicalSlug": "manager-cloud-data-ai-cloud-data-platform-architetto-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "manager-cloud-data-ai-cloud-data-platform-architetto-pwc-switzerland-zurich",
+      "en": "manager-cloud-data-ai-cloud-data-platform-architect-pwc-zurich",
+      "de": "manager-cloud-data-ai-cloud-data-platform-architekt-pwc-switzerland-zurich",
+      "fr": "manager-cloud-data-ai-cloud-data-platform-architecte-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|03d1f0dd-21be-4372-869c-504e96d620d4": {
+    "canonicalSlug": "career-start-wirtschaftsprufung-in-den-bereichen-previdenza-real-estate-e-family-office-september-2027-pwc-switzerland-basel",
+    "slugByLocale": {
+      "it": "career-start-wirtschaftsprufung-in-den-bereichen-previdenza-real-estate-e-family-office-september-2027-pwc-switzerland-basel",
+      "en": "career-start-auditing-in-the-areas-of-pensions-real-estate-and-family-office-september-2027-pwc-switzerland-basel",
+      "de": "career-start-wirtschaftsprufung-in-den-bereichen-vorsorge-real-estate-und-family-office-september-2027-pwc-basel",
+      "fr": "debut-de-carriere-audit-dans-les-domaines-des-pensions-de-l-immobilier-et-du-bureau-familial-septembre-2027-pwc"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "BS"
+  },
+  "id|pwc.ch|32190a3d-bc28-4338-a30e-4fd13ac0ff60": {
+    "canonicalSlug": "compliance-regulation-servizi-finanziari-manager-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "compliance-regulation-servizi-finanziari-manager-pwc-switzerland-zurich",
+      "de": "fachexperte-compliance-regulation-financial-services-manager-pwc-zurich",
+      "fr": "conformite-et-reglementation-services-financiers-gestionnaire-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|32999cc7-fe38-47a1-a462-e549b7018423": {
+    "canonicalSlug": "associate-centro-compliance-pwc-switzerland-neuchatel",
+    "slugByLocale": {
+      "it": "associate-centro-compliance-pwc-switzerland-neuchatel",
+      "en": "companion-compliance-center-pwc-switzerland-neuchatel",
+      "de": "partner-compliance-center-pwc-switzerland-neuchatel",
+      "fr": "associate-compliance-center-pwc-neuchatel"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "NE"
+  },
+  "id|pwc.ch|7a6ca961-61b1-485b-99f0-50b647deba6b": {
+    "canonicalSlug": "tirocinante-consulenza-fiscale-6-mesi-pwc-switzerland-winterthur",
+    "slugByLocale": {
+      "it": "tirocinante-consulenza-fiscale-6-mesi-pwc-switzerland-winterthur",
+      "en": "intern-tax-consulting-6-months-pwc-switzerland-winterthur",
+      "de": "praktikant-in-steuerberatung-6-monate-pwc-winterthur",
+      "fr": "stagiaire-conseil-fiscal-6-mois-pwc-switzerland-winterthur"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|f935c346-37b2-4140-9e63-22fff7cdf451": {
+    "canonicalSlug": "senior-associate-specialist-ogc-contract-consulting-support-pwc-zurich",
+    "slugByLocale": {
+      "it": "senior-associate-specialist-ogc-contract-consulting-support-pwc-zurich",
+      "de": "senior-associate-support-des-ogc-contract-consulting-teams-pwc-switzerland-zurich",
+      "fr": "senior-associate-specialist-ogc-contract-consulting-support-pwc-zurich"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|903829e9-317f-4c29-bbed-693738cd9849": {
+    "canonicalSlug": "director-international-private-client-family-office-tax-romandie-turkish-tax-desk-pwc-zurich",
+    "slugByLocale": {
+      "en": "director-international-private-client-family-office-tax-romandie-turkish-tax-desk-pwc-zurich",
+      "fr": "directeur-bureau-des-impots-des-clients-prives-internationaux-et-de-la-famille-bureau-des-impots-de-romandie-turquie-pwc"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|ecaa270c-dd5a-4b34-bb20-261a47a61e08": {
+    "canonicalSlug": "senior-associate-responsabile-delle-proposte-di-assicurazione-tedesco-e-inglese-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "senior-associate-responsabile-delle-proposte-di-assicurazione-tedesco-e-inglese-pwc-switzerland-zurich",
+      "en": "senior-associate-proposal-manager-for-assurance-german-english-pwc-zurich",
+      "de": "senior-associate-proposal-manager-fur-assurance-deutsch-englisch-pwc-switzerland-zurich",
+      "fr": "senior-associate-gestionnaire-de-propositions-pour-l-assurance-allemand-et-anglais-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|814e985f-d132-4f4f-9f46-cbcc50e497f8": {
+    "canonicalSlug": "addetto-contabile-laureati-e-studenti-kv-m-f-d-a-tempo-fisso-febbraio-aprile-2027-80-100-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "addetto-contabile-laureati-e-studenti-kv-m-f-d-a-tempo-fisso-febbraio-aprile-2027-80-100-pwc-switzerland-zurich",
+      "en": "accounting-clerk-kv-graduates-and-students-m-f-d-temporary-february-to-april-2027-80-100-pwc-switzerland-zurich",
+      "de": "sachbearbeiter-in-rechnungswesen-kv-absolvierende-und-studierende-m-w-d-befristet-februar-bis-april-2027-80-100-pwc-zurich",
+      "fr": "commis-comptable-diplomes-et-etudiants-kv-h-f-d-a-duree-determinee-de-fevrier-a-avril-2027-80-100-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|69d271da-8ff0-44b0-99ed-813defb27f23": {
+    "canonicalSlug": "tirocinante-in-audit-financial-services-o-trade-industries-and-services-pwc-switzerland-zug",
+    "slugByLocale": {
+      "it": "tirocinante-in-audit-financial-services-o-trade-industries-and-services-pwc-switzerland-zug",
+      "de": "intern-in-audit-financial-services-oder-trade-industries-and-services-pwc-zug"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZG"
+  },
+  "id|pwc.ch|6c4f0b00-890e-45f8-b4a0-9a7f77719274": {
+    "canonicalSlug": "manager-senior-manager-fiscalita-statunitense-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "manager-senior-manager-fiscalita-statunitense-pwc-switzerland-zurich",
+      "en": "manager-senior-manager-u-s-tax-pwc-zurich",
+      "de": "manager-senior-manager-us-steuer-pwc-switzerland-zurich",
+      "fr": "gestionnaire-senior-manager-taxe-americaine-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|86ba4885-49aa-44b6-9d22-3c47d8892945": {
+    "canonicalSlug": "senior-associate-assistant-manager-digital-assurance-it-audit-process-analytics-servizi-finanziari-pwc-switzerland",
+    "slugByLocale": {
+      "it": "senior-associate-assistant-manager-digital-assurance-it-audit-process-analytics-servizi-finanziari-pwc-switzerland",
+      "en": "senior-associate-assistant-manager-digital-assurance-it-audit-process-analytics-financial-services-pwc-zurich",
+      "de": "senior-associate-assistant-manager-digital-assurance-it-audit-process-analytics-financial-services-pwc-switzerland",
+      "fr": "senior-associate-assistant-manager-assurance-numerique-audit-informatique-et-analyse-des-processus-services-financiers"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|c97eaa4f-cc9b-42be-be2d-cc21cd09d78a": {
+    "canonicalSlug": "manager-e-senior-manager-nella-consulenza-sulla-gestione-della-qualita-nel-settore-delle-scienze-della-vita-pwc",
+    "slugByLocale": {
+      "it": "manager-e-senior-manager-nella-consulenza-sulla-gestione-della-qualita-nel-settore-delle-scienze-della-vita-pwc",
+      "en": "manager-senior-manager-in-life-sciences-quality-management-consulting-pwc-zurich",
+      "de": "manager-senior-manager-in-der-beratung-fur-qualitatsmanagement-im-bereich-life-sciences-pwc-switzerland-zurich",
+      "fr": "manager-et-senior-manager-en-conseil-en-management-de-la-qualite-dans-les-sciences-de-la-vie-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|4b6c6a27-968b-495d-8550-31eb2c6f950d": {
+    "canonicalSlug": "senior-manager-fusioni-e-scc-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "senior-manager-fusioni-e-scc-pwc-switzerland-zurich",
+      "en": "senior-manager-mergers-and-sccc-pwc-switzerland-zurich",
+      "de": "senior-manager-mergers-and-acquisitions-tax-pwc-zurich",
+      "fr": "aine-gestionnaire-taxe-sur-les-fusions-et-acquisitions-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|8b9dcd85-2aed-4cfc-bc8d-fa65d2c6cf65": {
+    "canonicalSlug": "valutazione-e-modellazione-di-offerte-associate-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "valutazione-e-modellazione-di-offerte-associate-pwc-switzerland-zurich",
+      "en": "associate-deals-valuation-and-modelling-pwc-zurich",
+      "de": "associate-deals-bewertung-und-modellierung-pwc-switzerland-zurich",
+      "fr": "evaluation-et-modelisation-des-transactions-associees-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|f8793a4c-755e-4c5d-911c-895bd2a8c6a4": {
+    "canonicalSlug": "assistente-personale-assistente-di-squadra-100-pwc-switzerland-luzern",
+    "slugByLocale": {
+      "it": "assistente-personale-assistente-di-squadra-100-pwc-switzerland-luzern",
+      "en": "staff-assistant-team-assistant-100-pwc-switzerland-luzern",
+      "de": "personal-assistant-team-assistant-100-pwc-luzern",
+      "fr": "assistant-personnel-assistant-d-equipe-100-pwc-switzerland-luzern"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "LU"
+  },
+  "id|pwc.ch|f264f4ba-7610-49dd-a3c1-f50887637a15": {
+    "canonicalSlug": "audit-assistente-manager-gestione-delle-risorse-100-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "audit-assistente-manager-gestione-delle-risorse-100-pwc-switzerland-zurich",
+      "en": "audit-assistant-manager-asset-management-100-pwc-zurich",
+      "fr": "verification-gestionnaire-adjoint-gestion-des-biens-100-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|a1bdb171-4aa4-4424-9d1d-4de7bc7f53c9": {
+    "canonicalSlug": "manager-in-audit-banking-mercati-globali-ecl-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "manager-in-audit-banking-mercati-globali-ecl-pwc-switzerland-zurich",
+      "en": "manager-in-audit-banking-global-markets-ecl-pwc-zurich",
+      "fr": "responsable-de-l-audit-bancaire-marches-mondiaux-ecl-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|e74ba6f6-546c-47f0-a947-f8d859cc32e1": {
+    "canonicalSlug": "tirocinante-consulenza-fiscale-6-mesi-pwc-switzerland-st-gallen",
+    "slugByLocale": {
+      "it": "tirocinante-consulenza-fiscale-6-mesi-pwc-switzerland-st-gallen",
+      "en": "intern-tax-consultancy-6-months-pwc-switzerland-st-gallen",
+      "de": "praktikant-in-steuerberatung-6-monate-pwc-st-gallen",
+      "fr": "stagiaire-conseil-fiscal-6-mois-pwc-switzerland-st-gallen"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "SG"
+  },
+  "id|pwc.ch|fbd0c00b-f799-413e-85ca-c4a765197620": {
+    "canonicalSlug": "studentessa-studente-lavoratore-nel-settore-compliance-ogc-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "studentessa-studente-lavoratore-nel-settore-compliance-ogc-pwc-switzerland-zurich",
+      "en": "working-student-in-compliance-ogc-pwc-switzerland-zurich",
+      "de": "werkstudent-in-im-bereich-compliance-ogc-pwc-zurich",
+      "fr": "etudiant-e-salarie-e-dans-le-domaine-de-la-conformite-ogc-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|9297365f-41d8-4f6c-bb30-87056dca1d40": {
+    "canonicalSlug": "senior-associate-corporate-tax-servizi-finanziari-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "senior-associate-corporate-tax-servizi-finanziari-pwc-switzerland-zurich",
+      "de": "senior-associate-corporate-tax-financial-services-pwc-zurich",
+      "fr": "associe-principal-impot-sur-les-societes-services-financiers-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|f91c7a21-b4c4-41a7-842f-c781b43853a1": {
+    "canonicalSlug": "senior-manager-director-microsoft-alliance-security-sales-pwc-zurich",
+    "slugByLocale": {
+      "en": "senior-manager-director-microsoft-alliance-security-sales-pwc-zurich"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|a89f5187-2bcf-4493-8276-a9a46e6e7947": {
+    "canonicalSlug": "senior-manager-director-microsoft-alliance-ai-business-solutions-sales-pwc-zurich",
+    "slugByLocale": {
+      "en": "senior-manager-director-microsoft-alliance-ai-business-solutions-sales-pwc-zurich"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|45ff1ca7-43f8-48e9-900a-c74c407b60a0": {
+    "canonicalSlug": "senior-associate-sostenibilita-delle-persone-reward-pay-transparency-pwc-switzerland-geneve",
+    "slugByLocale": {
+      "it": "senior-associate-sostenibilita-delle-persone-reward-pay-transparency-pwc-switzerland-geneve",
+      "en": "manager-people-sustainability-reward-pay-transparency-80-100-pwc-switzerland-geneve",
+      "de": "senior-associate-menschen-nachhaltigkeit-belohnung-und-lohntransparenz-pwc-switzerland-geneve",
+      "fr": "associe-principal-developpement-durable-des-ressources-humaines-reward-pay-transparency-pwc-switzerland-geneve"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "GE"
+  },
+  "id|pwc.ch|ace0f4cd-0561-4ac5-befc-d439ed4ff4b7": {
+    "canonicalSlug": "gestione-della-valutazione-immobiliare-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "gestione-della-valutazione-immobiliare-pwc-switzerland-zurich",
+      "de": "manager-real-estate-valuation-pwc-zurich",
+      "fr": "gestionnaire-evaluation-immobiliere-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|dbb495a9-30ad-41f1-933d-38f4e788bc1e": {
+    "canonicalSlug": "senior-manager-contabilita-fiscale-pwc-switzerland-zurich",
+    "slugByLocale": {
+      "it": "senior-manager-contabilita-fiscale-pwc-switzerland-zurich",
+      "en": "senior-manager-tax-accounting-pwc-zurich",
+      "de": "senior-manager-steuerbuchhaltung-pwc-switzerland-zurich",
+      "fr": "gestionnaire-principal-comptabilite-fiscale-pwc-switzerland-zurich"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
+  },
+  "id|pwc.ch|b6e0035e-0875-4a4a-b35c-d5d71a209767": {
+    "canonicalSlug": "associate-senior-associate-data-practice-data-management-specialist-pwc-zurich",
+    "slugByLocale": {
+      "en": "associate-senior-associate-data-practice-data-management-specialist-pwc-zurich"
+    },
+    "createdAt": "2026-11-17",
+    "canton": "ZH"
   }
 }
