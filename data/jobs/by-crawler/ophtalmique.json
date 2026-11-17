@@ -1,7 +1,7 @@
 {
   "crawlerKey": "ophtalmique",
-  "assembledAt": "2026-11-17T09:16:55.568Z",
-  "runId": "44052313305",
+  "assembledAt": "2026-11-17T09:43:20.912Z",
+  "runId": "44054450630",
   "jobs": [
     {
       "id": "ophtalmique-6cd4ed91b4f3",
@@ -35,7 +35,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1923",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T09:16:48.783Z",
+      "crawledAt": "2026-11-17T09:43:15.623Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -85,7 +85,7 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:16:48.783Z",
+      "validThrough": "2027-02-11T09:43:15.623Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -120,7 +120,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1932",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T09:16:48.396Z",
+      "crawledAt": "2026-11-17T09:43:15.219Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -170,7 +170,7 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-02-12T09:16:48.396Z",
+      "validThrough": "2027-02-11T09:43:15.219Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -204,7 +204,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1918",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T09:16:48.021Z",
+      "crawledAt": "2026-11-17T09:43:14.814Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -256,7 +256,7 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-22T09:16:48.021Z",
+      "validThrough": "2027-01-21T09:43:14.814Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -290,7 +290,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1919",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T09:16:47.646Z",
+      "crawledAt": "2026-11-17T09:43:14.413Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -343,7 +343,7 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:16:47.646Z",
+      "validThrough": "2026-12-17T09:43:14.413Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -378,7 +378,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1920",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T09:16:47.270Z",
+      "crawledAt": "2026-11-17T09:43:14.008Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -422,7 +422,7 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2027-01-02T09:16:47.270Z",
+      "validThrough": "2027-01-01T09:43:14.008Z",
       "validThroughSource": "last-observed-window"
     },
     {
@@ -456,7 +456,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1746",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-11-17T09:16:46.333Z",
+      "crawledAt": "2026-11-17T09:43:13.077Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -506,7 +506,7 @@
       },
       "streetAddress": "Lausanne",
       "streetAddressSource": "to-enrich",
-      "validThrough": "2026-12-17T09:16:46.333Z",
+      "validThrough": "2026-12-17T09:43:13.077Z",
       "validThroughSource": "last-observed-window"
     }
   ]
