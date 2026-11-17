@@ -128,6 +128,16 @@ describe('BrassRing security-question field classification', () => {
     expect(fields.some((field) => isSecurityQuestionField(field, fields))).toBe(false);
   });
 
+  it('fails closed when an owner-poor proxy has two native answers in distinct forms', () => {
+    const fields = [
+      { id: 'question-proxy', kind: 'listbox', inputType: 'listbox', label: 'Question 1', options: [], form: -1, frame: 0, roleFormId: 'application', applicationScopeId: 'main' },
+      { id: 'answer-form-a', kind: 'text', inputType: 'text', label: 'Question 1 Answer', options: [], form: 0, formId: 'f1', frame: 0, roleFormId: 'application', applicationScopeId: 'main' },
+      { id: 'answer-form-b', kind: 'text', inputType: 'text', label: 'Question 1 Answer', options: [], form: 1, formId: 'f2', frame: 0, roleFormId: 'application', applicationScopeId: 'main' },
+    ];
+
+    expect(fields.some((field) => isSecurityQuestionField(field, fields))).toBe(false);
+  });
+
   it('keeps a listbox prompt selectable when the proxy omits kind', () => {
     const fields = [
       { id: 'question-proxy', kind: '', inputType: 'listbox', label: 'Question 1', options: [{ value: 'school', label: 'First school' }], form: 0, frame: 0 },

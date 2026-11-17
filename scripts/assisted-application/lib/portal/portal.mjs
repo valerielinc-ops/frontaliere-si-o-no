@@ -9516,13 +9516,28 @@ export function isSecurityQuestionField(field, fields = []) {
   const role = securityQuestionFieldRole(field);
   if (!role || role !== (isAnswer ? 'answer' : 'prompt')) return false;
   const scope = securityQuestionFieldScope(field);
-  return (Array.isArray(fields) ? fields : []).some((candidate) => {
+  const counterparts = (Array.isArray(fields) ? fields : []).filter((candidate) => {
     if (candidate === field) return false;
     const candidateMatch = SECURITY_FIELD_RE.exec(String(candidate?.label || candidate?.name || '').trim());
     if (!candidateMatch || Number(candidateMatch[1]) !== index || Boolean(candidateMatch[2]) === isAnswer) return false;
     if (!securityQuestionFieldsShareScope(scope, securityQuestionFieldScope(candidate))) return false;
     return securityQuestionFieldRole(candidate) === (isAnswer ? 'prompt' : 'answer');
   });
+  // A proxy can carry only a role-form/page owner while multiple native
+  // answers expose different real form identities. A one-sided match would
+  // let the planner select an arbitrary form, so require a reciprocal,
+  // one-to-one pairing and fail closed on ambiguity.
+  if (counterparts.length !== 1) return false;
+  const counterpart = counterparts[0];
+  const counterpartScope = securityQuestionFieldScope(counterpart);
+  const reciprocal = (Array.isArray(fields) ? fields : []).filter((candidate) => {
+    if (candidate === counterpart) return false;
+    const candidateMatch = SECURITY_FIELD_RE.exec(String(candidate?.label || candidate?.name || '').trim());
+    if (!candidateMatch || Number(candidateMatch[1]) !== index || Boolean(candidateMatch[2]) !== isAnswer) return false;
+    return securityQuestionFieldsShareScope(counterpartScope, securityQuestionFieldScope(candidate))
+      && securityQuestionFieldRole(candidate) === role;
+  });
+  return reciprocal.length === 1 && reciprocal[0] === field;
 }
 
 /**
