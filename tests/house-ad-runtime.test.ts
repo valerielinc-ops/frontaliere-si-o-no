@@ -542,7 +542,7 @@ describe('per-slot first-party creative delivery', () => {
     const mobile = render({ variant: 'profile_match', format: 'mobile_large', locale: 'it', placement: 'job-detail', context });
     expect(mobile.querySelector('img').src).toContain('logistics-portrait-v1.webp');
     expect(mobile.querySelector('.ft-house-title').textContent).toBe('Logistiker in Svizzera?');
-    expect(mobile.querySelector('.ft-house-promise').textContent).toContain('Cerchiamo Logistiker.');
+    expect(mobile.querySelector('.ft-house-promise').textContent).toContain('Troviamo offerte e prepariamo candidature.');
   });
   it('maps job context to an existing visual sector without guessing unsupported trades', () => {
     expect(resolveHouseAdImageSector('other', 'Logistica', 'Logistiker in Kommissionierung')).toBe('logistics');
