@@ -2289,12 +2289,12 @@
     },
     {
       "id": "spital-muri-883185f9e7b0",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spat-e-o-nachtdienst-spital-muri-ag",
+      "slug": "infermiere-a-diplomato-a-hf-fh-geriatria-acuta-turno-serale-e-o-notturno-spital-muri-muri-ag",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spat-und-oder-nachtdienst-spital",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spat-e-o-nachtdienst-spital-muri-ag",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spat-und-oder-nachtdienst-spital",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spat-und-oder-nachtdienst-spital"
+        "it": "infermiere-a-diplomato-a-hf-fh-geriatria-acuta-turno-serale-e-o-notturno-spital-muri-muri-ag",
+        "en": "dipl-nursing-specialist-hf-fh-acute-geriatrics-late-and-or-night-service-spital-muri-muri-ag",
+        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-geriatrique-aigue-service-tardif-et-ou-de-nuit-spital-muri-muri-ag"
       },
       "company": "Spital Muri",
       "companyKey": "spital-muri",
@@ -2345,11 +2345,19 @@
       "pensum": "60 - 100%",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spat-und-oder-nachtdienst-spital",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spat-e-o-nachtdienst-spital-muri-ag"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spat-und-oder-nachtdienst-spital"
+        ],
+        "fr": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spat-und-oder-nachtdienst-spital"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spat-und-oder-nachtdienst-spital"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spat-und-oder-nachtdienst-spital",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutgeriatrie-spat-e-o-nachtdienst-spital-muri-ag"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,

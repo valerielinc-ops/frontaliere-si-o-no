@@ -3745,12 +3745,12 @@
     },
     {
       "id": "unibe-a7c6c87895cc",
-      "slug": "projektmanager-in-medizinisches-register-unibe-bern",
+      "slug": "project-manager-nel-registro-medico-universitat-bern-bern",
       "slugByLocale": {
         "de": "projektmanager-in-medizinisches-register-unibe-bern",
-        "it": "projektmanager-in-medizinisches-register-unibe-bern",
-        "en": "projektmanager-in-medizinisches-register-unibe-bern",
-        "fr": "projektmanager-in-medizinisches-register-unibe-bern"
+        "it": "project-manager-nel-registro-medico-universitat-bern-bern",
+        "en": "project-manager-in-medical-registry-universitat-bern-bern",
+        "fr": "gestionnaire-de-projet-dans-le-registre-medical-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3813,7 +3813,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T21:28:57.415Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:28:57.415Z"
+      "firstSeenAt": "2026-11-16T21:28:57.415Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "projektmanager-in-medizinisches-register-unibe-bern"
+        ],
+        "en": [
+          "projektmanager-in-medizinisches-register-unibe-bern"
+        ],
+        "fr": [
+          "projektmanager-in-medizinisches-register-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "projektmanager-in-medizinisches-register-unibe-bern"
+      ]
     },
     {
       "id": "unibe-ce9e339305f9",
@@ -3896,12 +3910,12 @@
     },
     {
       "id": "unibe-e46a53db45f6",
-      "slug": "student-research-assistant-unibe-bern",
+      "slug": "student-ricerca-assistant-universitat-bern-bern",
       "slugByLocale": {
         "en": "student-research-assistant-unibe-bern",
-        "it": "student-research-assistant-unibe-bern",
-        "de": "student-research-assistant-unibe-bern",
-        "fr": "student-research-assistant-unibe-bern"
+        "it": "student-ricerca-assistant-universitat-bern-bern",
+        "de": "student-forschung-assistent-universitat-bern-bern",
+        "fr": "student-recherche-assistant-universitat-bern-bern"
       },
       "company": "Universität Bern",
       "companyKey": "unibe",
@@ -3963,7 +3977,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T21:28:57.405Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:28:57.405Z"
+      "firstSeenAt": "2026-11-16T21:28:57.405Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "student-research-assistant-unibe-bern"
+        ],
+        "de": [
+          "student-research-assistant-unibe-bern"
+        ],
+        "fr": [
+          "student-research-assistant-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "student-research-assistant-unibe-bern"
+      ]
     },
     {
       "id": "unibe-aa8a4e1cd883",
@@ -4144,7 +4172,7 @@
       "slug": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
       "slugByLocale": {
         "it": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern-bern-0fc57adcf6",
-        "en": "research-assistant-universitat-bern",
+        "en": "scientific-scientific-staff-member-universitat-bern-bern",
         "de": "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "fr": "membre-du-personnel-scientifique-universitat-bern-bern"
       },
@@ -4194,7 +4222,7 @@
       "previousSlugs": [
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-collaboratore-trice-universitat-bern",
-        "scientific-scientific-staff-member-universitat-bern-bern"
+        "research-assistant-universitat-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4203,7 +4231,7 @@
         ],
         "en": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern",
-          "scientific-scientific-staff-member-universitat-bern-bern"
+          "research-assistant-universitat-bern"
         ],
         "fr": [
           "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-unibe-bern"

@@ -4183,12 +4183,12 @@
     },
     {
       "id": "cern-62a4397088ae",
-      "slug": "assistant-departmental-safety-officer-en-rms-2026-259-grae-cern-geneva-geneva-switzerland",
+      "slug": "assistente-responsabile-della-sicurezza-dipartimentale-en-rms-2026-259-grae-cern-geneva-geneva-switzerland",
       "slugByLocale": {
         "en": "assistant-departmental-safety-officer-en-rms-2026-259-grae-cern-geneva-geneva-switzerland",
-        "it": "assistant-departmental-safety-officer-en-rms-2026-259-grae-cern-geneva-geneva-switzerland",
+        "it": "assistente-responsabile-della-sicurezza-dipartimentale-en-rms-2026-259-grae-cern-geneva-geneva-switzerland",
         "de": "assistant-departmental-safety-officer-en-rms-2026-259-grae-cern-geneva-geneva-switzerland",
-        "fr": "assistant-departmental-safety-officer-en-rms-2026-259-grae-cern-geneva-geneva-switzerland"
+        "fr": "agent-de-securite-adjoint-du-ministere-en-rms-2026-259-grae-cern-geneva-geneva-switzerland"
       },
       "company": "CERN",
       "companyKey": "cern",
@@ -4251,7 +4251,18 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T21:20:05.971Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:20:05.971Z"
+      "firstSeenAt": "2026-11-16T21:20:05.971Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-departmental-safety-officer-en-rms-2026-259-grae-cern-geneva-geneva-switzerland"
+        ],
+        "fr": [
+          "assistant-departmental-safety-officer-en-rms-2026-259-grae-cern-geneva-geneva-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-departmental-safety-officer-en-rms-2026-259-grae-cern-geneva-geneva-switzerland"
+      ]
     },
     {
       "id": "cern-a1584d7be4c3",

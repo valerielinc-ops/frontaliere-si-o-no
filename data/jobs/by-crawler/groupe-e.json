@@ -984,7 +984,7 @@
         "it": "installatore-sanitario-e-di-riscaldamento-m-f-80-100-groupe-e-guin-dudingen",
         "en": "plumbing-and-heating-installer-m-f-80-100-groupe-e-guin-dudingen-4e9411",
         "de": "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen",
-        "fr": "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen"
+        "fr": "installation-de-plomberie-et-de-chauffage-h-f-80-100-groupe-e-guin-dudingen-4e9411"
       },
       "company": "Groupe E",
       "companyKey": "groupe-e",
@@ -1030,7 +1030,7 @@
       "previousSlugsByLocale": {
         "fr": [
           "installation-de-plomberie-et-de-chauffage-h-f-80-100-groupe-e-guin-dudingen",
-          "installation-de-plomberie-et-de-chauffage-h-f-80-100-groupe-e-guin-dudingen-4e9411"
+          "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen"
         ],
         "it": [
           "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen",
@@ -1049,8 +1049,7 @@
         "sanitar-und-heizungsinstallateur-m-w-80-100-groupe-e-guin-dudingen-2",
         "installation-de-plomberie-et-de-chauffage-h-f-80-100-groupe-e-guin-dudingen",
         "installatore-sanitario-e-di-riscaldamento-m-f-80-100-groupe-e-guin-dudingen-133c0b",
-        "plumbing-and-heating-installer-m-f-80-100-groupe-e-guin-dudingen",
-        "installation-de-plomberie-et-de-chauffage-h-f-80-100-groupe-e-guin-dudingen-4e9411"
+        "plumbing-and-heating-installer-m-f-80-100-groupe-e-guin-dudingen"
       ],
       "firstSeenAt": "2026-10-01T09:17:45.121Z",
       "salaryMin": 73000,
@@ -3476,12 +3475,12 @@
     },
     {
       "id": "groupe-e-4f9bf2a8f364",
-      "slug": "gestionnaire-de-formation-m-w-d-60-80-groupe-e-granges-paccot-plexus",
+      "slug": "manager-di-formazione-m-f-60-80-groupe-e-granges-paccot-plexus",
       "slugByLocale": {
         "fr": "gestionnaire-de-formation-h-f-60-80-groupe-e-granges-paccot-plexus",
-        "it": "gestionnaire-de-formation-m-w-d-60-80-groupe-e-granges-paccot-plexus",
-        "en": "gestionnaire-de-formation-h-f-60-80-groupe-e-granges-paccot-plexus",
-        "de": "gestionnaire-de-formation-h-f-60-80-groupe-e-granges-paccot-plexus"
+        "it": "manager-di-formazione-m-f-60-80-groupe-e-granges-paccot-plexus",
+        "en": "training-manager-m-f-60-80-groupe-e-granges-paccot-plexus",
+        "de": "trainingsmanager-m-w-60-80-groupe-e-granges-paccot-plexus"
       },
       "company": "Groupe E",
       "companyKey": "groupe-e",
@@ -3528,11 +3527,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "gestionnaire-de-formation-h-f-60-80-groupe-e-granges-paccot-plexus",
+          "gestionnaire-de-formation-m-w-d-60-80-groupe-e-granges-paccot-plexus"
+        ],
+        "en": [
+          "gestionnaire-de-formation-h-f-60-80-groupe-e-granges-paccot-plexus"
+        ],
+        "de": [
           "gestionnaire-de-formation-h-f-60-80-groupe-e-granges-paccot-plexus"
         ]
       },
       "previousSlugs": [
-        "gestionnaire-de-formation-h-f-60-80-groupe-e-granges-paccot-plexus"
+        "gestionnaire-de-formation-h-f-60-80-groupe-e-granges-paccot-plexus",
+        "gestionnaire-de-formation-m-w-d-60-80-groupe-e-granges-paccot-plexus"
       ],
       "salaryMin": 61600,
       "salaryMax": 93200,

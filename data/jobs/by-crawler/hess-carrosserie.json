@@ -1691,7 +1691,7 @@
       "slug": "carrosserie-pengler-carrosserie-hess-ag-rothenburg",
       "slugByLocale": {
         "it": "carrosserie-pengler-carrosserie-hess-ag-rothenburg",
-        "en": "carrosseries-pengler-carrosserie-hess-ag-rothenburg",
+        "en": "carrosseriespengler-carrosserie-hess-ag-rothenburg",
         "de": "carrosseriespengler-hess-rothenburg",
         "fr": "pengler-de-carrosseries-carrosserie-hess-ag-rothenburg"
       },
@@ -1742,7 +1742,8 @@
       "previousSlugs": [
         "carrosseriespengler-hess-rothenburg",
         "carrosseriespengler-carrosserie-hess-ag-rothenburg",
-        "body-spider-glider-carrosserie-hess-ag-rothenburg"
+        "body-spider-glider-carrosserie-hess-ag-rothenburg",
+        "carrosseries-pengler-carrosserie-hess-ag-rothenburg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1751,7 +1752,7 @@
         ],
         "en": [
           "body-spider-glider-carrosserie-hess-ag-rothenburg",
-          "carrosseriespengler-carrosserie-hess-ag-rothenburg"
+          "carrosseries-pengler-carrosserie-hess-ag-rothenburg"
         ],
         "fr": [
           "carrosseriespengler-carrosserie-hess-ag-rothenburg"
@@ -2534,10 +2535,10 @@
     },
     {
       "id": "hess-carrosserie-bbcb3e8363f6",
-      "slug": "carrosserielackierer-busse-nutzfahrzeuge-m-w-d-hess-bellach",
+      "slug": "carrosserie-pittore-autobus-e-veicoli-commerciali-m-f-d-carrosserie-hess-ag-bellach",
       "slugByLocale": {
         "de": "carrosserielackierer-busse-nutzfahrzeuge-m-w-d-hess-bellach",
-        "it": "carrosserielackierer-busse-nutzfahrzeuge-m-w-d-hess-bellach",
+        "it": "carrosserie-pittore-autobus-e-veicoli-commerciali-m-f-d-carrosserie-hess-ag-bellach",
         "en": "carrosserielackierer-busse-nutzfahrzeuge-m-w-d-hess-bellach",
         "fr": "carrosserielackierer-busse-nutzfahrzeuge-m-w-d-hess-bellach"
       },
@@ -2603,7 +2604,15 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-11T21:21:12.286Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:21:12.286Z"
+      "firstSeenAt": "2026-11-16T21:21:12.286Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "carrosserielackierer-busse-nutzfahrzeuge-m-w-d-hess-bellach"
+        ]
+      },
+      "previousSlugs": [
+        "carrosserielackierer-busse-nutzfahrzeuge-m-w-d-hess-bellach"
+      ]
     },
     {
       "id": "hess-carrosserie-9b89a7e3415a",

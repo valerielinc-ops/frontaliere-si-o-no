@@ -1956,12 +1956,12 @@
     },
     {
       "id": "google-switzerland-d28ae25c2996",
-      "slug": "field-sales-representative-fsi-google-cloud-dach-google-switzerland-zurich",
+      "slug": "rappresentante-di-vendita-sul-campo-fsi-google-cloud-dach-google-switzerland-zurich",
       "slugByLocale": {
         "en": "field-sales-representative-fsi-google-cloud-dach-google-switzerland-zurich",
-        "it": "field-sales-representative-fsi-google-cloud-dach-google-switzerland-zurich",
-        "de": "field-sales-representative-fsi-google-cloud-dach-google-switzerland-zurich",
-        "fr": "field-sales-representative-fsi-google-cloud-dach-google-switzerland-zurich"
+        "it": "rappresentante-di-vendita-sul-campo-fsi-google-cloud-dach-google-switzerland-zurich",
+        "de": "au-endienstmitarbeiter-fsi-google-cloud-dach-google-switzerland-zurich",
+        "fr": "representant-des-ventes-sur-le-terrain-fsi-google-cloud-dach-google-switzerland-zurich"
       },
       "company": "Google Switzerland",
       "companyKey": "google-switzerland",
@@ -2032,7 +2032,21 @@
       "streetAddressSource": "listing-source",
       "validThrough": "2027-02-14T21:19:30.387Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:19:30.387Z"
+      "firstSeenAt": "2026-11-16T21:19:30.387Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "field-sales-representative-fsi-google-cloud-dach-google-switzerland-zurich"
+        ],
+        "de": [
+          "field-sales-representative-fsi-google-cloud-dach-google-switzerland-zurich"
+        ],
+        "fr": [
+          "field-sales-representative-fsi-google-cloud-dach-google-switzerland-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "field-sales-representative-fsi-google-cloud-dach-google-switzerland-zurich"
+      ]
     },
     {
       "id": "google-switzerland-52d0ed67e0aa",

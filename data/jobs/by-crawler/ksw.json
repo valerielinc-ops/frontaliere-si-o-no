@@ -1607,12 +1607,12 @@
     },
     {
       "id": "ksw-0a561796990a",
-      "slug": "physician-associate-gynakologie-e-geburtshilfe-kantonsspital-winterthur-ksw-winterthur",
+      "slug": "assistente-medico-a-ginecologia-e-ostetricia-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "physician-associate-gynakologie-und-geburtshilfe-ksw-ch",
-        "it": "physician-associate-gynakologie-e-geburtshilfe-kantonsspital-winterthur-ksw-winterthur",
-        "en": "physician-associate-gynakologie-und-geburtshilfe-ksw-ch",
-        "fr": "physician-associate-gynakologie-und-geburtshilfe-ksw-ch"
+        "it": "assistente-medico-a-ginecologia-e-ostetricia-kantonsspital-winterthur-ksw-winterthur",
+        "en": "physician-associate-gynecology-and-obstetrics-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "gynecologie-et-obstetrique-associees-au-medecin-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -1660,11 +1660,19 @@
       "department": "Frauenklinik",
       "previousSlugsByLocale": {
         "it": [
+          "physician-associate-gynakologie-und-geburtshilfe-ksw-ch",
+          "physician-associate-gynakologie-e-geburtshilfe-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "physician-associate-gynakologie-und-geburtshilfe-ksw-ch"
+        ],
+        "fr": [
           "physician-associate-gynakologie-und-geburtshilfe-ksw-ch"
         ]
       },
       "previousSlugs": [
-        "physician-associate-gynakologie-und-geburtshilfe-ksw-ch"
+        "physician-associate-gynakologie-und-geburtshilfe-ksw-ch",
+        "physician-associate-gynakologie-e-geburtshilfe-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -4083,12 +4091,12 @@
     },
     {
       "id": "ksw-b4b6eef99664",
-      "slug": "med-praxisassistentin-med-praxisassistent-infektiologie-ksw-ch",
+      "slug": "med-assistente-di-pratica-med-assistente-di-pratica-infettiva-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "med-praxisassistentin-med-praxisassistent-infektiologie-ksw-ch",
-        "it": "med-praxisassistentin-med-praxisassistent-infektiologie-ksw-ch",
-        "en": "med-praxisassistentin-med-praxisassistent-infektiologie-ksw-ch",
-        "fr": "med-praxisassistentin-med-praxisassistent-infektiologie-ksw-ch"
+        "it": "med-assistente-di-pratica-med-assistente-di-pratica-infettiva-kantonsspital-winterthur-ksw-winterthur",
+        "en": "med-practice-assistant-med-practice-assistant-infectiology-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "assistant-de-medecine-assistant-de-medecine-infectiologie-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -4151,7 +4159,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T21:18:40.709Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:18:40.709Z"
+      "firstSeenAt": "2026-11-16T21:18:40.709Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistentin-med-praxisassistent-infektiologie-ksw-ch"
+        ],
+        "en": [
+          "med-praxisassistentin-med-praxisassistent-infektiologie-ksw-ch"
+        ],
+        "fr": [
+          "med-praxisassistentin-med-praxisassistent-infektiologie-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "med-praxisassistentin-med-praxisassistent-infektiologie-ksw-ch"
+      ]
     },
     {
       "id": "ksw-2804970cc661",
@@ -6336,12 +6358,12 @@
     },
     {
       "id": "ksw-eb6d719897cb",
-      "slug": "applikations-managerin-applikations-manager-ksw-ch",
+      "slug": "gestione-applicazioni-gestione-applicazioni-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
         "de": "applikations-managerin-applikations-manager-ksw-ch",
-        "it": "applikations-managerin-applikations-manager-ksw-ch",
-        "en": "applikations-managerin-applikations-manager-ksw-ch",
-        "fr": "applikations-managerin-applikations-manager-ksw-ch"
+        "it": "gestione-applicazioni-gestione-applicazioni-kantonsspital-winterthur-ksw-winterthur",
+        "en": "application-manager-application-manager-kantonsspital-winterthur-ksw-winterthur",
+        "fr": "gestionnaire-d-applications-gestionnaire-d-applications-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
       "companyKey": "ksw",
@@ -6404,7 +6426,21 @@
       "streetAddressSource": "to-enrich",
       "validThrough": "2027-02-14T21:18:40.704Z",
       "validThroughSource": "last-observed-window",
-      "firstSeenAt": "2026-11-16T21:18:40.704Z"
+      "firstSeenAt": "2026-11-16T21:18:40.704Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "applikations-managerin-applikations-manager-ksw-ch"
+        ],
+        "en": [
+          "applikations-managerin-applikations-manager-ksw-ch"
+        ],
+        "fr": [
+          "applikations-managerin-applikations-manager-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "applikations-managerin-applikations-manager-ksw-ch"
+      ]
     },
     {
       "id": "ksw-3cdb667aa0f0",
