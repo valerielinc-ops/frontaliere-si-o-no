@@ -189,4 +189,19 @@ describe('bounded Workday password-reset request surface', () => {
     expect(fixture.accounts.abortRecovery).not.toHaveBeenCalled();
     expect(fixture.page.waitForTimeout).toHaveBeenCalledTimes(16);
   });
+
+  it('accepts a dialog-scoped French Workday password reset surface', () => {
+    const surface = passwordResetRequestSurface({
+      url: 'https://swarovski.wd3.myworkdayjobs.com/fr-FR/swarovski/job/Mendrisio/Role_R-1/apply/applyManually',
+      title: 'Workday',
+      dialogs: [{ text: 'Mot de passe oublié ?' }],
+      fields: [{ id: 'reset-email', kind: 'text', inputType: 'email', label: 'Adresse e-mail*', formId: 'dlg-form', dialog: true }],
+      buttons: [{ id: 'reset-send', text: 'Envoyer', formId: 'dlg-form', dialog: true, disabled: false }],
+      text: 'Mot de passe oublié ? Saisissez votre adresse e-mail.',
+    } as any);
+    expect(surface).toMatchObject({
+      email: { id: 'reset-email', dialog: true },
+      request: { id: 'reset-send', text: 'Envoyer', dialog: true },
+    });
+  });
 });

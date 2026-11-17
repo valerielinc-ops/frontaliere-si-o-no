@@ -93,4 +93,12 @@ describe('Workday tenant account routes', () => {
       buttons: [cont],
     }, { applyUrl: url, postingUrl: url, allowSingleExternalApplicationEntry: true })).toEqual([]);
   });
+
+  it('maps Workday From* and To* profile date fields to start and end', async () => {
+    const { profileEntryAnswer } = await import('../scripts/assisted-application/lib/portal/portal.mjs');
+    const entry = { role: 'Consultant', employer: 'ACME', start: '2021-03', end: '2024-06' };
+    expect(profileEntryAnswer(entry, 'experience', { label: 'From*' })).toEqual({ value: '2021-03', source: 'profile' });
+    expect(profileEntryAnswer(entry, 'experience', { label: 'To*' })).toEqual({ value: '2024-06', source: 'profile' });
+    expect(profileEntryAnswer(entry, 'education', { label: 'From*' })).toEqual({ value: '2021-03', source: 'profile' });
+  });
 });

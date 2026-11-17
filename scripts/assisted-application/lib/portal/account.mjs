@@ -441,10 +441,24 @@ export function portalAccountStore({ db, orderId, key, mask = () => {}, nowMs = 
       };
     },
     /** Before the "create account" click: `pending` until the portal confirms it. */
-    async save(host, { email, password }) {
+    async save(host, { email, password, securityQuestions = null }) {
       mask(password);
+      for (const item of Array.isArray(securityQuestions) ? securityQuestions : []) {
+        if (item?.answer) mask(item.answer);
+      }
       await ref.set({
-        [hostKey(host)]: { host: String(host).toLowerCase(), email, passwordEnc: encryptJson({ password }, key), status: 'pending', createdAt: nowMs(), verifiedAt: null, lastSignInAt: null },
+        [hostKey(host)]: {
+          host: String(host).toLowerCase(),
+          email,
+          passwordEnc: encryptJson({ password }, key),
+          ...(Array.isArray(securityQuestions) && securityQuestions.length
+            ? { securityQuestionsEnc: encryptJson({ securityQuestions }, key) }
+            : {}),
+          status: 'pending',
+          createdAt: nowMs(),
+          verifiedAt: null,
+          lastSignInAt: null,
+        },
       }, { merge: true });
     },
     /**

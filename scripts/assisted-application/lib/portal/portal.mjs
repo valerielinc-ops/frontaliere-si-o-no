@@ -92,7 +92,7 @@ export const WAVE1_CHANNELS = new Set([
 const MAX_AUTH_STEPS = AGENT_ROUNDS;
 const ACCOUNT_VERIFY_RE = /^(verify|verifizieren|bestätigen|verifica|conferma|vérifier|confirmer)$/i;
 const FORGOT_PASSWORD_RE = /(?:forgot(?:ten)?\s+(?:your\s+)?password|password\s+forgotten|passwort\s+vergessen|kennwort\s+vergessen|mot de passe\s+oublié|mot de passe\s+oublie|oubli[ée]\s+(?:(?:votre|le|mon)\s+)?mot de passe|password\s+dimenticat[oa]|hai dimenticato la password|password dimenticata)/i;
-const PASSWORD_RESET_REQUEST_RE = /^(?:send(?:\s+(?:a\s+)?(?:reset\s+)?(?:link|instructions))?|reset\s+password|request\s+(?:a\s+)?password\s+reset|continue|submit|passwort\s+zurücksetzen|kennwort\s+zurücksetzen|réinitialiser le mot de passe|reinitialiser le mot de passe|envoyer(?:\s+(?:les\s+instructions|(?:un\s+|le\s+)?lien))?|continuer|soumettre|invia|continua|reimposta password)$/i;
+const PASSWORD_RESET_REQUEST_RE = /^(?:send(?:\s+(?:a\s+)?(?:reset\s+)?(?:link|instructions))?|reset\s+password|request\s+(?:a\s+)?password\s+reset|continue|submit|passwort\s+zurücksetzen|kennwort\s+zurücksetzen|réinitialiser(?: le mot de passe)?|reinitialiser(?: le mot de passe)?|envoyer(?:\s+(?:les\s+instructions|(?:un\s+|le\s+)?lien))?|continuer|soumettre|valider|invia|continua|reimposta password)$/i;
 const PASSWORD_RESET_REQUEST_CONTEXT_RE = /(?:reset|forgot(?:ten)?|request).{0,30}(?:password|passcode)|(?:password|passcode).{0,30}(?:reset|forgot(?:ten)?|request)|(?:passwort|kennwort).{0,30}(?:vergessen|zurücksetzen)|(?:vergessen|zurücksetzen).{0,30}(?:passwort|kennwort)|mot de passe.{0,30}(?:oubli|réinitial|reinitial)|(?:oubli|réinitial|reinitial).{0,30}mot de passe|password.{0,30}(?:dimenticat|reimpost)|(?:dimenticat|reimpost).{0,30}password/i;
 function normalizePasswordResetText(value) {
   return String(value || '').normalize('NFKC').replace(/\p{Cf}/gu, '').replace(/\s+/gu, ' ').trim();
@@ -528,9 +528,9 @@ export function profileEntriesForSection(candidate, kind) {
 export function profileEntryAnswer(entry, kind, field) {
   const label = String(field?.label || '').trim();
   const mappings = kind === 'experience'
-    ? [[/^(?:job title|position|role)\s*[＊*]?$/i, 'role'], [/^(?:employer|company)\s*[＊*]?$/i, 'employer'], [/^start date\s*[＊*]?$/i, 'start'], [/^end date\s*[＊*]?$/i, 'end']]
+    ? [[/^(?:job title|position|role)\s*[＊*]?$/i, 'role'], [/^(?:employer|company)\s*[＊*]?$/i, 'employer'], [/^(?:start date|from)\s*[＊*]?$/i, 'start'], [/^(?:end date|to)\s*[＊*]?$/i, 'end']]
     : kind === 'education'
-      ? [[/^(?:degree|qualification)\s*[＊*]?$/i, 'degree'], [/^(?:institution|school)\s*[＊*]?$/i, 'institution'], [/^start date\s*[＊*]?$/i, 'start'], [/^end date\s*[＊*]?$/i, 'end']]
+      ? [[/^(?:degree|qualification)\s*[＊*]?$/i, 'degree'], [/^(?:institution|school)\s*[＊*]?$/i, 'institution'], [/^(?:start date|from)\s*[＊*]?$/i, 'start'], [/^(?:end date|to)\s*[＊*]?$/i, 'end']]
       : [];
   const key = mappings.find(([pattern]) => pattern.test(label))?.[1];
   const value = key ? String(entry?.[key] || '').trim() : '';
@@ -8560,7 +8560,8 @@ export async function openFormSections(page, snapshot, {
 
 const PROFILE_ADD_RE = /^(?:\+\s*)?(?:add|hinzufügen|hinzufuegen|ajouter|ajouter une entrée|aggiungi|aggiungere)\b/i;
 const PROFILE_SAVE_RE = /^(?:save|speichern|enregistrer|sauvegarder|salva|salvare)\b/i;
-const PROFILE_CANCEL_RE = /^(?:cancel|abbrechen|annuler|annulla)\b/i;
+const PROFILE_CANCEL_RE = /^(?:cancel|abbrechen|annuler|annulla|delete|remove|löschen|loeschen|entfernen|supprimer|elimina|rimuovi)\b/i;
+const PROFILE_INLINE_ROW_RE = /^(?:delete|remove|löschen|loeschen|entfernen|supprimer|elimina|rimuovi|add another|weitere hinzufügen|ajouter une autre|aggiungi un altro)\b/i;
 
 function profileFields(snapshot, kind) {
   return (snapshot.fields || []).filter((field) => profileSectionKind(`${field.section || ''} ${field.label || ''}`) === kind);
@@ -8675,10 +8676,13 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
         continue;
       }
       current = await extractFields(page);
-      const currentRows = current.fields.filter((field) => rowFields.some((row) => row.id === field.id));
+      const sectionRows = profileFields(current, kind).filter((field) => !beforeIds.has(field.id));
+      const currentRows = sectionRows.length ? sectionRows : current.fields.filter((field) => rowFields.some((row) => row.id === field.id));
       if (rowFields.some((field) => {
         if (!field.required) return false;
-        const filled = currentRows.find((item) => item.id === field.id) || field;
+        const filled = currentRows.find((item) => item.id === field.id)
+          || currentRows.find((item) => item.label === field.label && item.kind === field.kind)
+          || field;
         if (holdsValue(filled)) return false;
         // Work history dates are periods: a plain-text portal input may accept
         // the exact month precision in the CV even though a full calendar date
@@ -8693,6 +8697,10 @@ export async function fillProfileSections(page, snapshot, { candidate, candidate
       }
       const save = profileButtons(current, kind, PROFILE_SAVE_RE)[0];
       if (!save) {
+        if (profileButtons(current, kind, PROFILE_INLINE_ROW_RE).length) {
+          added += 1;
+          continue;
+        }
         if (!await cancel()) return { snapshot: current, counts, handoff: 'profile_section_save_unavailable' };
         skipped += 1;
         continue;
@@ -9094,15 +9102,22 @@ function passwordResetEmailField(snapshot) {
 
 /** A reset request is not merely an e-mail field reached after the reset click. */
 export function passwordResetRequestSurface(snapshot) {
-  if (!snapshot || snapshot.captcha || snapshot.dialogs?.length || authPageKind(snapshot) !== 'none') return null;
+  if (!snapshot || snapshot.captcha) return null;
   const email = passwordResetEmailField(snapshot);
-  if (!email || (snapshot.fields || []).some((field) => field.inputType === 'password')) return null;
+  if (!email) return null;
+  const inDialog = Boolean(email.dialog);
+  if (snapshot.dialogs?.length && !inDialog) return null;
+  if (!inDialog && authPageKind(snapshot) !== 'none') return null;
+  const sameScopeFields = (snapshot.fields || []).filter((field) => Boolean(field.dialog) === inDialog);
+  if (sameScopeFields.some((field) => field.inputType === 'password')) return null;
   const context = [snapshot.title, snapshot.heading, snapshot.text,
+    ...(snapshot.dialogs || []).map((dialog) => typeof dialog === 'string' ? dialog : dialog?.text || dialog?.label || ''),
     ...(snapshot.headings || []).map((heading) => typeof heading === 'string' ? heading : heading?.text || heading?.label || ''),
     ...(snapshot.buttons || []).flatMap((button) => [button.text, button.label, button.title, button.ariaLabel, button.labelledBy]),
   ].map(normalizePasswordResetText).filter(Boolean).join(' ');
   if (!FORGOT_PASSWORD_RE.test(context) && !PASSWORD_RESET_REQUEST_CONTEXT_RE.test(context)) return null;
-  const requests = (snapshot.buttons || []).filter((button) => !button.dialog && !button.chrome && button.disabled !== true
+  const requests = (snapshot.buttons || []).filter((button) => Boolean(button.dialog) === inDialog
+    && !button.chrome && button.disabled !== true
     && PASSWORD_RESET_REQUEST_RE.test(passwordResetAccessibleName(button))
     && String(button.formId || '') === String(email.formId || ''));
   return requests.length === 1 ? { email, request: requests[0] } : null;
@@ -9461,12 +9476,80 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     return { snapshot: await awaitAuthView(page, snapshot) };
   }
   if (ctx.dryRun) return { dryRun: true };
+  const SECURITY_SECTION_RE = /(?:security\s*questions?|domande\s+di\s+sicurezza|questions?\s+de\s+s[eé]curit[eé]|sicherheitsfragen)/i;
+  const SECURITY_FIELD_RE = /^(?:security\s+)?(?:question|domanda|frage)\s*(\d+)\s*(answer|risposta|r[eé]ponse|antwort)?\s*[＊*]?$/i;
+  const isSecurityQuestionField = (field) => SECURITY_SECTION_RE.test(`${field?.section || ''} ${field?.context || ''}`)
+    && SECURITY_FIELD_RE.test(String(field?.label || field?.name || '').trim());
+  const securityQuestionAnswers = new Map();
+  const planRegistrationWithSecurityQuestions = async (plannedSnapshot) => {
+    const allFields = Array.isArray(plannedSnapshot?.fields) ? plannedSnapshot.fields : [];
+    const securityFields = allFields.filter(isSecurityQuestionField);
+    const nonSecurityFields = allFields.filter((field) => !isSecurityQuestionField(field) && field.inputType !== 'password');
+    const planned = await planPage({
+      snapshot: { ...plannedSnapshot, fields: nonSecurityFields },
+      candidate,
+      candidateLocale: ctx.candidateLocale,
+      codex: ctx.codex,
+    });
+    if (!securityFields.length) return planned;
+    const secActions = [];
+    const selectedByIndex = new Map();
+    const usedOptionValues = new Set();
+    for (const field of securityFields) {
+      const match = SECURITY_FIELD_RE.exec(String(field.label || field.name || '').trim());
+      const index = Number(match?.[1]) || 1;
+      const isAnswer = Boolean(match?.[2]) || (!Array.isArray(field.options) || field.options.length === 0);
+      if (!isAnswer && Array.isArray(field.options) && field.options.length) {
+        const usable = field.options.filter((opt) => {
+          const val = String(opt?.value || opt?.label || '').trim();
+          return val && !/^(?:select|choose|bitte|seleziona|choisir|--)/i.test(String(opt?.label || val));
+        });
+        const pool = usable.length ? usable : field.options;
+        const chosen = pool.find((opt) => !usedOptionValues.has(opt.value || opt.label))
+          || pool[(index - 1) % pool.length];
+        if (chosen) {
+          const val = chosen.value || chosen.label;
+          usedOptionValues.add(val);
+          selectedByIndex.set(index, chosen.label || val);
+          secActions.push({
+            fieldId: field.id,
+            action: 'select',
+            value: val,
+            document: 'none',
+            evidence: 'account_security_question',
+          });
+        }
+      } else {
+        const baseAnswer = `LuganoTicino${index}`;
+        const maxLen = Number(field.maxLength) > 0 ? Number(field.maxLength) : baseAnswer.length;
+        const answerValue = baseAnswer.slice(0, maxLen);
+        typedSecrets?.add(answerValue);
+        securityQuestionAnswers.set(index, {
+          index,
+          question: selectedByIndex.get(index) || `Question ${index}`,
+          answer: answerValue,
+        });
+        secActions.push({
+          fieldId: field.id,
+          action: 'fill',
+          value: answerValue,
+          document: 'none',
+          evidence: 'account_security_question',
+        });
+      }
+    }
+    return {
+      ...planned,
+      actions: [...(planned.actions || []), ...secActions],
+    };
+  };
+
   snapshot = await refreshChoiceCatalogues(page, snapshot);
   const others = accountRegistrationSnapshot({ ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') });
   const candidate = account
     ? { ...ctx.candidate, identity: { ...ctx.candidate.identity, email: account.email } }
     : ctx.candidate;
-  const plan = await planPage({ snapshot: others, candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+  const plan = await planRegistrationWithSecurityQuestions(others);
   // Keep the account-form residence ownership contract on every reread. The
   // native extractor cannot always infer the personal-information owner from
   // an explicit residence caption alone, but losing this normalization after
@@ -9541,12 +9624,7 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
       if (stable.status !== 'stable') return { status: 'unstable', snapshot: stable.snapshot };
       const refreshed = await refreshChoiceCatalogues(page, stable.snapshot);
       const plannedSnapshot = accountRegistrationSnapshot(refreshed);
-      const planned = await planPage({
-        snapshot: { ...plannedSnapshot, fields: plannedSnapshot.fields.filter((field) => field.inputType !== 'password') },
-        candidate,
-        candidateLocale: ctx.candidateLocale,
-        codex: ctx.codex,
-      });
+      const planned = await planRegistrationWithSecurityQuestions(plannedSnapshot);
       // The planner can take minutes. Re-read immediately after it returns so
       // its plan cannot authorize a CTA on a surface that appeared meanwhile.
       const observedRaw = await extractFields(page, NAVIGATION).catch(() => null);
@@ -9633,7 +9711,12 @@ export async function handleAuth({ page, snapshot, ctx, allowExistingRegistratio
     // Do not persist a fresh credential while the stable surface is still
     // asking the candidate questions: a question request must not leave
     // save/discard residue.
-    await ctx.accounts.save(host, { email: candidate.identity.email, password });
+    const securityQuestions = [...securityQuestionAnswers.values()].sort((a, b) => a.index - b.index);
+    await ctx.accounts.save(host, {
+      email: candidate.identity.email,
+      password,
+      ...(securityQuestions.length ? { securityQuestions } : {}),
+    });
     credentialSaved = true;
   };
   if (retryingUnverifiedAccount) {
@@ -12063,10 +12146,16 @@ export async function submitViaPortal(ctx) {
       const agent = existingAgent || await runAgent(current, hint);
       let currentSnapshot = await extractFields(page, NAVIGATION).catch(() => current);
       if (page.url() !== sourceUrl) {
+        await settle(page);
+        currentSnapshot = await extractFields(page, NAVIGATION).catch(() => currentSnapshot);
         const cookies = await resolveCookieConsent(page, currentSnapshot, { agent: cookieAgent });
         currentSnapshot = cookies.snapshot || currentSnapshot;
-        if (!currentSnapshot?.fields?.length && !currentSnapshot?.buttons?.length) {
+        if (!currentSnapshot?.fields?.length && authPageKind(currentSnapshot) === 'none') {
           currentSnapshot = await awaitFields(page, currentSnapshot);
+          if (!cookies.dismissed) {
+            const afterMountCookies = await resolveCookieConsent(page, currentSnapshot, { agent: cookieAgent });
+            currentSnapshot = afterMountCookies.snapshot || currentSnapshot;
+          }
         }
       }
       const receipt = await confirmedReceipt(currentSnapshot);
@@ -12123,7 +12212,11 @@ export async function submitViaPortal(ctx) {
       }
       if (agent.status === 'PARKED') {
         const destinationBound = isWorkdayJobRouteBound(page.url(), ctx.applyUrl) || await formMatch() === 'match';
-        if (page.url() !== sourceUrl && destinationBound && (hasApplicationForm(currentSnapshot) || authPageKind(currentSnapshot) !== 'none')) {
+        const stepForm = !isNonApplicationSurface(currentSnapshot)
+          && Array.isArray(currentSnapshot?.fields)
+          && currentSnapshot.fields.some(isApplicationOwnedPortalField)
+          && Boolean(findButton(currentSnapshot?.buttons || [], NEXT_RE) || findButton(currentSnapshot?.buttons || [], SUBMIT_RE));
+        if (page.url() !== sourceUrl && destinationBound && (hasApplicationForm(currentSnapshot) || stepForm || authPageKind(currentSnapshot) !== 'none')) {
           pageEpoch += 1;
           snapshot = currentSnapshot;
           return { status: 'REACHED_FORM', snapshot: currentSnapshot, moved: true };
