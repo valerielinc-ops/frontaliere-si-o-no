@@ -10,6 +10,8 @@ import {
   queryLindasWithRetry,
   registryNameKey,
   collectUnmatchedCacheLookups,
+  jobPostalCodeCoverage,
+  assertRetryJobPostalCodeCoverage,
   sameLocality,
 } from '../../scripts/refresh-jobposting-address-cache.mjs';
 import { JOBPOSTING_ADDRESS_CACHE_TTL_MS } from '../../scripts/lib/jobposting-address-cache.mjs';
@@ -269,6 +271,43 @@ describe('Zefix LINDAS JobPosting address refresh', () => {
     }]);
     expect(collectLookups([{ ...olderJob, postalCode: '' }], entries, now, 1, { retryUnmatchedCache: true }))
       .toEqual([]);
+  });
+
+  it('measures complete inventory postcode coverage and fails closed before retrying an incomplete inventory', () => {
+    expect(jobPostalCodeCoverage([
+      { postalCode: '6900' },
+      { postalCode: '12345' },
+    ])).toEqual({ withPostal: 2, total: 2, coverage: 1 });
+    expect(jobPostalCodeCoverage([
+      { postalCode: '6900' },
+      { postalCode: '' },
+      { postalCode: '69' },
+    ])).toEqual({ withPostal: 1, total: 3, coverage: 1 / 3 });
+    expect(jobPostalCodeCoverage([])).toEqual({ withPostal: 0, total: 0, coverage: 0 });
+
+    expect(() => assertRetryJobPostalCodeCoverage([
+      { company: 'Cached Company AG', postalCode: '' },
+    ])).toThrow(/postcode coverage is 0\/1 \(0\)/);
+  });
+
+  it('does not retry a cache record when the active inventory has ambiguous postcodes', () => {
+    const now = Date.now();
+    const key = 'cached company|lugano|TI';
+    const entries = {
+      [key]: {
+        status: 'not-found',
+        companyName: 'Cached Company AG',
+        addressLocality: 'Lugano',
+        addressRegion: 'TI',
+        checkedAt: new Date(now - 10_000).toISOString(),
+      },
+    };
+    const jobs = [
+      { company: 'Cached Company AG', city: 'Lugano', canton: 'TI', postalCode: '6900' },
+      { company: 'Cached Company AG', city: 'Lugano', canton: 'TI', postalCode: '6901' },
+    ];
+
+    expect(collectLookups(jobs, entries, now, 10, { retryUnmatchedCache: true })).toEqual([]);
   });
 
   it('retries only cached unmatched records and matches with their cached postcode', async () => {

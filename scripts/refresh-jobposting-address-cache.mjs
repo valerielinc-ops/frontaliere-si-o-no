@@ -30,6 +30,7 @@ const QUERY_TIMEOUT_MS = 60_000;
 const QUERY_MAX_ATTEMPTS = 4;
 const QUERY_RETRY_DELAYS_MS = [1_000, 2_000, 4_000];
 const BETWEEN_BATCH_DELAY_MS = 1_000;
+const JOB_POSTAL_CODE_RE = /^\d{4,5}$/;
 
 const LEGAL_FORM_SUFFIXES = new Set([
   'ag', 'sa', 'gmbh', 'sarl', 'sagl', 'ltd', 'limited', 'inc', 'incorporated',
@@ -179,22 +180,47 @@ function sameLocality(left, right, region) {
   return localityKey(left, region) === requestLocalityKey(right, region);
 }
 
+function jobPostalCodeCoverage(jobs) {
+  const inventory = Array.isArray(jobs) ? jobs : [];
+  const withPostal = inventory.filter((job) => (
+    JOB_POSTAL_CODE_RE.test(String(job?.postalCode ?? '').trim())
+  )).length;
+  return {
+    withPostal,
+    total: inventory.length,
+    coverage: inventory.length ? withPostal / inventory.length : 0,
+  };
+}
+
+function assertRetryJobPostalCodeCoverage(jobs) {
+  const coverage = jobPostalCodeCoverage(jobs);
+  if (coverage.total === 0 || coverage.withPostal !== coverage.total) {
+    throw new Error(
+      'Cannot retry unmatched JobPosting addresses: active inventory postcode coverage is '
+      + `${coverage.withPostal}/${coverage.total} (${coverage.coverage}); refusing an unverified retry.`,
+    );
+  }
+  return coverage;
+}
+
 /** Select active job lookups, or only non-matched cache records in retry mode. */
 function collectLookups(jobs, entries, now, limit, { retryUnmatchedCache = false, offset = 0 } = {}) {
   if (retryUnmatchedCache) {
     const cacheRequests = unmatchedCacheLookupCandidates(entries);
     const inventoryPostalCodes = jobPostalCodeMap(jobs, cacheRequests);
     const eligibleRequests = cacheRequests.map((request) => {
-      const cachedPostalCode = /^\d{4,5}$/.test(request.jobPostalCode) ? request.jobPostalCode : '';
+      const cachedPostalCode = JOB_POSTAL_CODE_RE.test(request.jobPostalCode) ? request.jobPostalCode : '';
       const currentPostalCodes = inventoryPostalCodes.get(request.key) || new Set();
       return {
         ...request,
         jobPostalCode: cachedPostalCode || (currentPostalCodes.size === 1 ? [...currentPostalCodes][0] : ''),
       };
-    }).filter((request) => (
-      /^\d{4,5}$/.test(request.jobPostalCode)
-      || (inventoryPostalCodes.get(request.key)?.size || 0) > 0
-    ));
+    }).filter((request) => {
+      if (!JOB_POSTAL_CODE_RE.test(request.jobPostalCode)) return false;
+      const currentPostalCodes = inventoryPostalCodes.get(request.key) || new Set();
+      return currentPostalCodes.size === 0
+        || (currentPostalCodes.size === 1 && currentPostalCodes.has(request.jobPostalCode));
+    });
     return eligibleRequests.slice(offset, offset + limit);
   }
 
@@ -428,7 +454,7 @@ function jobPostalCodeMap(jobs, requests) {
       job?.addressRegion || job?.canton,
     );
     const postalCode = String(job?.postalCode || '').trim();
-    if (!requestedKeys.has(key) || !/^\d{4,5}$/.test(postalCode)) continue;
+    if (!requestedKeys.has(key) || !JOB_POSTAL_CODE_RE.test(postalCode)) continue;
     const values = result.get(key) || new Set();
     values.add(postalCode);
     result.set(key, values);
@@ -440,7 +466,7 @@ function cacheJobPostalCodeMap(requests) {
   const result = new Map();
   for (const request of requests) {
     const postalCode = String(request.jobPostalCode || '').trim();
-    if (/^\d{4,5}$/.test(postalCode)) result.set(request.key, new Set([postalCode]));
+    if (JOB_POSTAL_CODE_RE.test(postalCode)) result.set(request.key, new Set([postalCode]));
   }
   return result;
 }
@@ -464,7 +490,7 @@ function cacheEntry(request, outcome, checkedAt, jobPostalCode = '') {
     companyName: request.companyName,
     ...(outcome.address || {}),
     ...(outcome.status === 'matched' ? { streetAddressSource: 'zefix-registry' } : {}),
-    ...(/^\d{4,5}$/.test(String(jobPostalCode ?? '').trim())
+    ...(JOB_POSTAL_CODE_RE.test(String(jobPostalCode ?? '').trim())
       ? { jobPostalCode: String(jobPostalCode).trim() }
       : {}),
     addressLocality: request.locality,
@@ -524,16 +550,14 @@ async function processLookupBatches(requests, {
     for (const request of batch) {
       const previous = nextEntries[request.key];
       const requestPostalCodes = postalCodes.get(request.key) || new Set();
+      if (request.requirePostalCodeForMatch && requestPostalCodes.size !== 1) continue;
       const outcome = matchAddress(request, bindingsIndex, requestPostalCodes);
-      const canVerifyRequiredPostalCode = !request.requirePostalCodeForMatch
-        || requestPostalCodes.size > 0;
       const jobPostalCode = requestPostalCodes.size === 1
         ? [...requestPostalCodes][0]
         : requestPostalCodes.size === 0 ? request.jobPostalCode : '';
       // A stale match remains usable until a complete, verified replacement
       // exists. A cache-only retry without the original job postcode cannot
       // establish that the registry address belongs to the posting.
-      if (outcome.status === 'matched' && !canVerifyRequiredPostalCode) continue;
       if (previous?.status !== 'matched' || outcome.status === 'matched') {
         nextEntries[request.key] = cacheEntry(request, outcome, timestamp, jobPostalCode);
       }
@@ -569,10 +593,14 @@ async function main({ args = process.argv.slice(2) } = {}) {
   const cacheEntries = readJobpostingAddressCache({ root: ROOT, filePath: CACHE_PATH });
   const now = Date.now();
   const jobs = loadJobs();
+  const postalCodeCoverage = retryUnmatchedCache
+    ? assertRetryJobPostalCodeCoverage(jobs)
+    : jobPostalCodeCoverage(jobs);
   const requests = collectLookups(jobs, cacheEntries, now, limit, { retryUnmatchedCache, offset });
   if (dryRun) {
     console.log(JSON.stringify({
       jobs: jobs.length,
+      jobPostalCodeCoverage: postalCodeCoverage,
       uncachedLookups: requests.length,
       localityBatches: buildLocationBatches(requests).length,
       limit,
@@ -591,6 +619,7 @@ async function main({ args = process.argv.slice(2) } = {}) {
       notFound: 0,
       ambiguous: 0,
       failedBatches: 0,
+      jobPostalCodeCoverage: postalCodeCoverage,
       cache: path.relative(ROOT, CACHE_PATH),
     }, null, 2));
     return;
@@ -609,7 +638,11 @@ async function main({ args = process.argv.slice(2) } = {}) {
         entries,
       }),
     });
-    console.log(JSON.stringify({ ...result.summary, cache: path.relative(ROOT, CACHE_PATH) }, null, 2));
+    console.log(JSON.stringify({
+      ...result.summary,
+      jobPostalCodeCoverage: postalCodeCoverage,
+      cache: path.relative(ROOT, CACHE_PATH),
+    }, null, 2));
     return result.summary;
   });
   if (!lock.acquired) throw new Error('A Zefix/LINDAS address refresh is already running; no request was sent.');
@@ -624,7 +657,9 @@ export {
   cacheJobPostalCodeMap,
   collectLookups,
   collectUnmatchedCacheLookups,
+  jobPostalCodeCoverage,
   jobPostalCodeMap,
+  assertRetryJobPostalCodeCoverage,
   mergeJobPostalCodeMaps,
   matchAddress,
   processLookupBatches,
