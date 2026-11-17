@@ -3180,6 +3180,11 @@ const COOKIE_DISMISS_RE = /^(?:schlie(?:ß|ss)en|close|dismiss|chiudi|fermer|cer
 const normalizeCookieText = value => String(value || '').replace(/\s+/g, ' ').trim();
 const cookieControlLabel = (button) => [button?.text, button?.label, button?.ariaLabel, button?.title]
   .map(value => String(value || '').trim()).find(Boolean) || '';
+const cookieChoiceCompanion = (buttonLabel, candidateLabel) => {
+  if (COOKIE_DISMISS_RE.test(candidateLabel)) return true;
+  return (COOKIE_ACCEPT_RE.test(buttonLabel) && COOKIE_REJECT_RE.test(candidateLabel))
+    || (COOKIE_REJECT_RE.test(buttonLabel) && COOKIE_ACCEPT_RE.test(candidateLabel));
+};
 const escapeRegex = value => String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 const cookieSupportingContext = (button) => {
   const ownLabels = [button.text, button.label, button.title, button.ariaLabel]
@@ -3279,12 +3284,10 @@ async function isPageCookieConsentControl(page, snapshot, button) {
   if (button.disabled || button.dialog || !isCookieChoice) return false;
   const frame = Number(button.frame) || 0;
   const closeControls = (snapshot?.buttons || []).filter(candidate => (Number(candidate.frame) || 0) === frame
-    && String(candidate.id || '') !== String(button.id || '')
+    && candidate !== button
+    && !(candidate.id && button.id && String(candidate.id) === String(button.id))
     && !candidate.disabled
-    && (COOKIE_DISMISS_RE.test(cookieControlLabel(candidate))
-      || COOKIE_ACCEPT_RE.test(cookieControlLabel(candidate))
-      || COOKIE_REJECT_RE.test(cookieControlLabel(candidate))
-      || COOKIE_SAVE_RE.test(cookieControlLabel(candidate))));
+    && cookieChoiceCompanion(label, cookieControlLabel(candidate)));
   if (!closeControls.length) return false;
   const frames = typeof page?.frames === 'function' ? page.frames() : [];
   const ownerFrame = frames[frame]
