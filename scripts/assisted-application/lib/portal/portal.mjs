@@ -33,6 +33,7 @@ import path from 'node:path';
 import { browserEngine, isStealthBrowser, launchStealthOrChromium } from '../../../lib/stealth-browser.mjs';
 import { challengeState, passChallenge } from '../../../lib/challenge-pass.mjs';
 import { applicationDestinationDiversionHint, applicationDiversionHint, applicationReceipt, applicationStage, gravityFormsSubmissionOutcome, inPageApplicationOpeners, isApplicationRegionUnsupported, portalJobKey } from './stages.mjs';
+import { BRASSRING_HOME_WITH_PRELOAD_RE, isBrassRingPrivacyGateText, sameBrassRingPostingAddress } from './brass-ring-route.mjs';
 import { COVER_LETTER_DOCUMENT_CONTEXT_RE, COVER_LETTER_DOCUMENT_TERMS, CV_DOCUMENT_CONTEXT_RE, CV_DOCUMENT_TERMS } from './document-labels.mjs';
 import { advancedToFinalReview } from './final-review.mjs';
 export { advancedToFinalReview } from './final-review.mjs';
@@ -1992,57 +1993,6 @@ function samePortalRoute(one, other, base = '') {
   const right = comparablePortalRoute(other, base);
   return Boolean(left && right && left.origin === right.origin
     && left.pathname === right.pathname && left.search === right.search);
-}
-
-const BRASSRING_HOME_WITH_PRELOAD_RE = /^\/tgnewui\/search\/home\/homewithpreload\/?$/i;
-
-/** BrassRing may canonicalize siteid, param case, and query order on its detail route. */
-function brassRingQueryParams(url) {
-  const params = new Map();
-  const duplicateIdentityKeys = new Set();
-  for (const [key, value] of url.searchParams.entries()) {
-    const normalizedKey = String(key || '').toLowerCase();
-    if (params.has(normalizedKey)) {
-      if (normalizedKey === 'jobid' || normalizedKey === 'partnerid') duplicateIdentityKeys.add(normalizedKey);
-      continue;
-    }
-    const normalizedValue = String(value || '').trim();
-    params.set(normalizedKey, normalizedKey === 'jobid' || normalizedKey === 'partnerid'
-      ? normalizedValue
-      : normalizedValue.toLowerCase());
-  }
-  return { params, duplicateIdentityKeys };
-}
-
-function sameBrassRingPostingAddress(firstUrl, secondUrl) {
-  try {
-    const first = new URL(String(firstUrl || ''));
-    const second = new URL(String(secondUrl || ''));
-    if (first.protocol !== 'https:' || second.protocol !== 'https:'
-      || first.origin !== 'https://jobs.ubs.com' || second.origin !== first.origin
-      || first.username || first.password || second.username || second.password
-      || !BRASSRING_HOME_WITH_PRELOAD_RE.test(first.pathname)
-      || !BRASSRING_HOME_WITH_PRELOAD_RE.test(second.pathname)
-      || first.pathname.replace(/\/+$/u, '').toLowerCase() !== second.pathname.replace(/\/+$/u, '').toLowerCase()) {
-      return false;
-    }
-    const firstQuery = brassRingQueryParams(first);
-    const secondQuery = brassRingQueryParams(second);
-    if (firstQuery.duplicateIdentityKeys.size || secondQuery.duplicateIdentityKeys.size) return false;
-    const firstParams = firstQuery.params;
-    const secondParams = secondQuery.params;
-    const firstJobId = firstParams.get('jobid') || '';
-    const secondJobId = secondParams.get('jobid') || '';
-    if (!firstJobId || firstJobId !== secondJobId) return false;
-    const firstPartner = firstParams.get('partnerid') || '';
-    const secondPartner = secondParams.get('partnerid') || '';
-    if ((firstPartner || secondPartner) && firstPartner !== secondPartner) return false;
-    const firstType = firstParams.get('pagetype') || 'jobdetails';
-    const secondType = secondParams.get('pagetype') || 'jobdetails';
-    return firstType === 'jobdetails' && secondType === 'jobdetails';
-  } catch {
-    return false;
-  }
 }
 
 const POSTING_ID_FIELDS = [
@@ -5709,6 +5659,12 @@ export function formPostingMatch(formText, job = {}, {
     ? currentPageUrl
     : currentPageUrl ? '' : String(formText || '').match(/https:\/\/[^\s"'<>]+/iu)?.[0]?.replace(/[),.;]+$/u, '') || '';
   const formPostingUrl = umantisFormPostingUrl(pageUrl, postingUrl);
+  const brassRingPrivacyGateForm = Boolean(
+    currentPageUrl
+      && isBrassRingPrivacyGateText(formText)
+      && (postingMatched || postingEntry || applicationEntry)
+      && sameBrassRingPostingAddress(currentPageUrl, formPostingUrl || postingUrl || applyUrl),
+  );
   const umantisPairPostingUrl = umantisFormPostingUrl(formApplicationUrl, postingUrl);
   const bound = isPostingRouteBound({ pageUrl, postingUrl: formPostingUrl, postingRouteProof });
   const talentSoftPageIdentity = talentSoftPostingIdentity(pageUrl);
@@ -5723,7 +5679,8 @@ export function formPostingMatch(formText, job = {}, {
   // inherit the old posting match after a diversion.
   const applicationEntryRouteBound = !applicationEntry
     || (Boolean(String(applicationEntryUrl || '').trim())
-      && samePostingAddress(pageUrl, applicationEntryUrl));
+      && (samePostingAddress(pageUrl, applicationEntryUrl)
+        || sameBrassRingPostingAddress(pageUrl, applicationEntryUrl)));
   const verifiedEntry = postingEntry || (applicationEntry && postingMatched && applicationEntryRouteBound);
   const roleOnlyPostingBound = postingEntry || (postingMatched && applicationEntryRouteBound);
   // A same-route employer form can prove the posting from the selected page
@@ -5732,7 +5689,8 @@ export function formPostingMatch(formText, job = {}, {
   // the separate employer/role conflict checks below.
   const postingLocationBound = bound || roleOnlyPostingBound;
   const verifiedApplicationEntryRoute = verifiedEntry && Boolean(applicationEntryUrl)
-    && samePostingAddress(pageUrl, applicationEntryUrl);
+    && (samePostingAddress(pageUrl, applicationEntryUrl)
+      || sameBrassRingPostingAddress(pageUrl, applicationEntryUrl));
   const verifiedEmployerFormRoute = verifiedApplicationEntryRoute
     && Boolean(String(pageUrl || '').trim() && String(postingUrl || paidPostingUrl || '').trim())
     && currentFormUrlCarriesEmployerHost(pageUrl, job);
@@ -5797,6 +5755,7 @@ export function formPostingMatch(formText, job = {}, {
   if (explicitRoleConflict && !trustedUmantisApplication
     && (direct === 'match' || (roleOnlyPostingBound && (postingEntry || Boolean(job.company))))) return 'mismatch';
   if (ambiguousBrandHeading && !verifiedFormBinding) return 'unknown';
+  if (brassRingPrivacyGateForm && roleHeading !== 'mismatch' && !headingConflict) return 'match';
   const sameBoundPosting = bound && samePostingAddress(pageUrl, formPostingUrl);
   const successFactorsBound = successFactorsRequisitionShown(postingEvidenceText, job, { pageUrl, applyUrl });
   if (headingConflict && !trustedUmantisApplication && !sameBoundPosting && !successFactorsBound) return 'mismatch';

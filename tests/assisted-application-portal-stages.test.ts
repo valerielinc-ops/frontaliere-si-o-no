@@ -62,6 +62,30 @@ describe('application stage ownership', () => {
     }).kind).not.toBe('application_start');
   });
 
+  it('recognizes the query-bound UBS privacy gate as an intermediate Agree step', () => {
+    const applyUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&PageType=JobDetails&jobid=42';
+    const agree = { id: 'agree', text: 'Agree', frame: 0, disabled: false };
+    const snapshot = {
+      url: `${applyUrl}#privacy`,
+      fields: [
+        { id: 'processing', kind: 'checkbox', inputType: 'checkbox', label: 'UBS processing your Personal Data in the context of your application as outlined above' },
+        { id: 'transfer', kind: 'checkbox', inputType: 'checkbox', label: 'The cross-border transfer of your Personal Data to above mentioned service providers to carry out the purpose of recruit' },
+        { id: 'notice', kind: 'radio', inputType: 'radio', label: 'Thank you for your interest in a job at UBS Note: You must AGREE to proceed.' },
+      ],
+      buttons: [agree],
+      text: 'UBS processing your Personal Data in the context of your application as outlined above The cross-border transfer of your Personal Data to above mentioned service providers to carry out the purpose of recruit Thank you for your interest in a job at UBS Note: You must AGREE to proceed.',
+    };
+    const context = { applyUrl, brassRingApplicationEntryProven: true, job: { company: 'UBS', title: 'Infrastructure Strategy Manager' } };
+
+    expect(applicationStage(snapshot, context)).toMatchObject({ kind: 'application_start', control: agree });
+    expect(pageControls(snapshot.buttons, known, snapshot.url, { snapshot, ...context }))
+      .toMatchObject({ submit: null, next: agree, stage: { kind: 'application_start' } });
+    expect(applicationStage({ ...snapshot, url: applyUrl.replace('jobid=42', 'jobid=43') }, context).kind)
+      .not.toBe('application_start');
+    expect(applicationStage(snapshot, { ...context, brassRingApplicationEntryProven: false }).kind)
+      .not.toBe('application_start');
+  });
+
   it.each([
     'Introduce yourself',
     'Initiativbewerbung',
