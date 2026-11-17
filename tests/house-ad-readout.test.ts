@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
-  summarizeHouseFallbacks, summarizeHouseOrders, summarizeHouseTraffic, summarizeHouseTrafficTotals, summarizeReaderSubscriptionPurchases,
+  summarizeAdFailureBreakdown, summarizeHouseFallbacks, summarizeHouseOrders, summarizeHouseTraffic, summarizeHouseTrafficTotals, summarizeReaderSubscriptionPurchases,
   summarizeReaderSubscriptionResults, summarizeReaderSubscriptionTraffic,
 } from '../scripts/analytics/house-ad-readout.mjs';
 
@@ -66,6 +66,21 @@ describe('house creative readout', () => {
       expect.objectContaining({ reason: 'ads_consent_denied', creative: 'reader_subscription_house_v1.subscription.test.it', surface: 'mobile_banner.article-inline', device: 'mobile', events: 4, uniqueUsers: 4 }),
     ]);
     expect(() => summarizeHouseFallbacks({ rowCount: 0, rows: [], metadata: { subjectToThresholding: true } })).toThrow('thresholding');
+  });
+  it('breaks ad failures down by reason, page template and device without accepting incomplete GA4 rows', () => {
+    const row = (event: string, reason: string, pageTemplate: string, device: string, events: number, users: number) => ({
+      dimensionValues: [event, reason, pageTemplate, device].map(value => ({ value })),
+      metricValues: [{ value: String(events) }, { value: String(users) }],
+    });
+    expect(summarizeAdFailureBreakdown({ rowCount: 3, rows: [
+      row('ad_unavailable', 'script_failed', 'job_detail', 'mobile', 16, 12),
+      row('ad_unfilled', '(not set)', 'article_detail', 'desktop', 7, 6),
+      row('ad_script_state', '(not set)', '(not set)', 'desktop', 200, 80),
+    ] })).toEqual([
+      expect.objectContaining({ event: 'ad_unavailable', reason: 'script_failed', pageTemplate: 'job_detail', device: 'mobile', events: 16, uniqueUsers: 12 }),
+      expect.objectContaining({ event: 'ad_unfilled', reason: '(not set)', pageTemplate: 'article_detail', device: 'desktop', events: 7, uniqueUsers: 6 }),
+    ]);
+    expect(() => summarizeAdFailureBreakdown({ rows: [], metadata: { subjectToThresholding: true } })).toThrow('thresholding');
   });
   it('rejects aggregate totals that GA4 says are thresholded or merged into Other', () => {
     expect(() => summarizeHouseTraffic({ rows: [], metadata: { subjectToThresholding: true } })).toThrow('thresholding');

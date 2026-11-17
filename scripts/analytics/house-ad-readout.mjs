@@ -80,6 +80,20 @@ export function summarizeAdReliability(response) {
   }).sort((a, b) => b.events - a.events);
 }
 
+export function summarizeAdFailureBreakdown(response) {
+  assertCompleteGa4Report(response);
+  return (response?.rows || []).map(row => {
+    const [event, reason, pageTemplate, device] = (row.dimensionValues || []).map(value => value?.value || '(not set)');
+    return {
+      event: event || '(not set)', reason: reason || '(not set)',
+      pageTemplate: pageTemplate || '(not set)', device: device || '(not set)',
+      events: Number(row.metricValues?.[0]?.value || 0),
+      uniqueUsers: Number(row.metricValues?.[1]?.value || 0),
+    };
+  }).filter(row => row.reason !== '(not set)' || row.pageTemplate !== '(not set)')
+    .sort((a, b) => b.events - a.events);
+}
+
 export function summarizeHouseOrders(services, startMs, endMs) {
   const groups = new Map();
   for (const service of services) {
@@ -243,6 +257,19 @@ export async function runHouseAdReadout(argv = process.argv.slice(2)) {
     ] } } },
     limit: 10000,
   } });
+  const adFailureTraffic = await runGa4Report({ token, body: {
+    dateRanges: [{ startDate: window.start, endDate: window.end }],
+    dimensions: [
+      { name: 'eventName' }, { name: 'customEvent:reason' },
+      { name: 'customEvent:page_template' }, { name: 'deviceCategory' },
+    ],
+    metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
+    dimensionFilter: { filter: { fieldName: 'eventName', inListFilter: { values: [
+      'ad_unavailable', 'ad_unfilled', 'ad_slot_error',
+      'ad_script_state', 'ad_recovery_outcome',
+    ] } } },
+    limit: 10000,
+  } });
   const { initializeApp, applicationDefault, deleteApp } = await import('firebase-admin/app');
   const { getFirestore, Timestamp } = await import('firebase-admin/firestore');
   const app = initializeApp({ credential: applicationDefault(), projectId: 'frontaliere-ticino' }, 'house-ad-readout');
@@ -273,8 +300,9 @@ export async function runHouseAdReadout(argv = process.argv.slice(2)) {
       trafficTotals: summarizeHouseTrafficTotals(trafficTotals), traffic: summarizeHouseTraffic(traffic), orderCohorts: summarizeHouseOrders(services, startMs, endMs),
       fallbackReasons: summarizeHouseFallbacks(fallbackTraffic),
       adReliability: summarizeAdReliability(reliabilityTraffic),
+      adFailureBreakdown: summarizeAdFailureBreakdown(adFailureTraffic),
       readerSubscriptionResults: summarizeReaderSubscriptionResults(readerSubscriptionTraffic, readerSubscriptionPurchases),
-      caveats: ['house_creatives_v1 is the legacy browser-hash split; compare job-search creatives within currentExperimentId only.', 'CTR uses observed GA4 event counts; unique user fields use GA4 totalUsers and include only users whose Analytics measurement is available.', 'Fallback reason and reliability rows break down observed events; uniqueUsers are per row and must not be added across placements or states.', 'The report fails closed when GA4 marks rows truncated, merged into Other, or subject to thresholding.', 'Job-search purchases use verified paymentStatus=paid and paidAt in the service ledger; refunds remain separate.', 'Reader subscription conversion uses Stripe firstPaidAt and only Firebase Remote Config enrolled attribution; exposure event counts approximate observed sessions, while unique users are reported separately. Do not declare statistical winners from short samples.'],
+      caveats: ['house_creatives_v1 is the legacy browser-hash split; compare job-search creatives within currentExperimentId only.', 'CTR uses observed GA4 event counts; unique user fields use GA4 totalUsers and include only users whose Analytics measurement is available.', 'Fallback reason and reliability rows describe observed events; uniqueUsers are per row and must not be added across placements, reasons, or states.', 'The failure breakdown uses registered GA4 reason and page_template dimensions and includes rows where at least one is set; unclassified states remain in adReliability.', 'The report fails closed when GA4 marks rows truncated, merged into Other, or subject to thresholding.', 'Job-search purchases use verified paymentStatus=paid and paidAt in the service ledger; refunds remain separate.', 'Reader subscription conversion uses Stripe firstPaidAt and only Firebase Remote Config enrolled attribution; exposure event counts approximate observed sessions, while unique users are reported separately. Do not declare statistical winners from short samples.'],
     }, null, 2));
   } finally { await deleteApp(app); }
 }
