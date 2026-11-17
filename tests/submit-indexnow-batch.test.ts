@@ -327,6 +327,115 @@ describe('tiered post-deploy IndexNow submission', () => {
     expect(logs.mock.calls.some(([value]) => String(value).includes('movedIn=0 movedOut=0'))).toBe(true);
   });
 
+  it('finishes every value tier before spending the remaining budget on addedArchive last', async () => {
+    const addedUrl = `${BASE}ricerca/added/`;
+    const removedUrl = `${BASE}ricerca/removed/`;
+    const movedIntoArchiveUrl = `${BASE}annunci/moved-into-archive/`;
+    const movedOutOfArchiveUrl = `${BASE}annunci/moved-out-of-archive/`;
+    const lastmodUrl = `${BASE}ricerca/lastmod/`;
+    const digestUrl = `${BASE}temi/digest/`;
+    const archiveUrls = Array.from({ length: 600 }, (_, index) =>
+      `${BASE}annunci/expired-added-${String(index).padStart(3, '0')}/`);
+    const archiveUrlSet = new Set(archiveUrls);
+    const currentLastmod = new Date().toISOString();
+    const previousLastmod = new Date(Date.now() - 24 * 60 * 60 * 1_000).toISOString();
+    const current = {
+      ...snapshot(
+        {
+          'sitemap-added.xml': [addedUrl],
+          'sitemap-removed.xml': [],
+          'sitemap-jobs-expired-010.xml': [movedIntoArchiveUrl, ...archiveUrls],
+          'sitemap-jobs-active.xml': [movedOutOfArchiveUrl],
+          'sitemap-lastmod.xml': [lastmodUrl],
+          'sitemap-topics-it.xml': [digestUrl],
+        },
+        {
+          'sitemap-added.xml': 'added-same',
+          'sitemap-removed.xml': 'removed-same',
+          'sitemap-jobs-expired-010.xml': 'expired-current',
+          'sitemap-jobs-active.xml': 'active-current',
+          'sitemap-lastmod.xml': 'lastmod-same',
+          'sitemap-topics-it.xml': 'topics-current',
+        },
+      ),
+      perSitemapLastmod: { 'sitemap-lastmod.xml': { [lastmodUrl]: currentLastmod } },
+    };
+    const previous = {
+      ...snapshot(
+        {
+          'sitemap-added.xml': [],
+          'sitemap-removed.xml': [removedUrl],
+          'sitemap-jobs-expired-011.xml': [movedOutOfArchiveUrl],
+          'sitemap-jobs-active.xml': [movedIntoArchiveUrl],
+          'sitemap-lastmod.xml': [lastmodUrl],
+          'sitemap-topics-it.xml': [digestUrl],
+        },
+        {
+          'sitemap-added.xml': 'added-same',
+          'sitemap-removed.xml': 'removed-same',
+          'sitemap-jobs-expired-011.xml': 'expired-previous',
+          'sitemap-jobs-active.xml': 'active-previous',
+          'sitemap-lastmod.xml': 'lastmod-same',
+          'sitemap-topics-it.xml': 'topics-previous',
+        },
+      ),
+      perSitemapLastmod: { 'sitemap-lastmod.xml': { [lastmodUrl]: previousLastmod } },
+    };
+    const summaryFile = createSummaryFile();
+    vi.stubEnv('GITHUB_STEP_SUMMARY', summaryFile);
+    vi.stubEnv('INDEXNOW_BUDGET_MS', '700');
+    vi.stubEnv('BING_API_KEY', '');
+    let fakeNow = Date.now();
+    vi.spyOn(Date, 'now').mockImplementation(() => fakeNow);
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input) === KEY_LOCATION) return new Response(INDEXNOW_KEY, { status: 200 });
+      if (init?.method === 'POST') fakeNow += 100;
+      return new Response(null, { status: init?.method === 'POST' ? 202 : 200 });
+    });
+    vi.stubGlobal('fetch', fetchMock);
+    const logs = vi.spyOn(console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    const exitCode = await runSubmitToIndexNow({ current, previous });
+
+    const submittedBatches = fetchMock.mock.calls
+      .filter(([, init]) => init?.method === 'POST')
+      .map(([, init]) => JSON.parse(String(init?.body)).urlList as string[]);
+    expect(exitCode).toBe(1);
+    expect(submittedBatches).toHaveLength(7);
+    expect(submittedBatches.slice(0, 6).flat()).toEqual([
+      addedUrl,
+      removedUrl,
+      movedIntoArchiveUrl,
+      movedOutOfArchiveUrl,
+      lastmodUrl,
+      digestUrl,
+    ]);
+    expect(submittedBatches.slice(0, 6).flat().some((url) => archiveUrlSet.has(url))).toBe(false);
+    expect(submittedBatches[6]).toEqual(archiveUrls.slice(0, 500));
+    expect(submittedBatches[6].every((url) => archiveUrlSet.has(url))).toBe(true);
+    expect(parseSummaryLog(logs)).toMatchObject({
+      graph: 605,
+      added: 1,
+      addedArchive: 600,
+      removed: 1,
+      movedIntoArchive: 1,
+      movedOutOfArchive: 1,
+      lastmod: 1,
+      digest: 1,
+      suppressedArchiveDigest: { sitemaps: 1, urls: 0 },
+      accepted: 506,
+      failed: 0,
+      notAttempted: 100,
+      remaining: 100,
+      stoppedByDeadline: true,
+      elapsedMs: 700,
+    });
+    expect(fs.readFileSync(summaryFile, 'utf8')).toContain('| Added archive | 600 |');
+    expect(logs.mock.calls.some(([value]) => String(value).includes('addedArchive=600'))).toBe(true);
+    expect(logs.mock.calls.some(([value]) => String(value).includes('IndexNow addedArchive: 500/600 URL'))).toBe(true);
+  });
+
   it('sends active-to-archive moves before a non-archive digest tier', async () => {
     const movedUrl = `${BASE}annunci/scaduto/`;
     const digestUrl = `${BASE}temi/digest/`;

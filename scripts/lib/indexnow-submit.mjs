@@ -85,9 +85,16 @@ export async function submitIndexNowBatch(endpoint, urlBatch, attempt = 1, { dea
   });
   const retry = async () => {
     if (attempt > MAX_RETRIES) return null;
-    const waitMs = Number.isFinite(deadlineMs)
-      ? Math.min(1000 * attempt, Math.max(0, deadlineMs - Date.now()))
-      : 1000 * attempt;
+    const backoffMs = 1000 * attempt;
+    const remainingMs = Number.isFinite(deadlineMs) ? deadlineMs - Date.now() : null;
+    // Do not sleep until the deadline and then race the clock before the
+    // recursive call. A timer may fire a few milliseconds early, which used to
+    // start one more POST even though its backoff had already consumed the
+    // whole remaining budget.
+    if (Number.isFinite(remainingMs) && remainingMs <= backoffMs) return deadlineResult();
+    const waitMs = Number.isFinite(remainingMs)
+      ? Math.min(backoffMs, Math.max(0, remainingMs))
+      : backoffMs;
     if (waitMs > 0) await sleep(waitMs);
     if (Number.isFinite(deadlineMs) && Date.now() >= deadlineMs) return deadlineResult();
     return submitIndexNowBatch(endpoint, urlBatch, attempt + 1, { deadlineMs });
