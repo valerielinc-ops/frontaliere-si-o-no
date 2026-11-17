@@ -35,10 +35,11 @@
 
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { describe, it, expect, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import { render, cleanup, act } from '@testing-library/react';
 import { ADSENSE_LOADER_CONTENT, FC_CONSENT_BRIDGE_JS, FC_ENSURE_JS } from '@/build-plugins/constants';
 import {
+  ADS_CMP_SHOWN_EVENT,
   ADS_CONSENT_STORAGE_KEY,
   ADS_CONSENT_GRANTED,
   ADS_CONSENT_DENIED,
@@ -127,10 +128,10 @@ function runIndexHtmlFcLoader(): void {
 
 // ── CMP simulation helpers ──────────────────────────────────────────────
 //
-// The bridge registers `{ CONSENT_DATA_READY }` on googlefc.callbackQueue and
-// then reads TCF state via `__tcfapi('addEventListener')`. Funding Choices
-// itself never runs in jsdom, so tests drain the queue by hand after
-// installing a scripted `__tcfapi` — the same call order FC produces.
+// The bridge registers `{ CONSENT_API_READY }` to observe TCF UI state before
+// a user acts and `{ CONSENT_DATA_READY }` for non-TCF traffic. Funding Choices
+// itself never runs in jsdom, so tests drain the queue by hand after installing
+// a scripted `__tcfapi` — the same call order FC documents.
 
 type TcData = {
   eventStatus?: string;
@@ -173,9 +174,11 @@ function showCmpUi(): void {
 
 function drainFcCallbackQueue(): void {
   const q = (window as unknown as { googlefc?: { callbackQueue?: unknown[] } }).googlefc?.callbackQueue ?? [];
-  for (const item of q) {
-    const entry = item as { CONSENT_DATA_READY?: () => void };
-    if (typeof entry?.CONSENT_DATA_READY === 'function') entry.CONSENT_DATA_READY();
+  for (const key of ['CONSENT_API_READY', 'CONSENT_DATA_READY'] as const) {
+    for (const item of q) {
+      const entry = item as Partial<Record<typeof key, () => void>>;
+      if (typeof entry?.[key] === 'function') entry[key]!();
+    }
   }
 }
 
@@ -503,10 +506,14 @@ describe('ads-consent gate — CMP → gate bridge', () => {
   });
 
   it('writes NOTHING while the CMP UI is still open (cmpuishown) — the gate stays fail-closed', () => {
+    const cmpShown = vi.fn();
+    window.addEventListener(ADS_CMP_SHOWN_EVENT, cmpShown);
     runBridge();
     installTcfapi({ eventStatus: 'cmpuishown', gdprApplies: true });
     drainFcCallbackQueue();
     expect(localStorage.getItem(ADS_CONSENT_STORAGE_KEY)).toBeNull();
+    expect(cmpShown).toHaveBeenCalledOnce();
+    window.removeEventListener(ADS_CMP_SHOWN_EVENT, cmpShown);
   });
 
   it('writes NOTHING when the TCF call reports failure', () => {
@@ -650,8 +657,7 @@ describe('verified CMP decision with unavailable persistence', () => {
       callback({ eventStatus: 'useractioncomplete', gdprApplies: true, purpose: { consents: { 1: true } } }, true);
     };
     runBridge();
-    const queue = (window as any).googlefc.callbackQueue;
-    queue.find((entry: any) => typeof entry.CONSENT_DATA_READY === 'function').CONSENT_DATA_READY();
+    drainFcCallbackQueue();
     expect(getAdsConsent()).toBe('granted');
     runStaticLoader();
     expect(document.querySelector(ADSENSE_SELECTOR)).not.toBeNull();

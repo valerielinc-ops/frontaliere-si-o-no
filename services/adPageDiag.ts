@@ -33,6 +33,7 @@
  * That share is the check against the gate misclassifying real mobile readers.
  */
 import {
+  ADS_CMP_SHOWN_EVENT,
   ADS_CONSENT_DENIED,
   ADS_CONSENT_GRANTED,
   ADS_CONSENT_STORAGE_KEY,
@@ -327,6 +328,13 @@ export function startAdPageDiag(pathname?: string, options: StartAdPageDiagOptio
     cleanups.push(onAdsConsentChange(() => {
       state.cmp = 1;
     }));
+    // TCF is authoritative when Funding Choices renders its UI outside the
+    // body-level root selector used as the DOM fallback.
+    const onCmpShown = () => {
+      state.cmp = 1;
+    };
+    win.addEventListener(ADS_CMP_SHOWN_EVENT, onCmpShown);
+    cleanups.push(() => win.removeEventListener(ADS_CMP_SHOWN_EVENT, onCmpShown));
 
     const handle: AdPageDiagHandle = {
       path,
