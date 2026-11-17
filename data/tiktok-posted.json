@@ -2301,6 +2301,32 @@
       "queueId": "article-2026-11-14",
       "via": "playwright-robot",
       "robotEvidence": "redirected to /tiktokstudio/content; video-creative=carousel-crossfade-v1; native-sound=control"
+    },
+    {
+      "id": "2026-11-09",
+      "kind": "border",
+      "url": "/traffico-dogane/dumenza-cassinone/oggi/",
+      "day": "2026-11-09",
+      "copyMode": "codex",
+      "copySlot": "video",
+      "copyPromptVersion": "frontaliere-social-copy-v5",
+      "copyPackId": "e1e656e043e06845",
+      "copyTemplateId": "tt-video-practical",
+      "copyAssignmentMode": "deterministic",
+      "copyAngleId": "passo-pratico",
+      "copyPillarId": "opportunita-concrete",
+      "copyAngleIntent": "both",
+      "copyHook": "Redditi esteri: un punto da capire in breve",
+      "copyCta": "Guarda il video dal link in bio.",
+      "creativeBaseId": "tiktok-video",
+      "creativeVariant": "carousel-crossfade-v1",
+      "creativeLabel": "Slide con dissolvenza",
+      "creativeFormat": "video",
+      "creativeObjective": "attention-retention",
+      "ts": "2026-11-17T17:41:03.293Z",
+      "queueId": "border-2026-11-09",
+      "via": "playwright-robot",
+      "robotEvidence": "redirected to /tiktokstudio/content; video-creative=carousel-crossfade-v1; native-sound=control"
     }
   ]
 }
