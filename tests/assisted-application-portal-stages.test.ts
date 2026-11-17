@@ -45,6 +45,23 @@ describe('application stage ownership', () => {
     }, context).kind).not.toBe('application_start');
   });
 
+  it('does not infer BrassRing provenance from a non-UBS entry click', () => {
+    const nonUbsUrl = 'https://careers.example/jobs/infrastructure-strategy-manager-42';
+    const snapshot = {
+      url: nonUbsUrl,
+      text: 'Application Apply now',
+      fields: [],
+      buttons: [{ text: 'Apply now', frame: 0, disabled: false }],
+    };
+
+    expect(applicationStage(snapshot, {
+      applyUrl: nonUbsUrl,
+      enteredThroughApplicationEntry: true,
+      brassRingApplicationEntryProven: false,
+      job,
+    }).kind).not.toBe('application_start');
+  });
+
   it.each([
     'Introduce yourself',
     'Initiativbewerbung',

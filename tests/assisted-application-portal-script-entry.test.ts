@@ -69,6 +69,18 @@ describe('verified posting script entry (#17253)', () => {
     })).toMatchObject({ submit: null, next: null });
   });
 
+  it('rejects a BrassRing fieldless Apply now control from an unknown frame', () => {
+    const ubsUrl = 'https://jobs.ubs.com/TGnewUI/Search/Home/HomeWithPreLoad?partnerid=25008&siteid=5012&jobid=348358&PageType=jobdetails';
+    const apply = { text: 'Apply now', frame: 'unknown' };
+
+    expect(applicationEntryControls({ url: ubsUrl, fields: [], buttons: [apply] }, {
+      applyUrl: ubsUrl,
+      postingUrl: ubsUrl,
+      selectedPostingIsApplicationUrl: true,
+      allowSingleExternalApplicationEntry: true,
+    })).toEqual([]);
+  });
+
   it('keeps the sole BrassRing entry when the selected route changes only its fragment', () => {
     const baseUrl = 'https://jobs.ubs.com/TGNewUI/Search/Home/HomeWithPreLoad?jobid=123';
     const postingUrl = `${baseUrl}#posting`;
