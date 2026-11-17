@@ -324,7 +324,7 @@ export function installHouseAds(
         if (readerSubscriptionExperimentEnabled) requestAuthState();
         if (!ready || (!assignmentRequested && analyticsAllowed())) requestAssignment();
       }
-      // A blocker or a confirmed 45s request stall should reach the inline
+      // A blocker or a confirmed 15s request stall should reach the inline
       // creative immediately. Definitive no-fill/failure gets only a short
       // grace for a fill event already queued by Google.
       if (!blocked && !stalled && !entries.has(frame)) {
