@@ -53,7 +53,7 @@ import { renderBridgePageProse, type BridgePageKind } from './shared/bridgePageP
 import type { Locale } from '../services/i18n';
 import { isUnshippablePath, unshippableSectionPrefixes } from './shared/unshippableSections';
 import { getSafeDistPageTargets, isDistPathOverFilesystemLimits } from './shared/distPathSafety';
-import { isJobAliasRedirectPath } from './sharedWriteRegistry';
+import { hasClaimedPath, isJobAliasRedirectPath } from './sharedWriteRegistry';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 
 const BASE_URL = 'https://frontaliereticino.ch';
@@ -378,7 +378,9 @@ export function legacyAliasPlugin(rootDir: string): Plugin {
           skipped++;
           continue;
         }
-        if (fs.existsSync(indexTarget)) { skipped++; continue; }
+        if (hasClaimedPath(indexTarget)
+          || Boolean(flatTarget && hasClaimedPath(flatTarget))
+          || fs.existsSync(indexTarget)) { skipped++; continue; }
 
         const html = renderPage(entry, distDir);
 
