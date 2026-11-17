@@ -22,6 +22,7 @@ import {
 import {
   extractUrls as extractPostDeployUrls,
   INDEXNOW_SITEMAPS,
+  isActiveJobListSitemapKey,
   runSubmitToIndexNow,
 } from '../scripts/submit-indexnow.js';
 import {
@@ -147,6 +148,28 @@ describe('pharmacy sitemap coverage', () => {
   });
 });
 
+describe('active job-list sitemap classification', () => {
+  it('matches only the root and numbered legacy active job-list sitemap filenames', () => {
+    expect(isActiveJobListSitemapKey('sitemap-jobs.xml')).toBe(true);
+    expect(isActiveJobListSitemapKey('sitemap-jobs-legacy-001.xml')).toBe(true);
+    expect(isActiveJobListSitemapKey('sitemap-jobs-legacy-012.xml')).toBe(true);
+    expect(isActiveJobListSitemapKey('/nested/SITEMAP-JOBS-LEGACY-012.XML?cache=1')).toBe(true);
+
+    for (const key of [
+      'sitemap-jobs-zurigo.xml',
+      'sitemap-jobs-zurigo-de.xml',
+      'sitemap-jobs-expired-001.xml',
+      'sitemap-jobs-ticino.xml',
+      'sitemap-orphan-landings.xml',
+      'sitemap-jobs.xml.bak',
+      '',
+      null,
+    ]) {
+      expect(isActiveJobListSitemapKey(key), String(key)).toBe(false);
+    }
+  });
+});
+
 describe('getUrlsFromSitemaps (live mode branches)', () => {
   afterEach(() => {
     vi.unstubAllGlobals();
@@ -260,6 +283,71 @@ describe('extractAlternateUrls (public/-registry compensation)', () => {
 });
 
 describe('tiered post-deploy IndexNow submission', () => {
+  it('suppresses unchanged active job-list URLs but submits membership changes and small-sitemap digests', async () => {
+    const stableOne = BASE + 'annunci/indexnow-job-list-stable-one/';
+    const stableTwo = BASE + 'annunci/indexnow-job-list-stable-two/';
+    const addedOne = BASE + 'annunci/indexnow-job-list-added-one/';
+    const addedTwo = BASE + 'annunci/indexnow-job-list-added-two/';
+    const removed = BASE + 'annunci/indexnow-job-list-removed/';
+    const smallDigestUrl = BASE + 'temi/indexnow-small-digest/';
+    const current = snapshot(
+      {
+        'sitemap-jobs.xml': [stableOne, stableTwo, addedOne, addedTwo],
+        'sitemap-topics-it.xml': [smallDigestUrl],
+      },
+      {
+        'sitemap-jobs.xml': 'jobs-current',
+        'sitemap-topics-it.xml': 'topics-current',
+      },
+    );
+    const previous = snapshot(
+      {
+        'sitemap-jobs.xml': [stableOne, stableTwo, removed],
+        'sitemap-topics-it.xml': [smallDigestUrl],
+      },
+      {
+        'sitemap-jobs.xml': 'jobs-previous',
+        'sitemap-topics-it.xml': 'topics-previous',
+      },
+    );
+    const summaryFile = createSummaryFile();
+    vi.stubEnv('GITHUB_STEP_SUMMARY', summaryFile);
+    vi.stubEnv('INDEXNOW_BUDGET_MS', '60000');
+    vi.stubEnv('BING_API_KEY', '');
+    const fetchMock = vi.fn(async (input: RequestInfo | URL, init?: RequestInit) => {
+      if (String(input) === KEY_LOCATION) return new Response(INDEXNOW_KEY, { status: 200 });
+      return new Response(null, { status: init?.method === 'POST' ? 202 : 200 });
+    });
+    vi.stubGlobal('fetch', fetchMock);
+    const logs = vi.spyOn(console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+
+    const exitCode = await runSubmitToIndexNow({ current, previous });
+
+    const submitted = fetchMock.mock.calls
+      .filter(([, init]) => init?.method === 'POST')
+      .flatMap(([, init]) => JSON.parse(String(init?.body)).urlList as string[]);
+    expect(exitCode).toBe(0);
+    expect(submitted).toEqual([addedOne, addedTwo, removed, smallDigestUrl]);
+    expect(submitted).not.toContain(stableOne);
+    expect(submitted).not.toContain(stableTwo);
+    expect(parseSummaryLog(logs)).toMatchObject({
+      graph: 5,
+      added: 2,
+      removed: 1,
+      digest: 1,
+      suppressedArchiveDigest: { sitemaps: 0, urls: 0 },
+      suppressedJobListDigest: { sitemaps: 1, urls: 2 },
+      accepted: 4,
+      remaining: 0,
+    });
+    expect(logs.mock.calls.some(([value]) =>
+      String(value).includes('liste annunci: 1 sitemap, 2 URL'))).toBe(true);
+    expect(fs.readFileSync(summaryFile, 'utf8')).toContain(
+      '| Digest liste annunci ignorato | 1 sitemap, 2 URL |',
+    );
+  });
+
   it('sends graph additions, removals and then a non-archive digest URL, and records the summary', async () => {
     const added = [
       `${BASE}fr/recherche/emploi-jysk/`,

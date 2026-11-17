@@ -1,4 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { DEFAULT_LIVE_CHECK_USER_AGENT } from '../scripts/lib/live-link-check.mjs';
 import {
   getLiveWithRetry,
   LIVE_REQUEST_ATTEMPTS,
@@ -20,6 +21,28 @@ describe('getLiveWithRetry', () => {
   afterEach(() => {
     vi.useRealTimers();
     resetLiveRequestCircuitForTests();
+  });
+
+  it('adds the shared live-check User-Agent by default', async () => {
+    const get = vi.fn().mockResolvedValue(response(200));
+
+    await getLiveWithRetry(get, 'https://example.test/page');
+
+    expect(get).toHaveBeenCalledWith('https://example.test/page', {
+      headers: { 'User-Agent': DEFAULT_LIVE_CHECK_USER_AGENT },
+    });
+  });
+
+  it.each([
+    ['User-Agent', 'Explicit-Agent/1.0'],
+    ['user-agent', 'lowercase-agent/1.0'],
+  ])('preserves a caller-provided %s header', async (header, userAgent) => {
+    const get = vi.fn().mockResolvedValue(response(200));
+    const headers = { [header]: userAgent, 'X-Probe': 'kept' };
+
+    await getLiveWithRetry(get, 'https://example.test/page', { headers });
+
+    expect(get).toHaveBeenCalledWith('https://example.test/page', { headers });
   });
 
   it('keeps the six-attempt, 5 s phase 1 and exposes the live test timeout', () => {
