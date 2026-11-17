@@ -388,11 +388,10 @@ describe('runner final guard across three application stages', () => {
       text: '',
     };
     const delayedChooser = {
-      ...snapshot(jobUrl, 'Choose how to apply', [
-        { id: 'manual', text: 'Apply manually', frame: 0, disabled: false },
-      ]),
+      ...snapshot(jobUrl, 'Choose how to apply', []),
       title: 'Rituals Careers',
       heading: 'Choose how to apply',
+      links: [{ id: 'manual', text: 'Apply manually', href: manualUrl }],
     };
     const mountedApplication = {
       ...snapshot(manualUrl, 'Application', [{ id: 'apply', text: 'Apply', formId: 'application', frame: 0, disabled: false }]),
@@ -422,9 +421,6 @@ describe('runner final guard across three application stages', () => {
       job: { company: 'Rituals Cosmetics Switzerland', title: 'Store Assistant' },
       guardUrl: manualUrl,
       receiptSnapshot: received,
-      buttonTransitions: {
-        '[data-aa-id="manual"]': async () => { state.snapshot = mountedApplication; },
-      },
       onWait: (ms: number) => {
         if (ms !== 1000 || state.snapshot !== chooser) return;
         chooserPolls += 1;
