@@ -151,4 +151,48 @@ describe('slug regeneration post-run proof', () => {
       fs.rmSync(root, { recursive: true, force: true });
     }
   });
+
+  it('does not classify the master slug as a self bridge in another locale bucket', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'slug-regeneration-proof-cross-locale-'));
+    const slicePath = path.join(root, 'slice.json');
+    try {
+      fs.writeFileSync(slicePath, JSON.stringify({
+        jobs: [{
+          slug: 'canonical-it',
+          slugByLocale: { it: 'canonical-it', en: 'canonical-en' },
+          previousSlugsByLocale: { en: ['canonical-it'] },
+        }],
+      }));
+
+      const snapshot = snapshotSlugCorpus([slicePath], { root });
+
+      expect(snapshot.selfBridgeCount).toBe(0);
+      expect(assertSlugRegenerationPostRun({
+        before: snapshot,
+        after: snapshot,
+        ownership: { moved: 0, emptyLocaleBucketsPruned: 0 },
+      })).toMatchObject({ pass: true, selfBridgeCount: 0 });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  // Acceptance: a missing locale slug falls back to master for self-bridge counting.
+  it('counts a master bridge as self when the locale has no explicit active slug', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'slug-regeneration-proof-fallback-'));
+    const slicePath = path.join(root, 'slice.json');
+    try {
+      fs.writeFileSync(slicePath, JSON.stringify({
+        jobs: [{
+          slug: 'master',
+          slugByLocale: {},
+          previousSlugsByLocale: { en: ['master'] },
+        }],
+      }));
+
+      expect(snapshotSlugCorpus([slicePath], { root }).selfBridgeCount).toBe(1);
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+  });
 });
